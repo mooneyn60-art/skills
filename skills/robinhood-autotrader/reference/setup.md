@@ -1,5 +1,11 @@
 # Setup and safety walkthrough
 
+This covers **Section B** of `SKILL.md` — the offline `scripts/` loop that runs
+outside any Claude Code session via `robin_stocks`. For live in-session trading via
+Robinhood's official Trading MCP server, see `reference/live-mcp-architecture.md`
+instead — this file's steps (its own `.env`, `LIVE_TRADING` flag, `trade_log.csv`)
+don't apply there.
+
 ## 1. Install
 
 ```bash
