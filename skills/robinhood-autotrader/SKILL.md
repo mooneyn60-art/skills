@@ -33,34 +33,43 @@ Full architecture, gates, cadence, and the live-dashboard pattern live in
 existing setup. Summary:
 
 - **Research is parallel and read-only; execution is centralized.** Spin up independent
-  "desks" as subagents (the `Agent` tool, `subagent_type: "general-purpose"`,
-  `run_in_background: false`, all spawned in one message so they run concurrently).
+  "desks" as subagents (the `Agent` tool, `subagent_type: "general-purpose"`).
   Every desk gets explicit instructions to never call an order-placing tool. The main
   session is the only place with execution authority — it receives every desk's report
-  and is the sole Risk/Portfolio-Manager.
-- **Desk roster** (research angles, expand thoughtfully rather than by rote): Regime,
-  Momentum, Oversold/Mean-Reversion, Crypto, Popularity/Crowd (Robinhood's own
-  popular-watchlist data — genuinely "what other users are buying"), Options Flow
-  (unusual volume/OI as an institutional-positioning proxy, signal-only), Earnings/
-  Catalyst, Social Sentiment (web-wide "what people are buying" chatter). See the
-  reference doc for exact tool calls per desk.
-- **Two gates every idea must clear before it can execute:**
-  1. **Confirmation Gate** — cross-check against the Regime Desk's call and against
-     other desks' findings; corroboration across desks raises conviction, a
-     contradiction kills the idea here.
-  2. **Risk & PDT Checks-and-Balances Gate** — new position size cap (~20% of equity),
-     existing-position concentration cap (~30%), PDT budget (≤3 same-day round trips
-     per rolling 5 business days), and a daily hard-stop floor (prior trading day's
-     close equity minus the user's chosen dollar loss limit, recomputed every new
-     trading day) that halts new buys once breached.
-- **Cadence:** scheduled Routines (`create_trigger`) drive check-ins. The platform's
-  Routine scheduler has a hard 1-hour minimum cron interval — anything tighter is
-  rejected outright. Faster cadence during market hours is achieved by
-  self-chaining (`send_later` N minutes out at the end of each check-in, repeated),
-  with the hourly Routine kept as a fallback in case the chain breaks. Split fast
-  ticks into a cheap **light tick** (refresh account/positions/risk, always) and a
-  **full desk round** gated on elapsed time or a material change — running all desks
-  every few minutes is almost pure redundancy and burns real budget for no new signal.
+  and is the sole Risk/Portfolio-Manager. **Subagents are isolated and cannot message
+  each other**; the main session is the switchboard.
+- **Run rounds in stages, not one big spawn.** A **Wire Desk** goes first and alone,
+  producing one shared macro/company/policy brief that is pasted verbatim into every
+  downstream desk — one search instead of four, and the gates get teeth because desks
+  finally argue from identical facts. Then up to three analysis desks concurrently,
+  then cross-examination of genuine conflicts (reopen a desk with `SendMessage`, which
+  preserves its context), then a mandatory **Red Team** pass before any buy.
+- **Desk roster** (research angles, expand thoughtfully rather than by rote): Wire,
+  Regime, Idea (scanner-driven momentum + mean-reversion), Portfolio Review, Performance,
+  Red Team, Political Flow, Popularity/Crowd, Options Flow (signal-only), Earnings/
+  Catalyst, Social Sentiment, Crypto. See the reference doc for each desk's mandate and
+  the incidents that motivated Red Team and Performance.
+- **Gates every idea must clear before it can execute:**
+  1. **Confirmation** — cross-check against the wire, the Regime call, other desks, any
+     cross-examination outcome, and the Red Team verdict. Corroboration raises
+     conviction; an unanswered contradiction kills the idea.
+  2. **Risk & PDT** — new position ≤~20% of equity, no position above ~30%, PDT budget
+     (≤3 same-day round trips per rolling 5 business days), and a daily hard-stop floor
+     (prior close equity minus the user's chosen loss limit) that halts new buys.
+     **Rebase the floor for deposits/withdrawals, never for losses — and always tell
+     the user when you rebase and why.**
+  3. **Sizing** — a default band, halved when Red Team says RESIZE, the name is
+     pre-revenue or cash-burning, it correlates with an existing large holding, or a
+     major macro print lands within 48 hours.
+- **Cadence — the hard-won part.** The scheduled Routine *is* the cadence. Do NOT build
+  a self-chaining fast tick: doing exactly that exhausted a session's rate limit by
+  11:35am ET on a live trading day and left the account with **zero monitoring for 4.5
+  hours**, including an unwatched stop level. Run a cheap **light tick** every firing
+  (no subagents) and gate full desk rounds to at most twice a day; unused capacity is
+  the monitoring reserve. Honest 1-hour monitoring beats promised 5-minute monitoring
+  that dies at lunchtime — say so if the user asks for a cadence the budget can't hold.
+  **Guard the calendar before the first tool call** (weekends, holidays, early closes):
+  when the market is closed nothing in the account can change, so any pull is waste.
 - **Optional live dashboard:** publish an HTML Artifact with the `db` capability and
   write account/risk/desk-status/decision-log/trade-log snapshots to it on every
   check-in; the page subscribes live via `onSnapshot`, so no republish is needed for
@@ -70,15 +79,30 @@ existing setup. Summary:
   session can give a real ("live") answer at its next check-in.
 - **Hard constraints worth knowing before you hit them** — see
   `reference/live-mcp-architecture.md` for the full list (harness tool-approval gates
-  that chat "yes" can't bypass, fractional/dollar order restrictions by session and
-  order type, pre-market order queuing behavior, and that crypto agentic execution can
-  be regulatorily blocked for some account residencies — check for that before
-  promising the user crypto execution, and keep any crypto desk strictly research-only
-  if it's blocked).
+  that chat "yes" can't bypass; fractional/dollar orders being market + regular_hours
+  only; **a `regular_hours` order placed pre-market queues and fills at the open**,
+  which turns "I must be awake at 9:30" into a decision that executes itself; and that
+  crypto agentic execution can be regulatorily blocked for some account residencies —
+  check before promising it, and keep any crypto desk research-only if blocked).
+- **What not to hunt.** Users ask for these by name; research them, then usually decline.
+  Buying a hot IPO on day one is a documented retail loser (the pop accrues to
+  allocation holders; the real structures are lockup expiries and quiet-period-end
+  initiations, and fading supply needs shorting a cash account can't do). Buying *into*
+  an earnings print is a coin flip — the defensible version is post-earnings drift,
+  entering after the surprise, and even that must be checked against the regime, since
+  in a rate-driven compression tape drift can run negative and every beat fades.
+- **If the user names a big target, do the arithmetic once, plainly.** From ~$1,000,
+  reaching $1M is ~1,000x: about 37 years at 20% a year, ~17 at 50%, still a decade at
+  100% *every* year — which essentially nobody sustains. At small account sizes deposits
+  dominate returns. Say it without moralising, then write into the routine that the
+  ambition never justifies loosening a gate, oversizing, chasing, or skipping a
+  "nothing qualifies" answer.
 - **Standing autopilot (no per-trade confirmation) is opt-in, not a default** — only run
   fully autonomously once the user has explicitly and repeatedly granted that in chat.
   A fresh request for this setup should start with research-only or confirm-before-
-  execute, the same posture Section B defaults to.
+  execute, the same posture Section B defaults to. Whatever the authorization level,
+  **report faithfully**: lead with the bad news and name a failure before the user finds
+  it.
 
 ## Section B — Offline unattended script loop
 
