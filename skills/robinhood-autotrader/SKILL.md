@@ -112,6 +112,26 @@ existing setup. Summary:
   owned. Price a hedge's payoff table against the loss it removes before assuming
   it removes one. Answer with the account size at which each structure turns on,
   not a flat no.
+- **Long options fail the *floor* test, not the friction test — check which.** The
+  multiplier kills covered calls and cash-secured puts, but not long calls/puts, and
+  "the spreads are prohibitive" is an assumption people substitute for measuring.
+  Measure it: liquid mid-caps routinely quote a **penny wide** 30–45 days out on
+  five-figure open interest, which is better execution than most equity fills. The
+  real blocker is that a long option can go to zero, so its premium is spent against
+  the **drawdown headroom left before the account's floor** — not against a
+  percentage of equity. `max premium = (total value − floor) × the fraction of the
+  remaining bankroll you'll stake on one binary`. On a $1,101 account with a $1,007
+  floor that caps premium near $23, where only 12–18%-probability tickets live, while
+  the one contract with a real delta and a real market costs $105 — more than the
+  entire headroom, so it breaches the floor unaided. State the threshold, not a verdict.
+- **Give options their own desks, ordered Structure → Liquidity → Risk.** *Structure*
+  asks whether an option is the right expression of an already-passing thesis and
+  which one (at level 2 there are no spreads, so "defined risk" means 100% of
+  premium). *Liquidity* publishes the measured spread/OI/round-trip table. *Risk* runs
+  the floor and multiplier tests last. Running Risk first yields a budget, and a budget
+  makes the desk shop for whatever fits it — which is how a process ends up defending a
+  far-OTM lottery ticket on price. Red Team stays mandatory on top: an option that gaps
+  to zero has no stop underneath it.
 - **If the user names a big target, do the arithmetic once, plainly.** From ~$1,000,
   reaching $1M is ~1,000x: about 37 years at 20% a year, ~17 at 50%, still a decade at
   100% *every* year — which essentially nobody sustains. At small account sizes deposits

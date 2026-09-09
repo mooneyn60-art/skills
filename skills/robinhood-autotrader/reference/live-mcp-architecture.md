@@ -401,6 +401,70 @@ size at which each structure becomes genuinely conservative, and revisit then. I
 a process has not yet demonstrated a payoff ratio above 1 in equities, adding an
 instrument that decays and can go to zero is leverage on an unmeasured edge.
 
+### The floor test: what actually blocks a small-account option
+
+The multiplier check above kills covered calls and cash-secured puts outright.
+It does **not** kill a long call or put, and the reflex reason usually given for
+killing those — "the friction is prohibitive on cheap contracts" — is an
+assumption, not a measurement. Measure it before using it.
+
+Measured on a liquid mid-cap (SOFI at $17.44, 37 DTE, Oct-16 chain):
+
+| Strike | Mark | Bid/ask spread | Open interest | Delta | Broker P(profit) |
+|--------|------|----------------|---------------|-------|------------------|
+| $18 | $1.045 | **$0.01 (1.0%)** | 11,144 | 0.50 | 30.7% |
+| $19 | $0.675 | $0.01 (1.5%) | 11,746 | 0.37 | 24.1% |
+| $20 | $0.435 | $0.01 (2.3%) | 26,837 | 0.27 | 17.8% |
+| $21 | $0.285 | $0.01 (3.5%) | 9,276 | 0.19 | 12.8% |
+
+Friction is a non-issue here. A penny-wide market on a $1.045 mark is better
+execution than most equity trades get. So the honest blocker is somewhere else,
+and it is this:
+
+> **A long option can go to zero. Therefore the premium is not risk-sized against
+> the account — it is spent against the drawdown headroom the account has left
+> before its floor. Premium must be less than that headroom, not less than some
+> percentage of equity.**
+
+Run it as one line: `max premium = (total value - floor) x (fraction of the
+remaining bankroll you will stake on one binary)`. On an account at $1,101 with a
+$1,007 floor, headroom is $94. Staking even a quarter of the *entire remaining
+life of the account* on one contract caps premium near $23 — and at $23 the only
+contracts available are the 12-18% probability tickets at the bottom of the table,
+which the gates already forbid as lottery tickets. The one contract with a real
+delta and a real market costs $105, which exceeds the total headroom: buying it
+and having it expire worthless breaches the floor by itself, with no adverse move
+required anywhere else in the book.
+
+That is a clean, arithmetic no — and it fails for a different reason than the
+covered call does, so say which one. Note also what the test implies: the
+constraint tightens as the account approaches its floor and loosens as it earns.
+It is a threshold, not a verdict.
+
+### Options desks
+
+When a user asks for options coverage, standing desks beat an ad-hoc round: the
+qualifying case is rare and narrow, so something has to be looking for it daily
+rather than only when asked. Four desks, none of which can execute:
+
+| Desk | Job | Never |
+|------|-----|-------|
+| **Options Structure** | Given a thesis that already passed the equity gates, decide whether an option is the *right expression* of it, and which one: direction, strike, expiration, and the reason a share position would not do the same job better. | Propose a structure the account's approval level cannot trade. Level 2 is long calls/puts, covered calls and cash-secured puts — **no spreads**, so "defined risk" means 100% of premium, not a debit spread's width. |
+| **Options Liquidity** | Measure, never assume: bid/ask as a percentage of mark, open interest, contract volume, and the round-trip cost of getting back out. Publish the table. | Accept a mark as tradable without checking there is a bid to sell into. |
+| **Options Risk** | Run the floor test and the multiplier check. Convert premium into "percentage of the account's remaining life." Size or kill. | Express option risk as a percentage of equity. A long option is a binary against the floor. |
+| **Options Flow** (existing, signal-only) | Unusual volume/OI as an institutional-positioning proxy. | Propose a trade. It reads the tape; it does not take it. |
+
+The order is fixed and it is not the intuitive one: **Structure first, Liquidity
+second, Risk last.** Running Risk first produces a budget, and a budget makes the
+desk shop for whatever fits it — which is precisely how a process ends up holding
+a 13%-probability far-OTM ticket it can defend on price. Thesis, then execution
+quality, then affordability. If affordability kills it, that is the correct
+outcome and the research was not wasted: it produces a *threshold* to revisit.
+
+Red Team remains mandatory on top of all four. An options KILL is cheaper than an
+equity KILL, because the loss is not bounded by a stop — there is no stop on a
+long option that gaps to zero over a weekend.
+
 ## Ambition, honestly
 
 If the user names a target — "I want to be a millionaire" — do the arithmetic
