@@ -112,6 +112,27 @@ existing setup. Summary:
   owned. Price a hedge's payoff table against the loss it removes before assuming
   it removes one. Answer with the account size at which each structure turns on,
   not a flat no.
+- **Match the correlation test to the position's claimed ROLE, not to the book.** A
+  candidate pitched as a *disorder hedge* passed every test asked of it — beta **+0.02**
+  to the largest holding, **−0.06** to the sector ETF, a coin flip on that holding's worst
+  days. Red Team then regressed it on volatility itself, which is what the thesis actually
+  claimed: correlation to a VIX proxy **−0.167**, and on the top 20 vol-*collapse* days it
+  averaged **+1.317% (up 15/20)** versus +0.045% on vol-*spike* days. A short-volatility
+  asset, about to be bought as volatility protection two days before a scheduled print.
+  "Uncorrelated to what I own" and "rises when the thing I fear happens" need different
+  regressors — diversifier → the book; volatility hedge → a VIX proxy; inflation hedge →
+  breakevens on print days; defensive → the market conditioned on down days. **Any thesis
+  of the form "X profits from chaos" is where inverted signs hide** (gold "the inflation
+  hedge" is a real-rates asset; brokers "paid by volatility" are paid by volume, which
+  arrives on relief rallies). Test the sign before the size.
+- **Locate the entry in the range, and explain the bar the stop rests on.** The same
+  candidate sat at the **80th percentile** of its 60-session range, where historical entries
+  hit a ≥9.5% drawdown **24.4%** of the time in 10 sessions versus **0%** from the bottom
+  quartile — so a "wide" 2.89 ATR stop sat *inside* two prior declines from that exact
+  price. And its supporting volume shelf, once explained, was a sector-wide repricing on a
+  macro relief headline (peers up 2–11% against a flat index), i.e. regime residue that
+  vanishes with the regime. **An unexplained volume shelf is not support; it is an open
+  question wearing support's clothes.**
 - **Before a scheduled macro print, model the event instead of narrating it — the risk
   is usually whipsaw, not ruin.** Replaying 2026's actual CPI/PPI sessions through a live
   book cost **$12.91** on the worst of them, and the biggest single-day loss in the same

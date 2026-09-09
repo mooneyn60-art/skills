@@ -401,6 +401,69 @@ size at which each structure becomes genuinely conservative, and revisit then. I
 a process has not yet demonstrated a payoff ratio above 1 in equities, adding an
 instrument that decays and can go to zero is leverage on an unmeasured edge.
 
+### Match the correlation test to the claimed ROLE, not to the book
+
+Two trades have now died on an inverted sign, and the second one passed every
+test the idea desk ran. That is the interesting part: the tests were real, the
+arithmetic was right, and the variable was wrong.
+
+A candidate was proposed as a **disorder hedge** for an AI-heavy book — the pitch
+was that an interdealer broker earns fees on trading volume and is therefore paid
+by the same chaos that would hurt the rest of the portfolio. The desk tested it
+against the book: beta to the largest holding **+0.02**, beta to the sector ETF
+**−0.06**, a coin flip on that holding's 21 worst days. Genuinely orthogonal, and
+every number held up on re-check.
+
+Then Red Team tested it against **volatility itself**, which is what the thesis
+actually claimed:
+
+| | |
+|---|---|
+| correlation to a VIX proxy | **−0.167** |
+| top 20 volatility-**spike** days | +0.045%, up 8/20 |
+| top 20 volatility-**collapse** days | **+1.317%, up 15/20** |
+
+It is a short-volatility asset. Every dollar it earned on a macro-sensitive day, it
+earned when volatility *fell*. It would have been bought as protection against a
+volatility event, two days before a scheduled one, with volatility already at a
+one-year low.
+
+**The rule: a correlation test answers only the question you asked it.**
+"Uncorrelated to what I own" and "rises when the thing I fear happens" are
+different claims requiring different regressors, and passing the first says
+nothing about the second. Before running the numbers, write down the role the
+position is supposed to play, then pick the regressor from the role:
+
+| Claimed role | Regress against |
+|---|---|
+| Diversifier | the existing book, and each holding separately |
+| Volatility hedge | a VIX proxy — *not* the book |
+| Inflation hedge | breakevens or a rates proxy, on print days specifically |
+| Defensive / risk-off | the market, conditioned on down days only |
+
+The failure has a signature worth memorising: **any thesis of the form "X profits
+from chaos" is where inverted signs hide** — chaos beneficiaries are the most
+narratively appealing and least frequently measured trades on the board. Gold "the
+inflation hedge" is really a real-rates asset. Brokers "paid by volatility" really
+get paid by volume, which in practice arrives on relief rallies. Test the sign
+before the size.
+
+Two supporting checks that came out of the same review and are cheap to run:
+
+- **Locate the entry within the range.** The candidate sat at the **80th
+  percentile** of its trailing 60-session range. Bucketed historically, entries in
+  the top quartile went on to a ≥9.5% close-basis drawdown **24.4%** of the time
+  within 10 sessions and 35.6% within 20; entries in the bottom quartile did so
+  **0%** of the time. A stop is not "wide" in the abstract — it is wide or narrow
+  relative to the drawdown *typical from that location*, and a 2.89 ATR stop sat
+  inside two prior declines from this exact price.
+- **Explain the bar your stop rests on.** The structure supporting the stop was a
+  single high-volume day. Once identified, that day turned out to be a
+  sector-wide repricing on a macro relief headline — peers moved together against a
+  flat index — so it was regime residue, not accumulation. Support built by a
+  regime disappears when the regime does. An unexplained volume shelf is not
+  support; it is an open question wearing support's clothes.
+
 ### The risk before a scheduled print is whipsaw, not ruin
 
 The instinct before a known macro event is to de-risk. Measure first — twice now
