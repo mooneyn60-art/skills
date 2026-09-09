@@ -112,6 +112,18 @@ existing setup. Summary:
   owned. Price a hedge's payoff table against the loss it removes before assuming
   it removes one. Answer with the account size at which each structure turns on,
   not a flat no.
+- **Pull tax lots before any exit decision; the position endpoint is not the basis.**
+  After a partial sell the broker recomputes the displayed average, so it stops matching
+  the remaining lot — measured, a position showed $206.84 against a real lot basis of
+  **$208.37**, overstating locked gain by 25%. Worse, a blended average hides dispersion:
+  a tidy $170.47 average sat on lots of **0.31 @ $136.29** and **0.80 @ $183.71**, and
+  because FIFO sells the *oldest* lot first (the winner, here), blended math priced the
+  stop-out at −$4.97 where FIFO gives **−$3.50**. And **stops are always FIFO** — the
+  `tax_lots` parameter is rejected on `stop_market`/`stop_limit`, so a resting stop can
+  never be told which lot to sell. Plan for the consequence: on that position a one-share
+  stop eats the whole profitable lot plus most of the loser and leaves **0.11 shares of
+  the worst lot, unstoppable**. When dispersion is wide, a manual specified-lot exit and
+  a stop exit are different trades and only one is selectable.
 - **Long options fail the *floor* test, not the friction test — check which.** The
   multiplier kills covered calls and cash-secured puts, but not long calls/puts, and
   "the spreads are prohibitive" is an assumption people substitute for measuring.

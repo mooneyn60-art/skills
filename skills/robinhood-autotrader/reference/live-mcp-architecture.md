@@ -401,6 +401,43 @@ size at which each structure becomes genuinely conservative, and revisit then. I
 a process has not yet demonstrated a payoff ratio above 1 in equities, adding an
 instrument that decays and can go to zero is leverage on an unmeasured edge.
 
+### Cost basis: the position endpoint is not the tax lot
+
+Three separate errors have now come from treating a broker's displayed average
+cost as the basis. They are worth separating because they have different causes.
+
+**1. After a partial sell, the displayed average is recomputed and no longer
+matches the remaining lot.** Measured: a position endpoint reported an average
+buy price of $206.84 while the single remaining tax lot carried a cost per share
+of **$208.37** — a $1.53 gap on a one-share position, and it silently propagated
+into a locked-gain figure that was overstated by 25%. The tax lot is the
+authority for what is actually held. Pull it before quoting basis, locked gain,
+or recovery price on any position that has ever been partially sold.
+
+**2. A blended average hides lot dispersion, and dispersion is what a stop
+actually sells.** A 1.11-share position showed a tidy $170.47 blended cost. The
+lots underneath were **0.31 @ $136.29** and **0.80 @ $183.71** — a $47 spread, one
+lot deeply green and the other deeply red. Blended math priced a stop-out at
+−$4.97. FIFO priced it at **−$3.50**, because FIFO sells the *oldest* lot first
+and the oldest lot here was the winner. Same trade, 30% different answer.
+
+**3. Stops are always FIFO and cannot be told otherwise.** Specified-lot selling
+is rejected on stop orders at the API layer — the `tax_lots` parameter is not
+accepted alongside `stop_market` or `stop_limit`. So every resting stop liquidates
+oldest-lot-first no matter what the tax-efficient choice would have been. This has
+a consequence worth planning around: on the position above, a stop selling one
+whole share consumes the entire profitable lot plus most of the losing one and
+leaves **0.11 shares of the worst lot behind, unstoppable** — the position is
+reduced to an unprotected fragment of its own worst entry. When lot dispersion is
+wide, a *manual* specified-lot exit and a *stop* exit are materially different
+trades, and only one of them is selectable.
+
+The general rule: **call the tax-lot endpoint before any exit decision, and model
+the exit FIFO unless you are placing a market or limit order that can actually
+carry a `tax_lots` selection.** Blended cost is a display convenience, not a
+basis, and the error it produces is not random — it is largest exactly when lots
+are most dispersed, which is exactly when the exit decision matters most.
+
 ### The floor test: what actually blocks a small-account option
 
 The multiplier check above kills covered calls and cash-secured puts outright.
