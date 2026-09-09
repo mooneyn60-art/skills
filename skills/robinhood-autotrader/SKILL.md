@@ -61,6 +61,19 @@ existing setup. Summary:
   3. **Sizing** — a default band, halved when Red Team says RESIZE, the name is
      pre-revenue or cash-burning, it correlates with an existing large holding, or a
      major macro print lands within 48 hours.
+- **Constructing a trade — run it in this order, and never backwards.** Find the
+  **stop level first** (below structure, never at a prior low or inside a cluster
+  of them; no clean level = no trade), then **size from that stop**
+  (`shares = risk_budget / (entry - stop)`, ~1–1.25% of the account) rather than
+  from a fixed dollar habit, then **prefer whole shares** because stop orders
+  cannot be fractional and every fraction bought is permanently unstoppable, then
+  **measure correlation on down days** before calling anything a diversifier.
+  Track **portfolio heat** — the sum of `(price - stop) x stopped shares` across
+  the book — against a ceiling, and recompute concentration after *sells* as well
+  as buys, since trimming one position mechanically inflates another. The
+  reference doc explains each with the failure that produced it: one session
+  placed five stops before doing any level work and a desk later found all five
+  wrong.
 - **Cadence — the hard-won part.** The scheduled Routine *is* the cadence. Do NOT build
   a self-chaining fast tick: doing exactly that exhausted a session's rate limit by
   11:35am ET on a live trading day and left the account with **zero monitoring for 4.5
@@ -91,6 +104,14 @@ existing setup. Summary:
   an earnings print is a coin flip — the defensible version is post-earnings drift,
   entering after the surprise, and even that must be checked against the regime, since
   in a rate-driven compression tape drift can run negative and every beat fades.
+  **Options in a small account** deserve the multiplier check before any research:
+  one contract is 100 shares, so covered calls need the account to be roughly
+  **400x the share price** before that block is a sane slice of the book, cash-
+  secured puts need 100 x strike in cash, and a protective put bought against a
+  *fractional* position is not a hedge but a naked bet on ~90x the stock actually
+  owned. Price a hedge's payoff table against the loss it removes before assuming
+  it removes one. Answer with the account size at which each structure turns on,
+  not a flat no.
 - **If the user names a big target, do the arithmetic once, plainly.** From ~$1,000,
   reaching $1M is ~1,000x: about 37 years at 20% a year, ~17 at 50%, still a decade at
   100% *every* year — which essentially nobody sustains. At small account sizes deposits

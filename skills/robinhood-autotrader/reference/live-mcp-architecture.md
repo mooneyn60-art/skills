@@ -93,6 +93,14 @@ down why.
 
 **Stage D — Gates.** See below.
 
+
+**A desk's universe is the one you give it.** A performance desk handed five
+trades reported the account's realised P&L as a fraction of the true figure,
+because two closed trades were never in its brief. It was not wrong; it was
+under-informed, and the error was the orchestrator's. Verify any desk claim that
+contradicts the broker's own data against the primary source before acting, and
+prefer giving desks a tool call they can run themselves over a summary you typed.
+
 ### Desk roster
 
 Treat these as independent research *angles*. Add one when there is a genuinely
@@ -131,6 +139,75 @@ mistake. Instruct it to be brutal; a flattering performance review is worthless.
 **Options Flow must be signal-only** — it never proposes an options trade. Its
 job is to raise or lower conviction on an equity candidate another desk found.
 
+## Constructing the trade: order of operations
+
+**The defining process failure is acting first and analysing second.** In one
+session every stop on the book was placed from ATR heuristics and round numbers,
+and a Technical Levels desk later found *all five* badly placed — one sitting
+inside a dense shelf of prior lows, one exactly on a double bottom, one two cents
+above a low it would have been swept by twice that week, one so far away it was
+inert rather than protective. In the same session a position was bought and
+described as a diversifier; a Scenario desk later measured it at +0.95 beta to
+the sector the book was already concentrated in, with correlation to the largest
+holding *rising* to 0.59 on down days. Both failures had one cause: the desks
+were doing forensics on decisions already executed.
+
+Run these in order. Each step's output is the next step's input.
+
+**1. Level first — before size, before deciding to buy at all.** Pull
+historicals and ATR. The stop belongs *below* structure: a swing low, a volume
+shelf, a double bottom. Never *at* a prior low and never inside a cluster of
+lows — those are where stops get swept, which is a different thing from where a
+thesis breaks. Minimum ~1.5 ATR from entry. **If the chart offers no clean level,
+there is no trade.** A position you cannot define a stop for is a position you
+cannot size.
+
+**2. Size from the stop, not from a dollar habit.** This is the core inversion.
+Sizing by a fixed dollar band and then placing a stop wherever leaves risk as
+whatever falls out. Instead fix the risk and solve for size:
+
+```
+shares = risk_budget / (entry - stop)
+```
+
+with `risk_budget` a small fixed fraction of the account (~1–1.25%). A wide-stop
+name gets a small position, a tight-stop name a larger one, and **every trade
+risks the same amount** regardless of price or volatility. Then apply the caps
+(≤20% of equity per new position, none above ~30%) and one more: **skip anything
+whose resulting notional is too small to matter.** A position that cannot move
+the book is a tax on attention — one account carried a $23 holding that could
+not be stopped, hedged, or meaningfully sized up, and existed only to be
+reported on.
+
+**3. Prefer whole shares.** Stop orders **cannot be fractional.** Every
+fractional share bought is therefore permanently unstoppable. In one account the
+slivers left outside stop coverage — the 0.10 of a share here, the 0.84 there —
+totalled 7.5% of the account with no protection at all, purely as an artifact of
+buying "$75 of a thing" instead of "7 shares." Round down to whole shares unless
+the share price makes that impossible.
+
+**4. Test correlation before the buy, and test it on down days.** Never call
+something a diversifier because of its sector label. Pull returns for the
+candidate and the largest holdings and measure. Correlations rise in
+drawdowns — the number that matters is the one conditional on the market falling,
+not the unconditional one.
+
+**5. Portfolio heat.** Sum `(price - stop) x stopped shares` across every open
+position. That total is what the book loses if everything stops out at once. Keep
+it under a fixed ceiling (~6% of the account) and report it every check-in. It is
+the only number that answers "how much am I actually risking right now."
+
+**6. Recompute concentration after every fill — including sells.** A sell is a
+concentration event. Trimming half of one position mechanically raised another
+holding to 33.8% of equity, breaching a 30% cap that had been respected before
+the "risk-reducing" trade.
+
+**7. Stops are resting orders, not notes.** A level recorded in a prompt only
+works if the session happens to be awake when price reaches it. Place real GTC
+stops. Then re-check every stop on every pass against **both** structure and cost
+basis, because a winner that runs turns its own stop defective — see the gain
+protection gate below.
+
 ## The gates
 
 **1. Confirmation.** Cross-check every proposal against the wire, the regime
@@ -147,6 +224,24 @@ percentage intraday or is below the daily hard-stop floor.
 **3. Sizing.** Pick a default band for the account size, then halve it when: Red
 Team said RESIZE, the name is pre-revenue or cash-burning, it correlates with an
 existing large holding, or a major macro print lands within 48 hours.
+
+**4. Gain protection.** Before setting *or accepting* any stop, check it against
+cost basis. A stop that hands back most of an existing gain is a defect, not a
+plan. This recurs because chart levels and cost basis are computed by different
+people at different times: a stop placed at a moving average sat 1.5% above cost
+on the book's largest position and would have surrendered 84% of the gain; a
+stop later raised on a winner *still* sat below cost after the position ran, so
+triggering it would have converted a profit into a loss. Two mechanical checks
+catch both: what dollar gain remains if this stop fires, and is this stop above
+or below cost? Label every stop **loss-taking** or **gain-protecting** and never
+let the two be confused.
+
+**5. Never buy because the user asked.** A user pushing for activity is not
+evidence. Re-run the work when pushed — genuinely re-run it, since the pressure
+may be pointing at a real gap — but if nothing clears, "nothing qualifies" is the
+answer. The corollary matters too: when a user's push *does* surface something
+real, act on the evidence and say which evidence changed the call, so neither of
+you confuses compliance with analysis.
 
 **The daily hard-stop floor** is the prior trading day's close equity minus the
 user's chosen loss limit, recomputed each new trading day.
@@ -223,6 +318,24 @@ many days.
   major pairs), which raises the conviction bar for anything short-horizon
   independent of whether execution is blocked.
 
+- **Stop orders cannot be fractional**, and a position under one whole share
+  cannot be stopped at all. Stops also cover only the whole-share portion, so a
+  1.10-share holding with a 1-share stop leaves 0.10 unprotected. Plan share
+  counts accordingly at purchase — this is not fixable afterwards.
+- **A stop is a trigger, not a price.** If the underlying gaps below the stop
+  overnight or on a pre-market print, the order triggers and fills at the *open*,
+  not at the stop price. Stops protect against a slide, never against a gap. The
+  only hedge for gap risk is position size.
+- **A stop sells whole shares FIFO, not at blended average cost.** Estimating the
+  realised P&L of a stop using the broker's displayed average cost overstates it
+  whenever the oldest lot is the expensive one. Pull the actual tax lots. In one
+  case the naive blended estimate was 35% too high because FIFO sold an
+  underwater lot first.
+- **Use specified-lot selling on partial exits.** Pull tax lots and sell the
+  highest-cost lots first to minimise the realised gain. Default FIFO will
+  cheerfully sell the cheapest lot and hand the user a larger tax bill for the
+  identical trade.
+
 ## What not to hunt
 
 Users will ask for these by name. They are worth answering with research rather
@@ -244,6 +357,49 @@ than a flat refusal, but the honest answer is usually "no":
   drift can run *negative*, with every large beat fading. An EPS beat does not fix
   a rate problem.
 - **Anything justified by the size of the user's ambition.** See below.
+
+
+### Options in a small account: run the multiplier first
+
+Users ask for options because the upside is real. The gating fact is arithmetic,
+not caution: **one contract is 100 shares.** Check that against the account
+before any research into strikes or expirations, because it usually ends the
+question.
+
+- **Covered calls** require 100 shares of the underlying. A covered call is only
+  conservative when that block is a modest slice of the book, which means
+  **account >= ~400x the share price** for 100 shares to be ~25% of it. Below
+  that threshold the "safe" income trade is a 70–90% single-name concentration
+  bet wearing a conservative label.
+- **Cash-secured puts** require 100 x strike in cash. Divide available cash by
+  100 to get the maximum strike; on a small account that lands below the price of
+  anything worth owning.
+- **Protective puts do not work on fractional positions.** This is the argument
+  that is easiest to miss and hardest to recover from. A put on 100 shares held
+  against a 1.1-share position is not insurance — it is a naked short-delta bet
+  hedging ~90x more stock than is owned. Check share count against contract size
+  before calling anything a hedge.
+- **A hedge must be measured against the loss it removes, not bought on
+  narrative.** A delta-matched index put priced at the best available execution
+  paid *zero* across the entire realistic drawdown range and only fired past a
+  two-day index drop the chain itself priced at ~2.6%. It made the modelled worst
+  case worse by the premium. The at-the-money put that *would* have covered the
+  loss cost ~31% of the account. Price the payoff table before concluding a hedge
+  hedges.
+- **Cheap contracts are cheap because they have no bid.** Below a certain premium
+  the quotes go one-sided — you can buy, but there is nothing to sell into.
+  Screen on open interest and round-trip spread as a percentage of mark;
+  spreads of 20–40% make positive expected value arithmetically unreachable long
+  before direction matters. Brokers often publish a probability-of-profit field:
+  on affordable far-OTM contracts it is routinely ~5%.
+- **The evidence base is not ambiguous.** Studies using actual retail fills put
+  average retail option purchase returns around -4%, with the losses attributed
+  largely to transaction costs rather than wrong direction.
+
+The constructive version is a threshold rather than a refusal: name the account
+size at which each structure becomes genuinely conservative, and revisit then. If
+a process has not yet demonstrated a payoff ratio above 1 in equities, adding an
+instrument that decays and can go to zero is leverage on an unmeasured edge.
 
 ## Ambition, honestly
 
