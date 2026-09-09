@@ -112,6 +112,32 @@ existing setup. Summary:
   owned. Price a hedge's payoff table against the loss it removes before assuming
   it removes one. Answer with the account size at which each structure turns on,
   not a flat no.
+- **Before a scheduled macro print, model the event instead of narrating it — the risk
+  is usually whipsaw, not ruin.** Replaying 2026's actual CPI/PPI sessions through a live
+  book cost **$12.91** on the worst of them, and the biggest single-day loss in the same
+  sample came from a *non*-CPI day. Overnight gaps measured small (−3% to −7%) while
+  single-day closes reached −11%, so slippage below the open is modest and the damage
+  lands *intraday, after stops have filled*. Hence the real failure: one position gapped
+  −4.94%, tripped its stop, filled 2.2% through it, then **closed +2.83%** — the stop
+  worked perfectly and sold the low of a day that rallied. Before paying to de-risk, binary
+  -search the shock needed to reach the floor; with cash near 38% of the account it took a
+  **−28% single session** against a −3.01% worst observed gap, which ends the argument.
+- **Never call something a concentration or a diversifier from its sector label — compute
+  the matrix, then compute it again on down days only.** Three names sharing an "AI" label
+  measured **0.18** pairwise, and **−0.18 on down days**; the tightest pair in the same book
+  was a quantum microcap and a consumer fintech at **0.68**. The label has been wrong three
+  times running. Stress with `max(full-sample beta, down-day beta)`, since calm-regime
+  correlations compress toward 1 in a common-factor shock.
+- **R-multiple trailing rules break when R is smaller than the noise.** At exactly +1R the
+  gap between price and a breakeven stop is *exactly R*, so "move to breakeven" is safe only
+  if **R ≥ 1.5 ATR** — with R = $0.54 against ATR $0.596 (0.91 ATR) the rule mandates a stop
+  inside noise by arithmetic, on every trade. Likewise "1.5 ATR below the highest close"
+  anchors on the *high*: after a pullback it returned a stop 0.68 ATR from spot on one name
+  and *above the market* on another. Treat the ladder as a request for a tighter stop, not a
+  coordinate — compute both anchors, reject anything inside 1.5 ATR of current price, move
+  the survivor DOWN to the nearest clean level below structure, ratchet up only, and don't
+  tighten at all within 48h of a print. Reconcile R against ATR **at entry**; a stop built
+  tighter than 1.5 ATR poisons every downstream rule that references R.
 - **Pull tax lots before any exit decision; the position endpoint is not the basis.**
   After a partial sell the broker recomputes the displayed average, so it stops matching
   the remaining lot — measured, a position showed $206.84 against a real lot basis of

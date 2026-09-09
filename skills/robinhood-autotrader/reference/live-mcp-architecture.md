@@ -401,6 +401,103 @@ size at which each structure becomes genuinely conservative, and revisit then. I
 a process has not yet demonstrated a payoff ratio above 1 in equities, adding an
 instrument that decays and can go to zero is leverage on an unmeasured edge.
 
+### The risk before a scheduled print is whipsaw, not ruin
+
+The instinct before a known macro event is to de-risk. Measure first — twice now
+the measurement has reversed the instinct.
+
+**Model the event, do not narrate it.** Replaying the actual CPI and PPI sessions
+of 2026 through a live book cost **$12.91** on the worst of them. The largest
+single-day loss in the same three-month sample came from a **non**-CPI day. The
+scheduled print was not the tail event; an ordinary Thursday was.
+
+**Overnight gaps are small; full-day moves are large.** Measured worst 3-month
+overnight gaps ran −3.11% to −7.41% across five names, while single-day closes
+reached −11%. So stop-fill slippage below the opening print is modest, and the
+real damage accrues *intraday, after the stops have already filled*. This inverts
+the usual worry: the gap is survivable, and being liquidated into it is the cost.
+
+**Which produces the actual failure mode.** On one hot-print session a position
+gapped −4.94%, tripped its stop, filled 2.2% below the stop price — and then
+closed **+2.83%**. The stop worked exactly as designed and still sold the low of a
+day that rallied. Against a scheduled binary, a stop is not protection so much as
+a coin-flip liquidation trigger, and tightening one beforehand raises the odds of
+being the seller at the worst print of the week.
+
+**Check whether the floor is even reachable before paying to defend it.** Binary
+search on the shock size is a two-minute calculation and it ends most de-risking
+arguments: with cash at ~38% of the account, the book needed a **−28% single
+session** to reach its stop-trading floor, against a −3.01% worst observed gap —
+off by roughly an order of magnitude. Selling a winner to hedge a 9-sigma event is
+not caution, it is a certain cost against a hypothetical benefit, and on small
+positions the spread alone is a material percentage.
+
+**A concentration figure built from sector labels is not a measurement.** Three
+names sharing an "AI" label showed a pairwise correlation of **0.18**, falling to
+**−0.18 on down days** — not a bloc. Meanwhile the tightest pair in the same book
+was a quantum microcap and a consumer fintech at **0.68**. Compute the correlation
+matrix, and compute it again conditioned on down days, before calling anything a
+concentration or a diversifier. The label has now been wrong three times running.
+
+One caveat that belongs in the same breath: these are calm-regime correlations,
+and a common-factor shock compresses dispersion toward 1. Run the stress case with
+`max(full-sample beta, down-day beta)` so the conclusion does not depend on the
+benign reading being right.
+
+### R-multiple trailing rules break when R is smaller than the noise
+
+The standard asymmetric-exit ladder — breakeven at +1R, trail 1.5 ATR below the
+highest close at +2R — is sound in spirit and quietly broken in two specific
+ways. Both were caught the same afternoon, on two different positions, and both
+produce a stop sitting *inside* normal daily noise. A stop inside noise does not
+protect a gain; it donates one.
+
+**Failure 1 — breakeven at +1R, when the entry stop was tighter than 1.5 ATR.**
+This one is arithmetic, not bad luck. At exactly +1R, price = entry + R, and
+breakeven = entry, so the gap between price and the new stop is **exactly R**.
+Therefore moving to breakeven is safe *only if R itself is at least 1.5 ATR*. If
+the original stop was placed closer than that, the breakeven stop is guaranteed
+to land inside the noise band, on every trade, forever. Measured: a position with
+R = $0.54 against ATR(14) = $0.596 — R was **0.91 ATR**, so its breakeven stop
+would have sat 0.91 ATR from price, against a 1.5 ATR floor. The real defect was
+upstream at entry, and the trailing rule merely inherited and propagated it.
+
+**Failure 2 — "1.5 ATR below the highest close" after a pullback.** The anchor is
+the *high*, so once price retreats from it the computed stop can end up far
+tighter than intended relative to where the stock actually is — or above it
+outright. Measured on the same day: one name's highest close was $230.36 with ATR
+$7.46, giving $219.17, only **0.68 ATR** below the $224.27 spot. A second name was
+worse — highest close $19.18, ATR $0.82, giving $17.95, which was **above** the
+$17.44 market. A rule that can output a stop above the current price is not a
+rule you apply literally.
+
+**The fix, in both cases: treat the R-ladder as a request for a tighter stop, not
+as a coordinate.** Compute the candidate, then run it through the placement rules
+that already exist:
+
+1. Compute both anchors — 1.5 ATR below the highest close, and 1.5 ATR below the
+   *current* price.
+2. Take the ladder's candidate, but never accept anything closer than 1.5 ATR to
+   current price.
+3. Move the survivor DOWN to the nearest clean structure level — below a swing
+   low or volume shelf, never at one.
+4. Ratchet up only. If the result is not above the existing stop, do nothing.
+5. Do not tighten at all when a macro print lands within 48 hours: a stop is a
+   trigger, not a price, and a tightened stop into a gap just guarantees selling
+   at the worst print of the week.
+
+Worked example of step 3: at a +1R trigger of $16.03 with ATR $0.596, breakeven
+was $15.49 (0.91 ATR — rejected), the 1.5 ATR line was $15.14, and the nearest
+structure was a pair of lows at $15.16 and $15.175, so the correct stop was
+**$15.10** — just under both, 1.56 ATR from price, and still a ratchet up from the
+resting $14.95. Breakeven would have been 40 cents too tight on a name that
+routinely travels 60.
+
+The deeper lesson is that **R and ATR must be reconciled at entry, not at exit.**
+Sizing from the stop is correct, but if the stop itself is closer than 1.5 ATR the
+position is mis-built from the first second, and every downstream rule that
+references R inherits the error.
+
 ### Cost basis: the position endpoint is not the tax lot
 
 Three separate errors have now come from treating a broker's displayed average
