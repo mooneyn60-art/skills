@@ -112,6 +112,26 @@ existing setup. Summary:
   owned. Price a hedge's payoff table against the loss it removes before assuming
   it removes one. Answer with the account size at which each structure turns on,
   not a flat no.
+- **"Resolves to only 1 share" is not a sizing complaint — it is an extended entry.**
+  Since `shares = risk_budget / (entry − stop)` and the stop sits below structure, share
+  count is inversely proportional to **distance-to-support**. Four of fourteen candidates
+  died this way in one session, and their clean stops sat **9.7% / 9.3% / 8.2%** below
+  entry — not ATR problems (a 3%-ATR name at 1.5 ATR needs a 4.5% stop and sizes to 4-5
+  shares), but stocks that had run far above their last swing low. This is the same finding
+  as the range-location test: top-quartile entries drew down ≥9.5% **24.4%** of the time vs
+  **0%** from the bottom quartile. **The trap: a momentum screen manufactures the problem
+  it exists to solve** — a "≥2% day change" filter selects by construction for names that
+  just left their support, and the failure surfaces three steps downstream as a sizing
+  complaint where nobody connects it back to the filter. Lower the day-change threshold or
+  screen on proximity to structure. **When the notional cap binds before the share count,
+  you are in the right band; when the share count binds first, the entry is extended.**
+- **Diversifying a small book is a position-COUNT problem, not a sector problem.** Five
+  names where two are 61% of equity is single-name risk, not factor risk — the two largest
+  measured **0.18** correlated and were not a bloc. Size the opportunity honestly:
+  room for new positions = (heat cap − current heat) ÷ per-trade risk, which at a 6% cap on
+  ~$1,100 with 2.9% heat is ~$34, or 3-5 more positions. Screen additions against **each
+  other**, not just against the book — two global-industrial-cycle plays are one position
+  wearing two tickers.
 - **Give the adversarial desk a verdict mapping, or it becomes a wall.** An agent asked
   to find what is wrong always finds something, and with no rule about what counts, every
   finding reads as fatal — measured symptom, a **100% kill rate**, at which point the veto

@@ -401,6 +401,55 @@ size at which each structure becomes genuinely conservative, and revisit then. I
 a process has not yet demonstrated a payoff ratio above 1 in equities, adding an
 instrument that decays and can go to zero is leverage on an unmeasured edge.
 
+### Share count is a distance-to-support measurement in disguise
+
+A run of candidates was rejected for "resolves to only 1 share" — four out of
+fourteen in a single session. That reads like a sizing rule being fussy on a small
+account. It is not. It is the sizing arithmetic correctly detecting a bad entry,
+and the diagnosis is worth making explicit because the symptom looks financial
+and the cause is technical.
+
+`shares = risk_budget / (entry − stop)`, and the stop is placed below real
+structure. So share count is inversely proportional to **the distance from the
+entry to the nearest support**. Measured on the rejected names: the only clean
+stop sat 9.7%, 9.3% and 8.2% below the entry respectively. None of those was an
+ATR problem — an ordinary 3%-ATR name at 1.5 ATR needs only a 4.5% stop and sizes
+to four or five shares comfortably. The stops were wide because the stocks had
+already travelled far above their last swing low.
+
+**So "this resolves to 1 share" and "this entry is extended" are the same
+finding.** It also unifies with the range-location test: entries in the top
+quartile of their 60-session range drew down ≥9.5% within ten sessions **24.4%**
+of the time, against **0%** from the bottom quartile. Extended entry → distant
+support → wide stop → few shares → and, independently measured, a materially
+higher chance of a deep drawdown. Three symptoms, one cause.
+
+The trap this creates is that **a momentum screen manufactures the problem it is
+meant to solve.** A "≥2% day change" filter selects, by construction, for names
+that have just moved away from their support. The screen built to find movers is
+the same screen that produces unsizeable, high-drawdown entries — and the failure
+arrives disguised as a position-sizing complaint, three steps downstream, where
+nobody connects it back to the filter. Lower the day-change threshold, or add an
+explicit proximity-to-structure screen, and the share counts fix themselves.
+
+**Corollary for building a diversified book on a small account.** In a five-name
+book where two positions are 61% of equity, "diversification" is not a sector
+problem — the two largest measured at 0.18 correlation and were not a bloc. It is
+a **position-count and position-size** problem, and single-name risk (a guidance
+cut, a fraud, a failed trial) is what actually hurts. So the fix is more
+positions, smaller each, which runs directly into the share-count arithmetic
+above. Two checks make the budget concrete rather than aspirational:
+
+- **Heat is the real position budget.** Room for new positions = (heat cap −
+  current heat) ÷ per-trade risk. At a 6% cap on ~$1,100 with heat at 2.9%, that
+  is roughly $34 of headroom, or three to five more positions at full budget —
+  a number, not a vibe.
+- **When the notional cap binds before the risk budget, you are in the right
+  price band.** In the $8–35 range every candidate produced four to nine whole
+  shares and hit the 20%-of-equity notional ceiling first. That is the signature
+  of a sizeable entry. When the *share count* binds first, the entry is extended
+  and the problem is location, not price.
+
 ### Calibrating the veto: a Red Team that always kills is a wall, not a filter
 
 A mandatory adversarial review before every entry is the highest-value gate in
