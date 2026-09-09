@@ -419,8 +419,10 @@ already travelled far above their last swing low.
 
 **So "this resolves to 1 share" and "this entry is extended" are the same
 finding.** It also unifies with the range-location test: entries in the top
-quartile of their 60-session range drew down ≥9.5% within ten sessions **24.4%**
-of the time, against **0%** from the bottom quartile. Extended entry → distant
+quartile of *that name's* 60-session range drew down ≥9.5% within ten sessions
+**20.1%** of the time, against **8.3%** from its bottom quartile (a per-name
+gradient — pooled across names the effect is nearly flat; see the location test
+below). Extended entry → distant
 support → wide stop → few shares → and, independently measured, a materially
 higher chance of a deep drawdown. Three symptoms, one cause.
 
@@ -550,13 +552,18 @@ before the size.
 
 Two supporting checks that came out of the same review and are cheap to run:
 
-- **Locate the entry within the range.** The candidate sat at the **80th
-  percentile** of its trailing 60-session range. Bucketed historically, entries in
-  the top quartile went on to a ≥9.5% close-basis drawdown **24.4%** of the time
-  within 10 sessions and 35.6% within 20; entries in the bottom quartile did so
-  **0%** of the time. A stop is not "wide" in the abstract — it is wide or narrow
-  relative to the drawdown *typical from that location*, and a 2.89 ATR stop sat
-  inside two prior declines from this exact price.
+- **Locate the entry within the range — but compute the buckets PER NAME.** The
+  candidate sat at the **80th percentile** of its trailing 60-session range, and on
+  its own history entries from the top quartile went on to a ≥9.5% close-basis
+  drawdown **20.1%** of the time within 10 sessions against **8.3%** from the bottom
+  quartile — a real 2.4x gradient, and a 2.89 ATR stop sat inside two prior declines
+  from that exact price. ⚠️ **This effect does NOT generalise, and an early version of
+  this page wrongly said it did.** Pooled across four names and five years (4,756
+  observations) the buckets came out **Q1 24.7% / Q2 19.9% / Q3 19.5% / Q4 21.4%** —
+  nearly flat, non-monotonic, and with the *bottom* quartile the worst of the four
+  (falling knives). So the location test is a per-name diagnostic, never a universal
+  law: run the buckets on the actual candidate, and if the gradient is flat, the test
+  says nothing and the decision has to rest on something else.
 - **Explain the bar your stop rests on.** The structure supporting the stop was a
   single high-volume day. Once identified, that day turned out to be a
   sector-wide repricing on a macro relief headline — peers moved together against a

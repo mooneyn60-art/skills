@@ -118,8 +118,9 @@ existing setup. Summary:
   died this way in one session, and their clean stops sat **9.7% / 9.3% / 8.2%** below
   entry — not ATR problems (a 3%-ATR name at 1.5 ATR needs a 4.5% stop and sizes to 4-5
   shares), but stocks that had run far above their last swing low. This is the same finding
-  as the range-location test: top-quartile entries drew down ≥9.5% **24.4%** of the time vs
-  **0%** from the bottom quartile. **The trap: a momentum screen manufactures the problem
+  as the range-location test on that name: top-quartile entries drew down ≥9.5% **20.1%** of
+  the time vs **8.3%** from the bottom quartile (per-name — pooled across names the effect
+  is nearly flat, see below). **The trap: a momentum screen manufactures the problem
   it exists to solve** — a "≥2% day change" filter selects by construction for names that
   just left their support, and the failure surfaces three steps downstream as a sizing
   complaint where nobody connects it back to the filter. Lower the day-change threshold or
@@ -161,11 +162,14 @@ existing setup. Summary:
   of the form "X profits from chaos" is where inverted signs hide** (gold "the inflation
   hedge" is a real-rates asset; brokers "paid by volatility" are paid by volume, which
   arrives on relief rallies). Test the sign before the size.
-- **Locate the entry in the range, and explain the bar the stop rests on.** The same
-  candidate sat at the **80th percentile** of its 60-session range, where historical entries
-  hit a ≥9.5% drawdown **24.4%** of the time in 10 sessions versus **0%** from the bottom
-  quartile — so a "wide" 2.89 ATR stop sat *inside* two prior declines from that exact
-  price. And its supporting volume shelf, once explained, was a sector-wide repricing on a
+- **Locate the entry in the range — per name, and don't assume the effect generalises.**
+  On that candidate's own history, top-quartile entries hit a ≥9.5% drawdown **20.1%** of
+  the time in 10 sessions vs **8.3%** from the bottom quartile, so a "wide" 2.89 ATR stop
+  sat *inside* two prior declines from that price. ⚠️ But pooled across four names and five
+  years (4,756 obs) the buckets are **24.7 / 19.9 / 19.5 / 21.4%** — nearly flat, and the
+  *bottom* quartile is worst (falling knives). An earlier version of this file promoted the
+  single-name result to a universal rule within hours of seeing it; that was wrong. Run the
+  buckets on the actual candidate, and when the gradient is flat the test says nothing. And its supporting volume shelf, once explained, was a sector-wide repricing on a
   macro relief headline (peers up 2–11% against a flat index), i.e. regime residue that
   vanishes with the regime. **An unexplained volume shelf is not support; it is an open
   question wearing support's clothes.**
