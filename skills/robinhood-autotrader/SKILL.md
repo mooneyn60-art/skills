@@ -112,6 +112,22 @@ existing setup. Summary:
   owned. Price a hedge's payoff table against the loss it removes before assuming
   it removes one. Answer with the account size at which each structure turns on,
   not a flat no.
+- **Give the adversarial desk a verdict mapping, or it becomes a wall.** An agent asked
+  to find what is wrong always finds something, and with no rule about what counts, every
+  finding reads as fatal — measured symptom, a **100% kill rate**, at which point the veto
+  carries no information. Only three findings should KILL: the thesis has the **wrong sign**;
+  a **load-bearing** fact can't be verified (name it, and say why it's load-bearing — not any
+  unverified fact); or the risk is **uncontainable** by any stop. Everything else — entry too
+  high, stop on the wrong level, size too big, timing poor, valuation rich, guidance soft — is
+  **RESIZE or REPRICE**, and the desk must output the version that *is* right ("not here, but
+  at $10.90 with a stop at $10.20"). Answering "no" when it could answer "not yet" destroys
+  information the desk already produced. Require every KILL to **state the cost of being
+  wrong** in dollars at the proposed size, **log and later score** each veto against its own
+  thesis (a kill premised on event behavior isn't scoreable until the event), and prefer
+  "PROCEED, and here is the strongest surviving objection" over a clean pass. The asymmetry
+  that drives the drift: a bad trade costs the risk budget, a missed trade costs the whole
+  gain — the first feels worse and the second is invisible, so an unscored veto ratchets
+  tighter until nothing passes.
 - **Match the correlation test to the position's claimed ROLE, not to the book.** A
   candidate pitched as a *disorder hedge* passed every test asked of it — beta **+0.02**
   to the largest holding, **−0.06** to the sector ETF, a coin flip on that holding's worst

@@ -401,6 +401,57 @@ size at which each structure becomes genuinely conservative, and revisit then. I
 a process has not yet demonstrated a payoff ratio above 1 in equities, adding an
 instrument that decays and can go to zero is leverage on an unmeasured edge.
 
+### Calibrating the veto: a Red Team that always kills is a wall, not a filter
+
+A mandatory adversarial review before every entry is the highest-value gate in
+the process — it has caught two inverted-sign theses that no other desk saw. It
+also drifts, in a specific and predictable direction: **an agent asked to find
+what is wrong will always find something, and absent a rule about what counts,
+every finding gets treated as fatal.** Measured symptom: a 100% kill rate. At
+that point the desk is not filtering, and its output carries no information.
+
+The drift is not a sign the desk is wrong. Both kills looked correct on
+evidence. It is a sign the *verdict mapping* is missing — the step between
+"I found a flaw" and "therefore no trade."
+
+**Only three findings should kill:**
+
+1. **The thesis has the wrong sign.** The position makes money in the opposite
+   state of the world from the one it was bought for. This is the classic and it
+   is unfixable by price or size.
+2. **A load-bearing fact cannot be verified.** Not any unverified fact — one the
+   trade depends on. State which, and why it is load-bearing.
+3. **The risk is uncontainable.** No stop placement bounds the loss: gap risk on
+   a binary event, an unhedgeable overnight, a structure that can go to zero
+   without trading through the stop.
+
+**Everything else is RESIZE or REPRICE, not KILL.** Entry too high, stop on the
+wrong level, position too large, timing poor, valuation rich, guidance soft — none
+of these mean the trade is wrong. They mean *this version* of it is wrong, and the
+correct output is the version that is right: a different price, a different stop, a
+smaller size, or a named condition to wait for. A desk that answers "no" when it
+could answer "not here, but at $10.90 with a stop at $10.20" is destroying
+information it already produced.
+
+Three rules keep it honest:
+
+- **State the cost of being wrong.** Every KILL must say what the trade does if the
+  objection is invalid — the forgone move, in dollars, at the proposed size. A veto
+  with no downside attached will be used freely.
+- **Score the vetoes.** Log every kill with the price at the time and a review date,
+  and mark it to market later. A rejection log that is never scored measures nothing,
+  and the desk that generates rejections should be the one held to their outcome.
+  Score the *thesis*, not the next session: a kill premised on behavior around an
+  event is not scoreable until the event happens.
+- **Report near-misses.** "PROCEED, and here is the strongest surviving objection"
+  is more useful than either a clean pass or a kill, because it tells the operator
+  what to watch after entry.
+
+The underlying asymmetry is real and worth stating plainly: a bad trade costs the
+risk budget, and a missed trade costs the whole gain. On a small non-replenishable
+bankroll the first feels worse and the second is invisible, which is exactly why an
+unscored veto ratchets tighter over time until nothing passes.
+
 ### Match the correlation test to the claimed ROLE, not to the book
 
 Two trades have now died on an inverted sign, and the second one passed every
