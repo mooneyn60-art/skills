@@ -318,7 +318,10 @@ python trader.py --interval 900  # loop every 15 minutes during market hours
 | File | Purpose |
 |---|---|
 | `reference/live-mcp-architecture.md` | Section A: desks, gates, cadence self-chaining, live dashboard pattern, hard constraints |
+| `reference/options.md` | Options in a small account: permission levels, collateral arithmetic, why buying premium loses (measured), the floor test, greeks that matter at one contract |
 | `reference/setup.md` | Section B: env vars, ToS caveats, how to move from paper to live safely |
+| `paper/PROTOCOL.md` | Paper-trading rules that stop the record from flattering itself, and the stopping rules |
+| `paper/expectancy.py` | Expectancy in R with a 95% CI, trades-still-needed, and an exit-reason breakdown |
 | `scripts/config.py` | Section B: watchlist, risk caps, model name — all overridable via env vars |
 | `scripts/auth.py` | Section B: Robinhood login via `robin_stocks` + TOTP from `pyotp` |
 | `scripts/market_data.py` | Section B: fetches quotes/history and account state from Robinhood |
