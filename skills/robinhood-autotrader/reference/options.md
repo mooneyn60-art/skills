@@ -97,28 +97,108 @@ below which the account cannot go.
 on one binary`. If that number is smaller than one contract, the trade does not
 exist at this size. Say so rather than shrinking the thesis to fit.
 
-## 5. Selling premium is the only candidate edge — and it is UNVERIFIED here
+## 5. Selling premium: the edge is REAL and still insufficient
 
-The volatility risk premium — implied vol systematically exceeding subsequent
-realized vol — is the one documented edge reachable at level 2. Sellers of
-options are, on average, paid for insurance that on average does not pay out.
+Measured 2026-09-10 on live chains and 506 daily bars per name. This is the
+section to read before anyone proposes the wheel again.
 
-**This is hypothesis, not established fact, for this account.** As of
-2026-09-10 two desks are measuring (a) whether the premium survives real
-bid-ask spreads on sub-$10 underlyings, and (b) how often such names draw down
-30/50/70%, which is the concentration risk §2 forces. **Do not act on the wheel
-until those come back with numbers.** Update this section when they do.
+**Verdict: no positive-expectancy level-2 strategy exists at this account size.**
+Not because the volatility risk premium is a myth — it is real and measurable —
+but because it is **too small to clear the hurdle**, and the cheap-stock
+constraint strands half the capital.
 
-The known objections, to be tested rather than assumed away:
-- **Capped upside, uncapped downside.** A covered call keeps every dollar of
-  the decline and surrenders the rebound above the strike. Surviving the crash
-  and forfeiting the recovery is still ruin, just slower.
-- **"Premium lowers your cost basis"** is the reassuring phrase. 2-4% a month
-  against a 40% drawdown is not protection, and the sentence should be treated
-  as marketing until the arithmetic is done.
-- **Assignment is not symmetric.** Short calls can be assigned early before an
-  ex-dividend date; a CSP assigned well below strike leaves shares worth far
-  less than the collateral posted.
+### The liquidity screen kills most of the universe, and the pattern is instructive
+
+Six sub-$10 names, ~30-delta calls at 36 DTE. Four failed on spread alone:
+
+| | spot | IV | spread/mid | verdict |
+|---|---|---|---|---|
+| SNAP | $5.40 | 59.3% | **5.4%** | pass |
+| NIO | $3.60 | 56.5% | **8.7%** | pass |
+| CHPT | $8.72 | 83.8% | 10.5% | fail |
+| LCID | $4.27 | 86.4% | 14.0% | fail |
+| ITUB | $8.30 | 40.0% | **28.6%** | fail |
+
+**The highest-IV names have the worst spreads.** CHPT and LCID show the juiciest
+premium and hand 10-14% of it straight to the market maker on entry. That is not
+bad luck — it is the market pricing its own uncertainty about a name. Treat
+"great premium" as a warning to check the spread, not as an opportunity.
+
+### The premium is thin, and negative about as often as not
+
+Rolling 25-day realized vol vs implied, n=481 windows, Sep-2024 → Sep-2026:
+
+| | SNAP | NIO |
+|---|---|---|
+| median IV − RV | **+7.8 pts** | **−1.5 pts** |
+| p90 IV − RV | −15.0 | −27.1 |
+| RV exceeded IV | **39.1% of windows** | **51.4%** |
+| IV/RV ratio | 1.15 | **0.97** |
+
+Index options typically run IV/RV around 1.20-1.25. **NIO's 0.97 means there is
+no volatility risk premium in it at all** — you would be selling insurance below
+cost. Single-name VRP cannot be assumed from the index literature; it has to be
+measured per name.
+
+### The wheel, simulated with bid-side fills
+
+97 overlapping cycles, sell at the bid, buy at the ask:
+
+| | SNAP | NIO |
+|---|---|---|
+| overlay P&L, median | +$20.22 | +$9.43 |
+| overlay P&L, **mean** | **+$13.29** | **−$1.31** |
+| worst cycle | −$111.41 | −$231.78 |
+| annualized on collateral | **+16.6%** | −2.6% |
+
+Note the shape on SNAP: **positive median, much thinner mean.** 85.6% of cycles
+profit; the 1st percentile is −$92, which is −10.9% of the whole account from the
+option leg in a single month. That is the signature of short-vol — many small
+wins, occasional large loss — and it is why median returns are the wrong statistic
+to judge it by.
+
+### Why it still loses, and it is not the spread
+
+The obvious suspect was transaction cost. **Measured spread cost was ~3% of
+premium — immaterial.** The real arithmetic:
+
+- Best surviving strategy harvests **$134.70/year**.
+- Paying $1,023.12 against 23% APR saves **$235.32/year**, guaranteed, zero drawdown.
+- The debt wins by **~$100/year before counting any equity risk.**
+
+And a structural drag that is easy to miss: 100 SNAP at the ask costs **$540 =
+52.8% of the account**, leaving **$483 idle** earning nothing while the debt
+compounds. So the account-level return is 16.6% × 52.8% = **~8.8%**, not 16.6%.
+**The cheap-stock constraint forces you to strand half the capital**, and that
+halving is invisible if you quote returns on collateral instead of on the account.
+
+### Objections that were tested and failed
+
+- *"The wheel beat buy-and-hold by 16.5 pts/yr and halved drawdown (31.8% vs
+  62.8%)."* True, and the honest strongest counterargument. The edge is real. It
+  is **6.4 points short of the hurdle** and cannot be levered or diversified at
+  this size.
+- *"The sample was a falling tape."* Conceded — both names fell. But clearing 23%
+  needs the stock to add +6.4%/yr on top of the overlay while the call caps
+  upside near +11.2% per cycle. **0% of rolling 1-year windows delivered it**
+  (median −32.3%). You would need a stock that rises enough to clear the hurdle
+  but not enough to be called away — a target you cannot select for in advance.
+- *"Sell cash-secured puts instead, no stock risk."* **Put-call parity.** A CSP at
+  the same strike and expiry is synthetically the identical position to the
+  covered call. Same short-vol exposure, same shortfall, different-looking screen.
+
+### What would have to change for the answer to become yes
+
+1. **IV ~82% against RV ~51%** — a 30-point premium, not the measured 7.8. That
+   is a panic condition, not a standing one.
+2. **Account ≥ ~$10,000**, so 100 shares is ≤10% of capital and five-plus
+   uncorrelated names run at once. **The VRP is a diversification strategy; at
+   n=1 you are not harvesting a premium, you are making one directional bet with
+   a small rebate.**
+3. **Option level 3**, so risk is defined and collateral is a fraction of the position.
+4. **No 23% debt.** Against a zero opportunity cost, SNAP's +16.6% overlay would
+   be worth running. The debt is what makes it unwinnable — and it is the one
+   variable here that can be fixed with certainty.
 
 ## 6. Greeks worth tracking at this size
 
