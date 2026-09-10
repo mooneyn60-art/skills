@@ -20,7 +20,7 @@ import json, math, sys, os
 from collections import Counter, defaultdict
 
 def load(path):
-    """Return (taken, skipped).
+    """Return (taken, skipped, unstopped).
 
     A `not_taken` record is a candidate the process generated and declined. It
     belongs in the ledger -- without it the record silently keeps only the ideas
@@ -28,10 +28,20 @@ def load(path):
     decline as a 0R trade would drag the mean toward zero and make the strategy
     look worse the more disciplined it was. Declining is the process working, not
     a trade with no profit.
+
+    An `unstopped` record is a closed position with no planned_risk -- chiefly
+    options structures (a covered call has no stop; the shares must be held to
+    cover the call, so there is no price that defines 1R). R-multiples are
+    undefined without a stop, so these must NEVER be folded into the R stats.
+    The bug this replaced did the opposite silently: `if planned_risk` treats
+    None/0 as falsy and drops the trade from every report with no message,
+    which is worse than a wrong number -- it is a number that quietly never
+    existed. Found during the 2026-09-10 post-close review, before any options
+    trade had actually closed, precisely because nothing had broken yet.
     """
     if not os.path.exists(path):
-        return [], []
-    taken, skipped = [], []
+        return [], [], []
+    taken, skipped, unstopped = [], [], []
     for line in open(path):
         line = line.strip()
         if not line or line.startswith("//"):
@@ -40,10 +50,14 @@ def load(path):
         if t.get("exit_reason") == "not_taken":
             skipped.append(t)
             continue
-        if t.get("closed") and t.get("planned_risk"):
+        if not t.get("closed"):
+            continue
+        if t.get("planned_risk"):
             t["R"] = t["realized_pnl"] / t["planned_risk"]
             taken.append(t)
-    return taken, skipped
+        else:
+            unstopped.append(t)
+    return taken, skipped, unstopped
 
 def stats(rs):
     n = len(rs)
@@ -62,9 +76,17 @@ def max_drawdown(rs):
 
 def main():
     path = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(__file__), "trades.jsonl")
-    ts, skipped = load(path)
+    ts, skipped, unstopped = load(path)
+    if unstopped:
+        total = sum(t["realized_pnl"] for t in unstopped)
+        print(f"UNSTOPPED (options/no-stop) -- {len(unstopped)} closed, "
+              f"excluded from R stats, tracked in dollars:")
+        for t in unstopped:
+            print(f"    {t['symbol']:<6} {t.get('instrument','?'):<14} "
+                  f"{t['realized_pnl']:+.2f}  {t.get('closed','')[:10]}")
+        print(f"    total {total:+.2f}\n")
     if not ts:
-        print("No closed trades logged yet.")
+        print("No closed R-based trades logged yet.")
         print(f"  ledger: {path}")
         if skipped:
             print(f"  {len(skipped)} candidate(s) logged and declined:")

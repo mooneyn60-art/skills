@@ -69,6 +69,28 @@ One JSON object per line in `trades.jsonl`:
 `not_taken`. It is not decoration — the breakdown by exit reason is what caught
 the live account's real defect (full-size losses against fractional wins).
 
+## Scoring declined candidates
+
+A `not_taken` record is worthless as an audit trail unless it is eventually
+scored -- otherwise "the gates cost us money" or "the gates saved us" is just an
+opinion. Score it mechanically, on a fixed rule, not a vibe:
+
+1. Take the recorded `entry`, `stop`, `target` from the original record.
+2. Walk forward from `opened` and check daily bars for whichever of these
+   happens first: the price touches `stop`, touches `target`, or **10 trading
+   days elapse** with neither touched.
+3. Append a new record with `id` = `"<original-id>-SCORE"`, `exit_reason` =
+   `"scored_not_taken"`, and `realized_pnl` computed as if the original size had
+   been taken (entry/stop define planned_risk exactly as a real trade would).
+   **Append, never edit the original** -- same rule as everything else here.
+4. The running "gate tally" for a review is the sum of these scored records'
+   R-multiples. It is not evidence of anything until there are enough of them
+   that a confidence interval would clear zero -- see Stopping rules below,
+   same bar as the real ledger.
+
+Do this in a batch (e.g. weekly), not per-candidate per-session -- 10 trading
+days rarely elapse between one session and the next.
+
 ## Stopping rules
 
 These are commitments, not guidelines.
