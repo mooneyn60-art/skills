@@ -20,18 +20,30 @@ import json, math, sys, os
 from collections import Counter, defaultdict
 
 def load(path):
+    """Return (taken, skipped).
+
+    A `not_taken` record is a candidate the process generated and declined. It
+    belongs in the ledger -- without it the record silently keeps only the ideas
+    that felt good -- but it must NOT enter the expectancy statistics. Counting a
+    decline as a 0R trade would drag the mean toward zero and make the strategy
+    look worse the more disciplined it was. Declining is the process working, not
+    a trade with no profit.
+    """
     if not os.path.exists(path):
-        return []
-    out = []
+        return [], []
+    taken, skipped = [], []
     for line in open(path):
         line = line.strip()
         if not line or line.startswith("//"):
             continue
         t = json.loads(line)
+        if t.get("exit_reason") == "not_taken":
+            skipped.append(t)
+            continue
         if t.get("closed") and t.get("planned_risk"):
             t["R"] = t["realized_pnl"] / t["planned_risk"]
-            out.append(t)
-    return out
+            taken.append(t)
+    return taken, skipped
 
 def stats(rs):
     n = len(rs)
@@ -50,10 +62,14 @@ def max_drawdown(rs):
 
 def main():
     path = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(__file__), "trades.jsonl")
-    ts = load(path)
+    ts, skipped = load(path)
     if not ts:
         print("No closed trades logged yet.")
         print(f"  ledger: {path}")
+        if skipped:
+            print(f"  {len(skipped)} candidate(s) logged and declined:")
+            for t in skipped[-8:]:
+                print(f"    {t['symbol']:<6} {t.get('opened','')[:10]}")
         return
 
     rs = [t["R"] for t in ts]
@@ -61,7 +77,8 @@ def main():
     wins = [r for r in rs if r > 0]
     losses = [r for r in rs if r <= 0]
 
-    print(f"PAPER TRADING -- {n} closed trades\n")
+    print(f"PAPER TRADING -- {n} closed trades"
+          f"{f' ({len(skipped)} candidates declined, excluded from stats)' if skipped else ''}\n")
     print(f"  win rate        {len(wins)/n:>7.1%}  ({len(wins)}W / {len(losses)}L)")
     if wins:   print(f"  average win     {sum(wins)/len(wins):>+7.2f}R")
     if losses: print(f"  average loss    {sum(losses)/len(losses):>+7.2f}R")
