@@ -868,3 +868,64 @@ And whatever the authorization level: **report faithfully.** Lead with the bad
 news, name the failure before the user finds it, and never let a good week paper
 over a process that broke. The monitoring gap above went into the decision log
 and into the user's first message of the day, not into a footnote.
+
+### A resting limit below the market is adverse-selected by the event
+
+This is the disqualifier that killed an otherwise-clean candidate, and it is not
+obvious, so it is worth stating as a rule.
+
+A research desk proposed the standard patient entry: rest a limit **below** the
+market into a scheduled macro print, on the reasoning that it costs nothing if
+unfilled and only fills at a better price. That reasoning is wrong whenever the
+print is what moves the price, because it ignores **what the fill is conditioned
+on**.
+
+The limit fills on the hot print and does not fill on the cool one. So the
+position is acquired *only in the macro state that hurts*, and the "better price"
+is better precisely because the scenario is worse. That is adverse selection, not
+patience.
+
+It compounds badly when the name's measured correlation to the existing book is
+positive in the current regime: the fill arrives on the day the rest of the book
+is also down, so the new position adds beta at the exact moment of maximum
+drawdown. In the case that produced this rule, the candidate's headline
+correlation to the book was **−0.15** over three months but **+0.42** over the
+most recent 13 sessions, and **+0.45** on the days the book's largest holding
+fell. The trade was pitched as diversification and would have delivered
+concentration, on the worst possible day, by construction.
+
+Rules that follow:
+- A resting buy limit below the market is only patient when the thing that would
+  fill it is *noise*. Into a scheduled binary event, the event is not noise, and
+  the limit becomes a conditional bet on the bad outcome.
+- Before resting any limit through an event, ask: *in which macro state does this
+  fill, and do I want this exposure in that state?* If the answer is "it fills in
+  the state I'm hurt by," don't place it.
+- Correlation must be quoted over the regime being traded, not the longest window
+  available. A diversification label from a prior regime is not evidence.
+
+### A moving-average filter detects MA collapse, not price strength
+
+A screen requiring "price above its 100-day MA" was doing almost none of the work
+it was designed for. Reviewed against the actual hits, **five of eight candidates
+sat above a flat or falling 100-day MA** — the filter was passing names whose
+average was descending toward the price rather than names whose price was leading
+a rising average. One hit was 2.9% "above" a 100-day MA that had fallen from
+32.93 to 32.63 over four sessions.
+
+`price > MA` is a *position* test. Trend requires a *slope* test, and they diverge
+exactly during the topping process the screen exists to avoid.
+
+Where the expression language exposes no lag or offset operator (so a true slope
+`MA_t > MA_{t-n}` cannot be written), the workable proxy is a **shorter average
+over a longer one** — `closeAvg(50d) / closeAvg(100d)`. Note the threshold
+matters more than it looks: at `> 1.0` the proxy is nearly useless, because a
+100-day average that has just rolled over still sits below its 50-day for weeks.
+The name with the visibly-falling MA above scored **1.0080** and passed. Requiring
+**`> 1.02`** — the intermediate trend decisively, not marginally, above the long
+trend — removed it and five other marginal-trend names, cutting the hit list from
+35 to 29 while keeping every candidate that had survived on fundamentals.
+
+Generalize: when a filter is a proxy for the thing you actually want, calibrate
+its threshold against a known-bad example, not against intuition. A proxy at its
+natural boundary usually screens out nothing.
