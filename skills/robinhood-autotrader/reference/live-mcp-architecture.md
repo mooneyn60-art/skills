@@ -668,6 +668,62 @@ Sizing from the stop is correct, but if the stop itself is closer than 1.5 ATR t
 position is mis-built from the first second, and every downstream rule that
 references R inherits the error.
 
+### Audit the floor across the whole book, not just at entry
+
+Reconciling R and ATR at entry is necessary but not sufficient, because ATR moves
+after the stop is placed. A stop set at a legitimate 1.6 ATR drifts inside the
+floor the moment volatility expands, and nothing announces it. The only way to
+catch this is to periodically recompute `(price - stop) / ATR(14)` for **every**
+resting stop and read the column.
+
+Measured on a nine-position book: **seven of nine stops sat inside the 1.5 ATR
+floor**, two of them at 0.60-0.62 ATR — a stop less than two thirds of one average
+daily range from spot, which an ordinary session touches by chance. The book was
+configured to donate on noise, and no single decision had created it. It was the
+accumulated drift of stops placed correctly at different times under different
+volatility, plus a batch placed in a hurry to cover unstopped overnight risk.
+Entry discipline had been fine each time. The *portfolio* had still degraded.
+
+Run the audit as a table, not per-position — the pattern is only visible pooled.
+
+### The floor does not apply to a stop that sits above cost
+
+This is the exemption that nearly got missed, and getting it wrong would have
+been expensive. The 1.5 ATR floor governs an **initial-risk** stop, where the
+question is "how much am I willing to lose." A stop that has ratcheted above cost
+basis is answering a completely different question — "how much locked profit am I
+willing to give back to avoid being shaken out" — and the floor has no authority
+over it.
+
+In the audited book, the two worst offenders by ATR multiple were also the only
+two stops above cost. One locked **+$6.13/share** on a position whose basis was
+$208.37 with the stop at $214.50. Mechanically applying the floor would have
+pushed that stop to $208.22 and converted a guaranteed winner into a scratch, in
+the name of risk management. Widening a profit stop to satisfy a risk rule is not
+risk management; it is surrendering realized edge to a rule that was never
+scoped to it.
+
+So partition the book by `stop vs cost basis` **before** applying the floor:
+- stop below cost → initial-risk stop → the 1.5 ATR floor governs
+- stop above cost → profit-protecting stop → the floor is silent; the trade-off
+  is give-back versus shakeout, and it is decided on structure, not on ATR
+
+### Test the widening rule against motivated reasoning
+
+Widening a stop on a position that is down is the single most self-serving action
+available, and every rationalization for it sounds like risk management. Before
+acting on a floor violation, run the test: **does the rule fire on ATR, or does it
+fire on PnL?**
+
+The audited book passed the test cleanly, and the proof was in which names were
+*not* touched. The largest loser on the book, down **21.7%**, needed no change —
+its stop was already 1.83 ATR out. A position sitting essentially flat, down
+0.2%, *did* need widening at 0.97 ATR. The correction set was uncorrelated with
+the loss set, which is what distinguishes a rule from an excuse.
+
+If a floor audit ever proposes widening stops on exactly the losers and nothing
+else, the rule is not the thing driving it. Stop and re-derive.
+
 ### Cost basis: the position endpoint is not the tax lot
 
 Three separate errors have now come from treating a broker's displayed average
