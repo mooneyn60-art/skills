@@ -825,6 +825,51 @@ Red Team remains mandatory on top of all four. An options KILL is cheaper than a
 equity KILL, because the loss is not bounded by a stop — there is no stop on a
 long option that gaps to zero over a weekend.
 
+### Subagent economics: cheap and unbiased are different axes
+
+Two changes, and only one of them touches the verdict.
+
+**Cost — do this, it's free.** Every options desk spawned via the Agent tool
+pins `model: "sonnet"` explicitly, rather than inheriting whatever model this
+session happens to be running. A deep desk (Options Structure/Liquidity/Risk,
+or a historical-measurement pass like the two run 2026-09-10) is 15-35 tool
+calls of mostly mechanical retrieval and arithmetic — it does not need the
+top-tier model, and pinning it means the choice doesn't silently drift if the
+parent session's model changes later. Desks report back to this session in the
+background rather than messaging the user directly; only spawn one when a
+question genuinely needs deep/parallel research (see `reference/options.md`
+section 0 for when a direct pass is faster than a desk — most ad-hoc requests
+are).
+
+**The approval bar — do NOT touch this one.** "Make the desks easier to satisfy"
+sounds like an efficiency request and is actually a request to weaken the
+measurement. The two live examples from 2026-09-10 are the test case: a SNAP
+covered call (real, measured +16.6%/yr edge) and an AAPL call (a real, live
+catalyst with a plausible bull case) both got declined, and both declines were
+*correct* — verified against the account's own stated $250 drawdown cap and
+against analyst-target dispersion the pitch didn't mention. A desk retuned to
+say yes more often does not find better trades; it finds the same trades with
+a lower bar, which is how the ALOY loss happened in the first place.
+
+The actual fix for "everything gets rejected and it's exhausting" already exists
+above, in *Calibrating the veto* — apply it to options desks explicitly, since
+the four-desk table didn't originally cross-reference it:
+
+- **Only wrong-sign, an unverifiable load-bearing fact, or uncontainable risk
+  is a KILL.** Contested-but-plausible, or "too big at this size," routes to
+  RESIZE/REPRICE/WAIT — a named condition or a smaller structure — not a flat no.
+  Both 2026-09-10 declines already did this correctly: the SNAP idea became a
+  paper position instead of a live one; the AAPL idea became "revisit after
+  tomorrow's CPI print," not a closed door.
+- **State the cost of being wrong on every KILL** — the forgone gain at the
+  proposed size, in dollars, so a veto is never free to issue.
+- **Score every kill against what actually happened**, the same discipline
+  PROTOCOL.md now applies to declined equity candidates.
+
+Run the verdict mapping correctly and the desks get *less* frustrating without
+getting *less honest* — most of what feels like "too hard to get a yes" is
+actually a missing RESIZE/WAIT branch, not a bar set too high.
+
 ## Ambition, honestly
 
 If the user names a target — "I want to be a millionaire" — do the arithmetic
