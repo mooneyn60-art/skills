@@ -69,6 +69,25 @@ One JSON object per line in `trades.jsonl`:
 `not_taken`. It is not decoration — the breakdown by exit reason is what caught
 the live account's real defect (full-size losses against fractional wins).
 
+## Ad-hoc options requests ("my friend's AI made X%")
+
+Not every candidate comes from the scan. When the owner (or anyone) relays
+someone else's trade or result and asks to replicate it, that request gets the
+full options research protocol in `reference/options.md` section 0 — never a
+faster path, because a secondhand win story arrives pre-wrapped in confidence
+and a real, checkable price move, which makes it *more* persuasive than a scan
+hit, not less. Run all eight steps: verify the catalyst is real, read what it
+actually implies (not just its headline direction), check price against analyst
+target dispersion, check the macro calendar independent of the single-name
+story, confirm earnings doesn't fall inside the contract's life, price the real
+contract (IV/delta/theta/POP/breakeven), price the SIZE against the account's
+explicit dollar floor (not a percentage), and log the result either way with
+`"source": "ad_hoc"` in the thesis field.
+
+A well-researched decline is exactly as valuable to the record as a taken trade
+— it is why the next similar pitch has a dated, specific precedent to check
+against instead of starting from zero.
+
 ## Scoring declined candidates
 
 A `not_taken` record is worthless as an audit trail unless it is eventually

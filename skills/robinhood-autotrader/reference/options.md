@@ -12,6 +12,84 @@ invalidates a piece of the equity risk framework that would otherwise carry over
 This file records what has been measured on the live account, and marks clearly
 what has not.
 
+## 0. The research protocol — run this on EVERY candidate, scan-sourced or ad-hoc
+
+Expertise here is not a feeling of confidence. It is this checklist, run in full,
+every time, whether the candidate came from the paper-trading scan or from
+someone's "my friend's AI made 30% today" story. The second kind is more
+dangerous, not less — it arrives already wrapped in a plausible narrative and a
+real, verifiable price move, which is precisely what makes it persuasive and
+exactly why it needs the same discipline rather than less.
+
+Built from a real ad-hoc request (2026-09-10, AAPL Oct-2 $330 call, sourced from
+someone else's reported gain) that failed on both thesis and sizing once
+actually researched. Run every step below before answering "should we buy this
+option" — skipping to the price chart is how a good story becomes a bad trade.
+
+**1. Verify the move has a real cause before treating it as signal.**
+Pull `get_equity_news`. Confirm there IS a specific, identifiable catalyst behind
+whatever price action prompted the question — a launch, a filing, an upgrade, a
+macro print. If the news is generic or the move has no clear driver, that itself
+is information: an unexplained pop is far more likely to mean-revert than a
+catalyst-driven one, and buying premium into unexplained noise is close to a coin
+flip with a fee attached.
+
+**2. Read what the catalyst actually says, not just its direction.**
+The AAPL case: the stock rose because a foldable iPhone launched **cheaper**
+than expected. That sounds unambiguously bullish until you read the sell-side
+reaction — cheaper pricing means more unit volume AND lower margin, and the
+desks split on which matters more (BofA cut its target while keeping a Buy;
+Rosenblatt's target sat *below* the current price). A headline direction and an
+analyst consensus direction are not the same thing. Pull the actual price-target
+dispersion, not just "up" or "down."
+
+**3. Check the price against the target dispersion, not against yesterday's close.**
+Compute how far the stock already sits from the **average** target, and note the
+**range**. AAPL's average target was $335 against a $326.60 price — only 2.6%
+of runway — while individual targets spanned $245 to $400. Buying a call after a
+stock has already run most of the way to consensus, with real forecasters below
+current price, is buying into resolved-but-contested value, not an inefficiency.
+
+**4. Check the macro calendar independent of the stock's own news.**
+A clean single-name thesis can still be a bad trade if it's expiring into a
+scheduled macro event that moves everything regardless of the name. On 2026-09-10:
+hot PPI, Fed hike odds 61%→72% in one session, 10Y yield at a multi-year high,
+oil +6% on geopolitical escalation, and CPI printing the next morning — a
+36x-PE mega-cap is exactly the kind of name that gets re-rated hardest if that
+tape continues. Pull the macro news alongside the company news; a bullish company
+story sitting inside a hostile macro week is a **contested** setup, not a clean one.
+
+**5. Confirm earnings doesn't fall inside the option's life.**
+`get_earnings_results` — check the next report date against the contract's
+expiration. AAPL's next report (Oct 29) fell safely after the Oct-2 expiry here;
+when it doesn't, that is a binary event risk the position is directly exposed to
+and must be sized for or avoided.
+
+**6. Price the actual contract — never the story.**
+Pull the real quote: `implied_volatility`, `delta`, `theta`, `chance_of_profit_long`,
+`break_even_price`. These numbers are the trade; everything above is context for
+interpreting them. A "great story" attached to a contract with 31% probability of
+profit and a breakeven 3%+ away is still a bad trade — the numbers don't care how
+good the narrative sounded.
+
+**7. Price the SIZE against the account's actual limits, not a percentage.**
+Options don't come in arbitrary sizes — one contract has a fixed dollar cost, and
+that cost is the real constraint, often before the thesis even matters. Compare
+the contract's ask price (its full value = max loss on a long option) against the
+account's **explicit dollar floor**, not a fraction of net worth. On this account:
+one AAPL contract cost $710; the account's own $250 max-drawdown cap made that a
+disqualifier on its own, 2.8x over, regardless of what the thesis said. If the
+minimum tradeable size already breaks the account's stated limit, the answer is
+no and no amount of thesis quality changes it — find a cheaper contract, a
+different name, or a fractional-share alternative instead.
+
+**8. Log the research either way.** A well-researched "no" is exactly as valuable
+to the track record as a "yes" — see PROTOCOL.md's rule on logging declined
+candidates. This applies to ad-hoc requests too, not just scan output: tag the
+record's thesis field with where the idea came from and what killed it, so the
+next time a similar pitch arrives ("my friend's AI...") there is a real, dated,
+specific precedent to check it against instead of relitigating from zero.
+
 ## 1. The permission level is the first constraint, and it is usually the binding one
 
 Robinhood option levels gate strategy, not size:
