@@ -110,6 +110,37 @@ opinion. Score it mechanically, on a fixed rule, not a vibe:
 Do this in a batch (e.g. weekly), not per-candidate per-session -- 10 trading
 days rarely elapse between one session and the next.
 
+## Beating the benchmark is a separate question
+
+`expectancy.py` answers "did this make money against what was risked." It cannot
+answer "did picking these names beat just owning the index." `benchmark.py`
+does, by subtracting what the benchmark returned over the identical holding
+window:
+
+```bash
+python3 skills/robinhood-autotrader/paper/benchmark.py --strategy congress-disclosure
+```
+
+This is not a nicety. The NANC congressional-trading ETF beat the S&P since
+Feb 2023 purely by being concentrated in tech during a tech bull market — raw
+return scored it skilful, excess return scores it flat. Any rule that buys a
+sector-tilted basket inherits that illusion, and a rising market will hand it
+profits that have nothing to do with the selection rule.
+
+Two schema requirements follow, both load-bearing:
+
+- **`entry` must hold the actual fill price**, not the limit price. A record
+  with `entry: null` and only `limit_price` set is unscoreable against a
+  benchmark and silently drops out of the sample. The first closed options
+  trade (`2026-09-11-NVDA-C235-1002-LIVE`) has exactly this defect.
+- **Tag every record with `strategy`** (e.g. `congress-disclosure`, `scan`,
+  `ad_hoc`). Untagged records score as one undifferentiated blob, so a good
+  rule and a bad one average into "indistinguishable."
+
+Missing benchmark dates are reported unscoreable and never interpolated or
+carried forward. A fabricated benchmark produces an alpha number that looks
+computed, which is worse than no number at all.
+
 ## Stopping rules
 
 These are commitments, not guidelines.
