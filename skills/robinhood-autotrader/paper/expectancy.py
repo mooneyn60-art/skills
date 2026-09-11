@@ -123,8 +123,12 @@ def main():
     else:
         # trades needed for the CI to clear zero, if the mean holds
         need = int((1.96 * sd / mean) ** 2) + 1 if mean > 0 else None
-        print(f"\n  VERDICT: indistinguishable from random. The mean is "
-              f"{'positive' if mean > 0 else 'negative'}, but the interval spans zero.")
+        if mean == 0:
+            detail = "The mean is exactly zero."
+        else:
+            detail = (f"The mean is {'positive' if mean > 0 else 'negative'}, "
+                      f"but the interval spans zero.")
+        print(f"\n  VERDICT: indistinguishable from random. {detail}")
         if need and need > n:
             print(f"           At this mean and spread, ~{need} trades would be needed "
                   f"to prove it ({need - n} more).")
