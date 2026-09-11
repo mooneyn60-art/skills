@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Build and maintain the daily-close series that signal_dual_momentum.py reads.
+Build and maintain the monthly-close series that signal_dual_momentum.py reads.
 
 Separated from the signal itself on purpose. The signal must be reproducible --
 regenerating it for a past date has to return what it returned then -- which is
@@ -26,13 +26,16 @@ session has settled. Generate month-end signals after settlement, or verify the
 final bar against get_equity_quotes.
 
 Usage:
-    python3 fetch_closes.py                       # default universe -> closes.json
-    python3 fetch_closes.py --out closes.json --symbols SPY,QQQ,TLT
+    python3 fetch_closes.py                    # universe -> history/monthly.json
+    python3 fetch_closes.py --daily            # keep daily granularity instead
+    python3 fetch_closes.py --symbols SPY,QQQ,TLT
 """
 import json, os, sys
 
 # Liquid ETFs per reference/STRATEGY.md, plus the cash proxy.
-UNIVERSE = ["SPY", "QQQ", "IWM", "EFA", "EEM", "VNQ", "GLD", "TLT", "BIL"]
+# EEM is deliberately absent: its series is quarantined for inconsistent split
+# adjustment (see history/QUARANTINE_eem.json). Re-add only once re-verified.
+UNIVERSE = ["SPY", "QQQ", "IWM", "EFA", "VNQ", "GLD", "TLT", "BIL"]
 
 
 def parse_bars(bars):
@@ -57,6 +60,23 @@ def parse_bars(bars):
         if close <= 0:
             continue
         out.setdefault(symbol, {})[begins[:10]] = close
+    return out
+
+
+def to_monthly(daily):
+    """Collapse daily closes to one close per month: the month's LAST observation.
+
+    Keyed "YYYY-MM-01" to match history/monthly.json, whose bars are month-start
+    labelled. The key is a label, not a claim about which day the price is from --
+    the value is always the last real close observed in that month. Nothing is
+    synthesised: a month with no trading days simply does not appear.
+    """
+    out = {}
+    for symbol, series in daily.items():
+        by_month = {}
+        for date, close in sorted(series.items()):
+            by_month[date[:7] + "-01"] = close
+        out[symbol] = by_month
     return out
 
 
@@ -86,12 +106,15 @@ def load(path):
 def main():
     args = sys.argv[1:]
     here = os.path.dirname(os.path.abspath(__file__))
-    out_path = os.path.join(here, "closes.json")
+    out_path = os.path.join(here, "history", "monthly.json")
     symbols = UNIVERSE
+    monthly = True
     i = 0
     while i < len(args):
         if args[i] == "--out" and i + 1 < len(args):
             out_path, i = args[i + 1], i + 2
+        elif args[i] == "--daily":
+            monthly, i = False, i + 1
         elif args[i] == "--symbols" and i + 1 < len(args):
             symbols, i = [s.strip().upper() for s in args[i + 1].split(",")], i + 2
         else:
@@ -105,6 +128,8 @@ def main():
         fresh = fetch(rh, symbols)
     finally:
         logout()
+    if monthly:
+        fresh = to_monthly(fresh)
 
     if not fresh:
         print("No usable bars returned -- nothing written.")
@@ -118,9 +143,10 @@ def main():
     for symbol in sorted(merged):
         dates = sorted(merged[symbol])
         print(f"  {symbol:<5} {len(dates):>5} closes  {dates[0]} -> {dates[-1]}")
-    short = [s for s in symbols if len(merged.get(s, {})) < 273]
+    need = 12 if monthly else 273
+    short = [s for s in symbols if len(merged.get(s, {})) < need]
     if short:
-        print(f"\n  ⚠ under the 273 closes the 12-1 signal needs: {', '.join(short)}")
+        print(f"\n  ⚠ under the {need} closes the 12-1 signal needs: {', '.join(short)}")
         print("    Those symbols will be reported ineligible rather than estimated.")
     return 0
 

@@ -9,7 +9,7 @@ The rule, in full:
      the last month carries short-term reversal that runs against momentum, and
      Jegadeesh & Titman's construction omits it for that reason.
   2. An asset is ELIGIBLE only if 12-1 momentum is positive AND the current
-     close is above its 200-day moving average. Both conditions, not either --
+     close is above its 10-month moving average. Both conditions, not either --
      the absolute filter is the entire drawdown-control claim of the strategy.
   3. Rank eligible assets by 12-1 momentum, hold the top N equal-weighted.
   4. Any unfilled slot goes to the cash proxy. A month that allocates entirely
@@ -27,14 +27,19 @@ Usage:
     python3 signal_dual_momentum.py closes.json [--asof YYYY-MM-DD]
                                     [--top 3] [--emit-ledger]
 
-closes.json is {"SPY": {"YYYY-MM-DD": close, ...}, ...} of daily closes.
+closes.json is {"SPY": {"YYYY-MM-DD": close, ...}, ...} of MONTHLY closes.
 """
 import json, sys, os
 from datetime import datetime
 
-LOOKBACK = 252   # ~12 months of trading days
-SKIP = 21        # ~1 month, omitted to avoid short-term reversal
-MA_WINDOW = 200
+# MONTHLY basis, matching backtest.py and the measured result in
+# reference/STRATEGY.md. These were daily (252/21/200) until 2026-09-11. The
+# daily variant was never backtested; the monthly one was, over 235 months. What
+# runs live must be what was actually measured, so the untested parameterisation
+# is the one that had to go -- not the other way round.
+LOOKBACK = 12    # months
+SKIP = 1         # months, omitted to avoid short-term reversal
+MA_WINDOW = 10   # months; the canonical monthly equivalent of the 200-day SMA
 CASH = "BIL"
 STRATEGY = "dual-momentum"
 
@@ -70,7 +75,7 @@ def check_params(top, universe, lock_path=None):
 
 
 def closes_asof(series, asof):
-    """Daily closes up to and including asof, oldest first."""
+    """Monthly closes up to and including asof, oldest first."""
     return [px for d, px in sorted(series.items()) if d <= asof]
 
 
@@ -78,7 +83,7 @@ def momentum_12_1(series, asof):
     """Return (momentum, reason). momentum is None when history is insufficient."""
     px = closes_asof(series, asof)
     if len(px) < LOOKBACK:
-        return None, f"insufficient history ({len(px)} closes, need {LOOKBACK})"
+        return None, f"insufficient history ({len(px)} monthly closes, need {LOOKBACK})"
     start, end = px[-LOOKBACK], px[-(SKIP + 1)]
     if start == 0:
         return None, "zero price in lookback window"
@@ -104,7 +109,7 @@ def evaluate(universe, asof):
             continue
         ma = moving_average(series, asof)
         if ma is None:
-            rejected.append({"symbol": symbol, "reason": "insufficient history for 200d MA"})
+            rejected.append({"symbol": symbol, "reason": "insufficient history for the 10-month MA"})
             continue
         px = closes_asof(series, asof)[-1]
         if mom <= 0:
@@ -112,9 +117,9 @@ def evaluate(universe, asof):
                              "reason": f"12-1 momentum not positive ({mom:+.2%})"})
         elif px <= ma:
             rejected.append({"symbol": symbol, "momentum": mom,
-                             "reason": f"below 200d MA ({px:.2f} <= {ma:.2f})"})
+                             "reason": f"below 10-month MA ({px:.2f} <= {ma:.2f})"})
         else:
-            eligible.append({"symbol": symbol, "momentum": mom, "price": px, "ma200": ma})
+            eligible.append({"symbol": symbol, "momentum": mom, "price": px, "ma": ma})
     eligible.sort(key=lambda a: -a["momentum"])
     return eligible, rejected
 
@@ -152,7 +157,7 @@ def ledger_lines(alloc, asof):
             "exit_reason": None,
             "thesis": (
                 f"Dual momentum monthly signal. 12-1 momentum {a['momentum']:+.2%}, "
-                f"above 200d MA. Held to next monthly rebalance; -25% catastrophic "
+                f"above the 10-month MA. Held to next monthly rebalance; -25% catastrophic "
                 f"stop for gap risk only, not trade management."
                 if a["momentum"] is not None else
                 "Dual momentum monthly signal: no eligible asset for this slot, "
@@ -218,7 +223,7 @@ def main():
     print(f"  ELIGIBLE ({len(eligible)}):")
     for a in eligible:
         print(f"    {a['symbol']:<6} mom {a['momentum']:+8.2%}   "
-              f"px {a['price']:>8.2f}  ma200 {a['ma200']:>8.2f}")
+              f"px {a['price']:>8.2f}  ma10 {a['ma']:>8.2f}")
     if not eligible:
         print("    none")
     print(f"\n  REJECTED ({len(rejected)}):")

@@ -1,7 +1,7 @@
 # Paper harness — how the pieces fit
 
 Operating guide for the measurement apparatus in this directory.
-Last updated: 2026-09-11 · Status: built, not yet fed real data · Audience: any session touching this ledger
+Last updated: 2026-09-11 · Status: built and running on 248 months of real history · Audience: any session touching this ledger
 
 ## ⚠️ Read this first: four writers, one ledger
 
@@ -30,25 +30,31 @@ A Routine prompt is a snapshot written by a past session, not current truth.
 ## The pipeline
 
 ```
-fetch_closes.py  →  closes.json  →  signal_dual_momentum.py  →  trades.jsonl
-                                                                     ↓
-                                              expectancy.py  +  benchmark.py
+fetch_closes.py  →  history/monthly.json  →  signal_dual_momentum.py  →  trades.jsonl
+                            ↓                                                    ↓
+                       backtest.py                       expectancy.py  +  benchmark.py
 ```
 
 **`fetch_closes.py`** — the only component that touches the network. Pulls daily
-closes and merges them into `closes.json`, accumulating history rather than
-rebuilding it. Drops interpolated bars and skips missing/zero/unparseable ones
+bars, collapses them to one close per month (the month's LAST real close, keyed
+`YYYY-MM-01`), and merges into `history/monthly.json`, accumulating history
+rather than rebuilding it. Drops interpolated bars and skips missing/zero/unparseable ones
 instead of defaulting them. Needs `ROBINHOOD_*` credentials in the environment
 (see `../scripts/.env.example`), so it runs where that `.env` lives.
 
 **`signal_dual_momentum.py`** — the monthly rule from `../reference/STRATEGY.md`:
 12-1 momentum, absolute filter requiring both positive momentum *and* price above
-the 200d MA, top 3 equal weight, unfilled slots to cash. Reads the stored series,
+the 10-month MA, top 3 equal weight, unfilled slots to cash. Runs on a MONTHLY
+basis (12/1/10) because that is the parameterisation `backtest.py` actually
+measured; the earlier daily set (252/21/200) was never tested and was removed. Reads the stored series,
 never a live quote, so a signal regenerated for a past date reproduces what it
 produced then. `--emit-ledger` writes pre-registered records.
 
 **`expectancy.py`** — R-multiples (realized ÷ planned_risk) with a 95% CI. Answers
 "did this make money against what was risked."
+
+**`backtest.py`** — runs the same rule over 235 months of committed history, so a
+result exists now rather than in three years. `--dual` tests the full rotation.
 
 **`benchmark.py`** — excess return versus the benchmark held over each trade's
 identical window. Answers the *different* question "did picking these beat just
@@ -58,12 +64,16 @@ purely on tech concentration, and raw return scores that as skill.
 ## Running it
 
 ```bash
-python3 fetch_closes.py                                   # refresh closes.json
-python3 signal_dual_momentum.py closes.json               # inspect the signal
-python3 signal_dual_momentum.py closes.json --emit-ledger >> trades.jsonl
+python3 fetch_closes.py                                    # refresh history/monthly.json
+python3 signal_dual_momentum.py history/monthly.json       # inspect the signal
+python3 signal_dual_momentum.py history/monthly.json --emit-ledger >> trades.jsonl
 python3 expectancy.py
-python3 benchmark.py --strategy dual-momentum             # needs benchmark_spy.json
+python3 benchmark.py --strategy dual-momentum --bench history/monthly.json --bench-symbol SPY
+python3 backtest.py history/monthly.json --dual --top 3    # 235 months of real history
 ```
+
+A signal only emits when parameters match `params.lock.json`. If it refuses,
+that is the guard working — read the drift it prints before changing anything.
 
 ## What the harness guarantees, and what it does not
 
@@ -77,11 +87,29 @@ not predict. A correct, well-run experiment returning "no edge" is a success of
 the instrument, not a failure of it — see the stopping rules in `PROTOCOL.md`,
 which are commitments rather than guidelines.
 
+## Live positions as of 2026-09-11 close
+
+Recorded here because the Routine prompts carry a stale list and a correction to
+them was blocked. **Verify against the broker before acting** — this is a
+snapshot too, just a more recent one.
+
+| | |
+|---|---|
+| TENB | 4 sh @ $32.3143, stop $29.18 GTC |
+| RDDT | 1 sh @ $157.48, stop $143.20 GTC |
+| CLX | 1 sh @ $87.53, stop $83.50 |
+| INTC | Oct-2 $115 call x1, stop $1.20 GTC |
+| JD | Oct-16 $28 call x2, stop $0.36 / target $1.45 |
+| CPNG | Oct-16 $16 call x2, stop $0.23 / target $0.95 — ⚠️ over the 2-position options capacity and never run through the 8-step protocol |
+
+Account $951.00. **Closed 2026-09-11:** NVDA Oct-2 $235 call (−$46.00), ALOY
+calls, and ACHR/VOOG — the latter two bought manually by the owner and sold by an
+agent session 45 minutes later.
+
 ## Known gaps
 
-- **`closes.json` does not exist yet.** Nothing runs until `fetch_closes.py` is
-  run somewhere with credentials.
-- **`benchmark_spy.json` does not exist yet.** Same shape, `{"YYYY-MM-DD": close}`.
+- **Backtest history is real and committed** (`history/monthly.json`, 7 assets ×
+  248 months). `fetch_closes.py` extends it; nothing blocks a signal today.
 - **`2026-09-11-NVDA-C235-1002-LIVE` is permanently unscoreable** against a
   benchmark: it records `limit_price` with `entry: null`. Left uncorrected on
   purpose — the ledger is append-only and the realized −$46.00 covers a

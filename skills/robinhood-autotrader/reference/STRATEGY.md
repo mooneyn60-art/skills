@@ -2,7 +2,7 @@
 
 A rules-based plan for the live account, derived from replicated literature rather than
 assembled from plausible-sounding ideas.
-Last updated: 2026-09-11 · Status: proposed, not yet running · Audience: TARS, account owner
+Last updated: 2026-09-11 · Status: measured on history; paper-only, not funded · Audience: TARS, account owner
 
 ## Overview
 
@@ -58,15 +58,21 @@ equities at all* — rather than for stock selection.
 
 ## The plan
 
-**Universe.** Liquid ETFs only, fractional shares: `SPY`, `QQQ`, `IWM`, `EFA`, `EEM`, `VNQ`,
-`GLD`, `TLT`. Cash leg: `BIL`. ETFs rather than single names because at this account size one
+**Universe.** Liquid ETFs only, fractional shares: `SPY`, `QQQ`, `IWM`, `EFA`, `VNQ`,
+`GLD`, `TLT`. Cash leg: `BIL`. (`EEM` was in this list until 2026-09-11 and is now
+quarantined for inconsistent split adjustment — see the EEM note below.) ETFs rather than single names because at this account size one
 idiosyncratic blowup is unrecoverable, and because spreads are pennies.
 
 **Signal, computed on the last trading day of each month:**
 
+0. All signals run on a **monthly** basis — 12-month lookback, 1-month skip,
+   10-month MA. This is the parameterisation `paper/backtest.py` measured over
+   235 months. A daily variant (252/21/200) existed briefly and was removed
+   unmeasured: what runs live must be what was actually tested.
 1. For each asset, compute the 12-month total return skipping the most recent month (12-1).
 2. **Absolute filter:** an asset is eligible only if its 12-1 return is positive *and* price is
-   above its 200-day moving average. Both, not either.
+   above its 10-month moving average (the canonical monthly equivalent of the 200-day).
+   Both, not either.
 3. **Relative rank:** among eligible assets, rank by 12-1 return.
 4. **Hold the top 3, equally weighted.** Any slot with fewer than 3 eligible assets goes to
    `BIL`.
