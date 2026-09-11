@@ -138,9 +138,53 @@ practical argument is behavioural: an investor who would abandon the plan during
 a −52% drawdown but sit through −18% is better off with the filter, and that is
 a fact about the investor, not the market.
 
-Caveat: this tests absolute momentum on SPY alone, not the full plan, which can
-also rotate across eight assets. Cross-sectional selection is untested and could
-move either number.
+## The full plan, measured (added 2026-09-11, same session)
+
+The above tests only the filter on SPY — a crippled version that parks 30% of
+its life in 0% cash. The real plan rotates. Running the whole rule over seven
+assets (EEM quarantined, see below), same 235 months:
+
+| | dual momentum | SPY b&h | same 7 held passively |
+|---|---|---|---|
+| CAGR | **8.14%** | 8.92% | 6.94% |
+| max drawdown | **−16.1%** | −52.2% | −40.9% |
+
+Rotation recovers most of what parking in cash gave up: **5.99% → 8.14%**, with
+drawdown unchanged. The mechanism is visible rather than inferred — through the
+GFC it held **TLT**, not cash, from 2008-09 onward.
+
+Drawdowns: 2008 **−13.1%** vs −52.2%; 2020 **−5.3%** vs −19.9%; 2022 **−7.6%**
+vs −20.9%; 2011 −5.8% vs −16.1%; 2018 −11.7% vs −14.0%. One miss: 2015-16 at
+−9.7% vs −9.0%.
+
+**This partly reverses the verdict above.** 8.14% lands *inside* the
+pre-registered 6–9% band, and "comparable return at much lower drawdown" is a
+fair description of 8.14% vs 8.92% at a third of the loss. The earlier failing
+grade was issued against half the strategy, and is left standing above rather
+than edited away, because which half you test is exactly the sort of thing that
+quietly flatters a result.
+
+**Against the right benchmark it looks better still.** SPY is not the honest
+comparison for a seven-asset rotation; the same seven held passively is. On that
+basis the rule adds **+1.20pp/yr** *and* cuts drawdown from −40.9% to −16.1%.
+That is the risk-matched comparison `benchmark.py` exists to enforce.
+
+**The caveat that matters most — and it is the NANC trap again.** QQQ was held
+**63% of all months**, across the largest tech bull run in market history.
+Remove QQQ and CAGR falls **8.14% → 6.42%**. So a meaningful share of this is
+tech beta wearing a momentum costume, and the result is fragile to dropping a
+single asset. Before any of it is funded, this needs testing on a period where
+tech did not lead.
+
+Other limits, stated rather than buried: it is a backtest, in-sample in a way a
+forward test is not; the universe was chosen by me; no transaction costs or
+spreads are modelled; cash still earns 0%; and it is seven assets, not eight.
+
+**EEM is quarantined, not used.** Its series splices two differently-adjusted
+segments — 2007-12 closes at 16.70, 2008-01 at 45.63, a factor of ~2.73 in a
+month emerging markets fell hard. The true ratio and effective date are not known
+with confidence, so no correction factor was guessed: a patched series would
+produce prices that look real. See `paper/history/QUARANTINE_eem.json`.
 
 ## Falsification
 
