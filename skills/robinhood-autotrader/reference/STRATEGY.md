@@ -102,6 +102,46 @@ fund on total return has misread it.
 The honest summary: the research supports *lower turnover and systematic exposure control*,
 not superior stock picking. That is a real edge, and it is a small one.
 
+## Measured result, 2007-2026 (added 2026-09-11)
+
+`paper/backtest.py` runs the absolute filter over 235 months of real SPY closes.
+Parameters were the published ones (12-1 momentum, 10-month SMA — the canonical
+monthly equivalent of the 200-day), not fitted to this data. Cash earns 0%,
+which understates the strategy and so errs against it.
+
+| | filtered | buy & hold |
+|---|---|---|
+| CAGR | **5.99%** | 8.92% |
+| max drawdown | **−17.9%** | −52.2% |
+| time in market | 70% | 100% |
+
+Drawdown through each real decline: 2008 **−5.5%** vs −52.2%; 2020 **−7.9%** vs
+−19.9%; 2022 **−11.5%** vs −20.9%; 2011 −9.4% vs −16.1%; 2015 −8.3% vs −9.0%.
+**2018 Q4 it made things worse: −15.6% vs −14.0%** — it sold and the market
+snapped back. 34 signal switches (1.7/yr), 9 costly whipsaws.
+
+**Scored against the pre-registration above, honestly:**
+
+- ✅ "Not expected to beat SPY on raw return." Correct — it lost by 2.93pp/yr.
+- ✅ Drawdown control works, and **better than predicted**: a third of buy-and-hold's
+  worst loss, not the half I claimed.
+- ❌ **"Comparable return at roughly half the drawdown" was wrong.** 5.99% against
+  8.92% is not comparable; it is a third less. Over 20 years that compounds to
+  212% versus 433% — buy-and-hold finished with more than twice the money.
+- ❌ 5.99% lands **below** the pre-registered 6–9% range, not inside it.
+
+The honest reading: this is a **risk-reduction** instrument, not a growth one.
+Return per unit of drawdown is roughly twice buy-and-hold's (0.33 vs 0.17), and
+that is a real edge — but it is paid for in return, and for an account trying to
+grow rather than preserve, that trade may be the wrong way round. Its strongest
+practical argument is behavioural: an investor who would abandon the plan during
+a −52% drawdown but sit through −18% is better off with the filter, and that is
+a fact about the investor, not the market.
+
+Caveat: this tests absolute momentum on SPY alone, not the full plan, which can
+also rotate across eight assets. Cross-sectional selection is untested and could
+move either number.
+
 ## Falsification
 
 The strategy is abandoned, not tuned, if any of these occur:
