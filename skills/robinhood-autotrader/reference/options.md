@@ -12,6 +12,33 @@ invalidates a piece of the equity risk framework that would otherwise carry over
 This file records what has been measured on the live account, and marks clearly
 what has not.
 
+## 0a. Standing capacity: up to 2 live options positions, held to the same bar
+
+As of 2026-09-11 the owner authorized running options and equities concurrently,
+including **up to 2 live options positions at once**, as normal operating practice
+rather than a one-off ask each time. This is capacity, not a quota — it means a
+second position is taken immediately when a second candidate independently
+clears the full research protocol (section 0), never manufactured to fill the
+slot. "Nothing else qualifies" stays a correct, complete answer even with only
+one position open.
+
+The bar does not move with the headcount. On the day this was authorized, 16
+names were checked with live data for a second options slot (AAPL, ORCL, RH,
+CPRT, DIS, RKLB, MSFT, GOOGL, META, TSLA, SPY, V, SWKS, QRVO, RDDT, MDB) and
+**none cleared it** — every one failed on catalyst quality, IV-crush timing, a
+stale/already-priced situation, or cost versus the account's own drawdown cap
+(MDB's nearest usable strike ran 4-6x that cap with spreads eating 40%+ of the
+option's value). The correct response to an unfilled second slot is exactly
+that: report the sweep and hold, not lower the bar to produce a number.
+
+When a genuine second candidate clears, take it in whichever instrument the
+research actually supports — a name whose *story* is real but whose *options
+market* prices in too much movement (thin OI, high IV relative to peers) is a
+signal to trade the stock instead of forcing the option, not to skip the name
+entirely. That is exactly how the RDDT position was built the same day: its
+options failed liquidity and IV screens relative to NVDA at similar cost, so
+the underlying thesis was expressed as equity instead.
+
 ## 0. The research protocol — run this on EVERY candidate, scan-sourced or ad-hoc
 
 Expertise here is not a feeling of confidence. It is this checklist, run in full,
