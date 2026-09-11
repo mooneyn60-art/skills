@@ -184,19 +184,39 @@ at 20% of bankroll from $1,023: **median outcome $45, 94.3% ended under $100,
 percent went broke. Each total loss shrinks the base the next win must rebuild
 from, and the geometry grinds faster than the wins lift.
 
-## 4. There is no stop on a long option, so the equity risk framework does not port
+## 4. A stop on a long option is best-effort, not a floor, so the equity risk framework does not port
 
-The equity framework sizes from the stop: `shares = risk_budget ÷ (entry − stop)`.
-That machinery assumes an exit at a known price. A long option has no such exit:
+**Mechanical correction (2026-09-11):** a `stop_market` sell-to-close order *can*
+be placed on a long option and will rest GTC. Three were placed and accepted on
+this account that day (INTC, JD, CPNG). Earlier wording here and in the routine
+prompts said "no stop possible," which is wrong as a matter of order types —
+place them, they cost nothing and they catch ordinary drawdowns.
 
-- The underlying gaps through any level you had in mind, and
+**But the risk argument below is unchanged and still governs sizing.** A stop
+that exists is not a stop that works at the level you chose:
+
+- The underlying gaps through your trigger, and
 - implied vol collapses at the same moment, so the option loses on **both**
-  legs of its value at once.
+  legs of its value at once, and
+- a triggered `stop_market` on a thin option chain then fills at whatever the
+  book offers, which in exactly that scenario is far below the trigger.
+
+So a stop is a partial recovery mechanism for slow bleeds, not a guarantee. Do
+not quote "the stop caps the loss at X%" as if it were a floor — it caps the
+*ordinary* case and fails precisely in the tail you bought protection against.
 
 **The premium is the stop.** Buying a $50 option is taking a $50 loss with
 some probability of not taking it. So premium is not risk-sized against the
 account — it is spent against the headroom between account value and the floor
-below which the account cannot go.
+below which the account cannot go. Size every option as if the full premium is
+gone, then place the stop anyway.
+
+**Corollary — Robinhood has no OCO for options.** One contract can carry either
+a stop or a profit target, never both: the resting order reserves the contract
+and a second closing order is rejected ("not enough contracts to close your
+position"). To hold both, buy **2 contracts** and put one order on each. This
+makes cheap contracts strictly more useful than expensive ones at this account
+size — a $70 contract can be bracketed inside the risk limit, a $220 one cannot.
 
 **The floor test:** `max premium = (account value − floor) × fraction stakeable
 on one binary`. If that number is smaller than one contract, the trade does not
