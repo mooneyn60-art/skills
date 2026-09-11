@@ -1,0 +1,13 @@
+{
+ "_why": "Frozen strategy parameters. signal_dual_momentum.py refuses to emit ledger records when its effective parameters do not match this file. The point is not to make change impossible -- it is to make change impossible to do QUIETLY. Editing this file shows up in a git diff with a human name on it; re-fitting after a losing quarter does not get to look like a normal run. See reference/STRATEGY.md: parameters are not to be re-fit on the realised sample, because that is how a dead strategy becomes an overfitted one.",
+ "_locked": "2026-09-11",
+ "_reason": "Pre-registered before the strategy has seen a single live signal. No results existed to tune toward, which is the only honest moment to fix parameters.",
+ "params": {
+  "lookback": 252,
+  "skip": 21,
+  "ma_window": 200,
+  "top": 3,
+  "cash": "BIL",
+  "universe": ["EEM", "EFA", "GLD", "IWM", "QQQ", "SPY", "TLT", "VNQ"]
+ }
+}

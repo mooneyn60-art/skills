@@ -29,7 +29,7 @@ The benchmark file is {"YYYY-MM-DD": close, ...}, populated from daily closes
 (e.g. the Robinhood get_equity_historicals endpoint). Dates are trading days;
 weekends and holidays are simply absent.
 """
-import json, math, sys, os
+import json, math, sys, os, datetime
 from collections import defaultdict
 
 try:
@@ -112,7 +112,7 @@ def score(path, bench, strategy=None):
     return scored, unscoreable
 
 
-def report(scored, unscoreable, label):
+def report(scored, unscoreable, label, account=None):
     if unscoreable:
         print(f"UNSCOREABLE -- {len(unscoreable)} closed trade(s) skipped, not estimated:")
         for t, why in unscoreable:
@@ -138,6 +138,22 @@ def report(scored, unscoreable, label):
     lo, hi = mean - 1.96 * se, mean + 1.96 * se
     print(f"  95% CI            [{lo:+.2%}, {hi:+.2%}]")
 
+    if account:
+        # A percentage edge on a small account is easy to admire and easy to
+        # misjudge. +2% reads like a result; $19/yr reads like what it is.
+        # The span is measured from the trades themselves, not assumed.
+        dates = sorted([t["opened"][:10] for t in scored] +
+                       [t["closed"][:10] for t in scored])
+        days = (datetime.date.fromisoformat(dates[-1])
+                - datetime.date.fromisoformat(dates[0])).days
+        total = sum(t["_excess"] for t in scored) * account / len(scored)
+        print(f"\n  at a ${account:,.0f} account, this sample's excess is "
+              f"${total:+,.2f} over {days} day(s)")
+        if days >= 30:
+            print(f"  annualised, that is roughly ${total * 365 / days:+,.2f}/yr")
+        else:
+            print("  too short a span to annualise honestly")
+
     if n < 2 or sd == 0:
         print("\n  VERDICT: not enough data to say anything.")
     elif lo > 0:
@@ -154,6 +170,8 @@ def report(scored, unscoreable, label):
             if need > n:
                 print(f"           At this mean and spread, ~{need} trades would be "
                       f"needed to prove it ({need - n} more).")
+                print(f"           Progress toward an answer: {n}/{need}. Stopping "
+                      f"here yields no result, not a bad one.")
 
     by = defaultdict(list)
     for t in scored:
@@ -168,6 +186,7 @@ def main():
     args = sys.argv[1:]
     here = os.path.dirname(os.path.abspath(__file__))
     strategy = None
+    account = None
     bench_symbol = None
     bench_path = os.path.join(here, "benchmark_spy.json")
     if not os.path.exists(bench_path) and os.path.exists(os.path.join(here, "closes.json")):
@@ -179,6 +198,8 @@ def main():
             strategy, i = args[i + 1], i + 2
         elif args[i] == "--bench" and i + 1 < len(args):
             bench_path, i = args[i + 1], i + 2
+        elif args[i] == "--account" and i + 1 < len(args):
+            account, i = float(args[i + 1]), i + 2
         elif args[i] == "--bench-symbol" and i + 1 < len(args):
             bench_symbol, i = args[i + 1], i + 2
         else:
@@ -192,7 +213,7 @@ def main():
         return 1
 
     scored, unscoreable = score(trades_path, bench, strategy)
-    report(scored, unscoreable, f" [{strategy}]" if strategy else "")
+    report(scored, unscoreable, f" [{strategy}]" if strategy else "", account)
     return 0
 
 

@@ -39,6 +39,36 @@ CASH = "BIL"
 STRATEGY = "dual-momentum"
 
 
+def check_params(top, universe, lock_path=None):
+    """Compare effective parameters against the lock. Returns a list of drifts.
+
+    Guards the failure mode that kills this experiment silently: a future session
+    re-fits after a losing stretch, and the ledger goes on looking rigorous. The
+    lock cannot stop a determined change -- editing it is a one-line diff -- but
+    it stops an accidental or quiet one, which is the realistic threat. A
+    re-fitted run has to announce itself in version control with a name attached.
+
+    `top` is checked because it is a CLI flag: the easiest parameter to change
+    without touching a tracked file.
+    """
+    lock_path = lock_path or os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                          "params.lock.json")
+    if not os.path.exists(lock_path):
+        return [f"no lock file at {lock_path} -- parameters are unverified"]
+    with open(lock_path) as fh:
+        locked = json.load(fh)["params"]
+    effective = {"lookback": LOOKBACK, "skip": SKIP, "ma_window": MA_WINDOW,
+                 "top": top, "cash": CASH, "universe": sorted(universe)}
+    drift = []
+    for key, want in locked.items():
+        got = effective.get(key)
+        if key == "universe":
+            want = sorted(want)
+        if got != want:
+            drift.append(f"{key}: locked {want!r}, running {got!r}")
+    return drift
+
+
 def closes_asof(series, asof):
     """Daily closes up to and including asof, oldest first."""
     return [px for d, px in sorted(series.items()) if d <= asof]
@@ -157,13 +187,32 @@ def main():
     if asof is None:
         asof = max(d for s in universe.values() for d in s)
 
+    traded = [s for s in universe if s != CASH]
+    drift = check_params(top, traded)
+
     eligible, rejected = evaluate(universe, asof)
     alloc = allocate(eligible, top)
 
     if emit:
+        if drift:
+            # Refuse, don't warn. A warning on stdout gets piped into the ledger
+            # alongside the records it was warning about, and nobody reads it.
+            sys.stderr.write("REFUSING to emit: parameters differ from params.lock.json\n")
+            for d in drift:
+                sys.stderr.write(f"  {d}\n")
+            sys.stderr.write(
+                "\nIf this change is deliberate, edit params.lock.json and commit it\n"
+                "so the re-fit is on the record. See reference/STRATEGY.md.\n")
+            return 2
         for rec in ledger_lines(alloc, asof):
             print(json.dumps(rec))
         return 0
+
+    if drift:
+        print("⚠ PARAMETER DRIFT versus params.lock.json:")
+        for d in drift:
+            print(f"    {d}")
+        print("  Ledger emission is blocked until the lock is updated and committed.\n")
 
     print(f"DUAL MOMENTUM signal -- as of {asof}\n")
     print(f"  ELIGIBLE ({len(eligible)}):")
