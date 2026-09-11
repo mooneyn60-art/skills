@@ -39,11 +39,25 @@ except ImportError:
     from expectancy import stats
 
 
-def load_benchmark(path):
+def load_benchmark(path, symbol=None):
+    """Load {date: close}.
+
+    Accepts either a flat series or the multi-symbol closes.json that
+    fetch_closes.py maintains, so the benchmark needs no separately fetched
+    file that could drift out of sync with the prices the signal actually saw.
+    """
     if not os.path.exists(path):
         return {}
     with open(path) as fh:
-        return {d: float(p) for d, p in json.load(fh).items()}
+        raw = json.load(fh)
+    if raw and all(isinstance(v, dict) for v in raw.values()):
+        if symbol is None:
+            raise SystemExit(f"{path} holds several symbols {sorted(raw)}; "
+                             "name one with --bench-symbol.")
+        if symbol not in raw:
+            raise SystemExit(f"{path} has no series for {symbol}.")
+        raw = raw[symbol]
+    return {d: float(p) for d, p in raw.items()}
 
 
 def trade_return(t):
@@ -154,7 +168,10 @@ def main():
     args = sys.argv[1:]
     here = os.path.dirname(os.path.abspath(__file__))
     strategy = None
+    bench_symbol = None
     bench_path = os.path.join(here, "benchmark_spy.json")
+    if not os.path.exists(bench_path) and os.path.exists(os.path.join(here, "closes.json")):
+        bench_path, bench_symbol = os.path.join(here, "closes.json"), "SPY"
     positional = []
     i = 0
     while i < len(args):
@@ -162,11 +179,13 @@ def main():
             strategy, i = args[i + 1], i + 2
         elif args[i] == "--bench" and i + 1 < len(args):
             bench_path, i = args[i + 1], i + 2
+        elif args[i] == "--bench-symbol" and i + 1 < len(args):
+            bench_symbol, i = args[i + 1], i + 2
         else:
             positional.append(args[i]); i += 1
 
     trades_path = positional[0] if positional else os.path.join(here, "trades.jsonl")
-    bench = load_benchmark(bench_path)
+    bench = load_benchmark(bench_path, bench_symbol)
     if not bench:
         print(f"No benchmark series at {bench_path} -- cannot score.")
         print("  Populate it as {\"YYYY-MM-DD\": close, ...} from daily closes.")
