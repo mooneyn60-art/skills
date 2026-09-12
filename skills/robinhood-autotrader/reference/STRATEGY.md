@@ -286,6 +286,58 @@ could be the turnaround or could be an artifact; it is excluded as unverifiable
 rather than as proven wrong, since a +114% month is precisely what a momentum rule
 chases.
 
+## Alternatives, measured in advance (added 2026-09-12)
+
+Researched before one is needed, because the moment a strategy is failing is the
+worst moment to start looking for its replacement. `paper/compare_strategies.py`
+scores five documented approaches identically -- same history, same monthly
+rebalance, cash at 0%, no lookahead -- so the differences are differences in the
+rule, not in how generously each was measured.
+
+| ETF universe | CAGR | max DD | ret/DD | worst yr |
+|---|---|---|---|---|
+| momentum | **8.14%** | −16.1% | **0.51** | −14.5% |
+| reversion | 3.58% | −53.5% | 0.07 | −46.3% |
+| lowvol | 5.89% | −34.5% | 0.17 | −29.6% |
+| volweight | 6.77% | −29.3% | 0.23 | −25.8% |
+| equalweight | 6.94% | −40.9% | 0.17 | −34.8% |
+
+| single stocks | CAGR | max DD | ret/DD | worst yr |
+|---|---|---|---|---|
+| momentum | **22.67%** | −39.5% | **0.57** | −39.5% |
+| reversion | 4.21% | **−87.7%** | 0.05 | **−82.7%** |
+| lowvol | 6.78% | −42.8% | 0.16 | −31.6% |
+| volweight | 20.52% | −45.6% | 0.45 | −45.6% |
+| equalweight | 13.09% | −60.8% | 0.22 | −49.3% |
+
+**Momentum won both universes on both metrics.** The nearest competitor,
+`volweight` at 20.52%, is momentum with inverse-volatility weighting — a variant,
+not an alternative. So there is currently **no pivot candidate that beats the
+incumbent**, which is worth knowing now rather than discovering mid-drawdown.
+
+**The finding that matters most is the negative one.** Buying weakness was the
+worst rule in both universes, and in single stocks it drew down **−87.7%** with a
+worst year of −82.7% — near-total destruction of an account.
+
+**This contradicts how the live account selects positions.** From the ledger: CLX
+bought at *"RSI 24 — most oversold large-cap on a 148-name screen"*; JD screened
+from *"oversold names priced 12-38 with IV<55%, RSI<48"*; CPNG *"underlying
+oversold RSI 33.5"*. Three of six live positions were chosen by buying weakness,
+the approach that tested worst, while the strategy in this document buys strength.
+The live book and the researched plan are currently pointed in opposite
+directions, and that should be resolved deliberately rather than left standing.
+
+**Honest limit on that claim:** the test measures 12-month reversal (De Bondt &
+Thaler). RSI-oversold is short-horizon, and short-term reversal is a separately
+documented effect that monthly bars cannot properly test. They are cousins, not
+twins — treat this as a strong warning about the family, not a proof about RSI.
+
+**On pivoting at all.** Switching strategies after a drawdown, without a rule
+fixed beforehand, is performance chasing one level up: it reliably abandons
+whatever just had its bad run. Any switch must be triggered by the falsification
+conditions below, which were written before the fact, and not by how a recent
+quarter felt.
+
 ## Falsification
 
 The strategy is abandoned, not tuned, if any of these occur:
