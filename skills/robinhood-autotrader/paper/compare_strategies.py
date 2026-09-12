@@ -30,17 +30,35 @@ The strategies, and what each one claims:
                  contribution to risk instead of its dollar size.
   equalweight    Hold everything, always. The null hypothesis. Any strategy that
                  cannot beat this is not earning its complexity.
+  mom3 / mom6    Momentum at 3- and 6-month lookbacks instead of 12. Jegadeesh &
+                 Titman tested 3/6/9/12 and found all of them significant. Real
+                 trend-following funds run an ENSEMBLE of speeds for exactly this
+                 reason: fast and slow momentum disagree often enough to
+                 diversify each other while both earning a positive return, which
+                 is the combination blending actually needs.
+  breakout       Hold whatever sits closest to its own 12-month high. George &
+                 Hwang showed nearness-to-52-week-high predicts returns and is
+                 NOT the same signal as trailing return -- a stock can have
+                 strong 12-1 momentum while sitting well off its high, and vice
+                 versa.
+  seasonal       Momentum, but only invested November-April; cash May-October.
+                 The Halloween effect is the one candidate whose signal source is
+                 not price at all, so its correlation to everything else is low
+                 by construction rather than by luck.
 
 Usage:  python3 compare_strategies.py history/monthly.json [--top 3]
 """
 import json, sys, statistics as st
 
 LOOKBACK, SKIP, MA_WINDOW = 12, 1, 10
+dates_ref = []   # set by prep(); seasonal needs the calendar month
 
 
 def prep(hist):
+    global dates_ref
     syms = sorted(hist)
     dates = sorted(set.intersection(*(set(hist[s]) for s in syms)))
+    dates_ref = dates
     return syms, dates, {s: [hist[s][d] for d in dates] for s in syms}
 
 
@@ -73,6 +91,32 @@ def select(kind, syms, px, t, top):
         # it would test a strategy nobody proposed.
         held = sorted(syms, key=lambda s: momentum(px, s, t))[:top]
         return [(s, 1.0 / top) for s in held]
+
+    if kind in ("mom3", "mom6"):
+        n = 3 if kind == "mom3" else 6
+        def m(sym):
+            return px[sym][t - SKIP] / px[sym][t - n] - 1.0
+        elig = [sym for sym in syms if m(sym) > 0 and above_ma(px, sym, t)]
+        held = sorted(elig, key=lambda sym: -m(sym))[:top]
+        return [(sym, 1.0 / top) for sym in held]
+
+    if kind == "breakout":
+        def near_high(sym):
+            hi = max(px[sym][t - LOOKBACK + 1:t + 1])
+            return px[sym][t] / hi
+        # Must still be in an uptrend; nearness alone would buy a falling knife
+        # that simply has not fallen far yet.
+        elig = [sym for sym in syms if above_ma(px, sym, t)]
+        held = sorted(elig, key=lambda sym: -near_high(sym))[:top]
+        return [(sym, 1.0 / top) for sym in held]
+
+    if kind == "seasonal":
+        month = int(dates_ref[t][5:7])
+        if month in (5, 6, 7, 8, 9, 10):
+            return []
+        elig = [sym for sym in syms if momentum(px, sym, t) > 0 and above_ma(px, sym, t)]
+        held = sorted(elig, key=lambda sym: -momentum(px, sym, t))[:top]
+        return [(sym, 1.0 / top) for sym in held]
 
     if kind == "lowvol":
         held = sorted(syms, key=lambda s: realised_vol(px, s, t))[:top]
@@ -142,7 +186,8 @@ def main():
     print(f"{'strategy':<14}{'CAGR':>9}{'max DD':>10}{'ret/DD':>9}{'best yr':>10}"
           f"{'worst yr':>10}{'invested':>10}")
     results = {}
-    for kind in ("momentum", "reversion", "lowvol", "volweight", "equalweight"):
+    for kind in ("momentum", "mom3", "mom6", "breakout", "seasonal",
+                 "reversion", "lowvol", "volweight", "equalweight"):
         curve, months_in = run(kind, syms, dates, px, top)
         n = len(curve)
         c = curve[-1] ** (12.0 / n) - 1.0

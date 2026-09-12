@@ -358,6 +358,49 @@ correlation question, not a returns question. On that basis `volweight` is
 disqualified despite its strong standalone number, and `lowvol`/`equalweight`
 qualify despite weak ones.
 
+**Second pass: strategies that actually combine (added 2026-09-12).** The failure
+above was diagnostic — every alternative had far worse standalone returns, so
+dilution beat the correlation benefit. The correct search is for **comparable
+returns from different drivers**. Four more candidates were built to that spec:
+
+| | ETF CAGR | ETF ret/DD | stock CAGR | stock ret/DD |
+|---|---|---|---|---|
+| momentum (12-1) | 8.14% | 0.51 | 22.67% | 0.57 |
+| mom6 (6-month) | 8.39% | **0.54** | 20.89% | 0.46 |
+| mom3 (3-month) | 7.26% | 0.36 | 19.60% | **0.73** |
+| breakout (near 12-mo high) | **8.63%** | 0.45 | 16.37% | 0.40 |
+| seasonal (Nov–Apr only) | 3.48% | 0.22 | 10.20% | 0.39 |
+
+These are comparable, so blending has something to work with. It does:
+
+- **ETF: `momentum + mom6` → ret/DD 0.56 vs 0.51**, at both *higher* return
+  (8.31%) and *lower* drawdown (−14.9%) than pure momentum.
+- Stocks: `momentum + mom3` → 0.66 vs 0.57, giving up 1.1pp of return to cut
+  drawdown from −39.5% to −32.5%.
+
+**Then split-sample tested, because 26 combinations were searched and the winner
+reported — which is how backtests lie.** Results diverge:
+
+| | first half | second half | full | verdict |
+|---|---|---|---|---|
+| ETF momentum+mom6 | 0.34 vs 0.30 | 0.81 vs 0.74 | 0.56 vs 0.51 | **holds in both halves** |
+| stock momentum+mom3 | 0.47 vs 0.41 | **1.05 vs 1.10** | 0.66 vs 0.57 | **fails second half** |
+
+The single-stock blend's full-sample advantage comes entirely from the early
+period. It is discarded. The ETF blend wins both halves and survives.
+
+**The rule this yields for finding partners:** comparable standalone returns, and
+correlation low enough to disagree. `mom3`/`mom6`/`breakout` at 0.67–0.86 qualify;
+`volweight` at 0.95 never can; `reversion` never can either — not on correlation,
+which is fine, but because 4.21% drags down whatever it touches. `seasonal` is the
+most genuinely orthogonal candidate (0.43–0.70) precisely because its signal is
+the calendar rather than price.
+
+**Size of the effect, stated plainly:** +0.05 on a ratio, found by searching 26
+combinations. Small, and some of it is still luck. It justifies carrying
+`momentum + mom6` into the paper track as a second pre-registered strategy so the
+forward test can decide. It does not justify calling it better.
+
 **On pivoting at all.** Switching strategies after a drawdown, without a rule
 fixed beforehand, is performance chasing one level up: it reliably abandons
 whatever just had its bad run. Any switch must be triggered by the falsification
