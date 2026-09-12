@@ -182,6 +182,48 @@ tech beta wearing a momentum costume, and the result is fragile to dropping a
 single asset. Before any of it is funded, this needs testing on a period where
 tech did not lead.
 
+## Out-of-sample: the dot-com bust (added 2026-09-12)
+
+The QQQ caveat above is the one that mattered, so it was tested directly on a
+period where tech was the *worst* place to be. `paper/history/monthly_early.json`,
+86 months, 2000-10 to 2007-11 — data entirely outside the 2006-2026 window every
+figure above was measured on.
+
+**Absolute filter on QQQ alone:**
+
+| | filtered | buy & hold |
+|---|---|---|
+| total return | **+31.4%** | −42.2% |
+| CAGR | **3.88%** | −7.36% |
+| max drawdown | **−15.1%** | −74.6% |
+| time in market | 45% | 100% |
+
+Drawdown through the bust itself: **0.0% versus −74.6%.** Not a rounding artifact
+— verified month by month, the filter sat in cash for **33 consecutive months**
+(2000-10 through 2003-06), through every leg of the collapse, and re-entered in
+2003-07 once the recovery was established.
+
+**SPY+QQQ, two-asset rotation, same window:** +37.0% against SPY's +3.5%, CAGR
+4.49% vs 0.48%, max drawdown **−7.8% vs −42.8%**.
+
+**This answers the QQQ-dependency question.** The rule does not need tech to rise;
+it needs *trend*. When tech collapsed it went to cash and stayed there. An
+eight-year stretch in which buy-and-hold QQQ lost 42% and the filter gained 31%
+is the strongest evidence in this document, and it comes from the period most
+hostile to the strategy's most-held asset.
+
+**What it cost, stated plainly.** Sitting out 33 months meant missing the +18.5%
+October 2002 and +12.9% November 2002 bounces and the entire early-2003 recovery.
+Late re-entry is the price of the filter, and here it was roughly 35% of the
+rebound. The test also begins 2000-10, twelve months after data starts, so it
+misses the first leg down from the March 2000 peak — meaning it *understates* the
+protection rather than flattering it.
+
+Limits: two assets, not seven (EFA begins 2001-08 and TLT 2002-07, both mid-bust,
+so an intersection across all four would have skipped the period entirely). IWM's
+pre-2005 segment is quarantined — unadjusted for its June 2005 2:1 split, same
+defect class as EEM. See `paper/history/QUARANTINE_iwm_early.json`.
+
 Other limits, stated rather than buried: it is a backtest, in-sample in a way a
 forward test is not; the universe was chosen by me; no transaction costs or
 spreads are modelled; cash still earns 0%; and it is seven assets, not eight.

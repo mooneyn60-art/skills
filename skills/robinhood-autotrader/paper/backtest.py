@@ -29,6 +29,14 @@ LOOKBACK = 12   # months
 SKIP = 1        # months, per the 12-1 construction in STRATEGY.md
 MA_WINDOW = 10  # months; the canonical monthly equivalent of the 200-day SMA
 
+DECLINES = [("2000-02 dot-com", "2000-09", "2002-10"),
+            ("2008 GFC", "2007-10", "2009-03"),
+            ("2011 debt ceiling", "2011-05", "2011-10"),
+            ("2015-16 China", "2015-06", "2016-02"),
+            ("2018 Q4", "2018-09", "2018-12"),
+            ("2020 COVID", "2020-01", "2020-04"),
+            ("2022 bear", "2022-01", "2022-10")]
+
 
 def signal(closes, t):
     """True = hold the asset next month. Uses closes[:t+1] only.
@@ -128,12 +136,11 @@ def report_dual(rows, top):
     fully = sum(1 for r in rows if len(r["held"]) == top)
     print(f"  {'fully invested':<20}{fully / n:>11.0%}{1.0:>14.0%}")
     print("\n  drawdown through each real decline:")
-    for label, lo, hi in [("2008 GFC", "2007-10", "2009-03"),
-                          ("2011 debt ceiling", "2011-05", "2011-10"),
-                          ("2015-16 China", "2015-06", "2016-02"),
-                          ("2018 Q4", "2018-09", "2018-12"),
-                          ("2020 COVID", "2020-01", "2020-04"),
-                          ("2022 bear", "2022-01", "2022-10")]:
+    for label, lo, hi in DECLINES:
+        seg = window(rows, lo, hi)
+        if len(seg) < 2:
+            print(f"  {label:<22}{'— not covered by this data':>25}")
+            continue
         f = drawdown_in(rows, lo, hi, "strat")
         b = drawdown_in(rows, lo, hi, "bh")
         print(f"  {label:<22}{f:>11.1%}{b:>14.1%}"
@@ -183,15 +190,16 @@ def main():
 
     print("\n  drawdown through each real decline (the only claim it makes):")
     print(f"{'':<24}{'filtered':>12}{'buy & hold':>14}")
-    for label, lo, hi in [("2008 GFC", "2007-10", "2009-03"),
-                          ("2011 debt ceiling", "2011-05", "2011-10"),
-                          ("2015-16 China", "2015-06", "2016-02"),
-                          ("2018 Q4", "2018-09", "2018-12"),
-                          ("2020 COVID", "2020-01", "2020-04"),
-                          ("2022 bear", "2022-01", "2022-10")]:
+    for label, lo, hi in DECLINES:
+        # A window the data does not cover is not a result. Printing 0.0% and a
+        # cross for it would manufacture a finding out of absent history.
+        seg = window(rows, lo, hi)
+        if len(seg) < 2:
+            print(f"  {label:<22}{'— not covered by this data':>25}")
+            continue
         f = drawdown_in(rows, lo, hi, "strat")
         b = drawdown_in(rows, lo, hi, "bh")
-        flag = "  ✓" if f > b + 0.005 else ("  ✗ no protection" if f <= b + 0.005 else "")
+        flag = "  ✓" if f > b + 0.005 else "  ✗ no protection"
         print(f"  {label:<22}{f:>11.1%}{b:>14.1%}{flag}")
 
     # Whipsaw: exits that were back in within three months, having lost money out.
