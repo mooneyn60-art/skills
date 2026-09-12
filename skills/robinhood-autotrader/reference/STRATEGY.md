@@ -332,6 +332,32 @@ Thaler). RSI-oversold is short-horizon, and short-term reversal is a separately
 documented effect that monthly bars cannot properly test. They are cousins, not
 twins — treat this as a strong warning about the family, not a proof about RSI.
 
+**Can several be combined into something better? Measured: no.** Thirty blends of
+momentum with each other strategy, at weights from 90/10 to 50/50, across both
+universes. Not one beat pure momentum on return-per-drawdown, and the degradation
+was monotonic — every step away from pure momentum was worse.
+
+The instructive failure is reversion. At 0.24–0.32 correlation it is by far the
+least correlated with momentum, which is exactly what diversification theory says
+to want. It was the worst partner anyway, and it made drawdowns **larger**: 50/50
+took the single-stock blend from −39.5% to −68.6%. Low correlation only pays when
+components have comparable expected returns; blending 22.67% with 4.21% drags the
+result toward 4.21% and no correlation benefit covers that gap.
+
+**What the correlation table is actually good for — choosing a fallback.**
+
+| vs momentum | ETF | stocks | use as backup? |
+|---|---|---|---|
+| volweight | 0.94 | 0.95 | **No.** Momentum in a costume; fails the same month momentum does. |
+| equalweight | 0.60 | 0.63 | Yes — genuinely different engine, worse historically. |
+| lowvol | 0.59 | 0.58 | Yes — same. |
+| reversion | 0.32 | 0.24 | Avoid. Least correlated, worst outcome, and −87.7% in stocks. |
+
+A fallback must fail at *different times* from the incumbent, which is a
+correlation question, not a returns question. On that basis `volweight` is
+disqualified despite its strong standalone number, and `lowvol`/`equalweight`
+qualify despite weak ones.
+
 **On pivoting at all.** Switching strategies after a drawdown, without a rule
 fixed beforehand, is performance chasing one level up: it reliably abandons
 whatever just had its bad run. Any switch must be triggered by the falsification

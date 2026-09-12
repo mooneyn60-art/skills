@@ -91,6 +91,27 @@ def select(kind, syms, px, t, top):
     raise ValueError(kind)
 
 
+def monthly_returns(kind, syms, dates, px, top):
+    """Per-month return series for one strategy, for correlation and blending."""
+    out = []
+    for t in range(max(LOOKBACK, MA_WINDOW), len(dates) - 1):
+        book = select(kind, syms, px, t, top)
+        out.append(sum(w * (px[s][t + 1] / px[s][t] - 1.0) for s, w in book))
+    return out
+
+
+def blend(series_a, series_b, wa):
+    """Rebalanced blend: wa in A, (1-wa) in B, reset every month."""
+    return [wa * a + (1 - wa) * b for a, b in zip(series_a, series_b)]
+
+
+def curve_of(rets):
+    eq, out = 1.0, []
+    for r in rets:
+        eq *= (1 + r); out.append(eq)
+    return out
+
+
 def run(kind, syms, dates, px, top):
     eq, curve, months_in = 1.0, [], 0
     for t in range(max(LOOKBACK, MA_WINDOW), len(dates) - 1):
