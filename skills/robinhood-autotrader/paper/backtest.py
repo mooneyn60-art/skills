@@ -123,11 +123,12 @@ def run_dual(hist, bench="SPY", top=3):
     return rows
 
 
-def report_dual(rows, top):
+def report_dual(rows, top, n_assets=None):
     n = len(rows)
     sc = [r["strat"] for r in rows]
     bc = [r["bh"] for r in rows]
-    print(f"DUAL MOMENTUM (top {top} of 7) -- {n} months, "
+    universe = f"top {top} of {n_assets}" if n_assets else f"top {top}"
+    print(f"DUAL MOMENTUM ({universe}) -- {n} months, "
           f"{rows[0]['date'][:7]} to {rows[-1]['date'][:7]}\n")
     print(f"{'':<22}{'strategy':>12}{'SPY b&h':>14}")
     print(f"  {'total return':<20}{sc[-1] - 1:>11.1%}{bc[-1] - 1:>14.1%}")
@@ -164,7 +165,7 @@ def main():
     if "--dual" in sys.argv:
         top = int(sys.argv[sys.argv.index("--top") + 1]) if "--top" in sys.argv else 3
         hist = json.load(open(path))
-        report_dual(run_dual(hist, top=top), top)
+        report_dual(run_dual(hist, top=top), top, len(hist))
         return 0
     if not os.path.exists(path):
         print(f"No history at {path}.")

@@ -51,14 +51,11 @@ Usage:  python3 compare_strategies.py history/monthly.json [--top 3]
 import json, sys, statistics as st
 
 LOOKBACK, SKIP, MA_WINDOW = 12, 1, 10
-dates_ref = []   # set by prep(); seasonal needs the calendar month
 
 
 def prep(hist):
-    global dates_ref
     syms = sorted(hist)
     dates = sorted(set.intersection(*(set(hist[s]) for s in syms)))
-    dates_ref = dates
     return syms, dates, {s: [hist[s][d] for d in dates] for s in syms}
 
 
@@ -75,7 +72,7 @@ def realised_vol(px, s, t, n=12):
     return st.pstdev(rets) or 1e-9
 
 
-def select(kind, syms, px, t, top):
+def select(kind, syms, px, t, top, dates=None):
     """Return [(symbol, weight)]. An empty list means all cash."""
     if kind == "equalweight":
         return [(s, 1.0 / len(syms)) for s in syms]
@@ -111,7 +108,11 @@ def select(kind, syms, px, t, top):
         return [(sym, 1.0 / top) for sym in held]
 
     if kind == "seasonal":
-        month = int(dates_ref[t][5:7])
+        if dates is None:
+            raise ValueError("seasonal needs `dates`: its signal is the calendar "
+                             "month, and guessing one would silently produce "
+                             "plausible wrong numbers.")
+        month = int(dates[t][5:7])
         if month in (5, 6, 7, 8, 9, 10):
             return []
         elig = [sym for sym in syms if momentum(px, sym, t) > 0 and above_ma(px, sym, t)]
@@ -139,7 +140,7 @@ def monthly_returns(kind, syms, dates, px, top):
     """Per-month return series for one strategy, for correlation and blending."""
     out = []
     for t in range(max(LOOKBACK, MA_WINDOW), len(dates) - 1):
-        book = select(kind, syms, px, t, top)
+        book = select(kind, syms, px, t, top, dates)
         out.append(sum(w * (px[s][t + 1] / px[s][t] - 1.0) for s, w in book))
     return out
 
@@ -159,7 +160,7 @@ def curve_of(rets):
 def run(kind, syms, dates, px, top):
     eq, curve, months_in = 1.0, [], 0
     for t in range(max(LOOKBACK, MA_WINDOW), len(dates) - 1):
-        book = select(kind, syms, px, t, top)
+        book = select(kind, syms, px, t, top, dates)
         r = sum(w * (px[s][t + 1] / px[s][t] - 1.0) for s, w in book)
         eq *= (1 + r)
         curve.append(eq)
