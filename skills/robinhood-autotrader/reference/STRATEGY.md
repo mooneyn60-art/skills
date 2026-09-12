@@ -234,6 +234,58 @@ month emerging markets fell hard. The true ratio and effective date are not know
 with confidence, so no correction factor was guessed: a patched series would
 produce prices that look real. See `paper/history/QUARANTINE_eem.json`.
 
+## Single stocks instead of ETFs (added 2026-09-12)
+
+Tested on request: does the same rule do better on individual names than on ETFs?
+Basket of 14 large caps that were prominent in 2006, plus SPY, `paper/history/monthly_stocks.json`.
+
+| | CAGR | max drawdown |
+|---|---|---|
+| momentum, top 3 of 15 | **22.67%** | −39.5% |
+| same 14 stocks, equal weight passive | 13.64% | −61.3% |
+| SPY passive | 8.92% | −52.2% |
+
+Against the risk-matched benchmark — the same basket held passively, not SPY —
+momentum added **+9pp/yr and cut drawdown from −61% to −39%**. On its face a far
+better result than the ETF version's 8.14%.
+
+**Then remove NVDA, AAPL and AMZN:**
+
+| | CAGR | max drawdown |
+|---|---|---|
+| momentum, top 3 | **8.91%** | −27.1% |
+| SPY passive | **8.92%** | −52.2% |
+
+**8.91% against 8.92%.** The entire return advantage was three names. What
+survives without them is the drawdown halving, which is real but is the same
+finding the ETF version already gave.
+
+**The survivorship admission.** This basket was assembled to avoid survivorship
+bias and failed to. The names were chosen in 2026 with full knowledge of which
+became moonshots — NVDA returned +58,827% over the window, AAPL +11,649%, AMZN
++11,492% — and the rule held NVDA 46% of months, AAPL 39%, AMZN 35%. Whether
+momentum *found* those names or was *handed* them cannot be separated without
+point-in-time universe data, which is not available here. A 2006 investor did not
+know NVDA would become NVDA.
+
+**What it does support.** Whatever edge exists lives in catching a handful of very
+large winners, not in being right often. That has a practical consequence: the
+approach needs enough positions and enough time for a moonshot to land, and it
+cannot be judged over a year. The passive basket still returned 13.64% while
+losing 61% at its worst — these names are violent, and the −39.5% drawdown on the
+momentum version is the cost of admission.
+
+**Integrity note, recorded because it nearly corrupted the test.** The
+month-over-month jump heuristic flagged BAC, C and F. On inspection all three were
+REAL: BAC ran 35 → 24 → 16 → 14 → 6.58 → 3.95 → 6.82 through 2008-09, smooth and
+continuous, with no split factor. Quarantining them would have removed the
+financial-crisis casualties and reintroduced exactly the survivorship bias the
+basket was built to avoid — a safety check biasing a result toward survivors.
+INTC *was* excluded, for 44.13 → 94.48 in 2026-04 and onward to 139.63, which
+could be the turnaround or could be an artifact; it is excluded as unverifiable
+rather than as proven wrong, since a +114% month is precisely what a momentum rule
+chases.
+
 ## Falsification
 
 The strategy is abandoned, not tuned, if any of these occur:
