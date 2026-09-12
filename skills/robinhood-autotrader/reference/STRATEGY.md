@@ -392,9 +392,12 @@ period. It is discarded. The ETF blend wins both halves and survives.
 **The rule this yields for finding partners:** comparable standalone returns, and
 correlation low enough to disagree. `mom3`/`mom6`/`breakout` at 0.67–0.86 qualify;
 `volweight` at 0.95 never can; `reversion` never can either — not on correlation,
-which is fine, but because 4.21% drags down whatever it touches. `seasonal` is the
-most genuinely orthogonal candidate (0.43–0.70) precisely because its signal is
-the calendar rather than price.
+which is fine, but because 4.21% drags down whatever it touches. `seasonal` shows the lowest
+correlations (0.43–0.70), but **not because it is an independent signal** —
+verified 2026-09-12, it holds an identical book to plain momentum in all 110 of
+its invested months. It is momentum with a calendar gate, and its diversification
+comes purely from being in cash half the year. Real, but a weaker mechanism than
+originally written here.
 
 **Size of the effect, stated plainly:** +0.05 on a ratio, found by searching 26
 combinations. Small, and some of it is still luck. It justifies carrying

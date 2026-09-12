@@ -42,9 +42,13 @@ The strategies, and what each one claims:
                  strong 12-1 momentum while sitting well off its high, and vice
                  versa.
   seasonal       Momentum, but only invested November-April; cash May-October.
-                 The Halloween effect is the one candidate whose signal source is
-                 not price at all, so its correlation to everything else is low
-                 by construction rather than by luck.
+                 NOTE, verified 2026-09-12: in all 110 invested months it holds an
+                 IDENTICAL book to plain momentum. It is not a different view of
+                 the market -- it is momentum with a calendar gate, and its lower
+                 correlation comes entirely from sitting in cash half the year.
+                 That is a real diversification mechanism but a much weaker claim
+                 than "an independent signal", and it was described as the latter
+                 here until the books were actually compared.
 
 Usage:  python3 compare_strategies.py history/monthly.json [--top 3]
 """
@@ -158,15 +162,23 @@ def curve_of(rets):
 
 
 def run(kind, syms, dates, px, top):
-    eq, curve, months_in = 1.0, [], 0
+    """Returns (curve, fully_invested_months).
+
+    Counts FULLY invested months, not merely non-empty books, so the number is
+    comparable with backtest.py's. Momentum holds a partial book in 17% of
+    months -- counting those as "invested" reported 92% exposure where the
+    fully-invested figure is 75%, two different numbers for the same thing
+    under the same label.
+    """
+    eq, curve, fully = 1.0, [], 0
     for t in range(max(LOOKBACK, MA_WINDOW), len(dates) - 1):
         book = select(kind, syms, px, t, top, dates)
         r = sum(w * (px[s][t + 1] / px[s][t] - 1.0) for s, w in book)
         eq *= (1 + r)
         curve.append(eq)
-        if book:
-            months_in += 1
-    return curve, months_in
+        if len(book) >= (len(syms) if kind == "equalweight" else top):
+            fully += 1
+    return curve, fully
 
 
 def mdd(curve):
@@ -185,7 +197,7 @@ def main():
     print(f"{len(syms)} assets, {dates[0][:7]} to {dates[-1][:7]}, top {top}, "
           f"monthly rebalance\n")
     print(f"{'strategy':<14}{'CAGR':>9}{'max DD':>10}{'ret/DD':>9}{'best yr':>10}"
-          f"{'worst yr':>10}{'invested':>10}")
+          f"{'worst yr':>10}{'full inv':>10}")
     results = {}
     for kind in ("momentum", "mom3", "mom6", "breakout", "seasonal",
                  "reversion", "lowvol", "volweight", "equalweight"):
