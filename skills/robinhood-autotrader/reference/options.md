@@ -3,6 +3,11 @@
 What is actually available, what is measured, and what is still hypothesis.
 Last updated: 2026-09-10 · Status: active · Audience: TARS
 
+For how options work in general — mechanics, all five greeks, IV, and the full
+strategy catalog (every structure, not just what this account can place) — see
+`OPTIONS_EDUCATION.md` in this same folder. This file stays scoped to what has
+actually been measured on the live account.
+
 ## Overview
 
 Options reasoning fails in a small account for reasons that have nothing to do

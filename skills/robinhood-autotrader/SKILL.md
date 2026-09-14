@@ -318,7 +318,8 @@ python trader.py --interval 900  # loop every 15 minutes during market hours
 | File | Purpose |
 |---|---|
 | `reference/live-mcp-architecture.md` | Section A: desks, gates, cadence self-chaining, live dashboard pattern, hard constraints |
-| `reference/options.md` | Options in a small account: permission levels, collateral arithmetic, why buying premium loses (measured), the floor test, greeks that matter at one contract |
+| `reference/OPTIONS_EDUCATION.md` | The options textbook: mechanics, all five greeks, IV, and the full strategy catalog (every call/put structure, defined and undefined risk, which need Level 3) with when/why each is used |
+| `reference/options.md` | The options lab notebook: what's been measured on THIS account specifically — permission levels, collateral arithmetic, why buying premium loses (measured), the floor test, the wheel/CSP simulation and ruin probabilities |
 | `reference/setup.md` | Section B: env vars, ToS caveats, how to move from paper to live safely |
 | `paper/PROTOCOL.md` | Paper-trading rules that stop the record from flattering itself, and the stopping rules |
 | `paper/expectancy.py` | Expectancy in R with a 95% CI, trades-still-needed, and an exit-reason breakdown |
