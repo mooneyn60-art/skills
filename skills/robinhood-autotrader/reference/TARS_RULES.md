@@ -27,13 +27,24 @@ not retryable), no options until R9 opens them.
 
   1. Price > 200-day moving average.
   2. Price > 50-day moving average.
-  3. Price within 3% of its 20-day high.
+  3. Price within 5% of its 20-day high (widened from 3% on 2026-09-14).
   4. No scheduled earnings within the next 3 trading days.
 
 Rule 1 is the load-bearing one. Buying below the 200-day MA — "it's cheap now" —
 is the rule that tested WORST in this repo's own backtest: -87.7% max drawdown
 on the single-stock basket. It is prohibited, permanently, including when the
 name looks obviously oversold. Especially then.
+
+Rule 3 was tightened to 3% on day one, which is stricter than the momentum
+research this whole system is built on (the 12-1 lookback doesn't care where
+in its range a stock sits, only that it's trending). 3% rejected real,
+still-trending names (KO, PFE both missed by under 2% today) in favor of only
+the ones sitting at the exact top tick. 5% stays a real filter -- still
+requires 200d + 50d MA above, still rejects anything not genuinely near its
+highs -- it just stops punishing a stock for being 4% off its peak instead of
+3%. This is the one knob turned in response to "more profit": more qualifying
+setups per scan, not bigger bets or a lower bar on trend quality. Revisit if
+it measurably drags win rate down rather than just raising trade count.
 
 ## R3 — Sizing
 
