@@ -48,9 +48,9 @@ it measurably drags win rate down rather than just raising trade count.
 
 ## R3 — Sizing
 
-Max $85 notional per position at entry (raised from $50 on 2026-09-14, still under 10% of account). Max 8 concurrent positions. Minimum 15%
-of account value held in cash at the close of any session (lowered from 40%
-on 2026-09-14 -- see note below).
+Max $85 notional per position at entry (raised from $50 on 2026-09-14, still under 10% of account). Max 12 concurrent positions (raised from 8 on
+2026-09-14). Minimum 15% of account value held in cash at the close of any
+session (lowered from 40% on 2026-09-14 -- see note below).
 
 No averaging down, ever. A position is entered once. If it falls, it hits its
 stop; it does not get reinforced.
@@ -66,6 +66,14 @@ what was actually tested, rather than rationing cash below it on principle.
 Full deployment (0% floor) was asked for and refused: this account is never
 refilled, so a floor above zero is the one thing standing between a bad
 week and game over, not caution for its own sake.
+
+Position count raised 8 -> 12 the same day, for a different reason: the
+15% cash floor already caps total invested dollars at ~85% of the account
+regardless of slot count (~$728 on this account), so more slots just spread
+that same capped exposure across more names when enough real setups exist --
+it does not increase total risk, only how finely it's diversified. This is
+NOT a route to "no leftover cash": the floor holds regardless of how many
+slots are open, by design.
 
 ## R4 — Exits
 
