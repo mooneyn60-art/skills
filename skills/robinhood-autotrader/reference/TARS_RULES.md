@@ -48,11 +48,24 @@ it measurably drags win rate down rather than just raising trade count.
 
 ## R3 — Sizing
 
-Max $85 notional per position at entry (raised from $50 on 2026-09-14, still under 10% of account). Max 8 concurrent positions. Minimum 40%
-of account value held in cash at the close of any session.
+Max $85 notional per position at entry (raised from $50 on 2026-09-14, still under 10% of account). Max 8 concurrent positions. Minimum 15%
+of account value held in cash at the close of any session (lowered from 40%
+on 2026-09-14 -- see note below).
 
 No averaging down, ever. A position is entered once. If it falls, it hits its
 stop; it does not get reinforced.
+
+The 40% floor was never in the backtest -- backtest.py and
+compare_strategies.py invest fully in whatever qualifies and hold cash only
+when nothing does, no artificial minimum. 40% was extra caution stacked on
+top of that, borrowed from the 60% buffer in Nolan's original spec. 15% is
+close to what 8 positions at the $85 cap naturally leaves in a ~$855 account
+anyway (8x85=$680, ~80% invested) -- this brings the rule back in line with
+what was actually tested, rather than rationing cash below it on principle.
+
+Full deployment (0% floor) was asked for and refused: this account is never
+refilled, so a floor above zero is the one thing standing between a bad
+week and game over, not caution for its own sake.
 
 ## R4 — Exits
 
