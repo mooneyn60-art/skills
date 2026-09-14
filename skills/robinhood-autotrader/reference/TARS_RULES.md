@@ -37,7 +37,7 @@ name looks obviously oversold. Especially then.
 
 ## R3 — Sizing
 
-Max $50 notional per position at entry. Max 8 concurrent positions. Minimum 40%
+Max $85 notional per position at entry (raised from $50 on 2026-09-14, still under 10% of account). Max 8 concurrent positions. Minimum 40%
 of account value held in cash at the close of any session.
 
 No averaging down, ever. A position is entered once. If it falls, it hits its
@@ -112,7 +112,7 @@ orders on fractional quantities outright —
 
 for both GTC and day. A fractional position therefore cannot satisfy R4, which
 makes it illegal here regardless of how good the setup looks. The practical
-consequence is that any instrument whose single share exceeds the R3 cap of $50
+consequence is that any instrument whose single share exceeds the R3 cap ($85)
 is untradeable by this system at this account size. VOO ($697/share) is the
 first casualty and was exited for exactly this reason, not on a view about the
 index.
