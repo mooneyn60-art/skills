@@ -119,6 +119,14 @@ Locked until: account value > $2,000 AND 20 closed equity trades logged. Then
 long calls/puts only, 30-45+ DTE, max $50 per position. Never 0DTE, never naked
 calls, never uncovered puts.
 
+Scoped, 2026-09-14 (Nolan's call, and a good one): once open, options are only
+taken on names this system ALREADY holds as an equity position. Not a bigger
+universe than the equity scan already validated -- the stock already cleared
+full R2, so the option is amplifying a thesis this system already has real
+conviction in, not a fresh, separately-researched bet on a name the equity
+side never touched. Also means fewer names to run the section-0 protocol on,
+and if the equity side stops out, that's a live signal on the option too.
+
 ## R10 — Kill switch
 
 Nolan says stop -> all new entries cease immediately, that message, no
