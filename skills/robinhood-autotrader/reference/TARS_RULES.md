@@ -93,6 +93,34 @@ Nolan says stop -> all new entries cease immediately, that message, no
 argument, no clarifying questions. Existing positions are held with their stops
 live unless he says flatten.
 
+## R11 — Inherited positions
+
+A position this system did not open is judged once, at takeover:
+
+  fails R2  -> exit at the next open session.
+  passes R2 -> keep. R3's size cap reads "at entry" and does not retroactively
+               force a trim, but R4 applies immediately: it gets a live stop,
+               and an existing stop is never LOWERED to match R4's -8%. A
+               tighter inherited stop stands.
+
+## R12 — No fractional shares
+
+Discovered in execution on 2026-09-14, not in design: Robinhood rejects stop
+orders on fractional quantities outright —
+
+    API error 400: "Invalid trigger for fractional order."
+
+for both GTC and day. A fractional position therefore cannot satisfy R4, which
+makes it illegal here regardless of how good the setup looks. The practical
+consequence is that any instrument whose single share exceeds the R3 cap of $50
+is untradeable by this system at this account size. VOO ($697/share) is the
+first casualty and was exited for exactly this reason, not on a view about the
+index.
+
+This is the rule working correctly. A stop that cannot be placed is not a
+smaller amount of protection, it is none, and the position that "only needs
+watching" is the one that gaps while nobody is watching.
+
 ## What would falsify this
 
 If after 30 closed trades the expectancy is not distinguishable from zero at 95%
