@@ -145,6 +145,14 @@ This is the rule working correctly. A stop that cannot be placed is not a
 smaller amount of protection, it is none, and the position that "only needs
 watching" is the one that gaps while nobody is watching.
 
+Sector process, 2026-09-14: Nolan asked to steer scans away from tech and
+toward natural resources / other sectors -- fair, the book was flagged for
+tech concentration once before (INTC/TENB/RDDT, 09-11). Going forward,
+prefer create_scan with FILTER_TYPE_SECTOR (a real sector screen) over
+hand-picked ticker lists when building the eligible universe -- it found
+OVV, a clean natural-resources pass, in one query instead of guessing names
+one at a time.
+
 ## What would falsify this
 
 If after 30 closed trades the expectancy is not distinguishable from zero at 95%
