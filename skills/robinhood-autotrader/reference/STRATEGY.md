@@ -332,6 +332,22 @@ Thaler). RSI-oversold is short-horizon, and short-term reversal is a separately
 documented effect that monthly bars cannot properly test. They are cousins, not
 twins — treat this as a strong warning about the family, not a proof about RSI.
 
+**Resolution (added 2026-09-15, three days after this contradiction was
+flagged and left open):** `TARS_RULES.md`'s R2, built 2026-09-14, closes this
+without ever citing this document directly — worth linking explicitly so the
+connection isn't lost again. R2's rule 1 ("Price > 200-day moving average...
+Rule 1 is the load-bearing one... the rule that tested WORST in this repo's
+own backtest: -87.7% max drawdown on the single-stock basket") is this exact
+`compare_strategies.py` finding, restated as a hard entry gate. The live
+account no longer buys oversold weakness (CLX/JD/CPNG's RSI-under-30 style
+entries) — every equity entry logged since 2026-09-14 (T, WBD, VZ, SIRI, PFE,
+OVV, BAH, S, NAVI, CNH) required price above both the 200d and 50d MA. The
+tension this section named is closed, not by amending this file, but by a
+different, later rule finally agreeing with what this backtest already said.
+Left standing above rather than edited away, same principle as the QQQ-CAGR
+correction elsewhere in this file: showing the wrong turn matters as much as
+the fix.
+
 **Can several be combined into something better? Measured: no.** Thirty blends of
 momentum with each other strategy, at weights from 90/10 to 50/50, across both
 universes. Not one beat pure momentum on return-per-drawdown, and the degradation

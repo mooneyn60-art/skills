@@ -32,7 +32,10 @@ not retryable), no options until R9 opens them.
 
 Rule 1 is the load-bearing one. Buying below the 200-day MA — "it's cheap now" —
 is the rule that tested WORST in this repo's own backtest: -87.7% max drawdown
-on the single-stock basket. It is prohibited, permanently, including when the
+on the single-stock basket (see `reference/STRATEGY.md`'s `compare_strategies.py`
+results and its 2026-09-15 resolution note — this rule is that finding, turned
+into a hard gate, closing a contradiction that document flagged and left open
+for three days). It is prohibited, permanently, including when the
 name looks obviously oversold. Especially then.
 
 Rule 3 was tightened to 3% on day one, which is stricter than the momentum
