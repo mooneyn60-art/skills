@@ -41,16 +41,39 @@ def load(path):
     """
     if not os.path.exists(path):
         return [], [], []
-    taken, skipped, unstopped = [], [], []
+    records = []
     for line in open(path):
         line = line.strip()
         if not line or line.startswith("//"):
             continue
-        t = json.loads(line)
+        records.append(json.loads(line))
+
+    # PROTOCOL.md is append-only: a wrong record gets a correction appended
+    # with id "<original-id>-CORRECTION", never edited in place. Without this
+    # step both versions land in stats and the original (often missing or
+    # wrong planned_risk/realized_pnl) double-counts or double-classifies the
+    # same trade. Drop any base record whose corrected version also exists.
+    corrected_base_ids = {
+        r["id"][: -len("-CORRECTION")] for r in records if r["id"].endswith("-CORRECTION")
+    }
+    records = [r for r in records if r["id"] not in corrected_base_ids]
+
+    taken, skipped, unstopped = [], [], []
+    for t in records:
         if t.get("exit_reason") == "not_taken":
             skipped.append(t)
             continue
         if not t.get("closed"):
+            continue
+        if t.get("realized_pnl") is None:
+            # A closed-timestamp research/protocol record (e.g. exit_reason
+            # "R9_locked" or "protocol_review") that was priced but never
+            # actually opened as a position. Not "not_taken" literally, but
+            # the same category for stats purposes: no real P&L exists.
+            # Treating it as `unstopped` used to crash sum() on None; treating
+            # it as a real trade would be worse -- it would count a snapshot
+            # that was never risked. Bucket with skipped/declined instead.
+            skipped.append(t)
             continue
         if t.get("planned_risk"):
             t["R"] = t["realized_pnl"] / t["planned_risk"]
@@ -133,6 +156,25 @@ def main():
             print(f"           At this mean and spread, ~{need} trades would be needed "
                   f"to prove it ({need - n} more).")
         print("           Do NOT fund this on the strength of the number above.")
+
+    # PROTOCOL.md: "Tag every record with strategy... untagged records score
+    # as one undifferentiated blob, so a good rule and a bad one average into
+    # 'indistinguishable.'" The verdict above IS that blob when the ledger
+    # mixes strategies (e.g. TARS-1's mechanical equity stops next to
+    # user_discretionary options trades) -- break it out so each strategy is
+    # judged on its own sample, not smeared by the other's variance.
+    by_strategy = defaultdict(list)
+    for t in ts:
+        by_strategy[t.get("strategy", "untagged")].append(t["R"])
+    if len(by_strategy) > 1:
+        print("\n  by strategy (same trades, not a separate sample):")
+        for strat, v in sorted(by_strategy.items(), key=lambda kv: -len(kv[1])):
+            sn, smean, ssd, sse = stats(v)
+            if sn < 2:
+                print(f"    {strat:<20} n={sn:<3} mean {smean:+.2f}R  (n=1, no CI yet)")
+                continue
+            slo, shi = smean - 1.96 * sse, smean + 1.96 * sse
+            print(f"    {strat:<20} n={sn:<3} mean {smean:+.2f}R  95% CI [{slo:+.2f}R, {shi:+.2f}R]")
 
     # Exit-reason breakdown. This is the diagnostic that catches the failure
     # mode the live account actually had: full-size losses, fractional wins.

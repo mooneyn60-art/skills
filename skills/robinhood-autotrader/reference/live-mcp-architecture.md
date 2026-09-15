@@ -335,6 +335,34 @@ many days.
   highest-cost lots first to minimise the realised gain. Default FIFO will
   cheerfully sell the cheapest lot and hand the user a larger tax bill for the
   identical trade.
+- **A `regular_hours` limit that queues past close and fills at the next open
+  has no session watching the fill.** A buy placed at 20:00 UTC came back
+  `queued`, not filled — filled instead at the next day's 09:30 open, hours
+  after the session that placed it had ended. The standard "attach a stop
+  within 60 seconds of fill" rule silently assumes a session is alive to see
+  the fill event; here none was, so the position sat unprotected until a later,
+  unrelated check-in happened to re-pull `get_equity_orders` and noticed. No
+  loss occurred — luck, not process, same category as the cadence failure
+  above. **Any order that can queue past close needs an explicit
+  stop-existence check on the next session's first tick, not just a
+  fill-triggered one** — check every open position's stop exists, don't wait
+  for a fill event to prompt it.
+- **A brief MCP disconnect plus an unsupervised user is a real combination to
+  plan for, not a hypothetical.** The trading connector dropped mid-session
+  (an infrastructure hiccup, not a permissions or auth issue) for a few
+  minutes. In that window the user cancelled a resting stop, closed the
+  position it protected, and opened two new naked legs on the same underlying
+  — a call and a put straddling spot, 3 days to expiry, with no thesis behind
+  either. The user's own summary on the far side: "idk what I did, fix it."
+  On reconnect: **do not narrate from the last-known state or the user's
+  account of events** — re-pull `get_option_orders`/`get_equity_orders` from
+  before the gap forward and reconstruct what actually happened from the fill
+  timestamps, then act on that. The user was not lying; "idk what I did" was
+  literally accurate, and only the order history resolved it. Practical
+  takeaway: a disconnect is not just a retry-the-next-call problem — treat
+  reconnection itself as a trigger to re-verify the full open-order and
+  position state before trusting anything reasoned about it since the last
+  successful call.
 
 ## What not to hunt
 

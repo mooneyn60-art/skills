@@ -137,6 +137,21 @@ not a bug to work around by paying up. This is a pure cost-discipline rule,
 separate from the $2,000/20-trade gate above -- it changes what a trade
 costs once eligible, not when eligibility starts.
 
+Track record so far, 2026-09-15 (measured, not argued): `paper/expectancy.py`
+was crashing on research-only records and silently blind to unlabeled
+strategies -- both fixed today (append-only corrections now dedupe instead of
+double-counting; results now break out by `strategy` tag). Run clean, it says
+this: every options trade this account has ever closed -- the user's T call,
+all three F legs, and the NVDA call from earlier this week, 5 trades total --
+lost money, mean -0.09R, 95% CI [-0.17R, -0.01R], entirely below zero. That is
+not proof options can never work here; n=5 is tiny and every one of these was
+ad hoc, pre-R9-scoping, several with no real catalyst behind them (F especially
+-- see 2026-09-15-F-P14.5-0918-USER and its two follow-on legs). But it is real
+evidence, not a feeling, and it points the same direction R9's gate already
+assumes: this account does not yet have a demonstrated options edge. Re-run
+`python3 paper/expectancy.py` before ever revisiting R9's numbers -- the
+argument for loosening it should cite this output, not override it.
+
 ## R10 — Kill switch
 
 Nolan says stop -> all new entries cease immediately, that message, no
