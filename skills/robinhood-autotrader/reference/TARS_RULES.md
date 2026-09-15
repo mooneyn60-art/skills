@@ -127,6 +127,16 @@ conviction in, not a fresh, separately-researched bet on a name the equity
 side never touched. Also means fewer names to run the section-0 protocol on,
 and if the equity side stops out, that's a live signal on the option too.
 
+Execution cost cap, 2026-09-15 (Nolan's call, sound one): entry limit price
+capped at the midpoint (bid + ask, divided by 2), never the ask. Paying the
+ask hands the market maker the whole spread for nothing -- options.md's own
+ITUB example showed a single tick eating 29% of a thin contract's value.
+Capping at mid means an illiquid contract with a wide spread simply won't
+fill rather than getting bought at a markup; that is the correct outcome,
+not a bug to work around by paying up. This is a pure cost-discipline rule,
+separate from the $2,000/20-trade gate above -- it changes what a trade
+costs once eligible, not when eligibility starts.
+
 ## R10 — Kill switch
 
 Nolan says stop -> all new entries cease immediately, that message, no
