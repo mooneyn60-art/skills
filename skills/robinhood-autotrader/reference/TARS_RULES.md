@@ -460,3 +460,44 @@ four. NVDA specifically was requested by name and declined on the data --
 it needs $223.02 to re-enter the 5% band, which is +3.85% from here. That
 is the standing trigger; NVDA goes in ahead of any other candidate the
 moment it clears, subject to a fresh full R2 re-check at that time.
+
+## R3 floor restoration — the deficit provision (added 2026-09-16)
+
+The 15% cash floor was BREACHED for the first time on 2026-09-16. Cause,
+recorded plainly: a user-placed NVDA market order at 213.915 funded by
+selling AVAH, taking cash to $12.60 against a $126.39 requirement -- a
+deficit of $113.79. TARS declined that trade three times, partly on this
+exact arithmetic (deployable was $85.11 against a $214.75 share price);
+Nolan placed it himself, which is his right, and this provision is the
+cleanup, not a reproach.
+
+**The rule, at Nolan's direction: while cash sits below the 15% floor,
+restoring it takes priority over every new entry.**
+
+Mechanically:
+
+  1. No new entry of any kind while cash < 15% of account value. This was
+     already implied by R3 (deployable = cash minus floor, which is
+     negative in deficit) but is stated outright here because the breach
+     arrived through a route R3 did not contemplate -- an owner trade
+     rather than a TARS entry.
+  2. When a position exits -- by its R4 stop or an R2 failure -- the
+     proceeds go to CASH FIRST until the floor is whole. Only the amount
+     above the floor is deployable.
+  3. The floor is not relaxed, waived, or "borrowed against" to take a
+     setup while in deficit, no matter how clean the setup looks. A rule
+     suspended for a good opportunity is not a rule; every breach in
+     history had a good opportunity attached to it.
+  4. Floor restoration is NOT a reason to sell anything. Positions still
+     exit only by R4 stop or R2 failure (see R4's exhaustive-exit
+     provision). The deficit is repaired out of exits that were going to
+     happen anyway, not by liquidating to raise cash -- otherwise this
+     provision becomes a backdoor around the exit rule it sits beside.
+
+Why it matters more than it sounds: with $12.60 of cash this account can
+respond to a stop-out but cannot respond to an opportunity. Every future
+decision is reactive until the buffer is back. On the current book a
+single stop-out repairs most of it -- TENB stopping at 35.04 returns
+$175.20, which alone clears the deficit -- so this should self-correct on
+the first exit, provided nothing spends the proceeds first. That proviso
+is the entire point of writing this down.
