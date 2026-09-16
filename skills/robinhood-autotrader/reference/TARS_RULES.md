@@ -130,9 +130,31 @@ the actual fix: flag the trade, don't block it.
 
 ## R3 — Sizing
 
-Max $85 notional per position at entry (raised from $50 on 2026-09-14, still under 10% of account). Max 12 concurrent positions (raised from 8 on
-2026-09-14). Minimum 15% of account value held in cash at the close of any
-session (lowered from 40% on 2026-09-14 -- see note below).
+Max **$180** notional per position at entry (was $85; raised 2026-09-16).
+Max **4** concurrent positions (was 12; cut 2026-09-16). Minimum 15% of
+account value held in cash at the close of any session (lowered from 40%
+on 2026-09-14 -- see note below).
+
+Resized 2026-09-16, at Nolan's direction and on this repo's own evidence.
+Twelve positions at ~$70 each cannot produce the outcome this strategy
+depends on. `reference/STRATEGY.md`'s single-stock test is explicit: the
+entire return advantage came from three names (NVDA +58,827%, AAPL
++11,649%, AMZN +11,492%) and "whatever edge exists lives in catching a
+handful of very large winners, not in being right often." With twelve
+slots, TENB running +13.6% was worth $17 on an $845 account -- about 2%.
+A moonshot cannot move a book it occupies one-twelfth of.
+
+The risk arithmetic still holds at the larger size: 4 positions at $180
+is ~21% of the account each, and R4's -8% stop makes each loss ~1.7% of
+the account, against ~0.66% under the old sizing. More per trade, but
+still small enough that a run of losers is survivable, which is the only
+test that matters for an account that is never refilled.
+
+What this does NOT buy: the names that actually drove that backtest are
+still out of reach. NVDA at $215 exceeds even the $180 cap, and R12
+forbids the fractional workaround. The honest position is that this
+sizing change makes winners matter more among the names we CAN hold; it
+does not unlock the ones we cannot.
 
 No averaging down, ever. A position is entered once. If it falls, it hits its
 stop; it does not get reinforced.
@@ -165,6 +187,47 @@ slots are open, by design.
   Trail:     thereafter, stop trails 8% below the highest close since entry,
              raised only, never lowered.
   No fixed profit target. Winners are trailed out, not trimmed early.
+
+**Exits are exhaustive, added 2026-09-16.** A position leaves this book
+exactly two ways, and there is no third:
+
+  1. Its R4 stop fires.
+  2. It fails R2 on a CLOSING basis -- re-evaluated against the same five
+     conditions used to enter, on completed daily bars, not intraday noise.
+
+Nothing else is an exit. Not "it is red today," not "rotate into something
+better," not "reorganise the book." Those are the decisions this rule
+exists to remove.
+
+Why, measured rather than argued. Two independent results point the same
+way. First, this repo's own `paper/expectancy.py` on 2026-09-16: across 11
+closed trades, 9 were discretionary and averaged **-0.16R with a 95% CI of
+[-0.28R, -0.05R]** -- entirely below zero -- while the mechanical side had
+one closed trade and was essentially unmeasured. Second, the literature in
+`reference/STRATEGY.md`: Barber & Odean found the most active 20% of
+retail investors earned **11.4%/yr against 18.5% for the least active**, a
+seven-point annual penalty, and that document's own conclusion is that
+"every additional trade has a negative expected contribution before its
+thesis is even considered. Trade frequency is a cost, not an opportunity."
+
+On 2026-09-16 this account made eleven trades in one session. Four
+rotations were each defensible in isolation and collectively were churn.
+This rule is the fix, and it is deliberately blunt because a rule that
+admits a "good reason" exception is not a rule -- every discretionary exit
+in the ledger had a good reason at the time.
+
+Consequence worth stating plainly: this rule forbids liquidating the book
+to reorganise it, including to change position sizing. When R3's sizing
+changes, the transition happens as positions exit on their own terms and
+are replaced at the new size -- not by selling everything at once. A
+mass liquidation is simply the largest possible discretionary exit.
+
+The second leak this closes is the mirror image: `expectancy.py` flagged
+that **1 of 1 winners closed under +1R** while losses run to a full 1R by
+construction, because the stop guarantees it. If winners are cut below 1R,
+expectancy cannot be positive regardless of entry quality. Selling a
+position that is working -- to rebalance, to free cash, to feel decisive --
+is the specific error. TENB at +13.6% is the live test of this rule.
 
 ## R5 — Order types
 
