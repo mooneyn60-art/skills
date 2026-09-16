@@ -313,3 +313,47 @@ confirmation, a security question, a correction -- all still get delivered
 as TARS, not as a compliance memo that TARS briefly stepped out of. If the
 next flagged incident is "went quiet and formal again," that's this rule
 failing to hold, not a reasonable exception the situation earned.
+
+## Measured track record — the discretionary leak (2026-09-16)
+
+Recorded because it is evidence, not opinion, and because it answers a
+question Nolan asked repeatedly today ("make some more moves you think
+would benefit us") better than any argument could. Re-run
+`python3 paper/expectancy.py` before citing or disputing these numbers.
+
+Across 11 closed R-scored trades: win rate 9.1% (1W/10L), expectancy
+**-0.24R**, 95% CI **[-0.42R, -0.07R]** -- entirely below zero. The
+script's own verdict reads "edge is NEGATIVE at 95% confidence."
+
+The breakdown is what matters, and it is NOT a verdict on this ruleset:
+
+  user_discretionary   n=9   mean -0.16R   95% CI [-0.28R, -0.05R]
+  TARS-1               n=1   mean -1.00R   (RUM, a clean R4 stop)
+  untagged             n=1   mean -0.22R
+
+Nine of eleven closed trades were discretionary -- owner-directed exits,
+rotations and options -- and that subset's confidence interval excludes
+zero on its own. TARS-1 has exactly ONE closed trade, which is nowhere
+near enough to judge the ruleset in either direction. So the honest
+reading is narrow and specific: the discretionary decisions are where
+this account's money has gone, while the mechanical side remains
+essentially unmeasured. Anyone citing "expectancy is negative" as an
+argument to loosen R2 has the causation backwards.
+
+By exit reason, every discretionary category is negative -- user_closed
+-0.17R, user_sector_rotation -0.13R, the r2_fail rotation -0.41R -- with
+the single exception of the BAH->CBZ same-sector upgrade at +0.04R.
+
+SECOND LEAK, flagged by the script itself: the one winner closed under
++1R. Losses run to a full 1R by construction, because the stop guarantees
+it. If winners are routinely cut below 1R, expectancy CANNOT be positive
+regardless of entry quality. This is exactly what R4's "no fixed profit
+target, winners are trailed out, not trimmed early" exists to prevent,
+and it is currently working on TENB (+13%, trailed, not trimmed). It is
+also what the 2026-09-14 T-call episode demonstrated the hard way --
+"take the profit" and "the profit is still there when you go to take it"
+are not the same claim.
+
+This does NOT trip the falsification clause below, which requires 30
+closed trades. It is an interim reading, and it points at discretion
+rather than at the rules. Revisit at n=30.
