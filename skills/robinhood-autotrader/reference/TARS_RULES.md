@@ -130,8 +130,8 @@ the actual fix: flag the trade, don't block it.
 
 ## R3 — Sizing
 
-Max **$180** notional per position at entry (was $85; raised 2026-09-16).
-Max **4** concurrent positions (was 12; cut 2026-09-16). Minimum 15% of
+Max **$340** notional per position at entry (was $85, then $180; raised
+twice on 2026-09-16). Max **4** concurrent positions (was 12; cut 2026-09-16). Minimum 15% of
 account value held in cash at the close of any session (lowered from 40%
 on 2026-09-14 -- see note below).
 
@@ -429,3 +429,34 @@ are not the same claim.
 This does NOT trip the falsification clause below, which requires 30
 closed trades. It is an interim reading, and it points at discretion
 rather than at the rules. Revisit at n=30.
+
+## R3 cap raised a second time, 2026-09-16 — the mega-cap transition
+
+The $180 cap set earlier today lasted about an hour. Nolan clarified that
+"four bigger" meant mega-cap NAMES at one share each, not merely larger
+dollar slots, and at one share AAPL costs $333. The cap is now $340, which
+is what it takes to hold a single share of a large-cap at this account
+size.
+
+State this plainly rather than dress it up: **a $333 position is 39% of an
+$845 account.** R4's -8% stop puts ~3.2% of the whole account at risk on
+that one name, against ~0.66% under the original twelve-slot sizing. This
+is a materially more concentrated book, and that concentration is the
+price of owning mega-caps with $845. It is not a free improvement.
+
+What the mega-cap screen actually found, recorded because the result was
+counterintuitive and will be forgotten otherwise. Five names checked
+against R2 on live prices: ORCL FAILED rule 1 outright (143.64 vs a 200d
+of 167.08, i.e. 14% BELOW trend -- the exact buy-weakness setup that
+backtested at -87.7% max drawdown). **NVDA FAILED rule 3** (214.75 against
+a 20-day high of 234.76 = 8.5% off, and only +0.7% above its 50-day, so
+the intermediate trend is flat). **PLTR FAILED rule 3** (7.7% off). Only
+AAPL (0.77% off its 20-day high) and INTC (4.43% off) passed all three
+technical conditions, and both are Electronic Technology, which fills
+rule 5's two-per-sector cap in that sector by itself.
+
+So the requested "four mega-caps" was not available: two qualified, not
+four. NVDA specifically was requested by name and declined on the data --
+it needs $223.02 to re-enter the 5% band, which is +3.85% from here. That
+is the standing trigger; NVDA goes in ahead of any other candidate the
+moment it clears, subject to a fresh full R2 re-check at that time.
