@@ -2,7 +2,7 @@
 
 A rules-based plan for the live account, derived from replicated literature rather than
 assembled from plausible-sounding ideas.
-Last updated: 2026-09-11 · Status: measured on history; paper-only, not funded · Audience: TARS, account owner
+Last updated: 2026-09-15 · Status: measured on history; paper-only, not funded · Audience: TARS, account owner
 
 ## Overview
 

@@ -1,7 +1,7 @@
 # Paper Trading Protocol
 
 Rules for building a track record that is worth something.
-Last updated: 2026-09-10 · Status: active · Audience: TARS, and the account owner checking my work
+Last updated: 2026-09-11 · Status: active · Audience: TARS, and the account owner checking my work
 
 ## Overview
 

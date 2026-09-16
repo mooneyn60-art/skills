@@ -173,7 +173,7 @@ strategies -- both fixed today (append-only corrections now dedupe instead of
 double-counting; results now break out by `strategy` tag). Run clean, it says
 this: every options trade this account has ever closed -- the user's T call,
 all three F legs, and the NVDA call from earlier this week, 5 trades total --
-lost money, mean -0.09R, 95% CI [-0.17R, -0.01R], entirely below zero. That is
+lost money, mean -0.12R, 95% CI [-0.20R, -0.04R], entirely below zero. That is
 not proof options can never work here; n=5 is tiny and every one of these was
 ad hoc, pre-R9-scoping, several with no real catalyst behind them (F especially
 -- see 2026-09-15-F-P14.5-0918-USER and its two follow-on legs). But it is real
