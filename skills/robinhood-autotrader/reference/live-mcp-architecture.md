@@ -120,6 +120,47 @@ existing one. Every spawn is real cost on a live-money account.
 | Options Flow | Unusual volume/OI as institutional-positioning proxy — **signal-only** |
 | Earnings / Catalyst | Post-earnings drift, and the defensive calendar |
 | Social Sentiment | Web-wide chatter beyond the broker's userbase |
+| Fundamentals / Business | What the company actually *is* — mandatory before any buy |
+
+**Fundamentals / Business** runs on CANDIDATES before a buy (Portfolio Review
+is its mirror, running on holdings you already own). Its mandate is narrow and
+its limits matter more than its mandate.
+
+*What it produces, every time, before any purchase:* what the business actually
+does and how it makes money; market cap; P/E (flagging negative outright);
+P/B; employee count; the 52-week range and where price sits inside it; dividend
+history INCLUDING whether a dividend was cut or suspended and when; how long
+the company has existed; any distress flag the broker returns. Pull it from
+`get_equity_fundamentals`, which carries all of this, and quote the numbers
+rather than characterising them.
+
+*What it must NOT do, and this is the whole design:* it does not veto on
+quality, and it does not score companies as good or bad. A trend system buys
+what is trending; the moment a desk starts ranking businesses by merit it has
+reintroduced forecasting, which this account's own `paper/expectancy.py`
+measures at **-0.16R across 9 discretionary trades, 95% CI entirely below
+zero**. The desk informs position sizing and risk awareness. It does not pick.
+
+*Why the no-veto rule is not laziness, with the real numbers behind it.* On
+2026-09-16 this account ran the check across its own book and found INTC
+carrying a **P/E of -45.82** — losing money — with its dividend **suspended
+since September 2024**, and TENB at a **P/E of 659** on a $4.35B cap with 1,995
+employees. Both look disqualifying on a quality screen. Both were among the
+account's best performers: INTC had run from a $24.45 52-week low to $142.35
+before settling near $101, and TENB had more than doubled off $15.73. A
+profitability filter would have excluded the two biggest movers in the book.
+This matches the literature — Amazon and Tesla were unprofitable for years
+while producing the returns momentum exists to catch.
+
+*So what the desk is for.* Three things, all real: (1) you know what you own,
+which is not optional when a position is 39% of the account; (2) it separates
+a fortress from a turnaround so SIZE can reflect that even when the entry
+signal is identical; (3) it logs the fundamentals at entry into
+`paper/trades.jsonl` so that after 30 closed trades the question "did any of
+this predict anything?" can be **measured rather than assumed**. Until that
+sample exists, treat every fundamental observation as context, not as a rule.
+That is the same discipline the rest of this repo applies to its own
+backtests, and it is the reason the desk reports instead of vetoes.
 
 **Portfolio Review** earns its slot: pointed at "which holdings don't deserve
 their capital," it once overturned the manager's own assumption — the position

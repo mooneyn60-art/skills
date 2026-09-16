@@ -501,3 +501,40 @@ single stop-out repairs most of it -- TENB stopping at 35.04 returns
 $175.20, which alone clears the deficit -- so this should self-correct on
 the first exit, provided nothing spends the proceeds first. That proviso
 is the entire point of writing this down.
+
+## R8 addition — fundamentals captured at entry (added 2026-09-16)
+
+At Nolan's direction, after he asked twice whether TARS researches what a
+company actually does before buying it. The honest answer was no: R2 is
+five price conditions and contains no business test at all.
+
+**Every entry from now on records the company's fundamentals in its
+`paper/trades.jsonl` thesis, pulled from `get_equity_fundamentals`:** what
+the business does and how it earns, market cap, P/E (negative stated
+outright, never softened), P/B, employee count, the 52-week range and where
+price sits inside it, and dividend history INCLUDING any cut or suspension
+with its date. Quote the numbers; do not characterise them.
+
+**This is a reporting requirement, not a filter.** No entry is blocked on
+fundamentals. R2 remains five price conditions.
+
+The reason is a real measurement, not caution. Running this check across
+the book on 2026-09-16 found **INTC at a P/E of -45.82 -- losing money --
+with its dividend suspended since 2024-09-01**, and **TENB at a P/E of 659**
+on a $4.35B market cap with 1,995 employees. Both would fail any sane
+quality screen. Both were among this account's strongest performers: INTC
+ran from a 52-week low of $24.45 to $142.35 before settling near $101, and
+TENB more than doubled off $15.73. A profitability gate would have excluded
+the two biggest movers in the book. That is not a quirk -- Amazon and Tesla
+were unprofitable for years while producing exactly the returns a momentum
+system exists to capture.
+
+What the requirement buys instead, all three real: you know what you own,
+which stops mattering less the moment a single position is 39% of the
+account; a fortress and a turnaround can be SIZED differently even when
+their entry signals are identical; and the data accumulates so that after
+30 closed trades `paper/expectancy.py` can test whether any fundamental
+field predicted anything. Until that sample exists, fundamentals are
+context. If the test later shows a field carries real signal, THEN it earns
+a place in R2 -- measured in, not assumed in, which is how every other rule
+in this file arrived.

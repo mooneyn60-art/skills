@@ -46,9 +46,18 @@ existing setup. Summary:
   preserves its context), then a mandatory **Red Team** pass before any buy.
 - **Desk roster** (research angles, expand thoughtfully rather than by rote): Wire,
   Regime, Idea (scanner-driven momentum + mean-reversion), Portfolio Review, Performance,
-  Red Team, Political Flow, Popularity/Crowd, Options Flow (signal-only), Earnings/
-  Catalyst, Social Sentiment, Crypto. See the reference doc for each desk's mandate and
-  the incidents that motivated Red Team and Performance.
+  Red Team, Fundamentals/Business (mandatory pre-buy), Political Flow, Popularity/Crowd,
+  Options Flow (signal-only), Earnings/Catalyst, Social Sentiment, Crypto. See the
+  reference doc for each desk's mandate and the incidents that motivated Red Team,
+  Performance and Fundamentals.
+- **Know what you are buying before you buy it.** The Fundamentals desk runs on every
+  candidate pre-purchase and reports what the business does, market cap, P/E (negative
+  flagged outright), 52-week range, and any dividend cut or suspension. It reports —
+  it does **not** veto on quality. A 2026-09-16 check found two of the account's best
+  performers would have failed a profitability screen: INTC at a -45.8 P/E with its
+  dividend suspended since 2024, and TENB at a P/E of 659. Momentum's winners are
+  frequently unprofitable. Log the fundamentals at entry and measure whether they
+  predicted anything after 30 closed trades rather than assuming they do.
 - **Gates every idea must clear before it can execute:**
   1. **Confirmation** — cross-check against the wire, the Regime call, other desks, any
      cross-examination outcome, and the Red Team verdict. Corroboration raises
