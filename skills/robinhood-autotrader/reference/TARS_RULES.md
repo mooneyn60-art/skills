@@ -23,12 +23,14 @@ Tradeable: US equities and ETFs, last price > $5.00, 30-day average volume
 > 1,000,000 shares. Nothing else. No OTC, no crypto (execution is blocked, 403,
 not retryable), no options until R9 opens them.
 
-## R2 — Entry (all four must be true)
+## R2 — Entry (all five must be true)
 
   1. Price > 200-day moving average.
   2. Price > 50-day moving average.
   3. Price within 5% of its 20-day high (widened from 3% on 2026-09-14).
   4. No scheduled earnings within the next 3 trading days.
+  5. The book holds fewer than 2 positions already in this name's sector
+     (added 2026-09-16 — see the sector-cap note below).
 
 Rule 1 is the load-bearing one. Buying below the 200-day MA — "it's cheap now" —
 is the rule that tested WORST in this repo's own backtest: -87.7% max drawdown
@@ -49,10 +51,60 @@ highs -- it just stops punishing a stock for being 4% off its peak instead of
 setups per scan, not bigger bets or a lower bar on trend quality. Revisit if
 it measurably drags win rate down rather than just raising trade count.
 
-Rule 5 was added 2026-09-16 (a 31-day cooldown on re-entering a symbol
-closed at a loss) and REMOVED the same day on reconsideration -- recorded
-here rather than silently deleted, per this file's own append-don't-erase
-convention. Nolan had asked whether to cap trades per day; the flat version
+Rule 5, the sector cap, was added 2026-09-16 at Nolan's request, and it is
+the SECOND thing to occupy the rule-5 slot today -- the first is recorded
+immediately below and stays removed. The two are unrelated; do not confuse
+them.
+
+What it does: no new entry in a sector where the book already holds two
+positions. Sector is read from `get_equity_fundamentals`'s `sector` field,
+so it is mechanical and reproducible rather than a judgement call at scan
+time. It gates ENTRIES ONLY. It never forces a sale, never overrides R4,
+and an existing position that pushes a sector to two (or that was already
+there before this rule existed) simply closes that sector to new buys
+until one exits on its own stop.
+
+Why it exists: Nolan's observation, and it was correct. The book looked
+diversified by sector label -- 8 sectors across 11 names on 2026-09-16 --
+while actually holding three near-duplicate pairs: T + VZ (both wireless
+telecom, one macro bet held twice), WBD + SIRI (both media/broadcasting),
+and TENB + S (both cybersecurity software, which rallied together +12.6%
+and +16% on the same 2026-09-14 sector move). Six of eleven positions were
+three bets. That is why the 2026-09-16 rotation out of defensives hit the
+book broadly while SPY itself stayed green. A prior session had already
+applied this reasoning by hand once -- the BAH entry deliberately excluded
+Communication Services because it was 5 of 8 positions at the time -- so
+this makes an existing informal practice explicit instead of leaving it to
+whether a given session remembers to check.
+
+What it does NOT do, stated plainly so it is not oversold: sector
+diversification does not protect much in a genuine broad selloff, where
+correlations converge toward 1 and every bucket falls together. What
+actually bounds a bad day here is position sizing (R3), live stops (R4)
+and the cash floor (R3). This rule addresses correlated-sector drawdown,
+which is a real and separate risk, and nothing more.
+
+Known limitation, recorded rather than hidden: the `sector` field is a
+coarse proxy for correlation, not a measurement of it. Two names in one
+sector can be less correlated than two names in different ones -- by this
+taxonomy T is "Communications" while WBD is "Consumer Services" even
+though both are media-adjacent and move on overlapping news. The cap will
+therefore sometimes block a genuinely uncorrelated second name and
+sometimes permit a genuinely correlated one. It was still taken because
+the failure is bounded and symmetric (one blocked candidate out of many
+eligible), while the thing it prevents -- quietly stacking five names onto
+one macro bet -- is unbounded. If it starts visibly rejecting good setups
+without preventing real concentration, revisit it with the trade log as
+evidence rather than on feel.
+
+At the time of writing, three sectors are already at the cap and closed to
+new entries: Technology Services (TENB, S), Communications (T, VZ) and
+Consumer Services (WBD, SIRI).
+
+A DIFFERENT rule 5 was added and removed earlier the same day (2026-09-16):
+a 31-day cooldown on re-entering a symbol closed at a loss. It was REMOVED
+the same day on reconsideration -- recorded here rather than silently
+deleted, per this file's own append-don't-erase convention. Nolan had asked whether to cap trades per day; the flat version
 of that was correctly rejected (it can't tell an exit from an entry, and
 R4's stops must fire unconditionally), but the replacement went too far the
 other way. The reasoning that killed it: a wash sale doesn't destroy a
