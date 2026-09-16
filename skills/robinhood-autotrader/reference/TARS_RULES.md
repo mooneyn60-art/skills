@@ -23,14 +23,12 @@ Tradeable: US equities and ETFs, last price > $5.00, 30-day average volume
 > 1,000,000 shares. Nothing else. No OTC, no crypto (execution is blocked, 403,
 not retryable), no options until R9 opens them.
 
-## R2 — Entry (all five must be true)
+## R2 — Entry (all four must be true)
 
   1. Price > 200-day moving average.
   2. Price > 50-day moving average.
   3. Price within 5% of its 20-day high (widened from 3% on 2026-09-14).
   4. No scheduled earnings within the next 3 trading days.
-  5. This exact symbol was not closed at a LOSS within the last 31 days
-     (added 2026-09-16 -- see note below).
 
 Rule 1 is the load-bearing one. Buying below the 200-day MA — "it's cheap now" —
 is the rule that tested WORST in this repo's own backtest: -87.7% max drawdown
@@ -51,30 +49,23 @@ highs -- it just stops punishing a stock for being 4% off its peak instead of
 setups per scan, not bigger bets or a lower bar on trend quality. Revisit if
 it measurably drags win rate down rather than just raising trade count.
 
-Rule 5, 2026-09-16 (Nolan asked whether to cap trades per day; this is the
-correctly-shaped version of that instinct, not a blanket cap). A flat "N
-trades a day" rule was considered and rejected: it can't tell an exit from
-an entry, and R4's stops must fire the instant they trigger, full stop --
-a rule that could delay a second stop-out on a busy day to respect a count
-is a new way to get hurt, not a safety feature. The actual problem a daily
-cap was reaching for was never on this side of the account anyway: R2's own
-four conditions plus R3's cash floor already throttle new entries to about
-one a day when cash is scarce (which it usually is), and every real
-overtrading incident this account has had (the F options round-trip) was
-discretionary and outside R2/R9 entirely, already addressed by stepping
-away from options.
-
-What IS real: `reference/TAX_TREATMENT.md` (2026-09-16) found this account
-has zero wash-sale awareness -- re-buying a symbol within 30 days of
-closing it at a loss defers that loss into the new position's cost basis
-(IRC S1091) instead of losing it, but it's still a real bookkeeping
-distortion `trades.jsonl`'s realized_pnl field doesn't currently account
-for, and RUM's own 2026-09-15 stop-out would wash if re-bought before
-2026-10-15. 31 days (30 plus a one-day buffer, since the rule is calendar
-days) closes that specific gap without touching exits or throttling a
-genuine new signal on an unrelated name. Applies to losses only -- a
-profitable exit and a same-day re-entry has no wash-sale issue and isn't
-restricted.
+Rule 5 was added 2026-09-16 (a 31-day cooldown on re-entering a symbol
+closed at a loss) and REMOVED the same day on reconsideration -- recorded
+here rather than silently deleted, per this file's own append-don't-erase
+convention. Nolan had asked whether to cap trades per day; the flat version
+of that was correctly rejected (it can't tell an exit from an entry, and
+R4's stops must fire unconditionally), but the replacement went too far the
+other way. The reasoning that killed it: a wash sale doesn't destroy a
+loss, it defers it into the new position's cost basis (IRC S1091) -- on
+this account's dollar sizes that is a bookkeeping timing wrinkle worth a
+few dollars, not a real economic loss. Meanwhile R2 exists specifically to
+catch trend continuation, and trend-following strategies whipsaw by nature
+-- get stopped out, then the trend resumes and re-qualifies days later
+(TENB is this account's own proof that a resumed trend can be worth far
+more than a few dollars of deferred tax timing). Blocking a real
+re-qualifying signal for a month to avoid a paperwork wrinkle was a bad
+trade of a large, uncertain benefit against a small, certain one. See R8 for
+the actual fix: flag the trade, don't block it.
 
 ## R3 — Sizing
 
@@ -142,6 +133,15 @@ Every order is appended to paper/trades.jsonl with the rule number that
 triggered it. Every closed trade is scored in R-multiples and against SPY held
 over the identical window, so that a rising market does not get recorded as
 skill.
+
+Wash-sale flag, 2026-09-16: when an entry re-buys a symbol closed at a loss
+within the prior 30 days, add `"wash_sale_flag": true` and the id of the
+loss trade it washes against to the new entry's record. This does not gate
+the trade -- see R2's removed-and-recorded rule 5 for why -- it exists so
+`reference/TAX_TREATMENT.md`'s documented gap (this ledger has no way to
+mark a deferred loss) is actually closed at the point of logging, when the
+dates are known and cheap to check, rather than reconstructed later from
+timestamps at tax time.
 
 ## R9 — Options
 
