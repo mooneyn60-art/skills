@@ -97,9 +97,18 @@ one macro bet -- is unbounded. If it starts visibly rejecting good setups
 without preventing real concentration, revisit it with the trade log as
 evidence rather than on feel.
 
-At the time of writing, three sectors are already at the cap and closed to
-new entries: Technology Services (TENB, S), Communications (T, VZ) and
-Consumer Services (WBD, SIRI).
+When this rule was written (2026-09-16, ~17:40 UTC) three sectors sat at
+the cap: Technology Services (TENB, S), Communications (T, VZ) and
+Consumer Services (WBD, SIRI). That snapshot went stale within the hour --
+VZ and SIRI were sold in the rotation this rule prompted, so Communications
+and Consumer Services dropped back to one each, while REXR's entry took
+Finance to two. As of the end of 2026-09-16 the capped sectors are
+**Technology Services (TENB, S)** and **Finance (NAVI, REXR)**.
+
+Do not trust either snapshot. Any session evaluating rule 5 must count the
+CURRENT book's sectors from `get_equity_positions` plus
+`get_equity_fundamentals`, not read a number out of this file -- a cap list
+written into a document is wrong the moment a stop fires.
 
 A DIFFERENT rule 5 was added and removed earlier the same day (2026-09-16):
 a 31-day cooldown on re-entering a symbol closed at a loss. It was REMOVED
