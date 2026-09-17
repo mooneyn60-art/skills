@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Car Sales CRM</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topbar">
+  <h1>My CRM</h1>
+  <div id="alert-bar" class="alert-bar"></div>
+</header>
+
+<nav class="tabs">
+  <button class="tab-btn active" data-tab="customers">Customers</button>
+  <button class="tab-btn" data-tab="agenda">Agenda</button>
+  <button class="tab-btn" data-tab="specs">Vehicle Specs</button>
+</nav>
+
+<main>
+  <!-- CUSTOMERS TAB -->
+  <section id="tab-customers" class="tab-panel active">
+    <div class="toolbar">
+      <input id="search" type="text" placeholder="Search name, phone, email, vehicle, tag...">
+      <select id="filter-status">
+        <option value="">All statuses</option>
+        <option value="hot">Hot</option>
+        <option value="warm">Warm</option>
+        <option value="cold">Cold</option>
+        <option value="sold">Sold</option>
+        <option value="lost">Lost</option>
+      </select>
+      <button id="btn-add-customer" class="btn-primary">+ Add customer</button>
+    </div>
+    <table class="grid">
+      <thead>
+        <tr>
+          <th>Name</th><th>Vehicle</th><th>Status</th><th>Stage</th>
+          <th>Next follow-up</th><th>Channel</th><th>Consent</th>
+        </tr>
+      </thead>
+      <tbody id="customer-rows"></tbody>
+    </table>
+  </section>
+
+  <!-- AGENDA TAB -->
+  <section id="tab-agenda" class="tab-panel">
+    <div class="toolbar">
+      <label>Show next
+        <select id="agenda-days">
+          <option value="1">1 day</option>
+          <option value="7" selected>7 days</option>
+          <option value="30">30 days</option>
+        </select>
+      </label>
+      <button id="btn-add-appt" class="btn-primary">+ Add appointment</button>
+    </div>
+    <div id="agenda-overdue"></div>
+    <div id="agenda-days-list"></div>
+  </section>
+
+  <!-- VEHICLE SPECS TAB -->
+  <section id="tab-specs" class="tab-panel">
+    <div id="specs-list"></div>
+  </section>
+</main>
+
+<!-- Customer detail / edit modal -->
+<div id="modal-customer" class="modal-overlay hidden">
+  <div class="modal">
+    <button class="modal-close" data-close>&times;</button>
+    <div id="modal-customer-body"></div>
+  </div>
+</div>
+
+<!-- Add customer modal -->
+<div id="modal-add-customer" class="modal-overlay hidden">
+  <div class="modal">
+    <button class="modal-close" data-close>&times;</button>
+    <h2>New customer</h2>
+    <form id="form-add-customer">
+      <label>Name <input name="name" required></label>
+      <label>Phone <input name="phone"></label>
+      <label>Email <input name="email"></label>
+      <label>Vehicle interest <input name="vehicle_interest"></label>
+      <label>Lead source <input name="lead_source"></label>
+      <label>Status
+        <select name="status"><option>hot</option><option selected>warm</option><option>cold</option></select>
+      </label>
+      <label>First note <textarea name="note" rows="3"></textarea></label>
+      <button type="submit" class="btn-primary">Create</button>
+    </form>
+  </div>
+</div>
+
+<!-- Add appointment modal -->
+<div id="modal-add-appt" class="modal-overlay hidden">
+  <div class="modal">
+    <button class="modal-close" data-close>&times;</button>
+    <h2>New appointment</h2>
+    <form id="form-add-appt">
+      <label>Customer name <input name="customer" required list="customer-names"></label>
+      <datalist id="customer-names"></datalist>
+      <label>Date <input name="date" type="date" required></label>
+      <label>Time <input name="time" type="text" placeholder="e.g. 2:00pm"></label>
+      <label>Type
+        <select name="type">
+          <option value="test-drive">Test drive</option>
+          <option value="delivery">Delivery</option>
+          <option value="paperwork">Paperwork</option>
+          <option value="meeting">Meeting</option>
+          <option value="other">Other</option>
+        </select>
+      </label>
+      <label>Notes <textarea name="note" rows="2"></textarea></label>
+      <button type="submit" class="btn-primary">Schedule</button>
+    </form>
+  </div>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

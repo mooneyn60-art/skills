@@ -11,3 +11,7 @@ skills/car-sales-crm/vehicle-specs/*
 skills/car-sales-crm/calendar/appointments/*
 !skills/car-sales-crm/calendar/appointments/.gitkeep
 
+# car-sales-crm dashboard: notification credentials, never committed
+skills/car-sales-crm/dashboard/notify.env
+skills/car-sales-crm/dashboard/notify.log
+

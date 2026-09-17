@@ -7,6 +7,8 @@ description: A personal, lightweight CRM for a car salesperson, built entirely o
 
 A one-person CRM that lives in plain Markdown files instead of a bloated dealership platform (VinSolutions, DealerSocket, etc.). Every customer is one file. There is no database, login, or app to fight with — just this skill reading and writing files, plus a small script for the daily follow-up list.
 
+There's also `dashboard/` — a local web UI (`python3 dashboard/app.py`, then open `http://localhost:5050`) for browsing/searching/editing these same files with clicks instead of chat, plus a `dashboard/notify.py` that can text/email the user real phone notifications on a schedule. See `dashboard/README.md` for setup. This skill's own job is unaffected by whether the dashboard is running — both just read/write the same files.
+
 Everything under `customers/`, `vehicle-specs/`, and `calendar/appointments/` is real customer data and is git-ignored (see `.gitignore`) — it stays on the user's machine/session and is never committed to this repo. Do not remove those ignore rules.
 
 ## Setup (first run only)
