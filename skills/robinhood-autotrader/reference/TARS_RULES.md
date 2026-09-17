@@ -179,6 +179,38 @@ it does not increase total risk, only how finely it's diversified. This is
 NOT a route to "no leftover cash": the floor holds regardless of how many
 slots are open, by design.
 
+### Slot count scales with capital — added 2026-09-17 (Nolan's direction)
+
+Nolan is depositing new funds and chose "more positions, same size" over
+bigger positions, explicitly to dilute sector concentration faster. The
+per-position cap stays at **$340**. The slot count is no longer the fixed
+number 4; it is computed:
+
+    max_positions = max(4, floor((account_value - 0.15 * account_value) / 340))
+
+which reduces to `max(4, floor(account_value * 0.85 / 340))`.
+
+Worked examples so no session has to re-derive it:
+
+    $850   -> floor(722.50/340)  = 2, raised to the minimum -> 4 slots
+    $2,000 -> floor(1700/340)    = 5                        -> 5 slots
+    $3,000 -> floor(2550/340)    = 7                        -> 7 slots
+    $5,000 -> floor(4250/340)    = 12                       -> 12 slots
+
+Two properties that make this safe. First, the formula GATES NEW ENTRIES
+ONLY and can never force a sale — the `max(4, ...)` floor means a drawdown
+that shrinks the computed number does not put the book over-limit and
+trigger liquidation. That would be a mass discretionary exit, which R4
+forbids outright. Second, it derives from account value, so it needs no
+judgement call and no rule edit when money arrives or leaves.
+
+Why this and not a bigger cap: the book on 2026-09-17 held NVDA, INTC and
+AAPL — three of four positions in Electronic Technology, breaking R2 rule
+5's cap of two. Raising the per-position cap would have concentrated that
+further. More slots at the same size lets rule 5 do its work, because each
+new entry must find a sector that is not already doubled up. The
+diversification is mechanical rather than aspirational.
+
 ## R4 — Exits
 
   Hard stop: -8% from fill. Placed as a GTC stop order within 60 seconds of the
@@ -283,6 +315,25 @@ that the exit happens.
       -> halt all new entries, flatten nothing, report and wait for Nolan.
   Any rule in this file cannot be evaluated (data missing, tool erroring)
       -> no trade. A missing input is never treated as a passing test.
+
+### Deposits rebase the high-water mark — added 2026-09-17
+
+R6's second breaker halts new entries when account value sits 15% below its
+high-water mark. A DEPOSIT IS NOT A GAIN, and if the high-water mark is not
+rebased when money arrives, the breaker silently breaks in the dangerous
+direction: new cash inflates account value, the mark never catches up, and
+a real 15% loss of capital never trips the halt.
+
+The rule: on any deposit or withdrawal, reset the high-water mark to the
+account value immediately AFTER the transfer settles, then resume tracking
+from there. Record the rebase in `paper/trades.jsonl` as a non-trade record
+with the old mark, the transfer amount and the new mark, so the drawdown
+series stays auditable.
+
+Same logic applies to the daily and cumulative P/L reported to Nolan:
+external transfers are never performance. A day that ends 300 dollars
+higher because 300 dollars was deposited is a flat day, and must be
+reported as one.
 
 ## R7 — Single writer
 
