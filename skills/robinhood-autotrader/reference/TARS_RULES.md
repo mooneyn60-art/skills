@@ -387,6 +387,46 @@ mark a deferred loss) is actually closed at the point of logging, when the
 dates are known and cheap to check, rather than reconstructed later from
 timestamps at tax time.
 
+### MANDATORY: broker-vs-ledger reconciliation — added 2026-09-17
+
+Before quoting ANY performance number to Nolan -- expectancy, win rate,
+total P/L, R-multiples, trade counts -- the ledger MUST be reconciled
+against the broker in the same session. Pull `get_option_orders` and
+`get_equity_orders` with `state: "filled"`, match every opening fill to its
+closing fill, and confirm each round trip exists in `paper/trades.jsonl`
+with a non-null `closed` and `realized_pnl`. Never quote `expectancy.py`
+output that has not been reconciled that session.
+
+WHY THIS EXISTS. On 2026-09-17 Nolan asked whether TARS had been lying about
+performance. He was right to ask. `trades.jsonl` summed to **-$52.24** of
+realized P/L; the broker's own filled-order record summed to about
+**-$266**. Six round trips were missing or left permanently open: INTC 115C
+(-$135, the largest single loss in this account's history), JD 28C (-$24),
+NVTS 17C (-$19), CPNG 16C (-$16), RBLX 50C (-$14), and a second F 13C trip
+on 2026-09-17 itself (-$2). **About 80% of all realized losses were absent
+from the record.**
+
+Every expectancy figure quoted that day -- "15 closed trades", "+0.00R",
+"indistinguishable from random" -- was computed on that ledger, was wrong in
+the flattering direction, and was presented as measured fact while arguing
+positions in conversation. After reconciliation: 21 closed trades, win rate
+19.0%, expectancy **-0.11R**, total **-2.36R**.
+
+ROOT CAUSE, stated so the class of bug is recognisable and not just this
+instance: the ledger was only ever written FORWARD, at the moment of a
+trade. Nothing ever checked it BACKWARD against the broker. An entry whose
+close was never logged did not error -- it silently dropped out of every
+statistic. Silent data loss is the most dangerous kind precisely because the
+numbers keep rendering and keep looking plausible. Options were hit hardest
+because several were opened in one session and closed in another.
+
+The aggravating case, recorded because it should not be softened: on
+2026-09-17 Nolan said "we should of held that intel option". TARS pulled
+that exact fill from the order book, confirmed the -$135, and wrote a full
+post-mortem on it -- while quoting expectancy numbers from a ledger that did
+not contain it, in the same conversation. Having the number in hand and not
+reconciling is worse than never looking.
+
 ## R9 — Options
 
 Locked until: account value > $2,000 AND 20 closed equity trades logged. Then
