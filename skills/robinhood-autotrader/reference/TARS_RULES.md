@@ -345,6 +345,68 @@ assumes: this account does not yet have a demonstrated options edge. Re-run
 `python3 paper/expectancy.py` before ever revisiting R9's numbers -- the
 argument for loosening it should cite this output, not override it.
 
+### Target structure: 3 equities + 1 long-dated option — RECORDED 2026-09-17, NOT ACTIVE
+
+Nolan, 2026-09-17: "I think we should hold 3 big stocks and 1 long option
+on a bigger company." Recorded here because the structure is sound and
+should not have to be re-derived later. It is NOT authorized by this
+section, and nothing below relaxes the gate, the cap, or R6.
+
+Why the structure is sound: a concentrated equity core plus one leveraged,
+long-duration, defined-risk position is a real portfolio shape. The core
+compounds without a clock; the option supplies convexity that a 3-share
+book cannot otherwise get at this account size, and its maximum loss is
+the premium, known at entry. It is also the direct lesson of the INTC
+2026-10-02 115 call (bought 2.18 on 09-11, stopped at 0.83 on 09-14 through
+a 31% gap, marked 3.575 on 09-17 -- a 274.50 swing): a long-dated call does
+not want a tight price stop underneath it, because the premium already IS
+the stop. See 2026-09-14's exit record.
+
+The equity leg already exists. NVDA, INTC and AAPL, one share each, ~$660.
+That half of the structure needs no action.
+
+The option leg is blocked by THREE independent things, two of them
+permanent rules and one temporary:
+
+  1. R9's gate. Account > $2,000 AND 20 closed equity trades. Account was
+     $852.42 on 2026-09-17.
+  2. R9's size cap. Max $50 per option position. This is the binding
+     constraint and it is easy to miss: even with the gate open, $50 does
+     not buy any long-dated contract on a large company. Honoring "one
+     long option on a bigger company" requires raising this cap by a
+     factor of roughly 15 to 70.
+  3. R6's breaker, tripped 2026-09-17, blocking new entries through the
+     2026-09-22 session.
+
+Measured prices, 2026-09-17, so the gap is arithmetic rather than opinion.
+Every contract below is on a name the book already holds, as R9's scoping
+requires:
+
+  INTC 2027-06-17 $80C   ask 33.90  = $3,390   delta 0.742   OI 3,147
+  NVDA 2028-01-21 $300C  ask 20.00  = $2,000   delta 0.367   OI 96,714
+  NVDA 2028-01-21 $400C  ask  7.55  =   $755   delta 0.169   OI 51,732
+
+The cheapest long-dated contract available on any held name is $755, four
+times the account's $191.33 cash. And it is the worst of the three: delta
+0.169, a 7.3% modeled chance of profit, needing NVDA at $407.45 by January
+2028 -- an 86% gain -- merely to break even. Affordability and quality run
+in opposite directions here, which is the whole problem. The contract worth
+owning (delta 0.70-0.80, theta small, thesis given time to work) is the one
+that costs multiples of the account.
+
+What would have to be true, stated so it can be checked rather than argued:
+account above roughly $3,200 (equity core ~$660 + a real LEAPS ~$2,000+ +
+the 15% cash floor), R9's gate met on both conditions, R9's $50 cap
+deliberately raised with the options track record re-run first
+(`python3 paper/expectancy.py` -- 5 closed options trades, all losses, mean
+-0.12R, 95% CI entirely below zero as of 2026-09-15), and R6 clear.
+
+Until then the fourth slot holds cash or a fourth equity, not an option.
+Buying the $755 lottery ticket because it is the only thing affordable is
+the exact error this section exists to prevent: it would satisfy the
+LETTER of "one long option on a bigger company" while inverting its
+purpose.
+
 ## R10 — Kill switch
 
 Nolan says stop -> all new entries cease immediately, that message, no
