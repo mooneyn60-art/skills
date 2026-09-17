@@ -3,3 +3,9 @@ __pycache__/
 .idea/
 .vscode/
 
+# car-sales-crm: real customer/vehicle data stays local, never committed
+skills/car-sales-crm/customers/*
+!skills/car-sales-crm/customers/.gitkeep
+skills/car-sales-crm/vehicle-specs/*
+!skills/car-sales-crm/vehicle-specs/.gitkeep
+
