@@ -242,6 +242,24 @@ def summary():
     )
 
 
+def local_network_ip() -> str:
+    """Best-effort guess at this computer's IP on the local Wi-Fi/network."""
+    import socket
+
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.connect(("8.8.8.8", 80))  # no packet actually sent; just picks the right interface
+        ip = s.getsockname()[0]
+        s.close()
+        return ip
+    except OSError:
+        return ""
+
+
 if __name__ == "__main__":
-    print("Car Sales CRM dashboard: http://localhost:5050")
-    app.run(host="127.0.0.1", port=5050, debug=False)
+    ip = local_network_ip()
+    print("Car Sales CRM dashboard is running.")
+    print("  On this computer:      http://localhost:5050")
+    if ip:
+        print(f"  On your phone/tablet:  http://{ip}:5050  (same Wi-Fi network required)")
+    app.run(host="0.0.0.0", port=5050, debug=False)

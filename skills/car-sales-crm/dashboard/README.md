@@ -15,8 +15,24 @@ pip install -r requirements.txt
 python3 app.py
 ```
 
-Open **http://localhost:5050** in your browser. Leave the terminal running
-while you use it; close it (Ctrl+C) when you're done.
+When it starts, it prints two URLs:
+
+```
+Car Sales CRM dashboard is running.
+  On this computer:      http://localhost:5050
+  On your phone/tablet:  http://192.168.1.XX:5050  (same Wi-Fi network required)
+```
+
+- **On the same computer that's running `app.py`**, use `http://localhost:5050`.
+- **On your phone or another device**, `localhost` won't work — that word always
+  means "this device," so your phone would be looking for a server on itself.
+  Use the second URL it printed instead (the one with real numbers), and make
+  sure your phone is on the **same Wi-Fi network** as the computer. It will
+  stop working if the computer sleeps, disconnects from Wi-Fi, or you close
+  the terminal.
+
+Leave the terminal running while you use it (from either device); close it
+(Ctrl+C) when you're done.
 
 What you get:
 - **Customers tab** — search/filter your list, click anyone to see their full
