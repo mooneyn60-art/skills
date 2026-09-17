@@ -483,10 +483,23 @@ orders on fractional quantities outright —
 
 for both GTC and day. A fractional position therefore cannot satisfy R4, which
 makes it illegal here regardless of how good the setup looks. The practical
-consequence is that any instrument whose single share exceeds the R3 cap ($85)
-is untradeable by this system at this account size. VOO ($697/share) is the
-first casualty and was exited for exactly this reason, not on a view about the
-index.
+consequence is that any instrument whose single share exceeds THE CURRENT R3
+CAP is untradeable by this system. VOO ($697/share) was the first casualty and
+was exited for exactly this reason, not on a view about the index.
+
+**STALE-NUMBER CORRECTION, 2026-09-17.** This paragraph read "the R3 cap
+($85)" from 2026-09-14 until today, and R3's cap was raised twice on
+2026-09-16 -- $85 to $180 to $340 -- without this text being updated. Read
+literally, the stale version made AAPL ($335), NVDA ($219) and TGT ($159)
+untradeable: three of the four positions the book actually holds. Found by
+a rules audit on 2026-09-17, in the same class as the R4 trailing-stop bug
+found that morning -- a rule that looks operative, isn't, and would have
+misfired in an autonomous session with nobody watching.
+
+The fix is to name no number here. R12 defers to whatever R3 says at the
+time of reading; R3 is the single source of truth for the cap. Never
+hard-code the cap in a second place again, because the second place is the
+one that goes stale.
 
 This is the rule working correctly. A stop that cannot be placed is not a
 smaller amount of protection, it is none, and the position that "only needs
