@@ -309,12 +309,42 @@ that the exit happens.
 
 ## R6 — Circuit breakers
 
-  Two positions stopped out within any rolling 5 trading days
+  Two positions stopped out AT A LOSS within any rolling 5 trading days
       -> no new entries for the next 3 trading days.
+      (loss-only qualifier EFFECTIVE 2026-09-23 -- see below)
   Account value -15% below its high-water mark
       -> halt all new entries, flatten nothing, report and wait for Nolan.
   Any rule in this file cannot be evaluated (data missing, tool erroring)
       -> no trade. A missing input is never treated as a passing test.
+
+### Only LOSING exits trip the breaker — decided 2026-09-17, EFFECTIVE 2026-09-23
+
+As written until today, R6's first breaker counted "two positions stopped
+out" without asking whether they made or lost money. On 2026-09-17 that
+tripped on RUM (2026-09-15, -1.00R, a genuine loss) **and TENB (2026-09-17,
++0.77R, the first R-positive mechanical trade this account ever produced)**.
+TENB exited on its trailing stop — the system working exactly as designed —
+and the breaker recorded it as damage. A circuit breaker whose purpose is to
+pause trading after losses was pausing it after a win.
+
+The fix: only exits that close at a LOSS count toward the two-in-five-days
+trigger. A trailing-stop exit above cost is the system succeeding and must
+never contribute to a halt.
+
+**WHY THIS IS DATED FORWARD AND NOT APPLIED TODAY.** The breaker was ACTIVE
+on 2026-09-17, blocking entries through the 2026-09-22 session, and this fix
+would have lifted it immediately. Nolan authorised the change; the delay is
+not about permission. A rule change that removes a constraint from the agent
+proposing it, on the day that constraint binds, is unverifiable — the
+reasoning and the self-interest are indistinguishable from the outside, and
+from the inside. Dating it to 2026-09-23, when the breaker expires on its
+own, makes the change cost nothing and buy nothing, which is the only way to
+demonstrate it was about the rule.
+
+The current breaker therefore stands unaltered and runs its full course.
+From 2026-09-23 the loss-only qualifier is live. Future sessions: this is
+the standard to hold any rule change to. Loosening a constraint is fine.
+Loosening it at the moment it is inconvenient is not.
 
 ### Deposits rebase the high-water mark — added 2026-09-17
 
@@ -360,8 +390,48 @@ timestamps at tax time.
 ## R9 — Options
 
 Locked until: account value > $2,000 AND 20 closed equity trades logged. Then
-long calls/puts only, 30-45+ DTE, max $50 per position. Never 0DTE, never naked
-calls, never uncovered puts.
+long calls/puts only, 30-45+ DTE, **max 3% of account value per position**.
+Never 0DTE, never naked calls, never uncovered puts.
+
+**SIZE CAP REWRITTEN 2026-09-17** (was a flat $50), at Nolan's direction as he
+begins funding the account weekly toward the $2,000 gate. The flat $50 was
+INOPERATIVE and had to be found by audit rather than by use, exactly like the
+R4 trailing-stop bug found the same morning.
+
+The arithmetic that broke it, measured on 2026-09-17 against live chains:
+the cheapest 30-45 DTE contract on any name the book held was the INTC
+2026-10-30 $135 call at **$400**; AAPL's 2026-10-30 $350 call was **$640**;
+the cheapest contract found anywhere that day, on any name, was **$58**.
+Nothing exists under $50. A rule permitting a category with an empty set is
+not a conservative rule, it is a dead one.
+
+3% self-gates on arithmetic instead of on a number someone picked:
+
+    $2,000  -> $60 cap   -> still buys nothing real
+    $5,000  -> $150 cap  -> a thin contract might fit
+    $13,000 -> $390 cap  -> the $400-class contracts above become reachable
+
+STATED PLAINLY SO IT IS NOT A SURPRISE LATER: crossing $2,000 will NOT in
+practice make options available. It satisfies the gate; it does not make a
+real contract affordable. On today's prices that takes roughly $10,000+. This
+is not a new barrier invented by TARS — the $2,000 gate stands exactly as
+written — it is the honest consequence of contract prices meeting a
+percentage cap. Anyone who wants options sooner should change the PERCENTAGE
+deliberately and in writing, knowing that a $400 contract at a $2,000 account
+is 20% of everything on one position that can go to zero.
+
+Supporting evidence for keeping the percentage small: `paper/expectancy.py`
+scored every options trade this account has closed as losing money, mean
+-0.12R with a 95% CI entirely below zero. The single profitable one since
+(the F 13 call on 2026-09-17, +$4.00 on a 19-minute hold) does not move that.
+
+ANTI-CHURN, added with this change: the "20 closed equity trades" half of the
+gate must NEVER be pursued for its own sake. Trading to reach a trade count
+is the definition of churn, and this file's own evidence — Barber & Odean's
+11.4%/yr for the most active quintile against 18.5% for the least — says
+activity is a cost before any thesis is considered. The 20 trades are meant
+to be a byproduct of the equity system running normally. If they arrive
+faster than that, something is wrong, and the gate should not open.
 
 Scoped, 2026-09-14 (Nolan's call, and a good one): once open, options are only
 taken on names this system ALREADY holds as an equity position. Not a bigger
