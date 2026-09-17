@@ -12,6 +12,10 @@ last_contact:
 last_contact_channel:  # call | email | text | in-person
 next_followup: 
 next_followup_channel: # call | email | text
+consent_call: unknown  # yes | no | unknown - has THIS customer agreed to be called?
+consent_text: unknown  # yes | no | unknown - has THIS customer agreed to be texted?
+consent_email: unknown # yes | no | unknown - has THIS customer agreed to be emailed?
+consent_notes:         # how/when they agreed, e.g. "verbal at test drive 9/10", "opted in on credit app"
 created: 
 tags: []
 ---

@@ -5,36 +5,10 @@ Reads every *.md file in ../customers relative to this script (i.e.
 skills/car-sales-crm/customers/), parses the YAML front matter, and prints
 anyone whose next_followup date is today or earlier. No third-party deps.
 """
-import re
 import sys
+
+from _common import CUSTOMERS_DIR, parse_date, parse_front_matter
 from datetime import date
-from pathlib import Path
-
-CUSTOMERS_DIR = Path(__file__).resolve().parent.parent / "customers"
-
-FRONT_MATTER_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
-
-
-def parse_front_matter(text: str) -> dict:
-    match = FRONT_MATTER_RE.match(text)
-    if not match:
-        return {}
-    fields = {}
-    for line in match.group(1).splitlines():
-        if ":" not in line or line.strip().startswith("#"):
-            continue
-        key, _, value = line.partition(":")
-        fields[key.strip()] = value.split("#", 1)[0].strip()
-    return fields
-
-
-def parse_date(value: str):
-    if not value:
-        return None
-    try:
-        return date.fromisoformat(value)
-    except ValueError:
-        return None
 
 
 def main():
