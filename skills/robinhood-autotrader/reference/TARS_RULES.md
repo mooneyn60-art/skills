@@ -192,8 +192,47 @@ slots are open, by design.
 exactly two ways, and there is no third:
 
   1. Its R4 stop fires.
-  2. It fails R2 on a CLOSING basis -- re-evaluated against the same five
-     conditions used to enter, on completed daily bars, not intraday noise.
+  2. It fails R2's TREND conditions -- rules 1 and 2 only, price above the
+     200-day AND 50-day moving averages -- on a CLOSING basis, measured on
+     completed daily bars, not intraday noise.
+
+**CORRECTED 2026-09-17.** As first written on 2026-09-16 this said "the same
+five conditions used to enter," and that was a genuine bug, caught the same
+evening and repaired the next morning at Nolan's direction. Recorded in full
+because the reasoning matters more than the fix.
+
+The arithmetic that breaks it: R2's rule 3 requires price within **5%** of
+the 20-day high. R4's trailing stop sits **8%** below the highest close. The
+5% test is therefore TIGHTER than the stop, so an R2-fail exit fires FIRST,
+every single time, on every ordinary pullback. The trailing stop becomes
+unreachable -- decorative. A rule written specifically to stop winners being
+cut early instead guaranteed it.
+
+The live case that exposed it: on 2026-09-16 TENB was up 13.7%, the best
+position this account has ever held, and sat 5.53% off its 20-day high. Under
+the original wording it "failed R2" and was exitable. Selling a +13.7% winner
+because it pulled back half a percent past an ENTRY band is not risk
+management, it is the disposition effect wearing a rule's clothing.
+
+Why trend conditions only. R2's five conditions do two different jobs. Rules
+1 and 2 ask "is this in an uptrend?" -- that question stays live for as long
+as the position is held. Rules 3, 4 and 5 ask "is this a good moment to
+start?" -- proximity to the 20-day high, the earnings calendar, the sector
+cap. Those are TIMING conditions for opening, and they are meaningless as
+hold tests. A stock 8% off its high but comfortably above both moving
+averages is still in an uptrend; that is precisely the situation the 8%
+trailing stop exists to sit underneath.
+
+HONEST CONSEQUENCE, recorded rather than buried: this correction retroactively
+invalidates one of the previous day's exits. CNH was sold on 2026-09-16 for
+failing rule 3 at 5.6% off its 20-day high (see
+2026-09-16-CNH-EXIT-R2-FAIL), and at the time that was called "the strongest
+exit justification of any discretionary sale this session." Under the
+corrected rule it would NOT have qualified -- CNH was at 13.65 against a 200d
+of 10.85 and a 50d of 11.30, comfortably above both, still in trend. That
+exit cost -0.41R and should not have happened. It is left in the ledger
+unaltered, per this file's append-don't-erase convention; this note is the
+correction.
 
 Nothing else is an exit. Not "it is red today," not "rotate into something
 better," not "reorganise the book." Those are the decisions this rule
