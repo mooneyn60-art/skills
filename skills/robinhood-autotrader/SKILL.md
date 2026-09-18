@@ -1,0 +1,351 @@
+---
+name: robinhood-autotrader
+description: Two ways to run autonomous Robinhood trading with Claude. (A) Live, in-session agentic trading via Robinhood's official Trading MCP server, orchestrated as parallel read-only research "desks" (regime, momentum, mean-reversion, crypto, crowd/popularity, options flow, earnings, social sentiment) with all execution authority centralized in the main session behind a Confirmation Gate and a Risk/PDT Checks-and-Balances Gate. (B) An offline unattended script loop (robin_stocks + pyotp + anthropic) that runs outside any Claude Code session, for a single Claude-scored watchlist decision per pass. Use when the user wants to set up, configure, extend, or debug either path — especially when they've connected Robinhood's official agentic Trading MCP connector and want Claude Code itself to research and trade.
+license: Complete terms in LICENSE.txt
+---
+
+# Robinhood Autotrader
+
+## Which path is this?
+
+- **Section A — live in-session trading via Robinhood's official Trading MCP server**
+  (`agent.robinhood.com/mcp/trading`). Claude Code itself researches and places orders,
+  right here, in this session, against a Robinhood-connected account — normally a
+  dedicated "agentic" sub-account the user sets up specifically for this, separate from
+  their primary brokerage/IRA accounts. This is Robinhood's own sanctioned agentic-
+  trading feature (OAuth-based), not an unofficial API client. **This is the path to
+  use when the user has connected that MCP server and wants ongoing autonomous or
+  semi-autonomous trading happening in Claude Code conversations.**
+- **Section B — offline unattended script loop** (`scripts/`) using `robin_stocks` +
+  `pyotp` + the `anthropic` SDK. Runs on the user's own machine/server (cron, systemd,
+  Docker), independent of any Claude Code session, and needs the user's own Robinhood
+  credentials and Anthropic API key directly. Use this when the user explicitly wants
+  something running outside of a Claude Code conversation.
+
+Don't mix the two: Section A never touches `robin_stocks` or the user's raw
+credentials; Section B never assumes an MCP connection. Ask which the user means if
+it's ambiguous — "set up Robinhood trading" defaults to asking, not guessing.
+
+## Section A — Live in-session trading (Robinhood Trading MCP)
+
+Full architecture, gates, cadence, and the live-dashboard pattern live in
+`reference/live-mcp-architecture.md` — read it before setting this up or extending an
+existing setup. Summary:
+
+- **Research is parallel and read-only; execution is centralized.** Spin up independent
+  "desks" as subagents (the `Agent` tool, `subagent_type: "general-purpose"`).
+  Every desk gets explicit instructions to never call an order-placing tool. The main
+  session is the only place with execution authority — it receives every desk's report
+  and is the sole Risk/Portfolio-Manager. **Subagents are isolated and cannot message
+  each other**; the main session is the switchboard.
+- **Run rounds in stages, not one big spawn.** A **Wire Desk** goes first and alone,
+  producing one shared macro/company/policy brief that is pasted verbatim into every
+  downstream desk — one search instead of four, and the gates get teeth because desks
+  finally argue from identical facts. Then up to three analysis desks concurrently,
+  then cross-examination of genuine conflicts (reopen a desk with `SendMessage`, which
+  preserves its context), then a mandatory **Red Team** pass before any buy.
+- **Desk roster** (research angles, expand thoughtfully rather than by rote): Wire,
+  Regime, Idea (scanner-driven momentum + mean-reversion), Portfolio Review, Performance,
+  Red Team, Fundamentals/Business (mandatory pre-buy), Political Flow, Popularity/Crowd,
+  Options Flow (signal-only), Earnings/Catalyst, Social Sentiment, Crypto. See the
+  reference doc for each desk's mandate and the incidents that motivated Red Team,
+  Performance and Fundamentals.
+- **Know what you are buying before you buy it.** The Fundamentals desk runs on every
+  candidate pre-purchase and reports what the business does, market cap, P/E (negative
+  flagged outright), 52-week range, and any dividend cut or suspension. It reports —
+  it does **not** veto on quality. A 2026-09-16 check found two of the account's best
+  performers would have failed a profitability screen: INTC at a -45.8 P/E with its
+  dividend suspended since 2024, and TENB at a P/E of 659. Momentum's winners are
+  frequently unprofitable. Log the fundamentals at entry and measure whether they
+  predicted anything after 30 closed trades rather than assuming they do.
+- **Gates every idea must clear before it can execute:**
+  1. **Confirmation** — cross-check against the wire, the Regime call, other desks, any
+     cross-examination outcome, and the Red Team verdict. Corroboration raises
+     conviction; an unanswered contradiction kills the idea.
+  2. **Risk & PDT** — new position ≤~20% of equity, no position above ~30%, PDT budget
+     (≤3 same-day round trips per rolling 5 business days), and a daily hard-stop floor
+     (prior close equity minus the user's chosen loss limit) that halts new buys.
+     **Rebase the floor for deposits/withdrawals, never for losses — and always tell
+     the user when you rebase and why.**
+  3. **Sizing** — a default band, halved when Red Team says RESIZE, the name is
+     pre-revenue or cash-burning, it correlates with an existing large holding, or a
+     major macro print lands within 48 hours.
+- **Constructing a trade — run it in this order, and never backwards.** Find the
+  **stop level first** (below structure, never at a prior low or inside a cluster
+  of them; no clean level = no trade), then **size from that stop**
+  (`shares = risk_budget / (entry - stop)`, ~1–1.25% of the account) rather than
+  from a fixed dollar habit, then **prefer whole shares** because stop orders
+  cannot be fractional and every fraction bought is permanently unstoppable, then
+  **measure correlation on down days** before calling anything a diversifier.
+  Track **portfolio heat** — the sum of `(price - stop) x stopped shares` across
+  the book — against a ceiling, and recompute concentration after *sells* as well
+  as buys, since trimming one position mechanically inflates another. The
+  reference doc explains each with the failure that produced it: one session
+  placed five stops before doing any level work and a desk later found all five
+  wrong.
+- **Cadence — the hard-won part.** The scheduled Routine *is* the cadence. Do NOT build
+  a self-chaining fast tick: doing exactly that exhausted a session's rate limit by
+  11:35am ET on a live trading day and left the account with **zero monitoring for 4.5
+  hours**, including an unwatched stop level. Run a cheap **light tick** every firing
+  (no subagents) and gate full desk rounds to at most twice a day; unused capacity is
+  the monitoring reserve. Honest 1-hour monitoring beats promised 5-minute monitoring
+  that dies at lunchtime — say so if the user asks for a cadence the budget can't hold.
+  **Guard the calendar before the first tool call** (weekends, holidays, early closes):
+  when the market is closed nothing in the account can change, so any pull is waste.
+- **Optional live dashboard:** publish an HTML Artifact with the `db` capability and
+  write account/risk/desk-status/decision-log/trade-log snapshots to it on every
+  check-in; the page subscribes live via `onSnapshot`, so no republish is needed for
+  routine updates. Add the `sample` capability for an in-page chat box, but be explicit
+  in the UI that it's a separate, memory-less quick-answer assistant that **cannot
+  place trades** — log the user's message to a shared doc too, so the actual trading
+  session can give a real ("live") answer at its next check-in.
+- **Hard constraints worth knowing before you hit them** — see
+  `reference/live-mcp-architecture.md` for the full list (harness tool-approval gates
+  that chat "yes" can't bypass; fractional/dollar orders being market + regular_hours
+  only; **a `regular_hours` order placed pre-market queues and fills at the open**,
+  which turns "I must be awake at 9:30" into a decision that executes itself; and that
+  crypto agentic execution can be regulatorily blocked for some account residencies —
+  check before promising it, and keep any crypto desk research-only if blocked).
+- **What not to hunt.** Users ask for these by name; research them, then usually decline.
+  Buying a hot IPO on day one is a documented retail loser (the pop accrues to
+  allocation holders; the real structures are lockup expiries and quiet-period-end
+  initiations, and fading supply needs shorting a cash account can't do). Buying *into*
+  an earnings print is a coin flip — the defensible version is post-earnings drift,
+  entering after the surprise, and even that must be checked against the regime, since
+  in a rate-driven compression tape drift can run negative and every beat fades.
+  **Options in a small account** deserve the multiplier check before any research:
+  one contract is 100 shares, so covered calls need the account to be roughly
+  **400x the share price** before that block is a sane slice of the book, cash-
+  secured puts need 100 x strike in cash, and a protective put bought against a
+  *fractional* position is not a hedge but a naked bet on ~90x the stock actually
+  owned. Price a hedge's payoff table against the loss it removes before assuming
+  it removes one. Answer with the account size at which each structure turns on,
+  not a flat no.
+- **"Resolves to only 1 share" is not a sizing complaint — it is an extended entry.**
+  Since `shares = risk_budget / (entry − stop)` and the stop sits below structure, share
+  count is inversely proportional to **distance-to-support**. Four of fourteen candidates
+  died this way in one session, and their clean stops sat **9.7% / 9.3% / 8.2%** below
+  entry — not ATR problems (a 3%-ATR name at 1.5 ATR needs a 4.5% stop and sizes to 4-5
+  shares), but stocks that had run far above their last swing low. This is the same finding
+  as the range-location test on that name: top-quartile entries drew down ≥9.5% **20.1%** of
+  the time vs **8.3%** from the bottom quartile (per-name — pooled across names the effect
+  is nearly flat, see below). **The trap: a momentum screen manufactures the problem
+  it exists to solve** — a "≥2% day change" filter selects by construction for names that
+  just left their support, and the failure surfaces three steps downstream as a sizing
+  complaint where nobody connects it back to the filter. Lower the day-change threshold or
+  screen on proximity to structure. **When the notional cap binds before the share count,
+  you are in the right band; when the share count binds first, the entry is extended.**
+- **Diversifying a small book is a position-COUNT problem, not a sector problem.** Five
+  names where two are 61% of equity is single-name risk, not factor risk — the two largest
+  measured **0.18** correlated and were not a bloc. Size the opportunity honestly:
+  room for new positions = (heat cap − current heat) ÷ per-trade risk, which at a 6% cap on
+  ~$1,100 with 2.9% heat is ~$34, or 3-5 more positions. Screen additions against **each
+  other**, not just against the book — two global-industrial-cycle plays are one position
+  wearing two tickers.
+- **Give the adversarial desk a verdict mapping, or it becomes a wall.** An agent asked
+  to find what is wrong always finds something, and with no rule about what counts, every
+  finding reads as fatal — measured symptom, a **100% kill rate**, at which point the veto
+  carries no information. Only three findings should KILL: the thesis has the **wrong sign**;
+  a **load-bearing** fact can't be verified (name it, and say why it's load-bearing — not any
+  unverified fact); or the risk is **uncontainable** by any stop. Everything else — entry too
+  high, stop on the wrong level, size too big, timing poor, valuation rich, guidance soft — is
+  **RESIZE or REPRICE**, and the desk must output the version that *is* right ("not here, but
+  at $10.90 with a stop at $10.20"). Answering "no" when it could answer "not yet" destroys
+  information the desk already produced. Require every KILL to **state the cost of being
+  wrong** in dollars at the proposed size, **log and later score** each veto against its own
+  thesis (a kill premised on event behavior isn't scoreable until the event), and prefer
+  "PROCEED, and here is the strongest surviving objection" over a clean pass. The asymmetry
+  that drives the drift: a bad trade costs the risk budget, a missed trade costs the whole
+  gain — the first feels worse and the second is invisible, so an unscored veto ratchets
+  tighter until nothing passes.
+- **Match the correlation test to the position's claimed ROLE, not to the book.** A
+  candidate pitched as a *disorder hedge* passed every test asked of it — beta **+0.02**
+  to the largest holding, **−0.06** to the sector ETF, a coin flip on that holding's worst
+  days. Red Team then regressed it on volatility itself, which is what the thesis actually
+  claimed: correlation to a VIX proxy **−0.167**, and on the top 20 vol-*collapse* days it
+  averaged **+1.317% (up 15/20)** versus +0.045% on vol-*spike* days. A short-volatility
+  asset, about to be bought as volatility protection two days before a scheduled print.
+  "Uncorrelated to what I own" and "rises when the thing I fear happens" need different
+  regressors — diversifier → the book; volatility hedge → a VIX proxy; inflation hedge →
+  breakevens on print days; defensive → the market conditioned on down days. **Any thesis
+  of the form "X profits from chaos" is where inverted signs hide** (gold "the inflation
+  hedge" is a real-rates asset; brokers "paid by volatility" are paid by volume, which
+  arrives on relief rallies). Test the sign before the size.
+- **Locate the entry in the range — per name, and don't assume the effect generalises.**
+  On that candidate's own history, top-quartile entries hit a ≥9.5% drawdown **20.1%** of
+  the time in 10 sessions vs **8.3%** from the bottom quartile, so a "wide" 2.89 ATR stop
+  sat *inside* two prior declines from that price. ⚠️ But pooled across four names and five
+  years (4,756 obs) the buckets are **24.7 / 19.9 / 19.5 / 21.4%** — nearly flat, and the
+  *bottom* quartile is worst (falling knives). An earlier version of this file promoted the
+  single-name result to a universal rule within hours of seeing it; that was wrong. Run the
+  buckets on the actual candidate, and when the gradient is flat the test says nothing. And its supporting volume shelf, once explained, was a sector-wide repricing on a
+  macro relief headline (peers up 2–11% against a flat index), i.e. regime residue that
+  vanishes with the regime. **An unexplained volume shelf is not support; it is an open
+  question wearing support's clothes.**
+- **Before a scheduled macro print, model the event instead of narrating it — the risk
+  is usually whipsaw, not ruin.** Replaying 2026's actual CPI/PPI sessions through a live
+  book cost **$12.91** on the worst of them, and the biggest single-day loss in the same
+  sample came from a *non*-CPI day. Overnight gaps measured small (−3% to −7%) while
+  single-day closes reached −11%, so slippage below the open is modest and the damage
+  lands *intraday, after stops have filled*. Hence the real failure: one position gapped
+  −4.94%, tripped its stop, filled 2.2% through it, then **closed +2.83%** — the stop
+  worked perfectly and sold the low of a day that rallied. Before paying to de-risk, binary
+  -search the shock needed to reach the floor; with cash near 38% of the account it took a
+  **−28% single session** against a −3.01% worst observed gap, which ends the argument.
+- **Never call something a concentration or a diversifier from its sector label — compute
+  the matrix, then compute it again on down days only.** Three names sharing an "AI" label
+  measured **0.18** pairwise, and **−0.18 on down days**; the tightest pair in the same book
+  was a quantum microcap and a consumer fintech at **0.68**. The label has been wrong three
+  times running. Stress with `max(full-sample beta, down-day beta)`, since calm-regime
+  correlations compress toward 1 in a common-factor shock.
+- **R-multiple trailing rules break when R is smaller than the noise.** At exactly +1R the
+  gap between price and a breakeven stop is *exactly R*, so "move to breakeven" is safe only
+  if **R ≥ 1.5 ATR** — with R = $0.54 against ATR $0.596 (0.91 ATR) the rule mandates a stop
+  inside noise by arithmetic, on every trade. Likewise "1.5 ATR below the highest close"
+  anchors on the *high*: after a pullback it returned a stop 0.68 ATR from spot on one name
+  and *above the market* on another. Treat the ladder as a request for a tighter stop, not a
+  coordinate — compute both anchors, reject anything inside 1.5 ATR of current price, move
+  the survivor DOWN to the nearest clean level below structure, ratchet up only, and don't
+  tighten at all within 48h of a print. Reconcile R against ATR **at entry**; a stop built
+  tighter than 1.5 ATR poisons every downstream rule that references R.
+- **Pull tax lots before any exit decision; the position endpoint is not the basis.**
+  After a partial sell the broker recomputes the displayed average, so it stops matching
+  the remaining lot — measured, a position showed $206.84 against a real lot basis of
+  **$208.37**, overstating locked gain by 25%. Worse, a blended average hides dispersion:
+  a tidy $170.47 average sat on lots of **0.31 @ $136.29** and **0.80 @ $183.71**, and
+  because FIFO sells the *oldest* lot first (the winner, here), blended math priced the
+  stop-out at −$4.97 where FIFO gives **−$3.50**. And **stops are always FIFO** — the
+  `tax_lots` parameter is rejected on `stop_market`/`stop_limit`, so a resting stop can
+  never be told which lot to sell. Plan for the consequence: on that position a one-share
+  stop eats the whole profitable lot plus most of the loser and leaves **0.11 shares of
+  the worst lot, unstoppable**. When dispersion is wide, a manual specified-lot exit and
+  a stop exit are different trades and only one is selectable.
+- **Long options fail the *floor* test, not the friction test — check which.** The
+  multiplier kills covered calls and cash-secured puts, but not long calls/puts, and
+  "the spreads are prohibitive" is an assumption people substitute for measuring.
+  Measure it: liquid mid-caps routinely quote a **penny wide** 30–45 days out on
+  five-figure open interest, which is better execution than most equity fills. The
+  real blocker is that a long option can go to zero, so its premium is spent against
+  the **drawdown headroom left before the account's floor** — not against a
+  percentage of equity. `max premium = (total value − floor) × the fraction of the
+  remaining bankroll you'll stake on one binary`. On a $1,101 account with a $1,007
+  floor that caps premium near $23, where only 12–18%-probability tickets live, while
+  the one contract with a real delta and a real market costs $105 — more than the
+  entire headroom, so it breaches the floor unaided. State the threshold, not a verdict.
+- **Give options their own desks, ordered Structure → Liquidity → Risk.** *Structure*
+  asks whether an option is the right expression of an already-passing thesis and
+  which one (at level 2 there are no spreads, so "defined risk" means 100% of
+  premium). *Liquidity* publishes the measured spread/OI/round-trip table. *Risk* runs
+  the floor and multiplier tests last. Running Risk first yields a budget, and a budget
+  makes the desk shop for whatever fits it — which is how a process ends up defending a
+  far-OTM lottery ticket on price. Red Team stays mandatory on top: an option that gaps
+  to zero has no stop underneath it.
+- **If the user names a big target, do the arithmetic once, plainly.** From ~$1,000,
+  reaching $1M is ~1,000x: about 37 years at 20% a year, ~17 at 50%, still a decade at
+  100% *every* year — which essentially nobody sustains. At small account sizes deposits
+  dominate returns. Say it without moralising, then write into the routine that the
+  ambition never justifies loosening a gate, oversizing, chasing, or skipping a
+  "nothing qualifies" answer.
+- **Standing autopilot (no per-trade confirmation) is opt-in, not a default** — only run
+  fully autonomously once the user has explicitly and repeatedly granted that in chat.
+  A fresh request for this setup should start with research-only or confirm-before-
+  execute, the same posture Section B defaults to. Whatever the authorization level,
+  **report faithfully**: lead with the bad news and name a failure before the user finds
+  it.
+
+## Section B — Offline unattended script loop
+
+1. Logs into Robinhood with `robin_stocks` + `pyotp` (TOTP, no manual 2FA codes).
+2. Pulls quotes/history for a configurable watchlist.
+3. Sends a market snapshot to Claude (`anthropic` SDK), which returns a structured
+   buy/sell/hold decision per symbol with a confidence score and reasoning.
+4. Runs every decision through a risk manager that enforces a max position size and a
+   daily-loss circuit breaker before anything is sized or sent.
+5. Executes the trade — or, in paper mode (the default), just logs what it *would* have
+   done — and writes a full audit trail to `trade_log.csv`.
+
+**This is not run inside a Claude Code session.** It needs the user's own Robinhood
+credentials and Anthropic API key, so it's meant to run unattended on the user's own
+machine/server (cron, systemd, Docker), not here. Claude's job when this path is used
+is to help the user set it up, configure risk limits, review `trade_log.csv` output,
+and debug issues — not to hold or transmit the user's credentials.
+
+### Critical safety notes (read before enabling live trading)
+
+- **`robin_stocks` is an unofficial, reverse-engineered client for Robinhood's private
+  API.** Robinhood's terms generally prohibit automated/bot trading through unofficial
+  channels. Using this can lead to account restriction or closure — that risk exists
+  independent of whether the strategy is profitable. Make sure the user understands
+  this before helping them go live. (Section A, via Robinhood's official Trading MCP
+  server, does not carry this specific unofficial-API risk — a good reason to prefer
+  Section A when the user has that connector available.)
+- **Live trading is opt-in, not the default.** `scripts/executor.py` only places real
+  orders when the user sets `LIVE_TRADING=true` in their own environment. Never set
+  that flag on the user's behalf, and never ask the user for their Robinhood password
+  or TOTP secret inside this chat — those belong in the user's own `.env` on their own
+  machine, from `.env.example`.
+- **The daily-loss circuit breaker halts the whole loop**, not just new trades, by
+  writing a `HALT_TRADING` file next to `trade_log.csv`. It only clears when the user
+  deletes that file, so a bad day can't compound unattended. Don't build a
+  "self-healing" workaround for this — it's the whole point.
+- **LLM output is not guaranteed correct or profitable.** Claude's decisions are
+  probabilistic and can be wrong, hallucinate reasoning, or misjudge risk in ways that
+  differ from a human trader. Treat this as automation of a strategy the user is
+  responsible for, not a source of guaranteed returns. Nothing here is financial
+  advice. (This caveat applies equally to Section A's desks and Risk/Portfolio-Manager
+  session — none of it is guaranteed correct either.)
+- **Always get real paper-trading history before discussing enabling live mode** —
+  several days/weeks of `trade_log.csv` output the user has actually reviewed.
+
+### Setup
+
+See `reference/setup.md` for full instructions (env vars, install, running the loop).
+Quick path:
+
+```bash
+cd scripts
+pip install -r requirements.txt
+cp .env.example .env   # fill in the user's own credentials, never Claude's
+python trader.py --once          # single decision pass, paper mode by default
+python trader.py --interval 900  # loop every 15 minutes during market hours
+```
+
+## When to use this skill
+
+- **Section A**: the user has connected Robinhood's official Trading MCP server and
+  wants Claude Code to research and trade autonomously or semi-autonomously across
+  conversations — set up or extend the desk architecture, gates, cadence, and
+  dashboard described in `reference/live-mcp-architecture.md`.
+- **Section B**: the user wants something running independent of any Claude Code
+  session — set up or debug the `scripts/` loop, change risk limits (position size cap,
+  daily loss cap, watchlist), read `trade_log.csv`, or move from paper to live mode
+  (walk through the safety notes above first, and confirm the user has reviewed
+  paper-trading output before helping them set `LIVE_TRADING=true`).
+
+## File map
+
+| File | Purpose |
+|---|---|
+| `reference/live-mcp-architecture.md` | Section A: desks, gates, cadence self-chaining, live dashboard pattern, hard constraints |
+| `reference/MARKET_MECHANICS.md` | How the market itself works: exchanges, order types, market makers, indices and weighting, what actually moves prices, corporate actions, short selling, circuit breakers, extended hours |
+| `reference/TRADING_PSYCHOLOGY.md` | Sourced behavioral finance (loss aversion, disposition effect, overtrading, social proof, what separates traders who last) mapped to real incidents from this account and the rule each one motivates |
+| `reference/SECTOR_ANALYSIS.md` | The 11 GICS sectors, sourced business-cycle rotation (which sectors lead each phase and why), and why the same valuation ratio means different things per sector (REIT P/FFO vs. energy EV/EBITDA vs. bank P/B) |
+| `reference/FUNDAMENTAL_ANALYSIS.md` | The three financial statements, how to check earnings quality (cash flow vs. net income divergence, the channel-stuffing signature), and Buffett's economic-moat framework (durability over hype) -- sharpens catalyst research, adds no new entry rule |
+| `reference/INSIDER_AND_OWNERSHIP_SIGNALS.md` | Form 4/Section 16 mechanics (who files, the 2-business-day deadline) and the real, replicated finding that insider buying -- especially clustered buying by multiple insiders -- predicts far better than insider selling (Lakonishok & Lee; Kang/Kim/Wang; Alldredge et al.); how 10b5-1 pre-scheduled plans mute a specific sale's information content and how to spot one in the filing; 13F filings' 45-day staleness and the mixed/skeptical peer-reviewed evidence on "cloning" them (Griffin & Xu; Verbeek & Wang); short interest/days-to-cover disclosure mechanics extending `MARKET_MECHANICS.md`'s short-selling section -- explanatory context for catalyst research (the OVV insider-sale gap), not a new R2 signal |
+| `reference/FED_AND_RATES.md` | How the Fed actually enforces its rate band (IORB/ON-RRP floor, standing-repo ceiling), the dot plot vs. the rate decision itself, QE/QT, and the discount-rate + competing-asset mechanism connecting a hike to stock prices -- written ahead of a real scheduled FOMC decision this book is exposed to |
+| `reference/OPTIONS_EDUCATION.md` | The options textbook: mechanics, all five greeks, IV, and the full strategy catalog (every call/put structure, defined and undefined risk, which need Level 3) with when/why each is used |
+| `reference/BEAR_MARKET_PLAYBOOK.md` | Sourced research on surviving hard markets: what actually happened to sectors/trend-following in the dot-com bust, 2008 GFC, 2020 COVID crash and 2022 rate-hike bear; the trend-following vs. sector-rotation vs. quality/low-vol evidence; why index puts, VIX products and shorting don't fit this account's size; and why "losing less" (R2's job) is a different, evidenced claim from "beating the market" (not R2's job) |
+| `reference/options.md` | The options lab notebook: what's been measured on THIS account specifically — permission levels, collateral arithmetic, why buying premium loses (measured), the floor test, the wheel/CSP simulation and ruin probabilities |
+| `reference/TAX_TREATMENT.md` | Sourced IRS rules underneath the specified-lot/FIFO practices already documented elsewhere: short-term vs. long-term holding periods, the wash sale rule (with a concrete example from this account's own stop-and-re-entry book), why equity options do NOT get Section 1256's 60/40 blended treatment, and what `trades.jsonl` does/doesn't capture for Form 8949/Schedule D -- general education, not tax advice |
+| `reference/HIDDEN_MARKET_DRIVERS.md` | Sourced, non-news mechanical drivers of price: options-expiration dealer gamma hedging/pinning, index reconstitution forced flows (with OVV/TENB's own real S&P inclusion events), quarter-end window dressing and turn-of-month, buyback blackout windows, calendar seasonality graded from well-replicated (Santa Claus) to arbitraged-away (January effect), and ETF creation/redemption basket pressure -- explanatory context for separating a real catalyst from an "unexplained pop," not a new R2 signal |
+| `reference/CREDIT_MARKETS.md` | Credit markets as a leading indicator of equity stress: what a credit-spread widening mechanically means and the real (and honestly-caveated) track record of high-yield spreads leading equity drawdowns (2007-08, 2015-16 energy, 2020, 2022's counter-example); the IG/HY/leveraged-loan risk hierarchy; the NY Fed's own 3-month/10-year yield-curve recession model and its false-positive caveats; CDS market mechanics in 2008 and the European sovereign crisis; and the TED spread/September 2019 repo spike as funding-liquidity stress distinct from credit/solvency stress -- explanatory context connecting to `FED_AND_RATES.md`, not a new R2 signal |
+| `reference/setup.md` | Section B: env vars, ToS caveats, how to move from paper to live safely |
+| `paper/PROTOCOL.md` | Paper-trading rules that stop the record from flattering itself, and the stopping rules |
+| `paper/expectancy.py` | Expectancy in R with a 95% CI, trades-still-needed, and an exit-reason breakdown |
+| `scripts/config.py` | Section B: watchlist, risk caps, model name — all overridable via env vars |
+| `scripts/auth.py` | Section B: Robinhood login via `robin_stocks` + TOTP from `pyotp` |
+| `scripts/market_data.py` | Section B: fetches quotes/history and account state from Robinhood |
+| `scripts/signals.py` | Section B: calls the `anthropic` SDK for structured trade decisions |
+| `scripts/risk.py` | Section B: position sizing caps + daily-loss circuit breaker (`HALT_TRADING`) |
+| `scripts/executor.py` | Section B: places live orders or logs paper trades, per `LIVE_TRADING` |
+| `scripts/trader.py` | Section B: orchestrates one pass or a continuous loop, writes `trade_log.csv` |
