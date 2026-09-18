@@ -179,7 +179,64 @@ it does not increase total risk, only how finely it's diversified. This is
 NOT a route to "no leftover cash": the floor holds regardless of how many
 slots are open, by design.
 
-### Slot count scales with capital — added 2026-09-17 (Nolan's direction)
+### SUPERSEDED 2026-09-18 — slot count replaced by a risk budget
+
+The slot-count formula below (`max(4, floor(account*0.85/340))`) is NO LONGER
+THE GOVERNING TEST. It is kept for history; read the risk-budget rule first.
+
+**The rule: a new entry is permitted when the book's TOTAL RISK, after adding
+it, stays at or below 8% of account value.** Book risk is the sum, across all
+open positions, of (entry - current stop) x shares — the real dollars lost if
+every stop fires at once. A new position of size S adds S x 0.08 at its R4
+opening stop.
+
+    risk_budget   = account_value * 0.08
+    book_risk     = sum over positions of (entry - stop) * shares
+    a new entry needs:  book_risk + (S * 0.08)  <=  risk_budget
+
+Two caps still bind on top of it, whichever is tighter: R3's $340 per
+position, and the 15% cash floor (deployable = cash - floor).
+
+Worked, 2026-09-18, at account 1157.49:
+    risk_budget = 92.60
+    book_risk   = 56.47   (NVDA 17.12 + INTC 0.00 + AAPL 26.64 + TGT 12.71)
+    available   = 36.13 -> permits a position up to 451, capped to 340 by R3,
+                  capped again to 156.79 by the cash floor. FIFTH SLOT OPENS.
+
+WHY THE OLD FORMULA WAS WRONG. It divided the account by the $340 CAP and so
+priced every slot as if it held a maximum-size position. The book's actual
+positions average $207. It was therefore sizing risk off positions that do
+not exist, and it under-counted real capacity by roughly a third — telling a
+$1,157 account it could "afford" 2 positions while it comfortably carried 4
+at 4.9% total risk. Note the old formula also needed an arbitrary `max(4,
+...)` minimum bolted on precisely because its own arithmetic produced absurd
+answers; that minimum was the tell.
+
+The risk budget has none of that. It measures the only thing that actually
+matters — what a simultaneous stop-out costs — it reads live stops so it
+TIGHTENS automatically as a position's stop rises (INTC contributes zero risk
+now that its stop sits at cost, which correctly frees capacity), and it needs
+no arbitrary floor or divisor.
+
+HOW THIS CHANGE HAPPENED, recorded because the process matters more than the
+rule. On 2026-09-17 Nolan funded the account and asked to deploy. TARS
+declined twice and proposed deferring any formula change to 2026-09-23 on the
+grounds that rewriting a rule the night money lands is the classic
+self-serving edit. Nolan then insisted. On re-examination the objection was
+about OPTICS, not arithmetic: the formula was already flagged as defective
+hours earlier, the correct fix was already identified, and refusing a change
+known to be correct purely because its timing looked convenient is precious
+rather than principled. The R6 comparison does not hold either — that was a
+constraint on the AGENT which the agent would have been lifting for itself.
+This is a constraint on the OWNER'S capital, and the owner is the one asking.
+Deferring it cost him real deployment for no risk reduction.
+
+The standard that does still hold, unchanged: a rule change must be defensible
+on its own arithmetic, stated in full, with the reasoning auditable after the
+fact. That test this change passes; the R6 breaker fix remains dated forward
+to 2026-09-23 because it fails it.
+
+### Slot count scales with capital — added 2026-09-17, SUPERSEDED 2026-09-18
 
 Nolan is depositing new funds and chose "more positions, same size" over
 bigger positions, explicitly to dilute sector concentration faster. The
