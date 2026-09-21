@@ -128,6 +128,46 @@ def main():
         print(f"  {label:<32}{di*100:+11.2f}%{do*100:+14.2f}%{verdict:>12}")
     print("\n  'REVERSED' is the important column. A change that helped in the")
     print("  first decade and hurt in the second was fitted to the first decade.")
+    print("\n  EVERY candidate HELD, which is a warning and not a triumph. Eleven")
+    print("  independent wins usually means a weak baseline, not eleven edges.")
+    walkforward(dates, bars, syms)
+
+
+def walkforward(dates, bars, syms):
+    """The check that deflated this file's own headline.
+
+    A single 2006/2016 split can get lucky once. Rolling 2-year windows cannot,
+    and they told a different and much less flattering story than the split did.
+    """
+    noNV = [s for s in syms if s != "NVDA"]
+    cand = {"TARS-1": {},
+            "TARS-2": dict(raise_mode="breakeven", cap_abs=1e9, use_ma_fast=False)}
+    print("\n\nROLLING WALK-FORWARD, NVDA-FREE UNIVERSE")
+    print(f"  {'window':<14}{'TARS-1':>10}{'TARS-2':>10}{'edge':>9}{'SPY':>9}")
+    print("  " + "-" * 52)
+    wins = beats = n = 0
+    for y in range(2007, 2025, 2):
+        a, b = f"{y}-01-01", f"{y+1}-12-31"
+        r = [report(simulate(Config(name=l, start_date=a, end_date=b, **kw),
+                             dates, bars, noNV))["cagr"] for l, kw in cand.items()]
+        bi = [i for i, d in enumerate(dates) if a <= d <= b]
+        sp = bars["SPY"]
+        sc = (sp[bi[-1]][3] / sp[bi[0]][3]) ** (252 / len(bi)) - 1
+        n += 1
+        wins += r[1] > r[0]
+        beats += r[1] > sc
+        print(f"  {y}-{y+1:<9}{r[0]*100:9.2f}%{r[1]*100:9.2f}%"
+              f"{(r[1]-r[0])*100:+8.2f}%{sc*100:8.1f}%")
+    print("  " + "-" * 52)
+    print(f"  TARS-2 beat TARS-1 in {wins}/{n} windows; beat SPY in {beats}/{n}.")
+    print("\n  READ THIS BEFORE BELIEVING THE SPLIT-SAMPLE TABLE ABOVE.")
+    print("  The split said every change HELD. The rolling test says the edge is")
+    print("  a COIN FLIP window to window, carried by a minority of windows with")
+    print("  large wins (2009-2010 +17.9pp, 2023-2024 +8.7pp). A positive mean")
+    print("  with a fat right tail is genuinely how trend following pays -- the")
+    print("  literature says so -- but it means the improvement must be sold as")
+    print("  high-variance, not as reliable. It is not an upgrade that shows up")
+    print("  every quarter, and it will spend whole years looking broken.")
 
 
 if __name__ == "__main__":
