@@ -69,9 +69,14 @@ def features(closes, t):
     if t < max(LOOKBACK, MA_WINDOW):
         return None
     ma = sum(closes[t - MA_WINDOW + 1:t + 1]) / MA_WINDOW
+    # R2 rule 2 is the 50-day MA. 50 trading days is ~2.4 months; test 2 and 3.
+    ma_fast2 = sum(closes[t - 1:t + 1]) / 2.0
+    ma_fast3 = sum(closes[t - 2:t + 1]) / 3.0
     mom = closes[t - SKIP] / closes[t - LOOKBACK] - 1.0
     hi = max(closes[t - LOOKBACK + 1:t + 1])
     return {"above_ma": closes[t] > ma,
+            "above_fast2": closes[t] > ma_fast2,
+            "above_fast3": closes[t] > ma_fast3,
             "mom_pos": mom > 0,
             "prox": closes[t] / hi}
 
@@ -126,6 +131,12 @@ RULES = [
     ("MA + within 10% of high",    lambda f: f["above_ma"] and f["prox"] >= 0.90),
     ("MA + within 20% of high",    lambda f: f["above_ma"] and f["prox"] >= 0.80),
     ("MA + mom + within 5%",       lambda f: f["above_ma"] and f["mom_pos"] and f["prox"] >= 0.95),
+    # --- R2 rule 2: the 50-day MA, never previously tested ---
+    ("R2-2 only: above 3m MA",     lambda f: f["above_fast3"]),
+    ("MA + above 3m MA (r1+r2)",   lambda f: f["above_ma"] and f["above_fast3"]),
+    ("MA + above 2m MA",           lambda f: f["above_ma"] and f["above_fast2"]),
+    ("FULL R2 (r1+r2+r3 @5%)",     lambda f: f["above_ma"] and f["above_fast3"] and f["prox"] >= 0.95),
+    ("r1+r2, prox loosened to 15%",lambda f: f["above_ma"] and f["above_fast3"] and f["prox"] >= 0.85),
 ]
 
 
