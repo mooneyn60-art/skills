@@ -75,6 +75,8 @@ class Config:
     trend_exit: bool = True     # close below both MAs
     atr_stop: float = None      # if set, stop = N * ATR(14) instead of a %
     time_stop: int = None       # exit after N days regardless
+    exit_confirm: int = 1       # consecutive closes below BOTH MAs before exiting
+    exit_band: float = 0.0      # require price this far BELOW the MA to exit
     # --- R3, sizing and capacity ---
     sizing: str = "cap"         # "cap" | "equal" | "risk"
     cap_abs: float = 340.0
@@ -239,9 +241,14 @@ def simulate(cfg, dates, bars, syms):
             px = bars[s][t][C]
             out = False
             if cfg.trend_exit:
-                below_slow = px < sma(bars[s], t, cfg.ma_slow)
-                below_fast = px < sma(bars[s], t, cfg.ma_fast)
+                b = 1.0 - cfg.exit_band
+                below_slow = px < sma(bars[s], t, cfg.ma_slow) * b
+                below_fast = px < sma(bars[s], t, cfg.ma_fast) * b
                 if below_slow and below_fast:
+                    p["below"] = p.get("below", 0) + 1
+                else:
+                    p["below"] = 0
+                if p["below"] >= cfg.exit_confirm:
                     out = True
             if cfg.time_stop and t - p["day"] >= cfg.time_stop:
                 out = True
