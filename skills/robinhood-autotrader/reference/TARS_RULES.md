@@ -1,9 +1,16 @@
 # TARS-1 — Trading Rules
 
 One-line description: The complete, mechanical ruleset TARS trades. No discretion.
-Last Updated: 2026-09-16
+Last Updated: 2026-09-21
 Status: ACTIVE — TARS confirmed sole writer under R7 (2026-09-15)
 Audience: Nolan; any agent or session operating account #731951265
+
+> **2026-09-21 — R2, R3, R4 and R6 were tested for the first time and three of
+> them cost money.** A proposed replacement is specified in full under
+> **TARS-2 — PROPOSED, NOT ACTIVE**, below. *The live account still trades
+> TARS-1 and nothing in that section is in force.* Read it before amending
+> anything here; several ideas in it were tested and rejected, and the reasons
+> are recorded so they do not get re-derived.
 
 ## Overview
 
@@ -766,6 +773,245 @@ prefer create_scan with FILTER_TYPE_SECTOR (a real sector screen) over
 hand-picked ticker lists when building the eligible universe -- it found
 OVV, a clean natural-resources pass, in one query instead of guessing names
 one at a time.
+
+---
+
+# TARS-2 — PROPOSED, NOT ACTIVE (written 2026-09-21)
+
+**The live account still trades TARS-1. Nothing below is in force.** Switching
+the book onto this costs real money on seven live positions — every stop would
+move — and that is Nolan's call to make, not mine. This section exists so the
+decision can be made against a written specification and a stated evidence base
+rather than against my say-so.
+
+Read `paper/engine.py`, `paper/test_tars2.py`, `paper/test_r4_exits.py` and
+`paper/test_r2_conditions.py` for the code. Everything here is reproducible by
+running them.
+
+## The standard a change had to clear to get into this section
+
+Four gates, in order. Most proposals died at gate 3 or 4, including two I liked.
+
+1. **A mechanism**, stated before the test, explaining *why* it should work.
+2. **Split sample** — chosen on 2006-2015, reported on 2016-2026 untouched.
+3. **Rolling walk-forward** — nine non-overlapping 2-year windows. A change
+   that wins on the full sample but loses in most windows is a bet on one era.
+4. **Survives dropping the big winners.** NVDA returned ~300x in this sample;
+   any result it alone carries is not a result.
+
+Two proposals passed gates 1-2 and were **rejected at gate 3**, and are recorded
+under "Tested and rejected" below so nobody re-derives them.
+
+## R2′ — Entry: ONE threshold, used for both entry and exit
+
+    hold while  close >= 200-day SMA
+    enter when  close >= 200-day SMA   (plus R1 liquidity, earnings, sector cap)
+    exit  when  close <  200-day SMA
+
+Rules 2 and 3 of the old R2 — the 50-day MA and "within 5% of the 20-day high"
+— are **deleted**, not loosened.
+
+**Mechanism: inverted hysteresis.** TARS-1 makes the exit easier to trip than
+the re-entry. It exits on a dip below two moving averages, then refuses to come
+back until price has climbed back within 5% of a 20-day high. Every round trip
+is therefore structurally biased to sell low and buy higher. Correct hysteresis
+in any control system has the *exit* band wider than the entry band; TARS-1 has
+it backwards.
+
+**Measured, before any of the reading below.** 2016-2026 round trips in the same
+name re-entered ABOVE the exit price 74.5% of the time, mean gap +3.49%. Against
+a drift null (random entry, same window, same holding length) of 59.6% and
++2.50%, so the rule interaction costs roughly **1 point per round trip** — real,
+and about a third of what the raw number implies.
+
+**Independently confirmed by published work.** Clare, Seaton, Smith & Thomas
+(York DP 12/11, S&P 500, 1988-2011) test exactly this structure — long-window
+entry, short-window exit — and performance rises monotonically as the exit
+window approaches the entry window: maximum asymmetry (50/10) returns 2.48% at
+Sharpe −0.19; near-symmetry (250/200) returns 10.04% at 0.52; fully symmetric
+250-day returns 11.19% at 0.59. Byun & Jeon (*FAJ* 79(2), 2023) supply the
+mechanism for the drawdown half of the symptom: during rebounds, 52-week losers
+beat 52-week winners by >3.36%/month, so a nearness-to-high re-entry gate
+excludes the highest-expected-return population exactly in the recovery window.
+That predicts both of TARS-1's symptoms — the lost return *and* the worse
+drawdown in 2015-2019 — which is what was actually observed.
+
+**Results** (13 names, NVDA excluded, against TARS-1 as it stands):
+
+| | in-sample 2006-15 | out-of-sample 2016-26 |
+|---|---|---|
+| TARS-1 | 4.40% | 9.91% |
+| + symmetric threshold | 5.64% | 10.17% |
+| + no trail | 8.82% | 12.19% |
+| + no flat cap | **11.19%** | **13.85%** |
+
+Walk-forward: **beat TARS-1 in 7 of 9 windows.** Improves in both halves of the
+split with no reversal. Edge survives the winner-drop test at +3.94pp without
+NVDA, +1.54pp without the four largest winners. Lookback neighbourhood is smooth
+— 150d/200d/250d/300d all work, longer slightly better, which matches the
+literature's [150, 450] day range. Turnover falls to 1.79 round-trips per name
+per year, well inside the <6 danger zone.
+
+## R4′ — Exits: keep the hard stop, delete the trail
+
+    initial stop   8% below the fill, GTC, placed within 60 seconds
+    breakeven      raised to entry once the position closes +8% up
+    trail          DELETED
+    trend exit     close below the 200-day SMA
+
+**The trail is the single most expensive rule in TARS-1.** Decomposed on 5,209
+daily bars per name, 2006-2026:
+
+| | CAGR | cost |
+|---|---|---|
+| R2 entry, no stop at all | 9.45% | — |
+| + 8% hard stop | 9.30% | 0.15pp — nearly free |
+| + breakeven raise | 9.03% | 0.27pp more |
+| + 8% trail = **full R4** | **6.83%** | **2.20pp more** |
+
+Cost is monotonic in tightness: 8% → 6.83%, 25% → 8.81%.
+
+**This replicates in the literature on vastly more data, which is the strongest
+single piece of evidence in this whole section.** Dai (2021) tests trailing
+stops from 1% to 20% on **25,997 US stocks, 1926-2016**: value-weighted monthly
+returns 0.43 / 0.45 / 0.63 / 0.79% at 1/5/10/20% against a 0.76% benchmark —
+monotone, and only the 20% stop beats doing nothing. Clare et al. find *every*
+stop width loses to no stop on a 200-day system and conclude "a change of trend
+is the best stop loss." Lei & Li (*Financial Services Review* 18, 2009) find
+trailing stops "neither reduce nor increase investors' losses" and deliver
+"risk reduction rather than return improvement."
+
+**An uncomfortable coincidence worth recording.** Lei & Li note average daily σ
+for their sample was 1.65%, so a 5-standard-deviation stop is 8.25%. TARS-1's
+8% is almost exactly **5 daily σ — the tightest setting anyone in this
+literature tests**, and the one Dai shows destroys value. It was picked from
+intuition and landed on the worst-supported number in the field.
+
+**Why tighter is worse, mechanically.** Kaminski & Lo (*J. Financial Markets*
+18, 2014) prove a stop adds expected return only when return autocorrelation
+exceeds the Sharpe ratio at the same sampling frequency (ρ ≥ π/σ). Under a
+random walk a stop is an unconditional tax. A tight trail effectively samples
+at a high frequency where daily equity autocorrelation is near zero or negative;
+a wide one only fires after a multi-week decline, the horizon where persistence
+actually exists.
+
+**The honest cost of deleting it.** The trail is crash insurance and the payout
+is real: in 2020-2022 full R4 returned 11.41% against 10.55% for no stop *and*
+cut max drawdown from 15.4% to 10.1%. Over 20 years the premium exceeded the
+payout, but removing it means giving that up. The damning period is 2015-2019,
+where the trail lost 3.3pp/yr **and had a worse drawdown** (15.1% vs 10.7%) —
+insurance that loses money and deepens the loss.
+
+## R3′ — Sizing: the flat dollar cap becomes a pure percentage
+
+    per_position_cap = account_value * 0.20      (the $340 term is deleted)
+
+**A flat dollar constant does not scale, and this one progressively shuts the
+account down.** Measured out-of-sample, same rules, varying only start capital:
+
+| account | cost of the $340 cap |
+|---|---|
+| $1,320 | −1.66pp/yr |
+| $5,000 | −5.18pp/yr |
+| $10,000 | **−10.68pp/yr** |
+| $25,000 | **−12.50pp/yr** |
+
+This is the **fourth** instance of the same bug family — R12's stale $85, R9's
+inoperative flat $50, R3's flat $340, and R6's missing resume condition. It was
+predicted in writing in `2026-09-21-R3-AMENDMENT-PERCENTAGE-CAP` the same
+morning it was measured, which is the entire reason for writing predictions
+down. **Any remaining hard-coded dollar figure in this file should be treated as
+a percentage that has not been discovered yet.**
+
+## R6′ — The halt needs a resume condition
+
+R6 says a −15% drawdown from the high-water mark halts the system. **It does not
+say how the system resumes.** As written it is a one-way latch. Run literally in
+simulation, the book halted on 2008-04-11 and never traded again: 44 trades in
+eighteen years, 1.15% CAGR.
+
+Nobody noticed because Nolan deposits most weeks and deposits rebase the
+high-water mark, which silently clears the halt. **The rule has been
+load-bearing-broken the whole time and his deposits have been propping it up.**
+
+    proposed: a halt pauses NEW ENTRIES only. It never forces an exit.
+              After 10 trading days the high-water mark rebases to current
+              equity and entries resume. Nolan is told when it fires and when
+              it clears.
+
+The failure mode here is not "too risky" — it is "silently stops working
+forever," which is worse than either a tight rule or a loose one.
+
+## Tested and REJECTED — do not re-derive these
+
+**Exit confirmation band.** Requiring price to close 1-5% below the MA, or N
+consecutive closes below it, before an exit counts. Motivated by a real and
+correctly documented fact: a 200-day system was whipsawed three times in 2026,
+SPY and QQQ both selling 2026-03-20 and rebuying 2026-04-08 about 4.3% higher,
+and IWM generating a **one-day** signal on 2026-03-30 that cost 3.5%. On the
+out-of-sample test every band value from 1% to 5% beat no band, Sharpe 0.94 →
+1.05 — a proper neighbourhood, and the best-supported idea of the night.
+**Killed by the walk-forward: 3 of 9 windows, and it REVERSED across the split**
+— it lost in the decade you would have selected it in (13.02% → 12.51%) and won
+in the decade you report. That is the weakest evidential shape there is.
+*General lesson: "this would have helped in 2026" is not "this helps on average."
+A rule chosen to fix the most recent thing that hurt is fitted to the most
+recent thing that hurt.*
+
+**ATR / volatility-scaled stops.** 3×ATR(14) in place of the 8% stop scored
+7.68% against 6.57%, but the improvement is indistinguishable from simply having
+a wider stop, and the research found **no peer-reviewed test of ATR-multiple
+stops on long-only US equities at all** — Turtle-style N-unit sizing is an
+undocumented 1983 leveraged-futures curriculum. The academically respectable
+version of the same idea is a k × daily-σ stop (Lei & Li) or Kaminski & Lo's
+threshold in standard deviations. If volatility scaling is ever adopted, adopt
+that form and cite that evidence, not the folklore.
+
+**Loosening R2 rule 3 from 5% to 15%.** Out-of-sample and NVDA-free: 5% gives
+13.25%, 10% gives 12.49%, 15% gives 14.98%, off entirely 13.55%. That is noise
+with a trend drawn through it, not a mechanism. Superseded anyway — R2′ deletes
+rule 3 outright rather than tuning it.
+
+## What I got wrong, kept visible
+
+- **I predicted whole-share quantization (R12) would be the expensive rule** and
+  wrote it into `engine.py`'s docstring before testing. It is not: fractional
+  shares move CAGR 6.57% → 6.78%, which is noise, and in one configuration
+  fractional was *worse*. Both research agents independently made the same
+  error, modelling fixed independent slots with stranded remainders. TARS
+  deploys **sequentially** — one position's rounding waste becomes the next
+  position's budget, leaving 0.4% idle rather than the 39.7% that model
+  predicts. *A constant that stops scaling is ruinous and looks fine; lumpy
+  weights look wrong and mostly are not.*
+- **I labelled a result "risk-parity sizing" that does no risk parity.** At 2%
+  risk with an 8% stop the formula asks for 25% of equity, always above the 20%
+  cap, so the risk term never binds. It is bit-identical to removing the flat
+  cap.
+- **The R3 granularity amendment made the same morning needs a floor, not just
+  a preference.** It pushes toward cheap stocks to fit 3+ shares, and under Reg
+  NMS Rule 612 a one-cent tick is a minimum spread — so percentage spread is
+  floored at 1/price. ITUB at $8.37 cannot trade tighter than ~12bp; NWG at
+  $18.98 is ~5bp. The preference was written without pricing the spread it buys.
+  *Proposed: prefer candidates above roughly $15/share.* The half-penny
+  amendment is delayed to November 2027, so this binds for the whole horizon.
+
+## What is still not tested
+
+R2 rule 4 (the earnings blackout) and R5 (the sector cap, which measured
+roughly neutral) have no evidence behind them either way. Slippage beyond a flat
+5bp assumption, partial fills, and intraday stop-running below the daily low are
+all unmodelled. **Survivorship is real and unfixed** — these 14 names all
+survived to 2026, so every absolute CAGR in this section is flattered.
+Comparisons between rulesets on the same universe are valid; the levels are not
+transferable to a live account.
+
+And the result that should temper all of it: across nine rolling windows the
+best candidate beat SPY in only **5 of 9**. The aggregate edge is real; its
+*reliability* is not. A positive mean with a fat right tail is genuinely how
+trend following pays — Faber's own model "underperform[s] the index in roughly
+half of all years since 1901," and the SG Trend Index returned 0.4% annualized
+over 2009-2019 — but it means any version of this will spend whole years looking
+broken. Budget for that before switching, not after.
 
 ## What would falsify this
 

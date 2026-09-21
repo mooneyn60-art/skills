@@ -73,6 +73,9 @@ class Config:
     raise_mode: str = "trail"   # "none" | "breakeven" | "trail"
     trail_pct: float = None     # defaults to stop_pct, as R4 does today
     trend_exit: bool = True     # close below both MAs
+    exit_on: str = "both"       # "both" MAs, or "slow" = the SAME single line
+                                # used for entry. "slow" makes entry and exit
+                                # SYMMETRIC, which is the literature's #1 fix.
     atr_stop: float = None      # if set, stop = N * ATR(14) instead of a %
     time_stop: int = None       # exit after N days regardless
     exit_confirm: int = 1       # consecutive closes below BOTH MAs before exiting
@@ -243,7 +246,8 @@ def simulate(cfg, dates, bars, syms):
             if cfg.trend_exit:
                 b = 1.0 - cfg.exit_band
                 below_slow = px < sma(bars[s], t, cfg.ma_slow) * b
-                below_fast = px < sma(bars[s], t, cfg.ma_fast) * b
+                below_fast = (px < sma(bars[s], t, cfg.ma_fast) * b
+                              if cfg.exit_on == "both" else True)
                 if below_slow and below_fast:
                     p["below"] = p.get("below", 0) + 1
                 else:
