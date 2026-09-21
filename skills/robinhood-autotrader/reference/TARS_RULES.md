@@ -268,6 +268,93 @@ further. More slots at the same size lets rule 5 do its work, because each
 new entry must find a sector that is not already doubled up. The
 diversification is mechanical rather than aspirational.
 
+### AMENDED 2026-09-21 — the per-position cap is now a PERCENTAGE too
+
+**The rule: max notional per position at entry is the LESSER of $340 and
+20% of account value.**
+
+    per_position_cap = min(340, account_value * 0.20)
+
+    at  $1,316  ->  $263   (the percentage binds)
+    at  $1,700  ->  $340   (they converge)
+    above that  ->  $340   (the dollar cap binds, unchanged)
+
+Nothing about the account above $1,700 changes. This only adds a floor-level
+protection that was missing while the account is small.
+
+**The defect, found by Nolan on 2026-09-21 and confirmed on live weights.**
+He asked why the book was only matching SPY on a day INTC was up 10.6%.
+Attribution said the picks were fine -- roughly +1.17% on invested capital
+against SPY's +0.87% -- and that the problem was WEIGHTS:
+
+    ABBV   $265.18   25.2% of equity   +0.46% today   (low-conviction rotation)
+    NVDA   $223.44   21.2%             +0.53%
+    SOFI   $169.67   16.1%             -0.89%
+    TGT    $158.33   15.0%             +0.09%
+    INTC   $120.13   11.4%            +10.60%         (best position, +18% held)
+    EXEL   $116.24   11.0%             -0.85%
+
+The largest position was the one nobody had conviction in. The best idea in
+the book was the second smallest. **No one decided that.** R12 forbids
+fractional shares (Robinhood rejects stops on fractional quantities), so a
+position's weight is quantized by whatever a single share happens to cost.
+ABBV costs $265, so one share is a quarter of the book. INTC costs $120, so
+one share is a ninth. Conviction never enters the calculation.
+
+Counterfactual, same picks and same day: had INTC carried ABBV's 25.2%
+weight, it alone contributes +2.67% to equity instead of +1.21%. Weighting
+by conviction rather than by share price roughly DOUBLES the day.
+
+**Why this is the same bug twice already caught.** R3's own text above states
+the design intent plainly -- "4 positions at $180 is ~21% of the account
+each." The $340 raise on 2026-09-16 was made to put mega-caps in reach
+("NVDA at $215 exceeds even the $180 cap") and it succeeded at that, but it
+silently abandoned the ~20% weight intent, because a flat dollar cap means a
+different weight at every account size. Identical in kind to R12's stale $85
+and R9's inoperative flat $50: a constant that was correct once and had to be
+found by audit rather than by use.
+
+**HONEST CONSEQUENCE, stated rather than buried.** On 2026-09-18 the account
+was ~$1,155, so this cap would have been $231 and **the ABBV entry at $264.69
+would have been REFUSED.** That was a clean five-of-five R2 entry and TARS
+argued for it. Under this rule it does not happen. That is the cost of the
+change and it is the correct cost -- a position sized at a quarter of the book
+because of its share price is not a sized position, it is an accident with a
+ticker.
+
+**Existing positions are NOT forced out.** A cap change is not an exit. R4's
+exits are exhaustive and a sizing amendment is not on the list. ABBV is over
+the new cap and stays until its stop fires or it closes below both moving
+averages, like anything else.
+
+### Share-price granularity enters entry SELECTION (added 2026-09-21)
+
+The cap above stops a position from being too big. This stops the book from
+being un-sizable in the first place.
+
+**At entry, when two or more candidates pass all five R2 conditions, prefer
+the one where at least 3 SHARES fit inside the deployable budget.** Three
+shares is the point where size becomes a decision -- it can be trimmed, scaled,
+or partially exited -- rather than a coin flip between "one share" and "none".
+
+This is a TIEBREAKER, not a veto. A single-share entry is still permitted when
+the setup is clearly the best available; it is simply recorded honestly. Any
+entry where only one share fits the budget must carry `granularity_forced:
+true` in its ledger record, so the cost of the constraint is measurable
+instead of assumed.
+
+**Worked against today's own shortlist:** EXEL at $58.62 allowed 2 shares
+(marginal). TRMD at $37.90 allowed 4. ING at $36.94 allowed 4-5. ABBV at
+$265 allowed exactly 1, with no say in what it weighed.
+
+**KNOWN FUTURE PROBLEM, recorded now so it is not a surprise.** Above ~$1,700
+the $340 dollar cap binds alone, and it keeps shrinking as a percentage: at
+$10,000 it is 3.4% per position, which would need ~25 names to deploy the
+book. That is precisely the diffusion R3 rejected above -- "twelve positions
+at ~$70 each cannot produce the outcome this strategy depends on." The $340
+figure will need raising again, deliberately and in writing, somewhere in the
+$3,000-$5,000 range. It is NOT being raised speculatively today.
+
 ## R4 — Exits
 
   Hard stop: -8% from fill. Placed as a GTC stop order within 60 seconds of the
