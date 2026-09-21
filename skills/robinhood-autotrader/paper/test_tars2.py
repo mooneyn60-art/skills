@@ -65,7 +65,17 @@ def variants():
          dict(raise_mode="breakeven", sizing="risk", max_positions=8)),
         ("TARS-2d: 2a, trail 20% not none",
          dict(trail_pct=0.20, sizing="risk")),
+        # --- the one that survived every gate; see TARS_RULES.md "TARS-2" ---
+        ("TARS-2 FINAL: symmetric threshold", SYMMETRIC),
     ]
+
+
+# The ruleset written into TARS_RULES.md as the TARS-2 proposal. ONE trend
+# threshold used for both entry and exit (the fix for inverted hysteresis),
+# no trail, no flat dollar cap. Defined once here so the code and the rules
+# document cannot drift apart.
+SYMMETRIC = dict(use_ma_fast=False, prox=None, exit_on="slow",
+                 raise_mode="breakeven", cap_abs=1e9)
 
 
 HDR = (f"  {'candidate':<32}{'CAGR':>8}{'maxDD':>9}{'Sharpe':>8}"
@@ -140,8 +150,7 @@ def walkforward(dates, bars, syms):
     and they told a different and much less flattering story than the split did.
     """
     noNV = [s for s in syms if s != "NVDA"]
-    cand = {"TARS-1": {},
-            "TARS-2": dict(raise_mode="breakeven", cap_abs=1e9, use_ma_fast=False)}
+    cand = {"TARS-1": {}, "TARS-2": SYMMETRIC}
     print("\n\nROLLING WALK-FORWARD, NVDA-FREE UNIVERSE")
     print(f"  {'window':<14}{'TARS-1':>10}{'TARS-2':>10}{'edge':>9}{'SPY':>9}")
     print("  " + "-" * 52)
@@ -161,13 +170,18 @@ def walkforward(dates, bars, syms):
     print("  " + "-" * 52)
     print(f"  TARS-2 beat TARS-1 in {wins}/{n} windows; beat SPY in {beats}/{n}.")
     print("\n  READ THIS BEFORE BELIEVING THE SPLIT-SAMPLE TABLE ABOVE.")
-    print("  The split said every change HELD. The rolling test says the edge is")
-    print("  a COIN FLIP window to window, carried by a minority of windows with")
-    print("  large wins (2009-2010 +17.9pp, 2023-2024 +8.7pp). A positive mean")
-    print("  with a fat right tail is genuinely how trend following pays -- the")
-    print("  literature says so -- but it means the improvement must be sold as")
-    print("  high-variance, not as reliable. It is not an upgrade that shows up")
-    print("  every quarter, and it will spend whole years looking broken.")
+    print("  The split said every change HELD. Rolling windows are stricter, and")
+    print("  they killed two candidates that passed the split -- the exit-")
+    print("  confirmation band (3/9) and, on an earlier definition of TARS-2,")
+    print("  a headline carried almost entirely by NVDA (5/9).")
+    print("\n  The SYMMETRIC ruleset above is the one that survived: 7/9 windows,")
+    print("  better in BOTH halves of the split with no reversal, and still ahead")
+    print("  after dropping NVDA (+3.94pp) and the four largest winners (+1.54pp).")
+    print("  It is the only change of the night with a mechanism, published")
+    print("  corroboration, and a walk-forward behind it.")
+    print("\n  Even so: it beat SPY in a minority of windows. The aggregate edge")
+    print("  is real; its RELIABILITY is not. Budget for whole years of looking")
+    print("  broken BEFORE switching, not after.")
 
 
 if __name__ == "__main__":
