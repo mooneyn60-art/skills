@@ -15,11 +15,19 @@ most of what governs this account only exists at the portfolio level:
     R6   the circuit breaker: 2 stop-outs in 5 days pauses entries
     R12  WHOLE SHARES ONLY -- the rule that quantizes every position weight
 
-R12 is the one that cannot be tested any other way, and it is the one I
-suspect costs the most. On 2026-09-21 ABBV sat at 25.2% of the book and INTC
-at 11.4%, not because anyone decided that, but because ABBV's share price is
-$265 and INTC's is $101. At $1,320 of capital, share price IS position sizing.
-A per-symbol test is blind to that by construction.
+R12 is the one that cannot be tested any other way. On 2026-09-21 ABBV sat at
+25.2% of the book and INTC at 11.4%, not because anyone decided that, but
+because ABBV's share price is $265 and INTC's is $101. At $1,320 of capital,
+share price IS position sizing, and a per-symbol test is blind to that by
+construction.
+
+I WAS WRONG ABOUT WHICH RULE COSTS THE MOST, and this file recorded the wrong
+guess before it recorded the answer, so the guess stays visible. I expected
+R12's whole-share quantization to be the expensive one. It is not: allowing
+fractional shares moves CAGR from 6.57% to 6.78%, which is noise. The
+expensive rules are R4's trail and R3's $340 FLAT CAP -- the cap alone costs
+10.7 percentage points a year at a $10,000 account. Lumpy weights look wrong
+and mostly are not; a constant that stops scaling looks fine and is ruinous.
 
 WHAT THIS ENGINE DOES NOT MODEL
 -------------------------------
