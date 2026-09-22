@@ -462,9 +462,56 @@ $3,000-$5,000 range. It is NOT being raised speculatively today.
   Hard stop: -8% from fill. Placed as a GTC stop order within 60 seconds of the
              fill being confirmed. A position without a live stop is a bug.
   Breakeven: at +8% unrealised, raise stop to the fill price.
-  Trail:     thereafter, stop trails 8% below the highest close since entry,
-             raised only, never lowered.
+  Trail:     thereafter, stop trails 20% below the highest close since entry,
+             raised only, never lowered.   (WIDENED FROM 8% on 2026-09-22)
   No fixed profit target. Winners are trailed out, not trimmed early.
+
+  The operative stop is therefore always:
+
+      stop = max( entry * 0.92,
+                  entry            if the highest close has reached entry*1.08,
+                  highest_close * 0.80 )
+
+  Note the consequence, because it is not obvious: the breakeven raise usually
+  BEATS the 20% trail. The trail only takes over once a position is up roughly
+  25%. Between +8% and +25% the stop simply sits at breakeven.
+
+### TRAIL WIDENED 8% -> 20%, 2026-09-22, at Nolan's direction
+
+**Two independent sources said the 8% trail was the leak, and they agreed.**
+
+*The 20-year test.* Decomposing R4 on 5,209 daily bars per name, 2006-2026:
+no stop at all 9.45% CAGR; + the 8% hard stop 9.30%; + the breakeven raise
+9.03%; + the 8% trail 6.83%. The trail alone costs about ten times what the
+stop and the breakeven raise cost together, and the cost is monotonic in
+tightness (8% -> 6.83%, 20% -> 8.44%, 25% -> 8.81%). At portfolio level:
+8% trail 6.57%, 20% trail 9.02%.
+
+*The live ledger.* 23 closed trades, expectancy -0.10R with a CI spanning
+zero, and one damning line: **5 of 6 winners closed under +1R**. Losses run
+to 1R by construction, so if wins do not exceed 1R expectancy CANNOT be
+positive. That is arithmetic. The 8% trail was manufacturing a high win rate
+by cutting the winners that have to pay for everything.
+
+*The published work.* Dai (2021) tests trailing stops from 1% to 20% on
+25,997 US stocks over 1926-2016: monthly returns 0.43 / 0.45 / 0.63 / 0.79%
+at 1/5/10/20% against a 0.76% benchmark — monotone, and only the 20% stop
+beats doing nothing. Lei & Li note average daily sigma of 1.65%, making a
+5-standard-deviation stop 8.25% — so the old 8% was almost exactly the
+TIGHTEST setting anyone in that literature tests.
+
+**Why widened and not deleted.** A 20% trail still catches a genuine crash,
+which is the whole reason the trail exists. In 2020-2022 the trail beat
+no-stop on return AND cut max drawdown from 15.4% to 10.1%. Widening keeps
+the insurance and stops paying for it on every ordinary wobble. The honest
+cost: in a real crash you now give back more before it fires.
+
+**TARS argued the other way the same morning and was wrong.** On 2026-09-22
+TARS classified the trail as "insurance, not a bug" and excluded it from the
+defect fixes. The live ledger then independently confirmed the leak the
+backtest had already measured. The earlier call is left on the record rather
+than quietly reversed: being too conservative is still being wrong, and the
+evidence changed the recommendation.
 
 **Exits are exhaustive, added 2026-09-16.** A position leaves this book
 exactly two ways, and there is no third:
