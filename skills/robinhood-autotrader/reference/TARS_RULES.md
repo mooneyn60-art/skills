@@ -5,12 +5,17 @@ Last Updated: 2026-09-21
 Status: ACTIVE — TARS confirmed sole writer under R7 (2026-09-15)
 Audience: Nolan; any agent or session operating account #731951265
 
-> **2026-09-21 — R2, R3, R4 and R6 were tested for the first time and three of
-> them cost money.** A proposed replacement is specified in full under
-> **TARS-2 — PROPOSED, NOT ACTIVE**, below. *The live account still trades
-> TARS-1 and nothing in that section is in force.* Read it before amending
-> anything here; several ideas in it were tested and rejected, and the reasons
-> are recorded so they do not get re-derived.
+> **2026-09-22 — THREE DEFECTS FIXED AND NOW LIVE**, at Nolan's direction:
+> R6's halt had no resume condition (a one-way latch); R3's $340 flat cap was
+> a constant that stopped scaling; and R2/R4 were INVERTED HYSTERESIS — the
+> exit was easier to trip than the re-entry, so every round trip sold low and
+> bought back higher. Each is written up at its own rule.
+>
+> **NOT changed: R4's 8% trail.** It costs ~2.2pp/yr but it is a genuine
+> crash-insurance tradeoff, not a bug, and it stays until Nolan decides
+> separately. See **TARS-2** below for the full evidence, the two candidates
+> that were tested and REJECTED, and the standard any future rule change has
+> to clear. Read that section before amending anything here.
 
 ## Overview
 
@@ -30,14 +35,81 @@ Tradeable: US equities and ETFs, last price > $5.00, 30-day average volume
 > 1,000,000 shares. Nothing else. No OTC, no crypto (execution is blocked, 403,
 not retryable), no options until R9 opens them.
 
-## R2 — Entry (all five must be true)
+## R2 — Entry (all three must be true)
 
   1. Price > 200-day moving average.
-  2. Price > 50-day moving average.
-  3. Price within 5% of its 20-day high (widened from 3% on 2026-09-14).
-  4. No scheduled earnings within the next 3 trading days.
-  5. The book holds fewer than 2 positions already in this name's sector
+     THE SAME LINE IS THE EXIT. Below it, the position leaves. There is one
+     trend threshold and it is used in both directions. (2026-09-22)
+  2. No scheduled earnings within the next 3 trading days.
+  3. The book holds fewer than 2 positions already in this name's sector
      (added 2026-09-16 — see the sector-cap note below).
+
+### RULES 2 AND 3 DELETED 2026-09-22 — the entry and the exit were fighting
+
+The old rule 2 (price > 50-day MA) and old rule 3 (price within 5% of the
+20-day high) are GONE. Not loosened — deleted.
+
+**The defect is INVERTED HYSTERESIS, and it is structural, not a tuning
+problem.** TARS-1 exited on a dip below two moving averages, then refused to
+re-enter until price had climbed back within 5% of a 20-day high. The exit
+was EASIER TO TRIP THAN THE RE-ENTRY, so every round trip was rigged to sell
+low and buy back higher. Correct hysteresis in any control system has the
+exit band WIDER than the entry band. This was built backwards.
+
+**Measured on this account's own universe before any of the supporting
+reading was done.** 2016-2026, round trips in the same name re-entered ABOVE
+the exit price 74.5% of the time, mean gap +3.49%. Against a drift null
+(random entry, same window, same holding length) of 59.6% and +2.50% — so
+stocks drifting up explains most but NOT all of it. The rule interaction
+costs roughly ONE POINT PER ROUND TRIP. Real, and about a third of what the
+raw 74.5% implies; quoting the raw number without the null would have been
+a dishonest number.
+
+**Independently confirmed in published work, on exactly this structure.**
+Clare, Seaton, Smith & Thomas (York DP 12/11, S&P 500, 1988-2011) test
+long-window entry against short-window exit and performance rises
+MONOTONICALLY as the exit window approaches the entry window: maximum
+asymmetry (50/10) returns 2.48% at Sharpe -0.19; near-symmetry (250/200)
+returns 10.04% at 0.52; fully symmetric 250-day returns 11.19% at 0.59.
+Every gram of asymmetry costs money.
+
+**And there is a mechanism that predicts BOTH observed symptoms.** Byun &
+Jeon (*Financial Analysts Journal* 79(2), 2023): during market rebounds,
+52-week losers beat 52-week winners by more than 3.36% per month. A
+nearness-to-high re-entry gate therefore excludes the highest-expected-return
+population precisely in the recovery window — which explains the lost return
+AND the worse drawdown TARS-1 showed in 2015-2019, where the old rules
+returned 5.17% against 8.47% with a drawdown of 15.1% against 10.7%.
+Insurance that loses money and deepens the loss is not insurance.
+
+**Validated to the standard now required of any rule change.** Beat TARS-1
+in 7 of 9 rolling two-year walk-forward windows; improved in BOTH halves of
+the 2006-2015 / 2016-2026 split with no reversal; survived dropping NVDA
+(+3.94pp) and dropping the four largest winners (+1.54pp); smooth lookback
+neighbourhood across 150-400 days; turnover FELL to 1.79 round-trips per
+name per year. Two other candidates passed the single split and were KILLED
+by the walk-forward — see "Tested and REJECTED" below. This one did not.
+
+**What this does NOT do.** It moves no live stop. R4's hard stop, breakeven
+raise and trail are untouched, and the 8% trail stays in force — deleting
+the trail is a performance tradeoff, not a defect, and is NOT part of this
+change. Existing positions are not forced out: a rule change is not an exit.
+
+**Honest cost.** Entries become easier, so the book holds more names more of
+the time and sits in cash less.
+
+Exits get BUSIER, not calmer, and this file first said the opposite. "Below
+the 200-day" is a SUPERSET of "below both MAs" — in a decline price loses the
+50-day first, so by the time it is under the 200-day it is almost always
+under both, and the two rules agree. Where they differ is a RECOVERY: price
+can reclaim the 50-day while still under the 200-day, and the old rule then
+stopped exiting while the new one still does. Measured, entry held fixed,
+2016-2026: trend exits rise 150 -> 191 and average hold falls 62 -> 54 days
+(CAGR 13.55% -> 13.85%). The first draft of this paragraph claimed exits
+would come LATER. That was wrong, it was caught by running the engine rather
+than by re-reading the sentence, and the wrong version is named here rather
+than quietly replaced — which is the same lesson as the R6 bug directly
+above: reasoning about a rule is not the same as executing it.
 
 Rule 1 is the load-bearing one. Buying below the 200-day MA — "it's cheap now" —
 is the rule that tested WORST in this repo's own backtest: -87.7% max drawdown
@@ -277,17 +349,40 @@ diversification is mechanical rather than aspirational.
 
 ### AMENDED 2026-09-21 — the per-position cap is now a PERCENTAGE too
 
-**The rule: max notional per position at entry is the LESSER of $340 and
-20% of account value.**
+**SUPERSEDED 2026-09-22 — the $340 term is DELETED. The rule is now:**
 
-    per_position_cap = min(340, account_value * 0.20)
+    per_position_cap = account_value * 0.20
 
-    at  $1,316  ->  $263   (the percentage binds)
-    at  $1,700  ->  $340   (they converge)
-    above that  ->  $340   (the dollar cap binds, unchanged)
+The version that stood for one day, 2026-09-21 to 2026-09-22, was
+`min(340, account_value * 0.20)` — the percentage binding below $1,700 and a
+flat $340 above it. The flat term was removed as soon as its cost was
+measured.
 
-Nothing about the account above $1,700 changes. This only adds a floor-level
-protection that was missing while the account is small.
+**THE $340 FLAT CAP WAS THE SAME BUG A FOURTH TIME.** A constant that does
+not scale is correct at exactly one account size and silently wrong at every
+other. Measured out-of-sample 2016-2026, same rules, varying ONLY the
+starting capital:
+
+    start  $1,320   the flat cap costs   1.66pp / year
+    start  $5,000                        5.18pp / year
+    start $10,000                       10.68pp / year
+    start $25,000                       12.50pp / year
+
+The account does not outgrow the rule. The rule progressively shuts the
+account down — and it does it faster the better Nolan does, which is the
+worst possible direction for an error to run.
+
+**This was predicted in writing before it was measured,** in the 2026-09-21
+amendment above, under "known future problem": *"Above ~1700 the 340 dollar
+cap binds alone and keeps shrinking as a percentage... The 340 figure will
+need raising again, deliberately and in writing."* The engine found it
+independently the same night. That is the entire reason for writing
+predictions down where they can later be checked. The prediction was
+directionally right and UNDERSTATED the magnitude.
+
+**A percentage cannot go stale, so it is not replaced with a bigger constant.**
+Any remaining hard-coded dollar figure in this file should be read as a
+percentage that has not been discovered yet.
 
 **The defect, found by Nolan on 2026-09-21 and confirmed on live weights.**
 He asked why the book was only matching SPY on a day INTC was up 10.6%.
@@ -375,9 +470,17 @@ $3,000-$5,000 range. It is NOT being raised speculatively today.
 exactly two ways, and there is no third:
 
   1. Its R4 stop fires.
-  2. It fails R2's TREND conditions -- rules 1 and 2 only, price above the
-     200-day AND 50-day moving averages -- on a CLOSING basis, measured on
-     completed daily bars, not intraday noise.
+  2. It closes BELOW THE 200-DAY MOVING AVERAGE -- the same single line that
+     admitted it under R2 rule 1 -- on a CLOSING basis, measured on completed
+     daily bars, not intraday noise.
+
+**UPDATED 2026-09-22 to follow R2.** This previously read "rules 1 and 2
+only, price above the 200-day AND 50-day moving averages." R2's 50-day rule
+was deleted the same day, so the exit now names the 200-day alone. That is
+not a side effect of the R2 change — it IS the R2 change. One trend
+threshold, used in both directions. If a future session ever reintroduces a
+second, faster line to the exit without also adding it to the entry, it will
+rebuild the inverted hysteresis this repair removed.
 
 **CORRECTED 2026-09-17.** As first written on 2026-09-16 this said "the same
 five conditions used to enter," and that was a genuine bug, caught the same
@@ -464,7 +567,10 @@ that the exit happens.
       -> no new entries for the next 3 trading days.
       (loss-only qualifier EFFECTIVE 2026-09-23 -- see below)
   Account value -15% below its high-water mark
-      -> halt all new entries, flatten nothing, report and wait for Nolan.
+      -> halt all new entries, flatten nothing, report to Nolan immediately.
+      -> RESUME: after 10 completed trading days from the halt, rebase the
+         high-water mark to current account value and resume entries.
+         Tell Nolan when it fires AND when it clears. (added 2026-09-22)
   Any rule in this file cannot be evaluated (data missing, tool erroring)
       -> no trade. A missing input is never treated as a passing test.
 
@@ -496,6 +602,35 @@ The current breaker therefore stands unaltered and runs its full course.
 From 2026-09-23 the loss-only qualifier is live. Future sessions: this is
 the standard to hold any rule change to. Loosening a constraint is fine.
 Loosening it at the moment it is inconvenient is not.
+
+### THE HALT HAD NO RESUME CONDITION — fixed 2026-09-22
+
+**This was a real bug and it had been live since the halt was written.** R6
+said a -15% drawdown halts new entries. It never said how the system starts
+again. As written it was a ONE-WAY LATCH.
+
+Found by building a portfolio simulator and running R6 literally instead of
+reading it. The book halted on 2008-04-11 and never traded again: 44 trades
+in eighteen years, $1,320 -> $1,657, a 1.15% CAGR against SPY's 8.71%. With a
+resume condition supplied, the same ruleset made 543 trades and $4,672.
+
+**Why nobody noticed.** Nolan deposits most weeks, and the rule directly
+below this one rebases the high-water mark on every deposit — which clears
+the halt condition as a side effect. The rule has been load-bearing-broken
+the whole time and his deposits have been propping it up. The account has
+never been far enough underwater for anyone to discover there was no way out.
+
+**The fix, above:** the halt pauses NEW ENTRIES only and never forces an
+exit. After 10 completed trading days the high-water mark rebases to current
+account value and entries resume. Nolan is told when it fires and when it
+clears, so a halt is never silent.
+
+**The general lesson, worth more than the fix.** This is the fourth defect of
+the same family — R12's stale $85, R9's inoperative flat $50, R3's flat $340,
+and now R6's missing resume. EVERY ONE was found by RUNNING the rule, never
+by reading it. Reading a ruleset cannot find a missing case; only executing
+it can. Any rule in this file that has never been executed end-to-end under
+the conditions it was written for should be assumed broken until it has been.
 
 ### Deposits rebase the high-water mark — added 2026-09-17
 
@@ -776,13 +911,25 @@ one at a time.
 
 ---
 
-# TARS-2 — PROPOSED, NOT ACTIVE (written 2026-09-21)
+# TARS-2 — evidence base (written 2026-09-21, PARTLY ADOPTED 2026-09-22)
 
-**The live account still trades TARS-1. Nothing below is in force.** Switching
-the book onto this costs real money on seven live positions — every stop would
-move — and that is Nolan's call to make, not mine. This section exists so the
-decision can be made against a written specification and a stated evidence base
-rather than against my say-so.
+**STATUS, so nothing here is mistaken for a live rule:**
+
+    R2' / R4' symmetric threshold   ADOPTED 2026-09-22 -- see R2 and R4
+    R3' flat cap deleted            ADOPTED 2026-09-22 -- see R3
+    R6' halt resume condition       ADOPTED 2026-09-22 -- see R6
+    R4' delete the 8% trail         NOT ADOPTED -- still in force, see below
+
+Nolan directed the defect fixes on 2026-09-22. The trail was deliberately
+excluded: it costs return, but it is a crash-insurance tradeoff rather than a
+bug, and removing it is a separate decision he has not made. The rules above
+now carry the adopted changes; this section is kept as the evidence base, the
+record of what was tested and rejected, and the standard future changes must
+clear.
+
+**No live stop moved on adoption.** The three adopted fixes change sizing,
+signals and the halt — none of them touch a placed GTC stop order, and R4's
+never-lower rule stands regardless.
 
 Read `paper/engine.py`, `paper/test_tars2.py`, `paper/test_r4_exits.py` and
 `paper/test_r2_conditions.py` for the code. Everything here is reproducible by
