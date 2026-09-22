@@ -209,10 +209,33 @@ the actual fix: flag the trade, don't block it.
 
 ## R3 — Sizing
 
-Max **$340** notional per position at entry (was $85, then $180; raised
-twice on 2026-09-16). Max **4** concurrent positions (was 12; cut 2026-09-16). Minimum 15% of
-account value held in cash at the close of any session (lowered from 40%
-on 2026-09-14 -- see note below).
+**CURRENT RULE, 2026-09-22 — this paragraph is the summary; the sections
+below are history unless they say otherwise:**
+
+    per_position_cap = account_value * 0.20     (the $340 flat term is DELETED)
+    cash floor       = 15% of account value at the close of any session
+    position count   = NOT a fixed number. Governed by the 8% RISK BUDGET
+                       (see "SUPERSEDED 2026-09-18" below), the cap above,
+                       and the cash floor — whichever binds first.
+
+History: the per-position cap was $85, then $180, then $340 (raised twice on
+2026-09-16), then min($340, 20%) on 2026-09-21, then a pure 20% on 2026-09-22.
+The position count was 12, then a fixed 4 (cut 2026-09-16), then a slot
+formula, then the risk budget (2026-09-18). The cash floor was 40% before
+2026-09-14.
+
+**WHY THIS PARAGRAPH WAS REWRITTEN, 2026-09-22.** It read "Max $340 notional
+per position" and "Max 4 concurrent positions" for hours AFTER both numbers
+were superseded further down this same file — the $340 by that morning's
+amendment, and the 4 by the 2026-09-18 risk budget. The book was holding
+SEVEN positions against a header that said four. Found by Nolan asking a
+plain question: "what are all your rules." THIS IS EXACTLY THE FAILURE R12's
+2026-09-17 correction names — *"never hard-code the cap in a second place
+again, because the second place is the one that goes stale"* — and TARS
+committed it again, on the same day, in the rule that correction was written
+about. A summary at the top of a rule is a second place. It now carries no
+number that is not also the governing number, and any future amendment must
+update THIS paragraph or not be made at all.
 
 Resized 2026-09-16, at Nolan's direction and on this repo's own evidence.
 Twelve positions at ~$70 each cannot produce the outcome this strategy
@@ -273,8 +296,10 @@ opening stop.
     book_risk     = sum over positions of (entry - stop) * shares
     a new entry needs:  book_risk + (S * 0.08)  <=  risk_budget
 
-Two caps still bind on top of it, whichever is tighter: R3's $340 per
-position, and the 15% cash floor (deployable = cash - floor).
+Two caps still bind on top of it, whichever is tighter: R3's per-position cap
+(20% of account value since 2026-09-22 — this line said "$340" until then and
+was corrected in the same sweep), and the 15% cash floor
+(deployable = cash - floor).
 
 Worked, 2026-09-18, at account 1157.49:
     risk_budget = 92.60
