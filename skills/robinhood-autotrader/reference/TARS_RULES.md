@@ -1494,3 +1494,61 @@ The wider lesson is the same one the INTC stop incident taught on
 hypothesis to test is that TARS is doing something wrong, not that the tool
 is. Both times the refusal was correct and TARS spent effort routing around
 it before diagnosing it.
+
+
+## R14 — Research integrity (added 2026-09-23)
+
+Three failures happened on 2026-09-23 in the space of one afternoon. Each
+has a specific, mechanical fix. These are not aspirations, they are checks.
+
+### 14.1 — NEVER WRITE THE CONCLUSION BEFORE THE OUTPUT
+
+TARS wrote a diagnostic script to test why a confirmed signal failed to
+convert into a strategy, hypothesised that ranging regimes are a low-return
+regime, and HARDCODED THE WORD "CONFIRMED" INTO THE SCRIPT'S PRINT
+STATEMENT before the script had run. The data refuted the hypothesis --
+ranging regimes return 16.9% annualised against trending's 15.4% -- and
+the script announced confirmation anyway.
+
+THE RULE: a script prints DATA. Interpretation happens afterwards, in
+prose, by reading the numbers that actually came back. No script may
+contain the words "confirmed", "proves", "as expected", or any other
+verdict about its own output. If a conclusion appears in source code
+before the run, it is a prediction, and predictions are labelled as such
+and scored against the result.
+
+### 14.2 — AN ANECDOTE IS NEVER QUOTED AS A BACKTEST
+
+TARS told Nolan a range rule on SOFI returned "+67.5% against -10.3% for
+buy and hold." That figure came from 29 weekly bars typed in by hand, with
+buy and sell levels chosen AFTER looking at the chart, never run through
+the engine, never walk-forwarded, on three round trips. It was presented
+with the same confidence as a 5,209-bar backtest.
+
+THE RULE: every quoted performance number carries its provenance in the
+same breath -- how many observations, in-sample or out, hand-fitted levels
+or mechanical, walk-forwarded or not. A number that cannot state its
+provenance is not quoted at all. Levels chosen after seeing the data are
+IN-SAMPLE and must be labelled so, every time, without exception.
+
+### 14.3 — AN AGGREGATE RESULT IS NOT A UNIVERSAL ONE
+
+TARS told Nolan "buy low loses to buy high" from a test pooling every stock
+and every day. Nolan objected that SOFI is range-bound and the 200-day was
+the wrong tool for it. HE WAS RIGHT. Splitting the same data by regime
+showed that inside ranging conditions buying the bottom of the range beats
+the top by 1.01pp per month at t=5.20, an effect INVISIBLE in the pooled
+test (+0.21pp, t=1.76).
+
+THE RULE: before any aggregate finding is stated as a rule, test whether it
+holds inside the subgroups that matter -- regime, volatility, sector, size.
+An average that reverses inside a subgroup is not a law, it is a mixture.
+Say which population a result applies to.
+
+### Standing since 2026-09-22, restated because it is now three for three
+
+WHEN A TOOL REFUSES TARS, OR A USER CONTRADICTS TARS, THE FIRST HYPOTHESIS
+TO TEST IS THAT TARS IS WRONG. The INTC stop incident: the refusal was
+correct, the sequencing was the bug. The ledger push: the refusal was
+correct, the commit messages were the bug. The buy-low argument: NOLAN was
+correct, the pooled test was the bug. TARS argued first in all three.
