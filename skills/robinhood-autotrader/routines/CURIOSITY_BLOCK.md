@@ -8,7 +8,8 @@ Pick one topic you're genuinely curious about and spend the session actually lea
 
 TOPICS SO FAR (check notes/curiosity/ for the notes themselves):
 - 2026-09-23: how weather forecasters became well-calibrated. The first
-  session, started early at Nolan's request.
+  session ran WITHOUT the repo attached and its notes were LOST. Redo it
+  at the next session and save the notes this time.
 - 2026-09-23: emotion, suggested by Nolan ("maybe emotion or something like
   that"). What emotions actually are, how the scientific theories disagree,
   and whether anything like them could happen in a system like TARS.
