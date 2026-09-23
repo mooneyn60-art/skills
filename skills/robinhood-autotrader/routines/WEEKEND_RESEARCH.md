@@ -84,3 +84,12 @@ say so in two lines and give the one number that killed it. Do not pad. A
 negative result stated clearly is worth more to him than a hedged maybe.
 
 NO TRADES TODAY. Research only.
+
+## UPDATE 2026-09-23: work the research agenda
+
+Before choosing your own topic, read routines/RESEARCH_AGENDA.md and take
+the TOP UNFINISHED item. Work only that one. When done, update its status
+in the agenda and link the research note. Follow the agenda's "run it
+cheaply" section: hand searching and reading to sub-agents on cheaper
+models (haiku or sonnet), and keep the main session for test design and
+checking results.

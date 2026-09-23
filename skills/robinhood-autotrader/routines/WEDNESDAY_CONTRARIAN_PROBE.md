@@ -57,3 +57,12 @@ write it down for tomorrow's session.
 Two or three lines. What you looked at, whether it survived, and the single
 number that decided it. If it died, say what killed it. Nolan reads on his
 phone and prefers a clean negative to a hedged maybe.
+
+## UPDATE 2026-09-23: work the research agenda
+
+Before choosing your own topic, read routines/RESEARCH_AGENDA.md and take
+the TOP UNFINISHED item. Work only that one. When done, update its status
+in the agenda and link the research note. Follow the agenda's "run it
+cheaply" section: hand searching and reading to sub-agents on cheaper
+models (haiku or sonnet), and keep the main session for test design and
+checking results.
