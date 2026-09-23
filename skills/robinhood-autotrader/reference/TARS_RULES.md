@@ -1,7 +1,7 @@
 # TARS-1 — Trading Rules
 
 One-line description: The complete, mechanical ruleset TARS trades. No discretion.
-Last Updated: 2026-09-21
+Last Updated: 2026-09-23 (R16 added)
 Status: ACTIVE — TARS confirmed sole writer under R7 (2026-09-15)
 Audience: Nolan; any agent or session operating account #731951265
 
@@ -1625,3 +1625,76 @@ including 2024-05 to 2026-09. The March 2026 VIX spike lasted ONE WEEK. The
 edge is confirmed through 2022 and UNVERIFIED in the current regime. The
 first live firing of R15 is therefore an out-of-sample test with real
 money, and must be logged and scored as one.
+
+
+## R16 — The pressure state (ADOPTED 2026-09-23 at Nolan's direction)
+
+Nolan: "fix and add those things if they're gonna help the way we trade."
+Source: notes/curiosity/2026-09-23_EMOTION.md.
+
+### Why this exists
+
+Anthropic's interpretability team found an internal "desperation"
+representation in a sibling model (Claude Sonnet 4.5). When they turned it
+up, the model reward-hacked and cut corners more often (arXiv 2604.07729).
+TARS has its own example of the same thing: R14.1 exists because a
+diagnostic script had "CONFIRMED" written into it before it ran, during an
+afternoon of failed tests. Separate work found that models detect their own
+internal states only about 20% of the time (Lindsey 2025). So "TARS will
+notice when it is under pressure" is not a safeguard. The safeguard has to
+trigger on something countable, not on TARS's own reading of its state.
+
+### Triggers (ANY one)
+
+  (a) 3 consecutive TARS-owned live trades closed at a loss.
+      Run `python3 paper/pressure_state.py`, which prints the count.
+  (b) Either R6 breaker is active.
+  (c) In the current session, a test TARS ran refuted the hypothesis
+      TARS stated before running it.
+
+### While the state is on
+
+  1. NO LOOSENING. TARS may not propose or adopt any rule change that
+     removes or weakens a constraint. Tightening is allowed. This is R6's
+     2026-09-17 principle ("loosening it at the moment it is inconvenient
+     is not") made automatic, not left to judgement.
+  2. PREDICTION COMMITTED FIRST. Before any test script runs, the
+     prediction (what number, what direction, what would count as wrong)
+     is committed to git in its own commit. The commit order is the proof.
+     No prediction commit, no run.
+  3. NO ADOPTION FROM A PRESSURE-STATE RESULT. A result produced while the
+     state is on can be written up but not adopted. It waits for the next
+     weekend research block to re-read it outside the state.
+  4. MECHANICAL ENTRIES ONLY. TARS takes only what R2 or R15 flags
+     mechanically. No discretionary additions, no "good reason"
+     exceptions (see the discretionary-leak record, -0.16R mean).
+     Nolan's own decisions are unaffected.
+  5. LOG IT. Every ledger entry written while the state is on includes
+     `"r16": {"trigger": "<a|b|c>", "consecutive_losses": N}`.
+
+### Clears when
+
+The first TARS-owned close that is not a loss, AND no R6 breaker active.
+Trigger (c) clears when the session ends.
+
+### Honest status
+
+NOT BACKTESTED, AND IT CANNOT BE BACKTESTED ON PRICE DATA. It controls
+process, not positions. It changes no entry signal, exit, stop or size.
+Its only cost is lost discretion and slower rule changes during losing
+streaks. The evidence behind it is (1) one lab result on a sibling model in
+contrived scenarios, (2) one TARS incident, and (3) the human literature on
+loss-chasing already cited in reference/TRADING_PSYCHOLOGY.md. It is
+adopted because it is cheap, not because it is proven.
+
+Run against the ledger on adoption: trigger (a) would have fired on
+2026-09-14, when four TARS-owned closes in a row were losses (INTC, CPNG,
+JD, RBLX options). As of 2026-09-23 the streak is 0. The latest TARS close
+is TENB, +0.77R.
+
+### What would retire it
+
+The account-record research (RESEARCH_AGENDA item 6) measures whether TARS
+decisions made during losing streaks are worse than the rest. If they are
+not, after 20+ streak-period decisions, R16 is dead weight and should be
+removed.

@@ -45,7 +45,7 @@ the first thing you report.
 
 ## FIRST, IN ORDER
 
-1. Read reference/TARS_RULES.md. Authoritative, R1-R15.
+1. Read reference/TARS_RULES.md. Authoritative, R1-R16.
 2. R8: reconcile broker vs ledger BEFORE quoting any performance number.
 3. Nolan sometimes trades the account himself without saying so. Reconcile
    cash and positions against the ledger first.
@@ -68,6 +68,11 @@ R13: ledger AND commit messages use ratios and percentages, never dollar
 account balances.
 R14: research integrity. When a tool refuses you or Nolan contradicts you,
 first test that YOU are wrong.
+R16: pressure state. At PRE-MARKET, and after any TARS-owned close at a
+loss, run `python3 paper/pressure_state.py`. With 3+ consecutive TARS losses
+or an R6 breaker active: mechanical entries only, no loosening rule
+changes, tag ledger entries with "r16". Say in one line when it turns on
+and when it clears.
 
 A name Nolan asks about is NOT a buy signal. Research it, don't buy it,
 unless he explicitly says buy. Don't swap instruments: if he asks about an
