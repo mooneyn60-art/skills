@@ -7,7 +7,7 @@ here. One item per session. A finished item links to its research note.
 
 | # | Topic | Why it matters | Status |
 |---|---|---|---|
-| 1 | Company fundamentals: earnings, revenue and guidance trends as signals | Biggest blind spot. Nolan read SOFI from how the business was doing; TARS only read the price. Does a stalled-earnings filter or an earnings-trend filter improve R2 entries? | TODO, TOP PRIORITY |
+| 1 | Company fundamentals: earnings, revenue and guidance trends as signals | Biggest blind spot. Nolan read SOFI from how the business was doing; TARS only read the price. Does a stalled-earnings filter or an earnings-trend filter improve R2 entries? | DONE 2026-09-23, DEAD: net income YoY sign -0.30pp t=-0.68; revenue +0.63pp t=1.31, vanishes without megacaps. [note](../research/2026-09-23_FUNDAMENTALS_EARNINGS_TREND.md). Untested: surprise vs estimates, release dates, small caps. |
 | 2 | Macro regime: yield curve (T10Y2Y, T10Y3M), fed funds, unemployment from FRED | Rates move nearly everything, especially banks (NWG, SOFI). Data reachable, completely untested. | TODO |
 | 3 | Event reactions: earnings days, FOMC days, overnight gaps through stops | How often does a gap skip past an 8% stop? What do these holdings typically do on earnings? CVE carries war-headline gap risk. | TODO |
 | 4 | Correlation inside the book | NVDA+INTC are both chips, NWG+SOFI both finance. Measure how concentrated the risk really is, and whether the sector cap is the right tool. | TODO |
