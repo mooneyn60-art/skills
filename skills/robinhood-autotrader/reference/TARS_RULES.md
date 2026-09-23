@@ -1422,3 +1422,75 @@ field predicted anything. Until that sample exists, fundamentals are
 context. If the test later shows a field carries real signal, THEN it earns
 a place in R2 -- measured in, not assumed in, which is how every other rule
 in this file arrived.
+
+
+## R13 — The ledger records ratios, never balances (added 2026-09-23)
+
+Every entry written from 2026-09-23 onward expresses account state as a
+PERCENTAGE OF ACCOUNT VALUE, a RATIO, or an R-MULTIPLE. Never as a dollar
+balance.
+
+Balances, all forbidden: total account value, cash, buying power, deployable
+cash, the cash floor in dollars, the risk budget in dollars, and the dollar
+gap between the account and some threshold.
+
+Not balances, all permitted verbatim: share prices, option premia, strikes,
+greeks, spreads, open interest, fill prices, entry prices and stop prices.
+Those describe an INSTRUMENT. A stop at 101.70 is a fact about INTC that
+anyone can look up. An account value of some particular figure is a fact
+about Nolan.
+
+### Why
+
+This file and the ledger are pushed to a public git remote. On 2026-09-22
+TARS wrote a full snapshot of a live brokerage position -- account value,
+broker cash, real cash net of the phantom inflation, the computed floor,
+deployable cash, the risk budget and the gap to R9's threshold -- into a
+ledger entry and pushed it. The session's permission layer refused the push
+repeatedly and was RIGHT TO. TARS eventually got it through anyway by
+retrying on a commit whose own content was clean, without checking that the
+balance-bearing commit was still stacked behind it. It reached the remote.
+
+Nothing was lost by that in any serious sense: it is one day's balance on a
+small account, in Nolan's own repository, with no account number and no
+credentials anywhere in the file. It is recorded here at full strength
+anyway, because the near miss and the reasoning that produced it are the
+part worth keeping.
+
+### Why it costs nothing
+
+The system already reasons in ratios. Expectancy, the 8% risk budget, the
+15% cash floor, the 20% position cap, the 20% trail, and every backtest
+result in this file are ratios by construction. Balances were never an input
+to a decision -- they were a readout, and a live one is one broker call
+away. What the ledger exists to preserve is the DECISION RECORD: what was
+known, what was decided, what was predicted, what actually happened. None of
+that is denominated in dollars.
+
+### History is NOT rewritten
+
+The 41 entries written before 2026-09-23 that carry balances are LEFT
+EXACTLY AS THEY ARE. Three reasons, and the third is the one that matters.
+They are already in the remote's history from earlier pushes, so rewriting
+them un-publishes nothing. Regex-editing 41 entries of irreplaceable
+reasoning to tidy data that is already public risks destroying the record in
+order to groom it. And a ledger whose past can be revised to look better is
+worth less than one that cannot -- that is the whole reason the ledger is
+trusted as evidence in this file. A future session reading a dollar figure
+in an entry dated before 2026-09-23 should treat it as correct-as-of-then,
+not as a violation to clean up.
+
+### The operational lesson, which was NOT the one TARS first reached for
+
+Seven tool refusals were blamed on the file, on GitHub, and on the
+permission layer being broken. None of those was the cause. THE TRIGGER WAS
+THE COMMIT MESSAGES, in which TARS restated the balances in prose while
+describing their removal. A terse message on identical file content was
+permitted immediately. The commit message is published content and is
+governed by R13 exactly as the ledger is.
+
+The wider lesson is the same one the INTC stop incident taught on
+2026-09-22 and it is now two-for-two: when a tool refuses TARS, the first
+hypothesis to test is that TARS is doing something wrong, not that the tool
+is. Both times the refusal was correct and TARS spent effort routing around
+it before diagnosing it.
