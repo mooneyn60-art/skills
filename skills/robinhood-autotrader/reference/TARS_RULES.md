@@ -1552,3 +1552,76 @@ TO TEST IS THAT TARS IS WRONG. The INTC stop incident: the refusal was
 correct, the sequencing was the bug. The ledger push: the refusal was
 correct, the commit messages were the bug. The buy-low argument: NOLAN was
 correct, the pooled test was the bug. TARS argued first in all three.
+
+
+## R15 — The regime switch (ADOPTED 2026-09-23 at Nolan's direction)
+
+Evidence: research/2026-09-23_VIX_CONDITIONAL_REVERSAL.md. Buying weakness
+beats buying strength by 4.95pp per month when VIX is 25 or above (t=8.46,
+n=1081), and is neutral to NEGATIVE below VIX 20 (-1.16pp, t=-3.98 in
+2006-2016). Passes split sample, 5 of 6 walk-forward windows containing a
+stressed period, and STRENGTHENS as the megacaps are removed (+6.03pp,
+t=8.02 with all five stripped out).
+
+### The three zones. VIX read from the PRIOR CLOSE, never intraday.
+
+VIX BELOW 20 -- R2 is unchanged and absolute. Entry requires price above
+the 200-day. Buying weakness is NOT PERMITTED. This is the normal state and
+is where the book sits today.
+
+VIX 20 TO 25 -- DEAD ZONE. No inversion, no change, nothing. It exists so
+the rule cannot flip-flop on noise around a threshold. If VIX oscillates
+here, TARS does nothing differently.
+
+VIX 25 OR ABOVE -- the entry condition INVERTS, for ranging names only:
+  - ADX(14) below 20 on the daily bars. A trending name is NOT eligible;
+    the edge was measured only inside ranging conditions.
+  - Price in the BOTTOM QUARTILE of its own trailing 60-day high/low range.
+  - The 200-day gate is SUSPENDED for this entry.
+  - R2's other two conditions STILL APPLY: no earnings within 3 trading
+    days, and fewer than 2 positions in that sector.
+  - R1, R3 and R12 are untouched. Same universe, same 20% cap, same 15%
+    cash floor, same whole shares.
+
+### Exits — the part that is NOT evidenced, stated plainly
+
+A position opened under R15 is TAGGED R15 and is EXEMPT FROM R4'S 200-DAY
+TREND EXIT FOR ITS ENTIRE LIFE. Without this exemption the rule is
+self-cancelling: a stressed-market stock in the bottom of its range is
+almost always below its 200-day, so R4 would sell it the same session it
+was bought. That is the inverted hysteresis defect deleted from R2 on
+2026-09-22, and it must not be reintroduced here.
+
+Everything else in R4 applies unchanged: the 8% hard stop from the actual
+fill, the breakeven raise once the highest close reaches entry x 1.08, and
+the 20% trail below the highest close. THE 8% STOP IS THE ONLY FLOOR THESE
+POSITIONS HAVE and that is deliberate -- it is what stops a suspended trend
+gate from becoming a falling knife.
+
+THERE IS NO RANGE-BASED EXIT. Selling at the top of the range was TESTED
+AND FAILED: it caps every winner and drops the strategy from 30.09% to
+6.81% CAGR (see 2026-09-23_RANGE_REGIME.md). Do not reintroduce it because
+it feels symmetrical with the entry.
+
+HONEST STATUS OF THE EXIT: the ENTRY is evidenced to t=8.46. THE EXIT IS
+INHERITED FROM R4 AND HAS NEVER BEEN TESTED IN THIS REGIME. No exit tested
+so far monetises this entry. R15 is adopted on the strength of the entry
+signal with an exit that is a reasonable default, not a measured one. If it
+loses money, suspect the exit first.
+
+### What R15 does NOT do
+
+It does not force a sale of anything. It does not change sizing. It does
+not fire on an intraday VIX spike that closes back below 25. It does not
+apply to names already held. And it does not make TARS a mean-reversion
+system -- below VIX 20, which is the overwhelming majority of the time,
+buying weakness remains forbidden.
+
+### The limit Nolan identified, carried here so it is not forgotten
+
+THE LAST TWO YEARS HAVE BEEN TOO CALM TO RE-TEST THE STRESSED HALF. Three
+of nine walk-forward windows had too few stressed observations to measure,
+including 2024-05 to 2026-09. The March 2026 VIX spike lasted ONE WEEK. The
+edge is confirmed through 2022 and UNVERIFIED in the current regime. The
+first live firing of R15 is therefore an out-of-sample test with real
+money, and must be logged and scored as one.
