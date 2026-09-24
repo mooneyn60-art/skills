@@ -13,6 +13,10 @@ conclusions. Refresh it:
 - paper/history/daily_stocks.json holds 15 symbols of daily OHLC. Top it up
   to today's close. Symbols: AAPL AMZN BAC C CSCO F GE GOOGL IBM MSFT NVDA
   PFE SPY T XOM. Schema is {SYMBOL: {"YYYY-MM-DD": [open, high, low, close]}}.
+- paper/history/daily_ohlcv.json (added 2026-09-24) is the same 15 symbols
+  WITH volume, schema {SYMBOL: {"YYYY-MM-DD": [open, high, low, close,
+  volume]}}. Top it up with get_equity_historicals (interval day, split
+  adjusted). Drop any bar with interpolated=true.
 - paper/history/vix_weekly.json holds weekly VIX closes. Top it up. VIX
   index instrument id 3b912aa2-88f9-4682-8ae3-e39520bdf4db.
 - FRED is reachable by plain HTTPS, no key:
