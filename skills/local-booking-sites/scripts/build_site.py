@@ -285,6 +285,7 @@ h2 {{ font-size: clamp(1.6rem, 4vw, 2.2rem); }}
 .tagline {{ font-size: 1.15rem; opacity: .9; margin: 0 auto 28px; max-width: 36ch; }}
 section {{ padding-top: 56px; padding-bottom: 56px; }}
 [id] {{ scroll-margin-top: 72px; }}
+.about {{ padding-bottom: 0; }}
 .about p {{ max-width: 62ch; font-size: 1.05rem; }}
 .services {{ list-style: none; padding: 0; margin: 0; display: grid; gap: 14px;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }}
@@ -430,13 +431,27 @@ footer {{ padding: 28px 0 90px; color: var(--muted); font-size: .9rem; text-alig
       String(d.getDate()).padStart(2, "0");
   }}
 
+  // Start times (minutes after midnight) for the chosen service on a day,
+  // skipping anything less than 30 minutes from now.
+  function slots(day) {{
+    var span = cfg.hours[KEYS[new Date(day + "T00:00:00").getDay()]];
+    if (!span) return [];
+    var dur = cfg.services[state.svc].duration || cfg.slotMinutes;
+    var now = new Date(), nowMin = now.getHours() * 60 + now.getMinutes();
+    var out = [];
+    for (var t = toMin(span[0]); t + dur <= toMin(span[1]); t += cfg.slotMinutes) {{
+      if (day === iso(now) && t <= nowMin + 30) continue;
+      out.push(t);
+    }}
+    return out;
+  }}
+
   function renderDays() {{
     var box = $("days"); box.innerHTML = "";
     var today = new Date(); today.setHours(0, 0, 0, 0);
     for (var i = 0; i < cfg.daysAhead; i++) {{
       var d = new Date(today); d.setDate(today.getDate() + i);
-      var span = cfg.hours[KEYS[d.getDay()]];
-      if (!span) continue;
+      if (!slots(iso(d)).length) continue;
       var b = document.createElement("button");
       b.type = "button"; b.className = "chip"; b.dataset.day = iso(d);
       b.setAttribute("aria-pressed", state.day === iso(d));
@@ -450,24 +465,20 @@ footer {{ padding: 28px 0 90px; color: var(--muted); font-size: .9rem; text-alig
   function renderTimes() {{
     var box = $("times"); box.innerHTML = "";
     if (!state.day) {{ box.innerHTML = '<span class="empty">Pick a day first.</span>'; return; }}
-    var d = new Date(state.day + "T00:00:00");
-    var span = cfg.hours[KEYS[d.getDay()]];
-    var dur = cfg.services[state.svc].duration || cfg.slotMinutes;
-    var now = new Date(), isToday = iso(now) === state.day;
-    var nowMin = now.getHours() * 60 + now.getMinutes();
-    for (var t = toMin(span[0]); t + dur <= toMin(span[1]); t += cfg.slotMinutes) {{
-      if (isToday && t <= nowMin + 30) continue;
+    slots(state.day).forEach(function (t) {{
       var b = document.createElement("button");
       b.type = "button"; b.className = "chip"; b.dataset.time = t;
       b.setAttribute("aria-pressed", state.time === t);
       b.textContent = fmt(t);
       box.appendChild(b);
-    }}
+    }});
     if (!box.children.length) box.innerHTML = '<span class="empty">No times left that day.</span>';
   }}
 
   $("svc").addEventListener("change", function () {{
-    state.svc = +this.value; state.time = null; renderTimes();
+    state.svc = +this.value; state.time = null;
+    if (state.day && !slots(state.day).length) state.day = null;
+    renderDays(); renderTimes();
   }});
   $("days").addEventListener("click", function (e) {{
     var b = e.target.closest("[data-day]"); if (!b) return;
