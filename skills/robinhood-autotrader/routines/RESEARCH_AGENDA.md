@@ -70,3 +70,9 @@ if it's argued properly.
 
 Item 22, calibration (knowing when TARS is actually right), is already item 7
 and runs in the curiosity block.
+
+## Added 2026-09-24: reading the chart
+
+| # | Topic | Status |
+|---|---|---|
+| 23 | Candlesticks and chart lines, Nolan's request: "how to read candles and lines to see how the stock is going to break or boom." Two parts. (a) Candlestick patterns: hammer, engulfing, doji, morning/evening star and the other common ones. (b) Lines: support and resistance, trendlines, and breakouts from ranges or highs. For each, explain how traders read it AND test whether it actually predicts anything. The daily OHLC in paper/history/daily_stocks.json (15 symbols, 2006-2026) is exactly the data candle patterns are built from, so this is directly testable. Define every pattern mechanically BEFORE testing (no eyeballing charts), measure forward returns after each pattern against the unconditional average, and apply the four hurdles and a multiple-testing correction, since there are dozens of patterns and some will look good by luck. Also find the academic studies on candlesticks and support/resistance and report what they found, including any failures to replicate. Teach Nolan the ones that hold up, in plain language. | TODO, HIGH: next routine session takes this before other TODOs |
