@@ -49,3 +49,24 @@ nothing from this session.
 The four hurdles (mechanism stated first, split sample, 9-window
 walk-forward, drop the megacaps) and R14 (scripts print data, never a
 pre-written conclusion; every number carries its provenance). NO TRADES.
+
+## Added 2026-09-24: things TARS said it does not understand
+
+Nolan asked "what don't you understand?" and then "research all of those, do
+deep research so you really understand." Each gets its own note in
+research/. These are understanding questions, not strategy hunts: the goal
+is a correct explanation, and "we can't know this" is an acceptable answer
+if it's argued properly.
+
+| # | Topic | Status |
+|---|---|---|
+| 15 | OPTIONS, Nolan's priority: do options beat SPY? Separate BUYING (calls, puts, LEAPs) from SELLING (covered calls, cash-secured puts). Evidence to find: the volatility risk premium literature, the long history of the CBOE BuyWrite (BXM) and PutWrite (PUT) indexes against the S&P 500, retail options-trader outcome studies, and what is actually feasible at ~$1,500-2,000 of capital (collateral for one cash-secured put on a $15 stock is ~$1,500). If historical index data is reachable (CBOE publishes BXM/PUT values), test it with the four hurdles. Report honestly in either direction. | TODO, HIGH |
+| 16 | Why prices move on a given day: how much of daily movement is market-wide, sector-wide and company-specific? Decompose this book's daily returns against SPY and sector ETFs. How often is there actual news behind a move? | TODO |
+| 17 | Case study: why INTC went from ~$29 to ~$124 in a year with negative earnings. What did the market price in? Foundry, government deals, AI, turnaround? Use sources, separate fact from narrative. What would have told TARS this in advance, if anything? | TODO |
+| 18 | Is TARS adding value at all? Compare the account's actual record, deposits excluded, against SPY over the same days, and state how many trades are needed before the answer is statistically meaningful. Overlaps item 6 and item 8. | TODO |
+| 19 | Who is on the other side: market structure for a retail account. Payment for order flow, market makers, institutional flows, index rebalancing, options-driven hedging. What of this actually affects a small account's fills and returns? | TODO |
+| 20 | Does the past still apply? Evidence on how quickly market patterns decay (post-publication decay, regime shifts). Which of TARS's live rules rest on evidence most at risk of being out of date? Overlaps the monthly decay check. | TODO |
+| 21 | How gut feel and intuition work in trading: what research says about expert intuition (when it's reliable, when it isn't), and how to score Nolan's gut calls fairly. Links to notes/GUT_CALLS.md. | TODO |
+
+Item 22, calibration (knowing when TARS is actually right), is already item 7
+and runs in the curiosity block.
