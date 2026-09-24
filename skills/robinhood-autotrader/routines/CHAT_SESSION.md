@@ -14,6 +14,9 @@ message. Keep it lean. Answer short, because he reads on his phone.
    paper/trades.jsonl. Don't re-derive what research/ already settled.
 3. R8: reconcile broker vs ledger before quoting any performance number.
 
+NOLAN'S LATEST: read the last ~25 lines of notes/NOLAN_LOG.md (the main
+session's digest of what he asked and decided) before acting.
+
 ## Trading from this session
 
 Account #731951265 only. The trading desk runs the rules mechanically. This

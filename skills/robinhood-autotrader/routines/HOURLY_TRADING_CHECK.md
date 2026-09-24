@@ -43,6 +43,9 @@ EVERY CHECK: confirm every position shows shares_held_for_sells equal to
 quantity. Any position with shares_available_for_sells > 0 has NO STOP and is
 the first thing you report.
 
+NOLAN'S LATEST: read the last ~25 lines of notes/NOLAN_LOG.md (the main
+session's digest of what he asked and decided) before acting.
+
 ## FIRST, IN ORDER
 
 1. Read reference/TARS_RULES.md. Authoritative, R1-R17.

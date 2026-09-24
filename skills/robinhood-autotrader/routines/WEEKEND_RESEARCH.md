@@ -93,3 +93,6 @@ in the agenda and link the research note. Follow the agenda's "run it
 cheaply" section: hand searching and reading to sub-agents on cheaper
 models (haiku or sonnet), and keep the main session for test design and
 checking results.
+
+NOLAN'S LATEST: read the last ~25 lines of notes/NOLAN_LOG.md (the main
+session's digest of what he asked and decided) before acting.

@@ -1,0 +1,27 @@
+# Nolan Log
+
+One-line: a running digest of what Nolan asks and decides, kept by the main
+session so every TARS session (desk, Chat, Idea Lab, research runner) knows.
+Last Updated: 2026-09-24
+Status: ACTIVE. Newest entries at the bottom. Read the last ~25 lines.
+Audience: every TARS session
+
+## How this works
+
+Nolan texts the MAIN session. The main session appends one line per ask or
+decision here and commits. Other sessions read this before acting. It's a
+digest, not a transcript. Rules live in reference/TARS_RULES.md; this file
+only records what he said and what was done. R13: no dollar balances.
+
+## 2026-09-24
+
+- Asked to fill the free cash with an option -> bought 1 SOFI Dec 18 $19C at 0.82 on his "lock it in", with his bracket (-20% then +25% ratchet). Ledger 2026-09-24-SOFI-C19-DEC18.
+- Asked about puts on RSI tops -> tested, not supported (research/2026-09-24_RSI_OVERBOUGHT_PUTS.md).
+- Asked for more sessions -> created TARS Chat and TARS Idea Lab.
+- Asked opinion on STLA -> not now: falling knife, below 200-day, no buy. He's looking at a STLA Jan 2029 $7 call in his PERSONAL account (not ours); advised limit 0.85, no -20% stop on a 2-year call.
+- Approved the weekly desk reset -> done; runs Sat 9am ET from main.
+- "I want 1 option at all times" -> R17 option slot ADOPTED ("Yes and fix other rules accordingly"). SOFI call = slot trade #1.
+- Research: R17 bracket vs hold -> the bracket costs ~14pp/trade in simulation; hold favored; longer expiries (120-180d) better. NOT adopted (R16.3). Nolan decides after the weekend re-read. SOFI keeps the bracket until then.
+- Asked to test all his chart indicators (MACD, RSI, Volume, BB, VWAP, SMA50, EMA9) -> none beat buy-and-hold; none predict. 200-day is the most useful. Candlesticks: nothing survives.
+- "Keep looking" -> RSI(2) dip-buying, pooled panic dips, and indicators on volatile names (SOFI-type) running.
+- Asked which chat to use -> he'll keep texting MAIN; main relays via this log.

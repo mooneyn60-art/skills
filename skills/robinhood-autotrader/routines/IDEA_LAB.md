@@ -12,6 +12,9 @@ order. Read-only broker calls (quotes, chains, historicals) are fine.
 If Nolan says "place it", tell him to say it in TARS Chat or the trading
 desk.
 
+NOLAN'S LATEST: read the last ~25 lines of notes/NOLAN_LOG.md (the main
+session's digest of what he asked and decided) before acting.
+
 ## How every idea gets tested (R14)
 
 1. `git pull`. Check research/ first: seven strategy families and many ideas
