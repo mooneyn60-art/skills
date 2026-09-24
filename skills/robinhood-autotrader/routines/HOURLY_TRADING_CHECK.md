@@ -84,6 +84,24 @@ His discretionary position, 1-2 year thesis, >$20 target. Exempt from the
 trend exit and the sector cap, excluded from expectancy. Stop stays 15.75
 unless he says otherwise. Q3 earnings expected 2026-10-27.
 
+## SOFI DEC 18 $19 CALL -- NOLAN'S BRACKET (opened 2026-09-24, user_authorized)
+
+1 contract, option_id 22607507-274c-41f9-bbb6-2eda4fc5cee1, filled 0.82.
+Live stop: GTC stop_limit, stop 0.66 limit 0.60 (order 6ab53d2c-...).
+CHECK EVERY FIRE, judged on the option's BID (get_option_quotes). Stops only go up:
+
+  bid >= 1.03 (+25%)  -> stop 0.82 (breakeven)
+  bid >= 1.23 (+50%)  -> stop 1.03
+  bid >= 1.44 (+75%)  -> stop 1.23
+  bid >= 1.64 (+100%) -> stop 1.44, and one rung per further +25% of 0.82
+
+Move the stop with replace_option_order on the existing stop order, not
+cancel-then-place. The broker holds only ONE closing order per contract.
+Keep the limit about 0.06 under the stop. Confirm the new order shows
+"confirmed" before reporting it. Tell Nolan in one line every time a rung moves.
+TIME EXIT: sell at the 2026-11-27 close if still open (gut-call window ends).
+It rides WITH the SOFI shares: bad earnings on 10-27 hits both.
+
 ## DO NOT RE-DERIVE
 
 Seven strategy families are tested and rejected; see research/. Do not
