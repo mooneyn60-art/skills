@@ -257,6 +257,11 @@ from PDFs it opened; items it couldn't open are marked):
 - Ilmanen (2012): across markets, SELLING insurance and lottery tickets has
   been rewarded and BUYING them has not. Example: long VIX futures lost
   28%/yr Dec 2005 to Aug 2011, even though VIX tripled over that period.
+- Chicago Fed WP 2025-17 (found during item 20): a structural break
+  around 2010, after which delta-hedged option strategy alphas converge
+  towards zero. This supports "the premium has shrunk" over "the last 15
+  years were an unlucky exception" as the reading of O1.
+  https://www.chicagofed.org/-/media/publications/working-papers/2025/wp2025-17.pdf
 - LEAPS as stock replacement: no verifiable primary evidence found either
   way (sub-agent could not open the sources). Unknown, not "fine".
 - Whaley (2002) on BXM: original not opened; commonly cited as higher Sharpe
