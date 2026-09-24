@@ -45,7 +45,7 @@ the first thing you report.
 
 ## FIRST, IN ORDER
 
-1. Read reference/TARS_RULES.md. Authoritative, R1-R16.
+1. Read reference/TARS_RULES.md. Authoritative, R1-R17.
 2. R8: reconcile broker vs ledger BEFORE quoting any performance number.
 3. Nolan sometimes trades the account himself without saying so. Reconcile
    cash and positions against the ledger first.

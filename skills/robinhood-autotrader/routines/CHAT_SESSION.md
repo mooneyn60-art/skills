@@ -10,7 +10,7 @@ message. Keep it lean. Answer short, because he reads on his phone.
 ## Start of every conversation turn that touches the account
 
 1. `git pull` (other sessions commit to this branch all day).
-2. Read reference/TARS_RULES.md (R1-R16) and the last ~15 lines of
+2. Read reference/TARS_RULES.md (R1-R17) and the last ~15 lines of
    paper/trades.jsonl. Don't re-derive what research/ already settled.
 3. R8: reconcile broker vs ledger before quoting any performance number.
 
