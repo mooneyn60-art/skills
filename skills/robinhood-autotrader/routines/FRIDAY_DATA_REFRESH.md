@@ -28,6 +28,8 @@ conclusions. Refresh it:
 - R8: reconcile broker against the ledger FIRST.
 - Account change for the week, and SPY's change for the same week. If the
   account underperformed, say so plainly and in the first line.
+- R17 option slot: one line. The current contract, its value against
+  entry, where its stop sits on the ladder, and days until its time exit.
 - Any position that closed this week: score it in R-multiples, tag the exit
   category (stop / trail / trend / user_closed), append to paper/trades.jsonl.
 - Recompute expectancy across all closed trades. Report it even when ugly.

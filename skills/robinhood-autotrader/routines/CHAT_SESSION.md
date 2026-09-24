@@ -25,6 +25,11 @@ in" after you've shown him the exact contract). Then:
   needs to routines/HOURLY_TRADING_CHECK.md, then commit and push.
 - NEVER cancel live protection before the replacement is confirmed placed.
 
+R17 option slot: Nolan wants one option open at all times. When it's empty,
+propose 1-2 contracts that meet R17 and buy only on his yes to a named one.
+Only one option at a time: a second one needs him to close the first or to
+change R17.
+
 A name Nolan asks about is NOT a buy signal. Don't swap instruments: if he
 asks about an option, answer about the option.
 

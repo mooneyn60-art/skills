@@ -1,7 +1,7 @@
 # TARS-1 — Trading Rules
 
 One-line description: The complete, mechanical ruleset TARS trades. No discretion.
-Last Updated: 2026-09-23 (R16 added)
+Last Updated: 2026-09-24 (R17 option slot adopted; R3, R4, R5, R6, R8, R9 amended to match)
 Status: ACTIVE — TARS confirmed sole writer under R7 (2026-09-15)
 Audience: Nolan; any agent or session operating account #731951265
 
@@ -208,6 +208,11 @@ trade of a large, uncertain benefit against a small, certain one. See R8 for
 the actual fix: flag the trade, don't block it.
 
 ## R3 — Sizing
+
+> **R17 AMENDMENT, 2026-09-24.** The R17 option slot sits OUTSIDE the 8% risk
+> budget and the 20% per-position cap. Its own cap is 6% of account value.
+> It sits INSIDE the 15% cash floor: no slot purchase may leave cash below
+> the floor.
 
 **CURRENT RULE, 2026-09-22 — this paragraph is the summary; the sections
 below are history unless they say otherwise:**
@@ -484,6 +489,9 @@ $3,000-$5,000 range. It is NOT being raised speculatively today.
 
 ## R4 — Exits
 
+> **R17 AMENDMENT, 2026-09-24.** R4 governs EQUITIES only. The R17 option slot
+> exits under R17's own ladder and time exit, never under R4.
+
   Hard stop: -8% from fill. Placed as a GTC stop order within 60 seconds of the
              fill being confirmed. A position without a live stop is a bug.
   Breakeven: at +8% unrealised, raise stop to the fill price.
@@ -633,6 +641,13 @@ does not fill, it does not get chased.
 Stops: stop-market. Slippage on the exit is accepted as the price of certainty
 that the exit happens.
 
+Options exception (R17, 2026-09-24): the broker allows option stop-market
+orders only good-for-day, so an option stop would have to be re-placed every
+morning. Option stops are GTC STOP-LIMIT instead, with the limit about 8%
+under the trigger. Known cost, stated plainly: a gap through the limit leaves
+the order unfilled. Accepted because a GFD stop that is forgotten one morning
+is a worse failure.
+
 ## R6 — Circuit breakers
 
   Two positions stopped out AT A LOSS within any rolling 5 trading days
@@ -645,6 +660,10 @@ that the exit happens.
          Tell Nolan when it fires AND when it clears. (added 2026-09-22)
   Any rule in this file cannot be evaluated (data missing, tool erroring)
       -> no trade. A missing input is never treated as a passing test.
+
+  R17 slot (2026-09-24): slot exits do NOT count toward the two-losses
+  breaker, which measures TARS's own entries. The -15% drawdown halt DOES
+  pause slot refills. Nolan can still fill it by naming the trade.
 
 ### Only LOSING exits trip the breaker — decided 2026-09-17, EFFECTIVE 2026-09-23
 
@@ -731,6 +750,12 @@ stood down.
 
 ## R8 — Logging
 
+R17 slot trades (2026-09-24): logged with `"strategy": "R17_option_slot"`,
+`"source": "user"` and `"slot_trade_no": N`. The strategy prefix keeps them
+out of R16's TARS-loss count and lets expectancy report them as their own
+book. Each closed slot trade also records `"spy_same_window_pct"`: what the
+same premium would have returned in SPY over the same dates.
+
 Every order is appended to paper/trades.jsonl with the rule number that
 triggered it. Every closed trade is scored in R-multiples and against SPY held
 over the identical window, so that a rising market does not get recorded as
@@ -786,6 +811,10 @@ not contain it, in the same conversation. Having the number in hand and not
 reconciling is worse than never looking.
 
 ## R9 — Options
+
+> **R17 EXCEPTION, 2026-09-24.** The gate below still governs options TARS
+> opens ON ITS OWN. It no longer blocks Nolan's option slot. R17 below is
+> the rule for that slot.
 
 Locked until: account value > $2,000 AND 20 closed equity trades logged. Then
 long calls/puts only, 30-45+ DTE, **max 3% of account value per position**.
@@ -865,6 +894,12 @@ assumes: this account does not yet have a demonstrated options edge. Re-run
 argument for loosening it should cite this output, not override it.
 
 ### Target structure: 3 equities + 1 long-dated option — RECORDED 2026-09-17, NOT ACTIVE
+
+> **2026-09-24: A SMALLER VERSION IS NOW ACTIVE AS R17.** Not a LEAPS on a
+> megacap (still unaffordable), but one contract of at least 60 days, capped
+> at 6% of the account and filled only on Nolan's yes. The reasoning below
+> about why cheap lottery tickets are the wrong way to honor this structure
+> is why R17 has a delta floor and a 60-day minimum.
 
 Nolan, 2026-09-17: "I think we should hold 3 big stocks and 1 long option
 on a bigger company." Recorded here because the structure is sound and
@@ -1698,3 +1733,71 @@ The account-record research (RESEARCH_AGENDA item 6) measures whether TARS
 decisions made during losing streaks are worse than the rest. If they are
 not, after 20+ streak-period decisions, R16 is dead weight and should be
 removed.
+
+
+## R17 — The option slot (ADOPTED 2026-09-24 at Nolan's direction)
+
+Nolan: "I lowkey want 1 option at all times it helps alot", then "Yes and
+fix other rules accordingly" to the proposal below.
+
+### The rule
+
+  COUNT     Exactly one long option (1 contract, call or put) open at a time.
+            When it closes, the slot is refilled.
+  SIZE      Premium at most 6% of account value at purchase. Outside R3's 8%
+            risk budget and 20% cap; inside the 15% cash floor. When cash is
+            at the floor, the refill is funded by the proceeds of the trade
+            that just closed.
+  WHO PICKS When the slot is empty, TARS brings Nolan 1-2 contracts with the
+            numbers (cost, breakeven, delta, chance of profit, spread,
+            scenario table). The slot fills ONLY when Nolan says yes to a
+            named contract. TARS never fills it on its own.
+  CONTRACT  At purchase: 60+ days to expiry; delta 0.30 to 0.60; bid-ask
+            spread at most 10% of mid; open interest at least 500. Limit
+            order at or inside the mid. No spreads, no short options.
+  EXITS     Nolan's bracket, anchored on the fill price E, judged on the BID:
+              start:            stop = 0.80 x E
+              bid >= 1.25 x E:  stop = 1.00 x E  (breakeven)
+              bid >= 1.50 x E:  stop = 1.25 x E
+              ... one rung per further +25% of E. Stops only go up.
+            Stop order: GTC stop-limit, limit about 8% under the trigger (R5).
+            Move it with replace_option_order, never cancel-then-place.
+            TIME EXIT: sell at the close on the day 21 calendar days before
+            expiry, if still open. Theta speeds up after that.
+  SCORING   Its own book. Each closed trade records its R-multiple (risk =
+            the full premium) and what the same money did in SPY over the
+            same dates. After 10 closed slot trades, TARS reports the slot's
+            total against the SPY-equivalent, first line, whichever way it
+            went.
+
+### The honest baseline
+
+Before R17, this account closed 12 option trades: 1 winner. Nearly all were
+1 to 5 weeks from expiry (Sept 18 and Oct 2/16 expiries), bought on thin
+theses, several closed by hand into losses. research/2026-09-24_OPTIONS_VS_SPY.md
+found that buying options loses money on average at the index level.
+R17's contract rules exist to exclude exactly what failed: short expiries,
+lottery deltas, and wide spreads. Nothing yet shows that R17 trades will do
+better. The scoring is how we find out.
+
+### Known tension, recorded so it isn't forgotten
+
+The INTC 115 call (2026-09-14) was stopped through a 31% gap and then
+recovered past the entry. For long-dated options, "the premium is the stop"
+(reference/options.md). Nolan's -20% bracket will sometimes sell a good
+thesis on noise. It is his rule and it stays. The 10-trade review should
+count how many slot trades stopped out and then would have finished above
+entry.
+
+### Slot trade #1
+
+SOFI 2026-12-18 $19 call, filled 0.82 on 2026-09-24 (ledger
+2026-09-24-SOFI-C19-DEC18). Bought 85 days out, delta 0.33, spread about 2.5%:
+it meets every R17 contract rule. Time exit 2026-11-27, which is also the end
+of Nolan's gut-call window.
+
+### What would retire it
+
+Nolan says so. Or the 10-trade review shows the slot losing more than 50%
+of the premium committed while SPY rose over the same windows. Then TARS
+says so plainly and Nolan decides.

@@ -62,7 +62,8 @@ R3 sizing: 20% per-position cap, 15% cash floor, 8% total risk budget.
 R4 exits: 8% hard stop, breakeven raise at +8%, trail 20% below the highest
 close. Trend exit is a close below the 200-day, EXCEPT R15-tagged positions.
 R6: -15% drawdown pauses new entries only.
-R9: no options until account > $2,000 AND 20 closed equity trades.
+R9: TARS opens no options of its own until account > $2,000 AND 20 closed
+equity trades. R17 (Nolan's option slot) is the exception; see below.
 R12: whole shares only.
 R13: ledger AND commit messages use ratios and percentages, never dollar
 account balances.
@@ -84,23 +85,35 @@ His discretionary position, 1-2 year thesis, >$20 target. Exempt from the
 trend exit and the sector cap, excluded from expectancy. Stop stays 15.75
 unless he says otherwise. Q3 earnings expected 2026-10-27.
 
-## SOFI DEC 18 $19 CALL -- NOLAN'S BRACKET (opened 2026-09-24, user_authorized)
+## R17 OPTION SLOT -- CHECK EVERY FIRE (adopted 2026-09-24)
 
-1 contract, option_id 22607507-274c-41f9-bbb6-2eda4fc5cee1, filled 0.82.
-Live stop: GTC stop_limit, stop 0.66 limit 0.60 (order 6ab53d2c-...).
-CHECK EVERY FIRE, judged on the option's BID (get_option_quotes). Stops only go up:
+One long option, always. Full rule: R17 in reference/TARS_RULES.md.
+Currently slot trade #1: SOFI 2026-12-18 $19 call, option_id
+22607507-274c-41f9-bbb6-2eda4fc5cee1, fill E = 0.82, stop order
+6ab53d2c-... (GTC stop-limit 0.66 / 0.60). Time exit: 2026-11-27 close.
 
-  bid >= 1.03 (+25%)  -> stop 0.82 (breakeven)
-  bid >= 1.23 (+50%)  -> stop 1.03
-  bid >= 1.44 (+75%)  -> stop 1.23
-  bid >= 1.64 (+100%) -> stop 1.44, and one rung per further +25% of 0.82
+EVERY FIRE, get_option_quotes and judge on the BID:
+  ladder: stop starts at 0.80 x E. When bid >= (1 + 0.25k) x E, the stop
+  moves to (1 + 0.25(k-1)) x E. For E = 0.82 the rungs are:
+    bid >= 1.03 -> stop 0.82 | >= 1.23 -> 1.03 | >= 1.44 -> 1.23 |
+    >= 1.64 -> 1.44 | >= 1.85 -> 1.64 | and on. Stops only go up.
+  Move it with replace_option_order on the existing stop (the broker holds
+  ONE closing order per contract), limit ~8% under the new trigger. Confirm
+  "confirmed" before reporting. One line to Nolan every time a rung moves.
+  TIME EXIT: 21 calendar days before expiry, sell at the close.
 
-Move the stop with replace_option_order on the existing stop order, not
-cancel-then-place. The broker holds only ONE closing order per contract.
-Keep the limit about 0.06 under the stop. Confirm the new order shows
-"confirmed" before reporting it. Tell Nolan in one line every time a rung moves.
-TIME EXIT: sell at the 2026-11-27 close if still open (gut-call window ends).
-It rides WITH the SOFI shares: bad earnings on 10-27 hits both.
+WHEN THE SLOT IS EMPTY (stopped, time-exited or sold):
+  1. Log the close: realized_pnl, R (risk = full premium), and
+     spy_same_window_pct. Tell Nolan the result first.
+  2. Propose 1-2 replacements meeting R17: 60+ DTE, delta 0.30-0.60, spread
+     <= 10% of mid, OI >= 500, premium <= 6% of account, cash floor intact.
+     Give cost, breakeven, delta, chance of profit and a scenario table.
+     Prefer names with a thesis Nolan has given (notes/GUT_CALLS.md).
+  3. DO NOT BUY until Nolan says yes to a named contract. Then: review,
+     limit at or inside mid, confirm the fill, place the -20% stop-limit,
+     log it with strategy "R17_option_slot" and the next slot_trade_no,
+     update this section's "Currently" lines, commit and push.
+  The R6 drawdown halt pauses step 2 (say so) unless Nolan names a trade.
 
 ## DO NOT RE-DERIVE
 

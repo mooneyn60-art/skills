@@ -10,8 +10,12 @@ Work in skills/robinhood-autotrader/. Ledger: paper/trades.jsonl.
 
 1. EXPECTANCY. Across every closed trade, in R-multiples. Then split it:
    by exit category (stop / trail / trend exit / user_closed), by source
-   (TARS-1 / user_authorized / R15), by holding period. SOFI is carved out
-   and excluded from expectancy both ways -- do not quietly include it.
+   (TARS-1 / user_authorized / R15 / R17_option_slot), by holding period.
+   SOFI is carved out and excluded from expectancy both ways -- do not
+   quietly include it.
+   R17 OPTION SLOT is its own book: closed slot trades, total R, and total
+   against the SPY-equivalent (spy_same_window_pct). At 10 closed slot
+   trades this becomes the headline review R17 calls for.
 
 2. IS THE ACCOUNT BEATING SPY SINCE INCEPTION? Not since the last good
    month. Since inception, deposits excluded from returns. If it is not,
