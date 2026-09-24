@@ -15,6 +15,7 @@ next time it fires.** No scheduler changes needed.
 | MONTHLY_EXPECTANCY_AUDIT.md | 1st of month, 10am | research runner |
 | QUARTERLY_RULE_AUDIT.md | 1st of Jan/Apr/Jul/Oct, 1pm | research runner |
 | ONESHOT_R15_INTEGRATION.md | Sat 2026-09-26, 11am, once | research runner |
+| WEEKLY_DESK_RESET.md | Sat 9am | main session (swaps in a fresh trading desk) |
 
 Two sessions run the routines, both with this repo attached:
 
