@@ -1,0 +1,45 @@
+{
+  "_note": "Fictional business used for testing. Replace every field with facts taken from the real business's screenshots.",
+  "name": "Maple & Fade Barber Co.",
+  "tagline": "Classic cuts and hot-towel shaves in downtown Riverton.",
+  "bio": "Family-run barbershop since 2016. Walk in a regular, walk out a regular.",
+  "location": { "address": "114 Main St", "city": "Riverton" },
+  "phone": "(555) 010-2244",
+  "email": "hello@example.com",
+  "instagram": "@mapleandfade.example",
+  "currency": "$",
+  "services": [
+    { "name": "Classic Cut", "price": 30, "duration_min": 30, "description": "Scissor or clipper cut, finished with a hot towel." },
+    { "name": "Skin Fade", "price": 35, "duration_min": 45 },
+    { "name": "Beard Trim & Line-up", "price": 20, "duration_min": 20 },
+    { "name": "Hot-Towel Shave", "price": 40, "duration_min": 45, "description": "Straight razor, two hot towels, cold finish." },
+    { "name": "Kids Cut (12 & under)", "price": 22, "duration_min": 30 }
+  ],
+  "reviews": [
+    { "quote": "Best fade I've had in years. Booked my next one before I left.", "author": "Marcus T.", "source": "Instagram" },
+    { "quote": "The hot-towel shave is worth every penny.", "author": "Dev P.", "source": "Instagram" },
+    { "quote": "Great with my son, super patient.", "author": "Alicia R.", "source": "Instagram" }
+  ],
+  "photos": [],
+  "theme": {
+    "primary": "#2b2118",
+    "accent": "#d9a441",
+    "background": "#f6f1ea",
+    "font_display": "Fraunces",
+    "font_body": "Inter"
+  },
+  "booking": {
+    "endpoint": null,
+    "days_ahead": 14,
+    "slot_minutes": 15,
+    "hours": {
+      "mon": null,
+      "tue": ["09:00", "18:00"],
+      "wed": ["09:00", "18:00"],
+      "thu": ["09:00", "20:00"],
+      "fri": ["09:00", "20:00"],
+      "sat": ["08:00", "16:00"],
+      "sun": null
+    }
+  }
+}
