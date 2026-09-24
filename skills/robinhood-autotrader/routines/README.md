@@ -23,6 +23,13 @@ Two sessions run the routines, both with this repo attached:
   running inside the long main conversation.
 - **Research runner**: research, audits and the curiosity block.
 
+Two more sessions exist for Nolan to TALK to (not scheduled):
+
+- **TARS Chat** (routines/CHAT_SESSION.md): the everyday conversation
+  thread. Trades only when Nolan names the trade.
+- **TARS Idea Lab** (routines/IDEA_LAB.md): tests Nolan's ideas on demand.
+  NO TRADES.
+
 CORRECTION, 2026-09-23: an earlier version of this file said the research
 runner has no broker access and therefore cannot trade. That was never
 verified, and the trading desk test showed sessions created this way DO get
