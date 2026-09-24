@@ -25,3 +25,4 @@ only records what he said and what was done. R13: no dollar balances.
 - Asked to test all his chart indicators (MACD, RSI, Volume, BB, VWAP, SMA50, EMA9) -> none beat buy-and-hold; none predict. 200-day is the most useful. Candlesticks: nothing survives.
 - "Keep looking" -> RSI(2) dip-buying, pooled panic dips, and indicators on volatile names (SOFI-type) running.
 - Asked which chat to use -> he'll keep texting MAIN; main relays via this log.
+- RSI(2) dip-buying: wins 66% of trades but sits in cash ~90% of the time; trails SPY on return and risk-adjusted return in both halves. Pooled panic dips: 2151 signals were only 104 separate episodes; not significant overall. Removing the 2008 and 2020 crashes, dips bought at VIX 25+ bounce over 21 days (t=3.95): a lead, not a finding, and it only works when it ISN'T a real crash. Not adopted (R16.3).
