@@ -187,7 +187,8 @@ def render_contact(biz: dict) -> str:
     return "".join(lines)
 
 
-def build(biz: dict) -> str:
+def build(biz: dict, demo: dict | None = None) -> str:
+    """Render the page. `demo` ({"by", "contact"}) makes a locked preview."""
     theme = {**DEFAULT_THEME, **(biz.get("theme") or {})}
     currency = biz.get("currency", "$")
     booking = biz.get("booking") or {}
@@ -196,7 +197,8 @@ def build(biz: dict) -> str:
         "email": biz.get("email"),
         "phone": biz.get("phone"),
         "instagram": (biz.get("instagram") or "").lstrip("@") or None,
-        "endpoint": booking.get("endpoint"),
+        "endpoint": None if demo else booking.get("endpoint"),
+        "demo": demo,
         "daysAhead": booking.get("days_ahead", 21),
         "slotMinutes": booking.get("slot_minutes", 30),
         "hours": booking.get("hours") or {d: ["09:00", "17:00"] for d in WEEKDAYS[:6]},
@@ -220,7 +222,17 @@ def build(biz: dict) -> str:
         src = first.get("src") if isinstance(first, dict) else first
         hero_img = f' style="--hero-img:url(&quot;{esc(src)}&quot;)"'
 
+    demo_meta = demo_ribbon = ""
+    if demo:
+        demo_meta = '<meta name="robots" content="noindex, nofollow">'
+        demo_ribbon = (
+            '<div class="demo-ribbon" role="note">Demo preview by '
+            f'{esc(demo["by"])} · not live yet</div>'
+        )
+
     return TEMPLATE.format(
+        demo_meta=demo_meta,
+        demo_ribbon=demo_ribbon,
         title=esc(title),
         description=esc(tagline or bio or biz["name"]),
         fonts=font_link(theme),
@@ -254,6 +266,7 @@ TEMPLATE = """<!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{description}">
+{demo_meta}
 {fonts}
 <style>
 :root {{
@@ -327,6 +340,8 @@ select, input {{ width: 100%; font: inherit; padding: 12px; border-radius: 10px;
 .contact ul {{ list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }}
 .hours {{ border-collapse: collapse; }}
 .hours th {{ text-align: left; padding: 4px 24px 4px 0; font-weight: 600; }}
+.demo-ribbon {{ background: #111; color: #fff; text-align: center; font: 600 .85rem/1.4 var(--body);
+  padding: 8px 16px; letter-spacing: .02em; }}
 footer {{ padding: 28px 0 90px; color: var(--muted); font-size: .9rem; text-align: center; }}
 .fab {{ position: fixed; left: 16px; right: 16px; bottom: 16px; text-align: center;
   box-shadow: 0 6px 20px rgba(0,0,0,.25); z-index: 20; }}
@@ -334,6 +349,7 @@ footer {{ padding: 28px 0 90px; color: var(--muted); font-size: .9rem; text-alig
 </style>
 </head>
 <body>
+{demo_ribbon}
 <header class="topbar"><div class="wrap">
   <a class="brand" href="#top">{name}</a>
   <a class="btn" href="#book">Book Now</a>
@@ -519,6 +535,18 @@ footer {{ padding: 28px 0 90px; color: var(--muted); font-size: .9rem; text-alig
     var msg = message();
     $("summary").textContent = msg;
     var send = $("send"); send.innerHTML = "";
+    if (cfg.demo) {{
+      var note = document.createElement("p");
+      note.className = "note";
+      note.textContent = "This is a demo. On the live site, this request goes straight to " +
+        cfg.name + ". To make it live, contact " + cfg.demo.by +
+        (cfg.demo.contact ? " at " + cfg.demo.contact : "") + ".";
+      send.appendChild(note);
+      $("booking").classList.add("hidden");
+      $("confirm").classList.remove("hidden");
+      $("confirm").scrollIntoView({{ behavior: "smooth", block: "start" }});
+      return;
+    }}
     if (cfg.endpoint) {{
       var b = document.createElement("button");
       b.type = "button"; b.className = "btn"; b.textContent = "Send booking request";
@@ -580,6 +608,10 @@ def main() -> int:
     ap.add_argument("business", type=Path, help="business JSON file")
     ap.add_argument("-o", "--out", type=Path, help="output HTML path (default: <slug>.html)")
     ap.add_argument("--check", action="store_true", help="validate only, write nothing")
+    ap.add_argument("--demo-by", metavar="NAME",
+                    help="build a locked demo labelled as made by NAME; booking requests are not sent")
+    ap.add_argument("--demo-contact", metavar="EMAIL", default="",
+                    help="where the business replies to claim the demo")
     args = ap.parse_args()
 
     biz = json.loads(args.business.read_text(encoding="utf-8"))
@@ -593,7 +625,8 @@ def main() -> int:
         return 0
 
     out = args.out or args.business.with_suffix(".html")
-    out.write_text(build(biz), encoding="utf-8")
+    demo = {"by": args.demo_by, "contact": args.demo_contact} if args.demo_by else None
+    out.write_text(build(biz, demo), encoding="utf-8")
     print(f"wrote {out}")
     return 0
 

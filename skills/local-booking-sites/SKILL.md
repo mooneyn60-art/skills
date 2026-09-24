@@ -68,6 +68,13 @@ paying client should move to a real scheduler (Square Appointments, Calendly,
 Booksy, Fresha and so on) so nothing gets double-booked; see
 `references/business-schema.md`.
 
+For pitching, build a locked demo instead: add
+`--demo-by "<studio name>" --demo-contact <email>`. The demo shows a "Demo preview"
+ribbon, is marked `noindex`, and lets the owner try the whole booking flow, but
+the final step only explains that the live site sends requests to them. Share
+screenshots or a screen recording of the demo; hand over the real (non-demo)
+file only after the client has paid.
+
 If the user wants a design beyond the template's options, edit the generated
 HTML directly or write a bespoke page. Keep the same rule that every fact comes
 from the screenshots.
