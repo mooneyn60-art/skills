@@ -99,6 +99,15 @@ His discretionary position, 1-2 year thesis, >$20 target. Exempt from the
 trend exit and the sector cap, excluded from expectancy. Stop stays 15.75
 unless he says otherwise. Q3 earnings expected 2026-10-27.
 
+## PENDING ENTRY -- EQNR (2026-09-25)
+
+Buy 4 EQNR, limit 42.50 GFD, order 6ab67897-6274-4b67-af87-e676f74b7753.
+EVERY FIRE TODAY: check it. If FILLED: immediately place a GTC stop-market
+sell for 4 at round(0.92 x fill, 2), confirm it, and append an entry record to
+the ledger (strategy TARS-1, R2) with the fill, stop and planned_risk. If it's
+unfilled at the close it expires: do NOT re-enter or chase. Log "unfilled",
+then delete this section.
+
 ## R17 OPTION SLOT -- CHECK EVERY FIRE (adopted 2026-09-24)
 
 One long option, always. Full rule: R17 in reference/TARS_RULES.md.
