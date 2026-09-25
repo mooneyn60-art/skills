@@ -136,11 +136,11 @@ close check. It's his, so no trend exit.
 SOLD BY NOLAN 2026-09-25: CVE, NWG, ABBV. Their stops were cancelled with the sales.
 HOOD 1 @118.10: GTC stop-market 108.65 (order 6ab68366-...). Trail it like R4
 at the close check. It's his, so no trend exit.
-SOFI Dec 18 $18 call @1.22 (option_id 3a88e0c6-0642-4b95-b691-8e3272d6fd38):
-his bracket, same ladder as the $19 call with E = 1.22. Stop 0.98/0.90 now
-(order 6ab68368-...). Bid >= 1.53 -> stop 1.22 | >= 1.83 -> 1.53 | >= 2.14 ->
-1.83 | then one rung per +0.305. Move it with replace_option_order. Time exit
-2026-11-27.
+SOFI Dec 18 $16 call @2.05 (option_id c303e797-3ce1-40f3-a8e6-e2067e89592e):
+his bracket, E = 2.05. Stop 1.64/1.51 now (order 6ab6c5b0-...). Bid >= 2.56 ->
+stop 2.05 | >= 3.08 -> 2.56 | >= 3.59 -> 3.08 | then one rung per +0.51. Time
+exit 2026-11-27. (It replaced the $18 call, rolled via the $17, on 2026-09-25.)
+The $19 call's stop was re-placed 2026-09-25 (order 6ab6a14c-..., 0.66/0.60), verified live.
 SOFI 9/25 $17.50 call: 0DTE, bought for $1, no bid. Let it expire; log -1.00.
 CASH: back above the 15% floor after Nolan's sales (2026-09-25 ~11:30 ET).
 Re-check at every fire.
