@@ -131,6 +131,9 @@ WHEN THE SLOT IS EMPTY (stopped, time-exited or sold):
 
 ## NOLAN'S OWN POSITIONS FROM 2026-09-25 (manage the stops, don't trade them)
 
+AAPL 1 @337.53: GTC stop-market 310.53 (order 6ab693ef-...). Trail it like R4 at the
+close check. It's his, so no trend exit.
+SOLD BY NOLAN 2026-09-25: CVE, NWG, ABBV. Their stops were cancelled with the sales.
 HOOD 1 @118.10: GTC stop-market 108.65 (order 6ab68366-...). Trail it like R4
 at the close check. It's his, so no trend exit.
 SOFI Dec 18 $18 call @1.22 (option_id 3a88e0c6-0642-4b95-b691-8e3272d6fd38):
@@ -139,8 +142,8 @@ his bracket, same ladder as the $19 call with E = 1.22. Stop 0.98/0.90 now
 1.83 | then one rung per +0.305. Move it with replace_option_order. Time exit
 2026-11-27.
 SOFI 9/25 $17.50 call: 0DTE, bought for $1, no bid. Let it expire; log -1.00.
-CASH IS BELOW THE 15% FLOOR (~11%). No new TARS entries until it's restored
-(R3 deficit provision). Say so at pre-market.
+CASH: back above the 15% floor after Nolan's sales (2026-09-25 ~11:30 ET).
+Re-check at every fire.
 
 ## DO NOT RE-DERIVE
 
