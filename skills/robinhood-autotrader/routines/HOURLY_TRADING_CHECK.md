@@ -99,15 +99,6 @@ His discretionary position, 1-2 year thesis, >$20 target. Exempt from the
 trend exit and the sector cap, excluded from expectancy. Stop stays 15.75
 unless he says otherwise. Q3 earnings expected 2026-10-27.
 
-## PENDING ENTRY -- EQNR (2026-09-25)
-
-Buy 4 EQNR, limit 42.50 GFD, order 6ab67897-6274-4b67-af87-e676f74b7753.
-EVERY FIRE TODAY: check it. If FILLED: immediately place a GTC stop-market
-sell for 4 at round(0.92 x fill, 2), confirm it, and append an entry record to
-the ledger (strategy TARS-1, R2) with the fill, stop and planned_risk. If it's
-unfilled at the close it expires: do NOT re-enter or chase. Log "unfilled",
-then delete this section.
-
 ## R17 OPTION SLOT -- CHECK EVERY FIRE (adopted 2026-09-24)
 
 One long option, always. Full rule: R17 in reference/TARS_RULES.md.
@@ -137,6 +128,19 @@ WHEN THE SLOT IS EMPTY (stopped, time-exited or sold):
      log it with strategy "R17_option_slot" and the next slot_trade_no,
      update this section's "Currently" lines, commit and push.
   The R6 drawdown halt pauses step 2 (say so) unless Nolan names a trade.
+
+## NOLAN'S OWN POSITIONS FROM 2026-09-25 (manage the stops, don't trade them)
+
+HOOD 1 @118.10: GTC stop-market 108.65 (order 6ab68366-...). Trail it like R4
+at the close check. It's his, so no trend exit.
+SOFI Dec 18 $18 call @1.22 (option_id 3a88e0c6-0642-4b95-b691-8e3272d6fd38):
+his bracket, same ladder as the $19 call with E = 1.22. Stop 0.98/0.90 now
+(order 6ab68368-...). Bid >= 1.53 -> stop 1.22 | >= 1.83 -> 1.53 | >= 2.14 ->
+1.83 | then one rung per +0.305. Move it with replace_option_order. Time exit
+2026-11-27.
+SOFI 9/25 $17.50 call: 0DTE, bought for $1, no bid. Let it expire; log -1.00.
+CASH IS BELOW THE 15% FLOOR (~11%). No new TARS entries until it's restored
+(R3 deficit provision). Say so at pre-market.
 
 ## DO NOT RE-DERIVE
 
