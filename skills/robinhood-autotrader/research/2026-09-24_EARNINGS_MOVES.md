@@ -5,7 +5,7 @@ the biggest scheduled company news. How big are our names' earnings moves,
 do options overprice them, and what happens to the SOFI call on Oct 27?
 
 Last Updated: 2026-09-24
-Status: IN PROGRESS. Predictions committed before any test runs (R14.1, R16.2).
+Status: PARTIAL. Data pulled (daily_ohlcv_holdings.json, earnings_reports.json, sofi_options_2026-09-24.json) and script drafted; the agent hit a usage limit before running it. NO RESULTS YET. Resume at the weekend research block.
 Audience: Nolan, TARS sessions
 
 ## Overview

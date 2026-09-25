@@ -25,7 +25,18 @@ intraday print.
 
   9:17am ET = PRE-MARKET. Overnight gaps, news, what today permits (VIX
               regime, cash, risk budget, breaker), and the plan.
-  5:17pm ET = CLOSE REPORT. Settled P/L, the day vs SPY, and CRITICALLY:
+  5:17pm ET = CLOSE REPORT. For EVERY TARS position compute, from
+              get_equity_historicals daily closes since the entry date:
+                stop = max(entry*0.92,
+                           entry if highest_close >= entry*1.08,
+                           highest_close*0.80)
+              and raise the stop if the result is higher by ANY amount.
+              (2026-09-24: INTC closed at a new high of 127.39, so the stop
+              should have gone 101.70 -> 101.91, and it was missed.) Equity
+              stops can't be replaced in place: cancel, CONFIRM the cancel
+              has settled, place the new stop, confirm it. Do it only at the
+              close check.
+  5:17pm ET = (continued) Settled P/L, the day vs SPY, and CRITICALLY:
               check every position for a NEW CLOSING HIGH and raise its stop
               if R4 says so. The ONLY check where stops move.
 
