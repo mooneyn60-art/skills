@@ -95,7 +95,7 @@ option, answer about the option.
 
 ## SOFI IS CARVED OUT (Nolan's decision 2026-09-22)
 
-His discretionary position, 1-2 year thesis, >$20 target. Exempt from the
+His discretionary position, 1-2 year thesis, >$20 target. NOW 5 SHARES (he sold 5 on 2026-09-25), one stop order 6ab12ef4 for 5 at 15.75. Exempt from the
 trend exit and the sector cap, excluded from expectancy. Stop stays 15.75
 unless he says otherwise. Q3 earnings expected 2026-10-27.
 
