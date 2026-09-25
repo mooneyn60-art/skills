@@ -5,7 +5,7 @@ repository, correct for it, and re-check the evidence behind live rules,
 starting with R15's t = 8.46.
 
 Last Updated: 2026-09-25
-Status: PREDICTION COMMITTED, TESTS NOT YET RUN
+Status: PARTIAL. M2 run (below); M1 inventory pending from a sub-agent.
 Audience: Nolan, TARS sessions
 
 ## Two separate problems
@@ -44,6 +44,23 @@ M2 (b) and (c): the spread stays positive, but t falls to about 1.5-3.
 Consequence I expect: R15's evidence is "suggestive", not "t = 8.46".
 Its first live firings remain the real test, as R15 already says.
 
-## Result
+## Result (partial: M2 only)
 
-(not yet run)
+Script: paper/test_multiple_testing_r15.py.
+
+    VIX bucket  (a) daily name-days          (b) month-clustered t   (c) monthly samples
+    <15         -0.47pp t=-1.88 n=1005+3074  t=-0.67                 -1.08pp t=-0.85, 22 months
+    15-20       -0.30pp t=-0.97 n=1254+2247  t=-0.32                 -0.48pp t=-0.23, 27 months
+    20-25       -0.18pp t=-0.32 n=569+1088   t=-0.10                 +2.00pp t=+0.59, 13 months
+    25+         +5.67pp t=+7.85 n=779+872    t=+2.21 (53/55 clusters) +5.92pp t=+0.70, 4 months
+
+(a) reproduces R15's headline (+4.95pp, t=8.46) within 1pp. Clustered by
+month, the t falls to 2.21. (c) catches only 4 stressed months on the first
+trading day, too few to mean anything; (b) is the informative correction.
+The lower VIX buckets don't match the original note (-0.71pp t=-2.48 and
++1.43pp t=2.92 there). The likely cause is VIX alignment: this rebuild uses
+only weekly values at least 7 days old; the original's alignment wasn't
+recorded.
+
+Against the prediction: (a) RIGHT (+5.67pp, t=7.85); (b) RIGHT (t=2.21, in
+the predicted 1.5-3). R15's evidence fails |t| >= 3.
