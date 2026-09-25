@@ -79,4 +79,4 @@ and runs in the curiosity block.
 
 ## Carried over 2026-09-25 (agent hit a usage limit)
 
-| 24 | Earnings moves + SOFI call scenarios (research/2026-09-24_EARNINGS_MOVES.md) | Data and script already exist (paper/research_scripts/earnings_moves.py). Run it, verify, and write Results/Verdict. Needed before SOFI's 2026-10-27 report. | HIGH, PARTIAL |
+| 24 | Earnings moves + SOFI call scenarios (research/2026-09-24_EARNINGS_MOVES.md) | Data and script already exist (paper/research_scripts/earnings_moves.py). Run it, verify, and write Results/Verdict. Needed before SOFI's 2026-10-27 report. | DONE 2026-09-25 |

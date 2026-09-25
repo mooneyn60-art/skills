@@ -132,6 +132,16 @@ def load_sofi_options():
         return json.load(f)
 
 
+def load_sofi_live():
+    """Refreshed 2026-09-25 live quotes for the now-two-leg SOFI call
+    position (Dec 18 $19c and Dec 18 $18c) plus the 10-share stake. See
+    PART 3B below -- this supersedes the single-leg PART 3 for the
+    position math (PART 3 is left in place as the original single-leg
+    scenario, dated to the 2026-09-24 snapshot)."""
+    with open(os.path.join(HIST, "sofi_live_quotes_2026-09-25.json")) as f:
+        return json.load(f)
+
+
 def sorted_dates(bars):
     return sorted(bars.keys())
 
@@ -364,6 +374,115 @@ def part3_call_scenarios(opt):
     }
 
 
+# ---------------------------------------------------------------------------
+# PART 3B -- full position (two calls + shares), refreshed 2026-09-25 quotes
+# ---------------------------------------------------------------------------
+def part3b_position_scenarios(live):
+    """As of 2026-09-25 the R17 slot plus Nolan's own add mean the SOFI
+    options book is TWO Dec 18 2026 calls ($19 and $18 strikes), each with
+    its own -20%-of-cost stop-limit bracket, plus 10 SOFI shares with a
+    single stop (15.75, carried since 2026-09-22, no separate limit on
+    record so it is treated as a stop-market). This reprices both legs and
+    the shares together for the day after the assumed 2026-10-27 (am)
+    report, using TODAY's (2026-09-25) live quotes as the pre-earnings
+    baseline for the +/-15%/+/-8%/0% spot grid, an 8-point IV crush (same
+    mid-case assumption as PART 3), and one extra day of theta beyond the
+    grid's implied report-day gap (valuation date 2026-10-28, matching
+    PART 3's convention). A stop is "gapped through" when the modeled
+    price/value opens BELOW the stop's limit (for the calls) or its single
+    trigger (for the shares) -- the order could not have filled there.
+    Between the trigger and the limit, a call's stop-limit would have
+    filled close to where it is modeled. No stop is proposed to move; this
+    is Nolan's call per R16.3.
+    """
+    from datetime import date
+    today = date(2026, 9, 25)
+    expiry = date(2026, 12, 18)
+    valuation_day = date(2026, 10, 28)
+    r = 0.04
+    T_now = (expiry - today).days / 365.0
+    T_post = (expiry - valuation_day).days / 365.0
+
+    S0 = live["stock_quote"]["last_trade_price"]
+    shares = live["position"]["shares"]
+    legs_raw = {"19C": live["position"]["dec18_19c"], "18C": live["position"]["dec18_18c"]}
+    legs = {
+        name: dict(K=v["strike"], iv_now=v["iv"], mark_now=v["mark"], cost=v["cost_basis"],
+                   trig=v["stop_trigger"], lim=v["stop_limit"], qty=v["qty"])
+        for name, v in legs_raw.items()
+    }
+
+    sanity = {}
+    for name, leg in legs.items():
+        px, delta = bs_call(S0, leg["K"], T_now, r, leg["iv_now"])
+        sanity[name] = {"bs_price_now": px, "live_mark": leg["mark_now"], "delta": delta}
+
+    iv_drop = 0.08
+    moves = [-0.15, -0.08, 0.0, 0.08, 0.15]
+    table = []
+    for m in moves:
+        S = S0 * (1 + m)
+        row = {"move_pct": m, "spot": S, "legs": {}}
+        for name, leg in legs.items():
+            iv = max(leg["iv_now"] - iv_drop, 0.01)
+            px, delta = bs_call(S, leg["K"], T_post, r, iv)
+            if px < leg["lim"]:
+                status = "GAP-THROUGH (unfilled, exposed)"
+            elif px < leg["trig"]:
+                status = "STOPPED (fills near limit)"
+            else:
+                status = "no stop hit"
+            row["legs"][name] = {
+                "price": px, "delta": delta, "vs_cost_pct": px / leg["cost"] - 1.0,
+                "status": status,
+            }
+        row["shares_value"] = shares["qty"] * S
+        row["shares_status"] = (
+            f"STOP HIT, market fill ~{S:.2f} (gap below {shares['stop_price']})"
+            if S < shares["stop_price"] else "no stop hit"
+        )
+        table.append(row)
+
+    # decomposition: pure IV-crush vs pure time-decay, each in isolation, at S0 unchanged
+    decomposition = {}
+    for name, leg in legs.items():
+        px_now, _ = bs_call(S0, leg["K"], T_now, r, leg["iv_now"])
+        px_ivcrush_only, _ = bs_call(S0, leg["K"], T_now, r, leg["iv_now"] - iv_drop)
+        px_decay_only, _ = bs_call(S0, leg["K"], T_post, r, leg["iv_now"])
+        decomposition[name] = {
+            "price_now": px_now,
+            "ivcrush_only_price": px_ivcrush_only,
+            "ivcrush_only_pct": px_ivcrush_only / px_now - 1.0,
+            "decay_only_price": px_decay_only,
+            "decay_only_pct": px_decay_only / px_now - 1.0,
+        }
+
+    # pure-decay stop-crossing check: holding S0 and IV fixed at today's live
+    # values, what calendar date would theta decay ALONE push each leg's BS
+    # price down through its stop trigger -- i.e. before 2026-10-27 even if
+    # SOFI does not move and IV does not change.
+    from datetime import timedelta
+    decay_crossing = {}
+    for name, leg in legs.items():
+        d = today
+        found = None
+        while d < date(2026, 10, 27):
+            T = (expiry - d).days / 365.0
+            px = bs_call(S0, leg["K"], T, r, leg["iv_now"])[0]
+            if px <= leg["trig"]:
+                found = (d.isoformat(), px)
+                break
+            d += timedelta(days=1)
+        decay_crossing[name] = found  # None means it does not cross before the report
+
+    today_value = sum(l["mark_now"] * 100 * l["qty"] for l in legs.values()) + shares["qty"] * S0
+
+    return {
+        "spot_now": S0, "sanity": sanity, "table": table, "decomposition": decomposition,
+        "decay_crossing_before_report": decay_crossing, "today_position_value": today_value,
+    }
+
+
 def fmt_pct(x):
     return "nan" if x != x else f"{x * 100:.2f}%"
 
@@ -372,6 +491,7 @@ def main():
     prices = load_prices()
     earnings = load_earnings()
     opt = load_sofi_options()
+    live = load_sofi_live()
 
     print("=" * 78)
     print("PART 1 -- EARNINGS REACTION MOVES")
@@ -422,7 +542,34 @@ def main():
               f"{str(row['above_stop_trigger_0.66']):>16} {str(row['above_stop_limit_0.60']):>15} "
               f"{str(row['above_ratchet_rung_bid_1.03']):>14}")
 
-    return p1, p2, p3
+    print("\n" + "=" * 78)
+    print("PART 3B -- FULL POSITION (2 calls + 10 shares), LIVE 2026-09-25 QUOTES")
+    print("=" * 78)
+    p3b = part3b_position_scenarios(live)
+    print(f"  SOFI live spot 2026-09-25 14:29 UTC: {p3b['spot_now']:.3f}")
+    for name, v in p3b["sanity"].items():
+        print(f"  {name} sanity: BS_now={v['bs_price_now']:.3f} vs live_mark={v['live_mark']:.3f} delta={v['delta']:.3f}")
+    print(f"  Today's mark-to-market position value (2 calls x100 + 10 shares): {p3b['today_position_value']:.2f}")
+    print("\n  Decomposition (spot unchanged): pure IV-crush-only vs pure time-decay-only vs combined:")
+    for name, d in p3b["decomposition"].items():
+        print(f"    {name}: now={d['price_now']:.3f}  IV-crush-only={d['ivcrush_only_price']:.3f} ({fmt_pct(d['ivcrush_only_pct'])})  "
+              f"decay-only(34d)={d['decay_only_price']:.3f} ({fmt_pct(d['decay_only_pct'])})")
+    print("\n  Pure time-decay stop-crossing check (S and IV held at today's live values -- does theta ALONE push the")
+    print("  price through the stop trigger before the 2026-10-27 report?):")
+    for name, hit in p3b["decay_crossing_before_report"].items():
+        if hit:
+            print(f"    {name}: YES -- crosses trigger around {hit[0]} (px={hit[1]:.3f}), i.e. before earnings even happens")
+        else:
+            print(f"    {name}: no, does not cross its trigger from decay alone before the report")
+    print(f"\n  Scenario table (valuation 2026-10-28, IV drop 8pts, spot grid off live {p3b['spot_now']:.3f}):")
+    for row in p3b["table"]:
+        print(f"    move={row['move_pct']*100:+.0f}%  S={row['spot']:.2f}")
+        for name, leg in row["legs"].items():
+            print(f"        {name}: px={leg['price']:.3f} ({fmt_pct(leg['vs_cost_pct'])} vs cost)  "
+                  f"delta={leg['delta']:.2f}  [{leg['status']}]")
+        print(f"        10sh value={row['shares_value']:.2f}  [{row['shares_status']}]")
+
+    return p1, p2, p3, p3b
 
 
 if __name__ == "__main__":
