@@ -26,8 +26,14 @@ delete_trigger, list_triggers, get_session, archive_session).
      source_url https://github.com/mooneyn60-art/skills
      source_revision and outcome_branch claude/package-installation-setup-yv4j79
      permission_mode auto
+     clone_depth 2000   (REQUIRED: on 2026-09-26 the default depth-50 clone
+     reported "50 local commits cannot merge with remote" on its first pull.
+     The full-history retry synced cleanly.)
      prompt: "You are the TARS trading desk. Scheduled routines will fire
-     into this session. Run git pull, read
+     into this session. First compare `git log --oneline -1` with
+     `git ls-remote origin <branch>`. If they match, don't pull. If git
+     reports any divergence, STOP and report it. Never reset, force or
+     discard anything. Then read
      skills/robinhood-autotrader/routines/HOURLY_TRADING_CHECK.md, then do a
      READ-ONLY verification: list positions and open orders on #731951265 and
      confirm every position has its stop. NO ORDERS this turn. Reply in 3
