@@ -1,0 +1,481 @@
+#!/usr/bin/env python3
+"""
+A portfolio simulator for TARS. One engine, many rulesets.
+
+WHY THIS EXISTS
+---------------
+test_r2_conditions.py and test_r4_exits.py both test ONE RULE AT A TIME on ONE
+SYMBOL AT A TIME, always fully invested. That was enough to show that R2's
+rules 2-3 and R4's trail cost return. It is not enough to test TARS, because
+TARS is not a rule -- it is a portfolio with a fixed amount of money in it, and
+most of what governs this account only exists at the portfolio level:
+
+    R3   position sizing, the per-position cap, the 15% cash floor
+    R5   at most 2 positions per sector
+    R6   the circuit breaker: 2 stop-outs in 5 days pauses entries
+    R12  WHOLE SHARES ONLY -- the rule that quantizes every position weight
+
+R12 is the one that cannot be tested any other way. On 2026-09-21 ABBV sat at
+25.2% of the book and INTC at 11.4%, not because anyone decided that, but
+because ABBV's share price is $265 and INTC's is $101. At $1,320 of capital,
+share price IS position sizing, and a per-symbol test is blind to that by
+construction.
+
+I WAS WRONG ABOUT WHICH RULE COSTS THE MOST, and this file recorded the wrong
+guess before it recorded the answer, so the guess stays visible. I expected
+R12's whole-share quantization to be the expensive one. It is not: allowing
+fractional shares moves CAGR from 6.57% to 6.78%, which is noise. The
+expensive rules are R4's trail and R3's $340 FLAT CAP -- the cap alone costs
+10.7 percentage points a year at a $10,000 account. Lumpy weights look wrong
+and mostly are not; a constant that stops scaling looks fine and is ruinous.
+
+WHAT THIS ENGINE DOES NOT MODEL
+-------------------------------
+Commissions (Robinhood charges none), dividends (so every return here is a
+PRICE return and understates buy-and-hold most of all), borrow, taxes, and
+intraday stop-running below the daily low. Bid-ask is charged as a flat
+one-way `slip` on entries and exits, default 5bp, which is a guess and is
+labelled as one. Survivorship is REAL AND UNFIXED: these 14 names all survived
+to 2026, so every number here flatters every strategy that holds stocks.
+Comparisons between rulesets on the same universe remain valid; the absolute
+CAGRs do not transfer to a live account.
+
+Usage:  python3 engine.py        (runs the built-in comparison)
+        from engine import simulate, Config
+"""
+import json, math, os
+from dataclasses import dataclass, field
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+DATA = os.path.join(HERE, "history", "daily_stocks.json")
+O, H, L, C = 0, 1, 2, 3
+
+# Sector map for R5. Hand-assigned to match how Robinhood labels these names,
+# which is what the live rule actually reads.
+SECTORS = {
+    "AAPL": "tech", "MSFT": "tech", "NVDA": "tech", "CSCO": "tech",
+    "IBM": "tech", "GOOGL": "comm", "T": "comm", "AMZN": "retail",
+    "BAC": "finance", "C": "finance", "F": "auto", "GE": "industrial",
+    "PFE": "health", "XOM": "energy",
+}
+
+
+@dataclass
+class Config:
+    # --- R2, entry ---
+    ma_slow: int = 200          # rule 1
+    use_ma_fast: bool = True    # rule 2
+    ma_fast: int = 50
+    prox_window: int = 20       # rule 3
+    prox: float = 0.95          # within 5% of the 20-day high
+    # --- R4, exit ---
+    stop_pct: float = 0.08      # initial hard stop; None disables
+    raise_mode: str = "trail"   # "none" | "breakeven" | "trail"
+    trail_pct: float = None     # defaults to stop_pct, as R4 does today
+    trend_exit: bool = True     # close below both MAs
+    exit_on: str = "both"       # "both" MAs, or "slow" = the SAME single line
+                                # used for entry. "slow" makes entry and exit
+                                # SYMMETRIC, which is the literature's #1 fix.
+    atr_stop: float = None      # if set, stop = N * ATR(14) instead of a %
+    time_stop: int = None       # exit after N days regardless
+    exit_confirm: int = 1       # consecutive closes below BOTH MAs before exiting
+    exit_band: float = 0.0      # require price this far BELOW the MA to exit
+    # --- R3, sizing and capacity ---
+    sizing: str = "cap"         # "cap" | "equal" | "risk"
+    cap_abs: float = 340.0
+    cap_pct: float = 0.20
+    cash_floor: float = 0.15
+    risk_per_trade: float = 0.02   # for sizing="risk": fraction of equity at risk
+    max_positions: int = 6
+    whole_shares: bool = True   # R12
+    # --- R5, R6 ---
+    sector_cap: int = 2
+    breaker_stops: int = 2      # N stop-outs...
+    breaker_window: int = 5     # ...in M days...
+    breaker_pause: int = 3      # ...pauses entries for P days
+    halt_drawdown: float = 0.15
+    halt_mode: str = "rebase"   # "latch" = R6 as literally written, never resumes
+    halt_pause: int = 10        # cooling-off days before "rebase" resumes
+    # --- costs and capital ---
+    start_cash: float = 1320.0
+    start_date: str = None      # restrict the window, for out-of-sample tests
+    end_date: str = None
+    slip: float = 0.0005        # one-way, each side
+    # --- R15, the VIX regime switch (off by default) ---
+    r15: bool = False           # VIX>=25: ranging names in the bottom quartile
+                                # of their 60-day range become eligible with the
+                                # 200-day gate suspended; exempt from trend exit
+    r15_vix: float = 25.0
+    r15_adx: float = 20.0
+    r15_quartile: float = 0.25
+    name: str = "unnamed"
+
+
+def load():
+    raw = json.load(open(DATA))
+    syms = sorted(k for k in raw if k != "SPY")
+    dates = sorted(raw[syms[0]])
+    bars = {s: [raw[s][d] for d in dates] for s in raw}
+    return dates, bars, syms
+
+
+def sma(bars, t, n):
+    return sum(b[C] for b in bars[t - n + 1:t + 1]) / n
+
+
+def atr(bars, t, n=14):
+    """True range average. Needs bars[t-n..t]."""
+    tot = 0.0
+    for i in range(t - n + 1, t + 1):
+        pc = bars[i - 1][C]
+        tot += max(bars[i][H] - bars[i][L], abs(bars[i][H] - pc), abs(bars[i][L] - pc))
+    return tot / n
+
+
+def entry_signal(bars, t, cfg):
+    """R2's price conditions at the close of t, from bars[0..t] only."""
+    if t < max(cfg.ma_slow, cfg.prox_window, 15):
+        return False
+    px = bars[t][C]
+    if px <= sma(bars, t, cfg.ma_slow):
+        return False
+    if cfg.use_ma_fast and px <= sma(bars, t, cfg.ma_fast):
+        return False
+    if cfg.prox is not None:
+        hi = max(b[H] for b in bars[t - cfg.prox_window + 1:t + 1])
+        if px < hi * cfg.prox:
+            return False
+    return True
+
+
+def _adx(b, n=14):
+    """Wilder ADX(14) per bar, None until defined. Uses bars[0..t] only."""
+    out = [None] * len(b)
+    tr_s = pdm_s = ndm_s = 0.0
+    dx, adx = [], None
+    for t in range(1, len(b)):
+        h, l, pc = b[t][H], b[t][L], b[t - 1][C]
+        up, dn = h - b[t - 1][H], b[t - 1][L] - l
+        tr = max(h - l, abs(h - pc), abs(l - pc))
+        pdm = up if up > dn and up > 0 else 0.0
+        ndm = dn if dn > up and dn > 0 else 0.0
+        if t <= n:
+            tr_s += tr; pdm_s += pdm; ndm_s += ndm
+            if t < n:
+                continue
+        else:
+            tr_s = tr_s - tr_s / n + tr
+            pdm_s = pdm_s - pdm_s / n + pdm
+            ndm_s = ndm_s - ndm_s / n + ndm
+        if tr_s == 0:
+            continue
+        pdi, ndi = pdm_s / tr_s, ndm_s / tr_s
+        dx.append(0.0 if pdi + ndi == 0 else 100 * abs(pdi - ndi) / (pdi + ndi))
+        if len(dx) == n:
+            adx = sum(dx) / n
+        elif len(dx) > n:
+            adx = (adx * (n - 1) + dx[-1]) / n
+        out[t] = adx
+    return out
+
+
+def _vix_by_day(dates):
+    """Weekly VIX forward-filled onto trading days from PAST data only: the
+    latest weekly value dated at least 7 calendar days before the day."""
+    import bisect
+    from datetime import date as _d, timedelta
+    vix = json.load(open(os.path.join(HERE, "history", "vix_weekly.json")))
+    ks = sorted(vix)
+    out = []
+    for d in dates:
+        cut = (_d.fromisoformat(d) - timedelta(days=7)).isoformat()
+        i = bisect.bisect_right(ks, cut) - 1
+        out.append(vix[ks[i]] if i >= 0 else None)
+    return out
+
+
+def r15_signal(bars, t, adx, cfg):
+    """R15 entry at the close of t: ranging (ADX<20) and in the bottom quartile
+    of the trailing 60-day high/low range."""
+    if t < 60 or adx[t] is None or adx[t] >= cfg.r15_adx:
+        return False
+    hi = max(b[H] for b in bars[t - 59:t + 1])
+    lo = min(b[L] for b in bars[t - 59:t + 1])
+    if hi <= lo:
+        return False
+    return (bars[t][C] - lo) / (hi - lo) <= cfg.r15_quartile
+
+
+def simulate(cfg, dates, bars, syms):
+    if cfg.r15:
+        vix_day = _vix_by_day(dates)
+        adx_s = {s: _adx(bars[s]) for s in syms}
+    r15_entries = 0
+    cash = cfg.start_cash
+    pos = {}                     # sym -> dict(qty, entry, stop, hi, day)
+    pending_buy, pending_sell = [], []
+    stop_days = []               # trading-day indices of recent stop-outs
+    pause_until = -1
+    high_water = cfg.start_cash
+    halted = False
+    halt_until = -1
+    halts = []
+    equity_curve, trades = [], []
+    blocked_by_breaker = 0
+    blocked_by_cash = 0
+    blocked_by_granularity = 0
+
+    start = max(cfg.ma_slow, cfg.prox_window, 15) + 1
+    if cfg.start_date:
+        start = max(start, next(i for i, d in enumerate(dates)
+                                if d >= cfg.start_date))
+    stop_at = len(dates)
+    if cfg.end_date:
+        stop_at = next((i for i, d in enumerate(dates) if d > cfg.end_date),
+                       len(dates))
+    for t in range(start, stop_at):
+        # ---------- at the open: yesterday's decisions execute ----------
+        for s in pending_sell:
+            if s in pos:
+                p = pos.pop(s)
+                px = bars[s][t][O] * (1 - cfg.slip)
+                cash += p["qty"] * px
+                trades.append((s, p["entry"], px, p["qty"], t - p["day"], "trend"))
+        pending_sell = []
+
+        for s, qty, tag in pending_buy:
+            if s in pos or qty <= 0:
+                continue
+            px = bars[s][t][O] * (1 + cfg.slip)
+            cost = qty * px
+            if cost > cash:
+                continue
+            cash -= cost
+            stop = None
+            if cfg.atr_stop:
+                stop = px - cfg.atr_stop * atr(bars[s], t - 1)
+            elif cfg.stop_pct:
+                stop = px * (1 - cfg.stop_pct)
+            pos[s] = {"qty": qty, "entry": px, "stop": stop, "hi": px, "day": t,
+                      "r15": tag}
+            r15_entries += tag
+        pending_buy = []
+
+        # ---------- intraday: resting stops are live ----------
+        for s in list(pos):
+            p = pos[s]
+            if p["stop"] is None:
+                continue
+            if bars[s][t][L] <= p["stop"]:
+                raw = bars[s][t][O] if bars[s][t][O] <= p["stop"] else p["stop"]
+                px = raw * (1 - cfg.slip)
+                cash += p["qty"] * px
+                trades.append((s, p["entry"], px, p["qty"], t - p["day"], "stop"))
+                del pos[s]
+                stop_days.append(t)
+
+        # ---------- mark to market on the close ----------
+        equity = cash + sum(p["qty"] * bars[s][t][C] for s, p in pos.items())
+        equity_curve.append(equity)
+        high_water = max(high_water, equity)
+        if cfg.halt_drawdown and not halted and \
+                equity < high_water * (1 - cfg.halt_drawdown):
+            halted = True
+            halts.append(t)
+            # R6 AS WRITTEN HAS NO RESUME CONDITION -- it is a one-way latch.
+            # "latch" reproduces that literally: the book never trades again.
+            # "rebase" models what actually happens live, where Nolan reviews
+            # and his next deposit resets the high-water mark.
+            if cfg.halt_mode == "rebase":
+                halt_until = t + cfg.halt_pause
+        if halted and cfg.halt_mode == "rebase" and t >= halt_until:
+            halted = False
+            high_water = equity
+
+        # ---------- raise stops on the close; never lower ----------
+        for s, p in pos.items():
+            px = bars[s][t][C]
+            p["hi"] = max(p["hi"], px)
+            if p["stop"] is None or cfg.raise_mode == "none":
+                continue
+            want = None
+            if p["hi"] >= p["entry"] * 1.08:
+                want = p["entry"]
+                if cfg.raise_mode == "trail":
+                    tp = cfg.trail_pct if cfg.trail_pct is not None else cfg.stop_pct
+                    if cfg.atr_stop:
+                        want = max(want, p["hi"] - cfg.atr_stop * atr(bars[s], t))
+                    elif tp:
+                        want = max(want, p["hi"] * (1 - tp))
+            if want is not None and want > p["stop"]:
+                p["stop"] = want
+
+        # ---------- exit signals for tomorrow ----------
+        for s, p in pos.items():
+            px = bars[s][t][C]
+            out = False
+            if cfg.trend_exit and not p.get("r15"):
+                b = 1.0 - cfg.exit_band
+                below_slow = px < sma(bars[s], t, cfg.ma_slow) * b
+                below_fast = (px < sma(bars[s], t, cfg.ma_fast) * b
+                              if cfg.exit_on == "both" else True)
+                if below_slow and below_fast:
+                    p["below"] = p.get("below", 0) + 1
+                else:
+                    p["below"] = 0
+                if p["below"] >= cfg.exit_confirm:
+                    out = True
+            if cfg.time_stop and t - p["day"] >= cfg.time_stop:
+                out = True
+            if out:
+                pending_sell.append(s)
+
+        # ---------- R6 breaker ----------
+        stop_days = [d for d in stop_days if t - d < cfg.breaker_window]
+        if len(stop_days) >= cfg.breaker_stops and t > pause_until:
+            pause_until = t + cfg.breaker_pause
+        if halted or t <= pause_until:
+            if t <= pause_until and not halted:
+                blocked_by_breaker += 1
+            continue
+
+        # ---------- entry signals for tomorrow ----------
+        open_slots = cfg.max_positions - len(pos) - len(pending_buy)
+        if open_slots <= 0:
+            continue
+        sector_n = {}
+        for s in pos:
+            sector_n[SECTORS[s]] = sector_n.get(SECTORS[s], 0) + 1
+
+        cands = [s for s in syms
+                 if s not in pos and s not in pending_sell
+                 and entry_signal(bars[s], t, cfg)
+                 and sector_n.get(SECTORS[s], 0) < cfg.sector_cap]
+        # deterministic preference: strongest 20-day relative position first
+        cands.sort(key=lambda s: -(bars[s][t][C] /
+                                   max(b[H] for b in bars[s][t - 19:t + 1])))
+        tags = {s: False for s in cands}
+        if cfg.r15 and vix_day[t] is not None and vix_day[t] >= cfg.r15_vix:
+            extra = [s for s in syms
+                     if s not in pos and s not in pending_sell and s not in tags
+                     and sector_n.get(SECTORS[s], 0) < cfg.sector_cap
+                     and r15_signal(bars[s], t, adx_s[s], cfg)]
+            for s in extra:
+                tags[s] = True
+            cands += extra
+
+        deployable = cash - equity * cfg.cash_floor
+        for s in cands[:open_slots]:
+            px = bars[s][t][C]
+            if cfg.sizing == "cap":
+                budget = min(cfg.cap_abs, equity * cfg.cap_pct)
+            elif cfg.sizing == "equal":
+                budget = equity / cfg.max_positions
+            elif cfg.sizing == "risk":
+                if cfg.atr_stop:
+                    dist = cfg.atr_stop * atr(bars[s], t)
+                else:
+                    dist = px * cfg.stop_pct
+                budget = (equity * cfg.risk_per_trade / dist) * px if dist > 0 else 0
+                budget = min(budget, equity * cfg.cap_pct)
+            budget = min(budget, deployable)
+            if budget <= 0:
+                blocked_by_cash += 1
+                continue
+            qty = math.floor(budget / px) if cfg.whole_shares else budget / px
+            if qty < (1 if cfg.whole_shares else 1e-9):
+                blocked_by_granularity += 1
+                continue
+            pending_buy.append((s, qty, tags[s]))
+            deployable -= qty * px
+            sector_n[SECTORS[s]] = sector_n.get(SECTORS[s], 0) + 1
+
+    return {"equity": equity_curve, "trades": trades, "cfg": cfg,
+            "halts": halts, "dates": dates,
+            "blocked_breaker": blocked_by_breaker,
+            "blocked_cash": blocked_by_cash,
+            "blocked_gran": blocked_by_granularity,
+            "r15_entries": r15_entries}
+
+
+def report(res):
+    eq = res["equity"]
+    cfg = res["cfg"]
+    yrs = len(eq) / 252.0
+    cagr = (eq[-1] / eq[0]) ** (1 / yrs) - 1
+    peak, mdd = eq[0], 0.0
+    rets = [eq[i] / eq[i - 1] - 1 for i in range(1, len(eq))]
+    for v in eq:
+        peak = max(peak, v)
+        mdd = min(mdd, v / peak - 1)
+    mean = sum(rets) / len(rets)
+    sd = (sum((r - mean) ** 2 for r in rets) / len(rets)) ** 0.5
+    sharpe = mean / sd * math.sqrt(252) if sd > 0 else 0.0
+    tr = res["trades"]
+    wins = [x for x in tr if x[2] > x[1]]
+    return {"name": cfg.name, "cagr": cagr, "mdd": mdd, "sharpe": sharpe,
+            "final": eq[-1], "trades": len(tr),
+            "win": len(wins) / max(1, len(tr)),
+            "stopped": sum(1 for x in tr if x[5] == "stop") / max(1, len(tr)),
+            "hold": sum(x[4] for x in tr) / max(1, len(tr))}
+
+
+def bench(dates, bars, start_cash, n):
+    """SPY buy and hold over the same window, whole shares, same capital."""
+    b = bars["SPY"]
+    i0 = len(dates) - n
+    qty = math.floor(start_cash / b[i0][C])
+    cash = start_cash - qty * b[i0][C]
+    eq = [cash + qty * b[i][C] for i in range(i0, len(dates))]
+    yrs = len(eq) / 252.0
+    peak, mdd = eq[0], 0.0
+    for v in eq:
+        peak = max(peak, v)
+        mdd = min(mdd, v / peak - 1)
+    return (eq[-1] / eq[0]) ** (1 / yrs) - 1, mdd, eq[-1]
+
+
+HDR = (f"  {'ruleset':<34}{'CAGR':>8}{'maxDD':>9}{'Sharpe':>8}"
+       f"{'final $':>10}{'trades':>8}{'win%':>7}{'stop%':>7}{'hold':>6}")
+
+
+def line(r):
+    return (f"  {r['name']:<34}{r['cagr']*100:7.2f}%{r['mdd']*100:8.1f}%"
+            f"{r['sharpe']:8.2f}{r['final']:10,.0f}{r['trades']:8d}"
+            f"{r['win']*100:6.1f}%{r['stopped']*100:6.1f}%{r['hold']:5.0f}d")
+
+
+def main():
+    dates, bars, syms = load()
+    runs = [
+        Config(name="TARS-1 as it stands today"),
+        Config(name="TARS-1, trail widened to 20%", trail_pct=0.20),
+        Config(name="TARS-1, no trail (breakeven only)", raise_mode="breakeven"),
+        Config(name="drop R2 rule 2 (the 50d MA)", use_ma_fast=False),
+        Config(name="drop R2 rule 3 (near-the-high)", prox=None),
+        Config(name="drop rules 2 AND 3", use_ma_fast=False, prox=None),
+        Config(name="ATR stop 3x, ATR trail", atr_stop=3.0, stop_pct=None),
+        Config(name="risk-parity sizing (2%/trade)", sizing="risk"),
+        Config(name="no circuit breaker", breaker_stops=99),
+        Config(name="no cash floor", cash_floor=0.0),
+        Config(name="FRACTIONAL shares allowed", whole_shares=False),
+    ]
+    print("TARS PORTFOLIO ENGINE -- 14 stocks, "
+          f"{dates[0]} to {dates[-1]}, ${runs[0].start_cash:,.0f} start\n")
+    print(HDR)
+    print("  " + "-" * 97)
+    n = None
+    for cfg in runs:
+        res = simulate(cfg, dates, bars, syms)
+        n = len(res["equity"])
+        print(line(report(res)))
+    bc, bm, bf = bench(dates, bars, runs[0].start_cash, n)
+    print("  " + "-" * 97)
+    print(f"  {'SPY buy & hold, same capital':<34}{bc*100:7.2f}%{bm*100:8.1f}%"
+          f"{'':>8}{bf:10,.0f}")
+    print("\n  Price returns only -- no dividends, which understates buy & hold most."
+          "\n  These 14 names all survived to 2026; survivorship flatters everything here.")
+
+
+if __name__ == "__main__":
+    main()
