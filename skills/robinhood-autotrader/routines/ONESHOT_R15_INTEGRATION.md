@@ -27,3 +27,8 @@ Write your prediction in the script header BEFORE running. Scripts print data on
 research/2026-09-26_R15_INTEGRATION.md. If R15 makes TARS-1 worse, say so in the first line and recommend repealing it. Nolan adopted it on the strength of an entry statistic, and he needs to know if the system is worse for it. Commit and push; no dollar balances in commit messages (R13).
 
 Report to Nolan in three lines: better, worse or no difference, the one number that decided it, and whether R15 should stay.
+
+
+## DONE 2026-09-26
+
+Result: R15 makes TARS-1 WORSE (CAGR -1.14pp, max DD -45.9% vs -33.6%). Recommended repeal. See research/2026-09-26_R15_INTEGRATION.md.
