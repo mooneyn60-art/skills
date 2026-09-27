@@ -145,6 +145,26 @@ SOFI 9/25 $17.50 call: 0DTE, bought for $1, no bid. Let it expire; log -1.00.
 CASH: back above the 15% floor after Nolan's sales (2026-09-25 ~11:30 ET).
 Re-check at every fire.
 
+## SHADOW BOOK -- run at the 5:17pm ET close check only (see paper/shadow/README.md)
+
+Paper-only. It never places orders. About 3 tool calls a day:
+  1. run_scan scan_id 82b6b119-03ea-49ff-9e5b-4dc747bd2918. The result is big
+     and usually lands in a saved tool-results file. Copy that file to
+     /tmp/shadow_scan.json (if it comes back inline, write it there as-is).
+  2. cd skills/robinhood-autotrader/paper/shadow &&
+     python3 shadow_book.py plan --scan /tmp/shadow_scan.json
+     -> quote the listed symbols with ONE get_equity_quotes call and save the
+     raw JSON to /tmp/shadow_quotes.json. For each held symbol listed under
+     "SMA200 NEEDED": get_equity_technical_indicators(symbol, type sma,
+     period 200, interval day, start_time about 320 calendar days back,
+     output latest).
+  3. python3 shadow_book.py run --date TODAY --scan /tmp/shadow_scan.json
+     --quotes /tmp/shadow_quotes.json --vix <VIX prior-close value>
+     --sma SYM=value ...   (one --sma per held symbol)
+  4. Commit paper/shadow (state.json, nav.csv, log.jsonl, daily/TODAY.json).
+     One line to Nolan only if something entered or exited.
+If a step fails, skip the shadow for the day and say so. Never guess prices.
+
 ## DO NOT RE-DERIVE
 
 Seven strategy families are tested and rejected; see research/. Do not

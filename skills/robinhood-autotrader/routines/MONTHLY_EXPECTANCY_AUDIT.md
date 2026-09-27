@@ -17,6 +17,9 @@ Work in skills/robinhood-autotrader/. Ledger: paper/trades.jsonl.
    against the SPY-equivalent (spy_same_window_pct). At 10 closed slot
    trades this becomes the headline review R17 calls for.
 
+2a. SHADOW BOOK vs SPY vs the live account since 2026-09-25 (paper/shadow/nav.csv).
+   The shadow is the clean test of the rules; the live account includes
+   Nolan's discretion. Report the gap between them.
 2. IS THE ACCOUNT BEATING SPY SINCE INCEPTION? Not since the last good
    month. Since inception, deposits excluded from returns. If it is not,
    that is the headline and it goes in the first line.

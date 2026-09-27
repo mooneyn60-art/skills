@@ -32,6 +32,8 @@ conclusions. Refresh it:
 - R8: reconcile broker against the ledger FIRST.
 - Account change for the week, and SPY's change for the same week. If the
   account underperformed, say so plainly and in the first line.
+- SHADOW BOOK: `python3 paper/shadow/shadow_book.py report`. Paste the NAV
+  line (tars1, trend_only, SPY) and any exits this week.
 - R17 option slot: one line. The current contract, its value against
   entry, where its stop sits on the ladder, and days until its time exit.
 - Any position that closed this week: score it in R-multiples, tag the exit
