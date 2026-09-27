@@ -101,6 +101,13 @@ class Config:
     start_date: str = None      # restrict the window, for out-of-sample tests
     end_date: str = None
     slip: float = 0.0005        # one-way, each side
+    # --- R15, the VIX regime switch (off by default) ---
+    r15: bool = False           # VIX>=25: ranging names in the bottom quartile
+                                # of their 60-day range become eligible with the
+                                # 200-day gate suspended; exempt from trend exit
+    r15_vix: float = 25.0
+    r15_adx: float = 20.0
+    r15_quartile: float = 0.25
     name: str = "unnamed"
 
 
@@ -141,7 +148,69 @@ def entry_signal(bars, t, cfg):
     return True
 
 
+def _adx(b, n=14):
+    """Wilder ADX(14) per bar, None until defined. Uses bars[0..t] only."""
+    out = [None] * len(b)
+    tr_s = pdm_s = ndm_s = 0.0
+    dx, adx = [], None
+    for t in range(1, len(b)):
+        h, l, pc = b[t][H], b[t][L], b[t - 1][C]
+        up, dn = h - b[t - 1][H], b[t - 1][L] - l
+        tr = max(h - l, abs(h - pc), abs(l - pc))
+        pdm = up if up > dn and up > 0 else 0.0
+        ndm = dn if dn > up and dn > 0 else 0.0
+        if t <= n:
+            tr_s += tr; pdm_s += pdm; ndm_s += ndm
+            if t < n:
+                continue
+        else:
+            tr_s = tr_s - tr_s / n + tr
+            pdm_s = pdm_s - pdm_s / n + pdm
+            ndm_s = ndm_s - ndm_s / n + ndm
+        if tr_s == 0:
+            continue
+        pdi, ndi = pdm_s / tr_s, ndm_s / tr_s
+        dx.append(0.0 if pdi + ndi == 0 else 100 * abs(pdi - ndi) / (pdi + ndi))
+        if len(dx) == n:
+            adx = sum(dx) / n
+        elif len(dx) > n:
+            adx = (adx * (n - 1) + dx[-1]) / n
+        out[t] = adx
+    return out
+
+
+def _vix_by_day(dates):
+    """Weekly VIX forward-filled onto trading days from PAST data only: the
+    latest weekly value dated at least 7 calendar days before the day."""
+    import bisect
+    from datetime import date as _d, timedelta
+    vix = json.load(open(os.path.join(HERE, "history", "vix_weekly.json")))
+    ks = sorted(vix)
+    out = []
+    for d in dates:
+        cut = (_d.fromisoformat(d) - timedelta(days=7)).isoformat()
+        i = bisect.bisect_right(ks, cut) - 1
+        out.append(vix[ks[i]] if i >= 0 else None)
+    return out
+
+
+def r15_signal(bars, t, adx, cfg):
+    """R15 entry at the close of t: ranging (ADX<20) and in the bottom quartile
+    of the trailing 60-day high/low range."""
+    if t < 60 or adx[t] is None or adx[t] >= cfg.r15_adx:
+        return False
+    hi = max(b[H] for b in bars[t - 59:t + 1])
+    lo = min(b[L] for b in bars[t - 59:t + 1])
+    if hi <= lo:
+        return False
+    return (bars[t][C] - lo) / (hi - lo) <= cfg.r15_quartile
+
+
 def simulate(cfg, dates, bars, syms):
+    if cfg.r15:
+        vix_day = _vix_by_day(dates)
+        adx_s = {s: _adx(bars[s]) for s in syms}
+    r15_entries = 0
     cash = cfg.start_cash
     pos = {}                     # sym -> dict(qty, entry, stop, hi, day)
     pending_buy, pending_sell = [], []
@@ -174,7 +243,7 @@ def simulate(cfg, dates, bars, syms):
                 trades.append((s, p["entry"], px, p["qty"], t - p["day"], "trend"))
         pending_sell = []
 
-        for s, qty in pending_buy:
+        for s, qty, tag in pending_buy:
             if s in pos or qty <= 0:
                 continue
             px = bars[s][t][O] * (1 + cfg.slip)
@@ -187,7 +256,9 @@ def simulate(cfg, dates, bars, syms):
                 stop = px - cfg.atr_stop * atr(bars[s], t - 1)
             elif cfg.stop_pct:
                 stop = px * (1 - cfg.stop_pct)
-            pos[s] = {"qty": qty, "entry": px, "stop": stop, "hi": px, "day": t}
+            pos[s] = {"qty": qty, "entry": px, "stop": stop, "hi": px, "day": t,
+                      "r15": tag}
+            r15_entries += tag
         pending_buy = []
 
         # ---------- intraday: resting stops are live ----------
@@ -243,7 +314,7 @@ def simulate(cfg, dates, bars, syms):
         for s, p in pos.items():
             px = bars[s][t][C]
             out = False
-            if cfg.trend_exit:
+            if cfg.trend_exit and not p.get("r15"):
                 b = 1.0 - cfg.exit_band
                 below_slow = px < sma(bars[s], t, cfg.ma_slow) * b
                 below_fast = (px < sma(bars[s], t, cfg.ma_fast) * b
@@ -283,6 +354,15 @@ def simulate(cfg, dates, bars, syms):
         # deterministic preference: strongest 20-day relative position first
         cands.sort(key=lambda s: -(bars[s][t][C] /
                                    max(b[H] for b in bars[s][t - 19:t + 1])))
+        tags = {s: False for s in cands}
+        if cfg.r15 and vix_day[t] is not None and vix_day[t] >= cfg.r15_vix:
+            extra = [s for s in syms
+                     if s not in pos and s not in pending_sell and s not in tags
+                     and sector_n.get(SECTORS[s], 0) < cfg.sector_cap
+                     and r15_signal(bars[s], t, adx_s[s], cfg)]
+            for s in extra:
+                tags[s] = True
+            cands += extra
 
         deployable = cash - equity * cfg.cash_floor
         for s in cands[:open_slots]:
@@ -306,7 +386,7 @@ def simulate(cfg, dates, bars, syms):
             if qty < (1 if cfg.whole_shares else 1e-9):
                 blocked_by_granularity += 1
                 continue
-            pending_buy.append((s, qty))
+            pending_buy.append((s, qty, tags[s]))
             deployable -= qty * px
             sector_n[SECTORS[s]] = sector_n.get(SECTORS[s], 0) + 1
 
@@ -314,7 +394,8 @@ def simulate(cfg, dates, bars, syms):
             "halts": halts, "dates": dates,
             "blocked_breaker": blocked_by_breaker,
             "blocked_cash": blocked_by_cash,
-            "blocked_gran": blocked_by_granularity}
+            "blocked_gran": blocked_by_granularity,
+            "r15_entries": r15_entries}
 
 
 def report(res):
