@@ -48,6 +48,26 @@ Styles: lined, dot, grid, blank, planner, gratitude. Low-content books can't use
 to claim content. Warn the user that KDP limits their reach, and that near-duplicate
 low-content books get rejected.
 
+## Word search books (fully automated)
+
+1. Write a spec JSON: title, subtitle, author, seed, and 50-60 themed puzzles
+   of 12-15 words each (at most 15 letters after spaces are removed). No word
+   may sit inside another word in the same puzzle (ANGLE/TRIANGLE); the builder
+   rejects those.
+2. `python word_search_book.py book.json -o interior.pdf`: large-print 8.5x11
+   interior with how-to page, one puzzle per page, answer keys, series page.
+   Every grid is verified: each word appears exactly once, and filler letters
+   never spell a blocked word.
+3. `python puzzle_cover.py book.json --pages <N> -o cover.pdf`: full-wrap
+   cover drawn in code (patterns: quilt, yarn, honeycomb), with a sample puzzle
+   on the back and the barcode area kept clear. Add a `cover` block to the
+   spec; see the script docstring.
+4. Metadata: subtitle must match the cover text. Run `check_metadata.py`.
+   Puzzle books are not "low-content" on KDP (they have content), so they
+   get a free KDP ISBN.
+5. AI disclosure: word lists and descriptions written by Claude are
+   AI-generated text. Code-drawn covers are not AI-generated images.
+
 ## Reports
 
 Have the user download reports from KDP (Reports > Prior Month Royalties, or the

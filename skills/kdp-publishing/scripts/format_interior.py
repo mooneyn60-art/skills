@@ -33,6 +33,14 @@ from reportlab.platypus.flowables import Flowable
 import kdp_specs as kdp
 
 INCH = 72
+SANS_FONT_CANDIDATES = [
+    ("LiberationSans", "/usr/share/fonts/truetype/liberation/LiberationSans-{}.ttf",
+     {"Regular": "Regular", "Bold": "Bold", "Italic": "Italic", "BoldItalic": "BoldItalic"}),
+    ("DejaVuSans", "/usr/share/fonts/truetype/dejavu/DejaVuSans{}.ttf",
+     {"Regular": "", "Bold": "-Bold", "Italic": "-Oblique", "BoldItalic": "-BoldOblique"}),
+    ("Arial", "/Library/Fonts/Arial{}.ttf", {"Regular": "", "Bold": " Bold", "Italic": " Italic", "BoldItalic": " Bold Italic"}),
+    ("Arial", "C:/Windows/Fonts/arial{}.ttf", {"Regular": "", "Bold": "bd", "Italic": "i", "BoldItalic": "bi"}),
+]
 FONT_CANDIDATES = [
     ("LiberationSerif", "/usr/share/fonts/truetype/liberation/LiberationSerif-{}.ttf",
      {"Regular": "Regular", "Bold": "Bold", "Italic": "Italic", "BoldItalic": "BoldItalic"}),
@@ -45,7 +53,7 @@ FONT_CANDIDATES = [
 ]
 
 
-def register_fonts(font_dir=None):
+def register_fonts(font_dir=None, sans=False):
     """Register an embeddable TTF family. KDP rejects PDFs with non-embedded fonts."""
     if font_dir:
         files = {s: glob.glob(os.path.join(font_dir, f"*{s}*.ttf")) for s in ("Regular", "Bold", "Italic", "BoldItalic")}
@@ -54,7 +62,8 @@ def register_fonts(font_dir=None):
             raise SystemExit(f"{font_dir} needs Regular, Bold, Italic and BoldItalic .ttf files.")
         candidates = [("Custom", None, {s: f[0] for s, f in files.items()})]
     else:
-        candidates = [(n, pattern, {s: pattern.format(v) for s, v in m.items()}) for n, pattern, m in FONT_CANDIDATES]
+        table = SANS_FONT_CANDIDATES if sans else FONT_CANDIDATES
+        candidates = [(n, pattern, {s: pattern.format(v) for s, v in m.items()}) for n, pattern, m in table]
     for name, _, paths in candidates:
         if all(os.path.exists(p) for p in paths.values()):
             for style, path in paths.items():
@@ -62,7 +71,7 @@ def register_fonts(font_dir=None):
             pdfmetrics.registerFontFamily(name, normal=f"{name}-Regular", bold=f"{name}-Bold",
                                           italic=f"{name}-Italic", boldItalic=f"{name}-BoldItalic")
             return name
-    raise SystemExit("No embeddable serif TTF family found. Pass --font-dir with Regular/Bold/Italic/BoldItalic .ttf files.")
+    raise SystemExit("No embeddable TTF family found. Pass --font-dir with Regular/Bold/Italic/BoldItalic .ttf files.")
 
 
 def inline_markdown(text):
