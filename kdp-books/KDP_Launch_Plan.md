@@ -1,7 +1,7 @@
 # Hollow Pine Puzzles — Launch Plan
 
 Series: **Hobby Word Search, Large Print**. 8.5 x 11 paperbacks, 60 puzzles, 82 pages.
-Goal: both books live by mid-October so they catch the Christmas gift season.
+Goal: Halloween book live this week; hobby books live by mid-October for the Christmas gift season.
 
 ---
 
@@ -94,6 +94,15 @@ KDP Bookshelf → **+ Create** → **Paperback**
 
 ---
 
+## 3b. Book 3: Halloween Word Search (UPLOAD FIRST: time-sensitive)
+
+**Title:** Halloween Word Search
+**Subtitle:** Large Print: 60 Spooky Fun Puzzles for Adults & Seniors
+**Author:** Hollow Pine Puzzles
+**Description, keywords, categories:** see `halloween/metadata.json` or the "Halloween listing" Doc in Drive.
+
+---
+
 ## 4. Marketing
 
 ### Amazon (start once a book is live)
@@ -138,12 +147,14 @@ KDP Bookshelf → **+ Create** → **Paperback**
 
 | Date (ET) | Task | Who |
 |---|---|---|
+| Tue Sep 29 | Upload **Halloween** first, order proof | You |
 | Tue Sep 29 | Upload **Quilting**, order proof | You |
 | Wed Sep 30 | Upload **Knitting & Crochet**, order proof | You |
+| Fri Oct 2 | Halloween live: start ads at $8/day until Oct 26, pin Halloween puzzles daily | You |
 | Oct 1 – 3 | KDP review (up to 72 h) → books go live | KDP |
-| Mon Oct 5 | Book 3 (**Beekeeping**) files ready | Me (weekly routine) |
+| Mon Oct 5 | **Christmas Word Search** files ready (holiday first) | Me (weekly routine) |
 | Mon Oct 5 | Start ads for books 1–2, set up Author Central | You |
-| Tue Oct 6 | Upload Beekeeping | You |
+| Tue Oct 6 | Upload Christmas Word Search | You |
 | Every Monday | Next book in the series is built and sent to you | Me |
 | Every Monday | Pin/short-video content for the week | Me |
 | Mon Oct 19 | First ads review: harvest search terms | You + me |

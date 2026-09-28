@@ -95,7 +95,48 @@ def pattern_honeycomb(c, x, y, w, h, palette, rng, r=0.42 * INCH):
             c.drawPath(p, stroke=1, fill=1)
 
 
-PATTERNS = {"quilt": pattern_quilt, "yarn": pattern_yarn, "honeycomb": pattern_honeycomb}
+def draw_pumpkin(c, cx, cy, r, orange, stem):
+    c.setFillColor(stem)
+    c.roundRect(cx - r * 0.12, cy + r * 0.7, r * 0.24, r * 0.45, r * 0.08, stroke=0, fill=1)
+    c.setFillColor(orange)
+    c.setStrokeColor(HexColor("#9A4A12"))
+    c.setLineWidth(max(1, r * 0.06))
+    for dx, rx in ((-0.45, 0.6), (0.45, 0.6), (0, 0.62)):
+        c.ellipse(cx + (dx - rx) * r, cy - 0.8 * r, cx + (dx + rx) * r, cy + 0.8 * r, stroke=1, fill=1)
+
+
+def draw_bat(c, cx, cy, s, color):
+    c.setFillColor(color)
+    p = c.beginPath()
+    pts = [(-1, 0.2), (-0.7, 0.35), (-0.45, 0.1), (-0.2, 0.25), (-0.1, 0.45), (0, 0.3), (0.1, 0.45), (0.2, 0.25),
+           (0.45, 0.1), (0.7, 0.35), (1, 0.2), (0.65, -0.05), (0.4, -0.3), (0.2, -0.1), (0, -0.35), (-0.2, -0.1),
+           (-0.4, -0.3), (-0.65, -0.05)]
+    p.moveTo(cx + pts[0][0] * s, cy + pts[0][1] * s)
+    for px, py in pts[1:]:
+        p.lineTo(cx + px * s, cy + py * s)
+    p.close()
+    c.drawPath(p, stroke=0, fill=1)
+
+
+def pattern_halloween(c, x, y, w, h, palette, rng, step=1.15 * INCH):
+    """Night sky with pumpkins, bats and stars. Palette: orange, night, purple, gold, green, cream."""
+    orange, night, purple, gold, green = (HexColor(v) for v in palette[:5])
+    c.setFillColor(night)
+    c.rect(x, y, w, h, stroke=0, fill=1)
+    c.setFillColor(gold)
+    for _ in range(int(w * h / (0.35 * INCH) ** 2)):
+        c.circle(x + rng.random() * w, y + rng.random() * h, rng.choice((0.8, 1.2, 1.8)), stroke=0, fill=1)
+    for j in range(int(h / step) + 2):
+        for i in range(int(w / step) + 2):
+            cx = x + i * step + (step / 2 if j % 2 else 0) + rng.uniform(-8, 8)
+            cy = y + j * step + rng.uniform(-8, 8)
+            if (i + j) % 3 == 0:
+                draw_bat(c, cx, cy, step * 0.28, purple)
+            else:
+                draw_pumpkin(c, cx, cy, step * rng.uniform(0.2, 0.28), orange, green)
+
+
+PATTERNS = {"quilt": pattern_quilt, "yarn": pattern_yarn, "honeycomb": pattern_honeycomb, "halloween": pattern_halloween}
 
 
 def clip_rect(c, x, y, w, h):

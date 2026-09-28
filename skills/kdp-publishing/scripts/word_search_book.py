@@ -23,6 +23,7 @@ import random
 import re
 
 from reportlab.lib.colors import Color, black, white
+from reportlab.pdfbase.pdfmetrics import stringWidth
 from reportlab.pdfgen import canvas
 
 import kdp_specs as kdp
@@ -50,7 +51,8 @@ def lines_of(grid):
 
 
 def count_occurrences(grid, word):
-    return sum(len(re.findall(f"(?={word})", line)) for line in lines_of(grid))
+    hits = sum(len(re.findall(f"(?={word})", line)) for line in lines_of(grid))
+    return hits // 2 if word == word[::-1] else hits  # a palindrome matches its own reversed line
 
 
 def try_place(n, words, dirs, rng):
@@ -219,6 +221,10 @@ class Book:
                 x = left + col * col_w + 0.15 * INCH
                 y = y0 - row * 0.33 * INCH
                 self.c.rect(x, y - 1, 10, 10)
+                size = 16
+                while stringWidth(w.upper(), f"{self.font}-Regular", size) > col_w - 0.3 * INCH and size > 12:
+                    size -= 0.5
+                self.c.setFont(f"{self.font}-Regular", size)
                 self.c.drawString(x + 16, y, w.upper())
             self.finish_page()
 
