@@ -113,7 +113,7 @@ option, answer about the option.
 
 ## SOFI IS CARVED OUT (Nolan's decision 2026-09-22)
 
-His discretionary position, 1-2 year thesis, >$20 target. NOW 5 SHARES (he sold 5 on 2026-09-25), one stop order 6ab12ef4 for 5 at 15.75. Exempt from the
+His discretionary position, 1-2 year thesis, >$20 target. STOPPED OUT 2026-09-30 3:55pm ET: all 5 shares sold at 15.755 by stop 6ab12ef4 (-6.2% vs 16.80 avg). SOFI is now 0 shares. If Nolan re-buys, ask him for a stop level. Exempt from the
 trend exit and the sector cap, excluded from expectancy. Stop stays 15.75
 unless he says otherwise. Q3 earnings expected 2026-10-27.
 
@@ -160,6 +160,7 @@ stop 2.05 | >= 3.08 -> 2.56 | >= 3.59 -> 3.08 | then one rung per +0.51. Time
 exit 2026-11-27. (It replaced the $18 call, rolled via the $17, on 2026-09-25.)
 The $19 call's stop was re-placed 2026-09-28 premarket (order 6aba51df-148e-43ce-9919-2bb9b57c200c, 0.66/0.60 GTC) after a second blocked widening attempt; it was queued premarket, so the desk confirms it is live at the first check.
 SOFI Oct 2 $15.50 put @0.10 (Nolan, 2026-09-28): lottery hedge, no stop.
+WBD Oct 23 $31 call x5 @0.03 (Nolan, 2026-09-30, option_id 25d5ccd1-a39d-42ad-bd8d-8f8e3083acc0): lottery, ~1% of account, no stop.
 SOFI 9/25 $17.50 call: 0DTE, bought for $1, no bid. Let it expire; log -1.00.
 CASH: back above the 15% floor after Nolan's sales (2026-09-25 ~11:30 ET).
 Re-check at every fire.
