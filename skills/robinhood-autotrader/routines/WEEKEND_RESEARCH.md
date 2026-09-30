@@ -96,3 +96,11 @@ checking results.
 
 NOLAN'S LATEST: read the last ~25 lines of notes/NOLAN_LOG.md (the main
 session's digest of what he asked and decided) before acting.
+
+## NOTIFY NOLAN (push) — added 2026-09-30
+
+At the end of this run, if there is a result Nolan would want to know now (a
+score, a finding that changes a position, a stop/exit signal, or something
+needing his decision), send ONE `PushNotification` (status "proactive", <200
+chars, one line, no dollar balances per R13). Reaches his phone via Remote
+Control. Stay silent on a routine/no-news run.

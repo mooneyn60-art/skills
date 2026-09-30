@@ -59,3 +59,11 @@ NO TRADES. This is an audit.
 Lead with expectancy and the SPY comparison. If the system is losing to the
 index, say it in the first sentence without softening. Nolan can act on bad
 news; he cannot act on hedged news.
+
+## NOTIFY NOLAN (push) — added 2026-09-30
+
+At the end of this run, if there is a result Nolan would want to know now (a
+score, a finding that changes a position, a stop/exit signal, or something
+needing his decision), send ONE `PushNotification` (status "proactive", <200
+chars, one line, no dollar balances per R13). Reaches his phone via Remote
+Control. Stay silent on a routine/no-news run.

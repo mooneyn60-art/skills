@@ -66,3 +66,11 @@ in the agenda and link the research note. Follow the agenda's "run it
 cheaply" section: hand searching and reading to sub-agents on cheaper
 models (haiku or sonnet), and keep the main session for test design and
 checking results.
+
+## NOTIFY NOLAN (push) — added 2026-09-30
+
+At the end of this run, if there is a result Nolan would want to know now (a
+score, a finding that changes a position, a stop/exit signal, or something
+needing his decision), send ONE `PushNotification` (status "proactive", <200
+chars, one line, no dollar balances per R13). Reaches his phone via Remote
+Control. Stay silent on a routine/no-news run.

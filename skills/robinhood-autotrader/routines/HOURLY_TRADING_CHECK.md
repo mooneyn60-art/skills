@@ -6,6 +6,24 @@ This runs in a LEAN session that does not remember past conversations. What
 you know comes from these files: reference/TARS_RULES.md, paper/trades.jsonl,
 notes/GUT_CALLS.md and routines/. Read them, don't assume.
 
+## NOTIFY NOLAN (push to his phone) — added 2026-09-30 at Nolan's request
+
+At the END of every run, after the checks, decide whether to send ONE
+`PushNotification` (status "proactive", <200 chars, one line, no markdown). It
+reaches his phone when Remote Control is connected. Nolan asked to be pinged by
+the desks, so push when there is something he'd want to know NOW; stay silent on
+a quiet run (do NOT ping just to say "all clear").
+
+SEND a push when any of these happened this run:
+  - a stop FIRED / a position was sold (name it + the ratio result, R13: never
+    dollar balances)
+  - a position is within ~2% of its stop trigger
+  - a stop was raised at the close check (name which + new level)
+  - VIX 25+ (R15 fires) or a position gapped >8%
+  - anything that needs Nolan's decision before the desk can act
+Keep it specific and actionable: "SOFI $16C 1% from its 1.23 stop" beats "check
+your account". One push per run maximum. If nothing qualifies, send nothing.
+
 ## CHECK THIS FIRST, EVERY TIME: THE VIX REGIME (R15, adopted 2026-09-23)
 
 Pull VIX via get_index_quotes (instrument id
