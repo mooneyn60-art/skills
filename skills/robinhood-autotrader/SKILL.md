@@ -349,3 +349,22 @@ python trader.py --interval 900  # loop every 15 minutes during market hours
 | `scripts/risk.py` | Section B: position sizing caps + daily-loss circuit breaker (`HALT_TRADING`) |
 | `scripts/executor.py` | Section B: places live orders or logs paper trades, per `LIVE_TRADING` |
 | `scripts/trader.py` | Section B: orchestrates one pass or a continuous loop, writes `trade_log.csv` |
+
+## Companion skills (added 2026-09-30)
+
+Sibling skills in this repo turn the rules here into pre-trade tools. Use them:
+
+- **options-risk-check** — run before ANY option buy. Gates DTE, spread, OI,
+  premium %, delta, earnings timing, and that a stop is planned (R3/R4/R5/R17).
+  Built after the 2026-09-28 SOFI day so a naked/oversized/wide-spread contract
+  can't slip through again.
+- **position-sizer** — run before any buy to get the max $ size under the 20%
+  per-name cap, 15% cash floor, 8% risk budget, counting shares + option
+  premium in the same name as one position (per research/2026-09-30_KELLY_SIZING.md).
+- **earnings-playbook** — before an earnings date: historical vs implied move and
+  a held option's P/L across outcomes. Direction is never predicted.
+- **trade-journal** — append trades to paper/trades.jsonl and score closed ones
+  vs SPY over the same window (item 18's "did we actually beat the index?").
+
+All four are advice-only: they compute and report, they place nothing. None
+hardcodes the account number; none prints account balances into commits (R13).
