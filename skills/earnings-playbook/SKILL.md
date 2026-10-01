@@ -50,8 +50,17 @@ stock doesn't move more than the implied move.
 ```
 python3 scripts/scenario.py \
   --type call --strike 16 --paid 2.05 --stock-now 16.05 \
-  --implied-move-pct 6.5 --moves -10 -6.5 0 6.5 10
+  --implied-move-pct 6.5 --moves -10 -6.5 0 6.5 10 \
+  --days-left-after 52 --iv-after 0.45
 ```
+
+`--days-left-after` (calendar days to expiry left the day after the report) and
+`--iv-after` (the crushed IV, e.g. 0.45) switch on Black-Scholes pricing so an
+option that outlives earnings keeps its remaining time value. Leave them off
+only for options expiring right at earnings. Intrinsic-only badly understates
+longer-dated options (a flat stock left a Dec call worth ~1.15, not 0.05).
+For `--iv-after`, use the IV of a same-strike contract one expiry further out
+as a rough proxy for where IV settles after the print.
 
 ## What to tell Nolan
 
@@ -67,5 +76,6 @@ python3 scripts/scenario.py \
 - No direction predictions dressed up as forecasts.
 - Advice only; places nothing.
 - Never hardcode the account number; no dollar balances in commits (R13).
-- The scenario model is a simple intrinsic + implied-move breakeven; it is NOT a
-  full option pricer (no skew, crude IV crush). Say so when reporting.
+- The scenario model is Black-Scholes with one flat post-crush IV (or intrinsic
+  only if those flags are omitted). No skew. It's a scenario tool, not a quote;
+  say so when reporting.
