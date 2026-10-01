@@ -170,27 +170,36 @@ WHEN THE SLOT IS EMPTY (stopped, time-exited or sold):
      update this section's "Currently" lines, commit and push.
   The R6 drawdown halt pauses step 2 (say so) unless Nolan names a trade.
 
-## NOLAN'S OWN POSITIONS FROM 2026-09-25 (manage the stops, don't trade them)
+## MOMENTUM REBUILD 2026-10-01 (Nolan: "clean house ... companies that are gonna out grow the S&P")
 
-AAPL 1 @337.53: GTC stop-market 310.53 (order 6ab693ef-...). Trail it like R4 at the
-close check. It's his, so no trend exit.
-SOLD BY NOLAN 2026-09-25: CVE, NWG, ABBV. Their stops were cancelled with the sales.
-HOOD 1 @118.10: GTC stop-market 108.65 (order 6ab68366-...). Trail it like R4
-at the close check. It's his, so no trend exit.
-[2026-10-01: the SOFI calls and puts below are CLOSED; kept as history.
-Live owner positions: AAPL, HOOD, WBD $31C x5. Index core: SPY (no stop).]
-SOFI Dec 18 $16 call @2.05 (option_id c303e797-3ce1-40f3-a8e6-e2067e89592e):
-his bracket, E = 2.05. Stop 1.23/1.13 now (-40% floor, Nolan 2026-09-28, order 6aba7b1a-...). Bid >= 2.56 ->
-stop 2.05 | >= 3.08 -> 2.56 | >= 3.59 -> 3.08 | then one rung per +0.51. Time
-exit 2026-11-27. (It replaced the $18 call, rolled via the $17, on 2026-09-25.)
-The $19 call's stop was re-placed 2026-09-28 premarket (order 6aba51df-148e-43ce-9919-2bb9b57c200c, 0.66/0.60 GTC) after a second blocked widening attempt; it was queued premarket, so the desk confirms it is live at the first check.
-SOFI Oct 2 $15.50 put @0.10 (Nolan, 2026-09-28): lottery hedge, no stop.
-WBD Oct 23 $31 call x5 @0.03 (Nolan, 2026-09-30, option_id 25d5ccd1-a39d-42ad-bd8d-8f8e3083acc0): lottery, ~1% of account, no stop.
-SOFI 9/25 $17.50 call: 0DTE, bought for $1, no bid. Let it expire; log -1.00.
-CASH: BELOW the 15% floor since Nolan's 2026-09-30 override (~4% on 10/01).
-Under R18.3: no new TARS entries and no slot refill until it is back above,
-unless Nolan names the trade. Nothing is sold to restore it.
-Re-check at every fire.
+Nolan ordered a full rebalance at 3:07pm ET 2026-10-01. TARS SOLD at market (stops
+cancelled first): HOOD 1 @112.14, NVDA 1 @231.80, AAPL 1 @329.62, TGT 1 @156.57,
+EXEL 2 @58.26. KEPT: INTC 1 (stop 101.91, order 6abd2b00), SPY core 0.657 sh (no
+stop by design), WBD $31C x5 (Nolan's lottery, no stop).
+BOUGHT (12-1 month momentum leaders from the "TARS shadow universe" scan, above
+the 200-day, no earnings within 3 days, max 2 per sector, 63-day vol <= 80% so
+an 8% stop isn't noise):
+  RVMD 1 sh @207.48  GTC stop-market 190.88 (order 6abeafd2)   healthcare
+  GH   1 sh @175.97  GTC stop-market 161.89 (order 6abeafd4)   healthcare
+  MU   0.170193 sh @1087.00  STOP 1000.04 -- FRACTIONAL, NO BROKER STOP   tech
+  VLO  0.455517 sh @406.13   STOP 373.64  -- FRACTIONAL, NO BROKER STOP   energy
+  INTC (kept) is the 2nd tech name.
+
+EVERY FIRE: quote MU and VLO. If last <= its stop, SELL THE WHOLE FRACTION at
+market immediately (regular hours only), log it, push Nolan. The broker won't
+hold stop orders on fractional shares, so the desk IS the stop. Gap risk
+between fires is accepted and was explained to Nolan.
+Close check: raise all five by R4 (max of 0.92xE, E once +8%, 0.80 x highest
+close); for MU/VLO just update the numbers in this section.
+Earnings ahead: VLO 10/22, INTC 10/23, GH 10/29, RVMD 11/5, MU reported 9/30.
+Momentum selection is a NEW way of picking (ranking R2-eligible names by 12-1
+momentum instead of vs200). It was done on Nolan's direct order while R16 was
+on in the main session, so it is NOT an adopted rule: review it at the weekend
+re-read and score the sleeve vs SPY monthly.
+CASH: back at ~15.6% after the rebuild, floor restored.
+
+History: AAPL/HOOD were Nolan's owner positions (stops 310.53/108.65) until this
+rebuild. SOFI calls/puts closed 2026-09-30. SOFI 9/25 $17.50 0DTE call expired.
 
 ## SHADOW BOOK -- run at the 5:17pm ET close check only (see paper/shadow/README.md)
 
