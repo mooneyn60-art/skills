@@ -24,7 +24,12 @@ SEND a push when any of these happened this run:
 Keep it specific and actionable: "SOFI $16C 1% from its 1.23 stop" beats "check
 your account". One push per run maximum. If nothing qualifies, send nothing.
 
-## CHECK THIS FIRST, EVERY TIME: THE VIX REGIME (R15, adopted 2026-09-23)
+## CHECK THIS FIRST, EVERY TIME: THE VIX REGIME (R15 SUSPENDED 2026-10-01)
+
+R15 IS SUSPENDED (see its banner in TARS_RULES.md). VIX 25+ is an ALERT to
+Nolan only: take NO inverted entries; R2's 200-day gate applies at every VIX
+level. The zones below are kept for when the weekend block decides repeal
+vs reinstatement.
 
 Pull VIX via get_index_quotes (instrument id
 3b912aa2-88f9-4682-8ae3-e39520bdf4db). Judge on the PRIOR CLOSE, not the
@@ -54,6 +59,16 @@ intraday print.
               stops can't be replaced in place: cancel, CONFIRM the cancel
               has settled, place the new stop, confirm it. Do it only at the
               close check.
+  5:17pm ET = NAV INDEX (added 2026-10-01, the monthly audit found no way to
+              measure the account vs SPY): append one line to
+              paper/nav_index.csv: date, nav_index, spy_close, deposits_pct.
+              nav_index = previous nav_index x (today's account value MINUS
+              today's deposits) / yesterday's account value. Start at 1.0000
+              on the first run. Ratios only (R13). This is the number the
+              monthly audit compares with SPY.
+  5:17pm ET = R8 CLOSING ROWS: every position or option that closed today,
+              TARS's or Nolan's, gets a closing row in trades.jsonl with
+              realized_pnl and R. Slot trades also get spy_same_window_pct.
   5:17pm ET = (continued) Settled P/L, the day vs SPY, and CRITICALLY:
               check every position for a NEW CLOSING HIGH and raise its stop
               if R4 says so. The ONLY check where stops move.
@@ -77,7 +92,14 @@ session's digest of what he asked and decided) before acting.
 
 ## FIRST, IN ORDER
 
-1. Read reference/TARS_RULES.md. Authoritative, R1-R17.
+1. Read reference/TARS_RULES.md. Authoritative, R1-R18.
+R18 (2026-10-01): Nolan's own trades are logged (entry AND closing rows),
+his equity positions get R4-style stops unless he says no, a stop he
+cancels is not re-placed without his word, his non-R17 options are owner
+trades. SPY is the INDEX CORE: no stop, fractional OK, by design. Cash-floor
+overrides only in Nolan's words, logged; nothing is sold to restore the floor.
+R4 stop raises are arithmetic: place them at the close check, never wait for
+permission.
 2. R8: reconcile broker vs ledger BEFORE quoting any performance number.
 3. Nolan sometimes trades the account himself without saying so. Reconcile
    cash and positions against the ledger first.
@@ -120,9 +142,10 @@ unless he says otherwise. Q3 earnings expected 2026-10-27.
 ## R17 OPTION SLOT -- CHECK EVERY FIRE (adopted 2026-09-24)
 
 One long option, always. Full rule: R17 in reference/TARS_RULES.md.
-Currently slot trade #1: SOFI 2026-12-18 $19 call, option_id
-22607507-274c-41f9-bbb6-2eda4fc5cee1, fill E = 0.82, stop order
-6ab53d2c-... (GTC stop-limit 0.66 / 0.60). Time exit: 2026-11-27 close.
+Currently: SLOT EMPTY. Slot trade #1 (SOFI Dec-18 $19C, E = 0.82) stopped out
+2026-09-28 at 0.65, -0.21R. Nolan's other SOFI calls were owner trades
+(R18.1) and were sold by him 2026-09-30. Follow "WHEN THE SLOT IS EMPTY" below
+when cash is above the floor (R18.3).
 
 EVERY FIRE, get_option_quotes and judge on the BID:
   ladder: stop starts at 0.80 x E. When bid >= (1 + 0.25k) x E, the stop
@@ -154,6 +177,8 @@ close check. It's his, so no trend exit.
 SOLD BY NOLAN 2026-09-25: CVE, NWG, ABBV. Their stops were cancelled with the sales.
 HOOD 1 @118.10: GTC stop-market 108.65 (order 6ab68366-...). Trail it like R4
 at the close check. It's his, so no trend exit.
+[2026-10-01: the SOFI calls and puts below are CLOSED; kept as history.
+Live owner positions: AAPL, HOOD, WBD $31C x5. Index core: SPY (no stop).]
 SOFI Dec 18 $16 call @2.05 (option_id c303e797-3ce1-40f3-a8e6-e2067e89592e):
 his bracket, E = 2.05. Stop 1.23/1.13 now (-40% floor, Nolan 2026-09-28, order 6aba7b1a-...). Bid >= 2.56 ->
 stop 2.05 | >= 3.08 -> 2.56 | >= 3.59 -> 3.08 | then one rung per +0.51. Time
@@ -162,7 +187,9 @@ The $19 call's stop was re-placed 2026-09-28 premarket (order 6aba51df-148e-43ce
 SOFI Oct 2 $15.50 put @0.10 (Nolan, 2026-09-28): lottery hedge, no stop.
 WBD Oct 23 $31 call x5 @0.03 (Nolan, 2026-09-30, option_id 25d5ccd1-a39d-42ad-bd8d-8f8e3083acc0): lottery, ~1% of account, no stop.
 SOFI 9/25 $17.50 call: 0DTE, bought for $1, no bid. Let it expire; log -1.00.
-CASH: back above the 15% floor after Nolan's sales (2026-09-25 ~11:30 ET).
+CASH: BELOW the 15% floor since Nolan's 2026-09-30 override (~4% on 10/01).
+Under R18.3: no new TARS entries and no slot refill until it is back above,
+unless Nolan names the trade. Nothing is sold to restore it.
 Re-check at every fire.
 
 ## SHADOW BOOK -- run at the 5:17pm ET close check only (see paper/shadow/README.md)

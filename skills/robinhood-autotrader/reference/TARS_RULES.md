@@ -1,7 +1,7 @@
 # TARS-1 — Trading Rules
 
 One-line description: The complete, mechanical ruleset TARS trades. No discretion.
-Last Updated: 2026-10-01 (quarterly audit: documentation fixes only, see research/2026-10-01_RULE_AUDIT.md)
+Last Updated: 2026-10-01 (quarterly audit fixes; R15 SUSPENDED; R18 added; R4 and R13 clarified/tightened)
 Status: ACTIVE — TARS confirmed sole writer under R7 (2026-09-15)
 Audience: Nolan; any agent or session operating account #731951265
 
@@ -553,6 +553,14 @@ defect fixes. The live ledger then independently confirmed the leak the
 backtest had already measured. The earlier call is left on the record rather
 than quietly reversed: being too conservative is still being wrong, and the
 evidence changed the recommendation.
+
+**Stop raises never wait for permission (clarified 2026-10-01).** The
+breakeven raise and the trail are computed at the close check and placed
+the same session, for TARS positions and for owner equity positions TARS
+manages under R18. They are arithmetic, not decisions. The 2026-10-01 audit
+found an INTC raise (101.70 -> 101.91) that waited six days "on Nolan's
+go-ahead"; that was the desk misreading this rule. The only exception is a
+stop Nolan himself cancelled (R18.1).
 
 **Exits are exhaustive, added 2026-09-16.** A position leaves this book
 exactly two ways, and there is no third:
@@ -1475,6 +1483,12 @@ in this file arrived.
 
 ## R13 — The ledger records ratios, never balances (added 2026-09-23)
 
+> **WIDENED 2026-10-01 (tightening):** this applies to EVERY file pushed to
+> the remote, not only the ledger and commit messages: notes/NOLAN_LOG.md,
+> routines/, research/ and notes/ included. The 2026-10-01 audit found cash,
+> buying-power and position dollar totals in NOLAN_LOG after 2026-09-23.
+> Going forward only; history is not rewritten (see below).
+
 Every entry written from 2026-09-23 onward expresses account state as a
 PERCENTAGE OF ACCOUNT VALUE, a RATIO, or an R-MULTIPLE. Never as a dollar
 balance.
@@ -1604,6 +1618,18 @@ correct, the pooled test was the bug. TARS argued first in all three.
 
 
 ## R15 — The regime switch (ADOPTED 2026-09-23 at Nolan's direction)
+
+> **SUSPENDED 2026-10-01, at Nolan's direction ("Do what you need to do",
+> replying to the quarterly rule audit).** While suspended, VIX >= 25 is an
+> ALERT only: no inverted entries are taken, and R2's 200-day gate applies at
+> every VIX level. Any position already tagged R15 (none exist) would keep its
+> exits. WHY SUSPEND, NOT REPEAL: the integration test that found R15 makes
+> TARS-1 worse (research/2026-09-26_R15_INTEGRATION.md) was produced while
+> R16's pressure state was on, and R16.3 bars adopting such a result until
+> it has been re-read outside the state. Suspending is a TIGHTENING (it
+> restores the 200-day gate), which R16.1 permits. The next weekend research
+> block re-reads the integration result; if it holds, R15 is marked REPEALED
+> under the same authorisation.
 
 > **EVIDENCE STATUS, added by the 2026-10-01 rule audit (documentation only;
 > the rule is unchanged):** the t=8.46 below came from overlapping daily
@@ -1825,3 +1851,65 @@ of Nolan's gut-call window. OUTCOME: stopped out 2026-09-28 at 0.65 (-0.21R).
 Nolan says so. Or the 10-trade review shows the slot losing more than 50%
 of the premium committed while SPY rose over the same windows. Then TARS
 says so plainly and Nolan decides.
+
+
+## R18 — Owner trades, the index core, and cash-floor overrides (ADOPTED 2026-10-01 at Nolan's direction)
+
+Nolan: "Do what you need to do", replying to the quarterly rule audit
+(research/2026-10-01_RULE_AUDIT.md), which found the account running on
+three unwritten exceptions. This rule WRITES DOWN what was already being
+done; it adds no new risk. It is not backtested and doesn't need to be:
+it changes no entry signal, exit or size that TARS itself chooses.
+
+### 18.1 Owner trades
+
+Nolan may trade the account himself at any time, in the app or by naming a
+trade. R7's single-writer rule governs AGENTS, not the owner.
+  - LOG: every owner trade is written to paper/trades.jsonl the session TARS
+    sees it, with strategy "user_*", entry AND closing rows (R8). An owner
+    trade that closes without a closing row is an R8 failure.
+  - PROTECT: owner EQUITY positions get an R4-style stop (8% from fill,
+    breakeven at +8%, 20% trail) unless Nolan says no stop. TARS raises those
+    stops mechanically (R4). They have NO trend exit: TARS never sells an
+    owner position except through its stop.
+  - CANCELLED STOPS: if Nolan cancels a stop, TARS does not re-place it
+    without his word. TARS tells him the position is unprotected, once per
+    session, with how far the price is from the old stop.
+  - OPTIONS: an option Nolan buys that does not meet R17's contract rules is
+    an OWNER TRADE, not a slot trade. It doesn't count toward R17's one-slot
+    count, and it carries no stop unless he asks for one.
+  - SCORING: owner trades are their own book. They are excluded from TARS
+    expectancy and from R16's TARS-loss count, and reported separately in
+    the monthly audit.
+  - ADVICE: TARS may say once, plainly, when an owner trade breaks a rule that
+    would bind TARS (averaging down, 0DTE, no stop). It does not argue twice.
+
+### 18.2 The index core
+
+A position in a broad US index ETF (SPY, VOO or IVV) may be held as the
+account's CORE, outside the single-name rules:
+  - No R2 timing test, no R4 stop, no trend exit. An index fund is the
+    benchmark; a stop on it turns a buy-and-hold core into a timing bet.
+  - FRACTIONAL SHARES ALLOWED for the core only (exception to R12, which
+    exists because a fractional position can't carry a stop; the core
+    carries none by design).
+  - SIZE: at most 30% of account value at the time of any core purchase.
+    Like R3's cap, this is checked at purchase and never forces a sale.
+  - ORDERS: limit orders preferred; a market order is permitted for the
+    core only (fractional orders may require it).
+  - RISK BUDGET: the core is outside R3's 8% risk budget (it has no stop to
+    measure), INSIDE the 15% cash floor arithmetic, and INSIDE R6's -15%
+    drawdown halt (the halt measures the whole account).
+  - It is sold only if Nolan says so.
+The SPY position bought 2026-09-30 is the core under this rule.
+
+### 18.3 Cash-floor overrides
+
+Only Nolan can override R3's 15% cash floor, and only in words ("break the
+floor" or equivalent). Each override is logged as a non_trade ledger row
+with his words and the cash level as a percentage.
+  - While cash is below the floor: no new TARS entries and no R17 refill,
+    except a trade Nolan names himself.
+  - Nothing is ever SOLD to restore the floor. It restores through
+    deposits and positions exiting on their own terms.
+  - An override covers the trade it was given for, not the following ones.

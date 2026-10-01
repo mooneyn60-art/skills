@@ -121,3 +121,22 @@ role is unaffected.
                 [moot since 9/30: SOFI was stopped out, 0 shares]
     UNWRITTEN:  SPY core (B1), cash-floor override (B2), owner trades (B3),
                 multi-option holdings (B4)
+
+## Actions taken 2026-10-01 after Nolan's reply ("Do what you need to do")
+
+    B1 SPY core           -> R18.2 written: index core, no stop, fractional OK, <= 30% at purchase
+    B2 cash floor         -> R18.3 written; the 9/30 override logged retroactively
+    B3 owner trades       -> R18.1 written (log, stops unless he says no, own scorecard)
+    B4 multi-option slot  -> resolved by R18.1: non-R17 options are owner trades
+    B5 INTC raise waited  -> R4 clarified: stop raises never wait for permission
+    B6 R8/R17 scoring     -> closing rows added for the two 9/30 call sales; the $19C
+                             risk field made numeric; the desk now writes closing rows and
+                             spy_same_window_pct at the close report
+    B7 R13 in NOLAN_LOG   -> R13 widened to every pushed file (tightening)
+    B8 R15                -> SUSPENDED (tightening); repeal queued as the first task of
+                             the next weekend block, as R16.3 requires
+    B9 R6 breaker         -> unchanged; for the weekend block's hurdle tests
+    Also: daily NAV index added to the close report (paper/nav_index.csv), so the
+    monthly audit can answer "are we beating SPY" from next month.
+No order was placed, cancelled or changed.
+

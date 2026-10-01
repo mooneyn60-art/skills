@@ -104,3 +104,20 @@ score, a finding that changes a position, a stop/exit signal, or something
 needing his decision), send ONE `PushNotification` (status "proactive", <200
 chars, one line, no dollar balances per R13). Reaches his phone via Remote
 Control. Stay silent on a routine/no-news run.
+
+## ONE-TIME FIRST TASK, added 2026-10-01: decide R15 (repeal or reinstate)
+
+R15 was SUSPENDED on 2026-10-01 at Nolan's direction ("Do what you need to
+do"). R16.3 requires the result behind it to be re-read OUTSIDE a pressure
+state before it is adopted. Before anything else this block:
+  1. Check R16 is OFF (python3 paper/pressure_state.py; no R6 breaker).
+     If it is ON, skip this task and say so; it waits another week.
+  2. Re-run python3 paper/test_r15_integration.py and re-read
+     research/2026-09-26_R15_INTEGRATION.md. Check the result reproduces
+     (TARS-1 with R15: lower CAGR, deeper max drawdown).
+  3. If it reproduces: mark R15 REPEALED in TARS_RULES.md (banner at the top
+     of R15, text kept as history), remove the VIX-zone block from
+     routines/HOURLY_TRADING_CHECK.md except the VIX 25+ alert, log a
+     rule_change row, and tell Nolan in one line. If it does NOT reproduce,
+     report that and leave R15 suspended for Nolan to decide.
+Then delete this section.
