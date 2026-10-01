@@ -1,7 +1,7 @@
 # TARS-1 — Trading Rules
 
 One-line description: The complete, mechanical ruleset TARS trades. No discretion.
-Last Updated: 2026-09-24 (R17 option slot adopted; R3, R4, R5, R6, R8, R9 amended to match)
+Last Updated: 2026-10-01 (quarterly audit: documentation fixes only, see research/2026-10-01_RULE_AUDIT.md)
 Status: ACTIVE — TARS confirmed sole writer under R7 (2026-09-15)
 Audience: Nolan; any agent or session operating account #731951265
 
@@ -11,9 +11,9 @@ Audience: Nolan; any agent or session operating account #731951265
 > exit was easier to trip than the re-entry, so every round trip sold low and
 > bought back higher. Each is written up at its own rule.
 >
-> **NOT changed: R4's 8% trail.** It costs ~2.2pp/yr but it is a genuine
-> crash-insurance tradeoff, not a bug, and it stays until Nolan decides
-> separately. See **TARS-2** below for the full evidence, the two candidates
+> **R4's trail was NOT deleted, but it WAS WIDENED from 8% to 20% later on
+> 2026-09-22, at Nolan's direction (see R4).** [audit 2026-10-01: this banner
+> said "NOT changed: R4's 8% trail ... it stays" after the widening.] See **TARS-2** below for the full evidence, the two candidates
 > that were tested and REJECTED, and the standard any future rule change has
 > to clear. Read that section before amending anything here.
 
@@ -33,7 +33,7 @@ for surviving long enough for that to matter.
 
 Tradeable: US equities and ETFs, last price > $5.00, 30-day average volume
 > 1,000,000 shares. Nothing else. No OTC, no crypto (execution is blocked, 403,
-not retryable), no options until R9 opens them.
+not retryable), no options until R9 opens them (or, for Nolan's single slot, R17).
 
 ## R2 — Entry (all three must be true)
 
@@ -91,7 +91,7 @@ name per year. Two other candidates passed the single split and were KILLED
 by the walk-forward — see "Tested and REJECTED" below. This one did not.
 
 **What this does NOT do.** It moves no live stop. R4's hard stop, breakeven
-raise and trail are untouched, and the 8% trail stays in force — deleting
+raise and trail are untouched, and the 8% trail stays in force [audit 2026-10-01: the trail was widened to 20% later the same day; see R4] — deleting
 the trail is a performance tradeoff, not a defect, and is NOT part of this
 change. Existing positions are not forced out: a rule change is not an exit.
 
@@ -119,6 +119,8 @@ into a hard gate, closing a contradiction that document flagged and left open
 for three days). It is prohibited, permanently, including when the
 name looks obviously oversold. Especially then.
 
+HISTORY, describing the OLD rule 3 (near the 20-day high), DELETED
+2026-09-22 [audit 2026-10-01: this paragraph read as if it were still live]:
 Rule 3 was tightened to 3% on day one, which is stricter than the momentum
 research this whole system is built on (the 12-1 lookback doesn't care where
 in its range a stock sits, only that it's trending). 3% rejected real,
@@ -130,7 +132,8 @@ highs -- it just stops punishing a stock for being 4% off its peak instead of
 setups per scan, not bigger bets or a lower bar on trend quality. Revisit if
 it measurably drags win rate down rather than just raising trade count.
 
-Rule 5, the sector cap, was added 2026-09-16 at Nolan's request, and it is
+Rule 3 above (numbered rule 5 when written), the sector cap, was added
+2026-09-16 at Nolan's request, and it is
 the SECOND thing to occupy the rule-5 slot today -- the first is recorded
 immediately below and stays removed. The two are unrelated; do not confuse
 them.
@@ -255,7 +258,9 @@ The risk arithmetic still holds at the larger size: 4 positions at $180
 is ~21% of the account each, and R4's -8% stop makes each loss ~1.7% of
 the account, against ~0.66% under the old sizing. More per trade, but
 still small enough that a run of losers is survivable, which is the only
-test that matters for an account that is never refilled.
+test that matters for an account that is never refilled. [audit 2026-10-01: written
+before weekly deposits began on 2026-09-17; the account IS now refilled, and
+deposits rebase the R6 high-water mark. The survivability argument stands.]
 
 What this does NOT buy: the names that actually drove that backtest are
 still out of reach. NVDA at $215 exceeds even the $180 cap, and R12
@@ -275,7 +280,7 @@ anyway (8x85=$680, ~80% invested) -- this brings the rule back in line with
 what was actually tested, rather than rationing cash below it on principle.
 
 Full deployment (0% floor) was asked for and refused: this account is never
-refilled, so a floor above zero is the one thing standing between a bad
+refilled [audit 2026-10-01: see note above; it now is], so a floor above zero is the one thing standing between a bad
 week and game over, not caution for its own sake.
 
 Position count raised 8 -> 12 the same day, for a different reason: the
@@ -456,15 +461,17 @@ ticker.
 
 **Existing positions are NOT forced out.** A cap change is not an exit. R4's
 exits are exhaustive and a sizing amendment is not on the list. ABBV is over
-the new cap and stays until its stop fires or it closes below both moving
-averages, like anything else.
+the new cap and stays until its stop fires or it closes below the 200-day
+[audit 2026-10-01: said "both moving averages"; the exit is the 200-day alone since
+2026-09-22], like anything else.
 
 ### Share-price granularity enters entry SELECTION (added 2026-09-21)
 
 The cap above stops a position from being too big. This stops the book from
 being un-sizable in the first place.
 
-**At entry, when two or more candidates pass all five R2 conditions, prefer
+**At entry, when two or more candidates pass all R2 conditions (three since
+2026-09-22; this said "five"), prefer
 the one where at least 3 SHARES fit inside the deployable budget.** Three
 shares is the point where size becomes a decision -- it can be trimmed, scaled,
 or partially exited -- rather than a coin flip between "one share" and "none".
@@ -479,6 +486,7 @@ instead of assumed.
 (marginal). TRMD at $37.90 allowed 4. ING at $36.94 allowed 4-5. ABBV at
 $265 allowed exactly 1, with no say in what it weighed.
 
+**RESOLVED 2026-09-22 (the flat term was deleted; kept as history).**
 **KNOWN FUTURE PROBLEM, recorded now so it is not a surprise.** Above ~$1,700
 the $340 dollar cap binds alone, and it keeps shrinking as a percentage: at
 $10,000 it is 3.4% per position, which would need ~25 names to deploy the
@@ -580,7 +588,9 @@ the original wording it "failed R2" and was exitable. Selling a +13.7% winner
 because it pulled back half a percent past an ENTRY band is not risk
 management, it is the disposition effect wearing a rule's clothing.
 
-Why trend conditions only. R2's five conditions do two different jobs. Rules
+HISTORY [audit 2026-10-01: R2 has three conditions since 2026-09-22 and the
+trail is 20%; the principle below (only the trend condition is a hold
+test) still governs]. Why trend conditions only. R2's five conditions do two different jobs. Rules
 1 and 2 ask "is this in an uptrend?" -- that question stays live for as long
 as the position is held. Rules 3, 4 and 5 ask "is this a good moment to
 start?" -- proximity to the 20-day high, the earnings calendar, the sector
@@ -633,6 +643,7 @@ construction, because the stop guarantees it. If winners are cut below 1R,
 expectancy cannot be positive regardless of entry quality. Selling a
 position that is working -- to rebalance, to free cash, to feel decisive --
 is the specific error. TENB at +13.6% is the live test of this rule.
+[audit 2026-10-01: TENB closed 2026-09-17 on the trail, +0.77R.]
 
 ## R5 — Order types
 
@@ -924,7 +935,8 @@ permanent rules and one temporary:
 
   1. R9's gate. Account > $2,000 AND 20 closed equity trades. Account was
      $852.42 on 2026-09-17.
-  2. R9's size cap. Max $50 per option position. This is the binding
+  2. R9's size cap. Max $50 per option position. [audit 2026-10-01: superseded the
+     same day: 3% of account value; R17's slot (2026-09-24) caps at 6%.] This is the binding
      constraint and it is easy to miss: even with the gate open, $50 does
      not buy any long-dated contract on a large company. Honoring "one
      long option on a bigger company" requires raising this cap by a
@@ -951,7 +963,7 @@ that costs multiples of the account.
 What would have to be true, stated so it can be checked rather than argued:
 account above roughly $3,200 (equity core ~$660 + a real LEAPS ~$2,000+ +
 the 15% cash floor), R9's gate met on both conditions, R9's $50 cap
-deliberately raised with the options track record re-run first
+deliberately raised [audit 2026-10-01: now 3%, see above] with the options track record re-run first
 (`python3 paper/expectancy.py` -- 5 closed options trades, all losses, mean
 -0.12R, 95% CI entirely below zero as of 2026-09-15), and R6 clear.
 
@@ -1025,7 +1037,9 @@ one at a time.
     R2' / R4' symmetric threshold   ADOPTED 2026-09-22 -- see R2 and R4
     R3' flat cap deleted            ADOPTED 2026-09-22 -- see R3
     R6' halt resume condition       ADOPTED 2026-09-22 -- see R6
-    R4' delete the 8% trail         NOT ADOPTED -- still in force, see below
+    R4' delete the 8% trail         NOT ADOPTED -- the trail was instead
+                                    WIDENED 8% -> 20% on 2026-09-22 (see R4)
+                                    [audit 2026-10-01: said "still in force"]
 
 Nolan directed the defect fixes on 2026-09-22. The trail was deliberately
 excluded: it costs return, but it is a crash-insurance tradeoff rather than a
@@ -1591,6 +1605,14 @@ correct, the pooled test was the bug. TARS argued first in all three.
 
 ## R15 — The regime switch (ADOPTED 2026-09-23 at Nolan's direction)
 
+> **EVIDENCE STATUS, added by the 2026-10-01 rule audit (documentation only;
+> the rule is unchanged):** the t=8.46 below came from overlapping daily
+> samples. Re-measured with month-clustered errors it is t=2.21
+> (research/2026-09-25_MULTIPLE_TESTING.md). Tested inside the full TARS-1
+> system, R15 LOWERED CAGR by 1.14pp and deepened the max drawdown from
+> -33.6% to -45.9% (research/2026-09-26_R15_INTEGRATION.md), which
+> recommends repeal. Repeal is pending Nolan's decision.
+
 Evidence: research/2026-09-23_VIX_CONDITIONAL_REVERSAL.md. Buying weakness
 beats buying strength by 4.95pp per month when VIX is 25 or above (t=8.46,
 n=1081), and is neutral to NEGATIVE below VIX 20 (-1.16pp, t=-3.98 in
@@ -1725,7 +1747,8 @@ adopted because it is cheap, not because it is proven.
 Run against the ledger on adoption: trigger (a) would have fired on
 2026-09-14, when four TARS-owned closes in a row were losses (INTC, CPNG,
 JD, RBLX options). As of 2026-09-23 the streak is 0. The latest TARS close
-is TENB, +0.77R.
+is TENB, +0.77R. [audit 2026-10-01: snapshot only; run paper/pressure_state.py. The
+2026-10-01 pre-market reported R16 ON, 4 consecutive TARS losing closes.]
 
 ### What would retire it
 
@@ -1794,7 +1817,8 @@ entry.
 SOFI 2026-12-18 $19 call, filled 0.82 on 2026-09-24 (ledger
 2026-09-24-SOFI-C19-DEC18). Bought 85 days out, delta 0.33, spread about 2.5%:
 it meets every R17 contract rule. Time exit 2026-11-27, which is also the end
-of Nolan's gut-call window.
+of Nolan's gut-call window. OUTCOME: stopped out 2026-09-28 at 0.65 (-0.21R).
+[audit 2026-10-01: slot status changes go in the ledger, not here.]
 
 ### What would retire it
 
