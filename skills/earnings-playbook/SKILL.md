@@ -43,9 +43,9 @@ quotes with get_option_quotes.
 ## Step 3 — scenario the position
 
 Run `scripts/scenario.py` with the held option and a set of post-earnings stock
-prices. It prints intrinsic value at each outcome and the P/L vs what you paid,
-and flags that a long option through earnings usually loses to IV crush if the
-stock doesn't move more than the implied move.
+prices. It prints the option's value at each outcome (Black-Scholes with the time
+left and crushed IV, or intrinsic only if you omit those flags) and the P/L vs
+what you paid, and shows the breakeven move against the implied move.
 
 ```
 python3 scripts/scenario.py \
