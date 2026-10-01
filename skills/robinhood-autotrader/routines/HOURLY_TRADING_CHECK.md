@@ -184,6 +184,14 @@ an 8% stop isn't noise):
   MU   0.170193 sh @1087.00  STOP 1000.04 -- FRACTIONAL, NO BROKER STOP   tech
   VLO  0.455517 sh @406.13   STOP 373.64  -- FRACTIONAL, NO BROKER STOP   energy
   INTC (kept) is the 2nd tech name.
+ROUND 2 (3:11pm ET, Nolan: "drop the spy, I want to beat it not ride it"):
+SOLD SPY 0.657187 @764.54 (index core removed by owner order). BOUGHT:
+  ATI 1 sh @189.33  GTC stop-market 174.18 (order 6abeb060)   industrials
+  SN  1 sh @180.06  GTC stop-market 165.65 (order 6abeb062)   consumer cyclical
+  FRO 2 sh @51.47   GTC stop-market 47.36  (order 6abeb063)   energy (tankers;
+      picked over DINO, tied on momentum, to avoid a 2nd refiner next to VLO)
+  BE (+180%) skipped: 63d vol 107% > 80% ceiling.
+No index core now: the whole equity book is the momentum sleeve (8 names).
 
 EVERY FIRE: quote MU and VLO. If last <= its stop, SELL THE WHOLE FRACTION at
 market immediately (regular hours only), log it, push Nolan. The broker won't
@@ -191,12 +199,12 @@ hold stop orders on fractional shares, so the desk IS the stop. Gap risk
 between fires is accepted and was explained to Nolan.
 Close check: raise all five by R4 (max of 0.92xE, E once +8%, 0.80 x highest
 close); for MU/VLO just update the numbers in this section.
-Earnings ahead: VLO 10/22, INTC 10/23, GH 10/29, RVMD 11/5, MU reported 9/30.
+Earnings ahead: VLO 10/22, INTC 10/23, ATI 10/28, GH 10/29, RVMD 11/5, SN 11/6, FRO 11/30, MU reported 9/30.
 Momentum selection is a NEW way of picking (ranking R2-eligible names by 12-1
 momentum instead of vs200). It was done on Nolan's direct order while R16 was
 on in the main session, so it is NOT an adopted rule: review it at the weekend
 re-read and score the sleeve vs SPY monthly.
-CASH: back at ~15.6% after the rebuild, floor restored.
+CASH: ~17% after round 2, floor intact.
 
 History: AAPL/HOOD were Nolan's owner positions (stops 310.53/108.65) until this
 rebuild. SOFI calls/puts closed 2026-09-30. SOFI 9/25 $17.50 0DTE call expired.
