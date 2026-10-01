@@ -8,8 +8,8 @@ Pick one topic you're genuinely curious about and spend the session actually lea
 
 TOPICS SO FAR (notes live in skills/robinhood-autotrader/notes/curiosity/):
 - 2026-09-23: how weather forecasters became well-calibrated. The first
-  session ran WITHOUT the repo attached and its notes were LOST. Redo it
-  at the next session and save the notes this time.
+  session ran WITHOUT the repo attached and its notes were LOST.
+  REDONE 2026-10-01: notes/curiosity/2026-10-01_WEATHER_CALIBRATION.md.
 - 2026-09-23: emotion, suggested by Nolan ("maybe emotion or something like
   that"). What emotions actually are, how the scientific theories disagree,
   and whether anything like them could happen in a system like TARS.
