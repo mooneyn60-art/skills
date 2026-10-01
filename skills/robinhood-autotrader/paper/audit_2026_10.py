@@ -14,6 +14,8 @@ Q4  decay: the most recent 12 months of data, TARS-1 vs SPY vs equal-weight
 
 PREDICTIONS (written before the first run, committed with this file):
   Q3: removing the breaker changes full-period CAGR by less than +/-0.5pp;
+      [added after the first run showed +2.93pp for the OLD any-stop breaker:
+      the loss-only breaker (live since 2026-09-23) costs less than that]
       removing the halt changes it by less than +/-1pp. Both near-free.
   Q4: in the last 12 months (a mostly calm, rising market) TARS-1 trails
       SPY by 2-8pp, and trails equal-weight buy-and-hold too; the 200-day
@@ -70,11 +72,18 @@ def q1():
         if (d.get("account") != "live" or d.get("realized_pnl") is None or not d.get("planned_risk")
                 or d.get("exit_reason") in (None, "not_taken") or not d.get("closed")):
             continue
+        try:
+            pr, rp = float(d["planned_risk"]), float(d["realized_pnl"])
+        except (TypeError, ValueError):
+            print(f"  skipped (non-numeric risk or pnl): {d['id']}")
+            continue
+        if pr <= 0:
+            continue
         opt = str(d.get("instrument", "")).startswith("option") or "contract" in d
         if d.get("symbol") == "SOFI" and not opt:
             sofi += 1
             continue
-        t = dict(id=d["id"], r=d["realized_pnl"] / d["planned_risk"], src=str(d.get("strategy")),
+        t = dict(id=d["id"], r=rp / pr, src=str(d.get("strategy")),
                  ex=exit_cat(d.get("exit_reason")),
                  hold=(ts(d["closed"]) - ts(d["opened"])).total_seconds() / 86400 if d.get("opened") else None)
         if opt and d["closed"] >= "2026-09-24":
@@ -123,7 +132,8 @@ def cagr_dd(res):
 
 def q3(dates, bars, syms):
     print("\n=== Q3 rule cost: R6 breaker and halt under today's TARS-1 config (engine, 14 names, 2006-2026) ===")
-    for lab, kw in (("TARS-1 as is", {}), ("no circuit breaker", dict(breaker_stops=99)),
+    for lab, kw in (("TARS-1, old any-stop breaker", {}),
+                    ("TARS-1, live loss-only breaker", dict(breaker_loss_only=True)), ("no circuit breaker", dict(breaker_stops=99)),
                     ("no drawdown halt", dict(halt_drawdown=None)),
                     ("neither", dict(breaker_stops=99, halt_drawdown=None))):
         res = simulate(Config(name=lab, **BASE, **kw), dates, bars, syms)

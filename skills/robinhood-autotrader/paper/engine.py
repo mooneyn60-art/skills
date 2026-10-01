@@ -93,6 +93,8 @@ class Config:
     breaker_stops: int = 2      # N stop-outs...
     breaker_window: int = 5     # ...in M days...
     breaker_pause: int = 3      # ...pauses entries for P days
+    breaker_loss_only: bool = False  # live R6 since 2026-09-23: only stop-outs
+                                     # that close at a LOSS count toward N
     halt_drawdown: float = 0.15
     halt_mode: str = "rebase"   # "latch" = R6 as literally written, never resumes
     halt_pause: int = 10        # cooling-off days before "rebase" resumes
@@ -272,7 +274,8 @@ def simulate(cfg, dates, bars, syms):
                 cash += p["qty"] * px
                 trades.append((s, p["entry"], px, p["qty"], t - p["day"], "stop"))
                 del pos[s]
-                stop_days.append(t)
+                if not cfg.breaker_loss_only or px < p["entry"]:
+                    stop_days.append(t)
 
         # ---------- mark to market on the close ----------
         equity = cash + sum(p["qty"] * bars[s][t][C] for s, p in pos.items())
