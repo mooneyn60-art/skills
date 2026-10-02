@@ -142,10 +142,16 @@ unless he says otherwise. Q3 earnings expected 2026-10-27.
 ## R17 OPTION SLOT -- CHECK EVERY FIRE (adopted 2026-09-24)
 
 One long option, always. Full rule: R17 in reference/TARS_RULES.md.
-Currently: SLOT EMPTY. Slot trade #1 (SOFI Dec-18 $19C, E = 0.82) stopped out
-2026-09-28 at 0.65, -0.21R. Nolan's other SOFI calls were owner trades
-(R18.1) and were sold by him 2026-09-30. Follow "WHEN THE SLOT IS EMPTY" below
-when cash is above the floor (R18.3).
+Currently: SLOT TRADE #2 = SOFI 2027-01-15 $18 CALL x1 (option_id
+d1dd5673-1396-4f8a-86a9-e6f5759bb383), bought 2026-10-02 9:41am ET @1.16 = E.
+Nolan named the contract and chose a -40% FLOOR (not the -20% default) for the
+Oct 27 earnings swing. Stop: GTC stop-limit 0.70/0.64 (order 6abfb498). Bought
+with cash at the floor -> cash ~10% (R18.3: Nolan named the trade). SOFI was
+below its 200d at entry (his thesis, not a momentum pick). Ladder from E=1.16:
+  bid >= 1.45 -> stop 1.16 | >= 1.74 -> 1.45 | >= 2.03 -> 1.74 | >= 2.32 -> 2.03
+  | then one rung per +0.29. Stops only go up. TIME EXIT: 2026-12-24 close
+  (21 days before expiry falls on 12/25, market closed).
+Slot trade #1 (SOFI Dec-18 $19C, E = 0.82) stopped out 2026-09-28 at 0.65, -0.21R.
 
 EVERY FIRE, get_option_quotes and judge on the BID:
   ladder: stop starts at 0.80 x E. When bid >= (1 + 0.25k) x E, the stop
