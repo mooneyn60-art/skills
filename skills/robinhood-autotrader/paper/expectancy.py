@@ -65,6 +65,9 @@ def load(path):
             continue
         if not t.get("closed"):
             continue
+        if t["closed"] is True:
+            # Close rows written with a boolean flag carry their time in "ts".
+            t["closed"] = t.get("ts", "")
         if t.get("realized_pnl") is None:
             # A closed-timestamp research/protocol record (e.g. exit_reason
             # "R9_locked" or "protocol_review") that was priced but never
