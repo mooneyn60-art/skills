@@ -202,8 +202,7 @@ ROUND 3 (2026-10-02 premarket, Nolan deposited ~$600; "Not intel" -> no INTC add
   NVT 1 sh @167.75  GTC stop-market 154.33 (order 6abf900c)   industrials (2nd)
   FRO +3 sh @51.55  GTC stop-market 47.43 (order 6abf900e) for the 3 new shares;
       the original 2 keep 6abeb063 @47.36. FRO now 5 sh.
-  TECK 3 sh limit 65.60 (order 6abf8bd0) UNFILLED at 7:04am; 9:47am re-check
-      (trig_01DJsk4Lr1mo4XBmd9iAewpr) fills/re-places it and adds its stop.  materials
+  TECK 3 sh @65.60 (filled 7:34am)  GTC stop-market 60.35 (order 6abfb435)   materials
 
 EVERY FIRE: quote MU and VLO. If last <= its stop, SELL THE WHOLE FRACTION at
 market immediately (regular hours only), log it, push Nolan. The broker won't
