@@ -192,6 +192,12 @@ SOLD SPY 0.657187 @764.54 (index core removed by owner order). BOUGHT:
       picked over DINO, tied on momentum, to avoid a 2nd refiner next to VLO)
   BE (+180%) skipped: 63d vol 107% > 80% ceiling.
 No index core now: the whole equity book is the momentum sleeve (8 names).
+ROUND 3 (2026-10-02 premarket, Nolan deposited ~$600; "Not intel" -> no INTC add):
+  NVT 1 sh @167.75  GTC stop-market 154.33 (order 6abf900c)   industrials (2nd)
+  FRO +3 sh @51.55  GTC stop-market 47.43 (order 6abf900e) for the 3 new shares;
+      the original 2 keep 6abeb063 @47.36. FRO now 5 sh.
+  TECK 3 sh limit 65.60 (order 6abf8bd0) UNFILLED at 7:04am; 9:47am re-check
+      (trig_01DJsk4Lr1mo4XBmd9iAewpr) fills/re-places it and adds its stop.  materials
 
 EVERY FIRE: quote MU and VLO. If last <= its stop, SELL THE WHOLE FRACTION at
 market immediately (regular hours only), log it, push Nolan. The broker won't
@@ -199,7 +205,7 @@ hold stop orders on fractional shares, so the desk IS the stop. Gap risk
 between fires is accepted and was explained to Nolan.
 Close check: raise all five by R4 (max of 0.92xE, E once +8%, 0.80 x highest
 close); for MU/VLO just update the numbers in this section.
-Earnings ahead: VLO 10/22, INTC 10/23, ATI 10/28, GH 10/29, RVMD 11/5, SN 11/6, FRO 11/30, MU reported 9/30.
+Earnings ahead: VLO 10/22, TECK 10/22, INTC 10/23, ATI 10/28, NVT 10/30, GH 10/29, RVMD 11/5, SN 11/6, FRO 11/30, MU reported 9/30.
 Momentum selection is a NEW way of picking (ranking R2-eligible names by 12-1
 momentum instead of vs200). It was done on Nolan's direct order while R16 was
 on in the main session, so it is NOT an adopted rule: review it at the weekend
