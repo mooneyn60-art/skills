@@ -142,7 +142,8 @@ unless he says otherwise. Q3 earnings expected 2026-10-27.
 ## R17 OPTION SLOT -- CHECK EVERY FIRE (adopted 2026-09-24)
 
 One long option, always. Full rule: R17 in reference/TARS_RULES.md.
-Currently: SLOT TRADE #2 = SOFI 2027-01-15 $18 CALL x1 (option_id
+Currently: SLOT EMPTY. Slot trade #2 (SOFI 2027-01-15 $18C, E=1.16) was SOLD BY NOLAN 2026-10-02 10:24am ET @1.09 (-0.15R vs -40% floor). History below:
+WAS: SLOT TRADE #2 = SOFI 2027-01-15 $18 CALL x1 (option_id
 d1dd5673-1396-4f8a-86a9-e6f5759bb383), bought 2026-10-02 9:41am ET @1.16 = E.
 Nolan named the contract and chose a -40% FLOOR (not the -20% default) for the
 Oct 27 earnings swing. Stop: GTC stop-limit 0.70/0.64 (order 6abfb498). Bought
