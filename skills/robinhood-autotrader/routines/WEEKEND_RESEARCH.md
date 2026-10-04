@@ -121,3 +121,5 @@ state before it is adopted. Before anything else this block:
      rule_change row, and tell Nolan in one line. If it does NOT reproduce,
      report that and leave R15 suspended for Nolan to decide.
 Then delete this section.
+
+2026-10-04: SKIPPED, R16 still ON (4 consecutive TARS losing closes, none since 9/25). Waits for the next weekend block.

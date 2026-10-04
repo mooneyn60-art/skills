@@ -5,7 +5,7 @@ puts (fear), does the market do better next month, and is that information
 VIX doesn't already carry?
 
 Last Updated: 2026-10-04
-Status: PREDICTION COMMITTED, TESTS NOT YET RUN
+Status: DONE. Prediction committed first (3c25e86) and held. Nothing beyond VIX that clears the bar.
 Audience: Nolan, TARS sessions
 
 ## Scope and data
@@ -43,6 +43,46 @@ S2: P/C alone predicts higher volatility (|t| > 2); with VIX, P/C's t
     falls below 2.
 Verdict expected: nothing beyond VIX. A clean "no".
 
+## Answer first
+
+- FOR VOLATILITY, THE PUT/CALL RATIO IS JUST VIX AGAIN. On its own it
+  predicts a rougher next month (t = +5.29). With VIX in the regression its
+  t drops to +0.51 (VIX t = +9.08). It adds nothing.
+- FOR RETURNS, THERE'S A FAINT CONTRARIAN SIGN AND NO MORE. Heavy put
+  buying comes before slightly better months: t = +1.28 with VIX, positive
+  in 7 of 9 windows, t = +2.07 when 2008 is left out. That's the direction
+  the mechanism predicts, but at 155 months it's far below the |t| >= 3.9
+  hurdle (item 8), and both halves on their own are under t = 1.
+- Gaps, stated so they aren't mistaken for "no effect": the AAII survey
+  (download blocked) and short interest (no free history) were not tested.
+  The P/C data stops in October 2019.
+
 ## Result
 
-(not yet run)
+Script: paper/test_sentiment_putcall.py. 155 months, 2006-12 to 2019-10;
+10-day average equity P/C 0.50 to 0.86 (mean 0.65).
+
+                       forward return                    forward volatility
+                       P/C alone    P/C (+VIX)           P/C alone    P/C (+VIX)   VIX t
+    full               t=+1.14      t=+1.28              t=+5.29      t=+0.51      +9.08
+    first half         t=+0.29      t=+0.41              t=+3.98      t=+0.85      +6.09
+    second half        t=+2.25      t=+0.82              t=+1.93      t=+0.34      +1.97
+    without 2008       t=+2.51      t=+2.07              t=+3.67      t=-0.02      +9.35
+    9 windows (+VIX)   + - + + + + - + +                 - + - - + - + - +
+
+## Scored against the prediction
+
+    S1 P/C alone positive, |t| < 2: RIGHT (+1.14). With VIX |t| < 1.5: RIGHT (1.28).
+    S2 P/C alone predicts vol |t| > 2: RIGHT (5.29). With VIX below 2: RIGHT (0.51).
+    "Nothing beyond VIX": RIGHT for volatility; for returns a weak contrarian
+    sign that doesn't reach any significance bar.
+
+R16 trigger (c) not triggered by this test. (R16 is on anyway via trigger
+(a): 4 consecutive TARS losing closes.)
+
+## For TARS (interpretation)
+
+Nothing to add to the rules. If sentiment is ever revisited, the cheapest
+next step is the AAII survey through another source, tested the same way
+and against the same VIX control. The put/call ratio is a VIX proxy for
+risk, and at best a weak contrarian nudge for returns.
