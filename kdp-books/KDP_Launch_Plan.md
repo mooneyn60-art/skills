@@ -103,6 +103,15 @@ KDP Bookshelf → **+ Create** → **Paperback**
 
 ---
 
+## 3c. Book 4: Christmas Word Search (upload Tue Oct 6)
+
+**Title:** Christmas Word Search
+**Subtitle:** Large Print: 60 Merry Puzzles for Adults & Seniors
+**Listing:** see `christmas/metadata.json` or the "Christmas listing" Doc in Drive.
+**Marketing pack:** `christmas/pins/` (3 Pinterest images) and `christmas/video_script.md`.
+
+---
+
 ## 4. Marketing
 
 ### Amazon (start once a book is live)

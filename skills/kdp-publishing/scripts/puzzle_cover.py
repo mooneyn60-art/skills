@@ -136,7 +136,69 @@ def pattern_halloween(c, x, y, w, h, palette, rng, step=1.15 * INCH):
                 draw_pumpkin(c, cx, cy, step * rng.uniform(0.2, 0.28), orange, green)
 
 
-PATTERNS = {"quilt": pattern_quilt, "yarn": pattern_yarn, "honeycomb": pattern_honeycomb, "halloween": pattern_halloween}
+def draw_snowflake(c, cx, cy, r, color):
+    c.setStrokeColor(color)
+    c.setLineWidth(max(0.8, r * 0.12))
+    c.setLineCap(1)
+    for k in range(6):
+        ang = math.radians(60 * k)
+        ex, ey = cx + r * math.cos(ang), cy + r * math.sin(ang)
+        c.line(cx, cy, ex, ey)
+        for side in (-1, 1):
+            bx, by = cx + 0.6 * r * math.cos(ang), cy + 0.6 * r * math.sin(ang)
+            b = ang + side * math.radians(40)
+            c.line(bx, by, bx + 0.3 * r * math.cos(b), by + 0.3 * r * math.sin(b))
+
+
+def draw_tree(c, cx, cy, s, green, star, trunk):
+    c.setFillColor(trunk)
+    c.rect(cx - s * 0.08, cy - s * 0.55, s * 0.16, s * 0.18, stroke=0, fill=1)
+    c.setFillColor(green)
+    for tier, (w, y0) in enumerate(((0.55, -0.4), (0.42, -0.1), (0.3, 0.18))):
+        p = c.beginPath()
+        p.moveTo(cx - w * s, cy + y0 * s)
+        p.lineTo(cx + w * s, cy + y0 * s)
+        p.lineTo(cx, cy + (y0 + 0.42) * s)
+        p.close()
+        c.drawPath(p, stroke=0, fill=1)
+    c.setFillColor(star)
+    c.circle(cx, cy + 0.62 * s, s * 0.07, stroke=0, fill=1)
+
+
+def draw_ornament(c, cx, cy, r, color, cap):
+    c.setFillColor(cap)
+    c.rect(cx - r * 0.3, cy + r * 0.85, r * 0.6, r * 0.3, stroke=0, fill=1)
+    c.setFillColor(color)
+    c.circle(cx, cy, r, stroke=0, fill=1)
+    c.setStrokeColor(HexColor("#FFFFFF"))
+    c.setStrokeAlpha(0.5)
+    c.setLineWidth(max(1, r * 0.15))
+    c.arc(cx - r * 0.6, cy - r * 0.1, cx + r * 0.2, cy + r * 0.7, 100, 80)
+    c.setStrokeAlpha(1)
+
+
+def pattern_christmas(c, x, y, w, h, palette, rng, step=1.1 * INCH):
+    """Pine trees, ornaments and snowflakes. Palette: red, deep green, green, gold, white."""
+    red, night, green, gold, snow = (HexColor(v) for v in palette[:5])
+    c.setFillColor(night)
+    c.rect(x, y, w, h, stroke=0, fill=1)
+    for _ in range(int(w * h / (0.5 * INCH) ** 2)):
+        draw_snowflake(c, x + rng.random() * w, y + rng.random() * h, rng.uniform(3, 7), snow)
+    for j in range(int(h / step) + 2):
+        for i in range(int(w / step) + 2):
+            cx = x + i * step + (step / 2 if j % 2 else 0) + rng.uniform(-6, 6)
+            cy = y + j * step + rng.uniform(-6, 6)
+            kind = (i + 2 * j) % 3
+            if kind == 0:
+                draw_tree(c, cx, cy, step * 0.55, green, gold, HexColor("#6B4423"))
+            elif kind == 1:
+                draw_ornament(c, cx, cy, step * 0.18, rng.choice((red, gold)), gold)
+            else:
+                draw_snowflake(c, cx, cy, step * 0.2, snow)
+
+
+PATTERNS = {"quilt": pattern_quilt, "yarn": pattern_yarn, "honeycomb": pattern_honeycomb,
+            "halloween": pattern_halloween, "christmas": pattern_christmas}
 
 
 def clip_rect(c, x, y, w, h):

@@ -59,13 +59,15 @@ low-content books get rejected.
    Every grid is verified: each word appears exactly once, and filler letters
    never spell a blocked word.
 3. `python puzzle_cover.py book.json --pages <N> -o cover.pdf`: full-wrap
-   cover drawn in code (patterns: quilt, yarn, honeycomb), with a sample puzzle
+   cover drawn in code (patterns: quilt, yarn, honeycomb, halloween, christmas), with a sample puzzle
    on the back and the barcode area kept clear. Add a `cover` block to the
    spec; see the script docstring.
-4. Metadata: subtitle must match the cover text. Run `check_metadata.py`.
+4. Marketing pins: `python pin_images.py book.json --puzzles 1 13 48 -o pins/`
+   makes 1000x1500 Pinterest images showing the exact puzzles printed in the book.
+5. Metadata: subtitle must match the cover text. Run `check_metadata.py`.
    Puzzle books are not "low-content" on KDP (they have content), so they
    get a free KDP ISBN.
-5. AI disclosure: word lists and descriptions written by Claude are
+6. AI disclosure: word lists and descriptions written by Claude are
    AI-generated text. Code-drawn covers are not AI-generated images.
 
 ## Reports
