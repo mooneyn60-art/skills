@@ -242,7 +242,7 @@ def simulate(cfg, dates, bars, syms):
                 p = pos.pop(s)
                 px = bars[s][t][O] * (1 - cfg.slip)
                 cash += p["qty"] * px
-                trades.append((s, p["entry"], px, p["qty"], t - p["day"], "trend"))
+                trades.append((s, p["entry"], px, p["qty"], t - p["day"], "trend", t))
         pending_sell = []
 
         for s, qty, tag in pending_buy:
@@ -272,7 +272,7 @@ def simulate(cfg, dates, bars, syms):
                 raw = bars[s][t][O] if bars[s][t][O] <= p["stop"] else p["stop"]
                 px = raw * (1 - cfg.slip)
                 cash += p["qty"] * px
-                trades.append((s, p["entry"], px, p["qty"], t - p["day"], "stop"))
+                trades.append((s, p["entry"], px, p["qty"], t - p["day"], "stop", t))
                 del pos[s]
                 if not cfg.breaker_loss_only or px < p["entry"]:
                     stop_days.append(t)
