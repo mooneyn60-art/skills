@@ -1,0 +1,56 @@
+{
+  "_fetched": "2026-09-24T19:59:59Z",
+  "_source": "Robinhood MCP (get_equity_quotes, get_option_chains, get_option_instruments, get_option_quotes) -- read-only, no orders placed",
+  "underlying": "SOFI",
+  "stock_quote": {
+    "last_trade_price": 16.7918,
+    "last_trade_time": "2026-09-24T19:59:59.794439423Z",
+    "previous_close": 16.55,
+    "previous_close_date": "2026-09-23"
+  },
+  "earnings_report": {
+    "symbol": "SOFI",
+    "year": 2026,
+    "quarter": 3,
+    "date": "2026-10-27",
+    "timing": "am",
+    "verified": false,
+    "eps_estimate": 0.17,
+    "note": "Robinhood get_earnings_results flags this date verified=false; treat as best-available, not confirmed."
+  },
+  "chain_id": "b5b0c14e-c067-41e7-9ed1-eb61b44941cb",
+  "atm_strike": 17.0,
+  "straddles": {
+    "2026-10-23": {
+      "note": "nearest expiry BEFORE the 2026-10-27 am report; used as the normal-days baseline",
+      "days_to_expiry": 29,
+      "call": {"instrument_id": "c412a2aa-dc8d-44a5-b23e-c024e1178ecb", "bid": 0.77, "ask": 0.81, "mark": 0.79, "iv": 0.456944},
+      "put":  {"instrument_id": "868bb010-eb1a-4f7f-a9f1-92dc00c60968", "bid": 0.90, "ask": 0.94, "mark": 0.92, "iv": 0.442937}
+    },
+    "2026-10-30": {
+      "note": "nearest expiry AFTER the 2026-10-27 am report; spans the earnings reaction",
+      "days_to_expiry": 36,
+      "call": {"instrument_id": "1f31eda2-8750-47eb-89d0-938d6eeb5e87", "bid": 1.00, "ask": 1.05, "mark": 1.025, "iv": 0.521466},
+      "put":  {"instrument_id": "d62e9325-4565-41ba-9ab2-b7b02ea3b98e", "bid": 1.09, "ask": 1.17, "mark": 1.13,  "iv": 0.500456}
+    }
+  },
+  "dec18_19c": {
+    "instrument_id": "22607507-274c-41f9-bbb6-2eda4fc5cee1",
+    "expiration": "2026-12-18",
+    "strike": 19.0,
+    "bid": 0.96, "ask": 1.00, "mark": 0.98,
+    "previous_close": 0.91,
+    "iv": 0.532046, "delta": 0.376162, "gamma": 0.088055, "theta": -0.010230, "vega": 0.030751, "rho": 0.012422,
+    "open_interest": 5157, "volume": 620,
+    "quote_time": "2026-09-24T19:59:59.67434042Z"
+  },
+  "jan15_19c": {
+    "instrument_id": "c22ea86c-7ca8-4050-815b-5b28fb5b38ed",
+    "expiration": "2027-01-15",
+    "strike": 19.0,
+    "bid": 1.21, "ask": 1.25, "mark": 1.23,
+    "previous_close": 1.15,
+    "iv": 0.525638, "delta": 0.408460,
+    "note": "proxy for the ex-earnings (post Oct-27) term structure IV at the same strike"
+  }
+}

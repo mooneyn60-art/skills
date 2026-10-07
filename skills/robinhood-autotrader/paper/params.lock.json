@@ -1,0 +1,22 @@
+{
+ "_why": "Frozen strategy parameters. signal_dual_momentum.py refuses to emit ledger records when its effective parameters do not match this file. The point is not to make change impossible -- it is to make change impossible to do QUIETLY. Editing this file shows up in a git diff with a human name on it; re-fitting after a losing quarter does not get to look like a normal run. See reference/STRATEGY.md: parameters are not to be re-fit on the realised sample, because that is how a dead strategy becomes an overfitted one.",
+ "_locked": "2026-09-11 (revised same day)",
+ "_reason": "Revised from a DAILY basis (252/21/200) to MONTHLY (12/1/10). Not a re-fit: no result was tuned toward, and the change was made before the strategy traded a single live signal. The daily parameterisation was never backtested; the monthly one was measured over 235 months (see reference/STRATEGY.md). Running live on parameters nobody tested, while holding a validated set on the shelf, is the mistake this lock exists to prevent -- so the untested set was the one to go.",
+ "params": {
+  "lookback": 12,
+  "skip": 1,
+  "ma_window": 10,
+  "top": 3,
+  "cash": "BIL",
+  "universe": [
+   "EFA",
+   "GLD",
+   "IWM",
+   "QQQ",
+   "SPY",
+   "TLT",
+   "VNQ"
+  ]
+ },
+ "_universe_note": "EEM removed 2026-09-11: its price series splices two differently-adjusted segments (2007-12 at 16.70, 2008-01 at 45.63). Quarantined in history/QUARANTINE_eem.json, not repaired -- the true split ratio and date are not known with confidence and a guessed factor would yield prices that look real. Restore to the universe only after the series is re-pulled and verified."
+}
