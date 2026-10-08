@@ -186,23 +186,23 @@ stop by design), WBD $31C x5 (Nolan's lottery, no stop).
 BOUGHT (12-1 month momentum leaders from the "TARS shadow universe" scan, above
 the 200-day, no earnings within 3 days, max 2 per sector, 63-day vol <= 80% so
 an 8% stop isn't noise):
-  RVMD 1 sh @207.48  GTC stop-market 190.88 (order 6abeafd2)   healthcare
-  GH   1 sh @175.97  GTC stop-market 161.89 (order 6abeafd4)   healthcare
+  RVMD 1 sh @207.48  STOPPED OUT 2026-10-08 9:51am ET @190.45 (-1.03R)   healthcare
+  GH   1 sh @175.97  STOPPED OUT 2026-10-08 10:14am ET @161.81 (-1.01R)   healthcare
   MU   0.170193 sh @1087.00  STOP 1000.04 -- FRACTIONAL, NO BROKER STOP   tech
-  VLO  0.455517 sh @406.13   STOP 373.64  -- FRACTIONAL, NO BROKER STOP   energy
+  VLO  0.455517 sh @406.13   STOP 406.13 (R4 breakeven raise 2026-10-08, close 443.96 >= 1.08xE)  -- FRACTIONAL, NO BROKER STOP   energy
   INTC (kept) is the 2nd tech name.
 ROUND 2 (3:11pm ET, Nolan: "drop the spy, I want to beat it not ride it"):
 SOLD SPY 0.657187 @764.54 (index core removed by owner order). BOUGHT:
   ATI 1 sh @189.33  GTC stop-market 174.18 (order 6abeb060)   industrials
   SN  1 sh @180.06  GTC stop-market 165.65 (order 6abeb062)   consumer cyclical
-  FRO 2 sh @51.47   GTC stop-market 47.36  (order 6abeb063)   energy (tankers;
+  FRO 2 sh @51.47   GTC stop-market 51.47 (order 6ac808bf, R4 breakeven raise 2026-10-08; was 47.36/6abeb063)   energy (tankers;
       picked over DINO, tied on momentum, to avoid a 2nd refiner next to VLO)
   BE (+180%) skipped: 63d vol 107% > 80% ceiling.
 No index core now: the whole equity book is the momentum sleeve (8 names).
 ROUND 3 (2026-10-02 premarket, Nolan deposited ~$600; "Not intel" -> no INTC add):
   NVT 1 sh @167.75  GTC stop-market 154.33 (order 6abf900c)   industrials (2nd)
-  FRO +3 sh @51.55  GTC stop-market 47.43 (order 6abf900e) for the 3 new shares;
-      the original 2 keep 6abeb063 @47.36. FRO now 5 sh.
+  FRO +3 sh @51.55  GTC stop-market 51.55 (order 6ac808ce, R4 breakeven raise 2026-10-08; was 47.43/6abf900e)
+      for the 3 new shares; the original 2 are on 6ac808bf @51.47. FRO now 5 sh.
   TECK 3 sh @65.60 (filled 7:34am)  GTC stop-market 60.35 (order 6abfb435)   materials
 
 EVERY FIRE: quote MU and VLO. If last <= its stop, SELL THE WHOLE FRACTION at
