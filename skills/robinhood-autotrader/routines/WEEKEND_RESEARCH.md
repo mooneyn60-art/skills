@@ -123,3 +123,4 @@ state before it is adopted. Before anything else this block:
 Then delete this section.
 
 2026-10-04: SKIPPED, R16 still ON (4 consecutive TARS losing closes, none since 9/25). Waits for the next weekend block.
+2026-10-11: SKIPPED again, R16 still ON (script says 4; really 6, since RVMD/GH stops on 10/08 are untagged, see research/2026-10-11_R6_BREAKER_COST.md).
