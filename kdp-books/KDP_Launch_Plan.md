@@ -112,6 +112,15 @@ KDP Bookshelf → **+ Create** → **Paperback**
 
 ---
 
+## 3d. Book 5: Beekeeping Word Search (upload Tue Oct 13)
+
+**Title:** Beekeeping Word Search
+**Subtitle:** Large Print: 60 Easy-to-Read Puzzles for Beekeepers, Adults & Seniors
+**Listing:** see `beekeeping/metadata.json` or the "Beekeeping listing" Doc in Drive.
+**Marketing pack:** `beekeeping/pins/` and `beekeeping/video_script.md`.
+
+---
+
 ## 4. Marketing
 
 ### Amazon (start once a book is live)

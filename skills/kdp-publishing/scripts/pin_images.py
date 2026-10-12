@@ -58,10 +58,11 @@ def draw_pin(spec, index, font, path_pdf):
     cols, rows = 3, -(-len(words) // 3)
     col_w = (W - 120) / cols
     y0 = H - 330 - n * cell - 70
+    step = min(40, (y0 - 140) / max(rows - 1, 1))  # keep the last row above the 110 px footer
     for k, w in enumerate(words):
         col, row = divmod(k, rows)
         c.setFont(f"{font}-Regular", fit_size(w, f"{font}-Regular", 26, col_w - 20))
-        c.drawString(60 + col * col_w, y0 - row * 40, w)
+        c.drawString(60 + col * col_w, y0 - row * step, w)
 
     c.setFillColor(HexColor(cov["palette"][0]))
     c.rect(0, 0, W, 110, stroke=0, fill=1)
