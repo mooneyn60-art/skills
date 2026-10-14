@@ -189,8 +189,8 @@ an 8% stop isn't noise):
   RVMD 1 sh @207.48  STOPPED OUT 2026-10-08 9:51am ET @190.45 (-1.03R)   healthcare
   GH   1 sh @175.97  STOPPED OUT 2026-10-08 10:14am ET @161.81 (-1.01R)   healthcare
   MU   0.170193 sh @1087.00  SOLD 2026-10-12 3:27pm ET @989.84 on Nolan's confirm after desk stop 1000.04 broke at the open (-1.12R)   tech
-  HPE  2 sh @69.80 (2026-10-12, MU replacement, Nolan: "pick something better")  GTC stop-market 64.22 (order 6acd35a8)   tech; earnings 12/04
-  ASX  8 sh @47.90 (2026-10-13 after hours, Nolan rebalance)  GTC stop-market 44.07 (order 6aceb9f5)   tech (2nd with HPE); earnings 10/29
+  HPE  SOLD 2026-10-14 9:32am ET by its 64.22 stop (order 6acd35a8), -1.0R; tech slot now ASX only
+  ASX  8 sh @47.90 (2026-10-13 after hours, Nolan rebalance)  GTC stop-market 44.07 (order 6aceb9f5)   tech; earnings 10/29
   HALO 2 sh @110.29 (2026-10-13 after hours)  GTC stop-market 101.47 (order 6aceb9f7)   healthcare; earnings 11/3
   ILMN 1 sh @273.00 (2026-10-13 after hours)  GTC stop-market 251.16 (order 6aceb9f8)   healthcare (2nd); earnings 10/30
   NVT: SOLD 2026-10-14 9:47am ET @159.17 (Nolan 10/13 rebalance; stop 6abf900c cancelled first; -5.1%, -0.64R)
