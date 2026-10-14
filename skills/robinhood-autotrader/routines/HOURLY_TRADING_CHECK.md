@@ -193,7 +193,7 @@ an 8% stop isn't noise):
   ASX  8 sh @47.90 (2026-10-13 after hours, Nolan rebalance)  GTC stop-market 44.07 (order 6aceb9f5)   tech (2nd with HPE); earnings 10/29
   HALO 2 sh @110.29 (2026-10-13 after hours)  GTC stop-market 101.47 (order 6aceb9f7)   healthcare; earnings 11/3
   ILMN 1 sh @273.00 (2026-10-13 after hours)  GTC stop-market 251.16 (order 6aceb9f8)   healthcare (2nd); earnings 10/30
-  NVT: Nolan said SELL (10/13 rebalance); scheduled at the 10/14 open by trig_01CTojvjRKuNFU9ifQvTyAFG
+  NVT: SOLD 2026-10-14 9:47am ET @159.17 (Nolan 10/13 rebalance; stop 6abf900c cancelled first; -5.1%, -0.64R)
   VLO  0.455517 sh @406.13   STOP 406.13 (R4 breakeven raise 2026-10-08, close 443.96 >= 1.08xE)  -- FRACTIONAL, NO BROKER STOP   energy
   INTC (kept) is the 2nd tech name.
 ROUND 2 (3:11pm ET, Nolan: "drop the spy, I want to beat it not ride it"):
@@ -205,7 +205,7 @@ SOLD SPY 0.657187 @764.54 (index core removed by owner order). BOUGHT:
   BE (+180%) skipped: 63d vol 107% > 80% ceiling.
 No index core now: the whole equity book is the momentum sleeve (8 names).
 ROUND 3 (2026-10-02 premarket, Nolan deposited ~$600; "Not intel" -> no INTC add):
-  NVT 1 sh @167.75  GTC stop-market 154.33 (order 6abf900c)   industrials (2nd)
+  NVT 1 sh @167.75  SOLD 2026-10-14 @159.17 (owner rebalance)   industrials (2nd)
   FRO +3 sh @51.55  GTC stop-market 51.55 (order 6ac808ce, R4 breakeven raise 2026-10-08; was 47.43/6abf900e)
       for the 3 new shares; the original 2 are on 6ac808bf @51.47. FRO now 5 sh.
   TECK 3 sh @65.60 (filled 7:34am)  GTC stop-market 60.35 (order 6abfb435)   materials
@@ -216,7 +216,7 @@ hold stop orders on fractional shares, so the desk IS the stop. Gap risk
 between fires is accepted and was explained to Nolan.
 Close check: raise all five by R4 (max of 0.92xE, E once +8%, 0.80 x highest
 close); for MU/VLO just update the numbers in this section.
-Earnings ahead: VLO 10/22, TECK 10/22, INTC 10/23, ATI 10/28, NVT 10/30, GH 10/29, RVMD 11/5, SN 11/6, FRO 11/30, MU reported 9/30.
+Earnings ahead: VLO 10/22, TECK 10/22, INTC 10/23, ATI 10/28, ASX 10/29, ILMN 10/30, HALO 11/3, GH 10/29, RVMD 11/5, SN 11/6, FRO 11/30, MU reported 9/30.
 Momentum selection is a NEW way of picking (ranking R2-eligible names by 12-1
 momentum instead of vs200). It was done on Nolan's direct order while R16 was
 on in the main session, so it is NOT an adopted rule: review it at the weekend
