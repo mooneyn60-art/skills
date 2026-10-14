@@ -190,6 +190,10 @@ an 8% stop isn't noise):
   GH   1 sh @175.97  STOPPED OUT 2026-10-08 10:14am ET @161.81 (-1.01R)   healthcare
   MU   0.170193 sh @1087.00  SOLD 2026-10-12 3:27pm ET @989.84 on Nolan's confirm after desk stop 1000.04 broke at the open (-1.12R)   tech
   HPE  2 sh @69.80 (2026-10-12, MU replacement, Nolan: "pick something better")  GTC stop-market 64.22 (order 6acd35a8)   tech; earnings 12/04
+  ASX  8 sh @47.90 (2026-10-13 after hours, Nolan rebalance)  GTC stop-market 44.07 (order 6aceb9f5)   tech (2nd with HPE); earnings 10/29
+  HALO 2 sh @110.29 (2026-10-13 after hours)  GTC stop-market 101.47 (order 6aceb9f7)   healthcare; earnings 11/3
+  ILMN 1 sh @273.00 (2026-10-13 after hours)  GTC stop-market 251.16 (order 6aceb9f8)   healthcare (2nd); earnings 10/30
+  NVT: Nolan said SELL (10/13 rebalance); scheduled at the 10/14 open by trig_01CTojvjRKuNFU9ifQvTyAFG
   VLO  0.455517 sh @406.13   STOP 406.13 (R4 breakeven raise 2026-10-08, close 443.96 >= 1.08xE)  -- FRACTIONAL, NO BROKER STOP   energy
   INTC (kept) is the 2nd tech name.
 ROUND 2 (3:11pm ET, Nolan: "drop the spy, I want to beat it not ride it"):
