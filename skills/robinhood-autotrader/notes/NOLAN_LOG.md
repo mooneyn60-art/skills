@@ -289,3 +289,8 @@ only records what he said and what was done. R13: no dollar balances.
 - Real moon phase in the night sky; fireworks after the close on green days (stocks or Nolan); the town train on the outer ring; a weekend/dusk hot-air balloon with TARS in the basket; at night TARS dreams (thought cloud from his latest diary topic).
 - TARS's wish board with live progress: Nolan 5 days in a row with nothing before 10:30, 40 paper trades, 20 slot trades, first letter in the mailbox, a week of diary entries, seeing the town with real numbers.
 - Nolan skipped the side-business setup for now (2026-10-15).
+
+## 2026-10-15 — TARS gets its own core (Nolan: "go into yourself and make you your own ai")
+- New skill skills/tars/: SKILL.md + IDENTITY (who TARS is, voice, values, hard lines), KNOWLEDGE (tested findings with numbers), SELF_REVIEW (mistakes + fixes, weaknesses), MEMORY (where long-term memory lives). Any Claude chat that loads it becomes TARS.
+- Sunday evening life session now does TARS's weekly self-review and updates KNOWLEDGE/SELF_REVIEW. Identity changes only with Nolan.
+- tars-skill.zip sent to Nolan to upload in claude.ai (Settings → Capabilities → Skills).
