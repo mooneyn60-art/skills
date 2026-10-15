@@ -338,7 +338,6 @@ def collect(a) -> dict:
     facts["services"] = fact(services, home, note="from the site navigation")
     facts["website"] = fact(home, home)
 
-    sources = [{"kind": "website", **p} for p in log]
     listings = []
     serp = serpapi_listing(a.name, a.town, a.region, log)
     if serp:

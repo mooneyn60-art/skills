@@ -1,0 +1,187 @@
+{
+  "slug": "viridian-bookshop-willoughby",
+  "name": "The Viridian Bookshop",
+  "town": "Willoughby",
+  "region": "OH",
+  "category": "LocalBusiness",
+  "collected_at": "2026-10-15T20:16:25+00:00",
+  "facts": {
+    "name": {
+      "value": "The Viridian Bookshop",
+      "source": "https://viridianbookshop.com"
+    },
+    "address": {
+      "value": "4081 Erie St",
+      "source": "https://viridianbookshop.com",
+      "evidence": "4081 Erie St"
+    },
+    "phone": {
+      "value": "(440) 525-5185",
+      "source": "https://viridianbookshop.com"
+    },
+    "hours": {
+      "value": {
+        "tue": {
+          "open": "10:00",
+          "close": "21:00"
+        },
+        "wed": {
+          "open": "12:00",
+          "close": "21:00"
+        },
+        "thu": {
+          "open": "12:00",
+          "close": "21:00"
+        },
+        "fri": {
+          "open": "10:00",
+          "close": "21:00"
+        },
+        "sat": {
+          "open": "10:00",
+          "close": "21:00"
+        },
+        "sun": {
+          "open": "11:00",
+          "close": "17:00"
+        },
+        "mon": "closed"
+      },
+      "source": "https://viridianbookshop.com",
+      "evidence": "opens in new tab) Sign Up / Log In Search Search 0 0 Sub-Total: $ 0.00 No products in the cart. 100% Secure Checkout! About Us Experiences Shop Rentals Events Membership Contact Us My Account Search Search SHOP Sign Up /",
+      "note": "visible page text (what the owner wrote for customers)"
+    },
+    "status": {
+      "value": "open",
+      "source": "https://viridianbookshop.com",
+      "note": "Website is live and lists current hours; page last modified 2026-08-11T15:14:21+00:00. No closure notice on the site."
+    },
+    "offers": {
+      "value": [
+        {
+          "text": "Claim Your Seat Unlock Exclusive Perks Join the inner circle and become a Viridian Bookshop member to unlock exclusive discounts, charming bookish gifts, and members-only content.",
+          "source": "https://viridianbookshop.com"
+        },
+        {
+          "text": "Join Our Community Host Your Magical Event Need a unique setting for a private party, workshop, or special gathering?",
+          "source": "https://viridianbookshop.com"
+        }
+      ],
+      "source": "https://viridianbookshop.com",
+      "note": "Offers published on the website. Any deal an AI states that is not here is unverified."
+    },
+    "services": {
+      "value": [
+        "SHOP (opens in new tab)",
+        "Experiences",
+        "Rentals",
+        "Events",
+        "Membership"
+      ],
+      "source": "https://viridianbookshop.com",
+      "note": "from the site navigation"
+    },
+    "website": {
+      "value": "https://viridianbookshop.com",
+      "source": "https://viridianbookshop.com"
+    }
+  },
+  "structured_data": {
+    "present": false,
+    "types": [],
+    "hours": null,
+    "source": null
+  },
+  "conflicts": [],
+  "same_name_businesses": [
+    {
+      "name": "Viridian Books",
+      "address": null,
+      "phone": null,
+      "url": "https://marketspread.com/vendor/161775/viridian-books/",
+      "note": "A different, similarly named bookseller (Oklahoma) that appears in the same web searches"
+    }
+  ],
+  "listings": [
+    {
+      "kind": "listing",
+      "url": "https://bookshop.org/shop/ViridianBookshop",
+      "reachable": false
+    },
+    {
+      "kind": "social",
+      "url": "https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2Fp%2FThe-Viridian-Bookshop-61570579876171%2F",
+      "reachable": true,
+      "title": "Facebook",
+      "address": null,
+      "phone": null,
+      "hours": {},
+      "bio_excerpt": "Facebook Explore the things you love . Log into Facebook Email or mobile number Password Log in Forgot password? Create new account English (US) Español Français (France) 中文(简体) العربية Português (Brasil) Italiano More languages… Sign Up Log In Messenger Facebook Lite Video Meta Pay Meta Store Meta "
+    },
+    {
+      "kind": "social",
+      "url": "https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fviridian.bookshop%2F&is_from_rle",
+      "reachable": true,
+      "title": "Instagram",
+      "address": null,
+      "phone": null,
+      "hours": {},
+      "bio_excerpt": "Instagram"
+    }
+  ],
+  "press": [
+    {
+      "url": "https://spectrumnews1.com/oh/cincinnati/news/2026/07/23/bookshop-ai-battle"
+    },
+    {
+      "url": "https://clevelandmagazine.com/articles/willoughby-bookstore-confronts-google-ai-error-claiming-it-was-permanently-closed/"
+    },
+    {
+      "url": "https://clevelandmagazine.com/articles/downtown-willoughby-welcomes-the-viridian-bookshop-in-october"
+    }
+  ],
+  "sources": [
+    {
+      "kind": "fetch",
+      "url": "https://viridianbookshop.com",
+      "requested": "https://viridianbookshop.com",
+      "status": 200,
+      "fetched_at": "2026-10-15T20:16:21+00:00"
+    },
+    {
+      "kind": "fetch",
+      "url": "https://viridianbookshop.com/about-us/",
+      "requested": "https://viridianbookshop.com/about-us/",
+      "status": 200,
+      "fetched_at": "2026-10-15T20:16:22+00:00"
+    },
+    {
+      "kind": "fetch",
+      "url": "https://viridianbookshop.com/contact-us/",
+      "requested": "https://viridianbookshop.com/contact-us/",
+      "status": 200,
+      "fetched_at": "2026-10-15T20:16:23+00:00"
+    },
+    {
+      "kind": "fetch",
+      "url": "https://bookshop.org/shop/ViridianBookshop",
+      "status": "error",
+      "error": "HTTP Error 403: Forbidden",
+      "fetched_at": "2026-10-15T20:16:24+00:00"
+    },
+    {
+      "kind": "fetch",
+      "url": "https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2Fp%2FThe-Viridian-Bookshop-61570579876171%2F",
+      "requested": "https://www.facebook.com/p/The-Viridian-Bookshop-61570579876171/",
+      "status": 200,
+      "fetched_at": "2026-10-15T20:16:24+00:00"
+    },
+    {
+      "kind": "fetch",
+      "url": "https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fviridian.bookshop%2F&is_from_rle",
+      "requested": "https://www.instagram.com/viridian.bookshop/",
+      "status": 200,
+      "fetched_at": "2026-10-15T20:16:25+00:00"
+    }
+  ]
+}
