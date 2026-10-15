@@ -811,6 +811,7 @@ function renderPlan() {
   else if (open && m < 870) items.push(["ok", "It's past 10:30: your window. Best holds were 5-15 minutes; exits are your edge."]);
   else if (open) items.push(["muted", "Late session: theta is brutal now. Smaller or nothing."]);
   else items.push(["muted", "Market closed. Next open 9:30 ET; the 10:30 bell is yours."]);
+  items.push(["muted", "Your rules: nothing before 10:30 · hold 5-15 min · 3 losses in a row = 30-min break · max 10 trips · $150 daily stop · $400 max per trade."]);
   const q = L.q.SPY || {}, ref = +q.adjusted_previous_close || 0, last = +(q.last_non_reg_trade_price || q.last_trade_price) || 0;
   if (ref && last) { const g = 100 * (last / ref - 1), a = Math.abs(g), odds = a < .1 ? "88%" : a < .3 ? "64-76%" : a < .6 ? "31-58%" : "21-38%";
     if (open || m < 570) items.push(["muted", `SPY ${open ? "is" : "is set to open"} ${g >= 0 ? "+" : ""}${g.toFixed(2)}% vs yesterday's close. Gaps that size fill the same day about ${odds} of the time.`]);
@@ -820,7 +821,9 @@ function renderPlan() {
   const nt = S.nt || {n: 0, early: 0};
   if (nt.early) items.push(["bad", `${nt.early} trade${nt.early > 1 ? "s" : ""} before 10:30 today. ${open && m < 630 ? "Reset: nothing more until 10:30." : "Tomorrow: nothing before 10:30."}`]);
   if (streak >= 3) items.push(["bad", `${streak} losing trades in a row. Take 30 minutes away from the screen.`]);
-  if (tr.length >= 15) items.push(["warn", `${tr.length} round trips today. Your first trips of a day have been net losers and more trades means more spread. Slow down.`]);
+  const netToday = tr.reduce((a, t) => a + (t.pout - t.pin) * t.q * 100, 0);
+  if (netToday <= -150) items.push(["bad", `Daily loss limit hit (${money(netToday)}). Your rule: done for the day.`]);
+  if (tr.length >= 10) items.push(["warn", `${tr.length} round trips today. Your rule is max 10.`]);
   if (tr.length && !nt.early && streak < 3) items.push(["ok", `${tr.length} trips today, ${money(tr.reduce((a, t) => a + (t.pout - t.pin) * t.q * 100, 0))}, all after 10:30. That's the plan.`]);
   el.innerHTML = `<ul class="planL">${items.map(([c, t]) => `<li class="${c}">${esc(t)}</li>`).join("")}</ul>`;
 }

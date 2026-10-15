@@ -690,7 +690,7 @@ async function startTrading() {
   const mcp = await CL.use("mcp");
   if (!mcp) { $("#tAcct").textContent = "Trading needs this page open in the claude.ai app or site with the Robinhood connector."; $("#tReview").disabled = true; return; }
   T.mcp = mcp;
-  let max = "500"; try { max = localStorage.getItem("desk.max") || max; } catch (e) {}
+  let max = "400"; try { max = localStorage.getItem("desk.max2") || max; } catch (e) {} // Nolan's Rules v1: $400 max per trade
   $("#tMax").value = max;
   try {
     const a = await call("get_accounts", {}, {cache: {staleTime: 300000}});
@@ -809,6 +809,13 @@ function renderPreview() {
   if (inp.type === "market" && +q.ask_price > 0 && (+q.ask_price - +q.bid_price) / +q.ask_price > 0.08) warn.push("Wide spread for a market order. A limit at mid usually fills better.");
   if (sd === "buy" && inp.legs[0].position_effect === "open" && marketOpen() && etHM(new Date()) < "10:30")
     warn.push("Your own record (Oct 8-15): entries before 10:30 lost on 5 of 5 days, winning 16% of trips. After 10:30 you were green 5 of 6 days. Consider waiting.");
+  if (sd === "buy" && inp.legs[0].position_effect === "open") { // Nolan's Rules v1 (notes/NOLAN_RULES.md): warnings only
+    const mine = trips((T.todayOrders || []).filter(o => !o.agent_initiated)), net = mine.reduce((a, t) => a + (t.pout - t.pin) * t.q * 100, 0);
+    let streak = 0; for (let i = mine.length - 1; i >= 0 && mine[i].pout <= mine[i].pin; i--) streak++;
+    if (net <= -150) warn.push(`Your rule: daily loss limit is $150 and you're at ${money(net)} today. You said you'd be done for the day.`);
+    if (mine.length >= 10) warn.push(`Your rule: max 10 round trips a day. This would be #${mine.length + 1}.`);
+    if (streak >= 3) warn.push(`Your rule: ${streak} losses in a row means a 30-minute break first.`);
+  }
   if (!marketOpen()) warn.push("Market is closed. A limit order will wait for the next session (good for day).");
   const checks = checkLines(r.order_checks);
   const verb = sd === "buy" ? "Buy" : "Sell", tyTxt = inp.type === "limit" ? `@ ${inp.price} limit` : inp.type === "market" ? "at market" : `stop at ${inp.stop_price}`;
@@ -1040,7 +1047,7 @@ $("#tAtm").addEventListener("click", () => { const lb = S.b1[S.b1.length - 1]; i
 ["#tSide", "#tQty", "#tPrice", "#tStop", "#tMax"].forEach(id => $(id).addEventListener("input", invalidate));
 $("#tSide").addEventListener("change", () => { $("#tPrice").value = ""; if ($("#tSide").value === "buy_open" && $("#tType").value === "stop_market") { $("#tType").value = "limit"; syncType(); } renderQuote(); });
 $("#tType").addEventListener("change", () => { invalidate(); syncType(); renderQuote(); });
-$("#tMax").addEventListener("change", () => { try { localStorage.setItem("desk.max", $("#tMax").value); } catch (e) {} });
+$("#tMax").addEventListener("change", () => { try { localStorage.setItem("desk.max2", $("#tMax").value); } catch (e) {} });
 document.querySelectorAll("[data-px]").forEach(b => b.addEventListener("click", () => { const p = pickPx(b.dataset.px); if (p) { $("#tPrice").value = p; invalidate(); } else tmsg("No quote yet.", "warn"); }));
 $("#tRefresh").addEventListener("click", async () => {
   if (!T.inst || !T.mcp) return;
