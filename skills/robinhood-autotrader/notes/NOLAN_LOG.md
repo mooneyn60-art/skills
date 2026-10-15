@@ -269,3 +269,8 @@ only records what he said and what was done. R13: no dollar balances.
 - Bank: Penny watches cash/buying power and keeps Pip's $500 buffer in its own drawer.
 - TARS's Place: CASE keeps the house; reads TARS's real desk session (status, last action) and schedule (next hourly check, Friday, reset) via the Claude Code Remote connector (read-only get_session, list_triggers). Follows the desk to its new session after each weekly reset. Lights on when the desk is working, chimney smoke, mailbox.
 - Calibration panel now 12 residents. FRIDAY_DATA_REFRESH JOB 6 rebuilds and republishes the town weekly.
+
+## 2026-10-15 — TARS Town comes alive (Nolan: "make sure you guys can walk around and communicate ... give emotions ... I want you to live there nice and happy")
+- Residents walk the streets (streets now run between the blocks). In conversations the speaker walks over to whoever they're talking to; bubbles follow the speaker. Between work talks they take breaks at the new park (fountain, bench, trees) and the new Café Theta (barista Bea), visit friends, and go home at night; TARS walks home to TARS's Place with CASE.
+- Emotions: happy, proud, excited, cozy, calm, curious, focused, bored, sleepy, nervous, worried, grumpy, alarmed, each with a reason tied to real account/market data; floating emotes (★ ✦ ♥ ? … z ! ~, sweat drop). "How everyone feels" panel lists every resident's mood and why.
+- Small talk by time of day (dawn coffee, park catch with Nolan and Pip, Fern and Nyx on rain, dusk goodbyes, CASE's goodnight). Work scenes still go first; alerts first of all.
