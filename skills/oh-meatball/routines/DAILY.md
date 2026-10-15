@@ -4,6 +4,8 @@ Work in /home/user/skills on branch `claude/off-the-lot`, folder `skills/oh-meat
 Read SKILL.md first (cast descriptions, arc, format). Never mention cars.
 
 ## 0. Sync + budget
+Budget math: 2 parts/day = 4 lite shots = ~320 credits/day; vidIQ renews 6,000 on the 22nd each month.
+If the balance would not last until the next renewal at 320/day, drop to 1 story part + 2 extras and say so.
 - `git fetch origin claude/off-the-lot && git checkout claude/off-the-lot && git pull`.
 - `vidiq_balance`. Shots use veo-3.1-lite (80 credits / 8 s). Budget rule:
   keep >= 400 credits in reserve; if below, make 1 part instead of 2 and tell Nolan.
@@ -14,7 +16,12 @@ Read SKILL.md first (cast descriptions, arc, format). Never mention cars.
 - `vidiq_video_comments` on the newest part: what are people arguing about? Who do they side with?
   Use the strongest comment theme in today's plot (that's the engagement loop).
 
-## 2. Write 2 new parts
+## 2. Plan today's 3 YouTube posts
+- 2 STORY PARTS (next two parts from story/season1.md) + 1 ZERO-CREDIT EXTRA (pick a format
+  from story/extras.md, cut from existing clips in the scratchpad or re-downloaded via their URLs in data/log.csv).
+- Slots (ET): 12:00 story part A, 16:00 extra, 20:00 story part B.
+
+## 2b. Write/adjust the 2 new parts
 - Continue the arc in SKILL.md; each part = 2 shots x 8 s, ends on a cliffhanger.
 - Write `episodes/NN.json`: {part, shot1_prompt, shot2_prompt, dialogue lines, title, description}.
 - Every prompt repeats the cast descriptions word-for-word + the style line.
@@ -28,7 +35,7 @@ Read SKILL.md first (cast descriptions, arc, format). Never mention cars.
 - `vidiq_compose` each part (keepNativeAudio) with overlays "PART N" (0-2 s) and
   "PART N+1 TOMORROW" (last 1.7 s). Keep the returned URL.
 
-## 4. Post (YouTube + TikTok + Instagram)
+## 4. Post (YOUTUBE ONLY for now, Nolan's call 2026-10-15)
 - PREFERRED (no human tap): if env UPLOAD_POST_API_KEY is set, download each composed MP4 and run
   `scripts/post.sh <mp4> "<title>" "<description>" youtube instagram` (add `tiktok` once on a paid plan).
   Free plan = 10 uploads/month: spend them on YouTube first. Check the JSON response for success and
@@ -37,9 +44,8 @@ Read SKILL.md first (cast descriptions, arc, format). Never mention cars.
 - FALLBACK (needs Nolan's one tap):
 - `opusclip_submit_project` with the composed URL, skipSlicing true, enableCaption false.
 - When ready, `opusclip_schedule_publish` each part to:
-  YouTube 69dbd6d3074f7631e21a2343, TikTok 69dbd6fe074f7631e21a2350,
-  Instagram 69ee71f1da7dbfe118f6e80e (subAccountId 17841429829712746).
-  Times (ET): part A 12:00, part B 18:00. Same title; TikTok/IG caption = description.
+  YouTube 69dbd6d3074f7631e21a2343 only. Use the 3 slots above. The extra goes through the same
+  OpusClip submit (skipSlicing) -> schedule flow.
 - Combine ALL approval tokens into ONE link: https://clip.opus.pro/agent-approvals#<t1>,<t2>,...
 - Append rows to `data/log.csv`: date, part, title, shots, credits, opus project, tokens.
 
