@@ -1,0 +1,24 @@
+{
+  "title": "Your salesman is hiding 3 of these 4 boxes 😬 #cardealer",
+  "series": "Dealer Trick #1",
+  "voiceover": [
+    "I'm a car salesman. Watch for the four boxes.",
+    "Trade-in, price, down payment, monthly payment.",
+    "We want you staring at one: the payment.",
+    "Because I can always hit your payment. I just stretch the loan.",
+    "Thirty grand at seven percent: five years is about 594 a month. Seven years is 453.",
+    "Feels cheaper. It costs you about 2,400 more.",
+    "Negotiate the out-the-door price. Never the payment.",
+    "Follow. Dealer Trick number two tomorrow."
+  ],
+  "scenes": [
+    {"type": "text", "kicker": "I'm a car salesman.", "text": "Watch for the 4 boxes.", "seconds": 2.5},
+    {"type": "foursquare", "text": "The \"four square\"", "seconds": 3},
+    {"type": "foursquare", "highlight": "Monthly payment", "text": "We want you staring at ONE box.", "seconds": 3},
+    {"type": "text", "text": "I can always hit your payment.", "kicker": "Because...", "seconds": 2.5},
+    {"type": "text", "text": "I just stretch the loan.", "accent": true, "seconds": 2},
+    {"type": "math", "title": "$30,000 at 7% APR", "rows": [["60 months", "$594/mo"], ["84 months", "$453/mo"], ["Extra cost", "+$2,391"]], "text": "\"Lower payment\" = more money.", "seconds": 5},
+    {"type": "text", "kicker": "The fix:", "text": "Negotiate the OUT-THE-DOOR price. Never the payment.", "seconds": 3.5},
+    {"type": "text", "text": "Dealer Trick #2 tomorrow.", "kicker": "Follow for more", "accent": true, "seconds": 2.5}
+  ]
+}
