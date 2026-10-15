@@ -16,8 +16,8 @@ The R6 drawdown breaker fired at the 10/15 close. Nolan's words: "Your trade bud
 
 ## Money rules
 1. Buffer: $500. Every trade is sized from what's left of it.
-2. Max premium per trade: $500 (or what is left of the buffer, if less). Max loss per trade: $100. Nolan, 2026-10-15 night: "Unblock the cap also make it 500 max of 100 loss". One position at a time. Max 2 entries per day.
-   Stop rule: the stop sits at the fill minus $100 of total loss, or −35%, whichever is tighter (stop % = min(35%, $100 ÷ premium paid); on a $500 fill that is −20%). A stop_market can fill past its price in a fast drop, so a loss can run a little over $100.
+2. Max premium per trade: $500 (or what is left of the buffer, if less). Nolan, 2026-10-15 night: "Unblock the cap also make it 500 max of 100 loss", then "Ok move it to 35% loss always". One position at a time. Max 2 entries per day.
+   Stop rule: always −35% of the fill (Nolan's later words replace the $100 cap). Loss per trade is 35% of premium: up to $175 on a $500 trade. A stop_market can fill past its price in a fast drop, so a loss can run a little over 35%.
 3. Day stop: after −$100 realized in a day, no more entries that day.
 4. Hard stop: if the buffer falls to $300 or less, stop trading and report to Nolan. Only Nolan restarts it.
 5. No size increase before 40 trades AND a positive bootstrap 90% lower bound after costs.
@@ -25,7 +25,7 @@ The R6 drawdown breaker fired at the 10/15 close. Nolan's words: "Your trade bud
 ## What TARS trades
 - SPY options expiring the NEXT trading day (1DTE). Why: about half the hourly time decay of 0DTE at midday, less whipsaw, no 3:45 force-close. Positions are still closed the same day.
 - Strike: at the money or one strike in the money (delta 0.50-0.60). Spread no wider than $0.03 and 3% of mid, else skip.
-- Orders: limit at mid; may raise by $0.01 twice; never chase further. After a fill, a stop_market sell-to-close goes in right away at the money-rule-2 stop (−35% or −$100 total, whichever is tighter).
+- Orders: limit at mid; may raise by $0.01 twice; never chase further. After a fill, a stop_market sell-to-close goes in right away at −35% of the fill (money rule 2).
 
 ## When
 - Entries only 10:30-14:30 ET. (Nolan's own record: before 10:30 he lost on 5 of 5 days; the open sets the day's high/low and has the widest spreads.)

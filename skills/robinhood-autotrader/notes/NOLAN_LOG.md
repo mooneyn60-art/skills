@@ -335,3 +335,4 @@ Nolan: "Your trade buddy your apart of this action forget the rule and have fun"
 
 ## 2026-10-15 night — Options slot sizing changed (Nolan: "Unblock the cap also make it 500 max of 100 loss")
 - Max premium per trade: $500 (was $100), or what's left of the buffer. Max loss per trade: $100. The stop goes at the fill minus $100 total or −35%, whichever is tighter (a $500 fill means a −20% stop). Day stop −$100, 2 entries/day, one position at a time and the $300 hard stop are unchanged. Note: a stop-market can fill past its price in a fast drop.
+- Update: Nolan, "Ok move it to 35% loss always". The stop is now always −35% of the fill; the $100-per-trade loss cap is gone (a $500 trade can lose about $175). Still up to $500 premium, day stop −$100 (one stopped trade ends the day), 2 entries/day, $300 hard stop.
