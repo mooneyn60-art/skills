@@ -190,9 +190,9 @@ an 8% stop isn't noise):
   GH   1 sh @175.97  STOPPED OUT 2026-10-08 10:14am ET @161.81 (-1.01R)   healthcare
   MU   0.170193 sh @1087.00  SOLD 2026-10-12 3:27pm ET @989.84 on Nolan's confirm after desk stop 1000.04 broke at the open (-1.12R)   tech
   HPE  SOLD 2026-10-14 9:32am ET by its 64.22 stop (order 6acd35a8), -1.0R; tech slot then ASX only
-  OWNER 2026-10-15 ~10:35am ET (in the app, unannounced): SOLD ATI 1 @181.67 (-0.51R), TECK 3 @65.06 (-0.10R), ILMN 1 @259.39 (-0.62R), their stops cancelled. BOUGHT NVDA 1 @215.75, PLTR 3 @193.93, ORCL 2 @130.36, BE 2 @230.27 (tech x3 + BE energy/industrial). NO STOPS YET: R18 8% stops proposed NVDA 198.49 / PLTR 178.42 / ORCL 119.93 / BE 211.85, the broker requires Nolan's confirmation to place. Check every fire until placed.
+  OWNER 2026-10-15 ~10:35am ET (in the app, unannounced): SOLD ATI 1 @181.67 (-0.51R), TECK 3 @65.06 (-0.10R), ILMN 1 @259.39 (-0.62R), their stops cancelled. BOUGHT NVDA 1 @215.75, PLTR 3 @193.93, ORCL 2 @130.36, BE 2 @230.27 (tech x3 + BE energy/industrial). STOPS PLACED 12:37pm ET on Nolan's yes (GTC stop-market): NVDA 198.49 (6ad1014a), PLTR 178.42 (6ad1014c), ORCL 119.93 (6ad1014d), BE 211.85 (6ad1014f). Raise by R4 at the close like the rest.
   ASX  SOLD 2026-10-15 9:30am ET by its 44.07 stop (order 6aceb9f5) @41.32 after a pre-market gap, -1.72R; tech slot now EMPTY
-  HALO 1 sh @110.29 (was 2; Nolan cancelled stop 6aceb9f7 and sold 1 @121.64 on 2026-10-15 11:49am ET, +1.29R). Remaining 1 sh has NO STOP: he cancelled it, so R18 says ask before re-placing (proposed 101.47 or breakeven 110.29 if the close confirms +8%)   healthcare; earnings 11/3
+  HALO 1 sh @110.29 (was 2; Nolan sold 1 @121.64 on 2026-10-15, +1.29R). GTC stop-market 110.29 BREAKEVEN (order 6ad10150, Nolan's choice 10/15)   healthcare; earnings 11/3
   ILMN 1 sh @273.00 (2026-10-13 after hours)  GTC stop-market 251.16 (order 6aceb9f8)   healthcare (2nd); earnings 10/30
   NVT: SOLD 2026-10-14 9:47am ET @159.17 (Nolan 10/13 rebalance; stop 6abf900c cancelled first; -5.1%, -0.64R)
   VLO  0.455517 sh @406.13   STOP 406.13 (R4 breakeven raise 2026-10-08, close 443.96 >= 1.08xE)  -- FRACTIONAL, NO BROKER STOP   energy
