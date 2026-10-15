@@ -1,0 +1,24 @@
+# TEMPLATE - not a sendable message. Send at most ONE follow-up, about 5-7 days
+# after the first email, and only if there was no reply and no opt-out.
+# Check data/leads.csv status first: never follow up on replied / opted_out / lost.
+
+From: {{SENDER_NAME}} <{{SENDER_EMAIL}}>
+To: {{BUSINESS_EMAIL}}
+Subject: Following up: website preview for {{BUSINESS_NAME}} (advertisement)
+
+Hi {{OWNER_FIRST_NAME_OR_"there"}},
+
+Just checking you saw the website preview I made for {{BUSINESS_NAME}}:
+
+{{PREVIEW_URL}}
+
+Happy to change anything on it. If you'd like it, it's $149 one time
+({{PAYMENT_LINK}}), with optional $19/month updates. If not, I'll delete the
+preview and won't email again.
+
+Thanks,
+{{SENDER_NAME}}
+{{SENDER_BUSINESS_NAME}}
+{{POSTAL_ADDRESS}}
+
+To stop hearing from me, reply "unsubscribe" or email {{OPT_OUT_EMAIL}}.

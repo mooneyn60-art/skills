@@ -1,0 +1,36 @@
+# TEMPLATE - not a sendable message. Every {{TOKEN}} must be filled and the
+# owner must approve each send (see README.md, "Before any outreach").
+# Personalise {{SPECIFIC_DETAIL}} by hand from the lead's sources; never invent it.
+# Send one at a time from {{SENDER_EMAIL}}; no bulk tools, no tracking pixels.
+
+From: {{SENDER_NAME}} <{{SENDER_EMAIL}}>
+To: {{BUSINESS_EMAIL}}
+Subject: A website preview for {{BUSINESS_NAME}} (advertisement)
+
+Hi {{OWNER_FIRST_NAME_OR_"there"}},
+
+I'm {{SENDER_NAME}}, and I build simple websites for local businesses. I came
+across {{BUSINESS_NAME}} on {{WHERE_FOUND}} and noticed {{SPECIFIC_DETAIL}}.
+I couldn't find a website for you, so I put together a free one-page preview
+from the details you already share publicly:
+
+{{PREVIEW_URL}}
+
+It's a private draft, not published under your name, and anything I wasn't
+sure about is marked as a placeholder for you to correct.
+
+If you'd like to keep it, it's $149 one time: I'll fix any details, put it
+online, and the files are yours. Optional updates afterwards are $19 a month,
+cancel any time. If you want to go ahead, you can pay here:
+{{PAYMENT_LINK}}
+
+If it's not for you, no problem; I'll delete the preview.
+
+Thanks,
+{{SENDER_NAME}}
+{{SENDER_BUSINESS_NAME}}
+{{POSTAL_ADDRESS}}
+
+This is a one-time commercial message. If you don't want to hear from me
+again, reply "unsubscribe" or email {{OPT_OUT_EMAIL}} and I won't contact you
+again.

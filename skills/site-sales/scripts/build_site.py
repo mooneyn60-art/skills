@@ -218,7 +218,8 @@ def cta_href(biz: dict) -> tuple[str, str]:
 def build(biz: dict, final: bool = False) -> str:
     theme = {**DEFAULT_THEME, **(biz.get("theme") or {})}
     loc = biz.get("location") or {}
-    town = ", ".join(x for x in (loc.get("city"), loc.get("state")) if x and not is_ph(x))
+    city = loc.get("city") if not is_ph(loc.get("city")) else None
+    town = ", ".join(x for x in (city, loc.get("state")) if x) if city else ""
     eyebrow = " · ".join(x for x in (biz.get("category"), town) if x)
     cta_link, cta_label = cta_href(biz)
     murl = map_url(biz)
@@ -292,7 +293,8 @@ body {{ margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 var
 a {{ color: inherit; }}
 h1, h2, h3 {{ font-family: var(--display); line-height: 1.12; margin: 0 0 .5em; letter-spacing: -.01em; }}
 h2 {{ font-size: clamp(1.6rem, 5vw, 2.2rem); }}
-.wrap {{ max-width: 980px; margin: 0 auto; padding: 0 20px; }}
+.wrap {{ max-width: 980px; margin: 0 auto; padding-left: 20px; padding-right: 20px; }}
+.hero .wrap {{ position: relative; z-index: 1; }}
 .preview {{ background: #111; color: #fff; text-align: center; font: 500 .8rem/1.4 var(--body); padding: 8px 16px; }}
 .topbar {{ position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--primary) 94%, transparent);
   backdrop-filter: blur(6px); color: #fff; }}
@@ -307,16 +309,17 @@ a:focus-visible, .btn:focus-visible {{ outline: 3px solid var(--accent); outline
 .hero {{ position: relative; overflow: hidden; color: #fff; padding: 64px 0 76px;
   background: radial-gradient(120% 90% at 100% 0%, color-mix(in srgb, var(--accent) 45%, transparent) 0, transparent 55%),
               radial-gradient(90% 80% at 0% 100%, rgba(255,255,255,.10) 0, transparent 60%), var(--primary); }}
-.hero::after {{ content: ""; position: absolute; right: -110px; top: -90px; width: 240px; height: 240px;
+.hero::after {{ content: ""; position: absolute; right: -120px; top: -120px; width: 230px; height: 230px;
   border-radius: 50%; border: 28px solid color-mix(in srgb, var(--accent) 55%, transparent); opacity: .5; }}
 .eyebrow {{ text-transform: uppercase; letter-spacing: .14em; font-size: .78rem; font-weight: 600;
   color: var(--accent); margin: 0 0 14px; }}
 .hero h1 {{ font-size: clamp(2.4rem, 11vw, 4.4rem); max-width: 14ch; }}
 .tagline {{ font-size: 1.12rem; opacity: .92; margin: 0 0 28px; max-width: 34ch; }}
-.actions {{ display: flex; flex-wrap: wrap; gap: 12px; position: relative; z-index: 1; }}
+.actions {{ display: flex; flex-wrap: wrap; gap: 12px; }}
 section {{ padding-top: 52px; padding-bottom: 52px; }}
 [id] {{ scroll-margin-top: 70px; }}
-.about {{ padding-bottom: 8px; }}
+.about {{ padding-bottom: 0; }}
+#contact {{ padding-top: 8px; }}
 .about p {{ max-width: 62ch; font-size: 1.06rem; }}
 .ticks {{ list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 10px; }}
 .ticks li {{ position: relative; padding-left: 30px; }}
