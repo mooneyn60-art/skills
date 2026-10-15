@@ -78,3 +78,17 @@ Target: under $25 of model usage per swarm run.
 3. Range-regime exit rule (the standing open question in WEEKEND_RESEARCH).
 4. Earnings-gap continuation for momentum names (hold through vs exit
    before earnings), using paper/history/earnings_reports.json.
+5. ICT / "smart money" intraday setups (Nolan shared a TikTok 2026-10-15:
+   a Claude-built NQ futures "data farm" claiming 68% wins, PF 2.41 on 142
+   trades). Test the two cleanest rules on SPY minute bars (pull 60+ days):
+   a. Liquidity-sweep reversal: price pierces the prior-day high/low or the
+      opening-range high/low by >= X, closes back inside within 2 bars ->
+      fade toward the range midpoint, stop beyond the sweep extreme.
+   b. Fair value gap fill: 3-bar gap after an impulse; enter on the first
+      return into the gap, stop beyond it.
+   Include costs (SPY 0DTE spread, or 1 tick on stock), split sample,
+   walk-forward by week, and report n. Then run the winner through
+   paper/options_sim.py-style option pricing to see if it survives as a
+   0DTE options trade. 142 trades with no costs or out-of-sample check is
+   not evidence; treat the video's numbers as a hypothesis only.
+
