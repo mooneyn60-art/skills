@@ -14,6 +14,32 @@ works and what doesn't in this account: 170 round trips logged in one month
 (2026-09-14 .. 2026-10-14). TARS learns from them in three stages and does
 not place an options trade of its own until the gate at the bottom is passed.
 
+## Stage 0 - Practice account (simulator, any time)
+
+`python3 paper/options_sim.py [--days N] [--seed S] [--scenario random|trend|chop|gapfade|mixed|all] [--fair]`
+A fake SPY 0DTE market: 5-minute price paths with VIX drawn from real
+2006-2026 history, Black-Scholes option prices, a bid/ask spread on every
+fill, and a paper account per rule set (cash, stops, targets, time exit,
+max trades, daily stop, 60-day ruin check). Add new rule sets to RULESETS.
+It has NO edge by construction, so it teaches mechanics and risk, never
+profitability. A rule set only graduates to the Stage 3 paper book with
+real quotes.
+
+First runs, 2026-10-15 (1,200 days per scenario, seed 1):
+- Nothing makes money in a random market; options are priced above the
+  vol the path realizes and the spread is paid twice. With a fair market
+  (--fair) the loss shrinks but stays: the spread alone is a steady drag.
+- The opening-range breakout rule wins ONLY on trend days (+8/trade fair,
+  +2 normal) and is crushed on chop days (-74/trade, 8% wins). So the
+  real problem is telling a trend day from a chop day; that's the
+  research question, not the stop width.
+- On trend days a wider stop (-40%) beat -20% and -25%: tight stops get
+  shaken out before the move (the 10/14 770P stop is one real example).
+- The Nolan-style scalper (12 trades/day, $400 each, no daily stop) has the
+  worst tail by far: 5% of days lose $800-950, worst day about -$3,000,
+  and every 60-day run halves a $2,000 account in the normal market. The
+  daily stop and fixed small size are what cap the damage in the rule sets.
+
 ## Stage 1 - Mistake map (weekly, Friday refresh)
 
 Run `python3 paper/research_scripts/owner_options_mistakes.py`. It prints
