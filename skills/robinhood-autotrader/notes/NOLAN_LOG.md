@@ -230,3 +230,7 @@ only records what he said and what was done. R13: no dollar balances.
 - Rules v1: routines/TARS_OPTIONS_LIVE.md (1DTE SPY calls only; S1 gap-and-go, S2 stretched dip in uptrend; $100/trade, 1 position, day stop $100, hard stop at $300; entries 10:30-14:30; −35% stop on every fill).
 - Scheduled live checks (create_trigger / send_later) were BLOCKED by the permission classifier. Not worked around. Checks run when Nolan messages during market hours.
 - Account note for Nolan: total value fell sharply since 10/13 (mainly options losses on 10/14-10/15); holdings rotated today into NVDA/PLTR/ORCL/BE with 8% stops.
+
+## 2026-10-15 — Nolan vs TARS competition (Nolan: "let's make it a little competition")
+- Starts 2026-10-16. Desk v6 "Nolan vs TARS" panel: FIFO round trips from filled option orders; TARS = agent-initiated, Nolan = his own. Score = net per $100 of premium spent; also net, win %, avg win/loss.
+- TARS trades only rules v1 (routines/TARS_OPTIONS_LIVE.md), checks when Nolan messages during market hours.
