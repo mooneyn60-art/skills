@@ -23,7 +23,7 @@
   --accent:#eaa23a; --up:#3cc488; --down:#f0655c; --warn:#e2b23e;
   --vwap:#ad9af5; --band:rgba(173,154,245,.10); --e9:#6db2ea; --e21:#d6a676;
   --fib:#e58fb2; --pool:#eaa23a; --fvgU:rgba(60,196,136,.13); --fvgD:rgba(240,101,92,.13); color-scheme:dark}
-*{box-sizing:border-box}
+*{box-sizing:border-box} [hidden]{display:none!important}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:14px;line-height:1.45;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px 32px}
 .wrap{max-width:1180px;margin:0 auto;display:grid;gap:14px}
@@ -64,6 +64,36 @@ dt{color:var(--muted)} dd{margin:0;font-family:var(--mono);font-variant-numeric:
 .banner button{font-family:var(--body);font-size:.82rem;border:1px solid var(--ink);background:var(--panel);color:var(--ink);border-radius:4px;padding:4px 10px;cursor:pointer}
 .legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.72rem;color:var(--muted);margin-top:6px}
 .sw{display:inline-block;width:10px;height:3px;margin-right:5px;vertical-align:3px}
+
+.grid3{display:grid;grid-template-columns:1.15fr 1fr;gap:14px}
+@media (max-width:900px){.grid3{grid-template-columns:1fr}}
+.tk{display:grid;gap:10px}
+.row{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:end}
+.row label{display:grid;gap:3px;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.row input,.row select,textarea{font-family:var(--mono);font-size:.88rem;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:4px;padding:5px 7px;min-width:0}
+.row input[type=number]{width:6.5em}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.seg button,.btn{font-family:var(--body);font-size:.82rem;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:4px;padding:5px 10px;cursor:pointer}
+.seg button{border:0;border-radius:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--panel)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+.btn.buy{background:var(--up);border-color:var(--up);color:#fff;font-weight:600}
+.btn.sell{background:var(--down);border-color:var(--down);color:#fff;font-weight:600}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn.sm{font-size:.74rem;padding:3px 8px}
+.qbox{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;font-family:var(--mono);font-size:.82rem;font-variant-numeric:tabular-nums;border:1px dashed var(--line);border-radius:6px;padding:8px}
+.qbox span small{display:block;font-family:var(--body);font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:500px){.qbox{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.prev{border:1px solid var(--ink);border-radius:6px;padding:10px 12px;display:grid;gap:6px;font-size:.88rem}
+.prev .big{font-family:var(--mono);font-size:1rem}
+.msg{font-size:.82rem}
+.list{display:grid;gap:6px}
+.item{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 10px;align-items:center;border:1px solid var(--line);border-radius:6px;padding:7px 10px;font-size:.84rem}
+.item .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+textarea{width:100%;resize:vertical;min-height:54px;font-family:var(--body)}
+.ans{white-space:pre-wrap;font-size:.9rem;line-height:1.5;max-height:420px;overflow:auto;border-left:3px solid var(--accent);padding-left:10px}
+.ans .q{color:var(--muted);font-size:.8rem;display:block;margin-top:10px}
 </style>
 
 <div class="wrap">
@@ -85,10 +115,16 @@ dt{color:var(--muted)} dd{margin:0;font-family:var(--mono);font-variant-numeric:
       <button type="button" data-l="fib" aria-pressed="false">Fibonacci</button>
       <button type="button" data-l="sig" aria-pressed="true">Signals</button>
       <span class="sep" aria-hidden="true"></span>
+      <button type="button" data-m="1" aria-pressed="true">1m</button>
+      <button type="button" data-m="2" aria-pressed="false">2m</button>
+      <button type="button" data-m="5" aria-pressed="false">5m</button>
+      <button type="button" data-m="15" aria-pressed="false">15m</button>
+      <button type="button" data-m="30" aria-pressed="false">30m</button>
+      <span class="sep" aria-hidden="true"></span>
       <button type="button" data-v="full" aria-pressed="true">Full day</button>
       <button type="button" data-v="90" aria-pressed="false">Last 90 min</button>
     </div>
-    <canvas id="chart" aria-label="SPY one-minute candles with indicators"></canvas>
+    <canvas id="chart" aria-label="SPY candles with indicators"></canvas>
     <canvas id="rsi" aria-label="RSI 14"></canvas>
     <div class="legend">
       <span><i class="sw" style="background:var(--vwap)"></i>VWAP (bands shaded)</span>
@@ -112,16 +148,78 @@ dt{color:var(--muted)} dd{margin:0;font-family:var(--mono);font-variant-numeric:
       <p class="note">Liquidity pools are equal highs or lows (and yesterday's / the opening range's extremes) where stops tend to sit; "swept" means price ran through and closed back inside. Fibonacci levels are drawn from today's main swing for reference; in our 20-year SPY test they held no better than ordinary levels.</p>
     </section>
   </div>
+
+  <div class="grid3">
+    <section class="panel" aria-labelledby="tkh">
+      <h2 id="tkh">Trade ticket</h2>
+      <div class="tk">
+        <p class="msg muted" id="tAcct">Loading account…</p>
+        <div class="row">
+          <label>Expiration<select id="tExp"><option>loading…</option></select></label>
+          <div class="seg" role="group" aria-label="Call or put"><button type="button" data-ty="call" aria-pressed="true">Call</button><button type="button" data-ty="put" aria-pressed="false">Put</button></div>
+          <label>Strike<input id="tStrike" type="number" step="1" inputmode="decimal"></label>
+          <button type="button" class="btn sm" id="tAtm">ATM</button>
+        </div>
+        <div class="row">
+          <label>Action<select id="tSide"><option value="buy_open">Buy to open</option><option value="sell_close">Sell to close</option></select></label>
+          <label>Contracts<input id="tQty" type="number" min="1" step="1" value="1"></label>
+          <label>Order<select id="tType"><option value="limit">Limit</option><option value="market">Market</option><option value="stop_market">Stop (sell to close)</option></select></label>
+          <label id="tPriceL">Limit<input id="tPrice" type="number" step="0.01" min="0.01" inputmode="decimal"></label>
+          <label id="tStopL" hidden>Stop at<input id="tStop" type="number" step="0.01" min="0.01" inputmode="decimal"></label>
+        </div>
+        <div class="row" id="tQuick">
+          <button type="button" class="btn sm" data-px="bid">Bid</button>
+          <button type="button" class="btn sm" data-px="mid">Mid</button>
+          <button type="button" class="btn sm" data-px="ask">Ask</button>
+          <button type="button" class="btn sm" id="tRefresh">↻ Quote</button>
+        </div>
+        <div><div class="msg" id="tContract">No contract selected.</div></div>
+        <div class="qbox" id="tQuote"><span><small>Bid</small>—</span><span><small>Ask</small>—</span><span><small>Mark</small>—</span><span><small>Delta</small>—</span></div>
+        <div class="row">
+          <label>Max premium per trade ($)<input id="tMax" type="number" step="25" min="0"></label>
+          <button type="button" class="btn primary" id="tReview">Review order</button>
+        </div>
+        <div id="tPrev" hidden></div>
+        <p class="msg" id="tMsg" role="status"></p>
+      </div>
+      <p class="note">Every order is checked by Robinhood first (Review), then goes in only when you press the Place button that spells out the order. Nothing is sent on its own. The max-premium box only warns you; it never blocks.</p>
+    </section>
+    <div style="display:grid;gap:14px;min-width:0">
+      <section class="panel" aria-labelledby="poh">
+        <div class="top" style="display:flex;justify-content:space-between;align-items:baseline;gap:8px"><h2 id="poh">Your options</h2><span class="rec" id="pUpd"></span></div>
+        <div class="list" id="pos"><p class="muted msg">Loading positions…</p></div>
+        <h2 style="margin-top:12px">Working orders</h2>
+        <div class="list" id="ords"><p class="muted msg">Loading orders…</p></div>
+      </section>
+      <section class="panel" aria-labelledby="ath">
+        <h2 id="ath">Ask TARS</h2>
+        <div class="chips" id="chips">
+          <button type="button" class="btn sm">Is this a good entry right now?</button>
+          <button type="button" class="btn sm">Check my ticket before I place it</button>
+          <button type="button" class="btn sm">Where's my stop and target?</button>
+          <button type="button" class="btn sm">Which liquidity pool gets taken next?</button>
+        </div>
+        <div class="row" style="margin-top:8px;flex-wrap:nowrap"><textarea id="aq" placeholder="Ask about the chart, a setup, or your ticket…"></textarea></div>
+        <div class="row"><button type="button" class="btn primary" id="aGo">Ask</button><button type="button" class="btn" id="aStop" hidden>Stop</button><span class="rec" id="aNote"></span></div>
+        <div class="ans" id="ans" hidden></div>
+      </section>
+    </div>
+  </div>
 </div>
 
 <script>
 // Backtest records from paper/datafarm (29 days of SPY 1-min, costs included).
 const RECORD = __RECORD__;
 const SERVER = "Robinhood";
+// window.claude only exists inside the claude.ai viewer; a saved copy of this page still renders, just without live data.
+const CL = window.claude && window.claude.use ? window.claude : {use: async () => null};
 const $ = s => document.querySelector(s);
 const layers = {vwap: true, ema: true, levels: true, pools: true, fvg: true, fib: false, sig: true};
 let view = "full";
-const S = {bars: [], prev: null, day: null, updated: null, live: false};
+const S = {b1: [], bars: [], map: [], prev: null, day: null, updated: null, live: false};
+let size = 1; try { size = [1, 2, 5, 15, 30].includes(+localStorage.getItem("desk.size")) ? +localStorage.getItem("desk.size") : 1; } catch (e) {}
+const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"})[c]);
+const money = v => (v < 0 ? "−$" : "$") + Math.abs(v).toFixed(2);
 
 // ---------- time helpers (US/Eastern) ----------
 const fmtDay = new Intl.DateTimeFormat("en-CA", {timeZone: "America/New_York", year: "numeric", month: "2-digit", day: "2-digit"});
@@ -172,7 +270,8 @@ function indicators(bars) {
   });
 }
 
-function structure(bars, prev) {
+function structure(bars, prev, m = 1) {
+  const orN = Math.ceil(15 / m);
   const out = {levels: [], pools: [], fvgs: [], swingsH: [], swingsL: [], fib: null};
   if (!bars.length) return out;
   const px = bars[bars.length - 1].c, tolBase = px * 0.0003;
@@ -180,8 +279,8 @@ function structure(bars, prev) {
     out.levels.push({name: "PDH", p: Math.max(...prev.map(b => b.h))}, {name: "PDL", p: Math.min(...prev.map(b => b.l))},
                     {name: "PDC", p: prev[prev.length - 1].c});
   }
-  if (bars.length >= 15) {
-    const or = bars.slice(0, 15);
+  if (bars.length >= orN) {
+    const or = bars.slice(0, orN);
     out.levels.push({name: "ORH", p: Math.max(...or.map(b => b.h))}, {name: "ORL", p: Math.min(...or.map(b => b.l))});
   }
   for (let j = 2; j < bars.length - 2; j++) {
@@ -204,7 +303,7 @@ function structure(bars, prev) {
     });
   };
   cluster(out.swingsH, "h", "high"); cluster(out.swingsL, "l", "low");
-  out.levels.forEach(L => { if (L.name !== "PDC") out.pools.push({kind: /H$/.test(L.name) ? "high" : "low", p: L.p, n: 1, from: 0, name: L.name, since: L.name.startsWith("OR") ? 14 : -1}); });
+  out.levels.forEach(L => { if (L.name !== "PDC") out.pools.push({kind: /H$/.test(L.name) ? "high" : "low", p: L.p, n: 1, from: 0, name: L.name, since: L.name.startsWith("OR") ? orN - 1 : -1}); });
   out.pools.forEach(P => {
     P.swept = null;
     for (let k = P.since + 1; k < bars.length; k++) {
@@ -235,7 +334,21 @@ function structure(bars, prev) {
   return out;
 }
 
-// ---------- signals: the data-farm rules, run live ----------
+// ---------- candle size: build m-minute bars from the 1-minute feed ----------
+function aggregate(b1, m) {
+  if (m === 1) return {bars: b1, map: b1.map((_, i) => i)};
+  const out = [], map = [];
+  b1.forEach(b => {
+    const mins = +b.hm.slice(0, 2) * 60 + +b.hm.slice(3) - 570, key = Math.floor(mins / m);
+    const cur = out[out.length - 1];
+    if (cur && cur.key === key) { cur.h = Math.max(cur.h, b.h); cur.l = Math.min(cur.l, b.l); cur.c = b.c; cur.v += b.v; }
+    else { const s = 570 + key * m; out.push({key, t: b.t, d: b.d, hm: String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0"), o: b.o, h: b.h, l: b.l, c: b.c, v: b.v}); }
+    map.push(out.length - 1);
+  });
+  return {bars: out, map};
+}
+
+// ---------- signals: the data-farm rules, run live (always on 1-minute bars, as backtested) ----------
 function signals(bars, st) {
   const out = [];
   const last = bars.length - 1;
@@ -306,9 +419,9 @@ function draw() {
   g.clearRect(0, 0, W, H);
   g.font = "10px " + css("--mono");
   if (!all.length) { g.fillStyle = css("--muted"); g.fillText("Waiting for SPY bars from Robinhood…", 12, 24); canvasCtx("#rsi"); return; }
-  const start = view === "90" ? Math.max(0, all.length - 90) : 0;
+  const win = Math.ceil(90 / size), start = view === "90" ? Math.max(0, all.length - win) : 0;
   const bars = all.slice(start), st = S.st, sigs = S.sigs;
-  const L = 52, R = 62, T = 8, B = 18, n = Math.max(bars.length, view === "90" ? 90 : 390);
+  const L = 52, R = 62, T = 8, B = 18, n = Math.max(bars.length, view === "90" ? win : Math.ceil(390 / size));
   const xw = (W - L - R) / n, x = i => L + (i - start + 0.5) * xw;
   let hi = Math.max(...bars.map(b => b.h)), lo = Math.min(...bars.map(b => b.l));
   if (layers.vwap) bars.forEach(b => { hi = Math.max(hi, b.vwap + b.sd); lo = Math.min(lo, b.vwap - b.sd); });
@@ -359,13 +472,14 @@ function draw() {
   if (layers.ema) { line("e21", css("--e21"), 1.2); line("e9", css("--e9"), 1.2); }
   if (layers.vwap) line("vwap", css("--vwap"), 1.6);
   // signals
-  if (layers.sig) sigs.filter(s => s.i >= start).forEach(s => {
-    const col = css(s.side === "long" ? "--up" : "--down"), xx = x(s.i), yy = y(s.entry);
+  const mp = S.map;
+  if (layers.sig) sigs.filter(s => mp[s.i] >= start).forEach(s => {
+    const col = css(s.side === "long" ? "--up" : "--down"), xx = x(mp[s.i]), yy = y(s.entry);
     g.fillStyle = col; g.beginPath();
     if (s.side === "long") { g.moveTo(xx, yy + 2); g.lineTo(xx - 6, yy + 12); g.lineTo(xx + 6, yy + 12); }
     else { g.moveTo(xx, yy - 2); g.lineTo(xx - 6, yy - 12); g.lineTo(xx + 6, yy - 12); }
     g.fill();
-    const x2 = s.exitI !== null ? x(s.exitI) : W - R;
+    const x2 = s.exitI !== null ? x(mp[s.exitI]) : W - R;
     g.strokeStyle = col; g.setLineDash([3, 3]);
     [[s.stop, "✕"], [s.target, "◆"]].forEach(([p, m]) => { if (inView(p)) { g.beginPath(); g.moveTo(xx, y(p)); g.lineTo(x2, y(p)); g.stroke(); g.fillText(m, x2 + 2, y(p) + 3); } });
     g.setLineDash([]);
@@ -387,9 +501,9 @@ function draw() {
 // ---------- panels ----------
 const names = {sweep_reversal: "Sweep reversal", vwap_reclaim: "VWAP reclaim", fvg_trend: "FVG with trend"};
 function renderPanels() {
-  const bars = S.bars;
+  const bars = S.b1;
   if (!bars.length) return;
-  const lb = bars[bars.length - 1], st = S.st, sigs = S.sigs;
+  const lb = bars[bars.length - 1], st = S.st1, sigs = S.sigs;
   const pdc = (st.levels.find(l => l.name === "PDC") || {}).p;
   $("#last").textContent = lb.c.toFixed(2);
   if (pdc) { const ch = lb.c - pdc; $("#chg").textContent = `${ch >= 0 ? "+" : ""}${ch.toFixed(2)} (${(100 * ch / pdc).toFixed(2)}%)`; $("#chg").className = ch >= 0 ? "long" : "short"; }
@@ -398,7 +512,7 @@ function renderPanels() {
   const card = s => `<div class="sig"><div class="top"><span class="name ${s.side}">${s.side === "long" ? "▲ LONG" : "▼ SHORT"} · ${names[s.setup]}</span>
     <span class="pill ${s.res === "open" ? "warn" : s.res === "target" ? "long" : s.res === "stop" ? "short" : "muted"}">${s.res === "open" ? "active since " + s.hm : s.res + " · " + s.hm}</span></div>
     <div class="lv"><span><small>Entry</small>${s.entry.toFixed(2)}</span><span><small>Stop</small>${s.stop.toFixed(2)}</span><span><small>Target (2R)</small>${s.target.toFixed(2)}</span></div>
-    <div class="rec">${s.why}. ${rec(s.setup)}</div></div>`;
+    <div class="rec">${s.why}. ${rec(s.setup)}</div>${s.res === "open" ? `<div><button type="button" class="btn sm" data-use="${sigs.indexOf(s)}">Load ${s.side === "long" ? "call" : "put"} into ticket</button></div>` : ""}</div>`;
   const tally = done.reduce((a, s) => a + (s.res === "target" ? 2 : s.res === "stop" ? -1 : (s.side === "long" ? s.exitP - s.entry : s.entry - s.exitP) / Math.abs(s.entry - s.stop)), 0);
   $("#signals").innerHTML = (open.length ? open.slice().reverse().map(card).join("") : `<p class="muted">No active signal right now.</p>`)
     + `<p class="rec" style="margin-top:10px">Today so far: ${sigs.length} signals, ${done.filter(s => s.res === "target").length} hit target, ${done.filter(s => s.res === "stop").length} stopped, net ${tally >= 0 ? "+" : ""}${tally.toFixed(1)}R.</p>`
@@ -413,12 +527,14 @@ function renderPanels() {
     ["vs VWAP", `${(lb.c - lb.vwap >= 0 ? "+" : "")}${(lb.c - lb.vwap).toFixed(2)} (${sig >= 0 ? "+" : ""}${sig.toFixed(1)}σ)`],
     ["RSI 14", `${lb.rsi.toFixed(0)} ${lb.rsi >= 70 ? "· stretched up" : lb.rsi <= 30 ? "· stretched down" : ""}`],
     ["ATR (1-min)", lb.atr.toFixed(2)],
+    ["Candles", size + "-minute"],
     ["Pool above", above ? `${above.name} ${above.p.toFixed(2)} (+${(above.p - lb.c).toFixed(2)})` : "–"],
     ["Pool below", below ? `${below.name} ${below.p.toFixed(2)} (−${(lb.c - below.p).toFixed(2)})` : "–"],
     ["Day type so far", `${trendness >= 0.5 ? "Trending" : trendness <= 0.25 ? "Choppy" : "In between"} (${trendness.toFixed(2)})`],
     ["Day range", range.toFixed(2)],
   ];
   if (st.fib) rows.push(["Fib 61.8% / 50%", `${st.fib.levels[3].p.toFixed(2)} / ${st.fib.levels[2].p.toFixed(2)}`]);
+  $("#signals").querySelectorAll("[data-use]").forEach(b => b.addEventListener("click", () => useSignal(sigs[+b.dataset.use])));
   $("#ctx").innerHTML = rows.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("");
 }
 
@@ -438,20 +554,26 @@ function handleError(e, retract) {
   else if (c === "not_in_manifest" || c === "blocked_by_policy") banner("Robinhood is turned off for this page. Turn it on from the page's Permissions menu to see live data.");
   else if (c === "approval_required") banner("This page needs your OK to read SPY prices from Robinhood.", {label: "Allow and load", fn: () => { banner(); startLive(true); }});
   else { setStatus("stale", "Data delayed · last update " + (S.updated ? S.updated.toLocaleTimeString() : "never")); return; }
-  if (retract) { S.bars = []; draw(); }
+  if (retract) { S.b1 = []; S.bars = []; draw(); }
   setStatus("off", "Not connected");
 }
 
 function apply() {
-  indicators(S.bars);
-  S.st = structure(S.bars, S.prev);
-  S.sigs = signals(S.bars, S.st);
+  indicators(S.b1);
+  S.st1 = structure(S.b1, S.prev, 1);
+  S.sigs = signals(S.b1, S.st1);
+  if (size === 1) { S.bars = S.b1; S.map = S.b1.map((_, i) => i); S.st = S.st1; }
+  else { const a = aggregate(S.b1, size); S.bars = a.bars; S.map = a.map; indicators(S.bars); S.st = structure(S.bars, S.prev, size);
+    // key levels (PDH/PDL/PDC, 15-min opening range) always come from the 1-minute bars, whatever the candle size
+    const KEY = /^(PDH|PDL|PDC|ORH|ORL)$/;
+    S.st.levels = S.st1.levels; S.st.pools = S.st.pools.filter(p => !KEY.test(p.name)).concat(S.st1.pools.filter(p => KEY.test(p.name))); }
   draw(); renderPanels();
+  if (!$("#tStrike").value && S.b1.length) { $("#tStrike").value = String(Math.round(S.b1[S.b1.length - 1].c)); resolveSoon(); }
 }
 
 let unwatch = null;
 async function startLive(viaCall) {
-  const mcp = await claude.use("mcp");
+  const mcp = await CL.use("mcp");
   if (!mcp) { setStatus("off", "Live data unavailable in this view"); banner("Live data needs the claude.ai app or site with the Robinhood connector. Open this page there."); return; }
   // prior sessions (5-minute bars) for PDH/PDL/PDC and to find the latest session
   const since = new Date(Date.now() - 9 * 864e5).toISOString().slice(0, 10) + "T12:00:00Z";
@@ -470,7 +592,7 @@ async function startLive(viaCall) {
   const onData = res => {
     const bars = parseBars(res.payload).filter(b => b.d === S.day);
     if (!bars.length) return;
-    S.bars = bars;
+    S.b1 = bars;
     S.updated = res.cache ? new Date(res.cache.storedAt) : new Date();
     const live = S.day === etDay(new Date()) && etHM(new Date()) < "16:00";
     setStatus(live ? "live" : "stale", (live ? "Live · updates every 30s · " : `Session ${S.day} (market closed) · `) + "updated " + S.updated.toLocaleTimeString());
@@ -483,16 +605,407 @@ async function startLive(viaCall) {
   }, {refetchInterval: 30000, cache: {staleTime: 20000}});
 }
 
+// ---------- trading: ticket, positions, working orders (Robinhood connector, as the viewer) ----------
+const T = {mcp: null, acct: null, chain: null, exps: [], type: "call", inst: null, quote: null, review: null, unq: null, pos: [], posQ: {}, ords: [], fills: 0};
+const OPEN_STATES = ["queued", "unconfirmed", "confirmed", "partially_filled", "pending_cancelled"];
+const instCache = {};
+const pl = r => r && r.payload && (r.payload.data || r.payload);
+const call = async (tool, input, opts) => pl(await T.mcp.callTool(SERVER, tool, input, opts));
+const tmsg = (html, cls) => { const m = $("#tMsg"); m.className = "msg " + (cls || ""); m.innerHTML = html || ""; };
+const sideOf = () => $("#tSide").value === "buy_open" ? {side: "buy", effect: "open"} : {side: "sell", effect: "close"};
+const label = i => i ? `${i.chain_symbol} ${i.expiration_date.slice(5)} ${(+i.strike_price).toFixed(+i.strike_price % 1 ? 1 : 0)}${i.type === "call" ? "C" : "P"}` : "—";
+function uuid() {
+  if (crypto.randomUUID) return crypto.randomUUID();
+  const b = crypto.getRandomValues(new Uint8Array(16)); b[6] = (b[6] & 15) | 64; b[8] = (b[8] & 63) | 128;
+  const h = [...b].map(x => x.toString(16).padStart(2, "0")).join("");
+  return `${h.slice(0, 8)}-${h.slice(8, 12)}-${h.slice(12, 16)}-${h.slice(16, 20)}-${h.slice(20)}`;
+}
+function marketOpen() {
+  const d = new Date(), wd = new Intl.DateTimeFormat("en-US", {timeZone: "America/New_York", weekday: "short"}).format(d), hm = etHM(d);
+  return !["Sat", "Sun"].includes(wd) && hm >= "09:30" && hm < "16:00";
+}
+function actErr(e) {
+  const c = e && e.code;
+  if (c === "needs_reauth") return "Robinhood needs reconnecting (claude.ai Settings → Connectors).";
+  if (c === "approval_required") return "This page needs your OK for that Robinhood action. Press the button again and allow it.";
+  if (c === "not_in_manifest" || c === "blocked_by_policy") return "That Robinhood action is switched off for this page (Permissions menu).";
+  if (c === "server_not_connected" || c === "selection_required") return "The Robinhood connector isn't connected.";
+  return esc((e && e.message) || "Robinhood didn't answer. Try again.");
+}
+function tick(p) {
+  const mt = T.inst && T.inst.min_ticks, t = mt ? (p >= +mt.cutoff_price ? +mt.above_tick : +mt.below_tick) || 0.01 : 0.01;
+  return Math.max(t, Math.round(p / t) * t);
+}
+function pickPx(which) {
+  const q = T.quote; if (!q) return "";
+  const b = +q.bid_price, a = +q.ask_price;
+  const p = which === "bid" ? b : which === "ask" ? a : (b + a) / 2;
+  return p > 0 ? tick(p).toFixed(2) : "";
+}
+function invalidate() { T.review = null; $("#tPrev").hidden = true; $("#tPrev").innerHTML = ""; }
+
+async function startTrading() {
+  const mcp = await CL.use("mcp");
+  if (!mcp) { $("#tAcct").textContent = "Trading needs this page open in the claude.ai app or site with the Robinhood connector."; $("#tReview").disabled = true; return; }
+  T.mcp = mcp;
+  let max = "500"; try { max = localStorage.getItem("desk.max") || max; } catch (e) {}
+  $("#tMax").value = max;
+  try {
+    const a = await call("get_accounts", {}, {cache: {staleTime: 300000}});
+    T.acct = (a.accounts || []).find(x => x.agentic_allowed && /option_level_[23]/.test(x.option_level || "")) || null;
+  } catch (e) { $("#tAcct").innerHTML = actErr(e); return; }
+  if (!T.acct) { $("#tAcct").textContent = "None of your Robinhood accounts is open to trading from here with options."; $("#tReview").disabled = true; return; }
+  $("#tAcct").innerHTML = `Account <b>${esc(T.acct.nickname || T.acct.brokerage_account_type)}</b> ••••${esc(T.acct.account_number.slice(-4))} · options level ${esc(T.acct.option_level.slice(-1))}`;
+  try {
+    const c = await call("get_option_chains", {underlying_symbol: "SPY"}, {cache: {staleTime: 300000}});
+    T.chain = (c.chains || []).find(x => (x.symbol || "SPY") === "SPY") || null;
+    const today = etDay(new Date());
+    T.exps = ((T.chain && T.chain.expiration_dates) || []).filter(d => d >= today).slice(0, 12);
+    $("#tExp").innerHTML = T.exps.map(d => `<option value="${d}">${d}${d === today ? " · 0DTE" : ""}</option>`).join("");
+  } catch (e) { tmsg(actErr(e), "short"); }
+  if ($("#tStrike").value) resolveInst();
+  watchAccount();
+}
+
+let rsT;
+function resolveSoon() { invalidate(); clearTimeout(rsT); rsT = setTimeout(resolveInst, 350); }
+async function resolveInst() {
+  if (!T.mcp) return;
+  const exp = $("#tExp").value, k = parseFloat($("#tStrike").value);
+  if (!/^\d{4}-\d\d-\d\d$/.test(exp) || !(k > 0)) return;
+  $("#tContract").textContent = "Finding contract…";
+  try {
+    const r = await call("get_option_instruments", {chain_symbol: "SPY", expiration_dates: exp, strike_price: k.toFixed(4), type: T.type}, {cache: {staleTime: 300000}});
+    const inst = (r.instruments || [])[0] || null;
+    setInst(inst);
+    if (!inst) $("#tContract").textContent = `No SPY ${exp} ${k} ${T.type} is listed. Try a whole-dollar strike.`;
+  } catch (e) { $("#tContract").innerHTML = actErr(e); }
+}
+function setInst(inst) {
+  invalidate();
+  if (T.unq) { T.unq(); T.unq = null; }
+  T.inst = inst; T.quote = null; renderQuote();
+  if (!inst) return;
+  instCache[inst.id] = inst;
+  const sell = new Date(inst.sellout_datetime), ok = inst.tradability === "tradable" && inst.state === "active";
+  $("#tContract").innerHTML = `<b>${esc(label(inst))}</b>${ok ? "" : ' <span class="short">· not tradable</span>'} · Robinhood force-closes it at ${isNaN(sell) ? "—" : etHM(sell) + " ET on " + etDay(sell)}`;
+  T.unq = T.mcp.watchTool(SERVER, "get_option_quotes", {instrument_ids: [inst.id]}, ev => {
+    if (ev.type !== "data") return;
+    const r = ((pl(ev.result) || {}).results || [])[0];
+    if (T.inst && r && r.quote && r.quote.instrument_id === T.inst.id) { T.quote = r.quote; renderQuote(); }
+  }, {refetchInterval: 30000, cache: {staleTime: 10000}});
+}
+function renderQuote() {
+  const q = T.quote, f = v => v == null || v === "" || isNaN(+v) ? "—" : (+v).toFixed(2);
+  const cells = q ? [["Bid", f(q.bid_price)], ["Ask", f(q.ask_price)], ["Mark", f(q.mark_price)], ["Delta", f(q.delta)],
+    ["IV", q.implied_volatility ? (100 * q.implied_volatility).toFixed(1) + "%" : "—"], ["Theta / day", f(q.theta)], ["Breakeven", f(q.break_even_price)],
+    ["As of", q.updated_at ? new Date(q.updated_at).toLocaleTimeString() : "—"]] : [["Bid", "—"], ["Ask", "—"], ["Mark", "—"], ["Delta", "—"]];
+  $("#tQuote").innerHTML = cells.map(([k, v]) => `<span><small>${k}</small>${v}</span>`).join("");
+  if (q && $("#tType").value === "limit" && !$("#tPrice").value) $("#tPrice").value = pickPx(sideOf().side === "buy" ? "ask" : "bid");
+  if (q && $("#tType").value === "stop_market" && !$("#tStop").value && +q.mark_price > 0) $("#tStop").value = tick(+q.mark_price * 0.8).toFixed(2);
+}
+function syncType() {
+  const ty = $("#tType").value;
+  $("#tPriceL").hidden = ty !== "limit"; $("#tStopL").hidden = ty !== "stop_market"; $("#tQuick").hidden = ty !== "limit";
+  if (ty === "stop_market") $("#tSide").value = "sell_close";
+}
+
+function validate() {
+  if (!T.acct) return "No tradable account loaded.";
+  if (!T.inst) return "Pick a contract first.";
+  if (T.inst.tradability !== "tradable" || T.inst.state !== "active") return "That contract isn't tradable.";
+  const qty = +$("#tQty").value;
+  if (!(qty >= 1) || qty % 1) return "Contracts must be a whole number, 1 or more.";
+  const ty = $("#tType").value;
+  if (ty === "limit" && !(+$("#tPrice").value > 0)) return "Set a limit price (tap Bid, Mid or Ask).";
+  if (ty === "stop_market") {
+    if ($("#tSide").value !== "sell_close") return "Stops can only sell to close.";
+    const sp = +$("#tStop").value;
+    if (!(sp > 0)) return "Set the stop price.";
+    if (T.quote && +T.quote.ask_price > 0 && sp >= +T.quote.ask_price) return "The stop has to sit below the current ask.";
+  }
+  if (ty !== "limit" && !marketOpen()) return "Market and stop orders only go in during regular hours (9:30–4:00 ET).";
+  return null;
+}
+function orderInput() {
+  const sd = sideOf(), ty = $("#tType").value;
+  const inp = {account_number: T.acct.account_number, legs: [{option_id: T.inst.id, side: sd.side, position_effect: sd.effect}],
+    quantity: String(parseInt($("#tQty").value, 10)), type: ty, time_in_force: "gfd"};
+  if (ty === "limit") inp.price = (+$("#tPrice").value).toFixed(2);
+  if (ty === "stop_market") inp.stop_price = (+$("#tStop").value).toFixed(2);
+  return inp;
+}
+async function review() {
+  const bad = validate();
+  if (bad) { tmsg(esc(bad), "short"); return; }
+  const inp = orderInput(), inst = T.inst;
+  invalidate(); tmsg("Checking with Robinhood…", "muted"); $("#tReview").disabled = true;
+  try {
+    const r = await call("review_option_order", {...inp, chain_symbol: inst.chain_symbol, underlying_type: inst.underlying_type || "equity"}, {cache: false});
+    if (T.inst !== inst) return;
+    T.review = {inp, inst, r: r || {}, refId: uuid()};
+    renderPreview(); tmsg("");
+  } catch (e) { tmsg(actErr(e), "short"); }
+  finally { $("#tReview").disabled = false; }
+}
+function checkLines(oc) {
+  if (!oc || typeof oc !== "object") return [];
+  const vals = Array.isArray(oc) ? oc : Object.entries(oc).map(([k, v]) => v && typeof v === "object" ? {key: k, ...v} : {key: k, detail: v});
+  return vals.map(v => typeof v === "string" ? v : [v.title || v.key, v.detail || v.message || v.description || (Object.keys(v).length > 1 ? JSON.stringify(v) : "")].filter(Boolean).join(": "));
+}
+function renderPreview() {
+  const {inp, inst, r} = T.review, q = (r.option_quotes || [])[0] || T.quote || {};
+  const sd = inp.legs[0].side, qty = +inp.quantity;
+  const px = inp.type === "limit" ? +inp.price : inp.type === "stop_market" ? +inp.stop_price : sd === "buy" ? +q.ask_price : +q.bid_price;
+  const prem = px * qty * 100, fee = r.fees ? +r.fees.total_fee || 0 : 0, max = +$("#tMax").value || 0;
+  const warn = [];
+  if (sd === "buy" && max > 0 && prem > max) warn.push(`This is ${money(prem)} of premium, over your ${money(max)} max per trade.`);
+  if (sd === "buy" && inst.expiration_date === etDay(new Date()) && etHM(new Date()) >= "15:15") warn.push("0DTE after 3:15 ET: Robinhood force-closes at its cutoff and theta is brutal now.");
+  if (inp.type === "limit" && sd === "buy" && +q.ask_price > 0 && px < +q.bid_price) warn.push("Your limit is under the bid. It will sit until price comes to you.");
+  if (inp.type === "limit" && sd === "sell" && +q.bid_price > 0 && px > +q.ask_price) warn.push("Your limit is over the ask. It will sit until price comes to you.");
+  if (inp.type === "market" && +q.ask_price > 0 && (+q.ask_price - +q.bid_price) / +q.ask_price > 0.08) warn.push("Wide spread for a market order. A limit at mid usually fills better.");
+  if (!marketOpen()) warn.push("Market is closed. A limit order will wait for the next session (good for day).");
+  const checks = checkLines(r.order_checks);
+  const verb = sd === "buy" ? "Buy" : "Sell", tyTxt = inp.type === "limit" ? `@ ${inp.price} limit` : inp.type === "market" ? "at market" : `stop at ${inp.stop_price}`;
+  const el = $("#tPrev");
+  el.innerHTML = `<div class="prev">
+    <div class="big ${sd === "buy" ? "long" : "short"}">${verb} ${qty} × ${esc(label(inst))} ${esc(tyTxt)} · ${inp.legs[0].position_effect === "open" ? "opening" : "closing"}</div>
+    <div>Est. premium ${sd === "buy" ? "you pay" : "you get"}: <b>${isNaN(prem) ? "—" : money(prem)}</b>${fee ? ` · fees ${money(fee)}` : ""} · bid ${esc(q.bid_price ? (+q.bid_price).toFixed(2) : "—")} / ask ${esc(q.ask_price ? (+q.ask_price).toFixed(2) : "—")}</div>
+    ${warn.map(w => `<div class="warn">⚠ ${esc(w)}</div>`).join("")}
+    ${checks.length ? `<div><b>Robinhood alerts:</b>${checks.map(c => `<div class="warn">${esc(c)}</div>`).join("")}</div><label class="msg"><input type="checkbox" id="tAck"> I've read Robinhood's alerts</label>` : '<div class="muted msg">Robinhood raised no alerts.</div>'}
+    ${r.customer_approval_required ? '<div class="msg">Robinhood will ask you to approve this in the app after you press Place.</div>' : ""}
+    <div class="row"><button type="button" class="btn ${sd === "buy" ? "buy" : "sell"}" id="tPlace"${checks.length ? " disabled" : ""}>Place: ${verb} ${qty} ${esc(label(inst))} ${esc(tyTxt)}</button><button type="button" class="btn" id="tEdit">Change</button></div>
+  </div>`;
+  el.hidden = false;
+  $("#tPlace").addEventListener("click", place);
+  $("#tEdit").addEventListener("click", () => { invalidate(); tmsg(""); });
+  if (checks.length) $("#tAck").addEventListener("change", e => { $("#tPlace").disabled = !e.target.checked; });
+}
+async function place() {
+  const rv = T.review; if (!rv) return;
+  const btn = $("#tPlace"); btn.disabled = true; btn.textContent = "Sending…";
+  try {
+    const r = await call("place_option_order", {...rv.inp, ref_id: rv.refId}, {cache: false}) || {};
+    const o = r.order || (r.orders || [])[0] || r;
+    invalidate();
+    tmsg(rv.r.customer_approval_required ? "Sent. Approve it in the Robinhood app to send it to market."
+      : `Order sent${o.state ? " · " + esc(o.state) : ""}. It shows under Working orders until it fills.`, "long");
+    refreshAccount();
+  } catch (e) {
+    btn.disabled = false; btn.textContent = "Retry (same order, can't double up)";
+    tmsg(e && (e.code === "not_in_manifest" || e.code === "blocked_by_policy") ? "Placing from the desk isn't switched on for this page yet. The review above is exactly what to enter in the Robinhood app." : actErr(e), "short");
+  }
+}
+
+// positions + working orders
+let unPos = null, unOrd = null, unPq = null, posKey = "";
+function watchAccount() {
+  if (!T.acct) return;
+  if (unPos) unPos(); if (unOrd) unOrd();
+  const acct = T.acct.account_number, opt = {refetchInterval: 30000, cache: {staleTime: 15000}};
+  unPos = T.mcp.watchTool(SERVER, "get_option_positions", {account_number: acct, nonzero: true}, ev => {
+    if (ev.type === "data") onPositions(pl(ev.result) || {}); else $("#pos").innerHTML = `<p class="msg short">${actErr(ev.error)}</p>`;
+  }, opt);
+  unOrd = T.mcp.watchTool(SERVER, "get_option_orders", {account_number: acct, created_at_gte: etDay(new Date())}, ev => {
+    if (ev.type === "data") onOrders(pl(ev.result) || {}); else $("#ords").innerHTML = `<p class="msg short">${actErr(ev.error)}</p>`;
+  }, opt);
+}
+function refreshAccount() {
+  T.mcp.invalidate(SERVER, "get_option_orders").catch(() => {});
+  T.mcp.invalidate(SERVER, "get_option_positions").catch(() => {});
+}
+async function onPositions(d) {
+  T.pos = (d.positions || []).filter(p => +p.quantity > 0);
+  const need = T.pos.map(p => p.option_id).filter(id => !instCache[id]);
+  if (need.length) {
+    try { ((await call("get_option_instruments", {ids: need.join(",")}, {cache: {staleTime: 300000}})).instruments || []).forEach(i => { instCache[i.id] = i; }); } catch (e) {}
+  }
+  const key = T.pos.map(p => p.option_id).sort().join(",");
+  if (key !== posKey) {
+    posKey = key; if (unPq) { unPq(); unPq = null; }
+    if (key) unPq = T.mcp.watchTool(SERVER, "get_option_quotes", {instrument_ids: key.split(",")}, ev => {
+      if (ev.type !== "data") return;
+      ((pl(ev.result) || {}).results || []).forEach(r => { if (r.quote) T.posQ[r.quote.instrument_id] = r.quote; });
+      renderPositions();
+    }, {refetchInterval: 30000, cache: {staleTime: 10000}});
+  }
+  $("#pUpd").textContent = "updated " + new Date().toLocaleTimeString();
+  renderPositions();
+}
+function renderPositions() {
+  if (!T.pos.length) { $("#pos").innerHTML = '<p class="muted msg">No open option positions.</p>'; return; }
+  $("#pos").innerHTML = T.pos.map((p, k) => {
+    const i = instCache[p.option_id], q = T.posQ[p.option_id], qty = +p.quantity, mark = q ? +q.mark_price : NaN, cost = +p.average_price;
+    const pnl = (mark * 100 - cost) * qty, pend = +p.pending_sell_quantity > 0 ? ` · <span class="warn">${+p.pending_sell_quantity} pending sell</span>` : "";
+    return `<div class="item"><span><b>${esc(i ? label(i) : p.chain_symbol)}</b> ×${qty}${pend}<br><span class="mono muted">mark ${isNaN(mark) ? "—" : mark.toFixed(2)} · avg cost ${money(cost)}/contract${isNaN(pnl) ? "" : ` · <span class="${pnl >= 0 ? "long" : "short"}">${pnl >= 0 ? "+" : ""}${money(pnl)}</span>`}</span></span>
+      <span class="row"><button type="button" class="btn sm" data-close="${k}">Close</button><button type="button" class="btn sm" data-stop="${k}">Stop −20%</button></span></div>`;
+  }).join("");
+  $("#pos").querySelectorAll("[data-close]").forEach(b => b.addEventListener("click", () => loadPosition(T.pos[+b.dataset.close], "limit")));
+  $("#pos").querySelectorAll("[data-stop]").forEach(b => b.addEventListener("click", () => loadPosition(T.pos[+b.dataset.stop], "stop_market")));
+}
+function loadPosition(p, ty) {
+  const i = instCache[p.option_id]; if (!i) { tmsg("Still loading that contract. Try again in a moment.", "warn"); return; }
+  if (i.chain_symbol === "SPY") { $("#tStrike").value = (+i.strike_price).toString(); if (T.exps.includes(i.expiration_date)) $("#tExp").value = i.expiration_date; setType(i.type, true); }
+  $("#tSide").value = "sell_close"; $("#tQty").value = String(+p.quantity); $("#tType").value = ty; $("#tPrice").value = ""; $("#tStop").value = "";
+  syncType(); setInst(i);
+  tmsg(ty === "stop_market" ? "Stop loaded at 20% under the current mark. Adjust it, then Review." : "Close loaded at the bid. Adjust the limit, then Review.", "muted");
+  $("#tkh").scrollIntoView({behavior: "smooth", block: "start"});
+}
+function onOrders(d) {
+  const all = d.orders || [];
+  T.ords = all.filter(o => OPEN_STATES.includes(o.state)); T.fills = all.filter(o => o.state === "filled").length;
+  const legTxt = o => (o.legs || []).map(l => `${l.side === "buy" ? "Buy" : "Sell"} ${+o.quantity} ${esc(o.chain_symbol)} ${esc((l.expiration_date || "").slice(5))} ${(+l.strike_price).toFixed(0)}${l.option_type === "call" ? "C" : "P"}`).join(" / ");
+  const pxTxt = o => o.trigger === "stop" ? `stop ${(+o.stop_price).toFixed(2)}` : o.type === "market" ? "market" : `@ ${(+o.price).toFixed(2)}`;
+  $("#ords").innerHTML = (T.ords.length ? T.ords.map((o, k) => `<div class="item"><span><b>${legTxt(o)}</b> <span class="mono">${pxTxt(o)}</span><br><span class="muted msg">${esc(o.state.replace("_", " "))}${+o.processed_quantity ? ` · ${+o.processed_quantity} filled` : ""} · ${etHM(new Date(o.created_at))} ET</span></span>
+      <button type="button" class="btn sm" data-cx="${k}">Cancel</button></div>`).join("") : '<p class="muted msg">No working orders.</p>')
+    + `<p class="rec">${T.fills} filled today.</p>`;
+  $("#ords").querySelectorAll("[data-cx]").forEach(b => b.addEventListener("click", async () => {
+    const o = T.ords[+b.dataset.cx]; if (!o) return;
+    if (b.dataset.armed !== "1") { b.dataset.armed = "1"; b.textContent = "Tap again to cancel"; b.classList.add("sell"); return; }
+    b.disabled = true; b.textContent = "Cancelling…";
+    try { await call("cancel_option_order", {account_number: T.acct.account_number, order_id: o.id}, {cache: false}); b.textContent = "Cancel sent"; refreshAccount(); }
+    catch (e) { b.disabled = false; b.textContent = "Cancel"; b.dataset.armed = ""; tmsg(actErr(e), "short"); }
+  }));
+}
+function setType(ty, quiet) {
+  T.type = ty; document.querySelectorAll("[data-ty]").forEach(x => x.setAttribute("aria-pressed", x.dataset.ty === ty));
+  if (!quiet) resolveSoon();
+}
+function useSignal(s) {
+  if (!s) return;
+  const lb = S.b1[S.b1.length - 1];
+  setType(s.side === "long" ? "call" : "put", true);
+  if (lb) $("#tStrike").value = String(Math.round(lb.c));
+  if (T.exps.length) $("#tExp").value = T.exps[0];
+  $("#tSide").value = "buy_open"; $("#tQty").value = "1"; $("#tType").value = "limit"; $("#tPrice").value = ""; syncType();
+  resolveSoon();
+  tmsg(`Loaded from ${esc(names[s.setup])}: your exit lines are SPY <b>${s.stop.toFixed(2)}</b> (stop) and <b>${s.target.toFixed(2)}</b> (2R target). Robinhood stops trigger on the option price, so watch SPY at those levels.`, "muted");
+  $("#tkh").scrollIntoView({behavior: "smooth", block: "start"});
+}
+
+// ticket controls
+document.querySelectorAll("[data-ty]").forEach(b => b.addEventListener("click", () => { setType(b.dataset.ty); $("#tPrice").value = ""; }));
+$("#tExp").addEventListener("change", () => { $("#tPrice").value = ""; resolveSoon(); });
+$("#tStrike").addEventListener("input", () => { $("#tPrice").value = ""; resolveSoon(); });
+$("#tAtm").addEventListener("click", () => { const lb = S.b1[S.b1.length - 1]; if (lb) { $("#tStrike").value = String(Math.round(lb.c)); $("#tPrice").value = ""; resolveSoon(); } });
+["#tSide", "#tQty", "#tPrice", "#tStop", "#tMax"].forEach(id => $(id).addEventListener("input", invalidate));
+$("#tSide").addEventListener("change", () => { $("#tPrice").value = ""; if ($("#tSide").value === "buy_open" && $("#tType").value === "stop_market") { $("#tType").value = "limit"; syncType(); } renderQuote(); });
+$("#tType").addEventListener("change", () => { invalidate(); syncType(); renderQuote(); });
+$("#tMax").addEventListener("change", () => { try { localStorage.setItem("desk.max", $("#tMax").value); } catch (e) {} });
+document.querySelectorAll("[data-px]").forEach(b => b.addEventListener("click", () => { const p = pickPx(b.dataset.px); if (p) { $("#tPrice").value = p; invalidate(); } else tmsg("No quote yet.", "warn"); }));
+$("#tRefresh").addEventListener("click", async () => {
+  if (!T.inst || !T.mcp) return;
+  try { const r = ((await call("get_option_quotes", {instrument_ids: [T.inst.id]}, {cache: {refresh: true}})).results || [])[0]; if (r && r.quote) { T.quote = r.quote; renderQuote(); } } catch (e) { tmsg(actErr(e), "short"); }
+});
+$("#tReview").addEventListener("click", review);
+
+// ---------- Ask TARS (sample) ----------
+const TARS_RULES = `You are TARS, Nolan's trading co-pilot, built into his SPY Live Desk page. He trades SPY 0DTE/1DTE options himself; you help him read the chart, time entries/exits, and make sure an order is right before HE places it.
+Facts you must respect:
+- The desk's signals are data-farm rules backtested on only 29 days of SPY 1-minute bars with costs: sweep_reversal had 9 trades (too few to trust); fvg_trend, fvg_retest and vwap_reclaim averaged slightly negative R. None has passed the bar for real money. Say so when it matters.
+- A replay of Nolan's own trades found his direction calls are near a coin flip (45-52%); his results come from exits and size. Push on exits, stops and size more than on direction.
+- Fibonacci levels tested no better than ordinary levels on 20 years of SPY. Treat them as reference only.
+- Liquidity pools = equal highs/lows and PDH/PDL/OR extremes where stops sit; "swept" = ran through and closed back inside.
+How to answer: short and direct (under 150 words unless he asks for more), plain language, numbers from the data. Always give the invalidation level in SPY price and where a 2R target sits. If he asks whether a trade can be placed, check the ticket: account loaded, contract tradable, force-close time, limit vs bid/ask, premium vs his max, 0DTE time of day, market hours. You may fill the ticket with prefill_ticket when he asks for a setup; you can never place, review or cancel orders. He presses Review and Place himself. Never invent data that isn't in the JSON.`;
+let sampleFn = null, aCtl = null; const hist = [];
+CL.use("sample").then(s => { sampleFn = s; if (!s) $("#ath").closest("section").hidden = true; });
+function snapshot() {
+  const b = S.b1, lb = b[b.length - 1], r2 = v => Math.round(v * 100) / 100;
+  if (!lb) return {note: "No SPY bars loaded yet."};
+  const st = S.st1, hi = Math.max(...b.map(x => x.h)), lo = Math.min(...b.map(x => x.l));
+  const q = T.quote, i = T.inst;
+  return {
+    now_et: etHM(new Date()), session: S.day, market_open: marketOpen(), candle_minutes_on_screen: size,
+    spy: {last: lb.c, day_high: hi, day_low: lo, vwap: r2(lb.vwap), sigma_from_vwap: r2((lb.c - lb.vwap) / (lb.sd || 1)), ema9: r2(lb.e9), ema21: r2(lb.e21), rsi14: Math.round(lb.rsi), atr_1min: r2(lb.atr),
+      trend: lb.trend > 0 ? "up" : lb.trend < 0 ? "down" : "mixed"},
+    levels: st.levels.map(l => ({name: l.name, price: r2(l.p)})),
+    nearest_liquidity_pools: st.pools.filter(p => !p.taken).map(p => ({name: p.name, price: r2(p.p), where: p.p > lb.c ? "above" : "below", swept: p.swept !== null}))
+      .sort((a, c) => Math.abs(a.price - lb.c) - Math.abs(c.price - lb.c)).slice(0, 6),
+    open_fair_value_gaps_on_screen: S.st.fvgs.filter(f => !f.filled).slice(-4).map(f => ({side: f.side, top: r2(f.top), bottom: r2(f.bot), formed: S.bars[f.i] && S.bars[f.i].hm})),
+    fib_of_day_swing: st.fib ? {direction: st.fib.up ? "up" : "down", high: st.fib.H, low: st.fib.L, l50: r2(st.fib.levels[2].p), l618: r2(st.fib.levels[3].p)} : null,
+    recent_candles_on_screen: S.bars.slice(-12).map(x => [x.hm, x.o, x.h, x.l, x.c]),
+    signals_today: S.sigs.slice(-6).map(s => ({setup: s.setup, side: s.side, at: s.hm, entry: r2(s.entry), stop: r2(s.stop), target: r2(s.target), result: s.res})),
+    backtest_records: RECORD,
+    ticket: {account_loaded: !!T.acct, contract: i ? label(i) : null, tradable: i ? i.tradability === "tradable" && i.state === "active" : null,
+      force_close_et: i && i.sellout_datetime ? etHM(new Date(i.sellout_datetime)) + " " + etDay(new Date(i.sellout_datetime)) : null,
+      action: $("#tSide").value, contracts: +$("#tQty").value, order_type: $("#tType").value, limit: $("#tPrice").value || null, stop: $("#tStop").value || null,
+      quote: q ? {bid: +q.bid_price, ask: +q.ask_price, mark: +q.mark_price, delta: +q.delta, iv: +q.implied_volatility, theta: +q.theta} : null,
+      max_premium_per_trade: +$("#tMax").value || null, reviewed: !!T.review, robinhood_alerts: T.review ? checkLines(T.review.r.order_checks) : []},
+    open_positions: T.pos.map(p => { const pi = instCache[p.option_id], pq = T.posQ[p.option_id]; return {contract: pi ? label(pi) : p.chain_symbol, qty: +p.quantity, avg_cost_per_contract: +p.average_price, mark: pq ? +pq.mark_price : null}; }),
+    working_orders: T.ords.length, fills_today: T.fills,
+  };
+}
+const prefillTool = {
+  name: "prefill_ticket",
+  description: "Fill Nolan's SPY option order ticket so he can review and place it himself. Does NOT place anything. Returns what the ticket now shows.",
+  inputSchema: {type: "object", properties: {
+    option_type: {type: "string", enum: ["call", "put"]}, strike: {type: "number", description: "Whole-dollar SPY strike"},
+    expiration: {type: "string", description: "YYYY-MM-DD; omit for the nearest"}, action: {type: "string", enum: ["buy_to_open", "sell_to_close"]},
+    contracts: {type: "integer", minimum: 1}, limit_price: {type: "number", description: "Per-share premium; omit to use the ask (buy) or bid (sell)"}},
+    required: ["option_type", "strike", "action", "contracts"]},
+  async execute(inp) {
+    const ty = String(inp.option_type) === "put" ? "put" : "call", k = Math.round(Number(inp.strike)), n = Math.max(1, Math.floor(Number(inp.contracts) || 1));
+    if (!(k > 0)) throw new Error("strike must be a positive number");
+    const exp = T.exps.includes(String(inp.expiration)) ? String(inp.expiration) : T.exps[0];
+    if (!exp) throw new Error("no expirations loaded; Robinhood not connected");
+    setType(ty, true); $("#tExp").value = exp; $("#tStrike").value = String(k);
+    $("#tSide").value = String(inp.action) === "sell_to_close" ? "sell_close" : "buy_open"; $("#tQty").value = String(n);
+    $("#tType").value = "limit"; syncType(); $("#tPrice").value = Number(inp.limit_price) > 0 ? Number(inp.limit_price).toFixed(2) : "";
+    await resolveInst();
+    if (!T.inst) throw new Error(`no SPY ${exp} ${k} ${ty} listed`);
+    if (!$("#tPrice").value && T.quote) $("#tPrice").value = pickPx($("#tSide").value === "buy_open" ? "ask" : "bid");
+    return {ticket: label(T.inst), action: $("#tSide").value, contracts: n, limit: $("#tPrice").value || "fills when quote arrives", note: "Nolan must press Review, then Place."};
+  },
+};
+async function askTars(question) {
+  const q = (question || "").trim();
+  if (!q || !sampleFn) return;
+  if (aCtl) aCtl.abort();
+  aCtl = new AbortController();
+  const out = $("#ans"); out.hidden = false;
+  const qEl = document.createElement("span"); qEl.className = "q"; qEl.textContent = "You: " + q;
+  const aEl = document.createElement("div"); aEl.textContent = "Thinking…";
+  out.append(qEl, aEl); out.scrollTop = out.scrollHeight;
+  $("#aGo").disabled = true; $("#aStop").hidden = false; $("#aNote").textContent = "";
+  const msgs = hist.slice(-6).concat([{role: "user", content: TARS_RULES + "\n\nLIVE DESK DATA (JSON):\n" + JSON.stringify(snapshot()) + "\n\nNOLAN ASKS: " + q}]);
+  const opts = {cache: false, signal: aCtl.signal, onText: ({text}) => { aEl.textContent = text; out.scrollTop = out.scrollHeight; }};
+  try {
+    let res;
+    try { res = await sampleFn(msgs, {...opts, tools: [prefillTool]}); }
+    catch (e) { if (e && e.code === "tools_unavailable") res = await sampleFn(msgs, opts); else throw e; }
+    aEl.textContent = res.text;
+    hist.push({role: "user", content: q}, {role: "assistant", content: res.text});
+  } catch (e) {
+    const c = e && e.code;
+    if (c === "cancelled") { aEl.textContent = (e.text || aEl.textContent) + " [stopped]"; }
+    else if (c === "not_granted" || c === "sampling_disabled" || c === "capability_disabled") { aEl.textContent = "Ask TARS is switched off for this page. Turn it on from the page's Permissions menu."; }
+    else if (c === "rate_limited") { aEl.textContent = (e.text || "") + "\nTARS is busy. Give it a minute and ask again."; }
+    else { aEl.textContent = (e && e.text ? e.text + "\n[interrupted] " : "") + "TARS couldn't answer just now. Ask again."; }
+  } finally { $("#aGo").disabled = false; $("#aStop").hidden = true; aCtl = null; }
+}
+$("#aGo").addEventListener("click", () => { const v = $("#aq").value; $("#aq").value = ""; askTars(v); });
+$("#aq").addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); $("#aGo").click(); } });
+$("#aStop").addEventListener("click", () => { if (aCtl) aCtl.abort(); });
+$("#chips").querySelectorAll("button").forEach(b => b.addEventListener("click", () => askTars(b.textContent)));
+
 document.querySelectorAll("[data-l]").forEach(b => b.addEventListener("click", () => {
   layers[b.dataset.l] = !layers[b.dataset.l]; b.setAttribute("aria-pressed", layers[b.dataset.l]); draw();
 }));
+function setSize(m) {
+  size = m; try { localStorage.setItem("desk.size", String(m)); } catch (e) {}
+  document.querySelectorAll("[data-m]").forEach(x => x.setAttribute("aria-pressed", +x.dataset.m === m));
+  if (S.b1.length) apply(); else draw();
+}
+document.querySelectorAll("[data-m]").forEach(b => b.addEventListener("click", () => setSize(+b.dataset.m)));
 document.querySelectorAll("[data-v]").forEach(b => b.addEventListener("click", () => {
   view = b.dataset.v; document.querySelectorAll("[data-v]").forEach(x => x.setAttribute("aria-pressed", x === b)); draw();
 }));
 let rz; window.addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(draw, 120); });
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change", draw);
 new MutationObserver(draw).observe(document.documentElement, {attributes: true, attributeFilter: ["data-theme"]});
-S.st = structure([], null); S.sigs = [];
-draw();
+S.st = S.st1 = structure([], null); S.sigs = [];
+setSize(size);
+syncType();
 startLive(false);
+startTrading();
 </script>
