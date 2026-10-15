@@ -34,3 +34,8 @@ Read this first so no run repeats a dead variant.
 - SPY pinning to $1 strikes at close: none (164 days). Intraday momentum (first 30m -> last 30m): weak, t 0.7. GEX: vendor-only evidence; collecting daily snapshots.
 - Literature: retail 0DTE buyers lose on average (~60% costs); sellers profit after fees.
 - Nolan's trips (226, Oct 8-15): before 10:30 negative 5/5 days, after 10:30 positive 5/6. Holds 2-5 min worst; 5-15 min best. 29% wins, +23%/−12% payoff (needs ~35%). Desk ticket warns pre-10:30.
+
+## 2026-10-15 — World markets vs SPY (20y daily + 2y hourly)
+- Europe co-moves 0.55-0.60 (overlap hours); Asia 0.1-0.23. US leads Asia (0.34-0.49). Asia/Europe predict the gap, not open-to-close (HSI/KOSPI effect died after 2016; ASX top-quintile +0.04%, t 1.1). After 11:30 ET DAX → SPY afternoon 0.00.
+- Lean: Nikkei −2% days → SPY open-to-close +0.10-0.14%, 57-59% up, both halves. Tracking forward in the journal.
+- Yahoo chart API works with a browser UA (query2); stooq blocked; Robinhood has no foreign indexes.

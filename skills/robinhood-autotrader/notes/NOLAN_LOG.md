@@ -239,3 +239,6 @@ only records what he said and what was done. R13: no dollar balances.
 ## 2026-10-15 — Desk v7: live Position reader (Nolan: "a live reader of the charts once a options is placed")
 - New panel + chart layer: for each open option — P&L, paid/now, SPY breakeven at expiry, SPY levels for −35% stop and +40% target (delta-gamma estimate), decay $/hr, chance of profit, held time, force-close countdown; plain reads (stop/target rule, chart with/against, next liquidity ahead/behind, breakeven in σ, 0DTE last hour, his 2-5 min exit habit). Ask TARS gets it all ("Read my open position").
 - Repos: none needed for this (built in the page). robin_stocks would need his password — not used. lumibot/backtrader useful only once real historical option data exists.
+
+## 2026-10-15 — World markets study (Nolan: "look into the European and Asian markets ... do they correlate with the us ones")
+- research/2026-10-15_WORLD_MARKETS.md. Europe moves with the US (0.6), Asia little (0.1-0.2); the US leads Asia. Overnight markets predict the gap, not the day. Big Nikkei selloff gaps get bought slightly more often (lean). Journal now logs an overnight board each morning; Ask TARS knows the findings.
