@@ -71,3 +71,8 @@ score, a finding that changes a position, a stop/exit signal, or something
 needing his decision), send ONE `PushNotification` (status "proactive", <200
 chars, one line, no dollar balances per R13). Reaches his phone via Remote
 Control. Stay silent on a routine/no-news run.
+
+## JOB 4 — Desk indicator study refresh (added 2026-10-15)
+After merging the week's real SPY minute bars into `paper/history/spy_1min.json`, run `python3 paper/research_scripts/desk_study.py`.
+Compare with `research/2026-10-15_DESK_INDICATOR_STUDY.md`. Note in `research/SWARM_MEMORY.md` any candidate whose t falls below 1.5 or flips sign (kill it) and any new |t|≥2 result (candidate only — ~45 tests run each time).
+Candidates enter the paper trader only at the weekly rules freeze, never midweek.

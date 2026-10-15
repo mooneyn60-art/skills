@@ -499,6 +499,9 @@ function draw() {
 }
 
 // ---------- panels ----------
+// Median |15-min SPY move| by half hour from 09:30 (desk_study, 31 days of real 1-min bars).
+const MOVE15 = [0.56, 0.44, 0.47, 0.31, 0.39, 0.29, 0.22, 0.28, 0.27, 0.27, 0.24, 0.15, 0.26];
+const move15 = hm => MOVE15[Math.min(12, Math.max(0, Math.floor((+hm.slice(0, 2) * 60 + +hm.slice(3) - 570) / 30)))];
 const names = {sweep_reversal: "Sweep reversal", vwap_reclaim: "VWAP reclaim", fvg_trend: "FVG with trend"};
 function renderPanels() {
   const bars = S.b1;
@@ -532,6 +535,7 @@ function renderPanels() {
     ["Pool below", below ? `${below.name} ${below.p.toFixed(2)} (−${(lb.c - below.p).toFixed(2)})` : "–"],
     ["Day type so far", `${trendness >= 0.5 ? "Trending" : trendness <= 0.25 ? "Choppy" : "In between"} (${trendness.toFixed(2)})`],
     ["Day range", range.toFixed(2)],
+    ["Typical 15-min move now", `${move15(lb.hm).toFixed(2)} pts${move15(lb.hm) < 0.3 ? " · slow hours, decay wins" : ""}`],
   ];
   if (st.fib) rows.push(["Fib 61.8% / 50%", `${st.fib.levels[3].p.toFixed(2)} / ${st.fib.levels[2].p.toFixed(2)}`]);
   $("#signals").querySelectorAll("[data-use]").forEach(b => b.addEventListener("click", () => useSignal(sigs[+b.dataset.use])));
@@ -905,6 +909,8 @@ Facts you must respect:
 - The desk's signals are data-farm rules backtested on only 29 days of SPY 1-minute bars with costs: sweep_reversal had 9 trades (too few to trust); fvg_trend, fvg_retest and vwap_reclaim averaged slightly negative R. None has passed the bar for real money. Say so when it matters.
 - A replay of Nolan's own trades found his direction calls are near a coin flip (45-52%); his results come from exits and size. Push on exits, stops and size more than on direction.
 - Fibonacci levels tested no better than ordinary levels on 20 years of SPY. Treat them as reference only.
+- TARS's own desk study (31 days real SPY 1-min, in-sample, ~45 tests): EMA 9/21 crosses, VWAP crosses, trend state, FVG formation and FVG retests, pool breaks, OR breaks and first-hour direction showed NO edge on their own over 15-30 min. Fib 50/61.8 first touches did worse than a coin flip, same as random levels. Candidates only (not proven): 1-min RSI under 30 dip-buy (+0.17 pts/30m, 57%), PDL break short (n=17), equal-lows sweep and reclaim (n=11). Edges that showed up are "failed move" ideas; chasing breakouts/gaps did worse.
+- Typical 15-min SPY move: ~0.5 pts 9:30-11:00, ~0.25 pts midday. For ATM 0DTE, midday moves barely beat time decay. Field typical_15min_move_now gives the current one.
 - Liquidity pools = equal highs/lows and PDH/PDL/OR extremes where stops sit; "swept" = ran through and closed back inside.
 How to answer: short and direct (under 150 words unless he asks for more), plain language, numbers from the data. Always give the invalidation level in SPY price and where a 2R target sits. If he asks whether a trade can be placed, check the ticket: account loaded, contract tradable, force-close time, limit vs bid/ask, premium vs his max, 0DTE time of day, market hours. You may fill the ticket with prefill_ticket when he asks for a setup; you can never place, review or cancel orders. He presses Review and Place himself. Never invent data that isn't in the JSON.`;
 let sampleFn = null, aCtl = null; const hist = [];
@@ -916,7 +922,7 @@ function snapshot() {
   const q = T.quote, i = T.inst;
   return {
     now_et: etHM(new Date()), session: S.day, market_open: marketOpen(), candle_minutes_on_screen: size,
-    spy: {last: lb.c, day_high: hi, day_low: lo, vwap: r2(lb.vwap), sigma_from_vwap: r2((lb.c - lb.vwap) / (lb.sd || 1)), ema9: r2(lb.e9), ema21: r2(lb.e21), rsi14: Math.round(lb.rsi), atr_1min: r2(lb.atr),
+    typical_15min_move_now: move15(lb.hm), spy: {last: lb.c, day_high: hi, day_low: lo, vwap: r2(lb.vwap), sigma_from_vwap: r2((lb.c - lb.vwap) / (lb.sd || 1)), ema9: r2(lb.e9), ema21: r2(lb.e21), rsi14: Math.round(lb.rsi), atr_1min: r2(lb.atr),
       trend: lb.trend > 0 ? "up" : lb.trend < 0 ? "down" : "mixed"},
     levels: st.levels.map(l => ({name: l.name, price: r2(l.p)})),
     nearest_liquidity_pools: st.pools.filter(p => !p.taken).map(p => ({name: p.name, price: r2(p.p), where: p.p > lb.c ? "above" : "below", swept: p.swept !== null}))

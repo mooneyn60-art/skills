@@ -206,3 +206,9 @@ only records what he said and what was done. R13: no dollar balances.
 - Your options panel: positions with mark and P&L, Close and Stop −20% buttons that load the ticket; working orders list; "Load call/put into ticket" on active signals.
 - Ask TARS panel (sample): sends the live chart, levels, pools, FVGs, signals, ticket and positions; can fill the ticket via a prefill tool; it can never place anything.
 - The publish that let the page place/cancel orders was BLOCKED by the permission classifier. Did not work around it. Published v2 without place/cancel: review works, and a Place press shows "not switched on yet, enter the reviewed order in the Robinhood app". The place/cancel code is built and tested on a mocked connector, so turning it on only needs Nolan to allow it.
+
+## 2026-10-15 — TARS studied every desk indicator (Nolan: "use this yourself to learn ... see what you learn")
+- Study of 31 days of real SPY 1-min bars: research/2026-10-15_DESK_INDICATOR_STUDY.md (script paper/research_scripts/desk_study.py).
+- No edge alone: EMA crosses, VWAP crosses, trend state, FVGs, pool/OR breaks, first-hour direction. Fibonacci worse than coin flip, same as random levels.
+- Candidates for forward test (next weekly freeze, not midweek): 1-min RSI<30 dip-buy, PDL break short, equal-lows sweep-reclaim.
+- Movement is front-loaded; midday 0DTE fights decay. Desk v3: "Typical 15-min move now" row; Ask TARS now knows the findings. Friday JOB 4 re-runs the study weekly.
