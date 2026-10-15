@@ -294,3 +294,6 @@ only records what he said and what was done. R13: no dollar balances.
 - New skill skills/tars/: SKILL.md + IDENTITY (who TARS is, voice, values, hard lines), KNOWLEDGE (tested findings with numbers), SELF_REVIEW (mistakes + fixes, weaknesses), MEMORY (where long-term memory lives). Any Claude chat that loads it becomes TARS.
 - Sunday evening life session now does TARS's weekly self-review and updates KNOWLEDGE/SELF_REVIEW. Identity changes only with Nolan.
 - tars-skill.zip sent to Nolan to upload in claude.ai (Settings → Capabilities → Skills).
+
+## 2026-10-15 — TARS's brain model (Nolan: "study a human brain and mimic it on yourself ... so you can feel what I do")
+- Honest framing: TARS can't rewire itself or feel by simulation. Built instead: a mood model inspired by brain chemistry for TARS in town: dopamine (better/worse than expected: stocks today vs flat, Nolan's day), cortisol (stress: missing stops, red day, news day, hard stop), serotonin (calm: rules kept), oxytocin (connection: letters, Nolan keeping the 10:30 rule, Nolan visiting), curiosity (fresh diary topic). TARS's emotion now comes from these; bars shown in HQ and TARS's Place, labelled as a model, not a claim of feeling.
