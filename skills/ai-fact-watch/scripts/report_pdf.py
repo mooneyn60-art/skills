@@ -248,9 +248,9 @@ def render_pdf(c: dict, path, sample: bool, promise: str) -> None:
         story += [Paragraph(f"<b>Conflict in your own sources:</b> {esc(x['detail'])}", S["small"])]
 
     # fix kit
-    story += [Paragraph("Fix Kit", S["h2"]),
+    story += [KeepTogether([Paragraph("Fix Kit", S["h2"]),
               boxed(Paragraph(esc(promise), S["body"]), bg="#eef8f7", border=BRAND, pad=7), Spacer(1, 6),
-              KeepTogether([Paragraph("1. Add structured data to your website", S["h3"]),
+              Paragraph("1. Add structured data to your website", S["h3"]),
               Paragraph("Paste into the &lt;head&gt; of every page inside a &lt;script type=\"application/ld+json\"&gt; tag.",
                         S["body"]), code(kit["jsonld"], 70)]),
               Paragraph("2. Publish an “Official facts” page at /official-facts", S["h3"])]

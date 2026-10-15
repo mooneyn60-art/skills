@@ -231,6 +231,10 @@ def collect(a) -> dict:
     log: list = []
     website = a.website if urlparse(a.website).scheme else "https://" + a.website
     soup, home, html = get_page(website, log)
+    for _ in range(2):  # transient network errors are common; retry the homepage
+        if soup:
+            break
+        soup, home, html = get_page(website, log)
     if not soup:
         sys.exit(f"Website unreachable: {website}. Pass --set overrides with sources instead.")
 

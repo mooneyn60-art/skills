@@ -54,7 +54,7 @@ background:var(--brand);color:#fff;font-weight:700;display:grid;place-items:cent
 .pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:700}
 .r{background:var(--red-bg);color:var(--red)}.y{background:var(--amber-bg);color:var(--amber)}.g{background:var(--green-bg);color:var(--green)}
 .mock-row{display:grid;grid-template-columns:auto 1fr;gap:10px;padding:10px 0;border-top:1px solid var(--line)}
-.mock-row i{color:var(--muted);font-size:13px}
+.mock-row i{color:var(--muted);font-size:13px}.mock-row .pill{align-self:start;justify-self:start;margin-top:2px}
 .prices{display:grid;gap:14px}
 .price{display:flex;flex-direction:column}.price .amt{font-size:36px;font-weight:800;margin:6px 0 2px}
 .price .amt small{font-size:15px;color:var(--muted);font-weight:600}
@@ -172,13 +172,13 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--muted);f
       <li>A dated evidence log you can keep, forward or give to a lawyer</li>
       <li>A starter Fix Kit: the structured-data block for your website and your Google Business Profile edits</li>
     </ul>
-    <p style="color:var(--muted);font-size:14px">Example below is illustrative, based on errors reported in the news.</p>
+    <p style="color:var(--muted);font-size:14px">Illustrative example with made-up details.</p>
   </div>
   <div class="card mock" aria-label="Illustrative report excerpt">
     <div class="top"><div class="score">48<span style="font-size:15px;color:var(--muted)">/100</span></div>
       <div><b>What AI says about your business</b><br><span class="pill r">At risk</span></div></div>
-    <div class="mock-row"><span class="pill r">Wrong</span><div><b>Hours</b><br><i>"closing around 8 PM ... Saturday"</i><br>True: Saturday until 9pm</div></div>
-    <div class="mock-row"><span class="pill r">Wrong</span><div><b>Address</b><br><i>"766 W Pearce"</i><br>True: 762 W Pearce Blvd</div></div>
+    <div class="mock-row"><span class="pill r">Wrong</span><div><b>Hours</b><br><i>"closes at 8 PM on Saturday"</i><br>True: Saturday until 9pm</div></div>
+    <div class="mock-row"><span class="pill r">Wrong</span><div><b>Address</b><br><i>"132 Main St"</i><br>True: 123 Main St</div></div>
     <div class="mock-row"><span class="pill y">Gap</span><div><b>Deals</b><br><i>A "special" from a third-party listing</i><br>True: not on your website</div></div>
     <div class="mock-row"><span class="pill g">Correct</span><div><b>Phone</b></div></div>
   </div>

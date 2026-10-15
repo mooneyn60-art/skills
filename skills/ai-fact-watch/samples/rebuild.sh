@@ -13,7 +13,8 @@ python3 truth.py --name "The Viridian Bookshop" --town Willoughby --region OH \
   --press https://spectrumnews1.com/oh/cincinnati/news/2026/07/23/bookshop-ai-battle \
   --press https://clevelandmagazine.com/articles/willoughby-bookstore-confronts-google-ai-error-claiming-it-was-permanently-closed/ \
   --press https://clevelandmagazine.com/articles/downtown-willoughby-welcomes-the-viridian-bookshop-in-october \
-  --twin "Viridian Books|||https://marketspread.com/vendor/161775/viridian-books/|A different, similarly named bookseller (Oklahoma) that appears in the same web searches"
+  --twin "Viridian Books|||https://marketspread.com/vendor/161775/viridian-books/|A different, similarly named bookseller (Oklahoma) that appears in the same web searches" \
+  || echo "site unreachable: keeping the previous truth file"
 
 python3 truth.py --name "Stefanina's Wentzville" --town Wentzville --region MO \
   --website https://www.stefaninas-wentzville.com --slug stefaninas-wentzville \
@@ -25,7 +26,8 @@ python3 truth.py --name "Stefanina's Wentzville" --town Wentzville --region MO \
   --twin "Stefanina's Pizzeria (Stef's Pizza, O'Fallon)|8645 Veterans Memorial Pkwy, O'Fallon, MO 63366|(636) 272-3499|https://stefaninas.com/|A separately owned 4-location chain (Stef's Pizza, owned by LaBeaume Roderick Group) with the same name in O'Fallon, St. Peters, Lake St. Louis and St. Charles." \
   --twin "Stef's Pizza Jungermann|652 Jungermann Rd, St. Peters, MO 63376|(636) 447-7800|https://stefaninas.com/jungermann-location/|Part of the O'Fallon chain" \
   --twin "Stef's Pizza Lake St. Louis|111 Pond Fort Trail, Lake St. Louis, MO 63367|(636) 625-3333|https://stefaninas.com/lake-st-louis-location/|Part of the O'Fallon chain" \
-  --twin "Stef's Pizza Zumbehl|1938 Zumbehl Rd, St. Charles, MO 63303|(636) 724-7800|https://stefaninas.com/zumbehl-location/|Part of the O'Fallon chain"
+  --twin "Stef's Pizza Zumbehl|1938 Zumbehl Rd, St. Charles, MO 63303|(636) 724-7800|https://stefaninas.com/zumbehl-location/|Part of the O'Fallon chain" \
+  || echo "site unreachable: keeping the previous truth file"
 
 for s in viridian-bookshop-willoughby stefaninas-wentzville; do
   python3 compare.py --slug "$s" --date 2026-10-15

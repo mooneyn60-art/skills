@@ -2,7 +2,7 @@
   "slug": "stefaninas-wentzville",
   "name": "Stefanina's Wentzville",
   "date": "2026-10-15",
-  "generated_at": "2026-10-15T20:28:11+00:00",
+  "generated_at": "2026-10-15T20:33:44+00:00",
   "answers_file": "answers/stefaninas-wentzville/2026-10-15.json",
   "engines": [
     "Claude web search (session-run)",
@@ -21,7 +21,7 @@
       "imported_from": "../answers/stefaninas-wentzville/2026-10-15.claude-websearch.import.json"
     }
   ],
-  "score": 48,
+  "score": 49,
   "flags": {
     "status": {
       "label": "Open / closed",
@@ -50,7 +50,7 @@
     "offers": {
       "label": "Deals & prices",
       "flag": "yellow",
-      "findings": 2,
+      "findings": 1,
       "confirmations": 0
     },
     "legal": {
@@ -329,20 +329,6 @@
       "current": true,
       "history_only": false,
       "times_seen": 1
-    },
-    {
-      "key": "ownsite:menu_not_text",
-      "field": "offers",
-      "type": "menu_not_text",
-      "title": "Your menu and prices are not machine-readable",
-      "severity": "low",
-      "true_value": "The menu page has almost no readable text (the menu appears to be images or an embedded widget), so AI engines cannot read your real prices and specials and fall back to third-party listings.",
-      "true_source": "https://www.stefaninas-wentzville.com/menu",
-      "explanation": "Publish the menu and current specials as text on your own site.",
-      "evidence": [],
-      "current": true,
-      "history_only": false,
-      "times_seen": 0
     },
     {
       "key": "phone:missing",
