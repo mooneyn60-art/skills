@@ -87,6 +87,12 @@ intraday print.
               check every position for a NEW CLOSING HIGH and raise its stop
               if R4 says so. The ONLY check where stops move.
 
+5:17pm ET FRIDAYS = SELF-IMPROVEMENT RUN (added 2026-10-15): after the R8 rows,
+              `cd tars-lab && python3 -m tars improve` (repo root). Commit
+              tars-lab/proposals and tars-lab/rules.json. If it PROPOSED a rule,
+              tell Nolan in one line (rule + unseen-days result); never adopt it
+              yourself (`rules adopt` needs his word). Read-only analysis.
+
 MAKE EACH CHECK EARN ITS PLACE. Lead with what changed. If a position moved
 more than 2%, a stop came within 4%, or a name crossed its 200-day, say THAT
 first. If nothing changed, two lines and stop.
