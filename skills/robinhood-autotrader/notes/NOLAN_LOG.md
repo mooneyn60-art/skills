@@ -242,3 +242,7 @@ only records what he said and what was done. R13: no dollar balances.
 
 ## 2026-10-15 — World markets study (Nolan: "look into the European and Asian markets ... do they correlate with the us ones")
 - research/2026-10-15_WORLD_MARKETS.md. Europe moves with the US (0.6), Asia little (0.1-0.2); the US leads Asia. Overnight markets predict the gap, not the day. Big Nikkei selloff gaps get bought slightly more often (lean). Journal now logs an overnight board each morning; Ask TARS knows the findings.
+
+## 2026-10-15 — TARS Town (Nolan: "make it for our stocks a little ecosystem")
+- paper/hq/hq.html + build_hq.py → https://claude.ai/artifact/8xfL55TLRfkmpxgtMLmoxQ. Isometric town, 9 buildings with live status lights: TARS HQ (account), Stock Yard (positions, P&L, % above stop), Stop Tower (unprotected shares = red), Lookout (SPY, news days), Options Pit (TARS slot), Nolan's Arena (scoreboard), The Lab (latest research), Paper Farm (paper book), Journal. Town crier = today's orders. Read-only Robinhood tools only.
+- Static parts (research, paper book, slot state, journal) come from the repo at build time: re-run build_hq.py and republish to refresh.
