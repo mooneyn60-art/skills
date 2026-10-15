@@ -217,8 +217,17 @@ const pct = v => (v >= 0 ? "+" : "") + v.toFixed(2) + "%";
 const fmtDay = new Intl.DateTimeFormat("en-CA", {timeZone: "America/New_York", year: "numeric", month: "2-digit", day: "2-digit"});
 const fmtHM = new Intl.DateTimeFormat("en-US", {timeZone: "America/New_York", hour: "numeric", minute: "2-digit"});
 const today = () => fmtDay.format(new Date());
-const EVENTS = {"2026-10-28": "FOMC 2:00pm", "2026-11-06": "Jobs report 8:30am", "2026-11-10": "CPI 8:30am", "2026-12-04": "Jobs report 8:30am", "2026-12-09": "FOMC 2:00pm", "2026-12-10": "CPI 8:30am"};
+const EVENTS = {"2026-10-16": "Monthly options expiry", "2026-11-20": "Monthly options expiry", "2026-12-18": "Monthly options expiry", "2026-10-28": "FOMC 2:00pm", "2026-11-06": "Jobs report 8:30am", "2026-11-10": "CPI 8:30am", "2026-12-04": "Jobs report 8:30am", "2026-12-09": "FOMC 2:00pm", "2026-12-10": "CPI 8:30am"};
 
+// Earnings after the close (Robinhood earnings calendar, pulled 2026-10-15). held = in the account: a stop can't stop an overnight gap.
+const EARN = [{d: "2026-10-20", s: "NFLX"}, {d: "2026-10-21", s: "TSLA"}, {d: "2026-10-21", s: "META"}, {d: "2026-10-22", s: "BE", held: 1},
+  {d: "2026-10-28", s: "GOOGL"}, {d: "2026-10-28", s: "MSFT"}, {d: "2026-10-29", s: "AMZN"}, {d: "2026-11-02", s: "AAPL"}, {d: "2026-11-02", s: "PLTR", held: 1}, {d: "2026-11-02", s: "HALO", held: 1}];
+function upcoming(days) { // next N calendar days of news, expiries and earnings, soonest first
+  const t0 = today(), end = new Date(Date.parse(t0 + "T12:00:00Z") + days * 864e5).toISOString().slice(0, 10), out = [];
+  for (const [d, x] of Object.entries(EVENTS)) if (d > t0 && d <= end) out.push({d, x});
+  for (const e of EARN) if (e.d >= t0 && e.d <= end) out.push({d: e.d, x: `${e.s} earnings after close${e.held ? " (you hold it)" : ""}`, held: e.held, s: e.s});
+  return out.sort((a, b) => a.d < b.d ? -1 : 1);
+}
 // ---------- the town ----------
 const B = [
   {id: "yard", name: "Stock Yard", c: 0, r: 0, h: 70, col: "--c-yard", role: "Holds the momentum stocks. Shows each one's profit and how far it sits above its stop."},
@@ -862,7 +871,10 @@ function renderPlan() {
   if (ref && last) { const g = 100 * (last / ref - 1), a = Math.abs(g), odds = a < .1 ? "88%" : a < .3 ? "64-76%" : a < .6 ? "31-58%" : "21-38%";
     if (open || m < 570) items.push(["muted", `SPY ${open ? "is" : "is set to open"} ${g >= 0 ? "+" : ""}${g.toFixed(2)}% vs yesterday's close. Gaps that size fill the same day about ${odds} of the time.`]);
     else items.push(["muted", `SPY finished ${g >= 0 ? "+" : ""}${g.toFixed(2)}% today.`]); }
-  if (EVENTS[today()]) items.push(["warn", `${EVENTS[today()]} today. ${/FOMC/.test(EVENTS[today()]) ? "Afternoon range runs ~4x normal and the first move often reverses." : "The news is in the gap; the rest of the day usually runs normal."}`]);
+  if (EVENTS[today()]) items.push(["warn", `${EVENTS[today()]} today. ${/FOMC/.test(EVENTS[today()]) ? "Afternoon range runs ~4x normal and the first move often reverses." : /expiry/.test(EVENTS[today()]) ? "Huge open interest expires today: price can stick near big round strikes, and same-day premium melts fast after 2pm." : "The news is in the gap; the rest of the day usually runs normal."}`]);
+  for (const e of EARN) if (e.held && e.d === today()) items.push(["bad", `${e.s} reports after today's close. Its stop can't protect an overnight gap; decide before 4pm whether to hold through it.`]);
+  const up = upcoming(7).filter(e => e.d > today() || !e.held);
+  if (up.length) items.push(["muted", "Coming up: " + up.map(e => `${new Date(e.d + "T12:00:00Z").toLocaleDateString("en-US", {weekday: "short", timeZone: "UTC"})} ${e.x}`).join(" · ")]);
   const tr = nolanTrips(); let streak = 0; for (let i = tr.length - 1; i >= 0 && tr[i].pout <= tr[i].pin; i--) streak++;
   const nt = S.nt || {n: 0, early: 0};
   if (nt.early) items.push(["bad", `${nt.early} trade${nt.early > 1 ? "s" : ""} before 10:30 today. ${open && m < 630 ? "Reset: nothing more until 10:30." : "Tomorrow: nothing before 10:30."}`]);

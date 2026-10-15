@@ -318,3 +318,8 @@ only records what he said and what was done. R13: no dollar balances.
 Nolan: "More agentsssss I want more citizens houses and more collaboration".
 New row of houses: Rhea at Town Hall (Rule Keeper, keeps the tally of Nolan's Rules v1), Atlas at the Chart House (Chartist, SPY minute bars: VWAP, EMA trend, high/low, range), Juno at The Gym (Coach, watches for tilt and breaks), Sol at the Weather Station (Meteorologist, market weather).
 New group scenes: Morning huddle (Atlas → Pip → Rhea → Juno → Nolan), Tilt watch, Rules court, Weather desk. The town now reads get_equity_historicals as well (read-only).
+
+## 2026-10-15 late — Useful tools we didn't have (Nolan: "Make some useful stuff we need but don't have")
+- Desk order preview now shows an exit plan before every buy-to-open: the sell-stop price at −35%, what it risks, the +70% (2R) target, and how much of the $150 daily limit is left, with the number of contracts that fits.
+- Event calendar in the desk and the town: monthly options expiry days (10/16, 11/20, 12/18) and earnings after the close for the big names that move SPY (NFLX 10/20, TSLA and META 10/21, GOOGL and MSFT 10/28 (same day as FOMC), AMZN 10/29, AAPL 11/2). Holdings that report are flagged: BE 10/22, PLTR and HALO 11/2. A stop can't protect against an overnight earnings gap; on the report day the town tells Nolan to decide before 4pm.
+- Still open for Nolan: R6 breaker vs TARS's $500 options slot starting 10/16 (see the close report above).

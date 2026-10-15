@@ -526,7 +526,7 @@ const GAPFILL = [[0.1, "88%"], [0.3, "64% (20y: 74%)"], [0.6, "31% (20y: 55%)"],
 // Median share of the full day's range already printed by this time (164 days).
 const RANGE_DONE = [[600, 42], [630, 55], [690, 77], [780, 92], [900, 100]];
 const TYPICAL_RANGE = 6.2; // median SPY day range, 2026 non-event days (pts)
-const EVENTS = {"2026-09-04": "Jobs report 8:30am", "2026-09-11": "CPI 8:30am", "2026-09-16": "FOMC 2:00pm", "2026-10-02": "Jobs report 8:30am", "2026-10-14": "CPI 8:30am",
+const EVENTS = {"2026-10-16": "Monthly options expiry", "2026-11-20": "Monthly options expiry", "2026-12-18": "Monthly options expiry", "2026-09-04": "Jobs report 8:30am", "2026-09-11": "CPI 8:30am", "2026-09-16": "FOMC 2:00pm", "2026-10-02": "Jobs report 8:30am", "2026-10-14": "CPI 8:30am",
   "2026-10-28": "FOMC 2:00pm", "2026-11-06": "Jobs report 8:30am", "2026-11-10": "CPI 8:30am", "2026-12-04": "Jobs report 8:30am", "2026-12-09": "FOMC 2:00pm", "2026-12-10": "CPI 8:30am"};
 function remainingMove(lb) { // 1-sigma SPY move left today from the ticket's ATM 0DTE implied vol
   const q = T.quote, i = T.inst;
@@ -567,7 +567,7 @@ function renderPanels() {
     ["Pool below", below ? `${below.name} ${below.p.toFixed(2)} (−${(lb.c - below.p).toFixed(2)})` : "–"],
     ["Day type so far", `${trendness >= 0.5 ? "Trending" : trendness <= 0.25 ? "Choppy" : "In between"} (${trendness.toFixed(2)})`],
     ["Day range", range.toFixed(2)],
-    ["News today", EVENTS[S.day] ? `<span class="warn">${EVENTS[S.day]}</span>${/FOMC/.test(EVENTS[S.day]) ? " · 2–4pm range runs ~4× normal" : " · priced into the gap"}` : "None scheduled"],
+    ["News today", EVENTS[S.day] ? `<span class="warn">${EVENTS[S.day]}</span>${/FOMC/.test(EVENTS[S.day]) ? " · 2–4pm range runs ~4× normal" : /expiry/.test(EVENTS[S.day]) ? " · price can stick near big strikes; 0DTE premium melts after 2pm" : " · priced into the gap"}` : "None scheduled"],
     ["Opening gap", (() => { if (!pdc) return "–"; const g = 100 * (bars[0].o - pdc) / pdc, filled = g > 0 ? Math.min(...bars.map(b => b.l)) <= pdc : Math.max(...bars.map(b => b.h)) >= pdc;
       return `${g >= 0 ? "+" : ""}${g.toFixed(2)}% · ${filled ? "filled" : "fills same day " + GAPFILL.find(x => Math.abs(g) < x[0])[1]}`; })()],
     ["Range so far", (() => { const t = +lb.hm.slice(0, 2) * 60 + +lb.hm.slice(3), r = RANGE_DONE.filter(x => t >= x[0]).pop(); return `${range.toFixed(2)} pts vs typical ${TYPICAL_RANGE} · ${r ? "usually " + r[1] + "% of the day's range is in by now" : "most of the range comes before 11:30"}`; })()],
@@ -801,7 +801,7 @@ function renderPreview() {
   const sd = inp.legs[0].side, qty = +inp.quantity;
   const px = inp.type === "limit" ? +inp.price : inp.type === "stop_market" ? +inp.stop_price : sd === "buy" ? +q.ask_price : +q.bid_price;
   const prem = px * qty * 100, fee = r.fees ? +r.fees.total_fee || 0 : 0, max = +$("#tMax").value || 0;
-  const warn = [];
+  const warn = []; T.plan = "";
   if (sd === "buy" && max > 0 && prem > max) warn.push(`This is ${money(prem)} of premium, over your ${money(max)} max per trade.`);
   if (sd === "buy" && inst.expiration_date === etDay(new Date()) && etHM(new Date()) >= "15:15") warn.push("0DTE after 3:15 ET: Robinhood force-closes at its cutoff and theta is brutal now.");
   if (inp.type === "limit" && sd === "buy" && +q.ask_price > 0 && px < +q.bid_price) warn.push("Your limit is under the bid. It will sit until price comes to you.");
@@ -815,6 +815,10 @@ function renderPreview() {
     if (net <= -150) warn.push(`Your rule: daily loss limit is $150 and you're at ${money(net)} today. You said you'd be done for the day.`);
     if (mine.length >= 10) warn.push(`Your rule: max 10 round trips a day. This would be #${mine.length + 1}.`);
     if (streak >= 3) warn.push(`Your rule: ${streak} losses in a row means a 30-minute break first.`);
+    if (px > 0) { // exit plan before entry: the -35% stop, the 2R target, and what's left of the $150 day
+      const stop = px * 0.65, risk = (px - stop) * qty * 100, room = Math.max(0, 150 + Math.min(0, net)), fit = Math.floor(room / ((px - stop) * 100));
+      T.plan = `Exit plan: sell-stop at ${stop.toFixed(2)} (−35%, risks ${money(risk)}) · target ${(px * 1.7).toFixed(2)} (+70% = 2R) · room left in today's $150: ${money(room)}${fit < qty ? ` → that fits ${fit} contract${fit === 1 ? "" : "s"}, not ${qty}` : ""}`;
+    }
   }
   if (!marketOpen()) warn.push("Market is closed. A limit order will wait for the next session (good for day).");
   const checks = checkLines(r.order_checks);
@@ -823,6 +827,7 @@ function renderPreview() {
   el.innerHTML = `<div class="prev">
     <div class="big ${sd === "buy" ? "long" : "short"}">${verb} ${qty} × ${esc(label(inst))} ${esc(tyTxt)} · ${inp.legs[0].position_effect === "open" ? "opening" : "closing"}</div>
     <div>Est. premium ${sd === "buy" ? "you pay" : "you get"}: <b>${isNaN(prem) ? "—" : money(prem)}</b>${fee ? ` · fees ${money(fee)}` : ""} · bid ${esc(q.bid_price ? (+q.bid_price).toFixed(2) : "—")} / ask ${esc(q.ask_price ? (+q.ask_price).toFixed(2) : "—")}</div>
+    ${T.plan ? `<div class="msg"><b>${esc(T.plan)}</b></div>` : ""}
     ${warn.map(w => `<div class="warn">⚠ ${esc(w)}</div>`).join("")}
     ${checks.length ? `<div><b>Robinhood alerts:</b>${checks.map(c => `<div class="warn">${esc(c)}</div>`).join("")}</div><label class="msg"><input type="checkbox" id="tAck"> I've read Robinhood's alerts</label>` : '<div class="muted msg">Robinhood raised no alerts.</div>'}
     ${r.customer_approval_required ? '<div class="msg">Robinhood will ask you to approve this in the app after you press Place.</div>' : ""}
