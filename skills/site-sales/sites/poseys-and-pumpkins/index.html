@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Poseys and Pumpkins · North Vernon, IN</title>
+<meta name="description" content="Plants, produce and flowers from a family farm in North Vernon since 1998.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  --primary: #2e3b23; --accent: #ee8434; --bg: #fbf6ec; --surface: #ffffff;
+  --text: #1c1c1a; --muted: #5f625c;
+  --display: "Fraunces", Georgia, serif; --body: "Inter", system-ui, sans-serif;
+  --r: 16px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 var(--body); overflow-x: hidden; }
+a { color: inherit; }
+h1, h2, h3 { font-family: var(--display); line-height: 1.12; margin: 0 0 .5em; letter-spacing: -.01em; }
+h2 { font-size: clamp(1.6rem, 5vw, 2.2rem); }
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+.preview { background: #111; color: #fff; text-align: center; font: 500 .8rem/1.4 var(--body); padding: 8px 16px; }
+.topbar { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--primary) 94%, transparent);
+  backdrop-filter: blur(6px); color: #fff; }
+.topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 58px; }
+.brand { font-family: var(--display); font-weight: 700; font-size: 1.1rem; text-decoration: none;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.btn { display: inline-block; border: 0; cursor: pointer; font: 600 1rem var(--body); padding: 13px 24px;
+  border-radius: 999px; background: var(--accent); color: var(--primary); text-decoration: none; text-align: center; }
+.btn-sm { padding: 9px 16px; font-size: .9rem; white-space: nowrap; }
+.btn-ghost { background: transparent; color: #fff; box-shadow: inset 0 0 0 2px rgba(255,255,255,.6); }
+a:focus-visible, .btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.hero { position: relative; overflow: hidden; color: #fff; padding: 64px 0 76px;
+  background: radial-gradient(120% 90% at 100% 0%, color-mix(in srgb, var(--accent) 45%, transparent) 0, transparent 55%),
+              radial-gradient(90% 80% at 0% 100%, rgba(255,255,255,.10) 0, transparent 60%), var(--primary); }
+.hero::after { content: ""; position: absolute; right: -110px; top: -90px; width: 240px; height: 240px;
+  border-radius: 50%; border: 28px solid color-mix(in srgb, var(--accent) 55%, transparent); opacity: .5; }
+.eyebrow { text-transform: uppercase; letter-spacing: .14em; font-size: .78rem; font-weight: 600;
+  color: var(--accent); margin: 0 0 14px; }
+.hero h1 { font-size: clamp(2.4rem, 11vw, 4.4rem); max-width: 14ch; }
+.tagline { font-size: 1.12rem; opacity: .92; margin: 0 0 28px; max-width: 34ch; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; position: relative; z-index: 1; }
+section { padding-top: 52px; padding-bottom: 52px; }
+[id] { scroll-margin-top: 70px; }
+.about { padding-bottom: 8px; }
+.about p { max-width: 62ch; font-size: 1.06rem; }
+.ticks { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 10px; }
+.ticks li { position: relative; padding-left: 30px; }
+.ticks li::before { content: ""; position: absolute; left: 0; top: .45em; width: 16px; height: 9px;
+  border-left: 3px solid var(--accent); border-bottom: 3px solid var(--accent); transform: rotate(-45deg); }
+.services { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.svc { background: var(--surface); border-radius: var(--r); padding: 18px 20px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 6px 18px rgba(0,0,0,.04); border-top: 4px solid var(--accent); }
+.svc-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; align-items: baseline; }
+.svc h3 { font-size: 1.12rem; margin: 0; }
+.svc-price { font-weight: 700; }
+.svc-desc { margin: 6px 0 0; color: var(--muted); font-size: .95rem; }
+.info { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.card { background: var(--surface); border-radius: var(--r); padding: 22px; box-shadow: 0 1px 2px rgba(0,0,0,.06); }
+.hours { border-collapse: collapse; width: 100%; }
+.hours th { text-align: left; vertical-align: top; padding: 6px 16px 6px 0; font-weight: 600; width: 44%; }
+.hours td { padding: 6px 0; }
+.hours tr + tr { border-top: 1px solid rgba(0,0,0,.07); }
+.contact { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; overflow-wrap: anywhere; }
+.contact .k { display: block; font-size: .74rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
+.maplink { font-weight: 600; color: var(--primary); }
+.muted { color: var(--muted); }
+.ph { border: 2px dashed var(--accent); border-radius: 6px; padding: 0 6px; background: color-mix(in srgb, var(--accent) 12%, transparent); }
+.ph::before { content: "Placeholder: "; font-weight: 600; font-size: .8em; }
+.cta-band { background: var(--primary); color: #fff; text-align: center; }
+.cta-band p { opacity: .9; margin: 0 auto 22px; max-width: 40ch; }
+footer { padding: 28px 0 100px; color: var(--muted); font-size: .88rem; }
+.srcs summary { cursor: pointer; font-weight: 600; }
+.srcs ul { padding-left: 18px; overflow-wrap: anywhere; }
+.fab { position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 20; box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+@media (min-width: 720px) { .fab { display: none; } footer { padding-bottom: 28px; } .hero { padding: 96px 0 104px; } }
+</style>
+</head>
+<body>
+<div class="preview" role="note">Free preview made for Poseys and Pumpkins from public info · not the official site</div>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="#top">Poseys and Pumpkins</a>
+  <a class="btn btn-sm" href="mailto:poseysnpumpkins@msn.com?subject=Question%20for%20Poseys%20and%20Pumpkins&amp;body=Hi%21%20I%27d%20like%20to%20ask%20about%20">Email the farm</a>
+</div></header>
+<main id="top">
+<section class="hero"><div class="wrap">
+  <p class="eyebrow">Family greenhouse &amp; farm · North Vernon, IN</p>
+  <h1>Poseys and Pumpkins</h1>
+  <p class="tagline">Plants, produce and flowers from a family farm in North Vernon since 1998.</p>
+  <div class="actions"><a class="btn" href="mailto:poseysnpumpkins@msn.com?subject=Question%20for%20Poseys%20and%20Pumpkins&amp;body=Hi%21%20I%27d%20like%20to%20ask%20about%20">Email the farm</a><a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Showers%20Common%2C%20401%20N%20Morton%20St%2C%20Bloomington%2C%20IN%2047404" target="_blank" rel="noopener">Open in Maps</a></div>
+</div></section>
+<section id="about" class="wrap about"><h2>About</h2><p>It all began in 1998 as a way for Kim to stay home with the couple&#x27;s daughters. Since then Ralph Shatto and Kim Beesley-Shatto have added over an acre of greenhouses for plants and produce year round, plus several acres of outdoor produce and thousands of hanging baskets and mums every year.</p><ul class="ticks"><li>Family owned and run since 1998</li><li>Accepts Farmers&#x27; Market gift certificates and Market Bucks</li></ul></section>
+<section id="services" class="wrap">
+  <h2>What we grow</h2>
+  <ul class="services"><li class="svc"><div class="svc-head"><h3>Hanging baskets &amp; annuals</h3></div><p class="svc-desc">Thousands of baskets grown every year.</p></li><li class="svc"><div class="svc-head"><h3>Mums</h3></div><p class="svc-desc">Grown every year.</p></li><li class="svc"><div class="svc-head"><h3>Vegetables &amp; melons</h3></div><p class="svc-desc">From the greenhouses and fields.</p></li><li class="svc"><div class="svc-head"><h3>Strawberries</h3></div></li><li class="svc"><div class="svc-head"><h3>Cut flowers</h3></div></li><li class="svc"><div class="svc-head"><h3>Farm-raised meat</h3></div><p class="svc-desc">From the farm&#x27;s own animals.</p></li></ul>
+</section>
+<section id="contact" class="wrap info">
+  <div class="card"><h2>Market hours</h2><table class="hours"><tr><th>Saturdays, Apr–Sep</th><td>8 a.m.–12:30 p.m.</td></tr><tr><th>Saturdays in October</th><td>9 a.m.–12:30 p.m.</td></tr><tr><th>Other markets</th><td>Franklin Farmers Market, 161 W Monroe St, Franklin</td></tr></table><p><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Showers%20Common%2C%20401%20N%20Morton%20St%2C%20Bloomington%2C%20IN%2047404" target="_blank" rel="noopener">Get directions &rarr;</a></p></div>
+  <div class="card"><h2>Contact</h2><ul class="contact"><li><span class="k">Where</span>Bloomington Community Farmers&#x27; Market (Saturdays), Showers Common, 401 N. Morton St., Bloomington, IN</li><li><span class="k">Phone</span><span class="ph" title="Placeholder - confirm with owner">Phone number (owner to add)</span></li><li><span class="k">Email</span><a href="mailto:poseysnpumpkins@msn.com">poseysnpumpkins@msn.com</a></li><li><span class="k">Facebook</span><a href="https://www.facebook.com/pages/Poseys-and-Pumpkins/510249915656926" target="_blank" rel="noopener">Facebook</a></li></ul></div>
+</section>
+<section class="cta-band"><div class="wrap">
+  <h2>Say hello</h2>
+  <p>Questions, orders or bookings &mdash; reach Poseys and Pumpkins directly.</p>
+  <a class="btn" href="mailto:poseysnpumpkins@msn.com?subject=Question%20for%20Poseys%20and%20Pumpkins&amp;body=Hi%21%20I%27d%20like%20to%20ask%20about%20">Email the farm</a>
+</div></section>
+</main>
+<footer><div class="wrap">
+  <p>&copy; <span id="yr"></span> Poseys and Pumpkins</p>
+  <details class="srcs"><summary>Where these details came from</summary><ul><li><a href="https://www.bloomington.in.gov/farmers-market/vendors/poseys-and-pumpkins" rel="noopener nofollow" target="_blank">City of Bloomington vendor directory – Poseys and Pumpkins</a></li><li><a href="https://marketspread.com/vendor/158842/poseys-and-pumpkins/" rel="noopener nofollow" target="_blank">MarketSpread vendor profile – North Vernon, Franklin Farmers Market, products</a></li><li><a href="https://bloomington.in.gov/farmers-market" rel="noopener nofollow" target="_blank">City of Bloomington – market days, hours and location (checked 2026-10-15)</a></li></ul><p>Anything shown with a dashed outline is a placeholder for the owner to confirm.</p></details>
+</div></footer>
+<a class="btn fab" href="mailto:poseysnpumpkins@msn.com?subject=Question%20for%20Poseys%20and%20Pumpkins&amp;body=Hi%21%20I%27d%20like%20to%20ask%20about%20">Email the farm</a>
+<script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
+</body>
+</html>

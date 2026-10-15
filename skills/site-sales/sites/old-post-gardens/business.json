@@ -1,0 +1,80 @@
+{
+  "name": "Old Post Gardens",
+  "category": "Family produce grower",
+  "location": {
+    "label": "Bloomington Community Farmers' Market (Saturdays), Showers Common, 401 N. Morton St., Bloomington, IN",
+    "map_query": "Showers Common, 401 N Morton St, Bloomington, IN 47404",
+    "state": "IN"
+  },
+  "tagline": "Strawberries, tomatoes, broccoli and potatoes — grown the natural way.",
+  "about": "Jim Lewis always wanted to be a farmer. On 1.5 acres of his wife's family land he grows all kinds of produce, starting plants in a hoophouse and using plant-based compost. He follows organic regulations but isn't certified. Jim has sold at the Bloomington Community Farmers' Market for 15 years, April through October.",
+  "highlights": [
+    "All-natural growing, following organic rules (not certified)",
+    "Accepts Farmers' Market gift certificates and Market Bucks",
+    "At both the Saturday and Tuesday markets"
+  ],
+  "services_title": "Our produce",
+  "services": [
+    {
+      "name": "Strawberries",
+      "description": "A customer favorite in season."
+    },
+    {
+      "name": "Tomatoes & peppers"
+    },
+    {
+      "name": "Broccoli & cauliflower"
+    },
+    {
+      "name": "Potatoes & sweet potatoes"
+    },
+    {
+      "name": "Greens & more",
+      "description": "Lettuce, spinach, peas, beets, carrots, radishes, cucumbers, green beans and summer squash."
+    }
+  ],
+  "hours_title": "Market hours",
+  "hours": [
+    {
+      "label": "Saturdays, Apr–Sep",
+      "value": "8 a.m.–12:30 p.m."
+    },
+    {
+      "label": "Saturdays in October",
+      "value": "9 a.m.–12:30 p.m."
+    },
+    {
+      "label": "Tuesday market",
+      "value": {
+        "placeholder": "Tuesday market hours (owner to confirm)"
+      }
+    }
+  ],
+  "email": "oldpostgardens@gmail.com",
+  "facebook": "https://www.facebook.com/oldpostgardens",
+  "phone": {
+    "placeholder": "Phone number (owner to add)"
+  },
+  "cta": {
+    "kind": "email",
+    "label": "Email Jim",
+    "subject": "Question for Old Post Gardens"
+  },
+  "theme": {
+    "primary": "#6b1d2a",
+    "accent": "#f4c95d",
+    "background": "#fff7f0",
+    "font_display": "Fraunces",
+    "font_body": "Inter"
+  },
+  "sources": [
+    {
+      "url": "https://www.bloomington.in.gov/farmers-market/vendors/old-post-gardens",
+      "note": "City of Bloomington vendor directory – Old Post Gardens"
+    },
+    {
+      "url": "https://bloomington.in.gov/farmers-market",
+      "note": "City of Bloomington – market days, hours and location (checked 2026-10-15)"
+    }
+  ]
+}
