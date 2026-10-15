@@ -23,10 +23,19 @@ description: Produce "Meatball Motors", an AI-animated sitcom Shorts series abou
 - Setting: sunny used-car lot, colorful flags, "MEATBALL MOTORS" sign, small red hatchback.
 - Style line: "Pixar-style 3D animated comedy, vertical frame, bright cheerful lighting".
 
+## Genre: animal SOAP OPERA (changed 2026-10-15 on Nolan's call)
+Research 08: animal/fruit soap operas with "Part 1/2/3" episodes are the top
+Reels trend (5-13M/reel); animal emotional stories rank #2 on YouTube (06).
+Fruit dramas are cooling on YouTube and borrowed IP got Fruit Love Island
+killed (07), so we use our own animal cast. Keep comedy beats inside the drama.
+- Arc 1: Duchess (white Persian, red scarf, sunglasses), Meatball's ex, returns.
+  Rival dealership "Purrfect Auto" across the street. Biscuit is caught in the middle.
+
 ## Episode format
 - 2 shots x 8 s (veo-3.1-fast, 720p, 9:16, native audio with dialogue) = ~16 s.
-- Shot 1 = setup line; shot 2 = punchline. One joke per episode, loopable end.
-- Title: `Meatball Motors Ep N: <situation> 😭`; caption ends "#ai #animation #cat".
+- Shot 1 = scene; shot 2 = twist/cliffhanger. EVERY episode ends on a cliffhanger.
+- Title: `Meatball Motors Part N: <twist> 😱`; caption ends "Part N+1 tomorrow #ai #animation #cat".
+- Cost: ~255 vidIQ credits per 8 s shot (measured), ~510 per episode.
 - Label as AI-generated on every platform (YouTube altered/synthetic, TikTok AI label).
 - Joke sources: real dealership moments (payment talk, "let me talk to my manager",
   trade-in lowballs, extended warranty, the test drive, "this deal ends today").
