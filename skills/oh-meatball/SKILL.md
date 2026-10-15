@@ -31,7 +31,14 @@ A soap opera starring a very round orange cat. Every part ends on a cliffhanger.
 5. Grandma Shelly knows a bigger secret about Meatball's own family.
 (Extend by comments: whatever viewers argue about most gets the next part.)
 
-## Episode format
+## Episode format (UPDATED 2026-10-15: Nolan said parts were bland, "nothing happens")
+- 4 shots x 8 s = 32 s per part. Every shot is a BEAT: something happens, someone says a line,
+  and at least 2 shots contain a twist/reveal. Each part should cover what used to be 2 parts.
+- Shot pattern: 1) fallout/action from last cliffhanger, 2) new scene + new info, 3) escalation,
+  4) reveal + cliffhanger + sting. Vary locations and weather (storm, rain, night) for drama.
+- Lines: 1-2 short lines per shot, each clearly attributed; comedy beat in at least one shot.
+
+## Episode format (original notes)
 - 2 shots x 8 s (veo-3.1-fast, 720p, 9:16, native dialogue) = ~16 s; end on a cliffhanger.
 - Title: `<hook> 😱 | Oh Meatball Pt N` - score with vidiq_score_title, keep >= 85.
 - Description: 1-line recap + "Part N+1 tomorrow" + hashtags `#shorts #catdrama #ai #animation #cat #ohmeatball`.

@@ -17,9 +17,9 @@ If the balance would not last until the next renewal at 320/day, drop to 1 story
   Use the strongest comment theme in today's plot (that's the engagement loop).
 
 ## 2. Plan today's 3 YouTube posts
-- 2 STORY PARTS (next two parts from story/season1.md) + 1 ZERO-CREDIT EXTRA (pick a format
+- 1 STORY PART of 4 shots (punch up the next part(s) from story/season1.md per SKILL.md's updated format; merge two scripted parts into one if needed) + 2 ZERO-CREDIT EXTRAS (pick a format
   from story/extras.md, cut from existing clips in the scratchpad or re-downloaded via their URLs in data/log.csv).
-- Slots (ET): 12:00 story part A, 16:00 extra, 20:00 story part B.
+- Slots (ET): 12:00 extra, 16:00 extra, 20:00 story part. Budget: 4 lite shots = ~320 credits/day.
 
 ## 2b. Write/adjust the 2 new parts
 - Continue the arc in SKILL.md; each part = 2 shots x 8 s, ends on a cliffhanger.
