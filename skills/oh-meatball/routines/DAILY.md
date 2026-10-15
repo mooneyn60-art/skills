@@ -37,7 +37,15 @@ If the balance would not last until the next renewal at 320/day, drop to 1 story
 - Poll `vidiq_job_poll`. Download, check 3 frames per shot, transcribe dialogue with faster-whisper
   (decode audio via ffmpeg to float32 first). If a character looks wrong or a line is garbled,
   regenerate that ONE shot with a corrected prompt (max 1 retry per shot).
-- Normalize audio: `ffmpeg -af loudnorm=I=-14:TP=-1.5:LRA=11` on every final MP4 (raw AI audio is ~-24 dB, too quiet).
+- AUDIO IS MANDATORY (Nolan 2026-10-15: voices + background music on every video, like competitors).
+  Local master: `python scripts/finish.py --shots s1.mp4 s2.mp4 --part N -o clips/ptNN.mp4 --expect "<line 1>" "<line 2>"`
+  (mixes voices + brand/theme.m4a ducked under dialogue + brand/sting.wav on the cliffhanger,
+  -14 LUFS, then QA: audio present, loudness, no silent gaps, every line heard). If it exits non-zero,
+  fix (re-render the shot) before anything is posted. Save raw shots as clips/ptNN_s1.mp4 / _s2.mp4.
+- Post copy via vidiq_compose: music = {audioUrl: theme https://ai-music-tracks.s3.us-east-1.amazonaws.com/OfWcrmF_PzqcGLg8z7HR-g/c4b820d0-99d9-498a-aee4-4d59079f23ca.wav,
+  volume 0.3, duckTo 0.18, fadeMs 300}; voiceover = sting https://ai-music-tracks.s3.us-east-1.amazonaws.com/OfWcrmF_PzqcGLg8z7HR-g/e030bc24-6fb7-43d4-8ed8-3604a109076d.wav
+  at startAtSeconds total-1.5, durationSeconds 1.5, volume 0.7. Download the compose output and run the
+  same QA (volumedetect mean between -26 and -9 dB, transcript has the lines) before posting.
 - `vidiq_compose` each part (keepNativeAudio) with overlays "PART N" (0-2 s) and
   "PART N+1 TOMORROW" (last 1.7 s). Keep the returned URL.
 
