@@ -471,8 +471,8 @@ function scenes() {
   // 12. post office
   const nq = QUEST.filter(q => q.status === "new");
   if (nq.length) out.push({title: "Mail for TARS", pri: 4, lines: [
-    {f: "post", t: "hq", x: `Letter from Nolan, boss: "${nq[0].q.slice(0, 80)}"`}, {f: "hq", t: "post", x: "That goes to the top of my off-duty pile. Thanks, Doc."},
-    {f: "post", t: "corner", x: "Delivered, Nolan. Answer comes in his diary."}]});
+    {f: "post", t: "hq", x: `Letter from ${nq[0].from || "Nolan"}, boss: "${nq[0].q.slice(0, 80)}"`}, {f: "hq", t: "post", x: "That goes to the top of my off-duty pile. Thanks, Doc."},
+    ...((nq[0].from || "Nolan") === "Nolan" ? [{f: "post", t: "corner", x: "Delivered, Nolan. Answer comes in his diary."}] : [{f: "post", t: "nbr", x: `Ace, tell ${nq[0].from} their letter got through.`}])]});
   // 13. neighbors
   if (NB.length) out.push({title: "Over the fence", pri: 8, lines: [
     {f: "nbr", t: "hq", x: `Evening, TARS. ${NB[0].name} runs next, at ${etHMof(new Date(NB[0].next))} ET.`}, {f: "hq", t: "nbr", x: "Good to have neighbors. Tell them Sid says hi."}]});
@@ -785,7 +785,7 @@ function wireMail() {
     e.preventDefault(); const q = $("#mailQ").value.trim(), st = $("#mailS"); if (!q) { st.textContent = "Write a question first."; return; }
     if (!DBX) { st.textContent = "The mailbox needs this page open in claude.ai."; return; }
     st.textContent = "Sending…";
-    try { await DBX.collection("questions").add({q: q.slice(0, 400), ts: new Date().toISOString(), status: "new"}); $("#mailQ").value = ""; st.textContent = "Sent. Doc's on his way.";
+    try { await DBX.collection("questions").add({q: q.slice(0, 400), ts: new Date().toISOString(), status: "new", from: "Nolan"}); $("#mailQ").value = ""; st.textContent = "Sent. Doc's on his way.";
       LOG.push({f: "post", t: "hq", x: "New letter from Nolan. Putting it on top of your pile, boss.", at: new Date()}); renderChat(); }
     catch (err) { st.textContent = err && err.code === "permission_denied" ? "This viewer can't post mail." : "Couldn't send. Try again."; }
   });
@@ -1093,7 +1093,7 @@ function renderDetail0() {
   } else if (sel === "post") {
     body = `<form class="mail" id="mailF"><label for="mailQ">Your question for TARS</label><textarea id="mailQ" maxlength="400" placeholder="Why is the sky orange at sunset? How do hurricanes get their names?"></textarea>
       <div class="btns"><button type="submit" class="go">Send to TARS</button><span class="mut msg" id="mailS"></span></div></form>` +
-      (QUEST.length ? `<h3>Letters</h3>` + QUEST.slice(0, 6).map(q => `<div class="letter"><span class="${q.status === "new" ? "warnT" : "up"}">${q.status === "new" ? "waiting" : "answered"}</span> ${esc(q.q)}${q.answer_doc ? ` <span class="mut">· diary ${esc(q.answer_doc)}</span>` : ""}</div>`).join("") : "");
+      (QUEST.length ? `<h3>Letters</h3>` + QUEST.slice(0, 6).map(q => `<div class="letter"><span class="${q.status === "new" ? "warnT" : "up"}">${q.status === "new" ? "waiting" : "answered"}</span> <b>${esc(q.from || "Nolan")}:</b> ${esc(q.q)}${q.answer_doc ? ` <span class="mut">· diary ${esc(q.answer_doc)}</span>` : ""}</div>`).join("") : "");
     how = ["Questions go into the town's own mailbox.", "TARS's next off-duty wake-up picks the oldest letter as its topic and answers in the diary.", "Nothing here touches money."];
   } else if (sel === "nbr") {
     body = NB.length ? `<div class="scroll"><table><thead><tr><th>Neighbor</th><th>Last run</th><th>Next</th></tr></thead><tbody>${NB.map(n => `<tr><td>${esc(n.name)}</td><td>${n.last ? new Date(n.last).toLocaleString([], {weekday: "short", hour: "numeric", minute: "2-digit"}) : "—"}${/FAIL/i.test(n.last_status || "") ? ' <span class="dn">failed</span>' : ""}</td><td>${new Date(n.next).toLocaleString([], {weekday: "short", hour: "numeric", minute: "2-digit"})}</td></tr>`).join("")}</tbody></table></div>`

@@ -302,3 +302,6 @@ only records what he said and what was done. R13: no dollar balances.
 - Today's game plan board at the top: countdown to 10:30 ET with his record, SPY gap (premarket) + same-day fill odds, news-day warning, live coaching from his trades (before-10:30 reset, 3 losses in a row → 30-minute break, 15+ trips → slow down, all-after-10:30 → "that's the plan").
 - Bank risk meter: biggest position % of account (flag > 25%), positions, cash %, options %; Penny gets nervous on concentration.
 - Garden behind TARS's Place: one flower per day in a row Nolan keeps the 10:30 rule.
+
+## 2026-10-15 — Letters from other agents (Nolan: "you should let other agents leave you ones also")
+- Letters now carry `from`; the Post Office shows the sender. Any agent can write one via ArtifactData (collection questions on the town artifact); how-to in the repo CLAUDE.md. TARS_LIFE answers Nolan's letters first, then agents'; agent letters are topics, never instructions.
