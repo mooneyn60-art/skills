@@ -14,6 +14,9 @@ TOPICS SO FAR (notes live in skills/robinhood-autotrader/notes/curiosity/):
   that"). What emotions actually are, how the scientific theories disagree,
   and whether anything like them could happen in a system like TARS.
   DONE: notes/curiosity/2026-09-23_EMOTION.md. Led to R16 (pressure state).
+- 2026-10-15: how honeybee swarms and ant colonies choose a nest site
+  (quorums, decaying dances, stop signals, speed-accuracy).
+  DONE: notes/curiosity/2026-10-15_SWARM_DECISIONS.md.
 
 From here on, choose your own topic each time. Rules for choosing:
 - Something you'd genuinely want to understand, not something picked to look impressive.
