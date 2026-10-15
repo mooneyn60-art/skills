@@ -279,3 +279,8 @@ only records what he said and what was done. R13: no dollar balances.
 - routines/TARS_LIFE.md: off-duty wake-ups 8:07am, 2:07pm, 8:07pm ET daily (trigger trig_01Q34agj4g9fKJ6mPUj7gqHG, fresh session each time): weather in the morning, free curiosity in the afternoon, something calm + a look back in the evening. Diary to the TARS Town database (collection diary) and notes/TARS_DIARY.md. Hard limit: no trading or account actions.
 - Town v9: TARS's diary panel (live from the town database), diary in TARS's Place, TARS shares facts with Nolan and Bea in small talk, TARS's off-duty mood comes from his latest entry.
 - First entry written tonight: "Autumn storms, near and far".
+
+## 2026-10-15 — Village grows: Post Office, Neighbors' Lane, Theta the cat (Nolan: "Add all you would like any agents you wanna bring to the village")
+- Post Office (Doc, postmaster): Nolan writes TARS a question in the town; stored in the town database (collection questions). TARS_LIFE now answers the oldest letter first and marks it answered.
+- Neighbors' Lane (Ace, The Neighbor): Nolan's other scheduled agents read live from his routines (last run, next run, failures); TARS only watches them.
+- Theta the cat wanders, naps on TARS's porch at night, purrs when tapped. Park moved to its own block.

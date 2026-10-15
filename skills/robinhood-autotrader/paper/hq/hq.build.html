@@ -8,7 +8,7 @@
   --ground:#e4e9df; --street:#cdd4c6; --plate:#d6ddcf; --panel:#f7f9f4; --ink:#18221d; --muted:#56655c; --line:#c4ccbd;
   --accent:#d07a22; --ok:#2f8a55; --warn:#c08510; --bad:#c13f37; --idle:#8a958d; --win:#f6e7b8;
   --dawn1:#f7c9a4; --dawn2:#fbe5c8; --day1:#9fd0ef; --day2:#d9eef8; --dusk1:#e99b7a; --dusk2:#f4cfae; --night1:#1b2442; --night2:#3a4466; --eye:#e9f6ff; --cloud:#ffffff; --rain:#5d7d9a;
-  --c-hq:#3e5c86; --c-yard:#2a8f84; --c-guard:#6c5a86; --c-pit:#d4643f; --c-arena:#3f7da3; --c-lab:#8a6aa8; --c-farm:#5f9147; --c-look:#b36a24; --c-arch:#718079; --c-corner:#c2477a; --c-bank:#3c8b6e; --c-home:#a0763c; --c-cafe:#b5654b; --leaf:#4f8a4a; --water:#7cc4e4; --skin:#d9a77c; --hood:#2f3a46;
+  --c-hq:#3e5c86; --c-yard:#2a8f84; --c-guard:#6c5a86; --c-pit:#d4643f; --c-arena:#3f7da3; --c-lab:#8a6aa8; --c-farm:#5f9147; --c-look:#b36a24; --c-arch:#718079; --c-corner:#c2477a; --c-bank:#3c8b6e; --c-home:#a0763c; --c-cafe:#b5654b; --c-nbr:#6b7fb0; --c-post:#c9443b; --cat:#e08a3c; --leaf:#4f8a4a; --water:#7cc4e4; --skin:#d9a77c; --hood:#2f3a46;
   --display:"Silkscreen","Courier New",monospace; --body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
@@ -105,6 +105,10 @@ svg{display:block;width:100%;height:auto}
 .diary{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
 .entry{border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.88rem;background:color-mix(in srgb,var(--c-home) 6%,var(--panel))}
 .entry p{margin:6px 0 0} .eh{display:grid;gap:2px} .eh .mut{font-size:.75rem} .fact{color:var(--accent);font-weight:700} .src{font-size:.75rem} .src a{color:var(--muted)}
+.catF{fill:var(--cat)} .tail{fill:none;stroke:var(--cat);stroke-width:3;stroke-linecap:round}
+.mail{display:grid;gap:6px;margin:10px 0} .mail label{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.mail textarea{font:inherit;min-height:70px;border:1px solid var(--line);border-radius:8px;padding:8px;background:var(--bg,var(--panel));color:var(--ink);resize:vertical}
+.letter{font-size:.86rem;padding:5px 0;border-bottom:1px solid var(--line)} .warnT{color:var(--warn);font-weight:700}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;min-width:0}
 .panel h2{font-family:var(--display);font-size:1.15rem;margin:0;letter-spacing:.03em}
 .role{color:var(--muted);margin:4px 0 12px;font-size:.92rem}
@@ -184,7 +188,7 @@ h3{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mu
 </div>
 
 <script>
-const STATIC = {"lab": {"studies": 48, "latest": [{"date": "2026-10-15", "title": "World markets vs SPY (20y daily + 2y hourly)", "points": ["Europe co-moves 0.55-0.60 (overlap hours); Asia 0.1-0.23. US leads Asia (0.34-0.49). Asia/Europe predict the gap, not open-to-close (HSI/KOSPI effect died after 2016; ASX top-quintile +0.04%, t 1.1). After 11:30 ET DAX \u2192 SPY afternoon 0.00.", "Lean: Nikkei \u22122% days \u2192 SPY open-to-close +0.10-0.14%, 57-59% up, both halves. Tracking forward in the journal.", "Yahoo chart API works with a browser UA (query2); stooq blocked; Robinhood has no foreign indexes."]}, {"date": "2026-10-15", "title": "Options-trader tools + Nolan's clock", "points": ["SPY pinning to $1 strikes at close: none (164 days). Intraday momentum (first 30m -> last 30m): weak, t 0.7. GEX: vendor-only evidence; collecting daily snapshots.", "Literature: retail 0DTE buyers lose on average (~60% costs); sellers profit after fees.", "Nolan's trips (226, Oct 8-15): before 10:30 negative 5/5 days, after 10:30 positive 5/6. Holds 2-5 min worst; 5-15 min best. 29% wins, +23%/\u221212% payoff (needs ~35%). Desk ticket warns pre-10:30."]}, {"date": "2026-10-15", "title": "Intraday deep dig (133 OOS days of 5-min + 20y daily)", "points": ["Desk candidates FAILED out of sample: PDL break short \u22120.44 (flipped), equal-lows sweep-reclaim \u22120.20; dip-buys +0.07-0.12 pts (below option spread). No intraday direction edge. Don't re-test these without new data.", "Shape of day is reliable: 42% of range by 10:00, 77% by 11:30; day extremes print in the first 30 min (24% H / 32% L) or the last 30 (17/13).", "Gap fill: <0.1% 88%; 0.1-0.3% 64-76%; 0.3-0.6% 31-58%; >0.6% 21-38%; falling since 2016."]}, {"date": "2026-10-15", "title": "Desk indicator study (31 days SPY 1-min, in-sample)", "points": ["No edge alone: EMA 9/21 cross, VWAP cross, trend state, FVG formation/retest, pool breaks, ORH/ORL, PDH break, first-hour direction (14/30).", "Fibonacci 50/61.8 first-touch bounce: negative, same as random control levels. Fib is not special (2nd confirmation).", "Candidates (|t|\u22652, both halves same sign, ~45 tests so expect ~2 false): 1m RSI<30 dip-buy (+0.17 pts/30m, 57%), PDL break short (+0.79, n=17). Equal-lows sweep-reclaim +0.79 n=11 (too few)."]}]}, "farm": {"equity": 1892.8, "start": 2000.0, "trades": 11, "as_of": "2026-10-15 14:25 ET", "rules_hash": "58c580ed755d"}, "slot": {"buffer_start": 500, "buffer": 500, "realized": 0, "day": null, "day_realized": 0, "open": null, "trades": 0, "halted": false, "rules_hash": "806cce6d583162db"}, "journal": {"days": 0}, "built": "2026-10-15T20:35:41.044531+00:00"};
+const STATIC = {"lab": {"studies": 48, "latest": [{"date": "2026-10-15", "title": "World markets vs SPY (20y daily + 2y hourly)", "points": ["Europe co-moves 0.55-0.60 (overlap hours); Asia 0.1-0.23. US leads Asia (0.34-0.49). Asia/Europe predict the gap, not open-to-close (HSI/KOSPI effect died after 2016; ASX top-quintile +0.04%, t 1.1). After 11:30 ET DAX \u2192 SPY afternoon 0.00.", "Lean: Nikkei \u22122% days \u2192 SPY open-to-close +0.10-0.14%, 57-59% up, both halves. Tracking forward in the journal.", "Yahoo chart API works with a browser UA (query2); stooq blocked; Robinhood has no foreign indexes."]}, {"date": "2026-10-15", "title": "Options-trader tools + Nolan's clock", "points": ["SPY pinning to $1 strikes at close: none (164 days). Intraday momentum (first 30m -> last 30m): weak, t 0.7. GEX: vendor-only evidence; collecting daily snapshots.", "Literature: retail 0DTE buyers lose on average (~60% costs); sellers profit after fees.", "Nolan's trips (226, Oct 8-15): before 10:30 negative 5/5 days, after 10:30 positive 5/6. Holds 2-5 min worst; 5-15 min best. 29% wins, +23%/\u221212% payoff (needs ~35%). Desk ticket warns pre-10:30."]}, {"date": "2026-10-15", "title": "Intraday deep dig (133 OOS days of 5-min + 20y daily)", "points": ["Desk candidates FAILED out of sample: PDL break short \u22120.44 (flipped), equal-lows sweep-reclaim \u22120.20; dip-buys +0.07-0.12 pts (below option spread). No intraday direction edge. Don't re-test these without new data.", "Shape of day is reliable: 42% of range by 10:00, 77% by 11:30; day extremes print in the first 30 min (24% H / 32% L) or the last 30 (17/13).", "Gap fill: <0.1% 88%; 0.1-0.3% 64-76%; 0.3-0.6% 31-58%; >0.6% 21-38%; falling since 2016."]}, {"date": "2026-10-15", "title": "Desk indicator study (31 days SPY 1-min, in-sample)", "points": ["No edge alone: EMA 9/21 cross, VWAP cross, trend state, FVG formation/retest, pool breaks, ORH/ORL, PDH break, first-hour direction (14/30).", "Fibonacci 50/61.8 first-touch bounce: negative, same as random control levels. Fib is not special (2nd confirmation).", "Candidates (|t|\u22652, both halves same sign, ~45 tests so expect ~2 false): 1m RSI<30 dip-buy (+0.17 pts/30m, 57%), PDL break short (+0.79, n=17). Equal-lows sweep-reclaim +0.79 n=11 (too few)."]}]}, "farm": {"equity": 1892.8, "start": 2000.0, "trades": 11, "as_of": "2026-10-15 14:25 ET", "rules_hash": "58c580ed755d"}, "slot": {"buffer_start": 500, "buffer": 500, "realized": 0, "day": null, "day_realized": 0, "open": null, "trades": 0, "halted": false, "rules_hash": "806cce6d583162db"}, "journal": {"days": 0}, "built": "2026-10-15T20:41:06.634982+00:00"};
 const SERVER = "Robinhood", COMP_START = "2026-10-16";
 const CL = window.claude && window.claude.use ? window.claude : {use: async () => null};
 const $ = s => document.querySelector(s);
@@ -210,6 +214,8 @@ const B = [
   {id: "corner", name: "Nolan's Corner", c: 0, r: 3, h: 60, col: "--c-corner", role: "Nolan's place. His own options trades today, his clock rule, and his record."},
   {id: "bank", name: "Bank", c: 1, r: 3, h: 85, col: "--c-bank", role: "Cash and buying power. Keeps Pip's $500 buffer set aside from everything else."},
   {id: "cafe", name: "Café Theta", c: 3, r: 2, h: 45, col: "--c-cafe", role: "Where the town takes breaks. The coffee loses value every minute, like an option's theta."},
+  {id: "nbr", name: "Neighbors' Lane", c: 3, r: 0, h: 58, col: "--c-nbr", role: "Nolan's other agents live here. Their lights show when they last ran and when they run next."},
+  {id: "post", name: "Post Office", c: 3, r: 3, h: 52, col: "--c-post", role: "Write TARS a question. TARS researches it on off-duty time and answers in the diary."},
   {id: "home", name: "TARS's Place", c: 2, r: 3, h: 50, col: "--c-home", role: "Where TARS lives. Shows TARS's real sessions: is the desk awake, what it did last, when it checks next."},
 ];
 const TW = 140, TH = 70, OX = 0, OY = 0, GAP = 2.0;
@@ -232,6 +238,8 @@ const CH = {
   corner: {who: "Nolan", title: "The Player", bio: "Trades SPY options his own way. Great at exits and sizing; working on staying out before 10:30. TARS's friend and rival."},
   bank:  {who: "Penny", title: "The Banker", bio: "Counts every dollar twice. Keeps the options buffer in its own drawer so it can't leak into anything else."},
   cafe:  {who: "Bea", title: "Barista", bio: "Knows everyone's order and everyone's mood. Serves the Gap-and-Go espresso and the Theta Latte."},
+  nbr:   {who: "Ace", title: "The Neighbor", bio: "Represents Nolan's other agents on the lane: the business shifts, the puzzle-book press, the lead finder, the late-night facts channel. Waves over the fence."},
+  post:  {who: "Doc", title: "Postmaster", bio: "Carries Nolan's questions to TARS and TARS's answers back. Has never lost a letter and never will."},
   home:  {who: "CASE", title: "TARS's Housemate", bio: "Keeps the house. Watches TARS's real desk session and schedule, and says so when TARS is asleep or working."},
 };
 function lines(id) {
@@ -300,6 +308,8 @@ function lines(id) {
     case "bank":
       if (S.cash == null) return ["Vault's closed until Robinhood answers."];
       return [`Cash ${money(S.cash)}. ${money(STATIC.slot.buffer)} of it is Pip's buffer, in its own drawer.`, `Free cash outside the buffer: ${money(Math.max(0, S.cash - STATIC.slot.buffer))}.`];
+    case "post": { const n = QUEST.filter(q => q.status === "new"); return n.length ? [`Letter for TARS: "${n[0].q.slice(0, 70)}"`, "I'll put it on top of his pile."] : ["No mail waiting. Write TARS a question, I'll carry it.", "Every letter gets answered in the diary."]; }
+    case "nbr": return NB.length ? [`${NB.length} neighbors on the lane. Next up: ${NB[0].name} at ${etHMof(new Date(NB[0].next))} ET.`, "Good fences, good neighbors."] : ["Quiet lane today. Nobody's scheduled."];
     case "cafe": return ["Today's specials: Gap-and-Go espresso, Theta Latte (drink it fast).", "Everybody comes by eventually. I hear everything."];
     case "home":
       if (HOME.err) return ["Can't see the desk from here. Is the Claude Code connector on?"];
@@ -361,6 +371,8 @@ function deco(id, p, w, hh, H) {
     case "corner": return `<g transform="translate(${tx},${ty - 4})"><rect x="-22" y="-14" width="44" height="12" rx="3" style="fill:#1f1622"/><text class="neon" x="0" y="-5" style="fill:#ff7eb6">NOLAN'S</text></g><circle cx="${tx - w / 2 - 12}" cy="${p.y + TH / 2 + 6}" r="6" class="ball"/>`;
     case "bank": return `<polygon points="${tx - 24},${ty + 2} ${tx},${ty - 14} ${tx + 24},${ty + 2}" style="fill:color-mix(in srgb,var(--c-bank) 60%,white)"/><text x="${tx}" y="${ty - 1}" class="coin">$</text>`;
     case "home": return `<polygon points="${tx - w / 2},${ty + hh / 4} ${tx},${ty - 22} ${tx + w / 2},${ty + hh / 4} ${tx},${ty + hh / 2 + 4}" style="fill:color-mix(in srgb,var(--c-home) 70%,black 20%)"/><rect x="${tx + 10}" y="${ty - 22}" width="7" height="14" style="fill:color-mix(in srgb,var(--c-home) 50%,black)"/>${[0, 1, 2].map(k => `<circle class="smoke" cx="${tx + 13}" cy="${ty - 26}" r="${3 + k}" style="animation-delay:${k * 1.1}s"/>`).join("")}<g class="${HOME.awake ? "lit" : "dark"}"><rect x="${tx - 10}" y="${ty + 18}" width="8" height="8" class="hwin"/><rect x="${tx + 4}" y="${ty + 18}" width="8" height="8" class="hwin"/></g>`;
+    case "post": return `<rect x="${tx - 14}" y="${ty - 4}" width="28" height="8" rx="2" style="fill:#fff2"/><g transform="translate(${tx - w / 2 - 14},${p.y + TH / 2 + 2})"><rect x="-5" y="-14" width="10" height="9" rx="4" style="fill:var(--c-post)"/><rect x="-1" y="-5" width="2" height="9" style="fill:var(--ink)"/>${QUEST.some(q => q.status === "new") ? '<polygon class="flagup" points="5,-14 11,-12 5,-10" style="fill:var(--accent)"/>' : ""}</g><text x="${tx}" y="${ty + 3}" class="coin" style="font-size:11px">✉</text>`;
+    case "nbr": return `${[-16, 0, 16].map((dx, k) => `<polygon points="${tx + dx - 7},${ty + 4 - k * 2} ${tx + dx},${ty - 6 - k * 2} ${tx + dx + 7},${ty + 4 - k * 2}" style="fill:color-mix(in srgb,var(--c-nbr) 50%,white)"/>`).join("")}<g transform="translate(${tx - w / 2 - 18},${p.y + TH / 2})">${[0, 8, 16, 24].map(x => `<rect x="${x}" y="-10" width="2.5" height="11" style="fill:var(--line)"/>`).join("")}<rect x="0" y="-7" width="27" height="2" style="fill:var(--line)"/></g>`;
     case "yard": return `<g transform="translate(${tx - w / 2 - 6},${ty + 30})"><line x1="0" y1="0" x2="0" y2="-62" class="mast"/><line x1="0" y1="-62" x2="44" y2="-56" class="mast"/><g class="hook" style="transform-origin:38px -57px"><line x1="38" y1="-57" x2="38" y2="-34" class="cable"/><rect x="32" y="-34" width="12" height="8" style="fill:var(--c-pit)"/></g></g>`;
   }
   return "";
@@ -441,6 +453,14 @@ function scenes() {
     {f: "bank", t: "hq", x: `Vault count: cash ${money(S.cash)}. Pip's ${money(STATIC.slot.buffer)} is set aside.`},
     {f: "hq", t: "bank", x: S.cash < STATIC.slot.buffer ? "Cash is under the buffer. Nothing new gets bought until that's fixed." : "Good. Keep the buffer in its own drawer."},
     {f: "bank", t: "pit", x: "Pip, that drawer is yours. Don't borrow from the stock money."}, {f: "pit", t: "bank", x: "Wouldn't dream of it, Penny."}]});
+  // 12. post office
+  const nq = QUEST.filter(q => q.status === "new");
+  if (nq.length) out.push({title: "Mail for TARS", pri: 4, lines: [
+    {f: "post", t: "hq", x: `Letter from Nolan, boss: "${nq[0].q.slice(0, 80)}"`}, {f: "hq", t: "post", x: "That goes to the top of my off-duty pile. Thanks, Doc."},
+    {f: "post", t: "corner", x: "Delivered, Nolan. Answer comes in his diary."}]});
+  // 13. neighbors
+  if (NB.length) out.push({title: "Over the fence", pri: 8, lines: [
+    {f: "nbr", t: "hq", x: `Evening, TARS. ${NB[0].name} runs next, at ${etHMof(new Date(NB[0].next))} ET.`}, {f: "hq", t: "nbr", x: "Good to have neighbors. Tell them Sid says hi."}]});
   // 11. home: the real desk session
   out.push({title: "At TARS's Place", pri: HOME.err ? 3 : 6, lines: HOME.err ? [{f: "home", t: "hq", x: "I can't see the desk session from here. Connector's off."}, {f: "hq", t: "home", x: "Then the town runs on Robinhood data alone. Fine for now."}] : [
     {f: "hq", t: "home", x: "CASE, how's the house?"},
@@ -458,7 +478,8 @@ function calib() {
     {id: "guard", src: "open stop orders", state: worst("stops", "positions")}, {id: "look", src: "SPY quote + calendar", state: worst("quotes")},
     {id: "pit", src: "option positions + slot rules", state: worst("optpos")}, {id: "arena", src: "option orders since Oct 16", state: worst("comp")},
     {id: "corner", src: "Nolan's option orders today", state: worst("today_opt")}, {id: "bank", src: "Robinhood cash", state: worst("portfolio")},
-    {id: "cafe", src: "town clock", state: "synced"},
+    {id: "cafe", src: "town clock", state: "synced"}, {id: "post", src: "town mailbox", state: DBOK ? "synced" : "waiting"},
+    {id: "nbr", src: "Nolan's routines (Claude Code)", state: HOME.err ? "waiting" : HOME.upd ? "synced" : "waiting"},
     {id: "home", src: "TARS's sessions (Claude Code)", state: HOME.err ? "waiting" : HOME.upd && Date.now() - HOME.upd < 200000 ? "synced" : HOME.upd ? "stale" : "waiting"},
     {id: "lab", src: "research notes (repo build)", state: buildFresh}, {id: "farm", src: "paper book (repo build)", state: buildFresh}, {id: "arch", src: "journal (repo build)", state: buildFresh}];
 }
@@ -591,6 +612,8 @@ function emotionOf(id) {
       return night ? {emo: "sleepy", why: "Resting up for tomorrow."} : m < 630 && open ? {emo: "excited", why: "Pumped for the open. Waiting till 10:30."} : {emo: "happy", why: "No trades yet. Clean slate."}; }
     case "bank": return S.cash != null && S.cash < STATIC.slot.buffer ? {emo: "worried", why: "Cash is under Pip's buffer."} : night ? {emo: "sleepy", why: "Vault locked."} : {emo: "calm", why: "Every dollar counted twice."};
     case "home": return HOME.awake ? {emo: "focused", why: "TARS's desk is working right now."} : {emo: "cozy", why: "House is warm, TARS is home."};
+    case "post": { const n = QUEST.filter(q => q.status === "new").length; return n ? {emo: "excited", why: `${n} letter${n > 1 ? "s" : ""} for TARS waiting.`} : night ? {emo: "sleepy", why: "Mail's sorted. Lights out."} : {emo: "calm", why: "All letters delivered."}; }
+    case "nbr": return !NB.length ? {emo: "calm", why: "The lane is quiet."} : NB.some(n => /FAIL/i.test(n.last_status || "")) ? {emo: "worried", why: "A neighbor's last run didn't go well."} : {emo: "happy", why: `${NB.length} neighbors, all running.`};
     case "cafe": return night ? {emo: "sleepy", why: "Café's closed."} : {emo: "happy", why: "Everyone comes by eventually."};
   }
   return {emo: "calm", why: ""};
@@ -608,7 +631,7 @@ function faceE(id, x, y, s, delay = 0) {
 // --- walking ---
 const ground = (u, v) => { const q = iso(u, v); return {x: q.x, y: q.y + TH / 2}; };
 const HOMEPOS = id => { if (id === "hq") return null; const b = B.find(x => x.id === id); return {u: b.c + 0.5, v: b.r + 0.5}; };
-const PARK = {u: 3.5, v: 0.5}, CAFE = () => { const b = B.find(x => x.id === "cafe"); return {u: b.c + 0.5, v: b.r + 0.5}; };
+const PARK = {u: 3.5, v: 1.5}, CAFE = () => { const b = B.find(x => x.id === "cafe"); return {u: b.c + 0.5, v: b.r + 0.5}; };
 const PP = {}; // id -> {u,v,x,y,path:[],dir,busyUntil,returnAt,emo}
 function nodeOf(id) { const b = B.find(x => x.id === id); return {u: b.c + 0.5, v: b.r + 0.5}; }
 function homeNode(id) { return id === "hq" && phase() === "night" ? nodeOf("home") : nodeOf(id); }
@@ -655,10 +678,11 @@ function tick(t) {
 }
 // --- daily life: wandering, breaks, going home ---
 function lifeTick() {
+  catLife();
   const now = Date.now(), ph = phase();
-  Object.entries(PP).forEach(([id, p]) => { if (p.returnAt && now > p.returnAt && now > p.busyUntil) { p.returnAt = 0; walkTo(id, homeNode(id), 14, 0); } });
-  if (ph === "night") { Object.keys(PP).forEach(id => { const h = homeNode(id); if ((PP[id].u !== h.u || PP[id].v !== h.v) && now > PP[id].busyUntil) walkTo(id, h, id === "hq" ? -14 : 14, 0); }); return; }
-  const idle = Object.keys(PP).filter(id => now > PP[id].busyUntil && !PP[id].returnAt && !PP[id].path.length && id !== "home");
+  Object.entries(PP).filter(([id]) => id !== "cat").forEach(([id, p]) => { if (p.returnAt && now > p.returnAt && now > p.busyUntil) { p.returnAt = 0; walkTo(id, homeNode(id), 14, 0); } });
+  if (ph === "night") { Object.keys(PP).filter(id => id !== "cat").forEach(id => { const h = homeNode(id); if ((PP[id].u !== h.u || PP[id].v !== h.v) && now > PP[id].busyUntil) walkTo(id, h, id === "hq" ? -14 : 14, 0); }); return; }
+  const idle = Object.keys(PP).filter(id => id !== "cat" && now > PP[id].busyUntil && !PP[id].returnAt && !PP[id].path.length && id !== "home");
   if (!idle.length || Math.random() < 0.35) return;
   const who = idle[Math.floor(Math.random() * idle.length)], r = Math.random();
   if (r < 0.35) walkTo(who, PARK, (Math.random() - .5) * 40, (Math.random() - .5) * 14);
@@ -697,6 +721,34 @@ function diaryCard(d) {
     ${d.fact_for_nolan ? `<p class="fact">For Nolan: ${esc(d.fact_for_nolan)}</p>` : ""}
     ${(d.sources || []).length ? `<p class="src">${d.sources.slice(0, 3).map(u => { let h = ""; try { h = new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return ""; } return `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(h)}</a>`; }).join(" · ")}</p>` : ""}</article>`;
 }
+function drawCat(sleep) {
+  return `<g class="catb"><path d="M9,-4 q10,-2 8,-12" class="tail"/><ellipse cx="0" cy="-4" rx="10" ry="6" class="catF"/><circle cx="-9" cy="-10" r="5.5" class="catF"/>
+    <polygon points="-13,-14 -12,-20 -9,-15" class="catF"/><polygon points="-7,-15 -5,-20 -4,-14" class="catF"/>
+    ${sleep ? `<path d="M-11.5,-10 h3 M-8,-10 h2.5" class="eye" style="stroke:#2a1f1a"/><text x="-2" y="-18" class="zz">z</text>` : `<circle cx="-10.5" cy="-10.5" r="1" class="peF"/><circle cx="-7.2" cy="-10.5" r="1" class="peF"/>`}</g>`;
+}
+function catLife() {
+  const layer = document.getElementById("people"); if (!layer) return;
+  const night = phase() === "night";
+  if (!PP.cat) { const n = nodeOf("home"), g = ground(n.u, n.v); PP.cat = {u: n.u, v: n.v, x: g.x - 26, y: g.y + 8, path: [], dir: 1, busyUntil: 0, returnAt: 0, sleep: null}; }
+  let el = document.getElementById("m-cat");
+  if (!el) { layer.insertAdjacentHTML("beforeend", `<g class="mascot person" id="m-cat" data-m="cat" aria-label="Theta the cat"><g class="dir"></g></g>`); el = document.getElementById("m-cat");
+    el.addEventListener("click", () => { const l = document.getElementById("bubbles"); if (l) l.innerHTML = `<g class="bubble" data-owner="cat"><rect x="-46" y="-34" width="92" height="30" rx="10" class="bubR ok"/><polygon points="-6,-5 6,-5 0,5" class="bubT"/><text class="bubN" x="-36" y="-20">Theta</text><text class="bubX" x="-36" y="-9">${night ? "zzz… mrrp." : "Mrrp. Prrrr."}</text></g>`; }); }
+  if (PP.cat.sleep !== night) { PP.cat.sleep = night; el.querySelector(".dir").innerHTML = drawCat(night); }
+  if (night) { const h = nodeOf("home"); if (PP.cat.u !== h.u || PP.cat.v !== h.v) walkTo("cat", h, -26, 8); return; }
+  if (!PP.cat.path.length && Math.random() < 0.6) { const spots = B.map(b => nodeOf(b.id)).concat([PARK, PARK]); const sp = spots[Math.floor(Math.random() * spots.length)]; walkTo("cat", sp, (Math.random() - .5) * 40, 10); }
+}
+function wireMail() {
+  const f = document.getElementById("mailF"); if (!f || f.dataset.w) return; f.dataset.w = "1";
+  f.addEventListener("submit", async e => {
+    e.preventDefault(); const q = $("#mailQ").value.trim(), st = $("#mailS"); if (!q) { st.textContent = "Write a question first."; return; }
+    if (!DBX) { st.textContent = "The mailbox needs this page open in claude.ai."; return; }
+    st.textContent = "Sending…";
+    try { await DBX.collection("questions").add({q: q.slice(0, 400), ts: new Date().toISOString(), status: "new"}); $("#mailQ").value = ""; st.textContent = "Sent. Doc's on his way.";
+      LOG.push({f: "post", t: "hq", x: "New letter from Nolan. Putting it on top of your pile, boss.", at: new Date()}); renderChat(); }
+    catch (err) { st.textContent = err && err.code === "permission_denied" ? "This viewer can't post mail." : "Couldn't send. Try again."; }
+  });
+}
+function refreshLite() { if (SD) SD = derive(); renderMood(); if (["post", "nbr"].includes(sel)) renderDetail(); syncPeople(); }
 function renderDiary() {
   const el = $("#diary"); if (!el) return;
   el.innerHTML = DIARY.length ? DIARY.slice(0, 6).map(diaryCard).join("") : `<p class="mut">No entries yet. TARS writes here a few times a day: weather in the morning, curiosity in the afternoon, something calm at night.</p>`;
@@ -729,7 +781,7 @@ function drawTown() {
     g += `<line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" class="road"/><line x1="${c2.x}" y1="${c2.y}" x2="${d.x}" y2="${d.y}" class="road"/>`;
   }
   { // the park: fountain, bench, trees
-    const c = ground(3.0, 0.9);
+    const c = ground(3.0, 1.0);
     g += `<g class="park"><ellipse cx="${c.x}" cy="${c.y}" rx="34" ry="17" style="fill:var(--leaf)" opacity=".35"/><ellipse cx="${c.x}" cy="${c.y}" rx="15" ry="7.5" class="pool"/><rect x="${c.x - 2}" y="${c.y - 14}" width="4" height="12" style="fill:var(--line)"/>
       <path class="jet" d="M${c.x},${c.y - 14} q-8,-10 -12,6 M${c.x},${c.y - 14} q8,-10 12,6"/><rect x="${c.x + 20}" y="${c.y + 2}" width="16" height="4" rx="1" style="fill:var(--c-home)"/>
       ${[[-30, -6], [26, -14]].map(([dx, dy]) => `<rect x="${c.x + dx - 1.5}" y="${c.y + dy - 4}" width="3" height="10" style="fill:var(--c-home)"/><circle cx="${c.x + dx}" cy="${c.y + dy - 10}" r="8" class="tree"/>`).join("")}</g>`;
@@ -825,10 +877,12 @@ function derive() {
   status.corner = nt.early ? "warn" : !nt.n ? "idle" : nt.net >= 0 ? "ok" : "warn";
   status.bank = S.cash == null ? "idle" : S.cash < STATIC.slot.buffer ? "warn" : "ok";
   status.cafe = ["day", "dawn"].includes(phase()) ? "ok" : "idle";
+  status.post = QUEST.some(q => q.status === "new") ? "warn" : "ok";
+  status.nbr = !NB.length ? "idle" : NB.some(n => /FAIL/i.test(n.last_status || "")) ? "warn" : "ok";
   status.home = HOME.err ? "idle" : HOME.awake ? "ok" : HOME.last ? "ok" : "idle";
   return S;
 }
-let DIARY = [];
+let DIARY = [], QUEST = [], NB = [], DBOK = false, DBX = null;
 const HOME = {awake: false, last: null, recent: "", next: null, nextName: "", lastRun: null, err: null, upd: null, sched: []};
 function etHMof(d) { return fmtHM.format(d); }
 function nolanToday() {
@@ -853,7 +907,8 @@ function refresh() {
 
 // ---------- detail panel ----------
 const chipTxt = {ok: "Fine", warn: "Needs a look", bad: "Act now", idle: "Idle"};
-function renderDetail() {
+function renderDetail() { renderDetail0(); wireMail(); }
+function renderDetail0() {
   const b = B.find(x => x.id === sel), st = status[sel], S = SD || {rows: [], tars: {n: 0}, nolan: {n: 0}, unprot: [], frac: []};
   let body = "", how = [];
   const dl = rows => `<dl>${rows.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>`;
@@ -906,6 +961,15 @@ function renderDetail() {
     body = dl([["Cash", S.cash != null ? money(S.cash) : "—"], ["Buying power", bp != null ? money(bp) : "—"], ["Pip's buffer (set aside)", money(STATIC.slot.buffer)],
       ["Free cash outside the buffer", S.cash != null ? money(Math.max(0, S.cash - STATIC.slot.buffer)) : "—"], ["Account value", S.val != null ? money(S.val) : "—"]]);
     how = ["The options buffer is only for TARS's slot; stocks never borrow from it.", "If cash falls under the buffer, nothing new gets bought until it's fixed."];
+  } else if (sel === "post") {
+    body = `<form class="mail" id="mailF"><label for="mailQ">Your question for TARS</label><textarea id="mailQ" maxlength="400" placeholder="Why is the sky orange at sunset? How do hurricanes get their names?"></textarea>
+      <div class="btns"><button type="submit" class="go">Send to TARS</button><span class="mut msg" id="mailS"></span></div></form>` +
+      (QUEST.length ? `<h3>Letters</h3>` + QUEST.slice(0, 6).map(q => `<div class="letter"><span class="${q.status === "new" ? "warnT" : "up"}">${q.status === "new" ? "waiting" : "answered"}</span> ${esc(q.q)}${q.answer_doc ? ` <span class="mut">· diary ${esc(q.answer_doc)}</span>` : ""}</div>`).join("") : "");
+    how = ["Questions go into the town's own mailbox.", "TARS's next off-duty wake-up picks the oldest letter as its topic and answers in the diary.", "Nothing here touches money."];
+  } else if (sel === "nbr") {
+    body = NB.length ? `<div class="scroll"><table><thead><tr><th>Neighbor</th><th>Last run</th><th>Next</th></tr></thead><tbody>${NB.map(n => `<tr><td>${esc(n.name)}</td><td>${n.last ? new Date(n.last).toLocaleString([], {weekday: "short", hour: "numeric", minute: "2-digit"}) : "—"}${/FAIL/i.test(n.last_status || "") ? ' <span class="dn">failed</span>' : ""}</td><td>${new Date(n.next).toLocaleString([], {weekday: "short", hour: "numeric", minute: "2-digit"})}</td></tr>`).join("")}</tbody></table></div>`
+      : `<p class="mut">${HOME.err ? "Can't see the lane: the Claude Code connector isn't allowed for this page." : "No neighbors scheduled right now."}</p>`;
+    how = ["These are Nolan's other scheduled agents, read live from his routines.", "TARS only watches them; it never runs or changes them."];
   } else if (sel === "cafe") {
     body = dl([["Gap-and-Go espresso", "for gap-up mornings"], ["Theta Latte", "worth less every minute"], ["Stop-Loss Smoothie", "Sid's favorite"], ["Patience Tea", "Fern's blend"], ["Open", "dawn to dusk"]]);
     how = ["Residents wander over on breaks and talk.", "Nothing here touches money. It's just for the town."];
@@ -983,7 +1047,9 @@ async function start() {
   const watchDesk = id => { if (!id || id === deskId) return; deskId = id; if (unSess) unSess(); unSess = ccw("get_session", {session_id: id}, d => { const c = d.ccr || d; HOME.awake = /RUNNING|WORKING|ACTIVE/i.test(c.session_status || "") || /working/i.test(c.status_bucket || ""); HOME.recent = ((c.post_turn_summary || {}).recent_action || "").slice(0, 160).replace(/[.\s]+$/, ""); HOME.last = c.updated_at || null; }); };
   watchDesk(DESK);
   ccw("list_triggers", {enabled: true}, d => {
-    const ts = (Array.isArray(d) ? d : (d.data || d.triggers || [])).filter(t => /^TARS/.test(t.name || "") && t.next_run_at);
+    const all = Array.isArray(d) ? d : (d.data || d.triggers || []);
+    NB = all.filter(t => !/^TARS/.test(t.name || "") && t.next_run_at).map(t => ({name: t.name, next: t.next_run_at, last: t.last_fired_at || null, last_status: (t.last_run || {}).status || ""})).sort((a, b) => a.next < b.next ? -1 : 1).slice(0, 8);
+    const ts = all.filter(t => /^TARS/.test(t.name || "") && t.next_run_at);
     const pretty = n => n.replace(/^TARS\s*[—-]\s*/, "").replace(/\s*\(desk\)$/, "");
     HOME.sched = ts.map(t => ({name: pretty(t.name), next: t.next_run_at})).sort((a, b) => a.next < b.next ? -1 : 1).slice(0, 7);
     const h = ts.find(t => /hourly/i.test(t.name));
@@ -994,6 +1060,8 @@ async function start() {
 drawTown(); renderDetail(); startChatter();
 CL.use("db").then(db => {
   if (!db) { renderDiary(); return; }
+  DBX = db; DBOK = true;
+  try { db.collection("questions").orderBy("ts", "desc").limit(10).onSnapshot(snap => { QUEST = snap.docs.map(d => ({id: d.id, ...d.data()})); refreshLite(); }, () => {}); } catch (e) {}
   try {
     db.collection("diary").orderBy("ts", "desc").limit(8).onSnapshot(snap => { DIARY = snap.docs.map(d => d.data()).filter(Boolean); renderDiary(); renderMood(); if (sel === "home") renderDetail(); }, () => renderDiary());
   } catch (e) { renderDiary(); }
@@ -1001,6 +1069,6 @@ CL.use("db").then(db => {
 $("#cNext").addEventListener("click", () => { paused = false; $("#cPause").textContent = "Pause"; clearTimeout(playTimer); step(); });
 $("#cPause").addEventListener("click", e => { paused = !paused; e.target.textContent = paused ? "Resume" : "Pause"; if (!paused) step(); });
 setInterval(drawTown, 60000); // sky, clock and sun follow the time
-requestAnimationFrame(tick); setInterval(lifeTick, 6000); renderMood();
+requestAnimationFrame(tick); setInterval(lifeTick, 6000); renderMood(); setTimeout(catLife, 800);
 start();
 </script>
