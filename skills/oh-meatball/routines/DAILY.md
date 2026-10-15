@@ -25,6 +25,11 @@ If the balance would not last until the next renewal at 320/day, drop to 1 story
 - Continue the arc in SKILL.md; each part = 2 shots x 8 s, ends on a cliffhanger.
 - Write `episodes/NN.json`: {part, shot1_prompt, shot2_prompt, dialogue lines, title, description}.
 - Every prompt repeats the cast descriptions word-for-word + the style line.
+- Tags (YouTube, comma-separated, <= 450 chars): always "oh meatball, meatball cat, cat soap opera,
+  cat drama, animated cat, ai cat, cat story, funny cats, chubby cat, orange cat, cartoon cats,
+  ai animation, pixar style animation, cat shorts" + 3-5 episode-specific tags (the twist, the setting).
+  Use `vidiq_keyword_research` once a week to swap in rising terms. Put them in the post's `tags`
+  field in control-room.html, and pass them to scripts/post.sh / the YouTube uploader when available.
 - Titles: draft 3, `vidiq_score_title` (type short), keep the best >= 85, format `<hook> | Oh Meatball Pt N`.
 
 ## 3. Make

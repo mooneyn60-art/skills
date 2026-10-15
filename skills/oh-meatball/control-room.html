@@ -88,9 +88,11 @@ const DATA = {
   posts: [
     {part:1, status:"queued", when:"Now, after your tap",
      title:"He crashed the wedding 😱 She has a secret | Oh Meatball Pt 1", score:96,
+     tags:"oh meatball, meatball cat, cat soap opera, cat drama, cat wedding, wedding objection, wedding drama, animated cat, ai cat, cat story, funny cats, chubby cat, orange cat, cartoon cats, ai animation, pixar style animation, cat shorts",
      desc:"\"If anyone objects, speak now...\" Meatball was ONE second from married. 💍 Then Smokey walked in. What is Duchess hiding? 😳 Part 2 tomorrow at 6 PM ET. Comment who you're siding with 👇 #shorts #catdrama #ai #animation #cat #ohmeatball"},
     {part:2, status:"draft", when:"Tomorrow 12:00 PM ET",
      title:"She was already married 😱 and there's a kitten | Oh Meatball Pt 2", score:94,
+     tags:"oh meatball, meatball cat, cat soap opera, cat drama, secret kitten, secret marriage, cat wedding, family drama, animated cat, ai cat, cat story, funny cats, chubby cat, orange cat, cartoon cats, ai animation, pixar style animation, cat shorts",
      desc:"Duchess was STILL married to Smokey... and then a tiny voice said \"Mommy?\" 😳 Part 3 tonight at 8 PM ET. Team Meatball or Team Smokey? 👇 #shorts #catdrama #ai #animation #cat #ohmeatball"}
   ],
   setup: [
@@ -121,11 +123,11 @@ DATA.posts.forEach(p => {
   const el = document.createElement("article"); el.className = "post";
   el.innerHTML = `<div class="row"><span class="label">Part ${p.part}</span><span class="pill ${p.status}">${labels[p.status]}</span></div>
     <p class="title"></p><span class="meta">${p.when} · title score ${p.score}/100</span><p class="desc"></p>
-    <div class="btns"><button type="button" data-l="Copy title">Copy title</button><button type="button" data-l="Copy description">Copy description</button></div>`;
+    <div class="btns"><button type="button" data-l="Copy title">Copy title</button><button type="button" data-l="Copy description">Copy description</button><button type="button" data-l="Copy tags">Copy tags</button></div>`;
   el.querySelector(".title").textContent = p.title;
   el.querySelector(".desc").textContent = p.desc;
-  const [b1,b2] = el.querySelectorAll("button");
-  b1.onclick = () => copy(b1, p.title); b2.onclick = () => copy(b2, p.desc);
+  const [b1,b2,b3] = el.querySelectorAll("button");
+  b1.onclick = () => copy(b1, p.title); b2.onclick = () => copy(b2, p.desc); b3.onclick = () => copy(b3, p.tags || "");
   $("posts").appendChild(el);
 });
 let saved = {}; try { saved = JSON.parse(localStorage.getItem("om-setup") || "{}"); } catch(e){}
