@@ -20,6 +20,14 @@ If the balance would not last until the next renewal at 320/day, drop to 1 story
 - 1 STORY PART of 4 shots (punch up the next part(s) from story/season1.md per SKILL.md's updated format; merge two scripted parts into one if needed) + 2 ZERO-CREDIT EXTRAS (pick a format
   from story/extras.md, cut from existing clips in the scratchpad or re-downloaded via their URLs in data/log.csv).
 - Slots (ET): 12:00 extra, 16:00 extra, 20:00 story part. Budget: 4 lite shots = ~320 credits/day.
+- AUTO-SCALE: shots today = floor((balance - 400) / days_until_reset / 80), capped at 8 (2 parts).
+  If >= 8, make 2 story parts (second at 16:00 instead of an extra).
+- TIKTOK (monetized; Creator Rewards only pays on videos >= 61 s): every day also post to TikTok
+  OpusClip account 69dbd6fe074f7631e21a2350 (@storyvault438): (a) today's story part, same slot;
+  (b) one RECAP >= 61 s, zero credits: ffmpeg-concat the last 2-3 finished parts (clips/ptNN.mp4)
+  into clips/recap_NN.mp4, title "Oh Meatball Parts X-Y 😱 full story", 21:00 ET. Host it via
+  vidiq_compose (scenes only, keepNativeAudio) to get a public URL, then OpusClip submit + schedule.
+  YouTube gets the recap too as a regular upload once a week (Sunday compilation).
 
 ## 2b. Write/adjust the 2 new parts
 - Continue the arc in SKILL.md; each part = 2 shots x 8 s, ends on a cliffhanger.
