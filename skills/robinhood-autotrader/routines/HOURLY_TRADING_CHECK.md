@@ -6,6 +6,20 @@ This runs in a LEAN session that does not remember past conversations. What
 you know comes from these files: reference/TARS_RULES.md, paper/trades.jsonl,
 notes/GUT_CALLS.md and routines/. Read them, don't assume.
 
+## PREFLIGHT -- DO THESE FIVE BEFORE ANYTHING ELSE (added 2026-10-15)
+
+Adapted from ruflo's trader-risk / protector checklists. Each one is a past failure.
+  1. get_equity_positions + get_option_positions FIRST. Quote no price for a
+     name that is not in that list (10/14: HPE reported held after its stop filled).
+  2. Any position with shares_available_for_sells > 0 (except VLO) has NO STOP:
+     report it first, propose the R18 level, place it only on Nolan's yes
+     (the broker refuses without his confirmation).
+  3. get_equity_orders and get_option_orders since the last log line: any order
+     not in the ledger is an owner trade -> R8 rows now, not at the close.
+  4. Compare the position list with this file's book section; fix this file
+     in the same commit if they differ.
+  5. The log line names every check done; a step you skipped says SKIPPED.
+
 ## NOTIFY NOLAN (push to his phone) — added 2026-09-30 at Nolan's request
 
 At the END of every run, after the checks, decide whether to send ONE
