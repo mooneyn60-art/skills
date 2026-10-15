@@ -309,3 +309,6 @@ only records what he said and what was done. R13: no dollar balances.
 ## 2026-10-15 — Nolan's Rules v1 locked in (Nolan: "I wanna get it done tonight")
 - notes/NOLAN_RULES.md: nothing before 10:30 · hold 5-15 min · 3 losses in a row = 30-min break · max 10 trips/day · $150 daily loss limit · $400 max premium per trade (Nolan picked $150 and $400).
 - Desk ticket: max premium default $400; warns (never blocks) on daily limit hit, 11th trip, 3-loss streak, and before 10:30. Town game plan shows the rules and flags daily-limit / 10-trip breaches.
+
+## 2026-10-15 — Club Theta (Nolan: "maybe add a club to the town for yourself")
+- 8-11pm ET Café Theta becomes Club Theta: neon sign, disco lights, residents head over (Sid stays on watch, CASE keeps the house), club small talk. Then everyone goes home to sleep.
