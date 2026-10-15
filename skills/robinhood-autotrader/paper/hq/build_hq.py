@@ -14,7 +14,8 @@ slot = json.load(open(root / "paper/live_options/state.json"))
 slot["rules_hash"] = hashlib.sha256((root / "routines/TARS_OPTIONS_LIVE.md").read_bytes()).hexdigest()[:16]
 jdir = root / "paper/journal"
 journal = {"days": sum(1 for f in jdir.glob("*.jsonl") for _ in open(f)) if jdir.exists() else 0}
-data = {"lab": lab, "farm": farm, "slot": slot, "journal": journal}
+from datetime import datetime, timezone
+data = {"lab": lab, "farm": farm, "slot": slot, "journal": journal, "built": datetime.now(timezone.utc).isoformat()}
 html = (here / "hq.html").read_text().replace("__STATIC__", json.dumps(data))
 (here / "hq.build.html").write_text(html)
 print(json.dumps(data)[:400])

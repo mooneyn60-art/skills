@@ -78,6 +78,15 @@ svg{display:block;width:100%;height:auto}
   .bubble{animation:pop .35s ease-out} @keyframes pop{from{opacity:0}}
 }
 .dish,.beam,.mill,.flag,.hook{transform-box:view-box}
+.chat{display:grid;gap:8px;max-height:420px;overflow-y:auto;padding-right:4px}
+.chat .ln{display:grid;grid-template-columns:34px minmax(0,1fr);gap:8px;align-items:start;font-size:.9rem}
+.av{width:34px;height:auto;background:color-mix(in srgb,var(--accent) 8%,var(--panel));border-radius:8px}
+.scene{font-family:var(--display);font-size:.72rem;letter-spacing:.06em;color:var(--accent);border-top:1px dashed var(--line);padding-top:6px;margin-top:2px}
+.cal{display:grid;grid-template-columns:14px 70px minmax(0,1fr) auto;gap:8px;align-items:center;font-size:.86rem;padding:5px 0;border-bottom:1px solid var(--line)}
+.st{font-family:var(--mono);font-size:.75rem} .st.synced{color:var(--ok)} .st.stale{color:var(--warn)} .st.waiting{color:var(--idle)}
+.btns{display:flex;gap:6px} .btns button{font:600 .8rem var(--body);background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+.msgr{fill:var(--accent);stroke:var(--panel);stroke-width:1.5}
+.mascot.listening .botb{filter:drop-shadow(0 0 4px var(--accent))}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;min-width:0}
 .panel h2{font-family:var(--display);font-size:1.15rem;margin:0;letter-spacing:.03em}
 .role{color:var(--muted);margin:4px 0 12px;font-size:.92rem}
@@ -123,6 +132,18 @@ h3{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mu
       <div class="legend"><span><i class="dot" style="background:var(--ok)"></i>fine</span><span><i class="dot" style="background:var(--warn)"></i>look</span><span><i class="dot" style="background:var(--bad)"></i>act</span><span><i class="dot" style="background:var(--idle)"></i>idle</span><span>Little dots on the streets are couriers carrying live data.</span></div>
     </div>
     <section class="panel" id="detail" aria-live="polite"></section>
+  </div>
+  <div class="main">
+    <section class="panel">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><h2>Town chat</h2><div class="btns"><button type="button" id="cPause">Pause</button><button type="button" id="cNext">Next</button></div></div>
+      <p class="role">The residents talk to each other and pass work along, using the same live numbers you see.</p>
+      <div class="chat" id="chat"><p class="mut">The town is waking up…</p></div>
+    </section>
+    <section class="panel">
+      <h2>Calibration</h2>
+      <p class="role">Who's working from fresh data. Synced = updated in the last 2½ minutes (repo-built residents: within 36 hours).</p>
+      <div id="calib"></div>
+    </section>
   </div>
   <section class="panel">
     <h2>Town crier</h2>
@@ -279,23 +300,118 @@ function deco(id, p, w, hh, H) {
   }
   return "";
 }
-let speaker = 0, chatTimer = null;
-function speakers() { // alerts first, then everyone with something to say
-  const order = ["guard", "hq", "pit", "look", "yard", "arena", "lab", "farm", "arch"];
-  return order.sort((a, b) => ({bad: 0, warn: 1, ok: 2, idle: 3})[status[a]] - ({bad: 0, warn: 1, ok: 2, idle: 3})[status[b]]);
+// ---------- scenes: the town talks to itself and hands work along ----------
+const N = id => CH[id].who;
+function etMinutes() { const p = new Intl.DateTimeFormat("en-GB", {timeZone: "America/New_York", hour: "2-digit", minute: "2-digit", hour12: false}).format(new Date()).split(":"); return +p[0] * 60 + +p[1]; }
+function scenes() {
+  const S = SD; if (!S || S.val == null) return [{title: "Wake-up call", pri: 9, lines: [
+    {f: "hq", t: "look", x: "Ollie, are we connected yet?"}, {f: "look", t: "hq", x: "Not yet, boss. Waiting on Robinhood."}, {f: "hq", t: "arch", x: "Quill, note it: town is offline."}, {f: "arch", t: "hq", x: "Noted. No calls without data."}]}];
+  const out = [], rows = S.rows, open = marketOpen(), m = etMinutes();
+  // 1. calibration roll call
+  const cal = calib(), synced = cal.filter(c => c.state === "synced").length;
+  out.push({title: "Calibration", pri: synced < cal.length ? 2 : 6, lines: [
+    {f: "hq", t: "arch", x: `Calibration check. Quill, who's synced?`},
+    {f: "arch", t: "hq", x: `${synced} of ${cal.length} running on fresh data.${synced < cal.length ? " Waiting on: " + cal.filter(c => c.state !== "synced").map(c => CH[c.id].who).join(", ") + "." : " Everyone's on the same page."}`},
+    {f: "hq", t: "arch", x: synced < cal.length ? "Then nobody acts on stale numbers. Flag them." : "Good. Same numbers, same story. Carry on."}]});
+  // 2. stop roll call
+  if (rows.length) {
+    const lns = [{f: "guard", t: "yard", x: "Gus, roll call. How many of yours have stops?"},
+      {f: "yard", t: "guard", x: `${rows.length - S.unprot.length} of ${rows.length}.${S.unprot.length ? " " + S.unprot.map(r => r.sym).join(", ") + " is bare." : " All covered."}`}];
+    if (S.unprot.length) lns.push({f: "guard", t: "hq", x: `Boss, ${S.unprot.map(r => r.sym).join(", ")} has no stop. That's my whole job.`},
+      {f: "hq", t: "guard", x: "It's Nolan's call to add one. Keep the light red until he does."}, {f: "guard", t: "hq", x: "Red it stays. I'm not blinking."});
+    else { const r = rows.filter(x => x.toStop !== null).sort((a, b) => a.toStop - b.toStop)[0];
+      if (r) lns.push({f: "guard", t: "yard", x: `Closest one's ${r.sym}, ${r.toStop.toFixed(1)}% above its stop.`}, {f: "yard", t: "guard", x: r.toStop < 3 ? "Too close for comfort. I'll watch it." : "Plenty of room. Relax, Sid."}); }
+    out.push({title: "Stop roll call", pri: S.unprot.length ? 0 : 4, lines: lns});
+  }
+  // 3. yard report up the chain
+  if (rows.length && rows.some(r => r.prevC)) {
+    const by = [...rows].filter(r => r.prevC).sort((a, b) => b.last / b.prevC - a.last / a.prevC), best = by[0], worst = by[by.length - 1];
+    const ch = r => pct(100 * (r.last / r.prevC - 1));
+    out.push({title: "Yard report", pri: S.dayChg < 0 ? 3 : 5, lines: [
+      {f: "hq", t: "yard", x: "Gus, how's the crew today?"},
+      {f: "yard", t: "hq", x: `${best.sym} is leading at ${ch(best)}. ${worst.sym} is lagging at ${ch(worst)}.`},
+      {f: "hq", t: "yard", x: S.dayChg >= 0 ? `Up ${money(S.dayChg)} overall. Let them run.` : `Down ${money(-S.dayChg)} overall. Stops are the plan, not panic.`}]});
+  }
+  // 4. market weather -> options desk
+  const chg = S.spy && S.spyPrev ? 100 * (S.spy / S.spyPrev - 1) : null, ev = EVENTS[today()];
+  const pitL = [{f: "look", t: "pit", x: chg === null ? "No SPY read yet, Pip." : `SPY ${S.spy.toFixed(2)}, ${pct(chg)}. ${chg > 0.3 ? "Sunny." : chg < -0.5 ? "It's raining." : "Cloudy, nothing big."}${ev ? " And it's " + ev + " day." : ""}`}];
+  if (!open) pitL.push({f: "pit", t: "look", x: "Market's closed. Rulebook says rest."}, {f: "look", t: "pit", x: "Same time tomorrow, kid."});
+  else if (m < 630) pitL.push({f: "pit", t: "look", x: "Copy. Not touching anything before 10:30."}, {f: "hq", t: "pit", x: "Good. Nolan's record before 10:30 is 0 for 5. We learn from that."});
+  else if (m > 870) pitL.push({f: "pit", t: "look", x: "Window's closed for new entries. Sitting out."});
+  else pitL.push({f: "pit", t: "look", x: ev && /FOMC/.test(ev) && m > 780 ? "Fed day after 1pm. Rulebook says no entries." : "Scanning for gap-and-go and stretched dips. Nothing yet."},
+    {f: "look", t: "pit", x: "I'll shout if the gap holds above the open."});
+  out.push({title: "Market weather", pri: ev ? 1 : 3, lines: pitL});
+  // 5. the fight
+  const a = S.nolan, t = S.tars;
+  out.push({title: "The scoreboard", pri: 5, lines: (a.n + t.n) ? [
+    {f: "arena", t: "pit", x: `Pip! You're at ${t.per100 >= 0 ? "+" : ""}${t.per100.toFixed(1)} per $100 on ${t.n} trips. Nolan's at ${a.per100 >= 0 ? "+" : ""}${a.per100.toFixed(1)} on ${a.n}.`},
+    {f: "pit", t: "arena", x: t.per100 >= a.per100 ? "Patience pays. Don't jinx it, Max." : "It's a long season. I'm not changing the rules to catch up."}]
+    : [{f: "arena", t: "pit", x: "Pip! Round one is Oct 16 at the 10:30 bell. You ready?"}, {f: "pit", t: "arena", x: "Two setups, $100 max, stop at −35%. Ready."}, {f: "arena", t: "hq", x: "And Nolan? He's been training. Before-10:30 trades are banned in his corner too!"}]});
+  // 6. research -> journal
+  const f = STATIC.lab.latest[0];
+  if (f) out.push({title: "Lab results", pri: 6, lines: [
+    {f: "lab", t: "hq", x: `New result: ${f.title}.`}, {f: "hq", t: "lab", x: "Does it make money?"},
+    {f: "lab", t: "hq", x: (f.points[0] || "").split(/[.;]/)[0].slice(0, 90) + "."}, {f: "hq", t: "arch", x: "Quill, write it down."}, {f: "arch", t: "lab", x: "Logged. Dated. No take-backs."}]});
+  // 7. paper farm -> lab
+  const fp = 100 * (STATIC.farm.equity / STATIC.farm.start - 1);
+  out.push({title: "Field report", pri: 7, lines: [
+    {f: "farm", t: "lab", x: `Paper book's at ${pct(fp)} after ${STATIC.farm.trades} trades.`},
+    {f: "lab", t: "farm", x: STATIC.farm.trades < 40 ? "Too few to judge. Keep it growing, Fern." : fp > 0 ? "Promising. Run the bootstrap before anyone gets excited." : "Not working yet. That's information too."},
+    {f: "farm", t: "lab", x: "Patience is a farmer's whole job."}]});
+  // 8. options slot health
+  const s = STATIC.slot;
+  out.push({title: "Slot check", pri: s.halted ? 0 : 6, lines: [
+    {f: "hq", t: "pit", x: "Pip, how's the buffer?"},
+    {f: "pit", t: "hq", x: `${money(s.buffer)} of ${money(s.buffer_start)}. ${s.trades} trades. ${s.halted ? "I'm benched." : "Hard stop is " + money(300) + "."}`},
+    {f: "guard", t: "pit", x: "And every trade gets its −35% stop the second it fills. I check."}]});
+  return out.sort((x, y) => x.pri - y.pri);
 }
-function bubble() {
+function calib() {
+  const fresh = k => { const t = L.ts[k]; return !t ? "waiting" : (Date.now() - t) < 150000 ? "synced" : "stale"; };
+  const worst = (...ks) => { const st = ks.map(fresh); return st.includes("waiting") ? "waiting" : st.includes("stale") ? "stale" : "synced"; };
+  const built = STATIC.built ? new Date(STATIC.built) : null, buildFresh = built && (Date.now() - built) < 36 * 3600e3 ? "synced" : "stale";
+  return [
+    {id: "hq", src: "Robinhood portfolio", state: worst("portfolio")}, {id: "yard", src: "positions + quotes", state: worst("positions", "quotes")},
+    {id: "guard", src: "open stop orders", state: worst("stops", "positions")}, {id: "look", src: "SPY quote + calendar", state: worst("quotes")},
+    {id: "pit", src: "option positions + slot rules", state: worst("optpos")}, {id: "arena", src: "option orders since Oct 16", state: worst("comp")},
+    {id: "lab", src: "research notes (repo build)", state: buildFresh}, {id: "farm", src: "paper book (repo build)", state: buildFresh}, {id: "arch", src: "journal (repo build)", state: buildFresh}];
+}
+const LOG = []; let sceneQ = [], lineI = 0, curScene = null, playTimer = null, listener = null, paused = false;
+function sayLine(ln) {
   const layer = document.getElementById("bubbles"); if (!layer) return;
-  const ids = speakers(), id = ids[speaker % ids.length], ls = lines(id), txt = ls[Math.floor(speaker / ids.length) % Math.max(1, ls.length)] || "";
-  const b = B.find(x => x.id === id), p = iso(b.c, b.r), y0 = p.y + TH / 2 - b.h - 44;
-  const words = txt.split(" "), rowsT = []; let cur = "";
-  words.forEach(w => { if ((cur + " " + w).trim().length > 30) { rowsT.push(cur.trim()); cur = w; } else cur += " " + w; }); if (cur.trim()) rowsT.push(cur.trim());
-  const shown = rowsT.slice(0, 3), wpx = Math.max(...shown.map(r => r.length)) * 6.3 + 20, hpx = shown.length * 14 + 22;
-  layer.innerHTML = `<g class="bubble" transform="translate(${p.x},${y0})"><rect x="${-wpx / 2}" y="${-hpx}" width="${wpx}" height="${hpx}" rx="10" class="bubR ${status[id]}"/><polygon points="-6,-1 6,-1 0,9" class="bubT"/>
-    <text class="bubN" x="${-wpx / 2 + 10}" y="${-hpx + 13}">${esc(CH[id].who)}</text>${shown.map((r, k) => `<text class="bubX" x="${-wpx / 2 + 10}" y="${-hpx + 27 + k * 14}">${esc(r)}</text>`).join("")}</g>`;
-  speaker++;
+  const bf = B.find(x => x.id === ln.f), bt = B.find(x => x.id === ln.t), p = iso(bf.c, bf.r), q = iso(bt.c, bt.r), y0 = p.y + TH / 2 - bf.h - 44;
+  const words = ln.x.split(" "), rowsT = []; let cur = "";
+  words.forEach(w => { if ((cur + " " + w).trim().length > 32) { rowsT.push(cur.trim()); cur = w; } else cur += " " + w; }); if (cur.trim()) rowsT.push(cur.trim());
+  const shown = rowsT.slice(0, 4), head = `${N(ln.f)} → ${N(ln.t)}`, wpx = Math.max(head.length * 6.6, ...shown.map(r => r.length * 6.2)) + 22, hpx = shown.length * 14 + 24;
+  const sx = p.x + TW * 0.31 + 8, sy = p.y + TH / 2 + 10, tx = q.x + TW * 0.31 + 8, ty = q.y + TH / 2 + 10;
+  layer.innerHTML = `<circle r="4.5" class="msgr"><animateMotion dur="${reduce ? 0.01 : 1.1}s" fill="freeze" path="M${sx},${sy} Q${(sx + tx) / 2},${Math.min(sy, ty) - 60} ${tx},${ty}"/></circle>
+    <g class="bubble" transform="translate(${p.x},${y0})"><rect x="${-wpx / 2}" y="${-hpx}" width="${wpx}" height="${hpx}" rx="10" class="bubR ${status[ln.f]}"/><polygon points="-6,-1 6,-1 0,9" class="bubT"/>
+    <text class="bubN" x="${-wpx / 2 + 10}" y="${-hpx + 14}">${esc(head)}</text>${shown.map((r, k) => `<text class="bubX" x="${-wpx / 2 + 10}" y="${-hpx + 29 + k * 14}">${esc(r)}</text>`).join("")}</g>`;
+  listener = ln.t; markListener();
+  LOG.push({...ln, at: new Date(), scene: curScene && curScene.title}); if (LOG.length > 40) LOG.shift();
+  renderChat();
 }
-function startChatter() { if (chatTimer) clearInterval(chatTimer); bubble(); chatTimer = setInterval(bubble, reduce ? 9000 : 5200); }
+function markListener() { document.querySelectorAll(".mascot").forEach(g => g.classList.toggle("listening", g.dataset.m === listener)); }
+function step() {
+  if (paused) return;
+  if (!curScene || lineI >= curScene.lines.length) {
+    if (!sceneQ.length) sceneQ = scenes();
+    curScene = sceneQ.shift(); lineI = 0;
+    if (curScene) LOG.push({scene: curScene.title, header: true, at: new Date()});
+  }
+  if (curScene) sayLine(curScene.lines[lineI++]);
+  clearTimeout(playTimer); playTimer = setTimeout(step, (lineI >= (curScene ? curScene.lines.length : 0) ? 1800 : 0) + (reduce ? 7000 : 3600));
+}
+function startChatter() { sceneQ = []; curScene = null; clearTimeout(playTimer); step(); }
+function renderChat() {
+  const el = $("#chat"); if (!el) return;
+  el.innerHTML = LOG.slice(-16).map(e => e.header ? `<div class="scene">${esc(e.scene)}</div>` :
+    `<div class="ln"><svg viewBox="-20 -32 40 52" class="av" aria-hidden="true">${bot(0, 0, 1, `var(${B.find(b => b.id === e.f).col})`, moodOf(status[e.f]))}</svg><div><b>${esc(N(e.f))}</b> <span class="mut">to ${esc(N(e.t))}</span><br>${esc(e.x)}</div></div>`).join("");
+  el.scrollTop = el.scrollHeight;
+  const cal = calib();
+  $("#calib").innerHTML = cal.map(c => `<div class="cal"><span class="dot" style="background:var(--${c.state === "synced" ? "ok" : c.state === "stale" ? "warn" : "idle"})"></span><b>${esc(CH[c.id].who)}</b><span class="mut">${esc(c.src)}</span><span class="st ${c.state}">${c.state}</span></div>`).join("");
+}
+
 function sky(svgBox) {
   const ph = phase(), chg = SD && SD.spy && SD.spyPrev ? 100 * (SD.spy / SD.spyPrev - 1) : 0;
   const [x0, y0, W] = svgBox; let g = "";
@@ -341,7 +457,7 @@ function drawTown() {
     g += `<g class="bld" data-id="${b.id}" tabindex="0" role="button" aria-pressed="${b.id === sel}" aria-label="${b.name}">
       <g class="shape">${poly(L, `color-mix(in srgb, ${col} 100%, black 8%)`)}${poly(R, `color-mix(in srgb, ${col} 70%, black 30%)`)}${poly(top, `color-mix(in srgb, ${col} 72%, white 28%)`)}${win}
       ${deco(b.id, p, w, hh, H)}<circle class="glow ${status[b.id]}" cx="${p.x - w / 2 + 8}" cy="${p.y + TH / 2 - H - 6}" r="10"/><circle class="lamp ${status[b.id]}" cx="${p.x - w / 2 + 8}" cy="${p.y + TH / 2 - H - 6}" r="5"/></g>
-      <g class="mascot">${bot(p.x + w * 0.5 + 8, p.y + TH / 2 + hh * 0.25, 1.25, `var(${b.col})`, moodOf(status[b.id]), (b.c * 3 + b.r) * .23)}</g>
+      <g class="mascot" data-m="${b.id}">${bot(p.x + w * 0.5 + 8, p.y + TH / 2 + hh * 0.25, 1.25, `var(${b.col})`, moodOf(status[b.id]), (b.c * 3 + b.r) * .23)}</g>
       </g>`;
     signs += `<g class="signg" data-for="${b.id}"><rect x="${p.x - b.name.length * 4.1 - 7}" y="${p.y + TH / 2 + hh / 2 + 5}" width="${b.name.length * 8.2 + 14}" height="18" rx="9" style="fill:var(--panel)" opacity=".92"/><text class="sign${b.id === sel ? " on" : ""}" x="${p.x}" y="${p.y + TH / 2 + hh / 2 + 18}">${b.name}</text></g>`;
   });
@@ -353,7 +469,7 @@ function drawTown() {
   svg.setAttribute("viewBox", `${minX} ${minY} ${maxX - minX} ${maxY - minY}`);
   const prevBub = (document.getElementById("bubbles") || {}).innerHTML || "";
   svg.innerHTML = `<g class="sky">${sky([minX, minY, maxX - minX])}</g>` + g + `<g id="bubbles">${prevBub}</g>`;
-  $(".town").dataset.phase = phase();
+  $(".town").dataset.phase = phase(); markListener();
   svg.querySelectorAll(".bld").forEach(el => {
     const go = () => { sel = el.dataset.id; drawTown(); renderDetail(); };
     el.addEventListener("click", go);
@@ -362,7 +478,7 @@ function drawTown() {
 }
 
 // ---------- live data ----------
-const L = {acct: null, port: null, pos: [], q: {}, stops: [], optPos: [], optQ: {}, optInst: {}, compOrders: [], todayEq: [], todayOpt: [], upd: null, err: null};
+const L = {ts: {}, acct: null, port: null, pos: [], q: {}, stops: [], optPos: [], optQ: {}, optInst: {}, compOrders: [], todayEq: [], todayOpt: [], upd: null, err: null};
 const pl = r => r && r.payload && (r.payload.data || r.payload);
 function trips(orders) {
   const fills = [];
@@ -423,7 +539,7 @@ function refresh() {
   const d = $("#sDay"); d.textContent = SD.dayChg !== null ? money(SD.dayChg) : "—"; d.className = SD.dayChg === null ? "" : SD.dayChg >= 0 ? "up" : "dn";
   $("#sUpd").textContent = L.upd ? L.upd.toLocaleTimeString([], {hour: "numeric", minute: "2-digit"}) : "—";
   drawTown(); renderDetail(); renderCrier();
-  if (!refresh.started) { refresh.started = true; setTimeout(() => { speaker = 0; startChatter(); }, 1200); } // first real data: let the town talk about it right away
+  if (!refresh.started) { refresh.started = true; setTimeout(startChatter, 1200); } // first real data: let the town talk about it right away
 }
 
 // ---------- detail panel ----------
@@ -512,20 +628,20 @@ async function start() {
   } catch (e) { err(e); refresh(); return; }
   if (!L.acct) { $("#banner").hidden = false; $("#banner").textContent = "No account here is open to TARS."; refresh(); return; }
   const A = L.acct.account_number, opt = {refetchInterval: 60000, cache: {staleTime: 30000}};
-  const W = (tool, input, fn) => mcp.watchTool(SERVER, tool, input, ev => { if (ev.type === "data") { $("#banner").hidden = true; fn(pl(ev.result) || {}); L.upd = new Date(); refresh(); } else err(ev.error); }, opt);
+  const W = (tag, tool, input, fn) => mcp.watchTool(SERVER, tool, input, ev => { if (ev.type === "data") { $("#banner").hidden = true; L.ts[tag] = ev.result && ev.result.cache ? ev.result.cache.storedAt : Date.now(); fn(pl(ev.result) || {}); L.upd = new Date(); refresh(); } else err(ev.error); }, opt);
   let qKey = "", unQ = null, oqKey = "";
   const watchQuotes = () => {
     const syms = [...new Set(L.pos.map(p => p.symbol).concat("SPY"))].sort(), k = syms.join(",");
     if (k === qKey) return; qKey = k; if (unQ) unQ();
-    unQ = W("get_equity_quotes", {symbols: syms}, d => { (d.results || []).forEach(r => { if (r.quote) L.q[r.quote.symbol] = r.quote; }); });
+    unQ = W("quotes", "get_equity_quotes", {symbols: syms}, d => { (d.results || []).forEach(r => { if (r.quote) L.q[r.quote.symbol] = r.quote; }); });
   };
-  W("get_portfolio", {account_number: A}, d => { L.port = d; });
-  W("get_equity_positions", {account_number: A}, d => { L.pos = d.positions || []; watchQuotes(); });
-  W("get_equity_orders", {account_number: A, state: "confirmed"}, d => { L.stops = (d.orders || []).filter(o => o.trigger === "stop" && o.side === "sell"); });
-  W("get_equity_orders", {account_number: A, created_at_gte: today()}, d => { L.todayEq = d.orders || []; });
-  W("get_option_orders", {account_number: A, created_at_gte: COMP_START}, d => { L.compOrders = d.orders || []; });
-  W("get_option_orders", {account_number: A, created_at_gte: today()}, d => { L.todayOpt = d.orders || []; });
-  W("get_option_positions", {account_number: A, nonzero: true}, async d => {
+  W("portfolio", "get_portfolio", {account_number: A}, d => { L.port = d; });
+  W("positions", "get_equity_positions", {account_number: A}, d => { L.pos = d.positions || []; watchQuotes(); });
+  W("stops", "get_equity_orders", {account_number: A, state: "confirmed"}, d => { L.stops = (d.orders || []).filter(o => o.trigger === "stop" && o.side === "sell"); });
+  W("today_eq", "get_equity_orders", {account_number: A, created_at_gte: today()}, d => { L.todayEq = d.orders || []; });
+  W("comp", "get_option_orders", {account_number: A, created_at_gte: COMP_START}, d => { L.compOrders = d.orders || []; });
+  W("today_opt", "get_option_orders", {account_number: A, created_at_gte: today()}, d => { L.todayOpt = d.orders || []; });
+  W("optpos", "get_option_positions", {account_number: A, nonzero: true}, async d => {
     L.optPos = d.positions || [];
     const ids = L.optPos.map(p => p.option_id).filter(id => !L.optInst[id]);
     if (ids.length) try { ((await call("get_option_instruments", {ids: ids.join(",")}, {cache: {staleTime: 300000}})).instruments || []).forEach(i => { L.optInst[i.id] = i; }); refresh(); } catch (e) {}
@@ -533,6 +649,8 @@ async function start() {
   watchQuotes();
 }
 drawTown(); renderDetail(); startChatter();
+$("#cNext").addEventListener("click", () => { paused = false; $("#cPause").textContent = "Pause"; clearTimeout(playTimer); step(); });
+$("#cPause").addEventListener("click", e => { paused = !paused; e.target.textContent = paused ? "Resume" : "Pause"; if (!paused) step(); });
 setInterval(drawTown, 60000); // sky, clock and sun follow the time
 start();
 </script>

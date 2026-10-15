@@ -250,3 +250,7 @@ only records what he said and what was done. R13: no dollar balances.
 ## 2026-10-15 — TARS Town gets personality (Nolan: "give them more life ... give them personality")
 - Nine characters with names, bios and data-driven lines: TARS (HQ), Gus (Stock Yard), Sid (Stop Tower), Ollie (Lookout), Pip (Options Pit), Max (Arena announcer), Dr. Nyx (Lab), Fern (Paper Farm), Quill (Journal). Robot mascots whose faces change with status (happy/worried/alarm/sleepy); speech bubbles rotate, alerts first.
 - Moving parts: HQ dish + beacon, Stop Tower searchlight, Options neon sign, Arena flags, Lab bubbles, windmill, crane hook, Journal clock showing ET time. Sky follows market hours (dawn/day/dusk/night with stars); weather follows SPY (sun on up days, clouds, rain on −0.5% days). Reduced-motion respected.
+
+## 2026-10-15 — TARS Town residents talk and work together (Nolan: "make them talk to each other and work together full calibration")
+- Scene engine built from live data, alerts first: Calibration (TARS↔Quill), Stop roll call (Sid→Gus→TARS escalation), Yard report (TARS↔Gus), Market weather (Ollie→Pip, TARS backs the 10:30 rule), Scoreboard (Max↔Pip), Lab results (Nyx→TARS→Quill logs it), Field report (Fern↔Nyx), Slot check (TARS↔Pip, Sid confirms stops). A messenger runs between buildings each line; the listener glows.
+- Town chat panel (Pause/Next) logs the conversation with faces. Calibration panel: each resident's data source and freshness (synced <2.5 min live, repo-built within 36 h).
