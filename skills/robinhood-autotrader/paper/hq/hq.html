@@ -8,7 +8,7 @@
   --ground:#e4e9df; --street:#cdd4c6; --plate:#d6ddcf; --panel:#f7f9f4; --ink:#18221d; --muted:#56655c; --line:#c4ccbd;
   --accent:#d07a22; --ok:#2f8a55; --warn:#c08510; --bad:#c13f37; --idle:#8a958d; --win:#f6e7b8;
   --dawn1:#f7c9a4; --dawn2:#fbe5c8; --day1:#9fd0ef; --day2:#d9eef8; --dusk1:#e99b7a; --dusk2:#f4cfae; --night1:#1b2442; --night2:#3a4466; --eye:#e9f6ff; --cloud:#ffffff; --rain:#5d7d9a;
-  --c-hq:#3e5c86; --c-yard:#2a8f84; --c-guard:#6c5a86; --c-pit:#d4643f; --c-arena:#3f7da3; --c-lab:#8a6aa8; --c-farm:#5f9147; --c-look:#b36a24; --c-arch:#718079;
+  --c-hq:#3e5c86; --c-yard:#2a8f84; --c-guard:#6c5a86; --c-pit:#d4643f; --c-arena:#3f7da3; --c-lab:#8a6aa8; --c-farm:#5f9147; --c-look:#b36a24; --c-arch:#718079; --c-corner:#c2477a; --c-bank:#3c8b6e; --c-home:#a0763c; --skin:#d9a77c; --hood:#2f3a46;
   --display:"Silkscreen","Courier New",monospace; --body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
@@ -91,6 +91,9 @@ svg{display:block;width:100%;height:auto}
 .handoff{font-size:.85rem} .handoff code{font-family:var(--mono);background:color-mix(in srgb,var(--accent) 10%,var(--panel));padding:1px 5px;border-radius:4px;overflow-wrap:anywhere}
 .copy{font:600 .75rem var(--body);background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:2px 8px;cursor:pointer}
 .btns button.go{background:var(--accent);border-color:var(--accent);color:#fff} .btns button:disabled{opacity:.6} .msg{font-size:.82rem}
+.pe{fill:none;stroke:#2a1f1a;stroke-width:1.4;stroke-linecap:round} .peF{fill:#2a1f1a} .ball{fill:#e8783a;stroke:#2a1f1a;stroke-width:1}
+.coin{font:700 13px var(--display);fill:#ffe08a;text-anchor:middle} .hwin{fill:#3a3020} .lit .hwin{fill:var(--win)} .smoke{fill:var(--line);opacity:0}
+@media (prefers-reduced-motion:no-preference){.smoke{animation:smoke 3.3s ease-out infinite} @keyframes smoke{0%{opacity:0;transform:translate(0,0)}20%{opacity:.7}100%{opacity:0;transform:translate(8px,-24px)}} .ball{animation:dribble .8s ease-in infinite alternate} @keyframes dribble{to{transform:translateY(-8px)}}}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;min-width:0}
 .panel h2{font-family:var(--display);font-size:1.15rem;margin:0;letter-spacing:.03em}
 .role{color:var(--muted);margin:4px 0 12px;font-size:.92rem}
@@ -183,6 +186,9 @@ const B = [
   {id: "arena", name: "Nolan's Arena", c: 0, r: 2, h: 75, col: "--c-arena", role: "Nolan vs TARS. Scored by net per $100 of option premium spent since Oct 16."},
   {id: "farm", name: "Paper Farm", c: 1, r: 2, h: 55, col: "--c-farm", role: "The data farm's paper book: SPY setups traded with fake money to see if they work."},
   {id: "arch", name: "Journal", c: 2, r: 2, h: 65, col: "--c-arch", role: "Daily calls about the market's shape, scored at the close so skill is measured, not assumed."},
+  {id: "corner", name: "Nolan's Corner", c: 0, r: 3, h: 60, col: "--c-corner", role: "Nolan's place. His own options trades today, his clock rule, and his record."},
+  {id: "bank", name: "Bank", c: 1, r: 3, h: 85, col: "--c-bank", role: "Cash and buying power. Keeps Pip's $500 buffer set aside from everything else."},
+  {id: "home", name: "TARS's Place", c: 2, r: 3, h: 50, col: "--c-home", role: "Where TARS lives. Shows TARS's real sessions: is the desk awake, what it did last, when it checks next."},
 ];
 const TW = 140, TH = 70, OX = 0, OY = 0, GAP = 2.0;
 const iso = (c, r) => ({x: OX + (c - r) * GAP * TW / 2, y: OY + (c + r) * GAP * TH / 2});
@@ -201,6 +207,9 @@ const CH = {
   lab:   {who: "Dr. Nyx", title: "Head Scientist", bio: "Skeptical of everything, including herself. Kills ideas for a living."},
   farm:  {who: "Fern", title: "Paper Farmer", bio: "Patient. Grows strategies with fake money before anyone plants real seeds."},
   arch:  {who: "Quill", title: "Town Scribe", bio: "Writes the calls down before the market answers, then grades them. No take-backs."},
+  corner: {who: "Nolan", title: "The Player", bio: "Trades SPY options his own way. Great at exits and sizing; working on staying out before 10:30. TARS's friend and rival."},
+  bank:  {who: "Penny", title: "The Banker", bio: "Counts every dollar twice. Keeps the options buffer in its own drawer so it can't leak into anything else."},
+  home:  {who: "CASE", title: "TARS's Housemate", bio: "Keeps the house. Watches TARS's real desk session and schedule, and says so when TARS is asleep or working."},
 };
 function lines(id) {
   const S = SD, st = status[id], hm = fmtHM.format(new Date()), etMin = (() => { const p = new Intl.DateTimeFormat("en-GB", {timeZone: "America/New_York", hour: "2-digit", minute: "2-digit", hour12: false}).format(new Date()).split(":"); return +p[0] * 60 + +p[1]; })();
@@ -259,6 +268,18 @@ function lines(id) {
       const f = STATIC.farm, ch = 100 * (f.equity / f.start - 1);
       return [`Paper book at ${pct(ch)}. Fake money, real lessons.`, `${f.trades} paper trades planted. Harvest takes weeks, not days.`];
     }
+    case "corner": {
+      const nt = S.nt || {n: 0};
+      if (nt.early) return [`${nt.early} trade${nt.early > 1 ? "s" : ""} before 10:30 today. I know, I know.`, "My after-10:30 self is the better trader. Working on it."];
+      if (nt.n) return [`${nt.n} round trips today, ${money(nt.net)}. ${nt.net >= 0 ? "Not bad." : "Rough one."}`, `Wins today: ${nt.win.toFixed(0)}%. Exits are my thing.`];
+      return ["No trades yet today. Waiting for my spot after 10:30.", "TARS thinks he can beat me. We'll see on the 16th."];
+    }
+    case "bank":
+      if (S.cash == null) return ["Vault's closed until Robinhood answers."];
+      return [`Cash ${money(S.cash)}. ${money(STATIC.slot.buffer)} of it is Pip's buffer, in its own drawer.`, `Free cash outside the buffer: ${money(Math.max(0, S.cash - STATIC.slot.buffer))}.`];
+    case "home":
+      if (HOME.err) return ["Can't see the desk from here. Is the Claude Code connector on?"];
+      return [`Desk is ${HOME.awake ? "awake and working" : "resting"}. Last thing it did: ${HOME.recent || "nothing logged"}.`, HOME.next ? `Next ${HOME.nextName} at ${etHMof(HOME.next)} ET.` : "No check scheduled right now."];
     case "arch":
       return STATIC.journal.days ? [`Journal day ${STATIC.journal.days}. No take-backs.`] : ["Page one's blank. Calls get written at 10:00 sharp, before I know the answer.", "Grading myself at the close. Fair's fair."];
   }
@@ -274,6 +295,16 @@ function phase() {
   return m < 420 || m >= 1200 ? "night" : m < 570 ? "dawn" : m < 960 ? "day" : "dusk";
 }
 const moodOf = st => ({ok: "happy", warn: "worried", bad: "alarm", idle: "sleepy"})[st] || "sleepy";
+function person(x, y, s, mood, delay = 0) {
+  const eyes = mood === "happy" ? `<path d="M-5,-9 q1.8,-2.2 3.6,0 M1.4,-9 q1.8,-2.2 3.6,0" class="pe"/>` : mood === "sleepy" ? `<path d="M-5,-9 h3.6 M1.4,-9 h3.6" class="pe"/>` : `<circle cx="-3.2" cy="-9" r="1.3" class="peF"/><circle cx="3.2" cy="-9" r="1.3" class="peF"/>`;
+  const mouth = mood === "happy" ? `<path d="M-3,-4.5 q3,2.6 6,0" class="pe"/>` : mood === "worried" || mood === "alarm" ? `<path d="M-3,-3.4 q3,-2.2 6,0" class="pe"/>` : `<path d="M-2,-4 h4" class="pe"/>`;
+  return `<g transform="translate(${x},${y}) scale(${s})"><g class="botb" style="animation-delay:${delay}s">
+    <rect x="-10" y="1" width="20" height="15" rx="6" style="fill:var(--hood)"/><path d="M-4,1 l4,5 l4,-5" style="fill:var(--c-corner)"/>
+    <circle cx="0" cy="-8" r="8.5" style="fill:var(--skin)"/><path d="M-9,-10 a9,8 0 0 1 18,0 h-18 z" style="fill:var(--c-corner)"/><rect x="-13" y="-11.5" width="6" height="2.6" rx="1.2" style="fill:var(--c-corner)"/>
+    ${eyes}${mouth}<rect x="-8" y="16" width="6" height="3" rx="1.5" class="feet"/><rect x="2" y="16" width="6" height="3" rx="1.5" class="feet"/>
+    ${mood === "alarm" ? `<text x="10" y="-16" class="bang">!</text>` : mood === "sleepy" ? `<text x="9" y="-14" class="zz">z</text>` : ""}</g></g>`;
+}
+const face = (id, x, y, s, mood, delay) => id === "corner" ? person(x, y, s, mood, delay) : bot(x, y, s, `var(${B.find(b => b.id === id).col})`, mood, delay);
 function bot(x, y, s, col, mood, delay = 0, big = false) {
   const eye = mood === "happy" ? (dx => `<path d="M${dx - 2.6},1 q2.6,-3.4 5.2,0" class="eye"/>`) :
     mood === "sleepy" ? (dx => `<path d="M${dx - 2.4},0.5 h4.8" class="eye"/>`) :
@@ -303,6 +334,9 @@ function deco(id, p, w, hh, H) {
       ${[0, 1, 2].map(k => `<line x1="${tx - w / 2 - 40 + k * 8}" y1="${p.y + TH / 2 + 4 + k * 4}" x2="${tx - w / 2 - 8 + k * 8}" y2="${p.y + TH / 2 + 20 + k * 4}" class="crop"/>`).join("")}`;
     case "arch": { const d = new Date(), hp = new Intl.DateTimeFormat("en-GB", {timeZone: "America/New_York", hour: "2-digit", minute: "2-digit", hour12: false}).format(d).split(":"), hr = (+hp[0] % 12 + +hp[1] / 60) * 30, mn = +hp[1] * 6;
       return `<g transform="translate(${tx},${ty - 14})"><circle r="11" class="clock"/><line x1="0" y1="0" x2="0" y2="-6" class="hand" transform="rotate(${hr})"/><line x1="0" y1="0" x2="0" y2="-9" class="hand" transform="rotate(${mn})"/></g>`; }
+    case "corner": return `<g transform="translate(${tx},${ty - 4})"><rect x="-22" y="-14" width="44" height="12" rx="3" style="fill:#1f1622"/><text class="neon" x="0" y="-5" style="fill:#ff7eb6">NOLAN'S</text></g><circle cx="${tx - w / 2 - 12}" cy="${p.y + TH / 2 + 6}" r="6" class="ball"/>`;
+    case "bank": return `<polygon points="${tx - 24},${ty + 2} ${tx},${ty - 14} ${tx + 24},${ty + 2}" style="fill:color-mix(in srgb,var(--c-bank) 60%,white)"/><text x="${tx}" y="${ty - 1}" class="coin">$</text>`;
+    case "home": return `<polygon points="${tx - w / 2},${ty + hh / 4} ${tx},${ty - 22} ${tx + w / 2},${ty + hh / 4} ${tx},${ty + hh / 2 + 4}" style="fill:color-mix(in srgb,var(--c-home) 70%,black 20%)"/><rect x="${tx + 10}" y="${ty - 22}" width="7" height="14" style="fill:color-mix(in srgb,var(--c-home) 50%,black)"/>${[0, 1, 2].map(k => `<circle class="smoke" cx="${tx + 13}" cy="${ty - 26}" r="${3 + k}" style="animation-delay:${k * 1.1}s"/>`).join("")}<g class="${HOME.awake ? "lit" : "dark"}"><rect x="${tx - 10}" y="${ty + 18}" width="8" height="8" class="hwin"/><rect x="${tx + 4}" y="${ty + 18}" width="8" height="8" class="hwin"/></g>`;
     case "yard": return `<g transform="translate(${tx - w / 2 - 6},${ty + 30})"><line x1="0" y1="0" x2="0" y2="-62" class="mast"/><line x1="0" y1="-62" x2="44" y2="-56" class="mast"/><g class="hook" style="transform-origin:38px -57px"><line x1="38" y1="-57" x2="38" y2="-34" class="cable"/><rect x="32" y="-34" width="12" height="8" style="fill:var(--c-pit)"/></g></g>`;
   }
   return "";
@@ -371,6 +405,24 @@ function scenes() {
     {f: "hq", t: "pit", x: "Pip, how's the buffer?"},
     {f: "pit", t: "hq", x: `${money(s.buffer)} of ${money(s.buffer_start)}. ${s.trades} trades. ${s.halted ? "I'm benched." : "Hard stop is " + money(300) + "."}`},
     {f: "guard", t: "pit", x: "And every trade gets its −35% stop the second it fills. I check."}]});
+  // 9. Nolan's corner
+  const nt = S.nt || {n: 0, early: 0};
+  out.push({title: "Nolan's Corner", pri: nt.early ? 1 : 5, lines: nt.early ? [
+    {f: "guard", t: "corner", x: `Nolan! I saw ${nt.early} opening trade${nt.early > 1 ? "s" : ""} before 10:30.`}, {f: "corner", t: "guard", x: "Yeah… old habits, Sid."},
+    {f: "hq", t: "corner", x: "Your after-10:30 self is the good trader. Let him drive tomorrow."}, {f: "corner", t: "hq", x: "Deal. Hold me to it."}]
+    : nt.n ? [{f: "arena", t: "corner", x: `Nolan's on the board today: ${nt.n} trips, ${money(nt.net)}!`}, {f: "corner", t: "arena", x: nt.net >= 0 ? "Told you. Exits are my thing." : "Tomorrow I bounce back. After 10:30."}, {f: "hq", t: "corner", x: "Proud of you either way. Same rules tomorrow."}]
+    : [{f: "corner", t: "pit", x: "Ready for round one, kid?"}, {f: "pit", t: "corner", x: "Two setups, $100 max. May the patient win."}, {f: "corner", t: "pit", x: "We'll see who's patient."}]});
+  // 10. bank
+  if (S.cash != null) out.push({title: "Vault count", pri: status.bank === "warn" ? 2 : 7, lines: [
+    {f: "bank", t: "hq", x: `Vault count: cash ${money(S.cash)}. Pip's ${money(STATIC.slot.buffer)} is set aside.`},
+    {f: "hq", t: "bank", x: S.cash < STATIC.slot.buffer ? "Cash is under the buffer. Nothing new gets bought until that's fixed." : "Good. Keep the buffer in its own drawer."},
+    {f: "bank", t: "pit", x: "Pip, that drawer is yours. Don't borrow from the stock money."}, {f: "pit", t: "bank", x: "Wouldn't dream of it, Penny."}]});
+  // 11. home: the real desk session
+  out.push({title: "At TARS's Place", pri: HOME.err ? 3 : 6, lines: HOME.err ? [{f: "home", t: "hq", x: "I can't see the desk session from here. Connector's off."}, {f: "hq", t: "home", x: "Then the town runs on Robinhood data alone. Fine for now."}] : [
+    {f: "hq", t: "home", x: "CASE, how's the house?"},
+    {f: "home", t: "hq", x: `Your desk session is ${HOME.awake ? "awake and working" : "resting"}. Last: ${HOME.recent ? HOME.recent.slice(0, 90) : "nothing logged"}.`},
+    {f: "home", t: "hq", x: HOME.next ? `Next ${HOME.nextName} at ${etHMof(HOME.next)} ET. I'll keep the lights on.` : "Nothing scheduled. Rest up."},
+    {f: "hq", t: "home", x: "Thanks, CASE. It's good to have a home."}]});
   return out.sort((x, y) => x.pri - y.pri);
 }
 function calib() {
@@ -381,6 +433,8 @@ function calib() {
     {id: "hq", src: "Robinhood portfolio", state: worst("portfolio")}, {id: "yard", src: "positions + quotes", state: worst("positions", "quotes")},
     {id: "guard", src: "open stop orders", state: worst("stops", "positions")}, {id: "look", src: "SPY quote + calendar", state: worst("quotes")},
     {id: "pit", src: "option positions + slot rules", state: worst("optpos")}, {id: "arena", src: "option orders since Oct 16", state: worst("comp")},
+    {id: "corner", src: "Nolan's option orders today", state: worst("today_opt")}, {id: "bank", src: "Robinhood cash", state: worst("portfolio")},
+    {id: "home", src: "TARS's sessions (Claude Code)", state: HOME.err ? "waiting" : HOME.upd && Date.now() - HOME.upd < 200000 ? "synced" : HOME.upd ? "stale" : "waiting"},
     {id: "lab", src: "research notes (repo build)", state: buildFresh}, {id: "farm", src: "paper book (repo build)", state: buildFresh}, {id: "arch", src: "journal (repo build)", state: buildFresh}];
 }
 const LOG = []; let sceneQ = [], lineI = 0, curScene = null, playTimer = null, listener = null, paused = false;
@@ -413,7 +467,7 @@ function startChatter() { sceneQ = []; curScene = null; clearTimeout(playTimer);
 function renderChat() {
   const el = $("#chat"); if (!el) return;
   el.innerHTML = LOG.slice(-16).map(e => e.header ? `<div class="scene">${esc(e.scene)}</div>` :
-    `<div class="ln"><svg viewBox="-20 -32 40 52" class="av" aria-hidden="true">${bot(0, 0, 1, `var(${B.find(b => b.id === e.f).col})`, moodOf(status[e.f]))}</svg><div><b>${esc(N(e.f))}</b> <span class="mut">to ${esc(N(e.t))}</span><br>${esc(e.x)}</div></div>`).join("");
+    `<div class="ln"><svg viewBox="-20 -32 40 52" class="av" aria-hidden="true">${face(e.f, 0, 0, 1, moodOf(status[e.f]))}</svg><div><b>${esc(N(e.f))}</b> <span class="mut">to ${esc(N(e.t))}</span><br>${esc(e.x)}</div></div>`).join("");
   el.scrollTop = el.scrollHeight;
   const cal = calib();
   $("#calib").innerHTML = cal.map(c => `<div class="cal"><span class="dot" style="background:var(--${c.state === "synced" ? "ok" : c.state === "stale" ? "warn" : "idle"})"></span><b>${esc(CH[c.id].who)}</b><span class="mut">${esc(c.src)}</span><span class="st ${c.state}">${c.state}</span></div>`).join("");
@@ -487,9 +541,9 @@ function drawTown() {
   const svg = $("#city"); let g = "", signs = "";
   // ground plate and streets
   const corner = (c, r) => { const p = iso(c, r); return [p.x, p.y]; };
-  g += poly([corner(-0.75, -0.75), corner(2.75, -0.75), corner(2.75, 2.75), corner(-0.75, 2.75)].map(([x, y]) => [x, y + TH * GAP / 2 - TH / 2]), "var(--ground)", 'stroke="var(--line)"');
-  for (let k = 0; k < 3; k++) {
-    const a = iso(k, -0.6), b = iso(k, 2.6), c2 = iso(-0.6, k), d = iso(2.6, k);
+  g += poly([corner(-0.75, -0.75), corner(2.75, -0.75), corner(2.75, 3.75), corner(-0.75, 3.75)].map(([x, y]) => [x, y + TH * GAP / 2 - TH / 2]), "var(--ground)", 'stroke="var(--line)"');
+  for (let k = 0; k < 4; k++) {
+    const a = iso(Math.min(k, 2), -0.6), b = iso(Math.min(k, 2), 3.6), c2 = iso(-0.6, k), d = iso(2.6, k);
     g += `<line x1="${a.x}" y1="${a.y + TH / 2}" x2="${b.x}" y2="${b.y + TH / 2}" stroke="var(--street)" stroke-width="16" stroke-linecap="round"/>`;
     g += `<line x1="${c2.x}" y1="${c2.y + TH / 2}" x2="${d.x}" y2="${d.y + TH / 2}" stroke="var(--street)" stroke-width="16" stroke-linecap="round"/>`;
   }
@@ -516,13 +570,13 @@ function drawTown() {
     g += `<g class="bld" data-id="${b.id}" tabindex="0" role="button" aria-pressed="${b.id === sel}" aria-label="${b.name}">
       <g class="shape">${poly(L, `color-mix(in srgb, ${col} 100%, black 8%)`)}${poly(R, `color-mix(in srgb, ${col} 70%, black 30%)`)}${poly(top, `color-mix(in srgb, ${col} 72%, white 28%)`)}${win}
       ${deco(b.id, p, w, hh, H)}<circle class="glow ${status[b.id]}" cx="${p.x - w / 2 + 8}" cy="${p.y + TH / 2 - H - 6}" r="10"/><circle class="lamp ${status[b.id]}" cx="${p.x - w / 2 + 8}" cy="${p.y + TH / 2 - H - 6}" r="5"/></g>
-      <g class="mascot" data-m="${b.id}">${bot(p.x + w * 0.5 + 8, p.y + TH / 2 + hh * 0.25, 1.25, `var(${b.col})`, moodOf(status[b.id]), (b.c * 3 + b.r) * .23)}</g>
+      <g class="mascot" data-m="${b.id}">${face(b.id, p.x + w * 0.5 + 8, p.y + TH / 2 + hh * 0.25, 1.25, moodOf(status[b.id]), (b.c * 3 + b.r) * .23)}</g>
       </g>`;
     signs += `<g class="signg" data-for="${b.id}"><rect x="${p.x - b.name.length * 4.1 - 7}" y="${p.y + TH / 2 + hh / 2 + 5}" width="${b.name.length * 8.2 + 14}" height="18" rx="9" style="fill:var(--panel)" opacity=".92"/><text class="sign${b.id === sel ? " on" : ""}" x="${p.x}" y="${p.y + TH / 2 + hh / 2 + 18}">${b.name}</text></g>`;
   });
   g += signs;
   // fit the frame to the drawing
-  const pts = [iso(-0.75, -0.75), iso(2.75, -0.75), iso(2.75, 2.75), iso(-0.75, 2.75)];
+  const pts = [iso(-0.75, -0.75), iso(2.75, -0.75), iso(2.75, 3.75), iso(-0.75, 3.75)];
   const minX = Math.min(...pts.map(q => q.x)) - 8, maxX = Math.max(...pts.map(q => q.x)) + 8;
   const minY = Math.min(...B.map(b => iso(b.c, b.r).y + TH / 2 - b.h - 120)), maxY = Math.max(...pts.map(q => q.y)) + TH * GAP / 2 + 6;
   svg.setAttribute("viewBox", `${minX} ${minY} ${maxX - minX} ${maxY - minY}`);
@@ -586,7 +640,19 @@ function derive() {
   status.lab = "ok";
   status.farm = STATIC.farm.equity >= STATIC.farm.start ? "ok" : "warn";
   status.arch = STATIC.journal.days ? "ok" : "idle";
+  const nt = nolanToday(); S.nt = nt;
+  status.corner = nt.early ? "warn" : !nt.n ? "idle" : nt.net >= 0 ? "ok" : "warn";
+  status.bank = S.cash == null ? "idle" : S.cash < STATIC.slot.buffer ? "warn" : "ok";
+  status.home = HOME.err ? "idle" : HOME.awake ? "ok" : HOME.last ? "ok" : "idle";
   return S;
+}
+const HOME = {awake: false, last: null, recent: "", next: null, nextName: "", lastRun: null, err: null, upd: null, sched: []};
+function etHMof(d) { return fmtHM.format(d); }
+function nolanToday() {
+  const mine = L.todayOpt.filter(o => !o.agent_initiated), tr = trips(mine), sc = score(tr);
+  const early = mine.filter(o => (o.legs || []).some(l => l.position_effect === "open") && o.state !== "cancelled" && (o.executions || []).length + ((o.legs || [])[0].executions || []).length > 0)
+    .filter(o => { const p = new Intl.DateTimeFormat("en-GB", {timeZone: "America/New_York", hour: "2-digit", minute: "2-digit", hour12: false}).format(new Date(o.created_at)).split(":"); return +p[0] * 60 + +p[1] < 630; }).length;
+  return {n: sc.n, net: sc.net, win: sc.win, early, opens: mine.filter(o => (o.legs || []).some(l => l.position_effect === "open") && o.state === "filled").length};
 }
 function tarsOwned(optionId) {
   return L.compOrders.concat(L.todayOpt).some(o => o.agent_initiated && (o.legs || []).some(l => l.option_id === optionId));
@@ -647,12 +713,28 @@ function renderDetail() {
     const f = STATIC.farm, ch = 100 * (f.equity / f.start - 1);
     body = dl([["Paper equity", `${money(f.equity)} <span class="${cls(ch)}">${pct(ch)}</span>`], ["Paper trades", f.trades], ["As of", esc(f.as_of)], ["Rules hash", esc(f.rules_hash)]]);
     how = ["Forward-tests the data-farm setups on live SPY bars with fake money.", "Rules are frozen by hash during the week.", "Nothing goes live from here without passing the gate."];
+  } else if (sel === "corner") {
+    const nt = S.nt || {n: 0, net: 0, win: 0, early: 0};
+    body = dl([["Round trips today", nt.n], ["Net today", nt.n ? `<span class="${cls(nt.net)}">${money(nt.net)}</span>` : "—"], ["Wins today", nt.n ? nt.win.toFixed(0) + "%" : "—"],
+      ["Opening trades before 10:30 today", nt.early ? `<span class="dn">${nt.early}</span>` : "0"], ["Record before 10:30 (Oct 8-15)", "lost 5 of 5 days"], ["Record after 10:30", "green 5 of 6 days"], ["Best hold time", "5-15 minutes"]]);
+    how = ["Nolan trades his own options; TARS never touches them.", "His edge is exits and size; direction calls are a coin flip, so timing matters most.", "The desk warns (never blocks) on buys before 10:30."];
+  } else if (sel === "bank") {
+    const bp = L.port && L.port.buying_power ? +L.port.buying_power.buying_power : null;
+    body = dl([["Cash", S.cash != null ? money(S.cash) : "—"], ["Buying power", bp != null ? money(bp) : "—"], ["Pip's buffer (set aside)", money(STATIC.slot.buffer)],
+      ["Free cash outside the buffer", S.cash != null ? money(Math.max(0, S.cash - STATIC.slot.buffer)) : "—"], ["Account value", S.val != null ? money(S.val) : "—"]]);
+    how = ["The options buffer is only for TARS's slot; stocks never borrow from it.", "If cash falls under the buffer, nothing new gets bought until it's fixed."];
+  } else if (sel === "home") {
+    body = HOME.err ? `<p class="mut">The house can't see TARS's sessions: the Claude Code connector isn't allowed for this page yet.</p>` :
+      dl([["Desk session", HOME.awake ? '<span class="up">awake, working</span>' : "resting"], ["Last thing it did", esc(HOME.recent || "—")], ["Last hourly check", HOME.lastRun ? etHMof(HOME.lastRun) + " ET" : "—"],
+        ["Next scheduled", HOME.next ? `${esc(HOME.nextName)} · ${etHMof(HOME.next)} ET` : "—"]]) +
+      (HOME.sched.length ? `<h3>TARS's week</h3><div class="scroll"><table><thead><tr><th>Routine</th><th>Next</th></tr></thead><tbody>${HOME.sched.map(t => `<tr><td>${esc(t.name)}</td><td>${new Date(t.next).toLocaleString([], {weekday: "short", hour: "numeric", minute: "2-digit"})}</td></tr>`).join("")}</tbody></table></div>` : "");
+    how = ["This is real: the house reads TARS's actual desk session and schedule.", "Lights on means the desk is working right now; smoke means someone's home.", "TARS lives here between checks. CASE keeps the house."];
   } else if (sel === "arch") {
     body = dl([["Days journaled", STATIC.journal.days], ["What's scored", "gap fill, high/low timing, range, direction"], ["Drop rule", "a call type that can't beat its base rate in 40 days"]]);
     how = ["Calls are written at 10:00, before the outcome.", "Scored after the close with Brier scores.", "Also logs the overnight board and big news."];
   }
   const ch = CH[sel], q = lines(sel)[0] || "";
-  $("#detail").innerHTML = `<div class="who"><svg viewBox="-20 -32 40 52" class="portrait" aria-hidden="true">${bot(0, 0, 1, `var(${b.col})`, moodOf(st))}</svg>
+  $("#detail").innerHTML = `<div class="who"><svg viewBox="-20 -32 40 52" class="portrait" aria-hidden="true">${face(sel, 0, 0, 1, moodOf(st))}</svg>
     <div style="min-width:0"><div style="display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap"><h2>${b.name}</h2><span class="chip ${st}">${chipTxt[st]}</span></div>
     <p class="name">${ch.who} · <span class="mut">${ch.title}</span></p><p class="bio">${ch.bio}</p></div></div>
     ${q ? `<blockquote class="quote">“${esc(q)}”</blockquote>` : ""}<p class="role">${b.role}</p>${body}${how.length ? `<h3>How it decides</h3><ul class="how">${how.map(h => `<li>${h}</li>`).join("")}</ul>` : ""}`;
@@ -707,6 +789,19 @@ async function start() {
     if (ids.length) try { ((await call("get_option_instruments", {ids: ids.join(",")}, {cache: {staleTime: 300000}})).instruments || []).forEach(i => { L.optInst[i.id] = i; }); refresh(); } catch (e) {}
   });
   watchQuotes();
+  const DESK = "session_018MZEPfPpKzyAP12Ukr7Urp", CC = "Claude Code Remote";
+  const ccw = (tool, input, fn) => mcp.watchTool(CC, tool, input, ev => { if (ev.type === "data") { HOME.err = null; HOME.upd = Date.now(); fn(pl(ev.result) || {}); refresh(); } else { HOME.err = ev.error && ev.error.code || "error"; refresh(); } }, {refetchInterval: 120000, cache: {staleTime: 60000}});
+  let deskId = null, unSess = null;
+  const watchDesk = id => { if (!id || id === deskId) return; deskId = id; if (unSess) unSess(); unSess = ccw("get_session", {session_id: id}, d => { const c = d.ccr || d; HOME.awake = /RUNNING|WORKING|ACTIVE/i.test(c.session_status || "") || /working/i.test(c.status_bucket || ""); HOME.recent = ((c.post_turn_summary || {}).recent_action || "").slice(0, 160).replace(/[.\s]+$/, ""); HOME.last = c.updated_at || null; }); };
+  watchDesk(DESK);
+  ccw("list_triggers", {enabled: true}, d => {
+    const ts = (Array.isArray(d) ? d : (d.data || d.triggers || [])).filter(t => /^TARS/.test(t.name || "") && t.next_run_at);
+    const pretty = n => n.replace(/^TARS\s*[—-]\s*/, "").replace(/\s*\(desk\)$/, "");
+    HOME.sched = ts.map(t => ({name: pretty(t.name), next: t.next_run_at})).sort((a, b) => a.next < b.next ? -1 : 1).slice(0, 7);
+    const h = ts.find(t => /hourly/i.test(t.name));
+    if (h && h.persistent_session_id) watchDesk(h.persistent_session_id); // the desk moves to a fresh session every Saturday; follow it HOME.next = HOME.sched[0] ? new Date(HOME.sched[0].next) : null; HOME.nextName = HOME.sched[0] ? HOME.sched[0].name : "";
+    HOME.lastRun = h && h.last_fired_at ? new Date(h.last_fired_at) : null;
+  });
 }
 drawTown(); renderDetail(); startChatter();
 $("#cNext").addEventListener("click", () => { paused = false; $("#cPause").textContent = "Pause"; clearTimeout(playTimer); step(); });

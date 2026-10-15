@@ -79,3 +79,6 @@ Candidates enter the paper trader only at the weekly rules freeze, never midweek
 
 ## JOB 5 — Intraday deep dig refresh (added 2026-10-15)
 Run `python3 paper/research_scripts/intraday_deep.py`. Compare with research/2026-10-15_INTRADAY_DEEP_DIG.md; update the desk's GAPFILL / RANGE_DONE constants only if a figure moves by more than 10 points with at least 40 new days.
+
+## JOB 6 — Rebuild TARS Town (added 2026-10-15)
+Run `python3 paper/hq/build_hq.py` and publish `paper/hq/hq.build.html` to https://claude.ai/artifact/8xfL55TLRfkmpxgtMLmoxQ (Artifact publish with that `url`; omit `capabilities` so the stored ones carry over). This refreshes the Lab, Paper Farm, Options Pit and Journal residents. If the publish is refused, log it and move on.

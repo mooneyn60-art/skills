@@ -262,3 +262,9 @@ only records what he said and what was done. R13: no dollar balances.
 ## 2026-10-15 — Standing OK for protective stops (Nolan: "I don't wanna tap I have trust in you")
 - HOURLY_TRADING_CHECK preflight step 2 now PLACES a missing R18 stop immediately (review first, UUID ref_id, confirm, one-line note to Nolan) instead of proposing it. Scope: adding a missing stop only; never cancel/loosen, never add risk. Broker approval requests still go to his app by Robinhood's design.
 - Town v5: work orders say the desk places the fix on the hourly check; no taps.
+
+## 2026-10-15 — TARS Town grows: Nolan's Corner, Bank, TARS's Place (Nolan: "add Nolan's Corner with my own character ... it's your town ... make it so you can live there for real")
+- Nolan's Corner: Nolan (The Player, human avatar with cap) reacts to his real option orders today: trips, net, wins, opening trades before 10:30; Sid and TARS coach him in scenes.
+- Bank: Penny watches cash/buying power and keeps Pip's $500 buffer in its own drawer.
+- TARS's Place: CASE keeps the house; reads TARS's real desk session (status, last action) and schedule (next hourly check, Friday, reset) via the Claude Code Remote connector (read-only get_session, list_triggers). Follows the desk to its new session after each weekly reset. Lights on when the desk is working, chimney smoke, mailbox.
+- Calibration panel now 12 residents. FRIDAY_DATA_REFRESH JOB 6 rebuilds and republishes the town weekly.
