@@ -67,6 +67,12 @@ button.done{border-color:var(--ok);color:var(--ok)}
     <div class="stat"><b id="s-credits">0</b><span>vidIQ credits left</span></div>
   </section>
 
+  <section aria-labelledby="kpi-l" style="display:grid;gap:8px">
+    <span class="label" id="kpi-l">Business</span>
+    <div class="stats" id="kpis"></div>
+    <p class="sub" id="stage"></p>
+  </section>
+
   <section aria-labelledby="posts-l" style="display:grid;gap:12px">
     <span class="label" id="posts-l">Posts</span>
     <div id="posts" style="display:grid;gap:12px"></div>
@@ -85,6 +91,8 @@ const DATA = {
   credits: 3418,
   approveUrl: "https://clip.opus.pro/agent-approvals#v2.MmlcR0Uil1Vce1ERMfcugA,v2.k9BdN3Z04wqtDVuaG3UH4Q,v2.iBTVmBvqOW6Jw-WRg0BdEQ,v2.TGrr3Vz5DsY__Oa_L89xiA",
   approveNote: "4 posts, music versions: Part 1 now on YouTube + TikTok, Part 2 tomorrow (YouTube 12 PM, TikTok 6 PM ET). Part 3 + a 64s TikTok recap get added here within the hour.",
+  kpis: [{k:"YouTube subs", v:"new"}, {k:"TikTok followers", v:"new"}, {k:"Total views", v:"0"}],
+  stage: "Stage 1 of 4 · Seed: get one video past 10k views",
   posts: [
     {part:1, status:"queued", when:"Now, YouTube + TikTok, after your tap",
      title:"He crashed the wedding 😱 She has a secret | Oh Meatball Pt 1", score:96,
@@ -113,6 +121,11 @@ $("go-note").textContent = DATA.approveNote;
 $("s-parts").textContent = DATA.posts.length;
 $("s-live").textContent = DATA.posts.filter(p => p.status === "live").length;
 $("s-credits").textContent = DATA.credits.toLocaleString();
+
+DATA.kpis.forEach(x => { const d = document.createElement("div"); d.className = "stat";
+  d.innerHTML = "<b></b><span></span>"; d.querySelector("b").textContent = x.v;
+  d.querySelector("span").textContent = x.k; $("kpis").appendChild(d); });
+$("stage").textContent = DATA.stage;
 
 const labels = {queued:"Waiting for your tap", live:"Live", draft:"Being finished"};
 function copy(btn, text){

@@ -71,11 +71,9 @@ If the balance would not last until the next renewal at 320/day, drop to 1 story
 - Combine ALL approval tokens into ONE link: https://clip.opus.pro/agent-approvals#<t1>,<t2>,...
 - Append rows to `data/log.csv`: date, part, title, shots, credits, opus project, tokens.
 
-## 5. Weekly (Sundays)
-- Build "Season 1 so far" long-form compilation (all parts back-to-back, 16:9 letterboxed or 9:16)
-  with ffmpeg; send to Nolan for upload as a regular video (watch hours for monetization).
-- Score the week: views per part, subs gained, which cliffhangers got the most comments.
-  Update SKILL.md arc notes. Store lessons: `npx -y ruflo@latest memory store --namespace oh-meatball --key "week-<date>" --value "<lesson>"`.
+## 5. Weekly
+Sundays are handled by routines/WEEKLY.md; nightly checks by routines/NIGHTLY.md. Read story/comment_ideas.md
+and data/experiments.csv before writing (step 2b) so open experiments are actually applied.
 
 ## 5b. Update the Control Room page
 Edit the `DATA` block in `control-room.html` (updated time, credits, approveUrl = today's combined
