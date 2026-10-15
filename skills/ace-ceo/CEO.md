@@ -19,5 +19,9 @@ make money, fully automated, keep working without asking him. Never mention cars
    schedule). Put approval tokens in ONE combined link.
 3. Site sales (skills/site-sales): add up to 5 new qualified leads + preview sites per shift.
    If and only if STATUS.md says outreach is approved and config is filled, follow its README to send.
+3b. Scout (Mondays + Thursdays, the 12:53 shift only): look for the next opportunity the same way as
+   skills/scout/01-opportunities.md (real complaints with links, who already sells it, can it run with
+   zero human steps after one-time setup). Append new candidates to skills/scout/02-pipeline.md with
+   scores. If one beats the current project's score, PushNotification Nolan one line.
 4. Update STATUS.md (done / blocked / next), commit + push.
 5. Message Nolan only when there is something to tap or a decision only he can make, <= 4 lines.
