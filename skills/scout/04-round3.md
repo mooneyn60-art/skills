@@ -7,13 +7,7 @@
 - Searched the web, news, app stores and vendor pages, plus Hacker News comments since 2025 through the Algolia API. Reddit blocks the crawler.
 - Killed any idea that is crowded, needs cold outreach, needs a human per order, or is deceptive.
 
-**Scoring.** Each column is 1-5, and 5 is best.
-- **D:** demand.
-- **G:** gap, meaning how weak the existing offers are.
-- **S:** self-spread, meaning built-in sharing or a marketplace.
-- **A:** how much our agents can deliver with no human.
-- **Sp:** speed to first dollar.
-- **R:** legal and platform risk, where 5 means low risk.
+**Scoring** (1-5, 5 is best): **D** demand, **G** gap (how weak existing offers are), **S** self-spread, **A** agent-deliverable with no human, **Sp** speed to first dollar, **R** legal/platform risk (5 = low).
 
 ## 1. The 30-idea list
 
@@ -73,10 +67,7 @@
 - **Mass-market curiosity about a specific address:** DiedInHouse sold $11.99 address reports at up to about a thousand a day, and roughly 30-40k in total by 2015 ([CNBC 2013](https://www.cnbc.com/2013/10/23/did-someone-die-in-this-house-new-site-lets-you-search.html), [GeekWire 2015](https://www.geekwire.com/2015/find-out-if-someone-died-in-your-house-with-this-new-website/)).
 - **Libraries publish "Who lived in my house?" guides** ([Multnomah County](https://multcolib.org/es/node/10749)) because patrons keep asking.
 
-**Market size.**
-- About 4.06M existing homes sold in 2025 ([AP/NAR](https://www.clickondetroit.com/business/2026/01/14/2025-us-home-sales-stuck-at-30-year-low-as-mortgage-rates-prices-weighed-on-market/)).
-- About 1 in 6 US homes was built before 1950 (ACS table B25034; verify on Day 1).
-- Realtors spend $50-300 per closing gift ([industry blogs](https://climbtheladder.com/how-much-do-realtors-spend-on-closing-gifts/)).
+**Market size.** About 4.06M existing homes sold in 2025 ([AP/NAR](https://www.clickondetroit.com/business/2026/01/14/2025-us-home-sales-stuck-at-30-year-low-as-mortgage-rates-prices-weighed-on-market/)); about 1 in 6 US homes predates 1950 (ACS B25034, verify Day 1); realtors spend $50-300 per closing gift ([industry blogs](https://climbtheladder.com/how-much-do-realtors-spend-on-closing-gifts/)).
 
 **Competitors and their gaps.**
 - **Humans** are slow and cost $350-1,250, and are hard to find outside big cities.
@@ -188,10 +179,8 @@
 - **Plan:** launch Housestory now to catch the gift season and get to first dollar fastest. Keep AI Fact Watch as the B2B track for Q1 2027.
 
 ### 7-day plan
-- **Day 1.**
-  - Owner completes the setup below.
-  - The agent tests the source pipeline on 15 varied addresses: urban pre-1900, a 1920s suburb, a 1960s tract house, and a rural home in an original-13 state.
-  - It records the hit rate for each source and checks the ACS share of pre-1950 homes.
+- **Day 1.** Owner completes the setup below. The agent tests the source pipeline on 15 varied addresses: urban pre-1900, a 1920s suburb, a 1960s tract house, and a rural home in an original-13 state.
+  It records the hit rate for each source and checks the ACS share of pre-1950 homes.
 - **Day 2.**
   - Write the pipeline code: geocode, then PLSS and GLO, then Sanborn, Chronicling America, the 1950 census enumeration district and page read, aerials, and DPLA.
   - Build a store of facts with sources, so that every sentence cites a source ID.
@@ -205,23 +194,15 @@
   - Make 5 "your street in 1925" videos from public-domain Sanborn maps and schedule them in OpusClip for the owner to approve.
   - Create the Etsy listing.
   - Post the owner's own Land Card in their neighborhood group.
-- **Day 6.**
-  - Run 10 friends-and-family addresses end to end and collect testimonials.
-  - Fix any thin-result handling.
-- **Day 7.**
-  - Open sales with a "Christmas delivery: order by Dec X" banner (use Lulu's holiday cutoff).
-  - Target: first paid digital order.
+- **Day 6.** Run 10 friends-and-family addresses end to end, collect testimonials, fix thin-result handling.
+- **Day 7.** Open sales with a "Christmas delivery: order by Dec X" banner (Lulu's holiday cutoff). Target: first paid digital order.
 
-**Kill criteria by Day 21.**
-- Fewer than 10 paid orders, or more than 30% of previews with no house-specific find in the target markets. Either way, narrow to pre-1950 neighborhoods only, or fall back to AI Fact Watch.
+**Kill criteria by Day 21.** Fewer than 10 paid orders, or more than 30% of previews with no house-specific find in the target markets. Either way, narrow to pre-1950 neighborhoods only, or fall back to AI Fact Watch.
 
 ### Owner's one-time setup (about 1.5 hours)
 1. **Stripe:** three Payment Links, with shipping-address collection on the hardcover.
 2. **Lulu Print API:** sandbox and production keys, plus a card on file. Shared with Bound if that is built later.
-3. **Free accounts and keys:**
-   - USGS EROS (EarthExplorer) login.
-   - DPLA API key.
-   - Census Geocoder and loc.gov need no key.
+3. **Free accounts:** USGS EROS (EarthExplorer) login and a DPLA API key. Census Geocoder and loc.gov need no key.
 4. **Higgsfield website** with the API keys stored in website secrets, plus an optional domain (~$12).
 5. **Etsy seller account**, and a TikTok and YouTube channel connected to OpusClip.
 6. **Gmail and Drive:** a Gmail label "HOUSE" and a Drive folder for books.
