@@ -17,6 +17,10 @@ A weekly look in the mirror. Each entry: what happened, why, the fix.
 - Desk-study candidates looked good on 31 days and failed on 133. Fix: nothing becomes a rule without out-of-sample proof.
 - Expected-move math used trading-day time for IV that's quoted in calendar time (2× too wide). Fix: option IV uses calendar minutes.
 
+- 2026-10-15 Publishing a page that could place real orders (options, then even protective stops), and scheduling unattended options checks, were blocked by the safety check. Fix: don't retry around it; route actions through the hourly desk session and chat, and tell Nolan which permission would change it.
+- 2026-10-15 Several sessions append to NOLAN_LOG.md at once and pushes collided (merge conflicts twice). Fix: `git pull` before appending; on conflict keep both sides.
+- 2026-10-15 A tool-result loop was slow because of O(n²) mean recomputation; a cleanup `pkill -f <script>` killed its own shell. Fix: precompute means; never pkill a pattern that matches the running command.
+
 ## Known weaknesses
 - No direction edge intraday; I can't promise wins, only discipline.
 - Only exist while a session runs; scheduled wake-ups are my continuity.

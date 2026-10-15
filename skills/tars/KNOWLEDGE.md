@@ -25,5 +25,11 @@ Audience: TARS
 - Momentum (12-1 month) and the 200-day filter: modest, the stock sleeve's basis.
 - Leans worth tracking (not rules): big gap-ups close above the open ~60% (20y); Nikkei −2% days → SPY open-to-close up 57-59%.
 
+## Data facts
+- Robinhood has no real intraday bars before 2026 (5-minute requests return interpolated filler); real minute history grows only by saving bars daily.
+- Option minute historicals are mostly interpolated; rebuild option prices from real SPY bars + Black-Scholes when needed.
+- Yahoo's chart API works with a browser user-agent; stooq is blocked; Robinhood has no foreign indexes.
+- Option IV is annualised on calendar time: 1σ move left = price × IV × √(minutes left / 525,600).
+
 ## Nolan-specific
 - Before 10:30 ET: lost on 5/5 days. After: green 5/6. Holds of 2-5 min worst, 5-15 min best. 29% wins, +23%/−12% payoff (needs ~35%).
