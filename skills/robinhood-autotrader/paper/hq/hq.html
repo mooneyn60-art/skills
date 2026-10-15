@@ -379,7 +379,23 @@ function person(x, y, s, mood, delay = 0) {
     ${eyes}${mouth}<rect x="-8" y="16" width="6" height="3" rx="1.5" class="feet"/><rect x="2" y="16" width="6" height="3" rx="1.5" class="feet"/>
     </g></g>`;
 }
-const face = (id, x, y, s, mood, delay) => id === "corner" ? person(x, y, s, mood, delay) : bot(x, y, s, `var(${B.find(b => b.id === id).col})`, mood, delay);
+// TARS's own avatar (he drew it, Oct 15): a tall slab with a wide visor, a dial stuck at 90 (honesty setting) and a red stop badge (loves stops).
+function tars(x, y, s, mood, delay = 0) {
+  const eye = mood === "happy" ? (dx => `<path d="M${dx - 3},-5 q3,-3 6,0" class="eye"/>`) : mood === "sleepy" ? (dx => `<path d="M${dx - 2.4},-6 h4.8" class="eye"/>`) :
+    mood === "alarm" ? (dx => `<rect x="${dx - 2.5}" y="-8.5" width="5" height="4" rx="1" class="eyeR"/>`) : mood === "worried" ? (dx => `<path d="M${dx - 3},${dx < 0 ? -5 : -7.5} L${dx + 3},${dx < 0 ? -7.5 : -5}" class="eye"/>`) :
+    (dx => `<rect x="${dx - 2.5}" y="-8" width="5" height="3" rx="1" class="eyeW"/>`);
+  return `<g transform="translate(${x},${y}) scale(${s})"><g class="botb" style="animation-delay:${delay}s">
+    <line x1="5" y1="-19" x2="5" y2="-25" class="ant"/><circle cx="5" cy="-26.3" r="1.9" class="antTip ${mood}" style="animation-delay:${delay * 1.7}s"/>
+    <rect x="-9.5" y="-19" width="19" height="35" rx="2" style="fill:#7d8790"/>
+    ${[-3.3, 3.3].map(dx => `<rect x="${dx - 2.9}" y="-19" width="5.8" height="35" style="fill:#929ca5"/>`).join("")}
+    <line x1="-3.3" y1="-19" x2="-3.3" y2="16" style="stroke:#59626a;stroke-width:.6"/><line x1="3.3" y1="-19" x2="3.3" y2="16" style="stroke:#59626a;stroke-width:.6"/>
+    <rect x="-8" y="-11" width="16" height="9" rx="1.5" class="face"/>${eye(-3.6)}${eye(3.6)}
+    <circle cx="-3.6" cy="5" r="3" style="fill:#e9edf0"/><line x1="-3.6" y1="5" x2="-1.4" y2="3.2" style="stroke:#1d262b;stroke-width:.9;stroke-linecap:round"/>
+    <polygon points="2.4,3 4.4,3 5.8,4.4 5.8,6.4 4.4,7.8 2.4,7.8 1,6.4 1,4.4" style="fill:#d64545"/><rect x="1.8" y="5" width="3.2" height=".9" style="fill:#fff"/>
+    <rect x="-9.5" y="16" width="7" height="2.5" rx="1" class="feet"/><rect x="2.5" y="16" width="7" height="2.5" rx="1" class="feet"/>
+    </g></g>`;
+}
+const face = (id, x, y, s, mood, delay) => id === "corner" ? person(x, y, s, mood, delay) : id === "hq" ? tars(x, y, s, mood, delay) : bot(x, y, s, `var(${B.find(b => b.id === id).col})`, mood, delay);
 function bot(x, y, s, col, mood, delay = 0, big = false) {
   const eye = mood === "happy" ? (dx => `<path d="M${dx - 2.6},1 q2.6,-3.4 5.2,0" class="eye"/>`) :
     mood === "sleepy" ? (dx => `<path d="M${dx - 2.4},0.5 h4.8" class="eye"/>`) :
@@ -718,7 +734,7 @@ function emoteSvg(g) {
 }
 function faceE(id, x, y, s, delay = 0) {
   const e = EMO[emotionOf(id).emo] || EMO.calm;
-  const inner = id === "corner" ? person(0, 0, 1, e.face, delay) : bot(0, 0, 1, `var(${B.find(b => b.id === id).col})`, e.face, delay);
+  const inner = id === "corner" ? person(0, 0, 1, e.face, delay) : id === "hq" ? tars(0, 0, 1, e.face, delay) : bot(0, 0, 1, `var(${B.find(b => b.id === id).col})`, e.face, delay);
   return `<g transform="translate(${x},${y}) scale(${s})">${inner}<g class="emoteg">${emoteSvg(e.g)}</g></g>`;
 }
 // --- walking ---

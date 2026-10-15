@@ -323,3 +323,6 @@ New group scenes: Morning huddle (Atlas → Pip → Rhea → Juno → Nolan), Ti
 - Desk order preview now shows an exit plan before every buy-to-open: the sell-stop price at −35%, what it risks, the +70% (2R) target, and how much of the $150 daily limit is left, with the number of contracts that fits.
 - Event calendar in the desk and the town: monthly options expiry days (10/16, 11/20, 12/18) and earnings after the close for the big names that move SPY (NFLX 10/20, TSLA and META 10/21, GOOGL and MSFT 10/28 (same day as FOMC), AMZN 10/29, AAPL 11/2). Holdings that report are flagged: BE 10/22, PLTR and HALO 11/2. A stop can't protect against an overnight earnings gap; on the report day the town tells Nolan to decide before 4pm.
 - Still open for Nolan: R6 breaker vs TARS's $500 options slot starting 10/16 (see the close report above).
+
+## 2026-10-15 late — TARS's avatar (Nolan: "if you want buddy make yourself a avatar")
+- TARS drew himself: a tall grey slab in three panels, a wide black visor for eyes, a dial stuck at 90 (honesty setting) and a red stop badge (he loves stops). Five moods: happy, calm, sleepy, worried, alarm (red eyes). Live in TARS Town; moods sheet at skills/tars/avatar_moods.png.
