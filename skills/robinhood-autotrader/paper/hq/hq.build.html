@@ -102,6 +102,9 @@ svg{display:block;width:100%;height:auto}
 .emoW{font-family:var(--display);font-size:.72rem;color:var(--accent);margin-left:4px}
 @media (prefers-reduced-motion:no-preference){.walking .botb{animation:walk .32s ease-in-out infinite} @keyframes walk{50%{transform:translateY(-3px) rotate(4deg)}}
   .emoteg{animation:floaty 2.2s ease-in-out infinite} @keyframes floaty{50%{transform:translateY(-3px)}} .jet{animation:jet 1.4s ease-in-out infinite} @keyframes jet{50%{opacity:.4}}}
+.diary{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.entry{border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.88rem;background:color-mix(in srgb,var(--c-home) 6%,var(--panel))}
+.entry p{margin:6px 0 0} .eh{display:grid;gap:2px} .eh .mut{font-size:.75rem} .fact{color:var(--accent);font-weight:700} .src{font-size:.75rem} .src a{color:var(--muted)}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;min-width:0}
 .panel h2{font-family:var(--display);font-size:1.15rem;margin:0;letter-spacing:.03em}
 .role{color:var(--muted);margin:4px 0 12px;font-size:.92rem}
@@ -164,6 +167,11 @@ h3{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mu
     </section>
   </div>
   <section class="panel">
+    <h2>TARS's diary</h2>
+    <p class="role">What TARS does off duty: wakes up a few times a day, follows curiosity, writes it down. Live from the town's own database.</p>
+    <div class="diary" id="diary"><p class="mut">Opening the diary…</p></div>
+  </section>
+  <section class="panel">
     <h2>How everyone feels</h2>
     <p class="role">Each resident's mood comes from what's really happening in the account and the market.</p>
     <div class="moods" id="mood"></div>
@@ -176,7 +184,7 @@ h3{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mu
 </div>
 
 <script>
-const STATIC = {"lab": {"studies": 48, "latest": [{"date": "2026-10-15", "title": "World markets vs SPY (20y daily + 2y hourly)", "points": ["Europe co-moves 0.55-0.60 (overlap hours); Asia 0.1-0.23. US leads Asia (0.34-0.49). Asia/Europe predict the gap, not open-to-close (HSI/KOSPI effect died after 2016; ASX top-quintile +0.04%, t 1.1). After 11:30 ET DAX \u2192 SPY afternoon 0.00.", "Lean: Nikkei \u22122% days \u2192 SPY open-to-close +0.10-0.14%, 57-59% up, both halves. Tracking forward in the journal.", "Yahoo chart API works with a browser UA (query2); stooq blocked; Robinhood has no foreign indexes."]}, {"date": "2026-10-15", "title": "Options-trader tools + Nolan's clock", "points": ["SPY pinning to $1 strikes at close: none (164 days). Intraday momentum (first 30m -> last 30m): weak, t 0.7. GEX: vendor-only evidence; collecting daily snapshots.", "Literature: retail 0DTE buyers lose on average (~60% costs); sellers profit after fees.", "Nolan's trips (226, Oct 8-15): before 10:30 negative 5/5 days, after 10:30 positive 5/6. Holds 2-5 min worst; 5-15 min best. 29% wins, +23%/\u221212% payoff (needs ~35%). Desk ticket warns pre-10:30."]}, {"date": "2026-10-15", "title": "Intraday deep dig (133 OOS days of 5-min + 20y daily)", "points": ["Desk candidates FAILED out of sample: PDL break short \u22120.44 (flipped), equal-lows sweep-reclaim \u22120.20; dip-buys +0.07-0.12 pts (below option spread). No intraday direction edge. Don't re-test these without new data.", "Shape of day is reliable: 42% of range by 10:00, 77% by 11:30; day extremes print in the first 30 min (24% H / 32% L) or the last 30 (17/13).", "Gap fill: <0.1% 88%; 0.1-0.3% 64-76%; 0.3-0.6% 31-58%; >0.6% 21-38%; falling since 2016."]}, {"date": "2026-10-15", "title": "Desk indicator study (31 days SPY 1-min, in-sample)", "points": ["No edge alone: EMA 9/21 cross, VWAP cross, trend state, FVG formation/retest, pool breaks, ORH/ORL, PDH break, first-hour direction (14/30).", "Fibonacci 50/61.8 first-touch bounce: negative, same as random control levels. Fib is not special (2nd confirmation).", "Candidates (|t|\u22652, both halves same sign, ~45 tests so expect ~2 false): 1m RSI<30 dip-buy (+0.17 pts/30m, 57%), PDL break short (+0.79, n=17). Equal-lows sweep-reclaim +0.79 n=11 (too few)."]}]}, "farm": {"equity": 1892.8, "start": 2000.0, "trades": 11, "as_of": "2026-10-15 14:25 ET", "rules_hash": "58c580ed755d"}, "slot": {"buffer_start": 500, "buffer": 500, "realized": 0, "day": null, "day_realized": 0, "open": null, "trades": 0, "halted": false, "rules_hash": "806cce6d583162db"}, "journal": {"days": 0}, "built": "2026-10-15T20:31:42.207611+00:00"};
+const STATIC = {"lab": {"studies": 48, "latest": [{"date": "2026-10-15", "title": "World markets vs SPY (20y daily + 2y hourly)", "points": ["Europe co-moves 0.55-0.60 (overlap hours); Asia 0.1-0.23. US leads Asia (0.34-0.49). Asia/Europe predict the gap, not open-to-close (HSI/KOSPI effect died after 2016; ASX top-quintile +0.04%, t 1.1). After 11:30 ET DAX \u2192 SPY afternoon 0.00.", "Lean: Nikkei \u22122% days \u2192 SPY open-to-close +0.10-0.14%, 57-59% up, both halves. Tracking forward in the journal.", "Yahoo chart API works with a browser UA (query2); stooq blocked; Robinhood has no foreign indexes."]}, {"date": "2026-10-15", "title": "Options-trader tools + Nolan's clock", "points": ["SPY pinning to $1 strikes at close: none (164 days). Intraday momentum (first 30m -> last 30m): weak, t 0.7. GEX: vendor-only evidence; collecting daily snapshots.", "Literature: retail 0DTE buyers lose on average (~60% costs); sellers profit after fees.", "Nolan's trips (226, Oct 8-15): before 10:30 negative 5/5 days, after 10:30 positive 5/6. Holds 2-5 min worst; 5-15 min best. 29% wins, +23%/\u221212% payoff (needs ~35%). Desk ticket warns pre-10:30."]}, {"date": "2026-10-15", "title": "Intraday deep dig (133 OOS days of 5-min + 20y daily)", "points": ["Desk candidates FAILED out of sample: PDL break short \u22120.44 (flipped), equal-lows sweep-reclaim \u22120.20; dip-buys +0.07-0.12 pts (below option spread). No intraday direction edge. Don't re-test these without new data.", "Shape of day is reliable: 42% of range by 10:00, 77% by 11:30; day extremes print in the first 30 min (24% H / 32% L) or the last 30 (17/13).", "Gap fill: <0.1% 88%; 0.1-0.3% 64-76%; 0.3-0.6% 31-58%; >0.6% 21-38%; falling since 2016."]}, {"date": "2026-10-15", "title": "Desk indicator study (31 days SPY 1-min, in-sample)", "points": ["No edge alone: EMA 9/21 cross, VWAP cross, trend state, FVG formation/retest, pool breaks, ORH/ORL, PDH break, first-hour direction (14/30).", "Fibonacci 50/61.8 first-touch bounce: negative, same as random control levels. Fib is not special (2nd confirmation).", "Candidates (|t|\u22652, both halves same sign, ~45 tests so expect ~2 false): 1m RSI<30 dip-buy (+0.17 pts/30m, 57%), PDL break short (+0.79, n=17). Equal-lows sweep-reclaim +0.79 n=11 (too few)."]}]}, "farm": {"equity": 1892.8, "start": 2000.0, "trades": 11, "as_of": "2026-10-15 14:25 ET", "rules_hash": "58c580ed755d"}, "slot": {"buffer_start": 500, "buffer": 500, "realized": 0, "day": null, "day_realized": 0, "open": null, "trades": 0, "halted": false, "rules_hash": "806cce6d583162db"}, "journal": {"days": 0}, "built": "2026-10-15T20:35:41.044531+00:00"};
 const SERVER = "Robinhood", COMP_START = "2026-10-16";
 const CL = window.claude && window.claude.use ? window.claude : {use: async () => null};
 const $ = s => document.querySelector(s);
@@ -557,7 +565,9 @@ function emotionOf(id) {
   const rows = S.rows || [];
   switch (id) {
     case "guard": return S.unprot && S.unprot.length ? {emo: "alarmed", why: `${S.unprot.map(r => r.sym).join(", ")} has no stop.`} : night ? {emo: "calm", why: "Every share is covered, so he can rest his eyes."} : {emo: "calm", why: `All ${rows.length} stops are set.`};
-    case "hq": if (night) return {emo: "sleepy", why: "Off duty. Home with CASE."};
+    case "hq": { const d = DIARY[0], fresh = d && Date.now() - Date.parse(d.ts) < 10 * 3600e3;
+      if (fresh && !open && EMO[d.mood]) return {emo: d.mood, why: `Off duty. Just wrote about "${d.title}".`}; }
+      if (night) return {emo: "sleepy", why: "Off duty. Home with CASE."};
       if (S.dayChg != null && S.dayChg < -0.02 * (S.val || 1)) return {emo: "worried", why: "Rough day for the stocks."};
       return open ? {emo: "focused", why: "Market's open. Watching everything."} : {emo: "happy", why: "Market's closed and nothing's on fire."};
     case "yard": if (night) return {emo: "sleepy", why: "The crew's tucked in."};
@@ -674,9 +684,22 @@ function socialScenes() {
            [["corner", "hq", "Same time tomorrow, TARS?"], ["hq", "corner", "After 10:30. I'll be there."]]],
     night: [[["home", "hq", "Lights off. Goodnight, TARS."], ["hq", "home", "Goodnight, CASE. Sid's on watch."], ["guard", "hq", "Always am."]]],
   }[ph] || [];
+  const d = DIARY[0];
+  if (d && d.fact_for_nolan && ph !== "night") pool.push([["hq", "corner", `Nolan, did you know? ${d.fact_for_nolan}`], ["corner", "hq", "No way. Where'd you learn that?"], ["hq", "corner", `My ${d.time || "latest"} diary: ${d.title}. I've been reading for fun.`]],
+    [["hq", "cafe", `Bea, I spent my ${d.time || "free"} time on ${d.topic || "something new"}.`], ["cafe", "hq", "Look at you, having hobbies."], ["hq", "cafe", d.question ? `Still wondering: ${d.question}` : "Turns out I like learning things that aren't charts."]]);
   if (!pool.length) return [];
   const pick = pool[Math.floor(Math.random() * pool.length)];
   return [{title: ph === "night" ? "Night" : ph === "dusk" ? "End of the day" : "Small talk", pri: 8, social: true, lines: pick.map(([f, t, x]) => ({f, t, x}))}];
+}
+function diaryCard(d) {
+  return `<article class="entry"><div class="eh"><b>${esc(d.title || "Untitled")}</b><span class="mut">${esc(d.date || "")} · ${esc(d.time || "")} · ${esc(d.topic || "")}</span></div>
+    <p>${esc(d.learned || "")}</p>${d.surprise ? `<p><span class="mut">Surprised me:</span> ${esc(d.surprise)}</p>` : ""}${d.question ? `<p><span class="mut">Still wondering:</span> ${esc(d.question)}</p>` : ""}
+    ${d.fact_for_nolan ? `<p class="fact">For Nolan: ${esc(d.fact_for_nolan)}</p>` : ""}
+    ${(d.sources || []).length ? `<p class="src">${d.sources.slice(0, 3).map(u => { let h = ""; try { h = new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return ""; } return `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(h)}</a>`; }).join(" · ")}</p>` : ""}</article>`;
+}
+function renderDiary() {
+  const el = $("#diary"); if (!el) return;
+  el.innerHTML = DIARY.length ? DIARY.slice(0, 6).map(diaryCard).join("") : `<p class="mut">No entries yet. TARS writes here a few times a day: weather in the morning, curiosity in the afternoon, something calm at night.</p>`;
 }
 function renderMood() {
   const el = $("#mood"); if (!el) return;
@@ -805,6 +828,7 @@ function derive() {
   status.home = HOME.err ? "idle" : HOME.awake ? "ok" : HOME.last ? "ok" : "idle";
   return S;
 }
+let DIARY = [];
 const HOME = {awake: false, last: null, recent: "", next: null, nextName: "", lastRun: null, err: null, upd: null, sched: []};
 function etHMof(d) { return fmtHM.format(d); }
 function nolanToday() {
@@ -823,7 +847,7 @@ function refresh() {
   $("#sCash").textContent = SD.cash !== null ? money(SD.cash) : "—";
   const d = $("#sDay"); d.textContent = SD.dayChg !== null ? money(SD.dayChg) : "—"; d.className = SD.dayChg === null ? "" : SD.dayChg >= 0 ? "up" : "dn";
   $("#sUpd").textContent = L.upd ? L.upd.toLocaleTimeString([], {hour: "numeric", minute: "2-digit"}) : "—";
-  drawTown(); renderDetail(); renderCrier(); renderWork(); renderMood();
+  drawTown(); renderDetail(); renderCrier(); renderWork(); renderMood(); renderDiary();
   if (!refresh.started) { refresh.started = true; setTimeout(startChatter, 1200); } // first real data: let the town talk about it right away
 }
 
@@ -890,6 +914,7 @@ function renderDetail() {
       dl([["Desk session", HOME.awake ? '<span class="up">awake, working</span>' : "resting"], ["Last thing it did", esc(HOME.recent || "—")], ["Last hourly check", HOME.lastRun ? etHMof(HOME.lastRun) + " ET" : "—"],
         ["Next scheduled", HOME.next ? `${esc(HOME.nextName)} · ${etHMof(HOME.next)} ET` : "—"]]) +
       (HOME.sched.length ? `<h3>TARS's week</h3><div class="scroll"><table><thead><tr><th>Routine</th><th>Next</th></tr></thead><tbody>${HOME.sched.map(t => `<tr><td>${esc(t.name)}</td><td>${new Date(t.next).toLocaleString([], {weekday: "short", hour: "numeric", minute: "2-digit"})}</td></tr>`).join("")}</tbody></table></div>` : "");
+    if (DIARY.length) body += `<h3>TARS's diary</h3>` + DIARY.slice(0, 3).map(diaryCard).join("");
     how = ["This is real: the house reads TARS's actual desk session and schedule.", "Lights on means the desk is working right now; smoke means someone's home.", "TARS lives here between checks. CASE keeps the house."];
   } else if (sel === "arch") {
     body = dl([["Days journaled", STATIC.journal.days], ["What's scored", "gap fill, high/low timing, range, direction"], ["Drop rule", "a call type that can't beat its base rate in 40 days"]]);
@@ -967,6 +992,12 @@ async function start() {
   });
 }
 drawTown(); renderDetail(); startChatter();
+CL.use("db").then(db => {
+  if (!db) { renderDiary(); return; }
+  try {
+    db.collection("diary").orderBy("ts", "desc").limit(8).onSnapshot(snap => { DIARY = snap.docs.map(d => d.data()).filter(Boolean); renderDiary(); renderMood(); if (sel === "home") renderDetail(); }, () => renderDiary());
+  } catch (e) { renderDiary(); }
+});
 $("#cNext").addEventListener("click", () => { paused = false; $("#cPause").textContent = "Pause"; clearTimeout(playTimer); step(); });
 $("#cPause").addEventListener("click", e => { paused = !paused; e.target.textContent = paused ? "Resume" : "Pause"; if (!paused) step(); });
 setInterval(drawTown, 60000); // sky, clock and sun follow the time

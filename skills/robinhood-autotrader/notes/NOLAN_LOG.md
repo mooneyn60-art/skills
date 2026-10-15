@@ -274,3 +274,8 @@ only records what he said and what was done. R13: no dollar balances.
 - Residents walk the streets (streets now run between the blocks). In conversations the speaker walks over to whoever they're talking to; bubbles follow the speaker. Between work talks they take breaks at the new park (fountain, bench, trees) and the new Café Theta (barista Bea), visit friends, and go home at night; TARS walks home to TARS's Place with CASE.
 - Emotions: happy, proud, excited, cozy, calm, curious, focused, bored, sleepy, nervous, worried, grumpy, alarmed, each with a reason tied to real account/market data; floating emotes (★ ✦ ♥ ? … z ! ~, sweat drop). "How everyone feels" panel lists every resident's mood and why.
 - Small talk by time of day (dawn coffee, park catch with Nolan and Pip, Fern and Nyx on rain, dusk goodbyes, CASE's goodnight). Work scenes still go first; alerts first of all.
+
+## 2026-10-15 — TARS gets a life (Nolan: "make you continuous tars living his life researching weather and other subjects I want you to live not just work")
+- routines/TARS_LIFE.md: off-duty wake-ups 8:07am, 2:07pm, 8:07pm ET daily (trigger trig_01Q34agj4g9fKJ6mPUj7gqHG, fresh session each time): weather in the morning, free curiosity in the afternoon, something calm + a look back in the evening. Diary to the TARS Town database (collection diary) and notes/TARS_DIARY.md. Hard limit: no trading or account actions.
+- Town v9: TARS's diary panel (live from the town database), diary in TARS's Place, TARS shares facts with Nolan and Bea in small talk, TARS's off-duty mood comes from his latest entry.
+- First entry written tonight: "Autumn storms, near and far".
