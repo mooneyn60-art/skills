@@ -3,7 +3,7 @@ name: meatball-motors
 description: Produce "Meatball Motors", an AI-animated sitcom Shorts series about Meatball, an orange cat who sells used cars. Use to write episodes, generate shots with vidIQ (Veo 3.1), assemble, title, and schedule them, and to review performance.
 ---
 
-# Meatball Drama (channel) — Meatball Motors is the car lot inside the story
+# Oh Meatball (channel, @Oh_meatball) — Meatball Motors is the car lot inside the story
 
 ## Why this format (evidence: skills/bart-clips/research/06-09)
 - Recurring-character AI sitcoms/animal shows are the formats converting views
