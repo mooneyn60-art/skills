@@ -18,13 +18,28 @@ description: Run the Certified Bart short-form clipping business - turn Joe Bart
 - Instagram: StoryVaults `69ee71f1da7dbfe118f6e80e` (sub-account `17841429829712746`)
 - Source: Joe Bartolozzi `UCGRryxFxjXbVAtBPE9EbyMg`
 
-## Title formula (from our own top performers)
-`Joe Bartolozzi <strong verb> <specific situation>`, under 70 characters.
-- Verbs that won: Roasts, Can't Decide, Comforts, Drops $X on, Can't Believe, Reacts to.
-- Money, sports stars, emotional moments and "would you rather" dilemmas beat the rest.
-- ALWAYS include "Joe Bartolozzi" - the one title without it got 0 views.
-- Never re-upload a clip we already posted (duplicates got 3-69 views).
-- 15-35 seconds; first second must be the punchline or the question.
+## Packaging (evidence: research/01-03, measured 2026-10-15)
+Titles, ~7 words / ~40 chars, emoji (63% of 102 outliers have one; 😭 most):
+- A: `"<Joe's own punchline line>" 😭 | Joe Bartolozzi`
+- B: `Joe Bart <verb> <specific thing> 😭`
+- C: `<deadpan caption> | Joe Bartolozzi`
+- RETIRED: "Can't Decide / Can't Believe" (wore out: 13.7k -> 705; 0/49 Joe outliers).
+- Always name Joe (the one title without him got 0 views).
+Clips: 15-25 s (ours: <=25 s median 2,166 engaged vs 396 for >60 s; <=20 s
+had the highest breakout in the niche). Open mid-action on Joe's strongest
+line, no intro. Loopable endings. Never over 60 s (Content ID block risk).
+Moments that win: Joe with other creators (crossovers), quotable rants,
+"old Joe"/nostalgia, named game moments, money, personal stories.
+Cadence: 1 per day minimum, no gaps (our views drop to ~0 the day after a gap).
+Clip new Joe videos within 24-72 h. Never re-upload a posted clip (dupes got 0-69).
+
+## Policy risk (research/04)
+- 2026-10-01: YouTube is reducing reach for channels mainly re-uploading
+  others' videos; captions/reframing/narration don't count as added value.
+- Reused content is not monetizable even with permission. Spoken commentary,
+  critique, reaction does count. Plan: test growth with clips now, add a real
+  commentary layer (Nolan's voice) before relying on this channel.
+- Check YouTube Studio for claims/restrictions after any 0-view upload.
 
 ## Rules
 - Only Joe content on Certified Bart. A different creator or campaign gets its

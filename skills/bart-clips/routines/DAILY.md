@@ -31,10 +31,14 @@ score whose transcript works with no context.
 ## 4. Title + queue
 For each picked clip write a title with the formula in SKILL.md. Description:
 `<title> | Full video: youtube.com/@joebartolozzi #joebartolozzi #shorts`.
-Schedule with `opusclip_schedule_publish` for today (ET): 12:00, 17:00, 21:00,
-on the YouTube account; the same clip to TikTok Story Vault and Instagram
-StoryVaults. Record every returned `approval_url` in `data/posted.csv`
-(status `awaiting_approval`).
+7-day test (2026-10-15 to 10-22): ONE clip per day on YouTube at 17:00 ET,
+queued 3 days ahead so there is never a gap. After the test, if median
+engaged views beat 1,654, scale to 2/day and add TikTok Story Vault.
+Schedule with `opusclip_schedule_publish`. Record every returned `approval_token` in `data/posted.csv`
+(status `awaiting_approval`). Combine all of the day's tokens into ONE link
+for Nolan: `https://clip.opus.pro/agent-approvals#<token>,<token>,...`.
+On days with no new Joe video, use the next-best unposted clip (<=25 s) from
+the latest project, so there is never a gap day.
 
 ## 5. Update results
 `opusclip_list_scheduled_posts` for the last 10 days: set rows to `posted` or
@@ -43,9 +47,15 @@ StoryVaults. Record every returned `approval_url` in `data/posted.csv`
 fill `views_7d`. Store a learning for each finished clip:
 `npx -y ruflo@latest memory store --namespace bart-clips --key "<clip_id>" --value "<views_7d> views | <title>"`.
 
-## 6. Weekly (Mondays only)
-- Top 3 and bottom 3 clips of the week: what do winners share? Update the
-  title formula in SKILL.md if the data clearly says so.
+## 6. Weekly self-review (Mondays only)
+- Score the week: median engaged views per clip vs the baseline (1,654 views
+  median of the last 50 before 2026-10-15). Top 3 and bottom 3: what do
+  winners share (title format A/B/C, length, moment type)?
+- Store one line per finding: `npx -y ruflo@latest memory store --namespace bart-clips --key "week-<date>" --value "<finding>"`.
+- Change SKILL.md packaging ONLY when at least 3 clips support the change;
+  write the evidence next to the rule. Note what was tried and dropped.
+- Write `research/weekly/<date>.md` (10 lines max) and include its 3-line
+  summary in Nolan's message.
 - Check https://contentrewards.com/c/discover/clipping for a Joe Bartolozzi
   or matching campaign; report any with budget left.
 
