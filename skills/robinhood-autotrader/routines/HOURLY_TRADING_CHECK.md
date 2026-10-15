@@ -203,6 +203,7 @@ WHEN THE SLOT IS EMPTY (stopped, time-exited or sold):
      log it with strategy "R17_option_slot" and the next slot_trade_no,
      update this section's "Currently" lines, commit and push.
   The R6 drawdown halt pauses step 2 (say so) unless Nolan names a trade.
+  Exception (Nolan 2026-10-15): R6 does not pause TARS's $500 options slot (routines/TARS_OPTIONS_LIVE.md).
 
 ## MOMENTUM REBUILD 2026-10-01 (Nolan: "clean house ... companies that are gonna out grow the S&P")
 

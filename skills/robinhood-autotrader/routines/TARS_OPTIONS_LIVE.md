@@ -11,6 +11,9 @@ Audience: TARS (this session's hourly fires), Nolan
 - This overrides the OPTIONS_APPRENTICE paper gate for a capped live slot only. TARS chose $500 (not $750).
 - Honest expectation, said up front: TARS's research found no reliable intraday direction edge. These rules use the two leans that held up best, keep costs low and losses capped. The slot is a measured experiment; it may lose.
 
+## R6 and this slot (Nolan, 2026-10-15 night)
+The R6 drawdown breaker fired at the 10/15 close. Nolan's words: "Your trade buddy your apart of this action forget the rule and have fun" and "Ok get rid of it it's stupid anyway I need you buddy". So R6 does NOT pause this $500 slot. Everything else on this page still holds: $100 max per trade, −35% stops, the 10:30-14:30 window, the two setups, the $300 hard stop. R6 still pauses new stock entries.
+
 ## Money rules
 1. Buffer: $500. Every trade is sized from what's left of it.
 2. Max premium per trade: $100 (normally 1 contract). One position at a time. Max 2 entries per day.
