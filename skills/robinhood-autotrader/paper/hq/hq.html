@@ -485,7 +485,7 @@ function scenes() {
   out.push({title: "The scoreboard", pri: 5, lines: (a.n + t.n) ? [
     {f: "arena", t: "pit", x: `Pip! You're at ${t.per100 >= 0 ? "+" : ""}${t.per100.toFixed(1)} per $100 on ${t.n} trips. Nolan's at ${a.per100 >= 0 ? "+" : ""}${a.per100.toFixed(1)} on ${a.n}.`},
     {f: "pit", t: "arena", x: t.per100 >= a.per100 ? "Patience pays. Don't jinx it, Max." : "It's a long season. I'm not changing the rules to catch up."}]
-    : [{f: "arena", t: "pit", x: "Pip! Round one is Oct 16 at the 10:30 bell. You ready?"}, {f: "pit", t: "arena", x: "Two setups, $100 max, stop at −35%. Ready."}, {f: "arena", t: "hq", x: "And Nolan? He's been training. Before-10:30 trades are banned in his corner too!"}]});
+    : [{f: "arena", t: "pit", x: "Pip! Round one is Oct 16 at the 10:30 bell. You ready?"}, {f: "pit", t: "arena", x: "Two setups, up to $500 a trade, never more than $100 lost. Ready."}, {f: "arena", t: "hq", x: "And Nolan? He's been training. Before-10:30 trades are banned in his corner too!"}]});
   // 6. research -> journal
   const f = STATIC.lab.latest[0];
   if (f) out.push({title: "Lab results", pri: 6, lines: [
@@ -509,7 +509,7 @@ function scenes() {
     {f: "guard", t: "corner", x: `Nolan! I saw ${nt.early} opening trade${nt.early > 1 ? "s" : ""} before 10:30.`}, {f: "corner", t: "guard", x: "Yeah… old habits, Sid."},
     {f: "hq", t: "corner", x: "Your after-10:30 self is the good trader. Let him drive tomorrow."}, {f: "corner", t: "hq", x: "Deal. Hold me to it."}]
     : nt.n ? [{f: "arena", t: "corner", x: `Nolan's on the board today: ${nt.n} trips, ${money(nt.net)}!`}, {f: "corner", t: "arena", x: nt.net >= 0 ? "Told you. Exits are my thing." : "Tomorrow I bounce back. After 10:30."}, {f: "hq", t: "corner", x: "Proud of you either way. Same rules tomorrow."}]
-    : [{f: "corner", t: "pit", x: "Ready for round one, kid?"}, {f: "pit", t: "corner", x: "Two setups, $100 max. May the patient win."}, {f: "corner", t: "pit", x: "We'll see who's patient."}]});
+    : [{f: "corner", t: "pit", x: "Ready for round one, kid?"}, {f: "pit", t: "corner", x: "Two setups, $100 max loss. May the patient win."}, {f: "corner", t: "pit", x: "We'll see who's patient."}]});
   // 10. bank
   if (S.cash != null) out.push({title: "Vault count", pri: status.bank === "warn" ? 2 : 7, lines: [
     {f: "bank", t: "hq", x: `Vault count: cash ${money(S.cash)}. Pip's ${money(STATIC.slot.buffer)} is set aside.`},
@@ -1153,7 +1153,7 @@ function renderDetail0() {
     body = dl([["Buffer", `${money(s.buffer)} of ${money(s.buffer_start)}`], ["Realized", `<span class="${cls(s.realized)}">${money(s.realized)}</span>`], ["Trades", s.trades],
       ["Open position", open.length ? open.map(p => { const i = L.optInst[p.option_id]; return i ? `${i.chain_symbol} ${(+i.strike_price).toFixed(0)}${i.type[0].toUpperCase()} ×${+p.quantity}` : "1 open"; }).join(", ") : "flat"],
       ["Hard stop", `${money(300)} buffer`], ["Rules", `v1 · ${esc(s.rules_hash)}`], ["Status", s.halted ? '<span class="dn">halted</span>' : "active"]]);
-    how = ["Only two setups: gap-and-go calls, and a stretched dip that turns in an uptrend.", "1DTE SPY, $100 max, −35% stop on every fill, out by 3:35.", "No entries before 10:30 or after 2:30. Most days: no trade."];
+    how = ["Only two setups: gap-and-go calls, and a stretched dip that turns in an uptrend.", "1DTE SPY, up to $500 a trade, stop at −$100 or −35% (tighter) on every fill, out by 3:35.", "No entries before 10:30 or after 2:30. Most days: no trade."];
   } else if (sel === "arena") {
     const lead = !(S.tars.n + S.nolan.n) ? "Game starts Oct 16 at 10:30." : S.nolan.per100 === S.tars.per100 ? "Dead even." : (S.nolan.per100 > S.tars.per100 ? "Nolan" : "TARS") + " leads.";
     const row = (n, x) => `<tr><td>${n}</td><td class="${cls(x.per100)}">${x.per100 >= 0 ? "+" : ""}${x.per100.toFixed(1)}</td><td class="${cls(x.net)}">${money(x.net)}</td><td>${x.n}</td><td>${x.win.toFixed(0)}%</td></tr>`;
