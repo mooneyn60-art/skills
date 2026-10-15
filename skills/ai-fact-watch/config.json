@@ -1,0 +1,41 @@
+{
+  "brand": "AI Fact Watch",
+  "site_url": "{{SITE_URL}}",
+  "sender": {
+    "name": "AI Fact Watch",
+    "gmail": "{{SENDER_GMAIL}}",
+    "reply_to": "{{SENDER_GMAIL}}",
+    "postal_address": "{{POSTAL_ADDRESS}}"
+  },
+  "payment_links": {
+    "watch": "{{PAYMENT_LINK_WATCH}}",
+    "emergency": "{{PAYMENT_LINK_EMERGENCY}}"
+  },
+  "stripe_payment_link_ids": {
+    "watch": "{{STRIPE_PLINK_ID_WATCH}}",
+    "emergency": "{{STRIPE_PLINK_ID_EMERGENCY}}"
+  },
+  "plans": {
+    "free": {"price_usd": 0, "checks": 1},
+    "watch": {"price_usd": 29, "interval": "month", "recheck_days": 7},
+    "emergency": {"price_usd": 99, "interval": "once", "recheck_days": 1, "duration_days": 30, "delivery_hours": 48}
+  },
+  "limits": {
+    "free_checks_per_day": 20,
+    "free_checks_per_email": 1,
+    "emails_per_day": 80,
+    "provider_calls_per_day": 200
+  },
+  "policy": {
+    "refund_window_days": 14,
+    "refund_rule": "Full refund, no questions asked, if requested within 14 days of the payment. After 14 days: Watch cancels at period end with no partial refund; Emergency is not refundable after the 48h Fix Kit is delivered unless we failed to deliver it.",
+    "cancel_rule": "Cancel any time by replying 'cancel'. Watch stops at the end of the paid month. We confirm by email the same day.",
+    "never": [
+      "Promise that Google, OpenAI or any vendor will change an answer",
+      "Email anyone who did not submit a check or pay",
+      "Name a customer or their results publicly",
+      "Give legal advice"
+    ]
+  },
+  "outbound_enabled": false
+}

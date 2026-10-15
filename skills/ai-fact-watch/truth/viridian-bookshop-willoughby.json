@@ -4,7 +4,7 @@
   "town": "Willoughby",
   "region": "OH",
   "category": "LocalBusiness",
-  "collected_at": "2026-10-15T20:27:05+00:00",
+  "collected_at": "2026-10-15T20:28:06+00:00",
   "facts": {
     "name": {
       "value": "The Viridian Bookshop",
@@ -59,7 +59,7 @@
     "offers": {
       "value": [
         {
-          "text": "Claim Your Seat Unlock Exclusive Perks Join the inner circle and become a Viridian Bookshop member to unlock exclusive discounts, charming bookish gifts, and members-only content.",
+          "text": "Join the inner circle and become a Viridian Bookshop member to unlock exclusive discounts, charming bookish gifts, and members-only content.",
           "source": "https://viridianbookshop.com"
         }
       ],
@@ -107,22 +107,14 @@
     {
       "kind": "social",
       "url": "https://www.facebook.com/p/The-Viridian-Bookshop-61570579876171/",
-      "reachable": true,
-      "title": "The Viridian Bookshop | Willoughby OH",
-      "address": null,
-      "phone": null,
-      "hours": {},
-      "bio_excerpt": "The Viridian Bookshop | Willoughby OH"
+      "reachable": false,
+      "note": "Behind a login wall; check this profile manually."
     },
     {
       "kind": "social",
       "url": "https://www.instagram.com/viridian.bookshop/",
-      "reachable": true,
-      "title": "The Viridian Bookshop (@viridian.bookshop) • Instagram photos and videos",
-      "address": null,
-      "phone": null,
-      "hours": {},
-      "bio_excerpt": "The Viridian Bookshop (@viridian.bookshop) • Instagram photos and videos Instagram Log In Sign Up Meta About Blog Jobs Help API Privacy Consumer Health Privacy Terms Locations Popular Instagram Lite Meta AI Muse Threads Contact Uploading & Non-Users Meta Verified English Down chevron icon Afrikaans "
+      "reachable": false,
+      "note": "Behind a login wall; check this profile manually."
     }
   ],
   "press": [
@@ -142,42 +134,42 @@
       "url": "https://viridianbookshop.com",
       "requested": "https://viridianbookshop.com",
       "status": 200,
-      "fetched_at": "2026-10-15T20:27:03+00:00"
+      "fetched_at": "2026-10-15T20:28:04+00:00"
     },
     {
       "kind": "fetch",
       "url": "https://viridianbookshop.com/about-us/",
       "requested": "https://viridianbookshop.com/about-us/",
       "status": 200,
-      "fetched_at": "2026-10-15T20:27:03+00:00"
+      "fetched_at": "2026-10-15T20:28:04+00:00"
     },
     {
       "kind": "fetch",
       "url": "https://viridianbookshop.com/contact-us/",
       "requested": "https://viridianbookshop.com/contact-us/",
       "status": 200,
-      "fetched_at": "2026-10-15T20:27:03+00:00"
+      "fetched_at": "2026-10-15T20:28:05+00:00"
     },
     {
       "kind": "fetch",
       "url": "https://bookshop.org/shop/ViridianBookshop",
       "status": "error",
       "error": "HTTP Error 403: Forbidden",
-      "fetched_at": "2026-10-15T20:27:04+00:00"
+      "fetched_at": "2026-10-15T20:28:05+00:00"
     },
     {
       "kind": "fetch",
-      "url": "https://www.facebook.com/p/The-Viridian-Bookshop-61570579876171/",
+      "url": "https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2Fp%2FThe-Viridian-Bookshop-61570579876171%2F",
       "requested": "https://www.facebook.com/p/The-Viridian-Bookshop-61570579876171/",
-      "status": 200,
-      "fetched_at": "2026-10-15T20:27:04+00:00"
+      "status": "login wall",
+      "fetched_at": "2026-10-15T20:28:06+00:00"
     },
     {
       "kind": "fetch",
-      "url": "https://www.instagram.com/viridian.bookshop/",
+      "url": "https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fviridian.bookshop%2F&is_from_rle",
       "requested": "https://www.instagram.com/viridian.bookshop/",
-      "status": 200,
-      "fetched_at": "2026-10-15T20:27:05+00:00"
+      "status": "login wall",
+      "fetched_at": "2026-10-15T20:28:06+00:00"
     }
   ]
 }

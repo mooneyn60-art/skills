@@ -250,12 +250,12 @@ def render_pdf(c: dict, path, sample: bool, promise: str) -> None:
     # fix kit
     story += [Paragraph("Fix Kit", S["h2"]),
               boxed(Paragraph(esc(promise), S["body"]), bg="#eef8f7", border=BRAND, pad=7), Spacer(1, 6),
-              Paragraph("1. Add structured data to your website", S["h3"]),
+              KeepTogether([Paragraph("1. Add structured data to your website", S["h3"]),
               Paragraph("Paste into the &lt;head&gt; of every page inside a &lt;script type=\"application/ld+json\"&gt; tag.",
-                        S["body"]), code(kit["jsonld"], 70),
+                        S["body"]), code(kit["jsonld"], 70)]),
               Paragraph("2. Publish an “Official facts” page at /official-facts", S["h3"])]
     story += [Paragraph(f"<b>{esc(q)}</b> {esc(a)}", S["cell"]) for q, a in kit["faq"]]
-    story += [Paragraph("3. Upload llms.txt to your site root", S["h3"]), code(kit["llms_txt"]),
+    story += [KeepTogether([Paragraph("3. Upload llms.txt to your site root", S["h3"]), code(kit["llms_txt"])]),
               Paragraph("4. Google Business Profile edits", S["h3"])]
     story += [Paragraph(f"{i}. {esc(x)}", S["cell"]) for i, x in enumerate(kit["gbp"], 1)]
     story += [Paragraph("5. Correct these listings", S["h3"]),

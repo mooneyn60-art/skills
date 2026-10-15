@@ -340,7 +340,9 @@ def collect(a) -> dict:
 
     # offers
     offers = []
-    for url, t in texts:
+    blocks = [(url, clean_text(el.get_text(" "))) for url, sp in pages
+              for el in sp.find_all(["p", "li", "td", "h2", "h3", "h4"])]
+    for url, t in blocks:
         for m in OFFER_RE.finditer(t):
             s = clean_text(m.group(0))
             if 15 < len(s) < 260 and s not in [o["text"] for o in offers]:
