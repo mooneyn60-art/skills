@@ -223,3 +223,10 @@ only records what he said and what was done. R13: no dollar balances.
 - Tested what 0DTE traders watch: pinning (none in SPY), intraday momentum (weak), GEX (no independent evidence; daily snapshots now collected). Literature: 0DTE buyers lose on average, mostly to costs.
 - Strongest finding is in Nolan's own trades: before 10:30 he lost on 5/5 days; after 10:30 he was green 5/6. Today's loss came almost entirely from 24 trips before 10:30.
 - Desk v5: ticket warns on buy-to-open before 10:30 (warning only). Ask TARS knows his record. Journal adds GEX snapshots at 10:00 and 15:00.
+
+## 2026-10-15 — TARS live options slot funded (Nolan authorized)
+- Nolan: "sell $500 of stock and you use that as your buffer ... I'm good with 750 I authorize and explain it all for me". TARS chose $500. Nolan confirmed the specific sells.
+- Sold VLO 0.455517 @ 438.70 (market) and FRO 5 @ 52.55 (limit; its two GTC stops cancelled first, sale confirmed filled). Slot buffer: $500.
+- Rules v1: routines/TARS_OPTIONS_LIVE.md (1DTE SPY calls only; S1 gap-and-go, S2 stretched dip in uptrend; $100/trade, 1 position, day stop $100, hard stop at $300; entries 10:30-14:30; −35% stop on every fill).
+- Scheduled live checks (create_trigger / send_later) were BLOCKED by the permission classifier. Not worked around. Checks run when Nolan messages during market hours.
+- Account note for Nolan: total value fell sharply since 10/13 (mainly options losses on 10/14-10/15); holdings rotated today into NVDA/PLTR/ORCL/BE with 8% stops.
