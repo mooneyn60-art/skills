@@ -2,7 +2,7 @@
   "slug": "stefaninas-wentzville",
   "name": "Stefanina's Wentzville",
   "date": "2026-10-15",
-  "generated_at": "2026-10-15T20:25:07+00:00",
+  "generated_at": "2026-10-15T20:27:08+00:00",
   "answers_file": "answers/stefaninas-wentzville/2026-10-15.json",
   "engines": [
     "Claude web search (session-run)",
@@ -208,7 +208,7 @@
       "type": "own_source_conflict",
       "title": "Your own sources disagree with each other",
       "severity": "medium",
-      "true_value": "Structured data (what search engines and AI read) says Mon ?, Tue 11am-8pm, Wed 11am-8pm, Thu 11am-8pm, Fri 11am-9pm, Sat 11am-9pm, Sun 11am-8pm; the visible page says Mon 11am-8pm, Tue 11am-8pm, Wed 11am-8pm, Thu 11am-8pm, Fri 11am-9pm, Sat 11am-9pm, Sun 11am-8pm. They disagree on: Mon.",
+      "true_value": "Structured data (what search engines and AI read) says Mon not listed, Tue 11am-8pm, Wed 11am-8pm, Thu 11am-8pm, Fri 11am-9pm, Sat 11am-9pm, Sun 11am-8pm; the visible page says Mon 11am-8pm, Tue 11am-8pm, Wed 11am-8pm, Thu 11am-8pm, Fri 11am-9pm, Sat 11am-9pm, Sun 11am-8pm. They disagree on: Mon.",
       "true_source": "https://www.stefaninas-wentzville.com",
       "explanation": "When your website and its structured data (or a listing) disagree, AI engines pick one at random. Fix the source so there is one answer.",
       "evidence": [],
@@ -288,8 +288,8 @@
           "mode": "manual",
           "query": "Stefanina's Pizzeria Wentzville MO address phone hours specials",
           "observed_at": "2026-10-15T20:36:00Z",
-          "ai_quote": "(no answer cited the official website)",
-          "evidence_url": "https://www.sluurpy.com/fr/wentzville/restaurant/4120750/stefanina-s-pizzeria",
+          "ai_quote": "(None of these answers cited stefaninas-wentzville.com.)",
+          "evidence_url": null,
           "citations": [
             "https://www.sluurpy.com/fr/wentzville/restaurant/4120750/stefanina-s-pizzeria",
             "https://www.toasttab.com/local/wentzville-mo-restaurants/best-pizza",

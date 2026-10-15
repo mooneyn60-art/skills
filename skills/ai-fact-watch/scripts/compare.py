@@ -79,7 +79,8 @@ class Collector:
             ev = {"provider": answer["provider"], "engine": answer.get("engine"),
                   "mode": answer.get("mode"), "query": answer.get("query"),
                   "observed_at": answer.get("observed_at"), "ai_quote": quote,
-                  "evidence_url": answer.get("evidence_url") or (answer.get("citations") or [None])[0],
+                  "evidence_url": None if (quote or "").startswith("(") else
+                  answer.get("evidence_url") or (answer.get("citations") or [None])[0],
                   "citations": answer.get("citations", [])}
             if ev not in g["evidence"]:
                 g["evidence"].append(ev)

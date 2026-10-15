@@ -33,7 +33,7 @@ SCHEMA_TYPE = {"restaurant": "Restaurant", "bookstore": "BookStore", "bakery": "
                "store": "Store", "dentist": "Dentist", "electrician": "Electrician",
                "plumber": "Plumber", "barorpub": "BarOrPub", "hairsalon": "HairSalon"}
 FEEDBACK_HOWTO = {
-    "google": [
+    "Google AI Overview": [
         "Search the exact question on Google (on the phone where customers see it).",
         "Under the AI Overview, tap the thumbs-down icon (or the three-dot menu, then Feedback).",
         "Pick the closest reason (for example 'Inaccurate'), paste the text below, and attach a "
@@ -41,10 +41,10 @@ FEEDBACK_HOWTO = {
         "Repeat from a second Google account or device if the error persists; log each submission "
         "date in the evidence log.",
     ],
-    "gemini": ["In the Gemini app or gemini.google.com, ask the question, tap thumbs-down on the "
+    "Gemini": ["In the Gemini app or gemini.google.com, ask the question, tap thumbs-down on the "
                "answer, and paste the text below."],
-    "chatgpt": ["In ChatGPT, ask the question, tap thumbs-down on the answer, and paste the text below."],
-    "legal": ["If an AI answer states a false lawsuit, crime or scam, keep the dated evidence log and "
+    "ChatGPT": ["In ChatGPT, ask the question, tap thumbs-down on the answer, and paste the text below."],
+    "False legal claims": ["If an AI answer states a false lawsuit, crime or scam, keep the dated evidence log and "
               "use Google's legal removal request (https://support.google.com/legal/answer/3110420). "
               "Talk to a lawyer before making any public accusation."],
 }
@@ -234,8 +234,9 @@ def gbp_edits(truth: dict, findings: dict) -> list[str]:
 def feedback_items(truth: dict, findings: dict) -> list[dict]:
     F = facts_of(truth)
     items = []
+    skip = {"official_site_not_used", "own_source_conflict", "no_structured_data", "menu_not_text"}
     for f in findings.get("findings", []):
-        if not f["evidence"]:
+        if not f["evidence"] or f["type"] in skip:
             continue
         ev = f["evidence"][0]
         eng = (ev.get("engine") or "").lower()
@@ -264,7 +265,7 @@ def directory_items(truth: dict, findings: dict) -> list[dict]:
                 if not h or site in h or h in seen or any(n in h for n in news):
                     continue
                 seen.add(h)
-                out.append({"site": h, "url": url, "why": f"Cited by AI for: {f['title'].lower()}"})
+                out.append({"site": h, "url": url, "why": f"Cited in: {f['title']}"})
     for name, url in CORE_DIRECTORIES:
         out.append({"site": name, "url": url, "why": "Core source AI engines read"})
     return out
@@ -276,9 +277,16 @@ def canonical_block(truth: dict) -> str:
     return f"{F['name']} | {F['address']} | {F['phone']} | {F['website']} | Hours: {hrs}"
 
 
+def compact_json(obj) -> str:
+    """Indented JSON with each small object (hours rows, address) on one line."""
+    text = json.dumps(obj, indent=2, ensure_ascii=False)
+    return re.sub(r"\{\n\s+(\"@type\": \"(?:OpeningHoursSpecification|PostalAddress)\"[^{}]*?)\n\s*\}",
+                  lambda m: "{" + re.sub(r"\s*\n\s*", " ", m.group(1)) + "}", text)
+
+
 def build_kit(truth: dict, findings: dict) -> dict:
     updated = findings.get("date") or truth["collected_at"][:10]
-    return {"jsonld": json.dumps(jsonld(truth), indent=2, ensure_ascii=False),
+    return {"jsonld": compact_json(jsonld(truth)),
             "official_facts_html": official_facts_html(truth, updated),
             "faq": faq(truth), "llms_txt": llms_txt(truth, updated),
             "gbp": gbp_edits(truth, findings), "feedback": feedback_items(truth, findings),
@@ -295,7 +303,7 @@ def write_kit(kit: dict, out) -> list:
         "gbp-edits.md": "# Google Business Profile edits\n\n" + "\n".join(f"{i}. {x}" for i, x in enumerate(kit["gbp"], 1)) + "\n",
         "ai-feedback.md": "# Report each wrong AI answer\n\nNo vendor promises to change an answer. Submit, "
                           "log the date, re-check weekly.\n\n" +
-                          "\n".join(f"## {k.title()}\n" + "\n".join(f"- {s}" for s in v) + "\n"
+                          "\n".join(f"## {k}\n" + "\n".join(f"- {s}" for s in v) + "\n"
                                     for k, v in kit["feedback_howto"].items()) + "\n" +
                           "\n".join(f"### {x['finding']} ({x['severity']})\nEngine: {x['engine']}\n"
                                     f"Query: {x['query']}\n\n> {x['text']}\n" for x in kit["feedback"]),

@@ -2,7 +2,7 @@
 
 No vendor promises to change an answer. Submit, log the date, re-check weekly.
 
-## Google
+## Google AI Overview
 - Search the exact question on Google (on the phone where customers see it).
 - Under the AI Overview, tap the thumbs-down icon (or the three-dot menu, then Feedback).
 - Pick the closest reason (for example 'Inaccurate'), paste the text below, and attach a screenshot of your website showing the correct fact.
@@ -11,10 +11,10 @@ No vendor promises to change an answer. Submit, log the date, re-check weekly.
 ## Gemini
 - In the Gemini app or gemini.google.com, ask the question, tap thumbs-down on the answer, and paste the text below.
 
-## Chatgpt
+## ChatGPT
 - In ChatGPT, ask the question, tap thumbs-down on the answer, and paste the text below.
 
-## Legal
+## False legal claims
 - If an AI answer states a false lawsuit, crime or scam, keep the dated evidence log and use Google's legal removal request (https://support.google.com/legal/answer/3110420). Talk to a lawyer before making any public accusation.
 
 ### AI invents a deal the business never offered (critical)
@@ -52,12 +52,6 @@ Engine: Claude web search (session-run)
 Query: is Stefanina's in Wentzville MO open
 
 > This answer about Stefanina's Wentzville (Wentzville, MO) is wrong. AI cannot confirm the business is open. Correct information: Open. Official source: https://www.stefaninas-wentzville.com. I am the owner/representative of this business.
-
-### AI does not use your official website as a source (medium)
-Engine: Claude web search (session-run)
-Query: Stefanina's Pizzeria Wentzville MO address phone hours specials
-
-> This answer about Stefanina's Wentzville (Wentzville, MO) is wrong. AI does not use your official website as a source. Correct information: https://www.stefaninas-wentzville.com. Official source: https://www.stefaninas-wentzville.com. I am the owner/representative of this business.
 
 ### AI mixes in the address of a same-name business (Stefanina's Pizzeria (Stef's Pizza, O'Fallon)) (low)
 Engine: Claude web search (session-run)

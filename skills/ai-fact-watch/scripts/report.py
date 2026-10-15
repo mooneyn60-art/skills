@@ -100,14 +100,15 @@ border-radius:0 8px 8px 0;font-style:italic}
 .meta{color:var(--muted);font-size:12px;margin-top:6px}.src{font-size:12px;word-break:break-all}
 pre{background:#0f172a;color:#e2e8f0;padding:14px;border-radius:10px;overflow:auto;font-size:12px;
 line-height:1.45;white-space:pre-wrap;word-break:break-word}
-ol li,ul li{margin:4px 0}.log{font-size:13px}.log td{padding:8px 10px}
+ol li,ul li{margin:4px 0;overflow-wrap:anywhere}pre{max-width:100%}.log{font-size:13px}.log td{padding:8px 10px}
 .promise{border-left:4px solid var(--brand);background:#eef8f7;padding:12px 14px;border-radius:0 10px 10px 0}
 .kit-step{display:flex;gap:10px;align-items:baseline}.n{background:var(--brand);color:#fff;border-radius:50%;
 min-width:24px;height:24px;display:inline-grid;place-items:center;font-size:12px;font-weight:700}
 footer{margin-top:40px;color:var(--muted);font-size:12px}
 @media (max-width:700px){.hero{grid-template-columns:1fr}.flags{grid-template-columns:repeat(2,1fr)}
 table.findings thead{display:none}table.findings tr{display:block;border-bottom:8px solid var(--bg)}
-table.findings td{display:block;border:none}h1{font-size:25px}}
+table.findings td,table.log td{display:block;border:none}table.log thead{display:none}
+table.log tr{display:block;border-bottom:1px solid var(--line)}td{word-break:break-word}h1{font-size:25px}}
 @media print{body{background:#fff}.card,table{break-inside:avoid}}
 """
 
@@ -157,8 +158,11 @@ def render_html(c: dict, sample: bool) -> str:
     right = ""
     if f["confirmations"]:
         seen = []
+        flagged = {e.get("ai_quote") for g in f["findings"] for e in g["evidence"]}
+        per_field: dict = {}
         for x in f["confirmations"]:
-            if x["ai_quote"] not in seen:
+            if x["ai_quote"] not in seen and x["ai_quote"] not in flagged and per_field.get(x["field"], 0) < 2:
+                per_field[x["field"]] = per_field.get(x["field"], 0) + 1
                 seen.append(x["ai_quote"])
         right = ("<h2>What AI got right</h2><ul>" + "".join(f"<li>&ldquo;{E(q)}&rdquo;</li>" for q in seen[:6])
                  + "</ul>")
@@ -167,7 +171,7 @@ def render_html(c: dict, sample: bool) -> str:
         f"<li><b>{E(x['finding'])}</b> <span class='pill {x['severity']}'>{SEV_LABEL[x['severity']]}</span>"
         f"<div class='meta'>Where: {E(x['engine'] or '')}</div><pre>{E(x['text'])}</pre></li>"
         for x in kit["feedback"] if x["severity"] in ("critical", "high", "medium"))
-    howto = "".join(f"<h3>{E(k.title())}</h3><ol>" + "".join(f"<li>{E(s)}</li>" for s in v) + "</ol>"
+    howto = "".join(f"<h3>{E(k)}</h3><ol>" + "".join(f"<li>{E(s)}</li>" for s in v) + "</ol>"
                     for k, v in kit["feedback_howto"].items())
     dirs = "".join(f"<tr><td><b>{E(d['site'])}</b><div class='src'>{link(d['url'])}</div></td>"
                    f"<td>{E(d['why'])}</td></tr>" for d in kit["directories"])
@@ -177,7 +181,7 @@ def render_html(c: dict, sample: bool) -> str:
     log = "".join(
         f"<tr><td>{E((a.get('observed_at') or '')[:16].replace('T', ' '))} UTC<div class='meta'>"
         f"{E(a.get('engine') or a['provider'])}</div></td><td><b>{E(a.get('query') or '')}</b>"
-        f"<div style='white-space:pre-wrap;margin-top:4px'>{E((a.get('text') or a.get('note') or '')[:1400])}</div>"
+        f"<div style='white-space:pre-wrap;margin-top:4px'>{E(a.get('text') or a.get('note') or '')}</div>"
         + (f"<div class='meta'>Evidence: {link(a['evidence_url'])}</div>" if a.get("evidence_url") else "")
         + ("<div class='meta'>Sources cited: " + " ".join(link(u) for u in a.get("citations", [])[:5]) + "</div>"
            if a.get("citations") else "") + "</td></tr>"

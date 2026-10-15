@@ -335,7 +335,7 @@ def collect(a) -> dict:
                                note="The website itself mentions closing - confirm with owner.")
     else:
         facts["status"] = fact("open", home, note=(
-            "Website is live and lists current hours" + (f"; page last modified {modified}" if modified else "")
+            "Website is live and lists current hours" + (f"; page last updated {str(modified)[:10]}" if modified else "")
             + ". No closure notice on the site."))
 
     # offers

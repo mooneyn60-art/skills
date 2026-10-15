@@ -80,6 +80,10 @@ S = {
 }
 
 
+def clip(t: str, n: int) -> str:
+    return t if len(t) <= n else t[:n].rsplit(" ", 1)[0] + " \u2026"
+
+
 def esc(t) -> str:
     t = html.escape(str(t or ""), quote=False)
     return re.sub(r"[​-‍﻿]", "", t)
@@ -219,8 +223,11 @@ def render_pdf(c: dict, path, sample: bool, promise: str) -> None:
                   Spacer(1, 6), findings_table(c["history"])]
     if f["confirmations"]:
         seen = []
+        flagged = {e.get("ai_quote") for g in f["findings"] for e in g["evidence"]}
+        per_field: dict = {}
         for x in f["confirmations"]:
-            if x["ai_quote"] not in seen:
+            if x["ai_quote"] not in seen and x["ai_quote"] not in flagged and per_field.get(x["field"], 0) < 2:
+                per_field[x["field"]] = per_field.get(x["field"], 0) + 1
                 seen.append(x["ai_quote"])
         story += [Paragraph("What AI got right", S["h2"])]
         story += [Paragraph(f"✓ “{esc(q)}”", S["quote"]) for q in seen[:5]]
@@ -259,7 +266,7 @@ def render_pdf(c: dict, path, sample: bool, promise: str) -> None:
     dt.setStyle(TableStyle([("LINEBELOW", (0, 0), (-1, -1), 0.4, LINE), ("VALIGN", (0, 0), (-1, -1), "TOP")]))
     story += [Spacer(1, 4), dt, Paragraph("6. Report each wrong AI answer", S["h3"])]
     for k, steps in kit["feedback_howto"].items():
-        story += [Paragraph(f"<b>{esc(k.title())}:</b> " + " ".join(f"({i}) {esc(s)}" for i, s in enumerate(steps, 1)),
+        story += [Paragraph(f"<b>{esc(k)}:</b> " + " ".join(f"({i}) {esc(s)}" for i, s in enumerate(steps, 1)),
                             S["cell"]), Spacer(1, 3)]
     story += [Paragraph("Pre-written feedback", S["h3"])]
     for x in kit["feedback"]:
@@ -276,7 +283,7 @@ def render_pdf(c: dict, path, sample: bool, promise: str) -> None:
     rows = []
     for a in c["answers"]:
         body = [Paragraph(f"<b>{esc(a.get('query'))}</b>", S["cell"]),
-                Paragraph(esc((a.get("text") or a.get("note") or "")[:1100]).replace("\n", "<br/>"), S["cell"])]
+                Paragraph(esc(clip(a.get("text") or a.get("note") or "", 2200)).replace("\n", "<br/>"), S["cell"])]
         if a.get("evidence_url"):
             body.append(Paragraph(f"Evidence: {esc(a['evidence_url'])}", S["small"]))
         if a.get("citations"):
