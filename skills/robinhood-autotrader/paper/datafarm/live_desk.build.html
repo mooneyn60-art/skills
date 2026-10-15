@@ -1,0 +1,498 @@
+<title>SPY Live Desk</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: trading-terminal column — status strip, big chart with layer toggles, RSI pane, then signal + context panels side by side (stacked on phones) */
+:root{
+  --bg:#eef0f3; --panel:#ffffff; --ink:#131820; --muted:#5b6575; --line:#d6dae1; --grid:#e6e9ee;
+  --accent:#c4730d; --up:#16845a; --down:#c23b34; --warn:#a97a08;
+  --vwap:#6a4fc7; --band:rgba(106,79,199,.10); --e9:#2a78b8; --e21:#9a6b3f;
+  --fib:#b0567a; --pool:#c4730d; --fvgU:rgba(22,132,90,.14); --fvgD:rgba(194,59,52,.13);
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0d1116; --panel:#141a21; --ink:#e5e9ef; --muted:#93a0b3; --line:#263040; --grid:#1c2430;
+  --accent:#eaa23a; --up:#3cc488; --down:#f0655c; --warn:#e2b23e;
+  --vwap:#ad9af5; --band:rgba(173,154,245,.10); --e9:#6db2ea; --e21:#d6a676;
+  --fib:#e58fb2; --pool:#eaa23a; --fvgU:rgba(60,196,136,.13); --fvgD:rgba(240,101,92,.13); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0d1116; --panel:#141a21; --ink:#e5e9ef; --muted:#93a0b3; --line:#263040; --grid:#1c2430;
+  --accent:#eaa23a; --up:#3cc488; --down:#f0655c; --warn:#e2b23e;
+  --vwap:#ad9af5; --band:rgba(173,154,245,.10); --e9:#6db2ea; --e21:#d6a676;
+  --fib:#e58fb2; --pool:#eaa23a; --fvgU:rgba(60,196,136,.13); --fvgD:rgba(240,101,92,.13); color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:14px;line-height:1.45;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px 32px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;gap:14px}
+header{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:baseline;justify-content:space-between}
+h1{font-family:var(--display);font-weight:700;font-size:2.1rem;letter-spacing:.05em;text-transform:uppercase;margin:0;line-height:1}
+h1 small{font-size:1rem;color:var(--muted);letter-spacing:.08em;margin-left:8px}
+.quote{font-family:var(--mono);display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+.quote b{font-size:1.6rem;font-weight:500;font-variant-numeric:tabular-nums}
+.status{font-family:var(--mono);font-size:.75rem;color:var(--muted);display:flex;gap:8px;align-items:center}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--muted)}
+.dot.live{background:var(--up);box-shadow:0 0 0 3px color-mix(in srgb,var(--up) 25%,transparent)}
+.dot.stale{background:var(--warn)} .dot.off{background:var(--down)}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:12px;min-width:0}
+h2{font-family:var(--display);font-weight:500;font-size:1.1rem;letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}
+.toolbar{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.toolbar button{font-family:var(--mono);font-size:.75rem;background:var(--panel);color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:4px 8px;cursor:pointer}
+.toolbar button[aria-pressed="true"]{color:var(--ink);border-color:var(--ink)}
+.toolbar .sep{width:1px;background:var(--line);margin:0 4px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+canvas{display:block;width:100%}
+#chart{height:430px} #rsi{height:90px;margin-top:4px}
+@media (max-width:600px){#chart{height:330px}}
+.cols{display:grid;grid-template-columns:1.2fr 1fr;gap:14px}
+@media (max-width:820px){.cols{grid-template-columns:1fr}}
+.sig{border:1px solid var(--line);border-radius:6px;padding:10px 12px;display:grid;gap:4px}
+.sig + .sig{margin-top:8px}
+.sig .top{display:flex;justify-content:space-between;gap:8px;align-items:baseline;flex-wrap:wrap}
+.sig .name{font-weight:600}
+.pill{font-size:.7rem;font-weight:600;letter-spacing:.04em;padding:1px 8px;border-radius:999px;border:1px solid currentColor;white-space:nowrap}
+.long{color:var(--up)} .short{color:var(--down)} .muted{color:var(--muted)} .warn{color:var(--warn)}
+.lv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;font-family:var(--mono);font-size:.82rem;font-variant-numeric:tabular-nums}
+.lv span small{display:block;font-family:var(--body);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.rec{font-size:.75rem;color:var(--muted)}
+dl{display:grid;grid-template-columns:auto 1fr;gap:5px 14px;margin:0;font-size:.85rem}
+dt{color:var(--muted)} dd{margin:0;font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+.note{font-size:.78rem;color:var(--muted);max-width:75ch;margin:8px 0 0}
+.banner{border:1px solid var(--warn);color:var(--ink);background:color-mix(in srgb,var(--warn) 10%,var(--panel));border-radius:6px;padding:10px 12px;font-size:.88rem;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.banner button{font-family:var(--body);font-size:.82rem;border:1px solid var(--ink);background:var(--panel);color:var(--ink);border-radius:4px;padding:4px 10px;cursor:pointer}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.72rem;color:var(--muted);margin-top:6px}
+.sw{display:inline-block;width:10px;height:3px;margin-right:5px;vertical-align:3px}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>SPY <small>Live Desk</small></h1>
+    <div class="quote"><b id="last">—</b><span id="chg" class="muted">—</span></div>
+    <div class="status"><i class="dot" id="dot"></i><span id="stat">Connecting to Robinhood…</span></div>
+  </header>
+
+  <div class="banner" id="banner" hidden></div>
+
+  <section class="panel">
+    <div class="toolbar" role="group" aria-label="Chart layers">
+      <button type="button" data-l="vwap" aria-pressed="true">VWAP ±1σ ±2σ</button>
+      <button type="button" data-l="ema" aria-pressed="true">EMA 9 / 21</button>
+      <button type="button" data-l="levels" aria-pressed="true">PDH / PDL / OR</button>
+      <button type="button" data-l="pools" aria-pressed="true">Liquidity pools</button>
+      <button type="button" data-l="fvg" aria-pressed="true">Fair value gaps</button>
+      <button type="button" data-l="fib" aria-pressed="false">Fibonacci</button>
+      <button type="button" data-l="sig" aria-pressed="true">Signals</button>
+      <span class="sep" aria-hidden="true"></span>
+      <button type="button" data-v="full" aria-pressed="true">Full day</button>
+      <button type="button" data-v="90" aria-pressed="false">Last 90 min</button>
+    </div>
+    <canvas id="chart" aria-label="SPY one-minute candles with indicators"></canvas>
+    <canvas id="rsi" aria-label="RSI 14"></canvas>
+    <div class="legend">
+      <span><i class="sw" style="background:var(--vwap)"></i>VWAP (bands shaded)</span>
+      <span><i class="sw" style="background:var(--e9)"></i>EMA 9</span>
+      <span><i class="sw" style="background:var(--e21)"></i>EMA 21</span>
+      <span><i class="sw" style="background:var(--accent)"></i>prior-day high/low, opening range, liquidity pools</span>
+      <span><i class="sw" style="background:var(--fib)"></i>Fibonacci of the day's swing</span>
+      <span>▲▼ signal entries · ◆ target · ✕ stop</span>
+    </div>
+  </section>
+
+  <div class="cols">
+    <section class="panel">
+      <h2>Signals</h2>
+      <div id="signals"><p class="muted">Waiting for today's bars.</p></div>
+      <p class="note">Each signal is one of the data-farm rules, with its stop and a target at twice the risk. The record line under each is that rule's backtest on 29 days of SPY with costs, so you can see which ones have held up. None has passed the bar for real money yet; they are here to learn from and to time your own entries and exits.</p>
+    </section>
+    <section class="panel">
+      <h2>Context</h2>
+      <dl id="ctx"><dt>Status</dt><dd>loading</dd></dl>
+      <p class="note">Liquidity pools are equal highs or lows (and yesterday's / the opening range's extremes) where stops tend to sit; "swept" means price ran through and closed back inside. Fibonacci levels are drawn from today's main swing for reference; in our 20-year SPY test they held no better than ordinary levels.</p>
+    </section>
+  </div>
+</div>
+
+<script>
+// Backtest records from paper/datafarm (29 days of SPY 1-min, costs included).
+const RECORD = {"sweep_reversal": {"n": 9, "win": 55.6, "avgR": 0.633}, "fvg_retest": {"n": 87, "win": 29.9, "avgR": -0.172}, "sweep_fvg": {"n": 1, "win": 0.0, "avgR": -1.009}, "fvg_trend": {"n": 71, "win": 31.0, "avgR": -0.115}, "vwap_reclaim": {"n": 101, "win": 33.7, "avgR": -0.057}};
+const SERVER = "Robinhood";
+const $ = s => document.querySelector(s);
+const layers = {vwap: true, ema: true, levels: true, pools: true, fvg: true, fib: false, sig: true};
+let view = "full";
+const S = {bars: [], prev: null, day: null, updated: null, live: false};
+
+// ---------- time helpers (US/Eastern) ----------
+const fmtDay = new Intl.DateTimeFormat("en-CA", {timeZone: "America/New_York", year: "numeric", month: "2-digit", day: "2-digit"});
+const fmtHM = new Intl.DateTimeFormat("en-GB", {timeZone: "America/New_York", hour: "2-digit", minute: "2-digit", hour12: false});
+const etDay = d => fmtDay.format(d);
+const etHM = d => fmtHM.format(d);
+function etOffsetHours(d) {
+  const p = new Intl.DateTimeFormat("en-US", {timeZone: "America/New_York", timeZoneName: "shortOffset"}).formatToParts(d);
+  const z = (p.find(x => x.type === "timeZoneName") || {}).value || "GMT-4";
+  return -parseInt(z.replace("GMT", "") || "-4", 10);
+}
+function openUTC(day) { // 09:30 ET on `day` as ISO
+  const hrs = 9 + etOffsetHours(new Date(day + "T16:00:00Z"));
+  return `${day}T${String(hrs).padStart(2, "0")}:30:00Z`;
+}
+
+// ---------- data ----------
+function parseBars(payload) {
+  const p = payload && (payload.data || payload);
+  const r = (p && p.results || []).find(x => (x.symbol || "SPY") === "SPY");
+  if (!r) return [];
+  return r.bars.filter(b => !b.interpolated).map(b => {
+    const t = new Date(b.begins_at);
+    return {t, d: etDay(t), hm: etHM(t), o: +b.open_price, h: +b.high_price, l: +b.low_price, c: +b.close_price, v: +(b.volume || 0)};
+  }).filter(b => b.hm >= "09:30" && b.hm < "16:00");
+}
+
+// ---------- indicators ----------
+function indicators(bars) {
+  let pv = 0, vv = 0, pv2 = 0, e9, e21, g, l, atr;
+  bars.forEach((b, i) => {
+    const tp = (b.h + b.l + b.c) / 3, v = Math.max(b.v, 1);
+    pv += tp * v; vv += v; pv2 += tp * tp * v;
+    b.vwap = pv / vv; b.sd = Math.sqrt(Math.max(0, pv2 / vv - b.vwap * b.vwap));
+    e9 = e9 === undefined ? b.c : e9 + 0.2 * (b.c - e9);
+    e21 = e21 === undefined ? b.c : e21 + (2 / 22) * (b.c - e21);
+    b.e9 = e9; b.e21 = e21;
+    let tr = b.h - b.l;
+    if (i) {
+      const p = bars[i - 1], ch = b.c - p.c;
+      g = g === undefined ? Math.max(ch, 0) : (g * 13 + Math.max(ch, 0)) / 14;
+      l = l === undefined ? Math.max(-ch, 0) : (l * 13 + Math.max(-ch, 0)) / 14;
+      tr = Math.max(tr, Math.abs(b.h - p.c), Math.abs(b.l - p.c));
+    }
+    atr = atr === undefined ? tr : (atr * 13 + tr) / 14;
+    b.atr = atr; b.rsi = !l ? 50 : 100 - 100 / (1 + (g || 0) / l);
+    b.trend = (b.c > b.vwap && e9 > e21) ? 1 : (b.c < b.vwap && e9 < e21) ? -1 : 0;
+  });
+}
+
+function structure(bars, prev) {
+  const out = {levels: [], pools: [], fvgs: [], swingsH: [], swingsL: [], fib: null};
+  if (!bars.length) return out;
+  const px = bars[bars.length - 1].c, tolBase = px * 0.0003;
+  if (prev) {
+    out.levels.push({name: "PDH", p: Math.max(...prev.map(b => b.h))}, {name: "PDL", p: Math.min(...prev.map(b => b.l))},
+                    {name: "PDC", p: prev[prev.length - 1].c});
+  }
+  if (bars.length >= 15) {
+    const or = bars.slice(0, 15);
+    out.levels.push({name: "ORH", p: Math.max(...or.map(b => b.h))}, {name: "ORL", p: Math.min(...or.map(b => b.l))});
+  }
+  for (let j = 2; j < bars.length - 2; j++) {
+    const w = bars.slice(j - 2, j + 3);
+    if (bars[j].h === Math.max(...w.map(b => b.h))) out.swingsH.push(j);
+    if (bars[j].l === Math.min(...w.map(b => b.l))) out.swingsL.push(j);
+  }
+  // liquidity pools: equal highs / lows (2+ swing points within tolerance) plus key levels
+  const tol = Math.max(tolBase, 0.25 * (bars[bars.length - 1].atr || 0));
+  const cluster = (idx, key, kind) => {
+    const used = new Set();
+    idx.forEach(a => {
+      if (used.has(a)) return;
+      const grp = idx.filter(b => !used.has(b) && Math.abs(bars[b][key] - bars[a][key]) <= tol);
+      if (grp.length >= 2) {
+        grp.forEach(b => used.add(b));
+        const p = grp.reduce((s, b) => s + bars[b][key], 0) / grp.length, last = Math.max(...grp);
+        out.pools.push({kind, p, n: grp.length, from: Math.min(...grp), name: (kind === "high" ? "Equal highs" : "Equal lows") + ` ×${grp.length}`, since: last});
+      }
+    });
+  };
+  cluster(out.swingsH, "h", "high"); cluster(out.swingsL, "l", "low");
+  out.levels.forEach(L => { if (L.name !== "PDC") out.pools.push({kind: /H$/.test(L.name) ? "high" : "low", p: L.p, n: 1, from: 0, name: L.name, since: L.name.startsWith("OR") ? 14 : -1}); });
+  out.pools.forEach(P => {
+    P.swept = null;
+    for (let k = P.since + 1; k < bars.length; k++) {
+      const b = bars[k];
+      if (P.kind === "high" && b.h > P.p + tolBase && b.c < P.p) { P.swept = k; break; }
+      if (P.kind === "low" && b.l < P.p - tolBase && b.c > P.p) { P.swept = k; break; }
+    }
+    P.taken = !P.swept && bars.slice(P.since + 1).some(b => P.kind === "high" ? b.c > P.p + tolBase : b.c < P.p - tolBase);
+  });
+  // fair value gaps (unfilled)
+  for (let i = 2; i < bars.length; i++) {
+    const a = bars[i - 2], c = bars[i], m = c.c * 0.0004;
+    let g = null;
+    if (c.l - a.h >= m) g = {side: "bull", top: c.l, bot: a.h, i};
+    if (a.l - c.h >= m) g = {side: "bear", top: a.l, bot: c.h, i};
+    if (!g) continue;
+    g.filled = bars.slice(i + 1).some(b => g.side === "bull" ? b.l <= g.bot : b.h >= g.top);
+    out.fvgs.push(g);
+  }
+  // Fibonacci of the day's main swing
+  let hi = 0, lo = 0;
+  bars.forEach((b, k) => { if (b.h > bars[hi].h) hi = k; if (b.l < bars[lo].l) lo = k; });
+  const H = bars[hi].h, L = bars[lo].l;
+  if (H - L > px * 0.002) {
+    const up = lo < hi;
+    out.fib = {up, H, L, from: Math.min(hi, lo), levels: [0.236, 0.382, 0.5, 0.618, 0.786].map(f => ({f, p: up ? H - f * (H - L) : L + f * (H - L)}))};
+  }
+  return out;
+}
+
+// ---------- signals: the data-farm rules, run live ----------
+function signals(bars, st) {
+  const out = [];
+  const last = bars.length - 1;
+  const mk = (setup, side, i, stop, why) => {
+    if (i > last) return;
+    const e = bars[i].o, risk = Math.abs(e - stop);
+    if (risk < 0.02) return;
+    const tgt = side === "long" ? e + 2 * risk : e - 2 * risk;
+    let res = "open", exitI = null, exitP = null;
+    for (let k = i; k <= last; k++) {
+      const b = bars[k];
+      if (side === "long" ? b.l <= stop : b.h >= stop) { res = "stop"; exitI = k; exitP = stop; break; }
+      if (side === "long" ? b.h >= tgt : b.l <= tgt) { res = "target"; exitI = k; exitP = tgt; break; }
+      if (b.hm >= "15:55") { res = "time"; exitI = k; exitP = b.c; break; }
+    }
+    out.push({setup, side, i, entry: e, stop, target: tgt, res, exitI, exitP, why, hm: bars[i].hm});
+  };
+  // sweep reversal on PDH/PDL/ORH/ORL
+  st.pools.filter(p => /^(PDH|PDL|ORH|ORL)$/.test(p.name) && p.swept !== null).forEach(p => {
+    const k = p.swept, w = bars.slice(Math.max(0, k - 2), k + 1);
+    if (bars[k].hm > "15:30") return;
+    const side = p.kind === "high" ? "short" : "long";
+    const ext = side === "short" ? Math.max(...w.map(b => b.h)) * 1.0002 : Math.min(...w.map(b => b.l)) * 0.9998;
+    mk("sweep_reversal", side, k + 1, ext, `${p.name} swept and reclaimed`);
+  });
+  // VWAP reclaim with EMA trend (after 10:00)
+  let busyTill = -1;
+  for (let i = 31; i <= last; i++) {
+    if (i <= busyTill || bars[i].hm > "15:30") continue;
+    const a = bars[i - 1], b = bars[i];
+    let side = null;
+    if (a.c <= a.vwap && b.c > b.vwap && b.e9 > b.e21) side = "long";
+    else if (a.c >= a.vwap && b.c < b.vwap && b.e9 < b.e21) side = "short";
+    if (!side) continue;
+    const stop = side === "long" ? b.c - 1.5 * b.atr : b.c + 1.5 * b.atr;
+    mk("vwap_reclaim", side, i + 1, stop, "VWAP cross with EMA 9/21 behind it");
+    const s = out[out.length - 1]; busyTill = s && s.exitI !== null ? s.exitI : last;
+  }
+  // FVG retest with trend
+  busyTill = -1;
+  st.fvgs.forEach(g => {
+    if (g.i <= busyTill) return;
+    const want = g.side === "bull" ? 1 : -1;
+    if (bars[g.i].trend !== want) return;
+    for (let k = g.i + 1; k <= last; k++) {
+      if (bars[k].hm > "15:30") break;
+      if (want === 1 ? bars[k].l <= g.top : bars[k].h >= g.bot) {
+        mk("fvg_trend", want === 1 ? "long" : "short", k + 1, want === 1 ? g.bot * 0.9998 : g.top * 1.0002, `${g.side} gap retested with the trend`);
+        const s = out[out.length - 1]; busyTill = s && s.exitI !== null ? s.exitI : last;
+        break;
+      }
+    }
+  });
+  return out.sort((a, b) => a.i - b.i);
+}
+
+// ---------- drawing ----------
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+function canvasCtx(id) {
+  const c = $(id), r = c.getBoundingClientRect(), dpr = window.devicePixelRatio || 1;
+  c.width = Math.round(r.width * dpr); c.height = Math.round(r.height * dpr);
+  const g = c.getContext("2d"); g.setTransform(dpr, 0, 0, dpr, 0, 0);
+  return {g, W: r.width, H: r.height};
+}
+function draw() {
+  const all = S.bars;
+  const {g, W, H} = canvasCtx("#chart");
+  g.clearRect(0, 0, W, H);
+  g.font = "10px " + css("--mono");
+  if (!all.length) { g.fillStyle = css("--muted"); g.fillText("Waiting for SPY bars from Robinhood…", 12, 24); canvasCtx("#rsi"); return; }
+  const start = view === "90" ? Math.max(0, all.length - 90) : 0;
+  const bars = all.slice(start), st = S.st, sigs = S.sigs;
+  const L = 52, R = 62, T = 8, B = 18, n = Math.max(bars.length, view === "90" ? 90 : 390);
+  const xw = (W - L - R) / n, x = i => L + (i - start + 0.5) * xw;
+  let hi = Math.max(...bars.map(b => b.h)), lo = Math.min(...bars.map(b => b.l));
+  if (layers.vwap) bars.forEach(b => { hi = Math.max(hi, b.vwap + b.sd); lo = Math.min(lo, b.vwap - b.sd); });
+  const pad = (hi - lo) * 0.08 + 0.05; hi += pad; lo -= pad;
+  const y = p => T + (hi - p) / (hi - lo) * (H - T - B);
+  const inView = p => p >= lo && p <= hi;
+  // grid
+  g.strokeStyle = css("--grid"); g.fillStyle = css("--muted"); g.lineWidth = 1;
+  const span = hi - lo, step = span > 12 ? 2 : span > 6 ? 1 : span > 3 ? 0.5 : 0.25;
+  for (let p = Math.ceil(lo / step) * step; p <= hi; p += step) {
+    g.beginPath(); g.moveTo(L, y(p)); g.lineTo(W - R, y(p)); g.stroke();
+    g.fillText(p.toFixed(step < 1 ? 2 : 0), 4, y(p) + 3);
+  }
+  bars.forEach((b, k) => { if (b.hm.endsWith(":00") || (view === "90" && b.hm.endsWith(":30"))) {
+    const xx = x(start + k); g.beginPath(); g.moveTo(xx, T); g.lineTo(xx, H - B); g.stroke(); g.fillText(b.hm, xx - 14, H - 4); } });
+  // fair value gaps
+  if (layers.fvg) st.fvgs.filter(f => !f.filled && f.i >= start - 30).slice(-6).forEach(f => {
+    g.fillStyle = css(f.side === "bull" ? "--fvgU" : "--fvgD");
+    const x0 = Math.max(L, x(f.i)); g.fillRect(x0, y(f.top), W - R - x0, Math.max(1, y(f.bot) - y(f.top)));
+  });
+  // VWAP bands
+  if (layers.vwap) {
+    g.fillStyle = css("--band");
+    [2, 1].forEach(m => { g.beginPath();
+      bars.forEach((b, k) => { const xx = x(start + k), yy = y(b.vwap + m * b.sd); k ? g.lineTo(xx, yy) : g.moveTo(xx, yy); });
+      for (let k = bars.length - 1; k >= 0; k--) g.lineTo(x(start + k), y(bars[k].vwap - m * bars[k].sd));
+      g.closePath(); g.fill(); });
+  }
+  const hline = (p, col, label, dash, from) => {
+    if (!inView(p)) return;
+    g.strokeStyle = col; g.setLineDash(dash || []); g.beginPath(); g.moveTo(from ? Math.max(L, x(from)) : L, y(p)); g.lineTo(W - R, y(p)); g.stroke(); g.setLineDash([]);
+    g.fillStyle = col; g.fillText(label, W - R + 4, y(p) + 3);
+  };
+  if (layers.fib && st.fib) st.fib.levels.forEach(f => hline(f.p, css("--fib"), (f.f * 100).toFixed(1) + "%", [2, 3], st.fib.from));
+  if (layers.levels) st.levels.forEach(l => hline(l.p, css("--accent"), l.name, [5, 4]));
+  if (layers.pools) st.pools.filter(p => !/^(PDH|PDL|ORH|ORL)$/.test(p.name) && !p.taken).forEach(p =>
+    hline(p.p, css("--pool"), (p.kind === "high" ? "EQH" : "EQL") + (p.swept !== null ? " ✓" : ""), p.swept !== null ? [1, 3] : [], p.from));
+  // candles
+  bars.forEach((b, k) => {
+    const xx = x(start + k), up = b.c >= b.o, col = css(up ? "--up" : "--down");
+    g.strokeStyle = col; g.fillStyle = col;
+    g.beginPath(); g.moveTo(xx, y(b.h)); g.lineTo(xx, y(b.l)); g.stroke();
+    const bw = Math.max(1, xw * 0.65), y1 = y(Math.max(b.o, b.c)), y2 = y(Math.min(b.o, b.c));
+    g.fillRect(xx - bw / 2, y1, bw, Math.max(1, y2 - y1));
+  });
+  const line = (key, col, w, dash) => { g.strokeStyle = col; g.lineWidth = w; g.setLineDash(dash || []); g.beginPath();
+    bars.forEach((b, k) => { const xx = x(start + k), yy = y(b[key]); k ? g.lineTo(xx, yy) : g.moveTo(xx, yy); }); g.stroke(); g.setLineDash([]); g.lineWidth = 1; };
+  if (layers.ema) { line("e21", css("--e21"), 1.2); line("e9", css("--e9"), 1.2); }
+  if (layers.vwap) line("vwap", css("--vwap"), 1.6);
+  // signals
+  if (layers.sig) sigs.filter(s => s.i >= start).forEach(s => {
+    const col = css(s.side === "long" ? "--up" : "--down"), xx = x(s.i), yy = y(s.entry);
+    g.fillStyle = col; g.beginPath();
+    if (s.side === "long") { g.moveTo(xx, yy + 2); g.lineTo(xx - 6, yy + 12); g.lineTo(xx + 6, yy + 12); }
+    else { g.moveTo(xx, yy - 2); g.lineTo(xx - 6, yy - 12); g.lineTo(xx + 6, yy - 12); }
+    g.fill();
+    const x2 = s.exitI !== null ? x(s.exitI) : W - R;
+    g.strokeStyle = col; g.setLineDash([3, 3]);
+    [[s.stop, "✕"], [s.target, "◆"]].forEach(([p, m]) => { if (inView(p)) { g.beginPath(); g.moveTo(xx, y(p)); g.lineTo(x2, y(p)); g.stroke(); g.fillText(m, x2 + 2, y(p) + 3); } });
+    g.setLineDash([]);
+  });
+  // last price tag
+  const lb = all[all.length - 1];
+  g.fillStyle = css("--ink"); g.fillRect(W - R + 1, y(lb.c) - 7, R - 2, 14);
+  g.fillStyle = css("--panel"); g.fillText(lb.c.toFixed(2), W - R + 4, y(lb.c) + 3);
+  // RSI pane
+  const r = canvasCtx("#rsi"), ry = v => 6 + (100 - v) / 100 * (r.H - 12);
+  r.g.font = "10px " + css("--mono");
+  r.g.strokeStyle = css("--grid"); r.g.fillStyle = css("--muted");
+  [30, 50, 70].forEach(v => { r.g.beginPath(); r.g.moveTo(L, ry(v)); r.g.lineTo(r.W - R, ry(v)); r.g.stroke(); r.g.fillText(String(v), 4, ry(v) + 3); });
+  r.g.strokeStyle = css("--ink"); r.g.beginPath();
+  bars.forEach((b, k) => { const xx = L + (k + 0.5) * xw, yy = ry(b.rsi); k ? r.g.lineTo(xx, yy) : r.g.moveTo(xx, yy); }); r.g.stroke();
+  r.g.fillText("RSI " + lb.rsi.toFixed(0), r.W - R + 4, ry(lb.rsi) + 3);
+}
+
+// ---------- panels ----------
+const names = {sweep_reversal: "Sweep reversal", vwap_reclaim: "VWAP reclaim", fvg_trend: "FVG with trend"};
+function renderPanels() {
+  const bars = S.bars;
+  if (!bars.length) return;
+  const lb = bars[bars.length - 1], st = S.st, sigs = S.sigs;
+  const pdc = (st.levels.find(l => l.name === "PDC") || {}).p;
+  $("#last").textContent = lb.c.toFixed(2);
+  if (pdc) { const ch = lb.c - pdc; $("#chg").textContent = `${ch >= 0 ? "+" : ""}${ch.toFixed(2)} (${(100 * ch / pdc).toFixed(2)}%)`; $("#chg").className = ch >= 0 ? "long" : "short"; }
+  const rec = k => { const r = RECORD[k]; return r ? `Backtest: ${r.n} trades, ${r.win}% wins, avg ${r.avgR >= 0 ? "+" : ""}${r.avgR}R${r.n < 30 ? " (too few to trust)" : ""}` : ""; };
+  const open = sigs.filter(s => s.res === "open"), done = sigs.filter(s => s.res !== "open");
+  const card = s => `<div class="sig"><div class="top"><span class="name ${s.side}">${s.side === "long" ? "▲ LONG" : "▼ SHORT"} · ${names[s.setup]}</span>
+    <span class="pill ${s.res === "open" ? "warn" : s.res === "target" ? "long" : s.res === "stop" ? "short" : "muted"}">${s.res === "open" ? "active since " + s.hm : s.res + " · " + s.hm}</span></div>
+    <div class="lv"><span><small>Entry</small>${s.entry.toFixed(2)}</span><span><small>Stop</small>${s.stop.toFixed(2)}</span><span><small>Target (2R)</small>${s.target.toFixed(2)}</span></div>
+    <div class="rec">${s.why}. ${rec(s.setup)}</div></div>`;
+  const tally = done.reduce((a, s) => a + (s.res === "target" ? 2 : s.res === "stop" ? -1 : (s.side === "long" ? s.exitP - s.entry : s.entry - s.exitP) / Math.abs(s.entry - s.stop)), 0);
+  $("#signals").innerHTML = (open.length ? open.slice().reverse().map(card).join("") : `<p class="muted">No active signal right now.</p>`)
+    + `<p class="rec" style="margin-top:10px">Today so far: ${sigs.length} signals, ${done.filter(s => s.res === "target").length} hit target, ${done.filter(s => s.res === "stop").length} stopped, net ${tally >= 0 ? "+" : ""}${tally.toFixed(1)}R.</p>`
+    + done.slice(-4).reverse().map(card).join("");
+  const above = st.pools.filter(p => p.p > lb.c && !p.taken).sort((a, b) => a.p - b.p)[0];
+  const below = st.pools.filter(p => p.p < lb.c && !p.taken).sort((a, b) => b.p - a.p)[0];
+  const sig = (lb.c - lb.vwap) / (lb.sd || 1);
+  const range = Math.max(...bars.map(b => b.h)) - Math.min(...bars.map(b => b.l));
+  const trendness = range ? Math.abs(lb.c - bars[0].o) / range : 0;
+  const rows = [
+    ["Trend", lb.trend > 0 ? '<span class="long">Up (above VWAP, EMA 9 > 21)</span>' : lb.trend < 0 ? '<span class="short">Down (below VWAP, EMA 9 < 21)</span>' : '<span class="muted">Mixed</span>'],
+    ["vs VWAP", `${(lb.c - lb.vwap >= 0 ? "+" : "")}${(lb.c - lb.vwap).toFixed(2)} (${sig >= 0 ? "+" : ""}${sig.toFixed(1)}σ)`],
+    ["RSI 14", `${lb.rsi.toFixed(0)} ${lb.rsi >= 70 ? "· stretched up" : lb.rsi <= 30 ? "· stretched down" : ""}`],
+    ["ATR (1-min)", lb.atr.toFixed(2)],
+    ["Pool above", above ? `${above.name} ${above.p.toFixed(2)} (+${(above.p - lb.c).toFixed(2)})` : "–"],
+    ["Pool below", below ? `${below.name} ${below.p.toFixed(2)} (−${(lb.c - below.p).toFixed(2)})` : "–"],
+    ["Day type so far", `${trendness >= 0.5 ? "Trending" : trendness <= 0.25 ? "Choppy" : "In between"} (${trendness.toFixed(2)})`],
+    ["Day range", range.toFixed(2)],
+  ];
+  if (st.fib) rows.push(["Fib 61.8% / 50%", `${st.fib.levels[3].p.toFixed(2)} / ${st.fib.levels[2].p.toFixed(2)}`]);
+  $("#ctx").innerHTML = rows.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("");
+}
+
+function setStatus(kind, text) {
+  $("#dot").className = "dot " + kind; $("#stat").textContent = text;
+}
+function banner(html, btn) {
+  const b = $("#banner");
+  if (!html) { b.hidden = true; return; }
+  b.innerHTML = html; b.hidden = false;
+  if (btn) { const el = document.createElement("button"); el.type = "button"; el.textContent = btn.label; el.addEventListener("click", btn.fn); b.appendChild(el); }
+}
+function handleError(e, retract) {
+  const c = e && e.code;
+  if (c === "needs_reauth") banner("Robinhood needs to be reconnected. Open claude.ai Settings → Connectors and reconnect Robinhood.");
+  else if (c === "server_not_connected" || c === "selection_required") banner("Add the Robinhood connector in claude.ai Settings → Connectors to see live SPY data.");
+  else if (c === "not_in_manifest" || c === "blocked_by_policy") banner("Robinhood is turned off for this page. Turn it on from the page's Permissions menu to see live data.");
+  else if (c === "approval_required") banner("This page needs your OK to read SPY prices from Robinhood.", {label: "Allow and load", fn: () => { banner(); startLive(true); }});
+  else { setStatus("stale", "Data delayed · last update " + (S.updated ? S.updated.toLocaleTimeString() : "never")); return; }
+  if (retract) { S.bars = []; draw(); }
+  setStatus("off", "Not connected");
+}
+
+function apply() {
+  indicators(S.bars);
+  S.st = structure(S.bars, S.prev);
+  S.sigs = signals(S.bars, S.st);
+  draw(); renderPanels();
+}
+
+let unwatch = null;
+async function startLive(viaCall) {
+  const mcp = await claude.use("mcp");
+  if (!mcp) { setStatus("off", "Live data unavailable in this view"); banner("Live data needs the claude.ai app or site with the Robinhood connector. Open this page there."); return; }
+  // prior sessions (5-minute bars) for PDH/PDL/PDC and to find the latest session
+  const since = new Date(Date.now() - 9 * 864e5).toISOString().slice(0, 10) + "T12:00:00Z";
+  try {
+    const r = await mcp.callTool(SERVER, "get_equity_historicals", {symbols: ["SPY"], start_time: since, interval: "5minute"}, {cache: {staleTime: 300000}});
+    const bars = parseBars(r.payload);
+    const days = [...new Set(bars.map(b => b.d))].sort();
+    const today = etDay(new Date());
+    S.day = days.includes(today) ? today : days[days.length - 1];
+    const prevDay = days.filter(d => d < S.day).pop();
+    S.prev = prevDay ? bars.filter(b => b.d === prevDay) : null;
+  } catch (e) { handleError(e, true); return; }
+  if (!S.day) { setStatus("off", "No SPY data returned"); return; }
+  if (unwatch) unwatch();
+  const input = {symbols: ["SPY"], start_time: openUTC(S.day), interval: "minute"};
+  const onData = res => {
+    const bars = parseBars(res.payload).filter(b => b.d === S.day);
+    if (!bars.length) return;
+    S.bars = bars;
+    S.updated = res.cache ? new Date(res.cache.storedAt) : new Date();
+    const live = S.day === etDay(new Date()) && etHM(new Date()) < "16:00";
+    setStatus(live ? "live" : "stale", (live ? "Live · updates every 30s · " : `Session ${S.day} (market closed) · `) + "updated " + S.updated.toLocaleTimeString());
+    apply();
+  };
+  if (viaCall) { try { onData(await mcp.callTool(SERVER, "get_equity_historicals", input)); } catch (e) { handleError(e, true); return; } }
+  unwatch = mcp.watchTool(SERVER, "get_equity_historicals", input, ev => {
+    if (ev.type === "data") { banner(); onData(ev.result); }
+    else handleError(ev.error, ["needs_reauth", "server_not_connected", "blocked_by_policy", "approval_required", "not_in_manifest"].includes(ev.error.code));
+  }, {refetchInterval: 30000, cache: {staleTime: 20000}});
+}
+
+document.querySelectorAll("[data-l]").forEach(b => b.addEventListener("click", () => {
+  layers[b.dataset.l] = !layers[b.dataset.l]; b.setAttribute("aria-pressed", layers[b.dataset.l]); draw();
+}));
+document.querySelectorAll("[data-v]").forEach(b => b.addEventListener("click", () => {
+  view = b.dataset.v; document.querySelectorAll("[data-v]").forEach(x => x.setAttribute("aria-pressed", x === b)); draw();
+}));
+let rz; window.addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(draw, 120); });
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", draw);
+new MutationObserver(draw).observe(document.documentElement, {attributes: true, attributeFilter: ["data-theme"]});
+S.st = structure([], null); S.sigs = [];
+draw();
+startLive(false);
+</script>
