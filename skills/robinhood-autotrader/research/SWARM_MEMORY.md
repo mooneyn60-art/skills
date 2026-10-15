@@ -29,3 +29,8 @@ Read this first so no run repeats a dead variant.
 - VIX 1σ band holds 65% of days; realized ≈ 0.5-0.8× implied; tagging the edge closes beyond 55%.
 - FOMC: 2× day range, ~4.6× 2-4pm range; first reaction unreliable. CPI/NFP priced in the gap.
 - Robinhood has no real 5-min bars before 2026 (interpolated filler). Real intraday history grows only by saving bars daily.
+
+## 2026-10-15 — Options-trader tools + Nolan's clock
+- SPY pinning to $1 strikes at close: none (164 days). Intraday momentum (first 30m -> last 30m): weak, t 0.7. GEX: vendor-only evidence; collecting daily snapshots.
+- Literature: retail 0DTE buyers lose on average (~60% costs); sellers profit after fees.
+- Nolan's trips (226, Oct 8-15): before 10:30 negative 5/5 days, after 10:30 positive 5/6. Holds 2-5 min worst; 5-15 min best. 29% wins, +23%/−12% payoff (needs ~35%). Desk ticket warns pre-10:30.

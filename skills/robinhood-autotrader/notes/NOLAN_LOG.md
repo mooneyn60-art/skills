@@ -218,3 +218,8 @@ only records what he said and what was done. R13: no dollar balances.
 - Reliable: shape of the day (77% of range by 11:30; extremes at open/close), gap-fill odds by size, VIX expected move (holds 65% of days; edge tags continue 55%), FOMC = 2× range / ~4.6× afternoon range, CPI/jobs priced in the gap.
 - Desk v4: news today, gap fill odds, range so far vs typical, expected move left with ±1σ lines, all fed to Ask TARS.
 - New daily loop routines/MARKET_JOURNAL.md: TARS makes calls at 10:00, saves bars + scores at close, logs news. Friday JOB 5.
+
+## 2026-10-15 — Options-trader tools + Nolan's own clock (Nolan: "keep digging ... look at other option traders ... scale this account")
+- Tested what 0DTE traders watch: pinning (none in SPY), intraday momentum (weak), GEX (no independent evidence; daily snapshots now collected). Literature: 0DTE buyers lose on average, mostly to costs.
+- Strongest finding is in Nolan's own trades: before 10:30 he lost on 5/5 days; after 10:30 he was green 5/6. Today's loss came almost entirely from 24 trips before 10:30.
+- Desk v5: ticket warns on buy-to-open before 10:30 (warning only). Ask TARS knows his record. Journal adds GEX snapshots at 10:00 and 15:00.
