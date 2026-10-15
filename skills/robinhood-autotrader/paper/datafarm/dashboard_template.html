@@ -1,0 +1,193 @@
+<title>TARS Data Farm</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one column of instrument panels — header strip, setup verdicts, day replay chart, coverage strip, outcome book */
+:root{
+  --bg:#f3f4f6; --panel:#ffffff; --ink:#151a22; --muted:#5d6676; --line:#d9dde4;
+  --accent:#c77a12; --up:#1f8a5b; --down:#c2413a; --warn:#b07c0c; --grid:#e7eaef; --price:#2b3546;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1318; --panel:#161b22; --ink:#e6e9ee; --muted:#93a0b2; --line:#283140;
+  --accent:#e7a33c; --up:#3fbf86; --down:#ef6a61; --warn:#e3b341; --grid:#1f2731; --price:#c9d3e0; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1318; --panel:#161b22; --ink:#e6e9ee; --muted:#93a0b2; --line:#283140;
+  --accent:#e7a33c; --up:#3fbf86; --down:#ef6a61; --warn:#e3b341; --grid:#1f2731; --price:#c9d3e0; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:14px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 40px}
+.wrap{max-width:1100px;margin:0 auto;display:grid;gap:18px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;border-bottom:2px solid var(--ink);padding-bottom:10px}
+h1{font-family:var(--display);font-weight:700;font-size:2.4rem;letter-spacing:.04em;margin:0;line-height:1;text-transform:uppercase}
+h1 span{color:var(--accent)}
+.sub{font-family:var(--mono);font-size:.78rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 16px}
+h2{font-family:var(--display);font-weight:500;font-size:1.25rem;letter-spacing:.08em;text-transform:uppercase;margin:0 0 10px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:16px;min-width:0}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.tile{background:var(--panel);padding:12px 14px}
+.tile b{display:block;font-family:var(--mono);font-size:1.35rem;font-weight:500;font-variant-numeric:tabular-nums}
+.tile small{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+th{font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:right;font-weight:500;padding:6px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{font-family:var(--mono);font-size:.82rem;text-align:right;padding:7px 8px;border-bottom:1px solid var(--grid);white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+.pill{display:inline-block;font-family:var(--body);font-size:.7rem;font-weight:600;letter-spacing:.04em;padding:2px 8px;border-radius:999px;border:1px solid currentColor}
+.p-good{color:var(--up)} .p-bad{color:var(--down)} .p-few{color:var(--warn)}
+.pos{color:var(--up)} .neg{color:var(--down)}
+.note{color:var(--muted);font-size:.82rem;max-width:70ch;margin:10px 0 0}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
+select,button{font-family:var(--mono);font-size:.82rem;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:4px;padding:5px 8px}
+button{cursor:pointer} button[aria-pressed="true"]{border-color:var(--accent);color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+svg text{font-family:var(--mono);font-size:10px;fill:var(--muted)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.75rem;color:var(--muted);margin-top:6px}
+.sw{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.cov{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:4px}
+.cell{border:1px solid var(--line);border-radius:4px;padding:6px;font-family:var(--mono);font-size:.68rem;cursor:pointer;background:var(--panel);color:var(--ink);text-align:left}
+.cell b{display:block;font-size:.8rem}
+.cell.sel{border-color:var(--accent)}
+.bar{height:4px;border-radius:2px;margin-top:4px;background:var(--grid)}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>TARS <span>//</span> Data Farm</h1>
+    <div class="sub" id="sub"></div>
+  </header>
+
+  <section class="tiles" id="tiles" aria-label="Farm totals"></section>
+
+  <section class="panel">
+    <h2>Setups</h2>
+    <div class="scroll"><table id="setups"><thead><tr>
+      <th>Setup</th><th>Trades</th><th>Win %</th><th>Profit factor</th><th>Avg R</th><th>t</th><th>Max DD (R)</th><th>As 0DTE option</th><th>1st half / 2nd half</th><th>Weeks green</th><th>Verdict</th>
+    </tr></thead><tbody></tbody></table></div>
+    <p class="note">R is the loss if the stop is hit. A 2R target means each win pays twice the risk. Costs are included: 2 cents a share on SPY, and a 1% spread each way on the 0DTE estimate. Everything here is in-sample on the days shown. "Too few" means under 30 trades, which is too small to judge.</p>
+  </section>
+
+  <section class="panel">
+    <h2>Day replay</h2>
+    <div class="controls">
+      <label for="day" class="sub">Day</label>
+      <select id="day"></select>
+      <button id="prev" type="button" aria-label="Previous day">&larr;</button>
+      <button id="next" type="button" aria-label="Next day">&rarr;</button>
+      <span class="sub" id="daystat"></span>
+    </div>
+    <div class="scroll"><svg id="chart" role="img" aria-label="SPY one-minute price with trades" width="100%" viewBox="0 0 1000 340" preserveAspectRatio="none"></svg></div>
+    <div class="legend">
+      <span><i class="sw" style="background:var(--price)"></i>SPY close</span>
+      <span><i class="sw" style="background:var(--up)"></i>winning trade</span>
+      <span><i class="sw" style="background:var(--down)"></i>losing trade</span>
+      <span><i class="sw" style="background:var(--accent)"></i>prior-day high / low</span>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Coverage</h2>
+    <div class="cov" id="cov"></div>
+    <p class="note">Each cell is one trading day: the day's total R across all setups, and how many fair value gaps and sweeps the detector found. Tap a day to replay it.</p>
+  </section>
+
+  <section class="panel">
+    <h2>Outcome book</h2>
+    <div class="controls" id="filters"></div>
+    <div class="scroll"><table id="book"><thead><tr>
+      <th>Day</th><th>Setup</th><th>Side</th><th>In (ET)</th><th>Out</th><th>Entry</th><th>Stop</th><th>Target</th><th>Exit</th><th>Exit by</th><th>R</th><th>0DTE</th><th>Why</th>
+    </tr></thead><tbody></tbody></table></div>
+  </section>
+</div>
+
+<script>
+const D = __DATA__;
+const $ = s => document.querySelector(s);
+const fmt = (x, d = 2) => (x > 0 ? "+" : "") + x.toFixed(d);
+const names = {sweep_reversal: "Sweep reversal", fvg_retest: "FVG retest", sweep_fvg: "Sweep + FVG"};
+const days = Object.keys(D.bars).filter(d => D.per_day[d]).sort();
+
+$("#sub").innerHTML = `<span>SPY 1-min</span><span>${D.range[0]} → ${D.range[1]}</span><span>${D.n_days} days</span><span>in-sample</span>`;
+const ev = D.events;
+const tiles = [["Trading days", D.n_days], ["Candles", D.candles.toLocaleString()], ["Trades simulated", D.trades.length],
+  ["Swing points", ((ev.swing_high || 0) + (ev.swing_low || 0)).toLocaleString()], ["Structure breaks", (ev.structure_break || 0).toLocaleString()],
+  ["FVG formations", ev.fvg || 0], ["Liquidity sweeps", ev.sweep || 0]];
+$("#tiles").innerHTML = tiles.map(([k, v]) => `<div class="tile"><b>${v}</b><small>${k}</small></div>`).join("");
+
+const sb = $("#setups tbody");
+for (const [k, s] of Object.entries(D.setups)) {
+  if (!s.n) continue;
+  let v = s.n < 30 ? ["Too few", "p-few"] : (s.avgR > 0 && s.t >= 2 ? ["Promising", "p-good"] : ["Fails", "p-bad"]);
+  sb.insertAdjacentHTML("beforeend", `<tr><td>${names[k]}</td><td>${s.n}</td><td>${s.win.toFixed(1)}</td><td>${s.pf ?? "–"}</td>
+    <td class="${s.avgR >= 0 ? "pos" : "neg"}">${fmt(s.avgR)}</td><td>${s.t ?? "–"}</td><td>${s.maxdd_R}</td>
+    <td class="${s.opt_avg >= 0 ? "pos" : "neg"}">${fmt(100 * s.opt_avg, 1)}%</td><td>${s.h1 ?? "–"} / ${s.h2 ?? "–"}</td><td>${s.weeks_pos}</td>
+    <td><span class="pill ${v[1]}">${v[0]}</span></td></tr>`);
+}
+
+const daySel = $("#day");
+daySel.innerHTML = days.map(d => `<option value="${d}">${d}</option>`).join("");
+const tradesByDay = {};
+D.trades.forEach(t => (tradesByDay[t.day] ||= []).push(t));
+
+function toMin(t) { const [h, m] = t.split(":").map(Number); return h * 60 + m - 570; }
+function draw(day) {
+  const bars = D.bars[day], W = 1000, H = 340, L = 48, R = 8, T = 10, B = 24;
+  const i = days.indexOf(day), prev = i > 0 ? D.bars[days[i - 1]] : null;
+  const pdh = prev ? Math.max(...prev.map(b => b[0])) : null, pdl = prev ? Math.min(...prev.map(b => b[1])) : null;
+  let hi = Math.max(...bars.map(b => b[0])), lo = Math.min(...bars.map(b => b[1]));
+  const ts = tradesByDay[day] || [];
+  ts.forEach(t => { hi = Math.max(hi, t.entry, t.exit); lo = Math.min(lo, t.entry, t.exit); });
+  const pad = (hi - lo) * 0.06; hi += pad; lo -= pad;
+  const x = m => L + (m / 389) * (W - L - R), y = p => T + (hi - p) / (hi - lo) * (H - T - B);
+  let s = "";
+  const step = (hi - lo) > 8 ? 2 : (hi - lo) > 4 ? 1 : 0.5;
+  for (let p = Math.ceil(lo / step) * step; p <= hi; p += step)
+    s += `<line x1="${L}" x2="${W - R}" y1="${y(p)}" y2="${y(p)}" stroke="var(--grid)"/><text x="${L - 6}" y="${y(p) + 3}" text-anchor="end">${p.toFixed(step < 1 ? 1 : 0)}</text>`;
+  ["10:00", "11:00", "12:00", "13:00", "14:00", "15:00"].forEach(t => {
+    const xm = x(toMin(t)); s += `<line x1="${xm}" x2="${xm}" y1="${T}" y2="${H - B}" stroke="var(--grid)"/><text x="${xm}" y="${H - 8}" text-anchor="middle">${t}</text>`;
+  });
+  [[pdh, "PDH"], [pdl, "PDL"]].forEach(([p, n]) => { if (p && p <= hi && p >= lo)
+    s += `<line x1="${L}" x2="${W - R}" y1="${y(p)}" y2="${y(p)}" stroke="var(--accent)" stroke-dasharray="4 4"/><text x="${W - R - 4}" y="${y(p) - 4}" text-anchor="end" style="fill:var(--accent)">${n}</text>`; });
+  s += `<polyline fill="none" stroke="var(--price)" stroke-width="1.3" points="${bars.map((b, k) => `${x(k).toFixed(1)},${y(b[2]).toFixed(1)}`).join(" ")}"/>`;
+  ts.forEach(t => {
+    const c = t.R > 0 ? "var(--up)" : "var(--down)", x1 = x(toMin(t.t_in)), x2 = x(toMin(t.t_out));
+    s += `<line x1="${x1}" x2="${x2}" y1="${y(t.entry)}" y2="${y(t.exit)}" stroke="${c}" stroke-width="2"/>`;
+    s += `<circle cx="${x1}" cy="${y(t.entry)}" r="4" fill="${c}"/><rect x="${x2 - 3}" y="${y(t.exit) - 3}" width="6" height="6" fill="${c}"/>`;
+  });
+  $("#chart").innerHTML = s;
+  const tot = ts.reduce((a, t) => a + t.R, 0);
+  $("#daystat").innerHTML = `${ts.length} trades · <span class="${tot >= 0 ? "pos" : "neg"}">${fmt(tot)} R</span>`;
+  daySel.value = day;
+  document.querySelectorAll(".cell").forEach(c => c.classList.toggle("sel", c.dataset.day === day));
+}
+daySel.addEventListener("change", () => draw(daySel.value));
+$("#prev").addEventListener("click", () => { const i = days.indexOf(daySel.value); if (i > 0) draw(days[i - 1]); });
+$("#next").addEventListener("click", () => { const i = days.indexOf(daySel.value); if (i < days.length - 1) draw(days[i + 1]); });
+
+const maxAbs = Math.max(1, ...days.map(d => Math.abs((tradesByDay[d] || []).reduce((a, t) => a + t.R, 0))));
+$("#cov").innerHTML = days.map(d => {
+  const r = (tradesByDay[d] || []).reduce((a, t) => a + t.R, 0), p = D.per_day[d];
+  const w = Math.round(100 * Math.abs(r) / maxAbs), col = r >= 0 ? "var(--up)" : "var(--down)";
+  return `<button type="button" class="cell" data-day="${d}"><b class="${r >= 0 ? "pos" : "neg"}">${fmt(r, 1)}R</b>${d.slice(5)}<br>${p.fvg || 0} fvg · ${p.sweep || 0} swp<div class="bar"><div style="height:4px;border-radius:2px;width:${w}%;background:${col}"></div></div></button>`;
+}).join("");
+document.querySelectorAll(".cell").forEach(c => c.addEventListener("click", () => draw(c.dataset.day)));
+
+let filter = "all";
+function book() {
+  const rows = D.trades.filter(t => filter === "all" || t.setup === filter);
+  $("#book tbody").innerHTML = rows.map(t => `<tr><td>${t.day}</td><td style="text-align:left">${names[t.setup]}</td><td>${t.side}</td><td>${t.t_in}</td><td>${t.t_out}</td>
+    <td>${t.entry.toFixed(2)}</td><td>${t.stop.toFixed(2)}</td><td>${t.target.toFixed(2)}</td><td>${t.exit.toFixed(2)}</td><td>${t.reason}</td>
+    <td class="${t.R >= 0 ? "pos" : "neg"}">${fmt(t.R)}</td><td class="${t.opt_ret >= 0 ? "pos" : "neg"}">${fmt(100 * t.opt_ret, 0)}%</td><td style="text-align:left">${t.why}</td></tr>`).join("");
+}
+$("#filters").innerHTML = [["all", "All"], ...Object.keys(names).map(k => [k, names[k]])]
+  .map(([k, n]) => `<button type="button" data-f="${k}" aria-pressed="${k === "all"}">${n}</button>`).join("");
+document.querySelectorAll("#filters button").forEach(b => b.addEventListener("click", () => {
+  filter = b.dataset.f; document.querySelectorAll("#filters button").forEach(x => x.setAttribute("aria-pressed", x === b)); book();
+}));
+book();
+const best = days.slice().sort((a, b) => (tradesByDay[b] || []).length - (tradesByDay[a] || []).length)[0];
+draw(best || days[days.length - 1]);
+</script>
