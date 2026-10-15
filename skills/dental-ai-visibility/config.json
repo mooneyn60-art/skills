@@ -1,0 +1,15 @@
+{
+  "_comment": "Outreach stays OFF until every field marked REQUIRED is filled. The daily routine checks this and only finds/audits leads until then.",
+  "business_name": "",
+  "sender_name": "Nolan Mooney",
+  "sender_email": "",
+  "postal_address": "",
+  "payment_link": "",
+  "price_per_month_usd": 149,
+  "target_city": "",
+  "target_state": "",
+  "new_leads_per_day": 10,
+  "max_emails_per_day": 15,
+  "send_enabled": false,
+  "required_for_sending": ["business_name", "sender_email", "postal_address", "payment_link", "target_city"]
+}
