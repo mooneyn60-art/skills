@@ -87,6 +87,10 @@ svg{display:block;width:100%;height:auto}
 .btns{display:flex;gap:6px} .btns button{font:600 .8rem var(--body);background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
 .msgr{fill:var(--accent);stroke:var(--panel);stroke-width:1.5}
 .mascot.listening .botb{filter:drop-shadow(0 0 4px var(--accent))}
+.wo{display:grid;gap:6px;padding:8px 0;border-bottom:1px solid var(--line)} .wo .ln{display:grid;grid-template-columns:34px minmax(0,1fr);gap:8px;font-size:.9rem}
+.handoff{font-size:.85rem} .handoff code{font-family:var(--mono);background:color-mix(in srgb,var(--accent) 10%,var(--panel));padding:1px 5px;border-radius:4px;overflow-wrap:anywhere}
+.copy{font:600 .75rem var(--body);background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:2px 8px;cursor:pointer}
+.btns button.go{background:var(--accent);border-color:var(--accent);color:#fff} .btns button:disabled{opacity:.6} .msg{font-size:.82rem}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;min-width:0}
 .panel h2{font-family:var(--display);font-size:1.15rem;margin:0;letter-spacing:.03em}
 .role{color:var(--muted);margin:4px 0 12px;font-size:.92rem}
@@ -140,7 +144,10 @@ h3{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mu
       <div class="chat" id="chat"><p class="mut">The town is waking up…</p></div>
     </section>
     <section class="panel">
-      <h2>Calibration</h2>
+      <h2>Work orders</h2>
+      <p class="role">Fixes the residents drafted. Protective only (missing stops). Robinhood checks each one here; TARS places it from the chat when you say so.</p>
+      <div id="work"></div>
+      <h2 style="margin-top:16px">Calibration</h2>
       <p class="role">Who's working from fresh data. Synced = updated in the last 2½ minutes (repo-built residents: within 36 hours).</p>
       <div id="calib"></div>
     </section>
@@ -318,7 +325,7 @@ function scenes() {
     const lns = [{f: "guard", t: "yard", x: "Gus, roll call. How many of yours have stops?"},
       {f: "yard", t: "guard", x: `${rows.length - S.unprot.length} of ${rows.length}.${S.unprot.length ? " " + S.unprot.map(r => r.sym).join(", ") + " is bare." : " All covered."}`}];
     if (S.unprot.length) lns.push({f: "guard", t: "hq", x: `Boss, ${S.unprot.map(r => r.sym).join(", ")} has no stop. That's my whole job.`},
-      {f: "hq", t: "guard", x: "It's Nolan's call to add one. Keep the light red until he does."}, {f: "guard", t: "hq", x: "Red it stays. I'm not blinking."});
+      {f: "hq", t: "guard", x: "Nolan gave us the green light to fix things like this. Draft the stop, Sid."}, {f: "guard", t: "hq", x: "Drafted. It's in Work orders. Robinhood checks it, then you place it from the chat."});
     else { const r = rows.filter(x => x.toStop !== null).sort((a, b) => a.toStop - b.toStop)[0];
       if (r) lns.push({f: "guard", t: "yard", x: `Closest one's ${r.sym}, ${r.toStop.toFixed(1)}% above its stop.`}, {f: "yard", t: "guard", x: r.toStop < 3 ? "Too close for comfort. I'll watch it." : "Plenty of room. Relax, Sid."}); }
     out.push({title: "Stop roll call", pri: S.unprot.length ? 0 : 4, lines: lns});
@@ -412,6 +419,58 @@ function renderChat() {
   $("#calib").innerHTML = cal.map(c => `<div class="cal"><span class="dot" style="background:var(--${c.state === "synced" ? "ok" : c.state === "stale" ? "warn" : "idle"})"></span><b>${esc(CH[c.id].who)}</b><span class="mut">${esc(c.src)}</span><span class="st ${c.state}">${c.state}</span></div>`).join("");
 }
 
+// ---------- work orders: residents draft fixes, Nolan approves with one tap ----------
+// Only protective actions are allowed here: adding a missing GTC stop. Nothing that adds risk, nothing that cancels a stop.
+const WORK = {done: {}, busy: {}, review: {}};
+function uuid() { if (crypto.randomUUID) return crypto.randomUUID(); const b = crypto.getRandomValues(new Uint8Array(16)); b[6] = (b[6] & 15) | 64; b[8] = (b[8] & 63) | 128; const h = [...b].map(x => x.toString(16).padStart(2, "0")).join(""); return `${h.slice(0, 8)}-${h.slice(8, 12)}-${h.slice(12, 16)}-${h.slice(16, 20)}-${h.slice(20)}`; }
+function proposals() {
+  if (!SD || !L.acct) return [];
+  return SD.unprot.filter(r => r.last > 0).map(r => {
+    const qty = Math.floor(r.qty - r.held + 1e-6);
+    const stop = Math.min(r.last * 0.97, Math.max(r.cost * 0.92, r.last * 0.92)); // 8% rule from cost, raised if the stock has gained; never within 3% of the price
+    return {id: "stop-" + r.sym, by: "guard", sym: r.sym, qty, stop: +stop.toFixed(2),
+      text: `Add a GTC stop: sell ${qty} ${r.sym} if it trades down to ${stop.toFixed(2)} (${(100 * (1 - stop / r.last)).toFixed(1)}% below now).`,
+      input: {account_number: L.acct.account_number, symbol: r.sym, side: "sell", type: "stop_market", quantity: String(qty), stop_price: stop.toFixed(2), time_in_force: "gtc"}};
+  }).filter(p => p.qty >= 1 && !WORK.done[p.id]);
+}
+function renderWork() {
+  const el = $("#work"); if (!el) return;
+  const ps = proposals();
+  el.innerHTML = ps.length ? ps.map(p => {
+    const rv = WORK.review[p.id];
+    return `<div class="wo"><div class="ln"><svg viewBox="-20 -32 40 52" class="av" aria-hidden="true">${bot(0, 0, 1, "var(--c-guard)", "alarm")}</svg><div><b>${esc(CH[p.by].who)}</b> <span class="mut">drafted a fix</span><br>${esc(p.text)}</div></div>
+      ${rv ? `<div class="mut msg">${rv.checks.length ? "Robinhood alerts: " + rv.checks.map(esc).join(" · ") : "Robinhood checked it: no alerts."}</div>
+        <div class="handoff">To place it, tell TARS in chat: <code>${esc(`place Sid's ${p.sym} stop: sell ${p.qty} at ${p.stop.toFixed(2)} GTC`)}</code> <button type="button" class="copy" data-copy="${esc(`place Sid's ${p.sym} stop: sell ${p.qty} at ${p.stop.toFixed(2)} GTC`)}">Copy</button><br>or add the stop yourself in the Robinhood app.</div>` :
+        `<div class="btns"><button type="button" data-wo="${p.id}" class="go" ${WORK.busy[p.id] ? "disabled" : ""}>${WORK.busy[p.id] ? "Checking…" : "Have Robinhood check it"}</button></div>`}</div>`;
+  }).join("") : `<p class="mut">No open work. When a resident catches a problem it can fix safely, the fix shows up here for your one-tap approval.</p>`;
+  el.querySelectorAll("[data-wo]").forEach(b => b.addEventListener("click", () => runWork(ps.find(p => p.id === b.dataset.wo))));
+  el.querySelectorAll("[data-copy]").forEach(b => b.addEventListener("click", () => { navigator.clipboard.writeText(b.dataset.copy).then(() => { b.textContent = "Copied"; }, () => { const r = document.createRange(); r.selectNodeContents(b.previousElementSibling); getSelection().removeAllRanges(); getSelection().addRange(r); }); }));
+}
+async function runWork(p) {
+  if (!p || !MCP) return;
+  WORK.busy[p.id] = true; renderWork();
+  const log = (f, t, x) => { LOG.push({f, t, x, at: new Date()}); renderChat(); };
+  try {
+    if (!WORK.review[p.id]) {
+      const r = pl(await MCP.callTool(SERVER, "review_equity_order", p.input, {cache: false})) || {};
+      const oc = r.order_checks || {}, checks = Object.values(oc).map(v => typeof v === "string" ? v : (v && (v.detail || v.message || v.title)) || JSON.stringify(v));
+      WORK.review[p.id] = {checks, ref: uuid()};
+      log("guard", "hq", `Robinhood checked my ${p.sym} stop. ${checks.length ? "It has alerts, Nolan should read them." : "No alerts."} Handing it to you, boss.`);
+      log("hq", "guard", "I place orders from the chat, not from town. Nolan says the word, I set it.");
+    } else {
+      const r = pl(await MCP.callTool(SERVER, "place_equity_order", {...p.input, ref_id: WORK.review[p.id].ref}, {cache: false})) || {};
+      const o = r.order || {};
+      WORK.done[p.id] = true;
+      log("guard", "hq", r.approval ? `Sent the ${p.sym} stop to Nolan's Robinhood app for approval.` : `Done. ${p.sym} has a stop at ${p.stop.toFixed(2)}${o.state ? " (" + o.state + ")" : ""}.`);
+      log("hq", "guard", "Good catch, Sid. That's how we build: slowly, and nobody gets left unprotected.");
+      if (MCP.invalidate) MCP.invalidate(SERVER, "get_equity_orders").catch(() => {});
+    }
+  } catch (e) {
+    const c = e && e.code;
+    log("guard", "hq", c === "not_in_manifest" || c === "blocked_by_policy" ? "I'm not allowed to place orders from here. Nolan, add the stop in the app." : c === "approval_required" ? "Need Nolan's OK for this page to place orders. Tap again after allowing." : `Robinhood said no: ${(e && e.message) || "unknown error"}.`);
+  } finally { WORK.busy[p.id] = false; renderWork(); }
+}
+
 function sky(svgBox) {
   const ph = phase(), chg = SD && SD.spy && SD.spyPrev ? 100 * (SD.spy / SD.spyPrev - 1) : 0;
   const [x0, y0, W] = svgBox; let g = "";
@@ -478,6 +537,7 @@ function drawTown() {
 }
 
 // ---------- live data ----------
+let MCP = null;
 const L = {ts: {}, acct: null, port: null, pos: [], q: {}, stops: [], optPos: [], optQ: {}, optInst: {}, compOrders: [], todayEq: [], todayOpt: [], upd: null, err: null};
 const pl = r => r && r.payload && (r.payload.data || r.payload);
 function trips(orders) {
@@ -538,7 +598,7 @@ function refresh() {
   $("#sCash").textContent = SD.cash !== null ? money(SD.cash) : "—";
   const d = $("#sDay"); d.textContent = SD.dayChg !== null ? money(SD.dayChg) : "—"; d.className = SD.dayChg === null ? "" : SD.dayChg >= 0 ? "up" : "dn";
   $("#sUpd").textContent = L.upd ? L.upd.toLocaleTimeString([], {hour: "numeric", minute: "2-digit"}) : "—";
-  drawTown(); renderDetail(); renderCrier();
+  drawTown(); renderDetail(); renderCrier(); renderWork();
   if (!refresh.started) { refresh.started = true; setTimeout(startChatter, 1200); } // first real data: let the town talk about it right away
 }
 
@@ -619,7 +679,7 @@ function err(e) {
     c === "approval_required" ? "Allow this page to read your Robinhood account (tap any building after allowing)." : "Robinhood is slow to answer; showing the last data.";
 }
 async function start() {
-  const mcp = await CL.use("mcp");
+  const mcp = await CL.use("mcp"); MCP = mcp;
   if (!mcp) { $("#banner").hidden = false; $("#banner").textContent = "Live data needs this page open in claude.ai with the Robinhood connector. Research, paper and slot figures below are from the last build."; refresh(); return; }
   const call = async (t, i, o) => pl(await mcp.callTool(SERVER, t, i, o));
   try {
