@@ -16,7 +16,7 @@
 # Upload: Part 1
 
 - File: `meatball_motors_part1.mp4` (18.5 s, vertical)
-- Title: `Meatball Motors Part 1: His EX Is Back 😱 #shorts`
+- Title: `POV: Your ex shows up at your job 💀 | Meatball Drama Pt 1` (vidIQ score 89)
 - Description:
   > Duchess is back... and she drove in a red hatchback. 😳
   > Part 2 tomorrow. Follow so you don't miss it.
