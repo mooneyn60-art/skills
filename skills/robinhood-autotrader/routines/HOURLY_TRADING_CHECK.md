@@ -215,13 +215,13 @@ an 8% stop isn't noise):
   HALO 1 sh @110.29 (was 2; Nolan sold 1 @121.64 on 2026-10-15, +1.29R). GTC stop-market 110.29 BREAKEVEN (order 6ad10150, Nolan's choice 10/15)   healthcare; earnings 11/3
   ILMN 1 sh @273.00 (2026-10-13 after hours)  GTC stop-market 251.16 (order 6aceb9f8)   healthcare (2nd); earnings 10/30
   NVT: SOLD 2026-10-14 9:47am ET @159.17 (Nolan 10/13 rebalance; stop 6abf900c cancelled first; -5.1%, -0.64R)
-  VLO  0.455517 sh @406.13   STOP 406.13 (R4 breakeven raise 2026-10-08, close 443.96 >= 1.08xE)  -- FRACTIONAL, NO BROKER STOP   energy
+  VLO  SOLD 2026-10-15 3:13pm ET @438.70 (+1.0R) by the other session to fund the TARS options slot (Nolan authorized). No more desk stop.
   INTC (kept) is the 2nd tech name.
 ROUND 2 (3:11pm ET, Nolan: "drop the spy, I want to beat it not ride it"):
 SOLD SPY 0.657187 @764.54 (index core removed by owner order). BOUGHT:
   ATI 1 sh @189.33  GTC stop-market 174.18 (order 6abeb060)   industrials
   SN  1 sh @180.06  GTC stop-market 165.65 (order 6abeb062)   consumer cyclical
-  FRO 2 sh @51.47   GTC stop-market 51.47 (order 6ac808bf, R4 breakeven raise 2026-10-08; was 47.36/6abeb063)   energy (tankers;
+  FRO  SOLD 2026-10-15 3:13pm ET, all 5 sh @52.55 (+0.25R), to fund the TARS options slot (Nolan authorized).
       picked over DINO, tied on momentum, to avoid a 2nd refiner next to VLO)
   BE (+180%) skipped: 63d vol 107% > 80% ceiling.
 No index core now: the whole equity book is the momentum sleeve (8 names).
@@ -231,7 +231,7 @@ ROUND 3 (2026-10-02 premarket, Nolan deposited ~$600; "Not intel" -> no INTC add
       for the 3 new shares; the original 2 are on 6ac808bf @51.47. FRO now 5 sh.
   TECK 3 sh @65.60 (filled 7:34am)  GTC stop-market 60.35 (order 6abfb435)   materials
 
-EVERY FIRE: quote VLO (MU sold 10/12). If last <= its stop, SELL THE WHOLE FRACTION at
+(VLO SOLD 10/15: no fractional desk stop left.) FORMERLY: quote VLO. If last <= its stop, SELL THE WHOLE FRACTION at
 market immediately (regular hours only), log it, push Nolan. The broker won't
 hold stop orders on fractional shares, so the desk IS the stop. Gap risk
 between fires is accepted and was explained to Nolan.
