@@ -1,0 +1,140 @@
+<title>Meatball Control Room</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+/* Layout: one narrow column, phone-first; today's "approve" action on top, then each post card, then setup checklist. */
+:root{
+  --bg:#FBF6EE; --surface:#FFFFFF; --ink:#2A1B2E; --muted:#6E5C70; --line:#E8DCE4;
+  --accent:#C2185B; --accent-ink:#FFFFFF; --sun:#FFD400; --ok:#1E7F4F; --warn:#B36B00;
+  --display:"Bricolage Grotesque", "Arial Black", system-ui, sans-serif;
+  --body:"Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#1A1220; --surface:#251A2C; --ink:#F6EEF4; --muted:#B9A6BC; --line:#3A2C42;
+  --accent:#FF5C9A; --accent-ink:#1A1220; --sun:#FFD84D; --ok:#4FD18B; --warn:#FFB547; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1A1220; --surface:#251A2C; --ink:#F6EEF4; --muted:#B9A6BC; --line:#3A2C42;
+  --accent:#FF5C9A; --accent-ink:#1A1220; --sun:#FFD84D; --ok:#4FD18B; --warn:#FFB547; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5}
+.wrap{max-width:560px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px;display:grid;gap:20px}
+header{display:flex;align-items:center;gap:14px}
+header .logo{width:52px;height:52px;border-radius:50%;background:var(--sun);display:grid;place-items:center;font:800 26px var(--display);color:#2A1B2E;flex:none}
+h1{font:800 clamp(26px,7vw,34px)/1.05 var(--display);margin:0;letter-spacing:-.01em;text-wrap:balance}
+.sub{color:var(--muted);font-size:14px;margin:2px 0 0}
+.label{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.go{background:var(--accent);color:var(--accent-ink);border-radius:18px;padding:18px;display:grid;gap:10px}
+.go .label{color:inherit;opacity:.85}
+.go a{display:block;text-align:center;background:var(--sun);color:#2A1B2E;font:800 20px var(--display);padding:16px;border-radius:12px;text-decoration:none}
+.go a:focus-visible,button:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.go p{margin:0;font-size:14px}
+.post{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:10px;min-width:0}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.pill{font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;border:1px solid currentColor}
+.pill.queued{color:var(--warn)} .pill.live{color:var(--ok)} .pill.draft{color:var(--muted)}
+.title{font:600 19px/1.25 var(--display);margin:0;overflow-wrap:anywhere}
+.meta{color:var(--muted);font-size:14px;font-variant-numeric:tabular-nums}
+.desc{font-size:14px;color:var(--muted);margin:0;overflow-wrap:anywhere;white-space:pre-line}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+button{font:700 14px var(--body);padding:9px 14px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+button.done{border-color:var(--ok);color:var(--ok)}
+.check{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:10px}
+.check label{display:flex;gap:10px;align-items:flex-start;font-size:15px}
+.check input{width:20px;height:20px;margin-top:2px;accent-color:var(--accent);flex:none}
+.check small{color:var(--muted);display:block}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center}
+.stat b{display:block;font:800 22px var(--display);font-variant-numeric:tabular-nums}
+.stat span{font-size:12px;color:var(--muted)}
+@media (prefers-reduced-motion:no-preference){button{transition:transform .1s} button:active{transform:scale(.97)}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="logo" aria-hidden="true">M</div>
+    <div><h1>Meatball Control Room</h1><p class="sub" id="updated"></p></div>
+  </header>
+
+  <section class="go" id="go" aria-labelledby="go-l">
+    <span class="label" id="go-l">Your one tap today</span>
+    <a id="approve" href="#" target="_blank" rel="noopener">Approve today's posts</a>
+    <p id="go-note"></p>
+  </section>
+
+  <section class="stats" aria-label="Channel numbers">
+    <div class="stat"><b id="s-parts">0</b><span>parts made</span></div>
+    <div class="stat"><b id="s-live">0</b><span>live on YouTube</span></div>
+    <div class="stat"><b id="s-credits">0</b><span>vidIQ credits left</span></div>
+  </section>
+
+  <section aria-labelledby="posts-l" style="display:grid;gap:12px">
+    <span class="label" id="posts-l">Posts</span>
+    <div id="posts" style="display:grid;gap:12px"></div>
+  </section>
+
+  <section class="check" aria-labelledby="setup-l">
+    <span class="label" id="setup-l">One-time setup (ticks save on this phone)</span>
+    <div id="setup"></div>
+  </section>
+</div>
+
+<script>
+/* DATA: the daily routine rewrites this block and republishes the page. */
+const DATA = {
+  updated: "Oct 15, 2026 · 3:00 PM ET",
+  credits: 3510,
+  approveUrl: "https://clip.opus.pro/agent-approvals#v2.F15Mm15O1xztTBC3ssyBLw",
+  approveNote: "Opens OpusClip. Sign in, tap Approve. Part 1 goes live on YouTube right away.",
+  posts: [
+    {part:1, status:"queued", when:"Now, after your tap",
+     title:"He crashed the wedding 😱 She has a secret | Oh Meatball Pt 1", score:96,
+     desc:"\"If anyone objects, speak now...\" Meatball was ONE second from married. 💍 Then Smokey walked in. What is Duchess hiding? 😳 Part 2 tomorrow at 6 PM ET. Comment who you're siding with 👇 #shorts #catdrama #ai #animation #cat #ohmeatball"},
+    {part:2, status:"draft", when:"Tomorrow 12:00 PM ET",
+     title:"She was already married 😱 and there's a kitten | Oh Meatball Pt 2", score:94,
+     desc:"Duchess was STILL married to Smokey... and then a tiny voice said \"Mommy?\" 😳 Part 3 tonight at 8 PM ET. Team Meatball or Team Smokey? 👇 #shorts #catdrama #ai #animation #cat #ohmeatball"}
+  ],
+  setup: [
+    {id:"swap", t:"Channel swap: name Oh Meatball, handle @Oh_meatball, profile pic, banner, description", s:"YouTube app → Your channel → pencil icon"},
+    {id:"private", t:"Hide old videos", s:"studio.youtube.com (desktop site) → Content → select all → Edit → Visibility → Private"},
+    {id:"uploadpost", t:"Add Upload-Post key so posts go out with no tap", s:"upload-post.com → profile 'ohmeatball' → connect YouTube → API key → add as UPLOAD_POST_API_KEY in environment settings"}
+  ]
+};
+
+const $ = id => document.getElementById(id);
+$("updated").textContent = "Updated " + DATA.updated;
+$("approve").href = DATA.approveUrl;
+$("go-note").textContent = DATA.approveNote;
+$("s-parts").textContent = DATA.posts.length;
+$("s-live").textContent = DATA.posts.filter(p => p.status === "live").length;
+$("s-credits").textContent = DATA.credits.toLocaleString();
+
+const labels = {queued:"Waiting for your tap", live:"Live", draft:"Being finished"};
+function copy(btn, text){
+  const ok = () => { btn.textContent = "Copied"; btn.classList.add("done"); setTimeout(()=>{btn.textContent=btn.dataset.l;btn.classList.remove("done")},1500); };
+  try { navigator.clipboard.writeText(text).then(ok, () => fallback(text, ok)); } catch(e){ fallback(text, ok); }
+}
+function fallback(text, ok){
+  const ta = document.createElement("textarea"); ta.value = text; document.body.appendChild(ta); ta.select();
+  try { document.execCommand("copy"); ok(); } catch(e){} ta.remove();
+}
+DATA.posts.forEach(p => {
+  const el = document.createElement("article"); el.className = "post";
+  el.innerHTML = `<div class="row"><span class="label">Part ${p.part}</span><span class="pill ${p.status}">${labels[p.status]}</span></div>
+    <p class="title"></p><span class="meta">${p.when} · title score ${p.score}/100</span><p class="desc"></p>
+    <div class="btns"><button type="button" data-l="Copy title">Copy title</button><button type="button" data-l="Copy description">Copy description</button></div>`;
+  el.querySelector(".title").textContent = p.title;
+  el.querySelector(".desc").textContent = p.desc;
+  const [b1,b2] = el.querySelectorAll("button");
+  b1.onclick = () => copy(b1, p.title); b2.onclick = () => copy(b2, p.desc);
+  $("posts").appendChild(el);
+});
+let saved = {}; try { saved = JSON.parse(localStorage.getItem("om-setup") || "{}"); } catch(e){}
+DATA.setup.forEach(s => {
+  const l = document.createElement("label");
+  l.innerHTML = `<input type="checkbox" id="c-${s.id}"><span><span class="t"></span><small></small></span>`;
+  l.querySelector(".t").textContent = s.t; l.querySelector("small").textContent = s.s;
+  const cb = l.querySelector("input"); cb.checked = !!saved[s.id];
+  cb.onchange = () => { saved[s.id] = cb.checked; try { localStorage.setItem("om-setup", JSON.stringify(saved)); } catch(e){} };
+  $("setup").appendChild(l);
+});
+</script>

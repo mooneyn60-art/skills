@@ -55,6 +55,12 @@ If the balance would not last until the next renewal at 320/day, drop to 1 story
 - Score the week: views per part, subs gained, which cliffhangers got the most comments.
   Update SKILL.md arc notes. Store lessons: `npx -y ruflo@latest memory store --namespace oh-meatball --key "week-<date>" --value "<lesson>"`.
 
+## 5b. Update the Control Room page
+Edit the `DATA` block in `control-room.html` (updated time, credits, approveUrl = today's combined
+approval link, posts with status queued/live/draft, titles, descriptions) and republish it with the
+Artifact tool using `url: https://claude.ai/artifact/GPv1McJbRu2M3SKE8oB7ds` (read it first if this
+session did not publish it). Nolan uses that page as his one-tap daily screen.
+
 ## 6. Wrap up
 Commit + push. Message Nolan in <= 6 lines: today's 2 titles, the ONE approval link,
 yesterday's views, credits left.
