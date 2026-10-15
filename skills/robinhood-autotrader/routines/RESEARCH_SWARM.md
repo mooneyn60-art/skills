@@ -71,6 +71,10 @@ Target: under $25 of model usage per swarm run.
       from the top 3 sectors.
    Data: paper/history/daily_ohlcv.json, daily_ohlcv_volatile.json,
    daily_ohlcv_holdings.json. Note the survivorship bias in all three.
-2. Range-regime exit rule (the standing open question in WEEKEND_RESEARCH).
-3. Earnings-gap continuation for momentum names (hold through vs exit
+2. OPTIONS APPRENTICE Stage 2 (see routines/OPTIONS_APPRENTICE.md): write
+   2-3 candidate SPY-options rule sets, apply each to Nolan's logged option
+   trades (owner_options_mistakes.py data), report in-sample results with
+   the best day removed, freeze the winner for the Stage 3 paper book.
+3. Range-regime exit rule (the standing open question in WEEKEND_RESEARCH).
+4. Earnings-gap continuation for momentum names (hold through vs exit
    before earnings), using paper/history/earnings_reports.json.

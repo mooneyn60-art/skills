@@ -47,6 +47,12 @@ pushes on 2026-09-22.
 
 Commit and push.
 
+## JOB 3 — OPTIONS MISTAKE MAP (added 2026-10-15)
+
+Run `python3 paper/research_scripts/owner_options_mistakes.py` and put the
+buckets that changed since last week in the report (routines/OPTIONS_APPRENTICE.md,
+Stage 1). Data, not verdicts: say which day drives each bucket.
+
 ## HARD LIMITS
 
 NO TRADES. No orders placed, cancelled or modified, for any reason. If
