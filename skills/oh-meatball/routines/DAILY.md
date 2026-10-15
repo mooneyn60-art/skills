@@ -29,6 +29,12 @@ Read SKILL.md first (cast descriptions, arc, format). Never mention cars.
   "PART N+1 TOMORROW" (last 1.7 s). Keep the returned URL.
 
 ## 4. Post (YouTube + TikTok + Instagram)
+- PREFERRED (no human tap): if env UPLOAD_POST_API_KEY is set, download each composed MP4 and run
+  `scripts/post.sh <mp4> "<title>" "<description>" youtube instagram` (add `tiktok` once on a paid plan).
+  Free plan = 10 uploads/month: spend them on YouTube first. Check the JSON response for success and
+  log the returned post ids. Instagram can also go through `vidiq_instagram_publish_reel` if Instagram
+  is connected in vidIQ (publishingAvailable=true).
+- FALLBACK (needs Nolan's one tap):
 - `opusclip_submit_project` with the composed URL, skipSlicing true, enableCaption false.
 - When ready, `opusclip_schedule_publish` each part to:
   YouTube 69dbd6d3074f7631e21a2343, TikTok 69dbd6fe074f7631e21a2350,
