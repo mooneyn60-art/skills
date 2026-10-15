@@ -40,3 +40,8 @@ TARS's estimate: ~40%
   catalyst. That's what keeps TARS from going lower.
 
 Outcome: PENDING — scored on 2026-11-27 after the close.
+
+## Gut call #2 — 2026-10-15 (made the night before)
+Nolan: "we gonna be up big I can feel it" (for Friday 2026-10-16).
+Scoring: HIT if the account (stocks + options, both sides of Nolan vs TARS) closes Friday green vs Thursday's close by more than 1%. TARS's estimate: about 25% (a +1% day for this account is uncommon; it needs a strong SPY day plus good trades).
+Score it at Friday's close.
