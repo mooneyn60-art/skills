@@ -7,16 +7,17 @@
 :root{
   --bg:#f3f4f6; --panel:#ffffff; --ink:#151a22; --muted:#5d6676; --line:#d9dde4;
   --accent:#c77a12; --up:#1f8a5b; --down:#c2413a; --warn:#b07c0c; --grid:#e7eaef; --price:#2b3546;
+  --vwap:#6a4fc7; --e9:#2f7fbf; --e21:#9a6b3f;
   --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
   --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#0f1318; --panel:#161b22; --ink:#e6e9ee; --muted:#93a0b2; --line:#283140;
-  --accent:#e7a33c; --up:#3fbf86; --down:#ef6a61; --warn:#e3b341; --grid:#1f2731; --price:#c9d3e0; color-scheme:dark}}
+  --accent:#e7a33c; --up:#3fbf86; --down:#ef6a61; --warn:#e3b341; --grid:#1f2731; --price:#c9d3e0; --vwap:#a996f2; --e9:#6fb3ea; --e21:#d4a373; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0f1318; --panel:#161b22; --ink:#e6e9ee; --muted:#93a0b2; --line:#283140;
-  --accent:#e7a33c; --up:#3fbf86; --down:#ef6a61; --warn:#e3b341; --grid:#1f2731; --price:#c9d3e0; color-scheme:dark}
+  --accent:#e7a33c; --up:#3fbf86; --down:#ef6a61; --warn:#e3b341; --grid:#1f2731; --price:#c9d3e0; --vwap:#a996f2; --e9:#6fb3ea; --e21:#d4a373; color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:14px;line-height:1.5;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 40px}
@@ -60,6 +61,15 @@ svg text{font-family:var(--mono);font-size:10px;fill:var(--muted)}
     <div class="sub" id="sub"></div>
   </header>
 
+  <section class="panel" id="paper">
+    <h2>Paper account</h2>
+    <div class="tiles" id="ptiles" aria-label="Paper account"></div>
+    <div class="scroll" style="margin-top:12px"><table id="pbook"><thead><tr>
+      <th>Day</th><th>Setup</th><th>Side</th><th>In (ET)</th><th>Out</th><th>Entry</th><th>Stop</th><th>Target</th><th>Exit</th><th>Status</th><th>R</th><th>Trend</th><th>RSI</th>
+    </tr></thead><tbody></tbody></table></div>
+    <p class="note" id="pnote"></p>
+  </section>
+
   <section class="tiles" id="tiles" aria-label="Farm totals"></section>
 
   <section class="panel">
@@ -79,9 +89,13 @@ svg text{font-family:var(--mono);font-size:10px;fill:var(--muted)}
       <button id="next" type="button" aria-label="Next day">&rarr;</button>
       <span class="sub" id="daystat"></span>
     </div>
-    <div class="scroll"><svg id="chart" role="img" aria-label="SPY one-minute price with trades" width="100%" viewBox="0 0 1000 340" preserveAspectRatio="none"></svg></div>
+    <div class="scroll"><svg id="chart" role="img" aria-label="SPY one-minute price with indicators and trades" width="100%" viewBox="0 0 1000 420" preserveAspectRatio="none"></svg></div>
     <div class="legend">
       <span><i class="sw" style="background:var(--price)"></i>SPY close</span>
+      <span><i class="sw" style="background:var(--vwap)"></i>VWAP</span>
+      <span><i class="sw" style="background:var(--e9)"></i>EMA 9</span>
+      <span><i class="sw" style="background:var(--e21)"></i>EMA 21</span>
+      <span><i class="sw" style="background:var(--muted)"></i>RSI 14 (lower pane, 30/70 lines)</span>
       <span><i class="sw" style="background:var(--up)"></i>winning trade</span>
       <span><i class="sw" style="background:var(--down)"></i>losing trade</span>
       <span><i class="sw" style="background:var(--accent)"></i>prior-day high / low</span>
@@ -107,8 +121,9 @@ svg text{font-family:var(--mono);font-size:10px;fill:var(--muted)}
 const D = __DATA__;
 const $ = s => document.querySelector(s);
 const fmt = (x, d = 2) => (x > 0 ? "+" : "") + x.toFixed(d);
-const names = {sweep_reversal: "Sweep reversal", fvg_retest: "FVG retest", sweep_fvg: "Sweep + FVG"};
+const names = {sweep_reversal: "Sweep reversal", fvg_retest: "FVG retest", sweep_fvg: "Sweep + FVG", fvg_trend: "FVG with trend", vwap_reclaim: "VWAP reclaim"};
 const days = Object.keys(D.bars).filter(d => D.per_day[d]).sort();
+const P = D.paper || {trades: []};
 
 $("#sub").innerHTML = `<span>SPY 1-min</span><span>${D.range[0]} → ${D.range[1]}</span><span>${D.n_days} days</span><span>in-sample</span>`;
 const ev = D.events;
@@ -134,24 +149,28 @@ D.trades.forEach(t => (tradesByDay[t.day] ||= []).push(t));
 
 function toMin(t) { const [h, m] = t.split(":").map(Number); return h * 60 + m - 570; }
 function draw(day) {
-  const bars = D.bars[day], W = 1000, H = 340, L = 48, R = 8, T = 10, B = 24;
+  const bars = D.bars[day], W = 1000, H = 420, L = 48, R = 8, T = 10, PB = 300, RT = 318, RB = 396;
   const i = days.indexOf(day), prev = i > 0 ? D.bars[days[i - 1]] : null;
   const pdh = prev ? Math.max(...prev.map(b => b[0])) : null, pdl = prev ? Math.min(...prev.map(b => b[1])) : null;
-  let hi = Math.max(...bars.map(b => b[0])), lo = Math.min(...bars.map(b => b[1]));
+  let hi = Math.max(...bars.map(b => Math.max(b[0], b[3]))), lo = Math.min(...bars.map(b => Math.min(b[1], b[3])));
   const ts = tradesByDay[day] || [];
   ts.forEach(t => { hi = Math.max(hi, t.entry, t.exit); lo = Math.min(lo, t.entry, t.exit); });
   const pad = (hi - lo) * 0.06; hi += pad; lo -= pad;
-  const x = m => L + (m / 389) * (W - L - R), y = p => T + (hi - p) / (hi - lo) * (H - T - B);
+  const x = m => L + (m / 389) * (W - L - R), y = p => T + (hi - p) / (hi - lo) * (PB - T), yr = v => RT + (100 - v) / 100 * (RB - RT);
   let s = "";
   const step = (hi - lo) > 8 ? 2 : (hi - lo) > 4 ? 1 : 0.5;
   for (let p = Math.ceil(lo / step) * step; p <= hi; p += step)
     s += `<line x1="${L}" x2="${W - R}" y1="${y(p)}" y2="${y(p)}" stroke="var(--grid)"/><text x="${L - 6}" y="${y(p) + 3}" text-anchor="end">${p.toFixed(step < 1 ? 1 : 0)}</text>`;
   ["10:00", "11:00", "12:00", "13:00", "14:00", "15:00"].forEach(t => {
-    const xm = x(toMin(t)); s += `<line x1="${xm}" x2="${xm}" y1="${T}" y2="${H - B}" stroke="var(--grid)"/><text x="${xm}" y="${H - 8}" text-anchor="middle">${t}</text>`;
+    const xm = x(toMin(t)); s += `<line x1="${xm}" x2="${xm}" y1="${T}" y2="${RB}" stroke="var(--grid)"/><text x="${xm}" y="${H - 8}" text-anchor="middle">${t}</text>`;
   });
   [[pdh, "PDH"], [pdl, "PDL"]].forEach(([p, n]) => { if (p && p <= hi && p >= lo)
     s += `<line x1="${L}" x2="${W - R}" y1="${y(p)}" y2="${y(p)}" stroke="var(--accent)" stroke-dasharray="4 4"/><text x="${W - R - 4}" y="${y(p) - 4}" text-anchor="end" style="fill:var(--accent)">${n}</text>`; });
-  s += `<polyline fill="none" stroke="var(--price)" stroke-width="1.3" points="${bars.map((b, k) => `${x(k).toFixed(1)},${y(b[2]).toFixed(1)}`).join(" ")}"/>`;
+  const line = (k, col, w, dash) => `<polyline fill="none" stroke="${col}" stroke-width="${w}" ${dash ? `stroke-dasharray="${dash}"` : ""} points="${bars.map((b, j) => `${x(j).toFixed(1)},${y(b[k]).toFixed(1)}`).join(" ")}"/>`;
+  s += line(5, "var(--e21)", 1, "") + line(4, "var(--e9)", 1, "") + line(3, "var(--vwap)", 1.4, "5 3") + line(2, "var(--price)", 1.3, "");
+  s += `<text x="${L - 6}" y="${yr(70) + 3}" text-anchor="end">70</text><text x="${L - 6}" y="${yr(30) + 3}" text-anchor="end">30</text>`;
+  [30, 70].forEach(v => s += `<line x1="${L}" x2="${W - R}" y1="${yr(v)}" y2="${yr(v)}" stroke="var(--grid)" stroke-dasharray="3 3"/>`);
+  s += `<polyline fill="none" stroke="var(--muted)" stroke-width="1" points="${bars.map((b, j) => `${x(j).toFixed(1)},${yr(b[6]).toFixed(1)}`).join(" ")}"/>`;
   ts.forEach(t => {
     const c = t.R > 0 ? "var(--up)" : "var(--down)", x1 = x(toMin(t.t_in)), x2 = x(toMin(t.t_out));
     s += `<line x1="${x1}" x2="${x2}" y1="${y(t.entry)}" y2="${y(t.exit)}" stroke="${c}" stroke-width="2"/>`;
@@ -187,7 +206,23 @@ $("#filters").innerHTML = [["all", "All"], ...Object.keys(names).map(k => [k, na
 document.querySelectorAll("#filters button").forEach(b => b.addEventListener("click", () => {
   filter = b.dataset.f; document.querySelectorAll("#filters button").forEach(x => x.setAttribute("aria-pressed", x === b)); book();
 }));
+
+// paper account
+(function () {
+  const closed = P.trades.filter(t => t.status === "closed"), open = P.trades.filter(t => t.status === "open");
+  const sumR = closed.reduce((a, t) => a + t.R, 0), wins = closed.filter(t => t.R > 0).length;
+  const eq = P.equity ?? 2000, st = P.start_equity ?? 2000;
+  const tl = [["Paper equity", "$" + eq.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})],
+    ["Since start", fmt(100 * (eq / st - 1), 1) + "%"], ["Closed trades", closed.length], ["Open now", open.length],
+    ["Win rate", closed.length ? (100 * wins / closed.length).toFixed(0) + "%" : "–"], ["Total R", fmt(sumR)]];
+  $("#ptiles").innerHTML = tl.map(([k, v]) => `<div class="tile"><b>${v}</b><small>${k}</small></div>`).join("");
+  $("#pbook tbody").innerHTML = P.trades.slice().reverse().map(t => `<tr><td>${t.day}</td><td style="text-align:left">${names[t.setup] || t.setup}</td><td>${t.side}</td><td>${t.t_in}</td><td>${t.status === "open" ? "–" : t.t_out}</td>
+    <td>${t.entry.toFixed(2)}</td><td>${t.stop.toFixed(2)}</td><td>${t.target.toFixed(2)}</td><td>${t.exit.toFixed(2)}</td>
+    <td><span class="pill ${t.status === "open" ? "p-few" : (t.R > 0 ? "p-good" : "p-bad")}">${t.status === "open" ? "open" : t.reason}</span></td>
+    <td class="${t.R >= 0 ? "pos" : "neg"}">${fmt(t.R)}</td><td>${t.trend > 0 ? "up" : t.trend < 0 ? "down" : "mixed"}</td><td>${t.rsi}</td></tr>`).join("")
+    || `<tr><td colspan="13" style="text-align:left">No paper trades yet. The desk adds them through the trading day.</td></tr>`;
+  $("#pnote").textContent = `Forward paper trading on live SPY bars since ${P.forward_start || "–"}, with the rules frozen (version ${P.rules_hash || "–"}). Each trade risks 1% of the paper account. As of ${P.as_of || "–"}. No real orders are placed.`;
+})();
 book();
-const best = days.slice().sort((a, b) => (tradesByDay[b] || []).length - (tradesByDay[a] || []).length)[0];
-draw(best || days[days.length - 1]);
+draw(days[days.length - 1]);
 </script>

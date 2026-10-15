@@ -274,3 +274,9 @@ propose selling flat positions to rotate: user_closed is the worst exit
 category in the ledger (n=9, mean -0.20R).
 
 Short. Nolan reads this on his phone.
+
+## DATA FARM PAPER TRADING (added 2026-10-15)
+
+Every market-hours fire, after the account checks: run
+routines/DATA_FARM_PAPER.md (pull today's SPY minute bars, run the paper
+trader, rebuild and publish the dashboard). Paper only, no orders.

@@ -37,6 +37,7 @@ SWEEP_MIN = 0.0003        # pierce a level by >= 0.03% (~$0.23 on SPY 775)
 FVG_MIN = 0.0004          # gap >= 0.04% of price
 STOP_PAD = 0.0002         # stop beyond the sweep extreme / gap edge
 TARGET_R = 2.0
+SETUPS = ["sweep_reversal", "fvg_retest", "sweep_fvg", "fvg_trend", "vwap_reclaim"]
 LAST_ENTRY = "15:30"      # ET
 TIME_EXIT = "15:55"       # ET
 COST_PER_SHARE = 0.02     # round trip, dollars
@@ -57,6 +58,43 @@ def load():
         o, h, l, c, v = raw[k]
         days[k[:10]].append({"t": et(k), "o": o, "h": h, "l": l, "c": c, "v": v})
     return dict(sorted(days.items()))
+
+
+def add_indicators(bars):
+    """VWAP, EMA9, EMA21, RSI14 (Wilder), ATR14 on 1-minute bars, in place."""
+    pv = vol = 0.0
+    e9 = e21 = None
+    gain = loss = None
+    atr = None
+    for i, b in enumerate(bars):
+        tp = (b["h"] + b["l"] + b["c"]) / 3
+        v = max(b.get("v", 0), 1)
+        pv += tp * v; vol += v
+        b["vwap"] = pv / vol
+        e9 = b["c"] if e9 is None else e9 + (2 / 10) * (b["c"] - e9)
+        e21 = b["c"] if e21 is None else e21 + (2 / 22) * (b["c"] - e21)
+        b["ema9"], b["ema21"] = e9, e21
+        if i:
+            ch = b["c"] - bars[i - 1]["c"]
+            g, l = max(ch, 0), max(-ch, 0)
+            gain = g if gain is None else (gain * 13 + g) / 14
+            loss = l if loss is None else (loss * 13 + l) / 14
+            tr = max(b["h"] - b["l"], abs(b["h"] - bars[i - 1]["c"]), abs(b["l"] - bars[i - 1]["c"]))
+        else:
+            tr = b["h"] - b["l"]
+        atr = tr if atr is None else (atr * 13 + tr) / 14
+        b["atr"] = atr
+        b["rsi"] = 50.0 if not loss else 100 - 100 / (1 + (gain or 0) / loss)
+    return bars
+
+
+def trend_of(b):
+    """+1 up, -1 down, 0 mixed: price vs VWAP and EMA9 vs EMA21 must agree."""
+    if b["c"] > b["vwap"] and b["ema9"] > b["ema21"]:
+        return 1
+    if b["c"] < b["vwap"] and b["ema9"] < b["ema21"]:
+        return -1
+    return 0
 
 
 def detect(bars, pdh, pdl):
@@ -146,7 +184,10 @@ def mk_trade(day, bars, setup, side, i_entry, stop, why):
     hh, mm = map(int, bars[i_entry]["t"].split(":"))
     prem = atm_0dte_premium(e, 16 * 60 - (hh * 60 + mm))
     opt_ret = (0.5 * move) / prem - 2 * OPT_SPREAD
+    sig = bars[i_entry - 1] if i_entry else bars[i_entry]
     return {"day": day, "setup": setup, "side": side, "t_in": bars[i_entry]["t"], "t_out": bars[k]["t"],
+            "vwap": round(sig["vwap"], 2), "ema9": round(sig["ema9"], 2), "ema21": round(sig["ema21"], 2),
+            "rsi": round(sig["rsi"], 1), "atr": round(sig["atr"], 3), "trend": trend_of(sig),
             "entry": round(e, 2), "stop": round(stop, 2), "target": round(target, 2), "exit": round(x, 2),
             "reason": reason, "R": round(r, 3), "pts": round(move, 2), "opt_ret": round(opt_ret, 3),
             "why": why}
@@ -157,7 +198,7 @@ def run():
     names = list(days)
     trades, counts, per_day = [], Counter(), {}
     for n, day in enumerate(names):
-        bars = days[day]
+        bars = add_indicators(days[day])
         if n == 0:
             continue
         prev = days[names[n - 1]]
@@ -165,7 +206,40 @@ def run():
         ev, orh, orl = detect(bars, pdh, pdl)
         per_day[day] = Counter(e["type"] for e in ev)
         counts.update(e["type"] for e in ev)
-        busy = {"sweep_reversal": -1, "fvg_retest": -1, "sweep_fvg": -1}
+        busy = {"sweep_reversal": -1, "fvg_retest": -1, "sweep_fvg": -1, "fvg_trend": -1, "vwap_reclaim": -1}
+        # S4: FVG retest only WITH the trend (price vs VWAP and EMA9/21 agree)
+        for e in ev:
+            if e["type"] != "fvg" or e["i"] <= busy["fvg_trend"]:
+                continue
+            want = 1 if e["side"] == "bull" else -1
+            if trend_of(bars[e["i"]]) != want:
+                continue
+            for k in range(e["i"] + 1, len(bars)):
+                if bars[k]["t"] > LAST_ENTRY:
+                    break
+                hit = bars[k]["l"] <= e["top"] if want == 1 else bars[k]["h"] >= e["bot"]
+                if hit:
+                    if k + 1 < len(bars):
+                        stop = e["bot"] * (1 - STOP_PAD) if want == 1 else e["top"] * (1 + STOP_PAD)
+                        tr = mk_trade(day, bars, "fvg_trend", "long" if want == 1 else "short", k + 1, stop, f"{e['side']} FVG retest with trend")
+                        if tr:
+                            trades.append(tr); busy["fvg_trend"] = bars.index(next(b for b in bars if b["t"] == tr["t_out"]))
+                    break
+        # S5: VWAP reclaim after 10:00 with EMA9>EMA21 (long) / VWAP loss with EMA9<EMA21 (short); stop 1.5 ATR
+        for i in range(31, len(bars) - 1):
+            if bars[i]["t"] > LAST_ENTRY or i <= busy["vwap_reclaim"]:
+                continue
+            a, b = bars[i - 1], bars[i]
+            side = None
+            if a["c"] <= a["vwap"] < b["c"] and b["ema9"] > b["ema21"]:
+                side = "long"
+            elif a["c"] >= a["vwap"] > b["c"] and b["ema9"] < b["ema21"]:
+                side = "short"
+            if side:
+                stop = b["c"] - 1.5 * b["atr"] if side == "long" else b["c"] + 1.5 * b["atr"]
+                tr = mk_trade(day, bars, "vwap_reclaim", side, i + 1, stop, "VWAP cross with EMA9/21 trend")
+                if tr:
+                    trades.append(tr); busy["vwap_reclaim"] = bars.index(next(x for x in bars if x["t"] == tr["t_out"]))
         # S1: sweep reversal
         for e in ev:
             if e["type"] != "sweep" or e["i"] + 1 >= len(bars) or bars[e["i"] + 1]["t"] > LAST_ENTRY:
@@ -240,7 +314,7 @@ def main():
     print(f"\n  {'setup':<16} {'n':>4} {'win%':>5} {'PF':>5} {'avg R':>6} {'t':>6} {'maxDD R':>8} {'0DTE avg':>9} | first half / second half avg R")
     out = {"range": [days[0], days[-1]], "n_days": len(days), "events": counts, "setups": {}, "trades": trades,
            "per_day": {d: dict(c) for d, c in per_day.items()}}
-    for s in ["sweep_reversal", "fvg_retest", "sweep_fvg"]:
+    for s in SETUPS:
         ts = [t for t in trades if t["setup"] == s]
         a = summary(ts)
         h1 = summary([t for t in ts if t["day"] < half]); h2 = summary([t for t in ts if t["day"] >= half])
