@@ -11,9 +11,16 @@ notes/GUT_CALLS.md and routines/. Read them, don't assume.
 Adapted from ruflo's trader-risk / protector checklists. Each one is a past failure.
   1. get_equity_positions + get_option_positions FIRST. Quote no price for a
      name that is not in that list (10/14: HPE reported held after its stop filled).
-  2. Any position with shares_available_for_sells > 0 (except VLO) has NO STOP:
-     report it first, propose the R18 level, place it only on Nolan's yes
-     (the broker refuses without his confirmation).
+  2. Any position with shares_available_for_sells > 0 (except fractional
+     leftovers) has NO STOP: PLACE the R18 stop now (GTC stop_market, whole
+     shares, review_equity_order first, fresh UUID ref_id), then confirm it with
+     get_equity_orders and tell Nolan in one line. STANDING OK from Nolan
+     (2026-10-15): "You have full authorization to let them do what they need
+     this helps us build slowly by catching eachother" / "I don't wanna tap I
+     have trust in you". Scope: ADDING a missing stop only. Never cancel or
+     loosen a stop, never add risk. If the broker returns an approval request
+     (customer_approval_required), that goes to his app by Robinhood's design:
+     say so in the log and the push.
   3. get_equity_orders and get_option_orders since the last log line: any order
      not in the ledger is an owner trade -> R8 rows now, not at the close.
   4. Compare the position list with this file's book section; fix this file

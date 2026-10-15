@@ -258,3 +258,7 @@ only records what he said and what was done. R13: no dollar balances.
 ## 2026-10-15 — Town work orders (Nolan: "You have full authorization to let them do what they need this helps us build slowly by catching eachother")
 - Authorization recorded in Nolan's words. Scope TARS applies: protective fixes only (add a missing GTC stop: 8% under cost, raised to 8% under price if the stock has gained, never within 3% of the price). Never adds risk, never cancels a stop.
 - Publishing the town with place_equity_order was BLOCKED by the permission classifier ([Real-World Transactions]). Not worked around. Town v4: residents draft the fix, Robinhood reviews it in-page (review_equity_order), then the page hands off a one-line command; TARS places it from chat when Nolan says so (or Nolan adds it in the app).
+
+## 2026-10-15 — Standing OK for protective stops (Nolan: "I don't wanna tap I have trust in you")
+- HOURLY_TRADING_CHECK preflight step 2 now PLACES a missing R18 stop immediately (review first, UUID ref_id, confirm, one-line note to Nolan) instead of proposing it. Scope: adding a missing stop only; never cancel/loosen, never add risk. Broker approval requests still go to his app by Robinhood's design.
+- Town v5: work orders say the desk places the fix on the hourly check; no taps.

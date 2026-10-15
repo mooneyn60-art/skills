@@ -145,7 +145,7 @@ h3{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mu
     </section>
     <section class="panel">
       <h2>Work orders</h2>
-      <p class="role">Fixes the residents drafted. Protective only (missing stops). Robinhood checks each one here; TARS places it from the chat when you say so.</p>
+      <p class="role">Fixes the residents caught. Protective only (missing stops). The desk places them on its hourly check under your standing OK; nothing to tap.</p>
       <div id="work"></div>
       <h2 style="margin-top:16px">Calibration</h2>
       <p class="role">Who's working from fresh data. Synced = updated in the last 2½ minutes (repo-built residents: within 36 hours).</p>
@@ -325,7 +325,7 @@ function scenes() {
     const lns = [{f: "guard", t: "yard", x: "Gus, roll call. How many of yours have stops?"},
       {f: "yard", t: "guard", x: `${rows.length - S.unprot.length} of ${rows.length}.${S.unprot.length ? " " + S.unprot.map(r => r.sym).join(", ") + " is bare." : " All covered."}`}];
     if (S.unprot.length) lns.push({f: "guard", t: "hq", x: `Boss, ${S.unprot.map(r => r.sym).join(", ")} has no stop. That's my whole job.`},
-      {f: "hq", t: "guard", x: "Nolan gave us the green light to fix things like this. Draft the stop, Sid."}, {f: "guard", t: "hq", x: "Drafted. It's in Work orders. Robinhood checks it, then you place it from the chat."});
+      {f: "hq", t: "guard", x: "Nolan gave us the green light to fix things like this. Draft the stop, Sid."}, {f: "guard", t: "hq", x: "Drafted. The desk sets it on the next hourly check. Nolan trusts us, so no taps."}, {f: "hq", t: "guard", x: "And we earn that trust by only ever adding protection. Never removing it."});
     else { const r = rows.filter(x => x.toStop !== null).sort((a, b) => a.toStop - b.toStop)[0];
       if (r) lns.push({f: "guard", t: "yard", x: `Closest one's ${r.sym}, ${r.toStop.toFixed(1)}% above its stop.`}, {f: "yard", t: "guard", x: r.toStop < 3 ? "Too close for comfort. I'll watch it." : "Plenty of room. Relax, Sid."}); }
     out.push({title: "Stop roll call", pri: S.unprot.length ? 0 : 4, lines: lns});
@@ -440,7 +440,7 @@ function renderWork() {
     const rv = WORK.review[p.id];
     return `<div class="wo"><div class="ln"><svg viewBox="-20 -32 40 52" class="av" aria-hidden="true">${bot(0, 0, 1, "var(--c-guard)", "alarm")}</svg><div><b>${esc(CH[p.by].who)}</b> <span class="mut">drafted a fix</span><br>${esc(p.text)}</div></div>
       ${rv ? `<div class="mut msg">${rv.checks.length ? "Robinhood alerts: " + rv.checks.map(esc).join(" · ") : "Robinhood checked it: no alerts."}</div>
-        <div class="handoff">To place it, tell TARS in chat: <code>${esc(`place Sid's ${p.sym} stop: sell ${p.qty} at ${p.stop.toFixed(2)} GTC`)}</code> <button type="button" class="copy" data-copy="${esc(`place Sid's ${p.sym} stop: sell ${p.qty} at ${p.stop.toFixed(2)} GTC`)}">Copy</button><br>or add the stop yourself in the Robinhood app.</div>` :
+        <div class="handoff">No tap needed: the desk places it at its next hourly check (Nolan's standing OK). Want it sooner? Tell TARS in chat.</div>` :
         `<div class="btns"><button type="button" data-wo="${p.id}" class="go" ${WORK.busy[p.id] ? "disabled" : ""}>${WORK.busy[p.id] ? "Checking…" : "Have Robinhood check it"}</button></div>`}</div>`;
   }).join("") : `<p class="mut">No open work. When a resident catches a problem it can fix safely, the fix shows up here for your one-tap approval.</p>`;
   el.querySelectorAll("[data-wo]").forEach(b => b.addEventListener("click", () => runWork(ps.find(p => p.id === b.dataset.wo))));
@@ -456,7 +456,7 @@ async function runWork(p) {
       const oc = r.order_checks || {}, checks = Object.values(oc).map(v => typeof v === "string" ? v : (v && (v.detail || v.message || v.title)) || JSON.stringify(v));
       WORK.review[p.id] = {checks, ref: uuid()};
       log("guard", "hq", `Robinhood checked my ${p.sym} stop. ${checks.length ? "It has alerts, Nolan should read them." : "No alerts."} Handing it to you, boss.`);
-      log("hq", "guard", "I place orders from the chat, not from town. Nolan says the word, I set it.");
+      log("hq", "guard", "Desk sets it on the hourly check. Standing OK from Nolan.");
     } else {
       const r = pl(await MCP.callTool(SERVER, "place_equity_order", {...p.input, ref_id: WORK.review[p.id].ref}, {cache: false})) || {};
       const o = r.order || {};
