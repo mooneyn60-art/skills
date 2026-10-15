@@ -120,6 +120,8 @@ svg{display:block;width:100%;height:auto}
 .planL .bad{color:var(--bad);font-weight:700} .planL .warn{color:var(--warn)} .planL .ok{color:var(--ok)} .planL .muted{color:var(--muted)}
 .neon.club{font-size:8.5px;fill:#ff7eb6} .disco{opacity:.25}
 @media (prefers-reduced-motion:no-preference){.disco{animation:disco 1.2s ease-in-out infinite alternate} @keyframes disco{to{opacity:.6}} .neon.club{animation:neonc 1.6s steps(3) infinite} @keyframes neonc{33%{fill:#7ef3ff}66%{fill:#ffe27e}}}
+.pan{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:8px}
+@media (max-width:600px){#city{width:190%;max-width:none}}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;min-width:0}
 .panel h2{font-family:var(--display);font-size:1.15rem;margin:0;letter-spacing:.03em}
 .role{color:var(--muted);margin:4px 0 12px;font-size:.92rem}
@@ -162,8 +164,8 @@ h3{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mu
   <section class="panel plan" aria-labelledby="planh"><h2 id="planh">Today's game plan</h2><div id="plan"></div></section>
   <div class="main">
     <div class="town">
-      <svg id="city" viewBox="0 0 760 520" role="group" aria-label="TARS Town map"></svg>
-      <div class="legend"><span><i class="dot" style="background:var(--ok)"></i>fine</span><span><i class="dot" style="background:var(--warn)"></i>look</span><span><i class="dot" style="background:var(--bad)"></i>act</span><span><i class="dot" style="background:var(--idle)"></i>idle</span><span>Residents walk the streets, take breaks at the park and Café Theta, and go home at night. Tap anyone.</span></div>
+      <div class="pan" id="pan"><svg id="city" viewBox="0 0 760 520" role="group" aria-label="TARS Town map"></svg></div>
+      <div class="legend"><span><i class="dot" style="background:var(--ok)"></i>fine</span><span><i class="dot" style="background:var(--warn)"></i>look</span><span><i class="dot" style="background:var(--bad)"></i>act</span><span><i class="dot" style="background:var(--idle)"></i>idle</span><span>Residents walk the streets, take breaks at the park and Café Theta, and go home at night. Tap anyone. On a phone, swipe the map sideways.</span></div>
     </div>
     <section class="panel" id="detail" aria-live="polite"></section>
   </div>
@@ -1203,6 +1205,7 @@ async function start() {
   });
 }
 drawTown(); renderDetail(); startChatter();
+requestAnimationFrame(() => { const pn = $("#pan"); if (pn && pn.scrollWidth > pn.clientWidth) pn.scrollLeft = (pn.scrollWidth - pn.clientWidth) / 2; }); // phones: start centred on HQ
 CL.use("db").then(db => {
   if (!db) { renderDiary(); return; }
   DBX = db; DBOK = true;
