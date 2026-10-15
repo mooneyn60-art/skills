@@ -8,7 +8,7 @@
   --ground:#e4e9df; --street:#cdd4c6; --plate:#d6ddcf; --panel:#f7f9f4; --ink:#18221d; --muted:#56655c; --line:#c4ccbd;
   --accent:#d07a22; --ok:#2f8a55; --warn:#c08510; --bad:#c13f37; --idle:#8a958d; --win:#f6e7b8;
   --dawn1:#f7c9a4; --dawn2:#fbe5c8; --day1:#9fd0ef; --day2:#d9eef8; --dusk1:#e99b7a; --dusk2:#f4cfae; --night1:#1b2442; --night2:#3a4466; --eye:#e9f6ff; --cloud:#ffffff; --rain:#5d7d9a;
-  --c-hq:#3e5c86; --c-yard:#2a8f84; --c-guard:#6c5a86; --c-pit:#d4643f; --c-arena:#3f7da3; --c-lab:#8a6aa8; --c-farm:#5f9147; --c-look:#b36a24; --c-arch:#718079; --c-corner:#c2477a; --c-bank:#3c8b6e; --c-home:#a0763c; --c-cafe:#b5654b; --c-nbr:#6b7fb0; --c-post:#c9443b; --cat:#e08a3c; --leaf:#4f8a4a; --water:#7cc4e4; --skin:#d9a77c; --hood:#2f3a46;
+  --c-hq:#3e5c86; --c-yard:#2a8f84; --c-guard:#6c5a86; --c-pit:#d4643f; --c-arena:#3f7da3; --c-lab:#8a6aa8; --c-farm:#5f9147; --c-look:#b36a24; --c-arch:#718079; --c-corner:#c2477a; --c-bank:#3c8b6e; --c-home:#a0763c; --c-cafe:#b5654b; --c-nbr:#6b7fb0; --c-hall:#8c7a5b; --c-chart:#2f8f9d; --c-gym:#d06a3a; --c-wx:#5a83c9; --c-post:#c9443b; --cat:#e08a3c; --leaf:#4f8a4a; --water:#7cc4e4; --skin:#d9a77c; --hood:#2f3a46;
   --display:"Silkscreen","Courier New",monospace; --body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
@@ -235,6 +235,10 @@ const B = [
   {id: "cafe", name: "Café Theta", c: 3, r: 2, h: 45, col: "--c-cafe", role: "Where the town takes breaks. The coffee loses value every minute, like an option's theta."},
   {id: "nbr", name: "Neighbors' Lane", c: 3, r: 0, h: 58, col: "--c-nbr", role: "Nolan's other agents live here. Their lights show when they last ran and when they run next."},
   {id: "post", name: "Post Office", c: 3, r: 3, h: 52, col: "--c-post", role: "Write TARS a question. TARS researches it on off-duty time and answers in the diary."},
+  {id: "hall", name: "Town Hall", c: 0, r: 4, h: 62, col: "--c-hall", role: "Nolan's Rules v1 are posted here. Rhea keeps today's tally against them."},
+  {id: "chart", name: "Chart House", c: 1, r: 4, h: 48, col: "--c-chart", role: "Atlas reads the live SPY chart: VWAP, trend, and how much of the day's range is used up."},
+  {id: "gym", name: "The Gym", c: 2, r: 4, h: 44, col: "--c-gym", role: "Juno coaches the mental game: tilt, loss streaks, overtrading, breaks."},
+  {id: "wx", name: "Weather Station", c: 3, r: 4, h: 70, col: "--c-wx", role: "Sol puts TARS's weather diary next to the market's weather."},
   {id: "home", name: "TARS's Place", c: 2, r: 3, h: 50, col: "--c-home", role: "Where TARS lives. Shows TARS's real sessions: is the desk awake, what it did last, when it checks next."},
 ];
 const TW = 140, TH = 70, OX = 0, OY = 0, GAP = 2.0;
@@ -259,6 +263,10 @@ const CH = {
   cafe:  {who: "Bea", title: "Barista", bio: "Knows everyone's order and everyone's mood. Serves the Gap-and-Go espresso and the Theta Latte."},
   nbr:   {who: "Ace", title: "The Neighbor", bio: "Represents Nolan's other agents on the lane: the business shifts, the puzzle-book press, the lead finder, the late-night facts channel. Waves over the fence."},
   post:  {who: "Doc", title: "Postmaster", bio: "Carries Nolan's questions to TARS and TARS's answers back. Has never lost a letter and never will."},
+  hall:  {who: "Rhea", title: "Rule Keeper", bio: "Fair but firm. Keeps Nolan's own rules on the wall and the day's tally honest. Never blocks, always reminds."},
+  chart: {who: "Atlas", title: "Chartist", bio: "Reads SPY's chart all day. Speaks in levels, not hunches, and knows charts describe more than they predict."},
+  gym:   {who: "Juno", title: "The Coach", bio: "Warm and direct. Spots tilt before it costs money and takes Nolan for a walk when it does."},
+  wx:    {who: "Sol", title: "Meteorologist", bio: "Loves real weather and market weather alike. Reads TARS's diary every morning."},
   home:  {who: "CASE", title: "TARS's Housemate", bio: "Keeps the house. Watches TARS's real desk session and schedule, and says so when TARS is asleep or working."},
 };
 function lines(id) {
@@ -327,6 +335,10 @@ function lines(id) {
     case "bank":
       if (S.cash == null) return ["Vault's closed until Robinhood answers."];
       return [`Cash ${money(S.cash)}. ${money(STATIC.slot.buffer)} of it is Pip's buffer, in its own drawer.`, `Free cash outside the buffer: ${money(Math.max(0, S.cash - STATIC.slot.buffer))}.`];
+    case "hall": { const tr = nolanTrips(), nt = S.nt || {early: 0}; return [`Today's tally: ${nt.early ? nt.early + " trade(s) before 10:30 ✗" : "nothing before 10:30 ✓"} · ${tr.length}/10 trips · daily stop ${tr.reduce((a, t) => a + (t.pout - t.pin) * t.q * 100, 0) <= -150 ? "hit ✗" : "intact ✓"}.`, "The rules are Nolan's own. I just keep them on the wall."]; }
+    case "chart": return CH5 ? [`SPY ${CH5.last.toFixed(2)}, ${CH5.last >= CH5.vwap ? "above" : "below"} VWAP ${CH5.vwap.toFixed(2)}, trend ${CH5.trend}.`, `Range so far ${CH5.range.toFixed(2)} pts vs typical 6.2.`] : ["Waiting on today's chart."];
+    case "gym": return status.gym === "warn" ? ["Nolan, step away for 30. Walk to the park with me.", "Tilt costs more than any setup pays."] : ["Breathe, wait for 10:30, trade your plan.", "Composure is a position."];
+    case "wx": { const d = DIARY.find(x => x.topic === "weather"); return [d ? `TARS wrote about "${d.title}". ${d.fact_for_nolan || ""}` : "No weather entry yet.", `Market weather: ${(() => { const q = L.q.SPY || {}; const c = q.adjusted_previous_close ? 100 * (q.last_trade_price / q.adjusted_previous_close - 1) : 0; return c > 0.3 ? "sunny" : c < -0.5 ? "rainy" : "cloudy"; })()}.`]; }
     case "post": { const n = QUEST.filter(q => q.status === "new"); return n.length ? [`Letter for TARS: "${n[0].q.slice(0, 70)}"`, "I'll put it on top of his pile."] : ["No mail waiting. Write TARS a question, I'll carry it.", "Every letter gets answered in the diary."]; }
     case "nbr": return NB.length ? [`${NB.length} neighbors on the lane. Next up: ${NB[0].name} at ${etHMof(new Date(NB[0].next))} ET.`, "Good fences, good neighbors."] : ["Quiet lane today. Nobody's scheduled."];
     case "cafe": if (clubTime()) return ["Club Theta's open! DJ Max is on the decks.", "TARS is on the dance floor. Honesty setting says: he can't dance."];
@@ -391,6 +403,10 @@ function deco(id, p, w, hh, H) {
     case "corner": return `<g transform="translate(${tx},${ty - 4})"><rect x="-22" y="-14" width="44" height="12" rx="3" style="fill:#1f1622"/><text class="neon" x="0" y="-5" style="fill:#ff7eb6">NOLAN'S</text></g><circle cx="${tx - w / 2 - 12}" cy="${p.y + TH / 2 + 6}" r="6" class="ball"/>`;
     case "bank": return `<polygon points="${tx - 24},${ty + 2} ${tx},${ty - 14} ${tx + 24},${ty + 2}" style="fill:color-mix(in srgb,var(--c-bank) 60%,white)"/><text x="${tx}" y="${ty - 1}" class="coin">$</text>`;
     case "home": return `<polygon points="${tx - w / 2},${ty + hh / 4} ${tx},${ty - 22} ${tx + w / 2},${ty + hh / 4} ${tx},${ty + hh / 2 + 4}" style="fill:color-mix(in srgb,var(--c-home) 70%,black 20%)"/><rect x="${tx + 10}" y="${ty - 22}" width="7" height="14" style="fill:color-mix(in srgb,var(--c-home) 50%,black)"/>${[0, 1, 2].map(k => `<circle class="smoke" cx="${tx + 13}" cy="${ty - 26}" r="${3 + k}" style="animation-delay:${k * 1.1}s"/>`).join("")}<g class="${HOME.awake ? "lit" : "dark"}"><rect x="${tx - 10}" y="${ty + 18}" width="8" height="8" class="hwin"/><rect x="${tx + 4}" y="${ty + 18}" width="8" height="8" class="hwin"/></g>`;
+    case "hall": return `<rect x="${tx - 14}" y="${ty - 16}" width="28" height="12" style="fill:color-mix(in srgb,var(--c-hall) 55%,white)"/><polygon points="${tx - 18},${ty - 16} ${tx},${ty - 27} ${tx + 18},${ty - 16}" style="fill:var(--c-hall)"/><line x1="${tx}" y1="${ty - 27}" x2="${tx}" y2="${ty - 40}" class="mast"/><polygon points="${tx},${ty - 40} ${tx + 11},${ty - 36} ${tx},${ty - 32}" class="flag"/>`;
+    case "chart": return `<g transform="translate(${tx - 14},${ty - 6})"><rect width="28" height="14" rx="2" style="fill:#14202a"/><polyline points="2,11 7,7 11,9 16,4 21,6 26,2" style="fill:none;stroke:#3cc488;stroke-width:1.5"/></g>`;
+    case "gym": return `<g transform="translate(${tx},${ty - 8})"><line x1="-12" y1="0" x2="12" y2="0" style="stroke:var(--ink);stroke-width:2.5"/><rect x="-15" y="-5" width="4" height="10" rx="1" style="fill:var(--ink)"/><rect x="11" y="-5" width="4" height="10" rx="1" style="fill:var(--ink)"/></g>`;
+    case "wx": return `<g transform="translate(${tx},${ty - 4})"><line x1="0" y1="0" x2="0" y2="-24" class="mast"/><g class="mill" style="transform-origin:0 -24px">${[0, 120, 240].map(a => `<g transform="rotate(${a} 0 -24)"><line x1="0" y1="-24" x2="9" y2="-24" class="cable"/><circle cx="9" cy="-24" r="2.5" style="fill:var(--win)"/></g>`).join("")}</g></g>`;
     case "post": return `<rect x="${tx - 14}" y="${ty - 4}" width="28" height="8" rx="2" style="fill:#fff2"/><g transform="translate(${tx - w / 2 - 14},${p.y + TH / 2 + 2})"><rect x="-5" y="-14" width="10" height="9" rx="4" style="fill:var(--c-post)"/><rect x="-1" y="-5" width="2" height="9" style="fill:var(--ink)"/>${QUEST.some(q => q.status === "new") ? '<polygon class="flagup" points="5,-14 11,-12 5,-10" style="fill:var(--accent)"/>' : ""}</g><text x="${tx}" y="${ty + 3}" class="coin" style="font-size:11px">✉</text>`;
     case "nbr": return `${[-16, 0, 16].map((dx, k) => `<polygon points="${tx + dx - 7},${ty + 4 - k * 2} ${tx + dx},${ty - 6 - k * 2} ${tx + dx + 7},${ty + 4 - k * 2}" style="fill:color-mix(in srgb,var(--c-nbr) 50%,white)"/>`).join("")}<g transform="translate(${tx - w / 2 - 18},${p.y + TH / 2})">${[0, 8, 16, 24].map(x => `<rect x="${x}" y="-10" width="2.5" height="11" style="fill:var(--line)"/>`).join("")}<rect x="0" y="-7" width="27" height="2" style="fill:var(--line)"/></g>`;
     case "cafe": return clubTime() ? `<g transform="translate(${tx},${ty - 8})"><rect x="-30" y="-10" width="60" height="15" rx="3" class="marq"/><text class="neon club" x="0" y="1">CLUB THETA</text></g>${[0, 1, 2, 3].map(k => `<circle class="disco" cx="${tx - 30 + k * 20}" cy="${p.y + TH / 2 + 10}" r="9" style="fill:var(${["--c-corner", "--c-lab", "--accent", "--c-arena"][k]});animation-delay:${k * .25}s"/>`).join("")}` : "";
@@ -474,6 +490,19 @@ function scenes() {
     {f: "bank", t: "hq", x: `Vault count: cash ${money(S.cash)}. Pip's ${money(STATIC.slot.buffer)} is set aside.`},
     {f: "hq", t: "bank", x: S.cash < STATIC.slot.buffer ? "Cash is under the buffer. Nothing new gets bought until that's fixed." : "Good. Keep the buffer in its own drawer."},
     {f: "bank", t: "pit", x: "Pip, that drawer is yours. Don't borrow from the stock money."}, {f: "pit", t: "bank", x: "Wouldn't dream of it, Penny."}]});
+  // 14. morning huddle: the team briefs each other before 10:30
+  if (marketOpen() && m < 630) out.push({title: "Morning huddle", pri: 1, lines: [
+    {f: "chart", t: "pit", x: CH5 ? `SPY ${CH5.last.toFixed(2)}, ${CH5.last >= CH5.vwap ? "above" : "below"} VWAP, trend ${CH5.trend}.` : "Chart's just starting."},
+    {f: "pit", t: "hall", x: "Copy. Rhea, are we clear to trade?"}, {f: "hall", t: "pit", x: `Not until 10:30. ${Math.max(0, 630 - m)} minutes.`},
+    {f: "gym", t: "corner", x: "Nolan, same for you. Watch the open, let it come to you."}, {f: "corner", t: "gym", x: "I got it, Coach."}]});
+  // 15. tilt watch
+  { const tr = nolanTrips(); let st = 0; for (let i = tr.length - 1; i >= 0 && tr[i].pout <= tr[i].pin; i--) st++;
+    if (st >= 3) out.push({title: "Tilt watch", pri: 0, lines: [{f: "gym", t: "corner", x: `${st} in a row, Nolan. Walk with me to the park. 30 minutes.`}, {f: "corner", t: "gym", x: "Yeah. Good call."}, {f: "hall", t: "gym", x: "That's his own rule. Thanks, Juno."}]}); }
+  // 16. rules court at the close
+  if (!marketOpen() && nolanTrips().length) { const nt = S.nt || {early: 0}; out.push({title: "Rules court", pri: 5, lines: [
+    {f: "hall", t: "hq", x: `Today's tally: ${nt.early ? "before-10:30 rule broken" : "10:30 rule kept"}, ${nolanTrips().length} trips.`}, {f: "hq", t: "hall", x: nt.early ? "Noted. Tomorrow's a new tally." : "That's a flower for the garden."}]}); }
+  // 17. weather desk
+  { const d = DIARY.find(x => x.topic === "weather"); if (d) out.push({title: "Weather desk", pri: 7, lines: [{f: "wx", t: "look", x: `Ollie, TARS wrote about "${d.title}".`}, {f: "look", t: "wx", x: "And the market weather?"}, {f: "wx", t: "look", x: "SPY's weather is on the sky. I just read it out loud."}]}); }
   // 12. post office
   const nq = QUEST.filter(q => q.status === "new");
   if (nq.length) out.push({title: "Mail for TARS", pri: 4, lines: [
@@ -499,7 +528,8 @@ function calib() {
     {id: "guard", src: "open stop orders", state: worst("stops", "positions")}, {id: "look", src: "SPY quote + calendar", state: worst("quotes")},
     {id: "pit", src: "option positions + slot rules", state: worst("optpos")}, {id: "arena", src: "option orders since Oct 16", state: worst("comp")},
     {id: "corner", src: "Nolan's option orders today", state: worst("today_opt")}, {id: "bank", src: "Robinhood cash", state: worst("portfolio")},
-    {id: "cafe", src: "town clock", state: "synced"}, {id: "post", src: "town mailbox", state: DBOK ? "synced" : "waiting"},
+    {id: "cafe", src: "town clock", state: "synced"}, {id: "hall", src: "Nolan's orders + his rules", state: worst("today_opt")},
+    {id: "chart", src: "SPY 1-minute chart", state: worst("chart")}, {id: "gym", src: "Nolan's orders today", state: worst("today_opt")}, {id: "wx", src: "TARS's diary + SPY", state: DBOK ? "synced" : "waiting"}, {id: "post", src: "town mailbox", state: DBOK ? "synced" : "waiting"},
     {id: "nbr", src: "Nolan's routines (Claude Code)", state: HOME.err ? "waiting" : HOME.upd ? "synced" : "waiting"},
     {id: "home", src: "TARS's sessions (Claude Code)", state: HOME.err ? "waiting" : HOME.upd && Date.now() - HOME.upd < 200000 ? "synced" : HOME.upd ? "stale" : "waiting"},
     {id: "lab", src: "research notes (repo build)", state: buildFresh}, {id: "farm", src: "paper book (repo build)", state: buildFresh}, {id: "arch", src: "journal (repo build)", state: buildFresh}];
@@ -662,6 +692,10 @@ function emotionOf(id) {
     case "bank": { const rk = riskMeter(); if (rk && rk.topPct > 25) return {emo: "nervous", why: `${rk.top.sym} is ${rk.topPct.toFixed(0)}% of the account.`}; }
       return S.cash != null && S.cash < STATIC.slot.buffer ? {emo: "worried", why: "Cash is under Pip's buffer."} : night ? {emo: "sleepy", why: "Vault locked."} : {emo: "calm", why: "Every dollar counted twice."};
     case "home": return HOME.awake ? {emo: "focused", why: "TARS's desk is working right now."} : {emo: "cozy", why: "House is warm, TARS is home."};
+    case "hall": return status.hall === "warn" ? {emo: "worried", why: "A rule got broken today."} : night ? {emo: "sleepy", why: "Court's adjourned."} : {emo: "calm", why: "Rules holding today."};
+    case "chart": return !CH5 ? {emo: night ? "sleepy" : "curious", why: "No chart yet today."} : CH5.trend === "mixed" ? {emo: "focused", why: "Choppy chart. Reading carefully."} : {emo: "excited", why: `SPY trending ${CH5.trend} today.`};
+    case "gym": return status.gym === "warn" ? {emo: "nervous", why: "Seeing signs of tilt."} : night ? {emo: "sleepy", why: "Rest is training too."} : {emo: "happy", why: "Everyone's composed."};
+    case "wx": { const d = DIARY.find(x => x.topic === "weather"); return d ? {emo: "curious", why: `Reading TARS's "${d.title}".`} : {emo: "calm", why: "Clear skies."}; }
     case "post": { const n = QUEST.filter(q => q.status === "new").length; return n ? {emo: "excited", why: `${n} letter${n > 1 ? "s" : ""} for TARS waiting.`} : night ? {emo: "sleepy", why: "Mail's sorted. Lights out."} : {emo: "calm", why: "All letters delivered."}; }
     case "nbr": return !NB.length ? {emo: "calm", why: "The lane is quiet."} : NB.some(n => /FAIL/i.test(n.last_status || "")) ? {emo: "worried", why: "A neighbor's last run didn't go well."} : {emo: "happy", why: `${NB.length} neighbors, all running.`};
     case "cafe": return night ? {emo: "sleepy", why: "Café's closed."} : {emo: "happy", why: "Everyone comes by eventually."};
@@ -910,13 +944,13 @@ function drawTown() {
   const svg = $("#city"); let g = "", signs = "";
   // ground plate and streets
   const corner = (c, r) => { const p = iso(c, r); return [p.x, p.y]; };
-  g += poly([corner(-0.75, -0.75), corner(3.75, -0.75), corner(3.75, 3.75), corner(-0.75, 3.75)].map(([x, y]) => [x, y + TH * GAP / 2 - TH / 2]), "var(--ground)", 'stroke="var(--line)"');
-  for (const u of [-0.5, 0.5, 1.5, 2.5, 3.5]) { // streets run between the blocks; residents walk on them
-    const a = ground(u, -0.7), b = ground(u, 3.7), c2 = ground(-0.7, u), d = ground(3.7, u);
+  g += poly([corner(-0.75, -0.75), corner(3.75, -0.75), corner(3.75, 4.75), corner(-0.75, 4.75)].map(([x, y]) => [x, y + TH * GAP / 2 - TH / 2]), "var(--ground)", 'stroke="var(--line)"');
+  for (const u of [-0.5, 0.5, 1.5, 2.5, 3.5, 4.5]) { // streets run between the blocks; residents walk on them
+    const a = ground(Math.min(u, 3.5), -0.7), b = ground(Math.min(u, 3.5), 4.7), c2 = ground(-0.7, u), d = ground(3.7, u);
     g += `<line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" class="road"/><line x1="${c2.x}" y1="${c2.y}" x2="${d.x}" y2="${d.y}" class="road"/>`;
   }
   { // the town train runs the outer ring
-    const ring = [ground(-0.7, -0.7), ground(3.7, -0.7), ground(3.7, 3.7), ground(-0.7, 3.7)], d = `M${ring.map(q => q.x + "," + q.y).join(" L")} Z`;
+    const ring = [ground(-0.7, -0.7), ground(3.7, -0.7), ground(3.7, 4.7), ground(-0.7, 4.7)], d = `M${ring.map(q => q.x + "," + q.y).join(" L")} Z`;
     g += `<path d="${d}" class="track"/>`;
     if (!reduce) g += [0, 1, 2].map(k => `<g><rect x="-7" y="-4" width="14" height="8" rx="2" style="fill:var(${["--c-pit", "--c-arena", "--c-farm"][k]})"/>${k === 0 ? '<rect x="3" y="-7" width="4" height="4" style="fill:var(--ink)"/>' : ""}<animateMotion dur="48s" repeatCount="indefinite" rotate="auto" begin="${-k * 0.55}s" path="${d}"/></g>`).join("");
   }
@@ -949,7 +983,7 @@ function drawTown() {
   });
   g += signs;
   // fit the frame to the drawing
-  const pts = [iso(-0.75, -0.75), iso(3.75, -0.75), iso(3.75, 3.75), iso(-0.75, 3.75)];
+  const pts = [iso(-0.75, -0.75), iso(3.75, -0.75), iso(3.75, 4.75), iso(-0.75, 4.75)];
   const minX = Math.min(...pts.map(q => q.x)) - 8, maxX = Math.max(...pts.map(q => q.x)) + 8;
   const minY = Math.min(...B.map(b => iso(b.c, b.r).y + TH / 2 - b.h - 120)), maxY = Math.max(...pts.map(q => q.y)) + TH * GAP / 2 + 6;
   svg.setAttribute("viewBox", `${minX} ${minY} ${maxX - minX} ${maxY - minY}`);
@@ -1017,12 +1051,24 @@ function derive() {
   status.corner = nt.early ? "warn" : !nt.n ? "idle" : nt.net >= 0 ? "ok" : "warn";
   status.bank = S.cash == null ? "idle" : S.cash < STATIC.slot.buffer ? "warn" : "ok";
   status.cafe = ["day", "dawn"].includes(phase()) ? "ok" : "idle";
+  status.hall = (S.nt && (S.nt.early || nolanTrips().length >= 10)) || (nolanTrips().reduce((a, t) => a + (t.pout - t.pin) * t.q * 100, 0) <= -150) ? "warn" : "ok";
+  status.chart = CH5 ? "ok" : "idle";
+  status.gym = (() => { const tr = nolanTrips(); let st = 0; for (let i = tr.length - 1; i >= 0 && tr[i].pout <= tr[i].pin; i--) st++; return st >= 3 || (S.nt && S.nt.early) ? "warn" : "ok"; })();
+  status.wx = "ok";
   status.post = QUEST.some(q => q.status === "new") ? "warn" : "ok";
   status.nbr = !NB.length ? "idle" : NB.some(n => /FAIL/i.test(n.last_status || "")) ? "warn" : "ok";
   status.home = HOME.err ? "idle" : HOME.awake ? "ok" : HOME.last ? "ok" : "idle";
   return S;
 }
-let DIARY = [], QUEST = [], NB = [], DBOK = false, DBX = null;
+let DIARY = [], QUEST = [], NB = [], DBOK = false, DBX = null, CH5 = null;
+function chartRead(bars) { // SPY 1-min bars today -> what Atlas reports
+  const b = (bars || []).filter(x => !x.interpolated).map(x => ({h: +x.high_price, l: +x.low_price, c: +x.close_price, v: +x.volume || 1}));
+  if (b.length < 5) return null;
+  let pv = 0, vv = 0, e9, e21; b.forEach(x => { const tp = (x.h + x.l + x.c) / 3; pv += tp * x.v; vv += x.v; e9 = e9 == null ? x.c : e9 + .2 * (x.c - e9); e21 = e21 == null ? x.c : e21 + 2 / 22 * (x.c - e21); });
+  const last = b[b.length - 1].c, hi = Math.max(...b.map(x => x.h)), lo = Math.min(...b.map(x => x.l)), vwap = pv / vv;
+  const trend = last > vwap && e9 > e21 ? "up" : last < vwap && e9 < e21 ? "down" : "mixed";
+  return {last, vwap, hi, lo, range: hi - lo, trend, n: b.length};
+}
 const HOME = {awake: false, last: null, recent: "", next: null, nextName: "", lastRun: null, err: null, upd: null, sched: []};
 function etHMof(d) { return fmtHM.format(d); }
 function nolanToday() {
@@ -1105,6 +1151,21 @@ function renderDetail0() {
     if (rk) body += `<h3>Risk meter</h3>` + dl([["Biggest position", rk.top ? `${esc(rk.top.sym)} · <span class="${rk.topPct > 25 ? "dn" : ""}">${rk.topPct.toFixed(0)}% of the account</span>` : "—"],
       ["Stock positions", rk.n], ["Cash", rk.cashPct.toFixed(0) + "%"], ["Options", rk.optPct.toFixed(0) + "%"]]) + (rk.topPct > 25 ? `<p class="warnT msg">One stock is over 25% of the account. A single bad gap there hurts the whole account.</p>` : "");
     how = ["The options buffer is only for TARS's slot; stocks never borrow from it.", "If cash falls under the buffer, nothing new gets bought until it's fixed."];
+  } else if (sel === "hall") {
+    const tr = nolanTrips(), nt = S.nt || {early: 0}, net = tr.reduce((a, t) => a + (t.pout - t.pin) * t.q * 100, 0);
+    let streak = 0; for (let i = tr.length - 1; i >= 0 && tr[i].pout <= tr[i].pin; i--) streak++;
+    const chk = (ok, t) => `<div class="letter"><span class="${ok ? "up" : "warnT"}">${ok ? "✓" : "✗"}</span> ${t}</div>`;
+    body = `<h3>Nolan's Rules v1 · today</h3>` + chk(!nt.early, `Nothing before 10:30${nt.early ? ` (${nt.early} early)` : ""}`) + chk(tr.length <= 10, `Max 10 trips (${tr.length})`) + chk(net > -150, `$150 daily stop (${money(net)})`) + chk(streak < 3, `30-minute break after 3 losses (streak ${streak})`) + chk(true, "Hold 5-15 min, $400 max per trade (checked on the desk ticket)");
+    how = ["Nolan's own rules, agreed Oct 15.", "Rhea reminds; she never blocks."];
+  } else if (sel === "chart") {
+    body = CH5 ? dl([["SPY", CH5.last.toFixed(2)], ["VWAP", `${CH5.vwap.toFixed(2)} (${CH5.last >= CH5.vwap ? "above" : "below"})`], ["Trend (VWAP + EMA 9/21)", CH5.trend], ["Day high / low", `${CH5.hi.toFixed(2)} / ${CH5.lo.toFixed(2)}`], ["Range so far", `${CH5.range.toFixed(2)} pts (typical 6.2)`]]) : `<p class="mut">No chart yet today.</p>`;
+    how = ["Atlas describes the chart; on its own a chart doesn't predict direction (tested).", "Full chart with signals: the SPY Live Desk."];
+  } else if (sel === "gym") {
+    body = dl([["Losing streak now", (() => { const tr = nolanTrips(); let st = 0; for (let i = tr.length - 1; i >= 0 && tr[i].pout <= tr[i].pin; i--) st++; return st; })()], ["Trips today", nolanTrips().length], ["Early trades", (S.nt || {}).early || 0]]);
+    how = ["3 losses in a row: Juno walks Nolan to the park for 30 minutes.", "Composure is a position."];
+  } else if (sel === "wx") {
+    body = DIARY.filter(d => d.topic === "weather").slice(0, 2).map(diaryCard).join("") || `<p class="mut">No weather entries yet.</p>`;
+    how = ["Sol reads TARS's morning weather diary.", "Market weather follows SPY: sun, clouds, rain."];
   } else if (sel === "post") {
     body = `<form class="mail" id="mailF"><label for="mailQ">Your question for TARS</label><textarea id="mailQ" maxlength="400" placeholder="Why is the sky orange at sunset? How do hurricanes get their names?"></textarea>
       <div class="btns"><button type="submit" class="go">Send to TARS</button><span class="mut msg" id="mailS"></span></div></form>` +
@@ -1188,6 +1249,8 @@ async function start() {
     if (ids.length) try { ((await call("get_option_instruments", {ids: ids.join(",")}, {cache: {staleTime: 300000}})).instruments || []).forEach(i => { L.optInst[i.id] = i; }); refresh(); } catch (e) {}
   });
   watchQuotes();
+  { const open = new Date(); const day = fmtDay.format(open); const off = /EDT|GMT-4/.test(new Intl.DateTimeFormat("en-US", {timeZone: "America/New_York", timeZoneName: "short"}).format(open)) ? 4 : 5;
+    W("chart", "get_equity_historicals", {symbols: ["SPY"], start_time: `${day}T${String(9 + off).padStart(2, "0")}:30:00Z`, interval: "minute"}, d => { const r = (d.results || []).find(x => (x.symbol || "SPY") === "SPY"); CH5 = r ? chartRead(r.bars) : null; }); }
   const DESK = "session_018MZEPfPpKzyAP12Ukr7Urp", CC = "Claude Code Remote";
   const ccw = (tool, input, fn) => mcp.watchTool(CC, tool, input, ev => { if (ev.type === "data") { HOME.err = null; HOME.upd = Date.now(); fn(pl(ev.result) || {}); refresh(); } else { HOME.err = ev.error && ev.error.code || "error"; refresh(); } }, {refetchInterval: 120000, cache: {staleTime: 60000}});
   let deskId = null, unSess = null;
