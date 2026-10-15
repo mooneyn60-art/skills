@@ -124,3 +124,11 @@ Then delete this section.
 
 2026-10-04: SKIPPED, R16 still ON (4 consecutive TARS losing closes, none since 9/25). Waits for the next weekend block.
 2026-10-11: SKIPPED again, R16 still ON (script says 4; really 6, since RVMD/GH stops on 10/08 are untagged, see research/2026-10-11_R6_BREAKER_COST.md).
+
+## UPDATE 2026-10-15: run it as a SWARM
+
+Nolan (2026-10-15): "use the new one [ruflo] ... the queen agents are nice ...
+you're in control". From now on, step 3 ("Pick ONE hypothesis") runs as a
+queen-led swarm: read routines/RESEARCH_SWARM.md and take the top unfinished
+item in ITS queue (it goes ahead of RESEARCH_AGENDA.md until the queue is
+empty). Same hurdles, same R14, same NO TRADES. Budget under $25 per run.
