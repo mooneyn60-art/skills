@@ -9,6 +9,7 @@ Use them to keep the daily slot full, push viewers back to the story parts, and 
 - To find which shot holds a line, a character or a gag, search `story/season1.md` (each part lists SHOT 1 and SHOT 2 with the speaker).
 - Output goes to `extras/`. Caption text is written to `work/*.txt` so apostrophes and quotes never break `drawtext`.
 - Every recipe re-encodes to 1080x1920, 24 fps, H.264 + AAC, and loudness-normalises to -14 LUFS.
+- Keep top captions to 24 characters or fewer (they must fit 1080 px), and prefer raw `_s1`/`_s2` shots over assembled parts, which carry the burned-in "PART N+1 TOMORROW" text.
 - Keep extras under 60 s. End every extra by pointing to the story: put "Watch Pt N" or "Full story on the channel" in the title or the pinned comment.
 
 ## Shared setup (run once per shell)
@@ -34,7 +35,7 @@ cut(){ local out=$1 capt=$2 sp=$3; shift 3; local in=() f="" c="" i=0 name st du
     local lf=""; [ -n "$lab" ] && { cap "lab$i" "$lab"; lf=",drawtext=$TXT:$CX:textfile=work/lab$i.txt:fontsize=150:y=h-520"; }
     f+="[$i:v]$NV,setpts=(PTS-STARTPTS)/$sp,fps=24$lf[v$i];[$i:a]$NA,atempo=$sp[a$i];"; c+="[v$i][a$i]"; i=$((i+1)); done
   cap cut "$capt"
-  ffmpeg -v error -y "${in[@]}" -filter_complex "${f}${c}concat=n=$i:v=1:a=1[v][a];[v]drawtext=$TXT:$CX:textfile=work/cut.txt:fontsize=68:y=170[vo];[a]loudnorm=I=-14:TP=-1.5[ao]" \
+  ffmpeg -v error -y "${in[@]}" -filter_complex "${f}${c}concat=n=$i:v=1:a=1[v][a];[v]drawtext=$TXT:$CX:textfile=work/cut.txt:fontsize=58:y=110[vo];[a]loudnorm=I=-14:TP=-1.5[ao]" \
     -map "[vo]" -map "[ao]" $ENC "extras/$out.mp4"; }
 ```
 
