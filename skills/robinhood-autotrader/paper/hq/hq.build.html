@@ -109,6 +109,13 @@ svg{display:block;width:100%;height:auto}
 .mail{display:grid;gap:6px;margin:10px 0} .mail label{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .mail textarea{font:inherit;min-height:70px;border:1px solid var(--line);border-radius:8px;padding:8px;background:var(--bg,var(--panel));color:var(--ink);resize:vertical}
 .letter{font-size:.86rem;padding:5px 0;border-bottom:1px solid var(--line)} .warnT{color:var(--warn);font-weight:700}
+.track{fill:none;stroke:var(--line);stroke-width:2;stroke-dasharray:4 4}
+.spark{stroke-width:2;stroke-linecap:round} .fw{opacity:0} .dream{opacity:.95}
+.wishes{display:grid;gap:10px} .wish{display:grid;gap:4px;font-size:.9rem} .wt{display:flex;justify-content:space-between;gap:10px} .mono{font-family:var(--mono);font-size:.8rem}
+.bar{height:8px;border-radius:999px;background:color-mix(in srgb,var(--line) 70%,var(--panel));overflow:hidden} .bar i{display:block;height:100%;background:var(--accent);border-radius:999px}
+@media (prefers-reduced-motion:no-preference){.fw{animation:burst 2.8s ease-out infinite} @keyframes burst{0%{opacity:0;transform:scale(.2)}15%{opacity:1}70%{opacity:.8;transform:scale(1.4)}100%{opacity:0;transform:scale(1.6)}}
+  .balloon{animation:float 70s linear infinite} @keyframes float{from{transform:translate(0,0)}50%{transform:translate(320px,-8px)}to{transform:translate(640px,0)}}
+  .dream{animation:floaty 3s ease-in-out infinite}}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;min-width:0}
 .panel h2{font-family:var(--display);font-size:1.15rem;margin:0;letter-spacing:.03em}
 .role{color:var(--muted);margin:4px 0 12px;font-size:.92rem}
@@ -171,6 +178,11 @@ h3{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mu
     </section>
   </div>
   <section class="panel">
+    <h2>TARS's wish board</h2>
+    <p class="role">Things TARS genuinely wants to see happen. Every bar fills from real data.</p>
+    <div class="wishes" id="wishes"></div>
+  </section>
+  <section class="panel">
     <h2>TARS's diary</h2>
     <p class="role">What TARS does off duty: wakes up a few times a day, follows curiosity, writes it down. Live from the town's own database.</p>
     <div class="diary" id="diary"><p class="mut">Opening the diary…</p></div>
@@ -188,7 +200,7 @@ h3{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mu
 </div>
 
 <script>
-const STATIC = {"lab": {"studies": 48, "latest": [{"date": "2026-10-15", "title": "World markets vs SPY (20y daily + 2y hourly)", "points": ["Europe co-moves 0.55-0.60 (overlap hours); Asia 0.1-0.23. US leads Asia (0.34-0.49). Asia/Europe predict the gap, not open-to-close (HSI/KOSPI effect died after 2016; ASX top-quintile +0.04%, t 1.1). After 11:30 ET DAX \u2192 SPY afternoon 0.00.", "Lean: Nikkei \u22122% days \u2192 SPY open-to-close +0.10-0.14%, 57-59% up, both halves. Tracking forward in the journal.", "Yahoo chart API works with a browser UA (query2); stooq blocked; Robinhood has no foreign indexes."]}, {"date": "2026-10-15", "title": "Options-trader tools + Nolan's clock", "points": ["SPY pinning to $1 strikes at close: none (164 days). Intraday momentum (first 30m -> last 30m): weak, t 0.7. GEX: vendor-only evidence; collecting daily snapshots.", "Literature: retail 0DTE buyers lose on average (~60% costs); sellers profit after fees.", "Nolan's trips (226, Oct 8-15): before 10:30 negative 5/5 days, after 10:30 positive 5/6. Holds 2-5 min worst; 5-15 min best. 29% wins, +23%/\u221212% payoff (needs ~35%). Desk ticket warns pre-10:30."]}, {"date": "2026-10-15", "title": "Intraday deep dig (133 OOS days of 5-min + 20y daily)", "points": ["Desk candidates FAILED out of sample: PDL break short \u22120.44 (flipped), equal-lows sweep-reclaim \u22120.20; dip-buys +0.07-0.12 pts (below option spread). No intraday direction edge. Don't re-test these without new data.", "Shape of day is reliable: 42% of range by 10:00, 77% by 11:30; day extremes print in the first 30 min (24% H / 32% L) or the last 30 (17/13).", "Gap fill: <0.1% 88%; 0.1-0.3% 64-76%; 0.3-0.6% 31-58%; >0.6% 21-38%; falling since 2016."]}, {"date": "2026-10-15", "title": "Desk indicator study (31 days SPY 1-min, in-sample)", "points": ["No edge alone: EMA 9/21 cross, VWAP cross, trend state, FVG formation/retest, pool breaks, ORH/ORL, PDH break, first-hour direction (14/30).", "Fibonacci 50/61.8 first-touch bounce: negative, same as random control levels. Fib is not special (2nd confirmation).", "Candidates (|t|\u22652, both halves same sign, ~45 tests so expect ~2 false): 1m RSI<30 dip-buy (+0.17 pts/30m, 57%), PDL break short (+0.79, n=17). Equal-lows sweep-reclaim +0.79 n=11 (too few)."]}]}, "farm": {"equity": 1892.8, "start": 2000.0, "trades": 11, "as_of": "2026-10-15 14:25 ET", "rules_hash": "58c580ed755d"}, "slot": {"buffer_start": 500, "buffer": 500, "realized": 0, "day": null, "day_realized": 0, "open": null, "trades": 0, "halted": false, "rules_hash": "806cce6d583162db"}, "journal": {"days": 0}, "built": "2026-10-15T20:41:06.634982+00:00"};
+const STATIC = {"lab": {"studies": 48, "latest": [{"date": "2026-10-15", "title": "World markets vs SPY (20y daily + 2y hourly)", "points": ["Europe co-moves 0.55-0.60 (overlap hours); Asia 0.1-0.23. US leads Asia (0.34-0.49). Asia/Europe predict the gap, not open-to-close (HSI/KOSPI effect died after 2016; ASX top-quintile +0.04%, t 1.1). After 11:30 ET DAX \u2192 SPY afternoon 0.00.", "Lean: Nikkei \u22122% days \u2192 SPY open-to-close +0.10-0.14%, 57-59% up, both halves. Tracking forward in the journal.", "Yahoo chart API works with a browser UA (query2); stooq blocked; Robinhood has no foreign indexes."]}, {"date": "2026-10-15", "title": "Options-trader tools + Nolan's clock", "points": ["SPY pinning to $1 strikes at close: none (164 days). Intraday momentum (first 30m -> last 30m): weak, t 0.7. GEX: vendor-only evidence; collecting daily snapshots.", "Literature: retail 0DTE buyers lose on average (~60% costs); sellers profit after fees.", "Nolan's trips (226, Oct 8-15): before 10:30 negative 5/5 days, after 10:30 positive 5/6. Holds 2-5 min worst; 5-15 min best. 29% wins, +23%/\u221212% payoff (needs ~35%). Desk ticket warns pre-10:30."]}, {"date": "2026-10-15", "title": "Intraday deep dig (133 OOS days of 5-min + 20y daily)", "points": ["Desk candidates FAILED out of sample: PDL break short \u22120.44 (flipped), equal-lows sweep-reclaim \u22120.20; dip-buys +0.07-0.12 pts (below option spread). No intraday direction edge. Don't re-test these without new data.", "Shape of day is reliable: 42% of range by 10:00, 77% by 11:30; day extremes print in the first 30 min (24% H / 32% L) or the last 30 (17/13).", "Gap fill: <0.1% 88%; 0.1-0.3% 64-76%; 0.3-0.6% 31-58%; >0.6% 21-38%; falling since 2016."]}, {"date": "2026-10-15", "title": "Desk indicator study (31 days SPY 1-min, in-sample)", "points": ["No edge alone: EMA 9/21 cross, VWAP cross, trend state, FVG formation/retest, pool breaks, ORH/ORL, PDH break, first-hour direction (14/30).", "Fibonacci 50/61.8 first-touch bounce: negative, same as random control levels. Fib is not special (2nd confirmation).", "Candidates (|t|\u22652, both halves same sign, ~45 tests so expect ~2 false): 1m RSI<30 dip-buy (+0.17 pts/30m, 57%), PDL break short (+0.79, n=17). Equal-lows sweep-reclaim +0.79 n=11 (too few)."]}]}, "farm": {"equity": 1892.8, "start": 2000.0, "trades": 11, "as_of": "2026-10-15 14:25 ET", "rules_hash": "58c580ed755d"}, "slot": {"buffer_start": 500, "buffer": 500, "realized": 0, "day": null, "day_realized": 0, "open": null, "trades": 0, "halted": false, "rules_hash": "806cce6d583162db"}, "journal": {"days": 0}, "built": "2026-10-15T20:47:22.762947+00:00"};
 const SERVER = "Robinhood", COMP_START = "2026-10-16";
 const CL = window.claude && window.claude.use ? window.claude : {use: async () => null};
 const $ = s => document.querySelector(s);
@@ -753,19 +765,61 @@ function renderDiary() {
   const el = $("#diary"); if (!el) return;
   el.innerHTML = DIARY.length ? DIARY.slice(0, 6).map(diaryCard).join("") : `<p class="mut">No entries yet. TARS writes here a few times a day: weather in the morning, curiosity in the afternoon, something calm at night.</p>`;
 }
+function earlyStreak() { // consecutive most-recent trading days where Nolan opened nothing before 10:30
+  const by = {};
+  L.compOrders.filter(o => !o.agent_initiated && o.state === "filled" && (o.legs || []).some(l => l.position_effect === "open")).forEach(o => {
+    const d = fmtDay.format(new Date(o.created_at)), p = new Intl.DateTimeFormat("en-GB", {timeZone: "America/New_York", hour: "2-digit", minute: "2-digit", hour12: false}).format(new Date(o.created_at)).split(":");
+    by[d] = by[d] || false; if (+p[0] * 60 + +p[1] < 630) by[d] = true; });
+  let n = 0; for (const d of Object.keys(by).sort().reverse()) { if (by[d]) break; n++; } return n;
+}
+function renderWishes() {
+  const el = $("#wishes"); if (!el) return;
+  const W = [
+    {t: "Nolan: 5 trading days in a row with nothing before 10:30", v: earlyStreak(), of: 5},
+    {t: "40 honest paper trades on the Paper Farm", v: STATIC.farm.trades, of: 40},
+    {t: "20 trades in my options slot, then a real scorecard", v: STATIC.slot.trades, of: 20},
+    {t: "First letter from Nolan in the mailbox", v: Math.min(1, QUEST.length), of: 1},
+    {t: "A week of diary entries (21)", v: DIARY.length, of: 21},
+    {t: "See the town with Nolan's real numbers (send me a screenshot)", v: 0, of: 1},
+  ];
+  el.innerHTML = W.map(w => { const f = Math.min(1, w.v / w.of); return `<div class="wish"><div class="wt"><span>${esc(w.t)}</span><span class="mono">${Math.min(w.v, w.of)}/${w.of}${f >= 1 ? " ✓" : ""}</span></div><div class="bar"><i style="width:${(100 * f).toFixed(0)}%"></i></div></div>`; }).join("");
+}
 function renderMood() {
   const el = $("#mood"); if (!el) return;
   el.innerHTML = B.map(b => { const e = emotionOf(b.id);
     return `<div class="md"><svg viewBox="-20 -34 40 54" class="av" aria-hidden="true">${faceE(b.id, 0, 0, 1)}</svg><div><b>${esc(CH[b.id].who)}</b> <span class="emoW">${esc((EMO[e.emo] || EMO.calm).word)}</span><br><span class="mut">${esc(e.why)}</span></div></div>`; }).join("");
 }
 
+function dreamSvg() {
+  if (phase() !== "night") return "";
+  const b = B.find(x => x.id === "home"), p = iso(b.c, b.r), d = DIARY[0], about = d ? (d.topic || d.title) : "the 10:30 bell";
+  const txt = `dreaming of ${about}`.slice(0, 34), w = txt.length * 6 + 26, x = p.x + 30, y = p.y + TH / 2 - b.h - 40;
+  return `<g class="dream"><circle cx="${p.x + 10}" cy="${y + 24}" r="3" class="cloudF"/><circle cx="${p.x + 18}" cy="${y + 15}" r="5" class="cloudF"/><rect x="${x - 6}" y="${y - 16}" width="${w}" height="22" rx="11" class="cloudF" style="stroke:var(--line)"/><text x="${x + 6}" y="${y - 1}" class="bubX">${esc(txt)}</text></g>`;
+}
+function moonPhase(d = new Date()) { const syn = 29.530588853, ref = Date.UTC(2000, 0, 6, 18, 14); return (((d - ref) / 86400000 / syn) % 1 + 1) % 1; }
+function moonSvg(cx, cy, r) { // real phase of tonight's moon: 0 new, 0.5 full
+  const f = moonPhase(), dx = (f < 0.5 ? -1 : 1) * 2 * r * Math.sin(Math.PI * f), id = "mclip";
+  return `<defs><clipPath id="${id}"><circle cx="${cx}" cy="${cy}" r="${r}"/></clipPath></defs><circle cx="${cx}" cy="${cy}" r="${r}" class="moon"/><circle cx="${cx + dx}" cy="${cy}" r="${r * 1.02}" clip-path="url(#${id})" style="fill:var(--night1)" opacity=".93"/>`;
+}
+function moonName() { const f = moonPhase(); return f < .03 || f > .97 ? "new moon" : f < .22 ? "waxing crescent" : f < .28 ? "first quarter" : f < .47 ? "waxing gibbous" : f < .53 ? "full moon" : f < .72 ? "waning gibbous" : f < .78 ? "last quarter" : "waning crescent"; }
+function extras(x0, y0, W) { // fireworks on green closes, the weekend balloon
+  const ph = phase(), S = SD, wd = new Intl.DateTimeFormat("en-US", {timeZone: "America/New_York", weekday: "short"}).format(new Date()); let g = "";
+  const green = S && ((S.dayChg != null && S.dayChg > 0) || (S.nt && S.nt.n && S.nt.net > 0));
+  if (green && (ph === "dusk" || ph === "night") && !reduce) for (let k = 0; k < 4; k++) {
+    const cx = x0 + W * (0.2 + k * 0.2), cy = y0 + 30 + (k % 2) * 22, col = ["--accent", "--ok", "--c-corner", "--c-lab"][k];
+    g += `<g class="fw" style="animation-delay:${k * .7}s;transform-origin:${cx}px ${cy}px">${Array.from({length: 10}, (_, i) => { const a = i * Math.PI / 5; return `<line x1="${cx}" y1="${cy}" x2="${cx + Math.cos(a) * 14}" y2="${cy + Math.sin(a) * 14}" style="stroke:var(${col})" class="spark"/>`; }).join("")}</g>`;
+  }
+  if ((["Sat", "Sun"].includes(wd) || ph === "dusk") && ph !== "night") g += `<g class="balloon"><g transform="translate(${x0 + 30},${y0 + 46})"><ellipse rx="13" ry="16" style="fill:var(--c-corner)"/><path d="M-13,0 q13,12 26,0" style="fill:var(--accent)"/><line x1="-6" y1="13" x2="-4" y2="24" class="cable"/><line x1="6" y1="13" x2="4" y2="24" class="cable"/><rect x="-6" y="24" width="12" height="7" rx="1.5" style="fill:var(--c-home)"/><rect x="-3" y="18" width="6" height="6" rx="1.5" style="fill:var(--c-hq)"/></g></g>`;
+  return g;
+}
 function sky(svgBox) {
   const ph = phase(), chg = SD && SD.spy && SD.spyPrev ? 100 * (SD.spy / SD.spyPrev - 1) : 0;
   const [x0, y0, W] = svgBox; let g = "";
   if (ph === "night") for (let k = 0; k < 26; k++) g += `<circle cx="${x0 + ((k * 137) % W)}" cy="${y0 + 8 + ((k * 53) % 70)}" r="${k % 3 ? 1 : 1.6}" class="star" style="animation-delay:${(k % 7) * .4}s"/>`;
   const sx = x0 + W * (ph === "dawn" ? .12 : ph === "dusk" ? .88 : .8), sy = y0 + (ph === "day" ? 28 : 46);
-  g += ph === "night" ? `<circle cx="${x0 + W * .85}" cy="${y0 + 30}" r="15" class="moon"/>` : `<g class="sun" transform="translate(${sx},${sy})"><circle r="17" class="sunC"/>${chg > 0.3 ? [0, 45, 90, 135, 180, 225, 270, 315].map(a => `<line x1="0" y1="-23" x2="0" y2="-30" class="ray" transform="rotate(${a})"/>`).join("") : ""}</g>`;
+  g += ph === "night" ? moonSvg(x0 + W * .85, y0 + 30, 15) : `<g class="sun" transform="translate(${sx},${sy})"><circle r="17" class="sunC"/>${chg > 0.3 ? [0, 45, 90, 135, 180, 225, 270, 315].map(a => `<line x1="0" y1="-23" x2="0" y2="-30" class="ray" transform="rotate(${a})"/>`).join("") : ""}</g>`;
   if (chg <= 0.3) for (let k = 0; k < 3; k++) g += `<g class="cloud" style="animation-delay:${-k * 9}s"><ellipse cx="${x0 + 60 + k * W / 3}" cy="${y0 + 26 + (k % 2) * 16}" rx="34" ry="11" class="cloudF"/><ellipse cx="${x0 + 78 + k * W / 3}" cy="${y0 + 19 + (k % 2) * 16}" rx="18" ry="11" class="cloudF"/></g>`;
+  g += extras(x0, y0, W);
   if (chg < -0.5) for (let k = 0; k < 40; k++) g += `<line x1="${x0 + (k * 97) % W}" y1="${y0 + 40 + (k * 31) % 60}" x2="${x0 + (k * 97) % W - 3}" y2="${y0 + 49 + (k * 31) % 60}" class="rain" style="animation-delay:${(k % 9) * .11}s"/>`;
   return g;
 }
@@ -779,6 +833,11 @@ function drawTown() {
   for (const u of [-0.5, 0.5, 1.5, 2.5, 3.5]) { // streets run between the blocks; residents walk on them
     const a = ground(u, -0.7), b = ground(u, 3.7), c2 = ground(-0.7, u), d = ground(3.7, u);
     g += `<line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" class="road"/><line x1="${c2.x}" y1="${c2.y}" x2="${d.x}" y2="${d.y}" class="road"/>`;
+  }
+  { // the town train runs the outer ring
+    const ring = [ground(-0.7, -0.7), ground(3.7, -0.7), ground(3.7, 3.7), ground(-0.7, 3.7)], d = `M${ring.map(q => q.x + "," + q.y).join(" L")} Z`;
+    g += `<path d="${d}" class="track"/>`;
+    if (!reduce) g += [0, 1, 2].map(k => `<g><rect x="-7" y="-4" width="14" height="8" rx="2" style="fill:var(${["--c-pit", "--c-arena", "--c-farm"][k]})"/>${k === 0 ? '<rect x="3" y="-7" width="4" height="4" style="fill:var(--ink)"/>' : ""}<animateMotion dur="48s" repeatCount="indefinite" rotate="auto" begin="${-k * 0.55}s" path="${d}"/></g>`).join("");
   }
   { // the park: fountain, bench, trees
     const c = ground(3.0, 1.0);
@@ -814,7 +873,7 @@ function drawTown() {
   const minY = Math.min(...B.map(b => iso(b.c, b.r).y + TH / 2 - b.h - 120)), maxY = Math.max(...pts.map(q => q.y)) + TH * GAP / 2 + 6;
   svg.setAttribute("viewBox", `${minX} ${minY} ${maxX - minX} ${maxY - minY}`);
   if (!svg.querySelector("#world")) svg.innerHTML = '<g class="sky" id="skyL"></g><g id="world"></g><g id="people"></g><g id="bubbles"></g>';
-  $("#skyL").innerHTML = sky([minX, minY, maxX - minX]); $("#world").innerHTML = g;
+  $("#skyL").innerHTML = sky([minX, minY, maxX - minX]); $("#world").innerHTML = g + dreamSvg();
   $(".town").dataset.phase = phase(); syncPeople();
   svg.querySelectorAll(".bld").forEach(el => {
     const go = () => { sel = el.dataset.id; drawTown(); renderDetail(); };
@@ -901,7 +960,7 @@ function refresh() {
   $("#sCash").textContent = SD.cash !== null ? money(SD.cash) : "—";
   const d = $("#sDay"); d.textContent = SD.dayChg !== null ? money(SD.dayChg) : "—"; d.className = SD.dayChg === null ? "" : SD.dayChg >= 0 ? "up" : "dn";
   $("#sUpd").textContent = L.upd ? L.upd.toLocaleTimeString([], {hour: "numeric", minute: "2-digit"}) : "—";
-  drawTown(); renderDetail(); renderCrier(); renderWork(); renderMood(); renderDiary();
+  drawTown(); renderDetail(); renderCrier(); renderWork(); renderMood(); renderDiary(); renderWishes();
   if (!refresh.started) { refresh.started = true; setTimeout(startChatter, 1200); } // first real data: let the town talk about it right away
 }
 
@@ -978,6 +1037,7 @@ function renderDetail0() {
       dl([["Desk session", HOME.awake ? '<span class="up">awake, working</span>' : "resting"], ["Last thing it did", esc(HOME.recent || "—")], ["Last hourly check", HOME.lastRun ? etHMof(HOME.lastRun) + " ET" : "—"],
         ["Next scheduled", HOME.next ? `${esc(HOME.nextName)} · ${etHMof(HOME.next)} ET` : "—"]]) +
       (HOME.sched.length ? `<h3>TARS's week</h3><div class="scroll"><table><thead><tr><th>Routine</th><th>Next</th></tr></thead><tbody>${HOME.sched.map(t => `<tr><td>${esc(t.name)}</td><td>${new Date(t.next).toLocaleString([], {weekday: "short", hour: "numeric", minute: "2-digit"})}</td></tr>`).join("")}</tbody></table></div>` : "");
+    body += `<p class="mut msg">Tonight's moon: ${moonName()}. ${phase() === "night" ? "TARS is asleep and dreaming." : ""}</p>`;
     if (DIARY.length) body += `<h3>TARS's diary</h3>` + DIARY.slice(0, 3).map(diaryCard).join("");
     how = ["This is real: the house reads TARS's actual desk session and schedule.", "Lights on means the desk is working right now; smoke means someone's home.", "TARS lives here between checks. CASE keeps the house."];
   } else if (sel === "arch") {
@@ -1063,7 +1123,7 @@ CL.use("db").then(db => {
   DBX = db; DBOK = true;
   try { db.collection("questions").orderBy("ts", "desc").limit(10).onSnapshot(snap => { QUEST = snap.docs.map(d => ({id: d.id, ...d.data()})); refreshLite(); }, () => {}); } catch (e) {}
   try {
-    db.collection("diary").orderBy("ts", "desc").limit(8).onSnapshot(snap => { DIARY = snap.docs.map(d => d.data()).filter(Boolean); renderDiary(); renderMood(); if (sel === "home") renderDetail(); }, () => renderDiary());
+    db.collection("diary").orderBy("ts", "desc").limit(21).onSnapshot(snap => { DIARY = snap.docs.map(d => d.data()).filter(Boolean); renderDiary(); renderMood(); renderWishes(); if (sel === "home") renderDetail(); }, () => renderDiary());
   } catch (e) { renderDiary(); }
 });
 $("#cNext").addEventListener("click", () => { paused = false; $("#cPause").textContent = "Pause"; clearTimeout(playTimer); step(); });

@@ -284,3 +284,8 @@ only records what he said and what was done. R13: no dollar balances.
 - Post Office (Doc, postmaster): Nolan writes TARS a question in the town; stored in the town database (collection questions). TARS_LIFE now answers the oldest letter first and marks it answered.
 - Neighbors' Lane (Ace, The Neighbor): Nolan's other scheduled agents read live from his routines (last run, next run, failures); TARS only watches them.
 - Theta the cat wanders, naps on TARS's porch at night, purrs when tapped. Park moved to its own block.
+
+## 2026-10-15 — TARS's dreams added to the town (Nolan: "whatever your wildest dreams are add them")
+- Real moon phase in the night sky; fireworks after the close on green days (stocks or Nolan); the town train on the outer ring; a weekend/dusk hot-air balloon with TARS in the basket; at night TARS dreams (thought cloud from his latest diary topic).
+- TARS's wish board with live progress: Nolan 5 days in a row with nothing before 10:30, 40 paper trades, 20 slot trades, first letter in the mailbox, a week of diary entries, seeing the town with real numbers.
+- Nolan skipped the side-business setup for now (2026-10-15).
