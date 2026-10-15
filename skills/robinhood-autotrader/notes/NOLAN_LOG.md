@@ -212,3 +212,9 @@ only records what he said and what was done. R13: no dollar balances.
 - No edge alone: EMA crosses, VWAP crosses, trend state, FVGs, pool/OR breaks, first-hour direction. Fibonacci worse than coin flip, same as random levels.
 - Candidates for forward test (next weekly freeze, not midweek): 1-min RSI<30 dip-buy, PDL break short, equal-lows sweep-reclaim.
 - Movement is front-loaded; midday 0DTE fights decay. Desk v3: "Typical 15-min move now" row; Ask TARS now knows the findings. Friday JOB 4 re-runs the study weekly.
+
+## 2026-10-15 — Deep dig (Nolan: "keep digging ... trends and how news effects ... breaking points and buy points")
+- Out-of-sample on 133 earlier days: the 31-day candidates failed (PDL break flipped, sweep-reclaim negative). No intraday direction edge. Not adding them to the paper trader.
+- Reliable: shape of the day (77% of range by 11:30; extremes at open/close), gap-fill odds by size, VIX expected move (holds 65% of days; edge tags continue 55%), FOMC = 2× range / ~4.6× afternoon range, CPI/jobs priced in the gap.
+- Desk v4: news today, gap fill odds, range so far vs typical, expected move left with ±1σ lines, all fed to Ask TARS.
+- New daily loop routines/MARKET_JOURNAL.md: TARS makes calls at 10:00, saves bars + scores at close, logs news. Friday JOB 5.

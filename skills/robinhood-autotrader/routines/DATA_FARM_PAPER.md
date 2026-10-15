@@ -44,3 +44,6 @@ Dashboard: https://claude.ai/artifact/CFnJAG4atRcXgURZPCs5D8
 Do not edit datafarm.py during the week. A changed file changes its hash and
 paper_trader.py restarts the forward book from that day, so the record stays
 honest. Rule changes go through the weekend research swarm.
+
+## ALSO EACH FIRE: Market Journal (added 2026-10-15)
+Follow routines/MARKET_JOURNAL.md: calls at the 10:00 ET fire, save + score at the first fire after 16:05 ET.

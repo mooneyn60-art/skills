@@ -76,3 +76,6 @@ Control. Stay silent on a routine/no-news run.
 After merging the week's real SPY minute bars into `paper/history/spy_1min.json`, run `python3 paper/research_scripts/desk_study.py`.
 Compare with `research/2026-10-15_DESK_INDICATOR_STUDY.md`. Note in `research/SWARM_MEMORY.md` any candidate whose t falls below 1.5 or flips sign (kill it) and any new |t|≥2 result (candidate only — ~45 tests run each time).
 Candidates enter the paper trader only at the weekly rules freeze, never midweek.
+
+## JOB 5 — Intraday deep dig refresh (added 2026-10-15)
+Run `python3 paper/research_scripts/intraday_deep.py`. Compare with research/2026-10-15_INTRADAY_DEEP_DIG.md; update the desk's GAPFILL / RANGE_DONE constants only if a figure moves by more than 10 points with at least 40 new days.

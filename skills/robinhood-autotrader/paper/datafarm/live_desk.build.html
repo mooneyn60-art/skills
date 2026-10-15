@@ -114,6 +114,7 @@ textarea{width:100%;resize:vertical;min-height:54px;font-family:var(--body)}
       <button type="button" data-l="fvg" aria-pressed="true">Fair value gaps</button>
       <button type="button" data-l="fib" aria-pressed="false">Fibonacci</button>
       <button type="button" data-l="sig" aria-pressed="true">Signals</button>
+      <button type="button" data-l="em" aria-pressed="true">Expected move</button>
       <span class="sep" aria-hidden="true"></span>
       <button type="button" data-m="1" aria-pressed="true">1m</button>
       <button type="button" data-m="2" aria-pressed="false">2m</button>
@@ -214,7 +215,7 @@ const SERVER = "Robinhood";
 // window.claude only exists inside the claude.ai viewer; a saved copy of this page still renders, just without live data.
 const CL = window.claude && window.claude.use ? window.claude : {use: async () => null};
 const $ = s => document.querySelector(s);
-const layers = {vwap: true, ema: true, levels: true, pools: true, fvg: true, fib: false, sig: true};
+const layers = {em: true, vwap: true, ema: true, levels: true, pools: true, fvg: true, fib: false, sig: true};
 let view = "full";
 const S = {b1: [], bars: [], map: [], prev: null, day: null, updated: null, live: false};
 let size = 1; try { size = [1, 2, 5, 15, 30].includes(+localStorage.getItem("desk.size")) ? +localStorage.getItem("desk.size") : 1; } catch (e) {}
@@ -457,6 +458,8 @@ function draw() {
   };
   if (layers.fib && st.fib) st.fib.levels.forEach(f => hline(f.p, css("--fib"), (f.f * 100).toFixed(1) + "%", [2, 3], st.fib.from));
   if (layers.levels) st.levels.forEach(l => hline(l.p, css("--accent"), l.name, [5, 4]));
+  const emv = layers.em && typeof T !== "undefined" ? remainingMove(all[all.length - 1]) : null;
+  if (emv) { const c0 = all[all.length - 1].c; hline(c0 + emv, css("--vwap"), "+1σ", [8, 3]); hline(c0 - emv, css("--vwap"), "−1σ", [8, 3]); }
   if (layers.pools) st.pools.filter(p => !/^(PDH|PDL|ORH|ORL)$/.test(p.name) && !p.taken).forEach(p =>
     hline(p.p, css("--pool"), (p.kind === "high" ? "EQH" : "EQL") + (p.swept !== null ? " ✓" : ""), p.swept !== null ? [1, 3] : [], p.from));
   // candles
@@ -502,6 +505,19 @@ function draw() {
 // Median |15-min SPY move| by half hour from 09:30 (desk_study, 31 days of real 1-min bars).
 const MOVE15 = [0.56, 0.44, 0.47, 0.31, 0.39, 0.29, 0.22, 0.28, 0.27, 0.27, 0.24, 0.15, 0.26];
 const move15 = hm => MOVE15[Math.min(12, Math.max(0, Math.floor((+hm.slice(0, 2) * 60 + +hm.slice(3) - 570) / 30)))];
+// Opening-gap fill odds (SPY, 2026 5-min bars, 164 days; 20-year daily in brackets).
+const GAPFILL = [[0.1, "88%"], [0.3, "64% (20y: 74%)"], [0.6, "31% (20y: 55%)"], [99, "21% (20y: 35%)"]];
+// Median share of the full day's range already printed by this time (164 days).
+const RANGE_DONE = [[600, 42], [630, 55], [690, 77], [780, 92], [900, 100]];
+const TYPICAL_RANGE = 6.2; // median SPY day range, 2026 non-event days (pts)
+const EVENTS = {"2026-09-04": "Jobs report 8:30am", "2026-09-11": "CPI 8:30am", "2026-09-16": "FOMC 2:00pm", "2026-10-02": "Jobs report 8:30am", "2026-10-14": "CPI 8:30am",
+  "2026-10-28": "FOMC 2:00pm", "2026-11-06": "Jobs report 8:30am", "2026-11-10": "CPI 8:30am", "2026-12-04": "Jobs report 8:30am", "2026-12-09": "FOMC 2:00pm", "2026-12-10": "CPI 8:30am"};
+function remainingMove(lb) { // 1-sigma SPY move left today from the ticket's ATM 0DTE implied vol
+  const q = T.quote, i = T.inst;
+  if (!q || !i || i.chain_symbol !== "SPY" || i.expiration_date !== S.day || Math.abs(+i.strike_price - lb.c) > 2 || !(+q.implied_volatility > 0)) return null;
+  const left = Math.max(1, 960 - (+lb.hm.slice(0, 2) * 60 + +lb.hm.slice(3)));
+  return lb.c * +q.implied_volatility * Math.sqrt(left / 525600); // option IV is annualised on calendar time (minutes per year)
+}
 const names = {sweep_reversal: "Sweep reversal", vwap_reclaim: "VWAP reclaim", fvg_trend: "FVG with trend"};
 function renderPanels() {
   const bars = S.b1;
@@ -535,6 +551,11 @@ function renderPanels() {
     ["Pool below", below ? `${below.name} ${below.p.toFixed(2)} (−${(lb.c - below.p).toFixed(2)})` : "–"],
     ["Day type so far", `${trendness >= 0.5 ? "Trending" : trendness <= 0.25 ? "Choppy" : "In between"} (${trendness.toFixed(2)})`],
     ["Day range", range.toFixed(2)],
+    ["News today", EVENTS[S.day] ? `<span class="warn">${EVENTS[S.day]}</span>${/FOMC/.test(EVENTS[S.day]) ? " · 2–4pm range runs ~4× normal" : " · priced into the gap"}` : "None scheduled"],
+    ["Opening gap", (() => { if (!pdc) return "–"; const g = 100 * (bars[0].o - pdc) / pdc, filled = g > 0 ? Math.min(...bars.map(b => b.l)) <= pdc : Math.max(...bars.map(b => b.h)) >= pdc;
+      return `${g >= 0 ? "+" : ""}${g.toFixed(2)}% · ${filled ? "filled" : "fills same day " + GAPFILL.find(x => Math.abs(g) < x[0])[1]}`; })()],
+    ["Range so far", (() => { const t = +lb.hm.slice(0, 2) * 60 + +lb.hm.slice(3), r = RANGE_DONE.filter(x => t >= x[0]).pop(); return `${range.toFixed(2)} pts vs typical ${TYPICAL_RANGE} · ${r ? "usually " + r[1] + "% of the day's range is in by now" : "most of the range comes before 11:30"}`; })()],
+    ["Expected move left (1σ)", (() => { const m = remainingMove(lb); return m ? `±${m.toFixed(2)} → ${(lb.c - m).toFixed(2)} / ${(lb.c + m).toFixed(2)} · real moves run ~60% of this` : '<span class="muted">load an ATM 0DTE in the ticket</span>'; })()],
     ["Typical 15-min move now", `${move15(lb.hm).toFixed(2)} pts${move15(lb.hm) < 0.3 ? " · slow hours, decay wins" : ""}`],
   ];
   if (st.fib) rows.push(["Fib 61.8% / 50%", `${st.fib.levels[3].p.toFixed(2)} / ${st.fib.levels[2].p.toFixed(2)}`]);
@@ -705,6 +726,7 @@ function renderQuote() {
     ["IV", q.implied_volatility ? (100 * q.implied_volatility).toFixed(1) + "%" : "—"], ["Theta / day", f(q.theta)], ["Breakeven", f(q.break_even_price)],
     ["As of", q.updated_at ? new Date(q.updated_at).toLocaleTimeString() : "—"]] : [["Bid", "—"], ["Ask", "—"], ["Mark", "—"], ["Delta", "—"]];
   $("#tQuote").innerHTML = cells.map(([k, v]) => `<span><small>${k}</small>${v}</span>`).join("");
+  if (q && S.b1.length) { draw(); renderPanels(); }
   if (q && $("#tType").value === "limit" && !$("#tPrice").value) $("#tPrice").value = pickPx(sideOf().side === "buy" ? "ask" : "bid");
   if (q && $("#tType").value === "stop_market" && !$("#tStop").value && +q.mark_price > 0) $("#tStop").value = tick(+q.mark_price * 0.8).toFixed(2);
 }
@@ -910,6 +932,10 @@ Facts you must respect:
 - A replay of Nolan's own trades found his direction calls are near a coin flip (45-52%); his results come from exits and size. Push on exits, stops and size more than on direction.
 - Fibonacci levels tested no better than ordinary levels on 20 years of SPY. Treat them as reference only.
 - TARS's own desk study (31 days real SPY 1-min, in-sample, ~45 tests): EMA 9/21 crosses, VWAP crosses, trend state, FVG formation and FVG retests, pool breaks, OR breaks and first-hour direction showed NO edge on their own over 15-30 min. Fib 50/61.8 first touches did worse than a coin flip, same as random levels. Candidates only (not proven): 1-min RSI under 30 dip-buy (+0.17 pts/30m, 57%), PDL break short (n=17), equal-lows sweep and reclaim (n=11). Edges that showed up are "failed move" ideas; chasing breakouts/gaps did worse.
+- TARS deep dig (out-of-sample on 133 earlier days of 5-min bars): the 31-day candidates FAILED out of sample (PDL break short flipped negative; equal-lows sweep-reclaim negative; RSI/VWAP-band dip-buys tiny, +0.07-0.12 pts, not worth option costs). No intraday chart pattern has a reliable direction edge. What IS reliable is the SHAPE of the day: 42% of the day's range is done by 10:00, 77% by 11:30, 92% by 1:00; the day's high or low prints in the first 30 min on ~25-30% of days and in the last 30 min on ~15%; midday extremes are rare.
+- Gaps: <0.1% fill same day 88% (usually by 9:35); 0.1-0.3% ~64-74%; 0.3-0.6% ~31-55%; >0.6% ~21-35%; fills got rarer since 2016. Big gap-ups (>0.6%) closed above the open ~60% over 20 years (slight lean, not proven).
+- Expected move: SPY stays inside +-1 sigma (VIX/sqrt(252)) about 65% of days; actual close moves average ~55-80% of what VIX implies. When price tags the 1-sigma edge it closes beyond it 55% of the time, so the edge is not a reliable reversal point.
+- News: FOMC days (2pm) have ~2x the day range and ~4x the 2-4pm range; the first 20-min reaction reversed on 2 of 5 2026 meetings, so don't trust the first move. CPI and jobs-report days are priced into the opening gap; the rest of the day's range was normal.
 - Typical 15-min SPY move: ~0.5 pts 9:30-11:00, ~0.25 pts midday. For ATM 0DTE, midday moves barely beat time decay. Field typical_15min_move_now gives the current one.
 - Liquidity pools = equal highs/lows and PDH/PDL/OR extremes where stops sit; "swept" = ran through and closed back inside.
 How to answer: short and direct (under 150 words unless he asks for more), plain language, numbers from the data. Always give the invalidation level in SPY price and where a 2R target sits. If he asks whether a trade can be placed, check the ticket: account loaded, contract tradable, force-close time, limit vs bid/ask, premium vs his max, 0DTE time of day, market hours. You may fill the ticket with prefill_ticket when he asks for a setup; you can never place, review or cancel orders. He presses Review and Place himself. Never invent data that isn't in the JSON.`;
