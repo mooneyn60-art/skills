@@ -7,6 +7,7 @@ Standard library + BeautifulSoup only, so every script runs in a bare Python.
 from __future__ import annotations
 
 import json
+import os
 import re
 import ssl
 import urllib.request
@@ -17,7 +18,7 @@ ROOT = Path(__file__).resolve().parent.parent
 TRUTH_DIR = ROOT / "truth"
 ANSWERS_DIR = ROOT / "answers"
 FINDINGS_DIR = ROOT / "findings"
-DATA_DIR = ROOT / "data"
+DATA_DIR = Path(os.environ.get("AIFW_DATA_DIR") or ROOT / "data")
 
 UA = "Mozilla/5.0 (compatible; AIFactWatch/1.0; +fact-check of public business info)"
 DAYS = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]

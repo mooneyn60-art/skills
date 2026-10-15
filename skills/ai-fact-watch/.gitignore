@@ -1,0 +1,14 @@
+# Customer and lead state (emails, payment refs) never goes in git.
+data/*.json
+data/*.jsonl
+answers/*/
+findings/*/
+truth/*.json
+reports/
+# The two demo businesses are public news cases; keep their files.
+!answers/viridian-bookshop-willoughby/
+!answers/stefaninas-wentzville/
+!findings/viridian-bookshop-willoughby/
+!findings/stefaninas-wentzville/
+!truth/viridian-bookshop-willoughby.json
+!truth/stefaninas-wentzville.json

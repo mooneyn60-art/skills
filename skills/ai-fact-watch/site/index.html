@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Fact Watch | Find out what AI tells your customers about you</title>
+<meta name="description" content="Free check: what Google AI Overviews, Gemini and ChatGPT say about your business. We find wrong hours, fake deals and false 'closed' answers, document them, and give you the fixes.">
+<link rel="canonical" href="{{SITE_URL}}">
+<style>
+:root{--ink:#14213d;--muted:#5b6475;--line:#e3e7ee;--bg:#f7f8fb;--card:#fff;--brand:#0b6e6e;--brand-2:#0e8a83;
+--brand-soft:#e6f4f2;--red:#c0392b;--red-bg:#fdecea;--amber:#b9770e;--amber-bg:#fdf3e1;--green:#1e8449;--green-bg:#e8f6ee}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Inter","Segoe UI",system-ui,-apple-system,sans-serif}
+a{color:var(--brand)}img{max-width:100%}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--ink);text-decoration:none}
+.logo span{width:30px;height:30px;border-radius:9px;background:var(--brand);color:#fff;display:grid;place-items:center;font-size:15px}
+.btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;font-weight:700;border:0;
+border-radius:12px;padding:13px 20px;font-size:16px;cursor:pointer;text-align:center}
+.btn:hover{background:var(--brand-2)}.btn.ghost{background:#fff;color:var(--brand);border:1.5px solid var(--brand)}
+.btn.small{padding:9px 14px;font-size:14px;border-radius:10px}
+.hero{padding:44px 0 28px}
+.hero-grid{display:grid;gap:28px}
+.eyebrow{display:inline-block;background:var(--red-bg);color:var(--red);font-weight:700;font-size:13px;padding:4px 10px;border-radius:999px}
+h1{font-size:34px;line-height:1.12;margin:14px 0 12px;letter-spacing:-.02em}
+h2{font-size:27px;line-height:1.2;margin:0 0 10px;letter-spacing:-.01em}
+h3{font-size:18px;margin:0 0 6px}
+.lead{font-size:18px;color:var(--muted);margin:0 0 18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+form label{display:block;font-size:14px;font-weight:600;margin:12px 0 5px}
+input[type=text],input[type=email],input[type=url]{width:100%;padding:12px 13px;border:1.5px solid var(--line);
+border-radius:10px;font:inherit;background:#fff}
+input:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-soft)}
+.row2{display:grid;grid-template-columns:2fr 1fr;gap:10px}
+.consent{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:var(--muted);margin:14px 0}
+.consent input{margin-top:4px}
+.form-note{font-size:12.5px;color:var(--muted);margin:10px 0 0}
+section{padding:46px 0}
+.section-head{max-width:700px;margin-bottom:22px}.section-head p{color:var(--muted);margin:0}
+.cases{display:grid;gap:14px}
+.case .where{font-size:13px;color:var(--muted);font-weight:600}
+.case blockquote{margin:10px 0;padding:10px 12px;background:var(--red-bg);border-radius:10px;font-style:italic;color:#7b241c}
+.case .src{font-size:13px}.case .src a{margin-right:10px}
+.steps{display:grid;gap:14px;counter-reset:s}
+.step{position:relative;padding-left:52px}
+.step:before{counter-increment:s;content:counter(s);position:absolute;left:20px;top:20px;width:26px;height:26px;border-radius:50%;
+background:var(--brand);color:#fff;font-weight:700;display:grid;place-items:center;font-size:14px}
+.step.card{padding-left:60px}
+.mock{font-size:14px}
+.mock .top{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.mock .score{font-size:40px;font-weight:800;line-height:1}
+.pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:700}
+.r{background:var(--red-bg);color:var(--red)}.y{background:var(--amber-bg);color:var(--amber)}.g{background:var(--green-bg);color:var(--green)}
+.mock-row{display:grid;grid-template-columns:auto 1fr;gap:10px;padding:10px 0;border-top:1px solid var(--line)}
+.mock-row i{color:var(--muted);font-size:13px}
+.prices{display:grid;gap:14px}
+.price{display:flex;flex-direction:column}.price .amt{font-size:36px;font-weight:800;margin:6px 0 2px}
+.price .amt small{font-size:15px;color:var(--muted);font-weight:600}
+.price ul{padding-left:20px;margin:10px 0 18px;flex:1}.price li{margin:5px 0}
+.price.featured{border:2px solid var(--brand);box-shadow:0 8px 30px rgba(11,110,110,.10)}
+.tag{font-size:12px;font-weight:700;color:var(--brand);text-transform:uppercase;letter-spacing:.05em}
+.promise{display:grid;gap:14px}
+.promise ul{margin:0;padding-left:20px}.promise li{margin:6px 0}
+.do{border-top:4px solid var(--green)}.dont{border-top:4px solid var(--red)}
+details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0}
+summary{font-weight:700;cursor:pointer}details p{color:var(--muted);margin:10px 0 0}
+footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--muted);font-size:13px;background:#fff}
+.thanks{display:none;background:var(--green-bg);color:var(--green);border-radius:10px;padding:12px;font-weight:600;margin-top:12px}
+@media(min-width:760px){
+ h1{font-size:46px}.hero{padding:64px 0 40px}
+ .hero-grid{grid-template-columns:1.15fr 1fr;align-items:start}
+ .cases{grid-template-columns:1fr 1fr}.steps{grid-template-columns:repeat(3,1fr)}
+ .prices{grid-template-columns:repeat(3,1fr)}.promise{grid-template-columns:1fr 1fr}
+ .split{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="logo" href="#"><span>&#10003;</span>AI Fact Watch</a>
+  <a class="btn small" href="#check">Free check</a>
+</div></header>
+
+<main>
+<div class="wrap hero"><div class="hero-grid">
+  <div>
+    <span class="eyebrow">It is happening to small businesses</span>
+    <h1>Is AI telling your customers you're closed?</h1>
+    <p class="lead">Google's AI Overviews, Gemini and ChatGPT now answer "are they open", "what are their hours" and
+      "any deals?" before anyone visits your website. When they get it wrong, you lose customers and never find out why.</p>
+    <p class="lead" style="font-size:16px">We ask the AI tools the questions your customers ask, compare every answer to
+      your own website, and send you a dated report of what is wrong, with the exact fixes.</p>
+    <a class="btn ghost" href="#cases">See the news stories</a>
+  </div>
+
+  <div class="card" id="check">
+    <h2 style="font-size:22px">Free AI fact check</h2>
+    <p style="margin:0;color:var(--muted);font-size:14px">One report, by email, usually within the hour. No card needed.</p>
+    <form action="{{FORM_ENDPOINT}}" method="post" id="check-form">
+      <label for="business">Business name</label>
+      <input id="business" name="business" type="text" required autocomplete="organization" placeholder="e.g. Main Street Bakery">
+      <div class="row2">
+        <div><label for="town">Town or city</label><input id="town" name="town" type="text" required placeholder="e.g. Springfield"></div>
+        <div><label for="region">State</label><input id="region" name="region" type="text" maxlength="20" placeholder="IL"></div>
+      </div>
+      <label for="website">Your website</label>
+      <input id="website" name="website" type="url" required placeholder="https://">
+      <label for="email">Where should we send the report?</label>
+      <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@business.com">
+      <label class="consent"><input type="checkbox" name="consent" value="yes" required>
+        <span>I own or represent this business, and I'd like the report emailed to me. We only email you about this check.</span></label>
+      <button class="btn" type="submit" style="width:100%">Check what AI says about me</button>
+      <p class="form-note">We check Google AI Overviews, Gemini, ChatGPT and a web-grounded Claude answer, as available.
+        We never log in to your accounts.</p>
+      <div class="thanks" id="thanks">Got it. Your report is on its way to your inbox.</div>
+    </form>
+  </div>
+</div></div>
+
+<section id="cases" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<div class="wrap">
+  <div class="section-head"><h2>Real businesses, real AI mistakes</h2>
+    <p>Every one of these owners found out from customers. These are published news stories; follow the links.</p></div>
+  <div class="cases">
+    <article class="card case">
+      <div class="where">Pizzeria &middot; Wentzville, Missouri</div>
+      <h3>Stefanina's: invented specials</h3>
+      <blockquote>Google's AI Overview showed deals the restaurant never offered, such as a second pizza for $4.</blockquote>
+      <p>Customers asked staff to honor them. "As a small business, we can't honor a Google AI special," the family said.</p>
+      <div class="src"><a href="https://www.29news.com/2025/08/20/restaurant-battles-fake-deals-offered-by-google-ai-its-coming-back-us/" rel="noopener">29News, Aug 2025</a><a href="https://www.wlox.com/2026/01/30/restaurant-asks-customers-verify-information-after-ai-generates-fake-deals/" rel="noopener">WLOX, Jan 2026</a></div>
+    </article>
+    <article class="card case">
+      <div class="where">Bookshop &middot; Willoughby, Ohio</div>
+      <h3>Viridian Bookshop: "permanently closed"</h3>
+      <blockquote>The AI summary said the shop was permanently closed and gave an address a few doors down.</blockquote>
+      <p>Sales dropped. The owner reported it repeatedly and filled out Google's form; it kept coming back.</p>
+      <div class="src"><a href="https://spectrumnews1.com/oh/cincinnati/news/2026/07/23/bookshop-ai-battle" rel="noopener">Spectrum News, Jul 2026</a><a href="https://clevelandmagazine.com/articles/willoughby-bookstore-confronts-google-ai-error-claiming-it-was-permanently-closed/" rel="noopener">Cleveland Magazine</a></div>
+    </article>
+    <article class="card case">
+      <div class="where">Bakery &middot; Millbank, Ontario</div>
+      <h3>Anna Mae's: mixed up with another bakery</h3>
+      <blockquote>AI confused it with a same-name bakery elsewhere and announced a "closing July 31" that wasn't real.</blockquote>
+      <p>Customers kept asking whether they were closing. They weren't.</p>
+      <div class="src"><a href="https://ppc.land/google-ai-overview-forces-anna-maes-bakery-to-deny-fake-july-31-closing/" rel="noopener">PPC Land</a><a href="https://www.ctvnews.ca/kitchener/article/anna-maes-bakery-and-restaurant-not-closing-despite-ai-rumours/" rel="noopener">CTV News</a></div>
+    </article>
+    <article class="card case">
+      <div class="where">Solar contractor &middot; Minnesota</div>
+      <h3>Wolf River Electric: a lawsuit that didn't exist</h3>
+      <blockquote>An AI Overview said the company was being sued by the state attorney general.</blockquote>
+      <p>The company says that was false and that it cost them a contract; it has since sued Google.</p>
+      <div class="src"><a href="https://www.govtech.com/public-safety/minnesota-solar-company-sues-google-over-ai-summary" rel="noopener">GovTech</a><a href="https://futurism.com/company-sues-google-ai-overviews.md" rel="noopener">Futurism</a></div>
+    </article>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="section-head"><h2>How the check works</h2></div>
+  <div class="steps">
+    <div class="card step"><h3>We collect your facts</h3><p style="margin:0">Hours, address, phone, specials and status, straight from your own website and listings, with the source of each.</p></div>
+    <div class="card step"><h3>We ask the AI tools</h3><p style="margin:0">"Are they open?", "hours", "deals", "phone", "address", "are they legit?" The same questions your customers type.</p></div>
+    <div class="card step"><h3>We compare and report</h3><p style="margin:0">Every wrong answer, quoted word for word with the date and engine, next to the truth, plus the fixes.</p></div>
+  </div>
+</div></section>
+
+<section style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap split">
+  <div>
+    <h2>What's in your report</h2>
+    <ul>
+      <li>A 0-100 accuracy score and a red / yellow / green flag for each fact</li>
+      <li>The exact AI quote, the engine and the date, next to your real fact and its source</li>
+      <li>A dated evidence log you can keep, forward or give to a lawyer</li>
+      <li>A starter Fix Kit: the structured-data block for your website and your Google Business Profile edits</li>
+    </ul>
+    <p style="color:var(--muted);font-size:14px">Example below is illustrative, based on errors reported in the news.</p>
+  </div>
+  <div class="card mock" aria-label="Illustrative report excerpt">
+    <div class="top"><div class="score">48<span style="font-size:15px;color:var(--muted)">/100</span></div>
+      <div><b>What AI says about your business</b><br><span class="pill r">At risk</span></div></div>
+    <div class="mock-row"><span class="pill r">Wrong</span><div><b>Hours</b><br><i>"closing around 8 PM ... Saturday"</i><br>True: Saturday until 9pm</div></div>
+    <div class="mock-row"><span class="pill r">Wrong</span><div><b>Address</b><br><i>"766 W Pearce"</i><br>True: 762 W Pearce Blvd</div></div>
+    <div class="mock-row"><span class="pill y">Gap</span><div><b>Deals</b><br><i>A "special" from a third-party listing</i><br>True: not on your website</div></div>
+    <div class="mock-row"><span class="pill g">Correct</span><div><b>Phone</b></div></div>
+  </div>
+</div></section>
+
+<section id="pricing"><div class="wrap">
+  <div class="section-head"><h2>Simple pricing</h2><p>Cancel any time. Full refund within 14 days, no questions.</p></div>
+  <div class="prices">
+    <div class="card price"><span class="tag">Start here</span><h3>Free check</h3><div class="amt">$0</div>
+      <ul><li>One report across the AI engines we run</li><li>Every wrong fact, quoted and dated</li><li>Starter Fix Kit</li></ul>
+      <a class="btn ghost" href="#check">Get my free check</a></div>
+    <div class="card price featured"><span class="tag">Most owners</span><h3>Watch</h3><div class="amt">$29<small>/month</small></div>
+      <ul><li>Weekly re-check of every engine</li><li>Same-day email if a fact flips (closed, new fake deal, wrong phone)</li>
+        <li>Full Fix Kit: official-facts page, schema, llms.txt, listing corrections, feedback texts</li><li>Monthly report with dated evidence</li></ul>
+      <a class="btn" href="{{PAYMENT_LINK_WATCH}}">Start Watch</a></div>
+    <div class="card price"><span class="tag">AI is hurting you now</span><h3>Emergency Fix</h3><div class="amt">$99<small> once</small></div>
+      <ul><li>Full Fix Kit within 48 hours</li><li>Daily re-checks for 30 days</li><li>Timestamped evidence log for a Google escalation or your lawyer</li></ul>
+      <a class="btn ghost" href="{{PAYMENT_LINK_EMERGENCY}}">Get the Emergency Fix</a></div>
+  </div>
+</div></section>
+
+<section style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
+  <div class="section-head"><h2>What we promise, and what we don't</h2></div>
+  <div class="promise">
+    <div class="card do"><h3>We do</h3><ul>
+      <li>Find what AI tools say about you, and show you exactly where it is wrong</li>
+      <li>Record every answer with the date, the engine and the source</li>
+      <li>Give you the corrected sources AI reads, ready to paste</li>
+      <li>Re-check on schedule and tell you the day anything changes</li></ul></div>
+    <div class="card dont"><h3>We don't</h3><ul>
+      <li>Promise that Google, OpenAI or anyone will change their answer. Nobody can.</li>
+      <li>Log in to your accounts or post anything for you</li>
+      <li>Give legal advice</li>
+      <li>Share your results with anyone</li></ul></div>
+  </div>
+</div></section>
+
+<section><div class="wrap" style="max-width:780px">
+  <h2>Questions</h2>
+  <details><summary>Can you get Google to fix the answer?</summary><p>No one can guarantee that. What helps is when every source the AI reads agrees: your website, its structured data, your Google profile and the main directories. We give you all of those, plus the exact feedback to submit and a dated record of what was shown.</p></details>
+  <details><summary>Which AI tools do you check?</summary><p>Google AI Overviews, Gemini, ChatGPT and a web-grounded Claude answer. Each report lists exactly which ones ran and when.</p></details>
+  <details><summary>Why do answers differ from what I see?</summary><p>AI answers change by location, account and day. We record the date and engine for every quote so you can compare.</p></details>
+  <details><summary>Do you need my passwords?</summary><p>No. You, or whoever runs your website, paste in the Fix Kit.</p></details>
+  <details><summary>How do I cancel?</summary><p>Reply "cancel" to any email, or use the link in your receipt. Full refund within 14 days.</p></details>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <p><b>AI Fact Watch</b> &middot; {{POSTAL_ADDRESS}} &middot; <a href="mailto:{{SUPPORT_EMAIL}}">{{SUPPORT_EMAIL}}</a></p>
+  <p>News stories are linked to their publishers and described from their reporting. We are not affiliated with Google, OpenAI, Anthropic or any business mentioned.
+    We document what AI tools say; we cannot change their answers.</p>
+</div></footer>
+
+<script>
+// Progressive enhancement: submit without leaving the page when the endpoint accepts JSON.
+document.getElementById('check-form').addEventListener('submit', async function (e) {
+  if (this.action.indexOf('{{') !== -1) { e.preventDefault(); alert('Form endpoint not configured yet.'); return; }
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(this).entries());
+  try {
+    const r = await fetch(this.action, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data)});
+    if (!r.ok) throw new Error(r.status);
+    this.querySelector('button').disabled = true;
+    document.getElementById('thanks').style.display = 'block';
+  } catch (err) { this.submit(); }
+});
+</script>
+</body>
+</html>
