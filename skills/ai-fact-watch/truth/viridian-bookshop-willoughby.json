@@ -4,7 +4,7 @@
   "town": "Willoughby",
   "region": "OH",
   "category": "LocalBusiness",
-  "collected_at": "2026-10-15T20:16:41+00:00",
+  "collected_at": "2026-10-15T20:20:52+00:00",
   "facts": {
     "name": {
       "value": "The Viridian Bookshop",
@@ -61,10 +61,6 @@
         {
           "text": "Claim Your Seat Unlock Exclusive Perks Join the inner circle and become a Viridian Bookshop member to unlock exclusive discounts, charming bookish gifts, and members-only content.",
           "source": "https://viridianbookshop.com"
-        },
-        {
-          "text": "Join Our Community Host Your Magical Event Need a unique setting for a private party, workshop, or special gathering?",
-          "source": "https://viridianbookshop.com"
         }
       ],
       "source": "https://viridianbookshop.com",
@@ -72,7 +68,6 @@
     },
     "services": {
       "value": [
-        "SHOP (opens in new tab)",
         "Experiences",
         "Rentals",
         "Events",
@@ -93,6 +88,7 @@
     "source": null
   },
   "conflicts": [],
+  "observations": [],
   "same_name_businesses": [
     {
       "name": "Viridian Books",
@@ -110,23 +106,15 @@
     },
     {
       "kind": "social",
-      "url": "https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2Fp%2FThe-Viridian-Bookshop-61570579876171%2F",
-      "reachable": true,
-      "title": "Facebook",
-      "address": null,
-      "phone": null,
-      "hours": {},
-      "bio_excerpt": "Facebook Explore the things you love . Log into Facebook Email or mobile number Password Log in Forgot password? Create new account English (US) Español Français (France) 中文(简体) العربية Português (Brasil) Italiano More languages… Sign Up Log In Messenger Facebook Lite Video Meta Pay Meta Store Meta "
+      "url": "https://www.facebook.com/p/The-Viridian-Bookshop-61570579876171/",
+      "reachable": false,
+      "note": "Behind a login wall; check this profile manually."
     },
     {
       "kind": "social",
-      "url": "https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fviridian.bookshop%2F&is_from_rle",
-      "reachable": true,
-      "title": "Instagram",
-      "address": null,
-      "phone": null,
-      "hours": {},
-      "bio_excerpt": "Instagram"
+      "url": "https://www.instagram.com/viridian.bookshop/",
+      "reachable": false,
+      "note": "Behind a login wall; check this profile manually."
     }
   ],
   "press": [
@@ -146,42 +134,42 @@
       "url": "https://viridianbookshop.com",
       "requested": "https://viridianbookshop.com",
       "status": 200,
-      "fetched_at": "2026-10-15T20:16:39+00:00"
+      "fetched_at": "2026-10-15T20:20:49+00:00"
     },
     {
       "kind": "fetch",
       "url": "https://viridianbookshop.com/about-us/",
       "requested": "https://viridianbookshop.com/about-us/",
       "status": 200,
-      "fetched_at": "2026-10-15T20:16:39+00:00"
+      "fetched_at": "2026-10-15T20:20:49+00:00"
     },
     {
       "kind": "fetch",
       "url": "https://viridianbookshop.com/contact-us/",
       "requested": "https://viridianbookshop.com/contact-us/",
       "status": 200,
-      "fetched_at": "2026-10-15T20:16:39+00:00"
+      "fetched_at": "2026-10-15T20:20:50+00:00"
     },
     {
       "kind": "fetch",
       "url": "https://bookshop.org/shop/ViridianBookshop",
       "status": "error",
       "error": "HTTP Error 403: Forbidden",
-      "fetched_at": "2026-10-15T20:16:40+00:00"
+      "fetched_at": "2026-10-15T20:20:50+00:00"
     },
     {
       "kind": "fetch",
       "url": "https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2Fp%2FThe-Viridian-Bookshop-61570579876171%2F",
       "requested": "https://www.facebook.com/p/The-Viridian-Bookshop-61570579876171/",
-      "status": 200,
-      "fetched_at": "2026-10-15T20:16:41+00:00"
+      "status": "login wall",
+      "fetched_at": "2026-10-15T20:20:51+00:00"
     },
     {
       "kind": "fetch",
       "url": "https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fviridian.bookshop%2F&is_from_rle",
       "requested": "https://www.instagram.com/viridian.bookshop/",
-      "status": 200,
-      "fetched_at": "2026-10-15T20:16:41+00:00"
+      "status": "login wall",
+      "fetched_at": "2026-10-15T20:20:52+00:00"
     }
   ]
 }

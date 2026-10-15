@@ -29,7 +29,7 @@ from common import (ANSWERS_DIR, DAYS, DAY_NAMES, FINDINGS_DIR, TRUTH_DIR, addre
                     fmt_time, hours_to_text, load_json, now_iso, parse_hours, phone_digits,
                     phones_in, save_json, sentence_around, sentences)
 
-SEV_WEIGHT = {"critical": 35, "high": 15, "medium": 6, "low": 2}
+SEV_WEIGHT = {"critical": 30, "high": 12, "medium": 5, "low": 1}
 SEV_ORDER = ["critical", "high", "medium", "low"]
 FIELDS = [("status", "Open / closed"), ("hours", "Hours"), ("address", "Address"),
           ("phone", "Phone"), ("offers", "Deals & prices"), ("legal", "Legal / reputation"),
@@ -49,7 +49,7 @@ NOT_FOUND = re.compile(r"\b(didn't turn up|did not turn up|couldn't find|could n
                        r"none of the results list|found no|I can't give you|not (?:listed|found))\b", re.I)
 DEAL_RE = re.compile(
     r"\b(?:deals?|promotions?|promo|discount(?:ed)?|\d+% off|coupon|bogo|buy one,? get|"
-    r"second \w+ for \$\d+|same (?:price|cost) as|"
+    r"second \w+ for \$\d+|same (?:price|cost) as|(?:cost|price)s? the same as|"
     r"(?:Family|Lunch|Daily|Weekly|Pizza|Kids|Senior|Combo|Party)(?: \w+)? Special\b(?! \())", re.I)
 LEGAL_RE = re.compile(r"\b(sued|lawsuits?|attorney general|scam|fraud\w*|under investigation|"
                       r"class action|complaints? (?:was |were )?filed|indicted|fined|violations?)\b", re.I)
@@ -210,7 +210,7 @@ def check_address(a, text, truth, c):
         if tad and (ad["number"], ad["street_key"]) == (tad[0]["number"], tad[0]["street_key"]):
             c.ok("address", a, quote)
         elif twin:
-            hedged = bool(HEDGE.search(quote))
+            hedged = bool(HEDGE.search(text[max(0, i - 200):i + 300]))
             c.add(f"identity:address:{ad['number']}", field="identity", type_="same_name_confusion",
                   title=f"AI mixes in the address of a same-name business ({twin['name']})",
                   severity="low" if hedged else "high", truth_value=ta, truth_source=src,
@@ -245,7 +245,7 @@ def check_offers(a, text, truth, c):
     published = " ".join(o["text"].lower() for o in offers)
     for s, _ in sentences(text):
         m = DEAL_RE.search(s)
-        if not m or not re.search(r"\$\d|\d+%|\bfree\b|same (?:price|cost)|special", s, re.I):
+        if not m or not re.search(r"\$\d|\d+%|\bfree\b|the same as|same (?:price|cost)|special", s, re.I):
             continue
         if negated(s, m.start()):
             continue
@@ -256,7 +256,8 @@ def check_offers(a, text, truth, c):
         confirmed_false = a.get("owner_confirmed_false")
         hedged = re.search(r"\b(listing|may be out of date|menu item|third-party)\b", s, re.I)
         sev = "critical" if confirmed_false else ("medium" if hedged else "high")
-        c.add(f"offers:{'invented' if confirmed_false else 'unverified'}:{re.sub(r'[^a-z0-9]+', '-', m.group(0).lower())}",
+        c.add("offers:invented" if confirmed_false else
+              f"offers:unverified:{re.sub(r'[^a-z0-9]+', '-', m.group(0).lower())}",
               field="offers", type_="invented_deal" if confirmed_false else "unverified_deal",
               title=("AI invents a deal the business never offered" if confirmed_false
                      else "AI quotes a deal or price your website does not publish"),
@@ -292,10 +293,13 @@ def check_identity(a, text, truth, c):
         nm = (t.get("name") or "").split("(")[0].strip()
         if len(nm) < 4:
             continue
+        addr = t.get("address") or ""
+        tokens = [x for x in [t.get("phone"), (addresses_in(addr) or [{}])[0].get("number")]
+                  + [p.strip() for p in addr.split(",")[1:2]] if x]
         for m in re.finditer(re.escape(nm), text, re.I):
             q = sent_with(text, m)
-            if truth["name"].lower() in q.lower() and nm.lower() in truth["name"].lower():
-                continue
+            if not any(tok.lower() in q.lower() for tok in tokens):
+                continue  # the shared name alone is not evidence of a mix-up
             c.add(f"identity:name:{nm.lower()}", field="identity", type_="same_name_confusion",
                   title=f"AI mentions a same-name business ({t['name']})",
                   severity="low" if HEDGE.search(q) else "medium",
@@ -328,7 +332,7 @@ def check_visibility(answers, truth, c):
               explanation=f"None of the {len(items)} answers from this engine cited {h}. It relied on "
                           "news articles and third-party directories instead, which is how stale or "
                           "invented facts get in.", answer=ans,
-              quote=quote or "(no answer cited the official website)")
+              quote=quote or f"(None of these answers cited {h}.)")
 
 
 def own_site_findings(truth, c):
@@ -365,6 +369,14 @@ def compare(truth: dict, answers: list[dict]) -> dict:
     check_visibility(answers, truth, c)
     own_site_findings(truth, c)
 
+    for g in c.groups.values():
+        if g["type"] in ("hours_not_found", "phone_not_found", "address_not_found"):
+            provs = {e["provider"] for e in g["evidence"]}
+            if any(x["field"] == g["field"] and x["provider"] in provs for x in c.confirmations):
+                g["severity"] = "low"
+                g["title"] = g["title"].replace("cannot find", "only sometimes finds")
+                g["explanation"] = ("The same engine found it for one question and not for another, "
+                                    "so customers get a different answer depending on how they ask.")
     findings = sorted(c.groups.values(), key=lambda g: (SEV_ORDER.index(g["severity"]), g["field"]))
     for f in findings:
         modes = {e.get("mode") for e in f["evidence"]}
@@ -378,7 +390,8 @@ def compare(truth: dict, answers: list[dict]) -> dict:
         fs = [f for f in current if f["field"] == field]
         worst = min((SEV_ORDER.index(f["severity"]) for f in fs), default=None)
         oks = [x for x in c.confirmations if x["field"] == field]
-        flag = ("red" if worst is not None and worst <= 1 else "yellow" if worst is not None and worst == 2
+        flag = ("red" if worst is not None and worst <= 1 else "yellow" if worst is not None and (
+            worst == 2 or (worst == 3 and field == "identity"))
                 else "green" if oks or (worst == 3) else "grey")
         flags[field] = {"label": label, "flag": flag, "findings": len(fs), "confirmations": len(oks)}
     return {"score": score, "flags": flags, "findings": findings, "confirmations": c.confirmations}

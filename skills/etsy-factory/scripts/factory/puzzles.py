@@ -56,14 +56,14 @@ def render(doc, spec, built):
     y -= 34
     cols = 2
     rows = -(-len(puzzles) // cols)
-    row_h = min(21, (y - m - 30) / rows)
+    row_h = min(30, (y - m - 30) / rows)
     col_w = (w - 2 * m - 40) / cols
     for i, pz in enumerate(puzzles):
         col, row = divmod(i, rows)
         x = m + 20 + col * col_w
         yy = y - row * row_h
-        doc.text(x, yy, f"{i + 1:>2}", "WorkSans-Bold", 12, t["secondary"])
-        doc.text(x + 26, yy, pz["title"], "WorkSans-Regular", 12.5, t["ink"], max_w=col_w - 40)
+        doc.text(x, yy, f"{i + 1:>2}", "WorkSans-Bold", 14, t["secondary"])
+        doc.text(x + 30, yy, pz["title"], "WorkSans-Regular", 15, t["ink"], max_w=col_w - 40)
 
     # Puzzle pages
     cell = min(0.44 * INCH, (w - 2 * m - 0.4 * INCH) / n)
@@ -93,12 +93,12 @@ def render(doc, spec, built):
 
     # Answer key, six per page
     per = 6
-    small = min(13.0, (w - 2 * m - 40) / 2 / n)
     for start in range(0, len(built), per):
         doc.new_page()
         y_top = doc.header("Answer Key", size=24) + 6
         block_w = (w - 2 * m) / 2
-        block_h = (y_top - m - 10) / 3
+        block_h = (y_top - m - 6) / 3
+        small = min(13.0, (w - 2 * m - 40) / 2 / n, (block_h - 40) / n)
         for k, idx in enumerate(range(start, min(start + per, len(built)))):
             col, row = k % 2, k // 2
             bx = m + col * block_w
@@ -106,5 +106,5 @@ def render(doc, spec, built):
             doc.text(bx + block_w / 2, by - 12, f"{idx + 1}.  {puzzles[idx]['title']}", "WorkSans-Bold", 11,
                      t["primary"], "center", max_w=block_w - 20)
             grid, placements = built[idx]
-            wsb.draw_grid(doc.c, grid, bx + (block_w - n * small) / 2, by - 26, small, "WorkSans", small * 0.62, placements)
+            wsb.draw_grid(doc.c, grid, bx + (block_w - n * small) / 2, by - 28, small, "WorkSans", small * 0.62, placements)
     closing_page(doc, spec)

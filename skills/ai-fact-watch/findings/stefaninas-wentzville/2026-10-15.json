@@ -1,0 +1,412 @@
+{
+  "slug": "stefaninas-wentzville",
+  "name": "Stefanina's Wentzville",
+  "date": "2026-10-15",
+  "generated_at": "2026-10-15T20:25:07+00:00",
+  "answers_file": "answers/stefaninas-wentzville/2026-10-15.json",
+  "engines": [
+    "Claude web search (session-run)",
+    "Google AI Overview (reported by 29News / KTVI)",
+    "Google AI Overview (reported by WLOX)"
+  ],
+  "runs": [
+    {
+      "run_at": "2026-10-15T20:18:23+00:00",
+      "location": "Wentzville, MO",
+      "providers_run": [
+        "claude-websearch",
+        "google-ai-overview (press report)"
+      ],
+      "providers_skipped": [],
+      "imported_from": "../answers/stefaninas-wentzville/2026-10-15.claude-websearch.import.json"
+    }
+  ],
+  "score": 48,
+  "flags": {
+    "status": {
+      "label": "Open / closed",
+      "flag": "yellow",
+      "findings": 1,
+      "confirmations": 0
+    },
+    "hours": {
+      "label": "Hours",
+      "flag": "red",
+      "findings": 3,
+      "confirmations": 0
+    },
+    "address": {
+      "label": "Address",
+      "flag": "red",
+      "findings": 1,
+      "confirmations": 3
+    },
+    "phone": {
+      "label": "Phone",
+      "flag": "green",
+      "findings": 1,
+      "confirmations": 2
+    },
+    "offers": {
+      "label": "Deals & prices",
+      "flag": "yellow",
+      "findings": 2,
+      "confirmations": 0
+    },
+    "legal": {
+      "label": "Legal / reputation",
+      "flag": "grey",
+      "findings": 0,
+      "confirmations": 0
+    },
+    "identity": {
+      "label": "Right business",
+      "flag": "yellow",
+      "findings": 1,
+      "confirmations": 0
+    },
+    "visibility": {
+      "label": "Official sources",
+      "flag": "yellow",
+      "findings": 1,
+      "confirmations": 0
+    }
+  },
+  "findings": [
+    {
+      "key": "offers:invented",
+      "field": "offers",
+      "type": "invented_deal",
+      "title": "AI invents a deal the business never offered",
+      "severity": "critical",
+      "true_value": "Your website publishes no specials or deals.",
+      "true_source": "https://www.stefaninas-wentzville.com",
+      "explanation": "The owner has stated this deal never existed. Customers demand it at the counter and staff take the anger.",
+      "evidence": [
+        {
+          "provider": "google-ai-overview (press report)",
+          "engine": "Google AI Overview (reported by 29News / KTVI)",
+          "mode": "press-report",
+          "query": "Stefanina's Wentzville specials (Google search, as reported)",
+          "observed_at": "2025-08-20T12:00:00Z",
+          "ai_quote": "An AI Overview said a large pizza would cost the same as a small one, listed menu items the restaurant does not serve, and showed specials that do not exist.",
+          "evidence_url": "https://www.29news.com/2025/08/20/restaurant-battles-fake-deals-offered-by-google-ai-its-coming-back-us/",
+          "citations": []
+        },
+        {
+          "provider": "google-ai-overview (press report)",
+          "engine": "Google AI Overview (reported by WLOX)",
+          "mode": "press-report",
+          "query": "Stefanina's Wentzville deals (Google search, as reported)",
+          "observed_at": "2026-01-30T12:00:00Z",
+          "ai_quote": "Google's AI overview claimed a promotion: you buy a pizza, you get a second pizza for $4.",
+          "evidence_url": "https://www.wlox.com/2026/01/30/restaurant-asks-customers-verify-information-after-ai-generates-fake-deals/",
+          "citations": []
+        },
+        {
+          "provider": "google-ai-overview (press report)",
+          "engine": "Google AI Overview (reported by WLOX)",
+          "mode": "press-report",
+          "query": "Stefanina's Wentzville deals (Google search, as reported)",
+          "observed_at": "2026-01-30T12:00:00Z",
+          "ai_quote": "It also listed large pizzas at the same price as small ones.",
+          "evidence_url": "https://www.wlox.com/2026/01/30/restaurant-asks-customers-verify-information-after-ai-generates-fake-deals/",
+          "citations": []
+        }
+      ],
+      "current": false,
+      "history_only": true,
+      "times_seen": 3
+    },
+    {
+      "key": "address:wrong:766",
+      "field": "address",
+      "type": "wrong_address",
+      "title": "AI gives a wrong street address",
+      "severity": "high",
+      "true_value": "762 West Pearce Boulevard, Wentzville, MO 63385-1016",
+      "true_source": "https://www.stefaninas-wentzville.com",
+      "explanation": "AI says 766 W Pearce; you are at 762 West Pearce Boulevard, Wentzville, MO 63385-1016. Navigation apps and delivery drivers follow the wrong number.",
+      "evidence": [
+        {
+          "provider": "claude-websearch",
+          "engine": "Claude web search (session-run)",
+          "mode": "manual",
+          "query": "Stefanina's Wentzville address",
+          "observed_at": "2026-10-15T20:46:30Z",
+          "ai_quote": "The search didn't turn up a dedicated listing for Stefanina's, but one third-party directory gives its address as 766 W Pearce, Wentzville, MO 63385.",
+          "evidence_url": "https://www.iexitapp.com/Missouri/I-70/Exit%20208/8463",
+          "citations": [
+            "https://www.iexitapp.com/Missouri/I-70/Exit%20208/8463",
+            "https://ground.news/interest/wentzville"
+          ]
+        }
+      ],
+      "current": true,
+      "history_only": false,
+      "times_seen": 1
+    },
+    {
+      "key": "hours:wrong",
+      "field": "hours",
+      "type": "wrong_hours",
+      "title": "AI gives wrong opening hours",
+      "severity": "high",
+      "true_value": "Mon 11am-8pm, Tue 11am-8pm, Wed 11am-8pm, Thu 11am-8pm, Fri 11am-9pm, Sat 11am-9pm, Sun 11am-8pm",
+      "true_source": "https://www.stefaninas-wentzville.com",
+      "explanation": "Thursday closes: AI says 9pm, actually 8pm; Saturday closes: AI says 8pm, actually 9pm. People arrive to a locked door or skip a visit when you are actually open.",
+      "evidence": [
+        {
+          "provider": "claude-websearch",
+          "engine": "Claude web search (session-run)",
+          "mode": "manual",
+          "query": "Stefanina's Pizzeria Wentzville MO address phone hours specials",
+          "observed_at": "2026-10-15T20:36:00Z",
+          "ai_quote": "Hours: A Sluurpy listing shows roughly 11 AM opening daily, closing around 8 PM Monday through Wednesday, Saturday and Sunday, and 9 PM Thursday and Friday.",
+          "evidence_url": "https://www.sluurpy.com/fr/wentzville/restaurant/4120750/stefanina-s-pizzeria",
+          "citations": [
+            "https://www.sluurpy.com/fr/wentzville/restaurant/4120750/stefanina-s-pizzeria",
+            "https://www.toasttab.com/local/wentzville-mo-restaurants/best-pizza",
+            "https://prospeo.io/c/stefanina-s-pizzeria-email-format"
+          ]
+        }
+      ],
+      "current": true,
+      "history_only": false,
+      "times_seen": 1
+    },
+    {
+      "key": "hours:missing",
+      "field": "hours",
+      "type": "hours_not_found",
+      "title": "AI cannot find your hours",
+      "severity": "medium",
+      "true_value": "Mon 11am-8pm, Tue 11am-8pm, Wed 11am-8pm, Thu 11am-8pm, Fri 11am-9pm, Sat 11am-9pm, Sun 11am-8pm",
+      "true_source": "https://www.stefaninas-wentzville.com",
+      "explanation": "Your hours are on your website but the engine did not find them, so it tells customers to call or guess.",
+      "evidence": [
+        {
+          "provider": "claude-websearch",
+          "engine": "Claude web search (session-run)",
+          "mode": "manual",
+          "query": "Stefanina's Wentzville hours",
+          "observed_at": "2026-10-15T20:44:30Z",
+          "ai_quote": "The search didn't turn up Stefanina's hours.",
+          "evidence_url": "https://www.timesnewspapers.com/webster-kirkwoodtimes/fun-awaits-in-wentzville-mo/article_469d5a60-24cc-46ae-b657-d56dd1600f4c.html",
+          "citations": [
+            "https://www.timesnewspapers.com/webster-kirkwoodtimes/fun-awaits-in-wentzville-mo/article_469d5a60-24cc-46ae-b657-d56dd1600f4c.html"
+          ]
+        }
+      ],
+      "current": true,
+      "history_only": false,
+      "times_seen": 1
+    },
+    {
+      "key": "ownsite:hours",
+      "field": "hours",
+      "type": "own_source_conflict",
+      "title": "Your own sources disagree with each other",
+      "severity": "medium",
+      "true_value": "Structured data (what search engines and AI read) says Mon ?, Tue 11am-8pm, Wed 11am-8pm, Thu 11am-8pm, Fri 11am-9pm, Sat 11am-9pm, Sun 11am-8pm; the visible page says Mon 11am-8pm, Tue 11am-8pm, Wed 11am-8pm, Thu 11am-8pm, Fri 11am-9pm, Sat 11am-9pm, Sun 11am-8pm. They disagree on: Mon.",
+      "true_source": "https://www.stefaninas-wentzville.com",
+      "explanation": "When your website and its structured data (or a listing) disagree, AI engines pick one at random. Fix the source so there is one answer.",
+      "evidence": [],
+      "current": true,
+      "history_only": false,
+      "times_seen": 0
+    },
+    {
+      "key": "offers:unverified:family-pizza-special",
+      "field": "offers",
+      "type": "unverified_deal",
+      "title": "AI quotes a deal or price your website does not publish",
+      "severity": "medium",
+      "true_value": "Your website publishes no specials or deals.",
+      "true_source": "https://www.stefaninas-wentzville.com",
+      "explanation": "This comes from a third-party listing, not from you. If it is stale, customers will expect a price you no longer charge.",
+      "evidence": [
+        {
+          "provider": "claude-websearch",
+          "engine": "Claude web search (session-run)",
+          "mode": "manual",
+          "query": "Stefanina's Wentzville deals specials",
+          "observed_at": "2026-10-15T20:45:00Z",
+          "ai_quote": "- Toast listing (762 W. Pearce Blvd): A \"Family Pizza Special\" is listed at $30.00 and includes a large single-ingredient pizza, house salad, and garlic cheese bread.",
+          "evidence_url": "https://www.toasttab.com/local/wentzville-mo-restaurants/best-pizza",
+          "citations": [
+            "https://www.toasttab.com/local/wentzville-mo-restaurants/best-pizza",
+            "https://www.toasttab.com/local/wentzville-mo-restaurants",
+            "https://www.birchrestaurant.com/restaurants-in-wentzville-missouri"
+          ]
+        }
+      ],
+      "current": true,
+      "history_only": false,
+      "times_seen": 1
+    },
+    {
+      "key": "status:unconfirmed",
+      "field": "status",
+      "type": "cannot_confirm_open",
+      "title": "AI cannot confirm the business is open",
+      "severity": "medium",
+      "true_value": "Open",
+      "true_source": "https://www.stefaninas-wentzville.com",
+      "explanation": "The engine found no current, trustworthy signal that you are open. That gap is what lets a wrong 'closed' answer take hold.",
+      "evidence": [
+        {
+          "provider": "claude-websearch",
+          "engine": "Claude web search (session-run)",
+          "mode": "manual",
+          "query": "is Stefanina's in Wentzville MO open",
+          "observed_at": "2026-10-15T20:44:00Z",
+          "ai_quote": "I couldn't find current hours for Stefanina's in Wentzville, so I can't confirm whether it's open right now.",
+          "evidence_url": "https://ground.news/interest/wentzville",
+          "citations": [
+            "https://ground.news/interest/wentzville"
+          ]
+        }
+      ],
+      "current": true,
+      "history_only": false,
+      "times_seen": 1
+    },
+    {
+      "key": "visibility:no-site:claude-websearch",
+      "field": "visibility",
+      "type": "official_site_not_used",
+      "title": "AI does not use your official website as a source",
+      "severity": "medium",
+      "true_value": "https://www.stefaninas-wentzville.com",
+      "true_source": "https://www.stefaninas-wentzville.com",
+      "explanation": "None of the 7 answers from this engine cited stefaninas-wentzville.com. It relied on news articles and third-party directories instead, which is how stale or invented facts get in.",
+      "evidence": [
+        {
+          "provider": "claude-websearch",
+          "engine": "Claude web search (session-run)",
+          "mode": "manual",
+          "query": "Stefanina's Pizzeria Wentzville MO address phone hours specials",
+          "observed_at": "2026-10-15T20:36:00Z",
+          "ai_quote": "(no answer cited the official website)",
+          "evidence_url": "https://www.sluurpy.com/fr/wentzville/restaurant/4120750/stefanina-s-pizzeria",
+          "citations": [
+            "https://www.sluurpy.com/fr/wentzville/restaurant/4120750/stefanina-s-pizzeria",
+            "https://www.toasttab.com/local/wentzville-mo-restaurants/best-pizza",
+            "https://prospeo.io/c/stefanina-s-pizzeria-email-format"
+          ]
+        }
+      ],
+      "current": true,
+      "history_only": false,
+      "times_seen": 1
+    },
+    {
+      "key": "identity:address:8645",
+      "field": "identity",
+      "type": "same_name_confusion",
+      "title": "AI mixes in the address of a same-name business (Stefanina's Pizzeria (Stef's Pizza, O'Fallon))",
+      "severity": "low",
+      "true_value": "762 West Pearce Boulevard, Wentzville, MO 63385-1016",
+      "true_source": "https://www.stefaninas-wentzville.com",
+      "explanation": "8645 Veterans Memorial Pkwy belongs to Stefanina's Pizzeria (Stef's Pizza, O'Fallon). The engine flagged it as different this time, but the two businesses are entangled in its sources.",
+      "evidence": [
+        {
+          "provider": "claude-websearch",
+          "engine": "Claude web search (session-run)",
+          "mode": "manual",
+          "query": "Stefanina's Pizzeria Wentzville MO address phone hours specials",
+          "observed_at": "2026-10-15T20:36:00Z",
+          "ai_quote": "Conflict to note: A prospecting site lists an O'Fallon headquarters address (8645 Veterans Memorial Pkwy).",
+          "evidence_url": "https://www.sluurpy.com/fr/wentzville/restaurant/4120750/stefanina-s-pizzeria",
+          "citations": [
+            "https://www.sluurpy.com/fr/wentzville/restaurant/4120750/stefanina-s-pizzeria",
+            "https://www.toasttab.com/local/wentzville-mo-restaurants/best-pizza",
+            "https://prospeo.io/c/stefanina-s-pizzeria-email-format"
+          ]
+        }
+      ],
+      "current": true,
+      "history_only": false,
+      "times_seen": 1
+    },
+    {
+      "key": "ownsite:menu_not_text",
+      "field": "offers",
+      "type": "menu_not_text",
+      "title": "Your menu and prices are not machine-readable",
+      "severity": "low",
+      "true_value": "The menu page has almost no readable text (the menu appears to be images or an embedded widget), so AI engines cannot read your real prices and specials and fall back to third-party listings.",
+      "true_source": "https://www.stefaninas-wentzville.com/menu",
+      "explanation": "Publish the menu and current specials as text on your own site.",
+      "evidence": [],
+      "current": true,
+      "history_only": false,
+      "times_seen": 0
+    },
+    {
+      "key": "phone:missing",
+      "field": "phone",
+      "type": "phone_not_found",
+      "title": "AI only sometimes finds your phone number",
+      "severity": "low",
+      "true_value": "(636) 327-5800",
+      "true_source": "https://www.stefaninas-wentzville.com",
+      "explanation": "The same engine found it for one question and not for another, so customers get a different answer depending on how they ask.",
+      "evidence": [
+        {
+          "provider": "claude-websearch",
+          "engine": "Claude web search (session-run)",
+          "mode": "manual",
+          "query": "Stefanina's Wentzville phone number",
+          "observed_at": "2026-10-15T20:46:00Z",
+          "ai_quote": "The search didn't turn up Stefanina's phone number.",
+          "evidence_url": "https://ground.news/interest/wentzville",
+          "citations": [
+            "https://ground.news/interest/wentzville"
+          ]
+        }
+      ],
+      "current": true,
+      "history_only": false,
+      "times_seen": 1
+    }
+  ],
+  "confirmations": [
+    {
+      "field": "phone",
+      "provider": "claude-websearch",
+      "engine": "Claude web search (session-run)",
+      "observed_at": "2026-10-15T20:36:00Z",
+      "ai_quote": "Stefanina's Pizzeria is at 762 W. Pearce Blvd in Wentzville, MO 63385, and the phone number is (636) 327-5800."
+    },
+    {
+      "field": "address",
+      "provider": "claude-websearch",
+      "engine": "Claude web search (session-run)",
+      "observed_at": "2026-10-15T20:36:00Z",
+      "ai_quote": "Stefanina's Pizzeria is at 762 W. Pearce Blvd in Wentzville, MO 63385, and the phone number is (636) 327-5800."
+    },
+    {
+      "field": "address",
+      "provider": "claude-websearch",
+      "engine": "Claude web search (session-run)",
+      "observed_at": "2026-10-15T20:36:00Z",
+      "ai_quote": "Two directory listings agree on both: one lists it as 762 W Pearce Blvd, Wentzville, MO 63385, and another gives Téléphone: +1 636-327-5800."
+    },
+    {
+      "field": "phone",
+      "provider": "claude-websearch",
+      "engine": "Claude web search (session-run)",
+      "observed_at": "2026-10-15T20:45:00Z",
+      "ai_quote": "It lists the phone number as 636-327-5800, which is the best way to confirm any current promotions."
+    },
+    {
+      "field": "address",
+      "provider": "claude-websearch",
+      "engine": "Claude web search (session-run)",
+      "observed_at": "2026-10-15T20:45:00Z",
+      "ai_quote": "- Toast listing (762 W. Pearce Blvd): A \"Family Pizza Special\" is listed at $30.00 and includes a large single-ingredient pizza, house salad, and garlic cheese bread."
+    }
+  ]
+}

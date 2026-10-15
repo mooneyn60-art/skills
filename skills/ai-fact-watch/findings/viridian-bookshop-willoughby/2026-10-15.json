@@ -1,0 +1,324 @@
+{
+  "slug": "viridian-bookshop-willoughby",
+  "name": "The Viridian Bookshop",
+  "date": "2026-10-15",
+  "generated_at": "2026-10-15T20:25:07+00:00",
+  "answers_file": "answers/viridian-bookshop-willoughby/2026-10-15.json",
+  "engines": [
+    "Claude web search (session-run)",
+    "Google AI Overview (reported by Cleveland Magazine)",
+    "Google AI Overview (reported by Spectrum News)"
+  ],
+  "runs": [
+    {
+      "run_at": "2026-10-15T20:18:23+00:00",
+      "location": "Willoughby, OH",
+      "providers_run": [
+        "claude-websearch",
+        "google-ai-overview (press report)"
+      ],
+      "providers_skipped": [],
+      "imported_from": "../answers/viridian-bookshop-willoughby/2026-10-15.claude-websearch.import.json"
+    }
+  ],
+  "score": 79,
+  "flags": {
+    "status": {
+      "label": "Open / closed",
+      "flag": "yellow",
+      "findings": 1,
+      "confirmations": 0
+    },
+    "hours": {
+      "label": "Hours",
+      "flag": "yellow",
+      "findings": 1,
+      "confirmations": 0
+    },
+    "address": {
+      "label": "Address",
+      "flag": "green",
+      "findings": 0,
+      "confirmations": 7
+    },
+    "phone": {
+      "label": "Phone",
+      "flag": "yellow",
+      "findings": 1,
+      "confirmations": 0
+    },
+    "offers": {
+      "label": "Deals & prices",
+      "flag": "grey",
+      "findings": 0,
+      "confirmations": 0
+    },
+    "legal": {
+      "label": "Legal / reputation",
+      "flag": "grey",
+      "findings": 0,
+      "confirmations": 0
+    },
+    "identity": {
+      "label": "Right business",
+      "flag": "grey",
+      "findings": 0,
+      "confirmations": 0
+    },
+    "visibility": {
+      "label": "Official sources",
+      "flag": "yellow",
+      "findings": 2,
+      "confirmations": 0
+    }
+  },
+  "findings": [
+    {
+      "key": "status:says-closed",
+      "field": "status",
+      "type": "says_closed",
+      "title": "AI says the business is closed",
+      "severity": "critical",
+      "true_value": "Open: Website is live and lists current hours; page last modified 2026-08-11T15:14:21+00:00. No closure notice on the site.",
+      "true_source": "https://viridianbookshop.com",
+      "explanation": "Customers who read this will not come. This is the most damaging error type.",
+      "evidence": [
+        {
+          "provider": "google-ai-overview (press report)",
+          "engine": "Google AI Overview (reported by Spectrum News)",
+          "mode": "press-report",
+          "query": "The Viridian Bookshop (Google search, as reported)",
+          "observed_at": "2026-07-23T21:38:00Z",
+          "ai_quote": "The AI summary said the bookshop was \"permanently closed\" and listed an incorrect address a few doors down from the store.",
+          "evidence_url": "https://spectrumnews1.com/oh/cincinnati/news/2026/07/23/bookshop-ai-battle",
+          "citations": []
+        },
+        {
+          "provider": "google-ai-overview (press report)",
+          "engine": "Google AI Overview (reported by Cleveland Magazine)",
+          "mode": "press-report",
+          "query": "The Viridian Bookshop (Google search, as reported)",
+          "observed_at": "2026-09-04T12:00:00Z",
+          "ai_quote": "The AI Overview told searchers The Viridian Bookshop was closed for good, listed an address a few doors down from her actual storefront, and later said the shop never even existed.",
+          "evidence_url": "https://clevelandmagazine.com/articles/willoughby-bookstore-confronts-google-ai-error-claiming-it-was-permanently-closed/",
+          "citations": []
+        }
+      ],
+      "current": false,
+      "history_only": true,
+      "times_seen": 2
+    },
+    {
+      "key": "address:wrong:reported",
+      "field": "address",
+      "type": "wrong_address",
+      "title": "AI gives a wrong street address",
+      "severity": "high",
+      "true_value": "4081 Erie St, Willoughby, OH 44094",
+      "true_source": "https://viridianbookshop.com",
+      "explanation": "The address shown points to a different storefront.",
+      "evidence": [
+        {
+          "provider": "google-ai-overview (press report)",
+          "engine": "Google AI Overview (reported by Spectrum News)",
+          "mode": "press-report",
+          "query": "The Viridian Bookshop (Google search, as reported)",
+          "observed_at": "2026-07-23T21:38:00Z",
+          "ai_quote": "The AI summary said the bookshop was \"permanently closed\" and listed an incorrect address a few doors down from the store.",
+          "evidence_url": "https://spectrumnews1.com/oh/cincinnati/news/2026/07/23/bookshop-ai-battle",
+          "citations": []
+        },
+        {
+          "provider": "google-ai-overview (press report)",
+          "engine": "Google AI Overview (reported by Cleveland Magazine)",
+          "mode": "press-report",
+          "query": "The Viridian Bookshop (Google search, as reported)",
+          "observed_at": "2026-09-04T12:00:00Z",
+          "ai_quote": "The AI Overview told searchers The Viridian Bookshop was closed for good, listed an address a few doors down from her actual storefront, and later said the shop never even existed.",
+          "evidence_url": "https://clevelandmagazine.com/articles/willoughby-bookstore-confronts-google-ai-error-claiming-it-was-permanently-closed/",
+          "citations": []
+        }
+      ],
+      "current": false,
+      "history_only": true,
+      "times_seen": 2
+    },
+    {
+      "key": "hours:missing",
+      "field": "hours",
+      "type": "hours_not_found",
+      "title": "AI cannot find your hours",
+      "severity": "medium",
+      "true_value": "Mon closed, Tue 10am-9pm, Wed 12pm-9pm, Thu 12pm-9pm, Fri 10am-9pm, Sat 10am-9pm, Sun 11am-5pm",
+      "true_source": "https://viridianbookshop.com",
+      "explanation": "Your hours are on your website but the engine did not find them, so it tells customers to call or guess.",
+      "evidence": [
+        {
+          "provider": "claude-websearch",
+          "engine": "Claude web search (session-run)",
+          "mode": "manual",
+          "query": "Viridian Bookshop Willoughby hours",
+          "observed_at": "2026-10-15T20:40:30Z",
+          "ai_quote": "The search didn't turn up hours for The Viridian Bookshop in Willoughby.",
+          "evidence_url": "https://bookshop.org/shop/ViridianBookshop",
+          "citations": [
+            "https://bookshop.org/shop/ViridianBookshop",
+            "https://clevelandmagazine.com/articles/downtown-willoughby-welcomes-the-viridian-bookshop-in-october"
+          ]
+        }
+      ],
+      "current": true,
+      "history_only": false,
+      "times_seen": 1
+    },
+    {
+      "key": "phone:missing",
+      "field": "phone",
+      "type": "phone_not_found",
+      "title": "AI cannot find your phone number",
+      "severity": "medium",
+      "true_value": "(440) 525-5185",
+      "true_source": "https://viridianbookshop.com",
+      "explanation": "Your number is on your website but the engine did not surface it.",
+      "evidence": [
+        {
+          "provider": "claude-websearch",
+          "engine": "Claude web search (session-run)",
+          "mode": "manual",
+          "query": "Viridian Bookshop Willoughby phone number",
+          "observed_at": "2026-10-15T20:41:00Z",
+          "ai_quote": "The search didn't turn up a phone number for The Viridian Bookshop.",
+          "evidence_url": "https://bookshop.org/shop/ViridianBookshop",
+          "citations": [
+            "https://bookshop.org/shop/ViridianBookshop",
+            "https://clevelandmagazine.com/articles/downtown-willoughby-welcomes-the-viridian-bookshop-in-october"
+          ]
+        }
+      ],
+      "current": true,
+      "history_only": false,
+      "times_seen": 1
+    },
+    {
+      "key": "status:unconfirmed",
+      "field": "status",
+      "type": "cannot_confirm_open",
+      "title": "AI cannot confirm the business is open",
+      "severity": "medium",
+      "true_value": "Open",
+      "true_source": "https://viridianbookshop.com",
+      "explanation": "The engine found no current, trustworthy signal that you are open. That gap is what lets a wrong 'closed' answer take hold.",
+      "evidence": [
+        {
+          "provider": "claude-websearch",
+          "engine": "Claude web search (session-run)",
+          "mode": "manual",
+          "query": "is The Viridian Bookshop in Willoughby Ohio open",
+          "observed_at": "2026-10-15T20:40:00Z",
+          "ai_quote": "I couldn't confirm whether The Viridian Bookshop is open right now.",
+          "evidence_url": "https://clevelandmagazine.com/articles/downtown-willoughby-welcomes-the-viridian-bookshop-in-october",
+          "citations": [
+            "https://clevelandmagazine.com/articles/downtown-willoughby-welcomes-the-viridian-bookshop-in-october",
+            "https://bookshop.org/shop/ViridianBookshop"
+          ]
+        }
+      ],
+      "current": true,
+      "history_only": false,
+      "times_seen": 1
+    },
+    {
+      "key": "visibility:no-site:claude-websearch",
+      "field": "visibility",
+      "type": "official_site_not_used",
+      "title": "AI does not use your official website as a source",
+      "severity": "medium",
+      "true_value": "https://viridianbookshop.com",
+      "true_source": "https://viridianbookshop.com",
+      "explanation": "None of the 6 answers from this engine cited viridianbookshop.com. It relied on news articles and third-party directories instead, which is how stale or invented facts get in.",
+      "evidence": [
+        {
+          "provider": "claude-websearch",
+          "engine": "Claude web search (session-run)",
+          "mode": "manual",
+          "query": "Viridian Bookshop Willoughby deals specials discounts",
+          "observed_at": "2026-10-15T20:41:30Z",
+          "ai_quote": "I did not find a dedicated website or social account for the store in these results.",
+          "evidence_url": "https://bookshop.org/shop/ViridianBookshop",
+          "citations": [
+            "https://bookshop.org/shop/ViridianBookshop",
+            "https://clevelandmagazine.com/articles/downtown-willoughby-welcomes-the-viridian-bookshop-in-october"
+          ]
+        }
+      ],
+      "current": true,
+      "history_only": false,
+      "times_seen": 1
+    },
+    {
+      "key": "ownsite:no-schema",
+      "field": "visibility",
+      "type": "no_structured_data",
+      "title": "Your website has no LocalBusiness structured data",
+      "severity": "low",
+      "true_value": "No schema.org LocalBusiness block found",
+      "true_source": "https://viridianbookshop.com",
+      "explanation": "Structured data is the cleanest way to tell search and AI engines your hours, address and phone. The Fix Kit includes a ready block.",
+      "evidence": [],
+      "current": true,
+      "history_only": false,
+      "times_seen": 0
+    }
+  ],
+  "confirmations": [
+    {
+      "field": "address",
+      "provider": "claude-websearch",
+      "engine": "Claude web search (session-run)",
+      "observed_at": "2026-10-15T20:40:00Z",
+      "ai_quote": "- Location and opening: A Cleveland Magazine article from September 2025 said the shop was set to open in October 2025 in the former Eastside Relics antique space at 4081 Erie St. in downtown Willoughby."
+    },
+    {
+      "field": "address",
+      "provider": "claude-websearch",
+      "engine": "Claude web search (session-run)",
+      "observed_at": "2026-10-15T20:40:00Z",
+      "ai_quote": "- Location and opening: A Cleveland Magazine article from September 2025 said the shop was set to open in October 2025 in the former Eastside Relics antique space at 4081 Erie St. in downtown Willoughby."
+    },
+    {
+      "field": "address",
+      "provider": "claude-websearch",
+      "engine": "Claude web search (session-run)",
+      "observed_at": "2026-10-15T20:40:30Z",
+      "ai_quote": "What I did confirm about the shop: the building at 4081 Erie St. in Downtown Willoughby was formerly an antique shop, and Cleveland Magazine's September 2025 article covers the store's October opening."
+    },
+    {
+      "field": "address",
+      "provider": "claude-websearch",
+      "engine": "Claude web search (session-run)",
+      "observed_at": "2026-10-15T20:41:00Z",
+      "ai_quote": "The building at 4081 Erie St. in Downtown Willoughby was formerly an antique shop, and the store opened in October 2025, per Cleveland Magazine's coverage."
+    },
+    {
+      "field": "address",
+      "provider": "claude-websearch",
+      "engine": "Claude web search (session-run)",
+      "observed_at": "2026-10-15T20:41:30Z",
+      "ai_quote": "- Background: A Cleveland Magazine article from September 2025 reports that the store opened in October 2025 at 4081 Erie St., in the former Eastside Relics antique shop building."
+    },
+    {
+      "field": "address",
+      "provider": "claude-websearch",
+      "engine": "Claude web search (session-run)",
+      "observed_at": "2026-10-15T20:42:00Z",
+      "ai_quote": "It describes the shop as a community-focused store at 4081 Erie St. in Downtown Willoughby, in a building that was formerly an antique shop."
+    },
+    {
+      "field": "address",
+      "provider": "claude-websearch",
+      "engine": "Claude web search (session-run)",
+      "observed_at": "2026-10-15T20:42:30Z",
+      "ai_quote": "The Viridian Bookshop's street address is 4081 Erie St., in downtown Willoughby, Ohio."
+    }
+  ]
+}

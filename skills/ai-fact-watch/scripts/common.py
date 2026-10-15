@@ -307,7 +307,7 @@ def hours_to_text(h: dict) -> str:
     for d in DAYS:
         v = h.get(d)
         if v is None:
-            parts.append(f"{d.title()} ?")
+            parts.append(f"{d.title()} not listed")
         elif v == "closed":
             parts.append(f"{d.title()} closed")
         else:
@@ -327,25 +327,42 @@ def fmt_time(t: str | None) -> str:
 
 
 # -------------------------------------------------------------- sentences
-def sentence_around(text: str, start: int, end: int, max_len: int = 320) -> str:
+ABBREV = {"w", "e", "n", "s", "st", "ave", "blvd", "rd", "dr", "ln", "mr", "mrs", "ms", "inc", "co",
+          "vs", "jan", "feb", "mar", "apr", "jun", "jul", "aug", "sep", "sept", "oct", "nov", "dec",
+          "no", "ste", "pkwy", "hwy", "mt", "ft", "u.s", "e.g", "i.e", "approx", "jr", "sr"}
+BOUNDARY_RE = re.compile(r"[.!?](?=[\s\n]+[\"'\u201c(\-]?[A-Z0-9\-])|\n+")
+
+
+def sentence_spans(text: str) -> list[tuple[int, int]]:
+    """Sentence (start, end) spans that do not split on "W. Pearce", "$30.00",
+    "Sep. 22" or other abbreviations."""
+    spans, start = [], 0
+    for m in BOUNDARY_RE.finditer(text or ""):
+        if m.group(0) == ".":
+            word = re.search(r"([\w.]+)$", text[start:m.start()])
+            if word and word.group(1).lower().rstrip(".") in ABBREV:
+                continue
+        end = m.end()
+        if text[start:end].strip():
+            spans.append((start, end))
+        start = end
+    if text and text[start:].strip():
+        spans.append((start, len(text)))
+    return spans
+
+
+def sentence_around(text: str, start: int, end: int, max_len: int = 360) -> str:
     """The exact sentence of `text` containing [start:end], trimmed but never
     paraphrased, so reports can quote the AI verbatim."""
-    left = max(text.rfind(". ", 0, start), text.rfind("\n", 0, start))
-    left = 0 if left < 0 else left + 1
-    right_candidates = [i for i in (text.find(". ", end), text.find("\n", end)) if i >= 0]
-    right = min(right_candidates) + 1 if right_candidates else len(text)
-    s = text[left:right].strip()
-    if len(s) > max_len:
-        mid = (start - left)
-        lo = max(0, mid - max_len // 2)
-        s = ("…" if lo else "") + s[lo:lo + max_len].strip() + "…"
-    return s
+    for a, b in sentence_spans(text):
+        if a <= start < b:
+            s = text[a:b].strip()
+            if len(s) > max_len:
+                off = max(0, start - a - max_len // 3)
+                s = ("\u2026" if off else "") + text[a + off:a + off + max_len].strip() + "\u2026"
+            return s
+    return text[max(0, start - 100):end + 100].strip()
 
 
 def sentences(text: str) -> list[tuple[str, int]]:
-    out, pos = [], 0
-    for m in re.finditer(r"[^.!?\n]+[.!?]?", text or ""):
-        if m.group(0).strip():
-            out.append((m.group(0).strip(), m.start()))
-        pos = m.end()
-    return out
+    return [(text[a:b].strip(), a) for a, b in sentence_spans(text)]

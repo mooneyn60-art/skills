@@ -273,14 +273,14 @@ class Doc:
         """Printable title page (also used as the hero of listing image 1)."""
         t, w, h, m = self.t, self.w, self.h, self.m
         self.new_page(footer=False)
-        self.rect(m, m, w - 2 * m, h - 2 * m, fill=t["paper"])
-        self.rect(m + 10, m + 10, w - 2 * m - 20, h - 2 * m - 20, stroke=t["accent"], width=1.4)
-        self.rect(m + 15, m + 15, w - 2 * m - 30, h - 2 * m - 30, stroke=t["accent"], width=0.5)
+        self.rect(0, 0, w, h, fill=t["paper"])
+        self.rect(m, m, w - 2 * m, h - 2 * m, stroke=t["accent"], width=1.6)
+        self.rect(m + 6, m + 6, w - 2 * m - 12, h - 2 * m - 12, stroke=t["accent"], width=0.6)
         # scattered ornaments in the top and bottom bands (deterministic layout)
-        for i in range(9):
-            fx = (i + 0.5) / 9
-            for band, dy in ((h - m - 70, 0), (m + 70, 0)):
-                r = 7 + (i * 7 % 5)
+        for i in range(7):
+            fx = (i + 0.5) / 7
+            for band, dy in ((h - m - 80, 0), (m + 80, 0)):
+                r = 10 + (i * 7 % 5) * 1.6
                 col = [t["primary"], t["secondary"], t["accent"]][i % 3]
                 self.ornament(m + 30 + fx * (w - 2 * m - 60), band + (12 if i % 2 else -12) + dy, r, col)
         size = 64 if len(lines) <= 2 else 54
@@ -292,10 +292,10 @@ class Doc:
             y -= size * 1.08
         y += size * 0.35
         self.ornament_rule(y - 6, 230)
-        self.para(m + 60, y - 42, subtitle, "WorkSans-Regular", 17, w - 2 * m - 120, 23, t["ink"], "center")
-        bw = (w - 2 * m - 120) / max(1, len(badges))
+        self.para(m + 50, y - 44, subtitle, "WorkSans-Regular", 19, w - 2 * m - 100, 26, t["ink"], "center")
+        bw = (w - 2 * m - 80) / max(1, len(badges))
         for i, b in enumerate(badges):
-            cx = m + 60 + bw * (i + 0.5)
-            self.rect(cx - bw / 2 + 6, h * 0.25, bw - 12, 34, fill=t["primary"], radius=17)
-            self.text(cx, h * 0.25 + 12, b.upper(), "WorkSans-Bold", 11, "#FFFFFF", "center", max_w=bw - 26)
+            cx = m + 40 + bw * (i + 0.5)
+            self.rect(cx - bw / 2 + 6, h * 0.25, bw - 12, 40, fill=t["primary"], radius=20)
+            self.text(cx, h * 0.25 + 14, b.upper(), "WorkSans-Bold", 13, "#FFFFFF", "center", max_w=bw - 30)
         self.end_page()
