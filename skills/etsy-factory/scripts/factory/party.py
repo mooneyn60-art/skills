@@ -12,16 +12,17 @@ def how_to_page(doc, title, steps, extra_title=None, extra=None):
     for i, step in enumerate(steps, 1):
         doc.circle(m + 34, y - 4, 14, fill=t["primary"])
         doc.text(m + 34, y - 9, str(i), "WorkSans-Bold", 13, "#FFFFFF", "center")
-        y = doc.para(m + 62, y, step, "WorkSans-Regular", 15, w - 2 * m - 90, 21, t["ink"]) - 16
+        y = doc.para(m + 62, y, step, "WorkSans-Regular", 17, w - 2 * m - 90, 24, t["ink"]) - 20
     if extra:
         y -= 10
-        doc.rect(m + 16, m + 24, w - 2 * m - 32, y - m - 24, fill=t["tint"], radius=14)
+        need = 70 + sum(len(doc.lines(e, "WorkSans-Regular", 15, w - 2 * m - 100)) * 21 + 10 for e in extra)
+        doc.rect(m + 16, y - need, w - 2 * m - 32, need, fill=t["tint"], radius=14)
         yy = y - 34
         doc.text(w / 2, yy, extra_title, "Display", 22, t["primary"], "center")
         yy -= 30
         for e in extra:
             doc.ornament(m + 46, yy + 5, 5, t["secondary"])
-            yy = doc.para(m + 62, yy, e, "WorkSans-Regular", 13.5, w - 2 * m - 100, 19, t["ink"]) - 8
+            yy = doc.para(m + 62, yy, e, "WorkSans-Regular", 15, w - 2 * m - 100, 21, t["ink"]) - 10
 
 
 # ---------------------------------------------------------------- bingo
@@ -70,16 +71,17 @@ def render_bingo(doc, spec, _built=None):
     # cards
     letters = c.get("header_letters", "BINGO")
     colors = [t["primary"], t["secondary"], t["accent"], t["primary"], t["secondary"]]
-    grid_w = min(w - 2 * m - 30, 470)
+    grid_w = min(w - 2 * m - 20, h - 2 * m - 190)
     cell = grid_w / 5
     for k, card in enumerate(cards, 1):
         doc.new_page()
         top = h - m
         doc.text(w / 2, top - 44, c["card_title"], "Display", 40, t["primary"], "center", max_w=w - 2 * m)
-        doc.ornament(w / 2 - 170, top - 30, 9, t["accent"])
-        doc.ornament(w / 2 + 170, top - 30, 9, t["accent"])
+        tw = doc.c.stringWidth(c["card_title"], "Display", 40) / 2 + 26
+        doc.ornament(w / 2 - tw, top - 30, 10, t["accent"])
+        doc.ornament(w / 2 + tw, top - 30, 10, t["accent"])
         x0 = (w - grid_w) / 2
-        hy = top - 100
+        hy = top - 106
         for i, L in enumerate(letters):
             cx = x0 + cell * (i + 0.5)
             doc.circle(cx, hy, cell * 0.33, fill=colors[i])
@@ -97,11 +99,11 @@ def render_bingo(doc, spec, _built=None):
                 doc.ornament(x + cell / 2, ytop - cell * 0.42, cell * 0.2, t["secondary"])
                 doc.text(x + cell / 2, ytop - cell * 0.82, c.get("free_label", "FREE"), "WorkSans-Bold", 12, t["primary"], "center")
             else:
-                doc.para_fit(x + 6, ytop - 6, word, "WorkSans-Bold", 15, cell - 12, cell - 12, t["ink"])
+                doc.para_fit(x + 7, ytop - 7, word, "WorkSans-Bold", 17, cell - 14, cell - 14, t["ink"])
         doc.text(w / 2, gy - 5 * cell - 34, f"Card {k}", "WorkSans-Regular", 11, t["muted"], "center")
 
     # calling cards to cut out
-    per_cols, per_rows = 4, 6
+    per_cols, per_rows = 4, 5
     per = per_cols * per_rows
     for start in range(0, len(pool), per):
         doc.new_page()
@@ -113,7 +115,7 @@ def render_bingo(doc, spec, _built=None):
             r, col = divmod(k, per_cols)
             x, ytop = m + col * cw, top - r * ch
             doc.ornament(x + cw / 2, ytop - 18, 6, t["accent"])
-            doc.para_fit(x + 10, ytop - 26, word, "WorkSans-Bold", 15, cw - 20, ch - 36, t["primary"])
+            doc.para_fit(x + 10, ytop - 26, word, "WorkSans-Bold", 18, cw - 20, ch - 36, t["primary"])
     closing_page(doc, spec)
 
 

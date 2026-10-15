@@ -1,0 +1,35 @@
+{
+  "_note": "Fetched 2026-10-15. Print costs are from Lulu's public pricing-calculator backend (the same GraphQL query that www.lulu.com/pricing runs; free, unauthenticated, no account) and they match the official Product Specification Sheet arithmetic (base + pages x per-page). Shipping is the public calculator's US quote for qty 1-3. Re-check before launch with the authenticated Print API endpoint POST /print-job-cost-calculations/, which also adds the fulfillment fee and sales tax.",
+  "sources": {
+    "spec_sheet": "https://assets.lulu.com/media/specs/lulu-print-api-spec-sheet.xlsx",
+    "pricing_calculator": "https://www.lulu.com/pricing",
+    "developer_calculator": "https://developers.lulu.com/price-calculator",
+    "book_creation_guide": "https://assets.lulu.com/media/guides/en/lulu-book-creation-guide.pdf",
+    "cover_template_api": "https://api.lulu.com/cover/api/v1/template/?binding_type=CW&mode=full&interior_height=8.5&interior_width=8.5&num_pages=32&pages_per_inch=444&target=print&theme=lulu2",
+    "print_api_openapi": "https://api.lulu.com/api-docs/openapi-specs/openapi_public.yml",
+    "fulfillment_fee": "https://help.api.lulu.com/en/support/solutions/articles/64000265990-per-order-fulfillment-fee",
+    "stripe_pricing": "https://stripe.com/pricing"
+  },
+  "spec_sheet_rows": {
+    "0850X0850.FC.PRE.CW.080CW444.MXX": {"base_usd": 10.98, "per_page_usd": 0.2148, "min_pages": 24, "max_pages": 800, "bleed_size_in": [8.75, 8.75]},
+    "0850X0850.FC.STD.CW.080CW444.MXX": {"base_usd": 10.98, "per_page_usd": 0.0635, "min_pages": 24, "max_pages": 800, "bleed_size_in": [8.75, 8.75]},
+    "8x10_note": "There is no 8x10 trim in Lulu's Print API spec sheet. The nearest casewrap trims are 0700X1000 (7x10), 0750X0750 (7.5x7.5) and 0850X1100 (8.5x11)."
+  },
+  "manufacturing_cost_usd": {
+    "0850X0850FCPRECW080CW444MXX (premium color, 80# coated, matte casewrap)": {"24": 16.14, "32": 17.85, "40": 19.57, "48": 21.29},
+    "0850X0850FCSTDCW080CW444MXX (standard color, 80# coated, matte casewrap)": {"24": 12.50, "32": 13.01, "40": 13.52, "48": 14.03}
+  },
+  "us_shipping_usd_premium_40pp": {
+    "qty_1": {"Mail (11-14 days, tracked)": 5.69, "Ground Home (9-12)": 13.74, "Priority Mail (9-12)": 14.74, "Expedited (6-9)": 20.74, "Express (5-8)": 35.74},
+    "qty_2": {"Mail": 6.94, "Ground Home": 14.99, "Expedited": 23.74},
+    "qty_3": {"Mail": 7.69, "Ground Home": 15.74, "Expedited": 26.24}
+  },
+  "fees": {"lulu_fulfillment_per_order_usd": 0.75, "stripe_card": "2.9% + $0.30", "stripe_tax_no_code": "0.5% where registered"},
+  "cover_dimensions_casewrap_8.5x8.5": {
+    "formula_in": "width = 2*(8.5+0.25 board) + spine + 2*0.625 wrap; height = 8.5 + 0.5 board + 2*0.625 wrap",
+    "verified_from_template_endpoint": {"24pp": "19 x 10.25 (spine 0.25)", "84pp": "19 x 10.25 (spine 0.25)", "85pp": "19.25 x 10.25 (spine 0.5)", "141pp": "19.375 x 10.25 (spine 0.625)"},
+    "board_trim_in": [8.75, 9.0],
+    "wrap_in": 0.625,
+    "safety_from_wrap_edge_in": 0.625
+  }
+}

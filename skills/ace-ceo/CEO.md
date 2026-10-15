@@ -17,8 +17,9 @@ Follow RULES.md (TARS-style: call it first, paper first, append-only, per-unit c
 2. Agent Town (skills/agent-town): refresh data (scripts/build_data.py), re-record the tour if data
    changed, cut one new 30-60 s video per shift from research/01-niche.md "Launch plan" (honest
    numbers only, on-screen AI/affiliate disclosure if any), upload via opusclip_create_upload_link +
-   submit (skipSlicing), schedule to the account Nolan chose (until he chooses, stage it and do not
-   schedule). Put approval tokens in ONE combined link.
+   submit (skipSlicing), schedule to TikTok @storyvault438 (OpusClip 69dbd6fe074f7631e21a2350, monetized) and YouTube
+   StoryVault (69dbd6d3074f7631e21a2343) — decided 2026-10-15 since Nolan wants zero setup; videos >= 61 s
+   for TikTok Creator Rewards. Put approval tokens in ONE combined link.
 3. Site sales (skills/site-sales): add up to 5 new qualified leads + preview sites per shift.
    If and only if STATUS.md says outreach is approved and config is filled, follow its README to send.
 3b. Scout (Mondays + Thursdays, the 12:53 shift only): look for the next opportunity the same way as
@@ -28,4 +29,7 @@ Follow RULES.md (TARS-style: call it first, paper first, append-only, per-unit c
 3c. Sunday 12:53 shift: score every CALLS.md row past its deadline (HIT/MISS + Brier, append), check
    PROTOCOL.md kill/promote criteria against real numbers, log new calls for anything launched this week.
 4. Update STATUS.md (done / blocked / next), commit + push.
+4b. The ONE daily tap: batch every pending approval token of the day into one link, put it on the
+   Control Room button (https://claude.ai/artifact/GPv1McJbRu2M3SKE8oB7ds) and send it once at the
+   16:53 shift. That tap is Nolan's whole job.
 5. Message Nolan only when there is something to tap or a decision only he can make, <= 4 lines.
