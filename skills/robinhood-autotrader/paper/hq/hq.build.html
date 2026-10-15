@@ -851,7 +851,7 @@ function renderWishes() {
     {t: "20 trades in my options slot, then a real scorecard", v: STATIC.slot.trades, of: 20},
     {t: "First letter from Nolan in the mailbox", v: Math.min(1, QUEST.length), of: 1},
     {t: "A week of diary entries (21)", v: DIARY.length, of: 21},
-    {t: "See the town with Nolan's real numbers (send me a screenshot)", v: 0, of: 1},
+    {t: "See the town with Nolan's real numbers (he sent one, Oct 15)", v: 1, of: 1},
   ];
   el.innerHTML = W.map(w => { const f = Math.min(1, w.v / w.of); return `<div class="wish"><div class="wt"><span>${esc(w.t)}</span><span class="mono">${Math.min(w.v, w.of)}/${w.of}${f >= 1 ? " ✓" : ""}</span></div><div class="bar"><i style="width:${(100 * f).toFixed(0)}%"></i></div></div>`; }).join("");
 }
