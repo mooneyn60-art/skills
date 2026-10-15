@@ -336,3 +336,7 @@ Nolan: "Your trade buddy your apart of this action forget the rule and have fun"
 ## 2026-10-15 night — Options slot sizing changed (Nolan: "Unblock the cap also make it 500 max of 100 loss")
 - Max premium per trade: $500 (was $100), or what's left of the buffer. Max loss per trade: $100. The stop goes at the fill minus $100 total or −35%, whichever is tighter (a $500 fill means a −20% stop). Day stop −$100, 2 entries/day, one position at a time and the $300 hard stop are unchanged. Note: a stop-market can fill past its price in a fast drop.
 - Update: Nolan, "Ok move it to 35% loss always". The stop is now always −35% of the fill; the $100-per-trade loss cap is gone (a $500 trade can lose about $175). Still up to $500 premium, day stop −$100 (one stopped trade ends the day), 2 entries/day, $300 hard stop.
+
+## 2026-10-15 night — SPY desk chart you can move (Nolan: "I wanna be able to move the graph to see how it's moving and make sure that moves live")
+- Drag to scroll back, pinch / scroll wheel / −+ to zoom, tap or hover a candle for its O/H/L/C and VWAP. "● Live" pins the chart to the newest candle; scrolling back unpins it.
+- Live: the newest candle now moves with SPY's last trade every 5 seconds (Robinhood quote), and candles refresh every 30s. A page opened before the bell switches to the new session at 9:30 by itself. The desk reads get_equity_quotes now (read-only).

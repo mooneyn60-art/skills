@@ -44,7 +44,7 @@ h2{font-family:var(--display);font-weight:500;font-size:1.1rem;letter-spacing:.0
 .toolbar .sep{width:1px;background:var(--line);margin:0 4px}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 canvas{display:block;width:100%}
-#chart{height:430px} #rsi{height:90px;margin-top:4px}
+#chart{height:430px;touch-action:pan-y;cursor:grab} #liveBtn[aria-pressed="true"]{color:var(--up);border-color:var(--up)} #rsi{height:90px;margin-top:4px}
 @media (max-width:600px){#chart{height:330px}}
 .cols{display:grid;grid-template-columns:1.2fr 1fr;gap:14px}
 @media (max-width:820px){.cols{grid-template-columns:1fr}}
@@ -125,7 +125,12 @@ textarea{width:100%;resize:vertical;min-height:54px;font-family:var(--body)}
       <span class="sep" aria-hidden="true"></span>
       <button type="button" data-v="full" aria-pressed="true">Full day</button>
       <button type="button" data-v="90" aria-pressed="false">Last 90 min</button>
+      <span class="sep" aria-hidden="true"></span>
+      <button type="button" data-z="out" aria-label="Zoom out">−</button>
+      <button type="button" data-z="in" aria-label="Zoom in">+</button>
+      <button type="button" id="liveBtn" aria-pressed="true">● Live</button>
     </div>
+    <p class="rec" style="margin:0 0 6px">Drag the chart to scroll back · pinch, scroll wheel or −/+ to zoom · tap or hover a candle to read it · ● Live jumps back to now.</p>
     <canvas id="chart" aria-label="SPY candles with indicators"></canvas>
     <canvas id="rsi" aria-label="RSI 14"></canvas>
     <div class="legend">
@@ -227,6 +232,9 @@ const CL = window.claude && window.claude.use ? window.claude : {use: async () =
 const $ = s => document.querySelector(s);
 const layers = {pos: true, em: true, vwap: true, ema: true, levels: true, pools: true, fvg: true, fib: false, sig: true};
 let view = "full";
+let zoomN = null, follow = true, vEnd = 0, hoverI = null; // chart viewport (null zoom = the preset view)
+const CH = {start: 0, end: 0, n: 1, xw: 1, L: 52, total: 0};
+const maxN = () => Math.max(S.bars.length, Math.ceil(390 / size));
 const S = {b1: [], bars: [], map: [], prev: null, day: null, updated: null, live: false};
 let size = 1; try { size = [1, 2, 5, 15, 30].includes(+localStorage.getItem("desk.size")) ? +localStorage.getItem("desk.size") : 1; } catch (e) {}
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"})[c]);
@@ -430,10 +438,15 @@ function draw() {
   g.clearRect(0, 0, W, H);
   g.font = "10px " + css("--mono");
   if (!all.length) { g.fillStyle = css("--muted"); g.fillText("Waiting for SPY bars from Robinhood…", 12, 24); canvasCtx("#rsi"); return; }
-  const win = Math.ceil(90 / size), start = view === "90" ? Math.max(0, all.length - win) : 0;
-  const bars = all.slice(start), st = S.st, sigs = S.sigs;
-  const L = 52, R = 62, T = 8, B = 18, n = Math.max(bars.length, view === "90" ? win : Math.ceil(390 / size));
+  // viewport: a preset (full day / last 90 min) or Nolan's own zoom; when following, the right edge is the newest candle
+  const total = all.length, win = Math.ceil(90 / size);
+  let start, end, n;
+  if (zoomN === null) { end = total; start = view === "90" ? Math.max(0, total - win) : 0; n = view === "90" ? Math.max(total - start, win) : maxN(); }
+  else { n = Math.min(zoomN, maxN()); end = follow ? total : Math.min(total, Math.max(Math.min(n, total), vEnd)); start = Math.max(0, end - n); }
+  const bars = all.slice(start, end), st = S.st, sigs = S.sigs;
+  const L = 52, R = 62, T = 8, B = 18;
   const xw = (W - L - R) / n, x = i => L + (i - start + 0.5) * xw;
+  Object.assign(CH, {start, end, n, xw, L, total});
   let hi = Math.max(...bars.map(b => b.h)), lo = Math.min(...bars.map(b => b.l));
   if (layers.vwap) bars.forEach(b => { hi = Math.max(hi, b.vwap + b.sd); lo = Math.min(lo, b.vwap - b.sd); });
   const pad = (hi - lo) * 0.08 + 0.05; hi += pad; lo -= pad;
@@ -446,7 +459,7 @@ function draw() {
     g.beginPath(); g.moveTo(L, y(p)); g.lineTo(W - R, y(p)); g.stroke();
     g.fillText(p.toFixed(step < 1 ? 2 : 0), 4, y(p) + 3);
   }
-  bars.forEach((b, k) => { if (b.hm.endsWith(":00") || (view === "90" && b.hm.endsWith(":30"))) {
+  bars.forEach((b, k) => { if (b.hm.endsWith(":00") || (n <= 120 && b.hm.endsWith(":30")) || (n <= 40 && /[05]$/.test(b.hm))) {
     const xx = x(start + k); g.beginPath(); g.moveTo(xx, T); g.lineTo(xx, H - B); g.stroke(); g.fillText(b.hm, xx - 14, H - 4); } });
   // fair value gaps
   if (layers.fvg) st.fvgs.filter(f => !f.filled && f.i >= start - 30).slice(-6).forEach(f => {
@@ -492,21 +505,30 @@ function draw() {
   if (layers.vwap) line("vwap", css("--vwap"), 1.6);
   // signals
   const mp = S.map;
-  if (layers.sig) sigs.filter(s => mp[s.i] >= start).forEach(s => {
+  if (layers.sig) sigs.filter(s => mp[s.i] >= start && mp[s.i] < end).forEach(s => {
     const col = css(s.side === "long" ? "--up" : "--down"), xx = x(mp[s.i]), yy = y(s.entry);
     g.fillStyle = col; g.beginPath();
     if (s.side === "long") { g.moveTo(xx, yy + 2); g.lineTo(xx - 6, yy + 12); g.lineTo(xx + 6, yy + 12); }
     else { g.moveTo(xx, yy - 2); g.lineTo(xx - 6, yy - 12); g.lineTo(xx + 6, yy - 12); }
     g.fill();
-    const x2 = s.exitI !== null ? x(mp[s.exitI]) : W - R;
+    const x2 = s.exitI !== null ? Math.min(W - R, x(mp[s.exitI])) : W - R;
     g.strokeStyle = col; g.setLineDash([3, 3]);
     [[s.stop, "✕"], [s.target, "◆"]].forEach(([p, m]) => { if (inView(p)) { g.beginPath(); g.moveTo(xx, y(p)); g.lineTo(x2, y(p)); g.stroke(); g.fillText(m, x2 + 2, y(p) + 3); } });
     g.setLineDash([]);
   });
   // last price tag
-  const lb = all[all.length - 1];
-  g.fillStyle = css("--ink"); g.fillRect(W - R + 1, y(lb.c) - 7, R - 2, 14);
-  g.fillStyle = css("--panel"); g.fillText(lb.c.toFixed(2), W - R + 4, y(lb.c) + 3);
+  const lb = all[all.length - 1], ly = Math.min(H - B - 7, Math.max(T + 7, y(lb.c)));
+  g.fillStyle = css("--ink"); g.fillRect(W - R + 1, ly - 7, R - 2, 14);
+  g.fillStyle = css("--panel"); g.fillText(lb.c.toFixed(2), W - R + 4, ly + 3);
+  // crosshair readout for the candle under the finger or mouse
+  if (hoverI !== null && hoverI >= start && hoverI < end) {
+    const b = all[hoverI], xx = x(hoverI), ch = b.c - b.o;
+    g.strokeStyle = css("--muted"); g.setLineDash([2, 3]); g.beginPath(); g.moveTo(xx, T); g.lineTo(xx, H - B); g.stroke(); g.setLineDash([]);
+    const txt = `${b.hm}  O ${b.o.toFixed(2)}  H ${b.h.toFixed(2)}  L ${b.l.toFixed(2)}  C ${b.c.toFixed(2)}  ${ch >= 0 ? "+" : ""}${ch.toFixed(2)}${b.vwap ? "  VWAP " + b.vwap.toFixed(2) : ""}`;
+    const tw = g.measureText(txt).width + 12;
+    g.fillStyle = css("--panel"); g.fillRect(L + 4, T + 2, tw, 16); g.strokeStyle = css("--line"); g.strokeRect(L + 4, T + 2, tw, 16);
+    g.fillStyle = css("--ink"); g.fillText(txt, L + 10, T + 13);
+  }
   // RSI pane
   const r = canvasCtx("#rsi"), ry = v => 6 + (100 - v) / 100 * (r.H - 12);
   r.g.font = "10px " + css("--mono");
@@ -637,15 +659,42 @@ async function startLive(viaCall) {
     S.b1 = bars;
     S.updated = res.cache ? new Date(res.cache.storedAt) : new Date();
     const live = S.day === etDay(new Date()) && etHM(new Date()) < "16:00";
-    setStatus(live ? "live" : "stale", (live ? "Live · updates every 30s · " : `Session ${S.day} (market closed) · `) + "updated " + S.updated.toLocaleTimeString());
+    setStatus(live ? "live" : "stale", (live ? "Live · price every 5s, candles every 30s · " : `Session ${S.day} (market closed) · `) + "updated " + S.updated.toLocaleTimeString());
     apply();
   };
+  startTicks(mcp);
   if (viaCall) { try { onData(await mcp.callTool(SERVER, "get_equity_historicals", input)); } catch (e) { handleError(e, true); return; } }
   unwatch = mcp.watchTool(SERVER, "get_equity_historicals", input, ev => {
     if (ev.type === "data") { banner(); onData(ev.result); }
     else handleError(ev.error, ["needs_reauth", "server_not_connected", "blocked_by_policy", "approval_required", "not_in_manifest"].includes(ev.error.code));
   }, {refetchInterval: 30000, cache: {staleTime: 20000}});
 }
+
+// Live price between candle refreshes: the last SPY trade (Robinhood quote, every 5s) moves the newest candle.
+// Only real trades are used; a new minute starts its candle at the first trade seen. The 30s candle refresh replaces these.
+let unTick = null;
+function startTicks(mcp) {
+  if (unTick) { unTick(); unTick = null; }
+  if (S.day !== etDay(new Date()) || etHM(new Date()) >= "16:00") return;
+  unTick = mcp.watchTool(SERVER, "get_equity_quotes", {symbols: ["SPY"]}, ev => {
+    if (ev.type !== "data" || !S.b1.length) return;
+    const p = ev.result.payload, d = p && (p.data || p), q = d && d.results && d.results[0] && d.results[0].quote;
+    if (!q || !q.venue_last_trade_time) return;
+    const t = new Date(q.venue_last_trade_time), px = +q.last_trade_price, hm = etHM(t);
+    if (!(px > 0) || etDay(t) !== S.day || hm < "09:30" || hm >= "16:00") return;
+    const last = S.b1[S.b1.length - 1];
+    if (hm === last.hm) { last.c = px; last.h = Math.max(last.h, px); last.l = Math.min(last.l, px); }
+    else if (hm > last.hm) S.b1.push({t: new Date(Math.floor(t.getTime() / 60000) * 60000), d: S.day, hm, o: px, h: px, l: px, c: px, v: 0});
+    else return;
+    setStatus("live", "Live · SPY " + px.toFixed(2) + " at " + t.toLocaleTimeString());
+    apply();
+  }, {refetchInterval: 5000, cache: {staleTime: 4000}});
+}
+// A page opened before the bell (or left open overnight) switches to the new session at 9:30 on its own.
+setInterval(() => {
+  const now = new Date(), wd = new Intl.DateTimeFormat("en-US", {timeZone: "America/New_York", weekday: "short"}).format(now);
+  if (S.day && S.day !== etDay(now) && !["Sat", "Sun"].includes(wd) && etHM(now) >= "09:31" && etHM(now) < "16:00") startLive(true);
+}, 60000);
 
 // ---------- trading: ticket, positions, working orders (Robinhood connector, as the viewer) ----------
 const T = {mcp: null, acct: null, chain: null, exps: [], type: "call", inst: null, quote: null, review: null, unq: null, pos: [], posQ: {}, ords: [], fills: 0};
@@ -1160,17 +1209,64 @@ $("#aq").addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey
 $("#aStop").addEventListener("click", () => { if (aCtl) aCtl.abort(); });
 $("#chips").querySelectorAll("button").forEach(b => b.addEventListener("click", () => askTars(b.textContent)));
 
+// ---------- chart navigation: drag to scroll, pinch / wheel / −+ to zoom, Live to follow the newest candle ----------
+function setZoom(v) {
+  const m = maxN(); v = Math.max(15, Math.min(m, Math.round(v)));
+  if (v >= m) { zoomN = null; follow = true; } else { zoomN = v; if (follow) vEnd = S.bars.length; }
+  hoverI = null; draw(); navUI();
+}
+function ensureZoom() { if (zoomN === null) { zoomN = Math.min(CH.n, Math.max(CH.end - CH.start, 15)); vEnd = CH.end; follow = CH.end >= CH.total; } } // start from the candles on screen, not the empty rest of the day
+function navUI() {
+  $("#liveBtn").setAttribute("aria-pressed", follow);
+  if (zoomN !== null) document.querySelectorAll("[data-v]").forEach(x => x.setAttribute("aria-pressed", "false"));
+}
+(() => {
+  const cv = $("#chart"), pts = new Map(); let drag = null, pinch = null;
+  const idxAt = cx => { const r = cv.getBoundingClientRect(); return CH.start + Math.floor((cx - r.left - CH.L) / CH.xw); };
+  cv.addEventListener("pointerdown", e => {
+    pts.set(e.pointerId, e.clientX); try { cv.setPointerCapture(e.pointerId); } catch (_) {}
+    if (pts.size === 1) drag = {x: e.clientX, end: CH.end, moved: false};
+    else if (pts.size === 2) { const [a, b] = [...pts.values()]; pinch = {d: Math.abs(a - b) || 1, n: CH.n}; drag = null; }
+  });
+  cv.addEventListener("pointermove", e => {
+    if (!pts.has(e.pointerId)) { if (e.pointerType === "mouse") { hoverI = idxAt(e.clientX); draw(); } return; }
+    pts.set(e.pointerId, e.clientX);
+    if (pinch && pts.size === 2) { const [a, b] = [...pts.values()]; ensureZoom(); setZoom(pinch.n * pinch.d / (Math.abs(a - b) || 1)); return; }
+    if (!drag) return;
+    const dx = e.clientX - drag.x; if (Math.abs(dx) > 4) drag.moved = true; if (!drag.moved) return;
+    ensureZoom(); if (zoomN >= maxN()) return; // whole day already on screen: zoom in first
+    const total = S.bars.length; vEnd = Math.max(Math.min(zoomN, total), Math.min(total, drag.end - Math.round(dx / CH.xw)));
+    follow = vEnd >= total; hoverI = null; draw(); navUI();
+  });
+  const up = e => {
+    if (drag && !drag.moved && e.pointerType !== "mouse") { const i = idxAt(e.clientX); hoverI = hoverI === i ? null : i; draw(); } // tap reads a candle
+    pts.delete(e.pointerId); if (pts.size < 2) pinch = null; if (!pts.size) drag = null;
+  };
+  cv.addEventListener("pointerup", up); cv.addEventListener("pointercancel", e => { pts.delete(e.pointerId); pinch = null; drag = null; });
+  cv.addEventListener("pointerleave", e => { if (e.pointerType === "mouse" && !pts.size) { hoverI = null; draw(); } });
+  cv.addEventListener("wheel", e => {
+    e.preventDefault(); ensureZoom();
+    if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) { // trackpad sideways swipe pans
+      if (zoomN >= maxN()) return; const total = S.bars.length;
+      vEnd = Math.max(Math.min(zoomN, total), Math.min(total, (follow ? total : vEnd) + Math.round(e.deltaX / CH.xw)));
+      follow = vEnd >= total; draw(); navUI(); return;
+    }
+    setZoom(zoomN * (e.deltaY > 0 ? 1.15 : 1 / 1.15));
+  }, {passive: false});
+  document.querySelectorAll("[data-z]").forEach(b => b.addEventListener("click", () => { ensureZoom(); setZoom(zoomN * (b.dataset.z === "in" ? 0.7 : 1.4)); }));
+  $("#liveBtn").addEventListener("click", () => { ensureZoom(); follow = true; vEnd = S.bars.length; hoverI = null; draw(); navUI(); });
+})();
 document.querySelectorAll("[data-l]").forEach(b => b.addEventListener("click", () => {
   layers[b.dataset.l] = !layers[b.dataset.l]; b.setAttribute("aria-pressed", layers[b.dataset.l]); draw();
 }));
 function setSize(m) {
-  size = m; try { localStorage.setItem("desk.size", String(m)); } catch (e) {}
+  size = m; zoomN = null; follow = true; hoverI = null; try { localStorage.setItem("desk.size", String(m)); } catch (e) {}
   document.querySelectorAll("[data-m]").forEach(x => x.setAttribute("aria-pressed", +x.dataset.m === m));
   if (S.b1.length) apply(); else draw();
 }
 document.querySelectorAll("[data-m]").forEach(b => b.addEventListener("click", () => setSize(+b.dataset.m)));
 document.querySelectorAll("[data-v]").forEach(b => b.addEventListener("click", () => {
-  view = b.dataset.v; document.querySelectorAll("[data-v]").forEach(x => x.setAttribute("aria-pressed", x === b)); draw();
+  view = b.dataset.v; zoomN = null; follow = true; hoverI = null; document.querySelectorAll("[data-v]").forEach(x => x.setAttribute("aria-pressed", x === b)); draw(); navUI();
 }));
 let rz; window.addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(draw, 120); });
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change", draw);
