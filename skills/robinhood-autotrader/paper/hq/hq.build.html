@@ -7,15 +7,16 @@
 :root{
   --ground:#e4e9df; --street:#cdd4c6; --plate:#d6ddcf; --panel:#f7f9f4; --ink:#18221d; --muted:#56655c; --line:#c4ccbd;
   --accent:#d07a22; --ok:#2f8a55; --warn:#c08510; --bad:#c13f37; --idle:#8a958d; --win:#f6e7b8;
+  --dawn1:#f7c9a4; --dawn2:#fbe5c8; --day1:#9fd0ef; --day2:#d9eef8; --dusk1:#e99b7a; --dusk2:#f4cfae; --night1:#1b2442; --night2:#3a4466; --eye:#e9f6ff; --cloud:#ffffff; --rain:#5d7d9a;
   --c-hq:#3e5c86; --c-yard:#2a8f84; --c-guard:#6c5a86; --c-pit:#d4643f; --c-arena:#3f7da3; --c-lab:#8a6aa8; --c-farm:#5f9147; --c-look:#b36a24; --c-arch:#718079;
   --display:"Silkscreen","Courier New",monospace; --body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --ground:#0f1519; --street:#1c252b; --plate:#151d22; --panel:#141b20; --ink:#e3eae5; --muted:#93a39a; --line:#26323a;
-  --accent:#eba04c; --ok:#4cc184; --warn:#e5b240; --bad:#ef6a60; --idle:#6c7a72; --win:#ffd36b; color-scheme:dark}}
+  --accent:#eba04c; --ok:#4cc184; --warn:#e5b240; --bad:#ef6a60; --idle:#6c7a72; --win:#ffd36b; --dawn1:#4a3a52; --dawn2:#7a5a62; --day1:#2a4a6a; --day2:#3d5f7d; --dusk1:#4b2f45; --dusk2:#7a4a52; --night1:#070b18; --night2:#141c33; --cloud:#9aa8b5; --rain:#7fa6c9; color-scheme:dark}}
 :root[data-theme="dark"]{
   --ground:#0f1519; --street:#1c252b; --plate:#151d22; --panel:#141b20; --ink:#e3eae5; --muted:#93a39a; --line:#26323a;
-  --accent:#eba04c; --ok:#4cc184; --warn:#e5b240; --bad:#ef6a60; --idle:#6c7a72; --win:#ffd36b; color-scheme:dark}
+  --accent:#eba04c; --ok:#4cc184; --warn:#e5b240; --bad:#ef6a60; --idle:#6c7a72; --win:#ffd36b; --dawn1:#4a3a52; --dawn2:#7a5a62; --day1:#2a4a6a; --day2:#3d5f7d; --dusk1:#4b2f45; --dusk2:#7a4a52; --night1:#070b18; --night2:#141c33; --cloud:#9aa8b5; --rain:#7fa6c9; color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:18px 36px}
@@ -42,6 +43,41 @@ svg{display:block;width:100%;height:auto}
 .glow{opacity:.35} .glow.ok{fill:var(--ok)} .glow.warn{fill:var(--warn)} .glow.bad{fill:var(--bad)} .glow.idle{fill:none}
 @media (prefers-reduced-motion:no-preference){.glow.warn,.glow.bad{animation:pulse 1.6s ease-in-out infinite}}
 @keyframes pulse{50%{opacity:.05}}
+.town{background:linear-gradient(var(--sky1),var(--sky2) 55%,var(--plate) 56%);transition:background 1s}
+.town[data-phase="dawn"]{--sky1:var(--dawn1);--sky2:var(--dawn2)} .town[data-phase="day"]{--sky1:var(--day1);--sky2:var(--day2)}
+.town[data-phase="dusk"]{--sky1:var(--dusk1);--sky2:var(--dusk2)} .town[data-phase="night"]{--sky1:var(--night1);--sky2:var(--night2)}
+.eye{fill:none;stroke:var(--eye);stroke-width:1.5;stroke-linecap:round} .eyeW{fill:var(--eye)} .eyeR{fill:var(--bad)} .face{fill:#1d262b}
+.ant{stroke:var(--ink);stroke-width:1.4} .antTip{fill:var(--accent)} .antTip.alarm{fill:var(--bad)} .antTip.happy{fill:var(--ok)}
+.feet{fill:var(--ink);opacity:.7} .bang{font:700 14px var(--display);fill:var(--bad)} .zz{font:12px var(--display);fill:var(--muted)}
+.mast{stroke:var(--ink);stroke-width:2} .cable{stroke:var(--ink);stroke-width:1} .scope{stroke:var(--ink);stroke-width:4;stroke-linecap:round}
+.beacon{fill:var(--bad)} .beamF{fill:var(--win);opacity:.22} .marq{fill:#221a2b;stroke:var(--c-pit);stroke-width:1.5}
+.neon{font:700 10px var(--display);fill:#ff8a5c;text-anchor:middle;letter-spacing:.08em} .flag{fill:var(--accent)}
+.bub{fill:color-mix(in srgb,var(--c-lab) 50%,white);opacity:0} .crop{stroke:var(--c-farm);stroke-width:3;stroke-linecap:round}
+.clock{fill:var(--panel);stroke:var(--ink);stroke-width:1.5} .hand{stroke:var(--ink);stroke-width:1.6;stroke-linecap:round}
+.star{fill:#fff} .moon{fill:#f2ecd2} .sunC{fill:#ffcf5a} .ray{stroke:#ffcf5a;stroke-width:2.5;stroke-linecap:round} .cloudF{fill:var(--cloud)} .rain{stroke:var(--rain);stroke-width:1.3}
+.bubR{fill:var(--panel);stroke:var(--ink);stroke-width:1.3} .bubR.bad{stroke:var(--bad);stroke-width:2} .bubR.warn{stroke:var(--warn);stroke-width:2} .bubT{fill:var(--ink)}
+.bubN{font:700 10px var(--display);fill:var(--accent)} .bubX{font:11px var(--body);fill:var(--ink)}
+.who{display:grid;grid-template-columns:74px minmax(0,1fr);gap:12px;align-items:center}
+.portrait{width:74px;height:auto;background:color-mix(in srgb,var(--accent) 10%,var(--panel));border-radius:12px;border:1px solid var(--line)}
+.name{margin:2px 0 0;font-weight:700} .bio{margin:2px 0 0;font-size:.85rem;color:var(--muted)}
+.quote{margin:12px 0 4px;padding:10px 12px;border-left:3px solid var(--accent);background:color-mix(in srgb,var(--accent) 8%,var(--panel));border-radius:0 8px 8px 0;font-size:1rem}
+@media (prefers-reduced-motion:no-preference){
+  .botb{animation:bob 2.4s ease-in-out infinite} @keyframes bob{50%{transform:translateY(-2.5px)}}
+  .antTip{animation:blink 2s steps(2) infinite} @keyframes blink{50%{opacity:.25}}
+  .beacon{animation:blink 1.2s steps(2) infinite}
+  .dish{animation:dish 3s ease-in-out infinite} @keyframes dish{50%{transform:scaleX(.35)}}
+  .beam{animation:sweep 6s ease-in-out infinite alternate} @keyframes sweep{from{transform:rotate(-30deg)}to{transform:rotate(200deg)}}
+  .neon{animation:neon 2.2s infinite} @keyframes neon{0%,40%,44%,100%{opacity:1}42%{opacity:.25}}
+  .flag{animation:wave 1.1s ease-in-out infinite alternate} @keyframes wave{to{transform:skewY(10deg) scaleX(.85)}}
+  .bub{animation:bubble 2.7s ease-in infinite} @keyframes bubble{0%{opacity:0;transform:translateY(0)}20%{opacity:.9}100%{opacity:0;transform:translateY(-26px)}}
+  .mill{animation:spin 4s linear infinite} @keyframes spin{to{transform:rotate(360deg)}}
+  .hook{animation:swing 3.4s ease-in-out infinite alternate} @keyframes swing{from{transform:rotate(-6deg)}to{transform:rotate(6deg)}}
+  .star{animation:blink 3s steps(2) infinite} .sun{animation:none}
+  .cloud{animation:drift 40s linear infinite} @keyframes drift{from{transform:translateX(-40px)}to{transform:translateX(60px)}}
+  .rain{animation:fall .9s linear infinite} @keyframes fall{to{transform:translateY(18px);opacity:0}}
+  .bubble{animation:pop .35s ease-out} @keyframes pop{from{opacity:0}}
+}
+.dish,.beam,.mill,.flag,.hook{transform-box:view-box}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;min-width:0}
 .panel h2{font-family:var(--display);font-size:1.15rem;margin:0;letter-spacing:.03em}
 .role{color:var(--muted);margin:4px 0 12px;font-size:.92rem}
@@ -126,6 +162,151 @@ let sel = "hq";
 const status = Object.fromEntries(B.map(b => [b.id, "idle"]));
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+// ---------- the characters ----------
+const CH = {
+  hq:    {who: "TARS", title: "The Boss", bio: "Runs the town. Dry humor, honesty setting at 90%. Hates hype, loves stops."},
+  yard:  {who: "Gus", title: "Yard Foreman", bio: "Gruff, protective of his stocks. Talks about them like they're his crew."},
+  guard: {who: "Sid", title: "Night Watch", bio: "Paranoid in a good way. Counts every stop twice. Never sleeps when something's unprotected."},
+  look:  {who: "Ollie", title: "Lookout Owl", bio: "Watches SPY, the news calendar and the overnight markets. Gets jumpy on Fed days."},
+  pit:   {who: "Pip", title: "Options Kid", bio: "Eager, but follows the rulebook to the letter. Would rather miss a trade than break a rule."},
+  arena: {who: "Max", title: "Ring Announcer", bio: "Loud. Keeps score between Nolan and TARS and makes it sound like a title fight."},
+  lab:   {who: "Dr. Nyx", title: "Head Scientist", bio: "Skeptical of everything, including herself. Kills ideas for a living."},
+  farm:  {who: "Fern", title: "Paper Farmer", bio: "Patient. Grows strategies with fake money before anyone plants real seeds."},
+  arch:  {who: "Quill", title: "Town Scribe", bio: "Writes the calls down before the market answers, then grades them. No take-backs."},
+};
+function lines(id) {
+  const S = SD, st = status[id], hm = fmtHM.format(new Date()), etMin = (() => { const p = new Intl.DateTimeFormat("en-GB", {timeZone: "America/New_York", hour: "2-digit", minute: "2-digit", hour12: false}).format(new Date()).split(":"); return +p[0] * 60 + +p[1]; })();
+  const open = marketOpen();
+  if (!S) return ["Connecting to Robinhood…"];
+  const rows = S.rows || [];
+  switch (id) {
+    case "hq":
+      if (S.val == null) return ["Booting up. Connect Robinhood and I'll tell you everything."];
+      if (S.dayChg == null) return [`Account's at ${money(S.val)}. Honesty setting: 90%.`];
+      return S.dayChg >= 0 ? [`Stocks are up ${money(S.dayChg)} today. I'll take it.`, `Account ${money(S.val)}. Cash ${money(S.cash)}. Everybody's behaving.`]
+        : st === "bad" ? [`Down ${money(-S.dayChg)} today. Nobody panic. Sid's checking the stops.`] : [`Stocks are down ${money(-S.dayChg)} today. Honesty setting says: that's normal noise.`, `Account ${money(S.val)}. Red days are part of the deal.`];
+    case "yard": {
+      if (!rows.length) return ["Empty yard. Quiet day for old Gus."];
+      const by = [...rows].filter(r => r.prevC).sort((a, b) => (b.last / b.prevC) - (a.last / a.prevC));
+      const near = rows.filter(r => r.toStop !== null && r.toStop < 3)[0];
+      const out = [];
+      if (near) out.push(`${near.sym} is only ${near.toStop.toFixed(1)}% above its stop. I've got my eye on it.`);
+      if (by.length) out.push(`${by[0].sym} is carrying the yard today (${pct(100 * (by[0].last / by[0].prevC - 1))}).`, `${by[by.length - 1].sym} is dragging its feet (${pct(100 * (by[by.length - 1].last / by[by.length - 1].prevC - 1))}).`);
+      return out;
+    }
+    case "guard":
+      if (!rows.length) return ["Nothing to guard. Suspicious."];
+      if (S.unprot.length) return [`${S.unprot.map(r => r.sym).join(", ")} out there with NO stop. I don't like it one bit.`, "Somebody put a stop on that. I'm not sleeping till they do."];
+      return [`Every share has a stop. ${rows.length} for ${rows.length}. Sleep easy.`, (() => { const r = rows.filter(x => x.toStop !== null).sort((a, b) => a.toStop - b.toStop)[0]; return r ? `Closest call: ${r.sym}, ${r.toStop.toFixed(1)}% above its stop.` : "All quiet on the wall."; })()];
+    case "look": {
+      const ev = EVENTS[today()], next = Object.keys(EVENTS).sort().find(d => d > today());
+      const chg = S.spy && S.spyPrev ? 100 * (S.spy / S.spyPrev - 1) : null;
+      const out = [];
+      if (ev) out.push(`It's ${ev} day. ${/FOMC/.test(ev) ? "Expect fireworks after 2pm. First move often lies." : "The news is already in the gap."}`);
+      if (!open) out.push("Market's closed. Even owls rest. Mostly.");
+      if (chg !== null) out.push(`SPY ${S.spy.toFixed(2)}, ${pct(chg)} on the day. ${Math.abs(chg) > 1 ? "Big day!" : "Normal weather."}`);
+      if (next) out.push(`Next big news: ${EVENTS[next]} on ${next.slice(5)}.`);
+      return out;
+    }
+    case "pit": {
+      const s = STATIC.slot;
+      if (s.halted) return ["Hard stop hit. I'm benched until Nolan says go."];
+      if (L.optPos.some(p => tarsOwned(p.option_id))) return ["I'm in a trade! Stop's resting at −35%.", "Following the plan. No touching."];
+      if (!open) return ["Market's closed. Rulebook says: rest.", `Buffer ${money(s.buffer)}. Ready for tomorrow.`];
+      if (etMin < 630) return ["Waiting for 10:30. Rules are rules.", "Nolan's record before 10:30: 0 for 5. I'm not touching it."];
+      if (etMin > 870) return ["Entry window's closed. No new trades today.", "Sitting out is a position too."];
+      return ["Watching for gap-and-go or a stretched dip. Nothing yet.", "No setup, no trade. Even if I'm bored."];
+    }
+    case "arena": {
+      const a = S.nolan, t = S.tars;
+      if (!(a.n + t.n)) return ["IN THIS CORNER… NOLAN! AND IN THIS CORNER… TARS! Round one: Oct 16, 10:30 bell.", "Scored per $100 of premium. May the patient win."];
+      const lead = a.per100 === t.per100 ? null : a.per100 > t.per100 ? "NOLAN" : "TARS";
+      return [lead ? `${lead} LEADS by ${Math.abs(a.per100 - t.per100).toFixed(1)} per $100!` : "DEAD EVEN!", `Nolan ${a.n} trips, TARS ${t.n}. The crowd goes wild.`];
+    }
+    case "lab": {
+      const l = STATIC.lab, f = l.latest[0];
+      return [`${l.studies} studies and counting. Most ideas died. That's science.`, f ? `Latest: ${f.title}.` : "Nothing new on the bench.", "If it doesn't survive out of sample, it doesn't exist."];
+    }
+    case "farm": {
+      const f = STATIC.farm, ch = 100 * (f.equity / f.start - 1);
+      return [`Paper book at ${pct(ch)}. Fake money, real lessons.`, `${f.trades} paper trades planted. Harvest takes weeks, not days.`];
+    }
+    case "arch":
+      return STATIC.journal.days ? [`Journal day ${STATIC.journal.days}. No take-backs.`] : ["Page one's blank. Calls get written at 10:00 sharp, before I know the answer.", "Grading myself at the close. Fair's fair."];
+  }
+  return [];
+}
+function marketOpen() {
+  const d = new Date(), wd = new Intl.DateTimeFormat("en-US", {timeZone: "America/New_York", weekday: "short"}).format(d);
+  const p = new Intl.DateTimeFormat("en-GB", {timeZone: "America/New_York", hour: "2-digit", minute: "2-digit", hour12: false}).format(d).split(":"), m = +p[0] * 60 + +p[1];
+  return !["Sat", "Sun"].includes(wd) && m >= 570 && m < 960;
+}
+function phase() {
+  const p = new Intl.DateTimeFormat("en-GB", {timeZone: "America/New_York", hour: "2-digit", minute: "2-digit", hour12: false}).format(new Date()).split(":"), m = +p[0] * 60 + +p[1];
+  return m < 420 || m >= 1200 ? "night" : m < 570 ? "dawn" : m < 960 ? "day" : "dusk";
+}
+const moodOf = st => ({ok: "happy", warn: "worried", bad: "alarm", idle: "sleepy"})[st] || "sleepy";
+function bot(x, y, s, col, mood, delay = 0, big = false) {
+  const eye = mood === "happy" ? (dx => `<path d="M${dx - 2.6},1 q2.6,-3.4 5.2,0" class="eye"/>`) :
+    mood === "sleepy" ? (dx => `<path d="M${dx - 2.4},0.5 h4.8" class="eye"/>`) :
+    mood === "alarm" ? (dx => `<circle cx="${dx}" cy="0" r="2.2" class="eyeR"/>`) : (dx => `<circle cx="${dx}" cy="0" r="1.8" class="eyeW"/>`);
+  const mouth = mood === "happy" ? `<path d="M-3,5 q3,2.6 6,0" class="eye"/>` : mood === "worried" ? `<path d="M-3,6 q3,-2.4 6,0" class="eye"/>` : mood === "alarm" ? `<ellipse cx="0" cy="5.6" rx="1.8" ry="2" class="eyeR"/>` : `<path d="M-2,5.6 h4" class="eye"/>`;
+  const brows = mood === "worried" || mood === "alarm" ? `<path d="M-7,-4.5 l4,1.4 M7,-4.5 l-4,1.4" class="eye"/>` : "";
+  const extra = mood === "alarm" ? `<text x="11" y="-16" class="bang">!</text>` : mood === "sleepy" ? `<text x="9" y="-14" class="zz">z</text>` : "";
+  return `<g transform="translate(${x},${y}) scale(${s})"><g class="botb" style="animation-delay:${delay}s">
+    <line x1="0" y1="-15" x2="0" y2="-21" class="ant"/><circle cx="0" cy="-22.5" r="2.2" class="antTip ${mood}" style="animation-delay:${delay * 1.7}s"/>
+    <rect x="-11" y="-15" width="22" height="18" rx="5" style="fill:${col}"/><rect x="-8.5" y="-12" width="17" height="12.5" rx="3" class="face"/>
+    <g transform="translate(0,-6.2)">${eye(-3.8)}${eye(3.8)}${brows}<g transform="translate(0,-1)">${mouth}</g></g>
+    <rect x="-7" y="4" width="14" height="9" rx="3" style="fill:${col}" opacity=".85"/><rect x="-9" y="13" width="5" height="3" rx="1.5" class="feet"/><rect x="4" y="13" width="5" height="3" rx="1.5" class="feet"/>
+    ${extra}</g></g>`;
+}
+function deco(id, p, w, hh, H) {
+  const tx = p.x, ty = p.y + TH / 2 - H; // roof centre
+  switch (id) {
+    case "hq": return `<line x1="${tx}" y1="${ty}" x2="${tx}" y2="${ty - 30}" class="mast"/><circle cx="${tx}" cy="${ty - 31}" r="2.6" class="beacon"/>
+      <g transform="translate(${tx + 14},${ty - 2})"><ellipse class="dish" rx="9" ry="4.5" style="fill:color-mix(in srgb,var(--c-hq) 50%,white)"/></g>`;
+    case "guard": return `<g transform="translate(${tx},${ty - 6})"><g class="beam"><polygon points="0,0 140,-26 140,26" class="beamF"/></g><rect x="-6" y="-6" width="12" height="9" rx="2" style="fill:color-mix(in srgb,var(--c-guard) 60%,black)"/><circle r="3.4" cx="0" cy="-2" style="fill:var(--win)"/></g>`;
+    case "look": return `<path d="M${tx - 16},${ty + 2} a16,13 0 0 1 32,0 z" style="fill:color-mix(in srgb,var(--c-look) 55%,white)"/><line x1="${tx + 2}" y1="${ty - 6}" x2="${tx + 20}" y2="${ty - 18}" class="scope"/>`;
+    case "pit": return `<g transform="translate(${tx},${ty - 10})"><rect x="-30" y="-10" width="60" height="16" rx="3" class="marq"/><text class="neon" x="0" y="2">OPTIONS</text></g>`;
+    case "arena": return `<path d="M${tx - 20},${ty + 4} a20,12 0 0 1 40,0 z" style="fill:color-mix(in srgb,var(--c-arena) 55%,white)"/>
+      ${[-14, 14].map((dx, k) => `<line x1="${tx + dx}" y1="${ty + 2}" x2="${tx + dx}" y2="${ty - 20}" class="mast"/><polygon class="flag" style="animation-delay:${k * .4}s;transform-origin:${tx + dx}px ${ty - 20}px" points="${tx + dx},${ty - 20} ${tx + dx + 13},${ty - 16} ${tx + dx},${ty - 12}"/>`).join("")}`;
+    case "lab": return `<rect x="${tx - 4}" y="${ty - 18}" width="8" height="16" style="fill:color-mix(in srgb,var(--c-lab) 50%,black)"/>${[0, 1, 2].map(k => `<circle class="bub" cx="${tx + (k - 1) * 3}" cy="${ty - 20}" r="${2.5 + k}" style="animation-delay:${k * .9}s"/>`).join("")}`;
+    case "farm": return `<g transform="translate(${tx + w / 2 + 18},${ty + 6})"><line x1="0" y1="0" x2="0" y2="40" class="mast"/><g class="mill">${[0, 90, 180, 270].map(a => `<rect x="-1.6" y="-20" width="3.2" height="20" rx="1" transform="rotate(${a})" style="fill:var(--win)"/>`).join("")}</g><circle r="2.4" style="fill:var(--ink)"/></g>
+      ${[0, 1, 2].map(k => `<line x1="${tx - w / 2 - 40 + k * 8}" y1="${p.y + TH / 2 + 4 + k * 4}" x2="${tx - w / 2 - 8 + k * 8}" y2="${p.y + TH / 2 + 20 + k * 4}" class="crop"/>`).join("")}`;
+    case "arch": { const d = new Date(), hp = new Intl.DateTimeFormat("en-GB", {timeZone: "America/New_York", hour: "2-digit", minute: "2-digit", hour12: false}).format(d).split(":"), hr = (+hp[0] % 12 + +hp[1] / 60) * 30, mn = +hp[1] * 6;
+      return `<g transform="translate(${tx},${ty - 14})"><circle r="11" class="clock"/><line x1="0" y1="0" x2="0" y2="-6" class="hand" transform="rotate(${hr})"/><line x1="0" y1="0" x2="0" y2="-9" class="hand" transform="rotate(${mn})"/></g>`; }
+    case "yard": return `<g transform="translate(${tx - w / 2 - 6},${ty + 30})"><line x1="0" y1="0" x2="0" y2="-62" class="mast"/><line x1="0" y1="-62" x2="44" y2="-56" class="mast"/><g class="hook" style="transform-origin:38px -57px"><line x1="38" y1="-57" x2="38" y2="-34" class="cable"/><rect x="32" y="-34" width="12" height="8" style="fill:var(--c-pit)"/></g></g>`;
+  }
+  return "";
+}
+let speaker = 0, chatTimer = null;
+function speakers() { // alerts first, then everyone with something to say
+  const order = ["guard", "hq", "pit", "look", "yard", "arena", "lab", "farm", "arch"];
+  return order.sort((a, b) => ({bad: 0, warn: 1, ok: 2, idle: 3})[status[a]] - ({bad: 0, warn: 1, ok: 2, idle: 3})[status[b]]);
+}
+function bubble() {
+  const layer = document.getElementById("bubbles"); if (!layer) return;
+  const ids = speakers(), id = ids[speaker % ids.length], ls = lines(id), txt = ls[Math.floor(speaker / ids.length) % Math.max(1, ls.length)] || "";
+  const b = B.find(x => x.id === id), p = iso(b.c, b.r), y0 = p.y + TH / 2 - b.h - 44;
+  const words = txt.split(" "), rowsT = []; let cur = "";
+  words.forEach(w => { if ((cur + " " + w).trim().length > 30) { rowsT.push(cur.trim()); cur = w; } else cur += " " + w; }); if (cur.trim()) rowsT.push(cur.trim());
+  const shown = rowsT.slice(0, 3), wpx = Math.max(...shown.map(r => r.length)) * 6.3 + 20, hpx = shown.length * 14 + 22;
+  layer.innerHTML = `<g class="bubble" transform="translate(${p.x},${y0})"><rect x="${-wpx / 2}" y="${-hpx}" width="${wpx}" height="${hpx}" rx="10" class="bubR ${status[id]}"/><polygon points="-6,-1 6,-1 0,9" class="bubT"/>
+    <text class="bubN" x="${-wpx / 2 + 10}" y="${-hpx + 13}">${esc(CH[id].who)}</text>${shown.map((r, k) => `<text class="bubX" x="${-wpx / 2 + 10}" y="${-hpx + 27 + k * 14}">${esc(r)}</text>`).join("")}</g>`;
+  speaker++;
+}
+function startChatter() { if (chatTimer) clearInterval(chatTimer); bubble(); chatTimer = setInterval(bubble, reduce ? 9000 : 5200); }
+function sky(svgBox) {
+  const ph = phase(), chg = SD && SD.spy && SD.spyPrev ? 100 * (SD.spy / SD.spyPrev - 1) : 0;
+  const [x0, y0, W] = svgBox; let g = "";
+  if (ph === "night") for (let k = 0; k < 26; k++) g += `<circle cx="${x0 + ((k * 137) % W)}" cy="${y0 + 8 + ((k * 53) % 70)}" r="${k % 3 ? 1 : 1.6}" class="star" style="animation-delay:${(k % 7) * .4}s"/>`;
+  const sx = x0 + W * (ph === "dawn" ? .12 : ph === "dusk" ? .88 : .8), sy = y0 + (ph === "day" ? 28 : 46);
+  g += ph === "night" ? `<circle cx="${x0 + W * .85}" cy="${y0 + 30}" r="15" class="moon"/>` : `<g class="sun" transform="translate(${sx},${sy})"><circle r="17" class="sunC"/>${chg > 0.3 ? [0, 45, 90, 135, 180, 225, 270, 315].map(a => `<line x1="0" y1="-23" x2="0" y2="-30" class="ray" transform="rotate(${a})"/>`).join("") : ""}</g>`;
+  if (chg <= 0.3) for (let k = 0; k < 3; k++) g += `<g class="cloud" style="animation-delay:${-k * 9}s"><ellipse cx="${x0 + 60 + k * W / 3}" cy="${y0 + 26 + (k % 2) * 16}" rx="34" ry="11" class="cloudF"/><ellipse cx="${x0 + 78 + k * W / 3}" cy="${y0 + 19 + (k % 2) * 16}" rx="18" ry="11" class="cloudF"/></g>`;
+  if (chg < -0.5) for (let k = 0; k < 40; k++) g += `<line x1="${x0 + (k * 97) % W}" y1="${y0 + 40 + (k * 31) % 60}" x2="${x0 + (k * 97) % W - 3}" y2="${y0 + 49 + (k * 31) % 60}" class="rain" style="animation-delay:${(k % 9) * .11}s"/>`;
+  return g;
+}
+
 function poly(pts, fill, extra = "") { return `<polygon points="${pts.map(p => p.join(",")).join(" ")}" style="fill:${fill}" ${extra}/>`; }
 function drawTown() {
   const svg = $("#city"); let g = "", signs = "";
@@ -157,10 +338,10 @@ function drawTown() {
       const xr = p.x + u * w / 2 - 3, yr = topY + hh / 2 - u * hh / 2 + fy;
       win += `<polygon points="${xr},${yr} ${xr + 6},${yr - 6 * k} ${xr + 6},${yr - 6 * k + 7} ${xr},${yr + 7}" style="fill:var(--win)" opacity="${on * .8}"/>`;
     }
-    const lampY = p.y + TH / 2 - H - 12;
     g += `<g class="bld" data-id="${b.id}" tabindex="0" role="button" aria-pressed="${b.id === sel}" aria-label="${b.name}">
       <g class="shape">${poly(L, `color-mix(in srgb, ${col} 100%, black 8%)`)}${poly(R, `color-mix(in srgb, ${col} 70%, black 30%)`)}${poly(top, `color-mix(in srgb, ${col} 72%, white 28%)`)}${win}
-      <circle class="glow ${status[b.id]}" cx="${p.x}" cy="${lampY}" r="13"/><circle class="lamp ${status[b.id]}" cx="${p.x}" cy="${lampY}" r="6.5"/></g>
+      ${deco(b.id, p, w, hh, H)}<circle class="glow ${status[b.id]}" cx="${p.x - w / 2 + 8}" cy="${p.y + TH / 2 - H - 6}" r="10"/><circle class="lamp ${status[b.id]}" cx="${p.x - w / 2 + 8}" cy="${p.y + TH / 2 - H - 6}" r="5"/></g>
+      <g class="mascot">${bot(p.x + w * 0.5 + 8, p.y + TH / 2 + hh * 0.25, 1.25, `var(${b.col})`, moodOf(status[b.id]), (b.c * 3 + b.r) * .23)}</g>
       </g>`;
     signs += `<g class="signg" data-for="${b.id}"><rect x="${p.x - b.name.length * 4.1 - 7}" y="${p.y + TH / 2 + hh / 2 + 5}" width="${b.name.length * 8.2 + 14}" height="18" rx="9" style="fill:var(--panel)" opacity=".92"/><text class="sign${b.id === sel ? " on" : ""}" x="${p.x}" y="${p.y + TH / 2 + hh / 2 + 18}">${b.name}</text></g>`;
   });
@@ -168,9 +349,11 @@ function drawTown() {
   // fit the frame to the drawing
   const pts = [iso(-0.75, -0.75), iso(2.75, -0.75), iso(2.75, 2.75), iso(-0.75, 2.75)];
   const minX = Math.min(...pts.map(q => q.x)) - 8, maxX = Math.max(...pts.map(q => q.x)) + 8;
-  const minY = Math.min(...B.map(b => iso(b.c, b.r).y + TH / 2 - b.h - 30)), maxY = Math.max(...pts.map(q => q.y)) + TH * GAP / 2 + 6;
+  const minY = Math.min(...B.map(b => iso(b.c, b.r).y + TH / 2 - b.h - 120)), maxY = Math.max(...pts.map(q => q.y)) + TH * GAP / 2 + 6;
   svg.setAttribute("viewBox", `${minX} ${minY} ${maxX - minX} ${maxY - minY}`);
-  svg.innerHTML = g;
+  const prevBub = (document.getElementById("bubbles") || {}).innerHTML || "";
+  svg.innerHTML = `<g class="sky">${sky([minX, minY, maxX - minX])}</g>` + g + `<g id="bubbles">${prevBub}</g>`;
+  $(".town").dataset.phase = phase();
   svg.querySelectorAll(".bld").forEach(el => {
     const go = () => { sel = el.dataset.id; drawTown(); renderDetail(); };
     el.addEventListener("click", go);
@@ -240,6 +423,7 @@ function refresh() {
   const d = $("#sDay"); d.textContent = SD.dayChg !== null ? money(SD.dayChg) : "—"; d.className = SD.dayChg === null ? "" : SD.dayChg >= 0 ? "up" : "dn";
   $("#sUpd").textContent = L.upd ? L.upd.toLocaleTimeString([], {hour: "numeric", minute: "2-digit"}) : "—";
   drawTown(); renderDetail(); renderCrier();
+  if (!refresh.started) { refresh.started = true; setTimeout(() => { speaker = 0; startChatter(); }, 1200); } // first real data: let the town talk about it right away
 }
 
 // ---------- detail panel ----------
@@ -291,8 +475,11 @@ function renderDetail() {
     body = dl([["Days journaled", STATIC.journal.days], ["What's scored", "gap fill, high/low timing, range, direction"], ["Drop rule", "a call type that can't beat its base rate in 40 days"]]);
     how = ["Calls are written at 10:00, before the outcome.", "Scored after the close with Brier scores.", "Also logs the overnight board and big news."];
   }
-  $("#detail").innerHTML = `<div style="display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap"><h2>${b.name}</h2><span class="chip ${st}">${chipTxt[st]}</span></div>
-    <p class="role">${b.role}</p>${body}${how.length ? `<h3>How it decides</h3><ul class="how">${how.map(h => `<li>${h}</li>`).join("")}</ul>` : ""}`;
+  const ch = CH[sel], q = lines(sel)[0] || "";
+  $("#detail").innerHTML = `<div class="who"><svg viewBox="-20 -32 40 52" class="portrait" aria-hidden="true">${bot(0, 0, 1, `var(${b.col})`, moodOf(st))}</svg>
+    <div style="min-width:0"><div style="display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap"><h2>${b.name}</h2><span class="chip ${st}">${chipTxt[st]}</span></div>
+    <p class="name">${ch.who} · <span class="mut">${ch.title}</span></p><p class="bio">${ch.bio}</p></div></div>
+    ${q ? `<blockquote class="quote">“${esc(q)}”</blockquote>` : ""}<p class="role">${b.role}</p>${body}${how.length ? `<h3>How it decides</h3><ul class="how">${how.map(h => `<li>${h}</li>`).join("")}</ul>` : ""}`;
 }
 
 function renderCrier() {
@@ -345,6 +532,7 @@ async function start() {
   });
   watchQuotes();
 }
-drawTown(); renderDetail();
+drawTown(); renderDetail(); startChatter();
+setInterval(drawTown, 60000); // sky, clock and sun follow the time
 start();
 </script>

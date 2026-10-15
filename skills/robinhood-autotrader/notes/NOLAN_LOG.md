@@ -246,3 +246,7 @@ only records what he said and what was done. R13: no dollar balances.
 ## 2026-10-15 — TARS Town (Nolan: "make it for our stocks a little ecosystem")
 - paper/hq/hq.html + build_hq.py → https://claude.ai/artifact/8xfL55TLRfkmpxgtMLmoxQ. Isometric town, 9 buildings with live status lights: TARS HQ (account), Stock Yard (positions, P&L, % above stop), Stop Tower (unprotected shares = red), Lookout (SPY, news days), Options Pit (TARS slot), Nolan's Arena (scoreboard), The Lab (latest research), Paper Farm (paper book), Journal. Town crier = today's orders. Read-only Robinhood tools only.
 - Static parts (research, paper book, slot state, journal) come from the repo at build time: re-run build_hq.py and republish to refresh.
+
+## 2026-10-15 — TARS Town gets personality (Nolan: "give them more life ... give them personality")
+- Nine characters with names, bios and data-driven lines: TARS (HQ), Gus (Stock Yard), Sid (Stop Tower), Ollie (Lookout), Pip (Options Pit), Max (Arena announcer), Dr. Nyx (Lab), Fern (Paper Farm), Quill (Journal). Robot mascots whose faces change with status (happy/worried/alarm/sleepy); speech bubbles rotate, alerts first.
+- Moving parts: HQ dish + beacon, Stop Tower searchlight, Options neon sign, Arena flags, Lab bubbles, windmill, crane hook, Journal clock showing ET time. Sky follows market hours (dawn/day/dusk/night with stars); weather follows SPY (sun on up days, clouds, rain on −0.5% days). Reduced-motion respected.
