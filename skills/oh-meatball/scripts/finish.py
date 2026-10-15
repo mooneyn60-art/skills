@@ -4,6 +4,7 @@
 Usage:
   python finish.py --shots s1.mp4 s2.mp4 --part 3 -o part3.mp4 \
       [--expect "line one" "line two"] [--music brand/theme.m4a] [--sting brand/sting.wav]
+      [--label "0.5-3:MEATBALL" "8.5-11:BISCUIT"]
 
 Mix: shot audio (voices + Veo's own SFX) on top; theme music looped underneath and ducked
 under the voices (sidechain); sting hits 1.5 s before the end; loudness -14 LUFS (YouTube).
@@ -49,7 +50,7 @@ def build(a):
            f"drawtext=fontfile={FONT}:text='PART {a.part + 1}':fontcolor=0xFFD400:fontsize=110:borderw=9:"
            f"bordercolor=black:x=(w-tw)/2:y=140:enable='gte(t,{end:.2f})',"
            f"drawtext=fontfile={FONT}:text='NEXT':fontcolor=white:fontsize=72:borderw=7:"
-           f"bordercolor=black:x=(w-tw)/2:y=270:enable='gte(t,{end:.2f})',format=yuv420p[vo];")
+           f"bordercolor=black:x=(w-tw)/2:y=270:enable='gte(t,{end:.2f})'{labels(a)},format=yuv420p[vo];")
     mix = (f"[voice]asplit=2[vk][vmix];"
            f"[{m}:a]aresample=48000,aformat=channel_layouts=stereo,atrim=0:{total:.2f},volume={a.music_db}dB,"
            f"afade=t=out:st={total - 1.5:.2f}:d=1.5[bed];"
@@ -64,6 +65,19 @@ def build(a):
     r = run(cmd)
     if r.returncode:
         sys.exit(f"ffmpeg failed: {r.stderr[-800:]}")
+
+
+def labels(a):
+    """Name tags: --label 2-5:MEATBALL shows MEATBALL at the bottom third from 2 s to 5 s."""
+    out = ""
+    for item in a.label:
+        span, text = item.split(":", 1)
+        t0, t1 = (float(x) for x in span.split("-"))
+        text = text.replace("'", "").replace(":", "")
+        out += (f",drawtext=fontfile={FONT}:text='{text}':fontcolor=white:fontsize=58:borderw=6:"
+                f"bordercolor=black:box=1:boxcolor=0xC2185B@0.85:boxborderw=14:x=(w-tw)/2:y=h*0.72:"
+                f"enable='between(t,{t0},{t1})'")
+    return out
 
 
 def qa(a):
@@ -112,6 +126,7 @@ def main():
     p.add_argument("--music", default=str(HERE / "brand/theme.m4a"))
     p.add_argument("--sting", default=str(HERE / "brand/sting.wav"))
     p.add_argument("--music-db", type=float, default=-17)
+    p.add_argument("--label", nargs="*", default=[], help='name tags, e.g. "0.5-3:MEATBALL" "8.5-11:BISCUIT"')
     a = p.parse_args()
     build(a)
     sys.exit(0 if qa(a) else 1)

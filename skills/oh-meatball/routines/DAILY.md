@@ -24,9 +24,9 @@ If the balance would not last until the next renewal at 320/day, drop to 1 story
   If >= 8, make 2 story parts (second at 16:00 instead of an extra).
 - TIKTOK (monetized; Creator Rewards only pays on videos >= 61 s): every day also post to TikTok
   OpusClip account 69dbd6fe074f7631e21a2350 (@storyvault438): (a) today's story part, same slot;
-  (b) one RECAP >= 61 s, zero credits: ffmpeg-concat the last 2-3 finished parts (clips/ptNN.mp4)
-  into clips/recap_NN.mp4, title "Oh Meatball Parts X-Y 😱 full story", 21:00 ET. Host it via
-  vidiq_compose (scenes only, keepNativeAudio) to get a public URL, then OpusClip submit + schedule.
+  (b) one RECAP >= 61 s: ffmpeg-concat the last 3 finished parts (clips/ptNN.mp4) + one NEW 8 s teaser
+  shot of the next part (80 credits; makes it original for Creator Rewards)
+  into clips/recap_NN.mp4, title "Oh Meatball Parts X-Y 😱 full story", 21:00 ET. Upload via opusclip_create_upload_link, submit, schedule.
   YouTube gets the recap too as a regular upload once a week (Sunday compilation).
 
 ## 2b. Write/adjust the 2 new parts
@@ -50,7 +50,10 @@ If the balance would not last until the next renewal at 320/day, drop to 1 story
   (mixes voices + brand/theme.m4a ducked under dialogue + brand/sting.wav on the cliffhanger,
   -14 LUFS, then QA: audio present, loudness, no silent gaps, every line heard). If it exits non-zero,
   fix (re-render the shot) before anything is posted. Save raw shots as clips/ptNN_s1.mp4 / _s2.mp4.
-- Post copy via vidiq_compose: music = {audioUrl: theme https://ai-music-tracks.s3.us-east-1.amazonaws.com/OfWcrmF_PzqcGLg8z7HR-g/c4b820d0-99d9-498a-aee4-4d59079f23ca.wav,
+- POST FILE = the finish.py master, uploaded with opusclip_create_upload_link (POST x-goog-resumable start,
+  PUT the file to the Location URL), then opusclip_submit_project videoUrl=<upload_id>. This is 4 dB louder
+  than the compose route and costs no credits. Pass --label for each character's first appearance.
+- (Old route, only if upload fails) Post copy via vidiq_compose: music = {audioUrl: theme https://ai-music-tracks.s3.us-east-1.amazonaws.com/OfWcrmF_PzqcGLg8z7HR-g/c4b820d0-99d9-498a-aee4-4d59079f23ca.wav,
   volume 0.3, duckTo 0.18, fadeMs 300}; voiceover = sting https://ai-music-tracks.s3.us-east-1.amazonaws.com/OfWcrmF_PzqcGLg8z7HR-g/e030bc24-6fb7-43d4-8ed8-3604a109076d.wav
   at startAtSeconds total-1.5, durationSeconds 1.5, volume 0.7. Download the compose output and run the
   same QA (volumedetect mean between -26 and -9 dB, transcript has the lines) before posting.

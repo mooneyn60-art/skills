@@ -38,6 +38,21 @@ A soap opera starring a very round orange cat. Every part ends on a cliffhanger.
   4) reveal + cliffhanger + sting. Vary locations and weather (storm, rain, night) for drama.
 - Lines: 1-2 short lines per shot, each clearly attributed; comedy beat in at least one shot.
 
+## Breakout rules (research/10 + 11, 2026-10-15; apply to every part from Part 4)
+- Frame 0 = the disaster already happening, first line spoken in the first second. No establishing shots.
+- Name the cast on screen: finish.py --label puts "MEATBALL" / "DUCHESS" etc. (time it to when that character is the focus) the
+  first time they appear in a part. Use #MeatballAndDuchess in every caption.
+- Every part has its own payoff (a reveal lands) AND a cliffhanger. Viewers who land on Part 7 first must
+  still get a complete beat.
+- Spoken call to action one beat before the final reveal, in character (e.g. Biscuit: "Comment who's side
+  you're on!"). Rotate wording.
+- Pace: ask Veo for 2-3 quick cuts inside each 8 s shot ("cut to close-up of ... then cut to ...").
+- Titles: `[Name] [shocking act]… then [twist] 😱 | Oh Meatball Pt N`; score >= 85.
+- Plot engine: classic soap tropes (secret child, rich rival, betrayal at the altar, poor-to-rich, amnesia,
+  evil twin) with our cast. Happy beats are allowed; the biggest hit in the niche ended happy.
+- TikTok earns only on >= 61 s originals: the nightly recap stitches the last 3 parts PLUS one new 8 s
+  teaser shot of the next part at the end (new footage = original, and it sells the next part).
+
 ## Episode format (original notes)
 - 2 shots x 8 s (veo-3.1-fast, 720p, 9:16, native dialogue) = ~16 s; end on a cliffhanger.
 - Title: `<hook> 😱 | Oh Meatball Pt N` - score with vidiq_score_title, keep >= 85.
