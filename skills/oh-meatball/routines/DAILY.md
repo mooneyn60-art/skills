@@ -37,6 +37,7 @@ If the balance would not last until the next renewal at 320/day, drop to 1 story
 - Poll `vidiq_job_poll`. Download, check 3 frames per shot, transcribe dialogue with faster-whisper
   (decode audio via ffmpeg to float32 first). If a character looks wrong or a line is garbled,
   regenerate that ONE shot with a corrected prompt (max 1 retry per shot).
+- Normalize audio: `ffmpeg -af loudnorm=I=-14:TP=-1.5:LRA=11` on every final MP4 (raw AI audio is ~-24 dB, too quiet).
 - `vidiq_compose` each part (keepNativeAudio) with overlays "PART N" (0-2 s) and
   "PART N+1 TOMORROW" (last 1.7 s). Keep the returned URL.
 
