@@ -260,8 +260,8 @@ textarea{width:100%;resize:vertical;min-height:54px;font-family:var(--body)}
         <dl class="gd"><dt>Watch</dt><dd>Squeezes (bands narrow) and price riding a band.</dd><dt>How to use it</dt><dd>Narrow bands = quiet, a bigger move often follows (direction unknown). Riding the upper band = strong trend, not automatically 'overbought'.</dd><dt>TARS tested</dt><dd>Bollinger squeezes: no direction edge on 20 years.</dd></dl></details>
       <details><summary><b>Pivots</b> <span class="muted">· Floor-trader pivot levels from yesterday's high, low, close: P, R1/R2 above, S1/S2 below.</span></summary>
         <dl class="gd"><dt>Watch</dt><dd>Reactions at P and R1/S1.</dd><dt>How to use it</dt><dd>Widely watched, so they can act like PDH/PDL: places for targets and stops.</dd><dt>TARS tested</dt><dd>Like Fibonacci, expect them to work about as well as any other level.</dd></dl></details>
-      <details><summary><b>Liquidity pools</b> <span class="muted">· Equal highs or lows where stops tend to sit. 'Swept' = price ran through and closed back inside.</span></summary>
-        <dl class="gd"><dt>Watch</dt><dd>A sweep and reclaim, or a level getting taken cleanly.</dd><dt>How to use it</dt><dd>Targets often sit at the next pool. A sweep that reverses can be a turn.</dd><dt>TARS tested</dt><dd>Pool breaks: no direction edge out of sample.</dd></dl></details>
+      <details><summary><b>Liquidity pools</b> <span class="muted">· Equal highs or lows where stops tend to sit. 'Swept' = price ran through and closed back inside. The ▲/▼ tag next to the price says which pool gets hit first, and the odds.</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>The ▲/▼ tag and the "Next pool to get hit" row. Above 70% = the nearer pool is a strong favorite; 50-60% = coin flip.</dd><dt>How to use it</dt><dd>The odds come from distance: the closer pool gets hit first more often, in proportion (pool 0.30 above and 0.70 below → ~70% up first). Use the favored pool as a realistic first target, and the other one as where your idea is wrong. It says where price is likely to travel next, not how far the day goes after.</dd><dt>TARS tested</dt><dd>Which pool gets hit first: calibrated on 30 days (1,668 checks): called 10/30/50/71/90% up, actual 9/27/52/69/88%. Adding trend, MACD, VWAP side or RSI did not improve it. Whether a break keeps going: no edge.</dd></dl></details>
       <details><summary><b>Fair value gaps</b> <span class="muted">· Three-candle gaps where price moved so fast it left an empty zone.</span></summary>
         <dl class="gd"><dt>Watch</dt><dd>Price coming back into an open gap.</dd><dt>How to use it</dt><dd>Gaps sometimes act as support/resistance on the way back.</dd><dt>TARS tested</dt><dd>No edge out of sample on 133 days.</dd></dl></details>
       <details><summary><b>Fibonacci</b> <span class="muted">· Retracement levels of today's main swing (38.2/50/61.8%).</span></summary>
@@ -352,6 +352,13 @@ function indicators(bars) {
   });
 }
 
+// Which liquidity pool gets hit first: the nearer one, in proportion to distance (the driftless random-walk odds).
+// Tested on 30 days of SPY 1-min (1,668 checks): predicted 10/30/50/71/90% up → actual 9/27/52/69/88%; trend, MACD, VWAP side and RSI added nothing.
+function poolOdds(st, c) {
+  const up = st.pools.filter(p => p.p > c && !p.taken).sort((a, b) => a.p - b.p)[0], dn = st.pools.filter(p => p.p < c && !p.taken).sort((a, b) => b.p - a.p)[0];
+  if (!up || !dn) return {up, dn, pUp: null};
+  return {up, dn, pUp: (c - dn.p) / (up.p - dn.p)};
+}
 function structure(bars, prev, m = 1) {
   const orN = Math.ceil(15 / m);
   const out = {levels: [], pools: [], fvgs: [], swingsH: [], swingsL: [], fib: null, pivots: [], tlines: [], hod: null, lod: null};
@@ -618,6 +625,12 @@ function draw() {
   const lb = all[all.length - 1], ly = Math.min(H - B - 7, Math.max(T + 7, y(lb.c)));
   g.fillStyle = css("--ink"); g.fillRect(W - R + 1, ly - 7, R - 2, 14);
   g.fillStyle = css("--panel"); g.fillText(lb.c.toFixed(2), W - R + 4, ly + 3);
+  // which pool is likely hit first: arrow at the price tag
+  if (layers.pools && S.st1) { const o = poolOdds(S.st1, lb.c);
+    if (o.pUp !== null) { const goUp = o.pUp >= 0.5, pc = Math.round(100 * (goUp ? o.pUp : 1 - o.pUp)), t = goUp ? o.up : o.dn;
+      const txt = `${goUp ? "▲" : "▼"} ${pc}% → ${t.p.toFixed(2)}`, tw = g.measureText(txt).width + 10, ty = goUp ? ly - 22 : ly + 9;
+      g.fillStyle = css(goUp ? "--up" : "--down"); g.fillRect(W - R - tw - 2, ty, tw, 14);
+      g.fillStyle = css("--panel"); g.fillText(txt, W - R - tw + 3, ty + 10); } }
   // crosshair readout for the candle under the finger or mouse
   if (hoverI !== null && hoverI >= start && hoverI < end) {
     const b = all[hoverI], xx = x(hoverI), ch = b.c - b.o;
@@ -701,6 +714,9 @@ function renderPanels() {
     ["Trend lines", (st.tlines || []).length ? st.tlines.map(t => `${t.kind === "res" ? "res" : "sup"} ${t.now.toFixed(2)}${t.broken ? " (broken)" : ""}`).join(" · ") : "not enough swings yet"],
     ["Pivots", (st.pivots || []).length ? st.pivots.slice(0, 3).map(v => `${v.name} ${v.p.toFixed(2)}`).join(" · ") : "–"],
     ["Candles", size + "-minute"],
+    ["Next pool to get hit", (() => { const o = poolOdds(st, lb.c); if (o.pUp === null) return '<span class="muted">needs a pool above and below</span>';
+      const goUp = o.pUp >= 0.5, t = goUp ? o.up : o.dn, pc = Math.round(100 * (goUp ? o.pUp : 1 - o.pUp));
+      return `<b class="${goUp ? "long" : "short"}">${goUp ? "▲ UP" : "▼ DOWN"} to ${t.name} ${t.p.toFixed(2)}</b> · ${pc}% odds${pc < 60 ? " (close to a coin flip)" : ""}`; })()],
     ["Pool above", above ? `${above.name} ${above.p.toFixed(2)} (+${(above.p - lb.c).toFixed(2)})` : "–"],
     ["Pool below", below ? `${below.name} ${below.p.toFixed(2)} (−${(lb.c - below.p).toFixed(2)})` : "–"],
     ["Day type so far", `${trendness >= 0.5 ? "Trending" : trendness <= 0.25 ? "Choppy" : "In between"} (${trendness.toFixed(2)})`],

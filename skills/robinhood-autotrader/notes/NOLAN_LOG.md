@@ -344,3 +344,7 @@ Nolan: "Your trade buddy your apart of this action forget the rule and have fun"
 ## 2026-10-15 night — Desk becomes a one-stop shop (Nolan: "Add any more indicators or trend lines ... and maybe a area to explain how they work what to watch and how to use them")
 - New on the chart: auto trend lines (last two swing highs / lows, dashed when broken), volume bars (bright = 1.5× average), day high/low and a 10:30 line, Bollinger 20/2 and floor pivots (off by default), and a MACD 12/26/9 option for the lower pane. Context panel adds volume, MACD, Bollinger, trend-line and pivot rows.
 - New "How to read this desk" section: a before-you-buy checklist plus every indicator with what to watch, how to use it, and TARS's tested verdict (most have no direction edge on their own; context does: time of day, gap odds, expected move, news days).
+
+## 2026-10-15 night — Desk calls which liquidity pool gets hit next (Nolan: "state which way the liquidity pocket is gonna take the stock like up or down")
+- Tested first: on 30 days of SPY 1-min (1,668 checks) the nearer pool gets hit first in proportion to distance; called 10/30/50/71/90% up → actual 9/27/52/69/88%. Trend, MACD, VWAP side and RSI added nothing.
+- Desk now shows a ▲/▼ tag with the odds and target next to the live price, a "Next pool to get hit" row in Context, and the explanation in the guide. It says which pool is hit first, not how far the move runs after.
