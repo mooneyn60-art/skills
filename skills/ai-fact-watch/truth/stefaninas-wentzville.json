@@ -4,7 +4,7 @@
   "town": "Wentzville",
   "region": "MO",
   "category": "restaurant",
-  "collected_at": "2026-10-15T20:16:28+00:00",
+  "collected_at": "2026-10-15T20:20:48+00:00",
   "facts": {
     "name": {
       "value": "Stefanina's Wentzville",
@@ -66,9 +66,8 @@
     },
     "services": {
       "value": [
-        "Stefanina's Wentzville",
         "Catering/Banquet Room",
-        "Order Online!"
+        "Get Hired"
       ],
       "source": "https://www.stefaninas-wentzville.com",
       "note": "from the site navigation"
@@ -118,13 +117,20 @@
       "source": "https://www.stefaninas-wentzville.com"
     }
   ],
+  "observations": [
+    {
+      "type": "menu_not_text",
+      "source": "https://www.stefaninas-wentzville.com/menu",
+      "detail": "The menu page has almost no readable text (the menu appears to be images or an embedded widget), so AI engines cannot read your real prices and specials and fall back to third-party listings."
+    }
+  ],
   "same_name_businesses": [
     {
       "name": "Stefanina's Pizzeria (Stef's Pizza, O'Fallon)",
       "address": "8645 Veterans Memorial Pkwy, O'Fallon, MO 63366",
       "phone": "(636) 272-3499",
       "url": "https://stefaninas.com/",
-      "note": "Separately owned 4-location chain (LaBeaume Roderick Group); also St. Peters (636) 447-7800, Lake St. Louis (636) 625-3333, St. Charles (636) 724-7800"
+      "note": "A separately owned 4-location chain (Stef's Pizza, owned by LaBeaume Roderick Group) with the same name in O'Fallon, St. Peters, Lake St. Louis and St. Charles."
     },
     {
       "name": "Stef's Pizza Jungermann",
@@ -161,13 +167,9 @@
     },
     {
       "kind": "social",
-      "url": "https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fstefaninaswentzville%2F&is_from_rle",
-      "reachable": true,
-      "title": "Instagram",
-      "address": null,
-      "phone": null,
-      "hours": {},
-      "bio_excerpt": "Instagram"
+      "url": "https://www.instagram.com/stefaninaswentzville/",
+      "reachable": false,
+      "note": "Behind a login wall; check this profile manually."
     }
   ],
   "press": [
@@ -184,49 +186,49 @@
       "url": "https://www.stefaninas-wentzville.com",
       "requested": "https://www.stefaninas-wentzville.com",
       "status": 200,
-      "fetched_at": "2026-10-15T20:16:26+00:00"
+      "fetched_at": "2026-10-15T20:20:46+00:00"
     },
     {
       "kind": "fetch",
       "url": "https://www.stefaninas-wentzville.com/menu",
       "requested": "https://www.stefaninas-wentzville.com/menu",
       "status": 200,
-      "fetched_at": "2026-10-15T20:16:26+00:00"
+      "fetched_at": "2026-10-15T20:20:46+00:00"
     },
     {
       "kind": "fetch",
       "url": "https://www.stefaninas-wentzville.com/contact",
-      "requested": "https://www.stefaninas-wentzville.com/contact",
-      "status": 200,
-      "fetched_at": "2026-10-15T20:16:26+00:00"
+      "status": "error",
+      "error": "HTTP Error 429: Too Many Requests",
+      "fetched_at": "2026-10-15T20:20:46+00:00"
     },
     {
       "kind": "fetch",
       "url": "https://www.stefaninas-wentzville.com/about-3",
-      "requested": "https://www.stefaninas-wentzville.com/about-3",
-      "status": 200,
-      "fetched_at": "2026-10-15T20:16:27+00:00"
+      "status": "error",
+      "error": "HTTP Error 429: Too Many Requests",
+      "fetched_at": "2026-10-15T20:20:47+00:00"
     },
     {
       "kind": "fetch",
       "url": "https://www.iexitapp.com/Missouri/I-70/Exit%20208/8463",
       "status": "error",
       "error": "HTTP Error 403: Forbidden",
-      "fetched_at": "2026-10-15T20:16:27+00:00"
+      "fetched_at": "2026-10-15T20:20:47+00:00"
     },
     {
       "kind": "fetch",
       "url": "https://www.toasttab.com/local/wentzville-mo-restaurants/best-pizza",
       "status": "error",
       "error": "HTTP Error 403: Forbidden",
-      "fetched_at": "2026-10-15T20:16:28+00:00"
+      "fetched_at": "2026-10-15T20:20:47+00:00"
     },
     {
       "kind": "fetch",
       "url": "https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fstefaninaswentzville%2F&is_from_rle",
       "requested": "https://www.instagram.com/stefaninaswentzville/",
-      "status": 200,
-      "fetched_at": "2026-10-15T20:16:28+00:00"
+      "status": "login wall",
+      "fetched_at": "2026-10-15T20:20:48+00:00"
     }
   ]
 }

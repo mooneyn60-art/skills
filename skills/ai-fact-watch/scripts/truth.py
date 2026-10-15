@@ -54,7 +54,7 @@ BUSINESS_TYPES = {
 PAGE_HINTS = ("contact", "location", "hours", "visit", "about", "find-us", "special",
               "deal", "promo", "offer", "coupon", "menu", "faq")
 OFFER_RE = re.compile(
-    r"[^.!?]*\b(special|specials|deal|deals|% off|percent off|coupon|promo|discount|discounts|"
+    r"[^.!?]*\b(specials|(?:daily|weekly|lunch|dinner|today'?s|our|pizza|family|senior|kids?) special|deal|deals|% off|percent off|coupon|promo|discount|discounts|"
     r"happy hour|bogo|buy one|free \w+ with|member(?:s|ship)? (?:price|discount|perk))\b[^.!?]*[.!?]?",
     re.I)
 CLOSED_RE = re.compile(r"\b(permanently closed|closed for good|closed permanently|"
@@ -165,7 +165,7 @@ def candidate_pages(soup: BeautifulSoup, base: str) -> list[str]:
 def nav_services(soup: BeautifulSoup) -> list[str]:
     labels = []
     for a in soup.select("nav a, header a, .menu a, [role=navigation] a"):
-        t = clean_text(a.get_text(" "))
+        t = clean_text(re.sub(r"\(.*?\)", "", a.get_text(" "))).rstrip("!")
         if 2 < len(t) < 30 and t.lower() not in GENERIC_NAV and t not in labels:
             labels.append(t)
     return labels[:12]
@@ -201,6 +201,10 @@ def scan_listing(url: str, kind: str, log: list) -> dict:
     soup, final, _ = get_page(url, log)
     if not soup:
         return {"kind": kind, "url": url, "reachable": False}
+    if re.search(r"/(login|accounts/login)\b", final):
+        log[-1]["status"] = "login wall"
+        return {"kind": kind, "url": url, "reachable": False,
+                "note": "Behind a login wall; check this profile manually."}
     nodes = ld_nodes(soup)
     biz = ld_business(nodes) or {}
     text = page_text(soup)
@@ -237,11 +241,18 @@ def collect(a) -> dict:
             pages.append((final, s))
 
     nodes, texts = [], []
-    services = nav_services(soup)
+    services = [x for x in nav_services(soup) if x.lower() != a.name.lower()]
     for url, s in pages:
         nodes += [(url, n) for n in ld_nodes(s)]
+    observations = []
     for url, s in pages:
+        imgs = len(s.find_all("img"))
         texts.append((url, page_text(s)))
+        if "menu" in url.lower() and len(texts[-1][1]) < 1500 and imgs >= 3:
+            observations.append({"type": "menu_not_text", "source": url, "detail": (
+                "The menu page has almost no readable text (the menu appears to be images or an "
+                "embedded widget), so AI engines cannot read your real prices and specials and "
+                "fall back to third-party listings.")})
 
     biz_url, biz = next(((u, n) for u, n in nodes if node_types(n) & BUSINESS_TYPES), (None, None))
     facts: dict = {}
@@ -257,7 +268,10 @@ def collect(a) -> dict:
     text_addr = None
     for url, t in texts:
         for ad in addresses_in(t):
-            text_addr = (ad["raw"], url, t)
+            i = t.find(ad["raw"]) + len(ad["raw"])
+            tail = re.match(r"\.?,?\s*([A-Z][A-Za-z .'-]{2,30}),?\s+([A-Z]{2})\.?\s+(\d{5})", t[i:i + 60])
+            full = ad["raw"] + (f", {tail.group(1).strip()}, {tail.group(2)} {tail.group(3)}" if tail else "")
+            text_addr = (full, url, t)
             break
         if text_addr:
             break
@@ -393,6 +407,7 @@ def collect(a) -> dict:
         "structured_data": {"present": bool(biz), "types": sorted(node_types(biz)) if biz else [],
                             "hours": ld_h or None, "source": biz_url},
         "conflicts": conflicts,
+        "observations": observations,
         "same_name_businesses": twins,
         "listings": listings,
         "press": [{"url": u} for u in a.press],

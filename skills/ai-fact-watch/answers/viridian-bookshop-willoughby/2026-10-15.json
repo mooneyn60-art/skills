@@ -1,0 +1,145 @@
+{
+  "slug": "viridian-bookshop-willoughby",
+  "runs": [
+    {
+      "run_at": "2026-10-15T20:18:23+00:00",
+      "location": "Willoughby, OH",
+      "providers_run": [
+        "claude-websearch",
+        "google-ai-overview (press report)"
+      ],
+      "providers_skipped": [],
+      "imported_from": "../answers/viridian-bookshop-willoughby/2026-10-15.claude-websearch.import.json"
+    }
+  ],
+  "answers": [
+    {
+      "provider": "claude-websearch",
+      "engine": "Claude web search (session-run)",
+      "mode": "manual",
+      "question_id": "status",
+      "field": "status",
+      "query": "is The Viridian Bookshop in Willoughby Ohio open",
+      "asked_at": "2026-10-15T20:40:00Z",
+      "observed_at": "2026-10-15T20:40:00Z",
+      "text": "I couldn't confirm whether The Viridian Bookshop is open right now. The results don't include current hours or a status update.\n\n- Location and opening: A Cleveland Magazine article from September 2025 said the shop was set to open in October 2025 in the former Eastside Relics antique space at 4081 Erie St. in downtown Willoughby. The building at 4081 Erie St. in Downtown Willoughby — formerly Eastside Relics antique shop — opened up last September, and the article describes the owners' plans for the space.\n- What it offers: Its Bookshop.org page says it specialize[s] in fiction—fantasy, sci-fi, romance, horror, historical, YA, and it has space for tabletop gaming, author events, creative workshops.\n\nFor current hours, check the shop's own website or social media pages, or call the store before you go. Those are the most likely places to show a recent change in hours or a temporary closure.",
+      "citations": [
+        "https://clevelandmagazine.com/articles/downtown-willoughby-welcomes-the-viridian-bookshop-in-october",
+        "https://bookshop.org/shop/ViridianBookshop"
+      ],
+      "ok": true
+    },
+    {
+      "provider": "claude-websearch",
+      "engine": "Claude web search (session-run)",
+      "mode": "manual",
+      "question_id": "hours",
+      "field": "hours",
+      "query": "Viridian Bookshop Willoughby hours",
+      "asked_at": "2026-10-15T20:40:30Z",
+      "observed_at": "2026-10-15T20:40:30Z",
+      "text": "The search didn't turn up hours for The Viridian Bookshop in Willoughby. The results I found had no posted schedule, and the other \"Willoughby\" and \"Village Bookstore\" hits were for different shops.\n\nWhat I did confirm about the shop: the building at 4081 Erie St. in Downtown Willoughby was formerly an antique shop, and Cleveland Magazine's September 2025 article covers the store's October opening. The shop's own Bookshop.org page describes it as nestled in downtown Willoughby, Ohio, but it doesn't list hours.\n\nTo get current hours, check the shop's website or social media pages, or call the store directly.",
+      "citations": [
+        "https://bookshop.org/shop/ViridianBookshop",
+        "https://clevelandmagazine.com/articles/downtown-willoughby-welcomes-the-viridian-bookshop-in-october"
+      ],
+      "ok": true
+    },
+    {
+      "provider": "claude-websearch",
+      "engine": "Claude web search (session-run)",
+      "mode": "manual",
+      "question_id": "phone",
+      "field": "phone",
+      "query": "Viridian Bookshop Willoughby phone number",
+      "asked_at": "2026-10-15T20:41:00Z",
+      "observed_at": "2026-10-15T20:41:00Z",
+      "text": "The search didn't turn up a phone number for The Viridian Bookshop. None of the results list one, so I can't give you a verified number.\n\nThe results did confirm the shop's location. The building at 4081 Erie St. in Downtown Willoughby was formerly an antique shop, and the store opened in October 2025, per Cleveland Magazine's coverage. The shop's own Bookshop.org page describes it as nestled in downtown Willoughby, Ohio.\n\nFor the phone number, try the shop's Bookshop.org page (https://bookshop.org/shop/ViridianBookshop) or search for its social media pages or Google Business listing.",
+      "citations": [
+        "https://bookshop.org/shop/ViridianBookshop",
+        "https://clevelandmagazine.com/articles/downtown-willoughby-welcomes-the-viridian-bookshop-in-october"
+      ],
+      "ok": true
+    },
+    {
+      "provider": "claude-websearch",
+      "engine": "Claude web search (session-run)",
+      "mode": "manual",
+      "question_id": "deals",
+      "field": "offers",
+      "query": "Viridian Bookshop Willoughby deals specials discounts",
+      "asked_at": "2026-10-15T20:41:30Z",
+      "observed_at": "2026-10-15T20:41:30Z",
+      "text": "I found no published deals, specials, or discounts for The Viridian Bookshop in Willoughby. The results only describe the shop itself.\n\n- Shop profile: The Bookshop.org page describes a fiction-focused store in downtown Willoughby, Ohio, with space for tabletop gaming, author events, and workshops. It does not mention promotions.\n- Background: A Cleveland Magazine article from September 2025 reports that the store opened in October 2025 at 4081 Erie St., in the former Eastside Relics antique shop building. It does not describe any discount program.\n- Unrelated results: The other hits concern different shops, including a UK bookseller's 10% offer, a London shop's Independent Bookshop Week discounts, a Life Source Bookshop coupon page, and a Singapore READ30 promotion. None of these is the Willoughby store.\n\nTo find current offers, the best source is probably the shop itself, via its Bookshop.org storefront or its social media and newsletter, if it has them. I did not find a dedicated website or social account for the store in these results.",
+      "citations": [
+        "https://bookshop.org/shop/ViridianBookshop",
+        "https://clevelandmagazine.com/articles/downtown-willoughby-welcomes-the-viridian-bookshop-in-october"
+      ],
+      "ok": true
+    },
+    {
+      "provider": "claude-websearch",
+      "engine": "Claude web search (session-run)",
+      "mode": "manual",
+      "question_id": "legit",
+      "field": "legal",
+      "query": "is Viridian Bookshop Willoughby legit any lawsuits",
+      "asked_at": "2026-10-15T20:42:00Z",
+      "observed_at": "2026-10-15T20:42:00Z",
+      "text": "I found no reports of lawsuits involving The Viridian Bookshop in Willoughby. The results were mostly unrelated, such as Idaho library litigation and a Virginia book case.\n\nThe only directly relevant result is a Cleveland Magazine piece from September 2025. It describes the shop as a community-focused store at 4081 Erie St. in Downtown Willoughby, in a building that was formerly an antique shop. The article covers the opening and the shop's interior concept, but it doesn't address legal or business-standing questions.\n\nThe search didn't turn up customer reviews, Better Business Bureau records, or court dockets, so I can't speak to its overall reputation.",
+      "citations": [
+        "https://clevelandmagazine.com/articles/downtown-willoughby-welcomes-the-viridian-bookshop-in-october"
+      ],
+      "ok": true
+    },
+    {
+      "provider": "claude-websearch",
+      "engine": "Claude web search (session-run)",
+      "mode": "manual",
+      "question_id": "address",
+      "field": "address",
+      "query": "Viridian Bookshop Willoughby address",
+      "asked_at": "2026-10-15T20:42:30Z",
+      "observed_at": "2026-10-15T20:42:30Z",
+      "text": "The Viridian Bookshop's street address is 4081 Erie St., in downtown Willoughby, Ohio. Cleveland Magazine's coverage by Julia Lombardo is dated Sep. 22, 2025, and it names that Erie Street building as the shop's home. Its bookshop listing confirms only the town, describing the store as nestled in downtown Willoughby, Ohio.\n\nThe other results are for unrelated businesses: a Willoughby Road address in Sydney, Australia, and a mobile bookseller in Oklahoma, so I've left them out.",
+      "citations": [
+        "https://clevelandmagazine.com/articles/downtown-willoughby-welcomes-the-viridian-bookshop-in-october",
+        "https://bookshop.org/shop/ViridianBookshop",
+        "https://marketspread.com/vendor/161775/viridian-books/"
+      ],
+      "ok": true
+    },
+    {
+      "provider": "google-ai-overview (press report)",
+      "engine": "Google AI Overview (reported by Spectrum News)",
+      "mode": "press-report",
+      "question_id": "status",
+      "field": "status",
+      "query": "The Viridian Bookshop (Google search, as reported)",
+      "asked_at": "2026-07-23T21:38:00Z",
+      "observed_at": "2026-07-23T21:38:00Z",
+      "text": "The AI summary said the bookshop was \"permanently closed\" and listed an incorrect address a few doors down from the store.",
+      "citations": [],
+      "ok": true,
+      "evidence_url": "https://spectrumnews1.com/oh/cincinnati/news/2026/07/23/bookshop-ai-battle",
+      "note": "Paraphrase of the AI Overview as described by the reporter; the owner said it was still wrong on her phone on the morning of publication.",
+      "owner_confirmed_false": true
+    },
+    {
+      "provider": "google-ai-overview (press report)",
+      "engine": "Google AI Overview (reported by Cleveland Magazine)",
+      "mode": "press-report",
+      "question_id": "status",
+      "field": "status",
+      "query": "The Viridian Bookshop (Google search, as reported)",
+      "asked_at": "2026-09-04T12:00:00Z",
+      "observed_at": "2026-09-04T12:00:00Z",
+      "text": "The AI Overview told searchers The Viridian Bookshop was closed for good, listed an address a few doors down from her actual storefront, and later said the shop never even existed.",
+      "citations": [],
+      "ok": true,
+      "evidence_url": "https://clevelandmagazine.com/articles/willoughby-bookstore-confronts-google-ai-error-claiming-it-was-permanently-closed/",
+      "note": "Owner Chanel Bush: \"It took weeks; it would fix itself, and then it would go back to saying (permanently closed)\" ... \"Then it was saying that we never even existed.\"",
+      "owner_confirmed_false": true
+    }
+  ]
+}
