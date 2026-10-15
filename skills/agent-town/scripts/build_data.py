@@ -120,7 +120,7 @@ def tars() -> dict:
         "id": "tars", "name": "TARS", "title": "Trading desk",
         "role": "Researches markets with parallel read-only desks, then logs every trade, stop and pass to one ledger. All execution goes through rule gates and the owner's confirmation.",
         "status": {"text": "On duty · market hours", "tone": "green"},
-        "chips": [{"text": "LIVE account rows", "tone": "red"}, {"text": "PAPER shadow book", "tone": "blue"}, {"text": "PAPER intraday desk", "tone": "blue"}],
+        "chips": [{"text": "LIVE agentic account", "tone": "red"}, {"text": "PAPER shadow book", "tone": "blue"}, {"text": "PAPER intraday desk", "tone": "blue"}],
         "schedule": {
             "summary": "Hourly 9:17am–5:17pm ET, weekdays (9 checks/day) + Friday data refresh 5:30pm ET",
             "grid": sched,
@@ -128,7 +128,7 @@ def tars() -> dict:
         "kpis": [
             {"label": "Trades logged", "value": len(taken), "note": f"{inst['equity']} equity · {inst['options']} options"},
             {"label": "Ledger rows", "value": len(rows), "note": f"{live_rows} tagged live account"},
-            {"label": "Shadow book", "value": shadow_open, "note": f"open paper positions · {shadow_days} daily snapshots"},
+            {"label": "Shadow book", "value": shadow_open, "note": f"open paper positions, 2 books · {shadow_days} daily snapshots"},
             {"label": "Desk paper trades", "value": len(desk.get("trades", [])) if desk else None, "note": "intraday sim since " + short_date(desk.get("forward_start"))},
             {"label": "Research notes", "value": research, "note": "studies in research/"},
             {"label": "Routines", "value": routines, "note": "scheduled playbooks"},
@@ -270,7 +270,7 @@ def meatball() -> dict:
 def night_owl() -> dict:
     return {
         "id": "owl", "name": "Night Owl", "title": "Dark Facts TikTok channel",
-        "role": "A nightly generator writes the next short built on a verified dark fact; a daily publisher posts it before lunch. Facts only, no fiction.",
+        "role": "A faceless TikTok channel run by two scheduled agents: a nightly generator makes the next Dark Facts video and a daily publisher posts it. Facts only, no fiction.",
         "status": {"text": "Scheduled", "tone": "purple"},
         "chips": [{"text": "Schedule only, no repo data", "tone": "purple"}],
         "schedule": {"summary": "Nightly generate 3:00am ET · publish 11:30am ET", "grid": grid({d: [3] for d in range(7)}) + grid({d: [11] for d in range(7)}, "alt")},
@@ -281,8 +281,8 @@ def night_owl() -> dict:
             {"label": "Videos posted", "value": None, "note": "not tracked in a repo"},
         ],
         "activity": [
-            {"when": "3:00am", "text": "Generator drafts tomorrow's fact, script and vertical video"},
-            {"when": "11:30am", "text": "Publisher posts the finished short"},
+            {"when": "3:00am", "text": "Nightly generator run (creates the next Dark Facts video)"},
+            {"when": "11:30am", "text": "Daily publisher run (posts to TikTok)"},
         ],
         "source": "trigger schedule (no repository data)",
         "note": "This agent has no data in the repos; only its schedule is shown.",

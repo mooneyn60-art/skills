@@ -1,0 +1,2413 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Agent Town</title>
+<meta name="description" content="A pixel-art town with one building per AI agent; tap a building to open that agent's live dashboard.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07091a; --bg2:#0d1028; --panel:#0e1119; --panel2:#151a26; --line:#252c3d;
+  --text:#e8ecf6; --muted:#8b93a7; --dim:#5a6175;
+  --green:#3ddc97; --amber:#ffc857; --blue:#5ec8ff; --red:#ff5d73; --purple:#b48cff; --pink:#ff8ac6;
+  --u:4.5px; --accent:#3ddc97;
+  color-scheme: dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--text);overflow-x:hidden}
+body{
+  font:15px/1.45 Inter,system-ui,sans-serif; min-height:100vh;
+  background:
+    radial-gradient(1200px 600px at 50% -10%, #1a1d4a 0%, transparent 60%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.015) 0 1px, transparent 1px 4px),
+    var(--bg);
+}
+.app{max-width:560px;margin:0 auto;padding:12px 12px 14px;display:flex;flex-direction:column;gap:9px}
+.pix{font-family:"Press Start 2P",monospace;letter-spacing:.02em}
+.vt{font-family:VT323,monospace}
+
+/* header */
+.top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.logo{display:flex;align-items:center;gap:10px;min-width:0}
+.logo .mark{width:34px;height:34px;flex:none;image-rendering:pixelated}
+.logo h1{font-size:17px;line-height:1.2;color:#fff;text-shadow:0 0 12px rgba(180,140,255,.55),2px 2px 0 #3b2a7a}
+.logo p{font:13px/1.2 Inter,sans-serif;color:var(--muted);margin-top:5px}
+.clock{flex:none;text-align:right;font-family:VT323,monospace;font-size:20px;line-height:1;color:var(--green);
+  background:#0a1410;border:1px solid #1d4a37;border-radius:8px;padding:6px 9px;box-shadow:inset 0 0 12px rgba(61,220,151,.12)}
+.clock small{display:block;font-size:14px;color:#6fb596;margin-top:2px}
+
+/* ticker */
+.ticker{position:relative;overflow:hidden;height:30px;border:1px solid var(--line);border-radius:8px;background:#0a0d18;
+  display:flex;align-items:center}
+.ticker .lbl{flex:none;z-index:2;height:100%;display:flex;align-items:center;gap:6px;padding:0 9px;background:#140c1e;
+  border-right:1px solid var(--line);font-size:8px;color:var(--red)}
+.ticker .lbl i{width:7px;height:7px;background:var(--red);border-radius:50%;box-shadow:0 0 8px var(--red)}
+.ticker .track{white-space:nowrap;font-family:VT323,monospace;font-size:19px;color:#c9cfe0;will-change:transform;padding-left:10px}
+.ticker .track b{font-weight:400}
+.ticker .sep{color:var(--dim);margin:0 12px}
+
+/* town */
+.town{position:relative;width:100%;aspect-ratio:120/141;border-radius:14px;overflow:hidden;
+  border:1px solid #2a2f52;box-shadow:0 20px 50px rgba(0,0,0,.55),0 0 0 4px #0b0e22,0 0 40px rgba(120,90,255,.12)}
+.town canvas{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated}
+.hit{position:absolute;background:none;border:0;cursor:pointer;-webkit-tap-highlight-color:transparent;outline:none}
+.hit:focus-visible .tag{outline:2px solid #fff;outline-offset:2px}
+.tag{position:absolute;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;
+  white-space:nowrap;pointer-events:none;
+  padding:calc(var(--u)*.55) calc(var(--u)*1.1) calc(var(--u)*.45);border-radius:calc(var(--u)*1);
+  background:rgba(8,10,20,.88);border:max(1px,calc(var(--u)*.3)) solid var(--accent);
+  box-shadow:0 0 calc(var(--u)*2) color-mix(in srgb,var(--accent) 45%,transparent),0 calc(var(--u)*.5) 0 rgba(0,0,0,.5);
+  transition:transform .15s}
+.tag .n{display:flex;align-items:center;gap:calc(var(--u)*.7);font-family:"Press Start 2P",monospace;
+  font-size:calc(var(--u)*1.55);color:#fff;line-height:1.15}
+.tag .n i{width:calc(var(--u)*1.1);height:calc(var(--u)*1.1);border-radius:50%;background:var(--dot,var(--green));
+  box-shadow:0 0 calc(var(--u)*1) var(--dot,var(--green));flex:none}
+.tag .r{font-family:VT323,monospace;font-size:calc(var(--u)*2.15);line-height:1;color:color-mix(in srgb,var(--accent) 70%,#fff);margin-top:calc(var(--u)*.15)}
+.hit:hover .tag,.hit.sel .tag{transform:translateX(-50%) translateY(calc(var(--u)*-.6))}
+
+/* roster */
+.roster{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.card{display:flex;align-items:center;gap:10px;min-width:0;text-align:left;cursor:pointer;
+  background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:10px;
+  padding:7px 10px;color:var(--text);font:inherit;transition:border-color .15s,transform .15s}
+.card:hover{border-color:var(--accent);transform:translateY(-1px)}
+.card .ic{flex:none;width:30px;height:30px;border-radius:7px;display:grid;place-items:center;
+  background:color-mix(in srgb,var(--accent) 16%,#0b0e16);border:1px solid color-mix(in srgb,var(--accent) 50%,transparent);
+  font-family:"Press Start 2P",monospace;font-size:11px;color:var(--accent)}
+.card .t{min-width:0}
+.card .nm{font-weight:600;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card .st{display:flex;align-items:flex-start;gap:6px;font-size:12px;line-height:1.3;color:var(--muted)}
+.card .st i{margin-top:4px}
+.card .st i{flex:none;width:7px;height:7px;border-radius:50%;background:var(--dot);box-shadow:0 0 6px var(--dot)}
+.foot{font-size:11px;color:var(--dim);text-align:center;line-height:1.5}
+
+/* sheet */
+.sheet{position:fixed;inset:0;z-index:20;pointer-events:none}
+.sheet.on{pointer-events:auto}
+.scrim{position:absolute;inset:0;background:rgba(3,4,12,.62);backdrop-filter:blur(3px);opacity:0}
+.panel{position:absolute;left:50%;bottom:0;width:min(560px,100%);height:min(88vh,860px);
+  transform:translate(-50%,105%);background:var(--panel);border:1px solid var(--line);border-bottom:0;
+  border-radius:20px 20px 0 0;display:flex;flex-direction:column;overflow:hidden;
+  box-shadow:0 -20px 60px rgba(0,0,0,.6),0 -1px 0 var(--accent),0 -10px 40px color-mix(in srgb,var(--accent) 22%,transparent)}
+.panel::before{content:"";position:absolute;inset:0 0 auto;height:160px;pointer-events:none;
+  background:radial-gradient(400px 160px at 20% 0,color-mix(in srgb,var(--accent) 18%,transparent),transparent 70%)}
+.grab{flex:none;height:22px;display:grid;place-items:center}
+.grab span{width:44px;height:5px;border-radius:3px;background:#2f3648}
+.scroll{flex:1;overflow-y:auto;overflow-x:hidden;padding:2px 18px 30px;scrollbar-width:thin;scrollbar-color:#2a3142 transparent}
+.ph{display:flex;align-items:center;gap:14px;position:relative}
+.ph canvas{flex:none;width:76px;height:76px;image-rendering:pixelated;border-radius:12px;background:#0a0d18;border:1px solid var(--line)}
+.ph .who{min-width:0;flex:1}
+.ph h2{font-family:"Press Start 2P",monospace;font-size:15px;line-height:1.3;color:#fff}
+.ph .ttl{color:var(--accent);font-weight:600;font-size:14px;margin-top:5px}
+.close{position:absolute;top:-2px;right:-4px;width:36px;height:36px;border-radius:10px;border:1px solid var(--line);
+  background:var(--panel2);color:var(--muted);font-size:18px;cursor:pointer}
+.close:hover{color:#fff;border-color:var(--accent)}
+.statusrow{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 2px}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;padding:4px 9px;border-radius:999px;
+  background:color-mix(in srgb,var(--c) 14%,transparent);color:color-mix(in srgb,var(--c) 85%,#fff);
+  border:1px solid color-mix(in srgb,var(--c) 40%,transparent);text-transform:uppercase;letter-spacing:.04em}
+.pill i{width:7px;height:7px;border-radius:50%;background:var(--c);box-shadow:0 0 6px var(--c)}
+.role{color:#c4cada;font-size:14.5px;margin:12px 0 16px}
+.sec{font-family:"Press Start 2P",monospace;font-size:9px;color:var(--muted);letter-spacing:.08em;margin:20px 0 10px;
+  display:flex;align-items:center;gap:8px}
+.sec::after{content:"";flex:1;height:1px;background:var(--line)}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.kpi{background:linear-gradient(180deg,var(--panel2),#10141e);border:1px solid var(--line);border-radius:12px;padding:10px 12px 11px;min-width:0}
+.kpi .v{font-family:VT323,monospace;font-size:44px;line-height:.9;color:#fff;text-shadow:0 0 14px color-mix(in srgb,var(--accent) 40%,transparent)}
+.kpi .v.na{color:var(--dim);text-shadow:none}
+.kpi .l{font-weight:600;font-size:13px;margin-top:5px}
+.kpi .s{font-size:11.5px;color:var(--muted);margin-top:1px;line-height:1.35}
+.sched{background:#0b0e17;border:1px solid var(--line);border-radius:12px;padding:12px}
+.sched .sum{font-size:13.5px;color:#d5dae6;margin-bottom:10px}
+.hm{display:grid;grid-template-columns:28px repeat(24,1fr);gap:2px;align-items:center}
+.hm .hl{font-family:VT323,monospace;font-size:14px;color:var(--dim);line-height:1}
+.hm .dl{font-family:VT323,monospace;font-size:15px;color:var(--muted);line-height:1}
+.hm .dl.today{color:#fff}
+.hm .c{aspect-ratio:1;border-radius:2px;background:#161b28}
+.hm .c.run{background:var(--accent);box-shadow:0 0 6px color-mix(in srgb,var(--accent) 60%,transparent)}
+.hm .c.alt{background:#fff;box-shadow:0 0 6px rgba(255,255,255,.5)}
+.hm .c.day{background:color-mix(in srgb,var(--accent) 30%,#161b28)}
+.hm .c.now{outline:2px solid #fff;outline-offset:1px;z-index:1}
+.legend{display:flex;flex-wrap:wrap;gap:12px;margin-top:9px;font-size:11.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:5px}
+.legend b{width:9px;height:9px;border-radius:2px;display:inline-block}
+.ondemand{display:flex;align-items:center;gap:10px;padding:10px;border:1px dashed #2f3648;border-radius:10px;color:var(--muted);font-size:13px}
+.feed{display:flex;flex-direction:column;gap:2px}
+.row{display:grid;grid-template-columns:62px 1fr;gap:10px;padding:9px 0;border-bottom:1px solid #1a1f2c;align-items:baseline}
+.row .w{font-family:VT323,monospace;font-size:17px;color:var(--accent)}
+.row .x{font-size:13.5px;color:#d1d6e2;min-width:0;overflow-wrap:anywhere}
+.row .x .tg{display:inline-block;font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px;margin-left:6px;vertical-align:1px;
+  background:color-mix(in srgb,var(--red) 18%,transparent);color:#ff8f9e;border:1px solid color-mix(in srgb,var(--red) 45%,transparent)}
+.row .x .tg.p{background:color-mix(in srgb,var(--blue) 18%,transparent);color:#9bdcff;border-color:color-mix(in srgb,var(--blue) 45%,transparent)}
+.titles{display:flex;flex-wrap:wrap;gap:6px}
+.titles span{font-size:12px;padding:4px 9px;border-radius:7px;background:#1a1610;border:1px solid #4a3d1c;color:#f2d68a}
+.src{margin-top:18px;padding:12px;border-radius:10px;background:#0a0d15;border:1px solid #1a1f2c;font-size:12px;color:var(--muted)}
+.src code{font-family:VT323,monospace;font-size:15px;color:#aab3c7;overflow-wrap:anywhere}
+.src p{margin-top:6px}
+@media (max-width:420px){
+  .app{padding:10px 10px 16px}
+  .logo h1{font-size:14px}
+  .logo p{font-size:12px}
+  .clock{font-size:17px;padding:5px 7px}
+  .kpi .v{font-size:38px}
+  .scroll{padding:2px 14px 28px}
+  .hm{grid-template-columns:24px repeat(24,1fr);gap:1.5px}
+}
+@media (prefers-reduced-motion:reduce){.tag,.card{transition:none}}
+</style>
+</head>
+<body>
+<main class="app">
+  <header class="top">
+    <div class="logo">
+      <canvas class="mark" id="mark" width="17" height="17" aria-hidden="true"></canvas>
+      <div><h1 class="pix">AGENT TOWN</h1><p id="sub">6 agents on shift</p></div>
+    </div>
+    <div class="clock" id="clock" aria-live="off">--:--<small>ET</small></div>
+  </header>
+  <div class="ticker" aria-hidden="true"><div class="lbl pix"><i></i>FEED</div><div class="track" id="track"></div></div>
+  <section class="town" id="town" aria-label="Pixel-art town, one building per agent">
+    <canvas id="cv"></canvas>
+  </section>
+  <nav class="roster" id="roster" aria-label="Agents"></nav>
+  <p class="foot" id="foot"></p>
+</main>
+
+<div class="sheet" id="sheet" aria-hidden="true">
+  <div class="scrim" id="scrim"></div>
+  <div class="panel" id="panel" role="dialog" aria-modal="true" aria-labelledby="pname">
+    <div class="grab"><span></span></div>
+    <div class="scroll" id="pscroll"></div>
+  </div>
+</div>
+
+<script>
+/*DATA:BEGIN*/const DATA = {
+ "generated": "2026-10-15 19:58 UTC",
+ "days": [
+  "Mon",
+  "Tue",
+  "Wed",
+  "Thu",
+  "Fri",
+  "Sat",
+  "Sun"
+ ],
+ "agents": [
+  {
+   "id": "tars",
+   "name": "TARS",
+   "title": "Trading desk",
+   "role": "Researches markets with parallel read-only desks, then logs every trade, stop and pass to one ledger. All execution goes through rule gates and the owner's confirmation.",
+   "status": {
+    "text": "On duty · market hours",
+    "tone": "green"
+   },
+   "chips": [
+    {
+     "text": "LIVE agentic account",
+     "tone": "red"
+    },
+    {
+     "text": "PAPER shadow book",
+     "tone": "blue"
+    },
+    {
+     "text": "PAPER intraday desk",
+     "tone": "blue"
+    }
+   ],
+   "schedule": {
+    "summary": "Hourly 9:17am–5:17pm ET, weekdays (9 checks/day) + Friday data refresh 5:30pm ET",
+    "grid": [
+     [
+      0,
+      9,
+      "run"
+     ],
+     [
+      0,
+      10,
+      "run"
+     ],
+     [
+      0,
+      11,
+      "run"
+     ],
+     [
+      0,
+      12,
+      "run"
+     ],
+     [
+      0,
+      13,
+      "run"
+     ],
+     [
+      0,
+      14,
+      "run"
+     ],
+     [
+      0,
+      15,
+      "run"
+     ],
+     [
+      0,
+      16,
+      "run"
+     ],
+     [
+      0,
+      17,
+      "run"
+     ],
+     [
+      1,
+      9,
+      "run"
+     ],
+     [
+      1,
+      10,
+      "run"
+     ],
+     [
+      1,
+      11,
+      "run"
+     ],
+     [
+      1,
+      12,
+      "run"
+     ],
+     [
+      1,
+      13,
+      "run"
+     ],
+     [
+      1,
+      14,
+      "run"
+     ],
+     [
+      1,
+      15,
+      "run"
+     ],
+     [
+      1,
+      16,
+      "run"
+     ],
+     [
+      1,
+      17,
+      "run"
+     ],
+     [
+      2,
+      9,
+      "run"
+     ],
+     [
+      2,
+      10,
+      "run"
+     ],
+     [
+      2,
+      11,
+      "run"
+     ],
+     [
+      2,
+      12,
+      "run"
+     ],
+     [
+      2,
+      13,
+      "run"
+     ],
+     [
+      2,
+      14,
+      "run"
+     ],
+     [
+      2,
+      15,
+      "run"
+     ],
+     [
+      2,
+      16,
+      "run"
+     ],
+     [
+      2,
+      17,
+      "run"
+     ],
+     [
+      3,
+      9,
+      "run"
+     ],
+     [
+      3,
+      10,
+      "run"
+     ],
+     [
+      3,
+      11,
+      "run"
+     ],
+     [
+      3,
+      12,
+      "run"
+     ],
+     [
+      3,
+      13,
+      "run"
+     ],
+     [
+      3,
+      14,
+      "run"
+     ],
+     [
+      3,
+      15,
+      "run"
+     ],
+     [
+      3,
+      16,
+      "run"
+     ],
+     [
+      3,
+      17,
+      "run"
+     ],
+     [
+      4,
+      9,
+      "run"
+     ],
+     [
+      4,
+      10,
+      "run"
+     ],
+     [
+      4,
+      11,
+      "run"
+     ],
+     [
+      4,
+      12,
+      "run"
+     ],
+     [
+      4,
+      13,
+      "run"
+     ],
+     [
+      4,
+      14,
+      "run"
+     ],
+     [
+      4,
+      15,
+      "run"
+     ],
+     [
+      4,
+      16,
+      "run"
+     ],
+     [
+      4,
+      17,
+      "run"
+     ],
+     [
+      4,
+      17,
+      "alt"
+     ]
+    ]
+   },
+   "kpis": [
+    {
+     "label": "Trades logged",
+     "value": 320,
+     "note": "122 equity · 198 options"
+    },
+    {
+     "label": "Ledger rows",
+     "value": 357,
+     "note": "160 tagged live account"
+    },
+    {
+     "label": "Shadow book",
+     "value": 7,
+     "note": "open paper positions, 2 books · 14 daily snapshots"
+    },
+    {
+     "label": "Desk paper trades",
+     "value": 11,
+     "note": "intraday sim since Oct 15"
+    },
+    {
+     "label": "Research notes",
+     "value": 49,
+     "note": "studies in research/"
+    },
+    {
+     "label": "Routines",
+     "value": 17,
+     "note": "scheduled playbooks"
+    }
+   ],
+   "activity": [
+    {
+     "when": "Oct 15",
+     "text": "FRO equity · owner funding",
+     "tag": "LIVE"
+    },
+    {
+     "when": "Oct 15",
+     "text": "VLO equity · owner funding",
+     "tag": "LIVE"
+    },
+    {
+     "when": "Oct 15",
+     "text": "HALO equity · user closed",
+     "tag": "LIVE"
+    },
+    {
+     "when": "Oct 15",
+     "text": "BE equity · open",
+     "tag": "LIVE"
+    },
+    {
+     "when": "Oct 15",
+     "text": "World markets study: Asia/Europe vs SPY gap and open-to-close; overnight board in journal;…"
+    },
+    {
+     "when": "Oct 15",
+     "text": "Merge desk-session ledger update"
+    },
+    {
+     "when": "Oct 15",
+     "text": "Desk v7: live position reader with SPY breakeven/stop/target levels and plain-language reads"
+    }
+   ],
+   "source": "claude/package-installation-setup-yv4j79 · skills/robinhood-autotrader/paper/trades.jsonl",
+   "note": "Live-account trades are real orders on a dedicated agentic sub-account; the shadow book and intraday desk are paper. Dollar P&L is deliberately not shown."
+  },
+  {
+   "id": "paige",
+   "name": "Paige",
+   "title": "Booking-site builder",
+   "role": "Turns a local business's 'DM to book' Instagram or Google profile into a one-page mobile booking site, then drafts a personal pitch for the owner. Never invents prices, reviews or hours.",
+   "status": {
+    "text": "Ready · waiting on leads",
+    "tone": "amber"
+   },
+   "chips": [
+    {
+     "text": "DEMO site only",
+     "tone": "amber"
+    }
+   ],
+   "schedule": {
+    "summary": "Hourly, every day",
+    "grid": [
+     [
+      0,
+      0,
+      "run"
+     ],
+     [
+      0,
+      1,
+      "run"
+     ],
+     [
+      0,
+      2,
+      "run"
+     ],
+     [
+      0,
+      3,
+      "run"
+     ],
+     [
+      0,
+      4,
+      "run"
+     ],
+     [
+      0,
+      5,
+      "run"
+     ],
+     [
+      0,
+      6,
+      "run"
+     ],
+     [
+      0,
+      7,
+      "run"
+     ],
+     [
+      0,
+      8,
+      "run"
+     ],
+     [
+      0,
+      9,
+      "run"
+     ],
+     [
+      0,
+      10,
+      "run"
+     ],
+     [
+      0,
+      11,
+      "run"
+     ],
+     [
+      0,
+      12,
+      "run"
+     ],
+     [
+      0,
+      13,
+      "run"
+     ],
+     [
+      0,
+      14,
+      "run"
+     ],
+     [
+      0,
+      15,
+      "run"
+     ],
+     [
+      0,
+      16,
+      "run"
+     ],
+     [
+      0,
+      17,
+      "run"
+     ],
+     [
+      0,
+      18,
+      "run"
+     ],
+     [
+      0,
+      19,
+      "run"
+     ],
+     [
+      0,
+      20,
+      "run"
+     ],
+     [
+      0,
+      21,
+      "run"
+     ],
+     [
+      0,
+      22,
+      "run"
+     ],
+     [
+      0,
+      23,
+      "run"
+     ],
+     [
+      1,
+      0,
+      "run"
+     ],
+     [
+      1,
+      1,
+      "run"
+     ],
+     [
+      1,
+      2,
+      "run"
+     ],
+     [
+      1,
+      3,
+      "run"
+     ],
+     [
+      1,
+      4,
+      "run"
+     ],
+     [
+      1,
+      5,
+      "run"
+     ],
+     [
+      1,
+      6,
+      "run"
+     ],
+     [
+      1,
+      7,
+      "run"
+     ],
+     [
+      1,
+      8,
+      "run"
+     ],
+     [
+      1,
+      9,
+      "run"
+     ],
+     [
+      1,
+      10,
+      "run"
+     ],
+     [
+      1,
+      11,
+      "run"
+     ],
+     [
+      1,
+      12,
+      "run"
+     ],
+     [
+      1,
+      13,
+      "run"
+     ],
+     [
+      1,
+      14,
+      "run"
+     ],
+     [
+      1,
+      15,
+      "run"
+     ],
+     [
+      1,
+      16,
+      "run"
+     ],
+     [
+      1,
+      17,
+      "run"
+     ],
+     [
+      1,
+      18,
+      "run"
+     ],
+     [
+      1,
+      19,
+      "run"
+     ],
+     [
+      1,
+      20,
+      "run"
+     ],
+     [
+      1,
+      21,
+      "run"
+     ],
+     [
+      1,
+      22,
+      "run"
+     ],
+     [
+      1,
+      23,
+      "run"
+     ],
+     [
+      2,
+      0,
+      "run"
+     ],
+     [
+      2,
+      1,
+      "run"
+     ],
+     [
+      2,
+      2,
+      "run"
+     ],
+     [
+      2,
+      3,
+      "run"
+     ],
+     [
+      2,
+      4,
+      "run"
+     ],
+     [
+      2,
+      5,
+      "run"
+     ],
+     [
+      2,
+      6,
+      "run"
+     ],
+     [
+      2,
+      7,
+      "run"
+     ],
+     [
+      2,
+      8,
+      "run"
+     ],
+     [
+      2,
+      9,
+      "run"
+     ],
+     [
+      2,
+      10,
+      "run"
+     ],
+     [
+      2,
+      11,
+      "run"
+     ],
+     [
+      2,
+      12,
+      "run"
+     ],
+     [
+      2,
+      13,
+      "run"
+     ],
+     [
+      2,
+      14,
+      "run"
+     ],
+     [
+      2,
+      15,
+      "run"
+     ],
+     [
+      2,
+      16,
+      "run"
+     ],
+     [
+      2,
+      17,
+      "run"
+     ],
+     [
+      2,
+      18,
+      "run"
+     ],
+     [
+      2,
+      19,
+      "run"
+     ],
+     [
+      2,
+      20,
+      "run"
+     ],
+     [
+      2,
+      21,
+      "run"
+     ],
+     [
+      2,
+      22,
+      "run"
+     ],
+     [
+      2,
+      23,
+      "run"
+     ],
+     [
+      3,
+      0,
+      "run"
+     ],
+     [
+      3,
+      1,
+      "run"
+     ],
+     [
+      3,
+      2,
+      "run"
+     ],
+     [
+      3,
+      3,
+      "run"
+     ],
+     [
+      3,
+      4,
+      "run"
+     ],
+     [
+      3,
+      5,
+      "run"
+     ],
+     [
+      3,
+      6,
+      "run"
+     ],
+     [
+      3,
+      7,
+      "run"
+     ],
+     [
+      3,
+      8,
+      "run"
+     ],
+     [
+      3,
+      9,
+      "run"
+     ],
+     [
+      3,
+      10,
+      "run"
+     ],
+     [
+      3,
+      11,
+      "run"
+     ],
+     [
+      3,
+      12,
+      "run"
+     ],
+     [
+      3,
+      13,
+      "run"
+     ],
+     [
+      3,
+      14,
+      "run"
+     ],
+     [
+      3,
+      15,
+      "run"
+     ],
+     [
+      3,
+      16,
+      "run"
+     ],
+     [
+      3,
+      17,
+      "run"
+     ],
+     [
+      3,
+      18,
+      "run"
+     ],
+     [
+      3,
+      19,
+      "run"
+     ],
+     [
+      3,
+      20,
+      "run"
+     ],
+     [
+      3,
+      21,
+      "run"
+     ],
+     [
+      3,
+      22,
+      "run"
+     ],
+     [
+      3,
+      23,
+      "run"
+     ],
+     [
+      4,
+      0,
+      "run"
+     ],
+     [
+      4,
+      1,
+      "run"
+     ],
+     [
+      4,
+      2,
+      "run"
+     ],
+     [
+      4,
+      3,
+      "run"
+     ],
+     [
+      4,
+      4,
+      "run"
+     ],
+     [
+      4,
+      5,
+      "run"
+     ],
+     [
+      4,
+      6,
+      "run"
+     ],
+     [
+      4,
+      7,
+      "run"
+     ],
+     [
+      4,
+      8,
+      "run"
+     ],
+     [
+      4,
+      9,
+      "run"
+     ],
+     [
+      4,
+      10,
+      "run"
+     ],
+     [
+      4,
+      11,
+      "run"
+     ],
+     [
+      4,
+      12,
+      "run"
+     ],
+     [
+      4,
+      13,
+      "run"
+     ],
+     [
+      4,
+      14,
+      "run"
+     ],
+     [
+      4,
+      15,
+      "run"
+     ],
+     [
+      4,
+      16,
+      "run"
+     ],
+     [
+      4,
+      17,
+      "run"
+     ],
+     [
+      4,
+      18,
+      "run"
+     ],
+     [
+      4,
+      19,
+      "run"
+     ],
+     [
+      4,
+      20,
+      "run"
+     ],
+     [
+      4,
+      21,
+      "run"
+     ],
+     [
+      4,
+      22,
+      "run"
+     ],
+     [
+      4,
+      23,
+      "run"
+     ],
+     [
+      5,
+      0,
+      "run"
+     ],
+     [
+      5,
+      1,
+      "run"
+     ],
+     [
+      5,
+      2,
+      "run"
+     ],
+     [
+      5,
+      3,
+      "run"
+     ],
+     [
+      5,
+      4,
+      "run"
+     ],
+     [
+      5,
+      5,
+      "run"
+     ],
+     [
+      5,
+      6,
+      "run"
+     ],
+     [
+      5,
+      7,
+      "run"
+     ],
+     [
+      5,
+      8,
+      "run"
+     ],
+     [
+      5,
+      9,
+      "run"
+     ],
+     [
+      5,
+      10,
+      "run"
+     ],
+     [
+      5,
+      11,
+      "run"
+     ],
+     [
+      5,
+      12,
+      "run"
+     ],
+     [
+      5,
+      13,
+      "run"
+     ],
+     [
+      5,
+      14,
+      "run"
+     ],
+     [
+      5,
+      15,
+      "run"
+     ],
+     [
+      5,
+      16,
+      "run"
+     ],
+     [
+      5,
+      17,
+      "run"
+     ],
+     [
+      5,
+      18,
+      "run"
+     ],
+     [
+      5,
+      19,
+      "run"
+     ],
+     [
+      5,
+      20,
+      "run"
+     ],
+     [
+      5,
+      21,
+      "run"
+     ],
+     [
+      5,
+      22,
+      "run"
+     ],
+     [
+      5,
+      23,
+      "run"
+     ],
+     [
+      6,
+      0,
+      "run"
+     ],
+     [
+      6,
+      1,
+      "run"
+     ],
+     [
+      6,
+      2,
+      "run"
+     ],
+     [
+      6,
+      3,
+      "run"
+     ],
+     [
+      6,
+      4,
+      "run"
+     ],
+     [
+      6,
+      5,
+      "run"
+     ],
+     [
+      6,
+      6,
+      "run"
+     ],
+     [
+      6,
+      7,
+      "run"
+     ],
+     [
+      6,
+      8,
+      "run"
+     ],
+     [
+      6,
+      9,
+      "run"
+     ],
+     [
+      6,
+      10,
+      "run"
+     ],
+     [
+      6,
+      11,
+      "run"
+     ],
+     [
+      6,
+      12,
+      "run"
+     ],
+     [
+      6,
+      13,
+      "run"
+     ],
+     [
+      6,
+      14,
+      "run"
+     ],
+     [
+      6,
+      15,
+      "run"
+     ],
+     [
+      6,
+      16,
+      "run"
+     ],
+     [
+      6,
+      17,
+      "run"
+     ],
+     [
+      6,
+      18,
+      "run"
+     ],
+     [
+      6,
+      19,
+      "run"
+     ],
+     [
+      6,
+      20,
+      "run"
+     ],
+     [
+      6,
+      21,
+      "run"
+     ],
+     [
+      6,
+      22,
+      "run"
+     ],
+     [
+      6,
+      23,
+      "run"
+     ]
+    ]
+   },
+   "kpis": [
+    {
+     "label": "Real sites built",
+     "value": null,
+     "note": "none committed to the repo yet"
+    },
+    {
+     "label": "Demo sites",
+     "value": 1,
+     "note": "fictional test business"
+    },
+    {
+     "label": "Leads logged",
+     "value": null,
+     "note": "leads.csv not in repo"
+    },
+    {
+     "label": "Pipeline stages",
+     "value": 4,
+     "note": "find → extract → build → pitch"
+    }
+   ],
+   "activity": [
+    {
+     "when": "Sep 24",
+     "text": "Add locked demo mode to local-booking-sites"
+    },
+    {
+     "when": "Sep 24",
+     "text": "Fix booking days with no remaining slots in local-booking-sites"
+    },
+    {
+     "when": "Sep 24",
+     "text": "Add local-booking-sites skill"
+    }
+   ],
+   "source": "claude/tiktok-automation-full-scale-8jisnq · skills/local-booking-sites",
+   "note": "The builder and lead tracker exist; no real client site or lead list is committed yet."
+  },
+  {
+   "id": "pine",
+   "name": "Hollow Pine Press",
+   "title": "KDP puzzle-book publisher",
+   "role": "Builds a large-print word-search book each week: puzzles, print-ready interior and cover PDFs, KDP listing copy, Pinterest pins and a short-video script.",
+   "status": {
+    "text": "Weekly build on track",
+    "tone": "green"
+   },
+   "chips": [
+    {
+     "text": "Print-ready files",
+     "tone": "green"
+    }
+   ],
+   "schedule": {
+    "summary": "Weekly, Monday (next book in the series)",
+    "grid": [
+     [
+      0,
+      null,
+      "day"
+     ]
+    ]
+   },
+   "kpis": [
+    {
+     "label": "Books built",
+     "value": 5,
+     "note": "interior + cover PDFs"
+    },
+    {
+     "label": "Puzzles",
+     "value": 300,
+     "note": "across all books"
+    },
+    {
+     "label": "Pin images",
+     "value": 6,
+     "note": "Pinterest graphics"
+    },
+    {
+     "label": "Video scripts",
+     "value": 2,
+     "note": "promo shorts"
+    },
+    {
+     "label": "Live on Amazon",
+     "value": null,
+     "note": "KDP status not tracked in repo"
+    }
+   ],
+   "activity": [
+    {
+     "when": "Oct 12",
+     "text": "Add Beekeeping Word Search book; keep pin word lists above footer"
+    },
+    {
+     "when": "Oct 5",
+     "text": "Add Christmas Word Search book, Christmas cover pattern, and pin image generator"
+    },
+    {
+     "when": "Sep 28",
+     "text": "Tighten Halloween keywords"
+    },
+    {
+     "when": "Sep 28",
+     "text": "Add Halloween Word Search book; fix palindromes and long word-list entries"
+    }
+   ],
+   "titles": [
+    "Beekeeping Word Search",
+    "Christmas Word Search",
+    "Halloween Word Search",
+    "Knitting & Crochet Word Search",
+    "Quilting Word Search"
+   ],
+   "source": "claude/dreamy-galileo-9cchpj · kdp-books/",
+   "note": "Sales and royalties are not in the repo, so none are shown."
+  },
+  {
+   "id": "doc",
+   "name": "Doc",
+   "title": "Dentist AI-visibility auditor",
+   "role": "Scores independent dental practices' websites on the signals AI assistants use to recommend a local dentist, then emails a free audit with the top three gaps.",
+   "status": {
+    "text": "Setup · outreach off",
+    "tone": "amber"
+   },
+   "chips": [
+    {
+     "text": "Outreach OFF",
+     "tone": "amber"
+    }
+   ],
+   "schedule": {
+    "summary": "On demand (weekday daily-run routine is written, runs once enabled)",
+    "grid": []
+   },
+   "kpis": [
+    {
+     "label": "Audits run",
+     "value": 0,
+     "note": "client report folders"
+    },
+    {
+     "label": "Leads",
+     "value": 0,
+     "note": "data/leads.csv"
+    },
+    {
+     "label": "Leads per day",
+     "value": 10,
+     "note": "configured cap"
+    },
+    {
+     "label": "Config gaps",
+     "value": 5,
+     "note": "fields before sending"
+    }
+   ],
+   "activity": [
+    {
+     "when": "now",
+     "text": "Outreach locked until set: business name, sender email, postal address, payment link, target city"
+    },
+    {
+     "when": "Oct 15",
+     "text": "Add dental-ai-visibility: automated AI-search audit service for local dentists"
+    }
+   ],
+   "source": "claude/dental-ai-visibility · skills/dental-ai-visibility",
+   "note": "No audits or leads are committed yet; the auditor is built and waiting for its city and sender details."
+  },
+  {
+   "id": "meatball",
+   "name": "Meatball Studio",
+   "title": "AI cat soap-opera studio",
+   "role": "Writes, animates and schedules 'Oh Meatball', a vertical soap opera starring a very round orange cat. Every part ends on a cliffhanger.",
+   "status": {
+    "text": "5 uploads awaiting approval",
+    "tone": "amber"
+   },
+   "chips": [
+    {
+     "text": "Season 1: The Wedding",
+     "tone": "pink"
+    }
+   ],
+   "schedule": {
+    "summary": "Daily production run (+ nightly post check, weekly review)",
+    "grid": [
+     [
+      0,
+      null,
+      "day"
+     ],
+     [
+      1,
+      null,
+      "day"
+     ],
+     [
+      2,
+      null,
+      "day"
+     ],
+     [
+      3,
+      null,
+      "day"
+     ],
+     [
+      4,
+      null,
+      "day"
+     ],
+     [
+      5,
+      null,
+      "day"
+     ],
+     [
+      6,
+      null,
+      "day"
+     ]
+    ]
+   },
+   "kpis": [
+    {
+     "label": "Episodes made",
+     "value": 3,
+     "note": "story parts + 1 recap"
+    },
+    {
+     "label": "Uploads queued",
+     "value": 5,
+     "note": "awaiting owner approval"
+    },
+    {
+     "label": "Gen credits used",
+     "value": 1413,
+     "note": "video-model credits in log"
+    },
+    {
+     "label": "Experiments",
+     "value": 4,
+     "note": "3 open"
+    },
+    {
+     "label": "Views",
+     "value": null,
+     "note": "metrics.csv has no rows yet"
+    }
+   ],
+   "activity": [
+    {
+     "when": "Oct 15",
+     "text": "Recap: Meatball's wedding went SO wrong… Parts 1-3 · queued, awaiting approval"
+    },
+    {
+     "when": "Oct 15",
+     "text": "Pt 3: He ran from the wedding… then THIS (master upload) · queued, awaiting approval"
+    },
+    {
+     "when": "Oct 15",
+     "text": "Pt 3: He ran from the wedding… then THIS · composing"
+    },
+    {
+     "when": "Oct 15",
+     "text": "Pt 2: She was already married and there's a kitten (music) · queued, awaiting appro…"
+    },
+    {
+     "when": "Oct 15",
+     "text": "Pt 1: He crashed the wedding She has a secret (music) · queued, awaiting approval"
+    }
+   ],
+   "source": "claude/off-the-lot · skills/oh-meatball/data/log.csv",
+   "note": "Views and follower numbers appear here once metrics.csv starts filling."
+  },
+  {
+   "id": "owl",
+   "name": "Night Owl",
+   "title": "Dark Facts TikTok channel",
+   "role": "A faceless TikTok channel run by two scheduled agents: a nightly generator makes the next Dark Facts video and a daily publisher posts it. Facts only, no fiction.",
+   "status": {
+    "text": "Scheduled",
+    "tone": "purple"
+   },
+   "chips": [
+    {
+     "text": "Schedule only, no repo data",
+     "tone": "purple"
+    }
+   ],
+   "schedule": {
+    "summary": "Nightly generate 3:00am ET · publish 11:30am ET",
+    "grid": [
+     [
+      0,
+      3,
+      "run"
+     ],
+     [
+      1,
+      3,
+      "run"
+     ],
+     [
+      2,
+      3,
+      "run"
+     ],
+     [
+      3,
+      3,
+      "run"
+     ],
+     [
+      4,
+      3,
+      "run"
+     ],
+     [
+      5,
+      3,
+      "run"
+     ],
+     [
+      6,
+      3,
+      "run"
+     ],
+     [
+      0,
+      11,
+      "alt"
+     ],
+     [
+      1,
+      11,
+      "alt"
+     ],
+     [
+      2,
+      11,
+      "alt"
+     ],
+     [
+      3,
+      11,
+      "alt"
+     ],
+     [
+      4,
+      11,
+      "alt"
+     ],
+     [
+      5,
+      11,
+      "alt"
+     ],
+     [
+      6,
+      11,
+      "alt"
+     ]
+    ]
+   },
+   "kpis": [
+    {
+     "label": "Runs per day",
+     "value": 2,
+     "note": "generate + publish"
+    },
+    {
+     "label": "Generate",
+     "value": "3:00",
+     "note": "am ET, nightly"
+    },
+    {
+     "label": "Publish",
+     "value": "11:30",
+     "note": "am ET, daily"
+    },
+    {
+     "label": "Videos posted",
+     "value": null,
+     "note": "not tracked in a repo"
+    }
+   ],
+   "activity": [
+    {
+     "when": "3:00am",
+     "text": "Nightly generator run (creates the next Dark Facts video)"
+    },
+    {
+     "when": "11:30am",
+     "text": "Daily publisher run (posts to TikTok)"
+    }
+   ],
+   "source": "trigger schedule (no repository data)",
+   "note": "This agent has no data in the repos; only its schedule is shown."
+  }
+ ]
+};/*DATA:END*/
+</script>
+<script>
+"use strict";
+// ---------- config (visual only; every number comes from DATA) ----------
+const W = 120, H = 141;
+const ROW = [{base: 44, road: 52}, {base: 86, road: 94}, {base: 126, road: 134}];
+const LOOK = {
+  tars:     {accent: "#3ddc97", short: "TARS",        tagRole: "trading desk", col: 0, row: 0, sprite: "TARS",     bx: 9,  bw: 38},
+  paige:    {accent: "#ff8a65", short: "PAIGE",       tagRole: "site builder", col: 1, row: 0, sprite: "Paige",    bx: 73, bw: 38},
+  pine:     {accent: "#f2c14e", short: "HOLLOW PINE", tagRole: "book press",   col: 0, row: 1, sprite: "Pine",     bx: 9,  bw: 40},
+  doc:      {accent: "#5ec8ff", short: "DOC",         tagRole: "dental audits", col: 1, row: 1, sprite: "Doc",     bx: 73, bw: 38},
+  meatball: {accent: "#ff9f1c", short: "MEATBALL",    tagRole: "cat soap studio", col: 0, row: 2, sprite: "Meatball", bx: 9, bw: 38},
+  owl:      {accent: "#b48cff", short: "NIGHT OWL",   tagRole: "dark facts",   col: 1, row: 2, sprite: "Owl",      bx: 73, bw: 38},
+};
+// icon/hit bounds in logical units (x, top, width)
+const BOX = {tars: [7, 4, 42], paige: [71, 6, 48], pine: [1, 58, 54], doc: [71, 58, 42], meatball: [7, 100, 42], owl: [71, 100, 44]};
+const TONE = {green: "--green", amber: "--amber", blue: "--blue", red: "--red", purple: "--purple", pink: "--pink"};
+const toneVar = t => `var(${TONE[t] || "--muted"})`;
+const agents = (DATA.agents || []).filter(a => LOOK[a.id]);
+const byId = Object.fromEntries(agents.map(a => [a.id, a]));
+
+// ---------- time (real, or virtual for frame-exact recording) ----------
+let VT = null;
+const now = () => (VT === null ? performance.now() : VT);
+const tweens = [];
+function tween(dur, apply, ease = easeInOut) {
+  const tw = {t0: now(), dur, apply, ease};
+  tweens.push(tw); apply(0); return tw;
+}
+function easeInOut(x) { return x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; }
+function easeOut(x) { return 1 - Math.pow(1 - x, 3); }
+function runTweens() {
+  const t = now();
+  for (let i = tweens.length - 1; i >= 0; i--) {
+    const tw = tweens[i], p = Math.min(1, (t - tw.t0) / tw.dur);
+    tw.apply(tw.ease(p));
+    if (p >= 1) tweens.splice(i, 1);
+  }
+}
+
+// ---------- pixel painter ----------
+function rng(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+function painter(ctx, u, ox = 0, oy = 0) {
+  const P = {ctx, u, ox, oy};
+  P.r = (x, y, w, h, c) => {
+    const X = Math.round((x - ox) * u), Y = Math.round((y - oy) * u);
+    const w2 = Math.round((x - ox + w) * u) - X, h2 = Math.round((y - oy + h) * u) - Y;
+    if (w2 <= 0 || h2 <= 0) return;
+    ctx.fillStyle = c; ctx.fillRect(X, Y, w2, h2);
+  };
+  P.disc = (cx, cy, R, c, s = .5) => {
+    for (let yy = -R; yy < R; yy += s) {
+      const m = yy + s / 2, half = Math.round(Math.sqrt(Math.max(0, R * R - m * m)) / s) * s;
+      if (half > 0) P.r(cx - half, cy + yy, half * 2, s, c);
+    }
+  };
+  P.glow = (cx, cy, R, c, a) => {
+    const g = ctx.createRadialGradient((cx - ox) * u, (cy - oy) * u, 0, (cx - ox) * u, (cy - oy) * u, R * u);
+    g.addColorStop(0, c.replace("A", a)); g.addColorStop(1, c.replace("A", 0));
+    ctx.fillStyle = g; ctx.fillRect((cx - ox - R) * u, (cy - oy - R) * u, 2 * R * u, 2 * R * u);
+  };
+  P.text = (s, x, y, size, c, font = "VT323") => {
+    ctx.font = `${Math.round(size * u)}px ${font}, monospace`; ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
+    ctx.fillStyle = "rgba(0,0,0,.85)"; ctx.fillText(s, Math.round((x - ox) * u) + Math.max(1, u * .25), Math.round((y - oy) * u) + Math.max(1, u * .25));
+    ctx.fillStyle = c; ctx.fillText(s, Math.round((x - ox) * u), Math.round((y - oy) * u));
+  };
+  return P;
+}
+
+// ---------- scenery ----------
+function drawScene(P) {
+  const R = rng(7);
+  // sky
+  const sky = ["#080b1f", "#0c1030", "#121540", "#1a1a4c", "#241e57", "#2f2360"];
+  sky.forEach((c, i) => P.r(0, i * 2.4, W, 2.5, c));
+  // moon
+  P.glow(86, 6.5, 14, "rgba(244,236,200,A)", .22);
+  P.disc(86, 6.5, 4.2, "#f4ecc8"); P.disc(87.6, 5.6, 3.6, "#1a1a4c");
+  // far hills
+  for (let x = 0; x < W; x += 1) {
+    const h = 2.2 + Math.sin(x * .09) * 1.4 + Math.sin(x * .23 + 1) * .8;
+    P.r(x, 14 - h, 1, h + .5, "#141a3a");
+  }
+  for (let x = 0; x < W; x += 1) {
+    const h = 1.2 + Math.abs(Math.sin(x * .41)) * 1.6 + (x % 7 === 0 ? 1.2 : 0);
+    P.r(x, 14.5 - h, 1, h + .5, "#0e1f1c");
+  }
+  // ground
+  P.r(0, 14, W, H - 14, "#13291c");
+  for (let i = 0; i < 520; i++) {
+    const x = Math.floor(R() * W * 2) / 2, y = 14 + Math.floor(R() * (H - 14) * 2) / 2;
+    P.r(x, y, .5, .5, R() < .5 ? "#1a3824" : "#0f2116");
+  }
+  for (let i = 0; i < 26; i++) { // flowers
+    const x = Math.floor(R() * W), y = 16 + Math.floor(R() * (H - 18));
+    P.r(x, y, .5, .5, ["#ff8ac6", "#ffd166", "#b48cff", "#e8ecf6"][i % 4]);
+  }
+  // yards (dirt/stone)
+  ROW.forEach(rw => { P.r(0, rw.base, W, rw.road - rw.base, "#1a2a20"); });
+  // roads
+  const road = (x, y, w, h) => { P.r(x, y, w, h, "#272b37"); };
+  ROW.forEach(rw => { road(0, rw.road, W, 6); P.r(0, rw.road, W, .5, "#3a4050"); P.r(0, rw.road + 5.5, W, .5, "#1b1e27"); });
+  road(57, 14, 6, H - 14);
+  P.r(57, 14, .5, H - 14, "#3a4050"); P.r(62.5, 14, .5, H - 14, "#1b1e27");
+  ROW.forEach(rw => {
+    for (let x = 2; x < W; x += 5) if (x < 55 || x > 64) P.r(x, rw.road + 2.75, 2.5, .5, "#77703f");
+    for (let k = 0; k < 4; k++) { P.r(57.5 + k * 1.4, rw.road - 1.6, .8, 1.2, "#d7dbe6"); P.r(57.5 + k * 1.4, rw.road + 6.4, .8, 1.2, "#d7dbe6"); }
+  });
+  for (let y = 16; y < H; y += 5) if (!ROW.some(rw => y > rw.road - 3 && y < rw.road + 8)) P.r(59.75, y, .5, 2.5, "#77703f");
+}
+function pine(P, x, base, h, c1 = "#1f4a33", c2 = "#2c6445") {
+  P.r(x - .5, base - 2, 1, 2, "#4a3020");
+  for (let i = 0; i < h; i += 1) {
+    const wdt = Math.max(1, ((h - i) / h) * (h * .55)) ;
+    const w2 = Math.round(wdt * 2) / 2;
+    P.r(x - w2 / 2, base - 2 - i, w2, 1, i % 3 === 0 ? c2 : c1);
+  }
+}
+function lamp(P, x, y, t) {
+  P.r(x, y - 7, .5, 7, "#3b4256"); P.r(x - .5, y - 7.5, 1.5, .8, "#566079");
+  P.r(x - .25, y - 6.8, 1, .6, "#ffe7a3");
+}
+function lampGlow(P, x, y) { P.glow(x + .25, y - 6.5, 7, "rgba(255,214,120,A)", .28); }
+
+// ---------- buildings ----------
+function window4(P, x, y, w, h, lit, warm = "#ffcf6b") {
+  P.r(x, y, w, h, lit ? warm : "#1a2030");
+  if (lit) P.r(x, y, w, .5, "#fff3c4");
+}
+const B = {
+  tars(P, t) {
+    const R = rng(11);
+    // billboard
+    P.r(18, 13.5, .8, 5, "#3b4256"); P.r(37, 13.5, .8, 5, "#3b4256");
+    P.r(13.5, 5, 29, 9.5, "#0a1814"); P.r(13.5, 5, 29, .5, "#3ddc97"); P.r(13.5, 14, 29, .5, "#3ddc97");
+    P.r(13.5, 5, .5, 9.5, "#3ddc97"); P.r(42, 5, .5, 9.5, "#3ddc97");
+    const sh = Math.floor(t / 900);
+    for (let i = 0; i < 9; i++) {
+      const k = i + sh, r2 = rng(k * 97 + 3), up = r2() < .62;
+      const mid = 9.5 - Math.sin(k * .55) * 2 - (k % 9) * .15, body = 1 + r2() * 2.2;
+      const x = 15 + i * 3;
+      P.r(x + .5, mid - body / 2 - 1, .5, body + 2, up ? "#2a8a63" : "#8a2a3a");
+      P.r(x, mid - body / 2, 1.5, body, up ? "#3ddc97" : "#ff5d73");
+    }
+    // antenna
+    P.r(44.5, 9, .5, 9, "#566079");
+    if (Math.floor(t / 600) % 2) { P.r(44, 8.5, 1.5, 1.5, "#ff5d73"); P.glow(44.75, 9.25, 3, "rgba(255,93,115,A)", .6); }
+    // body
+    P.r(10, 18, 36, 26, "#1b2431"); P.r(42, 18, 4, 26, "#141b26"); P.r(9.5, 17.5, 37, 1.2, "#2b3748");
+    for (let j = 0; j < 3; j++) for (let i = 0; i < 5; i++) {
+      const x = 12.5 + i * 6, y = 20.5 + j * 5, lit = R() < .62;
+      P.r(x, y, 4, 3, lit ? "#1f6b55" : "#132530");
+      if (lit) { P.r(x, y, 4, .5, "#7ff5c4"); if (R() < .4) P.r(x + .5, y + 1.5, 1.5, 1, "#3ddc97"); }
+    }
+    // LED ticker band
+    P.r(11, 36, 34, 2.5, "#04070a");
+    const off = (t / 120) % 34;
+    for (let i = 0; i < 34; i += 1) {
+      const k = Math.floor(i + off), on = (k * 7) % 5 !== 0;
+      if (on) P.r(11 + i, 36.75, .5, 1, (Math.floor(k / 6) % 3 === 2) ? "#ff5d73" : "#3ddc97");
+    }
+    P.r(25, 39.5, 6, 4.5, "#0d131b"); P.r(25, 39.5, 6, .5, "#3ddc97"); P.r(27.75, 40, .5, 4, "#22303f");
+  },
+  paige(P, t) {
+    // crane
+    P.r(112.5, 7, 1.2, 37, "#c99a2e");
+    for (let y = 8; y < 44; y += 2) P.r(112.3, y, 1.6, .4, "#f2c14e");
+    P.r(98, 7, 18, 1, "#f2c14e"); P.r(115, 6, 2, 3, "#8a6a22");
+    const bob = 12 + Math.sin(t / 700) * 3;
+    P.r(104.2, 8, .3, bob - 8, "#cfd5e2");
+    P.r(102, bob, 5, 3, "#ff8a65"); P.r(102, bob, 5, .5, "#ffc2ad"); P.r(102.8, bob + 1.2, 3.4, .5, "#5a2a1e");
+    // body
+    P.r(74, 22, 36, 22, "#33283d"); P.r(106, 22, 4, 22, "#271e30"); P.r(73.5, 21, 37, 1.5, "#ff8a65");
+    // browser sign
+    P.r(77, 24.5, 27, 12.5, "#e9e6f0"); P.r(77, 24.5, 27, 2, "#ff8a65");
+    [78, 79.5, 81].forEach((x, i) => P.r(x, 25.2, .8, .8, ["#5a2a1e", "#ffd6c8", "#ffffff"][i]));
+    P.r(78.5, 27.8, 24, 2.6, "#cfc6dc"); P.r(79.5, 28.5, 12, 1, "#33283d");
+    P.r(78.5, 31.2, 7, 4.8, "#d8d0e4"); P.r(86.5, 31.2, 7, 4.8, "#d8d0e4"); P.r(94.5, 31.2, 8, 4.8, "#d8d0e4");
+    const blink = Math.floor(t / 500) % 2;
+    P.r(96, 32.5, 5, 2.2, blink ? "#ff8a65" : "#ff6a40"); P.r(96.8, 33.3, 3.4, .6, "#fff");
+    // awning + door
+    for (let i = 0; i < 9; i++) P.r(85 + i * 1.2, 37.8, 1.2, 1.4, i % 2 ? "#ff8a65" : "#f3e9ee");
+    P.r(87, 39.2, 6.5, 4.8, "#1a1320"); P.r(87.5, 39.7, 2.5, 4.3, "#ffcf6b"); P.r(91, 39.7, 2, 4.3, "#2a1f33");
+    window4(P, 76, 39.5, 5, 3, true); window4(P, 100, 39.5, 5, 3, true);
+  },
+  pine(P, t) {
+    pine(P, 5.5, 86, 20); pine(P, 51.5, 86, 13, "#1a3f2b", "#24553a"); pine(P, 2, 70, 9, "#183a28", "#21503a");
+    // smoke
+    for (let i = 0; i < 4; i++) {
+      const ph = ((t / 2400) + i / 4) % 1;
+      const y = 59 - ph * 11, x = 40 + Math.sin(ph * 6 + i) * 1.5 + ph * 2, r = .8 + ph * 1.6;
+      P.ctx.globalAlpha = .55 * (1 - ph);
+      P.disc(x, y, r, "#9aa3b8");
+      P.ctx.globalAlpha = 1;
+    }
+    P.r(38, 60, 4, 7, "#5c5d68"); P.r(37.5, 59.5, 5, 1, "#7a7c88"); P.r(38, 62, 4, .4, "#4a4b55"); P.r(38, 64.5, 4, .4, "#4a4b55");
+    // roof
+    for (let k = 0; k < 9; k++) {
+      const w2 = 13 + k * 3.3, x = 29 - w2 / 2;
+      P.r(x, 61 + k, w2, 1, k % 2 ? "#2f5a3a" : "#386b45");
+    }
+    P.r(10, 69.5, 38, 1, "#244a30");
+    // logs
+    P.r(12, 70.5, 34, 15.5, "#6b4528");
+    for (let y = 71.5; y < 86; y += 2) P.r(12, y, 34, .5, "#4f321c");
+    P.r(11.5, 70.5, 1, 15.5, "#7d5232"); P.r(45.5, 70.5, 1, 15.5, "#7d5232");
+    // windows
+    [[15, 74], [38, 74]].forEach(([x, y]) => {
+      P.r(x - .5, y - .5, 6, 5, "#3a2516"); window4(P, x, y, 5, 4, true);
+      P.r(x + 2.25, y, .5, 4, "#3a2516"); P.r(x, y + 1.75, 5, .5, "#3a2516");
+    });
+    // sign with open book
+    P.r(23.5, 71.5, 11, 5.5, "#2a1a10"); P.r(24, 72, 10, 4.5, "#f3e3bd");
+    P.r(25.5, 73, 3.2, 2.5, "#f2c14e"); P.r(29.3, 73, 3.2, 2.5, "#f2c14e"); P.r(28.7, 72.8, .6, 3, "#8a5a1a");
+    P.r(26, 73.6, 2.2, .3, "#8a5a1a"); P.r(29.8, 73.6, 2.2, .3, "#8a5a1a"); P.r(26, 74.4, 2.2, .3, "#8a5a1a"); P.r(29.8, 74.4, 2.2, .3, "#8a5a1a");
+    P.r(26.5, 78, 5, 8, "#3a2516"); P.r(27, 78.5, 4, 7.5, "#4f3220"); P.r(30, 82, .6, .6, "#f2c14e");
+  },
+  doc(P, t) {
+    const d = 4.5; // sign drop
+    P.r(91.5, 64.5 + d, .8, 1.5, "#566079"); P.r(97.5, 64.5 + d, .8, 1.5, "#566079");
+    P.r(86, 54.5 + d, 18, 10.5, "#0b2a3d"); P.r(86, 54.5 + d, 18, .6, "#5ec8ff"); P.r(86, 64.4 + d, 18, .6, "#5ec8ff");
+    P.r(86, 54.5 + d, .6, 10.5, "#5ec8ff"); P.r(103.4, 54.5 + d, .6, 10.5, "#5ec8ff");
+    P.r(90, 56.5 + d, 7, 3.5, "#f4f8ff"); P.r(89.5, 57 + d, 8, 2.5, "#f4f8ff");
+    P.r(90, 60 + d, 2.5, 3, "#f4f8ff"); P.r(94.5, 60 + d, 2.5, 3, "#f4f8ff"); P.r(92.5, 60 + d, 2, 1, "#f4f8ff");
+    P.r(91, 57.3 + d, 1.2, 1, "#ffffff"); P.r(90.5, 57 + d, 6, .4, "#d8e4f2");
+    for (let a = 0; a < Math.PI * 2; a += .35) P.r(99.5 + Math.cos(a) * 2.2, 59 + d + Math.sin(a) * 2.2, .6, .6, "#ffd166");
+    P.r(101, 60.6 + d, .7, .7, "#ffd166"); P.r(101.6, 61.2 + d, .7, .7, "#ffd166"); P.r(102.2, 61.8 + d, .8, .8, "#c99a2e");
+    const sy = 55.5 + d + ((t / 1600) % 1) * 8.5;
+    P.ctx.globalAlpha = .75; P.r(87, sy, 16, .4, "#5ec8ff"); P.ctx.globalAlpha = .25; P.r(87, sy - 1, 16, 1, "#5ec8ff"); P.ctx.globalAlpha = 1;
+    // body
+    P.r(74, 70.5, 36, 1.8, "#2e86c1"); P.r(73.5, 70, 37, .6, "#7fd0ff");
+    P.r(75, 72.3, 34, 13.7, "#dfe7f1"); P.r(105, 72.3, 4, 13.7, "#b9c6d6");
+    for (let i = 0; i < 4; i++) { P.r(77 + i * 7.2, 74, 5, 3.5, "#9fe3ff"); P.r(77 + i * 7.2, 74, 5, .6, "#e6f8ff"); }
+    P.r(77, 79.5, 5, 3.5, "#9fe3ff"); P.r(98.6, 79.5, 5, 3.5, "#9fe3ff");
+    P.r(86.5, 79, 9, 7, "#7aa7c7"); P.r(87, 79.5, 3.8, 6.5, "#bdeeff"); P.r(91.2, 79.5, 3.8, 6.5, "#bdeeff"); P.r(90.8, 79.5, .4, 6.5, "#7aa7c7");
+    P.r(86, 78, 10, 1, "#2e86c1");
+  },
+  meatball(P, t) {
+    // arched roof
+    for (let k = 0; k < 8; k++) {
+      const w2 = 38 - Math.pow(7 - k, 2) * .55, x = 28 - w2 / 2;
+      P.r(x, 105 + k, w2, 1, k % 2 ? "#e2851a" : "#ff9f1c");
+    }
+    for (let x = 12; x < 46; x += 4) P.r(x, 107, .4, 6, "#c46d12");
+    // cat sign
+    P.glow(28, 105.0, 9, "rgba(255,159,28,A)", .35);
+    P.r(23.3, 100.5, 2.2, 2.5, "#ffb347"); P.r(30.5, 100.5, 2.2, 2.5, "#ffb347");
+    P.r(23.9, 101.2, 1, 1.3, "#ff8ac6"); P.r(31.1, 101.2, 1, 1.3, "#ff8ac6");
+    P.disc(28, 105.4, 4.6, "#ffb347");
+    P.r(24.5, 103.0, 7, .4, "#e2851a");
+    const blink = (t % 3800) < 160;
+    if (blink) { P.r(25.3, 104.6, 1.8, .4, "#2b1b10"); P.r(28.9, 104.6, 1.8, .4, "#2b1b10"); }
+    else { P.r(25.5, 103.8, 1.6, 1.8, "#2fbf5b"); P.r(29.1, 103.8, 1.6, 1.8, "#2fbf5b"); P.r(26, 104.0, .6, .6, "#fff"); P.r(29.6, 104.0, .6, .6, "#fff"); }
+    P.r(27.5, 106.0, 1, .7, "#ff6f91"); P.r(26.6, 107.0, 2.8, .4, "#b8641a");
+    P.r(25.2, 109.6, 2, 1.6, "#e63946"); P.r(28.8, 109.6, 2, 1.6, "#e63946"); P.r(27.2, 110.0, 1.6, 1, "#ff5d6c");
+    // body
+    P.r(9, 113, 38, 13, "#3a2a22"); P.r(43, 113, 4, 13, "#2c1f19");
+    for (let y = 114.5; y < 126; y += 2) for (let x = 9 + ((y * 2) % 4); x < 43; x += 4) P.r(x, y, 3.5, .3, "#2c1f19");
+    // ON AIR
+    const on = Math.floor(t / 700) % 2;
+    P.r(11, 114.5, 9, 3.5, on ? "#ff2e4d" : "#5a1a24");
+    if (on) P.glow(15.5, 116.2, 6, "rgba(255,46,77,A)", .45);
+    P.r(12, 115.6, 3, 1.3, "#ffe3e8"); P.r(16, 115.6, 3, 1.3, "#ffe3e8");
+    // roll door
+    P.r(21.5, 117.5, 14, 8.5, "#59606f");
+    for (let y = 118.5; y < 126; y += 1.2) P.r(21.5, y, 14, .3, "#3d4350");
+    // clapperboard
+    P.r(38.5, 117, 6, 5, "#1b1b22"); P.r(38.5, 116, 6, 1.3, "#f4f4f4");
+    for (let i = 0; i < 3; i++) P.r(39 + i * 2, 116, 1, 1.3, "#1b1b22");
+    P.r(39.3, 118.5, 4.4, .4, "#9aa3b8"); P.r(39.3, 119.8, 3, .4, "#9aa3b8");
+    window4(P, 12, 120, 5, 3, true, "#ffb347");
+  },
+  owl(P, t) {
+    // wings
+    P.r(74, 113, 9, 13, "#1f1735"); P.r(102, 113, 9, 13, "#1f1735");
+    P.r(73.5, 112.2, 10, 1, "#33285a"); P.r(101.5, 112.2, 10, 1, "#33285a");
+    // tower
+    P.r(83, 103, 19, 23, "#2a1f45"); P.r(98, 103, 4, 23, "#21183a");
+    for (let y = 105; y < 126; y += 3) for (let x = 83 + ((y / 3) % 2) * 2; x < 98; x += 4) P.r(x, y, 3.5, .3, "#22193c");
+    for (let i = 0; i < 5; i++) P.r(82.5 + i * 4.2, 101, 2.4, 2.2, "#33285a");
+    P.r(82.5, 102.8, 20, 1, "#33285a");
+    // owl
+    const ox2 = 78.5, oy2 = 105.6;
+    P.r(ox2 - 3, oy2, 6, 6, "#7a5230"); P.r(ox2 - 2.5, oy2 - .8, 1.2, 1.2, "#7a5230"); P.r(ox2 + 1.3, oy2 - .8, 1.2, 1.2, "#7a5230");
+    P.r(ox2 - 2, oy2 + 3, 4, 2.6, "#c49a6c");
+    const bl = (t % 4200) < 180;
+    if (bl) { P.r(ox2 - 2.3, oy2 + 1.6, 2, .4, "#2b1b10"); P.r(ox2 + .3, oy2 + 1.6, 2, .4, "#2b1b10"); }
+    else {
+      P.r(ox2 - 2.4, oy2 + .6, 2.2, 2.2, "#ffd166"); P.r(ox2 + .2, oy2 + .6, 2.2, 2.2, "#ffd166");
+      P.r(ox2 - 1.6, oy2 + 1.3, .8, .8, "#1b1020"); P.r(ox2 + 1, oy2 + 1.3, .8, .8, "#1b1020");
+      P.glow(ox2, oy2 + 1.7, 4, "rgba(255,209,102,A)", .25);
+    }
+    P.r(ox2 - .4, oy2 + 2.6, .8, .8, "#e8a33a");
+    P.r(ox2 - 2, oy2 + 6, 1, .6, "#e8a33a"); P.r(ox2 + 1, oy2 + 6, 1, .6, "#e8a33a");
+    // windows
+    const fl = Math.floor(t / 1300);
+    [[86, 106], [92, 106]].forEach(([x, y], i) => {
+      const lit = ((fl + i * 3) % 5) !== 0;
+      P.r(x, y + .8, 3, 3.2, lit ? "#b48cff" : "#3b2d63"); P.r(x + .5, y, 2, 1, lit ? "#b48cff" : "#3b2d63");
+      if (lit) P.r(x + .5, y + .8, 2, .5, "#e3d4ff");
+    });
+    P.disc(89.5, 114.5, 1.8, "#b48cff"); P.disc(89.5, 114.5, 1.1, "#e3d4ff");
+    P.r(87, 120, 5, 6, "#140e24"); P.r(87.5, 119.4, 4, .8, "#140e24");
+    window4(P, 76, 117, 4, 3, true, "#8f6ad8"); window4(P, 105, 117, 4, 3, true, "#8f6ad8");
+    // bat
+    const a = t / 1500, bx = 92 + Math.cos(a) * 15, by = 106 + Math.sin(a * 1.7) * 5, flap = Math.floor(t / 150) % 2;
+    P.r(bx - .5, by, 1, 1, "#0b0814");
+    P.r(bx - 2, by + (flap ? -.5 : .3), 1.5, .5, "#0b0814"); P.r(bx + .5, by + (flap ? -.5 : .3), 1.5, .5, "#0b0814");
+  },
+};
+
+// ---------- sprites ----------
+const SPR = {
+  tars(P, x, y, f) { // the monolith
+    P.r(x, y - 6.5, 3, 6.5, "#8a93a6"); P.r(x + 2.3, y - 6.5, .7, 6.5, "#646c80");
+    P.r(x, y - 5, 3, .3, "#4b5265"); P.r(x, y - 3.2, 3, .3, "#4b5265"); P.r(x, y - 1.4, 3, .3, "#4b5265");
+    P.r(x + .5, y - 6, 1.6, .5, "#3ddc97");
+    P.r(x + (f ? 0 : 2), y, 1, .5, "#4b5265");
+  },
+  person(P, x, y, f, hair, shirt, pants, extra) {
+    P.r(x + .5, y - 6.5, 2, 2, "#f1c7a1"); P.r(x + .3, y - 7, 2.4, .9, hair);
+    P.r(x, y - 4.5, 3, 2.6, shirt); P.r(x + .5, y - 2, 2, 1, pants);
+    P.r(x + (f ? .3 : .6), y - 1, .8, 1, pants); P.r(x + (f ? 1.9 : 1.6), y - 1, .8, 1, pants);
+    if (extra) extra();
+  },
+  paige(P, x, y, f) { SPR.person(P, x, y, f, "#ff8a65", "#ff8a65", "#2c2f3a", () => { P.r(x - .2, y - 6.6, .7, 3, "#ff8a65"); P.r(x + 3, y - 3.8, 1, 1.4, "#e9e6f0"); }); },
+  pine(P, x, y, f) { SPR.person(P, x, y, f, "#3f7d4e", "#c0563a", "#5a3b24", () => { P.r(x + .2, y - 7.6, 2.6, .7, "#3f7d4e"); P.r(x + 1.2, y - 8.1, .6, .5, "#f2c14e"); P.r(x, y - 3.5, 3, .3, "#8a3020"); }); },
+  doc(P, x, y, f) { SPR.person(P, x, y, f, "#2b2b35", "#e8eef5", "#2c4a6a", () => { P.r(x + 1.1, y - 7.4, .8, .8, "#5ec8ff"); P.r(x + 1.25, y - 4.5, .5, 2.4, "#b9c6d6"); }); },
+  meatball(P, x, y, f) {
+    P.r(x - .5, y - 4.5, 4.5, 4, "#ffb347"); P.r(x - .5, y - 5.3, 1, .9, "#ffb347"); P.r(x + 3, y - 5.3, 1, .9, "#ffb347");
+    P.r(x + .3, y - 3.7, .7, .7, "#2fbf5b"); P.r(x + 2, y - 3.7, .7, .7, "#2fbf5b");
+    P.r(x + .7, y - 1.8, 2, .8, "#e63946");
+    P.r(x + (f ? 0 : .5), y - .5, 1, .5, "#e2851a"); P.r(x + (f ? 2.5 : 2), y - .5, 1, .5, "#e2851a");
+    P.r(x + 4, y - 3 + (f ? 0 : -.5), .6, 2, "#e2851a");
+  },
+  owl(P, x, y, f) {
+    const hop = f ? -.5 : 0;
+    P.r(x, y - 5 + hop, 3.4, 4.6, "#7a5230"); P.r(x + .5, y - 3 + hop, 2.4, 2.2, "#c49a6c");
+    P.r(x + .2, y - 4.6 + hop, 1.2, 1.2, "#ffd166"); P.r(x + 2, y - 4.6 + hop, 1.2, 1.2, "#ffd166");
+    P.r(x + .6, y - 4.2 + hop, .5, .5, "#1b1020"); P.r(x + 2.3, y - 4.2 + hop, .5, .5, "#1b1020");
+    P.r(x + .5, y - .4, .8, .4, "#e8a33a"); P.r(x + 2.1, y - .4, .8, .4, "#e8a33a");
+  },
+};
+const walkers = Object.keys(LOOK).map((id, i) => {
+  const L = LOOK[id];
+  return {id, L, min: L.bx + 1, max: L.bx + L.bw - 6, speed: 2.4 + (i % 3) * .5, phase: i * 1.7};
+});
+function walkerPos(w, t) {
+  const span = w.max - w.min, s = t / 1000 * w.speed / span + w.phase;
+  const tri = Math.abs(((s % 2) + 2) % 2 - 1); // 0..1..0
+  const pause = (Math.sin(t / 2300 + w.phase * 3) > .82);
+  return {x: w.min + tri * span, dir: (((s % 2) + 2) % 2) < 1 ? 1 : -1, moving: !pause};
+}
+let frozenX = {};
+
+// ---------- fireflies / stars ----------
+const STARS = Array.from({length: 46}, (_, i) => { const r = rng(300 + i); return [r() * W, r() * 12, r() * 6.28, r() < .15]; });
+const FLIES = Array.from({length: 9}, (_, i) => { const r = rng(900 + i); return [r() * W, 18 + r() * (H - 22), r() * 6.28]; });
+
+// ---------- main canvas ----------
+const cv = document.getElementById("cv"), ctx = cv.getContext("2d");
+const townEl = document.getElementById("town");
+let U = 4.5, scene = null, sel = null, ripple = null, shoot = null;
+function resize() {
+  const r = townEl.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 3);
+  cv.width = Math.round(r.width * dpr); cv.height = Math.round(r.height * dpr);
+  U = cv.width / W;
+  document.documentElement.style.setProperty("--u", (r.width / W) + "px");
+  scene = document.createElement("canvas"); scene.width = cv.width; scene.height = cv.height;
+  drawScene(painter(scene.getContext("2d"), U));
+  frame();
+}
+function render(t) {
+  if (!scene) return;
+  ctx.imageSmoothingEnabled = false;
+  ctx.drawImage(scene, 0, 0);
+  const P = painter(ctx, U);
+  // stars
+  STARS.forEach(([x, y, ph, big]) => {
+    const a = .35 + .65 * Math.max(0, Math.sin(t / 900 + ph));
+    ctx.globalAlpha = a; P.r(x, y, big ? 1 : .5, big ? 1 : .5, "#ffffff");
+  });
+  ctx.globalAlpha = 1;
+  // shooting star every ~9s
+  const cyc = (t % 9000) / 9000;
+  if (cyc < .09) { const p = cyc / .09, x = 20 + p * 50, y = 2 + p * 8; for (let k = 0; k < 6; k++) { ctx.globalAlpha = (1 - p) * (1 - k / 6); P.r(x - k * 1.4, y - k * .55, 1, .5, "#fff"); } ctx.globalAlpha = 1; }
+  // clouds
+  [[0, 3.5, 22, .006], [1, 9, 16, .004]].forEach(([i, y, w, sp]) => {
+    const x = ((t * sp + i * 70) % (W + w + 10)) - w - 5;
+    ctx.globalAlpha = .35; P.r(x, y, w, 1.5, "#3b2f72"); P.r(x + 3, y - 1, w - 7, 1, "#3b2f72"); ctx.globalAlpha = 1;
+  });
+  // lamp posts
+  const lamps = [];
+  ROW.forEach(rw => { lamps.push([54.5, rw.road - .5], [65, rw.road - .5]); });
+  lamps.forEach(([x, y]) => lamp(P, x, y, t));
+  // buildings
+  Object.keys(B).forEach(id => {
+    if (sel === id) {
+      const [bx, top, bw] = BOX[id], rw = ROW[LOOK[id].row];
+      const a = .25 + .2 * Math.sin(t / 180);
+      ctx.globalAlpha = a; P.r(bx, Math.max(top, 14), bw, rw.base - Math.max(top, 14), LOOK[id].accent); ctx.globalAlpha = 1;
+    }
+    B[id](P, t);
+  });
+  lamps.forEach(([x, y]) => lampGlow(P, x, y));
+  // window glows (soft)
+  P.glow(28, 31, 22, "rgba(61,220,151,A)", .07);
+  P.glow(29, 77, 20, "rgba(255,207,107,A)", .07);
+  P.glow(92, 112, 16, "rgba(180,140,255,A)", .1);
+  // sprites
+  walkers.forEach(w => {
+    const rw = ROW[w.L.row];
+    let p = walkerPos(w, t);
+    const x = p.x, f = p.moving ? Math.floor(t / 220 + w.phase * 10) % 2 : 0;
+    const y = rw.base + 6.6;
+    ctx.globalAlpha = .35; P.r(x - .3, y - .2, 3.8, .6, "#000"); ctx.globalAlpha = 1;
+    SPR[w.id](P, x, y, f);
+    P.text(w.L.sprite, x + 1.5, y - 8.3, 2.3, "#ffffff");
+  });
+  // fireflies
+  FLIES.forEach(([x, y, ph]) => {
+    const fx = x + Math.sin(t / 1700 + ph) * 3, fy = y + Math.cos(t / 1300 + ph) * 2, a = Math.max(0, Math.sin(t / 700 + ph * 2));
+    ctx.globalAlpha = a; P.r(fx, fy, .5, .5, "#fff3a0"); P.glow(fx + .25, fy + .25, 1.6, "rgba(255,243,160,A)", .5 * a); ctx.globalAlpha = 1;
+  });
+  // tap ripple
+  if (ripple) {
+    const p = (t - ripple.t0) / 650;
+    if (p >= 1) ripple = null;
+    else {
+      const R2 = 2 + p * 9;
+      ctx.globalAlpha = 1 - p;
+      for (let a = 0; a < 6.28; a += .2) P.r(ripple.x + Math.cos(a) * R2 - .4, ripple.y + Math.sin(a) * R2 - .4, .8, .8, "#ffffff");
+      P.disc(ripple.x, ripple.y, Math.max(.8, 2.4 - p * 2), "#ffffff");
+      ctx.globalAlpha = 1;
+    }
+  }
+}
+
+// ---------- DOM ----------
+const sheet = document.getElementById("sheet"), panel = document.getElementById("panel"), scrim = document.getElementById("scrim"), ps = document.getElementById("pscroll");
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+const fmt = v => (v === null || v === undefined || v === "") ? "—" : (typeof v === "number" ? v.toLocaleString("en-US") : String(v));
+
+function buildHits() {
+  agents.forEach(a => {
+    const L = LOOK[a.id], [bx, top, bw] = BOX[a.id], rw = ROW[L.row];
+    const minTop = L.row === 0 ? 0 : ROW[L.row - 1].road + 6;
+    const t0 = Math.max(top, minTop), bottom = rw.road + 6.5;
+    const b = document.createElement("button");
+    b.className = "hit"; b.dataset.id = a.id;
+    b.setAttribute("aria-label", `${a.name}: ${a.title}. ${a.status.text}`);
+    Object.assign(b.style, {left: bx / W * 100 + "%", top: t0 / H * 100 + "%", width: bw / W * 100 + "%", height: (bottom - t0) / H * 100 + "%"});
+    b.style.setProperty("--accent", L.accent); b.style.setProperty("--dot", toneVar(a.status.tone));
+    const cx = (L.bx + L.bw / 2 - bx) / bw * 100;
+    b.innerHTML = `<span class="tag" style="left:${cx}%;top:${(rw.road + .35 - t0) / (bottom - t0) * 100}%"><span class="n"><i></i>${esc(L.short)}</span><span class="r">${esc(L.tagRole)}</span></span>`;
+    b.addEventListener("click", ev => {
+      const r = townEl.getBoundingClientRect();
+      const x = ev.clientX ? (ev.clientX - r.left) / r.width * W : L.bx + L.bw / 2, y = ev.clientY ? (ev.clientY - r.top) / r.height * H : rw.base - 10;
+      openAgent(a.id, {x, y});
+    });
+    b.addEventListener("mouseenter", () => { if (!openId) setSel(a.id); });
+    b.addEventListener("mouseleave", () => { if (!openId) setSel(null); });
+    townEl.appendChild(b);
+  });
+}
+function setSel(id) { sel = id; document.querySelectorAll(".hit").forEach(h => h.classList.toggle("sel", h.dataset.id === id)); }
+function buildRoster() {
+  const nav = document.getElementById("roster");
+  nav.innerHTML = agents.map(a => `<button class="card" data-id="${a.id}" style="--accent:${LOOK[a.id].accent};--dot:${toneVar(a.status.tone)}">
+    <span class="ic">${esc(a.name[0])}</span><span class="t"><span class="nm" style="display:block">${esc(a.name)}</span><span class="st"><i></i>${esc(a.status.text)}</span></span></button>`).join("");
+  nav.querySelectorAll(".card").forEach(c => c.addEventListener("click", () => openAgent(c.dataset.id)));
+}
+function buildTicker() {
+  const items = [];
+  agents.forEach(a => (a.activity || []).slice(0, 2).forEach(x => items.push(`<b style="color:${LOOK[a.id].accent}">${esc(LOOK[a.id].short)}</b> ${esc(x.text)}`)));
+  const html = items.join('<span class="sep">◆</span>') + '<span class="sep">◆</span>';
+  document.getElementById("track").innerHTML = html + html;
+}
+function etParts() {
+  const f = new Intl.DateTimeFormat("en-US", {timeZone: "America/New_York", weekday: "short", hour: "numeric", minute: "2-digit", hour12: true});
+  const parts = Object.fromEntries(f.formatToParts(new Date()).map(p => [p.type, p.value]));
+  const h24 = Number(new Intl.DateTimeFormat("en-US", {timeZone: "America/New_York", hour: "numeric", hourCycle: "h23"}).format(new Date()));
+  const day = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].indexOf(parts.weekday);
+  return {label: `${parts.hour}:${parts.minute} ${parts.dayPeriod}`, weekday: parts.weekday, day, hour: h24};
+}
+function updateClock() {
+  const e = etParts();
+  document.getElementById("clock").innerHTML = `${e.label}<small>${e.weekday} · ET</small>`;
+}
+
+// ---------- panel ----------
+let openId = null, sheetTw = null, sheetP = 0;
+function heatmap(a) {
+  const g = a.schedule.grid || [];
+  if (!g.length) return `<div class="ondemand"><span class="pix" style="font-size:9px;color:var(--accent)">ON CALL</span>No fixed time slot: runs when asked</div>`;
+  const e = etParts(), cells = {}, dayRows = new Set();
+  g.forEach(([d, h, k]) => { if (h === null) dayRows.add(d); else cells[d + "-" + h] = k; });
+  let html = '<div class="hm"><span></span>';
+  for (let h = 0; h < 24; h++) html += `<span class="hl">${h % 6 === 0 ? ["12a", "", "", "", "", "", "6a", "", "", "", "", "", "12p", "", "", "", "", "", "6p"][h] : ""}</span>`;
+  (DATA.days || []).forEach((dn, d) => {
+    html += `<span class="dl ${d === e.day ? "today" : ""}">${dn}</span>`;
+    for (let h = 0; h < 24; h++) {
+      const k = cells[d + "-" + h] || (dayRows.has(d) ? "day" : "");
+      html += `<span class="c ${k} ${d === e.day && h === e.hour ? "now" : ""}"></span>`;
+    }
+  });
+  html += "</div>";
+  const kinds = new Set(g.map(c => c[2]));
+  const lg = [];
+  if (kinds.has("run")) lg.push(`<span><b style="background:var(--accent)"></b>${a.id === "owl" ? "generate" : "scheduled run"}</span>`);
+  if (kinds.has("alt")) lg.push(`<span><b style="background:#fff"></b>${a.id === "tars" ? "Friday data refresh" : "publish"}</span>`);
+  if (kinds.has("day")) lg.push(`<span><b style="background:color-mix(in srgb,var(--accent) 30%,#161b28)"></b>runs that day (time not in repo)</span>`);
+  lg.push(`<span><b style="outline:2px solid #fff;background:transparent"></b>now (ET)</span>`);
+  return html + `<div class="legend">${lg.join("")}</div>`;
+}
+function panelHTML(a) {
+  const L = LOOK[a.id];
+  const pills = [`<span class="pill" style="--c:${toneVar(a.status.tone)}"><i></i>${esc(a.status.text)}</span>`]
+    .concat((a.chips || []).map(c => `<span class="pill" style="--c:${toneVar(c.tone)}">${esc(c.text)}</span>`)).join("");
+  const kpis = a.kpis.map(k => `<div class="kpi"><div class="v ${k.value === null || k.value === undefined ? "na" : ""}">${esc(fmt(k.value))}</div><div class="l">${esc(k.label)}</div><div class="s">${esc(k.note || "")}</div></div>`).join("");
+  const feed = (a.activity || []).map(x => `<div class="row"><span class="w">${esc(x.when)}</span><span class="x">${esc(x.text)}${x.tag ? `<span class="tg ${x.tag === "PAPER" ? "p" : ""}">${esc(x.tag)}</span>` : ""}</span></div>`).join("");
+  const titles = a.titles ? `<div class="sec">BOOKS ON THE SHELF</div><div class="titles">${a.titles.map(t => `<span>${esc(t)}</span>`).join("")}</div>` : "";
+  return `<div class="ph"><canvas id="picon" width="152" height="152"></canvas><div class="who"><h2 id="pname">${esc(a.name)}</h2><div class="ttl">${esc(a.title)}</div></div>
+    <button class="close" id="pclose" aria-label="Close">✕</button></div>
+    <div class="statusrow">${pills}</div>
+    <p class="role">${esc(a.role)}</p>
+    <div class="sec">BY THE NUMBERS</div><div class="kpis">${kpis}</div>
+    <div class="sec">SCHEDULE</div><div class="sched"><div class="sum">${esc(a.schedule.summary)}</div>${heatmap(a)}</div>
+    ${titles}
+    <div class="sec">RECENT ACTIVITY</div><div class="feed">${feed || '<div class="row"><span class="w">—</span><span class="x">No activity in the repo yet</span></div>'}</div>
+    <div class="src">Source <code>${esc(a.source)}</code><p>${esc(a.note || "")} Values shown as — are not in the repo.</p></div>`;
+}
+let iconAgent = null;
+function drawIcon(t) {
+  const c = document.getElementById("picon");
+  if (!c || !iconAgent) return;
+  const [bx, top, bw] = BOX[iconAgent], rw = ROW[LOOK[iconAgent].row];
+  const span = Math.max(bw, rw.base - top) + 2, u = c.width / span;
+  const g = c.getContext("2d"); g.clearRect(0, 0, c.width, c.height);
+  const ox = bx + bw / 2 - span / 2, oy = rw.base + 1.5 - span;
+  const P = painter(g, u, ox, oy);
+  P.r(ox, rw.base, span, 2, "#1a2a20");
+  B[iconAgent](P, t);
+}
+function setSheet(p) {
+  sheetP = p;
+  panel.style.transform = `translate(-50%, ${(1 - p) * 105}%)`;
+  scrim.style.opacity = p;
+}
+function openAgent(id, at) {
+  const a = byId[id]; if (!a) return;
+  const L = LOOK[id];
+  ripple = {x: at ? at.x : L.bx + L.bw / 2, y: at ? at.y : ROW[L.row].base - 12, t0: now()};
+  setSel(id);
+  openId = id; iconAgent = id;
+  panel.style.setProperty("--accent", L.accent);
+  ps.innerHTML = panelHTML(a); ps.scrollTop = 0;
+  document.getElementById("pclose").addEventListener("click", closeAgent);
+  sheet.classList.add("on"); sheet.setAttribute("aria-hidden", "false");
+  const from = sheetP;
+  if (sheetTw) tweens.splice(tweens.indexOf(sheetTw) >>> 0, 1);
+  sheetTw = tween(520, p => setSheet(from + (1 - from) * p), easeOut);
+  setTimeout(() => { if (VT === null) document.getElementById("pclose")?.focus({preventScroll: true}); }, 50);
+}
+function closeAgent() {
+  if (!openId) return;
+  openId = null; iconAgent = null;
+  const from = sheetP;
+  if (sheetTw) tweens.splice(tweens.indexOf(sheetTw) >>> 0, 1);
+  sheetTw = tween(420, p => { setSheet(from * (1 - p)); if (p >= 1) { sheet.classList.remove("on"); sheet.setAttribute("aria-hidden", "true"); setSel(null); } }, easeInOut);
+}
+function scrollPanel(frac, dur = 2200) {
+  const from = ps.scrollTop, to = (ps.scrollHeight - ps.clientHeight) * frac;
+  tween(dur, p => { ps.scrollTop = from + (to - from) * p; });
+}
+scrim.addEventListener("click", closeAgent);
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeAgent(); });
+
+// ---------- loop ----------
+const track = document.getElementById("track");
+function frame() {
+  const t = now();
+  runTweens();
+  render(t);
+  if (iconAgent) drawIcon(t);
+  const half = track.scrollWidth / 2;
+  if (half > 0) track.style.transform = `translateX(${-((t * .045) % half)}px)`;
+}
+function loop() { if (VT === null) { frame(); requestAnimationFrame(loop); } }
+
+function drawMark() {
+  const c = document.getElementById("mark"), g = c.getContext("2d");
+  const px = (x, y, w, h, col) => { g.fillStyle = col; g.fillRect(x, y, w, h); };
+  px(2, 7, 5, 9, "#3ddc97"); px(8, 3, 7, 13, "#b48cff"); px(3, 9, 1, 1, "#0b0e22"); px(5, 9, 1, 1, "#0b0e22"); px(3, 12, 1, 1, "#0b0e22");
+  px(10, 5, 1, 1, "#ffd166"); px(12, 5, 1, 1, "#ffd166"); px(10, 8, 1, 1, "#0b0e22"); px(12, 8, 1, 1, "#ffd166"); px(10, 11, 1, 1, "#ffd166"); px(11, 13, 2, 3, "#0b0e22");
+  px(0, 16, 17, 1, "#3a4050");
+}
+
+// recording hooks: switch to a virtual clock and step frames exactly
+window.__town = {
+  virtual(t0 = 0) { VT = t0; frame(); },
+  advance(ms) { VT += ms; frame(); },
+  open: id => { const L = LOOK[id]; openAgent(id, {x: L.bx + L.bw / 2, y: ROW[L.row].base - 12}); },
+  close: closeAgent, scroll: scrollPanel, ids: () => agents.map(a => a.id),
+};
+
+function init() {
+  drawMark();
+  buildHits(); buildRoster(); buildTicker(); updateClock();
+  setInterval(updateClock, 15000);
+  document.getElementById("sub").textContent = `${agents.length} agents on shift · tap a building`;
+  document.getElementById("foot").textContent = `Counts from the agents' repos · ${DATA.generated || "—"} · — = not in repo`;
+  new ResizeObserver(resize).observe(townEl);
+  resize(); loop();
+}
+const fontsReady = document.fonts ? Promise.all(['16px VT323', '12px "Press Start 2P"', '15px Inter'].map(f => document.fonts.load(f))).catch(() => null) : Promise.resolve();
+Promise.race([fontsReady, new Promise(r => setTimeout(r, 2500))]).then(init);
+</script>
+</body>
+</html>
