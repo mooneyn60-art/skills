@@ -8,7 +8,7 @@
   --bg:#eef0f3; --panel:#ffffff; --ink:#131820; --muted:#5b6575; --line:#d6dae1; --grid:#e6e9ee;
   --accent:#c4730d; --up:#16845a; --down:#c23b34; --warn:#a97a08;
   --vwap:#6a4fc7; --band:rgba(106,79,199,.10); --e9:#2a78b8; --e21:#9a6b3f;
-  --fib:#b0567a; --pool:#c4730d; --fvgU:rgba(22,132,90,.14); --fvgD:rgba(194,59,52,.13);
+  --fib:#b0567a; --pool:#c4730d; --bb:#7c8696; --tl:#0e8a94; --piv:#8a6d1f; --vol:rgba(91,101,117,.28); --macd:#2a78b8; --msig:#c4730d; --fvgU:rgba(22,132,90,.14); --fvgD:rgba(194,59,52,.13);
   --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
   --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
@@ -17,12 +17,12 @@
   --bg:#0d1116; --panel:#141a21; --ink:#e5e9ef; --muted:#93a0b3; --line:#263040; --grid:#1c2430;
   --accent:#eaa23a; --up:#3cc488; --down:#f0655c; --warn:#e2b23e;
   --vwap:#ad9af5; --band:rgba(173,154,245,.10); --e9:#6db2ea; --e21:#d6a676;
-  --fib:#e58fb2; --pool:#eaa23a; --fvgU:rgba(60,196,136,.13); --fvgD:rgba(240,101,92,.13); color-scheme:dark}}
+  --fib:#e58fb2; --pool:#eaa23a; --bb:#8e99ab; --tl:#4fd1d9; --piv:#d8b860; --vol:rgba(147,160,179,.26); --macd:#6db2ea; --msig:#eaa23a; --fvgU:rgba(60,196,136,.13); --fvgD:rgba(240,101,92,.13); color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0d1116; --panel:#141a21; --ink:#e5e9ef; --muted:#93a0b3; --line:#263040; --grid:#1c2430;
   --accent:#eaa23a; --up:#3cc488; --down:#f0655c; --warn:#e2b23e;
   --vwap:#ad9af5; --band:rgba(173,154,245,.10); --e9:#6db2ea; --e21:#d6a676;
-  --fib:#e58fb2; --pool:#eaa23a; --fvgU:rgba(60,196,136,.13); --fvgD:rgba(240,101,92,.13); color-scheme:dark}
+  --fib:#e58fb2; --pool:#eaa23a; --bb:#8e99ab; --tl:#4fd1d9; --piv:#d8b860; --vol:rgba(147,160,179,.26); --macd:#6db2ea; --msig:#eaa23a; --fvgU:rgba(60,196,136,.13); --fvgD:rgba(240,101,92,.13); color-scheme:dark}
 *{box-sizing:border-box} [hidden]{display:none!important}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:14px;line-height:1.45;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px 32px}
@@ -59,6 +59,10 @@ canvas{display:block;width:100%}
 .rec{font-size:.75rem;color:var(--muted)}
 dl{display:grid;grid-template-columns:auto 1fr;gap:5px 14px;margin:0;font-size:.85rem}
 dt{color:var(--muted)} dd{margin:0;font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+.glist{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:6px 14px;margin-top:10px;align-items:start}
+.glist details{border:1px solid var(--line);border-radius:6px;padding:7px 10px;font-size:.86rem;min-width:0}
+.glist summary{cursor:pointer} .gd{display:block;margin-top:6px;font-size:.84rem} .gd dt{color:var(--muted);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;margin-top:6px} .gd dd{margin:2px 0 0;font-family:var(--body);text-align:left}
+.gcheck{border-left:3px solid var(--accent);padding:4px 10px;font-size:.86rem;margin-top:10px} .gcheck ol{margin:4px 0 0;padding-left:20px}
 .note{font-size:.78rem;color:var(--muted);max-width:75ch;margin:8px 0 0}
 .banner{border:1px solid var(--warn);color:var(--ink);background:color-mix(in srgb,var(--warn) 10%,var(--panel));border-radius:6px;padding:10px 12px;font-size:.88rem;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .banner button{font-family:var(--body);font-size:.82rem;border:1px solid var(--ink);background:var(--panel);color:var(--ink);border-radius:4px;padding:4px 10px;cursor:pointer}
@@ -116,6 +120,11 @@ textarea{width:100%;resize:vertical;min-height:54px;font-family:var(--body)}
       <button type="button" data-l="sig" aria-pressed="true">Signals</button>
       <button type="button" data-l="em" aria-pressed="true">Expected move</button>
       <button type="button" data-l="pos" aria-pressed="true">My position</button>
+      <button type="button" data-l="tl" aria-pressed="true">Trend lines</button>
+      <button type="button" data-l="hod" aria-pressed="true">Day high/low + 10:30</button>
+      <button type="button" data-l="vol" aria-pressed="true">Volume</button>
+      <button type="button" data-l="bb" aria-pressed="false">Bollinger 20/2</button>
+      <button type="button" data-l="piv" aria-pressed="false">Pivots</button>
       <span class="sep" aria-hidden="true"></span>
       <button type="button" data-m="1" aria-pressed="true">1m</button>
       <button type="button" data-m="2" aria-pressed="false">2m</button>
@@ -132,14 +141,21 @@ textarea{width:100%;resize:vertical;min-height:54px;font-family:var(--body)}
     </div>
     <p class="rec" style="margin:0 0 6px">Drag the chart to scroll back · pinch, scroll wheel or −/+ to zoom · tap or hover a candle to read it · ● Live jumps back to now.</p>
     <canvas id="chart" aria-label="SPY candles with indicators"></canvas>
-    <canvas id="rsi" aria-label="RSI 14"></canvas>
+    <div class="toolbar" role="group" aria-label="Lower pane" style="margin:6px 0 0">
+      <button type="button" data-p="rsi" aria-pressed="true">RSI 14</button>
+      <button type="button" data-p="macd" aria-pressed="false">MACD 12/26/9</button>
+    </div>
+    <canvas id="rsi" aria-label="Lower indicator pane"></canvas>
     <div class="legend">
       <span><i class="sw" style="background:var(--vwap)"></i>VWAP (bands shaded)</span>
       <span><i class="sw" style="background:var(--e9)"></i>EMA 9</span>
       <span><i class="sw" style="background:var(--e21)"></i>EMA 21</span>
       <span><i class="sw" style="background:var(--accent)"></i>prior-day high/low, opening range, liquidity pools</span>
       <span><i class="sw" style="background:var(--fib)"></i>Fibonacci of the day's swing</span>
-      <span>▲▼ signal entries · ◆ target · ✕ stop</span>
+      <span><i class="sw" style="background:var(--tl)"></i>trend lines (dashed = broken)</span>
+      <span><i class="sw" style="background:var(--bb)"></i>Bollinger bands</span>
+      <span><i class="sw" style="background:var(--piv)"></i>floor pivots</span>
+      <span>▲▼ signal entries · ◆ target · ✕ stop · <a href="#guide">How to read all of this ↓</a></span>
     </div>
   </section>
 
@@ -221,6 +237,45 @@ textarea{width:100%;resize:vertical;min-height:54px;font-family:var(--body)}
       </section>
     </div>
   </div>
+
+  <section class="panel" id="guide" aria-labelledby="gdh">
+    <h2 id="gdh">How to read this desk</h2>
+    <p class="note" style="margin-top:0">Honest summary from ~650 tests: no line on this chart predicts direction by itself. What does hold up is <b>context</b>: the time of day, the gap and its fill odds, the expected move, and news days. Use the lines as a map for where to put stops and targets, and to stay on the right side of the trend.</p>
+    <div class="gcheck"><b>Before you buy, check:</b>
+      <ol><li>Is it after 10:30?</li><li>Trend row agrees with your direction (above VWAP and EMA 9 &gt; 21 for calls)?</li><li>Where's your stop on the chart (a level, VWAP or a trend line), and is the target at least 2× the risk?</li><li>Does the move you need fit inside the expected move left?</li><li>Inside your rules: trips, daily limit, max premium?</li></ol></div>
+    <div class="glist">
+      <details><summary><b>VWAP ±1σ ±2σ</b> <span class="muted">· The average price paid today, weighted by volume, with bands one and two standard deviations away.</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>Is price above or below it? How far, in σ? Does price keep coming back to it?</dd><dt>How to use it</dt><dd>The day's fair price. Above = buyers in control, below = sellers. Moves past ±2σ are stretched and often snap back toward VWAP. A clean place to put a stop on the other side.</dd><dt>TARS tested</dt><dd>Crossing VWAP did not predict direction (133 days). Useful as a map, not a trigger.</dd></dl></details>
+      <details><summary><b>EMA 9 / 21</b> <span class="muted">· Two fast moving averages of the close.</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>Is 9 above 21 (up) or below (down)? Are they flat and tangled (chop)?</dd><dt>How to use it</dt><dd>Trend filter: only take calls when 9 > 21 and price is above VWAP; the desk's Trend row does this for you.</dd><dt>TARS tested</dt><dd>EMA crosses alone: no edge on 20 years of SPY. Fine as a filter.</dd></dl></details>
+      <details><summary><b>Trend lines (auto)</b> <span class="muted">· A line through the last two clear swing highs (resistance) and swing lows (support), extended to now. Dashed with ✗ = price has closed through it.</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>Price approaching a line, and whether it breaks with heavy volume or rejects.</dd><dt>How to use it</dt><dd>Rising support + price above VWAP = uptrend intact. A break of support with volume = trend may be over; tighten stops. Lines redraw as new swings form.</dd><dt>TARS tested</dt><dd>Not tested as a signal. Treat as a picture of the trend, nothing more.</dd></dl></details>
+      <details><summary><b>PDH / PDL / OR</b> <span class="muted">· Yesterday's high, low and close, and the first 15 minutes' high and low (opening range).</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>Where price sits against them, and whether a break holds or snaps back.</dd><dt>How to use it</dt><dd>These are the levels everyone sees, so stops pile up there. Good places for targets and stops.</dd><dt>TARS tested</dt><dd>Opening-range breaks did not predict direction out of sample.</dd></dl></details>
+      <details><summary><b>Day high/low + 10:30</b> <span class="muted">· Today's high and low so far (HOD/LOD), and a line at 10:30.</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>Before 10:30: just watch. Your record: lost 5 of 5 days trading before 10:30.</dd><dt>How to use it</dt><dd>Most of the day's range forms early: ~42% by 10:00, ~77% by 11:30. New highs late in the day are rarer.</dd><dt>TARS tested</dt><dd>Holds up: the shape-of-day numbers come from 20 years of SPY.</dd></dl></details>
+      <details><summary><b>Volume</b> <span class="muted">· Shares traded per candle along the bottom; bright bars = more than 1.5× the recent average.</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>Breakouts on heavy volume vs. light volume. Volume dries up at lunch.</dd><dt>How to use it</dt><dd>A move with heavy volume is more likely to be real participation; a move on thin volume is easier to reverse.</dd><dt>TARS tested</dt><dd>Not tested as a signal here.</dd></dl></details>
+      <details><summary><b>Bollinger 20/2</b> <span class="muted">· A 20-candle average with bands two standard deviations away. Width shows how quiet or wild it is.</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>Squeezes (bands narrow) and price riding a band.</dd><dt>How to use it</dt><dd>Narrow bands = quiet, a bigger move often follows (direction unknown). Riding the upper band = strong trend, not automatically 'overbought'.</dd><dt>TARS tested</dt><dd>Bollinger squeezes: no direction edge on 20 years.</dd></dl></details>
+      <details><summary><b>Pivots</b> <span class="muted">· Floor-trader pivot levels from yesterday's high, low, close: P, R1/R2 above, S1/S2 below.</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>Reactions at P and R1/S1.</dd><dt>How to use it</dt><dd>Widely watched, so they can act like PDH/PDL: places for targets and stops.</dd><dt>TARS tested</dt><dd>Like Fibonacci, expect them to work about as well as any other level.</dd></dl></details>
+      <details><summary><b>Liquidity pools</b> <span class="muted">· Equal highs or lows where stops tend to sit. 'Swept' = price ran through and closed back inside.</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>A sweep and reclaim, or a level getting taken cleanly.</dd><dt>How to use it</dt><dd>Targets often sit at the next pool. A sweep that reverses can be a turn.</dd><dt>TARS tested</dt><dd>Pool breaks: no direction edge out of sample.</dd></dl></details>
+      <details><summary><b>Fair value gaps</b> <span class="muted">· Three-candle gaps where price moved so fast it left an empty zone.</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>Price coming back into an open gap.</dd><dt>How to use it</dt><dd>Gaps sometimes act as support/resistance on the way back.</dd><dt>TARS tested</dt><dd>No edge out of sample on 133 days.</dd></dl></details>
+      <details><summary><b>Fibonacci</b> <span class="muted">· Retracement levels of today's main swing (38.2/50/61.8%).</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>Pullbacks into 50-61.8%.</dd><dt>How to use it</dt><dd>Reference only.</dd><dt>TARS tested</dt><dd>No better than random levels, tested twice.</dd></dl></details>
+      <details><summary><b>Expected move</b> <span class="muted">· The 1σ move left today, from the options market's implied volatility.</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>Price near the edge of the band.</dd><dt>How to use it</dt><dd>SPY stays inside ±1σ about 65% of days, and real moves run ~60% of what options price. Don't buy options needing a move past the band.</dd><dt>TARS tested</dt><dd>Holds up (20 years with VIX).</dd></dl></details>
+      <details><summary><b>RSI 14</b> <span class="muted">· Momentum oscillator, 0-100. Above 70 stretched up, below 30 stretched down.</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>Extremes and divergences (new price high, lower RSI high).</dd><dt>How to use it</dt><dd>In a strong trend RSI can stay above 70 for a long time; use it to avoid chasing, not to short.</dd><dt>TARS tested</dt><dd>No standalone edge.</dd></dl></details>
+      <details><summary><b>MACD 12/26/9</b> <span class="muted">· Difference of two EMAs (blue) and its signal line (orange); bars = the gap between them.</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>Crosses of the signal line and of zero; bars shrinking = momentum fading.</dd><dt>How to use it</dt><dd>Confirmation that momentum agrees with your trade. It lags, so it's late by design.</dd><dt>TARS tested</dt><dd>MACD crosses: no forward edge on 20 years of SPY.</dd></dl></details>
+      <details><summary><b>Signals</b> <span class="muted">· The data-farm rules (sweep reversal, VWAP reclaim, FVG with trend), each with a stop and a 2R target.</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>The record line under each signal.</dd><dt>How to use it</dt><dd>For learning and timing only.</dd><dt>TARS tested</dt><dd>None has passed the bar for real money yet.</dd></dl></details>
+    </div>
+  </section>
 </div>
 
 <script>
@@ -230,7 +285,8 @@ const SERVER = "Robinhood";
 // window.claude only exists inside the claude.ai viewer; a saved copy of this page still renders, just without live data.
 const CL = window.claude && window.claude.use ? window.claude : {use: async () => null};
 const $ = s => document.querySelector(s);
-const layers = {pos: true, em: true, vwap: true, ema: true, levels: true, pools: true, fvg: true, fib: false, sig: true};
+const layers = {pos: true, em: true, vwap: true, ema: true, levels: true, pools: true, fvg: true, fib: false, sig: true, tl: true, hod: true, vol: true, bb: false, piv: false};
+let pane = "rsi"; // lower pane: rsi | macd
 let view = "full";
 let zoomN = null, follow = true, vEnd = 0, hoverI = null; // chart viewport (null zoom = the preset view)
 const CH = {start: 0, end: 0, n: 1, xw: 1, L: 52, total: 0};
@@ -268,7 +324,7 @@ function parseBars(payload) {
 
 // ---------- indicators ----------
 function indicators(bars) {
-  let pv = 0, vv = 0, pv2 = 0, e9, e21, g, l, atr;
+  let pv = 0, vv = 0, pv2 = 0, e9, e21, g, l, atr, e12, e26, msig;
   bars.forEach((b, i) => {
     const tp = (b.h + b.l + b.c) / 3, v = Math.max(b.v, 1);
     pv += tp * v; vv += v; pv2 += tp * tp * v;
@@ -286,12 +342,19 @@ function indicators(bars) {
     atr = atr === undefined ? tr : (atr * 13 + tr) / 14;
     b.atr = atr; b.rsi = !l ? 50 : 100 - 100 / (1 + (g || 0) / l);
     b.trend = (b.c > b.vwap && e9 > e21) ? 1 : (b.c < b.vwap && e9 < e21) ? -1 : 0;
+    e12 = e12 === undefined ? b.c : e12 + (2 / 13) * (b.c - e12);
+    e26 = e26 === undefined ? b.c : e26 + (2 / 27) * (b.c - e26);
+    b.macd = e12 - e26; msig = msig === undefined ? b.macd : msig + 0.2 * (b.macd - msig); b.msig = msig; b.mhist = b.macd - msig;
+    const w = bars.slice(Math.max(0, i - 19), i + 1), mu = w.reduce((a, x) => a + x.c, 0) / w.length;
+    const sd = Math.sqrt(w.reduce((a, x) => a + (x.c - mu) ** 2, 0) / w.length);
+    b.bbm = mu; b.bbu = mu + 2 * sd; b.bbl = mu - 2 * sd; b.bbw = mu ? 4 * sd / mu : 0;
+    b.vavg = w.reduce((a, x) => a + x.v, 0) / w.length;
   });
 }
 
 function structure(bars, prev, m = 1) {
   const orN = Math.ceil(15 / m);
-  const out = {levels: [], pools: [], fvgs: [], swingsH: [], swingsL: [], fib: null};
+  const out = {levels: [], pools: [], fvgs: [], swingsH: [], swingsL: [], fib: null, pivots: [], tlines: [], hod: null, lod: null};
   if (!bars.length) return out;
   const px = bars[bars.length - 1].c, tolBase = px * 0.0003;
   if (prev) {
@@ -332,6 +395,22 @@ function structure(bars, prev, m = 1) {
     }
     P.taken = !P.swept && bars.slice(P.since + 1).some(b => P.kind === "high" ? b.c > P.p + tolBase : b.c < P.p - tolBase);
   });
+  // floor pivots from yesterday's high, low and close
+  if (prev) { const H = Math.max(...prev.map(b => b.h)), L = Math.min(...prev.map(b => b.l)), C = prev[prev.length - 1].c, P = (H + L + C) / 3;
+    out.pivots = [{name: "P", p: P}, {name: "R1", p: 2 * P - L}, {name: "S1", p: 2 * P - H}, {name: "R2", p: P + (H - L)}, {name: "S2", p: P - (H - L)}]; }
+  // auto trend lines: through the last two clear swing highs (resistance) and swing lows (support)
+  const w = Math.max(3, Math.round(8 / m)), piv = (key, hi) => { const out2 = [];
+    for (let j = w; j < bars.length - w; j++) { const v = bars[j][key], win = bars.slice(j - w, j + w + 1).map(b => b[key]);
+      if (v === (hi ? Math.max(...win) : Math.min(...win))) out2.push(j); } return out2; };
+  out.tlines = [];
+  [["h", true, "res"], ["l", false, "sup"]].forEach(([key, hi, kind]) => {
+    const ps = piv(key, hi); if (ps.length < 2) return;
+    const a = ps[ps.length - 2], b = ps[ps.length - 1], slope = (bars[b][key] - bars[a][key]) / (b - a);
+    const at = k => bars[a][key] + slope * (k - a), last = bars.length - 1;
+    const broken = bars.slice(b + 1).some((x, k) => hi ? x.c > at(b + 1 + k) + tolBase : x.c < at(b + 1 + k) - tolBase);
+    out.tlines.push({kind, a, b, slope, at, broken, now: at(last)});
+  });
+  out.hod = Math.max(...bars.map(b => b.h)); out.lod = Math.min(...bars.map(b => b.l));
   // fair value gaps (unfilled)
   for (let i = 2; i < bars.length; i++) {
     const a = bars[i - 2], c = bars[i], m = c.c * 0.0004;
@@ -461,6 +540,15 @@ function draw() {
   }
   bars.forEach((b, k) => { if (b.hm.endsWith(":00") || (n <= 120 && b.hm.endsWith(":30")) || (n <= 40 && /[05]$/.test(b.hm))) {
     const xx = x(start + k); g.beginPath(); g.moveTo(xx, T); g.lineTo(xx, H - B); g.stroke(); g.fillText(b.hm, xx - 14, H - 4); } });
+  // volume along the bottom (bright = more than 1.5× the 20-candle average)
+  if (layers.vol) { const vmax = Math.max(1, ...bars.map(b => b.v)), vh = (H - T - B) * 0.18;
+    bars.forEach((b, k) => { if (!b.v) return; const hgt = b.v / vmax * vh, xx = x(start + k);
+      g.globalAlpha = b.v > 1.5 * (b.vavg || b.v) ? 0.55 : 0.22; g.fillStyle = css(b.c >= b.o ? "--up" : "--down");
+      g.fillRect(xx - Math.max(1, xw * 0.65) / 2, H - B - hgt, Math.max(1, xw * 0.65), hgt); }); g.globalAlpha = 1; }
+  // the 10:30 line: Nolan's rule, nothing opens before it
+  if (layers.hod) bars.forEach((b, k) => { if (b.hm === "10:30") {
+    const xx = x(start + k); g.strokeStyle = css("--warn"); g.setLineDash([4, 4]); g.beginPath(); g.moveTo(xx, T); g.lineTo(xx, H - B); g.stroke(); g.setLineDash([]);
+    g.fillStyle = css("--warn"); g.fillText("10:30", xx + 3, T + 30); } });
   // fair value gaps
   if (layers.fvg) st.fvgs.filter(f => !f.filled && f.i >= start - 30).slice(-6).forEach(f => {
     g.fillStyle = css(f.side === "bull" ? "--fvgU" : "--fvgD");
@@ -481,6 +569,8 @@ function draw() {
   };
   if (layers.fib && st.fib) st.fib.levels.forEach(f => hline(f.p, css("--fib"), (f.f * 100).toFixed(1) + "%", [2, 3], st.fib.from));
   if (layers.levels) st.levels.forEach(l => hline(l.p, css("--accent"), l.name, [5, 4]));
+  if (layers.piv) (st.pivots || []).forEach(l => hline(l.p, css("--piv"), l.name, [1, 2]));
+  if (layers.hod && st.hod !== null) { hline(st.hod, css("--muted"), "HOD", [3, 2]); hline(st.lod, css("--muted"), "LOD", [3, 2]); }
   if (layers.pos && typeof T !== "undefined") readAll().filter(r => r.spy).forEach(r => {
     hline(r.be, css("--ink"), "BE " + r.tag, [], null);
     if (r.stopS !== null) hline(r.stopS, css("--down"), "STOP≈", [6, 3]);
@@ -503,6 +593,14 @@ function draw() {
     bars.forEach((b, k) => { const xx = x(start + k), yy = y(b[key]); k ? g.lineTo(xx, yy) : g.moveTo(xx, yy); }); g.stroke(); g.setLineDash([]); g.lineWidth = 1; };
   if (layers.ema) { line("e21", css("--e21"), 1.2); line("e9", css("--e9"), 1.2); }
   if (layers.vwap) line("vwap", css("--vwap"), 1.6);
+  if (layers.bb) { line("bbu", css("--bb"), 1, [4, 3]); line("bbl", css("--bb"), 1, [4, 3]); line("bbm", css("--bb"), 0.8, [1, 3]); }
+  if (layers.tl && st.tlines) { g.save(); g.beginPath(); g.rect(L, T, W - L - R, H - T - B); g.clip();
+    st.tlines.forEach(t => { const iR = start + n - 0.5, col = css("--tl");
+      g.strokeStyle = col; g.lineWidth = 1.6; g.setLineDash(t.broken ? [6, 4] : []);
+      g.beginPath(); g.moveTo(x(t.a), y(t.at(t.a))); g.lineTo(L + (iR - start + 0.5) * xw, y(t.at(iR))); g.stroke();
+      [t.a, t.b].forEach(i => { g.fillStyle = col; g.beginPath(); g.arc(x(i), y(t.at(i)), 2.5, 0, 7); g.fill(); }); });
+    g.restore(); g.setLineDash([]); g.lineWidth = 1;
+    st.tlines.forEach(t => { const v = t.at(end - 1); if (inView(v)) { g.fillStyle = css("--tl"); g.fillText((t.kind === "res" ? "TL res" : "TL sup") + (t.broken ? " ✗" : ""), W - R + 4, y(v) + 3); } }); }
   // signals
   const mp = S.map;
   if (layers.sig) sigs.filter(s => mp[s.i] >= start && mp[s.i] < end).forEach(s => {
@@ -529,9 +627,22 @@ function draw() {
     g.fillStyle = css("--panel"); g.fillRect(L + 4, T + 2, tw, 16); g.strokeStyle = css("--line"); g.strokeRect(L + 4, T + 2, tw, 16);
     g.fillStyle = css("--ink"); g.fillText(txt, L + 10, T + 13);
   }
-  // RSI pane
-  const r = canvasCtx("#rsi"), ry = v => 6 + (100 - v) / 100 * (r.H - 12);
+  // lower pane: RSI 14 or MACD 12/26/9
+  const r = canvasCtx("#rsi");
   r.g.font = "10px " + css("--mono");
+  if (pane === "macd") {
+    const mx = Math.max(0.01, ...bars.map(b => Math.max(Math.abs(b.macd), Math.abs(b.msig)))), my = v => r.H / 2 - v / mx * (r.H / 2 - 6);
+    r.g.strokeStyle = css("--grid"); r.g.beginPath(); r.g.moveTo(L, my(0)); r.g.lineTo(r.W - R, my(0)); r.g.stroke();
+    bars.forEach((b, k) => { r.g.fillStyle = css(b.mhist >= 0 ? "--up" : "--down"); r.g.globalAlpha = 0.45;
+      const xx = L + (k + 0.5) * xw, y0 = my(0), y1 = my(b.mhist); r.g.fillRect(xx - Math.max(1, xw * 0.6) / 2, Math.min(y0, y1), Math.max(1, xw * 0.6), Math.abs(y1 - y0)); });
+    r.g.globalAlpha = 1;
+    [["macd", "--macd"], ["msig", "--msig"]].forEach(([key, col]) => { r.g.strokeStyle = css(col); r.g.beginPath();
+      bars.forEach((b, k) => { const xx = L + (k + 0.5) * xw, yy = my(b[key]); k ? r.g.lineTo(xx, yy) : r.g.moveTo(xx, yy); }); r.g.stroke(); });
+    const lv = bars[bars.length - 1] || lb; r.g.fillStyle = css("--muted");
+    r.g.fillText("MACD " + lv.macd.toFixed(2), r.W - R + 4, 12); r.g.fillText("sig " + lv.msig.toFixed(2), r.W - R + 4, 24);
+    return;
+  }
+  const ry = v => 6 + (100 - v) / 100 * (r.H - 12);
   r.g.strokeStyle = css("--grid"); r.g.fillStyle = css("--muted");
   [30, 50, 70].forEach(v => { r.g.beginPath(); r.g.moveTo(L, ry(v)); r.g.lineTo(r.W - R, ry(v)); r.g.stroke(); r.g.fillText(String(v), 4, ry(v) + 3); });
   r.g.strokeStyle = css("--ink"); r.g.beginPath();
@@ -584,6 +695,11 @@ function renderPanels() {
     ["vs VWAP", `${(lb.c - lb.vwap >= 0 ? "+" : "")}${(lb.c - lb.vwap).toFixed(2)} (${sig >= 0 ? "+" : ""}${sig.toFixed(1)}σ)`],
     ["RSI 14", `${lb.rsi.toFixed(0)} ${lb.rsi >= 70 ? "· stretched up" : lb.rsi <= 30 ? "· stretched down" : ""}`],
     ["ATR (1-min)", lb.atr.toFixed(2)],
+    ["Volume now", lb.vavg ? `${(lb.v / lb.vavg).toFixed(1)}× the 20-candle average${lb.v > 1.5 * lb.vavg ? " · heavy" : lb.v < 0.6 * lb.vavg ? " · light" : ""}` : "–"],
+    ["MACD", `${lb.macd >= lb.msig ? '<span class="long">above signal</span>' : '<span class="short">below signal</span>'} · ${lb.macd >= 0 ? "above" : "below"} zero`],
+    ["Bollinger", `${lb.c > lb.bbu ? "above upper band" : lb.c < lb.bbl ? "below lower band" : "inside bands"} · width ${(lb.bbw * 100).toFixed(2)}%`],
+    ["Trend lines", (st.tlines || []).length ? st.tlines.map(t => `${t.kind === "res" ? "res" : "sup"} ${t.now.toFixed(2)}${t.broken ? " (broken)" : ""}`).join(" · ") : "not enough swings yet"],
+    ["Pivots", (st.pivots || []).length ? st.pivots.slice(0, 3).map(v => `${v.name} ${v.p.toFixed(2)}`).join(" · ") : "–"],
     ["Candles", size + "-minute"],
     ["Pool above", above ? `${above.name} ${above.p.toFixed(2)} (+${(above.p - lb.c).toFixed(2)})` : "–"],
     ["Pool below", below ? `${below.name} ${below.p.toFixed(2)} (−${(lb.c - below.p).toFixed(2)})` : "–"],
@@ -1256,6 +1372,9 @@ function navUI() {
   document.querySelectorAll("[data-z]").forEach(b => b.addEventListener("click", () => { ensureZoom(); setZoom(zoomN * (b.dataset.z === "in" ? 0.7 : 1.4)); }));
   $("#liveBtn").addEventListener("click", () => { ensureZoom(); follow = true; vEnd = S.bars.length; hoverI = null; draw(); navUI(); });
 })();
+document.querySelectorAll("[data-p]").forEach(b => b.addEventListener("click", () => {
+  pane = b.dataset.p; document.querySelectorAll("[data-p]").forEach(x => x.setAttribute("aria-pressed", x === b)); draw();
+}));
 document.querySelectorAll("[data-l]").forEach(b => b.addEventListener("click", () => {
   layers[b.dataset.l] = !layers[b.dataset.l]; b.setAttribute("aria-pressed", layers[b.dataset.l]); draw();
 }));
