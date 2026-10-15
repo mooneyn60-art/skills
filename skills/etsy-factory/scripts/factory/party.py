@@ -120,6 +120,10 @@ def render_bingo(doc, spec, _built=None):
 
 
 # ---------------------------------------------------------------- question cards
+def cap(s):
+    return s[:1].upper() + s[1:]
+
+
 def render_cards(doc, spec, _built=None):
     t, w, h, m = doc.t, doc.w, doc.h, doc.m
     c = spec["content"]
@@ -131,13 +135,13 @@ def render_cards(doc, spec, _built=None):
     per = 15
     for start in range(0, len(qs), per):
         doc.new_page()
-        y = doc.header(c["card_title"], c.get("list_subtitle"), size=30)
+        y = doc.header(c["card_title"], c.get("list_subtitle"), size=30) - 12
         row_h = (y - m - 10) / per
         for i, (a, b) in enumerate(qs[start:start + per], start + 1):
             yy = y - (i - start - 1) * row_h
             doc.circle(m + 20, yy - 4, 12, fill=t["primary"] if i % 2 else t["secondary"])
             doc.text(m + 20, yy - 8.5, str(i), "WorkSans-Bold", 10.5, "#FFFFFF", "center")
-            doc.para(m + 42, yy - 0, f"{a} or {b}?", "WorkSans-Regular", 13, w - 2 * m - 50, 16, t["ink"])
+            doc.para(m + 42, yy - 0, f"{cap(a)} or {b}?", "WorkSans-Regular", 13.5, w - 2 * m - 50, 16.5, t["ink"])
 
     # cut-out cards, 2 x 4 per page
     cols, rows = 2, 4
@@ -152,12 +156,12 @@ def render_cards(doc, spec, _built=None):
             doc.rect(x + 8, ytop - ch + 8, cw - 16, ch - 16, stroke=t["accent"], width=1.2, radius=10)
             doc.text(x + cw / 2, ytop - 32, c["card_title"] + "...", "Display", 16, t["primary"], "center", max_w=cw - 40)
             box_h = (ch - 70) / 2 - 10
-            doc.para_fit(x + 22, ytop - 44, a, "WorkSans-Bold", 14, cw - 44, box_h, t["ink"])
+            doc.para_fit(x + 22, ytop - 44, cap(a), "WorkSans-Bold", 16, cw - 44, box_h, t["ink"])
             mid = ytop - 44 - box_h - 10
             doc.line(x + 40, mid, x + cw / 2 - 18, mid, t["accent"], 0.8)
             doc.line(x + cw / 2 + 18, mid, x + cw - 40, mid, t["accent"], 0.8)
             doc.text(x + cw / 2, mid - 4, "or", "Lora-Italic", 13, t["secondary"], "center")
-            doc.para_fit(x + 22, mid - 10, b, "WorkSans-Bold", 14, cw - 44, box_h, t["ink"])
+            doc.para_fit(x + 22, mid - 10, cap(b), "WorkSans-Bold", 16, cw - 44, box_h, t["ink"])
             doc.text(x + cw - 22, ytop - ch + 18, str(start + k + 1), "WorkSans-Regular", 8, t["muted"], "right")
     closing_page(doc, spec)
 
