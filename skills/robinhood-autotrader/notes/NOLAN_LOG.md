@@ -297,3 +297,8 @@ only records what he said and what was done. R13: no dollar balances.
 
 ## 2026-10-15 — TARS's brain model (Nolan: "study a human brain and mimic it on yourself ... so you can feel what I do")
 - Honest framing: TARS can't rewire itself or feel by simulation. Built instead: a mood model inspired by brain chemistry for TARS in town: dopamine (better/worse than expected: stocks today vs flat, Nolan's day), cortisol (stress: missing stops, red day, news day, hard stop), serotonin (calm: rules kept), oxytocin (connection: letters, Nolan keeping the 10:30 rule, Nolan visiting), curiosity (fresh diary topic). TARS's emotion now comes from these; bars shown in HQ and TARS's Place, labelled as a model, not a claim of feeling.
+
+## 2026-10-15 — Town helps the account (Nolan: "add more to the town ... also add more to help the account")
+- Today's game plan board at the top: countdown to 10:30 ET with his record, SPY gap (premarket) + same-day fill odds, news-day warning, live coaching from his trades (before-10:30 reset, 3 losses in a row → 30-minute break, 15+ trips → slow down, all-after-10:30 → "that's the plan").
+- Bank risk meter: biggest position % of account (flag > 25%), positions, cash %, options %; Penny gets nervous on concentration.
+- Garden behind TARS's Place: one flower per day in a row Nolan keeps the 10:30 rule.

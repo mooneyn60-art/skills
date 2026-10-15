@@ -116,6 +116,8 @@ svg{display:block;width:100%;height:auto}
 @media (prefers-reduced-motion:no-preference){.fw{animation:burst 2.8s ease-out infinite} @keyframes burst{0%{opacity:0;transform:scale(.2)}15%{opacity:1}70%{opacity:.8;transform:scale(1.4)}100%{opacity:0;transform:scale(1.6)}}
   .balloon{animation:float 70s linear infinite} @keyframes float{from{transform:translate(0,0)}50%{transform:translate(320px,-8px)}to{transform:translate(640px,0)}}
   .dream{animation:floaty 3s ease-in-out infinite}}
+.plan{border-left:4px solid var(--accent)} .planL{margin:6px 0 0;padding-left:18px;display:grid;gap:4px;font-size:.95rem}
+.planL .bad{color:var(--bad);font-weight:700} .planL .warn{color:var(--warn)} .planL .ok{color:var(--ok)} .planL .muted{color:var(--muted)}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;min-width:0}
 .panel h2{font-family:var(--display);font-size:1.15rem;margin:0;letter-spacing:.03em}
 .role{color:var(--muted);margin:4px 0 12px;font-size:.92rem}
@@ -155,6 +157,7 @@ h3{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mu
     </div>
   </header>
   <div class="banner" id="banner" hidden></div>
+  <section class="panel plan" aria-labelledby="planh"><h2 id="planh">Today's game plan</h2><div id="plan"></div></section>
   <div class="main">
     <div class="town">
       <svg id="city" viewBox="0 0 760 520" role="group" aria-label="TARS Town map"></svg>
@@ -648,7 +651,8 @@ function emotionOf(id) {
       if (nt.early) return {emo: "nervous", why: `${nt.early} trade(s) before 10:30 today.`};
       if (nt.n) return nt.net >= 0 ? {emo: "proud", why: `Green day: ${money(nt.net)}.`} : {emo: "grumpy", why: `Red day: ${money(nt.net)}.`};
       return night ? {emo: "sleepy", why: "Resting up for tomorrow."} : m < 630 && open ? {emo: "excited", why: "Pumped for the open. Waiting till 10:30."} : {emo: "happy", why: "No trades yet. Clean slate."}; }
-    case "bank": return S.cash != null && S.cash < STATIC.slot.buffer ? {emo: "worried", why: "Cash is under Pip's buffer."} : night ? {emo: "sleepy", why: "Vault locked."} : {emo: "calm", why: "Every dollar counted twice."};
+    case "bank": { const rk = riskMeter(); if (rk && rk.topPct > 25) return {emo: "nervous", why: `${rk.top.sym} is ${rk.topPct.toFixed(0)}% of the account.`}; }
+      return S.cash != null && S.cash < STATIC.slot.buffer ? {emo: "worried", why: "Cash is under Pip's buffer."} : night ? {emo: "sleepy", why: "Vault locked."} : {emo: "calm", why: "Every dollar counted twice."};
     case "home": return HOME.awake ? {emo: "focused", why: "TARS's desk is working right now."} : {emo: "cozy", why: "House is warm, TARS is home."};
     case "post": { const n = QUEST.filter(q => q.status === "new").length; return n ? {emo: "excited", why: `${n} letter${n > 1 ? "s" : ""} for TARS waiting.`} : night ? {emo: "sleepy", why: "Mail's sorted. Lights out."} : {emo: "calm", why: "All letters delivered."}; }
     case "nbr": return !NB.length ? {emo: "calm", why: "The lane is quiet."} : NB.some(n => /FAIL/i.test(n.last_status || "")) ? {emo: "worried", why: "A neighbor's last run didn't go well."} : {emo: "happy", why: `${NB.length} neighbors, all running.`};
@@ -798,6 +802,34 @@ function earlyStreak() { // consecutive most-recent trading days where Nolan ope
     by[d] = by[d] || false; if (+p[0] * 60 + +p[1] < 630) by[d] = true; });
   let n = 0; for (const d of Object.keys(by).sort().reverse()) { if (by[d]) break; n++; } return n;
 }
+function nolanTrips() { return trips(L.todayOpt.filter(o => !o.agent_initiated)); }
+function renderPlan() {
+  const el = $("#plan"); if (!el) return;
+  const m = etMinutes(), open = marketOpen(), S = SD || {}, items = [];
+  const left = 630 - m;
+  if (open && left > 0) items.push(["warn", `${Math.floor(left / 60) ? Math.floor(left / 60) + "h " : ""}${left % 60}m until 10:30. Your record before 10:30: lost 5 of 5 days. Watch, don't trade.`]);
+  else if (open && m < 870) items.push(["ok", "It's past 10:30: your window. Best holds were 5-15 minutes; exits are your edge."]);
+  else if (open) items.push(["muted", "Late session: theta is brutal now. Smaller or nothing."]);
+  else items.push(["muted", "Market closed. Next open 9:30 ET; the 10:30 bell is yours."]);
+  const q = L.q.SPY || {}, ref = +q.adjusted_previous_close || 0, last = +(q.last_non_reg_trade_price || q.last_trade_price) || 0;
+  if (ref && last) { const g = 100 * (last / ref - 1), a = Math.abs(g), odds = a < .1 ? "88%" : a < .3 ? "64-76%" : a < .6 ? "31-58%" : "21-38%";
+    if (open || m < 570) items.push(["muted", `SPY ${open ? "is" : "is set to open"} ${g >= 0 ? "+" : ""}${g.toFixed(2)}% vs yesterday's close. Gaps that size fill the same day about ${odds} of the time.`]);
+    else items.push(["muted", `SPY finished ${g >= 0 ? "+" : ""}${g.toFixed(2)}% today.`]); }
+  if (EVENTS[today()]) items.push(["warn", `${EVENTS[today()]} today. ${/FOMC/.test(EVENTS[today()]) ? "Afternoon range runs ~4x normal and the first move often reverses." : "The news is in the gap; the rest of the day usually runs normal."}`]);
+  const tr = nolanTrips(); let streak = 0; for (let i = tr.length - 1; i >= 0 && tr[i].pout <= tr[i].pin; i--) streak++;
+  const nt = S.nt || {n: 0, early: 0};
+  if (nt.early) items.push(["bad", `${nt.early} trade${nt.early > 1 ? "s" : ""} before 10:30 today. ${open && m < 630 ? "Reset: nothing more until 10:30." : "Tomorrow: nothing before 10:30."}`]);
+  if (streak >= 3) items.push(["bad", `${streak} losing trades in a row. Take 30 minutes away from the screen.`]);
+  if (tr.length >= 15) items.push(["warn", `${tr.length} round trips today. Your first trips of a day have been net losers and more trades means more spread. Slow down.`]);
+  if (tr.length && !nt.early && streak < 3) items.push(["ok", `${tr.length} trips today, ${money(tr.reduce((a, t) => a + (t.pout - t.pin) * t.q * 100, 0))}, all after 10:30. That's the plan.`]);
+  el.innerHTML = `<ul class="planL">${items.map(([c, t]) => `<li class="${c}">${esc(t)}</li>`).join("")}</ul>`;
+}
+function riskMeter() {
+  const S = SD || {}; if (!S.val || !S.rows) return null;
+  const pos = S.rows.map(r => ({sym: r.sym, v: r.last * r.qty})).sort((a, b) => b.v - a.v);
+  const top = pos[0], optV = L.port ? +L.port.options_value || 0 : 0;
+  return {top, topPct: top ? 100 * top.v / S.val : 0, cashPct: 100 * (S.cash || 0) / S.val, optPct: 100 * optV / S.val, n: pos.length};
+}
 function renderWishes() {
   const el = $("#wishes"); if (!el) return;
   const W = [
@@ -816,6 +848,14 @@ function renderMood() {
     return `<div class="md"><svg viewBox="-20 -34 40 54" class="av" aria-hidden="true">${faceE(b.id, 0, 0, 1)}</svg><div><b>${esc(CH[b.id].who)}</b> <span class="emoW">${esc((EMO[e.emo] || EMO.calm).word)}</span><br><span class="mut">${esc(e.why)}</span></div></div>`; }).join("");
 }
 
+function gardenSvg() {
+  const n = Math.min(12, earlyStreak()), b = B.find(x => x.id === "home"), c = ground(b.c + 0.05, b.r + 0.45);
+  let g = `<ellipse cx="${c.x - 46}" cy="${c.y}" rx="30" ry="12" style="fill:var(--leaf)" opacity=".28"/>`;
+  for (let k = 0; k < n; k++) { const x = c.x - 66 + (k % 6) * 8, y = c.y - 6 + Math.floor(k / 6) * 9, col = ["--c-corner", "--accent", "--c-lab", "--win"][k % 4];
+    g += `<line x1="${x}" y1="${y}" x2="${x}" y2="${y + 6}" style="stroke:var(--leaf)" stroke-width="1.4"/><circle cx="${x}" cy="${y}" r="2.6" style="fill:var(${col})"/>`; }
+  if (!n) g += `<circle cx="${c.x - 46}" cy="${c.y}" r="1.6" style="fill:var(--leaf)"/>`;
+  return `<g class="garden"><title>One flower for each day in a row Nolan kept the 10:30 rule</title>${g}</g>`;
+}
 function dreamSvg() {
   if (phase() !== "night") return "";
   const b = B.find(x => x.id === "home"), p = iso(b.c, b.r), d = DIARY[0], about = d ? (d.topic || d.title) : "the 10:30 bell";
@@ -899,7 +939,7 @@ function drawTown() {
   const minY = Math.min(...B.map(b => iso(b.c, b.r).y + TH / 2 - b.h - 120)), maxY = Math.max(...pts.map(q => q.y)) + TH * GAP / 2 + 6;
   svg.setAttribute("viewBox", `${minX} ${minY} ${maxX - minX} ${maxY - minY}`);
   if (!svg.querySelector("#world")) svg.innerHTML = '<g class="sky" id="skyL"></g><g id="world"></g><g id="people"></g><g id="bubbles"></g>';
-  $("#skyL").innerHTML = sky([minX, minY, maxX - minX]); $("#world").innerHTML = g + dreamSvg();
+  $("#skyL").innerHTML = sky([minX, minY, maxX - minX]); $("#world").innerHTML = g + gardenSvg() + dreamSvg();
   $(".town").dataset.phase = phase(); syncPeople();
   svg.querySelectorAll(".bld").forEach(el => {
     const go = () => { sel = el.dataset.id; drawTown(); renderDetail(); };
@@ -986,7 +1026,7 @@ function refresh() {
   $("#sCash").textContent = SD.cash !== null ? money(SD.cash) : "—";
   const d = $("#sDay"); d.textContent = SD.dayChg !== null ? money(SD.dayChg) : "—"; d.className = SD.dayChg === null ? "" : SD.dayChg >= 0 ? "up" : "dn";
   $("#sUpd").textContent = L.upd ? L.upd.toLocaleTimeString([], {hour: "numeric", minute: "2-digit"}) : "—";
-  drawTown(); renderDetail(); renderCrier(); renderWork(); renderMood(); renderDiary(); renderWishes();
+  drawTown(); renderDetail(); renderCrier(); renderWork(); renderMood(); renderDiary(); renderWishes(); renderPlan();
   if (!refresh.started) { refresh.started = true; setTimeout(startChatter, 1200); } // first real data: let the town talk about it right away
 }
 
@@ -1046,6 +1086,9 @@ function renderDetail0() {
     const bp = L.port && L.port.buying_power ? +L.port.buying_power.buying_power : null;
     body = dl([["Cash", S.cash != null ? money(S.cash) : "—"], ["Buying power", bp != null ? money(bp) : "—"], ["Pip's buffer (set aside)", money(STATIC.slot.buffer)],
       ["Free cash outside the buffer", S.cash != null ? money(Math.max(0, S.cash - STATIC.slot.buffer)) : "—"], ["Account value", S.val != null ? money(S.val) : "—"]]);
+    const rk = riskMeter();
+    if (rk) body += `<h3>Risk meter</h3>` + dl([["Biggest position", rk.top ? `${esc(rk.top.sym)} · <span class="${rk.topPct > 25 ? "dn" : ""}">${rk.topPct.toFixed(0)}% of the account</span>` : "—"],
+      ["Stock positions", rk.n], ["Cash", rk.cashPct.toFixed(0) + "%"], ["Options", rk.optPct.toFixed(0) + "%"]]) + (rk.topPct > 25 ? `<p class="warnT msg">One stock is over 25% of the account. A single bad gap there hurts the whole account.</p>` : "");
     how = ["The options buffer is only for TARS's slot; stocks never borrow from it.", "If cash falls under the buffer, nothing new gets bought until it's fixed."];
   } else if (sel === "post") {
     body = `<form class="mail" id="mailF"><label for="mailQ">Your question for TARS</label><textarea id="mailQ" maxlength="400" placeholder="Why is the sky orange at sunset? How do hurricanes get their names?"></textarea>
@@ -1065,6 +1108,7 @@ function renderDetail0() {
         ["Next scheduled", HOME.next ? `${esc(HOME.nextName)} · ${etHMof(HOME.next)} ET` : "—"]]) +
       (HOME.sched.length ? `<h3>TARS's week</h3><div class="scroll"><table><thead><tr><th>Routine</th><th>Next</th></tr></thead><tbody>${HOME.sched.map(t => `<tr><td>${esc(t.name)}</td><td>${new Date(t.next).toLocaleString([], {weekday: "short", hour: "numeric", minute: "2-digit"})}</td></tr>`).join("")}</tbody></table></div>` : "");
     body += brainBars();
+    body += `<p class="mut msg">Garden: ${earlyStreak()} flower${earlyStreak() === 1 ? "" : "s"}, one for each day in a row Nolan kept the 10:30 rule. A seed is planted and waiting.</p>`;
     body += `<p class="mut msg">Tonight's moon: ${moonName()}. ${phase() === "night" ? "TARS is asleep and dreaming." : ""}</p>`;
     if (DIARY.length) body += `<h3>TARS's diary</h3>` + DIARY.slice(0, 3).map(diaryCard).join("");
     how = ["This is real: the house reads TARS's actual desk session and schedule.", "Lights on means the desk is working right now; smoke means someone's home.", "TARS lives here between checks. CASE keeps the house."];
@@ -1156,7 +1200,8 @@ CL.use("db").then(db => {
 });
 $("#cNext").addEventListener("click", () => { paused = false; $("#cPause").textContent = "Pause"; clearTimeout(playTimer); step(); });
 $("#cPause").addEventListener("click", e => { paused = !paused; e.target.textContent = paused ? "Resume" : "Pause"; if (!paused) step(); });
-setInterval(drawTown, 60000); // sky, clock and sun follow the time
+setInterval(() => { drawTown(); renderPlan(); }, 60000); // sky, clock, sun and the 10:30 countdown follow the time
+renderPlan();
 requestAnimationFrame(tick); setInterval(lifeTick, 6000); renderMood(); setTimeout(catLife, 800);
 start();
 </script>
