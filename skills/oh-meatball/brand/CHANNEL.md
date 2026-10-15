@@ -10,7 +10,7 @@ Studio -> Content -> tick the select-all box -> Edit -> Visibility -> Private ->
 - **Name:** Oh Meatball
 - **Handle:** @Oh_meatball
 - **Profile picture:** `profile.png`
-- **Banner:** `banner.png`
+- **Banner:** `banner.jpg` (2560x1440, all content inside the 1546x423 mobile safe area)
 - **Description:**
 
 > Meatball is a very round orange cat with a very big heart... and the most
