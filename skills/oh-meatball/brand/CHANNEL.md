@@ -31,6 +31,15 @@ Studio -> Content -> tick the select-all box -> Edit -> Visibility -> Private ->
 oh meatball, meatball cat, cat soap opera, cat drama, animated cat, ai cat, cat story,
 funny cats, cat wedding, ai animation, cartoon cats, chubby cat, orange cat
 
+## Part 1 upload
+- **Title:** He crashed the wedding 😱 She has a secret | Oh Meatball Pt 1   (vidIQ score 96)
+- **Description:**
+  > "If anyone objects, speak now..." Meatball was ONE second from married. 💍
+  > Then Smokey walked in. What is Duchess hiding? 😳 Part 2 tomorrow at 6 PM ET.
+  > Comment who you're siding with 👇
+  > #shorts #catdrama #ai #animation #cat #ohmeatball
+- Not made for kids. Altered/synthetic: No (animated, not realistic).
+
 ## 4. Home tab
 - Trailer for new visitors: Part 1.
 - Add a playlist "Season 1: The Wedding" and put every part in it in order.
