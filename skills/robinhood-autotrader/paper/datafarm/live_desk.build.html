@@ -115,6 +115,7 @@ textarea{width:100%;resize:vertical;min-height:54px;font-family:var(--body)}
       <button type="button" data-l="fib" aria-pressed="false">Fibonacci</button>
       <button type="button" data-l="sig" aria-pressed="true">Signals</button>
       <button type="button" data-l="em" aria-pressed="true">Expected move</button>
+      <button type="button" data-l="pos" aria-pressed="true">My position</button>
       <span class="sep" aria-hidden="true"></span>
       <button type="button" data-m="1" aria-pressed="true">1m</button>
       <button type="button" data-m="2" aria-pressed="false">2m</button>
@@ -135,6 +136,11 @@ textarea{width:100%;resize:vertical;min-height:54px;font-family:var(--body)}
       <span><i class="sw" style="background:var(--fib)"></i>Fibonacci of the day's swing</span>
       <span>▲▼ signal entries · ◆ target · ✕ stop</span>
     </div>
+  </section>
+
+  <section class="panel" id="readerP" aria-labelledby="rdh">
+    <h2 id="rdh">Position reader</h2>
+    <div id="reader"><p class="muted msg">No open option position. The reader wakes up the moment you're in a trade.</p></div>
   </section>
 
   <div class="cols">
@@ -201,6 +207,7 @@ textarea{width:100%;resize:vertical;min-height:54px;font-family:var(--body)}
           <button type="button" class="btn sm">Is this a good entry right now?</button>
           <button type="button" class="btn sm">Check my ticket before I place it</button>
           <button type="button" class="btn sm">Where's my stop and target?</button>
+          <button type="button" class="btn sm">Read my open position</button>
           <button type="button" class="btn sm">Which liquidity pool gets taken next?</button>
         </div>
         <div class="row" style="margin-top:8px;flex-wrap:nowrap"><textarea id="aq" placeholder="Ask about the chart, a setup, or your ticket…"></textarea></div>
@@ -218,7 +225,7 @@ const SERVER = "Robinhood";
 // window.claude only exists inside the claude.ai viewer; a saved copy of this page still renders, just without live data.
 const CL = window.claude && window.claude.use ? window.claude : {use: async () => null};
 const $ = s => document.querySelector(s);
-const layers = {em: true, vwap: true, ema: true, levels: true, pools: true, fvg: true, fib: false, sig: true};
+const layers = {pos: true, em: true, vwap: true, ema: true, levels: true, pools: true, fvg: true, fib: false, sig: true};
 let view = "full";
 const S = {b1: [], bars: [], map: [], prev: null, day: null, updated: null, live: false};
 let size = 1; try { size = [1, 2, 5, 15, 30].includes(+localStorage.getItem("desk.size")) ? +localStorage.getItem("desk.size") : 1; } catch (e) {}
@@ -461,6 +468,12 @@ function draw() {
   };
   if (layers.fib && st.fib) st.fib.levels.forEach(f => hline(f.p, css("--fib"), (f.f * 100).toFixed(1) + "%", [2, 3], st.fib.from));
   if (layers.levels) st.levels.forEach(l => hline(l.p, css("--accent"), l.name, [5, 4]));
+  if (layers.pos && typeof T !== "undefined") readAll().filter(r => r.spy).forEach(r => {
+    hline(r.be, css("--ink"), "BE " + r.tag, [], null);
+    if (r.stopS !== null) hline(r.stopS, css("--down"), "STOP≈", [6, 3]);
+    if (r.tgtS !== null) hline(r.tgtS, css("--up"), "TGT≈", [6, 3]);
+    hline(r.k, css("--muted"), "K " + r.k, [1, 4]);
+  });
   const emv = layers.em && typeof T !== "undefined" ? remainingMove(all[all.length - 1]) : null;
   if (emv) { const c0 = all[all.length - 1].c; hline(c0 + emv, css("--vwap"), "+1σ", [8, 3]); hline(c0 - emv, css("--vwap"), "−1σ", [8, 3]); }
   if (layers.pools) st.pools.filter(p => !/^(PDH|PDL|ORH|ORL)$/.test(p.name) && !p.taken).forEach(p =>
@@ -596,6 +609,7 @@ function apply() {
     const KEY = /^(PDH|PDL|PDC|ORH|ORL)$/;
     S.st.levels = S.st1.levels; S.st.pools = S.st.pools.filter(p => !KEY.test(p.name)).concat(S.st1.pools.filter(p => KEY.test(p.name))); }
   draw(); renderPanels();
+  if (typeof T !== "undefined" && T.pos) renderReader();
   if (!$("#tStrike").value && S.b1.length) { $("#tStrike").value = String(Math.round(S.b1[S.b1.length - 1].c)); resolveSoon(); }
 }
 
@@ -842,6 +856,71 @@ function watchAccount() {
     if (ev.type === "data") onOrders(pl(ev.result) || {}); else $("#ords").innerHTML = `<p class="msg short">${actErr(ev.error)}</p>`;
   }, opt);
 }
+// ---------- position reader: live read of each open option ----------
+const STOP_PCT = 0.35, TGT_PCT = 0.40;
+function moveFor(dP, d, g) { // SPY move x with d*x + g*x^2/2 = dP (smallest |x|); null if unreachable by price alone
+  if (Math.abs(g) < 1e-9) return d ? dP / d : null;
+  const disc = d * d + 2 * g * dP; if (disc < 0) return null;
+  const r1 = (-d + Math.sqrt(disc)) / g, r2 = (-d - Math.sqrt(disc)) / g;
+  return Math.abs(r1) < Math.abs(r2) ? r1 : r2;
+}
+function entryTime(optionId) {
+  const opens = (T.todayOrders || []).filter(o => (o.legs || []).some(l => l.option_id === optionId && l.position_effect === "open"))
+    .flatMap(o => o.legs.flatMap(l => (l.executions || []).map(e => e.timestamp))).sort();
+  return opens.length ? new Date(opens[opens.length - 1]) : null;
+}
+function readAll() {
+  const lb = S.b1[S.b1.length - 1]; if (!lb || !T.pos) return [];
+  return T.pos.map(p => {
+    const i = instCache[p.option_id], q = T.posQ[p.option_id]; if (!i || !q) return null;
+    const qty = +p.quantity, e = +p.average_price / 100, m = +q.mark_price, k = +i.strike_price, call = i.type === "call";
+    const d = +q.delta || 0, g = +q.gamma || 0, th = +q.theta || 0, iv = +q.implied_volatility || 0, spy = i.chain_symbol === "SPY";
+    const S0 = spy ? lb.c : null, be = call ? k + e : k - e;
+    const xs = spy ? moveFor((1 - STOP_PCT) * e - m, d, g) : null, xt = spy ? moveFor((1 + TGT_PCT) * e - m, d, g) : null;
+    const mins = Math.max(1, (new Date(i.sellout_datetime) - Date.now()) / 60000);
+    const sig = S0 && iv ? S0 * iv * Math.sqrt(mins / 525600) : null;
+    const t0 = entryTime(p.option_id);
+    return {p, i, q, qty, e, m, k, call, d, g, th, spy, S0, be, tag: (call ? "C" : "P"),
+      pnl: (m - e) * 100 * qty, pct: e ? 100 * (m / e - 1) : 0, stopS: xs === null || !spy ? null : S0 + xs, tgtS: xt === null || !spy ? null : S0 + xt,
+      decayHr: th * 100 * qty / 6.5, cop: +q.chance_of_profit_long || null, sig, mins, held: t0 ? (Date.now() - t0) / 60000 : null};
+  }).filter(Boolean);
+}
+function verdicts(r) {
+  const out = [], lb = S.b1[S.b1.length - 1], st = S.st1;
+  if (r.pct <= -100 * STOP_PCT) out.push(["short", `Down ${r.pct.toFixed(0)}%: past the −35% line. The rule says out; hoping is how small losses become big ones.`]);
+  else if (r.pct >= 100 * TGT_PCT) out.push(["long", `Up ${r.pct.toFixed(0)}%: in the target zone. Take it, or at least move your stop to breakeven so a winner can't turn into a loser.`]);
+  else if (r.pct >= 20) out.push(["long", `Up ${r.pct.toFixed(0)}%. Consider raising the stop to breakeven (${r.e.toFixed(2)}).`]);
+  if (r.spy && lb) {
+    const want = r.call ? 1 : -1;
+    if (lb.trend === want) out.push(["long", `The chart agrees: SPY is ${want > 0 ? "above" : "below"} VWAP with the EMAs ${want > 0 ? "up" : "down"}.`]);
+    else if (lb.trend === -want) out.push(["short", `The chart is against you: SPY is ${want > 0 ? "below" : "above"} VWAP and the EMAs point ${want > 0 ? "down" : "up"}.`]);
+    else out.push(["muted", "The chart is mixed (VWAP and EMAs disagree). Choppy tape, so decay works against you."]);
+    const ahead = st.pools.filter(p => !p.taken && (want > 0 ? p.p > lb.c : p.p < lb.c)).sort((a, b) => Math.abs(a.p - lb.c) - Math.abs(b.p - lb.c))[0];
+    const behind = st.pools.filter(p => !p.taken && (want > 0 ? p.p < lb.c : p.p > lb.c)).sort((a, b) => Math.abs(a.p - lb.c) - Math.abs(b.p - lb.c))[0];
+    if (ahead) out.push(["muted", `Next liquidity in your direction: ${ahead.name} ${ahead.p.toFixed(2)} (${(ahead.p - lb.c >= 0 ? "+" : "")}${(ahead.p - lb.c).toFixed(2)}). Price often reaches for these. A sweep and reject there is a place to take profit.`]);
+    if (behind) out.push(["muted", `Stops cluster behind you at ${behind.name} ${behind.p.toFixed(2)}. Losing that level is a real break.`]);
+    if (r.sig) { const z = Math.abs(r.be - lb.c) / r.sig; out.push([z > 1 ? "warn" : "muted", `Breakeven is ${z.toFixed(1)}σ away with the time left (1σ ≈ ${r.sig.toFixed(2)} pts). ${z > 1 ? "That needs a bigger than normal move." : "Reachable with a normal move."}`]); }
+  }
+  if (r.i.expiration_date === etDay(new Date()) && etHM(new Date()) >= "15:00") out.push(["warn", "Last hour on a 0DTE: decay and gamma are at their worst, so small SPY moves swing the price hard. Robinhood force-closes at its cutoff."]);
+  if (r.held !== null && r.held < 5 && r.pct < 0) out.push(["muted", `Held ${r.held.toFixed(0)} min. Your record: 2-5 minute exits were your worst bucket and 5-15 min your best. Let the plan play out unless the stop hits.`]);
+  return out;
+}
+function renderReader() {
+  const rows = readAll(), el = $("#reader"); if (!el) return;
+  if (!rows.length) { el.innerHTML = `<p class="muted msg">${T.pos && T.pos.length ? "Waiting for quotes…" : "No open option position. The reader wakes up the moment you're in a trade."}</p>`; return; }
+  el.innerHTML = rows.map(r => {
+    const f = v => v === null || isNaN(v) ? "—" : v.toFixed(2), sgn = v => (v >= 0 ? "+" : "") + v.toFixed(2);
+    const cells = [["P&L", `<span class="${r.pnl >= 0 ? "long" : "short"}">${money(r.pnl)} (${r.pct >= 0 ? "+" : ""}${r.pct.toFixed(0)}%)</span>`], ["Paid / now", `${f(r.e)} → ${f(r.m)}`],
+      ["SPY breakeven at expiry", r.spy ? `${f(r.be)} (${sgn(r.be - r.S0)})` : f(r.be)], ["Stop −35% ≈ SPY", r.stopS !== null ? `${f(r.stopS)} (${sgn(r.stopS - r.S0)})` : "time decay alone"],
+      ["Target +40% ≈ SPY", r.tgtS !== null ? `${f(r.tgtS)} (${sgn(r.tgtS - r.S0)})` : "out of reach by price"], ["Time decay", `${money(r.decayHr)}/hr`],
+      ["Chance of profit (expiry)", r.cop ? (100 * r.cop).toFixed(0) + "%" : "—"], ["Delta / Gamma", `${r.d.toFixed(2)} / ${r.g.toFixed(3)}`],
+      ["Held", r.held !== null ? r.held.toFixed(0) + " min" : "—"], ["Force-close in", `${Math.floor(r.mins / 60)}h ${Math.round(r.mins % 60)}m`]];
+    return `<div class="sig"><div class="top"><span class="name ${r.call ? "long" : "short"}">${esc(label(r.i))} ×${r.qty}</span><span class="pill ${r.pnl >= 0 ? "long" : "short"}">${r.pct >= 0 ? "+" : ""}${r.pct.toFixed(0)}%</span></div>
+      <div class="qbox">${cells.map(([k, v]) => `<span><small>${k}</small>${v}</span>`).join("")}</div>
+      <div class="list" style="margin-top:6px">${verdicts(r).map(([c, t]) => `<div class="msg ${c}">• ${esc(t)}</div>`).join("")}</div></div>`;
+  }).join("") + '<p class="rec">SPY levels for the stop and target are estimates from delta and gamma (they ignore time decay). Breakeven is at expiry. Updates every 30 s.</p>';
+}
+
 // ---------- competition: Nolan (his own orders) vs TARS (agent-initiated), FIFO round trips ----------
 const COMP_START = "2026-10-16";
 function trips(orders) {
@@ -901,6 +980,7 @@ async function onPositions(d) {
   renderPositions();
 }
 function renderPositions() {
+  renderReader(); if (S.b1.length) draw();
   if (!T.pos.length) { $("#pos").innerHTML = '<p class="muted msg">No open option positions.</p>'; return; }
   $("#pos").innerHTML = T.pos.map((p, k) => {
     const i = instCache[p.option_id], q = T.posQ[p.option_id], qty = +p.quantity, mark = q ? +q.mark_price : NaN, cost = +p.average_price;
@@ -921,6 +1001,7 @@ function loadPosition(p, ty) {
 }
 function onOrders(d) {
   const all = d.orders || [];
+  T.todayOrders = all;
   T.ords = all.filter(o => OPEN_STATES.includes(o.state)); T.fills = all.filter(o => o.state === "filled").length;
   const legTxt = o => (o.legs || []).map(l => `${l.side === "buy" ? "Buy" : "Sell"} ${+o.quantity} ${esc(o.chain_symbol)} ${esc((l.expiration_date || "").slice(5))} ${(+l.strike_price).toFixed(0)}${l.option_type === "call" ? "C" : "P"}`).join(" / ");
   const pxTxt = o => o.trigger === "stop" ? `stop ${(+o.stop_price).toFixed(2)}` : o.type === "market" ? "market" : `@ ${(+o.price).toFixed(2)}`;
@@ -1009,6 +1090,7 @@ function snapshot() {
       quote: q ? {bid: +q.bid_price, ask: +q.ask_price, mark: +q.mark_price, delta: +q.delta, iv: +q.implied_volatility, theta: +q.theta} : null,
       max_premium_per_trade: +$("#tMax").value || null, reviewed: !!T.review, robinhood_alerts: T.review ? checkLines(T.review.r.order_checks) : []},
     open_positions: T.pos.map(p => { const pi = instCache[p.option_id], pq = T.posQ[p.option_id]; return {contract: pi ? label(pi) : p.chain_symbol, qty: +p.quantity, avg_cost_per_contract: +p.average_price, mark: pq ? +pq.mark_price : null}; }),
+    position_reader: readAll().map(r => ({contract: label(r.i), qty: r.qty, paid: r.e, mark: r.m, pnl_pct: Math.round(r.pct), spy_breakeven: r.be, spy_stop_level_est: r.stopS, spy_target_level_est: r.tgtS, decay_per_hour_usd: Math.round(r.decayHr), chance_of_profit: r.cop, held_min: r.held && Math.round(r.held), reads: verdicts(r).map(v => v[1])})),
     working_orders: T.ords.length, fills_today: T.fills,
   };
 }

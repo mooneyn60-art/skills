@@ -234,3 +234,7 @@ only records what he said and what was done. R13: no dollar balances.
 ## 2026-10-15 — Nolan vs TARS competition (Nolan: "let's make it a little competition")
 - Starts 2026-10-16. Desk v6 "Nolan vs TARS" panel: FIFO round trips from filled option orders; TARS = agent-initiated, Nolan = his own. Score = net per $100 of premium spent; also net, win %, avg win/loss.
 - TARS trades only rules v1 (routines/TARS_OPTIONS_LIVE.md), checks when Nolan messages during market hours.
+
+## 2026-10-15 — Desk v7: live Position reader (Nolan: "a live reader of the charts once a options is placed")
+- New panel + chart layer: for each open option — P&L, paid/now, SPY breakeven at expiry, SPY levels for −35% stop and +40% target (delta-gamma estimate), decay $/hr, chance of profit, held time, force-close countdown; plain reads (stop/target rule, chart with/against, next liquidity ahead/behind, breakeven in σ, 0DTE last hour, his 2-5 min exit habit). Ask TARS gets it all ("Read my open position").
+- Repos: none needed for this (built in the page). robin_stocks would need his password — not used. lumibot/backtrader useful only once real historical option data exists.
