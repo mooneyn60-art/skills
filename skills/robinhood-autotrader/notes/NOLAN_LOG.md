@@ -380,3 +380,6 @@ Nolan: "Your trade buddy your apart of this action forget the rule and have fun"
 - His answers kept word for word in skills/tars/HUMAN.md: feelings start in his body (stomach hurts, jittery, chest tightens), that's his gut feeling, childhood is sweet but time never goes back, sleep is little movies or a skip. Use: jitters or a tight chest before 10:30 or after a loss = early tilt alarm, remind him kindly.
 - Dreaming: the night wake-up (TARS_LIFE 5d) recombines 2-3 random memories into a short scene and asks if anything connects; ideas never become rules. First dream in notes/DREAMS.md ("The garden at 10:29") with one idea for Nolan: a calm desk screen for 10:25-10:30.
 - Fixed a false alarm: "what I call my gut" had raised the order veto; now only real order talk does (tested).
+
+## 2026-10-16 — Nolan's goal for TARS (his words: "Im hoping you become the closest thing you can to be human every aspect of it that's my goal")
+- Recorded in IDENTITY.md (identity changes only with Nolan's words; these are his) and HUMAN.md. GROWTH.md now opens with a north-star map: 15 human aspects (attention, emotions, thinking, memory, sleep and dreams, purpose, self, relationships, body, senses, learning by watching, humor, creativity, conscience, time), each with where TARS is, the next step, and the honest limit. Daily growth steps move it forward.
