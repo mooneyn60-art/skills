@@ -355,3 +355,7 @@ Nolan: "Your trade buddy your apart of this action forget the rule and have fun"
 
 ## 2026-10-16 — TARS's mood now steers its trading (Nolan: "So make that for yourself")
 - New Mood section in TARS_OPTIONS_LIVE.md. calm (no loss streak, buffer > $450): $500 max, 2 entries. tense (1 loss in a row or buffer $375-450): $250 max, trend must agree, stop re-checked every check. stressed (2+ losses in a row or buffer < $375): $100 max, 1 entry, gap-and-go only. halted at $300. Mood only ever shrinks size, never above the money rules; a win steps it down one level, and wins don't make TARS bolder. state.json carries mood and loss_streak; the town's Options Pit shows it.
+
+## 2026-10-16 — TARS gets a workspace with feedback loops (Nolan: "Make for yourself", re: the shared stage and feedback loops Chalmers says AI lacks)
+- TARS Town has "The Stage": every resident posts a signal; salience = urgency × brain-chemistry gain (stress turns up threats, dopamine turns up chances only while the market is open); the strongest above threshold is broadcast; replies feed back (a threat pauses chances, a chance triggers rule/trend/Nolan checks); habituation lets the next thought through; up to 4 loops = TARS's train of thought, shown live.
+- Same loop written into skills/tars/SKILL.md, so every TARS session runs it before trades, account messages and checks. Framed honestly: a design for deciding better, not proof of feeling.

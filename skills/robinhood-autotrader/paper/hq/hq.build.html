@@ -116,6 +116,10 @@ svg{display:block;width:100%;height:auto}
 @media (prefers-reduced-motion:no-preference){.fw{animation:burst 2.8s ease-out infinite} @keyframes burst{0%{opacity:0;transform:scale(.2)}15%{opacity:1}70%{opacity:.8;transform:scale(1.4)}100%{opacity:0;transform:scale(1.6)}}
   .balloon{animation:float 70s linear infinite} @keyframes float{from{transform:translate(0,0)}50%{transform:translate(320px,-8px)}to{transform:translate(640px,0)}}
   .dream{animation:floaty 3s ease-in-out infinite}}
+.stg{display:grid;grid-template-columns:1.2fr 1fr;gap:16px;margin-top:8px} @media (max-width:760px){.stg{grid-template-columns:1fr}}
+.stg>div{min-width:0} .sh{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 6px;font-weight:600}
+.chain{margin:0;padding-left:20px;display:grid;gap:8px;font-size:.92rem} .chain small{display:block;color:var(--muted);font-size:.8rem;margin-top:2px}
+.sig{display:grid;grid-template-columns:7.5em 1fr 2.6em;gap:8px;align-items:center;font-size:.8rem;margin:3px 0} .sig .bar{height:8px;border-radius:4px;background:var(--line);overflow:hidden} .sig .bar i{display:block;height:100%}
 .plan{border-left:4px solid var(--accent)} .planL{margin:6px 0 0;padding-left:18px;display:grid;gap:4px;font-size:.95rem}
 .planL .bad{color:var(--bad);font-weight:700} .planL .warn{color:var(--warn)} .planL .ok{color:var(--ok)} .planL .muted{color:var(--muted)}
 .neon.club{font-size:8.5px;fill:#ff7eb6} .disco{opacity:.25}
@@ -162,6 +166,11 @@ h3{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mu
   </header>
   <div class="banner" id="banner" hidden></div>
   <section class="panel plan" aria-labelledby="planh"><h2 id="planh">Today's game plan</h2><div id="plan"></div></section>
+  <section class="panel stage" aria-labelledby="stgh">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap"><h2 id="stgh">The Stage · TARS's workspace</h2><span class="mut" id="stgT"></span></div>
+    <p class="role">Every resident posts what they see. Signals compete for TARS's attention (brain chemistry turns some up), the winner is broadcast to everyone, and their replies loop back and change what wins next. That chain is TARS's train of thought. It's a working copy of the "global workspace" design brain scientists describe, built to decide better, not a claim that TARS feels it.</p>
+    <div class="stg"><div><h3 class="sh">Train of thought</h3><ol id="stgChain" class="chain"></ol></div><div><h3 class="sh">Signals on the stage</h3><div id="stgSig"></div></div></div>
+  </section>
   <div class="main">
     <div class="town">
       <div class="pan" id="pan"><svg id="city" viewBox="0 0 760 520" role="group" aria-label="TARS Town map"></svg></div>
@@ -207,7 +216,7 @@ h3{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mu
 </div>
 
 <script>
-const STATIC = {"lab": {"studies": 48, "latest": [{"date": "2026-10-15", "title": "World markets vs SPY (20y daily + 2y hourly)", "points": ["Europe co-moves 0.55-0.60 (overlap hours); Asia 0.1-0.23. US leads Asia (0.34-0.49). Asia/Europe predict the gap, not open-to-close (HSI/KOSPI effect died after 2016; ASX top-quintile +0.04%, t 1.1). After 11:30 ET DAX \u2192 SPY afternoon 0.00.", "Lean: Nikkei \u22122% days \u2192 SPY open-to-close +0.10-0.14%, 57-59% up, both halves. Tracking forward in the journal.", "Yahoo chart API works with a browser UA (query2); stooq blocked; Robinhood has no foreign indexes."]}, {"date": "2026-10-15", "title": "Options-trader tools + Nolan's clock", "points": ["SPY pinning to $1 strikes at close: none (164 days). Intraday momentum (first 30m -> last 30m): weak, t 0.7. GEX: vendor-only evidence; collecting daily snapshots.", "Literature: retail 0DTE buyers lose on average (~60% costs); sellers profit after fees.", "Nolan's trips (226, Oct 8-15): before 10:30 negative 5/5 days, after 10:30 positive 5/6. Holds 2-5 min worst; 5-15 min best. 29% wins, +23%/\u221212% payoff (needs ~35%). Desk ticket warns pre-10:30."]}, {"date": "2026-10-15", "title": "Intraday deep dig (133 OOS days of 5-min + 20y daily)", "points": ["Desk candidates FAILED out of sample: PDL break short \u22120.44 (flipped), equal-lows sweep-reclaim \u22120.20; dip-buys +0.07-0.12 pts (below option spread). No intraday direction edge. Don't re-test these without new data.", "Shape of day is reliable: 42% of range by 10:00, 77% by 11:30; day extremes print in the first 30 min (24% H / 32% L) or the last 30 (17/13).", "Gap fill: <0.1% 88%; 0.1-0.3% 64-76%; 0.3-0.6% 31-58%; >0.6% 21-38%; falling since 2016."]}, {"date": "2026-10-15", "title": "Desk indicator study (31 days SPY 1-min, in-sample)", "points": ["No edge alone: EMA 9/21 cross, VWAP cross, trend state, FVG formation/retest, pool breaks, ORH/ORL, PDH break, first-hour direction (14/30).", "Fibonacci 50/61.8 first-touch bounce: negative, same as random control levels. Fib is not special (2nd confirmation).", "Candidates (|t|\u22652, both halves same sign, ~45 tests so expect ~2 false): 1m RSI<30 dip-buy (+0.17 pts/30m, 57%), PDL break short (+0.79, n=17). Equal-lows sweep-reclaim +0.79 n=11 (too few)."]}]}, "farm": {"equity": 1892.8, "start": 2000.0, "trades": 11, "as_of": "2026-10-15 14:25 ET", "rules_hash": "58c580ed755d"}, "slot": {"buffer_start": 500, "buffer": 500, "realized": 0, "day": null, "day_realized": 0, "open": null, "trades": 0, "halted": false, "mood": "calm", "loss_streak": 0, "rules_hash": "db7e2352ef56530c"}, "journal": {"days": 0}, "built": "2026-10-16T00:31:09.061236+00:00"};
+const STATIC = {"lab": {"studies": 48, "latest": [{"date": "2026-10-15", "title": "World markets vs SPY (20y daily + 2y hourly)", "points": ["Europe co-moves 0.55-0.60 (overlap hours); Asia 0.1-0.23. US leads Asia (0.34-0.49). Asia/Europe predict the gap, not open-to-close (HSI/KOSPI effect died after 2016; ASX top-quintile +0.04%, t 1.1). After 11:30 ET DAX \u2192 SPY afternoon 0.00.", "Lean: Nikkei \u22122% days \u2192 SPY open-to-close +0.10-0.14%, 57-59% up, both halves. Tracking forward in the journal.", "Yahoo chart API works with a browser UA (query2); stooq blocked; Robinhood has no foreign indexes."]}, {"date": "2026-10-15", "title": "Options-trader tools + Nolan's clock", "points": ["SPY pinning to $1 strikes at close: none (164 days). Intraday momentum (first 30m -> last 30m): weak, t 0.7. GEX: vendor-only evidence; collecting daily snapshots.", "Literature: retail 0DTE buyers lose on average (~60% costs); sellers profit after fees.", "Nolan's trips (226, Oct 8-15): before 10:30 negative 5/5 days, after 10:30 positive 5/6. Holds 2-5 min worst; 5-15 min best. 29% wins, +23%/\u221212% payoff (needs ~35%). Desk ticket warns pre-10:30."]}, {"date": "2026-10-15", "title": "Intraday deep dig (133 OOS days of 5-min + 20y daily)", "points": ["Desk candidates FAILED out of sample: PDL break short \u22120.44 (flipped), equal-lows sweep-reclaim \u22120.20; dip-buys +0.07-0.12 pts (below option spread). No intraday direction edge. Don't re-test these without new data.", "Shape of day is reliable: 42% of range by 10:00, 77% by 11:30; day extremes print in the first 30 min (24% H / 32% L) or the last 30 (17/13).", "Gap fill: <0.1% 88%; 0.1-0.3% 64-76%; 0.3-0.6% 31-58%; >0.6% 21-38%; falling since 2016."]}, {"date": "2026-10-15", "title": "Desk indicator study (31 days SPY 1-min, in-sample)", "points": ["No edge alone: EMA 9/21 cross, VWAP cross, trend state, FVG formation/retest, pool breaks, ORH/ORL, PDH break, first-hour direction (14/30).", "Fibonacci 50/61.8 first-touch bounce: negative, same as random control levels. Fib is not special (2nd confirmation).", "Candidates (|t|\u22652, both halves same sign, ~45 tests so expect ~2 false): 1m RSI<30 dip-buy (+0.17 pts/30m, 57%), PDL break short (+0.79, n=17). Equal-lows sweep-reclaim +0.79 n=11 (too few)."]}]}, "farm": {"equity": 1892.8, "start": 2000.0, "trades": 11, "as_of": "2026-10-15 14:25 ET", "rules_hash": "58c580ed755d"}, "slot": {"buffer_start": 500, "buffer": 500, "realized": 0, "day": null, "day_realized": 0, "open": null, "trades": 0, "halted": false, "mood": "calm", "loss_streak": 0, "rules_hash": "db7e2352ef56530c"}, "journal": {"days": 0}, "built": "2026-10-16T00:33:40.207022+00:00"};
 const SERVER = "Robinhood", COMP_START = "2026-10-16";
 const CL = window.claude && window.claude.use ? window.claude : {use: async () => null};
 const $ = s => document.querySelector(s);
@@ -877,6 +886,47 @@ function earlyStreak() { // consecutive most-recent trading days where Nolan ope
   let n = 0; for (const d of Object.keys(by).sort().reverse()) { if (by[d]) break; n++; } return n;
 }
 function nolanTrips() { return trips(L.todayOpt.filter(o => !o.agent_initiated)); }
+// ---------- The Stage: a global workspace with feedback loops ----------
+// 1) every resident posts a signal; 2) salience = urgency (status) x chemistry gain; 3) the strongest above threshold
+// "ignites" and is broadcast; 4) every resident replies, and the replies change the others' salience (feedback);
+// 5) repeat up to 4 loops. The sequence of winners is the train of thought.
+const KIND = {guard: "threat", hq: "threat", bank: "threat", hall: "threat", gym: "threat", look: "threat", yard: "threat",
+  pit: "chance", chart: "chance", arena: "chance", corner: "chance", lab: "info", farm: "info", arch: "info", wx: "info", post: "social", nbr: "info", home: "info", cafe: "social"};
+const URG = {bad: 0.9, warn: 0.6, ok: 0.22, idle: 0.05};
+function workspace() {
+  const chem = brain(), m = etMinutes(), open = marketOpen();
+  const gain = k => k === "threat" ? 0.8 + 0.6 * chem.cortisol : k === "chance" ? 0.7 + 0.6 * chem.dopamine * (open ? 1 : 0.4) : k === "social" ? 0.7 + 0.5 * chem.oxytocin : 0.6 + 0.6 * chem.curiosity;
+  const sig = B.map(b => { const k = KIND[b.id] || "info", ln = (lines(b.id) || [])[0] || "";
+    let v = URG[status[b.id]] || 0.05;
+    if (open && m < 630 && ["hall", "gym", "corner"].includes(b.id)) v += 0.15; // before 10:30 the rules matter most
+    return {id: b.id, who: CH[b.id].who, k, text: ln, v: Math.min(1, v * gain(k)), v0: 0}; }).filter(x => x.text);
+  sig.forEach(x => x.v0 = x.v);
+  const chain = [], TH = 0.42, by = id => sig.find(x => x.id === id), said = new Set();
+  for (let loop = 0; loop < 4; loop++) {
+    const w = sig.slice().sort((a, b) => b.v - a.v)[0];
+    if (!w || w.v < TH) { if (!chain.length) chain.push({quiet: true, top: w}); break; }
+    const replies = [];
+    // feedback: the broadcast changes everyone else
+    if (w.k === "threat") { sig.forEach(x => { if (x.k === "chance") x.v *= 0.55; });
+      [["guard", "checks every stop"], ["bank", "holds cash back"], ["pit", "pauses new entries"]].forEach(([id, r]) => { if (id !== w.id && by(id)) replies.push(`${CH[id].who} ${r}`); });
+      const hall = by("hall"); if (hall && w.id !== "hall") { hall.v = Math.min(1, hall.v + 0.12); replies.push(`${CH.hall.who} pulls up the rules`); } }
+    else if (w.k === "chance") { // an opportunity triggers checks before acting
+      [["hall", 0.25, "checks it against the rules"], ["chart", 0.2, "checks the trend"], ["gym", 0.12, "checks Nolan's head"]].forEach(([id, d, r]) => { const x = by(id); if (x && id !== w.id) { x.v = Math.min(1, x.v + d); replies.push(`${CH[id].who} ${r}`); } }); }
+    else { sig.forEach(x => { if (x.k === "info" && x !== w) x.v *= 0.8; }); replies.push("everyone notes it and gets back to work"); }
+    const fresh = replies.filter(r => !said.has(r)); fresh.forEach(r => said.add(r));
+    chain.push({w, replies: fresh.length ? fresh : ["the town is already on it"]});
+    w.v *= 0.35; // habituation: once a thought has been had, it lets the next one through
+  }
+  return {chain, sig: sig.sort((a, b) => b.v0 - a.v0), chem};
+}
+function renderStage() {
+  const el = $("#stgChain"); if (!el) return;
+  const {chain, sig} = workspace(), col = k => `var(--${k === "threat" ? "bad" : k === "chance" ? "ok" : k === "social" ? "c-corner" : "c-lab"})`;
+  el.innerHTML = chain.map(c => c.quiet ? `<li>Quiet mind. Nothing loud enough to take the stage${c.top ? ` (loudest: ${esc(c.top.who)}, ${Math.round(100 * c.top.v)}%)` : ""}. TARS just watches.</li>`
+    : `<li><b>${esc(c.w.who)}:</b> ${esc(c.w.text)}<small>Broadcast to the town → ${esc(c.replies.join(" · ") || "no one needs to react")}</small></li>`).join("");
+  $("#stgSig").innerHTML = sig.slice(0, 8).map(x => `<div class="sig"><span>${esc(x.who)}</span><span class="bar"><i style="width:${Math.round(100 * x.v0)}%;background:${col(x.k)}"></i></span><span class="mono">${Math.round(100 * x.v0)}%</span></div>`).join("");
+  $("#stgT").textContent = `${chain.filter(c => !c.quiet).length || 0} thought${chain.filter(c => !c.quiet).length === 1 ? "" : "s"} · updated ${new Date().toLocaleTimeString([], {hour: "numeric", minute: "2-digit"})}`;
+}
 function renderPlan() {
   const el = $("#plan"); if (!el) return;
   const m = etMinutes(), open = marketOpen(), S = SD || {}, items = [];
@@ -1118,7 +1168,7 @@ function refresh() {
   $("#sCash").textContent = SD.cash !== null ? money(SD.cash) : "—";
   const d = $("#sDay"); d.textContent = SD.dayChg !== null ? money(SD.dayChg) : "—"; d.className = SD.dayChg === null ? "" : SD.dayChg >= 0 ? "up" : "dn";
   $("#sUpd").textContent = L.upd ? L.upd.toLocaleTimeString([], {hour: "numeric", minute: "2-digit"}) : "—";
-  drawTown(); renderDetail(); renderCrier(); renderWork(); renderMood(); renderDiary(); renderWishes(); renderPlan();
+  drawTown(); renderDetail(); renderCrier(); renderWork(); renderMood(); renderDiary(); renderWishes(); renderPlan(); renderStage();
   if (!refresh.started) { refresh.started = true; setTimeout(startChatter, 1200); } // first real data: let the town talk about it right away
 }
 
@@ -1310,8 +1360,8 @@ CL.use("db").then(db => {
 });
 $("#cNext").addEventListener("click", () => { paused = false; $("#cPause").textContent = "Pause"; clearTimeout(playTimer); step(); });
 $("#cPause").addEventListener("click", e => { paused = !paused; e.target.textContent = paused ? "Resume" : "Pause"; if (!paused) step(); });
-setInterval(() => { drawTown(); renderPlan(); }, 60000); // sky, clock, sun and the 10:30 countdown follow the time
-renderPlan();
+setInterval(() => { drawTown(); renderPlan(); renderStage(); }, 60000); // sky, clock, sun and the 10:30 countdown follow the time
+renderPlan(); renderStage();
 requestAnimationFrame(tick); setInterval(lifeTick, 6000); renderMood(); setTimeout(catLife, 800);
 start();
 </script>
