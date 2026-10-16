@@ -138,4 +138,53 @@ report("7. Regime: does the afternoon continue the morning? (split by morning va
 report("8. Buying/selling pressure (close location x volume) -> next 30 min", clv)
 report("9. Bollinger-inside-Keltner squeeze release -> next 30 min, after costs", sq)
 report("10. Pinning: last hour moves toward the nearest $5 strike? (pts closer)", pin)
+
+# ---------- round 2 ----------
+WD = lambda d: dt.date(*map(int, d.split("-"))).weekday()
+report("11. Day of week (close-to-close %)", {f"{n} {s}": [cc[d] for d in P if half(d) == s and WD(d) == k] for k, n in enumerate(["Mon", "Tue", "Wed", "Thu", "Fri"]) for s in ("2006-15", "2016-26")}, "%")
+nxt = {DD[i]: DD[i + 1] for i in range(len(DD) - 1)}
+report("12. The day after a big move (next close-to-close %)",
+       {f"after a <-1% day {s}": [cc[nxt[d]] for d in P if d in nxt and nxt[d] in cc and half(d) == s and cc[d] < -1] for s in ("2006-15", "2016-26")} |
+       {f"after a >+1% day {s}": [cc[nxt[d]] for d in P if d in nxt and nxt[d] in cc and half(d) == s and cc[d] > 1] for s in ("2006-15", "2016-26")}, "%")
+vixw = json.load(open(H / "vix_weekly.json")); VW = sorted(vixw)
+def vix_before(d):
+    i = bisect.bisect_left(VW, d) - 1; return vixw[VW[i]] if i >= 0 else None
+vb = lambda v: "VIX<15" if v < 15 else "VIX 15-20" if v < 20 else "VIX 20-30" if v < 30 else "VIX 30+"
+rng = {d: (P[d]["h"] - P[d]["l"]) / P[d]["o"] * 100 for d in P}
+report("13. VIX (last week's close) vs today's range % (higher = bigger day)", {f"{b} range {s}": [rng[d] for d in P if half(d) == s and vix_before(d) and vb(vix_before(d)) == b] for b in ("VIX<15", "VIX 15-20", "VIX 20-30", "VIX 30+") for s in ("2006-15", "2016-26")}, "%")
+report("13b. VIX vs today's return %", {f"{b} {s}": [cc[d] for d in P if half(d) == s and vix_before(d) and vb(vix_before(d)) == b] for b in ("VIX<15", "VIX 15-20", "VIX 20-30", "VIX 30+") for s in ("2006-15", "2016-26")}, "%")
+def week_after_opex(d):
+    x = dt.date(*map(int, d.split("-"))); f = x - dt.timedelta(days=x.weekday() + 3)  # previous Friday
+    return 15 <= f.day <= 21
+report("14. Week after monthly expiry vs other days (close-to-close %)",
+       {f"week after expiry {s}": [cc[d] for d in P if half(d) == s and week_after_opex(d)] for s in ("2006-15", "2016-26")} |
+       {f"other weeks {s}": [cc[d] for d in P if half(d) == s and not week_after_opex(d)] for s in ("2006-15", "2016-26")}, "%")
+sma20 = {}
+for i, d in enumerate(DD):
+    if i >= 20: sma20[d] = st.mean(daily[x][3] for x in DD[i - 20:i])
+report("15. Trend filter: next day when the prior close is above/below its 20-day average (%)",
+       {f"above 20d {s}": [cc[d] for d in P if d in sma20 and half(d) == s and P[d]["pc"] > sma20[d]] for s in ("2006-15", "2016-26")} |
+       {f"below 20d {s}": [cc[d] for d in P if d in sma20 and half(d) == s and P[d]["pc"] <= sma20[d]] for s in ("2006-15", "2016-26")}, "%")
+tod = collections.defaultdict(list); lasth = collections.defaultdict(list); v1 = collections.defaultdict(list); lunch = collections.defaultdict(list)
+for d in DAYS:
+    b = days[d]; s = samp(d); o = b[0]["o"]; c = b[-1]["c"]
+    for t0 in range(570, 960, 30):
+        a, z = at(b, t0) if t0 > 570 else o, at(b, t0 + 30)
+        if a and z: tod[f"{t0 // 60:02d}:{t0 % 60:02d} {s}"].append(z - a)
+    p15 = at(b, 900)
+    if p15: lasth[f"last hour in the day's direction {s}"].append((c - p15) * (1 if p15 > o else -1))
+    m1, m2 = at(b, 690), at(b, 810)
+    if m1 and m2: lunch[f"11:30-13:30 in the morning's direction {s}"].append((m2 - m1) * (1 if m1 > o else -1))
+
+    pv = vv = pv2 = 0; last_i = -99
+    for i, x in enumerate(b):
+        tp = (x["h"] + x["l"] + x["c"]) / 3; pv += tp * x["v"]; vv += x["v"]; pv2 += tp * tp * x["v"]
+        vw = pv / vv; sd = math.sqrt(max(0, pv2 / vv - vw * vw))
+        if 630 <= x["t"] <= 870 and i + 6 < len(b) and sd > 0 and i - last_i >= 6 and abs(x["c"] - vw) > sd:
+            last_i = i; sgn = 1 if x["c"] < vw else -1  # bet back toward VWAP
+            v1[f"beyond VWAP±1σ -> 30m back toward VWAP {s}"].append(sgn * (b[i + 6]["c"] - x["c"]) - 0.03)
+report("16. Time of day: average SPY move in each half hour (pts)", dict(sorted(tod.items())))
+report("17. Last hour (15:00-16:00) in the direction of the day so far", lasth)
+report("18. Lunch (11:30-13:30): continue or reverse the morning?", lunch)
+report("19. Fade a stretch beyond VWAP ±1σ (next 30 min, after costs)", v1)
 json.dump(OUT, open(Path(__file__).with_name("market_lab.json"), "w"), indent=1)

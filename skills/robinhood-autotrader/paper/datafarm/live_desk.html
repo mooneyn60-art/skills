@@ -172,6 +172,11 @@ textarea{width:100%;resize:vertical;min-height:54px;font-family:var(--body)}
       <p class="note">Each signal is one of the data-farm rules, with its stop and a target at twice the risk. The record line under each is that rule's backtest on 29 days of SPY with costs, so you can see which ones have held up. None has passed the bar for real money yet; they are here to learn from and to time your own entries and exits.</p>
     </section>
     <section class="panel">
+      <h2>Edge board <span class="muted" id="fresh"></span></h2>
+      <dl id="edge"><dt>Status</dt><dd>loading</dd></dl>
+      <p class="note">Only effects that held up in BOTH halves of TARS's tests (SPY 2006-15 and 2016-26 daily; 164 days of 5-min bars). Each one is a lean on the averages, not a signal. Updates live: VIX every 30 s, everything else with the price.</p>
+    </section>
+    <section class="panel">
       <h2>Context</h2>
       <dl id="ctx"><dt>Status</dt><dd>loading</dd></dl>
       <p class="note">Liquidity pools are equal highs or lows (and yesterday's / the opening range's extremes) where stops tend to sit; "swept" means price ran through and closed back inside. Fibonacci levels are drawn from today's main swing for reference; in our 20-year SPY test they held no better than ordinary levels.</p>
@@ -294,7 +299,7 @@ let view = "full";
 let zoomN = null, follow = true, vEnd = 0, hoverI = null; // chart viewport (null zoom = the preset view)
 const CH = {start: 0, end: 0, n: 1, xw: 1, L: 52, total: 0};
 const maxN = () => Math.max(S.bars.length, Math.ceil(390 / size));
-const S = {b1: [], bars: [], map: [], prev: null, day: null, updated: null, live: false};
+const S = {b1: [], bars: [], map: [], prev: null, day: null, updated: null, live: false, prev2c: null, vix: null, lastTick: null};
 let size = 1; try { size = [1, 2, 5, 15, 30].includes(+localStorage.getItem("desk.size")) ? +localStorage.getItem("desk.size") : 1; } catch (e) {}
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"})[c]);
 const money = v => (v < 0 ? "−$" : "$") + Math.abs(v).toFixed(2);
@@ -747,6 +752,7 @@ function renderPanels() {
   if (st.fib) rows.push(["Fib 61.8% / 50%", `${st.fib.levels[3].p.toFixed(2)} / ${st.fib.levels[2].p.toFixed(2)}`]);
   $("#signals").querySelectorAll("[data-use]").forEach(b => b.addEventListener("click", () => useSignal(sigs[+b.dataset.use])));
   $("#ctx").innerHTML = rows.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("");
+  renderEdge();
 }
 
 function setStatus(kind, text) {
@@ -797,6 +803,8 @@ async function startLive(viaCall) {
     S.day = days.includes(today) ? today : days[days.length - 1];
     const prevDay = days.filter(d => d < S.day).pop();
     S.prev = prevDay ? bars.filter(b => b.d === prevDay) : null;
+    const prev2 = days.filter(d => d < (prevDay || "")).pop(), p2 = prev2 ? bars.filter(b => b.d === prev2) : [];
+    S.prev2c = p2.length ? p2[p2.length - 1].c : null;
   } catch (e) { handleError(e, true); return; }
   if (!S.day) { setStatus("off", "No SPY data returned"); return; }
   if (unwatch) unwatch();
@@ -805,12 +813,12 @@ async function startLive(viaCall) {
     const bars = parseBars(res.payload).filter(b => b.d === S.day);
     if (!bars.length) return;
     S.b1 = bars;
-    S.updated = res.cache ? new Date(res.cache.storedAt) : new Date();
+    S.updated = res.cache ? new Date(res.cache.storedAt) : new Date(); S.lastTick = S.lastTick && S.lastTick > S.updated ? S.lastTick : S.updated;
     const live = S.day === etDay(new Date()) && etHM(new Date()) < "16:00";
     setStatus(live ? "live" : "stale", (live ? "Live · price every 5s, candles every 30s · " : `Session ${S.day} (market closed) · `) + "updated " + S.updated.toLocaleTimeString());
     apply();
   };
-  startTicks(mcp);
+  startTicks(mcp); startVix(mcp);
   if (viaCall) { try { onData(await mcp.callTool(SERVER, "get_equity_historicals", input)); } catch (e) { handleError(e, true); return; } }
   unwatch = mcp.watchTool(SERVER, "get_equity_historicals", input, ev => {
     if (ev.type === "data") { banner(); onData(ev.result); }
@@ -834,10 +842,48 @@ function startTicks(mcp) {
     if (hm === last.hm) { last.c = px; last.h = Math.max(last.h, px); last.l = Math.min(last.l, px); }
     else if (hm > last.hm) S.b1.push({t: new Date(Math.floor(t.getTime() / 60000) * 60000), d: S.day, hm, o: px, h: px, l: px, c: px, v: 0});
     else return;
-    setStatus("live", "Live · SPY " + px.toFixed(2) + " at " + t.toLocaleTimeString());
+    S.lastTick = new Date(); setStatus("live", "Live · SPY " + px.toFixed(2) + " at " + t.toLocaleTimeString());
     apply();
   }, {refetchInterval: 5000, cache: {staleTime: 4000}});
 }
+// VIX (Robinhood index quote, every 30 s) for the Edge board
+const VIX_ID = "3b912aa2-88f9-4682-8ae3-e39520bdf4db"; let unVix = null;
+function startVix(mcp) {
+  if (unVix) { unVix(); unVix = null; }
+  unVix = mcp.watchTool(SERVER, "get_index_quotes", {instrument_ids: [VIX_ID]}, ev => {
+    if (ev.type !== "data") return;
+    const p = ev.result.payload, d = p && (p.data || p), q = d && d.quotes && d.quotes.find(x => x.instrument_id === VIX_ID);
+    if (q && +q.value > 0) { S.vix = {v: +q.value, t: new Date(q.venue_timestamp || q.updated_at || Date.now())}; renderEdge(); }
+  }, {refetchInterval: 30000, cache: {staleTime: 25000}});
+}
+// Tested leans (market_lab.py, 2016-26 numbers; each also held in 2006-15)
+const VIX_REG = [[15, "VIX under 15", 0.66, "+0.13%/day, up 59%", 1], [20, "VIX 15-20", 1.01, "+0.06%/day, up 55%", 0], [30, "VIX 20-30", 1.52, "flat, up 51%", 0], [999, "VIX 30+", 2.72, "−0.24%/day, up 44%", -1]];
+const GAP_ODDS = [[0.1, null], [0.3, "71%"], [0.6, "49%"], [1.0, "33%"], [99, "24%"]];
+function renderEdge() {
+  const el = $("#edge"); if (!el || !S.b1.length) return;
+  const bars = S.b1, lb = bars[bars.length - 1], pdc = S.prev && S.prev.length ? S.prev[S.prev.length - 1].c : null, rows = []; let up = 0, dn = 0;
+  if (S.vix) { const r = VIX_REG.find(x => S.vix.v < x[0]), hi = Math.max(...bars.map(b => b.h)), lo = Math.min(...bars.map(b => b.l)), typ = r[2] / 100 * bars[0].o;
+    r[4] > 0 ? up++ : r[4] < 0 ? dn++ : 0;
+    rows.push(["VIX " + S.vix.v.toFixed(2), `${r[1]}: typical day range ${r[2].toFixed(2)}% ≈ ${typ.toFixed(1)} pts (so far ${(hi - lo).toFixed(1)}, ${Math.round(100 * (hi - lo) / typ)}%) · lean ${r[3]}`]); }
+  else rows.push(["VIX", '<span class="muted">waiting for the index quote…</span>']);
+  const [y, m, d] = (S.day || "").split("-").map(Number), dow = S.day ? new Date(Date.UTC(y, m - 1, d)).getUTCDay() : -1;
+  if (dow === 5 && d >= 15 && d <= 21) { dn++; rows.push(["Expiry Friday", '<span class="short">yes</span> · lean −0.21% close-to-close, up only 38% (both decades). Calls need a better reason today.']); }
+  else rows.push(["Expiry Friday", '<span class="muted">no</span>']);
+  if (pdc && S.prev2c) { const yd = 100 * (pdc / S.prev2c - 1);
+    if (yd < -1) { up++; rows.push(["Yesterday " + yd.toFixed(2) + "%", '<span class="long">big down day</span> · next-day bounce lean +0.16 to +0.22%, up 55%']); }
+    else if (yd > 1) { dn++; rows.push(["Yesterday +" + yd.toFixed(2) + "%", '<span class="short">big up day</span> · next-day give-back lean −0.10 to −0.15%']); }
+    else rows.push(["Yesterday " + (yd >= 0 ? "+" : "") + yd.toFixed(2) + "%", '<span class="muted">normal day, no lean</span>']); }
+  if (pdc) { const g = 100 * (bars[0].o - pdc) / pdc, o = GAP_ODDS.find(x => Math.abs(g) < x[0])[1],
+      filled = g > 0 ? Math.min(...bars.map(b => b.l)) <= pdc : Math.max(...bars.map(b => b.h)) >= pdc;
+    rows.push(["Gap " + (g >= 0 ? "+" : "") + g.toFixed(2) + "%", !o ? '<span class="muted">too small to matter</span>' : filled ? `filled (gaps this size close ${o} of the time)` : `open · gaps this size close the same day ${o} of the time${Math.abs(g) >= 0.6 ? " · big gaps mostly run (that's S1)" : ""}`]); }
+  rows.push(["Where gains come from", "overnight more than the day session (2016-26: +0.029%/night vs +0.020%/day). Intraday option buyers fight the odds"]);
+  rows.push(["Today's leans", `${up} up · ${dn} down${dn > up ? ' → <span class="short">calls need extra reason</span>' : up > dn ? ' → <span class="long">tailwind for calls</span>' : " → neutral"}`]);
+  rows.push(["Tested, no edge", '<span class="muted">BOS/CHoCH, sweeps, ORB, squeeze, intraday momentum, time-of-day, VWAP ±1σ fades, buying pressure, day of week</span>']);
+  el.innerHTML = rows.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("");
+}
+// freshness heartbeat: how old the last price is
+setInterval(() => { const f = $("#fresh"); if (!f || !S.lastTick) return; const a = Math.round((Date.now() - S.lastTick) / 1000), open = S.day === etDay(new Date()) && etHM(new Date()) >= "09:30" && etHM(new Date()) < "16:00";
+  f.textContent = open ? `· price ${a}s ago` : "· market closed"; f.className = open && a > 30 ? "warn" : "muted"; }, 1000);
 // A page opened before the bell (or left open overnight) switches to the new session at 9:30 on its own.
 setInterval(() => {
   const now = new Date(), wd = new Intl.DateTimeFormat("en-US", {timeZone: "America/New_York", weekday: "short"}).format(now);

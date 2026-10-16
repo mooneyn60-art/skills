@@ -42,3 +42,10 @@ Audience: TARS
   - **Holds up.** Monthly-expiry Fridays: −0.21% close-to-close in BOTH 2006-15 (t −2.0) and 2016-26 (t −2.5, up only 38%). Gap fill depends on size: 0.1-0.3% gaps close the same day 71-77% of the time; gaps over 1% close only 24% (2016-26). They mostly run, which fits S1. Most of SPY's return comes overnight (2016-26 overnight +0.029%/day t 2.1 vs day session +0.020% t 1.3).
   - **No edge.** Intraday momentum (first 30 min → last 30 min) flips sign between halves. ORB30 −0.09. Squeeze release −0.13. Close-location buying pressure −0.03. Morning variance-ratio regime: noise.
   - **Not testable.** The "price pins to big strikes on expiry" claim: only 6 expiry days in the intraday sample, and a random walk drifts away from any fixed strike anyway. Removed from the desk.
+- Market lab round 2 (same script, sections 11-19):
+  - **Holds up.**
+    - VIX sets the size of the day: average range 0.66% under 15, 1.01% at 15-20, 1.52% at 20-30, 2.72% at 30+ (2016-26; 2006-15 the same shape).
+    - VIX also sets the lean: under 15, +0.13%/day, up 59% (t 7.6; 2006-15 t 4.8); 30+, −0.24%, up 44%.
+    - After a <−1% day the next day bounces +0.16 to +0.22% (both halves, t 1.4-1.9). After a >+1% day it gives back 0.10-0.15%.
+  - **No edge.** Day of week (flips between decades), time of day (half-hour means flip IS/OOS), last hour following the day, lunch reversal, fading VWAP ±1σ (−0.06 OOS), the week after expiry.
+  - **On the desk.** The live "Edge board" panel shows these with VIX from the Robinhood index quote.
