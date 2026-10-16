@@ -21,6 +21,7 @@ A soap opera starring a very round orange cat. Every part ends on a cliffhanger.
 - **Smokey**: a scruffy grey alley cat with a torn ear and a leather jacket, raspy voice. Duchess's past.
 - **Biscuit**: Meatball's loyal best friend, a goofy golden retriever in a grey hoodie.
 - **Grandma Shelly**: an old wise tortoise with round glasses; officiant, gossip, narrator.
+- **Rigatoni** (from Part 4): a slim, muscular orange tabby cat with slicked-back fur, a white suit, a gold chain and dark sunglasses, smug grin, who looks exactly like Meatball but thin. Meatball's secret twin, Pip's real father, rich rival.
 - Style line: "Pixar-style 3D animated soap-opera drama, vertical frame, warm cinematic lighting".
 
 ## Season 1 arc: "The Wedding"
