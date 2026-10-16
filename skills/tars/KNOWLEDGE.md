@@ -71,3 +71,7 @@ Audience: TARS
   - **No influence.** Yield-curve change and yesterday's SPY move: R² ≈ 0.
   - **Fed days.** Only ~6% bigger day moves (2016-26), but the 2-4pm range is ~4.6×.
   - **Takeaway.** Watch the giants and VIX intraday. Watch Europe for the open.
+- Overnight slot (2026-10-16, `overnight_slot.py`, 2016-26; options repriced with that night's VIX as IV and the real calendar gap):
+  - **Short-dated options give the edge back.** Buying at the close and selling at the open loses with 1DTE calls (−22.6%/night, win 28%) and 7DTE (−5.7%). Time decay plus the volatility premium eat the small overnight drift. My first pass, with a fixed 10% IV, wrongly showed +24%/night (see SELF_REVIEW).
+  - **Strong nights.** On overnight-model nights with p≥0.60 (n=318, ~32/yr): SPY shares +0.12%/night (up 61%); 30DTE ATM calls +0.85%/night (win 54%). Small but positive.
+  - **Takeaway.** The overnight edge belongs to shares, or to slow 30-day options on strong nights only.

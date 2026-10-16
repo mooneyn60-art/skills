@@ -1,0 +1,18 @@
+{
+ "every night": {
+  "n": 2710,
+  "shares_bp": 3.24,
+  "shares_up%": 56.1,
+  "1DTE ATM call (IV = VIX)": "-22.62%/night, median -33.7%, win 28%",
+  "7DTE ATM call (IV = VIX)": "-5.71%/night, median -5.6%, win 40%",
+  "30DTE ATM call (IV = VIX)": "-1.04%/night, median -0.6%, win 47%"
+ },
+ "model p>=0.60 nights": {
+  "n": 318,
+  "shares_bp": 11.99,
+  "shares_up%": 61.0,
+  "1DTE ATM call (IV = VIX)": "-9.29%/night, median -22.8%, win 41%",
+  "7DTE ATM call (IV = VIX)": "-0.74%/night, median -0.6%, win 49%",
+  "30DTE ATM call (IV = VIX)": "+0.85%/night, median +1.7%, win 54%"
+ }
+}
