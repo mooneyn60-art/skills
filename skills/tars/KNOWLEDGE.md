@@ -37,3 +37,4 @@ Audience: TARS
 
 ## Nolan-specific
 - Before 10:30 ET: lost on 5/5 days. After: green 5/6. Holds of 2-5 min worst, 5-15 min best. 29% wins, +23%/−12% payoff (needs ~35%).
+- Godmode-style structure signals (2026-10-16, `paper/research_scripts/godmode_test.py`): rebuilt BOS / CHoCH / liquidity sweep / sweep-then-CHoCH, without repainting, and tested on 164 days of SPY 5-min bars (10:30-14:30, stop at structure, 2R target, 60 min, after costs). BOS −0.05 pts (47% wins, n=241 OOS). CHoCH +0.01 (48%, n=257). Sweep −0.05 (34%, n=621). Sweep+CHoCH: +0.50 and 60% on n=20 in-sample, then −0.21 and 37% on n=81 out-of-sample. No edge. Paid "insider" indicators are this, plus cherry-picked screenshots. Kept as a map-only desk layer.

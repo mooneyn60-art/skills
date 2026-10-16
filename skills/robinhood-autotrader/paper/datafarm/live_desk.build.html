@@ -125,6 +125,7 @@ textarea{width:100%;resize:vertical;min-height:54px;font-family:var(--body)}
       <button type="button" data-l="vol" aria-pressed="true">Volume</button>
       <button type="button" data-l="bb" aria-pressed="false">Bollinger 20/2</button>
       <button type="button" data-l="piv" aria-pressed="false">Pivots</button>
+      <button type="button" data-l="smc" aria-pressed="false">Structure BOS/CHoCH</button>
       <span class="sep" aria-hidden="true"></span>
       <button type="button" data-m="1" aria-pressed="true">1m</button>
       <button type="button" data-m="2" aria-pressed="false">2m</button>
@@ -262,6 +263,8 @@ textarea{width:100%;resize:vertical;min-height:54px;font-family:var(--body)}
         <dl class="gd"><dt>Watch</dt><dd>Reactions at P and R1/S1.</dd><dt>How to use it</dt><dd>Widely watched, so they can act like PDH/PDL: places for targets and stops.</dd><dt>TARS tested</dt><dd>Like Fibonacci, expect them to work about as well as any other level.</dd></dl></details>
       <details><summary><b>Liquidity pools</b> <span class="muted">· Equal highs or lows where stops tend to sit. 'Swept' = price ran through and closed back inside. The ▲/▼ tag next to the price says which pool gets hit first, and the odds.</span></summary>
         <dl class="gd"><dt>Watch</dt><dd>The ▲/▼ tag and the "Next pool to get hit" row. Above 70% = the nearer pool is a strong favorite; 50-60% = coin flip.</dd><dt>How to use it</dt><dd>The odds come from distance: the closer pool gets hit first more often, in proportion (pool 0.30 above and 0.70 below → ~70% up first). Use the favored pool as a realistic first target, and the other one as where your idea is wrong. It says where price is likely to travel next, not how far the day goes after.</dd><dt>TARS tested</dt><dd>Which pool gets hit first: calibrated on 30 days (1,668 checks): called 10/30/50/71/90% up, actual 9/27/52/69/88%. Adding trend, MACD, VWAP side or RSI did not improve it. Whether a break keeps going: no edge.</dd></dl></details>
+      <details><summary><b>Structure BOS/CHoCH</b> <span class="muted">· What paid indicators like "Godmode" sell: a dashed line where price closed through the last confirmed swing. CHoCH = first break against the trend, BOS = a break with it.</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>Whether the last break was up or down, and where it happened. It's a map of who's in control, nothing more.</dd><dt>How to use it</dt><dd>Use it for context and to place stops beyond the swing that broke. Don't buy just because a CHoCH or BOS printed.</dd><dt>TARS tested</dt><dd>Rebuilt and run on 164 days of SPY 5-min bars (10:30-14:30, stop at structure, 2R target, 60 min, after costs). BOS: −0.05 pts/trade, 47% wins (n=241, out-of-sample). CHoCH: +0.01, 48% (n=257). Sweep then CHoCH (the headline "reversal" signal): +0.50 and 60% wins in one sample (n=20) but −0.21 and 37% in the other (n=81). It looks great on hand-picked charts and loses on all of them. No edge.</dd></dl></details>
       <details><summary><b>Fair value gaps</b> <span class="muted">· Three-candle gaps where price moved so fast it left an empty zone.</span></summary>
         <dl class="gd"><dt>Watch</dt><dd>Price coming back into an open gap.</dd><dt>How to use it</dt><dd>Gaps sometimes act as support/resistance on the way back.</dd><dt>TARS tested</dt><dd>No edge out of sample on 133 days.</dd></dl></details>
       <details><summary><b>Fibonacci</b> <span class="muted">· Retracement levels of today's main swing (38.2/50/61.8%).</span></summary>
@@ -285,7 +288,7 @@ const SERVER = "Robinhood";
 // window.claude only exists inside the claude.ai viewer; a saved copy of this page still renders, just without live data.
 const CL = window.claude && window.claude.use ? window.claude : {use: async () => null};
 const $ = s => document.querySelector(s);
-const layers = {pos: true, em: true, vwap: true, ema: true, levels: true, pools: true, fvg: true, fib: false, sig: true, tl: true, hod: true, vol: true, bb: false, piv: false};
+const layers = {pos: true, em: true, vwap: true, ema: true, levels: true, pools: true, fvg: true, fib: false, sig: true, tl: true, hod: true, vol: true, bb: false, piv: false, smc: false};
 let pane = "rsi"; // lower pane: rsi | macd
 let view = "full";
 let zoomN = null, follow = true, vEnd = 0, hoverI = null; // chart viewport (null zoom = the preset view)
@@ -417,6 +420,15 @@ function structure(bars, prev, m = 1) {
     const broken = bars.slice(b + 1).some((x, k) => hi ? x.c > at(b + 1 + k) + tolBase : x.c < at(b + 1 + k) - tolBase);
     out.tlines.push({kind, a, b, slope, at, broken, now: at(last)});
   });
+  // market structure (BOS / CHoCH), the "Godmode"-style marks: swings confirmed K candles late, breaks on a close, so nothing repaints
+  out.smc = []; { const K = Math.max(2, Math.round(15 / m)); let sh = null, sl = null, trend = 0;
+    for (let i = 0; i < bars.length; i++) { const j = i - K;
+      if (j >= K) { const win = bars.slice(j - K, j + K + 1);
+        if (bars[j].h === Math.max(...win.map(b => b.h))) sh = {i: j, p: bars[j].h};
+        if (bars[j].l === Math.min(...win.map(b => b.l))) sl = {i: j, p: bars[j].l}; }
+      if (!i) continue; const b = bars[i], pc = bars[i - 1].c;
+      if (sh && b.c > sh.p && pc <= sh.p) { out.smc.push({i, from: sh.i, p: sh.p, side: 1, kind: trend <= 0 ? "CHoCH" : "BOS"}); trend = 1; sh = null; }
+      if (sl && b.c < sl.p && pc >= sl.p) { out.smc.push({i, from: sl.i, p: sl.p, side: -1, kind: trend >= 0 ? "CHoCH" : "BOS"}); trend = -1; sl = null; } } }
   out.hod = Math.max(...bars.map(b => b.h)); out.lod = Math.min(...bars.map(b => b.l));
   // fair value gaps (unfilled)
   for (let i = 2; i < bars.length; i++) {
@@ -608,6 +620,9 @@ function draw() {
       [t.a, t.b].forEach(i => { g.fillStyle = col; g.beginPath(); g.arc(x(i), y(t.at(i)), 2.5, 0, 7); g.fill(); }); });
     g.restore(); g.setLineDash([]); g.lineWidth = 1;
     st.tlines.forEach(t => { const v = t.at(end - 1); if (inView(v)) { g.fillStyle = css("--tl"); g.fillText((t.kind === "res" ? "TL res" : "TL sup") + (t.broken ? " ✗" : ""), W - R + 4, y(v) + 3); } }); }
+  if (layers.smc && st.smc) st.smc.forEach(e => { if (e.i < start || e.from >= end) return; const yy = y(e.p);
+    g.strokeStyle = css(e.side > 0 ? "--up" : "--down"); g.setLineDash([3, 3]); g.beginPath(); g.moveTo(x(Math.max(e.from, start)), yy); g.lineTo(x(Math.min(e.i, end - 1)), yy); g.stroke(); g.setLineDash([]);
+    g.fillStyle = g.strokeStyle; g.fillText(e.kind, x(Math.max(e.from, start)) + 2, yy + (e.side > 0 ? -3 : 10)); });
   // signals
   const mp = S.map;
   if (layers.sig) sigs.filter(s => mp[s.i] >= start && mp[s.i] < end).forEach(s => {
@@ -712,6 +727,7 @@ function renderPanels() {
     ["MACD", `${lb.macd >= lb.msig ? '<span class="long">above signal</span>' : '<span class="short">below signal</span>'} · ${lb.macd >= 0 ? "above" : "below"} zero`],
     ["Bollinger", `${lb.c > lb.bbu ? "above upper band" : lb.c < lb.bbl ? "below lower band" : "inside bands"} · width ${(lb.bbw * 100).toFixed(2)}%`],
     ["Trend lines", (st.tlines || []).length ? st.tlines.map(t => `${t.kind === "res" ? "res" : "sup"} ${t.now.toFixed(2)}${t.broken ? " (broken)" : ""}`).join(" · ") : "not enough swings yet"],
+    ["Structure", (st.smc || []).length ? (e => `last break: ${e.kind} ${e.side > 0 ? "up" : "down"} through ${e.p.toFixed(2)} <span class="muted">· map only, tested no edge</span>`)(st.smc[st.smc.length - 1]) : "no break yet"],
     ["Pivots", (st.pivots || []).length ? st.pivots.slice(0, 3).map(v => `${v.name} ${v.p.toFixed(2)}`).join(" · ") : "–"],
     ["Candles", size + "-minute"],
     ["Next pool to get hit", (() => { const o = poolOdds(st, lb.c); if (o.pUp === null) return '<span class="muted">needs a pool above and below</span>';
