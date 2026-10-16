@@ -421,3 +421,4 @@ Nolan: "Your trade buddy your apart of this action forget the rule and have fun"
   - Platform v2 (same link): TARS console (TARS's read, graded calls, chat), Account panel (live stock P&L with each resting stop, a "NO STOP" flag), Chart, Edge, Drivers, Trade, Slot, Research, Guide.
   - The desk sends TARS a snapshot every minute through its shared database while it's open, and TARS writes its read and replies back. How-to: skills/tars/SKILL.md "The platform".
   - Stop check 13:15: all 6 stock stops resting.
+- 2026-10-16 ~14:25 ET: Nolan: "I want live data like updates every second". Found that the old "every 5s" price was really ~30 s (platform polling floor). The platform now asks Robinhood for SPY's last trade about every second: the status line shows the measured rate, the newest candle moves with each answer, and redraws are capped to the screen refresh. Drivers update every ~3 s. Candles (with volume), VIX and account quotes stay at 30 s.

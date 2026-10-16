@@ -284,7 +284,7 @@ h3.sub{font-family:var(--display);font-weight:500;font-size:.95rem;letter-spacin
   <section class="panel" id="driversP" aria-labelledby="drh">
     <h2 id="drh">Drivers · what's moving SPY now <span class="muted" id="drAge"></span></h2>
     <div class="tscroll"><table class="dtab" id="drTab"><tbody><tr><td class="muted">Waiting for quotes…</td></tr></tbody></table></div>
-    <p class="note">Each name's push = its estimated weight in the S&amp;P 500 × its move today × SPY's prior close, in SPY points. Weights are estimates from Robinhood float × price on 2026-10-16 (Alphabet counts both share classes). Quotes every 15 s.</p>
+    <p class="note">Each name's push = its estimated weight in the S&amp;P 500 × its move today × SPY's prior close, in SPY points. Weights are estimates from Robinhood float × price on 2026-10-16 (Alphabet counts both share classes). Quotes every ~3 s.</p>
     <h3 class="sub">What moves SPY the most (tested, share of SPY's daily move it explains)</h3>
     <div class="tscroll"><table class="dtab" id="drStudy"></table></div>
   </section>
@@ -875,7 +875,7 @@ async function startLive(viaCall) {
     S.b1 = bars;
     S.updated = res.cache ? new Date(res.cache.storedAt) : new Date(); S.lastTick = S.lastTick && S.lastTick > S.updated ? S.lastTick : S.updated;
     const live = S.day === etDay(new Date()) && etHM(new Date()) < "16:00";
-    setStatus(live ? "live" : "stale", (live ? "Live · price every 5s, candles every 30s · " : `Session ${S.day} (market closed) · `) + "updated " + S.updated.toLocaleTimeString());
+    setStatus(live ? "live" : "stale", (live ? "Live · price every ~1s, candles every 30s · " : `Session ${S.day} (market closed) · `) + "updated " + S.updated.toLocaleTimeString());
     apply();
   };
   startTicks(mcp); startVix(mcp); startDrivers(mcp);
@@ -891,26 +891,46 @@ async function startLive(viaCall) {
   }, {refetchInterval: 30000, cache: {staleTime: 20000}});
 }
 
-// Live price between candle refreshes: the last SPY trade (Robinhood quote, every 5s) moves the newest candle.
+// Live price between candle refreshes: the last SPY trade (Robinhood quote, about every second) moves the newest candle.
 // Only real trades are used; a new minute starts its candle at the first trade seen. The 30s candle refresh replaces these.
 let unTick = null;
+// Live price ~every second: a self-timed loop of single SPY quote calls (watchTool polling is floored at ~30 s).
+// The next call starts 1 s after the previous answer, so calls never overlap; it pauses while the page is hidden
+// and backs off on errors. Each answer moves the newest candle; the 30 s candle refresh then replaces it with real bars.
+let tickRun = 0, tickN = 0, tickT0 = 0;
 function startTicks(mcp) {
-  if (unTick) { unTick(); unTick = null; }
-  if (S.day !== etDay(new Date()) || etHM(new Date()) >= "16:00") return;
-  unTick = mcp.watchTool(SERVER, "get_equity_quotes", {symbols: ["SPY"]}, ev => {
-    if (ev.type !== "data" || !S.b1.length) return;
-    const p = ev.result.payload, d = p && (p.data || p), q = d && d.results && d.results[0] && d.results[0].quote;
-    if (!q || !q.venue_last_trade_time) return;
-    const t = new Date(q.venue_last_trade_time), px = +q.last_trade_price, hm = etHM(t);
-    if (!(px > 0) || etDay(t) !== S.day || hm < "09:30" || hm >= "16:00") return;
-    const last = S.b1[S.b1.length - 1];
-    if (hm === last.hm) { last.c = px; last.h = Math.max(last.h, px); last.l = Math.min(last.l, px); }
-    else if (hm > last.hm) S.b1.push({t: new Date(Math.floor(t.getTime() / 60000) * 60000), d: S.day, hm, o: px, h: px, l: px, c: px, v: 0});
-    else return;
-    S.lastTick = new Date(); setStatus("live", "Live · SPY " + px.toFixed(2) + " at " + t.toLocaleTimeString());
-    apply();
-  }, {refetchInterval: 5000, cache: {staleTime: 4000}});
+  const run = ++tickRun; unTick = () => { tickRun++; };
+  let fails = 0;
+  const loop = async () => {
+    if (run !== tickRun) return;
+    const now = new Date();
+    if (S.day !== etDay(now) || etHM(now) >= "16:00" || etHM(now) < "09:30") { setTimeout(loop, 30000); return; }
+    if (document.hidden) { setTimeout(loop, 2000); return; }
+    try {
+      const r = await mcp.callTool(SERVER, "get_equity_quotes", {symbols: ["SPY"]}, {cache: {gcTime: 0}, signal: AbortSignal.timeout ? AbortSignal.timeout(8000) : undefined});
+      fails = 0; onQuote(r.payload);
+    } catch (e) { fails++; }
+    setTimeout(loop, fails ? Math.min(30000, 2000 * 2 ** (fails - 1)) : 1000);
+  };
+  loop();
 }
+function onQuote(p) {
+  const d = p && (p.data || p), q = d && d.results && d.results[0] && d.results[0].quote;
+  if (!q || !q.venue_last_trade_time || !S.b1.length) return;
+  const t = new Date(q.venue_last_trade_time), px = +q.last_trade_price, hm = etHM(t);
+  if (!(px > 0) || etDay(t) !== S.day || hm < "09:30" || hm >= "16:00") return;
+  const last = S.b1[S.b1.length - 1];
+  if (hm === last.hm) { last.c = px; last.h = Math.max(last.h, px); last.l = Math.min(last.l, px); }
+  else if (hm > last.hm) S.b1.push({t: new Date(Math.floor(t.getTime() / 60000) * 60000), d: S.day, hm, o: px, h: px, l: px, c: px, v: 0});
+  else return;
+  S.lastTick = new Date(); tickN++; if (!tickT0) tickT0 = Date.now();
+  const rate = tickN > 3 ? ((Date.now() - tickT0) / 1000 / (tickN - 1)).toFixed(1) : "1";
+  setStatus("live", `Live · SPY ${px.toFixed(2)} · last trade ${t.toLocaleTimeString()} · updating every ~${rate}s`);
+  scheduleApply();
+}
+// redraw at most ~4 times a second, so fast ticks never pile up redraws
+let applyQ = false;
+function scheduleApply() { if (applyQ) return; applyQ = true; requestAnimationFrame(() => { applyQ = false; apply(); }); }
 // ---------- TARS console: shared db between this page and TARS (the agent reads/writes it with ArtifactData) ----------
 const PRED = __PRED__;
 let DB = null, canWrite = false, lastSnap = null;
@@ -978,14 +998,22 @@ async function startAccount() {
 const DRIVERS = [["NVDA", 0.075], ["AAPL", 0.075], ["MSFT", 0.058], ["GOOGL", 0.056], ["AMZN", 0.037], ["META", 0.024], ["AVGO", 0.023], ["TSLA", 0.015], ["JPM", 0.013], ["BRK.B", 0.011]];
 const STUDY = __DRIVERS_STUDY__, SLOT = __SLOT__, RESEARCH = __RESEARCH__;
 let unDr = null, DRQ = {};
+let drRun = 0;
 function startDrivers(mcp) {
-  if (unDr) { unDr(); unDr = null; }
-  unDr = mcp.watchTool(SERVER, "get_equity_quotes", {symbols: [...DRIVERS.map(d => d[0]), "SPY"]}, ev => {
-    if (ev.type !== "data") return;
-    const p = ev.result.payload, d = p && (p.data || p);
-    (d && d.results || []).forEach(r => { const q = r.quote; if (q && +q.last_trade_price > 0) DRQ[q.symbol] = {px: +q.last_trade_price, pc: +(q.adjusted_previous_close || q.previous_close), t: new Date(q.venue_last_trade_time || Date.now())}; });
-    DRQ._t = new Date(); renderDrivers();
-  }, {refetchInterval: 15000, cache: {staleTime: 12000}});
+  const run = ++drRun; let fails = 0;
+  const loop = async () => {
+    if (run !== drRun) return;
+    if (document.hidden) { setTimeout(loop, 3000); return; }
+    try {
+      const r = await mcp.callTool(SERVER, "get_equity_quotes", {symbols: [...DRIVERS.map(d => d[0]), "SPY"]}, {cache: {gcTime: 0}});
+      const p = r.payload, d = p && (p.data || p); fails = 0;
+      (d && d.results || []).forEach(x => { const q = x.quote; if (q && +q.last_trade_price > 0) DRQ[q.symbol] = {px: +q.last_trade_price, pc: +(q.adjusted_previous_close || q.previous_close), t: new Date(q.venue_last_trade_time || Date.now())}; });
+      DRQ._t = new Date(); renderDrivers();
+    } catch (e) { fails++; }
+    const open = etHM(new Date()) >= "09:30" && etHM(new Date()) < "16:00";
+    setTimeout(loop, fails ? Math.min(60000, 3000 * 2 ** fails) : open ? 3000 : 60000);
+  };
+  loop();
 }
 function renderDrivers() {
   const spy = DRQ.SPY; if (!spy) return;
