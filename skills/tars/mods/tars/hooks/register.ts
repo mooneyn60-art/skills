@@ -46,7 +46,7 @@ function etParts(d: Date): { day: string; hm: string; wd: string } {
 }
 
 
-export function stageText(slot: Slot, lastAsk: string, now: Date, lastFocus: string[]): { text: string; focus: string[] } {
+export function stageText(slot: Slot, lastAsk: string, now: Date, lastFocus: string[], prompt = '', due = 0): { text: string; focus: string[] } {
   const t = etParts(now), weekday = !['Sat', 'Sun'].includes(t.wd), open = weekday && t.hm >= '09:30' && t.hm < '16:00'
   const sigs: Sig[] = []
   const mood = slot.mood ?? 'calm', buf = slot.buffer ?? 500
@@ -61,6 +61,12 @@ export function stageText(slot: Slot, lastAsk: string, now: Date, lastFocus: str
     const days = (Date.parse(d) - Date.parse(t.day)) / 864e5
     if (days >= 0 && days <= 3) sigs.push({ id: 'yard', who: 'Gus (holdings)', kind: 'threat', text: `${s} reports earnings after the close ${days === 0 ? 'today' : `in ${days} day${days === 1 ? '' : 's'}`}: a stop can't stop an overnight gap. Raise it with Nolan.`, v: days === 0 ? 0.85 : 0.5 })
   }
+  // the veto (prefrontal brake): a message about orders brings the four questions to the front (BRAIN.md habit 3)
+  if (/\b(buy|sell|order|place|cancel|trade|close|calls?|puts?|contracts?)\b/i.test(prompt)) {
+    const early = open && t.hm < '10:30'
+    sigs.push({ id: 'veto', who: 'The veto (brake)', kind: 'threat', text: `This is about orders. Before any: which rule fires, where's the exit, premortem (it lost: why?), confidence %. A missing answer = no order.${early ? ' Conflict alarm: it is before 10:30.' : ''}`, v: early ? 0.95 : 0.85 })
+  }
+  if (due > 0) sigs.push({ id: 'pred', who: 'Prediction error (dopamine)', kind: 'info', text: `${due} prediction${due === 1 ? ' is' : 's are'} due for scoring in skills/tars/PREDICTIONS.jsonl. Score it, note the surprise.`, v: 0.5 })
   if (lastAsk) sigs.push({ id: 'corner', who: 'Nolan (latest ask in the log)', kind: 'social', text: lastAsk, v: 0.45 })
   if (!open) sigs.push({ id: 'lab', who: 'Fern (research)', kind: 'info', text: 'Market closed: a good time for research, the diary, or building.', v: 0.3 })
   // mood gain: stress turns threats up; chances only count while the market is open
@@ -99,7 +105,13 @@ export const register: Register = on => {
       let log = ''; try { log = String(await $.fs.read(`${ROOT}/notes/NOLAN_LOG.md`)) } catch { log = '' }
       const heads = log.split('\n').filter(l => l.startsWith('## ')); const lastAsk = (heads[heads.length - 1] || '').replace(/^## /, '').slice(0, 220)
       const lastFocus = ((await $.store.get('stage.focus')) as string[] | undefined) ?? []
-      const st = stageText(slot, lastAsk, new Date(), lastFocus)
+      let due = 0
+      try {
+        const today = etParts(new Date()).day
+        due = String(await $.fs.read('/home/user/skills/skills/tars/PREDICTIONS.jsonl')).split('\n').filter(l => l.trim()).map(l => { try { return JSON.parse(l) as { settles?: string; hit?: unknown } } catch { return {} } })
+          .filter(r => r.settles && r.settles <= today && (r.hit === null || r.hit === undefined)).length
+      } catch { due = 0 }
+      const st = stageText(slot, lastAsk, new Date(), lastFocus, e.text, due)
       await $.store.set('stage.pending', st.focus)
       return next({ ...e, context: [...(e.context ?? []), st.text] })
     } catch {
