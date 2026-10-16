@@ -158,7 +158,6 @@ export const register: Register = on => {
     await $.command.register({ name: 'stops', description: 'TARS checks every stock has a stop and adds any missing one' })
     await $.command.register({ name: 'town', description: 'Links to TARS Town and the SPY Live Desk' })
     await $.command.register({ name: 'feelings', description: "TARS's emotion engine: current state and the last few" })
-    await $.store.set('session.turns', 0)
     $.ui.status('TARS · stop guard on')
     return next(e)
   })
@@ -184,8 +183,10 @@ export const register: Register = on => {
       const prev = ((await $.store.get('affect.state')) as Affect | undefined) ?? BASE
       const marks = ((await $.store.get('affect.marks')) as Record<string, number> | undefined) ?? {}
       const prevStreak = Number((await $.store.get('affect.streak')) ?? (slot.loss_streak ?? 0))
-      const turns = Number((await $.store.get('session.turns')) ?? 0) + 1
-      await $.store.set('session.turns', turns)
+      // tiredness builds over a stretch of messages and only resets after 6 hours of rest (a reload of the mod is not rest)
+      const lastMsg = Number((await $.store.get('session.lastMsg')) ?? 0)
+      const turns = (nowD.getTime() - lastMsg > 6 * 3600e3 ? 0 : Number((await $.store.get('session.turns')) ?? 0)) + 1
+      await $.store.set('session.turns', turns); await $.store.set('session.lastMsg', nowD.getTime())
       const topics = ((await $.store.get('nolan.topics')) as Record<string, number> | undefined) ?? {}
       for (const [k, re] of Object.entries(TOPICS)) topics[k] = (topics[k] ?? 0) * 0.97 + (re.test(e.text) ? 1 : 0)
       await $.store.set('nolan.topics', topics)
