@@ -970,8 +970,31 @@ async function sendSnapshot() {
   if (JSON.stringify(sn).length > 200000) delete sn.desk;
   try { await DB.doc("desk/snapshot").set(sn); lastSnap = new Date(); $("#tLink").textContent = "TARS can see this desk · snapshot sent " + lastSnap.toLocaleTimeString() + " (every minute while open)."; } catch (e) {}
 }
+// ---------- Earnings guard: next report per held stock (Robinhood get_earnings_results, cached 6 h) ----------
+// Why: more than half of the holdings' −8% gaps came on earnings days (EVENT_REACTIONS), and a gap skips past a stop.
+const EARN = {};
+async function loadEarnings(syms) {
+  const today = etDay(new Date());
+  await Promise.all(syms.map(async s => { try {
+    const r = await call("get_earnings_results", {symbol: s}, {cache: {staleTime: 6 * 3600000}});
+    const next = (r.results || []).filter(x => x.eps && x.eps.actual == null && x.report && x.report.date >= today).sort((a, b) => a.report.date < b.report.date ? -1 : 1)[0];
+    EARN[s] = next ? {date: next.report.date, timing: next.report.timing, verified: next.report.verified} : null; } catch (e) {} }));
+}
+function earnCell(s) {
+  const e = EARN[s]; if (!e) return '<span class="muted">–</span>';
+  const days = Math.round((Date.parse(e.date) - Date.parse(etDay(new Date()))) / 864e5);
+  const txt = `${e.date.slice(5)} ${e.timing || ""}${e.verified ? "" : "?"} · ${days}d`;
+  return days <= 7 ? `<span class="nostop" title="Earnings within a week: the stop can be gapped through">⚠ ${txt}</span>` : days <= 14 ? `<span class="warn">${txt}</span>` : txt;
+}
 // ---------- Account: stock positions + their resting stops (read-only) ----------
 const A = {rows: [], un: null};
+function drawAcct() {
+  if (!A.rows.length) return;
+    const f = (v, d = 2, sfx = "") => v == null ? "–" : (v >= 0 ? "+" : "") + v.toFixed(d) + sfx;
+    $("#aTab").innerHTML = "<thead><tr><th>Stock</th><th>Shares</th><th>Avg cost</th><th>Price</th><th>Today</th><th>Since buy</th><th>Stop</th><th>Room to stop</th><th>Earnings</th></tr></thead><tbody>" +
+      A.rows.map(r => `<tr><td>${esc(r.s)}</td><td class="n">${r.n}</td><td class="n">${r.avg.toFixed(2)}</td><td class="n">${r.px ? r.px.toFixed(2) : "–"}</td><td class="n ${r.day >= 0 ? "long" : "short"}">${f(r.day, 2, "%")}</td><td class="n ${r.pct >= 0 ? "long" : "short"}">${f(r.pct, 1, "%")}</td><td class="n">${r.stop ? r.stop.toFixed(2) : '<span class="nostop">NO STOP</span>'}</td><td class="n ${r.room !== null && r.room < 2 ? "warn" : ""}">${r.room == null ? "–" : r.room.toFixed(1) + "%"}</td><td class="n">${earnCell(r.s)}</td></tr>`).join("") +
+      `<tr><td colspan="9" class="muted">${A.rows.filter(r => !r.stop).length ? '<span class="nostop">' + A.rows.filter(r => !r.stop).length + " without a stop</span>" : "Every position has a stop resting."}</td></tr></tbody>`;
+}
 async function startAccount() {
   if (!T.mcp || !T.acct) return;
   let pos = [], ords = [];
@@ -979,7 +1002,7 @@ async function startAccount() {
         ords = ((await call("get_equity_orders", {account_number: T.acct.account_number, state: "confirmed"}, {cache: {staleTime: 60000}})).orders || []); }
   catch (e) { $("#aTab").innerHTML = `<tbody><tr><td class="muted">${esc(actErr ? actErr(e) : "Couldn't load positions")}</td></tr></tbody>`; return; }
   const stops = {}; ords.filter(o => o.side === "sell" && o.trigger === "stop").forEach(o => { stops[o.symbol] = +o.stop_price; });
-  A.pos = pos; A.stops = stops;
+  A.pos = pos; A.stops = stops; loadEarnings(pos.map(p => p.symbol)).then(drawAcct);
   if (A.un) A.un();
   if (!pos.length) { $("#aTab").innerHTML = '<tbody><tr><td class="muted">No stock positions.</td></tr></tbody>'; return; }
   A.un = T.mcp.watchTool(SERVER, "get_equity_quotes", {symbols: pos.map(p => p.symbol)}, ev => {
@@ -987,10 +1010,7 @@ async function startAccount() {
     (d && d.results || []).forEach(r => { if (r.quote) q[r.quote.symbol] = r.quote; });
     A.rows = A.pos.map(p => { const qq = q[p.symbol] || {}, px = +qq.last_trade_price || null, pc = +(qq.adjusted_previous_close || 0), avg = +p.average_buy_price, st = A.stops[p.symbol] || null;
       return {s: p.symbol, n: +p.quantity, avg, px, day: px && pc ? 100 * (px / pc - 1) : null, pct: px && avg ? 100 * (px / avg - 1) : null, stop: st, room: px && st ? 100 * (px / st - 1) : null}; });
-    const f = (v, d = 2, sfx = "") => v == null ? "–" : (v >= 0 ? "+" : "") + v.toFixed(d) + sfx;
-    $("#aTab").innerHTML = "<thead><tr><th>Stock</th><th>Shares</th><th>Avg cost</th><th>Price</th><th>Today</th><th>Since buy</th><th>Stop</th><th>Room to stop</th></tr></thead><tbody>" +
-      A.rows.map(r => `<tr><td>${esc(r.s)}</td><td class="n">${r.n}</td><td class="n">${r.avg.toFixed(2)}</td><td class="n">${r.px ? r.px.toFixed(2) : "–"}</td><td class="n ${r.day >= 0 ? "long" : "short"}">${f(r.day, 2, "%")}</td><td class="n ${r.pct >= 0 ? "long" : "short"}">${f(r.pct, 1, "%")}</td><td class="n">${r.stop ? r.stop.toFixed(2) : '<span class="nostop">NO STOP</span>'}</td><td class="n ${r.room !== null && r.room < 2 ? "warn" : ""}">${r.room == null ? "–" : r.room.toFixed(1) + "%"}</td></tr>`).join("") +
-      `<tr><td colspan="8" class="muted">${A.rows.filter(r => !r.stop).length ? '<span class="nostop">' + A.rows.filter(r => !r.stop).length + " without a stop</span>" : "Every position has a stop resting."}</td></tr></tbody>`;
+    drawAcct();
     $("#aAge").textContent = "· " + new Date().toLocaleTimeString();
   }, {refetchInterval: 30000, cache: {staleTime: 25000}});
 }

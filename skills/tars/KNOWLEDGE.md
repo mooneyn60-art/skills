@@ -75,3 +75,4 @@ Audience: TARS
   - **Short-dated options give the edge back.** Buying at the close and selling at the open loses with 1DTE calls (−22.6%/night, win 28%) and 7DTE (−5.7%). Time decay plus the volatility premium eat the small overnight drift. My first pass, with a fixed 10% IV, wrongly showed +24%/night (see SELF_REVIEW).
   - **Strong nights.** On overnight-model nights with p≥0.60 (n=318, ~32/yr): SPY shares +0.12%/night (up 61%); 30DTE ATM calls +0.85%/night (win 54%). Small but positive.
   - **Takeaway.** The overnight edge belongs to shares, or to slow 30-day options on strong nights only.
+- BE earnings (2026-10-16): the last 4 reports gapped UP at the open +14.1%, +12.2%, +22.2%, +10.0% (closes +18.0%, +4.7%, +27.2%, −1.9%). The 10/23 straddle prices ±12.3% (IV 112%). The stop at 211.85 is 4.3% below 221.34, so a miss of the same size would open ~8% under the stop. Holding through earnings is a choice to make before 10/22's close, not after.

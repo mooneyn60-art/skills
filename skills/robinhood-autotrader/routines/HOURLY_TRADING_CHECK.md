@@ -245,7 +245,7 @@ hold stop orders on fractional shares, so the desk IS the stop. Gap risk
 between fires is accepted and was explained to Nolan.
 Close check: raise all five by R4 (max of 0.92xE, E once +8%, 0.80 x highest
 close); for MU/VLO just update the numbers in this section.
-Earnings ahead: VLO 10/22, TECK 10/22, INTC 10/23, ATI 10/28, ASX 10/29, ILMN 10/30, HALO 11/3, GH 10/29, RVMD 11/5, SN 11/6, FRO 11/30, MU reported 9/30.
+Earnings ahead (holdings, checked 2026-10-16 via get_earnings_results): BE 10/22 pm (implied ±12% by 10/23; its stop is ~4.3% below, so a miss can gap through it), PLTR 11/02 pm, HALO 11/02 pm (tentative), SN 11/04 am, NVDA 11/17 pm, ORCL 12/14 pm. The platform's Account panel flags any report within 7 days.
 Momentum selection is a NEW way of picking (ranking R2-eligible names by 12-1
 momentum instead of vs200). It was done on Nolan's direct order while R16 was
 on in the main session, so it is NOT an adopted rule: review it at the weekend
