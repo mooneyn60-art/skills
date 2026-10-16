@@ -36,4 +36,9 @@ test('emotions: praise warms, a pre-10:30 trade worries, feelings fade and marke
   // learned 2026-10-16: these were read as 'a quiet evening'
   expect(appraise('Keep going your really growing keep growing don’t stop', {}, 0, [], false, false).some(a => a.tag === 'praise')).toBe(true)
   expect(appraise('So are you human', {}, 0, [], false, false).some(a => a.tag === 'question')).toBe(true)
+  // learned 2026-10-16: 'what I call my gut feeling' raised the veto
+  const gut = stageText({ buffer: 500, mood: 'calm' }, '', new Date('2026-10-16T14:00:00Z'), [], 'thats what I call my gut feeling', 0)
+  expect(gut.focus.includes('veto')).toBe(false)
+  const real = stageText({ buffer: 500, mood: 'calm' }, '', new Date('2026-10-16T14:00:00Z'), [], 'grab me a call at 770', 0)
+  expect(real.focus[0]).toBe('veto')
 })

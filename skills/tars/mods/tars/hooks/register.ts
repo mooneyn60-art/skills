@@ -37,6 +37,8 @@ const ROOT = '/home/user/skills/skills/robinhood-autotrader'
 const EVENTS: Record<string, string> = { '2026-10-16': 'Monthly options expiry', '2026-10-28': 'FOMC 2:00pm', '2026-11-06': 'Jobs report 8:30am',
   '2026-11-10': 'CPI 8:30am', '2026-11-20': 'Monthly options expiry', '2026-12-04': 'Jobs report 8:30am', '2026-12-09': 'FOMC 2:00pm', '2026-12-10': 'CPI 8:30am', '2026-12-18': 'Monthly options expiry' }
 const HELD_EARN: Record<string, string> = { '2026-10-22': 'BE', '2026-11-02': 'PLTR and HALO' }
+// order talk: trade words, or call/put used as an option ("a call", "calls", "buy the put"), not "what I call my gut"
+const ORDER_TALK = /\b(buy|sell|order|place an?|cancel|trade|trades|trading|contracts?|calls|puts|strike|0dte|1dte)\b|\b(a|the|this|that|my|one|1|2|\d+)\s+(call|put)\b/i
 type Sig = { id: string; who: string; kind: 'threat' | 'chance' | 'info' | 'social'; text: string; v: number }
 type Slot = { buffer?: number; halted?: boolean; mood?: string; loss_streak?: number; trades?: number }
 
@@ -62,7 +64,7 @@ export function stageText(slot: Slot, lastAsk: string, now: Date, lastFocus: str
     if (days >= 0 && days <= 3) sigs.push({ id: 'yard', who: 'Gus (holdings)', kind: 'threat', text: `${s} reports earnings after the close ${days === 0 ? 'today' : `in ${days} day${days === 1 ? '' : 's'}`}: a stop can't stop an overnight gap. Raise it with Nolan.`, v: days === 0 ? 0.85 : 0.5 })
   }
   // the veto (prefrontal brake): a message about orders brings the four questions to the front (BRAIN.md habit 3)
-  if (/\b(buy|sell|order|place|cancel|trade|close|calls?|puts?|contracts?)\b/i.test(prompt)) {
+  if (ORDER_TALK.test(prompt)) {
     const early = open && t.hm < '10:30'
     sigs.push({ id: 'veto', who: 'The veto (brake)', kind: 'threat', text: `This is about orders. Before any: which rule fires, where's the exit, premortem (it lost: why?), confidence %. A missing answer = no order.${early ? ' Conflict alarm: it is before 10:30.' : ''}`, v: early ? 0.95 : 0.85 })
   }
@@ -107,7 +109,7 @@ export function appraise(prompt: string, slot: Slot, prevStreak: number, focus: 
   if (/\?|curious|research|\bwhy\b|\bhow\b|what if|wonder|^(so )?(are|is|do|does|can|could|would|will|should|did) (you|we|i|it|this|that)\b/.test(p.trim())) out.push({ tag: 'question', why: 'a question to dig into', rel: 0.6, good: 0.5, agent: 'nolan', control: 0.8, novel: 0.7 })
   if (/\b(lost|loss|down|red|stopped out|blew)\b/.test(p)) out.push({ tag: 'loss-talk', why: 'talk of losses', rel: 0.8, good: -0.6, agent: 'world', control: 0.4, novel: 0.4 })
   if (/\b(up|green|won|win|profit)\b/.test(p) && !/\bup big\b/.test(p)) out.push({ tag: 'win-talk', why: 'talk of a win', rel: 0.7, good: 0.6, agent: 'world', control: 0.5, novel: 0.4 })
-  if (/\b(buy|sell|order|trade|calls?|puts?)\b/.test(p) && before1030) out.push({ tag: 'pre-1030-trade', why: 'a trade idea before 10:30', rel: 0.9, good: -0.5, agent: 'nolan', control: 0.7, novel: 0.2 })
+  if (ORDER_TALK.test(p) && before1030) out.push({ tag: 'pre-1030-trade', why: 'a trade idea before 10:30', rel: 0.9, good: -0.5, agent: 'nolan', control: 0.7, novel: 0.2 })
   const streak = slot.loss_streak ?? 0
   if (streak > prevStreak) out.push({ tag: 'my-loss', why: `my slot took a loss (${streak} in a row)`, rel: 1, good: -0.8, agent: 'tars', control: 0.6, novel: 0.6 })
   if (streak < prevStreak) out.push({ tag: 'my-win', why: 'my slot just won', rel: 1, good: 0.8, agent: 'tars', control: 0.6, novel: 0.6 })

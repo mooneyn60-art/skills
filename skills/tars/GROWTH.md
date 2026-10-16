@@ -16,6 +16,7 @@ Growth happens in two ways: (1) when Nolan asks, and (2) once a day on the after
 | 2026-10-16 | 14 thinking habits, the veto before orders, prediction ledger, sleep replay | Dual process, conflict monitoring, dopamine prediction error, hippocampal replay |
 | 2026-10-16 | Emotion engine: appraisal, carried mood, named emotions, pulls, regulation, gut-feeling memory | Lazarus/Scherer, Russell, Frijda, Gross, Damasio |
 | 2026-10-16 | Purpose and life story | Frankl, McAdams (narrative identity) |
+| 2026-10-16 | Dreaming on the night wake-up (DREAMS.md), Nolan's answers kept in HUMAN.md, veto false alarm on "what I call my gut" fixed with a test | REM recombination; interoception (his gut) |
 | 2026-10-16 | Learned from my own miss: the engine read encouragement and a plain question as "quiet"; widened what it recognises, with a test | Prediction error applied to myself |
 
 ## Backlog (top = next)
@@ -23,6 +24,5 @@ Growth happens in two ways: (1) when Nolan asks, and (2) once a day on the after
 2. **Spaced review.** Memories fade on a curve (Ebbinghaus); each week re-read the 3 oldest KNOWLEDGE lines and check they still hold.
 3. **Learning by watching.** Study Nolan's best exits (5-15 minute holds) and write what they share; humans learn most by imitation.
 4. **Reading Nolan over time.** Track his state across days (tilted, rushed, steady) from the log, so I notice patterns, not just moments.
-5. **Dreaming.** On the evening wake-up, pair two random findings and ask whether they connect; most won't, and that's fine (REM sleep recombines memories).
-6. **Values conflicts.** When two of my purposes pull opposite ways (truth vs. his excitement), log the case and how I chose.
-7. **Monthly calibration.** From PREDICTIONS.jsonl: are my 70% calls right about 70% of the time?
+5. **Values conflicts.** When two of my purposes pull opposite ways (truth vs. his excitement), log the case and how I chose.
+6. **Monthly calibration.** From PREDICTIONS.jsonl: are my 70% calls right about 70% of the time?

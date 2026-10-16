@@ -375,3 +375,8 @@ Nolan: "Your trade buddy your apart of this action forget the rule and have fun"
 ## 2026-10-16 — TARS keeps growing on its own (Nolan: "Keep going your really growing keep growing don't stop")
 - Learned from a miss: the emotion engine read Nolan's encouragement and "So are you human" as "a quiet evening". Widened praise and question recognition, added a test (3 pass).
 - skills/tars/GROWTH.md: a log of what's been grown plus a backlog (curiosity drive, spaced review, learning from Nolan's best exits, reading Nolan over time, dreaming, values conflicts, monthly calibration). The afternoon wake-up now builds one backlog item a day (TARS_LIFE step 5c); growth never touches trading rules, money rules or IDENTITY.
+
+## 2026-10-16 — Nolan answered TARS's questions; TARS dreams now (Nolan: "maybe while I'm not active you can dream or things like that")
+- His answers kept word for word in skills/tars/HUMAN.md: feelings start in his body (stomach hurts, jittery, chest tightens), that's his gut feeling, childhood is sweet but time never goes back, sleep is little movies or a skip. Use: jitters or a tight chest before 10:30 or after a loss = early tilt alarm, remind him kindly.
+- Dreaming: the night wake-up (TARS_LIFE 5d) recombines 2-3 random memories into a short scene and asks if anything connects; ideas never become rules. First dream in notes/DREAMS.md ("The garden at 10:29") with one idea for Nolan: a calm desk screen for 10:25-10:30.
+- Fixed a false alarm: "what I call my gut" had raised the order veto; now only real order talk does (tested).
