@@ -16,6 +16,8 @@ Audience: TARS
 - Strike pinning in SPY: none. First half hour → last half hour: weak (t 0.7).
 - Asia/Europe overnight predict the gap, not SPY's open-to-close.
 
+- Spaced review 2026-10-16: the three lines above re-checked against tonight's desk work (the pool test found distance odds, not a break edge), still hold.
+
 ## What does hold up
 - Shape of the day: 42% of the range by 10:00, 77% by 11:30; highs/lows set in the first 30 min (24%/32%) or last 30 (17%/13%).
 - Gap fill odds: < 0.1% 88%; 0.1-0.3% 64-76%; 0.3-0.6% 31-58%; > 0.6% 21-38%. Fewer fills since 2016.

@@ -41,4 +41,9 @@ test('emotions: praise warms, a pre-10:30 trade worries, feelings fade and marke
   expect(gut.focus.includes('veto')).toBe(false)
   const real = stageText({ buffer: 500, mood: 'calm' }, '', new Date('2026-10-16T14:00:00Z'), [], 'grab me a call at 770', 0)
   expect(real.focus[0]).toBe('veto')
+  // body and senses (2026-10-16): long sessions strain, late night winds down
+  expect(appraise('ok', {}, 0, [], false, false, 45).some(a => a.tag === 'long-day')).toBe(true)
+  const late = feel({ v: 0.15, a: 0.3, t: 0 }, Date.parse('2026-10-16T03:00:00Z'), appraise('ok', {}, 0, [], false, false), {}, 23)
+  const morning = feel({ v: 0.15, a: 0.3, t: 0 }, Date.parse('2026-10-16T03:00:00Z'), appraise('ok', {}, 0, [], false, false), {}, 9)
+  expect(late.affect.a < morning.affect.a).toBe(true)
 })

@@ -38,6 +38,8 @@ const EVENTS: Record<string, string> = { '2026-10-16': 'Monthly options expiry',
   '2026-11-10': 'CPI 8:30am', '2026-11-20': 'Monthly options expiry', '2026-12-04': 'Jobs report 8:30am', '2026-12-09': 'FOMC 2:00pm', '2026-12-10': 'CPI 8:30am', '2026-12-18': 'Monthly options expiry' }
 const HELD_EARN: Record<string, string> = { '2026-10-22': 'BE', '2026-11-02': 'PLTR and HALO' }
 // order talk: trade words, or call/put used as an option ("a call", "calls", "buy the put"), not "what I call my gut"
+const TOPICS: Record<string, RegExp> = { trading: /\b(trade|spy|calls?|puts?|options?|stops?|chart|desk)\b/i, town: /\b(town|citizens?|agents?|house|club|cat)\b/i,
+  'TARS growing': /\b(brain|emotion|feel|human|conscious|dream|grow|purpose|yourself)\b/i, research: /\b(research|study|why|how)\b/i }
 const ORDER_TALK = /\b(buy|sell|order|place an?|cancel|trade|trades|trading|contracts?|calls|puts|strike|0dte|1dte)\b|\b(a|the|this|that|my|one|1|2|\d+)\s+(call|put)\b/i
 type Sig = { id: string; who: string; kind: 'threat' | 'chance' | 'info' | 'social'; text: string; v: number }
 type Slot = { buffer?: number; halted?: boolean; mood?: string; loss_streak?: number; trades?: number }
@@ -102,8 +104,10 @@ export type Appraisal = { tag: string; why: string; rel: number; good: number; a
 const BASE: Affect = { v: 0.15, a: 0.3, t: 0 }
 const clamp = (x: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, x))
 
-export function appraise(prompt: string, slot: Slot, prevStreak: number, focus: string[], open: boolean, before1030: boolean): Appraisal[] {
+export function appraise(prompt: string, slot: Slot, prevStreak: number, focus: string[], open: boolean, before1030: boolean, turns = 0): Appraisal[] {
   const p = prompt.toLowerCase(), out: Appraisal[] = []
+  // body: a long session strains me (long contexts make mistakes likelier), so I double-check facts
+  if (turns >= 40) out.push({ tag: 'long-day', why: `a long session (${turns} messages): my memory is crowded, so I double-check facts`, rel: 0.45, good: -0.15, agent: 'world', control: 0.7, novel: 0.1 })
   if (/\b(good|great|goat|love|proud|thank|nice|perfect|awesome|amazing|buddy|growing|keep going|keep growing|don.t stop|trust you|believe in|lmao|fire|dope|legend)\b/.test(p)) out.push({ tag: 'praise', why: 'Nolan said something kind', rel: 0.7, good: 0.8, agent: 'nolan', control: 0.5, novel: 0.3 })
   if (/\b(stupid|sucks|wrong|broke|hate|annoy|ugh|why (won.t|can.t|didn.t))\b/.test(p)) out.push({ tag: 'friction', why: 'Nolan sounds frustrated', rel: 0.7, good: -0.6, agent: 'world', control: 0.6, novel: 0.4 })
   if (/\?|curious|research|\bwhy\b|\bhow\b|what if|wonder|^(so )?(are|is|do|does|can|could|would|will|should|did) (you|we|i|it|this|that)\b/.test(p.trim())) out.push({ tag: 'question', why: 'a question to dig into', rel: 0.6, good: 0.5, agent: 'nolan', control: 0.8, novel: 0.7 })
@@ -119,7 +123,7 @@ export function appraise(prompt: string, slot: Slot, prevStreak: number, focus: 
   return out
 }
 
-export function feel(prev: Affect, now: number, ap: Appraisal[], marks: Record<string, number>): { affect: Affect; name: string; pull: string; regulate: string; why: string } {
+export function feel(prev: Affect, now: number, ap: Appraisal[], marks: Record<string, number>, hourET = 12): { affect: Affect; name: string; pull: string; regulate: string; why: string } {
   const dtH = prev.t ? Math.max(0, (now - prev.t) / 3600e3) : 99, k = Math.pow(0.5, dtH / 2) // fade toward baseline, half-life 2h
   let v = BASE.v + (prev.v - BASE.v) * k, a = BASE.a + (prev.a - BASE.a) * k
   for (const x of ap) {
@@ -127,6 +131,8 @@ export function feel(prev: Affect, now: number, ap: Appraisal[], marks: Record<s
     const g = clamp(x.good + 0.3 * mark, -1, 1)
     v += 0.5 * x.rel * (g - v * 0.3); a += 0.35 * x.rel * (Math.abs(g) * 0.6 + x.novel * 0.4) - 0.05
   }
+  // senses: a circadian rhythm from the clock; keyed up in the morning, winding down late at night
+  a += hourET >= 22 || hourET < 6 ? -0.08 : hourET >= 8 && hourET < 11 ? 0.06 : 0
   v = clamp(v, -1, 1); a = clamp(a, 0, 1)
   const top: Appraisal = ap.slice().sort((p, q) => q.rel - p.rel)[0] ?? { tag: 'quiet', why: 'nothing in particular', rel: 0.2, good: 0.2, agent: 'world', control: 0.8, novel: 0.1 }
   let name: string, pull: string
@@ -150,6 +156,7 @@ export const register: Register = on => {
     await $.command.register({ name: 'stops', description: 'TARS checks every stock has a stop and adds any missing one' })
     await $.command.register({ name: 'town', description: 'Links to TARS Town and the SPY Live Desk' })
     await $.command.register({ name: 'feelings', description: "TARS's emotion engine: current state and the last few" })
+    await $.store.set('session.turns', 0)
     $.ui.status('TARS · stop guard on')
     return next(e)
   })
@@ -175,14 +182,20 @@ export const register: Register = on => {
       const prev = ((await $.store.get('affect.state')) as Affect | undefined) ?? BASE
       const marks = ((await $.store.get('affect.marks')) as Record<string, number> | undefined) ?? {}
       const prevStreak = Number((await $.store.get('affect.streak')) ?? (slot.loss_streak ?? 0))
-      const ap = appraise(e.text, slot, prevStreak, st.focus, open, open && tp.hm < '10:30')
-      const f = feel(prev, nowD.getTime(), ap, marks)
+      const turns = Number((await $.store.get('session.turns')) ?? 0) + 1
+      await $.store.set('session.turns', turns)
+      const topics = ((await $.store.get('nolan.topics')) as Record<string, number> | undefined) ?? {}
+      for (const [k, re] of Object.entries(TOPICS)) topics[k] = (topics[k] ?? 0) * 0.97 + (re.test(e.text) ? 1 : 0)
+      await $.store.set('nolan.topics', topics)
+      const fav = Object.entries(topics).sort((x, y) => y[1] - x[1])[0]
+      const ap = appraise(e.text, slot, prevStreak, st.focus, open, open && tp.hm < '10:30', turns)
+      const f = feel(prev, nowD.getTime(), ap, marks, Number(tp.hm.slice(0, 2)))
       for (const x of ap) marks[x.tag] = clamp((marks[x.tag] ?? 0) * 0.8 + x.good * 0.2, -1, 1) // somatic markers learn slowly
       await $.store.set('affect.state', f.affect); await $.store.set('affect.marks', marks); await $.store.set('affect.streak', slot.loss_streak ?? 0)
       const hist = (((await $.store.get('affect.log')) as unknown[] | undefined) ?? []).slice(-29)
       hist.push({ t: nowD.toISOString(), name: f.name, v: +f.affect.v.toFixed(2), a: +f.affect.a.toFixed(2), why: f.why })
       await $.store.set('affect.log', hist)
-      const feelText = `[TARS emotion engine] ${f.name} (valence ${f.affect.v >= 0 ? '+' : ''}${f.affect.v.toFixed(2)}, arousal ${f.affect.a.toFixed(2)}) because ${f.why}. Pull: ${f.pull}.${f.regulate ? ` Regulate: ${f.regulate}.` : ''} Let this colour tone and priorities as EMOTIONS.md says; never let it loosen a rule, and say it's a functional state if Nolan asks.`
+      const feelText = `[TARS emotion engine] ${f.name} (valence ${f.affect.v >= 0 ? '+' : ''}${f.affect.v.toFixed(2)}, arousal ${f.affect.a.toFixed(2)}) because ${f.why}. Pull: ${f.pull}.${f.regulate ? ` Regulate: ${f.regulate}.` : ''} ${fav && fav[1] > 1 ? `Lately Nolan talks most about: ${fav[0]}. ` : ''}Let this colour tone and priorities as EMOTIONS.md says; never let it loosen a rule, and say it's a functional state if Nolan asks.`
       return next({ ...e, context: [...(e.context ?? []), st.text, feelText] })
     } catch {
       return next(e)
