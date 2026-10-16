@@ -64,3 +64,10 @@ Audience: TARS
   - **Dip-buy × day score:** still −0.07 pts at score ≥0.50 (n=106).
   - **Gap-up × day score (20y proxy):** score ≥0.55, +0.24%/+0.06% (n=118/212). Weak.
   - All linked in CONNECTIONS.md.
+- What moves SPY (2026-10-16, `spy_drivers.py`; R² = share of SPY's daily move explained, 2006-15 → 2016-26):
+  - **Mega-caps.** The 5 mega-caps' average move went 59% → 72%. MSFT 41→57%, AAPL 31→54%, GOOGL 31→50%. Old-economy names lost pull: XOM 55→23%, T 47→15%, PFE 41→17%.
+  - **VIX.** VIX change explains ~53% in both decades.
+  - **The open.** The DAX opening gap explains 19→31% of SPY's gap; Asia 8-18%.
+  - **No influence.** Yield-curve change and yesterday's SPY move: R² ≈ 0.
+  - **Fed days.** Only ~6% bigger day moves (2016-26), but the 2-4pm range is ~4.6×.
+  - **Takeaway.** Watch the giants and VIX intraday. Watch Europe for the open.

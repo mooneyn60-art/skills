@@ -1,4 +1,4 @@
-<title>SPY Live Desk</title>
+<title>TARS Trading Platform</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -98,18 +98,27 @@ dt{color:var(--muted)} dd{margin:0;font-family:var(--mono);font-variant-numeric:
 textarea{width:100%;resize:vertical;min-height:54px;font-family:var(--body)}
 .ans{white-space:pre-wrap;font-size:.9rem;line-height:1.5;max-height:420px;overflow:auto;border-left:3px solid var(--accent);padding-left:10px}
 .ans .q{color:var(--muted);font-size:.8rem;display:block;margin-top:10px}
+.pnav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;flex-wrap:wrap;gap:4px 14px;padding:8px 0;background:var(--bg);border-bottom:1px solid var(--line);font-family:var(--display);letter-spacing:.06em;text-transform:uppercase}
+.pnav a{color:var(--muted);text-decoration:none}.pnav a:hover{color:var(--accent)}
+.tscroll{overflow-x:auto}.dtab{width:100%;border-collapse:collapse;font-size:.85rem}.dtab th,.dtab td{text-align:left;padding:4px 6px;border-bottom:1px solid var(--grid);vertical-align:top}
+.dtab td.n{text-align:right;font-family:var(--mono);white-space:nowrap}.dtab th{color:var(--muted);font-weight:500}
+.bar{display:inline-block;height:8px;border-radius:2px;vertical-align:middle}
+h3.sub{font-family:var(--display);font-weight:500;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;margin:14px 0 6px;color:var(--muted)}
+.rfilt{display:flex;gap:6px;margin-bottom:8px}.rfilt button{font:inherit;font-size:.8rem;padding:3px 8px;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:4px;cursor:pointer}.rfilt button[aria-pressed=true]{border-color:var(--accent);color:var(--accent)}
+.v-holds{color:var(--up)}.v-fails{color:var(--down)}.v-fact{color:var(--accent)}
 </style>
 
 <div class="wrap">
   <header>
-    <h1>SPY <small>Live Desk</small></h1>
+    <h1>TARS <small>Trading Platform · SPY</small></h1>
     <div class="quote"><b id="last">—</b><span id="chg" class="muted">—</span></div>
     <div class="status"><i class="dot" id="dot"></i><span id="stat">Connecting to Robinhood…</span></div>
   </header>
 
+  <nav class="pnav" aria-label="Platform sections"><a href="#chartP">Chart</a><a href="#edgeP">Edge</a><a href="#driversP">Drivers</a><a href="#tradeP">Trade</a><a href="#slotP">Slot</a><a href="#researchP">Research</a><a href="#guide">Guide</a></nav>
   <div class="banner" id="banner" hidden></div>
 
-  <section class="panel">
+  <section class="panel" id="chartP">
     <div class="toolbar" role="group" aria-label="Chart layers">
       <button type="button" data-l="vwap" aria-pressed="true">VWAP ±1σ ±2σ</button>
       <button type="button" data-l="ema" aria-pressed="true">EMA 9 / 21</button>
@@ -172,7 +181,7 @@ textarea{width:100%;resize:vertical;min-height:54px;font-family:var(--body)}
       <p class="note">Each signal is one of the data-farm rules, with its stop and a target at twice the risk. The record line under each is that rule's backtest on 29 days of SPY with costs, so you can see which ones have held up. None has passed the bar for real money yet; they are here to learn from and to time your own entries and exits.</p>
     </section>
     <section class="panel">
-      <h2>Edge board <span class="muted" id="fresh"></span></h2>
+      <h2 id="edgeP">Edge board <span class="muted" id="fresh"></span></h2>
       <dl id="edge"><dt>Status</dt><dd>loading</dd></dl>
       <p class="note">Only effects that held up in BOTH halves of TARS's tests (SPY 2006-15 and 2016-26 daily; 164 days of 5-min bars). Each one is a lean on the averages, not a signal. Updates live: VIX every 30 s, everything else with the price.</p>
     </section>
@@ -183,7 +192,7 @@ textarea{width:100%;resize:vertical;min-height:54px;font-family:var(--body)}
     </section>
   </div>
 
-  <div class="grid3">
+  <div class="grid3" id="tradeP">
     <section class="panel" aria-labelledby="tkh">
       <h2 id="tkh">Trade ticket</h2>
       <div class="tk">
@@ -242,6 +251,29 @@ textarea{width:100%;resize:vertical;min-height:54px;font-family:var(--body)}
         <div class="ans" id="ans" hidden></div>
       </section>
     </div>
+  </div>
+
+  <section class="panel" id="driversP" aria-labelledby="drh">
+    <h2 id="drh">Drivers · what's moving SPY now <span class="muted" id="drAge"></span></h2>
+    <div class="tscroll"><table class="dtab" id="drTab"><tbody><tr><td class="muted">Waiting for quotes…</td></tr></tbody></table></div>
+    <p class="note">Each name's push = its estimated weight in the S&amp;P 500 × its move today × SPY's prior close, in SPY points. Weights are estimates from Robinhood float × price on 2026-10-16 (Alphabet counts both share classes). Quotes every 15 s.</p>
+    <h3 class="sub">What moves SPY the most (tested, share of SPY's daily move it explains)</h3>
+    <div class="tscroll"><table class="dtab" id="drStudy"></table></div>
+  </section>
+
+  <div class="grid3">
+    <section class="panel" id="slotP" aria-labelledby="slh">
+      <h2 id="slh">Options slot</h2>
+      <dl id="slotS"></dl>
+      <div class="tscroll"><table class="dtab" id="slotT"></table></div>
+      <p class="note">From TARS's books (paper/live_options) at the last platform build. Rules: TARS_OPTIONS_LIVE.md.</p>
+    </section>
+    <section class="panel" id="researchP" aria-labelledby="rsh">
+      <h2 id="rsh">Research library</h2>
+      <div class="rfilt" role="group" aria-label="Filter"><button type="button" data-rf="all" aria-pressed="true">All</button><button type="button" data-rf="holds" aria-pressed="false">Holds up</button><button type="button" data-rf="fails" aria-pressed="false">Failed</button></div>
+      <div class="tscroll"><table class="dtab" id="resT"></table></div>
+      <p class="note">Every idea TARS tested, with the numbers. "Holds" means it worked in both halves of the data; most ideas fail. Scripts live in paper/research_scripts.</p>
+    </section>
   </div>
 
   <section class="panel" id="guide" aria-labelledby="gdh">
@@ -818,7 +850,7 @@ async function startLive(viaCall) {
     setStatus(live ? "live" : "stale", (live ? "Live · price every 5s, candles every 30s · " : `Session ${S.day} (market closed) · `) + "updated " + S.updated.toLocaleTimeString());
     apply();
   };
-  startTicks(mcp); startVix(mcp);
+  startTicks(mcp); startVix(mcp); startDrivers(mcp);
   // daily SPY bars (last ~45 days) for the day-score model
   mcp.callTool(SERVER, "get_equity_historicals", {symbols: ["SPY"], start_time: new Date(Date.now() - 45 * 864e5).toISOString().slice(0, 10) + "T12:00:00Z", interval: "day"}, {cache: {staleTime: 3600000}})
     .then(r => { const p = r.payload && (r.payload.data || r.payload), x = (p && p.results || []).find(q => (q.symbol || "SPY") === "SPY");
@@ -851,6 +883,49 @@ function startTicks(mcp) {
     apply();
   }, {refetchInterval: 5000, cache: {staleTime: 4000}});
 }
+// ---------- platform: drivers (live), slot book and research library (baked at build) ----------
+const DRIVERS = [["NVDA", 0.075], ["AAPL", 0.075], ["MSFT", 0.058], ["GOOGL", 0.056], ["AMZN", 0.037], ["META", 0.024], ["AVGO", 0.023], ["TSLA", 0.015], ["JPM", 0.013], ["BRK.B", 0.011]];
+const STUDY = __DRIVERS_STUDY__, SLOT = __SLOT__, RESEARCH = __RESEARCH__;
+let unDr = null, DRQ = {};
+function startDrivers(mcp) {
+  if (unDr) { unDr(); unDr = null; }
+  unDr = mcp.watchTool(SERVER, "get_equity_quotes", {symbols: [...DRIVERS.map(d => d[0]), "SPY"]}, ev => {
+    if (ev.type !== "data") return;
+    const p = ev.result.payload, d = p && (p.data || p);
+    (d && d.results || []).forEach(r => { const q = r.quote; if (q && +q.last_trade_price > 0) DRQ[q.symbol] = {px: +q.last_trade_price, pc: +(q.adjusted_previous_close || q.previous_close), t: new Date(q.venue_last_trade_time || Date.now())}; });
+    DRQ._t = new Date(); renderDrivers();
+  }, {refetchInterval: 15000, cache: {staleTime: 12000}});
+}
+function renderDrivers() {
+  const spy = DRQ.SPY; if (!spy) return;
+  const rows = DRIVERS.filter(([s]) => DRQ[s]).map(([s, w]) => { const q = DRQ[s], ch = q.px / q.pc - 1; return {s, w, ch, pts: w * ch * spy.pc}; });
+  const tot = rows.reduce((a, r) => a + r.pts, 0), spyPts = spy.px - spy.pc, mx = Math.max(0.01, ...rows.map(r => Math.abs(r.pts)));
+  rows.sort((a, b) => Math.abs(b.pts) - Math.abs(a.pts));
+  const f = (v, d = 2) => (v >= 0 ? "+" : "") + v.toFixed(d);
+  $("#drTab").innerHTML = "<thead><tr><th>Name</th><th>Weight</th><th>Today</th><th>Push on SPY</th><th></th></tr></thead><tbody>" +
+    rows.map(r => `<tr><td>${r.s}</td><td class="n">${(100 * r.w).toFixed(1)}%</td><td class="n ${r.ch >= 0 ? "long" : "short"}">${f(100 * r.ch)}%</td><td class="n ${r.pts >= 0 ? "long" : "short"}">${f(r.pts)} pts</td><td><span class="bar" style="width:${Math.round(60 * Math.abs(r.pts) / mx)}px;background:var(${r.pts >= 0 ? "--up" : "--down"})"></span></td></tr>`).join("") +
+    `<tr><td><b>Top 10</b></td><td class="n">${(100 * rows.reduce((a, r) => a + r.w, 0)).toFixed(0)}%</td><td></td><td class="n"><b>${f(tot)} pts</b></td><td class="muted">of SPY's ${f(spyPts)} (${spyPts ? Math.round(100 * tot / spyPts) : 0}%)</td></tr>` +
+    `<tr><td colspan="5" class="muted">Rest of the market: ${f(spyPts - tot)} pts. ${Math.abs(spyPts - tot) > Math.abs(tot) ? "Broad move: the other 490 are doing most of it." : "Led by the giants."}</td></tr></tbody>`;
+  $("#drAge").textContent = "· " + DRQ._t.toLocaleTimeString();
+}
+const usd = v => (v < 0 ? "−$" : "+$") + Math.abs(v).toFixed(2);
+function renderStatic() {
+  const per = k => STUDY[k] || {};
+  const keys = Object.keys(STUDY).filter(k => per(k)["2016-26"] && per(k)["2016-26"].r2 !== undefined).sort((a, b) => per(b)["2016-26"].r2 - per(a)["2016-26"].r2).slice(0, 14);
+  $("#drStudy").innerHTML = "<thead><tr><th>Driver</th><th>2006-15</th><th>2016-26</th><th></th></tr></thead><tbody>" + keys.map(k => { const a = per(k)["2006-15"] || {}, b = per(k)["2016-26"];
+    return `<tr><td>${k}</td><td class="n">${a.r2 !== undefined ? Math.round(100 * a.r2) + "%" : "–"}</td><td class="n">${Math.round(100 * b.r2)}%</td><td><span class="bar" style="width:${Math.round(80 * b.r2)}px;background:var(--accent)"></span></td></tr>`; }).join("") + "</tbody>";
+  const st = SLOT.state || {};
+  $("#slotS").innerHTML = [["Buffer", `$${(st.buffer || 0).toFixed(2)} of $${st.buffer_start || 500}`], ["Realized", usd(st.realized || 0)], ["Mood", st.mood || "–"], ["Losses in a row", st.loss_streak ?? "–"], ["Open position", st.open ? esc(`${st.open.contract} @ ${st.open.entry}`) : "none"], ["Book as of", SLOT.built]].map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("");
+  $("#slotT").innerHTML = "<thead><tr><th>#</th><th>Date</th><th>Setup</th><th>Contract</th><th>In → out</th><th>Result</th></tr></thead><tbody>" + (SLOT.trades || []).map(t => `<tr><td>${esc(t.slot_trade_no)}</td><td>${esc(t.date)}</td><td>${esc(t.setup)}</td><td>${esc(t.contract)}</td><td class="n">${t.entry} → ${t.exit ?? "open"}</td><td class="n ${t.result > 0 ? "long" : "short"}">${t.result == null ? "–" : usd(t.result)}</td></tr>`).join("") + "</tbody>";
+  renderResearch("all");
+}
+function renderResearch(flt) {
+  const cls = v => /fail|no influence/.test(v) ? "fails" : /fact/.test(v) ? "fact" : "holds";
+  $("#resT").innerHTML = "<thead><tr><th>Idea</th><th>Verdict</th><th>Numbers</th></tr></thead><tbody>" + RESEARCH.filter(r => flt === "all" || cls(r.verdict) === flt || (flt === "holds" && cls(r.verdict) === "fact"))
+    .map(r => `<tr><td><b>${r.name}</b><br><span class="muted">${r.area} · ${r.script}</span></td><td class="v-${cls(r.verdict)}">${r.verdict}</td><td>${r.nums}</td></tr>`).join("") + "</tbody>";
+}
+document.querySelectorAll("[data-rf]").forEach(b => b.addEventListener("click", () => { document.querySelectorAll("[data-rf]").forEach(x => x.setAttribute("aria-pressed", x === b)); renderResearch(b.dataset.rf); }));
+renderStatic();
 // VIX (Robinhood index quote, every 30 s) for the Edge board
 const VIX_ID = "3b912aa2-88f9-4682-8ae3-e39520bdf4db"; let unVix = null;
 function startVix(mcp) {

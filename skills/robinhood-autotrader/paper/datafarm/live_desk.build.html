@@ -1,4 +1,4 @@
-<title>SPY Live Desk</title>
+<title>TARS Trading Platform</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -98,18 +98,27 @@ dt{color:var(--muted)} dd{margin:0;font-family:var(--mono);font-variant-numeric:
 textarea{width:100%;resize:vertical;min-height:54px;font-family:var(--body)}
 .ans{white-space:pre-wrap;font-size:.9rem;line-height:1.5;max-height:420px;overflow:auto;border-left:3px solid var(--accent);padding-left:10px}
 .ans .q{color:var(--muted);font-size:.8rem;display:block;margin-top:10px}
+.pnav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;flex-wrap:wrap;gap:4px 14px;padding:8px 0;background:var(--bg);border-bottom:1px solid var(--line);font-family:var(--display);letter-spacing:.06em;text-transform:uppercase}
+.pnav a{color:var(--muted);text-decoration:none}.pnav a:hover{color:var(--accent)}
+.tscroll{overflow-x:auto}.dtab{width:100%;border-collapse:collapse;font-size:.85rem}.dtab th,.dtab td{text-align:left;padding:4px 6px;border-bottom:1px solid var(--grid);vertical-align:top}
+.dtab td.n{text-align:right;font-family:var(--mono);white-space:nowrap}.dtab th{color:var(--muted);font-weight:500}
+.bar{display:inline-block;height:8px;border-radius:2px;vertical-align:middle}
+h3.sub{font-family:var(--display);font-weight:500;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;margin:14px 0 6px;color:var(--muted)}
+.rfilt{display:flex;gap:6px;margin-bottom:8px}.rfilt button{font:inherit;font-size:.8rem;padding:3px 8px;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:4px;cursor:pointer}.rfilt button[aria-pressed=true]{border-color:var(--accent);color:var(--accent)}
+.v-holds{color:var(--up)}.v-fails{color:var(--down)}.v-fact{color:var(--accent)}
 </style>
 
 <div class="wrap">
   <header>
-    <h1>SPY <small>Live Desk</small></h1>
+    <h1>TARS <small>Trading Platform · SPY</small></h1>
     <div class="quote"><b id="last">—</b><span id="chg" class="muted">—</span></div>
     <div class="status"><i class="dot" id="dot"></i><span id="stat">Connecting to Robinhood…</span></div>
   </header>
 
+  <nav class="pnav" aria-label="Platform sections"><a href="#chartP">Chart</a><a href="#edgeP">Edge</a><a href="#driversP">Drivers</a><a href="#tradeP">Trade</a><a href="#slotP">Slot</a><a href="#researchP">Research</a><a href="#guide">Guide</a></nav>
   <div class="banner" id="banner" hidden></div>
 
-  <section class="panel">
+  <section class="panel" id="chartP">
     <div class="toolbar" role="group" aria-label="Chart layers">
       <button type="button" data-l="vwap" aria-pressed="true">VWAP ±1σ ±2σ</button>
       <button type="button" data-l="ema" aria-pressed="true">EMA 9 / 21</button>
@@ -172,7 +181,7 @@ textarea{width:100%;resize:vertical;min-height:54px;font-family:var(--body)}
       <p class="note">Each signal is one of the data-farm rules, with its stop and a target at twice the risk. The record line under each is that rule's backtest on 29 days of SPY with costs, so you can see which ones have held up. None has passed the bar for real money yet; they are here to learn from and to time your own entries and exits.</p>
     </section>
     <section class="panel">
-      <h2>Edge board <span class="muted" id="fresh"></span></h2>
+      <h2 id="edgeP">Edge board <span class="muted" id="fresh"></span></h2>
       <dl id="edge"><dt>Status</dt><dd>loading</dd></dl>
       <p class="note">Only effects that held up in BOTH halves of TARS's tests (SPY 2006-15 and 2016-26 daily; 164 days of 5-min bars). Each one is a lean on the averages, not a signal. Updates live: VIX every 30 s, everything else with the price.</p>
     </section>
@@ -183,7 +192,7 @@ textarea{width:100%;resize:vertical;min-height:54px;font-family:var(--body)}
     </section>
   </div>
 
-  <div class="grid3">
+  <div class="grid3" id="tradeP">
     <section class="panel" aria-labelledby="tkh">
       <h2 id="tkh">Trade ticket</h2>
       <div class="tk">
@@ -242,6 +251,29 @@ textarea{width:100%;resize:vertical;min-height:54px;font-family:var(--body)}
         <div class="ans" id="ans" hidden></div>
       </section>
     </div>
+  </div>
+
+  <section class="panel" id="driversP" aria-labelledby="drh">
+    <h2 id="drh">Drivers · what's moving SPY now <span class="muted" id="drAge"></span></h2>
+    <div class="tscroll"><table class="dtab" id="drTab"><tbody><tr><td class="muted">Waiting for quotes…</td></tr></tbody></table></div>
+    <p class="note">Each name's push = its estimated weight in the S&amp;P 500 × its move today × SPY's prior close, in SPY points. Weights are estimates from Robinhood float × price on 2026-10-16 (Alphabet counts both share classes). Quotes every 15 s.</p>
+    <h3 class="sub">What moves SPY the most (tested, share of SPY's daily move it explains)</h3>
+    <div class="tscroll"><table class="dtab" id="drStudy"></table></div>
+  </section>
+
+  <div class="grid3">
+    <section class="panel" id="slotP" aria-labelledby="slh">
+      <h2 id="slh">Options slot</h2>
+      <dl id="slotS"></dl>
+      <div class="tscroll"><table class="dtab" id="slotT"></table></div>
+      <p class="note">From TARS's books (paper/live_options) at the last platform build. Rules: TARS_OPTIONS_LIVE.md.</p>
+    </section>
+    <section class="panel" id="researchP" aria-labelledby="rsh">
+      <h2 id="rsh">Research library</h2>
+      <div class="rfilt" role="group" aria-label="Filter"><button type="button" data-rf="all" aria-pressed="true">All</button><button type="button" data-rf="holds" aria-pressed="false">Holds up</button><button type="button" data-rf="fails" aria-pressed="false">Failed</button></div>
+      <div class="tscroll"><table class="dtab" id="resT"></table></div>
+      <p class="note">Every idea TARS tested, with the numbers. "Holds" means it worked in both halves of the data; most ideas fail. Scripts live in paper/research_scripts.</p>
+    </section>
   </div>
 
   <section class="panel" id="guide" aria-labelledby="gdh">
@@ -818,7 +850,7 @@ async function startLive(viaCall) {
     setStatus(live ? "live" : "stale", (live ? "Live · price every 5s, candles every 30s · " : `Session ${S.day} (market closed) · `) + "updated " + S.updated.toLocaleTimeString());
     apply();
   };
-  startTicks(mcp); startVix(mcp);
+  startTicks(mcp); startVix(mcp); startDrivers(mcp);
   // daily SPY bars (last ~45 days) for the day-score model
   mcp.callTool(SERVER, "get_equity_historicals", {symbols: ["SPY"], start_time: new Date(Date.now() - 45 * 864e5).toISOString().slice(0, 10) + "T12:00:00Z", interval: "day"}, {cache: {staleTime: 3600000}})
     .then(r => { const p = r.payload && (r.payload.data || r.payload), x = (p && p.results || []).find(q => (q.symbol || "SPY") === "SPY");
@@ -851,6 +883,49 @@ function startTicks(mcp) {
     apply();
   }, {refetchInterval: 5000, cache: {staleTime: 4000}});
 }
+// ---------- platform: drivers (live), slot book and research library (baked at build) ----------
+const DRIVERS = [["NVDA", 0.075], ["AAPL", 0.075], ["MSFT", 0.058], ["GOOGL", 0.056], ["AMZN", 0.037], ["META", 0.024], ["AVGO", 0.023], ["TSLA", 0.015], ["JPM", 0.013], ["BRK.B", 0.011]];
+const STUDY = {"AAPL same day": {"2006-15": {"n": 2513, "corr": 0.56, "r2": 0.314, "beta": 0.34}, "2016-26": {"n": 2705, "corr": 0.732, "r2": 0.536, "beta": 0.452}}, "AMZN same day": {"2006-15": {"n": 2513, "corr": 0.525, "r2": 0.276, "beta": 0.262}, "2016-26": {"n": 2705, "corr": 0.644, "r2": 0.414, "beta": 0.348}}, "BAC same day": {"2006-15": {"n": 2513, "corr": 0.679, "r2": 0.461, "beta": 0.243}, "2016-26": {"n": 2705, "corr": 0.69, "r2": 0.476, "beta": 0.401}}, "C same day": {"2006-15": {"n": 2513, "corr": 0.66, "r2": 0.436, "beta": 0.225}, "2016-26": {"n": 2705, "corr": 0.709, "r2": 0.502, "beta": 0.378}}, "CSCO same day": {"2006-15": {"n": 2513, "corr": 0.679, "r2": 0.461, "beta": 0.458}, "2016-26": {"n": 2705, "corr": 0.655, "r2": 0.43, "beta": 0.443}}, "F same day": {"2006-15": {"n": 2513, "corr": 0.555, "r2": 0.308, "beta": 0.244}, "2016-26": {"n": 2705, "corr": 0.553, "r2": 0.305, "beta": 0.266}}, "GE same day": {"2006-15": {"n": 2513, "corr": 0.692, "r2": 0.479, "beta": 0.458}, "2016-26": {"n": 2705, "corr": 0.562, "r2": 0.316, "beta": 0.281}}, "GOOGL same day": {"2006-15": {"n": 2513, "corr": 0.557, "r2": 0.31, "beta": 0.36}, "2016-26": {"n": 2705, "corr": 0.708, "r2": 0.501, "beta": 0.433}}, "IBM same day": {"2006-15": {"n": 2513, "corr": 0.675, "r2": 0.455, "beta": 0.632}, "2016-26": {"n": 2705, "corr": 0.517, "r2": 0.268, "beta": 0.324}}, "MSFT same day": {"2006-15": {"n": 2513, "corr": 0.643, "r2": 0.413, "beta": 0.475}, "2016-26": {"n": 2705, "corr": 0.758, "r2": 0.575, "beta": 0.492}}, "NVDA same day": {"2006-15": {"n": 2513, "corr": 0.561, "r2": 0.315, "beta": 0.239}, "2016-26": {"n": 2705, "corr": 0.655, "r2": 0.429, "beta": 0.239}}, "PFE same day": {"2006-15": {"n": 2513, "corr": 0.641, "r2": 0.411, "beta": 0.576}, "2016-26": {"n": 2705, "corr": 0.415, "r2": 0.172, "beta": 0.309}}, "T same day": {"2006-15": {"n": 2513, "corr": 0.688, "r2": 0.473, "beta": 0.635}, "2016-26": {"n": 2705, "corr": 0.39, "r2": 0.152, "beta": 0.291}}, "XOM same day": {"2006-15": {"n": 2513, "corr": 0.742, "r2": 0.55, "beta": 0.61}, "2016-26": {"n": 2705, "corr": 0.481, "r2": 0.232, "beta": 0.306}}, "VIX change same day": {"2006-15": {"n": 2513, "corr": -0.734, "r2": 0.538, "beta": -0.132}, "2016-26": {"n": 2705, "corr": -0.73, "r2": 0.533, "beta": -0.103}}, "DAX same day": {"2006-15": {"n": 2436, "corr": 0.656, "r2": 0.43, "beta": 0.59}, "2016-26": {"n": 2619, "corr": 0.551, "r2": 0.304, "beta": 0.526}}, "FTSE same day": {"2006-15": {"n": 2428, "corr": 0.625, "r2": 0.391, "beta": 0.657}, "2016-26": {"n": 2607, "corr": 0.498, "r2": 0.248, "beta": 0.585}}, "NIKKEI same day": {"2006-15": {"n": 2250, "corr": 0.159, "r2": 0.025, "beta": 0.126}, "2016-26": {"n": 2409, "corr": 0.191, "r2": 0.036, "beta": 0.156}}, "HSI same day": {"2006-15": {"n": 2305, "corr": 0.271, "r2": 0.073, "beta": 0.218}, "2016-26": {"n": 2469, "corr": 0.182, "r2": 0.033, "beta": 0.151}}, "KOSPI same day": {"2006-15": {"n": 2318, "corr": 0.22, "r2": 0.049, "beta": 0.215}, "2016-26": {"n": 2440, "corr": 0.167, "r2": 0.028, "beta": 0.127}}, "ASX same day": {"2006-15": {"n": 2401, "corr": 0.175, "r2": 0.031, "beta": 0.195}, "2016-26": {"n": 2596, "corr": 0.286, "r2": 0.082, "beta": 0.342}}, "10y-2y curve change": {"2006-15": {"n": 2475, "corr": 0.131, "r2": 0.017, "beta": 0.039}, "2016-26": {"n": 2669, "corr": 0.031, "r2": 0.001, "beta": 0.01}}, "NIKKEI day -> SPY gap": {"2006-15": {"n": 2368, "corr": 0.36, "r2": 0.13, "beta": 0.216}, "2016-26": {"n": 2539, "corr": 0.36, "r2": 0.13, "beta": 0.269}}, "HSI day -> SPY gap": {"2006-15": {"n": 2401, "corr": 0.383, "r2": 0.146, "beta": 0.249}, "2016-26": {"n": 2577, "corr": 0.275, "r2": 0.076, "beta": 0.197}}, "KOSPI day -> SPY gap": {"2006-15": {"n": 2404, "corr": 0.309, "r2": 0.095, "beta": 0.218}, "2016-26": {"n": 2550, "corr": 0.313, "r2": 0.098, "beta": 0.205}}, "ASX day -> SPY gap": {"2006-15": {"n": 2456, "corr": 0.318, "r2": 0.101, "beta": 0.233}, "2016-26": {"n": 2650, "corr": 0.422, "r2": 0.178, "beta": 0.34}}, "DAX open gap -> SPY gap": {"2006-15": {"n": 2436, "corr": 0.435, "r2": 0.189, "beta": 0.46}, "2016-26": {"n": 2619, "corr": 0.556, "r2": 0.309, "beta": 0.501}}, "SPY yesterday -> SPY gap": {"2006-15": {"n": 2512, "corr": -0.046, "r2": 0.002, "beta": -0.026}, "2016-26": {"n": 2704, "corr": -0.117, "r2": 0.014, "beta": -0.076}}, "5 mega-caps (avg) same day": {"2006-15": {"n": 2513, "corr": 0.766, "r2": 0.586, "beta": 0.583}, "2016-26": {"n": 2705, "corr": 0.85, "r2": 0.722, "beta": 0.556}}, "9 other stocks (avg) same day": {"2006-15": {"n": 2513, "corr": 0.883, "r2": 0.781, "beta": 0.687}, "2016-26": {"n": 2705, "corr": 0.819, "r2": 0.671, "beta": 0.718}}, "FOMC day |move| vs other days (%)": {"2006-15": {"fomc": 1.022, "other": 0.822}, "2016-26": {"fomc": 0.775, "other": 0.728}}}, SLOT = {"state": {"buffer_start": 500, "buffer": 440.84, "realized": -59.16, "day": "2026-10-16", "day_realized": -59.16, "open": null, "trades": 2, "halted": false, "mood": "stressed", "loss_streak": 2, "entries_today": 2}, "trades": [{"slot_trade_no": 1, "date": "2026-10-16", "setup": "S2", "contract": "SPY 2026-10-19 769C", "entry": 2.54, "exit": 2.31, "result": -23.08}, {"slot_trade_no": 2, "date": "2026-10-16", "setup": "S2 + Atlas filter (EMA9<EMA21)", "contract": "SPY 2026-10-19 768C", "entry": 2.44, "exit": 2.08, "result": -36.08}], "built": "2026-10-16 17:12 UTC"}, RESEARCH = [{"area": "Day leans", "name": "Expiry Fridays lean down", "verdict": "holds", "nums": "\u22120.21% close-to-close in both 2006-15 and 2016-26; up only 38% (2016-26, n=125)", "script": "market_lab.py \u00a73"}, {"area": "Day leans", "name": "Day-score model (logit, 10 pre-open inputs)", "verdict": "holds (tails only)", "nums": "score \u226560: up 65-67%, +0.50%/+0.64% (n=12/34, rare). <45: up 46%, \u22120.06% both halves. Middle: no call", "script": "predict_lab.py, day_model.json"}, {"area": "Day leans", "name": "VIX sets the day's size", "verdict": "holds", "nums": "avg range 0.66% (VIX<15), 1.01% (15-20), 1.52% (20-30), 2.72% (30+)", "script": "market_lab.py \u00a713"}, {"area": "Day leans", "name": "VIX sets the lean", "verdict": "holds", "nums": "VIX<15: +0.13%/day, up 59% (t 7.6); VIX 30+: \u22120.24%, up 44%", "script": "market_lab.py \u00a713b"}, {"area": "Day leans", "name": "Big days partly reverse", "verdict": "holds (weak)", "nums": "after <\u22121%: next day +0.16/+0.22%; after >+1%: \u22120.10/\u22120.15%", "script": "market_lab.py \u00a712"}, {"area": "Day leans", "name": "Gap size decides fill", "verdict": "holds", "nums": "0.1-0.3% gaps fill 71-77%; >1% gaps fill 24% (2016-26)", "script": "market_lab.py \u00a72"}, {"area": "Day leans", "name": "Gains come overnight", "verdict": "holds", "nums": "2016-26: +0.029%/night (t 2.1) vs +0.020%/day session (t 1.3)", "script": "market_lab.py \u00a71"}, {"area": "Day leans", "name": "Overnight model (logit)", "verdict": "holds (tails only)", "nums": "p\u22650.60 nights up 58-61%, +0.10% (both halves)", "script": "predict_lab.py"}, {"area": "Drivers", "name": "Mega-caps move SPY", "verdict": "fact", "nums": "5 mega-caps' average move explains 72% of SPY's daily move (2016-26), up from 59%", "script": "spy_drivers.py"}, {"area": "Drivers", "name": "VIX moves with SPY", "verdict": "fact", "nums": "VIX % change explains 53% of SPY's daily move (beta \u22120.10)", "script": "spy_drivers.py"}, {"area": "Drivers", "name": "Europe sets the open", "verdict": "fact", "nums": "DAX opening gap explains 31% of SPY's gap (2016-26, up from 19%); Asia 8-18%", "script": "spy_drivers.py"}, {"area": "Drivers", "name": "Yield curve, yesterday's move", "verdict": "no influence", "nums": "R\u00b2 \u2248 0.00-0.01 on SPY's daily move / gap", "script": "spy_drivers.py"}, {"area": "Drivers", "name": "Fed days", "verdict": "fact", "nums": "day moves only ~6% bigger (2016-26) but the 2-4pm range is ~4.6\u00d7 normal", "script": "spy_drivers.py, test_event_reactions.py"}, {"area": "Intraday", "name": "Pool odds (which pool gets hit first)", "verdict": "holds", "nums": "called 10/30/50/71/90% \u2192 actual 9/27/52/69/88% (1,668 checks)", "script": "pool_odds_test.js"}, {"area": "Intraday", "name": "S1 gap-and-go (calls)", "verdict": "holds (20y)", "nums": "gap-ups >0.6% closed above the open 60-62% of the time (~600 days)", "script": "TARS_OPTIONS_LIVE.md"}, {"area": "Intraday", "name": "S2 stretched dip, as traded", "verdict": "fails", "nums": "\u22120.11 pts/trade, 39% wins (n=95 OOS); still \u22120.07 on good-score days", "script": "s2_context.py, setup_x_score.py"}, {"area": "Intraday", "name": "Next-hour model from 10:30", "verdict": "fails", "nums": "9 intraday inputs + day score: no edge in either half", "script": "predict_lab2.py"}, {"area": "Intraday", "name": "BOS / CHoCH / sweeps (\"Godmode\")", "verdict": "fails", "nums": "BOS \u22120.05, CHoCH +0.01, sweep+CHoCH \u22120.21 pts (OOS)", "script": "godmode_test.py"}, {"area": "Intraday", "name": "ORB30, squeeze, VWAP \u00b11\u03c3 fade, buying pressure", "verdict": "fails", "nums": "\u22120.09 / \u22120.13 / \u22120.06 / \u22120.03 pts", "script": "market_lab.py \u00a76,8,9,19"}, {"area": "Intraday", "name": "Time of day, last hour, lunch, intraday momentum", "verdict": "fails", "nums": "signs flip between halves", "script": "market_lab.py \u00a75,16-18"}, {"area": "Cross-market", "name": "More inputs (14 stocks, curve, put/call, Asia)", "verdict": "fails", "nums": "no better tails than the 10-input day score", "script": "predict_lab2.py"}, {"area": "Calendar", "name": "Day of week, turn of month, week after expiry", "verdict": "fails", "nums": "flip or vanish between decades", "script": "market_lab.py \u00a73,11,14"}];
+let unDr = null, DRQ = {};
+function startDrivers(mcp) {
+  if (unDr) { unDr(); unDr = null; }
+  unDr = mcp.watchTool(SERVER, "get_equity_quotes", {symbols: [...DRIVERS.map(d => d[0]), "SPY"]}, ev => {
+    if (ev.type !== "data") return;
+    const p = ev.result.payload, d = p && (p.data || p);
+    (d && d.results || []).forEach(r => { const q = r.quote; if (q && +q.last_trade_price > 0) DRQ[q.symbol] = {px: +q.last_trade_price, pc: +(q.adjusted_previous_close || q.previous_close), t: new Date(q.venue_last_trade_time || Date.now())}; });
+    DRQ._t = new Date(); renderDrivers();
+  }, {refetchInterval: 15000, cache: {staleTime: 12000}});
+}
+function renderDrivers() {
+  const spy = DRQ.SPY; if (!spy) return;
+  const rows = DRIVERS.filter(([s]) => DRQ[s]).map(([s, w]) => { const q = DRQ[s], ch = q.px / q.pc - 1; return {s, w, ch, pts: w * ch * spy.pc}; });
+  const tot = rows.reduce((a, r) => a + r.pts, 0), spyPts = spy.px - spy.pc, mx = Math.max(0.01, ...rows.map(r => Math.abs(r.pts)));
+  rows.sort((a, b) => Math.abs(b.pts) - Math.abs(a.pts));
+  const f = (v, d = 2) => (v >= 0 ? "+" : "") + v.toFixed(d);
+  $("#drTab").innerHTML = "<thead><tr><th>Name</th><th>Weight</th><th>Today</th><th>Push on SPY</th><th></th></tr></thead><tbody>" +
+    rows.map(r => `<tr><td>${r.s}</td><td class="n">${(100 * r.w).toFixed(1)}%</td><td class="n ${r.ch >= 0 ? "long" : "short"}">${f(100 * r.ch)}%</td><td class="n ${r.pts >= 0 ? "long" : "short"}">${f(r.pts)} pts</td><td><span class="bar" style="width:${Math.round(60 * Math.abs(r.pts) / mx)}px;background:var(${r.pts >= 0 ? "--up" : "--down"})"></span></td></tr>`).join("") +
+    `<tr><td><b>Top 10</b></td><td class="n">${(100 * rows.reduce((a, r) => a + r.w, 0)).toFixed(0)}%</td><td></td><td class="n"><b>${f(tot)} pts</b></td><td class="muted">of SPY's ${f(spyPts)} (${spyPts ? Math.round(100 * tot / spyPts) : 0}%)</td></tr>` +
+    `<tr><td colspan="5" class="muted">Rest of the market: ${f(spyPts - tot)} pts. ${Math.abs(spyPts - tot) > Math.abs(tot) ? "Broad move: the other 490 are doing most of it." : "Led by the giants."}</td></tr></tbody>`;
+  $("#drAge").textContent = "· " + DRQ._t.toLocaleTimeString();
+}
+const usd = v => (v < 0 ? "−$" : "+$") + Math.abs(v).toFixed(2);
+function renderStatic() {
+  const per = k => STUDY[k] || {};
+  const keys = Object.keys(STUDY).filter(k => per(k)["2016-26"] && per(k)["2016-26"].r2 !== undefined).sort((a, b) => per(b)["2016-26"].r2 - per(a)["2016-26"].r2).slice(0, 14);
+  $("#drStudy").innerHTML = "<thead><tr><th>Driver</th><th>2006-15</th><th>2016-26</th><th></th></tr></thead><tbody>" + keys.map(k => { const a = per(k)["2006-15"] || {}, b = per(k)["2016-26"];
+    return `<tr><td>${k}</td><td class="n">${a.r2 !== undefined ? Math.round(100 * a.r2) + "%" : "–"}</td><td class="n">${Math.round(100 * b.r2)}%</td><td><span class="bar" style="width:${Math.round(80 * b.r2)}px;background:var(--accent)"></span></td></tr>`; }).join("") + "</tbody>";
+  const st = SLOT.state || {};
+  $("#slotS").innerHTML = [["Buffer", `$${(st.buffer || 0).toFixed(2)} of $${st.buffer_start || 500}`], ["Realized", usd(st.realized || 0)], ["Mood", st.mood || "–"], ["Losses in a row", st.loss_streak ?? "–"], ["Open position", st.open ? esc(`${st.open.contract} @ ${st.open.entry}`) : "none"], ["Book as of", SLOT.built]].map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("");
+  $("#slotT").innerHTML = "<thead><tr><th>#</th><th>Date</th><th>Setup</th><th>Contract</th><th>In → out</th><th>Result</th></tr></thead><tbody>" + (SLOT.trades || []).map(t => `<tr><td>${esc(t.slot_trade_no)}</td><td>${esc(t.date)}</td><td>${esc(t.setup)}</td><td>${esc(t.contract)}</td><td class="n">${t.entry} → ${t.exit ?? "open"}</td><td class="n ${t.result > 0 ? "long" : "short"}">${t.result == null ? "–" : usd(t.result)}</td></tr>`).join("") + "</tbody>";
+  renderResearch("all");
+}
+function renderResearch(flt) {
+  const cls = v => /fail|no influence/.test(v) ? "fails" : /fact/.test(v) ? "fact" : "holds";
+  $("#resT").innerHTML = "<thead><tr><th>Idea</th><th>Verdict</th><th>Numbers</th></tr></thead><tbody>" + RESEARCH.filter(r => flt === "all" || cls(r.verdict) === flt || (flt === "holds" && cls(r.verdict) === "fact"))
+    .map(r => `<tr><td><b>${r.name}</b><br><span class="muted">${r.area} · ${r.script}</span></td><td class="v-${cls(r.verdict)}">${r.verdict}</td><td>${r.nums}</td></tr>`).join("") + "</tbody>";
+}
+document.querySelectorAll("[data-rf]").forEach(b => b.addEventListener("click", () => { document.querySelectorAll("[data-rf]").forEach(x => x.setAttribute("aria-pressed", x === b)); renderResearch(b.dataset.rf); }));
+renderStatic();
 // VIX (Robinhood index quote, every 30 s) for the Edge board
 const VIX_ID = "3b912aa2-88f9-4682-8ae3-e39520bdf4db"; let unVix = null;
 function startVix(mcp) {
