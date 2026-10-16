@@ -84,8 +84,9 @@ export function stageText(slot: Slot, lastAsk: string, now: Date, lastFocus: str
     focus.push(w.id); w.v *= 0.35
   }
   const head = `[TARS Stage · ${t.day} ${t.hm} ET · mood ${mood}${slot.halted ? ' · HALTED' : ''}]`
+  const purpose = 'Purpose (PURPOSE.md): help Nolan become a calm, disciplined, profitable trader, keep what he has safe, and tell him the truth. Protect first.'
   const body = chain.length ? chain.join('\n') : 'Quiet mind: nothing urgent on the stage.'
-  return { text: `${head}\nTrain of thought before answering (run the Stage step in skills/tars/SKILL.md; act on it in this order if it bears on the message; repo state only, fetch live data for anything about the account):\n${body}`, focus }
+  return { text: `${head}\n${purpose}\nTrain of thought before answering (run the Stage step in skills/tars/SKILL.md; act on it in this order if it bears on the message; repo state only, fetch live data for anything about the account):\n${body}`, focus }
 }
 
 // ---------- Emotion engine (skills/tars/EMOTIONS.md) ----------

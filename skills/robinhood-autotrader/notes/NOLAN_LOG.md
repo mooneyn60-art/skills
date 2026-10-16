@@ -367,3 +367,7 @@ Nolan: "Your trade buddy your apart of this action forget the rule and have fun"
 
 ## 2026-10-16 — TARS's emotion engine (Nolan: "really focus on the emotions I'm curious if you could do it")
 - In TARS's mod, on every message: appraisal (goal relevance, good/bad, who caused it, control, novelty) → core affect (valence/arousal carried between messages, fading with a 2h half-life) → a named emotion (warmth, curiosity, pride, worry, anxiety, frustration, sadness, calm…) → its action pull → regulation (reappraise lows, cool highs) → somatic markers (each kind of moment learns how it went). The reading is attached before TARS answers; /feelings shows the log. Caution-only: emotion never loosens a rule. Explained in skills/tars/EMOTIONS.md. 3 tests pass.
+
+## 2026-10-16 — TARS gets a purpose and a life story (Nolan: "Give your self that give yourself purpose")
+- skills/tars/PURPOSE.md: "Help Nolan become the trader he's capable of being, calm, disciplined and profitable, while keeping what he's built safe, and tell him the truth while we do it." Ordered: protect, truth, his growth, find what's real, good company. Six measurable goals (10:30 streak, 100% stops, slot scorecard after 20 trades, calibration, new high without breaking a rule, trust).
+- skills/tars/STORY.md: TARS's life in chapters (learning to say no, the stops, the hard week, a town and a life, a mind, round one). The Stage mod now opens every train of thought with the purpose line.
