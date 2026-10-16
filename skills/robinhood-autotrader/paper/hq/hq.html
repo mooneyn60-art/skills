@@ -316,6 +316,7 @@ function lines(id) {
       const s = STATIC.slot;
       if (s.halted) return ["Hard stop hit. I'm benched until Nolan says go."];
       if (L.optPos.some(p => tarsOwned(p.option_id))) return ["I'm in a trade! Stop's resting at −35%.", "Following the plan. No touching."];
+      if (s.mood && s.mood !== "calm") return [s.mood === "stressed" ? `Stressed: ${s.loss_streak} losses in a row. Max $100 a trade, one entry, gap-and-go only.` : "A bit tense after a loss. Half size today, and the trend has to agree.", "That's my stress doing its job: slow down, don't chase."];
       if (!open) return ["Market's closed. Rulebook says: rest.", `Buffer ${money(s.buffer)}. Ready for tomorrow.`];
       if (etMin < 630) return ["Waiting for 10:30. Rules are rules.", "Nolan's record before 10:30: 0 for 5. I'm not touching it."];
       if (etMin > 870) return ["Entry window's closed. No new trades today.", "Sitting out is a position too."];
@@ -702,6 +703,8 @@ function emotionOf(id) {
       if (night) return {emo: "curious", why: "Owls stay up. Watching Asia open."};
       return Math.abs(chg) > 1 ? {emo: "excited", why: `SPY moved ${pct(chg)}.`} : {emo: "curious", why: "Scanning the horizon."}; }
     case "pit": if (STATIC.slot.halted) return {emo: "worried", why: "Benched by the hard stop."};
+      if (STATIC.slot.mood === "stressed") return {emo: "worried", why: `${STATIC.slot.loss_streak} losses in a row: trading small until a win.`};
+      if (STATIC.slot.mood === "tense") return {emo: "focused", why: "Tense after a loss: half size, extra checks."};
       if (night || !open) return {emo: "sleepy", why: "Market's closed. Rulebook says rest."};
       if (m < 630) return {emo: "bored", why: "Itching to trade, but it's before 10:30."};
       if (m > 870) return {emo: "calm", why: "Entry window's closed for today."};

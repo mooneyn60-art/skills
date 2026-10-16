@@ -22,6 +22,20 @@ The R6 drawdown breaker fired at the 10/15 close. Nolan's words: "Your trade bud
 4. Hard stop: if the buffer falls to $300 or less, stop trading and report to Nolan. Only Nolan restarts it.
 5. No size increase before 40 trades AND a positive bootstrap 90% lower bound after costs.
 
+## Mood (Nolan, 2026-10-16: "So make that for yourself")
+TARS's stress level changes how TARS trades, the way a person's does after a loss, but only toward caution. Mood can shrink size; it never raises anything above the money rules. A win does not make TARS bolder (no hot hand).
+Kept in `paper/live_options/state.json` as `mood` and `loss_streak` (losing trades in a row, across days).
+
+| Mood | When | Max premium | Entries per day | Extra |
+|---|---|---|---|---|
+| calm | loss_streak 0 and buffer above $450 | $500 (money rule 2) | 2 | none |
+| tense | loss_streak 1, or buffer $375-450 | $250 | 2 | the Trend row must agree; re-check the stop is resting at every check |
+| stressed | loss_streak 2 or more, or buffer below $375 | $100 | 1 | S1 only on gap days; skip S2 |
+| halted | buffer $300 or less (money rule 4) | 0 | 0 | only Nolan restarts |
+
+Updating: after every closed trade, a loss adds 1 to loss_streak and a win (net after fees) resets it to 0. Then mood is recomputed from the table; the worse of the two triggers wins. Recovery is one step per win: stressed → tense → calm.
+Every check line and every message to Nolan states the mood and what it changed.
+
 ## What TARS trades
 - SPY options expiring the NEXT trading day (1DTE). Why: about half the hourly time decay of 0DTE at midday, less whipsaw, no 3:45 force-close. Positions are still closed the same day.
 - Strike: at the money or one strike in the money (delta 0.50-0.60). Spread no wider than $0.03 and 3% of mid, else skip.
@@ -47,9 +61,9 @@ No put setups: none of the downside ideas held up out of sample (+2σ fades and 
 Scheduled, unattended checks were refused by the session's safety check (creating a recurring trigger or a timed follow-up for live options trading). TARS does not work around that. So checks run only when Nolan is in the conversation: he messages "TARS check" (or anything) during market hours and TARS runs the check below, live, with him watching. An open position always has its stop resting at Robinhood, so it is protected between checks; at the last check of the day TARS closes it, and if no check happens after 15:00 ET the stop and the 1DTE expiry (not same-day) limit the damage. If Nolan wants unattended checks, he can add a permission rule allowing scheduled tasks in his Claude Code settings.
 
 ## Each check
-1. Read buffer state from `paper/live_options/state.json`; read SPY minute bars (get_equity_historicals) and the prior day; compute VWAP ±2σ, 5-min RSI, open, gap, 20-day average (daily bars).
+1. Read buffer state and mood from `paper/live_options/state.json` (recompute mood from the Mood table); read SPY minute bars (get_equity_historicals) and the prior day; compute VWAP ±2σ, 5-min RSI, open, gap, 20-day average (daily bars).
 2. If a position is open: apply the exit rules; if exiting, cancel the stop first, then sell at mid (walk $0.01 twice, then bid).
-3. If flat, inside the entry window, under the day/hard stops: check S1 then S2. If one fires: get_option_instruments for the 1DTE ATM strike, get_option_quotes, check the spread, review_option_order, place_option_order (fresh UUID ref_id), then place the stop (money rule 2).
+3. If flat, inside the entry window, under the day/hard stops: check S1 then S2. If one fires and mood allows it (Mood table: premium cap, entries, setups): get_option_instruments for the 1DTE ATM strike, get_option_quotes, check the spread, review_option_order, place_option_order (fresh UUID ref_id), then place the stop (money rule 2).
 4. Log every check in one line to `paper/live_options/checks.jsonl` (also "no trade, because ..."). Log every trade to `paper/live_options/trades.jsonl` with setup, SPY context, prices, fees, result.
 5. Tell Nolan after each entry and exit: what I saw, why the rule fired, what I bought, where the exits are, what happened. Plain words.
 
