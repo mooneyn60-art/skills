@@ -98,6 +98,12 @@ dt{color:var(--muted)} dd{margin:0;font-family:var(--mono);font-variant-numeric:
 textarea{width:100%;resize:vertical;min-height:54px;font-family:var(--body)}
 .ans{white-space:pre-wrap;font-size:.9rem;line-height:1.5;max-height:420px;overflow:auto;border-left:3px solid var(--accent);padding-left:10px}
 .ans .q{color:var(--muted);font-size:.8rem;display:block;margin-top:10px}
+.tgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media (max-width:900px){.tgrid{grid-template-columns:1fr}}.tcol{min-width:0}
+.tread{border-left:3px solid var(--accent);padding:6px 10px;background:var(--bg);border-radius:4px;white-space:pre-wrap}.tread b{font-family:var(--display);letter-spacing:.05em}
+.chat{max-height:260px;overflow-y:auto;display:flex;flex-direction:column;gap:6px;padding:4px 0}.msg2{padding:6px 9px;border-radius:6px;max-width:92%;white-space:pre-wrap;overflow-wrap:anywhere}
+.msg2.me{align-self:flex-end;background:var(--bg);border:1px solid var(--line)}.msg2.tars{align-self:flex-start;border:1px solid var(--accent)}.msg2 small{display:block;color:var(--muted);font-size:.72rem}
+.chatf{display:flex;gap:6px;margin-top:6px}.chatf input{flex:1;min-width:0;font:inherit;padding:6px 8px;border:1px solid var(--line);border-radius:4px;background:var(--panel);color:var(--ink)}.chatf button{font:inherit;padding:6px 12px;border:1px solid var(--accent);background:var(--panel);color:var(--accent);border-radius:4px;cursor:pointer}
+.nostop{color:var(--down);font-weight:600}
 .pnav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;flex-wrap:wrap;gap:4px 14px;padding:8px 0;background:var(--bg);border-bottom:1px solid var(--line);font-family:var(--display);letter-spacing:.06em;text-transform:uppercase}
 .pnav a{color:var(--muted);text-decoration:none}.pnav a:hover{color:var(--accent)}
 .tscroll{overflow-x:auto}.dtab{width:100%;border-collapse:collapse;font-size:.85rem}.dtab th,.dtab td{text-align:left;padding:4px 6px;border-bottom:1px solid var(--grid);vertical-align:top}
@@ -115,8 +121,24 @@ h3.sub{font-family:var(--display);font-weight:500;font-size:.95rem;letter-spacin
     <div class="status"><i class="dot" id="dot"></i><span id="stat">Connecting to Robinhood…</span></div>
   </header>
 
-  <nav class="pnav" aria-label="Platform sections"><a href="#chartP">Chart</a><a href="#edgeP">Edge</a><a href="#driversP">Drivers</a><a href="#tradeP">Trade</a><a href="#slotP">Slot</a><a href="#researchP">Research</a><a href="#guide">Guide</a></nav>
+  <nav class="pnav" aria-label="Platform sections"><a href="#tarsP">TARS</a><a href="#chartP">Chart</a><a href="#edgeP">Edge</a><a href="#driversP">Drivers</a><a href="#acctP">Account</a><a href="#tradeP">Trade</a><a href="#slotP">Slot</a><a href="#researchP">Research</a><a href="#guide">Guide</a></nav>
   <div class="banner" id="banner" hidden></div>
+
+  <section class="panel tars" id="tarsP" aria-labelledby="tch">
+    <h2 id="tch">TARS · console <span class="muted" id="tSeen"></span></h2>
+    <div class="tgrid">
+      <div class="tcol">
+        <div class="tread" id="tRead"><span class="muted">Waiting for TARS's read…</span></div>
+        <h3 class="sub">TARS's calls (graded)</h3>
+        <div class="tscroll"><table class="dtab" id="tPred"></table></div>
+      </div>
+      <div class="tcol">
+        <div class="chat" id="tChat" aria-live="polite"><p class="muted">No messages yet.</p></div>
+        <form id="tChatF" class="chatf"><input id="tChatI" maxlength="500" placeholder="Message TARS (read on the next check-in)" aria-label="Message TARS"><button type="submit">Send</button></form>
+        <p class="note" id="tLink">While this page is open, it sends TARS a snapshot of the desk every minute, so TARS can see what you see. TARS writes its read and replies back here.</p>
+      </div>
+    </div>
+  </section>
 
   <section class="panel" id="chartP">
     <div class="toolbar" role="group" aria-label="Chart layers">
@@ -191,6 +213,12 @@ h3.sub{font-family:var(--display);font-weight:500;font-size:.95rem;letter-spacin
       <p class="note">Liquidity pools are equal highs or lows (and yesterday's / the opening range's extremes) where stops tend to sit; "swept" means price ran through and closed back inside. Fibonacci levels are drawn from today's main swing for reference; in our 20-year SPY test they held no better than ordinary levels.</p>
     </section>
   </div>
+
+  <section class="panel" id="acctP" aria-labelledby="ach">
+    <h2 id="ach">Account · stocks and their stops <span class="muted" id="aAge"></span></h2>
+    <div class="tscroll"><table class="dtab" id="aTab"><tbody><tr><td class="muted">Loading positions…</td></tr></tbody></table></div>
+    <p class="note">Your Agentic account's stock positions with live prices (every 30 s) and the stop order resting under each one. A position with no stop is flagged red. Read-only: nothing here places or cancels orders.</p>
+  </section>
 
   <div class="grid3" id="tradeP">
     <section class="panel" aria-labelledby="tkh">
@@ -883,6 +911,69 @@ function startTicks(mcp) {
     apply();
   }, {refetchInterval: 5000, cache: {staleTime: 4000}});
 }
+// ---------- TARS console: shared db between this page and TARS (the agent reads/writes it with ArtifactData) ----------
+const PRED = __PRED__;
+let DB = null, canWrite = false, lastSnap = null;
+(async () => {
+  const p = PRED, done = p.filter(x => x.hit === 0 || x.hit === 1), hits = done.filter(x => x.hit === 1).length;
+  $("#tPred").innerHTML = "<thead><tr><th>Call</th><th>Odds</th><th>Result</th></tr></thead><tbody>" + p.slice(-8).reverse().map(x => `<tr><td>${esc(x.what)}</td><td class="n">${Math.round(100 * x.p)}%</td><td class="n ${x.hit === 1 ? "long" : x.hit === 0 ? "short" : "muted"}">${x.hit === 1 ? "hit" : x.hit === 0 ? "miss" : "open"}</td></tr>`).join("") +
+    `<tr><td colspan="3" class="muted">Graded: ${hits}/${done.length} hit${done.length ? ` · Brier ${(done.reduce((a, x) => a + (x.p - x.hit) ** 2, 0) / done.length).toFixed(3)} (lower is better; 0.25 = coin flip)` : ""}</td></tr></tbody>`;
+  DB = await CL.use("db");
+  if (!DB) { $("#tLink").textContent = "The TARS link needs this page opened in the claude.ai app or site (shared data unavailable here)."; $("#tChatF").hidden = true; return; }
+  const user = await CL.use("user"); const cw = user ? await user.can("data.write") : null; canWrite = cw !== false;
+  if (!canWrite) $("#tChatF").hidden = true;
+  DB.doc("tars/now").onSnapshot(sn => { const d = sn.exists ? sn.data() : null; if (!d) return;
+    $("#tRead").innerHTML = `<b>${esc(d.mood || "")}</b> · <span class="muted">${esc(d.updated || "")}</span>\n${esc(d.read || "")}${d.plan ? "\n\nPlan: " + esc(d.plan) : ""}`; }, () => {});
+  DB.collection("chat").orderBy("ts", "desc").limit(30).onSnapshot(q => {
+    const m = q.docs.map(x => x.data()).reverse();
+    $("#tChat").innerHTML = m.length ? m.map(x => `<div class="msg2 ${x.from === "TARS" ? "tars" : "me"}">${esc(x.text)}<small>${esc(x.from)} · ${new Date(x.ts).toLocaleString()}</small></div>`).join("") : '<p class="muted">No messages yet.</p>';
+    const c = $("#tChat"); c.scrollTop = c.scrollHeight; }, () => {});
+  DB.doc("desk/seen").onSnapshot(sn => { const d = sn.exists ? sn.data() : null; if (d && d.ts) $("#tSeen").textContent = "· TARS last looked " + new Date(d.ts).toLocaleTimeString(); }, () => {});
+  $("#tChatF").addEventListener("submit", async e => { e.preventDefault(); const v = $("#tChatI").value.trim(); if (!v) return;
+    try { await DB.collection("chat").add({from: "Nolan", text: v.slice(0, 500), ts: Date.now(), status: "new"}); $("#tChatI").value = ""; }
+    catch (err) { $("#tLink").textContent = err && err.code === "quota_exceeded" ? "Chat is full; ask TARS to clear old messages." : "Couldn't send (" + (err && err.code || "error") + ")."; } });
+  setInterval(sendSnapshot, 60000); setTimeout(sendSnapshot, 8000);
+})();
+function deskSnapshot() {
+  if (!S.b1.length) return null;
+  const lb = S.b1[S.b1.length - 1], rows = el => [...document.querySelectorAll(el + " dt")].map(dt => dt.textContent + ": " + (dt.nextElementSibling ? dt.nextElementSibling.textContent : ""));
+  return {ts: Date.now(), day: S.day, spy: lb.c, vwap: +(lb.vwap || 0).toFixed(2), rsi: +(lb.rsi || 0).toFixed(1), hod: Math.max(...S.b1.map(b => b.h)), lod: Math.min(...S.b1.map(b => b.l)),
+    vix: S.vix ? S.vix.v : null, dayScore: (() => { const d = dayScore(); return d === null ? null : +d.toFixed(3); })(), edge: rows("#edge"), context: rows("#ctx").slice(0, 14),
+    drivers: Object.keys(DRQ).filter(k => k !== "_t" && k !== "SPY").map(k => ({s: k, ch: +(100 * (DRQ[k].px / DRQ[k].pc - 1)).toFixed(2)})),
+    signals: (S.sigs || []).slice(-5).map(g => ({name: g.name || g.kind || "", side: g.side, at: g.hm || ""})),
+    stocks: (A.rows || []).map(r => ({s: r.s, px: r.px, stop: r.stop, pct: r.pct}))};
+}
+async function sendSnapshot() {
+  if (!DB || !canWrite || document.hidden) return;
+  const sn = deskSnapshot(); if (!sn) return;
+  try { const full = snapshot(); if (full) sn.desk = JSON.parse(JSON.stringify(full)); } catch (e) {}
+  if (JSON.stringify(sn).length > 200000) delete sn.desk;
+  try { await DB.doc("desk/snapshot").set(sn); lastSnap = new Date(); $("#tLink").textContent = "TARS can see this desk · snapshot sent " + lastSnap.toLocaleTimeString() + " (every minute while open)."; } catch (e) {}
+}
+// ---------- Account: stock positions + their resting stops (read-only) ----------
+const A = {rows: [], un: null};
+async function startAccount() {
+  if (!T.mcp || !T.acct) return;
+  let pos = [], ords = [];
+  try { pos = ((await call("get_equity_positions", {account_number: T.acct.account_number}, {cache: {staleTime: 60000}})).positions || []).filter(p => +p.quantity > 0);
+        ords = ((await call("get_equity_orders", {account_number: T.acct.account_number, state: "confirmed"}, {cache: {staleTime: 60000}})).orders || []); }
+  catch (e) { $("#aTab").innerHTML = `<tbody><tr><td class="muted">${esc(actErr ? actErr(e) : "Couldn't load positions")}</td></tr></tbody>`; return; }
+  const stops = {}; ords.filter(o => o.side === "sell" && o.trigger === "stop").forEach(o => { stops[o.symbol] = +o.stop_price; });
+  A.pos = pos; A.stops = stops;
+  if (A.un) A.un();
+  if (!pos.length) { $("#aTab").innerHTML = '<tbody><tr><td class="muted">No stock positions.</td></tr></tbody>'; return; }
+  A.un = T.mcp.watchTool(SERVER, "get_equity_quotes", {symbols: pos.map(p => p.symbol)}, ev => {
+    if (ev.type !== "data") return; const p = ev.result.payload, d = p && (p.data || p), q = {};
+    (d && d.results || []).forEach(r => { if (r.quote) q[r.quote.symbol] = r.quote; });
+    A.rows = A.pos.map(p => { const qq = q[p.symbol] || {}, px = +qq.last_trade_price || null, pc = +(qq.adjusted_previous_close || 0), avg = +p.average_buy_price, st = A.stops[p.symbol] || null;
+      return {s: p.symbol, n: +p.quantity, avg, px, day: px && pc ? 100 * (px / pc - 1) : null, pct: px && avg ? 100 * (px / avg - 1) : null, stop: st, room: px && st ? 100 * (px / st - 1) : null}; });
+    const f = (v, d = 2, sfx = "") => v == null ? "–" : (v >= 0 ? "+" : "") + v.toFixed(d) + sfx;
+    $("#aTab").innerHTML = "<thead><tr><th>Stock</th><th>Shares</th><th>Avg cost</th><th>Price</th><th>Today</th><th>Since buy</th><th>Stop</th><th>Room to stop</th></tr></thead><tbody>" +
+      A.rows.map(r => `<tr><td>${esc(r.s)}</td><td class="n">${r.n}</td><td class="n">${r.avg.toFixed(2)}</td><td class="n">${r.px ? r.px.toFixed(2) : "–"}</td><td class="n ${r.day >= 0 ? "long" : "short"}">${f(r.day, 2, "%")}</td><td class="n ${r.pct >= 0 ? "long" : "short"}">${f(r.pct, 1, "%")}</td><td class="n">${r.stop ? r.stop.toFixed(2) : '<span class="nostop">NO STOP</span>'}</td><td class="n ${r.room !== null && r.room < 2 ? "warn" : ""}">${r.room == null ? "–" : r.room.toFixed(1) + "%"}</td></tr>`).join("") +
+      `<tr><td colspan="8" class="muted">${A.rows.filter(r => !r.stop).length ? '<span class="nostop">' + A.rows.filter(r => !r.stop).length + " without a stop</span>" : "Every position has a stop resting."}</td></tr></tbody>`;
+    $("#aAge").textContent = "· " + new Date().toLocaleTimeString();
+  }, {refetchInterval: 30000, cache: {staleTime: 25000}});
+}
 // ---------- platform: drivers (live), slot book and research library (baked at build) ----------
 const DRIVERS = [["NVDA", 0.075], ["AAPL", 0.075], ["MSFT", 0.058], ["GOOGL", 0.056], ["AMZN", 0.037], ["META", 0.024], ["AVGO", 0.023], ["TSLA", 0.015], ["JPM", 0.013], ["BRK.B", 0.011]];
 const STUDY = __DRIVERS_STUDY__, SLOT = __SLOT__, RESEARCH = __RESEARCH__;
@@ -1041,6 +1132,7 @@ async function startTrading() {
     T.acct = (a.accounts || []).find(x => x.agentic_allowed && /option_level_[23]/.test(x.option_level || "")) || null;
   } catch (e) { $("#tAcct").innerHTML = actErr(e); return; }
   if (!T.acct) { $("#tAcct").textContent = "None of your Robinhood accounts is open to trading from here with options."; $("#tReview").disabled = true; return; }
+  startAccount();
   $("#tAcct").innerHTML = `Account <b>${esc(T.acct.nickname || T.acct.brokerage_account_type)}</b> ••••${esc(T.acct.account_number.slice(-4))} · options level ${esc(T.acct.option_level.slice(-1))}`;
   try {
     const c = await call("get_option_chains", {underlying_symbol: "SPY"}, {cache: {staleTime: 300000}});

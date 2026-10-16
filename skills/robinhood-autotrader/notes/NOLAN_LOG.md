@@ -416,3 +416,8 @@ Nolan: "Your trade buddy your apart of this action forget the rule and have fun"
   - Guide.
   Built by `datafarm/build_live_desk.py`, which bakes in the books and the research.
 - 2026-10-16 1:17pm ET check: synced c44ab54 (other session: slot trade #2 closed on S2 invalidation; market lab, prediction engine, desk platform). PREFLIGHT: 6 equities, all 6 broker stops hold full quantity; no equity orders today; options: WBD 10/16 x5 only (slot flat). Broad selloff, SPY 763.08 (-1.13%). PLTR 185.53 (-7.5% day) is 4.0% over 178.42, closest; BE 223.73 (-5.3%, 5.6% over 211.85); ORCL 128.43 (-4.5%, 7.1% over); NVDA 215.34 (8.5% over); HALO 121.28 (10.0% over breakeven); SN 189.81 (14.6%). Inside the 4% watch line only PLTR; no stop within 2%, no push.
+- 2026-10-16 ~14:20 ET: Nolan: "Make sure data you have is up to date to present day also and build me a full trading desk with everything combined a 1 stop shop and build yourself into it so you can actively use it and see it maybe make your own computer".
+  - Data: daily bars for SPY + 14 stocks filled 10/09-10/15 from Robinhood (they ended 10/08). World indexes/VIX were already through 10/15. The 1-min SPY file ends 10/15 14:25 ET and gets topped up after the close.
+  - Platform v2 (same link): TARS console (TARS's read, graded calls, chat), Account panel (live stock P&L with each resting stop, a "NO STOP" flag), Chart, Edge, Drivers, Trade, Slot, Research, Guide.
+  - The desk sends TARS a snapshot every minute through its shared database while it's open, and TARS writes its read and replies back. How-to: skills/tars/SKILL.md "The platform".
+  - Stop check 13:15: all 6 stock stops resting.

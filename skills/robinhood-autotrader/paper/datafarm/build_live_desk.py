@@ -10,8 +10,10 @@ trades = [json.loads(l) for l in open(lo / "trades.jsonl") if l.strip()]
 keep = ("slot_trade_no", "date", "setup", "contract", "entry", "exit", "result")
 slot = {"state": json.load(open(lo / "state.json")), "trades": [{k: t.get(k) for k in keep} for t in trades], "built": datetime.datetime.now().strftime("%Y-%m-%d %H:%M UTC")}
 research = json.load(open(rs / "research_index.json"))
+pred = [json.loads(l) for l in open(paper.parent.parent / "tars" / "PREDICTIONS.jsonl") if l.strip()]
+pred = [{k: p.get(k) for k in ("id", "what", "p", "hit")} for p in pred]
 html = (here / "live_desk.html").read_text()
-for k, v in (("__RECORD__", rec), ("__DRIVERS_STUDY__", study), ("__SLOT__", slot), ("__RESEARCH__", research)):
+for k, v in (("__RECORD__", rec), ("__DRIVERS_STUDY__", study), ("__SLOT__", slot), ("__RESEARCH__", research), ("__PRED__", pred)):
     html = html.replace(k, json.dumps(v))
 (here / "live_desk.build.html").write_text(html)
 print("built", len(html), "bytes;", len(research), "research entries;", len(slot["trades"]), "slot trades")
