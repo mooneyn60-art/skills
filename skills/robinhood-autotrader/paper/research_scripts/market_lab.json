@@ -1,0 +1,226 @@
+{
+ "1. Where the return comes from: overnight vs day session (% per day)": {
+  "overnight 2006-15": {
+   "n": 2513,
+   "mean": 0.0155,
+   "hit": 54,
+   "t": 1.05
+  },
+  "overnight 2016-26": {
+   "n": 2705,
+   "mean": 0.0287,
+   "hit": 56,
+   "t": 2.05
+  },
+  "day session 2006-15": {
+   "n": 2513,
+   "mean": 0.0042,
+   "hit": 54,
+   "t": 0.2
+  },
+  "day session 2016-26": {
+   "n": 2705,
+   "mean": 0.0202,
+   "hit": 54,
+   "t": 1.25
+  }
+ },
+ "2. Gap fill: chance the gap closes the same day (shown as fill rate \u2212 50%)": {
+  "0.1-0.3% gaps 2006-15 (fill=1)": {
+   "n": 747,
+   "mean": 0.2684,
+   "hit": 77,
+   "t": 17.38
+  },
+  "0.1-0.3% gaps 2016-26 (fill=1)": {
+   "n": 867,
+   "mean": 0.2059,
+   "hit": 71,
+   "t": 13.3
+  },
+  "0.3-0.6% gaps 2006-15 (fill=1)": {
+   "n": 578,
+   "mean": 0.109,
+   "hit": 61,
+   "t": 5.37
+  },
+  "0.3-0.6% gaps 2016-26 (fill=1)": {
+   "n": 723,
+   "mean": -0.0062,
+   "hit": 49,
+   "t": -0.33
+  },
+  "0.6-1.0% gaps 2006-15 (fill=1)": {
+   "n": 301,
+   "mean": -0.0548,
+   "hit": 45,
+   "t": -1.91
+  },
+  "0.6-1.0% gaps 2016-26 (fill=1)": {
+   "n": 357,
+   "mean": -0.1695,
+   "hit": 33,
+   "t": -6.8
+  },
+  "1.0-9% gaps 2006-15 (fill=1)": {
+   "n": 268,
+   "mean": -0.0933,
+   "hit": 41,
+   "t": -3.1
+  },
+  "1.0-9% gaps 2016-26 (fill=1)": {
+   "n": 249,
+   "mean": -0.259,
+   "hit": 24,
+   "t": -9.54
+  }
+ },
+ "3. Calendar effects (close-to-close %)": {
+  "turn of month 2006-15": {
+   "n": 479,
+   "mean": 0.0326,
+   "hit": 52,
+   "t": 0.58
+  },
+  "turn of month 2016-26": {
+   "n": 519,
+   "mean": 0.0711,
+   "hit": 55,
+   "t": 1.52
+  },
+  "other days 2006-15": {
+   "n": 2034,
+   "mean": 0.0272,
+   "hit": 55,
+   "t": 0.92
+  },
+  "other days 2016-26": {
+   "n": 2186,
+   "mean": 0.0515,
+   "hit": 55,
+   "t": 2.13
+  },
+  "monthly opex Friday 2006-15": {
+   "n": 118,
+   "mean": -0.2089,
+   "hit": 47,
+   "t": -1.97
+  },
+  "monthly opex Friday 2016-26": {
+   "n": 125,
+   "mean": -0.2158,
+   "hit": 38,
+   "t": -2.47
+  }
+ },
+ "4. Opex-day range vs other Fridays (day range % minus Friday average)": {
+  "opex Friday range 2006-15": {
+   "n": 118,
+   "mean": 0.016,
+   "hit": 30,
+   "t": 0.12
+  },
+  "opex Friday range 2016-26": {
+   "n": 125,
+   "mean": -0.0886,
+   "hit": 30,
+   "t": -1.2
+  }
+ },
+ "5. Intraday momentum: last 30 min, signed by the first 30 min (incl. overnight gap)": {
+  "last30 signed by first30 OOS": {
+   "n": 133,
+   "mean": 0.1346,
+   "hit": 52,
+   "t": 1.35
+  },
+  "last30 signed by first30 IS": {
+   "n": 31,
+   "mean": -0.1053,
+   "hit": 39,
+   "t": -0.55
+  }
+ },
+ "6. Opening-range breakout (30-min range), after costs": {
+  "ORB30 hold to close OOS": {
+   "n": 131,
+   "mean": -0.0905,
+   "hit": 50,
+   "t": -0.27
+  },
+  "ORB30 hold to close IS": {
+   "n": 31,
+   "mean": -0.5625,
+   "hit": 48,
+   "t": -1.11
+  }
+ },
+ "7. Regime: does the afternoon continue the morning? (split by morning variance ratio)": {
+  "afternoon in morning's direction, VR<=1 OOS": {
+   "n": 101,
+   "mean": 0.3229,
+   "hit": 54,
+   "t": 1.04
+  },
+  "afternoon in morning's direction, VR>1 (trendy) OOS": {
+   "n": 32,
+   "mean": 0.0651,
+   "hit": 56,
+   "t": 0.09
+  },
+  "afternoon in morning's direction, VR<=1 IS": {
+   "n": 20,
+   "mean": -0.4825,
+   "hit": 30,
+   "t": -1.05
+  },
+  "afternoon in morning's direction, VR>1 (trendy) IS": {
+   "n": 11,
+   "mean": -1.0914,
+   "hit": 45,
+   "t": -1.32
+  }
+ },
+ "8. Buying/selling pressure (close location x volume) -> next 30 min": {
+  "pressure |p|>0.5 next 30m OOS": {
+   "n": 70,
+   "mean": -0.03,
+   "hit": 56,
+   "t": -0.17
+  },
+  "pressure |p|>0.5 next 30m IS": {
+   "n": 14,
+   "mean": -0.1666,
+   "hit": 29,
+   "t": -0.6
+  }
+ },
+ "9. Bollinger-inside-Keltner squeeze release -> next 30 min, after costs": {
+  "squeeze release next 30m OOS": {
+   "n": 147,
+   "mean": -0.1293,
+   "hit": 44,
+   "t": -1.35
+  },
+  "squeeze release next 30m IS": {
+   "n": 37,
+   "mean": -0.0642,
+   "hit": 43,
+   "t": -0.55
+  }
+ },
+ "10. Pinning: last hour moves toward the nearest $5 strike? (pts closer)": {
+  "other days: last hour toward $5 strike": {
+   "n": 158,
+   "mean": -0.3201,
+   "hit": 41,
+   "t": -2.88
+  },
+  "opex Fridays: last hour toward $5 strike": {
+   "n": 6,
+   "mean": 0.0679,
+   "hit": 67,
+   "t": 0.23
+  }
+ }
+}

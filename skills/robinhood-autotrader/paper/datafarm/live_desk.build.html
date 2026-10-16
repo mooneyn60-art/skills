@@ -737,7 +737,7 @@ function renderPanels() {
     ["Pool below", below ? `${below.name} ${below.p.toFixed(2)} (−${(lb.c - below.p).toFixed(2)})` : "–"],
     ["Day type so far", `${trendness >= 0.5 ? "Trending" : trendness <= 0.25 ? "Choppy" : "In between"} (${trendness.toFixed(2)})`],
     ["Day range", range.toFixed(2)],
-    ["News today", EVENTS[S.day] ? `<span class="warn">${EVENTS[S.day]}</span>${/FOMC/.test(EVENTS[S.day]) ? " · 2–4pm range runs ~4× normal" : /expiry/.test(EVENTS[S.day]) ? " · price can stick near big strikes; 0DTE premium melts after 2pm" : " · priced into the gap"}` : "None scheduled"],
+    ["News today", EVENTS[S.day] ? `<span class="warn">${EVENTS[S.day]}</span>${/FOMC/.test(EVENTS[S.day]) ? " · 2–4pm range runs ~4× normal" : /expiry/.test(EVENTS[S.day]) ? " · tested lean: monthly-expiry Fridays averaged −0.21% close-to-close, up only 38% of the time (2016-26, n=125; 2006-15 the same: −0.21%). Calls need a better reason today. 0DTE premium melts after 2pm" : " · priced into the gap"}` : "None scheduled"],
     ["Opening gap", (() => { if (!pdc) return "–"; const g = 100 * (bars[0].o - pdc) / pdc, filled = g > 0 ? Math.min(...bars.map(b => b.l)) <= pdc : Math.max(...bars.map(b => b.h)) >= pdc;
       return `${g >= 0 ? "+" : ""}${g.toFixed(2)}% · ${filled ? "filled" : "fills same day " + GAPFILL.find(x => Math.abs(g) < x[0])[1]}`; })()],
     ["Range so far", (() => { const t = +lb.hm.slice(0, 2) * 60 + +lb.hm.slice(3), r = RANGE_DONE.filter(x => t >= x[0]).pop(); return `${range.toFixed(2)} pts vs typical ${TYPICAL_RANGE} · ${r ? "usually " + r[1] + "% of the day's range is in by now" : "most of the range comes before 11:30"}`; })()],
