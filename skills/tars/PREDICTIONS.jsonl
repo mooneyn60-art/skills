@@ -1,4 +1,4 @@
-{"id":"gut2","made":"2026-10-15","what":"Account up more than 1% on Fri 2026-10-16 (Nolan said \"up big\")","p":0.25,"settles":"2026-10-16","source":"notes/GUT_CALLS.md #2","hit":null,"brier":null}
+{"id": "gut2", "made": "2026-10-15", "what": "Account up more than 1% on Fri 2026-10-16 (Nolan said \"up big\")", "p": 0.25, "settles": "2026-10-16", "source": "notes/GUT_CALLS.md #2", "hit": 0, "brier": 0.0625, "surprise": "opposite: account fell ~6% (growth stocks -3 to -7%, slot -59)"}
 {"id": "slot1", "made": "2026-10-16", "what": "Slot trade #1 (S2, SPY 769C) closes green", "p": 0.55, "settles": "2026-10-16", "hit": 0, "brier": 0.3025, "surprise": "bounce failed: expiration-day selling kept going"}
 {"id": "slot2", "made": "2026-10-16", "what": "Slot trade #2 (S2+Atlas, SPY 768C) closes green", "p": 0.45, "settles": "2026-10-16", "hit": 0, "brier": 0.2025, "surprise": "second dip-buy in a falling day also failed"}
-{"id":"model1","made":"2026-10-16","what":"Day-score model (p_up 0.44): SPY closes below its 773.24 open on 2026-10-16","p":0.56,"settles":"2026-10-16","hit":null,"brier":null}
+{"id": "model1", "made": "2026-10-16", "what": "Day-score model (p_up 0.44): SPY closes below its 773.24 open on 2026-10-16", "p": 0.56, "settles": "2026-10-16", "hit": 1, "brier": 0.1936, "surprise": "none: weak-day call right; SPY closed 763.30 vs 773.24 open"}
