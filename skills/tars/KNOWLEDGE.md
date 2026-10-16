@@ -26,6 +26,7 @@ Audience: TARS
 - 0DTE buyers lose on average (~60% of it costs); sellers earn about the market's return with less risk (CBOE PUT/BXM).
 - Momentum (12-1 month) and the 200-day filter: modest, the stock sleeve's basis.
 - Which liquidity pool gets hit first: the nearer one, in proportion to distance (random-walk odds). 30 days SPY 1-min, 1,668 checks: called 10/30/50/71/90% up → actual 9/27/52/69/88% (Brier 0.165 vs 0.25). Trend, MACD, VWAP side, RSI add nothing. Script: paper/research_scripts/pool_odds_test.js.
+- S2 (dip below VWAP −2σ/RSI<30, then a turn) with its live exits (VWAP / new low / 60 min): −0.11 SPY pts/trade, 39% wins on 95 out-of-sample trades (Feb-Aug 2026); EMA9 ≥ EMA21 at the signal: 8% wins. Not an edge as traded.
 - Leans worth tracking (not rules): big gap-ups close above the open ~60% (20y); Nikkei −2% days → SPY open-to-close up 57-59%.
 
 ## Data facts

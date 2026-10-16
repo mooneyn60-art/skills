@@ -31,3 +31,8 @@ A weekly look in the mirror. Each entry: what happened, why, the fix.
 1. Read the week's NOLAN_LOG, journal scores, options-slot trades and desk logs.
 2. Add any new mistake + fix above; add any new tested finding to KNOWLEDGE.md.
 3. One line to Nolan only if something changed how TARS works.
+
+## 2026-10-16 — I traded S2 without testing its real exits
+- Mistake: S2's evidence was a 30-minute forward return after a stretched close (+0.07 pts, t 2.5). I added a "turn" entry and exits (VWAP, new low, 60 min) but never tested that exact trade. Tested after trade #1 lost (paper/research_scripts/s2_context.py, 95 out-of-sample trades): −0.11 pts per trade, 39% wins. My tense-mood rule ("trend must agree") would pick its worst subset (EMA9 ≥ EMA21 at the signal: 8% wins, n=13, both samples).
+- Fix: test the exact entry AND exit rules before money; S2 proposed paused for live money (Nolan decides); tense-mood "trend agrees" proposed replaced by half size only.
+
