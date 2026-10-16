@@ -87,29 +87,71 @@ button.done{border-color:var(--ok);color:var(--ok)}
 <script>
 /* DATA: the daily routine rewrites this block and republishes the page. */
 const DATA = {
-  updated: "Oct 15, 2026 · 3:18 PM ET",
-  credits: 3418,
-  approveUrl: "https://clip.opus.pro/agent-approvals#v2.Y-iWReIyKJMMh7oUGigmqQ,v2.QmZForjNPsBWL81hc2G7Vw,v2.q1cPmPQUiilU4WWefrmD-A",
-  approveNote: "3 posts: Part 3 tomorrow (YouTube 8 PM, TikTok 8:30 PM ET) + the 64s Parts 1-3 recap on TikTok (10 PM ET, the one that earns).",
-  kpis: [{k:"YouTube subs", v:"new"}, {k:"TikTok followers", v:"new"}, {k:"Total views", v:"0"}],
-  stage: "Stage 1 of 4 · Seed: get one video past 10k views",
-  posts: [
-    {part:1, status:"live", when:"Live on YouTube + TikTok",
-     title:"He crashed the wedding 😱 She has a secret | Oh Meatball Pt 1", score:96,
-     tags:"oh meatball, meatball cat, cat soap opera, cat drama, cat wedding, wedding objection, wedding drama, animated cat, ai cat, cat story, funny cats, chubby cat, orange cat, cartoon cats, ai animation, pixar style animation, cat shorts",
-     desc:"\"If anyone objects, speak now...\" Meatball was ONE second from married. 💍 Then Smokey walked in. What is Duchess hiding? 😳 Part 2 tomorrow at 6 PM ET. Comment who you're siding with 👇 #shorts #catdrama #ai #animation #cat #ohmeatball"},
-    {part:2, status:"queued", when:"Tomorrow · YouTube 12 PM, TikTok 6 PM ET",
-     title:"She was already married 😱 and there's a kitten | Oh Meatball Pt 2", score:94,
-     tags:"oh meatball, meatball cat, cat soap opera, cat drama, secret kitten, secret marriage, cat wedding, family drama, animated cat, ai cat, cat story, funny cats, chubby cat, orange cat, cartoon cats, ai animation, pixar style animation, cat shorts",
-     desc:"Duchess was STILL married to Smokey... and then a tiny voice said \"Mommy?\" 😳 Part 3 tonight at 8 PM ET. Team Meatball or Team Smokey? 👇 #shorts #catdrama #ai #animation #cat #ohmeatball"},
-    {part:3, status:"queued", when:"Tomorrow · YouTube 8 PM, TikTok 8:30 PM ET",
-     title:"He ran from the wedding… then THIS 😱 | Oh Meatball Pt 3", score:90,
-     tags:"oh meatball, meatball cat, cat soap opera, cat drama, secret brother, wedding drama, heartbreak, spaghetti, animated cat, ai cat, cat story, funny cats, chubby cat, orange cat, cartoon cats, ai animation, pixar style animation, cat shorts",
-     desc:"Meatball stormed out of his own wedding 💔 crying into spaghetti... then Biscuit burst in: \"I know who the kitten's real dad is.\" And Grandma Shelly said it: his BROTHER. 😱 Part 4 tomorrow. Did you see it coming? 👇 #shorts #catdrama #ai #animation #cat #ohmeatball"}
-    {part:"1-3", status:"queued", when:"Tomorrow 10 PM ET · TikTok recap (64s)",
-     title:"Meatball's wedding went SO wrong… Parts 1-3 😱", score:0,
-     tags:"#MeatballAndDuchess #catdrama #ohmeatball #aianimation #catsoftiktok #fyp",
-     desc:"All three parts back to back. Over 1 minute, so it counts for TikTok Creator Rewards."}
+  "updated": "Oct 16, 2026 · 9:05 AM ET",
+  "credits": 2700,
+  "approveUrl": "https://clip.opus.pro/agent-approvals#v2.Y-iWReIyKJMMh7oUGigmqQ,v2.QmZForjNPsBWL81hc2G7Vw,v2.q1cPmPQUiilU4WWefrmD-A,v2.Cwa9vnJAltV6EPgRvifP9Q,v2.mQGo1ERhtWMAMwjS0w2o_g",
+  "approveNote": "5 posts in one tap: Part 3 tonight (YouTube 8 PM, TikTok 8:30 PM ET), the 64s Parts 1-3 recap on TikTok (10 PM ET), and Part 4 tomorrow (YouTube 8 PM, TikTok 8:30 PM ET). If Part 3's approval has expired, tell Claude and it will re-queue it.",
+  "kpis": [
+    {
+      "k": "YouTube subs",
+      "v": "943"
+    },
+    {
+      "k": "Part 1 views",
+      "v": "1"
+    },
+    {
+      "k": "Credits left",
+      "v": "2,700"
+    }
+  ],
+  "stage": "Stage 1 of 4 · Seed: get one video past 10k views. Part 1 has 1 view after 17 h; Part 2 goes live 12 PM ET today.",
+  "posts": [
+    {
+      "part": 1,
+      "status": "live",
+      "when": "Live on YouTube (L5pOwnR3ieE) + TikTok",
+      "title": "He crashed the wedding 😱 She has a secret | Oh Meatball Pt 1",
+      "score": 96,
+      "tags": "oh meatball, meatball cat, cat soap opera, cat drama, animated cat, ai cat, cat story, funny cats, chubby cat, orange cat, cartoon cats, ai animation, pixar style animation, cat shorts, cat wedding, wedding objection, wedding drama",
+      "desc": "Duplicate copy iAKwF9YyCpc is still public: set it to Private in YouTube Studio."
+    },
+    {
+      "part": 2,
+      "status": "live",
+      "when": "Scheduled · YouTube 12 PM, TikTok 6 PM ET today",
+      "title": "She was already married 😱 and there's a kitten | Oh Meatball Pt 2",
+      "score": 94,
+      "tags": "oh meatball, meatball cat, cat soap opera, cat drama, animated cat, ai cat, cat story, funny cats, chubby cat, orange cat, cartoon cats, ai animation, pixar style animation, cat shorts, secret kitten, secret marriage",
+      "desc": "Approved and scheduled. Nothing to do."
+    },
+    {
+      "part": 3,
+      "status": "queued",
+      "when": "Tonight · YouTube 8 PM, TikTok 8:30 PM ET",
+      "title": "He ran from the wedding… then THIS 😱 | Oh Meatball Pt 3",
+      "score": 90,
+      "tags": "oh meatball, meatball cat, cat soap opera, cat drama, animated cat, ai cat, cat story, funny cats, chubby cat, orange cat, cartoon cats, ai animation, pixar style animation, cat shorts, secret brother, wedding drama, heartbreak, spaghetti",
+      "desc": "Meatball stormed out of his own wedding 💔 crying into spaghetti... then Biscuit burst in: \"I know who the kitten's real dad is.\" And Grandma Shelly said it: his BROTHER. 😱 Part 4 tomorrow. Did you see it coming? 👇 #MeatballAndDuchess #shorts #catdrama #ai #animation #cat #ohmeatball"
+    },
+    {
+      "part": "1-3",
+      "status": "queued",
+      "when": "Tonight 10 PM ET · TikTok recap (64s)",
+      "title": "Meatball's wedding went SO wrong… Parts 1-3 😱",
+      "score": 0,
+      "tags": "#MeatballAndDuchess #catdrama #ohmeatball #aianimation #catsoftiktok #fyp",
+      "desc": "All three parts back to back. Over 1 minute, so it counts for TikTok Creator Rewards."
+    },
+    {
+      "part": 4,
+      "status": "queued",
+      "when": "Tomorrow · YouTube 8 PM, TikTok 8:30 PM ET",
+      "title": "He found out he has a secret brother… then a limo pulled up 😱 | Oh Meatball Pt 4",
+      "score": 97,
+      "tags": "oh meatball, meatball cat, cat soap opera, cat drama, animated cat, ai cat, cat story, funny cats, chubby cat, orange cat, cartoon cats, ai animation, pixar style animation, cat shorts, secret twin, evil twin, secret brother, limo, rainy night",
+      "desc": "Grandma Shelly dropped it: Meatball's mama had TWO baby boys. 😳 Meatball ran into the storm... and a black limo pulled up. Who's the guy in the white suit?! Part 5 tomorrow. Comment who you're siding with 👇 #MeatballAndDuchess #shorts #catdrama #ai #animation #cat #ohmeatball"
+    }
   ],
   setup: [
     {id:"swap", t:"Channel swap: name Oh Meatball, handle @Oh_meatball, profile pic, banner, description", s:"YouTube app → Your channel → pencil icon"},
