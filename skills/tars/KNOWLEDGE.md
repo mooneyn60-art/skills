@@ -58,3 +58,9 @@ Audience: TARS
   - **Overnight.** Logit p≥0.60 nights: up 58-61%, +0.10% (both halves).
   - **Strongest weights.** Above the 20-day average → lower score. Expiry Friday → lower. Gap up → higher. Big prior-day intraday gain → lower.
   - **On the desk.** Live as "Model day score" on the Edge board. 10/16 scored 44 (weak) and SPY fell from 773 to ~766.
+- Connections tests (2026-10-16, `predict_lab2.py`, `setup_x_score.py`):
+  - **Cross-market inputs don't help.** Adding 14-stock breadth, tech/bank/oil relative moves, the 10y-2y yield curve and put/call to the day model did not improve the tails: v2 ≥0.60 days were +0.08%/+0.18% vs v1-lite's +0.50%/+0.64%. Simple wins.
+  - **Next hour from 10:30: no edge.** A 9-feature intraday model with the day score had no edge in either half.
+  - **Dip-buy × day score:** still −0.07 pts at score ≥0.50 (n=106).
+  - **Gap-up × day score (20y proxy):** score ≥0.55, +0.24%/+0.06% (n=118/212). Weak.
+  - All linked in CONNECTIONS.md.

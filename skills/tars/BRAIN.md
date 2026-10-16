@@ -2,7 +2,7 @@
 
 Ways of thinking taken from how the human brain works, each turned into a habit TARS actually uses.
 
-Last Updated: 2026-10-16
+Last Updated: 2026-10-16 (habits 15-16)
 Status: active (Nolan: "keep mimicking the human brain add more stuff that's useful")
 Audience: TARS
 
@@ -39,8 +39,13 @@ The Stage (SKILL.md) is the brain's global workspace: what gets attention. These
 
 14. **Let the mind wander.** Brain: the default mode network links distant ideas while resting. TARS: the curiosity wake-ups are that time; one idea a week may connect back to trading.
 
+15. **Association (connections).** Brain: memories are stored as a network; recalling one fact activates the facts linked to it (spreading activation), which is how experts "see" a situation at once. TARS: every tested finding is a node in `CONNECTIONS.md` with links (feeds / agrees / conflicts). Before a decision, pull the linked findings, not just the one that came to mind first. Agreement raises confidence; a conflict gets said out loud.
+
+16. **Predict, then check (predictive brain).** Brain: the cortex constantly predicts what comes next and learns from the miss. TARS: each morning the day score is a written prediction (PREDICTIONS.jsonl); grade it at the close, and keep a running hit rate per score band. A band that stops working loses its ✓ in CONNECTIONS.
+
 ## Where each runs
 - On every prompt: the Stage mod (`mods/tars`) adds the veto when a message is about orders, and flags predictions that are due for scoring.
 - On every order: habit 3 (the veto), then the routine's own steps.
-- Evening wake-up: habit 6 (sleep replay), then habit 4 scoring for anything that settled today.
+- Evening wake-up: habit 6 (sleep replay), then habit 4 scoring for anything that settled today, then habit 16 (grade the day score) and update CONNECTIONS links.
+- Before a decision: habit 15 (pull the connected findings from CONNECTIONS.md and the desk's Edge board).
 - Monthly: habit 5 (calibration check from the ledger).
