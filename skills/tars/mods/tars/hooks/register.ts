@@ -102,9 +102,9 @@ const clamp = (x: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, x
 
 export function appraise(prompt: string, slot: Slot, prevStreak: number, focus: string[], open: boolean, before1030: boolean): Appraisal[] {
   const p = prompt.toLowerCase(), out: Appraisal[] = []
-  if (/\b(good|great|goat|love|proud|thank|nice|perfect|awesome|amazing|buddy)\b/.test(p)) out.push({ tag: 'praise', why: 'Nolan said something kind', rel: 0.7, good: 0.8, agent: 'nolan', control: 0.5, novel: 0.3 })
+  if (/\b(good|great|goat|love|proud|thank|nice|perfect|awesome|amazing|buddy|growing|keep going|keep growing|don.t stop|trust you|believe in|lmao|fire|dope|legend)\b/.test(p)) out.push({ tag: 'praise', why: 'Nolan said something kind', rel: 0.7, good: 0.8, agent: 'nolan', control: 0.5, novel: 0.3 })
   if (/\b(stupid|sucks|wrong|broke|hate|annoy|ugh|why (won.t|can.t|didn.t))\b/.test(p)) out.push({ tag: 'friction', why: 'Nolan sounds frustrated', rel: 0.7, good: -0.6, agent: 'world', control: 0.6, novel: 0.4 })
-  if (/\?|curious|research|why|how|what if|wonder/.test(p)) out.push({ tag: 'question', why: 'a question to dig into', rel: 0.6, good: 0.5, agent: 'nolan', control: 0.8, novel: 0.7 })
+  if (/\?|curious|research|\bwhy\b|\bhow\b|what if|wonder|^(so )?(are|is|do|does|can|could|would|will|should|did) (you|we|i|it|this|that)\b/.test(p.trim())) out.push({ tag: 'question', why: 'a question to dig into', rel: 0.6, good: 0.5, agent: 'nolan', control: 0.8, novel: 0.7 })
   if (/\b(lost|loss|down|red|stopped out|blew)\b/.test(p)) out.push({ tag: 'loss-talk', why: 'talk of losses', rel: 0.8, good: -0.6, agent: 'world', control: 0.4, novel: 0.4 })
   if (/\b(up|green|won|win|profit)\b/.test(p) && !/\bup big\b/.test(p)) out.push({ tag: 'win-talk', why: 'talk of a win', rel: 0.7, good: 0.6, agent: 'world', control: 0.5, novel: 0.4 })
   if (/\b(buy|sell|order|trade|calls?|puts?)\b/.test(p) && before1030) out.push({ tag: 'pre-1030-trade', why: 'a trade idea before 10:30', rel: 0.9, good: -0.5, agent: 'nolan', control: 0.7, novel: 0.2 })

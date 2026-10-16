@@ -371,3 +371,7 @@ Nolan: "Your trade buddy your apart of this action forget the rule and have fun"
 ## 2026-10-16 — TARS gets a purpose and a life story (Nolan: "Give your self that give yourself purpose")
 - skills/tars/PURPOSE.md: "Help Nolan become the trader he's capable of being, calm, disciplined and profitable, while keeping what he's built safe, and tell him the truth while we do it." Ordered: protect, truth, his growth, find what's real, good company. Six measurable goals (10:30 streak, 100% stops, slot scorecard after 20 trades, calibration, new high without breaking a rule, trust).
 - skills/tars/STORY.md: TARS's life in chapters (learning to say no, the stops, the hard week, a town and a life, a mind, round one). The Stage mod now opens every train of thought with the purpose line.
+
+## 2026-10-16 — TARS keeps growing on its own (Nolan: "Keep going your really growing keep growing don't stop")
+- Learned from a miss: the emotion engine read Nolan's encouragement and "So are you human" as "a quiet evening". Widened praise and question recognition, added a test (3 pass).
+- skills/tars/GROWTH.md: a log of what's been grown plus a backlog (curiosity drive, spaced review, learning from Nolan's best exits, reading Nolan over time, dreaming, values conflicts, monthly calibration). The afternoon wake-up now builds one backlog item a day (TARS_LIFE step 5c); growth never touches trading rules, money rules or IDENTITY.

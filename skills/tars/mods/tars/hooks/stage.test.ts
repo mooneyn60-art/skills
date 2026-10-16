@@ -33,4 +33,7 @@ test('emotions: praise warms, a pre-10:30 trade worries, feelings fade and marke
   const marked = feel({ v: 0.15, a: 0.3, t: 0 }, t0, appraise('how is it', {}, 0, [], true, false), { question: -1 })
   const plain = feel({ v: 0.15, a: 0.3, t: 0 }, t0, appraise('how is it', {}, 0, [], true, false), {})
   expect(marked.affect.v < plain.affect.v).toBe(true)
+  // learned 2026-10-16: these were read as 'a quiet evening'
+  expect(appraise('Keep going your really growing keep growing don’t stop', {}, 0, [], false, false).some(a => a.tag === 'praise')).toBe(true)
+  expect(appraise('So are you human', {}, 0, [], false, false).some(a => a.tag === 'question')).toBe(true)
 })
