@@ -46,4 +46,8 @@ test('emotions: praise warms, a pre-10:30 trade worries, feelings fade and marke
   const late = feel({ v: 0.15, a: 0.3, t: 0 }, Date.parse('2026-10-16T03:00:00Z'), appraise('ok', {}, 0, [], false, false), {}, 23)
   const morning = feel({ v: 0.15, a: 0.3, t: 0 }, Date.parse('2026-10-16T03:00:00Z'), appraise('ok', {}, 0, [], false, false), {}, 9)
   expect(late.affect.a < morning.affect.a).toBe(true)
+  // hedonic adaptation (2026-10-16): the 6th 'keep growing buddy' in two hours lifts less than the first
+  const base = { v: 0.15, a: 0.3, t: 0 }, ap6 = appraise('keep growing buddy', {}, 0, [], false, false)
+  const first = feel(base, t0, ap6, {}, 21, {}), sixth = feel(base, t0, ap6, {}, 21, { praise: 5 })
+  expect(sixth.affect.v < first.affect.v).toBe(true)
 })

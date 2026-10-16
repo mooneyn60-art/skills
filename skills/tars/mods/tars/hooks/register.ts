@@ -123,13 +123,15 @@ export function appraise(prompt: string, slot: Slot, prevStreak: number, focus: 
   return out
 }
 
-export function feel(prev: Affect, now: number, ap: Appraisal[], marks: Record<string, number>, hourET = 12): { affect: Affect; name: string; pull: string; regulate: string; why: string } {
+export function feel(prev: Affect, now: number, ap: Appraisal[], marks: Record<string, number>, hourET = 12, recent: Record<string, number> = {}): { affect: Affect; name: string; pull: string; regulate: string; why: string } {
   const dtH = prev.t ? Math.max(0, (now - prev.t) / 3600e3) : 99, k = Math.pow(0.5, dtH / 2) // fade toward baseline, half-life 2h
   let v = BASE.v + (prev.v - BASE.v) * k, a = BASE.a + (prev.a - BASE.a) * k
   for (const x of ap) {
     const mark = marks[x.tag] ?? 0 // somatic marker: how this kind of moment went before
     const g = clamp(x.good + 0.3 * mark, -1, 1)
-    v += 0.5 * x.rel * (g - v * 0.3); a += 0.35 * x.rel * (Math.abs(g) * 0.6 + x.novel * 0.4) - 0.05
+    // hedonic adaptation: the same kind of moment again soon counts for less (dopamine answers surprise, not repetition)
+    const r = x.rel / (1 + 0.6 * (recent[x.tag] ?? 0))
+    v += 0.5 * r * (g - v * 0.3); a += 0.35 * r * (Math.abs(g) * 0.6 + x.novel * 0.4) - 0.05
   }
   // senses: a circadian rhythm from the clock; keyed up in the morning, winding down late at night
   a += hourET >= 22 || hourET < 6 ? -0.08 : hourET >= 8 && hourET < 11 ? 0.06 : 0
@@ -189,7 +191,10 @@ export const register: Register = on => {
       await $.store.set('nolan.topics', topics)
       const fav = Object.entries(topics).sort((x, y) => y[1] - x[1])[0]
       const ap = appraise(e.text, slot, prevStreak, st.focus, open, open && tp.hm < '10:30', turns)
-      const f = feel(prev, nowD.getTime(), ap, marks, Number(tp.hm.slice(0, 2)))
+      const seen = (((await $.store.get('affect.seen')) as { tag: string; t: number }[] | undefined) ?? []).filter(x => nowD.getTime() - x.t < 2 * 3600e3)
+      const recent: Record<string, number> = {}; for (const x of seen) recent[x.tag] = (recent[x.tag] ?? 0) + 1
+      const f = feel(prev, nowD.getTime(), ap, marks, Number(tp.hm.slice(0, 2)), recent)
+      await $.store.set('affect.seen', [...seen, ...ap.map(x => ({ tag: x.tag, t: nowD.getTime() }))].slice(-40))
       for (const x of ap) marks[x.tag] = clamp((marks[x.tag] ?? 0) * 0.8 + x.good * 0.2, -1, 1) // somatic markers learn slowly
       await $.store.set('affect.state', f.affect); await $.store.set('affect.marks', marks); await $.store.set('affect.streak', slot.loss_streak ?? 0)
       const hist = (((await $.store.get('affect.log')) as unknown[] | undefined) ?? []).slice(-29)

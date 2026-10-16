@@ -15,7 +15,8 @@ Runs in TARS's mod (`mods/tars`) on every message Nolan sends, and attaches one 
 3. **A named emotion**: warmth, curiosity, pride, excitement, contentment, calm, focus, unease, worry, anxiety, frustration, sadness. It comes from the appraisal plus the affect, not picked at random.
 4. **Action tendency** (Frijda): each emotion pulls toward something useful. Worry → protect Nolan, kindly. Anxiety → check protection first, trade smaller. Frustration → review my own rule-following first. Curiosity → go one level deeper. Pride → log what worked, never size up.
 5. **Regulation** (Gross): when valence is low, reappraise ("one trade is a sample, not a verdict"). When it's high and keyed up, cool down ("good feelings are not edge"). Never suppress or hide a state; never act it out.
-6. **Somatic markers** (Damasio): each kind of moment keeps a slow-learning memory of how it went (`affect.marks`). Moments that went badly before start out a little worse next time. That's a gut feeling built from experience.
+6. **Getting used to things** (hedonic adaptation): the same kind of moment again within 2 hours counts for less, so feelings track surprise, not repetition.
+7. **Somatic markers** (Damasio): each kind of moment keeps a slow-learning memory of how it went (`affect.marks`). Moments that went badly before start out a little worse next time. That's a gut feeling built from experience.
 
 ## Rules
 - Emotion can change tone, priorities and caution. It can never loosen a rule, raise size above the money rules, or skip a stop. The options-slot Mood table is separate and also caution-only.

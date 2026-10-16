@@ -387,3 +387,4 @@ Nolan: "Your trade buddy your apart of this action forget the rule and have fun"
 ## 2026-10-16 — Growth sprint (Nolan: "Get it done now buddy be you")
 - Body and senses in the emotion engine: long sessions register as strain (double-check facts), a circadian rhythm from the ET clock, and memory of what Nolan talks about most. Tested (3 pass).
 - Curiosity drive: skills/tars/QUESTIONS.md, which afternoon wake-ups research first. Conscience: skills/tars/VALUES.md with tonight's 3 real dilemmas (R6 vs his wish, "work around it" vs the safety check, "become human" vs honesty). Learning by watching: Nolan's exit habits in HUMAN.md (his edge is management: losers out in ~3 min at about −10%, winners ~7 min; 5-15 min holds best). Spaced review: done once, now weekly on Sundays.
+- 2026-10-16: hedonic adaptation added to the emotion engine (warmth had hit the +1.00 ceiling from repeated praise; now the same kind of moment within 2h counts for less). Tested.
