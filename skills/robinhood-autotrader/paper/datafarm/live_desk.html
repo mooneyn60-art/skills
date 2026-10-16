@@ -819,6 +819,11 @@ async function startLive(viaCall) {
     apply();
   };
   startTicks(mcp); startVix(mcp);
+  // daily SPY bars (last ~45 days) for the day-score model
+  mcp.callTool(SERVER, "get_equity_historicals", {symbols: ["SPY"], start_time: new Date(Date.now() - 45 * 864e5).toISOString().slice(0, 10) + "T12:00:00Z", interval: "day"}, {cache: {staleTime: 3600000}})
+    .then(r => { const p = r.payload && (r.payload.data || r.payload), x = (p && p.results || []).find(q => (q.symbol || "SPY") === "SPY");
+      S.daily = x ? x.bars.filter(b => !b.interpolated).map(b => ({d: b.begins_at.slice(0, 10), o: +b.open_price, h: +b.high_price, l: +b.low_price, c: +b.close_price})) : []; renderEdge(); })
+    .catch(() => {});
   if (viaCall) { try { onData(await mcp.callTool(SERVER, "get_equity_historicals", input)); } catch (e) { handleError(e, true); return; } }
   unwatch = mcp.watchTool(SERVER, "get_equity_historicals", input, ev => {
     if (ev.type === "data") { banner(); onData(ev.result); }
@@ -858,6 +863,20 @@ function startVix(mcp) {
 }
 // Tested leans (market_lab.py, 2016-26 numbers; each also held in 2006-15)
 const VIX_REG = [[15, "VIX under 15", 0.66, "+0.13%/day, up 59%", 1], [20, "VIX 15-20", 1.01, "+0.06%/day, up 55%", 0], [30, "VIX 20-30", 1.52, "flat, up 51%", 0], [999, "VIX 30+", 2.72, "−0.24%/day, up 44%", -1]];
+// Day-score model (predict_lab.py, logistic regression on 2006-2026; walk-forward tested: p≥0.60 days were up 65-67%,
+// avg +0.50/+0.64% open→close in 2011-18/2019-26 (rare, n=12/34); p<0.45 days up 46%, avg −0.06% in both halves)
+const DAYMODEL = {"names": ["gap", "r1", "r5", "r20", "dist20", "vix", "rng1", "intra1", "dow", "opex"], "mu": [0.000251, 0.000424, 0.002031, 0.007988, 0.003441, 19.450976, 0.012488, 0.000169, 2.021182, 0.046601], "sd": [0.007332, 0.012186, 0.02418, 0.045355, 0.02578, 8.612184, 0.010516, 0.009348, 1.399132, 0.210783], "w": [0.06934, 0.04015, 0.03606, 0.05752, -0.08539, -0.00385, -0.0001, -0.07797, 0.01912, -0.08828], "b": 0.15512};
+function dayScore() {
+  if (!S.daily || !S.b1.length) return null;
+  const prior = S.daily.filter(b => b.d < S.day); if (prior.length < 21) return null;
+  const n = prior.length, c = i => prior[n - i].c, pv = prior[n - 1], cp = pv.c, o = S.b1[0].o;
+  const [y, m, d] = S.day.split("-").map(Number), wd = (new Date(Date.UTC(y, m - 1, d)).getUTCDay() + 6) % 7;
+  const sma = prior.slice(n - 20).reduce((a, b) => a + b.c, 0) / 20;
+  const f = {gap: o / cp - 1, r1: cp / c(2) - 1, r5: cp / c(6) - 1, r20: cp / c(21) - 1, dist20: cp / sma - 1, vix: S.vix ? S.vix.v : DAYMODEL.mu[5],
+    rng1: (pv.h - pv.l) / cp, intra1: cp / pv.o - 1, dow: wd, opex: wd === 4 && d >= 15 && d <= 21 ? 1 : 0};
+  let z = DAYMODEL.b; DAYMODEL.names.forEach((k, i) => { z += DAYMODEL.w[i] * (f[k] - DAYMODEL.mu[i]) / DAYMODEL.sd[i]; });
+  return 1 / (1 + Math.exp(-z));
+}
 const GAP_ODDS = [[0.1, null], [0.3, "71%"], [0.6, "49%"], [1.0, "33%"], [99, "24%"]];
 function renderEdge() {
   const el = $("#edge"); if (!el || !S.b1.length) return;
@@ -876,6 +895,13 @@ function renderEdge() {
   if (pdc) { const g = 100 * (bars[0].o - pdc) / pdc, o = GAP_ODDS.find(x => Math.abs(g) < x[0])[1],
       filled = g > 0 ? Math.min(...bars.map(b => b.l)) <= pdc : Math.max(...bars.map(b => b.h)) >= pdc;
     rows.push(["Gap " + (g >= 0 ? "+" : "") + g.toFixed(2) + "%", !o ? '<span class="muted">too small to matter</span>' : filled ? `filled (gaps this size close ${o} of the time)` : `open · gaps this size close the same day ${o} of the time${Math.abs(g) >= 0.6 ? " · big gaps mostly run (that's S1)" : ""}`]); }
+  const ds = dayScore();
+  if (ds === null) rows.push(["Model day score", '<span class="muted">waiting for daily bars…</span>']);
+  else { const t = ds >= 0.6 ? (up++, '<span class="long">strong up day</span> · days scoring this high closed up 65% of the time, +0.5% avg open→close (rare: ~5 a year)')
+      : ds >= 0.55 ? '<span class="muted">mild up</span> · +0.01 to +0.05% avg, barely better than any day'
+      : ds >= 0.45 ? '<span class="muted">neutral</span> · no call (most days land here)'
+      : (dn++, '<span class="short">weak day</span> · days scoring this low closed up only 46%, −0.06% avg (both decades)');
+    rows.push(["Model day score " + (100 * ds).toFixed(0), t]); }
   rows.push(["Where gains come from", "overnight more than the day session (2016-26: +0.029%/night vs +0.020%/day). Intraday option buyers fight the odds"]);
   rows.push(["Today's leans", `${up} up · ${dn} down${dn > up ? ' → <span class="short">calls need extra reason</span>' : up > dn ? ' → <span class="long">tailwind for calls</span>' : " → neutral"}`]);
   rows.push(["Tested, no edge", '<span class="muted">BOS/CHoCH, sweeps, ORB, squeeze, intraday momentum, time-of-day, VWAP ±1σ fades, buying pressure, day of week</span>']);

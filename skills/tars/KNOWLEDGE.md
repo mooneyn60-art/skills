@@ -49,3 +49,12 @@ Audience: TARS
     - After a <−1% day the next day bounces +0.16 to +0.22% (both halves, t 1.4-1.9). After a >+1% day it gives back 0.10-0.15%.
   - **No edge.** Day of week (flips between decades), time of day (half-hour means flip IS/OOS), last hour following the day, lunch reversal, fading VWAP ±1σ (−0.06 OOS), the week after expiry.
   - **On the desk.** The live "Edge board" panel shows these with VIX from the Robinhood index quote.
+- Prediction engine v1 (2026-10-16, `predict_lab.py`, `day_model.json`; walk-forward, each year predicted only from earlier years):
+  - **Accuracy.** Logistic and boosted models on 15 pre-open features (gap, past returns, distance from the 20-day average, VIX, Asia, DAX gap, put/call, calendar) don't beat "always up" (54%).
+  - **The tails do sort days.** A lite 10-feature logit day score:
+    - p≥0.60: up 65-67%, +0.50%/+0.64% open→close (2011-18 n=12, 2019-26 n=34; rare).
+    - p<0.45: up 46%, −0.06% in both halves.
+    - The full logit at p≥0.60 averaged +0.10/+0.21%.
+  - **Overnight.** Logit p≥0.60 nights: up 58-61%, +0.10% (both halves).
+  - **Strongest weights.** Above the 20-day average → lower score. Expiry Friday → lower. Gap up → higher. Big prior-day intraday gain → lower.
+  - **On the desk.** Live as "Model day score" on the Edge board. 10/16 scored 44 (weak) and SPY fell from 773 to ~766.
