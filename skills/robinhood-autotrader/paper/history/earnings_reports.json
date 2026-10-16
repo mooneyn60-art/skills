@@ -1,0 +1,84 @@
+{
+  "_fetched": "2026-09-24T00:00:00Z",
+  "_source": "Robinhood MCP get_earnings_results, one call per symbol (trailing up to 8 quarters each)",
+  "NVDA": [
+    {"year": 2025, "quarter": 4, "eps_estimate": 0.84, "eps_actual": 0.89, "date": "2025-02-26", "timing": "pm", "verified": true},
+    {"year": 2026, "quarter": 1, "eps_estimate": 0.75, "eps_actual": 0.96, "date": "2025-05-28", "timing": "pm", "verified": true},
+    {"year": 2026, "quarter": 2, "eps_estimate": 0.98, "eps_actual": 1.04, "date": "2025-08-27", "timing": "pm", "verified": true},
+    {"year": 2026, "quarter": 3, "eps_estimate": 1.22, "eps_actual": 1.30, "date": "2025-11-19", "timing": "pm", "verified": true},
+    {"year": 2026, "quarter": 4, "eps_estimate": 1.50, "eps_actual": 1.62, "date": "2026-02-25", "timing": "pm", "verified": true},
+    {"year": 2027, "quarter": 1, "eps_estimate": 1.76, "eps_actual": 1.87, "date": "2026-05-20", "timing": "pm", "verified": true},
+    {"year": 2027, "quarter": 2, "eps_estimate": 2.09, "eps_actual": 2.22, "date": "2026-08-26", "timing": "pm", "verified": true},
+    {"year": 2027, "quarter": 3, "eps_estimate": 2.34, "eps_actual": null, "date": "2026-11-17", "timing": "pm", "verified": true}
+  ],
+  "SOFI": [
+    {"year": 2024, "quarter": 4, "eps_estimate": 0.04, "eps_actual": 0.05, "date": "2025-01-27", "timing": "am", "verified": true},
+    {"year": 2025, "quarter": 1, "eps_estimate": 0.04, "eps_actual": 0.06, "date": "2025-04-29", "timing": "am", "verified": true},
+    {"year": 2025, "quarter": 2, "eps_estimate": 0.06, "eps_actual": 0.08, "date": "2025-07-29", "timing": "am", "verified": true},
+    {"year": 2025, "quarter": 3, "eps_estimate": 0.08, "eps_actual": 0.11, "date": "2025-10-28", "timing": "am", "verified": true},
+    {"year": 2025, "quarter": 4, "eps_estimate": 0.12, "eps_actual": 0.13, "date": "2026-01-30", "timing": "am", "verified": true},
+    {"year": 2026, "quarter": 1, "eps_estimate": 0.12, "eps_actual": 0.12, "date": "2026-04-29", "timing": "am", "verified": true},
+    {"year": 2026, "quarter": 2, "eps_estimate": 0.11, "eps_actual": 0.12, "date": "2026-07-29", "timing": "am", "verified": true},
+    {"year": 2026, "quarter": 3, "eps_estimate": 0.17, "eps_actual": null, "date": "2026-10-27", "timing": "am", "verified": false}
+  ],
+  "INTC": [
+    {"year": 2024, "quarter": 4, "eps_estimate": 0.12, "eps_actual": 0.13, "date": "2025-01-30", "timing": "pm", "verified": true},
+    {"year": 2025, "quarter": 1, "eps_estimate": 0.01, "eps_actual": 0.13, "date": "2025-04-24", "timing": "pm", "verified": true},
+    {"year": 2025, "quarter": 2, "eps_estimate": -0.05, "eps_actual": -0.10, "date": "2025-07-24", "timing": "pm", "verified": true},
+    {"year": 2025, "quarter": 3, "eps_estimate": -0.04, "eps_actual": 0.23, "date": "2025-10-23", "timing": "pm", "verified": true},
+    {"year": 2025, "quarter": 4, "eps_estimate": 0.04, "eps_actual": 0.15, "date": "2026-01-22", "timing": "pm", "verified": true},
+    {"year": 2026, "quarter": 1, "eps_estimate": -0.01, "eps_actual": 0.29, "date": "2026-04-23", "timing": "pm", "verified": true},
+    {"year": 2026, "quarter": 2, "eps_estimate": 0.19, "eps_actual": 0.42, "date": "2026-07-23", "timing": "pm", "verified": true},
+    {"year": 2026, "quarter": 3, "eps_estimate": 0.37, "eps_actual": null, "date": "2026-10-22", "timing": "pm", "verified": false}
+  ],
+  "TGT": [
+    {"year": 2024, "quarter": 4, "eps_estimate": 2.26, "eps_actual": 2.41, "date": "2025-03-04", "timing": "am", "verified": true},
+    {"year": 2025, "quarter": 1, "eps_estimate": 1.65, "eps_actual": 1.30, "date": "2025-05-21", "timing": "am", "verified": true},
+    {"year": 2025, "quarter": 2, "eps_estimate": 2.05, "eps_actual": 2.05, "date": "2025-08-20", "timing": "am", "verified": true},
+    {"year": 2025, "quarter": 3, "eps_estimate": 1.73, "eps_actual": 1.78, "date": "2025-11-19", "timing": "am", "verified": true},
+    {"year": 2025, "quarter": 4, "eps_estimate": 2.16, "eps_actual": 2.44, "date": "2026-03-03", "timing": "am", "verified": true},
+    {"year": 2026, "quarter": 1, "eps_estimate": 1.35, "eps_actual": 1.71, "date": "2026-05-20", "timing": "am", "verified": true},
+    {"year": 2026, "quarter": 2, "eps_estimate": 2.25, "eps_actual": 2.46, "date": "2026-08-19", "timing": "am", "verified": true},
+    {"year": 2026, "quarter": 3, "eps_estimate": 2.03, "eps_actual": null, "date": "2026-11-18", "timing": "am", "verified": true}
+  ],
+  "ABBV": [
+    {"year": 2024, "quarter": 4, "eps_estimate": 2.26, "eps_actual": 2.16, "date": "2025-01-31", "timing": "am", "verified": true},
+    {"year": 2025, "quarter": 1, "eps_estimate": 2.38, "eps_actual": 2.46, "date": "2025-04-25", "timing": "am", "verified": true},
+    {"year": 2025, "quarter": 2, "eps_estimate": 2.90, "eps_actual": 2.97, "date": "2025-07-31", "timing": "am", "verified": true},
+    {"year": 2025, "quarter": 3, "eps_estimate": 1.78, "eps_actual": 1.86, "date": "2025-10-31", "timing": "am", "verified": true},
+    {"year": 2025, "quarter": 4, "eps_estimate": 2.66, "eps_actual": 2.71, "date": "2026-02-04", "timing": "am", "verified": true},
+    {"year": 2026, "quarter": 1, "eps_estimate": 2.66, "eps_actual": 2.65, "date": "2026-04-29", "timing": "am", "verified": true},
+    {"year": 2026, "quarter": 2, "eps_estimate": 3.77, "eps_actual": 3.65, "date": "2026-07-31", "timing": "am", "verified": true},
+    {"year": 2026, "quarter": 3, "eps_estimate": 3.85, "eps_actual": null, "date": "2026-10-30", "timing": "am", "verified": false}
+  ],
+  "EXEL": [
+    {"year": 2024, "quarter": 4, "eps_estimate": 0.49, "eps_actual": 0.55, "date": "2025-02-11", "timing": "pm", "verified": true},
+    {"year": 2025, "quarter": 1, "eps_estimate": 0.44, "eps_actual": 0.62, "date": "2025-05-13", "timing": "pm", "verified": true},
+    {"year": 2025, "quarter": 2, "eps_estimate": 0.61, "eps_actual": 0.75, "date": "2025-07-28", "timing": "pm", "verified": true},
+    {"year": 2025, "quarter": 3, "eps_estimate": 0.63, "eps_actual": 0.78, "date": "2025-11-04", "timing": "pm", "verified": true},
+    {"year": 2025, "quarter": 4, "eps_estimate": 0.76, "eps_actual": 0.94, "date": "2026-02-10", "timing": "pm", "verified": true},
+    {"year": 2026, "quarter": 1, "eps_estimate": 0.74, "eps_actual": 0.87, "date": "2026-05-05", "timing": "pm", "verified": true},
+    {"year": 2026, "quarter": 2, "eps_estimate": 0.84, "eps_actual": 0.91, "date": "2026-08-05", "timing": "pm", "verified": true},
+    {"year": 2026, "quarter": 3, "eps_estimate": 0.88, "eps_actual": null, "date": "2026-11-03", "timing": "pm", "verified": false}
+  ],
+  "NWG": [
+    {"year": 2024, "quarter": 4, "eps_estimate": null, "eps_actual": 0.35, "date": "2025-02-14", "timing": "am", "verified": true},
+    {"year": 2025, "quarter": 1, "eps_estimate": null, "eps_actual": 0.39, "date": "2025-05-02", "timing": "am", "verified": true},
+    {"year": 2025, "quarter": 2, "eps_estimate": null, "eps_actual": 0.408, "date": "2025-07-25", "timing": "am", "verified": true},
+    {"year": 2025, "quarter": 3, "eps_estimate": null, "eps_actual": 0.528, "date": "2025-10-24", "timing": "am", "verified": true},
+    {"year": 2025, "quarter": 4, "eps_estimate": 0.36, "eps_actual": 0.463, "date": "2026-02-13", "timing": "am", "verified": true},
+    {"year": 2026, "quarter": 1, "eps_estimate": 0.44, "eps_actual": 0.48, "date": "2026-05-01", "timing": "am", "verified": true},
+    {"year": 2026, "quarter": 2, "eps_estimate": 0.47, "eps_actual": 0.539, "date": "2026-07-31", "timing": "am", "verified": true},
+    {"year": 2026, "quarter": 3, "eps_estimate": 0.52, "eps_actual": null, "date": "2026-10-30", "timing": "am", "verified": true}
+  ],
+  "CVE": [
+    {"year": 2024, "quarter": 4, "eps_estimate": 0.18, "eps_actual": 0.05, "date": "2025-02-20", "timing": "am", "verified": true},
+    {"year": 2025, "quarter": 1, "eps_estimate": 0.29, "eps_actual": 0.33, "date": "2025-05-08", "timing": "am", "verified": true},
+    {"year": 2025, "quarter": 2, "eps_estimate": 0.20, "eps_actual": 0.33, "date": "2025-07-31", "timing": "am", "verified": true},
+    {"year": 2025, "quarter": 3, "eps_estimate": 0.40, "eps_actual": 0.52, "date": "2025-10-31", "timing": "am", "verified": true},
+    {"year": 2025, "quarter": 4, "eps_estimate": 0.28, "eps_actual": 0.36, "date": "2026-02-19", "timing": "am", "verified": true},
+    {"year": 2026, "quarter": 1, "eps_estimate": 0.56, "eps_actual": 0.61, "date": "2026-05-06", "timing": "am", "verified": true},
+    {"year": 2026, "quarter": 2, "eps_estimate": 0.92, "eps_actual": 1.11, "date": "2026-07-29", "timing": "am", "verified": true},
+    {"year": 2026, "quarter": 3, "eps_estimate": 1.07, "eps_actual": null, "date": "2026-10-30", "timing": "am", "verified": false}
+  ]
+}

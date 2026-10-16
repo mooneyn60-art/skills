@@ -1,0 +1,111 @@
+{
+ "start": "2026-09-25",
+ "last_run": "2026-10-15",
+ "spy_start": 771.3,
+ "books": {
+  "tars1": {
+   "cash": 0.3418157901484308,
+   "pos": {
+    "MRNA": {
+     "entry": 198.89,
+     "units": 0.0010045763980099545,
+     "high": 236.5,
+     "last": 236.5,
+     "entry_date": "2026-09-25",
+     "sector": "Healthcare"
+    },
+    "OKTA": {
+     "entry": 195.14,
+     "units": 0.0010238813149543908,
+     "high": 232.07,
+     "last": 208.41,
+     "entry_date": "2026-09-25",
+     "sector": "Technology"
+    },
+    "PBF": {
+     "entry": 91.175,
+     "units": 0.002230379432752577,
+     "high": 91.175,
+     "last": 86.97,
+     "entry_date": "2026-10-13",
+     "sector": "Energy"
+    }
+   },
+   "closed": [
+    {
+     "date": "2026-10-06",
+     "book": "tars1",
+     "event": "EXIT",
+     "sym": "TXG",
+     "reason": "R4_stop",
+     "entry_date": "2026-09-25",
+     "entry": 85.71,
+     "exit": 80.66,
+     "ret": -0.0608
+    },
+    {
+     "date": "2026-10-13",
+     "book": "tars1",
+     "event": "EXIT",
+     "sym": "TXG",
+     "reason": "R4_stop",
+     "entry_date": "2026-10-06",
+     "entry": 80.66,
+     "exit": 71.78,
+     "ret": -0.11187
+    },
+    {
+     "date": "2026-10-14",
+     "book": "tars1",
+     "event": "EXIT",
+     "sym": "DELL",
+     "reason": "R4_stop",
+     "entry_date": "2026-09-25",
+     "entry": 562.8701,
+     "exit": 507.58,
+     "ret": -0.10003
+    }
+   ],
+   "nav": 0.9867613123939213
+  },
+  "trend_only": {
+   "cash": 0.20000000000000007,
+   "pos": {
+    "MRNA": {
+     "entry": 198.89,
+     "units": 0.0010045763980099545,
+     "high": 236.5,
+     "last": 236.5,
+     "entry_date": "2026-09-25",
+     "sector": "Healthcare"
+    },
+    "TXG": {
+     "entry": 85.71,
+     "units": 0.002331118886946679,
+     "high": 97.93,
+     "last": 72.34,
+     "entry_date": "2026-09-25",
+     "sector": "Healthcare"
+    },
+    "DELL": {
+     "entry": 562.8701,
+     "units": 0.0003549668028204018,
+     "high": 586.38,
+     "last": 472.825,
+     "entry_date": "2026-09-25",
+     "sector": "Technology"
+    },
+    "OKTA": {
+     "entry": 195.14,
+     "units": 0.0010238813149543908,
+     "high": 232.07,
+     "last": 208.41,
+     "entry_date": "2026-09-25",
+     "sector": "Technology"
+    }
+   },
+   "closed": [],
+   "nav": 0.9874397418042782
+  }
+ }
+}
