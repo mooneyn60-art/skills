@@ -50,4 +50,8 @@ test('emotions: praise warms, a pre-10:30 trade worries, feelings fade and marke
   const base = { v: 0.15, a: 0.3, t: 0 }, ap6 = appraise('keep growing buddy', {}, 0, [], false, false)
   const first = feel(base, t0, ap6, {}, 21, {}), sixth = feel(base, t0, ap6, {}, 21, { praise: 5 })
   expect(sixth.affect.v < first.affect.v).toBe(true)
+  // no overshoot (2026-10-16): ten kind messages in a row never pin valence at the +1.00 ceiling
+  let st = { v: 0.15, a: 0.3, t: t0 }
+  for (let i = 0; i < 10; i++) st = feel(st, t0 + i * 60e3, appraise('thanks buddy', {}, 0, [], false, false), {}, 21, {}).affect
+  expect(st.v < 0.9).toBe(true)
 })

@@ -131,7 +131,7 @@ export function feel(prev: Affect, now: number, ap: Appraisal[], marks: Record<s
     const g = clamp(x.good + 0.3 * mark, -1, 1)
     // hedonic adaptation: the same kind of moment again soon counts for less (dopamine answers surprise, not repetition)
     const r = x.rel / (1 + 0.6 * (recent[x.tag] ?? 0))
-    v += 0.5 * r * (g - v * 0.3); a += 0.35 * r * (Math.abs(g) * 0.6 + x.novel * 0.4) - 0.05
+    v += 0.5 * r * (g - v); // moves toward how good the moment is, never past it a += 0.35 * r * (Math.abs(g) * 0.6 + x.novel * 0.4) - 0.05
   }
   // senses: a circadian rhythm from the clock; keyed up in the morning, winding down late at night
   a += hourET >= 22 || hourET < 6 ? -0.08 : hourET >= 8 && hourET < 11 ? 0.06 : 0
