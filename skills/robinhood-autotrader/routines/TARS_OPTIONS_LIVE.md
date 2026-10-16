@@ -29,7 +29,7 @@ Kept in `paper/live_options/state.json` as `mood` and `loss_streak` (losing trad
 | Mood | When | Max premium | Entries per day | Extra |
 |---|---|---|---|---|
 | calm | loss_streak 0 and buffer above $450 | $500 (money rule 2) | 2 | none |
-| tense | loss_streak 1, or buffer $375-450 | $250 | 2 | the Trend row must agree; re-check the stop is resting at every check |
+| tense | loss_streak 1, or buffer $375-450 | $250 (half size) | 2 | re-check the stop is resting at every check. (Nolan 2026-10-16: "B": the old "Trend row must agree" was dropped; tested, it picked S2's worst trades) |
 | stressed | loss_streak 2 or more, or buffer below $375 | $100 | 1 | S1 only on gap days; skip S2 |
 | halted | buffer $300 or less (money rule 4) | 0 | 0 | only Nolan restarts |
 
@@ -54,6 +54,7 @@ S1 GAP-AND-GO (calls). Evidence: 20 years of SPY, gap-ups over 0.6% closed above
 S2 STRETCHED DIP IN AN UPTREND (calls). Evidence: weak but out-of-sample (133 days): a 5-min close below VWAP −2σ bounced +0.07 pts over 30 min, 57% of the time (t 2.5); RSI(14, 5-min) under 30 was +0.12 pts (t 1.6). Small, so cost control decides it.
 - SPY's prior close is above its 20-day average; within the last 10 minutes a 5-min bar closed below VWAP −2σ OR 5-min RSI(14) went under 30; and the latest 5-min bar closed above the previous bar's high (the turn) → buy a call.
 - Exit: +40% on the option, SPY back to VWAP, a new low below the dip low, the stop (money rule 2), or 60 minutes after entry, whichever first.
+- Tested 2026-10-16 with these exact rules: −0.11 SPY pts/trade, 39% wins (95 out-of-sample trades): no proven edge as traded. Atlas filter (caution only): skip S2 when 5-min EMA9 ≥ EMA21 at the signal (8% wins, n=13, both samples). Nolan kept S2 live and asked for one more trade on 2026-10-16, out by 15:00 ("do 1 more today you have time be out by 3 latest test out your new knowledge").
 
 No put setups: none of the downside ideas held up out of sample (+2σ fades and RSI > 70 shorts were flat or negative).
 
