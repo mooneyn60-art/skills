@@ -61,7 +61,8 @@ Target: under $25 of model usage per swarm run.
 
 ## Queue (take the top unfinished item)
 
-1. MOMENTUM SCREEN VARIANTS (requested 2026-10-15). Baseline = the live
+1. DONE 2026-10-18: all three variants dead, see research/2026-10-18_MOMENTUM_SCREEN_SWARM.md.
+   MOMENTUM SCREEN VARIANTS (requested 2026-10-15). Baseline = the live
    screen (12-1 month momentum, above the 200-day, 63-day vol <= 80%, max 2
    per sector, 8% stops raised by R4). Variants, one per worker:
    a. Pullback entry: same ranking, but buy only after a 3-8% dip from the
@@ -71,6 +72,9 @@ Target: under $25 of model usage per swarm run.
       from the top 3 sectors.
    Data: paper/history/daily_ohlcv.json, daily_ohlcv_volatile.json,
    daily_ohlcv_holdings.json. Note the survivorship bias in all three.
+1b. NEXT (added 2026-10-18): the live 12-1 screen ITSELF vs SPY through the
+   four hurdles (it has only been measured in-sample, on hand-picked names),
+   plus its 6 live trades scored in R. Uses mom_screen_base.py.
 2. OPTIONS APPRENTICE Stage 2 (see routines/OPTIONS_APPRENTICE.md): write
    2-3 candidate SPY-options rule sets, apply each to Nolan's logged option
    trades (owner_options_mistakes.py data), report in-sample results with

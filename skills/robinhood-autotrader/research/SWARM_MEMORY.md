@@ -40,3 +40,10 @@ Read this first so no run repeats a dead variant.
 - Lean: Nikkei −2% days → SPY open-to-close +0.10-0.14%, 57-59% up, both halves. Tracking forward in the journal.
 - Yahoo chart API works with a browser UA (query2); stooq blocked; Robinhood has no foreign indexes.
 - 2026-10-16 Friday desk-study refresh (32 days, 09-02..10-16; ~45 tests, ~2 pass |t|>=2 by luck): no kills (none fell below t 1.5 or flipped). 1m RSI<30 buy weakened t 2.3 -> 2.0-2.1 (+0.10 pts, both halves still positive; still below the option spread per the deep dig). PDL broken -> short holds (30m +0.71, t 2.0). NEW |t|>=2, candidate only: 5m RSI>70 fade (short) 30m +0.23 pts, 70%, t 2.0, n=23/12 days. Intraday deep dig re-run: no GAPFILL/RANGE_DONE change (2 new days, far below the 40-day bar).
+
+## 2026-10-18 — Momentum screen variants (first queen-led swarm, 3 sonnet workers)
+- Baseline = live 12-1 screen (mom_screen_base.py): LONG 14 names 9.29% CAGR vs SPY 8.94%; WIDE 41 names 13.79% vs 11.47%. In-sample, survivorship-biased; baseline vs SPY not yet hurdle-tested.
+- a. Pullback 3-8% entry: DEAD. LONG -2.95pp t=-3.02 (3/9); only 15% of monthly picks ever dip; waiting = missing the move.
+- b. 6-1 lookback: DEAD. LONG -0.09pp t=-0.08 (3/9), WIDE -3.70pp (3/9); 69% top-8 overlap with 12-1.
+- c. Top-3 sector rotation: DEAD. LONG -2.61pp t=-2.96 (2/9), cash drag (about 4 candidates for 8 slots).
+- Harness lesson: pullback (daily-entry) mode needs a no-same-month-re-buy guard and a signal-day 200d recheck (fixed).

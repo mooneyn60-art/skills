@@ -121,6 +121,7 @@ def run(dates, bars, spyb, start=None, end=None, syms=None, score_fn=mom_12_1,
     cash, pos, trades, eq = 1.0, {}, [], []
     pending, watch = [], []
     month = None
+    bought_this_month = set()   # pullback mode: no same-month re-buys (fix 2026-10-18, worker a)
     for i in range(i0, i1 + 1):
         d = dates[i]
         # 1. fill pending entries at today's open
@@ -165,6 +166,7 @@ def run(dates, bars, spyb, start=None, end=None, syms=None, score_fn=mom_12_1,
         month = d[:7]
         if new_month or entry_mode == "pullback":
             if new_month:
+                bought_this_month = set()
                 cands = []
                 for s in syms:
                     seq = bars[s]
@@ -192,8 +194,12 @@ def run(dates, bars, spyb, start=None, end=None, syms=None, score_fn=mom_12_1,
                     break
                 if s in pos or s in pending or sec.get(SECTORS[s], 0) >= 2:
                     continue
-                if entry_mode == "pullback" and not pullback_ok(bars[s], i):
-                    continue
+                if entry_mode == "pullback":
+                    s200 = sma(bars[s], i, 200)
+                    if (s in bought_this_month or not pullback_ok(bars[s], i)
+                            or s200 is None or bars[s][i][C] <= s200):
+                        continue
+                    bought_this_month.add(s)
                 pending.append(s)
                 sec[SECTORS[s]] = sec.get(SECTORS[s], 0) + 1
                 free -= 1
