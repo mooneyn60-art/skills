@@ -36,3 +36,17 @@ Nolan: drop the cat soap, rebuild from what is actually working, use real tags, 
     buffalo hoof cleaning 268k/2.2k subs (11 s).
   - Takeaways for next batch: tighter cuts (16–20 s, not 24), lean harder on the cleaning/transformation payoff, test the
     "AI Comedy AD" fake-infomercial framing in titles.
+
+## Update 2026-10-19 (pm) — what small AI channels that WORK actually do
+Beaver (obvious-AI, 3 shots, 22 s) sat at 0 views first hour. Nolan: too obviously AI. Outlier pull (Shorts, this month, small channels):
+- Length: the big AI wins are ONE shot, 9-14 s: "How many animal do you see" 9 s 10M (41k subs); AI monkey babies 11 s 1.8M (6.8k);
+  "short ai tiktok video" 11 s 1.2M (869 subs); AI baby 11 s 770k (5.7k); AI comedy 14 s 760k (4k). Loops = rewatch %.
+- "Caught on camera" format: doorbell-cam + plot-twist title "Mom Checked the Doorbell Camera… 😨 #plotwist" = 4000x breakout (2.9k subs);
+  AI-labeled "10 Unbelievable Animal Moments Caught on Camera" 2.4M on 2.8k subs; compilations 1.5-2.5 min pull 0.5-17M.
+- Infomercial: Mio "AI Comedy AD: Magic Fix" 23M.
+New rules:
+1. Realistic capture look (doorbell / security / dashcam / phone), real animal behavior, no costumes/tools. Grain + timestamp in post.
+2. Default = single 8 s shot (80 credits) instead of 3-shot 24 s (240). 3x the output per credit, matches winner length.
+3. Titles = curiosity/plot-twist ("Checked the doorbell camera at 3am… 😨"), not "satisfying".
+4. Weekly 60-120 s "caught on camera" compilation stitched from the week's clips.
+5. Keep YouTube AI disclosure on (required for realistic synthetic content).
