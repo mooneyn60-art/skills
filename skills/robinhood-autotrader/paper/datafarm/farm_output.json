@@ -5,10 +5,10 @@
 ],
 "n_days": 32,
 "events": {
-"swing_high": 1772,
-"structure_break": 1302,
-"swing_low": 1724,
-"fvg": 190,
+"swing_high": 1778,
+"structure_break": 1307,
+"swing_low": 1729,
+"fvg": 191,
 "sweep": 12
 },
 "setups": {
@@ -61,16 +61,16 @@
 "weeks_pos": "4/8"
 },
 "vwap_reclaim": {
-"n": 108,
-"win": 33.3,
-"pf": 0.91,
-"avgR": -0.066,
-"t": -0.48,
-"opt_avg": -0.042,
+"n": 109,
+"win": 33.9,
+"pf": 0.93,
+"avgR": -0.048,
+"t": -0.35,
+"opt_avg": -0.04,
 "maxdd_R": -15.16,
 "h1": -0.087,
-"h2": -0.038,
-"weeks_pos": "3/8"
+"h2": 0.002,
+"weeks_pos": "4/8"
 }
 },
 "trades": [
@@ -6456,6 +6456,28 @@
 },
 {
 "day": "2026-10-19",
+"setup": "vwap_reclaim",
+"side": "long",
+"t_in": "15:19",
+"t_out": "15:24",
+"vwap": 768.02,
+"ema9": 767.85,
+"ema21": 767.77,
+"rsi": 65.5,
+"atr": 0.159,
+"trend": 1,
+"entry": 768.05,
+"stop": 767.84,
+"target": 768.47,
+"exit": 768.47,
+"reason": "target",
+"R": 1.904,
+"pts": 0.42,
+"opt_ret": 0.168,
+"why": "VWAP cross with EMA9/21 trend"
+},
+{
+"day": "2026-10-19",
 "setup": "fvg_retest",
 "side": "long",
 "t_in": "10:33",
@@ -6694,10 +6716,10 @@
 "structure_break": 38
 },
 "2026-10-19": {
-"swing_high": 54,
-"swing_low": 47,
-"structure_break": 37,
-"fvg": 5
+"swing_high": 60,
+"swing_low": 52,
+"structure_break": 42,
+"fvg": 6
 }
 }
 }
