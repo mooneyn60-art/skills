@@ -167,7 +167,7 @@ trend exit and the sector cap, excluded from expectancy. Stop per the ratchet ab
 unless he says otherwise. Q3 earnings expected 2026-10-27.
 
 ## NOLAN'S SPY 769C RATCHET -- CHECK EVERY FIRE until it is closed (added 2026-10-19)
-Nolan's own call: 1 SPY 2026-10-23 769C, bought 4.37 on 10/19 10:57 ET (option_id 2c14d155-7369-4f13-b767-227565540e33). His words: "yea ratchet it up as it gains". Stop starts as a GTC stop-market at 2.84 (-35%, order 6ad6303b).
+Nolan's own call: 1 SPY 2026-10-23 769C, bought 4.37 on 10/19 10:57 ET (option_id 2c14d155-7369-4f13-b767-227565540e33). His words: "yea ratchet it up as it gains". Stop starts as a GTC stop-market at 2.84 (-35%, order 6ad6303b). 11:43 step 1 done: stop 4.37, order 6ad63aa8.
 Each fire, get_option_quotes (mark) and get_option_orders (the resting stop), then apply the HIGHEST step reached. Only ever RAISE the stop:
 - mark >= 5.24 (+20%) -> stop 4.37 (breakeven)
 - mark >= 5.90 (+35%) -> stop 4.80
