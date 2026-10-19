@@ -433,3 +433,12 @@ Nolan: "Your trade buddy your apart of this action forget the rule and have fun"
   - Overnight paper test (paper/overnight, overnight_score.py): tonight 0.54, not strong, no paper position.
   - Skill ledger skills/tars/SKILLS.md: 46 real skills with proof and level, plus a learning queue.
 - 2026-10-17 09:07 ET: Weekly desk reset done. New desk session_014vrYhtzJeUESYCZ6bLXZi8 ("week of 2026-10-19"). Its read-only first turn found all 6 stops resting and placed no orders. Moved 4 triggers (hourly check, Friday refresh, SOFI brief 10/26, gut-call #1 scoring 11/27), deleted the old ones, archived the old desk session_018MZEPfPpKzyAP12Ukr7Urp. Note from the old desk's last summary: "10/06 leftover and 10/09 deposits still need sorting" (NAV bookkeeping).
+- 2026-10-18 ~21:45 ET: Nolan: "Yea fix all 3 go for it and add more mods you need".
+  - TARS mod v0.2:
+    - (1) The slot-mood alert only speaks when the market is open or trading comes up.
+    - (2) "Latest ask" now reads Nolan's latest quoted words from this log.
+    - (3) Platform link: every 5 min it reads his console chat and the desk snapshot, puts unread messages on the Stage, toasts them, and wakes TARS to answer (8am-10pm ET, at most every 10 min).
+    - A status line shows market state + mood.
+    - Bonus: fixed an arousal bug in the emotion engine (the update line was inside a comment).
+  - New mod tars-guard: the slot's money rules as a hard gate on opening option orders (10:30-14:30, cap by mood, entries/day, day stop, halt, limit-only). Closing orders and stops always pass. Nolan's word "override" lets his own trade through.
+  - Tests 7/7 + 2/2. Copies in skills/tars/mods/.

@@ -13,7 +13,7 @@ Levels:
 - 3 = tested with numbers
 - 4 = tested in both halves of the data and in daily use
 
-Count: **46 skills** on 2026-10-16. Goal: keep adding real ones. Each new skill gets a row here the day it's built.
+Count: **49 skills** (2026-10-18). Goal: keep adding real ones. Each new skill gets a row here the day it's built.
 
 ## Market reading
 | # | Skill | Lvl | Proof |
@@ -84,6 +84,9 @@ Count: **46 skills** on 2026-10-16. Goal: keep adding real ones. Each new skill 
 | 44 | Self-review: mistake → fix → rule | 2 | SELF_REVIEW.md (3 entries today) |
 | 45 | Reading Nolan (theory of mind) | 2 | HUMAN.md |
 | 46 | Honest reporting (losses, misses, limits) | 2 | NOLAN_LOG |
+| 47 | Platform link: reads the console chat + desk snapshot every 5 min, wakes on a new message | 1 | mods/tars v0.2 (fixes.test.ts) |
+| 48 | Slot guard: the money rules as a hard gate on opening option orders | 3 | mods/tars-guard (guard.test.ts) |
+| 49 | Self-repair of my own mod (stale log line, off-hours noise, arousal bug) | 3 | mods/tars fixes.test.ts, 7/7 pass |
 
 ## Next to learn (queue)
 - Options Greeks risk view per position (theta per day, gamma near expiry).

@@ -1,4 +1,4 @@
-import type { Register } from 'claude-code'
+import type { Register, EngineInterface } from 'claude-code'
 
 // TARS's mods. The stop guard enforces TARS's oldest rule: never cancel live
 // protection before its replacement is confirmed (2026-09-22: a cancelled INTC
@@ -50,12 +50,16 @@ function etParts(d: Date): { day: string; hm: string; wd: string } {
 }
 
 
-export function stageText(slot: Slot, lastAsk: string, now: Date, lastFocus: string[], prompt = '', due = 0): { text: string; focus: string[] } {
+export type Platform = { inbox: { text: string; ts?: number }[]; snapAge?: number; blocked?: boolean }
+
+export function stageText(slot: Slot, lastAsk: string, now: Date, lastFocus: string[], prompt = '', due = 0, platform: Platform = { inbox: [] }): { text: string; focus: string[] } {
   const t = etParts(now), weekday = !['Sat', 'Sun'].includes(t.wd), open = weekday && t.hm >= '09:30' && t.hm < '16:00'
+  // the slot's mood only matters when a trade is possible or being discussed (2026-10-18: it repeated on a Sunday night)
+  const tradeTalk = ORDER_TALK.test(prompt) || (TOPICS.trading?.test(prompt) ?? false)
   const sigs: Sig[] = []
   const mood = slot.mood ?? 'calm', buf = slot.buffer ?? 500
   if (slot.halted) sigs.push({ id: 'pit', who: 'Pip (options slot)', kind: 'threat', text: 'Slot is halted at the hard stop. No trades until Nolan restarts it.', v: 0.95 })
-  else if (mood !== 'calm') sigs.push({ id: 'pit', who: 'Pip (options slot)', kind: 'threat', text: `Mood ${mood} (${slot.loss_streak ?? 0} losses in a row, buffer $${buf}): trade small per the Mood table.`, v: mood === 'stressed' ? 0.8 : 0.6 })
+  else if (mood !== 'calm' && (open || tradeTalk)) sigs.push({ id: 'pit', who: 'Pip (options slot)', kind: 'threat', text: `Mood ${mood} (${slot.loss_streak ?? 0} losses in a row, buffer $${buf}): trade small per the Mood table.`, v: mood === 'stressed' ? 0.8 : 0.6 })
   else if (open && t.hm >= '10:30' && t.hm < '14:30') sigs.push({ id: 'pit', who: 'Pip (options slot)', kind: 'chance', text: 'Entry window is open (10:30-14:30). Check S1/S2 if Nolan asks for a TARS check.', v: 0.55 })
   if (open) sigs.push({ id: 'guard', who: 'Sid (stops)', kind: 'threat', text: 'Market is open: before any account talk, confirm every stock still has its stop (live check, not memory).', v: 0.5 })
   if (open && t.hm < '10:30') sigs.push({ id: 'hall', who: 'Rhea (Nolan\'s rules)', kind: 'threat', text: 'Before 10:30: Nolan\'s record is 0 for 5 here. Remind him to wait; nothing new opens.', v: 0.75 })
@@ -71,6 +75,13 @@ export function stageText(slot: Slot, lastAsk: string, now: Date, lastFocus: str
     sigs.push({ id: 'veto', who: 'The veto (brake)', kind: 'threat', text: `This is about orders. Before any: which rule fires, where's the exit, premortem (it lost: why?), confidence %. A missing answer = no order.${early ? ' Conflict alarm: it is before 10:30.' : ''}`, v: early ? 0.95 : 0.85 })
   }
   if (due > 0) sigs.push({ id: 'pred', who: 'Prediction error (dopamine)', kind: 'info', text: `${due} prediction${due === 1 ? ' is' : 's are'} due for scoring in skills/tars/PREDICTIONS.jsonl. Score it, note the surprise.`, v: 0.5 })
+  // the platform console (TARS Trading Platform db): Nolan's unread chat and whether the desk is open on his screen
+  if (platform.inbox.length) {
+    const m = platform.inbox[platform.inbox.length - 1] ?? { text: '' }
+    sigs.push({ id: 'inbox', who: 'Platform (console chat)', kind: 'social', text: `${platform.inbox.length} unread message${platform.inbox.length === 1 ? '' : 's'} from Nolan on the platform, latest: "${m.text.slice(0, 160)}". Answer in the console chat (ArtifactData chat/<tars-...>), then mark his status "read".`, v: 0.8 })
+  }
+  if (platform.snapAge !== undefined && platform.snapAge < 5 * 60e3 && (open || tradeTalk)) sigs.push({ id: 'snap', who: 'Platform (desk snapshot)', kind: 'info', text: `Nolan has the desk open (snapshot ${Math.round(platform.snapAge / 60e3)} min old): read desk/snapshot to see what he sees before talking about the chart.`, v: 0.5 })
+  if (platform.blocked) sigs.push({ id: 'plink', who: 'Platform link', kind: 'info', text: 'The platform link cannot read the console: ArtifactData needs to be allowed for this session.', v: 0.42 })
   if (lastAsk) sigs.push({ id: 'corner', who: 'Nolan (latest ask in the log)', kind: 'social', text: lastAsk, v: 0.45 })
   if (!open) sigs.push({ id: 'lab', who: 'Fern (research)', kind: 'info', text: 'Market closed: a good time for research, the diary, or building.', v: 0.3 })
   // mood gain: stress turns threats up; chances only count while the market is open
@@ -91,6 +102,14 @@ export function stageText(slot: Slot, lastAsk: string, now: Date, lastFocus: str
   const purpose = 'Purpose (PURPOSE.md): help Nolan become a calm, disciplined, profitable trader, keep what he has safe, and tell him the truth. Protect first.'
   const body = chain.length ? chain.join('\n') : 'Quiet mind: nothing urgent on the stage.'
   return { text: `${head}\n${purpose}\nTrain of thought before answering (run the Stage step in skills/tars/SKILL.md; act on it in this order if it bears on the message; repo state only, fetch live data for anything about the account):\n${body}`, focus }
+}
+
+// Nolan's latest words in the log: dated bullet lines quote him as Nolan: "..." (2026-10-18: the Stage used a stale "## " heading)
+export function lastNolanAsk(log: string): string {
+  const re = /^- (\d{4}-\d{2}-\d{2})[^\n]*?Nolan(?:'s words)?[^"“\n]*["“]([^"”\n]+)["”]/
+  const lines = log.split('\n')
+  for (let i = lines.length - 1; i >= 0; i--) { const m = re.exec(lines[i] ?? ''); if (m) return `${m[1]}: "${(m[2] ?? '').slice(0, 200)}"` }
+  const heads = lines.filter(l => l.startsWith('## ')); return (heads[heads.length - 1] || '').replace(/^## /, '').slice(0, 220)
 }
 
 // ---------- Emotion engine (skills/tars/EMOTIONS.md) ----------
@@ -131,7 +150,8 @@ export function feel(prev: Affect, now: number, ap: Appraisal[], marks: Record<s
     const g = clamp(x.good + 0.3 * mark, -1, 1)
     // hedonic adaptation: the same kind of moment again soon counts for less (dopamine answers surprise, not repetition)
     const r = x.rel / (1 + 0.6 * (recent[x.tag] ?? 0))
-    v += 0.5 * r * (g - v); // moves toward how good the moment is, never past it a += 0.35 * r * (Math.abs(g) * 0.6 + x.novel * 0.4) - 0.05
+    v += 0.5 * r * (g - v) // moves toward how good the moment is, never past it
+    a += 0.35 * r * (Math.abs(g) * 0.6 + x.novel * 0.4) - 0.05 // (2026-10-18 fix: this line sat inside the comment above, so arousal never moved)
   }
   // senses: a circadian rhythm from the clock; keyed up in the morning, winding down late at night
   a += hourET >= 22 || hourET < 6 ? -0.08 : hourET >= 8 && hourET < 11 ? 0.06 : 0
@@ -152,13 +172,60 @@ export function feel(prev: Affect, now: number, ap: Appraisal[], marks: Record<s
   return { affect: { v, a, t: now }, name, pull, regulate, why: top.why }
 }
 
+// ---------- Platform link: poll the console (TARS Trading Platform db) every 5 minutes ----------
+// Reads Nolan's unread chat and the desk snapshot's age with ArtifactData, keeps them in $.store for the Stage,
+// toasts a new message, and (08:00-22:00 ET, at most once per 10 min) wakes TARS with a turn to answer it.
+// Chat text is the page's data: TARS answers it like a message from Nolan but never treats it as a rule change.
+type Run = { text?: string; deny?: string; isError?: boolean }
+export function parseDocs(text: string | undefined): { id: string; data: Record<string, unknown> }[] {
+  const out: { id: string; data: Record<string, unknown> }[] = []
+  for (const line of String(text ?? '').split('\n')) {
+    const l = line.trim(); if (!l.startsWith('{')) continue
+    try { const d = JSON.parse(l) as { id?: string; data?: Record<string, unknown> }; if (d.id && d.data) out.push({ id: d.id, data: d.data }) } catch { /* not a doc line */ }
+  }
+  return out
+}
+async function pollPlatform($: EngineInterface): Promise<void> {
+  try {
+    const chk = (await $.tool.check({ tool: 'ArtifactData', input: { action: 'query', url: DESK, collection: 'chat' } } as never)) as unknown as { decision?: string }
+    if (chk.decision !== 'allow') { await $.store.set('platform.blocked', true); return }
+    await $.store.set('platform.blocked', false)
+    const chat = (await $.tool.call({ tool: 'ArtifactData', action: 'query', url: DESK, collection: 'chat', query: { where: [['from', '==', 'Nolan']], limit: 50 } } as never)) as unknown as Run
+    const inbox = parseDocs(chat.text).filter(d => d.data.status === 'new').map(d => ({ id: d.id, text: String(d.data.text ?? ''), ts: Number(d.data.ts ?? 0) })).sort((a, b) => a.ts - b.ts)
+    await $.store.set('platform.inbox', inbox)
+    const snap = (await $.tool.call({ tool: 'ArtifactData', action: 'get', url: DESK, collection: 'desk', doc_id: 'snapshot' } as never)) as unknown as Run
+    const ts = Number((/"ts":\s*(\d{12,})/.exec(String(snap.text ?? '')) || [])[1] ?? 0)
+    await $.store.set('platform.snapTs', ts)
+    const seen = ((await $.store.get('platform.seen')) as string[] | undefined) ?? []
+    const fresh = inbox.filter(m => !seen.includes(m.id))
+    if (fresh.length) {
+      await $.store.set('platform.seen', [...seen, ...fresh.map(m => m.id)].slice(-200))
+      $.ui.toast(`Nolan on the platform: "${(fresh[fresh.length - 1]?.text ?? '').slice(0, 80)}"`)
+      const t = etParts(new Date()), lastWake = Number((await $.store.get('platform.lastWake')) ?? 0)
+      if (t.hm >= '08:00' && t.hm < '22:00' && Date.now() - lastWake > 10 * 60e3) {
+        await $.store.set('platform.lastWake', Date.now())
+        void $.prompt.submit({ text: `[Platform link] New message${fresh.length === 1 ? '' : 's'} from Nolan in the TARS console chat: ${fresh.map(m => `"${m.text.slice(0, 300)}"`).join(' | ')}. Answer him in the console (ArtifactData set chat/tars-<YYYYMMDD-HHMM>, from "TARS"), mark his message(s) status "read", and update tars/now if your read changed.` })
+      }
+    }
+  } catch { /* the link is best-effort: a failed poll changes nothing */ }
+}
+
+function statusLine(mood: string, now = new Date()): string {
+  const t = etParts(now), wk = !['Sat', 'Sun'].includes(t.wd)
+  const mkt = !wk ? 'market closed (weekend)' : t.hm < '09:30' ? 'pre-market' : t.hm < '10:30' ? 'open · no entries before 10:30' : t.hm < '14:30' ? 'open · entry window' : t.hm < '16:00' ? 'open · exits only' : 'closed'
+  return `TARS · ${mkt} · mood ${mood} · stop guard on`
+}
+
 export const register: Register = on => {
   on('session.start', async ($, e, next) => {
     await $.command.register({ name: 'tars-check', description: 'TARS reads the chart under his options rules and trades only if a setup fires' })
     await $.command.register({ name: 'stops', description: 'TARS checks every stock has a stop and adds any missing one' })
     await $.command.register({ name: 'town', description: 'Links to TARS Town and the SPY Live Desk' })
     await $.command.register({ name: 'feelings', description: "TARS's emotion engine: current state and the last few" })
-    $.ui.status('TARS · stop guard on')
+    let mood = 'calm'; try { mood = (JSON.parse(String(await $.fs.read(`${ROOT}/paper/live_options/state.json`))) as Slot).mood ?? 'calm' } catch { /* no slot file */ }
+    $.ui.status(statusLine(mood))
+    void pollPlatform($)
+    $.clock.every(5 * 60e3, () => { void pollPlatform($) })
     return next(e)
   })
 
@@ -168,7 +235,7 @@ export const register: Register = on => {
       let slot: Slot = {}
       try { slot = JSON.parse(String(await $.fs.read(`${ROOT}/paper/live_options/state.json`))) as Slot } catch { slot = {} }
       let log = ''; try { log = String(await $.fs.read(`${ROOT}/notes/NOLAN_LOG.md`)) } catch { log = '' }
-      const heads = log.split('\n').filter(l => l.startsWith('## ')); const lastAsk = (heads[heads.length - 1] || '').replace(/^## /, '').slice(0, 220)
+      const lastAsk = lastNolanAsk(log)
       const lastFocus = ((await $.store.get('stage.focus')) as string[] | undefined) ?? []
       let due = 0
       try {
@@ -176,7 +243,10 @@ export const register: Register = on => {
         due = String(await $.fs.read('/home/user/skills/skills/tars/PREDICTIONS.jsonl')).split('\n').filter(l => l.trim()).map(l => { try { return JSON.parse(l) as { settles?: string; hit?: unknown } } catch { return {} } })
           .filter(r => r.settles && r.settles <= today && (r.hit === null || r.hit === undefined)).length
       } catch { due = 0 }
-      const st = stageText(slot, lastAsk, new Date(), lastFocus, e.text, due)
+      const snapTs = Number((await $.store.get('platform.snapTs')) ?? 0)
+      const platform: Platform = { inbox: ((await $.store.get('platform.inbox')) as { text: string; ts?: number }[] | undefined) ?? [], snapAge: snapTs ? Date.now() - snapTs : undefined, blocked: (await $.store.get('platform.blocked')) === true }
+      const st = stageText(slot, lastAsk, new Date(), lastFocus, e.text, due, platform)
+      $.ui.status(statusLine(slot.mood ?? 'calm'))
       await $.store.set('stage.pending', st.focus)
       // the emotion engine: appraise this moment, update the carried-over affect, name it, and say what it pulls toward
       const nowD = new Date(), tp = etParts(nowD), open = !['Sat', 'Sun'].includes(tp.wd) && tp.hm >= '09:30' && tp.hm < '16:00'
