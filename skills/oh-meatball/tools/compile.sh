@@ -4,6 +4,7 @@
 # Clips play in the given order with a "#N ... #1" countdown overlay for the first 2 s of each; hard cuts.
 # Env: CRF (default 20), COUNTDOWN=0 to disable overlay, BOLD_FONT
 set -euo pipefail
+source "$(dirname "$0")/lib.sh"
 [[ $# -lt 3 ]] && { sed -n '2,5p' "$0" | sed 's/^# \{0,1\}//'; exit 1; }
 OUT=$1; ORIENT=$2; shift 2; CLIPS=("$@"); N=${#CLIPS[@]}
 FONT=${BOLD_FONT:-/usr/share/fonts/truetype/freefont/FreeSansBold.ttf}
@@ -37,11 +38,12 @@ for i in "${!CLIPS[@]}"; do
   FG+="[$ain]aresample=48000,aformat=sample_fmts=fltp:channel_layouts=stereo,asetpts=PTS-STARTPTS,apad,atrim=duration=$D[a$i];"
   CAT+="[v$i][a$i]"
 done
-FG+="${CAT}concat=n=$N:v=1:a=1[vc][ac];[ac]loudnorm=I=-14:TP=-1.5:LRA=11,aresample=48000[ao]"
+FG+="${CAT}concat=n=$N:v=1:a=1[vc][ac];[ac]anull[ao]"
 printf '%s' "$FG" > "$TMP/fc.txt"
 if [[ $ORIENT == vertical ]] && awk -v t="$TOTAL" 'BEGIN{exit !(t>60)}'; then
   echo "compile: WARNING total ${TOTAL}s exceeds the 60 s Shorts limit" >&2; fi
 ffmpeg -v error -y "${INPUTS[@]}" -filter_complex_script "$TMP/fc.txt" -map "[vc]" -map "[ao]" \
   -c:v libx264 -preset medium -crf "$CRF" -pix_fmt yuv420p -c:a aac -b:a 160k -ar 48000 \
   -movflags +faststart "$OUT"
+loudnorm_2pass "$OUT" -14
 echo "compile: wrote $OUT ($ORIENT, $N clips, ${TOTAL}s)"

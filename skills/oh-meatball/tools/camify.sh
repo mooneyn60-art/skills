@@ -4,6 +4,7 @@
 # DATETIME: anything `date -d` understands, e.g. "2026-10-14 03:12:44" (default: random recent night/day time)
 # Env: CRF (default 20), SPEED (dashcam text, default "34 MPH"), MONO_FONT
 set -euo pipefail
+source "$(dirname "$0")/lib.sh"
 usage(){ sed -n '2,5p' "$0" | sed 's/^# \{0,1\}//'; exit 1; }
 [[ $# -lt 3 ]] && usage
 IN=$1; OUT=$2; PRESET=$3; LABEL=${4:-}; DT=${5:-}
@@ -55,8 +56,9 @@ printf '%s' "$V" > "$TMP/vf.txt"
 HASA=$(ffprobe -v error -select_streams a -show_entries stream=index -of csv=p=0 "$IN" | head -1)
 if [[ -n $HASA ]]; then AIN=(); AMAP="0:a:0"; else AIN=(-f lavfi -t 3600 -i anullsrc=r=48000:cl=stereo); AMAP="1:a"; fi
 ffmpeg -v error -y -i "$IN" "${AIN[@]}" -filter_script:v "$TMP/vf.txt" \
-  -af "loudnorm=I=-14:TP=-1.5:LRA=11,aresample=48000,aformat=channel_layouts=stereo" \
+  -af "aresample=48000,aformat=channel_layouts=stereo" \
   -map 0:v:0 -map "$AMAP" -shortest \
   -c:v libx264 -preset medium -crf "$CRF" -pix_fmt yuv420p -c:a aac -b:a 160k -ar 48000 \
   -movflags +faststart "$OUT"
+loudnorm_2pass "$OUT" -14
 echo "camify: wrote $OUT ($PRESET, starts $DT)"
