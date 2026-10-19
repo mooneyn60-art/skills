@@ -2,7 +2,7 @@
 """Make a YouTube thumbnail from a video frame.
 
 thumbnail.py VIDEO OUT.jpg --time T --text "HE CAME BACK" [--circle x,y,r]
-             [--arrow x1,y1,x2,y2] [--size 1280x720|1080x1920]
+             [--arrow x1,y1,x2,y2] [--size 1280x720|1080x1920] [--crop-y 0-1]
 
 Coordinates for --circle/--arrow are in OUTPUT pixels (after crop/fit).
 """
@@ -43,11 +43,11 @@ def grab_frame(video, t):
     return img
 
 
-def fit(img, w, h):
-    """Fill target; if aspect differs a lot (vertical clip -> 16:9), use blurred fill behind."""
+def fit(img, w, h, crop_y=None):
+    """Fill target; if aspect differs a lot (vertical clip -> 16:9), use blurred fill unless crop_y is given."""
     src_ar, dst_ar = img.width / img.height, w / h
-    if abs(src_ar - dst_ar) / dst_ar < 0.35:
-        return ImageOps.fit(img, (w, h), Image.LANCZOS, centering=(0.5, 0.4))
+    if crop_y is not None or abs(src_ar - dst_ar) / dst_ar < 0.35:
+        return ImageOps.fit(img, (w, h), Image.LANCZOS, centering=(0.5, 0.4 if crop_y is None else crop_y))
     from PIL import ImageFilter
     bg = ImageOps.fit(img, (w, h), Image.LANCZOS).filter(ImageFilter.GaussianBlur(28))
     bg = ImageEnhance.Brightness(bg).enhance(0.7)
@@ -63,7 +63,9 @@ def font_path():
     sys.exit("thumbnail: no bold sans font found")
 
 
-def wrap_lines(words):
+def wrap_lines(words, portrait=False):
+    if len(words) == 2 and portrait:
+        return words
     if len(words) <= 2:
         return [" ".join(words)]
     cut = (len(words) + 1) // 2
@@ -73,7 +75,7 @@ def wrap_lines(words):
 def draw_text(img, text, fpath):
     w, h = img.size
     d = ImageDraw.Draw(img)
-    lines = wrap_lines(text.upper().split())
+    lines = wrap_lines(text.upper().split(), portrait=h > w)
     max_w = w * 0.92
     max_h = h * (0.36 if h < w else 0.24)
     size = int(h * 0.3)
@@ -124,6 +126,7 @@ def main():
     ap.add_argument("--text", required=True, help="2-4 words, e.g. 'HE CAME BACK'")
     ap.add_argument("--circle", help="x,y,r")
     ap.add_argument("--arrow", help="x1,y1,x2,y2 (tip at x2,y2)")
+    ap.add_argument("--crop-y", type=float, help="0-1: crop-fill instead of blurred fill, 0=top 1=bottom")
     ap.add_argument("--size", default="1280x720", choices=["1280x720", "1080x1920"])
     a = ap.parse_args()
     if not os.path.exists(a.video):
@@ -131,7 +134,7 @@ def main():
     if not 1 <= len(a.text.split()) <= 4:
         print("thumbnail: warning: best results with 2-4 words", file=sys.stderr)
     w, h = map(int, a.size.split("x"))
-    img = fit(grab_frame(a.video, a.time), w, h)
+    img = fit(grab_frame(a.video, a.time), w, h, a.crop_y)
     img = ImageEnhance.Contrast(img).enhance(1.25)
     img = ImageEnhance.Color(img).enhance(1.4)
     img = ImageEnhance.Sharpness(img).enhance(1.3)
