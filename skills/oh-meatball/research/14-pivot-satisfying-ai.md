@@ -25,3 +25,14 @@ Nolan: drop the cat soap, rebuild from what is actually working, use real tags, 
 ## Posting reality
 - vidIQ can publish Instagram Reels only (IG not yet connected in vidIQ) and edit YouTube metadata (needs verification).
   It cannot upload to YouTube. YouTube/TikTok uploads still go through OpusClip (one approval tap).
+
+## Update 2026-10-19 — posting via Metricool (tags work), times + outliers
+- All Shorts now go out through Metricool (YouTube connected; real tag field, isAiGeneratedContent=true). TikTok/IG not yet linked.
+- Best-time data (Metricool, YouTube, ET): peaks 4 PM (top every weekday) and 10 AM; 8 PM is ~half of peak; Sat/Sun ~half of weekdays.
+  Slots moved to 10 AM + 4 PM ET.
+- Outliers this month (Shorts, "AI animal satisfying cleaning fix"):
+  - Mio Comedy Factory "AI Comedy AD: Magic Fix" 23.2M on 41k subs (753x breakout), 21 s — same magic-fix format as ours.
+  - Real cleaning transformations break out on tiny channels: O-Wash 225k/568 subs (31 s), toy-gun cleaning 731k/2.7k subs (10 s),
+    buffalo hoof cleaning 268k/2.2k subs (11 s).
+  - Takeaways for next batch: tighter cuts (16–20 s, not 24), lean harder on the cleaning/transformation payoff, test the
+    "AI Comedy AD" fake-infomercial framing in titles.
