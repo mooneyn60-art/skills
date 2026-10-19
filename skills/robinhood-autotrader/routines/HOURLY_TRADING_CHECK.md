@@ -162,8 +162,8 @@ option, answer about the option.
 
 ## SOFI IS CARVED OUT (Nolan's decision 2026-09-22)
 
-His discretionary position, 1-2 year thesis, >$20 target. STOPPED OUT 2026-09-30 3:55pm ET: all 5 shares sold at 15.755 by stop 6ab12ef4 (-6.2% vs 16.80 avg). SOFI is now 0 shares. If Nolan re-buys, ask him for a stop level. Exempt from the
-trend exit and the sector cap, excluded from expectancy. Stop stays 15.75
+His discretionary position, 1-2 year thesis, >$20 target. STOPPED OUT 2026-09-30 3:55pm ET: all 5 shares sold at 15.755 by stop 6ab12ef4 (-6.2% vs 16.80 avg). RE-BOUGHT 2026-10-19 11:05 ET: 5 sh @14.48 (Nolan, in the app). Nolan let TARS pick ("Your the bosss") then said "Start ratchet": GTC stop-market 13.32 (-8%), order 6ad63a8a, confirmed 11:43 ET. RATCHET = R4 at the 5:17 close check: stop = max(13.32, 14.48 once a close >= 15.64, 0.80 x highest close since 10/19). Only raise; cancel, confirm, re-place, confirm. Earnings ~10/27 can gap through it. Exempt from the
+trend exit and the sector cap, excluded from expectancy. Stop per the ratchet above
 unless he says otherwise. Q3 earnings expected 2026-10-27.
 
 ## NOLAN'S SPY 769C RATCHET -- CHECK EVERY FIRE until it is closed (added 2026-10-19)
