@@ -5,10 +5,10 @@
 ],
 "n_days": 32,
 "events": {
-"swing_high": 1734,
-"structure_break": 1275,
-"swing_low": 1691,
-"fvg": 189,
+"swing_high": 1742,
+"structure_break": 1280,
+"swing_low": 1699,
+"fvg": 190,
 "sweep": 12
 },
 "setups": {
@@ -25,15 +25,15 @@
 "weeks_pos": "5/7"
 },
 "fvg_retest": {
-"n": 95,
-"win": 31.6,
-"pf": 0.83,
-"avgR": -0.118,
-"t": -0.84,
-"opt_avg": -0.046,
+"n": 96,
+"win": 32.3,
+"pf": 0.84,
+"avgR": -0.111,
+"t": -0.8,
+"opt_avg": -0.045,
 "maxdd_R": -19.34,
 "h1": -0.275,
-"h2": 0.024,
+"h2": 0.033,
 "weeks_pos": "2/8"
 },
 "sweep_fvg": {
@@ -49,27 +49,27 @@
 "weeks_pos": "0/1"
 },
 "fvg_trend": {
-"n": 76,
-"win": 31.6,
-"pf": 0.86,
-"avgR": -0.097,
-"t": -0.61,
+"n": 77,
+"win": 32.5,
+"pf": 0.87,
+"avgR": -0.089,
+"t": -0.57,
 "opt_avg": -0.046,
 "maxdd_R": -16.26,
 "h1": -0.208,
-"h2": 0.015,
+"h2": 0.027,
 "weeks_pos": "3/8"
 },
 "vwap_reclaim": {
-"n": 105,
-"win": 33.3,
-"pf": 0.91,
-"avgR": -0.066,
-"t": -0.48,
-"opt_avg": -0.042,
+"n": 106,
+"win": 33.0,
+"pf": 0.89,
+"avgR": -0.075,
+"t": -0.55,
+"opt_avg": -0.043,
 "maxdd_R": -15.16,
 "h1": -0.087,
-"h2": -0.037,
+"h2": -0.059,
 "weeks_pos": "3/8"
 }
 },
@@ -6302,6 +6302,28 @@
 },
 {
 "day": "2026-10-19",
+"setup": "fvg_trend",
+"side": "short",
+"t_in": "12:12",
+"t_out": "12:17",
+"vwap": 768.21,
+"ema9": 768.53,
+"ema21": 768.85,
+"rsi": 46.7,
+"atr": 0.323,
+"trend": 0,
+"entry": 768.78,
+"stop": 769.22,
+"target": 767.89,
+"exit": 768.54,
+"reason": "close",
+"R": 0.496,
+"pts": 0.24,
+"opt_ret": 0.011,
+"why": "bear FVG retest with trend"
+},
+{
+"day": "2026-10-19",
 "setup": "vwap_reclaim",
 "side": "long",
 "t_in": "10:13",
@@ -6368,6 +6390,28 @@
 },
 {
 "day": "2026-10-19",
+"setup": "vwap_reclaim",
+"side": "short",
+"t_in": "12:03",
+"t_out": "12:10",
+"vwap": 768.2,
+"ema9": 769.12,
+"ema21": 769.47,
+"rsi": 23.2,
+"atr": 0.314,
+"trend": -1,
+"entry": 768.11,
+"stop": 768.57,
+"target": 767.17,
+"exit": 768.57,
+"reason": "stop",
+"R": -1.043,
+"pts": -0.47,
+"opt_ret": -0.137,
+"why": "VWAP cross with EMA9/21 trend"
+},
+{
+"day": "2026-10-19",
 "setup": "fvg_retest",
 "side": "long",
 "t_in": "10:33",
@@ -6387,6 +6431,28 @@
 "pts": 0.93,
 "opt_ret": 0.123,
 "why": "bull FVG retest"
+},
+{
+"day": "2026-10-19",
+"setup": "fvg_retest",
+"side": "short",
+"t_in": "12:12",
+"t_out": "12:17",
+"vwap": 768.21,
+"ema9": 768.53,
+"ema21": 768.85,
+"rsi": 46.7,
+"atr": 0.323,
+"trend": 0,
+"entry": 768.78,
+"stop": 769.22,
+"target": 767.89,
+"exit": 768.54,
+"reason": "close",
+"R": 0.496,
+"pts": 0.24,
+"opt_ret": 0.011,
+"why": "bear FVG retest"
 }
 ],
 "per_day": {
@@ -6584,10 +6650,10 @@
 "structure_break": 38
 },
 "2026-10-19": {
-"swing_high": 16,
-"swing_low": 14,
-"structure_break": 10,
-"fvg": 4
+"swing_high": 24,
+"swing_low": 22,
+"structure_break": 15,
+"fvg": 5
 }
 }
 }
