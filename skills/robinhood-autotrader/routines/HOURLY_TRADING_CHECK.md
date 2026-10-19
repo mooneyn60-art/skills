@@ -166,16 +166,6 @@ His discretionary position, 1-2 year thesis, >$20 target. STOPPED OUT 2026-09-30
 trend exit and the sector cap, excluded from expectancy. Stop per the ratchet above
 unless he says otherwise. Q3 earnings expected 2026-10-27.
 
-## NOLAN'S SPY 769C RATCHET -- CHECK EVERY FIRE until it is closed (added 2026-10-19)
-Nolan's own call: 1 SPY 2026-10-23 769C, bought 4.37 on 10/19 10:57 ET (option_id 2c14d155-7369-4f13-b767-227565540e33). His words: "yea ratchet it up as it gains". Stop starts as a GTC stop-market at 2.84 (-35%, order 6ad6303b). 11:43 step 1 done: stop 4.37, order 6ad63aa8.
-Each fire, get_option_quotes (mark) and get_option_orders (the resting stop), then apply the HIGHEST step reached. Only ever RAISE the stop:
-- mark >= 5.24 (+20%) -> stop 4.37 (breakeven)
-- mark >= 5.90 (+35%) -> stop 4.80
-- mark >= 6.56 (+50%) -> stop 5.25
-- above that -> stop = 80% of the highest mark seen (record it in paper/live_options/nolan_769c.json)
-To raise it: confirm the new stop price is below the current bid. Cancel the old stop (it can't be replaced in place), then IMMEDIATELY place the new GTC stop_market sell-to-close and confirm it reads "confirmed". Log both order ids in NOLAN_LOG.
-Never lower it. Never sell it yourself (it is Nolan's). Remind him Wed 10/21 if it is still flat (theta). Delete this section once the position is closed.
-
 ## R17 OPTION SLOT -- CHECK EVERY FIRE (adopted 2026-09-24)
 
 One long option, always. Full rule: R17 in reference/TARS_RULES.md.
