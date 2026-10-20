@@ -71,3 +71,10 @@ Nolan (2026-10-20): "do deep research I want you to be just as versed in crypto 
 - **7 of 40 were delisted** by Coinbase (MATIC, STORJ, NU, CLV, BOND …).
 - **A cheap price per coin means nothing.** What matters is the total value (market cap). 1 million SHIB for $10 is the same bet as $10 of BTC, just with worse odds.
 - **Caveat:** the list came from memory of 2021 Coinbase listings, not a random sample. But it includes the big names of that cycle, and the result is lopsided.
+
+## Round 3: 2-hour flips (crypto_flips.py, 10/20)
+Nolan's style: "buy low exit at high like options … a couple hour hold at most." Tested on 3y of hourly BTC/ETH, split into two halves.
+- **Robinhood spot costs ~1.9% a round trip.** So a flip must gain +1.9% just to break even. BTC got there within 2h on only **3.5% / 1.8%** of hours (median best move 0.36% / 0.28%). ETH: **5.6% / 5.7%**.
+- **Four setups held 2h** (dip −2% in 4h, new 24h high, RSI(14h)<25, up 2% in 4h): gross results all within about **±10bp**. That is no edge even before cost.
+- After RH spot cost every setup loses about **−180 to −200bp per trade**. With IBIT costs (~4bp) they come out near zero, and they flip sign between halves (ETH breakout −14bp, then +6bp).
+- **Verdict:** 2-hour flips of RH spot crypto lose about 1.9% each on average. Short crypto trades only make sense in IBIT/ETHA shares or options during market hours, with a stop, a target and a ratchet, and only after a paper test.

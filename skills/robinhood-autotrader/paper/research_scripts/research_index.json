@@ -208,5 +208,12 @@
   "verdict": "fails / weak",
   "nums": "rotation no better than BTC; SPY filter flips by half; weekend = normal drift; Fed days lean + (t\u22481)",
   "script": "crypto_lab2.py"
+ },
+ {
+  "area": "Crypto",
+  "name": "2-hour crypto flips: dip, breakout, RSI<25, momentum",
+  "verdict": "fails",
+  "nums": "BTC hits +1.9% in 2h on 1.8-3.5% of hours; gross edge \u00b110bp; after RH spot cost ~-190bp per trade",
+  "script": "crypto_flips.py"
  }
 ]

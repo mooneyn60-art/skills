@@ -91,3 +91,4 @@ Audience: TARS
   - **Fails.** BTC/ETH rotation; SPY's trend as a BTC filter.
   - **Weak or no effect.** Weekend drift is just normal drift. Fed days lean positive (t ≈ 1).
 - Small coins (2026-10-20, `alt_basket.py`, 40 2021-era Coinbase alts): bought Jan 2022, median −94% (25/32 down 80%+). Bought Jan 2023 near the bottom, median −58%. 0 of 33 went 5×, 0 beat BTC (+395%), 7/40 delisted. "Cheap coins that could jump" lost to plain BTC.
+- **Crypto 2h flips (10/20, crypto_flips.py, 3y hourly, halves):** BTC reaches +1.9% (the RH spot round-trip cost) within 2h on only 1.8–3.5% of hours. Dip, breakout, RSI<25 and momentum setups have gross edges within ±10bp. After RH spot cost each loses ~190bp per trade. Don't flip RH spot crypto; use IBIT/ETHA in market hours if anything.
