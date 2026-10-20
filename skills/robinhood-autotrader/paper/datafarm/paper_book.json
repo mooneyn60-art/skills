@@ -1,8 +1,8 @@
 {
 "rules_hash": "58c580ed755d",
 "forward_start": "2026-10-15",
-"as_of": "2026-10-20 15:17 ET",
-"equity": 2035.75,
+"as_of": "2026-10-20 15:59 ET",
+"equity": 2070.26,
 "start_equity": 2000.0,
 "risk_pct": 0.01,
 "trades": [
@@ -839,7 +839,7 @@
 "setup": "fvg_trend",
 "side": "short",
 "t_in": "11:16",
-"t_out": "15:17",
+"t_out": "15:55",
 "vwap": 769.1,
 "ema9": 769.82,
 "ema21": 770.49,
@@ -849,13 +849,13 @@
 "entry": 769.41,
 "stop": 770.59,
 "target": 767.04,
-"exit": 768.62,
-"reason": "close",
-"R": 0.646,
-"pts": 0.78,
-"opt_ret": 0.108,
+"exit": 768.39,
+"reason": "time",
+"R": 0.844,
+"pts": 1.02,
+"opt_ret": 0.153,
 "why": "bear FVG retest with trend",
-"status": "open"
+"status": "closed"
 },
 {
 "day": "2026-10-20",
@@ -1046,7 +1046,7 @@
 "setup": "fvg_retest",
 "side": "short",
 "t_in": "11:16",
-"t_out": "15:17",
+"t_out": "15:55",
 "vwap": 769.1,
 "ema9": 769.82,
 "ema21": 770.49,
@@ -1056,13 +1056,13 @@
 "entry": 769.41,
 "stop": 770.59,
 "target": 767.04,
-"exit": 768.62,
-"reason": "close",
-"R": 0.646,
-"pts": 0.78,
-"opt_ret": 0.108,
+"exit": 768.39,
+"reason": "time",
+"R": 0.844,
+"pts": 1.02,
+"opt_ret": 0.153,
 "why": "bear FVG retest",
-"status": "open"
+"status": "closed"
 }
 ]
 }
