@@ -215,5 +215,12 @@
   "verdict": "fails",
   "nums": "BTC hits +1.9% in 2h on 1.8-3.5% of hours; gross edge \u00b110bp; after RH spot cost ~-190bp per trade",
   "script": "crypto_flips.py"
+ },
+ {
+  "area": "Crypto",
+  "name": "Small/meme-coin 2h flips (DOGE SHIB PEPE BONK WIF SOL AVAX XRP), 6 setups x 4 bracket exits",
+  "verdict": "fails",
+  "nums": "RH spread 1.9-2.1% each; best gross +43bp (crash -10%/24h, H2 only); net -157 to -220bp per trade",
+  "script": "small_flips.py"
  }
 ]

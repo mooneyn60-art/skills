@@ -78,3 +78,10 @@ Nolan's style: "buy low exit at high like options … a couple hour hold at most
 - **Four setups held 2h** (dip −2% in 4h, new 24h high, RSI(14h)<25, up 2% in 4h): gross results all within about **±10bp**. That is no edge even before cost.
 - After RH spot cost every setup loses about **−180 to −200bp per trade**. With IBIT costs (~4bp) they come out near zero, and they flip sign between halves (ETH breakout −14bp, then +6bp).
 - **Verdict:** 2-hour flips of RH spot crypto lose about 1.9% each on average. Short crypto trades only make sense in IBIT/ETHA shares or options during market hours, with a stop, a target and a ratchet, and only after a paper test.
+
+## Round 4: small/meme-coin flips (small_flips.py, 10/20)
+Coins: DOGE, SHIB, PEPE, BONK, WIF, SOL, AVAX, XRP. Data: 2y of hourly bars, two halves. The Robinhood spread measured live is **1.9–2.1% round trip on every one**. Small coins are not cheaper to trade.
+- Small coins reach +2% within 2h far more often than BTC: BONK/WIF **26% → 13%** of hours, PEPE 19% → 12%, DOGE 15% → 6% (BTC 2–3.5%). But they fall just as often. Touching the break-even is not the same as keeping it.
+- **Six setups × four exits** (hold 2h; brackets +4/−2, +6/−3, +10/−5), pooled across 8 coins. Setups: dip −5%/4h, pump +5%/4h, volume spike 4× green or red, new 24h high, crash −10%/24h. The best gross result was **+43bp** (crash −10%/24h, second half; first half only +13bp). Most were within ±20bp. **After the 2% cost every combination loses −157 to −220bp per trade.**
+- Buying the basket's biggest 4h gainer or loser, held 2h: gross −6 to +2bp.
+- **Verdict:** the cost is 5–15× bigger than any edge found. Bracket exits (the options-style stop and target) don't fix it; they only shape the losses. Small-coin flips on RH spot are a fee machine.
