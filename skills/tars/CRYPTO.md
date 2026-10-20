@@ -85,3 +85,9 @@ Coins: DOGE, SHIB, PEPE, BONK, WIF, SOL, AVAX, XRP. Data: 2y of hourly bars, two
 - **Six setups × four exits** (hold 2h; brackets +4/−2, +6/−3, +10/−5), pooled across 8 coins. Setups: dip −5%/4h, pump +5%/4h, volume spike 4× green or red, new 24h high, crash −10%/24h. The best gross result was **+43bp** (crash −10%/24h, second half; first half only +13bp). Most were within ±20bp. **After the 2% cost every combination loses −157 to −220bp per trade.**
 - Buying the basket's biggest 4h gainer or loser, held 2h: gross −6 to +2bp.
 - **Verdict:** the cost is 5–15× bigger than any edge found. Bracket exits (the options-style stop and target) don't fix it; they only shape the losses. Small-coin flips on RH spot are a fee machine.
+
+## Round 5: riding meme pumps (meme_pump_ride.py, 10/20)
+Nolan: "Even meme coins we can make a quick buck and get out before they dump it." Coins: DOGE, SHIB, PEPE, BONK, WIF. Trigger: an hour closes up ≥3/5/8% on 3× volume; buy at the next open. Exits: 1h, 2h, or sell at the first red hourly close.
+- Gross is small and flips sign: ≥5% pumps made +63bp (first year) and then −21bp (second); ≥8% pumps made −33bp and −118bp. The bigger the pump, the worse it got lately.
+- Only **12–25% of trades beat the 2% cost**. In the 3 hours after the trigger, the median best move was +1.3 to +2.7% and the median worst was −1.8 to −3.8%. By the time an hourly bar shows the pump, the easy part is gone.
+- Net per trade after cost: −137 to −318bp. **Verdict: no.** The people who "get out before the dump" are the ones who got in before the pump (insiders, bots), not people who see it on a chart.

@@ -222,5 +222,12 @@
   "verdict": "fails",
   "nums": "RH spread 1.9-2.1% each; best gross +43bp (crash -10%/24h, H2 only); net -157 to -220bp per trade",
   "script": "small_flips.py"
+ },
+ {
+  "area": "Crypto",
+  "name": "Ride meme-coin pumps (hour up 3/5/8% on 3x volume), exit 1h/2h/first red hour",
+  "verdict": "fails",
+  "nums": "gross +63 to -118bp, sign flips by half; only 12-25% of trades beat the 2% cost; net -137 to -318bp",
+  "script": "meme_pump_ride.py"
  }
 ]
