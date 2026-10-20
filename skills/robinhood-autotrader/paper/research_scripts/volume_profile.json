@@ -1,0 +1,347 @@
+{
+ "SPY 1min": {
+  "VAL long": {
+   "n": 7,
+   "hit": 28.6
+  },
+  "control VAL long": {
+   "n": 7,
+   "hit": 28.6
+  },
+  "80% rule": {
+   "n": 8,
+   "hit": 62.5,
+   "median_reward_to_risk": 2.21
+  },
+  "VAH short": {
+   "n": 6,
+   "hit": 66.7
+  },
+  "control VAH short": {
+   "n": 6,
+   "hit": 16.7
+  }
+ },
+ "btc H1": {
+  "VAH short": {
+   "n": 264,
+   "hit": 51.9
+  },
+  "control VAH short": {
+   "n": 252,
+   "hit": 46.8
+  },
+  "VAL long": {
+   "n": 238,
+   "hit": 47.9
+  },
+  "control VAL long": {
+   "n": 228,
+   "hit": 48.2
+  },
+  "80% rule": {
+   "n": 83,
+   "hit": 51.8,
+   "median_reward_to_risk": 1.36
+  }
+ },
+ "btc H2": {
+  "VAH short": {
+   "n": 254,
+   "hit": 44.9
+  },
+  "control VAH short": {
+   "n": 243,
+   "hit": 42.0
+  },
+  "VAL long": {
+   "n": 251,
+   "hit": 48.6
+  },
+  "control VAL long": {
+   "n": 239,
+   "hit": 45.6
+  },
+  "80% rule": {
+   "n": 75,
+   "hit": 53.3,
+   "median_reward_to_risk": 0.76
+  }
+ },
+ "eth H1": {
+  "VAL long": {
+   "n": 264,
+   "hit": 50.8
+  },
+  "control VAL long": {
+   "n": 250,
+   "hit": 48.8
+  },
+  "VAH short": {
+   "n": 255,
+   "hit": 51.8
+  },
+  "control VAH short": {
+   "n": 249,
+   "hit": 50.6
+  },
+  "80% rule": {
+   "n": 72,
+   "hit": 52.8,
+   "median_reward_to_risk": 1.09
+  }
+ },
+ "eth H2": {
+  "VAL long": {
+   "n": 251,
+   "hit": 51.0
+  },
+  "control VAL long": {
+   "n": 234,
+   "hit": 47.4
+  },
+  "VAH short": {
+   "n": 243,
+   "hit": 43.2
+  },
+  "control VAH short": {
+   "n": 231,
+   "hit": 44.6
+  },
+  "80% rule": {
+   "n": 69,
+   "hit": 55.1,
+   "median_reward_to_risk": 1.23
+  }
+ },
+ "sol H1": {
+  "VAH short": {
+   "n": 171,
+   "hit": 48.0
+  },
+  "control VAH short": {
+   "n": 165,
+   "hit": 47.3
+  },
+  "VAL long": {
+   "n": 148,
+   "hit": 48.6
+  },
+  "control VAL long": {
+   "n": 138,
+   "hit": 47.1
+  },
+  "80% rule": {
+   "n": 53,
+   "hit": 45.3,
+   "median_reward_to_risk": 1.24
+  }
+ },
+ "sol H2": {
+  "VAL long": {
+   "n": 166,
+   "hit": 50.6
+  },
+  "control VAL long": {
+   "n": 164,
+   "hit": 53.7
+  },
+  "VAH short": {
+   "n": 157,
+   "hit": 51.0
+  },
+  "control VAH short": {
+   "n": 152,
+   "hit": 45.4
+  },
+  "80% rule": {
+   "n": 51,
+   "hit": 49.0,
+   "median_reward_to_risk": 0.8
+  }
+ },
+ "doge H1": {
+  "VAL long": {
+   "n": 161,
+   "hit": 52.2
+  },
+  "control VAL long": {
+   "n": 150,
+   "hit": 43.3
+  },
+  "VAH short": {
+   "n": 140,
+   "hit": 52.9
+  },
+  "control VAH short": {
+   "n": 139,
+   "hit": 51.1
+  },
+  "80% rule": {
+   "n": 57,
+   "hit": 47.4,
+   "median_reward_to_risk": 1.1
+  }
+ },
+ "doge H2": {
+  "VAL long": {
+   "n": 162,
+   "hit": 42.6
+  },
+  "control VAL long": {
+   "n": 154,
+   "hit": 43.5
+  },
+  "VAH short": {
+   "n": 160,
+   "hit": 51.9
+  },
+  "control VAH short": {
+   "n": 153,
+   "hit": 55.6
+  },
+  "80% rule": {
+   "n": 45,
+   "hit": 37.8,
+   "median_reward_to_risk": 1.03
+  }
+ },
+ "pepe H1": {
+  "80% rule": {
+   "n": 51,
+   "hit": 47.1,
+   "median_reward_to_risk": 1.19
+  },
+  "VAL long": {
+   "n": 153,
+   "hit": 51.6
+  },
+  "control VAL long": {
+   "n": 146,
+   "hit": 46.6
+  },
+  "VAH short": {
+   "n": 140,
+   "hit": 52.9
+  },
+  "control VAH short": {
+   "n": 137,
+   "hit": 51.1
+  }
+ },
+ "pepe H2": {
+  "VAL long": {
+   "n": 164,
+   "hit": 45.7
+  },
+  "control VAL long": {
+   "n": 167,
+   "hit": 44.3
+  },
+  "VAH short": {
+   "n": 156,
+   "hit": 50.0
+  },
+  "control VAH short": {
+   "n": 151,
+   "hit": 45.0
+  },
+  "80% rule": {
+   "n": 39,
+   "hit": 43.6,
+   "median_reward_to_risk": 1.0
+  }
+ },
+ "bonk H1": {
+  "80% rule": {
+   "n": 55,
+   "hit": 50.9,
+   "median_reward_to_risk": 0.95
+  },
+  "VAL long": {
+   "n": 148,
+   "hit": 49.3
+  },
+  "control VAL long": {
+   "n": 144,
+   "hit": 50.0
+  },
+  "VAH short": {
+   "n": 161,
+   "hit": 47.8
+  },
+  "control VAH short": {
+   "n": 155,
+   "hit": 43.2
+  }
+ },
+ "bonk H2": {
+  "VAL long": {
+   "n": 169,
+   "hit": 50.3
+  },
+  "control VAL long": {
+   "n": 163,
+   "hit": 46.0
+  },
+  "VAH short": {
+   "n": 139,
+   "hit": 49.6
+  },
+  "control VAH short": {
+   "n": 124,
+   "hit": 44.4
+  },
+  "80% rule": {
+   "n": 63,
+   "hit": 39.7,
+   "median_reward_to_risk": 0.84
+  }
+ },
+ "wif H1": {
+  "VAL long": {
+   "n": 159,
+   "hit": 52.8
+  },
+  "control VAL long": {
+   "n": 156,
+   "hit": 44.2
+  },
+  "VAH short": {
+   "n": 144,
+   "hit": 47.2
+  },
+  "80% rule": {
+   "n": 57,
+   "hit": 54.4,
+   "median_reward_to_risk": 1.02
+  },
+  "control VAH short": {
+   "n": 141,
+   "hit": 48.9
+  }
+ },
+ "wif H2": {
+  "VAL long": {
+   "n": 152,
+   "hit": 46.7
+  },
+  "VAH short": {
+   "n": 139,
+   "hit": 55.4
+  },
+  "control VAH short": {
+   "n": 133,
+   "hit": 50.4
+  },
+  "control VAL long": {
+   "n": 144,
+   "hit": 38.9
+  },
+  "80% rule": {
+   "n": 53,
+   "hit": 47.2,
+   "median_reward_to_risk": 0.9
+  }
+ }
+}

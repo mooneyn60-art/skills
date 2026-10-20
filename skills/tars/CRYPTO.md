@@ -91,3 +91,10 @@ Nolan: "Even meme coins we can make a quick buck and get out before they dump it
 - Gross is small and flips sign: ≥5% pumps made +63bp (first year) and then −21bp (second); ≥8% pumps made −33bp and −118bp. The bigger the pump, the worse it got lately.
 - Only **12–25% of trades beat the 2% cost**. In the 3 hours after the trigger, the median best move was +1.3 to +2.7% and the median worst was −1.8 to −3.8%. By the time an hourly bar shows the pump, the easy part is gone.
 - Net per trade after cost: −137 to −318bp. **Verdict: no.** The people who "get out before the dump" are the ones who got in before the pump (insiders, bots), not people who see it on a chart.
+
+## Round 6: volume profile (TikTok @tradingelder, 10/20; volume_profile.py)
+Claim: "Volume profile + orderflow = payouts." Location comes from the prior session's VAH/VAL/POC; the trigger is order-flow absorption, read on NQ futures footprint charts. No win rate was given. **We can only test the location half**: Robinhood has no tick, delta or footprint data, so the order-flow trigger can't be checked.
+- **Fade at the edge:** on the first touch of the prior VAL, buy, target the POC, stop the same distance away (1:1). Mirror at VAH. Pooled over 7 coins (2–3y hourly): VAL **49.3%** (n 2586) and VAH **49.6%** (n 2523), against a random level at **46.5% / 47.3%**. Value-area edges hold slightly better than a random line, by about 2–3 points, but a 1:1 trade at 49% is still break-even before cost.
+- **The "80% rule"** (open outside value, 2 bars close back inside, target the far edge): **48.9%** (n 823), not 80%.
+- **SPY:** only 34 sessions of 1-min data (n 6–8 per test), too few to judge.
+- **Verdict:** volume-profile levels are real but weak. They are a fine map of where to look, and no edge by themselves. Any edge in the video lives in the order-flow read, which we can't see or test.
