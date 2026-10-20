@@ -83,3 +83,6 @@ Audience: TARS
   - **Off-hours.** No off-hours drift: ≈0 bp/h in both US and closed hours.
   - **Correlation.** BTC-SPY correlation rose to 0.42-0.56.
   - **Verdict.** No short-term crypto edge after cost. Only a small slow trend-filtered hold is defensible.
+- IBIT (2026-10-20, `ibit_session.py`, `ibit_dayscore.py`): crypto via IBIT/ETHA options costs ~2% of premium vs 1.9% round trip on spot.
+  - **Direction: no edge.** BTC's off-hours move doesn't predict the US session (flat in the recent half), and a 12-feature walk-forward day score has no edge in either half.
+  - **Size: real.** The overnight range predicts the session range (corr 0.40; quiet/normal/wild night → 2.44/2.71/3.43%).

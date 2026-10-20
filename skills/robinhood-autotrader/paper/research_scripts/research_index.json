@@ -180,5 +180,19 @@
   "verdict": "fails",
   "nums": "BTC hourly drift \u2248 same in US vs closed hours (+0.94 vs +1.00, then +0.08 vs +0.04 bp/h); BTC-SPY correlation now 0.42-0.56",
   "script": "crypto_lab.py"
+ },
+ {
+  "area": "Crypto",
+  "name": "IBIT day score (BTC direction in the US session)",
+  "verdict": "fails",
+  "nums": "walk-forward 512 sessions: high-score days \u22120.05% / \u22120.32%, low-score +0.27% / \u22120.20%; off-hours move doesn't predict the session either",
+  "script": "ibit_dayscore.py, ibit_session.py"
+ },
+ {
+  "area": "Crypto",
+  "name": "IBIT day size from the overnight range",
+  "verdict": "holds",
+  "nums": "corr 0.40; session range after quiet/normal/wild nights 2.44% / 2.71% / 3.43% (IBIT swings 2.5-3.5x SPY)",
+  "script": "ibit_dayscore.py"
  }
 ]

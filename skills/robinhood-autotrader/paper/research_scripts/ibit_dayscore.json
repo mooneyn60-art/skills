@@ -1,0 +1,56 @@
+{
+ "n_sessions": 781,
+ "oos_sessions": 512,
+ "OOS first half 0-0.45": {
+  "n": 30,
+  "mean": 0.274,
+  "up": 60.0
+ },
+ "OOS first half 0.45-0.55": {
+  "n": 160,
+  "mean": 0.088,
+  "up": 54.4
+ },
+ "OOS first half 0.55-1.01": {
+  "n": 66,
+  "mean": -0.05,
+  "up": 53.0
+ },
+ "OOS second half 0-0.45": {
+  "n": 41,
+  "mean": -0.202,
+  "up": 51.2
+ },
+ "OOS second half 0.45-0.55": {
+  "n": 158,
+  "mean": -0.009,
+  "up": 47.5
+ },
+ "OOS second half 0.55-1.01": {
+  "n": 57,
+  "mean": -0.319,
+  "up": 43.9
+ },
+ "weights": {
+  "on": 0.127,
+  "r1": -0.113,
+  "d20": 0.101,
+  "on_rng": 0.1,
+  "r20": -0.077,
+  "spy1": -0.052,
+  "eth_rel": -0.033,
+  "r5": -0.03,
+  "vix": 0.027,
+  "dow": -0.017,
+  "vol7": -0.007,
+  "d200": -0.006
+ },
+ "range": {
+  "corr": 0.4,
+  "quiet night": 2.44,
+  "normal night": 2.71,
+  "wild night": 3.43,
+  "cut1": 2.11,
+  "cut2": 3.26
+ }
+}
