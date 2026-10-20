@@ -98,3 +98,8 @@ Claim: "Volume profile + orderflow = payouts." Location comes from the prior ses
 - **The "80% rule"** (open outside value, 2 bars close back inside, target the far edge): **48.9%** (n 823), not 80%.
 - **SPY:** only 34 sessions of 1-min data (n 6–8 per test), too few to judge.
 - **Verdict:** volume-profile levels are real but weak. They are a fine map of where to look, and no edge by themselves. Any edge in the video lives in the order-flow read, which we can't see or test.
+
+## Routing and fees (10/20)
+- Account 731951265 trades crypto on **Market Maker Routing**: $0 fee, but the cost is inside the spread. Live BTC quote at 16:28 ET: bid 81,791 / ask 83,347, **1.9% wide**. A $5 market-buy preview priced at the ask (83,354); a $5 limit at the mid (82,569) showed $0 fee and would only fill if the ask came down to it.
+- **Exchange Routing** is the alternative (Nolan can switch it in the app: Settings → Crypto → Fee Tiers). It has explicit fees and tight exchange spreads. Robinhood fee schedule (PDF dated June 2026), entry tier for $0–10K of 30-day volume: **maker 0.50% / taker 0.95% per side**. Limit orders rest on Bitstamp and pay maker. A limit-in/limit-out round trip is about **1.0%**, roughly half of Market Maker Routing, but fills aren't guaranteed. The cheap tiers (0.125–0.25%) need $50K+ a month of volume. A newer help page says 0.03–0.85%; check in the app before relying on either.
+- So even the best routing at his size costs ~1% a round trip, and no 2h setup tested has a gross edge above ~0.4%.
