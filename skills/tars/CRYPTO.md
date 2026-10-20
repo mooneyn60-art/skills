@@ -1,0 +1,34 @@
+# TARS Crypto Book — how crypto works, and what tested out
+
+What TARS knows about crypto: the mechanics, and the tested results with numbers. General knowledge is labelled as such; "tested" means TARS ran it on real data.
+
+Last Updated: 2026-10-20
+Status: research (no live crypto trading; needs Nolan's words and a written rule first)
+Audience: TARS, Nolan
+
+## Overview
+Nolan (2026-10-20): "do deep research I want you to be just as versed in crypto as you are stocks and that opens up money making at anytime whil market closed". Data: Coinbase daily candles (BTC 2015-, ETH 2016-, SOL/DOGE 2021-) and 3 years of hourly BTC/ETH (`paper/history/crypto/`, `research_scripts/fetch_crypto.py`). Tests: `research_scripts/crypto_lab.py`, each in two halves.
+
+## How it trades (mechanics)
+- **Hours.** 24/7/365, no open or close. A "day" here is the UTC midnight close.
+- **Robinhood's cost: about 1.9% per round trip.** Live quote 2026-10-20, account 731951265, "Market Maker Routing": BTC bid 81,542 / ask 83,080; ETH, SOL and DOGE all ~1.9%. That's ~0.95% each way, roughly 100× SPY's cost. **This one fact rules out short-term trading.**
+- **Stops.** Robinhood crypto has no stop-market. Stop-limits can be skipped in a fast drop, including at 3am. Protection is weaker than on stocks.
+- **Volatility.** BTC realized ~57-76%/yr, ETH 71-112%, SOL/DOGE 80-112% (tested), vs SPY ~15-18%. Same dollars, 4-6× the swings.
+- **Drawdowns are normal.** Every coin fell 76-96% from a peak at least once in the sample (tested). Size for that.
+- **General knowledge, not tested here.** The BTC "halving" cycle (~every 4 years) is often credited for the big cycles: only 3-4 cycles exist, too few to test. Spot ETFs (2024) tied BTC more closely to US markets.
+
+## What tested out (BTC/ETH/SOL/DOGE, after Robinhood's 1.9% round trip)
+- **The glory days are over.** BTC buy & hold: +141%/yr in 2015-20 → **+19%/yr in 2021-26** (max drawdown −77%). ETH: +268%/yr → **−1.5%/yr** (−79%).
+- **Slow trend filters = drawdown insurance, not extra return.** Holding only above the 200-day average cut the max drawdown every time: BTC −84→−73% and −77→−69%; ETH −94→−84% and −79→−42%. But it trailed buy & hold on BTC in both halves (125 vs 141%; 9.6 vs 19.4%). It helped ETH in 2021-26 (+11.7% vs −1.5%).
+- **Fast rules are killed by cost.** Above-20-day-average: BTC 2021-26 −24%/yr (244 trades); 30-day momentum −6%/yr. Every rule with 100+ trades lost in the recent half.
+- **20-day breakout:** strong on SOL/DOGE recently (+53%, +34%/yr), weak on BTC/ETH (−1%, −8%). Inconsistent: not an edge.
+- **Buying the dip after a −5% day:** 2015-20 next day +0.83%, up 63%. 2021-26 +0.32%, up 48%. **Faded away.**
+- **Day of week: noise** (signs flip between halves).
+- **"Make money while the stock market is closed": no.** BTC hourly 3y: US-hours vs closed-hours drift +0.94 vs +1.00 bp/h (first half), +0.08 vs +0.04 (second). Crypto doesn't earn more off-hours, and both are ~0 lately.
+- **No longer a hedge.** BTC-SPY daily correlation 0.07 (2018) → 0.42-0.56 (2022-26). It mostly falls when stocks fall.
+- **Volatility targeting** (40%/yr): cut BTC's drawdown −84→−62% and −77→−65%; Sharpe mixed (1.57→1.66, 0.60→0.52).
+
+## What this means for TARS
+1. Never day-trade crypto on Robinhood: the 1.9% spread beats every short-term rule we tested.
+2. If Nolan wants crypto, the only defensible shape is a **small, slow position**: BTC (or BTC+ETH), held only above its 200-day average, sized so a 70% drop is survivable, checked weekly, not hourly.
+3. Crypto does not add a 24/7 money machine: off-hours drift ≈ 0, and it now moves with stocks.

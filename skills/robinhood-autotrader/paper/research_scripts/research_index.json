@@ -159,5 +159,26 @@
   "verdict": "fails",
   "nums": "flip or vanish between decades",
   "script": "market_lab.py \u00a73,11,14"
+ },
+ {
+  "area": "Crypto",
+  "name": "Short-term crypto rules on Robinhood (20d avg, 30d momentum, dip-buy, day of week)",
+  "verdict": "fails",
+  "nums": "Robinhood's ~1.9% round-trip spread: BTC above-20d \u221224%/yr (2021-26), 30d momentum \u22126%/yr; dip-buy after \u22125% faded 63%\u219248% up",
+  "script": "crypto_lab.py"
+ },
+ {
+  "area": "Crypto",
+  "name": "Slow trend filter (above 200-day average)",
+  "verdict": "holds (as drawdown insurance)",
+  "nums": "cut max drawdown in every case (BTC \u221284\u2192\u221273%, \u221277\u2192\u221269%; ETH \u221294\u2192\u221284%, \u221279\u2192\u221242%) but trailed BTC buy & hold on return",
+  "script": "crypto_lab.py"
+ },
+ {
+  "area": "Crypto",
+  "name": "Crypto earns while stocks are closed",
+  "verdict": "fails",
+  "nums": "BTC hourly drift \u2248 same in US vs closed hours (+0.94 vs +1.00, then +0.08 vs +0.04 bp/h); BTC-SPY correlation now 0.42-0.56",
+  "script": "crypto_lab.py"
  }
 ]
