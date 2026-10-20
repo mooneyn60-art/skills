@@ -32,3 +32,14 @@ Nolan (2026-10-20): "do deep research I want you to be just as versed in crypto 
 1. Never day-trade crypto on Robinhood: the 1.9% spread beats every short-term rule we tested.
 2. If Nolan wants crypto, the only defensible shape is a **small, slow position**: BTC (or BTC+ETH), held only above its 200-day average, sized so a 70% drop is survivable, checked weekly, not hourly.
 3. Crypto does not add a 24/7 money machine: off-hours drift ≈ 0, and it now moves with stocks.
+
+## Who actually makes money in crypto (web research 2026-10-20; sources noted, figures checked only as far as said)
+- **Most retail buyers lose.** A BIS working paper (2022, updated 2023), using app data from 95 countries 2015-22, estimated 73-81% of retail bitcoin buyers lost money. The median lost about half (modeled on $100 a month of buying). Most bought after BTC passed $20k; large holders were selling while small buyers bought.
+- **Leveraged day traders.** Most lose. Academic day-trading studies (Brazil: ~97% of persistent day traders lose; Taiwan: <1% consistently profitable) are cited widely but were seen only secondhand here. Liquidation days wipe out billions (e.g. ~$19B on 2025-10-10, per CoinDesk via a compilation).
+- **What the winners do:**
+  - **Market makers and exchanges earn the spread.** Robinhood's ~1.9% is that income.
+  - **Basis / funding traders** hold spot and short the perpetual to collect funding, delta-neutral, often with 20-50× leverage on a thin spread. The funding can flip negative. It needs futures/perps, which Robinhood's tools here don't offer.
+  - **Early long-term holders** sat through 80-90% drawdowns. The ones you hear about are the survivors.
+  - **Insiders and early token allocations** are not available to us.
+- **Trend following.** Academic papers find time-series momentum in crypto. One large study says it largely disappeared after BTC futures launched (2017). Long-only versions held up better than long-short. That matches TARS's test: trend rules worked 2015-20 and failed after cost in 2021-26.
+- **Takeaway for Nolan.** The big crypto winners are mostly the spread-takers, the funding collectors and the early holders who survived, not the chart traders. From a Robinhood account, the realistic edge is the slow one: a small BTC/ETH position held through a trend filter, never day-traded.
