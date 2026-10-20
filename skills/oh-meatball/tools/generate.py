@@ -32,7 +32,8 @@ def pollinations(prompt, out, seconds, model):
 
 def hf(prompt, out, seconds, model, token=None):
     from gradio_client import Client
-    c = Client(model or "Lightricks/ltx-video-distilled", hf_token=token)
+    space = model or "Lightricks/ltx-video-distilled"
+    c = Client(space, token=token) if token else Client(space)
     r = c.predict(prompt=prompt, negative_prompt=NEG, input_image_filepath=None,
                   input_video_filepath=None, height_ui=1024, width_ui=576,
                   mode="text-to-video", duration_ui=min(seconds, 8), ui_frames_to_use=9,
