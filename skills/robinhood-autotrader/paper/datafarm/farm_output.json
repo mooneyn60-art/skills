@@ -5,9 +5,9 @@
 ],
 "n_days": 33,
 "events": {
-"swing_high": 1820,
-"structure_break": 1336,
-"swing_low": 1773,
+"swing_high": 1825,
+"structure_break": 1339,
+"swing_low": 1778,
 "fvg": 195,
 "sweep": 12
 },
@@ -28,12 +28,12 @@
 "n": 98,
 "win": 32.7,
 "pf": 0.86,
-"avgR": -0.099,
-"t": -0.72,
-"opt_avg": -0.044,
+"avgR": -0.098,
+"t": -0.71,
+"opt_avg": -0.043,
 "maxdd_R": -19.34,
 "h1": -0.275,
-"h2": 0.05,
+"h2": 0.052,
 "weeks_pos": "2/8"
 },
 "sweep_fvg": {
@@ -52,12 +52,12 @@
 "n": 79,
 "win": 32.9,
 "pf": 0.89,
-"avgR": -0.075,
-"t": -0.48,
+"avgR": -0.073,
+"t": -0.47,
 "opt_avg": -0.043,
 "maxdd_R": -16.26,
 "h1": -0.208,
-"h2": 0.049,
+"h2": 0.052,
 "weeks_pos": "4/8"
 },
 "vwap_reclaim": {
@@ -6547,7 +6547,7 @@
 "setup": "fvg_trend",
 "side": "short",
 "t_in": "11:16",
-"t_out": "14:52",
+"t_out": "15:17",
 "vwap": 769.1,
 "ema9": 769.82,
 "ema21": 770.49,
@@ -6557,11 +6557,11 @@
 "entry": 769.41,
 "stop": 770.59,
 "target": 767.04,
-"exit": 768.76,
+"exit": 768.62,
 "reason": "close",
-"R": 0.532,
-"pts": 0.65,
-"opt_ret": 0.083,
+"R": 0.646,
+"pts": 0.78,
+"opt_ret": 0.108,
 "why": "bear FVG retest with trend"
 },
 {
@@ -6745,7 +6745,7 @@
 "setup": "fvg_retest",
 "side": "short",
 "t_in": "11:16",
-"t_out": "14:52",
+"t_out": "15:17",
 "vwap": 769.1,
 "ema9": 769.82,
 "ema21": 770.49,
@@ -6755,11 +6755,11 @@
 "entry": 769.41,
 "stop": 770.59,
 "target": 767.04,
-"exit": 768.76,
+"exit": 768.62,
 "reason": "close",
-"R": 0.532,
-"pts": 0.65,
-"opt_ret": 0.083,
+"R": 0.646,
+"pts": 0.78,
+"opt_ret": 0.108,
 "why": "bear FVG retest"
 }
 ],
@@ -6964,9 +6964,9 @@
 "fvg": 6
 },
 "2026-10-20": {
-"swing_low": 44,
-"swing_high": 42,
-"structure_break": 29,
+"swing_low": 49,
+"swing_high": 47,
+"structure_break": 32,
 "fvg": 4
 }
 }
