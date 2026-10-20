@@ -52,3 +52,14 @@ Nolan (2026-10-20): "do deep research I want you to be just as versed in crypto 
 - **IBIT day score** (`ibit_dayscore.py`; 781 sessions, 512 walk-forward out-of-sample; logit on overnight BTC move, ETH vs BTC, overnight range, BTC 1/5/20-day returns, distance to 20/200-day averages, 7-day vol, SPY's prior day, VIX, weekday):
   - **Direction: no edge.** High-score sessions: −0.05% then −0.32%, up 53% / 44%. Low-score: +0.27% then −0.20%. The tails don't sort days, unlike SPY's day score.
   - **Size: real.** The overnight range predicts the session's range (corr 0.40): after a quiet night (<2.1% range) BTC's US-session range averaged 2.44%, normal 2.71%, wild (>3.3%) 3.43%. An IBIT session swings ~2.5-3.5%, 2.5-3.5× SPY's ~1% day. Use it to size stops and premium, not to pick direction.
+
+## Round 2: slow ideas (`crypto_lab2.py`, 2026-10-20; halves 2016-20 / 2021-26; 0.95%/side on every switch)
+- **Monthly trend rule** (hold next month only if the last L months were up). Max drawdown lower in all 16 cases: BTC −75 → −41…−67%; ETH −90 → −55…−86% and −77 → −51…−72%.
+  - Recent half: it beat holding with L=1 (BTC 22.6 vs 17.1%/yr; ETH 18.2 vs 11.2) and L=12 (BTC 25.9 vs 17.1, maxDD −41 vs −73).
+  - 2016-20 bull years: it lagged (BTC 73-121 vs 134%/yr).
+  - **Verdict: it trades some upside for much smaller crashes.** The one consistent, positive result in crypto.
+- **BTC/ETH rotation** (stronger 3-month return): 170 / 18.4%/yr with −90 / −82% max drawdown. No better than holding BTC: fails.
+- **Weekends** (Fri 20:00 → Mon 13:30 UTC): +0.29% / +0.38%, up 56% / 62% (n 75/81). That's about BTC's normal drift for 3 days, not a special weekend effect. Average size 2-2.7%, the gap an IBIT holder carries.
+- **Fed days:** BTC +0.85% / +0.44% on FOMC days vs +0.30 / +0.09 otherwise (n 39/46, t ≈ 1). Same sign in both halves, weak: a lean, not a trade.
+- **SPY's trend as a BTC filter:** helped in 2016-20 (+0.57 vs −0.18%/day), not in 2021-26 (+0.12 vs +0.16). Requiring both trends up failed recently too: fails.
+- **Cheapest way to run the monthly trend rule: IBIT shares** (0.02% spread vs 1.9% on spot BTC), checked once a month. That removes the cost problem entirely.

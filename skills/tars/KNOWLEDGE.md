@@ -86,3 +86,7 @@ Audience: TARS
 - IBIT (2026-10-20, `ibit_session.py`, `ibit_dayscore.py`): crypto via IBIT/ETHA options costs ~2% of premium vs 1.9% round trip on spot.
   - **Direction: no edge.** BTC's off-hours move doesn't predict the US session (flat in the recent half), and a 12-feature walk-forward day score has no edge in either half.
   - **Size: real.** The overnight range predicts the session range (corr 0.40; quiet/normal/wild night → 2.44/2.71/3.43%).
+- Crypto round 2 (2026-10-20, `crypto_lab2.py`):
+  - **Holds.** The monthly trend rule cut max drawdown in all 16 BTC/ETH cases and beat holding in 2021-26 (BTC L=12 +25.9 vs +17.1%/yr, DD −41 vs −73%), but lagged in 2016-20's bull run. Run it on IBIT shares (0.02% spread).
+  - **Fails.** BTC/ETH rotation; SPY's trend as a BTC filter.
+  - **Weak or no effect.** Weekend drift is just normal drift. Fed days lean positive (t ≈ 1).

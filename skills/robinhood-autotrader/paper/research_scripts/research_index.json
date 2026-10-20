@@ -194,5 +194,19 @@
   "verdict": "holds",
   "nums": "corr 0.40; session range after quiet/normal/wild nights 2.44% / 2.71% / 3.43% (IBIT swings 2.5-3.5x SPY)",
   "script": "ibit_dayscore.py"
+ },
+ {
+  "area": "Crypto",
+  "name": "Monthly trend rule on BTC/ETH (hold only after up months)",
+  "verdict": "holds (smaller crashes)",
+  "nums": "max drawdown lower in all 16 cases; 2021-26 BTC L=12 +25.9 vs +17.1%/yr (DD \u221241 vs \u221273%); lags in bull years (2016-20)",
+  "script": "crypto_lab2.py"
+ },
+ {
+  "area": "Crypto",
+  "name": "BTC/ETH rotation, SPY-trend filter for BTC, weekends, Fed days",
+  "verdict": "fails / weak",
+  "nums": "rotation no better than BTC; SPY filter flips by half; weekend = normal drift; Fed days lean + (t\u22481)",
+  "script": "crypto_lab2.py"
  }
 ]
