@@ -50,3 +50,8 @@ New rules:
 3. Titles = curiosity/plot-twist ("Checked the doorbell camera at 3am… 😨"), not "satisfying".
 4. Weekly 60-120 s "caught on camera" compilation stitched from the week's clips.
 5. Keep YouTube AI disclosure on (required for realistic synthetic content).
+
+## Result 2026-10-20 (first A/B)
+- Raccoon doorbell cam (realistic, 9 s, plot-twist title): 904 views / 19 likes in ~13 h.
+- Beaver car wash (obvious AI, 22 s, "satisfying" title): 2 views in ~17 h.
+- ~450x gap. Decision: realistic caught-on-camera is THE format. Putty (obvious AI) pulled to draft. All future clips: single realistic cam shot, 8-12 s, plot-twist title.
