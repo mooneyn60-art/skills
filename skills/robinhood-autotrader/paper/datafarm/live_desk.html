@@ -8,7 +8,7 @@
   --bg:#eef0f3; --panel:#ffffff; --ink:#131820; --muted:#5b6575; --line:#d6dae1; --grid:#e6e9ee;
   --accent:#c4730d; --up:#16845a; --down:#c23b34; --warn:#a97a08;
   --vwap:#6a4fc7; --band:rgba(106,79,199,.10); --e9:#2a78b8; --e21:#9a6b3f;
-  --fib:#b0567a; --pool:#c4730d; --bb:#7c8696; --tl:#0e8a94; --piv:#8a6d1f; --vol:rgba(91,101,117,.28); --macd:#2a78b8; --msig:#c4730d; --fvgU:rgba(22,132,90,.14); --fvgD:rgba(194,59,52,.13);
+  --fib:#b0567a; --pool:#c4730d; --bb:#7c8696; --tl:#0e8a94; --piv:#8a6d1f; --vp:#2f7f6a; --vol:rgba(91,101,117,.28); --macd:#2a78b8; --msig:#c4730d; --fvgU:rgba(22,132,90,.14); --fvgD:rgba(194,59,52,.13);
   --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
   --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
@@ -17,12 +17,12 @@
   --bg:#0d1116; --panel:#141a21; --ink:#e5e9ef; --muted:#93a0b3; --line:#263040; --grid:#1c2430;
   --accent:#eaa23a; --up:#3cc488; --down:#f0655c; --warn:#e2b23e;
   --vwap:#ad9af5; --band:rgba(173,154,245,.10); --e9:#6db2ea; --e21:#d6a676;
-  --fib:#e58fb2; --pool:#eaa23a; --bb:#8e99ab; --tl:#4fd1d9; --piv:#d8b860; --vol:rgba(147,160,179,.26); --macd:#6db2ea; --msig:#eaa23a; --fvgU:rgba(60,196,136,.13); --fvgD:rgba(240,101,92,.13); color-scheme:dark}}
+  --fib:#e58fb2; --pool:#eaa23a; --bb:#8e99ab; --tl:#4fd1d9; --piv:#d8b860; --vp:#6fd3b8; --vol:rgba(147,160,179,.26); --macd:#6db2ea; --msig:#eaa23a; --fvgU:rgba(60,196,136,.13); --fvgD:rgba(240,101,92,.13); color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0d1116; --panel:#141a21; --ink:#e5e9ef; --muted:#93a0b3; --line:#263040; --grid:#1c2430;
   --accent:#eaa23a; --up:#3cc488; --down:#f0655c; --warn:#e2b23e;
   --vwap:#ad9af5; --band:rgba(173,154,245,.10); --e9:#6db2ea; --e21:#d6a676;
-  --fib:#e58fb2; --pool:#eaa23a; --bb:#8e99ab; --tl:#4fd1d9; --piv:#d8b860; --vol:rgba(147,160,179,.26); --macd:#6db2ea; --msig:#eaa23a; --fvgU:rgba(60,196,136,.13); --fvgD:rgba(240,101,92,.13); color-scheme:dark}
+  --fib:#e58fb2; --pool:#eaa23a; --bb:#8e99ab; --tl:#4fd1d9; --piv:#d8b860; --vp:#6fd3b8; --vol:rgba(147,160,179,.26); --macd:#6db2ea; --msig:#eaa23a; --fvgU:rgba(60,196,136,.13); --fvgD:rgba(240,101,92,.13); color-scheme:dark}
 *{box-sizing:border-box} [hidden]{display:none!important}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:14px;line-height:1.45;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px 32px}
@@ -156,6 +156,7 @@ h3.sub{font-family:var(--display);font-weight:500;font-size:.95rem;letter-spacin
       <button type="button" data-l="vol" aria-pressed="true">Volume</button>
       <button type="button" data-l="bb" aria-pressed="false">Bollinger 20/2</button>
       <button type="button" data-l="piv" aria-pressed="false">Pivots</button>
+      <button type="button" data-l="vp" aria-pressed="true">Value area (VAH/POC/VAL)</button>
       <button type="button" data-l="smc" aria-pressed="false">Structure BOS/CHoCH</button>
       <span class="sep" aria-hidden="true"></span>
       <button type="button" data-m="1" aria-pressed="true">1m</button>
@@ -187,6 +188,7 @@ h3.sub{font-family:var(--display);font-weight:500;font-size:.95rem;letter-spacin
       <span><i class="sw" style="background:var(--tl)"></i>trend lines (dashed = broken)</span>
       <span><i class="sw" style="background:var(--bb)"></i>Bollinger bands</span>
       <span><i class="sw" style="background:var(--piv)"></i>floor pivots</span>
+      <span><i class="sw" style="background:var(--vp)"></i>yesterday's value area</span>
       <span>▲▼ signal entries · ◆ target · ✕ stop · <a href="#guide">How to read all of this ↓</a></span>
     </div>
   </section>
@@ -324,6 +326,8 @@ h3.sub{font-family:var(--display);font-weight:500;font-size:.95rem;letter-spacin
         <dl class="gd"><dt>Watch</dt><dd>Breakouts on heavy volume vs. light volume. Volume dries up at lunch.</dd><dt>How to use it</dt><dd>A move with heavy volume is more likely to be real participation; a move on thin volume is easier to reverse.</dd><dt>TARS tested</dt><dd>Not tested as a signal here.</dd></dl></details>
       <details><summary><b>Bollinger 20/2</b> <span class="muted">· A 20-candle average with bands two standard deviations away. Width shows how quiet or wild it is.</span></summary>
         <dl class="gd"><dt>Watch</dt><dd>Squeezes (bands narrow) and price riding a band.</dd><dt>How to use it</dt><dd>Narrow bands = quiet, a bigger move often follows (direction unknown). Riding the upper band = strong trend, not automatically 'overbought'.</dd><dt>TARS tested</dt><dd>Bollinger squeezes: no direction edge on 20 years.</dd></dl></details>
+      <details><summary><b>Value area (VAH / POC / VAL)</b> <span class="muted">· From yesterday's volume profile: POC is the price with the most volume; VAH and VAL bound the zone where 70% of the volume traded.</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>Whether today opens inside or outside yesterday's value, and how price reacts the first time it touches POC, VAH or VAL.</dd><dt>How to use it</dt><dd>A map of where traders did business yesterday. Use the lines for targets and stops, not as entry signals.</dd><dt>TARS tested</dt><dd>167 days of SPY 5-min (Feb–Oct 2026). 1:1 fades: VAL 50%, VAH 36%. First touch of POC from above held 58% (n 41) vs 41% at random levels, but almost all of it was before 10:30. 80% rule: 54% at 0.65 reward:risk, a loser. The order-flow trigger traders pair it with can't be tested on Robinhood data.</dd></dl></details>
       <details><summary><b>Pivots</b> <span class="muted">· Floor-trader pivot levels from yesterday's high, low, close: P, R1/R2 above, S1/S2 below.</span></summary>
         <dl class="gd"><dt>Watch</dt><dd>Reactions at P and R1/S1.</dd><dt>How to use it</dt><dd>Widely watched, so they can act like PDH/PDL: places for targets and stops.</dd><dt>TARS tested</dt><dd>Like Fibonacci, expect them to work about as well as any other level.</dd></dl></details>
       <details><summary><b>Liquidity pools</b> <span class="muted">· Equal highs or lows where stops tend to sit. 'Swept' = price ran through and closed back inside. The ▲/▼ tag next to the price says which pool gets hit first, and the odds.</span></summary>
@@ -353,7 +357,7 @@ const SERVER = "Robinhood";
 // window.claude only exists inside the claude.ai viewer; a saved copy of this page still renders, just without live data.
 const CL = window.claude && window.claude.use ? window.claude : {use: async () => null};
 const $ = s => document.querySelector(s);
-const layers = {pos: true, em: true, vwap: true, ema: true, levels: true, pools: true, fvg: true, fib: false, sig: true, tl: true, hod: true, vol: true, bb: false, piv: false, smc: false};
+const layers = {pos: true, em: true, vwap: true, ema: true, levels: true, pools: true, fvg: true, fib: false, sig: true, tl: true, hod: true, vol: true, bb: false, piv: false, smc: false, vp: true};
 let pane = "rsi"; // lower pane: rsi | macd
 let view = "full";
 let zoomN = null, follow = true, vEnd = 0, hoverI = null; // chart viewport (null zoom = the preset view)
@@ -427,9 +431,20 @@ function poolOdds(st, c) {
   if (!up || !dn) return {up, dn, pUp: null};
   return {up, dn, pUp: (c - dn.p) / (up.p - dn.p)};
 }
+function volumeProfile(bars, nb = 60) {
+  const lo = Math.min(...bars.map(b => b.l)), hi = Math.max(...bars.map(b => b.h)), w = (hi - lo) / nb || 1e-9, vol = new Array(nb).fill(0);
+  bars.forEach(b => { const a = Math.min(nb - 1, Math.floor((b.l - lo) / w)), z = Math.min(nb - 1, Math.floor((b.h - lo) / w));
+    for (let j = a; j <= z; j++) vol[j] += b.v / (z - a + 1); });
+  let p = 0; vol.forEach((v, j) => { if (v > vol[p]) p = j; });
+  let i = p, j = p, s = vol[p]; const tot = vol.reduce((a, b) => a + b, 0);
+  while (s < 0.7 * tot && (i > 0 || j < nb - 1)) { const up = j + 1 < nb ? vol[j + 1] : -1, dn = i > 0 ? vol[i - 1] : -1;
+    if (up >= dn) { j++; s += up; } else { i--; s += dn; } }
+  return {val: lo + i * w, poc: lo + (p + 0.5) * w, vah: lo + (j + 1) * w};
+}
+function vpWhere(vp, c) { return !vp ? null : c > vp.vah ? "above value" : c < vp.val ? "below value" : "inside value"; }
 function structure(bars, prev, m = 1) {
   const orN = Math.ceil(15 / m);
-  const out = {levels: [], pools: [], fvgs: [], swingsH: [], swingsL: [], fib: null, pivots: [], tlines: [], hod: null, lod: null};
+  const out = {levels: [], pools: [], fvgs: [], swingsH: [], swingsL: [], fib: null, pivots: [], vp: null, tlines: [], hod: null, lod: null};
   if (!bars.length) return out;
   const px = bars[bars.length - 1].c, tolBase = px * 0.0003;
   if (prev) {
@@ -473,6 +488,8 @@ function structure(bars, prev, m = 1) {
   // floor pivots from yesterday's high, low and close
   if (prev) { const H = Math.max(...prev.map(b => b.h)), L = Math.min(...prev.map(b => b.l)), C = prev[prev.length - 1].c, P = (H + L + C) / 3;
     out.pivots = [{name: "P", p: P}, {name: "R1", p: 2 * P - L}, {name: "S1", p: 2 * P - H}, {name: "R2", p: P + (H - L)}, {name: "S2", p: P - (H - L)}]; }
+  // yesterday's volume profile: POC = busiest price, VAH/VAL = edges of the 70% value area (same method as research_scripts/volume_profile.py)
+  if (prev && prev.length > 10) out.vp = volumeProfile(prev);
   // auto trend lines: through the last two clear swing highs (resistance) and swing lows (support)
   const w = Math.max(3, Math.round(8 / m)), piv = (key, hi) => { const out2 = [];
     for (let j = w; j < bars.length - w; j++) { const v = bars[j][key], win = bars.slice(j - w, j + w + 1).map(b => b[key]);
@@ -654,6 +671,7 @@ function draw() {
   if (layers.fib && st.fib) st.fib.levels.forEach(f => hline(f.p, css("--fib"), (f.f * 100).toFixed(1) + "%", [2, 3], st.fib.from));
   if (layers.levels) st.levels.forEach(l => hline(l.p, css("--accent"), l.name, [5, 4]));
   if (layers.piv) (st.pivots || []).forEach(l => hline(l.p, css("--piv"), l.name, [1, 2]));
+  if (layers.vp && st.vp) [["VAH", st.vp.vah], ["POC", st.vp.poc], ["VAL", st.vp.val]].forEach(([n, p]) => hline(p, css("--vp"), n, n === "POC" ? [] : [6, 2]));
   if (layers.hod && st.hod !== null) { hline(st.hod, css("--muted"), "HOD", [3, 2]); hline(st.lod, css("--muted"), "LOD", [3, 2]); }
   if (layers.pos && typeof T !== "undefined") readAll().filter(r => r.spy).forEach(r => {
     hline(r.be, css("--ink"), "BE " + r.tag, [], null);
@@ -793,6 +811,7 @@ function renderPanels() {
     ["Bollinger", `${lb.c > lb.bbu ? "above upper band" : lb.c < lb.bbl ? "below lower band" : "inside bands"} · width ${(lb.bbw * 100).toFixed(2)}%`],
     ["Trend lines", (st.tlines || []).length ? st.tlines.map(t => `${t.kind === "res" ? "res" : "sup"} ${t.now.toFixed(2)}${t.broken ? " (broken)" : ""}`).join(" · ") : "not enough swings yet"],
     ["Structure", (st.smc || []).length ? (e => `last break: ${e.kind} ${e.side > 0 ? "up" : "down"} through ${e.p.toFixed(2)} <span class="muted">· map only, tested no edge</span>`)(st.smc[st.smc.length - 1]) : "no break yet"],
+    ["Value area", st.vp ? `${vpWhere(st.vp, lb.c)} · VAH ${st.vp.vah.toFixed(2)} · POC ${st.vp.poc.toFixed(2)} · VAL ${st.vp.val.toFixed(2)} <span class="muted">· map only: edges ≈ coin flip on 167 days</span>` : "–"],
     ["Pivots", (st.pivots || []).length ? st.pivots.slice(0, 3).map(v => `${v.name} ${v.p.toFixed(2)}`).join(" · ") : "–"],
     ["Candles", size + "-minute"],
     ["Next pool to get hit", (() => { const o = poolOdds(st, lb.c); if (o.pUp === null) return '<span class="muted">needs a pool above and below</span>';
@@ -843,7 +862,7 @@ function apply() {
   else { const a = aggregate(S.b1, size); S.bars = a.bars; S.map = a.map; indicators(S.bars); S.st = structure(S.bars, S.prev, size);
     // key levels (PDH/PDL/PDC, 15-min opening range) always come from the 1-minute bars, whatever the candle size
     const KEY = /^(PDH|PDL|PDC|ORH|ORL)$/;
-    S.st.levels = S.st1.levels; S.st.pools = S.st.pools.filter(p => !KEY.test(p.name)).concat(S.st1.pools.filter(p => KEY.test(p.name))); }
+    S.st.levels = S.st1.levels; S.st.vp = S.st1.vp; S.st.pools = S.st.pools.filter(p => !KEY.test(p.name)).concat(S.st1.pools.filter(p => KEY.test(p.name))); }
   draw(); renderPanels();
   if (typeof T !== "undefined" && T.pos) renderReader();
   if (!$("#tStrike").value && S.b1.length) { $("#tStrike").value = String(Math.round(S.b1[S.b1.length - 1].c)); resolveSoon(); }
@@ -1574,6 +1593,8 @@ function snapshot() {
     typical_15min_move_now: move15(lb.hm), spy: {last: lb.c, day_high: hi, day_low: lo, vwap: r2(lb.vwap), sigma_from_vwap: r2((lb.c - lb.vwap) / (lb.sd || 1)), ema9: r2(lb.e9), ema21: r2(lb.e21), rsi14: Math.round(lb.rsi), atr_1min: r2(lb.atr),
       trend: lb.trend > 0 ? "up" : lb.trend < 0 ? "down" : "mixed"},
     levels: st.levels.map(l => ({name: l.name, price: r2(l.p)})),
+    yesterday_value_area: st.vp ? {vah: r2(st.vp.vah), poc: r2(st.vp.poc), val: r2(st.vp.val), price_is: vpWhere(st.vp, lb.c),
+      tested: "SPY 5-min, 167 days: 1:1 fade at VAL 50%, at VAH 36% (shorting into an uptrend loses); first touch of POC from above held 58% (n41) vs 41% random, mostly before 10:30; 80% rule 54% at 0.65 reward:risk. Map, not a signal."} : null,
     nearest_liquidity_pools: st.pools.filter(p => !p.taken).map(p => ({name: p.name, price: r2(p.p), where: p.p > lb.c ? "above" : "below", swept: p.swept !== null}))
       .sort((a, c) => Math.abs(a.price - lb.c) - Math.abs(c.price - lb.c)).slice(0, 6),
     open_fair_value_gaps_on_screen: S.st.fvgs.filter(f => !f.filled).slice(-4).map(f => ({side: f.side, top: r2(f.top), bottom: r2(f.bot), formed: S.bars[f.i] && S.bars[f.i].hm})),

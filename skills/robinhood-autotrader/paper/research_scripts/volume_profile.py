@@ -66,15 +66,16 @@ def run(sessions, label):
         out[k] = dict(n=len(v), hit=round(100 * st.mean(v), 1))
     if res["80% rule R"]: out["80% rule"]["median_reward_to_risk"] = round(st.median(res["80% rule R"]), 2)
     print(label, json.dumps(out)); return out
-OUT = {}
-spy = json.load(open(H / "spy_1min.json")); s = defaultdict(list)
-for t in sorted(spy):
-    if "13:30" <= t[11:] < "20:00": s[t[:10]].append(spy[t])
-OUT["SPY 1min"] = run(s, "SPY 1min")
-for coin in ("btc", "eth", "sol", "doge", "pepe", "bonk", "wif"):
-    h = json.load(open(H / "crypto" / f"{coin}_hourly.json")); s = defaultdict(list)
-    for t in sorted(h): s[t[:10]].append(h[t])
-    keys = sorted(s); mid = len(keys) // 2
-    for lab, ks in (("H1", keys[:mid]), ("H2", keys[mid:])):
-        OUT[f"{coin} {lab}"] = run({k: s[k] for k in ks}, f"{coin.upper()} {lab}")
-json.dump(OUT, open(Path(__file__).with_name("volume_profile.json"), "w"), indent=1)
+if __name__ == "__main__":
+    OUT = {}
+    spy = json.load(open(H / "spy_1min.json")); s = defaultdict(list)
+    for t in sorted(spy):
+        if "13:30" <= t[11:] < "20:00": s[t[:10]].append(spy[t])
+    OUT["SPY 1min"] = run(s, "SPY 1min")
+    for coin in ("btc", "eth", "sol", "doge", "pepe", "bonk", "wif"):
+        h = json.load(open(H / "crypto" / f"{coin}_hourly.json")); s = defaultdict(list)
+        for t in sorted(h): s[t[:10]].append(h[t])
+        keys = sorted(s); mid = len(keys) // 2
+        for lab, ks in (("H1", keys[:mid]), ("H2", keys[mid:])):
+            OUT[f"{coin} {lab}"] = run({k: s[k] for k in ks}, f"{coin.upper()} {lab}")
+    json.dump(OUT, open(Path(__file__).with_name("volume_profile.json"), "w"), indent=1)

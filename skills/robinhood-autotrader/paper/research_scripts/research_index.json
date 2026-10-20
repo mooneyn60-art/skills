@@ -236,5 +236,12 @@
   "verdict": "weak / no edge",
   "nums": "VAL/VAH 1:1 to POC 49.3/49.6% vs random 46.5/47.3% (n~5100); 80% rule 48.9%; order-flow half untestable",
   "script": "volume_profile.py"
+ },
+ {
+  "area": "Intraday",
+  "name": "SPY volume profile: prior VAH/POC/VAL fades + 80% rule (167 days, 5-min)",
+  "verdict": "map only / no edge",
+  "nums": "VAL 50% (random 53%), VAH 36%, POC-from-above 58% vs 41% (n41, mostly pre-10:30), 80% rule 54% at 0.65 R",
+  "script": "spy_volume_profile.py"
  }
 ]
