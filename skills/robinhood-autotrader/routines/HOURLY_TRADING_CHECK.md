@@ -228,7 +228,7 @@ an 8% stop isn't noise):
 ROUND 2 (3:11pm ET, Nolan: "drop the spy, I want to beat it not ride it"):
 SOLD SPY 0.657187 @764.54 (index core removed by owner order). BOUGHT:
   ATI 1 sh @189.33  GTC stop-market 174.18 (order 6abeb060)   industrials
-  SN  1 sh @180.06  GTC stop-market 165.65 (order 6abeb062)   consumer cyclical
+  SN  1 sh @180.06  GTC stop-market 180.06 BREAKEVEN (order 6ad7daa9, R4 raise 2026-10-20 after a 198.63 close; was 165.65/6abeb062)   consumer cyclical
   FRO  SOLD 2026-10-15 3:13pm ET, all 5 sh @52.55 (+0.25R), to fund the TARS options slot (Nolan authorized).
       picked over DINO, tied on momentum, to avoid a 2nd refiner next to VLO)
   BE (+180%) skipped: 63d vol 107% > 80% ceiling.
