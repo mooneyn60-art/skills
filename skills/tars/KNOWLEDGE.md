@@ -90,3 +90,4 @@ Audience: TARS
   - **Holds.** The monthly trend rule cut max drawdown in all 16 BTC/ETH cases and beat holding in 2021-26 (BTC L=12 +25.9 vs +17.1%/yr, DD −41 vs −73%), but lagged in 2016-20's bull run. Run it on IBIT shares (0.02% spread).
   - **Fails.** BTC/ETH rotation; SPY's trend as a BTC filter.
   - **Weak or no effect.** Weekend drift is just normal drift. Fed days lean positive (t ≈ 1).
+- Small coins (2026-10-20, `alt_basket.py`, 40 2021-era Coinbase alts): bought Jan 2022, median −94% (25/32 down 80%+). Bought Jan 2023 near the bottom, median −58%. 0 of 33 went 5×, 0 beat BTC (+395%), 7/40 delisted. "Cheap coins that could jump" lost to plain BTC.

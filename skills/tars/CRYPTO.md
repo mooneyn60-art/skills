@@ -63,3 +63,11 @@ Nolan (2026-10-20): "do deep research I want you to be just as versed in crypto 
 - **Fed days:** BTC +0.85% / +0.44% on FOMC days vs +0.30 / +0.09 otherwise (n 39/46, t ≈ 1). Same sign in both halves, weak: a lean, not a trade.
 - **SPY's trend as a BTC filter:** helped in 2016-20 (+0.57 vs −0.18%/day), not in 2021-26 (+0.12 vs +0.16). Requiring both trends up failed recently too: fails.
 - **Cheapest way to run the monthly trend rule: IBIT shares** (0.02% spread vs 1.9% on spot BTC), checked once a month. That removes the cost problem entirely.
+
+## Small coins ("load up on cheap shares") — tested 2026-10-20 (`alt_basket.py`)
+40 smaller coins that traded on Coinbase in the 2021 boom: SHIB, AVAX, DOT, ATOM, ALGO, MANA, SAND, LINK, ADA, UNI, AAVE, MATIC and others.
+- **Bought 2022-01-03** (after the mania): median **−94%**. 25 of 32 down 80%+. **None** beat BTC (+77.5%).
+- **Bought 2023-01-02** (near the bottom, the best possible timing): median **−58%**. **None** went 5×. **None** beat BTC (+395%). The best were AAVE +186%, BCH +182%, XLM +144%.
+- **7 of 40 were delisted** by Coinbase (MATIC, STORJ, NU, CLV, BOND …).
+- **A cheap price per coin means nothing.** What matters is the total value (market cap). 1 million SHIB for $10 is the same bet as $10 of BTC, just with worse odds.
+- **Caveat:** the list came from memory of 2021 Coinbase listings, not a random sample. But it includes the big names of that cycle, and the result is lopsided.
