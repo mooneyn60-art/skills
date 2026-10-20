@@ -43,3 +43,9 @@ Nolan (2026-10-20): "do deep research I want you to be just as versed in crypto 
   - **Insiders and early token allocations** are not available to us.
 - **Trend following.** Academic papers find time-series momentum in crypto. One large study says it largely disappeared after BTC futures launched (2017). Long-only versions held up better than long-short. That matches TARS's test: trend rules worked 2015-20 and failed after cost in 2021-26.
 - **Takeaway for Nolan.** The big crypto winners are mostly the spread-takers, the funding collectors and the early holders who survived, not the chart traders. From a Robinhood account, the realistic edge is the slow one: a small BTC/ETH position held through a trend filter, never day-traded.
+
+## Options-style crypto: IBIT / ETHA options (2026-10-20)
+- **Costs.** Nolan wants crypto traded "more like options then hold". The cheap route is options on the spot ETFs, not Robinhood spot crypto. IBIT (BTC ETF) shares: spread 1¢ on $46.60 (0.02%). IBIT 10/30 47C: 0.88/0.90 (2.2% of premium, ~$89 a contract), IV 34%, open interest 35k. ETHA similar on shares. Stop-market works on the options, in market hours.
+- **Gap risk.** BTC trades 24/7 but IBIT only in US hours. The night or weekend move arrives as a gap at the open, and a stop can't stop it.
+- **Tested** (`ibit_session.py`, 3y hourly BTC): does BTC's move while US markets are closed (20:00→13:30 UTC) predict the US-session move (the IBIT-option day)? First half there were hints (after a >2% overnight drop the session was +0.76%, t 2.1), but **every bucket is flat in the second half** (−0.23% to +0.02%, |t| < 1). No edge: the setup doesn't hold.
+- **Next tests:** apply the SPY tools to IBIT (VIX/IV regime, gap size, day score built on BTC's overnight move) before any rule.
