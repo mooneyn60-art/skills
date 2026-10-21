@@ -55,3 +55,9 @@ New rules:
 - Raccoon doorbell cam (realistic, 9 s, plot-twist title): 904 views / 19 likes in ~13 h.
 - Beaver car wash (obvious AI, 22 s, "satisfying" title): 2 views in ~17 h.
 - ~450x gap. Decision: realistic caught-on-camera is THE format. Putty (obvious AI) pulled to draft. All future clips: single realistic cam shot, 8-12 s, plot-twist title.
+
+## Result 2026-10-21
+- Goose porch cam "Checked the porch camera… my new shoes 😨🪿" (4 PM): 1,381 views in 17 h. Raccoon doorbell now 1,305.
+- Bear pool "Backyard camera caught this… 😳🐻" (posted 9:52 AM off-slot): 2 views in 23 h.
+- Pattern: first-person, personal-stakes titles ("Checked the X camera… my Y") win; vague "camera caught this" flops. 4 PM slot beats morning so far.
+- Rule: every title = first-person + the owner's thing at stake + time ("at 3am"), e.g. "Heard the garage fridge open at 3am… 😨".
