@@ -17,19 +17,21 @@ def block(rs, pk, ak, label):
              ic=round(corr(sig, act), 3), range_corr=round(corr([r["prng"] for r in rs], [r["arng"] for r in rs]), 3),
              baseline_range_corr=round(corr([r["trng"] for r in rs], [r["arng"] for r in rs]), 3))
     print(f"{label:28s} {o}"); return o
+import sys
+PFX = sys.argv[1] if len(sys.argv) > 1 else "kronos"
 OUT = {}; here = Path(__file__).parent
-if (here / "kronos_intraday.json").exists():
-    R = json.load(open(here / "kronos_intraday.json")); days = sorted({r["day"] for r in R}); mid = days[len(days) // 2]
+if (here / f"{PFX}_intraday.json").exists():
+    R = json.load(open(here / f"{PFX}_intraday.json")); days = sorted({r["day"] for r in R}); mid = days[len(days) // 2]
     for hz in ("30", "60"):
         OUT[f"SPY +{hz}m all"] = block(R, "p" + hz, "a" + hz, f"SPY +{hz}m all")
         OUT[f"SPY +{hz}m H1"] = block([r for r in R if r["day"] < mid], "p" + hz, "a" + hz, f"SPY +{hz}m H1")
         OUT[f"SPY +{hz}m H2"] = block([r for r in R if r["day"] >= mid], "p" + hz, "a" + hz, f"SPY +{hz}m H2")
         for t in ("10:30", "12:00", "13:30"): OUT[f"SPY +{hz}m {t}"] = block([r for r in R if r["t"] == t], "p" + hz, "a" + hz, f"SPY +{hz}m from {t}")
-if (here / "kronos_daily.json").exists():
-    R = json.load(open(here / "kronos_daily.json"))
+if (here / f"{PFX}_daily.json").exists():
+    R = json.load(open(here / f"{PFX}_daily.json"))
     for sym in sorted({r["sym"] for r in R}):
         rs = [r for r in R if r["sym"] == sym]; m = len(rs) // 2
         OUT[f"{sym} 1d all"] = block(rs, "p1", "a1", f"{sym} next day")
         OUT[f"{sym} 1d H1"] = block(rs[:m], "p1", "a1", f"{sym} next day H1"); OUT[f"{sym} 1d H2"] = block(rs[m:], "p1", "a1", f"{sym} next day H2")
     hold = [r for r in R if r["sym"] != "SPY"]; OUT["holdings pooled 1d"] = block(hold, "p1", "a1", "7 holdings pooled next day")
-json.dump(OUT, open(here / "kronos_scores.json", "w"), indent=1)
+json.dump(OUT, open(here / f"{PFX}_scores.json", "w"), indent=1)
