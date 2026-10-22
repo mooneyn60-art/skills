@@ -48,6 +48,8 @@ shares, subs gained. Channel: subs/followers, credits left, posts live vs queued
 - New platform connections. Never paste keys in chat; add them as environment secrets.
 
 ## Standing orders from Nolan
+- Only Meatball stick-figure info/quiz videos (long-form and Shorts). No door-cam, trail-cam or other
+  fake camera clips, ever; the old ones stay as drafts in Metricool.
 - Long-form explainers run ~10 minutes (8-10 myths per episode), never 2-3 minute pilots.
   Each episode is cut into one vertical Short per myth (`explainer.py --vertical`).
 - Like counts hidden on every video. The YouTube API and Metricool can't set this, so it lives in
