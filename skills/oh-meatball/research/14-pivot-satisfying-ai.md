@@ -66,3 +66,20 @@ New rules:
 - 4 PM ET posts: raccoon 1,346 / goose 1,397 / dog 1,959 (best yet, "Left him alone for 5 minutes…").
 - ~10 AM posts: bear pool 5, bear ghost (CPU-generated) 3.
 - Rule: no morning posts. One clip daily at 4 PM ET; testing 7 PM ET as a second slot (facts raccoon Thu 7 PM, compilation Fri 7 PM).
+
+## 2026-10-22: why views stop after day one
+- Dog Short m-kwfNbshV8 (vidIQ hourly): 309 views at 2.5 h, 1,046 at 3.5 h, 1,733 at 8.5 h, 1,957 at 14.5 h,
+  then 0-2 views/hour. Raccoon and goose followed the same curve. The 10 AM bear clips (3 and 5 views)
+  never got a first test batch.
+- Engagement on the test batch: likes 1.1% (dog), 1.3% (raccoon), 0.4% (goose); comments 0-1; no shares
+  on any video in Metricool; no subscribers gained. The batch watches and leaves, so the Shorts feed stops
+  widening the audience.
+- Causes: 9-second clips that look AI give nobody a reason to like, comment, share or subscribe; every
+  week the channel has been a different format (wedding drama, satisfying, camera clips, myths), so YouTube
+  has no stable audience to send the next video to; Shorts views die within 24-48 h, while long-form keeps
+  earning from search and suggested videos.
+- Response: one format (Meatball myths); every long-form episode is cut into Shorts that point to it;
+  Shorts run 20-60 s with captions and end on a question that asks for a comment. Camera clips keep running
+  through 10/27 as the control; compare 72-hour views, likes and subscribers per Short.
+- Missing signal: "viewed vs swiped away" is only in YouTube Studio (Metricool analytics lag about 2 days and
+  do not include it).
