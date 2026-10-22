@@ -14,9 +14,10 @@ import os
 import random
 import subprocess
 
-STYLE = (", flat 2D cartoon illustration, thick black outlines, bold flat colors, simple shapes, "
-         "webcomic style, one single subject, clean plain background")
-MODEL = os.environ.get("SDTURBO", "/tmp/claude-0/-home-user/f2581a8c-fe42-5876-b5f9-d941a863a7fa/scratchpad/models/sdturbo")
+STYLE = (", simple flat vector cartoon, clean thick black outlines, bright flat colors, minimal detail, "
+         "no texture, plain solid white background, children's book style")
+# SDXL-Turbo in bf16 fits a 15 GB CPU box (~11 s/image at 768x512, 2 steps).
+MODEL = os.environ.get("SDXL_TURBO", "/tmp/claude-0/-home-user/f2581a8c-fe42-5876-b5f9-d941a863a7fa/scratchpad/models/sdxlturbo")
 W, H, FPS = 1920, 1080, 30
 
 
@@ -24,7 +25,7 @@ def images(beats, work, seeds):
     import torch
     from diffusers import AutoPipelineForText2Image
     torch.set_num_threads(os.cpu_count())
-    pipe = AutoPipelineForText2Image.from_pretrained(MODEL, torch_dtype=torch.float32, variant="fp16")
+    pipe = AutoPipelineForText2Image.from_pretrained(MODEL, torch_dtype=torch.bfloat16, variant="fp16")
     os.makedirs(f"{work}/img", exist_ok=True)
     for i, b in enumerate(beats):
         for s in range(seeds):
@@ -32,7 +33,7 @@ def images(beats, work, seeds):
             if os.path.exists(path):
                 continue
             g = torch.Generator().manual_seed(1000 * i + s)
-            pipe(b["img"] + STYLE, num_inference_steps=3, guidance_scale=0.0, width=768, height=448,
+            pipe(b["img"] + STYLE, num_inference_steps=2, guidance_scale=0.0, width=768, height=512,
                  generator=g).images[0].save(path)
             print("img", path, flush=True)
 
@@ -51,11 +52,31 @@ def duration(path):
                                  path], capture_output=True, text=True, check=True).stdout)
 
 
+def compose(scene_path, pose, out):
+    """Mascot on the left reacting, illustration on the right (Kelevin-style layout)."""
+    from PIL import Image, ImageFilter
+    from mascot import draw
+    canvas = Image.new("RGB", (W, H), (250, 248, 242))
+    scene = Image.open(scene_path).convert("RGB")
+    box_w, box_h = 1340, 900
+    s = min(box_w / scene.width, box_h / scene.height)
+    scene = scene.resize((int(scene.width * s), int(scene.height * s)), Image.LANCZOS)
+    canvas.paste(scene, (540 + (box_w - scene.width) // 2, (H - scene.height) // 2))
+    if pose:
+        m = draw(pose, 760)
+        halo = m.split()[3].filter(ImageFilter.MaxFilter(15))  # white outline keeps him readable on any scene
+        canvas.paste((255, 255, 255), (-60, H - 760 + 40), halo)
+        canvas.paste(m, (-60, H - 760 + 40), m)
+    canvas.save(out)
+
+
 def build(beats, work, out, picks, name):
     voice(beats, work, name)
     segs = []
-    for i, _ in enumerate(beats):
-        img, mp3, seg = f"{work}/img/{i:02d}_s{picks.get(str(i), 0)}.png", f"{work}/vo/{i:02d}.mp3", f"{work}/seg{i:02d}.mp4"
+    for i, b in enumerate(beats):
+        img = f"{work}/frame{i:02d}.png"
+        compose(f"{work}/img/{i:02d}_s{picks.get(str(i), 0)}.png", b.get("pose", "point"), img)
+        mp3, seg = f"{work}/vo/{i:02d}.mp3", f"{work}/seg{i:02d}.mp4"
         dur = duration(mp3) + 0.35
         frames = int(dur * FPS)
         # Slow Ken Burns: alternate zoom-in / zoom-out so consecutive beats don't feel identical.
