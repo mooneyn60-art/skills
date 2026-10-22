@@ -2,6 +2,12 @@
  "voice": "en-US-AndrewNeural",
  "beats": [
   {
+   "say": "True or false? Porcupines can shoot their quills.",
+   "pose": "think",
+   "quiz": "PORCUPINES\nCAN SHOOT\nTHEIR QUILLS",
+   "myth": "porcupine"
+  },
+  {
    "say": "Porcupines cannot shoot their quills. Cartoons lied to you again.",
    "pose": "shock",
    "photo": "Erethizon dorsatum",
@@ -42,9 +48,9 @@
    "myth": "porcupine"
   },
   {
-   "say": "The full episode, with even more myths, is on the channel.",
+   "say": "Did you guess right? Comment true or false, and the full quiz is on the channel.",
    "pose": "wave",
-   "text": "FULL EPISODE\nON THE\nCHANNEL"
+   "text": "COMMENT:\nDID YOU GUESS\nRIGHT?"
   }
  ]
 }

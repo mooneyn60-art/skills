@@ -2,6 +2,12 @@
  "voice": "en-US-AndrewNeural",
  "beats": [
   {
+   "say": "True or false? If you touch a baby bird, its mom will abandon it.",
+   "pose": "think",
+   "quiz": "TOUCH A BABY\nBIRD = MOM\nLEAVES IT",
+   "myth": "bird"
+  },
+  {
    "say": "If you touch a baby bird, its mom will NOT smell you and abandon it. Your grandma meant well, but no.",
    "pose": "shock",
    "photo": "Turdus migratorius",
@@ -36,9 +42,9 @@
    "myth": "bird"
   },
   {
-   "say": "The full episode, with even more myths, is on the channel.",
+   "say": "Did you guess right? Comment true or false, and the full quiz is on the channel.",
    "pose": "wave",
-   "text": "FULL EPISODE\nON THE\nCHANNEL"
+   "text": "COMMENT:\nDID YOU GUESS\nRIGHT?"
   }
  ]
 }

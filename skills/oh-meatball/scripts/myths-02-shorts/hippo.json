@@ -2,6 +2,12 @@
  "voice": "en-US-AndrewNeural",
  "beats": [
   {
+   "say": "True or false? Hippos sweat blood.",
+   "pose": "think",
+   "quiz": "HIPPOS\nSWEAT\nBLOOD",
+   "myth": "hippo"
+  },
+  {
    "say": "Hippos do not sweat blood. Even though it really, really looks like they do.",
    "pose": "shock",
    "photo": "Hippopotamus amphibius",
@@ -35,9 +41,9 @@
    "myth": "hippo"
   },
   {
-   "say": "The full episode, with even more myths, is on the channel.",
+   "say": "Did you guess right? Comment true or false, and the full quiz is on the channel.",
    "pose": "wave",
-   "text": "FULL EPISODE\nON THE\nCHANNEL"
+   "text": "COMMENT:\nDID YOU GUESS\nRIGHT?"
   }
  ]
 }

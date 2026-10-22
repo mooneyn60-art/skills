@@ -2,6 +2,12 @@
  "voice": "en-US-AndrewNeural",
  "beats": [
   {
+   "say": "True or false? Koalas are bears.",
+   "pose": "think",
+   "quiz": "KOALAS\nARE\nBEARS",
+   "myth": "koala"
+  },
+  {
    "say": "Koalas are not bears. Calling it a koala bear is like calling a cat a dog because it has four legs.",
    "pose": "laugh",
    "photo": "Phascolarctos cinereus",
@@ -43,9 +49,9 @@
    "myth": "koala"
   },
   {
-   "say": "The full episode, with even more myths, is on the channel.",
+   "say": "Did you guess right? Comment true or false, and the full quiz is on the channel.",
    "pose": "wave",
-   "text": "FULL EPISODE\nON THE\nCHANNEL"
+   "text": "COMMENT:\nDID YOU GUESS\nRIGHT?"
   }
  ]
 }

@@ -2,6 +2,12 @@
  "voice": "en-US-AndrewNeural",
  "beats": [
   {
+   "say": "True or false? Bees always die after they sting you.",
+   "pose": "think",
+   "quiz": "BEES ALWAYS\nDIE AFTER\nSTINGING",
+   "myth": "bee"
+  },
+  {
    "say": "All bees die after they sting you. Nope. Most of them can sting again.",
    "pose": "shock",
    "photo": "Apis mellifera",
@@ -42,9 +48,9 @@
    "myth": "bee"
   },
   {
-   "say": "The full episode, with even more myths, is on the channel.",
+   "say": "Did you guess right? Comment true or false, and the full quiz is on the channel.",
    "pose": "wave",
-   "text": "FULL EPISODE\nON THE\nCHANNEL"
+   "text": "COMMENT:\nDID YOU GUESS\nRIGHT?"
   }
  ]
 }

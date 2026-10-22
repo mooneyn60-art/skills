@@ -2,6 +2,12 @@
  "voice": "en-US-AndrewNeural",
  "beats": [
   {
+   "say": "True or false? Chameleons change color to hide.",
+   "pose": "think",
+   "quiz": "CHAMELEONS\nCHANGE COLOR\nTO HIDE",
+   "myth": "chameleon"
+  },
+  {
    "say": "Chameleons don't change color mainly to blend in. That's the most famous thing about them, and it's mostly wrong.",
    "pose": "shock",
    "photo": "Furcifer pardalis",
@@ -42,9 +48,9 @@
    "myth": "chameleon"
   },
   {
-   "say": "The full episode, with even more myths, is on the channel.",
+   "say": "Did you guess right? Comment true or false, and the full quiz is on the channel.",
    "pose": "wave",
-   "text": "FULL EPISODE\nON THE\nCHANNEL"
+   "text": "COMMENT:\nDID YOU GUESS\nRIGHT?"
   }
  ]
 }

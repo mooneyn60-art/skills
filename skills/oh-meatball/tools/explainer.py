@@ -12,6 +12,7 @@ Photo credits are written to WORKDIR/credits.txt — paste them into the video d
 """
 import argparse
 import asyncio
+import hashlib
 import html
 import json
 import os
@@ -84,11 +85,17 @@ def photo(taxon, n, work, obs=None):
     return path
 
 
+def vo_path(b, work, name, rate):
+    # Keyed by content, not position, so inserting or reordering beats never reuses the wrong line.
+    key = hashlib.sha1(f"{name}|{rate}|{b['say']}".encode()).hexdigest()[:16]
+    return f"{work}/vo/{key}.mp3"
+
+
 def voice(beats, work, name, rate="+8%"):
     from facts import speak  # reuse the proxy-aware, retrying TTS
     os.makedirs(f"{work}/vo", exist_ok=True)
-    for i, b in enumerate(beats):
-        mp3 = f"{work}/vo/{i:02d}.mp3"
+    for b in beats:
+        mp3 = vo_path(b, work, name, rate)
         if not os.path.exists(mp3) or not os.path.exists(mp3 + ".words.json"):
             json.dump(asyncio.run(speak(b["say"], name, mp3, rate)), open(mp3 + ".words.json", "w"))
 
@@ -135,9 +142,10 @@ def _panel_image(path):
     return layer
 
 
-def _panel_text(text):
+def _panel_text(text, top_pad=0, punch=True):
     from PIL import Image, ImageDraw, ImageFont
     px, py, pw, ph = TEXT_PANEL
+    py, ph = py + top_pad, ph - 2 * top_pad
     layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(layer)
     lines = text.split("\n")
@@ -152,18 +160,39 @@ def _panel_text(text):
     y = py + (ph - total) / 2
     for k, (line, w) in enumerate(zip(lines, widths)):
         # Punchline (last line) in the mascot's sauce red.
-        fill = SAUCE if k == len(lines) - 1 and len(lines) > 1 else (17, 17, 17)
+        fill = SAUCE if punch and k == len(lines) - 1 and len(lines) > 1 else (17, 17, 17)
         d.text((px + (pw - w) / 2, y), line, font=font, fill=fill)
         y += size * 1.15
     return layer
 
 
-def compose(beat, i, work, picks, out):
+def _panel_quiz(statement, count=None):
+    """Interactive beat: TRUE OR FALSE? header, the claim, and an optional countdown number."""
+    from PIL import Image, ImageDraw, ImageFont
+    px, py, pw, ph = TEXT_PANEL
+    layer = _panel_text(statement, top_pad=int(ph * 0.15), punch=False)
+    d = ImageDraw.Draw(layer)
+    head = ImageFont.truetype(BOLD, int(min(pw / 9, 110)))
+    label = "TRUE OR FALSE?"
+    d.text((px + (pw - d.textlength(label, font=head)) / 2, py), label, font=head, fill=SAUCE)
+    if count:
+        r = int(min(pw, ph) * 0.13)
+        cx, cy = px + pw // 2, py + ph - r
+        d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=SAUCE)
+        f = ImageFont.truetype(BOLD, int(r * 1.3))
+        s = str(count)
+        d.text((cx - d.textlength(s, font=f) / 2, cy - r * 0.78), s, font=f, fill=(255, 255, 255))
+    return layer
+
+
+def compose(beat, i, work, picks, out, count=None):
     from PIL import Image, ImageFilter
     from mascot import draw
     canvas = Image.new("RGBA", (W, H), BG + (255,))
     if "photo" in beat:
         canvas.alpha_composite(_panel_image(photo(beat["photo"], beat.get("n", 0), work, beat.get("obs"))))
+    elif "quiz" in beat:
+        canvas.alpha_composite(_panel_quiz(beat["quiz"], count))
     elif "text" in beat:
         canvas.alpha_composite(_panel_text(beat["text"]))
     elif "img" in beat:
@@ -176,11 +205,26 @@ def compose(beat, i, work, picks, out):
     canvas.convert("RGB").save(out)
 
 
+def countdown(b, i, work, picks):
+    """3-2-1 after a quiz claim: one second per number with a tick, so viewers lock in a guess."""
+    segs = []
+    for c in (3, 2, 1):
+        img, seg = f"{work}/frame{i:02d}_c{c}.png", f"{work}/seg{i:02d}_c{c}.mp4"
+        compose(b, i, work, picks, img, count=c)
+        subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-loop", "1", "-framerate", str(FPS), "-i", img,
+                        "-f", "lavfi", "-i", "sine=frequency=1100:duration=0.07",
+                        "-vf", f"scale={W}:{H},format=yuv420p", "-af", "apad", "-t", "1",
+                        "-c:v", "libx264", "-crf", "20", "-preset", "medium", "-r", str(FPS),
+                        "-c:a", "aac", "-ar", "48000", "-ac", "2", seg], check=True)
+        segs.append(seg)
+    return segs
+
+
 def build(beats, work, out, picks, name, rate="+8%"):
     voice(beats, work, name, rate)
     segs = []
     for i, b in enumerate(beats):
-        img, mp3, seg = f"{work}/frame{i:02d}.png", f"{work}/vo/{i:02d}.mp3", f"{work}/seg{i:02d}.mp4"
+        img, mp3, seg = f"{work}/frame{i:02d}.png", vo_path(b, work, name, rate), f"{work}/seg{i:02d}.mp4"
         compose(b, i, work, picks, img)
         dur = duration(mp3) + 0.35
         frames = int(dur * FPS)
@@ -201,6 +245,8 @@ def build(beats, work, out, picks, name, rate="+8%"):
                         "-vf", vf, "-t", f"{dur:.2f}", "-c:v", "libx264", "-crf", "20", "-preset", "medium",
                         "-c:a", "aac", "-ar", "48000", "-ac", "2", "-af", "apad", seg], check=True)
         segs.append(seg)
+        if "quiz" in b:
+            segs += countdown(b, i, work, picks)
     # Only the photos actually used, so the description never credits a swapped-out image.
     used = sorted({photo(b["photo"], b.get("n", 0), work, b.get("obs")) for b in beats if "photo" in b})
     open(f"{work}/credits.txt", "w").write("".join(open(u + ".credit").read() + "\n" for u in used))
