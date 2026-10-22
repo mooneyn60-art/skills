@@ -28,6 +28,8 @@ BG = (250, 248, 242)
 PANEL = (540, 90, 1340, 900)  # x, y, w, h of the right-hand panel
 TEXT_PANEL = (500, 90, 1400, 900)  # text cards have no frame, so they can use more width
 SAUCE = (196, 38, 30)
+MASCOT = (760, (-60, H - 760 + 40))  # size, top-left position
+COVER = False
 BOLD = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 # Only licenses that allow commercial reuse; CC-BY/BY-SA need the credit line.
 LICENSES = "cc0,cc-by,cc-by-sa"
@@ -77,8 +79,17 @@ def voice(beats, work, name):
     os.makedirs(f"{work}/vo", exist_ok=True)
     for i, b in enumerate(beats):
         mp3 = f"{work}/vo/{i:02d}.mp3"
-        if not os.path.exists(mp3):
-            asyncio.run(speak(b["say"], name, mp3))
+        if not os.path.exists(mp3) or not os.path.exists(mp3 + ".words.json"):
+            json.dump(asyncio.run(speak(b["say"], name, mp3)), open(mp3 + ".words.json", "w"))
+
+
+def vertical():
+    """Shorts layout: panel on top, Meatball bottom-left, word captions in between."""
+    global W, H, PANEL, TEXT_PANEL, MASCOT, COVER
+    W, H = 1080, 1920
+    PANEL = TEXT_PANEL = (40, 140, 1000, 1000)
+    MASCOT = (860, (-120, H - 860 + 60))
+    COVER = True
 
 
 def duration(path):
@@ -99,8 +110,12 @@ def _panel_image(path):
     from PIL import Image, ImageFilter
     px, py, pw, ph = PANEL
     im = Image.open(path).convert("RGB")
-    s = min(pw / im.width, ph / im.height)
-    im = _rounded(im.resize((int(im.width * s), int(im.height * s)), Image.LANCZOS))
+    s = (max if COVER else min)(pw / im.width, ph / im.height)
+    im = im.resize((int(im.width * s), int(im.height * s)), Image.LANCZOS)
+    if COVER:  # fill the whole panel; landscape photos would otherwise float small in a tall frame
+        l, t = (im.width - pw) // 2, (im.height - ph) // 2
+        im = im.crop((l, t, l + pw, t + ph))
+    im = _rounded(im)
     layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     x, y = px + (pw - im.width) // 2, py + (ph - im.height) // 2
     shadow = Image.new("RGBA", im.size, (0, 0, 0, 90))
@@ -143,9 +158,9 @@ def compose(beat, i, work, picks, out):
         canvas.alpha_composite(_panel_text(beat["text"]))
     elif "img" in beat:
         canvas.alpha_composite(_panel_image(f"{work}/img/{i:02d}_s{picks.get(str(i), 0)}.png"))
-    m = draw(beat.get("pose", "point"), 760)
+    size, pos = MASCOT
+    m = draw(beat.get("pose", "point"), size)
     halo = m.split()[3].filter(ImageFilter.MaxFilter(15))  # white outline keeps him readable over panels
-    pos = (-60, H - 760 + 40)
     canvas.paste((255, 255, 255, 255), pos, halo)
     canvas.alpha_composite(m, pos)
     canvas.convert("RGB").save(out)
@@ -163,6 +178,15 @@ def build(beats, work, out, picks, name):
         z = "min(1.0+0.0008*on,1.08)" if i % 2 == 0 else "max(1.08-0.0008*on,1.0)"
         vf = (f"scale={W*2}:{H*2}:flags=lanczos,zoompan=z='{z}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
               f":d={frames}:s={W}x{H}:fps={FPS},format=yuv420p")
+        if H > W:  # Shorts are mostly watched muted: burn word-by-word captions on photo beats
+            if "text" not in b:
+                from facts import captions
+                ass = f"{work}/cap{i:02d}.ass"
+                captions(json.load(open(mp3 + ".words.json")), ass)
+                # facts.py centers captions mid-screen; drop them into the gap between panel and Meatball
+                txt = open(ass).read().replace("-1,1,7,3,5,0", "-1,1,7,3,2,700")
+                open(ass, "w").write(txt)
+                vf += f",ass={ass}"
         subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-loop", "1", "-i", img, "-i", mp3,
                         "-vf", vf, "-t", f"{dur:.2f}", "-c:v", "libx264", "-crf", "20", "-preset", "medium",
                         "-c:a", "aac", "-ar", "48000", "-ac", "2", "-af", "apad", seg], check=True)
@@ -186,8 +210,11 @@ def main():
     ap.add_argument("out", nargs="?")
     ap.add_argument("--seeds", type=int, default=3)
     ap.add_argument("--pick")
+    ap.add_argument("--vertical", action="store_true", help="1080x1920 Shorts layout with captions")
     a = ap.parse_args()
     spec = json.load(open(a.beats))
+    if a.vertical:
+        vertical()
     if a.stage == "images":
         images(spec["beats"], a.work, a.seeds)
     else:
