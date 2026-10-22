@@ -61,3 +61,8 @@ New rules:
 - Bear pool "Backyard camera caught this… 😳🐻" (posted 9:52 AM off-slot): 2 views in 23 h.
 - Pattern: first-person, personal-stakes titles ("Checked the X camera… my Y") win; vague "camera caught this" flops. 4 PM slot beats morning so far.
 - Rule: every title = first-person + the owner's thing at stake + time ("at 3am"), e.g. "Heard the garage fridge open at 3am… 😨".
+
+## Result 2026-10-22 — posting time dominates
+- 4 PM ET posts: raccoon 1,346 / goose 1,397 / dog 1,959 (best yet, "Left him alone for 5 minutes…").
+- ~10 AM posts: bear pool 5, bear ghost (CPU-generated) 3.
+- Rule: no morning posts. One clip daily at 4 PM ET; testing 7 PM ET as a second slot (facts raccoon Thu 7 PM, compilation Fri 7 PM).
