@@ -233,7 +233,7 @@ def build(beats, work, out, picks, name, rate="+8%"):
         vf = (f"scale={W*2}:{H*2}:flags=lanczos,zoompan=z='{z}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
               f":d={frames}:s={W}x{H}:fps={FPS},format=yuv420p")
         if H > W:  # Shorts are mostly watched muted: burn word-by-word captions on photo beats
-            if "text" not in b:
+            if "text" not in b and "quiz" not in b:  # a quiz caption would read "FALSE" before the countdown
                 from facts import captions
                 ass = f"{work}/cap{i:02d}.ass"
                 captions(json.load(open(mp3 + ".words.json")), ass)
