@@ -8,7 +8,7 @@ import json
 import os
 import sys
 
-END = {"say": "The full episode, with nine more myths, is on the channel.", "pose": "wave",
+END = {"say": "The full episode, with even more myths, is on the channel.", "pose": "wave",
        "text": "FULL EPISODE\nON THE\nCHANNEL"}
 
 

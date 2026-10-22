@@ -53,12 +53,22 @@ def images(beats, work, seeds):
                 print("img", path, flush=True)
 
 
-def photo(taxon, n, work):
-    """n-th most-faved, landscape, research-grade iNaturalist photo of a taxon."""
-    path = f"{work}/photos/{taxon.replace(' ', '_')}_{n}.jpg"
+def photo(taxon, n, work, obs=None):
+    """A pinned iNaturalist observation's photo when `obs` is given (hand-reviewed picks: search
+    rankings shift as votes come in, so an index can silently land on a different, unreviewed photo);
+    otherwise the n-th most-faved landscape research-grade photo of the taxon."""
+    path = f"{work}/photos/{taxon.replace(' ', '_')}_{f'obs{obs}' if obs else n}.jpg"
     if os.path.exists(path):
         return path
     os.makedirs(f"{work}/photos", exist_ok=True)
+    if obs:
+        o = json.load(urllib.request.urlopen(f"https://api.inaturalist.org/v1/observations/{obs}", timeout=60))
+        p = o["results"][0]["photos"][0]
+        if p.get("license_code") not in LICENSES.split(","):
+            raise SystemExit(f"observation {obs}: photo license {p.get('license_code')} not reusable")
+        urllib.request.urlretrieve(p["url"].replace("square", "large"), path)
+        open(path + ".credit", "w").write(f"{taxon}: {html.unescape(p['attribution'])} — iNaturalist photo {p['id']}")
+        return path
     q = urllib.parse.urlencode({"taxon_name": taxon, "photo_license": LICENSES, "quality_grade": "research",
                                 "per_page": 40, "order_by": "votes", "photos": "true"})
     data = json.load(urllib.request.urlopen(f"https://api.inaturalist.org/v1/observations?{q}", timeout=60))
@@ -74,13 +84,13 @@ def photo(taxon, n, work):
     return path
 
 
-def voice(beats, work, name):
+def voice(beats, work, name, rate="+8%"):
     from facts import speak  # reuse the proxy-aware, retrying TTS
     os.makedirs(f"{work}/vo", exist_ok=True)
     for i, b in enumerate(beats):
         mp3 = f"{work}/vo/{i:02d}.mp3"
         if not os.path.exists(mp3) or not os.path.exists(mp3 + ".words.json"):
-            json.dump(asyncio.run(speak(b["say"], name, mp3)), open(mp3 + ".words.json", "w"))
+            json.dump(asyncio.run(speak(b["say"], name, mp3, rate)), open(mp3 + ".words.json", "w"))
 
 
 def vertical():
@@ -153,7 +163,7 @@ def compose(beat, i, work, picks, out):
     from mascot import draw
     canvas = Image.new("RGBA", (W, H), BG + (255,))
     if "photo" in beat:
-        canvas.alpha_composite(_panel_image(photo(beat["photo"], beat.get("n", 0), work)))
+        canvas.alpha_composite(_panel_image(photo(beat["photo"], beat.get("n", 0), work, beat.get("obs"))))
     elif "text" in beat:
         canvas.alpha_composite(_panel_text(beat["text"]))
     elif "img" in beat:
@@ -166,8 +176,8 @@ def compose(beat, i, work, picks, out):
     canvas.convert("RGB").save(out)
 
 
-def build(beats, work, out, picks, name):
-    voice(beats, work, name)
+def build(beats, work, out, picks, name, rate="+8%"):
+    voice(beats, work, name, rate)
     segs = []
     for i, b in enumerate(beats):
         img, mp3, seg = f"{work}/frame{i:02d}.png", f"{work}/vo/{i:02d}.mp3", f"{work}/seg{i:02d}.mp4"
@@ -192,7 +202,7 @@ def build(beats, work, out, picks, name):
                         "-c:a", "aac", "-ar", "48000", "-ac", "2", "-af", "apad", seg], check=True)
         segs.append(seg)
     # Only the photos actually used, so the description never credits a swapped-out image.
-    used = sorted({photo(b["photo"], b.get("n", 0), work) for b in beats if "photo" in b})
+    used = sorted({photo(b["photo"], b.get("n", 0), work, b.get("obs")) for b in beats if "photo" in b})
     open(f"{work}/credits.txt", "w").write("".join(open(u + ".credit").read() + "\n" for u in used))
     lst = f"{work}/list.txt"
     open(lst, "w").write("".join(f"file '{s}'\n" for s in segs))
@@ -219,7 +229,7 @@ def main():
         images(spec["beats"], a.work, a.seeds)
     else:
         picks = json.load(open(a.pick)) if a.pick else {}
-        build(spec["beats"], a.work, a.out, picks, spec.get("voice", "en-US-AndrewNeural"))
+        build(spec["beats"], a.work, a.out, picks, spec.get("voice", "en-US-AndrewNeural"), spec.get("rate", "+8%"))
 
 
 if __name__ == "__main__":

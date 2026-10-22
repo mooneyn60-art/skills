@@ -29,18 +29,18 @@ W, H = 1080, 1920
 FONT = "DejaVu Sans"
 
 
-async def speak(text, voice, mp3):
+async def speak(text, voice, mp3, rate="+8%"):
     # The TTS endpoint intermittently returns no audio; retry before failing the build.
     for attempt in range(4):
         try:
-            return await _speak(text, voice, mp3)
+            return await _speak(text, voice, mp3, rate)
         except edge_tts.exceptions.NoAudioReceived:
             await asyncio.sleep(2 * (attempt + 1))
-    return await _speak(text, voice, mp3)
+    return await _speak(text, voice, mp3, rate)
 
 
-async def _speak(text, voice, mp3):
-    c = edge_tts.Communicate(text, voice, rate="+8%", boundary="WordBoundary",
+async def _speak(text, voice, mp3, rate="+8%"):
+    c = edge_tts.Communicate(text, voice, rate=rate, boundary="WordBoundary",
                              proxy=os.environ.get("HTTPS_PROXY"))
     words = []
     with open(mp3, "wb") as f:
