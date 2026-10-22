@@ -1,24 +1,36 @@
 #!/usr/bin/env python3
-"""Illustrated explainer builder (Kelevin-style): beats JSON -> cartoon images + voiceover -> 1080p video.
+"""Explainer builder (Kelevin-style): Meatball reacts on the left; the right panel shows a real
+Creative Commons wildlife photo, a bold text card, or an AI illustration. Voiceover + slow zoom, 1080p.
 
-Beats JSON: {"voice": "en-US-AndrewNeural", "beats": [{"say": "...", "img": "prompt"}, ...]}
-Stages (re-runnable, cached in WORKDIR):
-  images  explainer.py beats.json WORKDIR images [--seeds 2]   -> img/NN_sK.png candidates
-  build   explainer.py beats.json WORKDIR build OUT.mp4 [--pick picks.json]
-picks.json maps beat index -> chosen seed (default seed 0).
+Beats JSON: {"voice": "en-US-AndrewNeural", "beats": [
+   {"say": "...", "pose": "point", "photo": "Struthio camelus", "n": 0},   # n-th best iNaturalist photo
+   {"say": "...", "pose": "shrug", "text": "NOT HIDING.\\nPARENTING."},
+   {"say": "...", "pose": "think", "img": "illustration prompt"} ]}
+Usage:  explainer.py beats.json WORKDIR build OUT.mp4        (photos/voice cached in WORKDIR)
+        explainer.py beats.json WORKDIR images [--seeds 3]   (only needed for "img" beats)
+Photo credits are written to WORKDIR/credits.txt — paste them into the video description.
 """
 import argparse
 import asyncio
+import html
 import json
 import os
-import random
 import subprocess
+import urllib.parse
+import urllib.request
 
 STYLE = (", simple flat vector cartoon, clean thick black outlines, bright flat colors, minimal detail, "
          "no texture, plain solid white background, children's book style")
 # SDXL-Turbo in bf16 fits a 15 GB CPU box (~11 s/image at 768x512, 2 steps).
 MODEL = os.environ.get("SDXL_TURBO", "/tmp/claude-0/-home-user/f2581a8c-fe42-5876-b5f9-d941a863a7fa/scratchpad/models/sdxlturbo")
 W, H, FPS = 1920, 1080, 30
+BG = (250, 248, 242)
+PANEL = (540, 90, 1340, 900)  # x, y, w, h of the right-hand panel
+TEXT_PANEL = (500, 90, 1400, 900)  # text cards have no frame, so they can use more width
+SAUCE = (196, 38, 30)
+BOLD = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+# Only licenses that allow commercial reuse; CC-BY/BY-SA need the credit line.
+LICENSES = "cc0,cc-by,cc-by-sa"
 
 
 def images(beats, work, seeds):
@@ -28,14 +40,36 @@ def images(beats, work, seeds):
     pipe = AutoPipelineForText2Image.from_pretrained(MODEL, torch_dtype=torch.bfloat16, variant="fp16")
     os.makedirs(f"{work}/img", exist_ok=True)
     for i, b in enumerate(beats):
+        if "img" not in b:
+            continue
         for s in range(seeds):
             path = f"{work}/img/{i:02d}_s{s}.png"
-            if os.path.exists(path):
-                continue
-            g = torch.Generator().manual_seed(1000 * i + s)
-            pipe(b["img"] + STYLE, num_inference_steps=2, guidance_scale=0.0, width=768, height=512,
-                 generator=g).images[0].save(path)
-            print("img", path, flush=True)
+            if not os.path.exists(path):
+                g = torch.Generator().manual_seed(1000 * i + s)
+                pipe(b["img"] + STYLE, num_inference_steps=2, guidance_scale=0.0, width=768, height=512,
+                     generator=g).images[0].save(path)
+                print("img", path, flush=True)
+
+
+def photo(taxon, n, work):
+    """n-th most-faved, landscape, research-grade iNaturalist photo of a taxon."""
+    path = f"{work}/photos/{taxon.replace(' ', '_')}_{n}.jpg"
+    if os.path.exists(path):
+        return path
+    os.makedirs(f"{work}/photos", exist_ok=True)
+    q = urllib.parse.urlencode({"taxon_name": taxon, "photo_license": LICENSES, "quality_grade": "research",
+                                "per_page": 40, "order_by": "votes", "photos": "true"})
+    data = json.load(urllib.request.urlopen(f"https://api.inaturalist.org/v1/observations?{q}", timeout=60))
+    picks = []
+    for o in data["results"]:
+        p = o["photos"][0]
+        dim = p.get("original_dimensions") or {}
+        if p.get("license_code") in LICENSES.split(",") and dim.get("width", 0) > dim.get("height", 1) * 1.2:
+            picks.append(p)
+    p = picks[n]
+    urllib.request.urlretrieve(p["url"].replace("square", "large"), path)
+    open(path + ".credit", "w").write(f"{taxon}: {html.unescape(p['attribution'])} — iNaturalist photo {p['id']}")
+    return path
 
 
 def voice(beats, work, name):
@@ -52,41 +86,90 @@ def duration(path):
                                  path], capture_output=True, text=True, check=True).stdout)
 
 
-def compose(scene_path, pose, out):
-    """Mascot on the left reacting, illustration on the right (Kelevin-style layout)."""
+def _rounded(im, r=36):
+    from PIL import Image, ImageDraw
+    mask = Image.new("L", im.size, 0)
+    ImageDraw.Draw(mask).rounded_rectangle([0, 0, im.width, im.height], r, fill=255)
+    out = Image.new("RGBA", im.size)
+    out.paste(im, (0, 0), mask)
+    return out
+
+
+def _panel_image(path):
+    from PIL import Image, ImageFilter
+    px, py, pw, ph = PANEL
+    im = Image.open(path).convert("RGB")
+    s = min(pw / im.width, ph / im.height)
+    im = _rounded(im.resize((int(im.width * s), int(im.height * s)), Image.LANCZOS))
+    layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    x, y = px + (pw - im.width) // 2, py + (ph - im.height) // 2
+    shadow = Image.new("RGBA", im.size, (0, 0, 0, 90))
+    layer.paste(shadow, (x + 14, y + 18), im.split()[3])
+    layer = layer.filter(ImageFilter.GaussianBlur(14))
+    layer.alpha_composite(im, (x, y))
+    return layer
+
+
+def _panel_text(text):
+    from PIL import Image, ImageDraw, ImageFont
+    px, py, pw, ph = TEXT_PANEL
+    layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+    lines = text.split("\n")
+    size = 150
+    while size > 80:  # below ~80 px a card stops reading on a phone; split long lines in the script instead
+        font = ImageFont.truetype(BOLD, size)
+        widths = [d.textlength(line, font=font) for line in lines]
+        if max(widths) < pw - 80 and size * 1.15 * len(lines) < ph - 80:
+            break
+        size -= 6
+    total = size * 1.15 * len(lines)
+    y = py + (ph - total) / 2
+    for k, (line, w) in enumerate(zip(lines, widths)):
+        # Punchline (last line) in the mascot's sauce red.
+        fill = SAUCE if k == len(lines) - 1 and len(lines) > 1 else (17, 17, 17)
+        d.text((px + (pw - w) / 2, y), line, font=font, fill=fill)
+        y += size * 1.15
+    return layer
+
+
+def compose(beat, i, work, picks, out):
     from PIL import Image, ImageFilter
     from mascot import draw
-    canvas = Image.new("RGB", (W, H), (250, 248, 242))
-    scene = Image.open(scene_path).convert("RGB")
-    box_w, box_h = 1340, 900
-    s = min(box_w / scene.width, box_h / scene.height)
-    scene = scene.resize((int(scene.width * s), int(scene.height * s)), Image.LANCZOS)
-    canvas.paste(scene, (540 + (box_w - scene.width) // 2, (H - scene.height) // 2))
-    if pose:
-        m = draw(pose, 760)
-        halo = m.split()[3].filter(ImageFilter.MaxFilter(15))  # white outline keeps him readable on any scene
-        canvas.paste((255, 255, 255), (-60, H - 760 + 40), halo)
-        canvas.paste(m, (-60, H - 760 + 40), m)
-    canvas.save(out)
+    canvas = Image.new("RGBA", (W, H), BG + (255,))
+    if "photo" in beat:
+        canvas.alpha_composite(_panel_image(photo(beat["photo"], beat.get("n", 0), work)))
+    elif "text" in beat:
+        canvas.alpha_composite(_panel_text(beat["text"]))
+    elif "img" in beat:
+        canvas.alpha_composite(_panel_image(f"{work}/img/{i:02d}_s{picks.get(str(i), 0)}.png"))
+    m = draw(beat.get("pose", "point"), 760)
+    halo = m.split()[3].filter(ImageFilter.MaxFilter(15))  # white outline keeps him readable over panels
+    pos = (-60, H - 760 + 40)
+    canvas.paste((255, 255, 255, 255), pos, halo)
+    canvas.alpha_composite(m, pos)
+    canvas.convert("RGB").save(out)
 
 
 def build(beats, work, out, picks, name):
     voice(beats, work, name)
     segs = []
     for i, b in enumerate(beats):
-        img = f"{work}/frame{i:02d}.png"
-        compose(f"{work}/img/{i:02d}_s{picks.get(str(i), 0)}.png", b.get("pose", "point"), img)
-        mp3, seg = f"{work}/vo/{i:02d}.mp3", f"{work}/seg{i:02d}.mp4"
+        img, mp3, seg = f"{work}/frame{i:02d}.png", f"{work}/vo/{i:02d}.mp3", f"{work}/seg{i:02d}.mp4"
+        compose(b, i, work, picks, img)
         dur = duration(mp3) + 0.35
         frames = int(dur * FPS)
         # Slow Ken Burns: alternate zoom-in / zoom-out so consecutive beats don't feel identical.
-        z = "min(1.0+0.0009*on,1.12)" if i % 2 == 0 else "max(1.12-0.0009*on,1.0)"
+        z = "min(1.0+0.0008*on,1.08)" if i % 2 == 0 else "max(1.08-0.0008*on,1.0)"
         vf = (f"scale={W*2}:{H*2}:flags=lanczos,zoompan=z='{z}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
               f":d={frames}:s={W}x{H}:fps={FPS},format=yuv420p")
         subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-loop", "1", "-i", img, "-i", mp3,
                         "-vf", vf, "-t", f"{dur:.2f}", "-c:v", "libx264", "-crf", "20", "-preset", "medium",
                         "-c:a", "aac", "-ar", "48000", "-ac", "2", "-af", "apad", seg], check=True)
         segs.append(seg)
+    # Only the photos actually used, so the description never credits a swapped-out image.
+    used = sorted({photo(b["photo"], b.get("n", 0), work) for b in beats if "photo" in b})
+    open(f"{work}/credits.txt", "w").write("".join(open(u + ".credit").read() + "\n" for u in used))
     lst = f"{work}/list.txt"
     open(lst, "w").write("".join(f"file '{s}'\n" for s in segs))
     subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-f", "concat", "-safe", "0", "-i", lst,
@@ -101,7 +184,7 @@ def main():
     ap.add_argument("work")
     ap.add_argument("stage", choices=["images", "build"])
     ap.add_argument("out", nargs="?")
-    ap.add_argument("--seeds", type=int, default=2)
+    ap.add_argument("--seeds", type=int, default=3)
     ap.add_argument("--pick")
     a = ap.parse_args()
     spec = json.load(open(a.beats))
@@ -113,5 +196,4 @@ def main():
 
 
 if __name__ == "__main__":
-    random.seed(0)
     main()
