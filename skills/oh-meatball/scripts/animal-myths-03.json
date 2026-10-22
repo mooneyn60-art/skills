@@ -1,0 +1,583 @@
+{
+ "rate": "+0%",
+ "voice": "en-US-AndrewNeural",
+ "title": "TRUE or FALSE? Jaws & Disney Lied To You About These 12 Animals",
+ "names": {
+  "Carcharodon carcharias": "Great white shark",
+  "Ginglymostoma cirratum": "Nurse shark",
+  "Negaprion brevirostris": "Lemon shark",
+  "Carcharhinus leucas": "Bull shark",
+  "Alligator mississippiensis": "Alligator",
+  "Crocuta crocuta": "Spotted hyena",
+  "Panthera leo": "Lion",
+  "Amphiprion ocellaris": "Clownfish",
+  "Odocoileus virginianus": "White-tailed deer",
+  "Mus musculus": "House mouse",
+  "Carassius auratus": "Goldfish"
+ },
+ "blurb": "TRUE or FALSE? Jaws, The Lion King, Finding Nemo and Bambi taught you some \"facts\" that aren't true... and two that are. Guess before the 3-second timer, keep score, and drop your score out of 12 in the comments 👇",
+ "next": "Subscribe for Part 4: monsters that turned out to be REAL.",
+ "tags": [
+  "jaws",
+  "shark myths",
+  "great white shark",
+  "lion king hyenas",
+  "finding nemo clownfish",
+  "bambi",
+  "sewer alligators",
+  "goldfish bowl",
+  "bull shark",
+  "true or false quiz",
+  "animal quiz",
+  "animal myths",
+  "animal facts",
+  "myths debunked",
+  "Meatball Myths"
+ ],
+ "pinned": "📝 SCORE CHECK: how many did you get out of 12? 👇\n\nAnswer key: TRUE = river sharks + Nemo's dad. Everything else was FALSE.\n\nWhich movie lied to YOU the most? Comment it.",
+ "beats": [
+  {
+   "say": "Last time I promised you sharks, a goldfish bowl, and an alligator living in the sewer. Today you get all of that, plus the movies that lied to you about lions, hyenas, deer, and one very confused clownfish.",
+   "pose": "wave",
+   "text": "JAWS & DISNEY\nLIED TO YOU",
+   "myth": "intro"
+  },
+  {
+   "say": "Same rules. Three seconds to guess true or false, keep score, and tell me your number out of twelve at the end. And this time, not every answer is false.",
+   "pose": "point",
+   "text": "NOT EVERY ANSWER\nIS FALSE",
+   "myth": "intro"
+  },
+  {
+   "say": "True or false? A shark can smell one drop of blood from a mile away.",
+   "pose": "think",
+   "quiz": "SHARKS SMELL\nBLOOD FROM\nA MILE AWAY",
+   "myth": "smell",
+   "bonus": "Smell has to drift to a shark on the current. If the water's flowing the wrong way, it can't smell you at all."
+  },
+  {
+   "say": "False. Sharks have a great nose, but that line is wildly exaggerated.",
+   "pose": "shock",
+   "photo": "Carcharodon carcharias",
+   "obs": 252279056,
+   "myth": "smell",
+   "short": true
+  },
+  {
+   "say": "Some sharks can sense certain chemicals at about one part per million. That's roughly one drop in a bathtub. Impressive, but a bathtub is not the ocean.",
+   "pose": "point",
+   "photo": "Negaprion brevirostris",
+   "obs": 166445891,
+   "myth": "smell",
+   "short": true
+  },
+  {
+   "say": "And smell doesn't teleport. It has to drift to the shark on the current, which takes time. If the water's flowing the wrong way, the shark can't smell you at all.",
+   "pose": "think",
+   "photo": "Negaprion brevirostris",
+   "obs": 303251180,
+   "myth": "smell"
+  },
+  {
+   "say": "What sharks are really good at is the whole package. Smell, plus feeling tiny vibrations in the water, plus sensing the electric fields from living muscles. That last one is basically a superpower, and nobody puts it on a poster.",
+   "pose": "point",
+   "photo": "Carcharodon carcharias",
+   "obs": 339695873,
+   "myth": "smell"
+  },
+  {
+   "say": "So a shark is not sitting a mile away going, hmm, Kevin cut his finger.",
+   "pose": "laugh",
+   "text": "\"HMM. KEVIN CUT\nHIS FINGER.\"",
+   "myth": "smell",
+   "short": true
+  },
+  {
+   "say": "True or false? Great white sharks hunt humans.",
+   "pose": "think",
+   "quiz": "GREAT WHITES\nHUNT\nHUMANS",
+   "myth": "jaws",
+   "bonus": "Fatal unprovoked shark bites worldwide are usually somewhere around five to ten a year."
+  },
+  {
+   "say": "False. And the guy who wrote Jaws ended up feeling terrible about it.",
+   "pose": "shock",
+   "photo": "Carcharodon carcharias",
+   "obs": 339695873,
+   "myth": "jaws",
+   "short": true
+  },
+  {
+   "say": "Great whites mostly eat fish and seals. Humans are bony, low in fat, and frankly not worth the effort.",
+   "pose": "point",
+   "photo": "Carcharodon carcharias",
+   "obs": 66241741,
+   "myth": "jaws",
+   "short": true
+  },
+  {
+   "say": "Many bites on people seem to be a test bite, basically a shark going, what is this? And then swimming away.",
+   "pose": "think",
+   "photo": "Carcharodon carcharias",
+   "obs": 242408050,
+   "myth": "jaws"
+  },
+  {
+   "say": "Your odds of being bitten by a shark are tiny. The drive to the beach is way more dangerous than the swim. The parking lot is the real Jaws.",
+   "pose": "laugh",
+   "text": "THE PARKING LOT\nIS THE REAL JAWS",
+   "myth": "jaws"
+  },
+  {
+   "say": "Peter Benchley, who wrote Jaws, spent years afterwards campaigning to protect sharks. That's like writing a horror movie about your neighbor and then becoming his biggest fan.",
+   "pose": "laugh",
+   "text": "THE JAWS AUTHOR\nBECAME A SHARK\nDEFENDER",
+   "myth": "jaws",
+   "short": true
+  },
+  {
+   "say": "True or false? All sharks have to keep swimming or they'll die.",
+   "pose": "think",
+   "quiz": "ALL SHARKS MUST\nKEEP SWIMMING\nOR DIE",
+   "myth": "swim",
+   "bonus": "Nurse sharks can pump water over their gills while lying perfectly still on the sea floor."
+  },
+  {
+   "say": "False. Some do, and some take naps.",
+   "pose": "laugh",
+   "photo": "Ginglymostoma cirratum",
+   "obs": 214866152,
+   "myth": "swim",
+   "short": true
+  },
+  {
+   "say": "Sharks like great whites and makos mostly breathe by swimming with their mouths open, so water rushes over their gills. Those ones do need to keep moving.",
+   "pose": "point",
+   "photo": "Carcharodon carcharias",
+   "obs": 252279056,
+   "myth": "swim"
+  },
+  {
+   "say": "But nurse sharks can pump water over their gills while lying perfectly still on the bottom. They just chill there like a sleepy couch cushion.",
+   "pose": "laugh",
+   "photo": "Ginglymostoma cirratum",
+   "obs": 190356769,
+   "myth": "swim",
+   "short": true
+  },
+  {
+   "say": "Some sharks have even been seen resting in underwater caves, lined up like they are waiting for a bus. Very calm. Very rude to Finding Nemo.",
+   "pose": "laugh",
+   "photo": "Ginglymostoma cirratum",
+   "obs": 151501901,
+   "myth": "swim"
+  },
+  {
+   "say": "So for some sharks, keep swimming is the rule. For others, it's just a suggestion.",
+   "pose": "shrug",
+   "text": "FOR SOME SHARKS,\nIT'S OPTIONAL",
+   "myth": "swim",
+   "short": true
+  },
+  {
+   "say": "True or false? Sharks can't get cancer.",
+   "pose": "think",
+   "quiz": "SHARKS\nCAN'T GET\nCANCER",
+   "myth": "cancer",
+   "bonus": "Studies of shark cartilage pills as a cancer treatment found they didn't work."
+  },
+  {
+   "say": "False. Scientists have found tumors in sharks, including great whites.",
+   "pose": "shock",
+   "photo": "Ginglymostoma cirratum",
+   "obs": 106802620,
+   "myth": "cancer",
+   "short": true
+  },
+  {
+   "say": "The myth took off with a nineteen ninety two book called Sharks Don't Get Cancer, which helped sell a lot of shark cartilage pills.",
+   "pose": "think",
+   "text": "\"SHARKS DON'T\nGET CANCER\"\n(1992)",
+   "myth": "cancer",
+   "short": true
+  },
+  {
+   "say": "And the cartilage fad was bad for sharks, because more demand for pills meant more sharks caught. A myth about sharks ended up hurting actual sharks.",
+   "pose": "facepalm",
+   "photo": "Negaprion brevirostris",
+   "obs": 37720969,
+   "myth": "cancer"
+  },
+  {
+   "say": "When those pills were actually tested on patients, they didn't work. Bad news for the pill sellers. Even worse news for the sharks.",
+   "pose": "facepalm",
+   "text": "THE PILLS\nDIDN'T WORK",
+   "myth": "cancer",
+   "short": true
+  },
+  {
+   "say": "True or false? Some sharks can swim up rivers into fresh water.",
+   "pose": "think",
+   "quiz": "SOME SHARKS\nSWIM UP RIVERS",
+   "myth": "bull",
+   "bonus": "Bull sharks also live in Lake Nicaragua, a freshwater lake in Central America."
+  },
+  {
+   "say": "True! Meet the bull shark.",
+   "pose": "shock",
+   "photo": "Carcharhinus leucas",
+   "obs": 100783513,
+   "myth": "bull",
+   "short": true
+  },
+  {
+   "say": "Bull sharks can handle both salt water and fresh water, which most sharks can't do. They swim up big rivers like the Amazon and the Mississippi.",
+   "pose": "point",
+   "photo": "Carcharhinus leucas",
+   "obs": 326129512,
+   "myth": "bull",
+   "short": true
+  },
+  {
+   "say": "One was reportedly caught way up the Mississippi in Illinois, more than a thousand miles from the ocean.",
+   "pose": "shock",
+   "photo": "Carcharhinus leucas",
+   "obs": 29940542,
+   "myth": "bull"
+  },
+  {
+   "say": "Bull sharks have also been found living in Lake Nicaragua, a freshwater lake in Central America. A shark in a lake. Sleep well.",
+   "pose": "shock",
+   "photo": "Carcharhinus leucas",
+   "obs": 323295947,
+   "myth": "bull"
+  },
+  {
+   "say": "So if you've ever thought, at least there are no sharks in the river. Mostly true. Mostly.",
+   "pose": "facepalm",
+   "text": "\"NO SHARKS IN\nTHE RIVER.\"\nMOSTLY.",
+   "myth": "bull",
+   "short": true
+  },
+  {
+   "say": "True or false? Goldfish only grow to fit their bowl, so a small bowl is fine.",
+   "pose": "think",
+   "quiz": "GOLDFISH GROW\nTO FIT THE BOWL,\nSO IT'S FINE",
+   "myth": "bowl",
+   "bonus": "Goldfish can live for decades in good conditions. Some have been recorded at over forty years old."
+  },
+  {
+   "say": "False. A small bowl doesn't make a goldfish politely stay small. It makes it sick.",
+   "pose": "point",
+   "photo": "Carassius auratus",
+   "obs": 79771238,
+   "myth": "bowl",
+   "short": true
+  },
+  {
+   "say": "In a tiny bowl, the water fills up with waste fast, and the stress and bad water stunt the fish's growth. That's not a feature. That's the fish struggling.",
+   "pose": "think",
+   "photo": "Carassius auratus",
+   "obs": 197204480,
+   "myth": "bowl"
+  },
+  {
+   "say": "Given a big pond, goldfish can grow longer than your hand, sometimes more than a foot long, and live for decades.",
+   "pose": "shock",
+   "photo": "Carassius auratus",
+   "obs": 82747940,
+   "myth": "bowl",
+   "short": true
+  },
+  {
+   "say": "If you want a happy goldfish, it needs a proper tank with a filter, room to swim, and clean water. Basically the opposite of the bowl from every cartoon ever.",
+   "pose": "point",
+   "text": "BIG TANK.\nFILTER.\nCLEAN WATER.",
+   "myth": "bowl"
+  },
+  {
+   "say": "So if your goldfish lives in a bowl, it's not small because it's comfy. It's small because it's stuck.",
+   "pose": "shrug",
+   "text": "NOT COMFY.\nSTUCK.",
+   "myth": "bowl",
+   "short": true
+  },
+  {
+   "say": "True or false? Alligators live in the New York City sewers.",
+   "pose": "think",
+   "quiz": "ALLIGATORS LIVE\nIN NYC\nSEWERS",
+   "myth": "gator",
+   "bonus": "Alligators are cold-blooded, and New York winters are way too cold for them to live in the sewers."
+  },
+  {
+   "say": "False. But the story has a real start.",
+   "pose": "laugh",
+   "photo": "Alligator mississippiensis",
+   "obs": 78604168,
+   "myth": "gator",
+   "short": true
+  },
+  {
+   "say": "In nineteen thirty five, newspapers reported that some teenagers in New York pulled an alligator out of a sewer opening. Nobody knows for sure how it got there, maybe a pet someone got rid of.",
+   "pose": "think",
+   "text": "NYC, 1935:\nONE GATOR",
+   "myth": "gator",
+   "short": true
+  },
+  {
+   "say": "But alligators are cold-blooded, and New York sewers are cold, dark, and short on food. There's no hidden alligator family living down there.",
+   "pose": "point",
+   "photo": "Alligator mississippiensis",
+   "obs": 71458006,
+   "myth": "gator",
+   "short": true
+  },
+  {
+   "say": "The legend got so famous that sewer gators ended up in comics and cartoons. The Teenage Mutant Ninja Turtles even have a sewer alligator buddy called Leatherhead. Great show. Terrible biology.",
+   "pose": "laugh",
+   "photo": "Alligator mississippiensis",
+   "obs": 70017326,
+   "myth": "gator"
+  },
+  {
+   "say": "Alligators want warm swamps and sunshine, not subway rats and pizza crusts. They have standards.",
+   "pose": "laugh",
+   "photo": "Alligator mississippiensis",
+   "obs": 166169637,
+   "myth": "gator"
+  },
+  {
+   "say": "True or false? Hyenas are just scavengers that steal other animals' food.",
+   "pose": "think",
+   "quiz": "HYENAS JUST\nSTEAL OTHER\nANIMALS' FOOD",
+   "myth": "hyena",
+   "bonus": "Spotted hyena clans are led by females, and the females are usually bigger than the males."
+  },
+  {
+   "say": "False. The Lion King did hyenas dirty.",
+   "pose": "facepalm",
+   "photo": "Crocuta crocuta",
+   "obs": 300659865,
+   "myth": "hyena",
+   "short": true
+  },
+  {
+   "say": "Spotted hyenas are excellent hunters. In many places, they catch most of their own food.",
+   "pose": "point",
+   "photo": "Crocuta crocuta",
+   "obs": 393989250,
+   "myth": "hyena",
+   "short": true
+  },
+  {
+   "say": "And here's the twist. Lions often steal food from hyenas, not just the other way around.",
+   "pose": "shock",
+   "photo": "Crocuta crocuta",
+   "obs": 186023829,
+   "myth": "hyena",
+   "short": true
+  },
+  {
+   "say": "Spotted hyenas also live in big family groups called clans, led by females, and they are surprisingly smart at teamwork and problem solving. Not a single one sounds like Whoopi Goldberg, though.",
+   "pose": "point",
+   "photo": "Crocuta crocuta",
+   "obs": 93329822,
+   "myth": "hyena"
+  },
+  {
+   "say": "So the movie had the thief the wrong way round. Sorry, Scar.",
+   "pose": "laugh",
+   "text": "THE MOVIE GOT\nTHE THIEF\nBACKWARDS",
+   "myth": "hyena",
+   "short": true
+  },
+  {
+   "say": "True or false? Male lions do most of the hunting.",
+   "pose": "think",
+   "quiz": "MALE LIONS DO\nMOST OF THE\nHUNTING",
+   "myth": "lion",
+   "bonus": "A male lion's roar can be heard from about five miles away."
+  },
+  {
+   "say": "False. In a pride, the lionesses do most of the hunting.",
+   "pose": "point",
+   "photo": "Panthera leo",
+   "obs": 258857897,
+   "myth": "lion",
+   "short": true
+  },
+  {
+   "say": "The females work together as a team to bring down prey, then the big guy often shows up and eats first.",
+   "pose": "laugh",
+   "photo": "Panthera leo",
+   "obs": 264696483,
+   "myth": "lion",
+   "short": true
+  },
+  {
+   "say": "To be fair, male lions do hunt sometimes, especially big animals like buffalo, and they defend the pride's territory. But day to day dinner? That's mostly the ladies.",
+   "pose": "think",
+   "photo": "Panthera leo",
+   "obs": 173202924,
+   "myth": "lion"
+  },
+  {
+   "say": "Lions also sleep a ridiculous amount, often up to twenty hours a day. So the king of the jungle is honestly the king of naps too.",
+   "pose": "laugh",
+   "photo": "Panthera leo",
+   "obs": 151232618,
+   "myth": "lion"
+  },
+  {
+   "say": "So the king of the jungle is mostly the king of showing up at dinnertime.",
+   "pose": "laugh",
+   "text": "KING OF\nSHOWING UP\nFOR DINNER",
+   "myth": "lion",
+   "short": true
+  },
+  {
+   "say": "True or false? In real life, Nemo's dad would turn into Nemo's mom.",
+   "pose": "think",
+   "quiz": "NEMO'S DAD WOULD\nBECOME NEMO'S\nMOM",
+   "myth": "nemo",
+   "bonus": "Clownfish live safely among sea anemone tentacles thanks to a protective slime coat on their skin."
+  },
+  {
+   "say": "True. Finding Nemo skipped the weirdest part.",
+   "pose": "shock",
+   "photo": "Amphiprion ocellaris",
+   "obs": 205281410,
+   "myth": "nemo",
+   "short": true
+  },
+  {
+   "say": "Clownfish are all born male. In each group, the biggest fish is the female, and the second biggest is her breeding male.",
+   "pose": "point",
+   "photo": "Amphiprion ocellaris",
+   "obs": 381910764,
+   "myth": "nemo",
+   "short": true
+  },
+  {
+   "say": "If the female disappears, the male changes into a female and takes her place.",
+   "pose": "shock",
+   "photo": "Amphiprion ocellaris",
+   "obs": 205426436,
+   "myth": "nemo",
+   "short": true
+  },
+  {
+   "say": "And Finding Nemo had another problem. Clownfish dads really do take care of the eggs, fanning them and guarding them. So Marlin being an overprotective parent? Actually accurate.",
+   "pose": "point",
+   "photo": "Amphiprion ocellaris",
+   "obs": 153814254,
+   "myth": "nemo"
+  },
+  {
+   "say": "So after Nemo's mom was gone, the scientifically accurate movie is called Finding Nemo, starring his mom, Marlin.",
+   "pose": "laugh",
+   "text": "STARRING HIS\nMOM, MARLIN",
+   "myth": "nemo",
+   "short": true
+  },
+  {
+   "say": "True or false? Mother deer stay with their babies all day.",
+   "pose": "think",
+   "quiz": "MOM DEER STAY\nWITH THEIR\nFAWNS ALL DAY",
+   "myth": "fawn",
+   "bonus": "A fawn's spotted coat helps it disappear into sun-dappled grass and leaves."
+  },
+  {
+   "say": "False. Mom deer leave their fawns alone for hours, on purpose.",
+   "pose": "point",
+   "photo": "Odocoileus virginianus",
+   "obs": 119644833,
+   "myth": "fawn",
+   "short": true
+  },
+  {
+   "say": "A young fawn has very little scent and spotted camouflage, so hiding it quietly in the grass is safer than having mom stand around next to it.",
+   "pose": "think",
+   "photo": "Odocoileus virginianus",
+   "obs": 80236962,
+   "myth": "fawn",
+   "short": true
+  },
+  {
+   "say": "She comes back a few times a day to feed it. So if you find a fawn on its own, it's almost always fine. Leave it where it is.",
+   "pose": "point",
+   "photo": "Odocoileus virginianus",
+   "obs": 142034243,
+   "myth": "fawn",
+   "short": true
+  },
+  {
+   "say": "People sometimes pick up fawns thinking they are rescuing them, and that actually causes real problems. The best rescue is usually walking away and letting mom come back.",
+   "pose": "think",
+   "photo": "Odocoileus virginianus",
+   "obs": 132484325,
+   "myth": "fawn"
+  },
+  {
+   "say": "It's not abandoned. It's at daycare. Very quiet daycare.",
+   "pose": "laugh",
+   "text": "NOT ABANDONED.\nAT DAYCARE.",
+   "myth": "fawn"
+  },
+  {
+   "say": "True or false? Mice love cheese more than anything.",
+   "pose": "think",
+   "quiz": "MICE LOVE\nCHEESE MORE\nTHAN ANYTHING",
+   "myth": "cheese",
+   "bonus": "Pest experts often suggest peanut butter as mouse trap bait instead of cheese."
+  },
+  {
+   "say": "False. Thanks, cartoons.",
+   "pose": "laugh",
+   "photo": "Mus musculus",
+   "obs": 215158414,
+   "myth": "cheese",
+   "short": true
+  },
+  {
+   "say": "Mice mostly eat grains, seeds, and sweet stuff. Given the choice, a lot of mice would rather have peanut butter or cereal than cheese.",
+   "pose": "point",
+   "photo": "Mus musculus",
+   "obs": 130228190,
+   "myth": "cheese",
+   "short": true
+  },
+  {
+   "say": "Nobody's totally sure where the cheese idea came from. One guess is that people used to store cheese out in the open, so mice found it easy to grab.",
+   "pose": "think",
+   "text": "CHEESE WAS JUST\nEASY TO STEAL",
+   "myth": "cheese",
+   "short": true
+  },
+  {
+   "say": "Mice also nibble constantly, eating lots of tiny meals all day. They are basically the animal version of snacking at midnight.",
+   "pose": "laugh",
+   "photo": "Mus musculus",
+   "obs": 137177558,
+   "myth": "cheese"
+  },
+  {
+   "say": "So if you set a trap with cheese, the mouse might just walk past it and go eat your cereal.",
+   "pose": "facepalm",
+   "text": "THE MOUSE WANTS\nYOUR CEREAL",
+   "myth": "cheese"
+  },
+  {
+   "say": "Scores! The true ones were the river sharks and Nemo's dad. Everything else was false. Drop your score out of twelve in the comments, and tell me which one got you.",
+   "pose": "laugh",
+   "text": "COMMENT YOUR\nSCORE /12",
+   "myth": "outro"
+  },
+  {
+   "say": "And subscribe, because next time we're going after monsters that turned out to be real. Yes, some of them are real.",
+   "pose": "wave",
+   "text": "NEXT: MONSTERS\nTHAT WERE REAL",
+   "myth": "outro"
+  }
+ ]
+}

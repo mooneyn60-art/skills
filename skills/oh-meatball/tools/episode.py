@@ -98,7 +98,7 @@ def main():
     myths = list(dict.fromkeys(b["myth"] for b in beats if b.get("myth") not in ("intro", "outro")))
     release["long"] = {
         "file": f"{RAW}/{a.slug}/ep.mp4", "thumb": f"{RAW}/{a.slug}/thumb.jpg", "title": spec["title"],
-        "tags": spec.get("tags", []),
+        "tags": spec.get("tags", []), "comment": spec.get("pinned", ""),
         "description": "\n".join([spec.get("blurb", ""), ""] + chapters(long_work, beats) + [
             "", spec.get("next", ""), "", f"Wildlife photos from iNaturalist, used under their licenses ({LICENSES}):"]
             + credits + ["", spec.get("hashtags", "#animalfacts #trueorfalse #quiz #mythbusting #animals")]),
@@ -122,6 +122,7 @@ def main():
             "description": f"TRUE or FALSE? {c}. Guess before the timer, then comment if you got it right 👇 "
                            f"Full quiz episode on the channel.\n\n#shorts #trueorfalse #animalfacts #quiz\n\n"
                            f"Photos (iNaturalist): " + "; ".join(credit_lines(long_work, mb)) + f". {LICENSES}",
+            "comment": (f"{q['bonus']}\n\n" if q.get("bonus") else "") + "Did you guess right? Comment ✅ TRUE or ❌ FALSE 👇",
             "tags": [m, "true or false", "animal quiz", "animal facts", "animal myths", "fun facts", "shorts",
                      "Meatball Myths"],
         })
