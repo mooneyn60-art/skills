@@ -3,6 +3,11 @@
  "voice": "en-US-AndrewNeural",
  "beats": [
   {
+   "say": "True or false? Goldfish have a three second memory.",
+   "pose": "think",
+   "quiz": "GOLDFISH HAVE\nA 3-SECOND\nMEMORY"
+  },
+  {
    "say": "Your goldfish does not have a three second memory. Not even close.",
    "pose": "laugh",
    "photo": "Carassius auratus",
@@ -20,9 +25,9 @@
    "text": "IT REMEMBERS\nYOU. IT JUST\nDOESN'T CARE."
   },
   {
-   "say": "Full episode with more myths is on the channel.",
+   "say": "Did you guess right? Comment true or false, and the full quiz is on the channel.",
    "pose": "wave",
-   "text": "MORE MYTHS\nON THE\nCHANNEL"
+   "text": "COMMENT:\nDID YOU GUESS\nRIGHT?"
   }
  ]
 }
