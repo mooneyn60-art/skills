@@ -47,6 +47,13 @@ shares, subs gained. Channel: subs/followers, credits left, posts live vs queued
 - Anything that spends real money, changes account settings, or deletes videos.
 - New platform connections. Never paste keys in chat; add them as environment secrets.
 
+## Standing orders from Nolan
+- Long-form explainers run ~10 minutes (8-10 myths per episode), never 2-3 minute pilots.
+  Each episode is cut into one vertical Short per myth (`explainer.py --vertical`).
+- Like counts hidden on every video. The YouTube API and Metricool can't set this, so it lives in
+  YouTube Studio: Settings > Upload defaults > Advanced settings > untick "Show how many viewers
+  like this video" (new uploads), and Content > select all > Edit (existing ones).
+
 ## Guardrails
 - Original characters and stories only; label AI content where the platform asks.
 - Keep >= 400 vidIQ credits in reserve. No paid tools without Nolan's yes.
