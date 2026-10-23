@@ -26,10 +26,10 @@ taps. This file is the team, the daily routine, the numbers we steer by, and the
 ## Daily routine (scheduled tasks fire into this session; all ET)
 | When | Run | Output |
 |---|---|---|
-| 08:13 | Production: inbox, build the episode for 2 days out, fill the queue | episode + Shorts + TikToks queued 2 days ahead |
+| 08:13 | Production: inbox, build the episode for 2 days out, fill the queue | episode + 3 Shorts + 3 TikToks queued 2 days ahead |
 | 18:41 | Review: stats, analytics, rivals, HQ report, next topics | HQ Daily report + rivals, backlog updated |
 
-Cadence: episode 10:30 AM; YouTube Shorts 1 PM and 4 PM (from the newest episode that is
+Cadence: episode 10:30 AM; YouTube Shorts 10:50 AM, 1 PM and 4 PM (from the newest episode that is
 already live, so Related video can point at it); TikToks 12 PM, 4 PM, 7:30 PM, each over 60 s.
 
 ## Numbers we steer by
