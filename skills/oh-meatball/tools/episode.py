@@ -47,6 +47,9 @@ def credit_lines(work, beats):
         line = open(path + ".credit").read()
         m = re.search(r"\(c\) (.+?), some rights reserved \((CC [A-Z-]+)\)", line)
         name = COMMON.get(b["photo"], b["photo"])
+        if " via " in line:  # Openverse art/fossil credit is already a full sentence
+            by.setdefault(name, []).append(line.split(": ", 1)[1])
+            continue
         by.setdefault(name, []).append(f"{m.group(1)} ({m.group(2)})" if m else "CC0")
     return [f"{k}: " + ", ".join(dict.fromkeys(v)) for k, v in by.items()]
 
@@ -59,7 +62,8 @@ def chapters(work, beats):
         name = os.path.basename(s)
         if "_c" not in name:
             b = beats[int(name[3:5])]
-            label = {"intro": "Play along", "outro": "Scores"}.get(b["myth"]) or claim(b) + "?"
+            label = (b.get("chapter") or {"intro": "Play along", "outro": "Scores"}.get(b["myth"])
+                     or claim(b) + "?")
             out.setdefault(b["myth"], (t, label))
         t += explainer.duration(s)
     return [f"{int(v // 60)}:{int(v % 60):02d} {label}" for v, label in out.values()]
@@ -106,7 +110,9 @@ def main():
 
     for m in myths:
         mb = [b for b in beats if b.get("myth") == m]
-        q = next(b for b in mb if "quiz" in b)
+        q = next((b for b in mb if "quiz" in b), None)
+        if q is None:  # story chapters with no quiz don't make a standalone Short
+            continue
         swork = f"{a.work}/{a.slug}/short-{m}"
         sspec = f"{swork}/script.json"
         os.makedirs(swork, exist_ok=True)

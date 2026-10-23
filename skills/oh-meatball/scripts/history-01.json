@@ -1,0 +1,489 @@
+{
+ "rate": "+15%",
+ "short_rate": "+15%",
+ "voice": "en-US-AndrewMultilingualNeural",
+ "music": "music/quiz-bed.m4a",
+ "title": "How Wolves Became Dogs (The Funny History of Man's Best Friend)",
+ "names": {
+  "Canis lupus": "Gray wolf",
+  "Vulpes vulpes": "Red fox (silver morph)",
+  "Canis dingo": "Dingo",
+  "Canis familiaris": "Dog"
+ },
+ "blurb": "How did a wild wolf turn into the dog on your couch? Campfire scraps, a 14,000-year-old good boy, a Soviet fox experiment, the muscle behind puppy dog eyes, ancient Egyptian dog art and the Victorian breed boom. Four TRUE or FALSE checkpoints along the way, so keep score 👇",
+ "next": "Subscribe: next time, how cats took over the world.",
+ "tags": [
+  "history of dogs",
+  "how wolves became dogs",
+  "dog domestication",
+  "dogs and wolves",
+  "puppy dog eyes",
+  "silver fox experiment",
+  "dog breeds history",
+  "dingo",
+  "ancient egypt dogs",
+  "animal history",
+  "Meatball Explains",
+  "Meatball Myths"
+ ],
+ "hashtags": "#historyofdogs #dogs #wolves #animalhistory #meatballexplains",
+ "pinned": "🐺➡️🐶 SCORE CHECK: how many did you get out of 4?\n\nAnswers: 1 FALSE (cousins, not grandkids) · 2 TRUE · 3 FALSE · 4 TRUE\n\nDrop your score AND your dog's name 👇",
+ "beats": [
+  {
+   "say": "This is a wolf. Big teeth. Wild. Absolutely will not fetch your slippers.",
+   "pose": "point",
+   "photo": "Canis lupus",
+   "obs": 168328453,
+   "myth": "intro",
+   "chapter": "Cold open"
+  },
+  {
+   "say": "And this is also, technically, a wolf. Same family tree. Somehow one of them ended up sleeping on your couch and stealing your socks.",
+   "pose": "laugh",
+   "photo": "Canis familiaris",
+   "obs": 52225246,
+   "myth": "intro"
+  },
+  {
+   "say": "So how did a wild wolf turn into a golden retriever? Today, the whole story. And there are four true or false checkpoints along the way, so keep score.",
+   "pose": "point",
+   "text": "HOW WOLVES\nBECAME DOGS",
+   "myth": "intro"
+  },
+  {
+   "say": "Let's start at the very beginning. Every dog on Earth, from a tiny chihuahua to a giant Great Dane, comes from wolves.",
+   "pose": "point",
+   "photo": "Canis lupus",
+   "obs": 233808797,
+   "myth": "wolf",
+   "chapter": "Where dogs came from"
+  },
+  {
+   "say": "True or false? Dogs come from the same gray wolves that live today.",
+   "pose": "think",
+   "quiz": "DOGS COME FROM\nTODAY'S\nGRAY WOLVES",
+   "myth": "wolf",
+   "bonus": "Dogs and wolves are so closely related that they can still have puppies together.",
+   "short": true
+  },
+  {
+   "say": "False. Dogs and today's gray wolves are more like cousins. Both come from an older population of wolves that doesn't exist anymore.",
+   "pose": "shock",
+   "photo": "Canis lupus",
+   "obs": 119281693,
+   "myth": "wolf",
+   "short": true
+  },
+  {
+   "say": "So your dog isn't the grandkid of the wolf at the zoo. More like a cousin who moved to the suburbs.",
+   "pose": "laugh",
+   "text": "COUSINS.\nONE MOVED TO\nTHE SUBURBS.",
+   "myth": "wolf",
+   "short": true
+  },
+  {
+   "say": "And when did this happen? At least fifteen thousand years ago, and maybe a lot earlier. Before farms. Before towns. Before anyone had even invented a leash.",
+   "pose": "think",
+   "photo": "Canis lupus",
+   "obs": 5165451,
+   "myth": "wolf"
+  },
+  {
+   "say": "Where it happened is still argued about. Scientists have suggested Europe, Siberia and East Asia. Dogs are very good at keeping secrets.",
+   "pose": "shrug",
+   "text": "WHERE?\nSCIENTISTS\nARE STILL\nARGUING.",
+   "myth": "wolf"
+  },
+  {
+   "say": "Wolves are seriously impressive animals. They live in family packs, they work together to hunt, and they can travel huge distances. Basically, a sports team with fur.",
+   "pose": "point",
+   "photo": "Canis lupus",
+   "obs": 5165451,
+   "myth": "wolf"
+  },
+  {
+   "say": "So the plan was to take this elite athlete and teach it to sit for a cracker. Bold move, humanity.",
+   "pose": "laugh",
+   "text": "BOLD MOVE,\nHUMANITY.",
+   "myth": "wolf"
+  },
+  {
+   "say": "So how do you turn a wolf into a friend? One popular idea goes like this. Early humans were hunters, and hunters leave leftovers.",
+   "pose": "think",
+   "photo": "Canis lupus",
+   "obs": 143821085,
+   "myth": "deal",
+   "chapter": "The campfire deal"
+  },
+  {
+   "say": "Picture it. A campfire, some bones, and a wolf in the dark going, I'm not saying I'm hungry. I'm just saying I'm here.",
+   "pose": "laugh",
+   "text": "\"I'M NOT\nHUNGRY. I'M\nJUST HERE.\"",
+   "myth": "deal",
+   "short": true
+  },
+  {
+   "say": "The wolves that were a little less scared of people could sneak closer and grab the scraps. The jumpy ones stayed hungry. Over many generations, the calmer wolves did better.",
+   "pose": "point",
+   "photo": "Canis lupus",
+   "obs": 168328453,
+   "myth": "deal"
+  },
+  {
+   "say": "Humans got something too. A wolf nearby barks when something sneaks up in the night. Free alarm system. No batteries required.",
+   "pose": "laugh",
+   "photo": "Canis familiaris",
+   "obs": 157484476,
+   "myth": "deal"
+  },
+  {
+   "say": "Another idea is that people raised wolf pups themselves. The real story may be a bit of both. Either way, it was the best deal in history.",
+   "pose": "point",
+   "text": "THE BEST DEAL\nIN HISTORY",
+   "myth": "deal"
+  },
+  {
+   "say": "Now, here's one of my favorite clues. In Germany, archaeologists found a grave about fourteen thousand years old. Inside were two people. And a dog.",
+   "pose": "shock",
+   "photo": "Canis familiaris",
+   "obs": 382216141,
+   "myth": "grave",
+   "chapter": "The 14,000 year old good boy"
+  },
+  {
+   "say": "True or false? People were already taking care of sick dogs fourteen thousand years ago.",
+   "pose": "think",
+   "quiz": "PEOPLE CARED\nFOR SICK DOGS\n14,000 YEARS AGO",
+   "myth": "grave",
+   "bonus": "Dogs were sometimes buried alongside people in the ancient world, a sign of how much they mattered.",
+   "short": true
+  },
+  {
+   "say": "True! Scientists found that this puppy had been very sick with a dog disease called distemper.",
+   "pose": "point",
+   "photo": "Canis familiaris",
+   "obs": 382216141,
+   "myth": "grave",
+   "short": true
+  },
+  {
+   "say": "A puppy that sick could only survive with weeks of care. Keeping it warm, keeping it fed, keeping it clean. And it did survive for a while. Somebody really loved that dog.",
+   "pose": "think",
+   "photo": "Canis familiaris",
+   "obs": 194319165,
+   "myth": "grave",
+   "short": true
+  },
+  {
+   "say": "Fourteen thousand years ago, someone was already the kind of person who stays up all night with a sick puppy.",
+   "pose": "laugh",
+   "text": "SOME THINGS\nNEVER CHANGE",
+   "myth": "grave",
+   "short": true
+  },
+  {
+   "say": "And that grave tells us something big. By then, dogs weren't just useful. They were family. People cared enough to bury them like one of their own.",
+   "pose": "think",
+   "photo": "Canis familiaris",
+   "obs": 382216141,
+   "myth": "grave"
+  },
+  {
+   "say": "But wait. How did a wolf end up with floppy ears and a curly tail? For that, we need to talk about foxes. Yes, foxes.",
+   "pose": "shock",
+   "photo": "Vulpes vulpes",
+   "obs": 166915295,
+   "myth": "fox",
+   "chapter": "The fox experiment"
+  },
+  {
+   "say": "In nineteen fifty nine, a scientist in the Soviet Union called Dmitry Belyaev started breeding silver foxes, and he picked only the friendliest ones each generation.",
+   "pose": "point",
+   "photo": "Vulpes vulpes",
+   "obs": 166915295,
+   "myth": "fox"
+  },
+  {
+   "say": "After many generations, the friendly foxes wagged their tails, whined for attention, and wanted to be held. And some of them started to look different, with floppy ears, curly tails and patchy coats.",
+   "pose": "shock",
+   "photo": "Vulpes vulpes",
+   "obs": 327531235,
+   "myth": "fox"
+  },
+  {
+   "say": "He chose them for being nice, and he got cuteness as a free bonus. Like ordering fries and getting a milkshake for free.",
+   "pose": "laugh",
+   "text": "PICKED FOR NICE.\nGOT CUTE\nFOR FREE.",
+   "myth": "fox"
+  },
+  {
+   "say": "That's a big hint about dogs too. Choose friendly animals for long enough, and their bodies can change along with their personalities.",
+   "pose": "think",
+   "photo": "Vulpes vulpes",
+   "obs": 122018427,
+   "myth": "fox"
+  },
+  {
+   "say": "Now let's talk about your dog's most powerful weapon. Not the teeth. The eyes.",
+   "pose": "point",
+   "photo": "Canis familiaris",
+   "obs": 157484476,
+   "myth": "eyes",
+   "chapter": "Puppy dog eyes"
+  },
+  {
+   "say": "True or false? Wolves can make puppy dog eyes just as well as dogs can.",
+   "pose": "think",
+   "quiz": "WOLVES CAN DO\nPUPPY DOG EYES\nTOO",
+   "myth": "eyes",
+   "bonus": "Even young puppies can follow a human pointing finger, which is hard even for wolves raised by people.",
+   "short": true
+  },
+  {
+   "say": "False. In twenty nineteen, scientists found that dogs have a small muscle above the eye that lifts the inner eyebrow. Wolves mostly don't have it.",
+   "pose": "shock",
+   "photo": "Canis lupus",
+   "obs": 143821085,
+   "myth": "eyes",
+   "short": true
+  },
+  {
+   "say": "When a dog lifts that eyebrow, its eyes look bigger and a bit sad, like a baby's. And people respond to that face. We can't help it.",
+   "pose": "laugh",
+   "photo": "Canis familiaris",
+   "obs": 194319165,
+   "myth": "eyes",
+   "short": true
+  },
+  {
+   "say": "So dogs basically evolved a muscle for getting snacks. Respect.",
+   "pose": "laugh",
+   "text": "THEY EVOLVED\nA SNACK\nMUSCLE",
+   "myth": "eyes",
+   "short": true
+  },
+  {
+   "say": "Dogs also got really good at reading us. They watch our faces, follow where we look, and can tell a happy voice from an angry one. That's not magic. That's thousands of years of practice.",
+   "pose": "point",
+   "photo": "Canis familiaris",
+   "obs": 52225246,
+   "myth": "eyes"
+  },
+  {
+   "say": "Your dog has been studying you for fifteen thousand years. You've been studying it for about a weekend.",
+   "pose": "laugh",
+   "text": "THEY'VE BEEN\nSTUDYING YOU",
+   "myth": "eyes"
+  },
+  {
+   "say": "Then, around ten thousand years ago, people started farming. Wheat, barley, bread. And dogs changed their menu too.",
+   "pose": "think",
+   "photo": "Canis familiaris",
+   "obs": 95617403,
+   "myth": "farm",
+   "chapter": "Dogs meet farming"
+  },
+  {
+   "say": "Many dogs carry extra copies of a gene for digesting starch, the stuff in bread and grains. Wolves mostly don't. Living next to farmers paid off.",
+   "pose": "point",
+   "photo": "Canis familiaris",
+   "obs": 95617403,
+   "myth": "farm"
+  },
+  {
+   "say": "So when your dog stares at your toast, it's not being rude. It's being historically accurate.",
+   "pose": "laugh",
+   "text": "IT'S NOT RUDE.\nIT'S HISTORICAL.",
+   "myth": "farm"
+  },
+  {
+   "say": "Dogs also got jobs. Hunting, herding, guarding. And ancient people loved them so much that they put them in art. This painting comes from an Egyptian tomb more than three thousand years old.",
+   "pose": "point",
+   "photo": "Egyptian tomb painting",
+   "obs": "met:548583",
+   "myth": "jobs",
+   "chapter": "Ancient Egypt and Rome"
+  },
+  {
+   "say": "Here's another one. That's a dog sitting under its owner's chair, and the Egyptians even wrote down its name. Ebony. A good name for a good boy.",
+   "pose": "laugh",
+   "photo": "Egyptian tomb painting",
+   "obs": "met:544569",
+   "myth": "jobs"
+  },
+  {
+   "say": "And this is a little ivory dog from ancient Egypt. Pull a lever, and its mouth opens and closes. A dog toy, for people. Over three thousand years old.",
+   "pose": "shock",
+   "photo": "Egyptian ivory dog",
+   "obs": "met:544519",
+   "myth": "jobs"
+  },
+  {
+   "say": "The Romans loved dogs too. Some Roman houses had a mosaic at the door that said cave canem. That means beware of the dog.",
+   "pose": "point",
+   "photo": "Roman bronze dog",
+   "obs": "met:329972",
+   "myth": "jobs"
+  },
+  {
+   "say": "Two thousand years later, people still put beware of the dog signs up. Usually for a dog that weighs about eight pounds.",
+   "pose": "laugh",
+   "text": "BEWARE OF\nTHE DOG.\n(8 POUNDS.)",
+   "myth": "jobs"
+  },
+  {
+   "say": "And then there's the nose. A dog's sense of smell is far, far stronger than ours, which is why dogs are used to sniff out everything from lost hikers to bed bugs.",
+   "pose": "shock",
+   "photo": "Canis familiaris",
+   "obs": 95617403,
+   "myth": "jobs"
+  },
+  {
+   "say": "You smell dinner. Your dog smells dinner, who cooked it, what they had for lunch, and a squirrel from Tuesday.",
+   "pose": "laugh",
+   "text": "AND A SQUIRREL\nFROM TUESDAY",
+   "myth": "jobs"
+  },
+  {
+   "say": "Fast forward to France in the seventeen seventies, where some dogs were living better than most people. This is a real dog bed from that time. Velvet. Gold paint. A tiny palace.",
+   "pose": "shock",
+   "photo": "French dog kennel",
+   "obs": "met:205423",
+   "myth": "fancy",
+   "chapter": "Pampered pups"
+  },
+  {
+   "say": "Some say it belonged to Marie Antoinette. Either way, that dog had a nicer bedroom than I do.",
+   "pose": "facepalm",
+   "text": "NICER BEDROOM\nTHAN MINE",
+   "myth": "fancy"
+  },
+  {
+   "say": "And now the big twist. Most of the dog breeds you know are surprisingly new.",
+   "pose": "point",
+   "photo": "Dogs of the World cards",
+   "obs": "met:405138",
+   "myth": "breeds",
+   "chapter": "The breed explosion"
+  },
+  {
+   "say": "True or false? Most dog breeds are less than two hundred years old.",
+   "pose": "think",
+   "quiz": "MOST DOG BREEDS\nARE UNDER 200\nYEARS OLD",
+   "myth": "breeds",
+   "bonus": "The first organized dog show was held in England in eighteen fifty nine.",
+   "short": true
+  },
+  {
+   "say": "True! Dogs have helped people for thousands of years, but most of today's breeds were shaped in the eighteen hundreds and after.",
+   "pose": "shock",
+   "photo": "Dogs of the World cards",
+   "obs": "met:405144",
+   "myth": "breeds",
+   "short": true
+  },
+  {
+   "say": "In Victorian England, dog shows became a craze. The first organized dog show was held in eighteen fifty nine, and the Kennel Club started in eighteen seventy three. Breeders began writing strict rules for how each breed should look.",
+   "pose": "point",
+   "photo": "Dogs of the World cards",
+   "obs": "met:400500",
+   "myth": "breeds",
+   "short": true
+  },
+  {
+   "say": "These collector cards are from eighteen ninety. Look at this Pomeranian. Fluffier than a cloud, and still, deep down, a wolf.",
+   "pose": "laugh",
+   "photo": "Dogs of the World cards",
+   "obs": "met:405140",
+   "myth": "breeds"
+  },
+  {
+   "say": "This is a Mexican Hairless, a breed with a much older history in the Americas. So not every breed is new. Just most of them.",
+   "pose": "point",
+   "photo": "Dogs of the World cards",
+   "obs": "met:400476",
+   "myth": "breeds"
+  },
+  {
+   "say": "So when someone says their breed is ancient and noble, there's a decent chance it's younger than the light bulb.",
+   "pose": "laugh",
+   "text": "YOUNGER THAN\nTHE LIGHT BULB",
+   "myth": "breeds",
+   "short": true
+  },
+  {
+   "say": "Meanwhile, not every wolf story has a happy ending. Japan once had its own small wolves. People carved them, like in this little wooden carving. But by the early nineteen hundreds, the Japanese wolf was gone.",
+   "pose": "think",
+   "photo": "Japanese wolf carving",
+   "obs": "met:59741",
+   "myth": "breeds"
+  },
+  {
+   "say": "Which is a good reminder. Dogs are everywhere now, but their wild cousins still need looking after.",
+   "pose": "point",
+   "text": "WILD COUSINS\nNEED HELP TOO",
+   "myth": "breeds"
+  },
+  {
+   "say": "Not every dog stayed at home, though. Meet the dingo. Dingoes come from early dogs that people brought to Australia thousands of years ago.",
+   "pose": "point",
+   "photo": "Canis dingo",
+   "obs": 263437793,
+   "myth": "dingo",
+   "chapter": "The dog that went wild"
+  },
+  {
+   "say": "Once they got there, they went back to the wild life. No leashes, no baths, no little sweaters. They hunt on their own and live in packs.",
+   "pose": "laugh",
+   "photo": "Canis dingo",
+   "obs": 42249557,
+   "myth": "dingo"
+  },
+  {
+   "say": "Every other dog went from wild to cozy. The dingo went, actually, no thanks.",
+   "pose": "laugh",
+   "text": "\"ACTUALLY,\nNO THANKS.\"",
+   "myth": "dingo"
+  },
+  {
+   "say": "And today? There are hundreds of millions of dogs on Earth. Herding dogs, rescue dogs, guide dogs, and couch dogs who are very busy doing absolutely nothing.",
+   "pose": "laugh",
+   "photo": "Canis familiaris",
+   "obs": 52225246,
+   "myth": "today",
+   "chapter": "Dogs today"
+  },
+  {
+   "say": "All of it started with a wolf, a campfire, and a deal. You get scraps, we get a friend. Fifteen thousand years later, it's still the best deal ever made.",
+   "pose": "point",
+   "photo": "Canis familiaris",
+   "obs": 194319165,
+   "myth": "today"
+  },
+  {
+   "say": "And your dog still thinks it's a wolf. It's just a wolf who's scared of the vacuum cleaner.",
+   "pose": "laugh",
+   "text": "A WOLF WHO'S\nSCARED OF\nTHE VACUUM",
+   "myth": "today"
+  },
+  {
+   "say": "So next time your dog does that head tilt, remember. That's thousands of years of wolf history, staring at you, waiting for you to drop a chip.",
+   "pose": "laugh",
+   "photo": "Canis familiaris",
+   "obs": 157484476,
+   "myth": "today"
+  },
+  {
+   "say": "Scores! The answers were false, true, false and true. How many did you get out of four? Tell me in the comments, along with your dog's name, because I want to know.",
+   "pose": "laugh",
+   "text": "COMMENT YOUR\nSCORE /4\n+ DOG'S NAME",
+   "myth": "outro"
+  },
+  {
+   "say": "And subscribe, because next time we're finding out how cats took over the world. Spoiler. They didn't ask permission.",
+   "pose": "wave",
+   "text": "NEXT: HOW CATS\nTOOK OVER",
+   "myth": "outro"
+  }
+ ]
+}

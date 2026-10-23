@@ -59,10 +59,31 @@ def photo(taxon, n, work, obs=None):
     """A pinned iNaturalist observation's photo when `obs` is given (hand-reviewed picks: search
     rankings shift as votes come in, so an index can silently land on a different, unreviewed photo);
     otherwise the n-th most-faved landscape research-grade photo of the taxon."""
-    path = f"{work}/photos/{taxon.replace(' ', '_')}_{f'obs{obs}' if obs else n}.jpg"
+    path = f"{work}/photos/{taxon.replace(' ', '_')}_{f'obs{str(obs).replace(":", "_")}' if obs else n}.jpg"
     if os.path.exists(path):
         return path
     os.makedirs(f"{work}/photos", exist_ok=True)
+    if isinstance(obs, str) and obs.startswith("met:"):
+        # The Met Open Access object: public domain (CC0) art and artifacts for history beats.
+        api = f"https://collectionapi.metmuseum.org/public/collection/v1/objects/{obs[4:]}"
+        o = json.load(urllib.request.urlopen(urllib.request.Request(api, headers={"User-Agent": "MeatballMyths/1.0"}), timeout=60))
+        if not o.get("isPublicDomain"):
+            raise SystemExit(f"{obs}: not public domain")
+        req = urllib.request.Request(o["primaryImage"] or o["primaryImageSmall"], headers={"User-Agent": "MeatballMyths/1.0"})
+        open(path, "wb").write(urllib.request.urlopen(req, timeout=120).read())
+        open(path + ".credit", "w").write(f"{taxon}: \"{o['title']}\" ({o.get('objectDate') or 'n.d.'}), The Metropolitan Museum of Art (public domain), via metmuseum.org")
+        return path
+    if isinstance(obs, str) and obs.startswith("ov:"):
+        # Openverse id (CC/public-domain art, fossils, museum pieces) for history beats with no live animal.
+        o = json.load(urllib.request.urlopen(urllib.request.Request(
+            f"https://api.openverse.org/v1/images/{obs[3:]}/", headers={"User-Agent": "MeatballMyths/1.0"}), timeout=60))
+        if o["license"] not in ("cc0", "pdm", "by", "by-sa"):
+            raise SystemExit(f"{obs}: license {o['license']} not reusable")
+        req = urllib.request.Request(o["url"], headers={"User-Agent": "MeatballMyths/1.0"})
+        open(path, "wb").write(urllib.request.urlopen(req, timeout=60).read())
+        lic = "public domain" if o["license"] in ("cc0", "pdm") else f"CC {o['license'].upper()} {o['license_version']}"
+        open(path + ".credit", "w").write(f"{taxon}: \"{o['title']}\" by {o.get('creator') or 'unknown'} ({lic}), via {o['source']}")
+        return path
     if obs:
         o = json.load(urllib.request.urlopen(f"https://api.inaturalist.org/v1/observations/{obs}", timeout=60))
         p = o["results"][0]["photos"][0]
