@@ -16,6 +16,7 @@ import hashlib
 import html
 import json
 import os
+import shutil
 import subprocess
 import urllib.parse
 import urllib.request
@@ -32,6 +33,7 @@ TEXT_PANEL = (500, 90, 1400, 900)  # text cards have no frame, so they can use m
 SAUCE = (196, 38, 30)
 MASCOT = (760, (-60, H - 760 + 40))  # size, top-left position
 COVER = False
+ANIMATE = False  # punch style: Meatball is overlaid as animated frames (mascot.animate) instead of a still
 PUNCH = False  # "style": "punch" in the spec: full-bleed photos, outlined text, stamps, SFX, progress bar
 COUNT_S = 1.0  # seconds per countdown number
 YELLOW = (255, 214, 10)
@@ -341,11 +343,14 @@ def compose_punch(beat, i, work, picks, out, count=None, ctx=None):
     canvas.alpha_composite(layer)
     if tall and "photo" in beat:  # photo beats belong to the animal; the bottom of a Short is under the app UI anyway
         canvas.convert("RGB").save(out)
-        return
+        return None
     size = 420 if tall else 400
-    m = draw(beat.get("pose", "point"), size)
     # Clear of the zoom crop and, in Shorts, above the caption/like-button zone at the bottom.
     pos = (int(W * 0.06), int(H * 0.74) - size) if tall else (int(W * 0.08), int(H * 0.92) - size)
+    if ANIMATE:  # build() overlays a talking, moving Meatball on top of the zoomed background
+        canvas.convert("RGB").save(out)
+        return beat.get("pose", "point"), size, pos
+    m = draw(beat.get("pose", "point"), size)
     halo = m.split()[3].filter(ImageFilter.MaxFilter(15))
     canvas.paste((255, 255, 255, 255), pos, halo)
     canvas.alpha_composite(m, pos)
@@ -381,12 +386,15 @@ def countdown(b, i, work, picks, ctx=None):
     segs = []
     for c in (3, 2, 1):
         img, seg = f"{work}/frame{i:02d}_c{c}.png", f"{work}/seg{i:02d}_c{c}.mp4"
-        compose(b, i, work, picks, img, count=c, ctx=ctx)
+        m = compose(b, i, work, picks, img, count=c, ctx=ctx)
+        raw = seg.replace(".mp4", "_raw.mp4") if m else seg
         subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-loop", "1", "-framerate", str(FPS), "-i", img,
                         "-f", "lavfi", "-i", "sine=frequency=1100:duration=0.07",
                         "-vf", f"scale={W}:{H},format=yuv420p", "-af", "apad", "-t", f"{COUNT_S}",
                         "-c:v", "libx264", "-crf", "20", "-preset", "medium", "-r", str(FPS),
-                        "-c:a", "aac", "-ar", "48000", "-ac", "2", seg], check=True)
+                        "-c:a", "aac", "-ar", "48000", "-ac", "2", raw], check=True)
+        if m:  # thinking face while the viewer guesses
+            overlay_mascot(raw, ("think",) + m[1:], [], COUNT_S, f"{work}/m{i:02d}_c{c}", seg, pop=c == 3)
         segs.append(seg)
     return segs
 
@@ -414,8 +422,8 @@ def contexts(beats, work):
                 c["alt"] = alts[(same.index(i) + 1) % len(alts)] if i in same else alts[0]
         if i and "quiz" in beats[i - 1]:
             w = b["say"].split()[0].strip(".,!?").upper() if b["say"].split() else ""
-            if w in ("TRUE", "FALSE"):
-                c["verdict"] = w
+            if b.get("verdict") or w in ("TRUE", "FALSE"):
+                c["verdict"] = b.get("verdict") or w
         out.append(c)
     return out
 
@@ -426,6 +434,21 @@ SFX = {  # synthesized, so there is nothing to license
 }
 
 
+def overlay_mascot(raw, m, words, dur, frames_dir, seg, pop=True, seed=0):
+    """Composite a talking Meatball (mascot.animate frames at 15 fps) over a rendered segment. He sits
+    outside the zoom, so the background moves while he stays put and keeps talking."""
+    import mascot
+    pose, size, pos = m
+    shutil.rmtree(frames_dir, ignore_errors=True)
+    mascot.animate(pose, size, words, dur, 15, frames_dir, seed=seed, pop=pop)
+    pad = int(size * 0.25)
+    subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", raw, "-framerate", "15", "-i", f"{frames_dir}/%04d.png",
+                    "-filter_complex", f"[1:v]fps={FPS}[m];[0:v][m]overlay={pos[0] - pad}:{pos[1] - pad}:eof_action=repeat,format=yuv420p",
+                    "-c:v", "libx264", "-crf", "20", "-preset", "medium", "-c:a", "copy", seg], check=True)
+    shutil.rmtree(frames_dir, ignore_errors=True)
+    os.remove(raw)
+
+
 def build(beats, work, out, picks, name, rate="+8%"):
     voice(beats, work, name, rate)
     ctxs = contexts(beats, work) if PUNCH else [None] * len(beats)
@@ -433,7 +456,8 @@ def build(beats, work, out, picks, name, rate="+8%"):
     for i, b in enumerate(beats):
         img, mp3, seg = f"{work}/frame{i:02d}.png", vo_path(b, work, name, rate), f"{work}/seg{i:02d}.mp4"
         ctx = ctxs[i]
-        compose(b, i, work, picks, img, ctx=ctx)
+        m = compose(b, i, work, picks, img, ctx=ctx)
+        final, seg = seg, (seg.replace(".mp4", "_raw.mp4") if m else seg)
         dur = duration(mp3) + (0.15 if PUNCH else 0.35)
         frames = int(dur * FPS)
         if PUNCH and i == 0:  # snap-in on the very first frame: motion before the viewer can swipe
@@ -456,6 +480,9 @@ def build(beats, work, out, picks, name, rate="+8%"):
                   f"[a][b]concat=n=2:v=1:a=0,format=yuv420p")
         else:
             vf = zp.format(w=W*2, h=H*2, z=z, d=frames, W=W, H=H, FPS=FPS) + ",format=yuv420p"
+        if ctx and ctx.get("verdict"):  # 6-frame screen shake as the stamp lands
+            sh = f"crop={W - 24}:{H - 24}:x='12+12*sin(n*9)*lt(n,6)':y='12+12*cos(n*7)*lt(n,6)',scale={W}:{H},"
+            vf = vf[:-len("format=yuv420p")] + sh + "format=yuv420p"
         if H > W:  # Shorts are mostly watched muted: burn word-by-word captions on photo beats
             if "text" not in b and "quiz" not in b:  # a quiz caption would read "FALSE" before the countdown
                 from facts import captions
@@ -487,6 +514,9 @@ def build(beats, work, out, picks, name, rate="+8%"):
             subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-loop", "1", "-i", img, "-i", mp3] + audio +
                            ["-vf", vf, "-t", f"{dur:.2f}", "-c:v", "libx264", "-crf", "20", "-preset", "medium",
                             "-c:a", "aac", "-ar", "48000", "-ac", "2", seg], check=True)
+        if m:
+            overlay_mascot(seg, m, json.load(open(mp3 + ".words.json")), dur, f"{work}/m{i:02d}", final, seed=i)
+        seg = final
         segs.append(seg)
         if "quiz" in b:
             segs += countdown(b, i, work, picks, ctx)
@@ -528,8 +558,8 @@ def main():
     a = ap.parse_args()
     spec = json.load(open(a.beats))
     if spec.get("style") == "punch":
-        global PUNCH, COUNT_S
-        PUNCH, COUNT_S = True, (0.5 if a.vertical else 0.7)
+        global PUNCH, ANIMATE, COUNT_S
+        PUNCH, ANIMATE, COUNT_S = True, True, (0.5 if a.vertical else 0.7)
     if spec.get("music"):
         global MUSIC
         MUSIC = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "brand", spec["music"])
