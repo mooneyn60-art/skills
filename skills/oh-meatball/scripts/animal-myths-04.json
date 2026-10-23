@@ -40,13 +40,13 @@
  "pinned": "📝 SCORE CHECK: how many did you get out of 12? 👇\n\nAnswer key: TRUE = make yourself big for a mountain lion. Everything else was FALSE.\n\nWhich one would have gotten YOU hurt? Comment it.",
  "beats": [
   {
-   "say": "Pee on a jellyfish sting. Play dead for a bear. Suck the venom out of a snake bite. Everybody knows these. Some of them could actually get you hurt.",
+   "say": "Pee on a jellyfish sting. Play dead for a bear. Suck the venom out of a snake bite. Everybody knows these. Plot twist. Some of them could actually get you hurt.",
    "pose": "shock",
    "text": "MYTHS THAT COULD\nGET YOU HURT",
    "myth": "intro"
   },
   {
-   "say": "You get three seconds to guess true or false. Keep score. Only ONE of these is true, so trust nobody. Quick note, this is fun general info, so always follow local wildlife and medical advice.",
+   "say": "You get three seconds to guess true or false. Keep score. Only ONE of these is true, so trust nobody. Not even me. Okay, trust me a little. Quick note, this is fun general info, so always follow local wildlife and medical advice.",
    "pose": "point",
    "text": "ONLY ONE\nIS TRUE",
    "myth": "intro"
@@ -59,7 +59,7 @@
    "bonus": "The pee myth got famous from a nineteen ninety seven episode of Friends."
   },
   {
-   "say": "False. Please don't. It doesn't help, and it can make it worse.",
+   "say": "False. Please don't. It doesn't help, it can make it worse, and now the whole beach is staring at you.",
    "pose": "facepalm",
    "photo": "Aurelia aurita",
    "obs": 175805271,
@@ -73,6 +73,12 @@
    "obs": 175805603,
    "myth": "jelly",
    "short": true
+  },
+  {
+   "say": "Let's be crystal clear. Pee is not medicine. Pee is a bathroom thing. Leave it in the bathroom.",
+   "pose": "facepalm",
+   "text": "PEE IS NOT\nFIRST AID.",
+   "myth": "jelly"
   },
   {
    "say": "What helps depends on the jellyfish, but common advice is to get out of the water, rinse with sea water or vinegar, and carefully lift off any tentacles without touching them with bare hands. Hot water can help with the pain.",
@@ -112,6 +118,13 @@
    "short": true
   },
   {
+   "say": "This is the one time playing dead is the plan. So commit to the role. Stay still. No peeking.",
+   "pose": "point",
+   "photo": "Ursus arctos",
+   "obs": 7383584,
+   "myth": "bear"
+  },
+  {
    "say": "But if a black bear attacks you, don't play dead. Fight back hard, and aim for the face and nose.",
    "pose": "shock",
    "photo": "Ursus americanus",
@@ -134,6 +147,12 @@
    "short": true
   },
   {
+   "say": "Yes, nature put a trick question inside the trick question. Thanks, nature.",
+   "pose": "facepalm",
+   "text": "A TRICK QUESTION\nINSIDE A TRICK\nQUESTION",
+   "myth": "bear"
+  },
+  {
    "say": "True or false? You should suck the venom out of a snake bite.",
    "pose": "think",
    "quiz": "SUCK OUT\nSNAKE VENOM",
@@ -141,7 +160,7 @@
    "bonus": "Copperheads bite a lot of people in the US, but deaths from their bites are extremely rare."
   },
   {
-   "say": "False. Every cowboy movie lied to you.",
+   "say": "False. Every cowboy movie lied to you. Every single one.",
    "pose": "laugh",
    "photo": "Agkistrodon contortrix",
    "obs": 141425644,
@@ -164,6 +183,12 @@
    "myth": "venom"
   },
   {
+   "say": "So no sucking, no cutting, no cowboy stuff. Just calm, and a hospital.",
+   "pose": "point",
+   "text": "NO COWBOY\nSTUFF.",
+   "myth": "venom"
+  },
+  {
    "say": "Hospitals have antivenom. Your mouth does not.",
    "pose": "point",
    "text": "HOSPITALS HAVE\nANTIVENOM.\nYOUR MOUTH\nDOES NOT.",
@@ -178,7 +203,7 @@
    "bonus": "When resting, crocodiles can stay underwater for more than an hour."
   },
   {
-   "say": "False. Zigzagging just makes your escape longer.",
+   "say": "False. Zigzagging just makes your escape longer. You are not dodging lasers.",
    "pose": "shock",
    "photo": "Crocodylus niloticus",
    "obs": 49393135,
@@ -201,6 +226,12 @@
    "myth": "croc"
   },
   {
+   "say": "In croc country, the riverbank is the crocodile's front porch. Do not hang out on its porch.",
+   "pose": "point",
+   "text": "DON'T SIT ON\nTHE CROC'S\nPORCH.",
+   "myth": "croc"
+  },
+  {
    "say": "So no fancy moves. Straight line. Away from the water. Go.",
    "pose": "point",
    "text": "STRAIGHT LINE.\nAWAY FROM\nTHE WATER.",
@@ -215,7 +246,7 @@
    "bonus": "Moose can run around thirty five miles an hour, and they are excellent swimmers."
   },
   {
-   "say": "False. Moose look goofy, but they are seriously dangerous.",
+   "say": "False. Moose look like a horse that was drawn from memory. But they are seriously dangerous.",
    "pose": "shock",
    "photo": "Alces alces",
    "obs": 54126730,
@@ -235,6 +266,13 @@
    "pose": "think",
    "photo": "Alces alces",
    "obs": 336096285,
+   "myth": "moose"
+  },
+  {
+   "say": "Ears back, hair up, lip licking. That's not a moose saying hello. That's a moose counting down.",
+   "pose": "shock",
+   "photo": "Alces alces",
+   "obs": 54126730,
    "myth": "moose"
   },
   {
@@ -275,6 +313,12 @@
    "myth": "bees"
   },
   {
+   "say": "I know. Every part of you wants to swat. Don't swat. Just go.",
+   "pose": "point",
+   "text": "DON'T SWAT.\nJUST GO.",
+   "myth": "bees"
+  },
+  {
    "say": "Cartoons taught us water is a force field. It's actually a waiting room.",
    "pose": "laugh",
    "text": "WATER ISN'T A\nFORCE FIELD.\nIT'S A WAITING\nROOM.",
@@ -289,7 +333,7 @@
    "bonus": "Hippos can't really swim. They walk and bounce along the bottom of rivers."
   },
   {
-   "say": "False. Hippos are one of the most dangerous large animals in Africa.",
+   "say": "False. Don't let the chunky look fool you. Hippos are one of the most dangerous large animals in Africa.",
    "pose": "shock",
    "photo": "Hippopotamus amphibius",
    "obs": 111237080,
@@ -303,6 +347,13 @@
    "obs": 212246796,
    "myth": "hippo",
    "short": true
+  },
+  {
+   "say": "So if your plan was to outrun a hippo, get a new plan. Preferably one that starts far, far away.",
+   "pose": "facepalm",
+   "photo": "Hippopotamus amphibius",
+   "obs": 212246796,
+   "myth": "hippo"
   },
   {
    "say": "They are extremely territorial, especially in the water, and a hippo can flip a boat that gets too close. They look like they are napping. They are not napping. They are watching.",
@@ -349,6 +400,12 @@
    "myth": "rattle"
   },
   {
+   "say": "Basically, in snake country your feet need a supervisor. That supervisor is your eyes.",
+   "pose": "laugh",
+   "text": "YOUR FEET NEED\nA SUPERVISOR.",
+   "myth": "rattle"
+  },
+  {
    "say": "The rattle is a courtesy, not a promise.",
    "pose": "point",
    "text": "THE RATTLE IS A\nCOURTESY, NOT\nA PROMISE.",
@@ -363,7 +420,7 @@
    "bonus": "Mountain lions can't roar. They purr, hiss, and make chirps that sound a lot like birds."
   },
   {
-   "say": "True! This one is real advice.",
+   "say": "True! Finally! This one is real advice.",
    "pose": "shock",
    "photo": "Puma concolor",
    "obs": 4075815,
@@ -386,6 +443,12 @@
    "myth": "cougar"
   },
   {
+   "say": "So the recipe is big, loud, and backing away slowly. This is not a race you want to enter.",
+   "pose": "point",
+   "text": "DON'T RUN.\nBE BIG.\nBE LOUD.",
+   "myth": "cougar"
+  },
+  {
    "say": "So basically, become the biggest, loudest, most annoying thing on that trail. For once, it's a good strategy.",
    "pose": "laugh",
    "text": "BE THE BIGGEST,\nLOUDEST THING\nON THE TRAIL",
@@ -400,7 +463,7 @@
    "bonus": "Ticks wave their front legs to grab passers-by, which scientists call questing."
   },
   {
-   "say": "False. Ticks can't jump or fly, and they don't dive out of trees.",
+   "say": "False. Ticks can't jump or fly, and they don't dive out of trees. No ninja ticks.",
    "pose": "point",
    "photo": "Ixodes scapularis",
    "obs": 212499446,
@@ -414,6 +477,12 @@
    "obs": 70343782,
    "myth": "tick",
    "short": true
+  },
+  {
+   "say": "So ticks aren't acrobats. They're hitchhikers. Tiny hitchhikers holding out their legs instead of their thumbs.",
+   "pose": "laugh",
+   "text": "TICKS DON'T\nJUMP. THEY\nHITCHHIKE.",
+   "myth": "tick"
   },
   {
    "say": "That's why they turn up on your head even though they started near your ankles. After a hike, check behind your knees, your armpits, your waist, and along your hairline.",
@@ -460,6 +529,13 @@
    "myth": "possum"
   },
   {
+   "say": "Imagine your whole defense plan is drool and a bad smell. Bold strategy, little buddy.",
+   "pose": "laugh",
+   "photo": "Didelphis virginiana",
+   "obs": 262966421,
+   "myth": "possum"
+  },
+  {
    "say": "So the possum is not a rabies monster. It's a nervous little guy who faints for a living. Still, never handle wild animals.",
    "pose": "laugh",
    "text": "NOT A MONSTER.\nIT FAINTS FOR\nA LIVING.",
@@ -497,6 +573,12 @@
    "myth": "puss"
   },
   {
+   "say": "Fluffy does not mean friendly. Look with your eyes, not your fingers.",
+   "pose": "point",
+   "text": "FLUFFY DOES NOT\nMEAN FRIENDLY.",
+   "myth": "puss"
+  },
+  {
    "say": "Rule of thumb. If a caterpillar looks like a tiny toupee, do not touch the toupee.",
    "pose": "laugh",
    "text": "DO NOT TOUCH\nTHE TOUPEE.",
@@ -504,15 +586,15 @@
    "short": true
   },
   {
-   "say": "Scores! The only true one was making yourself big for a mountain lion. Everything else was false. Drop your score out of twelve in the comments, and tell me which one surprised you most.",
+   "say": "Scores! The only true one was making yourself big for a mountain lion. Everything else was false. Yes, all of it. Drop your score out of twelve in the comments, and tell me which one surprised you most.",
    "pose": "laugh",
    "text": "COMMENT YOUR\nSCORE /12",
    "myth": "outro"
   },
   {
-   "say": "And subscribe, because next time we're going after animal facts that sound fake but are totally real.",
+   "say": "And subscribe, because next time we're going after animal facts that sound fake but are totally real. Stay safe out there.",
    "pose": "wave",
-   "text": "NEXT: FAKE-SOUNDING\nFACTS THAT\nARE REAL",
+   "text": "NEXT: FACTS\nTHAT SOUND FAKE\nBUT ARE REAL",
    "myth": "outro"
   }
  ],
