@@ -1,51 +1,53 @@
-# Oh Meatball: operating system
+# Meatball Myths: operating system
 
-Ace (Claude) runs the business. Nolan owns the accounts and taps approvals. This file is the
-org chart, the calendar, the numbers we steer by, and the rules for changing anything.
+Claude runs the channel; Nolan owns the accounts, gives direction, and does the few Studio-only
+taps. This file is the team, the daily routine, the numbers we steer by, and the rules for change.
 
 ## Goal ladder (money)
 | Stage | Target | Unlocks |
 |---|---|---|
-| 1 Seed | 1 video > 10k views; avg viewed-vs-swiped > 70% | proof the hook works |
-| 2 Traction | 1,000 subs on YouTube, 10k followers on TikTok | TikTok Creator Rewards eligibility (10k followers + 100k views/30 d) |
-| 3 Monetize | YouTube Partner Program: 1,000 subs + 10M Shorts views in 90 d | Shorts ad revenue share |
-| 4 Scale | 2nd series / spin-off, long-form compilations, brand deals | multiple revenue lines |
+| 1 Seed | 1 episode > 1k views; 30 s retention > 70% | proof the format holds strangers |
+| 2 Traction | YouTube 1,000 subs; TikTok follower growth | YPP eligibility path |
+| 3 Monetize | YouTube Partner Program: 1,000 subs + 4,000 long-form watch hours / 12 months (~1,300 episode views/week at 3.5 min AVD) | ad revenue |
+| 4 Scale | Part 2s of every winner, 30-50 myth compilations, second series | more revenue lines |
 
-## Team (one run = one session; Ace spawns these as agents when the work is parallel)
+## Team (Claude spawns these as agents; one writer per file)
 | Role | Owns | When |
 |---|---|---|
-| Showrunner (Ace) | story arc, final QA, posting, budget, Nolan updates | every run |
-| Writer | next parts in story/season1.md, punch-up to the 4-shot format | daily, 1 day ahead |
-| Producer | generate shots, finish.py master, QA, upload | daily |
-| Analyst | metrics.csv, comments, experiment scoring | nightly + Sunday |
-| Researcher | outliers, algorithm changes, new formats (research/NN-*.md) | Sunday |
+| Showrunner (Claude) | priorities, final QA of scripts/frames/thumbs, posting, Nolan updates | every run |
+| Analyst | tools/stats.py, Metricool + vidIQ analytics, HQ "Daily report", experiment scoring | evening run |
+| Scout | tools/rivals.py, competitor outliers, research/19-topic-backlog.md | evening run |
+| Writer | next episode script (cold open, 12 myths, jokes, ~1,600-1,700 words) | morning run, 2 days ahead |
+| Photo editor | iNaturalist candidate sheets, live/unharmed/right-species picks | morning run |
+| Producer | episode.py (long + Shorts), tiktok.py, thumb3 + thumb2 | morning run |
+| Scheduler | Metricool queue: 1 episode, 2 Shorts, 3 TikToks a day, first comments | morning run |
+| Inbox | Nolan's chat messages + comments on the HQ page; acts on them first | every run |
 
-Rule: only one writer per file. Agents write their own files; Ace merges into SKILL.md/DAILY.md.
-
-## Calendar (all ET)
-| When | Routine | File |
+## Daily routine (scheduled tasks fire into this session; all ET)
+| When | Run | Output |
 |---|---|---|
-| 08:47 daily | make + queue the day's parts and extras | routines/DAILY.md |
-| 22:23 daily | post check, stats, comments, metrics row | routines/NIGHTLY.md |
-| Sun 10:17 | weekly review: score experiments, update playbook, compilation | routines/WEEKLY.md |
+| 08:13 | Production: inbox, build the episode for 2 days out, fill the queue | episode + Shorts + TikToks queued 2 days ahead |
+| 18:41 | Review: stats, analytics, rivals, HQ report, next topics | HQ Daily report + rivals, backlog updated |
 
-## Numbers we steer by (log in data/metrics.csv every night)
-Per video, at 24 h and 72 h: views, viewed-vs-swiped % (YouTube), avg % viewed, likes, comments,
-shares, subs gained. Channel: subs/followers, credits left, posts live vs queued.
-- Kill signal: a format whose 3 videos all sit under 60% viewed-vs-swiped.
-- Double-down signal: any video at 3x the channel median views in 24 h. Make the next part sooner
-  and copy its hook pattern.
+Cadence: episode 10:30 AM; YouTube Shorts 1 PM and 4 PM (from the newest episode that is
+already live, so Related video can point at it); TikToks 12 PM, 4 PM, 7:30 PM, each over 60 s.
+
+## Numbers we steer by
+Episodes: impressions CTR, 30 s retention, average view duration, views in 48 h.
+Shorts: engaged views / views, average view %, subs gained. TikTok: views, average watch time,
+qualified views. Channel: subs, weekly long-form watch hours vs the 4,000 h pace.
+- Double down: any video at 3x our median in 48 h gets a Part 2 within a week.
+- Kill: a topic or title style whose 3 videos all land under half our median.
 
 ## How we change things (no guessing)
 1. Every change is an experiment row in data/experiments.csv: hypothesis, change, metric, start date.
-2. Change ONE variable per 3 parts (hook style, length, title pattern, post time).
-3. Score after 3 videos or 7 days against the median of the 3 before. Keep / kill / extend.
-4. Lessons that survive go into PLAYBOOK.md and then into SKILL.md / DAILY.md.
+2. Change one variable at a time (hook, title pattern, thumbnail style, voice pace, length).
+3. Score after 3 videos or 7 days against the median of the 3 before: keep, kill, or extend.
 
-## What needs Nolan (everything else Ace does alone)
-- The daily OpusClip approval tap (one button in the Control Room).
-- Anything that spends real money, changes account settings, or deletes videos.
-- New platform connections. Never paste keys in chat; add them as environment secrets.
+## What needs Nolan
+- Studio-only: Related video on each Short, end screens, Test & Compare thumbnails, hiding likes,
+  the Episode 1 title/thumbnail (vidIQ edits need YouTube MFA).
+- Anything that spends real money or deletes videos.
 
 ## Standing orders from Nolan
 - Only Meatball stick-figure info/quiz videos (long-form and Shorts). No door-cam, trail-cam or other
