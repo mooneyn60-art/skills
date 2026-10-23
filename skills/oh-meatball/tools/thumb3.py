@@ -91,6 +91,7 @@ def main():
     ap.add_argument("--lie", default="lies")
     ap.add_argument("--tag", default="")
     ap.add_argument("--seed", type=int, default=7)
+    ap.add_argument("--no-x", action="store_true", help="no red X stickers (story/history episodes)")
     a = ap.parse_args()
     random.seed(a.seed)
 
@@ -106,6 +107,8 @@ def main():
         im = im.resize((int(im.width * s), int(im.height * s)), Image.LANCZOS)
         st = sticker(im).rotate(random.uniform(-6, 6), expand=True, resample=Image.BICUBIC)
         canvas.alpha_composite(st, (int(cx - st.width / 2), int(cy - st.height / 2)))
+        if a.no_x:
+            continue
         # X overlaps the sticker's top-right corner so it reads as "this one is wrong".
         x = red_x(int(size * 0.38))
         canvas.alpha_composite(x, (int(cx + st.width / 2 - x.width * 1.05), int(cy - st.height / 2 + x.height * 0.05)))
