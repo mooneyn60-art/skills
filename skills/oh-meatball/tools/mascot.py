@@ -81,8 +81,9 @@ def _face(d, mouth, brow):
         d.line([(cx - 32, my + 6), (cx + 32, my + 6)], fill=INK, width=10)
 
 
-def draw(pose="neutral", size=600, mouth=None, blink=False, hand=(0, 0)):
-    """mouth/blink/hand override the pose for animation frames; hand nudges the right hand (gestures)."""
+def draw(pose="neutral", size=600, mouth=None, blink=False, arms=None):
+    """mouth/blink override the pose for animation frames; arms = {"l"/"r": (dx, dy)} moves each hand
+    (the elbow follows by half) for talking gestures."""
     p = POSES[pose]
     im = Image.new("RGBA", (1000, 1000), (0, 0, 0, 0))
     d = ImageDraw.Draw(im)
@@ -99,8 +100,9 @@ def draw(pose="neutral", size=600, mouth=None, blink=False, hand=(0, 0)):
     # Arms go on top of the head so hand-to-face poses (shock, facepalm, think) stay visible.
     for side in ("l", "r"):
         elbow, hnd = p[side]
-        if side == "r":
-            hnd = (hnd[0] + hand[0], hnd[1] + hand[1])
+        if arms and side in arms:
+            dx, dy = arms[side]
+            elbow, hnd = (elbow[0] + dx // 2, elbow[1] + dy // 2), (hnd[0] + dx, hnd[1] + dy)
         _line(d, sh, elbow); _line(d, elbow, hnd)
         d.ellipse([hnd[0] - 22, hnd[1] - 22, hnd[0] + 22, hnd[1] + 22], fill=INK)
     return im.resize((size, size), Image.LANCZOS)
@@ -109,47 +111,60 @@ def draw(pose="neutral", size=600, mouth=None, blink=False, hand=(0, 0)):
 TALK = {"talk": "o", "o": "talk", "laugh": "talk", "smile": "talk", "flat": "talk", "frown": "o"}
 
 
-SWAP = {"point": "shrug", "shock": "facepalm", "think": "point", "laugh": "point", "shrug": "point",
-        "facepalm": "shock", "wave": "point", "neutral": "point"}
+SWAP = {"point": "shrug", "shock": "shrug", "think": "point", "laugh": "point", "shrug": "point",
+        "facepalm": "shrug", "wave": "point", "neutral": "point"}  # second pose always has open hands
+
+
+def _gesture(t, words, phase):
+    """Hand offset (in the 1000-unit drawing) for talking hands: a flick out on every word, a slow
+    sweep while speaking, and back to rest in pauses. Quantized so frames can be cached."""
+    flick = 0.0
+    for s, e, _ in words:
+        if s <= t < s + 0.35:
+            flick = max(flick, math.sin(math.pi * (t - s) / 0.35))
+    speaking = any(s - 0.05 <= t <= e + 0.15 for s, e, _ in words)
+    sweep = math.sin(t * 2 * math.pi * 0.9 + phase) if speaking else 0.0
+    dx = 45 * sweep + 25 * flick * math.cos(phase)
+    dy = -55 * flick - 20 * abs(sweep)
+    return int(dx // 8 * 8), int(dy // 8 * 8)
+
+
+HAND_ON_FACE = {"think": "r", "facepalm": "r", "shock": None}  # that hand stays put on the face
 
 
 def animate(pose, size, words, dur, fps, outdir, seed=0, pop=True):
-    """PNG frames of Meatball talking: mouth flaps on spoken words, blinks every ~3 s, bobs and sways,
-    the gesturing hand waves, and the first frames pop in (squash and stretch). Lines over 2.8 s swap
-    to a second pose halfway (rival channels change pose every 1.5-2.8 s). Returns frame count."""
+    """PNG frames of Meatball talking. The body stays still (no bobbing); the life is in the face and
+    hands: mouth flaps on spoken words, blinks every ~3 s, both hands gesture on each word, and the
+    pose steps to a second one every ~2.2 s like rival stick-figure channels. pop is kept for callers
+    but unused. Returns frame count."""
     from PIL import ImageFilter
     os.makedirs(outdir, exist_ok=True)
-    first = pose
+    first, second = pose, SWAP.get(pose, "point")
     cache = {}
     n = max(1, int(dur * fps))
     pad = int(size * 0.25)
     blink_at = [1.2 + 2.9 * k + (seed % 7) * 0.13 for k in range(int(dur / 2.9) + 2)]
     for f in range(n):
         t = f / fps
-        pose = SWAP.get(first, "point") if dur > 2.8 and t >= dur / 2 else first
+        pose = second if dur > 2.8 and int(t / 2.2) % 2 == 1 else first
         base_mouth = POSES[pose]["mouth"]
         speaking = any(s - 0.02 <= t <= e for s, e, _ in words)
         mouth = (TALK.get(base_mouth, "talk") if int(t / 0.11) % 2 == 0 else base_mouth) if speaking else None
         blink = any(b <= t < b + 0.12 for b in blink_at)
-        wave = int(4 * (1 + math.sin(t * 2 * math.pi * 1.6)))  # 0..8 steps, cached
-        key = (pose, mouth, blink, wave)
+        still = HAND_ON_FACE.get(pose, "")
+        arms = {side: _gesture(t, words, ph) for side, ph in (("l", 0.0), ("r", 2.4)) if side != still}
+        if pose == "shock":  # both hands on the cheeks: small shakes only
+            arms = {k: (v[0] // 3, v[1] // 3) for k, v in arms.items()}
+        key = (pose, mouth, blink, tuple(sorted(arms.items())))
         if key not in cache:
-            im = draw(pose, size, mouth, blink, (wave * 3 - 12, -abs(wave * 3 - 12) // 2))
+            im = draw(pose, size, mouth, blink, arms)
             halo = im.split()[3].filter(ImageFilter.MaxFilter(13))
             framed = Image.new("RGBA", im.size, (0, 0, 0, 0))
             framed.paste((255, 255, 255, 255), (0, 0), halo)
             framed.alpha_composite(im)
             cache[key] = framed
-        im = cache[key]
-        tp = t - dur / 2 if dur > 2.8 and t >= dur / 2 else t  # re-pop on the pose swap
-        sc = min(1.0, 0.75 + tp / 0.18 * 0.25) if (pop or tp != t) and tp < 0.18 else 1.0
-        sq = 1 + 0.015 * math.sin(t * 2 * math.pi * 1.1)  # breathing squash and stretch
-        w, h = int(size * sc * (2 - sq)), int(size * sc * sq)
-        frame = im.resize((max(1, w), max(1, h)), Image.BILINEAR).rotate(1.2 * math.sin(t * 2 * math.pi * 0.7),
-                                                                         resample=Image.BICUBIC, expand=False)
         canvas = Image.new("RGBA", (size + 2 * pad, size + 2 * pad), (0, 0, 0, 0))
-        bob = int(4 * math.sin(t * 2 * math.pi * 1.4))
-        canvas.alpha_composite(frame, ((canvas.width - frame.width) // 2, canvas.height - pad - frame.height + bob))
+        canvas.alpha_composite(cache[key], (pad, pad))
         canvas.save(f"{outdir}/{f:04d}.png")
     return n
 
