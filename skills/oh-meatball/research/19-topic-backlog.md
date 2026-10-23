@@ -15,3 +15,20 @@ Source: tools/rivals.py snapshot 2026-10-23 plus research/16. "x" = times that c
 Photo rule: only taxa with plenty of live, unharmed, research-grade iNaturalist photos. Deep-sea and
 "extinct" animals are often photographed dead or as specimens, so check the contact sheet before
 committing a myth to a script.
+
+## Series 2: "Meatball Explains" (animal history), every Saturday from 10/31
+Search demand checked 2026-10-23 (yt-dlp search, top results): "history of dogs" 6.6M (PBS Eons) and
+3.9M (TED-Ed); "history of cats" 13.7M and 10.5M; "evolution of whales" 11.1M. Evergreen and
+search-driven, which is the traffic a new channel can win; the competition is PBS Eons and TED-Ed,
+so our angle is the funny stick-figure version with 3-4 TRUE/FALSE checkpoints to keep it interactive.
+
+| # | Episode | Status |
+|---|---|---|
+| S2-1 | How Wolves Became Dogs (the full story, kind of) | next, Sat 10/31 |
+| S2-2 | How Cats Domesticated Themselves | queued |
+| S2-3 | When Whales Had Legs | queued |
+| S2-4 | How Chickens Took Over the World | queued |
+| S2-5 | Horses: from dog-sized to Derby | queued |
+
+Visuals: live-animal photos from iNaturalist plus public-domain/CC images (fossils, cave art,
+paintings) from Wikimedia Commons with credits; needs a Commons fetcher in tools/ first.
