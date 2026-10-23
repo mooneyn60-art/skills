@@ -1,0 +1,550 @@
+{
+ "rate": "+0%",
+ "voice": "en-US-AndrewNeural",
+ "title": "12 Animal Facts That Sound FAKE But Are 100% Real (TRUE or FALSE?)",
+ "names": {
+  "Vombatus ursinus": "Wombat",
+  "Octopus cyanea": "Day octopus",
+  "Enhydra lutris": "Sea otter",
+  "Phoenicopterus roseus": "Greater flamingo",
+  "Pisaster ochraceus": "Ochre sea star",
+  "Corvus brachyrhynchos": "American crow",
+  "Ornithorhynchus anatinus": "Platypus",
+  "Struthio camelus": "Ostrich",
+  "Anas platyrhynchos": "Mallard",
+  "Archilochus colubris": "Ruby-throated hummingbird",
+  "Odontodactylus scyllarus": "Peacock mantis shrimp",
+  "Loxodonta africana": "African elephant"
+ },
+ "blurb": "TRUE or FALSE? Cube-shaped poop, three hearts, a mammal that glows... most of these sound made up, and most are real. Three are fakes. Guess before the 3-second timer, keep score, and drop your score out of 12 in the comments 👇",
+ "next": "Subscribe: tomorrow it's the myths about the animals in your own house.",
+ "tags": [
+  "weird animal facts",
+  "animal facts",
+  "true or false quiz",
+  "animal quiz",
+  "wombat cube poop",
+  "octopus three hearts",
+  "sea otters holding hands",
+  "platypus glows",
+  "mantis shrimp punch",
+  "hummingbird",
+  "flamingo",
+  "fun facts",
+  "facts that sound fake",
+  "Meatball Myths"
+ ],
+ "pinned": "📝 SCORE CHECK: how many did you get out of 12? 👇\n\nAnswer key: FALSE = flamingos born pink, ostrich fastest, duck quack doesn't echo. Everything else is REAL.\n\nWhich one do you STILL not believe?",
+ "beats": [
+  {
+   "say": "Cube shaped poop. Three hearts. An animal that glows in the dark. Some of these facts sound completely made up, and most of them are real. Your job is to catch the fakes.",
+   "pose": "shock",
+   "text": "SOUNDS FAKE.\nIS REAL.",
+   "myth": "intro"
+  },
+  {
+   "say": "You get three seconds to guess true or false. Keep score, and tell me your number out of twelve at the end. Three of these are lies. Let's go.",
+   "pose": "point",
+   "text": "THREE ARE\nLIES",
+   "myth": "intro"
+  },
+  {
+   "say": "True or false? Wombats poop cubes.",
+   "pose": "think",
+   "quiz": "WOMBATS\nPOOP CUBES",
+   "myth": "wombat",
+   "bonus": "Wombats leave their cubes on rocks and logs to mark their territory, and the flat sides stop them rolling away."
+  },
+  {
+   "say": "True! Square poop. From a round animal.",
+   "pose": "shock",
+   "photo": "Vombatus ursinus",
+   "obs": 381755705,
+   "myth": "wombat",
+   "short": true
+  },
+  {
+   "say": "A wombat can leave dozens of little cubes in a single night. Scientists worked out that the end of its intestine has stiff and stretchy sections, and as the poop moves through, it gets pressed into corners.",
+   "pose": "point",
+   "photo": "Vombatus ursinus",
+   "obs": 155430402,
+   "myth": "wombat",
+   "short": true
+  },
+  {
+   "say": "And wombats are tougher than they look. Their backside is mostly a hard plate of cartilage, so when a predator follows them into a burrow, the wombat just blocks the tunnel with its rear end.",
+   "pose": "laugh",
+   "photo": "Vombatus ursinus",
+   "obs": 40861642,
+   "myth": "wombat"
+  },
+  {
+   "say": "The cubes are useful too. Wombats stack them on rocks and logs to mark their territory, and because they're flat sided, they don't roll away.",
+   "pose": "think",
+   "photo": "Vombatus ursinus",
+   "obs": 173372779,
+   "myth": "wombat"
+  },
+  {
+   "say": "The researchers who figured it out won an Ig Nobel Prize. That's a real award for research that makes you laugh, then think.",
+   "pose": "laugh",
+   "text": "A REAL PRIZE\nFOR POOP\nRESEARCH",
+   "myth": "wombat",
+   "short": true
+  },
+  {
+   "say": "True or false? Octopuses have three hearts.",
+   "pose": "think",
+   "quiz": "OCTOPUSES HAVE\nTHREE HEARTS",
+   "myth": "octo",
+   "bonus": "An octopus has blue blood, because it uses copper instead of iron to carry oxygen."
+  },
+  {
+   "say": "True. And that's not even the weirdest part.",
+   "pose": "shock",
+   "photo": "Octopus cyanea",
+   "obs": 319018177,
+   "myth": "octo",
+   "short": true
+  },
+  {
+   "say": "Two small hearts pump blood through the gills, and one big heart pumps it around the rest of the body.",
+   "pose": "point",
+   "photo": "Octopus cyanea",
+   "obs": 170537321,
+   "myth": "octo",
+   "short": true
+  },
+  {
+   "say": "Here's the wild bit. When an octopus swims, the main heart actually stops beating for a moment. That's one reason octopuses would rather crawl than swim. Swimming is exhausting.",
+   "pose": "shock",
+   "photo": "Octopus cyanea",
+   "obs": 293119933,
+   "myth": "octo"
+  },
+  {
+   "say": "And their blood is blue. Three hearts, blue blood, and eight arms. Basically an alien that lives in the sea.",
+   "pose": "laugh",
+   "text": "3 HEARTS.\nBLUE BLOOD.\nALIEN.",
+   "myth": "octo",
+   "short": true
+  },
+  {
+   "say": "True or false? Sea otters hold hands while they sleep.",
+   "pose": "think",
+   "quiz": "SEA OTTERS HOLD\nHANDS WHILE\nTHEY SLEEP",
+   "myth": "otter",
+   "bonus": "Sea otters have the thickest fur of any animal, up to about a million hairs in a single square inch."
+  },
+  {
+   "say": "True. And it's not just for cuteness.",
+   "pose": "laugh",
+   "photo": "Enhydra lutris",
+   "obs": 37218356,
+   "myth": "otter",
+   "short": true
+  },
+  {
+   "say": "Sea otters sleep floating on their backs, so holding paws, or wrapping themselves in seaweed, keeps them from drifting apart while they nap.",
+   "pose": "point",
+   "photo": "Enhydra lutris",
+   "obs": 330799058,
+   "myth": "otter",
+   "short": true
+  },
+  {
+   "say": "Sea otters are also one of the few animals that use tools. They float on their backs, put a rock on their belly, and smash shellfish open on it. Some even keep a favorite rock tucked in a pocket of skin under their arm.",
+   "pose": "point",
+   "photo": "Enhydra lutris",
+   "obs": 120384716,
+   "myth": "otter"
+  },
+  {
+   "say": "A group of resting otters is called a raft. Sometimes there are dozens of them, all bobbing together like a furry pool party.",
+   "pose": "laugh",
+   "photo": "Enhydra lutris",
+   "obs": 330000009,
+   "myth": "otter"
+  },
+  {
+   "say": "So yes, they hold hands. Science says it's practical. Everyone else says it's adorable. Both are right.",
+   "pose": "laugh",
+   "text": "PRACTICAL.\nALSO ADORABLE.",
+   "myth": "otter",
+   "short": true
+  },
+  {
+   "say": "True or false? Flamingos are born pink.",
+   "pose": "think",
+   "quiz": "FLAMINGOS ARE\nBORN PINK",
+   "myth": "flamingo",
+   "bonus": "A flamingo can sleep standing on one leg, and scientists think it may take less effort than standing on two."
+  },
+  {
+   "say": "False. Baby flamingos are grey and white. Fluffy little grey potatoes.",
+   "pose": "shock",
+   "photo": "Phoenicopterus roseus",
+   "obs": 187061594,
+   "myth": "flamingo",
+   "short": true
+  },
+  {
+   "say": "They turn pink from what they eat. Algae and tiny shrimp are full of natural colors called carotenoids, and those end up in their feathers.",
+   "pose": "point",
+   "photo": "Phoenicopterus roseus",
+   "obs": 40340892,
+   "myth": "flamingo",
+   "short": true
+  },
+  {
+   "say": "A flamingo that eats less of that food slowly fades to pale pink or white. So a bright pink flamingo is basically a well fed flamingo.",
+   "pose": "think",
+   "photo": "Phoenicopterus roseus",
+   "obs": 256547853,
+   "myth": "flamingo"
+  },
+  {
+   "say": "You are what you eat. For flamingos, that's literally true.",
+   "pose": "laugh",
+   "text": "YOU ARE WHAT\nYOU EAT.\nLITERALLY.",
+   "myth": "flamingo",
+   "short": true
+  },
+  {
+   "say": "True or false? A starfish can regrow a lost arm.",
+   "pose": "think",
+   "quiz": "A STARFISH CAN\nREGROW AN ARM",
+   "myth": "star",
+   "bonus": "Starfish have no blood. They pump sea water around their bodies instead."
+  },
+  {
+   "say": "True. And some can do something even crazier.",
+   "pose": "shock",
+   "photo": "Pisaster ochraceus",
+   "obs": 61791382,
+   "myth": "star",
+   "short": true
+  },
+  {
+   "say": "If a starfish loses an arm, it can slowly grow a new one. And in some species, a single arm with a piece of the center attached can grow into a whole new starfish.",
+   "pose": "point",
+   "photo": "Pisaster ochraceus",
+   "obs": 393271288,
+   "myth": "star",
+   "short": true
+  },
+  {
+   "say": "Starfish also have a tiny eye spot at the tip of each arm. They can't see detail, but they can tell light from dark, which helps them find their way.",
+   "pose": "think",
+   "photo": "Pisaster ochraceus",
+   "obs": 20561213,
+   "myth": "star"
+  },
+  {
+   "say": "So a starfish has eyes on its hands and can grow a spare body. Honestly, show off.",
+   "pose": "laugh",
+   "text": "EYES ON ITS\nHANDS.\nSHOW OFF.",
+   "myth": "star",
+   "short": true
+  },
+  {
+   "say": "True or false? A group of crows is called a murder.",
+   "pose": "think",
+   "quiz": "A GROUP OF\nCROWS IS CALLED\nA MURDER",
+   "myth": "crow",
+   "bonus": "Crows can recognize human faces and remember a person who bothered them for years."
+  },
+  {
+   "say": "True. It sounds like a horror movie, but it's real.",
+   "pose": "shock",
+   "photo": "Corvus brachyrhynchos",
+   "obs": 70485080,
+   "myth": "crow",
+   "short": true
+  },
+  {
+   "say": "The name comes from old English hunting books, hundreds of years ago, which had fun names for groups of animals. Most were forgotten. A murder of crows stuck.",
+   "pose": "point",
+   "photo": "Corvus brachyrhynchos",
+   "obs": 72146984,
+   "myth": "crow",
+   "short": true
+  },
+  {
+   "say": "Crows also use tools. Some crows bend twigs into hooks to fish bugs out of holes, and city crows have been seen dropping nuts on roads so cars crack them open.",
+   "pose": "point",
+   "photo": "Corvus brachyrhynchos",
+   "obs": 34034414,
+   "myth": "crow"
+  },
+  {
+   "say": "And crows are brilliant. Researchers in Seattle wore a scary mask while catching a few crows. Years later, crows still scolded anyone wearing that mask, even crows that were never caught.",
+   "pose": "shock",
+   "photo": "Corvus brachyrhynchos",
+   "obs": 71157394,
+   "myth": "crow"
+  },
+  {
+   "say": "So be nice to crows. They remember faces, and they tell their friends.",
+   "pose": "point",
+   "text": "THEY REMEMBER.\nTHEY TELL\nTHEIR FRIENDS.",
+   "myth": "crow",
+   "short": true
+  },
+  {
+   "say": "True or false? A platypus glows under ultraviolet light.",
+   "pose": "think",
+   "quiz": "A PLATYPUS\nGLOWS UNDER\nUV LIGHT",
+   "myth": "platypus",
+   "bonus": "Male platypuses have venomous spurs on their back legs. They're one of the very few venomous mammals."
+  },
+  {
+   "say": "True! Scientists found it in twenty twenty.",
+   "pose": "shock",
+   "photo": "Ornithorhynchus anatinus",
+   "obs": 95195691,
+   "myth": "platypus",
+   "short": true
+  },
+  {
+   "say": "Under ultraviolet light, platypus fur glows a blueish green. Researchers noticed it while shining UV light on museum specimens.",
+   "pose": "point",
+   "photo": "Ornithorhynchus anatinus",
+   "obs": 309676272,
+   "myth": "platypus",
+   "short": true
+  },
+  {
+   "say": "Nobody knows for sure why. The platypus already lays eggs, has a duck bill, and the males have venom spurs on their legs. Glowing just got added to the list.",
+   "pose": "think",
+   "photo": "Ornithorhynchus anatinus",
+   "obs": 67233845,
+   "myth": "platypus"
+  },
+  {
+   "say": "The platypus is what happens when nature uses every leftover part in the box.",
+   "pose": "laugh",
+   "text": "EVERY LEFTOVER\nPART IN\nTHE BOX",
+   "myth": "platypus",
+   "short": true
+  },
+  {
+   "say": "True or false? The ostrich is the fastest animal on land.",
+   "pose": "think",
+   "quiz": "THE OSTRICH IS\nTHE FASTEST\nLAND ANIMAL",
+   "myth": "ostrich",
+   "bonus": "An ostrich's eye is bigger than its brain."
+  },
+  {
+   "say": "False. Fast, but not the fastest.",
+   "pose": "point",
+   "photo": "Struthio camelus",
+   "obs": 112650969,
+   "myth": "ostrich",
+   "short": true
+  },
+  {
+   "say": "An ostrich can run around forty three miles an hour, which makes it the fastest bird on land. But a cheetah can hit around sixty five or seventy miles an hour in a short sprint.",
+   "pose": "point",
+   "photo": "Struthio camelus",
+   "obs": 35215841,
+   "myth": "ostrich",
+   "short": true
+  },
+  {
+   "say": "Ostriches also don't bury their heads in the sand, by the way. They lower their heads to turn their eggs in a nest dug in the ground, and from far away it looks like the head disappeared.",
+   "pose": "think",
+   "photo": "Struthio camelus",
+   "obs": 40157448,
+   "myth": "ostrich"
+  },
+  {
+   "say": "Here's where the ostrich wins, though. A cheetah is done after a few hundred yards. An ostrich can keep up a fast pace for a long way. Sprinter versus marathon runner.",
+   "pose": "think",
+   "photo": "Struthio camelus",
+   "obs": 231275074,
+   "myth": "ostrich"
+  },
+  {
+   "say": "So the cheetah wins the race. The ostrich wins the race after the race.",
+   "pose": "laugh",
+   "text": "CHEETAH: SPRINT.\nOSTRICH:\nMARATHON.",
+   "myth": "ostrich",
+   "short": true
+  },
+  {
+   "say": "True or false? A duck's quack doesn't echo.",
+   "pose": "think",
+   "quiz": "A DUCK'S QUACK\nDOESN'T ECHO",
+   "myth": "duck",
+   "bonus": "In mallards, it's usually the females that make the loud classic quack. The males sound quieter and raspier."
+  },
+  {
+   "say": "False. This one went viral, and it's just wrong.",
+   "pose": "facepalm",
+   "photo": "Anas platyrhynchos",
+   "obs": 262157562,
+   "myth": "duck",
+   "short": true
+  },
+  {
+   "say": "Acoustic scientists in England tested it, with a duck called Daisy, in a special echo room. Her quack echoed just fine.",
+   "pose": "point",
+   "photo": "Anas platyrhynchos",
+   "obs": 102309744,
+   "myth": "duck",
+   "short": true
+  },
+  {
+   "say": "The echo is just hard to notice. A quack fades out slowly, so the echo blends right into it. Your ears don't pick it apart.",
+   "pose": "think",
+   "photo": "Anas platyrhynchos",
+   "obs": 107276403,
+   "myth": "duck"
+  },
+  {
+   "say": "So the duck's quack echoes. It's just a very sneaky echo.",
+   "pose": "laugh",
+   "text": "IT ECHOES.\nSNEAKILY.",
+   "myth": "duck",
+   "short": true
+  },
+  {
+   "say": "True or false? Hummingbirds can fly backwards.",
+   "pose": "think",
+   "quiz": "HUMMINGBIRDS\nCAN FLY\nBACKWARDS",
+   "myth": "hummer",
+   "bonus": "A hummingbird's heart can beat over a thousand times a minute when it's busy."
+  },
+  {
+   "say": "True. They're the only birds that can really do it.",
+   "pose": "shock",
+   "photo": "Archilochus colubris",
+   "obs": 139587119,
+   "myth": "hummer",
+   "short": true
+  },
+  {
+   "say": "Hummingbirds can twist their wings in a figure eight, so they push air on the way up and the way down. That lets them hover, fly sideways, and fly backwards.",
+   "pose": "point",
+   "photo": "Archilochus colubris",
+   "obs": 138799680,
+   "myth": "hummer",
+   "short": true
+  },
+  {
+   "say": "To power all that, a hummingbird has to eat constantly, visiting hundreds of flowers a day. At night, some go into a deep sleep called torpor, where their body cools right down to save energy.",
+   "pose": "think",
+   "photo": "Archilochus colubris",
+   "obs": 87217298,
+   "myth": "hummer"
+  },
+  {
+   "say": "They beat their wings dozens of times every second. That's where the humming sound comes from.",
+   "pose": "think",
+   "photo": "Archilochus colubris",
+   "obs": 90044568,
+   "myth": "hummer"
+  },
+  {
+   "say": "A hummingbird is basically a tiny helicopter that drinks sugar water.",
+   "pose": "laugh",
+   "text": "A TINY\nHELICOPTER",
+   "myth": "hummer",
+   "short": true
+  },
+  {
+   "say": "True or false? A mantis shrimp can punch hard enough to crack aquarium glass.",
+   "pose": "think",
+   "quiz": "A SHRIMP CAN\nPUNCH THROUGH\nGLASS",
+   "myth": "mantis",
+   "bonus": "Mantis shrimp have many more types of color sensors in their eyes than humans do."
+  },
+  {
+   "say": "True. Meet the strongest punch in the ocean.",
+   "pose": "shock",
+   "photo": "Odontodactylus scyllarus",
+   "obs": 218715998,
+   "myth": "mantis",
+   "short": true
+  },
+  {
+   "say": "A mantis shrimp's club shoots out so fast that the water around it boils into tiny bubbles. When those bubbles pop, they make a flash of light and a second shockwave.",
+   "pose": "point",
+   "photo": "Odontodactylus scyllarus",
+   "obs": 167567929,
+   "myth": "mantis",
+   "short": true
+  },
+  {
+   "say": "They use it to smash open crabs and snail shells. And yes, people keeping them in small tanks have reported cracked glass.",
+   "pose": "think",
+   "photo": "Odontodactylus scyllarus",
+   "obs": 27558593,
+   "myth": "mantis"
+  },
+  {
+   "say": "A shrimp that punches so hard the water sparks. Do not shake its hand.",
+   "pose": "laugh",
+   "text": "DO NOT SHAKE\nITS HAND",
+   "myth": "mantis",
+   "short": true
+  },
+  {
+   "say": "True or false? Elephants can't jump.",
+   "pose": "think",
+   "quiz": "ELEPHANTS\nCAN'T JUMP",
+   "myth": "jump",
+   "bonus": "Elephants can pick up rumbles through the ground with their feet, from other elephants far away."
+  },
+  {
+   "say": "True. A grown elephant never has all four feet off the ground.",
+   "pose": "point",
+   "photo": "Loxodonta africana",
+   "obs": 58665742,
+   "myth": "jump",
+   "short": true
+  },
+  {
+   "say": "Their leg bones point almost straight down, and they're carrying several tons. Even when an elephant moves fast, at least one foot stays on the ground.",
+   "pose": "point",
+   "photo": "Loxodonta africana",
+   "obs": 9007458,
+   "myth": "jump",
+   "short": true
+  },
+  {
+   "say": "Baby elephants can't jump either, but they do something cute instead. For their first months, many calves don't really know what to do with their trunks, and they swing them around like a floppy rubber hose.",
+   "pose": "laugh",
+   "photo": "Loxodonta africana",
+   "obs": 138520307,
+   "myth": "jump"
+  },
+  {
+   "say": "But they don't need to jump. Elephants can walk surprisingly fast, swim, and even feel low rumbles from other elephants through their feet.",
+   "pose": "think",
+   "photo": "Loxodonta africana",
+   "obs": 156296507,
+   "myth": "jump"
+  },
+  {
+   "say": "The elephant can't jump, and honestly, the ground is grateful.",
+   "pose": "laugh",
+   "text": "THE GROUND\nIS GRATEFUL",
+   "myth": "jump",
+   "short": true
+  },
+  {
+   "say": "Scores! The fakes were the pink baby flamingos, the ostrich being fastest, and the duck with no echo. Everything else is real. Drop your score out of twelve in the comments, and tell me which one you still don't believe.",
+   "pose": "laugh",
+   "text": "COMMENT YOUR\nSCORE /12",
+   "myth": "outro"
+  },
+  {
+   "say": "And subscribe, because tomorrow we're going after the myths about the animals living in your own house.",
+   "pose": "wave",
+   "text": "NEXT: PET MYTHS",
+   "myth": "outro"
+  }
+ ]
+}
