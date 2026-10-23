@@ -33,7 +33,7 @@ TEXT_PANEL = (500, 90, 1400, 900)  # text cards have no frame, so they can use m
 SAUCE = (196, 38, 30)
 MASCOT = (760, (-60, H - 760 + 40))  # size, top-left position
 COVER = False
-ANIMATE = False  # punch style: Meatball is overlaid as animated frames (mascot.animate) instead of a still
+ANIMATE = False  # set in main(): Meatball is overlaid as animated frames (mascot.animate) instead of a still
 PUNCH = False  # "style": "punch" in the spec: full-bleed photos, outlined text, stamps, SFX, progress bar
 COUNT_S = 1.0  # seconds per countdown number
 YELLOW = (255, 214, 10)
@@ -374,6 +374,9 @@ def compose(beat, i, work, picks, out, count=None, ctx=None):
     elif "img" in beat:
         canvas.alpha_composite(_panel_image(f"{work}/img/{i:02d}_s{picks.get(str(i), 0)}.png"))
     size, pos = MASCOT
+    if ANIMATE:
+        canvas.convert("RGB").save(out)
+        return beat.get("pose", "point"), size, pos
     m = draw(beat.get("pose", "point"), size)
     halo = m.split()[3].filter(ImageFilter.MaxFilter(15))  # white outline keeps him readable over panels
     canvas.paste((255, 255, 255, 255), pos, halo)
@@ -557,9 +560,10 @@ def main():
     ap.add_argument("--vertical", action="store_true", help="1080x1920 Shorts layout with captions")
     a = ap.parse_args()
     spec = json.load(open(a.beats))
+    global PUNCH, ANIMATE, COUNT_S
+    ANIMATE = spec.get("style") != "static"
     if spec.get("style") == "punch":
-        global PUNCH, ANIMATE, COUNT_S
-        PUNCH, ANIMATE, COUNT_S = True, True, (0.5 if a.vertical else 0.7)
+        PUNCH, COUNT_S = True, (0.5 if a.vertical else 0.7)
     if spec.get("music"):
         global MUSIC
         MUSIC = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "brand", spec["music"])

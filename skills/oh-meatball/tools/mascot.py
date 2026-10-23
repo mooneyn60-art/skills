@@ -143,12 +143,12 @@ def animate(pose, size, words, dur, fps, outdir, seed=0, pop=True):
         im = cache[key]
         tp = t - dur / 2 if dur > 2.8 and t >= dur / 2 else t  # re-pop on the pose swap
         sc = min(1.0, 0.75 + tp / 0.18 * 0.25) if (pop or tp != t) and tp < 0.18 else 1.0
-        sq = 1 + 0.04 * math.sin(t * 2 * math.pi * 1.1)  # breathing squash and stretch
+        sq = 1 + 0.015 * math.sin(t * 2 * math.pi * 1.1)  # breathing squash and stretch
         w, h = int(size * sc * (2 - sq)), int(size * sc * sq)
-        frame = im.resize((max(1, w), max(1, h)), Image.BILINEAR).rotate(3 * math.sin(t * 2 * math.pi * 0.7),
+        frame = im.resize((max(1, w), max(1, h)), Image.BILINEAR).rotate(1.2 * math.sin(t * 2 * math.pi * 0.7),
                                                                          resample=Image.BICUBIC, expand=False)
         canvas = Image.new("RGBA", (size + 2 * pad, size + 2 * pad), (0, 0, 0, 0))
-        bob = int(10 * math.sin(t * 2 * math.pi * 1.4))
+        bob = int(4 * math.sin(t * 2 * math.pi * 1.4))
         canvas.alpha_composite(frame, ((canvas.width - frame.width) // 2, canvas.height - pad - frame.height + bob))
         canvas.save(f"{outdir}/{f:04d}.png")
     return n
