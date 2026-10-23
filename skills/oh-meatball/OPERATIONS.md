@@ -62,6 +62,11 @@ shares, subs gained. Channel: subs/followers, credits left, posts live vs queued
 - Post the episode first, then its Shorts, so every Short can carry a Related video link to it
   (Studio only, no API). A Short that goes out before its episode sends its viewers nowhere.
 - Check Metricool and stats.py before queueing a Short so the same Short never posts twice.
+- Narration at +10% (episodes) and +12% (Shorts/TikTok) with the light music bed
+  (`brand/music/quiz-bed.m4a`, original vidIQ track, ducked under the voice). Set per script:
+  `"rate"`, `"short_rate"`, `"music"`.
+- One long-form episode a day at 10:30 AM ET; 3 TikToks a day (12 PM, 4 PM, 7:30 PM), every one
+  over 60 s (Creator Rewards floor) with the AI-content label on.
 
 ## Guardrails
 - Original characters and stories only; label AI content where the platform asks.
