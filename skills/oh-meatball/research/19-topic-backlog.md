@@ -11,6 +11,7 @@ Source: tools/rivals.py snapshot 2026-10-23 plus research/16. "x" = times that c
 | 10 | Snake & spider myths | WildNature Lab "Black Widow vs Brown Recluse" 22.7x | queued |
 | 11 | Bird myths | robins, ostriches, owls did well as Shorts | queued |
 | 12 | Part 2 of our best episode by 48 h views | double-down rule | when data exists |
+| Shorts idea | 'Worst animal ___' superlatives (worst parents, laziest, weirdest moms) | What Gives? 'Worst Animal Mating' Shorts 10.7x (150k), 2026-10-23 scan | test |
 
 Photo rule: only taxa with plenty of live, unharmed, research-grade iNaturalist photos. Deep-sea and
 "extinct" animals are often photographed dead or as specimens, so check the contact sheet before
@@ -24,11 +25,11 @@ so our angle is the funny stick-figure version with 3-4 TRUE/FALSE checkpoints t
 
 | # | Episode | Status |
 |---|---|---|
-| S2-1 | How Wolves Became Dogs (the full story, kind of) | next, Sat 10/31 |
-| S2-2 | How Cats Domesticated Themselves | queued |
+| S2-1 | How Wolves Became Dogs (the full story, kind of) | done, posts Sat 10/24 5:30 PM |
+| S2-2 | How Cats Domesticated Themselves | next, Sat 10/31 |
 | S2-3 | When Whales Had Legs | queued |
 | S2-4 | How Chickens Took Over the World | queued |
 | S2-5 | Horses: from dog-sized to Derby | queued |
 
 Visuals: live-animal photos from iNaturalist plus public-domain/CC images (fossils, cave art,
-paintings) from Wikimedia Commons with credits; needs a Commons fetcher in tools/ first.
+paintings) from the Met Open Access API via tools/museum.py (obs "met:<id>"); Commons is rate-limited from here.
