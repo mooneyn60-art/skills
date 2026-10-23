@@ -15,7 +15,7 @@ import explainer
 from episode import RAW, ROOT, claim
 
 MIN_S = 75  # margin over TikTok's 60 s floor; the estimate below can run ~10% long
-WPS = 3.0   # en-US-AndrewNeural at rate +20%; +0% measured 2.5 on episodes 2-3
+WPS = 2.9   # en-US-AndrewMultilingualNeural at rate +15%; +0% measured 2.5 on episodes 2-3
 END = {"say": "How many did you get? Comment your score, and follow, because the full twelve-myth quiz is on my profile.",
        "pose": "wave", "text": "COMMENT\nYOUR SCORE"}
 
