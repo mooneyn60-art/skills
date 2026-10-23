@@ -56,6 +56,13 @@ shares, subs gained. Channel: subs/followers, credits left, posts live vs queued
   YouTube Studio: Settings > Upload defaults > Advanced settings > untick "Show how many viewers
   like this video" (new uploads), and Content > select all > Edit (existing ones).
 
+## Long-form rules (learned 2026-10-23)
+- Cold open every episode: the first line is the hook for a stranger (the myths, the twist, the
+  stakes), then straight into myth 1. Never open with "Last time..." since nearly every viewer is new.
+- Post the episode first, then its Shorts, so every Short can carry a Related video link to it
+  (Studio only, no API). A Short that goes out before its episode sends its viewers nowhere.
+- Check Metricool and stats.py before queueing a Short so the same Short never posts twice.
+
 ## Guardrails
 - Original characters and stories only; label AI content where the platform asks.
 - Keep >= 400 vidIQ credits in reserve. No paid tools without Nolan's yes.
