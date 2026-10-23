@@ -1,5 +1,5 @@
 {
- "rate": "+10%",
+ "rate": "+18%",
  "voice": "en-US-AndrewNeural",
  "title": "TRUE or FALSE? Jaws & Disney Lied To You About These 12 Animals",
  "names": {
@@ -37,13 +37,13 @@
  "pinned": "📝 SCORE CHECK: how many did you get out of 12? 👇\n\nAnswer key: TRUE = river sharks + Nemo's dad. Everything else was FALSE.\n\nWhich movie lied to YOU the most? Comment it.",
  "beats": [
   {
-   "say": "Jaws, The Lion King, Finding Nemo and Bambi all taught you animal facts. Most of them are wrong. But two are true. Can you spot them?",
+   "say": "Jaws, The Lion King, Finding Nemo and Bambi all taught you animal facts. Most of them are wrong. Two are true. Can you spot them? I couldn't. I'm made of sticks.",
    "pose": "shock",
    "text": "JAWS & DISNEY\nLIED TO YOU",
    "myth": "intro"
   },
   {
-   "say": "You get three seconds to guess true or false. Keep score, and tell me your number out of twelve at the end. First up, sharks.",
+   "say": "You get three seconds to guess true or false. Keep score, and tell me your number out of twelve at the end. No cheating. I can see you. Okay, I can't. But act like I can. First up, sharks.",
    "pose": "point",
    "text": "3 SECONDS.\nKEEP SCORE.",
    "myth": "intro"
@@ -56,7 +56,7 @@
    "bonus": "Smell has to drift to a shark on the current. If the water's flowing the wrong way, it can't smell you at all."
   },
   {
-   "say": "False. Sharks have a great nose, but that line is wildly exaggerated.",
+   "say": "False. Sharks have a great nose, but that line is wildly exaggerated. Fishing story exaggerated.",
    "pose": "shock",
    "photo": "Carcharodon carcharias",
    "obs": 252279056,
@@ -64,7 +64,7 @@
    "short": true
   },
   {
-   "say": "Some sharks can sense certain chemicals at about one part per million. That's roughly one drop in a bathtub. Impressive, but a bathtub is not the ocean.",
+   "say": "Some sharks can sense certain chemicals at about one part per million. That's roughly one drop in a bathtub. Impressive. But the ocean is a very, very big bathtub.",
    "pose": "point",
    "photo": "Negaprion brevirostris",
    "obs": 166445891,
@@ -72,21 +72,33 @@
    "short": true
   },
   {
-   "say": "And smell doesn't teleport. It has to drift to the shark on the current, which takes time. If the water's flowing the wrong way, the shark can't smell you at all.",
+   "say": "Bathtub? Totally. Ocean? Nope. Those are very different sizes. I checked.",
+   "pose": "laugh",
+   "text": "ONE DROP.\nA BATHTUB.\nNOT THE OCEAN.",
+   "myth": "smell"
+  },
+  {
+   "say": "And smell doesn't teleport. It has to drift to the shark on the current, which takes time. If the water's flowing the wrong way, the shark can't smell you at all. Return to sender.",
    "pose": "think",
    "photo": "Negaprion brevirostris",
    "obs": 303251180,
    "myth": "smell"
   },
   {
-   "say": "What sharks are really good at is the whole package. Smell, plus feeling tiny vibrations in the water, plus sensing the electric fields from living muscles. That last one is basically a superpower, and nobody puts it on a poster.",
+   "say": "What sharks are really good at is the whole package. Smell, plus feeling tiny vibrations in the water, plus sensing the electric fields from living muscles. That last one is basically a superpower. Nobody puts it on a poster.",
    "pose": "point",
    "photo": "Carcharodon carcharias",
    "obs": 339695873,
    "myth": "smell"
   },
   {
-   "say": "So a shark is not sitting a mile away going, hmm, Kevin cut his finger.",
+   "say": "Forget the nose. The real headline is, shark can sense your muscles. Spooky. Also kind of awesome.",
+   "pose": "shock",
+   "text": "ELECTRIC SENSE:\nAN ACTUAL\nSUPERPOWER",
+   "myth": "smell"
+  },
+  {
+   "say": "So a shark is not sitting a mile away going, hmm, Kevin cut his finger. Sorry, Kevin. You're fine.",
    "pose": "laugh",
    "text": "\"HMM. KEVIN CUT\nHIS FINGER.\"",
    "myth": "smell",
@@ -116,7 +128,13 @@
    "short": true
   },
   {
-   "say": "Many bites on people seem to be a test bite, basically a shark going, what is this? And then swimming away.",
+   "say": "To a shark, you're basically celery. Crunchy. Disappointing. Spit it out.",
+   "pose": "laugh",
+   "text": "YOU ARE\nSHARK CELERY",
+   "myth": "jaws"
+  },
+  {
+   "say": "Many bites on people seem to be a test bite. Basically a shark going, what is this? Nope. And then swimming away.",
    "pose": "think",
    "photo": "Carcharodon carcharias",
    "obs": 242408050,
@@ -129,7 +147,7 @@
    "myth": "jaws"
   },
   {
-   "say": "Peter Benchley, who wrote Jaws, spent years afterwards campaigning to protect sharks. That's like writing a horror movie about your neighbor and then becoming his biggest fan.",
+   "say": "Plot twist. Peter Benchley, who wrote Jaws, spent years afterwards campaigning to protect sharks. That's like writing a horror movie about your neighbor and then becoming his biggest fan.",
    "pose": "laugh",
    "text": "THE JAWS AUTHOR\nBECAME A SHARK\nDEFENDER",
    "myth": "jaws",
@@ -151,7 +169,7 @@
    "short": true
   },
   {
-   "say": "Sharks like great whites and makos mostly breathe by swimming with their mouths open, so water rushes over their gills. Those ones do need to keep moving.",
+   "say": "Sharks like great whites and makos mostly breathe by swimming with their mouths open, so water rushes over their gills. Those ones do need to keep moving. No breaks. No naps. Tough job.",
    "pose": "point",
    "photo": "Carcharodon carcharias",
    "obs": 252279056,
@@ -166,7 +184,14 @@
    "short": true
   },
   {
-   "say": "Some sharks have even been seen resting in underwater caves, lined up like they are waiting for a bus. Very calm. Very rude to Finding Nemo.",
+   "say": "Look at this one. Zero plans today. Living the dream.",
+   "pose": "laugh",
+   "photo": "Ginglymostoma cirratum",
+   "obs": 214866152,
+   "myth": "swim"
+  },
+  {
+   "say": "Some sharks have even been seen resting in underwater caves, lined up like they're waiting for a bus. Very calm. Dory would be furious.",
    "pose": "laugh",
    "photo": "Ginglymostoma cirratum",
    "obs": 151501901,
@@ -178,6 +203,12 @@
    "text": "FOR SOME SHARKS,\nIT'S OPTIONAL",
    "myth": "swim",
    "short": true
+  },
+  {
+   "say": "Just keep swimming? More like, just keep snoozing.",
+   "pose": "laugh",
+   "text": "JUST KEEP\nSNOOZING",
+   "myth": "swim"
   },
   {
    "say": "True or false? Sharks can't get cancer.",
@@ -209,6 +240,12 @@
    "myth": "cancer"
   },
   {
+   "say": "That's like a rumor about you that somehow gets you grounded.",
+   "pose": "facepalm",
+   "text": "A SHARK MYTH\nHURT SHARKS",
+   "myth": "cancer"
+  },
+  {
    "say": "When those pills were actually tested on patients, they didn't work. Bad news for the pill sellers. Even worse news for the sharks.",
    "pose": "facepalm",
    "text": "THE PILLS\nDIDN'T WORK",
@@ -231,7 +268,7 @@
    "short": true
   },
   {
-   "say": "Bull sharks can handle both salt water and fresh water, which most sharks can't do. They swim up big rivers like the Amazon and the Mississippi.",
+   "say": "Bull sharks can handle both salt water and fresh water, which most sharks can't do. They swim up big rivers like the Amazon and the Mississippi. No passport needed.",
    "pose": "point",
    "photo": "Carcharhinus leucas",
    "obs": 326129512,
@@ -239,10 +276,16 @@
    "short": true
   },
   {
-   "say": "One was reportedly caught way up the Mississippi in Illinois, more than a thousand miles from the ocean.",
+   "say": "One was reportedly caught way up the Mississippi in Illinois, more than a thousand miles from the ocean. That's not a swim. That's a road trip.",
    "pose": "shock",
    "photo": "Carcharhinus leucas",
    "obs": 29940542,
+   "myth": "bull"
+  },
+  {
+   "say": "Are we there yet? Are we there yet? Said the shark, a thousand miles in.",
+   "pose": "laugh",
+   "text": "\"ARE WE\nTHERE YET?\"",
    "myth": "bull"
   },
   {
@@ -282,12 +325,18 @@
    "myth": "bowl"
   },
   {
-   "say": "Given a big pond, goldfish can grow longer than your hand, sometimes more than a foot long, and live for decades.",
+   "say": "Given a big pond, goldfish can grow longer than your hand, sometimes more than a foot long, and live for decades. Your goldfish could outlive your phone. Several phones.",
    "pose": "shock",
    "photo": "Carassius auratus",
    "obs": 82747940,
    "myth": "bowl",
    "short": true
+  },
+  {
+   "say": "Plot twist. Your tiny pet is a big fish stuck in a small apartment.",
+   "pose": "shock",
+   "text": "GOLDFISH:\nSECRETLY HUGE",
+   "myth": "bowl"
   },
   {
    "say": "If you want a happy goldfish, it needs a proper tank with a filter, room to swim, and clean water. Basically the opposite of the bowl from every cartoon ever.",
@@ -340,10 +389,16 @@
    "myth": "gator"
   },
   {
-   "say": "Alligators want warm swamps and sunshine, not subway rats and pizza crusts. They have standards.",
+   "say": "Alligators want warm swamps and sunshine, not subway rats and pizza crusts. Picture a gator in a tiny scarf, shivering. Sad. Very sad.",
    "pose": "laugh",
    "photo": "Alligator mississippiensis",
    "obs": 166169637,
+   "myth": "gator"
+  },
+  {
+   "say": "No sun? No swamp? No thank you. Gators have standards.",
+   "pose": "laugh",
+   "text": "GATORS HAVE\nSTANDARDS",
    "myth": "gator"
   },
   {
@@ -370,12 +425,18 @@
    "short": true
   },
   {
-   "say": "And here's the twist. Lions often steal food from hyenas, not just the other way around.",
+   "say": "And here's the twist. Lions often steal food from hyenas, not just the other way around. Plot twist of the savanna.",
    "pose": "shock",
    "photo": "Crocuta crocuta",
    "obs": 186023829,
    "myth": "hyena",
    "short": true
+  },
+  {
+   "say": "Imagine cooking dinner, and the king just walks in and eats it. Rude.",
+   "pose": "facepalm",
+   "text": "LIONS STEAL\nFROM HYENAS\nTOO",
+   "myth": "hyena"
   },
   {
    "say": "Spotted hyenas also live in big family groups called clans, led by females, and they are surprisingly smart at teamwork and problem solving. Not a single one sounds like Whoopi Goldberg, though.",
@@ -385,7 +446,7 @@
    "myth": "hyena"
   },
   {
-   "say": "So the movie had the thief the wrong way round. Sorry, Scar.",
+   "say": "So the movie had the thief the wrong way round. Hyenas deserve an apology. And a better publicist.",
    "pose": "laugh",
    "text": "THE MOVIE GOT\nTHE THIEF\nBACKWARDS",
    "myth": "hyena",
@@ -415,6 +476,12 @@
    "short": true
   },
   {
+   "say": "She hunts. He eats first. Nobody does the dishes.",
+   "pose": "facepalm",
+   "text": "SHE HUNTS.\nHE EATS FIRST.",
+   "myth": "lion"
+  },
+  {
    "say": "To be fair, male lions do hunt sometimes, especially big animals like buffalo, and they defend the pride's territory. But day to day dinner? That's mostly the ladies.",
    "pose": "think",
    "photo": "Panthera leo",
@@ -422,7 +489,7 @@
    "myth": "lion"
   },
   {
-   "say": "Lions also sleep a ridiculous amount, often up to twenty hours a day. So the king of the jungle is honestly the king of naps too.",
+   "say": "Lions also sleep a ridiculous amount, often up to twenty hours a day. Twenty! I can't sit still for twenty seconds.",
    "pose": "laugh",
    "photo": "Panthera leo",
    "obs": 151232618,
@@ -467,6 +534,12 @@
    "short": true
   },
   {
+   "say": "Pixar looked at that and said, maybe not in this movie. Pass the popcorn.",
+   "pose": "laugh",
+   "text": "DAD BECOMES\nMOM",
+   "myth": "nemo"
+  },
+  {
    "say": "And Finding Nemo had another problem. Clownfish dads really do take care of the eggs, fanning them and guarding them. So Marlin being an overprotective parent? Actually accurate.",
    "pose": "point",
    "photo": "Amphiprion ocellaris",
@@ -504,6 +577,13 @@
    "short": true
   },
   {
+   "say": "Look at this little loaf. Hiding champion. Barely any scent, full spots, maximum stillness.",
+   "pose": "laugh",
+   "photo": "Odocoileus virginianus",
+   "obs": 80236962,
+   "myth": "fawn"
+  },
+  {
    "say": "She comes back a few times a day to feed it. So if you find a fawn on its own, it's almost always fine. Leave it where it is.",
    "pose": "point",
    "photo": "Odocoileus virginianus",
@@ -519,7 +599,7 @@
    "myth": "fawn"
   },
   {
-   "say": "It's not abandoned. It's at daycare. Very quiet daycare.",
+   "say": "It's not abandoned. It's at daycare. Very quiet daycare. The snack schedule is excellent.",
    "pose": "laugh",
    "text": "NOT ABANDONED.\nAT DAYCARE.",
    "myth": "fawn"
@@ -540,12 +620,18 @@
    "short": true
   },
   {
-   "say": "Mice mostly eat grains, seeds, and sweet stuff. Given the choice, a lot of mice would rather have peanut butter or cereal than cheese.",
+   "say": "Mice mostly eat grains, seeds, and sweet stuff. Given the choice, a lot of mice would rather have peanut butter or cereal than cheese. Sorry, every cartoon ever.",
    "pose": "point",
    "photo": "Mus musculus",
    "obs": 130228190,
    "myth": "cheese",
    "short": true
+  },
+  {
+   "say": "Peanut butter wins. Cheese is crying in the fridge.",
+   "pose": "laugh",
+   "text": "PEANUT BUTTER\nBEATS CHEESE",
+   "myth": "cheese"
   },
   {
    "say": "Nobody's totally sure where the cheese idea came from. One guess is that people used to store cheese out in the open, so mice found it easy to grab.",
@@ -562,13 +648,13 @@
    "myth": "cheese"
   },
   {
-   "say": "So if you set a trap with cheese, the mouse might just walk past it and go eat your cereal.",
+   "say": "So if you set a trap with cheese, the mouse might just walk past it and go eat your cereal. Then leave you a thank you crumb.",
    "pose": "facepalm",
    "text": "THE MOUSE WANTS\nYOUR CEREAL",
    "myth": "cheese"
   },
   {
-   "say": "Scores! The true ones were the river sharks and Nemo's dad. Everything else was false. Drop your score out of twelve in the comments, and tell me which one got you.",
+   "say": "Scores! The true ones were the river sharks and Nemo's dad. Everything else was false. Drop your score out of twelve in the comments, and tell me which one got you. Twelve out of twelve? Show off. I love it.",
    "pose": "laugh",
    "text": "COMMENT YOUR\nSCORE /12",
    "myth": "outro"
@@ -580,6 +666,6 @@
    "myth": "outro"
   }
  ],
- "short_rate": "+12%",
+ "short_rate": "+20%",
  "music": "music/quiz-bed.m4a"
 }
