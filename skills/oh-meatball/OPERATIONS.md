@@ -64,6 +64,11 @@ qualified views. Channel: subs, weekly long-form watch hours vs the 4,000 h pace
 - Post the episode first, then its Shorts, so every Short can carry a Related video link to it
   (Studio only, no API). A Short that goes out before its episode sends its viewers nowhere.
 - Check Metricool and stats.py before queueing a Short so the same Short never posts twice.
+- Retention rules (research/20-retention-and-swipe.md, 2026-10-23): every script sets "style": "punch".
+  Shorts are one myth, 20-28 s, open on the animal + claim at frame 0, 1.5 s countdown, reveal stamp + SFX,
+  a photo change every 2-3 s, no outro card (end on the punchline so it loops). Long-form: strongest
+  myth teased in the cold open, myth #1 by ~15 s, re-hooks near 1, 3 and 6 minutes ("the last one fooled
+  scientists"), MYTH n/12 badge, best myth saved for last.
 - Narration: en-US-AndrewMultilingualNeural at +15% everywhere (Nolan picked it 2026-10-23) with the light music bed
   (`brand/music/quiz-bed.m4a`, original vidIQ track, ducked under the voice). Set per script:
   `"rate"`, `"short_rate"`, `"music"`.

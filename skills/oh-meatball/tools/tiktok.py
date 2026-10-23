@@ -58,8 +58,9 @@ def main():
         subprocess.run(f"cp -n {long_photos}/* {work}/photos/ 2>/dev/null || true", shell=True)
         sspec = f"{work}/script.json"
         json.dump({"voice": spec.get("voice", "en-US-AndrewNeural"), "rate": spec.get("short_rate", spec.get("rate", "+0%")),
-                   "music": spec.get("music"),
-                   "beats": [b for b in beats if b.get("myth") in ms] + [END]}, open(sspec, "w"))
+                   "music": spec.get("music"), "style": spec.get("style"),
+                   "beats": [b for b in beats if b.get("myth") in ms] + ([] if spec.get("style") == "punch" else [END])},
+                  open(sspec, "w"))
         path = f"{out}/tt-{n}.mp4"
         # Render in the work dir and move into the repo only when finished, so a commit never grabs a half-written file.
         subprocess.run(["python3", "explainer.py", sspec, work, "build", f"{work}/tt.mp4", "--vertical"], check=True,

@@ -118,8 +118,11 @@ def main():
         swork = f"{a.work}/{a.slug}/short-{m}"
         sspec = f"{swork}/script.json"
         os.makedirs(swork, exist_ok=True)
+        punch = spec.get("style") == "punch"
+        # Punch Shorts end on the punchline so the video loops; no outro card (swipes cluster at the end).
         json.dump({"voice": spec.get("voice", "en-US-AndrewNeural"), "rate": spec.get("short_rate", "+8%"),
-                   "music": spec.get("music"), "beats": tighten(mb) + [END]}, open(sspec, "w"))
+                   "music": spec.get("music"), "style": spec.get("style"),
+                   "beats": tighten(mb, 3 if punch else None) + ([] if punch else [END])}, open(sspec, "w"))
         if not a.skip_shorts:
             os.makedirs(f"{swork}/photos", exist_ok=True)
             subprocess.run(f"cp -n {long_work}/photos/* {swork}/photos/ 2>/dev/null || true", shell=True)

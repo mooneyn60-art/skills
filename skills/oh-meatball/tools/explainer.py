@@ -32,6 +32,9 @@ TEXT_PANEL = (500, 90, 1400, 900)  # text cards have no frame, so they can use m
 SAUCE = (196, 38, 30)
 MASCOT = (760, (-60, H - 760 + 40))  # size, top-left position
 COVER = False
+PUNCH = False  # "style": "punch" in the spec: full-bleed photos, outlined text, stamps, SFX, progress bar
+COUNT_S = 1.0  # seconds per countdown number
+YELLOW = (255, 214, 10)
 BOLD = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 # Only licenses that allow commercial reuse; CC-BY/BY-SA need the credit line.
 LICENSES = "cc0,cc-by,cc-by-sa"
@@ -207,7 +210,153 @@ def _panel_quiz(statement, count=None):
     return layer
 
 
-def compose(beat, i, work, picks, out, count=None):
+def _cover(path, blur=0, dim=1.0):
+    """Photo scaled to fill the whole frame (crop the overflow), optionally blurred and darkened."""
+    from PIL import Image, ImageEnhance, ImageFilter
+    im = Image.open(path).convert("RGB")
+    s = max(W / im.width, H / im.height)
+    im = im.resize((int(im.width * s) + 1, int(im.height * s) + 1), Image.LANCZOS)
+    l, t = (im.width - W) // 2, (im.height - H) // 2
+    im = im.crop((l, t, l + W, t + H))
+    if blur:
+        im = im.filter(ImageFilter.GaussianBlur(blur))
+    if dim != 1.0:
+        im = ImageEnhance.Brightness(im).enhance(dim)
+    return im.convert("RGBA")
+
+
+def _framed(path):
+    """Full-bleed in landscape. In a tall frame a center crop of a landscape photo cuts off heads, so the
+    photo sits big in the middle (2/3 of its width kept) over a blurred, darkened copy of itself."""
+    from PIL import Image
+    if W >= H:
+        return _cover(path)
+    canvas = _cover(path, blur=24, dim=0.5)
+    im = Image.open(path).convert("RGB")
+    fh = int(H * 0.6)
+    s = fh / im.height
+    im = im.resize((max(W, int(im.width * s)), fh), Image.LANCZOS)
+    l = (im.width - W) // 2
+    canvas.paste(im.crop((l, 0, l + W, fh)), (0, int(H * 0.2)))
+    return canvas
+
+
+def _outlined(d, xy, text, font, fill, stroke=None):
+    d.text(xy, text, font=font, fill=fill, stroke_width=stroke or max(4, font.size // 11), stroke_fill=(0, 0, 0))
+
+
+def _fit(d, lines, max_w, max_h, start, floor=70):
+    from PIL import ImageFont
+    size = start
+    while size > floor:
+        font = ImageFont.truetype(BOLD, size)
+        if max(d.textlength(x, font=font) for x in lines) < max_w and size * 1.12 * len(lines) < max_h:
+            break
+        size -= 6
+    return ImageFont.truetype(BOLD, size)
+
+
+def _punch_text(layer, text, cy, max_h, yellow_last=True):
+    """Big white outlined lines centered on cy; the last line yellow (the punchline)."""
+    from PIL import ImageDraw
+    d = ImageDraw.Draw(layer)
+    lines = text.split("\n")
+    font = _fit(d, lines, W - 200, max_h, 160 if H > W else 150)
+    total = font.size * 1.12 * len(lines)
+    y = cy - total / 2
+    for k, line in enumerate(lines):
+        fill = YELLOW if yellow_last and k == len(lines) - 1 and len(lines) > 1 else (255, 255, 255)
+        _outlined(d, ((W - d.textlength(line, font=font)) / 2, y), line, font, fill)
+        y += font.size * 1.12
+
+
+def _pill(layer, label, cy, fill=SAUCE, size=None):
+    from PIL import ImageDraw, ImageFont
+    d = ImageDraw.Draw(layer)
+    f = ImageFont.truetype(BOLD, size or (86 if H > W else 70))
+    tw = d.textlength(label, font=f)
+    x0, y0 = (W - tw) / 2 - 40, cy - f.size * 0.75
+    d.rounded_rectangle([x0, y0, x0 + tw + 80, y0 + f.size * 1.5], 30, fill=fill, outline=(255, 255, 255), width=6)
+    d.text((x0 + 40, y0 + f.size * 0.18), label, font=f, fill=(255, 255, 255))
+
+
+def _stamp(layer, verdict):
+    """Rotated TRUE/FALSE stamp slammed over the reveal photo."""
+    from PIL import Image, ImageDraw, ImageFont
+    true = verdict == "TRUE"
+    col = (24, 170, 70) if true else SAUCE
+    f = ImageFont.truetype(BOLD, 200 if H > W else 170)
+    label = ("TRUE" if true else "FALSE") + (" \u2713" if true else " \u2717")
+    tmp = Image.new("RGBA", (1400, 400), (0, 0, 0, 0))
+    d = ImageDraw.Draw(tmp)
+    tw = d.textlength(label, font=f)
+    d.rounded_rectangle([20, 20, tw + 120, 20 + f.size * 1.35], 40, fill=col + (235,), outline=(255, 255, 255), width=12)
+    d.text((70, 20 + f.size * 0.12), label, font=f, fill=(255, 255, 255))
+    tmp = tmp.crop(tmp.getbbox()).rotate(-8, expand=True, resample=Image.BICUBIC)
+    layer.alpha_composite(tmp, (int((W - tmp.width) / 2), int(H * (0.16 if H > W else 0.08))))
+
+
+def _counter(layer, n, total):
+    """MYTH 3/12 badge, top-left: viewers always know how far in they are (and how much is left)."""
+    from PIL import ImageDraw, ImageFont
+    d = ImageDraw.Draw(layer)
+    f = ImageFont.truetype(BOLD, 54)
+    label = f"MYTH {n}/{total}"
+    tw = d.textlength(label, font=f)
+    x, y = int(W * 0.08), int(H * 0.09)  # inside the area the Ken Burns zoom never crops
+    d.rounded_rectangle([x, y, x + tw + 50, y + 84], 22, fill=(17, 17, 17, 220))
+    d.text((x + 25, y + 12), label, font=f, fill=YELLOW)
+
+
+def compose_punch(beat, i, work, picks, out, count=None, ctx=None):
+    from PIL import Image, ImageFilter
+    from mascot import draw
+    ctx = ctx or {}
+    bg = ctx.get("bg")
+    if "photo" in beat:
+        canvas = _framed(beat.get("_path") or photo(beat["photo"], beat.get("n", 0), work, beat.get("obs")))
+    elif bg:  # quiz and text cards sit on the myth's photo so the animal is on screen from frame one
+        canvas = _cover(bg, blur=0 if "quiz" in beat else 14, dim=0.55 if "quiz" in beat else 0.45)
+    else:
+        canvas = Image.new("RGBA", (W, H), (20, 20, 24, 255))
+    layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    tall = H > W
+    if "quiz" in beat:
+        _pill(layer, "TRUE or FALSE?", H * (0.13 if tall else 0.14))
+        _punch_text(layer, beat["quiz"], H * (0.36 if tall else 0.47), H * (0.30 if tall else 0.48), yellow_last=False)
+        if count:
+            from PIL import ImageDraw, ImageFont
+            d = ImageDraw.Draw(layer)
+            r = 130 if tall else 110
+            cx, cy = W // 2, int(H * (0.62 if tall else 0.82))
+            d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=SAUCE + (255,), outline=(255, 255, 255), width=10)
+            f = ImageFont.truetype(BOLD, int(r * 1.35))
+            d.text((cx - d.textlength(str(count), font=f) / 2, cy - r * 0.82), str(count), font=f, fill=(255, 255, 255))
+    elif "text" in beat:
+        _punch_text(layer, beat["text"], H * (0.36 if tall else 0.45), H * (0.38 if tall else 0.62))
+    if ctx.get("verdict"):
+        _stamp(layer, ctx["verdict"])
+    if ctx.get("n") and not tall:
+        _counter(layer, ctx["n"], ctx["total"])
+    canvas.alpha_composite(layer)
+    if tall and "photo" in beat:  # photo beats belong to the animal; the bottom of a Short is under the app UI anyway
+        canvas.convert("RGB").save(out)
+        return
+    size = 420 if tall else 400
+    m = draw(beat.get("pose", "point"), size)
+    # Clear of the zoom crop and, in Shorts, above the caption/like-button zone at the bottom.
+    pos = (int(W * 0.06), int(H * 0.74) - size) if tall else (int(W * 0.08), int(H * 0.92) - size)
+    halo = m.split()[3].filter(ImageFilter.MaxFilter(15))
+    canvas.paste((255, 255, 255, 255), pos, halo)
+    canvas.alpha_composite(m, pos)
+    canvas.convert("RGB").save(out)
+
+
+
+
+def compose(beat, i, work, picks, out, count=None, ctx=None):
+    if PUNCH:
+        return compose_punch(beat, i, work, picks, out, count, ctx)
     from PIL import Image, ImageFilter
     from mascot import draw
     canvas = Image.new("RGBA", (W, H), BG + (255,))
@@ -227,48 +376,120 @@ def compose(beat, i, work, picks, out, count=None):
     canvas.convert("RGB").save(out)
 
 
-def countdown(b, i, work, picks):
+def countdown(b, i, work, picks, ctx=None):
     """3-2-1 after a quiz claim: one second per number with a tick, so viewers lock in a guess."""
     segs = []
     for c in (3, 2, 1):
         img, seg = f"{work}/frame{i:02d}_c{c}.png", f"{work}/seg{i:02d}_c{c}.mp4"
-        compose(b, i, work, picks, img, count=c)
+        compose(b, i, work, picks, img, count=c, ctx=ctx)
         subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-loop", "1", "-framerate", str(FPS), "-i", img,
                         "-f", "lavfi", "-i", "sine=frequency=1100:duration=0.07",
-                        "-vf", f"scale={W}:{H},format=yuv420p", "-af", "apad", "-t", "1",
+                        "-vf", f"scale={W}:{H},format=yuv420p", "-af", "apad", "-t", f"{COUNT_S}",
                         "-c:v", "libx264", "-crf", "20", "-preset", "medium", "-r", str(FPS),
                         "-c:a", "aac", "-ar", "48000", "-ac", "2", seg], check=True)
         segs.append(seg)
     return segs
 
 
+def contexts(beats, work):
+    """Per-beat extras for the punch style: the myth's photo behind quiz/text cards, the TRUE/FALSE
+    verdict on the reveal beat, and the myth number for the on-screen counter."""
+    myths = list(dict.fromkeys(b.get("myth") for b in beats if b.get("myth") not in (None, "intro", "outro")))
+    photos = [photo(b["photo"], b.get("n", 0), work, b.get("obs")) if "photo" in b else None for b in beats]
+    out = []
+    for i, b in enumerate(beats):
+        c = {}
+        m = b.get("myth")
+        if m in myths:
+            c["n"], c["total"] = myths.index(m) + 1, len(myths)
+        same = [j for j in range(len(beats)) if photos[j] and beats[j].get("myth") == m]
+        nxt = [j for j in same if j > i] or [j for j in range(i + 1, len(beats)) if photos[j]]
+        prv = [j for j in same if j < i] or [j for j in range(i) if photos[j]]
+        pick = (nxt or prv) if "quiz" in b else (prv or nxt)
+        if pick:
+            c["bg"] = photos[pick[0] if pick is nxt else pick[-1]]
+        if photos[i]:  # a second photo of the same myth to cut to halfway through a long line
+            alts = [photos[j] for j in same if photos[j] != photos[i]]
+            if alts:
+                c["alt"] = alts[(same.index(i) + 1) % len(alts)] if i in same else alts[0]
+        if i and "quiz" in beats[i - 1]:
+            w = b["say"].split()[0].strip(".,!?").upper() if b["say"].split() else ""
+            if w in ("TRUE", "FALSE"):
+                c["verdict"] = w
+        out.append(c)
+    return out
+
+
+SFX = {  # synthesized, so there is nothing to license
+    "FALSE": "aevalsrc=0.5*sgn(sin(2*PI*140*t))*exp(-5*t):d=0.45:s=48000",
+    "TRUE": "aevalsrc=0.4*sin(2*PI*1318*t)*exp(-7*t)+0.4*sin(2*PI*1760*t)*exp(-7*(t-0.12))*gte(t\\,0.12):d=0.7:s=48000",
+}
+
+
 def build(beats, work, out, picks, name, rate="+8%"):
     voice(beats, work, name, rate)
+    ctxs = contexts(beats, work) if PUNCH else [None] * len(beats)
     segs = []
     for i, b in enumerate(beats):
         img, mp3, seg = f"{work}/frame{i:02d}.png", vo_path(b, work, name, rate), f"{work}/seg{i:02d}.mp4"
-        compose(b, i, work, picks, img)
-        dur = duration(mp3) + 0.35
+        ctx = ctxs[i]
+        compose(b, i, work, picks, img, ctx=ctx)
+        dur = duration(mp3) + (0.15 if PUNCH else 0.35)
         frames = int(dur * FPS)
-        # Slow Ken Burns: alternate zoom-in / zoom-out so consecutive beats don't feel identical.
-        z = "min(1.0+0.0008*on,1.08)" if i % 2 == 0 else "max(1.08-0.0008*on,1.0)"
-        vf = (f"scale={W*2}:{H*2}:flags=lanczos,zoompan=z='{z}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
-              f":d={frames}:s={W}x{H}:fps={FPS},format=yuv420p")
+        if PUNCH and i == 0:  # snap-in on the very first frame: motion before the viewer can swipe
+            z = "if(lt(on,8),1.08-0.01*on,1.0+0.0015*(on-8))"
+        elif PUNCH:
+            z = "min(1.0+0.0015*on,1.14)" if i % 2 == 0 else "max(1.14-0.0015*on,1.0)"
+        else:
+            # Slow Ken Burns: alternate zoom-in / zoom-out so consecutive beats don't feel identical.
+            z = "min(1.0+0.0008*on,1.08)" if i % 2 == 0 else "max(1.08-0.0008*on,1.0)"
+        zp = "scale={w}:{h}:flags=lanczos,zoompan=z='{z}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={d}:s={W}x{H}:fps={FPS}"
+        split = PUNCH and ctx.get("alt") and "photo" in b and dur > 3.6
+        if split:
+            # Something new on screen every 2-3 s: the second half of a long line cuts to another photo.
+            img2 = f"{work}/frame{i:02d}b.png"
+            compose(dict(b, photo=b["photo"], obs=None, _path=ctx["alt"]), i, work, picks, img2, ctx=dict(ctx, verdict=None))
+            half = int(frames / 2)
+            z2 = "max(1.14-0.0015*on,1.0)" if i % 2 == 0 else "min(1.0+0.0015*on,1.14)"
+            vf = (f"[0:v]{zp.format(w=W*2, h=H*2, z=z, d=half, W=W, H=H, FPS=FPS)},trim=end_frame={half}[a];"
+                  f"[2:v]{zp.format(w=W*2, h=H*2, z=z2, d=frames - half, W=W, H=H, FPS=FPS)},trim=end_frame={frames - half}[b];"
+                  f"[a][b]concat=n=2:v=1:a=0,format=yuv420p")
+        else:
+            vf = zp.format(w=W*2, h=H*2, z=z, d=frames, W=W, H=H, FPS=FPS) + ",format=yuv420p"
         if H > W:  # Shorts are mostly watched muted: burn word-by-word captions on photo beats
             if "text" not in b and "quiz" not in b:  # a quiz caption would read "FALSE" before the countdown
                 from facts import captions
                 ass = f"{work}/cap{i:02d}.ass"
                 captions(json.load(open(mp3 + ".words.json")), ass)
                 # facts.py centers captions mid-screen; drop them into the gap between panel and Meatball
-                txt = open(ass).read().replace("-1,1,7,3,5,0", "-1,1,7,3,2,700")
+                txt = open(ass).read()
+                txt = (txt.replace("-1,1,7,3,5,0", "-1,1,8,3,2,620").replace(",96,", ",124,") if PUNCH
+                       else txt.replace("-1,1,7,3,5,0", "-1,1,7,3,2,700"))
                 open(ass, "w").write(txt)
                 vf += f",ass={ass}"
-        subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-loop", "1", "-i", img, "-i", mp3,
-                        "-vf", vf, "-t", f"{dur:.2f}", "-c:v", "libx264", "-crf", "20", "-preset", "medium",
-                        "-c:a", "aac", "-ar", "48000", "-ac", "2", "-af", "apad", seg], check=True)
+        if ctx and ctx.get("verdict"):  # buzzer or ding under the reveal line
+            audio = ["-f", "lavfi", "-i", SFX[ctx["verdict"]], "-filter_complex",
+                     "[1:a]apad[v];[2:a]volume=0.8[s];[v][s]amix=inputs=2:duration=first:normalize=0[a]",
+                     "-map", "0:v", "-map", "[a]"]
+        else:
+            audio = ["-af", "apad"]
+        if split:  # image inputs 0 and 2, voice 1 (SFX, if any, stays input 2 in the mix below -> renumber)
+            if ctx.get("verdict"):
+                audio = ["-f", "lavfi", "-i", SFX[ctx["verdict"]]]
+                mix = ";[1:a]apad[vo];[3:a]volume=0.8[s];[vo][s]amix=inputs=2:duration=first:normalize=0[aout]"
+            else:
+                audio, mix = [], ";[1:a]apad[aout]"
+            subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-loop", "1", "-i", img, "-i", mp3, "-loop", "1",
+                            "-i", img2] + audio + ["-filter_complex", vf + "[vout]" + mix, "-map", "[vout]",
+                            "-map", "[aout]", "-t", f"{dur:.2f}", "-c:v", "libx264", "-crf", "20", "-preset",
+                            "medium", "-c:a", "aac", "-ar", "48000", "-ac", "2", seg], check=True)
+        else:
+            subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-loop", "1", "-i", img, "-i", mp3] + audio +
+                           ["-vf", vf, "-t", f"{dur:.2f}", "-c:v", "libx264", "-crf", "20", "-preset", "medium",
+                            "-c:a", "aac", "-ar", "48000", "-ac", "2", seg], check=True)
         segs.append(seg)
         if "quiz" in b:
-            segs += countdown(b, i, work, picks)
+            segs += countdown(b, i, work, picks, ctx)
     # Only the photos actually used, so the description never credits a swapped-out image.
     used = sorted({photo(b["photo"], b.get("n", 0), work, b.get("obs")) for b in beats if "photo" in b})
     open(f"{work}/credits.txt", "w").write("".join(open(u + ".credit").read() + "\n" for u in used))
@@ -283,8 +504,15 @@ def build(beats, work, out, picks, name, rate="+8%"):
               "-map", "0:v", "-map", "[a]"]
     else:
         af = ["-af", "loudnorm=I=-14:TP=-1.5"]
-    subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-f", "concat", "-safe", "0", "-i", lst] + af +
-                   ["-c:v", "copy", "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart", out], check=True)
+    if PUNCH and H > W:
+        # Progress bar across the top: a visible "almost done" keeps people to the end of a Short.
+        total = sum(duration(x) for x in segs)
+        vcodec = ["-vf", f"drawbox=x=0:y=0:w='iw*t/{total:.2f}':h=16:color=0xFFD60A@1:t=fill",
+                  "-c:v", "libx264", "-crf", "21", "-preset", "medium"]
+    else:
+        vcodec = ["-c:v", "copy"]
+    subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-f", "concat", "-safe", "0", "-i", lst] + af + vcodec +
+                   ["-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart", out], check=True)
     print(f"ok {out} {duration(out):.1f}s")
 
 
@@ -299,6 +527,9 @@ def main():
     ap.add_argument("--vertical", action="store_true", help="1080x1920 Shorts layout with captions")
     a = ap.parse_args()
     spec = json.load(open(a.beats))
+    if spec.get("style") == "punch":
+        global PUNCH, COUNT_S
+        PUNCH, COUNT_S = True, (0.5 if a.vertical else 0.7)
     if spec.get("music"):
         global MUSIC
         MUSIC = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "brand", spec["music"])
