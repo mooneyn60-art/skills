@@ -20,7 +20,7 @@ taps. This file is the team, the daily routine, the numbers we steer by, and the
 | Writer | next episode script (cold open, 12 myths, jokes, ~1,600-1,700 words) | morning run, 2 days ahead |
 | Photo editor | iNaturalist candidate sheets, live/unharmed/right-species picks | morning run |
 | Producer | episode.py (long + Shorts), tiktok.py, thumb3 + thumb2 | morning run |
-| Scheduler | Metricool queue: 1 episode, 2 Shorts, 3 TikToks a day, first comments | morning run |
+| Scheduler | Metricool queue: 1 episode, 3 Shorts, 3 TikToks a day, first comments; re-check best times weekly | morning run |
 | Inbox | Nolan's chat messages + comments on the HQ page; acts on them first | every run |
 
 ## Daily routine (scheduled tasks fire into this session; all ET)
@@ -30,7 +30,7 @@ taps. This file is the team, the daily routine, the numbers we steer by, and the
 | 18:41 | Review: stats, analytics, rivals, HQ report, next topics | HQ Daily report + rivals, backlog updated |
 
 Cadence: episode 10:30 AM; YouTube Shorts 10:50 AM, 1 PM and 4 PM (from the newest episode that is
-already live, so Related video can point at it); TikToks 12 PM, 4 PM, 7:30 PM, each over 60 s.
+already live, so Related video can point at it); TikToks 10 AM, 12 PM, 6 PM (Metricool best-time data for our TikTok audience, checked 2026-10-23), each over 60 s.
 
 ## Numbers we steer by
 Episodes: impressions CTR, 30 s retention, average view duration, views in 48 h.
@@ -67,7 +67,7 @@ qualified views. Channel: subs, weekly long-form watch hours vs the 4,000 h pace
 - Narration: en-US-AndrewMultilingualNeural at +15% everywhere (Nolan picked it 2026-10-23) with the light music bed
   (`brand/music/quiz-bed.m4a`, original vidIQ track, ducked under the voice). Set per script:
   `"rate"`, `"short_rate"`, `"music"`.
-- One long-form episode a day at 10:30 AM ET; 3 TikToks a day (12 PM, 4 PM, 7:30 PM), every one
+- One long-form episode a day at 10:30 AM ET; 3 TikToks a day (10 AM, 12 PM, 6 PM), every one
   over 60 s (Creator Rewards floor) with the AI-content label on.
 
 ## Guardrails
