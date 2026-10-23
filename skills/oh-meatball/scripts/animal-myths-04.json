@@ -1,0 +1,519 @@
+{
+ "rate": "+0%",
+ "voice": "en-US-AndrewNeural",
+ "title": "12 Animal Myths That Could Actually Get You Hurt (TRUE or FALSE?)",
+ "names": {
+  "Aurelia aurita": "Moon jellyfish",
+  "Ursus arctos": "Brown bear",
+  "Ursus americanus": "Black bear",
+  "Agkistrodon contortrix": "Copperhead",
+  "Crocodylus niloticus": "Nile crocodile",
+  "Puma concolor": "Mountain lion",
+  "Crotalus atrox": "Western diamondback rattlesnake",
+  "Alces alces": "Moose",
+  "Hippopotamus amphibius": "Hippopotamus",
+  "Ixodes scapularis": "Blacklegged tick",
+  "Didelphis virginiana": "Virginia opossum",
+  "Megalopyge opercularis": "Puss caterpillar",
+  "Apis mellifera": "Honey bee"
+ },
+ "blurb": "TRUE or FALSE? Pee on a jellyfish sting, play dead for every bear, suck out snake venom... some \"survival tips\" everyone knows are wrong, and one could save you. Guess before the 3-second timer, keep score, and drop your score out of 12 in the comments 👇\n\nFun general info only: always follow local wildlife and medical guidance.",
+ "next": "Subscribe for Part 5: animal facts that sound fake but are totally real.",
+ "tags": [
+  "survival myths",
+  "bear attack",
+  "play dead bear",
+  "jellyfish sting",
+  "snake bite",
+  "moose",
+  "hippo",
+  "mountain lion",
+  "puss caterpillar",
+  "rattlesnake",
+  "true or false quiz",
+  "animal quiz",
+  "animal myths",
+  "animal facts",
+  "myths debunked",
+  "Meatball Myths"
+ ],
+ "pinned": "📝 SCORE CHECK: how many did you get out of 12? 👇\n\nAnswer key: TRUE = make yourself big for a mountain lion. Everything else was FALSE.\n\nWhich one would have gotten YOU hurt? Comment it.",
+ "beats": [
+  {
+   "say": "Last time I promised you monsters that turned out to be real. Here they are. Bears, moose, hippos, snakes, and one fluffy little caterpillar. And the myths about them that could actually get you hurt.",
+   "pose": "wave",
+   "text": "MYTHS THAT COULD\nGET YOU HURT",
+   "myth": "intro"
+  },
+  {
+   "say": "Same rules. Three seconds to guess true or false, keep score, and tell me your number out of twelve at the end. Only ONE of these is true, so trust nobody. And quick note, this is fun general info, so always follow local wildlife and medical advice.",
+   "pose": "point",
+   "text": "ONLY ONE\nIS TRUE",
+   "myth": "intro"
+  },
+  {
+   "say": "True or false? If a jellyfish stings you, you should pee on it.",
+   "pose": "think",
+   "quiz": "PEE ON A\nJELLYFISH\nSTING",
+   "myth": "jelly",
+   "bonus": "The pee myth got famous from a nineteen ninety seven episode of Friends."
+  },
+  {
+   "say": "False. Please don't. It doesn't help, and it can make it worse.",
+   "pose": "facepalm",
+   "photo": "Aurelia aurita",
+   "obs": 175805271,
+   "myth": "jelly",
+   "short": true
+  },
+  {
+   "say": "A sting leaves behind tiny stinging cells. Fresh water, and yes, pee, can trigger the ones that haven't fired yet, so you get stung even more.",
+   "pose": "point",
+   "photo": "Aurelia aurita",
+   "obs": 175805603,
+   "myth": "jelly",
+   "short": true
+  },
+  {
+   "say": "What helps depends on the jellyfish, but common advice is to get out of the water, rinse with sea water or vinegar, and carefully lift off any tentacles without touching them with bare hands. Hot water can help with the pain.",
+   "pose": "think",
+   "photo": "Aurelia aurita",
+   "obs": 169393391,
+   "myth": "jelly"
+  },
+  {
+   "say": "The myth got huge thanks to a nineteen ninety seven episode of Friends. Great sitcom. Terrible first aid.",
+   "pose": "laugh",
+   "text": "GREAT SITCOM.\nTERRIBLE\nFIRST AID.",
+   "myth": "jelly",
+   "short": true
+  },
+  {
+   "say": "True or false? If any bear attacks you, you should play dead.",
+   "pose": "think",
+   "quiz": "IF A BEAR\nATTACKS,\nPLAY DEAD",
+   "myth": "bear",
+   "bonus": "Black bears aren't always black. They can be brown, cinnamon, or even almost white."
+  },
+  {
+   "say": "False. It depends on the bear, and on why it's attacking.",
+   "pose": "shock",
+   "photo": "Ursus arctos",
+   "obs": 223421173,
+   "myth": "bear",
+   "short": true
+  },
+  {
+   "say": "If a grizzly or brown bear attacks because it's surprised or protecting cubs, wildlife officials say play dead. Lie on your stomach, hands behind your neck, and stay still.",
+   "pose": "point",
+   "photo": "Ursus arctos",
+   "obs": 7383584,
+   "myth": "bear",
+   "short": true
+  },
+  {
+   "say": "But if a black bear attacks you, don't play dead. Fight back hard, and aim for the face and nose.",
+   "pose": "shock",
+   "photo": "Ursus americanus",
+   "obs": 9036909,
+   "myth": "bear",
+   "short": true
+  },
+  {
+   "say": "And with any bear that stalks you, or tries to get into your tent, fight back. That bear isn't scared. It's interested. Bear spray, carried where you can grab it fast, is your best friend out there.",
+   "pose": "think",
+   "photo": "Ursus americanus",
+   "obs": 136375884,
+   "myth": "bear"
+  },
+  {
+   "say": "Easy way to remember it. If it's brown, lie down. If it's black, fight back. Just know a black bear can be brown, so learn the shapes, not just the colors.",
+   "pose": "point",
+   "text": "BROWN? LIE DOWN.\nBLACK? FIGHT BACK.",
+   "myth": "bear",
+   "short": true
+  },
+  {
+   "say": "True or false? You should suck the venom out of a snake bite.",
+   "pose": "think",
+   "quiz": "SUCK OUT\nSNAKE VENOM",
+   "myth": "venom",
+   "bonus": "Copperheads bite a lot of people in the US, but deaths from their bites are extremely rare."
+  },
+  {
+   "say": "False. Every cowboy movie lied to you.",
+   "pose": "laugh",
+   "photo": "Agkistrodon contortrix",
+   "obs": 141425644,
+   "myth": "venom",
+   "short": true
+  },
+  {
+   "say": "Sucking a bite pulls out almost no venom, and it puts mouth germs right into a fresh wound. Cutting the bite open or tying a tight tourniquet can make things worse too.",
+   "pose": "point",
+   "photo": "Agkistrodon contortrix",
+   "obs": 5969441,
+   "myth": "venom",
+   "short": true
+  },
+  {
+   "say": "The real plan is boring but it works. Move away from the snake, stay as calm and still as you can, take off rings or tight stuff near the bite because it can swell, and get to a hospital fast.",
+   "pose": "think",
+   "photo": "Agkistrodon contortrix",
+   "obs": 205867917,
+   "myth": "venom"
+  },
+  {
+   "say": "Hospitals have antivenom. Your mouth does not.",
+   "pose": "point",
+   "text": "HOSPITALS HAVE\nANTIVENOM.\nYOUR MOUTH\nDOES NOT.",
+   "myth": "venom",
+   "short": true
+  },
+  {
+   "say": "True or false? If a crocodile chases you, run in a zigzag.",
+   "pose": "think",
+   "quiz": "RUN IN A\nZIGZAG FROM\nA CROCODILE",
+   "myth": "croc",
+   "bonus": "When resting, crocodiles can stay underwater for more than an hour."
+  },
+  {
+   "say": "False. Zigzagging just makes your escape longer.",
+   "pose": "shock",
+   "photo": "Crocodylus niloticus",
+   "obs": 49393135,
+   "myth": "croc",
+   "short": true
+  },
+  {
+   "say": "Crocodiles are lightning fast at the water's edge, but on land they tire quickly and rarely chase far. So the best move is to run straight away from the water, as fast as you can.",
+   "pose": "point",
+   "photo": "Crocodylus niloticus",
+   "obs": 14354000,
+   "myth": "croc",
+   "short": true
+  },
+  {
+   "say": "The real danger zone is the edge of rivers and lakes. Most crocodile attacks happen at the water, when someone is drinking, washing, fishing, or swimming. Stay well back from the bank in croc country.",
+   "pose": "think",
+   "photo": "Crocodylus niloticus",
+   "obs": 288601990,
+   "myth": "croc"
+  },
+  {
+   "say": "So no fancy moves. Straight line. Away from the water. Go.",
+   "pose": "point",
+   "text": "STRAIGHT LINE.\nAWAY FROM\nTHE WATER.",
+   "myth": "croc",
+   "short": true
+  },
+  {
+   "say": "True or false? Moose are gentle giants that won't hurt you.",
+   "pose": "think",
+   "quiz": "MOOSE ARE\nHARMLESS\nGENTLE GIANTS",
+   "myth": "moose",
+   "bonus": "Moose can run around thirty five miles an hour, and they are excellent swimmers."
+  },
+  {
+   "say": "False. Moose look goofy, but they are seriously dangerous.",
+   "pose": "shock",
+   "photo": "Alces alces",
+   "obs": 54126730,
+   "myth": "moose",
+   "short": true
+  },
+  {
+   "say": "Alaska wildlife officials say moose injure more people there each year than bears do. A moose can weigh more than a thousand pounds and kicks with its front hooves.",
+   "pose": "point",
+   "photo": "Alces alces",
+   "obs": 341915329,
+   "myth": "moose",
+   "short": true
+  },
+  {
+   "say": "Warning signs are ears laid back, the hair on its back standing up, and lip licking. If you see that, back away. If it charges, run and get behind something big like a tree or a car.",
+   "pose": "think",
+   "photo": "Alces alces",
+   "obs": 336096285,
+   "myth": "moose"
+  },
+  {
+   "say": "The good news is a moose usually won't chase you far. It just wants you gone. Honestly, same.",
+   "pose": "laugh",
+   "text": "IT JUST WANTS\nYOU GONE.",
+   "myth": "moose",
+   "short": true
+  },
+  {
+   "say": "True or false? Jumping into water is a good way to escape angry bees.",
+   "pose": "think",
+   "quiz": "JUMP IN WATER\nTO ESCAPE\nANGRY BEES",
+   "myth": "bees",
+   "bonus": "Stinging bees release an alarm smell that can remind people of bananas, and it tells other bees where to attack."
+  },
+  {
+   "say": "False. The bees just wait for you to come up for air.",
+   "pose": "laugh",
+   "photo": "Apis mellifera",
+   "obs": 33833947,
+   "myth": "bees",
+   "short": true
+  },
+  {
+   "say": "Angry bees can hover over the water and keep stinging the moment you surface. That's a much worse situation than before.",
+   "pose": "point",
+   "photo": "Apis mellifera",
+   "obs": 201429383,
+   "myth": "bees",
+   "short": true
+  },
+  {
+   "say": "Instead, run away in a straight line, cover your face, and get inside a building or a car as fast as you can. Don't swat, because that just makes them angrier.",
+   "pose": "think",
+   "photo": "Apis mellifera",
+   "obs": 51821153,
+   "myth": "bees"
+  },
+  {
+   "say": "Cartoons taught us water is a force field. It's actually a waiting room.",
+   "pose": "laugh",
+   "text": "WATER ISN'T A\nFORCE FIELD.\nIT'S A WAITING\nROOM.",
+   "myth": "bees",
+   "short": true
+  },
+  {
+   "say": "True or false? Hippos are slow, lazy animals that won't chase you.",
+   "pose": "think",
+   "quiz": "HIPPOS ARE\nTOO SLOW TO\nCATCH YOU",
+   "myth": "hippo",
+   "bonus": "Hippos can't really swim. They walk and bounce along the bottom of rivers."
+  },
+  {
+   "say": "False. Hippos are one of the most dangerous large animals in Africa.",
+   "pose": "shock",
+   "photo": "Hippopotamus amphibius",
+   "obs": 111237080,
+   "myth": "hippo",
+   "short": true
+  },
+  {
+   "say": "They can run around nineteen miles an hour on land in short bursts. That's faster than most people can sprint.",
+   "pose": "point",
+   "photo": "Hippopotamus amphibius",
+   "obs": 212246796,
+   "myth": "hippo",
+   "short": true
+  },
+  {
+   "say": "They are extremely territorial, especially in the water, and a hippo can flip a boat that gets too close. They look like they are napping. They are not napping. They are watching.",
+   "pose": "shock",
+   "photo": "Hippopotamus amphibius",
+   "obs": 32088742,
+   "myth": "hippo"
+  },
+  {
+   "say": "So that big yawn you see in photos? That's not a yawn. That's a warning.",
+   "pose": "point",
+   "text": "NOT A YAWN.\nA WARNING.",
+   "myth": "hippo",
+   "short": true
+  },
+  {
+   "say": "True or false? A rattlesnake always rattles before it bites.",
+   "pose": "think",
+   "quiz": "RATTLESNAKES\nALWAYS RATTLE\nFIRST",
+   "myth": "rattle",
+   "bonus": "A rattlesnake adds a new rattle segment every time it sheds, so counting them doesn't tell you its age."
+  },
+  {
+   "say": "False. Lots of rattlesnakes stay totally silent.",
+   "pose": "shock",
+   "photo": "Crotalus atrox",
+   "obs": 148203047,
+   "myth": "rattle",
+   "short": true
+  },
+  {
+   "say": "A rattlesnake's first plan is to hide. Its camouflage is amazing, so it often just freezes and hopes you walk past. If you step close before it notices, there might be no warning at all.",
+   "pose": "point",
+   "photo": "Crotalus atrox",
+   "obs": 2484922,
+   "myth": "rattle",
+   "short": true
+  },
+  {
+   "say": "So in snake country, watch where you put your hands and feet, step on top of logs instead of over them, and stay on the trail.",
+   "pose": "think",
+   "photo": "Crotalus atrox",
+   "obs": 17695532,
+   "myth": "rattle"
+  },
+  {
+   "say": "The rattle is a courtesy, not a promise.",
+   "pose": "point",
+   "text": "THE RATTLE IS A\nCOURTESY, NOT\nA PROMISE.",
+   "myth": "rattle",
+   "short": true
+  },
+  {
+   "say": "True or false? If you meet a mountain lion, make yourself look as big as you can.",
+   "pose": "think",
+   "quiz": "MOUNTAIN LION?\nMAKE YOURSELF\nLOOK BIG",
+   "myth": "cougar",
+   "bonus": "Mountain lions can't roar. They purr, hiss, and make chirps that sound a lot like birds."
+  },
+  {
+   "say": "True! This one is real advice.",
+   "pose": "shock",
+   "photo": "Puma concolor",
+   "obs": 4075815,
+   "myth": "cougar",
+   "short": true
+  },
+  {
+   "say": "Stand tall, raise your arms, open your jacket, and speak in a loud, firm voice. You want to look like something that isn't worth the trouble.",
+   "pose": "point",
+   "photo": "Puma concolor",
+   "obs": 84023792,
+   "myth": "cougar",
+   "short": true
+  },
+  {
+   "say": "And whatever you do, don't run. Running can trigger the cat's chase instinct. Face it, back away slowly, and pick up small kids so they don't run either. If it attacks, fight back.",
+   "pose": "think",
+   "photo": "Puma concolor",
+   "obs": 94681545,
+   "myth": "cougar"
+  },
+  {
+   "say": "So basically, become the biggest, loudest, most annoying thing on that trail. For once, it's a good strategy.",
+   "pose": "laugh",
+   "text": "BE THE BIGGEST,\nLOUDEST THING\nON THE TRAIL",
+   "myth": "cougar",
+   "short": true
+  },
+  {
+   "say": "True or false? Ticks jump on you, or drop on you from trees.",
+   "pose": "think",
+   "quiz": "TICKS JUMP OR\nDROP FROM\nTREES",
+   "myth": "tick",
+   "bonus": "Ticks wave their front legs to grab passers-by, which scientists call questing."
+  },
+  {
+   "say": "False. Ticks can't jump or fly, and they don't dive out of trees.",
+   "pose": "point",
+   "photo": "Ixodes scapularis",
+   "obs": 212499446,
+   "myth": "tick",
+   "short": true
+  },
+  {
+   "say": "They wait on tips of grass and low plants with their front legs stretched out, which is called questing. When you brush past, they grab on, then crawl upward.",
+   "pose": "think",
+   "photo": "Ixodes scapularis",
+   "obs": 70343782,
+   "myth": "tick",
+   "short": true
+  },
+  {
+   "say": "That's why they turn up on your head even though they started near your ankles. After a hike, check behind your knees, your armpits, your waist, and along your hairline.",
+   "pose": "point",
+   "photo": "Ixodes scapularis",
+   "obs": 15362586,
+   "myth": "tick"
+  },
+  {
+   "say": "If you find one attached, grab it close to the skin with fine tweezers and pull straight out, slow and steady. No matches, no nail polish.",
+   "pose": "point",
+   "text": "TWEEZERS.\nSLOW AND STEADY.\nNO MATCHES.",
+   "myth": "tick",
+   "short": true
+  },
+  {
+   "say": "True or false? Opossums usually carry rabies.",
+   "pose": "think",
+   "quiz": "OPOSSUMS\nUSUALLY CARRY\nRABIES",
+   "myth": "possum",
+   "bonus": "Opossums have fifty teeth, more than any other land mammal in North America."
+  },
+  {
+   "say": "False. Rabies is actually rare in opossums.",
+   "pose": "point",
+   "photo": "Didelphis virginiana",
+   "obs": 2007070,
+   "myth": "possum",
+   "short": true
+  },
+  {
+   "say": "Scientists think one reason might be their fairly low body temperature, which may make it harder for the virus to take hold.",
+   "pose": "think",
+   "photo": "Didelphis virginiana",
+   "obs": 330155186,
+   "myth": "possum",
+   "short": true
+  },
+  {
+   "say": "And that scary hissing face with all the teeth? Mostly a bluff. When it's really scared, an opossum may play dead, drool, and give off a stinky smell. And it can't control it. It just happens.",
+   "pose": "laugh",
+   "photo": "Didelphis virginiana",
+   "obs": 262966421,
+   "myth": "possum"
+  },
+  {
+   "say": "So the possum is not a rabies monster. It's a nervous little guy who faints for a living. Still, never handle wild animals.",
+   "pose": "laugh",
+   "text": "NOT A MONSTER.\nIT FAINTS FOR\nA LIVING.",
+   "myth": "possum",
+   "short": true
+  },
+  {
+   "say": "True or false? That fluffy caterpillar is safe to pet.",
+   "pose": "think",
+   "quiz": "THIS FLUFFY\nCATERPILLAR IS\nSAFE TO PET",
+   "myth": "puss",
+   "bonus": "The puss caterpillar grows up into a fluffy moth called the southern flannel moth."
+  },
+  {
+   "say": "False. This is the puss caterpillar, and it's one of the most venomous caterpillars in the US.",
+   "pose": "shock",
+   "photo": "Megalopyge opercularis",
+   "obs": 32386510,
+   "myth": "puss",
+   "short": true
+  },
+  {
+   "say": "Under all that soft-looking fur are hidden venomous spines. Touch it, and people describe the pain as intense, burning, and spreading, sometimes for hours.",
+   "pose": "point",
+   "photo": "Megalopyge opercularis",
+   "obs": 243839273,
+   "myth": "puss",
+   "short": true
+  },
+  {
+   "say": "It lives on trees and shrubs in the southern United States, and it often turns up on fences, walls, and playgrounds. Kids want to pet it, which is exactly the problem.",
+   "pose": "think",
+   "photo": "Megalopyge opercularis",
+   "obs": 336272970,
+   "myth": "puss"
+  },
+  {
+   "say": "Rule of thumb. If a caterpillar looks like a tiny toupee, do not touch the toupee.",
+   "pose": "laugh",
+   "text": "DO NOT TOUCH\nTHE TOUPEE.",
+   "myth": "puss",
+   "short": true
+  },
+  {
+   "say": "Scores! The only true one was making yourself big for a mountain lion. Everything else was false. Drop your score out of twelve in the comments, and tell me which one surprised you most.",
+   "pose": "laugh",
+   "text": "COMMENT YOUR\nSCORE /12",
+   "myth": "outro"
+  },
+  {
+   "say": "And subscribe, because next time we're going after animal facts that sound fake but are totally real.",
+   "pose": "wave",
+   "text": "NEXT: FAKE-SOUNDING\nFACTS THAT\nARE REAL",
+   "myth": "outro"
+  }
+ ]
+}
