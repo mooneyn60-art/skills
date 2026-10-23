@@ -110,7 +110,8 @@ def main():
         swork = f"{a.work}/{a.slug}/short-{m}"
         sspec = f"{swork}/script.json"
         os.makedirs(swork, exist_ok=True)
-        json.dump({"voice": spec.get("voice", "en-US-AndrewNeural"), "beats": tighten(mb) + [END]}, open(sspec, "w"))
+        json.dump({"voice": spec.get("voice", "en-US-AndrewNeural"), "rate": spec.get("short_rate", "+8%"),
+                   "music": spec.get("music"), "beats": tighten(mb) + [END]}, open(sspec, "w"))
         if not a.skip_shorts:
             os.makedirs(f"{swork}/photos", exist_ok=True)
             subprocess.run(f"cp -n {long_work}/photos/* {swork}/photos/ 2>/dev/null || true", shell=True)

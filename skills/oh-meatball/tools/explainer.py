@@ -25,6 +25,7 @@ STYLE = (", simple flat vector cartoon, clean thick black outlines, bright flat 
 # SDXL-Turbo in bf16 fits a 15 GB CPU box (~11 s/image at 768x512, 2 steps).
 MODEL = os.environ.get("SDXL_TURBO", "/tmp/claude-0/-home-user/f2581a8c-fe42-5876-b5f9-d941a863a7fa/scratchpad/models/sdxlturbo")
 W, H, FPS = 1920, 1080, 30
+MUSIC = None  # background bed, set from the spec's "music" (path relative to brand/)
 BG = (250, 248, 242)
 PANEL = (540, 90, 1340, 900)  # x, y, w, h of the right-hand panel
 TEXT_PANEL = (500, 90, 1400, 900)  # text cards have no frame, so they can use more width
@@ -252,9 +253,17 @@ def build(beats, work, out, picks, name, rate="+8%"):
     open(f"{work}/credits.txt", "w").write("".join(open(u + ".credit").read() + "\n" for u in used))
     lst = f"{work}/list.txt"
     open(lst, "w").write("".join(f"file '{s}'\n" for s in segs))
-    subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-f", "concat", "-safe", "0", "-i", lst,
-                    "-af", "loudnorm=I=-14:TP=-1.5", "-c:v", "copy", "-c:a", "aac", "-b:a", "160k",
-                    "-movflags", "+faststart", out], check=True)
+    if MUSIC and os.path.exists(MUSIC):
+        # Looped bed, ducked under the narrator by a sidechain so it lifts only in the pauses.
+        af = ["-stream_loop", "-1", "-i", MUSIC, "-filter_complex",
+              "[0:a]asplit[v][key];[1:a]volume=0.12,afade=t=in:d=2[m];"
+              "[m][key]sidechaincompress=threshold=0.02:ratio=6:attack=30:release=500[d];"
+              "[v][d]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-14:TP=-1.5[a]",
+              "-map", "0:v", "-map", "[a]"]
+    else:
+        af = ["-af", "loudnorm=I=-14:TP=-1.5"]
+    subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-f", "concat", "-safe", "0", "-i", lst] + af +
+                   ["-c:v", "copy", "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart", out], check=True)
     print(f"ok {out} {duration(out):.1f}s")
 
 
@@ -269,6 +278,9 @@ def main():
     ap.add_argument("--vertical", action="store_true", help="1080x1920 Shorts layout with captions")
     a = ap.parse_args()
     spec = json.load(open(a.beats))
+    if spec.get("music"):
+        global MUSIC
+        MUSIC = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "brand", spec["music"])
     if a.vertical:
         vertical()
     if a.stage == "images":

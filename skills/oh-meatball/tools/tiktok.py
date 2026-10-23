@@ -14,8 +14,8 @@ import subprocess
 import explainer
 from episode import RAW, ROOT, claim
 
-MIN_S = 70  # margin over TikTok's 60 s floor; the estimate below runs slightly short
-WPS = 2.5   # en-US-AndrewNeural at rate +0%, measured on episodes 2-3
+MIN_S = 75  # margin over TikTok's 60 s floor; the estimate below can run ~10% long
+WPS = 2.8   # en-US-AndrewNeural at rate +10%; +0% measured 2.5 on episodes 2-3
 END = {"say": "How many did you get? Comment your score, and follow, because the full twelve-myth quiz is on my profile.",
        "pose": "wave", "text": "COMMENT\nYOUR SCORE"}
 
@@ -56,7 +56,8 @@ def main():
         os.makedirs(f"{work}/photos", exist_ok=True)
         subprocess.run(f"cp -n {long_photos}/* {work}/photos/ 2>/dev/null || true", shell=True)
         sspec = f"{work}/script.json"
-        json.dump({"voice": spec.get("voice", "en-US-AndrewNeural"), "rate": spec.get("rate", "+0%"),
+        json.dump({"voice": spec.get("voice", "en-US-AndrewNeural"), "rate": spec.get("short_rate", spec.get("rate", "+0%")),
+                   "music": spec.get("music"),
                    "beats": [b for b in beats if b.get("myth") in ms] + [END]}, open(sspec, "w"))
         path = f"{out}/tt-{n}.mp4"
         subprocess.run(["python3", "explainer.py", sspec, work, "build", path, "--vertical"], check=True,
