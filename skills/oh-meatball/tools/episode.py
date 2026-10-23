@@ -14,6 +14,7 @@ import collections
 import json
 import os
 import re
+import shutil
 import subprocess
 
 import explainer
@@ -95,8 +96,9 @@ def main():
     release = {"long": None, "shorts": []}
 
     if not a.skip_long:
-        run_build(os.path.abspath(a.script), long_work, f"{out}/ep.mp4")
-        shrink(f"{out}/ep.mp4")
+        run_build(os.path.abspath(a.script), long_work, f"{long_work}/ep.mp4")
+        shrink(f"{long_work}/ep.mp4")
+        shutil.move(f"{long_work}/ep.mp4", f"{out}/ep.mp4")
     credits = credit_lines(long_work, beats)
     open(f"{out}/credits.txt", "w").write("\n".join(credits) + "\n")
     myths = list(dict.fromkeys(b["myth"] for b in beats if b.get("myth") not in ("intro", "outro")))
@@ -121,7 +123,8 @@ def main():
         if not a.skip_shorts:
             os.makedirs(f"{swork}/photos", exist_ok=True)
             subprocess.run(f"cp -n {long_work}/photos/* {swork}/photos/ 2>/dev/null || true", shell=True)
-            run_build(sspec, swork, f"{out}/short-{m}.mp4", vertical=True)
+            run_build(sspec, swork, f"{swork}/short.mp4", vertical=True)
+            shutil.move(f"{swork}/short.mp4", f"{out}/short-{m}.mp4")  # never expose a half-written file to git
         c = claim(q)
         release["shorts"].append({
             "myth": m, "file": f"{RAW}/{a.slug}/short-{m}.mp4",

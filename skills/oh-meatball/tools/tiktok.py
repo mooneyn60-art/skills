@@ -9,6 +9,7 @@ tiktok.json (file URL, caption, first comment) for the scheduler.
 import argparse
 import json
 import os
+import shutil
 import subprocess
 
 import explainer
@@ -60,8 +61,10 @@ def main():
                    "music": spec.get("music"),
                    "beats": [b for b in beats if b.get("myth") in ms] + [END]}, open(sspec, "w"))
         path = f"{out}/tt-{n}.mp4"
-        subprocess.run(["python3", "explainer.py", sspec, work, "build", path, "--vertical"], check=True,
+        # Render in the work dir and move into the repo only when finished, so a commit never grabs a half-written file.
+        subprocess.run(["python3", "explainer.py", sspec, work, "build", f"{work}/tt.mp4", "--vertical"], check=True,
                        cwd=os.path.dirname(os.path.abspath(__file__)))
+        shutil.move(f"{work}/tt.mp4", path)
         dur = explainer.duration(path)
         quizzes = [b for b in beats if b.get("myth") in ms and "quiz" in b]
         release.append({
