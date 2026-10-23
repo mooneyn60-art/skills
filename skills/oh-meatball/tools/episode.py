@@ -39,6 +39,17 @@ def claim(beat):
     return re.sub(r"^true or false\?\s*", "", beat["say"], flags=re.I).rstrip(".!? ")
 
 
+def loop(beats):
+    """Seamless Short loop: open claim-first ("Porcupines can shoot their quills. True or false?") and end on
+    the same quiz card with a line that runs straight into it ("So be honest... did you really think"),
+    so a replay sounds like one sentence and the last frame matches the first."""
+    q = beats[0]
+    first = dict(q, say=f"{claim(q)}. True or false?")
+    tail = {"say": "So be honest. Did you really think", "quiz": q["quiz"], "pose": q.get("pose", "think"),
+            "myth": q.get("myth"), "nocount": True, "loop": True}
+    return [first] + beats[1:] + [tail]
+
+
 def credit_lines(work, beats):
     by = collections.OrderedDict()
     for b in beats:
@@ -118,11 +129,10 @@ def main():
         swork = f"{a.work}/{a.slug}/short-{m}"
         sspec = f"{swork}/script.json"
         os.makedirs(swork, exist_ok=True)
-        punch = True  # every style: tight Shorts that loop
-        # Shorts end on the punchline so the video loops; no outro card (swipes cluster at the end).
+        # Breakout single-myth Shorts run 17-30 s (vidIQ outliers, 10/23): claim, reveal, punchline, loop line.
         json.dump({"voice": spec.get("voice", "en-US-AndrewNeural"), "rate": spec.get("short_rate", "+8%"),
                    "music": spec.get("music"), "style": spec.get("style"),
-                   "beats": tighten(mb, 3 if punch else None) + ([] if punch else [END])}, open(sspec, "w"))
+                   "beats": loop(tighten(mb, 2))}, open(sspec, "w"))
         if not a.skip_shorts:
             os.makedirs(f"{swork}/photos", exist_ok=True)
             subprocess.run(f"cp -n {long_work}/photos/* {swork}/photos/ 2>/dev/null || true", shell=True)

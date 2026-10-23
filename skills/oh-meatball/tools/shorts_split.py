@@ -27,7 +27,7 @@ def tighten(beats, max_beats=None):
             picked = [b for b in picked if b in body or b in punch]
         return quiz + picked
     rest = [b for b in beats if "quiz" not in b]
-    keep = rest[:2]
+    keep = rest[:max_beats - 1] if max_beats else rest[:2]
     punch = [b for b in rest[2:] if "text" in b][-1:]
     return quiz + keep + punch
 

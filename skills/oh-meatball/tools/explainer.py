@@ -467,6 +467,8 @@ def build(beats, work, out, picks, name, rate="+8%"):
             z = "if(lt(on,8),1.08-0.01*on,1.0+0.0015*(on-8))"
         elif PUNCH:
             z = "min(1.0+0.0015*on,1.14)" if i % 2 == 0 else "max(1.14-0.0015*on,1.0)"
+        elif b.get("loop") or (i == 0 and any(x.get("loop") for x in beats)):
+            z = "1.0"  # loop ends: still frames, so the last frame cuts invisibly into the first
         else:
             # Slow Ken Burns: alternate zoom-in / zoom-out so consecutive beats don't feel identical.
             z = "min(1.0+0.0008*on,1.08)" if i % 2 == 0 else "max(1.08-0.0008*on,1.0)"
@@ -518,10 +520,12 @@ def build(beats, work, out, picks, name, rate="+8%"):
                            ["-vf", vf, "-t", f"{dur:.2f}", "-c:v", "libx264", "-crf", "20", "-preset", "medium",
                             "-c:a", "aac", "-ar", "48000", "-ac", "2", seg], check=True)
         if m:
-            overlay_mascot(seg, m, json.load(open(mp3 + ".words.json")), dur, f"{work}/m{i:02d}", final, seed=i)
+            looped = i == 0 and any(x.get("loop") for x in beats)  # no pop-in at the loop seam
+            overlay_mascot(seg, m, json.load(open(mp3 + ".words.json")), dur, f"{work}/m{i:02d}", final, seed=i,
+                           pop=not looped)
         seg = final
         segs.append(seg)
-        if "quiz" in b:
+        if "quiz" in b and not b.get("nocount"):
             segs += countdown(b, i, work, picks, ctx)
     # Only the photos actually used, so the description never credits a swapped-out image.
     used = sorted({photo(b["photo"], b.get("n", 0), work, b.get("obs")) for b in beats if "photo" in b})
@@ -531,7 +535,7 @@ def build(beats, work, out, picks, name, rate="+8%"):
     if MUSIC and os.path.exists(MUSIC):
         # Looped bed, ducked under the narrator by a sidechain so it lifts only in the pauses.
         af = ["-stream_loop", "-1", "-i", MUSIC, "-filter_complex",
-              "[0:a]asplit[v][key];[1:a]volume=0.12,afade=t=in:d=2[m];"
+              "[0:a]asplit[v][key];[1:a]volume=0.12" + ("" if any(b.get("loop") for b in beats) else ",afade=t=in:d=2") + "[m];"
               "[m][key]sidechaincompress=threshold=0.02:ratio=6:attack=30:release=500[d];"
               "[v][d]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-14:TP=-1.5[a]",
               "-map", "0:v", "-map", "[a]"]
@@ -562,6 +566,8 @@ def main():
     spec = json.load(open(a.beats))
     global PUNCH, ANIMATE, COUNT_S
     ANIMATE = spec.get("style") != "static"
+    if a.vertical:
+        COUNT_S = 0.5  # a 1.5 s countdown in Shorts; the full 3 s is where viewers swiped
     if spec.get("style") == "punch":
         PUNCH, COUNT_S = True, (0.5 if a.vertical else 0.7)
     if spec.get("music"):
