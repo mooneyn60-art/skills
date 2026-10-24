@@ -89,3 +89,10 @@ qualified views. Channel: subs, weekly long-form watch hours vs the 4,000 h pace
   - The first line states the claim as a fact or a correction. No "TRUE OR FALSE?" card and no countdown.
   - The picture changes every 3 s or less, and every photo matches what is being said.
 - **Captions:** unique per post and built from the searched question (tools/tiktok.py `title()`/`caption()`). Never use file-nickname hashtags.
+
+## Cadence change (Mayor, 10/24, experiment E5)
+- **Long-form:** from 10/30, three a week: **Tuesday and Thursday** search-first episodes at 2 PM, plus **Saturday's** "Meatball Explains". Episodes already queued (through 10/29, plus 10/31) stay.
+  - Each long-form answers one question people search, built around one animal or one question.
+  - The saved production time goes into Shorts v2 and series.
+- **Shorts and TikToks:** cadence unchanged. 3 YouTube Shorts a day; 4 TikToks a day.
+- **Series slot:** "Would Meatball Survive?" takes the 1 PM YouTube Short slot once the new rig is approved (experiment E6).
