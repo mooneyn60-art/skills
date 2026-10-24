@@ -161,8 +161,12 @@
    "shot": "host",
    "ask": "comment",
    "say": "Would you survive this? Comment.",
-   "text": "WOULD YOU\nSURVIVE?",
-   "aside": "(comment below)"
+   "shots": [
+    {
+     "text": "WOULD YOU\nSURVIVE?",
+     "aside": "(comment below)"
+    }
+   ]
   },
   {
    "hook": true,
@@ -465,8 +469,12 @@
    "shot": "host",
    "ask": "comment",
    "say": "Could you outswim a moose? Comment.",
-   "text": "OUTSWIM\nA MOOSE?",
-   "aside": "(comment below)"
+   "shots": [
+    {
+     "text": "OUTSWIM\nA MOOSE?",
+     "aside": "(comment below)"
+    }
+   ]
   },
   {
    "hook": true,
@@ -908,8 +916,12 @@
    "shot": "host",
    "ask": "comment",
    "say": "Could you eat that much? Comment.",
-   "text": "COULD YOU\nEAT THAT?",
-   "aside": "(comment below)"
+   "shots": [
+    {
+     "text": "COULD YOU\nEAT THAT?",
+     "aside": "(comment below)"
+    }
+   ]
   },
   {
    "hook": true,
@@ -1224,8 +1236,12 @@
    "shot": "host",
    "ask": "comment",
    "say": "Would you hold the sensor? Comment.",
-   "text": "HOLD THE\nSENSOR?",
-   "aside": "(comment below)"
+   "shots": [
+    {
+     "text": "HOLD THE\nSENSOR?",
+     "aside": "(comment below)"
+    }
+   ]
   },
   {
    "hook": true,
@@ -1514,8 +1530,12 @@
    "shot": "host",
    "ask": "comment",
    "say": "Would you swim there? Comment.",
-   "text": "WOULD YOU\nSWIM THERE?",
-   "aside": "(comment below)"
+   "shots": [
+    {
+     "text": "WOULD YOU\nSWIM THERE?",
+     "aside": "(comment below)"
+    }
+   ]
   }
  ]
 }
