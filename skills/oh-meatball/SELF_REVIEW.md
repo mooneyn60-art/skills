@@ -11,3 +11,6 @@ Seeded by TARS on 2026-10-24 from the first scan of the channel.
   Oh Meatball story format ("Never mention cars" is from another project). A run that reads them does the wrong work.
   Check: scan.py doc-drift check; fix or delete those files.
 - **Nolan had to call things out.** Check: the scan runs first every run, and the top 3 issues get fixed before production.
+- **Posting log drift (10/24).** posted.csv had 35 of 73 queued posts, so queue gaps were invisible (11 YT Shorts and 28 TikTok slots were empty from 10/31 on). Fixed: rebuilt from Metricool, and the gaps were filled from myths-07.
+  Check: every post goes into posted.csv in the same step as createScheduledPost; scan.py check_queue flags any gap.
+- **Metricool time drift (10/24).** Posts set for 10/24 at 20:00 ET or later saved 2 hours late (probably Europe's DST change; the account was created in Madrid time). Check: read publicationDate back after every create/update; US DST ends 11/1, so verify the times of posts after that date.
