@@ -56,3 +56,9 @@ comment-reply drafts cost 1. Budget: about 45 credits a day, plus 500 held in re
 - Accuracy beats score. Never use a title that misstates the video's answer.
 - Hold 500 credits for the follow-up rule: when a Short hits 3x the median, run retention, comments and title tests on it.
 - Check `vidiq_balance` at the start of each run. Below 300, keep only the evening analytics.
+
+## Revised caps (CMO, 10/24 12:17)
+The first research wave spent about 530 credits in one day, leaving 1,468 until 11/24 (about 47 a day).
+- **Per-run caps:** morning 20, marketing desk 30, evening 15, night shift 25, Sunday summit 60.
+- **Approval:** no parallel research waves without the CMO's approval.
+- **Thumbnails:** vidIQ refuses GitHub raw URLs. Score thumbnails by sending the image inline at about 192 px (research/37).
