@@ -62,6 +62,19 @@ qualified views. Channel: subs, weekly long-form watch hours vs the 4,000 h pace
   YouTube Studio: Settings > Upload defaults > Advanced settings > untick "Show how many viewers
   like this video" (new uploads), and Content > select all > Edit (existing ones).
 
+## Shorts v3 is the format (Nolan approved 10/24)
+- Every new Short uses `"style": "v3"` (tools/v3.py, research/44).
+- **Meatball in jeopardy:** something happens to him, he doesn't narrate it.
+- **Pacing:**
+  - action moves on every line
+  - a punch-in zoom on key words
+  - a whip pan or new picture every 2.5 s or less
+  - SFX under the voice
+  - a joke or escalation every 4-6 s
+- **Length:** 20-25 s on YouTube. TikTok deep dives run 61-75 s.
+- **Voice:** Bill on YouTube Shorts; Kokoro C on TikTok-only videos.
+- Queued old-style Shorts get converted to v3, nearest first.
+
 ## Meatball is the star (Nolan, 10/24)
 - Meatball is the biggest thing on screen in every shot that isn't a full-bleed animal photo.
   - **Long-form:** about 85% of the frame height, head high, beside a narrower photo panel.
