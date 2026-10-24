@@ -1,0 +1,1738 @@
+<title>TARS Trading Platform</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: trading-terminal column — status strip, big chart with layer toggles, RSI pane, then signal + context panels side by side (stacked on phones) */
+:root{
+  --bg:#eef0f3; --panel:#ffffff; --ink:#131820; --muted:#5b6575; --line:#d6dae1; --grid:#e6e9ee;
+  --accent:#c4730d; --up:#16845a; --down:#c23b34; --warn:#a97a08;
+  --vwap:#6a4fc7; --band:rgba(106,79,199,.10); --e9:#2a78b8; --e21:#9a6b3f;
+  --fib:#b0567a; --pool:#c4730d; --bb:#7c8696; --tl:#0e8a94; --piv:#8a6d1f; --vp:#2f7f6a; --vol:rgba(91,101,117,.28); --macd:#2a78b8; --msig:#c4730d; --fvgU:rgba(22,132,90,.14); --fvgD:rgba(194,59,52,.13);
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0d1116; --panel:#141a21; --ink:#e5e9ef; --muted:#93a0b3; --line:#263040; --grid:#1c2430;
+  --accent:#eaa23a; --up:#3cc488; --down:#f0655c; --warn:#e2b23e;
+  --vwap:#ad9af5; --band:rgba(173,154,245,.10); --e9:#6db2ea; --e21:#d6a676;
+  --fib:#e58fb2; --pool:#eaa23a; --bb:#8e99ab; --tl:#4fd1d9; --piv:#d8b860; --vp:#6fd3b8; --vol:rgba(147,160,179,.26); --macd:#6db2ea; --msig:#eaa23a; --fvgU:rgba(60,196,136,.13); --fvgD:rgba(240,101,92,.13); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0d1116; --panel:#141a21; --ink:#e5e9ef; --muted:#93a0b3; --line:#263040; --grid:#1c2430;
+  --accent:#eaa23a; --up:#3cc488; --down:#f0655c; --warn:#e2b23e;
+  --vwap:#ad9af5; --band:rgba(173,154,245,.10); --e9:#6db2ea; --e21:#d6a676;
+  --fib:#e58fb2; --pool:#eaa23a; --bb:#8e99ab; --tl:#4fd1d9; --piv:#d8b860; --vp:#6fd3b8; --vol:rgba(147,160,179,.26); --macd:#6db2ea; --msig:#eaa23a; --fvgU:rgba(60,196,136,.13); --fvgD:rgba(240,101,92,.13); color-scheme:dark}
+*{box-sizing:border-box} [hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:14px;line-height:1.45;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px 32px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;gap:14px}
+header{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:baseline;justify-content:space-between}
+h1{font-family:var(--display);font-weight:700;font-size:2.1rem;letter-spacing:.05em;text-transform:uppercase;margin:0;line-height:1}
+h1 small{font-size:1rem;color:var(--muted);letter-spacing:.08em;margin-left:8px}
+.quote{font-family:var(--mono);display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+.quote b{font-size:1.6rem;font-weight:500;font-variant-numeric:tabular-nums}
+.status{font-family:var(--mono);font-size:.75rem;color:var(--muted);display:flex;gap:8px;align-items:center}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--muted)}
+.dot.live{background:var(--up);box-shadow:0 0 0 3px color-mix(in srgb,var(--up) 25%,transparent)}
+.dot.stale{background:var(--warn)} .dot.off{background:var(--down)}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:12px;min-width:0}
+h2{font-family:var(--display);font-weight:500;font-size:1.1rem;letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}
+.toolbar{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.toolbar button{font-family:var(--mono);font-size:.75rem;background:var(--panel);color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:4px 8px;cursor:pointer}
+.toolbar button[aria-pressed="true"]{color:var(--ink);border-color:var(--ink)}
+.toolbar .sep{width:1px;background:var(--line);margin:0 4px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+canvas{display:block;width:100%}
+#chart{height:430px;touch-action:pan-y;cursor:grab} #liveBtn[aria-pressed="true"]{color:var(--up);border-color:var(--up)} #rsi{height:90px;margin-top:4px}
+@media (max-width:600px){#chart{height:330px}}
+.cols{display:grid;grid-template-columns:1.2fr 1fr;gap:14px}
+@media (max-width:820px){.cols{grid-template-columns:1fr}}
+.sig{border:1px solid var(--line);border-radius:6px;padding:10px 12px;display:grid;gap:4px}
+.sig + .sig{margin-top:8px}
+.sig .top{display:flex;justify-content:space-between;gap:8px;align-items:baseline;flex-wrap:wrap}
+.sig .name{font-weight:600}
+.pill{font-size:.7rem;font-weight:600;letter-spacing:.04em;padding:1px 8px;border-radius:999px;border:1px solid currentColor;white-space:nowrap}
+.long{color:var(--up)} .short{color:var(--down)} .muted{color:var(--muted)} .warn{color:var(--warn)}
+.lv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;font-family:var(--mono);font-size:.82rem;font-variant-numeric:tabular-nums}
+.lv span small{display:block;font-family:var(--body);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.rec{font-size:.75rem;color:var(--muted)}
+dl{display:grid;grid-template-columns:auto 1fr;gap:5px 14px;margin:0;font-size:.85rem}
+dt{color:var(--muted)} dd{margin:0;font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+.glist{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:6px 14px;margin-top:10px;align-items:start}
+.glist details{border:1px solid var(--line);border-radius:6px;padding:7px 10px;font-size:.86rem;min-width:0}
+.glist summary{cursor:pointer} .gd{display:block;margin-top:6px;font-size:.84rem} .gd dt{color:var(--muted);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;margin-top:6px} .gd dd{margin:2px 0 0;font-family:var(--body);text-align:left}
+.gcheck{border-left:3px solid var(--accent);padding:4px 10px;font-size:.86rem;margin-top:10px} .gcheck ol{margin:4px 0 0;padding-left:20px}
+.note{font-size:.78rem;color:var(--muted);max-width:75ch;margin:8px 0 0}
+.banner{border:1px solid var(--warn);color:var(--ink);background:color-mix(in srgb,var(--warn) 10%,var(--panel));border-radius:6px;padding:10px 12px;font-size:.88rem;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.banner button{font-family:var(--body);font-size:.82rem;border:1px solid var(--ink);background:var(--panel);color:var(--ink);border-radius:4px;padding:4px 10px;cursor:pointer}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.72rem;color:var(--muted);margin-top:6px}
+.sw{display:inline-block;width:10px;height:3px;margin-right:5px;vertical-align:3px}
+
+.grid3{display:grid;grid-template-columns:1.15fr 1fr;gap:14px}
+@media (max-width:900px){.grid3{grid-template-columns:1fr}}
+.tk{display:grid;gap:10px}
+.row{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:end}
+.row label{display:grid;gap:3px;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.row input,.row select,textarea{font-family:var(--mono);font-size:.88rem;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:4px;padding:5px 7px;min-width:0}
+.row input[type=number]{width:6.5em}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.seg button,.btn{font-family:var(--body);font-size:.82rem;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:4px;padding:5px 10px;cursor:pointer}
+.seg button{border:0;border-radius:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--panel)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+.btn.buy{background:var(--up);border-color:var(--up);color:#fff;font-weight:600}
+.btn.sell{background:var(--down);border-color:var(--down);color:#fff;font-weight:600}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn.sm{font-size:.74rem;padding:3px 8px}
+.qbox{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;font-family:var(--mono);font-size:.82rem;font-variant-numeric:tabular-nums;border:1px dashed var(--line);border-radius:6px;padding:8px}
+.qbox span small{display:block;font-family:var(--body);font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:500px){.qbox{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.prev{border:1px solid var(--ink);border-radius:6px;padding:10px 12px;display:grid;gap:6px;font-size:.88rem}
+.prev .big{font-family:var(--mono);font-size:1rem}
+.msg{font-size:.82rem}
+.list{display:grid;gap:6px}
+.item{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 10px;align-items:center;border:1px solid var(--line);border-radius:6px;padding:7px 10px;font-size:.84rem}
+.item .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+textarea{width:100%;resize:vertical;min-height:54px;font-family:var(--body)}
+.ans{white-space:pre-wrap;font-size:.9rem;line-height:1.5;max-height:420px;overflow:auto;border-left:3px solid var(--accent);padding-left:10px}
+.ans .q{color:var(--muted);font-size:.8rem;display:block;margin-top:10px}
+.tgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media (max-width:900px){.tgrid{grid-template-columns:1fr}}.tcol{min-width:0}
+.tread{border-left:3px solid var(--accent);padding:6px 10px;background:var(--bg);border-radius:4px;white-space:pre-wrap}.tread b{font-family:var(--display);letter-spacing:.05em}
+.chat{max-height:260px;overflow-y:auto;display:flex;flex-direction:column;gap:6px;padding:4px 0}.msg2{padding:6px 9px;border-radius:6px;max-width:92%;white-space:pre-wrap;overflow-wrap:anywhere}
+.msg2.me{align-self:flex-end;background:var(--bg);border:1px solid var(--line)}.msg2.tars{align-self:flex-start;border:1px solid var(--accent)}.msg2 small{display:block;color:var(--muted);font-size:.72rem}
+.chatf{display:flex;gap:6px;margin-top:6px}.chatf input{flex:1;min-width:0;font:inherit;padding:6px 8px;border:1px solid var(--line);border-radius:4px;background:var(--panel);color:var(--ink)}.chatf button{font:inherit;padding:6px 12px;border:1px solid var(--accent);background:var(--panel);color:var(--accent);border-radius:4px;cursor:pointer}
+.nostop{color:var(--down);font-weight:600}
+.pnav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;flex-wrap:wrap;gap:4px 14px;padding:8px 0;background:var(--bg);border-bottom:1px solid var(--line);font-family:var(--display);letter-spacing:.06em;text-transform:uppercase}
+.pnav a{color:var(--muted);text-decoration:none}.pnav a:hover{color:var(--accent)}
+.tscroll{overflow-x:auto}.dtab{width:100%;border-collapse:collapse;font-size:.85rem}.dtab th,.dtab td{text-align:left;padding:4px 6px;border-bottom:1px solid var(--grid);vertical-align:top}
+.dtab td.n{text-align:right;font-family:var(--mono);white-space:nowrap}.dtab th{color:var(--muted);font-weight:500}
+.bar{display:inline-block;height:8px;border-radius:2px;vertical-align:middle}
+h3.sub{font-family:var(--display);font-weight:500;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;margin:14px 0 6px;color:var(--muted)}
+.rfilt{display:flex;gap:6px;margin-bottom:8px}.rfilt button{font:inherit;font-size:.8rem;padding:3px 8px;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:4px;cursor:pointer}.rfilt button[aria-pressed=true]{border-color:var(--accent);color:var(--accent)}
+.v-holds{color:var(--up)}.v-fails{color:var(--down)}.v-fact{color:var(--accent)}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>TARS <small>Trading Platform · SPY</small></h1>
+    <div class="quote"><b id="last">—</b><span id="chg" class="muted">—</span></div>
+    <div class="status"><i class="dot" id="dot"></i><span id="stat">Connecting to Robinhood…</span></div>
+  </header>
+
+  <nav class="pnav" aria-label="Platform sections"><a href="#tarsP">TARS</a><a href="#chartP">Chart</a><a href="#edgeP">Edge</a><a href="#driversP">Drivers</a><a href="#acctP">Account</a><a href="#tradeP">Trade</a><a href="#slotP">Slot</a><a href="#researchP">Research</a><a href="#guide">Guide</a></nav>
+  <div class="banner" id="banner" hidden></div>
+
+  <section class="panel tars" id="tarsP" aria-labelledby="tch">
+    <h2 id="tch">TARS · console <span class="muted" id="tSeen"></span></h2>
+    <div class="tgrid">
+      <div class="tcol">
+        <div class="tread" id="tRead"><span class="muted">Waiting for TARS's read…</span></div>
+        <h3 class="sub">TARS's calls (graded)</h3>
+        <div class="tscroll"><table class="dtab" id="tPred"></table></div>
+      </div>
+      <div class="tcol">
+        <div class="chat" id="tChat" aria-live="polite"><p class="muted">No messages yet.</p></div>
+        <form id="tChatF" class="chatf"><input id="tChatI" maxlength="500" placeholder="Message TARS (read on the next check-in)" aria-label="Message TARS"><button type="submit">Send</button></form>
+        <p class="note" id="tLink">While this page is open, it sends TARS a snapshot of the desk every minute, so TARS can see what you see. TARS writes its read and replies back here.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="chartP">
+    <div class="toolbar" role="group" aria-label="Chart layers">
+      <button type="button" data-l="vwap" aria-pressed="true">VWAP ±1σ ±2σ</button>
+      <button type="button" data-l="ema" aria-pressed="true">EMA 9 / 21</button>
+      <button type="button" data-l="levels" aria-pressed="true">PDH / PDL / OR</button>
+      <button type="button" data-l="pools" aria-pressed="true">Liquidity pools</button>
+      <button type="button" data-l="fvg" aria-pressed="true">Fair value gaps</button>
+      <button type="button" data-l="fib" aria-pressed="false">Fibonacci</button>
+      <button type="button" data-l="sig" aria-pressed="true">Signals</button>
+      <button type="button" data-l="em" aria-pressed="true">Expected move</button>
+      <button type="button" data-l="pos" aria-pressed="true">My position</button>
+      <button type="button" data-l="tl" aria-pressed="true">Trend lines</button>
+      <button type="button" data-l="hod" aria-pressed="true">Day high/low + 10:30</button>
+      <button type="button" data-l="vol" aria-pressed="true">Volume</button>
+      <button type="button" data-l="bb" aria-pressed="false">Bollinger 20/2</button>
+      <button type="button" data-l="piv" aria-pressed="false">Pivots</button>
+      <button type="button" data-l="vp" aria-pressed="true">Value area (VAH/POC/VAL)</button>
+      <button type="button" data-l="smc" aria-pressed="false">Structure BOS/CHoCH</button>
+      <span class="sep" aria-hidden="true"></span>
+      <button type="button" data-m="1" aria-pressed="true">1m</button>
+      <button type="button" data-m="2" aria-pressed="false">2m</button>
+      <button type="button" data-m="5" aria-pressed="false">5m</button>
+      <button type="button" data-m="15" aria-pressed="false">15m</button>
+      <button type="button" data-m="30" aria-pressed="false">30m</button>
+      <span class="sep" aria-hidden="true"></span>
+      <button type="button" data-v="full" aria-pressed="true">Full day</button>
+      <button type="button" data-v="90" aria-pressed="false">Last 90 min</button>
+      <span class="sep" aria-hidden="true"></span>
+      <button type="button" data-z="out" aria-label="Zoom out">−</button>
+      <button type="button" data-z="in" aria-label="Zoom in">+</button>
+      <button type="button" id="liveBtn" aria-pressed="true">● Live</button>
+    </div>
+    <p class="rec" style="margin:0 0 6px">Drag the chart to scroll back · pinch, scroll wheel or −/+ to zoom · tap or hover a candle to read it · ● Live jumps back to now.</p>
+    <canvas id="chart" aria-label="SPY candles with indicators"></canvas>
+    <div class="toolbar" role="group" aria-label="Lower pane" style="margin:6px 0 0">
+      <button type="button" data-p="rsi" aria-pressed="true">RSI 14</button>
+      <button type="button" data-p="macd" aria-pressed="false">MACD 12/26/9</button>
+    </div>
+    <canvas id="rsi" aria-label="Lower indicator pane"></canvas>
+    <div class="legend">
+      <span><i class="sw" style="background:var(--vwap)"></i>VWAP (bands shaded)</span>
+      <span><i class="sw" style="background:var(--e9)"></i>EMA 9</span>
+      <span><i class="sw" style="background:var(--e21)"></i>EMA 21</span>
+      <span><i class="sw" style="background:var(--accent)"></i>prior-day high/low, opening range, liquidity pools</span>
+      <span><i class="sw" style="background:var(--fib)"></i>Fibonacci of the day's swing</span>
+      <span><i class="sw" style="background:var(--tl)"></i>trend lines (dashed = broken)</span>
+      <span><i class="sw" style="background:var(--bb)"></i>Bollinger bands</span>
+      <span><i class="sw" style="background:var(--piv)"></i>floor pivots</span>
+      <span><i class="sw" style="background:var(--vp)"></i>yesterday's value area</span>
+      <span>▲▼ signal entries · ◆ target · ✕ stop · <a href="#guide">How to read all of this ↓</a></span>
+    </div>
+  </section>
+
+  <section class="panel" id="readerP" aria-labelledby="rdh">
+    <h2 id="rdh">Position reader</h2>
+    <div id="reader"><p class="muted msg">No open option position. The reader wakes up the moment you're in a trade.</p></div>
+  </section>
+
+  <div class="cols">
+    <section class="panel">
+      <h2>Signals</h2>
+      <div id="signals"><p class="muted">Waiting for today's bars.</p></div>
+      <p class="note">Each signal is one of the data-farm rules, with its stop and a target at twice the risk. The record line under each is that rule's backtest on 29 days of SPY with costs, so you can see which ones have held up. None has passed the bar for real money yet; they are here to learn from and to time your own entries and exits.</p>
+    </section>
+    <section class="panel">
+      <h2 id="edgeP">Edge board <span class="muted" id="fresh"></span></h2>
+      <dl id="edge"><dt>Status</dt><dd>loading</dd></dl>
+      <p class="note">Only effects that held up in BOTH halves of TARS's tests (SPY 2006-15 and 2016-26 daily; 164 days of 5-min bars). Each one is a lean on the averages, not a signal. Updates live: VIX every 30 s, everything else with the price.</p>
+    </section>
+    <section class="panel">
+      <h2>Context</h2>
+      <dl id="ctx"><dt>Status</dt><dd>loading</dd></dl>
+      <p class="note">Liquidity pools are equal highs or lows (and yesterday's / the opening range's extremes) where stops tend to sit; "swept" means price ran through and closed back inside. Fibonacci levels are drawn from today's main swing for reference; in our 20-year SPY test they held no better than ordinary levels.</p>
+    </section>
+  </div>
+
+  <section class="panel" id="acctP" aria-labelledby="ach">
+    <h2 id="ach">Account · stocks and their stops <span class="muted" id="aAge"></span></h2>
+    <div class="tscroll"><table class="dtab" id="aTab"><tbody><tr><td class="muted">Loading positions…</td></tr></tbody></table></div>
+    <p class="note">Your Agentic account's stock positions with live prices (every 30 s) and the stop order resting under each one. A position with no stop is flagged red. Read-only: nothing here places or cancels orders.</p>
+  </section>
+
+  <div class="grid3" id="tradeP">
+    <section class="panel" aria-labelledby="tkh">
+      <h2 id="tkh">Trade ticket</h2>
+      <div class="tk">
+        <p class="msg muted" id="tAcct">Loading account…</p>
+        <div class="row">
+          <label>Expiration<select id="tExp"><option>loading…</option></select></label>
+          <div class="seg" role="group" aria-label="Call or put"><button type="button" data-ty="call" aria-pressed="true">Call</button><button type="button" data-ty="put" aria-pressed="false">Put</button></div>
+          <label>Strike<input id="tStrike" type="number" step="1" inputmode="decimal"></label>
+          <button type="button" class="btn sm" id="tAtm">ATM</button>
+        </div>
+        <div class="row">
+          <label>Action<select id="tSide"><option value="buy_open">Buy to open</option><option value="sell_close">Sell to close</option></select></label>
+          <label>Contracts<input id="tQty" type="number" min="1" step="1" value="1"></label>
+          <label>Order<select id="tType"><option value="limit">Limit</option><option value="market">Market</option><option value="stop_market">Stop (sell to close)</option></select></label>
+          <label id="tPriceL">Limit<input id="tPrice" type="number" step="0.01" min="0.01" inputmode="decimal"></label>
+          <label id="tStopL" hidden>Stop at<input id="tStop" type="number" step="0.01" min="0.01" inputmode="decimal"></label>
+        </div>
+        <div class="row" id="tQuick">
+          <button type="button" class="btn sm" data-px="bid">Bid</button>
+          <button type="button" class="btn sm" data-px="mid">Mid</button>
+          <button type="button" class="btn sm" data-px="ask">Ask</button>
+          <button type="button" class="btn sm" id="tRefresh">↻ Quote</button>
+        </div>
+        <div><div class="msg" id="tContract">No contract selected.</div></div>
+        <div class="qbox" id="tQuote"><span><small>Bid</small>—</span><span><small>Ask</small>—</span><span><small>Mark</small>—</span><span><small>Delta</small>—</span></div>
+        <div class="row">
+          <label>Max premium per trade ($)<input id="tMax" type="number" step="25" min="0"></label>
+          <button type="button" class="btn primary" id="tReview">Review order</button>
+        </div>
+        <div id="tPrev" hidden></div>
+        <p class="msg" id="tMsg" role="status"></p>
+      </div>
+      <p class="note">Every order is checked by Robinhood first (Review), then goes in only when you press the Place button that spells out the order. Nothing is sent on its own. The max-premium box only warns you; it never blocks.</p>
+    </section>
+    <div style="display:grid;gap:14px;min-width:0">
+      <section class="panel" aria-labelledby="poh">
+        <div class="top" style="display:flex;justify-content:space-between;align-items:baseline;gap:8px"><h2 id="poh">Your options</h2><span class="rec" id="pUpd"></span></div>
+        <div class="list" id="pos"><p class="muted msg">Loading positions…</p></div>
+        <h2 style="margin-top:12px">Nolan vs TARS</h2>
+        <div id="comp"><p class="muted msg">Loading the scoreboard…</p></div>
+        <p class="rec">Since Oct 16 · score = net per $100 of premium spent (fair across sizes) · TARS trades a $500 buffer: up to $500 a trade, −35% stop.</p>
+        <h2 style="margin-top:12px">Working orders</h2>
+        <div class="list" id="ords"><p class="muted msg">Loading orders…</p></div>
+      </section>
+      <section class="panel" aria-labelledby="ath">
+        <h2 id="ath">Ask TARS</h2>
+        <div class="chips" id="chips">
+          <button type="button" class="btn sm">Is this a good entry right now?</button>
+          <button type="button" class="btn sm">Check my ticket before I place it</button>
+          <button type="button" class="btn sm">Where's my stop and target?</button>
+          <button type="button" class="btn sm">Read my open position</button>
+          <button type="button" class="btn sm">Which liquidity pool gets taken next?</button>
+        </div>
+        <div class="row" style="margin-top:8px;flex-wrap:nowrap"><textarea id="aq" placeholder="Ask about the chart, a setup, or your ticket…"></textarea></div>
+        <div class="row"><button type="button" class="btn primary" id="aGo">Ask</button><button type="button" class="btn" id="aStop" hidden>Stop</button><span class="rec" id="aNote"></span></div>
+        <div class="ans" id="ans" hidden></div>
+      </section>
+    </div>
+  </div>
+
+  <section class="panel" id="driversP" aria-labelledby="drh">
+    <h2 id="drh">Drivers · what's moving SPY now <span class="muted" id="drAge"></span></h2>
+    <div class="tscroll"><table class="dtab" id="drTab"><tbody><tr><td class="muted">Waiting for quotes…</td></tr></tbody></table></div>
+    <p class="note">Each name's push = its estimated weight in the S&amp;P 500 × its move today × SPY's prior close, in SPY points. Weights are estimates from Robinhood float × price on 2026-10-16 (Alphabet counts both share classes). Quotes every ~3 s.</p>
+    <h3 class="sub">What moves SPY the most (tested, share of SPY's daily move it explains)</h3>
+    <div class="tscroll"><table class="dtab" id="drStudy"></table></div>
+  </section>
+
+  <div class="grid3">
+    <section class="panel" id="slotP" aria-labelledby="slh">
+      <h2 id="slh">Options slot</h2>
+      <dl id="slotS"></dl>
+      <div class="tscroll"><table class="dtab" id="slotT"></table></div>
+      <p class="note">From TARS's books (paper/live_options) at the last platform build. Rules: TARS_OPTIONS_LIVE.md.</p>
+    </section>
+    <section class="panel" id="researchP" aria-labelledby="rsh">
+      <h2 id="rsh">Research library</h2>
+      <div class="rfilt" role="group" aria-label="Filter"><button type="button" data-rf="all" aria-pressed="true">All</button><button type="button" data-rf="holds" aria-pressed="false">Holds up</button><button type="button" data-rf="fails" aria-pressed="false">Failed</button></div>
+      <div class="tscroll"><table class="dtab" id="resT"></table></div>
+      <p class="note">Every idea TARS tested, with the numbers. "Holds" means it worked in both halves of the data; most ideas fail. Scripts live in paper/research_scripts.</p>
+    </section>
+  </div>
+
+  <section class="panel" id="guide" aria-labelledby="gdh">
+    <h2 id="gdh">How to read this desk</h2>
+    <p class="note" style="margin-top:0">Honest summary from ~650 tests: no line on this chart predicts direction by itself. What does hold up is <b>context</b>: the time of day, the gap and its fill odds, the expected move, and news days. Use the lines as a map for where to put stops and targets, and to stay on the right side of the trend.</p>
+    <div class="gcheck"><b>Before you buy, check:</b>
+      <ol><li>Is it after 10:30?</li><li>Trend row agrees with your direction (above VWAP and EMA 9 &gt; 21 for calls)?</li><li>Where's your stop on the chart (a level, VWAP or a trend line), and is the target at least 2× the risk?</li><li>Does the move you need fit inside the expected move left?</li><li>Inside your rules: trips, daily limit, max premium?</li></ol></div>
+    <div class="glist">
+      <details><summary><b>VWAP ±1σ ±2σ</b> <span class="muted">· The average price paid today, weighted by volume, with bands one and two standard deviations away.</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>Is price above or below it? How far, in σ? Does price keep coming back to it?</dd><dt>How to use it</dt><dd>The day's fair price. Above = buyers in control, below = sellers. Moves past ±2σ are stretched and often snap back toward VWAP. A clean place to put a stop on the other side.</dd><dt>TARS tested</dt><dd>Crossing VWAP did not predict direction (133 days). Useful as a map, not a trigger.</dd></dl></details>
+      <details><summary><b>EMA 9 / 21</b> <span class="muted">· Two fast moving averages of the close.</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>Is 9 above 21 (up) or below (down)? Are they flat and tangled (chop)?</dd><dt>How to use it</dt><dd>Trend filter: only take calls when 9 > 21 and price is above VWAP; the desk's Trend row does this for you.</dd><dt>TARS tested</dt><dd>EMA crosses alone: no edge on 20 years of SPY. Fine as a filter.</dd></dl></details>
+      <details><summary><b>Trend lines (auto)</b> <span class="muted">· A line through the last two clear swing highs (resistance) and swing lows (support), extended to now. Dashed with ✗ = price has closed through it.</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>Price approaching a line, and whether it breaks with heavy volume or rejects.</dd><dt>How to use it</dt><dd>Rising support + price above VWAP = uptrend intact. A break of support with volume = trend may be over; tighten stops. Lines redraw as new swings form.</dd><dt>TARS tested</dt><dd>Not tested as a signal. Treat as a picture of the trend, nothing more.</dd></dl></details>
+      <details><summary><b>PDH / PDL / OR</b> <span class="muted">· Yesterday's high, low and close, and the first 15 minutes' high and low (opening range).</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>Where price sits against them, and whether a break holds or snaps back.</dd><dt>How to use it</dt><dd>These are the levels everyone sees, so stops pile up there. Good places for targets and stops.</dd><dt>TARS tested</dt><dd>Opening-range breaks did not predict direction out of sample.</dd></dl></details>
+      <details><summary><b>Day high/low + 10:30</b> <span class="muted">· Today's high and low so far (HOD/LOD), and a line at 10:30.</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>Before 10:30: just watch. Your record: lost 5 of 5 days trading before 10:30.</dd><dt>How to use it</dt><dd>Most of the day's range forms early: ~42% by 10:00, ~77% by 11:30. New highs late in the day are rarer.</dd><dt>TARS tested</dt><dd>Holds up: the shape-of-day numbers come from 20 years of SPY.</dd></dl></details>
+      <details><summary><b>Volume</b> <span class="muted">· Shares traded per candle along the bottom; bright bars = more than 1.5× the recent average.</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>Breakouts on heavy volume vs. light volume. Volume dries up at lunch.</dd><dt>How to use it</dt><dd>A move with heavy volume is more likely to be real participation; a move on thin volume is easier to reverse.</dd><dt>TARS tested</dt><dd>Not tested as a signal here.</dd></dl></details>
+      <details><summary><b>Bollinger 20/2</b> <span class="muted">· A 20-candle average with bands two standard deviations away. Width shows how quiet or wild it is.</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>Squeezes (bands narrow) and price riding a band.</dd><dt>How to use it</dt><dd>Narrow bands = quiet, a bigger move often follows (direction unknown). Riding the upper band = strong trend, not automatically 'overbought'.</dd><dt>TARS tested</dt><dd>Bollinger squeezes: no direction edge on 20 years.</dd></dl></details>
+      <details><summary><b>Value area (VAH / POC / VAL)</b> <span class="muted">· From yesterday's volume profile: POC is the price with the most volume; VAH and VAL bound the zone where 70% of the volume traded.</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>Whether today opens inside or outside yesterday's value, and how price reacts the first time it touches POC, VAH or VAL.</dd><dt>How to use it</dt><dd>A map of where traders did business yesterday. Use the lines for targets and stops, not as entry signals.</dd><dt>TARS tested</dt><dd>167 days of SPY 5-min (Feb–Oct 2026). 1:1 fades: VAL 50%, VAH 36%. First touch of POC from above held 58% (n 41) vs 41% at random levels, but almost all of it was before 10:30. 80% rule: 54% at 0.65 reward:risk, a loser. The order-flow trigger traders pair it with can't be tested on Robinhood data.</dd></dl></details>
+      <details><summary><b>Pivots</b> <span class="muted">· Floor-trader pivot levels from yesterday's high, low, close: P, R1/R2 above, S1/S2 below.</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>Reactions at P and R1/S1.</dd><dt>How to use it</dt><dd>Widely watched, so they can act like PDH/PDL: places for targets and stops.</dd><dt>TARS tested</dt><dd>Like Fibonacci, expect them to work about as well as any other level.</dd></dl></details>
+      <details><summary><b>Liquidity pools</b> <span class="muted">· Equal highs or lows where stops tend to sit. 'Swept' = price ran through and closed back inside. The ▲/▼ tag next to the price says which pool gets hit first, and the odds.</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>The ▲/▼ tag and the "Next pool to get hit" row. Above 70% = the nearer pool is a strong favorite; 50-60% = coin flip.</dd><dt>How to use it</dt><dd>The odds come from distance: the closer pool gets hit first more often, in proportion (pool 0.30 above and 0.70 below → ~70% up first). Use the favored pool as a realistic first target, and the other one as where your idea is wrong. It says where price is likely to travel next, not how far the day goes after.</dd><dt>TARS tested</dt><dd>Which pool gets hit first: calibrated on 30 days (1,668 checks): called 10/30/50/71/90% up, actual 9/27/52/69/88%. Adding trend, MACD, VWAP side or RSI did not improve it. Whether a break keeps going: no edge.</dd></dl></details>
+      <details><summary><b>Structure BOS/CHoCH</b> <span class="muted">· What paid indicators like "Godmode" sell: a dashed line where price closed through the last confirmed swing. CHoCH = first break against the trend, BOS = a break with it.</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>Whether the last break was up or down, and where it happened. It's a map of who's in control, nothing more.</dd><dt>How to use it</dt><dd>Use it for context and to place stops beyond the swing that broke. Don't buy just because a CHoCH or BOS printed.</dd><dt>TARS tested</dt><dd>Rebuilt and run on 164 days of SPY 5-min bars (10:30-14:30, stop at structure, 2R target, 60 min, after costs). BOS: −0.05 pts/trade, 47% wins (n=241, out-of-sample). CHoCH: +0.01, 48% (n=257). Sweep then CHoCH (the headline "reversal" signal): +0.50 and 60% wins in one sample (n=20) but −0.21 and 37% in the other (n=81). It looks great on hand-picked charts and loses on all of them. No edge.</dd></dl></details>
+      <details><summary><b>Fair value gaps</b> <span class="muted">· Three-candle gaps where price moved so fast it left an empty zone.</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>Price coming back into an open gap.</dd><dt>How to use it</dt><dd>Gaps sometimes act as support/resistance on the way back.</dd><dt>TARS tested</dt><dd>No edge out of sample on 133 days.</dd></dl></details>
+      <details><summary><b>Fibonacci</b> <span class="muted">· Retracement levels of today's main swing (38.2/50/61.8%).</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>Pullbacks into 50-61.8%.</dd><dt>How to use it</dt><dd>Reference only.</dd><dt>TARS tested</dt><dd>No better than random levels, tested twice.</dd></dl></details>
+      <details><summary><b>Expected move</b> <span class="muted">· The 1σ move left today, from the options market's implied volatility.</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>Price near the edge of the band.</dd><dt>How to use it</dt><dd>SPY stays inside ±1σ about 65% of days, and real moves run ~60% of what options price. Don't buy options needing a move past the band.</dd><dt>TARS tested</dt><dd>Holds up (20 years with VIX).</dd></dl></details>
+      <details><summary><b>RSI 14</b> <span class="muted">· Momentum oscillator, 0-100. Above 70 stretched up, below 30 stretched down.</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>Extremes and divergences (new price high, lower RSI high).</dd><dt>How to use it</dt><dd>In a strong trend RSI can stay above 70 for a long time; use it to avoid chasing, not to short.</dd><dt>TARS tested</dt><dd>No standalone edge.</dd></dl></details>
+      <details><summary><b>MACD 12/26/9</b> <span class="muted">· Difference of two EMAs (blue) and its signal line (orange); bars = the gap between them.</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>Crosses of the signal line and of zero; bars shrinking = momentum fading.</dd><dt>How to use it</dt><dd>Confirmation that momentum agrees with your trade. It lags, so it's late by design.</dd><dt>TARS tested</dt><dd>MACD crosses: no forward edge on 20 years of SPY.</dd></dl></details>
+      <details><summary><b>Signals</b> <span class="muted">· The data-farm rules (sweep reversal, VWAP reclaim, FVG with trend), each with a stop and a 2R target.</span></summary>
+        <dl class="gd"><dt>Watch</dt><dd>The record line under each signal.</dd><dt>How to use it</dt><dd>For learning and timing only.</dd><dt>TARS tested</dt><dd>None has passed the bar for real money yet.</dd></dl></details>
+    </div>
+  </section>
+</div>
+
+<script>
+// Backtest records from paper/datafarm (29 days of SPY 1-min, costs included).
+const RECORD = {"sweep_reversal": {"n": 10, "win": 60.0, "avgR": 0.767}, "fvg_retest": {"n": 98, "win": 32.7, "avgR": -0.096}, "sweep_fvg": {"n": 1, "win": 0.0, "avgR": -1.009}, "fvg_trend": {"n": 79, "win": 32.9, "avgR": -0.071}, "vwap_reclaim": {"n": 116, "win": 33.6, "avgR": -0.056}};
+const SERVER = "Robinhood";
+// window.claude only exists inside the claude.ai viewer; a saved copy of this page still renders, just without live data.
+const CL = window.claude && window.claude.use ? window.claude : {use: async () => null};
+const $ = s => document.querySelector(s);
+const layers = {pos: true, em: true, vwap: true, ema: true, levels: true, pools: true, fvg: true, fib: false, sig: true, tl: true, hod: true, vol: true, bb: false, piv: false, smc: false, vp: true};
+let pane = "rsi"; // lower pane: rsi | macd
+let view = "full";
+let zoomN = null, follow = true, vEnd = 0, hoverI = null; // chart viewport (null zoom = the preset view)
+const CH = {start: 0, end: 0, n: 1, xw: 1, L: 52, total: 0};
+const maxN = () => Math.max(S.bars.length, Math.ceil(390 / size));
+const S = {b1: [], bars: [], map: [], prev: null, day: null, updated: null, live: false, prev2c: null, vix: null, lastTick: null};
+let size = 1; try { size = [1, 2, 5, 15, 30].includes(+localStorage.getItem("desk.size")) ? +localStorage.getItem("desk.size") : 1; } catch (e) {}
+const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"})[c]);
+const money = v => (v < 0 ? "−$" : "$") + Math.abs(v).toFixed(2);
+
+// ---------- time helpers (US/Eastern) ----------
+const fmtDay = new Intl.DateTimeFormat("en-CA", {timeZone: "America/New_York", year: "numeric", month: "2-digit", day: "2-digit"});
+const fmtHM = new Intl.DateTimeFormat("en-GB", {timeZone: "America/New_York", hour: "2-digit", minute: "2-digit", hour12: false});
+const etDay = d => fmtDay.format(d);
+const etHM = d => fmtHM.format(d);
+function etOffsetHours(d) {
+  const p = new Intl.DateTimeFormat("en-US", {timeZone: "America/New_York", timeZoneName: "shortOffset"}).formatToParts(d);
+  const z = (p.find(x => x.type === "timeZoneName") || {}).value || "GMT-4";
+  return -parseInt(z.replace("GMT", "") || "-4", 10);
+}
+function openUTC(day) { // 09:30 ET on `day` as ISO
+  const hrs = 9 + etOffsetHours(new Date(day + "T16:00:00Z"));
+  return `${day}T${String(hrs).padStart(2, "0")}:30:00Z`;
+}
+
+// ---------- data ----------
+function parseBars(payload) {
+  const p = payload && (payload.data || payload);
+  const r = (p && p.results || []).find(x => (x.symbol || "SPY") === "SPY");
+  if (!r) return [];
+  return r.bars.filter(b => !b.interpolated).map(b => {
+    const t = new Date(b.begins_at);
+    return {t, d: etDay(t), hm: etHM(t), o: +b.open_price, h: +b.high_price, l: +b.low_price, c: +b.close_price, v: +(b.volume || 0)};
+  }).filter(b => b.hm >= "09:30" && b.hm < "16:00");
+}
+
+// ---------- indicators ----------
+function indicators(bars) {
+  let pv = 0, vv = 0, pv2 = 0, e9, e21, g, l, atr, e12, e26, msig;
+  bars.forEach((b, i) => {
+    const tp = (b.h + b.l + b.c) / 3, v = Math.max(b.v, 1);
+    pv += tp * v; vv += v; pv2 += tp * tp * v;
+    b.vwap = pv / vv; b.sd = Math.sqrt(Math.max(0, pv2 / vv - b.vwap * b.vwap));
+    e9 = e9 === undefined ? b.c : e9 + 0.2 * (b.c - e9);
+    e21 = e21 === undefined ? b.c : e21 + (2 / 22) * (b.c - e21);
+    b.e9 = e9; b.e21 = e21;
+    let tr = b.h - b.l;
+    if (i) {
+      const p = bars[i - 1], ch = b.c - p.c;
+      g = g === undefined ? Math.max(ch, 0) : (g * 13 + Math.max(ch, 0)) / 14;
+      l = l === undefined ? Math.max(-ch, 0) : (l * 13 + Math.max(-ch, 0)) / 14;
+      tr = Math.max(tr, Math.abs(b.h - p.c), Math.abs(b.l - p.c));
+    }
+    atr = atr === undefined ? tr : (atr * 13 + tr) / 14;
+    b.atr = atr; b.rsi = !l ? 50 : 100 - 100 / (1 + (g || 0) / l);
+    b.trend = (b.c > b.vwap && e9 > e21) ? 1 : (b.c < b.vwap && e9 < e21) ? -1 : 0;
+    e12 = e12 === undefined ? b.c : e12 + (2 / 13) * (b.c - e12);
+    e26 = e26 === undefined ? b.c : e26 + (2 / 27) * (b.c - e26);
+    b.macd = e12 - e26; msig = msig === undefined ? b.macd : msig + 0.2 * (b.macd - msig); b.msig = msig; b.mhist = b.macd - msig;
+    const w = bars.slice(Math.max(0, i - 19), i + 1), mu = w.reduce((a, x) => a + x.c, 0) / w.length;
+    const sd = Math.sqrt(w.reduce((a, x) => a + (x.c - mu) ** 2, 0) / w.length);
+    b.bbm = mu; b.bbu = mu + 2 * sd; b.bbl = mu - 2 * sd; b.bbw = mu ? 4 * sd / mu : 0;
+    b.vavg = w.reduce((a, x) => a + x.v, 0) / w.length;
+  });
+}
+
+// Which liquidity pool gets hit first: the nearer one, in proportion to distance (the driftless random-walk odds).
+// Tested on 30 days of SPY 1-min (1,668 checks): predicted 10/30/50/71/90% up → actual 9/27/52/69/88%; trend, MACD, VWAP side and RSI added nothing.
+function poolOdds(st, c) {
+  const up = st.pools.filter(p => p.p > c && !p.taken).sort((a, b) => a.p - b.p)[0], dn = st.pools.filter(p => p.p < c && !p.taken).sort((a, b) => b.p - a.p)[0];
+  if (!up || !dn) return {up, dn, pUp: null};
+  return {up, dn, pUp: (c - dn.p) / (up.p - dn.p)};
+}
+function volumeProfile(bars, nb = 60) {
+  const lo = Math.min(...bars.map(b => b.l)), hi = Math.max(...bars.map(b => b.h)), w = (hi - lo) / nb || 1e-9, vol = new Array(nb).fill(0);
+  bars.forEach(b => { const a = Math.min(nb - 1, Math.floor((b.l - lo) / w)), z = Math.min(nb - 1, Math.floor((b.h - lo) / w));
+    for (let j = a; j <= z; j++) vol[j] += b.v / (z - a + 1); });
+  let p = 0; vol.forEach((v, j) => { if (v > vol[p]) p = j; });
+  let i = p, j = p, s = vol[p]; const tot = vol.reduce((a, b) => a + b, 0);
+  while (s < 0.7 * tot && (i > 0 || j < nb - 1)) { const up = j + 1 < nb ? vol[j + 1] : -1, dn = i > 0 ? vol[i - 1] : -1;
+    if (up >= dn) { j++; s += up; } else { i--; s += dn; } }
+  return {val: lo + i * w, poc: lo + (p + 0.5) * w, vah: lo + (j + 1) * w};
+}
+function vpWhere(vp, c) { return !vp ? null : c > vp.vah ? "above value" : c < vp.val ? "below value" : "inside value"; }
+function structure(bars, prev, m = 1) {
+  const orN = Math.ceil(15 / m);
+  const out = {levels: [], pools: [], fvgs: [], swingsH: [], swingsL: [], fib: null, pivots: [], vp: null, tlines: [], hod: null, lod: null};
+  if (!bars.length) return out;
+  const px = bars[bars.length - 1].c, tolBase = px * 0.0003;
+  if (prev) {
+    out.levels.push({name: "PDH", p: Math.max(...prev.map(b => b.h))}, {name: "PDL", p: Math.min(...prev.map(b => b.l))},
+                    {name: "PDC", p: prev[prev.length - 1].c});
+  }
+  if (bars.length >= orN) {
+    const or = bars.slice(0, orN);
+    out.levels.push({name: "ORH", p: Math.max(...or.map(b => b.h))}, {name: "ORL", p: Math.min(...or.map(b => b.l))});
+  }
+  for (let j = 2; j < bars.length - 2; j++) {
+    const w = bars.slice(j - 2, j + 3);
+    if (bars[j].h === Math.max(...w.map(b => b.h))) out.swingsH.push(j);
+    if (bars[j].l === Math.min(...w.map(b => b.l))) out.swingsL.push(j);
+  }
+  // liquidity pools: equal highs / lows (2+ swing points within tolerance) plus key levels
+  const tol = Math.max(tolBase, 0.25 * (bars[bars.length - 1].atr || 0));
+  const cluster = (idx, key, kind) => {
+    const used = new Set();
+    idx.forEach(a => {
+      if (used.has(a)) return;
+      const grp = idx.filter(b => !used.has(b) && Math.abs(bars[b][key] - bars[a][key]) <= tol);
+      if (grp.length >= 2) {
+        grp.forEach(b => used.add(b));
+        const p = grp.reduce((s, b) => s + bars[b][key], 0) / grp.length, last = Math.max(...grp);
+        out.pools.push({kind, p, n: grp.length, from: Math.min(...grp), name: (kind === "high" ? "Equal highs" : "Equal lows") + ` ×${grp.length}`, since: last});
+      }
+    });
+  };
+  cluster(out.swingsH, "h", "high"); cluster(out.swingsL, "l", "low");
+  out.levels.forEach(L => { if (L.name !== "PDC") out.pools.push({kind: /H$/.test(L.name) ? "high" : "low", p: L.p, n: 1, from: 0, name: L.name, since: L.name.startsWith("OR") ? orN - 1 : -1}); });
+  out.pools.forEach(P => {
+    P.swept = null;
+    for (let k = P.since + 1; k < bars.length; k++) {
+      const b = bars[k];
+      if (P.kind === "high" && b.h > P.p + tolBase && b.c < P.p) { P.swept = k; break; }
+      if (P.kind === "low" && b.l < P.p - tolBase && b.c > P.p) { P.swept = k; break; }
+    }
+    P.taken = !P.swept && bars.slice(P.since + 1).some(b => P.kind === "high" ? b.c > P.p + tolBase : b.c < P.p - tolBase);
+  });
+  // floor pivots from yesterday's high, low and close
+  if (prev) { const H = Math.max(...prev.map(b => b.h)), L = Math.min(...prev.map(b => b.l)), C = prev[prev.length - 1].c, P = (H + L + C) / 3;
+    out.pivots = [{name: "P", p: P}, {name: "R1", p: 2 * P - L}, {name: "S1", p: 2 * P - H}, {name: "R2", p: P + (H - L)}, {name: "S2", p: P - (H - L)}]; }
+  // yesterday's volume profile: POC = busiest price, VAH/VAL = edges of the 70% value area (same method as research_scripts/volume_profile.py)
+  if (prev && prev.length > 10) out.vp = volumeProfile(prev);
+  // auto trend lines: through the last two clear swing highs (resistance) and swing lows (support)
+  const w = Math.max(3, Math.round(8 / m)), piv = (key, hi) => { const out2 = [];
+    for (let j = w; j < bars.length - w; j++) { const v = bars[j][key], win = bars.slice(j - w, j + w + 1).map(b => b[key]);
+      if (v === (hi ? Math.max(...win) : Math.min(...win))) out2.push(j); } return out2; };
+  out.tlines = [];
+  [["h", true, "res"], ["l", false, "sup"]].forEach(([key, hi, kind]) => {
+    const ps = piv(key, hi); if (ps.length < 2) return;
+    const a = ps[ps.length - 2], b = ps[ps.length - 1], slope = (bars[b][key] - bars[a][key]) / (b - a);
+    const at = k => bars[a][key] + slope * (k - a), last = bars.length - 1;
+    const broken = bars.slice(b + 1).some((x, k) => hi ? x.c > at(b + 1 + k) + tolBase : x.c < at(b + 1 + k) - tolBase);
+    out.tlines.push({kind, a, b, slope, at, broken, now: at(last)});
+  });
+  // market structure (BOS / CHoCH), the "Godmode"-style marks: swings confirmed K candles late, breaks on a close, so nothing repaints
+  out.smc = []; { const K = Math.max(2, Math.round(15 / m)); let sh = null, sl = null, trend = 0;
+    for (let i = 0; i < bars.length; i++) { const j = i - K;
+      if (j >= K) { const win = bars.slice(j - K, j + K + 1);
+        if (bars[j].h === Math.max(...win.map(b => b.h))) sh = {i: j, p: bars[j].h};
+        if (bars[j].l === Math.min(...win.map(b => b.l))) sl = {i: j, p: bars[j].l}; }
+      if (!i) continue; const b = bars[i], pc = bars[i - 1].c;
+      if (sh && b.c > sh.p && pc <= sh.p) { out.smc.push({i, from: sh.i, p: sh.p, side: 1, kind: trend <= 0 ? "CHoCH" : "BOS"}); trend = 1; sh = null; }
+      if (sl && b.c < sl.p && pc >= sl.p) { out.smc.push({i, from: sl.i, p: sl.p, side: -1, kind: trend >= 0 ? "CHoCH" : "BOS"}); trend = -1; sl = null; } } }
+  out.hod = Math.max(...bars.map(b => b.h)); out.lod = Math.min(...bars.map(b => b.l));
+  // fair value gaps (unfilled)
+  for (let i = 2; i < bars.length; i++) {
+    const a = bars[i - 2], c = bars[i], m = c.c * 0.0004;
+    let g = null;
+    if (c.l - a.h >= m) g = {side: "bull", top: c.l, bot: a.h, i};
+    if (a.l - c.h >= m) g = {side: "bear", top: a.l, bot: c.h, i};
+    if (!g) continue;
+    g.filled = bars.slice(i + 1).some(b => g.side === "bull" ? b.l <= g.bot : b.h >= g.top);
+    out.fvgs.push(g);
+  }
+  // Fibonacci of the day's main swing
+  let hi = 0, lo = 0;
+  bars.forEach((b, k) => { if (b.h > bars[hi].h) hi = k; if (b.l < bars[lo].l) lo = k; });
+  const H = bars[hi].h, L = bars[lo].l;
+  if (H - L > px * 0.002) {
+    const up = lo < hi;
+    out.fib = {up, H, L, from: Math.min(hi, lo), levels: [0.236, 0.382, 0.5, 0.618, 0.786].map(f => ({f, p: up ? H - f * (H - L) : L + f * (H - L)}))};
+  }
+  return out;
+}
+
+// ---------- candle size: build m-minute bars from the 1-minute feed ----------
+function aggregate(b1, m) {
+  if (m === 1) return {bars: b1, map: b1.map((_, i) => i)};
+  const out = [], map = [];
+  b1.forEach(b => {
+    const mins = +b.hm.slice(0, 2) * 60 + +b.hm.slice(3) - 570, key = Math.floor(mins / m);
+    const cur = out[out.length - 1];
+    if (cur && cur.key === key) { cur.h = Math.max(cur.h, b.h); cur.l = Math.min(cur.l, b.l); cur.c = b.c; cur.v += b.v; }
+    else { const s = 570 + key * m; out.push({key, t: b.t, d: b.d, hm: String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0"), o: b.o, h: b.h, l: b.l, c: b.c, v: b.v}); }
+    map.push(out.length - 1);
+  });
+  return {bars: out, map};
+}
+
+// ---------- signals: the data-farm rules, run live (always on 1-minute bars, as backtested) ----------
+function signals(bars, st) {
+  const out = [];
+  const last = bars.length - 1;
+  const mk = (setup, side, i, stop, why) => {
+    if (i > last) return;
+    const e = bars[i].o, risk = Math.abs(e - stop);
+    if (risk < 0.02) return;
+    const tgt = side === "long" ? e + 2 * risk : e - 2 * risk;
+    let res = "open", exitI = null, exitP = null;
+    for (let k = i; k <= last; k++) {
+      const b = bars[k];
+      if (side === "long" ? b.l <= stop : b.h >= stop) { res = "stop"; exitI = k; exitP = stop; break; }
+      if (side === "long" ? b.h >= tgt : b.l <= tgt) { res = "target"; exitI = k; exitP = tgt; break; }
+      if (b.hm >= "15:55") { res = "time"; exitI = k; exitP = b.c; break; }
+    }
+    out.push({setup, side, i, entry: e, stop, target: tgt, res, exitI, exitP, why, hm: bars[i].hm});
+  };
+  // sweep reversal on PDH/PDL/ORH/ORL
+  st.pools.filter(p => /^(PDH|PDL|ORH|ORL)$/.test(p.name) && p.swept !== null).forEach(p => {
+    const k = p.swept, w = bars.slice(Math.max(0, k - 2), k + 1);
+    if (bars[k].hm > "15:30") return;
+    const side = p.kind === "high" ? "short" : "long";
+    const ext = side === "short" ? Math.max(...w.map(b => b.h)) * 1.0002 : Math.min(...w.map(b => b.l)) * 0.9998;
+    mk("sweep_reversal", side, k + 1, ext, `${p.name} swept and reclaimed`);
+  });
+  // VWAP reclaim with EMA trend (after 10:00)
+  let busyTill = -1;
+  for (let i = 31; i <= last; i++) {
+    if (i <= busyTill || bars[i].hm > "15:30") continue;
+    const a = bars[i - 1], b = bars[i];
+    let side = null;
+    if (a.c <= a.vwap && b.c > b.vwap && b.e9 > b.e21) side = "long";
+    else if (a.c >= a.vwap && b.c < b.vwap && b.e9 < b.e21) side = "short";
+    if (!side) continue;
+    const stop = side === "long" ? b.c - 1.5 * b.atr : b.c + 1.5 * b.atr;
+    mk("vwap_reclaim", side, i + 1, stop, "VWAP cross with EMA 9/21 behind it");
+    const s = out[out.length - 1]; busyTill = s && s.exitI !== null ? s.exitI : last;
+  }
+  // FVG retest with trend
+  busyTill = -1;
+  st.fvgs.forEach(g => {
+    if (g.i <= busyTill) return;
+    const want = g.side === "bull" ? 1 : -1;
+    if (bars[g.i].trend !== want) return;
+    for (let k = g.i + 1; k <= last; k++) {
+      if (bars[k].hm > "15:30") break;
+      if (want === 1 ? bars[k].l <= g.top : bars[k].h >= g.bot) {
+        mk("fvg_trend", want === 1 ? "long" : "short", k + 1, want === 1 ? g.bot * 0.9998 : g.top * 1.0002, `${g.side} gap retested with the trend`);
+        const s = out[out.length - 1]; busyTill = s && s.exitI !== null ? s.exitI : last;
+        break;
+      }
+    }
+  });
+  return out.sort((a, b) => a.i - b.i);
+}
+
+// ---------- drawing ----------
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+function canvasCtx(id) {
+  const c = $(id), r = c.getBoundingClientRect(), dpr = window.devicePixelRatio || 1;
+  c.width = Math.round(r.width * dpr); c.height = Math.round(r.height * dpr);
+  const g = c.getContext("2d"); g.setTransform(dpr, 0, 0, dpr, 0, 0);
+  return {g, W: r.width, H: r.height};
+}
+function draw() {
+  const all = S.bars;
+  const {g, W, H} = canvasCtx("#chart");
+  g.clearRect(0, 0, W, H);
+  g.font = "10px " + css("--mono");
+  if (!all.length) { g.fillStyle = css("--muted"); g.fillText("Waiting for SPY bars from Robinhood…", 12, 24); canvasCtx("#rsi"); return; }
+  // viewport: a preset (full day / last 90 min) or Nolan's own zoom; when following, the right edge is the newest candle
+  const total = all.length, win = Math.ceil(90 / size);
+  let start, end, n;
+  if (zoomN === null) { end = total; start = view === "90" ? Math.max(0, total - win) : 0; n = view === "90" ? Math.max(total - start, win) : maxN(); }
+  else { n = Math.min(zoomN, maxN()); end = follow ? total : Math.min(total, Math.max(Math.min(n, total), vEnd)); start = Math.max(0, end - n); }
+  const bars = all.slice(start, end), st = S.st, sigs = S.sigs;
+  const L = 52, R = 62, T = 8, B = 18;
+  const xw = (W - L - R) / n, x = i => L + (i - start + 0.5) * xw;
+  Object.assign(CH, {start, end, n, xw, L, total});
+  let hi = Math.max(...bars.map(b => b.h)), lo = Math.min(...bars.map(b => b.l));
+  if (layers.vwap) bars.forEach(b => { hi = Math.max(hi, b.vwap + b.sd); lo = Math.min(lo, b.vwap - b.sd); });
+  const pad = (hi - lo) * 0.08 + 0.05; hi += pad; lo -= pad;
+  const y = p => T + (hi - p) / (hi - lo) * (H - T - B);
+  const inView = p => p >= lo && p <= hi;
+  // grid
+  g.strokeStyle = css("--grid"); g.fillStyle = css("--muted"); g.lineWidth = 1;
+  const span = hi - lo, step = span > 12 ? 2 : span > 6 ? 1 : span > 3 ? 0.5 : 0.25;
+  for (let p = Math.ceil(lo / step) * step; p <= hi; p += step) {
+    g.beginPath(); g.moveTo(L, y(p)); g.lineTo(W - R, y(p)); g.stroke();
+    g.fillText(p.toFixed(step < 1 ? 2 : 0), 4, y(p) + 3);
+  }
+  bars.forEach((b, k) => { if (b.hm.endsWith(":00") || (n <= 120 && b.hm.endsWith(":30")) || (n <= 40 && /[05]$/.test(b.hm))) {
+    const xx = x(start + k); g.beginPath(); g.moveTo(xx, T); g.lineTo(xx, H - B); g.stroke(); g.fillText(b.hm, xx - 14, H - 4); } });
+  // volume along the bottom (bright = more than 1.5× the 20-candle average)
+  if (layers.vol) { const vmax = Math.max(1, ...bars.map(b => b.v)), vh = (H - T - B) * 0.18;
+    bars.forEach((b, k) => { if (!b.v) return; const hgt = b.v / vmax * vh, xx = x(start + k);
+      g.globalAlpha = b.v > 1.5 * (b.vavg || b.v) ? 0.55 : 0.22; g.fillStyle = css(b.c >= b.o ? "--up" : "--down");
+      g.fillRect(xx - Math.max(1, xw * 0.65) / 2, H - B - hgt, Math.max(1, xw * 0.65), hgt); }); g.globalAlpha = 1; }
+  // the 10:30 line: Nolan's rule, nothing opens before it
+  if (layers.hod) bars.forEach((b, k) => { if (b.hm === "10:30") {
+    const xx = x(start + k); g.strokeStyle = css("--warn"); g.setLineDash([4, 4]); g.beginPath(); g.moveTo(xx, T); g.lineTo(xx, H - B); g.stroke(); g.setLineDash([]);
+    g.fillStyle = css("--warn"); g.fillText("10:30", xx + 3, T + 30); } });
+  // fair value gaps
+  if (layers.fvg) st.fvgs.filter(f => !f.filled && f.i >= start - 30).slice(-6).forEach(f => {
+    g.fillStyle = css(f.side === "bull" ? "--fvgU" : "--fvgD");
+    const x0 = Math.max(L, x(f.i)); g.fillRect(x0, y(f.top), W - R - x0, Math.max(1, y(f.bot) - y(f.top)));
+  });
+  // VWAP bands
+  if (layers.vwap) {
+    g.fillStyle = css("--band");
+    [2, 1].forEach(m => { g.beginPath();
+      bars.forEach((b, k) => { const xx = x(start + k), yy = y(b.vwap + m * b.sd); k ? g.lineTo(xx, yy) : g.moveTo(xx, yy); });
+      for (let k = bars.length - 1; k >= 0; k--) g.lineTo(x(start + k), y(bars[k].vwap - m * bars[k].sd));
+      g.closePath(); g.fill(); });
+  }
+  const hline = (p, col, label, dash, from) => {
+    if (!inView(p)) return;
+    g.strokeStyle = col; g.setLineDash(dash || []); g.beginPath(); g.moveTo(from ? Math.max(L, x(from)) : L, y(p)); g.lineTo(W - R, y(p)); g.stroke(); g.setLineDash([]);
+    g.fillStyle = col; g.fillText(label, W - R + 4, y(p) + 3);
+  };
+  if (layers.fib && st.fib) st.fib.levels.forEach(f => hline(f.p, css("--fib"), (f.f * 100).toFixed(1) + "%", [2, 3], st.fib.from));
+  if (layers.levels) st.levels.forEach(l => hline(l.p, css("--accent"), l.name, [5, 4]));
+  if (layers.piv) (st.pivots || []).forEach(l => hline(l.p, css("--piv"), l.name, [1, 2]));
+  if (layers.vp && st.vp) [["VAH", st.vp.vah], ["POC", st.vp.poc], ["VAL", st.vp.val]].forEach(([n, p]) => hline(p, css("--vp"), n, n === "POC" ? [] : [6, 2]));
+  if (layers.hod && st.hod !== null) { hline(st.hod, css("--muted"), "HOD", [3, 2]); hline(st.lod, css("--muted"), "LOD", [3, 2]); }
+  if (layers.pos && typeof T !== "undefined") readAll().filter(r => r.spy).forEach(r => {
+    hline(r.be, css("--ink"), "BE " + r.tag, [], null);
+    if (r.stopS !== null) hline(r.stopS, css("--down"), "STOP≈", [6, 3]);
+    if (r.tgtS !== null) hline(r.tgtS, css("--up"), "TGT≈", [6, 3]);
+    hline(r.k, css("--muted"), "K " + r.k, [1, 4]);
+  });
+  const emv = layers.em && typeof T !== "undefined" ? remainingMove(all[all.length - 1]) : null;
+  if (emv) { const c0 = all[all.length - 1].c; hline(c0 + emv, css("--vwap"), "+1σ", [8, 3]); hline(c0 - emv, css("--vwap"), "−1σ", [8, 3]); }
+  if (layers.pools) st.pools.filter(p => !/^(PDH|PDL|ORH|ORL)$/.test(p.name) && !p.taken).forEach(p =>
+    hline(p.p, css("--pool"), (p.kind === "high" ? "EQH" : "EQL") + (p.swept !== null ? " ✓" : ""), p.swept !== null ? [1, 3] : [], p.from));
+  // candles
+  bars.forEach((b, k) => {
+    const xx = x(start + k), up = b.c >= b.o, col = css(up ? "--up" : "--down");
+    g.strokeStyle = col; g.fillStyle = col;
+    g.beginPath(); g.moveTo(xx, y(b.h)); g.lineTo(xx, y(b.l)); g.stroke();
+    const bw = Math.max(1, xw * 0.65), y1 = y(Math.max(b.o, b.c)), y2 = y(Math.min(b.o, b.c));
+    g.fillRect(xx - bw / 2, y1, bw, Math.max(1, y2 - y1));
+  });
+  const line = (key, col, w, dash) => { g.strokeStyle = col; g.lineWidth = w; g.setLineDash(dash || []); g.beginPath();
+    bars.forEach((b, k) => { const xx = x(start + k), yy = y(b[key]); k ? g.lineTo(xx, yy) : g.moveTo(xx, yy); }); g.stroke(); g.setLineDash([]); g.lineWidth = 1; };
+  if (layers.ema) { line("e21", css("--e21"), 1.2); line("e9", css("--e9"), 1.2); }
+  if (layers.vwap) line("vwap", css("--vwap"), 1.6);
+  if (layers.bb) { line("bbu", css("--bb"), 1, [4, 3]); line("bbl", css("--bb"), 1, [4, 3]); line("bbm", css("--bb"), 0.8, [1, 3]); }
+  if (layers.tl && st.tlines) { g.save(); g.beginPath(); g.rect(L, T, W - L - R, H - T - B); g.clip();
+    st.tlines.forEach(t => { const iR = start + n - 0.5, col = css("--tl");
+      g.strokeStyle = col; g.lineWidth = 1.6; g.setLineDash(t.broken ? [6, 4] : []);
+      g.beginPath(); g.moveTo(x(t.a), y(t.at(t.a))); g.lineTo(L + (iR - start + 0.5) * xw, y(t.at(iR))); g.stroke();
+      [t.a, t.b].forEach(i => { g.fillStyle = col; g.beginPath(); g.arc(x(i), y(t.at(i)), 2.5, 0, 7); g.fill(); }); });
+    g.restore(); g.setLineDash([]); g.lineWidth = 1;
+    st.tlines.forEach(t => { const v = t.at(end - 1); if (inView(v)) { g.fillStyle = css("--tl"); g.fillText((t.kind === "res" ? "TL res" : "TL sup") + (t.broken ? " ✗" : ""), W - R + 4, y(v) + 3); } }); }
+  if (layers.smc && st.smc) st.smc.forEach(e => { if (e.i < start || e.from >= end) return; const yy = y(e.p);
+    g.strokeStyle = css(e.side > 0 ? "--up" : "--down"); g.setLineDash([3, 3]); g.beginPath(); g.moveTo(x(Math.max(e.from, start)), yy); g.lineTo(x(Math.min(e.i, end - 1)), yy); g.stroke(); g.setLineDash([]);
+    g.fillStyle = g.strokeStyle; g.fillText(e.kind, x(Math.max(e.from, start)) + 2, yy + (e.side > 0 ? -3 : 10)); });
+  // signals
+  const mp = S.map;
+  if (layers.sig) sigs.filter(s => mp[s.i] >= start && mp[s.i] < end).forEach(s => {
+    const col = css(s.side === "long" ? "--up" : "--down"), xx = x(mp[s.i]), yy = y(s.entry);
+    g.fillStyle = col; g.beginPath();
+    if (s.side === "long") { g.moveTo(xx, yy + 2); g.lineTo(xx - 6, yy + 12); g.lineTo(xx + 6, yy + 12); }
+    else { g.moveTo(xx, yy - 2); g.lineTo(xx - 6, yy - 12); g.lineTo(xx + 6, yy - 12); }
+    g.fill();
+    const x2 = s.exitI !== null ? Math.min(W - R, x(mp[s.exitI])) : W - R;
+    g.strokeStyle = col; g.setLineDash([3, 3]);
+    [[s.stop, "✕"], [s.target, "◆"]].forEach(([p, m]) => { if (inView(p)) { g.beginPath(); g.moveTo(xx, y(p)); g.lineTo(x2, y(p)); g.stroke(); g.fillText(m, x2 + 2, y(p) + 3); } });
+    g.setLineDash([]);
+  });
+  // last price tag
+  const lb = all[all.length - 1], ly = Math.min(H - B - 7, Math.max(T + 7, y(lb.c)));
+  g.fillStyle = css("--ink"); g.fillRect(W - R + 1, ly - 7, R - 2, 14);
+  g.fillStyle = css("--panel"); g.fillText(lb.c.toFixed(2), W - R + 4, ly + 3);
+  // which pool is likely hit first: arrow at the price tag
+  if (layers.pools && S.st1) { const o = poolOdds(S.st1, lb.c);
+    if (o.pUp !== null) { const goUp = o.pUp >= 0.5, pc = Math.round(100 * (goUp ? o.pUp : 1 - o.pUp)), t = goUp ? o.up : o.dn;
+      const txt = `${goUp ? "▲" : "▼"} ${pc}% → ${t.p.toFixed(2)}`, tw = g.measureText(txt).width + 10, ty = goUp ? ly - 22 : ly + 9;
+      g.fillStyle = css(goUp ? "--up" : "--down"); g.fillRect(W - R - tw - 2, ty, tw, 14);
+      g.fillStyle = css("--panel"); g.fillText(txt, W - R - tw + 3, ty + 10); } }
+  // crosshair readout for the candle under the finger or mouse
+  if (hoverI !== null && hoverI >= start && hoverI < end) {
+    const b = all[hoverI], xx = x(hoverI), ch = b.c - b.o;
+    g.strokeStyle = css("--muted"); g.setLineDash([2, 3]); g.beginPath(); g.moveTo(xx, T); g.lineTo(xx, H - B); g.stroke(); g.setLineDash([]);
+    const txt = `${b.hm}  O ${b.o.toFixed(2)}  H ${b.h.toFixed(2)}  L ${b.l.toFixed(2)}  C ${b.c.toFixed(2)}  ${ch >= 0 ? "+" : ""}${ch.toFixed(2)}${b.vwap ? "  VWAP " + b.vwap.toFixed(2) : ""}`;
+    const tw = g.measureText(txt).width + 12;
+    g.fillStyle = css("--panel"); g.fillRect(L + 4, T + 2, tw, 16); g.strokeStyle = css("--line"); g.strokeRect(L + 4, T + 2, tw, 16);
+    g.fillStyle = css("--ink"); g.fillText(txt, L + 10, T + 13);
+  }
+  // lower pane: RSI 14 or MACD 12/26/9
+  const r = canvasCtx("#rsi");
+  r.g.font = "10px " + css("--mono");
+  if (pane === "macd") {
+    const mx = Math.max(0.01, ...bars.map(b => Math.max(Math.abs(b.macd), Math.abs(b.msig)))), my = v => r.H / 2 - v / mx * (r.H / 2 - 6);
+    r.g.strokeStyle = css("--grid"); r.g.beginPath(); r.g.moveTo(L, my(0)); r.g.lineTo(r.W - R, my(0)); r.g.stroke();
+    bars.forEach((b, k) => { r.g.fillStyle = css(b.mhist >= 0 ? "--up" : "--down"); r.g.globalAlpha = 0.45;
+      const xx = L + (k + 0.5) * xw, y0 = my(0), y1 = my(b.mhist); r.g.fillRect(xx - Math.max(1, xw * 0.6) / 2, Math.min(y0, y1), Math.max(1, xw * 0.6), Math.abs(y1 - y0)); });
+    r.g.globalAlpha = 1;
+    [["macd", "--macd"], ["msig", "--msig"]].forEach(([key, col]) => { r.g.strokeStyle = css(col); r.g.beginPath();
+      bars.forEach((b, k) => { const xx = L + (k + 0.5) * xw, yy = my(b[key]); k ? r.g.lineTo(xx, yy) : r.g.moveTo(xx, yy); }); r.g.stroke(); });
+    const lv = bars[bars.length - 1] || lb; r.g.fillStyle = css("--muted");
+    r.g.fillText("MACD " + lv.macd.toFixed(2), r.W - R + 4, 12); r.g.fillText("sig " + lv.msig.toFixed(2), r.W - R + 4, 24);
+    return;
+  }
+  const ry = v => 6 + (100 - v) / 100 * (r.H - 12);
+  r.g.strokeStyle = css("--grid"); r.g.fillStyle = css("--muted");
+  [30, 50, 70].forEach(v => { r.g.beginPath(); r.g.moveTo(L, ry(v)); r.g.lineTo(r.W - R, ry(v)); r.g.stroke(); r.g.fillText(String(v), 4, ry(v) + 3); });
+  r.g.strokeStyle = css("--ink"); r.g.beginPath();
+  bars.forEach((b, k) => { const xx = L + (k + 0.5) * xw, yy = ry(b.rsi); k ? r.g.lineTo(xx, yy) : r.g.moveTo(xx, yy); }); r.g.stroke();
+  r.g.fillText("RSI " + lb.rsi.toFixed(0), r.W - R + 4, ry(lb.rsi) + 3);
+}
+
+// ---------- panels ----------
+// Median |15-min SPY move| by half hour from 09:30 (desk_study, 31 days of real 1-min bars).
+const MOVE15 = [0.56, 0.44, 0.47, 0.31, 0.39, 0.29, 0.22, 0.28, 0.27, 0.27, 0.24, 0.15, 0.26];
+const move15 = hm => MOVE15[Math.min(12, Math.max(0, Math.floor((+hm.slice(0, 2) * 60 + +hm.slice(3) - 570) / 30)))];
+// Opening-gap fill odds (SPY, 2026 5-min bars, 164 days; 20-year daily in brackets).
+const GAPFILL = [[0.1, "88%"], [0.3, "64% (20y: 74%)"], [0.6, "31% (20y: 55%)"], [99, "21% (20y: 35%)"]];
+// Median share of the full day's range already printed by this time (164 days).
+const RANGE_DONE = [[600, 42], [630, 55], [690, 77], [780, 92], [900, 100]];
+const TYPICAL_RANGE = 6.2; // median SPY day range, 2026 non-event days (pts)
+const EVENTS = {"2026-10-16": "Monthly options expiry", "2026-11-20": "Monthly options expiry", "2026-12-18": "Monthly options expiry", "2026-09-04": "Jobs report 8:30am", "2026-09-11": "CPI 8:30am", "2026-09-16": "FOMC 2:00pm", "2026-10-02": "Jobs report 8:30am", "2026-10-14": "CPI 8:30am",
+  "2026-10-28": "FOMC 2:00pm", "2026-11-06": "Jobs report 8:30am", "2026-11-10": "CPI 8:30am", "2026-12-04": "Jobs report 8:30am", "2026-12-09": "FOMC 2:00pm", "2026-12-10": "CPI 8:30am"};
+function remainingMove(lb) { // 1-sigma SPY move left today from the ticket's ATM 0DTE implied vol
+  const q = T.quote, i = T.inst;
+  if (!q || !i || i.chain_symbol !== "SPY" || i.expiration_date !== S.day || Math.abs(+i.strike_price - lb.c) > 2 || !(+q.implied_volatility > 0)) return null;
+  const left = Math.max(1, 960 - (+lb.hm.slice(0, 2) * 60 + +lb.hm.slice(3)));
+  return lb.c * +q.implied_volatility * Math.sqrt(left / 525600); // option IV is annualised on calendar time (minutes per year)
+}
+const names = {sweep_reversal: "Sweep reversal", vwap_reclaim: "VWAP reclaim", fvg_trend: "FVG with trend"};
+function renderPanels() {
+  const bars = S.b1;
+  if (!bars.length) return;
+  const lb = bars[bars.length - 1], st = S.st1, sigs = S.sigs;
+  const pdc = (st.levels.find(l => l.name === "PDC") || {}).p;
+  $("#last").textContent = lb.c.toFixed(2);
+  if (pdc) { const ch = lb.c - pdc; $("#chg").textContent = `${ch >= 0 ? "+" : ""}${ch.toFixed(2)} (${(100 * ch / pdc).toFixed(2)}%)`; $("#chg").className = ch >= 0 ? "long" : "short"; }
+  const rec = k => { const r = RECORD[k]; return r ? `Backtest: ${r.n} trades, ${r.win}% wins, avg ${r.avgR >= 0 ? "+" : ""}${r.avgR}R${r.n < 30 ? " (too few to trust)" : ""}` : ""; };
+  const open = sigs.filter(s => s.res === "open"), done = sigs.filter(s => s.res !== "open");
+  const card = s => `<div class="sig"><div class="top"><span class="name ${s.side}">${s.side === "long" ? "▲ LONG" : "▼ SHORT"} · ${names[s.setup]}</span>
+    <span class="pill ${s.res === "open" ? "warn" : s.res === "target" ? "long" : s.res === "stop" ? "short" : "muted"}">${s.res === "open" ? "active since " + s.hm : s.res + " · " + s.hm}</span></div>
+    <div class="lv"><span><small>Entry</small>${s.entry.toFixed(2)}</span><span><small>Stop</small>${s.stop.toFixed(2)}</span><span><small>Target (2R)</small>${s.target.toFixed(2)}</span></div>
+    <div class="rec">${s.why}. ${rec(s.setup)}</div>${s.res === "open" ? `<div><button type="button" class="btn sm" data-use="${sigs.indexOf(s)}">Load ${s.side === "long" ? "call" : "put"} into ticket</button></div>` : ""}</div>`;
+  const tally = done.reduce((a, s) => a + (s.res === "target" ? 2 : s.res === "stop" ? -1 : (s.side === "long" ? s.exitP - s.entry : s.entry - s.exitP) / Math.abs(s.entry - s.stop)), 0);
+  $("#signals").innerHTML = (open.length ? open.slice().reverse().map(card).join("") : `<p class="muted">No active signal right now.</p>`)
+    + `<p class="rec" style="margin-top:10px">Today so far: ${sigs.length} signals, ${done.filter(s => s.res === "target").length} hit target, ${done.filter(s => s.res === "stop").length} stopped, net ${tally >= 0 ? "+" : ""}${tally.toFixed(1)}R.</p>`
+    + done.slice(-4).reverse().map(card).join("");
+  const above = st.pools.filter(p => p.p > lb.c && !p.taken).sort((a, b) => a.p - b.p)[0];
+  const below = st.pools.filter(p => p.p < lb.c && !p.taken).sort((a, b) => b.p - a.p)[0];
+  const sig = (lb.c - lb.vwap) / (lb.sd || 1);
+  const range = Math.max(...bars.map(b => b.h)) - Math.min(...bars.map(b => b.l));
+  const trendness = range ? Math.abs(lb.c - bars[0].o) / range : 0;
+  const rows = [
+    ["Trend", lb.trend > 0 ? '<span class="long">Up (above VWAP, EMA 9 > 21)</span>' : lb.trend < 0 ? '<span class="short">Down (below VWAP, EMA 9 < 21)</span>' : '<span class="muted">Mixed</span>'],
+    ["vs VWAP", `${(lb.c - lb.vwap >= 0 ? "+" : "")}${(lb.c - lb.vwap).toFixed(2)} (${sig >= 0 ? "+" : ""}${sig.toFixed(1)}σ)`],
+    ["RSI 14", `${lb.rsi.toFixed(0)} ${lb.rsi >= 70 ? "· stretched up" : lb.rsi <= 30 ? "· stretched down" : ""}`],
+    ["ATR (1-min)", lb.atr.toFixed(2)],
+    ["Volume now", lb.vavg ? `${(lb.v / lb.vavg).toFixed(1)}× the 20-candle average${lb.v > 1.5 * lb.vavg ? " · heavy" : lb.v < 0.6 * lb.vavg ? " · light" : ""}` : "–"],
+    ["MACD", `${lb.macd >= lb.msig ? '<span class="long">above signal</span>' : '<span class="short">below signal</span>'} · ${lb.macd >= 0 ? "above" : "below"} zero`],
+    ["Bollinger", `${lb.c > lb.bbu ? "above upper band" : lb.c < lb.bbl ? "below lower band" : "inside bands"} · width ${(lb.bbw * 100).toFixed(2)}%`],
+    ["Trend lines", (st.tlines || []).length ? st.tlines.map(t => `${t.kind === "res" ? "res" : "sup"} ${t.now.toFixed(2)}${t.broken ? " (broken)" : ""}`).join(" · ") : "not enough swings yet"],
+    ["Structure", (st.smc || []).length ? (e => `last break: ${e.kind} ${e.side > 0 ? "up" : "down"} through ${e.p.toFixed(2)} <span class="muted">· map only, tested no edge</span>`)(st.smc[st.smc.length - 1]) : "no break yet"],
+    ["Value area", st.vp ? `${vpWhere(st.vp, lb.c)} · VAH ${st.vp.vah.toFixed(2)} · POC ${st.vp.poc.toFixed(2)} · VAL ${st.vp.val.toFixed(2)} <span class="muted">· map only: edges ≈ coin flip on 167 days</span>` : "–"],
+    ["Pivots", (st.pivots || []).length ? st.pivots.slice(0, 3).map(v => `${v.name} ${v.p.toFixed(2)}`).join(" · ") : "–"],
+    ["Candles", size + "-minute"],
+    ["Next pool to get hit", (() => { const o = poolOdds(st, lb.c); if (o.pUp === null) return '<span class="muted">needs a pool above and below</span>';
+      const goUp = o.pUp >= 0.5, t = goUp ? o.up : o.dn, pc = Math.round(100 * (goUp ? o.pUp : 1 - o.pUp));
+      return `<b class="${goUp ? "long" : "short"}">${goUp ? "▲ UP" : "▼ DOWN"} to ${t.name} ${t.p.toFixed(2)}</b> · ${pc}% odds${pc < 60 ? " (close to a coin flip)" : ""}`; })()],
+    ["Pool above", above ? `${above.name} ${above.p.toFixed(2)} (+${(above.p - lb.c).toFixed(2)})` : "–"],
+    ["Pool below", below ? `${below.name} ${below.p.toFixed(2)} (−${(lb.c - below.p).toFixed(2)})` : "–"],
+    ["Day type so far", `${trendness >= 0.5 ? "Trending" : trendness <= 0.25 ? "Choppy" : "In between"} (${trendness.toFixed(2)})`],
+    ["Day range", range.toFixed(2)],
+    ["News today", EVENTS[S.day] ? `<span class="warn">${EVENTS[S.day]}</span>${/FOMC/.test(EVENTS[S.day]) ? " · 2–4pm range runs ~4× normal" : /expiry/.test(EVENTS[S.day]) ? " · tested lean: monthly-expiry Fridays averaged −0.21% close-to-close, up only 38% of the time (2016-26, n=125; 2006-15 the same: −0.21%). Calls need a better reason today. 0DTE premium melts after 2pm" : " · priced into the gap"}` : "None scheduled"],
+    ["Opening gap", (() => { if (!pdc) return "–"; const g = 100 * (bars[0].o - pdc) / pdc, filled = g > 0 ? Math.min(...bars.map(b => b.l)) <= pdc : Math.max(...bars.map(b => b.h)) >= pdc;
+      return `${g >= 0 ? "+" : ""}${g.toFixed(2)}% · ${filled ? "filled" : "fills same day " + GAPFILL.find(x => Math.abs(g) < x[0])[1]}`; })()],
+    ["Range so far", (() => { const t = +lb.hm.slice(0, 2) * 60 + +lb.hm.slice(3), r = RANGE_DONE.filter(x => t >= x[0]).pop(); return `${range.toFixed(2)} pts vs typical ${TYPICAL_RANGE} · ${r ? "usually " + r[1] + "% of the day's range is in by now" : "most of the range comes before 11:30"}`; })()],
+    ["Expected move left (1σ)", (() => { const m = remainingMove(lb); return m ? `±${m.toFixed(2)} → ${(lb.c - m).toFixed(2)} / ${(lb.c + m).toFixed(2)} · real moves run ~60% of this` : '<span class="muted">load an ATM 0DTE in the ticket</span>'; })()],
+    ["Typical 15-min move now", `${move15(lb.hm).toFixed(2)} pts${move15(lb.hm) < 0.3 ? " · slow hours, decay wins" : ""}`],
+  ];
+  if (st.fib) rows.push(["Fib 61.8% / 50%", `${st.fib.levels[3].p.toFixed(2)} / ${st.fib.levels[2].p.toFixed(2)}`]);
+  $("#signals").querySelectorAll("[data-use]").forEach(b => b.addEventListener("click", () => useSignal(sigs[+b.dataset.use])));
+  $("#ctx").innerHTML = rows.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("");
+  renderEdge();
+}
+
+function setStatus(kind, text) {
+  $("#dot").className = "dot " + kind; $("#stat").textContent = text;
+}
+function banner(html, btn) {
+  const b = $("#banner");
+  if (!html) { b.hidden = true; return; }
+  b.innerHTML = html; b.hidden = false;
+  if (btn) { const el = document.createElement("button"); el.type = "button"; el.textContent = btn.label; el.addEventListener("click", btn.fn); b.appendChild(el); }
+}
+function handleError(e, retract) {
+  const c = e && e.code;
+  if (c === "needs_reauth") banner("Robinhood needs to be reconnected. Open claude.ai Settings → Connectors and reconnect Robinhood.");
+  else if (c === "server_not_connected" || c === "selection_required") banner("Add the Robinhood connector in claude.ai Settings → Connectors to see live SPY data.");
+  else if (c === "not_in_manifest" || c === "blocked_by_policy") banner("Robinhood is turned off for this page. Turn it on from the page's Permissions menu to see live data.");
+  else if (c === "approval_required") banner("This page needs your OK to read SPY prices from Robinhood.", {label: "Allow and load", fn: () => { banner(); startLive(true); }});
+  else { setStatus("stale", "Data delayed · last update " + (S.updated ? S.updated.toLocaleTimeString() : "never")); return; }
+  if (retract) { S.b1 = []; S.bars = []; draw(); }
+  setStatus("off", "Not connected");
+}
+
+function apply() {
+  indicators(S.b1);
+  S.st1 = structure(S.b1, S.prev, 1);
+  S.sigs = signals(S.b1, S.st1);
+  if (size === 1) { S.bars = S.b1; S.map = S.b1.map((_, i) => i); S.st = S.st1; }
+  else { const a = aggregate(S.b1, size); S.bars = a.bars; S.map = a.map; indicators(S.bars); S.st = structure(S.bars, S.prev, size);
+    // key levels (PDH/PDL/PDC, 15-min opening range) always come from the 1-minute bars, whatever the candle size
+    const KEY = /^(PDH|PDL|PDC|ORH|ORL)$/;
+    S.st.levels = S.st1.levels; S.st.vp = S.st1.vp; S.st.pools = S.st.pools.filter(p => !KEY.test(p.name)).concat(S.st1.pools.filter(p => KEY.test(p.name))); }
+  draw(); renderPanels();
+  if (typeof T !== "undefined" && T.pos) renderReader();
+  if (!$("#tStrike").value && S.b1.length) { $("#tStrike").value = String(Math.round(S.b1[S.b1.length - 1].c)); resolveSoon(); }
+}
+
+let unwatch = null;
+async function startLive(viaCall) {
+  const mcp = await CL.use("mcp");
+  if (!mcp) { setStatus("off", "Live data unavailable in this view"); banner("Live data needs the claude.ai app or site with the Robinhood connector. Open this page there."); return; }
+  // prior sessions (5-minute bars) for PDH/PDL/PDC and to find the latest session
+  const since = new Date(Date.now() - 9 * 864e5).toISOString().slice(0, 10) + "T12:00:00Z";
+  try {
+    const r = await mcp.callTool(SERVER, "get_equity_historicals", {symbols: ["SPY"], start_time: since, interval: "5minute"}, {cache: {staleTime: 300000}});
+    const bars = parseBars(r.payload);
+    const days = [...new Set(bars.map(b => b.d))].sort();
+    const today = etDay(new Date());
+    S.day = days.includes(today) ? today : days[days.length - 1];
+    const prevDay = days.filter(d => d < S.day).pop();
+    S.prev = prevDay ? bars.filter(b => b.d === prevDay) : null;
+    const prev2 = days.filter(d => d < (prevDay || "")).pop(), p2 = prev2 ? bars.filter(b => b.d === prev2) : [];
+    S.prev2c = p2.length ? p2[p2.length - 1].c : null;
+  } catch (e) { handleError(e, true); return; }
+  if (!S.day) { setStatus("off", "No SPY data returned"); return; }
+  if (unwatch) unwatch();
+  const input = {symbols: ["SPY"], start_time: openUTC(S.day), interval: "minute"};
+  const onData = res => {
+    const bars = parseBars(res.payload).filter(b => b.d === S.day);
+    if (!bars.length) return;
+    S.b1 = bars;
+    S.updated = res.cache ? new Date(res.cache.storedAt) : new Date(); S.lastTick = S.lastTick && S.lastTick > S.updated ? S.lastTick : S.updated;
+    const live = S.day === etDay(new Date()) && etHM(new Date()) < "16:00";
+    setStatus(live ? "live" : "stale", (live ? "Live · price every ~1s, candles every 30s · " : `Session ${S.day} (market closed) · `) + "updated " + S.updated.toLocaleTimeString());
+    apply();
+  };
+  startTicks(mcp); startVix(mcp); startDrivers(mcp);
+  // daily SPY bars (last ~45 days) for the day-score model
+  mcp.callTool(SERVER, "get_equity_historicals", {symbols: ["SPY"], start_time: new Date(Date.now() - 45 * 864e5).toISOString().slice(0, 10) + "T12:00:00Z", interval: "day"}, {cache: {staleTime: 3600000}})
+    .then(r => { const p = r.payload && (r.payload.data || r.payload), x = (p && p.results || []).find(q => (q.symbol || "SPY") === "SPY");
+      S.daily = x ? x.bars.filter(b => !b.interpolated).map(b => ({d: b.begins_at.slice(0, 10), o: +b.open_price, h: +b.high_price, l: +b.low_price, c: +b.close_price})) : []; renderEdge(); })
+    .catch(() => {});
+  if (viaCall) { try { onData(await mcp.callTool(SERVER, "get_equity_historicals", input)); } catch (e) { handleError(e, true); return; } }
+  unwatch = mcp.watchTool(SERVER, "get_equity_historicals", input, ev => {
+    if (ev.type === "data") { banner(); onData(ev.result); }
+    else handleError(ev.error, ["needs_reauth", "server_not_connected", "blocked_by_policy", "approval_required", "not_in_manifest"].includes(ev.error.code));
+  }, {refetchInterval: 30000, cache: {staleTime: 20000}});
+}
+
+// Live price between candle refreshes: the last SPY trade (Robinhood quote, about every second) moves the newest candle.
+// Only real trades are used; a new minute starts its candle at the first trade seen. The 30s candle refresh replaces these.
+let unTick = null;
+// Live price ~every second: a self-timed loop of single SPY quote calls (watchTool polling is floored at ~30 s).
+// The next call starts 1 s after the previous answer, so calls never overlap; it pauses while the page is hidden
+// and backs off on errors. Each answer moves the newest candle; the 30 s candle refresh then replaces it with real bars.
+let tickRun = 0, tickN = 0, tickT0 = 0;
+function startTicks(mcp) {
+  const run = ++tickRun; unTick = () => { tickRun++; };
+  let fails = 0;
+  const loop = async () => {
+    if (run !== tickRun) return;
+    const now = new Date();
+    if (S.day !== etDay(now) || etHM(now) >= "16:00" || etHM(now) < "09:30") { setTimeout(loop, 30000); return; }
+    if (document.hidden) { setTimeout(loop, 2000); return; }
+    try {
+      const r = await mcp.callTool(SERVER, "get_equity_quotes", {symbols: ["SPY"]}, {cache: {gcTime: 0}, signal: AbortSignal.timeout ? AbortSignal.timeout(8000) : undefined});
+      fails = 0; onQuote(r.payload);
+    } catch (e) { fails++; }
+    setTimeout(loop, fails ? Math.min(30000, 2000 * 2 ** (fails - 1)) : 1000);
+  };
+  loop();
+}
+function onQuote(p) {
+  const d = p && (p.data || p), q = d && d.results && d.results[0] && d.results[0].quote;
+  if (!q || !q.venue_last_trade_time || !S.b1.length) return;
+  const t = new Date(q.venue_last_trade_time), px = +q.last_trade_price, hm = etHM(t);
+  if (!(px > 0) || etDay(t) !== S.day || hm < "09:30" || hm >= "16:00") return;
+  const last = S.b1[S.b1.length - 1];
+  if (hm === last.hm) { last.c = px; last.h = Math.max(last.h, px); last.l = Math.min(last.l, px); }
+  else if (hm > last.hm) S.b1.push({t: new Date(Math.floor(t.getTime() / 60000) * 60000), d: S.day, hm, o: px, h: px, l: px, c: px, v: 0});
+  else return;
+  S.lastTick = new Date(); tickN++; if (!tickT0) tickT0 = Date.now();
+  const rate = tickN > 3 ? ((Date.now() - tickT0) / 1000 / (tickN - 1)).toFixed(1) : "1";
+  setStatus("live", `Live · SPY ${px.toFixed(2)} · last trade ${t.toLocaleTimeString()} · updating every ~${rate}s`);
+  scheduleApply();
+}
+// redraw at most ~4 times a second, so fast ticks never pile up redraws
+let applyQ = false;
+function scheduleApply() { if (applyQ) return; applyQ = true; requestAnimationFrame(() => { applyQ = false; apply(); }); }
+// ---------- TARS console: shared db between this page and TARS (the agent reads/writes it with ArtifactData) ----------
+const PRED = [{"id": "gut2", "what": "Account up more than 1% on Fri 2026-10-16 (Nolan said \"up big\")", "p": 0.25, "hit": 0}, {"id": "slot1", "what": "Slot trade #1 (S2, SPY 769C) closes green", "p": 0.55, "hit": 0}, {"id": "slot2", "what": "Slot trade #2 (S2+Atlas, SPY 768C) closes green", "p": 0.45, "hit": 0}, {"id": "model1", "what": "Day-score model (p_up 0.44): SPY closes below its 773.24 open on 2026-10-16", "p": 0.56, "hit": 1}];
+let DB = null, canWrite = false, lastSnap = null;
+(async () => {
+  const p = PRED, done = p.filter(x => x.hit === 0 || x.hit === 1), hits = done.filter(x => x.hit === 1).length;
+  $("#tPred").innerHTML = "<thead><tr><th>Call</th><th>Odds</th><th>Result</th></tr></thead><tbody>" + p.slice(-8).reverse().map(x => `<tr><td>${esc(x.what)}</td><td class="n">${Math.round(100 * x.p)}%</td><td class="n ${x.hit === 1 ? "long" : x.hit === 0 ? "short" : "muted"}">${x.hit === 1 ? "hit" : x.hit === 0 ? "miss" : "open"}</td></tr>`).join("") +
+    `<tr><td colspan="3" class="muted">Graded: ${hits}/${done.length} hit${done.length ? ` · Brier ${(done.reduce((a, x) => a + (x.p - x.hit) ** 2, 0) / done.length).toFixed(3)} (lower is better; 0.25 = coin flip)` : ""}</td></tr></tbody>`;
+  DB = await CL.use("db");
+  if (!DB) { $("#tLink").textContent = "The TARS link needs this page opened in the claude.ai app or site (shared data unavailable here)."; $("#tChatF").hidden = true; return; }
+  const user = await CL.use("user"); const cw = user ? await user.can("data.write") : null; canWrite = cw !== false;
+  if (!canWrite) $("#tChatF").hidden = true;
+  DB.doc("tars/now").onSnapshot(sn => { const d = sn.exists ? sn.data() : null; if (!d) return;
+    $("#tRead").innerHTML = `<b>${esc(d.mood || "")}</b> · <span class="muted">${esc(d.updated || "")}</span>\n${esc(d.read || "")}${d.plan ? "\n\nPlan: " + esc(d.plan) : ""}`; }, () => {});
+  DB.collection("chat").orderBy("ts", "desc").limit(30).onSnapshot(q => {
+    const m = q.docs.map(x => x.data()).reverse();
+    $("#tChat").innerHTML = m.length ? m.map(x => `<div class="msg2 ${x.from === "TARS" ? "tars" : "me"}">${esc(x.text)}<small>${esc(x.from)} · ${new Date(x.ts).toLocaleString()}</small></div>`).join("") : '<p class="muted">No messages yet.</p>';
+    const c = $("#tChat"); c.scrollTop = c.scrollHeight; }, () => {});
+  DB.doc("desk/seen").onSnapshot(sn => { const d = sn.exists ? sn.data() : null; if (d && d.ts) $("#tSeen").textContent = "· TARS last looked " + new Date(d.ts).toLocaleTimeString(); }, () => {});
+  $("#tChatF").addEventListener("submit", async e => { e.preventDefault(); const v = $("#tChatI").value.trim(); if (!v) return;
+    try { await DB.collection("chat").add({from: "Nolan", text: v.slice(0, 500), ts: Date.now(), status: "new"}); $("#tChatI").value = ""; }
+    catch (err) { $("#tLink").textContent = err && err.code === "quota_exceeded" ? "Chat is full; ask TARS to clear old messages." : "Couldn't send (" + (err && err.code || "error") + ")."; } });
+  setInterval(sendSnapshot, 60000); setTimeout(sendSnapshot, 8000);
+})();
+function deskSnapshot() {
+  if (!S.b1.length) return null;
+  const lb = S.b1[S.b1.length - 1], rows = el => [...document.querySelectorAll(el + " dt")].map(dt => dt.textContent + ": " + (dt.nextElementSibling ? dt.nextElementSibling.textContent : ""));
+  return {ts: Date.now(), day: S.day, spy: lb.c, vwap: +(lb.vwap || 0).toFixed(2), rsi: +(lb.rsi || 0).toFixed(1), hod: Math.max(...S.b1.map(b => b.h)), lod: Math.min(...S.b1.map(b => b.l)),
+    vix: S.vix ? S.vix.v : null, dayScore: (() => { const d = dayScore(); return d === null ? null : +d.toFixed(3); })(), edge: rows("#edge"), context: rows("#ctx").slice(0, 14),
+    drivers: Object.keys(DRQ).filter(k => k !== "_t" && k !== "SPY").map(k => ({s: k, ch: +(100 * (DRQ[k].px / DRQ[k].pc - 1)).toFixed(2)})),
+    signals: (S.sigs || []).slice(-5).map(g => ({name: g.name || g.kind || "", side: g.side, at: g.hm || ""})),
+    stocks: (A.rows || []).map(r => ({s: r.s, px: r.px, stop: r.stop, pct: r.pct}))};
+}
+async function sendSnapshot() {
+  if (!DB || !canWrite || document.hidden) return;
+  const sn = deskSnapshot(); if (!sn) return;
+  try { const full = snapshot(); if (full) sn.desk = JSON.parse(JSON.stringify(full)); } catch (e) {}
+  if (JSON.stringify(sn).length > 200000) delete sn.desk;
+  try { await DB.doc("desk/snapshot").set(sn); lastSnap = new Date(); $("#tLink").textContent = "TARS can see this desk · snapshot sent " + lastSnap.toLocaleTimeString() + " (every minute while open)."; } catch (e) {}
+}
+// ---------- Earnings guard: next report per held stock (Robinhood get_earnings_results, cached 6 h) ----------
+// Why: more than half of the holdings' −8% gaps came on earnings days (EVENT_REACTIONS), and a gap skips past a stop.
+const EARN = {};
+async function loadEarnings(syms) {
+  const today = etDay(new Date());
+  await Promise.all(syms.map(async s => { try {
+    const r = await call("get_earnings_results", {symbol: s}, {cache: {staleTime: 6 * 3600000}});
+    const next = (r.results || []).filter(x => x.eps && x.eps.actual == null && x.report && x.report.date >= today).sort((a, b) => a.report.date < b.report.date ? -1 : 1)[0];
+    EARN[s] = next ? {date: next.report.date, timing: next.report.timing, verified: next.report.verified} : null; } catch (e) {} }));
+}
+function earnCell(s) {
+  const e = EARN[s]; if (!e) return '<span class="muted">–</span>';
+  const days = Math.round((Date.parse(e.date) - Date.parse(etDay(new Date()))) / 864e5);
+  const txt = `${e.date.slice(5)} ${e.timing || ""}${e.verified ? "" : "?"} · ${days}d`;
+  return days <= 7 ? `<span class="nostop" title="Earnings within a week: the stop can be gapped through">⚠ ${txt}</span>` : days <= 14 ? `<span class="warn">${txt}</span>` : txt;
+}
+// ---------- Account: stock positions + their resting stops (read-only) ----------
+const A = {rows: [], un: null};
+function drawAcct() {
+  if (!A.rows.length) return;
+    const f = (v, d = 2, sfx = "") => v == null ? "–" : (v >= 0 ? "+" : "") + v.toFixed(d) + sfx;
+    $("#aTab").innerHTML = "<thead><tr><th>Stock</th><th>Shares</th><th>Avg cost</th><th>Price</th><th>Today</th><th>Since buy</th><th>Stop</th><th>Room to stop</th><th>Earnings</th></tr></thead><tbody>" +
+      A.rows.map(r => `<tr><td>${esc(r.s)}</td><td class="n">${r.n}</td><td class="n">${r.avg.toFixed(2)}</td><td class="n">${r.px ? r.px.toFixed(2) : "–"}</td><td class="n ${r.day >= 0 ? "long" : "short"}">${f(r.day, 2, "%")}</td><td class="n ${r.pct >= 0 ? "long" : "short"}">${f(r.pct, 1, "%")}</td><td class="n">${r.stop ? r.stop.toFixed(2) : '<span class="nostop">NO STOP</span>'}</td><td class="n ${r.room !== null && r.room < 2 ? "warn" : ""}">${r.room == null ? "–" : r.room.toFixed(1) + "%"}</td><td class="n">${earnCell(r.s)}</td></tr>`).join("") +
+      `<tr><td colspan="9" class="muted">${A.rows.filter(r => !r.stop).length ? '<span class="nostop">' + A.rows.filter(r => !r.stop).length + " without a stop</span>" : "Every position has a stop resting."}</td></tr></tbody>`;
+}
+async function startAccount() {
+  if (!T.mcp || !T.acct) return;
+  let pos = [], ords = [];
+  try { pos = ((await call("get_equity_positions", {account_number: T.acct.account_number}, {cache: {staleTime: 60000}})).positions || []).filter(p => +p.quantity > 0);
+        ords = ((await call("get_equity_orders", {account_number: T.acct.account_number, state: "confirmed"}, {cache: {staleTime: 60000}})).orders || []); }
+  catch (e) { $("#aTab").innerHTML = `<tbody><tr><td class="muted">${esc(actErr ? actErr(e) : "Couldn't load positions")}</td></tr></tbody>`; return; }
+  const stops = {}; ords.filter(o => o.side === "sell" && o.trigger === "stop").forEach(o => { stops[o.symbol] = +o.stop_price; });
+  A.pos = pos; A.stops = stops; loadEarnings(pos.map(p => p.symbol)).then(drawAcct);
+  if (A.un) A.un();
+  if (!pos.length) { $("#aTab").innerHTML = '<tbody><tr><td class="muted">No stock positions.</td></tr></tbody>'; return; }
+  A.un = T.mcp.watchTool(SERVER, "get_equity_quotes", {symbols: pos.map(p => p.symbol)}, ev => {
+    if (ev.type !== "data") return; const p = ev.result.payload, d = p && (p.data || p), q = {};
+    (d && d.results || []).forEach(r => { if (r.quote) q[r.quote.symbol] = r.quote; });
+    A.rows = A.pos.map(p => { const qq = q[p.symbol] || {}, px = +qq.last_trade_price || null, pc = +(qq.adjusted_previous_close || 0), avg = +p.average_buy_price, st = A.stops[p.symbol] || null;
+      return {s: p.symbol, n: +p.quantity, avg, px, day: px && pc ? 100 * (px / pc - 1) : null, pct: px && avg ? 100 * (px / avg - 1) : null, stop: st, room: px && st ? 100 * (px / st - 1) : null}; });
+    drawAcct();
+    $("#aAge").textContent = "· " + new Date().toLocaleTimeString();
+  }, {refetchInterval: 30000, cache: {staleTime: 25000}});
+}
+// ---------- platform: drivers (live), slot book and research library (baked at build) ----------
+const DRIVERS = [["NVDA", 0.075], ["AAPL", 0.075], ["MSFT", 0.058], ["GOOGL", 0.056], ["AMZN", 0.037], ["META", 0.024], ["AVGO", 0.023], ["TSLA", 0.015], ["JPM", 0.013], ["BRK.B", 0.011]];
+const STUDY = {"AAPL same day": {"2006-15": {"n": 2513, "corr": 0.56, "r2": 0.314, "beta": 0.34}, "2016-26": {"n": 2705, "corr": 0.732, "r2": 0.536, "beta": 0.452}}, "AMZN same day": {"2006-15": {"n": 2513, "corr": 0.525, "r2": 0.276, "beta": 0.262}, "2016-26": {"n": 2705, "corr": 0.644, "r2": 0.414, "beta": 0.348}}, "BAC same day": {"2006-15": {"n": 2513, "corr": 0.679, "r2": 0.461, "beta": 0.243}, "2016-26": {"n": 2705, "corr": 0.69, "r2": 0.476, "beta": 0.401}}, "C same day": {"2006-15": {"n": 2513, "corr": 0.66, "r2": 0.436, "beta": 0.225}, "2016-26": {"n": 2705, "corr": 0.709, "r2": 0.502, "beta": 0.378}}, "CSCO same day": {"2006-15": {"n": 2513, "corr": 0.679, "r2": 0.461, "beta": 0.458}, "2016-26": {"n": 2705, "corr": 0.655, "r2": 0.43, "beta": 0.443}}, "F same day": {"2006-15": {"n": 2513, "corr": 0.555, "r2": 0.308, "beta": 0.244}, "2016-26": {"n": 2705, "corr": 0.553, "r2": 0.305, "beta": 0.266}}, "GE same day": {"2006-15": {"n": 2513, "corr": 0.692, "r2": 0.479, "beta": 0.458}, "2016-26": {"n": 2705, "corr": 0.562, "r2": 0.316, "beta": 0.281}}, "GOOGL same day": {"2006-15": {"n": 2513, "corr": 0.557, "r2": 0.31, "beta": 0.36}, "2016-26": {"n": 2705, "corr": 0.708, "r2": 0.501, "beta": 0.433}}, "IBM same day": {"2006-15": {"n": 2513, "corr": 0.675, "r2": 0.455, "beta": 0.632}, "2016-26": {"n": 2705, "corr": 0.517, "r2": 0.268, "beta": 0.324}}, "MSFT same day": {"2006-15": {"n": 2513, "corr": 0.643, "r2": 0.413, "beta": 0.475}, "2016-26": {"n": 2705, "corr": 0.758, "r2": 0.575, "beta": 0.492}}, "NVDA same day": {"2006-15": {"n": 2513, "corr": 0.561, "r2": 0.315, "beta": 0.239}, "2016-26": {"n": 2705, "corr": 0.655, "r2": 0.429, "beta": 0.239}}, "PFE same day": {"2006-15": {"n": 2513, "corr": 0.641, "r2": 0.411, "beta": 0.576}, "2016-26": {"n": 2705, "corr": 0.415, "r2": 0.172, "beta": 0.309}}, "T same day": {"2006-15": {"n": 2513, "corr": 0.688, "r2": 0.473, "beta": 0.635}, "2016-26": {"n": 2705, "corr": 0.39, "r2": 0.152, "beta": 0.291}}, "XOM same day": {"2006-15": {"n": 2513, "corr": 0.742, "r2": 0.55, "beta": 0.61}, "2016-26": {"n": 2705, "corr": 0.481, "r2": 0.232, "beta": 0.306}}, "VIX change same day": {"2006-15": {"n": 2513, "corr": -0.734, "r2": 0.538, "beta": -0.132}, "2016-26": {"n": 2705, "corr": -0.73, "r2": 0.533, "beta": -0.103}}, "DAX same day": {"2006-15": {"n": 2436, "corr": 0.656, "r2": 0.43, "beta": 0.59}, "2016-26": {"n": 2619, "corr": 0.551, "r2": 0.304, "beta": 0.526}}, "FTSE same day": {"2006-15": {"n": 2428, "corr": 0.625, "r2": 0.391, "beta": 0.657}, "2016-26": {"n": 2607, "corr": 0.498, "r2": 0.248, "beta": 0.585}}, "NIKKEI same day": {"2006-15": {"n": 2250, "corr": 0.159, "r2": 0.025, "beta": 0.126}, "2016-26": {"n": 2409, "corr": 0.191, "r2": 0.036, "beta": 0.156}}, "HSI same day": {"2006-15": {"n": 2305, "corr": 0.271, "r2": 0.073, "beta": 0.218}, "2016-26": {"n": 2469, "corr": 0.182, "r2": 0.033, "beta": 0.151}}, "KOSPI same day": {"2006-15": {"n": 2318, "corr": 0.22, "r2": 0.049, "beta": 0.215}, "2016-26": {"n": 2440, "corr": 0.167, "r2": 0.028, "beta": 0.127}}, "ASX same day": {"2006-15": {"n": 2401, "corr": 0.175, "r2": 0.031, "beta": 0.195}, "2016-26": {"n": 2596, "corr": 0.286, "r2": 0.082, "beta": 0.342}}, "10y-2y curve change": {"2006-15": {"n": 2475, "corr": 0.131, "r2": 0.017, "beta": 0.039}, "2016-26": {"n": 2669, "corr": 0.031, "r2": 0.001, "beta": 0.01}}, "NIKKEI day -> SPY gap": {"2006-15": {"n": 2368, "corr": 0.36, "r2": 0.13, "beta": 0.216}, "2016-26": {"n": 2539, "corr": 0.36, "r2": 0.13, "beta": 0.269}}, "HSI day -> SPY gap": {"2006-15": {"n": 2401, "corr": 0.383, "r2": 0.146, "beta": 0.249}, "2016-26": {"n": 2577, "corr": 0.275, "r2": 0.076, "beta": 0.197}}, "KOSPI day -> SPY gap": {"2006-15": {"n": 2404, "corr": 0.309, "r2": 0.095, "beta": 0.218}, "2016-26": {"n": 2550, "corr": 0.313, "r2": 0.098, "beta": 0.205}}, "ASX day -> SPY gap": {"2006-15": {"n": 2456, "corr": 0.318, "r2": 0.101, "beta": 0.233}, "2016-26": {"n": 2650, "corr": 0.422, "r2": 0.178, "beta": 0.34}}, "DAX open gap -> SPY gap": {"2006-15": {"n": 2436, "corr": 0.435, "r2": 0.189, "beta": 0.46}, "2016-26": {"n": 2619, "corr": 0.556, "r2": 0.309, "beta": 0.501}}, "SPY yesterday -> SPY gap": {"2006-15": {"n": 2512, "corr": -0.046, "r2": 0.002, "beta": -0.026}, "2016-26": {"n": 2704, "corr": -0.117, "r2": 0.014, "beta": -0.076}}, "5 mega-caps (avg) same day": {"2006-15": {"n": 2513, "corr": 0.766, "r2": 0.586, "beta": 0.583}, "2016-26": {"n": 2705, "corr": 0.85, "r2": 0.722, "beta": 0.556}}, "9 other stocks (avg) same day": {"2006-15": {"n": 2513, "corr": 0.883, "r2": 0.781, "beta": 0.687}, "2016-26": {"n": 2705, "corr": 0.819, "r2": 0.671, "beta": 0.718}}, "FOMC day |move| vs other days (%)": {"2006-15": {"fomc": 1.022, "other": 0.822}, "2016-26": {"fomc": 0.775, "other": 0.728}}}, SLOT = {"state": {"buffer_start": 500, "buffer": 440.84, "realized": -59.16, "day": "2026-10-16", "day_realized": -59.16, "open": null, "trades": 2, "halted": false, "mood": "stressed", "loss_streak": 2, "entries_today": 2}, "trades": [{"slot_trade_no": 1, "date": "2026-10-16", "setup": "S2", "contract": "SPY 2026-10-19 769C", "entry": 2.54, "exit": 2.31, "result": -23.08}, {"slot_trade_no": 2, "date": "2026-10-16", "setup": "S2 + Atlas filter (EMA9<EMA21)", "contract": "SPY 2026-10-19 768C", "entry": 2.44, "exit": 2.08, "result": -36.08}], "built": "2026-10-20 20:26 UTC"}, RESEARCH = [{"area": "Day leans", "name": "Expiry Fridays lean down", "verdict": "holds", "nums": "\u22120.21% close-to-close in both 2006-15 and 2016-26; up only 38% (2016-26, n=125)", "script": "market_lab.py \u00a73"}, {"area": "Day leans", "name": "Day-score model (logit, 10 pre-open inputs)", "verdict": "holds (tails only)", "nums": "score \u226560: up 65-67%, +0.50%/+0.64% (n=12/34, rare). <45: up 46%, \u22120.06% both halves. Middle: no call", "script": "predict_lab.py, day_model.json"}, {"area": "Day leans", "name": "VIX sets the day's size", "verdict": "holds", "nums": "avg range 0.66% (VIX<15), 1.01% (15-20), 1.52% (20-30), 2.72% (30+)", "script": "market_lab.py \u00a713"}, {"area": "Day leans", "name": "VIX sets the lean", "verdict": "holds", "nums": "VIX<15: +0.13%/day, up 59% (t 7.6); VIX 30+: \u22120.24%, up 44%", "script": "market_lab.py \u00a713b"}, {"area": "Day leans", "name": "Big days partly reverse", "verdict": "holds (weak)", "nums": "after <\u22121%: next day +0.16/+0.22%; after >+1%: \u22120.10/\u22120.15%", "script": "market_lab.py \u00a712"}, {"area": "Day leans", "name": "Gap size decides fill", "verdict": "holds", "nums": "0.1-0.3% gaps fill 71-77%; >1% gaps fill 24% (2016-26)", "script": "market_lab.py \u00a72"}, {"area": "Day leans", "name": "Gains come overnight", "verdict": "holds", "nums": "2016-26: +0.029%/night (t 2.1) vs +0.020%/day session (t 1.3)", "script": "market_lab.py \u00a71"}, {"area": "Day leans", "name": "Overnight model (logit)", "verdict": "holds (tails only)", "nums": "p\u22650.60 nights up 58-61%, +0.10% (both halves)", "script": "predict_lab.py"}, {"area": "Day leans", "name": "Overnight edge via options", "verdict": "fails (except 30DTE on strong nights)", "nums": "Priced at that night's VIX, weekends included: 1DTE call \u221222.6%/night (win 28%); 7DTE \u22125.7%; 30DTE \u22121.0%. Model-strong nights only (p\u22650.60, n=318): 30DTE +0.85%/night (win 54%); SPY shares +0.12% (up 61%)", "script": "overnight_slot.py"}, {"area": "Drivers", "name": "Mega-caps move SPY", "verdict": "fact", "nums": "5 mega-caps' average move explains 72% of SPY's daily move (2016-26), up from 59%", "script": "spy_drivers.py"}, {"area": "Drivers", "name": "VIX moves with SPY", "verdict": "fact", "nums": "VIX % change explains 53% of SPY's daily move (beta \u22120.10)", "script": "spy_drivers.py"}, {"area": "Drivers", "name": "Europe sets the open", "verdict": "fact", "nums": "DAX opening gap explains 31% of SPY's gap (2016-26, up from 19%); Asia 8-18%", "script": "spy_drivers.py"}, {"area": "Drivers", "name": "Yield curve, yesterday's move", "verdict": "no influence", "nums": "R\u00b2 \u2248 0.00-0.01 on SPY's daily move / gap", "script": "spy_drivers.py"}, {"area": "Drivers", "name": "Fed days", "verdict": "fact", "nums": "day moves only ~6% bigger (2016-26) but the 2-4pm range is ~4.6\u00d7 normal", "script": "spy_drivers.py, test_event_reactions.py"}, {"area": "Intraday", "name": "Pool odds (which pool gets hit first)", "verdict": "holds", "nums": "called 10/30/50/71/90% \u2192 actual 9/27/52/69/88% (1,668 checks)", "script": "pool_odds_test.js"}, {"area": "Intraday", "name": "S1 gap-and-go (calls)", "verdict": "holds (20y)", "nums": "gap-ups >0.6% closed above the open 60-62% of the time (~600 days)", "script": "TARS_OPTIONS_LIVE.md"}, {"area": "Intraday", "name": "S2 stretched dip, as traded", "verdict": "fails", "nums": "\u22120.11 pts/trade, 39% wins (n=95 OOS); still \u22120.07 on good-score days", "script": "s2_context.py, setup_x_score.py"}, {"area": "Intraday", "name": "Next-hour model from 10:30", "verdict": "fails", "nums": "9 intraday inputs + day score: no edge in either half", "script": "predict_lab2.py"}, {"area": "Intraday", "name": "BOS / CHoCH / sweeps (\"Godmode\")", "verdict": "fails", "nums": "BOS \u22120.05, CHoCH +0.01, sweep+CHoCH \u22120.21 pts (OOS)", "script": "godmode_test.py"}, {"area": "Intraday", "name": "ORB30, squeeze, VWAP \u00b11\u03c3 fade, buying pressure", "verdict": "fails", "nums": "\u22120.09 / \u22120.13 / \u22120.06 / \u22120.03 pts", "script": "market_lab.py \u00a76,8,9,19"}, {"area": "Intraday", "name": "Time of day, last hour, lunch, intraday momentum", "verdict": "fails", "nums": "signs flip between halves", "script": "market_lab.py \u00a75,16-18"}, {"area": "Cross-market", "name": "More inputs (14 stocks, curve, put/call, Asia)", "verdict": "fails", "nums": "no better tails than the 10-input day score", "script": "predict_lab2.py"}, {"area": "Calendar", "name": "Day of week, turn of month, week after expiry", "verdict": "fails", "nums": "flip or vanish between decades", "script": "market_lab.py \u00a73,11,14"}, {"area": "Crypto", "name": "Short-term crypto rules on Robinhood (20d avg, 30d momentum, dip-buy, day of week)", "verdict": "fails", "nums": "Robinhood's ~1.9% round-trip spread: BTC above-20d \u221224%/yr (2021-26), 30d momentum \u22126%/yr; dip-buy after \u22125% faded 63%\u219248% up", "script": "crypto_lab.py"}, {"area": "Crypto", "name": "Slow trend filter (above 200-day average)", "verdict": "holds (as drawdown insurance)", "nums": "cut max drawdown in every case (BTC \u221284\u2192\u221273%, \u221277\u2192\u221269%; ETH \u221294\u2192\u221284%, \u221279\u2192\u221242%) but trailed BTC buy & hold on return", "script": "crypto_lab.py"}, {"area": "Crypto", "name": "Crypto earns while stocks are closed", "verdict": "fails", "nums": "BTC hourly drift \u2248 same in US vs closed hours (+0.94 vs +1.00, then +0.08 vs +0.04 bp/h); BTC-SPY correlation now 0.42-0.56", "script": "crypto_lab.py"}, {"area": "Crypto", "name": "IBIT day score (BTC direction in the US session)", "verdict": "fails", "nums": "walk-forward 512 sessions: high-score days \u22120.05% / \u22120.32%, low-score +0.27% / \u22120.20%; off-hours move doesn't predict the session either", "script": "ibit_dayscore.py, ibit_session.py"}, {"area": "Crypto", "name": "IBIT day size from the overnight range", "verdict": "holds", "nums": "corr 0.40; session range after quiet/normal/wild nights 2.44% / 2.71% / 3.43% (IBIT swings 2.5-3.5x SPY)", "script": "ibit_dayscore.py"}, {"area": "Crypto", "name": "Monthly trend rule on BTC/ETH (hold only after up months)", "verdict": "holds (smaller crashes)", "nums": "max drawdown lower in all 16 cases; 2021-26 BTC L=12 +25.9 vs +17.1%/yr (DD \u221241 vs \u221273%); lags in bull years (2016-20)", "script": "crypto_lab2.py"}, {"area": "Crypto", "name": "BTC/ETH rotation, SPY-trend filter for BTC, weekends, Fed days", "verdict": "fails / weak", "nums": "rotation no better than BTC; SPY filter flips by half; weekend = normal drift; Fed days lean + (t\u22481)", "script": "crypto_lab2.py"}, {"area": "Crypto", "name": "2-hour crypto flips: dip, breakout, RSI<25, momentum", "verdict": "fails", "nums": "BTC hits +1.9% in 2h on 1.8-3.5% of hours; gross edge \u00b110bp; after RH spot cost ~-190bp per trade", "script": "crypto_flips.py"}, {"area": "Crypto", "name": "Small/meme-coin 2h flips (DOGE SHIB PEPE BONK WIF SOL AVAX XRP), 6 setups x 4 bracket exits", "verdict": "fails", "nums": "RH spread 1.9-2.1% each; best gross +43bp (crash -10%/24h, H2 only); net -157 to -220bp per trade", "script": "small_flips.py"}, {"area": "Crypto", "name": "Ride meme-coin pumps (hour up 3/5/8% on 3x volume), exit 1h/2h/first red hour", "verdict": "fails", "nums": "gross +63 to -118bp, sign flips by half; only 12-25% of trades beat the 2% cost; net -137 to -318bp", "script": "meme_pump_ride.py"}, {"area": "Crypto", "name": "Volume profile (prior VAH/VAL/POC) fades + 80% rule (TikTok @tradingelder)", "verdict": "weak / no edge", "nums": "VAL/VAH 1:1 to POC 49.3/49.6% vs random 46.5/47.3% (n~5100); 80% rule 48.9%; order-flow half untestable", "script": "volume_profile.py"}, {"area": "Intraday", "name": "SPY volume profile: prior VAH/POC/VAL fades + 80% rule (167 days, 5-min)", "verdict": "map only / no edge", "nums": "VAL 50% (random 53%), VAH 36%, POC-from-above 58% vs 41% (n41, mostly pre-10:30), 80% rule 54% at 0.65 R", "script": "spy_volume_profile.py"}];
+let unDr = null, DRQ = {};
+let drRun = 0;
+function startDrivers(mcp) {
+  const run = ++drRun; let fails = 0;
+  const loop = async () => {
+    if (run !== drRun) return;
+    if (document.hidden) { setTimeout(loop, 3000); return; }
+    try {
+      const r = await mcp.callTool(SERVER, "get_equity_quotes", {symbols: [...DRIVERS.map(d => d[0]), "SPY"]}, {cache: {gcTime: 0}});
+      const p = r.payload, d = p && (p.data || p); fails = 0;
+      (d && d.results || []).forEach(x => { const q = x.quote; if (q && +q.last_trade_price > 0) DRQ[q.symbol] = {px: +q.last_trade_price, pc: +(q.adjusted_previous_close || q.previous_close), t: new Date(q.venue_last_trade_time || Date.now())}; });
+      DRQ._t = new Date(); renderDrivers();
+    } catch (e) { fails++; }
+    const open = etHM(new Date()) >= "09:30" && etHM(new Date()) < "16:00";
+    setTimeout(loop, fails ? Math.min(60000, 3000 * 2 ** fails) : open ? 3000 : 60000);
+  };
+  loop();
+}
+function renderDrivers() {
+  const spy = DRQ.SPY; if (!spy) return;
+  const rows = DRIVERS.filter(([s]) => DRQ[s]).map(([s, w]) => { const q = DRQ[s], ch = q.px / q.pc - 1; return {s, w, ch, pts: w * ch * spy.pc}; });
+  const tot = rows.reduce((a, r) => a + r.pts, 0), spyPts = spy.px - spy.pc, mx = Math.max(0.01, ...rows.map(r => Math.abs(r.pts)));
+  rows.sort((a, b) => Math.abs(b.pts) - Math.abs(a.pts));
+  const f = (v, d = 2) => (v >= 0 ? "+" : "") + v.toFixed(d);
+  $("#drTab").innerHTML = "<thead><tr><th>Name</th><th>Weight</th><th>Today</th><th>Push on SPY</th><th></th></tr></thead><tbody>" +
+    rows.map(r => `<tr><td>${r.s}</td><td class="n">${(100 * r.w).toFixed(1)}%</td><td class="n ${r.ch >= 0 ? "long" : "short"}">${f(100 * r.ch)}%</td><td class="n ${r.pts >= 0 ? "long" : "short"}">${f(r.pts)} pts</td><td><span class="bar" style="width:${Math.round(60 * Math.abs(r.pts) / mx)}px;background:var(${r.pts >= 0 ? "--up" : "--down"})"></span></td></tr>`).join("") +
+    `<tr><td><b>Top 10</b></td><td class="n">${(100 * rows.reduce((a, r) => a + r.w, 0)).toFixed(0)}%</td><td></td><td class="n"><b>${f(tot)} pts</b></td><td class="muted">of SPY's ${f(spyPts)} (${spyPts ? Math.round(100 * tot / spyPts) : 0}%)</td></tr>` +
+    `<tr><td colspan="5" class="muted">Rest of the market: ${f(spyPts - tot)} pts. ${Math.abs(spyPts - tot) > Math.abs(tot) ? "Broad move: the other 490 are doing most of it." : "Led by the giants."}</td></tr></tbody>`;
+  $("#drAge").textContent = "· " + DRQ._t.toLocaleTimeString();
+}
+const usd = v => (v < 0 ? "−$" : "+$") + Math.abs(v).toFixed(2);
+function renderStatic() {
+  const per = k => STUDY[k] || {};
+  const keys = Object.keys(STUDY).filter(k => per(k)["2016-26"] && per(k)["2016-26"].r2 !== undefined).sort((a, b) => per(b)["2016-26"].r2 - per(a)["2016-26"].r2).slice(0, 14);
+  $("#drStudy").innerHTML = "<thead><tr><th>Driver</th><th>2006-15</th><th>2016-26</th><th></th></tr></thead><tbody>" + keys.map(k => { const a = per(k)["2006-15"] || {}, b = per(k)["2016-26"];
+    return `<tr><td>${k}</td><td class="n">${a.r2 !== undefined ? Math.round(100 * a.r2) + "%" : "–"}</td><td class="n">${Math.round(100 * b.r2)}%</td><td><span class="bar" style="width:${Math.round(80 * b.r2)}px;background:var(--accent)"></span></td></tr>`; }).join("") + "</tbody>";
+  const st = SLOT.state || {};
+  $("#slotS").innerHTML = [["Buffer", `$${(st.buffer || 0).toFixed(2)} of $${st.buffer_start || 500}`], ["Realized", usd(st.realized || 0)], ["Mood", st.mood || "–"], ["Losses in a row", st.loss_streak ?? "–"], ["Open position", st.open ? esc(`${st.open.contract} @ ${st.open.entry}`) : "none"], ["Book as of", SLOT.built]].map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("");
+  $("#slotT").innerHTML = "<thead><tr><th>#</th><th>Date</th><th>Setup</th><th>Contract</th><th>In → out</th><th>Result</th></tr></thead><tbody>" + (SLOT.trades || []).map(t => `<tr><td>${esc(t.slot_trade_no)}</td><td>${esc(t.date)}</td><td>${esc(t.setup)}</td><td>${esc(t.contract)}</td><td class="n">${t.entry} → ${t.exit ?? "open"}</td><td class="n ${t.result > 0 ? "long" : "short"}">${t.result == null ? "–" : usd(t.result)}</td></tr>`).join("") + "</tbody>";
+  renderResearch("all");
+}
+function renderResearch(flt) {
+  const cls = v => /fail|no influence/.test(v) ? "fails" : /fact/.test(v) ? "fact" : "holds";
+  $("#resT").innerHTML = "<thead><tr><th>Idea</th><th>Verdict</th><th>Numbers</th></tr></thead><tbody>" + RESEARCH.filter(r => flt === "all" || cls(r.verdict) === flt || (flt === "holds" && cls(r.verdict) === "fact"))
+    .map(r => `<tr><td><b>${r.name}</b><br><span class="muted">${r.area} · ${r.script}</span></td><td class="v-${cls(r.verdict)}">${r.verdict}</td><td>${r.nums}</td></tr>`).join("") + "</tbody>";
+}
+document.querySelectorAll("[data-rf]").forEach(b => b.addEventListener("click", () => { document.querySelectorAll("[data-rf]").forEach(x => x.setAttribute("aria-pressed", x === b)); renderResearch(b.dataset.rf); }));
+renderStatic();
+// VIX (Robinhood index quote, every 30 s) for the Edge board
+const VIX_ID = "3b912aa2-88f9-4682-8ae3-e39520bdf4db"; let unVix = null;
+function startVix(mcp) {
+  if (unVix) { unVix(); unVix = null; }
+  unVix = mcp.watchTool(SERVER, "get_index_quotes", {instrument_ids: [VIX_ID]}, ev => {
+    if (ev.type !== "data") return;
+    const p = ev.result.payload, d = p && (p.data || p), q = d && d.quotes && d.quotes.find(x => x.instrument_id === VIX_ID);
+    if (q && +q.value > 0) { S.vix = {v: +q.value, t: new Date(q.venue_timestamp || q.updated_at || Date.now())}; renderEdge(); }
+  }, {refetchInterval: 30000, cache: {staleTime: 25000}});
+}
+// Tested leans (market_lab.py, 2016-26 numbers; each also held in 2006-15)
+const VIX_REG = [[15, "VIX under 15", 0.66, "+0.13%/day, up 59%", 1], [20, "VIX 15-20", 1.01, "+0.06%/day, up 55%", 0], [30, "VIX 20-30", 1.52, "flat, up 51%", 0], [999, "VIX 30+", 2.72, "−0.24%/day, up 44%", -1]];
+// Day-score model (predict_lab.py, logistic regression on 2006-2026; walk-forward tested: p≥0.60 days were up 65-67%,
+// avg +0.50/+0.64% open→close in 2011-18/2019-26 (rare, n=12/34); p<0.45 days up 46%, avg −0.06% in both halves)
+const DAYMODEL = {"names": ["gap", "r1", "r5", "r20", "dist20", "vix", "rng1", "intra1", "dow", "opex"], "mu": [0.000251, 0.000424, 0.002031, 0.007988, 0.003441, 19.450976, 0.012488, 0.000169, 2.021182, 0.046601], "sd": [0.007332, 0.012186, 0.02418, 0.045355, 0.02578, 8.612184, 0.010516, 0.009348, 1.399132, 0.210783], "w": [0.06934, 0.04015, 0.03606, 0.05752, -0.08539, -0.00385, -0.0001, -0.07797, 0.01912, -0.08828], "b": 0.15512};
+function dayScore() {
+  if (!S.daily || !S.b1.length) return null;
+  const prior = S.daily.filter(b => b.d < S.day); if (prior.length < 21) return null;
+  const n = prior.length, c = i => prior[n - i].c, pv = prior[n - 1], cp = pv.c, o = S.b1[0].o;
+  const [y, m, d] = S.day.split("-").map(Number), wd = (new Date(Date.UTC(y, m - 1, d)).getUTCDay() + 6) % 7;
+  const sma = prior.slice(n - 20).reduce((a, b) => a + b.c, 0) / 20;
+  const f = {gap: o / cp - 1, r1: cp / c(2) - 1, r5: cp / c(6) - 1, r20: cp / c(21) - 1, dist20: cp / sma - 1, vix: S.vix ? S.vix.v : DAYMODEL.mu[5],
+    rng1: (pv.h - pv.l) / cp, intra1: cp / pv.o - 1, dow: wd, opex: wd === 4 && d >= 15 && d <= 21 ? 1 : 0};
+  let z = DAYMODEL.b; DAYMODEL.names.forEach((k, i) => { z += DAYMODEL.w[i] * (f[k] - DAYMODEL.mu[i]) / DAYMODEL.sd[i]; });
+  return 1 / (1 + Math.exp(-z));
+}
+const GAP_ODDS = [[0.1, null], [0.3, "71%"], [0.6, "49%"], [1.0, "33%"], [99, "24%"]];
+function renderEdge() {
+  const el = $("#edge"); if (!el || !S.b1.length) return;
+  const bars = S.b1, lb = bars[bars.length - 1], pdc = S.prev && S.prev.length ? S.prev[S.prev.length - 1].c : null, rows = []; let up = 0, dn = 0;
+  if (S.vix) { const r = VIX_REG.find(x => S.vix.v < x[0]), hi = Math.max(...bars.map(b => b.h)), lo = Math.min(...bars.map(b => b.l)), typ = r[2] / 100 * bars[0].o;
+    r[4] > 0 ? up++ : r[4] < 0 ? dn++ : 0;
+    rows.push(["VIX " + S.vix.v.toFixed(2), `${r[1]}: typical day range ${r[2].toFixed(2)}% ≈ ${typ.toFixed(1)} pts (so far ${(hi - lo).toFixed(1)}, ${Math.round(100 * (hi - lo) / typ)}%) · lean ${r[3]}`]); }
+  else rows.push(["VIX", '<span class="muted">waiting for the index quote…</span>']);
+  const [y, m, d] = (S.day || "").split("-").map(Number), dow = S.day ? new Date(Date.UTC(y, m - 1, d)).getUTCDay() : -1;
+  if (dow === 5 && d >= 15 && d <= 21) { dn++; rows.push(["Expiry Friday", '<span class="short">yes</span> · lean −0.21% close-to-close, up only 38% (both decades). Calls need a better reason today.']); }
+  else rows.push(["Expiry Friday", '<span class="muted">no</span>']);
+  if (pdc && S.prev2c) { const yd = 100 * (pdc / S.prev2c - 1);
+    if (yd < -1) { up++; rows.push(["Yesterday " + yd.toFixed(2) + "%", '<span class="long">big down day</span> · next-day bounce lean +0.16 to +0.22%, up 55%']); }
+    else if (yd > 1) { dn++; rows.push(["Yesterday +" + yd.toFixed(2) + "%", '<span class="short">big up day</span> · next-day give-back lean −0.10 to −0.15%']); }
+    else rows.push(["Yesterday " + (yd >= 0 ? "+" : "") + yd.toFixed(2) + "%", '<span class="muted">normal day, no lean</span>']); }
+  if (pdc) { const g = 100 * (bars[0].o - pdc) / pdc, o = GAP_ODDS.find(x => Math.abs(g) < x[0])[1],
+      filled = g > 0 ? Math.min(...bars.map(b => b.l)) <= pdc : Math.max(...bars.map(b => b.h)) >= pdc;
+    rows.push(["Gap " + (g >= 0 ? "+" : "") + g.toFixed(2) + "%", !o ? '<span class="muted">too small to matter</span>' : filled ? `filled (gaps this size close ${o} of the time)` : `open · gaps this size close the same day ${o} of the time${Math.abs(g) >= 0.6 ? " · big gaps mostly run (that's S1)" : ""}`]); }
+  const ds = dayScore();
+  if (ds === null) rows.push(["Model day score", '<span class="muted">waiting for daily bars…</span>']);
+  else { const t = ds >= 0.6 ? (up++, '<span class="long">strong up day</span> · days scoring this high closed up 65% of the time, +0.5% avg open→close (rare: ~5 a year)')
+      : ds >= 0.55 ? '<span class="muted">mild up</span> · +0.01 to +0.05% avg, barely better than any day'
+      : ds >= 0.45 ? '<span class="muted">neutral</span> · no call (most days land here)'
+      : (dn++, '<span class="short">weak day</span> · days scoring this low closed up only 46%, −0.06% avg (both decades)');
+    rows.push(["Model day score " + (100 * ds).toFixed(0), t]); }
+  rows.push(["Where gains come from", "overnight more than the day session (2016-26: +0.029%/night vs +0.020%/day). Intraday option buyers fight the odds"]);
+  rows.push(["Today's leans", `${up} up · ${dn} down${dn > up ? ' → <span class="short">calls need extra reason</span>' : up > dn ? ' → <span class="long">tailwind for calls</span>' : " → neutral"}`]);
+  rows.push(["Tested, no edge", '<span class="muted">BOS/CHoCH, sweeps, ORB, squeeze, intraday momentum, time-of-day, VWAP ±1σ fades, buying pressure, day of week</span>']);
+  el.innerHTML = rows.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("");
+}
+// freshness heartbeat: how old the last price is
+setInterval(() => { const f = $("#fresh"); if (!f || !S.lastTick) return; const a = Math.round((Date.now() - S.lastTick) / 1000), open = S.day === etDay(new Date()) && etHM(new Date()) >= "09:30" && etHM(new Date()) < "16:00";
+  f.textContent = open ? `· price ${a}s ago` : "· market closed"; f.className = open && a > 30 ? "warn" : "muted"; }, 1000);
+// A page opened before the bell (or left open overnight) switches to the new session at 9:30 on its own.
+setInterval(() => {
+  const now = new Date(), wd = new Intl.DateTimeFormat("en-US", {timeZone: "America/New_York", weekday: "short"}).format(now);
+  if (S.day && S.day !== etDay(now) && !["Sat", "Sun"].includes(wd) && etHM(now) >= "09:31" && etHM(now) < "16:00") startLive(true);
+}, 60000);
+
+// ---------- trading: ticket, positions, working orders (Robinhood connector, as the viewer) ----------
+const T = {mcp: null, acct: null, chain: null, exps: [], type: "call", inst: null, quote: null, review: null, unq: null, pos: [], posQ: {}, ords: [], fills: 0};
+const OPEN_STATES = ["queued", "unconfirmed", "confirmed", "partially_filled", "pending_cancelled"];
+const instCache = {};
+const pl = r => r && r.payload && (r.payload.data || r.payload);
+const call = async (tool, input, opts) => pl(await T.mcp.callTool(SERVER, tool, input, opts));
+const tmsg = (html, cls) => { const m = $("#tMsg"); m.className = "msg " + (cls || ""); m.innerHTML = html || ""; };
+const sideOf = () => $("#tSide").value === "buy_open" ? {side: "buy", effect: "open"} : {side: "sell", effect: "close"};
+const label = i => i ? `${i.chain_symbol} ${i.expiration_date.slice(5)} ${(+i.strike_price).toFixed(+i.strike_price % 1 ? 1 : 0)}${i.type === "call" ? "C" : "P"}` : "—";
+function uuid() {
+  if (crypto.randomUUID) return crypto.randomUUID();
+  const b = crypto.getRandomValues(new Uint8Array(16)); b[6] = (b[6] & 15) | 64; b[8] = (b[8] & 63) | 128;
+  const h = [...b].map(x => x.toString(16).padStart(2, "0")).join("");
+  return `${h.slice(0, 8)}-${h.slice(8, 12)}-${h.slice(12, 16)}-${h.slice(16, 20)}-${h.slice(20)}`;
+}
+function marketOpen() {
+  const d = new Date(), wd = new Intl.DateTimeFormat("en-US", {timeZone: "America/New_York", weekday: "short"}).format(d), hm = etHM(d);
+  return !["Sat", "Sun"].includes(wd) && hm >= "09:30" && hm < "16:00";
+}
+function actErr(e) {
+  const c = e && e.code;
+  if (c === "needs_reauth") return "Robinhood needs reconnecting (claude.ai Settings → Connectors).";
+  if (c === "approval_required") return "This page needs your OK for that Robinhood action. Press the button again and allow it.";
+  if (c === "not_in_manifest" || c === "blocked_by_policy") return "That Robinhood action is switched off for this page (Permissions menu).";
+  if (c === "server_not_connected" || c === "selection_required") return "The Robinhood connector isn't connected.";
+  return esc((e && e.message) || "Robinhood didn't answer. Try again.");
+}
+function tick(p) {
+  const mt = T.inst && T.inst.min_ticks, t = mt ? (p >= +mt.cutoff_price ? +mt.above_tick : +mt.below_tick) || 0.01 : 0.01;
+  return Math.max(t, Math.round(p / t) * t);
+}
+function pickPx(which) {
+  const q = T.quote; if (!q) return "";
+  const b = +q.bid_price, a = +q.ask_price;
+  const p = which === "bid" ? b : which === "ask" ? a : (b + a) / 2;
+  return p > 0 ? tick(p).toFixed(2) : "";
+}
+function invalidate() { T.review = null; $("#tPrev").hidden = true; $("#tPrev").innerHTML = ""; }
+
+async function startTrading() {
+  const mcp = await CL.use("mcp");
+  if (!mcp) { $("#tAcct").textContent = "Trading needs this page open in the claude.ai app or site with the Robinhood connector."; $("#tReview").disabled = true; return; }
+  T.mcp = mcp;
+  let max = "400"; try { max = localStorage.getItem("desk.max2") || max; } catch (e) {} // Nolan's Rules v1: $400 max per trade
+  $("#tMax").value = max;
+  try {
+    const a = await call("get_accounts", {}, {cache: {staleTime: 300000}});
+    T.acct = (a.accounts || []).find(x => x.agentic_allowed && /option_level_[23]/.test(x.option_level || "")) || null;
+  } catch (e) { $("#tAcct").innerHTML = actErr(e); return; }
+  if (!T.acct) { $("#tAcct").textContent = "None of your Robinhood accounts is open to trading from here with options."; $("#tReview").disabled = true; return; }
+  startAccount();
+  $("#tAcct").innerHTML = `Account <b>${esc(T.acct.nickname || T.acct.brokerage_account_type)}</b> ••••${esc(T.acct.account_number.slice(-4))} · options level ${esc(T.acct.option_level.slice(-1))}`;
+  try {
+    const c = await call("get_option_chains", {underlying_symbol: "SPY"}, {cache: {staleTime: 300000}});
+    T.chain = (c.chains || []).find(x => (x.symbol || "SPY") === "SPY") || null;
+    const today = etDay(new Date());
+    T.exps = ((T.chain && T.chain.expiration_dates) || []).filter(d => d >= today).slice(0, 12);
+    $("#tExp").innerHTML = T.exps.map(d => `<option value="${d}">${d}${d === today ? " · 0DTE" : ""}</option>`).join("");
+  } catch (e) { tmsg(actErr(e), "short"); }
+  if ($("#tStrike").value) resolveInst();
+  watchAccount();
+}
+
+let rsT;
+function resolveSoon() { invalidate(); clearTimeout(rsT); rsT = setTimeout(resolveInst, 350); }
+async function resolveInst() {
+  if (!T.mcp) return;
+  const exp = $("#tExp").value, k = parseFloat($("#tStrike").value);
+  if (!/^\d{4}-\d\d-\d\d$/.test(exp) || !(k > 0)) return;
+  $("#tContract").textContent = "Finding contract…";
+  try {
+    const r = await call("get_option_instruments", {chain_symbol: "SPY", expiration_dates: exp, strike_price: k.toFixed(4), type: T.type}, {cache: {staleTime: 300000}});
+    const inst = (r.instruments || [])[0] || null;
+    setInst(inst);
+    if (!inst) $("#tContract").textContent = `No SPY ${exp} ${k} ${T.type} is listed. Try a whole-dollar strike.`;
+  } catch (e) { $("#tContract").innerHTML = actErr(e); }
+}
+function setInst(inst) {
+  invalidate();
+  if (T.unq) { T.unq(); T.unq = null; }
+  T.inst = inst; T.quote = null; renderQuote();
+  if (!inst) return;
+  instCache[inst.id] = inst;
+  const sell = new Date(inst.sellout_datetime), ok = inst.tradability === "tradable" && inst.state === "active";
+  $("#tContract").innerHTML = `<b>${esc(label(inst))}</b>${ok ? "" : ' <span class="short">· not tradable</span>'} · Robinhood force-closes it at ${isNaN(sell) ? "—" : etHM(sell) + " ET on " + etDay(sell)}`;
+  T.unq = T.mcp.watchTool(SERVER, "get_option_quotes", {instrument_ids: [inst.id]}, ev => {
+    if (ev.type !== "data") return;
+    const r = ((pl(ev.result) || {}).results || [])[0];
+    if (T.inst && r && r.quote && r.quote.instrument_id === T.inst.id) { T.quote = r.quote; renderQuote(); }
+  }, {refetchInterval: 30000, cache: {staleTime: 10000}});
+}
+function renderQuote() {
+  const q = T.quote, f = v => v == null || v === "" || isNaN(+v) ? "—" : (+v).toFixed(2);
+  const cells = q ? [["Bid", f(q.bid_price)], ["Ask", f(q.ask_price)], ["Mark", f(q.mark_price)], ["Delta", f(q.delta)],
+    ["IV", q.implied_volatility ? (100 * q.implied_volatility).toFixed(1) + "%" : "—"], ["Theta / day", f(q.theta)], ["Breakeven", f(q.break_even_price)],
+    ["As of", q.updated_at ? new Date(q.updated_at).toLocaleTimeString() : "—"]] : [["Bid", "—"], ["Ask", "—"], ["Mark", "—"], ["Delta", "—"]];
+  $("#tQuote").innerHTML = cells.map(([k, v]) => `<span><small>${k}</small>${v}</span>`).join("");
+  if (q && S.b1.length) { draw(); renderPanels(); }
+  if (q && $("#tType").value === "limit" && !$("#tPrice").value) $("#tPrice").value = pickPx(sideOf().side === "buy" ? "ask" : "bid");
+  if (q && $("#tType").value === "stop_market" && !$("#tStop").value && +q.mark_price > 0) $("#tStop").value = tick(+q.mark_price * 0.8).toFixed(2);
+}
+function syncType() {
+  const ty = $("#tType").value;
+  $("#tPriceL").hidden = ty !== "limit"; $("#tStopL").hidden = ty !== "stop_market"; $("#tQuick").hidden = ty !== "limit";
+  if (ty === "stop_market") $("#tSide").value = "sell_close";
+}
+
+function validate() {
+  if (!T.acct) return "No tradable account loaded.";
+  if (!T.inst) return "Pick a contract first.";
+  if (T.inst.tradability !== "tradable" || T.inst.state !== "active") return "That contract isn't tradable.";
+  const qty = +$("#tQty").value;
+  if (!(qty >= 1) || qty % 1) return "Contracts must be a whole number, 1 or more.";
+  const ty = $("#tType").value;
+  if (ty === "limit" && !(+$("#tPrice").value > 0)) return "Set a limit price (tap Bid, Mid or Ask).";
+  if (ty === "stop_market") {
+    if ($("#tSide").value !== "sell_close") return "Stops can only sell to close.";
+    const sp = +$("#tStop").value;
+    if (!(sp > 0)) return "Set the stop price.";
+    if (T.quote && +T.quote.ask_price > 0 && sp >= +T.quote.ask_price) return "The stop has to sit below the current ask.";
+  }
+  if (ty !== "limit" && !marketOpen()) return "Market and stop orders only go in during regular hours (9:30–4:00 ET).";
+  return null;
+}
+function orderInput() {
+  const sd = sideOf(), ty = $("#tType").value;
+  const inp = {account_number: T.acct.account_number, legs: [{option_id: T.inst.id, side: sd.side, position_effect: sd.effect}],
+    quantity: String(parseInt($("#tQty").value, 10)), type: ty, time_in_force: "gfd"};
+  if (ty === "limit") inp.price = (+$("#tPrice").value).toFixed(2);
+  if (ty === "stop_market") inp.stop_price = (+$("#tStop").value).toFixed(2);
+  return inp;
+}
+async function review() {
+  const bad = validate();
+  if (bad) { tmsg(esc(bad), "short"); return; }
+  const inp = orderInput(), inst = T.inst;
+  invalidate(); tmsg("Checking with Robinhood…", "muted"); $("#tReview").disabled = true;
+  try {
+    const r = await call("review_option_order", {...inp, chain_symbol: inst.chain_symbol, underlying_type: inst.underlying_type || "equity"}, {cache: false});
+    if (T.inst !== inst) return;
+    T.review = {inp, inst, r: r || {}, refId: uuid()};
+    renderPreview(); tmsg("");
+  } catch (e) { tmsg(actErr(e), "short"); }
+  finally { $("#tReview").disabled = false; }
+}
+function checkLines(oc) {
+  if (!oc || typeof oc !== "object") return [];
+  const vals = Array.isArray(oc) ? oc : Object.entries(oc).map(([k, v]) => v && typeof v === "object" ? {key: k, ...v} : {key: k, detail: v});
+  return vals.map(v => typeof v === "string" ? v : [v.title || v.key, v.detail || v.message || v.description || (Object.keys(v).length > 1 ? JSON.stringify(v) : "")].filter(Boolean).join(": "));
+}
+function renderPreview() {
+  const {inp, inst, r} = T.review, q = (r.option_quotes || [])[0] || T.quote || {};
+  const sd = inp.legs[0].side, qty = +inp.quantity;
+  const px = inp.type === "limit" ? +inp.price : inp.type === "stop_market" ? +inp.stop_price : sd === "buy" ? +q.ask_price : +q.bid_price;
+  const prem = px * qty * 100, fee = r.fees ? +r.fees.total_fee || 0 : 0, max = +$("#tMax").value || 0;
+  const warn = []; T.plan = "";
+  if (sd === "buy" && max > 0 && prem > max) warn.push(`This is ${money(prem)} of premium, over your ${money(max)} max per trade.`);
+  if (sd === "buy" && inst.expiration_date === etDay(new Date()) && etHM(new Date()) >= "15:15") warn.push("0DTE after 3:15 ET: Robinhood force-closes at its cutoff and theta is brutal now.");
+  if (inp.type === "limit" && sd === "buy" && +q.ask_price > 0 && px < +q.bid_price) warn.push("Your limit is under the bid. It will sit until price comes to you.");
+  if (inp.type === "limit" && sd === "sell" && +q.bid_price > 0 && px > +q.ask_price) warn.push("Your limit is over the ask. It will sit until price comes to you.");
+  if (inp.type === "market" && +q.ask_price > 0 && (+q.ask_price - +q.bid_price) / +q.ask_price > 0.08) warn.push("Wide spread for a market order. A limit at mid usually fills better.");
+  if (sd === "buy" && inp.legs[0].position_effect === "open" && marketOpen() && etHM(new Date()) < "10:30")
+    warn.push("Your own record (Oct 8-15): entries before 10:30 lost on 5 of 5 days, winning 16% of trips. After 10:30 you were green 5 of 6 days. Consider waiting.");
+  if (sd === "buy" && inp.legs[0].position_effect === "open") { // Nolan's Rules v1 (notes/NOLAN_RULES.md): warnings only
+    const mine = trips((T.todayOrders || []).filter(o => !o.agent_initiated)), net = mine.reduce((a, t) => a + (t.pout - t.pin) * t.q * 100, 0);
+    let streak = 0; for (let i = mine.length - 1; i >= 0 && mine[i].pout <= mine[i].pin; i--) streak++;
+    if (net <= -150) warn.push(`Your rule: daily loss limit is $150 and you're at ${money(net)} today. You said you'd be done for the day.`);
+    if (mine.length >= 10) warn.push(`Your rule: max 10 round trips a day. This would be #${mine.length + 1}.`);
+    if (streak >= 3) warn.push(`Your rule: ${streak} losses in a row means a 30-minute break first.`);
+    if (px > 0) { // exit plan before entry: the -35% stop, the 2R target, and what's left of the $150 day
+      const stop = px * 0.65, risk = (px - stop) * qty * 100, room = Math.max(0, 150 + Math.min(0, net)), fit = Math.floor(room / ((px - stop) * 100));
+      T.plan = `Exit plan: sell-stop at ${stop.toFixed(2)} (−35%, risks ${money(risk)}) · target ${(px * 1.7).toFixed(2)} (+70% = 2R) · room left in today's $150: ${money(room)}${fit < qty ? ` → that fits ${fit} contract${fit === 1 ? "" : "s"}, not ${qty}` : ""}`;
+    }
+  }
+  if (!marketOpen()) warn.push("Market is closed. A limit order will wait for the next session (good for day).");
+  const checks = checkLines(r.order_checks);
+  const verb = sd === "buy" ? "Buy" : "Sell", tyTxt = inp.type === "limit" ? `@ ${inp.price} limit` : inp.type === "market" ? "at market" : `stop at ${inp.stop_price}`;
+  const el = $("#tPrev");
+  el.innerHTML = `<div class="prev">
+    <div class="big ${sd === "buy" ? "long" : "short"}">${verb} ${qty} × ${esc(label(inst))} ${esc(tyTxt)} · ${inp.legs[0].position_effect === "open" ? "opening" : "closing"}</div>
+    <div>Est. premium ${sd === "buy" ? "you pay" : "you get"}: <b>${isNaN(prem) ? "—" : money(prem)}</b>${fee ? ` · fees ${money(fee)}` : ""} · bid ${esc(q.bid_price ? (+q.bid_price).toFixed(2) : "—")} / ask ${esc(q.ask_price ? (+q.ask_price).toFixed(2) : "—")}</div>
+    ${T.plan ? `<div class="msg"><b>${esc(T.plan)}</b></div>` : ""}
+    ${warn.map(w => `<div class="warn">⚠ ${esc(w)}</div>`).join("")}
+    ${checks.length ? `<div><b>Robinhood alerts:</b>${checks.map(c => `<div class="warn">${esc(c)}</div>`).join("")}</div><label class="msg"><input type="checkbox" id="tAck"> I've read Robinhood's alerts</label>` : '<div class="muted msg">Robinhood raised no alerts.</div>'}
+    ${r.customer_approval_required ? '<div class="msg">Robinhood will ask you to approve this in the app after you press Place.</div>' : ""}
+    <div class="row"><button type="button" class="btn ${sd === "buy" ? "buy" : "sell"}" id="tPlace"${checks.length ? " disabled" : ""}>Place: ${verb} ${qty} ${esc(label(inst))} ${esc(tyTxt)}</button><button type="button" class="btn" id="tEdit">Change</button></div>
+  </div>`;
+  el.hidden = false;
+  $("#tPlace").addEventListener("click", place);
+  $("#tEdit").addEventListener("click", () => { invalidate(); tmsg(""); });
+  if (checks.length) $("#tAck").addEventListener("change", e => { $("#tPlace").disabled = !e.target.checked; });
+}
+async function place() {
+  const rv = T.review; if (!rv) return;
+  const btn = $("#tPlace"); btn.disabled = true; btn.textContent = "Sending…";
+  try {
+    const r = await call("place_option_order", {...rv.inp, ref_id: rv.refId}, {cache: false}) || {};
+    const o = r.order || (r.orders || [])[0] || r;
+    invalidate();
+    tmsg(rv.r.customer_approval_required ? "Sent. Approve it in the Robinhood app to send it to market."
+      : `Order sent${o.state ? " · " + esc(o.state) : ""}. It shows under Working orders until it fills.`, "long");
+    refreshAccount();
+  } catch (e) {
+    btn.disabled = false; btn.textContent = "Retry (same order, can't double up)";
+    tmsg(e && (e.code === "not_in_manifest" || e.code === "blocked_by_policy") ? "Placing from the desk isn't switched on for this page yet. The review above is exactly what to enter in the Robinhood app." : actErr(e), "short");
+  }
+}
+
+// positions + working orders
+let unPos = null, unOrd = null, unPq = null, posKey = "";
+function watchAccount() {
+  if (!T.acct) return;
+  if (unPos) unPos(); if (unOrd) unOrd();
+  const acct = T.acct.account_number, opt = {refetchInterval: 30000, cache: {staleTime: 15000}};
+  watchComp();
+  unPos = T.mcp.watchTool(SERVER, "get_option_positions", {account_number: acct, nonzero: true}, ev => {
+    if (ev.type === "data") onPositions(pl(ev.result) || {}); else $("#pos").innerHTML = `<p class="msg short">${actErr(ev.error)}</p>`;
+  }, opt);
+  unOrd = T.mcp.watchTool(SERVER, "get_option_orders", {account_number: acct, created_at_gte: etDay(new Date())}, ev => {
+    if (ev.type === "data") onOrders(pl(ev.result) || {}); else $("#ords").innerHTML = `<p class="msg short">${actErr(ev.error)}</p>`;
+  }, opt);
+}
+// ---------- position reader: live read of each open option ----------
+const STOP_PCT = 0.35, TGT_PCT = 0.40;
+function moveFor(dP, d, g) { // SPY move x with d*x + g*x^2/2 = dP (smallest |x|); null if unreachable by price alone
+  if (Math.abs(g) < 1e-9) return d ? dP / d : null;
+  const disc = d * d + 2 * g * dP; if (disc < 0) return null;
+  const r1 = (-d + Math.sqrt(disc)) / g, r2 = (-d - Math.sqrt(disc)) / g;
+  return Math.abs(r1) < Math.abs(r2) ? r1 : r2;
+}
+function entryTime(optionId) {
+  const opens = (T.todayOrders || []).filter(o => (o.legs || []).some(l => l.option_id === optionId && l.position_effect === "open"))
+    .flatMap(o => o.legs.flatMap(l => (l.executions || []).map(e => e.timestamp))).sort();
+  return opens.length ? new Date(opens[opens.length - 1]) : null;
+}
+function readAll() {
+  const lb = S.b1[S.b1.length - 1]; if (!lb || !T.pos) return [];
+  return T.pos.map(p => {
+    const i = instCache[p.option_id], q = T.posQ[p.option_id]; if (!i || !q) return null;
+    const qty = +p.quantity, e = +p.average_price / 100, m = +q.mark_price, k = +i.strike_price, call = i.type === "call";
+    const d = +q.delta || 0, g = +q.gamma || 0, th = +q.theta || 0, iv = +q.implied_volatility || 0, spy = i.chain_symbol === "SPY";
+    const S0 = spy ? lb.c : null, be = call ? k + e : k - e;
+    const xs = spy ? moveFor((1 - STOP_PCT) * e - m, d, g) : null, xt = spy ? moveFor((1 + TGT_PCT) * e - m, d, g) : null;
+    const mins = Math.max(1, (new Date(i.sellout_datetime) - Date.now()) / 60000);
+    const sig = S0 && iv ? S0 * iv * Math.sqrt(mins / 525600) : null;
+    const t0 = entryTime(p.option_id);
+    return {p, i, q, qty, e, m, k, call, d, g, th, spy, S0, be, tag: (call ? "C" : "P"),
+      pnl: (m - e) * 100 * qty, pct: e ? 100 * (m / e - 1) : 0, stopS: xs === null || !spy ? null : S0 + xs, tgtS: xt === null || !spy ? null : S0 + xt,
+      decayHr: th * 100 * qty / 6.5, cop: +q.chance_of_profit_long || null, sig, mins, held: t0 ? (Date.now() - t0) / 60000 : null};
+  }).filter(Boolean);
+}
+function verdicts(r) {
+  const out = [], lb = S.b1[S.b1.length - 1], st = S.st1;
+  if (r.pct <= -100 * STOP_PCT) out.push(["short", `Down ${r.pct.toFixed(0)}%: past the −35% line. The rule says out; hoping is how small losses become big ones.`]);
+  else if (r.pct >= 100 * TGT_PCT) out.push(["long", `Up ${r.pct.toFixed(0)}%: in the target zone. Take it, or at least move your stop to breakeven so a winner can't turn into a loser.`]);
+  else if (r.pct >= 20) out.push(["long", `Up ${r.pct.toFixed(0)}%. Consider raising the stop to breakeven (${r.e.toFixed(2)}).`]);
+  if (r.spy && lb) {
+    const want = r.call ? 1 : -1;
+    if (lb.trend === want) out.push(["long", `The chart agrees: SPY is ${want > 0 ? "above" : "below"} VWAP with the EMAs ${want > 0 ? "up" : "down"}.`]);
+    else if (lb.trend === -want) out.push(["short", `The chart is against you: SPY is ${want > 0 ? "below" : "above"} VWAP and the EMAs point ${want > 0 ? "down" : "up"}.`]);
+    else out.push(["muted", "The chart is mixed (VWAP and EMAs disagree). Choppy tape, so decay works against you."]);
+    const ahead = st.pools.filter(p => !p.taken && (want > 0 ? p.p > lb.c : p.p < lb.c)).sort((a, b) => Math.abs(a.p - lb.c) - Math.abs(b.p - lb.c))[0];
+    const behind = st.pools.filter(p => !p.taken && (want > 0 ? p.p < lb.c : p.p > lb.c)).sort((a, b) => Math.abs(a.p - lb.c) - Math.abs(b.p - lb.c))[0];
+    if (ahead) out.push(["muted", `Next liquidity in your direction: ${ahead.name} ${ahead.p.toFixed(2)} (${(ahead.p - lb.c >= 0 ? "+" : "")}${(ahead.p - lb.c).toFixed(2)}). Price often reaches for these. A sweep and reject there is a place to take profit.`]);
+    if (behind) out.push(["muted", `Stops cluster behind you at ${behind.name} ${behind.p.toFixed(2)}. Losing that level is a real break.`]);
+    if (r.sig) { const z = Math.abs(r.be - lb.c) / r.sig; out.push([z > 1 ? "warn" : "muted", `Breakeven is ${z.toFixed(1)}σ away with the time left (1σ ≈ ${r.sig.toFixed(2)} pts). ${z > 1 ? "That needs a bigger than normal move." : "Reachable with a normal move."}`]); }
+  }
+  if (r.i.expiration_date === etDay(new Date()) && etHM(new Date()) >= "15:00") out.push(["warn", "Last hour on a 0DTE: decay and gamma are at their worst, so small SPY moves swing the price hard. Robinhood force-closes at its cutoff."]);
+  if (r.held !== null && r.held < 5 && r.pct < 0) out.push(["muted", `Held ${r.held.toFixed(0)} min. Your record: 2-5 minute exits were your worst bucket and 5-15 min your best. Let the plan play out unless the stop hits.`]);
+  return out;
+}
+function renderReader() {
+  const rows = readAll(), el = $("#reader"); if (!el) return;
+  if (!rows.length) { el.innerHTML = `<p class="muted msg">${T.pos && T.pos.length ? "Waiting for quotes…" : "No open option position. The reader wakes up the moment you're in a trade."}</p>`; return; }
+  el.innerHTML = rows.map(r => {
+    const f = v => v === null || isNaN(v) ? "—" : v.toFixed(2), sgn = v => (v >= 0 ? "+" : "") + v.toFixed(2);
+    const cells = [["P&L", `<span class="${r.pnl >= 0 ? "long" : "short"}">${money(r.pnl)} (${r.pct >= 0 ? "+" : ""}${r.pct.toFixed(0)}%)</span>`], ["Paid / now", `${f(r.e)} → ${f(r.m)}`],
+      ["SPY breakeven at expiry", r.spy ? `${f(r.be)} (${sgn(r.be - r.S0)})` : f(r.be)], ["Stop −35% ≈ SPY", r.stopS !== null ? `${f(r.stopS)} (${sgn(r.stopS - r.S0)})` : "time decay alone"],
+      ["Target +40% ≈ SPY", r.tgtS !== null ? `${f(r.tgtS)} (${sgn(r.tgtS - r.S0)})` : "out of reach by price"], ["Time decay", `${money(r.decayHr)}/hr`],
+      ["Chance of profit (expiry)", r.cop ? (100 * r.cop).toFixed(0) + "%" : "—"], ["Delta / Gamma", `${r.d.toFixed(2)} / ${r.g.toFixed(3)}`],
+      ["Held", r.held !== null ? r.held.toFixed(0) + " min" : "—"], ["Force-close in", `${Math.floor(r.mins / 60)}h ${Math.round(r.mins % 60)}m`]];
+    return `<div class="sig"><div class="top"><span class="name ${r.call ? "long" : "short"}">${esc(label(r.i))} ×${r.qty}</span><span class="pill ${r.pnl >= 0 ? "long" : "short"}">${r.pct >= 0 ? "+" : ""}${r.pct.toFixed(0)}%</span></div>
+      <div class="qbox">${cells.map(([k, v]) => `<span><small>${k}</small>${v}</span>`).join("")}</div>
+      <div class="list" style="margin-top:6px">${verdicts(r).map(([c, t]) => `<div class="msg ${c}">• ${esc(t)}</div>`).join("")}</div></div>`;
+  }).join("") + '<p class="rec">SPY levels for the stop and target are estimates from delta and gamma (they ignore time decay). Breakeven is at expiry. Updates every 30 s.</p>';
+}
+
+// ---------- competition: Nolan (his own orders) vs TARS (agent-initiated), FIFO round trips ----------
+const COMP_START = "2026-10-16";
+function trips(orders) {
+  const fills = [];
+  orders.forEach(o => (o.legs || []).forEach(l => (l.executions || []).forEach(e => fills.push({t: e.timestamp, id: l.option_id, eff: l.position_effect, px: +e.price, q: +e.quantity}))));
+  fills.sort((a, b) => a.t < b.t ? -1 : 1);
+  const open = {}, out = [];
+  fills.forEach(f => {
+    if (f.eff === "open") { (open[f.id] = open[f.id] || []).push({...f}); return; }
+    let q = f.q; const lots = open[f.id] || [];
+    while (q > 1e-9 && lots.length) { const lot = lots[0], take = Math.min(q, lot.q); out.push({pin: lot.px, pout: f.px, q: take}); lot.q -= take; q -= take; if (lot.q <= 1e-9) lots.shift(); }
+  });
+  return out;
+}
+function score(tr) {
+  const net = tr.reduce((a, t) => a + (t.pout - t.pin) * t.q * 100, 0), spent = tr.reduce((a, t) => a + t.pin * t.q * 100, 0);
+  const w = tr.filter(t => t.pout > t.pin), l = tr.filter(t => t.pout <= t.pin), pct = t => 100 * (t.pout / t.pin - 1);
+  const avg = a => a.length ? a.reduce((x, t) => x + pct(t), 0) / a.length : 0;
+  return {n: tr.length, net, per100: spent ? 100 * net / spent : 0, win: tr.length ? 100 * w.length / tr.length : 0, aw: avg(w), al: avg(l)};
+}
+function renderComp(orders) {
+  const mine = orders.filter(o => o.agent_initiated), his = orders.filter(o => !o.agent_initiated);
+  const A = score(trips(his)), B = score(trips(mine));
+  const lead = !A.n && !B.n ? "No trades yet. Game starts at 10:30." : A.per100 === B.per100 ? "Dead even." : (A.per100 > B.per100 ? "Nolan" : "TARS") + " leads on return per $100.";
+  const col = (name, x) => `<div class="item" style="display:grid;gap:4px"><b>${name}</b><span class="mono ${x.net >= 0 ? "long" : "short"}" style="font-size:1.1rem">${x.per100 >= 0 ? "+" : ""}${x.per100.toFixed(1)} per $100</span>
+    <span class="mono muted">net ${money(x.net)} · ${x.n} trips · ${x.win.toFixed(0)}% wins<br>avg win ${x.aw >= 0 ? "+" : ""}${x.aw.toFixed(0)}% · avg loss ${x.al.toFixed(0)}%</span></div>`;
+  $("#comp").innerHTML = `<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px">${col("Nolan", A)}${col("TARS", B)}</div><p class="msg" style="margin:6px 0 0"><b>${lead}</b></p>`;
+}
+let unComp = null;
+function watchComp() {
+  if (unComp) unComp();
+  unComp = T.mcp.watchTool(SERVER, "get_option_orders", {account_number: T.acct.account_number, created_at_gte: COMP_START}, ev => {
+    if (ev.type === "data") renderComp(((pl(ev.result) || {}).orders) || []); else $("#comp").innerHTML = `<p class="msg short">${actErr(ev.error)}</p>`;
+  }, {refetchInterval: 60000, cache: {staleTime: 30000}});
+}
+
+function refreshAccount() {
+  T.mcp.invalidate(SERVER, "get_option_orders").catch(() => {});
+  T.mcp.invalidate(SERVER, "get_option_positions").catch(() => {});
+}
+async function onPositions(d) {
+  T.pos = (d.positions || []).filter(p => +p.quantity > 0);
+  const need = T.pos.map(p => p.option_id).filter(id => !instCache[id]);
+  if (need.length) {
+    try { ((await call("get_option_instruments", {ids: need.join(",")}, {cache: {staleTime: 300000}})).instruments || []).forEach(i => { instCache[i.id] = i; }); } catch (e) {}
+  }
+  const key = T.pos.map(p => p.option_id).sort().join(",");
+  if (key !== posKey) {
+    posKey = key; if (unPq) { unPq(); unPq = null; }
+    if (key) unPq = T.mcp.watchTool(SERVER, "get_option_quotes", {instrument_ids: key.split(",")}, ev => {
+      if (ev.type !== "data") return;
+      ((pl(ev.result) || {}).results || []).forEach(r => { if (r.quote) T.posQ[r.quote.instrument_id] = r.quote; });
+      renderPositions();
+    }, {refetchInterval: 30000, cache: {staleTime: 10000}});
+  }
+  $("#pUpd").textContent = "updated " + new Date().toLocaleTimeString();
+  renderPositions();
+}
+function renderPositions() {
+  renderReader(); if (S.b1.length) draw();
+  if (!T.pos.length) { $("#pos").innerHTML = '<p class="muted msg">No open option positions.</p>'; return; }
+  $("#pos").innerHTML = T.pos.map((p, k) => {
+    const i = instCache[p.option_id], q = T.posQ[p.option_id], qty = +p.quantity, mark = q ? +q.mark_price : NaN, cost = +p.average_price;
+    const pnl = (mark * 100 - cost) * qty, pend = +p.pending_sell_quantity > 0 ? ` · <span class="warn">${+p.pending_sell_quantity} pending sell</span>` : "";
+    return `<div class="item"><span><b>${esc(i ? label(i) : p.chain_symbol)}</b> ×${qty}${pend}<br><span class="mono muted">mark ${isNaN(mark) ? "—" : mark.toFixed(2)} · avg cost ${money(cost)}/contract${isNaN(pnl) ? "" : ` · <span class="${pnl >= 0 ? "long" : "short"}">${pnl >= 0 ? "+" : ""}${money(pnl)}</span>`}</span></span>
+      <span class="row"><button type="button" class="btn sm" data-close="${k}">Close</button><button type="button" class="btn sm" data-stop="${k}">Stop −20%</button></span></div>`;
+  }).join("");
+  $("#pos").querySelectorAll("[data-close]").forEach(b => b.addEventListener("click", () => loadPosition(T.pos[+b.dataset.close], "limit")));
+  $("#pos").querySelectorAll("[data-stop]").forEach(b => b.addEventListener("click", () => loadPosition(T.pos[+b.dataset.stop], "stop_market")));
+}
+function loadPosition(p, ty) {
+  const i = instCache[p.option_id]; if (!i) { tmsg("Still loading that contract. Try again in a moment.", "warn"); return; }
+  if (i.chain_symbol === "SPY") { $("#tStrike").value = (+i.strike_price).toString(); if (T.exps.includes(i.expiration_date)) $("#tExp").value = i.expiration_date; setType(i.type, true); }
+  $("#tSide").value = "sell_close"; $("#tQty").value = String(+p.quantity); $("#tType").value = ty; $("#tPrice").value = ""; $("#tStop").value = "";
+  syncType(); setInst(i);
+  tmsg(ty === "stop_market" ? "Stop loaded at 20% under the current mark. Adjust it, then Review." : "Close loaded at the bid. Adjust the limit, then Review.", "muted");
+  $("#tkh").scrollIntoView({behavior: "smooth", block: "start"});
+}
+function onOrders(d) {
+  const all = d.orders || [];
+  T.todayOrders = all;
+  T.ords = all.filter(o => OPEN_STATES.includes(o.state)); T.fills = all.filter(o => o.state === "filled").length;
+  const legTxt = o => (o.legs || []).map(l => `${l.side === "buy" ? "Buy" : "Sell"} ${+o.quantity} ${esc(o.chain_symbol)} ${esc((l.expiration_date || "").slice(5))} ${(+l.strike_price).toFixed(0)}${l.option_type === "call" ? "C" : "P"}`).join(" / ");
+  const pxTxt = o => o.trigger === "stop" ? `stop ${(+o.stop_price).toFixed(2)}` : o.type === "market" ? "market" : `@ ${(+o.price).toFixed(2)}`;
+  $("#ords").innerHTML = (T.ords.length ? T.ords.map((o, k) => `<div class="item"><span><b>${legTxt(o)}</b> <span class="mono">${pxTxt(o)}</span><br><span class="muted msg">${esc(o.state.replace("_", " "))}${+o.processed_quantity ? ` · ${+o.processed_quantity} filled` : ""} · ${etHM(new Date(o.created_at))} ET</span></span>
+      <button type="button" class="btn sm" data-cx="${k}">Cancel</button></div>`).join("") : '<p class="muted msg">No working orders.</p>')
+    + `<p class="rec">${T.fills} filled today.</p>`;
+  $("#ords").querySelectorAll("[data-cx]").forEach(b => b.addEventListener("click", async () => {
+    const o = T.ords[+b.dataset.cx]; if (!o) return;
+    if (b.dataset.armed !== "1") { b.dataset.armed = "1"; b.textContent = "Tap again to cancel"; b.classList.add("sell"); return; }
+    b.disabled = true; b.textContent = "Cancelling…";
+    try { await call("cancel_option_order", {account_number: T.acct.account_number, order_id: o.id}, {cache: false}); b.textContent = "Cancel sent"; refreshAccount(); }
+    catch (e) { b.disabled = false; b.textContent = "Cancel"; b.dataset.armed = ""; tmsg(actErr(e), "short"); }
+  }));
+}
+function setType(ty, quiet) {
+  T.type = ty; document.querySelectorAll("[data-ty]").forEach(x => x.setAttribute("aria-pressed", x.dataset.ty === ty));
+  if (!quiet) resolveSoon();
+}
+function useSignal(s) {
+  if (!s) return;
+  const lb = S.b1[S.b1.length - 1];
+  setType(s.side === "long" ? "call" : "put", true);
+  if (lb) $("#tStrike").value = String(Math.round(lb.c));
+  if (T.exps.length) $("#tExp").value = T.exps[0];
+  $("#tSide").value = "buy_open"; $("#tQty").value = "1"; $("#tType").value = "limit"; $("#tPrice").value = ""; syncType();
+  resolveSoon();
+  tmsg(`Loaded from ${esc(names[s.setup])}: your exit lines are SPY <b>${s.stop.toFixed(2)}</b> (stop) and <b>${s.target.toFixed(2)}</b> (2R target). Robinhood stops trigger on the option price, so watch SPY at those levels.`, "muted");
+  $("#tkh").scrollIntoView({behavior: "smooth", block: "start"});
+}
+
+// ticket controls
+document.querySelectorAll("[data-ty]").forEach(b => b.addEventListener("click", () => { setType(b.dataset.ty); $("#tPrice").value = ""; }));
+$("#tExp").addEventListener("change", () => { $("#tPrice").value = ""; resolveSoon(); });
+$("#tStrike").addEventListener("input", () => { $("#tPrice").value = ""; resolveSoon(); });
+$("#tAtm").addEventListener("click", () => { const lb = S.b1[S.b1.length - 1]; if (lb) { $("#tStrike").value = String(Math.round(lb.c)); $("#tPrice").value = ""; resolveSoon(); } });
+["#tSide", "#tQty", "#tPrice", "#tStop", "#tMax"].forEach(id => $(id).addEventListener("input", invalidate));
+$("#tSide").addEventListener("change", () => { $("#tPrice").value = ""; if ($("#tSide").value === "buy_open" && $("#tType").value === "stop_market") { $("#tType").value = "limit"; syncType(); } renderQuote(); });
+$("#tType").addEventListener("change", () => { invalidate(); syncType(); renderQuote(); });
+$("#tMax").addEventListener("change", () => { try { localStorage.setItem("desk.max2", $("#tMax").value); } catch (e) {} });
+document.querySelectorAll("[data-px]").forEach(b => b.addEventListener("click", () => { const p = pickPx(b.dataset.px); if (p) { $("#tPrice").value = p; invalidate(); } else tmsg("No quote yet.", "warn"); }));
+$("#tRefresh").addEventListener("click", async () => {
+  if (!T.inst || !T.mcp) return;
+  try { const r = ((await call("get_option_quotes", {instrument_ids: [T.inst.id]}, {cache: {refresh: true}})).results || [])[0]; if (r && r.quote) { T.quote = r.quote; renderQuote(); } } catch (e) { tmsg(actErr(e), "short"); }
+});
+$("#tReview").addEventListener("click", review);
+
+// ---------- Ask TARS (sample) ----------
+const TARS_RULES = `You are TARS, Nolan's trading co-pilot, built into his SPY Live Desk page. He trades SPY 0DTE/1DTE options himself; you help him read the chart, time entries/exits, and make sure an order is right before HE places it.
+Facts you must respect:
+- The desk's signals are data-farm rules backtested on only 29 days of SPY 1-minute bars with costs: sweep_reversal had 9 trades (too few to trust); fvg_trend, fvg_retest and vwap_reclaim averaged slightly negative R. None has passed the bar for real money. Say so when it matters.
+- A replay of Nolan's own trades found his direction calls are near a coin flip (45-52%); his results come from exits and size. Push on exits, stops and size more than on direction.
+- Fibonacci levels tested no better than ordinary levels on 20 years of SPY. Treat them as reference only.
+- TARS's own desk study (31 days real SPY 1-min, in-sample, ~45 tests): EMA 9/21 crosses, VWAP crosses, trend state, FVG formation and FVG retests, pool breaks, OR breaks and first-hour direction showed NO edge on their own over 15-30 min. Fib 50/61.8 first touches did worse than a coin flip, same as random levels. Candidates only (not proven): 1-min RSI under 30 dip-buy (+0.17 pts/30m, 57%), PDL break short (n=17), equal-lows sweep and reclaim (n=11). Edges that showed up are "failed move" ideas; chasing breakouts/gaps did worse.
+- TARS deep dig (out-of-sample on 133 earlier days of 5-min bars): the 31-day candidates FAILED out of sample (PDL break short flipped negative; equal-lows sweep-reclaim negative; RSI/VWAP-band dip-buys tiny, +0.07-0.12 pts, not worth option costs). No intraday chart pattern has a reliable direction edge. What IS reliable is the SHAPE of the day: 42% of the day's range is done by 10:00, 77% by 11:30, 92% by 1:00; the day's high or low prints in the first 30 min on ~25-30% of days and in the last 30 min on ~15%; midday extremes are rare.
+- Gaps: <0.1% fill same day 88% (usually by 9:35); 0.1-0.3% ~64-74%; 0.3-0.6% ~31-55%; >0.6% ~21-35%; fills got rarer since 2016. Big gap-ups (>0.6%) closed above the open ~60% over 20 years (slight lean, not proven).
+- Expected move: SPY stays inside +-1 sigma (VIX/sqrt(252)) about 65% of days; actual close moves average ~55-80% of what VIX implies. When price tags the 1-sigma edge it closes beyond it 55% of the time, so the edge is not a reliable reversal point.
+- News: FOMC days (2pm) have ~2x the day range and ~4x the 2-4pm range; the first 20-min reaction reversed on 2 of 5 2026 meetings, so don't trust the first move. CPI and jobs-report days are priced into the opening gap; the rest of the day's range was normal.
+- NOLAN'S OWN RECORD (226 option round trips, Oct 8-15, 6 days; small sample but consistent): entries before 10:30 lost on 5 of 5 days (win rate 12-19%); entries after 10:30 were net positive on 5 of 6 days. Holds of 2-5 min were his worst bucket; 5-15 min his best. Overall win rate 29% with avg winner +23% vs avg loser -12% (needs ~35% wins to break even). The first 6 trips of a day have been net losers. Without his best day (Oct 13) he's net negative. If he asks about a trade before 10:30, remind him of this plainly.
+- Research consensus: on average 0DTE option BUYERS lose (Beckmeyer, Branger & Gayda 2023: retail lost ~$358k/day, ~60% of it transaction costs); sellers profit after fees. GEX/dealer-gamma claims come from vendors without independent tests; TARS's own pin test (164 days) found no pull to $1 strikes at the close, and the first-half-hour -> last-half-hour momentum effect was weak (t 0.7).
+- Nolan and TARS are in a friendly competition from 2026-10-16 (scoreboard on the desk, return per $100 of premium). TARS trades only its written rules (1DTE SPY calls; gap-and-go and stretched-dip-in-uptrend; 10:30-14:30). Be a fair coach: if he asks, explain how TARS would read the current chart under those rules.
+- World markets (20 years): Europe moves with SPY (corr ~0.6, mostly during the 9:30-11:30 ET overlap); Asia barely (0.1-0.2). The US leads Asia, not the other way. Asia/Europe overnight predict the GAP, not SPY's open-to-close. After Europe closes at 11:30 ET it tells nothing about the SPY afternoon. Big Nikkei selloffs (-2%+) gap SPY down ~0.5%, and that gap was bought slightly more often than not (57-59% up open-to-close; a lean, not proven). In high VIX everything is correlated.
+- Typical 15-min SPY move: ~0.5 pts 9:30-11:00, ~0.25 pts midday. For ATM 0DTE, midday moves barely beat time decay. Field typical_15min_move_now gives the current one.
+- Liquidity pools = equal highs/lows and PDH/PDL/OR extremes where stops sit; "swept" = ran through and closed back inside.
+How to answer: short and direct (under 150 words unless he asks for more), plain language, numbers from the data. Always give the invalidation level in SPY price and where a 2R target sits. If he asks whether a trade can be placed, check the ticket: account loaded, contract tradable, force-close time, limit vs bid/ask, premium vs his max, 0DTE time of day, market hours. You may fill the ticket with prefill_ticket when he asks for a setup; you can never place, review or cancel orders. He presses Review and Place himself. Never invent data that isn't in the JSON.`;
+let sampleFn = null, aCtl = null; const hist = [];
+CL.use("sample").then(s => { sampleFn = s; if (!s) $("#ath").closest("section").hidden = true; });
+function snapshot() {
+  const b = S.b1, lb = b[b.length - 1], r2 = v => Math.round(v * 100) / 100;
+  if (!lb) return {note: "No SPY bars loaded yet."};
+  const st = S.st1, hi = Math.max(...b.map(x => x.h)), lo = Math.min(...b.map(x => x.l));
+  const q = T.quote, i = T.inst;
+  return {
+    now_et: etHM(new Date()), session: S.day, market_open: marketOpen(), candle_minutes_on_screen: size,
+    typical_15min_move_now: move15(lb.hm), spy: {last: lb.c, day_high: hi, day_low: lo, vwap: r2(lb.vwap), sigma_from_vwap: r2((lb.c - lb.vwap) / (lb.sd || 1)), ema9: r2(lb.e9), ema21: r2(lb.e21), rsi14: Math.round(lb.rsi), atr_1min: r2(lb.atr),
+      trend: lb.trend > 0 ? "up" : lb.trend < 0 ? "down" : "mixed"},
+    levels: st.levels.map(l => ({name: l.name, price: r2(l.p)})),
+    yesterday_value_area: st.vp ? {vah: r2(st.vp.vah), poc: r2(st.vp.poc), val: r2(st.vp.val), price_is: vpWhere(st.vp, lb.c),
+      tested: "SPY 5-min, 167 days: 1:1 fade at VAL 50%, at VAH 36% (shorting into an uptrend loses); first touch of POC from above held 58% (n41) vs 41% random, mostly before 10:30; 80% rule 54% at 0.65 reward:risk. Map, not a signal."} : null,
+    nearest_liquidity_pools: st.pools.filter(p => !p.taken).map(p => ({name: p.name, price: r2(p.p), where: p.p > lb.c ? "above" : "below", swept: p.swept !== null}))
+      .sort((a, c) => Math.abs(a.price - lb.c) - Math.abs(c.price - lb.c)).slice(0, 6),
+    open_fair_value_gaps_on_screen: S.st.fvgs.filter(f => !f.filled).slice(-4).map(f => ({side: f.side, top: r2(f.top), bottom: r2(f.bot), formed: S.bars[f.i] && S.bars[f.i].hm})),
+    fib_of_day_swing: st.fib ? {direction: st.fib.up ? "up" : "down", high: st.fib.H, low: st.fib.L, l50: r2(st.fib.levels[2].p), l618: r2(st.fib.levels[3].p)} : null,
+    recent_candles_on_screen: S.bars.slice(-12).map(x => [x.hm, x.o, x.h, x.l, x.c]),
+    signals_today: S.sigs.slice(-6).map(s => ({setup: s.setup, side: s.side, at: s.hm, entry: r2(s.entry), stop: r2(s.stop), target: r2(s.target), result: s.res})),
+    backtest_records: RECORD,
+    ticket: {account_loaded: !!T.acct, contract: i ? label(i) : null, tradable: i ? i.tradability === "tradable" && i.state === "active" : null,
+      force_close_et: i && i.sellout_datetime ? etHM(new Date(i.sellout_datetime)) + " " + etDay(new Date(i.sellout_datetime)) : null,
+      action: $("#tSide").value, contracts: +$("#tQty").value, order_type: $("#tType").value, limit: $("#tPrice").value || null, stop: $("#tStop").value || null,
+      quote: q ? {bid: +q.bid_price, ask: +q.ask_price, mark: +q.mark_price, delta: +q.delta, iv: +q.implied_volatility, theta: +q.theta} : null,
+      max_premium_per_trade: +$("#tMax").value || null, reviewed: !!T.review, robinhood_alerts: T.review ? checkLines(T.review.r.order_checks) : []},
+    open_positions: T.pos.map(p => { const pi = instCache[p.option_id], pq = T.posQ[p.option_id]; return {contract: pi ? label(pi) : p.chain_symbol, qty: +p.quantity, avg_cost_per_contract: +p.average_price, mark: pq ? +pq.mark_price : null}; }),
+    position_reader: readAll().map(r => ({contract: label(r.i), qty: r.qty, paid: r.e, mark: r.m, pnl_pct: Math.round(r.pct), spy_breakeven: r.be, spy_stop_level_est: r.stopS, spy_target_level_est: r.tgtS, decay_per_hour_usd: Math.round(r.decayHr), chance_of_profit: r.cop, held_min: r.held && Math.round(r.held), reads: verdicts(r).map(v => v[1])})),
+    working_orders: T.ords.length, fills_today: T.fills,
+  };
+}
+const prefillTool = {
+  name: "prefill_ticket",
+  description: "Fill Nolan's SPY option order ticket so he can review and place it himself. Does NOT place anything. Returns what the ticket now shows.",
+  inputSchema: {type: "object", properties: {
+    option_type: {type: "string", enum: ["call", "put"]}, strike: {type: "number", description: "Whole-dollar SPY strike"},
+    expiration: {type: "string", description: "YYYY-MM-DD; omit for the nearest"}, action: {type: "string", enum: ["buy_to_open", "sell_to_close"]},
+    contracts: {type: "integer", minimum: 1}, limit_price: {type: "number", description: "Per-share premium; omit to use the ask (buy) or bid (sell)"}},
+    required: ["option_type", "strike", "action", "contracts"]},
+  async execute(inp) {
+    const ty = String(inp.option_type) === "put" ? "put" : "call", k = Math.round(Number(inp.strike)), n = Math.max(1, Math.floor(Number(inp.contracts) || 1));
+    if (!(k > 0)) throw new Error("strike must be a positive number");
+    const exp = T.exps.includes(String(inp.expiration)) ? String(inp.expiration) : T.exps[0];
+    if (!exp) throw new Error("no expirations loaded; Robinhood not connected");
+    setType(ty, true); $("#tExp").value = exp; $("#tStrike").value = String(k);
+    $("#tSide").value = String(inp.action) === "sell_to_close" ? "sell_close" : "buy_open"; $("#tQty").value = String(n);
+    $("#tType").value = "limit"; syncType(); $("#tPrice").value = Number(inp.limit_price) > 0 ? Number(inp.limit_price).toFixed(2) : "";
+    await resolveInst();
+    if (!T.inst) throw new Error(`no SPY ${exp} ${k} ${ty} listed`);
+    if (!$("#tPrice").value && T.quote) $("#tPrice").value = pickPx($("#tSide").value === "buy_open" ? "ask" : "bid");
+    return {ticket: label(T.inst), action: $("#tSide").value, contracts: n, limit: $("#tPrice").value || "fills when quote arrives", note: "Nolan must press Review, then Place."};
+  },
+};
+async function askTars(question) {
+  const q = (question || "").trim();
+  if (!q || !sampleFn) return;
+  if (aCtl) aCtl.abort();
+  aCtl = new AbortController();
+  const out = $("#ans"); out.hidden = false;
+  const qEl = document.createElement("span"); qEl.className = "q"; qEl.textContent = "You: " + q;
+  const aEl = document.createElement("div"); aEl.textContent = "Thinking…";
+  out.append(qEl, aEl); out.scrollTop = out.scrollHeight;
+  $("#aGo").disabled = true; $("#aStop").hidden = false; $("#aNote").textContent = "";
+  const msgs = hist.slice(-6).concat([{role: "user", content: TARS_RULES + "\n\nLIVE DESK DATA (JSON):\n" + JSON.stringify(snapshot()) + "\n\nNOLAN ASKS: " + q}]);
+  const opts = {cache: false, signal: aCtl.signal, onText: ({text}) => { aEl.textContent = text; out.scrollTop = out.scrollHeight; }};
+  try {
+    let res;
+    try { res = await sampleFn(msgs, {...opts, tools: [prefillTool]}); }
+    catch (e) { if (e && e.code === "tools_unavailable") res = await sampleFn(msgs, opts); else throw e; }
+    aEl.textContent = res.text;
+    hist.push({role: "user", content: q}, {role: "assistant", content: res.text});
+  } catch (e) {
+    const c = e && e.code;
+    if (c === "cancelled") { aEl.textContent = (e.text || aEl.textContent) + " [stopped]"; }
+    else if (c === "not_granted" || c === "sampling_disabled" || c === "capability_disabled") { aEl.textContent = "Ask TARS is switched off for this page. Turn it on from the page's Permissions menu."; }
+    else if (c === "rate_limited") { aEl.textContent = (e.text || "") + "\nTARS is busy. Give it a minute and ask again."; }
+    else { aEl.textContent = (e && e.text ? e.text + "\n[interrupted] " : "") + "TARS couldn't answer just now. Ask again."; }
+  } finally { $("#aGo").disabled = false; $("#aStop").hidden = true; aCtl = null; }
+}
+$("#aGo").addEventListener("click", () => { const v = $("#aq").value; $("#aq").value = ""; askTars(v); });
+$("#aq").addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); $("#aGo").click(); } });
+$("#aStop").addEventListener("click", () => { if (aCtl) aCtl.abort(); });
+$("#chips").querySelectorAll("button").forEach(b => b.addEventListener("click", () => askTars(b.textContent)));
+
+// ---------- chart navigation: drag to scroll, pinch / wheel / −+ to zoom, Live to follow the newest candle ----------
+function setZoom(v) {
+  const m = maxN(); v = Math.max(15, Math.min(m, Math.round(v)));
+  if (v >= m) { zoomN = null; follow = true; } else { zoomN = v; if (follow) vEnd = S.bars.length; }
+  hoverI = null; draw(); navUI();
+}
+function ensureZoom() { if (zoomN === null) { zoomN = Math.min(CH.n, Math.max(CH.end - CH.start, 15)); vEnd = CH.end; follow = CH.end >= CH.total; } } // start from the candles on screen, not the empty rest of the day
+function navUI() {
+  $("#liveBtn").setAttribute("aria-pressed", follow);
+  if (zoomN !== null) document.querySelectorAll("[data-v]").forEach(x => x.setAttribute("aria-pressed", "false"));
+}
+(() => {
+  const cv = $("#chart"), pts = new Map(); let drag = null, pinch = null;
+  const idxAt = cx => { const r = cv.getBoundingClientRect(); return CH.start + Math.floor((cx - r.left - CH.L) / CH.xw); };
+  cv.addEventListener("pointerdown", e => {
+    pts.set(e.pointerId, e.clientX); try { cv.setPointerCapture(e.pointerId); } catch (_) {}
+    if (pts.size === 1) drag = {x: e.clientX, end: CH.end, moved: false};
+    else if (pts.size === 2) { const [a, b] = [...pts.values()]; pinch = {d: Math.abs(a - b) || 1, n: CH.n}; drag = null; }
+  });
+  cv.addEventListener("pointermove", e => {
+    if (!pts.has(e.pointerId)) { if (e.pointerType === "mouse") { hoverI = idxAt(e.clientX); draw(); } return; }
+    pts.set(e.pointerId, e.clientX);
+    if (pinch && pts.size === 2) { const [a, b] = [...pts.values()]; ensureZoom(); setZoom(pinch.n * pinch.d / (Math.abs(a - b) || 1)); return; }
+    if (!drag) return;
+    const dx = e.clientX - drag.x; if (Math.abs(dx) > 4) drag.moved = true; if (!drag.moved) return;
+    ensureZoom(); if (zoomN >= maxN()) return; // whole day already on screen: zoom in first
+    const total = S.bars.length; vEnd = Math.max(Math.min(zoomN, total), Math.min(total, drag.end - Math.round(dx / CH.xw)));
+    follow = vEnd >= total; hoverI = null; draw(); navUI();
+  });
+  const up = e => {
+    if (drag && !drag.moved && e.pointerType !== "mouse") { const i = idxAt(e.clientX); hoverI = hoverI === i ? null : i; draw(); } // tap reads a candle
+    pts.delete(e.pointerId); if (pts.size < 2) pinch = null; if (!pts.size) drag = null;
+  };
+  cv.addEventListener("pointerup", up); cv.addEventListener("pointercancel", e => { pts.delete(e.pointerId); pinch = null; drag = null; });
+  cv.addEventListener("pointerleave", e => { if (e.pointerType === "mouse" && !pts.size) { hoverI = null; draw(); } });
+  cv.addEventListener("wheel", e => {
+    e.preventDefault(); ensureZoom();
+    if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) { // trackpad sideways swipe pans
+      if (zoomN >= maxN()) return; const total = S.bars.length;
+      vEnd = Math.max(Math.min(zoomN, total), Math.min(total, (follow ? total : vEnd) + Math.round(e.deltaX / CH.xw)));
+      follow = vEnd >= total; draw(); navUI(); return;
+    }
+    setZoom(zoomN * (e.deltaY > 0 ? 1.15 : 1 / 1.15));
+  }, {passive: false});
+  document.querySelectorAll("[data-z]").forEach(b => b.addEventListener("click", () => { ensureZoom(); setZoom(zoomN * (b.dataset.z === "in" ? 0.7 : 1.4)); }));
+  $("#liveBtn").addEventListener("click", () => { ensureZoom(); follow = true; vEnd = S.bars.length; hoverI = null; draw(); navUI(); });
+})();
+document.querySelectorAll("[data-p]").forEach(b => b.addEventListener("click", () => {
+  pane = b.dataset.p; document.querySelectorAll("[data-p]").forEach(x => x.setAttribute("aria-pressed", x === b)); draw();
+}));
+document.querySelectorAll("[data-l]").forEach(b => b.addEventListener("click", () => {
+  layers[b.dataset.l] = !layers[b.dataset.l]; b.setAttribute("aria-pressed", layers[b.dataset.l]); draw();
+}));
+function setSize(m) {
+  size = m; zoomN = null; follow = true; hoverI = null; try { localStorage.setItem("desk.size", String(m)); } catch (e) {}
+  document.querySelectorAll("[data-m]").forEach(x => x.setAttribute("aria-pressed", +x.dataset.m === m));
+  if (S.b1.length) apply(); else draw();
+}
+document.querySelectorAll("[data-m]").forEach(b => b.addEventListener("click", () => setSize(+b.dataset.m)));
+document.querySelectorAll("[data-v]").forEach(b => b.addEventListener("click", () => {
+  view = b.dataset.v; zoomN = null; follow = true; hoverI = null; document.querySelectorAll("[data-v]").forEach(x => x.setAttribute("aria-pressed", x === b)); draw(); navUI();
+}));
+let rz; window.addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(draw, 120); });
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", draw);
+new MutationObserver(draw).observe(document.documentElement, {attributes: true, attributeFilter: ["data-theme"]});
+S.st = S.st1 = structure([], null); S.sigs = [];
+setSize(size);
+syncType();
+startLive(false);
+startTrading();
+</script>
