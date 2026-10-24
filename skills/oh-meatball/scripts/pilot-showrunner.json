@@ -1,0 +1,34 @@
+{
+ "title": "Pilot: The Showrunner cut (tiger, roach)",
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+4%",
+ "short_rate": "+4%",
+ "pitch": "-3Hz",
+ "short_beats": 4,
+ "music": "music/quiz-bed.m4a",
+ "style": "classic",
+ "_note": "research/39 pilot. Same facts as originals-01 tiger + roach. Persona: deadpan nature narrator who is a meatball and takes every mention of eating personally. Fork = silent running gag, tink = the one sting.",
+ "beats": [
+  {"say": "If you shave a tiger, it's still striped.", "pose": "think", "quiz": "SHAVE A TIGER,\nIT'S STILL\nSTRIPED", "myth": "tiger",
+   "bonus": "No two tigers have the same stripe pattern.", "short_title": "Is a Tiger's Skin Striped Too? 🐯",
+   "loop_say": "I'm not saying you should try it. I'm just saying,"},
+  {"say": "True. The stripes aren't just on the fur. The skin underneath is striped too.", "pose": "deadpan",
+   "photo": "Panthera tigris", "obs": 368498398, "myth": "tiger", "short": true},
+  {"say": "And every tiger's pattern is different, like a fingerprint. So if one eats you, you'll know exactly who did it.",
+   "pose": "nervous", "prop": "fork", "sting": "tink", "aside": "(small comfort)", "hold": 0.5,
+   "photo": "Panthera tigris", "obs": 257962454, "myth": "tiger", "short": true},
+  {"say": "Stripes, all the way down. As a meatball, I relate. Unfortunately.", "pose": "deadpan",
+   "text": "STRIPES ALL\nTHE WAY DOWN", "aside": "(meatball also all the way down)", "myth": "tiger", "short": true},
+
+  {"say": "A cockroach can live for a week without its head.", "pose": "think", "quiz": "A COCKROACH CAN\nLIVE A WEEK\nWITHOUT ITS HEAD", "myth": "roach",
+   "bonus": "Cockroaches can hold their breath for around forty minutes.", "short_title": "Can a Cockroach Really Live Without Its Head? 🪳",
+   "loop_say": "And people call me the gross one. Meanwhile,"},
+  {"say": "True. Cockroaches breathe through tiny holes along their body, not through their head. So the head was basically optional.",
+   "pose": "deadpan", "photo": "Periplaneta americana", "obs": 18782697, "myth": "roach", "short": true},
+  {"say": "Without a mouth, it can't drink. So after about a week, it dies of thirst. Meanwhile, I lose one bite, and they call it dinner.",
+   "pose": "nervous", "prop": "fork", "sting": "tink", "aside": "(not a snack)", "hold": 0.5,
+   "photo": "Periplaneta americana", "obs": 200718902, "myth": "roach", "short": true},
+  {"say": "Headless. Still fine. Honestly, the most confident thing I have ever met.", "pose": "deadpan",
+   "text": "HEADLESS.\nSTILL FINE.", "aside": "(do not invite it to dinner)", "myth": "roach", "short": true}
+ ]
+}
