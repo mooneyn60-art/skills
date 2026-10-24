@@ -1,0 +1,1843 @@
+{
+ "title": "Would Meatball Survive? Shorts v3, pack 2 (7 Shorts)",
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+0%",
+ "short_rate": "+0%",
+ "tempo": 1.1,
+ "music": "music/quiz-bed.m4a",
+ "style": "v3",
+ "names": {
+  "Hippopotamus amphibius": "Hippopotamus",
+  "Alces alces": "Moose",
+  "Conus geographus": "Geography cone snail",
+  "Californiconus californicus": "California cone snail",
+  "Varanus komodoensis": "Komodo dragon",
+  "Pygocentrus nattereri": "Red-bellied piranha",
+  "Crocodylus porosus": "Saltwater crocodile",
+  "Hapalochlaena lunulata": "Greater blue-ringed octopus",
+  "Hapalochlaena maculosa": "Southern blue-ringed octopus"
+ },
+ "_note": "The 7 remaining 'Would Meatball Survive?' animals (scripts/series-would-meatball-survive.json: hippo, moose, cone, komodo, piranha, croc, octopus) remade as Shorts v3 (research/44): Meatball in jeopardy, an action and SFX on most lines, a joke every 4-6 s, lines <= 8 words, prototype voice (edge-tts Andrew +0%, atempo 1.10). Facts, sources and pinned photos are the survive-01 pack's (sources on each hook beat; moose crops stop at y<=0.9 for the watermark). Comment asks end moose, komodo and croc (3/7); the rest end on the twist. 'at' anchors never use a bare number word (v3.word_time reads numbers as seconds). Swapped into the survive-01 post slots 11/07-11/09 (YouTube) with TikTok copies 2 h later.",
+ "beats": [
+  {
+   "hook": true,
+   "myth": "hippo",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "Hippos can't actually swim.",
+   "shots": [
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 149728796,
+     "crop": [
+      0.393,
+      0.0,
+      0.767,
+      1.0
+     ]
+    },
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 36204497,
+     "crop": [
+      0.111,
+      0.15,
+      0.449,
+      0.95
+     ],
+     "at": "actually"
+    }
+   ],
+   "label": {
+    "text": "CAN'T\nSWIM",
+    "at": "swim"
+   },
+   "sfx": [
+    "pop@swim"
+   ],
+   "loop_say": "Anyway. Don't race a hippo. Because",
+   "short_title": "I Raced a Hippo 🦛 (Would Meatball Survive?)",
+   "bonus": "A hippo can close its nostrils and ears underwater.",
+   "comment": "Did you know hippos can't float? 👇",
+   "sources": [
+    "San Diego Zoo Wildlife Alliance, 'Making Waves' (hippos too dense to float; push off and walk the riverbed in a slow-motion gallop) — https://stories.sdzwa.org/?p=146524",
+    "Snopes, hippos are too dense to swim — https://www.snopes.com/fact-check/hippos-dense-swim/",
+    "San Diego Zoo animal profile (close nostrils, hold breath 5 min or longer) — https://animals.sandiegozoo.org/node/111",
+    "BBC Discover Wildlife (float up to breathe and sink back without waking) — https://www.discoverwildlife.com/animal-facts/can-hippos-breathe-underwater",
+    "Hippos are herbivores (grazers): San Diego Zoo profile above."
+   ]
+  },
+  {
+   "myth": "hippo",
+   "pose": "shock",
+   "act": "shake",
+   "say": "They're too heavy to float.",
+   "shots": [
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 264030208,
+     "crop": [
+      0.251,
+      0.05,
+      0.589,
+      0.95
+     ]
+    }
+   ],
+   "punch": "heavy",
+   "sfx": [
+    "thud@heavy"
+   ]
+  },
+  {
+   "myth": "hippo",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I challenged one to a race.",
+   "shots": [
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 32088742,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh@0.05"
+   ],
+   "punch": "race"
+  },
+  {
+   "myth": "hippo",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "It just bounces along the bottom.",
+   "shots": [
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 198786138,
+     "crop": [
+      0.223,
+      0.0,
+      0.577,
+      1.0
+     ]
+    }
+   ],
+   "act_at": "bounces",
+   "sfx": [
+    "boing@bounces"
+   ]
+  },
+  {
+   "myth": "hippo",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "It holds its breath five minutes.",
+   "shots": [
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 36204497,
+     "crop": [
+      0.11,
+      0.1,
+      0.49,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "5 MIN",
+    "at": "five"
+   },
+   "sfx": [
+    "pop@five"
+   ]
+  },
+  {
+   "myth": "hippo",
+   "pose": "think",
+   "act": "peek",
+   "say": "It even surfaces to breathe asleep.",
+   "shots": [
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 149728796,
+     "crop": [
+      0.449,
+      0.1,
+      0.711,
+      0.8
+     ]
+    }
+   ],
+   "punch": "asleep",
+   "sfx": [
+    "splash@surfaces"
+   ]
+  },
+  {
+   "myth": "hippo",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Good news: it eats grass.",
+   "shots": [
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 264030208,
+     "crop": [
+      0.3,
+      0.15,
+      0.55,
+      0.8
+     ],
+     "blur": true
+    }
+   ],
+   "sfx": [
+    "pop@grass"
+   ]
+  },
+  {
+   "myth": "hippo",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Bad news: it's grumpy about its river.",
+   "shots": [
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 32088742,
+     "crop": [
+      0.33,
+      0.1,
+      0.67,
+      0.9
+     ]
+    }
+   ],
+   "punch": "grumpy",
+   "sfx": [
+    "scratch@grumpy"
+   ]
+  },
+  {
+   "myth": "hippo",
+   "pose": "shock",
+   "act": "launch",
+   "say": "It wouldn't eat me. Just flatten me.",
+   "shots": [
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 198786138,
+     "crop": [
+      0.25,
+      0.1,
+      0.55,
+      0.85
+     ]
+    }
+   ],
+   "hit": "flatten",
+   "sfx": [
+    "crunch@flatten",
+    "whoosh@flatten"
+   ]
+  },
+  {
+   "myth": "hippo",
+   "pose": "facepalm",
+   "act": "hit",
+   "say": "I'm a patty now.",
+   "shots": [
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 149728796,
+     "crop": [
+      0.393,
+      0.0,
+      0.767,
+      1.0
+     ],
+     "blur": true
+    }
+   ],
+   "act_at": "patty",
+   "label": {
+    "text": "PATTY",
+    "at": "patty"
+   },
+   "prop": "fork",
+   "prop_at": "patty",
+   "sfx": [
+    "tink@patty"
+   ]
+  },
+  {
+   "hook": true,
+   "myth": "moose",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "A moose can swim for two hours.",
+   "shots": [
+    {
+     "photo": "Alces alces",
+     "obs": 293795860,
+     "crop": [
+      0.342,
+      0.0,
+      0.658,
+      1.0
+     ]
+    },
+    {
+     "photo": "Alces alces",
+     "obs": 92166840,
+     "crop": [
+      0.391,
+      0.0,
+      0.709,
+      0.85
+     ],
+     "at": "swim"
+    }
+   ],
+   "label": {
+    "text": "2 HOURS",
+    "at": "two"
+   },
+   "sfx": [
+    "pop@two"
+   ],
+   "loop_say": "Anyway. Stay on land. Because",
+   "short_title": "I Tried to Outrow a Moose 🫎 (Would Meatball Survive?)",
+   "bonus": "Moose have been seen swimming more than ten miles to reach food.",
+   "comment": "Could you outswim a moose? 👇",
+   "sources": [
+    "Alaska Dept. of Fish and Game, moose: swim at 6 mph for up to two hours — https://www.adfg.alaska.gov/index.cfm?adfg=viewing.landmammals&species=moose",
+    "Teton Science Schools, 'Can Moose Really Dive?' (moose readily submerge entirely to feed on aquatic plants; up to ~50 s underwater; swims of 10+ miles; the popular 18-20 ft depth figure is unproven, so the script gives no depth) — https://tetonscience.org/can-moose-really-dive/"
+   ]
+  },
+  {
+   "myth": "moose",
+   "pose": "shock",
+   "act": "shake",
+   "say": "At six miles an hour.",
+   "shots": [
+    {
+     "photo": "Alces alces",
+     "obs": 102548882,
+     "crop": [
+      0.521,
+      0.025,
+      0.839,
+      0.875
+     ]
+    }
+   ],
+   "label": {
+    "text": "6 MPH",
+    "at": "six"
+   },
+   "sfx": [
+    "whoosh@six"
+   ]
+  },
+  {
+   "myth": "moose",
+   "pose": "deadpan",
+   "act": "run_across",
+   "say": "So I tried rowing away.",
+   "shots": [
+    {
+     "photo": "Alces alces",
+     "obs": 28395848,
+     "crop": [
+      0.389,
+      0.0,
+      0.811,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh@rowing"
+   ],
+   "punch": "rowing"
+  },
+  {
+   "myth": "moose",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Rowing away is not a plan.",
+   "shots": [
+    {
+     "photo": "Alces alces",
+     "obs": 293795860,
+     "crop": [
+      0.369,
+      0.27,
+      0.591,
+      0.97
+     ]
+    }
+   ],
+   "punch": "plan",
+   "sfx": [
+    "scratch@not"
+   ]
+  },
+  {
+   "myth": "moose",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "It even ducks under to eat plants.",
+   "shots": [
+    {
+     "photo": "Alces alces",
+     "obs": 336096285,
+     "crop": [
+      0.313,
+      0.0,
+      0.687,
+      1.0
+     ]
+    }
+   ],
+   "act_at": "ducks",
+   "sfx": [
+    "splash@ducks"
+   ]
+  },
+  {
+   "myth": "moose",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "I can't swim at all.",
+   "shots": [
+    {
+     "photo": "Alces alces",
+     "obs": 54126730,
+     "crop": [
+      0.363,
+      0.0,
+      0.737,
+      1.0
+     ]
+    }
+   ],
+   "punch": "all"
+  },
+  {
+   "myth": "moose",
+   "pose": "facepalm",
+   "act": "tumble",
+   "say": "I float. Like a sad crouton.",
+   "shots": [
+    {
+     "photo": "Alces alces",
+     "obs": 54126730,
+     "crop": [
+      0.4,
+      0.1,
+      0.7,
+      0.8
+     ]
+    }
+   ],
+   "act_at": "float",
+   "sfx": [
+    "splash@float"
+   ]
+  },
+  {
+   "myth": "moose",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Meatballs don't swim. We simmer.",
+   "shots": [
+    {
+     "photo": "Alces alces",
+     "obs": 28395848,
+     "crop": [
+      0.389,
+      0.0,
+      0.811,
+      1.0
+     ],
+     "blur": true
+    }
+   ],
+   "label": {
+    "text": "SIMMER",
+    "at": "simmer"
+   },
+   "prop": "fork",
+   "prop_at": "simmer",
+   "sfx": [
+    "tink@simmer"
+   ]
+  },
+  {
+   "myth": "moose",
+   "pose": "shock",
+   "act": "peek",
+   "say": "Some swim over ten miles. For snacks.",
+   "shots": [
+    {
+     "photo": "Alces alces",
+     "obs": 92166840,
+     "crop": [
+      0.42,
+      0.1,
+      0.68,
+      0.85
+     ]
+    }
+   ],
+   "label": {
+    "text": "10+ MILES",
+    "at": "ten"
+   },
+   "punch": "snacks"
+  },
+  {
+   "myth": "moose",
+   "pose": "facepalm",
+   "act": "hit",
+   "say": "I am a snack.",
+   "shots": [
+    {
+     "photo": "Alces alces",
+     "obs": 336096285,
+     "crop": [
+      0.35,
+      0.1,
+      0.65,
+      0.8
+     ]
+    }
+   ],
+   "hit": "snack",
+   "sfx": [
+    "crunch@snack"
+   ]
+  },
+  {
+   "myth": "moose",
+   "pose": "think",
+   "act": "peek",
+   "say": "Could you outswim a moose? Comment.",
+   "shots": [
+    {
+     "photo": "Alces alces",
+     "obs": 293795860,
+     "crop": [
+      0.342,
+      0.0,
+      0.658,
+      1.0
+     ]
+    }
+   ],
+   "ask": "comment"
+  },
+  {
+   "hook": true,
+   "myth": "cone",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "This snail hunts fish with insulin.",
+   "shots": [
+    {
+     "photo": "Conus geographus",
+     "obs": 37854913,
+     "crop": [
+      0.239,
+      0.0,
+      0.661,
+      1.0
+     ]
+    },
+    {
+     "photo": "Conus geographus",
+     "obs": 37710971,
+     "crop": [
+      0.381,
+      0.1,
+      0.719,
+      0.9
+     ],
+     "at": "fish"
+    }
+   ],
+   "label": {
+    "text": "INSULIN",
+    "at": "insulin"
+   },
+   "sfx": [
+    "pop@insulin"
+   ],
+   "loop_say": "Anyway. Leave the shells. Because",
+   "short_title": "I Picked Up a Cone Snail 🐚 (Would Meatball Survive?)",
+   "bonus": "Scientists are studying cone snail insulin for faster-acting diabetes medicine.",
+   "comment": "Would you ever pick up a pretty shell again? 👇",
+   "sources": [
+    "Safavi-Hemami et al. 2015, PNAS, 'Specialized insulin is used for chemical warfare by fish-hunting cone snails' (Conus geographus, C. tulipa) — https://archive.unews.utah.edu/news_releases/killer-snail-venom-insulin/",
+    "Cone snail harpoon = modified, barbed, hollow radular tooth fired from an extendable proboscis — https://en.wikipedia.org/wiki/Cone_snail",
+    "Conus geographus: about 36 recorded human deaths; no antivenom — https://en.wikipedia.org/wiki/Conus_geographus",
+    "Photo note: the harpoon beat uses Californiconus californicus (also a venomous cone snail, line is about cone snails in general); insulin and 'killed people' beats use C. geographus only."
+   ]
+  },
+  {
+   "myth": "cone",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It clouds the water.",
+   "shots": [
+    {
+     "photo": "Conus geographus",
+     "obs": 37854913,
+     "crop": [
+      0.473,
+      0.25,
+      0.727,
+      0.85
+     ]
+    }
+   ],
+   "punch": "clouds",
+   "sfx": [
+    "whoosh@clouds"
+   ]
+  },
+  {
+   "myth": "cone",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "The fish's blood sugar crashes.",
+   "shots": [
+    {
+     "photo": "Conus geographus",
+     "obs": 37710971,
+     "crop": [
+      0.41,
+      0.05,
+      0.79,
+      0.95
+     ]
+    }
+   ],
+   "label": {
+    "text": "CRASH",
+    "at": "crashes"
+   },
+   "sfx": [
+    "thud@crashes"
+   ]
+  },
+  {
+   "myth": "cone",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I picked one up. It's pretty.",
+   "shots": [
+    {
+     "photo": "Californiconus californicus",
+     "obs": 66506998,
+     "crop": [
+      0.316,
+      0.0,
+      0.784,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh@0.05"
+   ],
+   "punch": "pretty"
+  },
+  {
+   "myth": "cone",
+   "pose": "shock",
+   "act": "launch",
+   "say": "Then it fired a harpoon.",
+   "shots": [
+    {
+     "photo": "Californiconus californicus",
+     "obs": 66606761,
+     "crop": [
+      0.239,
+      0.0,
+      0.661,
+      1.0
+     ]
+    }
+   ],
+   "hit": "harpoon",
+   "sfx": [
+    "crunch@harpoon",
+    "whoosh@harpoon"
+   ]
+  },
+  {
+   "myth": "cone",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "A hollow tooth full of venom.",
+   "shots": [
+    {
+     "photo": "Californiconus californicus",
+     "obs": 66506998,
+     "crop": [
+      0.4,
+      0.1,
+      0.7,
+      0.8
+     ]
+    }
+   ],
+   "act_at": 0.3,
+   "punch": "venom",
+   "sfx": [
+    "thud@0.3"
+   ]
+  },
+  {
+   "myth": "cone",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "This kind has killed people.",
+   "shots": [
+    {
+     "photo": "Conus geographus",
+     "obs": 37854913,
+     "crop": [
+      0.331,
+      0.15,
+      0.669,
+      0.95
+     ]
+    }
+   ],
+   "punch": "killed"
+  },
+  {
+   "myth": "cone",
+   "pose": "shock",
+   "act": "stand",
+   "say": "There's no antivenom.",
+   "shots": [
+    {
+     "photo": "Conus geographus",
+     "obs": 37710971,
+     "crop": [
+      0.381,
+      0.1,
+      0.719,
+      0.9
+     ]
+    }
+   ],
+   "label": {
+    "text": "NO\nANTIVENOM",
+    "at": "antivenom"
+   },
+   "sfx": [
+    "scratch@no"
+   ]
+  },
+  {
+   "myth": "cone",
+   "pose": "nervous",
+   "act": "hit",
+   "say": "It swallows fish whole. I'm fish-sized.",
+   "shots": [
+    {
+     "photo": "Conus geographus",
+     "obs": 37854913,
+     "crop": [
+      0.239,
+      0.0,
+      0.661,
+      1.0
+     ],
+     "blur": true
+    }
+   ],
+   "act_at": "fish-sized",
+   "sfx": [
+    "boing@fish-sized"
+   ]
+  },
+  {
+   "myth": "cone",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Survival odds: high. It's a snail.",
+   "shots": [
+    {
+     "photo": "Conus geographus",
+     "obs": 37710971,
+     "crop": [
+      0.45,
+      0.2,
+      0.7,
+      0.8
+     ]
+    }
+   ],
+   "punch": "snail",
+   "sfx": [
+    "pop@snail"
+   ]
+  },
+  {
+   "myth": "cone",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Just never pick one up.",
+   "shots": [
+    {
+     "photo": "Californiconus californicus",
+     "obs": 66606761,
+     "crop": [
+      0.239,
+      0.0,
+      0.661,
+      1.0
+     ],
+     "blur": true
+    }
+   ],
+   "sfx": [
+    "pop@never"
+   ]
+  },
+  {
+   "hook": true,
+   "myth": "komodo",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "This lizard can eat most of its weight.",
+   "shots": [
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 341853813,
+     "crop": [
+      0.339,
+      0,
+      0.761,
+      1.0
+     ]
+    },
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 363007686,
+     "crop": [
+      0.26,
+      0.1,
+      0.64,
+      1.0
+     ],
+     "at": "eat"
+    }
+   ],
+   "punch": "most",
+   "sfx": [
+    "pop@most"
+   ],
+   "loop_say": "Anyway. Don't bring snacks. Because",
+   "short_title": "I Brought a Komodo Dragon a Snack 🦎 (Would Meatball Survive?)",
+   "bonus": "Komodo dragons can go weeks without eating between big meals.",
+   "comment": "What's the most you've ever eaten in one sitting? 👇",
+   "sources": [
+    "Smithsonian's National Zoo, Komodo dragon: stomach expands so an adult can consume up to 80% of its body weight in a single meal — https://www.nationalzoo.si.edu/node/6852",
+    "Cincinnati Zoo (same 80% figure) — https://cincinnatizoo.org/animals-archive/komodo-dragon/",
+    "Fry et al. 2009, PNAS (venom glands in the lower jaw) — https://www.nationalgeographic.com/science/article/venomous-komodo-dragons-kill-prey-with-wound-and-poison-tactics",
+    "Contested: the venom's role in kills (LITFL, 'Komodo dragons: myth vs reality') — https://litfl.com/komodo-dragons-myth-vs-reality/ ; the script says it is argued."
+   ]
+  },
+  {
+   "myth": "komodo",
+   "pose": "shock",
+   "act": "shake",
+   "say": "Eighty percent. In one meal.",
+   "shots": [
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 259851971,
+     "crop": [
+      0.262,
+      0.0,
+      0.578,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "80%",
+    "at": "Eighty"
+   },
+   "punch": "meal",
+   "sfx": [
+    "thud@meal"
+   ]
+  },
+  {
+   "myth": "komodo",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Its stomach just stretches.",
+   "shots": [
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 259738154,
+     "crop": [
+      0.389,
+      0.0,
+      0.811,
+      1.0
+     ]
+    }
+   ],
+   "punch": "stretches",
+   "sfx": [
+    "boing@stretches"
+   ]
+  },
+  {
+   "myth": "komodo",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I brought it a snack.",
+   "shots": [
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 244517845,
+     "crop": [
+      0.47,
+      0.1,
+      0.85,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh@0.05"
+   ],
+   "punch": "snack"
+  },
+  {
+   "myth": "komodo",
+   "pose": "shock",
+   "act": "launch",
+   "say": "Turns out I'm the snack.",
+   "shots": [
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 333369842,
+     "crop": [
+      0.192,
+      0.0,
+      0.508,
+      1.0
+     ]
+    }
+   ],
+   "hit": "snack",
+   "sfx": [
+    "crunch@snack",
+    "whoosh@snack"
+   ]
+  },
+  {
+   "myth": "komodo",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "It has venom glands in its jaw.",
+   "shots": [
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 363007686,
+     "crop": [
+      0.281,
+      0.15,
+      0.619,
+      0.95
+     ]
+    }
+   ],
+   "act_at": 0.4,
+   "punch": "venom",
+   "sfx": [
+    "thud@0.4"
+   ]
+  },
+  {
+   "myth": "komodo",
+   "pose": "think",
+   "act": "peek",
+   "say": "How much they matter? Still argued.",
+   "shots": [
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 341853813,
+     "crop": [
+      0.4,
+      0.15,
+      0.7,
+      0.85
+     ]
+    }
+   ],
+   "sfx": [
+    "scratch@argued"
+   ],
+   "punch": "argued"
+  },
+  {
+   "myth": "komodo",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Eighty percent of a meatball is a meatball.",
+   "shots": [
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 259738154,
+     "crop": [
+      0.389,
+      0.0,
+      0.811,
+      1.0
+     ],
+     "blur": true
+    }
+   ],
+   "label": {
+    "text": "STILL ME",
+    "at": "is"
+   }
+  },
+  {
+   "myth": "komodo",
+   "pose": "facepalm",
+   "act": "hit",
+   "say": "One gulp. No chewing. No dignity.",
+   "shots": [
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 244517845,
+     "crop": [
+      0.5,
+      0.15,
+      0.8,
+      0.85
+     ]
+    }
+   ],
+   "act_at": "dignity",
+   "sfx": [
+    "crunch@gulp",
+    "pop@dignity"
+   ]
+  },
+  {
+   "myth": "komodo",
+   "pose": "think",
+   "act": "peek",
+   "say": "Could you eat that much? Comment.",
+   "shots": [
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 341853813,
+     "crop": [
+      0.339,
+      0,
+      0.761,
+      1.0
+     ]
+    }
+   ],
+   "ask": "comment"
+  },
+  {
+   "hook": true,
+   "myth": "piranha",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "Piranhas group up because they're scared.",
+   "shots": [
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 228497872,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    },
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 8734928,
+     "crop": [
+      0.31,
+      0.0,
+      0.69,
+      0.9
+     ],
+     "at": "group"
+    }
+   ],
+   "label": {
+    "text": "SCARED",
+    "at": "scared"
+   },
+   "sfx": [
+    "pop@scared"
+   ],
+   "loop_say": "Anyway. Don't hug a piranha. Because",
+   "short_title": "I Tried to Hug a Piranha 🐟 (Would Meatball Survive?)",
+   "bonus": "Only a couple of the roughly 25 piranha species are known to bark.",
+   "comment": "Did movies ruin piranhas for you? 👇",
+   "sources": [
+    "Queiroz & Magurran 2005, Biology Letters 1:155-157, 'Safety in numbers? Shoaling behaviour of the Amazonian red-bellied piranha' (higher opercular rate in small shoals; slower recovery after a model-cormorant attack) — https://research-portal.st-andrews.ac.uk/en/publications/safety-in-numbers-shoaling-behaviour-of-the-amazonian-red-bellied/",
+    "St Andrews release, 'Rehabilitating piranhas' (groups for protection, not pack hunting) — https://news.st-andrews.ac.uk/archive/rehabilitating-piranhas/",
+    "Millot, Vandewalle & Parmentier 2011, J. Exp. Biol. 214:3613 (bark when handled) — https://www.npr.org/sections/thetwo-way/2011/10/14/141350706/listen-up-heres-how-some-piranhas-bark-before-they-bite",
+    "Photo note: all piranha photos are live aquarium fish (iNat captive/casual); every wild research-grade CC photo showed a caught or dead fish."
+   ]
+  },
+  {
+   "myth": "piranha",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Not to hunt.",
+   "shots": [
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 395989341,
+     "crop": [
+      0.323,
+      0.0,
+      0.677,
+      0.9
+     ]
+    }
+   ],
+   "punch": "hunt",
+   "sfx": [
+    "scratch@Not"
+   ]
+  },
+  {
+   "myth": "piranha",
+   "pose": "deadpan",
+   "act": "tumble",
+   "say": "So I jumped in to comfort them.",
+   "shots": [
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 345090765,
+     "crop": [
+      0.389,
+      0.0,
+      0.811,
+      1.0
+     ]
+    }
+   ],
+   "act_at": "in",
+   "sfx": [
+    "splash@in"
+   ]
+  },
+  {
+   "myth": "piranha",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "In small groups, they breathed faster.",
+   "shots": [
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 150282373,
+     "crop": [
+      0.492,
+      0.0,
+      0.808,
+      1.0
+     ]
+    }
+   ],
+   "punch": "faster"
+  },
+  {
+   "myth": "piranha",
+   "pose": "shock",
+   "act": "stand",
+   "say": "A stress sign.",
+   "shots": [
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 241309079,
+     "crop": [
+      0.342,
+      0.0,
+      0.658,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "STRESS",
+    "at": "stress"
+   },
+   "sfx": [
+    "pop@stress"
+   ]
+  },
+  {
+   "myth": "piranha",
+   "pose": "think",
+   "act": "peek",
+   "say": "They calmed slower after a fake attack.",
+   "shots": [
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 228497872,
+     "crop": [
+      0.35,
+      0.15,
+      0.65,
+      0.85
+     ]
+    }
+   ],
+   "punch": "fake"
+  },
+  {
+   "myth": "piranha",
+   "pose": "shock",
+   "act": "shake",
+   "say": "They even bark when grabbed.",
+   "shots": [
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 241309079,
+     "crop": [
+      0.308,
+      0.05,
+      0.592,
+      0.95
+     ]
+    }
+   ],
+   "label": {
+    "text": "BARK",
+    "at": "bark"
+   },
+   "sfx": [
+    "boing@bark"
+   ]
+  },
+  {
+   "myth": "piranha",
+   "pose": "shock",
+   "act": "launch",
+   "say": "So I hugged one. It barked.",
+   "shots": [
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 395989341,
+     "crop": [
+      0.393,
+      0.05,
+      0.707,
+      0.85
+     ]
+    }
+   ],
+   "hit": "barked",
+   "sfx": [
+    "crunch@barked",
+    "whoosh@barked"
+   ]
+  },
+  {
+   "myth": "piranha",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Fish should not bark. I'm upset.",
+   "shots": [
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 150282373,
+     "crop": [
+      0.492,
+      0.0,
+      0.808,
+      1.0
+     ],
+     "blur": true
+    }
+   ],
+   "punch": "bark",
+   "sfx": [
+    "scratch@upset"
+   ]
+  },
+  {
+   "myth": "piranha",
+   "pose": "nervous",
+   "act": "tumble",
+   "say": "Scared fish. Sharp teeth.",
+   "shots": [
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 8734928,
+     "crop": [
+      0.35,
+      0.1,
+      0.65,
+      0.8
+     ]
+    }
+   ],
+   "act_at": 0.3,
+   "punch": "teeth",
+   "sfx": [
+    "thud@0.3"
+   ]
+  },
+  {
+   "myth": "piranha",
+   "pose": "facepalm",
+   "act": "hit",
+   "say": "And I'm, technically, meat.",
+   "shots": [
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 345090765,
+     "crop": [
+      0.389,
+      0.0,
+      0.811,
+      1.0
+     ],
+     "blur": true
+    }
+   ],
+   "act_at": "meat",
+   "label": {
+    "text": "MEAT",
+    "at": "meat"
+   },
+   "prop": "fork",
+   "prop_at": "meat",
+   "sfx": [
+    "tink@meat"
+   ]
+  },
+  {
+   "hook": true,
+   "myth": "croc",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "This croc has the strongest bite measured.",
+   "shots": [
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 205463382,
+     "crop": [
+      0.282,
+      0.0,
+      0.658,
+      1.0
+     ]
+    },
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 306412669,
+     "crop": [
+      0.342,
+      0.0,
+      0.658,
+      1.0
+     ],
+     "at": "strongest"
+    }
+   ],
+   "label": {
+    "text": "#1 BITE",
+    "at": "strongest"
+   },
+   "sfx": [
+    "pop@strongest"
+   ],
+   "loop_say": "Anyway. Let a scientist do it. Because",
+   "short_title": "I Held the Croc Bite Sensor 🐊 (Would Meatball Survive?)",
+   "bonus": "The previous record holder was an American alligator.",
+   "comment": "Would you hold the sensor? 👇",
+   "sources": [
+    "Erickson et al. 2012, PLOS ONE (all 23 living crocodilian species); FSU release: 3,700 lb of bite force, highest ever recorded — https://www.sciencedaily.com/releases/2012/03/120316093427.htm",
+    "Guinness World Records: 16,414 N (about 3,690 lbf) from a saltwater crocodile — https://www.guinnessworldrecords.com/world-records/401566-strongest-molariform-bite-force-for-a-crocodile",
+    "Units: 'pounds of force', not 'psi' (Nat Geo's psi is a unit slip).",
+    "Crocodilians cannot chew; they tear and swallow chunks — https://www.nationalgeographic.com/animals/article/120315-crocodiles-bite-force-erickson-science-plos-one-strongest"
+   ]
+  },
+  {
+   "myth": "croc",
+   "pose": "shock",
+   "act": "shake",
+   "say": "About thirty-seven hundred pounds of force.",
+   "shots": [
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 205463382,
+     "crop": [
+      0.367,
+      0.445,
+      0.573,
+      0.995
+     ]
+    }
+   ],
+   "label": {
+    "text": "3,700 LB",
+    "at": "pounds"
+   },
+   "sfx": [
+    "thud@force"
+   ]
+  },
+  {
+   "myth": "croc",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I held the sensor.",
+   "shots": [
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 194174556,
+     "crop": [
+      0.313,
+      0.0,
+      0.687,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh@0.05"
+   ],
+   "punch": "sensor"
+  },
+  {
+   "myth": "croc",
+   "pose": "think",
+   "act": "stand",
+   "say": "Scientists tested every crocodile species.",
+   "shots": [
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 104022814,
+     "crop": [
+      0.139,
+      0.0,
+      0.561,
+      1.0
+     ]
+    }
+   ],
+   "punch": "every"
+  },
+  {
+   "myth": "croc",
+   "pose": "shock",
+   "act": "peek",
+   "say": "The saltwater croc won.",
+   "shots": [
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 14789694,
+     "crop": [
+      0.192,
+      0.0,
+      0.568,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "WINNER",
+    "at": "won"
+   },
+   "sfx": [
+    "scratch@won"
+   ]
+  },
+  {
+   "myth": "croc",
+   "pose": "shock",
+   "act": "launch",
+   "say": "It clamped.",
+   "shots": [
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 306412669,
+     "crop": [
+      0.353,
+      0.15,
+      0.607,
+      0.95
+     ]
+    }
+   ],
+   "hit": "clamped",
+   "sfx": [
+    "crunch@clamped",
+    "whoosh@clamped"
+   ]
+  },
+  {
+   "myth": "croc",
+   "pose": "deadpan",
+   "act": "tumble",
+   "say": "Crocodiles can't chew.",
+   "shots": [
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 205463382,
+     "crop": [
+      0.3,
+      0.1,
+      0.6,
+      0.8
+     ]
+    }
+   ],
+   "act_at": 0.3,
+   "punch": "chew",
+   "sfx": [
+    "thud@0.3"
+   ]
+  },
+  {
+   "myth": "croc",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "They twist and swallow chunks whole.",
+   "shots": [
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 194174556,
+     "crop": [
+      0.35,
+      0.15,
+      0.65,
+      0.85
+     ]
+    }
+   ],
+   "punch": "twist",
+   "sfx": [
+    "whoosh@twist"
+   ]
+  },
+  {
+   "myth": "croc",
+   "pose": "facepalm",
+   "act": "hit",
+   "say": "I'm already chunk-sized. No twist needed.",
+   "shots": [
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 104022814,
+     "crop": [
+      0.139,
+      0.0,
+      0.561,
+      1.0
+     ],
+     "blur": true
+    }
+   ],
+   "act_at": "chunk-sized",
+   "label": {
+    "text": "CHUNK",
+    "at": "chunk-sized"
+   },
+   "sfx": [
+    "boing@chunk-sized"
+   ]
+  },
+  {
+   "myth": "croc",
+   "pose": "think",
+   "act": "peek",
+   "say": "Would you hold the sensor? Comment.",
+   "shots": [
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 205463382,
+     "crop": [
+      0.282,
+      0.0,
+      0.658,
+      1.0
+     ]
+    }
+   ],
+   "ask": "comment"
+  },
+  {
+   "hook": true,
+   "myth": "octopus",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "This octopus bite can be painless.",
+   "shots": [
+    {
+     "photo": "Hapalochlaena lunulata",
+     "obs": 393772050,
+     "crop": [
+      0.369,
+      0.0,
+      0.791,
+      1.0
+     ]
+    },
+    {
+     "photo": "Hapalochlaena lunulata",
+     "obs": 26159142,
+     "crop": [
+      0.315,
+      0.0,
+      0.685,
+      0.9
+     ],
+     "at": "bite"
+    }
+   ],
+   "label": {
+    "text": "PAINLESS",
+    "at": "painless"
+   },
+   "sfx": [
+    "pop@painless"
+   ],
+   "loop_say": "Anyway. No high fives. Because",
+   "short_title": "I High-Fived a Blue-Ringed Octopus 🐙 (Would Meatball Survive?)",
+   "bonus": "It's small enough to fit in your palm, which is exactly why you shouldn't pick one up.",
+   "comment": "Did you know the bite might not even hurt? 👇",
+   "sources": [
+    "Divers Alert Network (bite usually painless or like a bee sting; tetrodotoxin paralysis incl. breathing; no antivenom; full recovery expected with timely ventilation and care) — https://dan.org/health-medicine/health-resources/diseases-conditions/blue-ringed-octopus/",
+    "SBS, surviving a blue-ringed octopus bite (no antivenom; treat like a snake bite) — https://www.sbs.com.au/language/italian/en/podcast-episode/ep-259-occhio-al-polpo-dagli-anelli-blu-affascinante-ma-velenoso/vh52lyas1",
+    "Rings flash when threatened; eats crabs and shrimp — https://en.wikipedia.org/wiki/Hapalochlaena"
+   ]
+  },
+  {
+   "myth": "octopus",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "You might not even notice.",
+   "shots": [
+    {
+     "photo": "Hapalochlaena maculosa",
+     "obs": 100557962,
+     "crop": [
+      0.312,
+      0.0,
+      0.688,
+      1.0
+     ]
+    }
+   ],
+   "punch": "notice"
+  },
+  {
+   "myth": "octopus",
+   "pose": "shock",
+   "act": "stand",
+   "say": "And there's no antivenom.",
+   "shots": [
+    {
+     "photo": "Hapalochlaena lunulata",
+     "obs": 38183739,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "NO\nANTIVENOM",
+    "at": "antivenom"
+   },
+   "sfx": [
+    "scratch@no"
+   ]
+  },
+  {
+   "myth": "octopus",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I gave it a high five.",
+   "shots": [
+    {
+     "photo": "Hapalochlaena maculosa",
+     "obs": 67075415,
+     "crop": [
+      0.292,
+      0.0,
+      0.608,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh@0.05"
+   ],
+   "punch": "five"
+  },
+  {
+   "myth": "octopus",
+   "pose": "shock",
+   "act": "peek",
+   "say": "When it's upset, the rings get brighter.",
+   "shots": [
+    {
+     "photo": "Hapalochlaena lunulata",
+     "obs": 26159142,
+     "crop": [
+      0.316,
+      0.05,
+      0.644,
+      0.85
+     ]
+    }
+   ],
+   "label": {
+    "text": "BRIGHTER",
+    "at": "brighter"
+   },
+   "sfx": [
+    "pop@brighter"
+   ]
+  },
+  {
+   "myth": "octopus",
+   "pose": "shock",
+   "act": "hit",
+   "say": "The rings got very bright.",
+   "shots": [
+    {
+     "photo": "Hapalochlaena lunulata",
+     "obs": 393772050,
+     "crop": [
+      0.411,
+      0.1,
+      0.749,
+      0.9
+     ]
+    }
+   ],
+   "hit": "bright",
+   "sfx": [
+    "zap@bright"
+   ]
+  },
+  {
+   "myth": "octopus",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "Its venom stops your breathing muscles.",
+   "shots": [
+    {
+     "photo": "Hapalochlaena lunulata",
+     "obs": 38183739,
+     "crop": [
+      0.35,
+      0.1,
+      0.65,
+      0.8
+     ]
+    }
+   ],
+   "act_at": 0.3,
+   "punch": "breathing",
+   "sfx": [
+    "thud@0.3"
+   ]
+  },
+  {
+   "myth": "octopus",
+   "pose": "think",
+   "act": "stand",
+   "say": "People survive if someone breathes for them.",
+   "shots": [
+    {
+     "photo": "Hapalochlaena maculosa",
+     "obs": 100557962,
+     "crop": [
+      0.35,
+      0.1,
+      0.65,
+      0.85
+     ]
+    }
+   ],
+   "punch": "survive"
+  },
+  {
+   "myth": "octopus",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Good news: it eats crabs.",
+   "shots": [
+    {
+     "photo": "Hapalochlaena maculosa",
+     "obs": 67075415,
+     "crop": [
+      0.292,
+      0.0,
+      0.608,
+      1.0
+     ],
+     "blur": true
+    }
+   ],
+   "sfx": [
+    "boing@crabs"
+   ]
+  },
+  {
+   "myth": "octopus",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "I'm not a crab. I checked. Twice.",
+   "shots": [
+    {
+     "photo": "Hapalochlaena lunulata",
+     "obs": 393772050,
+     "crop": [
+      0.369,
+      0.0,
+      0.791,
+      1.0
+     ],
+     "blur": true
+    }
+   ],
+   "sfx": [
+    "pop@Twice"
+   ]
+  }
+ ]
+}
