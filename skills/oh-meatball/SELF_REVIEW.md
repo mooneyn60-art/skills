@@ -7,8 +7,8 @@ Seeded by TARS on 2026-10-24 from the first scan of the channel.
   Check: the experiment rule in channel-brain/SKILL.md (full pivot only after a lost test on ≥15 videos, or Nolan says so).
 - **Experiment log unusable.** E3-E6 each used twice; four rows have dates in the id column; six tests running on Shorts at once.
   Check: scan.py experiment checks; one change per format per week.
-- **Stale routine docs.** routines/DAILY.md, NIGHTLY.md and WEEKLY.md still point at branch claude/off-the-lot and describe the retired
-  Oh Meatball story format ("Never mention cars" is from another project). A run that reads them does the wrong work.
+- **Stale routine docs.** routines/DAILY.md, NIGHTLY.md and WEEKLY.md still pointed at an old branch and described the retired
+  cat soap-opera format (plus a car rule from another project). A run that reads them does the wrong work.
   Check: scan.py doc-drift check; fix or delete those files.
 - **Nolan had to call things out.** Check: the scan runs first every run, and the top 3 issues get fixed before production.
 - **Posting log drift (10/24).** posted.csv had 35 of 73 queued posts, so queue gaps were invisible (11 YT Shorts and 28 TikTok slots were empty from 10/31 on). Fixed: rebuilt from Metricool, and the gaps were filled from myths-07.

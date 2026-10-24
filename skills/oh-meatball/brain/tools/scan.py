@@ -86,8 +86,8 @@ def check_views(root, now):
     shorts = []
     for vid, pts in by.items():
         pts.sort()
-        if pts[-1][2] != "short":
-            continue
+        if pts[-1][2] != "short" or pts[-1][0] != last:
+            continue  # only Shorts still public in the latest snapshot; removed/private ones aren't actionable
         first_seen = pts[0][0]
         if (last - first_seen).total_seconds() / 3600 >= 24:
             shorts.append((pts[-1][1], vid, pts[-1][3]))

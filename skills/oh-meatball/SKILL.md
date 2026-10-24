@@ -7,7 +7,7 @@ description: Run "Meatball Myths" (YouTube UCw98RQD81t_339LX5EJqcrg, TikTok @mea
 
 **The show:** Meatball, a meatball who's scared of being eaten, explains the weirdest true things about animals, food, history and the human body. Meatball himself never changes (look, voice, persona). Everything else gets tested.
 
-The old cat soap opera ("Oh Meatball Pt N", Veo shots, OpusClip) was retired on 10/22. Its leftovers live in `story/`, `caught-on-camera/` and `new-format/` and are never used.
+The old cat soap opera (numbered serial episodes, Veo shots, OpusClip) was retired on 10/22. Its leftovers live in `story/`, `caught-on-camera/` and `new-format/` and are never used.
 
 ## Read these, in this order
 1. `brain/SKILL.md`: scan first, fix the top 3 issues, and act without asking. Run `python3 brain/tools/scan.py .`.
