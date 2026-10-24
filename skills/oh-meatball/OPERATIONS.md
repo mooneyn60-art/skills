@@ -73,7 +73,11 @@ qualified views. Channel: subs, weekly long-form watch hours vs the 4,000 h pace
   - a joke or escalation every 4-6 s
 - **Length:** 20-25 s on YouTube. TikTok deep dives run 61-75 s.
 - **Voice:** Bill on YouTube Shorts; Kokoro C on TikTok-only videos.
-- Queued old-style Shorts get converted to v3, nearest first.
+- **ONLY v3 Shorts and TikToks get posted (Nolan, 10/24).**
+  - Every queued non-v3 Short or TikTok is set to draft (held, never published) and replaced by v3 nearest-first.
+  - An empty slot is better than an old-style post.
+  - Long-form keeps the story format.
+- **Every v3 Short posts twice:** to YouTube, then to TikTok 1-2 h later. TikTok-only deep dives (61-75 s, Kokoro voice) fill the 60 s+ Creator Rewards slots.
 
 ## Meatball is the star (Nolan, 10/24)
 - Meatball is the biggest thing on screen in every shot that isn't a full-bleed animal photo.
