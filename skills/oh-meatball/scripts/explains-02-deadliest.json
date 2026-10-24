@@ -1,0 +1,490 @@
+{
+ "title": "The Most Dangerous Animal in the World Isn't What You Think",
+ "title_candidates": [
+  "The Most Dangerous Animal in the World Isn't What You Think",
+  "The Deadliest Animal in the World (It's Not a Shark)",
+  "Deadliest Animals in the World: Sharks Don't Even Come Close"
+ ],
+ "rate": "+4%",
+ "short_rate": "+4%",
+ "pitch": "-3Hz",
+ "voice": "en-US-AndrewMultilingualNeural",
+ "music": "music/quiz-bed.m4a",
+ "style": "classic",
+ "names": {
+  "Carcharodon carcharias": "Great white shark",
+  "Panthera leo": "Lion",
+  "Triatoma": "Kissing bug",
+  "Canis familiaris": "Dog",
+  "Echis carinatus": "Saw-scaled viper",
+  "Daboia russelii": "Russell's viper",
+  "Anopheles": "Malaria mosquito (Anopheles)",
+  "Aedes aegypti": "Yellow fever mosquito"
+ },
+ "blurb": "Which animal kills the most people? Not the shark. Meatball ranks the deadliest animals on Earth by how many people they actually kill: sharks (about nine a year), the kissing bug that bites your face while you sleep, the dog (rabies), the snake that warns you by sizzling, and the tiny winner that kills more than half a million people a year.\n\nWhich animal are you most scared of? Best answer gets read out next time 👇",
+ "next": "Saturday: another weird true story.\n\nSubscribe: new Meatball every Tuesday and Saturday.",
+ "tags": [
+  "most dangerous animal in the world",
+  "the most dangerous animal in the world",
+  "deadliest animal in the world",
+  "deadliest animals",
+  "most dangerous animals in the world",
+  "dangerous animals",
+  "deadly animals",
+  "mosquito",
+  "malaria",
+  "kissing bug",
+  "rabies",
+  "saw-scaled viper",
+  "shark attack",
+  "Meatball Explains",
+  "Meatball Myths"
+ ],
+ "hashtags": "#dangerousanimals #mosquito #animalfacts #meatballexplains",
+ "pinned": "🦟 Best answer gets read out in the next episode: which animal are you most scared of, and why?",
+ "_note": "Meatball Explains #2 (Showrunner, 2026-10-24). One story: the deadliest animals ranked by human deaths a year, mosquito payoff promised at 0:00 and delivered last. Danger-to-you bucket; no repeats of animal-myths-04/07 or the survive pack (no bear/hippo/croc/spider myths). vidIQ 10/24: 'the most dangerous animal in the world' 12.6K/mo comp 59, 'deadliest animals' 49K/mo +76%, 'most dangerous animals in the world' 22K/mo +127%; title scored 100 (alts 99, 96). Shorts = hook groups (shark, bug, dog, snake, mosquito, breath), each 46-60 words incl. loop line, no text-card holds; 4 of 6 end on a spoken question. Beat 2 (viewer answers from Ep #1) is a PLACEHOLDER written before Ep #1 aired 10/31: check its real comments on 11/1-11/2 and re-render that beat if mammoth/dodo aren't among them. No short_voice: tools/episode.py passes the spec 'voice' to Shorts and has no separate Shorts voice. Photos: iNaturalist CC BY/CC0, wild, research grade (dogs: free-roaming, casual grade).",
+ "sources": [
+  "Malaria 2024: ~610,000 deaths, ~95% in Africa, ~75% of African deaths under 5; spread by female Anopheles (WHO fact sheet): https://www.who.int/news-room/fact-sheets/detail/malaria",
+  "Snakebite: 5.4M bites, 81,410-137,880 deaths/yr, ~3x as many amputations/disabilities; NTD listing 2017 (WHO): https://www.who.int/news-room/fact-sheets/detail/snakebite-envenoming",
+  "India ~58,000 snakebite deaths/yr 2000-2019, mostly rural (Suraweera et al. 2020, eLife): https://elifesciences.org/articles/54076",
+  "Saw-scaled viper stridulation and India's Big Four (cobra, krait, Russell's viper, saw-scaled viper): https://en.wikipedia.org/wiki/Echis_carinatus ; https://en.wikipedia.org/wiki/Big_four_(Indian_snakes)",
+  "Rabies: dogs cause 99% of human cases, 100% fatal once symptoms appear, vaccine-preventable, ~40% of deaths under 15, tens of thousands of deaths/yr, wash wound 15 min; Zero by 30 (WHO): https://www.who.int/news-room/fact-sheets/detail/rabies",
+  "Chagas: ~8M infected, >10,000 deaths/yr, triatomines bite face at night and infect via feces (WHO): https://www.who.int/news-room/fact-sheets/detail/chagas-disease-(american-trypanosomiasis) ; kissing bugs in southern US (CDC): https://www.cdc.gov/chagas/about/index.html",
+  "Shark bites 2025: 65 unprovoked bites, 9 unprovoked fatalities (ISAF, Florida Museum): https://www.floridamuseum.ufl.edu/shark-attacks/yearly-worldwide-summary/",
+  "~100 million sharks killed per year (Worm et al. 2013, Marine Policy): https://doi.org/10.1016/j.marpol.2012.12.034",
+  "Only female mosquitoes bite (blood protein for eggs), males drink nectar; females track exhaled CO2, heat and odour: https://tpwd.texas.gov/education/resources/keep-texas-wild/bloodsuckers/background-for-teachers ; https://www.cdc.gov/mosquitoes/about/index.html",
+  "Malaria vaccines RTS,S (2021) and R21 (2023) recommended by WHO: https://www.who.int/news/item/02-10-2023-who-recommends-r21-matrix-m-vaccine-for-malaria-prevention-in-updated-advice-on-immunization"
+ ],
+ "beats": [
+  {
+   "say": "One animal kills more than half a million people every year. Sharks? About ten. I'll show you the winner at the end. You've almost certainly met one.",
+   "pose": "shock",
+   "photo": "Carcharodon carcharias",
+   "obs": 66241741,
+   "myth": "intro",
+   "chapter": "Cold open"
+  },
+  {
+   "say": "Last time, I asked which extinct animal you'd bring back. Lots of you said the woolly mammoth. And somebody said the dodo, just to see if it's really that easy to catch.",
+   "pose": "laugh",
+   "myth": "intro",
+   "text": "YOU SAID:\nWOOLLY\nMAMMOTH",
+   "aside": "(the dodo is staying extinct)"
+  },
+  {
+   "say": "I'm Meatball. I narrate nature. Nature, frankly, keeps trying to eat me. Today: the deadliest animals on Earth, ranked by how many people they actually kill. Smallest number first.",
+   "pose": "deadpan",
+   "photo": "Panthera leo",
+   "obs": 9300136,
+   "myth": "intro"
+  },
+  {
+   "say": "Starting with the one everybody's scared of.",
+   "pose": "nervous",
+   "photo": "Carcharodon carcharias",
+   "obs": 252279056,
+   "myth": "intro"
+  },
+  {
+   "say": "Sharks kill fewer people than you think. In 2025, the whole world had nine unprovoked fatal shark bites. Nine.",
+   "pose": "deadpan",
+   "photo": "Carcharodon carcharias",
+   "obs": 66241741,
+   "myth": "shark",
+   "hook": true,
+   "chapter": "Sharks: the one you're scared of",
+   "loop_say": "Nine. In a whole year. So remember,",
+   "short_title": "Sharks Kill Way Fewer People Than You Think 🦈",
+   "bonus": "Scientists log every confirmed bite worldwide; most years see somewhere between five and ten unprovoked deaths.",
+   "comment": "Still going in the water? 👇 Follow Meatball for more 🍝"
+  },
+  {
+   "say": "Scientists count every confirmed bite. Most years, it's somewhere between five and ten deaths. Worldwide.",
+   "pose": "point",
+   "photo": "Carcharodon carcharias",
+   "obs": 339695873,
+   "myth": "shark"
+  },
+  {
+   "say": "So the ocean's most famous killer is, statistically, not very good at it.",
+   "pose": "laugh",
+   "photo": "Carcharodon carcharias",
+   "obs": 167713627,
+   "myth": "shark"
+  },
+  {
+   "say": "Still going in the water? Comment.",
+   "pose": "point",
+   "myth": "shark"
+  },
+  {
+   "say": "Meanwhile, people kill tens of millions of sharks every year. So, honestly. Who should be scared of whom?",
+   "pose": "think",
+   "photo": "Carcharodon carcharias",
+   "obs": 252279056,
+   "myth": "intro"
+  },
+  {
+   "say": "Quick thing. If watching a meatball rank everything that could eat him is your idea of fun, subscribing genuinely keeps me off the menu. That's how it works. I checked.",
+   "pose": "point",
+   "myth": "intro",
+   "aside": "(it is not how it works)"
+  },
+  {
+   "say": "What about the big scary ones? Lions. Hippos. Crocodiles. They do kill people. But none of them come anywhere near the top of this list.",
+   "pose": "think",
+   "photo": "Panthera leo",
+   "obs": 304245771,
+   "myth": "intro"
+  },
+  {
+   "say": "Because the top of the list is small. Some of it fits on your fingertip.",
+   "pose": "deadpan",
+   "photo": "Triatoma",
+   "obs": 10640600,
+   "myth": "intro"
+  },
+  {
+   "say": "This bug bites people on the face while they sleep. It's called the kissing bug.",
+   "pose": "shock",
+   "photo": "Triatoma",
+   "obs": 33036837,
+   "myth": "bug",
+   "hook": true,
+   "chapter": "The kissing bug",
+   "loop_say": "Check the ceiling tonight. Because",
+   "short_title": "The Bug That Bites Your Face While You Sleep 🪲",
+   "bonus": "Kissing bugs live mostly in Latin America, and some kinds live in the southern United States.",
+   "comment": "Would you sleep with the light on? 👇 Follow Meatball for more 🍝"
+  },
+  {
+   "say": "It hides in cracks in the walls by day, and drinks your blood at night.",
+   "pose": "point",
+   "photo": "Triatoma",
+   "obs": 58876742,
+   "myth": "bug"
+  },
+  {
+   "say": "The real danger is its poop, which can carry a parasite. The disease it causes kills more than ten thousand people a year.",
+   "pose": "nervous",
+   "photo": "Triatoma",
+   "obs": 341989479,
+   "myth": "bug"
+  },
+  {
+   "say": "It's part of the assassin bug family. Which is a lot of branding, for a bug that wins by pooping.",
+   "pose": "laugh",
+   "photo": "Triatoma",
+   "obs": 58876742,
+   "myth": "intro"
+  },
+  {
+   "say": "Here's how. It bites near your mouth or eyes, then poops right next to the bite. You scratch in your sleep, and rub the parasite in.",
+   "pose": "think",
+   "photo": "Triatoma",
+   "obs": 33036837,
+   "myth": "intro"
+  },
+  {
+   "say": "The disease is called Chagas. About eight million people have it, mostly in Latin America, and many don't know, because it can stay quiet for years.",
+   "pose": "point",
+   "photo": "Triatoma",
+   "obs": 10640600,
+   "myth": "intro"
+  },
+  {
+   "say": "Something that sneaks up while you're asleep and eats. That's my entire fear, in one bug.",
+   "pose": "nervous",
+   "myth": "intro",
+   "prop": "fork",
+   "hold": 0.5,
+   "sting": "tink",
+   "aside": "(I sleep with one eye open. I have two.)"
+  },
+  {
+   "say": "The next animal on the list is probably asleep on somebody's couch right now.",
+   "pose": "deadpan",
+   "photo": "Canis familiaris",
+   "obs": 382216141,
+   "myth": "intro"
+  },
+  {
+   "say": "Dogs kill far more people than sharks. Tens of thousands a year. But not with their teeth.",
+   "pose": "deadpan",
+   "photo": "Canis familiaris",
+   "obs": 382216141,
+   "myth": "dog",
+   "hook": true,
+   "chapter": "The dog",
+   "loop_say": "Your dog loves you. But remember,",
+   "short_title": "Dogs Kill More People Than Sharks. Here's How 🐕",
+   "bonus": "If an animal bites you, wash the wound with soap and water for about 15 minutes and get medical help fast.",
+   "comment": "Is your dog vaccinated? 👇 Follow Meatball for more 🍝"
+  },
+  {
+   "say": "It's rabies, a virus spread by bites and scratches. Dogs cause nearly every human case.",
+   "pose": "point",
+   "photo": "Canis familiaris",
+   "obs": 127210455,
+   "myth": "dog"
+  },
+  {
+   "say": "Once symptoms start, it's almost always fatal. But a vaccine soon after the bite stops it.",
+   "pose": "think",
+   "photo": "Canis familiaris",
+   "obs": 117208148,
+   "myth": "dog"
+  },
+  {
+   "say": "Is your dog vaccinated? Tell me.",
+   "pose": "point",
+   "myth": "dog"
+  },
+  {
+   "say": "Around four in ten of the people who die are children. Almost all of it happens in Asia and Africa, where many dogs aren't vaccinated.",
+   "pose": "think",
+   "photo": "Canis familiaris",
+   "obs": 127210455,
+   "myth": "intro"
+  },
+  {
+   "say": "The fix is boring, and it works. Vaccinate the dogs, and the people stop dying. If an animal ever bites you, wash it with soap and water for fifteen minutes, then get the shots. Fast.",
+   "pose": "point",
+   "photo": "Canis familiaris",
+   "obs": 382216141,
+   "myth": "intro"
+  },
+  {
+   "say": "In 2015, the world set a goal: zero people dying of rabies from dogs by 2030. It's called Zero by Thirty. Catchy. Slightly terrifying.",
+   "pose": "point",
+   "photo": "Canis familiaris",
+   "obs": 117208148,
+   "myth": "intro"
+  },
+  {
+   "say": "Also, dogs love meatballs. I'm not saying that's related. I'm just saying it's on my mind.",
+   "pose": "nervous",
+   "myth": "intro",
+   "prop": "fork",
+   "hold": 0.4,
+   "aside": "(good boy. stay.)"
+  },
+  {
+   "say": "If that one surprised you, hit like, so I know to keep the scary ones coming. The dogs are fine with it. I asked.",
+   "pose": "point",
+   "myth": "intro",
+   "text": "LIKE IF\nYOU DIDN'T\nKNOW 👍"
+  },
+  {
+   "say": "Snakes kill somewhere between eighty and a hundred and forty thousand people every year.",
+   "pose": "shock",
+   "photo": "Daboia russelii",
+   "obs": 33744257,
+   "myth": "intro",
+   "chapter": "Snakes"
+  },
+  {
+   "say": "In India alone, scientists estimate about fifty eight thousand snakebite deaths a year. Most happen in villages, far from a hospital.",
+   "pose": "think",
+   "photo": "Daboia russelii",
+   "obs": 301531006,
+   "myth": "intro"
+  },
+  {
+   "say": "This snake warns you with a sound like sizzling. It rubs its scales together.",
+   "pose": "shock",
+   "photo": "Echis carinatus",
+   "obs": 184831979,
+   "myth": "snake",
+   "hook": true,
+   "chapter": "The snake that sizzles",
+   "loop_say": "Listen for the sizzle. Because",
+   "short_title": "This Snake Warns You by Sizzling 🐍",
+   "bonus": "The saw-scaled viper is one of India's 'Big Four', the snakes behind most serious bites there.",
+   "comment": "Would you hear it coming? 👇 Follow Meatball for more 🍝"
+  },
+  {
+   "say": "It's the saw-scaled viper. Small, and one of India's Big Four, the snakes behind most deadly bites there.",
+   "pose": "point",
+   "photo": "Echis carinatus",
+   "obs": 184883202,
+   "myth": "snake"
+  },
+  {
+   "say": "Sizzling. Of all the sounds.",
+   "pose": "nervous",
+   "myth": "snake",
+   "hold": 0.3
+  },
+  {
+   "say": "Would you hear it coming? Comment.",
+   "pose": "point",
+   "photo": "Echis carinatus",
+   "obs": 119385246,
+   "myth": "snake"
+  },
+  {
+   "say": "And for every person a snake kills, about three more lose a limb, or are hurt for life. Most of them are farmers and children.",
+   "pose": "think",
+   "photo": "Echis carinatus",
+   "obs": 202229594,
+   "myth": "intro"
+  },
+  {
+   "say": "Antivenom works. But it has to reach you fast, and in a lot of places it doesn't. In 2017, the World Health Organization added snakebite to its list of neglected tropical diseases.",
+   "pose": "think",
+   "photo": "Daboia russelii",
+   "obs": 259724106,
+   "myth": "intro"
+  },
+  {
+   "say": "India's Big Four are the cobra, the krait, Russell's viper and the saw-scaled viper. Sounds like a band. A band I would not see live.",
+   "pose": "laugh",
+   "myth": "intro",
+   "text": "THE BIG FOUR\n(NOT A BAND)"
+  },
+  {
+   "say": "Let's check the scoreboard. Sharks: nine. The kissing bug: ten thousand. Dogs: tens of thousands. Snakes: more than eighty thousand. Number one isn't even close.",
+   "pose": "deadpan",
+   "myth": "intro",
+   "text": "#1 ISN'T\nEVEN CLOSE"
+  },
+  {
+   "say": "The deadliest animal in the world is the mosquito. In 2024, malaria alone killed about six hundred thousand people.",
+   "pose": "shock",
+   "photo": "Anopheles",
+   "obs": 54184946,
+   "myth": "mosquito",
+   "hook": true,
+   "chapter": "Number one",
+   "loop_say": "Swat responsibly. Because",
+   "short_title": "The Deadliest Animal on Earth Is Tiny 🦟",
+   "bonus": "Malaria is spread by some female Anopheles mosquitoes; about 95% of cases and deaths are in Africa.",
+   "comment": "How many did you swat this year? 👇 Follow Meatball for more 🍝"
+  },
+  {
+   "say": "Most of them were children under five, in Africa.",
+   "pose": "think",
+   "photo": "Anopheles",
+   "obs": 290214126,
+   "myth": "mosquito"
+  },
+  {
+   "say": "And it weighs less than a grain of rice. I've been worried about the wrong animals my whole life.",
+   "pose": "nervous",
+   "photo": "Anopheles",
+   "obs": 141719429,
+   "myth": "mosquito"
+  },
+  {
+   "say": "Only the females bite. They need the blood to make their eggs. The males just drink nectar.",
+   "pose": "point",
+   "photo": "Aedes aegypti",
+   "obs": 204939371,
+   "myth": "intro"
+  },
+  {
+   "say": "Malaria itself is a tiny parasite. The mosquito sucks it up from one person's blood, and injects it into the next.",
+   "pose": "think",
+   "photo": "Anopheles",
+   "obs": 141719429,
+   "myth": "intro"
+  },
+  {
+   "say": "A flying needle that drinks blood and follows your breath. I don't have blood. I have sauce. I'm still not comfortable.",
+   "pose": "nervous",
+   "myth": "intro",
+   "prop": "fork",
+   "hold": 0.5,
+   "sting": "tink",
+   "aside": "(marinara is not a blood type)"
+  },
+  {
+   "say": "A mosquito finds you by smelling the carbon dioxide in your breath, from metres away. Then it follows your heat, and your smell.",
+   "pose": "deadpan",
+   "photo": "Anopheles",
+   "obs": 2610656,
+   "myth": "breath",
+   "hook": true,
+   "chapter": "How it finds you",
+   "loop_say": "Hold your breath. Because",
+   "short_title": "Mosquitoes Find You by Smelling Your Breath 🦟",
+   "bonus": "Female mosquitoes sense carbon dioxide with special organs near their mouthparts.",
+   "comment": "Why do they always pick you? 👇 Follow Meatball for more 🍝"
+  },
+  {
+   "say": "So, technically, every breath you take is an invitation. Including that one.",
+   "pose": "deadpan",
+   "photo": "Anopheles",
+   "obs": 290214126,
+   "myth": "breath"
+  },
+  {
+   "say": "Why do they always pick you? Comment.",
+   "pose": "point",
+   "myth": "breath"
+  },
+  {
+   "say": "And malaria is just one disease. Other mosquitoes, like this one, spread dengue, yellow fever and Zika.",
+   "pose": "point",
+   "photo": "Aedes aegypti",
+   "obs": 135900004,
+   "myth": "intro"
+  },
+  {
+   "say": "Here's the twist I promised. The mosquito isn't deadly on its own. What it carries is. Same with the dog. Same with the bug.",
+   "pose": "think",
+   "photo": "Anopheles",
+   "obs": 54184946,
+   "myth": "intro"
+  },
+  {
+   "say": "The good news: bed nets, medicine and new malaria vaccines save lives every year. Slowly, we're winning.",
+   "pose": "point",
+   "photo": "Anopheles",
+   "obs": 290214126,
+   "myth": "intro"
+  },
+  {
+   "say": "So here's the final list. Sharks, nine. The kissing bug, ten thousand. Dogs, tens of thousands. Snakes, around a hundred thousand. Mosquitoes, more than half a million.",
+   "pose": "point",
+   "photo": "Anopheles",
+   "obs": 141719429,
+   "myth": "outro",
+   "chapter": "So, what's the lesson?"
+  },
+  {
+   "say": "The lesson? The scariest animals aren't the big ones with teeth. They're the small ones nobody looks at twice.",
+   "pose": "think",
+   "photo": "Triatoma",
+   "obs": 33036837,
+   "myth": "outro"
+  },
+  {
+   "say": "For the record, the official list of animals that eat meatballs grew by one today. The dog. I'm not angry. I'm just noting it.",
+   "pose": "deadpan",
+   "myth": "outro",
+   "text": "THE OFFICIAL\nLIST: +1\n(DOG)",
+   "aside": "(mosquito: not interested. rude.)"
+  },
+  {
+   "say": "Last episode it was rats. Now dogs. At this rate, the list will need its own episode.",
+   "pose": "deadpan",
+   "photo": "Carcharodon carcharias",
+   "obs": 167713627,
+   "myth": "outro"
+  },
+  {
+   "say": "Now your turn. Which animal are you most scared of? Be honest. Best answer gets read out next time.",
+   "pose": "point",
+   "myth": "outro",
+   "text": "WHICH ANIMAL\nSCARES YOU\nMOST? 👇"
+  },
+  {
+   "say": "Subscribe, and I'll keep narrating from a safe distance. Saturday: another weird true story. New Meatball every Tuesday and Saturday.",
+   "pose": "wave",
+   "myth": "outro",
+   "text": "NEW MEATBALL\nEVERY TUESDAY\n& SATURDAY"
+  }
+ ]
+}
