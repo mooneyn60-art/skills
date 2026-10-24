@@ -1,0 +1,635 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+15%",
+ "short_rate": "+15%",
+ "music": "music/quiz-bed.m4a",
+ "style": "classic",
+ "title": "Which Spider Bite Can Actually Kill You? 12 Snake & Spider Myths",
+ "names": {
+  "Parasteatoda tepidariorum": "Common house spider",
+  "Crotalus atrox": "Western diamondback rattlesnake",
+  "Crotalus oreganus": "Western rattlesnake",
+  "Lycosidae": "Wolf spider",
+  "Agkistrodon piscivorus": "Cottonmouth",
+  "Aphonopelma": "Tarantula",
+  "Pantherophis obsoletus": "Western rat snake",
+  "Loxosceles reclusa": "Brown recluse",
+  "Micrurus fulvius": "Coral snake",
+  "Lampropeltis elapsoides": "Scarlet kingsnake",
+  "Heterodon platirhinos": "Eastern hognose snake",
+  "Evarcha arcuata": "Jumping spider (Evarcha arcuata)",
+  "Phidippus audax": "Bold jumping spider",
+  "Latrodectus hesperus": "Western black widow",
+  "Latrodectus mactans": "Southern black widow",
+  "Atrax robustus": "Sydney funnel-web spider"
+ },
+ "blurb": "Which spider bite can actually kill you? Do you really swallow spiders in your sleep? Can a dead snake still bite? 12 snake and spider myths, 3 seconds each. Keep score and drop it in the comments 👇",
+ "next": "Subscribe: Saturday it's how cats domesticated themselves.",
+ "tags": [
+  "snake myths",
+  "spider myths",
+  "deadliest spider",
+  "which spider bite can kill you",
+  "do you swallow spiders in your sleep",
+  "can a dead snake bite",
+  "are baby rattlesnakes more dangerous",
+  "do cottonmouths chase you",
+  "brown recluse bite",
+  "black widow bite",
+  "red touches yellow",
+  "hognose snake playing dead",
+  "do snakes unhinge their jaws",
+  "tarantula bite",
+  "animal myths",
+  "true or false quiz",
+  "Meatball Myths"
+ ],
+ "hashtags": "#snakes #spiders #animalfacts #mythbusting #animals",
+ "pinned": "📝 SCORE CHECK: how many did you get out of 12? 👇\n\nAnswer key: TRUE = a headless snake can still bite, wolf spiders carry their babies, hognose snakes fake their death, jumping spiders twitch in their sleep. Everything else was FALSE.\n\nWho told you the \"8 spiders a year\" one? Comment it.",
+ "beats": [
+  {
+   "say": "Which spider bite can actually kill you? You probably said black widow. Hold that thought. That one is myth number twelve, and the real answer is weirder. Here's number one.",
+   "pose": "shock",
+   "photo": "Latrodectus hesperus",
+   "obs": 109595183,
+   "myth": "intro"
+  },
+  {
+   "say": "You swallow about eight spiders a year in your sleep.",
+   "pose": "think",
+   "quiz": "YOU SWALLOW\n8 SPIDERS A YEAR\nIN YOUR SLEEP",
+   "myth": "swallow",
+   "bonus": "Common house spiders build messy cobwebs in quiet corners and mostly eat insects that blunder into them.",
+   "short_title": "Do You Really Swallow Spiders in Your Sleep? 🕷️"
+  },
+  {
+   "say": "False. And that number has no source. Nobody has ever found a study behind it.",
+   "pose": "shrug",
+   "photo": "Parasteatoda tepidariorum",
+   "obs": 51714272,
+   "myth": "swallow",
+   "short": true
+  },
+  {
+   "say": "Spiders feel the world through vibrations. To a spider, a sleeping human is a giant, breathing, snoring earthquake. That's a warning sign, not an invitation. And if one did wander across your face, you'd probably wake up.",
+   "pose": "point",
+   "photo": "Parasteatoda tepidariorum",
+   "obs": 126866661,
+   "myth": "swallow",
+   "short": true
+  },
+  {
+   "say": "Rod Crawford, a spider expert at the Burke Museum, put it plainly: a sleeping person is not something a spider would willingly approach.",
+   "pose": "think",
+   "photo": "Parasteatoda tepidariorum",
+   "obs": 136845576,
+   "myth": "swallow"
+  },
+  {
+   "say": "This is a common house spider. It spends its whole life in a corner web, waiting for bugs to stumble in. Your open mouth is not on the menu. It's not even in the neighborhood.",
+   "pose": "laugh",
+   "photo": "Parasteatoda tepidariorum",
+   "obs": 11271584,
+   "myth": "swallow"
+  },
+  {
+   "say": "Your lifetime spider count: zero. Probably. Sleep tight.",
+   "pose": "laugh",
+   "text": "ZERO.\nPROBABLY.",
+   "myth": "swallow",
+   "short": true
+  },
+  {
+   "say": "Keep score out of twelve as we go. Four of these are true. And the black widow answer at the end trips up almost everyone.",
+   "pose": "point",
+   "text": "KEEP\nSCORE",
+   "myth": "swallow"
+  },
+  {
+   "say": "True or false? A snake with no head can still bite you.",
+   "pose": "think",
+   "quiz": "A SNAKE WITH\nNO HEAD CAN\nSTILL BITE",
+   "myth": "headless",
+   "bonus": "Rattlesnakes don't lay eggs. The babies are born live, ready to go.",
+   "short_title": "Can a Dead Snake Still Bite You? 🐍"
+  },
+  {
+   "say": "True. And a man in Texas found out the hard way.",
+   "pose": "shock",
+   "photo": "Crotalus atrox",
+   "obs": 2484922,
+   "myth": "headless",
+   "short": true
+  },
+  {
+   "say": "In 2018 he cut the head off a western diamondback rattlesnake with a shovel. When he went to throw the head away, it bit him.",
+   "pose": "point",
+   "photo": "Crotalus atrox",
+   "obs": 173619447,
+   "myth": "headless",
+   "short": true
+  },
+  {
+   "say": "He was flown to a hospital and needed twenty six doses of antivenom. A typical bite needs a handful.",
+   "pose": "facepalm",
+   "photo": "Crotalus atrox",
+   "obs": 46344808,
+   "myth": "headless"
+  },
+  {
+   "say": "A bite is a reflex. The nerves keep firing after the snake dies, for minutes, sometimes longer. Cold blooded animals don't need much oxygen to keep those circuits running.",
+   "pose": "think",
+   "photo": "Crotalus atrox",
+   "obs": 148203047,
+   "myth": "headless"
+  },
+  {
+   "say": "Plenty of snakebites happen when people try to kill or grab a snake. The boring move is the safe one: step back and let it go.",
+   "pose": "point",
+   "photo": "Crotalus atrox",
+   "obs": 301830995,
+   "myth": "headless"
+  },
+  {
+   "say": "Dead snake. Still on duty. Leave it alone.",
+   "pose": "shrug",
+   "text": "STILL\nON DUTY",
+   "myth": "headless",
+   "short": true
+  },
+  {
+   "say": "Baby rattlesnakes are more dangerous than adults, because they can't control their venom.",
+   "pose": "think",
+   "quiz": "BABY RATTLERS\nARE MORE\nDANGEROUS",
+   "myth": "baby",
+   "bonus": "A newborn rattlesnake has a single rattle segment called a button. It adds a new segment each time it sheds.",
+   "short_title": "Are Baby Rattlesnakes More Dangerous Than Adults? 🐍"
+  },
+  {
+   "say": "False. Bigger snake, bigger problem.",
+   "pose": "point",
+   "photo": "Crotalus oreganus",
+   "obs": 20936671,
+   "myth": "baby",
+   "short": true
+  },
+  {
+   "say": "Researchers at Loma Linda University looked at this in 2026. Babies can control their venom just like adults can. Adults simply carry a lot more of it, and their bites tend to be worse.",
+   "pose": "think",
+   "photo": "Crotalus oreganus",
+   "obs": 88713708,
+   "myth": "baby",
+   "short": true
+  },
+  {
+   "say": "The myth goes back to news stories in the 1960s, and it stuck. In their survey, nearly three out of four medical workers still believed it.",
+   "pose": "shock",
+   "photo": "Crotalus oreganus",
+   "obs": 88893712,
+   "myth": "baby"
+  },
+  {
+   "say": "A baby bite is still an emergency, though. Babies are small, hard to spot, and can't really buzz yet. So watch your step either way.",
+   "pose": "think",
+   "photo": "Crotalus oreganus",
+   "obs": 67547918,
+   "myth": "baby"
+  },
+  {
+   "say": "Small snake, small dose. Still a hospital trip.",
+   "pose": "shrug",
+   "text": "SMALL SNAKE.\nSMALL DOSE.",
+   "myth": "baby",
+   "short": true
+  },
+  {
+   "say": "Three down. Coming up: a snake that fakes its own death so badly it's embarrassing, and a house in Kansas with two thousand brown recluses in it.",
+   "pose": "point",
+   "text": "2,000\nRECLUSES",
+   "myth": "baby"
+  },
+  {
+   "say": "Wolf spider moms carry their babies on their backs.",
+   "pose": "think",
+   "quiz": "WOLF SPIDERS\nCARRY BABIES\nON THEIR BACKS",
+   "myth": "wolf",
+   "bonus": "Wolf spiders' eyes shine back at you when you sweep a flashlight across the grass at night.",
+   "short_title": "Do Wolf Spiders Carry Their Babies on Their Backs? 🕷️"
+  },
+  {
+   "say": "True. Dozens of them, sometimes more than a hundred, piled on like a fuzzy backpack.",
+   "pose": "shock",
+   "photo": "Lycosidae",
+   "obs": 21510331,
+   "myth": "wolf",
+   "short": true
+  },
+  {
+   "say": "Mom drags her egg sac around stuck to her back end. When the babies hatch, they climb aboard and ride for days, even weeks. When they're ready, they hop off and scatter to live on their own.",
+   "pose": "point",
+   "photo": "Lycosidae",
+   "obs": 495885,
+   "myth": "wolf",
+   "short": true
+  },
+  {
+   "say": "Which is why stomping on a wolf spider can go very wrong. Hit mom, and a hundred tiny spiders scatter across your floor.",
+   "pose": "facepalm",
+   "photo": "Lycosidae",
+   "obs": 52437820,
+   "myth": "wolf"
+  },
+  {
+   "say": "Wolf spiders don't build webs to catch food. They hunt on foot. Their bite can sting, but it isn't dangerous to most people.",
+   "pose": "think",
+   "photo": "Lycosidae",
+   "obs": 254517973,
+   "myth": "wolf"
+  },
+  {
+   "say": "Hit her with a shoe and the whole family moves in. Use a cup.",
+   "pose": "laugh",
+   "text": "USE\nA CUP",
+   "myth": "wolf",
+   "short": true
+  },
+  {
+   "say": "Cottonmouths will chase you.",
+   "pose": "think",
+   "quiz": "COTTONMOUTHS\nWILL CHASE\nYOU",
+   "myth": "cottonmouth",
+   "bonus": "Cottonmouths get their name from the bright white inside of their mouth, which they flash as a warning.",
+   "short_title": "Do Cottonmouths Really Chase People? 🐍"
+  },
+  {
+   "say": "False. And scientists actually tested it.",
+   "pose": "point",
+   "photo": "Agkistrodon piscivorus",
+   "obs": 14238105,
+   "myth": "cottonmouth",
+   "short": true
+  },
+  {
+   "say": "In 2002, herpetologists Whit Gibbons and Michael Dorcas walked right up to wild cottonmouths and stood next to them. About half the snakes simply tried to get away.",
+   "pose": "think",
+   "photo": "Agkistrodon piscivorus",
+   "obs": 15144414,
+   "myth": "cottonmouth",
+   "short": true
+  },
+  {
+   "say": "Then they got braver and pressed down on the snakes with a fake hand. Even then, only thirteen out of thirty six bit it.",
+   "pose": "shock",
+   "photo": "Agkistrodon piscivorus",
+   "obs": 18261590,
+   "myth": "cottonmouth"
+  },
+  {
+   "say": "That big white mouth is a warning, not a battle cry. It means back up. So back up.",
+   "pose": "point",
+   "photo": "Agkistrodon piscivorus",
+   "obs": 8275146,
+   "myth": "cottonmouth"
+  },
+  {
+   "say": "It's not chasing you. It's trying to leave, and you're in the way.",
+   "pose": "shrug",
+   "text": "YOU'RE IN\nTHE WAY",
+   "myth": "cottonmouth",
+   "short": true
+  },
+  {
+   "say": "A tarantula bite can kill you.",
+   "pose": "think",
+   "quiz": "A TARANTULA\nBITE CAN\nKILL YOU",
+   "myth": "tarantula",
+   "bonus": "Female tarantulas can live for decades, much longer than the males.",
+   "short_title": "Can a Tarantula Bite Kill You? 🕷️"
+  },
+  {
+   "say": "False. For most people, it's about like a bee sting.",
+   "pose": "shrug",
+   "photo": "Aphonopelma",
+   "obs": 191488575,
+   "myth": "tarantula",
+   "short": true
+  },
+  {
+   "say": "The real weapon is at the other end. Many American tarantulas have itchy hairs on their rear, and when they're upset, they kick them off with their back legs.",
+   "pose": "point",
+   "photo": "Aphonopelma",
+   "obs": 191360160,
+   "myth": "tarantula",
+   "short": true
+  },
+  {
+   "say": "Those hairs irritate skin, and they're worse in eyes. Doctors once found about two hundred of them stuck in one pet owner's eye.",
+   "pose": "facepalm",
+   "photo": "Aphonopelma",
+   "obs": 17664581,
+   "myth": "tarantula"
+  },
+  {
+   "say": "In the wild they're shy. In the fall, males wander around looking for a mate, which is why you might see one strolling across a road.",
+   "pose": "think",
+   "photo": "Aphonopelma",
+   "obs": 318028071,
+   "myth": "tarantula"
+  },
+  {
+   "say": "The fangs aren't the problem. The butt glitter is.",
+   "pose": "laugh",
+   "text": "BUTT\nGLITTER",
+   "myth": "tarantula",
+   "short": true
+  },
+  {
+   "say": "True or false? Snakes unhinge their jaws to swallow big meals.",
+   "pose": "think",
+   "quiz": "SNAKES UNHINGE\nTHEIR JAWS",
+   "myth": "jaw",
+   "bonus": "Snakes smell with their tongue, flicking scent particles to a special organ in the roof of the mouth.",
+   "short_title": "Do Snakes Really Unhinge Their Jaws? 🐍"
+  },
+  {
+   "say": "False. Nothing comes unhinged.",
+   "pose": "point",
+   "photo": "Pantherophis obsoletus",
+   "obs": 921105,
+   "myth": "jaw",
+   "short": true
+  },
+  {
+   "say": "The two halves of a snake's lower jaw aren't fused at the chin like yours. They're joined by a stretchy ligament, and the jaw hangs from loose, flexible bones. So it stretches. It doesn't pop out.",
+   "pose": "think",
+   "photo": "Pantherophis obsoletus",
+   "obs": 318564665,
+   "myth": "jaw",
+   "short": true
+  },
+  {
+   "say": "Then the snake walks its jaws over its meal. Left side, right side, left side, like pulling on a very tight sock.",
+   "pose": "laugh",
+   "photo": "Pantherophis obsoletus",
+   "obs": 111581986,
+   "myth": "jaw"
+  },
+  {
+   "say": "Rat snakes like this one eat mice, birds, and eggs, and they're good climbers. If one is in your barn, it's working for free.",
+   "pose": "point",
+   "photo": "Pantherophis obsoletus",
+   "obs": 8662360,
+   "myth": "jaw"
+  },
+  {
+   "say": "Not unhinged. Just very flexible about dinner.",
+   "pose": "laugh",
+   "text": "NOT\nUNHINGED",
+   "myth": "jaw",
+   "short": true
+  },
+  {
+   "say": "Seven down, five to go. The next one comes with a true story that sounds made up, and the last one fools almost everybody. Check your score now.",
+   "pose": "point",
+   "text": "TRUE\nSTORY",
+   "myth": "jaw"
+  },
+  {
+   "say": "A brown recluse bite will rot your flesh away.",
+   "pose": "think",
+   "quiz": "A BROWN RECLUSE\nBITE ROTS\nYOUR FLESH",
+   "myth": "recluse",
+   "bonus": "Brown recluses have six eyes instead of eight, set in three pairs.",
+   "short_title": "Does a Brown Recluse Bite Really Rot Your Skin? 🕷️"
+  },
+  {
+   "say": "Mostly false. Most bites heal on their own.",
+   "pose": "shrug",
+   "photo": "Loxosceles reclusa",
+   "obs": 332175,
+   "myth": "recluse",
+   "short": true
+  },
+  {
+   "say": "Spider expert Rick Vetter estimates only about one bite in ten turns into a serious wound. And lots of so-called recluse bites turn out to be skin infections instead.",
+   "pose": "point",
+   "photo": "Loxosceles reclusa",
+   "obs": 125467825,
+   "myth": "recluse",
+   "short": true
+  },
+  {
+   "say": "Now the true story. In 2001 a family in Kansas caught two thousand and fifty five brown recluses in their house in six months. In all that time, nobody in the family got bitten. The researchers figured at least four hundred of those spiders were big enough to bite.",
+   "pose": "shock",
+   "photo": "Loxosceles reclusa",
+   "obs": 3308567,
+   "myth": "recluse"
+  },
+  {
+   "say": "So if you live far from recluse country, that weird sore is almost certainly something else. See a doctor anyway, because infections need different treatment.",
+   "pose": "think",
+   "photo": "Loxosceles reclusa",
+   "obs": 313563402,
+   "myth": "recluse"
+  },
+  {
+   "say": "Two thousand roommates, zero bites. It's right there in the name.",
+   "pose": "laugh",
+   "text": "IT'S IN\nTHE NAME",
+   "myth": "recluse",
+   "short": true
+  },
+  {
+   "say": "Red touches yellow, kills a fellow. That rhyme works on any coral snake.",
+   "pose": "think",
+   "quiz": "THE CORAL SNAKE\nRHYME WORKS\nEVERYWHERE",
+   "myth": "coral",
+   "bonus": "Coral snakes are related to cobras and mambas.",
+   "short_title": "Does 'Red Touches Yellow' Always Work? 🐍"
+  },
+  {
+   "say": "False. It only works in the United States, and not perfectly even here.",
+   "pose": "point",
+   "photo": "Micrurus fulvius",
+   "obs": 79056059,
+   "myth": "coral",
+   "short": true
+  },
+  {
+   "say": "In the US, a coral snake's red and yellow bands touch. Harmless look-alikes, like the scarlet kingsnake, have red touching black.",
+   "pose": "think",
+   "photo": "Micrurus fulvius",
+   "obs": 11392309,
+   "myth": "coral",
+   "short": true
+  },
+  {
+   "say": "But in Mexico, Central and South America, some coral snakes have red touching black. Use the rhyme there and you could grab the wrong snake.",
+   "pose": "shock",
+   "photo": "Lampropeltis elapsoides",
+   "obs": 290006041,
+   "myth": "coral"
+  },
+  {
+   "say": "Even in the US a few harmless snakes break the pattern. So here is the only rule that always works: don't pick up a snake you can't identify.",
+   "pose": "point",
+   "photo": "Micrurus fulvius",
+   "obs": 231909188,
+   "myth": "coral"
+  },
+  {
+   "say": "The rhyme is not a passport. Don't touch the snake.",
+   "pose": "facepalm",
+   "text": "DON'T TOUCH\nTHE SNAKE",
+   "myth": "coral",
+   "short": true
+  },
+  {
+   "say": "The hognose snake fakes its own death.",
+   "pose": "think",
+   "quiz": "THIS SNAKE\nFAKES ITS\nOWN DEATH",
+   "myth": "hognose",
+   "bonus": "Hognose snakes use their upturned snout to dig, and toads are a favorite meal.",
+   "short_title": "Do Hognose Snakes Really Play Dead? 🐍"
+  },
+  {
+   "say": "True. And it's a terrible actor.",
+   "pose": "laugh",
+   "photo": "Heterodon platirhinos",
+   "obs": 11187473,
+   "myth": "hognose",
+   "short": true
+  },
+  {
+   "say": "When a threat won't leave, it rolls belly up, opens its mouth, lets its tongue hang out, and releases a stinky musk.",
+   "pose": "point",
+   "photo": "Heterodon platirhinos",
+   "obs": 15987234,
+   "myth": "hognose",
+   "short": true
+  },
+  {
+   "say": "Here's the best part. Flip it right side up, and it rolls straight back over. Because everyone knows dead snakes lie on their backs.",
+   "pose": "facepalm",
+   "photo": "Heterodon platirhinos",
+   "obs": 51603365,
+   "myth": "hognose"
+  },
+  {
+   "say": "Before the death scene, it tries bluffing. It flattens its neck like a cobra and hisses. It's harmless to people, but the act is so convincing that people sometimes kill it.",
+   "pose": "think",
+   "photo": "Heterodon platirhinos",
+   "obs": 316183585,
+   "myth": "hognose"
+  },
+  {
+   "say": "Ten out of ten for drama. Zero for acting.",
+   "pose": "laugh",
+   "text": "10/10\nDRAMA",
+   "myth": "hognose",
+   "short": true
+  },
+  {
+   "say": "Some spiders twitch in their sleep, like they're dreaming.",
+   "pose": "think",
+   "quiz": "SPIDERS TWITCH\nIN THEIR SLEEP",
+   "myth": "dream",
+   "bonus": "Jumping spiders see in color and judge distance well enough to leap onto prey.",
+   "short_title": "Do Spiders Dream? 🕷️💤"
+  },
+  {
+   "say": "True, at least sort of.",
+   "pose": "shock",
+   "photo": "Evarcha arcuata",
+   "obs": 24191265,
+   "myth": "dream",
+   "short": true
+  },
+  {
+   "say": "In 2022 scientists filmed baby jumping spiders at night. Their bodies are see-through when they're young, so you can watch their eyes move inside. And while the eyes moved, their legs twitched and curled.",
+   "pose": "point",
+   "photo": "Evarcha arcuata",
+   "obs": 82967736,
+   "myth": "dream",
+   "short": true
+  },
+  {
+   "say": "It came in regular bouts, about every seventeen minutes, a lot like the REM sleep where we do our dreaming.",
+   "pose": "think",
+   "photo": "Evarcha arcuata",
+   "obs": 81058805,
+   "myth": "dream"
+  },
+  {
+   "say": "Do spiders actually dream? Nobody knows yet. The scientists were careful to say they haven't even proven the spiders are asleep. And it's very hard to ask one.",
+   "pose": "shrug",
+   "photo": "Phidippus audax",
+   "obs": 355781259,
+   "myth": "dream"
+  },
+  {
+   "say": "A spider that might dream about flies. Cuter than you expected.",
+   "pose": "laugh",
+   "text": "SWEET\nDREAMS?",
+   "myth": "dream",
+   "short": true
+  },
+  {
+   "say": "True or false? The black widow is the deadliest spider.",
+   "pose": "think",
+   "quiz": "THE BLACK WIDOW\nIS THE DEADLIEST\nSPIDER",
+   "myth": "widow",
+   "bonus": "Female black widows carry the famous red hourglass and are the ones whose bites matter. The males are much smaller.",
+   "short_title": "Is the Black Widow the Deadliest Spider? 🕷️"
+  },
+  {
+   "say": "False. Here's the answer from the very start.",
+   "pose": "point",
+   "photo": "Latrodectus mactans",
+   "obs": 136813874,
+   "myth": "widow",
+   "short": true
+  },
+  {
+   "say": "A black widow bite hurts, with cramps that can last for days. But deaths are extremely rare today, and there's an antivenom.",
+   "pose": "think",
+   "photo": "Latrodectus mactans",
+   "obs": 7933075,
+   "myth": "widow",
+   "short": true
+  },
+  {
+   "say": "The spider with the scariest record is the Sydney funnel web in Australia. It killed thirteen people before an antivenom arrived in 1981. Since then, no recorded deaths.",
+   "pose": "shock",
+   "photo": "Atrax robustus",
+   "obs": 34519923,
+   "myth": "widow"
+  },
+  {
+   "say": "So which spider bite can actually kill you? Almost none, if you get to a hospital. There are about fifty thousand kinds of spiders, and only a tiny handful are dangerous to people. Most of the rest would rather hide behind your bookshelf.",
+   "pose": "point",
+   "photo": "Latrodectus mactans",
+   "obs": 81697846,
+   "myth": "widow"
+  },
+  {
+   "say": "Bad bite. Even worse publicity.",
+   "pose": "laugh",
+   "text": "BAD BITE.\nWORSE PR.",
+   "myth": "widow",
+   "short": true
+  },
+  {
+   "say": "That's twelve. Four were true: the headless snake bite, the wolf spider backpack, the hognose death scene, and the twitching jumping spider. Everything else was false. So, what did you get out of twelve? And who told you the eight spiders thing? Tell me in the comments.",
+   "pose": "point",
+   "text": "SCORE\nOUT OF 12?",
+   "myth": "outro"
+  },
+  {
+   "say": "Saturday, it's how cats domesticated themselves. Subscribe so you don't miss it.",
+   "pose": "wave",
+   "text": "SUBSCRIBE",
+   "myth": "outro"
+  }
+ ]
+}
