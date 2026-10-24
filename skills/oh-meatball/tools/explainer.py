@@ -150,6 +150,16 @@ def voice(beats, work, name, rate="+8%"):
             shutil.copy(src, mp3)
             shutil.copy(src + ".words.json", mp3 + ".words.json")
         return
+    if name.startswith("kokoro:"):
+        # Free local narrator (tools/free_voice.py): generated on demand into the same cache, no prep step.
+        import shutil
+        import free_voice
+        for b in beats:
+            src = free_voice.make(name, b["say"])
+            mp3 = vo_path(b, work, name, rate)
+            shutil.copy(src, mp3)
+            shutil.copy(src + ".words.json", mp3 + ".words.json")
+        return
     for b in beats:
         mp3 = vo_path(b, work, name, rate)
         if not os.path.exists(mp3) or not os.path.exists(mp3 + ".words.json"):

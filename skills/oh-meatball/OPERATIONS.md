@@ -188,5 +188,9 @@ Rules from 10/30:
   3. Run `premium_voice.py split SCRIPT OUTDIR`, then render.
   4. If a render stops on missing lines (hooks and loop lines built at render time), run `prep-missing VOICE OUTDIR`, voice them, split, and render again.
 - **Cost:** about 14 vidIQ credits per Short.
-- **Long-form:** stays on en-US-AndrewMultilingualNeural for now.
+- **Free voice (Nolan, 10/24): Kokoro blend C, `"voice": "kokoro:eric-michael"`.**
+  - Used for long-forms and TikTok-only videos.
+  - Runs locally at no cost, through `tools/free_voice.py`: lines are generated on demand, studio-processed (EQ, compression, loudness) and aligned with whisper.
+  - The model files live in ~/.cache/kokoro.
+- **Bill (vidIQ credits) is for YouTube Shorts only**, while the credits we already have last.
 - **No paid voices beyond the vidIQ credits we already have (Nolan, 10/24).** Bill runs until those credits are gone; no extra credits and no ElevenLabs. The free replacement is being tested: Chatterbox (open source, runs locally) with our own Meatball voice made from a Kokoro blend. Samples are in `research/39-voice-tests/`. One character, one voice is still the goal.
