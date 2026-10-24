@@ -1,0 +1,485 @@
+{
+ "title": "Do Animals Know They're Pets? What Science Says About Your Dog and Cat",
+ "title_candidates": [
+  "Do Animals Know They're Pets? What Science Says About Your Dog and Cat",
+  "Does Your Dog Know It's a Pet? (And Does Your Cat Even Care?)",
+  "How Your Dog, Cat and Horse Really See You (Do Animals Know They're Pets?)"
+ ],
+ "rate": "+4%",
+ "short_rate": "+4%",
+ "pitch": "-3Hz",
+ "voice": "en-US-AndrewMultilingualNeural",
+ "music": "music/quiz-bed.m4a",
+ "style": "classic",
+ "names": {
+  "Canis familiaris": "Dog",
+  "Felis catus": "House cat",
+  "Equus caballus": "Horse",
+  "Psittacus erithacus": "African grey parrot",
+  "Canis lupus": "Gray wolf"
+ },
+ "blurb": "Do animals know they're pets? Your dog's stare changes your brain chemistry, your cat knows its name (and ignores it), horses remember your angry face, and a parrot named Alex said 'none'. Four TRUE or FALSE checkpoints, so keep score 👇",
+ "next": "Subscribe: next time, why wild animals sometimes follow people without attacking.",
+ "tags": [
+  "do animals know they're pets",
+  "do dogs know they are pets",
+  "do cats understand humans",
+  "how dogs see humans",
+  "how cats see humans",
+  "dog psychology",
+  "cat psychology",
+  "animal intelligence",
+  "oxytocin dogs",
+  "do cats know their names",
+  "horses read human faces",
+  "alex the parrot",
+  "Meatball Explains",
+  "Meatball Myths"
+ ],
+ "hashtags": "#doanimalsknowtheyrepets #dogpsychology #catpsychology #animalscience #meatballexplains",
+ "pinned": "🐶🐱🐴 SCORE CHECK: how many did you get out of 4?\n\nAnswers: 1 TRUE (the stare loop) · 2 FALSE (cats know their names) · 3 TRUE (horses read faces) · 4 TRUE (your dog's stress can match yours)\n\nDrop your score AND your pet's name 👇",
+ "_note": "Saturday 'Meatball Explains' (Showrunner, 2026-10-24). Searched question 'do animals know they're pets' (research/34: 44K/mo, +732%; vidIQ re-check 10/24 shows the exact phrase under 750/mo with related 'do cats understand humans' +90.6% and 'how dogs see humans' comp 29, so the title leads with the question and the tags carry the neighbours). Opening rules: animals on screen as named in the first 30 s (dog, cat, horse, dog), no text card before 15 s, checkpoint 1 starts at about 24 s. Persona per research/39: Fork x3 (escalating, tink on 1st and last only), one Threat Level pair, one Fact-Check Pigeon card (text card until the pigeon prop is built), official-list outro, callback to history-01's wolves. ~7.5 min at +4%. Photos reuse vetted obs from history-01/animal-myths-06 plus new CC BY horse/parrot/cat picks, all looked at.",
+ "sources": [
+  "Nagasawa et al. 2015, Science 348:333, 'Oxytocin-gaze positive loop and the coevolution of human-dog bonds' (hand-raised wolves did not show it) — https://www.nationalgeographic.com/science/article/through-this-chemical-loop-dogs-win-our-hearts",
+  "Critique: wolf sample of 11 underpowered; uniqueness not proven — https://pmc.ncbi.nlm.nih.gov/articles/PMC4663257",
+  "Müller, Schmitt, Barber & Huber 2015, Current Biology, 'Dogs Can Discriminate Emotional Expressions of Human Faces' (half-face transfer; slower to learn angry faces) — https://www.sciencenews.org/article/when-youre-happy-and-you-show-it-dogs-know-it",
+  "Topál, Miklósi, Csányi & Dóka 1998, J. Comp. Psychol. 112:219, Strange Situation Test in dogs (51 pairs) — https://real.mtak.hu/3673/",
+  "Saito et al. 2019, Scientific Reports, cats discriminate their own names (incl. stranger's voice); Saito: learned association with rewards — https://www.nationalgeographic.com/animals/article/cats-recognize-names-dogs-pets",
+  "Vitale et al. 2019, Current Biology, secure base test in cats (~65% secure; infants ~65%; dogs ~58%) — https://news.oregonstate.edu/news/cats-children-and-dogs-develop-attachments-their-caregivers-study-shows",
+  "Smith et al. 2016, Biology Letters (28 horses; angry faces raised heart rate) — https://www.sci.news/biology/horses-can-read-human-emotions-03627.html ; re-analysis by Schmoll 2016 disputes the left-eye result — https://pmc.ncbi.nlm.nih.gov/articles/PMC5046913",
+  "Proops et al. 2018, Current Biology (horses remember a person's earlier expression hours later) — https://www.sussex.ac.uk/broadcast/read/44626",
+  "Pepperberg / Alex: 50 object names, 7 colors, 5 shapes, numbers 1-6; 'none' zero-like concept (2005) — https://www.livescience.com/3907-birdbrain-parrot-grasps-concept.html",
+  "Alex's reported last words, 'You be good. I love you.' (2007) — https://npr.org/2009/08/31/112405883/alex-me-the-parrot-who-said-i-love-you",
+  "Call, Bräuer, Kaminski & Tomasello 2003, J. Comp. Psychol. 117:257 (12 dogs; took more forbidden food when the human was not watching) — https://researchportal.port.ac.uk/en/publications/domestic-dogs-canis-familiaris-are-sensitive-to-the-attentional-s/",
+  "Berns, Brooks & Spivak 2015, Behavioural Processes 110:37 (awake fMRI, 12 dogs; caudate responded most to a familiar human's scent) — https://www.nationalgeographic.com/animals/article/dogs-animals-pets-science-brains-scents",
+  "Sundman et al. 2019, Scientific Reports, 'Long-term stress levels are synchronized in dogs and their owners' (58 pairs, hair cortisol; not activity; owner personality) — https://liu.se/en/news-item/hunden-speglar-agarens-stress"
+ ],
+ "beats": [
+  {
+   "say": "Your dog is staring at you right now. That stare is changing your brain chemistry. And the dog's.",
+   "pose": "deadpan",
+   "myth": "intro",
+   "photo": "Canis familiaris",
+   "obs": 194319165,
+   "chapter": "Cold open"
+  },
+  {
+   "say": "Your cat, meanwhile, knows its own name. It's just choosing not to answer.",
+   "pose": "deadpan",
+   "myth": "intro",
+   "photo": "Felis catus",
+   "obs": 254417099
+  },
+  {
+   "say": "And your horse may remember the face you pulled at it this morning.",
+   "pose": "think",
+   "myth": "intro",
+   "photo": "Equus caballus",
+   "obs": 61858839
+  },
+  {
+   "say": "I'm Meatball. I narrate nature. Nature, frankly, keeps trying to eat me. Today: do animals know they're pets?",
+   "pose": "deadpan",
+   "myth": "intro",
+   "photo": "Canis familiaris",
+   "obs": 52225246
+  },
+  {
+   "say": "Checkpoint one. True or false? When your dog gazes into your eyes, both of your brains release a love hormone.",
+   "pose": "think",
+   "myth": "gaze",
+   "quiz": "DOG + OWNER\nSTARE = LOVE\nHORMONE",
+   "chapter": "The staring contest",
+   "short": true,
+   "short_title": "Your Dog's Stare Changes Your Brain Chemistry 🐶",
+   "bonus": "In the same study, long gazes raised oxytocin in both dog and owner; short glances didn't."
+  },
+  {
+   "say": "True. In 2015, scientists in Japan measured oxytocin, the bonding hormone, in dogs and their owners before and after they looked at each other.",
+   "pose": "point",
+   "myth": "gaze",
+   "photo": "Canis familiaris",
+   "obs": 194319165,
+   "short": true
+  },
+  {
+   "say": "Long gazes raised it in the owners. Then it went up in the dogs too. A loop. The same loop that bonds human parents and babies.",
+   "pose": "think",
+   "myth": "gaze",
+   "photo": "Canis familiaris",
+   "obs": 52225246,
+   "short": true
+  },
+  {
+   "say": "So that thing where your dog stares at you while you eat a sandwich? That's not love. Well. It's partly love.",
+   "pose": "deadpan",
+   "myth": "gaze",
+   "photo": "Canis familiaris",
+   "obs": 157484476
+  },
+  {
+   "say": "It's mostly the sandwich.",
+   "pose": "nervous",
+   "myth": "gaze",
+   "prop": "fork",
+   "sting": "tink",
+   "hold": 0.5,
+   "aside": "(also me, probably)"
+  },
+  {
+   "say": "Now, the twist. The team tested wolves too. Hand-raised wolves that knew their keepers well. Their stares didn't start the loop.",
+   "pose": "shock",
+   "myth": "gaze",
+   "photo": "Canis lupus",
+   "obs": 143821085
+  },
+  {
+   "say": "Remember the wolves from the history of dogs episode? Same family tree. The one that moved to the suburbs learned to stare. The one in the woods did not.",
+   "pose": "point",
+   "myth": "gaze",
+   "photo": "Canis lupus",
+   "obs": 168328453
+  },
+  {
+   "say": "To be fair, that was a small study, and some scientists say it can't prove dogs are unique. But the dog side of the loop has been measured. Your dog's stare really does something to you.",
+   "pose": "think",
+   "myth": "gaze",
+   "text": "SMALL STUDY.\nREAL EFFECT.",
+   "aside": "(on the dog side)"
+  },
+  {
+   "say": "So dogs bond by looking. But do they understand what they're looking at? In Vienna, researchers trained dogs on photos of human faces, happy or angry.",
+   "pose": "point",
+   "myth": "faces",
+   "photo": "Canis familiaris",
+   "obs": 382216141,
+   "chapter": "Reading your face"
+  },
+  {
+   "say": "And they only ever showed each dog half a face. The top half, or the bottom half.",
+   "pose": "think",
+   "myth": "faces",
+   "photo": "Canis familiaris",
+   "obs": 371789796
+  },
+  {
+   "say": "Then they showed the other half. The dogs could still pick the happy face from the angry one. They'd learned the emotion, not just the picture.",
+   "pose": "shock",
+   "myth": "faces",
+   "photo": "Canis familiaris",
+   "obs": 95617403
+  },
+  {
+   "say": "Which means your dog knows that face you make when it eats your shoe. And has decided to eat the shoe anyway.",
+   "pose": "laugh",
+   "myth": "faces",
+   "text": "IT KNOWS.\nIT ATE THE\nSHOE ANYWAY."
+  },
+  {
+   "say": "The dogs also learned the angry faces more slowly. The researchers think angry faces just felt unpleasant to them. Relatable.",
+   "pose": "deadpan",
+   "myth": "faces",
+   "photo": "Canis familiaris",
+   "obs": 81030594
+  },
+  {
+   "say": "Dogs also know when you're watching. In 2003, researchers in Germany told dogs not to touch some food, then sometimes looked away, closed their eyes, or left.",
+   "pose": "point",
+   "myth": "watch",
+   "photo": "Canis familiaris",
+   "obs": 95617403,
+   "chapter": "They know when you're watching"
+  },
+  {
+   "say": "When the person kept watching, the dogs took less food. When the person stopped watching, the food went. Fast.",
+   "pose": "laugh",
+   "myth": "watch",
+   "photo": "Canis familiaris",
+   "obs": 371789796
+  },
+  {
+   "say": "So your dog isn't just obeying you. It's checking whether you can see it.",
+   "pose": "deadpan",
+   "myth": "watch",
+   "text": "IT'S CHECKING\nIF YOU CAN\nSEE IT"
+  },
+  {
+   "say": "And when you're not there, you're still there. In Atlanta, dogs were trained to lie still in an M R I scanner, awake, and sniff different smells.",
+   "pose": "shock",
+   "myth": "watch",
+   "photo": "Canis familiaris",
+   "obs": 194319165
+  },
+  {
+   "say": "The reward part of their brain lit up most for the smell of a familiar person. More than strangers. More than familiar dogs.",
+   "pose": "point",
+   "myth": "watch",
+   "photo": "Canis familiaris",
+   "obs": 52225246
+  },
+  {
+   "say": "Your dog's brain has a favorite smell, and it's you. Even after you skipped the shower.",
+   "pose": "laugh",
+   "myth": "watch",
+   "text": "ITS FAVORITE\nSMELL IS YOU",
+   "aside": "(shower optional)"
+  },
+  {
+   "say": "Okay. Do dogs know they're pets? They don't have a word for pet. But in 1998, Hungarian scientists ran a test built for human babies.",
+   "pose": "think",
+   "myth": "attach",
+   "photo": "Canis familiaris",
+   "obs": 157484476,
+   "chapter": "Are you their parent?"
+  },
+  {
+   "say": "Owner leaves the room. Stranger comes in. Owner comes back. Babies, and dogs, behave the same way. Upset when you go. Relieved when you're back.",
+   "pose": "point",
+   "myth": "attach",
+   "photo": "Canis familiaris",
+   "obs": 194319165
+  },
+  {
+   "say": "So to a dog, you're not an owner. You're closer to a parent. A parent who's extremely bad at fetch.",
+   "pose": "laugh",
+   "myth": "attach",
+   "text": "NOT AN OWNER.\nA PARENT.",
+   "aside": "(bad at fetch)"
+  },
+  {
+   "say": "Threat check, while we're here. Dogs are friendly, loyal, and they eat anything round that falls off a plate.",
+   "pose": "nervous",
+   "myth": "attach",
+   "text": "THREAT TO\nMEATBALLS:\nHIGH",
+   "aside": "(it's a dog)"
+  },
+  {
+   "say": "Now, cats. Everyone says cats don't care. Let's test that.",
+   "pose": "deadpan",
+   "myth": "cats",
+   "photo": "Felis catus",
+   "obs": 267376403,
+   "chapter": "Do cats even care?"
+  },
+  {
+   "say": "Checkpoint two. True or false? Cats don't recognize their own names.",
+   "pose": "think",
+   "myth": "cats",
+   "quiz": "CATS DON'T\nKNOW THEIR\nOWN NAMES",
+   "short": true,
+   "short_title": "Your Cat Knows Its Name. It's Just Ignoring You 🐈",
+   "bonus": "It worked even when a stranger said the name."
+  },
+  {
+   "say": "False. In 2019, a team in Tokyo played cats a list of words, then the cat's own name. The cats got bored of the words. Then the name came, and their ears turned.",
+   "pose": "point",
+   "myth": "cats",
+   "photo": "Felis catus",
+   "obs": 254417099,
+   "short": true
+  },
+  {
+   "say": "It even worked when a stranger said it. So your cat knows its name. It's just weighing its options.",
+   "pose": "laugh",
+   "myth": "cats",
+   "photo": "Felis catus",
+   "obs": 146310547,
+   "short": true
+  },
+  {
+   "say": "The scientist behind it thinks cats learned that their name means food, or attention. Not that it's their identity. Honestly, same. My name means dinner.",
+   "pose": "nervous",
+   "myth": "cats",
+   "prop": "fork",
+   "hold": 0.4,
+   "aside": "(Meatball. It's right there.)"
+  },
+  {
+   "say": "And do cats bond? In 2019, researchers in Oregon used that same baby test on cats. About two in three were securely attached to their person.",
+   "pose": "think",
+   "myth": "cats",
+   "photo": "Felis catus",
+   "obs": 158077054
+  },
+  {
+   "say": "That's about the same as human babies. And a bit more than dogs, at about fifty-eight percent. Nobody tell the dogs.",
+   "pose": "shock",
+   "myth": "cats",
+   "text": "CATS: ~65%\nDOGS: ~58%",
+   "aside": "(nobody tell the dogs)"
+  },
+  {
+   "say": "Horses next. Big animals, big eyes, and apparently, very good at reading people.",
+   "pose": "point",
+   "myth": "horses",
+   "photo": "Equus caballus",
+   "obs": 321977034,
+   "chapter": "Horses read faces"
+  },
+  {
+   "say": "Checkpoint three. True or false? Horses can tell a happy human face from an angry one.",
+   "pose": "think",
+   "myth": "horses",
+   "quiz": "HORSES CAN READ\nHAPPY vs ANGRY\nFACES",
+   "short": true,
+   "short_title": "Horses Can Read Your Face, and Remember It 🐴",
+   "bonus": "The horses were shown photos only, with no training beforehand."
+  },
+  {
+   "say": "True. In 2016, horses in England were shown photos of angry and happy faces. With the angry ones, their heart rate went up.",
+   "pose": "point",
+   "myth": "horses",
+   "photo": "Equus caballus",
+   "obs": 61858839,
+   "short": true
+  },
+  {
+   "say": "Then in 2018, horses saw a photo of a person looking angry or happy. Hours later, they met that real person, now looking calm. And they still treated them differently.",
+   "pose": "shock",
+   "myth": "horses",
+   "photo": "Equus caballus",
+   "obs": 335408262,
+   "short": true
+  },
+  {
+   "say": "Coo. Technically, one part of the 2016 study, which eye the horses looked with, was challenged by another scientist. The heart rate part stands.",
+   "pose": "deadpan",
+   "myth": "horses",
+   "text": "COO.\nTECHNICALLY...",
+   "aside": "(the Fact-Check Pigeon)"
+  },
+  {
+   "say": "So, horses remember your bad mood. For hours. Be nice to the horse.",
+   "pose": "laugh",
+   "myth": "horses",
+   "photo": "Equus caballus",
+   "obs": 189402148
+  },
+  {
+   "say": "Also, horses eat grass. Only grass. Horses are my friends.",
+   "pose": "deadpan",
+   "myth": "horses",
+   "text": "THREAT TO\nMEATBALLS:\nNONE",
+   "aside": "(a friend)"
+  },
+  {
+   "say": "And then there's the parrot that talked back. Alex, an African grey, worked with scientist Irene Pepperberg for about thirty years.",
+   "pose": "point",
+   "myth": "parrot",
+   "photo": "Psittacus erithacus",
+   "obs": 364455993,
+   "chapter": "The parrot who said I love you"
+  },
+  {
+   "say": "He learned names for about fifty objects, seven colors, and five shapes, and he could count to six.",
+   "pose": "shock",
+   "myth": "parrot",
+   "photo": "Psittacus erithacus",
+   "obs": 65826244
+  },
+  {
+   "say": "Then one day he was shown an empty tray, and asked how many. He said: none. Something close to the idea of zero. From a bird.",
+   "pose": "shock",
+   "myth": "parrot",
+   "text": "\"NONE.\"",
+   "aside": "(a bird invented zero, roughly)"
+  },
+  {
+   "say": "Alex died in 2007. His last words to Pepperberg, the night before, were reported as: you be good. I love you.",
+   "pose": "think",
+   "myth": "parrot",
+   "photo": "Psittacus erithacus",
+   "obs": 364455993,
+   "hold": 0.6
+  },
+  {
+   "say": "Did Alex know he was a pet? He wasn't one, exactly. He was a colleague. But he knew exactly who she was.",
+   "pose": "think",
+   "myth": "parrot",
+   "photo": "Psittacus erithacus",
+   "obs": 65826244
+  },
+  {
+   "say": "One last test. And this one's about you.",
+   "pose": "deadpan",
+   "myth": "stress",
+   "photo": "Canis familiaris",
+   "obs": 371789796,
+   "chapter": "Your dog feels your week"
+  },
+  {
+   "say": "Checkpoint four. True or false? Your dog's long-term stress level can match yours.",
+   "pose": "think",
+   "myth": "stress",
+   "quiz": "YOUR DOG'S STRESS\nCAN MATCH\nYOURS",
+   "short": true,
+   "short_title": "Your Dog's Stress Level Can Match Yours 🐕",
+   "bonus": "Owner personality mattered more than the dog's own personality."
+  },
+  {
+   "say": "True. In 2019, scientists in Sweden measured a stress hormone in the hair of fifty-eight dogs and their owners, which records months, not minutes.",
+   "pose": "point",
+   "myth": "stress",
+   "photo": "Canis familiaris",
+   "obs": 382216141,
+   "short": true
+  },
+  {
+   "say": "Stressed owners tended to have stressed dogs. Calm owners, calm dogs. And it wasn't about how much exercise the dog got.",
+   "pose": "think",
+   "myth": "stress",
+   "photo": "Canis familiaris",
+   "obs": 52225246,
+   "short": true
+  },
+  {
+   "say": "Scientists can't say yet exactly why. But it seems your dog doesn't just read your face. It reads your whole month.",
+   "pose": "shock",
+   "myth": "stress",
+   "text": "IT READS\nYOUR MONTH"
+  },
+  {
+   "say": "So. Do animals know they're pets? Probably not the word. There's no evidence a dog thinks, I am a pet.",
+   "pose": "think",
+   "myth": "verdict",
+   "photo": "Canis familiaris",
+   "obs": 157484476,
+   "chapter": "So, do they know?"
+  },
+  {
+   "say": "But they know your face. Your voice. The name you gave them. When you leave, and when you come back. They know you're theirs.",
+   "pose": "point",
+   "myth": "verdict",
+   "photo": "Felis catus",
+   "obs": 158077054
+  },
+  {
+   "say": "And they definitely know who has the food.",
+   "pose": "nervous",
+   "myth": "verdict",
+   "prop": "fork",
+   "sting": "tink",
+   "hold": 0.5,
+   "aside": "(the fork knows too)"
+  },
+  {
+   "say": "For the record, the official list of animals that eat meatballs grew today. Dogs. Cats. Horses, no. Horses are my friends.",
+   "pose": "deadpan",
+   "myth": "verdict",
+   "text": "THE OFFICIAL\nLIST: 2 NAMES",
+   "aside": "(horses: friends)"
+  },
+  {
+   "say": "Scores! The answers were true, false, true, true. How many did you get out of four? Tell me in the comments, with your pet's name.",
+   "pose": "laugh",
+   "myth": "outro",
+   "text": "COMMENT YOUR\nSCORE /4\n+ PET'S NAME"
+  },
+  {
+   "say": "Next time: why do wild animals sometimes follow people for miles without attacking? I'll be watching from somewhere safe.",
+   "pose": "wave",
+   "myth": "outro",
+   "text": "NEXT: WHY WILD\nANIMALS FOLLOW\nPEOPLE"
+  }
+ ]
+}

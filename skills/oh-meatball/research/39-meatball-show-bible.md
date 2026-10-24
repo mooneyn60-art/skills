@@ -169,3 +169,33 @@ Line: "True. Every tiger's stripes are different, like a fingerprint. So if one 
 - The script is `scripts/pilot-showrunner.json` (Shorts v2): tiger and roach, the same facts as `originals-01`, plus four extra CC BY/CC0 tiger photos picked for what each line says (yawning tiger, mother and cubs, tiger from behind). It renders to `episodes/pilot-showrunner/short-{tiger,roach}.mp4`.
 - New script fields: `pitch`, `short_beats` (default 3), and per beat `prop`, `aside`, `hold`, `sting`, `shots` (with `at` and `crop`), `bleed`, `hook`, and `loop_say`. Every one of them is optional; old scripts render as before.
 - Scoring: post the pilot and the original of the same myth a week apart (Nolan decides). Compare stayed-to-watch (target 60%+ against ~40%, research/38 P1), APV (target over 100%, i.e. loops), likes per 1k (research/28: opinionated voices get 5-8%), and comments that mention "fork" or "not a snack". If stayed-to-watch doesn't move, the persona is not the problem; test the hook line next.
+
+## 12. Format template: "You asked, Meatball answers" (Showrunner, 2026-10-24)
+A viewer-question Short (20-26 s, Shorts v2 rules) that answers one real comment and credits the person who asked it. It turns comments into scripts, rewards commenting, and gives the next video a built-in reason to exist.
+
+**Pick the question**
+- It must come from a real comment on our videos. Copy it exactly into the script's `_note`, with the video ID and the date.
+- It has to be answerable with one checked fact. Skip medical, pet-health or legal advice questions ("is my dog sick?"); reply to those in the comments instead.
+- Prefer danger-to-you, gross biology or "wait, really?" questions (research/28).
+
+**Credit rules**
+- Use the commenter's first name *or* their public handle, exactly as shown on the comment. Never use a surname, location, avatar or any other detail.
+- Credit people who look under 13, or whose comment mentions school or age, by handle only. Leave out anyone who seems upset or sensitive.
+- If the comment is rude or off-topic, rewrite the question in neutral words and drop the credit ("A viewer asked").
+- The credit goes in the on-screen text and the title line. It is never spoken as a joke at the person's expense.
+
+**Beat sheet** (same fields as the pilot; `shot` is optional)
+| Beat | Time | Picture | Line pattern |
+|---|---|---|---|
+| 1. Hook | 0-4 s | Full-bleed photo of the animal doing the thing; small text pill "@handle asked:" | The answer stated as a fact. Don't read the question out first ("Yes, an octopus can taste with its arms.") |
+| 2. Credit + question | 3-4 s | Same photo, cropped closer; aside "(great question, @handle)" | "Ellie asked if that's real. It is." |
+| 3. Fact | 3-6 s | 2-3 photos, each one matching its line | One plain supporting sentence |
+| 4. Turn | 3-4 s | The photo that shows the line; Meatball nervous | The food-anxiety angle |
+| 5. Cut-in | 3 s | Meatball on white, Fork + tink only if the line is about eating | Persona payoff |
+| 6. Card + loop | 3-5 s | Text card "ASK ME YOURS 👇" plus the punch; tail returns to the hook photo | `loop_say` runs into the hook sentence |
+
+**Script fields:** the hook beat carries `short_title` ("You Asked: Can an Octopus Taste With Its Arms? 🐙"), `comment` (pinned: "Ask me the next one 👇 I read them all."), `sources`, and the credit in an `aside` or `text`. Don't add new schema fields.
+
+**Packaging:** start the title with "You Asked:", then the claim. Pin a reply on the *original* comment linking the Short ("Answered! 👉 [link]"); Nolan does this in Studio if the API can't.
+
+**Limits:** at most one viewer-question Short in every three, so it stays a treat. Check every question with two sources, as for any Short (factdesk.md).
