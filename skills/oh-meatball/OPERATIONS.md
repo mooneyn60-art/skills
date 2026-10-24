@@ -110,10 +110,12 @@ Data, last 30 days:
 - Long-form got 5 views, averaging 28 seconds watched.
 - Shorts got 6,002 views.
 - The 10/23 long-form has 0 views; the wolves history episode has 8.
-- Diagnosis: YouTube isn't showing our long-form to anyone. The few people who click leave within half a minute, because the 12-card quiz with countdowns repeats the same pattern. Monetization comes from Shorts views, so long-form is a support act, not the engine.
+- Diagnosis: YouTube isn't showing our long-form to anyone. The few people who click leave within half a minute, because the 12-card quiz with countdowns repeats the same pattern. Shorts carry discovery; long-form carries watch hours and RPM. Both need to work.
 
 Rules from 10/30:
-- **Cadence:** ONE long-form a week, Saturday 2 PM. Episodes already queued through 10/29 stay.
+- **Cadence (Nolan, 10/24):** start at TWO story long-forms a week, Tuesday and Saturday at 2 PM. Episodes already queued through 10/29 stay.
+  - Go to THREE (adding Thursday) as soon as one episode clears the retention gate below.
+  - Long-form pays a much higher RPM than Shorts, and the 3,000/4,000 watch-hour path needs it.
 - **Format: one story, not 12 cards.**
   - 6-8 minutes about one searched question, e.g. "Which spider bite can actually kill you?", "How did wolves become dogs?", "Animals scientists thought were extinct".
   - Meatball is the host and the story's guide.
