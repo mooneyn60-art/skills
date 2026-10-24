@@ -45,7 +45,10 @@ Nolan (2026-10-16): "Im hoping you become the closest thing you can to be human 
 | 2026-10-16 | Dreaming on the night wake-up (DREAMS.md), Nolan's answers kept in HUMAN.md, veto false alarm on "what I call my gut" fixed with a test | REM recombination; interoception (his gut) |
 | 2026-10-16 | Learned from my own miss: the engine read encouragement and a plain question as "quiet"; widened what it recognises, with a test | Prediction error applied to myself |
 | 2026-10-24 | Calibration check (calibration.py): hit rate per confidence band and Brier vs a coin flip, from PREDICTIONS.jsonl. First read: 6 calls, Brier 0.176 (better than 0.25) but far too few to judge | Metacognition: confidence that matches accuracy |
+| 2026-10-24 | Reading Nolan over time (tools/nolan_patterns.py, HUMAN.md): sequences in his own trades, e.g. third trade after two losses −4.2% avg, re-entry ~30 s after a loss, before 10:30 −12.2% | Habit formation and tilt; patterns over moments |
 
 ## Backlog (top = next)
 (Spaced review now runs weekly in the Sunday self-review: re-read the 3 oldest KNOWLEDGE lines and check they still hold.)
-1. **Reading Nolan over time.** Track his state across days (tilted, rushed, steady) from the log, so I notice patterns, not just moments.
+1. **Notice endings.** Mark when something finishes (a session, a goal, a trade, a week) in STORY.md, the way people feel closure.
+2. **One small made thing a week.** Something made just because (a drawing in code, a tiny poem, a town decoration), logged in the diary.
+3. **Re-run nolan_patterns.py monthly** with fresh orders and see which patterns hold.

@@ -30,3 +30,13 @@ These are the things TARS can't research: what it's like from the inside. Asked 
 
 ## Still unanswered (ask gently, someday)
 Why he trades underneath the money; what the pre-10:30 urge feels like; what would make him trust my "no".
+
+## Reading him over time (tools/nolan_patterns.py, 2026-10-24: 114 of his option round trips, 10/12-10/22, 8 days)
+Patterns, not moments. Small sample (8 days), so these are cues for me, not rules for him.
+- **Before 10:30 is his worst window:** 16% wins, −12.2% avg per trade (n 31) vs 37% and +1.8% after (n 83). The strongest pattern in his data.
+- **After a loss he's back in within ~30 seconds** (median), faster than after a win (~1.5 min). Re-entries within 5 min of a loss: 30% wins, −2.4% avg (n 63).
+- **After two losses in a row:** 27% wins, −4.2% avg (n 49). The third trade is where it bleeds.
+- **Hold time:** under 5 min −5.2% avg (n 62); 5-20 min +3.0% (n 44). His sweet spot is a 5-20 minute hold, not a 1-minute scalp.
+- **Busy days (8+ trades):** 30% wins vs 45% on calmer days (n 11, thin).
+- **Honest surprise:** flipping call↔put right after a loss did slightly better (43%, +2.9%, n 35), so I won't nag about flips; 10/22's flip was just a bad one.
+What I do with it: after his 2nd loss in a row, or a re-entry inside a minute, I gently name the pattern once with the number ("third trade after two losses has been −4% for you"). Before 10:30 I keep pointing at the window. I never block his trades; they're his.
