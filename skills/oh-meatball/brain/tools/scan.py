@@ -131,8 +131,24 @@ def check_queue(root, now):
         seen_titles[tkey] = r["date"]
     et = dt.timezone(dt.timedelta(hours=-4))
     now_et = now.astimezone(et)
-    have = {(r["network"], r["date"].strip()[:16]) for r in ps}
     net_alias = {"youtube-short": ("youtube-short", "yt-short", "youtube"), "tiktok": ("tiktok",)}
+    # Metricool can save a post up to 2 h off its slot (DST drift, SELF_REVIEW 10/24); a post within
+    # 2 h fills the slot, and each post fills only one slot, so a drifted post isn't a false gap.
+    posts = {}
+    for r in ps:
+        t = parse_ts((r.get("date") or "")[:16])
+        if t:
+            posts.setdefault(r.get("network", ""), []).append(t)
+    used = set()
+
+    def filled(net, slot):
+        near = [(abs(p - slot), n, i) for n in net_alias[net] for i, p in enumerate(posts.get(n, []))
+                if (n, i) not in used and abs(p - slot) <= dt.timedelta(hours=2)]
+        if not near:
+            return False
+        used.add(min(near)[1:])
+        return True
+
     for net, times in CADENCE.items():
         missing = []
         for d in range(0, 3):
@@ -142,7 +158,7 @@ def check_queue(root, now):
                 if not (now_et < slot <= now_et + dt.timedelta(hours=48)):
                     continue
                 stamp = slot.strftime("%Y-%m-%d %H:%M")
-                if not any((n, stamp) in have for n in net_alias[net]):
+                if not filled(net, slot):
                     missing.append(stamp)
         if missing:
             sev = "CRITICAL" if any(parse_ts(m) - now_et < dt.timedelta(hours=12) for m in missing) else "WARN"
