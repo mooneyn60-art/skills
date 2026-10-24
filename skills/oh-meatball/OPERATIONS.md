@@ -20,17 +20,17 @@ taps. This file is the team, the daily routine, the numbers we steer by, and the
 | Writer | next episode script (cold open, 12 myths, jokes, ~1,600-1,700 words) | morning run, 2 days ahead |
 | Photo editor | iNaturalist candidate sheets, live/unharmed/right-species picks | morning run |
 | Producer | episode.py (long + Shorts), tiktok.py, thumb3 + thumb2 | morning run |
-| Scheduler | Metricool queue: 1 episode, 3 Shorts, 3 TikToks a day, first comments; re-check best times weekly | morning run |
+| Scheduler | Metricool queue: 1 episode, 3 Shorts, 4 TikToks a day, first comments; re-check best times weekly | morning run |
 | Inbox | Nolan's chat messages + comments on the HQ page; acts on them first | every run |
 
 ## Daily routine (scheduled tasks fire into this session; all ET)
 | When | Run | Output |
 |---|---|---|
-| 08:13 | Production: inbox, build the episode for 2 days out, fill the queue | episode + 3 Shorts + 3 TikToks queued 2 days ahead |
+| 08:13 | Production: inbox, build the episode for 2 days out, fill the queue | episode + 3 Shorts + 4 TikToks queued 2 days ahead |
 | 18:41 | Review: stats, analytics, rivals, HQ report, next topics | HQ Daily report + rivals, backlog updated |
 
 Cadence: one long-form a day at 2 PM (Saturdays: the "Meatball Explains" history episode instead of a myth episode, never both); YouTube Shorts 10 AM, 1 PM and 4 PM (from the newest episode that is
-already live, so Related video can point at it); TikToks 5 a day from 10/25: 10 AM, 12 PM, 4 PM, 6 PM, 8 PM. Three are over 60 s (Creator Rewards) and two are short claim-first originals (reach); TikTok is the lab and YouTube the showroom (research/33). Times follow Metricool best-time data
+already live, so Related video can point at it); TikToks 4 a day from 10/25: 10 AM, 12 PM, 6 PM, 8 PM, all over 60 s and freshly rendered (Creator Rewards pays only 60 s+; research/32). The 11/1 summit moves it to 5 if qualified views per post hold, or back to 3 if they fall 25%+; TikTok is the lab and YouTube the showroom (research/33). Times follow Metricool best-time data
 (checked 2026-10-24): YouTube peaks 3-5 PM (4 PM top) with a second peak at 10 AM, so the episode goes live at 2 PM, ahead of the
 big wave; TikTok peaks 10 AM, 12 PM and 6 PM every day.
 
@@ -74,7 +74,7 @@ qualified views. Channel: subs, weekly long-form watch hours vs the 4,000 h pace
 - Narration: en-US-AndrewMultilingualNeural at +15% everywhere (Nolan picked it 2026-10-23) with the light music bed
   (`brand/music/quiz-bed.m4a`, original vidIQ track, ducked under the voice). Set per script:
   `"rate"`, `"short_rate"`, `"music"`.
-- One long-form episode a day at 2 PM ET; 3 TikToks a day (10 AM, 12 PM, 6 PM), every one
+- One long-form episode a day at 2 PM ET; 4 TikToks a day (10 AM, 12 PM, 6 PM, 8 PM), every one
   over 60 s (Creator Rewards floor) with the AI-content label on.
 
 ## Guardrails
