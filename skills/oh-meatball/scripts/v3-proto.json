@@ -1,0 +1,916 @@
+{
+ "title": "Would Meatball Survive? Shorts v3 prototype (3 Shorts)",
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+0%",
+ "short_rate": "+0%",
+ "tempo": 1.1,
+ "music": "music/quiz-bed.m4a",
+ "style": "v3",
+ "names": {
+  "Casuarius casuarius": "Southern cassowary",
+  "Carybdea xaymacana": "Box jellyfish (Carybdea xaymacana)",
+  "Alatina alata": "Box jellyfish (Alatina alata)",
+  "Copula sivickisi": "Box jellyfish (Copula sivickisi)",
+  "Mellivora capensis": "Honey badger"
+ },
+ "_note": "Shorts v3 prototype (research/44). Same three animals as survive-01 (cassowary, boxjelly, badger) rewritten as Meatball-in-jeopardy stories: hook claim, he tries something, it goes wrong, the true fact is the punchline, twist/callback, loop line into the hook. Lines <= 8 words. Prototype voice: edge-tts Andrew at +0% then atempo 1.10 (= +10%); the final version would use Bill (vidiq voice, ~7 credits per Short). Photos: the same pinned, hand-checked iNaturalist observations as survive-01. Cassowary cut from 29.7 s to the 20-25 s window (coordinator 10/24: 20-22 s Shorts win): dropped 'On each foot.' and 'It jumps seven feet straight up.', shortened the droppings line and the loop line; every joke kept.",
+ "beats": [
+  {
+   "hook": true,
+   "myth": "cassowary",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "This bird has a four-inch dagger.",
+   "punch": "dagger",
+   "label": {
+    "text": "4 INCHES",
+    "at": "four-inch"
+   },
+   "sfx": [
+    "pop@four-inch"
+   ],
+   "loop_say": "Never say hi. Because",
+   "short_title": "I Tried to Befriend a Cassowary 🦶 (Would Meatball Survive?)",
+   "bonus": "Cassowaries also spread rainforest seeds: some only sprout after passing through one.",
+   "comment": "Would you get within kicking distance of this bird? 👇",
+   "shots": [
+    {
+     "photo": "Casuarius casuarius",
+     "obs": 98776913,
+     "crop": [
+      0.416,
+      0.0,
+      0.824,
+      1.0
+     ]
+    },
+    {
+     "photo": "Casuarius casuarius",
+     "obs": 223029665,
+     "crop": [
+      0.25,
+      0.05,
+      0.7,
+      1.0
+     ],
+     "at": "four-inch"
+    }
+   ],
+   "sources": [
+    "San Diego Zoo Wildlife Alliance, Cassowary fact page: 'dagger-like claw on the inner toe that is up to 4 inches (10 centimeters) long'; 'can slice open any predator or potential threat with a single swift kick'; 'run up to 31 miles per hour (50 kilometers per hour)'; 'jump nearly 7 feet (2 meters) straight up'; seeds of some rainforest plants 'much more likely to sprout after passing through a cassowary's digestive tract' — https://animals.sandiegozoo.org/animals/cassowary (checked 2026-10-24)",
+    "Mental Floss, 10 facts about cassowaries (mostly fruit; swallows fruit whole; disperses seeds) — https://www.mentalfloss.com/animals/birds/10-facts-about-cassowaries"
+   ]
+  },
+  {
+   "myth": "cassowary",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So naturally, I went to say hi.",
+   "sfx": [
+    "whoosh@0.05"
+   ],
+   "shots": [
+    {
+     "photo": "Casuarius casuarius",
+     "obs": 185944564,
+     "crop": [
+      0.343,
+      0.0,
+      0.717,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "cassowary",
+   "pose": "shock",
+   "act": "run_across",
+   "say": "It runs thirty-one miles an hour.",
+   "label": {
+    "text": "31 MPH",
+    "at": "thirty-one"
+   },
+   "sfx": [
+    "whoosh@runs"
+   ],
+   "shots": [
+    {
+     "photo": "Casuarius casuarius",
+     "obs": 98776913,
+     "crop": [
+      0.3,
+      0.15,
+      0.8,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "cassowary",
+   "pose": "deadpan",
+   "act": "tumble",
+   "act_at": "Downhill",
+   "say": "I can roll. Downhill. Sometimes.",
+   "sfx": [
+    "thud@Downhill"
+   ],
+   "shots": [
+    {
+     "photo": "Casuarius casuarius",
+     "obs": 196978347,
+     "crop": [
+      0.363,
+      0.0,
+      0.737,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "cassowary",
+   "pose": "shock",
+   "act": "launch",
+   "hit": "kick",
+   "say": "One kick can slice open a threat.",
+   "sfx": [
+    "crunch@kick",
+    "whoosh@can"
+   ],
+   "shots": [
+    {
+     "photo": "Casuarius casuarius",
+     "obs": 223029665,
+     "crop": [
+      0.46,
+      0.45,
+      0.74,
+      1.0
+     ]
+    },
+    {
+     "photo": "Casuarius casuarius",
+     "obs": 185944564,
+     "crop": [
+      0.4,
+      0.0,
+      0.7,
+      0.75
+     ],
+     "at": "slice"
+    }
+   ]
+  },
+  {
+   "myth": "cassowary",
+   "pose": "deadpan",
+   "act": "tumble",
+   "act_at": 0.45,
+   "say": "Good news: it mostly eats fruit.",
+   "sfx": [
+    "boing@0.45"
+   ],
+   "shots": [
+    {
+     "photo": "Casuarius casuarius",
+     "obs": 196978347,
+     "crop": [
+      0.4,
+      0.05,
+      0.72,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "cassowary",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Bad news: it swallows fruit whole.",
+   "punch": "whole",
+   "prop": "fork",
+   "prop_at": "swallows",
+   "sfx": [
+    "tink@swallows"
+   ],
+   "shots": [
+    {
+     "photo": "Casuarius casuarius",
+     "obs": 296968392,
+     "crop": [
+      0.52,
+      0.0,
+      0.8,
+      0.6
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "cassowary",
+   "pose": "nervous",
+   "act": "hit",
+   "act_at": "bite-sized",
+   "say": "I'm round. I'm bite-sized.",
+   "label": {
+    "text": "BITE-SIZED",
+    "at": "bite-sized"
+   },
+   "sfx": [
+    "pop@bite-sized"
+   ],
+   "shots": [
+    {
+     "photo": "Casuarius casuarius",
+     "obs": 98776913,
+     "crop": [
+      0.5,
+      0.25,
+      0.8,
+      0.85
+     ],
+     "blur": true
+    }
+   ]
+  },
+  {
+   "myth": "cassowary",
+   "pose": "deadpan",
+   "act": "hide",
+   "say": "Its poop plants rainforests.",
+   "punch": "poop",
+   "sfx": [
+    "pop@rainforests"
+   ],
+   "shots": [
+    {
+     "photo": "Casuarius casuarius",
+     "obs": 223029665,
+     "crop": [
+      0.0,
+      0.0,
+      0.45,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "cassowary",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Best case? I become a tree.",
+   "label": {
+    "text": "BEST CASE:\nA TREE",
+    "at": "become"
+   },
+   "sfx": [
+    "scratch@Best"
+   ],
+   "shots": [
+    {
+     "photo": "Casuarius casuarius",
+     "obs": 196978347,
+     "crop": [
+      0.3,
+      0.0,
+      0.7,
+      1.0
+     ],
+     "blur": true
+    }
+   ]
+  },
+  {
+   "myth": "cassowary",
+   "pose": "think",
+   "act": "peek",
+   "ask": "comment",
+   "say": "Would you get this close? Comment.",
+   "shots": [
+    {
+     "photo": "Casuarius casuarius",
+     "obs": 185944564,
+     "crop": [
+      0.343,
+      0.0,
+      0.717,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "hook": true,
+   "myth": "boxjelly",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "This jellyfish has twenty-four eyes.",
+   "label": {
+    "text": "24 EYES",
+    "at": "twenty-four"
+   },
+   "sfx": [
+    "pop@twenty-four"
+   ],
+   "loop_say": "Four of them are watching you. Because",
+   "short_title": "I Tried to Outsmart a Box Jellyfish 👀 (Would Meatball Survive?)",
+   "bonus": "Box jellyfish sting in Australia? Vinegar on the sting, then call emergency services (000). Vinegar stops unfired stingers; it is not a cure.",
+   "comment": "Would you swim there? 👇",
+   "shots": [
+    {
+     "photo": "Carybdea xaymacana",
+     "obs": 323556345,
+     "crop": [
+      0.169,
+      0.0,
+      0.591,
+      1.0
+     ]
+    },
+    {
+     "photo": "Carybdea xaymacana",
+     "obs": 139201356,
+     "crop": [
+      0.331,
+      0.15,
+      0.669,
+      0.95
+     ],
+     "at": "twenty-four"
+    }
+   ],
+   "sources": [
+    "Garm et al. 2011, Current Biology (24 eyes of four types; some with lenses; four always look up) — https://www.sciencedaily.com/releases/2011/04/110428123938.htm",
+    "Scientific American, 'Box Jellyfish Eyes Aim at the Trees' (no real brain) — https://www.scientificamerican.com/podcast/episode/box-jellyfish-eyes-aim-at-the-trees-11-04-29/",
+    "Chironex fleckeri: an untreated victim may die in two to five minutes (Wikipedia, citing Fenner 2005, Diving and Hyperbaric Medicine) — https://en.wikipedia.org/wiki/Chironex_fleckeri ; https://dhmjournal.com/images/IndividArticles/35June/Fenner_dhm.35.2.76-83.pdf",
+    "First aid: ANZCOR Guideline 9.4.5, Envenomation – Jellyfish Stings (tropical Australia: vinegar, then call 000) — https://www.anzcor.org/home/first-aid-management-of-injuries/guideline-9-4-5-envenomation-jellyfish-stings/",
+    "Photo note: no CC0/CC BY Chironex photo on iNaturalist; photos are other box jellyfish (Carybdea, Alatina, Copula), as in survive-01."
+   ]
+  },
+  {
+   "myth": "boxjelly",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "And zero brains.",
+   "punch": "brains",
+   "label": {
+    "text": "0 BRAINS",
+    "at": "zero"
+   },
+   "sfx": [
+    "scratch@zero"
+   ],
+   "shots": [
+    {
+     "photo": "Alatina alata",
+     "obs": 201777123,
+     "crop": [
+      0.33,
+      0.2,
+      0.6,
+      0.75
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "boxjelly",
+   "pose": "deadpan",
+   "act": "tumble",
+   "act_at": "in",
+   "say": "So I jumped in to outsmart it.",
+   "sfx": [
+    "splash@in"
+   ],
+   "shots": [
+    {
+     "photo": "Copula sivickisi",
+     "obs": 149206600,
+     "crop": [
+      0.231,
+      0.0,
+      0.569,
+      0.8
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "boxjelly",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "It doesn't need a brain.",
+   "punch": "brain",
+   "sfx": [
+    "whoosh@It"
+   ],
+   "shots": [
+    {
+     "photo": "Alatina alata",
+     "obs": 201777230,
+     "crop": [
+      0.451,
+      0.2,
+      0.789,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "boxjelly",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Its tentacles are covered in stingers.",
+   "punch": "stingers",
+   "shots": [
+    {
+     "photo": "Carybdea xaymacana",
+     "obs": 323556345,
+     "crop": [
+      0.35,
+      0.3,
+      0.75,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "boxjelly",
+   "pose": "shock",
+   "act": "puff",
+   "hit": "once",
+   "say": "One brushed me. Just once.",
+   "sfx": [
+    "zap@once"
+   ],
+   "shots": [
+    {
+     "photo": "Carybdea xaymacana",
+     "obs": 139201356,
+     "crop": [
+      0.2,
+      0.0,
+      0.55,
+      0.8
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "boxjelly",
+   "pose": "shock",
+   "act": "puffed",
+   "say": "One kind can stop a heart in minutes.",
+   "punch": "minutes",
+   "label": {
+    "text": "MINUTES",
+    "at": "minutes"
+   },
+   "shots": [
+    {
+     "photo": "Alatina alata",
+     "obs": 201777123,
+     "crop": [
+      0.281,
+      0.08,
+      0.619,
+      0.88
+     ]
+    },
+    {
+     "photo": "Copula sivickisi",
+     "obs": 149206600,
+     "crop": [
+      0.28,
+      0.1,
+      0.52,
+      0.6
+     ],
+     "at": "heart"
+    }
+   ]
+  },
+  {
+   "myth": "boxjelly",
+   "pose": "deadpan",
+   "act": "deflate",
+   "act_at": "heart",
+   "say": "Good news: I don't have a heart.",
+   "sfx": [
+    "pop@heart"
+   ],
+   "shots": [
+    {
+     "photo": "Carybdea xaymacana",
+     "obs": 323556345,
+     "crop": [
+      0.169,
+      0.0,
+      0.591,
+      1.0
+     ],
+     "blur": true
+    }
+   ]
+  },
+  {
+   "myth": "boxjelly",
+   "pose": "point",
+   "act": "stand",
+   "say": "Australian first aid is vinegar.",
+   "punch": "vinegar",
+   "label": {
+    "text": "VINEGAR",
+    "at": "vinegar"
+   },
+   "sfx": [
+    "pop@vinegar"
+   ],
+   "shots": [
+    {
+     "photo": "Alatina alata",
+     "obs": 201777230,
+     "crop": [
+      0.5,
+      0.3,
+      0.8,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "boxjelly",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A meatball. In vinegar.",
+   "punch": "vinegar",
+   "sfx": [
+    "scratch@In"
+   ],
+   "shots": [
+    {
+     "photo": "Carybdea xaymacana",
+     "obs": 139201356,
+     "crop": [
+      0.331,
+      0.15,
+      0.669,
+      0.95
+     ],
+     "blur": true
+    }
+   ]
+  },
+  {
+   "myth": "boxjelly",
+   "pose": "facepalm",
+   "act": "hit",
+   "act_at": "pickle",
+   "say": "I'm a pickle now.",
+   "label": {
+    "text": "PICKLE",
+    "at": "pickle"
+   },
+   "sfx": [
+    "boing@pickle"
+   ],
+   "shots": [
+    {
+     "photo": "Copula sivickisi",
+     "obs": 149206600,
+     "crop": [
+      0.231,
+      0.0,
+      0.569,
+      0.8
+     ],
+     "blur": true
+    }
+   ]
+  },
+  {
+   "myth": "boxjelly",
+   "pose": "think",
+   "act": "peek",
+   "ask": "comment",
+   "say": "Would you swim there? Comment.",
+   "shots": [
+    {
+     "photo": "Alatina alata",
+     "obs": 201777123,
+     "crop": [
+      0.281,
+      0.08,
+      0.619,
+      0.88
+     ]
+    }
+   ]
+  },
+  {
+   "hook": true,
+   "myth": "badger",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "This badger is built to resist cobra venom.",
+   "label": {
+    "text": "COBRA\nVENOM",
+    "at": "cobra"
+   },
+   "sfx": [
+    "pop@cobra"
+   ],
+   "loop_say": "Anyway. Don't poke it. Because",
+   "short_title": "I Poked a Honey Badger 🦡 (Would Meatball Survive?)",
+   "bonus": "The same venom-blocking receptor change evolved separately in honey badgers, hedgehogs, pigs and mongooses.",
+   "comment": "Which animal would you least want to annoy? 👇",
+   "shots": [
+    {
+     "photo": "Mellivora capensis",
+     "obs": 92943815,
+     "crop": [
+      0.309,
+      0.0,
+      0.731,
+      1.0
+     ]
+    },
+    {
+     "photo": "Mellivora capensis",
+     "obs": 163519989,
+     "crop": [
+      0.31,
+      0.1,
+      0.69,
+      1.0
+     ],
+     "at": "resist"
+    }
+   ],
+   "sources": [
+    "Drabeck, Dean & Jansa 2015, Toxicon, 'Why the honey badger don't care: convergent evolution of venom-targeted nicotinic acetylcholine receptors' (honey badger, hedgehog, pig; mongoose known earlier) — https://experts.umn.edu/en/publications/why-the-honey-badger-dont-care-convergent-evolution-of-venom-targ/",
+    "Slate summary (receptor change blocks alpha-neurotoxin binding; resistance, not immunity) — https://www.slate.com/blogs/wild_things/2015/06/16/honey_badger_venom_resistance_biologists_discover_the_secret.html",
+    "Wikipedia, Honey badger: 'remarkably loose skin, allowing the badger to turn and twist freely within it'; eats snakes, scorpions; 'often raids beehives in search of both bee larvae and honey' — https://en.wikipedia.org/wiki/Honey_badger (checked 2026-10-24)",
+    "Wording rule: 'resist' / 'blocks part of', never 'immune'."
+   ]
+  },
+  {
+   "myth": "badger",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A tiny change blocks part of the toxin.",
+   "punch": "blocks",
+   "shots": [
+    {
+     "photo": "Mellivora capensis",
+     "obs": 250982289,
+     "crop": [
+      0.311,
+      0.1,
+      0.649,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "badger",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So, obviously, I poked it.",
+   "punch": "poked",
+   "sfx": [
+    "whoosh@0.05",
+    "pop@poked"
+   ],
+   "shots": [
+    {
+     "photo": "Mellivora capensis",
+     "obs": 92943815,
+     "crop": [
+      0.36,
+      0.25,
+      0.7,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "badger",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "It eats snakes. Scorpions. Bee larvae.",
+   "sfx": [
+    "pop@Scorpions",
+    "pop@larvae"
+   ],
+   "shots": [
+    {
+     "photo": "Mellivora capensis",
+     "obs": 163519989,
+     "crop": [
+      0.36,
+      0.3,
+      0.66,
+      0.85
+     ]
+    },
+    {
+     "photo": "Mellivora capensis",
+     "obs": 250982289,
+     "crop": [
+      0.36,
+      0.15,
+      0.64,
+      0.75
+     ],
+     "at": "Scorpions"
+    },
+    {
+     "photo": "Mellivora capensis",
+     "obs": 92943815,
+     "crop": [
+      0.33,
+      0.2,
+      0.62,
+      0.8
+     ],
+     "at": "Bee"
+    }
+   ]
+  },
+  {
+   "myth": "badger",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It rips open beehives for snacks.",
+   "punch": "beehives",
+   "sfx": [
+    "scratch@rips"
+   ],
+   "shots": [
+    {
+     "photo": "Mellivora capensis",
+     "obs": 163519989,
+     "crop": [
+      0.31,
+      0.1,
+      0.69,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "badger",
+   "pose": "shock",
+   "act": "launch",
+   "hit": "friends",
+   "say": "It did not want to be friends.",
+   "sfx": [
+    "crunch@friends",
+    "whoosh@friends"
+   ],
+   "shots": [
+    {
+     "photo": "Mellivora capensis",
+     "obs": 250982289,
+     "crop": [
+      0.4,
+      0.2,
+      0.7,
+      0.8
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "badger",
+   "pose": "deadpan",
+   "act": "tumble",
+   "act_at": 0.45,
+   "say": "Its skin is thick and super loose.",
+   "sfx": [
+    "thud@0.45"
+   ],
+   "shots": [
+    {
+     "photo": "Mellivora capensis",
+     "obs": 92943815,
+     "crop": [
+      0.309,
+      0.0,
+      0.731,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "badger",
+   "pose": "shock",
+   "act": "hit",
+   "hit": "twists",
+   "say": "Grab it, and it twists around inside.",
+   "sfx": [
+    "crunch@twists"
+   ],
+   "shots": [
+    {
+     "photo": "Mellivora capensis",
+     "obs": 163519989,
+     "crop": [
+      0.4,
+      0.25,
+      0.64,
+      0.75
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "badger",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "I'll be over here. Forever.",
+   "sfx": [
+    "pop@Forever"
+   ],
+   "shots": [
+    {
+     "photo": "Mellivora capensis",
+     "obs": 250982289,
+     "crop": [
+      0.311,
+      0.1,
+      0.649,
+      1.0
+     ],
+     "blur": true
+    }
+   ]
+  },
+  {
+   "myth": "badger",
+   "pose": "deadpan",
+   "act": "peek",
+   "say": "Hedgehogs evolved the same trick.",
+   "label": {
+    "text": "HEDGEHOGS\nTOO",
+    "at": "Hedgehogs"
+   },
+   "sfx": [
+    "scratch@Hedgehogs"
+   ],
+   "shots": [
+    {
+     "photo": "Mellivora capensis",
+     "obs": 92943815,
+     "crop": [
+      0.4,
+      0.3,
+      0.68,
+      0.8
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "badger",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "I evolved sauce.",
+   "punch": "sauce",
+   "label": {
+    "text": "SAUCE",
+    "at": "sauce"
+   },
+   "prop": "fork",
+   "prop_at": "sauce",
+   "sfx": [
+    "tink@sauce"
+   ],
+   "shots": [
+    {
+     "photo": "Mellivora capensis",
+     "obs": 163519989,
+     "crop": [
+      0.31,
+      0.1,
+      0.69,
+      1.0
+     ],
+     "blur": true
+    }
+   ]
+  }
+ ]
+}

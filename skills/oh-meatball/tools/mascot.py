@@ -108,18 +108,19 @@ def _ik(root, target, l1, l2, side, bend):
 
 
 def body(p):
-    """Joint positions for body params p (lean, tilt, knee, shrug, breath, hip_x)."""
+    """Joint positions for body params p (lean, tilt, knee, shrug, breath, hip_x; v3 "feet" = moved feet)."""
     hip = (HIP[0] + p.get("hip_x", 0.0), HIP[1] + p.get("knee", 0.0))
+    feet = p.get("feet") or FEET
     knees = []
-    for side, foot in ((-1, FEET[0]), (1, FEET[1])):
-        half = math.dist(HIP, foot) / 2
+    for side, foot in ((-1, feet[0]), (1, feet[1])):
+        half = max(math.dist(HIP, FEET[0]), math.dist(hip, foot) + 2) / 2
         s, e = _ik(foot, hip, half, half, -side, 1)  # knees bend outward; zero bend = the old straight legs
         knees.append(_add(foot, _dir(-side, s), half))
     lean, b = p.get("lean", 0.0), p.get("breath", 0.0)
     top = _add(hip, _rot((0, -(SPINE_UP + b)), lean))
     sh = _add(hip, _rot((0, -(SHOULDER_UP + b + p.get("shrug", 0.0))), lean))
     head = _add(top, _rot((0, -HEAD_UP), lean + p.get("tilt", 0.0)))
-    return {"hip": hip, "knees": knees, "top": top, "sh": sh, "head": head}
+    return {"hip": hip, "knees": knees, "top": top, "sh": sh, "head": head, "feet": feet}
 
 
 def arm_angles(spec, side, j, content=CONTENT):
@@ -283,8 +284,10 @@ def render(st, size, ss=2, origin=None, canvas=None):
     k = size / 1000.0
     j = body(st)
     hands = [arm_points(j, side, st[key])[2] for side, key in ((-1, "l"), (1, "r"))]
-    xs = [p[0] for p in hands + [j["sh"], j["hip"]] + list(FEET) + j["knees"]] + [j["head"][0] - 240, j["head"][0] + 240]
-    ys = [p[1] for p in hands + list(FEET)] + [j["head"][1] - 250, j["head"][1] + 170]
+    hs = max(st.get("head_s", (1.0, 1.0)))  # v3 squash/stretch and puff can grow the head
+    xs = [p[0] for p in hands + [j["sh"], j["hip"]] + list(j["feet"]) + j["knees"]] + [j["head"][0] - 240 * hs,
+                                                                                      j["head"][0] + 240 * hs]
+    ys = [p[1] for p in hands + list(j["feet"])] + [j["head"][1] - 250 * hs - 100 * (hs - 1), j["head"][1] + 170]
     box = [min(xs) - 40, min(ys) - 40, max(xs) + 40, max(ys) + 40]
     if canvas is None:
         origin, box_px = (0.0, 0.0), (0, 0, size, size)
@@ -297,13 +300,17 @@ def render(st, size, ss=2, origin=None, canvas=None):
     im = Image.new("RGBA", ((box_px[2] - box_px[0]) * ss, (box_px[3] - box_px[1]) * ss), (0, 0, 0, 0))
     pen = _Pen(im, kk, ((box_px[0] - origin[0]) / k, (box_px[1] - origin[1]) / k))
     pen.line(j["top"], j["hip"])                                   # spine
-    for knee, foot in zip(j["knees"], FEET):                       # legs
+    for knee, foot in zip(j["knees"], j["feet"]):                  # legs
         pen.line(j["hip"], knee)
         pen.line(knee, foot)
     tilt = st.get("lean", 0.0) + st.get("tilt", 0.0)
     head = _head_layer(round(kk, 4), st["mouth"], st["brow"], st.get("look", (0, 0)), st.get("level", 0),
                        st.get("blink", 0), st.get("eyes"))
     pivot = (-HEAD_BOX[0] * kk, (-HEAD_BOX[1] + HEAD_UP) * kk)    # the spine top, in layer pixels
+    sx, sy = st.get("head_s", (1.0, 1.0))
+    if abs(sx - 1) > 0.01 or abs(sy - 1) > 0.01:  # v3: squash/stretch about the neck (hits, stings)
+        head = head.resize((max(1, int(head.width * sx)), max(1, int(head.height * sy))), Image.BICUBIC)
+        pivot = (pivot[0] * sx, pivot[1] * sy)
     if abs(tilt) > 0.05:
         head = head.rotate(-tilt, resample=Image.BICUBIC, center=pivot)
     top = pen.p(*j["top"])
@@ -690,6 +697,140 @@ def animate(pose, size, words, dur, fps, outdir, seed=0, pop=True, enter=True, e
         for j in jobs:
             _frame(j)
     return len(jobs)
+
+
+# ---------------------------------------------------------------- v3 action moves (research/44)
+# Shorts v3 puts Meatball in jeopardy: things happen TO him. An action move is a per-frame body transform
+# laid over the talking rig (lip-sync, face, blinks stay): where his hip is on screen, a rotation, a body
+# squash, a head squash/puff, running legs, a tremble, and face overrides (X eyes when hit).
+ACTS = ("stand", "run_in", "run_off", "run_across", "launch", "tumble", "shake", "peek", "hide", "hit", "puff",
+        "puffed", "deflate", "loop_out")
+JITTER = {"shake": 9.0, "peek": 4.0, "hide": 8.0, "puff": 6.0, "puffed": 6.0}  # tremble amplitude, drawing units
+
+
+def _clamp01(u):
+    return min(max(u, 0.0), 1.0)
+
+
+def _squash(f):
+    """Impact squash and stretch over frames since the hit: flat, tall, settle (sx, sy)."""
+    seq = [(1.32, 0.68), (1.28, 0.72), (0.86, 1.18), (0.9, 1.14), (1.06, 0.95), (1.03, 0.98)]
+    return seq[f] if 0 <= f < len(seq) else (1.0, 1.0)
+
+
+def act_track(act, n, fps, t_act=0.25, home=0.5, seed=0):
+    """Per-frame transform of an action move for a line of n frames. t_act = the impact / start moment (s).
+    Each entry: x (hip position as a fraction of frame width; <0 or >1 is off-screen), y (drawing units,
+    + = down), rot (degrees, + = clockwise), body (sx, sy), head (sx, sy), run (stride phase or None),
+    flip (faces left), eyes / pose overrides, jitter (tremble amplitude)."""
+    rng = random.Random(f"act|{act}|{seed}")
+    ph = rng.uniform(0, 6.28)
+    fa = int(round(t_act * fps))
+    out = []
+    for f in range(n):
+        t = f / fps
+        e = dict(x=home, y=0.0, rot=0.0, body=(1.0, 1.0), head=(1.0, 1.0), run=None, flip=False, eyes=None,
+                 pose=None, jitter=JITTER.get(act, 0.0), hidden=False)
+        if act == "run_in":  # sprint in from the left, skid to a stop on his mark
+            u = _clamp01(t / 0.55)
+            e["x"] = -0.45 + (home + 0.45) * (1 - (1 - u) ** 2)
+            if u < 1:
+                e["run"], e["rot"] = 2 * math.pi * 3.6 * t, 9.0 * (1 - u)
+            elif f - int(0.55 * fps) < 6:
+                e["body"] = _squash(f - int(0.55 * fps) + 2)
+        elif act == "run_off":  # stand, then bolt off to the right
+            if f >= fa:
+                u = _clamp01((t - t_act) / 0.5)
+                e["x"] = home + 1.05 * u * u
+                e["run"], e["rot"] = 2 * math.pi * 4.2 * (t - t_act), 10.0
+                e["pose"], e["eyes"] = "shock", None
+            if e["x"] > 1.45:
+                e["hidden"] = True
+        elif act == "run_across":  # panic sprint left to right across the whole line
+            e["x"] = -0.4 + 1.8 * t / max(n / fps, 0.1)
+            e["run"], e["rot"], e["pose"] = 2 * math.pi * 4.0 * t, 10.0, "shock"
+        elif act == "launch":  # kicked: squash, then flung up and out with a spinning arc
+            if f >= fa:
+                k = f - fa
+                u = (t - t_act) / 0.75
+                if k < 2:
+                    e["body"], e["head"] = _squash(k), (1.3, 0.72)
+                else:
+                    e["x"] = home + 0.95 * u
+                    e["y"] = -2600 * u + 900 * u * u
+                    e["rot"] = 760 * u
+                e["eyes"], e["pose"] = "x", "shock"
+                if u > 1.05:
+                    e["hidden"] = True
+        elif act == "tumble":  # falls in spinning from above, lands with a squash, dazed
+            if f < fa:
+                u = f / max(fa, 1)
+                e["x"] = home + 0.22 * (1 - u)
+                e["y"] = -2200 * (1 - u) ** 2
+                e["rot"] = -540 * (1 - u)
+                e["pose"] = "shock"
+            else:
+                k = f - fa
+                e["body"] = _squash(k)
+                e["head"] = (1.0 + 0.6 * (e["body"][0] - 1), 1.0 + 0.6 * (e["body"][1] - 1))
+                if k < int(0.6 * fps):
+                    e["eyes"], e["rot"] = "x", 6 * math.sin(2 * math.pi * 3 * (t - t_act)) * math.exp(-3 * (t - t_act))
+        elif act == "peek":  # leans in from the right edge, trembling
+            u = _clamp01(t / 0.25)
+            e["x"] = 1.4 - 0.5 * ease_inout(u)
+            e["rot"], e["pose"] = -16.0, "nervous"
+        elif act == "loop_out":  # the loop tail: peek, then slide back out so the last frame = frame 0
+            T = n / fps
+            u = _clamp01((T - t) / 0.3)
+            e["x"] = 1.4 - 0.5 * ease_inout(u)
+            e["rot"], e["pose"] = -16.0, "nervous"
+            if f >= n - 1:
+                e["hidden"] = True
+        elif act == "hide":  # cowering low at the left edge, trembling
+            e["x"], e["y"], e["rot"], e["pose"] = 0.14, 120.0, 8.0, "nervous"
+        elif act == "hit":  # hit reaction: head squash and stretch, knocked back, X eyes
+            if f >= fa:
+                k = f - fa
+                e["head"] = _squash(k)
+                e["x"] = home - 0.07 * math.exp(-(t - t_act) * 5) * min(1.0, k / 2 + 0.5)
+                e["rot"] = -12 * math.exp(-(t - t_act) * 4)
+                if t - t_act < 0.7:
+                    e["eyes"], e["pose"] = "x", "shock"
+        elif act == "puff":  # stung: the head swells and stays swollen, trembling
+            if f >= fa:
+                k = f - fa
+                g = [1.15, 1.35, 1.55, 1.62, 1.55, 1.5][k] if k < 6 else 1.5
+                e["head"], e["pose"] = (g, g), "shock"
+            else:
+                e["jitter"] = 0.0
+        elif act == "puffed":  # still swollen from the last line
+            e["head"], e["pose"] = (1.5, 1.5), "shock"
+        elif act == "deflate":  # swollen until t_act, then shrinks back with a wobble
+            if f < fa:
+                e["head"], e["pose"], e["jitter"] = (1.5, 1.5), "shock", 6.0
+            else:
+                k = f - fa
+                g = [1.3, 1.05, 0.88, 0.95, 1.04, 1.0][k] if k < 6 else 1.0
+                e["head"] = (g, 2 - g if k < 6 else 1.0)
+        elif act == "shake":
+            e["pose"] = "nervous"
+        if e["jitter"] and not e["hidden"]:
+            e["jx"] = e["jitter"] * math.sin(2 * math.pi * 17 * t + ph)
+            e["jy"] = 0.4 * e["jitter"] * math.sin(2 * math.pi * 23 * t + 2 * ph)
+            e["rot"] += 0.25 * e["jitter"] * math.sin(2 * math.pi * 13 * t + ph)
+        out.append(e)
+    return out
+
+
+def apply_run(st, phase):
+    """Scissor stride on a rig state: feet swing and lift, hips bob, arms swing opposite, lean forward."""
+    s = math.sin(phase)
+    lf = (FEET[0][0] + 85 * s, FEET[0][1] - 55 * max(0.0, math.cos(phase)))
+    rf = (FEET[1][0] - 85 * s, FEET[1][1] - 55 * max(0.0, -math.cos(phase)))
+    st = dict(st, feet=(lf, rf), knee=st.get("knee", 0.0) + 22 + 10 * abs(s), lean=st.get("lean", 0.0) + 9)
+    st["l"] = (38 - 50 * s, -60.0, 0.0)
+    st["r"] = (38 + 50 * s, -60.0, 0.0)
+    return st
 
 
 def prop(name, height):

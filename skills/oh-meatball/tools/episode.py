@@ -62,6 +62,7 @@ def hook_loop(beats):
     h = beats[0]
     first = explainer.shots(h)[0]
     tail = {"say": h["loop_say"], "pose": h.get("pose", "deadpan"), "myth": h.get("myth"), "loop": True,
+            **({"sfx": h["loop_sfx"]} if h.get("loop_sfx") else {}),
             "bleed": h.get("bleed"), "shots": [{k: v for k, v in first.items() if k in explainer.VISUAL}]}
     return beats + [tail]
 
@@ -152,6 +153,7 @@ def main():
         json.dump({"voice": spec.get("voice", "en-US-AndrewNeural"), "rate": spec.get("short_rate", "+8%"),
                    "music": spec.get("music"), "style": spec.get("style"),
                    **({"pitch": spec["pitch"]} if spec.get("pitch") else {}),
+                   **({"tempo": spec["tempo"]} if spec.get("tempo") else {}),  # v3: atempo speed-up
                    # "short_beats" lets a joke-dense script keep more than 3 hand-picked beats (default 3).
                    "beats": hook_loop(mb) if hook else loop(tighten(mb, spec.get("short_beats", 3)))},
                   open(sspec, "w"))
