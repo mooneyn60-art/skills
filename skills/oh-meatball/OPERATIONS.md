@@ -162,6 +162,8 @@ Never assume viewers will engage. Every video asks, in Meatball's voice and with
 
 **Description:** the first line asks a question. The last line is "Subscribe: new Meatball every Tuesday and Saturday".
 
+**Comment replies (10/24):** vidIQ can now post replies as the channel. The tool requires Nolan to approve the exact text, so the Host drafts replies in Meatball's voice, sends them to Nolan, and posts them on his "post them". The first 4 went live 10/24.
+
 **Host desk (evening):**
 - reply to every comment as Meatball (drafts go to Nolan)
 - heart the best comments
