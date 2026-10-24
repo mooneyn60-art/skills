@@ -1428,11 +1428,11 @@
   },
   {
    "myth": "housefly",
-   "pose": "deadpan",
-   "act": "run_in",
-   "say": "So I sat on the counter.",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "So they taste everything they walk on.",
    "sfx": [
-    "whoosh@0.05"
+    "pop@everything"
    ],
    "shots": [
     {
@@ -1450,12 +1450,12 @@
   {
    "myth": "housefly",
    "pose": "shock",
-   "act": "hit",
-   "say": "One landed on me. Feet first.",
+   "act": "stand",
+   "say": "Including the trash. Then your lunch.",
    "sfx": [
-    "thud@landed"
+    "scratch@trash"
    ],
-   "act_at": "landed",
+   "punch": "lunch",
    "shots": [
     {
      "photo": "Musca domestica",
@@ -1465,6 +1465,70 @@
       0.1,
       0.766,
       0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "housefly",
+   "pose": "think",
+   "act": "peek",
+   "say": "Cover your food. Please.",
+   "sfx": [
+    "pop@Please"
+   ],
+   "shots": [
+    {
+     "photo": "Musca domestica",
+     "obs": 105570516,
+     "crop": [
+      0.163,
+      0.05,
+      0.837,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "housefly",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I sat on the counter.",
+   "sfx": [
+    "whoosh@0.05"
+   ],
+   "shots": [
+    {
+     "photo": "Musca domestica",
+     "obs": 131295935,
+     "crop": [
+      0.303,
+      0.15,
+      0.697,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "housefly",
+   "pose": "shock",
+   "act": "hit",
+   "say": "One landed on me. Feet first.",
+   "sfx": [
+    "thud@landed"
+   ],
+   "act_at": "landed",
+   "shots": [
+    {
+     "photo": "Musca domestica",
+     "obs": 153591365,
+     "crop": [
+      0.339,
+      0.0,
+      0.761,
+      1.0
      ]
     }
    ]
@@ -1483,12 +1547,12 @@
    "shots": [
     {
      "photo": "Musca domestica",
-     "obs": 105570516,
+     "obs": 235798442,
      "crop": [
-      0.163,
-      0.05,
-      0.837,
-      0.95
+      0.431,
+      0.1,
+      0.769,
+      0.9
      ]
     }
    ]
@@ -1503,12 +1567,12 @@
    "shots": [
     {
      "photo": "Musca domestica",
-     "obs": 131295935,
+     "obs": 306866387,
      "crop": [
-      0.303,
-      0.15,
-      0.697,
-      0.85
+      0.31,
+      0.05,
+      0.69,
+      0.95
      ]
     }
    ]
@@ -3186,9 +3250,14 @@
    "myth": "leech",
    "pose": "shock",
    "act": "puffed",
-   "say": "Its spit stops blood clotting.",
-   "sfx": [],
-   "punch": "clotting",
+   "say": "The bite leaves a three-pointed mark.",
+   "sfx": [
+    "pop@mark"
+   ],
+   "label": {
+    "text": "Y-SHAPED\nBITE",
+    "at": "mark"
+   },
    "shots": [
     {
      "photo": "Hirudo",
@@ -3204,13 +3273,11 @@
   },
   {
    "myth": "leech",
-   "pose": "deadpan",
-   "act": "deflate",
-   "say": "Doctors use them after skin grafts.",
-   "sfx": [
-    "pop@grafts"
-   ],
-   "act_at": "grafts",
+   "pose": "shock",
+   "act": "puffed",
+   "say": "Its spit stops blood clotting.",
+   "sfx": [],
+   "punch": "clotting",
    "shots": [
     {
      "photo": "Hirudo",
@@ -3227,12 +3294,12 @@
   {
    "myth": "leech",
    "pose": "deadpan",
-   "act": "stand",
-   "say": "Good news: I have no blood.",
+   "act": "deflate",
+   "say": "Doctors use them after skin grafts.",
    "sfx": [
-    "pop@no"
+    "pop@grafts"
    ],
-   "punch": "blood",
+   "act_at": "grafts",
    "shots": [
     {
      "photo": "Hirudo",
@@ -3242,6 +3309,49 @@
       0.1,
       0.8,
       0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "leech",
+   "pose": "point",
+   "act": "stand",
+   "say": "Doctors have used leeches for centuries.",
+   "sfx": [
+    "pop@centuries"
+   ],
+   "shots": [
+    {
+     "photo": "Hirudo",
+     "obs": 228871841,
+     "crop": [
+      0.349,
+      0.05,
+      0.651,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "leech",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Good news: I have no blood.",
+   "sfx": [
+    "pop@no"
+   ],
+   "punch": "blood",
+   "shots": [
+    {
+     "photo": "Hirudo",
+     "obs": 297583943,
+     "crop": [
+      0.353,
+      0.15,
+      0.647,
+      0.85
      ]
     }
    ]
@@ -3259,12 +3369,12 @@
    "shots": [
     {
      "photo": "Hirudo",
-     "obs": 228871841,
+     "obs": 352540712,
      "crop": [
-      0.349,
-      0.05,
-      0.651,
-      0.95
+      0.313,
+      0.0,
+      0.687,
+      1.0
      ]
     }
    ]
@@ -3280,12 +3390,12 @@
    "shots": [
     {
      "photo": "Hirudo",
-     "obs": 297583943,
+     "obs": 149221866,
      "crop": [
-      0.353,
-      0.15,
-      0.647,
-      0.85
+      0.331,
+      0.1,
+      0.669,
+      0.9
      ]
     }
    ]
@@ -3428,13 +3538,16 @@
   },
   {
    "myth": "dungbeetle",
-   "pose": "point",
+   "pose": "shock",
    "act": "stand",
-   "say": "They shove rivals out with their horns.",
+   "say": "Some dung beetles steer by the Milky Way.",
    "sfx": [
-    "pop@horns"
+    "pop@Milky"
    ],
-   "punch": "horns",
+   "label": {
+    "text": "MILKY\nWAY",
+    "at": "Milky"
+   },
    "shots": [
     {
      "photo": "Onthophagus taurus",
@@ -3452,11 +3565,10 @@
    "myth": "dungbeetle",
    "pose": "nervous",
    "act": "shake",
-   "say": "Their whole life is poop.",
+   "say": "I get lost in a bowl.",
    "sfx": [
-    "scratch@poop"
+    "scratch@bowl"
    ],
-   "punch": "poop",
    "shots": [
     {
      "photo": "Onthophagus taurus",
@@ -3465,6 +3577,50 @@
       0.217,
       0.05,
       0.783,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "dungbeetle",
+   "pose": "point",
+   "act": "stand",
+   "say": "They shove rivals out with their horns.",
+   "sfx": [
+    "pop@horns"
+   ],
+   "punch": "horns",
+   "shots": [
+    {
+     "photo": "Onthophagus taurus",
+     "obs": 150561787,
+     "crop": [
+      0.331,
+      0.05,
+      0.669,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "dungbeetle",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Their whole life is poop.",
+   "sfx": [
+    "scratch@poop"
+   ],
+   "punch": "poop",
+   "shots": [
+    {
+     "photo": "Onthophagus taurus",
+     "obs": 104080247,
+     "crop": [
+      0.303,
+      0.15,
+      0.697,
       0.85
      ]
     }
@@ -3481,12 +3637,12 @@
    "shots": [
     {
      "photo": "Onthophagus taurus",
-     "obs": 150561787,
+     "obs": 139836328,
      "crop": [
-      0.331,
-      0.05,
-      0.669,
-      0.95
+      0.313,
+      0.0,
+      0.687,
+      1.0
      ]
     }
    ]
@@ -3504,12 +3660,12 @@
    "shots": [
     {
      "photo": "Onthophagus taurus",
-     "obs": 104080247,
+     "obs": 57412774,
      "crop": [
-      0.303,
-      0.15,
-      0.697,
-      0.85
+      0.331,
+      0.1,
+      0.669,
+      0.9
      ]
     }
    ]
@@ -3648,6 +3804,49 @@
   },
   {
    "myth": "waterbug",
+   "pose": "point",
+   "act": "stand",
+   "say": "In some kinds, dads carry the eggs.",
+   "sfx": [
+    "pop@eggs"
+   ],
+   "punch": "dads",
+   "shots": [
+    {
+     "photo": "Lethocerus",
+     "obs": 123907701,
+     "crop": [
+      0.125,
+      0.0,
+      0.875,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "waterbug",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Great dads. Terrible neighbors.",
+   "sfx": [
+    "scratch@Terrible"
+   ],
+   "shots": [
+    {
+     "photo": "Lethocerus",
+     "obs": 192132150,
+     "crop": [
+      0.244,
+      0.1,
+      0.756,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "waterbug",
    "pose": "shock",
    "act": "hit",
    "say": "People call them toe-biters.",
@@ -3662,12 +3861,12 @@
    "shots": [
     {
      "photo": "Lethocerus",
-     "obs": 123907701,
+     "obs": 10031721,
      "crop": [
-      0.125,
-      0.0,
-      0.875,
-      1.0
+      0.331,
+      0.05,
+      0.669,
+      0.95
      ]
     }
    ]
@@ -3684,12 +3883,12 @@
    "shots": [
     {
      "photo": "Lethocerus",
-     "obs": 192132150,
+     "obs": 320736424,
      "crop": [
-      0.244,
-      0.1,
-      0.756,
-      0.9
+      0.239,
+      0.15,
+      0.761,
+      0.85
      ]
     }
    ]
@@ -3708,12 +3907,12 @@
    "shots": [
     {
      "photo": "Lethocerus",
-     "obs": 10031721,
+     "obs": 104641393,
      "crop": [
-      0.331,
-      0.05,
-      0.669,
-      0.95
+      0.289,
+      0.0,
+      0.711,
+      1.0
      ]
     }
    ]
@@ -3728,12 +3927,12 @@
    "shots": [
     {
      "photo": "Lethocerus",
-     "obs": 320736424,
+     "obs": 141233595,
      "crop": [
-      0.239,
-      0.15,
-      0.761,
-      0.85
+      0.32,
+      0.1,
+      0.68,
+      0.9
      ]
     }
    ]
@@ -3858,12 +4057,16 @@
   },
   {
    "myth": "skunk",
-   "pose": "point",
+   "pose": "shock",
    "act": "stand",
-   "say": "Same family they add to natural gas.",
+   "say": "You can smell it half a mile away.",
    "sfx": [
-    "pop@gas"
+    "pop@mile"
    ],
+   "label": {
+    "text": "1/2 MILE",
+    "at": "mile"
+   },
    "shots": [
     {
      "photo": "Mephitis mephitis",
@@ -3873,6 +4076,48 @@
       0.15,
       0.677,
       0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "skunk",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "My garlic only reaches the kitchen.",
+   "sfx": [
+    "scratch@kitchen"
+   ],
+   "shots": [
+    {
+     "photo": "Mephitis mephitis",
+     "obs": 121720836,
+     "crop": [
+      0.234,
+      0.0,
+      0.666,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "skunk",
+   "pose": "point",
+   "act": "stand",
+   "say": "Same family they add to natural gas.",
+   "sfx": [
+    "pop@gas"
+   ],
+   "shots": [
+    {
+     "photo": "Mephitis mephitis",
+     "obs": 50352136,
+     "crop": [
+      0.331,
+      0.1,
+      0.669,
+      0.9
      ]
     }
    ]
@@ -3892,12 +4137,12 @@
    "shots": [
     {
      "photo": "Mephitis mephitis",
-     "obs": 121720836,
+     "obs": 322622650,
      "crop": [
-      0.234,
-      0.0,
-      0.666,
-      1.0
+      0.164,
+      0.05,
+      0.836,
+      0.95
      ]
     }
    ]
@@ -3913,12 +4158,12 @@
    "shots": [
     {
      "photo": "Mephitis mephitis",
-     "obs": 50352136,
+     "obs": 197025524,
      "crop": [
-      0.331,
-      0.1,
-      0.669,
-      0.9
+      0.269,
+      0.15,
+      0.531,
+      0.85
      ]
     }
    ]
@@ -3932,12 +4177,12 @@
    "shots": [
     {
      "photo": "Mephitis mephitis",
-     "obs": 322622650,
+     "obs": 31994029,
      "crop": [
-      0.164,
-      0.05,
-      0.836,
-      0.95
+      0.272,
+      0.0,
+      0.728,
+      1.0
      ]
     }
    ]
@@ -3956,12 +4201,12 @@
    "shots": [
     {
      "photo": "Mephitis mephitis",
-     "obs": 197025524,
+     "obs": 177816815,
      "crop": [
-      0.269,
-      0.15,
-      0.531,
-      0.85
+      0.322,
+      0.1,
+      0.678,
+      0.9
      ]
     }
    ]
@@ -4303,6 +4548,31 @@
   },
   {
    "myth": "shrike",
+   "pose": "shock",
+   "act": "stand",
+   "say": "People call them butcher birds.",
+   "sfx": [
+    "scratch@butcher"
+   ],
+   "label": {
+    "text": "BUTCHER\nBIRD",
+    "at": "butcher"
+   },
+   "shots": [
+    {
+     "photo": "Lanius ludovicianus",
+     "obs": 208978883,
+     "crop": [
+      0.41,
+      0.05,
+      0.79,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shrike",
    "pose": "deadpan",
    "act": "run_in",
    "say": "So I perched on its fence.",
@@ -4314,10 +4584,10 @@
      "photo": "Lanius ludovicianus",
      "obs": 142995922,
      "crop": [
-      0.381,
-      0.05,
-      0.719,
-      0.95
+      0.419,
+      0.15,
+      0.681,
+      0.85
      ]
     }
    ]
@@ -4334,12 +4604,12 @@
    "shots": [
     {
      "photo": "Lanius ludovicianus",
-     "obs": 208978883,
+     "obs": 111671031,
      "crop": [
-      0.452,
-      0.15,
-      0.748,
-      0.85
+      0.414,
+      0.0,
+      0.786,
+      1.0
      ]
     }
    ]
@@ -4357,12 +4627,12 @@
    "shots": [
     {
      "photo": "Lanius ludovicianus",
-     "obs": 111671031,
+     "obs": 255707691,
      "crop": [
-      0.414,
-      0.0,
-      0.786,
-      1.0
+      0.35,
+      0.1,
+      0.65,
+      0.9
      ]
     }
    ]
@@ -4384,10 +4654,10 @@
      "photo": "Romalea microptera",
      "obs": 394998366,
      "crop": [
-      0.331,
-      0.1,
-      0.669,
-      0.9
+      0.31,
+      0.05,
+      0.69,
+      0.95
      ]
     }
    ]
@@ -4405,10 +4675,10 @@
      "photo": "Romalea microptera",
      "obs": 147055420,
      "crop": [
-      0.31,
-      0.05,
-      0.69,
-      0.95
+      0.352,
+      0.15,
+      0.648,
+      0.85
      ]
     }
    ]
@@ -4427,10 +4697,10 @@
      "photo": "Romalea microptera",
      "obs": 51145025,
      "crop": [
-      0.352,
-      0.15,
-      0.648,
-      0.85
+      0.289,
+      0.0,
+      0.711,
+      1.0
      ]
     }
    ]
@@ -4447,12 +4717,12 @@
    "shots": [
     {
      "photo": "Lanius ludovicianus",
-     "obs": 255707691,
+     "obs": 239736062,
      "crop": [
-      0.312,
-      0.0,
-      0.688,
-      1.0
+      0.361,
+      0.1,
+      0.639,
+      0.9
      ]
     }
    ]
@@ -4601,11 +4871,10 @@
    "myth": "lamprey",
    "pose": "point",
    "act": "stand",
-   "say": "Their family is older than dinosaurs.",
+   "say": "They invaded the Great Lakes through canals.",
    "sfx": [
-    "scratch@dinosaurs"
+    "pop@canals"
    ],
-   "punch": "dinosaurs",
    "shots": [
     {
      "photo": "Petromyzon marinus",
@@ -4621,12 +4890,13 @@
   },
   {
    "myth": "lamprey",
-   "pose": "nervous",
-   "act": "shake",
-   "say": "No jaws. No bones. Still scary.",
+   "pose": "point",
+   "act": "stand",
+   "say": "Their family is older than dinosaurs.",
    "sfx": [
-    "pop@scary"
+    "scratch@dinosaurs"
    ],
+   "punch": "dinosaurs",
    "shots": [
     {
      "photo": "Petromyzon marinus",
@@ -4642,10 +4912,12 @@
   },
   {
    "myth": "lamprey",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "I have no bones either.",
-   "sfx": [],
+   "pose": "nervous",
+   "act": "shake",
+   "say": "No jaws. No bones. Still scary.",
+   "sfx": [
+    "pop@scary"
+   ],
    "shots": [
     {
      "photo": "Petromyzon marinus",
@@ -4655,6 +4927,25 @@
       0.05,
       0.69,
       0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lamprey",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "I have no bones either.",
+   "sfx": [],
+   "shots": [
+    {
+     "photo": "Petromyzon marinus",
+     "obs": 374413092,
+     "crop": [
+      0.239,
+      0.15,
+      0.761,
+      0.85
      ]
     }
    ]
@@ -4674,12 +4965,12 @@
    "shots": [
     {
      "photo": "Petromyzon marinus",
-     "obs": 374413092,
+     "obs": 165189560,
      "crop": [
-      0.239,
-      0.15,
-      0.761,
-      0.85
+      0.289,
+      0.0,
+      0.711,
+      1.0
      ]
     }
    ]
@@ -4694,12 +4985,12 @@
    "shots": [
     {
      "photo": "Petromyzon marinus",
-     "obs": 165189560,
+     "obs": 224015540,
      "crop": [
-      0.289,
-      0.0,
-      0.711,
-      1.0
+      0.331,
+      0.1,
+      0.669,
+      0.9
      ]
     }
    ]
@@ -4907,10 +5198,11 @@
    "myth": "velvetant",
    "pose": "shock",
    "act": "stand",
-   "say": "Bright red. Fuzzy. Called cow killer.",
+   "say": "Their armor is unusually tough.",
    "sfx": [
-    "pop@killer"
+    "pop@tough"
    ],
+   "punch": "tough",
    "shots": [
     {
      "photo": "Dasymutilla occidentalis",
@@ -4920,6 +5212,27 @@
       0.15,
       0.762,
       0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "velvetant",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Bright red. Fuzzy. Called cow killer.",
+   "sfx": [
+    "pop@killer"
+   ],
+   "shots": [
+    {
+     "photo": "Dasymutilla occidentalis",
+     "obs": 100212922,
+     "crop": [
+      0.258,
+      0.0,
+      0.742,
+      1.0
      ]
     }
    ]
@@ -4937,12 +5250,12 @@
    "shots": [
     {
      "photo": "Dasymutilla occidentalis",
-     "obs": 100212922,
+     "obs": 306804101,
      "crop": [
-      0.258,
-      0.0,
-      0.742,
-      1.0
+      0.2,
+      0.1,
+      0.8,
+      0.9
      ]
     }
    ]
