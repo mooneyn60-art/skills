@@ -662,6 +662,28 @@
    "myth": "mantis",
    "pose": "deadpan",
    "act": "stand",
+   "say": "Every continent but Antarctica.",
+   "sfx": [
+    "pop@Antarctica"
+   ],
+   "punch": "Antarctica",
+   "shots": [
+    {
+     "photo": "Tenodera sinensis",
+     "obs": 329351875,
+     "crop": [
+      0.419,
+      0.15,
+      0.681,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "mantis",
+   "pose": "deadpan",
+   "act": "stand",
    "say": "Most were near US hummingbird feeders.",
    "sfx": [
     "pop@feeders"
@@ -672,10 +694,10 @@
      "photo": "Archilochus colubris",
      "obs": 130313240,
      "crop": [
-      0.427,
-      0.15,
-      0.673,
-      0.85
+      0.374,
+      0.0,
+      0.726,
+      1.0
      ]
     }
    ]
@@ -694,10 +716,10 @@
      "photo": "Tenodera sinensis",
      "obs": 248975789,
      "crop": [
-      0.239,
-      0.0,
-      0.661,
-      1.0
+      0.281,
+      0.1,
+      0.619,
+      0.9
      ]
     }
    ]
@@ -714,12 +736,12 @@
    "shots": [
     {
      "photo": "Tenodera sinensis",
-     "obs": 329351875,
+     "obs": 248975789,
      "crop": [
-      0.4,
-      0.1,
-      0.7,
-      0.9
+      0.26,
+      0.05,
+      0.64,
+      0.95
      ]
     }
    ]
@@ -737,13 +759,13 @@
    "prop_at": "bottom",
    "shots": [
     {
-     "photo": "Tenodera sinensis",
-     "obs": 248975789,
+     "photo": "Archilochus colubris",
+     "obs": 130313240,
      "crop": [
-      0.26,
-      0.05,
-      0.64,
-      0.95
+      0.427,
+      0.15,
+      0.673,
+      0.85
      ]
     }
    ]
@@ -757,13 +779,13 @@
    "ask": "comment",
    "shots": [
     {
-     "photo": "Archilochus colubris",
-     "obs": 130313240,
+     "photo": "Tenodera sinensis",
+     "obs": 95709810,
      "crop": [
-      0.427,
-      0.15,
-      0.673,
-      0.85
+      0.289,
+      0.0,
+      0.711,
+      1.0
      ]
     }
    ]
