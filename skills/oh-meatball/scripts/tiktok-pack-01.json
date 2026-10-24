@@ -1,12 +1,12 @@
 {
- "title": "TikTok pack 1 (21 originals, Shorts v3, Kokoro)",
- "voice": "kokoro:eric-michael",
+ "title": "TikTok pack 1 (21 originals, Shorts v3, Andrew)",
+ "voice": "en-US-AndrewMultilingualNeural",
  "rate": "+0%",
  "short_rate": "+0%",
  "tempo": 1.1,
  "music": "music/quiz-bed.m4a",
  "style": "v3",
- "_note": "TikTok pack 1, Shorts v3 (research/44; Showrunner + Studio, 2026-10-24). 21 original animal videos for TikTok only: 14 at 20-25 s and 7 single-animal deep dives at 61-75 s (longer jeopardy stories with more escalation, for Creator Rewards). Meatball tries something, it goes wrong, the true fact is the punchline. Lines are 8 words or fewer, with an action and SFX on every line and a joke or reveal every few seconds. The animal is named in the first 2 words, and frame 0 shows the photo and the claim. One Fork + tink per video. 11 of 21 end on a spoken 'Comment.' ask before the loop line, never in the first 3 s. Voice: kokoro:eric-michael (free; Nolan 10/24). Hooks from research/43. Photos: iNaturalist research-grade CC0/CC BY, captive=false, looked at one by one (live wild animals of the right species; no injuries or dead animals). Facts web-checked 10/24; sources on each hook beat; uncertain numbers softened. '_len' marks short/deep.",
+ "_note": "TikTok pack 1, Shorts v3 (research/44; Showrunner + Studio, 2026-10-24). 21 original animal videos for TikTok only: 14 at 20-25 s and 7 single-animal deep dives at 61-75 s (longer jeopardy stories with more escalation, for Creator Rewards). Meatball tries something, it goes wrong, the true fact is the punchline. Lines are 8 words or fewer, with an action and SFX on every line and a joke or reveal every few seconds. The animal is named in the first 2 words, and frame 0 shows the photo and the claim. One Fork + tink per video. 11 of 21 end on a spoken 'Comment.' ask before the loop line, never in the first 3 s. Voice: en-US-AndrewMultilingualNeural at +0% then atempo 1.10, as the v3 prototype (free; Nolan 10/24: one Meatball voice on short-form). Hooks from research/43. Photos: iNaturalist research-grade CC0/CC BY, captive=false, looked at one by one (live wild animals of the right species; no injuries or dead animals). Facts web-checked 10/24; sources on each hook beat; uncertain numbers softened. '_len' marks short/deep.",
  "names": {
   "Phloeodes diabolicus": "Diabolical ironclad beetle",
   "Arothron": "Pufferfish",
@@ -434,13 +434,13 @@
    "act": "puff",
    "say": "The spray hits 100 degrees Celsius.",
    "sfx": [
-    "zap@100"
+    "zap@degrees"
    ],
    "label": {
     "text": "100°C",
-    "at": "100"
+    "at": "degrees"
    },
-   "hit": "100",
+   "hit": "degrees",
    "shots": [
     {
      "photo": "Brachinus",
@@ -795,11 +795,11 @@
    "act": "stand",
    "say": "One beetle lived 562 more days.",
    "sfx": [
-    "pop@562"
+    "pop@more"
    ],
    "label": {
     "text": "562 DAYS",
-    "at": "562"
+    "at": "more"
    },
    "shots": [
     {
@@ -1957,7 +1957,7 @@
    ],
    "label": {
     "text": "13 SPINES",
-    "at": "13"
+    "at": "spines"
    },
    "hit": "spines",
    "shots": [
@@ -2246,11 +2246,11 @@
    "act": "stand",
    "say": "Scientists filmed it in 2007.",
    "sfx": [
-    "pop@2007"
+    "pop@in"
    ],
    "label": {
     "text": "2007",
-    "at": "2007"
+    "at": "in"
    },
    "shots": [
     {
@@ -3074,11 +3074,11 @@
    "act": "stand",
    "say": "Scientists found 147 cases.",
    "sfx": [
-    "pop@147"
+    "pop@cases"
    ],
    "label": {
     "text": "147 CASES",
-    "at": "147"
+    "at": "cases"
    },
    "shots": [
     {
@@ -3099,7 +3099,7 @@
    "act": "stand",
    "say": "In 13 countries.",
    "sfx": [
-    "pop@13"
+    "pop@countries"
    ],
    "punch": "countries",
    "shots": [
@@ -3328,7 +3328,7 @@
    ],
    "label": {
     "text": "~100\nTEETH",
-    "at": "100"
+    "at": "teeth"
    },
    "hit": "teeth",
    "shots": [
@@ -3658,7 +3658,7 @@
    "sfx": [],
    "label": {
     "text": "10+\nMINUTES",
-    "at": "10"
+    "at": "minutes"
    },
    "shots": [
     {
@@ -3994,11 +3994,11 @@
    "act": "stand",
    "say": "Approved in 2005.",
    "sfx": [
-    "pop@2005"
+    "pop@in"
    ],
    "label": {
     "text": "2005",
-    "at": "2005"
+    "at": "in"
    },
    "shots": [
     {
@@ -4719,7 +4719,7 @@
    ],
    "label": {
     "text": "10 FEET",
-    "at": "10"
+    "at": "feet"
    },
    "shots": [
     {
@@ -4809,7 +4809,7 @@
    ],
    "label": {
     "text": "~6 FT\nWINGS",
-    "at": "6"
+    "at": "feet"
    },
    "shots": [
     {
@@ -5448,11 +5448,11 @@
    "act": "peek",
    "say": "Skunks can spray you from 10 feet.",
    "sfx": [
-    "pop@10"
+    "pop@feet"
    ],
    "label": {
     "text": "10 FEET",
-    "at": "10"
+    "at": "feet"
    },
    "hook": true,
    "loop_say": "So if one stomps at you, run. Because",
@@ -5484,7 +5484,7 @@
       0.728,
       1.0
      ],
-     "at": "10"
+     "at": "feet"
     }
    ]
   },
@@ -5496,7 +5496,7 @@
    "sfx": [
     "whoosh@0.05"
    ],
-   "punch": "11",
+   "punch": "feet",
    "shots": [
     {
      "photo": "Mephitis mephitis",
@@ -5516,14 +5516,14 @@
    "act": "launch",
    "say": "Some hit targets at 20 feet.",
    "sfx": [
-    "splash@20",
-    "whoosh@20"
+    "splash@feet",
+    "whoosh@feet"
    ],
    "label": {
     "text": "20 FEET",
-    "at": "20"
+    "at": "feet"
    },
-   "hit": "20",
+   "hit": "feet",
    "shots": [
     {
      "photo": "Mephitis mephitis",
@@ -6453,11 +6453,11 @@
    "act": "stand",
    "say": "One kind's tongue is almost 3 beaks long.",
    "sfx": [
-    "pop@3"
+    "pop@beaks"
    ],
    "label": {
     "text": "3x\nTHE BEAK",
-    "at": "3"
+    "at": "beaks"
    },
    "shots": [
     {
@@ -6923,11 +6923,11 @@
    "act": "stand",
    "say": "They're up to 2 inches long.",
    "sfx": [
-    "pop@2"
+    "pop@inches"
    ],
    "label": {
     "text": "2 INCHES",
-    "at": "2"
+    "at": "inches"
    },
    "shots": [
     {
@@ -7595,7 +7595,7 @@
    ],
    "label": {
     "text": "40 LBS",
-    "at": "40"
+    "at": "pounds"
    },
    "act_at": "kill",
    "shots": [
