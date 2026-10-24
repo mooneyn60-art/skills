@@ -60,6 +60,19 @@ qualified views. Channel: subs, weekly long-form watch hours vs the 4,000 h pace
   YouTube Studio: Settings > Upload defaults > Advanced settings > untick "Show how many viewers
   like this video" (new uploads), and Content > select all > Edit (existing ones).
 
+## Meatball is the star (Nolan, 10/24)
+- Meatball is the biggest thing on screen in every shot that isn't a full-bleed animal photo.
+  - **Long-form:** about 85% of the frame height, head high, beside a narrower photo panel.
+  - **Shorts:** about half the frame on text cards; on photo shots he stands in the scene, cut at the waist.
+- He drives every video:
+  - every line is his voice and his opinion (first person, research/39 persona)
+  - he reacts to every reveal
+  - he points at the animal
+  - he gets the last word before the loop
+- No shot leaves him in a corner. The animal photo is his co-star and never replaces him for more than one cut.
+- Thumbnails always show his face reacting.
+- The Red Team rejects any render or thumbnail that breaks these rules.
+
 ## Long-form rules (learned 2026-10-23)
 - Cold open every episode: the first line is the hook for a stranger (the myths, the twist, the
   stakes), then straight into myth 1. Never open with "Last time..." since nearly every viewer is new.
@@ -105,4 +118,5 @@ qualified views. Channel: subs, weekly long-form watch hours vs the 4,000 h pace
   3. Run `premium_voice.py split SCRIPT OUTDIR`, then render.
   4. If a render stops on missing lines (hooks and loop lines built at render time), run `prep-missing VOICE OUTDIR`, voice them, split, and render again.
 - **Cost:** about 14 vidIQ credits per Short.
-- **Long-form:** stays on en-US-AndrewMultilingualNeural until Nolan decides on more credits or an ElevenLabs plan. Bill on everything is the goal: one character, one voice.
+- **Long-form:** stays on en-US-AndrewMultilingualNeural for now.
+- **No paid voices beyond the vidIQ credits we already have (Nolan, 10/24).** Bill runs until those credits are gone; no extra credits and no ElevenLabs. The free replacement is being tested: Chatterbox (open source, runs locally) with our own Meatball voice made from a Kokoro blend. Samples are in `research/39-voice-tests/`. One character, one voice is still the goal.
