@@ -1,0 +1,907 @@
+{
+ "title": "Halloween pack 01: 6 spooky animal myths (Shorts v2)",
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+4%",
+ "short_rate": "+4%",
+ "pitch": "-3Hz",
+ "music": "music/quiz-bed.m4a",
+ "style": "classic",
+ "_note": "Mayor's seasonal order (2026-10-24), to post 10/28-10/31. Suggested slots: 10/28 crow + spider eggs, 10/29 owl, 10/30 black widow, 10/31 vampire bat + black cat (biggest searches on the day). Persona and v2 rules as the series pack; fun-spooky, no gore (no dead-animal or feeding photos). Dropped from the Mayor's list: 'bats are blind' (already posted, myths-01-short-bat) and 'wolves howl at the moon' (no CC0/CC BY howling-wolf photo on iNaturalist whose first photo shows howling; the renderer pins photos[0] only). Replaced with 'black widows eat their mates'. SCRIPTS ONLY until the new rig is approved; if the rig slips past 10/28, render these on the current rig rather than miss the date (Mayor's call). 'shot' is the pending Studio shot grammar.",
+ "beats": [
+  {
+   "hook": true,
+   "myth": "vampire",
+   "bleed": true,
+   "pose": "deadpan",
+   "shot": "show",
+   "say": "Vampire bats don't suck blood. They make a tiny cut, and lap it up with their tongue.",
+   "loop_say": "Honestly, that's creepier. Anyway,",
+   "short_title": "Vampire Bats Don't Suck Blood (They Do Something Weirder) 🦇",
+   "bonus": "A vampire bat can die after about 70 hours without a meal, which is why roostmates share.",
+   "comment": "Creepier or cuter than you thought? 👇",
+   "shots": [
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 278432573,
+     "crop": [
+      0.363,
+      0.0,
+      0.737,
+      1.0
+     ]
+    },
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 320783448,
+     "crop": [
+      0.26,
+      0.0,
+      0.64,
+      0.9
+     ],
+     "at": "They"
+    },
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 248835378,
+     "crop": [
+      0.451,
+      0.0,
+      0.789,
+      0.9
+     ],
+     "at": "and"
+    }
+   ],
+   "sources": [
+    "Vampire bats cut and lap with a grooved tongue; saliva numbs and keeps blood flowing — https://www.nationalgeographic.com/animals/article/151117-vampire-bats-blood-food-science-animals",
+    "Draculin, anticoagulant glycoprotein in Desmodus rotundus saliva, named after Count Dracula (Fernandez et al. 1998, Thromb. Haemost.) — https://en.wikipedia.org/wiki/Draculin",
+    "Wilkinson 1984, Nature, 'Reciprocal food sharing in the vampire bat' (regurgitated blood shared with roostmates) — https://socialbat.org/2016/07/01/revisiting-wilkinson-1984",
+    "Common vampire bats feed mainly on livestock (cattle, horses); people rarely — https://en.wikipedia.org/wiki/Common_vampire_bat",
+    "Photo note: 248835378 shows a gloved hand at the left edge; crops start right of it."
+   ]
+  },
+  {
+   "myth": "vampire",
+   "bleed": true,
+   "pose": "deadpan",
+   "shot": "show",
+   "say": "Their spit has a blood thinner called draculin. Yes. After Dracula.",
+   "shots": [
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 248835378,
+     "crop": [
+      0.479,
+      0.075,
+      0.761,
+      0.825
+     ]
+    },
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 278432573,
+     "crop": [
+      0.35,
+      0.1,
+      0.65,
+      0.9
+     ],
+     "at": "draculin"
+    }
+   ]
+  },
+  {
+   "myth": "vampire",
+   "bleed": true,
+   "pose": "nervous",
+   "shot": "together",
+   "say": "And a bat that missed dinner gets a shared meal from a roostmate.",
+   "shots": [
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 72906803,
+     "crop": [
+      0.24,
+      0.0,
+      0.66,
+      1.0
+     ]
+    },
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 23985108,
+     "crop": [
+      0.21,
+      0.0,
+      0.59,
+      0.9
+     ],
+     "at": "gets"
+    }
+   ]
+  },
+  {
+   "myth": "vampire",
+   "pose": "nervous",
+   "shot": "closeup",
+   "hold": 0.5,
+   "say": "They share dinner. I have only ever been dinner.",
+   "shots": [
+    {},
+    {
+     "aside": "(no one shares me)",
+     "at": "been"
+    }
+   ],
+   "prop": "fork",
+   "sting": "tink"
+  },
+  {
+   "myth": "vampire",
+   "pose": "deadpan",
+   "shot": "host",
+   "say": "They don't suck. They lap. Mostly cows, not you.",
+   "shots": [
+    {
+     "text": "THEY DON'T\nSUCK"
+    },
+    {
+     "text": "THEY\nLAP",
+     "at": "lap"
+    },
+    {
+     "text": "MOSTLY\nCOWS",
+     "aside": "(happy Halloween, cows)",
+     "at": "Mostly"
+    }
+   ]
+  },
+  {
+   "hook": true,
+   "myth": "widow",
+   "bleed": true,
+   "pose": "deadpan",
+   "shot": "show",
+   "say": "Black widows usually don't eat their mates. In the western black widow, it's never been seen in the wild.",
+   "loop_say": "Most males just leave. Quietly. Smart. Because",
+   "short_title": "Black Widows Usually Don't Eat Their Mates 🕷️",
+   "bonus": "In a few Southern Hemisphere widow species, eating the male is the norm. Not this one.",
+   "comment": "Who told you the black widow always eats the male? 👇",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 312620607,
+     "crop": [
+      0.239,
+      0.0,
+      0.661,
+      1.0
+     ]
+    },
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 177715400,
+     "crop": [
+      0.294,
+      0.1,
+      0.706,
+      1.0
+     ],
+     "at": "In"
+    },
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 109595183,
+     "crop": [
+      0.247,
+      0.0,
+      0.553,
+      1.0
+     ],
+     "at": "never"
+    }
+   ],
+   "sources": [
+    "Burke Museum spider myths (Rod Crawford), 'Myth: Black widows eat their mates': never observed in the wild for L. hesperus; old data from lab cages where males couldn't escape; females weigh 10-160x males — https://www.burkemuseum.org/blog/myth-black-widows-eat-their-mates",
+    "LiveScience, black widow facts (females do not usually eat mates) — https://www.livescience.com/39919-black-widow-spiders.html",
+    "Photos are all Latrodectus hesperus (western black widow), the species the hook names."
+   ]
+  },
+  {
+   "myth": "widow",
+   "bleed": true,
+   "pose": "deadpan",
+   "shot": "show",
+   "say": "The old stories came from lab cages, where the male couldn't escape.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 324385129,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    },
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 368355662,
+     "crop": [
+      0.36,
+      0.1,
+      0.74,
+      1.0
+     ],
+     "at": "where"
+    }
+   ]
+  },
+  {
+   "myth": "widow",
+   "bleed": true,
+   "pose": "nervous",
+   "shot": "together",
+   "say": "She can weigh up to a hundred and sixty times what he does.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 109595183,
+     "crop": [
+      0.258,
+      0.05,
+      0.502,
+      0.85
+     ]
+    },
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 312620607,
+     "crop": [
+      0.281,
+      0.15,
+      0.619,
+      0.95
+     ],
+     "at": "hundred"
+    }
+   ]
+  },
+  {
+   "myth": "widow",
+   "pose": "nervous",
+   "shot": "closeup",
+   "hold": 0.5,
+   "say": "Small guest, big eater's house. Leave early. Leave politely.",
+   "shots": [
+    {},
+    {
+     "aside": "(take the stairs)",
+     "at": "Leave"
+    }
+   ],
+   "prop": "fork",
+   "sting": "tink"
+  },
+  {
+   "myth": "widow",
+   "pose": "deadpan",
+   "shot": "host",
+   "say": "Not always eaten. Mostly just awkward.",
+   "shots": [
+    {
+     "text": "NOT ALWAYS\nEATEN"
+    },
+    {
+     "text": "MOSTLY JUST\nAWKWARD",
+     "at": "Mostly"
+    },
+    {
+     "text": "MOSTLY JUST\nAWKWARD",
+     "aside": "(like every party)",
+     "at": "awkward"
+    }
+   ]
+  },
+  {
+   "hook": true,
+   "myth": "blackcat",
+   "bleed": true,
+   "pose": "deadpan",
+   "shot": "show",
+   "say": "Black cats aren't bad luck everywhere. In Japan and Scotland, a black cat means good luck.",
+   "loop_say": "So it depends on your map. Because",
+   "short_title": "Black Cats Are Good Luck in Japan and Scotland 🐈‍⬛",
+   "bonus": "In Scotland, a strange black cat on your doorstep is said to bring prosperity.",
+   "comment": "Good luck or bad luck where you live? 👇",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 333436760,
+     "crop": [
+      0.219,
+      0.0,
+      0.781,
+      1.0
+     ]
+    },
+    {
+     "photo": "Felis catus",
+     "obs": 137560355,
+     "crop": [
+      0.462,
+      0.0,
+      0.778,
+      1.0
+     ],
+     "at": "In"
+    },
+    {
+     "photo": "Felis catus",
+     "obs": 206822105,
+     "crop": [
+      0.219,
+      0.125,
+      0.781,
+      0.875
+     ],
+     "at": "a"
+    }
+   ],
+   "sources": [
+    "Cats Protection (UK), black cat superstitions (lucky in Japan and the UK; crossing your path is good luck) — https://www.cats.org.uk/cats-blog/black-cat-superstitions",
+    "Catster, are black cats good luck (Scotland doorstep = prosperity; Japan good luck) — https://www.catster.com/lifestyle/are-black-cats-good-luck",
+    "Caveat (Fact desk): folklore varies by region; the script says 'in parts of England', not 'in the UK'.",
+    "Photos: domestic cats, CC0/CC BY; 206822105 is a pet indoors (casual grade, species not in doubt)."
+   ]
+  },
+  {
+   "myth": "blackcat",
+   "bleed": true,
+   "pose": "deadpan",
+   "shot": "show",
+   "say": "In parts of England, one crossing your path is lucky too.",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 70345133,
+     "crop": [
+      0.363,
+      0.0,
+      0.737,
+      1.0
+     ]
+    },
+    {
+     "photo": "Felis catus",
+     "obs": 333436760,
+     "crop": [
+      0.225,
+      0.1,
+      0.675,
+      0.9
+     ],
+     "at": "one"
+    }
+   ]
+  },
+  {
+   "myth": "blackcat",
+   "bleed": true,
+   "pose": "nervous",
+   "shot": "together",
+   "say": "And cats are hunters. They pounce on small, round things that roll.",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 70345133,
+     "crop": [
+      0.4,
+      0.15,
+      0.7,
+      0.95
+     ]
+    },
+    {
+     "photo": "Felis catus",
+     "obs": 137560355,
+     "crop": [
+      0.493,
+      0.15,
+      0.747,
+      0.95
+     ],
+     "at": "They"
+    }
+   ]
+  },
+  {
+   "myth": "blackcat",
+   "pose": "nervous",
+   "shot": "closeup",
+   "hold": 0.5,
+   "say": "Small. Round. Rolls. I don't love it.",
+   "shots": [
+    {},
+    {
+     "aside": "(it's looking at me)",
+     "at": "love"
+    }
+   ],
+   "prop": "fork",
+   "sting": "tink"
+  },
+  {
+   "myth": "blackcat",
+   "pose": "deadpan",
+   "shot": "host",
+   "say": "Luck: good. For meatballs: unclear.",
+   "shots": [
+    {
+     "text": "LUCK:\nGOOD"
+    },
+    {
+     "text": "FOR MEATBALLS:\nUNCLEAR",
+     "at": "For"
+    },
+    {
+     "text": "FOR MEATBALLS:\nUNCLEAR",
+     "aside": "(very unclear)",
+     "at": "unclear"
+    }
+   ]
+  },
+  {
+   "hook": true,
+   "myth": "crow",
+   "bleed": true,
+   "pose": "deadpan",
+   "shot": "show",
+   "say": "Crows really do gather around a dead crow. But it's not a funeral. It's a lesson about danger.",
+   "loop_say": "And they remember faces. So, quick reminder:",
+   "short_title": "Crows Really Do Gather Around Their Dead 🐦‍⬛",
+   "bonus": "Crows ignored a dead pigeon. Only a dead crow set them off.",
+   "comment": "Has a crow ever held a grudge against you? 👇",
+   "shots": [
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 40536795,
+     "crop": [
+      0.532,
+      0.0,
+      0.948,
+      1.0
+     ]
+    },
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 161476215,
+     "crop": [
+      0.219,
+      0.0,
+      0.781,
+      1.0
+     ],
+     "at": "But"
+    },
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 370533885,
+     "crop": [
+      0.396,
+      0.05,
+      0.844,
+      0.85
+     ],
+     "at": "lesson"
+    }
+   ],
+   "sources": [
+    "Swift & Marzluff 2015, Animal Behaviour 109:187-197, 'Wild American crows gather around their dead to learn about danger' (mob dead crows; scold the associated person; slower to approach food there; association up to 6 weeks; dead pigeon no effect) — https://corvidresearch.blog/2015/09/26/why-crows-gather-around-their-dead/",
+    "NYT / Carl Zimmer, 1 Oct 2015, crows may learn lessons from death — https://carlzimmer.com/crows-may-learn-lessons-from-death-88/",
+    "Framing rule: 'not a funeral' (the study measured threat learning, not grief)."
+   ]
+  },
+  {
+   "myth": "crow",
+   "bleed": true,
+   "pose": "deadpan",
+   "shot": "show",
+   "say": "In a study, crows scolded the person holding a dead crow, and avoided food at that spot.",
+   "shots": [
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 72146984,
+     "crop": [
+      0.471,
+      0,
+      0.929,
+      1.0
+     ]
+    },
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 40536795,
+     "crop": [
+      0.052,
+      0.1,
+      0.428,
+      1.0
+     ],
+     "at": "holding"
+    },
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 70485080,
+     "crop": [
+      0.313,
+      0,
+      0.687,
+      1.0
+     ],
+     "at": "avoided"
+    }
+   ]
+  },
+  {
+   "myth": "crow",
+   "bleed": true,
+   "pose": "nervous",
+   "shot": "together",
+   "say": "That grudge lasted up to six weeks.",
+   "shots": [
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 161476215,
+     "crop": [
+      0.169,
+      0.0,
+      0.731,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "crow",
+   "pose": "nervous",
+   "shot": "closeup",
+   "hold": 0.5,
+   "say": "They also eat almost anything. Including leftovers. I am leftovers.",
+   "shots": [
+    {},
+    {
+     "aside": "(Tuesday's)",
+     "at": "I"
+    }
+   ],
+   "prop": "fork",
+   "sting": "tink"
+  },
+  {
+   "myth": "crow",
+   "pose": "deadpan",
+   "shot": "host",
+   "say": "Not a funeral. A safety meeting.",
+   "shots": [
+    {
+     "text": "NOT A\nFUNERAL"
+    },
+    {
+     "text": "A SAFETY\nMEETING",
+     "at": "safety"
+    },
+    {
+     "text": "A SAFETY\nMEETING",
+     "aside": "(with a long memory)",
+     "at": "meeting"
+    }
+   ]
+  },
+  {
+   "hook": true,
+   "myth": "owl",
+   "bleed": true,
+   "pose": "deadpan",
+   "shot": "show",
+   "say": "Owls aren't omens of death. But they really can fly almost without a sound.",
+   "loop_say": "You won't hear it coming. That's the point. Anyway,",
+   "short_title": "Owls Aren't Death Omens, But They Can Fly in Silence 🦉",
+   "bonus": "Engineers have copied the owl's feather comb to make wind turbines quieter.",
+   "comment": "Have you ever heard an owl fly over? 👇",
+   "shots": [
+    {
+     "photo": "Tyto alba",
+     "obs": 40237382,
+     "crop": [
+      0.362,
+      0,
+      0.738,
+      1.0
+     ]
+    },
+    {
+     "photo": "Tyto alba",
+     "obs": 332079093,
+     "crop": [
+      0.232,
+      0.0,
+      0.607,
+      1.0
+     ],
+     "at": "But"
+    },
+    {
+     "photo": "Tyto alba",
+     "obs": 106853702,
+     "crop": [
+      0.389,
+      0,
+      0.811,
+      1.0
+     ],
+     "at": "fly"
+    }
+   ],
+   "sources": [
+    "Audubon, 'The Silent Flight of Owls, Explained' (leading-edge comb, velvety surface, trailing fringe) — https://www.audubon.org/magazine/silent-flight-of-owls-explained",
+    "Knowable Magazine, how owls fly without making a sound — https://knowablemagazine.org/article/technology/2020/how-owls-fly-without-making-a-sound",
+    "Payne & Drury 1958; Payne 1971; Konishi (barn owls strike prey in total darkness by sound alone) — https://www.americanscientist.org/node/2084",
+    "Omen claim is folklore, not biology; script corrects it and moves to the true spooky fact."
+   ]
+  },
+  {
+   "myth": "owl",
+   "bleed": true,
+   "pose": "deadpan",
+   "shot": "show",
+   "say": "Comb-like edges on its feathers break up the air, and a velvety surface soaks up the sound.",
+   "shots": [
+    {
+     "photo": "Tyto alba",
+     "obs": 40237382,
+     "crop": [
+      0.237,
+      0.05,
+      0.463,
+      0.65
+     ]
+    },
+    {
+     "photo": "Tyto alba",
+     "obs": 106853702,
+     "crop": [
+      0.381,
+      0.05,
+      0.719,
+      0.85
+     ],
+     "at": "break"
+    },
+    {
+     "photo": "Tyto alba",
+     "obs": 103487807,
+     "crop": [
+      0.36,
+      0,
+      0.74,
+      0.9
+     ],
+     "at": "and"
+    }
+   ]
+  },
+  {
+   "myth": "owl",
+   "bleed": true,
+   "pose": "nervous",
+   "shot": "together",
+   "say": "Barn owls can catch mice in total darkness, just by listening.",
+   "shots": [
+    {
+     "photo": "Tyto alba",
+     "obs": 103487807,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    },
+    {
+     "photo": "Tyto alba",
+     "obs": 332079093,
+     "crop": [
+      0.27,
+      0.15,
+      0.57,
+      0.95
+     ],
+     "at": "just"
+    }
+   ]
+  },
+  {
+   "myth": "owl",
+   "pose": "nervous",
+   "shot": "closeup",
+   "hold": 0.5,
+   "say": "Silent. Hunts at night. Likes small, round things. Lights on.",
+   "shots": [
+    {},
+    {
+     "aside": "(and a bell)",
+     "at": "Lights"
+    }
+   ],
+   "prop": "fork",
+   "sting": "tink"
+  },
+  {
+   "myth": "owl",
+   "pose": "deadpan",
+   "shot": "host",
+   "say": "Omen: no. Stealth: yes.",
+   "shots": [
+    {
+     "text": "OMEN:\nNO"
+    },
+    {
+     "text": "STEALTH:\nYES",
+     "at": "Stealth"
+    },
+    {
+     "text": "STEALTH:\nYES",
+     "aside": "(sleeping with the lights on)",
+     "at": "yes"
+    }
+   ]
+  },
+  {
+   "hook": true,
+   "myth": "spidereggs",
+   "bleed": true,
+   "pose": "deadpan",
+   "shot": "show",
+   "say": "No spider lays its eggs in your skin. There's no real case in medical records. Not one.",
+   "loop_say": "So you can relax. Mostly. Because",
+   "short_title": "No Spider Lays Eggs in Your Skin (Here's Where They Go) 🕷️",
+   "bonus": "The legend may trace partly to a 1982 horror novel, but it's older than that.",
+   "comment": "Who told you this one as a kid? 👇",
+   "shots": [
+    {
+     "photo": "Pardosa lugubris",
+     "obs": 369498853,
+     "crop": [
+      0.144,
+      0.0,
+      0.856,
+      1.0
+     ]
+    },
+    {
+     "photo": "Pardosa lugubris",
+     "obs": 369498853,
+     "crop": [
+      0.336,
+      0.32,
+      0.764,
+      0.92
+     ],
+     "at": "There's"
+    },
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 10679778,
+     "crop": [
+      0.2,
+      0.15,
+      0.8,
+      0.95
+     ],
+     "at": "Not"
+    }
+   ],
+   "sources": [
+    "Burke Museum spider myths (Rod Crawford), 'Myth: Baby spiders from bite wounds' / eggs under skin: no real case in scientific or medical literature — https://www.burkemuseum.org/collections-and-research/biology/arachnology-and-entomology/spider-myths/myth-baby-spiders-bite",
+    "Wolf spiders (Lycosidae, incl. Pardosa) carry the egg sac attached to the spinnerets; widows guard egg sacs in the web — https://www.burkemuseum.org/static/spidermyth/",
+    "Photos: Pardosa lugubris with egg sac (369498853), Latrodectus hesperus with egg sac (10679778)."
+   ]
+  },
+  {
+   "myth": "spidereggs",
+   "bleed": true,
+   "pose": "deadpan",
+   "shot": "show",
+   "say": "Spiders wrap their eggs in a silk sac. This wolf spider tows hers behind her.",
+   "shots": [
+    {
+     "photo": "Pardosa lugubris",
+     "obs": 369498853,
+     "crop": [
+      0.372,
+      0.4,
+      0.728,
+      0.9
+     ]
+    },
+    {
+     "photo": "Pardosa lugubris",
+     "obs": 369498853,
+     "crop": [
+      0.144,
+      0.0,
+      0.856,
+      1.0
+     ],
+     "at": "This"
+    }
+   ]
+  },
+  {
+   "myth": "spidereggs",
+   "bleed": true,
+   "pose": "nervous",
+   "shot": "together",
+   "say": "A black widow guards her egg sac in her web.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 10679778,
+     "crop": [
+      0.125,
+      0.0,
+      0.875,
+      1.0
+     ]
+    },
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 10679778,
+     "crop": [
+      0.314,
+      0.445,
+      0.726,
+      0.995
+     ],
+     "at": "guards"
+    }
+   ]
+  },
+  {
+   "myth": "spidereggs",
+   "pose": "nervous",
+   "shot": "closeup",
+   "hold": 0.5,
+   "say": "They're great parents. I was raised by a frying pan.",
+   "shots": [
+    {},
+    {
+     "aside": "(we don't talk)",
+     "at": "frying"
+    }
+   ]
+  },
+  {
+   "myth": "spidereggs",
+   "pose": "deadpan",
+   "shot": "host",
+   "say": "Eggs in skin: myth. Eggs in silk: fact.",
+   "shots": [
+    {
+     "text": "EGGS IN SKIN:\nMYTH"
+    },
+    {
+     "text": "EGGS IN SILK:\nFACT",
+     "at": "silk"
+    },
+    {
+     "text": "EGGS IN SILK:\nFACT",
+     "aside": "(spooky season: cancelled)",
+     "at": "fact"
+    }
+   ]
+  }
+ ]
+}
