@@ -20,14 +20,14 @@
    "myth": "cassowary",
    "pose": "nervous",
    "act": "peek",
-   "say": "This bird has a four-inch dagger.",
+   "say": "This bird has a 4-inch dagger.",
    "punch": "dagger",
    "label": {
     "text": "4 INCHES",
-    "at": "four-inch"
+    "at": "4-inch"
    },
    "sfx": [
-    "pop@four-inch"
+    "pop@4-inch"
    ],
    "loop_say": "Never say hi. Because",
    "short_title": "I Tried to Befriend a Cassowary 🦶 (Would Meatball Survive?)",
@@ -53,7 +53,7 @@
       0.7,
       1.0
      ],
-     "at": "four-inch"
+     "at": "4-inch"
     }
    ],
    "sources": [
@@ -65,7 +65,7 @@
    "myth": "cassowary",
    "pose": "deadpan",
    "act": "run_in",
-   "say": "So naturally, I went to say hi.",
+   "say": "So I went to say hi.",
    "sfx": [
     "whoosh@0.05"
    ],
@@ -86,10 +86,10 @@
    "myth": "cassowary",
    "pose": "shock",
    "act": "run_across",
-   "say": "It runs thirty-one miles an hour.",
+   "say": "It runs 31 miles an hour.",
    "label": {
     "text": "31 MPH",
-    "at": "thirty-one"
+    "at": "31"
    },
    "sfx": [
     "whoosh@runs"
@@ -301,22 +301,23 @@
       1.0
      ]
     }
-   ]
+   ],
+   "sfx": []
   },
   {
    "hook": true,
    "myth": "boxjelly",
    "pose": "nervous",
    "act": "peek",
-   "say": "This jellyfish has twenty-four eyes.",
+   "say": "This jellyfish has 24 eyes.",
    "label": {
     "text": "24 EYES",
-    "at": "twenty-four"
+    "at": "24"
    },
    "sfx": [
-    "pop@twenty-four"
+    "pop@24"
    ],
-   "loop_say": "Four of them are watching you. Because",
+   "loop_say": "Four are watching you. Because",
    "short_title": "I Tried to Outsmart a Box Jellyfish 👀 (Would Meatball Survive?)",
    "bonus": "Box jellyfish sting in Australia? Vinegar on the sting, then call emergency services (000). Vinegar stops unfired stingers; it is not a cure.",
    "comment": "Would you swim there? 👇",
@@ -340,7 +341,7 @@
       0.669,
       0.95
      ],
-     "at": "twenty-four"
+     "at": "24"
     }
    ],
    "sources": [
@@ -425,7 +426,7 @@
    "myth": "boxjelly",
    "pose": "shock",
    "act": "stand",
-   "say": "Its tentacles are covered in stingers.",
+   "say": "Its tentacles are full of stingers.",
    "punch": "stingers",
    "shots": [
     {
@@ -438,7 +439,8 @@
       1.0
      ]
     }
-   ]
+   ],
+   "sfx": []
   },
   {
    "myth": "boxjelly",
@@ -494,7 +496,8 @@
      ],
      "at": "heart"
     }
-   ]
+   ],
+   "sfx": []
   },
   {
    "myth": "boxjelly",
@@ -612,14 +615,15 @@
       0.88
      ]
     }
-   ]
+   ],
+   "sfx": []
   },
   {
    "hook": true,
    "myth": "badger",
    "pose": "nervous",
    "act": "peek",
-   "say": "This badger is built to resist cobra venom.",
+   "say": "This badger resists cobra venom.",
    "label": {
     "text": "COBRA\nVENOM",
     "at": "cobra"
@@ -651,7 +655,7 @@
       0.69,
       1.0
      ],
-     "at": "resist"
+     "at": "resists"
     }
    ],
    "sources": [
@@ -665,7 +669,7 @@
    "myth": "badger",
    "pose": "nervous",
    "act": "shake",
-   "say": "A tiny change blocks one of its toxins.",
+   "say": "One tiny change blocks a toxin.",
    "punch": "blocks",
    "shots": [
     {
@@ -678,13 +682,14 @@
       1.0
      ]
     }
-   ]
+   ],
+   "sfx": []
   },
   {
    "myth": "badger",
    "pose": "deadpan",
    "act": "run_in",
-   "say": "So, obviously, I poked it.",
+   "say": "Obviously, I poked it.",
    "punch": "poked",
    "sfx": [
     "whoosh@0.05",
@@ -774,7 +779,7 @@
    "pose": "shock",
    "act": "launch",
    "hit": "friends",
-   "say": "It did not want to be friends.",
+   "say": "It did not want friends.",
    "sfx": [
     "crunch@friends",
     "whoosh@friends"
@@ -797,7 +802,7 @@
    "pose": "deadpan",
    "act": "tumble",
    "act_at": 0.45,
-   "say": "Its skin is thick and super loose.",
+   "say": "Its skin is super loose.",
    "sfx": [
     "thud@0.45"
    ],
@@ -819,7 +824,7 @@
    "pose": "shock",
    "act": "hit",
    "hit": "twists",
-   "say": "Grab it, and it twists around inside.",
+   "say": "Grab it, it twists inside.",
    "sfx": [
     "crunch@twists"
    ],
@@ -862,7 +867,7 @@
    "myth": "badger",
    "pose": "deadpan",
    "act": "peek",
-   "say": "Hedgehogs evolved the same trick.",
+   "say": "Hedgehogs evolved it too.",
    "label": {
     "text": "HEDGEHOGS\nTOO",
     "at": "Hedgehogs"
