@@ -491,6 +491,8 @@ def overlay_mascot(raw, m, words, dur, frames_dir, seg, pop=True, seed=0):
 def build(beats, work, out, picks, name, rate="+8%"):
     voice(beats, work, name, rate)
     ctxs = contexts(beats, work) if PUNCH or H > W else [None] * len(beats)
+    if beats and beats[-1].get("loop") and ctxs[0] is not None:
+        ctxs[-1] = dict(ctxs[-1], bg=ctxs[0].get("bg"))  # loop frame must match frame 0 exactly
     segs = []
     for i, b in enumerate(beats):
         img, mp3, seg = f"{work}/frame{i:02d}.png", vo_path(b, work, name, rate), f"{work}/seg{i:02d}.mp4"
