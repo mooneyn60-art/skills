@@ -30,7 +30,7 @@ taps. This file is the team, the daily routine, the numbers we steer by, and the
 | 18:41 | Review: stats, analytics, rivals, HQ report, next topics | HQ Daily report + rivals, backlog updated |
 
 Cadence: one long-form a day at 2 PM (Saturdays: the "Meatball Explains" history episode instead of a myth episode, never both); YouTube Shorts 10 AM, 1 PM and 4 PM (from the newest episode that is
-already live, so Related video can point at it); TikToks 10 AM, 12 PM, 6 PM, each over 60 s. Times follow Metricool best-time data
+already live, so Related video can point at it); TikToks 5 a day from 10/25: 10 AM, 12 PM, 4 PM, 6 PM, 8 PM. Three are over 60 s (Creator Rewards) and two are short claim-first originals (reach); TikTok is the lab and YouTube the showroom (research/33). Times follow Metricool best-time data
 (checked 2026-10-24): YouTube peaks 3-5 PM (4 PM top) with a second peak at 10 AM, so the episode goes live at 2 PM, ahead of the
 big wave; TikTok peaks 10 AM, 12 PM and 6 PM every day.
 
