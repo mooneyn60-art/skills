@@ -1,0 +1,616 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+15%",
+ "short_rate": "+15%",
+ "music": "music/quiz-bed.m4a",
+ "style": "classic",
+ "title": "12 Cat & Dog Myths You STILL Believe (TRUE or FALSE?)",
+ "names": {
+  "Felis catus": "House cat",
+  "Canis familiaris": "Dog"
+ },
+ "blurb": "TRUE or FALSE? Cats always land on their feet, dogs see in black and white, a dog's mouth is cleaner than yours... 12 pet facts, 3 seconds each. Keep score and drop it in the comments 👇",
+ "next": "Subscribe: next it's how cats domesticated themselves.",
+ "tags": [
+  "cat myths",
+  "dog myths",
+  "pet myths",
+  "do cats always land on their feet",
+  "do dogs see in black and white",
+  "dog years",
+  "is milk good for cats",
+  "dog mouth cleaner",
+  "why do dogs eat grass",
+  "cats purring",
+  "true or false quiz",
+  "animal quiz",
+  "animal myths",
+  "pet facts",
+  "Meatball Myths"
+ ],
+ "pinned": "📝 SCORE CHECK: how many did you get out of 12? 👇\n\nAnswer key: TRUE = nose prints, cats can't taste sweet, dogs understand pointing. Everything else was FALSE.\n\nWhich one did your family swear was true? Comment it.",
+ "beats": [
+  {
+   "say": "Your dog licks your face, and someone tells you it's fine, because a dog's mouth is cleaner than yours. Hold that thought. We're settling it at the end, and you won't love the answer.",
+   "pose": "shock",
+   "text": "CLEANER\nTHAN YOURS?",
+   "myth": "intro"
+  },
+  {
+   "say": "Twelve cat and dog facts. Three seconds each to guess true or false. Keep score and tell me your number out of twelve. Some of these are true. Let's go.",
+   "pose": "point",
+   "text": "KEEP\nSCORE",
+   "myth": "intro"
+  },
+  {
+   "say": "True or false? Cats always land on their feet.",
+   "pose": "think",
+   "quiz": "CATS ALWAYS\nLAND ON\nTHEIR FEET",
+   "myth": "feet",
+   "bonus": "Kittens start learning the righting reflex at about three to four weeks old, and have it mostly figured out by about seven weeks.",
+   "short_title": "Do Cats Always Land on Their Feet? 🐈"
+  },
+  {
+   "say": "False. Cats are amazing at it, but always is doing a lot of work in that sentence.",
+   "pose": "shrug",
+   "photo": "Felis catus",
+   "obs": 158077054,
+   "myth": "feet",
+   "short": true
+  },
+  {
+   "say": "Cats have a righting reflex. Mid-fall they spin the front half, then the back half, and get their feet underneath them. But it takes time and height to pull off.",
+   "pose": "point",
+   "photo": "Felis catus",
+   "obs": 146310547,
+   "myth": "feet",
+   "short": true
+  },
+  {
+   "say": "Vets treat plenty of cats who fell from balconies and windows, and a short fall can be too quick to turn at all. Feet first still hurts.",
+   "pose": "think",
+   "photo": "Felis catus",
+   "obs": 338832523,
+   "myth": "feet"
+  },
+  {
+   "say": "Here is the strange part. Some vet records suggest cats falling from higher up can sometimes get hurt less than cats falling a short way, because they have time to turn, relax, and spread out like a little furry parachute. That does not mean high windows are safe. It just means physics is weird.",
+   "pose": "think",
+   "photo": "Felis catus",
+   "obs": 46184404,
+   "myth": "feet"
+  },
+  {
+   "say": "Landing on your feet is a skill, not a superpower. Close the window.",
+   "pose": "laugh",
+   "text": "SKILL, NOT\nSUPERPOWER",
+   "myth": "feet",
+   "short": true
+  },
+  {
+   "say": "True or false? Dogs only see in black and white.",
+   "pose": "think",
+   "quiz": "DOGS ONLY SEE\nIN BLACK\nAND WHITE",
+   "myth": "vision",
+   "bonus": "Dogs can't easily tell red from green, so a red ball on green grass is much harder for them to spot than a blue one.",
+   "short_title": "Do Dogs Really See in Black and White? 🐕"
+  },
+  {
+   "say": "False! Dogs see color, just fewer colors than you.",
+   "pose": "point",
+   "photo": "Canis familiaris",
+   "obs": 157484476,
+   "myth": "vision",
+   "short": true
+  },
+  {
+   "say": "You have three kinds of color cells in your eyes. Dogs have two. So they see blues and yellows well, while reds and greens look more like browns and grays.",
+   "pose": "think",
+   "photo": "Canis familiaris",
+   "obs": 95617403,
+   "myth": "vision",
+   "short": true
+  },
+  {
+   "say": "Which means that bright red toy you bought looks a lot like the grass to them. Get the blue one.",
+   "pose": "facepalm",
+   "photo": "Canis familiaris",
+   "obs": 81030594,
+   "myth": "vision"
+  },
+  {
+   "say": "Dogs do beat us at other things though. They see movement better, and they see better in dim light. So your dog might miss the red ball, but it will spot a squirrel twitching from across the park.",
+   "pose": "point",
+   "photo": "Canis familiaris",
+   "obs": 52225246,
+   "myth": "vision"
+  },
+  {
+   "say": "Not black and white. More like a phone on low battery mode.",
+   "pose": "laugh",
+   "text": "LOW BATTERY\nMODE",
+   "myth": "vision",
+   "short": true
+  },
+  {
+   "say": "And stick around, because the dog years one is coming, and the math you learned is wrong.",
+   "pose": "point",
+   "text": "DOG YEARS\nIS COMING",
+   "myth": "vision"
+  },
+  {
+   "say": "True or false? A bowl of milk is good for cats.",
+   "pose": "think",
+   "quiz": "A BOWL OF MILK\nIS GOOD\nFOR CATS",
+   "myth": "milk",
+   "bonus": "Kittens drink their mother's milk, but many cats lose most of the ability to digest lactose as they grow up.",
+   "short_title": "Is Milk Good for Cats? 🥛"
+  },
+  {
+   "say": "False. Cartoons lied again.",
+   "pose": "shrug",
+   "photo": "Felis catus",
+   "obs": 267376403,
+   "myth": "milk",
+   "short": true
+  },
+  {
+   "say": "Lots of adult cats are lactose intolerant. They lap it up because they like the fat, and then their stomach files a complaint.",
+   "pose": "point",
+   "photo": "Felis catus",
+   "obs": 254417099,
+   "myth": "milk",
+   "short": true
+  },
+  {
+   "say": "Upset stomach, diarrhea, the works. Fresh water is what they actually need.",
+   "pose": "think",
+   "photo": "Felis catus",
+   "obs": 91913552,
+   "myth": "milk"
+  },
+  {
+   "say": "If you really want to give your cat a treat, there is special cat milk with the lactose taken out. But honestly, most cats are happiest with water, food, and the one box you were planning to throw away.",
+   "pose": "laugh",
+   "photo": "Felis catus",
+   "obs": 179547341,
+   "myth": "milk"
+  },
+  {
+   "say": "He likes it. His stomach does not.",
+   "pose": "laugh",
+   "text": "HE LIKES IT.\nHIS STOMACH\nDOES NOT.",
+   "myth": "milk",
+   "short": true
+  },
+  {
+   "say": "True or false? A dog's nose print is as unique as a fingerprint.",
+   "pose": "think",
+   "quiz": "A DOG'S NOSE\nPRINT IS UNIQUE\nLIKE A FINGERPRINT",
+   "myth": "nose",
+   "bonus": "A dog's nose is wet partly because of mucus that helps trap scent particles, which helps it smell better.",
+   "short_title": "Is a Dog's Nose Print Unique Like a Fingerprint? 🐶"
+  },
+  {
+   "say": "True! Every dog nose has its own pattern of ridges and bumps.",
+   "pose": "shock",
+   "photo": "Canis familiaris",
+   "obs": 382216141,
+   "myth": "nose",
+   "short": true
+  },
+  {
+   "say": "No two are the same, and some organizations have actually used nose prints to identify dogs.",
+   "pose": "point",
+   "photo": "Canis familiaris",
+   "obs": 194319165,
+   "myth": "nose",
+   "short": true
+  },
+  {
+   "say": "So yes, those smudges on your car window are technically evidence.",
+   "pose": "laugh",
+   "photo": "Canis familiaris",
+   "obs": 36094930,
+   "myth": "nose"
+  },
+  {
+   "say": "And that nose is a serious tool. A dog has hundreds of millions of scent sensors, compared to a few million in yours. It can smell what you had for lunch, where you went, and who you petted on the way home. Your dog knows you cheated with the neighbor's cat.",
+   "pose": "shock",
+   "photo": "Canis familiaris",
+   "obs": 333800142,
+   "myth": "nose"
+  },
+  {
+   "say": "Your dog has been leaving fingerprints on the windows. Nose prints. Same crime.",
+   "pose": "laugh",
+   "text": "CAUGHT\nRED NOSED",
+   "myth": "nose",
+   "short": true
+  },
+  {
+   "say": "True or false? Cats only purr when they're happy.",
+   "pose": "think",
+   "quiz": "CATS ONLY PURR\nWHEN THEY'RE\nHAPPY",
+   "myth": "purr",
+   "bonus": "Kittens can purr when they're only a couple of days old, and mother cats purr back while nursing.",
+   "short_title": "Do Cats Only Purr When They're Happy? 😺"
+  },
+  {
+   "say": "False. Purring isn't just a happy noise.",
+   "pose": "shrug",
+   "photo": "Felis catus",
+   "obs": 267517077,
+   "myth": "purr",
+   "short": true
+  },
+  {
+   "say": "Cats purr when they're relaxed, sure. But they also purr when they're stressed, hurt, or even giving birth.",
+   "pose": "point",
+   "photo": "Felis catus",
+   "obs": 179308023,
+   "myth": "purr",
+   "short": true
+  },
+  {
+   "say": "Scientists think purring may help calm the cat down, a bit like humming to yourself when you're nervous.",
+   "pose": "think",
+   "photo": "Felis catus",
+   "obs": 187375633,
+   "myth": "purr"
+  },
+  {
+   "say": "Some scientists even wonder if the low rumble of a purr helps a cat's body heal, but that idea is still being studied. What we do know is this: a purring cat at the vet is not always a relaxed cat.",
+   "pose": "think",
+   "photo": "Felis catus",
+   "obs": 249617287,
+   "myth": "purr"
+  },
+  {
+   "say": "Purring is a feeling. Not always a good one.",
+   "pose": "shrug",
+   "text": "NOT ALWAYS\nA GOOD SIGN",
+   "myth": "purr",
+   "short": true
+  },
+  {
+   "say": "Okay, you're a third of the way in. Check your score. And the next one, dog years, changes everything you thought about your dog's birthday.",
+   "pose": "point",
+   "text": "CHECK YOUR\nSCORE",
+   "myth": "purr"
+  },
+  {
+   "say": "True or false? One dog year equals seven human years.",
+   "pose": "think",
+   "quiz": "ONE DOG YEAR\n= SEVEN\nHUMAN YEARS",
+   "myth": "years",
+   "bonus": "Small dogs generally live longer than big dogs, which is one reason a single dog years number never worked.",
+   "short_title": "Is One Dog Year Really Seven Human Years? 🐕"
+  },
+  {
+   "say": "False. It's not even close at the start.",
+   "pose": "shock",
+   "photo": "Canis familiaris",
+   "obs": 335416758,
+   "myth": "years",
+   "short": true
+  },
+  {
+   "say": "Vets say a dog's first year is more like fifteen human years. A one year old dog is basically a teenager.",
+   "pose": "point",
+   "photo": "Canis familiaris",
+   "obs": 191739611,
+   "myth": "years",
+   "short": true
+  },
+  {
+   "say": "Year two adds about nine more. After that it's roughly four or five per year, and big dogs age faster than small ones.",
+   "pose": "think",
+   "photo": "Canis familiaris",
+   "obs": 371789796,
+   "myth": "years"
+  },
+  {
+   "say": "The seven years rule probably came from a simple bit of math: people live about seven times longer than dogs. Easy to remember, but dogs grow up fast and then slow down, so a straight line never fit.",
+   "pose": "shrug",
+   "photo": "Canis familiaris",
+   "obs": 330777381,
+   "myth": "years"
+  },
+  {
+   "say": "Your one year old puppy is a teenager. That explains the shoes.",
+   "pose": "laugh",
+   "text": "THAT EXPLAINS\nTHE SHOES",
+   "myth": "years",
+   "short": true
+  },
+  {
+   "say": "True or false? Cats can't taste sweet things.",
+   "pose": "think",
+   "quiz": "CATS CAN'T\nTASTE SWEET\nTHINGS",
+   "myth": "sweet",
+   "bonus": "Cats are strict carnivores, so their bodies are built for meat, not snacks.",
+   "short_title": "Can Cats Taste Sweet Things? 🍬"
+  },
+  {
+   "say": "True! Cats can't taste sugar at all.",
+   "pose": "shock",
+   "photo": "Felis catus",
+   "obs": 241432787,
+   "myth": "sweet",
+   "short": true
+  },
+  {
+   "say": "The gene for the sweet taste sensor is broken in cats. So that cake? To a cat, it's just a weird soft thing.",
+   "pose": "point",
+   "photo": "Felis catus",
+   "obs": 380143958,
+   "myth": "sweet",
+   "short": true
+  },
+  {
+   "say": "If your cat tries your ice cream, it's after the fat, not the sugar.",
+   "pose": "laugh",
+   "photo": "Felis catus",
+   "obs": 234370227,
+   "myth": "sweet"
+  },
+  {
+   "say": "And cats don't just miss out on sweets. Their whole taste setup is tuned for meat. Cats also have only a few hundred taste buds. You have thousands. Picky eaters, with fewer tools to be picky with.",
+   "pose": "think",
+   "photo": "Felis catus",
+   "obs": 218557988,
+   "myth": "sweet"
+  },
+  {
+   "say": "Imagine a birthday cake tasting like nothing. Cats live there.",
+   "pose": "shrug",
+   "text": "NO SWEET\nTOOTH",
+   "myth": "sweet",
+   "short": true
+  },
+  {
+   "say": "True or false? A wagging tail always means a happy dog.",
+   "pose": "think",
+   "quiz": "A WAGGING TAIL\nALWAYS MEANS\nA HAPPY DOG",
+   "myth": "wag",
+   "bonus": "Studies suggest the direction of the wag matters too, with wags toward the dog's right linked to more relaxed feelings.",
+   "short_title": "Does a Wagging Tail Always Mean a Happy Dog? 🐕"
+  },
+  {
+   "say": "False. A wag means a dog is worked up, not always that it's happy.",
+   "pose": "think",
+   "photo": "Canis familiaris",
+   "obs": 325751220,
+   "myth": "wag",
+   "short": true
+  },
+  {
+   "say": "Excited, nervous, unsure, even ready to defend itself. A stiff, high, fast wag is a very different message from a loose wiggly one.",
+   "pose": "point",
+   "photo": "Canis familiaris",
+   "obs": 155029250,
+   "myth": "wag",
+   "short": true
+  },
+  {
+   "say": "So read the whole dog. Relaxed body and wiggly bum, good. Stiff body and staring, give it space.",
+   "pose": "think",
+   "photo": "Canis familiaris",
+   "obs": 157484476,
+   "myth": "wag"
+  },
+  {
+   "say": "A dog with its tail tucked low and wagging fast is usually nervous, not thrilled. So before you go in for the hug, look at the ears, the eyes, and the body too. The tail is only one part of the sentence.",
+   "pose": "point",
+   "photo": "Canis familiaris",
+   "obs": 95617403,
+   "myth": "wag"
+  },
+  {
+   "say": "A wag is a volume knob, not a smiley face.",
+   "pose": "laugh",
+   "text": "VOLUME KNOB,\nNOT A SMILEY",
+   "myth": "wag",
+   "short": true
+  },
+  {
+   "say": "True or false? Cats are nocturnal.",
+   "pose": "think",
+   "quiz": "CATS ARE\nNOCTURNAL",
+   "myth": "night",
+   "bonus": "Cats see well in dim light thanks to a mirror-like layer at the back of the eye, which is why their eyes glow in photos.",
+   "short_title": "Are Cats Really Nocturnal? 🌙"
+  },
+  {
+   "say": "False. Cats are crepuscular, which is a fancy word for dawn and dusk.",
+   "pose": "point",
+   "photo": "Felis catus",
+   "obs": 269924400,
+   "myth": "night",
+   "short": true
+  },
+  {
+   "say": "They're most active around sunrise and sunset, which is when the things they hunt are out too.",
+   "pose": "think",
+   "photo": "Felis catus",
+   "obs": 267517063,
+   "myth": "night",
+   "short": true
+  },
+  {
+   "say": "So that five a.m. zoomie down the hallway? That's not a bug. That's the schedule.",
+   "pose": "facepalm",
+   "photo": "Felis catus",
+   "obs": 357362451,
+   "myth": "night"
+  },
+  {
+   "say": "House cats often shift their schedule toward ours, sleeping when we're out and getting busy when we get home. They still keep that dawn alarm clock though, which is why your cat is sitting on your face at sunrise.",
+   "pose": "facepalm",
+   "photo": "Felis catus",
+   "obs": 267686723,
+   "myth": "night"
+  },
+  {
+   "say": "Five a.m. zoomies are a feature.",
+   "pose": "laugh",
+   "text": "5 A.M. IS\nA FEATURE",
+   "myth": "night",
+   "short": true
+  },
+  {
+   "say": "Three left. And the dog mouth one is still coming, so don't go anywhere.",
+   "pose": "point",
+   "text": "THREE LEFT",
+   "myth": "night"
+  },
+  {
+   "say": "True or false? Dogs understand when you point at something.",
+   "pose": "think",
+   "quiz": "DOGS UNDERSTAND\nWHEN YOU\nPOINT",
+   "myth": "point",
+   "bonus": "Researchers found even eight week old puppies can follow a pointing finger, before much training at all.",
+   "short_title": "Do Dogs Understand Pointing? 👉"
+  },
+  {
+   "say": "True! And that's actually rare in the animal world.",
+   "pose": "shock",
+   "photo": "Canis familiaris",
+   "obs": 81030594,
+   "myth": "point",
+   "short": true
+  },
+  {
+   "say": "Point at a treat, and most dogs look where you're pointing. Even young puppies can do it.",
+   "pose": "point",
+   "photo": "Canis familiaris",
+   "obs": 52225246,
+   "myth": "point",
+   "short": true
+  },
+  {
+   "say": "Plenty of animals, even some of our closest relatives, have a harder time with it. Dogs spent thousands of years reading us.",
+   "pose": "think",
+   "photo": "Canis familiaris",
+   "obs": 382216141,
+   "myth": "point"
+  },
+  {
+   "say": "Wolves raised by people tend to struggle with pointing more than pet dogs. That suggests living with humans for so long helped shape this skill. Dogs basically learned to read our body language.",
+   "pose": "think",
+   "photo": "Canis familiaris",
+   "obs": 194319165,
+   "myth": "point"
+  },
+  {
+   "say": "Your dog understands pointing. It just chooses not to fetch.",
+   "pose": "laugh",
+   "text": "IT CHOOSES\nNOT TO",
+   "myth": "point",
+   "short": true
+  },
+  {
+   "say": "True or false? Dogs eat grass because they feel sick.",
+   "pose": "think",
+   "quiz": "DOGS EAT GRASS\nBECAUSE THEY\nFEEL SICK",
+   "myth": "grass",
+   "bonus": "Wild wolves eat plants sometimes too, so grass grazing may be an old habit rather than a sign of illness.",
+   "short_title": "Do Dogs Eat Grass Because They're Sick? 🌿"
+  },
+  {
+   "say": "Mostly false. Usually they just like it.",
+   "pose": "shrug",
+   "photo": "Canis familiaris",
+   "obs": 36094930,
+   "myth": "grass",
+   "short": true
+  },
+  {
+   "say": "When researchers surveyed owners of grass-eating dogs, most of the dogs didn't seem sick beforehand, and fewer than one in four threw up afterwards.",
+   "pose": "point",
+   "photo": "Canis familiaris",
+   "obs": 333800142,
+   "myth": "grass",
+   "short": true
+  },
+  {
+   "say": "If your dog suddenly eats a lot of grass and acts unwell, call a vet. But the occasional salad is normal.",
+   "pose": "think",
+   "photo": "Canis familiaris",
+   "obs": 335416758,
+   "myth": "grass"
+  },
+  {
+   "say": "Nobody knows exactly why dogs like grass. Some might like the taste, some might be bored, and some might just enjoy the crunch. If it's safe, untreated grass, a little nibble is usually nothing to worry about.",
+   "pose": "shrug",
+   "photo": "Canis familiaris",
+   "obs": 191739611,
+   "myth": "grass"
+  },
+  {
+   "say": "Sometimes a dog just wants a salad.",
+   "pose": "laugh",
+   "text": "SALAD\nDAY",
+   "myth": "grass",
+   "short": true
+  },
+  {
+   "say": "True or false? A dog's mouth is cleaner than a human's.",
+   "pose": "think",
+   "quiz": "A DOG'S MOUTH\nIS CLEANER\nTHAN YOURS",
+   "myth": "mouth",
+   "bonus": "Dogs get gum disease too, which is why vets recommend brushing a dog's teeth.",
+   "short_title": "Is a Dog's Mouth Cleaner Than a Human's? 👅"
+  },
+  {
+   "say": "False. Here's the answer you were waiting for.",
+   "pose": "facepalm",
+   "photo": "Canis familiaris",
+   "obs": 371789796,
+   "myth": "mouth",
+   "short": true
+  },
+  {
+   "say": "A dog's mouth isn't cleaner. It just has different germs. Their bacteria and ours are mostly different crowds, not a smaller crowd.",
+   "pose": "point",
+   "photo": "Canis familiaris",
+   "obs": 330777381,
+   "myth": "mouth",
+   "short": true
+  },
+  {
+   "say": "And remember what dogs lick. The floor. Their own bottom. Something mysterious in the yard. Then your face.",
+   "pose": "shock",
+   "photo": "Canis familiaris",
+   "obs": 325751220,
+   "myth": "mouth"
+  },
+  {
+   "say": "Some germs in dog mouths can even make people sick in rare cases, especially through bites or open cuts. So a dog kiss is fine for most people, but maybe skip the open-mouth smooch.",
+   "pose": "facepalm",
+   "photo": "Canis familiaris",
+   "obs": 155029250,
+   "myth": "mouth"
+  },
+  {
+   "say": "Not cleaner. Just a different set of germs.",
+   "pose": "laugh",
+   "text": "NOT CLEANER.\nDIFFERENT\nGERMS.",
+   "myth": "mouth",
+   "short": true
+  },
+  {
+   "say": "That's twelve. Three were true: nose prints, cats missing their sweet tooth, and dogs understanding pointing. Everything else was false. So, what's your score out of twelve? Comment it, and be honest. Your dog is watching.",
+   "pose": "point",
+   "text": "SCORE\nOUT OF 12?",
+   "myth": "outro"
+  },
+  {
+   "say": "Next up, how cats domesticated themselves. And then animals scientists thought were extinct, until they showed up again. Subscribe so you don't miss them.",
+   "pose": "wave",
+   "text": "SUBSCRIBE",
+   "myth": "outro"
+  }
+ ]
+}
