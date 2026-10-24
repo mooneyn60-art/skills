@@ -102,16 +102,18 @@ Meatball reviews each animal like a restaurant critic giving stars, in a dry, pi
 
 ## 6. Comedic structure
 
-### Short (one myth, 18-28 s), joke density target: 4-6 laughs, about one every 4-5 s
-| Beat | Time | Content | Joke |
-|---|---|---|---|
-| 1. Claim + quiz card | 0-3 s | The claim as a statement ("If you shave a tiger, it's still striped. True or false?") | None. The claim is the hook (research/28) |
-| 2. Countdown | 1.5 s | Thinking face | None |
-| 3. Reveal | 4-6 s | "True." + one plain fact sentence, deadpan face | Optional dry undercut at the end ("…so the head was basically optional") |
-| 4. Turn | 5-7 s | Second fact, then the food-anxiety turn ("…you'll know exactly who did it"), **Fork + tink**, nervous face, aside, **0.5 s hold** | The main joke |
-| 5. Card | 3-5 s | The original punch card, plus "As a meatball, I relate. Unfortunately." + aside | Callback joke |
-| 6. Loop line | 2 s | A defensive line that runs into the claim ("I'm not saying you should try it. I'm just saying, —") | The loop is a joke too |
-- Never more than one Fork and one sting per Short. Never put a joke before the reveal; the fact gets there first.
+### Short (one myth, 20-26 s): Shorts v2 (research/38, accepted by the Mayor). Target 4-6 laughs, about one every 4-5 s
+Rules: no quiz card and no countdown. Frame 0 is a moving full-frame photo. The claim is stated as a fact or as a correction. A new picture appears every 3 s or less, and each photo shows what its line says.
+| Beat | Time | Picture | Content | Joke |
+|---|---|---|---|---|
+| 1. Hook | 0-5 s | Full-bleed photo with slow push-in from frame 0, cut 2-3 times (crops) on stressed words; small deadpan Meatball on the photo | The claim as a fact or correction: "Tigers aren't just striped on the fur. Shave one, and the skin underneath is striped too." | Optional undercut ("That's not a myth. That's a cockroach.") |
+| 2. Fact | 3-6 s | 2-3 photos and crops | One plain supporting sentence | A dry tag at the end ("…the head was basically optional") |
+| 3. Turn | 3-4 s | The photo that shows the line (yawning tiger for "if one eats you"); Meatball switches to nervous | The food-anxiety turn | The main joke |
+| 4. Cut-in | 3-4 s | **Meatball on white, the classic look**, nervous, with the Fork and the tink; the aside pops on the last word; 0.5 s hold | "I'm the one made of meat." / "I lose one bite, and they call it dinner." | Persona payoff |
+| 5. Card | 3-5 s | The punch card on white; the text changes on the stressed word (STRIPES → MEATBALL ALL THE WAY DOWN) | A callback | Callback joke |
+| 6. Loop | 2-3 s | The hook's first photo, zooming *out* to exactly where frame 0 starts | A line that runs into the first sentence ("I'm not saying you should try it. I'm just saying, —") | The loop is a joke too |
+- Never more than one Fork and one sting per Short. The fact always comes before the joke.
+- **Built:** `"hook": true` beats, `"shots"` (several pictures under one voice line, cut on a spoken word with `"at"`), `"crop"`, `"bleed"`, `"loop_say"`. tools/explainer.py `gate()` prints `GATE WARN` when a Short opens without a photo or holds one picture for more than 3 s.
 
 ### Long-form episode (12 myths, 6-9 min), target: 3-4 jokes per minute, as True Facts and Sam O'Nella do
 - Cold open: one claim, plus a single-sentence persona line ("I'm Meatball. I narrate nature. Nature, frankly, keeps trying to eat me.").
@@ -160,12 +162,10 @@ Line: "True. Every tiger's stripes are different, like a fingerprint. So if one 
 3. Facts first, always straight; the joke comes second. No joke may change what the fact says.
 4. Meatball is worried, not frantic: "I don't love it", never "AAAH".
 5. The body stays still (research/21); the face and hands carry the acting.
-6. Short loop rules stay as they are (research/23): still first and last frames, a loop line that runs into the claim, and no music fade-in. The loop line can carry the persona (`"loop_say"`).
+6. The Short loop seam stays (research/23): the last frame is the first frame (the tail's zoom ends at 1.0 on the hook's first picture, and the hook's zoom starts there), the loop line runs into the opening sentence, and there is no music fade-in. The loop line carries the persona (`"loop_say"`).
 7. Do not write jokes about real people, politics or crude body humour. We borrow the *devices* from Sam O'Nella and True Facts, not their edge or their lines.
 
 ## 11. Pilot and how to judge it
-- The script is `scripts/pilot-showrunner.json`: tiger and roach, the same facts as `originals-01`. It renders to `episodes/pilot-showrunner/short-{tiger,roach}.mp4`.
-- New script fields: `pitch`, `short_beats` (default 3), and per beat `prop`, `aside`, `hold`, `sting`, plus `loop_say` on a quiz beat.
-- Scoring: post the pilot and the original of the same myth a week apart (Nolan decides). Compare stayed-to-watch, APV (target over 100%, i.e. loops), likes per 1k (research/28: opinionated voices get 5-8%), and comments that mention "fork" or "not a snack". If stayed-to-watch drops more than 5 points, cut the aside first.
-
-Sources: vidIQ transcripts and watches of Z-BbpaNXbxg, QOPZQHTNUs0, m2FcWmo0sC0, BXpu6tbFCsI, 8xVgAULDwNE, Shorts 1UXvQWH7Z9o and kBFuL2yLttg; vidIQ outliers ("funny animal facts narrated with jokes", "animated stick figure animal fact explained with sarcastic narrator", English Shorts from the last month). WWF interview with Ze Frank on the True Facts voice: https://www.worldwildlife.org/news/nature-breaking/ze-frank-on-the-science-and-voice-behind-true-facts/
+- The script is `scripts/pilot-showrunner.json` (Shorts v2): tiger and roach, the same facts as `originals-01`, plus four extra CC BY/CC0 tiger photos picked for what each line says (yawning tiger, mother and cubs, tiger from behind). It renders to `episodes/pilot-showrunner/short-{tiger,roach}.mp4`.
+- New script fields: `pitch`, `short_beats` (default 3), and per beat `prop`, `aside`, `hold`, `sting`, `shots` (with `at` and `crop`), `bleed`, `hook`, and `loop_say`. Every one of them is optional; old scripts render as before.
+- Scoring: post the pilot and the original of the same myth a week apart (Nolan decides). Compare stayed-to-watch (target 60%+ against ~40%, research/38 P1), APV (target over 100%, i.e. loops), likes per 1k (research/28: opinionated voices get 5-8%), and comments that mention "fork" or "not a snack". If stayed-to-watch doesn't move, the persona is not the problem; test the hook line next.
