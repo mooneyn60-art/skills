@@ -41,3 +41,10 @@ This plan is built from research/26 (math), 27 (case studies), 28 (Shorts virali
 | 30 | 11/23 | 1M | 400 | lower tier in sight, review risks closed |
 
 If we miss day 14 by more than half, the Sunday summit changes the format, not just the volume.
+
+## Correction (Accountant, 10/24 11:20)
+vidIQ channel stats: the channel was created in 2018 and has **956 subscribers**. It kept them after its 161 old videos (about 300K views, reaction/commentary) were removed on 10/15.
+- Full YPP needs only 44 more subscribers, and the lower tier's 500 is already met. **The only gate is views:** 10M Shorts views in 90 days (about 111k a day), or 4,000 public long-form hours.
+- The lower tier (3M Shorts views or 3,000 hours) unlocks fan funding first.
+- The subscriber checkpoints above are obsolete; track views per post and episode watch time instead.
+- Risk to check: the old subscribers came for a different niche and may not engage, and vidIQ still files us under Lifestyle/Entertainment/Film.
