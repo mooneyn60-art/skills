@@ -13,3 +13,4 @@ Seeded by TARS on 2026-10-24 from research/24 and research/42.
 - **Shorter Shorts win (10/24, n=10 public Shorts).** 20-22 s: daddy longlegs 733 views in 3 h, elephant 877. 27-34 s: 227-932 (median ~620). 43 s and up: bull 98, lemming 239. Every Short under 25 s beat the channel median. Keep YouTube Shorts at 20-25 s; the long version goes to TikTok.
 - **Subscribers move with views (10/24).** 957 subs (+15 since 10/20, all from the myth Shorts), at roughly 2-3 subs per 1,000 views on the better days.
 - **Shorts feed is 96% of views (10/17-24):** 6,402 of 6,681; stayed-to-watch 37% (2,359 engaged); search 162 views at 81% viewed.
+- **Nolan's verdict on v3 (10/24):** "by far looks amazing", "love the humor, everything". Meatball-in-jeopardy, physical comedy, deadpan one-liners and SFX are the house style. Performance data comes from E17.

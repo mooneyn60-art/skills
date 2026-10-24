@@ -199,3 +199,17 @@ A viewer-question Short (20-26 s, Shorts v2 rules) that answers one real comment
 **Packaging:** start the title with "You Asked:", then the claim. Pin a reply on the *original* comment linking the Short ("Answered! 👉 [link]"); Nolan does this in Studio if the API can't.
 
 **Limits:** at most one viewer-question Short in every three, so it stays a treat. Check every question with two sources, as for any Short (factdesk.md).
+
+## v3 humor: Nolan loves it (10/24). Keep it in every Short.
+- **Meatball suffers for the fact:** he tries, it goes wrong, and the true fact lands as the punchline.
+- **Deadpan one-liners after each disaster** (from the v3 prototypes):
+  - "Good news: I don't have a heart."
+  - "I'm a pickle now."
+  - "I evolved sauce."
+  - "Best case? I become a tree."
+- **Physical comedy with sound effects:**
+  - kicked off-screen with X eyes
+  - head puffs up after a sting
+  - tumbles, trembles, peeks
+- **Pacing:** a joke or escalation every 4-6 s, lines of 8 words or fewer, and a callback or twist at the end.
+- Keep the voice calm and deadpan while the visuals go wild; that contrast is the joke.
