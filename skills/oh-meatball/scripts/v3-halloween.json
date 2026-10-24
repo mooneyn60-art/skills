@@ -1,9 +1,9 @@
 {
- "title": "Halloween pack 01 in Shorts v3 (6 Shorts, Bill voice)",
- "voice": "vidiq:pqHfZKP75CvOlQylNhV4",
+ "title": "Halloween pack 01 in Shorts v3 (6 Shorts)",
+ "voice": "en-US-AndrewMultilingualNeural",
  "rate": "+0%",
  "short_rate": "+0%",
- "tempo": 1.12,
+ "tempo": 1.1,
  "music": "music/quiz-bed.m4a",
  "style": "v3",
  "names": {
@@ -14,7 +14,7 @@
   "Tyto alba": "Barn owl",
   "Pardosa lugubris": "Wolf spider (Pardosa lugubris)"
  },
- "_note": "Halloween pack (scripts/halloween-01.json) remade as Shorts v3 (research/44, OPERATIONS 'Shorts v3 is the format'): Meatball in jeopardy, an action and SFX on most lines, a joke every 4-6 s, lines <= 8 words, Bill (vidIQ pqHfZKP75CvOlQylNhV4) at tempo 1.12. Facts and pinned photos are the v2 pack's (sources on each hook beat). Comment asks end vampire, widow and blackcat (3/6); crow, owl and spidereggs end on the twist. 'at' anchors never use a bare number word (v3.word_time reads numbers as seconds). Slots: YouTube 10/28 11:30 + 19:00, 10/29 19:00, 10/30 19:00, 10/31 11:30 + 19:00; TikTok 2 h after each.",
+ "_note": "Halloween pack (scripts/halloween-01.json) remade as Shorts v3 (research/44, OPERATIONS 'Shorts v3 is the format'): Meatball in jeopardy, an action and SFX on most lines, a joke every 4-6 s, lines <= 8 words, prototype voice (edge-tts Andrew +0%, atempo 1.10 = +10%; Nolan preferred it to Bill, 10/24). Facts and pinned photos are the v2 pack's (sources on each hook beat). Comment asks end vampire, widow, blackcat and spidereggs (4/6); crow and owl end on the twist. 'at' anchors never use a bare number word (v3.word_time reads numbers as seconds). Slots: YouTube 10/28 11:30 + 19:00, 10/29 19:00, 10/30 19:00, 10/31 11:30 + 19:00; TikTok 2 h after each.",
  "beats": [
   {
    "hook": true,
@@ -137,8 +137,8 @@
   {
    "myth": "vampire",
    "pose": "shock",
-   "act": "stand",
-   "say": "Its spit keeps the blood flowing.",
+   "act": "peek",
+   "say": "Its spit has a blood thinner: draculin.",
    "shots": [
     {
      "photo": "Desmodus rotundus",
@@ -151,32 +151,14 @@
      ]
     }
    ],
-   "punch": "spit"
-  },
-  {
-   "myth": "vampire",
-   "pose": "deadpan",
-   "act": "peek",
-   "say": "The chemical is called draculin.",
-   "shots": [
-    {
-     "photo": "Desmodus rotundus",
-     "obs": 72906803,
-     "crop": [
-      0.24,
-      0.0,
-      0.66,
-      1.0
-     ]
-    }
-   ],
    "label": {
     "text": "DRACULIN",
     "at": "draculin"
    },
    "sfx": [
     "scratch@draculin"
-   ]
+   ],
+   "punch": "spit"
   },
   {
    "myth": "vampire",
@@ -383,7 +365,7 @@
    "myth": "widow",
    "pose": "shock",
    "act": "shake",
-   "say": "She can outweigh him 160 times.",
+   "say": "She can be 160 times heavier.",
    "shots": [
     {
      "photo": "Latrodectus hesperus",
@@ -398,18 +380,18 @@
    ],
    "label": {
     "text": "160x",
-    "at": "outweigh"
+    "at": "times"
    },
-   "punch": "outweigh",
+   "punch": "heavier",
    "sfx": [
-    "thud@outweigh"
+    "thud@times"
    ]
   },
   {
    "myth": "widow",
    "pose": "think",
    "act": "stand",
-   "say": "This kind? Never caught doing it wild.",
+   "say": "Wild western widows? Never caught doing it.",
    "shots": [
     {
      "photo": "Latrodectus hesperus",
@@ -931,6 +913,29 @@
   },
   {
    "myth": "crow",
+   "pose": "facepalm",
+   "act": "hit",
+   "say": "I brought snacks. I was the snacks.",
+   "shots": [
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 72146984,
+     "crop": [
+      0.471,
+      0,
+      0.929,
+      1.0
+     ],
+     "blur": true
+    }
+   ],
+   "act_at": "was",
+   "sfx": [
+    "boing@was"
+   ]
+  },
+  {
+   "myth": "crow",
    "pose": "shock",
    "act": "launch",
    "say": "They scolded the human holding it.",
@@ -956,7 +961,7 @@
    "myth": "crow",
    "pose": "deadpan",
    "act": "tumble",
-   "say": "And skipped the food at that spot.",
+   "say": "And avoided the food at that spot.",
    "shots": [
     {
      "photo": "Corvus brachyrhynchos",
@@ -1606,6 +1611,25 @@
    "sfx": [
     "tink@frying"
    ]
+  },
+  {
+   "myth": "spidereggs",
+   "pose": "think",
+   "act": "peek",
+   "say": "Did you believe this one? Comment.",
+   "shots": [
+    {
+     "photo": "Pardosa lugubris",
+     "obs": 369498853,
+     "crop": [
+      0.336,
+      0.32,
+      0.764,
+      0.92
+     ]
+    }
+   ],
+   "ask": "comment"
   }
  ]
 }
