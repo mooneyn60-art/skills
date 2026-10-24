@@ -45,8 +45,11 @@ def loop(beats):
     so a replay sounds like one sentence and the last frame matches the first."""
     q = beats[0]
     first = dict(q, say=f"{claim(q)}. True or false?")
-    tail = {"say": "So be honest. Did you really think", "quiz": q["quiz"], "pose": q.get("pose", "think"),
-            "myth": q.get("myth"), "nocount": True, "loop": True}
+    # Rotate the bridge line per myth so Shorts don't all end the same way (research/30: templated sameness).
+    lines = ["So be honest. Did you really think", "And yet half the internet still swears that",
+             "Next time someone tells you that", "Tell me you didn't believe that", "Somebody out there still thinks"]
+    tail = {"say": lines[sum(map(ord, q.get("myth") or "")) % len(lines)], "quiz": q["quiz"],
+            "pose": q.get("pose", "think"), "myth": q.get("myth"), "nocount": True, "loop": True}
     return [first] + beats[1:] + [tail]
 
 
@@ -132,7 +135,7 @@ def main():
         # Breakout single-myth Shorts run 17-30 s (vidIQ outliers, 10/23): claim, reveal, punchline, loop line.
         json.dump({"voice": spec.get("voice", "en-US-AndrewNeural"), "rate": spec.get("short_rate", "+8%"),
                    "music": spec.get("music"), "style": spec.get("style"),
-                   "beats": loop(tighten(mb, 2))}, open(sspec, "w"))
+                   "beats": loop(tighten(mb, 3))}, open(sspec, "w"))
         if not a.skip_shorts:
             os.makedirs(f"{swork}/photos", exist_ok=True)
             subprocess.run(f"cp -n {long_work}/photos/* {swork}/photos/ 2>/dev/null || true", shell=True)
@@ -144,8 +147,10 @@ def main():
             # The question people search ("Can Porcupines Really Shoot Their Quills?"): search is our 2nd source.
             "title": (q.get("short_title") or f"{c}? 🤔 TRUE or FALSE")[:100],
             "description": f"TRUE or FALSE? {c}. Guess before the timer, then comment if you got it right 👇 "
-                           f"Full quiz episode on the channel.\n\n#shorts #trueorfalse #animalfacts #quiz\n\n"
-                           f"Photos (iNaturalist): " + "; ".join(credit_lines(long_work, mb)) + f". {LICENSES}",
+                           + (f"\n\nBonus fact: {q['bonus']}" if q.get("bonus") else "")
+                           + f"\n\nFull quiz episode on the channel.\n\n#shorts #trueorfalse #animalfacts #quiz\n\n"
+                           f"Photos (iNaturalist), cropped and color-adjusted: " + "; ".join(credit_lines(long_work, mb))
+                           + f". {LICENSES}",
             "comment": (f"{q['bonus']}\n\n" if q.get("bonus") else "") + "Did you guess right? Comment ✅ TRUE or ❌ FALSE 👇",
             "tags": [m, "true or false", "animal quiz", "animal facts", "animal myths", "fun facts", "shorts",
                      "Meatball Myths"],

@@ -22,7 +22,7 @@ import urllib.parse
 import urllib.request
 
 STYLE = (", simple flat vector cartoon, clean thick black outlines, bright flat colors, minimal detail, "
-         "no texture, plain solid white background, children's book style")
+         "no texture, plain solid white background, simple cartoon style")
 # SDXL-Turbo in bf16 fits a 15 GB CPU box (~11 s/image at 768x512, 2 steps).
 MODEL = os.environ.get("SDXL_TURBO", "/tmp/claude-0/-home-user/f2581a8c-fe42-5876-b5f9-d941a863a7fa/scratchpad/models/sdxlturbo")
 W, H, FPS = 1920, 1080, 30
@@ -39,7 +39,7 @@ COUNT_S = 1.0  # seconds per countdown number
 YELLOW = (255, 214, 10)
 BOLD = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 # Only licenses that allow commercial reuse; CC-BY/BY-SA need the credit line.
-LICENSES = "cc0,cc-by,cc-by-sa"
+LICENSES = "cc0,cc-by"  # no share-alike: thumbnails cut out and remix photos (research/30)
 
 
 def images(beats, work, seeds):
@@ -92,7 +92,8 @@ def photo(taxon, n, work, obs=None):
     if obs:
         o = json.load(urllib.request.urlopen(f"https://api.inaturalist.org/v1/observations/{obs}", timeout=60))
         p = o["results"][0]["photos"][0]
-        if p.get("license_code") not in LICENSES.split(","):
+        # Photos already pinned in scripts may be CC BY-SA (credited); new picks are CC0/CC BY only.
+        if p.get("license_code") not in LICENSES.split(",") + ["cc-by-sa"]:
             raise SystemExit(f"observation {obs}: photo license {p.get('license_code')} not reusable")
         urllib.request.urlretrieve(p["url"].replace("square", "large"), path)
         open(path + ".credit", "w").write(f"{taxon}: {html.unescape(p['attribution'])} — iNaturalist photo {p['id']}")

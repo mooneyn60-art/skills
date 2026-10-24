@@ -54,7 +54,7 @@ qualified views. Channel: subs, weekly long-form watch hours vs the 4,000 h pace
 ## Standing orders from Nolan
 - Only Meatball stick-figure info/quiz videos (long-form and Shorts). No door-cam, trail-cam or other
   fake camera clips, ever; the old ones stay as drafts in Metricool.
-- Long-form explainers run ~10 minutes (8-10 myths per episode), never 2-3 minute pilots.
+- Long-form explainers run ~10 minutes (12 myths, or a history story with 3-4 checkpoints), never 2-3 minute pilots.
   Each episode is cut into one vertical Short per myth (`explainer.py --vertical`).
 - Like counts hidden on every video. The YouTube API and Metricool can't set this, so it lives in
   YouTube Studio: Settings > Upload defaults > Advanced settings > untick "Show how many viewers
@@ -66,15 +66,15 @@ qualified views. Channel: subs, weekly long-form watch hours vs the 4,000 h pace
 - Post the episode first, then its Shorts, so every Short can carry a Related video link to it
   (Studio only, no API). A Short that goes out before its episode sends its viewers nowhere.
 - Check Metricool and stats.py before queueing a Short so the same Short never posts twice.
-- Retention rules (research/20-retention-and-swipe.md, 2026-10-23): every script sets "style": "punch".
-  Shorts are one myth, 20-28 s, open on the animal + claim at frame 0, 1.5 s countdown, reveal stamp + SFX,
-  a photo change every 2-3 s, no outro card (end on the punchline so it loops). Long-form: strongest
+- Retention rules (research/20-retention-and-swipe.md, 2026-10-23): every script sets "style": "classic" (Nolan, 10/23).
+  Shorts are one myth, about 20-25 s: animal photo + claim at frame 0, 1.5 s countdown, reveal, the "why" beat, punchline card,
+  then a rotating loop line that runs into the opening (research/23, research/30). Long-form: strongest
   myth teased in the cold open, myth #1 by ~15 s, re-hooks near 1, 3 and 6 minutes ("the last one fooled
   scientists"), MYTH n/12 badge, best myth saved for last.
 - Narration: en-US-AndrewMultilingualNeural at +15% everywhere (Nolan picked it 2026-10-23) with the light music bed
   (`brand/music/quiz-bed.m4a`, original vidIQ track, ducked under the voice). Set per script:
   `"rate"`, `"short_rate"`, `"music"`.
-- One long-form episode a day at 10:30 AM ET; 3 TikToks a day (10 AM, 12 PM, 6 PM), every one
+- One long-form episode a day at 2 PM ET; 3 TikToks a day (10 AM, 12 PM, 6 PM), every one
   over 60 s (Creator Rewards floor) with the AI-content label on.
 
 ## Guardrails
