@@ -81,3 +81,11 @@ qualified views. Channel: subs, weekly long-form watch hours vs the 4,000 h pace
 - Original characters and stories only; label AI content where the platform asks.
 - Keep >= 400 vidIQ credits in reserve. No paid tools without Nolan's yes.
 - Never post the same video twice to one platform (check opusclip_list_scheduled_posts first).
+
+## Opening rules (Contrarian review, research/38; Mayor 10/24)
+- **Long-form:** every beat in the first 30 s shows an animal photo, and each animal appears as it is named. Text-only cards come no earlier than 15 s. Myth #1 starts by 25 s.
+- **Shorts and TikToks (Shorts v2):**
+  - Frame 0 is a full-screen, moving photo of the animal doing the thing the line describes.
+  - The first line states the claim as a fact or a correction. No "TRUE OR FALSE?" card and no countdown.
+  - The picture changes every 3 s or less, and every photo matches what is being said.
+- **Captions:** unique per post and built from the searched question (tools/tiktok.py `title()`/`caption()`). Never use file-nickname hashtags.
