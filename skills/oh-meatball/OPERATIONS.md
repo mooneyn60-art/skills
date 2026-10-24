@@ -152,6 +152,8 @@ Never assume viewers will engage. Every video asks, in Meatball's voice and with
 
 **Intel desk (weekly):** check subscribers per 1,000 views and comments per 1,000 views by video. Keep the asks that move the numbers; rewrite the rest.
 
+- **Read-outs quote only real comments** (vidiq_video_comments). With no comments yet, use an ask, never invented answers or names.
+
 ## Long-form reset (Nolan + Mayor, 10/24 evening)
 Data, last 30 days:
 - Long-form got 5 views, averaging 28 seconds watched.
