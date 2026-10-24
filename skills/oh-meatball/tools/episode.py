@@ -116,7 +116,8 @@ def main():
     credits = credit_lines(long_work, beats)
     open(f"{out}/credits.txt", "w").write("\n".join(credits) + "\n")
     myths = list(dict.fromkeys(b["myth"] for b in beats if b.get("myth") not in ("intro", "outro")))
-    release["long"] = {
+    # Shorts-only packs (originals-*) have no long-form, so no chapters or long release entry.
+    release["long"] = None if not os.path.exists(f"{long_work}/list.txt") else {
         "file": f"{RAW}/{a.slug}/ep.mp4", "thumb": f"{RAW}/{a.slug}/thumb.jpg", "title": spec["title"],
         "tags": spec.get("tags", []), "comment": spec.get("pinned", ""),
         "description": "\n".join([spec.get("blurb", ""), ""] + chapters(long_work, beats) + [
