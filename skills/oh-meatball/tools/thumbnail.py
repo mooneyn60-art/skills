@@ -20,6 +20,7 @@ import math
 import os
 import re
 import sys
+import tempfile
 import urllib.request
 
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont
@@ -108,10 +109,14 @@ def subject(spec, crop, flip):
     if crop:
         x0, y0, x1, y1 = crop
         src = src.crop((int(x0 * src.width), int(y0 * src.height), int(x1 * src.width), int(y1 * src.height)))
-    tmp = f"{CACHE}/_crop.png"
     os.makedirs(CACHE, exist_ok=True)
-    src.save(tmp)
-    cut = cutout(tmp)
+    fd, tmp = tempfile.mkstemp(suffix=".png", dir=CACHE)  # per-run file: parallel runs swapped each other's cutouts
+    os.close(fd)
+    try:
+        src.save(tmp)
+        cut = cutout(tmp)
+    finally:
+        os.remove(tmp)
     if flip:
         cut = cut.transpose(Image.FLIP_LEFT_RIGHT)
     cut = ImageEnhance.Sharpness(cut).enhance(1.4)
