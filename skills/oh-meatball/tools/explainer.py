@@ -172,14 +172,16 @@ def vertical():
 #   together Meatball standing in the photo scene beside the animal (nervous / shock lines)
 #   close    face and upper body fill the frame on the off-white background, slow push-in (punchlines)
 #   card     text/quiz cards: the classic panel with Meatball under it
-# "frame": "show|host|together|close|card" on a beat or shot overrides the choice.
+# "frame" (or "shot"): "show|host|together|close|card" on a beat or shot overrides the choice.
 KINDS = ("show", "host", "together", "close", "card")
 
 
 def shot_kind(s, prev=None, first=False):
     """Framing for one picture. first = frame 0 of a Short or its loop tail (the animal must be clear)."""
-    if s.get("frame") in KINDS:
-        return s["frame"]
+    want = s.get("frame") or s.get("shot")  # writers' scripts use "shot" for the same field
+    want = "close" if want == "closeup" else want
+    if want in KINDS:
+        return want
     if any(k in s for k in ("text", "quiz", "img")):
         return "card"
     if "photo" not in s:

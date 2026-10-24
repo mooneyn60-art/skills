@@ -40,7 +40,7 @@ def texts(spec):
     """Every distinct spoken line in script order, including Short hooks and loop lines when present."""
     out = [spec["loop_say"]] if spec.get("loop_say") else []  # v2 Shorts' loop tail is a script-level line
     for b in spec["beats"]:
-        for t in [b.get("say")] + [s.get("say") for s in b.get("shots", []) if isinstance(s, dict)]:
+        for t in [b.get("say"), b.get("loop_say")] + [s.get("say") for s in b.get("shots", []) if isinstance(s, dict)]:
             if t and t not in out:
                 out.append(t)
     return out
