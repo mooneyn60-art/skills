@@ -1,0 +1,1476 @@
+{
+ "title": "Would Meatball Survive? Pilot pack (10 Shorts)",
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+4%",
+ "short_rate": "+4%",
+ "pitch": "-3Hz",
+ "music": "music/quiz-bed.m4a",
+ "style": "classic",
+ "_note": "Series 'Would Meatball Survive?' (Showrunner, 2026-10-24). Shorts v2 (research/38, research/39 §6): frame 0 is a moving full-bleed photo with the claim stated as fact, a new picture every <=3 s (cuts on 'at' words), one Fork + one tink max per Short, verdict card ('Survival odds / Delicious odds') with a rotating third tag, loop line runs into the hook. 'shot' is the pending Studio shot grammar (host|show|closeup|together), ignored by the current renderer. 'sources' sits on each hook beat. SCRIPTS ONLY: do not render until the new Meatball rig is approved; the series takes the 1 PM YouTube Short slot after that (OPERATIONS.md, experiment E6). Photos: iNaturalist CC0/CC BY, looked at one by one (live, unharmed, right species, no watermark in crop). Moose 92166840/102548882 are 960 px with a bottom-left watermark: crops stop at y=0.9 and both are held under 3 s; swap if the render looks soft.",
+ "beats": [
+  {
+   "hook": true,
+   "myth": "cassowary",
+   "bleed": true,
+   "pose": "deadpan",
+   "shot": "show",
+   "say": "A cassowary has a dagger on each foot. The inner toe ends in a claw up to four inches long.",
+   "loop_say": "Just so you know why I'm leaving early,",
+   "short_title": "A Cassowary Has a 4-Inch Dagger on Each Foot 🦶",
+   "bonus": "In 2019 a pet cassowary killed its owner in Florida after he fell near it.",
+   "comment": "Would you get within kicking distance of this bird? 👇",
+   "shots": [
+    {
+     "photo": "Casuarius casuarius",
+     "obs": 98776913,
+     "crop": [
+      0.416,
+      0.0,
+      0.824,
+      1.0
+     ]
+    },
+    {
+     "photo": "Casuarius casuarius",
+     "obs": 223029665,
+     "crop": [
+      0.516,
+      0.55,
+      0.684,
+      1.0
+     ],
+     "at": "The"
+    },
+    {
+     "photo": "Casuarius casuarius",
+     "obs": 223029665,
+     "crop": [
+      0.489,
+      0.3,
+      0.751,
+      1.0
+     ],
+     "at": "up"
+    }
+   ],
+   "sources": [
+    "San Diego Zoo, quoted in 2019 coverage: 'a dagger-like claw on the inner toe that is up to 4 inches (10 centimeters) long'; 'can slice open any predator or potential threat with a single swift kick' — https://bangordailynews.com/2019/04/15/news/nation/large-flightless-bird-kills-florida-man-in-horrible-accident/",
+    "Mental Floss, 10 facts about cassowaries (inner-toe claw ~5 in; fruit-eaters that swallow fruit whole and disperse the seeds) — https://www.mentalfloss.com/animals/birds/10-facts-about-cassowaries",
+    "Claw length: sources range 10-13 cm; script uses the conservative 'up to four inches'."
+   ]
+  },
+  {
+   "myth": "cassowary",
+   "bleed": true,
+   "pose": "deadpan",
+   "shot": "show",
+   "say": "One kick can slice open a threat.",
+   "shots": [
+    {
+     "photo": "Casuarius casuarius",
+     "obs": 98776913,
+     "crop": [
+      0.417,
+      0.105,
+      0.723,
+      0.855
+     ]
+    },
+    {
+     "photo": "Casuarius casuarius",
+     "obs": 185944564,
+     "crop": [
+      0.343,
+      0,
+      0.717,
+      1.0
+     ],
+     "at": "slice"
+    }
+   ]
+  },
+  {
+   "myth": "cassowary",
+   "bleed": true,
+   "pose": "nervous",
+   "shot": "together",
+   "say": "Mostly, it eats fruit. It swallows the fruit whole.",
+   "shots": [
+    {
+     "photo": "Casuarius casuarius",
+     "obs": 196978347,
+     "crop": [
+      0.363,
+      0,
+      0.737,
+      1.0
+     ]
+    },
+    {
+     "photo": "Casuarius casuarius",
+     "obs": 296968392,
+     "crop": [
+      0.481,
+      0.0,
+      0.819,
+      0.8
+     ],
+     "at": "It"
+    }
+   ]
+  },
+  {
+   "myth": "cassowary",
+   "pose": "nervous",
+   "shot": "closeup",
+   "hold": 0.5,
+   "say": "Round. Whole. Bite-sized. I've been called all three.",
+   "shots": [
+    {},
+    {
+     "aside": "(not a plum)",
+     "at": "three"
+    }
+   ],
+   "prop": "fork",
+   "sting": "tink"
+  },
+  {
+   "myth": "cassowary",
+   "pose": "deadpan",
+   "shot": "host",
+   "say": "Survival odds: zero. Delicious odds: high. Fruit odds: relevant.",
+   "shots": [
+    {
+     "text": "SURVIVAL\nODDS: ZERO"
+    },
+    {
+     "text": "DELICIOUS\nODDS: HIGH",
+     "at": "Delicious"
+    },
+    {
+     "text": "FRUIT ODDS:\nRELEVANT",
+     "aside": "(fruit-shaped, unfortunately)",
+     "at": "Fruit"
+    }
+   ]
+  },
+  {
+   "hook": true,
+   "myth": "hippo",
+   "bleed": true,
+   "pose": "deadpan",
+   "shot": "show",
+   "say": "Hippos can't actually swim. They're too heavy to float, so they bounce along the bottom.",
+   "loop_say": "So if the riverbed starts moving, that's why.",
+   "short_title": "Hippos Can't Actually Swim 🦛",
+   "bonus": "A hippo can close its nostrils and ears underwater.",
+   "comment": "Did you know hippos can't float? 👇",
+   "shots": [
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 149728796,
+     "crop": [
+      0.393,
+      0.0,
+      0.767,
+      1.0
+     ]
+    },
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 36204497,
+     "crop": [
+      0.111,
+      0.15,
+      0.449,
+      0.95
+     ],
+     "at": "They're"
+    },
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 264030208,
+     "crop": [
+      0.251,
+      0.05,
+      0.589,
+      0.95
+     ],
+     "at": "so"
+    }
+   ],
+   "sources": [
+    "San Diego Zoo Wildlife Alliance, 'Making Waves' (hippos too dense to float; push off and walk the riverbed in a slow-motion gallop) — https://stories.sdzwa.org/?p=146524",
+    "Snopes, hippos are too dense to swim — https://www.snopes.com/fact-check/hippos-dense-swim/",
+    "San Diego Zoo animal profile (close nostrils, hold breath 5 min or longer) — https://animals.sandiegozoo.org/node/111",
+    "BBC Discover Wildlife (float up to breathe and sink back without waking) — https://www.discoverwildlife.com/animal-facts/can-hippos-breathe-underwater",
+    "Hippos are herbivores (grazers): San Diego Zoo profile above."
+   ]
+  },
+  {
+   "myth": "hippo",
+   "bleed": true,
+   "pose": "deadpan",
+   "shot": "show",
+   "say": "They hold their breath five minutes, and surface to breathe in their sleep.",
+   "shots": [
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 32088742,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    },
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 36204497,
+     "crop": [
+      0.11,
+      0.1,
+      0.49,
+      1.0
+     ],
+     "at": "and"
+    }
+   ]
+  },
+  {
+   "myth": "hippo",
+   "bleed": true,
+   "pose": "nervous",
+   "shot": "together",
+   "say": "Good news: they eat grass. Bad news: they're very grumpy about their river.",
+   "shots": [
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 198786138,
+     "crop": [
+      0.223,
+      0.0,
+      0.577,
+      1.0
+     ]
+    },
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 149728796,
+     "crop": [
+      0.449,
+      0.1,
+      0.711,
+      0.8
+     ],
+     "at": "Bad"
+    }
+   ]
+  },
+  {
+   "myth": "hippo",
+   "pose": "nervous",
+   "shot": "closeup",
+   "hold": 0.5,
+   "say": "It wouldn't even eat me. Just flatten me. Worse.",
+   "shots": [
+    {},
+    {
+     "aside": "(still sauce)",
+     "at": "Just"
+    }
+   ],
+   "prop": "fork",
+   "sting": "tink"
+  },
+  {
+   "myth": "hippo",
+   "pose": "deadpan",
+   "shot": "host",
+   "say": "Survival odds: low. Delicious odds: irrelevant. It's a furious vegetarian.",
+   "shots": [
+    {
+     "text": "SURVIVAL\nODDS: LOW"
+    },
+    {
+     "text": "DELICIOUS\nODDS: N/A",
+     "at": "Delicious"
+    },
+    {
+     "text": "FURIOUS\nVEGETARIAN",
+     "aside": "(very furious)",
+     "at": "It's"
+    }
+   ]
+  },
+  {
+   "hook": true,
+   "myth": "moose",
+   "bleed": true,
+   "pose": "deadpan",
+   "shot": "show",
+   "say": "A moose can swim six miles an hour, for up to two hours. Rowing away is not a plan.",
+   "loop_say": "I asked about escaping by boat. The answer:",
+   "short_title": "A Moose Can Swim for Two Hours Straight 🫎",
+   "bonus": "Moose have been seen swimming more than ten miles to reach food.",
+   "comment": "Would you have guessed a moose could outswim you? 👇",
+   "shots": [
+    {
+     "photo": "Alces alces",
+     "obs": 293795860,
+     "crop": [
+      0.342,
+      0.0,
+      0.658,
+      1.0
+     ]
+    },
+    {
+     "photo": "Alces alces",
+     "obs": 92166840,
+     "crop": [
+      0.391,
+      0,
+      0.709,
+      0.85
+     ],
+     "at": "for"
+    },
+    {
+     "photo": "Alces alces",
+     "obs": 102548882,
+     "crop": [
+      0.521,
+      0.025,
+      0.839,
+      0.875
+     ],
+     "at": "Rowing"
+    }
+   ],
+   "sources": [
+    "Alaska Dept. of Fish and Game, moose: swim at 6 mph for up to two hours — https://www.adfg.alaska.gov/index.cfm?adfg=viewing.landmammals&species=moose",
+    "Teton Science Schools, 'Can Moose Really Dive?' (moose readily submerge entirely to feed on aquatic plants; up to ~50 s underwater; swims of 10+ miles; the popular 18-20 ft depth figure is unproven, so the script gives no depth) — https://tetonscience.org/can-moose-really-dive/"
+   ]
+  },
+  {
+   "myth": "moose",
+   "bleed": true,
+   "pose": "deadpan",
+   "shot": "show",
+   "say": "It even ducks right under water to eat plants off the bottom.",
+   "shots": [
+    {
+     "photo": "Alces alces",
+     "obs": 28395848,
+     "crop": [
+      0.389,
+      0,
+      0.811,
+      1.0
+     ]
+    },
+    {
+     "photo": "Alces alces",
+     "obs": 293795860,
+     "crop": [
+      0.369,
+      0.27,
+      0.591,
+      0.97
+     ],
+     "at": "to"
+    }
+   ]
+  },
+  {
+   "myth": "moose",
+   "bleed": true,
+   "pose": "nervous",
+   "shot": "together",
+   "say": "Big, grumpy, and a great swimmer. I can't swim at all.",
+   "shots": [
+    {
+     "photo": "Alces alces",
+     "obs": 336096285,
+     "crop": [
+      0.313,
+      0.0,
+      0.687,
+      1.0
+     ]
+    },
+    {
+     "photo": "Alces alces",
+     "obs": 54126730,
+     "crop": [
+      0.363,
+      0,
+      0.737,
+      1.0
+     ],
+     "at": "I"
+    }
+   ]
+  },
+  {
+   "myth": "moose",
+   "pose": "nervous",
+   "shot": "closeup",
+   "hold": 0.5,
+   "say": "Meatballs don't swim. We simmer.",
+   "shots": [
+    {},
+    {
+     "aside": "(in sauce)",
+     "at": "simmer"
+    }
+   ],
+   "prop": "fork",
+   "sting": "tink"
+  },
+  {
+   "myth": "moose",
+   "pose": "deadpan",
+   "shot": "host",
+   "say": "Survival odds: low. Delicious odds: high. Swimming odds: please don't.",
+   "shots": [
+    {
+     "text": "SURVIVAL\nODDS: LOW"
+    },
+    {
+     "text": "DELICIOUS\nODDS: HIGH",
+     "at": "Delicious"
+    },
+    {
+     "text": "SWIMMING\nODDS: NO",
+     "aside": "(please don't)",
+     "at": "Swimming"
+    }
+   ]
+  },
+  {
+   "hook": true,
+   "myth": "cone",
+   "bleed": true,
+   "pose": "deadpan",
+   "shot": "show",
+   "say": "This snail hunts fish with insulin. It clouds the water, and the fish's blood sugar crashes.",
+   "loop_say": "And you thought your snacks were weird.",
+   "short_title": "This Snail Hunts Fish With a Cloud of Insulin 🐚",
+   "bonus": "Scientists are studying cone snail insulin for faster-acting diabetes medicine.",
+   "comment": "Would you ever pick up a pretty shell again? 👇",
+   "shots": [
+    {
+     "photo": "Conus geographus",
+     "obs": 37854913,
+     "crop": [
+      0.239,
+      0.0,
+      0.661,
+      1.0
+     ]
+    },
+    {
+     "photo": "Conus geographus",
+     "obs": 37854913,
+     "crop": [
+      0.473,
+      0.25,
+      0.727,
+      0.85
+     ],
+     "at": "It"
+    },
+    {
+     "photo": "Conus geographus",
+     "obs": 37710971,
+     "crop": [
+      0.381,
+      0.1,
+      0.719,
+      0.9
+     ],
+     "at": "and"
+    }
+   ],
+   "sources": [
+    "Safavi-Hemami et al. 2015, PNAS, 'Specialized insulin is used for chemical warfare by fish-hunting cone snails' (Conus geographus, C. tulipa) — https://archive.unews.utah.edu/news_releases/killer-snail-venom-insulin/",
+    "Cone snail harpoon = modified, barbed, hollow radular tooth fired from an extendable proboscis — https://en.wikipedia.org/wiki/Cone_snail",
+    "Conus geographus: about 36 recorded human deaths; no antivenom — https://en.wikipedia.org/wiki/Conus_geographus",
+    "Photo note: the harpoon beat uses Californiconus californicus (also a venomous cone snail, line is about cone snails in general); insulin and 'killed people' beats use C. geographus only."
+   ]
+  },
+  {
+   "myth": "cone",
+   "bleed": true,
+   "pose": "deadpan",
+   "shot": "show",
+   "say": "Then it fires a harpoon: a hollow, venom-filled tooth.",
+   "shots": [
+    {
+     "photo": "Californiconus californicus",
+     "obs": 66606761,
+     "crop": [
+      0.239,
+      0.0,
+      0.661,
+      1.0
+     ]
+    },
+    {
+     "photo": "Californiconus californicus",
+     "obs": 66506998,
+     "crop": [
+      0.316,
+      0.0,
+      0.784,
+      1.0
+     ],
+     "at": "hollow"
+    }
+   ]
+  },
+  {
+   "myth": "cone",
+   "bleed": true,
+   "pose": "nervous",
+   "shot": "together",
+   "say": "This one has killed people. There's no antivenom.",
+   "shots": [
+    {
+     "photo": "Conus geographus",
+     "obs": 37710971,
+     "crop": [
+      0.41,
+      0.05,
+      0.79,
+      0.95
+     ]
+    },
+    {
+     "photo": "Conus geographus",
+     "obs": 37854913,
+     "crop": [
+      0.331,
+      0.15,
+      0.669,
+      0.95
+     ],
+     "at": "There's"
+    }
+   ]
+  },
+  {
+   "myth": "cone",
+   "pose": "nervous",
+   "shot": "closeup",
+   "hold": 0.5,
+   "say": "It swallows fish whole. I'm fish-sized. I'm walking faster.",
+   "shots": [
+    {},
+    {
+     "aside": "(it's a snail)",
+     "at": "faster"
+    }
+   ],
+   "prop": "fork",
+   "sting": "tink"
+  },
+  {
+   "myth": "cone",
+   "pose": "deadpan",
+   "shot": "host",
+   "say": "Survival odds: high, actually. It's a snail. Just never pick one up.",
+   "shots": [
+    {
+     "text": "SURVIVAL\nODDS: HIGH"
+    },
+    {
+     "text": "IT'S A\nSNAIL",
+     "at": "It's"
+    },
+    {
+     "text": "NEVER PICK\nONE UP",
+     "aside": "(seriously)",
+     "at": "Just"
+    }
+   ]
+  },
+  {
+   "hook": true,
+   "myth": "badger",
+   "bleed": true,
+   "pose": "deadpan",
+   "shot": "show",
+   "say": "Honey badgers are built to resist cobra venom. A tiny change in their muscles blocks part of the toxin.",
+   "loop_say": "Which explains the attitude, because",
+   "short_title": "Honey Badgers Are Built to Resist Cobra Venom 🦡",
+   "bonus": "The same receptor change evolved separately in honey badgers, hedgehogs, pigs and mongooses.",
+   "comment": "Which animal would you least want to annoy? 👇",
+   "shots": [
+    {
+     "photo": "Mellivora capensis",
+     "obs": 92943815,
+     "crop": [
+      0.309,
+      0.0,
+      0.731,
+      1.0
+     ]
+    },
+    {
+     "photo": "Mellivora capensis",
+     "obs": 163519989,
+     "crop": [
+      0.31,
+      0.1,
+      0.69,
+      1.0
+     ],
+     "at": "A"
+    },
+    {
+     "photo": "Mellivora capensis",
+     "obs": 250982289,
+     "crop": [
+      0.311,
+      0.1,
+      0.649,
+      1.0
+     ],
+     "at": "blocks"
+    }
+   ],
+   "sources": [
+    "Drabeck, Dean & Jansa 2015, Toxicon, 'Why the honey badger don't care: convergent evolution of venom-targeted nicotinic acetylcholine receptors' (honey badger, hedgehog, pig; mongoose known earlier) — https://experts.umn.edu/en/publications/why-the-honey-badger-dont-care-convergent-evolution-of-venom-targ/",
+    "Slate summary (receptor change blocks alpha-neurotoxin binding; resistance, not immunity) — https://www.slate.com/blogs/wild_things/2015/06/16/honey_badger_venom_resistance_biologists_discover_the_secret.html",
+    "Mental Floss summary (diet incl. snakes, scorpions, bee larvae) — https://www.mentalfloss.com/article/65209/science-confirms-honey-badger-dont-care",
+    "Wording rule: 'resist' / 'blocks part of', never 'immune'."
+   ]
+  },
+  {
+   "myth": "badger",
+   "bleed": true,
+   "pose": "deadpan",
+   "shot": "show",
+   "say": "Hedgehogs, mongooses and pigs evolved the same trick.",
+   "shots": [
+    {
+     "text": "SAME TRICK:\nHEDGEHOGS"
+    },
+    {
+     "text": "SAME TRICK:\nMONGOOSES",
+     "at": "mongooses"
+    },
+    {
+     "text": "SAME TRICK:\nPIGS",
+     "at": "pigs"
+    }
+   ]
+  },
+  {
+   "myth": "badger",
+   "bleed": true,
+   "pose": "nervous",
+   "shot": "together",
+   "say": "It eats almost anything. Snakes, scorpions, bee larvae.",
+   "shots": [
+    {
+     "photo": "Mellivora capensis",
+     "obs": 163519989,
+     "crop": [
+      0.331,
+      0.15,
+      0.669,
+      0.95
+     ]
+    },
+    {
+     "photo": "Mellivora capensis",
+     "obs": 92943815,
+     "crop": [
+      0.331,
+      0.1,
+      0.669,
+      0.9
+     ],
+     "at": "Snakes"
+    }
+   ]
+  },
+  {
+   "myth": "badger",
+   "pose": "nervous",
+   "shot": "closeup",
+   "hold": 0.5,
+   "say": "Almost anything. I'll be very quiet now.",
+   "shots": [
+    {},
+    {
+     "aside": "(please don't add me)",
+     "at": "quiet"
+    }
+   ],
+   "prop": "fork",
+   "sting": "tink"
+  },
+  {
+   "myth": "badger",
+   "pose": "deadpan",
+   "shot": "host",
+   "say": "Survival odds: zero. Delicious odds: high. Its odds: doesn't care.",
+   "shots": [
+    {
+     "text": "SURVIVAL\nODDS: ZERO"
+    },
+    {
+     "text": "DELICIOUS\nODDS: HIGH",
+     "at": "Delicious"
+    },
+    {
+     "text": "IT DOESN'T\nCARE",
+     "aside": "(at all)",
+     "at": "Its"
+    }
+   ]
+  },
+  {
+   "hook": true,
+   "myth": "komodo",
+   "bleed": true,
+   "pose": "deadpan",
+   "shot": "show",
+   "say": "A Komodo dragon can eat eighty percent of its own weight in one meal. Its stomach just stretches.",
+   "loop_say": "So when someone says grab a bite, remember:",
+   "short_title": "A Komodo Dragon Can Eat 80% of Its Weight in One Meal 🦎",
+   "bonus": "Komodo dragons can go weeks without eating between big meals.",
+   "comment": "What's the most you've ever eaten in one sitting? 👇",
+   "shots": [
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 341853813,
+     "crop": [
+      0.339,
+      0,
+      0.761,
+      1.0
+     ]
+    },
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 363007686,
+     "crop": [
+      0.26,
+      0.1,
+      0.64,
+      1.0
+     ],
+     "at": "of"
+    },
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 259851971,
+     "crop": [
+      0.262,
+      0.0,
+      0.578,
+      1.0
+     ],
+     "at": "stomach"
+    }
+   ],
+   "sources": [
+    "Smithsonian's National Zoo, Komodo dragon: stomach expands so an adult can consume up to 80% of its body weight in a single meal — https://www.nationalzoo.si.edu/node/6852",
+    "Cincinnati Zoo (same 80% figure) — https://cincinnatizoo.org/animals-archive/komodo-dragon/",
+    "Fry et al. 2009, PNAS (venom glands in the lower jaw) — https://www.nationalgeographic.com/science/article/venomous-komodo-dragons-kill-prey-with-wound-and-poison-tactics",
+    "Contested: the venom's role in kills (LITFL, 'Komodo dragons: myth vs reality') — https://litfl.com/komodo-dragons-myth-vs-reality/ ; the script says it is argued."
+   ]
+  },
+  {
+   "myth": "komodo",
+   "bleed": true,
+   "pose": "deadpan",
+   "shot": "show",
+   "say": "It has venom glands in its jaw. How much they matter is still argued.",
+   "shots": [
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 259738154,
+     "crop": [
+      0.389,
+      0.0,
+      0.811,
+      1.0
+     ]
+    },
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 244517845,
+     "crop": [
+      0.47,
+      0.1,
+      0.85,
+      1.0
+     ],
+     "at": "How"
+    }
+   ]
+  },
+  {
+   "myth": "komodo",
+   "bleed": true,
+   "pose": "nervous",
+   "shot": "together",
+   "say": "Eighty percent of a meatball is a meatball. I don't love it.",
+   "shots": [
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 333369842,
+     "crop": [
+      0.192,
+      0.0,
+      0.508,
+      1.0
+     ]
+    },
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 363007686,
+     "crop": [
+      0.281,
+      0.15,
+      0.619,
+      0.95
+     ],
+     "at": "I"
+    }
+   ]
+  },
+  {
+   "myth": "komodo",
+   "pose": "nervous",
+   "shot": "closeup",
+   "hold": 0.5,
+   "say": "One gulp. No chewing. No dignity.",
+   "shots": [
+    {},
+    {
+     "aside": "(not a snack)",
+     "at": "dignity"
+    }
+   ],
+   "prop": "fork",
+   "sting": "tink"
+  },
+  {
+   "myth": "komodo",
+   "pose": "deadpan",
+   "shot": "host",
+   "say": "Survival odds: zero. Delicious odds: high. Leftovers: none.",
+   "shots": [
+    {
+     "text": "SURVIVAL\nODDS: ZERO"
+    },
+    {
+     "text": "DELICIOUS\nODDS: HIGH",
+     "at": "Delicious"
+    },
+    {
+     "text": "LEFTOVERS:\nNONE",
+     "aside": "(not even crumbs)",
+     "at": "Leftovers"
+    }
+   ]
+  },
+  {
+   "hook": true,
+   "myth": "piranha",
+   "bleed": true,
+   "pose": "deadpan",
+   "shot": "show",
+   "say": "Piranhas don't group up to hunt. They group up because they're scared of being eaten.",
+   "loop_say": "Honestly? Relatable. Which is why I say,",
+   "short_title": "Piranhas Travel in Groups Because They're Scared 🐟",
+   "bonus": "Only a couple of the roughly 25 piranha species are known to bark.",
+   "comment": "Did movies ruin piranhas for you? 👇",
+   "shots": [
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 228497872,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    },
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 8734928,
+     "crop": [
+      0.31,
+      0.0,
+      0.69,
+      0.9
+     ],
+     "at": "They"
+    },
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 395989341,
+     "crop": [
+      0.323,
+      0.0,
+      0.677,
+      0.9
+     ],
+     "at": "they're"
+    }
+   ],
+   "sources": [
+    "Queiroz & Magurran 2005, Biology Letters 1:155-157, 'Safety in numbers? Shoaling behaviour of the Amazonian red-bellied piranha' (higher opercular rate in small shoals; slower recovery after a model-cormorant attack) — https://research-portal.st-andrews.ac.uk/en/publications/safety-in-numbers-shoaling-behaviour-of-the-amazonian-red-bellied/",
+    "St Andrews release, 'Rehabilitating piranhas' (groups for protection, not pack hunting) — https://news.st-andrews.ac.uk/archive/rehabilitating-piranhas/",
+    "Millot, Vandewalle & Parmentier 2011, J. Exp. Biol. 214:3613 (bark when handled) — https://www.npr.org/sections/thetwo-way/2011/10/14/141350706/listen-up-heres-how-some-piranhas-bark-before-they-bite",
+    "Photo note: all piranha photos are live aquarium fish (iNat captive/casual); every wild research-grade CC photo showed a caught or dead fish."
+   ]
+  },
+  {
+   "myth": "piranha",
+   "bleed": true,
+   "pose": "deadpan",
+   "shot": "show",
+   "say": "In a lab, small groups breathed faster, a stress sign, and calmed slower after a fake bird attack.",
+   "shots": [
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 345090765,
+     "crop": [
+      0.389,
+      0.0,
+      0.811,
+      1.0
+     ]
+    },
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 150282373,
+     "crop": [
+      0.492,
+      0.0,
+      0.808,
+      1.0
+     ],
+     "at": "stress"
+    },
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 241309079,
+     "crop": [
+      0.342,
+      0.0,
+      0.658,
+      1.0
+     ],
+     "at": "and"
+    }
+   ]
+  },
+  {
+   "myth": "piranha",
+   "bleed": true,
+   "pose": "nervous",
+   "shot": "together",
+   "say": "They even bark when they're grabbed.",
+   "shots": [
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 241309079,
+     "crop": [
+      0.308,
+      0.05,
+      0.592,
+      0.95
+     ]
+    },
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 395989341,
+     "crop": [
+      0.393,
+      0.05,
+      0.707,
+      0.85
+     ],
+     "at": "when"
+    }
+   ]
+  },
+  {
+   "myth": "piranha",
+   "pose": "nervous",
+   "shot": "closeup",
+   "hold": 0.5,
+   "say": "Scared fish, sharp teeth. And I'm, technically, meat.",
+   "shots": [
+    {},
+    {
+     "aside": "(the name was a mistake)",
+     "at": "meat"
+    }
+   ],
+   "prop": "fork",
+   "sting": "tink"
+  },
+  {
+   "myth": "piranha",
+   "pose": "deadpan",
+   "shot": "host",
+   "say": "Survival odds: decent. Delicious odds: still high.",
+   "shots": [
+    {
+     "text": "SURVIVAL\nODDS: DECENT"
+    },
+    {
+     "text": "DELICIOUS\nODDS: HIGH",
+     "at": "Delicious"
+    },
+    {
+     "text": "STILL\nHIGH",
+     "aside": "(we're both scared)",
+     "at": "still"
+    }
+   ]
+  },
+  {
+   "hook": true,
+   "myth": "croc",
+   "bleed": true,
+   "pose": "deadpan",
+   "shot": "show",
+   "say": "Saltwater crocodiles have the strongest bite ever measured. About thirty-seven hundred pounds of force.",
+   "loop_say": "Someone measured that with a bite sensor. Brave. Anyway,",
+   "short_title": "Saltwater Crocodiles Have the Strongest Bite Ever Measured 🐊",
+   "bonus": "The previous record holder was an American alligator.",
+   "comment": "Would you hold the sensor? 👇",
+   "shots": [
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 205463382,
+     "crop": [
+      0.282,
+      0.0,
+      0.658,
+      1.0
+     ]
+    },
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 205463382,
+     "crop": [
+      0.367,
+      0.445,
+      0.573,
+      0.995
+     ],
+     "at": "About"
+    },
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 306412669,
+     "crop": [
+      0.342,
+      0.0,
+      0.658,
+      1.0
+     ],
+     "at": "pounds"
+    }
+   ],
+   "sources": [
+    "Erickson et al. 2012, PLOS ONE (all 23 living crocodilian species); FSU release: 3,700 lb of bite force, highest ever recorded — https://www.sciencedaily.com/releases/2012/03/120316093427.htm",
+    "Guinness World Records: 16,414 N (about 3,690 lbf) from a saltwater crocodile — https://www.guinnessworldrecords.com/world-records/401566-strongest-molariform-bite-force-for-a-crocodile",
+    "Units: 'pounds of force', not 'psi' (Nat Geo's psi is a unit slip).",
+    "Crocodilians cannot chew; they tear and swallow chunks — https://www.nationalgeographic.com/animals/article/120315-crocodiles-bite-force-erickson-science-plos-one-strongest"
+   ]
+  },
+  {
+   "myth": "croc",
+   "bleed": true,
+   "pose": "deadpan",
+   "shot": "show",
+   "say": "Scientists tested all twenty-three crocodile species. The saltwater croc won.",
+   "shots": [
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 194174556,
+     "crop": [
+      0.313,
+      0.0,
+      0.687,
+      1.0
+     ]
+    },
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 104022814,
+     "crop": [
+      0.139,
+      0.0,
+      0.561,
+      1.0
+     ],
+     "at": "The"
+    }
+   ]
+  },
+  {
+   "myth": "croc",
+   "bleed": true,
+   "pose": "nervous",
+   "shot": "together",
+   "say": "Crocodiles can't chew. They clamp, twist, and swallow chunks whole.",
+   "shots": [
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 14789694,
+     "crop": [
+      0.192,
+      0.0,
+      0.568,
+      1.0
+     ]
+    },
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 306412669,
+     "crop": [
+      0.353,
+      0.15,
+      0.607,
+      0.95
+     ],
+     "at": "They"
+    }
+   ]
+  },
+  {
+   "myth": "croc",
+   "pose": "nervous",
+   "shot": "closeup",
+   "hold": 0.5,
+   "say": "I'm already chunk-sized. No twist needed.",
+   "shots": [
+    {},
+    {
+     "aside": "(pre-portioned)",
+     "at": "needed"
+    }
+   ],
+   "prop": "fork",
+   "sting": "tink"
+  },
+  {
+   "myth": "croc",
+   "pose": "deadpan",
+   "shot": "host",
+   "say": "Survival odds: zero. Delicious odds: high. Bite odds: record.",
+   "shots": [
+    {
+     "text": "SURVIVAL\nODDS: ZERO"
+    },
+    {
+     "text": "DELICIOUS\nODDS: HIGH",
+     "at": "Delicious"
+    },
+    {
+     "text": "BITE ODDS:\nRECORD",
+     "aside": "(world record)",
+     "at": "Bite"
+    }
+   ]
+  },
+  {
+   "hook": true,
+   "myth": "octopus",
+   "bleed": true,
+   "pose": "deadpan",
+   "shot": "show",
+   "say": "A blue-ringed octopus bite can be painless. You might not notice it. And there's no antivenom.",
+   "loop_say": "So the blue rings are a courtesy. Because",
+   "short_title": "A Blue-Ringed Octopus Bite Can Be Painless 🐙",
+   "bonus": "It's small enough to fit in your palm, which is exactly why you shouldn't pick one up.",
+   "comment": "Did you know the bite might not even hurt? 👇",
+   "shots": [
+    {
+     "photo": "Hapalochlaena lunulata",
+     "obs": 393772050,
+     "crop": [
+      0.369,
+      0.0,
+      0.791,
+      1.0
+     ]
+    },
+    {
+     "photo": "Hapalochlaena lunulata",
+     "obs": 26159142,
+     "crop": [
+      0.315,
+      0.0,
+      0.685,
+      0.9
+     ],
+     "at": "You"
+    },
+    {
+     "photo": "Hapalochlaena maculosa",
+     "obs": 100557962,
+     "crop": [
+      0.312,
+      0.0,
+      0.688,
+      1.0
+     ],
+     "at": "And"
+    }
+   ],
+   "sources": [
+    "Divers Alert Network (bite usually painless or like a bee sting; tetrodotoxin paralysis incl. breathing; no antivenom; full recovery expected with timely ventilation and care) — https://dan.org/health-medicine/health-resources/diseases-conditions/blue-ringed-octopus/",
+    "SBS, surviving a blue-ringed octopus bite (no antivenom; treat like a snake bite) — https://www.sbs.com.au/language/italian/en/podcast-episode/ep-259-occhio-al-polpo-dagli-anelli-blu-affascinante-ma-velenoso/vh52lyas1",
+    "Rings flash when threatened; eats crabs and shrimp — https://en.wikipedia.org/wiki/Hapalochlaena"
+   ]
+  },
+  {
+   "myth": "octopus",
+   "bleed": true,
+   "pose": "deadpan",
+   "shot": "show",
+   "say": "Its venom stops your breathing muscles. People survive if someone breathes for them.",
+   "shots": [
+    {
+     "photo": "Hapalochlaena lunulata",
+     "obs": 38183739,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    },
+    {
+     "photo": "Hapalochlaena maculosa",
+     "obs": 67075415,
+     "crop": [
+      0.292,
+      0.0,
+      0.608,
+      1.0
+     ],
+     "at": "People"
+    }
+   ]
+  },
+  {
+   "myth": "octopus",
+   "bleed": true,
+   "pose": "nervous",
+   "shot": "together",
+   "say": "When it's upset, the blue rings get brighter.",
+   "shots": [
+    {
+     "photo": "Hapalochlaena lunulata",
+     "obs": 26159142,
+     "crop": [
+      0.316,
+      0.05,
+      0.644,
+      0.85
+     ]
+    },
+    {
+     "photo": "Hapalochlaena lunulata",
+     "obs": 393772050,
+     "crop": [
+      0.411,
+      0.1,
+      0.749,
+      0.9
+     ],
+     "at": "the"
+    }
+   ]
+  },
+  {
+   "myth": "octopus",
+   "pose": "nervous",
+   "shot": "closeup",
+   "hold": 0.5,
+   "say": "It eats crabs. Not meatballs. I checked. From far away.",
+   "shots": [
+    {},
+    {
+     "aside": "(by letter)",
+     "at": "far"
+    }
+   ],
+   "prop": "fork",
+   "sting": "tink"
+  },
+  {
+   "myth": "octopus",
+   "pose": "deadpan",
+   "shot": "host",
+   "say": "Survival odds: good, with a friend. Delicious odds: low, for once.",
+   "shots": [
+    {
+     "text": "SURVIVAL\nODDS: GOOD*"
+    },
+    {
+     "text": "DELICIOUS\nODDS: LOW",
+     "at": "Delicious"
+    },
+    {
+     "text": "FOR\nONCE",
+     "aside": "(*a friend who knows CPR)",
+     "at": "once"
+    }
+   ]
+  },
+  {
+   "hook": true,
+   "myth": "boxjelly",
+   "bleed": true,
+   "pose": "deadpan",
+   "shot": "show",
+   "say": "A box jellyfish has twenty-four eyes, and no brain. Four of its eyes always look up.",
+   "loop_say": "So it's watching you right now. Because",
+   "short_title": "A Box Jellyfish Has 24 Eyes and No Brain 👀",
+   "bonus": "In Australia, vinegar is the first aid for box jellyfish stings, then emergency help.",
+   "comment": "Twenty-four eyes and no brain. Who does that remind you of? 👇",
+   "shots": [
+    {
+     "photo": "Carybdea xaymacana",
+     "obs": 323556345,
+     "crop": [
+      0.169,
+      0,
+      0.591,
+      1.0
+     ]
+    },
+    {
+     "photo": "Carybdea xaymacana",
+     "obs": 139201356,
+     "crop": [
+      0.331,
+      0.15,
+      0.669,
+      0.95
+     ],
+     "at": "and"
+    },
+    {
+     "photo": "Alatina alata",
+     "obs": 201777123,
+     "crop": [
+      0.281,
+      0.08,
+      0.619,
+      0.88
+     ],
+     "at": "Four"
+    }
+   ],
+   "sources": [
+    "Garm et al. 2011, Current Biology (24 eyes of four types; upper and lower lens eyes form images; four always look up; used to navigate) — https://www.sciencedaily.com/releases/2011/04/110428123938.htm",
+    "Scientific American, 'Box Jellyfish Eyes Aim at the Trees' (no real brain; active hunters) — https://www.scientificamerican.com/podcast/episode/box-jellyfish-eyes-aim-at-the-trees-11-04-29/",
+    "Chironex fleckeri: unconsciousness and respiratory or cardiac arrest within minutes (Fenner 2005, Diving and Hyperbaric Medicine) — https://dhmjournal.com/images/IndividArticles/35June/Fenner_dhm.35.2.76-83.pdf",
+    "Photo note: no CC0/CC BY Chironex fleckeri photo exists on iNaturalist; photos are Carybdea xaymacana, Alatina alata and Copula sivickisi (all box jellyfish, all share the 24-eye layout). The Chironex line runs on a text card."
+   ]
+  },
+  {
+   "myth": "boxjelly",
+   "bleed": true,
+   "pose": "deadpan",
+   "shot": "show",
+   "say": "Some of its eyes have lenses, like ours. It steers. It doesn't just drift.",
+   "shots": [
+    {
+     "photo": "Copula sivickisi",
+     "obs": 149206600,
+     "crop": [
+      0.231,
+      0.0,
+      0.569,
+      0.8
+     ]
+    },
+    {
+     "photo": "Alatina alata",
+     "obs": 201777230,
+     "crop": [
+      0.451,
+      0.2,
+      0.789,
+      1.0
+     ],
+     "at": "It"
+    }
+   ]
+  },
+  {
+   "myth": "boxjelly",
+   "bleed": true,
+   "pose": "nervous",
+   "shot": "together",
+   "say": "In Australia, one kind can stop a human heart in minutes.",
+   "shots": [
+    {
+     "text": "ONE AUSTRALIAN\nSPECIES"
+    },
+    {
+     "text": "A HEART.\nIN MINUTES.",
+     "at": "heart"
+    }
+   ]
+  },
+  {
+   "myth": "boxjelly",
+   "pose": "nervous",
+   "shot": "closeup",
+   "hold": 0.5,
+   "say": "It eats small fish. No brain to add meatballs.",
+   "shots": [
+    {},
+    {
+     "aside": "(small mercies)",
+     "at": "meatballs"
+    }
+   ],
+   "prop": "fork",
+   "sting": "tink"
+  },
+  {
+   "myth": "boxjelly",
+   "pose": "deadpan",
+   "shot": "host",
+   "say": "Survival odds: low. Delicious odds: unknown. It can't think about it.",
+   "shots": [
+    {
+     "text": "SURVIVAL\nODDS: LOW"
+    },
+    {
+     "text": "DELICIOUS\nODDS: UNKNOWN",
+     "at": "Delicious"
+    },
+    {
+     "text": "IT CAN'T\nTHINK",
+     "aside": "(no brain)",
+     "at": "It"
+    }
+   ]
+  }
+ ]
+}
