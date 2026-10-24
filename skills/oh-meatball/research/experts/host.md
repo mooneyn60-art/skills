@@ -17,3 +17,4 @@ Desk id: `host`. Absorbs: Community. Read this before every run and append lesso
 
 ## Lessons log (newest last; date, what happened, what we learned, the number)
 - 2026-10-24: desk created by merging the roles above.
+- 2026-10-24 (evening): channel pull (30 newest) had 4 viewer comments, 11 of ours. One real answer (owl: 'True 🎉🎉', which is wrong) logged in research/comment-readouts.md. Wrote replies myself instead of vidiq_generate_comment_replies to save credits.

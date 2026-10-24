@@ -20,3 +20,4 @@ Desk id: `redteam`. Absorbs: Contrarian, Inspector. Read this before every run a
 
 ## Lessons log (newest last; date, what happened, what we learned, the number)
 - 2026-10-24: desk created by merging the roles above.
+- 2026-10-24 (evening): 0 of 6 queued YouTube Shorts for 10/25-26 are Shorts v2 (all open on 'TRUE or FALSE? Guess before the timer'); challenge sent to Studio. Moondog88 live stream (2021) still public.
