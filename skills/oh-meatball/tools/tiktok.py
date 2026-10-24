@@ -46,6 +46,7 @@ def main():
     ap.add_argument("script")
     ap.add_argument("slug")
     ap.add_argument("--work", default="/tmp/meatball-build")
+    ap.add_argument("--skip-existing", action="store_true", help="keep cuts already rendered (resume after a stop)")
     a = ap.parse_args()
     spec = json.load(open(a.script))
     beats = spec["beats"]
@@ -63,9 +64,10 @@ def main():
                   open(sspec, "w"))
         path = f"{out}/tt-{n}.mp4"
         # Render in the work dir and move into the repo only when finished, so a commit never grabs a half-written file.
-        subprocess.run(["python3", "explainer.py", sspec, work, "build", f"{work}/tt.mp4", "--vertical"], check=True,
-                       cwd=os.path.dirname(os.path.abspath(__file__)))
-        shutil.move(f"{work}/tt.mp4", path)
+        if not (a.skip_existing and os.path.exists(path)):
+            subprocess.run(["python3", "explainer.py", sspec, work, "build", f"{work}/tt.mp4", "--vertical"], check=True,
+                           cwd=os.path.dirname(os.path.abspath(__file__)))
+            shutil.move(f"{work}/tt.mp4", path)
         dur = explainer.duration(path)
         quizzes = [b for b in beats if b.get("myth") in ms and "quiz" in b]
         release.append({
