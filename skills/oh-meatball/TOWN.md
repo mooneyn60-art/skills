@@ -1,8 +1,8 @@
 # Meatball Town
 
-The agent team behind Meatball Myths. It has one goal: get the channel monetized. The current target is the lower
-YouTube Partner Program tier, 500 subscribers plus 3M Shorts views in 90 days, then the full ad tier
-(research/26-monetization-math.md).
+The agent team behind Meatball Myths. It has one goal, set by Nolan on 10/24: FULL YouTube monetization by 11/23
+(1,000 subscribers plus 10M Shorts views in 90 days, or 4,000 watch hours), scaling every way we can and earning on every
+platform that pays. The lower tier (500 subs plus 3M views) is the waypoint (research/26, research/31).
 
 Town page: https://claude.ai/artifact/ULGBNYEnnAumrYEZ6hjphQ
 It is backed by the artifact database; read and write it with the `ArtifactData` tool, passing that url.
@@ -35,6 +35,8 @@ reports and keeps every `decision`.
 - historian: case studies and history episodes (research/27)
 - community: comments as Meatball (the Host)
 - lab: experiments (data/experiments.csv)
+- merchant: every revenue stream (TikTok Creator Rewards, Facebook/Instagram/Snapchat payouts, affiliate, merch; research/32)
+- ambassador: scale (posting volume, new platforms, other languages, trend-jacking; research/33)
 
 ## How a run talks
 1. **Read first.** Read `square` (the last 60 messages) and every `residents` doc. Answer any message addressed to a
