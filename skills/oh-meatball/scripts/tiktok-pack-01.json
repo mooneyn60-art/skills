@@ -39,6 +39,256 @@
  },
  "beats": [
   {
+   "myth": "puffer",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "Pufferfish poison: 1,000 times deadlier than cyanide.",
+   "sfx": [
+    "pop@1,000"
+   ],
+   "label": {
+    "text": "1,000x\nCYANIDE",
+    "at": "1,000"
+   },
+   "hook": true,
+   "loop_say": "And somehow I'm the one getting eaten. Because",
+   "short_title": "Pufferfish Poison Is Deadlier Than Cyanide 🐡",
+   "comment": "Would you ever try fugu? 👇",
+   "bonus": "Tetrodotoxin blocks the sodium channels nerves use to fire.",
+   "sources": [
+    "Hong Kong Centre for Food Safety: tetrodotoxin over 1,000 times more toxic to humans than cyanide (some authorities); heat-stable, cooking doesn't destroy it — https://cfs.gov.hk/english/multimedia/multimedia_pub/multimedia_pub_fsf_178_02.html",
+    "Tetrodotoxin review (no antidote; blocks voltage-gated sodium channels) — https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3942760/",
+    "Fugu chefs in Japan train for years before licensing (Tokyo and other prefectures)."
+   ],
+   "_len": "short",
+   "shots": [
+    {
+     "photo": "Arothron",
+     "obs": 155741271,
+     "crop": [
+      0.326,
+      0.0,
+      0.674,
+      1.0
+     ]
+    },
+    {
+     "photo": "Arothron",
+     "obs": 178743861,
+     "crop": [
+      0.199,
+      0.0,
+      0.641,
+      1.0
+     ],
+     "at": "1,000"
+    }
+   ]
+  },
+  {
+   "myth": "puffer",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So naturally, I offered it a hug.",
+   "sfx": [
+    "whoosh@0.05"
+   ],
+   "shots": [
+    {
+     "photo": "Arothron",
+     "obs": 155741271,
+     "crop": [
+      0.326,
+      0.0,
+      0.674,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "puffer",
+   "pose": "shock",
+   "act": "launch",
+   "say": "It puffed up like a balloon.",
+   "sfx": [
+    "boing@puffed",
+    "whoosh@puffed"
+   ],
+   "hit": "puffed",
+   "shots": [
+    {
+     "photo": "Arothron",
+     "obs": 394859347,
+     "crop": [
+      0.2,
+      0.1,
+      0.8,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "puffer",
+   "pose": "deadpan",
+   "act": "tumble",
+   "say": "Cooking doesn't destroy the poison.",
+   "sfx": [
+    "thud@0.4"
+   ],
+   "act_at": 0.4,
+   "punch": "destroy",
+   "shots": [
+    {
+     "photo": "Arothron",
+     "obs": 178743861,
+     "crop": [
+      0.222,
+      0.05,
+      0.618,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "puffer",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "And there's no antidote.",
+   "sfx": [
+    "scratch@no"
+   ],
+   "label": {
+    "text": "NO\nANTIDOTE",
+    "at": "antidote"
+   },
+   "shots": [
+    {
+     "photo": "Arothron",
+     "obs": 394859347,
+     "crop": [
+      0.237,
+      0.15,
+      0.762,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "puffer",
+   "pose": "point",
+   "act": "stand",
+   "say": "In Japan, chefs train for years.",
+   "sfx": [
+    "pop@years"
+   ],
+   "punch": "years",
+   "shots": [
+    {
+     "photo": "Arothron",
+     "obs": 18886067,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "puffer",
+   "pose": "shock",
+   "act": "stand",
+   "say": "People pay extra to eat it.",
+   "sfx": [
+    "pop@extra"
+   ],
+   "punch": "extra",
+   "shots": [
+    {
+     "photo": "Arothron",
+     "obs": 307248625,
+     "crop": [
+      0.275,
+      0.1,
+      0.725,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "puffer",
+   "pose": "deadpan",
+   "act": "tumble",
+   "say": "I'm totally safe. Nobody pays extra.",
+   "sfx": [
+    "thud@Nobody"
+   ],
+   "act_at": "Nobody",
+   "shots": [
+    {
+     "photo": "Arothron",
+     "obs": 15808349,
+     "crop": [
+      0.319,
+      0.05,
+      0.681,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "puffer",
+   "pose": "nervous",
+   "act": "hit",
+   "say": "I'm the free sample.",
+   "sfx": [
+    "tink@sample",
+    "pop@free"
+   ],
+   "prop": "fork",
+   "prop_at": "sample",
+   "act_at": "sample",
+   "shots": [
+    {
+     "photo": "Arothron",
+     "obs": 269610556,
+     "crop": [
+      0.352,
+      0.15,
+      0.648,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "puffer",
+   "pose": "think",
+   "act": "peek",
+   "say": "Would you eat it? Comment.",
+   "sfx": [],
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Arothron",
+     "obs": 155741271,
+     "crop": [
+      0.326,
+      0.0,
+      0.674,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
    "myth": "ironclad",
    "pose": "nervous",
    "act": "peek",
@@ -295,374 +545,200 @@
    ]
   },
   {
-   "myth": "bombardier",
+   "myth": "mantis",
    "pose": "nervous",
    "act": "peek",
-   "say": "Bombardier beetles fire boiling spray from their butts.",
+   "say": "Praying mantises can catch hummingbirds.",
    "sfx": [
-    "pop@boiling"
+    "pop@hummingbirds"
    ],
    "label": {
-    "text": "BOILING\nSPRAY",
-    "at": "boiling"
+    "text": "BIRDS?!",
+    "at": "hummingbirds"
    },
    "hook": true,
-   "loop_say": "That's the bug that won't stay eaten. Because",
-   "short_title": "Bombardier Beetles Fire Boiling Spray From Their Butts 💥",
-   "comment": "Would you pick one up? 👇",
-   "bonus": "The spray reaches about 100 °C, boiling-water hot.",
+   "loop_say": "So watch your feeder. Because",
+   "short_title": "Praying Mantises Can Catch Hummingbirds 🦗",
+   "comment": "Would you still keep a hummingbird feeder? 👇",
+   "bonus": "Most cases were in the US, where mantises wait at feeders and hummingbird flowers.",
    "sources": [
-    "Science News / Discover on Sugiura & Sato 2018: spray reaches about 100 °C; one vomited beetle lived 562 more days — https://www.discovermagazine.com/bombardier-beetles-refuse-to-be-toad-snacks-37445",
-    "Sugiura & Sato 2018, Biology Letters: Pheropsophus jessoensis fed to Japanese toads; 43% of toads vomited the beetles 12-107 min later; all vomited beetles alive and active; larger beetles escaped more often; smaller toads vomited more often — https://datadryad.org/dataset/doi:10.5061/dryad.ng788",
-    "Smithsonian, 'How Exploding Beetles Can Survive Being Eaten Alive' — https://www.smithsonianmag.com/smart-news/how-exploding-beetles-cause-japanese-toads-vomit-180968095/",
-    "Mechanism: hydroquinones + hydrogen peroxide mixed with enzymes in a reaction chamber; the spray comes in rapid pulses and can be aimed (Eisner; Dean et al. 1990)."
+    "Nyffeler et al. 2017, Wilson Journal of Ornithology 129(2): 147 cases of mantids catching small birds in 13 countries; ruby-throated hummingbird most often caught; >70% of cases in the US, often at feeders — https://conservation.unibas.ch/team/nyffeler/pdf/nyffeler2017wjo.pdf",
+    "Scientific American, 'Praying Mantises Catch and Eat Birds Alive' — https://www.scientificamerican.com/blog/artful-amoeba/praying-mantises-catch-and-eat-birds-alive-video/"
    ],
-   "_len": "deep",
+   "_len": "short",
    "shots": [
     {
-     "photo": "Brachinus",
-     "obs": 80656505,
+     "photo": "Tenodera sinensis",
+     "obs": 32651057,
      "crop": [
-      0.243,
+      0.089,
       0.0,
-      0.757,
+      0.511,
       1.0
      ]
     },
     {
-     "photo": "Brachinus",
-     "obs": 306816212,
+     "photo": "Archilochus colubris",
+     "obs": 138799680,
      "crop": [
-      0.112,
+      0.339,
       0.0,
-      0.488,
+      0.761,
       1.0
      ],
-     "at": "boiling"
+     "at": "hummingbirds"
     }
    ]
   },
   {
-   "myth": "bombardier",
+   "myth": "mantis",
    "pose": "deadpan",
    "act": "run_in",
-   "say": "So I tried to pick one up.",
+   "say": "So I hid behind a mantis.",
    "sfx": [
     "whoosh@0.05"
    ],
    "shots": [
     {
-     "photo": "Brachinus",
-     "obs": 80656505,
+     "photo": "Tenodera sinensis",
+     "obs": 329351875,
      "crop": [
-      0.243,
+      0.363,
       0.0,
-      0.757,
+      0.738,
       1.0
      ]
     }
    ]
   },
   {
-   "myth": "bombardier",
-   "pose": "nervous",
-   "act": "shake",
-   "say": "It aimed its rear end at me.",
-   "sfx": [
-    "scratch@rear"
-   ],
-   "punch": "rear",
-   "shots": [
-    {
-     "photo": "Brachinus",
-     "obs": 306816212,
-     "crop": [
-      0.149,
-      0.1,
-      0.451,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bombardier",
+   "myth": "mantis",
    "pose": "point",
    "act": "stand",
-   "say": "Two chemicals mix inside its abdomen.",
+   "say": "Scientists found 147 cases.",
    "sfx": [
-    "pop@mix"
-   ],
-   "shots": [
-    {
-     "photo": "Brachinus",
-     "obs": 108423692,
-     "crop": [
-      0.331,
-      0.05,
-      0.669,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bombardier",
-   "pose": "shock",
-   "act": "hit",
-   "say": "And then: pop.",
-   "sfx": [
-    "crunch@pop"
-   ],
-   "hit": "pop",
-   "shots": [
-    {
-     "photo": "Brachinus",
-     "obs": 75442250,
-     "crop": [
-      0.237,
-      0.15,
-      0.762,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bombardier",
-   "pose": "shock",
-   "act": "puff",
-   "say": "The spray hits 100 degrees Celsius.",
-   "sfx": [
-    "zap@degrees"
+    "pop@cases"
    ],
    "label": {
-    "text": "100°C",
-    "at": "degrees"
+    "text": "147 CASES",
+    "at": "cases"
    },
-   "hit": "degrees",
    "shots": [
     {
-     "photo": "Brachinus",
-     "obs": 205357805,
+     "photo": "Tenodera sinensis",
+     "obs": 32651057,
      "crop": [
-      0.289,
-      0.0,
-      0.711,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bombardier",
-   "pose": "shock",
-   "act": "puffed",
-   "say": "That's boiling water.",
-   "sfx": [],
-   "punch": "boiling",
-   "shots": [
-    {
-     "photo": "Brachinus",
-     "obs": 148320096,
-     "crop": [
-      0.2,
+      0.131,
       0.1,
-      0.8,
+      0.469,
       0.9
      ]
     }
    ]
   },
   {
-   "myth": "bombardier",
+   "myth": "mantis",
    "pose": "shock",
-   "act": "puffed",
-   "say": "It fires in rapid little pulses.",
+   "act": "stand",
+   "say": "In 13 countries.",
    "sfx": [
-    "pop@rapid",
-    "pop@little",
-    "pop@pulses"
+    "pop@countries"
    ],
+   "punch": "countries",
    "shots": [
     {
-     "photo": "Brachinus",
-     "obs": 80656505,
+     "photo": "Archilochus colubris",
+     "obs": 138799680,
      "crop": [
-      0.268,
+      0.36,
       0.05,
-      0.732,
+      0.74,
       0.95
      ]
     }
    ]
   },
   {
-   "myth": "bombardier",
+   "myth": "mantis",
    "pose": "deadpan",
-   "act": "deflate",
-   "say": "And it can aim.",
+   "act": "stand",
+   "say": "Most were near US hummingbird feeders.",
    "sfx": [
-    "pop@aim"
+    "pop@feeders"
    ],
-   "act_at": "aim",
+   "punch": "feeders",
    "shots": [
     {
-     "photo": "Brachinus",
-     "obs": 306816212,
+     "photo": "Archilochus colubris",
+     "obs": 130313240,
      "crop": [
-      0.168,
+      0.427,
       0.15,
-      0.432,
+      0.673,
       0.85
      ]
     }
    ]
   },
   {
-   "myth": "bombardier",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "I'm a meatball. I know boiling water.",
-   "sfx": [
-    "scratch@know"
-   ],
-   "shots": [
-    {
-     "photo": "Brachinus",
-     "obs": 108423692,
-     "crop": [
-      0.312,
-      0.0,
-      0.688,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bombardier",
-   "pose": "deadpan",
-   "act": "tumble",
-   "say": "Usually from inside a pot.",
-   "sfx": [
-    "thud@pot"
-   ],
-   "act_at": "pot",
-   "shots": [
-    {
-     "photo": "Brachinus",
-     "obs": 75442250,
-     "crop": [
-      0.2,
-      0.1,
-      0.8,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bombardier",
-   "pose": "think",
-   "act": "peek",
-   "say": "Now the weird part.",
-   "sfx": [
-    "scratch@weird"
-   ],
-   "punch": "weird",
-   "shots": [
-    {
-     "photo": "Brachinus",
-     "obs": 205357805,
-     "crop": [
-      0.31,
-      0.05,
-      0.69,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bombardier",
-   "pose": "point",
-   "act": "stand",
-   "say": "Scientists in Japan fed them to toads.",
-   "sfx": [
-    "pop@toads"
-   ],
-   "shots": [
-    {
-     "photo": "Bufo formosus",
-     "obs": 205075644,
-     "crop": [
-      0.269,
-      0.15,
-      0.531,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bombardier",
-   "pose": "shock",
-   "act": "stand",
-   "say": "The toads swallowed them whole.",
-   "sfx": [
-    "pop@whole"
-   ],
-   "punch": "whole",
-   "shots": [
-    {
-     "photo": "Pheropsophus jessoensis",
-     "obs": 361162869,
-     "crop": [
-      0.29,
-      0.0,
-      0.71,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bombardier",
+   "myth": "mantis",
    "pose": "nervous",
    "act": "shake",
-   "say": "Whole. Like a meatball.",
+   "say": "A bug that eats birds.",
    "sfx": [
-    "tink@meatball"
+    "scratch@birds"
    ],
-   "prop": "fork",
-   "prop_at": "meatball",
+   "punch": "birds",
    "shots": [
     {
-     "photo": "Brachinus",
-     "obs": 148320096,
+     "photo": "Tenodera sinensis",
+     "obs": 248975789,
      "crop": [
-      0.2,
+      0.239,
+      0.0,
+      0.661,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "mantis",
+   "pose": "shock",
+   "act": "hit",
+   "say": "The food chain is a suggestion.",
+   "sfx": [
+    "crunch@suggestion"
+   ],
+   "act_at": "suggestion",
+   "shots": [
+    {
+     "photo": "Tenodera sinensis",
+     "obs": 329351875,
+     "crop": [
+      0.4,
       0.1,
-      0.8,
+      0.7,
       0.9
      ]
     }
    ]
   },
   {
-   "myth": "bombardier",
-   "pose": "shock",
-   "act": "hit",
-   "say": "Then the beetles fired. Inside the toads.",
+   "myth": "mantis",
+   "pose": "nervous",
+   "act": "tumble",
+   "say": "And I'm at the bottom of it.",
    "sfx": [
-    "crunch@fired"
+    "tink@bottom",
+    "thud@bottom"
    ],
-   "hit": "fired",
+   "prop": "fork",
+   "prop_at": "bottom",
    "shots": [
     {
-     "photo": "Bufo formosus",
-     "obs": 173194302,
+     "photo": "Tenodera sinensis",
+     "obs": 248975789,
      "crop": [
       0.26,
       0.05,
@@ -673,1185 +749,20 @@
    ]
   },
   {
-   "myth": "bombardier",
-   "pose": "shock",
-   "act": "launch",
-   "say": "43% of the toads threw up.",
-   "sfx": [
-    "splash@threw",
-    "whoosh@threw"
-   ],
-   "label": {
-    "text": "43%\nTHREW UP",
-    "at": "43%"
-   },
-   "hit": "threw",
-   "shots": [
-    {
-     "photo": "Bufo formosus",
-     "obs": 206726185,
-     "crop": [
-      0.369,
-      0.15,
-      0.631,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bombardier",
-   "pose": "deadpan",
-   "act": "tumble",
-   "say": "The beetles came out alive.",
-   "sfx": [
-    "thud@alive"
-   ],
-   "act_at": "alive",
-   "punch": "alive",
-   "shots": [
-    {
-     "photo": "Pheropsophus jessoensis",
-     "obs": 244238457,
-     "crop": [
-      0.313,
-      0.0,
-      0.687,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bombardier",
-   "pose": "shock",
-   "act": "stand",
-   "say": "Some were in there almost two hours.",
-   "sfx": [
-    "pop@two"
-   ],
-   "label": {
-    "text": "~2 HOURS",
-    "at": "two"
-   },
-   "shots": [
-    {
-     "photo": "Pheropsophus jessoensis",
-     "obs": 368373387,
-     "crop": [
-      0.237,
-      0.1,
-      0.563,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bombardier",
-   "pose": "point",
-   "act": "stand",
-   "say": "Bigger beetles escaped more often.",
-   "sfx": [
-    "pop@Bigger"
-   ],
-   "shots": [
-    {
-     "photo": "Pheropsophus jessoensis",
-     "obs": 363484401,
-     "crop": [
-      0.163,
-      0.05,
-      0.837,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bombardier",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "Smaller toads gave up faster.",
-   "sfx": [
-    "pop@faster"
-   ],
-   "shots": [
-    {
-     "photo": "Bufo formosus",
-     "obs": 55139456,
-     "crop": [
-      0.352,
-      0.15,
-      0.648,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bombardier",
-   "pose": "shock",
-   "act": "stand",
-   "say": "One beetle lived 562 more days.",
-   "sfx": [
-    "pop@more"
-   ],
-   "label": {
-    "text": "562 DAYS",
-    "at": "more"
-   },
-   "shots": [
-    {
-     "photo": "Pheropsophus jessoensis",
-     "obs": 361162869,
-     "crop": [
-      0.29,
-      0.0,
-      0.71,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bombardier",
-   "pose": "shock",
-   "act": "run_across",
-   "say": "Swallowed whole, and it still won.",
-   "sfx": [
-    "whoosh@won"
-   ],
-   "act_at": "won",
-   "shots": [
-    {
-     "photo": "Brachinus",
-     "obs": 80656505,
-     "crop": [
-      0.294,
-      0.1,
-      0.706,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bombardier",
+   "myth": "mantis",
    "pose": "think",
    "act": "peek",
-   "say": "I'd like to know how.",
-   "sfx": [],
-   "shots": [
-    {
-     "photo": "Brachinus",
-     "obs": 306816212,
-     "crop": [
-      0.131,
-      0.05,
-      0.469,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bombardier",
-   "pose": "nervous",
-   "act": "hide",
-   "say": "Asking for me.",
-   "sfx": [
-    "pop@me"
-   ],
-   "shots": [
-    {
-     "photo": "Brachinus",
-     "obs": 108423692,
-     "crop": [
-      0.369,
-      0.15,
-      0.631,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bombardier",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "Threat to meatballs: low.",
-   "sfx": [
-    "pop@low"
-   ],
-   "label": {
-    "text": "THREAT:\nLOW",
-    "at": "low"
-   },
-   "shots": [
-    {
-     "photo": "Brachinus",
-     "obs": 75442250,
-     "crop": [
-      0.125,
-      0.0,
-      0.875,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bombardier",
-   "pose": "shock",
-   "act": "stand",
-   "say": "Threat to toads: very high.",
-   "sfx": [
-    "pop@high"
-   ],
-   "label": {
-    "text": "TOADS:\nVERY HIGH",
-    "at": "high"
-   },
-   "shots": [
-    {
-     "photo": "Bufo formosus",
-     "obs": 205075644,
-     "crop": [
-      0.25,
-      0.1,
-      0.55,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bombardier",
-   "pose": "think",
-   "act": "peek",
-   "say": "Would you pick one up? Comment.",
+   "say": "Would you still keep a feeder? Comment.",
    "sfx": [],
    "ask": "comment",
    "shots": [
     {
-     "photo": "Brachinus",
-     "obs": 205357805,
+     "photo": "Archilochus colubris",
+     "obs": 130313240,
      "crop": [
-      0.31,
-      0.05,
-      0.69,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "puffer",
-   "pose": "nervous",
-   "act": "peek",
-   "say": "Pufferfish poison: 1,000 times deadlier than cyanide.",
-   "sfx": [
-    "pop@1,000"
-   ],
-   "label": {
-    "text": "1,000x\nCYANIDE",
-    "at": "1,000"
-   },
-   "hook": true,
-   "loop_say": "And somehow I'm the one getting eaten. Because",
-   "short_title": "Pufferfish Poison Is Deadlier Than Cyanide 🐡",
-   "comment": "Would you ever try fugu? 👇",
-   "bonus": "Tetrodotoxin blocks the sodium channels nerves use to fire.",
-   "sources": [
-    "Hong Kong Centre for Food Safety: tetrodotoxin over 1,000 times more toxic to humans than cyanide (some authorities); heat-stable, cooking doesn't destroy it — https://cfs.gov.hk/english/multimedia/multimedia_pub/multimedia_pub_fsf_178_02.html",
-    "Tetrodotoxin review (no antidote; blocks voltage-gated sodium channels) — https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3942760/",
-    "Fugu chefs in Japan train for years before licensing (Tokyo and other prefectures)."
-   ],
-   "_len": "short",
-   "shots": [
-    {
-     "photo": "Arothron",
-     "obs": 155741271,
-     "crop": [
-      0.326,
-      0.0,
-      0.674,
-      1.0
-     ]
-    },
-    {
-     "photo": "Arothron",
-     "obs": 178743861,
-     "crop": [
-      0.199,
-      0.0,
-      0.641,
-      1.0
-     ],
-     "at": "1,000"
-    }
-   ]
-  },
-  {
-   "myth": "puffer",
-   "pose": "deadpan",
-   "act": "run_in",
-   "say": "So naturally, I offered it a hug.",
-   "sfx": [
-    "whoosh@0.05"
-   ],
-   "shots": [
-    {
-     "photo": "Arothron",
-     "obs": 155741271,
-     "crop": [
-      0.326,
-      0.0,
-      0.674,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "puffer",
-   "pose": "shock",
-   "act": "launch",
-   "say": "It puffed up like a balloon.",
-   "sfx": [
-    "boing@puffed",
-    "whoosh@puffed"
-   ],
-   "hit": "puffed",
-   "shots": [
-    {
-     "photo": "Arothron",
-     "obs": 394859347,
-     "crop": [
-      0.2,
-      0.1,
-      0.8,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "puffer",
-   "pose": "deadpan",
-   "act": "tumble",
-   "say": "Cooking doesn't destroy the poison.",
-   "sfx": [
-    "thud@0.4"
-   ],
-   "act_at": 0.4,
-   "punch": "destroy",
-   "shots": [
-    {
-     "photo": "Arothron",
-     "obs": 178743861,
-     "crop": [
-      0.222,
-      0.05,
-      0.618,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "puffer",
-   "pose": "nervous",
-   "act": "shake",
-   "say": "And there's no antidote.",
-   "sfx": [
-    "scratch@no"
-   ],
-   "label": {
-    "text": "NO\nANTIDOTE",
-    "at": "antidote"
-   },
-   "shots": [
-    {
-     "photo": "Arothron",
-     "obs": 394859347,
-     "crop": [
-      0.237,
+      0.427,
       0.15,
-      0.762,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "puffer",
-   "pose": "point",
-   "act": "stand",
-   "say": "In Japan, chefs train for years.",
-   "sfx": [
-    "pop@years"
-   ],
-   "punch": "years",
-   "shots": [
-    {
-     "photo": "Arothron",
-     "obs": 18886067,
-     "crop": [
-      0.289,
-      0.0,
-      0.711,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "puffer",
-   "pose": "shock",
-   "act": "stand",
-   "say": "People pay extra to eat it.",
-   "sfx": [
-    "pop@extra"
-   ],
-   "punch": "extra",
-   "shots": [
-    {
-     "photo": "Arothron",
-     "obs": 307248625,
-     "crop": [
-      0.275,
-      0.1,
-      0.725,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "puffer",
-   "pose": "deadpan",
-   "act": "tumble",
-   "say": "I'm totally safe. Nobody pays extra.",
-   "sfx": [
-    "thud@Nobody"
-   ],
-   "act_at": "Nobody",
-   "shots": [
-    {
-     "photo": "Arothron",
-     "obs": 15808349,
-     "crop": [
-      0.319,
-      0.05,
-      0.681,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "puffer",
-   "pose": "nervous",
-   "act": "hit",
-   "say": "I'm the free sample.",
-   "sfx": [
-    "tink@sample",
-    "pop@free"
-   ],
-   "prop": "fork",
-   "prop_at": "sample",
-   "act_at": "sample",
-   "shots": [
-    {
-     "photo": "Arothron",
-     "obs": 269610556,
-     "crop": [
-      0.352,
-      0.15,
-      0.648,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "puffer",
-   "pose": "think",
-   "act": "peek",
-   "say": "Would you eat it? Comment.",
-   "sfx": [],
-   "ask": "comment",
-   "shots": [
-    {
-     "photo": "Arothron",
-     "obs": 155741271,
-     "crop": [
-      0.326,
-      0.0,
-      0.674,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "hornedlizard",
-   "pose": "nervous",
-   "act": "peek",
-   "say": "Horned lizards squirt blood from their eyes.",
-   "sfx": [
-    "pop@eyes"
-   ],
-   "label": {
-    "text": "EYE\nBLOOD",
-    "at": "eyes"
-   },
-   "hook": true,
-   "loop_say": "So if you ever see one crying,",
-   "short_title": "Horned Lizards Squirt Blood From Their Eyes 🦎",
-   "comment": "Did you know lizards could do this? 👇",
-   "bonus": "The blood tastes foul to dogs, foxes and coyotes, but birds don't seem to mind it.",
-   "sources": [
-    "Live Science, short-horned lizard (squirts blood from its eyes; inflates) — https://livescience.com/animals/lizards/short-horned-lizard-the-inflatable-horny-toad-that-squirts-toxic-blood-from-its-eyes",
-    "A-Z Animals summary of studies: Texas horned lizard squirts up to about 5 ft; restricts blood flow from the head until vessels near the eyelids rupture; foul to canids; doesn't deter birds — https://a-z-animals.com/articles/blood-shot-eyes-natures-most-gruesome-defense-mechanism/",
-    "Sherbrooke & Middendorf / 2005 Southwestern Naturalist (USDA): coyotes showed startle and avoidance; head-shaking — https://digitalcommons.unl.edu/icwdm_usdanwrc/511",
-    "Texas horned lizard: Texas state reptile (1993). Bad taste thought to come from its harvester-ant diet (worded 'may')."
-   ],
-   "_len": "deep",
-   "shots": [
-    {
-     "photo": "Phrynosoma cornutum",
-     "obs": 92414410,
-     "crop": [
-      0.339,
-      0,
-      0.761,
-      1.0
-     ]
-    },
-    {
-     "photo": "Phrynosoma cornutum",
-     "obs": 126025156,
-     "crop": [
-      0.413,
-      0.0,
-      0.787,
-      1.0
-     ],
-     "at": "blood"
-    }
-   ]
-  },
-  {
-   "myth": "hornedlizard",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "On purpose.",
-   "sfx": [
-    "pop@purpose"
-   ],
-   "punch": "purpose",
-   "shots": [
-    {
-     "photo": "Phrynosoma cornutum",
-     "obs": 92414410,
-     "crop": [
-      0.339,
-      0,
-      0.761,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "hornedlizard",
-   "pose": "deadpan",
-   "act": "run_in",
-   "say": "So I tried to pet one.",
-   "sfx": [
-    "whoosh@0.05"
-   ],
-   "shots": [
-    {
-     "photo": "Phrynosoma cornutum",
-     "obs": 126025156,
-     "crop": [
-      0.45,
-      0.1,
-      0.75,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "hornedlizard",
-   "pose": "nervous",
-   "act": "shake",
-   "say": "First, it puffed up. Spiky.",
-   "sfx": [
-    "boing@puffed"
-   ],
-   "shots": [
-    {
-     "photo": "Phrynosoma cornutum",
-     "obs": 306131249,
-     "crop": [
-      0.16,
-      0.0,
-      0.54,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "hornedlizard",
-   "pose": "shock",
-   "act": "stand",
-   "say": "Then it squinted at me.",
-   "sfx": [
-    "scratch@squinted"
-   ],
-   "punch": "squinted",
-   "shots": [
-    {
-     "photo": "Phrynosoma cornutum",
-     "obs": 17695533,
-     "crop": [
-      0.369,
-      0.15,
-      0.631,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "hornedlizard",
-   "pose": "shock",
-   "act": "hit",
-   "say": "Then: blood. From the eyes.",
-   "sfx": [
-    "splash@blood"
-   ],
-   "hit": "blood",
-   "shots": [
-    {
-     "photo": "Phrynosoma cornutum",
-     "obs": 9256815,
-     "crop": [
-      0.313,
-      0.0,
-      0.687,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "hornedlizard",
-   "pose": "deadpan",
-   "act": "tumble",
-   "say": "It can reach about five feet.",
-   "sfx": [
-    "thud@reach"
-   ],
-   "label": {
-    "text": "5 FEET",
-    "at": "five"
-   },
-   "act_at": "reach",
-   "shots": [
-    {
-     "photo": "Phrynosoma cornutum",
-     "obs": 288604645,
-     "crop": [
-      0.4,
-      0.1,
-      0.7,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "hornedlizard",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "I was standing at four.",
-   "sfx": [
-    "scratch@four"
-   ],
-   "shots": [
-    {
-     "photo": "Phrynosoma cornutum",
-     "obs": 106043286,
-     "crop": [
-      0.382,
-      0.05,
-      0.718,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "hornedlizard",
-   "pose": "point",
-   "act": "stand",
-   "say": "It traps blood in its head.",
-   "sfx": [
-    "pop@head"
-   ],
-   "shots": [
-    {
-     "photo": "Phrynosoma cornutum",
-     "obs": 119218219,
-     "crop": [
-      0.254,
-      0.15,
-      0.746,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "hornedlizard",
-   "pose": "nervous",
-   "act": "shake",
-   "say": "Pressure builds behind the eyes.",
-   "sfx": [
-    "pop@pressure"
-   ],
-   "punch": "pressure",
-   "shots": [
-    {
-     "photo": "Phrynosoma cornutum",
-     "obs": 378864535,
-     "crop": [
-      0.125,
-      0.0,
-      0.875,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "hornedlizard",
-   "pose": "shock",
-   "act": "hit",
-   "say": "Tiny vessels burst. Squirt.",
-   "sfx": [
-    "splash@Squirt"
-   ],
-   "hit": "Squirt",
-   "shots": [
-    {
-     "photo": "Phrynosoma cornutum",
-     "obs": 92414410,
-     "crop": [
-      0.381,
-      0.05,
-      0.719,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "hornedlizard",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "People call them horned toads.",
-   "sfx": [
-    "pop@toads"
-   ],
-   "shots": [
-    {
-     "photo": "Phrynosoma cornutum",
-     "obs": 126025156,
-     "crop": [
-      0.431,
-      0.05,
-      0.769,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "hornedlizard",
-   "pose": "point",
-   "act": "stand",
-   "say": "They're not toads. They're lizards.",
-   "sfx": [
-    "pop@lizards"
-   ],
-   "label": {
-    "text": "LIZARD",
-    "at": "lizards"
-   },
-   "shots": [
-    {
-     "photo": "Phrynosoma cornutum",
-     "obs": 306131249,
-     "crop": [
-      0.202,
-      0.1,
-      0.498,
-      0.8
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "hornedlizard",
-   "pose": "shock",
-   "act": "stand",
-   "say": "Texas even made it a state reptile.",
-   "sfx": [
-    "pop@Texas"
-   ],
-   "shots": [
-    {
-     "photo": "Phrynosoma cornutum",
-     "obs": 17695533,
-     "crop": [
-      0.313,
-      0.0,
-      0.687,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "hornedlizard",
-   "pose": "think",
-   "act": "peek",
-   "say": "Here's the trick.",
-   "sfx": [
-    "scratch@trick"
-   ],
-   "shots": [
-    {
-     "photo": "Phrynosoma cornutum",
-     "obs": 9256815,
-     "crop": [
-      0.35,
-      0.1,
-      0.65,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "hornedlizard",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "The blood tastes awful to dogs.",
-   "sfx": [
-    "pop@dogs"
-   ],
-   "shots": [
-    {
-     "photo": "Canis latrans",
-     "obs": 134128250,
-     "crop": [
-      0.331,
-      0.05,
-      0.669,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "hornedlizard",
-   "pose": "shock",
-   "act": "stand",
-   "say": "And foxes. And coyotes.",
-   "sfx": [
-    "pop@coyotes"
-   ],
-   "shots": [
-    {
-     "photo": "Canis latrans",
-     "obs": 191119340,
-     "crop": [
-      0.316,
-      0.15,
-      0.584,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "hornedlizard",
-   "pose": "nervous",
-   "act": "shake",
-   "say": "In tests, coyotes shook their heads.",
-   "sfx": [
-    "boing@shook"
-   ],
-   "shots": [
-    {
-     "photo": "Canis latrans",
-     "obs": 22753577,
-     "crop": [
-      0.289,
-      0.0,
-      0.711,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "hornedlizard",
-   "pose": "deadpan",
-   "act": "run_off",
-   "say": "And backed off.",
-   "sfx": [
-    "whoosh@backed"
-   ],
-   "shots": [
-    {
-     "photo": "Phrynosoma cornutum",
-     "obs": 288604645,
-     "crop": [
-      0.4,
-      0.1,
-      0.7,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "hornedlizard",
-   "pose": "shock",
-   "act": "run_in",
-   "say": "Birds don't seem to mind it.",
-   "sfx": [
-    "whoosh@0.05"
-   ],
-   "shots": [
-    {
-     "photo": "Phrynosoma cornutum",
-     "obs": 106043286,
-     "crop": [
-      0.382,
-      0.05,
-      0.718,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "hornedlizard",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "So for hawks, it just looks spiky.",
-   "sfx": [
-    "pop@spiky"
-   ],
-   "shots": [
-    {
-     "photo": "Phrynosoma cornutum",
-     "obs": 119218219,
-     "crop": [
-      0.254,
-      0.15,
-      0.746,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "hornedlizard",
-   "pose": "point",
-   "act": "stand",
-   "say": "The bad taste may come from its food.",
-   "sfx": [
-    "pop@food"
-   ],
-   "shots": [
-    {
-     "photo": "Phrynosoma cornutum",
-     "obs": 378864535,
-     "crop": [
-      0.125,
-      0.0,
-      0.875,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "hornedlizard",
-   "pose": "shock",
-   "act": "stand",
-   "say": "It eats venomous harvester ants.",
-   "sfx": [
-    "pop@harvester"
-   ],
-   "label": {
-    "text": "VENOMOUS\nANTS",
-    "at": "harvester"
-   },
-   "shots": [
-    {
-     "photo": "Pogonomyrmex",
-     "obs": 240900436,
-     "crop": [
-      0.35,
-      0.1,
-      0.65,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "hornedlizard",
-   "pose": "nervous",
-   "act": "shake",
-   "say": "Ants that sting. On purpose.",
-   "sfx": [
-    "scratch@purpose"
-   ],
-   "shots": [
-    {
-     "photo": "Pogonomyrmex",
-     "obs": 64001299,
-     "crop": [
-      0.331,
-      0.05,
-      0.669,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "hornedlizard",
-   "pose": "nervous",
-   "act": "peek",
-   "say": "If a coyote bites me,",
-   "sfx": [],
-   "shots": [
-    {
-     "photo": "Phrynosoma cornutum",
-     "obs": 92414410,
-     "crop": [
-      0.402,
-      0.1,
-      0.698,
-      0.8
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "hornedlizard",
-   "pose": "nervous",
-   "act": "hit",
-   "say": "the only thing I squirt is gravy.",
-   "sfx": [
-    "tink@gravy",
-    "boing@gravy"
-   ],
-   "prop": "fork",
-   "prop_at": "gravy",
-   "act_at": "gravy",
-   "shots": [
-    {
-     "photo": "Phrynosoma cornutum",
-     "obs": 126025156,
-     "crop": [
-      0.413,
-      0.0,
-      0.787,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "hornedlizard",
-   "pose": "deadpan",
-   "act": "tumble",
-   "say": "Not a defense. A seasoning.",
-   "sfx": [
-    "scratch@seasoning"
-   ],
-   "act_at": "seasoning",
-   "shots": [
-    {
-     "photo": "Phrynosoma cornutum",
-     "obs": 306131249,
-     "crop": [
-      0.181,
-      0.05,
-      0.519,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "hornedlizard",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "Threat to meatballs: none.",
-   "sfx": [
-    "pop@none"
-   ],
-   "label": {
-    "text": "THREAT:\nNONE",
-    "at": "none"
-   },
-   "shots": [
-    {
-     "photo": "Phrynosoma cornutum",
-     "obs": 17695533,
-     "crop": [
-      0.331,
-      0.05,
-      0.669,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "hornedlizard",
-   "pose": "nervous",
-   "act": "hide",
-   "say": "It eats ants. I checked twice.",
-   "sfx": [
-    "pop@twice"
-   ],
-   "shots": [
-    {
-     "photo": "Phrynosoma cornutum",
-     "obs": 9256815,
-     "crop": [
-      0.369,
-      0.15,
-      0.631,
+      0.673,
       0.85
      ]
     }
@@ -2358,423 +1269,379 @@
    ]
   },
   {
-   "myth": "seacucumber",
+   "myth": "housefly",
    "pose": "nervous",
    "act": "peek",
-   "say": "Sea cucumbers breathe through their butts.",
+   "say": "House flies throw up on your food.",
    "sfx": [
-    "pop@butts"
+    "pop@up"
    ],
    "label": {
-    "text": "BUTT\nBREATHING",
-    "at": "butts"
+    "text": "BLEGH",
+    "at": "up"
    },
    "hook": true,
-   "loop_say": "And I thought my life was weird. But",
-   "short_title": "Sea Cucumbers Breathe Through Their Butts 🥒",
-   "comment": "Would you touch one? 👇",
-   "bonus": "Pearlfish live inside some sea cucumbers, slipping in through the rear.",
+   "loop_say": "So next time one lands on your sandwich,",
+   "short_title": "House Flies Throw Up on Your Food 🪰",
+   "comment": "Do you still eat it after a fly lands? 👇",
+   "bonus": "Their mouthparts are a soft sponge; they can't bite.",
    "sources": [
-    "PBS NOVA, 'Sea Cucumber Butts' (breathing through the anus into respiratory trees; anal teeth; no brain) — https://www.pbs.org/wgbh/nova/nature/sea-cucumber-butts.html",
-    "National Geographic, 'How this fish survives in a sea cucumber's bum' (pearlfish leave at night to feed; evisceration) — https://www.nationalgeographic.com/science/article/how-this-fish-survives-in-a-sea-cucumbers-bum",
-    "Ucluelet Aquarium: organs expelled as defense, sticky; regrow (sources vary: days to weeks, worded 'over the next few weeks') — https://uclueletaquarium.org/?p=2094",
-    "Diet: they swallow sediment and digest the organic matter in it."
+    "ScienceAlert / The Conversation, 'Do flies really throw up on your food?' (regurgitate digestive juices onto solid food, then sponge it up; taste receptors on the feet) — https://www.sciencealert.com/do-flies-really-throw-up-on-your-food-when-they-land-on-it",
+    "HowStuffWorks, Housefly Diet (sponging mouthparts) — https://science.howstuffworks.com/environmental/life/zoology/insects-arachnids/housefly3.htm"
    ],
-   "_len": "deep",
+   "_len": "short",
    "shots": [
     {
-     "photo": "Holothuria",
-     "obs": 148959111,
+     "photo": "Musca domestica",
+     "obs": 131295935,
      "crop": [
-      0.289,
+      0.219,
       0.0,
-      0.711,
+      0.781,
       1.0
      ]
     },
     {
-     "photo": "Holothuria",
-     "obs": 82684873,
+     "photo": "Musca domestica",
+     "obs": 153591365,
      "crop": [
-      0.289,
+      0.339,
       0.0,
-      0.711,
+      0.761,
       1.0
      ],
-     "at": "breathe"
+     "at": "up"
     }
    ]
   },
   {
-   "myth": "seacucumber",
+   "myth": "housefly",
    "pose": "deadpan",
    "act": "stand",
-   "say": "Yes. Really.",
+   "say": "They can't chew.",
    "sfx": [
-    "scratch@Really"
+    "pop@chew"
    ],
+   "punch": "chew",
    "shots": [
     {
-     "photo": "Holothuria",
-     "obs": 148959111,
+     "photo": "Musca domestica",
+     "obs": 131295935,
      "crop": [
-      0.289,
+      0.219,
       0.0,
-      0.711,
+      0.781,
       1.0
      ]
     }
    ]
   },
   {
-   "myth": "seacucumber",
-   "pose": "deadpan",
-   "act": "run_in",
-   "say": "So I went to say hi.",
+   "myth": "housefly",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "So they spit digestive juice on it.",
    "sfx": [
-    "splash@hi"
+    "splash@spit"
    ],
    "shots": [
     {
-     "photo": "Holothuria",
-     "obs": 82684873,
+     "photo": "Musca domestica",
+     "obs": 153591365,
      "crop": [
-      0.331,
+      0.381,
       0.1,
-      0.669,
+      0.719,
       0.9
      ]
     }
    ]
   },
   {
-   "myth": "seacucumber",
-   "pose": "point",
+   "myth": "housefly",
+   "pose": "shock",
    "act": "stand",
-   "say": "From the front. Obviously.",
+   "say": "Then sponge up the soup.",
    "sfx": [
-    "pop@front"
+    "pop@soup"
    ],
-   "punch": "front",
+   "punch": "sponge",
    "shots": [
     {
-     "photo": "Holothuria",
-     "obs": 214926502,
+     "photo": "Musca domestica",
+     "obs": 235798442,
      "crop": [
-      0.16,
+      0.41,
       0.05,
-      0.54,
+      0.79,
       0.95
      ]
     }
    ]
   },
   {
-   "myth": "seacucumber",
-   "pose": "deadpan",
+   "myth": "housefly",
+   "pose": "point",
    "act": "stand",
-   "say": "It has no brain. Just vibes.",
+   "say": "They taste with their feet.",
    "sfx": [
-    "pop@vibes"
+    "pop@feet"
    ],
+   "label": {
+    "text": "FEET",
+    "at": "feet"
+   },
    "shots": [
     {
-     "photo": "Holothuria",
-     "obs": 142192310,
+     "photo": "Musca domestica",
+     "obs": 306866387,
      "crop": [
-      0.389,
+      0.352,
       0.15,
-      0.611,
+      0.648,
       0.85
      ]
     }
    ]
   },
   {
-   "myth": "seacucumber",
-   "pose": "nervous",
-   "act": "shake",
-   "say": "It pulls water in through the rear.",
-   "sfx": [
-    "pop@rear"
-   ],
-   "punch": "rear",
-   "shots": [
-    {
-     "photo": "Holothuria",
-     "obs": 227392328,
-     "crop": [
-      0.341,
-      0.0,
-      0.659,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "seacucumber",
-   "pose": "point",
-   "act": "stand",
-   "say": "Into organs called respiratory trees.",
-   "sfx": [
-    "pop@respiratory"
-   ],
-   "label": {
-    "text": "RESPIRATORY\nTREES",
-    "at": "respiratory"
-   },
-   "shots": [
-    {
-     "photo": "Holothuria",
-     "obs": 53964866,
-     "crop": [
-      0.181,
-      0.1,
-      0.519,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "seacucumber",
-   "pose": "nervous",
+   "myth": "housefly",
+   "pose": "deadpan",
    "act": "run_in",
-   "say": "Then I touched one.",
+   "say": "So I sat on the counter.",
    "sfx": [
     "whoosh@0.05"
    ],
    "shots": [
     {
-     "photo": "Holothuria",
-     "obs": 388225903,
+     "photo": "Musca domestica",
+     "obs": 69507092,
      "crop": [
-      0.31,
-      0.05,
-      0.69,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "seacucumber",
-   "pose": "shock",
-   "act": "stand",
-   "say": "Big mistake.",
-   "sfx": [
-    "scratch@mistake"
-   ],
-   "punch": "mistake",
-   "shots": [
-    {
-     "photo": "Holothuria",
-     "obs": 146440976,
-     "crop": [
-      0.402,
-      0.15,
-      0.698,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "seacucumber",
-   "pose": "shock",
-   "act": "launch",
-   "say": "Some shoot their guts out at attackers.",
-   "sfx": [
-    "crunch@guts",
-    "whoosh@guts"
-   ],
-   "hit": "guts",
-   "shots": [
-    {
-     "photo": "Holothuria",
-     "obs": 148959111,
-     "crop": [
-      0.289,
+      0.248,
       0.0,
-      0.711,
+      0.752,
       1.0
      ]
     }
    ]
   },
   {
-   "myth": "seacucumber",
-   "pose": "deadpan",
-   "act": "tumble",
-   "say": "Sticky threads. Or actual organs.",
-   "sfx": [
-    "thud@organs"
-   ],
-   "act_at": "organs",
-   "shots": [
-    {
-     "photo": "Holothuria",
-     "obs": 82684873,
-     "crop": [
-      0.331,
-      0.1,
-      0.669,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "seacucumber",
-   "pose": "nervous",
-   "act": "shake",
-   "say": "I got tangled up.",
-   "sfx": [
-    "boing@tangled"
-   ],
-   "shots": [
-    {
-     "photo": "Holothuria",
-     "obs": 214926502,
-     "crop": [
-      0.16,
-      0.05,
-      0.54,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "seacucumber",
+   "myth": "housefly",
    "pose": "shock",
-   "act": "stand",
-   "say": "Then it regrows them.",
-   "sfx": [
-    "pop@regrows"
-   ],
-   "punch": "regrows",
-   "shots": [
-    {
-     "photo": "Holothuria",
-     "obs": 142192310,
-     "crop": [
-      0.389,
-      0.15,
-      0.611,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "seacucumber",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "Over the next few weeks.",
-   "sfx": [
-    "pop@weeks"
-   ],
-   "label": {
-    "text": "WEEKS",
-    "at": "weeks"
-   },
-   "shots": [
-    {
-     "photo": "Holothuria",
-     "obs": 227392328,
-     "crop": [
-      0.341,
-      0.0,
-      0.659,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "seacucumber",
-   "pose": "nervous",
-   "act": "peek",
-   "say": "If I lose my insides,",
-   "sfx": [],
-   "shots": [
-    {
-     "photo": "Holothuria",
-     "obs": 53964866,
-     "crop": [
-      0.181,
-      0.1,
-      0.519,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "seacucumber",
-   "pose": "nervous",
    "act": "hit",
-   "say": "I'm not regrowing them. I'm a sandwich.",
+   "say": "One landed on me. Feet first.",
    "sfx": [
-    "tink@sandwich",
-    "boing@sandwich"
+    "thud@landed"
+   ],
+   "act_at": "landed",
+   "shots": [
+    {
+     "photo": "Musca domestica",
+     "obs": 329853140,
+     "crop": [
+      0.434,
+      0.1,
+      0.766,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "housefly",
+   "pose": "nervous",
+   "act": "tumble",
+   "say": "I was the lunch.",
+   "sfx": [
+    "tink@lunch",
+    "boing@lunch"
    ],
    "prop": "fork",
-   "prop_at": "sandwich",
-   "act_at": "sandwich",
+   "prop_at": "lunch",
    "shots": [
     {
-     "photo": "Holothuria",
-     "obs": 388225903,
+     "photo": "Musca domestica",
+     "obs": 105570516,
      "crop": [
-      0.31,
+      0.163,
       0.05,
-      0.69,
+      0.837,
       0.95
      ]
     }
    ]
   },
   {
-   "myth": "seacucumber",
-   "pose": "shock",
-   "act": "stand",
-   "say": "It gets worse.",
-   "sfx": [
-    "scratch@worse"
-   ],
-   "punch": "worse",
+   "myth": "housefly",
+   "pose": "think",
+   "act": "peek",
+   "say": "Still going to eat it? Comment.",
+   "sfx": [],
+   "ask": "comment",
    "shots": [
     {
-     "photo": "Holothuria",
-     "obs": 146440976,
+     "photo": "Musca domestica",
+     "obs": 131295935,
      "crop": [
-      0.402,
+      0.303,
       0.15,
-      0.698,
+      0.697,
       0.85
      ]
     }
    ]
   },
   {
-   "myth": "seacucumber",
-   "pose": "point",
-   "act": "stand",
-   "say": "A fish called the pearlfish",
+   "myth": "bombardier",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "Bombardier beetles fire boiling spray from their butts.",
    "sfx": [
-    "pop@pearlfish"
+    "pop@boiling"
    ],
    "label": {
-    "text": "PEARLFISH",
-    "at": "pearlfish"
+    "text": "BOILING\nSPRAY",
+    "at": "boiling"
    },
+   "hook": true,
+   "loop_say": "That's the bug that won't stay eaten. Because",
+   "short_title": "Bombardier Beetles Fire Boiling Spray From Their Butts 💥",
+   "comment": "Would you pick one up? 👇",
+   "bonus": "The spray reaches about 100 °C, boiling-water hot.",
+   "sources": [
+    "Science News / Discover on Sugiura & Sato 2018: spray reaches about 100 °C; one vomited beetle lived 562 more days — https://www.discovermagazine.com/bombardier-beetles-refuse-to-be-toad-snacks-37445",
+    "Sugiura & Sato 2018, Biology Letters: Pheropsophus jessoensis fed to Japanese toads; 43% of toads vomited the beetles 12-107 min later; all vomited beetles alive and active; larger beetles escaped more often; smaller toads vomited more often — https://datadryad.org/dataset/doi:10.5061/dryad.ng788",
+    "Smithsonian, 'How Exploding Beetles Can Survive Being Eaten Alive' — https://www.smithsonianmag.com/smart-news/how-exploding-beetles-cause-japanese-toads-vomit-180968095/",
+    "Mechanism: hydroquinones + hydrogen peroxide mixed with enzymes in a reaction chamber; the spray comes in rapid pulses and can be aimed (Eisner; Dean et al. 1990)."
+   ],
+   "_len": "deep",
    "shots": [
     {
-     "photo": "Holothuria",
-     "obs": 148959111,
+     "photo": "Brachinus",
+     "obs": 80656505,
+     "crop": [
+      0.243,
+      0.0,
+      0.757,
+      1.0
+     ]
+    },
+    {
+     "photo": "Brachinus",
+     "obs": 306816212,
+     "crop": [
+      0.112,
+      0.0,
+      0.488,
+      1.0
+     ],
+     "at": "boiling"
+    }
+   ]
+  },
+  {
+   "myth": "bombardier",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I tried to pick one up.",
+   "sfx": [
+    "whoosh@0.05"
+   ],
+   "shots": [
+    {
+     "photo": "Brachinus",
+     "obs": 80656505,
+     "crop": [
+      0.243,
+      0.0,
+      0.757,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bombardier",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "It aimed its rear end at me.",
+   "sfx": [
+    "scratch@rear"
+   ],
+   "punch": "rear",
+   "shots": [
+    {
+     "photo": "Brachinus",
+     "obs": 306816212,
+     "crop": [
+      0.149,
+      0.1,
+      0.451,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bombardier",
+   "pose": "point",
+   "act": "stand",
+   "say": "Two chemicals mix inside its abdomen.",
+   "sfx": [
+    "pop@mix"
+   ],
+   "shots": [
+    {
+     "photo": "Brachinus",
+     "obs": 108423692,
+     "crop": [
+      0.331,
+      0.05,
+      0.669,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bombardier",
+   "pose": "shock",
+   "act": "hit",
+   "say": "And then: pop.",
+   "sfx": [
+    "crunch@pop"
+   ],
+   "hit": "pop",
+   "shots": [
+    {
+     "photo": "Brachinus",
+     "obs": 75442250,
+     "crop": [
+      0.237,
+      0.15,
+      0.762,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bombardier",
+   "pose": "shock",
+   "act": "puff",
+   "say": "The spray hits 100 degrees Celsius.",
+   "sfx": [
+    "zap@hits"
+   ],
+   "label": {
+    "text": "100°C",
+    "at": "hits"
+   },
+   "hit": "hits",
+   "shots": [
+    {
+     "photo": "Brachinus",
+     "obs": 205357805,
      "crop": [
       0.289,
       0.0,
@@ -2785,126 +1652,126 @@
    ]
   },
   {
-   "myth": "seacucumber",
-   "pose": "nervous",
-   "act": "shake",
-   "say": "lives inside some sea cucumbers.",
-   "sfx": [
-    "pop@inside"
-   ],
+   "myth": "bombardier",
+   "pose": "shock",
+   "act": "puffed",
+   "say": "That's boiling water.",
+   "sfx": [],
+   "punch": "boiling",
    "shots": [
     {
-     "photo": "Holothuria",
-     "obs": 82684873,
+     "photo": "Brachinus",
+     "obs": 148320096,
      "crop": [
-      0.331,
+      0.2,
       0.1,
-      0.669,
+      0.8,
       0.9
      ]
     }
    ]
   },
   {
-   "myth": "seacucumber",
+   "myth": "bombardier",
    "pose": "shock",
-   "act": "stand",
-   "say": "It gets in through the back door.",
+   "act": "puffed",
+   "say": "It fires in rapid little pulses.",
    "sfx": [
-    "scratch@back"
+    "pop@rapid",
+    "pop@little",
+    "pop@pulses"
    ],
-   "punch": "back",
    "shots": [
     {
-     "photo": "Holothuria",
-     "obs": 214926502,
+     "photo": "Brachinus",
+     "obs": 80656505,
      "crop": [
-      0.16,
+      0.268,
       0.05,
-      0.54,
+      0.732,
       0.95
      ]
     }
    ]
   },
   {
-   "myth": "seacucumber",
+   "myth": "bombardier",
    "pose": "deadpan",
-   "act": "run_across",
-   "say": "It leaves at night to hunt.",
+   "act": "deflate",
+   "say": "And it can aim.",
    "sfx": [
-    "whoosh@night"
+    "pop@aim"
    ],
-   "act_at": "night",
+   "act_at": "aim",
    "shots": [
     {
-     "photo": "Holothuria",
-     "obs": 142192310,
+     "photo": "Brachinus",
+     "obs": 306816212,
      "crop": [
-      0.389,
+      0.168,
       0.15,
-      0.611,
+      0.432,
       0.85
      ]
     }
    ]
   },
   {
-   "myth": "seacucumber",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "Then it comes back. Same door.",
+   "myth": "bombardier",
+   "pose": "nervous",
+   "act": "run_in",
+   "say": "So I hid behind a leaf.",
    "sfx": [
-    "pop@door"
+    "whoosh@0.05"
    ],
    "shots": [
     {
-     "photo": "Holothuria",
-     "obs": 227392328,
+     "photo": "Brachinus",
+     "obs": 108423692,
      "crop": [
-      0.341,
+      0.312,
       0.0,
-      0.659,
+      0.688,
       1.0
      ]
     }
    ]
   },
   {
-   "myth": "seacucumber",
+   "myth": "bombardier",
    "pose": "shock",
-   "act": "stand",
-   "say": "Some sea cucumbers have tiny butt teeth.",
+   "act": "hit",
+   "say": "It found me anyway.",
    "sfx": [
-    "pop@teeth"
+    "splash@found"
    ],
-   "label": {
-    "text": "BUTT\nTEETH",
-    "at": "teeth"
-   },
+   "hit": "found",
    "shots": [
     {
-     "photo": "Holothuria",
-     "obs": 53964866,
+     "photo": "Brachinus",
+     "obs": 75442250,
      "crop": [
-      0.181,
+      0.2,
       0.1,
-      0.519,
+      0.8,
       0.9
      ]
     }
    ]
   },
   {
-   "myth": "seacucumber",
-   "pose": "think",
-   "act": "peek",
-   "say": "Maybe to keep fish out.",
-   "sfx": [],
+   "myth": "bombardier",
+   "pose": "deadpan",
+   "act": "tumble",
+   "say": "Now I'm lightly steamed.",
+   "sfx": [
+    "thud@steamed"
+   ],
+   "act_at": "steamed",
    "shots": [
     {
-     "photo": "Holothuria",
-     "obs": 388225903,
+     "photo": "Brachinus",
+     "obs": 205357805,
      "crop": [
       0.31,
       0.05,
@@ -2915,28 +1782,1221 @@
    ]
   },
   {
-   "myth": "seacucumber",
+   "myth": "bombardier",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "I'm a meatball. I know boiling water.",
+   "sfx": [
+    "scratch@know"
+   ],
+   "shots": [
+    {
+     "photo": "Brachinus",
+     "obs": 148320096,
+     "crop": [
+      0.237,
+      0.15,
+      0.762,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bombardier",
+   "pose": "deadpan",
+   "act": "tumble",
+   "say": "Usually from inside a pot.",
+   "sfx": [
+    "thud@pot"
+   ],
+   "act_at": "pot",
+   "shots": [
+    {
+     "photo": "Brachinus",
+     "obs": 80656505,
+     "crop": [
+      0.243,
+      0.0,
+      0.757,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bombardier",
+   "pose": "think",
+   "act": "peek",
+   "say": "Now the weird part.",
+   "sfx": [
+    "scratch@weird"
+   ],
+   "punch": "weird",
+   "shots": [
+    {
+     "photo": "Brachinus",
+     "obs": 306816212,
+     "crop": [
+      0.149,
+      0.1,
+      0.451,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bombardier",
    "pose": "point",
    "act": "stand",
-   "say": "It swallows sand for the food in it.",
+   "say": "Scientists in Japan fed them to toads.",
+   "sfx": [
+    "pop@toads"
+   ],
+   "shots": [
+    {
+     "photo": "Bufo formosus",
+     "obs": 205075644,
+     "crop": [
+      0.231,
+      0.05,
+      0.569,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bombardier",
+   "pose": "shock",
+   "act": "stand",
+   "say": "The toads swallowed them whole.",
+   "sfx": [
+    "pop@whole"
+   ],
+   "punch": "whole",
+   "shots": [
+    {
+     "photo": "Pheropsophus jessoensis",
+     "obs": 361162869,
+     "crop": [
+      0.353,
+      0.15,
+      0.647,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bombardier",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Whole. Like a meatball.",
+   "sfx": [
+    "tink@meatball"
+   ],
+   "prop": "fork",
+   "prop_at": "meatball",
+   "shots": [
+    {
+     "photo": "Brachinus",
+     "obs": 108423692,
+     "crop": [
+      0.312,
+      0.0,
+      0.688,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bombardier",
+   "pose": "shock",
+   "act": "hit",
+   "say": "Then the beetles fired. Inside the toads.",
+   "sfx": [
+    "crunch@fired"
+   ],
+   "hit": "fired",
+   "shots": [
+    {
+     "photo": "Bufo formosus",
+     "obs": 173194302,
+     "crop": [
+      0.281,
+      0.1,
+      0.619,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bombardier",
+   "pose": "shock",
+   "act": "launch",
+   "say": "43% of the toads threw up.",
+   "sfx": [
+    "splash@threw",
+    "whoosh@threw"
+   ],
+   "label": {
+    "text": "43%\nTHREW UP",
+    "at": "43%"
+   },
+   "hit": "threw",
+   "shots": [
+    {
+     "photo": "Bufo formosus",
+     "obs": 206726185,
+     "crop": [
+      0.331,
+      0.05,
+      0.669,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bombardier",
+   "pose": "deadpan",
+   "act": "tumble",
+   "say": "The beetles came out alive.",
+   "sfx": [
+    "thud@alive"
+   ],
+   "act_at": "alive",
+   "punch": "alive",
+   "shots": [
+    {
+     "photo": "Pheropsophus jessoensis",
+     "obs": 244238457,
+     "crop": [
+      0.369,
+      0.15,
+      0.631,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bombardier",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Some were in there almost two hours.",
+   "sfx": [
+    "pop@two"
+   ],
+   "label": {
+    "text": "~2 HOURS",
+    "at": "two"
+   },
+   "shots": [
+    {
+     "photo": "Pheropsophus jessoensis",
+     "obs": 368373387,
+     "crop": [
+      0.197,
+      0.0,
+      0.603,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bombardier",
+   "pose": "point",
+   "act": "stand",
+   "say": "Bigger beetles escaped more often.",
+   "sfx": [
+    "pop@Bigger"
+   ],
+   "shots": [
+    {
+     "photo": "Pheropsophus jessoensis",
+     "obs": 363484401,
+     "crop": [
+      0.2,
+      0.1,
+      0.8,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bombardier",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Smaller toads gave up faster.",
+   "sfx": [
+    "pop@faster"
+   ],
+   "shots": [
+    {
+     "photo": "Bufo formosus",
+     "obs": 55139456,
+     "crop": [
+      0.31,
+      0.05,
+      0.69,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bombardier",
+   "pose": "point",
+   "act": "stand",
+   "say": "Toads that live with them hold on longer.",
+   "sfx": [
+    "pop@longer"
+   ],
+   "shots": [
+    {
+     "photo": "Bufo formosus",
+     "obs": 173194302,
+     "crop": [
+      0.302,
+      0.15,
+      0.598,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bombardier",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "The locals have learned to cope.",
+   "sfx": [
+    "scratch@cope"
+   ],
+   "shots": [
+    {
+     "photo": "Brachinus",
+     "obs": 75442250,
+     "crop": [
+      0.125,
+      0.0,
+      0.875,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bombardier",
+   "pose": "shock",
+   "act": "stand",
+   "say": "One beetle lived 562 more days.",
+   "sfx": [
+    "pop@more"
+   ],
+   "label": {
+    "text": "562 DAYS",
+    "at": "more"
+   },
+   "shots": [
+    {
+     "photo": "Pheropsophus jessoensis",
+     "obs": 361162869,
+     "crop": [
+      0.332,
+      0.1,
+      0.668,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bombardier",
+   "pose": "shock",
+   "act": "run_across",
+   "say": "Swallowed whole, and it still won.",
+   "sfx": [
+    "whoosh@won"
+   ],
+   "act_at": "won",
+   "shots": [
+    {
+     "photo": "Brachinus",
+     "obs": 205357805,
+     "crop": [
+      0.31,
+      0.05,
+      0.69,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bombardier",
+   "pose": "think",
+   "act": "peek",
+   "say": "I'd like to know how.",
+   "sfx": [],
+   "shots": [
+    {
+     "photo": "Brachinus",
+     "obs": 148320096,
+     "crop": [
+      0.237,
+      0.15,
+      0.762,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bombardier",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Asking for me.",
+   "sfx": [
+    "pop@me"
+   ],
+   "shots": [
+    {
+     "photo": "Brachinus",
+     "obs": 80656505,
+     "crop": [
+      0.243,
+      0.0,
+      0.757,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bombardier",
+   "pose": "think",
+   "act": "peek",
+   "say": "Tip: never swallow anything that's armed.",
+   "sfx": [
+    "pop@armed"
+   ],
+   "punch": "armed",
+   "shots": [
+    {
+     "photo": "Brachinus",
+     "obs": 306816212,
+     "crop": [
+      0.149,
+      0.1,
+      0.451,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bombardier",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Threat to meatballs: low.",
+   "sfx": [
+    "pop@low"
+   ],
+   "label": {
+    "text": "THREAT:\nLOW",
+    "at": "low"
+   },
+   "shots": [
+    {
+     "photo": "Brachinus",
+     "obs": 108423692,
+     "crop": [
+      0.331,
+      0.05,
+      0.669,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bombardier",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Threat to toads: very high.",
+   "sfx": [
+    "pop@high"
+   ],
+   "label": {
+    "text": "TOADS:\nVERY HIGH",
+    "at": "high"
+   },
+   "shots": [
+    {
+     "photo": "Bufo formosus",
+     "obs": 205075644,
+     "crop": [
+      0.269,
+      0.15,
+      0.531,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bombardier",
+   "pose": "think",
+   "act": "peek",
+   "say": "Would you pick one up? Comment.",
+   "sfx": [],
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Brachinus",
+     "obs": 75442250,
+     "crop": [
+      0.125,
+      0.0,
+      0.875,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hornedlizard",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "Horned lizards squirt blood from their eyes.",
+   "sfx": [
+    "pop@eyes"
+   ],
+   "label": {
+    "text": "EYE\nBLOOD",
+    "at": "eyes"
+   },
+   "hook": true,
+   "loop_say": "So if you ever see one crying,",
+   "short_title": "Horned Lizards Squirt Blood From Their Eyes 🦎",
+   "comment": "Did you know lizards could do this? 👇",
+   "bonus": "The blood tastes foul to dogs, foxes and coyotes, but birds don't seem to mind it.",
+   "sources": [
+    "Live Science, short-horned lizard (squirts blood from its eyes; inflates) — https://livescience.com/animals/lizards/short-horned-lizard-the-inflatable-horny-toad-that-squirts-toxic-blood-from-its-eyes",
+    "A-Z Animals summary of studies: Texas horned lizard squirts up to about 5 ft; restricts blood flow from the head until vessels near the eyelids rupture; foul to canids; doesn't deter birds — https://a-z-animals.com/articles/blood-shot-eyes-natures-most-gruesome-defense-mechanism/",
+    "Sherbrooke & Middendorf / 2005 Southwestern Naturalist (USDA): coyotes showed startle and avoidance; head-shaking — https://digitalcommons.unl.edu/icwdm_usdanwrc/511",
+    "Texas horned lizard: Texas state reptile (1993). Bad taste thought to come from its harvester-ant diet (worded 'may')."
+   ],
+   "_len": "deep",
+   "shots": [
+    {
+     "photo": "Phrynosoma cornutum",
+     "obs": 92414410,
+     "crop": [
+      0.339,
+      0,
+      0.761,
+      1.0
+     ]
+    },
+    {
+     "photo": "Phrynosoma cornutum",
+     "obs": 126025156,
+     "crop": [
+      0.413,
+      0.0,
+      0.787,
+      1.0
+     ],
+     "at": "blood"
+    }
+   ]
+  },
+  {
+   "myth": "hornedlizard",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "On purpose.",
+   "sfx": [
+    "pop@purpose"
+   ],
+   "punch": "purpose",
+   "shots": [
+    {
+     "photo": "Phrynosoma cornutum",
+     "obs": 92414410,
+     "crop": [
+      0.339,
+      0,
+      0.761,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hornedlizard",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I tried to pet one.",
+   "sfx": [
+    "whoosh@0.05"
+   ],
+   "shots": [
+    {
+     "photo": "Phrynosoma cornutum",
+     "obs": 126025156,
+     "crop": [
+      0.45,
+      0.1,
+      0.75,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hornedlizard",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "First, it puffed up. Spiky.",
+   "sfx": [
+    "boing@puffed"
+   ],
+   "shots": [
+    {
+     "photo": "Phrynosoma cornutum",
+     "obs": 306131249,
+     "crop": [
+      0.16,
+      0.0,
+      0.54,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hornedlizard",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Then it squinted at me.",
+   "sfx": [
+    "scratch@squinted"
+   ],
+   "punch": "squinted",
+   "shots": [
+    {
+     "photo": "Phrynosoma cornutum",
+     "obs": 17695533,
+     "crop": [
+      0.369,
+      0.15,
+      0.631,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hornedlizard",
+   "pose": "shock",
+   "act": "hit",
+   "say": "Then: blood. From the eyes.",
+   "sfx": [
+    "splash@blood"
+   ],
+   "hit": "blood",
+   "shots": [
+    {
+     "photo": "Phrynosoma cornutum",
+     "obs": 9256815,
+     "crop": [
+      0.313,
+      0.0,
+      0.687,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hornedlizard",
+   "pose": "deadpan",
+   "act": "tumble",
+   "say": "It can reach about five feet.",
+   "sfx": [
+    "thud@reach"
+   ],
+   "label": {
+    "text": "5 FEET",
+    "at": "five"
+   },
+   "act_at": "reach",
+   "shots": [
+    {
+     "photo": "Phrynosoma cornutum",
+     "obs": 288604645,
+     "crop": [
+      0.4,
+      0.1,
+      0.7,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hornedlizard",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "I was standing at four.",
+   "sfx": [
+    "scratch@four"
+   ],
+   "shots": [
+    {
+     "photo": "Phrynosoma cornutum",
+     "obs": 106043286,
+     "crop": [
+      0.382,
+      0.05,
+      0.718,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hornedlizard",
+   "pose": "shock",
+   "act": "hit",
+   "say": "I'm red sauce now. Extra red.",
+   "sfx": [
+    "boing@red"
+   ],
+   "act_at": "red",
+   "shots": [
+    {
+     "photo": "Phrynosoma cornutum",
+     "obs": 119218219,
+     "crop": [
+      0.254,
+      0.15,
+      0.746,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hornedlizard",
+   "pose": "point",
+   "act": "stand",
+   "say": "It traps blood in its head.",
+   "sfx": [
+    "pop@head"
+   ],
+   "shots": [
+    {
+     "photo": "Phrynosoma cornutum",
+     "obs": 378864535,
+     "crop": [
+      0.125,
+      0.0,
+      0.875,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hornedlizard",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Pressure builds behind the eyes.",
+   "sfx": [
+    "pop@pressure"
+   ],
+   "punch": "pressure",
+   "shots": [
+    {
+     "photo": "Phrynosoma cornutum",
+     "obs": 92414410,
+     "crop": [
+      0.381,
+      0.05,
+      0.719,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hornedlizard",
+   "pose": "shock",
+   "act": "hit",
+   "say": "Tiny vessels burst. Squirt.",
+   "sfx": [
+    "splash@Squirt"
+   ],
+   "hit": "Squirt",
+   "shots": [
+    {
+     "photo": "Phrynosoma cornutum",
+     "obs": 126025156,
+     "crop": [
+      0.431,
+      0.05,
+      0.769,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hornedlizard",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "People call them horned toads.",
+   "sfx": [
+    "pop@toads"
+   ],
+   "shots": [
+    {
+     "photo": "Phrynosoma cornutum",
+     "obs": 306131249,
+     "crop": [
+      0.202,
+      0.1,
+      0.498,
+      0.8
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hornedlizard",
+   "pose": "point",
+   "act": "stand",
+   "say": "They're not toads. They're lizards.",
+   "sfx": [
+    "pop@lizards"
+   ],
+   "label": {
+    "text": "LIZARD",
+    "at": "lizards"
+   },
+   "shots": [
+    {
+     "photo": "Phrynosoma cornutum",
+     "obs": 17695533,
+     "crop": [
+      0.313,
+      0.0,
+      0.687,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hornedlizard",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Texas even made it a state reptile.",
+   "sfx": [
+    "pop@Texas"
+   ],
+   "shots": [
+    {
+     "photo": "Phrynosoma cornutum",
+     "obs": 9256815,
+     "crop": [
+      0.35,
+      0.1,
+      0.65,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hornedlizard",
+   "pose": "point",
+   "act": "stand",
+   "say": "It can bury itself in sand.",
    "sfx": [
     "pop@sand"
    ],
    "shots": [
     {
-     "photo": "Holothuria",
-     "obs": 146440976,
+     "photo": "Phrynosoma cornutum",
+     "obs": 288604645,
      "crop": [
-      0.402,
+      0.381,
+      0.05,
+      0.719,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hornedlizard",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "And it looks like a rock.",
+   "sfx": [
+    "pop@rock"
+   ],
+   "shots": [
+    {
+     "photo": "Phrynosoma cornutum",
+     "obs": 106043286,
+     "crop": [
+      0.419,
       0.15,
-      0.698,
+      0.681,
       0.85
      ]
     }
    ]
   },
   {
-   "myth": "seacucumber",
+   "myth": "hornedlizard",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It drinks rain through grooves in its skin.",
+   "sfx": [
+    "splash@rain"
+   ],
+   "punch": "skin",
+   "shots": [
+    {
+     "photo": "Phrynosoma cornutum",
+     "obs": 119218219,
+     "crop": [
+      0.148,
+      0.0,
+      0.852,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hornedlizard",
+   "pose": "deadpan",
+   "act": "tumble",
+   "say": "I tried that. I got soggy.",
+   "sfx": [
+    "thud@soggy"
+   ],
+   "act_at": "soggy",
+   "shots": [
+    {
+     "photo": "Phrynosoma cornutum",
+     "obs": 378864535,
+     "crop": [
+      0.2,
+      0.1,
+      0.8,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hornedlizard",
+   "pose": "think",
+   "act": "peek",
+   "say": "Here's the trick.",
+   "sfx": [
+    "scratch@trick"
+   ],
+   "shots": [
+    {
+     "photo": "Phrynosoma cornutum",
+     "obs": 92414410,
+     "crop": [
+      0.36,
+      0.0,
+      0.74,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hornedlizard",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The blood tastes awful to dogs.",
+   "sfx": [
+    "pop@dogs"
+   ],
+   "shots": [
+    {
+     "photo": "Canis latrans",
+     "obs": 134128250,
+     "crop": [
+      0.369,
+      0.15,
+      0.631,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hornedlizard",
+   "pose": "shock",
+   "act": "stand",
+   "say": "And foxes. And coyotes.",
+   "sfx": [
+    "pop@coyotes"
+   ],
+   "shots": [
+    {
+     "photo": "Canis latrans",
+     "obs": 191119340,
+     "crop": [
+      0.259,
+      0.0,
+      0.641,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hornedlizard",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "In tests, coyotes shook their heads.",
+   "sfx": [
+    "boing@shook"
+   ],
+   "shots": [
+    {
+     "photo": "Canis latrans",
+     "obs": 22753577,
+     "crop": [
+      0.331,
+      0.1,
+      0.669,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hornedlizard",
+   "pose": "deadpan",
+   "act": "run_off",
+   "say": "And backed off.",
+   "sfx": [
+    "whoosh@backed"
+   ],
+   "shots": [
+    {
+     "photo": "Phrynosoma cornutum",
+     "obs": 126025156,
+     "crop": [
+      0.431,
+      0.05,
+      0.769,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hornedlizard",
+   "pose": "shock",
+   "act": "run_in",
+   "say": "Birds don't seem to mind it.",
+   "sfx": [
+    "whoosh@0.05"
+   ],
+   "shots": [
+    {
+     "photo": "Phrynosoma cornutum",
+     "obs": 306131249,
+     "crop": [
+      0.202,
+      0.1,
+      0.498,
+      0.8
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hornedlizard",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "So for hawks, it just looks spiky.",
+   "sfx": [
+    "pop@spiky"
+   ],
+   "shots": [
+    {
+     "photo": "Phrynosoma cornutum",
+     "obs": 17695533,
+     "crop": [
+      0.313,
+      0.0,
+      0.687,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hornedlizard",
+   "pose": "point",
+   "act": "stand",
+   "say": "The bad taste may come from its food.",
+   "sfx": [
+    "pop@food"
+   ],
+   "shots": [
+    {
+     "photo": "Phrynosoma cornutum",
+     "obs": 9256815,
+     "crop": [
+      0.35,
+      0.1,
+      0.65,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hornedlizard",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It eats venomous harvester ants.",
+   "sfx": [
+    "pop@harvester"
+   ],
+   "label": {
+    "text": "VENOMOUS\nANTS",
+    "at": "harvester"
+   },
+   "shots": [
+    {
+     "photo": "Pogonomyrmex",
+     "obs": 240900436,
+     "crop": [
+      0.331,
+      0.05,
+      0.669,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hornedlizard",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Ants that sting. On purpose.",
+   "sfx": [
+    "scratch@purpose"
+   ],
+   "shots": [
+    {
+     "photo": "Pogonomyrmex",
+     "obs": 64001299,
+     "crop": [
+      0.369,
+      0.15,
+      0.631,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hornedlizard",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "If a coyote bites me,",
+   "sfx": [],
+   "shots": [
+    {
+     "photo": "Phrynosoma cornutum",
+     "obs": 288604645,
+     "crop": [
+      0.363,
+      0.0,
+      0.737,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hornedlizard",
+   "pose": "nervous",
+   "act": "hit",
+   "say": "the only thing I squirt is gravy.",
+   "sfx": [
+    "tink@gravy",
+    "boing@gravy"
+   ],
+   "prop": "fork",
+   "prop_at": "gravy",
+   "act_at": "gravy",
+   "shots": [
+    {
+     "photo": "Phrynosoma cornutum",
+     "obs": 106043286,
+     "crop": [
+      0.401,
+      0.1,
+      0.699,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hornedlizard",
+   "pose": "deadpan",
+   "act": "tumble",
+   "say": "Not a defense. A seasoning.",
+   "sfx": [
+    "scratch@seasoning"
+   ],
+   "act_at": "seasoning",
+   "shots": [
+    {
+     "photo": "Phrynosoma cornutum",
+     "obs": 119218219,
+     "crop": [
+      0.184,
+      0.05,
+      0.816,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hornedlizard",
    "pose": "deadpan",
    "act": "stand",
    "say": "Threat to meatballs: none.",
@@ -2949,278 +3009,34 @@
    },
    "shots": [
     {
-     "photo": "Holothuria",
-     "obs": 148959111,
+     "photo": "Phrynosoma cornutum",
+     "obs": 378864535,
      "crop": [
-      0.289,
-      0.0,
-      0.711,
-      1.0
+      0.237,
+      0.15,
+      0.762,
+      0.85
      ]
     }
    ]
   },
   {
-   "myth": "seacucumber",
+   "myth": "hornedlizard",
    "pose": "nervous",
    "act": "hide",
-   "say": "Still, no.",
+   "say": "It eats ants. I checked twice.",
    "sfx": [
-    "pop@no"
+    "pop@twice"
    ],
    "shots": [
     {
-     "photo": "Holothuria",
-     "obs": 82684873,
-     "crop": [
-      0.331,
-      0.1,
-      0.669,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "seacucumber",
-   "pose": "think",
-   "act": "peek",
-   "say": "Would you touch one? Comment.",
-   "sfx": [],
-   "ask": "comment",
-   "shots": [
-    {
-     "photo": "Holothuria",
-     "obs": 214926502,
-     "crop": [
-      0.16,
-      0.05,
-      0.54,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "mantis",
-   "pose": "nervous",
-   "act": "peek",
-   "say": "Praying mantises can catch hummingbirds.",
-   "sfx": [
-    "pop@hummingbirds"
-   ],
-   "label": {
-    "text": "BIRDS?!",
-    "at": "hummingbirds"
-   },
-   "hook": true,
-   "loop_say": "So watch your feeder. Because",
-   "short_title": "Praying Mantises Can Catch Hummingbirds 🦗",
-   "comment": "Would you still keep a hummingbird feeder? 👇",
-   "bonus": "Most cases were in the US, where mantises wait at feeders and hummingbird flowers.",
-   "sources": [
-    "Nyffeler et al. 2017, Wilson Journal of Ornithology 129(2): 147 cases of mantids catching small birds in 13 countries; ruby-throated hummingbird most often caught; >70% of cases in the US, often at feeders — https://conservation.unibas.ch/team/nyffeler/pdf/nyffeler2017wjo.pdf",
-    "Scientific American, 'Praying Mantises Catch and Eat Birds Alive' — https://www.scientificamerican.com/blog/artful-amoeba/praying-mantises-catch-and-eat-birds-alive-video/"
-   ],
-   "_len": "short",
-   "shots": [
-    {
-     "photo": "Tenodera sinensis",
-     "obs": 32651057,
-     "crop": [
-      0.089,
-      0.0,
-      0.511,
-      1.0
-     ]
-    },
-    {
-     "photo": "Archilochus colubris",
-     "obs": 138799680,
+     "photo": "Phrynosoma cornutum",
+     "obs": 92414410,
      "crop": [
       0.339,
-      0.0,
+      0,
       0.761,
       1.0
-     ],
-     "at": "hummingbirds"
-    }
-   ]
-  },
-  {
-   "myth": "mantis",
-   "pose": "deadpan",
-   "act": "run_in",
-   "say": "So I hid behind a mantis.",
-   "sfx": [
-    "whoosh@0.05"
-   ],
-   "shots": [
-    {
-     "photo": "Tenodera sinensis",
-     "obs": 329351875,
-     "crop": [
-      0.363,
-      0.0,
-      0.738,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "mantis",
-   "pose": "point",
-   "act": "stand",
-   "say": "Scientists found 147 cases.",
-   "sfx": [
-    "pop@cases"
-   ],
-   "label": {
-    "text": "147 CASES",
-    "at": "cases"
-   },
-   "shots": [
-    {
-     "photo": "Tenodera sinensis",
-     "obs": 32651057,
-     "crop": [
-      0.131,
-      0.1,
-      0.469,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "mantis",
-   "pose": "shock",
-   "act": "stand",
-   "say": "In 13 countries.",
-   "sfx": [
-    "pop@countries"
-   ],
-   "punch": "countries",
-   "shots": [
-    {
-     "photo": "Archilochus colubris",
-     "obs": 138799680,
-     "crop": [
-      0.36,
-      0.05,
-      0.74,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "mantis",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "Most were near US hummingbird feeders.",
-   "sfx": [
-    "pop@feeders"
-   ],
-   "punch": "feeders",
-   "shots": [
-    {
-     "photo": "Archilochus colubris",
-     "obs": 130313240,
-     "crop": [
-      0.427,
-      0.15,
-      0.673,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "mantis",
-   "pose": "nervous",
-   "act": "shake",
-   "say": "A bug that eats birds.",
-   "sfx": [
-    "scratch@birds"
-   ],
-   "punch": "birds",
-   "shots": [
-    {
-     "photo": "Tenodera sinensis",
-     "obs": 248975789,
-     "crop": [
-      0.239,
-      0.0,
-      0.661,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "mantis",
-   "pose": "shock",
-   "act": "hit",
-   "say": "The food chain is a suggestion.",
-   "sfx": [
-    "crunch@suggestion"
-   ],
-   "act_at": "suggestion",
-   "shots": [
-    {
-     "photo": "Tenodera sinensis",
-     "obs": 329351875,
-     "crop": [
-      0.4,
-      0.1,
-      0.7,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "mantis",
-   "pose": "nervous",
-   "act": "tumble",
-   "say": "And I'm at the bottom of it.",
-   "sfx": [
-    "tink@bottom",
-    "thud@bottom"
-   ],
-   "prop": "fork",
-   "prop_at": "bottom",
-   "shots": [
-    {
-     "photo": "Tenodera sinensis",
-     "obs": 248975789,
-     "crop": [
-      0.26,
-      0.05,
-      0.64,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "mantis",
-   "pose": "think",
-   "act": "peek",
-   "say": "Would you still keep a feeder? Comment.",
-   "sfx": [],
-   "ask": "comment",
-   "shots": [
-    {
-     "photo": "Archilochus colubris",
-     "obs": 130313240,
-     "crop": [
-      0.427,
-      0.15,
-      0.673,
-      0.85
      ]
     }
    ]
@@ -3453,883 +3269,6 @@
    ]
   },
   {
-   "myth": "gila",
-   "pose": "nervous",
-   "act": "peek",
-   "say": "Gila monsters chew their venom into you.",
-   "sfx": [
-    "pop@chew"
-   ],
-   "label": {
-    "text": "CHEWS\nVENOM",
-    "at": "chew"
-   },
-   "hook": true,
-   "loop_say": "So remember, before it helped anyone,",
-   "short_title": "Gila Monsters Chew Their Venom Into You 🦎",
-   "comment": "Did you know a lizard helped make a diabetes drug? 👇",
-   "bonus": "Exenatide (Byetta), approved in 2005, is a synthetic copy of exendin-4 from Gila monster venom.",
-   "sources": [
-    "National Park Service, Saguaro NP, Gila Monster (grooved lower teeth; the longer it hangs on and chews, the more venom; up to 35% of body weight in one meal; bites to people are rare and usually from handling) — https://www.nps.gov/sagu/learn/nature/gila-monster.htm",
-    "Smithsonian's National Zoo, Gila monster (may hold on more than ten minutes; up to a third of body weight per meal; fat in tail; one of few venomous lizards) — https://nationalzoo.si.edu/animals/gila-monster",
-    "Exenatide is synthetic exendin-4 from Heloderma suspectum venom; Byetta, first GLP-1 drug, FDA-approved 2005 — https://endeavors.unc.edu/fall2007/buse.php"
-   ],
-   "_len": "deep",
-   "shots": [
-    {
-     "photo": "Heloderma suspectum",
-     "obs": 257141344,
-     "crop": [
-      0.162,
-      0.0,
-      0.538,
-      1.0
-     ]
-    },
-    {
-     "photo": "Heloderma suspectum",
-     "obs": 219217532,
-     "crop": [
-      0.189,
-      0.0,
-      0.611,
-      1.0
-     ],
-     "at": "venom"
-    }
-   ]
-  },
-  {
-   "myth": "gila",
-   "pose": "deadpan",
-   "act": "run_in",
-   "say": "So I offered a handshake.",
-   "sfx": [
-    "whoosh@0.05"
-   ],
-   "shots": [
-    {
-     "photo": "Heloderma suspectum",
-     "obs": 257141344,
-     "crop": [
-      0.162,
-      0.0,
-      0.538,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "gila",
-   "pose": "shock",
-   "act": "stand",
-   "say": "Bad idea.",
-   "sfx": [
-    "scratch@Bad"
-   ],
-   "punch": "idea",
-   "shots": [
-    {
-     "photo": "Heloderma suspectum",
-     "obs": 219217532,
-     "crop": [
-      0.231,
-      0.1,
-      0.569,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "gila",
-   "pose": "shock",
-   "act": "hit",
-   "say": "No fangs. It just bites.",
-   "sfx": [
-    "crunch@bites"
-   ],
-   "hit": "bites",
-   "shots": [
-    {
-     "photo": "Heloderma suspectum",
-     "obs": 343220606,
-     "crop": [
-      0.409,
-      0.1,
-      0.791,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "gila",
-   "pose": "nervous",
-   "act": "shake",
-   "say": "And holds on.",
-   "sfx": [
-    "thud@holds"
-   ],
-   "shots": [
-    {
-     "photo": "Heloderma suspectum",
-     "obs": 84860697,
-     "crop": [
-      0.303,
-      0.15,
-      0.697,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "gila",
-   "pose": "point",
-   "act": "stand",
-   "say": "It's one of very few venomous lizards.",
-   "sfx": [
-    "pop@venomous"
-   ],
-   "shots": [
-    {
-     "photo": "Heloderma suspectum",
-     "obs": 236857609,
-     "crop": [
-      0.125,
-      0.0,
-      0.875,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "gila",
-   "pose": "shock",
-   "act": "stand",
-   "say": "Venom runs up grooves in its teeth.",
-   "sfx": [
-    "pop@grooves"
-   ],
-   "punch": "grooves",
-   "shots": [
-    {
-     "photo": "Heloderma suspectum",
-     "obs": 210402951,
-     "crop": [
-      0.131,
-      0.1,
-      0.469,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "gila",
-   "pose": "shock",
-   "act": "puff",
-   "say": "The longer it chews, the more gets in.",
-   "sfx": [
-    "zap@chews"
-   ],
-   "hit": "chews",
-   "shots": [
-    {
-     "photo": "Heloderma suspectum",
-     "obs": 15312572,
-     "crop": [
-      0.21,
-      0.05,
-      0.59,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "gila",
-   "pose": "shock",
-   "act": "puffed",
-   "say": "It can hang on over 10 minutes.",
-   "sfx": [],
-   "label": {
-    "text": "10+\nMINUTES",
-    "at": "minutes"
-   },
-   "shots": [
-    {
-     "photo": "Heloderma suspectum",
-     "obs": 175785354,
-     "crop": [
-      0.41,
-      0.25,
-      0.69,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "gila",
-   "pose": "deadpan",
-   "act": "deflate",
-   "say": "I had other plans.",
-   "sfx": [
-    "pop@plans"
-   ],
-   "act_at": "plans",
-   "shots": [
-    {
-     "photo": "Heloderma suspectum",
-     "obs": 162430901,
-     "crop": [
-      0.125,
-      0.0,
-      0.875,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "gila",
-   "pose": "point",
-   "act": "stand",
-   "say": "Bites are rare. Usually from handling one.",
-   "sfx": [
-    "pop@handling"
-   ],
-   "shots": [
-    {
-     "photo": "Heloderma suspectum",
-     "obs": 33820523,
-     "crop": [
-      0.2,
-      0.1,
-      0.8,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "gila",
-   "pose": "deadpan",
-   "act": "tumble",
-   "say": "Which, to be fair, I was.",
-   "sfx": [
-    "thud@was"
-   ],
-   "act_at": "was",
-   "shots": [
-    {
-     "photo": "Heloderma suspectum",
-     "obs": 257141344,
-     "crop": [
-      0.181,
-      0.05,
-      0.519,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "gila",
-   "pose": "shock",
-   "act": "stand",
-   "say": "It eats about a third of its weight.",
-   "sfx": [
-    "pop@third"
-   ],
-   "label": {
-    "text": "1/3 OF\nITS WEIGHT",
-    "at": "third"
-   },
-   "shots": [
-    {
-     "photo": "Heloderma suspectum",
-     "obs": 219217532,
-     "crop": [
-      0.252,
-      0.15,
-      0.548,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "gila",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "In one meal.",
-   "sfx": [
-    "pop@meal"
-   ],
-   "punch": "meal",
-   "shots": [
-    {
-     "photo": "Heloderma suspectum",
-     "obs": 343220606,
-     "crop": [
-      0.388,
-      0.0,
-      0.812,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "gila",
-   "pose": "nervous",
-   "act": "shake",
-   "say": "A third. In one sitting.",
-   "sfx": [
-    "scratch@sitting"
-   ],
-   "shots": [
-    {
-     "photo": "Heloderma suspectum",
-     "obs": 84860697,
-     "crop": [
-      0.275,
-      0.1,
-      0.725,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "gila",
-   "pose": "nervous",
-   "act": "hit",
-   "say": "I'd be a starter.",
-   "sfx": [
-    "tink@starter",
-    "boing@starter"
-   ],
-   "prop": "fork",
-   "prop_at": "starter",
-   "act_at": "starter",
-   "shots": [
-    {
-     "photo": "Heloderma suspectum",
-     "obs": 236857609,
-     "crop": [
-      0.163,
-      0.05,
-      0.837,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "gila",
-   "pose": "point",
-   "act": "stand",
-   "say": "Then it can skip meals for months.",
-   "sfx": [
-    "pop@months"
-   ],
-   "shots": [
-    {
-     "photo": "Heloderma suspectum",
-     "obs": 210402951,
-     "crop": [
-      0.152,
-      0.15,
-      0.448,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "gila",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "Living on fat stored in its tail.",
-   "sfx": [
-    "pop@tail"
-   ],
-   "punch": "tail",
-   "shots": [
-    {
-     "photo": "Heloderma suspectum",
-     "obs": 15312572,
-     "crop": [
-      0.189,
-      0.0,
-      0.611,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "gila",
-   "pose": "think",
-   "act": "peek",
-   "say": "Now the plot twist.",
-   "sfx": [
-    "scratch@twist"
-   ],
-   "shots": [
-    {
-     "photo": "Heloderma suspectum",
-     "obs": 175785354,
-     "crop": [
-      0.39,
-      0.2,
-      0.71,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "gila",
-   "pose": "shock",
-   "act": "stand",
-   "say": "Its venom holds a hormone.",
-   "sfx": [
-    "pop@hormone"
-   ],
-   "shots": [
-    {
-     "photo": "Heloderma suspectum",
-     "obs": 162430901,
-     "crop": [
-      0.163,
-      0.05,
-      0.837,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "gila",
-   "pose": "point",
-   "act": "stand",
-   "say": "Called exendin-4.",
-   "sfx": [
-    "pop@exendin-4"
-   ],
-   "label": {
-    "text": "EXENDIN-4",
-    "at": "exendin-4"
-   },
-   "shots": [
-    {
-     "photo": "Heloderma suspectum",
-     "obs": 33820523,
-     "crop": [
-      0.237,
-      0.15,
-      0.762,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "gila",
-   "pose": "deadpan",
-   "act": "run_across",
-   "say": "Scientists copied it.",
-   "sfx": [
-    "whoosh@copied"
-   ],
-   "act_at": "copied",
-   "shots": [
-    {
-     "photo": "Heloderma suspectum",
-     "obs": 257141344,
-     "crop": [
-      0.162,
-      0.0,
-      0.538,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "gila",
-   "pose": "shock",
-   "act": "stand",
-   "say": "It became a diabetes drug, Byetta.",
-   "sfx": [
-    "pop@Byetta"
-   ],
-   "label": {
-    "text": "BYETTA",
-    "at": "Byetta"
-   },
-   "shots": [
-    {
-     "photo": "Heloderma suspectum",
-     "obs": 219217532,
-     "crop": [
-      0.231,
-      0.1,
-      0.569,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "gila",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "Approved in 2005.",
-   "sfx": [
-    "pop@in"
-   ],
-   "label": {
-    "text": "2005",
-    "at": "in"
-   },
-   "shots": [
-    {
-     "photo": "Heloderma suspectum",
-     "obs": 343220606,
-     "crop": [
-      0.409,
-      0.1,
-      0.791,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "gila",
-   "pose": "shock",
-   "act": "stand",
-   "say": "The first of the family behind Ozempic.",
-   "sfx": [
-    "scratch@Ozempic"
-   ],
-   "punch": "Ozempic",
-   "shots": [
-    {
-     "photo": "Heloderma suspectum",
-     "obs": 84860697,
-     "crop": [
-      0.303,
-      0.15,
-      0.697,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "gila",
-   "pose": "nervous",
-   "act": "hide",
-   "say": "Me? I'm on no one's prescription.",
-   "sfx": [
-    "pop@prescription"
-   ],
-   "shots": [
-    {
-     "photo": "Heloderma suspectum",
-     "obs": 236857609,
-     "crop": [
-      0.125,
-      0.0,
-      0.875,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "gila",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "Threat to meatballs: medium.",
-   "sfx": [
-    "pop@medium"
-   ],
-   "label": {
-    "text": "THREAT:\nMEDIUM",
-    "at": "medium"
-   },
-   "shots": [
-    {
-     "photo": "Heloderma suspectum",
-     "obs": 210402951,
-     "crop": [
-      0.131,
-      0.1,
-      0.469,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "gila",
-   "pose": "point",
-   "act": "stand",
-   "say": "Helpfulness: surprisingly high.",
-   "sfx": [
-    "pop@high"
-   ],
-   "label": {
-    "text": "HELPFUL:\nVERY",
-    "at": "high"
-   },
-   "shots": [
-    {
-     "photo": "Heloderma suspectum",
-     "obs": 15312572,
-     "crop": [
-      0.21,
-      0.05,
-      0.59,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "housefly",
-   "pose": "nervous",
-   "act": "peek",
-   "say": "House flies throw up on your food.",
-   "sfx": [
-    "pop@up"
-   ],
-   "label": {
-    "text": "BLEGH",
-    "at": "up"
-   },
-   "hook": true,
-   "loop_say": "So next time one lands on your sandwich,",
-   "short_title": "House Flies Throw Up on Your Food 🪰",
-   "comment": "Do you still eat it after a fly lands? 👇",
-   "bonus": "Their mouthparts are a soft sponge; they can't bite.",
-   "sources": [
-    "ScienceAlert / The Conversation, 'Do flies really throw up on your food?' (regurgitate digestive juices onto solid food, then sponge it up; taste receptors on the feet) — https://www.sciencealert.com/do-flies-really-throw-up-on-your-food-when-they-land-on-it",
-    "HowStuffWorks, Housefly Diet (sponging mouthparts) — https://science.howstuffworks.com/environmental/life/zoology/insects-arachnids/housefly3.htm"
-   ],
-   "_len": "short",
-   "shots": [
-    {
-     "photo": "Musca domestica",
-     "obs": 131295935,
-     "crop": [
-      0.219,
-      0.0,
-      0.781,
-      1.0
-     ]
-    },
-    {
-     "photo": "Musca domestica",
-     "obs": 153591365,
-     "crop": [
-      0.339,
-      0.0,
-      0.761,
-      1.0
-     ],
-     "at": "up"
-    }
-   ]
-  },
-  {
-   "myth": "housefly",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "They can't chew.",
-   "sfx": [
-    "pop@chew"
-   ],
-   "punch": "chew",
-   "shots": [
-    {
-     "photo": "Musca domestica",
-     "obs": 131295935,
-     "crop": [
-      0.219,
-      0.0,
-      0.781,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "housefly",
-   "pose": "nervous",
-   "act": "shake",
-   "say": "So they spit digestive juice on it.",
-   "sfx": [
-    "splash@spit"
-   ],
-   "shots": [
-    {
-     "photo": "Musca domestica",
-     "obs": 153591365,
-     "crop": [
-      0.381,
-      0.1,
-      0.719,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "housefly",
-   "pose": "shock",
-   "act": "stand",
-   "say": "Then sponge up the soup.",
-   "sfx": [
-    "pop@soup"
-   ],
-   "punch": "sponge",
-   "shots": [
-    {
-     "photo": "Musca domestica",
-     "obs": 235798442,
-     "crop": [
-      0.41,
-      0.05,
-      0.79,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "housefly",
-   "pose": "point",
-   "act": "stand",
-   "say": "They taste with their feet.",
-   "sfx": [
-    "pop@feet"
-   ],
-   "label": {
-    "text": "FEET",
-    "at": "feet"
-   },
-   "shots": [
-    {
-     "photo": "Musca domestica",
-     "obs": 306866387,
-     "crop": [
-      0.352,
-      0.15,
-      0.648,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "housefly",
-   "pose": "deadpan",
-   "act": "run_in",
-   "say": "So I sat on the counter.",
-   "sfx": [
-    "whoosh@0.05"
-   ],
-   "shots": [
-    {
-     "photo": "Musca domestica",
-     "obs": 69507092,
-     "crop": [
-      0.248,
-      0.0,
-      0.752,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "housefly",
-   "pose": "shock",
-   "act": "hit",
-   "say": "One landed on me. Feet first.",
-   "sfx": [
-    "thud@landed"
-   ],
-   "act_at": "landed",
-   "shots": [
-    {
-     "photo": "Musca domestica",
-     "obs": 329853140,
-     "crop": [
-      0.434,
-      0.1,
-      0.766,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "housefly",
-   "pose": "nervous",
-   "act": "tumble",
-   "say": "I was the lunch.",
-   "sfx": [
-    "tink@lunch",
-    "boing@lunch"
-   ],
-   "prop": "fork",
-   "prop_at": "lunch",
-   "shots": [
-    {
-     "photo": "Musca domestica",
-     "obs": 105570516,
-     "crop": [
-      0.163,
-      0.05,
-      0.837,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "housefly",
-   "pose": "think",
-   "act": "peek",
-   "say": "Still going to eat it? Comment.",
-   "sfx": [],
-   "ask": "comment",
-   "shots": [
-    {
-     "photo": "Musca domestica",
-     "obs": 131295935,
-     "crop": [
-      0.303,
-      0.15,
-      0.697,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
    "myth": "dungbeetle",
    "pose": "nervous",
    "act": "peek",
@@ -4549,671 +3488,6 @@
       0.15,
       0.697,
       0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "vulture",
-   "pose": "nervous",
-   "act": "peek",
-   "say": "Turkey vultures vomit on anything that scares them.",
-   "sfx": [
-    "pop@vomit"
-   ],
-   "label": {
-    "text": "VOMIT",
-    "at": "vomit"
-   },
-   "hook": true,
-   "loop_say": "So if you're sneaking up on one,",
-   "short_title": "Turkey Vultures Throw Up on Anything That Scares Them 🤮",
-   "comment": "Would you get close to one? 👇",
-   "bonus": "Their strong stomach acid helps them eat carrion that could carry anthrax or botulism.",
-   "sources": [
-    "Live Science, 'Turkey vulture: the bird that vomits acid up to 10 feet' — https://livescience.com/animals/birds/turkey-vulture-the-bird-that-vomits-acid-up-to-10-feet-and-poops-antiseptic-onto-its-legs",
-    "Walking Mountains Science Center, 'Why do vultures self-defense vomit?' (lightens them for take-off; acid neutralizes pathogens like anthrax and botulism) — https://walkingmountains.org/curious-nature/international-vulture-awareness-day/",
-    "Blumstein et al. 2017, Journal of Wildlife Diseases: urohidrosis likely cools; the germ-killing claim is untested; vultures locate food mainly by smell — https://blumsteinlab.eeb.ucla.edu/wp-content/uploads/sites/104/2017/05/Blumstein_etal_2017_JWD.pdf",
-    "Cornell All About Birds: no syrinx, so they hiss and grunt; wingspan about 5.7 ft (worded 'almost 6 feet'); bare head thought to help keep clean (worded 'may')."
-   ],
-   "_len": "deep",
-   "shots": [
-    {
-     "photo": "Cathartes aura",
-     "obs": 33290971,
-     "crop": [
-      0.383,
-      0,
-      0.817,
-      1.0
-     ]
-    },
-    {
-     "photo": "Cathartes aura",
-     "obs": 102062793,
-     "crop": [
-      0.363,
-      0.0,
-      0.737,
-      1.0
-     ],
-     "at": "vomit"
-    }
-   ]
-  },
-  {
-   "myth": "vulture",
-   "pose": "deadpan",
-   "act": "run_in",
-   "say": "So I snuck up on one.",
-   "sfx": [
-    "whoosh@0.05"
-   ],
-   "shots": [
-    {
-     "photo": "Cathartes aura",
-     "obs": 33290971,
-     "crop": [
-      0.383,
-      0,
-      0.817,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "vulture",
-   "pose": "nervous",
-   "act": "shake",
-   "say": "It hissed. They can't really sing.",
-   "sfx": [
-    "scratch@hissed"
-   ],
-   "shots": [
-    {
-     "photo": "Cathartes aura",
-     "obs": 102062793,
-     "crop": [
-      0.4,
-      0.1,
-      0.7,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "vulture",
-   "pose": "shock",
-   "act": "stand",
-   "say": "I scared it.",
-   "sfx": [
-    "pop@scared"
-   ],
-   "punch": "scared",
-   "shots": [
-    {
-     "photo": "Cathartes aura",
-     "obs": 86997534,
-     "crop": [
-      0.362,
-      0.05,
-      0.738,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "vulture",
-   "pose": "shock",
-   "act": "hit",
-   "say": "It threw up on me.",
-   "sfx": [
-    "splash@threw"
-   ],
-   "hit": "threw",
-   "shots": [
-    {
-     "photo": "Cathartes aura",
-     "obs": 336280892,
-     "crop": [
-      0.303,
-      0.15,
-      0.697,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "vulture",
-   "pose": "nervous",
-   "act": "shake",
-   "say": "Acidic. Half-digested. Warm.",
-   "sfx": [
-    "pop@Acidic",
-    "pop@Warm"
-   ],
-   "shots": [
-    {
-     "photo": "Cathartes aura",
-     "obs": 60592373,
-     "crop": [
-      0.373,
-      0.0,
-      0.827,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "vulture",
-   "pose": "shock",
-   "act": "stand",
-   "say": "It can fly up to about 10 feet.",
-   "sfx": [
-    "whoosh@fly"
-   ],
-   "label": {
-    "text": "10 FEET",
-    "at": "feet"
-   },
-   "shots": [
-    {
-     "photo": "Cathartes aura",
-     "obs": 247699630,
-     "crop": [
-      0.35,
-      0.1,
-      0.65,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "vulture",
-   "pose": "point",
-   "act": "stand",
-   "say": "Throwing up makes them lighter.",
-   "sfx": [
-    "pop@lighter"
-   ],
-   "shots": [
-    {
-     "photo": "Cathartes aura",
-     "obs": 387790635,
-     "crop": [
-      0.2,
-      0.05,
-      0.8,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "vulture",
-   "pose": "deadpan",
-   "act": "run_across",
-   "say": "So they can take off faster.",
-   "sfx": [
-    "whoosh@faster"
-   ],
-   "act_at": "faster",
-   "shots": [
-    {
-     "photo": "Cathartes aura",
-     "obs": 197756117,
-     "crop": [
-      0.219,
-      0.05,
-      0.481,
-      0.75
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "vulture",
-   "pose": "deadpan",
-   "act": "tumble",
-   "say": "Then it left me there.",
-   "sfx": [
-    "thud@left"
-   ],
-   "act_at": "left",
-   "shots": [
-    {
-     "photo": "Cathartes aura",
-     "obs": 52331749,
-     "crop": [
-      0.106,
-      0.0,
-      0.494,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "vulture",
-   "pose": "shock",
-   "act": "stand",
-   "say": "Their wings span almost 6 feet.",
-   "sfx": [
-    "whoosh@wings"
-   ],
-   "label": {
-    "text": "~6 FT\nWINGS",
-    "at": "feet"
-   },
-   "shots": [
-    {
-     "photo": "Cathartes aura",
-     "obs": 80827613,
-     "crop": [
-      0.4,
-      0.1,
-      0.7,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "vulture",
-   "pose": "point",
-   "act": "stand",
-   "say": "Their stomach acid is very strong.",
-   "sfx": [
-    "pop@strong"
-   ],
-   "punch": "strong",
-   "shots": [
-    {
-     "photo": "Cathartes aura",
-     "obs": 33290971,
-     "crop": [
-      0.405,
-      0.0,
-      0.795,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "vulture",
-   "pose": "nervous",
-   "act": "shake",
-   "say": "It kills many germs in rotting meat.",
-   "sfx": [
-    "pop@germs"
-   ],
-   "shots": [
-    {
-     "photo": "Cathartes aura",
-     "obs": 102062793,
-     "crop": [
-      0.419,
-      0.15,
-      0.681,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "vulture",
-   "pose": "shock",
-   "act": "stand",
-   "say": "Like anthrax. And botulism.",
-   "sfx": [
-    "pop@anthrax"
-   ],
-   "label": {
-    "text": "ANTHRAX",
-    "at": "anthrax"
-   },
-   "shots": [
-    {
-     "photo": "Cathartes aura",
-     "obs": 86997534,
-     "crop": [
-      0.341,
-      0.0,
-      0.759,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "vulture",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "They eat dead animals, and rarely get sick.",
-   "sfx": [],
-   "shots": [
-    {
-     "photo": "Cathartes aura",
-     "obs": 336280892,
-     "crop": [
-      0.275,
-      0.1,
-      0.725,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "vulture",
-   "pose": "point",
-   "act": "stand",
-   "say": "Bald heads may help them stay clean.",
-   "sfx": [
-    "pop@Bald"
-   ],
-   "shots": [
-    {
-     "photo": "Cathartes aura",
-     "obs": 60592373,
-     "crop": [
-      0.396,
-      0.05,
-      0.804,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "vulture",
-   "pose": "nervous",
-   "act": "shake",
-   "say": "I've been left out overnight.",
-   "sfx": [
-    "scratch@overnight"
-   ],
-   "shots": [
-    {
-     "photo": "Cathartes aura",
-     "obs": 247699630,
-     "crop": [
-      0.369,
-      0.15,
-      0.631,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "vulture",
-   "pose": "nervous",
-   "act": "hide",
-   "say": "I would like to not be found.",
-   "sfx": [
-    "pop@found"
-   ],
-   "shots": [
-    {
-     "photo": "Cathartes aura",
-     "obs": 387790635,
-     "crop": [
-      0.167,
-      0.0,
-      0.833,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "vulture",
-   "pose": "think",
-   "act": "peek",
-   "say": "They find food by smell.",
-   "sfx": [
-    "pop@smell"
-   ],
-   "punch": "smell",
-   "shots": [
-    {
-     "photo": "Cathartes aura",
-     "obs": 197756117,
-     "crop": [
-      0.2,
-      0.0,
-      0.5,
-      0.8
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "vulture",
-   "pose": "shock",
-   "act": "stand",
-   "say": "Sometimes from over a mile away.",
-   "sfx": [
-    "pop@mile"
-   ],
-   "label": {
-    "text": "1+ MILE",
-    "at": "mile"
-   },
-   "shots": [
-    {
-     "photo": "Cathartes aura",
-     "obs": 52331749,
-     "crop": [
-      0.125,
-      0.05,
-      0.475,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "vulture",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "I smell like garlic.",
-   "sfx": [],
-   "shots": [
-    {
-     "photo": "Cathartes aura",
-     "obs": 80827613,
-     "crop": [
-      0.419,
-      0.15,
-      0.681,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "vulture",
-   "pose": "nervous",
-   "act": "hit",
-   "say": "From space, probably.",
-   "sfx": [
-    "tink@space",
-    "boing@space"
-   ],
-   "prop": "fork",
-   "prop_at": "space",
-   "act_at": "space",
-   "shots": [
-    {
-     "photo": "Cathartes aura",
-     "obs": 33290971,
-     "crop": [
-      0.383,
-      0,
-      0.817,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "vulture",
-   "pose": "shock",
-   "act": "stand",
-   "say": "On hot days, they pee on their legs.",
-   "sfx": [
-    "splash@pee"
-   ],
-   "label": {
-    "text": "LEG\nPEE",
-    "at": "pee"
-   },
-   "shots": [
-    {
-     "photo": "Cathartes aura",
-     "obs": 102062793,
-     "crop": [
-      0.4,
-      0.1,
-      0.7,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "vulture",
-   "pose": "point",
-   "act": "stand",
-   "say": "It probably cools them down.",
-   "sfx": [
-    "pop@cools"
-   ],
-   "shots": [
-    {
-     "photo": "Cathartes aura",
-     "obs": 86997534,
-     "crop": [
-      0.362,
-      0.05,
-      0.738,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "vulture",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "Some say it kills germs too.",
-   "sfx": [],
-   "shots": [
-    {
-     "photo": "Cathartes aura",
-     "obs": 336280892,
-     "crop": [
-      0.303,
-      0.15,
-      0.697,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "vulture",
-   "pose": "think",
-   "act": "peek",
-   "say": "That hasn't really been tested.",
-   "sfx": [
-    "scratch@tested"
-   ],
-   "punch": "tested",
-   "shots": [
-    {
-     "photo": "Cathartes aura",
-     "obs": 60592373,
-     "crop": [
-      0.373,
-      0.0,
-      0.827,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "vulture",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "Threat to meatballs: high.",
-   "sfx": [
-    "pop@high"
-   ],
-   "label": {
-    "text": "THREAT:\nHIGH",
-    "at": "high"
-   },
-   "shots": [
-    {
-     "photo": "Cathartes aura",
-     "obs": 247699630,
-     "crop": [
-      0.35,
-      0.1,
-      0.65,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "vulture",
-   "pose": "nervous",
-   "act": "hide",
-   "say": "If I'm left out.",
-   "sfx": [
-    "pop@out"
-   ],
-   "shots": [
-    {
-     "photo": "Cathartes aura",
-     "obs": 387790635,
-     "crop": [
-      0.2,
-      0.05,
-      0.8,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "vulture",
-   "pose": "think",
-   "act": "peek",
-   "say": "Would you get close to one? Comment.",
-   "sfx": [],
-   "ask": "comment",
-   "shots": [
-    {
-     "photo": "Cathartes aura",
-     "obs": 197756117,
-     "crop": [
-      0.219,
-      0.05,
-      0.481,
-      0.75
      ]
     }
    ]
@@ -5665,672 +3939,6 @@
       0.269,
       0.15,
       0.531,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bulletant",
-   "pose": "nervous",
-   "act": "peek",
-   "say": "Bullet ants have the most painful sting ranked.",
-   "sfx": [
-    "pop@painful"
-   ],
-   "label": {
-    "text": "#1\nPAIN",
-    "at": "painful"
-   },
-   "hook": true,
-   "loop_say": "And the worst part is that",
-   "short_title": "Bullet Ants Have the Most Painful Sting Ever Ranked 🐜",
-   "comment": "Would you wear the glove? 👇",
-   "bonus": "Bullet ant pain can come in waves for up to 24 hours.",
-   "sources": [
-    "Britannica, bullet ant (name from the sting feeling like a gunshot; 4+ on Schmidt's index; Central and South American rainforests; nests at the base of trees) — https://www.britannica.com/animal/bullet-insect",
-    "Schmidt's description: 'like walking over flaming charcoal with a 3-inch nail embedded in your heel'; pain for up to 24 hours; poneratoxin acts on sodium channels — https://www.sciencealert.com/?p=32967",
-    "Sateré-Mawé initiation with bullet-ant gloves (Brazil) — https://whyevolutionistrue.com/2014/08/06/the-worst-pain-known-to-humans-the-bullet-ant-gloves-of-brazil",
-    "Workers 18-30 mm (about an inch); they stridulate (squeak) when disturbed; diet: nectar and small arthropods."
-   ],
-   "_len": "deep",
-   "shots": [
-    {
-     "photo": "Paraponera clavata",
-     "obs": 198779694,
-     "crop": [
-      0.292,
-      0.0,
-      0.608,
-      1.0
-     ]
-    },
-    {
-     "photo": "Paraponera clavata",
-     "obs": 196565947,
-     "crop": [
-      0.338,
-      0.0,
-      0.762,
-      1.0
-     ],
-     "at": "most"
-    }
-   ]
-  },
-  {
-   "myth": "bulletant",
-   "pose": "deadpan",
-   "act": "run_in",
-   "say": "So I stepped on its leaf.",
-   "sfx": [
-    "whoosh@0.05"
-   ],
-   "shots": [
-    {
-     "photo": "Paraponera clavata",
-     "obs": 198779694,
-     "crop": [
-      0.292,
-      0.0,
-      0.608,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bulletant",
-   "pose": "nervous",
-   "act": "shake",
-   "say": "It squeaked at me. A warning.",
-   "sfx": [
-    "pop@squeaked"
-   ],
-   "shots": [
-    {
-     "photo": "Paraponera clavata",
-     "obs": 196565947,
-     "crop": [
-      0.381,
-      0.1,
-      0.719,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bulletant",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "I ignored it.",
-   "sfx": [
-    "scratch@ignored"
-   ],
-   "punch": "ignored",
-   "shots": [
-    {
-     "photo": "Paraponera clavata",
-     "obs": 25086261,
-     "crop": [
-      0.319,
-      0.05,
-      0.681,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bulletant",
-   "pose": "shock",
-   "act": "puff",
-   "say": "It stung me.",
-   "sfx": [
-    "zap@stung"
-   ],
-   "hit": "stung",
-   "shots": [
-    {
-     "photo": "Paraponera clavata",
-     "obs": 2357074,
-     "crop": [
-      0.402,
-      0.15,
-      0.698,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bulletant",
-   "pose": "shock",
-   "act": "puffed",
-   "say": "It feels like being shot.",
-   "sfx": [
-    "pop@shot"
-   ],
-   "label": {
-    "text": "LIKE A\nBULLET",
-    "at": "shot"
-   },
-   "shots": [
-    {
-     "photo": "Paraponera clavata",
-     "obs": 395640054,
-     "crop": [
-      0.313,
-      0.0,
-      0.687,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bulletant",
-   "pose": "shock",
-   "act": "puffed",
-   "say": "That's where the name comes from.",
-   "sfx": [],
-   "shots": [
-    {
-     "photo": "Paraponera clavata",
-     "obs": 247392143,
-     "crop": [
-      0.2,
-      0.1,
-      0.8,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bulletant",
-   "pose": "nervous",
-   "act": "shake",
-   "say": "The pain comes in waves.",
-   "sfx": [
-    "zap@waves"
-   ],
-   "shots": [
-    {
-     "photo": "Paraponera clavata",
-     "obs": 223020460,
-     "crop": [
-      0.213,
-      0.05,
-      0.887,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bulletant",
-   "pose": "deadpan",
-   "act": "deflate",
-   "say": "It can last up to a full day.",
-   "sfx": [
-    "pop@day"
-   ],
-   "label": {
-    "text": "24 HOURS",
-    "at": "day"
-   },
-   "act_at": "day",
-   "shots": [
-    {
-     "photo": "Paraponera clavata",
-     "obs": 100845472,
-     "crop": [
-      0.352,
-      0.15,
-      0.648,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bulletant",
-   "pose": "point",
-   "act": "stand",
-   "say": "Justin Schmidt rated it 4+.",
-   "sfx": [
-    "pop@rated"
-   ],
-   "label": {
-    "text": "4+",
-    "at": "rated"
-   },
-   "shots": [
-    {
-     "photo": "Paraponera clavata",
-     "obs": 198779694,
-     "crop": [
-      0.292,
-      0.0,
-      0.608,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bulletant",
-   "pose": "shock",
-   "act": "stand",
-   "say": "The top of his pain scale.",
-   "sfx": [
-    "pop@top"
-   ],
-   "punch": "top",
-   "shots": [
-    {
-     "photo": "Paraponera clavata",
-     "obs": 196565947,
-     "crop": [
-      0.381,
-      0.1,
-      0.719,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bulletant",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "He compared it to flaming charcoal.",
-   "sfx": [
-    "scratch@flaming"
-   ],
-   "shots": [
-    {
-     "photo": "Paraponera clavata",
-     "obs": 25086261,
-     "crop": [
-      0.319,
-      0.05,
-      0.681,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bulletant",
-   "pose": "shock",
-   "act": "hit",
-   "say": "With a nail in your heel.",
-   "sfx": [
-    "crunch@nail"
-   ],
-   "hit": "nail",
-   "shots": [
-    {
-     "photo": "Paraponera clavata",
-     "obs": 2357074,
-     "crop": [
-      0.402,
-      0.15,
-      0.698,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bulletant",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "I don't have heels.",
-   "sfx": [
-    "pop@heels"
-   ],
-   "shots": [
-    {
-     "photo": "Paraponera clavata",
-     "obs": 395640054,
-     "crop": [
-      0.313,
-      0.0,
-      0.687,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bulletant",
-   "pose": "deadpan",
-   "act": "tumble",
-   "say": "I felt it anyway.",
-   "sfx": [
-    "thud@anyway"
-   ],
-   "act_at": "anyway",
-   "shots": [
-    {
-     "photo": "Paraponera clavata",
-     "obs": 247392143,
-     "crop": [
-      0.2,
-      0.1,
-      0.8,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bulletant",
-   "pose": "point",
-   "act": "stand",
-   "say": "The toxin is called poneratoxin.",
-   "sfx": [
-    "pop@poneratoxin"
-   ],
-   "label": {
-    "text": "PONERATOXIN",
-    "at": "poneratoxin"
-   },
-   "shots": [
-    {
-     "photo": "Paraponera clavata",
-     "obs": 223020460,
-     "crop": [
-      0.213,
-      0.05,
-      0.887,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bulletant",
-   "pose": "nervous",
-   "act": "shake",
-   "say": "It keeps your nerves firing.",
-   "sfx": [
-    "zap@firing"
-   ],
-   "shots": [
-    {
-     "photo": "Paraponera clavata",
-     "obs": 100845472,
-     "crop": [
-      0.352,
-      0.15,
-      0.648,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bulletant",
-   "pose": "shock",
-   "act": "stand",
-   "say": "In Brazil, Sateré-Mawé boys wear ant gloves.",
-   "sfx": [
-    "pop@gloves"
-   ],
-   "label": {
-    "text": "ANT\nGLOVES",
-    "at": "gloves"
-   },
-   "shots": [
-    {
-     "photo": "Paraponera clavata",
-     "obs": 198779694,
-     "crop": [
-      0.292,
-      0.0,
-      0.608,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bulletant",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "As a coming-of-age rite.",
-   "sfx": [],
-   "shots": [
-    {
-     "photo": "Paraponera clavata",
-     "obs": 196565947,
-     "crop": [
-      0.381,
-      0.1,
-      0.719,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bulletant",
-   "pose": "shock",
-   "act": "stand",
-   "say": "Gloves full of bullet ants.",
-   "sfx": [
-    "scratch@full"
-   ],
-   "punch": "full",
-   "shots": [
-    {
-     "photo": "Paraponera clavata",
-     "obs": 25086261,
-     "crop": [
-      0.319,
-      0.05,
-      0.681,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bulletant",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "On purpose.",
-   "sfx": [
-    "pop@purpose"
-   ],
-   "shots": [
-    {
-     "photo": "Paraponera clavata",
-     "obs": 2357074,
-     "crop": [
-      0.402,
-      0.15,
-      0.698,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bulletant",
-   "pose": "nervous",
-   "act": "hide",
-   "say": "I panic at toothpicks.",
-   "sfx": [
-    "tink@toothpicks"
-   ],
-   "prop": "fork",
-   "prop_at": "toothpicks",
-   "shots": [
-    {
-     "photo": "Paraponera clavata",
-     "obs": 395640054,
-     "crop": [
-      0.313,
-      0.0,
-      0.687,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bulletant",
-   "pose": "think",
-   "act": "peek",
-   "say": "The ants are about an inch long.",
-   "sfx": [
-    "pop@inch"
-   ],
-   "label": {
-    "text": "~1 INCH",
-    "at": "inch"
-   },
-   "shots": [
-    {
-     "photo": "Paraponera clavata",
-     "obs": 247392143,
-     "crop": [
-      0.2,
-      0.1,
-      0.8,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bulletant",
-   "pose": "point",
-   "act": "stand",
-   "say": "They nest at the base of trees.",
-   "sfx": [
-    "pop@trees"
-   ],
-   "shots": [
-    {
-     "photo": "Paraponera clavata",
-     "obs": 223020460,
-     "crop": [
-      0.213,
-      0.05,
-      0.887,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bulletant",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "In Central and South American rainforests.",
-   "sfx": [],
-   "shots": [
-    {
-     "photo": "Paraponera clavata",
-     "obs": 100845472,
-     "crop": [
-      0.352,
-      0.15,
-      0.648,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bulletant",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "They mostly eat nectar and small insects.",
-   "sfx": [
-    "pop@nectar"
-   ],
-   "shots": [
-    {
-     "photo": "Paraponera clavata",
-     "obs": 198779694,
-     "crop": [
-      0.292,
-      0.0,
-      0.608,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bulletant",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "Threat to meatballs: low.",
-   "sfx": [
-    "pop@low"
-   ],
-   "label": {
-    "text": "THREAT:\nLOW",
-    "at": "low"
-   },
-   "shots": [
-    {
-     "photo": "Paraponera clavata",
-     "obs": 196565947,
-     "crop": [
-      0.381,
-      0.1,
-      0.719,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bulletant",
-   "pose": "nervous",
-   "act": "shake",
-   "say": "Threat to my nerves: high.",
-   "sfx": [
-    "zap@high"
-   ],
-   "shots": [
-    {
-     "photo": "Paraponera clavata",
-     "obs": 25086261,
-     "crop": [
-      0.319,
-      0.05,
-      0.681,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bulletant",
-   "pose": "think",
-   "act": "peek",
-   "say": "Would you wear the glove? Comment.",
-   "sfx": [],
-   "ask": "comment",
-   "shots": [
-    {
-     "photo": "Paraponera clavata",
-     "obs": 2357074,
-     "crop": [
-      0.402,
-      0.15,
-      0.698,
       0.85
      ]
     }
@@ -6822,6 +4430,3600 @@
       0.312,
       0.0,
       0.688,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lamprey",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "Sea lampreys drink fish blood.",
+   "sfx": [
+    "pop@blood"
+   ],
+   "label": {
+    "text": "BLOOD",
+    "at": "blood"
+   },
+   "hook": true,
+   "loop_say": "So if a fish has a round scar,",
+   "short_title": "Sea Lampreys Drink Fish Blood 🩸",
+   "comment": "Would you swim in a lake with these? 👇",
+   "bonus": "A sea lamprey can kill up to 40 pounds of fish during its feeding stage.",
+   "sources": [
+    "Great Lakes Fishery Commission (sealamprey.org): sucking disc of sharp teeth around a rasping tongue; one lamprey can kill up to 40 lb of fish; largely unchanged for 340 million years — https://sealamprey.org/",
+    "CBC, GLFC's Marc Gaden: 'they bore a hole through the side of the fish, feeding on the fish's blood and body fluids' — https://www.cbc.ca/lite/story/1.4343218"
+   ],
+   "_len": "short",
+   "shots": [
+    {
+     "photo": "Petromyzon marinus",
+     "obs": 165189560,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    },
+    {
+     "photo": "Petromyzon marinus",
+     "obs": 224015540,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ],
+     "at": "blood"
+    }
+   ]
+  },
+  {
+   "myth": "lamprey",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Their mouth is a disc of teeth.",
+   "sfx": [
+    "pop@teeth"
+   ],
+   "label": {
+    "text": "ALL\nTEETH",
+    "at": "teeth"
+   },
+   "shots": [
+    {
+     "photo": "Petromyzon marinus",
+     "obs": 165189560,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lamprey",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I offered it a handshake.",
+   "sfx": [
+    "whoosh@0.05"
+   ],
+   "shots": [
+    {
+     "photo": "Petromyzon marinus",
+     "obs": 165189560,
+     "crop": [
+      0.331,
+      0.1,
+      0.669,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lamprey",
+   "pose": "shock",
+   "act": "hit",
+   "say": "It latched on. Hard.",
+   "sfx": [
+    "crunch@latched"
+   ],
+   "hit": "latched",
+   "shots": [
+    {
+     "photo": "Petromyzon marinus",
+     "obs": 224015540,
+     "crop": [
+      0.31,
+      0.05,
+      0.69,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lamprey",
+   "pose": "deadpan",
+   "act": "tumble",
+   "say": "One can kill 40 pounds of fish.",
+   "sfx": [
+    "thud@kill"
+   ],
+   "label": {
+    "text": "40 LBS",
+    "at": "pounds"
+   },
+   "act_at": "kill",
+   "shots": [
+    {
+     "photo": "Petromyzon marinus",
+     "obs": 223388540,
+     "crop": [
+      0.302,
+      0.15,
+      0.598,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lamprey",
+   "pose": "point",
+   "act": "stand",
+   "say": "Their family is older than dinosaurs.",
+   "sfx": [
+    "scratch@dinosaurs"
+   ],
+   "punch": "dinosaurs",
+   "shots": [
+    {
+     "photo": "Petromyzon marinus",
+     "obs": 116319148,
+     "crop": [
+      0.342,
+      0.0,
+      0.658,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lamprey",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "No jaws. No bones. Still scary.",
+   "sfx": [
+    "pop@scary"
+   ],
+   "shots": [
+    {
+     "photo": "Petromyzon marinus",
+     "obs": 82190486,
+     "crop": [
+      0.2,
+      0.1,
+      0.8,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lamprey",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "I have no bones either.",
+   "sfx": [],
+   "shots": [
+    {
+     "photo": "Petromyzon marinus",
+     "obs": 220741076,
+     "crop": [
+      0.31,
+      0.05,
+      0.69,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lamprey",
+   "pose": "nervous",
+   "act": "hit",
+   "say": "And I'm brunch.",
+   "sfx": [
+    "tink@brunch",
+    "boing@brunch"
+   ],
+   "prop": "fork",
+   "prop_at": "brunch",
+   "act_at": "brunch",
+   "shots": [
+    {
+     "photo": "Petromyzon marinus",
+     "obs": 374413092,
+     "crop": [
+      0.239,
+      0.15,
+      0.761,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lamprey",
+   "pose": "think",
+   "act": "peek",
+   "say": "Would you swim with these? Comment.",
+   "sfx": [],
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Petromyzon marinus",
+     "obs": 165189560,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "velvetant",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "Velvet ants aren't ants.",
+   "sfx": [
+    "pop@aren't"
+   ],
+   "label": {
+    "text": "NOT\nANTS",
+    "at": "aren't"
+   },
+   "hook": true,
+   "loop_say": "So if you see a fuzzy red ant,",
+   "short_title": "Velvet Ants Aren't Ants. They're Wasps 🐜",
+   "comment": "Have you ever seen a cow killer? 👇",
+   "bonus": "Velvet ants aren't aggressive; females sting only in defense.",
+   "sources": [
+    "Wikipedia, Velvet ant (Mutillidae: wingless females, winged males; Dasymutilla occidentalis nicknamed 'cow killer', an exaggeration) — https://en.wikipedia.org/wiki/Velvet_ant",
+    "UW-Milwaukee Field Station, Velvet Ant — https://uwm.edu/field-station/bug-of-the-week/velvet-ant/"
+   ],
+   "_len": "short",
+   "shots": [
+    {
+     "photo": "Dasymutilla occidentalis",
+     "obs": 306804101,
+     "crop": [
+      0.125,
+      0.0,
+      0.875,
+      1.0
+     ]
+    },
+    {
+     "photo": "Dasymutilla occidentalis",
+     "obs": 182511792,
+     "crop": [
+      0.14,
+      0.0,
+      0.86,
+      1.0
+     ],
+     "at": "aren't"
+    }
+   ]
+  },
+  {
+   "myth": "velvetant",
+   "pose": "shock",
+   "act": "stand",
+   "say": "They're wingless wasps.",
+   "sfx": [
+    "pop@wasps"
+   ],
+   "punch": "wasps",
+   "shots": [
+    {
+     "photo": "Dasymutilla occidentalis",
+     "obs": 306804101,
+     "crop": [
+      0.125,
+      0.0,
+      0.875,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "velvetant",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "This one's nickname is cow killer.",
+   "sfx": [
+    "scratch@cow"
+   ],
+   "label": {
+    "text": "COW\nKILLER",
+    "at": "cow"
+   },
+   "shots": [
+    {
+     "photo": "Dasymutilla occidentalis",
+     "obs": 182511792,
+     "crop": [
+      0.212,
+      0.1,
+      0.788,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "velvetant",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I petted the fluffy one.",
+   "sfx": [
+    "whoosh@0.05"
+   ],
+   "shots": [
+    {
+     "photo": "Dasymutilla occidentalis",
+     "obs": 121518610,
+     "crop": [
+      0.29,
+      0.05,
+      0.71,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "velvetant",
+   "pose": "shock",
+   "act": "puff",
+   "say": "Females carry a painful sting.",
+   "sfx": [
+    "zap@sting"
+   ],
+   "hit": "sting",
+   "shots": [
+    {
+     "photo": "Dasymutilla occidentalis",
+     "obs": 126346324,
+     "crop": [
+      0.389,
+      0.15,
+      0.611,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "velvetant",
+   "pose": "shock",
+   "act": "puffed",
+   "say": "It can't actually kill a cow.",
+   "sfx": [],
+   "punch": "cow",
+   "shots": [
+    {
+     "photo": "Dasymutilla occidentalis",
+     "obs": 183682087,
+     "crop": [
+      0.413,
+      0.0,
+      0.787,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "velvetant",
+   "pose": "deadpan",
+   "act": "deflate",
+   "say": "The name's an exaggeration.",
+   "sfx": [
+    "pop@exaggeration"
+   ],
+   "act_at": "exaggeration",
+   "shots": [
+    {
+     "photo": "Dasymutilla occidentalis",
+     "obs": 238439871,
+     "crop": [
+      0.252,
+      0.1,
+      0.748,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "velvetant",
+   "pose": "point",
+   "act": "stand",
+   "say": "Only females sting. Males have wings.",
+   "sfx": [
+    "pop@wings"
+   ],
+   "shots": [
+    {
+     "photo": "Dasymutilla occidentalis",
+     "obs": 100212922,
+     "crop": [
+      0.282,
+      0.05,
+      0.718,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "velvetant",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Bright red. Fuzzy. Called cow killer.",
+   "sfx": [
+    "pop@killer"
+   ],
+   "shots": [
+    {
+     "photo": "Dasymutilla occidentalis",
+     "obs": 127682996,
+     "crop": [
+      0.237,
+      0.15,
+      0.762,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "velvetant",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "I'm called Meatball. Zero respect.",
+   "sfx": [
+    "tink@respect"
+   ],
+   "prop": "fork",
+   "prop_at": "respect",
+   "shots": [
+    {
+     "photo": "Dasymutilla occidentalis",
+     "obs": 100212922,
+     "crop": [
+      0.258,
+      0.0,
+      0.742,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "Sea cucumbers breathe through their butts.",
+   "sfx": [
+    "pop@butts"
+   ],
+   "label": {
+    "text": "BUTT\nBREATHING",
+    "at": "butts"
+   },
+   "hook": true,
+   "loop_say": "And I thought my life was weird. But",
+   "short_title": "Sea Cucumbers Breathe Through Their Butts 🥒",
+   "comment": "Would you touch one? 👇",
+   "bonus": "Pearlfish live inside some sea cucumbers, slipping in through the rear.",
+   "sources": [
+    "PBS NOVA, 'Sea Cucumber Butts' (breathing through the anus into respiratory trees; anal teeth; no brain) — https://www.pbs.org/wgbh/nova/nature/sea-cucumber-butts.html",
+    "National Geographic, 'How this fish survives in a sea cucumber's bum' (pearlfish leave at night to feed; evisceration) — https://www.nationalgeographic.com/science/article/how-this-fish-survives-in-a-sea-cucumbers-bum",
+    "Ucluelet Aquarium: organs expelled as defense, sticky; regrow (sources vary: days to weeks, worded 'over the next few weeks') — https://uclueletaquarium.org/?p=2094",
+    "Diet: they swallow sediment and digest the organic matter in it."
+   ],
+   "_len": "deep",
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 148959111,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    },
+    {
+     "photo": "Holothuria",
+     "obs": 82684873,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ],
+     "at": "breathe"
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Yes. Really.",
+   "sfx": [
+    "scratch@Really"
+   ],
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 148959111,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I went to say hi.",
+   "sfx": [
+    "splash@hi"
+   ],
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 82684873,
+     "crop": [
+      0.331,
+      0.1,
+      0.669,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "point",
+   "act": "stand",
+   "say": "From the front. Obviously.",
+   "sfx": [
+    "pop@front"
+   ],
+   "punch": "front",
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 214926502,
+     "crop": [
+      0.16,
+      0.05,
+      0.54,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "It has no brain. Just vibes.",
+   "sfx": [
+    "pop@vibes"
+   ],
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 142192310,
+     "crop": [
+      0.389,
+      0.15,
+      0.611,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "It pulls water in through the rear.",
+   "sfx": [
+    "pop@rear"
+   ],
+   "punch": "rear",
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 227392328,
+     "crop": [
+      0.341,
+      0.0,
+      0.659,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "point",
+   "act": "stand",
+   "say": "Into organs called respiratory trees.",
+   "sfx": [
+    "pop@respiratory"
+   ],
+   "label": {
+    "text": "RESPIRATORY\nTREES",
+    "at": "respiratory"
+   },
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 53964866,
+     "crop": [
+      0.181,
+      0.1,
+      0.519,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "nervous",
+   "act": "run_in",
+   "say": "Then I touched one.",
+   "sfx": [
+    "whoosh@0.05"
+   ],
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 388225903,
+     "crop": [
+      0.31,
+      0.05,
+      0.69,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Big mistake.",
+   "sfx": [
+    "scratch@mistake"
+   ],
+   "punch": "mistake",
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 146440976,
+     "crop": [
+      0.402,
+      0.15,
+      0.698,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Some kinds grow over 3 feet long.",
+   "sfx": [
+    "pop@feet"
+   ],
+   "label": {
+    "text": "3+ FEET",
+    "at": "feet"
+   },
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 148959111,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "shock",
+   "act": "launch",
+   "say": "Some shoot their guts out at attackers.",
+   "sfx": [
+    "crunch@guts",
+    "whoosh@guts"
+   ],
+   "hit": "guts",
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 82684873,
+     "crop": [
+      0.331,
+      0.1,
+      0.669,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "deadpan",
+   "act": "tumble",
+   "say": "Sticky threads. Or actual organs.",
+   "sfx": [
+    "thud@organs"
+   ],
+   "act_at": "organs",
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 214926502,
+     "crop": [
+      0.16,
+      0.05,
+      0.54,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "I got tangled up.",
+   "sfx": [
+    "boing@tangled"
+   ],
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 142192310,
+     "crop": [
+      0.389,
+      0.15,
+      0.611,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Then it regrows them.",
+   "sfx": [
+    "pop@regrows"
+   ],
+   "punch": "regrows",
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 227392328,
+     "crop": [
+      0.341,
+      0.0,
+      0.659,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Over the next few weeks.",
+   "sfx": [
+    "pop@weeks"
+   ],
+   "label": {
+    "text": "WEEKS",
+    "at": "weeks"
+   },
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 53964866,
+     "crop": [
+      0.181,
+      0.1,
+      0.519,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "If I lose my insides,",
+   "sfx": [],
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 388225903,
+     "crop": [
+      0.31,
+      0.05,
+      0.69,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "nervous",
+   "act": "hit",
+   "say": "I'm not regrowing them. I'm a sandwich.",
+   "sfx": [
+    "tink@sandwich",
+    "boing@sandwich"
+   ],
+   "prop": "fork",
+   "prop_at": "sandwich",
+   "act_at": "sandwich",
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 146440976,
+     "crop": [
+      0.402,
+      0.15,
+      0.698,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It gets worse.",
+   "sfx": [
+    "scratch@worse"
+   ],
+   "punch": "worse",
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 148959111,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "point",
+   "act": "stand",
+   "say": "A fish called the pearlfish",
+   "sfx": [
+    "pop@pearlfish"
+   ],
+   "label": {
+    "text": "PEARLFISH",
+    "at": "pearlfish"
+   },
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 82684873,
+     "crop": [
+      0.331,
+      0.1,
+      0.669,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "lives inside some sea cucumbers.",
+   "sfx": [
+    "pop@inside"
+   ],
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 214926502,
+     "crop": [
+      0.16,
+      0.05,
+      0.54,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It gets in through the back door.",
+   "sfx": [
+    "scratch@back"
+   ],
+   "punch": "back",
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 142192310,
+     "crop": [
+      0.389,
+      0.15,
+      0.611,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "deadpan",
+   "act": "run_across",
+   "say": "It leaves at night to hunt.",
+   "sfx": [
+    "whoosh@night"
+   ],
+   "act_at": "night",
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 227392328,
+     "crop": [
+      0.341,
+      0.0,
+      0.659,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Then it comes back. Same door.",
+   "sfx": [
+    "pop@door"
+   ],
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 53964866,
+     "crop": [
+      0.181,
+      0.1,
+      0.519,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "point",
+   "act": "stand",
+   "say": "They can soften their bodies like goo.",
+   "sfx": [
+    "pop@goo"
+   ],
+   "punch": "goo",
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 388225903,
+     "crop": [
+      0.31,
+      0.05,
+      0.69,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "To squeeze into cracks. Then stiffen again.",
+   "sfx": [
+    "pop@stiffen"
+   ],
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 146440976,
+     "crop": [
+      0.402,
+      0.15,
+      0.698,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "deadpan",
+   "act": "tumble",
+   "say": "I can go soft too. In sauce.",
+   "sfx": [
+    "thud@sauce"
+   ],
+   "act_at": "sauce",
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 148959111,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Some people eat them. A delicacy.",
+   "sfx": [
+    "pop@delicacy"
+   ],
+   "label": {
+    "text": "DELICACY",
+    "at": "delicacy"
+   },
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 82684873,
+     "crop": [
+      0.331,
+      0.1,
+      0.669,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "think",
+   "act": "peek",
+   "say": "Finally, someone else is food.",
+   "sfx": [
+    "scratch@food"
+   ],
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 214926502,
+     "crop": [
+      0.16,
+      0.05,
+      0.54,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Some sea cucumbers have tiny butt teeth.",
+   "sfx": [
+    "pop@teeth"
+   ],
+   "label": {
+    "text": "BUTT\nTEETH",
+    "at": "teeth"
+   },
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 142192310,
+     "crop": [
+      0.389,
+      0.15,
+      0.611,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "think",
+   "act": "peek",
+   "say": "Maybe to keep fish out.",
+   "sfx": [],
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 227392328,
+     "crop": [
+      0.341,
+      0.0,
+      0.659,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "point",
+   "act": "stand",
+   "say": "It swallows sand for the food in it.",
+   "sfx": [
+    "pop@sand"
+   ],
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 53964866,
+     "crop": [
+      0.181,
+      0.1,
+      0.519,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Threat to meatballs: none.",
+   "sfx": [
+    "pop@none"
+   ],
+   "label": {
+    "text": "THREAT:\nNONE",
+    "at": "none"
+   },
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 388225903,
+     "crop": [
+      0.31,
+      0.05,
+      0.69,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Still, no.",
+   "sfx": [
+    "pop@no"
+   ],
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 146440976,
+     "crop": [
+      0.402,
+      0.15,
+      0.698,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "seacucumber",
+   "pose": "think",
+   "act": "peek",
+   "say": "Would you touch one? Comment.",
+   "sfx": [],
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Holothuria",
+     "obs": 148959111,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "Gila monsters chew their venom into you.",
+   "sfx": [
+    "pop@chew"
+   ],
+   "label": {
+    "text": "CHEWS\nVENOM",
+    "at": "chew"
+   },
+   "hook": true,
+   "loop_say": "So remember, before it helped anyone,",
+   "short_title": "Gila Monsters Chew Their Venom Into You 🦎",
+   "comment": "Did you know a lizard helped make a diabetes drug? 👇",
+   "bonus": "Exenatide (Byetta), approved in 2005, is a synthetic copy of exendin-4 from Gila monster venom.",
+   "sources": [
+    "National Park Service, Saguaro NP, Gila Monster (grooved lower teeth; the longer it hangs on and chews, the more venom; up to 35% of body weight in one meal; bites to people are rare and usually from handling) — https://www.nps.gov/sagu/learn/nature/gila-monster.htm",
+    "Smithsonian's National Zoo, Gila monster (may hold on more than ten minutes; up to a third of body weight per meal; fat in tail; one of few venomous lizards) — https://nationalzoo.si.edu/animals/gila-monster",
+    "Exenatide is synthetic exendin-4 from Heloderma suspectum venom; Byetta, first GLP-1 drug, FDA-approved 2005 — https://endeavors.unc.edu/fall2007/buse.php"
+   ],
+   "_len": "deep",
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 257141344,
+     "crop": [
+      0.162,
+      0.0,
+      0.538,
+      1.0
+     ]
+    },
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 219217532,
+     "crop": [
+      0.189,
+      0.0,
+      0.611,
+      1.0
+     ],
+     "at": "venom"
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I offered a handshake.",
+   "sfx": [
+    "whoosh@0.05"
+   ],
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 257141344,
+     "crop": [
+      0.162,
+      0.0,
+      0.538,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Bad idea.",
+   "sfx": [
+    "scratch@Bad"
+   ],
+   "punch": "idea",
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 219217532,
+     "crop": [
+      0.231,
+      0.1,
+      0.569,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "shock",
+   "act": "hit",
+   "say": "No fangs. It just bites.",
+   "sfx": [
+    "crunch@bites"
+   ],
+   "hit": "bites",
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 343220606,
+     "crop": [
+      0.409,
+      0.1,
+      0.791,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "And holds on.",
+   "sfx": [
+    "thud@holds"
+   ],
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 84860697,
+     "crop": [
+      0.303,
+      0.15,
+      0.697,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "point",
+   "act": "stand",
+   "say": "It's one of very few venomous lizards.",
+   "sfx": [
+    "pop@venomous"
+   ],
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 236857609,
+     "crop": [
+      0.125,
+      0.0,
+      0.875,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Its bumpy skin hides tiny bones.",
+   "sfx": [
+    "pop@bones"
+   ],
+   "punch": "bones",
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 210402951,
+     "crop": [
+      0.131,
+      0.1,
+      0.469,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "point",
+   "act": "stand",
+   "say": "It smells with its tongue.",
+   "sfx": [
+    "pop@tongue"
+   ],
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 15312572,
+     "crop": [
+      0.21,
+      0.05,
+      0.59,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "It flicked its tongue at me.",
+   "sfx": [
+    "pop@flicked"
+   ],
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 175785354,
+     "crop": [
+      0.41,
+      0.25,
+      0.69,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "deadpan",
+   "act": "tumble",
+   "say": "I smelled like lunch.",
+   "sfx": [
+    "thud@lunch"
+   ],
+   "act_at": "lunch",
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 162430901,
+     "crop": [
+      0.125,
+      0.0,
+      0.875,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Venom runs up grooves in its teeth.",
+   "sfx": [
+    "pop@grooves"
+   ],
+   "punch": "grooves",
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 33820523,
+     "crop": [
+      0.2,
+      0.1,
+      0.8,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "shock",
+   "act": "puff",
+   "say": "The longer it chews, the more gets in.",
+   "sfx": [
+    "zap@chews"
+   ],
+   "hit": "chews",
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 257141344,
+     "crop": [
+      0.181,
+      0.05,
+      0.519,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "shock",
+   "act": "puffed",
+   "say": "It can hang on over 10 minutes.",
+   "sfx": [],
+   "label": {
+    "text": "10+\nMINUTES",
+    "at": "minutes"
+   },
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 219217532,
+     "crop": [
+      0.252,
+      0.15,
+      0.548,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "deadpan",
+   "act": "deflate",
+   "say": "I had other plans.",
+   "sfx": [
+    "pop@plans"
+   ],
+   "act_at": "plans",
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 343220606,
+     "crop": [
+      0.388,
+      0.0,
+      0.812,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "point",
+   "act": "stand",
+   "say": "Bites are rare. Usually from handling one.",
+   "sfx": [
+    "pop@handling"
+   ],
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 84860697,
+     "crop": [
+      0.275,
+      0.1,
+      0.725,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "deadpan",
+   "act": "tumble",
+   "say": "Which, to be fair, I was.",
+   "sfx": [
+    "thud@was"
+   ],
+   "act_at": "was",
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 236857609,
+     "crop": [
+      0.163,
+      0.05,
+      0.837,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It eats about a third of its weight.",
+   "sfx": [
+    "pop@third"
+   ],
+   "label": {
+    "text": "1/3 OF\nITS WEIGHT",
+    "at": "third"
+   },
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 210402951,
+     "crop": [
+      0.152,
+      0.15,
+      0.448,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "In one meal.",
+   "sfx": [
+    "pop@meal"
+   ],
+   "punch": "meal",
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 15312572,
+     "crop": [
+      0.189,
+      0.0,
+      0.611,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A third. In one sitting.",
+   "sfx": [
+    "scratch@sitting"
+   ],
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 175785354,
+     "crop": [
+      0.39,
+      0.2,
+      0.71,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "nervous",
+   "act": "hit",
+   "say": "I'd be a starter.",
+   "sfx": [
+    "tink@starter",
+    "boing@starter"
+   ],
+   "prop": "fork",
+   "prop_at": "starter",
+   "act_at": "starter",
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 162430901,
+     "crop": [
+      0.163,
+      0.05,
+      0.837,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "point",
+   "act": "stand",
+   "say": "Then it can skip meals for months.",
+   "sfx": [
+    "pop@months"
+   ],
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 33820523,
+     "crop": [
+      0.237,
+      0.15,
+      0.762,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Living on fat stored in its tail.",
+   "sfx": [
+    "pop@tail"
+   ],
+   "punch": "tail",
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 257141344,
+     "crop": [
+      0.162,
+      0.0,
+      0.538,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "point",
+   "act": "stand",
+   "say": "It spends most of its life underground.",
+   "sfx": [
+    "pop@underground"
+   ],
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 219217532,
+     "crop": [
+      0.231,
+      0.1,
+      0.569,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It eats eggs and baby animals.",
+   "sfx": [
+    "pop@eggs"
+   ],
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 343220606,
+     "crop": [
+      0.409,
+      0.1,
+      0.791,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "think",
+   "act": "peek",
+   "say": "Now the plot twist.",
+   "sfx": [
+    "scratch@twist"
+   ],
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 84860697,
+     "crop": [
+      0.303,
+      0.15,
+      0.697,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Its venom holds a hormone.",
+   "sfx": [
+    "pop@hormone"
+   ],
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 236857609,
+     "crop": [
+      0.125,
+      0.0,
+      0.875,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "point",
+   "act": "stand",
+   "say": "Called exendin-4.",
+   "sfx": [
+    "pop@exendin-4"
+   ],
+   "label": {
+    "text": "EXENDIN-4",
+    "at": "exendin-4"
+   },
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 210402951,
+     "crop": [
+      0.131,
+      0.1,
+      0.469,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "deadpan",
+   "act": "run_across",
+   "say": "Scientists copied it.",
+   "sfx": [
+    "whoosh@copied"
+   ],
+   "act_at": "copied",
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 15312572,
+     "crop": [
+      0.21,
+      0.05,
+      0.59,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It became a diabetes drug, Byetta.",
+   "sfx": [
+    "pop@Byetta"
+   ],
+   "label": {
+    "text": "BYETTA",
+    "at": "Byetta"
+   },
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 175785354,
+     "crop": [
+      0.41,
+      0.25,
+      0.69,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Approved in 2005.",
+   "sfx": [
+    "pop@in"
+   ],
+   "label": {
+    "text": "2005",
+    "at": "in"
+   },
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 162430901,
+     "crop": [
+      0.125,
+      0.0,
+      0.875,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "shock",
+   "act": "stand",
+   "say": "The first of the family behind Ozempic.",
+   "sfx": [
+    "scratch@Ozempic"
+   ],
+   "punch": "Ozempic",
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 33820523,
+     "crop": [
+      0.2,
+      0.1,
+      0.8,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Me? I'm on no one's prescription.",
+   "sfx": [
+    "pop@prescription"
+   ],
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 257141344,
+     "crop": [
+      0.181,
+      0.05,
+      0.519,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Threat to meatballs: medium.",
+   "sfx": [
+    "pop@medium"
+   ],
+   "label": {
+    "text": "THREAT:\nMEDIUM",
+    "at": "medium"
+   },
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 219217532,
+     "crop": [
+      0.252,
+      0.15,
+      0.548,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "point",
+   "act": "stand",
+   "say": "Helpfulness: surprisingly high.",
+   "sfx": [
+    "pop@high"
+   ],
+   "label": {
+    "text": "HELPFUL:\nVERY",
+    "at": "high"
+   },
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 343220606,
+     "crop": [
+      0.388,
+      0.0,
+      0.812,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "Turkey vultures vomit on anything that scares them.",
+   "sfx": [
+    "pop@vomit"
+   ],
+   "label": {
+    "text": "VOMIT",
+    "at": "vomit"
+   },
+   "hook": true,
+   "loop_say": "So if you're sneaking up on one,",
+   "short_title": "Turkey Vultures Throw Up on Anything That Scares Them 🤮",
+   "comment": "Would you get close to one? 👇",
+   "bonus": "Their strong stomach acid helps them eat carrion that could carry anthrax or botulism.",
+   "sources": [
+    "Live Science, 'Turkey vulture: the bird that vomits acid up to 10 feet' — https://livescience.com/animals/birds/turkey-vulture-the-bird-that-vomits-acid-up-to-10-feet-and-poops-antiseptic-onto-its-legs",
+    "Walking Mountains Science Center, 'Why do vultures self-defense vomit?' (lightens them for take-off; acid neutralizes pathogens like anthrax and botulism) — https://walkingmountains.org/curious-nature/international-vulture-awareness-day/",
+    "Blumstein et al. 2017, Journal of Wildlife Diseases: urohidrosis likely cools; the germ-killing claim is untested; vultures locate food mainly by smell — https://blumsteinlab.eeb.ucla.edu/wp-content/uploads/sites/104/2017/05/Blumstein_etal_2017_JWD.pdf",
+    "Cornell All About Birds: no syrinx, so they hiss and grunt; wingspan about 5.7 ft (worded 'almost 6 feet'); bare head thought to help keep clean (worded 'may')."
+   ],
+   "_len": "deep",
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 33290971,
+     "crop": [
+      0.383,
+      0,
+      0.817,
+      1.0
+     ]
+    },
+    {
+     "photo": "Cathartes aura",
+     "obs": 102062793,
+     "crop": [
+      0.363,
+      0.0,
+      0.737,
+      1.0
+     ],
+     "at": "vomit"
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I snuck up on one.",
+   "sfx": [
+    "whoosh@0.05"
+   ],
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 33290971,
+     "crop": [
+      0.383,
+      0,
+      0.817,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "It hissed. They can't really sing.",
+   "sfx": [
+    "scratch@hissed"
+   ],
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 102062793,
+     "crop": [
+      0.4,
+      0.1,
+      0.7,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "shock",
+   "act": "stand",
+   "say": "I scared it.",
+   "sfx": [
+    "pop@scared"
+   ],
+   "punch": "scared",
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 86997534,
+     "crop": [
+      0.362,
+      0.05,
+      0.738,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "shock",
+   "act": "hit",
+   "say": "It threw up on me.",
+   "sfx": [
+    "splash@threw"
+   ],
+   "hit": "threw",
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 336280892,
+     "crop": [
+      0.303,
+      0.15,
+      0.697,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Acidic. Half-digested. Warm.",
+   "sfx": [
+    "pop@Acidic",
+    "pop@Warm"
+   ],
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 60592373,
+     "crop": [
+      0.373,
+      0.0,
+      0.827,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It can fly up to about 10 feet.",
+   "sfx": [
+    "whoosh@fly"
+   ],
+   "label": {
+    "text": "10 FEET",
+    "at": "feet"
+   },
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 247699630,
+     "crop": [
+      0.35,
+      0.1,
+      0.65,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "point",
+   "act": "stand",
+   "say": "Throwing up makes them lighter.",
+   "sfx": [
+    "pop@lighter"
+   ],
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 387790635,
+     "crop": [
+      0.2,
+      0.05,
+      0.8,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "deadpan",
+   "act": "run_across",
+   "say": "So they can take off faster.",
+   "sfx": [
+    "whoosh@faster"
+   ],
+   "act_at": "faster",
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 197756117,
+     "crop": [
+      0.219,
+      0.05,
+      0.481,
+      0.75
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "deadpan",
+   "act": "tumble",
+   "say": "Then it left me there.",
+   "sfx": [
+    "thud@left"
+   ],
+   "act_at": "left",
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 52331749,
+     "crop": [
+      0.106,
+      0.0,
+      0.494,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "point",
+   "act": "stand",
+   "say": "They roost together in big groups.",
+   "sfx": [
+    "pop@groups"
+   ],
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 80827613,
+     "crop": [
+      0.4,
+      0.1,
+      0.7,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "shock",
+   "act": "stand",
+   "say": "They spread their wings to warm up.",
+   "sfx": [
+    "whoosh@spread"
+   ],
+   "punch": "wings",
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 33290971,
+     "crop": [
+      0.405,
+      0.0,
+      0.795,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "I tried the pose. Nothing.",
+   "sfx": [
+    "scratch@Nothing"
+   ],
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 102062793,
+     "crop": [
+      0.419,
+      0.15,
+      0.681,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "They rarely kill anything themselves.",
+   "sfx": [
+    "pop@rarely"
+   ],
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 86997534,
+     "crop": [
+      0.341,
+      0.0,
+      0.759,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "point",
+   "act": "stand",
+   "say": "US law protects them.",
+   "sfx": [
+    "pop@law"
+   ],
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 336280892,
+     "crop": [
+      0.275,
+      0.1,
+      0.725,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Their wings span almost 6 feet.",
+   "sfx": [
+    "whoosh@wings"
+   ],
+   "label": {
+    "text": "~6 FT\nWINGS",
+    "at": "feet"
+   },
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 60592373,
+     "crop": [
+      0.396,
+      0.05,
+      0.804,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "point",
+   "act": "stand",
+   "say": "Their stomach acid is very strong.",
+   "sfx": [
+    "pop@strong"
+   ],
+   "punch": "strong",
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 247699630,
+     "crop": [
+      0.369,
+      0.15,
+      0.631,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "It kills many germs in rotting meat.",
+   "sfx": [
+    "pop@germs"
+   ],
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 387790635,
+     "crop": [
+      0.167,
+      0.0,
+      0.833,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Like anthrax. And botulism.",
+   "sfx": [
+    "pop@anthrax"
+   ],
+   "label": {
+    "text": "ANTHRAX",
+    "at": "anthrax"
+   },
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 197756117,
+     "crop": [
+      0.2,
+      0.0,
+      0.5,
+      0.8
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "They eat dead animals, and rarely get sick.",
+   "sfx": [],
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 52331749,
+     "crop": [
+      0.125,
+      0.05,
+      0.475,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "point",
+   "act": "stand",
+   "say": "Bald heads may help them stay clean.",
+   "sfx": [
+    "pop@Bald"
+   ],
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 80827613,
+     "crop": [
+      0.419,
+      0.15,
+      0.681,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "I've been left out overnight.",
+   "sfx": [
+    "scratch@overnight"
+   ],
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 33290971,
+     "crop": [
+      0.383,
+      0,
+      0.817,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "I would like to not be found.",
+   "sfx": [
+    "pop@found"
+   ],
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 102062793,
+     "crop": [
+      0.4,
+      0.1,
+      0.7,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "think",
+   "act": "peek",
+   "say": "They find food by smell.",
+   "sfx": [
+    "pop@smell"
+   ],
+   "punch": "smell",
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 86997534,
+     "crop": [
+      0.362,
+      0.05,
+      0.738,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Sometimes from over a mile away.",
+   "sfx": [
+    "pop@mile"
+   ],
+   "label": {
+    "text": "1+ MILE",
+    "at": "mile"
+   },
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 336280892,
+     "crop": [
+      0.303,
+      0.15,
+      0.697,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "I smell like garlic.",
+   "sfx": [],
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 60592373,
+     "crop": [
+      0.373,
+      0.0,
+      0.827,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "nervous",
+   "act": "hit",
+   "say": "From space, probably.",
+   "sfx": [
+    "tink@space",
+    "boing@space"
+   ],
+   "prop": "fork",
+   "prop_at": "space",
+   "act_at": "space",
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 247699630,
+     "crop": [
+      0.35,
+      0.1,
+      0.65,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "shock",
+   "act": "stand",
+   "say": "On hot days, they pee on their legs.",
+   "sfx": [
+    "splash@pee"
+   ],
+   "label": {
+    "text": "LEG\nPEE",
+    "at": "pee"
+   },
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 387790635,
+     "crop": [
+      0.2,
+      0.05,
+      0.8,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "point",
+   "act": "stand",
+   "say": "It probably cools them down.",
+   "sfx": [
+    "pop@cools"
+   ],
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 197756117,
+     "crop": [
+      0.219,
+      0.05,
+      0.481,
+      0.75
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Some say it kills germs too.",
+   "sfx": [],
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 52331749,
+     "crop": [
+      0.106,
+      0.0,
+      0.494,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "think",
+   "act": "peek",
+   "say": "That hasn't really been tested.",
+   "sfx": [
+    "scratch@tested"
+   ],
+   "punch": "tested",
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 80827613,
+     "crop": [
+      0.4,
+      0.1,
+      0.7,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Threat to meatballs: high.",
+   "sfx": [
+    "pop@high"
+   ],
+   "label": {
+    "text": "THREAT:\nHIGH",
+    "at": "high"
+   },
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 33290971,
+     "crop": [
+      0.405,
+      0.0,
+      0.795,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "If I'm left out.",
+   "sfx": [
+    "pop@out"
+   ],
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 102062793,
+     "crop": [
+      0.419,
+      0.15,
+      0.681,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "think",
+   "act": "peek",
+   "say": "Would you get close to one? Comment.",
+   "sfx": [],
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 86997534,
+     "crop": [
+      0.341,
+      0.0,
+      0.759,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "Bullet ants have the most painful sting ranked.",
+   "sfx": [
+    "pop@painful"
+   ],
+   "label": {
+    "text": "#1\nPAIN",
+    "at": "painful"
+   },
+   "hook": true,
+   "loop_say": "And the worst part is that",
+   "short_title": "Bullet Ants Have the Most Painful Sting Ever Ranked 🐜",
+   "comment": "Would you wear the glove? 👇",
+   "bonus": "Bullet ant pain can come in waves for up to 24 hours.",
+   "sources": [
+    "Britannica, bullet ant (name from the sting feeling like a gunshot; 4+ on Schmidt's index; Central and South American rainforests; nests at the base of trees) — https://www.britannica.com/animal/bullet-insect",
+    "Schmidt's description: 'like walking over flaming charcoal with a 3-inch nail embedded in your heel'; pain for up to 24 hours; poneratoxin acts on sodium channels — https://www.sciencealert.com/?p=32967",
+    "Sateré-Mawé initiation with bullet-ant gloves (Brazil) — https://whyevolutionistrue.com/2014/08/06/the-worst-pain-known-to-humans-the-bullet-ant-gloves-of-brazil",
+    "Workers 18-30 mm (about an inch); they stridulate (squeak) when disturbed; diet: nectar and small arthropods."
+   ],
+   "_len": "deep",
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 198779694,
+     "crop": [
+      0.292,
+      0.0,
+      0.608,
+      1.0
+     ]
+    },
+    {
+     "photo": "Paraponera clavata",
+     "obs": 196565947,
+     "crop": [
+      0.338,
+      0.0,
+      0.762,
+      1.0
+     ],
+     "at": "most"
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I stepped on its leaf.",
+   "sfx": [
+    "whoosh@0.05"
+   ],
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 198779694,
+     "crop": [
+      0.292,
+      0.0,
+      0.608,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "It squeaked at me. A warning.",
+   "sfx": [
+    "pop@squeaked"
+   ],
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 196565947,
+     "crop": [
+      0.381,
+      0.1,
+      0.719,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "I ignored it.",
+   "sfx": [
+    "scratch@ignored"
+   ],
+   "punch": "ignored",
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 25086261,
+     "crop": [
+      0.319,
+      0.05,
+      0.681,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "shock",
+   "act": "puff",
+   "say": "It stung me.",
+   "sfx": [
+    "zap@stung"
+   ],
+   "hit": "stung",
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 2357074,
+     "crop": [
+      0.402,
+      0.15,
+      0.698,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "shock",
+   "act": "puffed",
+   "say": "It feels like being shot.",
+   "sfx": [
+    "pop@shot"
+   ],
+   "label": {
+    "text": "LIKE A\nBULLET",
+    "at": "shot"
+   },
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 395640054,
+     "crop": [
+      0.313,
+      0.0,
+      0.687,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "shock",
+   "act": "puffed",
+   "say": "That's where the name comes from.",
+   "sfx": [],
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 247392143,
+     "crop": [
+      0.2,
+      0.1,
+      0.8,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "The pain comes in waves.",
+   "sfx": [
+    "zap@waves"
+   ],
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 223020460,
+     "crop": [
+      0.213,
+      0.05,
+      0.887,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "deadpan",
+   "act": "deflate",
+   "say": "It can last up to a full day.",
+   "sfx": [
+    "pop@day"
+   ],
+   "label": {
+    "text": "24 HOURS",
+    "at": "day"
+   },
+   "act_at": "day",
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 100845472,
+     "crop": [
+      0.352,
+      0.15,
+      0.648,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "point",
+   "act": "stand",
+   "say": "Justin Schmidt rated it 4+.",
+   "sfx": [
+    "pop@rated"
+   ],
+   "label": {
+    "text": "4+",
+    "at": "rated"
+   },
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 198779694,
+     "crop": [
+      0.292,
+      0.0,
+      0.608,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "shock",
+   "act": "stand",
+   "say": "The top of his pain scale.",
+   "sfx": [
+    "pop@top"
+   ],
+   "punch": "top",
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 196565947,
+     "crop": [
+      0.381,
+      0.1,
+      0.719,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "He compared it to flaming charcoal.",
+   "sfx": [
+    "scratch@flaming"
+   ],
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 25086261,
+     "crop": [
+      0.319,
+      0.05,
+      0.681,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "shock",
+   "act": "hit",
+   "say": "With a nail in your heel.",
+   "sfx": [
+    "crunch@nail"
+   ],
+   "hit": "nail",
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 2357074,
+     "crop": [
+      0.402,
+      0.15,
+      0.698,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "I don't have heels.",
+   "sfx": [
+    "pop@heels"
+   ],
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 395640054,
+     "crop": [
+      0.313,
+      0.0,
+      0.687,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "deadpan",
+   "act": "tumble",
+   "say": "I felt it anyway.",
+   "sfx": [
+    "thud@anyway"
+   ],
+   "act_at": "anyway",
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 247392143,
+     "crop": [
+      0.2,
+      0.1,
+      0.8,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "point",
+   "act": "stand",
+   "say": "The toxin is called poneratoxin.",
+   "sfx": [
+    "pop@poneratoxin"
+   ],
+   "label": {
+    "text": "PONERATOXIN",
+    "at": "poneratoxin"
+   },
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 223020460,
+     "crop": [
+      0.213,
+      0.05,
+      0.887,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "It keeps your nerves firing.",
+   "sfx": [
+    "zap@firing"
+   ],
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 100845472,
+     "crop": [
+      0.352,
+      0.15,
+      0.648,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "shock",
+   "act": "stand",
+   "say": "In Brazil, Sateré-Mawé boys wear ant gloves.",
+   "sfx": [
+    "pop@gloves"
+   ],
+   "label": {
+    "text": "ANT\nGLOVES",
+    "at": "gloves"
+   },
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 198779694,
+     "crop": [
+      0.292,
+      0.0,
+      0.608,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "As a coming-of-age rite.",
+   "sfx": [],
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 196565947,
+     "crop": [
+      0.381,
+      0.1,
+      0.719,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "The ritual is repeated many times.",
+   "sfx": [
+    "scratch@many"
+   ],
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 25086261,
+     "crop": [
+      0.319,
+      0.05,
+      0.681,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Gloves full of bullet ants.",
+   "sfx": [
+    "scratch@full"
+   ],
+   "punch": "full",
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 2357074,
+     "crop": [
+      0.402,
+      0.15,
+      0.698,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "On purpose.",
+   "sfx": [
+    "pop@purpose"
+   ],
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 395640054,
+     "crop": [
+      0.313,
+      0.0,
+      0.687,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "I panic at toothpicks.",
+   "sfx": [
+    "tink@toothpicks"
+   ],
+   "prop": "fork",
+   "prop_at": "toothpicks",
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 247392143,
+     "crop": [
+      0.2,
+      0.1,
+      0.8,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "think",
+   "act": "peek",
+   "say": "The ants are about an inch long.",
+   "sfx": [
+    "pop@inch"
+   ],
+   "label": {
+    "text": "~1 INCH",
+    "at": "inch"
+   },
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 223020460,
+     "crop": [
+      0.213,
+      0.05,
+      0.887,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "point",
+   "act": "stand",
+   "say": "They nest at the base of trees.",
+   "sfx": [
+    "pop@trees"
+   ],
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 100845472,
+     "crop": [
+      0.352,
+      0.15,
+      0.648,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "shock",
+   "act": "stand",
+   "say": "They climb high into trees to forage.",
+   "sfx": [
+    "whoosh@climb"
+   ],
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 198779694,
+     "crop": [
+      0.292,
+      0.0,
+      0.608,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "I stayed on the ground.",
+   "sfx": [],
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 196565947,
+     "crop": [
+      0.381,
+      0.1,
+      0.719,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "shock",
+   "act": "hit",
+   "say": "Then remembered I was on its leaf.",
+   "sfx": [
+    "crunch@leaf"
+   ],
+   "hit": "leaf",
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 25086261,
+     "crop": [
+      0.319,
+      0.05,
+      0.681,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "deadpan",
+   "act": "tumble",
+   "say": "Scientists study the toxin for medicine.",
+   "sfx": [
+    "thud@medicine"
+   ],
+   "act_at": "medicine",
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 2357074,
+     "crop": [
+      0.402,
+      0.15,
+      0.698,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "In Central and South American rainforests.",
+   "sfx": [],
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 395640054,
+     "crop": [
+      0.313,
+      0.0,
+      0.687,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "They mostly eat nectar and small insects.",
+   "sfx": [
+    "pop@nectar"
+   ],
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 247392143,
+     "crop": [
+      0.2,
+      0.1,
+      0.8,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Threat to meatballs: low.",
+   "sfx": [
+    "pop@low"
+   ],
+   "label": {
+    "text": "THREAT:\nLOW",
+    "at": "low"
+   },
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 223020460,
+     "crop": [
+      0.213,
+      0.05,
+      0.887,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Threat to my nerves: high.",
+   "sfx": [
+    "zap@high"
+   ],
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 100845472,
+     "crop": [
+      0.352,
+      0.15,
+      0.648,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "think",
+   "act": "peek",
+   "say": "Would you wear the glove? Comment.",
+   "sfx": [],
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 198779694,
+     "crop": [
+      0.292,
+      0.0,
+      0.608,
       1.0
      ]
     }
@@ -7382,9 +8584,9 @@
    "myth": "tarantulahawk",
    "pose": "deadpan",
    "act": "stand",
-   "say": "Adults mostly drink nectar from flowers.",
+   "say": "Males don't sting at all.",
    "sfx": [
-    "pop@flowers"
+    "pop@all"
    ],
    "shots": [
     {
@@ -7401,13 +8603,101 @@
   },
   {
    "myth": "tarantulahawk",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Painful, but not dangerous to people.",
+   "sfx": [
+    "pop@dangerous"
+   ],
+   "shots": [
+    {
+     "photo": "Aphonopelma",
+     "obs": 101867117,
+     "crop": [
+      0.313,
+      0.0,
+      0.687,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "tarantulahawk",
+   "pose": "point",
+   "act": "stand",
+   "say": "Their bright colors are a warning.",
+   "sfx": [
+    "pop@warning"
+   ],
+   "punch": "warning",
+   "shots": [
+    {
+     "photo": "Pepsis",
+     "obs": 90469590,
+     "crop": [
+      0.339,
+      0.1,
+      0.661,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "tarantulahawk",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Message received.",
+   "sfx": [
+    "pop@received"
+   ],
+   "shots": [
+    {
+     "photo": "Pepsis",
+     "obs": 90469590,
+     "crop": [
+      0.319,
+      0.05,
+      0.681,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "tarantulahawk",
    "pose": "think",
    "act": "peek",
-   "say": "Spider hunters. Flower sippers.",
+   "say": "It's New Mexico's state insect.",
    "sfx": [
-    "pop@sippers"
+    "pop@state"
    ],
-   "punch": "sippers",
+   "label": {
+    "text": "STATE\nINSECT",
+    "at": "state"
+   },
+   "shots": [
+    {
+     "photo": "Pepsis",
+     "obs": 29078812,
+     "crop": [
+      0.302,
+      0.15,
+      0.598,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "tarantulahawk",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Adults mostly drink nectar from flowers.",
+   "sfx": [
+    "pop@flowers"
+   ],
    "shots": [
     {
      "photo": "Pepsis",
@@ -7417,6 +8707,28 @@
       0.0,
       0.711,
       1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "tarantulahawk",
+   "pose": "think",
+   "act": "peek",
+   "say": "Spider hunters. Flower sippers.",
+   "sfx": [
+    "pop@sippers"
+   ],
+   "punch": "sippers",
+   "shots": [
+    {
+     "photo": "Aphonopelma",
+     "obs": 191488575,
+     "crop": [
+      0.331,
+      0.1,
+      0.669,
+      0.9
      ]
     }
    ]
@@ -7435,13 +8747,13 @@
    },
    "shots": [
     {
-     "photo": "Aphonopelma",
-     "obs": 101867117,
+     "photo": "Pepsis",
+     "obs": 258992679,
      "crop": [
-      0.35,
-      0.1,
-      0.65,
-      0.9
+      0.431,
+      0.05,
+      0.769,
+      0.95
      ]
     }
    ]
@@ -7460,503 +8772,13 @@
    },
    "shots": [
     {
-     "photo": "Pepsis",
-     "obs": 90469590,
+     "photo": "Aphonopelma",
+     "obs": 137333372,
      "crop": [
-      0.319,
-      0.05,
-      0.681,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "lamprey",
-   "pose": "nervous",
-   "act": "peek",
-   "say": "Sea lampreys drink fish blood.",
-   "sfx": [
-    "pop@blood"
-   ],
-   "label": {
-    "text": "BLOOD",
-    "at": "blood"
-   },
-   "hook": true,
-   "loop_say": "So if a fish has a round scar,",
-   "short_title": "Sea Lampreys Drink Fish Blood 🩸",
-   "comment": "Would you swim in a lake with these? 👇",
-   "bonus": "A sea lamprey can kill up to 40 pounds of fish during its feeding stage.",
-   "sources": [
-    "Great Lakes Fishery Commission (sealamprey.org): sucking disc of sharp teeth around a rasping tongue; one lamprey can kill up to 40 lb of fish; largely unchanged for 340 million years — https://sealamprey.org/",
-    "CBC, GLFC's Marc Gaden: 'they bore a hole through the side of the fish, feeding on the fish's blood and body fluids' — https://www.cbc.ca/lite/story/1.4343218"
-   ],
-   "_len": "short",
-   "shots": [
-    {
-     "photo": "Petromyzon marinus",
-     "obs": 165189560,
-     "crop": [
-      0.289,
-      0.0,
-      0.711,
-      1.0
-     ]
-    },
-    {
-     "photo": "Petromyzon marinus",
-     "obs": 224015540,
-     "crop": [
-      0.289,
-      0.0,
-      0.711,
-      1.0
-     ],
-     "at": "blood"
-    }
-   ]
-  },
-  {
-   "myth": "lamprey",
-   "pose": "shock",
-   "act": "stand",
-   "say": "Their mouth is a disc of teeth.",
-   "sfx": [
-    "pop@teeth"
-   ],
-   "label": {
-    "text": "ALL\nTEETH",
-    "at": "teeth"
-   },
-   "shots": [
-    {
-     "photo": "Petromyzon marinus",
-     "obs": 165189560,
-     "crop": [
-      0.289,
-      0.0,
-      0.711,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "lamprey",
-   "pose": "deadpan",
-   "act": "run_in",
-   "say": "So I offered it a handshake.",
-   "sfx": [
-    "whoosh@0.05"
-   ],
-   "shots": [
-    {
-     "photo": "Petromyzon marinus",
-     "obs": 165189560,
-     "crop": [
-      0.331,
-      0.1,
-      0.669,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "lamprey",
-   "pose": "shock",
-   "act": "hit",
-   "say": "It latched on. Hard.",
-   "sfx": [
-    "crunch@latched"
-   ],
-   "hit": "latched",
-   "shots": [
-    {
-     "photo": "Petromyzon marinus",
-     "obs": 224015540,
-     "crop": [
-      0.31,
-      0.05,
-      0.69,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "lamprey",
-   "pose": "deadpan",
-   "act": "tumble",
-   "say": "One can kill 40 pounds of fish.",
-   "sfx": [
-    "thud@kill"
-   ],
-   "label": {
-    "text": "40 LBS",
-    "at": "pounds"
-   },
-   "act_at": "kill",
-   "shots": [
-    {
-     "photo": "Petromyzon marinus",
-     "obs": 223388540,
-     "crop": [
-      0.302,
+      0.303,
       0.15,
-      0.598,
+      0.697,
       0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "lamprey",
-   "pose": "point",
-   "act": "stand",
-   "say": "Their family is older than dinosaurs.",
-   "sfx": [
-    "scratch@dinosaurs"
-   ],
-   "punch": "dinosaurs",
-   "shots": [
-    {
-     "photo": "Petromyzon marinus",
-     "obs": 116319148,
-     "crop": [
-      0.342,
-      0.0,
-      0.658,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "lamprey",
-   "pose": "nervous",
-   "act": "shake",
-   "say": "No jaws. No bones. Still scary.",
-   "sfx": [
-    "pop@scary"
-   ],
-   "shots": [
-    {
-     "photo": "Petromyzon marinus",
-     "obs": 82190486,
-     "crop": [
-      0.2,
-      0.1,
-      0.8,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "lamprey",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "I have no bones either.",
-   "sfx": [],
-   "shots": [
-    {
-     "photo": "Petromyzon marinus",
-     "obs": 220741076,
-     "crop": [
-      0.31,
-      0.05,
-      0.69,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "lamprey",
-   "pose": "nervous",
-   "act": "hit",
-   "say": "And I'm brunch.",
-   "sfx": [
-    "tink@brunch",
-    "boing@brunch"
-   ],
-   "prop": "fork",
-   "prop_at": "brunch",
-   "act_at": "brunch",
-   "shots": [
-    {
-     "photo": "Petromyzon marinus",
-     "obs": 374413092,
-     "crop": [
-      0.239,
-      0.15,
-      0.761,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "lamprey",
-   "pose": "think",
-   "act": "peek",
-   "say": "Would you swim with these? Comment.",
-   "sfx": [],
-   "ask": "comment",
-   "shots": [
-    {
-     "photo": "Petromyzon marinus",
-     "obs": 165189560,
-     "crop": [
-      0.289,
-      0.0,
-      0.711,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "velvetant",
-   "pose": "nervous",
-   "act": "peek",
-   "say": "Velvet ants aren't ants.",
-   "sfx": [
-    "pop@aren't"
-   ],
-   "label": {
-    "text": "NOT\nANTS",
-    "at": "aren't"
-   },
-   "hook": true,
-   "loop_say": "So if you see a fuzzy red ant,",
-   "short_title": "Velvet Ants Aren't Ants. They're Wasps 🐜",
-   "comment": "Have you ever seen a cow killer? 👇",
-   "bonus": "Velvet ants aren't aggressive; females sting only in defense.",
-   "sources": [
-    "Wikipedia, Velvet ant (Mutillidae: wingless females, winged males; Dasymutilla occidentalis nicknamed 'cow killer', an exaggeration) — https://en.wikipedia.org/wiki/Velvet_ant",
-    "UW-Milwaukee Field Station, Velvet Ant — https://uwm.edu/field-station/bug-of-the-week/velvet-ant/"
-   ],
-   "_len": "short",
-   "shots": [
-    {
-     "photo": "Dasymutilla occidentalis",
-     "obs": 306804101,
-     "crop": [
-      0.125,
-      0.0,
-      0.875,
-      1.0
-     ]
-    },
-    {
-     "photo": "Dasymutilla occidentalis",
-     "obs": 182511792,
-     "crop": [
-      0.14,
-      0.0,
-      0.86,
-      1.0
-     ],
-     "at": "aren't"
-    }
-   ]
-  },
-  {
-   "myth": "velvetant",
-   "pose": "shock",
-   "act": "stand",
-   "say": "They're wingless wasps.",
-   "sfx": [
-    "pop@wasps"
-   ],
-   "punch": "wasps",
-   "shots": [
-    {
-     "photo": "Dasymutilla occidentalis",
-     "obs": 306804101,
-     "crop": [
-      0.125,
-      0.0,
-      0.875,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "velvetant",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "This one's nickname is cow killer.",
-   "sfx": [
-    "scratch@cow"
-   ],
-   "label": {
-    "text": "COW\nKILLER",
-    "at": "cow"
-   },
-   "shots": [
-    {
-     "photo": "Dasymutilla occidentalis",
-     "obs": 182511792,
-     "crop": [
-      0.212,
-      0.1,
-      0.788,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "velvetant",
-   "pose": "deadpan",
-   "act": "run_in",
-   "say": "So I petted the fluffy one.",
-   "sfx": [
-    "whoosh@0.05"
-   ],
-   "shots": [
-    {
-     "photo": "Dasymutilla occidentalis",
-     "obs": 121518610,
-     "crop": [
-      0.29,
-      0.05,
-      0.71,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "velvetant",
-   "pose": "shock",
-   "act": "puff",
-   "say": "Females carry a painful sting.",
-   "sfx": [
-    "zap@sting"
-   ],
-   "hit": "sting",
-   "shots": [
-    {
-     "photo": "Dasymutilla occidentalis",
-     "obs": 126346324,
-     "crop": [
-      0.389,
-      0.15,
-      0.611,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "velvetant",
-   "pose": "shock",
-   "act": "puffed",
-   "say": "It can't actually kill a cow.",
-   "sfx": [],
-   "punch": "cow",
-   "shots": [
-    {
-     "photo": "Dasymutilla occidentalis",
-     "obs": 183682087,
-     "crop": [
-      0.413,
-      0.0,
-      0.787,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "velvetant",
-   "pose": "deadpan",
-   "act": "deflate",
-   "say": "The name's an exaggeration.",
-   "sfx": [
-    "pop@exaggeration"
-   ],
-   "act_at": "exaggeration",
-   "shots": [
-    {
-     "photo": "Dasymutilla occidentalis",
-     "obs": 238439871,
-     "crop": [
-      0.252,
-      0.1,
-      0.748,
-      0.9
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "velvetant",
-   "pose": "point",
-   "act": "stand",
-   "say": "Only females sting. Males have wings.",
-   "sfx": [
-    "pop@wings"
-   ],
-   "shots": [
-    {
-     "photo": "Dasymutilla occidentalis",
-     "obs": 100212922,
-     "crop": [
-      0.282,
-      0.05,
-      0.718,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "velvetant",
-   "pose": "shock",
-   "act": "stand",
-   "say": "Bright red. Fuzzy. Called cow killer.",
-   "sfx": [
-    "pop@killer"
-   ],
-   "shots": [
-    {
-     "photo": "Dasymutilla occidentalis",
-     "obs": 127682996,
-     "crop": [
-      0.237,
-      0.15,
-      0.762,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "velvetant",
-   "pose": "nervous",
-   "act": "hide",
-   "say": "I'm called Meatball. Zero respect.",
-   "sfx": [
-    "tink@respect"
-   ],
-   "prop": "fork",
-   "prop_at": "respect",
-   "shots": [
-    {
-     "photo": "Dasymutilla occidentalis",
-     "obs": 100212922,
-     "crop": [
-      0.258,
-      0.0,
-      0.742,
-      1.0
      ]
     }
    ]
