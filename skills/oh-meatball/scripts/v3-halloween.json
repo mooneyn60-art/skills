@@ -1,0 +1,1611 @@
+{
+ "title": "Halloween pack 01 in Shorts v3 (6 Shorts, Bill voice)",
+ "voice": "vidiq:pqHfZKP75CvOlQylNhV4",
+ "rate": "+0%",
+ "short_rate": "+0%",
+ "tempo": 1.12,
+ "music": "music/quiz-bed.m4a",
+ "style": "v3",
+ "names": {
+  "Desmodus rotundus": "Common vampire bat",
+  "Latrodectus hesperus": "Western black widow",
+  "Felis catus": "Domestic cat",
+  "Corvus brachyrhynchos": "American crow",
+  "Tyto alba": "Barn owl",
+  "Pardosa lugubris": "Wolf spider (Pardosa lugubris)"
+ },
+ "_note": "Halloween pack (scripts/halloween-01.json) remade as Shorts v3 (research/44, OPERATIONS 'Shorts v3 is the format'): Meatball in jeopardy, an action and SFX on most lines, a joke every 4-6 s, lines <= 8 words, Bill (vidIQ pqHfZKP75CvOlQylNhV4) at tempo 1.12. Facts and pinned photos are the v2 pack's (sources on each hook beat). Comment asks end vampire, widow and blackcat (3/6); crow, owl and spidereggs end on the twist. 'at' anchors never use a bare number word (v3.word_time reads numbers as seconds). Slots: YouTube 10/28 11:30 + 19:00, 10/29 19:00, 10/30 19:00, 10/31 11:30 + 19:00; TikTok 2 h after each.",
+ "beats": [
+  {
+   "hook": true,
+   "myth": "vampire",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "Vampire bats don't suck blood.",
+   "shots": [
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 278432573,
+     "crop": [
+      0.363,
+      0.0,
+      0.737,
+      1.0
+     ]
+    },
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 320783448,
+     "crop": [
+      0.26,
+      0.0,
+      0.64,
+      0.9
+     ],
+     "at": "suck"
+    }
+   ],
+   "label": {
+    "text": "NO\nSUCKING",
+    "at": "suck"
+   },
+   "sfx": [
+    "pop@suck"
+   ],
+   "loop_say": "Anyway. Keep your arms in. Because",
+   "short_title": "I Volunteered for a Vampire Bat 🦇 (Would Meatball Survive?)",
+   "bonus": "A vampire bat can die after about 70 hours without a meal, which is why roostmates share.",
+   "comment": "Would you let one bite you for science? 👇\n\nFollow Meatball for more 🍝",
+   "sources": [
+    "Vampire bats cut and lap with a grooved tongue; saliva numbs and keeps blood flowing — https://www.nationalgeographic.com/animals/article/151117-vampire-bats-blood-food-science-animals",
+    "Draculin, anticoagulant glycoprotein in Desmodus rotundus saliva, named after Count Dracula (Fernandez et al. 1998, Thromb. Haemost.) — https://en.wikipedia.org/wiki/Draculin",
+    "Wilkinson 1984, Nature, 'Reciprocal food sharing in the vampire bat' (regurgitated blood shared with roostmates) — https://socialbat.org/2016/07/01/revisiting-wilkinson-1984",
+    "Common vampire bats feed mainly on livestock (cattle, horses); people rarely — https://en.wikipedia.org/wiki/Common_vampire_bat",
+    "Photo note: 248835378 shows a gloved hand at the left edge; crops start right of it."
+   ]
+  },
+  {
+   "myth": "vampire",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I volunteered. For science.",
+   "shots": [
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 248835378,
+     "crop": [
+      0.451,
+      0.0,
+      0.789,
+      0.9
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh@0.05"
+   ],
+   "punch": "science"
+  },
+  {
+   "myth": "vampire",
+   "pose": "shock",
+   "act": "hit",
+   "say": "It makes a tiny cut.",
+   "shots": [
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 278432573,
+     "crop": [
+      0.42,
+      0.2,
+      0.7,
+      0.8
+     ]
+    }
+   ],
+   "hit": "cut",
+   "sfx": [
+    "zap@cut"
+   ],
+   "label": {
+    "text": "TINY CUT",
+    "at": "tiny"
+   }
+  },
+  {
+   "myth": "vampire",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Then it laps it up. Like a kitten.",
+   "shots": [
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 320783448,
+     "crop": [
+      0.3,
+      0.15,
+      0.6,
+      0.8
+     ]
+    }
+   ],
+   "punch": "laps",
+   "sfx": [
+    "splash@laps"
+   ]
+  },
+  {
+   "myth": "vampire",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Its spit keeps the blood flowing.",
+   "shots": [
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 248835378,
+     "crop": [
+      0.479,
+      0.075,
+      0.761,
+      0.825
+     ]
+    }
+   ],
+   "punch": "spit"
+  },
+  {
+   "myth": "vampire",
+   "pose": "deadpan",
+   "act": "peek",
+   "say": "The chemical is called draculin.",
+   "shots": [
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 72906803,
+     "crop": [
+      0.24,
+      0.0,
+      0.66,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "DRACULIN",
+    "at": "draculin"
+   },
+   "sfx": [
+    "scratch@draculin"
+   ]
+  },
+  {
+   "myth": "vampire",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Yes. Named after Dracula.",
+   "shots": [
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 278432573,
+     "crop": [
+      0.363,
+      0.0,
+      0.737,
+      1.0
+     ],
+     "blur": true
+    }
+   ],
+   "sfx": [
+    "tink@Dracula"
+   ],
+   "prop": "fork",
+   "prop_at": "Dracula"
+  },
+  {
+   "myth": "vampire",
+   "pose": "deadpan",
+   "act": "tumble",
+   "say": "Good news: it mostly bites cows.",
+   "shots": [
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 23985108,
+     "crop": [
+      0.21,
+      0.0,
+      0.59,
+      0.9
+     ]
+    }
+   ],
+   "act_at": 0.45,
+   "sfx": [
+    "boing@0.45"
+   ]
+  },
+  {
+   "myth": "vampire",
+   "pose": "shock",
+   "act": "hit",
+   "say": "Bad news: I'm made of cow.",
+   "shots": [
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 320783448,
+     "crop": [
+      0.26,
+      0.0,
+      0.64,
+      0.9
+     ],
+     "blur": true
+    }
+   ],
+   "act_at": "cow",
+   "label": {
+    "text": "100% BEEF",
+    "at": "cow"
+   },
+   "sfx": [
+    "crunch@cow"
+   ]
+  },
+  {
+   "myth": "vampire",
+   "pose": "think",
+   "act": "stand",
+   "say": "Hungry bats get fed by friends.",
+   "shots": [
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 72906803,
+     "crop": [
+      0.3,
+      0.1,
+      0.6,
+      0.8
+     ]
+    }
+   ],
+   "punch": "friends"
+  },
+  {
+   "myth": "vampire",
+   "pose": "facepalm",
+   "act": "hit",
+   "say": "They share dinner. I am dinner.",
+   "shots": [
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 23985108,
+     "crop": [
+      0.25,
+      0.1,
+      0.55,
+      0.8
+     ]
+    }
+   ],
+   "hit": "am",
+   "sfx": [
+    "crunch@am"
+   ]
+  },
+  {
+   "myth": "vampire",
+   "pose": "think",
+   "act": "peek",
+   "say": "Would you volunteer? Comment.",
+   "shots": [
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 248835378,
+     "crop": [
+      0.451,
+      0.0,
+      0.789,
+      0.9
+     ]
+    }
+   ],
+   "ask": "comment"
+  },
+  {
+   "hook": true,
+   "myth": "widow",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "Black widows usually don't eat their mates.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 312620607,
+     "crop": [
+      0.239,
+      0.0,
+      0.661,
+      1.0
+     ]
+    },
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 177715400,
+     "crop": [
+      0.294,
+      0.1,
+      0.706,
+      1.0
+     ],
+     "at": "eat"
+    }
+   ],
+   "label": {
+    "text": "USUALLY\nNOT",
+    "at": "usually"
+   },
+   "sfx": [
+    "pop@usually"
+   ],
+   "loop_say": "Anyway. Don't ask one out. Because",
+   "short_title": "I Asked a Black Widow Out 🕷️ (Would Meatball Survive?)",
+   "bonus": "In a few Southern Hemisphere widow species, eating the male is the norm. Not this one.",
+   "comment": "Would you date her? 👇\n\nFollow Meatball for more 🍝",
+   "sources": [
+    "Burke Museum spider myths (Rod Crawford), 'Myth: Black widows eat their mates': never observed in the wild for L. hesperus; old data from lab cages where males couldn't escape; females weigh 10-160x males — https://www.burkemuseum.org/blog/myth-black-widows-eat-their-mates",
+    "LiveScience, black widow facts (females do not usually eat mates) — https://www.livescience.com/39919-black-widow-spiders.html",
+    "Photos are all Latrodectus hesperus (western black widow), the species the hook names."
+   ]
+  },
+  {
+   "myth": "widow",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I asked one out.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 109595183,
+     "crop": [
+      0.247,
+      0.0,
+      0.553,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh@0.05"
+   ],
+   "punch": "out"
+  },
+  {
+   "myth": "widow",
+   "pose": "shock",
+   "act": "shake",
+   "say": "She can outweigh him 160 times.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 324385129,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "160x",
+    "at": "outweigh"
+   },
+   "punch": "outweigh",
+   "sfx": [
+    "thud@outweigh"
+   ]
+  },
+  {
+   "myth": "widow",
+   "pose": "think",
+   "act": "stand",
+   "say": "This kind? Never caught doing it wild.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 368355662,
+     "crop": [
+      0.36,
+      0.1,
+      0.74,
+      1.0
+     ]
+    }
+   ],
+   "punch": "Never"
+  },
+  {
+   "myth": "widow",
+   "pose": "deadpan",
+   "act": "peek",
+   "say": "The rumor came from lab cages.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 312620607,
+     "crop": [
+      0.281,
+      0.15,
+      0.619,
+      0.95
+     ]
+    }
+   ],
+   "punch": "cages",
+   "sfx": [
+    "scratch@lab"
+   ]
+  },
+  {
+   "myth": "widow",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "The males couldn't escape.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 177715400,
+     "crop": [
+      0.35,
+      0.2,
+      0.65,
+      0.8
+     ]
+    }
+   ],
+   "punch": "escape"
+  },
+  {
+   "myth": "widow",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "Then I got stuck in her web.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 109595183,
+     "crop": [
+      0.258,
+      0.05,
+      0.502,
+      0.85
+     ]
+    }
+   ],
+   "act_at": "stuck",
+   "sfx": [
+    "boing@stuck"
+   ]
+  },
+  {
+   "myth": "widow",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Good news: I'm not her mate.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 324385129,
+     "crop": [
+      0.33,
+      0.1,
+      0.65,
+      0.8
+     ],
+     "blur": true
+    }
+   ],
+   "sfx": [
+    "pop@mate"
+   ]
+  },
+  {
+   "myth": "widow",
+   "pose": "shock",
+   "act": "hit",
+   "say": "Bad news: I'm a snack.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 368355662,
+     "crop": [
+      0.4,
+      0.2,
+      0.7,
+      0.85
+     ]
+    }
+   ],
+   "hit": "snack",
+   "label": {
+    "text": "SNACK",
+    "at": "snack"
+   },
+   "sfx": [
+    "crunch@snack"
+   ]
+  },
+  {
+   "myth": "widow",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "I'll see myself out. Slowly.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 312620607,
+     "crop": [
+      0.239,
+      0.0,
+      0.661,
+      1.0
+     ],
+     "blur": true
+    }
+   ],
+   "sfx": [
+    "pop@Slowly"
+   ]
+  },
+  {
+   "myth": "widow",
+   "pose": "think",
+   "act": "peek",
+   "say": "Would you date her? Comment.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 177715400,
+     "crop": [
+      0.294,
+      0.1,
+      0.706,
+      1.0
+     ]
+    }
+   ],
+   "ask": "comment"
+  },
+  {
+   "hook": true,
+   "myth": "blackcat",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "Black cats are good luck in Japan.",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 333436760,
+     "crop": [
+      0.219,
+      0.0,
+      0.781,
+      1.0
+     ]
+    },
+    {
+     "photo": "Felis catus",
+     "obs": 137560355,
+     "crop": [
+      0.462,
+      0.0,
+      0.778,
+      1.0
+     ],
+     "at": "luck"
+    }
+   ],
+   "label": {
+    "text": "GOOD\nLUCK",
+    "at": "good"
+   },
+   "sfx": [
+    "pop@good"
+   ],
+   "loop_say": "Anyway. Pet it. Carefully. Because",
+   "short_title": "I Adopted a Lucky Black Cat 🐈‍⬛ (Would Meatball Survive?)",
+   "bonus": "In Scotland, a strange black cat on your doorstep is said to bring prosperity.",
+   "comment": "Lucky or unlucky: which do you believe? 👇\n\nFollow Meatball for more 🍝",
+   "sources": [
+    "Cats Protection (UK), black cat superstitions (lucky in Japan and the UK; crossing your path is good luck) — https://www.cats.org.uk/cats-blog/black-cat-superstitions",
+    "Catster, are black cats good luck (Scotland doorstep = prosperity; Japan good luck) — https://www.catster.com/lifestyle/are-black-cats-good-luck",
+    "Caveat (Fact desk): folklore varies by region; the script says 'in parts of England', not 'in the UK'.",
+    "Photos: domestic cats, CC0/CC BY; 206822105 is a pet indoors (casual grade, species not in doubt)."
+   ]
+  },
+  {
+   "myth": "blackcat",
+   "pose": "point",
+   "act": "stand",
+   "say": "And in Scotland.",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 206822105,
+     "crop": [
+      0.219,
+      0.125,
+      0.781,
+      0.875
+     ]
+    }
+   ],
+   "punch": "Scotland",
+   "sfx": [
+    "tink@Scotland"
+   ]
+  },
+  {
+   "myth": "blackcat",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I adopted one.",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 70345133,
+     "crop": [
+      0.363,
+      0.0,
+      0.737,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh@0.05"
+   ],
+   "punch": "adopted"
+  },
+  {
+   "myth": "blackcat",
+   "pose": "shock",
+   "act": "shake",
+   "say": "Cats are hunters.",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 333436760,
+     "crop": [
+      0.3,
+      0.15,
+      0.7,
+      0.85
+     ]
+    }
+   ],
+   "punch": "hunters",
+   "sfx": [
+    "scratch@hunters"
+   ]
+  },
+  {
+   "myth": "blackcat",
+   "pose": "shock",
+   "act": "launch",
+   "say": "They pounce on small things that move.",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 137560355,
+     "crop": [
+      0.493,
+      0.15,
+      0.747,
+      0.95
+     ]
+    }
+   ],
+   "hit": "pounce",
+   "sfx": [
+    "crunch@pounce",
+    "whoosh@pounce"
+   ]
+  },
+  {
+   "myth": "blackcat",
+   "pose": "deadpan",
+   "act": "tumble",
+   "say": "I'm small. I roll.",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 70345133,
+     "crop": [
+      0.4,
+      0.15,
+      0.7,
+      0.95
+     ]
+    }
+   ],
+   "act_at": "roll",
+   "sfx": [
+    "thud@roll"
+   ]
+  },
+  {
+   "myth": "blackcat",
+   "pose": "shock",
+   "act": "hit",
+   "say": "It batted me under the couch.",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 206822105,
+     "crop": [
+      0.3,
+      0.2,
+      0.7,
+      0.8
+     ]
+    }
+   ],
+   "hit": "batted",
+   "label": {
+    "text": "UNDER\nTHE COUCH",
+    "at": "under"
+   },
+   "sfx": [
+    "boing@under"
+   ]
+  },
+  {
+   "myth": "blackcat",
+   "pose": "think",
+   "act": "peek",
+   "say": "Crossing your path? Lucky in parts of England.",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 333436760,
+     "crop": [
+      0.225,
+      0.1,
+      0.675,
+      0.9
+     ]
+    }
+   ],
+   "punch": "England"
+  },
+  {
+   "myth": "blackcat",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Lucky for you. Unclear for meatballs.",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 137560355,
+     "crop": [
+      0.462,
+      0.0,
+      0.778,
+      1.0
+     ],
+     "blur": true
+    }
+   ],
+   "sfx": [
+    "pop@meatballs"
+   ]
+  },
+  {
+   "myth": "blackcat",
+   "pose": "think",
+   "act": "peek",
+   "say": "Lucky or unlucky? Comment.",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 206822105,
+     "crop": [
+      0.219,
+      0.125,
+      0.781,
+      0.875
+     ]
+    }
+   ],
+   "ask": "comment"
+  },
+  {
+   "hook": true,
+   "myth": "crow",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "Crows gather around their dead.",
+   "shots": [
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 40536795,
+     "crop": [
+      0.532,
+      0.0,
+      0.948,
+      1.0
+     ]
+    },
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 161476215,
+     "crop": [
+      0.219,
+      0.0,
+      0.781,
+      1.0
+     ],
+     "at": "around"
+    }
+   ],
+   "sfx": [
+    "pop@dead"
+   ],
+   "punch": "dead",
+   "loop_say": "So don't crash the meeting. Because",
+   "short_title": "I Crashed a Crow Meeting 🐦‍⬛ (Would Meatball Survive?)",
+   "bonus": "Crows ignored a dead pigeon. Only a dead crow set them off.",
+   "comment": "What would you do if a crow held a grudge against you? 👇\n\nFollow Meatball for more 🍝",
+   "sources": [
+    "Swift & Marzluff 2015, Animal Behaviour 109:187-197, 'Wild American crows gather around their dead to learn about danger' (mob dead crows; scold the associated person; slower to approach food there; association up to 6 weeks; dead pigeon no effect) — https://corvidresearch.blog/2015/09/26/why-crows-gather-around-their-dead/",
+    "NYT / Carl Zimmer, 1 Oct 2015, crows may learn lessons from death — https://carlzimmer.com/crows-may-learn-lessons-from-death-88/",
+    "Framing rule: 'not a funeral' (the study measured threat learning, not grief)."
+   ]
+  },
+  {
+   "myth": "crow",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "But it's not a funeral.",
+   "shots": [
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 370533885,
+     "crop": [
+      0.396,
+      0.05,
+      0.844,
+      0.85
+     ]
+    }
+   ],
+   "label": {
+    "text": "NOT A\nFUNERAL",
+    "at": "not"
+   },
+   "sfx": [
+    "scratch@not"
+   ]
+  },
+  {
+   "myth": "crow",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "It's a lesson about danger.",
+   "shots": [
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 72146984,
+     "crop": [
+      0.471,
+      0,
+      0.929,
+      1.0
+     ]
+    }
+   ],
+   "punch": "danger"
+  },
+  {
+   "myth": "crow",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I crashed the meeting.",
+   "shots": [
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 70485080,
+     "crop": [
+      0.313,
+      0,
+      0.687,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh@0.05"
+   ],
+   "punch": "crashed"
+  },
+  {
+   "myth": "crow",
+   "pose": "shock",
+   "act": "launch",
+   "say": "They scolded the human holding it.",
+   "shots": [
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 161476215,
+     "crop": [
+      0.169,
+      0.0,
+      0.731,
+      1.0
+     ]
+    }
+   ],
+   "hit": "scolded",
+   "sfx": [
+    "crunch@scolded",
+    "whoosh@scolded"
+   ]
+  },
+  {
+   "myth": "crow",
+   "pose": "deadpan",
+   "act": "tumble",
+   "say": "And skipped the food at that spot.",
+   "shots": [
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 40536795,
+     "crop": [
+      0.052,
+      0.1,
+      0.428,
+      1.0
+     ]
+    }
+   ],
+   "act_at": 0.45,
+   "sfx": [
+    "thud@0.45"
+   ]
+  },
+  {
+   "myth": "crow",
+   "pose": "shock",
+   "act": "stand",
+   "say": "The grudge lasted up to six weeks.",
+   "shots": [
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 370533885,
+     "crop": [
+      0.45,
+      0.1,
+      0.8,
+      0.8
+     ]
+    }
+   ],
+   "label": {
+    "text": "6 WEEKS",
+    "at": "six"
+   },
+   "sfx": [
+    "pop@six"
+   ]
+  },
+  {
+   "myth": "crow",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Crows eat almost anything.",
+   "shots": [
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 72146984,
+     "crop": [
+      0.5,
+      0.1,
+      0.85,
+      0.9
+     ]
+    }
+   ],
+   "punch": "anything"
+  },
+  {
+   "myth": "crow",
+   "pose": "shock",
+   "act": "hit",
+   "say": "Including leftovers.",
+   "shots": [
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 70485080,
+     "crop": [
+      0.35,
+      0.1,
+      0.65,
+      0.8
+     ]
+    }
+   ],
+   "hit": "leftovers",
+   "sfx": [
+    "crunch@leftovers"
+   ]
+  },
+  {
+   "myth": "crow",
+   "pose": "facepalm",
+   "act": "stand",
+   "say": "I am leftovers.",
+   "shots": [
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 161476215,
+     "crop": [
+      0.219,
+      0.0,
+      0.781,
+      1.0
+     ],
+     "blur": true
+    }
+   ],
+   "label": {
+    "text": "LEFTOVERS",
+    "at": "leftovers"
+   },
+   "prop": "fork",
+   "prop_at": "leftovers",
+   "sfx": [
+    "tink@leftovers"
+   ]
+  },
+  {
+   "myth": "crow",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "I'm on the agenda now.",
+   "shots": [
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 40536795,
+     "crop": [
+      0.532,
+      0.0,
+      0.948,
+      1.0
+     ],
+     "blur": true
+    }
+   ],
+   "sfx": [
+    "pop@agenda"
+   ]
+  },
+  {
+   "hook": true,
+   "myth": "owl",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "Owls can fly almost without a sound.",
+   "shots": [
+    {
+     "photo": "Tyto alba",
+     "obs": 40237382,
+     "crop": [
+      0.362,
+      0,
+      0.738,
+      1.0
+     ]
+    },
+    {
+     "photo": "Tyto alba",
+     "obs": 332079093,
+     "crop": [
+      0.232,
+      0.0,
+      0.607,
+      1.0
+     ],
+     "at": "without"
+    }
+   ],
+   "label": {
+    "text": "SILENT",
+    "at": "sound"
+   },
+   "sfx": [
+    "pop@sound"
+   ],
+   "loop_say": "Anyway. Lights on. Because",
+   "short_title": "An Owl Hunted Me in Total Silence 🦉 (Would Meatball Survive?)",
+   "bonus": "Engineers have copied the owl's feather comb to make wind turbines quieter.",
+   "comment": "Have you ever heard an owl fly? 👇\n\nFollow Meatball for more 🍝",
+   "sources": [
+    "Audubon, 'The Silent Flight of Owls, Explained' (leading-edge comb, velvety surface, trailing fringe) — https://www.audubon.org/magazine/silent-flight-of-owls-explained",
+    "Knowable Magazine, how owls fly without making a sound — https://knowablemagazine.org/article/technology/2020/how-owls-fly-without-making-a-sound",
+    "Payne & Drury 1958; Payne 1971; Konishi (barn owls strike prey in total darkness by sound alone) — https://www.americanscientist.org/node/2084",
+    "Omen claim is folklore, not biology; script corrects it and moves to the true spooky fact."
+   ]
+  },
+  {
+   "myth": "owl",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "They're not omens of death.",
+   "shots": [
+    {
+     "photo": "Tyto alba",
+     "obs": 106853702,
+     "crop": [
+      0.389,
+      0,
+      0.811,
+      1.0
+     ]
+    }
+   ],
+   "punch": "omens"
+  },
+  {
+   "myth": "owl",
+   "pose": "deadpan",
+   "act": "run_across",
+   "say": "So I turned my back.",
+   "shots": [
+    {
+     "photo": "Tyto alba",
+     "obs": 103487807,
+     "crop": [
+      0.36,
+      0,
+      0.74,
+      0.9
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh@turned"
+   ]
+  },
+  {
+   "myth": "owl",
+   "pose": "think",
+   "act": "stand",
+   "say": "Comb-like edges break up the air.",
+   "shots": [
+    {
+     "photo": "Tyto alba",
+     "obs": 40237382,
+     "crop": [
+      0.237,
+      0.05,
+      0.463,
+      0.65
+     ]
+    }
+   ],
+   "punch": "edges"
+  },
+  {
+   "myth": "owl",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Velvety feathers soak up the sound.",
+   "shots": [
+    {
+     "photo": "Tyto alba",
+     "obs": 106853702,
+     "crop": [
+      0.381,
+      0.05,
+      0.719,
+      0.85
+     ]
+    }
+   ],
+   "punch": "Velvety"
+  },
+  {
+   "myth": "owl",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "I heard nothing.",
+   "shots": [
+    {
+     "photo": "Tyto alba",
+     "obs": 332079093,
+     "crop": [
+      0.27,
+      0.15,
+      0.57,
+      0.95
+     ]
+    }
+   ],
+   "sfx": [
+    "scratch@nothing"
+   ]
+  },
+  {
+   "myth": "owl",
+   "pose": "shock",
+   "act": "launch",
+   "say": "Barn owls can hunt in total darkness.",
+   "shots": [
+    {
+     "photo": "Tyto alba",
+     "obs": 103487807,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ],
+   "hit": "darkness",
+   "label": {
+    "text": "TOTAL\nDARKNESS",
+    "at": "total"
+   },
+   "sfx": [
+    "crunch@darkness",
+    "whoosh@darkness"
+   ]
+  },
+  {
+   "myth": "owl",
+   "pose": "deadpan",
+   "act": "tumble",
+   "say": "Just by listening.",
+   "shots": [
+    {
+     "photo": "Tyto alba",
+     "obs": 40237382,
+     "crop": [
+      0.4,
+      0.1,
+      0.7,
+      0.7
+     ]
+    }
+   ],
+   "act_at": 0.3,
+   "sfx": [
+    "thud@0.3"
+   ],
+   "punch": "listening"
+  },
+  {
+   "myth": "owl",
+   "pose": "shock",
+   "act": "hit",
+   "say": "I sizzle. Loudly.",
+   "shots": [
+    {
+     "photo": "Tyto alba",
+     "obs": 332079093,
+     "crop": [
+      0.232,
+      0.0,
+      0.607,
+      1.0
+     ],
+     "blur": true
+    }
+   ],
+   "hit": "Loudly",
+   "label": {
+    "text": "SIZZLE",
+    "at": "sizzle"
+   },
+   "sfx": [
+    "zap@Loudly"
+   ]
+  },
+  {
+   "myth": "owl",
+   "pose": "point",
+   "act": "stand",
+   "say": "Omen? No. Hunter? Yes.",
+   "shots": [
+    {
+     "photo": "Tyto alba",
+     "obs": 106853702,
+     "crop": [
+      0.389,
+      0,
+      0.811,
+      1.0
+     ]
+    }
+   ],
+   "punch": "Hunter",
+   "sfx": [
+    "pop@Hunter"
+   ]
+  },
+  {
+   "myth": "owl",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "I sleep with a nightlight now.",
+   "shots": [
+    {
+     "photo": "Tyto alba",
+     "obs": 40237382,
+     "crop": [
+      0.362,
+      0,
+      0.738,
+      1.0
+     ],
+     "blur": true
+    }
+   ],
+   "sfx": [
+    "tink@nightlight"
+   ],
+   "prop": "fork",
+   "prop_at": "nightlight"
+  },
+  {
+   "hook": true,
+   "myth": "spidereggs",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "No spider lays eggs in your skin.",
+   "shots": [
+    {
+     "photo": "Pardosa lugubris",
+     "obs": 369498853,
+     "crop": [
+      0.144,
+      0.0,
+      0.856,
+      1.0
+     ]
+    },
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 10679778,
+     "crop": [
+      0.2,
+      0.15,
+      0.8,
+      0.95
+     ],
+     "at": "eggs"
+    }
+   ],
+   "label": {
+    "text": "MYTH",
+    "at": "skin"
+   },
+   "sfx": [
+    "pop@skin"
+   ],
+   "loop_say": "So relax. Because",
+   "short_title": "I Tried to Help a Spider Mom 🕷️ (Would Meatball Survive?)",
+   "bonus": "The legend may trace partly to a 1982 horror novel, but it's older than that.",
+   "comment": "Who told you spiders lay eggs in skin? 👇\n\nFollow Meatball for more 🍝",
+   "sources": [
+    "Burke Museum spider myths (Rod Crawford), 'Myth: Baby spiders from bite wounds' / eggs under skin: no real case in scientific or medical literature — https://www.burkemuseum.org/collections-and-research/biology/arachnology-and-entomology/spider-myths/myth-baby-spiders-bite",
+    "Wolf spiders (Lycosidae, incl. Pardosa) carry the egg sac attached to the spinnerets; widows guard egg sacs in the web — https://www.burkemuseum.org/static/spidermyth/",
+    "Photos: Pardosa lugubris with egg sac (369498853), Latrodectus hesperus with egg sac (10679778)."
+   ]
+  },
+  {
+   "myth": "spidereggs",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "No real case in medical records.",
+   "shots": [
+    {
+     "photo": "Pardosa lugubris",
+     "obs": 369498853,
+     "crop": [
+      0.336,
+      0.32,
+      0.764,
+      0.92
+     ]
+    }
+   ],
+   "punch": "records"
+  },
+  {
+   "myth": "spidereggs",
+   "pose": "think",
+   "act": "peek",
+   "say": "So where do the eggs go?",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 10679778,
+     "crop": [
+      0.125,
+      0.0,
+      0.875,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "scratch@where"
+   ]
+  },
+  {
+   "myth": "spidereggs",
+   "pose": "point",
+   "act": "stand",
+   "say": "Into a silk sac.",
+   "shots": [
+    {
+     "photo": "Pardosa lugubris",
+     "obs": 369498853,
+     "crop": [
+      0.372,
+      0.4,
+      0.728,
+      0.9
+     ]
+    }
+   ],
+   "label": {
+    "text": "SILK SAC",
+    "at": "silk"
+   },
+   "sfx": [
+    "pop@silk"
+   ]
+  },
+  {
+   "myth": "spidereggs",
+   "pose": "shock",
+   "act": "run_across",
+   "say": "This wolf spider tows hers behind her.",
+   "shots": [
+    {
+     "photo": "Pardosa lugubris",
+     "obs": 369498853,
+     "crop": [
+      0.144,
+      0.0,
+      0.856,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh@tows"
+   ],
+   "punch": "tows"
+  },
+  {
+   "myth": "spidereggs",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I offered to carry it.",
+   "shots": [
+    {
+     "photo": "Pardosa lugubris",
+     "obs": 369498853,
+     "crop": [
+      0.25,
+      0.2,
+      0.75,
+      0.9
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh@0.05"
+   ],
+   "punch": "carry"
+  },
+  {
+   "myth": "spidereggs",
+   "pose": "shock",
+   "act": "launch",
+   "say": "She did not want help.",
+   "shots": [
+    {
+     "photo": "Pardosa lugubris",
+     "obs": 369498853,
+     "crop": [
+      0.336,
+      0.32,
+      0.764,
+      0.92
+     ]
+    }
+   ],
+   "hit": "help",
+   "sfx": [
+    "crunch@help",
+    "whoosh@help"
+   ]
+  },
+  {
+   "myth": "spidereggs",
+   "pose": "nervous",
+   "act": "tumble",
+   "say": "Black widows guard theirs in the web.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 10679778,
+     "crop": [
+      0.314,
+      0.445,
+      0.726,
+      0.995
+     ]
+    }
+   ],
+   "act_at": 0.4,
+   "sfx": [
+    "thud@0.4"
+   ],
+   "punch": "guard"
+  },
+  {
+   "myth": "spidereggs",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Great parents. Very protective.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 10679778,
+     "crop": [
+      0.2,
+      0.15,
+      0.8,
+      0.95
+     ]
+    }
+   ],
+   "punch": "protective"
+  },
+  {
+   "myth": "spidereggs",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "I was raised by a frying pan.",
+   "shots": [
+    {
+     "photo": "Pardosa lugubris",
+     "obs": 369498853,
+     "crop": [
+      0.144,
+      0.0,
+      0.856,
+      1.0
+     ],
+     "blur": true
+    }
+   ],
+   "label": {
+    "text": "FRYING PAN",
+    "at": "frying"
+   },
+   "prop": "fork",
+   "prop_at": "frying",
+   "sfx": [
+    "tink@frying"
+   ]
+  }
+ ]
+}
