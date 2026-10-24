@@ -54,9 +54,21 @@ def loop(beats):
     return [first] + beats[1:] + [tail]
 
 
+def hook_loop(beats):
+    """Shorts v2 (research/38): no quiz card or countdown. The myth opens on its "hook" beat, a moving
+    full-frame photo with the claim stated as a fact, and ends on a "loop" beat that shows the hook's
+    first picture (the zoom ends where frame 0 starts) while saying the hook's "loop_say", a line that
+    runs straight into the opening sentence."""
+    h = beats[0]
+    first = explainer.shots(h)[0]
+    tail = {"say": h["loop_say"], "pose": h.get("pose", "deadpan"), "myth": h.get("myth"), "loop": True,
+            "bleed": h.get("bleed"), "shots": [{k: v for k, v in first.items() if k in explainer.VISUAL}]}
+    return beats + [tail]
+
+
 def credit_lines(work, beats):
     by = collections.OrderedDict()
-    for b in beats:
+    for b in (v for x in beats for v in explainer.shots(x)):  # multi-shot beats credit every picture
         if "photo" not in b:
             continue
         path = explainer.photo(b["photo"], b.get("n", 0), work, b.get("obs"))
@@ -129,7 +141,8 @@ def main():
     for m in myths:
         mb = [b for b in beats if b.get("myth") == m]
         q = next((b for b in mb if "quiz" in b), None)
-        if q is None:  # story chapters with no quiz don't make a standalone Short
+        hook = mb[0] if mb and mb[0].get("hook") else None
+        if q is None and hook is None:  # story chapters with no quiz don't make a standalone Short
             continue
         swork = f"{a.work}/{a.slug}/short-{m}"
         sspec = f"{swork}/script.json"
@@ -139,12 +152,23 @@ def main():
                    "music": spec.get("music"), "style": spec.get("style"),
                    **({"pitch": spec["pitch"]} if spec.get("pitch") else {}),
                    # "short_beats" lets a joke-dense script keep more than 3 hand-picked beats (default 3).
-                   "beats": loop(tighten(mb, spec.get("short_beats", 3)))}, open(sspec, "w"))
+                   "beats": hook_loop(mb) if hook else loop(tighten(mb, spec.get("short_beats", 3)))},
+                  open(sspec, "w"))
         if not a.skip_shorts:
             os.makedirs(f"{swork}/photos", exist_ok=True)
             subprocess.run(f"cp -n {long_work}/photos/* {swork}/photos/ 2>/dev/null || true", shell=True)
             run_build(sspec, swork, f"{swork}/short.mp4", vertical=True)
             shutil.move(f"{swork}/short.mp4", f"{out}/short-{m}.mp4")  # never expose a half-written file to git
+        if hook:  # v2: a statement, not a quiz, so the title/description/comment are not quiz-shaped
+            release["shorts"].append({
+                "myth": m, "file": f"{RAW}/{a.slug}/short-{m}.mp4", "title": hook.get("short_title", hook["say"])[:100],
+                "description": f"{hook['say']} {hook.get('bonus', '')}\n\n#shorts #animalfacts #meatballmyths\n\n"
+                               "Photos (iNaturalist), cropped and color-adjusted: " + "; ".join(credit_lines(long_work, mb))
+                               + f". {LICENSES}",
+                "comment": hook.get("comment", "Who told you the opposite? 👇"),
+                "tags": [m, "animal facts", "animal myths", "fun facts", "shorts", "Meatball Myths"],
+            })
+            continue
         c = claim(q)
         release["shorts"].append({
             "myth": m, "file": f"{RAW}/{a.slug}/short-{m}.mp4",

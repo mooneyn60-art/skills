@@ -36,6 +36,7 @@ PANEL = (540, 90, 1340, 900)  # x, y, w, h of the right-hand panel
 TEXT_PANEL = (500, 90, 1400, 900)  # text cards have no frame, so they can use more width
 SAUCE = (196, 38, 30)
 MASCOT = (760, (-60, H - 760 + 40))  # size, top-left position
+BLEED_MASCOT = (480, (30, H - 480 - 10))  # "bleed" beats: Meatball over a full-frame photo
 COVER = False
 ANIMATE = False  # set in main(): Meatball is overlaid as animated frames (mascot.animate) instead of a still
 PUNCH = False  # "style": "punch" in the spec: full-bleed photos, outlined text, stamps, SFX, progress bar
@@ -66,11 +67,14 @@ def images(beats, work, seeds):
                 print("img", path, flush=True)
 
 
-def photo(taxon, n, work, obs=None):
-    """A pinned iNaturalist observation's photo when `obs` is given (hand-reviewed picks: search
+def photo(taxon, n, work, obs=None, size="large"):
+    """size="original" fetches the full-resolution file (full-bleed Shorts crop deep into it).
+    A pinned iNaturalist observation's photo when `obs` is given (hand-reviewed picks: search
     rankings shift as votes come in, so an index can silently land on a different, unreviewed photo);
     otherwise the n-th most-faved landscape research-grade photo of the taxon."""
     path = f"{work}/photos/{taxon.replace(' ', '_')}_{f'obs{str(obs).replace(":", "_")}' if obs else n}.jpg"
+    if size != "large":
+        path = path[:-4] + f"_{size}.jpg"
     if os.path.exists(path):
         return path
     os.makedirs(f"{work}/photos", exist_ok=True)
@@ -101,7 +105,7 @@ def photo(taxon, n, work, obs=None):
         # Photos already pinned in scripts may be CC BY-SA (credited); new picks are CC0/CC BY only.
         if p.get("license_code") not in LICENSES.split(",") + ["cc-by-sa"]:
             raise SystemExit(f"observation {obs}: photo license {p.get('license_code')} not reusable")
-        urllib.request.urlretrieve(p["url"].replace("square", "large"), path)
+        urllib.request.urlretrieve(p["url"].replace("square", size), path)
         open(path + ".credit", "w").write(f"{taxon}: {html.unescape(p['attribution'])} — iNaturalist photo {p['id']}")
         return path
     q = urllib.parse.urlencode({"taxon_name": taxon, "photo_license": LICENSES, "quality_grade": "research",
@@ -114,7 +118,7 @@ def photo(taxon, n, work, obs=None):
         if p.get("license_code") in LICENSES.split(",") and dim.get("width", 0) > dim.get("height", 1) * 1.2:
             picks.append(p)
     p = picks[n]
-    urllib.request.urlretrieve(p["url"].replace("square", "large"), path)
+    urllib.request.urlretrieve(p["url"].replace("square", size), path)
     open(path + ".credit", "w").write(f"{taxon}: {html.unescape(p['attribution'])} — iNaturalist photo {p['id']}")
     return path
 
@@ -137,10 +141,11 @@ def voice(beats, work, name, rate="+8%"):
 
 def vertical():
     """Shorts layout: panel on top, Meatball bottom-left, word captions in between."""
-    global W, H, PANEL, TEXT_PANEL, MASCOT, COVER
+    global W, H, PANEL, TEXT_PANEL, MASCOT, COVER, BLEED_MASCOT
     W, H = 1080, 1920
     PANEL = TEXT_PANEL = (40, 140, 1000, 1000)
     MASCOT = (860, (-120, H - 860 + 60))
+    BLEED_MASCOT = (600, (-70, 1260))  # over a full-bleed photo: smaller, clear of the Shorts UI bar
     COVER = True
 
 
@@ -253,10 +258,13 @@ def _panel_quiz(statement, count=None):
     return layer
 
 
-def _cover(path, blur=0, dim=1.0):
-    """Photo scaled to fill the whole frame (crop the overflow), optionally blurred and darkened."""
+def _cover(path, blur=0, dim=1.0, crop=None):
+    """Photo scaled to fill the whole frame (crop the overflow), optionally blurred and darkened.
+    crop = [x0, y0, x1, y1] as fractions of the photo: the region to fill the frame with."""
     from PIL import Image, ImageEnhance, ImageFilter
     im = Image.open(path).convert("RGB")
+    if crop:
+        im = im.crop((int(crop[0] * im.width), int(crop[1] * im.height), int(crop[2] * im.width), int(crop[3] * im.height)))
     s = max(W / im.width, H / im.height)
     im = im.resize((int(im.width * s) + 1, int(im.height * s) + 1), Image.LANCZOS)
     l, t = (im.width - W) // 2, (im.height - H) // 2
@@ -433,7 +441,11 @@ def compose(beat, i, work, picks, out, count=None, ctx=None):
     from PIL import Image, ImageFilter
     from mascot import draw
     canvas = Image.new("RGBA", (W, H), BG + (255,))
-    if "photo" in beat:
+    size, pos = MASCOT
+    if beat.get("bleed") and "photo" in beat:  # Shorts v2: the animal fills the frame, Meatball sits on it
+        canvas = _cover(photo(beat["photo"], beat.get("n", 0), work, beat.get("obs"), "original"), crop=beat.get("crop"))
+        size, pos = BLEED_MASCOT
+    elif "photo" in beat:
         canvas.alpha_composite(_panel_image(photo(beat["photo"], beat.get("n", 0), work, beat.get("obs"))))
     elif "quiz" in beat and H > W and (ctx or {}).get("bg"):
         canvas.alpha_composite(_quiz_short(beat["quiz"], ctx["bg"], count))
@@ -447,7 +459,6 @@ def compose(beat, i, work, picks, out, count=None, ctx=None):
         canvas.alpha_composite(_aside(beat["aside"]))
     if beat.get("prop"):
         _prop(canvas, beat["prop"])
-    size, pos = MASCOT
     if ANIMATE:
         canvas.convert("RGB").save(out)
         return beat.get("pose", "point"), size, pos
@@ -528,15 +539,120 @@ def overlay_mascot(raw, m, words, dur, frames_dir, seg, pop=True, seed=0):
     os.remove(raw)
 
 
+VISUAL = ("photo", "obs", "n", "text", "quiz", "img", "crop", "aside", "shots")
+MAX_HOLD = 3.0  # Shorts gate (research/38): no single picture on screen longer than this
+
+
+def shots(b):
+    """A beat's pictures. A "shots" list cuts between several pictures under one voice line; each shot
+    is a dict of visual fields (photo/obs/crop, text, aside, or {} for Meatball alone on white) and may
+    start on a spoken word with "at". Non-visual beat fields (pose, prop, bleed...) apply to every shot."""
+    if "shots" not in b:
+        return [b]
+    base = {k: v for k, v in b.items() if k not in VISUAL}
+    return [dict(base, **s) for s in b["shots"]]
+
+
+def _shot_frames(b, words, frames):
+    """Frame index where each shot starts: on its "at" word (first match after the previous cut), else
+    an even split."""
+    sh, n = b["shots"], len(b["shots"])
+    starts, wi = [0], 0
+    for k in range(1, n):
+        at = (sh[k].get("at") or "").lower().strip(".,!?")
+        hit = next((j for j in range(wi, len(words)) if at and words[j][2].lower().strip(".,!?") == at), None)
+        if hit is None:
+            starts.append(int(frames * k / n))
+        else:
+            starts.append(int(words[hit][0] * FPS))
+            wi = hit + 1
+    return starts + [frames]
+
+
+def render_shots(b, i, work, picks, mp3, dur, seg, loop_in, loop_out):
+    """Multi-shot beat: one zoompan per picture (each moving from its first frame), hard cuts on the
+    words, captions over the whole line. loop_in starts the first shot at zoom 1.0; loop_out ends the
+    last one at 1.0, so the Short's last frame matches its first. Returns (mascot, [shot seconds])."""
+    words = json.load(open(mp3 + ".words.json"))
+    frames = int(dur * FPS)
+    bounds = _shot_frames(b, words, frames)
+    vis = shots(b)
+    m, inputs, chains, holds = None, [], [], []
+    k_ = 0.0012  # zoom per frame: about 3.6% a second, visible but calm
+    for k, sb in enumerate(vis):
+        img = f"{work}/frame{i:02d}s{k}.png"
+        mk = compose(sb, i, work, picks, img)
+        m = m or mk
+        d = max(1, bounds[k + 1] - bounds[k])
+        holds.append(d / FPS)
+        if loop_in and k == 0:
+            z = f"1.0+{k_}*on"
+        elif loop_out and k == len(vis) - 1:
+            z = f"1.0+{k_}*({d - 1}-on)"
+        else:
+            z = f"min(1.0+{k_}*on,1.12)" if (i + k) % 2 == 0 else f"max(1.10-{k_}*on,1.0)"
+        inputs += ["-loop", "1", "-i", img]
+        chains.append(f"[{k}:v]scale={W * 2}:{H * 2}:flags=lanczos,zoompan=z='{z}':x='iw/2-(iw/zoom/2)':"
+                      f"y='ih/2-(ih/zoom/2)':d={d}:s={W}x{H}:fps={FPS},trim=end_frame={d},setpts=PTS-STARTPTS[v{k}]")
+    n = len(vis)
+    vf = ";".join(chains) + ";" + "".join(f"[v{k}]" for k in range(n)) + f"concat=n={n}:v=1:a=0"
+    if H > W and not any("text" in x for x in vis):  # muted viewers: captions on every non-card line
+        from facts import captions
+        ass = f"{work}/cap{i:02d}.ass"
+        captions(words, ass)
+        txt = open(ass).read()
+        txt = txt.replace("-1,1,7,3,5,0", "-1,1,7,3,2,760") if b.get("bleed") else txt
+        open(ass, "w").write(txt)
+        vf += f",ass={ass}"
+    vf += ",format=yuv420p[vout]"
+    audio = ["-i", mp3]
+    if b.get("sting") in SFX:
+        audio += ["-f", "lavfi", "-i", SFX[b["sting"]]]
+        vf += f";[{n}:a]apad[vo];[{n + 1}:a]volume=0.5[s];[vo][s]amix=inputs=2:duration=first:normalize=0[aout]"
+    else:
+        vf += f";[{n}:a]apad[aout]"
+    subprocess.run(["ffmpeg", "-loglevel", "error", "-y"] + inputs + audio + ["-filter_complex", vf, "-map", "[vout]",
+                    "-map", "[aout]", "-t", f"{dur:.2f}", "-c:v", "libx264", "-crf", "20", "-preset", "medium",
+                    "-c:a", "aac", "-ar", "48000", "-ac", "2", seg], check=True)
+    return m, holds
+
+
+def gate(beats, holds):
+    """Shorts v2 render gate (research/38): warn when a Short opens without a photo or holds one picture
+    longer than MAX_HOLD seconds. Warnings only; the build still completes."""
+    warn = []
+    first = shots(beats[0])[0] if beats else {}
+    if "photo" not in first:
+        warn.append("opens without a photo (frame 0 should be the animal)")
+    for label, sec in holds:
+        if sec > MAX_HOLD + 0.05:
+            warn.append(f"{label} holds one picture for {sec:.1f}s (max {MAX_HOLD:.0f}s)")
+    for w in warn:
+        print(f"GATE WARN: {w}", flush=True)
+    return warn
+
+
 def build(beats, work, out, picks, name, rate="+8%"):
     voice(beats, work, name, rate)
     ctxs = contexts(beats, work) if PUNCH or H > W else [None] * len(beats)
     if beats and beats[-1].get("loop") and ctxs[0] is not None:
         ctxs[-1] = dict(ctxs[-1], bg=ctxs[0].get("bg"))  # loop frame must match frame 0 exactly
-    segs = []
+    segs, holds = [], []
+    looping = any(x.get("loop") for x in beats)
     for i, b in enumerate(beats):
         img, mp3, seg = f"{work}/frame{i:02d}.png", vo_path(b, work, name, rate), f"{work}/seg{i:02d}.mp4"
         ctx = ctxs[i]
+        if "shots" in b:
+            dur = duration(mp3) + 0.35 + float(b.get("hold", 0))
+            raw = seg.replace(".mp4", "_raw.mp4")
+            m, sh = render_shots(b, i, work, picks, mp3, dur, raw, looping and i == 0, bool(b.get("loop")))
+            holds += [(f"beat {i} shot {k}", t) for k, t in enumerate(sh)]
+            if m:
+                overlay_mascot(raw, m, json.load(open(mp3 + ".words.json")), dur, f"{work}/m{i:02d}", seg, seed=i)
+            else:
+                os.replace(raw, seg)
+            segs.append(seg)
+            continue
         m = compose(b, i, work, picks, img, ctx=ctx)
         final, seg = seg, (seg.replace(".mp4", "_raw.mp4") if m else seg)
         dur = duration(mp3) + (0.15 if PUNCH else 0.35) + float(b.get("hold", 0))
@@ -607,10 +723,13 @@ def build(beats, work, out, picks, name, rate="+8%"):
                            pop=not looped)
         seg = final
         segs.append(seg)
+        holds.append((f"beat {i}", dur))
         if "quiz" in b and not b.get("nocount"):
             segs += countdown(b, i, work, picks, ctx)
+    if H > W:
+        gate(beats, holds)
     # Only the photos actually used, so the description never credits a swapped-out image.
-    used = sorted({photo(b["photo"], b.get("n", 0), work, b.get("obs")) for b in beats if "photo" in b})
+    used = sorted({photo(v["photo"], v.get("n", 0), work, v.get("obs")) for b in beats for v in shots(b) if "photo" in v})
     open(f"{work}/credits.txt", "w").write("".join(open(u + ".credit").read() + "\n" for u in used))
     lst = f"{work}/list.txt"
     open(lst, "w").write("".join(f"file '{s}'\n" for s in segs))
