@@ -3,7 +3,7 @@
  "voice": "vidiq:pqHfZKP75CvOlQylNhV4",
  "rate": "+0%",
  "short_rate": "+0%",
- "tempo": 1.1,
+ "tempo": 1.12,
  "music": "music/quiz-bed.m4a",
  "style": "v3",
  "names": {
@@ -13,7 +13,7 @@
   "Copula sivickisi": "Box jellyfish (Copula sivickisi)",
   "Mellivora capensis": "Honey badger"
  },
- "_note": "Shorts v3 prototype (research/44). Same three animals as survive-01 (cassowary, boxjelly, badger) rewritten as Meatball-in-jeopardy stories: hook claim, he tries something, it goes wrong, the true fact is the punchline, twist/callback, loop line into the hook. Lines <= 8 words. Prototype voice: edge-tts Andrew at +0% then atempo 1.10 (= +10%); the final version would use Bill (vidiq voice, ~7 credits per Short). Photos: the same pinned, hand-checked iNaturalist observations as survive-01. Cassowary cut from 29.7 s to the 20-25 s window (coordinator 10/24: 20-22 s Shorts win): dropped 'On each foot.' and 'It jumps seven feet straight up.', shortened the droppings line and the loop line; every joke kept. | 10/24 ship pass (v3-01): voice switched to Bill (vidIQ pqHfZKP75CvOlQylNhV4, 14 credits for all 3); lines tightened to fit one 1,000-char voice call; cassowary 'Its poop plants rainforests.' -> 'Its poop plants trees.' (SD Zoo: many plants need passage through a cassowary to sprout); box jelly 'Australian first aid is vinegar.' -> 'First aid for this sting? Vinegar.' (ANZCOR vinegar applies to tropical/box jellyfish stings, not all Australian stings); badger 'A tiny change blocks part of the toxin.' -> 'One tiny change blocks a toxin.' (the receptor change blocks alpha-neurotoxin binding, one toxin class). Bill lines lead-trimmed and inner pauses shortened to 0.16 s in the voice cache; tempo 1.10 kept (Bill at 1.10 ~ Andrew at 1.10).",
+ "_note": "Shorts v3 prototype (research/44). Same three animals as survive-01 (cassowary, boxjelly, badger) rewritten as Meatball-in-jeopardy stories: hook claim, he tries something, it goes wrong, the true fact is the punchline, twist/callback, loop line into the hook. Lines <= 8 words. Prototype voice: edge-tts Andrew at +0% then atempo 1.10 (= +10%); the final version would use Bill (vidiq voice, ~7 credits per Short). Photos: the same pinned, hand-checked iNaturalist observations as survive-01. Cassowary cut from 29.7 s to the 20-25 s window (coordinator 10/24: 20-22 s Shorts win): dropped 'On each foot.' and 'It jumps seven feet straight up.', shortened the droppings line and the loop line; every joke kept. | 10/24 ship pass (v3-01): voice switched to Bill (vidIQ pqHfZKP75CvOlQylNhV4, 14 credits for all 3); lines tightened to fit one 1,000-char voice call; cassowary 'Its poop plants rainforests.' -> 'Its poop plants trees.' (SD Zoo: many plants need passage through a cassowary to sprout); box jelly 'Australian first aid is vinegar.' -> 'First aid for this sting? Vinegar.' (ANZCOR vinegar applies to tropical/box jellyfish stings, not all Australian stings); badger 'A tiny change blocks part of the toxin.' -> 'One tiny change blocks a toxin.' (the receptor change blocks alpha-neurotoxin binding, one toxin class). Bill lines lead-trimmed and inner pauses shortened to 0.16 s in the voice cache; tempo 1.12 (Bill at 1.10 ran ~ Andrew at 1.10; +2% keeps cassowary under 25 s). 'at' anchors never use a bare number word: v3.word_time reads '31'/'24' as seconds.",
  "beats": [
   {
    "hook": true,
@@ -89,7 +89,7 @@
    "say": "It runs 31 miles an hour.",
    "label": {
     "text": "31 MPH",
-    "at": "31"
+    "at": "runs"
    },
    "sfx": [
     "whoosh@runs"
@@ -312,10 +312,10 @@
    "say": "This jellyfish has 24 eyes.",
    "label": {
     "text": "24 EYES",
-    "at": "24"
+    "at": "has"
    },
    "sfx": [
-    "pop@24"
+    "pop@has"
    ],
    "loop_say": "Four are watching you. Because",
    "short_title": "I Tried to Outsmart a Box Jellyfish 👀 (Would Meatball Survive?)",
@@ -341,7 +341,7 @@
       0.669,
       0.95
      ],
-     "at": "24"
+     "at": "eyes"
     }
    ],
    "sources": [
