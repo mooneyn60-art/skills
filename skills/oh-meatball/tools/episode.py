@@ -2,7 +2,7 @@
 """One command from episode script to upload-ready release: long-form + one quiz Short per myth,
 chapters, photo credits, titles, tags and a release.json the scheduler posts from.
 
-Usage: episode.py SCRIPT.json SLUG [--work DIR] [--skip-long] [--skip-shorts]
+Usage: episode.py SCRIPT.json SLUG [--work DIR] [--skip-long] [--skip-shorts] [--skip-existing]
   SCRIPT.json  episode beats (each beat tagged with "myth"; each myth opens on a "quiz" beat)
   SLUG         output folder name under episodes/, e.g. myths-03
 
@@ -113,6 +113,7 @@ def main():
     ap.add_argument("--work", default=f"/tmp/meatball-build")
     ap.add_argument("--skip-long", action="store_true")
     ap.add_argument("--skip-shorts", action="store_true")
+    ap.add_argument("--skip-existing", action="store_true", help="keep Shorts already rendered (resume after a stop)")
     a = ap.parse_args()
     spec = json.load(open(a.script))
     COMMON.update(spec.get("names", {}))
@@ -154,7 +155,7 @@ def main():
                    # "short_beats" lets a joke-dense script keep more than 3 hand-picked beats (default 3).
                    "beats": hook_loop(mb) if hook else loop(tighten(mb, spec.get("short_beats", 3)))},
                   open(sspec, "w"))
-        if not a.skip_shorts:
+        if not a.skip_shorts and not (a.skip_existing and os.path.exists(f"{out}/short-{m}.mp4")):
             os.makedirs(f"{swork}/photos", exist_ok=True)
             subprocess.run(f"cp -n {long_work}/photos/* {swork}/photos/ 2>/dev/null || true", shell=True)
             run_build(sspec, swork, f"{swork}/short.mp4", vertical=True)
