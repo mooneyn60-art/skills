@@ -1,12 +1,12 @@
 {
  "title": "Would Meatball Survive? Pilot pack (10 Shorts)",
- "voice": "en-US-AndrewMultilingualNeural",
+ "voice": "vidiq:pqHfZKP75CvOlQylNhV4",
  "rate": "+4%",
  "short_rate": "+4%",
  "pitch": "-3Hz",
  "music": "music/quiz-bed.m4a",
  "style": "classic",
- "_note": "Series 'Would Meatball Survive?' (Showrunner, 2026-10-24). Shorts v2 (research/38, research/39 §6): frame 0 is a moving full-bleed photo with the claim stated as fact, a new picture every <=3 s (cuts on 'at' words), one Fork + one tink max per Short, verdict card ('Survival odds / Delicious odds') with a rotating third tag, loop line runs into the hook. 'shot' is the pending Studio shot grammar (host|show|closeup|together), ignored by the current renderer. 'sources' sits on each hook beat. SCRIPTS ONLY: do not render until the new Meatball rig is approved; the series takes the 1 PM YouTube Short slot after that (OPERATIONS.md, experiment E6). Photos: iNaturalist CC0/CC BY, looked at one by one (live, unharmed, right species, no watermark in crop). Moose 92166840/102548882 are 960 px with a bottom-left watermark: crops stop at y=0.9 and both are held under 3 s; swap if the render looks soft.",
+ "_note": "Series 'Would Meatball Survive?' (Showrunner, 2026-10-24). Shorts v2 (research/38, research/39 §6): frame 0 is a moving full-bleed photo with the claim stated as fact, a new picture every <=3 s (cuts on 'at' words), one Fork + one tink max per Short, verdict card ('Survival odds / Delicious odds') with a rotating third tag, loop line runs into the hook. 'shot' is the pending Studio shot grammar (host|show|closeup|together), ignored by the current renderer. 'sources' sits on each hook beat. SCRIPTS ONLY: do not render until the new Meatball rig is approved; the series takes the 1 PM YouTube Short slot after that (OPERATIONS.md, experiment E6). Photos: iNaturalist CC0/CC BY, looked at one by one (live, unharmed, right species, no watermark in crop). Moose 92166840/102548882 are 960 px with a bottom-left watermark: crops stop at y=0.9 and both are held under 3 s; swap if the render looks soft. Studio 10/24: voice set to Bill (OPERATIONS.md 'Narrator voice'); 5 of 10 Shorts (cassowary, moose, komodo, croc, boxjelly) end on a spoken comment question just before the loop line ('Always ask'), never in the first 3 s.",
  "beats": [
   {
    "hook": true,
@@ -154,6 +154,15 @@
      "at": "Fruit"
     }
    ]
+  },
+  {
+   "myth": "cassowary",
+   "pose": "think",
+   "shot": "host",
+   "ask": "comment",
+   "say": "Would you survive this? Comment.",
+   "text": "WOULD YOU\nSURVIVE?",
+   "aside": "(comment below)"
   },
   {
    "hook": true,
@@ -449,6 +458,15 @@
      "at": "Swimming"
     }
    ]
+  },
+  {
+   "myth": "moose",
+   "pose": "think",
+   "shot": "host",
+   "ask": "comment",
+   "say": "Could you outswim a moose? Comment.",
+   "text": "OUTSWIM\nA MOOSE?",
+   "aside": "(comment below)"
   },
   {
    "hook": true,
@@ -885,6 +903,15 @@
    ]
   },
   {
+   "myth": "komodo",
+   "pose": "think",
+   "shot": "host",
+   "ask": "comment",
+   "say": "Could you eat that much? Comment.",
+   "text": "COULD YOU\nEAT THAT?",
+   "aside": "(comment below)"
+  },
+  {
    "hook": true,
    "myth": "piranha",
    "bleed": true,
@@ -1192,6 +1219,15 @@
    ]
   },
   {
+   "myth": "croc",
+   "pose": "think",
+   "shot": "host",
+   "ask": "comment",
+   "say": "Would you hold the sensor? Comment.",
+   "text": "HOLD THE\nSENSOR?",
+   "aside": "(comment below)"
+  },
+  {
    "hook": true,
    "myth": "octopus",
    "bleed": true,
@@ -1471,6 +1507,15 @@
      "at": "It"
     }
    ]
+  },
+  {
+   "myth": "boxjelly",
+   "pose": "think",
+   "shot": "host",
+   "ask": "comment",
+   "say": "Would you swim there? Comment.",
+   "text": "WOULD YOU\nSWIM THERE?",
+   "aside": "(comment below)"
   }
  ]
 }
