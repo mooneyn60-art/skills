@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Make a YouTube thumbnail from a video frame.
 
-thumbnail.py VIDEO OUT.jpg --time T --text "HE CAME BACK" [--circle x,y,r]
+frame_thumb.py VIDEO OUT.jpg --time T --text "HE CAME BACK" [--circle x,y,r]
              [--arrow x1,y1,x2,y2] [--size 1280x720|1080x1920] [--crop-y 0-1]
 
 Coordinates for --circle/--arrow are in OUTPUT pixels (after crop/fit).

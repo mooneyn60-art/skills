@@ -126,6 +126,32 @@ qualified views. Channel: subs, weekly long-form watch hours vs the 4,000 h pace
   - tease the next episode at the end
   - Community polls (drafted by the Host desk, posted by Nolan)
 
+## Always ask: likes, comments, subscribes (Nolan, 10/24)
+Never assume viewers will engage. Every video asks, in Meatball's voice and with a joke, never as a generic "smash that like button".
+
+**Long-form**
+- **Subscribe ask 1:** a spoken line right after the first payoff (about 0:45-1:30), e.g. "If watching a meatball panic is your thing, subscribing genuinely keeps me off the menu."
+- **Like ask:** a spoken line at the midpoint, tied to the story, e.g. "If that one got you, hit like so I know to find more."
+- **Comment ask:** a specific question with an easy answer, e.g. "Which one would you eat first? Wrong answers only." Say the best answer gets read out next episode.
+- **End:** subscribe ask 2, plus "New Meatball every Tuesday and Saturday", plus the tease for the next episode.
+
+**Shorts**
+- Never put an ask in the first 3 seconds; the hook comes first.
+- **Comment question:** the last spoken line before the loop is a short question (e.g. "Would you survive this? Comment.") on about 1 in 2 Shorts.
+- **Follow line:** "Follow for part 2" on Shorts that are part of a series.
+- **Captions and pinned comment:** every caption ends with a question, and every pinned first comment ends with "Follow Meatball for more 🍝".
+
+**TikTok:** the caption ends with a question and "Follow for Part N+1".
+
+**Description:** the first line asks a question. The last line is "Subscribe: new Meatball every Tuesday and Saturday".
+
+**Host desk (evening):**
+- reply to every comment as Meatball (drafts go to Nolan)
+- heart the best comments
+- collect the answers that get read out next episode
+
+**Intel desk (weekly):** check subscribers per 1,000 views and comments per 1,000 views by video. Keep the asks that move the numbers; rewrite the rest.
+
 ## Long-form reset (Nolan + Mayor, 10/24 evening)
 Data, last 30 days:
 - Long-form got 5 views, averaging 28 seconds watched.
