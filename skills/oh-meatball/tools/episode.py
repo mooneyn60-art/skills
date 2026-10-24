@@ -48,7 +48,8 @@ def loop(beats):
     # Rotate the bridge line per myth so Shorts don't all end the same way (research/30: templated sameness).
     lines = ["So be honest. Did you really think", "And yet half the internet still swears that",
              "Next time someone tells you that", "Tell me you didn't believe that", "Somebody out there still thinks"]
-    tail = {"say": lines[sum(map(ord, q.get("myth") or "")) % len(lines)], "quiz": q["quiz"],
+    # A quiz beat's "loop_say" replaces the rotated line (it must still run straight into the claim).
+    tail = {"say": q.get("loop_say") or lines[sum(map(ord, q.get("myth") or "")) % len(lines)], "quiz": q["quiz"],
             "pose": q.get("pose", "think"), "myth": q.get("myth"), "nocount": True, "loop": True}
     return [first] + beats[1:] + [tail]
 
@@ -136,7 +137,9 @@ def main():
         # Breakout single-myth Shorts run 17-30 s (vidIQ outliers, 10/23): claim, reveal, punchline, loop line.
         json.dump({"voice": spec.get("voice", "en-US-AndrewNeural"), "rate": spec.get("short_rate", "+8%"),
                    "music": spec.get("music"), "style": spec.get("style"),
-                   "beats": loop(tighten(mb, 3))}, open(sspec, "w"))
+                   **({"pitch": spec["pitch"]} if spec.get("pitch") else {}),
+                   # "short_beats" lets a joke-dense script keep more than 3 hand-picked beats (default 3).
+                   "beats": loop(tighten(mb, spec.get("short_beats", 3)))}, open(sspec, "w"))
         if not a.skip_shorts:
             os.makedirs(f"{swork}/photos", exist_ok=True)
             subprocess.run(f"cp -n {long_work}/photos/* {swork}/photos/ 2>/dev/null || true", shell=True)
