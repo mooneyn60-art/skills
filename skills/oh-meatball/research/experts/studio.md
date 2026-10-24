@@ -22,3 +22,7 @@ Desk id: `studio`. Absorbs: Producer, Animator. Read this before every run and a
 
 ## Lessons log (newest last; date, what happened, what we learned, the number)
 - 2026-10-24: desk created by merging the roles above.
+- 2026-10-24: Premium voice path tested. vidIQ voiceover (premium voices; 14 credits per 1,000 characters, rounded up per call), then faster-whisper base.en for word timings (cached model).
+  - Decode the MP3 with ffmpeg to 16 kHz mono float first; PyAV's `open()` breaks the built-in loader.
+  - Whisper gives clean per-word start and end times, which is enough for captions and lip-sync.
+  - Generate ONE call per Short or script (not per beat: rounding makes per-beat calls cost 14 each), then split it into beats by matching words.
