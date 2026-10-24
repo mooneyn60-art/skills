@@ -19,8 +19,8 @@
   "Dryococelus australis": "Lord Howe Island stick insect",
   "Ball's Pyramid": "Ball's Pyramid"
  },
- "blurb": "Animals thought extinct, found alive. A fish that was supposed to have died with the dinosaurs, a coelacanth found at a fish market on a honeymoon, a bird that hid for 50 years, a ferret rediscovered by a ranch dog named Shep, and a giant insect hiding on a sea cliff for 80 years. Meatball tells the whole story.\n\nWhich extinct animal would you bring back? Best answer gets read out next time 👇",
- "next": "New Meatball every Tuesday and Saturday. Tuesday: another weird true story.",
+ "blurb": "Can an animal really come back from extinction? These did. A fish that was supposed to have died with the dinosaurs, a coelacanth found at a fish market on a honeymoon, a bird that hid for 50 years, a ferret rediscovered by a ranch dog named Shep, and a giant insect hiding on a sea cliff for 80 years. Meatball tells the whole story.\n\nWhich extinct animal would you bring back? Best answer gets read out next time 👇",
+ "next": "Tuesday: another weird true story.",
  "tags": [
   "animals thought extinct found alive",
   "extinct animals found alive",
@@ -38,7 +38,7 @@
   "Meatball Myths"
  ],
  "hashtags": "#extinctanimals #coelacanth #animalfacts #meatballexplains",
- "pinned": "Which extinct animal would you bring back, and why? 🦤 Best answer gets read out in the next episode 👇",
+ "pinned": "🦤 Best answer gets read out in the next episode: which extinct animal would you bring back, and why?",
  "_note": "Meatball Explains #1 in the post-quiz format (Showrunner, 2026-10-24; research/42: no checkpoints). One story: four 'extinct' animals found alive, stick insect payoff promised in the first 12 s and delivered last. vidIQ 10/24: 'animals thought extinct found alive' ~4.6K/mo comp 49, 'extinct animals found alive' 8.7K/mo comp 43; title scored 97 (alts 89, 84). Shorts = hook groups (fish, honeymoon, takahe, ferret, insect, zoo); everything else is tagged intro so it neither makes a Short nor a chapter. Photos: iNaturalist CC BY/CC0 wild obs for takahē/ferret/prairie dog; coelacanth from Openverse (one live wild CC BY video still, plus CC BY museum specimen/model/fossil); stick insect from Museums Victoria CC BY dry specimens (no CC BY/CC0 live wild photo exists); Ball's Pyramid CC BY Flickr.",
  "sources": [
   "Coelacanth 1938 (Courtenay-Latimer, Goosen trawler, J.L.B. Smith; thought extinct ~66 Myr): https://www.lindahall.org/about/news/scientist-of-the-day/marjorie-courtenay-latimer/ ; https://www.pbs.org/wgbh/nova/fish/letters.html ; https://en.wikipedia.org/wiki/West_Indian_Ocean_coelacanth",
@@ -97,7 +97,7 @@
    "loop_say": "I'm not saying textbooks are wrong. I'm just saying,",
    "short_title": "The Fish That Was 'Extinct' for 66 Million Years 🐟",
    "bonus": "Its genus, Latimeria, is named after the museum curator who spotted it.",
-   "comment": "Would you have recognised it? 👇"
+   "comment": "Would you have recognised it? 👇 Follow Meatball for more 🍝"
   },
   {
    "say": "It's called a coelacanth. Scientists only knew it from fossils like this one. Very flat. Not much of a swimmer.",
@@ -128,6 +128,12 @@
    "hold": 0.4
   },
   {
+   "say": "Quick thing. If watching a meatball narrate things that might eat him is your idea of fun, subscribing genuinely keeps me off the menu. That's how it works. I checked.",
+   "pose": "point",
+   "myth": "intro",
+   "aside": "(it is not how it works)"
+  },
+  {
    "say": "And it's a weird fish. It can grow as long as a grown-up person. Scientists now think coelacanths can live for about a hundred years, and may stay pregnant for five.",
    "pose": "point",
    "photo": "Latimeria chalumnae",
@@ -152,7 +158,7 @@
    "loop_say": "Most people bring home a fridge magnet. Meanwhile,",
    "short_title": "He Found a 'Dinosaur Fish' on His Honeymoon 🐟",
    "bonus": "A second Indonesian coelacanth was caught by local fishermen in July 1998.",
-   "comment": "What's the weirdest thing you've brought home from a trip? 👇"
+   "comment": "What's the weirdest thing you've brought home from a trip? 👇 Follow Meatball for more 🍝"
   },
   {
    "say": "It was 1997, in Indonesia. Mark Erdmann and his wife Arnaz were walking through a market when she noticed a strange, big fish on a cart.",
@@ -188,7 +194,7 @@
    "loop_say": "Always check the tall grass. Because",
    "short_title": "This Bird Was 'Extinct' for 50 Years 🐦",
    "bonus": "Today there are around 500 takahē, and the number is slowly growing.",
-   "comment": "Would you have kept looking? 👇"
+   "comment": "Would you have kept looking? 👇 Follow Meatball for more 🍝"
   },
   {
    "say": "His name was Geoffrey Orbell. He'd seen tracks like these, and he would not let it go.",
@@ -243,7 +249,7 @@
    "loop_say": "Give that dog a medal. Because",
    "short_title": "A Dog Found This 'Extinct' Animal 🐾",
    "bonus": "Biologists then found a colony of more than 100 black-footed ferrets near Meeteetse, Wyoming.",
-   "comment": "What's the weirdest thing your dog has brought home? 👇"
+   "comment": "What's the weirdest thing your dog has brought home? 👇 Follow Meatball for more 🍝"
   },
   {
    "say": "Shep's family didn't know what it was. A taxidermist did, and called wildlife officials.",
@@ -264,6 +270,12 @@
    "pose": "laugh",
    "text": "DOGS: 1\nEXTINCTION: 0",
    "myth": "ferret"
+  },
+  {
+   "say": "Shep deserves a medal. I can't afford one. But if you hit like, I'll tell him it's from you.",
+   "pose": "point",
+   "text": "LIKE =\nA MEDAL\nFOR SHEP",
+   "myth": "intro"
   },
   {
    "say": "Now. What do black-footed ferrets eat? Prairie dogs. Up to ninety percent of their diet. A mother with babies can get through hundreds of them a year.",
@@ -312,7 +324,7 @@
    "loop_say": "I'm not saying climb a cliff at night. I'm just saying,",
    "short_title": "This Insect Hid on a Rock for 80 Years 🪲",
    "bonus": "The rock is Ball's Pyramid, about 23 km from Lord Howe Island, Australia.",
-   "comment": "Would you climb it at night? 👇"
+   "comment": "Would you climb it at night? 👇 Follow Meatball for more 🍝"
   },
   {
    "say": "The cliff is Ball's Pyramid. A spike of rock over five hundred metres tall, sticking out of the ocean near Lord Howe Island, Australia.",
@@ -370,7 +382,7 @@
    "loop_say": "Two bugs. Thousands of babies. And it all started when",
    "short_title": "One Pair of Bugs Saved a Whole Species 🪲",
    "bonus": "Zoos in Europe and North America now breed them too.",
-   "comment": "What would you have named them? 👇"
+   "comment": "What would you have named them? 👇 Follow Meatball for more 🍝"
   },
   {
    "say": "It nearly failed. Eve got sick, and keepers nursed her back. Since then the zoo has hatched thousands of eggs, and other zoos around the world have joined in.",
@@ -422,7 +434,7 @@
    "myth": "outro"
   },
   {
-   "say": "Tuesday: another weird true story. New Meatball every Tuesday and Saturday.",
+   "say": "Subscribe, and I'll keep narrating from a safe distance. Tuesday: another weird true story. New Meatball every Tuesday and Saturday.",
    "pose": "wave",
    "text": "NEW MEATBALL\nEVERY TUESDAY\n& SATURDAY",
    "myth": "outro"
