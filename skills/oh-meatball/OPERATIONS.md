@@ -52,6 +52,7 @@ qualified views. Channel: subs, weekly long-form watch hours vs the 4,000 h pace
 - Anything that spends real money or deletes videos.
 
 ## Standing orders from Nolan
+- **Platforms (Nolan, 10/24): YouTube and TikTok only.** Don't connect or ask about Instagram, Facebook, Pinterest or Threads again. Their crossposting steps are retired.
 - Full authority (Nolan, 10/24): the Mayor decides and acts on anything that helps the channel, without asking.
   Nolan's own actions are the exception: logins, connecting accounts, and payments, which stay zero beyond what's already paid.
 - Only Meatball stick-figure info/quiz videos (long-form and Shorts). No door-cam, trail-cam or other
