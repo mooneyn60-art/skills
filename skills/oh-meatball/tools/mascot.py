@@ -54,11 +54,12 @@ def _head(d):
     d.ellipse([cx + 20, cy - 150, cx + 48, cy - 132], fill=PARSLEY, outline=INK, width=4)
 
 
-def _face(d, mouth, brow):
+def _face(d, mouth, brow, look=(0, 0)):
     cx, cy = HEAD_C
+    lx, ly = look  # pupil shift: thumbnails point his gaze at the animal or the key word
     for ex in (-48, 48):
         d.ellipse([cx + ex - 24, cy - 30, cx + ex + 24, cy + 20], fill=(255, 255, 255, 255), outline=INK, width=6)
-        d.ellipse([cx + ex - 11, cy - 12, cx + ex + 11, cy + 10], fill=INK)
+        d.ellipse([cx + ex - 11 + lx, cy - 12 + ly, cx + ex + 11 + lx, cy + 10 + ly], fill=INK)
     if brow == "up":
         for ex in (-48, 48):
             d.arc([cx + ex - 28, cy - 62, cx + ex + 28, cy - 22], 200, 340, fill=INK, width=9)
@@ -81,7 +82,7 @@ def _face(d, mouth, brow):
         d.line([(cx - 32, my + 6), (cx + 32, my + 6)], fill=INK, width=10)
 
 
-def draw(pose="neutral", size=600, mouth=None, blink=False, arms=None):
+def draw(pose="neutral", size=600, mouth=None, blink=False, arms=None, look=(0, 0)):
     """mouth/blink override the pose for animation frames; arms = {"l"/"r": (dx, dy)} moves each hand
     (the elbow follows by half) for talking gestures."""
     p = POSES[pose]
@@ -91,7 +92,7 @@ def draw(pose="neutral", size=600, mouth=None, blink=False, arms=None):
     _line(d, (500, 505), hip)                         # spine
     _line(d, hip, (440, 960)); _line(d, hip, (560, 960))  # legs
     _head(d)
-    _face(d, mouth or p["mouth"], p["brow"])
+    _face(d, mouth or p["mouth"], p["brow"], look)
     if blink:  # lids over both eyes
         cx, cy = HEAD_C
         for ex in (-48, 48):
