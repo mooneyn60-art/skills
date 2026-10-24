@@ -26,7 +26,8 @@ so our angle is the funny stick-figure version with 3-4 TRUE/FALSE checkpoints t
 | # | Episode | Status |
 |---|---|---|
 | S2-1 | How Wolves Became Dogs (the full story, kind of) | done, posts Sat 10/24 10:30 AM |
-| S2-2 | How Cats Domesticated Themselves | next, Sat 10/31 |
+| S2-1b | Do Animals Know They're Pets? (searches +732%, 44K/mo; breaking out on TikTok; research/34-35) | next, Sat 10/31 (Mayor 10/24) |
+| S2-2 | How Cats Domesticated Themselves | Sat 11/7 |
 | S2-3 | When Whales Had Legs | queued |
 | S2-4 | How Chickens Took Over the World | queued |
 | S2-5 | Horses: from dog-sized to Derby | queued |
