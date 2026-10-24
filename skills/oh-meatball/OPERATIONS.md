@@ -105,6 +105,27 @@ qualified views. Channel: subs, weekly long-form watch hours vs the 4,000 h pace
   - The picture changes every 3 s or less, and every photo matches what is being said.
 - **Captions:** unique per post and built from the searched question (tools/tiktok.py `title()`/`caption()`). Never use file-nickname hashtags.
 
+## Niche, thumbnails, repeat audience (Nolan, 10/24; research/42)
+- **Quiz format retired for new long-form.** Meatball explains weird true things.
+- **Topic pillars:**
+  - Animals (70% of videos)
+  - Food (Meatball *is* food)
+  - Weird history and the human body
+- **New pillars:** one test (a long-form plus 3 Shorts) at a time. Keep it only if it performs as well as the animal average.
+- **Thumbnails follow the Meatball system in research/42 §2:**
+  - a huge reacting Meatball face
+  - one subject
+  - at most 3 words
+  - brand colors
+  - 3 variants, each scored with vidIQ
+- **Repeat audience:**
+  - fixed Tuesday/Saturday days
+  - named series with their own playlists
+  - running gags
+  - read commenters' answers on screen
+  - tease the next episode at the end
+  - Community polls (drafted by the Host desk, posted by Nolan)
+
 ## Long-form reset (Nolan + Mayor, 10/24 evening)
 Data, last 30 days:
 - Long-form got 5 views, averaging 28 seconds watched.
