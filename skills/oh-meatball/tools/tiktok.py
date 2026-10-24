@@ -9,6 +9,7 @@ tiktok.json (file URL, caption, first comment) for the scheduler.
 import argparse
 import json
 import os
+import re
 import shutil
 import subprocess
 
@@ -19,6 +20,28 @@ MIN_S = 75  # margin over TikTok's 60 s floor; the estimate below can run ~10% l
 WPS = 2.9   # en-US-AndrewMultilingualNeural at rate +15%; +0% measured 2.5 on episodes 2-3
 END = {"say": "How many did you get? Comment your score, and follow, because the full twelve-myth quiz is on my profile.",
        "pose": "wave", "text": "COMMENT\nYOUR SCORE"}
+
+
+TAGS = ["#didyouknow", "#mythbusting", "#animals", "#wildlife", "#science", "#nature", "#funfacts", "#learnsomethingnew"]
+
+
+def question(q):
+    """The hand-written searched question (short_title) without emoji or 'TRUE or FALSE' tails."""
+    t = q.get("short_title") or claim(q) + "?"
+    t = re.sub(r"\s*(🤔|TRUE or FALSE|#\w+).*$", "", t).strip()
+    return re.sub(r"[^\w\s'?,!.&-]", "", t).strip()
+
+
+def title(quizzes, n):
+    """Unique per cut: the first myth's searched question plus a Part label (research/35: 'Part N' series win)."""
+    return f"Part {n}: {question(quizzes[0])}" if quizzes else f"Part {n}"
+
+
+def caption(quizzes, n, slug):
+    """Unique per cut: every myth question in the cut, then 3 hashtags rotated by slug and part (no file nicknames)."""
+    k = sum(map(ord, slug)) + n
+    tags = [TAGS[(k + i) % len(TAGS)] for i in range(2)] + ["#learnontiktok"]
+    return " ".join(question(q) for q in quizzes) + " Comment your score 👇 " + " ".join(tags)
 
 
 def estimate(beats):
@@ -72,8 +95,8 @@ def main():
         quizzes = [b for b in beats if b.get("myth") in ms and "quiz" in b]
         release.append({
             "file": f"{RAW}/{a.slug}/tt-{n}.mp4", "seconds": round(dur, 1), "myths": ms,
-            "caption": f"TRUE or FALSE? {len(quizzes)} animal myths, 3 seconds each. Keep score 👇 "
-                       + " ".join(f"#{m}" for m in ms) + " #animalfacts #trueorfalse #quiz #learnontiktok",
+            "title": title(quizzes, n),
+            "caption": caption(quizzes, n, a.slug),
             "comment": "Comment your score: " + " / ".join(f"{i}. {claim(q)}?" for i, q in enumerate(quizzes, 1)),
         })
         print(f"tt-{n} {dur:.1f}s {ms}" + ("  UNDER 60s" if dur <= 60 else ""))
