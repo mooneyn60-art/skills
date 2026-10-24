@@ -33,10 +33,10 @@ MODEL = os.environ.get("SDXL_TURBO", "/tmp/claude-0/-home-user/f2581a8c-fe42-587
 W, H, FPS = 1920, 1080, 30
 MUSIC = None  # background bed, set from the spec's "music" (path relative to brand/)
 BG = (250, 248, 242)
-PANEL = (540, 90, 1340, 900)  # x, y, w, h of the right-hand panel
-TEXT_PANEL = (500, 90, 1400, 900)  # text cards have no frame, so they can use more width
+PANEL = (700, 90, 1180, 900)  # x, y, w, h of the right-hand panel
+TEXT_PANEL = (680, 90, 1200, 900)  # text cards have no frame, so they can use more width
 SAUCE = (196, 38, 30)
-MASCOT = (760, (-60, H - 760 + 40))  # size, top-left position
+MASCOT = (1150, (-275, -62))  # size, top-left position: the star, head high and big beside the panel
 BLEED_MASCOT = (480, (30, H - 480 - 10))  # "bleed" beats: Meatball over a full-frame photo
 COVER = False
 ANIMATE = False  # set in main(): Meatball is overlaid as animated frames (mascot.animate) instead of a still
@@ -164,6 +164,66 @@ def vertical():
     MASCOT = (860, (-120, H - 860 + 60))
     BLEED_MASCOT = (600, (-70, 1260))  # over a full-bleed photo: smaller, clear of the Shorts UI bar
     COVER = True
+
+
+# Shot grammar (research/41): Meatball is the host, not a corner sticker. Each picture picks a framing:
+#   show     sharp full-bleed photo, Meatball big (~42% of the frame) entering lower-left, cut at the waist
+#   host     Meatball 60-75% of the frame in front of the photo, dimmed and blurred so he pops
+#   together Meatball standing in the photo scene beside the animal (nervous / shock lines)
+#   close    face and upper body fill the frame on the off-white background, slow push-in (punchlines)
+#   card     text/quiz cards: the classic panel with Meatball under it
+# "frame": "show|host|together|close|card" on a beat or shot overrides the choice.
+KINDS = ("show", "host", "together", "close", "card")
+
+
+def shot_kind(s, prev=None, first=False):
+    """Framing for one picture. first = frame 0 of a Short or its loop tail (the animal must be clear)."""
+    if s.get("frame") in KINDS:
+        return s["frame"]
+    if any(k in s for k in ("text", "quiz", "img")):
+        return "card"
+    if "photo" not in s:
+        return "close"
+    if H <= W or PUNCH:
+        return "card"  # long-form keeps the photo panel beside a big Meatball
+    if first:
+        return "show"
+    if s.get("pose") in ("nervous", "shock") and prev != "together":
+        return "together"
+    return "show" if prev == "host" else "host"
+
+
+def shot_layout(kind):
+    """Mascot placement for a framing: size (px per 1000 drawing units), pos (screen point of unit 0,0),
+    optional push-in, shadow, the caption anchor (ASS tags) and the direction he points/looks."""
+    if H > W:
+        return {
+            "show": dict(size=1750, pos=(-645, 657), shadow=True, cap=r"{\an3\pos(1050,960)}", content=(0.9, -0.45)),
+            "host": dict(size=1560, pos=(-310, 353), cap=r"{\an2\pos(540,1520)}", content=(0.6, -0.8)),
+            "together": dict(size=1050, pos=(-225, 766), shadow=True, cap=r"{\an2\pos(600,1520)}", content=(0.9, -0.4)),
+            "close": dict(size=2570, pos=(-745, -145), push=0.0006, anchor=(500, 360), cap=r"{\an2\pos(540,1560)}",
+                          content=(0.94, -0.34)),
+        }.get(kind, dict(size=1600, pos=(-260, 506), cap=r"{\an2\pos(540,1860)}", content=(0.5, -0.87)))
+    if kind == "close":
+        return dict(size=1445, pos=(238, -80), push=0.0006, anchor=(500, 360), content=(0.94, -0.34))
+    return dict(size=MASCOT[0], pos=MASCOT[1], content=(0.94, -0.2))
+
+
+def _captions(words, path, spans):
+    """Word captions (facts.py style) placed per shot so they never sit on Meatball: spans = [(start s, tags)]."""
+    from facts import captions
+    captions(words, path)
+    out = []
+    for line in open(path).read().split("\n"):
+        if line.startswith("Dialogue:"):
+            t0 = line.split(",")[1].split(":")
+            t0 = int(t0[0]) * 3600 + int(t0[1]) * 60 + float(t0[2])
+            tags = [tg for st, tg in spans if st <= t0 + 0.01][-1:] or [spans[0][1]]
+            head, txt = line.split(",Cap,", 1)
+            line = f"{head},Cap,{tags[0]}{txt}"
+        out.append(line)
+    open(path, "w").write("\n".join(out))
+    return path
 
 
 def duration(path):
@@ -425,8 +485,9 @@ def compose_punch(beat, i, work, picks, out, count=None, ctx=None):
 
 
 
-def _aside(text):
-    """Small grey footnote in a white pill under the panel: the narrator's inner voice, read not spoken."""
+def _aside(text, low=False):
+    """Small grey footnote in a white pill under the panel: the narrator's inner voice, read not spoken.
+    low: bottom-right of the frame, clear of a close-up Meatball."""
     from PIL import Image, ImageDraw, ImageFont
     layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(layer)
@@ -434,19 +495,27 @@ def _aside(text):
     px, py, pw, ph = PANEL
     tw = d.textlength(text, font=f)
     x, y = px + pw - tw - 70, py + ph - f.size - 60
+    if low:  # close-up: top right, above his cap and clear of the fork
+        x, y = W - tw - 70, 150 if H > W else 60
     d.rounded_rectangle([x - 26, y - 14, x + tw + 26, y + f.size + 20], 26, fill=(255, 255, 255, 235),
                         outline=(200, 200, 200, 255), width=3)
     d.text((x, y), text, font=f, fill=(110, 110, 110))
     return layer
 
 
-def _prop(canvas, name):
+def _prop(canvas, name, close=False, card=False):
     """Still prop standing on the floor to Meatball's left-hand side of the frame (his right)."""
     from PIL import ImageFilter
     from mascot import prop
     size, (mx, my) = MASCOT
     p = prop(name, int(size * 0.5))
     x, y = mx + int(size * 0.80), my + int(size * 0.80) - p.height
+    if card:  # Shorts card shot: beside the big Meatball, right of him
+        p = prop(name, int(H * 0.32))
+        x, y = W - p.width - 70, H - p.height - 60
+    if close:  # close-up: a big fork standing at the right edge, beside his shoulder
+        p = prop(name, int(H * 0.42))
+        x, y = W - int(p.width * 0.75), H - p.height - (260 if H > W else 40)
     halo = p.split()[3].filter(ImageFilter.MaxFilter(11))
     canvas.paste((255, 255, 255, 255), (x, y), halo)
     canvas.alpha_composite(p, (x, y))
@@ -459,6 +528,21 @@ def compose(beat, i, work, picks, out, count=None, ctx=None):
     from mascot import draw
     canvas = Image.new("RGBA", (W, H), BG + (255,))
     size, pos = MASCOT
+    kind = beat.get("_kind")
+    if ANIMATE and kind in ("show", "host", "together") and "photo" in beat:
+        src = photo(beat["photo"], beat.get("n", 0), work, beat.get("obs"), "original")
+        canvas = _cover(src, crop=beat.get("crop"), blur=9 if kind == "host" else 0, dim=0.8 if kind == "host" else 1.0)
+        if beat.get("aside") and count is None:
+            canvas.alpha_composite(_aside(beat["aside"]))
+        canvas.convert("RGB").save(out)
+        return beat.get("pose", "point"), size, pos, {"kind": kind, **shot_layout(kind)}
+    if ANIMATE and kind == "close":
+        if beat.get("aside") and count is None:
+            canvas.alpha_composite(_aside(beat["aside"], low=True))
+        if beat.get("prop"):
+            _prop(canvas, beat["prop"], close=True)
+        canvas.convert("RGB").save(out)
+        return beat.get("pose", "point"), size, pos, {"kind": kind, **shot_layout(kind)}
     if beat.get("bleed") and "photo" in beat:  # Shorts v2: the animal fills the frame, Meatball sits on it
         canvas = _cover(photo(beat["photo"], beat.get("n", 0), work, beat.get("obs"), "original"), crop=beat.get("crop"))
         size, pos = BLEED_MASCOT
@@ -474,11 +558,13 @@ def compose(beat, i, work, picks, out, count=None, ctx=None):
         canvas.alpha_composite(_panel_image(f"{work}/img/{i:02d}_s{picks.get(str(i), 0)}.png"))
     if beat.get("aside") and count is None:
         canvas.alpha_composite(_aside(beat["aside"]))
+    big = ANIMATE and H > W and not PUNCH and not beat.get("bleed") and "quiz" not in beat  # quiz cards keep room
     if beat.get("prop"):
-        _prop(canvas, beat["prop"])
+        _prop(canvas, beat["prop"], card=big)
     if ANIMATE:
         canvas.convert("RGB").save(out)
-        return beat.get("pose", "point"), size, pos
+        lay = shot_layout("card") if big else dict(shot_layout("card"), size=size, pos=pos)
+        return beat.get("pose", "point"), size, pos, {"kind": "card", **lay}
     m = draw(beat.get("pose", "point"), size)
     halo = m.split()[3].filter(ImageFilter.MaxFilter(15))  # white outline keeps him readable over panels
     canvas.paste((255, 255, 255, 255), pos, halo)
@@ -499,7 +585,8 @@ def countdown(b, i, work, picks, ctx=None):
                         "-c:v", "libx264", "-crf", "20", "-preset", "medium", "-r", str(FPS),
                         "-c:a", "aac", "-ar", "48000", "-ac", "2", raw], check=True)
         if m:  # thinking face while the viewer guesses
-            overlay_mascot(raw, ("think",) + m[1:], [], COUNT_S, f"{work}/m{i:02d}_c{c}", seg, pop=c == 3)
+            overlay_mascot(raw, ("think",) + m[1:], [], COUNT_S, f"{work}/m{i:02d}_c{c}", seg, pop=c == 3,
+                           enter=c == 3, exit=c == 1)
         segs.append(seg)
     return segs
 
@@ -541,17 +628,25 @@ SFX = {  # synthesized, so there is nothing to license
 }
 
 
-def overlay_mascot(raw, m, words, dur, frames_dir, seg, pop=True, seed=0):
-    """Composite a talking Meatball (mascot.animate frames at 15 fps) over a rendered segment. He sits
-    outside the zoom, so the background moves while he stays put and keeps talking."""
+def overlay_mascot(raw, m, words, dur, frames_dir, seg, pop=True, seed=0, enter=True, exit=True):
+    """Composite a talking Meatball (mascot.animate, 30 fps, full transparent frames) over a rendered
+    segment. He sits outside the zoom, so the background moves while he keeps acting. m = (pose, size, pos)
+    or (pose, size, pos, extra): extra["layouts"] = [(start s, layout)] cuts his framing on shot changes,
+    extra["ass"] burns captions on top of him. enter/exit=False carries a pose across segments."""
     import mascot
-    pose, size, pos = m
+    pose, size, pos = m[:3]
+    extra = m[3] if len(m) > 3 else {}
+    layouts = extra.get("layouts") or [(0.0, dict(extra, size=size, pos=pos))]
+    sched = [dict(t=t, size=l["size"], pos=l["pos"], push=l.get("push", 0.0), anchor=l.get("anchor", (500, 360)),
+                  shadow=l.get("shadow", False)) for t, l in layouts]
+    content = layouts[0][1].get("content", (0.94, -0.34))
     shutil.rmtree(frames_dir, ignore_errors=True)
-    mascot.animate(pose, size, words, dur, 15, frames_dir, seed=seed, pop=pop)
-    pad = int(size * 0.25)
-    subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", raw, "-framerate", "15", "-i", f"{frames_dir}/%04d.png",
-                    "-filter_complex", f"[1:v]fps={FPS}[m];[0:v][m]overlay={pos[0] - pad}:{pos[1] - pad}:eof_action=repeat,format=yuv420p",
-                    "-c:v", "libx264", "-crf", "20", "-preset", "medium", "-c:a", "copy", seg], check=True)
+    mascot.animate(pose, size, words, dur, FPS, frames_dir, seed=seed, enter=enter, exit=exit, content=content,
+                   canvas=(W, H), layout=sched, glow=extra.get("glow"))
+    vf = f"[0:v][1:v]overlay=0:0:eof_action=repeat" + (f",ass={extra['ass']}" if extra.get("ass") else "") + ",format=yuv420p"
+    subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", raw, "-framerate", str(FPS), "-i", f"{frames_dir}/%04d.png",
+                    "-filter_complex", vf, "-c:v", "libx264", "-crf", "20", "-preset", "medium", "-c:a", "copy", seg],
+                   check=True)
     shutil.rmtree(frames_dir, ignore_errors=True)
     os.remove(raw)
 
@@ -594,11 +689,16 @@ def render_shots(b, i, work, picks, mp3, dur, seg, loop_in, loop_out):
     frames = int(dur * FPS)
     bounds = _shot_frames(b, words, frames)
     vis = shots(b)
-    m, inputs, chains, holds = None, [], [], []
+    m, inputs, chains, holds, layouts = None, [], [], [], []
     k_ = 0.0012  # zoom per frame: about 3.6% a second, visible but calm
+    prev = PREV_KIND[0]
     for k, sb in enumerate(vis):
         img = f"{work}/frame{i:02d}s{k}.png"
-        mk = compose(sb, i, work, picks, img)
+        kind = shot_kind(sb, prev, first=(loop_in and k == 0) or (loop_out and k == len(vis) - 1)) if ANIMATE else None
+        prev = kind
+        mk = compose(dict(sb, _kind=kind), i, work, picks, img)
+        if mk:
+            layouts.append((bounds[k] / FPS, mk[3] if len(mk) > 3 else dict(size=mk[1], pos=mk[2])))
         m = m or mk
         d = max(1, bounds[k + 1] - bounds[k])
         holds.append(d / FPS)
@@ -612,8 +712,14 @@ def render_shots(b, i, work, picks, mp3, dur, seg, loop_in, loop_out):
         chains.append(f"[{k}:v]scale={W * 2}:{H * 2}:flags=lanczos,zoompan=z='{z}':x='iw/2-(iw/zoom/2)':"
                       f"y='ih/2-(ih/zoom/2)':d={d}:s={W}x{H}:fps={FPS},trim=end_frame={d},setpts=PTS-STARTPTS[v{k}]")
     n = len(vis)
+    PREV_KIND[0] = prev
     vf = ";".join(chains) + ";" + "".join(f"[v{k}]" for k in range(n)) + f"concat=n={n}:v=1:a=0"
-    if H > W and not any("text" in x for x in vis):  # muted viewers: captions on every non-card line
+    if m and len(m) > 3:  # placed Meatball: captions go on top of him, positioned per shot
+        cap = None
+        if H > W and not any("text" in x for x in vis):
+            cap = _captions(words, f"{work}/cap{i:02d}.ass", [(t, l.get("cap", "")) for t, l in layouts])
+        m = m[:3] + ({"layouts": layouts, "ass": cap, "glow": _glow(b)},)
+    elif H > W and not any("text" in x for x in vis):  # muted viewers: captions on every non-card line
         from facts import captions
         ass = f"{work}/cap{i:02d}.ass"
         captions(words, ass)
@@ -632,6 +738,44 @@ def render_shots(b, i, work, picks, mp3, dur, seg, loop_in, loop_out):
                     "-map", "[aout]", "-t", f"{dur:.2f}", "-c:v", "libx264", "-crf", "20", "-preset", "medium",
                     "-c:a", "aac", "-ar", "48000", "-ac", "2", seg], check=True)
     return m, holds
+
+
+PREV_KIND = [None]  # the last framing used, so consecutive pictures alternate show/host
+
+
+def split_long(b, mp3):
+    """Vertical Shorts cut every ~1.5-2.5 s (research/41-stickman-reference): a photo shot longer than 2.6 s
+    is split on the word nearest its middle into two shots of the same picture, which then get different
+    framings (show / host). Loop tails are left alone so the seam frame stays exact."""
+    if not (ANIMATE and H > W and not PUNCH) or b.get("loop") or ("photo" not in b and "shots" not in b):
+        return b
+    words = json.load(open(mp3 + ".words.json")) if os.path.exists(mp3 + ".words.json") else []
+    if not words:
+        return b
+    raw = b.get("shots") or [{k: b[k] for k in VISUAL if k in b}]
+    total = int((duration(mp3) + 0.35 + float(b.get("hold", 0))) * FPS)
+    bounds = _shot_frames({"shots": raw}, words, total)
+    out = []
+    for k, sh in enumerate(raw):
+        out.append(sh)
+        a, z = bounds[k] / FPS, bounds[k + 1] / FPS
+        if "photo" not in sh or z - a <= 2.6:
+            continue
+        cands = [w for w in words if a + 1.0 <= w[0] <= z - 1.0]
+        if cands:
+            w = min(cands, key=lambda w: abs(w[0] - (a + z) / 2))
+            out.append(dict({kk: vv for kk, vv in sh.items() if kk != "at"}, at=w[2]))
+    if len(out) == len(raw) and "shots" not in b:
+        return b
+    return dict({k: v for k, v in b.items() if k not in VISUAL}, shots=out)
+
+
+def _glow(b):
+    """Emotion glow for a line: the beat's "glow" (yellow warning, red danger, green good), else green
+    when a reveal opens on "True"."""
+    if b.get("glow"):
+        return b["glow"]
+    return "green" if b.get("say", "").lower().startswith("true") else None
 
 
 def gate(beats, holds):
@@ -656,9 +800,11 @@ def build(beats, work, out, picks, name, rate="+8%"):
         ctxs[-1] = dict(ctxs[-1], bg=ctxs[0].get("bg"))  # loop frame must match frame 0 exactly
     segs, holds = [], []
     looping = any(x.get("loop") for x in beats)
+    PREV_KIND[0] = None
     for i, b in enumerate(beats):
         img, mp3, seg = f"{work}/frame{i:02d}.png", vo_path(b, work, name, rate), f"{work}/seg{i:02d}.mp4"
         ctx = ctxs[i]
+        b = split_long(b, mp3)
         if "shots" in b:
             dur = duration(mp3) + 0.35 + float(b.get("hold", 0))
             raw = seg.replace(".mp4", "_raw.mp4")
@@ -670,7 +816,13 @@ def build(beats, work, out, picks, name, rate="+8%"):
                 os.replace(raw, seg)
             segs.append(seg)
             continue
-        m = compose(b, i, work, picks, img, ctx=ctx)
+        kind = None
+        if ANIMATE and not PUNCH:
+            kind = shot_kind(b, PREV_KIND[0], first=(looping and i == 0) or bool(b.get("loop")))
+            PREV_KIND[0] = kind
+        m = compose(dict(b, _kind=kind) if kind else b, i, work, picks, img, ctx=ctx)
+        if m and len(m) > 3:
+            m = m[:3] + (dict(m[3], glow=_glow(b)),)
         final, seg = seg, (seg.replace(".mp4", "_raw.mp4") if m else seg)
         dur = duration(mp3) + (0.15 if PUNCH else 0.35) + float(b.get("hold", 0))
         frames = int(dur * FPS)
@@ -699,7 +851,11 @@ def build(beats, work, out, picks, name, rate="+8%"):
         if PUNCH and ctx and ctx.get("verdict"):  # 6-frame screen shake as the stamp lands
             sh = f"crop={W - 24}:{H - 24}:x='12+12*sin(n*9)*lt(n,6)':y='12+12*cos(n*7)*lt(n,6)',scale={W}:{H},"
             vf = vf[:-len("format=yuv420p")] + sh + "format=yuv420p"
-        if H > W:  # Shorts are mostly watched muted: burn word-by-word captions on photo beats
+        top_cap = None
+        if H > W and m and len(m) > 3 and "text" not in b and "quiz" not in b:  # captions on top of Meatball
+            top_cap = _captions(json.load(open(mp3 + ".words.json")), f"{work}/cap{i:02d}.ass", [(0.0, m[3].get("cap", ""))])
+            m = m[:3] + (dict(m[3], ass=top_cap),)
+        if H > W and not top_cap:  # Shorts are mostly watched muted: burn word-by-word captions on photo beats
             if "text" not in b and "quiz" not in b:  # a quiz caption would read "FALSE" before the countdown
                 from facts import captions
                 ass = f"{work}/cap{i:02d}.ass"
