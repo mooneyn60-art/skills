@@ -141,7 +141,8 @@ def main():
         c = claim(q)
         release["shorts"].append({
             "myth": m, "file": f"{RAW}/{a.slug}/short-{m}.mp4",
-            "title": f"TRUE or FALSE: {c}? 🤔 #shorts"[:100],
+            # The question people search ("Can Porcupines Really Shoot Their Quills?"): search is our 2nd source.
+            "title": (q.get("short_title") or f"{c}? 🤔 TRUE or FALSE")[:100],
             "description": f"TRUE or FALSE? {c}. Guess before the timer, then comment if you got it right 👇 "
                            f"Full quiz episode on the channel.\n\n#shorts #trueorfalse #animalfacts #quiz\n\n"
                            f"Photos (iNaturalist): " + "; ".join(credit_lines(long_work, mb)) + f". {LICENSES}",

@@ -150,9 +150,9 @@ def _rounded(im, r=36):
     return out
 
 
-def _panel_image(path):
+def _panel_image(path, box=None):
     from PIL import Image, ImageFilter
-    px, py, pw, ph = PANEL
+    px, py, pw, ph = box or PANEL
     im = Image.open(path).convert("RGB")
     s = (max if COVER else min)(pw / im.width, ph / im.height)
     im = im.resize((int(im.width * s), int(im.height * s)), Image.LANCZOS)
@@ -190,6 +190,39 @@ def _panel_text(text, top_pad=0, punch=True):
         fill = SAUCE if punch and k == len(lines) - 1 and len(lines) > 1 else (17, 17, 17)
         d.text((px + (pw - w) / 2, y), line, font=font, fill=fill)
         y += size * 1.15
+    return layer
+
+
+def _quiz_short(statement, bg, count=None):
+    """Shorts quiz card: the animal's photo is on screen from frame one (a text-only opener lost 60% of
+    viewers in the first second), with the header and claim above it and the countdown on the photo."""
+    from PIL import Image, ImageDraw, ImageFont
+    layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    box = (60, 560, W - 120, 600)
+    layer.alpha_composite(_panel_image(bg, box))
+    d = ImageDraw.Draw(layer)
+    head = ImageFont.truetype(BOLD, 96)
+    label = "TRUE OR FALSE?"
+    d.text(((W - d.textlength(label, font=head)) / 2, 110), label, font=head, fill=SAUCE)
+    lines = statement.split("\n")
+    size = 112
+    while size > 70:
+        font = ImageFont.truetype(BOLD, size)
+        widths = [d.textlength(line, font=font) for line in lines]
+        if max(widths) < W - 100 and size * 1.12 * len(lines) < 330:
+            break
+        size -= 4
+    y = 235 + (330 - size * 1.12 * len(lines)) / 2
+    for line, w in zip(lines, widths):
+        d.text(((W - w) / 2, y), line, font=font, fill=(17, 17, 17))
+        y += size * 1.12
+    if count:
+        r = 110
+        cx, cy = W - 60 - r - 30, 560 + 600 - r - 30
+        d.ellipse([cx - r - 8, cy - r - 8, cx + r + 8, cy + r + 8], fill=(255, 255, 255))
+        d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=SAUCE)
+        f = ImageFont.truetype(BOLD, int(r * 1.3))
+        d.text((cx - d.textlength(str(count), font=f) / 2, cy - r * 0.78), str(count), font=f, fill=(255, 255, 255))
     return layer
 
 
@@ -367,6 +400,8 @@ def compose(beat, i, work, picks, out, count=None, ctx=None):
     canvas = Image.new("RGBA", (W, H), BG + (255,))
     if "photo" in beat:
         canvas.alpha_composite(_panel_image(photo(beat["photo"], beat.get("n", 0), work, beat.get("obs"))))
+    elif "quiz" in beat and H > W and (ctx or {}).get("bg"):
+        canvas.alpha_composite(_quiz_short(beat["quiz"], ctx["bg"], count))
     elif "quiz" in beat:
         canvas.alpha_composite(_panel_quiz(beat["quiz"], count))
     elif "text" in beat:
@@ -454,7 +489,7 @@ def overlay_mascot(raw, m, words, dur, frames_dir, seg, pop=True, seed=0):
 
 def build(beats, work, out, picks, name, rate="+8%"):
     voice(beats, work, name, rate)
-    ctxs = contexts(beats, work) if PUNCH else [None] * len(beats)
+    ctxs = contexts(beats, work) if PUNCH or H > W else [None] * len(beats)
     segs = []
     for i, b in enumerate(beats):
         img, mp3, seg = f"{work}/frame{i:02d}.png", vo_path(b, work, name, rate), f"{work}/seg{i:02d}.mp4"
@@ -485,7 +520,7 @@ def build(beats, work, out, picks, name, rate="+8%"):
                   f"[a][b]concat=n=2:v=1:a=0,format=yuv420p")
         else:
             vf = zp.format(w=W*2, h=H*2, z=z, d=frames, W=W, H=H, FPS=FPS) + ",format=yuv420p"
-        if ctx and ctx.get("verdict"):  # 6-frame screen shake as the stamp lands
+        if PUNCH and ctx and ctx.get("verdict"):  # 6-frame screen shake as the stamp lands
             sh = f"crop={W - 24}:{H - 24}:x='12+12*sin(n*9)*lt(n,6)':y='12+12*cos(n*7)*lt(n,6)',scale={W}:{H},"
             vf = vf[:-len("format=yuv420p")] + sh + "format=yuv420p"
         if H > W:  # Shorts are mostly watched muted: burn word-by-word captions on photo beats
@@ -499,7 +534,7 @@ def build(beats, work, out, picks, name, rate="+8%"):
                        else txt.replace("-1,1,7,3,5,0", "-1,1,7,3,2,700"))
                 open(ass, "w").write(txt)
                 vf += f",ass={ass}"
-        if ctx and ctx.get("verdict"):  # buzzer or ding under the reveal line
+        if PUNCH and ctx and ctx.get("verdict"):  # buzzer or ding under the reveal line
             audio = ["-f", "lavfi", "-i", SFX[ctx["verdict"]], "-filter_complex",
                      "[1:a]apad[v];[2:a]volume=0.8[s];[v][s]amix=inputs=2:duration=first:normalize=0[a]",
                      "-map", "0:v", "-map", "[a]"]
