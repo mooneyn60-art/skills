@@ -72,7 +72,7 @@ qualified views. Channel: subs, weekly long-form watch hours vs the 4,000 h pace
   - SFX under the voice
   - a joke or escalation every 4-6 s
 - **Length:** 20-25 s on YouTube. TikTok deep dives run 61-75 s.
-- **Voice:** Bill on YouTube Shorts; Kokoro C on TikTok-only videos.
+- **Voice (Nolan, 10/24):** v3 Shorts and TikToks use the prototype voice, edge-tts en-US-AndrewMultilingualNeural at +10%. Nolan preferred it to Bill on v3, and it's free. Bill is retired from v3.
 - **ONLY v3 Shorts and TikToks get posted (Nolan, 10/24).**
   - Every queued non-v3 Short or TikTok is set to draft (held, never published) and replaced by v3 nearest-first.
   - An empty slot is better than an old-style post.
@@ -209,5 +209,5 @@ Rules from 10/30:
   - Used for long-forms and TikTok-only videos.
   - Runs locally at no cost, through `tools/free_voice.py`: lines are generated on demand, studio-processed (EQ, compression, loudness) and aligned with whisper.
   - The model files live in ~/.cache/kokoro.
-- **Bill (vidIQ credits) is for YouTube Shorts only**, while the credits we already have last.
+- **Bill is not used on v3 Shorts** (Nolan preferred the prototype voice). vidIQ credits now go to research and packaging.
 - **No paid voices beyond the vidIQ credits we already have (Nolan, 10/24).** Bill runs until those credits are gone; no extra credits and no ElevenLabs. The free replacement is being tested: Chatterbox (open source, runs locally) with our own Meatball voice made from a Kokoro blend. Samples are in `research/39-voice-tests/`. One character, one voice is still the goal.
