@@ -21,3 +21,4 @@ Desk id: `packager`. Absorbs: Thumbnail Artist, Packager, SEO Specialist. Read t
 
 ## Lessons log (newest last; date, what happened, what we learned, the number)
 - 2026-10-24: desk created by merging the roles above.
+- 2026-10-24 (marketing desk, 35 credits): claim titles beat question titles again on 3 Shorts. Koala 79→84 and bats 84→92 (dropped "TRUE or FALSE") were updated in Metricool. Hippo 91→95 (+4) was kept because it missed the +5 bar. Log: data/title-tests.csv. vidIQ keyword "are koalas bears" <750/mo, but "koala bear" is 8.4K/mo, so put the common (wrong) phrase in a claim title.

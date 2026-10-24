@@ -24,3 +24,4 @@ Desk id: `postmaster`. Absorbs: Scheduler, Distributor, Connector, Ambassador. R
 
 ## Lessons log (newest last; date, what happened, what we learned, the number)
 - 2026-10-24: desk created by merging the roles above.
+- 2026-10-24 (marketing desk): getBrandSettings shows only TikTok (MeatballMyths) and YouTube are connected, with no IG/Pinterest/Threads, so I reminded Nolan. Metricool updateScheduledPost worked for YouTube-only Shorts when I sent the full post without twitterData/instagramData. The response re-adds them, which is harmless. New ids: koala 405106378, bats 405106434. Two door-cam bear drafts (draft:true) still sit on the 10/25 and 10/26 4 PM YouTube slots. They won't publish, but delete them in the Metricool app to avoid accidents.

@@ -24,3 +24,6 @@ Desk id: `intel`. Absorbs: Analyst, Scout, Trend Hunter, Forecaster, Lab. Read t
 
 ## Lessons log (newest last; date, what happened, what we learned, the number)
 - 2026-10-24: desk created by merging the roles above.
+- 2026-10-24 (marketing desk): vidiq_trending_videos (Shorts, vph, after 10/17) with titleQuery "animal facts myths" returned 0 videos at 0 credits; "animal facts" returned 15 (5 credits). Use 1-2 word titleQueries. Top risers: VN danger Shorts (decapitated snake still bites 898K/19K subs, 101 s), lioness-saves-cub story (632K/34K, 163 s), FurrFact "Animals No Animal Dares to Hunt" (306K, 95 s). 90-160 s English and Vietnamese lead vph again.
+- 2026-10-24 forecast: all six 10/25-10/26 YouTube Shorts still open on the "True or false?" quiz card (no animal at frame 0), so the hook test can't separate them; ranked by topic class instead. Both originals (shrimp, tiger) already hold the 1 PM slots. Score these in data/forecasts.csv on 10/27-10/28.
+- tiktok_music_trending (tiktok-correct5): 0 tracks again (7DAY). Third empty pull, so stop retrying until Nolan confirms the connector is the Business/CML account.
