@@ -96,3 +96,13 @@ qualified views. Channel: subs, weekly long-form watch hours vs the 4,000 h pace
   - The saved production time goes into Shorts v2 and series.
 - **Shorts and TikToks:** cadence unchanged. 3 YouTube Shorts a day; 4 TikToks a day.
 - **Series slot:** "Would Meatball Survive?" takes the 1 PM YouTube Short slot once the new rig is approved (experiment E6).
+
+## Narrator voice (Nolan, 10/24): Bill
+- **Shorts:** every new Short uses `"voice": "vidiq:pqHfZKP75CvOlQylNhV4"` (vidIQ premium voice "Bill - Wise, Mature, Balanced").
+- **Generating Bill's audio:**
+  1. Run `tools/premium_voice.py prep SCRIPT OUTDIR`.
+  2. Send each chunk to `vidiq_voiceover_generate` and save the MP3 as `chunk-NN.mp3`.
+  3. Run `premium_voice.py split SCRIPT OUTDIR`, then render.
+  4. If a render stops on missing lines (hooks and loop lines built at render time), run `prep-missing VOICE OUTDIR`, voice them, split, and render again.
+- **Cost:** about 14 vidIQ credits per Short.
+- **Long-form:** stays on en-US-AndrewMultilingualNeural until Nolan decides on more credits or an ElevenLabs plan. Bill on everything is the goal: one character, one voice.

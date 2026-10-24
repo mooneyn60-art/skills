@@ -22,6 +22,7 @@ import json
 import os
 import shutil
 import subprocess
+import sys
 import urllib.parse
 import urllib.request
 
@@ -133,6 +134,22 @@ def vo_path(b, work, name, rate):
 def voice(beats, work, name, rate="+8%"):
     from facts import speak  # reuse the proxy-aware, retrying TTS
     os.makedirs(f"{work}/vo", exist_ok=True)
+    if name.startswith("vidiq:"):
+        # Premium narrator: audio comes pre-cut from tools/premium_voice.py; never mix in another voice.
+        import shutil
+        import premium_voice as pv
+        missing = [b["say"] for b in beats if not pv.cached(name, b["say"])]
+        if missing:
+            os.makedirs(pv.CACHE, exist_ok=True)
+            with open(f"{pv.CACHE}/missing.txt", "a") as f:
+                f.writelines(json.dumps({"voice": name, "say": t}) + "\n" for t in missing)
+            sys.exit(f"premium voice: {len(missing)} line(s) not voiced yet; run premium_voice.py prep-missing")
+        for b in beats:
+            src = pv.cached(name, b["say"])
+            mp3 = vo_path(b, work, name, rate)
+            shutil.copy(src, mp3)
+            shutil.copy(src + ".words.json", mp3 + ".words.json")
+        return
     for b in beats:
         mp3 = vo_path(b, work, name, rate)
         if not os.path.exists(mp3) or not os.path.exists(mp3 + ".words.json"):
