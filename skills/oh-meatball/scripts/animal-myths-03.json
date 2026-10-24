@@ -37,13 +37,35 @@
  "pinned": "📝 SCORE CHECK: how many did you get out of 12? 👇\n\nAnswer key: TRUE = river sharks + Nemo's dad. Everything else was FALSE.\n\nWhich movie lied to YOU the most? Comment it.",
  "beats": [
   {
-   "say": "Jaws, The Lion King, Finding Nemo and Bambi all taught you animal facts. Most of them are wrong. Two are true. Can you spot them? I couldn't. I'm made of sticks.",
+   "say": "Jaws taught you sharks hunt people.",
    "pose": "shock",
-   "text": "JAWS & DISNEY\nLIED TO YOU",
+   "photo": "Carcharodon carcharias",
+   "obs": 339695873,
    "myth": "intro"
   },
   {
-   "say": "You get three seconds to guess true or false. Keep score, and tell me your number out of twelve at the end. No cheating. I can see you. Okay, I can't. But act like I can. First up, sharks.",
+   "say": "The Lion King taught you hyenas are thieves.",
+   "pose": "point",
+   "photo": "Crocuta crocuta",
+   "obs": 300659865,
+   "myth": "intro"
+  },
+  {
+   "say": "Finding Nemo and Bambi taught you the rest.",
+   "pose": "think",
+   "photo": "Amphiprion ocellaris",
+   "obs": 205281410,
+   "myth": "intro"
+  },
+  {
+   "say": "Most of it is wrong. Two are true. Can you spot them? I couldn't. I'm made of sticks.",
+   "pose": "shrug",
+   "photo": "Odocoileus virginianus",
+   "obs": 119644833,
+   "myth": "intro"
+  },
+  {
+   "say": "Three seconds to guess each one. Keep score, and tell me your number out of twelve at the end. No cheating. I can see you. Okay, I can't. First up, sharks.",
    "pose": "point",
    "text": "3 SECONDS.\nKEEP SCORE.",
    "myth": "intro"
