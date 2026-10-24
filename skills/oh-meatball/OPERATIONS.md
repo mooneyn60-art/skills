@@ -29,7 +29,7 @@ taps. This file is the team, the daily routine, the numbers we steer by, and the
 | 08:13 | Production: inbox, build the episode for 2 days out, fill the queue | episode + 3 Shorts + 3 TikToks queued 2 days ahead |
 | 18:41 | Review: stats, analytics, rivals, HQ report, next topics | HQ Daily report + rivals, backlog updated |
 
-Cadence: episode 10:30 AM; YouTube Shorts 10:50 AM, 1 PM and 4 PM (from the newest episode that is
+Cadence: one long-form a day at 10:30 AM (Saturdays: the "Meatball Explains" history episode instead of a myth episode, never both); YouTube Shorts 10:50 AM, 1 PM and 4 PM (from the newest episode that is
 already live, so Related video can point at it); TikToks 10 AM, 12 PM, 6 PM (Metricool best-time data for our TikTok audience, checked 2026-10-23), each over 60 s.
 
 ## Numbers we steer by

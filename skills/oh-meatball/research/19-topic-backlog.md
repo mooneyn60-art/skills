@@ -17,7 +17,7 @@ Photo rule: only taxa with plenty of live, unharmed, research-grade iNaturalist 
 "extinct" animals are often photographed dead or as specimens, so check the contact sheet before
 committing a myth to a script.
 
-## Series 2: "Meatball Explains" (animal history), every Saturday from 10/31
+## Series 2: "Meatball Explains" (animal history): Saturdays at 10:30 AM, in place of that day's myth episode (Nolan, 10/24: one long-form a day)
 Search demand checked 2026-10-23 (yt-dlp search, top results): "history of dogs" 6.6M (PBS Eons) and
 3.9M (TED-Ed); "history of cats" 13.7M and 10.5M; "evolution of whales" 11.1M. Evergreen and
 search-driven, which is the traffic a new channel can win; the competition is PBS Eons and TED-Ed,
@@ -25,7 +25,7 @@ so our angle is the funny stick-figure version with 3-4 TRUE/FALSE checkpoints t
 
 | # | Episode | Status |
 |---|---|---|
-| S2-1 | How Wolves Became Dogs (the full story, kind of) | done, posts Sat 10/24 5:30 PM |
+| S2-1 | How Wolves Became Dogs (the full story, kind of) | done, posts Sat 10/24 10:30 AM |
 | S2-2 | How Cats Domesticated Themselves | next, Sat 10/31 |
 | S2-3 | When Whales Had Legs | queued |
 | S2-4 | How Chickens Took Over the World | queued |
