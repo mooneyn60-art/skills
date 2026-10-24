@@ -3,7 +3,8 @@
 
 Usage: mascot.py OUTDIR            -> renders every pose to OUTDIR/<pose>.png (+ sheet.png)
        from mascot import draw; draw("point", 600) -> RGBA PIL image
-Poses: neutral, point, shock, think, laugh, shrug, facepalm, wave
+Poses: neutral, point, shock, think, laugh, shrug, facepalm, wave, deadpan, nervous
+Props (drawn beside him, never animated): prop("fork", height)
 """
 import math
 import os
@@ -28,6 +29,9 @@ POSES = {
     "shrug":    {"l": [(400, 560), (360, 500)], "r": [(600, 560), (640, 500)], "mouth": "flat", "brow": "up"},
     "facepalm": {"l": [(430, 640), (410, 720)], "r": [(600, 520), (510, 350)], "mouth": "frown", "brow": None},
     "wave":     {"l": [(430, 640), (410, 720)], "r": [(620, 470), (680, 360)], "mouth": "smile", "brow": None},
+    # Showrunner persona (research/39): half-lidded and unimpressed; and food-anxious, hands clasped, one sweat drop.
+    "deadpan":  {"l": [(430, 640), (410, 720)], "r": [(570, 640), (590, 720)], "mouth": "flat", "brow": "lid"},
+    "nervous":  {"l": [(440, 620), (485, 600)], "r": [(560, 620), (515, 600)], "mouth": "wobble", "brow": "worry"},
 }
 HEAD_C, HEAD_R = (500, 360), 150
 
@@ -63,6 +67,17 @@ def _face(d, mouth, brow, look=(0, 0)):
     if brow == "up":
         for ex in (-48, 48):
             d.arc([cx + ex - 28, cy - 62, cx + ex + 28, cy - 22], 200, 340, fill=INK, width=9)
+    elif brow == "lid":  # upper lids drawn down over half of each eye: the deadpan look
+        for ex in (-48, 48):
+            d.chord([cx + ex - 27, cy - 33, cx + ex + 27, cy + 23], 180, 360, fill=MEAT, outline=INK, width=6)
+            d.line([(cx + ex - 26, cy - 5), (cx + ex + 26, cy - 5)], fill=INK, width=8)
+    elif brow == "worry":  # inner ends raised, plus one sweat drop
+        d.line([(cx - 76, cy - 40), (cx - 24, cy - 56)], fill=INK, width=9)
+        d.line([(cx + 24, cy - 56), (cx + 76, cy - 40)], fill=INK, width=9)
+        sx, sy = cx + 178, cy - 40
+        d.polygon([(sx, sy - 58), (sx - 27, sy), (sx + 27, sy)], fill=(120, 190, 240, 255), outline=INK, width=6)
+        d.ellipse([sx - 28, sy - 22, sx + 28, sy + 34], fill=(120, 190, 240, 255), outline=INK, width=6)
+        d.polygon([(sx, sy - 52), (sx - 21, sy - 4), (sx + 21, sy - 4)], fill=(120, 190, 240, 255))
     elif brow == "tilt":
         d.line([(cx - 76, cy - 44), (cx - 24, cy - 34)], fill=INK, width=9)
         d.line([(cx + 22, cy - 50), (cx + 76, cy - 58)], fill=INK, width=9)
@@ -76,6 +91,9 @@ def _face(d, mouth, brow, look=(0, 0)):
     elif mouth == "laugh":
         d.chord([cx - 55, my - 30, cx + 55, my + 45], 0, 180, fill=INK)
         d.chord([cx - 30, my + 5, cx + 30, my + 40], 0, 180, fill=SAUCE)
+    elif mouth == "wobble":
+        pts = [(cx - 36 + 9 * k, my + 8 + (6 if k % 2 else -6)) for k in range(9)]
+        d.line(pts, fill=INK, width=8, joint="curve")
     elif mouth == "frown":
         d.arc([cx - 40, my, cx + 40, my + 50], 200, 340, fill=INK, width=10)
     else:
@@ -109,11 +127,12 @@ def draw(pose="neutral", size=600, mouth=None, blink=False, arms=None, look=(0, 
     return im.resize((size, size), Image.LANCZOS)
 
 
-TALK = {"talk": "o", "o": "talk", "laugh": "talk", "smile": "talk", "flat": "talk", "frown": "o"}
+TALK = {"talk": "o", "o": "talk", "laugh": "talk", "smile": "talk", "flat": "talk", "frown": "o", "wobble": "o"}
 
 
 SWAP = {"point": "shrug", "shock": "shrug", "think": "point", "laugh": "point", "shrug": "point",
-        "facepalm": "shrug", "wave": "point", "neutral": "point"}  # second pose always has open hands
+        "facepalm": "shrug", "wave": "point", "neutral": "point",  # second pose always has open hands
+        "deadpan": "deadpan", "nervous": "nervous"}  # persona poses hold: the face is the joke
 
 
 def _gesture(t, words, phase):
@@ -154,7 +173,7 @@ def animate(pose, size, words, dur, fps, outdir, seed=0, pop=True):
         blink = any(b <= t < b + 0.12 for b in blink_at)
         still = HAND_ON_FACE.get(pose, "")
         arms = {side: _gesture(t, words, ph) for side, ph in (("l", 0.0), ("r", 2.4)) if side != still}
-        if pose == "shock":  # both hands on the cheeks: small shakes only
+        if pose in ("shock", "nervous"):  # hands on the cheeks or clasped: small shakes only
             arms = {k: (v[0] // 3, v[1] // 3) for k, v in arms.items()}
         key = (pose, mouth, blink, tuple(sorted(arms.items())))
         if key not in cache:
@@ -168,6 +187,24 @@ def animate(pose, size, words, dur, fps, outdir, seed=0, pop=True):
         canvas.alpha_composite(cache[key], (pad, pad))
         canvas.save(f"{outdir}/{f:04d}.png")
     return n
+
+
+def prop(name, height):
+    """A still prop that stands beside Meatball (RGBA, `height` px tall). The fork is the show's silent
+    running gag: it turns up, upright and unexplained, whenever a line is about eating (research/39)."""
+    im = Image.new("RGBA", (300, 1000), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    if name == "fork":
+        steel, hi = (196, 200, 206, 255), (236, 238, 242, 255)
+        d.rounded_rectangle([118, 430, 182, 980], 30, fill=steel, outline=INK, width=12)       # handle
+        d.polygon([(70, 300), (230, 300), (190, 450), (110, 450)], fill=steel, outline=INK)     # neck
+        d.line([(70, 300), (110, 450), (190, 450), (230, 300)], fill=INK, width=12)
+        for x in (70, 123, 177, 230):                                                          # tines
+            d.rounded_rectangle([x - 16, 40, x + 16, 320], 16, fill=steel, outline=INK, width=10)
+        d.rounded_rectangle([136, 500, 152, 900], 8, fill=hi)                                  # shine
+    else:
+        raise ValueError(f"unknown prop {name}")
+    return im.resize((int(300 * height / 1000), height), Image.LANCZOS)
 
 
 if __name__ == "__main__":

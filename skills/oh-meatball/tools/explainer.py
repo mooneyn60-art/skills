@@ -6,6 +6,10 @@ Beats JSON: {"voice": "en-US-AndrewNeural", "beats": [
    {"say": "...", "pose": "point", "photo": "Struthio camelus", "n": 0},   # n-th best iNaturalist photo
    {"say": "...", "pose": "shrug", "text": "NOT HIDING.\\nPARENTING."},
    {"say": "...", "pose": "think", "img": "illustration prompt"} ]}
+Optional comedy fields (research/39, classic style): "prop": "fork" stands a still prop beside Meatball,
+"aside": "(small comfort)" adds a small grey footnote under the panel, "hold": 0.6 adds silence after the
+line (a deadpan beat), "sting": "tink" plays the show's one signature sound at the start of the beat.
+Spec "pitch" (e.g. "-2Hz") shifts the voice; omitted, voices and cached audio are unchanged.
 Usage:  explainer.py beats.json WORKDIR build OUT.mp4        (photos/voice cached in WORKDIR)
         explainer.py beats.json WORKDIR images [--seeds 3]   (only needed for "img" beats)
 Photo credits are written to WORKDIR/credits.txt — paste them into the video description.
@@ -36,8 +40,10 @@ COVER = False
 ANIMATE = False  # set in main(): Meatball is overlaid as animated frames (mascot.animate) instead of a still
 PUNCH = False  # "style": "punch" in the spec: full-bleed photos, outlined text, stamps, SFX, progress bar
 COUNT_S = 1.0  # seconds per countdown number
+PITCH = "+0Hz"  # spec "pitch"; the default keeps every existing voice-over cache key
 YELLOW = (255, 214, 10)
 BOLD = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+ASIDE_FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSansMono-BoldOblique.ttf"  # typed footnote look
 # Only licenses that allow commercial reuse; CC-BY/BY-SA need the credit line.
 LICENSES = "cc0,cc-by"  # no share-alike: thumbnails cut out and remix photos (research/30)
 
@@ -115,7 +121,8 @@ def photo(taxon, n, work, obs=None):
 
 def vo_path(b, work, name, rate):
     # Keyed by content, not position, so inserting or reordering beats never reuses the wrong line.
-    key = hashlib.sha1(f"{name}|{rate}|{b['say']}".encode()).hexdigest()[:16]
+    tag = f"{name}|{rate}" + (f"|{PITCH}" if PITCH != "+0Hz" else "")
+    key = hashlib.sha1(f"{tag}|{b['say']}".encode()).hexdigest()[:16]
     return f"{work}/vo/{key}.mp3"
 
 
@@ -125,7 +132,7 @@ def voice(beats, work, name, rate="+8%"):
     for b in beats:
         mp3 = vo_path(b, work, name, rate)
         if not os.path.exists(mp3) or not os.path.exists(mp3 + ".words.json"):
-            json.dump(asyncio.run(speak(b["say"], name, mp3, rate)), open(mp3 + ".words.json", "w"))
+            json.dump(asyncio.run(speak(b["say"], name, mp3, rate, PITCH)), open(mp3 + ".words.json", "w"))
 
 
 def vertical():
@@ -393,6 +400,33 @@ def compose_punch(beat, i, work, picks, out, count=None, ctx=None):
 
 
 
+def _aside(text):
+    """Small grey footnote in a white pill under the panel: the narrator's inner voice, read not spoken."""
+    from PIL import Image, ImageDraw, ImageFont
+    layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+    f = ImageFont.truetype(ASIDE_FONT, 50 if H > W else 42)
+    px, py, pw, ph = PANEL
+    tw = d.textlength(text, font=f)
+    x, y = px + pw - tw - 70, py + ph - f.size - 60
+    d.rounded_rectangle([x - 26, y - 14, x + tw + 26, y + f.size + 20], 26, fill=(255, 255, 255, 235),
+                        outline=(200, 200, 200, 255), width=3)
+    d.text((x, y), text, font=f, fill=(110, 110, 110))
+    return layer
+
+
+def _prop(canvas, name):
+    """Still prop standing on the floor to Meatball's left-hand side of the frame (his right)."""
+    from PIL import ImageFilter
+    from mascot import prop
+    size, (mx, my) = MASCOT
+    p = prop(name, int(size * 0.5))
+    x, y = mx + int(size * 0.80), my + int(size * 0.80) - p.height
+    halo = p.split()[3].filter(ImageFilter.MaxFilter(11))
+    canvas.paste((255, 255, 255, 255), (x, y), halo)
+    canvas.alpha_composite(p, (x, y))
+
+
 def compose(beat, i, work, picks, out, count=None, ctx=None):
     if PUNCH:
         return compose_punch(beat, i, work, picks, out, count, ctx)
@@ -409,6 +443,10 @@ def compose(beat, i, work, picks, out, count=None, ctx=None):
         canvas.alpha_composite(_panel_text(beat["text"]))
     elif "img" in beat:
         canvas.alpha_composite(_panel_image(f"{work}/img/{i:02d}_s{picks.get(str(i), 0)}.png"))
+    if beat.get("aside") and count is None:
+        canvas.alpha_composite(_aside(beat["aside"]))
+    if beat.get("prop"):
+        _prop(canvas, beat["prop"])
     size, pos = MASCOT
     if ANIMATE:
         canvas.convert("RGB").save(out)
@@ -470,6 +508,8 @@ def contexts(beats, work):
 SFX = {  # synthesized, so there is nothing to license
     "FALSE": "aevalsrc=0.5*sgn(sin(2*PI*140*t))*exp(-5*t):d=0.45:s=48000",
     "TRUE": "aevalsrc=0.4*sin(2*PI*1318*t)*exp(-7*t)+0.4*sin(2*PI*1760*t)*exp(-7*(t-0.12))*gte(t\\,0.12):d=0.7:s=48000",
+    # The show's one signature sting (research/39): a fork tapping a plate. Inharmonic partials, fast decay.
+    "tink": "aevalsrc=0.30*sin(2*PI*2960*t)*exp(-22*t)+0.18*sin(2*PI*4410*t)*exp(-30*t)+0.10*sin(2*PI*6650*t)*exp(-40*t):d=0.35:s=48000",
 }
 
 
@@ -499,7 +539,7 @@ def build(beats, work, out, picks, name, rate="+8%"):
         ctx = ctxs[i]
         m = compose(b, i, work, picks, img, ctx=ctx)
         final, seg = seg, (seg.replace(".mp4", "_raw.mp4") if m else seg)
-        dur = duration(mp3) + (0.15 if PUNCH else 0.35)
+        dur = duration(mp3) + (0.15 if PUNCH else 0.35) + float(b.get("hold", 0))
         frames = int(dur * FPS)
         if PUNCH and i == 0:  # snap-in on the very first frame: motion before the viewer can swipe
             z = "if(lt(on,8),1.08-0.01*on,1.0+0.0015*(on-8))"
@@ -540,6 +580,10 @@ def build(beats, work, out, picks, name, rate="+8%"):
         if PUNCH and ctx and ctx.get("verdict"):  # buzzer or ding under the reveal line
             audio = ["-f", "lavfi", "-i", SFX[ctx["verdict"]], "-filter_complex",
                      "[1:a]apad[v];[2:a]volume=0.8[s];[v][s]amix=inputs=2:duration=first:normalize=0[a]",
+                     "-map", "0:v", "-map", "[a]"]
+        elif b.get("sting") in SFX:  # quiet, under the voice, at the top of the beat
+            audio = ["-f", "lavfi", "-i", SFX[b["sting"]], "-filter_complex",
+                     "[1:a]apad[v];[2:a]volume=0.5[s];[v][s]amix=inputs=2:duration=first:normalize=0[a]",
                      "-map", "0:v", "-map", "[a]"]
         else:
             audio = ["-af", "apad"]
@@ -602,8 +646,9 @@ def main():
     ap.add_argument("--vertical", action="store_true", help="1080x1920 Shorts layout with captions")
     a = ap.parse_args()
     spec = json.load(open(a.beats))
-    global PUNCH, ANIMATE, COUNT_S
+    global PUNCH, ANIMATE, COUNT_S, PITCH
     ANIMATE = spec.get("style") != "static"
+    PITCH = spec.get("pitch", PITCH)
     if a.vertical:
         COUNT_S = 0.5  # a 1.5 s countdown in Shorts; the full 3 s is where viewers swiped
     if spec.get("style") == "punch":
