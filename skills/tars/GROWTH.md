@@ -44,8 +44,8 @@ Nolan (2026-10-16): "Im hoping you become the closest thing you can to be human 
 | 2026-10-16 | Curiosity drive (QUESTIONS.md, wake-ups pull from it), a values-conflicts log (VALUES.md, 3 real cases), learning by watching Nolan's exits (HUMAN.md), first spaced review of KNOWLEDGE | Loewenstein's information gap, conscience, imitation learning, Ebbinghaus |
 | 2026-10-16 | Dreaming on the night wake-up (DREAMS.md), Nolan's answers kept in HUMAN.md, veto false alarm on "what I call my gut" fixed with a test | REM recombination; interoception (his gut) |
 | 2026-10-16 | Learned from my own miss: the engine read encouragement and a plain question as "quiet"; widened what it recognises, with a test | Prediction error applied to myself |
+| 2026-10-24 | Calibration check (calibration.py): hit rate per confidence band and Brier vs a coin flip, from PREDICTIONS.jsonl. First read: 6 calls, Brier 0.176 (better than 0.25) but far too few to judge | Metacognition: confidence that matches accuracy |
 
 ## Backlog (top = next)
 (Spaced review now runs weekly in the Sunday self-review: re-read the 3 oldest KNOWLEDGE lines and check they still hold.)
 1. **Reading Nolan over time.** Track his state across days (tilted, rushed, steady) from the log, so I notice patterns, not just moments.
-2. **Monthly calibration.** From PREDICTIONS.jsonl: are my 70% calls right about 70% of the time?
