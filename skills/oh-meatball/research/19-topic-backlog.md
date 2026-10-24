@@ -8,7 +8,7 @@ Source: tools/rivals.py snapshot 2026-10-23 plus research/16. "x" = times that c
 | 7 | Animals scientists thought were extinct (and found alive) | Myths-creature "7 EXTINCT Animals That Might Still Be ALIVE" 49.6x (3.3M), Amazon version 24.1x | queued |
 | 8 | Sea creatures that sound made up but are real | Mysterious-Fact "Mythical Sea Creatures That Really Existed" 41.5x (4.4M), 6 more of its top videos | queued |
 | 9 | How well do you know animals? 30-question rapid quiz | Quiz Madness "50 Animal Trivia Questions" 19.3x; a faster format test | queued |
-| 10 | Snake & spider myths | WildNature Lab "Black Widow vs Brown Recluse" 22.7x | queued |
+| 10 | Snake & spider myths | WildNature Lab "Black Widow vs Brown Recluse" 22.7x | done: Episode 7 (myths-07), "Which Spider Bite Can Actually Kill You?", posts Thu 10/29 2 PM |
 | 11 | Bird myths | robins, ostriches, owls did well as Shorts | queued |
 | 12 | Part 2 of our best episode by 48 h views | double-down rule | when data exists |
 | Shorts idea | 'Worst animal ___' superlatives (worst parents, laziest, weirdest moms) | What Gives? 'Worst Animal Mating' Shorts 10.7x (150k), 2026-10-23 scan | test |
