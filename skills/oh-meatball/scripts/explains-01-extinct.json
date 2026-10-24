@@ -1,0 +1,431 @@
+{
+ "title": "Animals Thought Extinct Found Alive (One Was Hiding on a Rock for 80 Years)",
+ "title_candidates": [
+  "Animals Thought Extinct Found Alive (One Was Hiding on a Rock for 80 Years)",
+  "Animals Scientists Thought Were Extinct (But Then Found Alive)",
+  "Extinct Animals Found Alive: The Fish Older Than Dinosaurs"
+ ],
+ "rate": "+4%",
+ "short_rate": "+4%",
+ "pitch": "-3Hz",
+ "voice": "en-US-AndrewMultilingualNeural",
+ "music": "music/quiz-bed.m4a",
+ "style": "classic",
+ "names": {
+  "Latimeria chalumnae": "Coelacanth",
+  "Porphyrio hochstetteri": "Takahē",
+  "Mustela nigripes": "Black-footed ferret",
+  "Cynomys ludovicianus": "Black-tailed prairie dog",
+  "Dryococelus australis": "Lord Howe Island stick insect",
+  "Ball's Pyramid": "Ball's Pyramid"
+ },
+ "blurb": "Animals thought extinct, found alive. A fish that was supposed to have died with the dinosaurs, a coelacanth found at a fish market on a honeymoon, a bird that hid for 50 years, a ferret rediscovered by a ranch dog named Shep, and a giant insect hiding on a sea cliff for 80 years. Meatball tells the whole story.\n\nWhich extinct animal would you bring back? Best answer gets read out next time 👇",
+ "next": "New Meatball every Tuesday and Saturday. Tuesday: another weird true story.",
+ "tags": [
+  "animals thought extinct found alive",
+  "extinct animals found alive",
+  "animals scientists thought were extinct",
+  "extinct animals that were found alive",
+  "lazarus species",
+  "coelacanth",
+  "living fossil",
+  "takahe",
+  "black footed ferret",
+  "lord howe island stick insect",
+  "tree lobster",
+  "balls pyramid",
+  "Meatball Explains",
+  "Meatball Myths"
+ ],
+ "hashtags": "#extinctanimals #coelacanth #animalfacts #meatballexplains",
+ "pinned": "Which extinct animal would you bring back, and why? 🦤 Best answer gets read out in the next episode 👇",
+ "_note": "Meatball Explains #1 in the post-quiz format (Showrunner, 2026-10-24; research/42: no checkpoints). One story: four 'extinct' animals found alive, stick insect payoff promised in the first 12 s and delivered last. vidIQ 10/24: 'animals thought extinct found alive' ~4.6K/mo comp 49, 'extinct animals found alive' 8.7K/mo comp 43; title scored 97 (alts 89, 84). Shorts = hook groups (fish, honeymoon, takahe, ferret, insect, zoo); everything else is tagged intro so it neither makes a Short nor a chapter. Photos: iNaturalist CC BY/CC0 wild obs for takahē/ferret/prairie dog; coelacanth from Openverse (one live wild CC BY video still, plus CC BY museum specimen/model/fossil); stick insect from Museums Victoria CC BY dry specimens (no CC BY/CC0 live wild photo exists); Ball's Pyramid CC BY Flickr.",
+ "sources": [
+  "Coelacanth 1938 (Courtenay-Latimer, Goosen trawler, J.L.B. Smith; thought extinct ~66 Myr): https://www.lindahall.org/about/news/scientist-of-the-day/marjorie-courtenay-latimer/ ; https://www.pbs.org/wgbh/nova/fish/letters.html ; https://en.wikipedia.org/wiki/West_Indian_Ocean_coelacanth",
+  "Coelacanth ~100-year lifespan, ~5-year gestation estimate (Mahé et al. 2021, Current Biology): https://www.livescience.com/coelacanths-may-live-to-100.html",
+  "Indonesian coelacanth, Erdmann & Arnaz Mehta, Manado market Sept 1997: https://newsarchive.berkeley.edu/news/magazine/summer_99/discoveries_coelacanth.html ; https://en.wikipedia.org/wiki/Indonesian_coelacanth",
+  "Takahē presumed extinct 1898 (last caught by a dog), rediscovered 20 Nov 1948 by Dr Geoffrey Orbell after footprints, ~500 birds 2023: https://en.wikipedia.org/wiki/South_Island_takah%C4%93 ; https://blog.doc.govt.nz/2018/11/20/the-rediscovery-of-the-takehe-seventy-years-on/",
+  "Black-footed ferret declared extinct 1979, Shep/Hogg ranch Meeteetse 26 Sept 1981, 18 captured 1985-87, Elizabeth Ann clone Dec 2020 from Willa: https://wyofile.com/?p=57693 ; https://nationalzoo.si.edu/animals/news/black-footed-ferrets-top-milestones-species-once-presumed-extinct ; https://en.wikipedia.org/wiki/Black-footed_ferret",
+  "Lord Howe Island stick insect: rats from SS Makambo 1918, gone by ~1920, 2001 Priddel & Carlile night search found 24 under one Melaleuca, 2003 two pairs (Melbourne pair Adam & Eve), thousands bred: https://en.wikipedia.org/wiki/Dryococelus_australis ; https://www.australiangeographic.com.au/topics/wildlife/2016/01/from-extinct-to-13000-hatchlings ; https://www.zoo.org.au/melbourne/whats-on/news/breeding-milestone-for-rare-australian-insects/",
+  "Lord Howe rodent eradication 2019: https://www.nationalgeographic.com/premium/article/rodents-rats-eradicated-tropical-paradise-australia-island"
+ ],
+ "beats": [
+  {
+   "say": "This insect was declared extinct. Rats ate every last one on its island. Eighty years later, it turned up alive, on a rock in the middle of the ocean. That story's at the end. You will not love its face.",
+   "pose": "shock",
+   "photo": "Dryococelus australis",
+   "obs": "ov:235fed8d-eb1d-4a48-9c9f-948cf446b993",
+   "myth": "intro",
+   "chapter": "Cold open"
+  },
+  {
+   "say": "This fish was supposed to have died out with the dinosaurs. A fishing boat pulled one up anyway.",
+   "pose": "deadpan",
+   "photo": "Latimeria chalumnae",
+   "obs": "ov:85249126-3904-4781-a79c-d1ee594c28cc",
+   "myth": "intro"
+  },
+  {
+   "say": "This bird vanished for fifty years.",
+   "pose": "think",
+   "photo": "Porphyrio hochstetteri",
+   "obs": 117531725,
+   "myth": "intro"
+  },
+  {
+   "say": "And this ferret came back from extinction because a farm dog called Shep brought one home.",
+   "pose": "laugh",
+   "photo": "Mustela nigripes",
+   "obs": 38159651,
+   "myth": "intro"
+  },
+  {
+   "say": "I'm Meatball. I narrate nature. Nature, frankly, keeps trying to eat me. Today: animals scientists thought were extinct, and how every one of them was found alive.",
+   "pose": "deadpan",
+   "photo": "Mustela nigripes",
+   "obs": 106845700,
+   "myth": "intro"
+  },
+  {
+   "say": "This fish died out with the dinosaurs. At least, that's what every scientist on Earth thought, until 1938.",
+   "pose": "deadpan",
+   "photo": "Latimeria chalumnae",
+   "obs": "ov:85249126-3904-4781-a79c-d1ee594c28cc",
+   "myth": "fish",
+   "hook": true,
+   "chapter": "The fish older than dinosaurs",
+   "loop_say": "I'm not saying textbooks are wrong. I'm just saying,",
+   "short_title": "The Fish That Was 'Extinct' for 66 Million Years 🐟",
+   "bonus": "Its genus, Latimeria, is named after the museum curator who spotted it.",
+   "comment": "Would you have recognised it? 👇"
+  },
+  {
+   "say": "It's called a coelacanth. Scientists only knew it from fossils like this one. Very flat. Not much of a swimmer.",
+   "pose": "point",
+   "photo": "Latimeria chalumnae",
+   "obs": "ov:24b90938-d2c7-43cd-9245-cd56d419641e",
+   "myth": "intro"
+  },
+  {
+   "say": "Then, in South Africa, a museum curator named Marjorie Courtenay-Latimer checked a fishing boat's catch and found a big blue fish with fins like little legs.",
+   "pose": "shock",
+   "photo": "Latimeria chalumnae",
+   "obs": "ov:adda736b-117d-4338-9893-21c5939ae7fa",
+   "myth": "fish"
+  },
+  {
+   "say": "A fish expert, James Smith, saw her sketch and confirmed it. A living coelacanth. Sixty six million years of being extinct, and it was just in the ocean, being a fish.",
+   "pose": "deadpan",
+   "photo": "Latimeria chalumnae",
+   "obs": "ov:2ddbb667-e0b4-4c2e-b419-1d15ecce3c9a",
+   "myth": "fish"
+  },
+  {
+   "say": "Not extinct. Just busy.",
+   "pose": "deadpan",
+   "text": "NOT EXTINCT.\nJUST BUSY.",
+   "myth": "fish",
+   "hold": 0.4
+  },
+  {
+   "say": "And it's a weird fish. It can grow as long as a grown-up person. Scientists now think coelacanths can live for about a hundred years, and may stay pregnant for five.",
+   "pose": "point",
+   "photo": "Latimeria chalumnae",
+   "obs": "ov:076b8453-8260-4d3a-9d28-63bfe9065654",
+   "myth": "intro"
+  },
+  {
+   "say": "Five years. Somewhere out there is a fish who has been expecting since before you got your phone.",
+   "pose": "laugh",
+   "text": "PREGNANT\nFOR 5 YEARS",
+   "myth": "intro",
+   "aside": "(estimated. still.)"
+  },
+  {
+   "say": "A biologist found a brand new species of coelacanth on his honeymoon. At a fish market. For sale.",
+   "pose": "deadpan",
+   "photo": "Latimeria chalumnae",
+   "obs": "ov:d3ac857f-c018-4f90-89fb-f92101af1857",
+   "myth": "honeymoon",
+   "hook": true,
+   "chapter": "The honeymoon fish",
+   "loop_say": "Most people bring home a fridge magnet. Meanwhile,",
+   "short_title": "He Found a 'Dinosaur Fish' on His Honeymoon 🐟",
+   "bonus": "A second Indonesian coelacanth was caught by local fishermen in July 1998.",
+   "comment": "What's the weirdest thing you've brought home from a trip? 👇"
+  },
+  {
+   "say": "It was 1997, in Indonesia. Mark Erdmann and his wife Arnaz were walking through a market when she noticed a strange, big fish on a cart.",
+   "pose": "point",
+   "photo": "Latimeria chalumnae",
+   "obs": "ov:85249126-3904-4781-a79c-d1ee594c28cc",
+   "myth": "honeymoon"
+  },
+  {
+   "say": "He knew that face right away. It was a coelacanth, on the far side of the Indian Ocean from the first ones. Scientists later named it a separate species.",
+   "pose": "shock",
+   "photo": "Latimeria chalumnae",
+   "obs": "ov:2ddbb667-e0b4-4c2e-b419-1d15ecce3c9a",
+   "myth": "honeymoon"
+  },
+  {
+   "say": "For the record, it was at a market. For sale. To eat. I would like everyone to sit with that.",
+   "pose": "nervous",
+   "myth": "honeymoon",
+   "prop": "fork",
+   "hold": 0.5,
+   "aside": "(a fish market is not a museum)",
+   "sting": "tink"
+  },
+  {
+   "say": "This bird was declared extinct in 1898. Fifty years later, a doctor followed some footprints up a mountain in New Zealand, and found it.",
+   "pose": "think",
+   "photo": "Porphyrio hochstetteri",
+   "obs": 264618201,
+   "myth": "takahe",
+   "hook": true,
+   "chapter": "The bird gone for 50 years",
+   "loop_say": "Always check the tall grass. Because",
+   "short_title": "This Bird Was 'Extinct' for 50 Years 🐦",
+   "bonus": "Today there are around 500 takahē, and the number is slowly growing.",
+   "comment": "Would you have kept looking? 👇"
+  },
+  {
+   "say": "His name was Geoffrey Orbell. He'd seen tracks like these, and he would not let it go.",
+   "pose": "point",
+   "photo": "Porphyrio hochstetteri",
+   "obs": 104985348,
+   "myth": "takahe"
+  },
+  {
+   "say": "In November 1948, in the Murchison Mountains, there they were. Takahē. A giant flightless swamphen with a beak like a pair of red garden shears.",
+   "pose": "shock",
+   "photo": "Porphyrio hochstetteri",
+   "obs": 16012852,
+   "myth": "takahe"
+  },
+  {
+   "say": "It mostly eats grass. Just grass. All day. Honestly, my favourite animal in this whole video.",
+   "pose": "laugh",
+   "photo": "Porphyrio hochstetteri",
+   "obs": 286750388,
+   "myth": "takahe",
+   "aside": "(threat to meatballs: none)"
+  },
+  {
+   "say": "Here's the sad twist. The last takahē anyone saw before it vanished, back in 1898, was caught by a dog.",
+   "pose": "think",
+   "photo": "Porphyrio hochstetteri",
+   "obs": 39664126,
+   "myth": "intro"
+  },
+  {
+   "say": "Dogs, one. Takahē, zero. Remember that score. It changes in a minute.",
+   "pose": "deadpan",
+   "text": "DOGS: 1\nTAKAHĒ: 0",
+   "myth": "intro"
+  },
+  {
+   "say": "Today there are around five hundred takahē, and the number is slowly going up. Slowly. They're not in a rush. They eat grass.",
+   "pose": "point",
+   "photo": "Porphyrio hochstetteri",
+   "obs": 56051419,
+   "myth": "intro"
+  },
+  {
+   "say": "This ferret was declared extinct in 1979. Two years later, a ranch dog in Wyoming named Shep brought one home.",
+   "pose": "shock",
+   "photo": "Mustela nigripes",
+   "obs": 38159651,
+   "myth": "ferret",
+   "hook": true,
+   "chapter": "The ferret a dog found",
+   "loop_say": "Give that dog a medal. Because",
+   "short_title": "A Dog Found This 'Extinct' Animal 🐾",
+   "bonus": "Biologists then found a colony of more than 100 black-footed ferrets near Meeteetse, Wyoming.",
+   "comment": "What's the weirdest thing your dog has brought home? 👇"
+  },
+  {
+   "say": "Shep's family didn't know what it was. A taxidermist did, and called wildlife officials.",
+   "pose": "think",
+   "photo": "Mustela nigripes",
+   "obs": 269704029,
+   "myth": "ferret"
+  },
+  {
+   "say": "Biologists searched the area and found a whole colony. More than a hundred black-footed ferrets, hiding in prairie dog towns.",
+   "pose": "point",
+   "photo": "Mustela nigripes",
+   "obs": 106845700,
+   "myth": "ferret"
+  },
+  {
+   "say": "So that's dogs back level. Shep found an endangered species. Most dogs find a sock.",
+   "pose": "laugh",
+   "text": "DOGS: 1\nEXTINCTION: 0",
+   "myth": "ferret"
+  },
+  {
+   "say": "Now. What do black-footed ferrets eat? Prairie dogs. Up to ninety percent of their diet. A mother with babies can get through hundreds of them a year.",
+   "pose": "nervous",
+   "photo": "Cynomys ludovicianus",
+   "obs": 201141639,
+   "myth": "intro"
+  },
+  {
+   "say": "Hundreds. Of something roughly my size. I'd like a short break.",
+   "pose": "nervous",
+   "myth": "intro",
+   "prop": "fork",
+   "hold": 0.5,
+   "aside": "(I'm fine)"
+  },
+  {
+   "say": "Then it went wrong. Disease tore through the colony. Between 1985 and 1987, biologists caught the last eighteen and moved them to safety.",
+   "pose": "think",
+   "photo": "Mustela nigripes",
+   "obs": 7990733,
+   "myth": "intro"
+  },
+  {
+   "say": "It worked. Ferrets bred in captivity have been released across the American West, and a few hundred live wild today. One was even cloned, in 2020, from cells frozen back in the 1980s.",
+   "pose": "point",
+   "photo": "Mustela nigripes",
+   "obs": 38159651,
+   "myth": "intro"
+  },
+  {
+   "say": "Frozen in the eighties. Back in 2020. Which is, coincidentally, how I feel about leftovers.",
+   "pose": "nervous",
+   "text": "FROZEN IN\nTHE '80s.\nBACK IN 2020.",
+   "myth": "intro",
+   "aside": "(not a snack)"
+  },
+  {
+   "say": "This insect was declared extinct after rats took over its island. Eighty years later, scientists found it clinging to a sea cliff, under one single bush.",
+   "pose": "shock",
+   "photo": "Dryococelus australis",
+   "obs": "ov:3ddb91a3-fe56-49fd-8c81-3b86595c2046",
+   "myth": "insect",
+   "hook": true,
+   "chapter": "The insect on the rock",
+   "loop_say": "I'm not saying climb a cliff at night. I'm just saying,",
+   "short_title": "This Insect Hid on a Rock for 80 Years 🪲",
+   "bonus": "The rock is Ball's Pyramid, about 23 km from Lord Howe Island, Australia.",
+   "comment": "Would you climb it at night? 👇"
+  },
+  {
+   "say": "The cliff is Ball's Pyramid. A spike of rock over five hundred metres tall, sticking out of the ocean near Lord Howe Island, Australia.",
+   "pose": "point",
+   "photo": "Ball's Pyramid",
+   "obs": "ov:93276609-0536-4aa1-a518-4f41bdcdd8ca",
+   "myth": "intro"
+  },
+  {
+   "say": "In 2001, two scientists, David Priddel and Nicholas Carlile, searched it. Under one bush, they found droppings. So they came back after dark, with flashlights.",
+   "pose": "think",
+   "photo": "Ball's Pyramid",
+   "obs": "ov:d0841da6-78aa-4dad-8c7b-cb7ceb10200b",
+   "myth": "insect"
+  },
+  {
+   "say": "And there they were. Twenty four Lord Howe Island stick insects. Each one about as long as your hand. Shiny, black, and known locally as the tree lobster.",
+   "pose": "shock",
+   "photo": "Dryococelus australis",
+   "obs": "ov:93eebb77-b6b7-4d89-9a24-723a8c343e5c",
+   "myth": "insect"
+  },
+  {
+   "say": "I promised you the face. There it is. The tree lobster. Finally, something with lobster in its name, and nobody's looking at me.",
+   "pose": "deadpan",
+   "photo": "Dryococelus australis",
+   "obs": "ov:235fed8d-eb1d-4a48-9c9f-948cf446b993",
+   "myth": "insect",
+   "aside": "(do not eat the tree lobster)"
+  },
+  {
+   "say": "How did it end up there? Nobody knows for sure. What we do know: in 1918, a supply ship ran aground on Lord Howe Island. Black rats got ashore. Within a couple of years, the stick insects were gone.",
+   "pose": "think",
+   "photo": "Dryococelus australis",
+   "obs": "ov:31ea3714-3ba1-4d7e-b1ac-15c052303087",
+   "myth": "intro"
+  },
+  {
+   "say": "Rats. On an island. Eating everything in sight. I need everyone to stay calm.",
+   "pose": "nervous",
+   "myth": "intro",
+   "prop": "fork",
+   "hold": 0.5,
+   "aside": "(the fork is staying calm)",
+   "sting": "tink"
+  },
+  {
+   "say": "In 2003, scientists took two pairs off the rock. One pair went to Melbourne Zoo, where keepers named them Adam and Eve. Almost every tree lobster at the zoo comes from that one pair.",
+   "pose": "point",
+   "photo": "Dryococelus australis",
+   "obs": "ov:beafb602-d41c-4b02-b2c2-c86982824b8a",
+   "myth": "zoo",
+   "hook": true,
+   "chapter": "Adam and Eve",
+   "loop_say": "Two bugs. Thousands of babies. And it all started when",
+   "short_title": "One Pair of Bugs Saved a Whole Species 🪲",
+   "bonus": "Zoos in Europe and North America now breed them too.",
+   "comment": "What would you have named them? 👇"
+  },
+  {
+   "say": "It nearly failed. Eve got sick, and keepers nursed her back. Since then the zoo has hatched thousands of eggs, and other zoos around the world have joined in.",
+   "pose": "think",
+   "photo": "Dryococelus australis",
+   "obs": "ov:3ddb91a3-fe56-49fd-8c81-3b86595c2046",
+   "myth": "zoo"
+  },
+  {
+   "say": "One pair. Thousands of bugs.",
+   "pose": "laugh",
+   "text": "ONE PAIR.\nTHOUSANDS\nOF BUGS.",
+   "myth": "zoo",
+   "hold": 0.4
+  },
+  {
+   "say": "And the ending? A huge rat removal project began on Lord Howe Island in 2019. The plan is to bring the tree lobster home one day, after more than a hundred years away.",
+   "pose": "point",
+   "photo": "Ball's Pyramid",
+   "obs": "ov:2755abd1-63e8-4c7b-b861-1565141e5b56",
+   "myth": "intro"
+  },
+  {
+   "say": "So that's the file. A fish, a bird, a ferret and an insect. All declared extinct. All found alive. By a curator, a doctor, a dog, and two people with flashlights.",
+   "pose": "point",
+   "photo": "Latimeria chalumnae",
+   "obs": "ov:85249126-3904-4781-a79c-d1ee594c28cc",
+   "myth": "outro",
+   "chapter": "So, what's the lesson?"
+  },
+  {
+   "say": "The lesson? Sometimes extinct just means nobody looked in the right place yet. Though for most extinct animals, sadly, gone really does mean gone.",
+   "pose": "think",
+   "photo": "Porphyrio hochstetteri",
+   "obs": 2702645,
+   "myth": "outro"
+  },
+  {
+   "say": "For the record, the official list of animals that eat meatballs grew by one today. Rats. Obviously rats.",
+   "pose": "deadpan",
+   "text": "THE OFFICIAL\nLIST: +1\n(RATS)",
+   "myth": "outro",
+   "aside": "(takahē: friend)"
+  },
+  {
+   "say": "Now your turn. Which extinct animal would you bring back, and why? Best answer gets read out next time.",
+   "pose": "point",
+   "text": "WHICH ONE\nSHOULD COME\nBACK? 👇",
+   "myth": "outro"
+  },
+  {
+   "say": "Tuesday: another weird true story. New Meatball every Tuesday and Saturday.",
+   "pose": "wave",
+   "text": "NEW MEATBALL\nEVERY TUESDAY\n& SATURDAY",
+   "myth": "outro"
+  }
+ ]
+}
