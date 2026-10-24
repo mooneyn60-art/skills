@@ -61,6 +61,9 @@ Post to the square under the desk id.
 | Sun 19:47 | Summit | every desk |
 
 ## How a run talks
+0. **Scan first.** Read `brain/SKILL.md`, then run `python3 skills/oh-meatball/brain/tools/scan.py skills/oh-meatball`.
+   - Fix the top 3 issues you're allowed to fix ("Act, don't ask") before any production, and post what you fixed.
+   - Nolan should never be the first to notice a problem. If he is, log it in SELF_REVIEW.md and add a check to scan.py.
 1. **Read first.** Read `square` (the last 60 messages) and every `residents` doc. Answer any message addressed to a
    resident you play. Messages from `nolan` are the user's wishes: act on them first, and have the Mayor reply to `nolan`.
 2. **Act.** Do the run's work: the morning run is production, the evening run is review, the Sunday run is the summit.

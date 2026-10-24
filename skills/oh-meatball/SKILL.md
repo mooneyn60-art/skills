@@ -1,69 +1,37 @@
 ---
 name: oh-meatball
-description: Produce "Oh Meatball" (@Oh_meatball), an AI-animated cat soap-opera Shorts series. Use to write episodes, generate shots with vidIQ (Veo 3.1), assemble, title and schedule them, keep the cast consistent, and review performance.
+description: Run "Meatball Myths" (YouTube UCw98RQD81t_339LX5EJqcrg, TikTok @meatballmyths). The channel is a stick-figure meatball who explains weird true things: story long-forms on Tuesday and Saturday, daily Shorts and TikToks. Use it to script, render (tools/episode.py), package (tools/thumbnail.py), schedule (Metricool) and review the channel.
 ---
 
-# Oh Meatball
+# Meatball Myths
 
-A soap opera starring a very round orange cat. Every part ends on a cliffhanger.
+**The show:** Meatball, a meatball who's scared of being eaten, explains the weirdest true things about animals, food, history and the human body. Meatball himself never changes (look, voice, persona). Everything else gets tested.
 
-## Why (evidence: skills/bart-clips/research/06-09)
-- Animal soap operas with "Part 1/2/3" episodes are the top Reels trend (5-13M per reel);
-  animal emotional stories rank #2 on YouTube; recurring casts convert views into followers.
-- YouTube allows "using AI to visualize a unique character and narrative you invented";
-  templates and borrowed IP are what get channels hit. Our cast and story are original.
+The old cat soap opera ("Oh Meatball Pt N", Veo shots, OpusClip) was retired on 10/22. Its leftovers live in `story/`, `caught-on-camera/` and `new-format/` and are never used.
 
-## Cast (copy these descriptions word-for-word into every prompt)
-- **Meatball** (lead): a very chubby, round orange tabby cat, upright, tiny black tuxedo and a
-  bright red bow tie, fluffy cheeks, big hopeful green eyes. Sweet, dramatic, loves too hard.
-- **Duchess**: an elegant fluffy white Persian cat, red scarf (lace veil at the wedding),
-  big sunglasses pushed up on her head. Glamorous, secretive.
-- **Smokey**: a scruffy grey alley cat with a torn ear and a leather jacket, raspy voice. Duchess's past.
-- **Biscuit**: Meatball's loyal best friend, a goofy golden retriever in a grey hoodie.
-- **Grandma Shelly**: an old wise tortoise with round glasses; officiant, gossip, narrator.
-- **Rigatoni** (from Part 4): a slim, muscular orange tabby cat with slicked-back fur, a white suit, a gold chain and dark sunglasses, smug grin, who looks exactly like Meatball but thin. Meatball's secret twin, Pip's real father, rich rival.
-- Style line: "Pixar-style 3D animated soap-opera drama, vertical frame, warm cinematic lighting".
-
-## Season 1 arc: "The Wedding"
-1. The wedding: "If anyone objects..." - Smokey bursts in: "Duchess, tell him the truth!"
-2. The truth: Duchess and Smokey were secretly married... and never divorced.
-3. Meatball runs off; Biscuit finds him crying into a bowl of spaghetti.
-4. Smokey reveals a kitten - "Meet your... nephew?"
-5. Grandma Shelly knows a bigger secret about Meatball's own family.
-(Extend by comments: whatever viewers argue about most gets the next part.)
-
-## Episode format (UPDATED 2026-10-15: Nolan said parts were bland, "nothing happens")
-- 4 shots x 8 s = 32 s per part. Every shot is a BEAT: something happens, someone says a line,
-  and at least 2 shots contain a twist/reveal. Each part should cover what used to be 2 parts.
-- Shot pattern: 1) fallout/action from last cliffhanger, 2) new scene + new info, 3) escalation,
-  4) reveal + cliffhanger + sting. Vary locations and weather (storm, rain, night) for drama.
-- Lines: 1-2 short lines per shot, each clearly attributed; comedy beat in at least one shot.
-
-## Breakout rules (research/10 + 11, 2026-10-15; apply to every part from Part 4)
-- Frame 0 = the disaster already happening, first line spoken in the first second. No establishing shots.
-- Name the cast on screen: finish.py --label puts "MEATBALL" / "DUCHESS" etc. (time it to when that character is the focus) the
-  first time they appear in a part. Use #MeatballAndDuchess in every caption.
-- Every part has its own payoff (a reveal lands) AND a cliffhanger. Viewers who land on Part 7 first must
-  still get a complete beat.
-- Spoken call to action one beat before the final reveal, in character (e.g. Biscuit: "Comment who's side
-  you're on!"). Rotate wording.
-- Pace: ask Veo for 2-3 quick cuts inside each 8 s shot ("cut to close-up of ... then cut to ...").
-- Titles: `[Name] [shocking act]… then [twist] 😱 | Oh Meatball Pt N`; score >= 85.
-- Plot engine: classic soap tropes (secret child, rich rival, betrayal at the altar, poor-to-rich, amnesia,
-  evil twin) with our cast. Happy beats are allowed; the biggest hit in the niche ended happy.
-- TikTok earns only on >= 61 s originals: the nightly recap stitches the last 3 parts PLUS one new 8 s
-  teaser shot of the next part at the end (new footage = original, and it sells the next part).
-
-## Episode format (original notes)
-- 2 shots x 8 s (veo-3.1-fast, 720p, 9:16, native dialogue) = ~16 s; end on a cliffhanger.
-- Title: `<hook> 😱 | Oh Meatball Pt N` - score with vidiq_score_title, keep >= 85.
-- Description: 1-line recap + "Part N+1 tomorrow" + hashtags `#shorts #catdrama #ai #animation #cat #ohmeatball`.
-- Cost: ~255 vidIQ credits per 8 s shot (measured 2026-10-15), ~510 per part.
+## Read these, in this order
+1. `brain/SKILL.md`: scan first, fix the top 3 issues, and act without asking. Run `python3 brain/tools/scan.py .`.
+2. `OPERATIONS.md`: Nolan's standing orders, cadence, voice, the "Meatball is the star" rule, the asks, and the long-form reset.
+3. `TOWN.md`: the 10 desks, the daily rhythm, and the square on the town artifact.
+4. `research/42-growth-reset.md` (niche, thumbnails, repeat audience), `research/39-meatball-show-bible.md` (persona) and `research/41-stickman-reference.md` (animation).
+5. `KNOWLEDGE.md` (tested findings) and `SELF_REVIEW.md` (mistakes and the checks that catch them).
 
 ## Pipeline
-1. Write `episodes/NN.json` (two shot prompts, title, description).
-2. Generate both shots in parallel (`vidiq_generate_video`), poll `vidiq_job_poll`.
-3. Download, check frames + transcribe dialogue (faster-whisper) to confirm lines.
-4. `vidiq_compose` both clips (keepNativeAudio) + "PART N+1 TOMORROW" text overlay -> hosted MP4.
-5. Post: OpusClip `submit_project` (skipSlicing) -> `schedule_publish` 6 pm ET -> Nolan approves one link.
-6. Monday: engaged views, viewed-vs-swiped, subs per 1k views; let comments steer the plot.
+- **Script:** `scripts/<slug>.json`.
+  - Long-form: one story, 6-8 min.
+  - Shorts: claim-first with a photo at frame 0.
+  - Photos come from iNaturalist and must be CC0 or CC BY.
+- **Voice:**
+  - Shorts use Bill via `tools/premium_voice.py`.
+  - Long-form uses edge-tts Andrew until a free replacement passes (research/39-voice-tests).
+- **Render:** `cd tools && python3 episode.py ../scripts/<slug>.json <slug> --work <scratchpad>/rel [--skip-long|--skip-shorts|--skip-existing]`.
+  - The Meatball 2.0 rig (`mascot.py`) and the shot grammar (`explainer.py`) are built in.
+  - Check the frames before scheduling.
+- **Thumbnail:** `tools/thumbnail.py`. Make 3 variants and score them with `vidiq_score_thumbnail`.
+- **Ship:**
+  - Commit and push, then use raw GitHub URLs pinned to the commit SHA (check each returns 200).
+  - Schedule with Metricool `createScheduledPost` (brand 7521392, America/New_York) and log it in `data/posted.csv`.
+- **Measure:**
+  - vidIQ `channel_analytics`: retention, traffic and subscribers.
+  - `brain/tools/abtest.py` scores experiments.
+  - Each change gets an `E<n>` row in `data/experiments.csv`.
