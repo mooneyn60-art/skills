@@ -1,0 +1,14 @@
+Shorts v3 sound-effect kit (built by tools/make_sfx.py, 2026-10-24)
+
+From Kenney (www.kenney.nl), Creative Commons Zero (CC0 1.0),
+http://creativecommons.org/publicdomain/zero/1.0/ (credit optional: "Kenney.nl"):
+  crunch.wav  <- Impact Sounds 1.0, impactPunch_heavy_002.ogg
+  hit.wav     <- Impact Sounds 1.0, impactPunch_medium_001.ogg
+  thud.wav    <- Impact Sounds 1.0, impactSoft_heavy_001.ogg
+  plate.wav   <- Impact Sounds 1.0, impactPlate_light_002.ogg
+  zap.wav     <- Digital Audio 1.0, zap2.ogg
+Packs downloaded from https://kenney.nl/assets/impact-sounds, /interface-sounds, /digital-audio.
+
+Synthesized with ffmpeg lavfi in tools/make_sfx.py (no third-party audio, nothing to license):
+  whoosh.wav boing.wav pop.wav scratch.wav splash.wav tink.wav
+All files: 48 kHz stereo 16-bit WAV, normalized to -3 dBFS peak; the mixer sets their level under the voice.
