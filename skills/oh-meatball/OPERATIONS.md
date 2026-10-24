@@ -52,6 +52,8 @@ qualified views. Channel: subs, weekly long-form watch hours vs the 4,000 h pace
 - Anything that spends real money or deletes videos.
 
 ## Standing orders from Nolan
+- Full authority (Nolan, 10/24): the Mayor decides and acts on anything that helps the channel, without asking.
+  Nolan's own actions are the exception: logins, connecting accounts, and payments, which stay zero beyond what's already paid.
 - Only Meatball stick-figure info/quiz videos (long-form and Shorts). No door-cam, trail-cam or other
   fake camera clips, ever; the old ones stay as drafts in Metricool.
 - Long-form explainers run ~10 minutes (12 myths, or a history story with 3-4 checkpoints), never 2-3 minute pilots.
