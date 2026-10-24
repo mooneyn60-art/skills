@@ -105,12 +105,29 @@ qualified views. Channel: subs, weekly long-form watch hours vs the 4,000 h pace
   - The picture changes every 3 s or less, and every photo matches what is being said.
 - **Captions:** unique per post and built from the searched question (tools/tiktok.py `title()`/`caption()`). Never use file-nickname hashtags.
 
-## Cadence change (Mayor, 10/24, experiment E5)
-- **Long-form:** from 10/30, three a week: **Tuesday and Thursday** search-first episodes at 2 PM, plus **Saturday's** "Meatball Explains". Episodes already queued (through 10/29, plus 10/31) stay.
-  - Each long-form answers one question people search, built around one animal or one question.
-  - The saved production time goes into Shorts v2 and series.
-- **Shorts and TikToks:** cadence unchanged. 3 YouTube Shorts a day; 4 TikToks a day.
-- **Series slot:** "Would Meatball Survive?" takes the 1 PM YouTube Short slot once the new rig is approved (experiment E6).
+## Long-form reset (Nolan + Mayor, 10/24 evening)
+Data, last 30 days:
+- Long-form got 5 views, averaging 28 seconds watched.
+- Shorts got 6,002 views.
+- The 10/23 long-form has 0 views; the wolves history episode has 8.
+- Diagnosis: YouTube isn't showing our long-form to anyone. The few people who click leave within half a minute, because the 12-card quiz with countdowns repeats the same pattern. Monetization comes from Shorts views, so long-form is a support act, not the engine.
+
+Rules from 10/30:
+- **Cadence:** ONE long-form a week, Saturday 2 PM. Episodes already queued through 10/29 stay.
+- **Format: one story, not 12 cards.**
+  - 6-8 minutes about one searched question, e.g. "Which spider bite can actually kill you?", "How did wolves become dogs?", "Animals scientists thought were extinct".
+  - Meatball is the host and the story's guide.
+  - At most 3 quiz checkpoints, and no countdown cards.
+  - Something new (a reveal, a photo, a joke) at least every 20 seconds.
+  - Payoffs are promised in the first 15 seconds and delivered at the end.
+- **Title equals the search phrase:** the title must match a keyword vidIQ shows with search volume. No "12 Myths" listicle titles.
+- **Thumbnail:** one animal, Meatball's face, and at most 3 words. Test two in Studio "Test & Compare" (Nolan).
+- **Bridge from Shorts:**
+  - Each long-form is cut into 6-12 Shorts.
+  - Every one of those Shorts gets the long-form as its YouTube "Related video" (Nolan, in Studio; the API can't set it).
+  - Pinned comment: "Full story: <title>".
+- **Freed render time goes to Shorts:** 3 YouTube Shorts a day; 4 TikToks a day; a "Would Meatball Survive?" series in the 1 PM slot.
+- **Judge by retention:** keep a format only if average view duration is above 2:00 and retention at 30 seconds is above 60%. Check after each episode with vidIQ audience_retention.
 
 ## Narrator voice (Nolan, 10/24): Bill
 - **Shorts:** every new Short uses `"voice": "vidiq:pqHfZKP75CvOlQylNhV4"` (vidIQ premium voice "Bill - Wise, Mature, Balanced").
