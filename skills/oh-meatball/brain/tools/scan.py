@@ -284,7 +284,11 @@ def check_durations(root, now):
     for r in rows(os.path.join(root, "data", "posted.csv")):
         t = parse_ts((r.get("date") or "")[:16])
         f = r.get("file", "")
-        if not t or not f or f.startswith("ep") or not (now_et < t.replace(tzinfo=et) <= now_et + dt.timedelta(days=3)):
+        # 10/25 summit: YouTube length runs on the whole future ledger (two 65-67 s renders sat on 11/10, past 3 days).
+        if not t or not f or f.startswith("ep") or not now_et < t.replace(tzinfo=et):
+            continue
+        soon = t.replace(tzinfo=et) <= now_et + dt.timedelta(days=3)
+        if r.get("network") != "youtube" and not soon:
             continue
         secs = video_seconds(os.path.join(root, "episodes", r.get("episode", ""), f))
         if secs is None:
@@ -296,7 +300,7 @@ def check_durations(root, now):
             if secs >= 60:
                 deep_days.add(t.date())
     if long_yt:
-        add("WARN", "postmaster", f"{len(long_yt)} YouTube Short(s) in the next 3 days run over 35 s: {', '.join(long_yt[:4])}.",
+        add("WARN", "postmaster", f"{len(long_yt)} queued YouTube Short(s) run over 35 s: {', '.join(long_yt[:4])}.",
             "Swap in a 20-25 s render or set the post to draft; the long cut belongs on TikTok.")
     missing = sorted(d.isoformat() for d in tt_days - deep_days)
     if missing:

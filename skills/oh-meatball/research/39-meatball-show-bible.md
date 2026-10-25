@@ -213,3 +213,45 @@ A viewer-question Short (20-26 s, Shorts v2 rules) that answers one real comment
   - tumbles, trembles, peeks
 - **Pacing:** a joke or escalation every 4-6 s, lines of 8 words or fewer, and a callback or twist at the end.
 - Keep the voice calm and deadpan while the visuals go wild; that contrast is the joke.
+
+## Weird pivot: Meatball investigates (Showrunner, Sunday Summit 2026-10-25)
+**Did the jokes land this week? [M]** Not provably. The v3/v4 jeopardy Shorts started faster than the old quiz ones (Portia 1.1k in 7 h, cassowary 1.1k in 9 h, box jellyfish 798 in 6 h vs a 717 median), but that is pace, not laughter. Of the 2 new viewer comments, neither quotes a joke ("Noooo" answers the cassowary question; "WHERE IS MOMMY LONG LEGS" riffs on the animal's name). Likes run about 0.5-1.4% of views. Comments per 1k views are about 0.2. Read: the jeopardy *situations* hold people; the *lines* aren't getting quoted yet. Next week we measure it: the Host tags every comment that repeats a line or names a gag, and a gag that nobody quotes in 10 Shorts gets cut.
+
+Nolan's pivot (10/25): "Meatball investigates the weird": conspiracy theories (debunked or proven), strange history, strange facts and myths, animals as one pillar, intriguing mysterious music. The pilot (research/48, episodes/weird-pilot/) builds the first 6 Shorts and a long-form; this section is the character layer every script uses.
+
+### Persona: the scared investigator
+Meatball is still the deadpan narrator who is food. What changes is his job: he is a **reluctant investigator who opens every case file and immediately regrets it.** The calm voice stays; the comedy is the gap between his procedural tone ("Case file 7. Evidence item one.") and his terror at what the evidence says.
+- He wants the boring explanation to be true. When it is ("Debunked. It was a weather balloon."), he is relieved out loud. When it isn't, he is the most scared thing on screen.
+- He never mocks believers. He tests the claim, shows the evidence and hands down a verdict. The joke is always on him.
+- He is the smallest thing in every scene: archive photos, giant documents and huge animals tower over him (the v4 bigger-animal layout already does this).
+
+### Catchphrases (new; at most two per Short)
+- **"Opening the file."** First line after the hook, with a folder-open click. It is the series' sound.
+- **"I didn't want to know that."** His reaction to a PROVEN verdict. It replaces "I don't love it" on weird topics.
+- **"Case closed. Mostly."** The sign-off before the loop line, for UNSOLVED cases.
+- **"For the record"** stays (he says it before the evidence).
+
+### Running gags
+1. **The verdict stamp.** Every case ends with a rubber stamp slammed on screen: **PROVEN** (red), **DEBUNKED** (green), **UNSOLVED** (grey). It is the payoff the hook promises ("Was it real? Stamp at the end."). Policy bonus: every conspiracy video states its verdict on screen (research/38, 10/25 summit).
+2. **The Fork, evidence item.** The fork now turns up in archive photos, bagged and tagged "EVIDENCE #?". Never explained.
+3. **The red string.** A red string connects evidence on a corkboard, and every case it ends up tied to Meatball ("Why does it always lead to me?"). Long-form only, once per episode.
+4. **The flashlight.** When the music goes mysterious, Meatball holds a flashlight that flickers off at the reveal. One SFX, one prop.
+5. **The animal pillar stays as "Case: Animal".** Weird animal cases (Mike the Headless Chicken, the Great Emu War, the cat in space) use the same file and stamp, so the old audience sees the same show.
+
+### Case-file bit (structure for a 20-25 s Short)
+| Time | Beat |
+|---|---|
+| 0-2 s | Hook: the weirdest true-sounding sentence over the evidence photo ("In 1945 a chicken lived 18 months with no head.") Animal or object on screen at frame 0, no title card. |
+| 2-4 s | "Opening the file." Folder pops, case number, mysterious sting. |
+| 3-6 s | Ask kit guess card: "Real or fake? Guess." 👻 / 🕵️ (PROVEN or DEBUNKED emoji pair). |
+| 6-10 s | Sub pill: "Subscribe. I open a new case every day." |
+| 10-18 s | Two pieces of evidence, a new picture every 2 s, Meatball reacting more scared each time. |
+| 18-21 s | Stamp verdict + one-line why, spoken over a moving picture (never a bare card: research/38 summit, problem 1). |
+| 21-23 s | Deadpan sign-off ("I didn't want to know that.") then the loop line into frame 0. |
+Long-form: a case file with 3-5 evidence chapters (retention.py counter "EVIDENCE 2 OF 5"), the verdict stamp as the R5 payoff.
+
+### Music
+Mysterious, not horror: a low pulsing synth or pizzicato strings bed, ducked under the voice like the quiz bed, with one sting for "Opening the file" and one for the stamp. Use only vidIQ-generated or our own tracks (no commercial music). The pilot picks the bed; once picked it is the series sound and doesn't change week to week.
+
+### Next week's recurring bit (proposal)
+**"Case of the Day"**: from 10/27 the 9:30 AM YouTube Short (and its TikTok 2 h later) is always a case file with the verdict stamp, numbered on screen and in the title ("Case #3"). One slot a day, so it is an experiment (E19), not a switch: the other two Shorts stay animal jeopardy until E19 is read. Weekly Saturday payoff: the Host reads out the 3 best "real or fake?" guesses from the week's case comments (real comments only).

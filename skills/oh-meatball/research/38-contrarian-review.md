@@ -303,3 +303,39 @@ Why this bet: every path to YPP (3M or 10M Shorts views, or long-form via Relate
 - [Storrito, TikTok AI monetization restrictions](https://storrito.com/resources/what-tiktoks-ai-monetization-restrictions-signal-for-creator-income/) [3P, unverified against TikTok]
 - [ShortsFast, TikTok Creator Rewards 2026 requirements](https://shortsfast.com/blog/tiktok-creator-rewards-2026-requirements/) [3P]
 - [Reelmind, AI videos on TikTok and Shorts 2026](https://reelmind.ai/blogs/can-you-make-money-posting-ai-videos-on-tiktok-and-youtube-shorts-in-2026-curren) [3P]
+
+## Weekly review: Sunday Summit 2026-10-25 (Red Team)
+vidIQ: 15 credits here (top_videos 5, audience_retention x2 10). Frames: ffmpeg 1 fps contact sheets of the week's best Short, worst Short and one episode, plus the v4 Portia Short as a control. [M] = measured.
+
+### What I watched
+| File | Views (public, 10/25 22:46 UTC) | What the frames show [M] |
+|---|---|---|
+| myths-02/short-daddy.mp4 (Us0zIbxiR-A), best this week | 1,800 | 19.9 s v1 quiz template. 0-5 s "TRUE OR FALSE?" card over a small photo with a 3-2-1 badge; 6-12 s the **same** harvestman photo full-width (one picture for 7 s); 13-16 s a text-only card "JUST A LEGGY ROOMMATE" (4 s, no animal); 17-19 s back to the quiz card for the loop. |
+| myths-02/short-camel.mp4 (fNmRjqYh3Aw), worst with a fair run | 227 (flat since 10/24) | 17.4 s, the **identical** template: quiz card 0-4 s, one camel photo 5-10 s, text-only card "NOT A CANTEEN. A LUNCHBOX." 11-14 s, quiz card 15-16 s. |
+| explains-01/ep.mp4 (o9Emu9oMgCs, extinct animals, 7:04) | 3 in 5 h | Old "classic" panel render, not v4 16:9: Meatball standing left, photo panel right, nothing moves. The ferret photo is held 0:22-0:36 (14 s, two crops of one picture); the tree-lobster macro 0:00-0:11; empty right panel at ~1:15 and ~5:30; the end card "WHICH ONE SHOULD COME BACK? □" renders its emoji as a tofu box. Built before Nolan's v3/v4 long-form rule; explains-02/03 were re-cut, this one shipped as is. |
+| v4-spiders/short-portia.mp4 (A4-ltJOdto8), control | 1,100 in 7 h | v4 fixes the dead pictures: new cut-out or pose every 1-2 s. But 17-19 s is a "PART 2 TOMORROW / FOLLOW" card and 19-22 s is 3 s of the same grey plate with a sweating Meatball. The CTA plus outro is the last 25% of the video. |
+
+### Numbers [M, vidIQ top_videos 10/18-25; Analytics lags 2-3 days, so no v3/v4 Short is in it yet]
+| Video | Views | Engaged | Avg % viewed | Avg s | Likes |
+|---|---|---|---|---|---|
+| goldfish eWEZhNxW8fk (32 s) | 872 | 223 (26%) | 62% | 20 | 5 |
+| river shark Ufg_uKRnh_Y | 813 | 225 | 47% | 13 | 12 |
+| porcupine SHQ2FzL-9Vc | 604 | 135 | 58% | 16 | 4 |
+| ostrich sp_lZedjjF4 | 531 | 173 | 49% | 24 | 7 |
+| lemming FycW5_cOevA | 230 | 116 | 28% | 24 | 3 |
+| owl 4IcgbBL0_8s | 215 | 55 | 131% | 44 | 3 |
+| camel fNmRjqYh3Aw | 197 | 45 | 62% | 16 | 2 |
+Daddy longlegs (posted 10/24) returned no retention rows yet, so the curve is the goldfish, the best Short Analytics can see.
+
+**Goldfish curve** (audience_retention, 10/1-10/25): watch ratio 1.05 at 13% (loopers), 0.92 at 20%, **0.74 at 47% (15.2 s) and 0.38 at 75% (24.2 s)**, 0.11 at the end. Half of the people still watching at 15 s leave in the next 9 s. Frames at 15-24 s: the same goldfish photo held 10-19 s, then the text-only punchline card "IT REMEMBERS YOU. IT JUST DOESN'T CARE." held 20-28 s (8 s), then "COMMENT: DID YOU GUESS RIGHT?" 28-32 s. relativeRetentionPerformance sits at **0.21-0.30 through the middle**, so it holds worse than about 70-79% of similar-length Shorts.
+
+### The top 3 problems this week
+1. **The back half dies (studio).** Every Short we can measure loses half its remaining viewers in the stretch after the reveal, where we park a text-only punchline card and an ask (goldfish 8 s + 4 s, daddy 4 s, camel 4 s). v4 fixed the pictures in the first 75%, but Portia still spends its last 5 s on a "Part 2 tomorrow / follow" card and a static outro. Fix: the punchline is spoken over a moving cut-out, never a bare card; any CTA rides on top of picture, not after it; the video ends no more than 1.5 s after the punchline (then the loop line). Add a v3.py gate: WARN when the last 25% of a Short has a beat over 2 s with no new picture. Proof: the first v4 curves land 10/27; compare 50-75% watch ratio with the goldfish's 0.74 to 0.38.
+2. **Topic beats template (showrunner).** Daddy longlegs and camel are the same template from the same episode, 1,800 vs 227 (8x). The difference is the topic: "the scariest-sounding spider is harmless, and it lives in your house" (danger to you, a surprise) against a myth everyone has already heard corrected (camel humps). This decides the weird-topics pivot: a famous debunk (moon landing, flat Earth) is the camel. Pick topics where the answer is a surprise and the stakes touch the viewer, and keep an animal in the frame when we can (Mike the Headless Chicken, 2.7M, 363x on a 61K channel this week, is weird history WITH an animal).
+3. **The conspiracy pillar is a policy and brand risk (factdesk).** YouTube removes medical and election misinformation and limits ads on "controversial issues"; a cartoon that repeats a claim without a clear verdict can be read as promoting it, and the channel is still in front of YPP review. Fix: a red list (no vaccines, cures, elections, recent tragedies, living private people, secret-society tropes that target groups) and a rule that every conspiracy video states its verdict (PROVEN / DEBUNKED / UNSOLVED) on screen within the first 10 s and names its primary source on screen.
+
+### Also found and fixed tonight
+- Two more 65-67 s renders sat in 20-25 s YouTube Shorts slots on 11/10 (v4-fill-1 firefly 13:00, v4-fill-4 arctic tern 16:00), the same bug as the 10/25 bolas. scan.py check 7 only looked 3 days ahead. Both set to draft in Metricool (406096936, 406096991, dates read back), moved from posted.csv to held.csv, and check 7 now scans the whole YouTube ledger. Root cause: 60 s+ deep dives are saved as `short-*.mp4` next to the real Shorts. Studio: name deep dives `tt-*.mp4`.
+
+### Challenge to the pivot itself (nothing is sacred but Meatball)
+The animal danger Shorts are the only thing working (6,065 views in 24 h, four Shorts over 1k). The pivot must not switch them off before the pilot has numbers. Test it as one slot a day against the animal median, the same way a new pillar is tested (OPERATIONS: "Keep it only if it performs as well as the animal average").

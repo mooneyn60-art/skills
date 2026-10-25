@@ -158,3 +158,23 @@ Photo checks before scripting:
 2. Week 2: the same, but with hook type 2 (misconception callout) on #2, #13 and #11. Pin "Who told you this one?".
 3. Week 3: launch "Spot the animal #1/#2" (#33-34) as the second series, giving a reason to subscribe.
 4. Titles stay as search questions ("Does the Goliath Birdeater Really Eat Birds?"). The hook lives in the voice and on-screen text, not in the title.
+
+## Mystery, conspiracy and weird-history Shorts now (Hitmaker desk, Sunday Summit 2026-10-25)
+vidIQ, 10 credits: outliers (Shorts, under 500K subs, mystery/conspiracy/strange history) and keyword_research "weird history". [M] measured, [I] inference.
+
+**Hooks that broke out in the last 4 weeks [M]**
+- "The Chess Robot That Caught Napoleon Cheating" 6.4M, 202x, 33 s: a famous name + an absurd object in the title, one twist (the robot was a man inside a box).
+- "The True Story of Mike the Headless Chicken" 2.7M, 363x, 10.1% engagement: "The true story of" + an impossible animal.
+- "These Records Are So Insane, Nobody May EVER Break" 880K, 151x, 29 s: superlative + "nobody".
+- "What was it even built for?" (Great Wall) 1.1M, 8 s; "conspiracy theories | tell me a theory you think is actually true" 596K, 9 s: ultra-short question prompts that farm comments. Too thin for us (not authored), but they show the comment ask works in this niche.
+- Average engagement in this set is 1-4%, but Mike the chicken hit 10%: the animal story got 3-5x the likes of the human-history Shorts.
+
+**Search [M]**: "weird history" 437K/month (comp 62, -16.5%), "weird history food" 137K (Meatball *is* food), "medieval peasant life" 27K (+238%), "famous people in history" 14K (+244%), "drunk history" 48K (+72%).
+
+**Rules for case-file Shorts [I, from the above plus our own data]**
+1. Title = a concrete impossible thing + who/when: "This Chicken Lived 18 Months Without a Head", not "Weird History #1".
+2. Frame 0 shows the object or animal (the archive photo), never a title card. Same as the animal rule.
+3. One twist only, landed by 75%. Our goldfish curve loses half its remaining viewers between 47% and 75% of the video (research/38 summit), so the verdict stamp must hit by ~18 s in a 22 s Short.
+4. The guess card is "Real or fake?" with two emoji. It is the niche's native comment prompt and matches our ask kit.
+5. Weird food history is the bridge pillar for a meatball host: "Why ketchup was sold as medicine" style cases fit the character and the 137K-search keyword.
+6. Keep 20-25 s on YouTube; the 60 s+ TikTok version is the same case with 2 more pieces of evidence (open loop: verdict withheld to 50-80%).

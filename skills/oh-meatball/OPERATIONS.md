@@ -75,6 +75,22 @@ qualified views. Channel: subs, weekly long-form watch hours vs the 4,000 h pace
 - **Bigger animals (Nolan approved 10/25, "Better"):** tools-v4-bigger.diff is merged. Animals are fitted by their real outline, Meatball tucks left at size 760 (down to 547 when it lets the animal grow 8%+), and the opening shot is animal-only until Meatball peeks in.
 - Already-scheduled v3 posts stay up. Don't re-render them.
 
+## Weird pivot: "Meatball investigates the weird" (Nolan 10/25; Sunday Summit decisions)
+Nolan turned the channel toward conspiracy theories (debunked or proven), strange history, strange facts and myths, with animals as one pillar, and mysterious music. Pilot: research/48 and episodes/weird-pilot/ (6 Shorts + 1 long-form). Character layer: research/39 "Weird pivot" (scared investigator, "Opening the file.", verdict stamp, case-file structure).
+- **Rollout is an experiment, not a switch (E19).** From the first pilot post (target 10/27): the 9:30 AM YouTube Short and its TikTok 2 h later are a numbered "Case of the Day". The 1 PM and 4 PM Shorts stay v4 animal jeopardy. Widen to 2 slots only if 6 cases land at or above the v4 animal median on 48 h views; kill if all 6 land under half of it. Long-form: one weird case (proven-true Cold War secret first; research/27 §7) in a Tue/Sat slot once it passes tools/retention.py.
+- **Every case ends on a verdict stamp:** PROVEN, DEBUNKED or UNSOLVED, shown on screen, with the primary source named on screen. The verdict is spoken over a moving picture, never a bare card.
+- **Red list (factdesk owns it; research/38 summit problem 3):** no vaccines or medical cures, elections, recent tragedies, living private people, or secret-society theories that target a group. Fabricated "proof" (time travelers, AI fakes) is never shown as real. When in doubt, pick the declassified-document case.
+- **Topic test (research/38 summit problem 2):** lead with the case most viewers haven't heard of. A famous debunk everyone knows (moon landing, flat Earth) is our "camel" (227 views vs 1,800 for the same template on a surprising topic).
+- **Music:** one mysterious bed (low synth or pizzicato), vidIQ-generated or our own, ducked under the voice; one sting for the file opening and one for the stamp.
+- Everything else holds: v4 style, bigger animals, the early ask kit ("Real or fake?" guess card), 20-25 s YouTube / 61-75 s open-loop TikTok, AI label on, YouTube and TikTok only.
+
+## Shorts endings (Sunday Summit 10/25, research/38 problem 1)
+The goldfish curve loses half its remaining viewers between 47% and 75% of the video, where we park a text-only punchline card and an ask. From 10/26 renders:
+- The punchline is spoken over a moving cut-out or a new picture, never a bare text card.
+- Any CTA ("Part 2 tomorrow", "follow") overlays picture; it never gets its own seconds after the punchline.
+- The Short ends no more than 1.5 s after the punchline, then the loop line.
+- 60 s+ deep dives are saved as `tt-*.mp4`, never `short-*.mp4` (two 65-67 s renders reached 11/10 YouTube Shorts slots; scan.py check 7 now covers the whole ledger).
+
 ## TikTok deep dives: open loop (night shift proposal 10/25, research/40; Mayor to adopt or reject)
 - A 61-75 s deep dive promises one withheld answer in lines 1-3 ("...but it has exactly one weakness"), walks through 2+
   wrong guesses (`"decoy": true`), and pays off (`"payoff": true`) at 50-80% of the words. Shorts keep claim-first.
@@ -240,7 +256,7 @@ Rules from 10/30:
 - **No paid voices beyond the vidIQ credits we already have (Nolan, 10/24).** Bill runs until those credits are gone; no extra credits and no ElevenLabs. The free replacement is being tested: Chatterbox (open source, runs locally) with our own Meatball voice made from a Kokoro blend. Samples are in `research/39-voice-tests/`. One character, one voice is still the goal.
 
 ## Long-form retention (Retention desk, 10/25; research/47)
-Autopsy: our one long-form with a curve (gFhrONKK0rI, 2:15 quiz pilot, 11 viewers, 53 s AVD) lost people at 0:02 (quiz card), 0:04 (it answered its own question), 0:14 (agenda line "Today we're fixing..."), 0:18 (re-stated answer), and wherever one item ran 25-45 s with no tease (0:28, 0:46, 1:12). Small-channel breakouts open on the animal, never introduce themselves, and change animal every 75-100 s under a countable structure.
+Autopsy: our one long-form with a curve (gFhrONKK0rI, 2:15 quiz pilot, 11 viewers, 53 s AVD) lost people at 0:02 (the opening question card), 0:04 (it answered its own question), 0:14 (agenda line "Today we're fixing..."), 0:18 (re-stated answer), and wherever one item ran 25-45 s with no tease (0:28, 0:46, 1:12). Small-channel breakouts open on the animal, never introduce themselves, and change animal every 75-100 s under a countable structure.
 
 **`tools/retention.py` gates every 16:9 story long-form; episode.py refuses to build one that fails** (`--no-retention` only for old episodes). It estimates times from words (3.35 words/s, Kokoro +0%) or reads a render's timeline.json (`--timeline`).
 - **R1 Cold open (first 30 s):** promise the payoff ("...and the last one might be you", "I'll show you the winner at the end"). Frame 0 is the best animal photo, unblurred, no text card. No intro, welcome or agenda line ("I'm Meatball", "Today:", "welcome") before 0:30; Meatball says his name in the subscribe line.

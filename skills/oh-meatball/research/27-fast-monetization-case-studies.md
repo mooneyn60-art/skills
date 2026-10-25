@@ -74,3 +74,34 @@ Also excluded as not comparable: Syrax's "10 days" (https://youtu.be/xwRp4R-zezk
 - No case found of an **animal-myth or quiz** channel monetizing fast; the nearest are F3 (stickman curiosity) and Kelevin (research/15), which grew slower.
 - Four high-value videos could not be transcribed (YouTube rate limits): Saad Rashid "10,000 subs from one Short" (https://youtu.be/BPpIBUFbFkc), AnalyzingWit "anime Shorts 2 months, 10M?" (https://youtu.be/6yAwmkazKeI), Jennifer Marie "kids channel monetized in 5 months" (https://youtu.be/sZXHSXuJciw), Tube Sensei "monetized in 30 days" (https://youtu.be/XQy0-GufWd0).
 - Re-check the Feb 2027 thresholds against YouTube's creator blog before changing OPERATIONS.md; the Help page is the only primary source read.
+
+## 7. Weird-history and conspiracy formats now (Historian desk, Sunday Summit 2026-10-25)
+vidIQ, 15 credits: outliers (Shorts, channels under 500K, "strange history mystery or conspiracy, debunked or proven"), outliers (long-form, cartoon investigates a mystery), keyword_research "conspiracy theories that turned out to be true". [M] measured, [I] inference.
+
+**Breakouts this month [M]**
+| Video | Channel | Views / breakout | Length | Why it fits us |
+|---|---|---|---|---|
+| The True Story of Mike the Headless Chicken (il6QPypLcSE) | Voggle, 60.7K | 2.7M, 363x, 10.1% engagement | 2:53 | Weird history *about an animal*: the exact bridge from our animal audience to the new pillar. |
+| The Chess Robot That Caught Napoleon Cheating (8P0sMZx37rc) | Mister Magic, 48.9K | 6.4M, 202x | 0:33 | A real hoax (the Mechanical Turk) told as one punchline. Strange history + "it was fake all along". |
+| These Records Are So Insane, Nobody May EVER Break (SKggl4L2h_Q) | History Secrets Usa, 15K | 880K, 151x | 0:29 | List of real oddities, 29 s. |
+| 4 Famous Deaths Nobody Ever Answered For (TXhbspzIFsk) | Legacy Uncovered, 1.2K | 50.9K, 16x | 2:28 | Unsolved-case framing works even on a 1K channel; real people, so higher policy care. |
+| Peppa Pig Hid 2 Secret Kids for 20 Years (qHIs0h5lbSQ) | Toon Secrets, 4.9K | 260K, 85x | 6:49 | Long-form "secret revealed" on a small cartoon channel. |
+Losers to avoid: the "Joe Rogan reacts to a time traveler" Short (1.8M) and AI "magical fish" Shorts are fabricated claims presented as real: exactly the misinformation risk we must not touch.
+
+**Search [M]**
+| Keyword | Est. monthly searches | Competition | Trend |
+|---|---|---|---|
+| conspiracy theories | 193,635 | 66 | -15.7% |
+| conspiracy theory | 96,596 | 65 | +44.7% |
+| conspiracy theories that are true | 55,586 | 51 | -57.4% |
+| operation northwoods | 33,729 | 63 | +50.9% |
+| operation mockingbird | 17,040 | 48 | +1.8% |
+| urban legends that turned out to be true | 16,966 | 70 | -17.6% |
+| cold war secrets | 13,532 | 42 | +91.1% |
+| conspiracy theories that turned out to be true | 12,842 | 70 | -16.8% |
+
+**What this means [I]**
+1. The proven-true government cases are our safest first long-forms: real, declassified, rising search and low competition. "Cold war secrets" (+91%, comp 42) and Operation Northwoods (+51%) fit a case-file episode with a PROVEN stamp, and nobody can call them misinformation because the documents are public.
+2. The fastest small-channel hits are weird history with one concrete object or animal (a headless chicken, a fake chess robot), told in 30 s to 3 min. Our case-file Short is that shape.
+3. A famous debunk everyone knows is our "camel" (research/38 summit): low surprise, low views. Lead with the case most people haven't heard of.
+4. This is still the "one hit" game from section 3: we need one long-form case at 5k+ views. Package it as the search phrase ("Cold War Secrets That Turned Out to Be True").
