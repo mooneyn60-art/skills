@@ -21,7 +21,7 @@
   "Rattus norvegicus": "Brown rat",
   "Felis catus": "House cat"
  },
- "blurb": "Zombie animals are real. Meatball tells the true story of five animals whose bodies get driven by something else: the zombie-ant fungus and its death grip, the emerald wasp that walks a cockroach on a leash, the hairworm that makes crickets jump into water, the snail with throbbing striped eyes, and the parasite that makes rats like cats. One of them is probably in about a third of people. It's at the end.\n\nWhich one would make the scariest Halloween costume? The best answer gets read out next episode 👇",
+ "blurb": "Zombie animals are real. Meatball tells the true story of five animals whose bodies get driven by something else: the zombie-ant fungus and its death grip, the emerald wasp that walks a cockroach on a leash, the hairworm that makes crickets jump into water, the snail with throbbing striped eyes, and the parasite that makes rats like cats. One of them is has infected somewhere between a quarter and a third of all people. It's at the end.\n\nWhich one would make the scariest Halloween costume? The best answer gets read out next episode 👇",
  "next": "Tuesday: the deadliest animal on Earth (it isn't the shark).\n\nSubscribe: new Meatball every Tuesday and Saturday",
  "tags": [
   "zombie animals",
@@ -42,7 +42,7 @@
  ],
  "hashtags": "#zombieanimals #cordyceps #halloween #animalfacts #meatballexplains",
  "pinned": "🧟 Best answer gets read out in the next episode: which of these five would make the scariest Halloween costume? Follow Meatball for more 🍝",
- "_note": "Meatball Explains #3 (Showrunner, morning run 2026-10-25), for Sat 10/31 2 PM after Explains-01 moved to 10/25. One story, five hosts, Toxoplasma payoff promised in the first line and delivered last (open loop). Halloween-adjacent and true; no quiz, no checkpoints, no read-out (asks only). Voice kokoro:eric-michael (Nolan 10/24 free long-form voice). Shorts are not posted from long-forms (only v3/v4 Shorts post), so render with --skip-shorts. Contested claims are said as contested on air (Toxoplasma effects on people). Photos: iNaturalist research-grade, wild, CC0/CC BY, first photo of each obs, checked by eye.",
+ "_note": "Meatball Explains #3 (Showrunner, morning run 2026-10-25), for Sat 10/31 2 PM after Explains-01 moved to 10/25. One story, five hosts, Toxoplasma payoff promised in the first line and delivered last (open loop). Halloween-adjacent and true; no quiz, no checkpoints, no read-out (asks only). Voice kokoro:eric-michael (Nolan 10/24 free long-form voice). Shorts are not posted from long-forms (only v3/v4 Shorts post), so render with --skip-shorts. Contested claims are said as contested on air (Toxoplasma effects on people). Photos: iNaturalist research-grade, wild, CC0/CC BY, first photo of each obs, checked by eye. Fact pass 10/25 (Studio): wasp size 'smaller than a paper clip' (~22 mm), crickets 'terrible swimmers' (not 'can't swim'), hairworm feeds from inside (absorbs, doesn't chew organs), Toxoplasma 'a quarter to a third' (pooled ~26%), weak immune systems added, outro no longer says the wasp lacks a brain.",
  "sources": [
   "Ophiocordyceps: fungal cells surround and invade ant muscle fibres, brain not invaded — Fredericksen et al. 2017, PNAS, https://www.pnas.org/doi/10.1073/pnas.1711673114",
   "Death grip on leaf veins ~25 cm above ground, synchronised near solar noon — Hughes et al. 2011, BMC Ecology, https://bmcecol.biomedcentral.com/articles/10.1186/1472-6785-11-13",
@@ -51,7 +51,8 @@
   "Hairworm (Spinochordodes tellinii) makes grasshoppers/crickets jump into water — Thomas et al. 2002, Proc R Soc B, https://royalsocietypublishing.org/doi/10.1098/rspb.2002.1971",
   "Leucochloridium pulsating broodsacs in eye tentacles; infected snails more exposed/higher and more active in light — Wesołowska & Wesołowski 2014, J Zoology, https://zslpublications.onlinelibrary.wiley.com/doi/10.1111/jzo.12094",
   "Toxoplasma: infected rats attracted to cat odour — Berdoy, Webster & Macdonald 2000, Proc R Soc B, https://royalsocietypublishing.org/doi/10.1098/rspb.2000.1182",
-  "Toxoplasma infects roughly a third of humans; cats are the definitive host; pregnancy/litter-box advice — CDC, https://www.cdc.gov/toxoplasmosis/about/index.html ; https://en.wikipedia.org/wiki/Toxoplasmosis"
+  "Toxoplasma infects roughly a third of humans; cats are the definitive host; pregnancy/litter-box advice — CDC, https://www.cdc.gov/toxoplasmosis/about/index.html ; https://en.wikipedia.org/wiki/Toxoplasmosis",
+  "Global Toxoplasma seroprevalence ~25.7% (pooled) — Molan et al. 2019, Tropical Biomedicine; Wikipedia Toxoplasmosis ('up to a third'). Hairworms harmless to humans — CDC/extension (e.g. Univ. of Kentucky Entomology). Ampulex female ~22 mm — Wikipedia"
  ],
  "beats": [
   {
@@ -74,7 +75,7 @@
    "pose": "deadpan",
    "myth": "intro",
    "photo": "Ampulex compressa",
-   "obs": 215510049
+   "obs": 138732158
   },
   {
    "say": "I'm Meatball. I narrate nature, and nature keeps trying to eat me. Today: real zombie animals.",
@@ -100,7 +101,7 @@
    "obs": 331185805
   },
   {
-   "say": "Over the next days it spreads everywhere. When scientists scanned infected ants, they found fungus cells wrapped around the ant's muscles, like a net.",
+   "say": "Over the next week or two it spreads everywhere. When scientists scanned infected ants, they found fungus cells wrapped around the ant's muscles, like a net.",
    "pose": "shock",
    "myth": "ant",
    "photo": "Ophiocordyceps unilateralis",
@@ -164,7 +165,7 @@
    "prop": "fork"
   },
   {
-   "say": "Number two is a wasp. The emerald cockroach wasp. Shiny, green, and about as long as a paper clip.",
+   "say": "Number two is a wasp. The emerald cockroach wasp. Shiny, green, and smaller than a paper clip.",
    "pose": "point",
    "myth": "wasp",
    "photo": "Ampulex compressa",
@@ -251,14 +252,14 @@
    "chapter": "The cricket that jumps into water"
   },
   {
-   "say": "Crickets can't swim. They don't like water. This one jumped anyway.",
+   "say": "Crickets are terrible swimmers. They normally stay away from water. This one jumped anyway.",
    "pose": "deadpan",
    "myth": "worm",
    "photo": "Gryllus",
    "obs": 148327792
   },
   {
-   "say": "Because there's a worm inside it. A hairworm. It grew up eating the cricket's insides, and it's been coiled up in there the whole time.",
+   "say": "Because there's a worm inside it. A hairworm. It grew up inside the cricket, feeding on it from the inside, coiled up in there the whole time.",
    "pose": "disgust",
    "myth": "worm",
    "photo": "Nematomorpha",
@@ -279,7 +280,7 @@
    "obs": 68490116
   },
   {
-   "say": "People find these worms in swimming pools, dog bowls and toilets. They look like a hair that's moving. Have a lovely evening.",
+   "say": "People find these worms in swimming pools, dog bowls and toilets. They look like a hair that's moving. They're harmless to people. Have a lovely evening.",
    "pose": "nervous",
    "myth": "worm",
    "photo": "Nematomorpha",
@@ -389,10 +390,10 @@
    "hold": 0.3
   },
   {
-   "say": "Now, people. Scientists estimate that somewhere around one in three people on Earth have caught Toxoplasma at some point. Usually from undercooked meat, or a cat's litter box.",
+   "say": "Now, people. Scientists estimate that somewhere between a quarter and a third of all people on Earth have caught Toxoplasma at some point. Usually from undercooked meat, unwashed veggies, or a cat's litter box.",
    "pose": "nervous",
    "myth": "rat",
-   "text": "ABOUT 1 IN 3\nPEOPLE",
+   "text": "UP TO 1 IN 3\nPEOPLE",
    "hold": 0.3
   },
   {
@@ -410,7 +411,7 @@
    "obs": 218557988
   },
   {
-   "say": "The big exception is pregnancy. That's why doctors tell pregnant people to let somebody else clean the litter box.",
+   "say": "The big exceptions are pregnancy and people with very weak immune systems. That's why doctors tell pregnant people to let somebody else clean the litter box.",
    "pose": "think",
    "myth": "rat",
    "photo": "Felis catus",
@@ -425,7 +426,7 @@
    "aside": "(it's not the parasite. probably.)"
   },
   {
-   "say": "That's five puppet masters. A fungus, a wasp, a worm, a flatworm and a microbe. Not one of them has a brain worth mentioning, and every one of them can drive.",
+   "say": "That's five puppet masters. A fungus, a wasp, a worm, a flatworm and a microbe. Two of them don't even have a brain. And every one of them can drive.",
    "pose": "deadpan",
    "myth": "intro",
    "photo": "Ophiocordyceps unilateralis",
