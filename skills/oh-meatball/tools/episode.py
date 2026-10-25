@@ -151,7 +151,8 @@ def main():
     for m in myths:
         mb = [b for b in beats if b.get("myth") == m]
         q = next((b for b in mb if "quiz" in b), None)
-        hook = mb[0] if mb and mb[0].get("hook") else None
+        # A hook without "loop_say" is a story cold open, not a Short (Explains-03 crashed on it, 10/25).
+        hook = mb[0] if mb and mb[0].get("hook") and mb[0].get("loop_say") else None
         if q is None and hook is None:  # story chapters with no quiz don't make a standalone Short
             continue
         swork = f"{a.work}/{a.slug}/short-{m}"
