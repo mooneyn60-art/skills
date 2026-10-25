@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Shorts v4 staging (research/45). Two jobs:
-  1. Meatball's mark and facing: on cut-out shots he keeps his left-hand mark (v3.HOME_V4); on a v3 still
+  1. Meatball's mark and facing: on cut-out shots he is tucked against the left edge (tuck()); on a v3 still
      (the animal can't move) place() keeps him off its head (a pinned head box) unless the beat is a contact.
   2. frame_fit(): re-frame a cut-out shot around the whole animal, as large as fits, with room for its moves,
-     in the free space beside (or above) him, above the captions and inside the frame.
+     beside him (or leaning over his head where its outline leaves room: keepout(), strips()), above the
+     captions and inside the frame.
 track() re-aims mascot.act_track so he faces the animal and flees, peeks and cowers on the far side.
 Boxes are screen pixels (1080x1920).
 """
@@ -114,63 +115,132 @@ def place(shots, n, contact=False, home=0.24, size=1000):
 
 # ---------------------------------------------------------------- fitting a cut-out (v4)
 
-SAFE = (0.03 * W, 130.0, 0.97 * W, 1465.0)   # the animal stays inside this: clear of the Shorts UI and captions
-GAP = 40.0   # clear air between Meatball (who leans and trembles) and the animal
+SAFE = (0.015 * W, 130.0, 0.985 * W, 1465.0)   # the animal stays inside this: clear of the Shorts UI and captions
+GAP = 18.0    # clear air between Meatball (who leans and trembles) and the animal
+PAD = 10.0    # the sticker's white stroke and a little more
+GMAX = 2.0    # largest scale, screen px per photo px (photos are ~2048 px; the outline is redrawn at this scale)
 REACH = {"lunge": (0.12, 1.18), "strike": (0.09, 1.10)}   # forward reach (frame widths), peak scale
+REACHES = (1.0, 0.5)   # full forward reach, or a shorter one when the full one would shrink the animal
+ROT = {"lunge": 6.0, "strike": 5.0, "shake": 3.5}          # peak tilt (degrees) about the feet
 
 
 LEAN = {"peek": 0.17, "loop_out": 0.17}   # acts that lean his head toward the animal (frame widths at size 1000)
 
 
-def regions(x, size, side, top=SAFE[1], contact=False, act=None):
-    """Free screen rectangles for the animal around Meatball's mark: beside him (on the animal's side) and
-    above him. A contact beat lets the animal's box reach a quarter of the way into his."""
+def tuck(size):
+    """v4 bigger: Meatball's mark tucked against the frame's left edge at this size (whole body on screen)."""
+    return (MB_HALF_W * size / 1000 + 0.02 * W) / W
+
+
+AIRBORNE = ("tumble", "launch")   # acts that pass through the space above his mark
+
+
+def keepout(x, size, side, top=SAFE[1], contact=False, act=None):
+    """Where the animal and its moves may not go: dict(box = Meatball's body plus clear air, out to the frame
+    edge behind him; top = below a pop-in label). A contact beat lets the animal's move envelope reach
+    almost halfway into him (its outline sits inside that envelope, so it still touches him). On acts where
+    he falls in from above or is flung up, nothing may lean over his head."""
     mb = mb_box(x, size)
-    reach = 0.25 * (mb[2] - mb[0]) if contact else -GAP - LEAN.get(act, 0.0) * W * size / 1000
-    beside = [mb[2] - reach, top, SAFE[2], SAFE[3]] if side == 1 else [SAFE[0], top, mb[0] + reach, SAFE[3]]
-    above = [SAFE[0], top, SAFE[2], mb[1] - GAP]
-    return [r for r in (beside, above) if r[2] - r[0] > 60 and r[3] - r[1] > 60]
+    d = -0.45 * (mb[2] - mb[0]) if contact else GAP + LEAN.get(act, 0.0) * W * size / 1000
+    d += 0.0 if contact or act not in AIRBORNE else 2 * GAP   # he spins as he falls or flies
+    y = -1e9 if act in AIRBORNE else mb[1] if contact else mb[1] - GAP
+    return dict(box=[-1e9, y, mb[2] + d, 1e9] if side == 1 else [mb[0] - d, y, 1e9, 1e9], top=top)
 
 
-def envelope(box, moves, idle, toward, contact):
-    """The screen box an animal can occupy during its moves: peak scale about its feet, drift, and (unless
-    the beat is a contact) its forward reach toward Meatball."""
+SOLO = dict(box=[-1e9, -1e9, -1e9, -1e9], top=SAFE[1])   # no Meatball on screen (before a peek)
+
+
+def strips(sil, g, moves, idle, toward, contact, reach=1.0):
+    """The screen strips (x0, x1, top, bottom) the animal's outline can sweep during its moves, at scale g with
+    its photo origin at (0, 0): peak scale and tilt about its feet, a turn's mirror image, the idle bob or drift,
+    and (unless the beat is a contact) its forward reach toward Meatball and the wind-up back."""
     names = [m for m, _ in moves]
-    sc = max([REACH[m][1] for m in names if m in REACH] + [1.02])
-    fwd = 0.0 if contact else max([REACH[m][0] for m in names if m in REACH] + [0.0]) * W
-    x0, y0, x1, y1 = box
+    sc = max([1 + (REACH[m][1] - 1) * reach for m in names if m in REACH] + [1.02])
+    fwd = 0.0 if contact else max([REACH[m][0] for m in names if m in REACH] + [0.0]) * W * reach
+    back = 0.045 * W * reach if fwd else 0.0
+    rot = math.sin(math.radians(max([ROT[m] for m in names if m in ROT] + [1.0])))
+    x0, x1, feet = min(s[0] for s in sil) * g, max(s[1] for s in sil) * g, max(s[3] for s in sil) * g
     cx = (x0 + x1) / 2
-    e = [cx + sc * (x0 - cx), y1 + sc * (y0 - y1), cx + sc * (x1 - cx), y1]
-    if idle == "drift":
-        e = [e[0] - 0.02 * W, e[1] - 0.05 * W, e[2] + 0.02 * W, e[3] + 0.012 * W]
-    else:
-        e = [e[0] - 4, e[1] - 0.012 * W, e[2] + 4, e[3] + 4]
-    if fwd:
-        back = 0.045 * W   # the wind-up leans back before the snap
-        e = ([e[0] - fwd, e[1] - 0.03 * W, e[2] + back, e[3]] if toward == -1 else
-             [e[0] - back, e[1] - 0.03 * W, e[2] + fwd, e[3]])
-    return e
+    src = [(a * g, b * g, t * g, u * g) for a, b, t, u in sil]
+    if "turn" in names:
+        src += [(2 * cx - b, 2 * cx - a, t, u) for a, b, t, u in src]
+    out = []
+    for a, b, t, u in src:
+        a, b = cx + sc * 1.02 * (a - cx), cx + sc * 1.02 * (b - cx)   # 1.02: the squash widens it
+        t, u = feet - sc * (feet - t), feet - sc * (feet - u)
+        hx, hy = (feet - t) * rot, max(abs(a - cx), abs(b - cx)) * rot
+        a, b, t, u = a - hx, b + hx, t - hy, u + hy
+        if idle == "drift":
+            a, b, t, u = a - 0.02 * W, b + 0.02 * W, t - 0.05 * W, u + 0.012 * W
+        else:
+            a, b, t, u = a - 4, b + 4, t - 0.012 * W, u + 4
+        if fwd:
+            t -= 0.03 * W
+            a, b = (a - fwd, b + back) if toward == -1 else (a - back, b + fwd)
+        out.append((a - PAD, b + PAD, t - PAD, u + PAD))
+    return out
 
 
-def frame_fit(box, moves, idle, side, contact, rects, gmax=1.0):
-    """Re-frame a cut-out shot around the whole animal. box = the animal in photo px. Returns
-    dict(g, tx, ty): screen = (tx, ty) + g * photo px, the largest scale (up to gmax) at which the animal and
-    the room its moves need fit one free rectangle; it stands on that rectangle's floor (floats in the
-    middle if it drifts) at the edge nearest Meatball, so the two read as a scene."""
+def _place(st, keep, side, idle, outer=None):
+    """(tx, ty) for envelope strips st, or None: inside SAFE (below keep["top"]) and clear of Meatball's
+    keep-out box. outer (default st): the strips that must stay inside SAFE; on a contact beat they also hold
+    the forward reach that st leaves out, so a lunge into him never leaves the frame. A walker stands on
+    SAFE's floor; a drifter centres, rising clear of him if it must. Then it slides toward him as far as
+    stays clear, so the two read as a scene."""
+    k, top = keep["box"], keep["top"]
+    outer = outer or st
+    ex0, ex1 = min(s[0] for s in outer), max(s[1] for s in outer)
+    ey0, ey1 = min(s[2] for s in outer), max(s[3] for s in outer)
+    if ex1 - ex0 > SAFE[2] - SAFE[0] or ey1 - ey0 > SAFE[3] - top:
+        return None
+    tx = SAFE[2] - ex1 if side == 1 else SAFE[0] - ex0       # start as far from him as possible
+    ty = SAFE[3] - ey1 if idle != "drift" else ((top + SAFE[3]) - (ey0 + ey1)) / 2
+    hit = lambda tx, ty: max([s[3] + ty - k[1] for s in st if s[1] + tx > k[0] and s[0] + tx < k[2]] + [0.0])
+    if hit(tx, ty) > 0:
+        if idle != "drift":
+            return None
+        ty -= hit(tx, ty) + GAP
+    if ey0 + ty < top:
+        return None
+    lim = (SAFE[0] - ex0) if side == 1 else (SAFE[2] - ex1)
+    while abs(tx - lim) > 1e-6:
+        nx = max(lim, tx - 6.0) if side == 1 else min(lim, tx + 6.0)
+        if hit(nx, ty) > 0:
+            break
+        tx = nx
+    return tx, ty
+
+
+def _largest(fit, gmax):
+    """(g, (tx, ty)) for the largest scale up to gmax that fit() places, or None."""
+    pos = fit(gmax)
+    if pos:
+        return gmax, pos
+    lo, hi, pos = 0.02, gmax, None
+    for _ in range(16):
+        mid = (lo + hi) / 2
+        p = fit(mid)
+        lo, hi, pos = (mid, hi, p) if p else (lo, mid, pos)
+    return (lo, pos) if pos else None
+
+
+def frame_fit(sil, moves, idle, side, contact, keep, gmax=GMAX):
+    """Re-frame a cut-out shot around the whole animal. sil = its outline strips in photo px (animal.outline).
+    Returns dict(g, tx, ty, env): screen = (tx, ty) + g * photo px, the largest scale (up to gmax) at which the
+    animal and the room its moves need fit the frame without reaching Meatball. The test uses the animal's
+    real outline, so a tall animal may lean over his head where its body leaves room. fit["reach"] scales
+    the forward travel of its lunge or strike (animal.transform) where the full reach would cost size."""
     best = None
-    for r, pref in zip(rects, (1.0, 0.5)):   # beside him (on the ground) beats floating above him
-        g = gmax
-        for _ in range(6):
-            e = envelope([v * g for v in box], moves, idle, -side, contact)
-            k = min(1.0, (r[2] - r[0]) / (e[2] - e[0]), (r[3] - r[1]) / (e[3] - e[1]))
-            if k >= 0.999:
-                break
-            g *= k * 0.995
-        ex = r[0] - e[0] if side == 1 else r[2] - e[2]
-        ey = ((r[1] + r[3]) - (e[1] + e[3])) / 2 if idle == "drift" else r[3] - e[3]
-        if best is None or g * pref > best[0]:
-            best = (g * pref, dict(g=g, tx=ex, ty=ey, env=[e[0] + ex, e[1] + ey, e[2] + ex, e[3] + ey]))
-    return best[1]
+    for reach in REACHES:   # a lunge or strike that would cost the animal size reaches less far instead
+        st = lambda g, r=reach: strips(sil, g, moves, idle, -side, contact, r)
+        so = lambda g, r=reach: strips(sil, g, moves, idle, -side, False, r)
+        fit = _largest(lambda g: _place(st(g), keep, side, idle, so(g)), gmax) or (0.02, (SAFE[0], SAFE[1]))
+        if best is None or fit[0] > best[0][0] * 1.08:
+            best = (fit, reach, so)
+    (g, (tx, ty)), reach, so = best
+    e = so(g)
+    env = [min(s[0] for s in e) + tx, min(s[2] for s in e) + ty, max(s[1] for s in e) + tx, max(s[3] for s in e) + ty]
+    return dict(g=g, tx=tx, ty=ty, env=env, reach=reach)
 
 
 # acts whose v3 track already moves the right way when the animal is on Meatball's RIGHT (+1) or LEFT (-1)
@@ -180,7 +250,8 @@ TRAVEL = ("run_in", "run_off", "run_across", "launch")
 
 def track(mascot, act, n, fps, t_act, home, side, seed):
     """mascot.act_track re-aimed for the v4 layout: he faces the animal, flees and is flung away from it,
-    peeks and cowers from the far edge, and a peek ends on his mark instead of a fixed spot."""
+    peeks and cowers from the far edge, and a peek ends on his mark instead of a fixed spot. A peek's entries
+    carry "peek" (0 off screen .. 1 on his mark), which pulls a cut-out back from its solo framing."""
     mirror = side != BASE_SIDE.get(act, 1)
     built = 1 - home if (mirror and act in TRAVEL) else home
     out = []
@@ -191,6 +262,7 @@ def track(mascot, act, n, fps, t_act, home, side, seed):
             p = (1.4 - e["x"]) / 0.5
             mark = 1 - home if mirror else home
             e["x"] = 1.4 + (mark - 1.4) * p
+            e["peek"] = 0.0 if e.get("hidden") else min(1.0, max(0.0, p))   # 0 off screen .. 1 on his mark
         elif act == "hide":               # cower at the edge away from the animal, leaning toward it
             e["x"], e["rot"], m = (0.14 if side == 1 else 0.86), 8.0 * side, False
         if m:

@@ -140,6 +140,27 @@ def _mask(path, crop, reg):
     return im, a, raw, m
 
 
+_OUTLINE = {}
+
+
+def outline(path, crop, reg, n=48):
+    """The cut-out's silhouette as n column strips in photo px, [(x0, x1, top, bottom)], so staging can let a
+    tall animal lean over Meatball's head where its body leaves room, not only stand beside his box."""
+    key = (path, tuple(crop or [0, 0, 1, 1]), tuple(reg))
+    if key not in _OUTLINE:
+        m = _mask(path, crop, reg)[3]
+        rx0, ry0, _, _ = _px(path, reg)
+        xs = np.nonzero(m.any(0))[0]
+        cuts = np.linspace(xs.min(), xs.max() + 1, n + 1).astype(int)
+        out = []
+        for a, b in zip(cuts, cuts[1:]):
+            rows = np.nonzero(m[:, a:max(b, a + 1)].any(1))[0]
+            if len(rows):
+                out.append((rx0 + a, rx0 + b, ry0 + rows.min(), ry0 + rows.max() + 1))
+        _OUTLINE[key] = out
+    return _OUTLINE[key]
+
+
 def subject(path, crop, parent=None):
     """Subject facts for one shot, boxes in crop fractions (a whole animal may extend past 0..1). A tighter
     re-cut of a shot (`parent` = the shot's crop) uses its parent's region, so both share one outline."""
@@ -345,11 +366,12 @@ def shake(dt, dur=0.7):
     return 0.012 * env * math.sin(2 * math.pi * 14 * dt), 3.5 * env * math.sin(2 * math.pi * 11 * dt + 1)
 
 
-def transform(moves, t, toward, seed, idle_kind="bob", n_left=None, ts=None, n_from=None):
+def transform(moves, t, toward, seed, idle_kind="bob", n_left=None, ts=None, n_from=None, reach=1.0):
     """Combined move at beat time t (s); ts = seconds into the shot (the idle restarts each shot).
     moves = [(name, t_at)]. Returns dict(dx, dy (frame-width fractions), s, sx, sy, rot (deg),
     flip (0..1 progress of a turn: sx goes 1 -> -1 through a squash)). n_left / n_from = frames to the end /
-    from the start of the Short: the move eases to rest there, so the loop's last frame matches frame 0."""
+    from the start of the Short: the move eases to rest there, so the loop's last frame matches frame 0.
+    reach scales how far a lunge or strike travels and swells (stage.frame_fit shortens it where room is tight)."""
     dx, dy, s, sx, sy, rot = idle(t if ts is None else ts, idle_kind, seed)
     flip = 0.0
     for nm, ta in moves:
@@ -368,6 +390,8 @@ def transform(moves, t, toward, seed, idle_kind="bob", n_left=None, ts=None, n_f
             m = (0, 0.006 * sq, 1, 1, 1 - 0.07 * sq, 0)
         else:
             continue
+        if nm in ("lunge", "strike"):
+            m = (m[0] * reach, m[1], 1 + (m[2] - 1) * reach) + tuple(m[3:])
         dx, dy, rot = dx + m[0], dy + m[1], rot + m[5]
         s, sx, sy = s * m[2], sx * m[3], sy * m[4]
     edge = min(n_left if n_left is not None else 99, n_from if n_from is not None else 99)

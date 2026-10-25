@@ -26,14 +26,17 @@ Photos come from explainer.photo() (pinned iNaturalist observations, full resolu
 "style": "v4" (research/45) adds, on top of everything above:
   whole-animal cut-outs  every photo shot is cut out (tools/animal.py): the WHOLE animal, holes under 1%
                          filled, contour smoothed, 1 px under a uniform white stroke, soft shadow. The shot is
-                         re-framed around it (tools/stage.py): as large as fits beside Meatball (above him if
-                         it must), clear of him, the captions and the frame edge, standing on the free space's
-                         floor, over its own photo blurred and dimmed with the animal painted out
+                         re-framed around it (tools/stage.py): as large as fits beside Meatball, leaning over
+                         his head where its outline leaves room, clear of him, the captions and the frame edge,
+                         standing on the floor, over its own photo blurred and dimmed with the animal painted
+                         out. Before he peeks in on a hook, it has the frame to itself and pulls back as he
+                         arrives; a lunge or strike reaches less far where the full reach would cost size
   animal acting          the cut-out always moves (bob, or "drift" for floaters); beat "animal": "lunge@kick" /
                          ["turn@twists", "shake@inside"] adds lunge|kick|charge, strike|snap|sting, shake,
                          turn|look, timed to a word, with a matching SFX unless the beat has one there
-  Meatball               keeps his left-hand mark and faces the animal; flees, is flung, peeks and cowers away
-                         from it (on a v3 still his mark comes from the pinned head instead)
+  Meatball               tucked against the left edge (760, or 0.84x / 0.72x of that when it lets the animal
+                         grow) and faces the animal; flees, is flung, peeks and cowers away from it (on a v3
+                         still his mark comes from the pinned head instead)
   beat "contact": true   Meatball and the animal may touch (a poke, a sting, a kick)
   spec "subjects"        per iNaturalist obs: {"head": [x0, y0, x1, y1] photo fractions (steers Meatball on a
                          v3 still), "cutout": false, "idle": "drift"}
@@ -71,7 +74,7 @@ CAP_Y = 1560
 MAX_SHOT = 2.4    # a shot longer than this is re-cut to a tighter crop of the same photo (gate: 2.5 s)
 PUSH = 0.045      # zoom per second of the slow push (v2: 0.036)
 HOME = 0.24       # Meatball's mark: left of centre, so the animal (centred in each crop) stays visible
-HOME_V4, SIZE_V4 = 0.21, 880   # v4: a little smaller and nearer the edge, so a whole animal fits beside him
+HOME_V4, SIZE_V4 = 0.21, 760   # v4: smaller and tucked at the edge (stage.tuck), so the animal gets most of the frame
 PLAN = {}         # filled before the frame workers fork
 
 
@@ -268,27 +271,35 @@ def subject(sh, s, pin):
 
 
 def stage_v4(shots, n, b, moves, top, act):
-    """v4 staging for one line. Meatball's mark: clear of the head on v3 stills (stage.place), else on the
-    side away from the animal. Each cut-out shot is then re-framed around the WHOLE animal (stage.frame_fit):
-    as large as fits, with room for its moves, beside or above him and above the captions."""
+    """v4 staging for one line. Meatball's mark: clear of the head on v3 stills (stage.place), else tucked
+    against the left edge (a little smaller when that lets the animal grow). Each cut-out shot is then
+    re-framed around the WHOLE animal (stage.frame_fit): as large as fits, with room for its moves, beside him
+    or leaning over his head where its outline leaves room, above the captions and inside the frame."""
     contact = bool(b.get("contact"))
     stills = [s for s in shots if not s.get("cut")]
     cuts = [s for s in shots if s.get("cut")]
+    side = 1
     if any(s.get("subj") for s in stills):
         x, size, side, _ = stage.place(stills, n, contact, HOME_V4, int(b.get("size", SIZE_V4)))
-    else:  # cut-outs are re-framed anyway: keep his v3 mark (left) so he doesn't hop sides between lines
-        x, size, side = HOME_V4, int(b.get("size", SIZE_V4)), 1
+        marks = [(x, size)]
+    else:  # cut-outs are re-framed anyway: keep him on the left so he doesn't hop sides between lines
+        size = int(b.get("size", SIZE_V4))
+        marks = [(stage.tuck(sz), sz) for sz in (size, int(size * 0.84), int(size * 0.72))]
     best = None
-    for sz in (size, int(size * 0.85)):
-        fits = [stage.frame_fit(animal.photo_box(s["path"], s["subj"]), moves, s["idle"], side, contact,
-                                stage.regions(x, sz, side, top, contact, act), gmax=1.4) for s in cuts]
+    for x, sz in marks:
+        keep = stage.keepout(x, sz, side, top, contact, act)
+        fits = [stage.frame_fit(outline(s), moves, s["idle"], side, contact, keep) for s in cuts]
         worst = min([ft["g"] for ft in fits] + [9.0])
-        if best is None or worst > best[0] * 1.25:
-            best = (worst, sz, fits)
-    _, size, fits = best
+        if best is None or worst > best[0] * 1.08:
+            best = (worst, x, sz, fits)
+    _, x, size, fits = best
     for s, ft in zip(cuts, fits):
         s["fit"] = ft
     return x, size, side
+
+
+def outline(sh):
+    return animal.outline(sh["path"], sh["crop"], sh["reg"])
 
 
 def plan_beats(spec, work):
@@ -360,14 +371,20 @@ def plan_beats(spec, work):
                 h0 = out[0]
                 x, size, side = h0["x"], h0["size"], h0["side"]
                 for s_ in shots:  # a tighter re-cut of the loop shot shares its parent's framing
-                    s_["fit"] = next((t["fit"] for t in h0["shots"] if t.get("fit") and (t["path"], t["crop"])
-                                      == (s_["path"], s_.get("parent") or s_["crop"])), None)
+                    t0 = next((t for t in h0["shots"] if t.get("fit") and (t["path"], t["crop"])
+                               == (s_["path"], s_.get("parent") or s_["crop"])), {})
+                    s_["fit"], s_["solo"] = t0.get("fit"), t0.get("solo")
                     if s_.get("cut") and s_["fit"] is None:
-                        s_["fit"] = stage.frame_fit(animal.photo_box(s_["path"], s_["subj"]), moves, s_["idle"],
-                                                    side, False, stage.regions(x, size, side, act="peek"), gmax=1.4)
+                        s_["fit"] = stage.frame_fit(outline(s_), moves, s_["idle"], side, False,
+                                                    stage.keepout(x, size, side, act="peek"))
             elif "x" not in b:
                 top = 330 + lab_img.shape[0] / 2 + 12 if lab else stage.SAFE[1]
                 x, size, side = stage_v4(shots, n, b, moves, top, act)
+                if act == "peek":  # before he peeks in, the animal has the frame to itself: big opening frame
+                    for s_ in shots:
+                        if s_.get("cut"):
+                            s_["solo"] = stage.frame_fit(outline(s_), moves, s_["idle"], side, False,
+                                                         dict(stage.SOLO, top=top))
             trk = stage.track(mascot, act, n, FPS, t_act, x, side, i)
         else:
             trk = mascot.act_track(act, n, FPS, t_act, x, seed=i)
@@ -412,10 +429,10 @@ def shot_view(bt, sh, f):
 _LAYERS = {}
 
 
-def layer(sh):
+def layer(sh, g=None):
     """v4: (blurred painted-out background at g_bg, premultiplied animal sticker at g, sticker offset, g_bg),
-    cached per photo and scale."""
-    g = round(sh["fit"]["g"], 4)
+    cached per photo and scale. g defaults to the shot's fit."""
+    g = round(g or sh["fit"]["g"], 4)
     pw, ph = stage.crop_size(sh["path"], [0, 0, 1, 1])
     g_bg = round(max(g, W / pw, H / ph), 4)   # the background always covers the frame
     key = (sh["path"], tuple(sh["reg"]), g, g_bg, sh["blur"])
@@ -442,21 +459,27 @@ def picture(bt, sh, f, g, dx=0.0):
         return view(img, z, dx), None
     bg, st, (ox, oy), g_bg = layer(sh)
     ft = sh["fit"]
-    gs = ft["g"]
+    gs, tx, ty, k = ft["g"], ft["tx"], ft["ty"], 1.0
+    q = bt["trk"][min(f, len(bt["trk"]) - 1)].get("peek", 1.0)
+    if sh.get("solo") and q < 1:  # he is peeking in: pull back from the solo framing as he arrives
+        so, e = sh["solo"], q * q * (3 - 2 * q)
+        gs, tx, ty = (so[c] + (ft[c] - so[c]) * e for c in ("g", "tx", "ty"))
+        _, st, (ox, oy), _ = layer(sh, so["g"])   # the background stays the fit's: only the animal moves
+        k = gs / round(so["g"], 4)
     pb = animal.photo_box(sh["path"], sh["subj"])
     pcx, pcy = (pb[0] + pb[2]) / 2, (pb[1] + pb[3]) / 2
-    scx, scy = ft["tx"] + gs * pcx, ft["ty"] + gs * pcy          # the animal's centre on screen
+    scx, scy = tx + gs * pcx, ty + gs * pcy          # the animal's centre on screen
     bh, bw = bg.shape[:2]   # background: same spot of the photo behind the animal, clamped to cover the frame
     bx = min(0.0, max(W - bw, scx - g_bg * pcx))
     by = min(0.0, max(H - bh, scy - g_bg * pcy))
     Mb = np.float32([[z, 0, W / 2 - z * W / 2 + z * bx + dx], [0, z, H / 2 - z * H / 2 + z * by]])
     out = cv2.warpAffine(bg, Mb, (W, H), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
     # the cut-out takes no push: a little parallax against the background
-    V = np.array([[1, 0, ft["tx"] + ox + dx], [0, 1, ft["ty"] + oy], [0, 0, 1]])
-    a = (scx + dx, scy if sh["idle"] == "drift" else ft["ty"] + gs * pb[3])
+    V = np.array([[k, 0, tx + k * ox + dx], [0, k, ty + k * oy], [0, 0, 1]])
+    a = (scx + dx, scy if sh["idle"] == "drift" else ty + gs * pb[3])
     toward = 1 if bt["x"] * W >= a[0] else -1
     mv = animal.transform(bt["moves"], f / FPS, toward, sh["no"], sh["idle"], n_left=PLAN["total"] - 1 - g,
-                          ts=(f - sh["f0"]) / FPS, n_from=g)
+                          ts=(f - sh["f0"]) / FPS, n_from=g, reach=ft.get("reach", 1.0))
     r = math.radians(mv["rot"])
     sc = mv["s"]
     A = np.array([[math.cos(r), -math.sin(r), 0], [math.sin(r), math.cos(r), 0], [0, 0, 1]]) @ np.diag(
@@ -655,6 +678,8 @@ def build(spec, work, out, music=None):
             base(s["path"], s["crop"], s["blur"])
             if s.get("cut"):
                 layer(s)
+                if s.get("solo"):
+                    layer(s, s["solo"]["g"])
     total = total_f / FPS
     gate(beats, total)
     if v4:

@@ -72,6 +72,7 @@ qualified views. Channel: subs, weekly long-form watch hours vs the 4,000 h pace
   - Photos must show the WHOLE animal, uncropped (CC0/CC BY).
   - A failed cut-out falls back to the v3 still; the render fails if a cut-out breaks the rules.
   - The factdesk eyeballs every new cut-out: the automatic check can't catch a matte that stops short.
+- **Bigger animals (Nolan approved 10/25, "Better"):** tools-v4-bigger.diff is merged. Animals are fitted by their real outline, Meatball tucks left at size 760 (down to 547 when it lets the animal grow 8%+), and the opening shot is animal-only until Meatball peeks in.
 - Already-scheduled v3 posts stay up. Don't re-render them.
 
 ## TikTok deep dives: open loop (night shift proposal 10/25, research/40; Mayor to adopt or reject)
