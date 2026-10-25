@@ -5,6 +5,7 @@ The agent team behind Meatball Myths. It has one goal, set by Nolan on 10/24: FU
 platform that pays. The lower tier (500 subs plus 3M views) is the waypoint (research/26, research/31).
 
 Town page: https://claude.ai/artifact/ULGBNYEnnAumrYEZ6hjphQ (10 expert desks, consolidated 10/24)
+Nolan's daily calendar: https://claude.ai/artifact/WXDRgSy7y78qpFXc9CzS5X. The morning run's Mayor rewrites `days/<date>` (today plus 6 days of slots) and `plan/today` (headline, priorities, what needs Nolan) every morning with ArtifactData; Nolan asked for it on 10/25.
 It is backed by the artifact database; read and write it with the `ArtifactData` tool, passing that url.
 
 ## Data
