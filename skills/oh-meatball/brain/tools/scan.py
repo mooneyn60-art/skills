@@ -137,33 +137,43 @@ def check_queue(root, now):
     posts = {}
     for r in ps:
         t = parse_ts((r.get("date") or "")[:16])
-        if t:
+        if t and not (r.get("network") == "youtube" and r.get("file", "").startswith("ep")):
+            # long-forms (ep*.mp4 at 14:00) must not fill a 13:00 or 16:00 Shorts slot
             posts.setdefault(r.get("network", ""), []).append(t)
     used = set()
 
-    def filled(net, slot):
+    def filled(net, slot, tol):
         near = [(abs(p - slot), n, i) for n in net_alias[net] for i, p in enumerate(posts.get(n, []))
-                if (n, i) not in used and abs(p - slot) <= dt.timedelta(hours=2)]
+                if (n, i) not in used and abs(p - slot) <= tol]
         if not near:
             return False
         used.add(min(near)[1:])
         return True
 
+    # Two passes (10/25 fix): exact-time posts claim their own slot first, then drifted posts fill
+    # what's left. A single greedy pass let a 12:00 post fill the empty 10:00 slot and then
+    # reported 12:00 as the gap.
+    horizon = dt.timedelta(days=7)
     for net, times in CADENCE.items():
-        missing = []
-        for d in range(0, 3):
+        slots = []
+        for d in range(0, 8):
             day = (now_et + dt.timedelta(days=d)).date()
             for t in times:
                 slot = dt.datetime.combine(day, dt.time.fromisoformat(t), et)
-                if not (now_et < slot <= now_et + dt.timedelta(hours=48)):
-                    continue
-                stamp = slot.strftime("%Y-%m-%d %H:%M")
-                if not filled(net, slot):
-                    missing.append(stamp)
-        if missing:
-            sev = "CRITICAL" if any(parse_ts(m) - now_et < dt.timedelta(hours=12) for m in missing) else "WARN"
-            add(sev, "postmaster", f"{len(missing)} {net} slot(s) in the next 48 h have nothing in posted.csv: {', '.join(missing[:6])}.",
+                if now_et < slot <= now_et + horizon:
+                    slots.append(slot)
+        open_slots = [s for s in slots if not filled(net, s, dt.timedelta(minutes=5))]
+        missing = [s for s in open_slots if not filled(net, s, dt.timedelta(hours=2))]
+        soon = [s.strftime("%Y-%m-%d %H:%M") for s in missing if s - now_et <= dt.timedelta(hours=48)]
+        later = [s.strftime("%m-%d %H:%M") for s in missing if s - now_et > dt.timedelta(hours=48)]
+        if soon:
+            sev = "CRITICAL" if any(parse_ts(m) - now_et < dt.timedelta(hours=12) for m in soon) else "WARN"
+            add(sev, "postmaster", f"{len(soon)} {net} slot(s) in the next 48 h have nothing in posted.csv: {', '.join(soon[:6])}.",
                 "Fill them from finished renders now (or log them if they are already in Metricool but not in posted.csv).")
+        if later:
+            # Days 3-7 (added 10/25): the 48 h window hid 2-3 empty YouTube Shorts slots a day from 10/28 on.
+            add("WARN", "postmaster", f"{len(later)} {net} slot(s) in days 3-7 are empty: {', '.join(later[:8])}{' ...' if len(later) > 8 else ''}.",
+                "Render a pack for them in the next morning run; an empty slot beats an old-style post.")
 
 
 def check_experiments(root, now):
