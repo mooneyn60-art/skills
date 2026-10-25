@@ -1,0 +1,4744 @@
+{
+ "title": "TikTok pack 2 (11 originals, Shorts v4, Andrew)",
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+0%",
+ "short_rate": "+0%",
+ "tempo": 1.1,
+ "music": "music/quiz-bed.m4a",
+ "style": "v4",
+ "_note": "TikTok pack 2, Shorts v4 (research/45, research/46; Studio, 2026-10-25). 11 TikTok-only originals: 6 single-animal deep dives at 61-75 s (one per posting day) and 5 Shorts at 20-25 s. None of the animals appear in pack 1 or any earlier script. Meatball tries something, it goes wrong, the true fact is the punchline; the animal is a whole-animal cut-out that acts on the word (beat \"animal\"). Lines are 8 words or fewer. Asks (like, follow, comment) are in Meatball's voice and never in the first 3 s. No quiz cards, no read-outs. Every \"at\" anchor is a word, never a bare number (tools/v3.py reads numbers as seconds). Voice: en-US-AndrewMultilingualNeural at +0% then atempo 1.10 (= +10%), the free v3/v4 voice. Photos: iNaturalist research-grade, wild (captive=false), CC0/CC BY only, first photo of the pinned observation, scanned with animal.subject() and then checked by eye one by one (whole animal, alive, right species, no halo, nothing missing). Facts web-checked 10/25 with sources on each hook beat; '_len' marks short/deep.",
+ "names": {
+  "Sagittarius serpentarius": "Secretarybird",
+  "Toxotes": "Archerfish",
+  "Balaeniceps rex": "Shoebill",
+  "Centrolenidae": "Glass frog",
+  "Dasypus novemcinctus": "Nine-banded armadillo",
+  "Menura novaehollandiae": "Superb lyrebird",
+  "Fratercula arctica": "Atlantic puffin",
+  "Lithobates sylvaticus": "Wood frog",
+  "Manidae": "Pangolin"
+ },
+ "subjects": {
+  "71507882": {},
+  "49584140": {},
+  "107422473": {},
+  "280042924": {},
+  "315528324": {},
+  "285793941": {},
+  "321013010": {},
+  "310996412": {},
+  "213176183": {},
+  "39845076": {},
+  "192810220": {},
+  "66062206": {},
+  "226050974": {},
+  "143897116": {},
+  "306137643": {},
+  "126434695": {},
+  "17652481": {},
+  "102281019": {},
+  "112080784": {},
+  "17438657": {},
+  "244765920": {},
+  "388886399": {},
+  "250621565": {},
+  "4514180": {},
+  "144593570": {},
+  "227684265": {},
+  "16990191": {},
+  "370808277": {},
+  "289718369": {},
+  "170606502": {},
+  "145606744": {},
+  "229159353": {},
+  "204790970": {},
+  "347300235": {},
+  "122153541": {},
+  "106565577": {},
+  "266385888": {},
+  "302286179": {},
+  "93016098": {},
+  "130263150": {},
+  "66841": {},
+  "233470854": {}
+ },
+ "beats": [
+  {
+   "myth": "secretarybird",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "This bird kicks snakes to death.",
+   "label": {
+    "text": "KICKS\nSNAKES",
+    "at": "kicks"
+   },
+   "sfx": [
+    "pop@kicks"
+   ],
+   "animal": "lunge@kicks",
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 71507882,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "So never ask it for a lesson. Because",
+   "short_title": "Secretary Birds Kick Snakes to Death 🦵",
+   "comment": "Would you take a kick lesson from this bird? 👇",
+   "bonus": "A 2016 force-plate study clocked the kick at about 195 newtons with just 15 ms of contact.",
+   "sources": [
+    "Portugal, Murn, Sparkes & Daley 2016, Current Biology 26: R58-R59, 'The fast and forceful kicking strike of the secretary bird' (captive male named Madeleine, Hawk Conservancy Trust; rubber snake over a force plate; ~195 N = ~5x body weight; mean contact 15 ms; strikes rely on pre-planned aim, too fast to correct mid-kick) — https://pure.royalholloway.ac.uk/en/publications/the-fast-and-forceful-kicking-strike-of-the-secretary-bird/ ; summary https://phys.org/news/2016-01-snake-hunting-secretary-birds-body-weight.html",
+    "Wikipedia, Secretarybird (about 1.3 m / 4 ft 3 in tall; hunts on foot, walking at about 120 steps a minute; small vertebrates and insects, venomous snakes such as adders and cobras regularly eaten; on the coats of arms of South Africa and Sudan; IUCN Endangered since 2020) — https://en.wikipedia.org/wiki/Secretarybird (checked 2026-10-25)",
+    "A human blink lasts about 100-150 ms (Harvard Database of Useful Biological Numbers, BNID 100706) — https://bionumbers.hms.harvard.edu/bionumber.aspx?id=100706"
+   ],
+   "_len": "deep",
+   "caption": "Secretary birds hunt on foot and stomp their prey. Scientists measured one kick at about five times the bird's body weight, landing in 15 milliseconds. #secretarybird #birds #animalfacts #wildlife"
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So naturally, I asked for a lesson.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@lesson",
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 71507882,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It's about four feet tall.",
+   "label": {
+    "text": "4 FEET",
+    "at": "feet"
+   },
+   "sfx": [
+    "pop@feet"
+   ],
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 49584140,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Mostly legs.",
+   "punch": "legs",
+   "animal": "shake@legs",
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 107422473,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "point",
+   "act": "stand",
+   "say": "Scientists measured its kick.",
+   "punch": "kick",
+   "sfx": [
+    "pop@kick"
+   ],
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 280042924,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "They used a rubber snake.",
+   "sfx": [
+    "boing@rubber"
+   ],
+   "punch": "rubber",
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 315528324,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "point",
+   "act": "stand",
+   "say": "And a bird named Madeleine.",
+   "label": {
+    "text": "MADELEINE",
+    "at": "Madeleine"
+   },
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 285793941,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Madeleine is a boy.",
+   "sfx": [
+    "scratch@boy"
+   ],
+   "animal": "turn@boy",
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 71507882,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Nobody tell Madeleine.",
+   "punch": "Nobody",
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 49584140,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "shock",
+   "act": "launch",
+   "say": "Then Madeleine kicked me.",
+   "hit": "kicked",
+   "sfx": [
+    "crunch@kicked"
+   ],
+   "animal": "lunge@kicked",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 107422473,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "Five times its own body weight.",
+   "label": {
+    "text": "5X ITS\nWEIGHT",
+    "at": "Five"
+   },
+   "act_at": "weight",
+   "sfx": [
+    "thud@weight"
+   ],
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 280042924,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The kick lasted fifteen milliseconds.",
+   "label": {
+    "text": "0.015\nSECONDS",
+    "at": "fifteen"
+   },
+   "sfx": [
+    "pop@fifteen"
+   ],
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 315528324,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "point",
+   "act": "stand",
+   "say": "That's faster than a blink.",
+   "punch": "blink",
+   "animal": "strike@blink",
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 285793941,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "I never saw it coming.",
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 71507882,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Neither did the rubber snake.",
+   "animal": "strike@snake",
+   "sfx": [
+    "thud@snake"
+   ],
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 49584140,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "point",
+   "act": "stand",
+   "say": "Tap like. It's for my bruises.",
+   "sfx": [
+    "pop@like"
+   ],
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 49584140,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "It hunts on foot, all day.",
+   "animal": "turn@foot",
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 107422473,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "shock",
+   "act": "shake",
+   "say": "About 120 steps a minute.",
+   "label": {
+    "text": "120 STEPS\nA MINUTE",
+    "at": "steps"
+   },
+   "sfx": [
+    "pop@steps"
+   ],
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 280042924,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "My legs are literally sticks.",
+   "punch": "sticks",
+   "sfx": [
+    "scratch@sticks"
+   ],
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 315528324,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Lizards. Rodents. Insects. Snakes.",
+   "sfx": [
+    "pop@Snakes"
+   ],
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 107422473,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 280042924,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "Rodents"
+    },
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 315528324,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "Insects"
+    },
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 71507882,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "Snakes"
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Even cobras and adders.",
+   "label": {
+    "text": "COBRAS",
+    "at": "cobras"
+   },
+   "animal": "lunge@cobras",
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 285793941,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "point",
+   "act": "stand",
+   "say": "It aims first. Then it stomps.",
+   "animal": "lunge@stomps",
+   "sfx": [
+    "crunch@stomps"
+   ],
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 71507882,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Too fast to correct mid-kick.",
+   "punch": "fast",
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 49584140,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "If it misses, it kicks again.",
+   "act_at": "again",
+   "animal": "lunge@again",
+   "sfx": [
+    "thud@again"
+   ],
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 107422473,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "nervous",
+   "act": "run_off",
+   "say": "I am rolling away now.",
+   "sfx": [
+    "whoosh@rolling"
+   ],
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 280042924,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "think",
+   "act": "peek",
+   "say": "Now the weird part.",
+   "sfx": [
+    "scratch@weird"
+   ],
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 315528324,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "point",
+   "act": "stand",
+   "say": "It's on South Africa's coat of arms.",
+   "label": {
+    "text": "COAT OF\nARMS",
+    "at": "coat"
+   },
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 285793941,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "shock",
+   "act": "stand",
+   "say": "And Sudan's.",
+   "punch": "Sudan's",
+   "animal": "turn@Sudan's",
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 71507882,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "A national symbol. For kicking.",
+   "punch": "kicking",
+   "animal": "lunge@kicking",
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 49584140,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "I'm only on menus.",
+   "prop": "fork",
+   "prop_at": "menus",
+   "sfx": [
+    "tink@menus"
+   ],
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 107422473,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Sadly, it's now endangered.",
+   "label": {
+    "text": "RED LIST",
+    "at": "endangered"
+   },
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 280042924,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "So I'm rooting for it.",
+   "animal": "turn@rooting",
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 315528324,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "From very far away.",
+   "punch": "far",
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 285793941,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "point",
+   "act": "stand",
+   "say": "Follow me. I'll be in these bushes.",
+   "sfx": [
+    "pop@Follow"
+   ],
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 280042924,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Threat to meatballs: extreme.",
+   "label": {
+    "text": "THREAT:\nEXTREME",
+    "at": "extreme"
+   },
+   "animal": "lunge@extreme",
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 71507882,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "secretarybird",
+   "pose": "think",
+   "act": "peek",
+   "say": "Would you take a kick lesson? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Sagittarius serpentarius",
+     "obs": 71507882,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "archerfish",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "Archerfish shoot bugs down with water.",
+   "label": {
+    "text": "WATER\nSNIPER",
+    "at": "shoot"
+   },
+   "sfx": [
+    "pop@shoot"
+   ],
+   "animal": "strike@water",
+   "shots": [
+    {
+     "photo": "Toxotes",
+     "obs": 321013010,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "So never stand on a leaf. Because",
+   "short_title": "Archerfish Shoot Bugs Down With Water 💦",
+   "comment": "Would you trust a fish that remembers your face? 👇",
+   "bonus": "In a 2016 Scientific Reports study, trained archerfish picked a learned human face out of 44 new ones.",
+   "sources": [
+    "Australian Geographic, 'Smart fish that spit' (archerfish knock ants and other insects off overhanging foliage with water jets, from up to two metres away) — https://www.australiangeographic.com.au/topics/wildlife/2017/08/smart-fish-that-spit",
+    "Newport et al. 2016, Scientific Reports (archerfish trained to spit at one face picked it out of 44 new faces, ~81-86% accuracy, greyscale oval-cropped images) — https://www.cbc.ca/news/science/fish-can-recognize-faces-1.3629421 ; https://e360.yale.edu/digest/fish_can_recognize_human_faces"
+   ],
+   "_len": "short",
+   "caption": "Archerfish spit jets of water to knock insects off leaves, up to about two meters away. They can even learn to tell human faces apart. #archerfish #fish #animalfacts #science"
+  },
+  {
+   "myth": "archerfish",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I stood on a leaf above one.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@leaf",
+   "shots": [
+    {
+     "photo": "Toxotes",
+     "obs": 321013010,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "archerfish",
+   "pose": "shock",
+   "act": "launch",
+   "say": "It spat.",
+   "hit": "spat",
+   "sfx": [
+    "splash@spat"
+   ],
+   "animal": "strike@spat",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Toxotes",
+     "obs": 310996412,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "archerfish",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "From up to two meters away.",
+   "label": {
+    "text": "2 METERS",
+    "at": "meters"
+   },
+   "act_at": "meters",
+   "sfx": [
+    "thud@meters"
+   ],
+   "shots": [
+    {
+     "photo": "Toxotes",
+     "obs": 213176183,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "archerfish",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Bugs fall. Meatballs too.",
+   "punch": "Meatballs",
+   "sfx": [
+    "splash@Meatballs"
+   ],
+   "shots": [
+    {
+     "photo": "Toxotes",
+     "obs": 321013010,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "archerfish",
+   "pose": "point",
+   "act": "stand",
+   "say": "It can even learn human faces.",
+   "animal": "turn@faces",
+   "shots": [
+    {
+     "photo": "Toxotes",
+     "obs": 310996412,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "archerfish",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It found one face among forty-four strangers.",
+   "label": {
+    "text": "1 FACE\nVS 44",
+    "at": "strangers"
+   },
+   "shots": [
+    {
+     "photo": "Toxotes",
+     "obs": 310996412,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "archerfish",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "So it knows my face now.",
+   "animal": "shake@knows",
+   "shots": [
+    {
+     "photo": "Toxotes",
+     "obs": 213176183,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "archerfish",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "I don't even have a good side.",
+   "prop": "fork",
+   "prop_at": "side",
+   "sfx": [
+    "tink@side"
+   ],
+   "shots": [
+    {
+     "photo": "Toxotes",
+     "obs": 321013010,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "archerfish",
+   "pose": "point",
+   "act": "stand",
+   "say": "Like and follow. I'm drying off.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Toxotes",
+     "obs": 213176183,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "archerfish",
+   "pose": "think",
+   "act": "peek",
+   "say": "Would you dodge it? Comment.",
+   "ask": "comment",
+   "animal": "strike@dodge",
+   "shots": [
+    {
+     "photo": "Toxotes",
+     "obs": 321013010,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "Shoebills hunt by standing perfectly still.",
+   "label": {
+    "text": "STATUE\nMODE",
+    "at": "still"
+   },
+   "sfx": [
+    "pop@still"
+   ],
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 39845076,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "So no, I still haven't blinked. Because",
+   "short_title": "Shoebills Hunt by Standing Perfectly Still 👞",
+   "comment": "Could you win a staring contest with a shoebill? 👇",
+   "bonus": "On hot days shoebills carry water in their bills and pour it over the nest to cool the eggs.",
+   "sources": [
+    "Wikipedia, Shoebill (typically 110-140 cm tall, some 152 cm; exposed bill 18.8-24 cm; 'statue-like', moves slowly and stays still, then a quick violent strike, ~60% of strikes catch prey; lungfish, bichirs, tilapia, catfish, also frogs, watersnakes, Nile monitors and baby crocodiles; normally silent but bill-clatters at the nest; cools eggs by pouring water from the bill on hot days; rarely raises more than one chick, younger chicks usually die or serve as backups; IUCN Vulnerable, 5,000-8,000 birds) — https://en.wikipedia.org/wiki/Shoebill (checked 2026-10-25)"
+   ],
+   "_len": "deep",
+   "caption": "The shoebill stands like a statue, then strikes. It eats lungfish, catfish, snakes and even baby crocodiles, and cools its eggs by pouring water from its bill. #shoebill #birds #animalfacts #wildlife"
+  },
+  {
+   "myth": "shoebill",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I tried a staring contest.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@staring",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 39845076,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Some stand five feet tall.",
+   "label": {
+    "text": "5 FEET",
+    "at": "feet"
+   },
+   "sfx": [
+    "pop@feet"
+   ],
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 192810220,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "point",
+   "act": "stand",
+   "say": "With a bill like a shoe.",
+   "punch": "shoe",
+   "animal": "turn@shoe",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 66062206,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Up to nine inches of shoe.",
+   "label": {
+    "text": "9 INCHES",
+    "at": "inches"
+   },
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 226050974,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "It didn't move.",
+   "punch": "move",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 39845076,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "I didn't move.",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 192810220,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "shock",
+   "act": "launch",
+   "say": "Then it struck.",
+   "hit": "struck",
+   "sfx": [
+    "crunch@struck"
+   ],
+   "animal": "lunge@struck",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 39845076,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "About sixty percent of strikes catch something.",
+   "label": {
+    "text": "60%\nHIT RATE",
+    "at": "catch"
+   },
+   "act_at": "catch",
+   "sfx": [
+    "thud@catch"
+   ],
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 66062206,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Lungfish. Catfish. Frogs.",
+   "animal": "strike@Frogs",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 192810220,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 66062206,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "Catfish"
+    },
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 226050974,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "Frogs"
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "shock",
+   "act": "shake",
+   "say": "Water snakes. Monitor lizards.",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 39845076,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 192810220,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "Monitor"
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Even baby crocodiles.",
+   "label": {
+    "text": "BABY\nCROCS",
+    "at": "crocodiles"
+   },
+   "animal": "lunge@crocodiles",
+   "sfx": [
+    "crunch@crocodiles"
+   ],
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 226050974,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "I'm much softer than a crocodile.",
+   "prop": "fork",
+   "prop_at": "softer",
+   "sfx": [
+    "tink@softer"
+   ],
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 39845076,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Tap like before it looks over here.",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 66062206,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "think",
+   "act": "peek",
+   "say": "Now the weird part.",
+   "sfx": [
+    "scratch@weird"
+   ],
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 192810220,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "point",
+   "act": "stand",
+   "say": "On hot days, it cools its eggs.",
+   "animal": "turn@eggs",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 66062206,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "It carries water in its bill.",
+   "punch": "bill",
+   "sfx": [
+    "splash@water"
+   ],
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 226050974,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "shock",
+   "act": "stand",
+   "say": "And pours it on the nest.",
+   "animal": "strike@pours",
+   "sfx": [
+    "splash@pours"
+   ],
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 39845076,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "A bird with a built-in bucket.",
+   "label": {
+    "text": "BUILT-IN\nBUCKET",
+    "at": "bucket"
+   },
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 192810220,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "It rarely raises more than one chick.",
+   "label": {
+    "text": "1 CHICK",
+    "at": "chick"
+   },
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 66062206,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "think",
+   "act": "stand",
+   "say": "Even when more hatch.",
+   "punch": "more",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 226050974,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The extras are basically backups.",
+   "sfx": [
+    "scratch@backups"
+   ],
+   "punch": "backups",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 39845076,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Relatable. I'm a backup dinner.",
+   "animal": "turn@dinner",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 192810220,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "point",
+   "act": "stand",
+   "say": "Shoebills are normally silent.",
+   "punch": "silent",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 66062206,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "But at the nest, they clatter their bills.",
+   "act_at": "clatter",
+   "animal": "shake@clatter",
+   "sfx": [
+    "boing@clatter"
+   ],
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 226050974,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Only five to eight thousand are left.",
+   "label": {
+    "text": "5-8K\nLEFT",
+    "at": "left"
+   },
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 39845076,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "They're listed as vulnerable.",
+   "punch": "vulnerable",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 192810220,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "So I'll keep still too. Out of respect.",
+   "animal": "turn@respect",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 66062206,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "point",
+   "act": "stand",
+   "say": "Follow me. I'm still in the staring contest.",
+   "sfx": [
+    "pop@Follow"
+   ],
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 192810220,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Threat to meatballs: high.",
+   "label": {
+    "text": "THREAT:\nHIGH",
+    "at": "high"
+   },
+   "animal": "lunge@high",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 39845076,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "think",
+   "act": "peek",
+   "say": "Could you outstare it? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 39845076,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "glassfrog",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Glass frogs have see-through bellies.",
+   "label": {
+    "text": "SEE-\nTHROUGH",
+    "at": "see-through"
+   },
+   "sfx": [
+    "pop@bellies"
+   ],
+   "animal": "turn@bellies",
+   "shots": [
+    {
+     "photo": "Centrolenidae",
+     "obs": 143897116,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "So yes, I saw everything. Because",
+   "short_title": "Glass Frogs Have See-Through Bellies 🐸",
+   "comment": "Would you want a see-through belly? 👇",
+   "bonus": "Resting glassfrogs pack about 89% of their red blood cells into the liver and become 2-3 times more transparent (Taboada et al. 2022, Science).",
+   "sources": [
+    "Wikipedia, Glass frog (heart, liver and gut visible through the belly skin; you can watch the heart pump; 3-7.5 cm; males guard the eggs) — https://en.wikipedia.org/wiki/Glass_frog (checked 2026-10-25)",
+    "Taboada et al. 2022, Science: resting glassfrogs (Hyalinobatrachium fleischmanni) remove ~89% of red blood cells from circulation and pack them in the liver, increasing transparency 2-3x — https://pratt.duke.edu/news/glassfrogs-hide-red-blood-cells-their-liver-become-transparent/ ; https://www.amnh.org/explore/news-blogs/glassfrogs-camouflage"
+   ],
+   "_len": "short",
+   "caption": "Flip a glass frog over and you can watch its heart pump. While it sleeps, it hides almost 90% of its red blood cells in its liver to turn even clearer. #glassfrog #frogs #animalfacts #science"
+  },
+  {
+   "myth": "glassfrog",
+   "pose": "shock",
+   "act": "stand",
+   "say": "You can watch its heart pump.",
+   "punch": "heart",
+   "shots": [
+    {
+     "photo": "Centrolenidae",
+     "obs": 126434695,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "glassfrog",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I looked for its feelings.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@feelings",
+   "shots": [
+    {
+     "photo": "Centrolenidae",
+     "obs": 143897116,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "glassfrog",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Just organs. Zero feelings.",
+   "sfx": [
+    "scratch@Zero"
+   ],
+   "shots": [
+    {
+     "photo": "Centrolenidae",
+     "obs": 143897116,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "glassfrog",
+   "pose": "point",
+   "act": "stand",
+   "say": "When it sleeps, it hides its blood.",
+   "animal": "shake@hides",
+   "shots": [
+    {
+     "photo": "Centrolenidae",
+     "obs": 306137643,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "glassfrog",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Almost ninety percent of its red cells.",
+   "label": {
+    "text": "~90% OF\nRED CELLS",
+    "at": "ninety"
+   },
+   "shots": [
+    {
+     "photo": "Centrolenidae",
+     "obs": 126434695,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "glassfrog",
+   "pose": "shock",
+   "act": "launch",
+   "say": "Packed into its liver.",
+   "hit": "liver",
+   "animal": "lunge@liver",
+   "contact": true,
+   "sfx": [
+    "boing@liver"
+   ],
+   "shots": [
+    {
+     "photo": "Centrolenidae",
+     "obs": 17652481,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "glassfrog",
+   "pose": "point",
+   "act": "tumble",
+   "say": "It turns two to three times clearer.",
+   "label": {
+    "text": "2-3X\nCLEARER",
+    "at": "clearer"
+   },
+   "act_at": "clearer",
+   "sfx": [
+    "thud@clearer"
+   ],
+   "shots": [
+    {
+     "photo": "Centrolenidae",
+     "obs": 102281019,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "glassfrog",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "I tried. I'm still a meatball.",
+   "prop": "fork",
+   "prop_at": "meatball",
+   "sfx": [
+    "tink@meatball"
+   ],
+   "shots": [
+    {
+     "photo": "Centrolenidae",
+     "obs": 112080784,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "glassfrog",
+   "pose": "point",
+   "act": "stand",
+   "say": "Like and follow. I'm getting a mirror.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Centrolenidae",
+     "obs": 306137643,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "glassfrog",
+   "pose": "think",
+   "act": "peek",
+   "say": "Want a see-through belly? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Centrolenidae",
+     "obs": 143897116,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "armadillo",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Nine-banded armadillos have identical quadruplets.",
+   "label": {
+    "text": "IDENTICAL\nQUADS",
+    "at": "quadruplets"
+   },
+   "sfx": [
+    "pop@quadruplets"
+   ],
+   "animal": "turn@identical",
+   "shots": [
+    {
+     "photo": "Dasypus novemcinctus",
+     "obs": 17438657,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "So I still can't tell them apart. Because",
+   "short_title": "Armadillos Are Born as Identical Quadruplets 🐣",
+   "comment": "Could you tell armadillo quadruplets apart? 👇",
+   "bonus": "Despite the myth, nine-banded armadillos can't roll into a ball. Only three-banded armadillos can.",
+   "sources": [
+    "Wikipedia, Nine-banded armadillo (the blastocyst splits into four identical embryos sharing one placenta; holds its breath up to six minutes; crosses rivers by inflating its intestines to float or by sinking and running across the riverbed; when startled can jump 91-120 cm (3-4 ft) straight up; cannot roll itself into a ball, unlike three-banded armadillos) — https://en.wikipedia.org/wiki/Nine-banded_armadillo (checked 2026-10-25)"
+   ],
+   "_len": "short",
+   "caption": "A nine-banded armadillo's single embryo splits into four, so every litter is identical quadruplets. Startled, they can jump 3-4 feet straight up. #armadillo #animalfacts #wildlife #science"
+  },
+  {
+   "myth": "armadillo",
+   "pose": "point",
+   "act": "stand",
+   "say": "One embryo splits into four.",
+   "punch": "four",
+   "sfx": [
+    "pop@four"
+   ],
+   "shots": [
+    {
+     "photo": "Dasypus novemcinctus",
+     "obs": 244765920,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "armadillo",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I tried to tell them apart.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@apart",
+   "shots": [
+    {
+     "photo": "Dasypus novemcinctus",
+     "obs": 388886399,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "armadillo",
+   "pose": "shock",
+   "act": "launch",
+   "say": "I startled one. It jumped straight up.",
+   "hit": "jumped",
+   "sfx": [
+    "boing@jumped"
+   ],
+   "animal": "lunge@jumped",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Dasypus novemcinctus",
+     "obs": 388886399,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "armadillo",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "Three to four feet.",
+   "label": {
+    "text": "4 FEET\nUP",
+    "at": "feet"
+   },
+   "act_at": "feet",
+   "sfx": [
+    "thud@feet"
+   ],
+   "shots": [
+    {
+     "photo": "Dasypus novemcinctus",
+     "obs": 250621565,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "armadillo",
+   "pose": "point",
+   "act": "stand",
+   "say": "It holds its breath for six minutes.",
+   "label": {
+    "text": "6 MINUTES",
+    "at": "minutes"
+   },
+   "shots": [
+    {
+     "photo": "Dasypus novemcinctus",
+     "obs": 17438657,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "armadillo",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Then walks across the riverbed.",
+   "animal": "turn@walks",
+   "shots": [
+    {
+     "photo": "Dasypus novemcinctus",
+     "obs": 244765920,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "armadillo",
+   "pose": "shock",
+   "act": "stand",
+   "say": "And it can't roll into a ball.",
+   "sfx": [
+    "scratch@can't"
+   ],
+   "punch": "ball",
+   "shots": [
+    {
+     "photo": "Dasypus novemcinctus",
+     "obs": 388886399,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "armadillo",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "I can. It's my whole thing.",
+   "prop": "fork",
+   "prop_at": "whole",
+   "sfx": [
+    "tink@whole"
+   ],
+   "shots": [
+    {
+     "photo": "Dasypus novemcinctus",
+     "obs": 250621565,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "armadillo",
+   "pose": "point",
+   "act": "stand",
+   "say": "Like and follow. I'm working on my jump.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Dasypus novemcinctus",
+     "obs": 17438657,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "armadillo",
+   "pose": "think",
+   "act": "peek",
+   "say": "Could you tell them apart? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Dasypus novemcinctus",
+     "obs": 244765920,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "Lyrebirds steal other birds' songs.",
+   "label": {
+    "text": "STOLEN\nSONGS",
+    "at": "steal"
+   },
+   "sfx": [
+    "pop@steal"
+   ],
+   "animal": "turn@songs",
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 4514180,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "So never sing near one. Because",
+   "short_title": "Lyrebirds Steal Other Birds' Songs 🎶",
+   "comment": "Which sound should a lyrebird copy next? 👇",
+   "bonus": "Male superb lyrebirds fake the alarm calls of a mobbing flock during courtship (Dalziell et al. 2021).",
+   "sources": [
+    "Wikipedia, Superb lyrebird (70-80% of male vocalisations are imitations, mostly of other birds such as laughing kookaburras, whipbirds and shrike-thrushes; Attenborough's Life of Birds showed a male copying a car alarm, a chainsaw and camera shutters, two of the three filmed birds were captive; male tail of 16 feathers up to 70 cm, fanned forward over his body and head in display; dirt display mounds defended from other males; foraging moves up to ~200 tonnes of litter and soil per hectare per year) — https://en.wikipedia.org/wiki/Superb_lyrebird (checked 2026-10-25)",
+    "Dalziell et al. 2021, Current Biology, 'Male lyrebirds create a complex acoustic illusion of a mobbing flock during courtship and copulation' (fake mobbing-flock alarm when a female tries to leave or during copulation; authors interpret it as deceptive) — https://cals.cornell.edu/news/2021/02/male-lyrebirds-snare-mates-acoustic-illusion",
+    "Australian ten-cent coin: reverse shows a male superb lyrebird (Stuart Devlin, 1966) — https://en.wikipedia.org/wiki/Australian_ten-cent_coin"
+   ],
+   "_len": "deep",
+   "caption": "Up to 80% of a male superb lyrebird's song is copied from other animals, and males even fake a whole flock's alarm call during courtship. #lyrebird #birds #animalfacts #australia"
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I sang it my best song.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@best",
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 4514180,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "It did not copy me.",
+   "sfx": [
+    "scratch@not"
+   ],
+   "punch": "not",
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 144593570,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "point",
+   "act": "stand",
+   "say": "Up to 80 percent is borrowed.",
+   "label": {
+    "text": "80%\nCOPIED",
+    "at": "borrowed"
+   },
+   "sfx": [
+    "pop@borrowed"
+   ],
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 227684265,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Kookaburras. Whipbirds. Shrike-thrushes.",
+   "animal": "shake@Whipbirds",
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 144593570,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 227684265,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "Whipbirds"
+    },
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 16990191,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "Shrike-thrushes"
+    }
+   ]
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "shock",
+   "act": "shake",
+   "say": "On TV, one copied a chainsaw.",
+   "label": {
+    "text": "CHAINSAW",
+    "at": "chainsaw"
+   },
+   "sfx": [
+    "crunch@chainsaw"
+   ],
+   "animal": "lunge@chainsaw",
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 16990191,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "nervous",
+   "act": "tumble",
+   "say": "Plus camera shutters. And a car alarm.",
+   "act_at": "alarm",
+   "sfx": [
+    "thud@alarm"
+   ],
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 370808277,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Fine print: those were mostly zoo birds.",
+   "punch": "zoo",
+   "sfx": [
+    "pop@zoo"
+   ],
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 4514180,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "I only know one sound.",
+   "animal": "turn@one",
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 144593570,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "shock",
+   "act": "puff",
+   "say": "Sizzle.",
+   "sfx": [
+    "zap@Sizzle"
+   ],
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 227684265,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "point",
+   "act": "deflate",
+   "say": "Tap like and I'll practice.",
+   "act_at": "practice",
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 144593570,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "point",
+   "act": "stand",
+   "say": "The male's tail has sixteen feathers.",
+   "label": {
+    "text": "16\nFEATHERS",
+    "at": "sixteen"
+   },
+   "animal": "shake@feathers",
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 4514180,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Up to seventy centimeters long.",
+   "label": {
+    "text": "70 CM",
+    "at": "centimeters"
+   },
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 370808277,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "He flips it over his head.",
+   "animal": "turn@flips",
+   "sfx": [
+    "whoosh@flips"
+   ],
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 370808277,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "point",
+   "act": "stand",
+   "say": "Then dances on a dirt stage.",
+   "animal": "shake@dances",
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 4514180,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "I asked to share the stage.",
+   "sfx": [
+    "whoosh"
+   ],
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 16990191,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "shock",
+   "act": "launch",
+   "say": "He chased me off it.",
+   "hit": "chased",
+   "sfx": [
+    "crunch@chased"
+   ],
+   "animal": "lunge@chased",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 4514180,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "think",
+   "act": "peek",
+   "say": "Now the weird part.",
+   "sfx": [
+    "scratch@weird"
+   ],
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 370808277,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "point",
+   "act": "stand",
+   "say": "When a female tries to leave,",
+   "animal": "turn@leave",
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 144593570,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "shock",
+   "act": "shake",
+   "say": "he fakes a whole flock's alarm.",
+   "label": {
+    "text": "FAKE\nALARM",
+    "at": "fakes"
+   },
+   "animal": "shake@alarm",
+   "sfx": [
+    "pop@fakes"
+   ],
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 4514180,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Like a predator is right there.",
+   "punch": "predator",
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 4514180,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "think",
+   "act": "stand",
+   "say": "Scientists think it makes her stay.",
+   "animal": "turn@stay",
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 144593570,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "That's not romance. That's a scam.",
+   "punch": "scam",
+   "sfx": [
+    "scratch@scam"
+   ],
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 227684265,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "point",
+   "act": "stand",
+   "say": "They also dig. A lot.",
+   "animal": "strike@dig",
+   "sfx": [
+    "thud@dig"
+   ],
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 16990191,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "Up to 200 tonnes of soil.",
+   "label": {
+    "text": "200\nTONNES",
+    "at": "tonnes"
+   },
+   "act_at": "soil",
+   "sfx": [
+    "thud@soil"
+   ],
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 370808277,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Per hectare. Every year.",
+   "punch": "year",
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 4514180,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "shock",
+   "act": "launch",
+   "say": "I was standing on that soil.",
+   "hit": "soil",
+   "animal": "strike@soil",
+   "contact": true,
+   "sfx": [
+    "crunch@soil"
+   ],
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 144593570,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "point",
+   "act": "stand",
+   "say": "It's on Australia's ten-cent coin.",
+   "label": {
+    "text": "10-CENT\nCOIN",
+    "at": "coin"
+   },
+   "sfx": [
+    "tink@coin"
+   ],
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 4514180,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "I'm worth less than that.",
+   "prop": "fork",
+   "prop_at": "worth",
+   "sfx": [
+    "tink@worth"
+   ],
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 227684265,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "point",
+   "act": "stand",
+   "say": "Follow me. I'm learning a new sound.",
+   "sfx": [
+    "pop@Follow"
+   ],
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 227684265,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Threat to meatballs: low.",
+   "label": {
+    "text": "THREAT:\nLOW",
+    "at": "low"
+   },
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 16990191,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Threat to my ego: high.",
+   "label": {
+    "text": "EGO:\nRUINED",
+    "at": "high"
+   },
+   "animal": "turn@high",
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 370808277,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lyrebird",
+   "pose": "think",
+   "act": "peek",
+   "say": "Which sound should it copy next? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Menura novaehollandiae",
+     "obs": 4514180,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "puffin",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "One puffin held sixty-two fish at once.",
+   "label": {
+    "text": "62 FISH",
+    "at": "fish"
+   },
+   "sfx": [
+    "pop@fish"
+   ],
+   "animal": "turn@once",
+   "shots": [
+    {
+     "photo": "Fratercula arctica",
+     "obs": 289718369,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "So never tell a puffin you're a fish. Because",
+   "short_title": "One Puffin Carried 62 Fish at Once 🐟",
+   "comment": "How many fish could you carry in your mouth? 👇",
+   "bonus": "Puffins shed the bright outer plates of their beaks after the breeding season.",
+   "sources": [
+    "BirdLife International, Seabird of the month: Atlantic Puffin (average catch around 10 fish per trip; record in Britain 62 fish at once) — https://www.birdlife.org/news/2022/04/06/seabird-of-the-month-atlantic-puffin-fratercula-arctica/ ; Audubon Project Puffin FAQ — https://hogisland.audubon.org/puffin-faqs-0",
+    "Wikipedia, Atlantic puffin (holds earlier catches in place with its muscular, grooved tongue; serrated beak edges help retain fish; top flight speed about 80 km/h (50 mph); bright bill plates and facial ornaments are shed in a partial moult after breeding) — https://en.wikipedia.org/wiki/Atlantic_puffin (checked 2026-10-25)"
+   ],
+   "_len": "short",
+   "caption": "Puffins usually bring back about 10 fish a trip, but one in Britain held 62 at once. A grooved tongue pins the fish while it catches more. #puffin #birds #animalfacts #seabirds"
+  },
+  {
+   "myth": "puffin",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I asked if it had room.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@room",
+   "shots": [
+    {
+     "photo": "Fratercula arctica",
+     "obs": 170606502,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "puffin",
+   "pose": "point",
+   "act": "stand",
+   "say": "Its grooved tongue pins the first catch.",
+   "punch": "tongue",
+   "shots": [
+    {
+     "photo": "Fratercula arctica",
+     "obs": 145606744,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "puffin",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Spiky beak edges hold the rest.",
+   "animal": "strike@Spiky",
+   "sfx": [
+    "crunch@Spiky"
+   ],
+   "shots": [
+    {
+     "photo": "Fratercula arctica",
+     "obs": 170606502,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "puffin",
+   "pose": "shock",
+   "act": "launch",
+   "say": "It went for one more.",
+   "hit": "more",
+   "sfx": [
+    "crunch@more"
+   ],
+   "animal": "lunge@more",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Fratercula arctica",
+     "obs": 289718369,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "puffin",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "It flies up to fifty miles an hour.",
+   "label": {
+    "text": "50 MPH",
+    "at": "miles"
+   },
+   "act_at": "miles",
+   "sfx": [
+    "whoosh@miles"
+   ],
+   "shots": [
+    {
+     "photo": "Fratercula arctica",
+     "obs": 170606502,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "puffin",
+   "pose": "point",
+   "act": "stand",
+   "say": "And that bright beak? Seasonal.",
+   "punch": "Seasonal",
+   "sfx": [
+    "scratch@Seasonal"
+   ],
+   "shots": [
+    {
+     "photo": "Fratercula arctica",
+     "obs": 145606744,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "puffin",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "After breeding, the bright plates fall off.",
+   "animal": "shake@fall",
+   "shots": [
+    {
+     "photo": "Fratercula arctica",
+     "obs": 229159353,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "puffin",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "It's a costume. I'm not.",
+   "prop": "fork",
+   "prop_at": "not",
+   "sfx": [
+    "tink@not"
+   ],
+   "shots": [
+    {
+     "photo": "Fratercula arctica",
+     "obs": 204790970,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "puffin",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Like and follow. I'm hiding from puffins.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Fratercula arctica",
+     "obs": 229159353,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "puffin",
+   "pose": "think",
+   "act": "peek",
+   "say": "How many could you carry? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Fratercula arctica",
+     "obs": 289718369,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodfrog",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "Wood frogs freeze solid every winter.",
+   "label": {
+    "text": "FROZEN\nSOLID",
+    "at": "solid"
+   },
+   "sfx": [
+    "pop@solid"
+   ],
+   "shots": [
+    {
+     "photo": "Lithobates sylvaticus",
+     "obs": 347300235,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "So don't feel sorry for it. Because",
+   "short_title": "Wood Frogs Freeze Solid Every Winter 🧊",
+   "comment": "Would you freeze solid to survive winter? 👇",
+   "bonus": "Glucose from the liver and urea act as antifreeze, protecting the frog's cells while it is frozen.",
+   "sources": [
+    "Wikipedia, Wood frog (survives losing 65-70% of total body water to ice; frozen frogs show no heartbeat, breathing, blood circulation or muscle movement; urea and glucose act as cryoprotectants; Alaskan frogs stayed frozen 193 +/- 11 consecutive days; the only North American frog north of the Arctic Circle; usually a dark eye mask; adults 51-70 mm) — https://en.wikipedia.org/wiki/Wood_frog (checked 2026-10-25)",
+    "National Park Service, Denali: amphibians (liver turns glycogen into glucose when freezing starts; the frogs freeze solid, don't breathe and their hearts don't beat over winter; heart restarts first on thawing) — https://www.nps.gov/dena/learn/nature/amphibians.htm",
+    "Scienceline, frozen frogs (heart slows and stops as the frog freezes; scientists aren't sure what restarts it) — https://scienceline.org/?p=1146"
+   ],
+   "_len": "deep",
+   "caption": "Wood frogs let up to 70% of their body water turn to ice. The heart stops, breathing stops, and in spring they thaw and hop away. #woodfrog #frogs #animalfacts #science"
+  },
+  {
+   "myth": "woodfrog",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I offered to warm it up.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@warm",
+   "shots": [
+    {
+     "photo": "Lithobates sylvaticus",
+     "obs": 347300235,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodfrog",
+   "pose": "shock",
+   "act": "launch",
+   "say": "It did not want warming up.",
+   "hit": "want",
+   "sfx": [
+    "boing@want"
+   ],
+   "animal": "lunge@want",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Lithobates sylvaticus",
+     "obs": 122153541,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodfrog",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "Up to seventy percent becomes ice.",
+   "label": {
+    "text": "70%\nICE",
+    "at": "ice"
+   },
+   "act_at": "ice",
+   "sfx": [
+    "thud@ice"
+   ],
+   "shots": [
+    {
+     "photo": "Lithobates sylvaticus",
+     "obs": 106565577,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodfrog",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Its heart stops.",
+   "punch": "stops",
+   "sfx": [
+    "scratch@stops"
+   ],
+   "shots": [
+    {
+     "photo": "Lithobates sylvaticus",
+     "obs": 266385888,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodfrog",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "It stops breathing.",
+   "punch": "breathing",
+   "shots": [
+    {
+     "photo": "Lithobates sylvaticus",
+     "obs": 347300235,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodfrog",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "No blood moves at all.",
+   "punch": "blood",
+   "shots": [
+    {
+     "photo": "Lithobates sylvaticus",
+     "obs": 122153541,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodfrog",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Some stay frozen over 190 days.",
+   "label": {
+    "text": "190+\nDAYS",
+    "at": "days"
+   },
+   "shots": [
+    {
+     "photo": "Lithobates sylvaticus",
+     "obs": 347300235,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodfrog",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "I'd just be a freezer meal.",
+   "prop": "fork",
+   "prop_at": "freezer",
+   "sfx": [
+    "tink@freezer"
+   ],
+   "shots": [
+    {
+     "photo": "Lithobates sylvaticus",
+     "obs": 106565577,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodfrog",
+   "pose": "point",
+   "act": "stand",
+   "say": "Tap like. It keeps me warm.",
+   "sfx": [
+    "pop@like"
+   ],
+   "shots": [
+    {
+     "photo": "Lithobates sylvaticus",
+     "obs": 122153541,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodfrog",
+   "pose": "think",
+   "act": "stand",
+   "say": "So how is it not dead?",
+   "punch": "dead",
+   "shots": [
+    {
+     "photo": "Lithobates sylvaticus",
+     "obs": 266385888,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodfrog",
+   "pose": "point",
+   "act": "stand",
+   "say": "Its liver floods its body with sugar.",
+   "label": {
+    "text": "SUGAR",
+    "at": "sugar"
+   },
+   "animal": "shake@sugar",
+   "shots": [
+    {
+     "photo": "Lithobates sylvaticus",
+     "obs": 347300235,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodfrog",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The sugar works like antifreeze.",
+   "punch": "antifreeze",
+   "shots": [
+    {
+     "photo": "Lithobates sylvaticus",
+     "obs": 122153541,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodfrog",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Urea helps too. Yes, the pee stuff.",
+   "sfx": [
+    "scratch@pee"
+   ],
+   "animal": "turn@pee",
+   "shots": [
+    {
+     "photo": "Lithobates sylvaticus",
+     "obs": 106565577,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodfrog",
+   "pose": "point",
+   "act": "stand",
+   "say": "In spring, it thaws.",
+   "animal": "shake@thaws",
+   "shots": [
+    {
+     "photo": "Lithobates sylvaticus",
+     "obs": 106565577,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodfrog",
+   "pose": "shock",
+   "act": "stand",
+   "say": "The heart starts beating again.",
+   "punch": "beating",
+   "sfx": [
+    "pop@beating"
+   ],
+   "animal": "turn@again",
+   "shots": [
+    {
+     "photo": "Lithobates sylvaticus",
+     "obs": 266385888,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodfrog",
+   "pose": "point",
+   "act": "stand",
+   "say": "Then the brain. Then the legs.",
+   "shots": [
+    {
+     "photo": "Lithobates sylvaticus",
+     "obs": 266385888,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Lithobates sylvaticus",
+     "obs": 122153541,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "legs"
+    }
+   ]
+  },
+  {
+   "myth": "woodfrog",
+   "pose": "deadpan",
+   "act": "run_off",
+   "say": "Then it hops away like nothing happened.",
+   "animal": "lunge@hops",
+   "sfx": [
+    "boing@hops"
+   ],
+   "shots": [
+    {
+     "photo": "Lithobates sylvaticus",
+     "obs": 347300235,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodfrog",
+   "pose": "think",
+   "act": "stand",
+   "say": "Nobody's fully sure what restarts the heart.",
+   "punch": "sure",
+   "shots": [
+    {
+     "photo": "Lithobates sylvaticus",
+     "obs": 122153541,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodfrog",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Including the frog, probably.",
+   "animal": "turn@probably",
+   "shots": [
+    {
+     "photo": "Lithobates sylvaticus",
+     "obs": 106565577,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodfrog",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It even lives above the Arctic Circle.",
+   "label": {
+    "text": "ARCTIC\nCIRCLE",
+    "at": "Arctic"
+   },
+   "shots": [
+    {
+     "photo": "Lithobates sylvaticus",
+     "obs": 347300235,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodfrog",
+   "pose": "point",
+   "act": "stand",
+   "say": "The only North American frog up there.",
+   "punch": "only",
+   "shots": [
+    {
+     "photo": "Lithobates sylvaticus",
+     "obs": 266385888,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodfrog",
+   "pose": "point",
+   "act": "stand",
+   "say": "And look, it wears a mask.",
+   "animal": "turn@mask",
+   "shots": [
+    {
+     "photo": "Lithobates sylvaticus",
+     "obs": 266385888,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodfrog",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Like a tiny bandit.",
+   "punch": "bandit",
+   "sfx": [
+    "pop@bandit"
+   ],
+   "shots": [
+    {
+     "photo": "Lithobates sylvaticus",
+     "obs": 347300235,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodfrog",
+   "pose": "shock",
+   "act": "stand",
+   "say": "About two inches long.",
+   "label": {
+    "text": "2 INCHES",
+    "at": "inches"
+   },
+   "shots": [
+    {
+     "photo": "Lithobates sylvaticus",
+     "obs": 122153541,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodfrog",
+   "pose": "nervous",
+   "act": "puff",
+   "say": "I tried freezing too.",
+   "act_at": "freezing",
+   "sfx": [
+    "zap@freezing"
+   ],
+   "shots": [
+    {
+     "photo": "Lithobates sylvaticus",
+     "obs": 106565577,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodfrog",
+   "pose": "shock",
+   "act": "puffed",
+   "say": "Now I'm just a frozen meatball.",
+   "sfx": [
+    "tink@frozen"
+   ],
+   "punch": "frozen",
+   "shots": [
+    {
+     "photo": "Lithobates sylvaticus",
+     "obs": 266385888,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodfrog",
+   "pose": "point",
+   "act": "deflate",
+   "say": "Follow me while I thaw out.",
+   "act_at": "thaw",
+   "shots": [
+    {
+     "photo": "Lithobates sylvaticus",
+     "obs": 106565577,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodfrog",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Threat to meatballs: zero.",
+   "label": {
+    "text": "THREAT:\nZERO",
+    "at": "zero"
+   },
+   "shots": [
+    {
+     "photo": "Lithobates sylvaticus",
+     "obs": 347300235,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodfrog",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Threat to my ego: very real.",
+   "animal": "shake@real",
+   "shots": [
+    {
+     "photo": "Lithobates sylvaticus",
+     "obs": 122153541,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodfrog",
+   "pose": "think",
+   "act": "peek",
+   "say": "Would you freeze to survive? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Lithobates sylvaticus",
+     "obs": 347300235,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pangolin",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Pangolins are covered in fingernail scales.",
+   "label": {
+    "text": "NAIL\nSCALES",
+    "at": "fingernail"
+   },
+   "sfx": [
+    "pop@fingernail"
+   ],
+   "animal": "turn@scales",
+   "shots": [
+    {
+     "photo": "Manidae",
+     "obs": 302286179,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "So yes, it's basically fingernails. Because",
+   "short_title": "Pangolins Are Covered in Fingernail Scales 🛡️",
+   "comment": "Did you know scientists found a pangolin species only from its scales? 👇",
+   "bonus": "In 2023 scientists described a ninth pangolin lineage, Manis mysteria, from seized scales alone. No one has seen one alive.",
+   "sources": [
+    "Wikipedia, Pangolin (scales made of keratin, the material of human fingernails; curls into a ball when threatened; no teeth, gastroliths grind food; large pangolins extend the tongue up to 40 cm, its root in the chest; eats 140-200 g of insects a day; noxious anal-gland chemical like a skunk's spray; young cling to the mother's tail, then ride on her back; the most trafficked mammals in the world; three species critically endangered) — https://en.wikipedia.org/wiki/Pangolin (checked 2026-10-25)",
+    "AP via WTOP, Feb 2026, 'These shy, scaly anteaters are the most trafficked mammals in the world' (more than half a million pangolins seized 2016-2024 per CITES; scales of keratin; armored ball even lions struggle with) — https://wtop.com/asia/2026/02/these-shy-scaly-anteaters-are-the-most-trafficked-mammals-in-the-world/",
+    "Manis mysteria, described in PNAS 2023 from 27 scales seized in Hong Kong (2012-13) and 6 in Yunnan (2015, 2019); no live animal documented — https://edition.cnn.com/2023/09/27/world/new-pangolin-species-discovery-scn ; https://en.wikipedia.org/wiki/Manis_mysteria"
+   ],
+   "_len": "deep",
+   "caption": "Pangolin scales are made of keratin, the same stuff as your fingernails. They roll into an armored ball, have no teeth, and are the most trafficked mammals in the world. #pangolin #animalfacts #wildlife"
+  },
+  {
+   "myth": "pangolin",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So naturally, I offered a manicure.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@manicure",
+   "shots": [
+    {
+     "photo": "Manidae",
+     "obs": 302286179,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pangolin",
+   "pose": "point",
+   "act": "stand",
+   "say": "The scales are keratin.",
+   "label": {
+    "text": "KERATIN",
+    "at": "keratin"
+   },
+   "shots": [
+    {
+     "photo": "Manidae",
+     "obs": 93016098,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pangolin",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Same stuff as your nails.",
+   "punch": "nails",
+   "sfx": [
+    "pop@nails"
+   ],
+   "shots": [
+    {
+     "photo": "Manidae",
+     "obs": 130263150,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pangolin",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "It rolled into a ball.",
+   "animal": "shake@ball",
+   "sfx": [
+    "boing@ball"
+   ],
+   "shots": [
+    {
+     "photo": "Manidae",
+     "obs": 130263150,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pangolin",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Even lions struggle to open that.",
+   "label": {
+    "text": "LION-\nPROOF",
+    "at": "lions"
+   },
+   "shots": [
+    {
+     "photo": "Manidae",
+     "obs": 233470854,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pangolin",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "I'm also a ball.",
+   "punch": "ball",
+   "shots": [
+    {
+     "photo": "Manidae",
+     "obs": 66841,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pangolin",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Lions do not struggle with me.",
+   "prop": "fork",
+   "prop_at": "struggle",
+   "sfx": [
+    "tink@struggle"
+   ],
+   "shots": [
+    {
+     "photo": "Manidae",
+     "obs": 233470854,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pangolin",
+   "pose": "point",
+   "act": "stand",
+   "say": "It has no teeth.",
+   "punch": "teeth",
+   "animal": "turn@teeth",
+   "shots": [
+    {
+     "photo": "Manidae",
+     "obs": 302286179,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pangolin",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It swallows small stones to grind food.",
+   "sfx": [
+    "crunch@stones"
+   ],
+   "animal": "strike@stones",
+   "shots": [
+    {
+     "photo": "Manidae",
+     "obs": 93016098,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pangolin",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Instead, it has a tongue.",
+   "punch": "tongue",
+   "shots": [
+    {
+     "photo": "Manidae",
+     "obs": 130263150,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pangolin",
+   "pose": "shock",
+   "act": "launch",
+   "say": "Up to forty centimeters long.",
+   "label": {
+    "text": "40 CM\nTONGUE",
+    "at": "centimeters"
+   },
+   "hit": "centimeters",
+   "animal": "strike@centimeters",
+   "sfx": [
+    "zap@centimeters"
+   ],
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Manidae",
+     "obs": 66841,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pangolin",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "Its root sits in its chest.",
+   "act_at": "chest",
+   "sfx": [
+    "thud@chest"
+   ],
+   "shots": [
+    {
+     "photo": "Manidae",
+     "obs": 233470854,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pangolin",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "It slurps ants and termites.",
+   "animal": "strike@slurps",
+   "sfx": [
+    "pop@slurps"
+   ],
+   "shots": [
+    {
+     "photo": "Manidae",
+     "obs": 302286179,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pangolin",
+   "pose": "point",
+   "act": "stand",
+   "say": "Up to 200 grams a day.",
+   "label": {
+    "text": "200 G\nA DAY",
+    "at": "grams"
+   },
+   "shots": [
+    {
+     "photo": "Manidae",
+     "obs": 93016098,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pangolin",
+   "pose": "point",
+   "act": "stand",
+   "say": "Tap like if you also hate ants.",
+   "sfx": [
+    "pop@like"
+   ],
+   "shots": [
+    {
+     "photo": "Manidae",
+     "obs": 93016098,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pangolin",
+   "pose": "shock",
+   "act": "shake",
+   "say": "Threatened, it releases a stink.",
+   "animal": "shake@releases",
+   "sfx": [
+    "scratch@stink"
+   ],
+   "shots": [
+    {
+     "photo": "Manidae",
+     "obs": 130263150,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pangolin",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Skunk-style. From near its butt.",
+   "punch": "butt",
+   "shots": [
+    {
+     "photo": "Manidae",
+     "obs": 66841,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pangolin",
+   "pose": "point",
+   "act": "stand",
+   "say": "Babies ride on mom's tail.",
+   "animal": "turn@tail",
+   "shots": [
+    {
+     "photo": "Manidae",
+     "obs": 66841,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pangolin",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Then on her back.",
+   "punch": "back",
+   "shots": [
+    {
+     "photo": "Manidae",
+     "obs": 233470854,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pangolin",
+   "pose": "think",
+   "act": "peek",
+   "say": "Now the sad part.",
+   "sfx": [
+    "scratch@sad"
+   ],
+   "shots": [
+    {
+     "photo": "Manidae",
+     "obs": 302286179,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pangolin",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "It's the most trafficked mammal on Earth.",
+   "label": {
+    "text": "#1\nSMUGGLED",
+    "at": "trafficked"
+   },
+   "shots": [
+    {
+     "photo": "Manidae",
+     "obs": 93016098,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pangolin",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Over half a million seized in eight years.",
+   "label": {
+    "text": "500,000+\nSEIZED",
+    "at": "seized"
+   },
+   "shots": [
+    {
+     "photo": "Manidae",
+     "obs": 130263150,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pangolin",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Mostly for those scales.",
+   "animal": "turn@scales",
+   "shots": [
+    {
+     "photo": "Manidae",
+     "obs": 66841,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pangolin",
+   "pose": "think",
+   "act": "peek",
+   "say": "Now the weird part.",
+   "sfx": [
+    "scratch@weird"
+   ],
+   "shots": [
+    {
+     "photo": "Manidae",
+     "obs": 233470854,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pangolin",
+   "pose": "point",
+   "act": "stand",
+   "say": "In 2023, scientists found a new pangolin.",
+   "label": {
+    "text": "NEW\nSPECIES",
+    "at": "new"
+   },
+   "shots": [
+    {
+     "photo": "Manidae",
+     "obs": 302286179,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pangolin",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Only from seized scales.",
+   "punch": "scales",
+   "shots": [
+    {
+     "photo": "Manidae",
+     "obs": 130263150,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pangolin",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Nobody has seen one alive.",
+   "label": {
+    "text": "NEVER\nSEEN",
+    "at": "alive"
+   },
+   "shots": [
+    {
+     "photo": "Manidae",
+     "obs": 93016098,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pangolin",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Its name? Manis mysteria.",
+   "label": {
+    "text": "MANIS\nMYSTERIA",
+    "at": "mysteria"
+   },
+   "animal": "turn@mysteria",
+   "shots": [
+    {
+     "photo": "Manidae",
+     "obs": 130263150,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pangolin",
+   "pose": "point",
+   "act": "stand",
+   "say": "Follow me. I'm keeping an eye out.",
+   "sfx": [
+    "pop@Follow"
+   ],
+   "shots": [
+    {
+     "photo": "Manidae",
+     "obs": 302286179,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pangolin",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Threat to meatballs: none. Threat to ants: total.",
+   "label": {
+    "text": "THREAT:\nZERO",
+    "at": "none"
+   },
+   "animal": "strike@total",
+   "shots": [
+    {
+     "photo": "Manidae",
+     "obs": 66841,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pangolin",
+   "pose": "think",
+   "act": "peek",
+   "say": "Would you spot one? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Manidae",
+     "obs": 302286179,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  }
+ ]
+}
