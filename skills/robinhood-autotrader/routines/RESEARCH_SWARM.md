@@ -72,7 +72,8 @@ Target: under $25 of model usage per swarm run.
       from the top 3 sectors.
    Data: paper/history/daily_ohlcv.json, daily_ohlcv_volatile.json,
    daily_ohlcv_holdings.json. Note the survivorship bias in all three.
-1b. NEXT (added 2026-10-18): the live 12-1 screen ITSELF vs SPY through the
+1b. DONE 2026-10-25: not shown to beat SPY (research/2026-10-25_MOMENTUM_SCREEN_VS_SPY.md).
+   (added 2026-10-18): the live 12-1 screen ITSELF vs SPY through the
    four hurdles (it has only been measured in-sample, on hand-picked names),
    plus its 6 live trades scored in R. Uses mom_screen_base.py.
 2. OPTIONS APPRENTICE Stage 2 (see routines/OPTIONS_APPRENTICE.md): write

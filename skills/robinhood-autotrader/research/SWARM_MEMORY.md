@@ -48,3 +48,7 @@ Read this first so no run repeats a dead variant.
 - c. Top-3 sector rotation: DEAD. LONG -2.61pp t=-2.96 (2/9), cash drag (about 4 candidates for 8 slots).
 - Harness lesson: pullback (daily-entry) mode needs a no-same-month-re-buy guard and a signal-day 200d recheck (fixed).
 - 2026-10-23 Friday desk-study refresh (37 days, 09-02..10-23; ~45 tests, ~2 pass |t|>=2 by luck). KILL: PDL broken -> short, 30m t 2.0 -> 1.3 (below 1.5); it had already flipped out of sample on 10-15. Weakening: 1m RSI<30 dip-buy 30m +0.11 pts t 2.1 (15m t 1.6), still below the option spread; 5m RSI>70 fade 30m t 2.0 -> 1.8. No new |t|>=2 except equal-lows sweep-reclaim long (t 2.0, n=13), already failed out of sample, not re-opened. Intraday deep dig: 5 new days, far below the 40-day bar, no GAPFILL/RANGE_DONE change.
+
+## 2026-10-25 — Live momentum screen vs SPY (queen only, no workers)
+- LONG 2007-26: 9.27% vs SPY 8.94% (t -0.26), halves +3.19 / -2.77pp, 4/9, megacaps dropped -5.97pp. WIDE 2021-26: +2.30pp (t +0.26), halves -4.10 / +7.70, 3/9. NOT shown to beat SPY; it cuts drawdown (-17% vs -56%).
+- Live sleeve: 12 closes, 3 wins, -0.43R (desk figures; ledger planned_risk missing on 9 of 12).
