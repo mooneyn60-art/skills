@@ -1,0 +1,2508 @@
+{
+ "title": "Fill pack 4 (Shorts v4, Andrew): red kangaroo, kookaburra, wood duck, cheetah, bighorn sheep, snapping turtle, mockingbird, bald eagle + arctic tern deep dive",
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+0%",
+ "short_rate": "+0%",
+ "tempo": 1.1,
+ "music": "music/quiz-bed.m4a",
+ "style": "v4",
+ "_note": "Fill run 2026-10-25 (Studio + Postmaster) for open slots 11/3-11/10. 8 YouTube Shorts at 20-25 s, claim-first (red kangaroo, laughing kookaburra, wood duck, cheetah, bighorn sheep, common snapping turtle, northern mockingbird, bald eagle) and 1 TikTok deep dive at 61-75 s (arctic tern record) with the open loop (promise in lines 1-3, two decoys, payoff at 50-80%; passes tools/openloop.py). None of these animals appear in data/posted.csv or any earlier script. Meatball in jeopardy, lines 8 words or fewer, asks in character and never in the first 3 s, no quiz cards, no read-outs, every 'at' anchor a word. Voice en-US-AndrewMultilingualNeural +0% then atempo 1.10 (= +10%). Photos: iNaturalist research-grade, wild, CC0/CC BY (license and species confirmed via the API), whole animal, cut-outs checked by eye. Facts web-checked 10/25; sources on each hook beat.",
+ "names": {
+  "Sterna paradisaea": "Arctic tern",
+  "Osphranter rufus": "Red kangaroo",
+  "Dacelo novaeguineae": "Laughing kookaburra",
+  "Aix sponsa": "Wood duck",
+  "Acinonyx jubatus": "Cheetah",
+  "Ovis canadensis": "Bighorn sheep",
+  "Chelydra serpentina": "Common snapping turtle",
+  "Mimus polyglottos": "Northern mockingbird",
+  "Haliaeetus leucocephalus": "Bald eagle"
+ },
+ "subjects": {
+  "195679642": {},
+  "376358740": {},
+  "13624020": {},
+  "239695914": {},
+  "250230032": {},
+  "67840305": {},
+  "67840304": {},
+  "246136281": {},
+  "71971228": {},
+  "189189280": {},
+  "201177190": {},
+  "329921472": {},
+  "71287863": {},
+  "196699867": {},
+  "68706937": {},
+  "167034440": {},
+  "36979517": {},
+  "192839804": {},
+  "67325708": {},
+  "192840879": {},
+  "218872606": {},
+  "243630606": {},
+  "45998391": {},
+  "333879355": {},
+  "49916741": {},
+  "387384972": {},
+  "193272057": {},
+  "242913275": {},
+  "335312498": {}
+ },
+ "beats": [
+  {
+   "myth": "arctictern",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "This bird holds a record nobody can beat.",
+   "promise": true,
+   "label": {
+    "text": "WORLD\nRECORD",
+    "at": "record"
+   },
+   "sfx": [
+    "pop@record"
+   ],
+   "animal": "turn@bird",
+   "shots": [
+    {
+     "photo": "Sterna paradisaea",
+     "obs": 195679642,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "So yes, the longest trip on Earth. Because",
+   "short_title": "The Arctic Tern Holds a Record No Animal Can Beat 🌍",
+   "comment": "What did you guess the record was?",
+   "bonus": "Arctic terns attack people who get near their nests, usually striking the top or back of the head.",
+   "sources": [
+    "Wikipedia, Arctic tern (average annual round-trip migration about 70,900 km, the longest animal migration recorded; one tracked tern covered 96,000 km in ten months; about 2.4 million km in a lifetime, equal to more than three round trips to the Moon; sees two summers per year and more daylight than any other creature; lives up to about 30 years, record 31; attacks humans and predators near nests, usually striking the top or back of the head) — https://en.wikipedia.org/wiki/Arctic_tern (checked 2026-10-25)"
+   ],
+   "_len": "deep",
+   "caption": "Arctic terns weigh about as much as a smartphone, but they hold a record no other animal can touch. It isn't speed or size. Watch to the end. #arctictern #birds #migration #animalfacts"
+  },
+  {
+   "myth": "arctictern",
+   "pose": "think",
+   "act": "stand",
+   "say": "Not even whales. So what is it?",
+   "label": {
+    "text": "WHAT?",
+    "at": "what"
+   },
+   "shots": [
+    {
+     "photo": "Sterna paradisaea",
+     "obs": 195679642,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "arctictern",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "I flew north to find out.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@north",
+   "shots": [
+    {
+     "photo": "Sterna paradisaea",
+     "obs": 376358740,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "arctictern",
+   "pose": "point",
+   "act": "stand",
+   "say": "Meet the arctic tern.",
+   "label": {
+    "text": "ARCTIC\nTERN",
+    "at": "arctic"
+   },
+   "shots": [
+    {
+     "photo": "Sterna paradisaea",
+     "obs": 13624020,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "arctictern",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It weighs about as much as a phone.",
+   "punch": "phone",
+   "shots": [
+    {
+     "photo": "Sterna paradisaea",
+     "obs": 239695914,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "arctictern",
+   "pose": "point",
+   "act": "stand",
+   "say": "Sharp red beak. Tiny red feet.",
+   "animal": "shake@red",
+   "shots": [
+    {
+     "photo": "Sterna paradisaea",
+     "obs": 195679642,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "arctictern",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: fastest bird?",
+   "decoy": true,
+   "label": {
+    "text": "FASTEST?",
+    "at": "fastest"
+   },
+   "shots": [
+    {
+     "photo": "Sterna paradisaea",
+     "obs": 376358740,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "arctictern",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Nope. Falcons win that one.",
+   "punch": "Falcons",
+   "shots": [
+    {
+     "photo": "Sterna paradisaea",
+     "obs": 13624020,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "arctictern",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "A tern is quick, but not that quick.",
+   "punch": "quick",
+   "shots": [
+    {
+     "photo": "Sterna paradisaea",
+     "obs": 239695914,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "arctictern",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: it lives the longest?",
+   "decoy": true,
+   "label": {
+    "text": "OLDEST?",
+    "at": "longest"
+   },
+   "shots": [
+    {
+     "photo": "Sterna paradisaea",
+     "obs": 195679642,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "arctictern",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "About thirty years. Impressive, but no.",
+   "punch": "no",
+   "animal": "shake@no",
+   "shots": [
+    {
+     "photo": "Sterna paradisaea",
+     "obs": 376358740,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "arctictern",
+   "pose": "point",
+   "act": "stand",
+   "say": "Parrots and tortoises beat that easily.",
+   "punch": "easily",
+   "shots": [
+    {
+     "photo": "Sterna paradisaea",
+     "obs": 13624020,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "arctictern",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Here's the thing. I got near its nest.",
+   "punch": "nest",
+   "shots": [
+    {
+     "photo": "Sterna paradisaea",
+     "obs": 239695914,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "arctictern",
+   "pose": "shock",
+   "act": "launch",
+   "say": "It dive-bombed my head.",
+   "hit": "dive-bombed",
+   "sfx": [
+    "crunch@dive-bombed"
+   ],
+   "animal": "lunge@dive-bombed",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Sterna paradisaea",
+     "obs": 195679642,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "arctictern",
+   "pose": "nervous",
+   "act": "tumble",
+   "say": "Tap like. My head still hurts.",
+   "act_at": "head",
+   "sfx": [
+    "thud@head"
+   ],
+   "shots": [
+    {
+     "photo": "Sterna paradisaea",
+     "obs": 376358740,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "arctictern",
+   "pose": "shock",
+   "act": "peek",
+   "say": "Wait. Why is a tern in Antarctica too?",
+   "punch": "Antarctica",
+   "shots": [
+    {
+     "photo": "Sterna paradisaea",
+     "obs": 13624020,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "arctictern",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Because it flies the longest trip on Earth.",
+   "payoff": true,
+   "label": {
+    "text": "LONGEST\nTRIP",
+    "at": "longest"
+   },
+   "sfx": [
+    "zap@longest"
+   ],
+   "shots": [
+    {
+     "photo": "Sterna paradisaea",
+     "obs": 13624020,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "arctictern",
+   "pose": "point",
+   "act": "stand",
+   "say": "Arctic to Antarctic and back. Every year.",
+   "animal": "turn@back",
+   "shots": [
+    {
+     "photo": "Sterna paradisaea",
+     "obs": 239695914,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "arctictern",
+   "pose": "shock",
+   "act": "stand",
+   "say": "About seventy thousand kilometers a year.",
+   "label": {
+    "text": "70,900\nKM/YR",
+    "at": "kilometers"
+   },
+   "shots": [
+    {
+     "photo": "Sterna paradisaea",
+     "obs": 195679642,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "arctictern",
+   "pose": "shock",
+   "act": "stand",
+   "say": "One tracked tern flew ninety-six thousand.",
+   "punch": "ninety-six",
+   "shots": [
+    {
+     "photo": "Sterna paradisaea",
+     "obs": 376358740,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "arctictern",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "In ten months.",
+   "punch": "ten",
+   "shots": [
+    {
+     "photo": "Sterna paradisaea",
+     "obs": 13624020,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "arctictern",
+   "pose": "point",
+   "act": "stand",
+   "say": "Over a lifetime, that's the moon and back.",
+   "label": {
+    "text": "MOON\nx3",
+    "at": "moon"
+   },
+   "shots": [
+    {
+     "photo": "Sterna paradisaea",
+     "obs": 239695914,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "arctictern",
+   "pose": "shock",
+   "act": "shake",
+   "say": "Three times.",
+   "punch": "Three",
+   "shots": [
+    {
+     "photo": "Sterna paradisaea",
+     "obs": 195679642,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "arctictern",
+   "pose": "point",
+   "act": "stand",
+   "say": "And it gets two summers every year.",
+   "animal": "shake@summers",
+   "shots": [
+    {
+     "photo": "Sterna paradisaea",
+     "obs": 376358740,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "arctictern",
+   "pose": "shock",
+   "act": "stand",
+   "say": "More daylight than any creature alive.",
+   "punch": "daylight",
+   "shots": [
+    {
+     "photo": "Sterna paradisaea",
+     "obs": 13624020,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "arctictern",
+   "pose": "nervous",
+   "act": "tumble",
+   "say": "I get tired walking to the fridge.",
+   "act_at": "fridge",
+   "sfx": [
+    "thud@fridge"
+   ],
+   "shots": [
+    {
+     "photo": "Sterna paradisaea",
+     "obs": 239695914,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "arctictern",
+   "pose": "point",
+   "act": "stand",
+   "say": "Remember, it weighs about a phone.",
+   "punch": "phone",
+   "animal": "turn@phone",
+   "shots": [
+    {
+     "photo": "Sterna paradisaea",
+     "obs": 195679642,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "arctictern",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Flying the planet on repeat.",
+   "punch": "repeat",
+   "shots": [
+    {
+     "photo": "Sterna paradisaea",
+     "obs": 376358740,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "arctictern",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Honestly? Respect.",
+   "punch": "Respect",
+   "shots": [
+    {
+     "photo": "Sterna paradisaea",
+     "obs": 13624020,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "arctictern",
+   "pose": "point",
+   "act": "stand",
+   "say": "Follow for more record breakers.",
+   "sfx": [
+    "pop@Follow"
+   ],
+   "shots": [
+    {
+     "photo": "Sterna paradisaea",
+     "obs": 239695914,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "arctictern",
+   "pose": "think",
+   "act": "peek",
+   "say": "What did you guess the record was? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Sterna paradisaea",
+     "obs": 195679642,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "kangaroo",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A red kangaroo can jump nine meters.",
+   "label": {
+    "text": "9 M\nJUMP",
+    "at": "jump"
+   },
+   "sfx": [
+    "pop@jump"
+   ],
+   "animal": "lunge@meters",
+   "shots": [
+    {
+     "photo": "Osphranter rufus",
+     "obs": 250230032,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Boing, but serious. Because",
+   "short_title": "A Red Kangaroo Can Jump 9 Meters in One Hop 🦘",
+   "comment": "Could you jump that far?",
+   "bonus": "A mother can nurse a joey at her feet and a tiny one in the pouch at the same time, from different teats.",
+   "sources": [
+    "Wikipedia, Red kangaroo (largest extant marsupial; around 60 km/h; males cover 8-9 m in one leap, 1.8-3 m high; tail used as a tripod when standing; females can freeze the development of an embryo until the previous joey leaves the pouch; young at foot and young in pouch on different teats, milk varies with need) — https://en.wikipedia.org/wiki/Red_kangaroo (checked 2026-10-25)"
+   ],
+   "_len": "short",
+   "caption": "Red kangaroos, the biggest marsupials alive, can cover 8-9 m in a single leap, reach about 60 km/h, and a mother can pause a pregnancy until her joey leaves the pouch. #kangaroo #australia #animalfacts #wildlife"
+  },
+  {
+   "myth": "kangaroo",
+   "pose": "shock",
+   "act": "stand",
+   "say": "In a single hop.",
+   "punch": "single",
+   "shots": [
+    {
+     "photo": "Osphranter rufus",
+     "obs": 67840305,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "kangaroo",
+   "pose": "point",
+   "act": "stand",
+   "say": "It's the biggest marsupial alive.",
+   "label": {
+    "text": "BIGGEST\nMARSUPIAL",
+    "at": "biggest"
+   },
+   "shots": [
+    {
+     "photo": "Osphranter rufus",
+     "obs": 67840304,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "kangaroo",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "I challenged it to a long jump.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@long",
+   "shots": [
+    {
+     "photo": "Osphranter rufus",
+     "obs": 246136281,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "kangaroo",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "I rolled about a meter.",
+   "act_at": "rolled",
+   "sfx": [
+    "thud@rolled"
+   ],
+   "shots": [
+    {
+     "photo": "Osphranter rufus",
+     "obs": 250230032,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "kangaroo",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It hops up to sixty kilometers an hour.",
+   "label": {
+    "text": "60\nKM/H",
+    "at": "hops"
+   },
+   "animal": "shake@hour",
+   "shots": [
+    {
+     "photo": "Osphranter rufus",
+     "obs": 67840305,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "kangaroo",
+   "pose": "point",
+   "act": "stand",
+   "say": "It leans on its tail like a stool.",
+   "punch": "stool",
+   "shots": [
+    {
+     "photo": "Osphranter rufus",
+     "obs": 67840304,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "kangaroo",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Moms can even pause a pregnancy.",
+   "label": {
+    "text": "PAUSE\nBUTTON",
+    "at": "pause"
+   },
+   "shots": [
+    {
+     "photo": "Osphranter rufus",
+     "obs": 246136281,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "kangaroo",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Like and follow. I'm practicing hops.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Osphranter rufus",
+     "obs": 250230032,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "kangaroo",
+   "pose": "think",
+   "act": "peek",
+   "say": "Could you jump that far? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Osphranter rufus",
+     "obs": 67840305,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "kookaburra",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "This bird laughs, then steals your food.",
+   "label": {
+    "text": "FOOD\nTHIEF",
+    "at": "steals"
+   },
+   "sfx": [
+    "pop@steals"
+   ],
+   "animal": "turn@laughs",
+   "shots": [
+    {
+     "photo": "Dacelo novaeguineae",
+     "obs": 71971228,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Laughing all the way. Because",
+   "short_title": "The Laughing Kookaburra Will Steal Your Sausage 🌭",
+   "comment": "Has a bird ever stolen your food?",
+   "bonus": "Grown kids often stay home and help their parents raise the next chicks.",
+   "sources": [
+    "Wikipedia, Laughing kookaburra (largest kingfisher species; laugh used to establish territory among family groups, most often at dawn and dusk; sometimes takes venomous snakes much longer than its body; not uncommon to snatch food out of people's hands; photo of one eating a sausage from a barbecue; up to five non-breeding offspring help) — https://en.wikipedia.org/wiki/Laughing_kookaburra (checked 2026-10-25)"
+   ],
+   "_len": "short",
+   "caption": "The laughing kookaburra is the biggest kingfisher in the world. Its 'laugh' marks family territory at dawn and dusk, it eats snakes longer than its body, and it will snatch food right out of your hand. #kookaburra #australia #birds #animalfacts"
+  },
+  {
+   "myth": "kookaburra",
+   "pose": "point",
+   "act": "stand",
+   "say": "It's a laughing kookaburra.",
+   "punch": "kookaburra",
+   "shots": [
+    {
+     "photo": "Dacelo novaeguineae",
+     "obs": 189189280,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "kookaburra",
+   "pose": "shock",
+   "act": "stand",
+   "say": "The biggest kingfisher in the world.",
+   "label": {
+    "text": "BIGGEST\nKINGFISHER",
+    "at": "biggest"
+   },
+   "shots": [
+    {
+     "photo": "Dacelo novaeguineae",
+     "obs": 71971228,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "kookaburra",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The laugh means: this is our turf.",
+   "animal": "shake@turf",
+   "punch": "turf",
+   "shots": [
+    {
+     "photo": "Dacelo novaeguineae",
+     "obs": 189189280,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "kookaburra",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It even eats snakes longer than itself.",
+   "animal": "strike@snakes",
+   "shots": [
+    {
+     "photo": "Dacelo novaeguineae",
+     "obs": 71971228,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "kookaburra",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "I had a sausage at a barbecue.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@sausage",
+   "shots": [
+    {
+     "photo": "Dacelo novaeguineae",
+     "obs": 189189280,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "kookaburra",
+   "pose": "shock",
+   "act": "launch",
+   "say": "Gone. In one swoop.",
+   "hit": "Gone",
+   "sfx": [
+    "crunch@Gone"
+   ],
+   "animal": "lunge@Gone",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Dacelo novaeguineae",
+     "obs": 71971228,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "kookaburra",
+   "pose": "nervous",
+   "act": "tumble",
+   "say": "Then it laughed.",
+   "act_at": "laughed",
+   "sfx": [
+    "thud@laughed"
+   ],
+   "shots": [
+    {
+     "photo": "Dacelo novaeguineae",
+     "obs": 189189280,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "kookaburra",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Like and follow. I'm eating indoors.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Dacelo novaeguineae",
+     "obs": 71971228,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "kookaburra",
+   "pose": "think",
+   "act": "peek",
+   "say": "Has a bird ever stolen your food? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Dacelo novaeguineae",
+     "obs": 189189280,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodduck",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "This duck nests up in trees.",
+   "label": {
+    "text": "TREE\nDUCK",
+    "at": "trees"
+   },
+   "sfx": [
+    "pop@trees"
+   ],
+   "animal": "turn@nests",
+   "shots": [
+    {
+     "photo": "Aix sponsa",
+     "obs": 201177190,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Brave little puffballs. Because",
+   "short_title": "Baby Wood Ducks Jump From Trees on Day Two 🦆",
+   "comment": "Would you jump on your second day alive?",
+   "bonus": "Nest boxes put up from the 1930s helped wood ducks recover.",
+   "sources": [
+    "Wikipedia, Wood duck (nests in tree cavities, up to a mile from water; chicks leave the nest the day after hatching and can fall as high as 50 feet unharmed; sharp claws for perching; rare by the beginning of the 20th century; protections from the 1920s and nest boxes from the 1930s helped recovery) — https://en.wikipedia.org/wiki/Wood_duck (checked 2026-10-25)"
+   ],
+   "_len": "short",
+   "caption": "Wood ducks nest in tree holes, and the day after hatching, the ducklings jump out, from as high as 50 feet, and bounce. They were rare by 1900; nest boxes helped bring them back. #woodduck #ducks #birds #animalfacts"
+  },
+  {
+   "myth": "woodduck",
+   "pose": "point",
+   "act": "stand",
+   "say": "It has sharp claws to perch.",
+   "punch": "claws",
+   "shots": [
+    {
+     "photo": "Aix sponsa",
+     "obs": 329921472,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodduck",
+   "pose": "shock",
+   "act": "stand",
+   "say": "The day after hatching, the babies jump.",
+   "label": {
+    "text": "DAY 2\nJUMP",
+    "at": "jump"
+   },
+   "animal": "shake@jump",
+   "shots": [
+    {
+     "photo": "Aix sponsa",
+     "obs": 71287863,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodduck",
+   "pose": "shock",
+   "act": "stand",
+   "say": "From as high as fifty feet.",
+   "label": {
+    "text": "50\nFEET",
+    "at": "fifty"
+   },
+   "shots": [
+    {
+     "photo": "Aix sponsa",
+     "obs": 196699867,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodduck",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "They're puffballs. They bounce.",
+   "punch": "bounce",
+   "shots": [
+    {
+     "photo": "Aix sponsa",
+     "obs": 201177190,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodduck",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "I tried the jump too.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@jump",
+   "shots": [
+    {
+     "photo": "Aix sponsa",
+     "obs": 329921472,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodduck",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "I did not bounce.",
+   "act_at": "bounce",
+   "sfx": [
+    "thud@bounce"
+   ],
+   "shots": [
+    {
+     "photo": "Aix sponsa",
+     "obs": 71287863,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodduck",
+   "pose": "point",
+   "act": "stand",
+   "say": "By 1900 they were rare. Nest boxes helped.",
+   "punch": "Nest",
+   "animal": "strike@boxes",
+   "shots": [
+    {
+     "photo": "Aix sponsa",
+     "obs": 196699867,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodduck",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Like and follow. I'm taking the stairs.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Aix sponsa",
+     "obs": 201177190,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodduck",
+   "pose": "think",
+   "act": "peek",
+   "say": "Would you jump on day two? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Aix sponsa",
+     "obs": 329921472,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "cheetah",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Cheetahs hit sixty in under three seconds.",
+   "label": {
+    "text": "0-60\n<3 SEC",
+    "at": "sixty"
+   },
+   "sfx": [
+    "pop@sixty"
+   ],
+   "animal": "lunge@seconds",
+   "shots": [
+    {
+     "photo": "Acinonyx jubatus",
+     "obs": 68706937,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Built for speed. Because",
+   "short_title": "A Cheetah Can Go 0-60 in Under 3 Seconds 🐆",
+   "comment": "Would you race one?",
+   "bonus": "Cheetahs chirp and purr; their purr is like a house cat's but much louder.",
+   "sources": [
+    "Wikipedia, Cheetah (highest reliably reported speed 104 km/h; 0 to 97 km/h in less than 3 seconds; tail serves as a rudder; all four limbs in the air during more than half the sprint; partly retractile claws; mainly diurnal; chirps and purrs; tear streaks' role not well understood) — https://en.wikipedia.org/wiki/Cheetah (checked 2026-10-25)"
+   ],
+   "_len": "short",
+   "caption": "Cheetahs go from 0 to 97 km/h (60 mph) in under three seconds, with a top reliable speed of 104 km/h. Their tail works like a rudder, and in a sprint all four feet are off the ground more than half the time. #cheetah #animalfacts #wildlife #fastestanimal"
+  },
+  {
+   "myth": "cheetah",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Faster than most sports cars.",
+   "punch": "sports",
+   "shots": [
+    {
+     "photo": "Acinonyx jubatus",
+     "obs": 167034440,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "cheetah",
+   "pose": "point",
+   "act": "stand",
+   "say": "Its tail steers like a rudder.",
+   "animal": "shake@tail",
+   "punch": "rudder",
+   "shots": [
+    {
+     "photo": "Acinonyx jubatus",
+     "obs": 36979517,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "cheetah",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Half the sprint, it's flying.",
+   "label": {
+    "text": "4 FEET\nOFF",
+    "at": "flying"
+   },
+   "shots": [
+    {
+     "photo": "Acinonyx jubatus",
+     "obs": 68706937,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "cheetah",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "I offered it a race.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@race",
+   "shots": [
+    {
+     "photo": "Acinonyx jubatus",
+     "obs": 167034440,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "cheetah",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "I'm still at the starting line.",
+   "act_at": "starting",
+   "sfx": [
+    "thud@starting"
+   ],
+   "shots": [
+    {
+     "photo": "Acinonyx jubatus",
+     "obs": 36979517,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "cheetah",
+   "pose": "point",
+   "act": "stand",
+   "say": "Fun part: cheetahs purr.",
+   "punch": "purr",
+   "animal": "turn@purr",
+   "shots": [
+    {
+     "photo": "Acinonyx jubatus",
+     "obs": 68706937,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "cheetah",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Like a house cat, just louder.",
+   "punch": "louder",
+   "shots": [
+    {
+     "photo": "Acinonyx jubatus",
+     "obs": 167034440,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "cheetah",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Like and follow. I'm walking. Slowly.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Acinonyx jubatus",
+     "obs": 36979517,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "cheetah",
+   "pose": "think",
+   "act": "peek",
+   "say": "Would you race one? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Acinonyx jubatus",
+     "obs": 68706937,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bighorn",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "These horns weigh as much as his bones.",
+   "label": {
+    "text": "14 KG\nHORNS",
+    "at": "horns"
+   },
+   "sfx": [
+    "pop@horns"
+   ],
+   "animal": "turn@bones",
+   "shots": [
+    {
+     "photo": "Ovis canadensis",
+     "obs": 192839804,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Hard-headed, literally. Because",
+   "short_title": "A Bighorn Ram's Horns Weigh as Much as All His Bones 🐏",
+   "comment": "Who wins: you or the ram?",
+   "bonus": "Bighorns climb steep cliffs to get away from predators.",
+   "sources": [
+    "Wikipedia, Bighorn sheep (males' horns can weigh up to 14 kg (30 lb), as much as all the bones in the male's body; large horn cores, enlarged sinuses and internal bony septa absorb the impact of clashes; well adapted to climbing steep terrain) — https://en.wikipedia.org/wiki/Bighorn_sheep (checked 2026-10-25)"
+   ],
+   "_len": "short",
+   "caption": "A bighorn ram's horns can weigh up to 14 kg (30 lb), as much as all the bones in his body. Big horn cores, sinuses and bony walls in the skull absorb the impact when rams clash. #bighornsheep #ram #animalfacts #wildlife"
+  },
+  {
+   "myth": "bighorn",
+   "pose": "shock",
+   "act": "stand",
+   "say": "All of his bones. Combined.",
+   "punch": "Combined",
+   "shots": [
+    {
+     "photo": "Ovis canadensis",
+     "obs": 67325708,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bighorn",
+   "pose": "point",
+   "act": "stand",
+   "say": "Rams smash heads to settle fights.",
+   "animal": "lunge@smash",
+   "sfx": [
+    "crunch@smash"
+   ],
+   "shots": [
+    {
+     "photo": "Ovis canadensis",
+     "obs": 192840879,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bighorn",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Their skulls are built like crash helmets.",
+   "label": {
+    "text": "CRASH\nHELMET",
+    "at": "skulls"
+   },
+   "shots": [
+    {
+     "photo": "Ovis canadensis",
+     "obs": 192839804,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bighorn",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "I challenged one to a head-butt.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@head-butt",
+   "shots": [
+    {
+     "photo": "Ovis canadensis",
+     "obs": 67325708,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bighorn",
+   "pose": "shock",
+   "act": "launch",
+   "say": "Bad plan.",
+   "hit": "Bad",
+   "sfx": [
+    "crunch@Bad"
+   ],
+   "animal": "lunge@Bad",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Ovis canadensis",
+     "obs": 192840879,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bighorn",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "Then it climbed a cliff to escape me.",
+   "act_at": "cliff",
+   "sfx": [
+    "thud@cliff"
+   ],
+   "shots": [
+    {
+     "photo": "Ovis canadensis",
+     "obs": 192839804,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bighorn",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "I wasn't even chasing it.",
+   "punch": "chasing",
+   "animal": "shake@chasing",
+   "shots": [
+    {
+     "photo": "Ovis canadensis",
+     "obs": 67325708,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bighorn",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Like and follow. I'm getting a helmet.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Ovis canadensis",
+     "obs": 192840879,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bighorn",
+   "pose": "think",
+   "act": "peek",
+   "say": "Who wins: you or the ram? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Ovis canadensis",
+     "obs": 192839804,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "snapper2",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "This turtle can skip breathing six months.",
+   "label": {
+    "text": "6 MONTHS\nNO AIR",
+    "at": "breathing"
+   },
+   "sfx": [
+    "pop@breathing"
+   ],
+   "animal": "turn@months",
+   "shots": [
+    {
+     "photo": "Chelydra serpentina",
+     "obs": 218872606,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "No breath, no problem. Because",
+   "short_title": "Snapping Turtles Go Six Months Without Breathing 🐢",
+   "comment": "Could you hold your breath that long?",
+   "bonus": "On land they're feisty, but in water they usually flee and hide in the mud.",
+   "sources": [
+    "Wikipedia, Common snapping turtle (in the northern range they do not breathe for more than six months because ice covers their hibernating site, taking oxygen through the membranes of the mouth and throat; combative out of water, likely to flee and hide in water; can stretch the neck back across the shell to bite; Algonquin Park data suggest a maximum age over 100 years; usually 4.5-16 kg) — https://en.wikipedia.org/wiki/Common_snapping_turtle (checked 2026-10-25)"
+   ],
+   "_len": "short",
+   "caption": "In the north, common snapping turtles spend winter under ice and don't breathe for more than six months, taking oxygen through the lining of their mouth and throat. Some may live past 100. #snappingturtle #turtle #animalfacts #reptiles"
+  },
+  {
+   "myth": "snapper2",
+   "pose": "shock",
+   "act": "stand",
+   "say": "All winter, under the ice.",
+   "punch": "ice",
+   "shots": [
+    {
+     "photo": "Chelydra serpentina",
+     "obs": 243630606,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "snapper2",
+   "pose": "point",
+   "act": "stand",
+   "say": "It soaks up oxygen through its throat.",
+   "animal": "shake@throat",
+   "shots": [
+    {
+     "photo": "Chelydra serpentina",
+     "obs": 45998391,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "snapper2",
+   "pose": "shock",
+   "act": "stand",
+   "say": "On land, it's grumpy. Long neck, too.",
+   "label": {
+    "text": "LONG\nREACH",
+    "at": "neck"
+   },
+   "shots": [
+    {
+     "photo": "Chelydra serpentina",
+     "obs": 218872606,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "snapper2",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "I tried to pick it up.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@pick",
+   "shots": [
+    {
+     "photo": "Chelydra serpentina",
+     "obs": 243630606,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "snapper2",
+   "pose": "shock",
+   "act": "launch",
+   "say": "Snap.",
+   "hit": "Snap",
+   "sfx": [
+    "crunch@Snap"
+   ],
+   "animal": "lunge@Snap",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Chelydra serpentina",
+     "obs": 45998391,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "snapper2",
+   "pose": "nervous",
+   "act": "tumble",
+   "say": "In water, it just hides in the mud.",
+   "act_at": "hides",
+   "sfx": [
+    "thud@hides"
+   ],
+   "shots": [
+    {
+     "photo": "Chelydra serpentina",
+     "obs": 218872606,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "snapper2",
+   "pose": "point",
+   "act": "stand",
+   "say": "Some may live over a hundred years.",
+   "label": {
+    "text": "100+\nYEARS",
+    "at": "hundred"
+   },
+   "animal": "strike@years",
+   "shots": [
+    {
+     "photo": "Chelydra serpentina",
+     "obs": 243630606,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "snapper2",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Like and follow. I'm holding my breath.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Chelydra serpentina",
+     "obs": 45998391,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "snapper2",
+   "pose": "think",
+   "act": "peek",
+   "say": "How long can you hold yours? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Chelydra serpentina",
+     "obs": 218872606,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "mockingbird",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "This bird can learn two hundred songs.",
+   "label": {
+    "text": "200\nSONGS",
+    "at": "songs"
+   },
+   "sfx": [
+    "pop@songs"
+   ],
+   "animal": "turn@learn",
+   "shots": [
+    {
+     "photo": "Mimus polyglottos",
+     "obs": 333879355,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Copy, paste, chirp. Because",
+   "short_title": "This Bird Can Learn 200 Songs, Including Car Alarms 🎶",
+   "comment": "Ever been fooled by a bird?",
+   "bonus": "Mockingbirds are the state bird of Arkansas, Florida, Mississippi, Tennessee and Texas.",
+   "sources": [
+    "Wikipedia, Northern mockingbird (song repertoire from 43 to 203 song types; mimics sounds from artificial items such as unoiled wheels and car alarms; state bird of five states: Arkansas, Florida, Mississippi, Tennessee and Texas; harasses cats and dogs and will at times target humans) — https://en.wikipedia.org/wiki/Northern_mockingbird (checked 2026-10-25)"
+   ],
+   "_len": "short",
+   "caption": "A northern mockingbird can know anywhere from 43 to over 200 song types, and copies other birds, squeaky wheels and even car alarms. It's the state bird of five US states, and it will dive at cats, dogs and people. #mockingbird #birds #animalfacts #birdsong"
+  },
+  {
+   "myth": "mockingbird",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Other birds. Squeaky wheels. Car alarms.",
+   "punch": "alarms",
+   "sfx": [
+    "zap@alarms"
+   ],
+   "shots": [
+    {
+     "photo": "Mimus polyglottos",
+     "obs": 49916741,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "mockingbird",
+   "pose": "point",
+   "act": "stand",
+   "say": "It's the northern mockingbird.",
+   "punch": "mockingbird",
+   "shots": [
+    {
+     "photo": "Mimus polyglottos",
+     "obs": 387384972,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "mockingbird",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "I ran outside to check my car alarm.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@alarm",
+   "shots": [
+    {
+     "photo": "Mimus polyglottos",
+     "obs": 333879355,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "mockingbird",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It was the bird.",
+   "punch": "bird",
+   "animal": "shake@bird",
+   "shots": [
+    {
+     "photo": "Mimus polyglottos",
+     "obs": 49916741,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "mockingbird",
+   "pose": "shock",
+   "act": "launch",
+   "say": "Then it dive-bombed me.",
+   "hit": "dive-bombed",
+   "sfx": [
+    "crunch@dive-bombed"
+   ],
+   "animal": "lunge@dive-bombed",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Mimus polyglottos",
+     "obs": 387384972,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "mockingbird",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "They chase cats, dogs and even people.",
+   "act_at": "cats",
+   "sfx": [
+    "thud@cats"
+   ],
+   "shots": [
+    {
+     "photo": "Mimus polyglottos",
+     "obs": 333879355,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "mockingbird",
+   "pose": "point",
+   "act": "stand",
+   "say": "State bird of five states.",
+   "label": {
+    "text": "5 STATES",
+    "at": "five"
+   },
+   "shots": [
+    {
+     "photo": "Mimus polyglottos",
+     "obs": 49916741,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "mockingbird",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Like and follow. I'm wearing a hat.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Mimus polyglottos",
+     "obs": 387384972,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "mockingbird",
+   "pose": "think",
+   "act": "peek",
+   "say": "Ever been fooled by a bird? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Mimus polyglottos",
+     "obs": 333879355,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "baldeagle",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Bald eagles steal fish from other birds.",
+   "label": {
+    "text": "FISH\nTHIEF",
+    "at": "steal"
+   },
+   "sfx": [
+    "pop@steal"
+   ],
+   "animal": "turn@fish",
+   "shots": [
+    {
+     "photo": "Haliaeetus leucocephalus",
+     "obs": 193272057,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Majestic, mostly. Because",
+   "short_title": "Bald Eagles Steal Fish From Other Birds 🦅",
+   "comment": "Did you know the national bird steals lunch?",
+   "bonus": "Their real call is a weak, chirpy whistle.",
+   "sources": [
+    "Wikipedia, Bald eagle (recorded stealing fish from ospreys, herons and otters; sexual maturity at four to five years, white head with maturity; largest recorded nest found in Florida in 1963, 2.9 m wide and 6.1 m deep; DDT and hunting bans; endangered to threatened in 1995, removed from the list in 2007; call described as weak staccato, chirping whistles) — https://en.wikipedia.org/wiki/Bald_eagle (checked 2026-10-25)"
+   ],
+   "_len": "short",
+   "caption": "Bald eagles often steal fish from ospreys and other hunters. Their white head shows up as they mature at 4-5 years, and the biggest nest on record was 2.9 m wide and 6.1 m deep. They were taken off the endangered list in 2007. #baldeagle #eagle #birds #animalfacts"
+  },
+  {
+   "myth": "baldeagle",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Especially from ospreys.",
+   "punch": "ospreys",
+   "shots": [
+    {
+     "photo": "Haliaeetus leucocephalus",
+     "obs": 242913275,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "baldeagle",
+   "pose": "point",
+   "act": "stand",
+   "say": "Their white head shows up around age five.",
+   "label": {
+    "text": "WHITE\nAT 5",
+    "at": "head"
+   },
+   "shots": [
+    {
+     "photo": "Haliaeetus leucocephalus",
+     "obs": 335312498,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "baldeagle",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Their real call? A tiny chirpy whistle.",
+   "punch": "whistle",
+   "animal": "shake@whistle",
+   "shots": [
+    {
+     "photo": "Haliaeetus leucocephalus",
+     "obs": 193272057,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "baldeagle",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "I packed a fish sandwich.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@sandwich",
+   "shots": [
+    {
+     "photo": "Haliaeetus leucocephalus",
+     "obs": 242913275,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "baldeagle",
+   "pose": "shock",
+   "act": "launch",
+   "say": "Swiped.",
+   "hit": "Swiped",
+   "sfx": [
+    "crunch@Swiped"
+   ],
+   "animal": "lunge@Swiped",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Haliaeetus leucocephalus",
+     "obs": 335312498,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "baldeagle",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "Biggest nest ever: twenty feet deep.",
+   "act_at": "nest",
+   "sfx": [
+    "thud@nest"
+   ],
+   "label": {
+    "text": "20 FT\nNEST",
+    "at": "deep"
+   },
+   "shots": [
+    {
+     "photo": "Haliaeetus leucocephalus",
+     "obs": 193272057,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "baldeagle",
+   "pose": "point",
+   "act": "stand",
+   "say": "They left the endangered list in 2007.",
+   "punch": "endangered",
+   "animal": "strike@list",
+   "shots": [
+    {
+     "photo": "Haliaeetus leucocephalus",
+     "obs": 242913275,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "baldeagle",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Like and follow. I'm guarding my lunch.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Haliaeetus leucocephalus",
+     "obs": 335312498,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "baldeagle",
+   "pose": "think",
+   "act": "peek",
+   "say": "Did you know it steals? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Haliaeetus leucocephalus",
+     "obs": 193272057,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  }
+ ]
+}
