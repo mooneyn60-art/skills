@@ -66,7 +66,56 @@
     "Bugnyar & Kotrschal 2002, Animal Behaviour 64: 185-195, 'Observational learning and the raiding of food caches in ravens, Corvus corax: is it tactical deception?' (cachers delay caching and move caches when watched) — https://doi.org/10.1006/anbe.2002.3056"
    ],
    "_len": "short",
-   "caption": "Ravens pretend to bury food when another raven is watching, then hide the real stash somewhere else. They can mimic human speech too. #raven #halloween #birds #animalfacts"
+   "caption": "Ravens pretend to bury food when another raven is watching, then hide the real stash somewhere else. They can mimic human speech too. #raven #halloween #birds #animalfacts",
+   "hold": 0.35
+  },
+  {
+   "myth": "raven",
+   "pose": "think",
+   "act": "stand",
+   "say": "Why fake it? Guess before I tell you.",
+   "shots": [
+    {
+     "photo": "Corvus corax",
+     "obs": 85011317,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "WHY FAKE IT?",
+    "choices": [
+     "🦹 FOOL THIEVES",
+     "🎭 JUST FOR FUN"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.9
+  },
+  {
+   "myth": "raven",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Corvus corax",
+     "obs": 68345416,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
   },
   {
    "myth": "raven",
@@ -202,57 +251,12 @@
   },
   {
    "myth": "raven",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "Great. It lies AND talks.",
-   "punch": "talks",
-   "shots": [
-    {
-     "photo": "Corvus corax",
-     "obs": 85011317,
-     "crop": [
-      0.0,
-      0.0,
-      1.0,
-      1.0
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "raven",
-   "pose": "nervous",
-   "act": "stand",
-   "say": "Subscribe. I face a new animal every day.",
-   "shots": [
-    {
-     "photo": "Corvus corax",
-     "obs": 68345416,
-     "crop": [
-      0.0,
-      0.0,
-      1.0,
-      1.0
-     ]
-    }
-   ],
-   "sub": {
-    "at": "Subscribe"
-   }
-  },
-  {
-   "myth": "raven",
    "pose": "think",
    "act": "peek",
-   "say": "Would you trust a raven? Comment.",
+   "say": "Did you guess right? Comment.",
    "ask": {
-    "q": "TRUST A RAVEN?",
-    "choices": [
-     "👍 YES",
-     "👎 NO",
-     "💀 NEVER"
-    ],
-    "at": "trust"
+    "q": "GUESSED RIGHT? 👇",
+    "at": "guess"
    },
    "shots": [
     {

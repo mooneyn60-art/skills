@@ -171,15 +171,17 @@ Never assume viewers will engage. Every video asks, in Meatball's voice and with
 - **Comment ask:** a specific question with an easy answer, e.g. "Which one would you eat first? Wrong answers only." Say the best answer gets read out next episode.
 - **End:** subscribe ask 2, plus "New Meatball every Tuesday and Saturday", plus the tease for the next episode.
 
-**Shorts**
-- Never put an ask in the first 3 seconds; the hook comes first.
-- **Comment question:** the last spoken line before the loop is a short question (e.g. "Would you survive this? Comment.") on about 1 in 2 Shorts.
-- **Follow line:** "Follow for part 2" on Shorts that are part of a series.
-- **Captions and pinned comment:** every caption ends with a question, and every pinned first comment ends with "Follow Meatball for more 🍝".
+**Shorts: the ask kit is standard on every new Short (Nolan 10/25: "do it in the beginning so people will actually be watching"; research/46)**
+- **0-3 s: hook only.** Never an ask in the first 3 seconds.
+- **~3-6 s: guess-first comment card** (beat `"ask": {"q", "choices", "at"}`): one short voiced line ("Guess before I tell you. Comment.") and 2-3 emoji choices on screen ("🦈 or 🐊", "👍 / 👎"). One word or one emoji to answer. The Short must answer it later, and the question must be true to the video: never a wrong fact to bait corrections.
+- **~6-10 s: subscribe pill** (beat `"sub"`): one quick line with a concrete, true reason ("Subscribe. I face a new animal every day."). No "sub4sub", no "smash that button".
+- **Before the loop: one-line reminder** ("Did you guess right? Comment.", card without choices). The loop still ends on frame 0.
+- `tools/v3.py` gate warns when an ask lands before 3 s, the guess card after 7 s, or the pill outside 5.5-10.5 s. Sample: `episodes/ask-kit/`.
+- **Series:** number them in the title ("Meatball vs Spiders #1 of 3"). "Follow for Part 2" only when Part 2 is already made or queued; "Part 2 at N comments" only if we will really make it.
 
-**TikTok:** the caption ends with a question and "Follow for Part N+1".
+**First comment (YouTube) and caption (TikTok):** lead with ONE binary or pick-one question with 2-3 emoji choices, tied to that video's animal and accurate to it ("Would you pick it up? 👍 yes / 👎 no / 💀 only with gloves"). On ask-kit Shorts use the same guess question as the card. YouTube first comment ends with "Follow Meatball for more 🍝"; TikTok caption = question first, then the fact and hashtags, then "Follow Meatball for more 🍝" (or the real "Follow for Part N").
 
-**Description:** the first line asks a question. The last line is "Subscribe: new Meatball every Tuesday and Saturday".
+**Description:** the first line is the same question when it fits. The subscribe line gives the concrete reason: "Subscribe: Meatball faces a new animal every day 🍝" (long-forms keep "new Meatball every Tuesday and Saturday").
 
 **Comment replies (10/24):** vidIQ can now post replies as the channel. The tool requires Nolan to approve the exact text, so the Host drafts replies in Meatball's voice, sends them to Nolan, and posts them on his "post them". The first 4 went live 10/24.
 

@@ -9,6 +9,7 @@ Desk id: `host`. Absorbs: Community. Read this before every run and append lesso
 ## Rules (proven)
 - Reply as Meatball: short, friendly, no links. We cannot post replies ourselves, so drafts go to the square for Nolan.
 - Pin the score check on every episode; answer "is this AI?" honestly.
+- Evening run: draft replies to the first 10 comments on each new post (in Meatball's voice, answering their guess/vote); Nolan approves the exact text before anything is posted.
 - Send the best viewer myths and questions to the Showrunner as episode ideas (e.g. California zebras, bobcat vs lynx).
 
 ## KPIs this desk owns

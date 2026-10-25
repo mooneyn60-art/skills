@@ -21,14 +21,18 @@ Spec fields (all optional unless noted):
   beat "prop": "fork"    the Fork drops in beside him at "prop_at" (word)
   shot "whip": false     hard cut instead of a whip pan (cuts to a different photo whip by default)
   shot "blur": true      blurred, dimmed photo (a host shot)
-  beat "sub"             ask kit (research/46): {"at": "Subscribe", "text": "SUBSCRIBE"} or true. Meatball points
-                         down toward the follow button (pose "subpoint"), a red pill pops in on the "at" word and
-                         is pressed 0.45 s later with a click. Put it at 60-75% of the Short and give the spoken
-                         line a concrete reason ("Subscribe. I face a new animal every day.")
-  beat "ask" (a dict)    ask kit: a pick-one comment card in the last 3-4 s before the loop line,
-                         {"q": "WHO WINS?", "choices": ["🦈 SHARK", "🐊 CROC"], "at": "word"}; each choice chip pops
-                         in 0.18 s after the last, with a pop. The spoken line asks the same question. The card is
-                         gone before the loop tail, so the last frame still matches frame 0
+  Ask kit (research/46; Nolan 10/25: "do it in the beginning so people will actually be watching"). Order:
+  hook 0-3 s (no ask) -> guess card 3-6 s -> subscribe pill 6-10 s -> story -> "Were you right?" -> loop.
+  beat "ask" (a dict)    a comment card: {"q": "WHY FAKE IT?", "choices": ["🦹 FOOL THIEVES", "🎭 FOR FUN"],
+                         "at": "word"}; each choice chip pops in 0.18 s after the last, with a pop. Right after the
+                         hook it is a guess-first prompt ("Guess before I tell you. Comment."); the Short must then
+                         answer it. Without "choices" it is a one-line reminder card ("WERE YOU RIGHT? 👇") for the
+                         last beat before the loop. Cards end with their beat, so the last frame still matches frame 0
+  beat "sub"             {"at": "Subscribe", "text": "SUBSCRIBE"} or true. Meatball points down toward the follow
+                         button (pose "subpoint"), a red pill pops in on the "at" word and is pressed 0.45 s later
+                         with a click. One quick line with a concrete, true reason ("Subscribe. I face a new animal
+                         every day.")
+  gate                   warns on any ask before 3 s, a guess card outside 3-7 s, a pill outside 5.5-10.5 s
 Photos come from explainer.photo() (pinned iNaturalist observations, full resolution).
 
 "style": "v4" (research/45) adds, on top of everything above:
@@ -233,6 +237,8 @@ def ask_imgs(q):
     """The comment card: title plate and one chip per choice (laid out by frame())."""
     f = ImageFont.truetype(ex.BOLD, 96)
     lines = q["q"].upper().split("\n")
+    emo = "".join(ch for ch in lines[-1] if ord(ch) > 0x2000)   # trailing emoji: colour font, not DejaVu tofu
+    lines[-1] = "".join(ch for ch in lines[-1] if ord(ch) <= 0x2000).rstrip()
     d = ImageDraw.Draw(Image.new("RGBA", (10, 10)))
     tw = int(max(d.textlength(x, font=f) for x in lines)) + 80
     im = Image.new("RGBA", (tw, len(lines) * 112 + 40), (0, 0, 0, 0))
@@ -240,9 +246,15 @@ def ask_imgs(q):
     for k, line in enumerate(lines):
         d.text(((tw - d.textlength(line, font=f)) / 2, 16 + k * 112), line, font=f, fill=ex.YELLOW,
                stroke_width=10, stroke_fill=(0, 0, 0))
+    if emo:
+        e = _emoji(emo, 96)
+        wide = Image.new("RGBA", (im.width + e.width + 10, im.height), (0, 0, 0, 0))
+        wide.alpha_composite(im, (0, 0))
+        wide.alpha_composite(e, (im.width - 30, im.height - 112 - 8))
+        im = wide
     if im.width > W - 60:  # long questions shrink to fit the frame
         im = im.resize((W - 60, int(im.height * (W - 60) / im.width)), Image.LANCZOS)
-    chips = [chip_img(c) for c in q["choices"]]
+    chips = [chip_img(c) for c in q.get("choices") or []]
     chips = [c if c.shape[1] <= W - 60 else cv2.resize(c, (W - 60, int(c.shape[0] * (W - 60) / c.shape[1])))
              for c in chips]
     return np.asarray(im), chips
@@ -751,17 +763,21 @@ def gate(beats, total):
             events.append(bt["F"] / FPS + bt["sub"]["f"] / FPS)
         if bt["ask"]:
             events += [bt["F"] / FPS + f / FPS for f in [bt["ask"]["f"]] + bt["ask"]["fs"]]
-    for bt in beats:  # ask kit placement (research/46): pill at 60-75%, comment card in the last 3-4 s
+    for bt in beats:  # ask kit placement (research/46): hook first, guess card 3-6 s, pill 6-10 s, reminder at the end
         if bt["sub"]:
-            u = (bt["F"] + bt["sub"]["f"]) / FPS / total
-            if not 0.58 <= u <= 0.77:
-                warn.append(f"beat {bt['i']} subscribe pill at {u:.0%} of the Short (aim 60-75%)")
+            t = (bt["F"] + bt["sub"]["f"]) / FPS
+            if not 5.5 <= t <= 10.5:
+                warn.append(f"beat {bt['i']} subscribe pill at {t:.1f}s (aim 6-10 s)")
         if bt["ask"]:
-            left = total - (bt["F"] + bt["ask"]["f"]) / FPS
-            if not 2.5 <= left <= 5.5:
-                warn.append(f"beat {bt['i']} comment card starts {left:.1f}s before the end (aim 3-4 s + loop)")
-            if bt["i"] + 1 < len(beats) and not beats[bt["i"] + 1]["loop"]:
-                warn.append(f"beat {bt['i']} comment card is not the last beat before the loop")
+            t = (bt["F"] + bt["ask"]["f"]) / FPS
+            if t < 3.0:
+                warn.append(f"beat {bt['i']} comment card at {t:.1f}s: no ask in the first 3 s")
+            elif bt["ask"]["chips"] and t > 7.0:
+                warn.append(f"beat {bt['i']} guess card at {t:.1f}s (aim 3-6 s, right after the hook)")
+            elif not bt["ask"]["chips"] and bt["i"] + 1 < len(beats) and not beats[bt["i"] + 1]["loop"]:
+                warn.append(f"beat {bt['i']} reminder card is not the last beat before the loop")
+        if bt["F"] / FPS < 3.0 and bt["sub"]:
+            warn.append(f"beat {bt['i']} subscribe ask in the first 3 s")
     events = sorted(events)
     gaps = [b - a for a, b in zip([0.0] + events, events + [total])]
     if max(gaps) > 3.0:
