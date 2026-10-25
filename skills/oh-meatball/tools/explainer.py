@@ -97,8 +97,16 @@ def photo(taxon, n, work, obs=None, size="large"):
             f"https://api.openverse.org/v1/images/{obs[3:]}/", headers={"User-Agent": "MeatballMyths/1.0"}), timeout=60))
         if o["license"] not in ("cc0", "pdm", "by", "by-sa"):
             raise SystemExit(f"{obs}: license {o['license']} not reusable")
-        req = urllib.request.Request(o["url"], headers={"User-Agent": "MeatballMyths/1.0"})
-        open(path, "wb").write(urllib.request.urlopen(req, timeout=60).read())
+        url = o["url"].split("?")[0]
+        if "upload.wikimedia.org/wikipedia/commons/" in url and "/thumb/" not in url:
+            # Commons refuses originals to our shared egress (429): take a standard-width thumbnail
+            head, name = url.rsplit("/", 1)
+            w = 1920 if (o.get("width") or 0) >= 1600 else 1280
+            data = _wm_get(head.replace("/commons/", "/commons/thumb/") + f"/{name}/{w}px-{name}", as_json=False)
+        else:
+            data = urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "MeatballMyths/1.0"}),
+                                          timeout=60).read()
+        open(path, "wb").write(data)
         lic = "public domain" if o["license"] in ("cc0", "pdm") else f"CC {o['license'].upper()} {o['license_version']}"
         open(path + ".credit", "w").write(f"{taxon}: \"{o['title']}\" by {o.get('creator') or 'unknown'} ({lic}), via {o['source']}")
         return path
