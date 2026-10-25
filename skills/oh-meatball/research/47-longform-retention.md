@@ -106,7 +106,14 @@ Facts are unchanged in both, and no viewer quotes were added.
   - after sharks: "Number four? It bites you in your sleep."
   - the like ask now ends: "Two to go. The next one makes a sound I really don't like. And number one? Smaller than you'd guess."
 
-Lengths and Metricool read-backs: see OPERATIONS.md "Long-form retention" and the commit log.
+- explains-02 cold open also gains "As a meatball, I am taking very careful notes." so the guess card and pill stay in their 15-40 s / 28-55 s windows after the agenda line was cut.
+
+| Episode | Before | After (rendered) | Metricool |
+|---|---|---|---|
+| explains-03 zombies, Sat 10/31 2 PM | 6:18, chapters 0:40/1:58/3:07/3:52/4:35 | **6:31**, chapters 0:39/2:01/3:13/4:02/4:48 (payoff at 74%) | 406039119 → **406077563**, read back 2026-10-31T14:00 America/New_York |
+| explains-02 deadliest, Tue 11/3 2 PM | 6:08 | LEN02 | 406039276 → ID02 |
+
+Both pass tools/retention.py on their exact render timelines.
 
 ## 6. Routine
 

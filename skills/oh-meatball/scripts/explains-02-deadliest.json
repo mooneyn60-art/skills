@@ -108,7 +108,7 @@
    ]
   },
   {
-   "say": "Five animals, ranked by how many people they actually kill. Smallest number first. Each one deadlier than the last.",
+   "say": "Five animals, ranked by how many people they actually kill. Smallest number first. Each one deadlier than the last. As a meatball, I am taking very careful notes.",
    "pose": "deadpan",
    "myth": "intro",
    "act": "hit",
@@ -120,7 +120,10 @@
    ],
    "animal": "lunge@kill",
    "contact": true,
-   "punch": "deadlier",
+   "punch": [
+    "deadlier",
+    "notes"
+   ],
    "label": {
     "text": "RANKED BY\nBODY COUNT",
     "at": "ranked"
@@ -259,7 +262,7 @@
       1.0,
       1.0
      ],
-     "at": "safe"
+     "at": "tuesday"
     }
    ]
   },
