@@ -22,6 +22,26 @@ Spec fields (all optional unless noted):
   shot "whip": false     hard cut instead of a whip pan (cuts to a different photo whip by default)
   shot "blur": true      blurred, dimmed photo (a host shot)
 Photos come from explainer.photo() (pinned iNaturalist observations, full resolution).
+
+"style": "v4" (research/45) adds, on top of everything above:
+  whole-animal cut-outs  every photo shot is cut out (tools/animal.py): the WHOLE animal, holes under 1%
+                         filled, contour smoothed, 1 px under a uniform white stroke, soft shadow. The shot is
+                         re-framed around it (tools/stage.py): as large as fits beside Meatball (above him if
+                         it must), clear of him, the captions and the frame edge, standing on the free space's
+                         floor, over its own photo blurred and dimmed with the animal painted out
+  animal acting          the cut-out always moves (bob, or "drift" for floaters); beat "animal": "lunge@kick" /
+                         ["turn@twists", "shake@inside"] adds lunge|kick|charge, strike|snap|sting, shake,
+                         turn|look, timed to a word, with a matching SFX unless the beat has one there
+  Meatball               keeps his left-hand mark and faces the animal; flees, is flung, peeks and cowers away
+                         from it (on a v3 still his mark comes from the pinned head instead)
+  beat "contact": true   Meatball and the animal may touch (a poke, a sting, a kick)
+  spec "subjects"        per iNaturalist obs: {"head": [x0, y0, x1, y1] photo fractions (steers Meatball on a
+                         v3 still), "cutout": false, "idle": "drift"}
+  gates                  a photo whose animal runs off the photo's edge, a matte in pieces or one whose clean-up
+                         would lose >3% of it, a see-through or low-contrast matte: that shot falls back to the
+                         v3 still (listed as V4 FALLBACK). The render fails if a cut-out breaks the edge/loss
+                         rule or an acting animal leaves the frame; Meatball-over-animal and animal-under-caption
+                         frames are reported per beat (V4 QA, and v4.json in the work dir)
 """
 import json
 import math
@@ -34,8 +54,10 @@ import cv2
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
+import animal
 import explainer as ex
 import mascot
+import stage
 
 FPS, W, H, SR = 30, 1080, 1920, 48000
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -49,6 +71,7 @@ CAP_Y = 1560
 MAX_SHOT = 2.4    # a shot longer than this is re-cut to a tighter crop of the same photo (gate: 2.5 s)
 PUSH = 0.045      # zoom per second of the slow push (v2: 0.036)
 HOME = 0.24       # Meatball's mark: left of centre, so the animal (centred in each crop) stays visible
+HOME_V4, SIZE_V4 = 0.21, 880   # v4: a little smaller and nearer the edge, so a whole animal fits beside him
 PLAN = {}         # filled before the frame workers fork
 
 
@@ -177,8 +200,10 @@ def sprite(st, size):
 
 def place_meatball(frame, st, tr, size):
     if tr["hidden"]:
-        return
+        return None
     spr, pad = sprite(st, size)
+    if tr.get("flip"):  # v4: face the animal on his left (the rig is symmetric about the hip)
+        spr = spr[:, ::-1]
     k = size / 1000.0
     hip = np.array([pad + 500 * k, pad + 790 * k])
     feet = np.array([pad + 500 * k, pad + 960 * k])
@@ -195,13 +220,76 @@ def place_meatball(frame, st, tr, size):
     x0, y0 = int(max(0, pts[0].min())), int(max(0, pts[1].min()))
     x1, y1 = int(min(W, pts[0].max() + 1)), int(min(H, pts[1].max() + 1))
     if x1 <= x0 or y1 <= y0:
-        return
+        return None
     M2 = T(-x0, -y0) @ M
     out = cv2.warpAffine(spr, M2[:2], (x1 - x0, y1 - y0), flags=cv2.INTER_LINEAR, borderValue=(0, 0, 0, 0))
     over(frame, out, x0, y0)
+    return out[..., 3], x0, y0
 
 
 # ---------------------------------------------------------------- plan
+
+def auto_sfx(b, words, t_act, F):
+    """A beat's SFX as [(seconds into the Short, name)]."""
+    out = []
+    for e in b.get("sfx", []):
+        nm, _, at = e.partition("@")
+        t = t_act if not at else (t_act if at == "act" else word_time(words, at, t_act))
+        out.append((F / FPS + max(0.0, t), nm))
+    return out
+
+
+def subject(sh, s, pin):
+    """v4: the animal facts for a shot (tools/animal.py), with the script's per-photo pins applied.
+    sh["cut"] = the shot is drawn as an acting cut-out; otherwise it is the v3 still (sh["why"] says why)."""
+    c = sh["crop"] or [0, 0, 1, 1]
+    head = pin.get("head")
+    if head:  # photo fractions -> crop fractions; a head outside the crop doesn't constrain anything
+        cw, ch = c[2] - c[0], c[3] - c[1]
+        head = [min(max((head[0] - c[0]) / cw, 0), 1), min(max((head[1] - c[1]) / ch, 0), 1),
+                min(max((head[2] - c[0]) / cw, 0), 1), min(max((head[3] - c[1]) / ch, 0), 1)]
+        if head[2] - head[0] < 0.02 or head[3] - head[1] < 0.02:
+            head = None
+    info = dict(animal.subject(sh["path"], sh["crop"], parent=sh.get("parent")))
+    if head is not None:
+        info["head"], info["head_from"] = head, "pin"
+    elif pin.get("head") and "head" in info:
+        info.pop("head")  # pinned head is out of this crop
+    ok = info.get("quality") == "ok" and pin.get("cutout", True) and s.get("cutout", True)
+    why = None if ok else info.get("quality")
+    if not ok:  # a failed matte's boxes are noise: keep only a pinned head (it still steers Meatball)
+        if pin.get("cutout", True) is False and info.get("quality") == "ok":
+            info["quality"] = "pinned: " + pin.get("_why", "cutout false")
+        h = info.get("head") if head is not None else None
+        info = h and dict(head=h, box=h, cx=(h[0] + h[2]) / 2, cy=(h[1] + h[3]) / 2, quality=info.get("quality"))
+    sh.update(subj=info if info and "box" in info else None, cut=bool(ok), idle=pin.get("idle", "bob"),
+              reg=info.get("reg") if info else None,
+              why=None if ok else (why if why != "ok" else "pinned: " + pin.get("_why", "cutout false")))
+
+
+def stage_v4(shots, n, b, moves, top, act):
+    """v4 staging for one line. Meatball's mark: clear of the head on v3 stills (stage.place), else on the
+    side away from the animal. Each cut-out shot is then re-framed around the WHOLE animal (stage.frame_fit):
+    as large as fits, with room for its moves, beside or above him and above the captions."""
+    contact = bool(b.get("contact"))
+    stills = [s for s in shots if not s.get("cut")]
+    cuts = [s for s in shots if s.get("cut")]
+    if any(s.get("subj") for s in stills):
+        x, size, side, _ = stage.place(stills, n, contact, HOME_V4, int(b.get("size", SIZE_V4)))
+    else:  # cut-outs are re-framed anyway: keep his v3 mark (left) so he doesn't hop sides between lines
+        x, size, side = HOME_V4, int(b.get("size", SIZE_V4)), 1
+    best = None
+    for sz in (size, int(size * 0.85)):
+        fits = [stage.frame_fit(animal.photo_box(s["path"], s["subj"]), moves, s["idle"], side, contact,
+                                stage.regions(x, sz, side, top, contact, act), gmax=1.4) for s in cuts]
+        worst = min([ft["g"] for ft in fits] + [9.0])
+        if best is None or worst > best[0] * 1.25:
+            best = (worst, sz, fits)
+    _, size, fits = best
+    for s, ft in zip(cuts, fits):
+        s["fit"] = ft
+    return x, size, side
+
 
 def plan_beats(spec, work):
     name, rate = spec.get("voice", "en-US-AndrewNeural"), spec.get("rate", "+0%")
@@ -209,6 +297,8 @@ def plan_beats(spec, work):
     beats = spec["beats"]
     ex.voice(beats, work, name, rate)
     looping = any(b.get("loop") for b in beats)
+    v4 = spec.get("style") == "v4"
+    pins = {str(k): v for k, v in (spec.get("subjects") or {}).items()}
     out, F, shot_no = [], 0, 0
     for i, b in enumerate(beats):
         mp3 = ex.vo_path(b, work, name, rate)
@@ -233,13 +323,18 @@ def plan_beats(spec, work):
                           default=(a + z) / 2)
                 c = s.get("crop") or [0, 0, 1, 1]
                 cx, cy, cw, ch = (c[0] + c[2]) / 2, (c[1] + c[3]) / 2, (c[2] - c[0]) * 0.8, (c[3] - c[1]) * 0.8
-                tight = dict(s, crop=[cx - cw / 2, cy - ch / 2, cx + cw / 2, cy + ch / 2], whip=False)
+                if v4:  # re-cut from the top edge down, so a tighter crop never slices through the head
+                    cy = c[1] + ch / 2
+                tight = dict(s, crop=[cx - cw / 2, cy - ch / 2, cx + cw / 2, cy + ch / 2], whip=False, parent=c)
                 # the loop tail must END on its original crop (= frame 0), so it opens on the tight one
                 pieces = [(a, mid, tight), (mid, z, dict(s, whip=False))] if b.get("loop") else [(a, mid, s), (mid, z, tight)]
             for a_, z_, s_ in pieces:
                 path = ex.photo(s_["photo"], s_.get("n", 0), work, s_.get("obs"), "original")
                 shots.append(dict(f0=int(round(a_ * FPS)), f1=int(round(z_ * FPS)), path=path, crop=s_.get("crop"),
-                                  blur=bool(s_.get("blur")), whip=s_.get("whip", True), no=shot_no))
+                                  blur=bool(s_.get("blur")), whip=s_.get("whip", True), no=shot_no,
+                                  parent=s_.get("parent")))
+                if v4:
+                    subject(shots[-1], s_, pins.get(str(s_.get("obs")), {}))
                 shot_no += 1
         hit = word_time(words, b.get("hit"), None)
         act = b.get("act") or ("loop_out" if b.get("loop") else "stand")
@@ -247,25 +342,47 @@ def plan_beats(spec, work):
         t_act = word_time(words, b.get("act_at"), dflt)
         pose = b.get("pose", "deadpan")
         sts = mascot.states(pose, [list(w) for w in words], D, FPS, seed=i)
-        trk = mascot.act_track(act, n, FPS, t_act, float(b.get("x", HOME)), seed=i)
-        punch = b.get("punch") or []
-        punch = [punch] if isinstance(punch, str) else punch
-        sfx = []
-        for e in b.get("sfx", []):
-            nm, _, at = e.partition("@")
-            t = t_act if not at else (t_act if at == "act" else word_time(words, at, t_act))
-            sfx.append((F / FPS + max(0.0, t), nm))
+        x, size, side, moves = float(b.get("x", HOME)), int(b.get("size", 1000)), 1, []
         lab = b.get("label")
         if isinstance(lab, str):
             lab = {"text": lab}
+        lab_img = lab and label_img(lab["text"])
+        if v4:
+            for nm, at in animal.parse(b.get("animal")):
+                if nm not in ("lunge", "strike", "shake", "turn"):
+                    continue
+                ta = word_time(words, at, t_act)
+                moves.append((nm, ta))
+                if nm in animal.SFX and not any(abs(t - (F / FPS + ta)) < 0.25 for t, _ in auto_sfx(b, words, t_act, F)):
+                    snd, off = animal.SFX[nm]
+                    b = dict(b, sfx=list(b.get("sfx", [])) + [f"{snd}@{max(0.0, ta + off):.3f}"])
+            if b.get("loop") and out:  # the loop tail mirrors the hook, so its last frame matches frame 0
+                h0 = out[0]
+                x, size, side = h0["x"], h0["size"], h0["side"]
+                for s_ in shots:  # a tighter re-cut of the loop shot shares its parent's framing
+                    s_["fit"] = next((t["fit"] for t in h0["shots"] if t.get("fit") and (t["path"], t["crop"])
+                                      == (s_["path"], s_.get("parent") or s_["crop"])), None)
+                    if s_.get("cut") and s_["fit"] is None:
+                        s_["fit"] = stage.frame_fit(animal.photo_box(s_["path"], s_["subj"]), moves, s_["idle"],
+                                                    side, False, stage.regions(x, size, side, act="peek"), gmax=1.4)
+            elif "x" not in b:
+                top = 330 + lab_img.shape[0] / 2 + 12 if lab else stage.SAFE[1]
+                x, size, side = stage_v4(shots, n, b, moves, top, act)
+            trk = stage.track(mascot, act, n, FPS, t_act, x, side, i)
+        else:
+            trk = mascot.act_track(act, n, FPS, t_act, x, seed=i)
+        punch = b.get("punch") or []
+        punch = [punch] if isinstance(punch, str) else punch
+        sfx = auto_sfx(b, words, t_act, F)
         out.append(dict(i=i, F=F, n=n, words=words, wav=wav, shots=shots, act=act, sts=sts, trk=trk,
                         hit=None if hit is None else int(round(hit * FPS)),
                         punch=[int(round(word_time(words, p, 0.0) * FPS)) for p in punch],
-                        punch_z=float(b.get("punch_z", 0.18)), sfx=sfx, size=int(b.get("size", 1000)),
-                        label=lab and dict(img=label_img(lab["text"]),
+                        punch_z=float(b.get("punch_z", 0.18)), sfx=sfx, size=size, side=side, moves=moves,
+                        contact=bool(b.get("contact")),
+                        label=lab and dict(img=lab_img,
                                            f=int(round(word_time(words, lab.get("at"), 0.0) * FPS))),
                         prop=b.get("prop"), prop_f=int(round(word_time(words, b.get("prop_at"), 0.3) * FPS)),
-                        x=float(b.get("x", HOME)), loop=bool(b.get("loop")), first=looping and i == 0, say=b["say"]))
+                        x=x, loop=bool(b.get("loop")), first=looping and i == 0, say=b["say"]))
         F += n
     return out
 
@@ -292,6 +409,75 @@ def shot_view(bt, sh, f):
     return img, z
 
 
+_LAYERS = {}
+
+
+def layer(sh):
+    """v4: (blurred painted-out background at g_bg, premultiplied animal sticker at g, sticker offset, g_bg),
+    cached per photo and scale."""
+    g = round(sh["fit"]["g"], 4)
+    pw, ph = stage.crop_size(sh["path"], [0, 0, 1, 1])
+    g_bg = round(max(g, W / pw, H / ph), 4)   # the background always covers the frame
+    key = (sh["path"], tuple(sh["reg"]), g, g_bg, sh["blur"])
+    if key not in _LAYERS:
+        _LAYERS[key] = animal.layers(sh["path"], sh["crop"], sh["reg"], g, g_bg, sh["blur"]) + (g_bg,)
+    return _LAYERS[key]
+
+
+def premult_over(dst, src, x, y):
+    h, w = src.shape[:2]
+    x0, y0, x1, y1 = max(0, x), max(0, y), min(W, x + w), min(H, y + h)
+    if x1 <= x0 or y1 <= y0:
+        return
+    s = src[y0 - y:y1 - y, x0 - x:x1 - x].astype(np.float32)
+    d = dst[y0:y1, x0:x1].astype(np.float32)
+    dst[y0:y1, x0:x1] = np.clip(d * (1 - s[..., 3:4] / 255.0) + s[..., :3], 0, 255).astype(np.uint8)
+
+
+def picture(bt, sh, f, g, dx=0.0):
+    """A shot's picture at beat frame f (global frame g): the v3 still, or (v4) the acting cut-out over its
+    blurred photo. The cut-out's move is applied on screen around its feet (bob, lunge) or middle (drift)."""
+    img, z = shot_view(bt, sh, f)
+    if not sh.get("cut"):
+        return view(img, z, dx), None
+    bg, st, (ox, oy), g_bg = layer(sh)
+    ft = sh["fit"]
+    gs = ft["g"]
+    pb = animal.photo_box(sh["path"], sh["subj"])
+    pcx, pcy = (pb[0] + pb[2]) / 2, (pb[1] + pb[3]) / 2
+    scx, scy = ft["tx"] + gs * pcx, ft["ty"] + gs * pcy          # the animal's centre on screen
+    bh, bw = bg.shape[:2]   # background: same spot of the photo behind the animal, clamped to cover the frame
+    bx = min(0.0, max(W - bw, scx - g_bg * pcx))
+    by = min(0.0, max(H - bh, scy - g_bg * pcy))
+    Mb = np.float32([[z, 0, W / 2 - z * W / 2 + z * bx + dx], [0, z, H / 2 - z * H / 2 + z * by]])
+    out = cv2.warpAffine(bg, Mb, (W, H), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
+    # the cut-out takes no push: a little parallax against the background
+    V = np.array([[1, 0, ft["tx"] + ox + dx], [0, 1, ft["ty"] + oy], [0, 0, 1]])
+    a = (scx + dx, scy if sh["idle"] == "drift" else ft["ty"] + gs * pb[3])
+    toward = 1 if bt["x"] * W >= a[0] else -1
+    mv = animal.transform(bt["moves"], f / FPS, toward, sh["no"], sh["idle"], n_left=PLAN["total"] - 1 - g,
+                          ts=(f - sh["f0"]) / FPS, n_from=g)
+    r = math.radians(mv["rot"])
+    sc = mv["s"]
+    A = np.array([[math.cos(r), -math.sin(r), 0], [math.sin(r), math.cos(r), 0], [0, 0, 1]]) @ np.diag(
+        [sc * mv["sx"] * (1 - 2 * mv["flip"]), sc * mv["sy"], 1.0])
+    M = (np.array([[1, 0, a[0] + mv["dx"] * W], [0, 1, a[1] + mv["dy"] * W], [0, 0, 1]]) @ A
+         @ np.array([[1, 0, -a[0]], [0, 1, -a[1]], [0, 0, 1]]) @ V)
+    h, w = st.shape[:2]
+    pts = M @ np.array([[0, w, w, 0], [0, 0, h, h], [1, 1, 1, 1]])
+    x0, y0 = int(max(0, pts[0].min())), int(max(0, pts[1].min()))
+    x1, y1 = int(min(W, pts[0].max() + 1)), int(min(H, pts[1].max() + 1))
+    if x1 > x0 and y1 > y0:
+        M2 = np.array([[1, 0, -x0], [0, 1, -y0], [0, 0, 1]]) @ M
+        warped = cv2.warpAffine(st, M2[:2], (x1 - x0, y1 - y0), flags=cv2.INTER_LINEAR, borderValue=(0, 0, 0, 0))
+        premult_over(out, warped, x0, y0)
+        wa = warped[..., 3] > 128   # the animal itself (not its shadow padding) reaching a frame edge
+        clipped = bool((x0 == 0 and wa[:, 0].any()) or (y0 == 0 and wa[0].any()) or
+                       (x1 == W and wa[:, -1].any()) or (y1 == H and wa[-1].any()))
+        return out, (warped[..., 3], x0, y0, clipped)
+    return out, None
+
+
 def frame(g):
     P = PLAN
     bi = max(k for k, bt in enumerate(P["beats"]) if bt["F"] <= g)
@@ -300,19 +486,19 @@ def frame(g):
     shots = bt["shots"]
     k = max(j for j, s in enumerate(shots) if s["f0"] <= f or j == 0)
     sh = shots[k]
-    img, z = shot_view(bt, sh, f)
     bg = None
     cut = P["whips"].get(g)  # whip pan: 6 frames centred on a cut to a different photo (also across beats)
     if cut:
         gc, pb, ps, nb, ns = cut
         u = (g - (gc - 3) + 0.5) / 6.0
         o = int(W * u * u * (3 - 2 * u))
-        A = view(*shot_view(pb, ps, g - pb["F"]))
-        B = view(*shot_view(nb, ns, g - nb["F"]))
+        A = picture(pb, ps, g - pb["F"], g)[0]
+        B = picture(nb, ns, g - nb["F"], g)[0]
         bg = np.concatenate([A[:, o:], B[:, :o]], axis=1)
         bg = cv2.blur(bg, (int(170 * math.sin(math.pi * u)) | 1, 1))
+    ani = None
     if bg is None:
-        bg = view(img, z)
+        bg, ani = picture(bt, sh, f, g)
     frame_ = np.ascontiguousarray(bg)
     st = dict(bt["sts"][min(f, len(bt["sts"]) - 1)])
     tr = bt["trk"][f]
@@ -331,8 +517,24 @@ def frame(g):
         p = P["props"][bt["prop"]]
         kf = f - bt["prop_f"]
         drop = [-900, -520, -200, 0, -40, 0][kf] if kf < 6 else 0
-        over(frame_, p, int(bt["x"] * W + bt["size"] * 0.36), FLOOR - p.shape[0] + 20 + drop)
-    place_meatball(frame_, st, tr, bt["size"])
+        px = int(bt["x"] * W + bt["size"] * 0.36) if bt["side"] == -1 or not P["v4"] else \
+            int(bt["x"] * W - bt["size"] * 0.36 - p.shape[1])   # v4: on his free side, away from the animal
+        over(frame_, p, px, FLOOR - p.shape[0] + 20 + drop)
+    placed = place_meatball(frame_, st, tr, bt["size"])
+    qa = (0, 0, False)
+    if P["v4"] and ani is not None and not cut:  # QA (not during whip pans): Meatball over the animal, animal under the captions, animal clipped
+        aa, ax0, ay0, clipped = ani
+        over_mb = 0
+        if placed is not None:
+            al, mx, my = placed
+            x0, y0 = max(ax0, mx), max(ay0, my)
+            x1, y1 = min(ax0 + aa.shape[1], mx + al.shape[1]), min(ay0 + aa.shape[0], my + al.shape[0])
+            if x1 > x0 and y1 > y0:
+                over_mb = int(((aa[y0 - ay0:y1 - ay0, x0 - ax0:x1 - ax0] > 128)
+                               & (al[y0 - my:y1 - my, x0 - mx:x1 - mx] > 128)).sum())
+        cy0 = max(0, CAP_Y - 75 - ay0)
+        under_cap = int((aa[cy0:, max(0, 150 - ax0):max(0, 930 - ax0)] > 128).sum()) if cy0 < aa.shape[0] else 0
+        qa = (over_mb, under_cap, bool(clipped))
     if bt["label"] and f >= bt["label"]["f"]:
         kf = f - bt["label"]["f"]
         s = [0.35, 0.75, 1.15, 1.06, 1.0][kf] if kf < 5 else 1.0
@@ -358,7 +560,7 @@ def frame(g):
     if bt["hit"] is not None and 0 <= f - bt["hit"] < 3:  # white impact flash
         a = (0.85, 0.55, 0.25)[f - bt["hit"]]
         frame_ = (frame_.astype(np.float32) * (1 - a) + 255 * a).astype(np.uint8)
-    return frame_.tobytes()
+    return frame_.tobytes(), qa
 
 
 def captions(beats, path):
@@ -408,6 +610,30 @@ def gate(beats, total):
     print(f"v3 gate: {len(events)} events in {total:.1f}s, longest gap {max(gaps):.2f}s", flush=True)
 
 
+def report_v4(beats, work):
+    """v4 gate: which shots act as cut-outs, which fell back to the v3 still (and why), Meatball's marks."""
+    shots, stills = [], []
+    for bt in beats:
+        for s in bt["shots"]:
+            e = dict(beat=bt["i"], photo=os.path.basename(s["path"]), crop=s["crop"], blur=s["blur"],
+                     cut=s.get("cut"), why=s.get("why"), sec=round((s["f1"] - s["f0"]) / FPS, 2))
+            shots.append(e)
+            if not s.get("cut"):
+                stills.append(e)
+                print(f"V4 FALLBACK: beat {bt['i']} {e['photo']} {s['crop']}: {s.get('why')}", flush=True)
+    marks = [dict(beat=bt["i"], x=round(bt["x"], 3), size=bt["size"], side=bt["side"], act=bt["act"],
+                  contact=bt["contact"], moves=bt["moves"]) for bt in beats]
+    n = len(shots)
+    print(f"v4 gate: {n - len(stills)}/{n} shots act as cut-outs; {len(stills)} v3 stills", flush=True)
+    for bt in beats:  # hard rules (Nolan, 10/25): a cut-out is the whole animal, none of it lost to clean-up
+        for s in bt["shots"]:
+            if s.get("cut") and (s["subj"].get("touch") or s["subj"].get("loss", 1) > animal.MAX_LOSS):
+                raise SystemExit(f"v4 gate: beat {bt['i']} cut-out touches the photo edge or loses "
+                                 f"{s['subj'].get('loss', 1):.0%} of the matte")
+    json.dump(dict(shots=shots, marks=marks), open(f"{work}/v4.json", "w"), indent=1)
+    return stills
+
+
 def build(spec, work, out, music=None):
     os.makedirs(work, exist_ok=True)
     ex.vertical()
@@ -421,12 +647,18 @@ def build(spec, work, out, music=None):
             for d in range(-3, 3):
                 cuts[g + d] = (g, pb, ps, nb, ns)
     PLAN.clear()
-    PLAN.update(beats=beats, whips=cuts, props={"fork": np.asarray(mascot.prop("fork", 520))})
-    for bt in beats:  # warm the photo cache before forking the workers
+    v4 = spec.get("style") == "v4"
+    PLAN.update(beats=beats, whips=cuts, props={"fork": np.asarray(mascot.prop("fork", 520))}, v4=v4,
+                total=total_f)
+    for bt in beats:  # warm the photo (and v4 cut-out) caches before forking the workers
         for s in bt["shots"]:
             base(s["path"], s["crop"], s["blur"])
+            if s.get("cut"):
+                layer(s)
     total = total_f / FPS
     gate(beats, total)
+    if v4:
+        stills = report_v4(beats, work)
     # audio: voice lines, SFX under them, music bed ducked by the voice
     voice = np.zeros((int(total * SR) + SR, 2), np.float32)
     sfx = np.zeros_like(voice)
@@ -461,8 +693,10 @@ def build(spec, work, out, music=None):
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     jobs = int(os.environ.get("MEATBALL_JOBS", "2"))
     with mp.get_context("fork").Pool(jobs) as pool:
-        for k, buf in enumerate(pool.imap(frame, range(total_f), chunksize=4)):
+        qas = []
+        for k, (buf, qa) in enumerate(pool.imap(frame, range(total_f), chunksize=4)):
             proc.stdin.write(buf)
+            qas.append(qa)
             if k % 150 == 0:
                 print(f"v3 frame {k}/{total_f}", flush=True)
     proc.stdin.close()
@@ -473,4 +707,21 @@ def build(spec, work, out, music=None):
     json.dump([dict(i=bt["i"], start=bt["F"] / FPS, dur=bt["n"] / FPS, act=bt["act"], say=bt["say"],
                     shots=[(s["f0"] / FPS, s["f1"] / FPS) for s in bt["shots"]], sfx=bt["sfx"]) for bt in beats],
               open(f"{work}/timeline.json", "w"), indent=1)
+    if v4:  # QA by beat: frames where Meatball covers the animal (contact beats may), animal under captions
+        bad = {}
+        for g, (mb, cap, clip) in enumerate(qas):
+            bt = max((b for b in beats if b["F"] <= g), key=lambda b: b["F"])
+            e = bad.setdefault(bt["i"], dict(act=bt["act"], contact=bt["contact"], meatball=0, captions=0, clipped=0))
+            e["meatball"] += mb > 300
+            e["captions"] += cap > 300
+            e["clipped"] += bool(clip)
+        bad = {i: e for i, e in bad.items() if e["meatball"] or e["captions"] or e["clipped"]}
+        rep = json.load(open(f"{work}/v4.json"))
+        rep["overlap"] = {str(i): e for i, e in bad.items()}
+        json.dump(rep, open(f"{work}/v4.json", "w"), indent=1)
+        for i, e in sorted(bad.items()):
+            print(f"V4 QA: beat {i} ({e['act']}{', contact' if e['contact'] else ''}): Meatball over the animal "
+                  f"{e['meatball']} frames, animal under captions {e['captions']}, clipped {e['clipped']}", flush=True)
+        if any(e["clipped"] for e in bad.values()):
+            raise SystemExit("v4 gate: an acting animal leaves the frame (see V4 QA)")
     print(f"ok {out} {total:.1f}s")

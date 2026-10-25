@@ -962,7 +962,7 @@ def main():
         MUSIC = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "brand", spec["music"])
     if a.vertical:
         vertical()
-    if spec.get("style") == "v3" and a.stage == "build":  # Shorts v3 (research/44): tools/v3.py renders it
+    if spec.get("style") in ("v3", "v4") and a.stage == "build":  # Shorts v3/v4 (research/44, 45): tools/v3.py
         import v3
         return v3.build(spec, a.work, a.out, MUSIC)  # v3 imports explainer afresh: pass the bed
     if a.stage == "images":

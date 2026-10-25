@@ -63,8 +63,18 @@ qualified views. Channel: subs, weekly long-form watch hours vs the 4,000 h pace
   YouTube Studio: Settings > Upload defaults > Advanced settings > untick "Show how many viewers
   like this video" (new uploads), and Content > select all > Edit (existing ones).
 
-## Shorts v3 is the format (Nolan approved 10/24)
-- Every new Short uses `"style": "v3"` (tools/v3.py, research/44).
+## Shorts v4 is the format (Nolan approved 10/25: "Wayyy better in the new ones do that")
+- Every new Short and TikTok uses `"style": "v4"`: all of v3 below, plus moving animal cut-outs (research/45).
+  - Give each acting beat an `"animal": "<move>@<word>"` (lunge, kick, charge, strike, sting, shake, turn, drift).
+  - Set `"contact": true` only when Meatball should touch the animal.
+- **Whole animal or nothing (Nolan: outlines, "some of the animal is missing"):**
+  - Photos must show the WHOLE animal, uncropped (CC0/CC BY).
+  - A failed cut-out falls back to the v3 still; the render fails if a cut-out breaks the rules.
+  - The factdesk eyeballs every new cut-out: the automatic check can't catch a matte that stops short.
+- Already-scheduled v3 posts stay up. Don't re-render them.
+
+## Shorts v3 (the base v4 builds on; approved 10/24)
+- `"style": "v3"` (tools/v3.py, research/44).
 - **Meatball in jeopardy:** something happens to him, he doesn't narrate it.
 - **Pacing:**
   - action moves on every line

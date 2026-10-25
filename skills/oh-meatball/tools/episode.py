@@ -154,6 +154,7 @@ def main():
                    "music": spec.get("music"), "style": spec.get("style"),
                    **({"pitch": spec["pitch"]} if spec.get("pitch") else {}),
                    **({"tempo": spec["tempo"]} if spec.get("tempo") else {}),  # v3: atempo speed-up
+                   **({"subjects": spec["subjects"]} if spec.get("subjects") else {}),  # v4: per-photo pins
                    # "short_beats" lets a joke-dense script keep more than 3 hand-picked beats (default 3).
                    "beats": hook_loop(mb) if hook else loop(tighten(mb, spec.get("short_beats", 3)))},
                   open(sspec, "w"))
