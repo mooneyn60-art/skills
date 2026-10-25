@@ -18,6 +18,7 @@ Checks (each one is cheap, local, and uses only files already in the repo):
   4. metrics.csv: zero subscribers gained in the last 7 days
   5. doc drift: routine docs that mention a retired format, an old branch, or contradict CADENCE
   6. expert playbooks over the 300-line cap
+  7. render length vs slot (added 10/25): a YouTube Short over 35 s, or a day with no 60 s+ TikTok
 """
 import csv
 import datetime as dt
@@ -265,6 +266,44 @@ def check_playbooks(root):
                         "Fold proven lessons into its Rules section and delete the rest.")
 
 
+def video_seconds(path):
+    import subprocess
+    try:
+        out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", path],
+                             capture_output=True, text=True, timeout=20).stdout.strip()
+        return float(out) if out else None
+    except (OSError, ValueError, subprocess.TimeoutExpired):
+        return None
+
+
+def check_durations(root, now):
+    # 10/25: a 73 s bolas render sat in a YouTube Shorts slot (rule: 20-25 s; 43 s+ Shorts got 98-239 views
+    # vs a ~620 median) and nothing caught it. TikTok needs one 60 s+ deep dive a day for Creator Rewards.
+    et = dt.timezone(dt.timedelta(hours=-4))
+    now_et, long_yt, deep_days, tt_days = now.astimezone(et), [], set(), set()
+    for r in rows(os.path.join(root, "data", "posted.csv")):
+        t = parse_ts((r.get("date") or "")[:16])
+        f = r.get("file", "")
+        if not t or not f or f.startswith("ep") or not (now_et < t.replace(tzinfo=et) <= now_et + dt.timedelta(days=3)):
+            continue
+        secs = video_seconds(os.path.join(root, "episodes", r.get("episode", ""), f))
+        if secs is None:
+            continue
+        if r.get("network") == "youtube" and secs > 35:
+            long_yt.append(f"{r['date']} {f} ({secs:.0f} s)")
+        if r.get("network") == "tiktok":
+            tt_days.add(t.date())
+            if secs >= 60:
+                deep_days.add(t.date())
+    if long_yt:
+        add("WARN", "postmaster", f"{len(long_yt)} YouTube Short(s) in the next 3 days run over 35 s: {', '.join(long_yt[:4])}.",
+            "Swap in a 20-25 s render or set the post to draft; the long cut belongs on TikTok.")
+    missing = sorted(d.isoformat() for d in tt_days - deep_days)
+    if missing:
+        add("WARN", "postmaster", f"No 60 s+ TikTok on {', '.join(missing)} (Creator Rewards pays only 60 s+).",
+            "Move or queue one deep dive (61-75 s) into that day.")
+
+
 def main():
     if len(sys.argv) < 2:
         print(__doc__)
@@ -272,7 +311,8 @@ def main():
     root = sys.argv[1]
     now = dt.datetime.now(dt.timezone.utc)
     for check in (lambda: check_views(root, now), lambda: check_queue(root, now), lambda: check_experiments(root, now),
-                  lambda: check_subs(root, now), lambda: check_docs(root), lambda: check_playbooks(root)):
+                  lambda: check_subs(root, now), lambda: check_docs(root), lambda: check_playbooks(root),
+                  lambda: check_durations(root, now)):
         try:
             check()
         except Exception as e:  # a broken check is itself an issue, never a silent pass

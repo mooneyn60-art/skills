@@ -23,3 +23,4 @@ Desk id: `business`. Absorbs: Accountant, Merchant, Partnerships. Read this befo
 ## Lessons log (newest last; date, what happened, what we learned, the number)
 - 2026-10-24: desk created by merging the roles above.
 - 2026-10-24 (evening): day-7 checkpoint pace 43% (915 Shorts views/day vs 2,150 needed). Subs 956, +2.8/day (Metricool). vidIQ balance 838: report the delta every run.
+- 2026-10-25 (evening): day-7 views went from 43% of pace to 282% of the daily need in one day (6,065 vs ~2,150), while subs moved +1 (0.2 per 1k). Views and subs decoupled: the asks on screen, not the reach, are now the gate for the sub side. Re-check Metricool subs next day before calling it, since same-day values lag.

@@ -19,3 +19,4 @@ Desk id: `host`. Absorbs: Community. Read this before every run and append lesso
 ## Lessons log (newest last; date, what happened, what we learned, the number)
 - 2026-10-24: desk created by merging the roles above.
 - 2026-10-24 (evening): channel pull (30 newest) had 4 viewer comments, 11 of ours. One real answer (owl: 'True 🎉🎉', which is wrong) logged in research/comment-readouts.md. Wrote replies myself instead of vidiq_generate_comment_replies to save credits.
+- 2026-10-25 (evening): pull (30 newest, 5 credits) had only 2 new viewer comments, both on posts with a direct question (cassowary "Noooo" to the pinned kicking-distance question; Karolina's follow-up on daddy longlegs). 0 answers on the 6 ask-kit/one-tap posts aged under 9 h, and 0 on the extinct long-form. Only 2 reply drafts were possible; never pad with replies to our own comments.

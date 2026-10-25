@@ -18,3 +18,17 @@ A read-out beat may quote only what is on this page. If a video has no answers y
 | Everything You Know About Animals Is WRONG (gFhrONKK0rI) | @iykej6 | "First 😎" | 2026-10-22 |
 
 No viewer has answered the long-form score questions (wolves "Drop your score AND your dog's name", 12-myth "how many out of 12") yet.
+
+## Pull 2026-10-25 22:48 UTC (30 newest threads, order time; 2 new from viewers, the rest our own pinned comments)
+
+### Answers to our questions
+| Video | Our question | Viewer | Exact words | Posted | Note |
+|---|---|---|---|---|---|
+| I Tried to Befriend a Cassowary 🦶 (nC1QZ1GqPxg) | "Would you get within kicking distance of this bird? 👇" (pinned) | @Ghghfjfjnfehs837 | "Noooo" | 2026-10-25 | First real answer to a v3/v4 one-tap question. Usable as a "you said no" read-out. |
+
+### Other viewer comments (not answers)
+| Video | Viewer | Exact words | Posted |
+|---|---|---|---|
+| Are Daddy Longlegs the Most Venomous Spiders? (Us0zIbxiR-A) | @KarolinaKuzmiakova | "@MeatballMyths oh" (reply to our answer) | 2026-10-25 |
+
+Still no viewer answers on: extinct-animals long-form ("which extinct animal would you bring back?"), ghost crab, honey badger, box jellyfish, Portia, killdeer.

@@ -26,3 +26,4 @@ Desk id: `mayor`. Absorbs: Mayor + CMO. Read this before every run and append le
 - 2026-10-24: desk created by merging the roles above.
 - 2026-10-24 (marketing desk): spent 40 vidIQ credits (1,325→1,285, confirmed), 5 trending + 5 keyword + 30 title scoring, over the playbook's 30 cap but within the run's explicit 40. Next marketing desk: score only the new title (reuse old scores from data/title-tests.csv) to save 15.
 - 2026-10-24 (evening): kept to 15 vidIQ credits (traffic_sources, user_videos all types, comments) by taking subscribers from Metricool for free. Decision for 10/25: queue frozen, v2 Shorts into 10/27 slots, vidIQ 27/day.
+- 2026-10-25 (evening): run used 15 vidIQ credits (cap 15); the balance fell 30 during the run because another session spent too, so post the per-run spend separately from the balance delta. Adopted the Red Team ask-kit alert; follow-up rule not triggered (no Short at 3x the 717 median).

@@ -14,3 +14,5 @@ Seeded by TARS on 2026-10-24 from research/24 and research/42.
 - **Subscribers move with views (10/24).** 957 subs (+15 since 10/20, all from the myth Shorts), at roughly 2-3 subs per 1,000 views on the better days.
 - **Shorts feed is 96% of views (10/17-24):** 6,402 of 6,681; stayed-to-watch 37% (2,359 engaged); search 162 views at 81% viewed.
 - **Nolan's verdict on v3 (10/24):** "by far looks amazing", "love the humor, everything". Meatball-in-jeopardy, physical comedy, deadpan one-liners and SFX are the house style. Performance data comes from E17.
+- **v3/v4 Shorts lifted reach on day 1 (10/25, n=6 v3/v4 Shorts, public counts).** Shorts views +6,065 in 24 h vs ~915/day the week before. Portia ~1.1k in 7 h, cassowary ~1.1k in 9 h, box jellyfish ~800 in 6 h, ghost crab ~770 in 4 h. Not yet at 48 h, so E17 is unscored.
+- **Reach up, subs flat (10/25).** +1 subscriber on ~6,065 Shorts views (0.2 per 1k vs 2.1 the week before; same-day Metricool value, may lag). None of these Shorts had the on-screen early ask kit.
