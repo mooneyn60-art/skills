@@ -39,6 +39,11 @@ Long-forms (spec "aspect": "16:9", no --vertical; landscape()): the same rendere
   over 3.5 s, nothing new for over 4 s). Ask gate: no ask in the first 15 s (cold open), guess card 15-40 s, one
   subscribe pill 28-55 s, "Were you right?" reminder in the last 90 s.
   beat "aside"           a small footnote joke plate, low right, popping in at 55% of the line (or "aside_at")
+  beat "counter"         {"n": 2, "of": 5, "text": "#4"} on a chapter's first beat: a "2 OF 5" badge (or "text"),
+                         top right, with one dot per chapter, held until the next counter, "counter": false or an
+                         "outro" chapter (research/47, gate: tools/retention.py R3)
+  spec "progress": true  a thin progress bar along the top edge with a tick at every counted chapter
+                         Both are drawn after the camera moves (they never shake or punch in), 16:9 only.
 Photos come from explainer.photo() (pinned iNaturalist observations, full resolution).
 
 "style": "v4" (research/45) adds, on top of everything above:
@@ -308,6 +313,39 @@ def ask_imgs(q):
     return im, chips
 
 
+def counter_img(c):
+    """Chapter badge for long-forms: "2 OF 5" (or c["text"]) over one dot per chapter, passed ones filled."""
+    text = c.get("text") or f"{c['n']} OF {c['of']}"
+    f = ImageFont.truetype(ex.BOLD, 84)
+    d = ImageDraw.Draw(Image.new("RGBA", (10, 10)))
+    n, of = int(c.get("n", 1)), int(c.get("of", 1))
+    tw = int(d.textlength(text, font=f))
+    dots = 34 * of - 12
+    w = max(tw, dots) + 70
+    im = _rounded(w, 178, 30, (20, 20, 24, 210), (255, 255, 255, 230), 5)
+    dr = ImageDraw.Draw(im)
+    dr.text(((w - tw) / 2, 14), text, font=f, fill=ex.YELLOW, stroke_width=4, stroke_fill=(0, 0, 0))
+    x0 = (w - dots) / 2
+    for k in range(of):
+        box = [x0 + 34 * k, 128, x0 + 34 * k + 22, 150]
+        dr.ellipse(box, fill=ex.YELLOW if k < n else None, outline=(255, 255, 255), width=3)
+    return _ui(np.asarray(im))
+
+
+def hud(frame_, bt, g):
+    """Long-form chapter counter + progress bar (screen space, after the camera)."""
+    c = bt.get("counter")
+    if c:
+        _over_scaled(frame_, c["img"], _pop(g - c["F"]), W - 36 - c["img"].shape[1] / 2, 36 + c["img"].shape[0] / 2)
+    if PLAN.get("progress"):
+        h, u = 10, g / max(1, PLAN["total"] - 1)
+        frame_[:h] = (frame_[:h].astype(np.float32) * 0.45).astype(np.uint8)
+        frame_[:h, :int(W * u)] = ex.YELLOW
+        for f in PLAN["ticks"]:
+            x = int(W * f / max(1, PLAN["total"] - 1))
+            frame_[:h + 6, max(0, x - 2):x + 2] = (255, 255, 255)
+
+
 def _pop(kf, k=1.0):
     return ([0.35, 0.75, 1.15, 1.06, 1.0][kf] if kf < 5 else 1.0) * k
 
@@ -457,8 +495,13 @@ def plan_beats(spec, work):
     looping = any(b.get("loop") for b in beats)
     v4 = spec.get("style") == "v4"
     pins = {str(k): v for k, v in (spec.get("subjects") or {}).items()}
-    out, F, shot_no = [], 0, 0
+    out, F, shot_no, cur = [], 0, 0, None
     for i, b in enumerate(beats):
+        c = b.get("counter")
+        if c is False or (b.get("chapter") and b.get("myth") == "outro"):
+            cur = None
+        elif isinstance(c, dict):
+            cur = dict(img=counter_img(c), F=F)
         mp3 = ex.vo_path(b, work, name, rate)
         wav, words = speed(mp3, tempo)
         # cut on the last word, not the TTS file's trailing silence (~0.3 s a line)
@@ -570,6 +613,7 @@ def plan_beats(spec, work):
                                            f=int(round(word_time(words, lab.get("at"), 0.0) * FPS))),
                         prop=b.get("prop"), prop_f=int(round(word_time(words, b.get("prop_at"), 0.3) * FPS)),
                         x=x, loop=bool(b.get("loop")), first=looping and i == 0, say=b["say"], sub=sub, ask=ask,
+                        counter=cur,
                         aside=b.get("aside") and dict(img=aside_img(b["aside"]),
                                                       f=int(round(word_time(words, b.get("aside_at"), 0.55 * D) * FPS)))))
         F += n
@@ -782,6 +826,8 @@ def frame(g):
                 x += c.shape[1] + gap
                 k += 1
             y += 165 * CARD
+    if W > H:   # long-form HUD only (16:9)
+        hud(frame_, bt, g)
     return frame_.tobytes(), qa
 
 
@@ -900,6 +946,8 @@ def build(spec, work, out, music=None, vertical=True):
                 cuts[g + d] = (g, pb, ps, nb, ns)
     PLAN.clear()
     v4 = spec.get("style") == "v4"
+    PLAN.update(progress=bool(spec.get("progress")) and not vertical,
+                ticks=sorted({bt["counter"]["F"] for bt in beats if bt.get("counter")}))
     PLAN.update(beats=beats, whips=cuts, props={"fork": np.asarray(mascot.prop("fork", int(520 * UI)))}, v4=v4,
                 total=total_f)
     for bt in beats:  # warm the photo (and v4 cut-out) caches before forking the workers

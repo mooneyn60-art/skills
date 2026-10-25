@@ -41,7 +41,7 @@
  ],
  "hashtags": "#dangerousanimals #mosquito #animalfacts #meatballexplains",
  "pinned": "Guess first: which animal kills the most people? 🐍 / 🐕 / 🦟 Comment your guess 👇 Follow Meatball for more 🍝",
- "_note": "Meatball Explains #2 (Showrunner, 2026-10-24). One story: the deadliest animals ranked by human deaths a year, mosquito payoff promised at 0:00 and delivered last. Danger-to-you bucket; no repeats of animal-myths-04/07 or the survive pack (no bear/hippo/croc/spider myths). vidIQ 10/24: 'the most dangerous animal in the world' 12.6K/mo comp 59, 'deadliest animals' 49K/mo +76%, 'most dangerous animals in the world' 22K/mo +127%; title scored 100 (alts 99, 96). Shorts = hook groups (shark, bug, dog, snake, mosquito, breath), each 46-60 words incl. loop line, no text-card holds; 4 of 6 end on a spoken question. Beat 2 (viewer answers from Ep #1) is a PLACEHOLDER written before Ep #1 aired 10/31: check its real comments on 11/1-11/2 and re-render that beat if mammoth/dodo aren't among them. No short_voice: tools/episode.py passes the spec 'voice' to Shorts and has no separate Shorts voice. Photos: iNaturalist CC BY/CC0, wild, research grade (dogs: free-roaming, casual grade). | 10/25 Studio: re-cut as a v4 16:9 long-form with the early ask layout (OPERATIONS.md 'Always ask'): cold open, guess card ~0:20, one subscribe pill ~0:31, one like ask mid, 'Were you right?' at the end; in-story comment asks and the second subscribe ask removed; facts unchanged.",
+ "_note": "Meatball Explains #2 (Showrunner, 2026-10-24). One story: the deadliest animals ranked by human deaths a year, mosquito payoff promised at 0:00 and delivered last. Danger-to-you bucket; no repeats of animal-myths-04/07 or the survive pack (no bear/hippo/croc/spider myths). vidIQ 10/24: 'the most dangerous animal in the world' 12.6K/mo comp 59, 'deadliest animals' 49K/mo +76%, 'most dangerous animals in the world' 22K/mo +127%; title scored 100 (alts 99, 96). Shorts = hook groups (shark, bug, dog, snake, mosquito, breath), each 46-60 words incl. loop line, no text-card holds; 4 of 6 end on a spoken question. Beat 2 (viewer answers from Ep #1) is a PLACEHOLDER written before Ep #1 aired 10/31: check its real comments on 11/1-11/2 and re-render that beat if mammoth/dodo aren't among them. No short_voice: tools/episode.py passes the spec 'voice' to Shorts and has no separate Shorts voice. Photos: iNaturalist CC BY/CC0, wild, research grade (dogs: free-roaming, casual grade). | 10/25 Studio: re-cut as a v4 16:9 long-form with the early ask layout (OPERATIONS.md 'Always ask'): cold open, guess card ~0:20, one subscribe pill ~0:31, one like ask mid, 'Were you right?' at the end; in-story comment asks and the second subscribe ask removed; facts unchanged. | 10/25 Retention desk (research/47, tools/retention.py): agenda intro replaced by the ranking promise, 'I'm Meatball' moved into the subscribe line, #5..#1 counter + progress bar, 'The snake that sizzles' folded into the 'Snakes' chapter, payoff flagged, chapter-end teases; facts unchanged.",
  "sources": [
   "Malaria 2024: ~610,000 deaths, ~95% in Africa, ~75% of African deaths under 5; spread by female Anopheles (WHO fact sheet): https://www.who.int/news-room/fact-sheets/detail/malaria",
   "Snakebite: 5.4M bites, 81,410-137,880 deaths/yr, ~3x as many amputations/disabilities; NTD listing 2017 (WHO): https://www.who.int/news-room/fact-sheets/detail/snakebite-envenoming",
@@ -108,22 +108,22 @@
    ]
   },
   {
-   "say": "I'm Meatball. I narrate nature. Nature, frankly, keeps trying to eat me. Today: the deadliest animals on Earth, ranked by how many people they actually kill. Smallest number first.",
+   "say": "Five animals, ranked by how many people they actually kill. Smallest number first. Each one deadlier than the last.",
    "pose": "deadpan",
    "myth": "intro",
    "act": "hit",
-   "act_at": "eat",
-   "hit": "eat",
+   "act_at": "kill",
+   "hit": "kill",
    "sfx": [
-    "crunch@eat",
-    "whoosh@today"
+    "crunch@kill",
+    "whoosh@smallest"
    ],
-   "animal": "lunge@eat",
+   "animal": "lunge@kill",
    "contact": true,
-   "punch": "deadliest",
+   "punch": "deadlier",
    "label": {
-    "text": "DEADLIEST\nANIMALS",
-    "at": "deadliest"
+    "text": "RANKED BY\nBODY COUNT",
+    "at": "ranked"
    },
    "shots": [
     {
@@ -145,7 +145,7 @@
       1.0,
       1.0
      ],
-     "at": "nature"
+     "at": "smallest"
     },
     {
      "photo": "Carcharodon carcharias",
@@ -156,7 +156,7 @@
       1.0,
       1.0
      ],
-     "at": "today"
+     "at": "each"
     }
    ]
   },
@@ -227,7 +227,7 @@
    ]
   },
   {
-   "say": "Okay, while you type, a quick favor. If you like true stories that are weirder than fiction, subscribe. A new Meatball story every Tuesday and Saturday. From a safe distance.",
+   "say": "If you like true stories that are weirder than fiction, subscribe. A new Meatball story every Tuesday and Saturday. From a safe distance.",
    "pose": "point",
    "myth": "intro",
    "act": "stand",
@@ -325,7 +325,12 @@
      ],
      "at": "nine"
     }
-   ]
+   ],
+   "counter": {
+    "n": 1,
+    "of": 5,
+    "text": "#5"
+   }
   },
   {
    "say": "Scientists count every confirmed bite. Most years, it's somewhere between five and ten deaths. Worldwide.",
@@ -388,7 +393,7 @@
    ]
   },
   {
-   "say": "So the ocean's most famous killer is, statistically, not very good at it.",
+   "say": "So the ocean's most famous killer is, statistically, not very good at it. Number four? It bites you in your sleep.",
    "pose": "laugh",
    "myth": "shark",
    "act": "stand",
@@ -409,7 +414,8 @@
       1.0
      ]
     }
-   ]
+   ],
+   "rehook": true
   },
   {
    "say": "Meanwhile, people kill tens of millions of sharks every year. So, honestly. Who should be scared of whom?",
@@ -558,7 +564,8 @@
       1.0
      ]
     }
-   ]
+   ],
+   "rehook": true
   },
   {
    "say": "This bug bites people on the face while they sleep. It's called the kissing bug.",
@@ -602,7 +609,12 @@
      ],
      "at": "kissing"
     }
-   ]
+   ],
+   "counter": {
+    "n": 2,
+    "of": 5,
+    "text": "#4"
+   }
   },
   {
    "say": "That is the worst name anyone has ever given anything.",
@@ -928,7 +940,12 @@
      ],
      "at": "tens"
     }
-   ]
+   ],
+   "counter": {
+    "n": 3,
+    "of": 5,
+    "text": "#3"
+   }
   },
   {
    "say": "Not with their teeth. Which is somehow worse.",
@@ -1193,7 +1210,7 @@
    ]
   },
   {
-   "say": "If that one surprised you, hit like, so I know to keep the scary ones coming. The dogs are fine with it. I asked.",
+   "say": "If that one surprised you, hit like, so I know to keep the scary ones coming. The dogs are fine with it. I asked. Two to go. The next one makes a sound I really don't like. And number one? Smaller than you'd guess.",
    "pose": "point",
    "myth": "intro",
    "act": "stand",
@@ -1217,7 +1234,9 @@
      ],
      "blur": true
     }
-   ]
+   ],
+   "tease": true,
+   "rehook": true
   },
   {
    "say": "Snakes kill somewhere between eighty and a hundred and forty thousand people every year.",
@@ -1255,7 +1274,12 @@
      ],
      "at": "hundred"
     }
-   ]
+   ],
+   "counter": {
+    "n": 4,
+    "of": 5,
+    "text": "#2"
+   }
   },
   {
    "say": "In India alone, scientists estimate about fifty eight thousand snakebite deaths a year. Most happen in villages, far from a hospital.",
@@ -1298,7 +1322,6 @@
    "say": "This snake warns you with a sound like sizzling. It rubs its scales together.",
    "pose": "shock",
    "myth": "snake",
-   "chapter": "The snake that sizzles",
    "hook": true,
    "act": "shake",
    "punch": "sizzling",
@@ -1661,7 +1684,13 @@
      ],
      "at": "malaria"
     }
-   ]
+   ],
+   "counter": {
+    "n": 5,
+    "of": 5,
+    "text": "#1"
+   },
+   "payoff": true
   },
   {
    "say": "Most of them were children under five, in Africa.",
@@ -2336,5 +2365,6 @@
    ]
   }
  ],
- "aspect": "16:9"
+ "aspect": "16:9",
+ "progress": true
 }

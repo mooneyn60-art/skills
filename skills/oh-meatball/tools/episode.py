@@ -19,6 +19,7 @@ import subprocess
 
 import explainer
 import openloop
+import retention
 from shorts_split import END, tighten
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -125,6 +126,7 @@ def main():
     ap.add_argument("--skip-shorts", action="store_true")
     ap.add_argument("--skip-existing", action="store_true", help="keep Shorts already rendered (resume after a stop)")
     ap.add_argument("--no-openloop", action="store_true", help="skip the deep-dive open-loop gate (old packs only)")
+    ap.add_argument("--no-retention", action="store_true", help="skip the long-form retention gate (old episodes only)")
     a = ap.parse_args()
     spec = json.load(open(a.script))
     # Deep dives (61-75 s) must promise something at 0:02 and pay it off at 50-80% (research/40, openloop.py).
@@ -133,6 +135,15 @@ def main():
         for r in bad:
             print(f"OPENLOOP FAIL {r['myth']}: " + "; ".join(r["fails"]))
         raise SystemExit("deep dive(s) fail tools/openloop.py; fix the script or pass --no-openloop for an old pack")
+    # Story long-forms (16:9) must hook, loop, count and save the best for last (research/47, retention.py).
+    if retention.is_long(spec) and not a.skip_long:
+        rep = retention.check(spec)
+        for w in rep["warns"]:
+            print(f"RETENTION WARN: {w}")
+        if rep["fails"] and not a.no_retention:
+            for f in rep["fails"]:
+                print(f"RETENTION FAIL: {f}")
+            raise SystemExit("long-form fails tools/retention.py; fix the script or pass --no-retention for an old episode")
     COMMON.update(spec.get("names", {}))
     beats = spec["beats"]
     out = f"{ROOT}/episodes/{a.slug}"

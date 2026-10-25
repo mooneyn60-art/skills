@@ -42,7 +42,7 @@
  ],
  "hashtags": "#zombieanimals #cordyceps #halloween #animalfacts #meatballexplains",
  "pinned": "Guess before the end: which one could be inside YOU? 🐜 / 🐌 / 🐀 Comment your guess 👇 Follow Meatball for more 🍝",
- "_note": "Meatball Explains #3 (Showrunner, morning run 2026-10-25), for Sat 10/31 2 PM after Explains-01 moved to 10/25. One story, five hosts, Toxoplasma payoff promised in the first line and delivered last (open loop). Halloween-adjacent and true; no quiz, no checkpoints, no read-out (asks only). Voice kokoro:eric-michael (Nolan 10/24 free long-form voice). Shorts are not posted from long-forms (only v3/v4 Shorts post), so render with --skip-shorts. Contested claims are said as contested on air (Toxoplasma effects on people). Photos: iNaturalist research-grade, wild, CC0/CC BY, first photo of each obs, checked by eye. Fact pass 10/25 (Studio): wasp size 'smaller than a paper clip' (~22 mm), crickets 'terrible swimmers' (not 'can't swim'), hairworm feeds from inside (absorbs, doesn't chew organs), Toxoplasma 'a quarter to a third' (pooled ~26%), weak immune systems added, outro no longer says the wasp lacks a brain. | 10/25 Studio: re-cut as a v4 16:9 long-form with the early ask layout (OPERATIONS.md 'Always ask'): cold open, guess card ~0:20, one subscribe pill ~0:31, one like ask mid, 'Were you right?' at the end; in-story comment asks and the second subscribe ask removed; facts unchanged.",
+ "_note": "Meatball Explains #3 (Showrunner, morning run 2026-10-25), for Sat 10/31 2 PM after Explains-01 moved to 10/25. One story, five hosts, Toxoplasma payoff promised in the first line and delivered last (open loop). Halloween-adjacent and true; no quiz, no checkpoints, no read-out (asks only). Voice kokoro:eric-michael (Nolan 10/24 free long-form voice). Shorts are not posted from long-forms (only v3/v4 Shorts post), so render with --skip-shorts. Contested claims are said as contested on air (Toxoplasma effects on people). Photos: iNaturalist research-grade, wild, CC0/CC BY, first photo of each obs, checked by eye. Fact pass 10/25 (Studio): wasp size 'smaller than a paper clip' (~22 mm), crickets 'terrible swimmers' (not 'can't swim'), hairworm feeds from inside (absorbs, doesn't chew organs), Toxoplasma 'a quarter to a third' (pooled ~26%), weak immune systems added, outro no longer says the wasp lacks a brain. | 10/25 Studio: re-cut as a v4 16:9 long-form with the early ask layout (OPERATIONS.md 'Always ask'): cold open, guess card ~0:20, one subscribe pill ~0:31, one like ask mid, 'Were you right?' at the end; in-story comment asks and the second subscribe ask removed; facts unchanged. | 10/25 Retention desk (research/47, tools/retention.py): agenda intro line replaced by a countdown promise ('Five zombie animals, counting down... the last one might be you'), 'I'm Meatball' moved into the subscribe line, on-screen 1 OF 5 counter + progress bar, payoff flagged, end-of-chapter teases; facts unchanged.",
  "sources": [
   "Ophiocordyceps: fungal cells surround and invade ant muscle fibres, brain not invaded — Fredericksen et al. 2017, PNAS, https://www.pnas.org/doi/10.1073/pnas.1711673114",
   "Death grip on leaf veins ~25 cm above ground, synchronised near solar noon — Hughes et al. 2011, BMC Ecology, https://bmcecol.biomedcentral.com/articles/10.1186/1472-6785-11-13",
@@ -154,21 +154,21 @@
    ]
   },
   {
-   "say": "I'm Meatball. I narrate nature, and nature keeps trying to eat me. Today: real zombie animals.",
+   "say": "Five zombie animals, counting down. Each one creepier than the last. And the last one might be you.",
    "pose": "deadpan",
    "myth": "intro",
    "act": "launch",
-   "act_at": "eat",
-   "hit": "eat",
+   "act_at": "creepier",
+   "hit": "creepier",
    "sfx": [
-    "crunch@eat",
-    "whoosh@today"
+    "crunch@creepier",
+    "whoosh@last"
    ],
-   "animal": "lunge@eat",
+   "animal": "lunge@creepier",
    "contact": true,
    "label": {
-    "text": "REAL ZOMBIE\nANIMALS",
-    "at": "real"
+    "text": "5 ZOMBIE\nANIMALS",
+    "at": "five"
    },
    "shots": [
     {
@@ -190,7 +190,7 @@
       1.0,
       1.0
      ],
-     "at": "nature"
+     "at": "each"
     },
     {
      "photo": "Ophiocordyceps unilateralis",
@@ -201,9 +201,10 @@
       1.0,
       1.0
      ],
-     "at": "today"
+     "at": "last"
     }
-   ]
+   ],
+   "promise": true
   },
   {
    "say": "Comment your guess before I tell you. Which one of these could be inside you? The ant one? The snail one? Or the rat one? Lock it in. I'll wait.",
@@ -272,7 +273,7 @@
    ]
   },
   {
-   "say": "Okay, while you type, a quick favor. If you like true stories that are weirder than Halloween, subscribe. A new Meatball story every Tuesday and Saturday. Assuming nothing eats me first.",
+   "say": "I'm Meatball, by the way. If you like true stories that are weirder than Halloween, subscribe. A new Meatball story every Tuesday and Saturday. Assuming nothing eats me first.",
    "pose": "point",
    "myth": "intro",
    "act": "stand",
@@ -357,7 +358,11 @@
      ],
      "at": "mistake"
     }
-   ]
+   ],
+   "counter": {
+    "n": 1,
+    "of": 5
+   }
   },
   {
    "say": "The fungus is called Ophiocordyceps. It gets through the ant's armor and starts growing inside its body.",
@@ -703,7 +708,7 @@
    ]
   },
   {
-   "say": "Honestly? As a food item, I relate to the ant. Something else decides your whole day, and then it's over.",
+   "say": "Honestly? As a food item, I relate to the ant. Something else decides your whole day, and then it's over. And that was the gentle one. Number two walks its victim on a leash.",
    "pose": "nervous",
    "myth": "intro",
    "prop": "fork",
@@ -735,7 +740,8 @@
      ],
      "at": "decides"
     }
-   ]
+   ],
+   "rehook": true
   },
   {
    "say": "Number two is a wasp. The emerald cockroach wasp. Shiny, green, and smaller than a paper clip.",
@@ -771,7 +777,11 @@
      ],
      "at": "shiny"
     }
-   ]
+   ],
+   "counter": {
+    "n": 2,
+    "of": 5
+   }
   },
   {
    "say": "Its target is a cockroach. A cockroach that's bigger than it is.",
@@ -1190,7 +1200,7 @@
    ]
   },
   {
-   "say": "If that one got you, hit like. I need to know you're as upset as I am.",
+   "say": "If that one got you, hit like. I need to know you're as upset as I am. And the one that might be inside you? Still coming.",
    "pose": "point",
    "myth": "intro",
    "act": "stand",
@@ -1214,7 +1224,8 @@
      ],
      "blur": true
     }
-   ]
+   ],
+   "tease": true
   },
   {
    "say": "Number three. A cricket walks to the edge of a pond, and jumps in.",
@@ -1251,7 +1262,11 @@
      ],
      "at": "jumps"
     }
-   ]
+   ],
+   "counter": {
+    "n": 3,
+    "of": 5
+   }
   },
   {
    "say": "Crickets are terrible swimmers. They normally stay away from water. This one jumped anyway.",
@@ -1457,7 +1472,7 @@
    ]
   },
   {
-   "say": "People find these worms in swimming pools, dog bowls and toilets. They look like a hair that's moving. They're harmless to people. Have a lovely evening.",
+   "say": "People find these worms in swimming pools, dog bowls and toilets. They look like a hair that's moving. They're harmless to people. Have a lovely evening. Next, a snail. And its eyes are doing something eyes should never do.",
    "pose": "nervous",
    "myth": "worm",
    "aside": "(sorry)",
@@ -1502,7 +1517,8 @@
      ],
      "at": "harmless"
     }
-   ]
+   ],
+   "rehook": true
   },
   {
    "say": "Number four is the one with the dancing eyes.",
@@ -1526,7 +1542,11 @@
       1.0
      ]
     }
-   ]
+   ],
+   "counter": {
+    "n": 4,
+    "of": 5
+   }
   },
   {
    "say": "This is an amber snail. Snails are normally slow, careful, and big fans of shade.",
@@ -1769,7 +1789,7 @@
    ]
   },
   {
-   "say": "The snail can even grow its eye stalk back. Which, honestly, makes it worse.",
+   "say": "The snail can even grow its eye stalk back. Which, honestly, makes it worse. Okay. One left. The one I promised you.",
    "pose": "deadpan",
    "myth": "snail",
    "act": "shake",
@@ -1789,7 +1809,8 @@
       1.0
      ]
     }
-   ]
+   ],
+   "rehook": true
   },
   {
    "say": "Okay. I promised you one of these might be inside you right now. Here it is.",
@@ -1824,7 +1845,12 @@
      ],
      "at": "here"
     }
-   ]
+   ],
+   "counter": {
+    "n": 5,
+    "of": 5
+   },
+   "payoff": true
   },
   {
    "say": "It's a tiny parasite called Toxoplasma. It can live in almost any warm-blooded animal. Rats, birds, sheep. People.",
@@ -2107,7 +2133,8 @@
      "at": "usually",
      "blur": true
     }
-   ]
+   ],
+   "twist": true
   },
   {
    "say": "Undercooked meat. For the record, I am fully cooked.",
@@ -2317,7 +2344,8 @@
      ],
      "at": "microbe"
     }
-   ]
+   ],
+   "counter": false
   },
   {
    "say": "So, were you right? Was it the ant, the snail, or the rat? Tell me in the comments.",
@@ -2404,5 +2432,7 @@
    ]
   }
  ],
- "aspect": "16:9"
+ "aspect": "16:9",
+ "progress": true,
+ "thumb_text": ""
 }

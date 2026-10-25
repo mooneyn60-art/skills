@@ -238,3 +238,16 @@ Rules from 10/30:
   - The model files live in ~/.cache/kokoro.
 - **Bill is not used on v3 Shorts** (Nolan preferred the prototype voice). vidIQ credits now go to research and packaging.
 - **No paid voices beyond the vidIQ credits we already have (Nolan, 10/24).** Bill runs until those credits are gone; no extra credits and no ElevenLabs. The free replacement is being tested: Chatterbox (open source, runs locally) with our own Meatball voice made from a Kokoro blend. Samples are in `research/39-voice-tests/`. One character, one voice is still the goal.
+
+## Long-form retention (Retention desk, 10/25; research/47)
+Autopsy: our one long-form with a curve (gFhrONKK0rI, 2:15 quiz pilot, 11 viewers, 53 s AVD) lost people at 0:02 (quiz card), 0:04 (it answered its own question), 0:14 (agenda line "Today we're fixing..."), 0:18 (re-stated answer), and wherever one item ran 25-45 s with no tease (0:28, 0:46, 1:12). Small-channel breakouts open on the animal, never introduce themselves, and change animal every 75-100 s under a countable structure.
+
+**`tools/retention.py` gates every 16:9 story long-form; episode.py refuses to build one that fails** (`--no-retention` only for old episodes). It estimates times from words (3.35 words/s, Kokoro +0%) or reads a render's timeline.json (`--timeline`).
+- **R1 Cold open (first 30 s):** promise the payoff ("...and the last one might be you", "I'll show you the winner at the end"). Frame 0 is the best animal photo, unblurred, no text card. No intro, welcome or agenda line ("I'm Meatball", "Today:", "welcome") before 0:30; Meatball says his name in the subscribe line.
+- **R2 Loops:** a tease of what's next ("Number two walks its victim on a leash"), a cliffhanger, a countdown step or a twist at least every 75 s up to the payoff (aim 45-60 s).
+- **R3 Visible structure:** each story chapter's first beat has `"counter": {"n": 2, "of": 5}` (optional `"text": "#4"`); the spec has `"progress": true`. tools/v3.py draws the "2 OF 5" badge with dots top right and a progress bar with chapter ticks along the top (16:9 only, never shakes). `"counter": false` or an outro chapter hides it.
+- **R4 Segments:** never more than 75 s without a new animal, a twist (`"twist": true`) or Meatball jeopardy (`"jeopardy": true`).
+- **R5 Best story last:** one `"payoff": true` chapter, the last counted one, starting in the back 35%, teased in the cold open and again mid-video (`"tease": true`). The outro after it runs 60 s at most.
+- **R6 Expectation match:** at least half the title/thumbnail words (`"thumb_text"`) are said or shown in the first 60 s, and chapter 1 starts by 0:60.
+- **R7 Length 5:00-7:00** (supersedes the ~10 min and 6-8 min lengths above) until long-form AVD clears 2:00. We give up mid-rolls (8:00+) on purpose: we aren't monetized, and watch hours grow faster from a held 6 min than from an abandoned 10. Test one 8:30 with a chapter-break mid-roll after 3 straight episodes over 2:00 AVD and 50% at 0:30.
+- **Every evening (Intel):** pull audience_retention for each long-form older than 48 h, log the drops in data/retention.csv, and send the top drop cause to the Showrunner.
