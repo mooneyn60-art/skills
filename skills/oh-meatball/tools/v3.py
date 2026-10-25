@@ -21,6 +21,14 @@ Spec fields (all optional unless noted):
   beat "prop": "fork"    the Fork drops in beside him at "prop_at" (word)
   shot "whip": false     hard cut instead of a whip pan (cuts to a different photo whip by default)
   shot "blur": true      blurred, dimmed photo (a host shot)
+  beat "sub"             ask kit (research/46): {"at": "Subscribe", "text": "SUBSCRIBE"} or true. Meatball points
+                         down toward the follow button (pose "subpoint"), a red pill pops in on the "at" word and
+                         is pressed 0.45 s later with a click. Put it at 60-75% of the Short and give the spoken
+                         line a concrete reason ("Subscribe. I face a new animal every day.")
+  beat "ask" (a dict)    ask kit: a pick-one comment card in the last 3-4 s before the loop line,
+                         {"q": "WHO WINS?", "choices": ["🦈 SHARK", "🐊 CROC"], "at": "word"}; each choice chip pops
+                         in 0.18 s after the last, with a pop. The spoken line asks the same question. The card is
+                         gone before the loop tail, so the last frame still matches frame 0
 Photos come from explainer.photo() (pinned iNaturalist observations, full resolution).
 
 "style": "v4" (research/45) adds, on top of everything above:
@@ -66,7 +74,7 @@ FPS, W, H, SR = 30, 1080, 1920, 48000
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SFX_DIR = os.path.join(ROOT, "sfx")
 GAIN = {"whoosh": 0.32, "boing": 0.22, "pop": 0.30, "scratch": 0.20, "splash": 0.34, "tink": 0.40,
-        "crunch": 0.42, "hit": 0.40, "thud": 0.42, "zap": 0.28, "plate": 0.30}
+        "crunch": 0.42, "hit": 0.40, "thud": 0.42, "zap": 0.28, "plate": 0.30, "click": 0.45}
 R = 1.15          # photo bases are prepared 15% over frame size so slow pushes stay sharp
 GAP = 0.12        # silence after each line (v2 used 0.35)
 FLOOR = 1430      # Meatball's feet (screen y); captions sit just below
@@ -170,6 +178,85 @@ def label_img(text):
         d.text((x, 20 + k * 175), line, font=f, fill=ex.YELLOW, stroke_width=12, stroke_fill=(0, 0, 0))
     im = im.rotate(5, expand=True, resample=Image.BICUBIC)
     return np.asarray(im)
+
+
+EMOJI = "/usr/share/fonts/truetype/noto/NotoColorEmoji.ttf"
+SUB_RED = (230, 33, 23)
+
+
+def _rounded(w, h, r, fill, outline=None, width=0):
+    im = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    ImageDraw.Draw(im).rounded_rectangle([0, 0, w - 1, h - 1], r, fill=fill, outline=outline, width=width)
+    return im
+
+
+def _emoji(text, height):
+    """Colour emoji (Noto renders only at 109 px; scaled to height)."""
+    f = ImageFont.truetype(EMOJI, 109)
+    d = ImageDraw.Draw(Image.new("RGBA", (10, 10)))
+    x0, y0, x1, y1 = d.textbbox((0, 0), text, font=f, embedded_color=True)
+    im = Image.new("RGBA", (x1 - x0 + 8, y1 - y0 + 8), (0, 0, 0, 0))
+    ImageDraw.Draw(im).text((4 - x0, 4 - y0), text, font=f, embedded_color=True)
+    return im.resize((max(1, int(im.width * height / im.height)), height), Image.LANCZOS)
+
+
+def pill_img(text="SUBSCRIBE"):
+    """The red follow pill (ask kit)."""
+    f = ImageFont.truetype(ex.BOLD, 70)
+    d = ImageDraw.Draw(Image.new("RGBA", (10, 10)))
+    tw = int(d.textlength(text, font=f))
+    im = _rounded(tw + 110, 128, 64, SUB_RED + (255,), (255, 255, 255, 255), 8)
+    ImageDraw.Draw(im).text((55, 22), text, font=f, fill=(255, 255, 255))
+    return np.asarray(im)
+
+
+def chip_img(choice):
+    """One answer chip: leading emoji (colour) + optional bold word, on white."""
+    head, _, rest = choice.partition(" ")
+    emo, word = (head, rest) if head and not head.isascii() else ("", choice)
+    f = ImageFont.truetype(ex.BOLD, 64)
+    d = ImageDraw.Draw(Image.new("RGBA", (10, 10)))
+    e = _emoji(emo, 96) if emo else None
+    tw = int(d.textlength(word.upper(), font=f)) if word else 0
+    w = 44 + (e.width if e else 0) + (18 if e and word else 0) + tw + 44
+    im = _rounded(w, 140, 34, (255, 255, 255, 255), (0, 0, 0, 255), 7)
+    x = 44
+    if e:
+        im.alpha_composite(e, (x, 22))
+        x += e.width + 18
+    if word:
+        ImageDraw.Draw(im).text((x, 34), word.upper(), font=f, fill=(20, 20, 20))
+    return np.asarray(im)
+
+
+def ask_imgs(q):
+    """The comment card: title plate and one chip per choice (laid out by frame())."""
+    f = ImageFont.truetype(ex.BOLD, 96)
+    lines = q["q"].upper().split("\n")
+    d = ImageDraw.Draw(Image.new("RGBA", (10, 10)))
+    tw = int(max(d.textlength(x, font=f) for x in lines)) + 80
+    im = Image.new("RGBA", (tw, len(lines) * 112 + 40), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    for k, line in enumerate(lines):
+        d.text(((tw - d.textlength(line, font=f)) / 2, 16 + k * 112), line, font=f, fill=ex.YELLOW,
+               stroke_width=10, stroke_fill=(0, 0, 0))
+    if im.width > W - 60:  # long questions shrink to fit the frame
+        im = im.resize((W - 60, int(im.height * (W - 60) / im.width)), Image.LANCZOS)
+    chips = [chip_img(c) for c in q["choices"]]
+    chips = [c if c.shape[1] <= W - 60 else cv2.resize(c, (W - 60, int(c.shape[0] * (W - 60) / c.shape[1])))
+             for c in chips]
+    return np.asarray(im), chips
+
+
+def _pop(kf, k=1.0):
+    return ([0.35, 0.75, 1.15, 1.06, 1.0][kf] if kf < 5 else 1.0) * k
+
+
+def _over_scaled(dst, img, s, cx, cy):
+    if s <= 0:
+        return
+    im = cv2.resize(img, (max(1, int(img.shape[1] * s)), max(1, int(img.shape[0] * s))))
+    over(dst, im, int(cx - im.shape[1] / 2), int(cy - im.shape[0] / 2))
 
 
 def over(dst, src, x, y):
@@ -351,7 +438,20 @@ def plan_beats(spec, work):
         act = b.get("act") or ("loop_out" if b.get("loop") else "stand")
         dflt = hit if hit is not None else (max(0.0, D - 0.6) if act == "run_off" else 0.25)
         t_act = word_time(words, b.get("act_at"), dflt)
-        pose = b.get("pose", "deadpan")
+        sub, ask = b.get("sub"), b.get("ask") if isinstance(b.get("ask"), dict) else None
+        if sub:  # ask kit: he points down at the follow button; the pill pops, then is pressed with a click
+            sub = {"at": "Subscribe"} if sub is True else dict(sub)
+            t_sub = word_time(words, sub.get("at", "Subscribe"), 0.2)
+            b = dict(b, sfx=list(b.get("sfx", [])) + [f"pop@{t_sub:.3f}", f"click@{t_sub + 0.45:.3f}"])
+            sub = dict(img=pill_img(sub.get("text", "SUBSCRIBE")), f=int(round(t_sub * FPS)),
+                       press=int(round((t_sub + 0.45) * FPS)))
+        if ask:  # ask kit: a pick-one comment card; each choice chip pops in after the last
+            t_ask = word_time(words, ask.get("at"), 0.0)
+            title, chips = ask_imgs(ask)
+            fs = [int(round((t_ask + 0.25 + 0.18 * k) * FPS)) for k in range(len(chips))]
+            b = dict(b, sfx=list(b.get("sfx", [])) + [f"pop@{f / FPS:.3f}" for f in fs])
+            ask = dict(title=title, chips=chips, f=int(round(t_ask * FPS)), fs=fs)
+        pose = "subpoint" if sub else b.get("pose", "deadpan")
         sts = mascot.states(pose, [list(w) for w in words], D, FPS, seed=i)
         x, size, side, moves = float(b.get("x", HOME)), int(b.get("size", 1000)), 1, []
         lab = b.get("label")
@@ -399,7 +499,7 @@ def plan_beats(spec, work):
                         label=lab and dict(img=lab_img,
                                            f=int(round(word_time(words, lab.get("at"), 0.0) * FPS))),
                         prop=b.get("prop"), prop_f=int(round(word_time(words, b.get("prop_at"), 0.3) * FPS)),
-                        x=x, loop=bool(b.get("loop")), first=looping and i == 0, say=b["say"]))
+                        x=x, loop=bool(b.get("loop")), first=looping and i == 0, say=b["say"], sub=sub, ask=ask))
         F += n
     return out
 
@@ -583,6 +683,29 @@ def frame(g):
     if bt["hit"] is not None and 0 <= f - bt["hit"] < 3:  # white impact flash
         a = (0.85, 0.55, 0.25)[f - bt["hit"]]
         frame_ = (frame_.astype(np.float32) * (1 - a) + 255 * a).astype(np.uint8)
+    if bt["sub"] and f >= bt["sub"]["f"]:  # ask kit: the pill sits down and out from his pointing hand
+        su = bt["sub"]
+        s = _pop(f - su["f"]) * (0.88 if 0 <= f - su["press"] < 4 else 1.0)
+        hw = su["img"].shape[1] * 0.85 / 2
+        cx = min(max(bt["x"] * W + bt["side"] * bt["size"] * 0.62, hw + 30), W - hw - 30)
+        _over_scaled(frame_, su["img"], s * 0.85, cx, 1440)   # just under his hand, clear of the captions
+    if bt["ask"] and f >= bt["ask"]["f"]:  # ask kit: the comment card, title then chips in one or two rows
+        q = bt["ask"]
+        _over_scaled(frame_, q["title"], _pop(f - q["f"]), W / 2, 330)
+        chips = q["chips"]
+        rows = [chips] if sum(c.shape[1] for c in chips) + 30 * (len(chips) - 1) <= W - 80 else \
+            [chips[:(len(chips) + 1) // 2], chips[(len(chips) + 1) // 2:]]
+        k = 0
+        y = 330 + q["title"].shape[0] / 2 + 110
+        for row in rows:
+            ww = sum(c.shape[1] for c in row) + 30 * (len(row) - 1)
+            x = (W - ww) / 2
+            for c in row:
+                if f >= q["fs"][k]:
+                    _over_scaled(frame_, c, _pop(f - q["fs"][k]), x + c.shape[1] / 2, y)
+                x += c.shape[1] + 30
+                k += 1
+            y += 165
     return frame_.tobytes(), qa
 
 
@@ -624,6 +747,21 @@ def gate(beats, total):
             events.append(bt["F"] / FPS)
         if bt["label"]:
             events.append(bt["F"] / FPS + bt["label"]["f"] / FPS)
+        if bt["sub"]:
+            events.append(bt["F"] / FPS + bt["sub"]["f"] / FPS)
+        if bt["ask"]:
+            events += [bt["F"] / FPS + f / FPS for f in [bt["ask"]["f"]] + bt["ask"]["fs"]]
+    for bt in beats:  # ask kit placement (research/46): pill at 60-75%, comment card in the last 3-4 s
+        if bt["sub"]:
+            u = (bt["F"] + bt["sub"]["f"]) / FPS / total
+            if not 0.58 <= u <= 0.77:
+                warn.append(f"beat {bt['i']} subscribe pill at {u:.0%} of the Short (aim 60-75%)")
+        if bt["ask"]:
+            left = total - (bt["F"] + bt["ask"]["f"]) / FPS
+            if not 2.5 <= left <= 5.5:
+                warn.append(f"beat {bt['i']} comment card starts {left:.1f}s before the end (aim 3-4 s + loop)")
+            if bt["i"] + 1 < len(beats) and not beats[bt["i"] + 1]["loop"]:
+                warn.append(f"beat {bt['i']} comment card is not the last beat before the loop")
     events = sorted(events)
     gaps = [b - a for a, b in zip([0.0] + events, events + [total])]
     if max(gaps) > 3.0:

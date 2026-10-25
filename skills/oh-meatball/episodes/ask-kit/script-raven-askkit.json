@@ -1,0 +1,290 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+0%",
+ "music": "music/quiz-bed.m4a",
+ "style": "v4",
+ "tempo": 1.1,
+ "subjects": {
+  "259682291": {},
+  "85011317": {},
+  "68345416": {},
+  "24742117": {},
+  "232943996": {},
+  "249745403": {},
+  "216890909": {},
+  "313851153": {},
+  "290212162": {},
+  "31220723": {},
+  "65359179": {},
+  "185091754": {},
+  "914788": {},
+  "140449697": {},
+  "307774649": {},
+  "303535130": {},
+  "228097379": {},
+  "358727325": {},
+  "264617923": {},
+  "55652031": {},
+  "41485428": {},
+  "71094596": {},
+  "77522653": {},
+  "114933835": {}
+ },
+ "beats": [
+  {
+   "myth": "raven",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Ravens fake hiding their food. On purpose.",
+   "label": {
+    "text": "FAKE\nSTASH",
+    "at": "fake"
+   },
+   "sfx": [
+    "pop@fake"
+   ],
+   "animal": "turn@purpose",
+   "shots": [
+    {
+     "photo": "Corvus corax",
+     "obs": 259682291,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Never trust a raven. Because",
+   "short_title": "Ravens Fake-Hide Their Food to Fool Thieves 🐦‍⬛",
+   "comment": "Has a bird ever outsmarted you? 👇",
+   "bonus": "Ravens have been seen sliding down snowbanks, apparently just for fun.",
+   "sources": [
+    "Wikipedia, Common raven (learns to hide food out of sight of other ravens; 'pretending to make a cache without actually depositing the food', presumably to confuse onlookers; can mimic sounds including human speech; slides down snowbanks apparently for fun) — https://en.wikipedia.org/wiki/Common_raven (checked 2026-10-25)",
+    "Bugnyar & Kotrschal 2002, Animal Behaviour 64: 185-195, 'Observational learning and the raiding of food caches in ravens, Corvus corax: is it tactical deception?' (cachers delay caching and move caches when watched) — https://doi.org/10.1006/anbe.2002.3056"
+   ],
+   "_len": "short",
+   "caption": "Ravens pretend to bury food when another raven is watching, then hide the real stash somewhere else. They can mimic human speech too. #raven #halloween #birds #animalfacts"
+  },
+  {
+   "myth": "raven",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I watched where one hid lunch.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@lunch",
+   "shots": [
+    {
+     "photo": "Corvus corax",
+     "obs": 85011317,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "raven",
+   "pose": "point",
+   "act": "stand",
+   "say": "It pretended to bury it.",
+   "punch": "pretended",
+   "shots": [
+    {
+     "photo": "Corvus corax",
+     "obs": 68345416,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "raven",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Then hid the real food elsewhere.",
+   "animal": "shake@elsewhere",
+   "shots": [
+    {
+     "photo": "Corvus corax",
+     "obs": 259682291,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "raven",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Other ravens steal stashes all the time.",
+   "label": {
+    "text": "THIEVES",
+    "at": "steal"
+   },
+   "shots": [
+    {
+     "photo": "Corvus corax",
+     "obs": 85011317,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "raven",
+   "pose": "shock",
+   "act": "launch",
+   "say": "I went for the fake stash.",
+   "hit": "stash",
+   "sfx": [
+    "crunch@stash"
+   ],
+   "animal": "lunge@stash",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Corvus corax",
+     "obs": 68345416,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "raven",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "They can copy human speech too.",
+   "label": {
+    "text": "IT\nTALKS",
+    "at": "speech"
+   },
+   "act_at": "speech",
+   "sfx": [
+    "thud@speech"
+   ],
+   "shots": [
+    {
+     "photo": "Corvus corax",
+     "obs": 259682291,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "raven",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Great. It lies AND talks.",
+   "punch": "talks",
+   "shots": [
+    {
+     "photo": "Corvus corax",
+     "obs": 85011317,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "raven",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Corvus corax",
+     "obs": 68345416,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "raven",
+   "pose": "think",
+   "act": "peek",
+   "say": "Would you trust a raven? Comment.",
+   "ask": {
+    "q": "TRUST A RAVEN?",
+    "choices": [
+     "👍 YES",
+     "👎 NO",
+     "💀 NEVER"
+    ],
+    "at": "trust"
+   },
+   "shots": [
+    {
+     "photo": "Corvus corax",
+     "obs": 259682291,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "say": "Never trust a raven. Because",
+   "pose": "nervous",
+   "myth": "raven",
+   "loop": true,
+   "bleed": null,
+   "shots": [
+    {
+     "photo": "Corvus corax",
+     "obs": 259682291,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  }
+ ]
+}

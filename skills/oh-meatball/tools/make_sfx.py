@@ -23,6 +23,8 @@ SYNTH = {  # name -> lavfi source (and an optional filter chain)
                "highpass=f=250,lowpass=f=2600,afade=t=in:d=0.03,afade=t=out:st=0.05:d=0.7:curve=exp"),
     "tink": ("aevalsrc=0.30*sin(2*PI*2960*t)*exp(-22*t)+0.18*sin(2*PI*4410*t)*exp(-30*t)"
              "+0.10*sin(2*PI*6650*t)*exp(-40*t):d=0.35:s=48000", None),
+    "click": ("aevalsrc=0.8*(2*random(0)-1)*exp(-700*t)+0.45*sin(2*PI*1900*t)*exp(-90*t)"
+              "+0.5*(2*random(1)-1)*exp(-900*(t-0.055))*gte(t\\,0.055):d=0.12:s=48000", "highpass=f=600"),
 }
 KENNEY = {  # name -> file inside the packs
     "crunch": "impactPunch_heavy_002.ogg",

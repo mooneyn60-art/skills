@@ -56,6 +56,8 @@ POSES = {
     "facepalm": {"l": REST, "r": ("ik", "head", (30, 8), -1), "tilt": 7, "lean": 2, "mouth": "frown",
                  "brow": "cross", "gaze": "viewer"},
     "wave":     {"l": REST, "r": (100, 40, 0), "tilt": 3, "mouth": "smile", "brow": "calm", "gaze": "viewer"},
+    # Ask kit (research/46): arm straight out and down to screen right, toward the platform's follow button.
+    "subpoint": {"l": REST, "r": (52, 2, 0), "lean": 3, "tilt": 5, "mouth": "talk", "brow": "up", "gaze": "viewer"},
     # Showrunner persona (research/39): half-lidded and unimpressed; and food-anxious, hands clasped, one sweat drop.
     "deadpan":  {"l": (30, -20, 0), "r": (30, -20, 0), "mouth": "flat", "brow": "lid", "gaze": "viewer"},
     "nervous":  {"l": ("ik", "shoulder", (-12, 112), 1), "r": ("ik", "shoulder", (12, 112), 1), "knee": 4,
@@ -64,7 +66,7 @@ POSES = {
 BIG = {"shock", "shrug", "wave", "laugh"}   # moves that get an anticipation crouch
 REALIZE = {"shock", "laugh"}               # moves that land with a scale-pop
 GLOWS = {"white": None, "yellow": (255, 214, 10), "red": (232, 46, 36), "green": (70, 205, 90)}
-PERSONA = {"deadpan", "nervous", "think", "facepalm"}  # held for the whole line: the face is the joke
+PERSONA = {"deadpan", "nervous", "think", "facepalm", "subpoint"}  # held for the whole line (the point too)
 TRANSIENT = {"shock": 1.2, "laugh": 1.5, "wave": 1.4}   # real reaction beats only, then he moves on
 SECONDARY = {"point": ["present", "shrug"], "present": ["point", "shrug"], "shrug": ["present", "point"],
              "neutral": ["present", "point"], "shock": ["present", "point"], "laugh": ["present"],
