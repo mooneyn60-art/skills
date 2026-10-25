@@ -13,7 +13,7 @@ timeline.json with --timeline.
   R1 cold open    a beat starting in the first 30 s promises the payoff ("at the end", "I'll show you",
                   "the last one", "number one", or beat "promise": true); frame 0 is an unblurred photo with no
                   label; no intro, welcome or agenda line ("I'm Meatball", "today we", "welcome", "in this
-                  video") before 30 s.
+                  video") before 30 s; the one subscribe beat ("sub") may say his name.
   R2 loops        from 30 s to the payoff chapter, an open loop or re-hook (a tease of what's next, a cliffhanger,
                   a countdown step; beat "rehook": true or a matching line) at least every 75 s (aim 45-60 s).
   R3 structure    every story chapter opens on a beat with "counter": {"n": k, "of": N} (drawn on screen as
@@ -118,7 +118,7 @@ def check(spec, timeline=None):
                                                                            and b0["label"].get("at"))):
         fails.append("R1 frame 0 must be the best animal photo, unblurred, no text card")
     for i in range(len(beats)):
-        if start(i) < INTRO_OK_AFTER and INTRO.search(beats[i].get("say", "")):
+        if start(i) < INTRO_OK_AFTER and not beats[i].get("sub") and INTRO.search(beats[i].get("say", "")):
             fails.append(f"R1 intro/agenda line at {start(i):.0f}s (beat {i}): {beats[i]['say'][:60]!r}")
 
     # R5 payoff chapter (needed by R2)
