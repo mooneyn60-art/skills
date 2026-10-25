@@ -1,0 +1,3119 @@
+{
+ "title": "Fill pack 2 (Shorts v4, Andrew): giraffe, shoebill, tarsier, arctic ground squirrel, wild turkey, bison, roadrunner, brown pelican, anhinga, red-eyed tree frog + pronghorn deep dive",
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+0%",
+ "short_rate": "+0%",
+ "tempo": 1.1,
+ "music": "music/quiz-bed.m4a",
+ "style": "v4",
+ "_note": "Fill run 2026-10-25 (Studio + Postmaster) for open slots 11/1-11/6. 10 YouTube Shorts at 20-25 s, claim-first (giraffe, shoebill, tarsier, arctic ground squirrel, wild turkey, American bison, greater roadrunner, brown pelican, anhinga, red-eyed tree frog) and 1 TikTok deep dive at 61-75 s (pronghorn 'ghost predator') with the open loop (promise in lines 1-3, two decoys, payoff at 50-80%; passes tools/openloop.py). None of these animals appear in data/posted.csv or any earlier script. Meatball in jeopardy, lines 8 words or fewer, asks in character and never in the first 3 s, no quiz cards, no read-outs, every 'at' anchor a word. Voice en-US-AndrewMultilingualNeural +0% then atempo 1.10 (= +10%). Photos: iNaturalist research-grade, wild, CC0/CC BY (license and species confirmed via the API), whole animal, cut-outs checked by eye. Facts web-checked 10/25; sources on each hook beat.",
+ "names": {
+  "Antilocapra americana": "Pronghorn",
+  "Giraffa": "Giraffe",
+  "Balaeniceps rex": "Shoebill",
+  "Tarsius": "Tarsier",
+  "Urocitellus parryii": "Arctic ground squirrel",
+  "Meleagris gallopavo": "Wild turkey",
+  "Bison bison": "American bison",
+  "Geococcyx californianus": "Greater roadrunner",
+  "Pelecanus occidentalis": "Brown pelican",
+  "Anhinga anhinga": "Anhinga",
+  "Agalychnis callidryas": "Red-eyed tree frog"
+ },
+ "subjects": {
+  "66825036": {},
+  "76374261": {},
+  "155389936": {},
+  "249706797": {},
+  "154740030": {},
+  "323129116": {},
+  "39845076": {},
+  "192810220": {},
+  "262259536": {},
+  "133080207": {},
+  "244045081": {},
+  "79196977": {},
+  "232861596": {},
+  "227316650": {},
+  "32815781": {},
+  "342492052": {},
+  "189419166": {},
+  "101781120": {},
+  "123221021": {},
+  "171672860": {},
+  "9670426": {},
+  "10335353": {},
+  "6925315": {},
+  "149503943": {},
+  "144949959": {},
+  "200370965": {},
+  "103134610": {},
+  "3068202": {},
+  "48366017": {},
+  "95313474": {},
+  "253655370": {},
+  "115840732": {},
+  "25105320": {},
+  "167258822": {},
+  "17577418": {}
+ },
+ "beats": [
+  {
+   "myth": "pronghorn",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "This animal runs fifty-five miles an hour.",
+   "label": {
+    "text": "55\nMPH",
+    "at": "runs"
+   },
+   "sfx": [
+    "pop@runs"
+   ],
+   "animal": "turn@hour",
+   "shots": [
+    {
+     "photo": "Antilocapra americana",
+     "obs": 66825036,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "So it's still running from a ghost. Because",
+   "short_title": "Why Is the Pronghorn So Fast When Nothing Can Catch It? 🦌",
+   "comment": "What did you guess it was running from?",
+   "bonus": "Pronghorns aren't antelopes, and they shed their horn sheaths every year.",
+   "sources": [
+    "Wikipedia, Pronghorn (running speeds up to 55 mph; 35 mph for 4 miles; fastest land mammal in the Western Hemisphere; sustains top speed much longer than cheetahs; Chorn et al. 1988 proposed it evolved high speed to escape the extinct cheetah-like Miracinonyx trumani, an idea later disputed; not an antelope; horn sheath shed and regrown annually; very large eyes with a 320 degree field of vision) — https://en.wikipedia.org/wiki/Pronghorn (checked 2026-10-25)",
+    "Byers 1997, 'American Pronghorn: Social Adaptations and the Ghosts of Predators Past', University of Chicago Press (the 'ghosts of predators past' hypothesis) — https://press.uchicago.edu/ucp/books/book/chicago/A/bo3634406.html"
+   ],
+   "_len": "deep",
+   "caption": "Pronghorns hit 55 mph and can hold 35 mph for 4 miles, faster and longer than any predator in North America today. So why evolve all that speed? Scientists have a spooky idea. #pronghorn #animalfacts #wildlife #evolution"
+  },
+  {
+   "myth": "pronghorn",
+   "pose": "think",
+   "act": "stand",
+   "say": "But nothing alive can catch it. So why?",
+   "promise": true,
+   "label": {
+    "text": "WHY SO\nFAST?",
+    "at": "why"
+   },
+   "shots": [
+    {
+     "photo": "Antilocapra americana",
+     "obs": 66825036,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pronghorn",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "I went to Wyoming to find out.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@Wyoming",
+   "shots": [
+    {
+     "photo": "Antilocapra americana",
+     "obs": 76374261,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pronghorn",
+   "pose": "point",
+   "act": "stand",
+   "say": "It's a pronghorn. Not an antelope.",
+   "label": {
+    "text": "PRONGHORN",
+    "at": "pronghorn"
+   },
+   "shots": [
+    {
+     "photo": "Antilocapra americana",
+     "obs": 155389936,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pronghorn",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Fastest land mammal in this half of the world.",
+   "punch": "Fastest",
+   "shots": [
+    {
+     "photo": "Antilocapra americana",
+     "obs": 66825036,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pronghorn",
+   "pose": "point",
+   "act": "stand",
+   "say": "It can hold thirty-five for miles.",
+   "label": {
+    "text": "35 MPH\nFOR MILES",
+    "at": "miles"
+   },
+   "animal": "shake@hold",
+   "shots": [
+    {
+     "photo": "Antilocapra americana",
+     "obs": 76374261,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pronghorn",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: running from wolves?",
+   "decoy": true,
+   "label": {
+    "text": "WOLVES?",
+    "at": "wolves"
+   },
+   "shots": [
+    {
+     "photo": "Antilocapra americana",
+     "obs": 155389936,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pronghorn",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "A wolf can't keep that pace for long.",
+   "punch": "pace",
+   "shots": [
+    {
+     "photo": "Antilocapra americana",
+     "obs": 66825036,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pronghorn",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Overkill, honestly.",
+   "punch": "Overkill",
+   "shots": [
+    {
+     "photo": "Antilocapra americana",
+     "obs": 76374261,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pronghorn",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "It could outrun a wolf half asleep.",
+   "punch": "asleep",
+   "shots": [
+    {
+     "photo": "Antilocapra americana",
+     "obs": 155389936,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pronghorn",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "And still have energy for snacks.",
+   "punch": "snacks",
+   "shots": [
+    {
+     "photo": "Antilocapra americana",
+     "obs": 66825036,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pronghorn",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: coyotes?",
+   "decoy": true,
+   "label": {
+    "text": "COYOTES?",
+    "at": "coyotes"
+   },
+   "shots": [
+    {
+     "photo": "Antilocapra americana",
+     "obs": 76374261,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pronghorn",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Even slower. Not the reason either.",
+   "animal": "shake@slower",
+   "shots": [
+    {
+     "photo": "Antilocapra americana",
+     "obs": 155389936,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pronghorn",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Here's the thing. I tried racing it.",
+   "punch": "racing",
+   "shots": [
+    {
+     "photo": "Antilocapra americana",
+     "obs": 66825036,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pronghorn",
+   "pose": "shock",
+   "act": "launch",
+   "say": "It lapped me.",
+   "hit": "lapped",
+   "sfx": [
+    "crunch@lapped"
+   ],
+   "animal": "lunge@lapped",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Antilocapra americana",
+     "obs": 76374261,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pronghorn",
+   "pose": "nervous",
+   "act": "tumble",
+   "say": "Tap like. I'm still out of breath.",
+   "act_at": "breath",
+   "sfx": [
+    "thud@breath"
+   ],
+   "shots": [
+    {
+     "photo": "Antilocapra americana",
+     "obs": 155389936,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pronghorn",
+   "pose": "shock",
+   "act": "peek",
+   "say": "Wait. What if the predator is gone?",
+   "punch": "gone",
+   "shots": [
+    {
+     "photo": "Antilocapra americana",
+     "obs": 66825036,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pronghorn",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Long ago, America had its own cheetah.",
+   "payoff": true,
+   "label": {
+    "text": "AMERICAN\nCHEETAH",
+    "at": "cheetah"
+   },
+   "sfx": [
+    "zap@cheetah"
+   ],
+   "shots": [
+    {
+     "photo": "Antilocapra americana",
+     "obs": 76374261,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pronghorn",
+   "pose": "point",
+   "act": "stand",
+   "say": "A cheetah-like cat called Miracinonyx.",
+   "punch": "Miracinonyx",
+   "shots": [
+    {
+     "photo": "Antilocapra americana",
+     "obs": 155389936,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pronghorn",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "It went extinct thousands of years ago.",
+   "label": {
+    "text": "EXTINCT",
+    "at": "extinct"
+   },
+   "shots": [
+    {
+     "photo": "Antilocapra americana",
+     "obs": 66825036,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pronghorn",
+   "pose": "shock",
+   "act": "stand",
+   "say": "One idea: pronghorns evolved speed to escape it.",
+   "animal": "turn@escape",
+   "shots": [
+    {
+     "photo": "Antilocapra americana",
+     "obs": 76374261,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pronghorn",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "And kept the speed after it vanished.",
+   "punch": "vanished",
+   "shots": [
+    {
+     "photo": "Antilocapra americana",
+     "obs": 155389936,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pronghorn",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Running from a ghost.",
+   "label": {
+    "text": "GHOST\nPREDATOR",
+    "at": "ghost"
+   },
+   "shots": [
+    {
+     "photo": "Antilocapra americana",
+     "obs": 66825036,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pronghorn",
+   "pose": "point",
+   "act": "stand",
+   "say": "Some scientists dispute that idea.",
+   "punch": "dispute",
+   "shots": [
+    {
+     "photo": "Antilocapra americana",
+     "obs": 76374261,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pronghorn",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "But nobody has a better one yet.",
+   "punch": "better",
+   "shots": [
+    {
+     "photo": "Antilocapra americana",
+     "obs": 155389936,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pronghorn",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Its eyes see about three hundred twenty degrees.",
+   "label": {
+    "text": "320°\nVISION",
+    "at": "eyes"
+   },
+   "animal": "turn@degrees",
+   "shots": [
+    {
+     "photo": "Antilocapra americana",
+     "obs": 66825036,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pronghorn",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "So it always sees you coming.",
+   "punch": "always",
+   "shots": [
+    {
+     "photo": "Antilocapra americana",
+     "obs": 76374261,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pronghorn",
+   "pose": "point",
+   "act": "stand",
+   "say": "It even sheds its horn covers every year.",
+   "animal": "strike@sheds",
+   "shots": [
+    {
+     "photo": "Antilocapra americana",
+     "obs": 155389936,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pronghorn",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "I shed nothing. I just sweat.",
+   "prop": "fork",
+   "prop_at": "sweat",
+   "sfx": [
+    "tink@sweat"
+   ],
+   "shots": [
+    {
+     "photo": "Antilocapra americana",
+     "obs": 66825036,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pronghorn",
+   "pose": "shock",
+   "act": "shake",
+   "say": "Fast, ancient, and a little haunted.",
+   "punch": "haunted",
+   "shots": [
+    {
+     "photo": "Antilocapra americana",
+     "obs": 76374261,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pronghorn",
+   "pose": "point",
+   "act": "stand",
+   "say": "Follow for more spooky evolution.",
+   "sfx": [
+    "pop@Follow"
+   ],
+   "shots": [
+    {
+     "photo": "Antilocapra americana",
+     "obs": 155389936,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pronghorn",
+   "pose": "think",
+   "act": "peek",
+   "say": "What do you think it's running from? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Antilocapra americana",
+     "obs": 66825036,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "giraffe",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A giraffe's tongue is black.",
+   "label": {
+    "text": "BLACK\nTONGUE",
+    "at": "black"
+   },
+   "sfx": [
+    "pop@black"
+   ],
+   "animal": "turn@tongue",
+   "shots": [
+    {
+     "photo": "Giraffa",
+     "obs": 249706797,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Tall, dark tongue. Because",
+   "short_title": "A Giraffe's Tongue Is Black and 45 cm Long 🦒",
+   "comment": "Could you sleep only 4 and a half hours?",
+   "bonus": "Fully grown giraffes stand 4.3-5.7 m (14-19 ft) tall.",
+   "sources": [
+    "Wikipedia, Giraffe (tongue about 45 cm long, black, perhaps to protect against sunburn; captive studies found giraffes sleep around 4.6 hours per day; 11 kg heart produces about double the blood pressure of a human; males fight by 'necking'; 4.3-5.7 m tall) — https://en.wikipedia.org/wiki/Giraffe (checked 2026-10-25)"
+   ],
+   "_len": "short",
+   "caption": "A giraffe's tongue is about 45 cm long and black, maybe to protect against sunburn. Giraffes sleep about 4.6 hours a day in captivity studies, and their 11 kg heart pumps about double our blood pressure. #giraffe #animalfacts #wildlife #africa"
+  },
+  {
+   "myth": "giraffe",
+   "pose": "shock",
+   "act": "stand",
+   "say": "And about forty-five centimeters long.",
+   "label": {
+    "text": "45 CM",
+    "at": "long"
+   },
+   "animal": "strike@long",
+   "shots": [
+    {
+     "photo": "Giraffa",
+     "obs": 154740030,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "giraffe",
+   "pose": "point",
+   "act": "stand",
+   "say": "Maybe so it doesn't get sunburned.",
+   "punch": "sunburned",
+   "shots": [
+    {
+     "photo": "Giraffa",
+     "obs": 323129116,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "giraffe",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "I asked for a lick test.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@lick",
+   "shots": [
+    {
+     "photo": "Giraffa",
+     "obs": 249706797,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "giraffe",
+   "pose": "shock",
+   "act": "launch",
+   "say": "Bad idea.",
+   "hit": "Bad",
+   "sfx": [
+    "crunch@Bad"
+   ],
+   "animal": "lunge@Bad",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Giraffa",
+     "obs": 154740030,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "giraffe",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It licked my whole head.",
+   "punch": "whole",
+   "shots": [
+    {
+     "photo": "Giraffa",
+     "obs": 323129116,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "giraffe",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "They sleep under five hours a day.",
+   "act_at": "sleep",
+   "sfx": [
+    "thud@sleep"
+   ],
+   "label": {
+    "text": "4.6 HRS\nSLEEP",
+    "at": "hours"
+   },
+   "shots": [
+    {
+     "photo": "Giraffa",
+     "obs": 249706797,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "giraffe",
+   "pose": "point",
+   "act": "stand",
+   "say": "Its heart weighs about eleven kilos.",
+   "punch": "heart",
+   "animal": "shake@heart",
+   "shots": [
+    {
+     "photo": "Giraffa",
+     "obs": 154740030,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "giraffe",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Males fight by swinging their necks.",
+   "label": {
+    "text": "NECKING",
+    "at": "necks"
+   },
+   "shots": [
+    {
+     "photo": "Giraffa",
+     "obs": 323129116,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "giraffe",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Like and follow. I'm out of reach.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Giraffa",
+     "obs": 249706797,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "giraffe",
+   "pose": "think",
+   "act": "peek",
+   "say": "Could you sleep that little? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Giraffa",
+     "obs": 154740030,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "This bird hunts by not moving.",
+   "label": {
+    "text": "STATUE\nMODE",
+    "at": "moving"
+   },
+   "sfx": [
+    "pop@moving"
+   ],
+   "animal": "turn@hunts",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 39845076,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Never blink first. Because",
+   "short_title": "The Shoebill Stands Still Until You Forget It's There 🐦",
+   "comment": "Who would win a staring contest?",
+   "bonus": "Only about 5,000-8,000 shoebills are thought to be left in the wild.",
+   "sources": [
+    "Wikipedia, Shoebill (strides very slowly and is frequently motionless while hunting; prey includes marbled lungfish; bill-clattering displays at the nest; exposed culmen 18.8-24 cm, the third-longest bill of living birds; typical height 110-140 cm; cool their eggs with water carried in the bill on hot days; population 5,000-8,000) — https://en.wikipedia.org/wiki/Shoebill (checked 2026-10-25)"
+   ],
+   "_len": "short",
+   "caption": "Shoebills stand up to 1.4 m tall and hunt by standing nearly motionless, then grabbing lungfish with one of the longest bills of any bird. They clatter their bills at the nest and cool their eggs with water. #shoebill #birds #animalfacts #africa"
+  },
+  {
+   "myth": "shoebill",
+   "pose": "point",
+   "act": "stand",
+   "say": "It's a shoebill. Up to 140 centimeters tall.",
+   "label": {
+    "text": "140 CM\nTALL",
+    "at": "tall"
+   },
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 192810220,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "I challenged it to a staring contest.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@staring",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 39845076,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It didn't blink. I did.",
+   "punch": "did",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 192810220,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "point",
+   "act": "stand",
+   "say": "Then a lungfish swam by.",
+   "animal": "shake@lungfish",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 39845076,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "shock",
+   "act": "launch",
+   "say": "Grab. Gone.",
+   "hit": "Grab",
+   "sfx": [
+    "crunch@Grab"
+   ],
+   "animal": "lunge@Grab",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 192810220,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "One of the longest bills of any bird.",
+   "act_at": "bills",
+   "sfx": [
+    "thud@bills"
+   ],
+   "label": {
+    "text": "GIANT\nBILL",
+    "at": "longest"
+   },
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 39845076,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "At the nest, it clatters it like castanets.",
+   "animal": "strike@clatters",
+   "sfx": [
+    "tink@clatters"
+   ],
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 192810220,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Like and follow. I blinked again.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 39845076,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "think",
+   "act": "peek",
+   "say": "Who wins a staring contest? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 192810220,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "tarsier",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Each eye is as big as its brain.",
+   "label": {
+    "text": "EYE =\nBRAIN",
+    "at": "eyes"
+   },
+   "sfx": [
+    "pop@eyes"
+   ],
+   "animal": "turn@brain",
+   "shots": [
+    {
+     "photo": "Tarsius",
+     "obs": 262259536,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Big eyes, bigger snacks. Because",
+   "short_title": "Each Tarsier Eye Is as Big as Its Brain 👀",
+   "comment": "Big eyes: cute or creepy?",
+   "bonus": "Philippine tarsiers can call at a dominant frequency of 70 kHz, ultrasound to us.",
+   "sources": [
+    "Wikipedia, Tarsier (each eyeball about 16 mm, as large as or larger than the entire brain; moves its head 180 degrees in either direction; the only entirely carnivorous extant primates; Philippine tarsiers vocalize at a dominant 70 kHz; head and body 10-15 cm) — https://en.wikipedia.org/wiki/Tarsier (checked 2026-10-25)"
+   ],
+   "_len": "short",
+   "caption": "Each tarsier eyeball is about 16 mm across, as big as or bigger than its whole brain. It turns its head 180 degrees each way, eats only animals, and some call at 70 kHz, too high for us to hear. #tarsier #primates #animalfacts #wildlife"
+  },
+  {
+   "myth": "tarsier",
+   "pose": "point",
+   "act": "stand",
+   "say": "It's a tarsier. A tiny primate.",
+   "punch": "tiny",
+   "shots": [
+    {
+     "photo": "Tarsius",
+     "obs": 133080207,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "tarsier",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Its body is barely fifteen centimeters.",
+   "punch": "barely",
+   "shots": [
+    {
+     "photo": "Tarsius",
+     "obs": 244045081,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "tarsier",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Its head turns way around.",
+   "animal": "turn@turns",
+   "label": {
+    "text": "180°\nEACH WAY",
+    "at": "around"
+   },
+   "shots": [
+    {
+     "photo": "Tarsius",
+     "obs": 262259536,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "tarsier",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "I tried sneaking up behind it.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@behind",
+   "shots": [
+    {
+     "photo": "Tarsius",
+     "obs": 133080207,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "tarsier",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "It turned around and stared.",
+   "act_at": "stared",
+   "sfx": [
+    "thud@stared"
+   ],
+   "shots": [
+    {
+     "photo": "Tarsius",
+     "obs": 244045081,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "tarsier",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It only eats other animals.",
+   "label": {
+    "text": "MEAT\nONLY",
+    "at": "only"
+   },
+   "animal": "strike@eats",
+   "shots": [
+    {
+     "photo": "Tarsius",
+     "obs": 262259536,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "tarsier",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "I am, technically, meat.",
+   "prop": "fork",
+   "prop_at": "meat",
+   "sfx": [
+    "tink@meat"
+   ],
+   "shots": [
+    {
+     "photo": "Tarsius",
+     "obs": 133080207,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "tarsier",
+   "pose": "point",
+   "act": "stand",
+   "say": "Some call too high for us to hear.",
+   "punch": "hear",
+   "shots": [
+    {
+     "photo": "Tarsius",
+     "obs": 244045081,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "tarsier",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Like and follow. Don't make eye contact.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Tarsius",
+     "obs": 262259536,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "tarsier",
+   "pose": "think",
+   "act": "peek",
+   "say": "Cute or creepy? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Tarsius",
+     "obs": 133080207,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "groundsquirrel",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "This squirrel's body drops below freezing.",
+   "label": {
+    "text": "BELOW\nFREEZING",
+    "at": "freezing"
+   },
+   "sfx": [
+    "pop@freezing"
+   ],
+   "animal": "turn@body",
+   "shots": [
+    {
+     "photo": "Urocitellus parryii",
+     "obs": 79196977,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Coldest nap on Earth. Because",
+   "short_title": "This Squirrel's Body Drops Below Freezing ❄️",
+   "comment": "Could you sleep for 8 months?",
+   "bonus": "Hibernation lasts seven to eight months, from late summer to April.",
+   "sources": [
+    "Wikipedia, Arctic ground squirrel (during hibernation core body temperature reaches down to -2.9 °C, colder than any other hibernating mammal; hibernation lasts seven to eight months; bouts up to about three weeks, then shivers 12-15 hours to rewarm; heart rate drops to roughly one beat per minute) — https://en.wikipedia.org/wiki/Arctic_ground_squirrel (checked 2026-10-25)"
+   ],
+   "_len": "short",
+   "caption": "Hibernating arctic ground squirrels let their core body temperature drop as low as -2.9 °C (26.8 °F), the coldest known for a hibernating mammal, with a heart rate around 1 beat a minute. Every few weeks they shiver for 12-15 hours to warm up. #squirrel #arctic #hibernation #animalfacts"
+  },
+  {
+   "myth": "groundsquirrel",
+   "pose": "shock",
+   "act": "stand",
+   "say": "While it hibernates. And it survives.",
+   "punch": "survives",
+   "shots": [
+    {
+     "photo": "Urocitellus parryii",
+     "obs": 232861596,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "groundsquirrel",
+   "pose": "point",
+   "act": "stand",
+   "say": "Minus two point nine Celsius.",
+   "label": {
+    "text": "-2.9°C",
+    "at": "Celsius"
+   },
+   "shots": [
+    {
+     "photo": "Urocitellus parryii",
+     "obs": 227316650,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "groundsquirrel",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Its heart beats about once a minute.",
+   "label": {
+    "text": "1 BEAT\n/MIN",
+    "at": "minute"
+   },
+   "animal": "shake@heart",
+   "shots": [
+    {
+     "photo": "Urocitellus parryii",
+     "obs": 32815781,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "groundsquirrel",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "I tried to wake it up.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@wake",
+   "shots": [
+    {
+     "photo": "Urocitellus parryii",
+     "obs": 79196977,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "groundsquirrel",
+   "pose": "shock",
+   "act": "launch",
+   "say": "It woke up shivering. At me.",
+   "hit": "me",
+   "sfx": [
+    "crunch@me"
+   ],
+   "animal": "lunge@me",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Urocitellus parryii",
+     "obs": 232861596,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "groundsquirrel",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "Every few weeks, it shivers for hours.",
+   "act_at": "shivers",
+   "sfx": [
+    "thud@shivers"
+   ],
+   "punch": "hours",
+   "shots": [
+    {
+     "photo": "Urocitellus parryii",
+     "obs": 227316650,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "groundsquirrel",
+   "pose": "point",
+   "act": "stand",
+   "say": "The whole nap lasts eight months.",
+   "label": {
+    "text": "8 MONTH\nNAP",
+    "at": "months"
+   },
+   "shots": [
+    {
+     "photo": "Urocitellus parryii",
+     "obs": 32815781,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "groundsquirrel",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Like and follow. I'm getting a blanket.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Urocitellus parryii",
+     "obs": 79196977,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "groundsquirrel",
+   "pose": "think",
+   "act": "peek",
+   "say": "Could you sleep eight months? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Urocitellus parryii",
+     "obs": 232861596,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "turkey",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Wild turkeys sleep in trees.",
+   "label": {
+    "text": "TREE\nNAPS",
+    "at": "trees"
+   },
+   "sfx": [
+    "pop@trees"
+   ],
+   "animal": "turn@sleep",
+   "shots": [
+    {
+     "photo": "Meleagris gallopavo",
+     "obs": 342492052,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Gobble responsibly. Because",
+   "short_title": "Wild Turkeys Sleep in Trees 🦃",
+   "comment": "Did you know turkeys could fly?",
+   "bonus": "A tom's head can turn red, blue or white with his mood; white means most excited.",
+   "sources": [
+    "Wikipedia, Wild turkey (roost well off the ground in trees at twilight; usually fly close to the ground for no more than about 400 m; gobble heard up to a mile away; head and neck color change with excitement, solid white head the greatest excitement; extinct in 18 US states before reintroduction; as low as 30,000 by the late 1930s; about 7 million today; Franklin's 1784 letter joked the eagle looked like a turkey and he never proposed it as national bird) — https://en.wikipedia.org/wiki/Wild_turkey (checked 2026-10-25)"
+   ],
+   "_len": "short",
+   "caption": "Wild turkeys roost high in trees at night, and a gobble can carry up to a mile. By the late 1930s only about 30,000 were left in the US; today there are about 7 million. #wildturkey #turkey #birds #animalfacts"
+  },
+  {
+   "myth": "turkey",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Yes, they fly up there.",
+   "punch": "fly",
+   "animal": "shake@fly",
+   "shots": [
+    {
+     "photo": "Meleagris gallopavo",
+     "obs": 189419166,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "turkey",
+   "pose": "point",
+   "act": "stand",
+   "say": "Their gobble carries up to a mile.",
+   "label": {
+    "text": "1 MILE\nGOBBLE",
+    "at": "mile"
+   },
+   "shots": [
+    {
+     "photo": "Meleagris gallopavo",
+     "obs": 101781120,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "turkey",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "I gobbled back to say hi.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@gobbled",
+   "shots": [
+    {
+     "photo": "Meleagris gallopavo",
+     "obs": 123221021,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "turkey",
+   "pose": "shock",
+   "act": "launch",
+   "say": "It took that personally.",
+   "hit": "personally",
+   "sfx": [
+    "crunch@personally"
+   ],
+   "animal": "lunge@personally",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Meleagris gallopavo",
+     "obs": 342492052,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "turkey",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "Its head changes color with its mood.",
+   "act_at": "head",
+   "sfx": [
+    "thud@head"
+   ],
+   "label": {
+    "text": "MOOD\nHEAD",
+    "at": "color"
+   },
+   "shots": [
+    {
+     "photo": "Meleagris gallopavo",
+     "obs": 189419166,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "turkey",
+   "pose": "point",
+   "act": "stand",
+   "say": "White means extra excited.",
+   "punch": "White",
+   "shots": [
+    {
+     "photo": "Meleagris gallopavo",
+     "obs": 101781120,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "turkey",
+   "pose": "shock",
+   "act": "stand",
+   "say": "In the 1930s, only thirty thousand were left.",
+   "label": {
+    "text": "30,000\nLEFT",
+    "at": "left"
+   },
+   "shots": [
+    {
+     "photo": "Meleagris gallopavo",
+     "obs": 123221021,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "turkey",
+   "pose": "point",
+   "act": "stand",
+   "say": "Now there are about seven million.",
+   "label": {
+    "text": "7\nMILLION",
+    "at": "million"
+   },
+   "animal": "turn@million",
+   "shots": [
+    {
+     "photo": "Meleagris gallopavo",
+     "obs": 342492052,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "turkey",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Like and follow. I'm hiding in a tree.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Meleagris gallopavo",
+     "obs": 189419166,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "turkey",
+   "pose": "think",
+   "act": "peek",
+   "say": "Did you know they fly? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Meleagris gallopavo",
+     "obs": 101781120,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bison",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "This animal weighs a ton. Runs forty mph.",
+   "label": {
+    "text": "40\nMPH",
+    "at": "Runs"
+   },
+   "sfx": [
+    "pop@Runs"
+   ],
+   "animal": "turn@ton",
+   "shots": [
+    {
+     "photo": "Bison bison",
+     "obs": 171672860,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Big, fast, and fluffy. Because",
+   "short_title": "A 2,000-Pound Bison Can Run 40 MPH 🦬",
+   "comment": "Would you get out of the car?",
+   "bonus": "There were roughly 31,000 wild bison as of March 2019.",
+   "sources": [
+    "Wikipedia, American bison (adults typically 318-1,179 kg; observed running 65-70 km/h (40-45 mph); around 60 million in the late 18th century; reduced to 541 animals by 1889; roughly 31,000 wild bison as of March 2019; national mammal of the United States; wallowing) — https://en.wikipedia.org/wiki/American_bison (checked 2026-10-25)"
+   ],
+   "_len": "short",
+   "caption": "American bison can weigh over a ton and run 40-45 mph. About 60 million roamed in the late 1700s; by 1889 only 541 were counted in the US. Now it's the national mammal. #bison #buffalo #animalfacts #yellowstone"
+  },
+  {
+   "myth": "bison",
+   "pose": "shock",
+   "act": "stand",
+   "say": "A bison. Faster than it looks.",
+   "punch": "Faster",
+   "shots": [
+    {
+     "photo": "Bison bison",
+     "obs": 9670426,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bison",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "I challenged it to a race.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@race",
+   "shots": [
+    {
+     "photo": "Bison bison",
+     "obs": 10335353,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bison",
+   "pose": "shock",
+   "act": "launch",
+   "say": "It won. Also, it ran me over.",
+   "hit": "over",
+   "sfx": [
+    "crunch@over"
+   ],
+   "animal": "lunge@over",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Bison bison",
+     "obs": 171672860,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bison",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "Once there were about sixty million.",
+   "act_at": "sixty",
+   "sfx": [
+    "thud@sixty"
+   ],
+   "label": {
+    "text": "60\nMILLION",
+    "at": "million"
+   },
+   "shots": [
+    {
+     "photo": "Bison bison",
+     "obs": 9670426,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bison",
+   "pose": "shock",
+   "act": "stand",
+   "say": "By 1889, the US count was 541.",
+   "label": {
+    "text": "ONLY\n541",
+    "at": "count"
+   },
+   "shots": [
+    {
+     "photo": "Bison bison",
+     "obs": 10335353,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bison",
+   "pose": "point",
+   "act": "stand",
+   "say": "Now it's the national mammal.",
+   "punch": "national",
+   "animal": "shake@national",
+   "shots": [
+    {
+     "photo": "Bison bison",
+     "obs": 171672860,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bison",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "It rolls in dirt to stay comfy.",
+   "punch": "dirt",
+   "shots": [
+    {
+     "photo": "Bison bison",
+     "obs": 9670426,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bison",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Like and follow. I'm staying in the car.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Bison bison",
+     "obs": 10335353,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bison",
+   "pose": "think",
+   "act": "peek",
+   "say": "Would you get out of the car? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Bison bison",
+     "obs": 171672860,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "roadrunner",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Roadrunners eat rattlesnakes.",
+   "label": {
+    "text": "SNAKE\nSNACK",
+    "at": "rattlesnakes"
+   },
+   "sfx": [
+    "pop@rattlesnakes"
+   ],
+   "animal": "turn@eat",
+   "shots": [
+    {
+     "photo": "Geococcyx californianus",
+     "obs": 6925315,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Beep beep, for real. Because",
+   "short_title": "Roadrunners Eat Rattlesnakes 🐍",
+   "comment": "Did cartoons lie to you?",
+   "bonus": "Roadrunners get rid of extra salt through glands in their nose.",
+   "sources": [
+    "Wikipedia, Greater roadrunner (runs up to 20 mph (32 km/h), reports of 26 mph; diet includes lizards and young rattlesnakes; ruffles back feathers to expose black skin to the sun for 2-3 hours in the morning; nasal glands eliminate excess salt; capable of limited flight, rare short flights) — https://en.wikipedia.org/wiki/Greater_roadrunner (checked 2026-10-25)"
+   ],
+   "_len": "short",
+   "caption": "Greater roadrunners run up to 20 mph, eat lizards and young rattlesnakes, and warm up by fluffing their feathers to sun the black skin on their backs. They can fly, just barely. #roadrunner #birds #desert #animalfacts"
+  },
+  {
+   "myth": "roadrunner",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Young ones, but still.",
+   "punch": "still",
+   "shots": [
+    {
+     "photo": "Geococcyx californianus",
+     "obs": 6925315,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "roadrunner",
+   "pose": "shock",
+   "act": "stand",
+   "say": "They run about twenty miles an hour.",
+   "label": {
+    "text": "20\nMPH",
+    "at": "miles"
+   },
+   "animal": "shake@run",
+   "shots": [
+    {
+     "photo": "Geococcyx californianus",
+     "obs": 149503943,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "roadrunner",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "I brought a cartoon anvil.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@anvil",
+   "shots": [
+    {
+     "photo": "Geococcyx californianus",
+     "obs": 144949959,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "roadrunner",
+   "pose": "shock",
+   "act": "launch",
+   "say": "It didn't fall for it.",
+   "hit": "fall",
+   "sfx": [
+    "crunch@fall"
+   ],
+   "animal": "lunge@fall",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Geococcyx californianus",
+     "obs": 200370965,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "roadrunner",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "Mornings, it fluffs up to sunbathe.",
+   "act_at": "fluffs",
+   "sfx": [
+    "thud@fluffs"
+   ],
+   "label": {
+    "text": "SOLAR\nBACK",
+    "at": "sunbathe"
+   },
+   "shots": [
+    {
+     "photo": "Geococcyx californianus",
+     "obs": 6925315,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "roadrunner",
+   "pose": "point",
+   "act": "stand",
+   "say": "Black skin on its back soaks up heat.",
+   "punch": "heat",
+   "shots": [
+    {
+     "photo": "Geococcyx californianus",
+     "obs": 149503943,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "roadrunner",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "It can sit like that for hours.",
+   "punch": "hours",
+   "shots": [
+    {
+     "photo": "Geococcyx californianus",
+     "obs": 144949959,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "roadrunner",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "And yes, it can fly. Barely.",
+   "punch": "Barely",
+   "animal": "strike@fly",
+   "shots": [
+    {
+     "photo": "Geococcyx californianus",
+     "obs": 200370965,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "roadrunner",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Like and follow. I'm out of anvils.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Geococcyx californianus",
+     "obs": 6925315,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "roadrunner",
+   "pose": "think",
+   "act": "peek",
+   "say": "Did cartoons lie to you? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Geococcyx californianus",
+     "obs": 149503943,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pelican",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "This bird dives headfirst from sixty feet.",
+   "label": {
+    "text": "60 FT\nDIVE",
+    "at": "dives"
+   },
+   "sfx": [
+    "pop@dives"
+   ],
+   "animal": "turn@headfirst",
+   "shots": [
+    {
+     "photo": "Pelecanus occidentalis",
+     "obs": 103134610,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Belly flop champion. Because",
+   "short_title": "Brown Pelicans Dive Headfirst From 60 Feet 🐦",
+   "comment": "Would you try a sixty-foot dive?",
+   "bonus": "Gulls sometimes try to steal the pelican's catch.",
+   "sources": [
+    "Wikipedia, Brown pelican (flies 18-21 m (60-70 ft) above the ocean to spot fish; one of the only pelicans to forage mainly by diving; exceptionally buoyant due to air sacs beneath the skin; target of kleptoparasitism by gulls, skuas and frigatebirds; DDT banned in the US in 1972; removed from the Endangered Species List after recovery) — https://en.wikipedia.org/wiki/Brown_pelican (checked 2026-10-25)"
+   ],
+   "_len": "short",
+   "caption": "Brown pelicans spot fish from up to 60-70 feet up and plunge-dive headfirst; air sacs under the skin keep them buoyant. They nearly vanished after DDT and were taken off the endangered list. #pelican #birds #ocean #animalfacts"
+  },
+  {
+   "myth": "pelican",
+   "pose": "point",
+   "act": "stand",
+   "say": "It's a brown pelican. Fishing.",
+   "punch": "Fishing",
+   "shots": [
+    {
+     "photo": "Pelecanus occidentalis",
+     "obs": 103134610,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pelican",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Air sacs under its skin keep it floating.",
+   "animal": "shake@floating",
+   "sfx": [
+    "boing@floating"
+   ],
+   "shots": [
+    {
+     "photo": "Pelecanus occidentalis",
+     "obs": 3068202,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pelican",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "I tried the same dive.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@dive",
+   "shots": [
+    {
+     "photo": "Pelecanus occidentalis",
+     "obs": 103134610,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pelican",
+   "pose": "shock",
+   "act": "launch",
+   "say": "Belly flop. Into its pouch.",
+   "hit": "pouch",
+   "sfx": [
+    "crunch@pouch"
+   ],
+   "animal": "lunge@pouch",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Pelecanus occidentalis",
+     "obs": 48366017,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pelican",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "Then gulls tried to steal me.",
+   "act_at": "steal",
+   "sfx": [
+    "thud@steal"
+   ],
+   "label": {
+    "text": "THIEF\nGULLS",
+    "at": "gulls"
+   },
+   "shots": [
+    {
+     "photo": "Pelecanus occidentalis",
+     "obs": 95313474,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pelican",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Pelicans nearly vanished because of DDT.",
+   "punch": "vanished",
+   "shots": [
+    {
+     "photo": "Pelecanus occidentalis",
+     "obs": 103134610,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pelican",
+   "pose": "point",
+   "act": "stand",
+   "say": "Now they're off the endangered list.",
+   "label": {
+    "text": "BACK!",
+    "at": "off"
+   },
+   "animal": "turn@list",
+   "shots": [
+    {
+     "photo": "Pelecanus occidentalis",
+     "obs": 3068202,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pelican",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Like and follow. I'm drying off.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Pelecanus occidentalis",
+     "obs": 48366017,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "pelican",
+   "pose": "think",
+   "act": "peek",
+   "say": "Would you try that dive? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Pelecanus occidentalis",
+     "obs": 95313474,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "anhinga",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "This bird swims like a snake.",
+   "label": {
+    "text": "SNAKE\nBIRD",
+    "at": "snake"
+   },
+   "sfx": [
+    "pop@snake"
+   ],
+   "animal": "turn@swims",
+   "shots": [
+    {
+     "photo": "Anhinga anhinga",
+     "obs": 115840732,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Snake bird, case closed. Because",
+   "short_title": "The Snake Bird Swims With Only Its Neck Out 🐍",
+   "comment": "Snake or bird, first look?",
+   "bonus": "Anhingas toss speared fish into the air and swallow them headfirst.",
+   "sources": [
+    "Wikipedia, Anhinga (only the neck appears above water so it resembles a snake, 'snake bird'; lacks waterproof body feathers, basks with wings outstretched to dry; spears prey by rapidly outstretching its bent neck, tosses it and swallows head-first; about 89 cm long, 1.14 m wingspan) — https://en.wikipedia.org/wiki/Anhinga (checked 2026-10-25)"
+   ],
+   "_len": "short",
+   "caption": "Anhingas swim with only their neck above water, so they look like a snake. Their feathers soak through, so they spread their wings to dry, and they spear fish with their bill. #anhinga #snakebird #birds #animalfacts"
+  },
+  {
+   "myth": "anhinga",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Only its neck sticks out of the water.",
+   "punch": "neck",
+   "animal": "shake@neck",
+   "shots": [
+    {
+     "photo": "Anhinga anhinga",
+     "obs": 253655370,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "anhinga",
+   "pose": "point",
+   "act": "stand",
+   "say": "It's called an anhinga. Or snake bird.",
+   "punch": "anhinga",
+   "shots": [
+    {
+     "photo": "Anhinga anhinga",
+     "obs": 115840732,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "anhinga",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Its feathers get soaking wet.",
+   "punch": "soaking",
+   "shots": [
+    {
+     "photo": "Anhinga anhinga",
+     "obs": 253655370,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "anhinga",
+   "pose": "point",
+   "act": "stand",
+   "say": "So it spreads its wings to dry.",
+   "label": {
+    "text": "AIR\nDRY",
+    "at": "spreads"
+   },
+   "animal": "turn@dry",
+   "shots": [
+    {
+     "photo": "Anhinga anhinga",
+     "obs": 253655370,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "anhinga",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "I offered a towel.",
+   "sfx": [
+    "whoosh"
+   ],
+   "shots": [
+    {
+     "photo": "Anhinga anhinga",
+     "obs": 253655370,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "anhinga",
+   "pose": "shock",
+   "act": "launch",
+   "say": "It speared my towel.",
+   "hit": "speared",
+   "sfx": [
+    "crunch@speared"
+   ],
+   "animal": "strike@speared",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Anhinga anhinga",
+     "obs": 115840732,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "anhinga",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "It spears fish with its beak.",
+   "act_at": "spears",
+   "sfx": [
+    "thud@spears"
+   ],
+   "label": {
+    "text": "FISH\nSPEAR",
+    "at": "fish"
+   },
+   "shots": [
+    {
+     "photo": "Anhinga anhinga",
+     "obs": 253655370,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "anhinga",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Like and follow. I'm keeping my towel.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Anhinga anhinga",
+     "obs": 115840732,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "anhinga",
+   "pose": "think",
+   "act": "peek",
+   "say": "Snake or bird, first look? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Anhinga anhinga",
+     "obs": 253655370,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "treefrog",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "These frog eggs can hatch early on purpose.",
+   "label": {
+    "text": "EMERGENCY\nHATCH",
+    "at": "early"
+   },
+   "sfx": [
+    "pop@early"
+   ],
+   "animal": "turn@eggs",
+   "shots": [
+    {
+     "photo": "Agalychnis callidryas",
+     "obs": 25105320,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Red eyes, zero chill. Because",
+   "short_title": "Red-Eyed Tree Frog Eggs Hatch Early to Escape Snakes 🐸",
+   "comment": "Would those eyes scare you?",
+   "bonus": "Undisturbed, the eggs usually hatch in 6-8 days.",
+   "sources": [
+    "Wikipedia, Agalychnis callidryas (red eyes hidden when closed; flashing eyes and colors may startle predators; embryos hatch early when they sense vibrations from predatory snakes and wasps; eggs typically hatch in 6-8 days undisturbed; clutches of roughly 40 eggs; not poisonous despite bright colors; males about 51 mm, females 76 mm; sticks to the undersides of leaves) — https://en.wikipedia.org/wiki/Agalychnis_callidryas (checked 2026-10-25)"
+   ],
+   "_len": "short",
+   "caption": "Red-eyed tree frog embryos can hatch early when they feel the vibrations of a snake or wasp attacking the clutch. The adults flash their red eyes to startle predators, but they aren't poisonous. #treefrog #frogs #rainforest #animalfacts"
+  },
+  {
+   "myth": "treefrog",
+   "pose": "shock",
+   "act": "stand",
+   "say": "If a snake starts shaking them.",
+   "punch": "snake",
+   "animal": "shake@shaking",
+   "shots": [
+    {
+     "photo": "Agalychnis callidryas",
+     "obs": 25105320,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "treefrog",
+   "pose": "point",
+   "act": "stand",
+   "say": "The babies feel it and bail.",
+   "punch": "bail",
+   "shots": [
+    {
+     "photo": "Agalychnis callidryas",
+     "obs": 167258822,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "treefrog",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Adults have bright red eyes.",
+   "label": {
+    "text": "RED\nEYES",
+    "at": "red"
+   },
+   "shots": [
+    {
+     "photo": "Agalychnis callidryas",
+     "obs": 167258822,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "treefrog",
+   "pose": "point",
+   "act": "stand",
+   "say": "They flash them to startle predators.",
+   "animal": "strike@flash",
+   "sfx": [
+    "zap@flash"
+   ],
+   "shots": [
+    {
+     "photo": "Agalychnis callidryas",
+     "obs": 17577418,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "treefrog",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "I snuck up for a closer look.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@closer",
+   "shots": [
+    {
+     "photo": "Agalychnis callidryas",
+     "obs": 25105320,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "treefrog",
+   "pose": "shock",
+   "act": "launch",
+   "say": "It opened its eyes. I screamed.",
+   "hit": "screamed",
+   "sfx": [
+    "crunch@screamed"
+   ],
+   "animal": "lunge@screamed",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Agalychnis callidryas",
+     "obs": 167258822,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "treefrog",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "Good news: they're not poisonous.",
+   "act_at": "poisonous",
+   "sfx": [
+    "thud@poisonous"
+   ],
+   "label": {
+    "text": "NOT\nPOISON",
+    "at": "poisonous"
+   },
+   "shots": [
+    {
+     "photo": "Agalychnis callidryas",
+     "obs": 17577418,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "treefrog",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Like and follow. I'm still screaming.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Agalychnis callidryas",
+     "obs": 25105320,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "treefrog",
+   "pose": "think",
+   "act": "peek",
+   "say": "Would those eyes scare you? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Agalychnis callidryas",
+     "obs": 167258822,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  }
+ ]
+}

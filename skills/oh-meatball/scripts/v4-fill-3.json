@@ -1,0 +1,1388 @@
+{
+ "title": "Fill pack 3 (Shorts v4, Andrew): capybara, blue-footed booby, Galápagos tortoise + echidna deep dive",
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+0%",
+ "short_rate": "+0%",
+ "tempo": 1.1,
+ "music": "music/quiz-bed.m4a",
+ "style": "v4",
+ "_note": "Fill run 2026-10-25 (Studio + Postmaster) for open slots 11/2-11/6. 3 YouTube Shorts at 20-25 s, claim-first (capybara, blue-footed booby, Galápagos tortoise) and 1 TikTok deep dive at 61-75 s (short-beaked echidna 'rule breaker') with the open loop (promise in lines 1-3, two decoys, payoff at 50-80%; passes tools/openloop.py). None of these animals appear in data/posted.csv or any earlier script. Meatball in jeopardy, lines 8 words or fewer, asks in character and never in the first 3 s, no quiz cards, no read-outs, every 'at' anchor a word. Voice en-US-AndrewMultilingualNeural +0% then atempo 1.10 (= +10%). Photos: iNaturalist research-grade, wild, CC0/CC BY (license and species confirmed via the API), whole animal, cut-outs checked by eye. Facts web-checked 10/25; sources on each hook beat.",
+ "names": {
+  "Tachyglossus aculeatus": "Short-beaked echidna",
+  "Hydrochoerus hydrochaeris": "Capybara",
+  "Sula nebouxii": "Blue-footed booby",
+  "Chelonoidis": "Galápagos tortoise"
+ },
+ "subjects": {
+  "332602366": {},
+  "10697020": {},
+  "258110135": {},
+  "192170175": {},
+  "57700291": {},
+  "8066919": {},
+  "314871459": {},
+  "243800534": {},
+  "181993913": {},
+  "40536646": {},
+  "42065053": {},
+  "167987942": {},
+  "20268417": {},
+  "254254229": {}
+ },
+ "beats": [
+  {
+   "myth": "echidna",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "This spiky animal breaks the biggest mammal rule.",
+   "promise": true,
+   "label": {
+    "text": "RULE\nBREAKER",
+    "at": "breaks"
+   },
+   "sfx": [
+    "pop@breaks"
+   ],
+   "animal": "turn@rule",
+   "shots": [
+    {
+     "photo": "Tachyglossus aculeatus",
+     "obs": 332602366,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "So yes, a mammal that lays eggs. Because",
+   "short_title": "The Echidna Breaks the Biggest Rule of Being a Mammal 🦔",
+   "comment": "What did you guess the rule was?",
+   "bonus": "Echidnas have no nipples: the milk seeps from patches of skin inside the pouch.",
+   "sources": [
+    "Wikipedia, Short-beaked echidna (lays eggs, monotremes the only living mammals to do so; egg laid into a backward-facing pouch; young called puggles, ejected from the pouch at 2-3 months as their spines grow; milk from skin patches, monotremes lack nipples; spines are modified hairs made of keratin; keratinous 'teeth' on the roof of the mouth instead of real teeth; detects electric fields of 1.8 mV/cm and can dig up buried batteries; tongue extends up to 180 mm, in and out 100 times a minute; mating trains of up to 10 males; rolls into a ball or digs in when threatened; does not pant or sweat) — https://en.wikipedia.org/wiki/Short-beaked_echidna (checked 2026-10-25)"
+   ],
+   "_len": "deep",
+   "caption": "The short-beaked echidna is spiky, toothless and can sense electric fields. But that's not the weirdest thing about it. It breaks the biggest rule of being a mammal. #echidna #australia #animalfacts #mammals"
+  },
+  {
+   "myth": "echidna",
+   "pose": "think",
+   "act": "stand",
+   "say": "Which rule? Hold that thought.",
+   "label": {
+    "text": "WHICH\nRULE?",
+    "at": "rule"
+   },
+   "shots": [
+    {
+     "photo": "Tachyglossus aculeatus",
+     "obs": 332602366,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "echidna",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "I went to Australia to find out.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@Australia",
+   "shots": [
+    {
+     "photo": "Tachyglossus aculeatus",
+     "obs": 10697020,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "echidna",
+   "pose": "point",
+   "act": "stand",
+   "say": "Meet the echidna.",
+   "label": {
+    "text": "ECHIDNA",
+    "at": "echidna"
+   },
+   "shots": [
+    {
+     "photo": "Tachyglossus aculeatus",
+     "obs": 258110135,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "echidna",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: the spines?",
+   "decoy": true,
+   "label": {
+    "text": "SPINES?",
+    "at": "spines"
+   },
+   "shots": [
+    {
+     "photo": "Tachyglossus aculeatus",
+     "obs": 192170175,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "echidna",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "They're just hairs, made of keratin.",
+   "punch": "hairs",
+   "animal": "shake@keratin",
+   "shots": [
+    {
+     "photo": "Tachyglossus aculeatus",
+     "obs": 332602366,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "echidna",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Like your fingernails. Spiky ones.",
+   "punch": "Spiky",
+   "shots": [
+    {
+     "photo": "Tachyglossus aculeatus",
+     "obs": 10697020,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "echidna",
+   "pose": "point",
+   "act": "stand",
+   "say": "Porcupines have spines too.",
+   "punch": "too",
+   "shots": [
+    {
+     "photo": "Tachyglossus aculeatus",
+     "obs": 258110135,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "echidna",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: it has no real teeth?",
+   "decoy": true,
+   "label": {
+    "text": "NO\nTEETH?",
+    "at": "teeth"
+   },
+   "shots": [
+    {
+     "photo": "Tachyglossus aculeatus",
+     "obs": 192170175,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "echidna",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "True. Just hard ridges in its mouth.",
+   "animal": "strike@ridges",
+   "shots": [
+    {
+     "photo": "Tachyglossus aculeatus",
+     "obs": 332602366,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "echidna",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Weird. But not the big one.",
+   "punch": "big",
+   "shots": [
+    {
+     "photo": "Tachyglossus aculeatus",
+     "obs": 10697020,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "echidna",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Its snout even senses electricity.",
+   "sfx": [
+    "zap@electricity"
+   ],
+   "animal": "strike@electricity",
+   "shots": [
+    {
+     "photo": "Tachyglossus aculeatus",
+     "obs": 258110135,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "echidna",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "It has dug up buried batteries.",
+   "punch": "batteries",
+   "shots": [
+    {
+     "photo": "Tachyglossus aculeatus",
+     "obs": 192170175,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "echidna",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Here's the thing. I tried a hug.",
+   "punch": "hug",
+   "shots": [
+    {
+     "photo": "Tachyglossus aculeatus",
+     "obs": 332602366,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "echidna",
+   "pose": "shock",
+   "act": "launch",
+   "say": "Spines. All spines.",
+   "hit": "Spines",
+   "sfx": [
+    "crunch@Spines"
+   ],
+   "animal": "lunge@Spines",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Tachyglossus aculeatus",
+     "obs": 10697020,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "echidna",
+   "pose": "nervous",
+   "act": "tumble",
+   "say": "Tap like. I'm picking out spines.",
+   "act_at": "picking",
+   "sfx": [
+    "thud@picking"
+   ],
+   "shots": [
+    {
+     "photo": "Tachyglossus aculeatus",
+     "obs": 258110135,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "echidna",
+   "pose": "shock",
+   "act": "peek",
+   "say": "Wait. Where do baby echidnas come from?",
+   "punch": "baby",
+   "shots": [
+    {
+     "photo": "Tachyglossus aculeatus",
+     "obs": 192170175,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "echidna",
+   "pose": "shock",
+   "act": "stand",
+   "say": "An egg. It lays eggs.",
+   "payoff": true,
+   "label": {
+    "text": "MAMMAL\nEGGS",
+    "at": "egg"
+   },
+   "sfx": [
+    "zap@egg"
+   ],
+   "shots": [
+    {
+     "photo": "Tachyglossus aculeatus",
+     "obs": 10697020,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "echidna",
+   "pose": "point",
+   "act": "stand",
+   "say": "Only one mammal group does that.",
+   "label": {
+    "text": "MONO-\nTREMES",
+    "at": "group"
+   },
+   "shots": [
+    {
+     "photo": "Tachyglossus aculeatus",
+     "obs": 332602366,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "echidna",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Mom lays the egg into a pouch.",
+   "punch": "pouch",
+   "animal": "turn@pouch",
+   "shots": [
+    {
+     "photo": "Tachyglossus aculeatus",
+     "obs": 10697020,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "echidna",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The baby is called a puggle.",
+   "label": {
+    "text": "PUGGLE",
+    "at": "puggle"
+   },
+   "shots": [
+    {
+     "photo": "Tachyglossus aculeatus",
+     "obs": 258110135,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "echidna",
+   "pose": "shock",
+   "act": "stand",
+   "say": "And there are no nipples.",
+   "punch": "no",
+   "shots": [
+    {
+     "photo": "Tachyglossus aculeatus",
+     "obs": 192170175,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "echidna",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Milk just seeps from patches of skin.",
+   "animal": "shake@seeps",
+   "shots": [
+    {
+     "photo": "Tachyglossus aculeatus",
+     "obs": 332602366,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "echidna",
+   "pose": "point",
+   "act": "stand",
+   "say": "When its spines grow, it's kicked out.",
+   "punch": "kicked",
+   "shots": [
+    {
+     "photo": "Tachyglossus aculeatus",
+     "obs": 10697020,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "echidna",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Its tongue flicks a hundred times a minute.",
+   "label": {
+    "text": "100x\n/MIN",
+    "at": "hundred"
+   },
+   "shots": [
+    {
+     "photo": "Tachyglossus aculeatus",
+     "obs": 258110135,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "echidna",
+   "pose": "point",
+   "act": "stand",
+   "say": "Up to ten males follow one female.",
+   "label": {
+    "text": "LOVE\nTRAIN",
+    "at": "follow"
+   },
+   "shots": [
+    {
+     "photo": "Tachyglossus aculeatus",
+     "obs": 192170175,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "echidna",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "In a line. Like a little train.",
+   "punch": "train",
+   "animal": "turn@train",
+   "shots": [
+    {
+     "photo": "Tachyglossus aculeatus",
+     "obs": 332602366,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "echidna",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Scared? It rolls into a spiky ball.",
+   "animal": "shake@rolls",
+   "punch": "ball",
+   "shots": [
+    {
+     "photo": "Tachyglossus aculeatus",
+     "obs": 10697020,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "echidna",
+   "pose": "nervous",
+   "act": "tumble",
+   "say": "I also roll. Less effectively.",
+   "act_at": "roll",
+   "sfx": [
+    "boing@roll"
+   ],
+   "shots": [
+    {
+     "photo": "Tachyglossus aculeatus",
+     "obs": 258110135,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "echidna",
+   "pose": "point",
+   "act": "stand",
+   "say": "Follow for more rule-breaking animals.",
+   "sfx": [
+    "pop@Follow"
+   ],
+   "shots": [
+    {
+     "photo": "Tachyglossus aculeatus",
+     "obs": 192170175,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "echidna",
+   "pose": "think",
+   "act": "peek",
+   "say": "What did you guess the rule was? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Tachyglossus aculeatus",
+     "obs": 332602366,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "capybara",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "This is the biggest rodent on Earth.",
+   "label": {
+    "text": "BIGGEST\nRODENT",
+    "at": "biggest"
+   },
+   "sfx": [
+    "pop@biggest"
+   ],
+   "animal": "turn@Earth",
+   "shots": [
+    {
+     "photo": "Hydrochoerus hydrochaeris",
+     "obs": 57700291,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Chill, but enormous. Because",
+   "short_title": "The Biggest Rodent on Earth Holds Its Breath 5 Minutes 🦫",
+   "comment": "Would you swim with one?",
+   "bonus": "The Catholic Church once gave special permission to eat capybara during Lent.",
+   "sources": [
+    "Wikipedia, Capybara (largest living rodent; adults typically 35-66 kg; can hold their breath underwater up to five minutes; slightly webbed feet; cheek and front teeth grow continuously; autocoprophagous; Catholic Church previously issued special dispensation to eat it during Lent) — https://en.wikipedia.org/wiki/Capybara (checked 2026-10-25)"
+   ],
+   "_len": "short",
+   "caption": "The capybara is the largest living rodent, often 35-66 kg. It has webbed feet, can hold its breath underwater for up to five minutes, and its teeth never stop growing. #capybara #rodents #animalfacts #southamerica"
+  },
+  {
+   "myth": "capybara",
+   "pose": "shock",
+   "act": "stand",
+   "say": "A capybara. As heavy as an adult dog.",
+   "punch": "heavy",
+   "shots": [
+    {
+     "photo": "Hydrochoerus hydrochaeris",
+     "obs": 8066919,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "capybara",
+   "pose": "point",
+   "act": "stand",
+   "say": "Webbed feet. Built for swimming.",
+   "animal": "shake@Webbed",
+   "shots": [
+    {
+     "photo": "Hydrochoerus hydrochaeris",
+     "obs": 314871459,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "capybara",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It holds its breath five minutes.",
+   "label": {
+    "text": "5 MIN\nUNDER",
+    "at": "breath"
+   },
+   "shots": [
+    {
+     "photo": "Hydrochoerus hydrochaeris",
+     "obs": 243800534,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "capybara",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "I lasted four seconds.",
+   "act_at": "four",
+   "sfx": [
+    "thud@four"
+   ],
+   "shots": [
+    {
+     "photo": "Hydrochoerus hydrochaeris",
+     "obs": 57700291,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "capybara",
+   "pose": "point",
+   "act": "stand",
+   "say": "Its teeth never stop growing.",
+   "punch": "never",
+   "animal": "strike@teeth",
+   "shots": [
+    {
+     "photo": "Hydrochoerus hydrochaeris",
+     "obs": 8066919,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "capybara",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "So it chews constantly.",
+   "punch": "constantly",
+   "shots": [
+    {
+     "photo": "Hydrochoerus hydrochaeris",
+     "obs": 314871459,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "capybara",
+   "pose": "point",
+   "act": "stand",
+   "say": "Biggest rodent. Total vegetarian.",
+   "punch": "vegetarian",
+   "shots": [
+    {
+     "photo": "Hydrochoerus hydrochaeris",
+     "obs": 243800534,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "capybara",
+   "pose": "shock",
+   "act": "launch",
+   "say": "I asked it to stop chewing me.",
+   "hit": "me",
+   "sfx": [
+    "crunch@me"
+   ],
+   "animal": "lunge@me",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Hydrochoerus hydrochaeris",
+     "obs": 57700291,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "capybara",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Like and follow. I'm out of breath.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Hydrochoerus hydrochaeris",
+     "obs": 8066919,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "capybara",
+   "pose": "think",
+   "act": "peek",
+   "say": "Would you swim with one? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Hydrochoerus hydrochaeris",
+     "obs": 314871459,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "booby",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "These birds get blue feet from fish.",
+   "label": {
+    "text": "FISH\nFEET",
+    "at": "feet"
+   },
+   "sfx": [
+    "pop@feet"
+   ],
+   "animal": "turn@fish",
+   "shots": [
+    {
+     "photo": "Sula nebouxii",
+     "obs": 181993913,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Show me your feet. Because",
+   "short_title": "Blue-Footed Boobies Get Their Color From Fish 🐟",
+   "comment": "What color would your feet be?",
+   "bonus": "'Booby' comes from the Spanish 'bobo', for clumsy on land.",
+   "sources": [
+    "Wikipedia, Blue-footed booby (color from carotenoid pigments obtained from fresh fish; foot brightness drops with age and when hungry; females tend to choose males with brighter feet; male struts lifting feet up and down; plunge dives from 10-30.5 m, reaching 25 m below the surface; name from Spanish 'bobo') — https://en.wikipedia.org/wiki/Blue-footed_booby (checked 2026-10-25)"
+   ],
+   "_len": "short",
+   "caption": "Blue-footed boobies get their foot color from carotenoids in the fresh fish they eat, so brighter feet mean a well-fed, healthy bird, and females pick males with brighter feet. They plunge-dive from up to 30 m. #bluefootedbooby #galapagos #birds #animalfacts"
+  },
+  {
+   "myth": "booby",
+   "pose": "point",
+   "act": "stand",
+   "say": "Pigments in the fish turn them blue.",
+   "punch": "blue",
+   "shots": [
+    {
+     "photo": "Sula nebouxii",
+     "obs": 40536646,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "booby",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Brighter feet mean a healthier bird.",
+   "label": {
+    "text": "BRIGHT\n= HEALTHY",
+    "at": "Brighter"
+   },
+   "shots": [
+    {
+     "photo": "Sula nebouxii",
+     "obs": 42065053,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "booby",
+   "pose": "point",
+   "act": "stand",
+   "say": "Females pick the bluest feet.",
+   "animal": "shake@bluest",
+   "punch": "bluest",
+   "shots": [
+    {
+     "photo": "Sula nebouxii",
+     "obs": 167987942,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "booby",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "I painted my feet blue.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@painted",
+   "shots": [
+    {
+     "photo": "Sula nebouxii",
+     "obs": 181993913,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "booby",
+   "pose": "shock",
+   "act": "launch",
+   "say": "She saw right through it.",
+   "hit": "through",
+   "sfx": [
+    "crunch@through"
+   ],
+   "animal": "lunge@through",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Sula nebouxii",
+     "obs": 40536646,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "booby",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "They dive from about a hundred feet.",
+   "act_at": "dive",
+   "sfx": [
+    "thud@dive"
+   ],
+   "label": {
+    "text": "100 FT\nDIVE",
+    "at": "hundred"
+   },
+   "shots": [
+    {
+     "photo": "Sula nebouxii",
+     "obs": 42065053,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "booby",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Booby comes from the Spanish word bobo.",
+   "punch": "bobo",
+   "shots": [
+    {
+     "photo": "Sula nebouxii",
+     "obs": 167987942,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "booby",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Like and follow. I'm washing my feet.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Sula nebouxii",
+     "obs": 181993913,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "booby",
+   "pose": "think",
+   "act": "peek",
+   "say": "What color would your feet be? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Sula nebouxii",
+     "obs": 40536646,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "tortoise",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "This tortoise can go a year without food.",
+   "label": {
+    "text": "1 YEAR\nNO FOOD",
+    "at": "year"
+   },
+   "sfx": [
+    "pop@year"
+   ],
+   "animal": "turn@food",
+   "shots": [
+    {
+     "photo": "Chelonoidis",
+     "obs": 20268417,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Slow, old and unstoppable. Because",
+   "short_title": "Galápagos Tortoises Can Go a Year Without Food 🐢",
+   "comment": "How long could you go without snacks?",
+   "bonus": "Lonesome George, the last Pinta Island tortoise, died on 24 June 2012.",
+   "sources": [
+    "Wikipedia, Galápagos tortoise (over 100 years in the wild, up to 177 in captivity; up to 417 kg; can go up to a year without food or water; ships carried them as fresh meat, the Beagle left with over 30 adults; Lonesome George died 24 June 2012) — https://en.wikipedia.org/wiki/Gal%C3%A1pagos_tortoise (checked 2026-10-25)"
+   ],
+   "_len": "short",
+   "caption": "Galápagos tortoises can live over 100 years in the wild, weigh up to 417 kg, and survive up to a year without food or water. Sailors once stacked them on ships as fresh meat. #galapagos #tortoise #reptiles #animalfacts"
+  },
+  {
+   "myth": "tortoise",
+   "pose": "shock",
+   "act": "stand",
+   "say": "And without water.",
+   "punch": "water",
+   "shots": [
+    {
+     "photo": "Chelonoidis",
+     "obs": 254254229,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "tortoise",
+   "pose": "point",
+   "act": "stand",
+   "say": "It can live over a hundred years.",
+   "label": {
+    "text": "100+\nYEARS",
+    "at": "hundred"
+   },
+   "shots": [
+    {
+     "photo": "Chelonoidis",
+     "obs": 20268417,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "tortoise",
+   "pose": "shock",
+   "act": "stand",
+   "say": "And weigh over four hundred kilos.",
+   "label": {
+    "text": "400+\nKG",
+    "at": "kilos"
+   },
+   "animal": "shake@weigh",
+   "shots": [
+    {
+     "photo": "Chelonoidis",
+     "obs": 254254229,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "tortoise",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "I raced it to the snack table.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@snack",
+   "shots": [
+    {
+     "photo": "Chelonoidis",
+     "obs": 20268417,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "tortoise",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "I won. It didn't care.",
+   "act_at": "care",
+   "sfx": [
+    "thud@care"
+   ],
+   "shots": [
+    {
+     "photo": "Chelonoidis",
+     "obs": 254254229,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "tortoise",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Sailors once stacked them on ships.",
+   "punch": "ships",
+   "animal": "strike@ships",
+   "shots": [
+    {
+     "photo": "Chelonoidis",
+     "obs": 20268417,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "tortoise",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "As food. That's dark.",
+   "punch": "dark",
+   "shots": [
+    {
+     "photo": "Chelonoidis",
+     "obs": 254254229,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "tortoise",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Like and follow. Snacking for us both.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Chelonoidis",
+     "obs": 20268417,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "tortoise",
+   "pose": "think",
+   "act": "peek",
+   "say": "How long could you skip snacks? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Chelonoidis",
+     "obs": 254254229,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  }
+ ]
+}
