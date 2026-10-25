@@ -1,0 +1,435 @@
+diff --git a/skills/oh-meatball/tools/animal.py b/skills/oh-meatball/tools/animal.py
+index e51a0ed..73f4cac 100644
+--- a/skills/oh-meatball/tools/animal.py
++++ b/skills/oh-meatball/tools/animal.py
+@@ -140,6 +140,27 @@ def _mask(path, crop, reg):
+     return im, a, raw, m
+ 
+ 
++_OUTLINE = {}
++
++
++def outline(path, crop, reg, n=48):
++    """The cut-out's silhouette as n column strips in photo px, [(x0, x1, top, bottom)], so staging can let a
++    tall animal lean over Meatball's head where its body leaves room, not only stand beside his box."""
++    key = (path, tuple(crop or [0, 0, 1, 1]), tuple(reg))
++    if key not in _OUTLINE:
++        m = _mask(path, crop, reg)[3]
++        rx0, ry0, _, _ = _px(path, reg)
++        xs = np.nonzero(m.any(0))[0]
++        cuts = np.linspace(xs.min(), xs.max() + 1, n + 1).astype(int)
++        out = []
++        for a, b in zip(cuts, cuts[1:]):
++            rows = np.nonzero(m[:, a:max(b, a + 1)].any(1))[0]
++            if len(rows):
++                out.append((rx0 + a, rx0 + b, ry0 + rows.min(), ry0 + rows.max() + 1))
++        _OUTLINE[key] = out
++    return _OUTLINE[key]
++
++
+ def subject(path, crop, parent=None):
+     """Subject facts for one shot, boxes in crop fractions (a whole animal may extend past 0..1). A tighter
+     re-cut of a shot (`parent` = the shot's crop) uses its parent's region, so both share one outline."""
+@@ -345,11 +366,12 @@ def shake(dt, dur=0.7):
+     return 0.012 * env * math.sin(2 * math.pi * 14 * dt), 3.5 * env * math.sin(2 * math.pi * 11 * dt + 1)
+ 
+ 
+-def transform(moves, t, toward, seed, idle_kind="bob", n_left=None, ts=None, n_from=None):
++def transform(moves, t, toward, seed, idle_kind="bob", n_left=None, ts=None, n_from=None, reach=1.0):
+     """Combined move at beat time t (s); ts = seconds into the shot (the idle restarts each shot).
+     moves = [(name, t_at)]. Returns dict(dx, dy (frame-width fractions), s, sx, sy, rot (deg),
+     flip (0..1 progress of a turn: sx goes 1 -> -1 through a squash)). n_left / n_from = frames to the end /
+-    from the start of the Short: the move eases to rest there, so the loop's last frame matches frame 0."""
++    from the start of the Short: the move eases to rest there, so the loop's last frame matches frame 0.
++    reach scales how far a lunge or strike travels and swells (stage.frame_fit shortens it where room is tight)."""
+     dx, dy, s, sx, sy, rot = idle(t if ts is None else ts, idle_kind, seed)
+     flip = 0.0
+     for nm, ta in moves:
+@@ -368,6 +390,8 @@ def transform(moves, t, toward, seed, idle_kind="bob", n_left=None, ts=None, n_f
+             m = (0, 0.006 * sq, 1, 1, 1 - 0.07 * sq, 0)
+         else:
+             continue
++        if nm in ("lunge", "strike"):
++            m = (m[0] * reach, m[1], 1 + (m[2] - 1) * reach) + tuple(m[3:])
+         dx, dy, rot = dx + m[0], dy + m[1], rot + m[5]
+         s, sx, sy = s * m[2], sx * m[3], sy * m[4]
+     edge = min(n_left if n_left is not None else 99, n_from if n_from is not None else 99)
+diff --git a/skills/oh-meatball/tools/stage.py b/skills/oh-meatball/tools/stage.py
+index aaeeca8..56a7aa5 100644
+--- a/skills/oh-meatball/tools/stage.py
++++ b/skills/oh-meatball/tools/stage.py
+@@ -1,9 +1,10 @@
+ #!/usr/bin/env python3
+ """Shorts v4 staging (research/45). Two jobs:
+-  1. Meatball's mark and facing: on cut-out shots he keeps his left-hand mark (v3.HOME_V4); on a v3 still
++  1. Meatball's mark and facing: on cut-out shots he is tucked against the left edge (tuck()); on a v3 still
+      (the animal can't move) place() keeps him off its head (a pinned head box) unless the beat is a contact.
+   2. frame_fit(): re-frame a cut-out shot around the whole animal, as large as fits, with room for its moves,
+-     in the free space beside (or above) him, above the captions and inside the frame.
++     beside him (or leaning over his head where its outline leaves room: keepout(), strips()), above the
++     captions and inside the frame.
+ track() re-aims mascot.act_track so he faces the animal and flees, peeks and cowers on the far side.
+ Boxes are screen pixels (1080x1920).
+ """
+@@ -114,63 +115,132 @@ def place(shots, n, contact=False, home=0.24, size=1000):
+ 
+ # ---------------------------------------------------------------- fitting a cut-out (v4)
+ 
+-SAFE = (0.03 * W, 130.0, 0.97 * W, 1465.0)   # the animal stays inside this: clear of the Shorts UI and captions
+-GAP = 40.0   # clear air between Meatball (who leans and trembles) and the animal
++SAFE = (0.015 * W, 130.0, 0.985 * W, 1465.0)   # the animal stays inside this: clear of the Shorts UI and captions
++GAP = 18.0    # clear air between Meatball (who leans and trembles) and the animal
++PAD = 10.0    # the sticker's white stroke and a little more
++GMAX = 2.0    # largest scale, screen px per photo px (photos are ~2048 px; the outline is redrawn at this scale)
+ REACH = {"lunge": (0.12, 1.18), "strike": (0.09, 1.10)}   # forward reach (frame widths), peak scale
++REACHES = (1.0, 0.5)   # full forward reach, or a shorter one when the full one would shrink the animal
++ROT = {"lunge": 6.0, "strike": 5.0, "shake": 3.5}          # peak tilt (degrees) about the feet
+ 
+ 
+ LEAN = {"peek": 0.17, "loop_out": 0.17}   # acts that lean his head toward the animal (frame widths at size 1000)
+ 
+ 
+-def regions(x, size, side, top=SAFE[1], contact=False, act=None):
+-    """Free screen rectangles for the animal around Meatball's mark: beside him (on the animal's side) and
+-    above him. A contact beat lets the animal's box reach a quarter of the way into his."""
++def tuck(size):
++    """v4 bigger: Meatball's mark tucked against the frame's left edge at this size (whole body on screen)."""
++    return (MB_HALF_W * size / 1000 + 0.02 * W) / W
++
++
++AIRBORNE = ("tumble", "launch")   # acts that pass through the space above his mark
++
++
++def keepout(x, size, side, top=SAFE[1], contact=False, act=None):
++    """Where the animal and its moves may not go: dict(box = Meatball's body plus clear air, out to the frame
++    edge behind him; top = below a pop-in label). A contact beat lets the animal's move envelope reach
++    almost halfway into him (its outline sits inside that envelope, so it still touches him). On acts where
++    he falls in from above or is flung up, nothing may lean over his head."""
+     mb = mb_box(x, size)
+-    reach = 0.25 * (mb[2] - mb[0]) if contact else -GAP - LEAN.get(act, 0.0) * W * size / 1000
+-    beside = [mb[2] - reach, top, SAFE[2], SAFE[3]] if side == 1 else [SAFE[0], top, mb[0] + reach, SAFE[3]]
+-    above = [SAFE[0], top, SAFE[2], mb[1] - GAP]
+-    return [r for r in (beside, above) if r[2] - r[0] > 60 and r[3] - r[1] > 60]
++    d = -0.45 * (mb[2] - mb[0]) if contact else GAP + LEAN.get(act, 0.0) * W * size / 1000
++    d += 0.0 if contact or act not in AIRBORNE else 2 * GAP   # he spins as he falls or flies
++    y = -1e9 if act in AIRBORNE else mb[1] if contact else mb[1] - GAP
++    return dict(box=[-1e9, y, mb[2] + d, 1e9] if side == 1 else [mb[0] - d, y, 1e9, 1e9], top=top)
++
++
++SOLO = dict(box=[-1e9, -1e9, -1e9, -1e9], top=SAFE[1])   # no Meatball on screen (before a peek)
+ 
+ 
+-def envelope(box, moves, idle, toward, contact):
+-    """The screen box an animal can occupy during its moves: peak scale about its feet, drift, and (unless
+-    the beat is a contact) its forward reach toward Meatball."""
++def strips(sil, g, moves, idle, toward, contact, reach=1.0):
++    """The screen strips (x0, x1, top, bottom) the animal's outline can sweep during its moves, at scale g with
++    its photo origin at (0, 0): peak scale and tilt about its feet, a turn's mirror image, the idle bob or drift,
++    and (unless the beat is a contact) its forward reach toward Meatball and the wind-up back."""
+     names = [m for m, _ in moves]
+-    sc = max([REACH[m][1] for m in names if m in REACH] + [1.02])
+-    fwd = 0.0 if contact else max([REACH[m][0] for m in names if m in REACH] + [0.0]) * W
+-    x0, y0, x1, y1 = box
++    sc = max([1 + (REACH[m][1] - 1) * reach for m in names if m in REACH] + [1.02])
++    fwd = 0.0 if contact else max([REACH[m][0] for m in names if m in REACH] + [0.0]) * W * reach
++    back = 0.045 * W * reach if fwd else 0.0
++    rot = math.sin(math.radians(max([ROT[m] for m in names if m in ROT] + [1.0])))
++    x0, x1, feet = min(s[0] for s in sil) * g, max(s[1] for s in sil) * g, max(s[3] for s in sil) * g
+     cx = (x0 + x1) / 2
+-    e = [cx + sc * (x0 - cx), y1 + sc * (y0 - y1), cx + sc * (x1 - cx), y1]
+-    if idle == "drift":
+-        e = [e[0] - 0.02 * W, e[1] - 0.05 * W, e[2] + 0.02 * W, e[3] + 0.012 * W]
+-    else:
+-        e = [e[0] - 4, e[1] - 0.012 * W, e[2] + 4, e[3] + 4]
+-    if fwd:
+-        back = 0.045 * W   # the wind-up leans back before the snap
+-        e = ([e[0] - fwd, e[1] - 0.03 * W, e[2] + back, e[3]] if toward == -1 else
+-             [e[0] - back, e[1] - 0.03 * W, e[2] + fwd, e[3]])
+-    return e
+-
+-
+-def frame_fit(box, moves, idle, side, contact, rects, gmax=1.0):
+-    """Re-frame a cut-out shot around the whole animal. box = the animal in photo px. Returns
+-    dict(g, tx, ty): screen = (tx, ty) + g * photo px, the largest scale (up to gmax) at which the animal and
+-    the room its moves need fit one free rectangle; it stands on that rectangle's floor (floats in the
+-    middle if it drifts) at the edge nearest Meatball, so the two read as a scene."""
++    src = [(a * g, b * g, t * g, u * g) for a, b, t, u in sil]
++    if "turn" in names:
++        src += [(2 * cx - b, 2 * cx - a, t, u) for a, b, t, u in src]
++    out = []
++    for a, b, t, u in src:
++        a, b = cx + sc * 1.02 * (a - cx), cx + sc * 1.02 * (b - cx)   # 1.02: the squash widens it
++        t, u = feet - sc * (feet - t), feet - sc * (feet - u)
++        hx, hy = (feet - t) * rot, max(abs(a - cx), abs(b - cx)) * rot
++        a, b, t, u = a - hx, b + hx, t - hy, u + hy
++        if idle == "drift":
++            a, b, t, u = a - 0.02 * W, b + 0.02 * W, t - 0.05 * W, u + 0.012 * W
++        else:
++            a, b, t, u = a - 4, b + 4, t - 0.012 * W, u + 4
++        if fwd:
++            t -= 0.03 * W
++            a, b = (a - fwd, b + back) if toward == -1 else (a - back, b + fwd)
++        out.append((a - PAD, b + PAD, t - PAD, u + PAD))
++    return out
++
++
++def _place(st, keep, side, idle, outer=None):
++    """(tx, ty) for envelope strips st, or None: inside SAFE (below keep["top"]) and clear of Meatball's
++    keep-out box. outer (default st): the strips that must stay inside SAFE; on a contact beat they also hold
++    the forward reach that st leaves out, so a lunge into him never leaves the frame. A walker stands on
++    SAFE's floor; a drifter centres, rising clear of him if it must. Then it slides toward him as far as
++    stays clear, so the two read as a scene."""
++    k, top = keep["box"], keep["top"]
++    outer = outer or st
++    ex0, ex1 = min(s[0] for s in outer), max(s[1] for s in outer)
++    ey0, ey1 = min(s[2] for s in outer), max(s[3] for s in outer)
++    if ex1 - ex0 > SAFE[2] - SAFE[0] or ey1 - ey0 > SAFE[3] - top:
++        return None
++    tx = SAFE[2] - ex1 if side == 1 else SAFE[0] - ex0       # start as far from him as possible
++    ty = SAFE[3] - ey1 if idle != "drift" else ((top + SAFE[3]) - (ey0 + ey1)) / 2
++    hit = lambda tx, ty: max([s[3] + ty - k[1] for s in st if s[1] + tx > k[0] and s[0] + tx < k[2]] + [0.0])
++    if hit(tx, ty) > 0:
++        if idle != "drift":
++            return None
++        ty -= hit(tx, ty) + GAP
++    if ey0 + ty < top:
++        return None
++    lim = (SAFE[0] - ex0) if side == 1 else (SAFE[2] - ex1)
++    while abs(tx - lim) > 1e-6:
++        nx = max(lim, tx - 6.0) if side == 1 else min(lim, tx + 6.0)
++        if hit(nx, ty) > 0:
++            break
++        tx = nx
++    return tx, ty
++
++
++def _largest(fit, gmax):
++    """(g, (tx, ty)) for the largest scale up to gmax that fit() places, or None."""
++    pos = fit(gmax)
++    if pos:
++        return gmax, pos
++    lo, hi, pos = 0.02, gmax, None
++    for _ in range(16):
++        mid = (lo + hi) / 2
++        p = fit(mid)
++        lo, hi, pos = (mid, hi, p) if p else (lo, mid, pos)
++    return (lo, pos) if pos else None
++
++
++def frame_fit(sil, moves, idle, side, contact, keep, gmax=GMAX):
++    """Re-frame a cut-out shot around the whole animal. sil = its outline strips in photo px (animal.outline).
++    Returns dict(g, tx, ty, env): screen = (tx, ty) + g * photo px, the largest scale (up to gmax) at which the
++    animal and the room its moves need fit the frame without reaching Meatball. The test uses the animal's
++    real outline, so a tall animal may lean over his head where its body leaves room. fit["reach"] scales
++    the forward travel of its lunge or strike (animal.transform) where the full reach would cost size."""
+     best = None
+-    for r, pref in zip(rects, (1.0, 0.5)):   # beside him (on the ground) beats floating above him
+-        g = gmax
+-        for _ in range(6):
+-            e = envelope([v * g for v in box], moves, idle, -side, contact)
+-            k = min(1.0, (r[2] - r[0]) / (e[2] - e[0]), (r[3] - r[1]) / (e[3] - e[1]))
+-            if k >= 0.999:
+-                break
+-            g *= k * 0.995
+-        ex = r[0] - e[0] if side == 1 else r[2] - e[2]
+-        ey = ((r[1] + r[3]) - (e[1] + e[3])) / 2 if idle == "drift" else r[3] - e[3]
+-        if best is None or g * pref > best[0]:
+-            best = (g * pref, dict(g=g, tx=ex, ty=ey, env=[e[0] + ex, e[1] + ey, e[2] + ex, e[3] + ey]))
+-    return best[1]
++    for reach in REACHES:   # a lunge or strike that would cost the animal size reaches less far instead
++        st = lambda g, r=reach: strips(sil, g, moves, idle, -side, contact, r)
++        so = lambda g, r=reach: strips(sil, g, moves, idle, -side, False, r)
++        fit = _largest(lambda g: _place(st(g), keep, side, idle, so(g)), gmax) or (0.02, (SAFE[0], SAFE[1]))
++        if best is None or fit[0] > best[0][0] * 1.08:
++            best = (fit, reach, so)
++    (g, (tx, ty)), reach, so = best
++    e = so(g)
++    env = [min(s[0] for s in e) + tx, min(s[2] for s in e) + ty, max(s[1] for s in e) + tx, max(s[3] for s in e) + ty]
++    return dict(g=g, tx=tx, ty=ty, env=env, reach=reach)
+ 
+ 
+ # acts whose v3 track already moves the right way when the animal is on Meatball's RIGHT (+1) or LEFT (-1)
+@@ -180,7 +250,8 @@ TRAVEL = ("run_in", "run_off", "run_across", "launch")
+ 
+ def track(mascot, act, n, fps, t_act, home, side, seed):
+     """mascot.act_track re-aimed for the v4 layout: he faces the animal, flees and is flung away from it,
+-    peeks and cowers from the far edge, and a peek ends on his mark instead of a fixed spot."""
++    peeks and cowers from the far edge, and a peek ends on his mark instead of a fixed spot. A peek's entries
++    carry "peek" (0 off screen .. 1 on his mark), which pulls a cut-out back from its solo framing."""
+     mirror = side != BASE_SIDE.get(act, 1)
+     built = 1 - home if (mirror and act in TRAVEL) else home
+     out = []
+@@ -191,6 +262,7 @@ def track(mascot, act, n, fps, t_act, home, side, seed):
+             p = (1.4 - e["x"]) / 0.5
+             mark = 1 - home if mirror else home
+             e["x"] = 1.4 + (mark - 1.4) * p
++            e["peek"] = 0.0 if e.get("hidden") else min(1.0, max(0.0, p))   # 0 off screen .. 1 on his mark
+         elif act == "hide":               # cower at the edge away from the animal, leaning toward it
+             e["x"], e["rot"], m = (0.14 if side == 1 else 0.86), 8.0 * side, False
+         if m:
+diff --git a/skills/oh-meatball/tools/v3.py b/skills/oh-meatball/tools/v3.py
+index 3ffac22..f003fb3 100644
+--- a/skills/oh-meatball/tools/v3.py
++++ b/skills/oh-meatball/tools/v3.py
+@@ -26,14 +26,17 @@ Photos come from explainer.photo() (pinned iNaturalist observations, full resolu
+ "style": "v4" (research/45) adds, on top of everything above:
+   whole-animal cut-outs  every photo shot is cut out (tools/animal.py): the WHOLE animal, holes under 1%
+                          filled, contour smoothed, 1 px under a uniform white stroke, soft shadow. The shot is
+-                         re-framed around it (tools/stage.py): as large as fits beside Meatball (above him if
+-                         it must), clear of him, the captions and the frame edge, standing on the free space's
+-                         floor, over its own photo blurred and dimmed with the animal painted out
++                         re-framed around it (tools/stage.py): as large as fits beside Meatball, leaning over
++                         his head where its outline leaves room, clear of him, the captions and the frame edge,
++                         standing on the floor, over its own photo blurred and dimmed with the animal painted
++                         out. Before he peeks in on a hook, it has the frame to itself and pulls back as he
++                         arrives; a lunge or strike reaches less far where the full reach would cost size
+   animal acting          the cut-out always moves (bob, or "drift" for floaters); beat "animal": "lunge@kick" /
+                          ["turn@twists", "shake@inside"] adds lunge|kick|charge, strike|snap|sting, shake,
+                          turn|look, timed to a word, with a matching SFX unless the beat has one there
+-  Meatball               keeps his left-hand mark and faces the animal; flees, is flung, peeks and cowers away
+-                         from it (on a v3 still his mark comes from the pinned head instead)
++  Meatball               tucked against the left edge (760, or 0.84x / 0.72x of that when it lets the animal
++                         grow) and faces the animal; flees, is flung, peeks and cowers away from it (on a v3
++                         still his mark comes from the pinned head instead)
+   beat "contact": true   Meatball and the animal may touch (a poke, a sting, a kick)
+   spec "subjects"        per iNaturalist obs: {"head": [x0, y0, x1, y1] photo fractions (steers Meatball on a
+                          v3 still), "cutout": false, "idle": "drift"}
+@@ -71,7 +74,7 @@ CAP_Y = 1560
+ MAX_SHOT = 2.4    # a shot longer than this is re-cut to a tighter crop of the same photo (gate: 2.5 s)
+ PUSH = 0.045      # zoom per second of the slow push (v2: 0.036)
+ HOME = 0.24       # Meatball's mark: left of centre, so the animal (centred in each crop) stays visible
+-HOME_V4, SIZE_V4 = 0.21, 880   # v4: a little smaller and nearer the edge, so a whole animal fits beside him
++HOME_V4, SIZE_V4 = 0.21, 760   # v4: smaller and tucked at the edge (stage.tuck), so the animal gets most of the frame
+ PLAN = {}         # filled before the frame workers fork
+ 
+ 
+@@ -268,29 +271,37 @@ def subject(sh, s, pin):
+ 
+ 
+ def stage_v4(shots, n, b, moves, top, act):
+-    """v4 staging for one line. Meatball's mark: clear of the head on v3 stills (stage.place), else on the
+-    side away from the animal. Each cut-out shot is then re-framed around the WHOLE animal (stage.frame_fit):
+-    as large as fits, with room for its moves, beside or above him and above the captions."""
++    """v4 staging for one line. Meatball's mark: clear of the head on v3 stills (stage.place), else tucked
++    against the left edge (a little smaller when that lets the animal grow). Each cut-out shot is then
++    re-framed around the WHOLE animal (stage.frame_fit): as large as fits, with room for its moves, beside him
++    or leaning over his head where its outline leaves room, above the captions and inside the frame."""
+     contact = bool(b.get("contact"))
+     stills = [s for s in shots if not s.get("cut")]
+     cuts = [s for s in shots if s.get("cut")]
++    side = 1
+     if any(s.get("subj") for s in stills):
+         x, size, side, _ = stage.place(stills, n, contact, HOME_V4, int(b.get("size", SIZE_V4)))
+-    else:  # cut-outs are re-framed anyway: keep his v3 mark (left) so he doesn't hop sides between lines
+-        x, size, side = HOME_V4, int(b.get("size", SIZE_V4)), 1
++        marks = [(x, size)]
++    else:  # cut-outs are re-framed anyway: keep him on the left so he doesn't hop sides between lines
++        size = int(b.get("size", SIZE_V4))
++        marks = [(stage.tuck(sz), sz) for sz in (size, int(size * 0.84), int(size * 0.72))]
+     best = None
+-    for sz in (size, int(size * 0.85)):
+-        fits = [stage.frame_fit(animal.photo_box(s["path"], s["subj"]), moves, s["idle"], side, contact,
+-                                stage.regions(x, sz, side, top, contact, act), gmax=1.4) for s in cuts]
++    for x, sz in marks:
++        keep = stage.keepout(x, sz, side, top, contact, act)
++        fits = [stage.frame_fit(outline(s), moves, s["idle"], side, contact, keep) for s in cuts]
+         worst = min([ft["g"] for ft in fits] + [9.0])
+-        if best is None or worst > best[0] * 1.25:
+-            best = (worst, sz, fits)
+-    _, size, fits = best
++        if best is None or worst > best[0] * 1.08:
++            best = (worst, x, sz, fits)
++    _, x, size, fits = best
+     for s, ft in zip(cuts, fits):
+         s["fit"] = ft
+     return x, size, side
+ 
+ 
++def outline(sh):
++    return animal.outline(sh["path"], sh["crop"], sh["reg"])
++
++
+ def plan_beats(spec, work):
+     name, rate = spec.get("voice", "en-US-AndrewNeural"), spec.get("rate", "+0%")
+     tempo = float(spec.get("tempo", 1.0))
+@@ -360,14 +371,20 @@ def plan_beats(spec, work):
+                 h0 = out[0]
+                 x, size, side = h0["x"], h0["size"], h0["side"]
+                 for s_ in shots:  # a tighter re-cut of the loop shot shares its parent's framing
+-                    s_["fit"] = next((t["fit"] for t in h0["shots"] if t.get("fit") and (t["path"], t["crop"])
+-                                      == (s_["path"], s_.get("parent") or s_["crop"])), None)
++                    t0 = next((t for t in h0["shots"] if t.get("fit") and (t["path"], t["crop"])
++                               == (s_["path"], s_.get("parent") or s_["crop"])), {})
++                    s_["fit"], s_["solo"] = t0.get("fit"), t0.get("solo")
+                     if s_.get("cut") and s_["fit"] is None:
+-                        s_["fit"] = stage.frame_fit(animal.photo_box(s_["path"], s_["subj"]), moves, s_["idle"],
+-                                                    side, False, stage.regions(x, size, side, act="peek"), gmax=1.4)
++                        s_["fit"] = stage.frame_fit(outline(s_), moves, s_["idle"], side, False,
++                                                    stage.keepout(x, size, side, act="peek"))
+             elif "x" not in b:
+                 top = 330 + lab_img.shape[0] / 2 + 12 if lab else stage.SAFE[1]
+                 x, size, side = stage_v4(shots, n, b, moves, top, act)
++                if act == "peek":  # before he peeks in, the animal has the frame to itself: big opening frame
++                    for s_ in shots:
++                        if s_.get("cut"):
++                            s_["solo"] = stage.frame_fit(outline(s_), moves, s_["idle"], side, False,
++                                                         dict(stage.SOLO, top=top))
+             trk = stage.track(mascot, act, n, FPS, t_act, x, side, i)
+         else:
+             trk = mascot.act_track(act, n, FPS, t_act, x, seed=i)
+@@ -412,10 +429,10 @@ def shot_view(bt, sh, f):
+ _LAYERS = {}
+ 
+ 
+-def layer(sh):
++def layer(sh, g=None):
+     """v4: (blurred painted-out background at g_bg, premultiplied animal sticker at g, sticker offset, g_bg),
+-    cached per photo and scale."""
+-    g = round(sh["fit"]["g"], 4)
++    cached per photo and scale. g defaults to the shot's fit."""
++    g = round(g or sh["fit"]["g"], 4)
+     pw, ph = stage.crop_size(sh["path"], [0, 0, 1, 1])
+     g_bg = round(max(g, W / pw, H / ph), 4)   # the background always covers the frame
+     key = (sh["path"], tuple(sh["reg"]), g, g_bg, sh["blur"])
+@@ -442,21 +459,27 @@ def picture(bt, sh, f, g, dx=0.0):
+         return view(img, z, dx), None
+     bg, st, (ox, oy), g_bg = layer(sh)
+     ft = sh["fit"]
+-    gs = ft["g"]
++    gs, tx, ty, k = ft["g"], ft["tx"], ft["ty"], 1.0
++    q = bt["trk"][min(f, len(bt["trk"]) - 1)].get("peek", 1.0)
++    if sh.get("solo") and q < 1:  # he is peeking in: pull back from the solo framing as he arrives
++        so, e = sh["solo"], q * q * (3 - 2 * q)
++        gs, tx, ty = (so[c] + (ft[c] - so[c]) * e for c in ("g", "tx", "ty"))
++        _, st, (ox, oy), _ = layer(sh, so["g"])   # the background stays the fit's: only the animal moves
++        k = gs / round(so["g"], 4)
+     pb = animal.photo_box(sh["path"], sh["subj"])
+     pcx, pcy = (pb[0] + pb[2]) / 2, (pb[1] + pb[3]) / 2
+-    scx, scy = ft["tx"] + gs * pcx, ft["ty"] + gs * pcy          # the animal's centre on screen
++    scx, scy = tx + gs * pcx, ty + gs * pcy          # the animal's centre on screen
+     bh, bw = bg.shape[:2]   # background: same spot of the photo behind the animal, clamped to cover the frame
+     bx = min(0.0, max(W - bw, scx - g_bg * pcx))
+     by = min(0.0, max(H - bh, scy - g_bg * pcy))
+     Mb = np.float32([[z, 0, W / 2 - z * W / 2 + z * bx + dx], [0, z, H / 2 - z * H / 2 + z * by]])
+     out = cv2.warpAffine(bg, Mb, (W, H), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
+     # the cut-out takes no push: a little parallax against the background
+-    V = np.array([[1, 0, ft["tx"] + ox + dx], [0, 1, ft["ty"] + oy], [0, 0, 1]])
+-    a = (scx + dx, scy if sh["idle"] == "drift" else ft["ty"] + gs * pb[3])
++    V = np.array([[k, 0, tx + k * ox + dx], [0, k, ty + k * oy], [0, 0, 1]])
++    a = (scx + dx, scy if sh["idle"] == "drift" else ty + gs * pb[3])
+     toward = 1 if bt["x"] * W >= a[0] else -1
+     mv = animal.transform(bt["moves"], f / FPS, toward, sh["no"], sh["idle"], n_left=PLAN["total"] - 1 - g,
+-                          ts=(f - sh["f0"]) / FPS, n_from=g)
++                          ts=(f - sh["f0"]) / FPS, n_from=g, reach=ft.get("reach", 1.0))
+     r = math.radians(mv["rot"])
+     sc = mv["s"]
+     A = np.array([[math.cos(r), -math.sin(r), 0], [math.sin(r), math.cos(r), 0], [0, 0, 1]]) @ np.diag(
+@@ -655,6 +678,8 @@ def build(spec, work, out, music=None):
+             base(s["path"], s["crop"], s["blur"])
+             if s.get("cut"):
+                 layer(s)
++                if s.get("solo"):
++                    layer(s, s["solo"]["g"])
+     total = total_f / FPS
+     gate(beats, total)
+     if v4:

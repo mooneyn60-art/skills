@@ -1,0 +1,519 @@
+{
+ "_note": "Animal size = whole cut-out at rest, % of the 1080x1920 frame, weighted by screen time over cut-out (non-host) shots. h = height/1920; ext = max(height/1920, width/1080) (width counts for long animals). first = frame 0. QA overlap = frames per beat from the render gate (Meatball over the animal >300 px; contact beats may touch).",
+ "cassowary": {
+  "old": {
+   "shots": 14,
+   "med_h": 0.268,
+   "min_h": 0.127,
+   "med_ext": 0.495,
+   "min_ext": 0.244,
+   "first_h": 0.127,
+   "first_ext": 0.349,
+   "max_g": 0.726,
+   "mb_sizes": [
+    748,
+    880
+   ]
+  },
+  "new": {
+   "shots": 14,
+   "med_h": 0.342,
+   "min_h": 0.175,
+   "med_ext": 0.515,
+   "min_ext": 0.423,
+   "first_h": 0.322,
+   "first_ext": 0.889,
+   "max_g": 0.975,
+   "mb_sizes": [
+    547,
+    638,
+    760
+   ]
+  },
+  "overlap_old": {
+   "3": {
+    "act": "tumble",
+    "contact": false,
+    "meatball": 4,
+    "captions": 0,
+    "clipped": 0
+   },
+   "4": {
+    "act": "launch",
+    "contact": true,
+    "meatball": 10,
+    "captions": 0,
+    "clipped": 0
+   },
+   "5": {
+    "act": "tumble",
+    "contact": false,
+    "meatball": 1,
+    "captions": 0,
+    "clipped": 0
+   }
+  },
+  "overlap_new": {
+   "3": {
+    "act": "tumble",
+    "contact": false,
+    "meatball": 5,
+    "captions": 0,
+    "clipped": 0
+   },
+   "4": {
+    "act": "launch",
+    "contact": true,
+    "meatball": 11,
+    "captions": 0,
+    "clipped": 0
+   },
+   "5": {
+    "act": "tumble",
+    "contact": false,
+    "meatball": 2,
+    "captions": 0,
+    "clipped": 0
+   }
+  },
+  "shots_new": [
+   {
+    "beat": 0,
+    "h": 0.175,
+    "w": 0.483,
+    "meatball": 638,
+    "g": 0.53
+   },
+   {
+    "beat": 0,
+    "h": 0.474,
+    "w": 0.407,
+    "meatball": 638,
+    "g": 0.504
+   },
+   {
+    "beat": 1,
+    "h": 0.438,
+    "w": 0.579,
+    "meatball": 638,
+    "g": 0.745
+   },
+   {
+    "beat": 2,
+    "h": 0.232,
+    "w": 0.423,
+    "meatball": 638,
+    "g": 0.431
+   },
+   {
+    "beat": 3,
+    "h": 0.35,
+    "w": 0.515,
+    "meatball": 638,
+    "g": 0.667
+   },
+   {
+    "beat": 3,
+    "h": 0.35,
+    "w": 0.515,
+    "meatball": 638,
+    "g": 0.667
+   },
+   {
+    "beat": 4,
+    "h": 0.592,
+    "w": 0.508,
+    "meatball": 760,
+    "g": 0.63
+   },
+   {
+    "beat": 4,
+    "h": 0.21,
+    "w": 0.584,
+    "meatball": 760,
+    "g": 0.643
+   },
+   {
+    "beat": 5,
+    "h": 0.299,
+    "w": 0.554,
+    "meatball": 638,
+    "g": 0.812
+   },
+   {
+    "beat": 6,
+    "h": 0.342,
+    "w": 0.452,
+    "meatball": 638,
+    "g": 0.581
+   },
+   {
+    "beat": 6,
+    "h": 0.342,
+    "w": 0.452,
+    "meatball": 638,
+    "g": 0.581
+   },
+   {
+    "beat": 8,
+    "h": 0.36,
+    "w": 0.666,
+    "meatball": 547,
+    "g": 0.975
+   },
+   {
+    "beat": 10,
+    "h": 0.423,
+    "w": 0.363,
+    "meatball": 547,
+    "g": 0.45
+   },
+   {
+    "beat": 11,
+    "h": 0.175,
+    "w": 0.483,
+    "meatball": 638,
+    "g": 0.53
+   }
+  ]
+ },
+ "boxjelly": {
+  "old": {
+   "shots": 12,
+   "med_h": 0.242,
+   "min_h": 0.113,
+   "med_ext": 0.465,
+   "min_ext": 0.318,
+   "first_h": 0.16,
+   "first_ext": 0.318,
+   "max_g": 1.4,
+   "mb_sizes": [
+    748,
+    880
+   ]
+  },
+  "new": {
+   "shots": 12,
+   "med_h": 0.322,
+   "min_h": 0.226,
+   "med_ext": 0.634,
+   "min_ext": 0.502,
+   "first_h": 0.432,
+   "first_ext": 0.857,
+   "max_g": 2.0,
+   "mb_sizes": [
+    547,
+    638,
+    760
+   ]
+  },
+  "overlap_old": {
+   "2": {
+    "act": "tumble",
+    "contact": false,
+    "meatball": 1,
+    "captions": 0,
+    "clipped": 0
+   },
+   "5": {
+    "act": "puff",
+    "contact": true,
+    "meatball": 16,
+    "captions": 0,
+    "clipped": 0
+   }
+  },
+  "overlap_new": {
+   "2": {
+    "act": "tumble",
+    "contact": false,
+    "meatball": 3,
+    "captions": 0,
+    "clipped": 0
+   },
+   "5": {
+    "act": "puff",
+    "contact": true,
+    "meatball": 15,
+    "captions": 0,
+    "clipped": 0
+   }
+  },
+  "shots_new": [
+   {
+    "beat": 0,
+    "h": 0.266,
+    "w": 0.527,
+    "meatball": 547,
+    "g": 0.496
+   },
+   {
+    "beat": 0,
+    "h": 0.269,
+    "w": 0.756,
+    "meatball": 547,
+    "g": 1.064
+   },
+   {
+    "beat": 1,
+    "h": 0.273,
+    "w": 0.77,
+    "meatball": 547,
+    "g": 1.082
+   },
+   {
+    "beat": 2,
+    "h": 0.226,
+    "w": 0.524,
+    "meatball": 638,
+    "g": 0.679
+   },
+   {
+    "beat": 3,
+    "h": 0.397,
+    "w": 0.763,
+    "meatball": 547,
+    "g": 0.659
+   },
+   {
+    "beat": 4,
+    "h": 0.634,
+    "w": 0.448,
+    "meatball": 760,
+    "g": 1.043
+   },
+   {
+    "beat": 5,
+    "h": 0.341,
+    "w": 0.676,
+    "meatball": 760,
+    "g": 0.636
+   },
+   {
+    "beat": 6,
+    "h": 0.389,
+    "w": 0.502,
+    "meatball": 547,
+    "g": 2.0
+   },
+   {
+    "beat": 6,
+    "h": 0.322,
+    "w": 0.747,
+    "meatball": 547,
+    "g": 0.967
+   },
+   {
+    "beat": 8,
+    "h": 0.327,
+    "w": 0.553,
+    "meatball": 638,
+    "g": 0.596
+   },
+   {
+    "beat": 11,
+    "h": 0.293,
+    "w": 0.825,
+    "meatball": 760,
+    "g": 1.16
+   },
+   {
+    "beat": 12,
+    "h": 0.266,
+    "w": 0.527,
+    "meatball": 547,
+    "g": 0.496
+   }
+  ]
+ },
+ "badger": {
+  "old": {
+   "shots": 15,
+   "med_h": 0.152,
+   "min_h": 0.085,
+   "med_ext": 0.495,
+   "min_ext": 0.338,
+   "first_h": 0.085,
+   "first_ext": 0.349,
+   "max_g": 1.4,
+   "mb_sizes": [
+    880
+   ]
+  },
+  "new": {
+   "shots": 15,
+   "med_h": 0.166,
+   "min_h": 0.129,
+   "med_ext": 0.561,
+   "min_ext": 0.481,
+   "first_h": 0.214,
+   "first_ext": 0.885,
+   "max_g": 1.557,
+   "mb_sizes": [
+    547,
+    638,
+    760
+   ]
+  },
+  "overlap_old": {
+   "5": {
+    "act": "launch",
+    "contact": true,
+    "meatball": 5,
+    "captions": 0,
+    "clipped": 0
+   },
+   "6": {
+    "act": "tumble",
+    "contact": false,
+    "meatball": 2,
+    "captions": 0,
+    "clipped": 0
+   },
+   "7": {
+    "act": "hit",
+    "contact": true,
+    "meatball": 24,
+    "captions": 0,
+    "clipped": 0
+   }
+  },
+  "overlap_new": {
+   "2": {
+    "act": "run_in",
+    "contact": true,
+    "meatball": 7,
+    "captions": 0,
+    "clipped": 0
+   },
+   "5": {
+    "act": "launch",
+    "contact": true,
+    "meatball": 7,
+    "captions": 0,
+    "clipped": 0
+   },
+   "6": {
+    "act": "tumble",
+    "contact": false,
+    "meatball": 1,
+    "captions": 0,
+    "clipped": 0
+   },
+   "7": {
+    "act": "hit",
+    "contact": true,
+    "meatball": 26,
+    "captions": 0,
+    "clipped": 0
+   }
+  },
+  "shots_new": [
+   {
+    "beat": 0,
+    "h": 0.129,
+    "w": 0.535,
+    "meatball": 547,
+    "g": 0.942
+   },
+   {
+    "beat": 0,
+    "h": 0.242,
+    "w": 0.522,
+    "meatball": 547,
+    "g": 0.878
+   },
+   {
+    "beat": 1,
+    "h": 0.157,
+    "w": 0.592,
+    "meatball": 638,
+    "g": 0.678
+   },
+   {
+    "beat": 2,
+    "h": 0.166,
+    "w": 0.696,
+    "meatball": 760,
+    "g": 1.224
+   },
+   {
+    "beat": 3,
+    "h": 0.272,
+    "w": 0.588,
+    "meatball": 638,
+    "g": 0.991
+   },
+   {
+    "beat": 3,
+    "h": 0.203,
+    "w": 0.591,
+    "meatball": 638,
+    "g": 0.874
+   },
+   {
+    "beat": 3,
+    "h": 0.143,
+    "w": 0.593,
+    "meatball": 638,
+    "g": 1.043
+   },
+   {
+    "beat": 4,
+    "h": 0.223,
+    "w": 0.481,
+    "meatball": 638,
+    "g": 0.81
+   },
+   {
+    "beat": 4,
+    "h": 0.223,
+    "w": 0.481,
+    "meatball": 638,
+    "g": 0.81
+   },
+   {
+    "beat": 5,
+    "h": 0.274,
+    "w": 0.594,
+    "meatball": 760,
+    "g": 1.001
+   },
+   {
+    "beat": 6,
+    "h": 0.136,
+    "w": 0.561,
+    "meatball": 638,
+    "g": 0.987
+   },
+   {
+    "beat": 7,
+    "h": 0.426,
+    "w": 0.643,
+    "meatball": 760,
+    "g": 1.557
+   },
+   {
+    "beat": 9,
+    "h": 0.133,
+    "w": 0.545,
+    "meatball": 547,
+    "g": 0.958
+   },
+   {
+    "beat": 11,
+    "h": 0.129,
+    "w": 0.535,
+    "meatball": 547,
+    "g": 0.942
+   },
+   {
+    "beat": 11,
+    "h": 0.129,
+    "w": 0.535,
+    "meatball": 547,
+    "g": 0.942
+   }
+  ]
+ }
+}
