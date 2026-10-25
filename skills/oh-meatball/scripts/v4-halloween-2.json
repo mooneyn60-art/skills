@@ -1,0 +1,2874 @@
+{
+ "title": "Halloween week 2 (Shorts v4, Andrew): raven, ribbed newt, wheel bug + scorpion, burying beetle, luna moth deep dives",
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+0%",
+ "short_rate": "+0%",
+ "tempo": 1.1,
+ "music": "music/quiz-bed.m4a",
+ "style": "v4",
+ "_note": "Fill run 2026-10-25 (Studio + Postmaster) for the open Halloween-week slots 10/29-10/31. 3 YouTube Shorts at 20-25 s (raven, Iberian ribbed newt, wheel bug), claim-first; 3 TikTok deep dives at 61-75 s (scorpion UV glow, burying beetle, luna moth) with the open loop (promise in lines 1-3, two decoys, payoff at 50-80%; all pass tools/openloop.py). None of these animals appear in data/posted.csv or any earlier script. Meatball in jeopardy, lines 8 words or fewer, asks in character and never in the first 3 s, no quiz cards, no read-outs, every 'at' anchor a word. Voice en-US-AndrewMultilingualNeural +0% then atempo 1.10 (= +10%). Photos: iNaturalist research-grade, wild, CC0/CC BY (license confirmed via the API), whole animal, cut-outs checked by eye. Facts web-checked 10/25; sources on each hook beat.",
+ "names": {
+  "Corvus corax": "Common raven",
+  "Pleurodeles waltl": "Iberian ribbed newt",
+  "Arilus cristatus": "Wheel bug",
+  "Centruroides vittatus": "Striped bark scorpion",
+  "Nicrophorus": "Burying beetle",
+  "Actias luna": "Luna moth"
+ },
+ "subjects": {
+  "259682291": {},
+  "85011317": {},
+  "68345416": {},
+  "24742117": {},
+  "232943996": {},
+  "249745403": {},
+  "216890909": {},
+  "313851153": {},
+  "290212162": {},
+  "31220723": {},
+  "17358775": {},
+  "185091754": {},
+  "914788": {},
+  "140449697": {},
+  "307774649": {},
+  "303535130": {},
+  "228097379": {},
+  "358727325": {},
+  "264617923": {},
+  "55652031": {},
+  "41485428": {},
+  "71094596": {},
+  "77522653": {},
+  "114933835": {}
+ },
+ "beats": [
+  {
+   "myth": "raven",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Ravens fake hiding their food. On purpose.",
+   "label": {
+    "text": "FAKE\nSTASH",
+    "at": "fake"
+   },
+   "sfx": [
+    "pop@fake"
+   ],
+   "animal": "turn@purpose",
+   "shots": [
+    {
+     "photo": "Corvus corax",
+     "obs": 259682291,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Never trust a raven. Because",
+   "short_title": "Ravens Fake-Hide Their Food to Fool Thieves 🐦‍⬛",
+   "comment": "Has a bird ever outsmarted you? 👇",
+   "bonus": "Ravens have been seen sliding down snowbanks, apparently just for fun.",
+   "sources": [
+    "Wikipedia, Common raven (learns to hide food out of sight of other ravens; 'pretending to make a cache without actually depositing the food', presumably to confuse onlookers; can mimic sounds including human speech; slides down snowbanks apparently for fun) — https://en.wikipedia.org/wiki/Common_raven (checked 2026-10-25)",
+    "Bugnyar & Kotrschal 2002, Animal Behaviour 64: 185-195, 'Observational learning and the raiding of food caches in ravens, Corvus corax: is it tactical deception?' (cachers delay caching and move caches when watched) — https://doi.org/10.1006/anbe.2002.3056"
+   ],
+   "_len": "short",
+   "caption": "Ravens pretend to bury food when another raven is watching, then hide the real stash somewhere else. They can mimic human speech too. #raven #halloween #birds #animalfacts"
+  },
+  {
+   "myth": "raven",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I watched where one hid lunch.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@lunch",
+   "shots": [
+    {
+     "photo": "Corvus corax",
+     "obs": 85011317,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "raven",
+   "pose": "point",
+   "act": "stand",
+   "say": "It pretended to bury it.",
+   "punch": "pretended",
+   "shots": [
+    {
+     "photo": "Corvus corax",
+     "obs": 68345416,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "raven",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Then hid the real food elsewhere.",
+   "animal": "shake@elsewhere",
+   "shots": [
+    {
+     "photo": "Corvus corax",
+     "obs": 259682291,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "raven",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Other ravens steal stashes all the time.",
+   "label": {
+    "text": "THIEVES",
+    "at": "steal"
+   },
+   "shots": [
+    {
+     "photo": "Corvus corax",
+     "obs": 85011317,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "raven",
+   "pose": "shock",
+   "act": "launch",
+   "say": "I went for the fake stash.",
+   "hit": "stash",
+   "sfx": [
+    "crunch@stash"
+   ],
+   "animal": "lunge@stash",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Corvus corax",
+     "obs": 68345416,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "raven",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "They can copy human speech too.",
+   "label": {
+    "text": "IT\nTALKS",
+    "at": "speech"
+   },
+   "act_at": "speech",
+   "sfx": [
+    "thud@speech"
+   ],
+   "shots": [
+    {
+     "photo": "Corvus corax",
+     "obs": 259682291,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "raven",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Great. It lies AND talks.",
+   "punch": "talks",
+   "shots": [
+    {
+     "photo": "Corvus corax",
+     "obs": 85011317,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "raven",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Like and follow. It's watching me.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Corvus corax",
+     "obs": 68345416,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "raven",
+   "pose": "think",
+   "act": "peek",
+   "say": "Has a bird outsmarted you? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Corvus corax",
+     "obs": 259682291,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ribbednewt",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "This newt stabs with its own ribs.",
+   "label": {
+    "text": "RIB\nSPIKES",
+    "at": "ribs"
+   },
+   "sfx": [
+    "pop@ribs"
+   ],
+   "animal": "turn@stabs",
+   "shots": [
+    {
+     "photo": "Pleurodeles waltl",
+     "obs": 24742117,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Pointy, but honestly fair. Because",
+   "short_title": "This Newt Stabs With Its Own Ribs 🦴",
+   "comment": "Would you hold one? 👇",
+   "bonus": "Iberian ribbed newts have been studied in space on at least six missions, starting in 1985.",
+   "sources": [
+    "Wikipedia, Iberian ribbed newt (sharp ribs puncture through the stretched skin as a defense, causing little harm to the newt; milky, viscous poison secreted at the same time; pierced skin quickly regrows without infection; up to 30 cm in the wild; first sent to space in 1985 on Bion 7, studied on at least six missions) — https://en.wikipedia.org/wiki/Iberian_ribbed_newt (checked 2026-10-25)",
+    "Heiss, Natchev, Salaberger, Gumpenberger, Rabanser & Weisgram 2010, Journal of Zoology 280: 156-162, 'Hurt yourself to hurt your enemy: new insights on the function of the bizarre antipredator mechanism in the salamandrid Pleurodeles waltl' — https://doi.org/10.1111/j.1469-7998.2009.00631.x"
+   ],
+   "_len": "short",
+   "caption": "When something grabs an Iberian ribbed newt, it swings its ribs forward until the tips poke out through its skin, coated in poison. Then the skin heals. #newt #halloween #animalfacts #amphibians"
+  },
+  {
+   "myth": "ribbednewt",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "I offered it a hug anyway.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@hug",
+   "shots": [
+    {
+     "photo": "Pleurodeles waltl",
+     "obs": 232943996,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ribbednewt",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Grab it, and it swings its ribs forward.",
+   "animal": "shake@swings",
+   "shots": [
+    {
+     "photo": "Pleurodeles waltl",
+     "obs": 249745403,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ribbednewt",
+   "pose": "shock",
+   "act": "stand",
+   "say": "The tips poke right through its skin.",
+   "punch": "skin",
+   "sfx": [
+    "crunch@poke"
+   ],
+   "shots": [
+    {
+     "photo": "Pleurodeles waltl",
+     "obs": 216890909,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ribbednewt",
+   "pose": "point",
+   "act": "stand",
+   "say": "Coated in poison on the way out.",
+   "label": {
+    "text": "POISON\nTIPS",
+    "at": "poison"
+   },
+   "shots": [
+    {
+     "photo": "Pleurodeles waltl",
+     "obs": 24742117,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ribbednewt",
+   "pose": "shock",
+   "act": "launch",
+   "say": "So I grabbed it.",
+   "hit": "grabbed",
+   "sfx": [
+    "crunch@grabbed"
+   ],
+   "animal": "strike@grabbed",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Pleurodeles waltl",
+     "obs": 232943996,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ribbednewt",
+   "pose": "nervous",
+   "act": "tumble",
+   "say": "Its skin heals fast. Mine? Unclear.",
+   "act_at": "Mine",
+   "sfx": [
+    "thud@Mine"
+   ],
+   "shots": [
+    {
+     "photo": "Pleurodeles waltl",
+     "obs": 249745403,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ribbednewt",
+   "pose": "point",
+   "act": "stand",
+   "say": "It's also been to space. Six missions.",
+   "label": {
+    "text": "SPACE\nNEWT",
+    "at": "space"
+   },
+   "shots": [
+    {
+     "photo": "Pleurodeles waltl",
+     "obs": 216890909,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ribbednewt",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Way more than me.",
+   "punch": "more",
+   "shots": [
+    {
+     "photo": "Pleurodeles waltl",
+     "obs": 24742117,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ribbednewt",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Like and follow. Hugs are cancelled.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Pleurodeles waltl",
+     "obs": 232943996,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ribbednewt",
+   "pose": "think",
+   "act": "peek",
+   "say": "Would you hold one? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Pleurodeles waltl",
+     "obs": 249745403,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "wheelbug",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "This bug wears a gear on its back.",
+   "label": {
+    "text": "GEAR\nBACK",
+    "at": "gear"
+   },
+   "sfx": [
+    "pop@gear"
+   ],
+   "animal": "turn@back",
+   "shots": [
+    {
+     "photo": "Arilus cristatus",
+     "obs": 313851153,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Respect the wheel. Because",
+   "short_title": "This Bug Wears a Gear and Drinks Its Prey ⚙️",
+   "comment": "Bug soup: gross or genius? 👇",
+   "bonus": "The wheel only appears after the final molt into an adult.",
+   "sources": [
+    "Wikipedia, Arilus cristatus (North American wheel bug: dorsal crest shaped like a wheel or cog, appears only after the final molt; up to 38 mm; one of the largest terrestrial true bugs in North America; pins prey, plunges in its beak and injects enzymes, paralyzing it and dissolving its insides, then drains the fluids; bite generally considered more severe than the sting of common insects such as wasps; numbness can persist for days) — https://en.wikipedia.org/wiki/Arilus_cristatus (checked 2026-10-25)",
+    "Wikipedia, Arilus (wheel bugs, named for the semicircular crest on the pronotum; generalist predators of insects) — https://en.wikipedia.org/wiki/Arilus"
+   ],
+   "_len": "short",
+   "caption": "The wheel bug, an assassin bug with a cog on its back, stabs prey with its beak, injects enzymes that dissolve the insides, then drinks them. Its bite can leave people numb for days. #wheelbug #assassinbug #halloween #insects"
+  },
+  {
+   "myth": "wheelbug",
+   "pose": "point",
+   "act": "stand",
+   "say": "It's called a wheel bug.",
+   "punch": "wheel",
+   "shots": [
+    {
+     "photo": "Arilus cristatus",
+     "obs": 290212162,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "wheelbug",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "I asked to borrow the wheel.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "shake@borrow",
+   "shots": [
+    {
+     "photo": "Arilus cristatus",
+     "obs": 31220723,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "wheelbug",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It stabs bugs with its beak.",
+   "animal": "strike@stabs",
+   "sfx": [
+    "zap@stabs"
+   ],
+   "shots": [
+    {
+     "photo": "Arilus cristatus",
+     "obs": 17358775,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "wheelbug",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Then melts their insides with spit.",
+   "label": {
+    "text": "BUG\nSOUP",
+    "at": "melts"
+   },
+   "shots": [
+    {
+     "photo": "Arilus cristatus",
+     "obs": 313851153,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "wheelbug",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "And drinks them like a smoothie.",
+   "punch": "smoothie",
+   "shots": [
+    {
+     "photo": "Arilus cristatus",
+     "obs": 290212162,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "wheelbug",
+   "pose": "shock",
+   "act": "launch",
+   "say": "Its bite beats a wasp sting.",
+   "hit": "bite",
+   "sfx": [
+    "crunch@bite"
+   ],
+   "animal": "strike@bite",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Arilus cristatus",
+     "obs": 31220723,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "wheelbug",
+   "pose": "nervous",
+   "act": "tumble",
+   "say": "People stay numb for days.",
+   "act_at": "numb",
+   "sfx": [
+    "thud@numb"
+   ],
+   "shots": [
+    {
+     "photo": "Arilus cristatus",
+     "obs": 17358775,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "wheelbug",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Like and follow. I'm not a smoothie.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Arilus cristatus",
+     "obs": 313851153,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "wheelbug",
+   "pose": "think",
+   "act": "peek",
+   "say": "Bug soup: gross or genius? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Arilus cristatus",
+     "obs": 290212162,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "scorpion",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Scorpions glow under a blacklight.",
+   "label": {
+    "text": "UV\nGLOW",
+    "at": "glow"
+   },
+   "sfx": [
+    "pop@glow"
+   ],
+   "animal": "turn@blacklight",
+   "shots": [
+    {
+     "photo": "Centruroides vittatus",
+     "obs": 140449697,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "So the glow might be for seeing. Because",
+   "short_title": "Why Do Scorpions Glow Under a Blacklight? 🦂",
+   "comment": "What did you guess the glow was for? 👇",
+   "bonus": "About 25 of the 2,500+ scorpion species have venom that can kill a person; some species can go a year without eating.",
+   "sources": [
+    "National Geographic (Ed Yong), 'Why do scorpions glow in the dark (and could their whole bodies be one big eye)?' (glow blue-green under UV; insects seem to avoid fluorescent scorpions; Gaffin: convert dim UV from moon and stars into blue-green, the colour they see best, 'the entire scorpion would effectively be one big eye'; Kloock overexposed scorpions to UV to use up the fluorescing chemicals, and scorpions that could still glow stuck to a sheltered area) — https://www.nationalgeographic.com/science/article/why-do-scorpions-glow-in-the-dark-and-could-their-whole-bodies-be-one-big-eye (checked 2026-10-25)",
+    "Wikipedia, Scorpion (fluorescent chemicals such as beta-carboline in the cuticle; 'may function in detecting light'; over 2,500 described species; about 25 species have venom capable of killing a human; some survive up to a year without eating) — https://en.wikipedia.org/wiki/Scorpion",
+    "Gaffin & Barker 2014, Journal of Arachnology 42: 111-118, 'Comparison of scorpion behavioral responses to UV under sunset and nighttime irradiances' — https://doi.org/10.1636/Hi12-91.1"
+   ],
+   "_len": "deep",
+   "caption": "Scorpions glow blue-green under UV light, and scientists still argue about why. It's not a lure: insects seem to avoid glowing scorpions. One idea: the whole body works like one big eye. #scorpion #halloween #blacklight #animalfacts"
+  },
+  {
+   "myth": "scorpion",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Bright blue-green. Like a nightclub.",
+   "punch": "nightclub",
+   "shots": [
+    {
+     "photo": "Centruroides vittatus",
+     "obs": 140449697,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "scorpion",
+   "pose": "think",
+   "act": "stand",
+   "say": "But nobody knows exactly why.",
+   "promise": true,
+   "label": {
+    "text": "WHY?",
+    "at": "why"
+   },
+   "shots": [
+    {
+     "photo": "Centruroides vittatus",
+     "obs": 185091754,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "scorpion",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I went to find out.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@out",
+   "shots": [
+    {
+     "photo": "Centruroides vittatus",
+     "obs": 914788,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "scorpion",
+   "pose": "point",
+   "act": "stand",
+   "say": "The glow lives in its shell.",
+   "label": {
+    "text": "IN THE\nSHELL",
+    "at": "shell"
+   },
+   "shots": [
+    {
+     "photo": "Centruroides vittatus",
+     "obs": 140449697,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "scorpion",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "A chemical in the outer layer.",
+   "punch": "chemical",
+   "shots": [
+    {
+     "photo": "Centruroides vittatus",
+     "obs": 307774649,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "scorpion",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: it lures in bugs?",
+   "decoy": true,
+   "label": {
+    "text": "BUG\nLURE?",
+    "at": "lures"
+   },
+   "shots": [
+    {
+     "photo": "Centruroides vittatus",
+     "obs": 303535130,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "scorpion",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Like a glowing snack sign.",
+   "punch": "snack",
+   "shots": [
+    {
+     "photo": "Centruroides vittatus",
+     "obs": 185091754,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "scorpion",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Nope. Bugs seem to avoid glowing ones.",
+   "animal": "shake@Nope",
+   "sfx": [
+    "scratch@Nope"
+   ],
+   "shots": [
+    {
+     "photo": "Centruroides vittatus",
+     "obs": 914788,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "scorpion",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: a warning to predators?",
+   "decoy": true,
+   "label": {
+    "text": "WARNING?",
+    "at": "warning"
+   },
+   "shots": [
+    {
+     "photo": "Centruroides vittatus",
+     "obs": 140449697,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "scorpion",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Nobody has shown that works.",
+   "punch": "Nobody",
+   "shots": [
+    {
+     "photo": "Centruroides vittatus",
+     "obs": 307774649,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "scorpion",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Here's the thing. It didn't warn me.",
+   "animal": "turn@warn",
+   "shots": [
+    {
+     "photo": "Centruroides vittatus",
+     "obs": 303535130,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "scorpion",
+   "pose": "shock",
+   "act": "launch",
+   "say": "I poked it to check.",
+   "hit": "poked",
+   "sfx": [
+    "crunch@poked"
+   ],
+   "animal": "strike@poked",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Centruroides vittatus",
+     "obs": 185091754,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "scorpion",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "That was a sting, not a warning.",
+   "act_at": "sting",
+   "sfx": [
+    "thud@sting"
+   ],
+   "shots": [
+    {
+     "photo": "Centruroides vittatus",
+     "obs": 914788,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "scorpion",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Tap like. I need the support.",
+   "sfx": [
+    "pop@like"
+   ],
+   "shots": [
+    {
+     "photo": "Centruroides vittatus",
+     "obs": 140449697,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "scorpion",
+   "pose": "shock",
+   "act": "peek",
+   "say": "Wait. What if the glow isn't for others?",
+   "punch": "others",
+   "shots": [
+    {
+     "photo": "Centruroides vittatus",
+     "obs": 307774649,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "scorpion",
+   "pose": "think",
+   "act": "stand",
+   "say": "What if it's for the scorpion?",
+   "animal": "turn@scorpion",
+   "shots": [
+    {
+     "photo": "Centruroides vittatus",
+     "obs": 303535130,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "scorpion",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Its whole body may work like one eye.",
+   "payoff": true,
+   "label": {
+    "text": "BODY\n= EYE",
+    "at": "eye"
+   },
+   "sfx": [
+    "zap@eye"
+   ],
+   "shots": [
+    {
+     "photo": "Centruroides vittatus",
+     "obs": 303535130,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "scorpion",
+   "pose": "point",
+   "act": "stand",
+   "say": "The glow turns faint moonlight blue-green.",
+   "animal": "shake@moonlight",
+   "shots": [
+    {
+     "photo": "Centruroides vittatus",
+     "obs": 140449697,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "scorpion",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The color its eyes see best.",
+   "punch": "best",
+   "shots": [
+    {
+     "photo": "Centruroides vittatus",
+     "obs": 185091754,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "scorpion",
+   "pose": "point",
+   "act": "stand",
+   "say": "Scientists wore out the glow on some.",
+   "label": {
+    "text": "GLOW\nOFF",
+    "at": "glow"
+   },
+   "shots": [
+    {
+     "photo": "Centruroides vittatus",
+     "obs": 914788,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "scorpion",
+   "pose": "shock",
+   "act": "stand",
+   "say": "The glowing ones stayed under shelter.",
+   "punch": "shelter",
+   "shots": [
+    {
+     "photo": "Centruroides vittatus",
+     "obs": 140449697,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "scorpion",
+   "pose": "point",
+   "act": "stand",
+   "say": "So it might be a night detector.",
+   "punch": "detector",
+   "animal": "turn@detector",
+   "shots": [
+    {
+     "photo": "Centruroides vittatus",
+     "obs": 307774649,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "scorpion",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Still not proven. Science is ongoing.",
+   "shots": [
+    {
+     "photo": "Centruroides vittatus",
+     "obs": 303535130,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "scorpion",
+   "pose": "point",
+   "act": "stand",
+   "say": "Good news: only about twenty-five kinds are deadly.",
+   "label": {
+    "text": "~25\nDEADLY",
+    "at": "deadly"
+   },
+   "shots": [
+    {
+     "photo": "Centruroides vittatus",
+     "obs": 185091754,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "scorpion",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Out of over twenty-five hundred species.",
+   "punch": "hundred",
+   "shots": [
+    {
+     "photo": "Centruroides vittatus",
+     "obs": 914788,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "scorpion",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "I still don't love those odds.",
+   "punch": "odds",
+   "shots": [
+    {
+     "photo": "Centruroides vittatus",
+     "obs": 140449697,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "scorpion",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Bad news: I can't tell which.",
+   "animal": "strike@which",
+   "sfx": [
+    "zap@which"
+   ],
+   "shots": [
+    {
+     "photo": "Centruroides vittatus",
+     "obs": 307774649,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "scorpion",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Some go a whole year without eating.",
+   "label": {
+    "text": "1 YEAR\nNO FOOD",
+    "at": "year"
+   },
+   "shots": [
+    {
+     "photo": "Centruroides vittatus",
+     "obs": 303535130,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "scorpion",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "I can't skip lunch.",
+   "prop": "fork",
+   "prop_at": "lunch",
+   "sfx": [
+    "tink@lunch"
+   ],
+   "shots": [
+    {
+     "photo": "Centruroides vittatus",
+     "obs": 185091754,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "scorpion",
+   "pose": "point",
+   "act": "stand",
+   "say": "Follow for more glowing nightmares.",
+   "sfx": [
+    "pop@Follow"
+   ],
+   "shots": [
+    {
+     "photo": "Centruroides vittatus",
+     "obs": 914788,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "scorpion",
+   "pose": "think",
+   "act": "peek",
+   "say": "Would you look with a blacklight? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Centruroides vittatus",
+     "obs": 140449697,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "This beetle steals dead mice.",
+   "label": {
+    "text": "MOUSE\nTHIEF",
+    "at": "mice"
+   },
+   "sfx": [
+    "pop@mice"
+   ],
+   "animal": "turn@steals",
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 228097379,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "So yes, the mouse is a nursery. Because",
+   "short_title": "Why This Beetle Buries Dead Mice 🪦",
+   "comment": "Best or worst parents? 👇",
+   "bonus": "The American burying beetle once lived in 35 US states; today it is found in about 9.",
+   "sources": [
+    "Wikipedia, Burying beetle (antennae chemoreceptors detect a dead animal from a long distance; usually small birds or mice; dig under the carcass to bury it, about 8 hours; remove the hair; coat it with antibacterial and antifungal secretions; both parents raise the larvae; infanticide early on; American burying beetle listed 1989, once 35 states, now 9) — https://en.wikipedia.org/wiki/Burying_beetle (checked 2026-10-25)",
+    "Missouri Department of Conservation, American burying beetle (smell dead animal carcasses from far away with organs on the antenna tips; crawl beneath it and dig the soil out; adults remain, guard their young and feed them regurgitated carrion; up to 1 1/4 inches) — https://mdc.mo.gov/discover-nature/field-guide/american-burying-beetle"
+   ],
+   "_len": "deep",
+   "caption": "Burying beetles smell a dead mouse from far away, bury it, strip the fur and coat it in germ-killing goo. It isn't lunch: it's a nursery, and both parents feed the babies. #buryingbeetle #halloween #insects #animalfacts"
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "think",
+   "act": "stand",
+   "say": "But not to eat. Not exactly.",
+   "promise": true,
+   "punch": "exactly",
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 358727325,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I followed one to find out.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@followed",
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 264617923,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "point",
+   "act": "stand",
+   "say": "It's called a burying beetle.",
+   "label": {
+    "text": "BURYING\nBEETLE",
+    "at": "burying"
+   },
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 55652031,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Also called a sexton beetle. Like a gravedigger.",
+   "label": {
+    "text": "GRAVE-\nDIGGER",
+    "at": "gravedigger"
+   },
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 228097379,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "It's barely over an inch long.",
+   "punch": "inch",
+   "animal": "turn@barely",
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 358727325,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It smells death from far away.",
+   "punch": "death",
+   "animal": "shake@smells",
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 264617923,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "point",
+   "act": "stand",
+   "say": "With sensors on its antennae.",
+   "punch": "antennae",
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 55652031,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: it's hiding lunch?",
+   "decoy": true,
+   "label": {
+    "text": "LUNCH?",
+    "at": "lunch"
+   },
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 228097379,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "It digs under the mouse.",
+   "animal": "shake@digs",
+   "sfx": [
+    "scratch@digs"
+   ],
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 358727325,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Until the mouse sinks underground.",
+   "punch": "underground",
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 264617923,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "point",
+   "act": "stand",
+   "say": "That takes about eight hours.",
+   "label": {
+    "text": "8\nHOURS",
+    "at": "hours"
+   },
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 55652031,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "nervous",
+   "act": "tumble",
+   "say": "I can't dig. I just roll.",
+   "act_at": "roll",
+   "sfx": [
+    "boing@roll"
+   ],
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 228097379,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: hiding it from flies?",
+   "decoy": true,
+   "label": {
+    "text": "NO\nFLIES?",
+    "at": "flies"
+   },
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 358727325,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It strips off all the fur.",
+   "punch": "fur",
+   "animal": "strike@strips",
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 264617923,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Then coats it in germ-killing goo.",
+   "label": {
+    "text": "ANTI-\nGERM",
+    "at": "coats"
+   },
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 55652031,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "shock",
+   "act": "peek",
+   "say": "Wait. That's still not the reason.",
+   "punch": "reason",
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 228097379,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "shock",
+   "act": "launch",
+   "say": "I got way too close.",
+   "hit": "close",
+   "sfx": [
+    "crunch@close"
+   ],
+   "animal": "lunge@close",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 358727325,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "nervous",
+   "act": "tumble",
+   "say": "Tap like. I'm fine. Mostly.",
+   "act_at": "Mostly",
+   "sfx": [
+    "thud@Mostly"
+   ],
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 264617923,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "point",
+   "act": "stand",
+   "say": "Here's the thing. Two beetles move in.",
+   "animal": "turn@Two",
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 55652031,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "shock",
+   "act": "stand",
+   "say": "A mom and a dad.",
+   "punch": "dad",
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 228097379,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "shock",
+   "act": "stand",
+   "say": "The mouse is a nursery.",
+   "payoff": true,
+   "label": {
+    "text": "BABY\nFOOD",
+    "at": "nursery"
+   },
+   "sfx": [
+    "zap@nursery"
+   ],
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 358727325,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The eggs hatch right next to it.",
+   "animal": "shake@hatch",
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 264617923,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "point",
+   "act": "stand",
+   "say": "Both parents feed the babies.",
+   "punch": "Both",
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 55652031,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Chewed-up mouse. Straight from their mouths.",
+   "punch": "mouths",
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 228097379,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "It's a dead-mouse daycare.",
+   "label": {
+    "text": "DAYCARE",
+    "at": "daycare"
+   },
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 358727325,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Too many babies? They cull some.",
+   "animal": "strike@cull",
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 264617923,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Parenting is metal here.",
+   "punch": "metal",
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 55652031,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "point",
+   "act": "stand",
+   "say": "One kind once lived in thirty-five states.",
+   "animal": "turn@states",
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 228097379,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Now it's down to about nine.",
+   "label": {
+    "text": "9 STATES\nLEFT",
+    "at": "nine"
+   },
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 358727325,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "I'm round and meaty. No naps outside.",
+   "prop": "fork",
+   "prop_at": "meaty",
+   "sfx": [
+    "tink@meaty"
+   ],
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 264617923,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "If you see one, wave from far away.",
+   "animal": "shake@wave",
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 55652031,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "point",
+   "act": "stand",
+   "say": "Follow for more creepy parents.",
+   "sfx": [
+    "pop@Follow"
+   ],
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 228097379,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "buryingbeetle",
+   "pose": "think",
+   "act": "peek",
+   "say": "Best or worst parents? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Nicrophorus",
+     "obs": 358727325,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Luna moths have one huge problem.",
+   "promise": true,
+   "label": {
+    "text": "ONE BIG\nPROBLEM",
+    "at": "problem"
+   },
+   "sfx": [
+    "pop@problem"
+   ],
+   "animal": "turn@huge",
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 41485428,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "So the problem was the mouth. Because",
+   "short_title": "The Luna Moth's One Huge Problem 🌙",
+   "comment": "What did you guess the problem was? 👇",
+   "bonus": "Luna moth caterpillars click as a warning and can throw up on attackers.",
+   "sources": [
+    "Wikipedia, Luna moth (adults have vestigial mouthparts and do not feed; very brief 7-10 day adult lives, so rarely seen despite not being rare; wingspan typically ~114 mm and can exceed 178 mm (7.0 in); eyespots thought to confuse predators; larvae click as a warning and can regurgitate) — https://en.wikipedia.org/wiki/Luna_moth (checked 2026-10-25)",
+    "Barber, Leavell, Keener, Breinholt, Chadwell, McClure, Hill & Kawahara 2015, PNAS 112(9): 2812-2816, 'Moth tails divert bat attack: evolution of acoustic deflection' (only 35% of intact luna moths were caught vs 81% with tails removed; spinning tails draw bat attacks) — https://doi.org/10.1073/pnas.1421926112"
+   ],
+   "_len": "deep",
+   "caption": "Luna moths spin their long tails to fool bats, and their eyespots spook predators. Their real problem: adults have no working mouth, never eat, and live about a week. #lunamoth #moth #halloween #animalfacts"
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I flew in to help.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@help",
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 71094596,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Look at this thing. It's huge.",
+   "punch": "huge",
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 77522653,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Pale green. Glowing. Very ghost-like.",
+   "punch": "ghost-like",
+   "animal": "turn@Glowing",
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 114933835,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "point",
+   "act": "stand",
+   "say": "Its wings can top seven inches.",
+   "label": {
+    "text": "7 INCH\nWINGS",
+    "at": "wings"
+   },
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 41485428,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: bats eat them?",
+   "decoy": true,
+   "label": {
+    "text": "BATS?",
+    "at": "bats"
+   },
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 71094596,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "point",
+   "act": "stand",
+   "say": "Nope. Check out those long tails.",
+   "animal": "shake@tails",
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 77522653,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "shock",
+   "act": "stand",
+   "say": "They spin while it flies.",
+   "punch": "spin",
+   "sfx": [
+    "whoosh@spin"
+   ],
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 114933835,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "So bats bite the tails instead.",
+   "punch": "tails",
+   "animal": "turn@bite",
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 41485428,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "point",
+   "act": "stand",
+   "say": "With tails, only thirty-five percent got caught.",
+   "label": {
+    "text": "35%\nCAUGHT",
+    "at": "caught"
+   },
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 71094596,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Tails clipped off? Eighty-one percent.",
+   "label": {
+    "text": "81%\nCAUGHT",
+    "at": "clipped"
+   },
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 77522653,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: those creepy eyespots?",
+   "decoy": true,
+   "label": {
+    "text": "FAKE\nEYES?",
+    "at": "eyespots"
+   },
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 114933835,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Fake eyes that spook predators.",
+   "animal": "turn@spook",
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 41485428,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Here's the thing. That's a strength.",
+   "punch": "strength",
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 71094596,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "shock",
+   "act": "launch",
+   "say": "I tried to grab a wing.",
+   "hit": "grab",
+   "sfx": [
+    "crunch@grab"
+   ],
+   "animal": "lunge@grab",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 77522653,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "nervous",
+   "act": "tumble",
+   "say": "Tap like. A moth just slapped me.",
+   "act_at": "slapped",
+   "sfx": [
+    "thud@slapped"
+   ],
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 114933835,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "think",
+   "act": "peek",
+   "say": "So what's the real problem?",
+   "punch": "real",
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 41485428,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "point",
+   "act": "stand",
+   "say": "Look closer at its face.",
+   "animal": "turn@face",
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 71094596,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It has no working mouth.",
+   "payoff": true,
+   "label": {
+    "text": "NO\nMOUTH",
+    "at": "mouth"
+   },
+   "sfx": [
+    "zap@mouth"
+   ],
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 77522653,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Adult luna moths never eat.",
+   "punch": "never",
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 114933835,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "They run on caterpillar leftovers.",
+   "punch": "leftovers",
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 41485428,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "So they only live about a week.",
+   "label": {
+    "text": "ABOUT\n1 WEEK",
+    "at": "week"
+   },
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 71094596,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Seven to ten days. That's it.",
+   "animal": "shake@it",
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 77522653,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "That's why you almost never see one.",
+   "punch": "see",
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 114933835,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "point",
+   "act": "stand",
+   "say": "Even though they're not rare.",
+   "punch": "rare",
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 41485428,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "They're out there. Just not for long.",
+   "animal": "shake@long",
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 71094596,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "point",
+   "act": "stand",
+   "say": "Find a mate. Lay eggs. Done.",
+   "punch": "Done",
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 77522653,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "No mouth. No snacks. Ever.",
+   "prop": "fork",
+   "prop_at": "snacks",
+   "sfx": [
+    "tink@snacks"
+   ],
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 114933835,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Honestly? My worst nightmare.",
+   "punch": "nightmare",
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 41485428,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "point",
+   "act": "stand",
+   "say": "Bonus: the caterpillars click to warn you.",
+   "label": {
+    "text": "CLICK\nCLICK",
+    "at": "click"
+   },
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 71094596,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Then they throw up on attackers.",
+   "punch": "throw",
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 77522653,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Basically a ghost with wings.",
+   "punch": "ghost",
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 114933835,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "point",
+   "act": "stand",
+   "say": "Follow for more spooky-cute bugs.",
+   "sfx": [
+    "pop@Follow"
+   ],
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 41485428,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lunamoth",
+   "pose": "think",
+   "act": "peek",
+   "say": "Would you trade your mouth for wings? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Actias luna",
+     "obs": 71094596,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  }
+ ]
+}
