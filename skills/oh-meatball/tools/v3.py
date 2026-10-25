@@ -34,7 +34,7 @@ Photos come from explainer.photo() (pinned iNaturalist observations, full resolu
   animal acting          the cut-out always moves (bob, or "drift" for floaters); beat "animal": "lunge@kick" /
                          ["turn@twists", "shake@inside"] adds lunge|kick|charge, strike|snap|sting, shake,
                          turn|look, timed to a word, with a matching SFX unless the beat has one there
-  Meatball               tucked against the left edge (760, or 0.84x / 0.72x of that when it lets the animal
+  Meatball               tucked against the left edge (840, or 0.92x / 0.84x of that when it lets the animal
                          grow) and faces the animal; flees, is flung, peeks and cowers away from it (on a v3
                          still his mark comes from the pinned head instead)
   beat "contact": true   Meatball and the animal may touch (a poke, a sting, a kick)
@@ -74,7 +74,7 @@ CAP_Y = 1560
 MAX_SHOT = 2.4    # a shot longer than this is re-cut to a tighter crop of the same photo (gate: 2.5 s)
 PUSH = 0.045      # zoom per second of the slow push (v2: 0.036)
 HOME = 0.24       # Meatball's mark: left of centre, so the animal (centred in each crop) stays visible
-HOME_V4, SIZE_V4 = 0.21, 760   # v4: smaller and tucked at the edge (stage.tuck), so the animal gets most of the frame
+HOME_V4, SIZE_V4 = 0.21, 840   # v4: smaller and tucked at the edge (stage.tuck), so the animal gets most of the frame
 PLAN = {}         # filled before the frame workers fork
 
 
@@ -284,7 +284,7 @@ def stage_v4(shots, n, b, moves, top, act):
         marks = [(x, size)]
     else:  # cut-outs are re-framed anyway: keep him on the left so he doesn't hop sides between lines
         size = int(b.get("size", SIZE_V4))
-        marks = [(stage.tuck(sz), sz) for sz in (size, int(size * 0.84), int(size * 0.72))]
+        marks = [(stage.tuck(sz), sz) for sz in (size, int(size * 0.92), int(size * 0.84))]
     best = None
     for x, sz in marks:
         keep = stage.keepout(x, sz, side, top, contact, act)
