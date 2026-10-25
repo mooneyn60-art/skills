@@ -111,7 +111,7 @@ Facts are unchanged in both, and no viewer quotes were added.
 | Episode | Before | After (rendered) | Metricool |
 |---|---|---|---|
 | explains-03 zombies, Sat 10/31 2 PM | 6:18, chapters 0:40/1:58/3:07/3:52/4:35 | **6:31**, chapters 0:39/2:01/3:13/4:02/4:48 (payoff at 74%) | 406039119 → **406077563**, read back 2026-10-31T14:00 America/New_York |
-| explains-02 deadliest, Tue 11/3 2 PM | 6:08 | LEN02 | 406039276 → ID02 |
+| explains-02 deadliest, Tue 11/3 2 PM | 6:08 | **6:12**, chapters 0:36/1:21/2:12/3:19, payoff 4:21 (70%) | 406039276 → **406099474**, read back 2026-11-03T14:00 America/New_York |
 
 Both pass tools/retention.py on their exact render timelines.
 
