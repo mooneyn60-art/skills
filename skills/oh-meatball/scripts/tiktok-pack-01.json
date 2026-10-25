@@ -4091,11 +4091,11 @@
    "shots": [
     {
      "photo": "Mephitis mephitis",
-     "obs": 121720836,
+     "obs": 1714955,
      "crop": [
-      0.234,
+      0.217,
       0.0,
-      0.666,
+      0.783,
       1.0
      ]
     }
@@ -4762,7 +4762,7 @@
     },
     {
      "photo": "Petromyzon marinus",
-     "obs": 224015540,
+     "obs": 220741076,
      "crop": [
       0.289,
       0.0,
@@ -4831,7 +4831,7 @@
    "shots": [
     {
      "photo": "Petromyzon marinus",
-     "obs": 224015540,
+     "obs": 220741076,
      "crop": [
       0.31,
       0.05,
@@ -4921,11 +4921,11 @@
    "shots": [
     {
      "photo": "Petromyzon marinus",
-     "obs": 220741076,
+     "obs": 374413092,
      "crop": [
-      0.31,
+      0.164,
       0.05,
-      0.69,
+      0.836,
       0.95
      ]
     }
@@ -4940,11 +4940,11 @@
    "shots": [
     {
      "photo": "Petromyzon marinus",
-     "obs": 374413092,
+     "obs": 165189560,
      "crop": [
-      0.239,
+      0.352,
       0.15,
-      0.761,
+      0.648,
       0.85
      ]
     }
@@ -4965,7 +4965,7 @@
    "shots": [
     {
      "photo": "Petromyzon marinus",
-     "obs": 165189560,
+     "obs": 220741076,
      "crop": [
       0.289,
       0.0,
@@ -4985,11 +4985,11 @@
    "shots": [
     {
      "photo": "Petromyzon marinus",
-     "obs": 224015540,
+     "obs": 223388540,
      "crop": [
-      0.331,
+      0.281,
       0.1,
-      0.669,
+      0.619,
       0.9
      ]
     }
@@ -6550,11 +6550,11 @@
   },
   {
    "myth": "gila",
-   "pose": "point",
-   "act": "stand",
-   "say": "It spends most of its life underground.",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "I store my fat in sauce. Same thing.",
    "sfx": [
-    "pop@underground"
+    "scratch@sauce"
    ],
    "shots": [
     {
@@ -6571,11 +6571,11 @@
   },
   {
    "myth": "gila",
-   "pose": "shock",
+   "pose": "point",
    "act": "stand",
-   "say": "It eats eggs and baby animals.",
+   "say": "It spends most of its life underground.",
    "sfx": [
-    "pop@eggs"
+    "pop@underground"
    ],
    "shots": [
     {
@@ -6592,11 +6592,11 @@
   },
   {
    "myth": "gila",
-   "pose": "think",
-   "act": "peek",
-   "say": "Now the plot twist.",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It eats eggs and baby animals.",
    "sfx": [
-    "scratch@twist"
+    "pop@eggs"
    ],
    "shots": [
     {
@@ -6613,11 +6613,11 @@
   },
   {
    "myth": "gila",
-   "pose": "shock",
-   "act": "stand",
-   "say": "Its venom holds a hormone.",
+   "pose": "think",
+   "act": "peek",
+   "say": "Now the plot twist.",
    "sfx": [
-    "pop@hormone"
+    "scratch@twist"
    ],
    "shots": [
     {
@@ -6628,6 +6628,27 @@
       0.0,
       0.875,
       1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "gila",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Its venom holds a hormone.",
+   "sfx": [
+    "pop@hormone"
+   ],
+   "shots": [
+    {
+     "photo": "Heloderma suspectum",
+     "obs": 210402951,
+     "crop": [
+      0.131,
+      0.1,
+      0.469,
+      0.9
      ]
     }
    ]
@@ -6647,12 +6668,12 @@
    "shots": [
     {
      "photo": "Heloderma suspectum",
-     "obs": 210402951,
+     "obs": 15312572,
      "crop": [
-      0.131,
-      0.1,
-      0.469,
-      0.9
+      0.21,
+      0.05,
+      0.59,
+      0.95
      ]
     }
    ]
@@ -6669,11 +6690,11 @@
    "shots": [
     {
      "photo": "Heloderma suspectum",
-     "obs": 15312572,
+     "obs": 175785354,
      "crop": [
-      0.21,
-      0.05,
-      0.59,
+      0.41,
+      0.25,
+      0.69,
       0.95
      ]
     }
@@ -6694,12 +6715,12 @@
    "shots": [
     {
      "photo": "Heloderma suspectum",
-     "obs": 175785354,
+     "obs": 162430901,
      "crop": [
-      0.41,
-      0.25,
-      0.69,
-      0.95
+      0.125,
+      0.0,
+      0.875,
+      1.0
      ]
     }
    ]
@@ -6719,12 +6740,12 @@
    "shots": [
     {
      "photo": "Heloderma suspectum",
-     "obs": 162430901,
+     "obs": 33820523,
      "crop": [
-      0.125,
-      0.0,
-      0.875,
-      1.0
+      0.2,
+      0.1,
+      0.8,
+      0.9
      ]
     }
    ]
@@ -6741,12 +6762,12 @@
    "shots": [
     {
      "photo": "Heloderma suspectum",
-     "obs": 33820523,
+     "obs": 257141344,
      "crop": [
-      0.2,
-      0.1,
-      0.8,
-      0.9
+      0.181,
+      0.05,
+      0.519,
+      0.95
      ]
     }
    ]
@@ -6762,12 +6783,12 @@
    "shots": [
     {
      "photo": "Heloderma suspectum",
-     "obs": 257141344,
+     "obs": 219217532,
      "crop": [
-      0.181,
-      0.05,
-      0.519,
-      0.95
+      0.252,
+      0.15,
+      0.548,
+      0.85
      ]
     }
    ]
@@ -6787,12 +6808,12 @@
    "shots": [
     {
      "photo": "Heloderma suspectum",
-     "obs": 219217532,
+     "obs": 343220606,
      "crop": [
-      0.252,
-      0.15,
-      0.548,
-      0.85
+      0.388,
+      0.0,
+      0.812,
+      1.0
      ]
     }
    ]
@@ -6812,12 +6833,12 @@
    "shots": [
     {
      "photo": "Heloderma suspectum",
-     "obs": 343220606,
+     "obs": 84860697,
      "crop": [
-      0.388,
-      0.0,
-      0.812,
-      1.0
+      0.275,
+      0.1,
+      0.725,
+      0.9
      ]
     }
    ]
@@ -7136,9 +7157,9 @@
    "myth": "vulture",
    "pose": "deadpan",
    "act": "stand",
-   "say": "They rarely kill anything themselves.",
+   "say": "Just a cold meatball with its arms out.",
    "sfx": [
-    "pop@rarely"
+    "pop@arms"
    ],
    "shots": [
     {
@@ -7155,11 +7176,11 @@
   },
   {
    "myth": "vulture",
-   "pose": "point",
+   "pose": "deadpan",
    "act": "stand",
-   "say": "US law protects them.",
+   "say": "They rarely kill anything themselves.",
    "sfx": [
-    "pop@law"
+    "pop@rarely"
    ],
    "shots": [
     {
@@ -7170,6 +7191,27 @@
       0.1,
       0.725,
       0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
+   "pose": "point",
+   "act": "stand",
+   "say": "US law protects them.",
+   "sfx": [
+    "pop@law"
+   ],
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 60592373,
+     "crop": [
+      0.396,
+      0.05,
+      0.804,
+      0.95
      ]
     }
    ]
@@ -7189,12 +7231,12 @@
    "shots": [
     {
      "photo": "Cathartes aura",
-     "obs": 60592373,
+     "obs": 247699630,
      "crop": [
-      0.396,
-      0.05,
-      0.804,
-      0.95
+      0.369,
+      0.15,
+      0.631,
+      0.85
      ]
     }
    ]
@@ -7211,12 +7253,12 @@
    "shots": [
     {
      "photo": "Cathartes aura",
-     "obs": 247699630,
+     "obs": 387790635,
      "crop": [
-      0.369,
-      0.15,
-      0.631,
-      0.85
+      0.167,
+      0.0,
+      0.833,
+      1.0
      ]
     }
    ]
@@ -7232,12 +7274,12 @@
    "shots": [
     {
      "photo": "Cathartes aura",
-     "obs": 387790635,
+     "obs": 197756117,
      "crop": [
-      0.167,
+      0.2,
       0.0,
-      0.833,
-      1.0
+      0.5,
+      0.8
      ]
     }
    ]
@@ -7257,25 +7299,6 @@
    "shots": [
     {
      "photo": "Cathartes aura",
-     "obs": 197756117,
-     "crop": [
-      0.2,
-      0.0,
-      0.5,
-      0.8
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "vulture",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "They eat dead animals, and rarely get sick.",
-   "sfx": [],
-   "shots": [
-    {
-     "photo": "Cathartes aura",
      "obs": 52331749,
      "crop": [
       0.125,
@@ -7288,12 +7311,10 @@
   },
   {
    "myth": "vulture",
-   "pose": "point",
+   "pose": "deadpan",
    "act": "stand",
-   "say": "Bald heads may help them stay clean.",
-   "sfx": [
-    "pop@Bald"
-   ],
+   "say": "They eat dead animals, and rarely get sick.",
+   "sfx": [],
    "shots": [
     {
      "photo": "Cathartes aura",
@@ -7309,11 +7330,11 @@
   },
   {
    "myth": "vulture",
-   "pose": "nervous",
-   "act": "shake",
-   "say": "I've been left out overnight.",
+   "pose": "point",
+   "act": "stand",
+   "say": "Bald heads may help them stay clean.",
    "sfx": [
-    "scratch@overnight"
+    "pop@Bald"
    ],
    "shots": [
     {
@@ -7331,10 +7352,10 @@
   {
    "myth": "vulture",
    "pose": "nervous",
-   "act": "hide",
-   "say": "I would like to not be found.",
+   "act": "shake",
+   "say": "I've been left out overnight.",
    "sfx": [
-    "pop@found"
+    "scratch@overnight"
    ],
    "shots": [
     {
@@ -7351,6 +7372,27 @@
   },
   {
    "myth": "vulture",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "I would like to not be found.",
+   "sfx": [
+    "pop@found"
+   ],
+   "shots": [
+    {
+     "photo": "Cathartes aura",
+     "obs": 86997534,
+     "crop": [
+      0.362,
+      0.05,
+      0.738,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "vulture",
    "pose": "think",
    "act": "peek",
    "say": "They find food by smell.",
@@ -7361,12 +7403,12 @@
    "shots": [
     {
      "photo": "Cathartes aura",
-     "obs": 86997534,
+     "obs": 336280892,
      "crop": [
-      0.362,
-      0.05,
-      0.738,
-      0.95
+      0.303,
+      0.15,
+      0.697,
+      0.85
      ]
     }
    ]
@@ -7386,12 +7428,12 @@
    "shots": [
     {
      "photo": "Cathartes aura",
-     "obs": 336280892,
+     "obs": 60592373,
      "crop": [
-      0.303,
-      0.15,
-      0.697,
-      0.85
+      0.373,
+      0.0,
+      0.827,
+      1.0
      ]
     }
    ]
@@ -7405,12 +7447,12 @@
    "shots": [
     {
      "photo": "Cathartes aura",
-     "obs": 60592373,
+     "obs": 247699630,
      "crop": [
-      0.373,
-      0.0,
-      0.827,
-      1.0
+      0.35,
+      0.1,
+      0.65,
+      0.9
      ]
     }
    ]
@@ -7430,12 +7472,12 @@
    "shots": [
     {
      "photo": "Cathartes aura",
-     "obs": 247699630,
+     "obs": 387790635,
      "crop": [
-      0.35,
-      0.1,
-      0.65,
-      0.9
+      0.2,
+      0.05,
+      0.8,
+      0.95
      ]
     }
    ]
@@ -7455,12 +7497,12 @@
    "shots": [
     {
      "photo": "Cathartes aura",
-     "obs": 387790635,
+     "obs": 197756117,
      "crop": [
-      0.2,
+      0.219,
       0.05,
-      0.8,
-      0.95
+      0.481,
+      0.75
      ]
     }
    ]
@@ -7476,12 +7518,12 @@
    "shots": [
     {
      "photo": "Cathartes aura",
-     "obs": 197756117,
+     "obs": 52331749,
      "crop": [
-      0.219,
-      0.05,
-      0.481,
-      0.75
+      0.106,
+      0.0,
+      0.494,
+      1.0
      ]
     }
    ]
@@ -7495,12 +7537,12 @@
    "shots": [
     {
      "photo": "Cathartes aura",
-     "obs": 52331749,
+     "obs": 80827613,
      "crop": [
-      0.106,
-      0.0,
-      0.494,
-      1.0
+      0.4,
+      0.1,
+      0.7,
+      0.9
      ]
     }
    ]
@@ -7517,11 +7559,11 @@
    "shots": [
     {
      "photo": "Cathartes aura",
-     "obs": 80827613,
+     "obs": 33290971,
      "crop": [
-      0.4,
-      0.1,
-      0.7,
+      0.405,
+      0.0,
+      0.795,
       0.9
      ]
     }
@@ -7542,12 +7584,12 @@
    "shots": [
     {
      "photo": "Cathartes aura",
-     "obs": 33290971,
+     "obs": 102062793,
      "crop": [
-      0.405,
-      0.0,
-      0.795,
-      0.9
+      0.419,
+      0.15,
+      0.681,
+      0.85
      ]
     }
    ]
@@ -7563,12 +7605,12 @@
    "shots": [
     {
      "photo": "Cathartes aura",
-     "obs": 102062793,
+     "obs": 86997534,
      "crop": [
-      0.419,
-      0.15,
-      0.681,
-      0.85
+      0.341,
+      0.0,
+      0.759,
+      1.0
      ]
     }
    ]
@@ -7583,12 +7625,12 @@
    "shots": [
     {
      "photo": "Cathartes aura",
-     "obs": 86997534,
+     "obs": 336280892,
      "crop": [
-      0.341,
-      0.0,
-      0.759,
-      1.0
+      0.275,
+      0.1,
+      0.725,
+      0.9
      ]
     }
    ]
@@ -7999,16 +8041,12 @@
   },
   {
    "myth": "bulletant",
-   "pose": "shock",
+   "pose": "deadpan",
    "act": "stand",
-   "say": "In Brazil, Sateré-Mawé boys wear ant gloves.",
+   "say": "Like a doorbell nobody answers.",
    "sfx": [
-    "pop@gloves"
+    "zap@doorbell"
    ],
-   "label": {
-    "text": "ANT\nGLOVES",
-    "at": "gloves"
-   },
    "shots": [
     {
      "photo": "Paraponera clavata",
@@ -8024,10 +8062,16 @@
   },
   {
    "myth": "bulletant",
-   "pose": "deadpan",
+   "pose": "shock",
    "act": "stand",
-   "say": "As a coming-of-age rite.",
-   "sfx": [],
+   "say": "In Brazil, Sateré-Mawé boys wear ant gloves.",
+   "sfx": [
+    "pop@gloves"
+   ],
+   "label": {
+    "text": "ANT\nGLOVES",
+    "at": "gloves"
+   },
    "shots": [
     {
      "photo": "Paraponera clavata",
@@ -8043,12 +8087,10 @@
   },
   {
    "myth": "bulletant",
-   "pose": "nervous",
-   "act": "shake",
-   "say": "The ritual is repeated many times.",
-   "sfx": [
-    "scratch@many"
-   ],
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "As a coming-of-age rite.",
+   "sfx": [],
    "shots": [
     {
      "photo": "Paraponera clavata",
@@ -8058,6 +8100,27 @@
       0.05,
       0.681,
       0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "The ritual is repeated many times.",
+   "sfx": [
+    "scratch@many"
+   ],
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 2357074,
+     "crop": [
+      0.402,
+      0.15,
+      0.698,
+      0.85
      ]
     }
    ]
@@ -8074,12 +8137,12 @@
    "shots": [
     {
      "photo": "Paraponera clavata",
-     "obs": 2357074,
+     "obs": 395640054,
      "crop": [
-      0.402,
-      0.15,
-      0.698,
-      0.85
+      0.313,
+      0.0,
+      0.687,
+      1.0
      ]
     }
    ]
@@ -8095,12 +8158,12 @@
    "shots": [
     {
      "photo": "Paraponera clavata",
-     "obs": 395640054,
+     "obs": 247392143,
      "crop": [
-      0.313,
-      0.0,
-      0.687,
-      1.0
+      0.2,
+      0.1,
+      0.8,
+      0.9
      ]
     }
    ]
@@ -8118,12 +8181,33 @@
    "shots": [
     {
      "photo": "Paraponera clavata",
-     "obs": 247392143,
+     "obs": 223020460,
      "crop": [
-      0.2,
-      0.1,
-      0.8,
-      0.9
+      0.213,
+      0.05,
+      0.887,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "A fork is a whole horror movie.",
+   "sfx": [
+    "pop@horror"
+   ],
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 100845472,
+     "crop": [
+      0.352,
+      0.15,
+      0.648,
+      0.85
      ]
     }
    ]
@@ -8143,48 +8227,6 @@
    "shots": [
     {
      "photo": "Paraponera clavata",
-     "obs": 223020460,
-     "crop": [
-      0.213,
-      0.05,
-      0.887,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bulletant",
-   "pose": "point",
-   "act": "stand",
-   "say": "They nest at the base of trees.",
-   "sfx": [
-    "pop@trees"
-   ],
-   "shots": [
-    {
-     "photo": "Paraponera clavata",
-     "obs": 100845472,
-     "crop": [
-      0.352,
-      0.15,
-      0.648,
-      0.85
-     ]
-    }
-   ]
-  },
-  {
-   "myth": "bulletant",
-   "pose": "shock",
-   "act": "stand",
-   "say": "They climb high into trees to forage.",
-   "sfx": [
-    "whoosh@climb"
-   ],
-   "shots": [
-    {
-     "photo": "Paraponera clavata",
      "obs": 198779694,
      "crop": [
       0.292,
@@ -8197,10 +8239,12 @@
   },
   {
    "myth": "bulletant",
-   "pose": "deadpan",
+   "pose": "point",
    "act": "stand",
-   "say": "I stayed on the ground.",
-   "sfx": [],
+   "say": "They nest at the base of trees.",
+   "sfx": [
+    "pop@trees"
+   ],
    "shots": [
     {
      "photo": "Paraponera clavata",
@@ -8217,12 +8261,11 @@
   {
    "myth": "bulletant",
    "pose": "shock",
-   "act": "hit",
-   "say": "Then remembered I was on its leaf.",
+   "act": "stand",
+   "say": "They climb high into trees to forage.",
    "sfx": [
-    "crunch@leaf"
+    "whoosh@climb"
    ],
-   "hit": "leaf",
    "shots": [
     {
      "photo": "Paraponera clavata",
@@ -8239,12 +8282,9 @@
   {
    "myth": "bulletant",
    "pose": "deadpan",
-   "act": "tumble",
-   "say": "Scientists study the toxin for medicine.",
-   "sfx": [
-    "thud@medicine"
-   ],
-   "act_at": "medicine",
+   "act": "stand",
+   "say": "I stayed on the ground.",
+   "sfx": [],
    "shots": [
     {
      "photo": "Paraponera clavata",
@@ -8260,10 +8300,13 @@
   },
   {
    "myth": "bulletant",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "In Central and South American rainforests.",
-   "sfx": [],
+   "pose": "shock",
+   "act": "hit",
+   "say": "Then remembered I was on its leaf.",
+   "sfx": [
+    "crunch@leaf"
+   ],
+   "hit": "leaf",
    "shots": [
     {
      "photo": "Paraponera clavata",
@@ -8280,11 +8323,12 @@
   {
    "myth": "bulletant",
    "pose": "deadpan",
-   "act": "stand",
-   "say": "They mostly eat nectar and small insects.",
+   "act": "tumble",
+   "say": "Scientists study the toxin for medicine.",
    "sfx": [
-    "pop@nectar"
+    "thud@medicine"
    ],
+   "act_at": "medicine",
    "shots": [
     {
      "photo": "Paraponera clavata",
@@ -8294,6 +8338,67 @@
       0.1,
       0.8,
       0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "In Central and South American rainforests.",
+   "sfx": [],
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 223020460,
+     "crop": [
+      0.213,
+      0.05,
+      0.887,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "They mostly eat nectar and small insects.",
+   "sfx": [
+    "pop@nectar"
+   ],
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 100845472,
+     "crop": [
+      0.352,
+      0.15,
+      0.648,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bulletant",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Sweet tooth. Terrible temper.",
+   "sfx": [
+    "scratch@temper"
+   ],
+   "shots": [
+    {
+     "photo": "Paraponera clavata",
+     "obs": 198779694,
+     "crop": [
+      0.292,
+      0.0,
+      0.608,
+      1.0
      ]
     }
    ]
@@ -8313,12 +8418,12 @@
    "shots": [
     {
      "photo": "Paraponera clavata",
-     "obs": 223020460,
+     "obs": 196565947,
      "crop": [
-      0.213,
-      0.05,
-      0.887,
-      0.95
+      0.381,
+      0.1,
+      0.719,
+      0.9
      ]
     }
    ]
@@ -8334,12 +8439,12 @@
    "shots": [
     {
      "photo": "Paraponera clavata",
-     "obs": 100845472,
+     "obs": 25086261,
      "crop": [
-      0.352,
-      0.15,
-      0.648,
-      0.85
+      0.319,
+      0.05,
+      0.681,
+      0.95
      ]
     }
    ]
@@ -8354,12 +8459,12 @@
    "shots": [
     {
      "photo": "Paraponera clavata",
-     "obs": 198779694,
+     "obs": 2357074,
      "crop": [
-      0.292,
-      0.0,
-      0.608,
-      1.0
+      0.402,
+      0.15,
+      0.698,
+      0.85
      ]
     }
    ]
