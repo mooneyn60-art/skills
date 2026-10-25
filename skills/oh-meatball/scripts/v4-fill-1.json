@@ -1,0 +1,1981 @@
+{
+ "title": "Fill pack 1 (Shorts v4, Andrew): godwit, peregrine, thorny devil, kea, monarch + firefly deep dive",
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+0%",
+ "short_rate": "+0%",
+ "tempo": 1.1,
+ "music": "music/quiz-bed.m4a",
+ "style": "v4",
+ "_note": "Fill run 2026-10-25 (Studio + Postmaster) for open slots 10/28-11/2. 5 YouTube Shorts at 20-25 s, claim-first (bar-tailed godwit, peregrine falcon, thorny devil, kea, monarch) and 1 TikTok deep dive at 61-75 s (Photuris femme fatale firefly) with the open loop (promise in lines 1-3, two decoys, payoff at 50-80%; passes tools/openloop.py). None of these animals appear in data/posted.csv or any earlier script. Meatball in jeopardy, lines 8 words or fewer, asks in character and never in the first 3 s, no quiz cards, no read-outs, every 'at' anchor a word. Voice en-US-AndrewMultilingualNeural +0% then atempo 1.10 (= +10%). Photos: iNaturalist research-grade, wild, CC0/CC BY (license confirmed via the API), whole animal, cut-outs checked by eye. Facts web-checked 10/25; sources on each hook beat.",
+ "names": {
+  "Limosa lapponica": "Bar-tailed godwit",
+  "Falco peregrinus": "Peregrine falcon",
+  "Moloch horridus": "Thorny devil",
+  "Nestor notabilis": "Kea",
+  "Danaus plexippus": "Monarch butterfly",
+  "Photuris": "Femme fatale firefly"
+ },
+ "subjects": {
+  "330405444": {},
+  "191865688": {},
+  "229857133": {},
+  "42320414": {},
+  "345609021": {},
+  "12075369": {},
+  "26836496": {},
+  "99718239": {},
+  "67092398": {},
+  "236175663": {},
+  "398422128": {},
+  "282071327": {},
+  "103356401": {},
+  "217439596": {},
+  "147756153": {},
+  "34231306": {},
+  "28901993": {},
+  "68558388": {},
+  "924294": {},
+  "223148472": {},
+  "130243533": {},
+  "29262026": {},
+  "350719686": {}
+ },
+ "beats": [
+  {
+   "myth": "godwit",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "This bird flew eleven days without stopping.",
+   "label": {
+    "text": "11 DAYS\nNONSTOP",
+    "at": "days"
+   },
+   "sfx": [
+    "pop@days"
+   ],
+   "animal": "turn@stopping",
+   "shots": [
+    {
+     "photo": "Limosa lapponica",
+     "obs": 330405444,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Respect the godwit. Because",
+   "short_title": "This Bird Flew 11 Days Without Stopping 🐦",
+   "comment": "How far could you go nonstop?",
+   "bonus": "Shorebirds like godwits can carry fat loads of 35-40% of their body mass for the trip.",
+   "sources": [
+    "Wikipedia, Bar-tailed godwit (2022: juvenile 'B6' flew a minimum of 13,560 km in 11 days 1 hour nonstop, Alaska to Tasmania; godwits reduce the size of their digestive organs before migration; typical shorebird fat loads 35-40% of body mass) — https://en.wikipedia.org/wiki/Bar-tailed_godwit (checked 2026-10-25)",
+    "Guinness World Records, 'Longest non-stop flight by a bird' (bar-tailed godwit 234684, 13,560 km, Oct 2022) — https://www.guinnessworldrecords.com/world-records/longest-non-stop-flight-by-a-bird"
+   ],
+   "_len": "short",
+   "caption": "In 2022 a young bar-tailed godwit flew at least 13,560 km from Alaska to Tasmania in 11 days and 1 hour, without landing. Before migrating, godwits shrink their digestive organs. #godwit #birds #migration #animalfacts"
+  },
+  {
+   "myth": "godwit",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I tried to keep up.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@up",
+   "shots": [
+    {
+     "photo": "Limosa lapponica",
+     "obs": 191865688,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "godwit",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Alaska to Tasmania. Over the ocean.",
+   "label": {
+    "text": "OVER THE\nOCEAN",
+    "at": "ocean"
+   },
+   "shots": [
+    {
+     "photo": "Limosa lapponica",
+     "obs": 229857133,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "godwit",
+   "pose": "point",
+   "act": "stand",
+   "say": "Thirteen thousand five hundred kilometers.",
+   "label": {
+    "text": "13,560\nKM",
+    "at": "kilometers"
+   },
+   "shots": [
+    {
+     "photo": "Limosa lapponica",
+     "obs": 42320414,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "godwit",
+   "pose": "shock",
+   "act": "stand",
+   "say": "No snacks. No landing. Just flapping.",
+   "punch": "flapping",
+   "animal": "shake@flapping",
+   "shots": [
+    {
+     "photo": "Limosa lapponica",
+     "obs": 330405444,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "godwit",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Before leaving, it shrinks its own gut.",
+   "label": {
+    "text": "SMALLER\nGUT",
+    "at": "gut"
+   },
+   "shots": [
+    {
+     "photo": "Limosa lapponica",
+     "obs": 191865688,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "godwit",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "More room for fuel.",
+   "punch": "fuel",
+   "shots": [
+    {
+     "photo": "Limosa lapponica",
+     "obs": 229857133,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "godwit",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "I flapped for four seconds.",
+   "act_at": "seconds",
+   "sfx": [
+    "thud@seconds"
+   ],
+   "shots": [
+    {
+     "photo": "Limosa lapponica",
+     "obs": 42320414,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "godwit",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "It was a young bird.",
+   "punch": "young",
+   "animal": "turn@young",
+   "shots": [
+    {
+     "photo": "Limosa lapponica",
+     "obs": 330405444,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "godwit",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Like and follow. I need to lie down.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Limosa lapponica",
+     "obs": 191865688,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "godwit",
+   "pose": "think",
+   "act": "peek",
+   "say": "How far could you go nonstop? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Limosa lapponica",
+     "obs": 229857133,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "peregrine",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "This falcon dives faster than highway traffic.",
+   "label": {
+    "text": "114 MPH\nDIVE",
+    "at": "dives"
+   },
+   "sfx": [
+    "whoosh@dives"
+   ],
+   "animal": "turn@traffic",
+   "shots": [
+    {
+     "photo": "Falco peregrinus",
+     "obs": 345609021,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Feathered fist. Respect. Because",
+   "short_title": "The Peregrine Falcon Punches Prey With Its Foot 🦅",
+   "comment": "Would you watch one dive?",
+   "bonus": "Peregrines were wiped out across much of their range by DDT; the US took them off the endangered list in 1999.",
+   "sources": [
+    "Wikipedia, Peregrine falcon (some sources credit over 320 km/h in the stoop, the fastest animal; highest reliably measured 184 km/h / 114 mph; strikes its prey with a clenched foot, stunning or killing it; bony tubercles on the nostrils theorized to guide airflow; nictitating membranes (third eyelids); nests on skyscraper window ledges; delisted in the US on 25 Aug 1999) — https://en.wikipedia.org/wiki/Peregrine_falcon (checked 2026-10-25)"
+   ],
+   "_len": "short",
+   "caption": "Peregrine falcons are the fastest animals in a dive (184 km/h reliably measured, with higher claims), and they hit prey with a clenched foot. Now they nest on skyscrapers. #peregrinefalcon #birds #fastestanimal #animalfacts"
+  },
+  {
+   "myth": "peregrine",
+   "pose": "point",
+   "act": "stand",
+   "say": "Fastest animal on Earth, in a dive.",
+   "punch": "Fastest",
+   "shots": [
+    {
+     "photo": "Falco peregrinus",
+     "obs": 345609021,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "peregrine",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "I stood in its flight path.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@path",
+   "shots": [
+    {
+     "photo": "Falco peregrinus",
+     "obs": 12075369,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "peregrine",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It hits prey with a balled-up foot.",
+   "label": {
+    "text": "FOOT\nPUNCH",
+    "at": "foot"
+   },
+   "animal": "shake@hits",
+   "shots": [
+    {
+     "photo": "Falco peregrinus",
+     "obs": 26836496,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "peregrine",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Like a feathered fist.",
+   "punch": "fist",
+   "shots": [
+    {
+     "photo": "Falco peregrinus",
+     "obs": 26836496,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "peregrine",
+   "pose": "shock",
+   "act": "launch",
+   "say": "It hit me.",
+   "hit": "me",
+   "sfx": [
+    "crunch@me"
+   ],
+   "animal": "lunge@me",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Falco peregrinus",
+     "obs": 99718239,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "peregrine",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "Bumps in its nose may tame the wind.",
+   "act_at": "nose",
+   "sfx": [
+    "thud@nose"
+   ],
+   "label": {
+    "text": "NOSE\nBUMPS",
+    "at": "Bumps"
+   },
+   "shots": [
+    {
+     "photo": "Falco peregrinus",
+     "obs": 345609021,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "peregrine",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It even has a third eyelid.",
+   "label": {
+    "text": "3RD\nEYELID",
+    "at": "eyelid"
+   },
+   "shots": [
+    {
+     "photo": "Falco peregrinus",
+     "obs": 12075369,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "peregrine",
+   "pose": "point",
+   "act": "stand",
+   "say": "Now they nest on skyscrapers.",
+   "animal": "turn@skyscrapers",
+   "punch": "skyscrapers",
+   "shots": [
+    {
+     "photo": "Falco peregrinus",
+     "obs": 26836496,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "peregrine",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Like and follow. I'm wearing a helmet.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Falco peregrinus",
+     "obs": 99718239,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "peregrine",
+   "pose": "think",
+   "act": "peek",
+   "say": "Would you watch one dive? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Falco peregrinus",
+     "obs": 345609021,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "thornydevil",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "This lizard drinks through its skin.",
+   "label": {
+    "text": "SKIN\nDRINKER",
+    "at": "skin"
+   },
+   "sfx": [
+    "pop@skin"
+   ],
+   "animal": "turn@drinks",
+   "shots": [
+    {
+     "photo": "Moloch horridus",
+     "obs": 67092398,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Spiky, but genius. Because",
+   "short_title": "This Lizard Drinks Through Its Skin 🦎",
+   "comment": "Would you rather drink with your feet or your skin?",
+   "bonus": "Its color shifts from pale in warm weather to dark in cold weather.",
+   "sources": [
+    "Wikipedia, Thorny devil (capillary action transports water to the mouth through channels in its skin; spiny 'false head' on the back of its neck shown to predators; often eats thousands of ants in one day; up to 21 cm; lives 15-20 years; color changes with temperature) — https://en.wikipedia.org/wiki/Thorny_devil (checked 2026-10-25)"
+   ],
+   "_len": "short",
+   "caption": "The thorny devil drinks with its skin: grooves between its spines wick water to its mouth by capillary action. It also has a fake head on its neck and eats thousands of ants a day. #thornydevil #lizard #reptiles #animalfacts"
+  },
+  {
+   "myth": "thornydevil",
+   "pose": "point",
+   "act": "stand",
+   "say": "Tiny grooves run between its spikes.",
+   "punch": "grooves",
+   "shots": [
+    {
+     "photo": "Moloch horridus",
+     "obs": 236175663,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "thornydevil",
+   "pose": "shock",
+   "act": "stand",
+   "say": "They wick water straight to its mouth.",
+   "animal": "shake@mouth",
+   "label": {
+    "text": "STRAW\nSKIN",
+    "at": "wick"
+   },
+   "shots": [
+    {
+     "photo": "Moloch horridus",
+     "obs": 398422128,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "thornydevil",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "I offered it a glass anyway.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@glass",
+   "shots": [
+    {
+     "photo": "Moloch horridus",
+     "obs": 282071327,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "thornydevil",
+   "pose": "shock",
+   "act": "launch",
+   "say": "It showed me its second head.",
+   "hit": "head",
+   "sfx": [
+    "crunch@head"
+   ],
+   "animal": "lunge@head",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Moloch horridus",
+     "obs": 67092398,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "thornydevil",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "A fake spiky head on its neck.",
+   "act_at": "fake",
+   "sfx": [
+    "thud@fake"
+   ],
+   "label": {
+    "text": "FAKE\nHEAD",
+    "at": "head"
+   },
+   "shots": [
+    {
+     "photo": "Moloch horridus",
+     "obs": 236175663,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "thornydevil",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Predators bite that one instead.",
+   "punch": "instead",
+   "shots": [
+    {
+     "photo": "Moloch horridus",
+     "obs": 398422128,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "thornydevil",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It eats thousands of ants a day.",
+   "label": {
+    "text": "1000s\nOF ANTS",
+    "at": "thousands"
+   },
+   "animal": "strike@ants",
+   "shots": [
+    {
+     "photo": "Moloch horridus",
+     "obs": 282071327,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "thornydevil",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Like and follow. I'm hiding from spikes.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Moloch horridus",
+     "obs": 67092398,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "thornydevil",
+   "pose": "think",
+   "act": "peek",
+   "say": "Skin straw: cool or creepy? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Moloch horridus",
+     "obs": 236175663,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "kea",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "This parrot takes cars apart.",
+   "label": {
+    "text": "CAR\nWRECKER",
+    "at": "cars"
+   },
+   "sfx": [
+    "pop@cars"
+   ],
+   "animal": "turn@apart",
+   "shots": [
+    {
+     "photo": "Nestor notabilis",
+     "obs": 103356401,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Clown of the mountains. Because",
+   "short_title": "This Parrot Takes Cars Apart 🦜",
+   "comment": "Would you park near one?",
+   "bonus": "Kea are endangered, with an estimated 3,000-7,000 left.",
+   "sources": [
+    "Wikipedia, Kea (one of the few parrots that regularly spend time above the tree line; pry apart rubber parts of cars; investigate backpacks, boots and skis and fly off with small items, including a tourist's passport; can wait up to 160 seconds for a better reward; 'the clown of the mountains'; 2017 estimate 3,000-7,000, IUCN endangered) — https://en.wikipedia.org/wiki/Kea (checked 2026-10-25)"
+   ],
+   "_len": "short",
+   "caption": "Kea are mountain parrots from New Zealand that pry rubber parts off cars, raid backpacks and once flew off with a tourist's passport. They can wait for a better reward. #kea #parrot #newzealand #animalfacts"
+  },
+  {
+   "myth": "kea",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It pries the rubber right off.",
+   "animal": "strike@pries",
+   "punch": "rubber",
+   "shots": [
+    {
+     "photo": "Nestor notabilis",
+     "obs": 217439596,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "kea",
+   "pose": "point",
+   "act": "stand",
+   "say": "It's a kea. A mountain parrot.",
+   "label": {
+    "text": "KEA",
+    "at": "kea"
+   },
+   "shots": [
+    {
+     "photo": "Nestor notabilis",
+     "obs": 147756153,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "kea",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "I parked nearby anyway.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@parked",
+   "shots": [
+    {
+     "photo": "Nestor notabilis",
+     "obs": 34231306,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "kea",
+   "pose": "shock",
+   "act": "launch",
+   "say": "It went for my backpack.",
+   "hit": "backpack",
+   "sfx": [
+    "crunch@backpack"
+   ],
+   "animal": "lunge@backpack",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Nestor notabilis",
+     "obs": 103356401,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "kea",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "One flew off with a tourist's passport.",
+   "act_at": "passport",
+   "sfx": [
+    "thud@passport"
+   ],
+   "label": {
+    "text": "PASSPORT\nTHIEF",
+    "at": "passport"
+   },
+   "shots": [
+    {
+     "photo": "Nestor notabilis",
+     "obs": 217439596,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "kea",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "They call it the mountain clown.",
+   "punch": "clown",
+   "shots": [
+    {
+     "photo": "Nestor notabilis",
+     "obs": 147756153,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "kea",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "It even inspects people's skis.",
+   "punch": "skis",
+   "shots": [
+    {
+     "photo": "Nestor notabilis",
+     "obs": 34231306,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "kea",
+   "pose": "point",
+   "act": "stand",
+   "say": "And it can wait for a better snack.",
+   "animal": "shake@better",
+   "shots": [
+    {
+     "photo": "Nestor notabilis",
+     "obs": 103356401,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "kea",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Like and follow. Hide your keys.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Nestor notabilis",
+     "obs": 217439596,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "kea",
+   "pose": "think",
+   "act": "peek",
+   "say": "Would you park near one? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Nestor notabilis",
+     "obs": 147756153,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "monarch",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "No monarch butterfly makes the round trip.",
+   "label": {
+    "text": "ONE-WAY\nTRIP",
+    "at": "round"
+   },
+   "sfx": [
+    "pop@round"
+   ],
+   "animal": "turn@trip",
+   "shots": [
+    {
+     "photo": "Danaus plexippus",
+     "obs": 28901993,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Tiny wings, huge trip. Because",
+   "short_title": "No Monarch Butterfly Makes the Round Trip 🦋",
+   "comment": "Have you ever seen a monarch up close?",
+   "bonus": "Monarchs may steer by detecting polarized ultraviolet light from the sky.",
+   "sources": [
+    "Wikipedia, Monarch butterfly (travel between 1,200 and 2,800 miles or more; eastern monarchs overwinter in the mountain forests of central Mexico; a multi-generational migration, individuals only make part of the journey; adults typically live 2-5 weeks in the breeding season; toxic and foul-tasting from milkweed cardenolides; detect ultraviolet-polarized skylight) — https://en.wikipedia.org/wiki/Monarch_butterfly (checked 2026-10-25)"
+   ],
+   "_len": "short",
+   "caption": "Monarchs migrate 1,200-2,800+ miles to the mountain forests of central Mexico, but it takes several generations: no single butterfly makes the whole round trip. Milkweed makes them toxic. #monarch #butterfly #migration #animalfacts"
+  },
+  {
+   "myth": "monarch",
+   "pose": "point",
+   "act": "stand",
+   "say": "They fly up to Mexico's mountain forests.",
+   "animal": "shake@Mexico",
+   "shots": [
+    {
+     "photo": "Danaus plexippus",
+     "obs": 28901993,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "monarch",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Some go over two thousand miles.",
+   "label": {
+    "text": "2,000+\nMILES",
+    "at": "miles"
+   },
+   "shots": [
+    {
+     "photo": "Danaus plexippus",
+     "obs": 28901993,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "monarch",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "I tried to hitch a ride.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@ride",
+   "shots": [
+    {
+     "photo": "Danaus plexippus",
+     "obs": 28901993,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "monarch",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "It dropped me immediately.",
+   "act_at": "dropped",
+   "sfx": [
+    "thud@dropped"
+   ],
+   "shots": [
+    {
+     "photo": "Danaus plexippus",
+     "obs": 28901993,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "monarch",
+   "pose": "point",
+   "act": "stand",
+   "say": "The trip takes several generations.",
+   "punch": "generations",
+   "shots": [
+    {
+     "photo": "Danaus plexippus",
+     "obs": 924294,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "monarch",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Grandkids finish what grandma started.",
+   "punch": "Grandkids",
+   "shots": [
+    {
+     "photo": "Danaus plexippus",
+     "obs": 924294,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "monarch",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "And milkweed makes them toxic.",
+   "label": {
+    "text": "TOXIC",
+    "at": "toxic"
+   },
+   "animal": "strike@toxic",
+   "shots": [
+    {
+     "photo": "Danaus plexippus",
+     "obs": 68558388,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "monarch",
+   "pose": "point",
+   "act": "stand",
+   "say": "Bright orange means don't eat me.",
+   "punch": "orange",
+   "shots": [
+    {
+     "photo": "Danaus plexippus",
+     "obs": 68558388,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "monarch",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "Like and follow. I'm walking home.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Danaus plexippus",
+     "obs": 28901993,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "monarch",
+   "pose": "think",
+   "act": "peek",
+   "say": "Seen one up close? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Danaus plexippus",
+     "obs": 28901993,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Some fireflies flash to find a date.",
+   "label": {
+    "text": "DATE\nNIGHT",
+    "at": "date"
+   },
+   "sfx": [
+    "pop@date"
+   ],
+   "animal": "turn@flash",
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 223148472,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "So yes, the date was dinner. Because",
+   "short_title": "The Firefly That Flashes for a Darker Reason ✨",
+   "comment": "What did you guess she was doing?",
+   "bonus": "There are at least 64 recognized Photuris species, all in temperate North America.",
+   "sources": [
+    "Wikipedia, Photuris (females notable for preying on other fireflies; they copy the signals other species' females use to attract mates, and use them to attract, kill and eat males, mainly Photinus and Pyractomena; at least 64 species, temperate North America) — https://en.wikipedia.org/wiki/Photuris (checked 2026-10-25)",
+    "Eisner, Goetz, Hill, Smedley, Meinwald 1997, PNAS 94(18): 9723-9728, 'Firefly femmes fatales acquire defensive steroids (lucibufagins) from their firefly prey' (the acquired lucibufagins protect Photuris against jumping spiders) — https://doi.org/10.1073/pnas.94.18.9723",
+    "Lloyd 1965, Science 149: 653-654, 'Aggressive mimicry in Photuris: firefly femmes fatales' — https://doi.org/10.1126/science.149.3684.653"
+   ],
+   "_len": "deep",
+   "caption": "Fireflies flash codes to find mates. Photuris females copy the reply of another species, lure in its males, and eat them, even stealing their defensive chemicals. Scientists call them femme fatale fireflies. #firefly #insects #animalfacts #nature"
+  },
+  {
+   "myth": "firefly",
+   "pose": "think",
+   "act": "stand",
+   "say": "But one kind flashes for a darker reason.",
+   "promise": true,
+   "label": {
+    "text": "WHY?",
+    "at": "reason"
+   },
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 130243533,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "I went out at night to find out.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@night",
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 29262026,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "point",
+   "act": "stand",
+   "say": "Fireflies talk in flash codes.",
+   "label": {
+    "text": "FLASH\nCODE",
+    "at": "codes"
+   },
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 350719686,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Each species has its own pattern.",
+   "punch": "own",
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 223148472,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Like Morse code, but cuter.",
+   "punch": "cuter",
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 130243533,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "point",
+   "act": "stand",
+   "say": "Males flash. Females flash back.",
+   "animal": "shake@back",
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 29262026,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Meet Photuris. A big firefly.",
+   "label": {
+    "text": "PHOTURIS",
+    "at": "Photuris"
+   },
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 350719686,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: it's lost and confused?",
+   "decoy": true,
+   "label": {
+    "text": "LOST?",
+    "at": "lost"
+   },
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 223148472,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Nope. Every flash is on purpose.",
+   "punch": "purpose",
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 130243533,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: it's just lonely?",
+   "decoy": true,
+   "label": {
+    "text": "LONELY?",
+    "at": "lonely"
+   },
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 29262026,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Sort of. It loves company.",
+   "punch": "company",
+   "animal": "turn@company",
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 350719686,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "point",
+   "act": "stand",
+   "say": "Here's the thing. I flashed back.",
+   "punch": "back",
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 223148472,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "With my phone flashlight.",
+   "animal": "turn@phone",
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 130243533,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "shock",
+   "act": "launch",
+   "say": "It flew straight at me.",
+   "hit": "me",
+   "sfx": [
+    "crunch@me"
+   ],
+   "animal": "lunge@me",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 29262026,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "nervous",
+   "act": "tumble",
+   "say": "Tap like. My heart is still flashing.",
+   "act_at": "flashing",
+   "sfx": [
+    "thud@flashing"
+   ],
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 350719686,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "shock",
+   "act": "peek",
+   "say": "Wait. Why copy other species' codes?",
+   "punch": "copy",
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 223148472,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Because the female fakes another species' reply.",
+   "payoff": true,
+   "label": {
+    "text": "FAKE\nREPLY",
+    "at": "fakes"
+   },
+   "sfx": [
+    "zap@fakes"
+   ],
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 130243533,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "point",
+   "act": "stand",
+   "say": "A male of that species flies in.",
+   "animal": "turn@flies",
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 29262026,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Expecting a date.",
+   "punch": "date",
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 350719686,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Romantic, right? Wrong.",
+   "punch": "Wrong",
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 223148472,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "shock",
+   "act": "shake",
+   "say": "She eats him.",
+   "label": {
+    "text": "DINNER",
+    "at": "eats"
+   },
+   "animal": "strike@eats",
+   "sfx": [
+    "crunch@eats"
+   ],
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 130243533,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "point",
+   "act": "stand",
+   "say": "Scientists call her a femme fatale.",
+   "label": {
+    "text": "FEMME\nFATALE",
+    "at": "femme"
+   },
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 29262026,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "shock",
+   "act": "stand",
+   "say": "She even steals his defense chemicals.",
+   "punch": "steals",
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 350719686,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "They help protect her from jumping spiders.",
+   "animal": "shake@spiders",
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 223148472,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "point",
+   "act": "stand",
+   "say": "There are at least sixty-four kinds.",
+   "label": {
+    "text": "64\nKINDS",
+    "at": "kinds"
+   },
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 130243533,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "shock",
+   "act": "stand",
+   "say": "All in North America.",
+   "punch": "America",
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 29262026,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Your backyard might have some.",
+   "animal": "turn@backyard",
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 350719686,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "So that blinking light in your yard?",
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 223148472,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Could be a trap.",
+   "punch": "trap",
+   "animal": "turn@trap",
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 130243533,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "nervous",
+   "act": "hide",
+   "say": "I'm turning my porch light off.",
+   "sfx": [
+    "pop@off"
+   ],
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 29262026,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Love is dangerous out there.",
+   "punch": "dangerous",
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 350719686,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "point",
+   "act": "stand",
+   "say": "Follow for more terrible dates.",
+   "sfx": [
+    "pop@Follow"
+   ],
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 223148472,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "firefly",
+   "pose": "think",
+   "act": "peek",
+   "say": "Ever caught fireflies as a kid? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Photuris",
+     "obs": 130243533,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  }
+ ]
+}
