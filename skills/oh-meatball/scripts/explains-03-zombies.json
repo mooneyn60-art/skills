@@ -1,0 +1,448 @@
+{
+ "title": "Zombie Animals Are Real (And One Might Be Inside You)",
+ "title_candidates": [
+  "Zombie Animals Are Real (And One Might Be Inside You)",
+  "Real Zombie Animals: The Parasites That Control Their Hosts",
+  "5 Real Zombie Animals (The Last One Might Be in You)"
+ ],
+ "rate": "+0%",
+ "short_rate": "+0%",
+ "voice": "kokoro:eric-michael",
+ "music": "music/quiz-bed.m4a",
+ "style": "classic",
+ "names": {
+  "Ophiocordyceps unilateralis": "Zombie-ant fungus",
+  "Camponotus": "Carpenter ant",
+  "Ampulex compressa": "Emerald cockroach wasp",
+  "Periplaneta americana": "American cockroach",
+  "Nematomorpha": "Horsehair worm",
+  "Gryllus": "Field cricket",
+  "Leucochloridium": "Leucochloridium (in an amber snail)",
+  "Rattus norvegicus": "Brown rat",
+  "Felis catus": "House cat"
+ },
+ "blurb": "Zombie animals are real. Meatball tells the true story of five animals whose bodies get driven by something else: the zombie-ant fungus and its death grip, the emerald wasp that walks a cockroach on a leash, the hairworm that makes crickets jump into water, the snail with throbbing striped eyes, and the parasite that makes rats like cats. One of them is probably in about a third of people. It's at the end.\n\nWhich one would make the scariest Halloween costume? The best answer gets read out next episode 👇",
+ "next": "Tuesday: the deadliest animal on Earth (it isn't the shark).\n\nSubscribe: new Meatball every Tuesday and Saturday",
+ "tags": [
+  "zombie animals",
+  "real zombie animals",
+  "zombie ant fungus",
+  "cordyceps",
+  "ophiocordyceps",
+  "zombie ant",
+  "jewel wasp",
+  "emerald cockroach wasp",
+  "hairworm",
+  "leucochloridium",
+  "zombie snail",
+  "toxoplasma",
+  "parasites that control their hosts",
+  "halloween animal facts",
+  "Meatball Explains"
+ ],
+ "hashtags": "#zombieanimals #cordyceps #halloween #animalfacts #meatballexplains",
+ "pinned": "🧟 Best answer gets read out in the next episode: which of these five would make the scariest Halloween costume? Follow Meatball for more 🍝",
+ "_note": "Meatball Explains #3 (Showrunner, morning run 2026-10-25), for Sat 10/31 2 PM after Explains-01 moved to 10/25. One story, five hosts, Toxoplasma payoff promised in the first line and delivered last (open loop). Halloween-adjacent and true; no quiz, no checkpoints, no read-out (asks only). Voice kokoro:eric-michael (Nolan 10/24 free long-form voice). Shorts are not posted from long-forms (only v3/v4 Shorts post), so render with --skip-shorts. Contested claims are said as contested on air (Toxoplasma effects on people). Photos: iNaturalist research-grade, wild, CC0/CC BY, first photo of each obs, checked by eye.",
+ "sources": [
+  "Ophiocordyceps: fungal cells surround and invade ant muscle fibres, brain not invaded — Fredericksen et al. 2017, PNAS, https://www.pnas.org/doi/10.1073/pnas.1711673114",
+  "Death grip on leaf veins ~25 cm above ground, synchronised near solar noon — Hughes et al. 2011, BMC Ecology, https://bmcecol.biomedcentral.com/articles/10.1186/1472-6785-11-13",
+  "48-million-year-old fossil leaf with death-grip scars (Messel) — Hughes, Wappler & Labandeira 2010, Biology Letters, https://royalsocietypublishing.org/doi/10.1098/rsbl.2010.0521",
+  "Ampulex compressa: thorax sting then brain (subesophageal ganglion) sting, stinger senses target, roach walks but won't escape, led by antenna, egg on leg, burrow sealed, larva eats roach from inside — Libersat & Gal 2013/2014 (J Exp Biol; Frontiers), https://en.wikipedia.org/wiki/Ampulex_compressa",
+  "Hairworm (Spinochordodes tellinii) makes grasshoppers/crickets jump into water — Thomas et al. 2002, Proc R Soc B, https://royalsocietypublishing.org/doi/10.1098/rspb.2002.1971",
+  "Leucochloridium pulsating broodsacs in eye tentacles; infected snails more exposed/higher and more active in light — Wesołowska & Wesołowski 2014, J Zoology, https://zslpublications.onlinelibrary.wiley.com/doi/10.1111/jzo.12094",
+  "Toxoplasma: infected rats attracted to cat odour — Berdoy, Webster & Macdonald 2000, Proc R Soc B, https://royalsocietypublishing.org/doi/10.1098/rspb.2000.1182",
+  "Toxoplasma infects roughly a third of humans; cats are the definitive host; pregnancy/litter-box advice — CDC, https://www.cdc.gov/toxoplasmosis/about/index.html ; https://en.wikipedia.org/wiki/Toxoplasmosis"
+ ],
+ "beats": [
+  {
+   "say": "Zombies are real. Five animals on Earth get taken over by something that drives their body for them. And one of those things might be inside you right now. That one's at the end.",
+   "pose": "shock",
+   "myth": "intro",
+   "photo": "Ophiocordyceps unilateralis",
+   "obs": 5127531,
+   "chapter": "Cold open"
+  },
+  {
+   "say": "This ant is about to climb to its death.",
+   "pose": "nervous",
+   "myth": "intro",
+   "photo": "Ophiocordyceps unilateralis",
+   "obs": 331185805
+  },
+  {
+   "say": "This cockroach is about to get walked like a dog.",
+   "pose": "deadpan",
+   "myth": "intro",
+   "photo": "Ampulex compressa",
+   "obs": 215510049
+  },
+  {
+   "say": "I'm Meatball. I narrate nature, and nature keeps trying to eat me. Today: real zombie animals.",
+   "pose": "deadpan",
+   "myth": "intro",
+   "photo": "Ophiocordyceps unilateralis",
+   "obs": 5127531
+  },
+  {
+   "say": "First, the zombie ant. Deep in a rainforest, a carpenter ant walks past a tiny fungus spore. The spore sticks to it. That's it. That's the whole mistake.",
+   "pose": "nervous",
+   "myth": "ant",
+   "photo": "Camponotus",
+   "obs": 262021643,
+   "hook": true,
+   "chapter": "The zombie ant fungus"
+  },
+  {
+   "say": "The fungus is called Ophiocordyceps. It gets through the ant's armor and starts growing inside its body.",
+   "pose": "point",
+   "myth": "ant",
+   "photo": "Ophiocordyceps unilateralis",
+   "obs": 331185805
+  },
+  {
+   "say": "Over the next days it spreads everywhere. When scientists scanned infected ants, they found fungus cells wrapped around the ant's muscles, like a net.",
+   "pose": "shock",
+   "myth": "ant",
+   "photo": "Ophiocordyceps unilateralis",
+   "obs": 85788204
+  },
+  {
+   "say": "And here's the creepy part. The fungus mostly leaves the brain alone. The ant is still in there. It's just not driving.",
+   "pose": "nervous",
+   "myth": "intro",
+   "text": "STILL IN THERE.\nNOT DRIVING.",
+   "hold": 0.4
+  },
+  {
+   "say": "Then the ant leaves its nest. It climbs a plant, stops about a ruler's length above the forest floor, and clamps its jaws onto a vein under a leaf. Scientists call it the death grip.",
+   "pose": "shock",
+   "myth": "ant",
+   "photo": "Ophiocordyceps unilateralis",
+   "obs": 5127531
+  },
+  {
+   "say": "In one study, the ants bit down around the middle of the day. Like it was scheduled.",
+   "pose": "deadpan",
+   "myth": "ant",
+   "photo": "Ophiocordyceps unilateralis",
+   "obs": 85788204,
+   "aside": "(it was scheduled)"
+  },
+  {
+   "say": "Quick thing. If watching a meatball narrate things that would happily eat him is your idea of fun, subscribing genuinely keeps me off the menu. A ghost told me that.",
+   "pose": "point",
+   "myth": "intro",
+   "aside": "(it was a raccoon)"
+  },
+  {
+   "say": "Back to the ant. It dies right there, locked on. And then a stalk grows out of the back of its head.",
+   "pose": "disgust",
+   "myth": "ant",
+   "photo": "Ophiocordyceps unilateralis",
+   "obs": 331185805
+  },
+  {
+   "say": "From up there, the stalk rains spores down onto the trail below. Right where the next ant walks.",
+   "pose": "nervous",
+   "myth": "ant",
+   "photo": "Ophiocordyceps unilateralis",
+   "obs": 85788204
+  },
+  {
+   "say": "And this is old. Scientists found the same bite scars on a fossil leaf about forty eight million years old. Ants were getting zombified before there were any people to be scared of it.",
+   "pose": "think",
+   "myth": "ant",
+   "text": "48 MILLION\nYEARS OLD",
+   "hold": 0.3
+  },
+  {
+   "say": "Honestly? As a food item, I relate to the ant. Something else decides your whole day, and then it's over.",
+   "pose": "nervous",
+   "myth": "intro",
+   "photo": "Ophiocordyceps unilateralis",
+   "obs": 5127531,
+   "prop": "fork"
+  },
+  {
+   "say": "Number two is a wasp. The emerald cockroach wasp. Shiny, green, and about as long as a paper clip.",
+   "pose": "point",
+   "myth": "wasp",
+   "photo": "Ampulex compressa",
+   "obs": 215510049,
+   "hook": true,
+   "chapter": "The wasp that walks a cockroach"
+  },
+  {
+   "say": "Its target is a cockroach. A cockroach that's bigger than it is.",
+   "pose": "shock",
+   "myth": "wasp",
+   "photo": "Periplaneta americana",
+   "obs": 145749011
+  },
+  {
+   "say": "The first sting goes into the chest. The roach's front legs stop working for a couple of minutes.",
+   "pose": "nervous",
+   "myth": "wasp",
+   "photo": "Ampulex compressa",
+   "obs": 138732158
+  },
+  {
+   "say": "The second sting goes into the head. Into the brain. The wasp actually feels around with its stinger for the right spot.",
+   "pose": "shock",
+   "myth": "wasp",
+   "photo": "Ampulex compressa",
+   "obs": 215510049
+  },
+  {
+   "say": "Now here's the thing. The roach isn't paralyzed. It can walk just fine. It just doesn't want to escape anymore.",
+   "pose": "deadpan",
+   "myth": "wasp",
+   "text": "CAN WALK.\nWON'T RUN.",
+   "hold": 0.3
+  },
+  {
+   "say": "So the wasp bites off part of each antenna, grabs what's left, and leads the cockroach to its burrow. Like a dog on a leash.",
+   "pose": "shock",
+   "myth": "wasp",
+   "photo": "Ampulex compressa",
+   "obs": 33480009
+  },
+  {
+   "say": "And the cockroach just follows. It walks into the burrow by itself.",
+   "pose": "deadpan",
+   "myth": "wasp",
+   "photo": "Periplaneta americana",
+   "obs": 145749011
+  },
+  {
+   "say": "The wasp lays one egg on the roach's leg, seals the door with pebbles, and flies off.",
+   "pose": "point",
+   "myth": "wasp",
+   "photo": "Ampulex compressa",
+   "obs": 215510049
+  },
+  {
+   "say": "When the egg hatches, the baby wasp eats the cockroach. From the inside. And the roach stays alive for most of it.",
+   "pose": "disgust",
+   "myth": "wasp",
+   "photo": "Periplaneta americana",
+   "obs": 200718902
+  },
+  {
+   "say": "Weeks later, a brand new wasp climbs out of the cockroach. The cockroach does not.",
+   "pose": "deadpan",
+   "myth": "wasp",
+   "photo": "Ampulex compressa",
+   "obs": 33480009,
+   "aside": "(happy Halloween)"
+  },
+  {
+   "say": "If that one got you, hit like. I need to know you're as upset as I am.",
+   "pose": "point",
+   "myth": "intro"
+  },
+  {
+   "say": "Number three. A cricket walks to the edge of a pond, and jumps in.",
+   "pose": "shock",
+   "myth": "worm",
+   "photo": "Gryllus",
+   "obs": 22764854,
+   "hook": true,
+   "chapter": "The cricket that jumps into water"
+  },
+  {
+   "say": "Crickets can't swim. They don't like water. This one jumped anyway.",
+   "pose": "deadpan",
+   "myth": "worm",
+   "photo": "Gryllus",
+   "obs": 148327792
+  },
+  {
+   "say": "Because there's a worm inside it. A hairworm. It grew up eating the cricket's insides, and it's been coiled up in there the whole time.",
+   "pose": "disgust",
+   "myth": "worm",
+   "photo": "Nematomorpha",
+   "obs": 105361431
+  },
+  {
+   "say": "A hairworm can only finish growing up in water. And in experiments, infected crickets jumped into water far more often than healthy ones.",
+   "pose": "point",
+   "myth": "worm",
+   "photo": "Gryllus",
+   "obs": 22764854
+  },
+  {
+   "say": "The second the cricket hits the water, the worm slides out. It can be several times longer than the cricket it came out of.",
+   "pose": "shock",
+   "myth": "worm",
+   "photo": "Nematomorpha",
+   "obs": 68490116
+  },
+  {
+   "say": "People find these worms in swimming pools, dog bowls and toilets. They look like a hair that's moving. Have a lovely evening.",
+   "pose": "nervous",
+   "myth": "worm",
+   "photo": "Nematomorpha",
+   "obs": 105361431,
+   "aside": "(sorry)"
+  },
+  {
+   "say": "Number four is the one with the dancing eyes.",
+   "pose": "shock",
+   "myth": "snail",
+   "photo": "Leucochloridium",
+   "obs": 388382542,
+   "hook": true,
+   "chapter": "The snail with disco eyes"
+  },
+  {
+   "say": "This is an amber snail. Snails are normally slow, careful, and big fans of shade.",
+   "pose": "deadpan",
+   "myth": "snail",
+   "photo": "Leucochloridium",
+   "obs": 42099276
+  },
+  {
+   "say": "But this one has a flatworm inside it called Leucochloridium. It fills the snail's eye stalks with fat, striped, throbbing sacs.",
+   "pose": "disgust",
+   "myth": "snail",
+   "photo": "Leucochloridium",
+   "obs": 388382542
+  },
+  {
+   "say": "They pulse. Green, banded, wiggling. To a bird, that looks a lot like a juicy caterpillar.",
+   "pose": "nervous",
+   "myth": "snail",
+   "text": "LOOKS LIKE\nA SNACK",
+   "hold": 0.3
+  },
+  {
+   "say": "And infected snails tend to sit higher up, out in the open, in the light. Exactly where birds are looking.",
+   "pose": "point",
+   "myth": "snail",
+   "photo": "Leucochloridium",
+   "obs": 279504674
+  },
+  {
+   "say": "A bird pecks off the eye stalk. The worm grows up inside the bird. The bird poops out the worm's eggs. Another snail eats the poop. And round it goes.",
+   "pose": "deadpan",
+   "myth": "snail",
+   "photo": "Leucochloridium",
+   "obs": 42099276
+  },
+  {
+   "say": "The snail can even grow its eye stalk back. Which, honestly, makes it worse.",
+   "pose": "deadpan",
+   "myth": "snail",
+   "photo": "Leucochloridium",
+   "obs": 388382542
+  },
+  {
+   "say": "Your turn. Which of these would make the scariest Halloween costume? Tell me in the comments. Wrong answers welcome. The best one gets read out next episode.",
+   "pose": "point",
+   "myth": "intro",
+   "text": "BEST COSTUME?\nCOMMENT",
+   "hold": 0.3
+  },
+  {
+   "say": "Okay. I promised you one of these might be inside you right now. Here it is.",
+   "pose": "nervous",
+   "myth": "rat",
+   "photo": "Rattus norvegicus",
+   "obs": 212925594,
+   "hook": true,
+   "chapter": "The one that might be in you"
+  },
+  {
+   "say": "It's a tiny parasite called Toxoplasma. It can live in almost any warm-blooded animal. Rats, birds, sheep. People.",
+   "pose": "point",
+   "myth": "rat",
+   "photo": "Rattus norvegicus",
+   "obs": 116678795
+  },
+  {
+   "say": "But it can only finish its life cycle in one place. The gut of a cat.",
+   "pose": "shock",
+   "myth": "rat",
+   "photo": "Felis catus",
+   "obs": 218557988
+  },
+  {
+   "say": "So it needs to get from the rat into the cat. And here's what scientists found.",
+   "pose": "think",
+   "myth": "rat",
+   "photo": "Rattus norvegicus",
+   "obs": 212925594
+  },
+  {
+   "say": "Healthy rats stay away from places that smell like cat pee. Smart rats. Infected rats didn't. In one famous experiment, they seemed to prefer it.",
+   "pose": "shock",
+   "myth": "rat",
+   "photo": "Rattus norvegicus",
+   "obs": 116678795
+  },
+  {
+   "say": "And a rat that likes the smell of cats is a rat that ends up inside a cat. Which is exactly where the parasite wanted to go.",
+   "pose": "deadpan",
+   "myth": "rat",
+   "text": "FATAL\nATTRACTION",
+   "hold": 0.3
+  },
+  {
+   "say": "Now, people. Scientists estimate that somewhere around one in three people on Earth have caught Toxoplasma at some point. Usually from undercooked meat, or a cat's litter box.",
+   "pose": "nervous",
+   "myth": "rat",
+   "text": "ABOUT 1 IN 3\nPEOPLE",
+   "hold": 0.3
+  },
+  {
+   "say": "Undercooked meat. For the record, I am fully cooked.",
+   "pose": "deadpan",
+   "myth": "intro",
+   "prop": "fork",
+   "aside": "(please check)"
+  },
+  {
+   "say": "For almost everyone, it's harmless. Your immune system keeps it asleep, and you never notice. Scientists still argue about whether it changes people at all, and most say: not in any way you'd notice.",
+   "pose": "point",
+   "myth": "rat",
+   "photo": "Felis catus",
+   "obs": 218557988
+  },
+  {
+   "say": "The big exception is pregnancy. That's why doctors tell pregnant people to let somebody else clean the litter box.",
+   "pose": "think",
+   "myth": "rat",
+   "photo": "Felis catus",
+   "obs": 234370227
+  },
+  {
+   "say": "So no, you are not a zombie. Probably. But if you've ever had a sudden, powerful urge to get a cat, I'm just saying.",
+   "pose": "laugh",
+   "myth": "rat",
+   "photo": "Felis catus",
+   "obs": 234370227,
+   "aside": "(it's not the parasite. probably.)"
+  },
+  {
+   "say": "That's five puppet masters. A fungus, a wasp, a worm, a flatworm and a microbe. Not one of them has a brain worth mentioning, and every one of them can drive.",
+   "pose": "deadpan",
+   "myth": "intro",
+   "photo": "Ophiocordyceps unilateralis",
+   "obs": 5127531,
+   "chapter": "Five puppet masters"
+  },
+  {
+   "say": "If you want true stories that are weirder than Halloween, subscribe. New Meatball every Tuesday and Saturday.",
+   "pose": "point",
+   "myth": "intro"
+  },
+  {
+   "say": "Tuesday: the deadliest animal on Earth. It isn't the shark, and you've almost certainly been bitten by one. See you then.",
+   "pose": "nervous",
+   "myth": "intro",
+   "text": "TUESDAY:\nDEADLIEST\nANIMAL?",
+   "hold": 0.4
+  }
+ ]
+}

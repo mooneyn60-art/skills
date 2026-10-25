@@ -1,0 +1,982 @@
+{
+ "title": "Halloween fake-outs (Shorts v4, Andrew): opossum, death's-head hawkmoth, ghost crab, killdeer",
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+0%",
+ "short_rate": "+0%",
+ "tempo": 1.1,
+ "music": "music/quiz-bed.m4a",
+ "style": "v4",
+ "_note": "Halloween-week v4 Shorts (morning run 2026-10-25) to fill the empty YouTube Shorts slots 10/28-10/31 left when the old quiz Shorts were held. Four animals that fake, disguise or growl: opossum (plays dead), death's-head hawkmoth (skull, squeaks, raids hives), ghost crab (stomach-teeth growl), killdeer (broken-wing act). 20-25 s claim-first, lines 8 words or fewer, Meatball in jeopardy, asks never in the first 3 s, no quiz cards, no read-outs. Voice en-US-AndrewMultilingualNeural +0% then atempo 1.10. Photos: iNaturalist research-grade, wild, CC0/CC BY, animal.subject() ok and checked by eye (whole, alive, right species, no watermark); sources on each hook beat.",
+ "names": {
+  "Didelphis virginiana": "Virginia opossum",
+  "Acherontia atropos": "Death's-head hawkmoth",
+  "Ocypode quadrata": "Atlantic ghost crab",
+  "Charadrius vociferus": "Killdeer"
+ },
+ "subjects": {
+  "7073976": {},
+  "71584085": {},
+  "220675597": {},
+  "117549550": {},
+  "122835081": {},
+  "88469836": {},
+  "205174643": {},
+  "52868173": {},
+  "22058348": {},
+  "70540423": {},
+  "117793568": {},
+  "117094445": {},
+  "192341808": {}
+ },
+ "beats": [
+  {
+   "myth": "opossum",
+   "pose": "shock",
+   "act": "shake",
+   "say": "Opossums play dead. They can't help it.",
+   "label": {
+    "text": "FAKE\nDEAD",
+    "at": "dead"
+   },
+   "sfx": [
+    "pop@dead"
+   ],
+   "animal": "turn@dead",
+   "shots": [
+    {
+     "photo": "Didelphis virginiana",
+     "obs": 7073976,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Honestly? Respect. Because",
+   "short_title": "Opossums Can't Help Playing Dead 💀",
+   "comment": "Could you fake it this well? 👇 Follow Meatball for more 🍝",
+   "bonus": "Opossums are North America's only marsupial: the babies grow up in a pouch.",
+   "sources": [
+    "National Wildlife Federation, Virginia opossum: 'playing possum' is an involuntary response to fear, like fainting; lips drawn back, teeth bared, saliva foams, a foul-smelling fluid from the anal glands; can last up to four hours — https://www.nwf.org/Educational-Resources/Wildlife-Guide/Mammals/Virginia-Opossum (checked 2026-10-25)",
+    "Wikipedia, Virginia opossum (thanatosis; tongue out; only marsupial north of Mexico) — https://en.wikipedia.org/wiki/Virginia_opossum"
+   ],
+   "_len": "short",
+   "caption": "'Playing possum' isn't an act. A scared opossum goes limp like it fainted, drools, sticks its tongue out and leaks a dead-animal smell, and it can stay that way for up to four hours. #opossum #halloween #animalfacts"
+  },
+  {
+   "myth": "opossum",
+   "pose": "point",
+   "act": "stand",
+   "say": "It's not acting. It's like fainting.",
+   "punch": "fainting",
+   "shots": [
+    {
+     "photo": "Didelphis virginiana",
+     "obs": 71584085,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "opossum",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "They flop over, mouth open.",
+   "animal": "shake@flop",
+   "sfx": [
+    "thud@flop"
+   ],
+   "shots": [
+    {
+     "photo": "Didelphis virginiana",
+     "obs": 7073976,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "opossum",
+   "pose": "disgust",
+   "act": "stand",
+   "say": "Drool. Foam. Tongue out.",
+   "punch": "Tongue",
+   "shots": [
+    {
+     "photo": "Didelphis virginiana",
+     "obs": 71584085,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "opossum",
+   "pose": "disgust",
+   "act": "stand",
+   "say": "Then they leak a dead-animal smell.",
+   "label": {
+    "text": "DEATH\nSMELL",
+    "at": "smell"
+   },
+   "shots": [
+    {
+     "photo": "Didelphis virginiana",
+     "obs": 7073976,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "opossum",
+   "pose": "deadpan",
+   "act": "peek",
+   "say": "From their butt. Very convincing.",
+   "punch": "butt",
+   "shots": [
+    {
+     "photo": "Didelphis virginiana",
+     "obs": 71584085,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "opossum",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It can last up to four hours.",
+   "label": {
+    "text": "UP TO\n4 HOURS",
+    "at": "hours"
+   },
+   "shots": [
+    {
+     "photo": "Didelphis virginiana",
+     "obs": 7073976,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "opossum",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I poked one.",
+   "hit": "poked",
+   "sfx": [
+    "boing@poked"
+   ],
+   "animal": "turn@poked",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Didelphis virginiana",
+     "obs": 71584085,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "opossum",
+   "pose": "think",
+   "act": "stand",
+   "say": "Nothing. Fully committed to the bit.",
+   "punch": "committed",
+   "shots": [
+    {
+     "photo": "Didelphis virginiana",
+     "obs": 7073976,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "opossum",
+   "pose": "deadpan",
+   "act": "tumble",
+   "say": "I'm a meatball. I just lie there anyway.",
+   "act_at": "there",
+   "sfx": [
+    "thud@there"
+   ],
+   "prop": "fork",
+   "prop_at": "meatball",
+   "shots": [
+    {
+     "photo": "Didelphis virginiana",
+     "obs": 71584085,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "opossum",
+   "pose": "think",
+   "act": "peek",
+   "say": "Could you fake it this well? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Didelphis virginiana",
+     "obs": 7073976,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hawkmoth",
+   "pose": "shock",
+   "act": "shake",
+   "say": "This moth has a skull on its back.",
+   "label": {
+    "text": "SKULL\nMOTH",
+    "at": "skull"
+   },
+   "sfx": [
+    "pop@skull"
+   ],
+   "animal": "turn@skull",
+   "shots": [
+    {
+     "photo": "Acherontia atropos",
+     "obs": 220675597,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Spooky, sure. But it just wants honey. Because",
+   "short_title": "This Moth Has a Skull on Its Back, and It Squeaks 💀",
+   "comment": "Would you let it land on you? 👇 Follow Meatball for more 🍝",
+   "bonus": "It squeaks by sucking air into its throat and pushing it back out, unlike most moths, which can't make a sound.",
+   "sources": [
+    "Brehm et al. 2015, J Experimental Biology, 'The unique sound production of the Death's-head hawkmoth' (squeak by pumping air through the pharynx) — https://journals.biologists.com/jeb/article/218/24/3838/16911",
+    "Moritz et al. 1991, Naturwissenschaften, chemical camouflage of Acherontia atropos in honeybee colonies (cuticle scent close to the bees'; it enters hives to feed on honey) — https://doi.org/10.1007/BF01131497 ; https://en.wikipedia.org/wiki/Acherontia_atropos (skull-shaped thorax pattern; checked 2026-10-25)"
+   ],
+   "_len": "short",
+   "caption": "The death's-head hawkmoth has a skull pattern on its back, squeaks when bothered, and raids beehives for honey while smelling enough like the bees that they mostly leave it alone. #moth #halloween #animalfacts"
+  },
+  {
+   "myth": "hawkmoth",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "It's called the death's-head hawkmoth.",
+   "punch": "death's",
+   "shots": [
+    {
+     "photo": "Acherontia atropos",
+     "obs": 117549550,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hawkmoth",
+   "pose": "shock",
+   "act": "stand",
+   "say": "And it squeaks when you bother it.",
+   "animal": "shake@squeaks",
+   "sfx": [
+    "boing@squeaks"
+   ],
+   "shots": [
+    {
+     "photo": "Acherontia atropos",
+     "obs": 122835081,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hawkmoth",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "It sneaks into beehives at night.",
+   "animal": "lunge@beehives",
+   "shots": [
+    {
+     "photo": "Acherontia atropos",
+     "obs": 220675597,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hawkmoth",
+   "pose": "point",
+   "act": "stand",
+   "say": "And steals their honey.",
+   "label": {
+    "text": "HONEY\nTHIEF",
+    "at": "honey"
+   },
+   "shots": [
+    {
+     "photo": "Acherontia atropos",
+     "obs": 117549550,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hawkmoth",
+   "pose": "think",
+   "act": "stand",
+   "say": "It smells like bees. They mostly ignore it.",
+   "label": {
+    "text": "BEE\nDISGUISE",
+    "at": "smells"
+   },
+   "shots": [
+    {
+     "photo": "Acherontia atropos",
+     "obs": 122835081,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hawkmoth",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I tried sneaking into a hive.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@hive",
+   "shots": [
+    {
+     "photo": "Acherontia atropos",
+     "obs": 220675597,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hawkmoth",
+   "pose": "nervous",
+   "act": "tumble",
+   "say": "I'm a meatball. I smell like dinner.",
+   "act_at": "dinner",
+   "sfx": [
+    "thud@dinner"
+   ],
+   "prop": "fork",
+   "prop_at": "meatball",
+   "shots": [
+    {
+     "photo": "Acherontia atropos",
+     "obs": 117549550,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hawkmoth",
+   "pose": "point",
+   "act": "stand",
+   "say": "Like and follow. I'm hiding.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Acherontia atropos",
+     "obs": 122835081,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hawkmoth",
+   "pose": "think",
+   "act": "peek",
+   "say": "Would you touch it? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Acherontia atropos",
+     "obs": 220675597,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ghostcrab",
+   "pose": "shock",
+   "act": "shake",
+   "say": "Ghost crabs growl with teeth in their stomach.",
+   "label": {
+    "text": "STOMACH\nTEETH",
+    "at": "teeth"
+   },
+   "sfx": [
+    "pop@growl"
+   ],
+   "animal": "turn@growl",
+   "shots": [
+    {
+     "photo": "Ocypode quadrata",
+     "obs": 88469836,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "So if the beach growls at you, remember,",
+   "short_title": "Ghost Crabs Growl With Teeth in Their Stomach 👻",
+   "comment": "Have you ever seen one at the beach? 👇 Follow Meatball for more 🍝",
+   "bonus": "Ghost crabs can also make sounds by rubbing their claws, so they have two ways to warn you off.",
+   "sources": [
+    "Taylor, Patek et al. 2019, Biology Letters, 'Ghost crabs growl at intruders using teeth in their stomach' (gastric mill stridulation in Ocypode quadrata) — https://royalsocietypublishing.org/doi/10.1098/rsbl.2019.0367",
+    "Wikipedia, Ocypode / Atlantic ghost crab (mainly nocturnal; pale sand colour; runs sideways up to about 1.6 m/s) — https://en.wikipedia.org/wiki/Ocypode (checked 2026-10-25)"
+   ],
+   "_len": "short",
+   "caption": "Ghost crabs growl at intruders by grinding teeth inside their stomach, which scientists recorded in 2019. They come out at night and sprint sideways about five feet a second. #ghostcrab #halloween #animalfacts"
+  },
+  {
+   "myth": "ghostcrab",
+   "pose": "disgust",
+   "act": "stand",
+   "say": "Yes. Teeth. Inside the stomach.",
+   "punch": "Inside",
+   "shots": [
+    {
+     "photo": "Ocypode quadrata",
+     "obs": 205174643,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ghostcrab",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "They grind them together to growl.",
+   "animal": "shake@growl",
+   "sfx": [
+    "crunch@grind"
+   ],
+   "shots": [
+    {
+     "photo": "Ocypode quadrata",
+     "obs": 52868173,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ghostcrab",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It means back off.",
+   "animal": "lunge@off",
+   "hit": "off",
+   "sfx": [
+    "boing@off"
+   ],
+   "shots": [
+    {
+     "photo": "Ocypode quadrata",
+     "obs": 22058348,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ghostcrab",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "They're pale, and they come out at night.",
+   "label": {
+    "text": "NIGHT\nCRAB",
+    "at": "night"
+   },
+   "shots": [
+    {
+     "photo": "Ocypode quadrata",
+     "obs": 88469836,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ghostcrab",
+   "pose": "shock",
+   "act": "stand",
+   "say": "And sprint sideways five feet a second.",
+   "label": {
+    "text": "5 FEET\nA SECOND",
+    "at": "sprint"
+   },
+   "shots": [
+    {
+     "photo": "Ocypode quadrata",
+     "obs": 205174643,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ghostcrab",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I tried to say hi.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@hi",
+   "shots": [
+    {
+     "photo": "Ocypode quadrata",
+     "obs": 52868173,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ghostcrab",
+   "pose": "deadpan",
+   "act": "tumble",
+   "say": "I'm a meatball. My stomach only rumbles.",
+   "act_at": "rumbles",
+   "sfx": [
+    "thud@rumbles"
+   ],
+   "shots": [
+    {
+     "photo": "Ocypode quadrata",
+     "obs": 22058348,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ghostcrab",
+   "pose": "point",
+   "act": "stand",
+   "say": "Follow before it growls.",
+   "sfx": [
+    "pop@follow"
+   ],
+   "shots": [
+    {
+     "photo": "Ocypode quadrata",
+     "obs": 88469836,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ghostcrab",
+   "pose": "think",
+   "act": "peek",
+   "say": "Seen one at the beach? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Ocypode quadrata",
+     "obs": 205174643,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "killdeer",
+   "pose": "shock",
+   "act": "shake",
+   "say": "This bird fakes a broken wing.",
+   "label": {
+    "text": "FAKE\nINJURY",
+    "at": "fakes"
+   },
+   "sfx": [
+    "pop@broken"
+   ],
+   "animal": "turn@wing",
+   "shots": [
+    {
+     "photo": "Charadrius vociferus",
+     "obs": 70540423,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Award-winning performance. Because",
+   "short_title": "This Bird Fakes a Broken Wing to Trick You 🐦",
+   "comment": "Has a bird ever fooled you? 👇 Follow Meatball for more 🍝",
+   "bonus": "Killdeer are named for their call, a loud 'kill-deer'.",
+   "sources": [
+    "Cornell Lab of Ornithology, All About Birds, Killdeer (nest is a shallow scrape on bare ground or gravel; broken-wing display leads predators away from the nest; named for its call) — https://www.allaboutbirds.org/guide/Killdeer/overview (checked 2026-10-25)"
+   ],
+   "_len": "short",
+   "caption": "Killdeer nest in bare gravel, so when a predator gets close the parent fakes a broken wing, crying and dragging it, to lead the predator away from the eggs. Then it flies off just fine. #killdeer #birds #animalfacts"
+  },
+  {
+   "myth": "killdeer",
+   "pose": "point",
+   "act": "stand",
+   "say": "It's called a killdeer.",
+   "punch": "killdeer",
+   "shots": [
+    {
+     "photo": "Charadrius vociferus",
+     "obs": 117793568,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "killdeer",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Its nest is just a dent in gravel.",
+   "label": {
+    "text": "NEST =\nGRAVEL",
+    "at": "gravel"
+   },
+   "shots": [
+    {
+     "photo": "Charadrius vociferus",
+     "obs": 117793568,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "killdeer",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "Get close, and it flops away.",
+   "animal": "shake@flops",
+   "sfx": [
+    "thud@flops"
+   ],
+   "shots": [
+    {
+     "photo": "Charadrius vociferus",
+     "obs": 117094445,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "killdeer",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Wing dragging. Crying. Clearly dying.",
+   "punch": "dying",
+   "shots": [
+    {
+     "photo": "Charadrius vociferus",
+     "obs": 192341808,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "killdeer",
+   "pose": "think",
+   "act": "stand",
+   "say": "So you follow the easy snack.",
+   "punch": "snack",
+   "shots": [
+    {
+     "photo": "Charadrius vociferus",
+     "obs": 70540423,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "killdeer",
+   "pose": "point",
+   "act": "stand",
+   "say": "Away from the eggs.",
+   "label": {
+    "text": "DECOY",
+    "at": "eggs"
+   },
+   "shots": [
+    {
+     "photo": "Charadrius vociferus",
+     "obs": 117094445,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "killdeer",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Then it flies off. Totally fine.",
+   "animal": "turn@flies",
+   "sfx": [
+    "whoosh@flies"
+   ],
+   "shots": [
+    {
+     "photo": "Charadrius vociferus",
+     "obs": 192341808,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "killdeer",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I followed one.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "lunge@followed",
+   "hit": "followed",
+   "shots": [
+    {
+     "photo": "Charadrius vociferus",
+     "obs": 117793568,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "killdeer",
+   "pose": "nervous",
+   "act": "tumble",
+   "say": "I'm a meatball. I fall for everything.",
+   "act_at": "everything",
+   "sfx": [
+    "thud@everything"
+   ],
+   "prop": "fork",
+   "prop_at": "meatball",
+   "shots": [
+    {
+     "photo": "Charadrius vociferus",
+     "obs": 117094445,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "killdeer",
+   "pose": "think",
+   "act": "peek",
+   "say": "Ever been fooled by a bird? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Charadrius vociferus",
+     "obs": 192341808,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  }
+ ]
+}

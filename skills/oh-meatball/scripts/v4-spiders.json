@@ -1,0 +1,1550 @@
+{
+ "title": "Meatball vs Spiders (Shorts v4, Andrew) + bolas deep dive",
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+0%",
+ "short_rate": "+0%",
+ "tempo": 1.1,
+ "music": "music/quiz-bed.m4a",
+ "style": "v4",
+ "_note": "Meatball vs Spiders #1-3 (Mayor decision 10/24 20:00: follow-up to Daddy Longlegs, 733 views in 3 h) plus one open-loop TikTok deep dive (bolas spider). Morning run 2026-10-25. Shorts 20-25 s claim-first; the deep dive promises one withheld answer in lines 1-3, runs 2 decoys and pays off at 50-80% (tools/openloop.py). Lines are 8 words or fewer, asks never in the first 3 s, no quiz cards, no read-outs. Voice en-US-AndrewMultilingualNeural +0% then atempo 1.10. Photos: iNaturalist research-grade, wild, CC0/CC BY, first photo of the pinned obs, animal.subject() ok and checked by eye (whole animal, alive, right species).",
+ "names": {
+  "Portia": "Portia jumping spider",
+  "Misumena vatia": "Goldenrod crab spider",
+  "Loxosceles reclusa": "Brown recluse",
+  "Mastophora": "Bolas spider"
+ },
+ "subjects": {
+  "188574806": {},
+  "187672694": {},
+  "253748354": {},
+  "112317254": {},
+  "135571228": {},
+  "125467825": {},
+  "107294678": {},
+  "46037268": {},
+  "285556518": {},
+  "396205940": {},
+  "240799686": {},
+  "398243783": {},
+  "182978057": {}
+ },
+ "beats": [
+  {
+   "myth": "portia",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "This spider hunts other spiders.",
+   "label": {
+    "text": "SPIDER\nHUNTER",
+    "at": "hunts"
+   },
+   "sfx": [
+    "pop@hunts"
+   ],
+   "animal": "turn@spiders",
+   "shots": [
+    {
+     "photo": "Portia",
+     "obs": 188574806,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Rude. But honestly? Smart. Because",
+   "short_title": "This Spider Hunts Other Spiders 🕷️ (Meatball vs Spiders #1)",
+   "comment": "Would you let Portia live in your house? 👇 Follow for Part 2",
+   "bonus": "Portia can plan a detour route to its prey and keep going even when the prey is out of sight.",
+   "sources": [
+    "Jackson & Wilcox 1993/1998, Portia aggressive mimicry: invades webs and makes vibratory signals (web plucking) that mimic trapped prey or courting males, then eats the resident spider — https://en.wikipedia.org/wiki/Portia_(spider) (checked 2026-10-25)",
+    "Tarsitano & Jackson 1997, Animal Behaviour, 'Araneophagic jumping spiders discriminate between detour routes that do and do not lead to prey' (detours that take prey out of view) — https://doi.org/10.1006/anbe.1996.0306"
+   ],
+   "_len": "short",
+   "caption": "Portia jumping spiders hunt other spiders. They walk onto a web and pluck the silk like a trapped bug, then eat whoever comes to check. They even take detours out of sight to sneak up. Meatball vs Spiders #1. #spiders #jumpingspider #animalfacts"
+  },
+  {
+   "myth": "portia",
+   "pose": "point",
+   "act": "stand",
+   "say": "It's called Portia. A jumping spider.",
+   "punch": "Portia",
+   "shots": [
+    {
+     "photo": "Portia",
+     "obs": 187672694,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "portia",
+   "pose": "shock",
+   "act": "run_in",
+   "say": "It walks right onto their webs.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@webs",
+   "shots": [
+    {
+     "photo": "Portia",
+     "obs": 253748354,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "portia",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Then it plucks the silk.",
+   "animal": "shake@plucks",
+   "sfx": [
+    "boing@plucks"
+   ],
+   "shots": [
+    {
+     "photo": "Portia",
+     "obs": 188574806,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "portia",
+   "pose": "point",
+   "act": "stand",
+   "say": "Like a bug stuck in the web.",
+   "label": {
+    "text": "FAKE\nBUG",
+    "at": "bug"
+   },
+   "shots": [
+    {
+     "photo": "Portia",
+     "obs": 187672694,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "portia",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "The web's owner comes to eat.",
+   "punch": "eat",
+   "shots": [
+    {
+     "photo": "Portia",
+     "obs": 253748354,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "portia",
+   "pose": "shock",
+   "act": "launch",
+   "say": "And Portia eats it instead.",
+   "hit": "eats",
+   "sfx": [
+    "crunch@eats"
+   ],
+   "animal": "lunge@eats",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Portia",
+     "obs": 188574806,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "portia",
+   "pose": "think",
+   "act": "stand",
+   "say": "It even sneaks around, out of sight.",
+   "label": {
+    "text": "PLANS\nDETOURS",
+    "at": "sneaks"
+   },
+   "shots": [
+    {
+     "photo": "Portia",
+     "obs": 187672694,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "portia",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I tried plucking a web.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@web",
+   "shots": [
+    {
+     "photo": "Portia",
+     "obs": 253748354,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "portia",
+   "pose": "deadpan",
+   "act": "tumble",
+   "say": "I'm a meatball. I'm always the snack.",
+   "act_at": "snack",
+   "sfx": [
+    "thud@snack"
+   ],
+   "prop": "fork",
+   "prop_at": "meatball",
+   "shots": [
+    {
+     "photo": "Portia",
+     "obs": 188574806,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "portia",
+   "pose": "point",
+   "act": "stand",
+   "say": "Part two tomorrow. Follow.",
+   "label": {
+    "text": "PART 2\nTOMORROW",
+    "at": "Part"
+   },
+   "sfx": [
+    "pop@Follow"
+   ],
+   "shots": [
+    {
+     "photo": "Portia",
+     "obs": 187672694,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "balloon",
+   "pose": "shock",
+   "act": "shake",
+   "say": "Spiders can fly. No wings.",
+   "label": {
+    "text": "NO\nWINGS",
+    "at": "wings"
+   },
+   "sfx": [
+    "whoosh@fly"
+   ],
+   "animal": "turn@fly",
+   "shots": [
+    {
+     "photo": "Misumena vatia",
+     "obs": 112317254,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "So check the sky. Because",
+   "short_title": "Yes, It Can Actually Rain Spiders 🕷️ (Meatball vs Spiders #2)",
+   "comment": "Would you still go outside? 👇 Follow for Part 3",
+   "bonus": "In 2018, scientists showed spiders balloon on electric fields alone, with no wind at all.",
+   "sources": [
+    "Morley & Robert 2018, Current Biology, 'Electric fields elicit ballooning in spiders' (spiders sense the atmospheric potential gradient and take off with no airflow) — https://www.cell.com/current-biology/fulltext/S0960-9822(18)30693-6",
+    "Glick 1939, USDA Tech. Bull. 673 (spiders collected by aircraft up to ~15,000 ft) and Darwin, Voyage of the Beagle 1832 (small spiders landed on the ship ~60 miles off the coast) — https://en.wikipedia.org/wiki/Ballooning_(spider) (checked 2026-10-25)",
+    "Goulburn, NSW, May 2015: millions of ballooning spiders left fields covered in silk ('angel hair') — https://www.smithsonianmag.com/smart-news/millions-baby-spiders-rained-down-australia-180955318/"
+   ],
+   "_len": "short",
+   "caption": "Spiders can fly without wings (mostly babies and small species; crab spiderlings like these balloon). They let out silk threads and ride the wind and even the electric field in the air. Planes have caught spiders nearly three miles up, and Darwin had them land on the Beagle about 60 miles out at sea. Meatball vs Spiders #2. #spiders #ballooning #animalfacts"
+  },
+  {
+   "myth": "balloon",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "They climb up high and lift their butts.",
+   "animal": "shake@butts",
+   "punch": "butts",
+   "shots": [
+    {
+     "photo": "Misumena vatia",
+     "obs": 135571228,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "balloon",
+   "pose": "point",
+   "act": "stand",
+   "say": "Then let out threads of silk.",
+   "label": {
+    "text": "SILK\nKITES",
+    "at": "silk"
+   },
+   "shots": [
+    {
+     "photo": "Misumena vatia",
+     "obs": 112317254,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "balloon",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Wind, and even electricity, lifts them up.",
+   "sfx": [
+    "zap@electricity"
+   ],
+   "punch": "electricity",
+   "shots": [
+    {
+     "photo": "Misumena vatia",
+     "obs": 135571228,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "balloon",
+   "pose": "nervous",
+   "act": "peek",
+   "say": "Planes caught them nearly three miles up.",
+   "label": {
+    "text": "3 MILES\nUP",
+    "at": "miles"
+   },
+   "shots": [
+    {
+     "photo": "Misumena vatia",
+     "obs": 112317254,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "balloon",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Darwin found them sixty miles out at sea.",
+   "label": {
+    "text": "60 MILES\nOUT",
+    "at": "sixty"
+   },
+   "shots": [
+    {
+     "photo": "Misumena vatia",
+     "obs": 135571228,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "balloon",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "In Australia, whole fields turned white.",
+   "label": {
+    "text": "IT RAINED\nSPIDERS",
+    "at": "white"
+   },
+   "shots": [
+    {
+     "photo": "Misumena vatia",
+     "obs": 112317254,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "balloon",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I tried ballooning too.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@ballooning",
+   "shots": [
+    {
+     "photo": "Misumena vatia",
+     "obs": 135571228,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "balloon",
+   "pose": "deadpan",
+   "act": "tumble",
+   "say": "I'm a meatball. I only go down.",
+   "act_at": "down",
+   "sfx": [
+    "thud@down"
+   ],
+   "shots": [
+    {
+     "photo": "Misumena vatia",
+     "obs": 112317254,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "balloon",
+   "pose": "think",
+   "act": "peek",
+   "say": "Would you go outside? Comment.",
+   "ask": "comment",
+   "label": {
+    "text": "PART 3\nTOMORROW",
+    "at": "Comment"
+   },
+   "shots": [
+    {
+     "photo": "Misumena vatia",
+     "obs": 135571228,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "recluse",
+   "pose": "shock",
+   "act": "shake",
+   "say": "Most brown recluse bites don't rot skin.",
+   "label": {
+    "text": "MOSTLY\nHARMLESS",
+    "at": "rot"
+   },
+   "sfx": [
+    "pop@rot"
+   ],
+   "animal": "turn@bites",
+   "shots": [
+    {
+     "photo": "Loxosceles reclusa",
+     "obs": 125467825,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "Shy, not scary. Remember,",
+   "short_title": "Most Brown Recluse Bites Don't Rot Your Skin 🕷️ (Meatball vs Spiders #3)",
+   "comment": "Has anyone ever blamed a recluse for a bite? 👇 Follow Meatball for more 🍝",
+   "bonus": "Brown recluses have six eyes, in three pairs, instead of the usual eight.",
+   "sources": [
+    "Vetter & Barger 2002, J Medical Entomology, 'An infestation of 2,055 brown recluse spiders and no envenomations in a Kansas home' — https://doi.org/10.1603/0022-2585-39.6.948",
+    "Vetter 2008/2015, most brown recluse bites are minor and heal without severe necrosis; many 'spider bite' diagnoses are infections such as MRSA, including in states with no recluses — https://spiders.ucr.edu/brown-recluse ; https://en.wikipedia.org/wiki/Brown_recluse_spider (checked 2026-10-25)"
+   ],
+   "_len": "short",
+   "caption": "Most brown recluse bites heal on their own, and many 'recluse bites' turn out to be infections, even where no recluses live. One Kansas home had 2,055 of them in six months and nobody got bitten. Meatball vs Spiders #3. #brownrecluse #spiders #animalfacts"
+  },
+  {
+   "myth": "recluse",
+   "pose": "point",
+   "act": "stand",
+   "say": "Most heal on their own.",
+   "punch": "heal",
+   "shots": [
+    {
+     "photo": "Loxosceles reclusa",
+     "obs": 107294678,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "recluse",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Doctors used to blame them constantly.",
+   "punch": "constantly",
+   "shots": [
+    {
+     "photo": "Loxosceles reclusa",
+     "obs": 46037268,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "recluse",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Many turn out to be infections.",
+   "label": {
+    "text": "NOT A\nSPIDER",
+    "at": "infections"
+   },
+   "shots": [
+    {
+     "photo": "Loxosceles reclusa",
+     "obs": 285556518,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "recluse",
+   "pose": "shock",
+   "act": "peek",
+   "say": "Even where no recluses live.",
+   "punch": "no",
+   "shots": [
+    {
+     "photo": "Loxosceles reclusa",
+     "obs": 125467825,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "recluse",
+   "pose": "shock",
+   "act": "stand",
+   "say": "One Kansas home had two thousand.",
+   "label": {
+    "text": "2,055\nSPIDERS",
+    "at": "thousand"
+   },
+   "animal": "shake@thousand",
+   "shots": [
+    {
+     "photo": "Loxosceles reclusa",
+     "obs": 107294678,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "recluse",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Six months. Nobody got bitten.",
+   "punch": "Nobody",
+   "shots": [
+    {
+     "photo": "Loxosceles reclusa",
+     "obs": 46037268,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "recluse",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I knocked on one's door.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@knocked",
+   "shots": [
+    {
+     "photo": "Loxosceles reclusa",
+     "obs": 285556518,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "recluse",
+   "pose": "think",
+   "act": "stand",
+   "say": "It hid. Very polite.",
+   "animal": "turn@hid",
+   "punch": "polite",
+   "shots": [
+    {
+     "photo": "Loxosceles reclusa",
+     "obs": 125467825,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "recluse",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "I'm a meatball. I respect a homebody.",
+   "prop": "fork",
+   "prop_at": "meatball",
+   "shots": [
+    {
+     "photo": "Loxosceles reclusa",
+     "obs": 107294678,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "recluse",
+   "pose": "think",
+   "act": "peek",
+   "say": "Ever blamed a recluse? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Loxosceles reclusa",
+     "obs": 46037268,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "shock",
+   "act": "shake",
+   "say": "This spider catches moths without a web.",
+   "label": {
+    "text": "NO\nWEB",
+    "at": "web"
+   },
+   "sfx": [
+    "pop@web"
+   ],
+   "animal": "turn@moths",
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 396205940,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "loop_say": "So yes, it's a spider with a fishing rod. Because",
+   "short_title": "The Spider That Fishes for Moths 🎣",
+   "comment": "What did you guess the trick was? 👇",
+   "bonus": "One bolas species switches its perfume during the night to match whichever moth species is flying.",
+   "sources": [
+    "Eberhard 1977, Science, 'Aggressive chemical mimicry by a bolas spider' (Mastophora dizzydeani attracts male moths with a female-moth sex pheromone mimic) — https://doi.org/10.1126/science.198.4322.1173",
+    "Haynes et al. 2002, J Chemical Ecology, Mastophora hutchinsoni changes its lure through the night to catch two moth species — https://doi.org/10.1023/A:1020910207478 ; https://en.wikipedia.org/wiki/Bolas_spider (adults make no web; a sticky globule on a silk line; adult females resemble bird droppings; checked 2026-10-25)"
+   ],
+   "_len": "deep",
+   "caption": "Bolas spiders catch moths with no web at all. They swing one sticky glob of silk on a line and give off a fake female-moth perfume, so male moths fly straight in. Some even switch perfumes as the night goes on. #bolasspider #spiders #animalfacts #weirdanimals"
+  },
+  {
+   "myth": "bolas",
+   "pose": "think",
+   "act": "stand",
+   "say": "It uses exactly one weird trick.",
+   "promise": true,
+   "label": {
+    "text": "1\nTRICK",
+    "at": "trick"
+   },
+   "punch": "one",
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 240799686,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I went to find out what.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@find",
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 398243783,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "point",
+   "act": "stand",
+   "say": "It's called a bolas spider.",
+   "punch": "bolas",
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 182978057,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Adults don't even spin a web.",
+   "punch": "web",
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 396205940,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "think",
+   "act": "peek",
+   "say": "Trick one: speed?",
+   "decoy": true,
+   "label": {
+    "text": "SPEED?",
+    "at": "speed"
+   },
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 240799686,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "No. It sits still all night.",
+   "punch": "still",
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 398243783,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Barely moves. Very relatable.",
+   "animal": "shake@moves",
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 182978057,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "It only hunts in the dark, too.",
+   "punch": "dark",
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 396205940,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "think",
+   "act": "peek",
+   "say": "Trick two: camouflage?",
+   "decoy": true,
+   "label": {
+    "text": "DISGUISE?",
+    "at": "camouflage"
+   },
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 240799686,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It does look like bird poop.",
+   "label": {
+    "text": "BIRD\nPOOP",
+    "at": "poop"
+   },
+   "sfx": [
+    "pop@poop"
+   ],
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 398243783,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Birds skip it. Nobody eats poop.",
+   "punch": "poop",
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 182978057,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "think",
+   "act": "stand",
+   "say": "But moths don't eat poop either.",
+   "punch": "either",
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 396205940,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "point",
+   "act": "stand",
+   "say": "And no web means no trap.",
+   "punch": "trap",
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 240799686,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "think",
+   "act": "peek",
+   "say": "Trick three: venom?",
+   "decoy": true,
+   "label": {
+    "text": "VENOM?",
+    "at": "venom"
+   },
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 398243783,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Almost every spider has venom. Not special.",
+   "punch": "special",
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 182978057,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "think",
+   "act": "stand",
+   "say": "So the moths should just fly past.",
+   "animal": "turn@past",
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 396205940,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "point",
+   "act": "tumble",
+   "say": "Tap like. I'm still investigating.",
+   "act_at": "investigating",
+   "sfx": [
+    "thud@investigating"
+   ],
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 240799686,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "think",
+   "act": "stand",
+   "say": "So how does dinner find it?",
+   "punch": "dinner",
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 398243783,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "shock",
+   "act": "peek",
+   "say": "Wait. What's that smell?",
+   "punch": "smell",
+   "sfx": [
+    "pop@smell"
+   ],
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 182978057,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It fakes the perfume of a female moth.",
+   "payoff": true,
+   "label": {
+    "text": "FAKE\nPERFUME",
+    "at": "perfume"
+   },
+   "sfx": [
+    "zap@perfume"
+   ],
+   "animal": "strike@perfume",
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 396205940,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Male moths fly straight in.",
+   "punch": "straight",
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 240799686,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "They think they found a date.",
+   "punch": "date",
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 398243783,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "point",
+   "act": "stand",
+   "say": "Then it swings one sticky glob.",
+   "label": {
+    "text": "STICKY\nGLOB",
+    "at": "glob"
+   },
+   "animal": "strike@swings",
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 182978057,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "On a single thread. Like a fishing line.",
+   "punch": "fishing",
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 396205940,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "shock",
+   "act": "launch",
+   "say": "Smack. Moth caught.",
+   "hit": "Smack",
+   "sfx": [
+    "crunch@Smack"
+   ],
+   "animal": "lunge@Smack",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 240799686,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "point",
+   "act": "stand",
+   "say": "Then it reels the moth in.",
+   "animal": "turn@reels",
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 398243783,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Some even switch perfumes at night.",
+   "label": {
+    "text": "SWITCHES\nSCENTS",
+    "at": "switch"
+   },
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 182978057,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "point",
+   "act": "stand",
+   "say": "Early moths get one. Late moths another.",
+   "punch": "Late",
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 396205940,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "point",
+   "act": "stand",
+   "say": "Scientists proved the perfume in 1977.",
+   "label": {
+    "text": "PROVED\n1977",
+    "at": "proved"
+   },
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 240799686,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I tried smelling delicious.",
+   "sfx": [
+    "whoosh"
+   ],
+   "prop": "fork",
+   "prop_at": "delicious",
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 398243783,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "nervous",
+   "act": "tumble",
+   "say": "I'm a meatball. I already do.",
+   "act_at": "already",
+   "sfx": [
+    "thud@already"
+   ],
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 182978057,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Everything showed up. Wrong guests.",
+   "punch": "Wrong",
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 396205940,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "point",
+   "act": "stand",
+   "say": "Good news: it only wants moths.",
+   "animal": "turn@moths",
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 240799686,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "I checked. I'm not a moth.",
+   "punch": "not",
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 398243783,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "point",
+   "act": "stand",
+   "say": "Follow for the next weird trick.",
+   "sfx": [
+    "pop@Follow"
+   ],
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 182978057,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bolas",
+   "pose": "think",
+   "act": "peek",
+   "say": "What did you guess? Comment.",
+   "ask": "comment",
+   "shots": [
+    {
+     "photo": "Mastophora",
+     "obs": 396205940,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  }
+ ]
+}
