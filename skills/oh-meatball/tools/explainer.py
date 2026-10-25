@@ -89,6 +89,8 @@ def photo(taxon, n, work, obs=None, size="large"):
         open(path, "wb").write(urllib.request.urlopen(req, timeout=120).read())
         open(path + ".credit", "w").write(f"{taxon}: \"{o['title']}\" ({o.get('objectDate') or 'n.d.'}), The Metropolitan Museum of Art (public domain), via metmuseum.org")
         return path
+    if isinstance(obs, str) and obs.startswith("wm:"):
+        return wm_photo(obs[3:], taxon, path)
     if isinstance(obs, str) and obs.startswith("ov:"):
         # Openverse id (CC/public-domain art, fossils, museum pieces) for history beats with no live animal.
         o = json.load(urllib.request.urlopen(urllib.request.Request(
@@ -121,6 +123,59 @@ def photo(taxon, n, work, obs=None, size="large"):
     p = picks[n]
     urllib.request.urlretrieve(p["url"].replace("square", size), path)
     open(path + ".credit", "w").write(f"{taxon}: {html.unescape(p['attribution'])} — iNaturalist photo {p['id']}")
+    return path
+
+
+WM_OK = ("public domain", "cc0", "cc by ", "pd", "no restrictions")   # no share-alike (research/30)
+
+
+def _wm_get(url, as_json=True):
+    """Wikimedia GET with backoff: the shared egress gets 429s in bursts. Originals are refused (429), so
+    images come from the standard thumbnail widths only."""
+    import time
+    for k in range(6):
+        try:
+            r = urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "MeatballMythsBot/1.0 (research)"}),
+                                       timeout=90)
+            return json.load(r) if as_json else r.read()
+        except urllib.error.HTTPError as e:
+            if e.code not in (429, 503):
+                raise
+            time.sleep(6 * (k + 1))
+    raise SystemExit(f"wikimedia: still rate-limited on {url}")
+
+
+def wm_photo(title, label, path):
+    """A Wikimedia Commons file ("wm:File name.jpg"): public domain, CC0 or CC BY only (license read from the
+    file page's metadata via en.wikipedia's API), fetched as a standard-width thumbnail, credited."""
+    import re
+    q = urllib.parse.urlencode({"action": "query", "titles": "File:" + title, "prop": "imageinfo",
+                                "iiprop": "extmetadata|size|url", "format": "json"})
+    page = next(iter(_wm_get("https://en.wikipedia.org/w/api.php?" + q)["query"]["pages"].values()))
+    ii = page["imageinfo"][0]
+    meta = ii.get("extmetadata", {})
+    lic = meta.get("LicenseShortName", {}).get("value", "?")
+    if not lic.lower().startswith(WM_OK) or "sa" in lic.lower().split():
+        raise SystemExit(f"wm:{title}: license {lic} not reusable (PD, CC0 or CC BY only)")
+    src = ii["url"].split("?")[0]
+    head, name = src.rsplit("/", 1)
+    data = None
+    for w in (1920, 1280, 960):
+        if w > ii["width"] * 1.6 and w != 960:
+            continue
+        thumb = head.replace("/commons/", "/commons/thumb/") + f"/{name}/{w}px-{name}"
+        if name.lower().endswith((".png", ".gif", ".tif", ".tiff")) and not name.lower().endswith(".png"):
+            thumb += ".jpg"
+        try:
+            data = _wm_get(thumb, as_json=False)
+            break
+        except urllib.error.HTTPError:
+            continue
+    if data is None:
+        raise SystemExit(f"wm:{title}: no thumbnail")
+    open(path, "wb").write(data)
+    artist = re.sub(r"<[^>]+>", "", html.unescape(meta.get("Artist", {}).get("value", ""))).strip() or "unknown"
+    open(path + ".credit", "w").write(f"{label}: \"{title}\" by {artist[:80]} ({lic}), via Wikimedia Commons")
     return path
 
 
