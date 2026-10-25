@@ -73,6 +73,12 @@ qualified views. Channel: subs, weekly long-form watch hours vs the 4,000 h pace
   - The factdesk eyeballs every new cut-out: the automatic check can't catch a matte that stops short.
 - Already-scheduled v3 posts stay up. Don't re-render them.
 
+## TikTok deep dives: open loop (night shift proposal 10/25, research/40; Mayor to adopt or reject)
+- A 61-75 s deep dive promises one withheld answer in lines 1-3 ("...but it has exactly one weakness"), walks through 2+
+  wrong guesses (`"decoy": true`), and pays off (`"payoff": true`) at 50-80% of the words. Shorts keep claim-first.
+- `python3 tools/openloop.py SCRIPT.json` checks it; `research/40-openloop-gate.diff` makes episode.py enforce it.
+- Template: `scripts/v4-one-weakness-pangolin.json`. Rival evidence: 62 s T. rex cartoon explainer, 1.6M (10.3x), answer at 69%.
+
 ## Shorts v3 (the base v4 builds on; approved 10/24)
 - `"style": "v3"` (tools/v3.py, research/44).
 - **Meatball in jeopardy:** something happens to him, he doesn't narrate it.

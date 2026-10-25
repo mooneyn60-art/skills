@@ -1,0 +1,767 @@
+{
+ "title": "v4 open-loop prototype: the pangolin's one weakness (night shift, not for posting)",
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+0%",
+ "short_rate": "+0%",
+ "tempo": 1.1,
+ "music": "music/quiz-bed.m4a",
+ "style": "v4",
+ "_note": "Night shift R&D 2026-10-25 (research/40, rotation a). Concept for the 'One Weakness' deep-dive structure: promise a withheld answer at 0:02, two decoys (belly, teeth), a re-hook ('Wait...') near 55%, payoff at ~65% of the words, then the stakes and Meatball's gag ('I'm already a ball'). Passes tools/openloop.py. Prototype only: Nolan/Mayor decide before any pack uses it. Photos: iNaturalist research-grade, wild, CC0/CC BY, picked by eye from a contact sheet (whole animal); still needs the factdesk cut-out eyeball. Voice: Andrew +0% then atempo 1.10. Render 1 (10/25): obs 341230008 failed the edge-contrast gate (frame 0 fell back to a scales-only crop, no head) and 192256680 cut out as an overexposed glow; both swapped out.",
+ "names": {
+  "Smutsia temminckii": "Ground pangolin"
+ },
+ "subjects": {
+  "93016098": {},
+  "130263150": {},
+  "325086870": {},
+  "246955251": {}
+ },
+ "beats": [
+  {
+   "pose": "nervous",
+   "act": "peek",
+   "say": "This animal is armored against lions.",
+   "label": {
+    "text": "LION\nPROOF",
+    "at": "lions"
+   },
+   "sfx": [
+    "pop@lions"
+   ],
+   "animal": "turn@armored",
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 246955251,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "hook": true,
+   "promise": true,
+   "loop_say": "Remember, armor is not everything. Because",
+   "short_title": "The Pangolin's One Weakness (It's Not the Belly) 🦔",
+   "comment": "Did you guess the weakness before Meatball did? 👇",
+   "bonus": "Pangolins have no teeth and swallow small stones that grind ants in the stomach.",
+   "sources": [
+    "Wikipedia, Ground pangolin (Smutsia temminckii): walks on its hind legs with forelimbs and tail held off the ground; rolls into a ball when threatened, effective against predators including lions; IUCN Vulnerable — https://en.wikipedia.org/wiki/Ground_pangolin (checked 2026-10-25)",
+    "Wikipedia, Pangolin: scales of keratin; no teeth; swallows small stones (gastroliths) that help grind ants and termites in the stomach; described as the most trafficked mammals in the world; all eight species moved to CITES Appendix I in 2016 — https://en.wikipedia.org/wiki/Pangolin (checked 2026-10-25)",
+    "CITES CoP17 (2016) transferred all eight pangolin species to Appendix I, banning international commercial trade — https://cites.org/eng/news/pr/2016/CoP17_pangolins (checked 2026-10-25)"
+   ],
+   "_len": "deep",
+   "caption": "Pangolins roll into an armored ball that even lions struggle to open. So what's the one thing the armor can't stop? #pangolin #animalfacts #wildlife #savethepangolins",
+   "myth": "pangolin"
+  },
+  {
+   "pose": "point",
+   "act": "stand",
+   "say": "But it has exactly one weakness.",
+   "label": {
+    "text": "1\nWEAKNESS",
+    "at": "one"
+   },
+   "sfx": [
+    "scratch@weakness"
+   ],
+   "promise": true,
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 93016098,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  },
+  {
+   "pose": "deadpan",
+   "act": "run_in",
+   "say": "So I went looking for it.",
+   "sfx": [
+    "whoosh"
+   ],
+   "animal": "turn@looking",
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 93016098,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  },
+  {
+   "pose": "point",
+   "act": "stand",
+   "say": "Meet the ground pangolin.",
+   "label": {
+    "text": "PANGOLIN",
+    "at": "pangolin"
+   },
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 246955251,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  },
+  {
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Its scales are made of keratin.",
+   "label": {
+    "text": "KERATIN",
+    "at": "keratin"
+   },
+   "sfx": [
+    "pop@keratin"
+   ],
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 246955251,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  },
+  {
+   "pose": "shock",
+   "act": "stand",
+   "say": "Same stuff as your fingernails.",
+   "punch": "fingernails",
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 246955251,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  },
+  {
+   "pose": "think",
+   "act": "peek",
+   "say": "Weakness number one: the soft belly?",
+   "label": {
+    "text": "THE BELLY?",
+    "at": "belly"
+   },
+   "decoy": true,
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 325086870,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  },
+  {
+   "pose": "shock",
+   "act": "stand",
+   "say": "Nope. It rolls into a ball.",
+   "punch": "ball",
+   "sfx": [
+    "boing@ball"
+   ],
+   "animal": "shake@rolls",
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 130263150,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  },
+  {
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Belly inside. Armor outside.",
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 130263150,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  },
+  {
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Lions try to bite it open.",
+   "label": {
+    "text": "LIONS",
+    "at": "Lions"
+   },
+   "sfx": [
+    "crunch@bite"
+   ],
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 130263150,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  },
+  {
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "And usually just give up.",
+   "punch": "give",
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 130263150,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  },
+  {
+   "pose": "point",
+   "act": "launch",
+   "say": "I knocked. Nobody answered.",
+   "hit": "knocked",
+   "contact": true,
+   "sfx": [
+    "tink@knocked"
+   ],
+   "animal": "shake@knocked",
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 130263150,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  },
+  {
+   "pose": "point",
+   "act": "stand",
+   "say": "Tap like. I'm still searching.",
+   "sfx": [
+    "pop@like"
+   ],
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 93016098,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  },
+  {
+   "pose": "think",
+   "act": "peek",
+   "say": "Weakness number two: no teeth?",
+   "label": {
+    "text": "NO TEETH?",
+    "at": "teeth"
+   },
+   "decoy": true,
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 325086870,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  },
+  {
+   "pose": "shock",
+   "act": "stand",
+   "say": "It really has zero teeth.",
+   "label": {
+    "text": "0 TEETH",
+    "at": "zero"
+   },
+   "sfx": [
+    "pop@zero"
+   ],
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 325086870,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  },
+  {
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "So it swallows small stones.",
+   "punch": "stones",
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 325086870,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  },
+  {
+   "pose": "point",
+   "act": "stand",
+   "say": "They grind the ants in its stomach.",
+   "animal": "turn@grind",
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 246955251,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  },
+  {
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Not a weakness. Kind of genius.",
+   "punch": "genius",
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 246955251,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  },
+  {
+   "pose": "shock",
+   "act": "stand",
+   "say": "Wait. It walks on its back legs?",
+   "label": {
+    "text": "2 LEGS",
+    "at": "back"
+   },
+   "sfx": [
+    "scratch@Wait"
+   ],
+   "animal": "turn@walks",
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 246955251,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  },
+  {
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Front claws tucked up. Tiny arms.",
+   "punch": "Tiny",
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 246955251,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  },
+  {
+   "pose": "think",
+   "act": "stand",
+   "say": "Still not the weakness.",
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 93016098,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  },
+  {
+   "pose": "shock",
+   "act": "tumble",
+   "say": "The weakness is the ball itself.",
+   "label": {
+    "text": "THE BALL",
+    "at": "ball"
+   },
+   "act_at": "itself",
+   "sfx": [
+    "thud@itself"
+   ],
+   "payoff": true,
+   "animal": "shake@ball",
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 130263150,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  },
+  {
+   "pose": "point",
+   "act": "stand",
+   "say": "Lions can't open it.",
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 130263150,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  },
+  {
+   "pose": "nervous",
+   "act": "stand",
+   "say": "But people just pick it up.",
+   "punch": "pick",
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 130263150,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  },
+  {
+   "pose": "shock",
+   "act": "stand",
+   "say": "That's why it's the most trafficked mammal.",
+   "label": {
+    "text": "MOST\nTRAFFICKED",
+    "at": "trafficked"
+   },
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 246955251,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  },
+  {
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Its armor works on everything but us.",
+   "punch": "us",
+   "animal": "turn@us",
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 93016098,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  },
+  {
+   "pose": "point",
+   "act": "stand",
+   "say": "Since 2016, the trade is banned worldwide.",
+   "label": {
+    "text": "BANNED\n2016",
+    "at": "banned"
+   },
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 246955251,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  },
+  {
+   "pose": "nervous",
+   "act": "tumble",
+   "say": "Rolling up is my plan too.",
+   "act_at": "Rolling",
+   "sfx": [
+    "whoosh@Rolling"
+   ],
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 130263150,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  },
+  {
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "I'm already a ball.",
+   "punch": "ball",
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 130263150,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  },
+  {
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A delicious ball.",
+   "prop": "fork",
+   "prop_at": "delicious",
+   "sfx": [
+    "tink@delicious"
+   ],
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 325086870,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  },
+  {
+   "pose": "point",
+   "act": "stand",
+   "say": "Good news: it only eats ants.",
+   "animal": "turn@ants",
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 325086870,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  },
+  {
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "I checked. I am not an ant.",
+   "punch": "not",
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 93016098,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  },
+  {
+   "pose": "point",
+   "act": "stand",
+   "say": "Follow for the next weakness.",
+   "sfx": [
+    "pop@Follow"
+   ],
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 246955251,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  },
+  {
+   "pose": "think",
+   "act": "peek",
+   "say": "Which animal should I check next? Comment.",
+   "ask": "comment",
+   "animal": "turn@Comment",
+   "shots": [
+    {
+     "photo": "Smutsia temminckii",
+     "obs": 246955251,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "myth": "pangolin"
+  }
+ ]
+}

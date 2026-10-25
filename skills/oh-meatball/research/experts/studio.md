@@ -26,3 +26,4 @@ Desk id: `studio`. Absorbs: Producer, Animator. Read this before every run and a
   - Decode the MP3 with ffmpeg to 16 kHz mono float first; PyAV's `open()` breaks the built-in loader.
   - Whisper gives clean per-word start and end times, which is enough for captions and lip-sync.
   - Generate ONE call per Short or script (not per beat: rounding makes per-beat calls cost 14 each), then split it into beats by matching words.
+- 2026-10-25 (night): new standalone tools/openloop.py; episode.py gate staged as research/40-openloop-gate.diff (merge after Pack 2). Render the prototype from a tar copy of the skill in scratch (not the live checkout) so a parallel pack render is untouched.
