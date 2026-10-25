@@ -85,7 +85,15 @@ def credit_lines(work, beats):
 
 
 def chapters(work, beats):
-    """Start time of each myth, from the rendered segment list (countdown segments included)."""
+    """Start time of each myth, from the rendered segment list (countdown segments included), or, for a
+    v3/v4 long-form ("aspect": "16:9"), from tools/v3.py's timeline.json."""
+    if os.path.exists(f"{work}/timeline.json") and not os.path.exists(f"{work}/list.txt"):
+        out = collections.OrderedDict()
+        for e in json.load(open(f"{work}/timeline.json")):
+            b = beats[e["i"]]
+            if b.get("chapter") or not out:
+                out.setdefault(b.get("chapter") or "Cold open", e["start"])
+        return [f"{int(v // 60)}:{int(v % 60):02d} {k}" for k, v in out.items()]
     segs = [line.split("'")[1] for line in open(f"{work}/list.txt")]
     t, out = 0.0, collections.OrderedDict()
     for s in segs:
@@ -140,7 +148,8 @@ def main():
     open(f"{out}/credits.txt", "w").write("\n".join(credits) + "\n")
     myths = list(dict.fromkeys(b["myth"] for b in beats if b.get("myth") not in ("intro", "outro")))
     # Shorts-only packs (originals-*) have no long-form, so no chapters or long release entry.
-    release["long"] = None if not os.path.exists(f"{long_work}/list.txt") else {
+    built = any(os.path.exists(f"{long_work}/{f}") for f in ("list.txt", "timeline.json"))
+    release["long"] = None if not built else {
         "file": f"{RAW}/{a.slug}/ep.mp4", "thumb": f"{RAW}/{a.slug}/thumb.jpg", "title": spec["title"],
         "tags": spec.get("tags", []), "comment": spec.get("pinned", ""),
         "description": "\n".join([spec.get("blurb", ""), ""] + chapters(long_work, beats) + [

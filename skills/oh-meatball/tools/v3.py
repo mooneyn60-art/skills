@@ -33,6 +33,12 @@ Spec fields (all optional unless noted):
                          with a click. One quick line with a concrete, true reason ("Subscribe. I face a new animal
                          every day.")
   gate                   warns on any ask before 3 s, a guess card outside 3-7 s, a pill outside 5.5-10.5 s
+Long-forms (spec "aspect": "16:9", no --vertical; landscape()): the same renderer at 1920x1080. Meatball keeps
+  ~50% of the frame height at the left (size 680, v4 600), labels/props scale by UI = 0.62, the ask kit by 0.9, captions sit
+  under his feet. A line longer than 3.4 s alternates its photo with a tighter crop every <=3.4 s (gate: no picture
+  over 3.5 s, nothing new for over 4 s). Ask gate: no ask in the first 15 s (cold open), guess card 15-40 s, one
+  subscribe pill 28-55 s, "Were you right?" reminder in the last 90 s.
+  beat "aside"           a small footnote joke plate, low right, popping in at 55% of the line (or "aside_at")
 Photos come from explainer.photo() (pinned iNaturalist observations, full resolution).
 
 "style": "v4" (research/45) adds, on top of everything above:
@@ -87,7 +93,38 @@ MAX_SHOT = 2.4    # a shot longer than this is re-cut to a tighter crop of the s
 PUSH = 0.045      # zoom per second of the slow push (v2: 0.036)
 HOME = 0.24       # Meatball's mark: left of centre, so the animal (centred in each crop) stays visible
 HOME_V4, SIZE_V4 = 0.21, 840   # v4: smaller and tucked at the edge (stage.tuck), so the animal gets most of the frame
+SIZE = 1000       # Meatball's default size (px per 1000 drawing units)
+UI = 1.0          # scale of the labels, footnotes and props (landscape() shrinks them for 1080 px of height)
+CARD = 1.0        # scale of the ask kit (comment card, chips, subscribe pill): kept big enough to read and tap
+LABEL_Y = 330     # centre line of pop-in labels and the comment card's title
+PILL_Y = 1440     # the subscribe pill, just under his pointing hand
+CAM_Y = 860       # centre of punch-ins and shakes
+CAP_FS = 100      # caption font size
+HOLD_MAX, GAP_MAX = 2.5, 3.0   # gate: longest single picture, longest stretch with nothing new (s)
+# ask-kit placement gate (s): no ask before, guess card window, pill window (Shorts; landscape() sets long-form)
+ASK_NONE, ASK_GUESS, ASK_PILL = 3.0, (3.0, 7.0), (5.5, 10.5)
 PLAN = {}         # filled before the frame workers fork
+
+
+def landscape():
+    """16:9 long-form layout (1920x1080): same moves, cards and gates, re-scaled for the wide frame.
+    Meatball keeps his share of the frame's height (~45%) at the left; the picture gets the rest."""
+    global W, H, FLOOR, CAP_Y, MAX_SHOT, HOME, HOME_V4, SIZE_V4, SIZE, UI, CARD, LABEL_Y, PILL_Y, CAM_Y, CAP_FS
+    global HOLD_MAX, GAP_MAX, ASK_NONE, ASK_GUESS, ASK_PILL
+    W, H, FLOOR, CAP_Y = 1920, 1080, 930, 1000
+    SIZE, SIZE_V4, HOME, HOME_V4 = 680, 600, 0.17, 0.13
+    UI, CARD, LABEL_Y, PILL_Y, CAM_Y, CAP_FS = 0.62, 0.9, 190, 860, 500, 66
+    MAX_SHOT, HOLD_MAX, GAP_MAX = 3.4, 3.5, 4.0   # Nolan 10/25: a new picture or a whip every 3-4 s at most
+    ASK_NONE, ASK_GUESS, ASK_PILL = 15.0, (15.0, 40.0), (28.0, 55.0)  # long-form: cold open, then the early asks
+    stage.configure(W, H, FLOOR, (0.015 * W, 30.0, 0.985 * W, FLOOR + 25.0))
+
+
+def _ui(a, k=None):
+    """An RGBA card array at the layout's UI (or CARD) scale."""
+    k = UI if k is None else k
+    if k == 1.0:
+        return a
+    return cv2.resize(a, (max(1, int(a.shape[1] * k)), max(1, int(a.shape[0] * k))), interpolation=cv2.INTER_AREA)
 
 
 def _key(w):
@@ -181,7 +218,17 @@ def label_img(text):
         x = (tw - d.textlength(line, font=f)) / 2
         d.text((x, 20 + k * 175), line, font=f, fill=ex.YELLOW, stroke_width=12, stroke_fill=(0, 0, 0))
     im = im.rotate(5, expand=True, resample=Image.BICUBIC)
-    return np.asarray(im)
+    return _ui(np.asarray(im))
+
+
+def aside_img(text):
+    """A small typed footnote joke ("(it was a raccoon)"), white on a dark plate."""
+    f = ImageFont.truetype(ex.ASIDE_FONT, 52)
+    d = ImageDraw.Draw(Image.new("RGBA", (10, 10)))
+    tw = int(d.textlength(text, font=f))
+    im = _rounded(tw + 56, 84, 22, (20, 20, 24, 215))
+    ImageDraw.Draw(im).text((28, 12), text, font=f, fill=(255, 255, 255))
+    return _ui(np.asarray(im))
 
 
 EMOJI = "/usr/share/fonts/truetype/noto/NotoColorEmoji.ttf"
@@ -211,7 +258,7 @@ def pill_img(text="SUBSCRIBE"):
     tw = int(d.textlength(text, font=f))
     im = _rounded(tw + 110, 128, 64, SUB_RED + (255,), (255, 255, 255, 255), 8)
     ImageDraw.Draw(im).text((55, 22), text, font=f, fill=(255, 255, 255))
-    return np.asarray(im)
+    return _ui(np.asarray(im), CARD)
 
 
 def chip_img(choice):
@@ -254,10 +301,11 @@ def ask_imgs(q):
         im = wide
     if im.width > W - 60:  # long questions shrink to fit the frame
         im = im.resize((W - 60, int(im.height * (W - 60) / im.width)), Image.LANCZOS)
-    chips = [chip_img(c) for c in q.get("choices") or []]
+    im = _ui(np.asarray(im), CARD)
+    chips = [_ui(chip_img(c), CARD) for c in q.get("choices") or []]
     chips = [c if c.shape[1] <= W - 60 else cv2.resize(c, (W - 60, int(c.shape[0] * (W - 60) / c.shape[1])))
              for c in chips]
-    return np.asarray(im), chips
+    return im, chips
 
 
 def _pop(kf, k=1.0):
@@ -429,8 +477,14 @@ def plan_beats(spec, work):
             a, z = starts[k], (starts[k + 1] if k + 1 < len(vis) else D)
             pieces = [(a, z, s)]
             if z - a > MAX_SHOT:
-                mid = min((w[0] for w in words if a + 0.9 <= w[0] <= z - 0.9), key=lambda t: abs(t - (a + z) / 2),
-                          default=(a + z) / 2)
+                n_cut = max(2, math.ceil((z - a) / MAX_SHOT))   # Shorts: 2; long lines alternate crops every <=MAX_SHOT
+                cuts_ = []
+                for j in range(1, n_cut):
+                    aim = a + (z - a) * j / n_cut
+                    lo = (cuts_[-1] if cuts_ else a) + 0.9
+                    cuts_.append(min((w[0] for w in words if lo <= w[0] <= z - 0.9), key=lambda t: abs(t - aim),
+                                     default=aim))
+                mid = cuts_[0]
                 c = s.get("crop") or [0, 0, 1, 1]
                 cx, cy, cw, ch = (c[0] + c[2]) / 2, (c[1] + c[3]) / 2, (c[2] - c[0]) * 0.8, (c[3] - c[1]) * 0.8
                 if v4:  # re-cut from the top edge down, so a tighter crop never slices through the head
@@ -438,6 +492,10 @@ def plan_beats(spec, work):
                 tight = dict(s, crop=[cx - cw / 2, cy - ch / 2, cx + cw / 2, cy + ch / 2], whip=False, parent=c)
                 # the loop tail must END on its original crop (= frame 0), so it opens on the tight one
                 pieces = [(a, mid, tight), (mid, z, dict(s, whip=False))] if b.get("loop") else [(a, mid, s), (mid, z, tight)]
+                if n_cut > 2 and not b.get("loop"):
+                    edges = [a] + cuts_ + [z]
+                    pieces = [(edges[j], edges[j + 1], (tight if j % 2 else (s if j == 0 else dict(s, whip=False))))
+                              for j in range(n_cut)]
             for a_, z_, s_ in pieces:
                 path = ex.photo(s_["photo"], s_.get("n", 0), work, s_.get("obs"), "original")
                 shots.append(dict(f0=int(round(a_ * FPS)), f1=int(round(z_ * FPS)), path=path, crop=s_.get("crop"),
@@ -465,7 +523,7 @@ def plan_beats(spec, work):
             ask = dict(title=title, chips=chips, f=int(round(t_ask * FPS)), fs=fs)
         pose = "subpoint" if sub else b.get("pose", "deadpan")
         sts = mascot.states(pose, [list(w) for w in words], D, FPS, seed=i)
-        x, size, side, moves = float(b.get("x", HOME)), int(b.get("size", 1000)), 1, []
+        x, size, side, moves = float(b.get("x", HOME)), int(b.get("size", SIZE)), 1, []
         lab = b.get("label")
         if isinstance(lab, str):
             lab = {"text": lab}
@@ -490,7 +548,7 @@ def plan_beats(spec, work):
                         s_["fit"] = stage.frame_fit(outline(s_), moves, s_["idle"], side, False,
                                                     stage.keepout(x, size, side, act="peek"))
             elif "x" not in b:
-                top = 330 + lab_img.shape[0] / 2 + 12 if lab else stage.SAFE[1]
+                top = LABEL_Y + lab_img.shape[0] / 2 + 12 if lab else stage.SAFE[1]
                 x, size, side = stage_v4(shots, n, b, moves, top, act)
                 if act == "peek":  # before he peeks in, the animal has the frame to itself: big opening frame
                     for s_ in shots:
@@ -511,7 +569,9 @@ def plan_beats(spec, work):
                         label=lab and dict(img=lab_img,
                                            f=int(round(word_time(words, lab.get("at"), 0.0) * FPS))),
                         prop=b.get("prop"), prop_f=int(round(word_time(words, b.get("prop_at"), 0.3) * FPS)),
-                        x=x, loop=bool(b.get("loop")), first=looping and i == 0, say=b["say"], sub=sub, ask=ask))
+                        x=x, loop=bool(b.get("loop")), first=looping and i == 0, say=b["say"], sub=sub, ask=ask,
+                        aside=b.get("aside") and dict(img=aside_img(b["aside"]),
+                                                      f=int(round(word_time(words, b.get("aside_at"), 0.55 * D) * FPS)))))
         F += n
     return out
 
@@ -651,10 +711,10 @@ def frame(g):
     if bt["prop"] and f >= bt["prop_f"]:  # the Fork drops in beside him and stands there
         p = P["props"][bt["prop"]]
         kf = f - bt["prop_f"]
-        drop = [-900, -520, -200, 0, -40, 0][kf] if kf < 6 else 0
+        drop = int(([-900, -520, -200, 0, -40, 0][kf] if kf < 6 else 0) * UI)
         px = int(bt["x"] * W + bt["size"] * 0.36) if bt["side"] == -1 or not P["v4"] else \
             int(bt["x"] * W - bt["size"] * 0.36 - p.shape[1])   # v4: on his free side, away from the animal
-        over(frame_, p, px, FLOOR - p.shape[0] + 20 + drop)
+        over(frame_, p, px, FLOOR - p.shape[0] + int(20 * UI) + drop)
     placed = place_meatball(frame_, st, tr, bt["size"])
     qa = (0, 0, False)
     if P["v4"] and ani is not None and not cut:  # QA (not during whip pans): Meatball over the animal, animal under the captions, animal clipped
@@ -668,14 +728,18 @@ def frame(g):
                 over_mb = int(((aa[y0 - ay0:y1 - ay0, x0 - ax0:x1 - ax0] > 128)
                                & (al[y0 - my:y1 - my, x0 - mx:x1 - mx] > 128)).sum())
         cy0 = max(0, CAP_Y - 75 - ay0)
-        under_cap = int((aa[cy0:, max(0, 150 - ax0):max(0, 930 - ax0)] > 128).sum()) if cy0 < aa.shape[0] else 0
+        c0, c1 = int(W / 2 - 390 * W / 1080), int(W / 2 + 390 * W / 1080)   # the caption band
+        under_cap = int((aa[cy0:, max(0, c0 - ax0):max(0, c1 - ax0)] > 128).sum()) if cy0 < aa.shape[0] else 0
         qa = (over_mb, under_cap, bool(clipped))
     if bt["label"] and f >= bt["label"]["f"]:
         kf = f - bt["label"]["f"]
         s = [0.35, 0.75, 1.15, 1.06, 1.0][kf] if kf < 5 else 1.0
         li = bt["label"]["img"]
         li = cv2.resize(li, (max(1, int(li.shape[1] * s)), max(1, int(li.shape[0] * s))))
-        over(frame_, li, W // 2 - li.shape[1] // 2, 330 - li.shape[0] // 2)
+        over(frame_, li, W // 2 - li.shape[1] // 2, LABEL_Y - li.shape[0] // 2)
+    if bt.get("aside") and f >= bt["aside"]["f"]:  # the footnote joke, low right, clear of the captions
+        ai = bt["aside"]["img"]
+        _over_scaled(frame_, ai, _pop(f - bt["aside"]["f"]), W - 40 - ai.shape[1] / 2, CAP_Y - 95 * UI - ai.shape[0] / 2)
     # camera: punch-in zooms and impact shake on the whole picture
     zc, sx, sy = 1.0, 0.0, 0.0
     for pf in bt["punch"]:
@@ -689,7 +753,7 @@ def frame(g):
         sx, sy = amp * math.sin(d * 2.3 + 0.7), amp * math.cos(d * 2.9)
         zc = max(zc, 1.04)
     if zc != 1.0 or sx or sy:
-        cx, cy = W / 2, 860
+        cx, cy = W / 2, CAM_Y
         m = np.float32([[zc, 0, cx - zc * cx + sx], [0, zc, cy - zc * cy + sy]])
         frame_ = cv2.warpAffine(frame_, m, (W, H), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
     if bt["hit"] is not None and 0 <= f - bt["hit"] < 3:  # white impact flash
@@ -700,24 +764,24 @@ def frame(g):
         s = _pop(f - su["f"]) * (0.88 if 0 <= f - su["press"] < 4 else 1.0)
         hw = su["img"].shape[1] * 0.85 / 2
         cx = min(max(bt["x"] * W + bt["side"] * bt["size"] * 0.62, hw + 30), W - hw - 30)
-        _over_scaled(frame_, su["img"], s * 0.85, cx, 1440)   # just under his hand, clear of the captions
+        _over_scaled(frame_, su["img"], s * 0.85, cx, PILL_Y)   # just under his hand, clear of the captions
     if bt["ask"] and f >= bt["ask"]["f"]:  # ask kit: the comment card, title then chips in one or two rows
         q = bt["ask"]
-        _over_scaled(frame_, q["title"], _pop(f - q["f"]), W / 2, 330)
-        chips = q["chips"]
-        rows = [chips] if sum(c.shape[1] for c in chips) + 30 * (len(chips) - 1) <= W - 80 else \
+        _over_scaled(frame_, q["title"], _pop(f - q["f"]), W / 2, LABEL_Y)
+        chips, gap = q["chips"], 30 * CARD
+        rows = [chips] if sum(c.shape[1] for c in chips) + gap * (len(chips) - 1) <= W - 80 else \
             [chips[:(len(chips) + 1) // 2], chips[(len(chips) + 1) // 2:]]
         k = 0
-        y = 330 + q["title"].shape[0] / 2 + 110
+        y = LABEL_Y + q["title"].shape[0] / 2 + 110 * CARD
         for row in rows:
-            ww = sum(c.shape[1] for c in row) + 30 * (len(row) - 1)
+            ww = sum(c.shape[1] for c in row) + gap * (len(row) - 1)
             x = (W - ww) / 2
             for c in row:
                 if f >= q["fs"][k]:
                     _over_scaled(frame_, c, _pop(f - q["fs"][k]), x + c.shape[1] / 2, y)
-                x += c.shape[1] + 30
+                x += c.shape[1] + gap
                 k += 1
-            y += 165
+            y += 165 * CARD
     return frame_.tobytes(), qa
 
 
@@ -725,7 +789,7 @@ def captions(beats, path):
     """Two-word cards in the lower third, the spoken word yellow; each card pops in."""
     head = (f"[Script Info]\nPlayResX: {W}\nPlayResY: {H}\n\n[V4+ Styles]\nFormat: Name, Fontname, Fontsize, "
             "PrimaryColour, OutlineColour, BackColour, Bold, BorderStyle, Outline, Shadow, Alignment, MarginV\n"
-            "Style: Cap,DejaVu Sans,100,&H00FFFFFF,&H00000000,&H64000000,-1,1,8,3,5,0\n\n"
+            f"Style: Cap,DejaVu Sans,{CAP_FS},&H00FFFFFF,&H00000000,&H64000000,-1,1,8,3,5,0\n\n"
             "[Events]\nFormat: Layer, Start, End, Style, Text\n")
     from facts import ass_time
     lines = []
@@ -750,8 +814,8 @@ def gate(beats, total):
     for bt in beats:
         for s in bt["shots"]:
             d = (s["f1"] - s["f0"]) / FPS
-            if d > 2.5 + 1e-6:
-                warn.append(f"beat {bt['i']} holds one picture {d:.2f}s (max 2.5)")
+            if d > HOLD_MAX + 1e-6:
+                warn.append(f"beat {bt['i']} holds one picture {d:.2f}s (max {HOLD_MAX})")
             events.append(bt["F"] / FPS + s["f0"] / FPS)
         events += [bt["F"] / FPS + p / FPS for p in bt["punch"]]
         events += [t for t, _ in bt["sfx"]]
@@ -763,24 +827,32 @@ def gate(beats, total):
             events.append(bt["F"] / FPS + bt["sub"]["f"] / FPS)
         if bt["ask"]:
             events += [bt["F"] / FPS + f / FPS for f in [bt["ask"]["f"]] + bt["ask"]["fs"]]
+        if bt.get("aside"):
+            events.append(bt["F"] / FPS + bt["aside"]["f"] / FPS)
     for bt in beats:  # ask kit placement (research/46): hook first, guess card 3-6 s, pill 6-10 s, reminder at the end
         if bt["sub"]:
             t = (bt["F"] + bt["sub"]["f"]) / FPS
-            if not 5.5 <= t <= 10.5:
-                warn.append(f"beat {bt['i']} subscribe pill at {t:.1f}s (aim 6-10 s)")
+            if not ASK_PILL[0] <= t <= ASK_PILL[1]:
+                warn.append(f"beat {bt['i']} subscribe pill at {t:.1f}s (aim {ASK_PILL[0]:g}-{ASK_PILL[1]:g} s)")
         if bt["ask"]:
             t = (bt["F"] + bt["ask"]["f"]) / FPS
-            if t < 3.0:
-                warn.append(f"beat {bt['i']} comment card at {t:.1f}s: no ask in the first 3 s")
-            elif bt["ask"]["chips"] and t > 7.0:
-                warn.append(f"beat {bt['i']} guess card at {t:.1f}s (aim 3-6 s, right after the hook)")
-            elif not bt["ask"]["chips"] and bt["i"] + 1 < len(beats) and not beats[bt["i"] + 1]["loop"]:
+            if t < ASK_NONE:
+                warn.append(f"beat {bt['i']} comment card at {t:.1f}s: no ask in the first {ASK_NONE:g} s")
+            elif bt["ask"]["chips"] and not ASK_GUESS[0] <= t <= ASK_GUESS[1]:
+                warn.append(f"beat {bt['i']} guess card at {t:.1f}s (aim {ASK_GUESS[0]:g}-{ASK_GUESS[1]:g} s, "
+                            "right after the hook)")
+            elif not bt["ask"]["chips"] and any(b_["loop"] for b_ in beats) and bt["i"] + 1 < len(beats) \
+                    and not beats[bt["i"] + 1]["loop"]:
                 warn.append(f"beat {bt['i']} reminder card is not the last beat before the loop")
-        if bt["F"] / FPS < 3.0 and bt["sub"]:
-            warn.append(f"beat {bt['i']} subscribe ask in the first 3 s")
+            elif not bt["ask"]["chips"] and total - t > 90:   # long-form: "Were you right?" sits in the ending
+                warn.append(f"beat {bt['i']} reminder card {total - t:.0f}s before the end (aim: the last 90 s)")
+        if bt["F"] / FPS < ASK_NONE and bt["sub"]:
+            warn.append(f"beat {bt['i']} subscribe ask in the first {ASK_NONE:g} s")
+    if sum(1 for bt in beats if bt["sub"]) > 1:
+        warn.append("more than one subscribe pill (one early ask; no nagging)")
     events = sorted(events)
     gaps = [b - a for a, b in zip([0.0] + events, events + [total])]
-    if max(gaps) > 3.0:
+    if max(gaps) > GAP_MAX:
         warn.append(f"longest stretch with nothing new: {max(gaps):.1f}s")
     for w in warn:
         print("GATE WARN:", w, flush=True)
@@ -811,9 +883,12 @@ def report_v4(beats, work):
     return stills
 
 
-def build(spec, work, out, music=None):
+def build(spec, work, out, music=None, vertical=True):
     os.makedirs(work, exist_ok=True)
-    ex.vertical()
+    if vertical:
+        ex.vertical()
+    else:
+        landscape()
     beats = plan_beats(spec, work)
     total_f = beats[-1]["F"] + beats[-1]["n"]
     cuts = {}
@@ -825,7 +900,7 @@ def build(spec, work, out, music=None):
                 cuts[g + d] = (g, pb, ps, nb, ns)
     PLAN.clear()
     v4 = spec.get("style") == "v4"
-    PLAN.update(beats=beats, whips=cuts, props={"fork": np.asarray(mascot.prop("fork", 520))}, v4=v4,
+    PLAN.update(beats=beats, whips=cuts, props={"fork": np.asarray(mascot.prop("fork", int(520 * UI)))}, v4=v4,
                 total=total_f)
     for bt in beats:  # warm the photo (and v4 cut-out) caches before forking the workers
         for s in bt["shots"]:

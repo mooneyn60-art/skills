@@ -964,7 +964,9 @@ def main():
         vertical()
     if spec.get("style") in ("v3", "v4") and a.stage == "build":  # Shorts v3/v4 (research/44, 45): tools/v3.py
         import v3
-        return v3.build(spec, a.work, a.out, MUSIC)  # v3 imports explainer afresh: pass the bed
+        # "aspect": "16:9" = a v3/v4 long-form (1920x1080, v3.landscape()); everything else stays a vertical Short
+        wide = spec.get("aspect") == "16:9" and not a.vertical
+        return v3.build(spec, a.work, a.out, MUSIC, vertical=not wide)  # v3 imports explainer afresh: pass the bed
     if a.stage == "images":
         images(spec["beats"], a.work, a.seeds)
     else:

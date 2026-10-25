@@ -165,11 +165,15 @@ qualified views. Channel: subs, weekly long-form watch hours vs the 4,000 h pace
 ## Always ask: likes, comments, subscribes (Nolan, 10/24)
 Never assume viewers will engage. Every video asks, in Meatball's voice and with a joke, never as a generic "smash that like button".
 
-**Long-form**
-- **Subscribe ask 1:** a spoken line right after the first payoff (about 0:45-1:30), e.g. "If watching a meatball panic is your thing, subscribing genuinely keeps me off the menu."
-- **Like ask:** a spoken line at the midpoint, tied to the story, e.g. "If that one got you, hit like so I know to find more."
-- **Comment ask:** a specific question with an easy answer, e.g. "Which one would you eat first? Wrong answers only." Say the best answer gets read out next episode.
-- **End:** subscribe ask 2, plus "New Meatball every Tuesday and Saturday", plus the tease for the next episode.
+**Long-form: v3/v4 style + early asks (Nolan 10/25: "keep that up, and for long form also"; "more v3 in long form, too dry")**
+- **Style:** story long-forms render with `"style": "v4", "aspect": "16:9"` (tools/v3.py `landscape()`, 1920x1080): Meatball in jeopardy (an action move at least once a minute, a gag or escalation every 15-20 s), punch-ins on key words, a whip or new picture every 3-4 s at most, SFX under the voice, moving cut-outs where the photo shows the whole animal (v3 stills otherwise). Text cards become `"label"`s over a blurred photo; `"aside"` footnotes still work. Still 6-8 min and one story; facts unchanged, jokes in the research/39 voice only. Samples: `scripts/explains-0{2,3}-*.json`.
+- **0:00-~0:20 cold open: hook only, no ask.**
+- **~0:20-0:35 guess-first comment card** (beat `ask` with `choices`): "Comment your guess before I tell you", 2-3 emoji choices tied to the episode's big question (zombies: "WHICH ONE COULD BE INSIDE YOU? 🐜 / 🐌 / 🐀"), held ~2 s. The episode must answer it.
+- **~0:30-0:50 one subscribe pill** (beat `sub`): "Subscribe. A new Meatball story every Tuesday and Saturday." Meatball points, the SUBSCRIBE pill pops and is pressed. This is the ONLY subscribe ask: no second one later.
+- **One like ask mid-video** (a spoken line + "HIT LIKE" label).
+- **Ending:** "So, were you right? ... Tell me in the comments." (reminder card "WERE YOU RIGHT? 👇"), then the tease for the next episode. No extra in-story comment asks.
+- **First comment / pinned:** the same emoji guess question. The description's first question line matches it.
+- The v3 gate warns (long-form): any ask before 15 s, a guess card outside 15-40 s, a pill outside 28-55 s or more than one pill, the reminder earlier than the last 90 s, a picture held over 3.5 s, nothing new for over 4 s.
 
 **Shorts: the ask kit is standard on every new Short (Nolan 10/25: "do it in the beginning so people will actually be watching"; research/46)**
 - **0-3 s: hook only.** Never an ask in the first 3 seconds.

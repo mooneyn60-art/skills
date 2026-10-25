@@ -6,7 +6,7 @@
      beside him (or leaning over his head where its outline leaves room: keepout(), strips()), above the
      captions and inside the frame.
 track() re-aims mascot.act_track so he faces the animal and flees, peeks and cowers on the far side.
-Boxes are screen pixels (1080x1920).
+Boxes are screen pixels (1080x1920; configure() sets the 1920x1080 long-form layout).
 """
 import math
 
@@ -135,11 +135,12 @@ def tuck(size):
 AIRBORNE = ("tumble", "launch")   # acts that pass through the space above his mark
 
 
-def keepout(x, size, side, top=SAFE[1], contact=False, act=None):
+def keepout(x, size, side, top=None, contact=False, act=None):
     """Where the animal and its moves may not go: dict(box = Meatball's body plus clear air, out to the frame
     edge behind him; top = below a pop-in label). A contact beat lets the animal's move envelope reach
     almost halfway into him (its outline sits inside that envelope, so it still touches him). On acts where
     he falls in from above or is flung up, nothing may lean over his head."""
+    top = SAFE[1] if top is None else top
     mb = mb_box(x, size)
     d = -0.45 * (mb[2] - mb[0]) if contact else GAP + LEAN.get(act, 0.0) * W * size / 1000
     d += 0.0 if contact or act not in AIRBORNE else 2 * GAP   # he spins as he falls or flies
@@ -148,6 +149,13 @@ def keepout(x, size, side, top=SAFE[1], contact=False, act=None):
 
 
 SOLO = dict(box=[-1e9, -1e9, -1e9, -1e9], top=SAFE[1])   # no Meatball on screen (before a peek)
+
+
+def configure(w, h, floor, safe):
+    """Another frame layout (v3.landscape(): 1920x1080 long-forms): frame size, Meatball's floor, the safe box."""
+    global W, H, FLOOR, SAFE
+    W, H, FLOOR, SAFE = w, h, floor, tuple(safe)
+    SOLO["top"] = SAFE[1]
 
 
 def strips(sil, g, moves, idle, toward, contact, reach=1.0):

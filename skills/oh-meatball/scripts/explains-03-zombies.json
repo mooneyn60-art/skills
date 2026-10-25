@@ -9,7 +9,7 @@
  "short_rate": "+0%",
  "voice": "kokoro:eric-michael",
  "music": "music/quiz-bed.m4a",
- "style": "classic",
+ "style": "v4",
  "names": {
   "Ophiocordyceps unilateralis": "Zombie-ant fungus",
   "Camponotus": "Carpenter ant",
@@ -21,7 +21,7 @@
   "Rattus norvegicus": "Brown rat",
   "Felis catus": "House cat"
  },
- "blurb": "Are zombie animals real? Yes. Meatball tells the true story of five animals whose bodies get driven by something else: the zombie-ant fungus and its death grip, the emerald wasp that walks a cockroach on a leash, the hairworm that makes crickets jump into water, the snail with throbbing striped eyes, and the parasite that makes rats like the smell of cats. One of them has infected somewhere between a quarter and a third of all people. It's at the end.\n\nWhich one would make the scariest Halloween costume? Best answer gets read out next episode 👇",
+ "blurb": "Are zombie animals real? Yes. Meatball tells the true story of five animals whose bodies get driven by something else: the zombie-ant fungus and its death grip, the emerald wasp that walks a cockroach on a leash, the hairworm that makes crickets jump into water, the snail with throbbing striped eyes, and the parasite that makes rats like the smell of cats. One of them has infected somewhere between a quarter and a third of all people. It's at the end.\n\nWhich one could be inside YOU? 🐜 ant / 🐌 snail / 🐀 rat. Comment your guess before the end 👇",
  "next": "Tuesday: the deadliest animal on Earth (it isn't the shark).\n\nSubscribe: new Meatball every Tuesday and Saturday",
  "tags": [
   "zombie animals",
@@ -41,8 +41,8 @@
   "Meatball Explains"
  ],
  "hashtags": "#zombieanimals #cordyceps #halloween #animalfacts #meatballexplains",
- "pinned": "🧟 Which of these five would make the scariest Halloween costume? Best answer gets read out in the next episode 👇",
- "_note": "Meatball Explains #3 (Showrunner, morning run 2026-10-25), for Sat 10/31 2 PM after Explains-01 moved to 10/25. One story, five hosts, Toxoplasma payoff promised in the first line and delivered last (open loop). Halloween-adjacent and true; no quiz, no checkpoints, no read-out (asks only). Voice kokoro:eric-michael (Nolan 10/24 free long-form voice). Shorts are not posted from long-forms (only v3/v4 Shorts post), so render with --skip-shorts. Contested claims are said as contested on air (Toxoplasma effects on people). Photos: iNaturalist research-grade, wild, CC0/CC BY, first photo of each obs, checked by eye. Fact pass 10/25 (Studio): wasp size 'smaller than a paper clip' (~22 mm), crickets 'terrible swimmers' (not 'can't swim'), hairworm feeds from inside (absorbs, doesn't chew organs), Toxoplasma 'a quarter to a third' (pooled ~26%), weak immune systems added, outro no longer says the wasp lacks a brain.",
+ "pinned": "Guess before the end: which one could be inside YOU? 🐜 / 🐌 / 🐀 Comment your guess 👇 Follow Meatball for more 🍝",
+ "_note": "Meatball Explains #3 (Showrunner, morning run 2026-10-25), for Sat 10/31 2 PM after Explains-01 moved to 10/25. One story, five hosts, Toxoplasma payoff promised in the first line and delivered last (open loop). Halloween-adjacent and true; no quiz, no checkpoints, no read-out (asks only). Voice kokoro:eric-michael (Nolan 10/24 free long-form voice). Shorts are not posted from long-forms (only v3/v4 Shorts post), so render with --skip-shorts. Contested claims are said as contested on air (Toxoplasma effects on people). Photos: iNaturalist research-grade, wild, CC0/CC BY, first photo of each obs, checked by eye. Fact pass 10/25 (Studio): wasp size 'smaller than a paper clip' (~22 mm), crickets 'terrible swimmers' (not 'can't swim'), hairworm feeds from inside (absorbs, doesn't chew organs), Toxoplasma 'a quarter to a third' (pooled ~26%), weak immune systems added, outro no longer says the wasp lacks a brain. | 10/25 Studio: re-cut as a v4 16:9 long-form with the early ask layout (OPERATIONS.md 'Always ask'): cold open, guess card ~0:20, one subscribe pill ~0:31, one like ask mid, 'Were you right?' at the end; in-story comment asks and the second subscribe ask removed; facts unchanged.",
  "sources": [
   "Ophiocordyceps: fungal cells surround and invade ant muscle fibres, brain not invaded — Fredericksen et al. 2017, PNAS, https://www.pnas.org/doi/10.1073/pnas.1711673114",
   "Death grip on leaf veins ~25 cm above ground, synchronised near solar noon — Hughes et al. 2011, BMC Ecology, https://bmcecol.biomedcentral.com/articles/10.1186/1472-6785-11-13",
@@ -59,391 +59,2350 @@
    "say": "Zombies are real. Five animals on Earth get taken over by something that drives their body for them. And one of those things might be inside you right now. That one's at the end.",
    "pose": "shock",
    "myth": "intro",
-   "photo": "Ophiocordyceps unilateralis",
-   "obs": 5127531,
-   "chapter": "Cold open"
+   "chapter": "Cold open",
+   "act": "peek",
+   "punch": [
+    "real",
+    "inside"
+   ],
+   "hit": "inside",
+   "sfx": [
+    "whoosh",
+    "hit@inside"
+   ],
+   "animal": "turn@drives",
+   "shots": [
+    {
+     "photo": "Ophiocordyceps unilateralis",
+     "obs": 5127531,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Ophiocordyceps unilateralis",
+     "obs": 331185805,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "drives"
+    },
+    {
+     "photo": "Ophiocordyceps unilateralis",
+     "obs": 85788204,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "inside"
+    }
+   ]
   },
   {
    "say": "This ant is about to climb to its death.",
    "pose": "nervous",
    "myth": "intro",
-   "photo": "Ophiocordyceps unilateralis",
-   "obs": 331185805
+   "act": "shake",
+   "punch": "death",
+   "sfx": [
+    "thud@death"
+   ],
+   "shots": [
+    {
+     "photo": "Ophiocordyceps unilateralis",
+     "obs": 331185805,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
   },
   {
    "say": "This cockroach is about to get walked like a dog.",
    "pose": "deadpan",
    "myth": "intro",
-   "photo": "Ampulex compressa",
-   "obs": 138732158
+   "act": "hit",
+   "act_at": "walked",
+   "hit": "walked",
+   "sfx": [
+    "boing@walked"
+   ],
+   "animal": "lunge@walked",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Ampulex compressa",
+     "obs": 138732158,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
   },
   {
    "say": "I'm Meatball. I narrate nature, and nature keeps trying to eat me. Today: real zombie animals.",
    "pose": "deadpan",
    "myth": "intro",
-   "photo": "Ophiocordyceps unilateralis",
-   "obs": 5127531
+   "act": "launch",
+   "act_at": "eat",
+   "hit": "eat",
+   "sfx": [
+    "crunch@eat",
+    "whoosh@today"
+   ],
+   "animal": "lunge@eat",
+   "contact": true,
+   "label": {
+    "text": "REAL ZOMBIE\nANIMALS",
+    "at": "real"
+   },
+   "shots": [
+    {
+     "photo": "Ophiocordyceps unilateralis",
+     "obs": 5127531,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Ampulex compressa",
+     "obs": 215510049,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "nature"
+    },
+    {
+     "photo": "Ophiocordyceps unilateralis",
+     "obs": 331185805,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "today"
+    }
+   ]
+  },
+  {
+   "say": "Comment your guess before I tell you. Which one of these could be inside you? The ant one? The snail one? Or the rat one? Lock it in. I'll wait.",
+   "pose": "think",
+   "myth": "intro",
+   "act": "tumble",
+   "act_at": "comment",
+   "sfx": [
+    "thud@comment"
+   ],
+   "ask": {
+    "q": "WHICH ONE COULD BE\nINSIDE YOU?",
+    "choices": [
+     "🐜",
+     "🐌",
+     "🐀"
+    ],
+    "at": "comment"
+   },
+   "hold": 2.0,
+   "shots": [
+    {
+     "photo": "Camponotus",
+     "obs": 262021643,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Leucochloridium",
+     "obs": 388382542,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "snail"
+    },
+    {
+     "photo": "Rattus norvegicus",
+     "obs": 212925594,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "rat"
+    },
+    {
+     "photo": "Ophiocordyceps unilateralis",
+     "obs": 5127531,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "lock",
+     "blur": true
+    }
+   ]
+  },
+  {
+   "say": "Okay, while you type, a quick favor. If you like true stories that are weirder than Halloween, subscribe. A new Meatball story every Tuesday and Saturday. Assuming nothing eats me first.",
+   "pose": "point",
+   "myth": "intro",
+   "act": "stand",
+   "sub": {
+    "at": "subscribe"
+   },
+   "punch": "eats",
+   "sfx": [
+    "boing@eats"
+   ],
+   "shots": [
+    {
+     "photo": "Ophiocordyceps unilateralis",
+     "obs": 85788204,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "blur": true
+    },
+    {
+     "photo": "Camponotus",
+     "obs": 262021643,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "assuming"
+    }
+   ]
   },
   {
    "say": "First, the zombie ant. Deep in a rainforest, a carpenter ant walks past a tiny fungus spore. The spore sticks to it. That's it. That's the whole mistake.",
    "pose": "nervous",
    "myth": "ant",
-   "photo": "Camponotus",
-   "obs": 262021643,
+   "chapter": "The zombie ant fungus",
    "hook": true,
-   "chapter": "The zombie ant fungus"
+   "act": "run_in",
+   "sfx": [
+    "whoosh",
+    "pop@sticks"
+   ],
+   "punch": [
+    "sticks",
+    "mistake"
+   ],
+   "animal": "turn@spore",
+   "shots": [
+    {
+     "photo": "Camponotus",
+     "obs": 262021643,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Ophiocordyceps unilateralis",
+     "obs": 5127531,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "spore"
+    },
+    {
+     "photo": "Camponotus",
+     "obs": 262021643,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "mistake"
+    }
+   ]
   },
   {
    "say": "The fungus is called Ophiocordyceps. It gets through the ant's armor and starts growing inside its body.",
    "pose": "point",
    "myth": "ant",
-   "photo": "Ophiocordyceps unilateralis",
-   "obs": 331185805
+   "act": "shake",
+   "punch": "inside",
+   "sfx": [
+    "scratch@armor"
+   ],
+   "shots": [
+    {
+     "photo": "Ophiocordyceps unilateralis",
+     "obs": 331185805,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Ophiocordyceps unilateralis",
+     "obs": 85788204,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "armor"
+    }
+   ]
   },
   {
    "say": "Over the next week or two it spreads everywhere. When scientists scanned infected ants, they found fungus cells wrapped around the ant's muscles, like a net.",
    "pose": "shock",
    "myth": "ant",
-   "photo": "Ophiocordyceps unilateralis",
-   "obs": 85788204
+   "act": "hit",
+   "act_at": "net",
+   "hit": "net",
+   "punch": "muscles",
+   "sfx": [
+    "crunch@net"
+   ],
+   "label": {
+    "text": "LIKE A NET",
+    "at": "net"
+   },
+   "shots": [
+    {
+     "photo": "Ophiocordyceps unilateralis",
+     "obs": 85788204,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Ophiocordyceps unilateralis",
+     "obs": 5127531,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "scanned"
+    },
+    {
+     "photo": "Ophiocordyceps unilateralis",
+     "obs": 331185805,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "net"
+    }
+   ]
+  },
+  {
+   "say": "I've been in a net. It was a pasta strainer. Same energy.",
+   "pose": "nervous",
+   "myth": "intro",
+   "act": "hide",
+   "sfx": [
+    "plate@strainer"
+   ],
+   "hold": 0.3,
+   "shots": [
+    {
+     "photo": "Ophiocordyceps unilateralis",
+     "obs": 85788204,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "blur": true
+    }
+   ]
   },
   {
    "say": "And here's the creepy part. The fungus mostly leaves the brain alone. The ant is still in there. It's just not driving.",
    "pose": "nervous",
    "myth": "intro",
-   "text": "STILL IN THERE.\nNOT DRIVING.",
-   "hold": 0.4
+   "hold": 0.4,
+   "act": "peek",
+   "punch": "driving",
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "STILL IN THERE.\nNOT DRIVING.",
+    "at": 0.0
+   },
+   "shots": [
+    {
+     "photo": "Ophiocordyceps unilateralis",
+     "obs": 5127531,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "blur": true
+    },
+    {
+     "photo": "Ophiocordyceps unilateralis",
+     "obs": 331185805,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "ant",
+     "blur": true
+    }
+   ]
   },
   {
    "say": "Then the ant leaves its nest. It climbs a plant, stops about a ruler's length above the forest floor, and clamps its jaws onto a vein under a leaf. Scientists call it the death grip.",
    "pose": "shock",
    "myth": "ant",
-   "photo": "Ophiocordyceps unilateralis",
-   "obs": 5127531
+   "act": "shake",
+   "hit": "death",
+   "punch": [
+    "clamps",
+    "death"
+   ],
+   "sfx": [
+    "crunch@clamps",
+    "thud@death"
+   ],
+   "label": {
+    "text": "THE DEATH\nGRIP",
+    "at": "death"
+   },
+   "shots": [
+    {
+     "photo": "Ophiocordyceps unilateralis",
+     "obs": 5127531,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Ophiocordyceps unilateralis",
+     "obs": 331185805,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "climbs"
+    },
+    {
+     "photo": "Ophiocordyceps unilateralis",
+     "obs": 85788204,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "clamps"
+    }
+   ]
   },
   {
    "say": "In one study, the ants bit down around the middle of the day. Like it was scheduled.",
    "pose": "deadpan",
    "myth": "ant",
-   "photo": "Ophiocordyceps unilateralis",
-   "obs": 85788204,
-   "aside": "(it was scheduled)"
-  },
-  {
-   "say": "Quick thing. If watching a meatball narrate things that would happily eat him is your idea of fun, subscribing genuinely keeps me off the menu. A ghost told me that.",
-   "pose": "point",
-   "myth": "intro",
-   "aside": "(it was a raccoon)"
+   "aside": "(it was scheduled)",
+   "act": "stand",
+   "punch": "scheduled",
+   "sfx": [
+    "tink@scheduled"
+   ],
+   "shots": [
+    {
+     "photo": "Ophiocordyceps unilateralis",
+     "obs": 85788204,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
   },
   {
    "say": "Back to the ant. It dies right there, locked on. And then a stalk grows out of the back of its head.",
-   "pose": "disgust",
+   "pose": "nervous",
    "myth": "ant",
-   "photo": "Ophiocordyceps unilateralis",
-   "obs": 331185805
+   "act": "tumble",
+   "act_at": "stalk",
+   "hit": "stalk",
+   "sfx": [
+    "thud@stalk"
+   ],
+   "punch": "head",
+   "shots": [
+    {
+     "photo": "Ophiocordyceps unilateralis",
+     "obs": 331185805,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Ophiocordyceps unilateralis",
+     "obs": 5127531,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "stalk"
+    }
+   ]
   },
   {
    "say": "From up there, the stalk rains spores down onto the trail below. Right where the next ant walks.",
    "pose": "nervous",
    "myth": "ant",
-   "photo": "Ophiocordyceps unilateralis",
-   "obs": 85788204
+   "act": "run_across",
+   "sfx": [
+    "whoosh@trail"
+   ],
+   "punch": "rains",
+   "shots": [
+    {
+     "photo": "Ophiocordyceps unilateralis",
+     "obs": 85788204,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Camponotus",
+     "obs": 262021643,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "trail"
+    }
+   ]
   },
   {
    "say": "And this is old. Scientists found the same bite scars on a fossil leaf about forty eight million years old. Ants were getting zombified before there were any people to be scared of it.",
    "pose": "think",
    "myth": "ant",
-   "text": "48 MILLION\nYEARS OLD",
-   "hold": 0.3
+   "hold": 0.3,
+   "act": "hit",
+   "act_at": "forty",
+   "hit": "forty",
+   "sfx": [
+    "zap@forty"
+   ],
+   "label": {
+    "text": "48 MILLION\nYEARS OLD",
+    "at": 0.0
+   },
+   "shots": [
+    {
+     "photo": "Ophiocordyceps unilateralis",
+     "obs": 5127531,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "blur": true
+    }
+   ]
+  },
+  {
+   "say": "Forty eight million years of this. And I complain about Mondays.",
+   "pose": "deadpan",
+   "myth": "intro",
+   "act": "shake",
+   "punch": "mondays",
+   "sfx": [
+    "tink@mondays"
+   ],
+   "hold": 0.3,
+   "shots": [
+    {
+     "photo": "Ophiocordyceps unilateralis",
+     "obs": 5127531,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "blur": true
+    }
+   ]
   },
   {
    "say": "Honestly? As a food item, I relate to the ant. Something else decides your whole day, and then it's over.",
    "pose": "nervous",
    "myth": "intro",
-   "photo": "Ophiocordyceps unilateralis",
-   "obs": 5127531,
-   "prop": "fork"
+   "prop": "fork",
+   "act": "shake",
+   "punch": "over",
+   "sfx": [
+    "tink@over"
+   ],
+   "hold": 0.3,
+   "shots": [
+    {
+     "photo": "Ophiocordyceps unilateralis",
+     "obs": 5127531,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Camponotus",
+     "obs": 262021643,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "decides"
+    }
+   ]
   },
   {
    "say": "Number two is a wasp. The emerald cockroach wasp. Shiny, green, and smaller than a paper clip.",
    "pose": "point",
    "myth": "wasp",
-   "photo": "Ampulex compressa",
-   "obs": 215510049,
+   "chapter": "The wasp that walks a cockroach",
    "hook": true,
-   "chapter": "The wasp that walks a cockroach"
+   "act": "run_in",
+   "sfx": [
+    "whoosh"
+   ],
+   "punch": "paper",
+   "animal": "turn@shiny",
+   "shots": [
+    {
+     "photo": "Ampulex compressa",
+     "obs": 215510049,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Ampulex compressa",
+     "obs": 33480009,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "shiny"
+    }
+   ]
   },
   {
    "say": "Its target is a cockroach. A cockroach that's bigger than it is.",
    "pose": "shock",
    "myth": "wasp",
-   "photo": "Periplaneta americana",
-   "obs": 145749011
+   "act": "launch",
+   "act_at": "bigger",
+   "hit": "bigger",
+   "sfx": [
+    "boing@bigger"
+   ],
+   "animal": "lunge@bigger",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Periplaneta americana",
+     "obs": 145749011,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "say": "Small, shiny, and picks fights with bigger things. Relatable.",
+   "pose": "deadpan",
+   "myth": "intro",
+   "act": "stand",
+   "punch": "relatable",
+   "sfx": [
+    "pop@relatable"
+   ],
+   "hold": 0.3,
+   "shots": [
+    {
+     "photo": "Ampulex compressa",
+     "obs": 215510049,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
   },
   {
    "say": "The first sting goes into the chest. The roach's front legs stop working for a couple of minutes.",
    "pose": "nervous",
    "myth": "wasp",
-   "photo": "Ampulex compressa",
-   "obs": 138732158
+   "act": "puff",
+   "act_at": "sting",
+   "hit": "sting",
+   "sfx": [
+    "zap@sting"
+   ],
+   "animal": "strike@sting",
+   "contact": true,
+   "punch": "chest",
+   "shots": [
+    {
+     "photo": "Ampulex compressa",
+     "obs": 138732158,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Periplaneta americana",
+     "obs": 145749011,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "front"
+    }
+   ]
   },
   {
    "say": "The second sting goes into the head. Into the brain. The wasp actually feels around with its stinger for the right spot.",
    "pose": "shock",
    "myth": "wasp",
-   "photo": "Ampulex compressa",
-   "obs": 215510049
+   "act": "puffed",
+   "punch": [
+    "head",
+    "brain"
+   ],
+   "hit": "brain",
+   "sfx": [
+    "zap@head",
+    "crunch@brain"
+   ],
+   "animal": "strike@head",
+   "shots": [
+    {
+     "photo": "Ampulex compressa",
+     "obs": 215510049,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Ampulex compressa",
+     "obs": 138732158,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "brain"
+    },
+    {
+     "photo": "Ampulex compressa",
+     "obs": 33480009,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "feels"
+    }
+   ]
+  },
+  {
+   "say": "Feels around. With a stinger. In the brain. Nope. I'm leaving.",
+   "pose": "shock",
+   "myth": "intro",
+   "act": "run_off",
+   "act_at": "leaving",
+   "sfx": [
+    "whoosh@leaving"
+   ],
+   "shots": [
+    {
+     "photo": "Ampulex compressa",
+     "obs": 33480009,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
   },
   {
    "say": "Now here's the thing. The roach isn't paralyzed. It can walk just fine. It just doesn't want to escape anymore.",
    "pose": "deadpan",
    "myth": "wasp",
-   "text": "CAN WALK.\nWON'T RUN.",
-   "hold": 0.3
+   "hold": 0.3,
+   "act": "run_in",
+   "sfx": [
+    "whoosh"
+   ],
+   "punch": "escape",
+   "label": {
+    "text": "CAN WALK.\nWON'T RUN.",
+    "at": 0.0
+   },
+   "shots": [
+    {
+     "photo": "Periplaneta americana",
+     "obs": 145749011,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "blur": true
+    }
+   ]
   },
   {
    "say": "So the wasp bites off part of each antenna, grabs what's left, and leads the cockroach to its burrow. Like a dog on a leash.",
    "pose": "shock",
    "myth": "wasp",
-   "photo": "Ampulex compressa",
-   "obs": 33480009
+   "act": "shake",
+   "punch": [
+    "antenna",
+    "leash"
+   ],
+   "sfx": [
+    "crunch@antenna",
+    "boing@leash"
+   ],
+   "label": {
+    "text": "ON A LEASH",
+    "at": "leash"
+   },
+   "animal": "lunge@grabs",
+   "shots": [
+    {
+     "photo": "Ampulex compressa",
+     "obs": 33480009,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Ampulex compressa",
+     "obs": 215510049,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "grabs"
+    },
+    {
+     "photo": "Periplaneta americana",
+     "obs": 145749011,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "burrow"
+    }
+   ]
   },
   {
    "say": "And the cockroach just follows. It walks into the burrow by itself.",
    "pose": "deadpan",
    "myth": "wasp",
-   "photo": "Periplaneta americana",
-   "obs": 145749011
+   "act": "stand",
+   "punch": "itself",
+   "animal": "turn@follows",
+   "shots": [
+    {
+     "photo": "Periplaneta americana",
+     "obs": 145749011,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Periplaneta americana",
+     "obs": 200718902,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "walks"
+    }
+   ]
   },
   {
    "say": "The wasp lays one egg on the roach's leg, seals the door with pebbles, and flies off.",
    "pose": "point",
    "myth": "wasp",
-   "photo": "Ampulex compressa",
-   "obs": 215510049
+   "act": "stand",
+   "punch": "pebbles",
+   "sfx": [
+    "pop@egg",
+    "thud@pebbles"
+   ],
+   "animal": "turn@flies",
+   "shots": [
+    {
+     "photo": "Ampulex compressa",
+     "obs": 215510049,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Ampulex compressa",
+     "obs": 138732158,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "seals"
+    }
+   ]
+  },
+  {
+   "say": "It locks the door behind it. Polite, honestly.",
+   "pose": "deadpan",
+   "myth": "intro",
+   "act": "shake",
+   "punch": "polite",
+   "sfx": [
+    "tink@polite"
+   ],
+   "hold": 0.3,
+   "shots": [
+    {
+     "photo": "Ampulex compressa",
+     "obs": 33480009,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
   },
   {
    "say": "When the egg hatches, the baby wasp eats the cockroach. From the inside. And the roach stays alive for most of it.",
-   "pose": "disgust",
+   "pose": "nervous",
    "myth": "wasp",
-   "photo": "Periplaneta americana",
-   "obs": 200718902
+   "act": "hit",
+   "act_at": "inside",
+   "hit": "inside",
+   "punch": "alive",
+   "sfx": [
+    "crunch@inside"
+   ],
+   "shots": [
+    {
+     "photo": "Periplaneta americana",
+     "obs": 200718902,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Ampulex compressa",
+     "obs": 33480009,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "inside"
+    }
+   ]
+  },
+  {
+   "say": "Alive for most of it. Okay. I need a minute.",
+   "pose": "nervous",
+   "myth": "intro",
+   "act": "hide",
+   "hold": 0.4,
+   "shots": [
+    {
+     "photo": "Periplaneta americana",
+     "obs": 200718902,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "blur": true
+    }
+   ]
   },
   {
    "say": "Weeks later, a brand new wasp climbs out of the cockroach. The cockroach does not.",
    "pose": "deadpan",
    "myth": "wasp",
-   "photo": "Ampulex compressa",
-   "obs": 33480009,
-   "aside": "(happy Halloween)"
+   "aside": "(happy Halloween)",
+   "act": "peek",
+   "punch": "not",
+   "sfx": [
+    "tink@not"
+   ],
+   "shots": [
+    {
+     "photo": "Ampulex compressa",
+     "obs": 33480009,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Periplaneta americana",
+     "obs": 145749011,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "cockroach"
+    }
+   ]
   },
   {
    "say": "If that one got you, hit like. I need to know you're as upset as I am.",
    "pose": "point",
-   "myth": "intro"
+   "myth": "intro",
+   "act": "stand",
+   "punch": "like",
+   "sfx": [
+    "pop@like"
+   ],
+   "label": {
+    "text": "HIT LIKE",
+    "at": "like"
+   },
+   "shots": [
+    {
+     "photo": "Ampulex compressa",
+     "obs": 215510049,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "blur": true
+    }
+   ]
   },
   {
    "say": "Number three. A cricket walks to the edge of a pond, and jumps in.",
    "pose": "shock",
    "myth": "worm",
-   "photo": "Gryllus",
-   "obs": 22764854,
+   "chapter": "The cricket that jumps into water",
    "hook": true,
-   "chapter": "The cricket that jumps into water"
+   "act": "launch",
+   "act_at": "jumps",
+   "hit": "jumps",
+   "sfx": [
+    "splash@jumps"
+   ],
+   "animal": "lunge@jumps",
+   "shots": [
+    {
+     "photo": "Gryllus",
+     "obs": 22764854,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Gryllus",
+     "obs": 148327792,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "jumps"
+    }
+   ]
   },
   {
    "say": "Crickets are terrible swimmers. They normally stay away from water. This one jumped anyway.",
    "pose": "deadpan",
    "myth": "worm",
-   "photo": "Gryllus",
-   "obs": 148327792
+   "act": "tumble",
+   "act_at": "terrible",
+   "sfx": [
+    "thud@terrible"
+   ],
+   "punch": "anyway",
+   "shots": [
+    {
+     "photo": "Gryllus",
+     "obs": 148327792,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Gryllus",
+     "obs": 22764854,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "jumped"
+    }
+   ]
   },
   {
    "say": "Because there's a worm inside it. A hairworm. It grew up inside the cricket, feeding on it from the inside, coiled up in there the whole time.",
-   "pose": "disgust",
+   "pose": "nervous",
    "myth": "worm",
-   "photo": "Nematomorpha",
-   "obs": 105361431
+   "act": "shake",
+   "punch": [
+    "worm",
+    "coiled"
+   ],
+   "sfx": [
+    "scratch@worm"
+   ],
+   "hit": "worm",
+   "shots": [
+    {
+     "photo": "Nematomorpha",
+     "obs": 105361431,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Gryllus",
+     "obs": 22764854,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "grew"
+    },
+    {
+     "photo": "Nematomorpha",
+     "obs": 68490116,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "coiled"
+    }
+   ]
+  },
+  {
+   "say": "Coiled up. In there. The whole time. Cool. Cool cool cool.",
+   "pose": "nervous",
+   "myth": "intro",
+   "act": "hide",
+   "sfx": [
+    "boing@cool"
+   ],
+   "hold": 0.3,
+   "shots": [
+    {
+     "photo": "Nematomorpha",
+     "obs": 105361431,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "blur": true
+    }
+   ]
   },
   {
    "say": "A hairworm can only finish growing up in water. And in experiments, infected crickets jumped into water far more often than healthy ones.",
    "pose": "point",
    "myth": "worm",
-   "photo": "Gryllus",
-   "obs": 22764854
+   "act": "stand",
+   "punch": [
+    "water",
+    "more"
+   ],
+   "sfx": [
+    "splash@water"
+   ],
+   "shots": [
+    {
+     "photo": "Gryllus",
+     "obs": 22764854,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Gryllus",
+     "obs": 148327792,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "experiments"
+    }
+   ]
   },
   {
    "say": "The second the cricket hits the water, the worm slides out. It can be several times longer than the cricket it came out of.",
    "pose": "shock",
    "myth": "worm",
-   "photo": "Nematomorpha",
-   "obs": 68490116
+   "act": "launch",
+   "act_at": "slides",
+   "hit": "slides",
+   "sfx": [
+    "splash@hits",
+    "whoosh@slides"
+   ],
+   "label": {
+    "text": "SEVERAL TIMES\nLONGER",
+    "at": "several"
+   },
+   "shots": [
+    {
+     "photo": "Nematomorpha",
+     "obs": 68490116,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Nematomorpha",
+     "obs": 105361431,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "several"
+    }
+   ]
+  },
+  {
+   "say": "Several times longer. Where was it keeping all that?",
+   "pose": "shock",
+   "myth": "intro",
+   "act": "tumble",
+   "act_at": "where",
+   "sfx": [
+    "thud@where"
+   ],
+   "hold": 0.3,
+   "shots": [
+    {
+     "photo": "Nematomorpha",
+     "obs": 68490116,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
   },
   {
    "say": "People find these worms in swimming pools, dog bowls and toilets. They look like a hair that's moving. They're harmless to people. Have a lovely evening.",
    "pose": "nervous",
    "myth": "worm",
-   "photo": "Nematomorpha",
-   "obs": 105361431,
-   "aside": "(sorry)"
+   "aside": "(sorry)",
+   "act": "hide",
+   "punch": [
+    "toilets",
+    "moving"
+   ],
+   "sfx": [
+    "splash@toilets"
+   ],
+   "shots": [
+    {
+     "photo": "Nematomorpha",
+     "obs": 105361431,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Nematomorpha",
+     "obs": 68490116,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "hair"
+    },
+    {
+     "photo": "Gryllus",
+     "obs": 148327792,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "harmless"
+    }
+   ]
   },
   {
    "say": "Number four is the one with the dancing eyes.",
    "pose": "shock",
    "myth": "snail",
-   "photo": "Leucochloridium",
-   "obs": 388382542,
+   "chapter": "The snail with disco eyes",
    "hook": true,
-   "chapter": "The snail with disco eyes"
+   "act": "peek",
+   "sfx": [
+    "whoosh"
+   ],
+   "punch": "dancing",
+   "shots": [
+    {
+     "photo": "Leucochloridium",
+     "obs": 388382542,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
   },
   {
    "say": "This is an amber snail. Snails are normally slow, careful, and big fans of shade.",
    "pose": "deadpan",
    "myth": "snail",
-   "photo": "Leucochloridium",
-   "obs": 42099276
+   "act": "stand",
+   "punch": "shade",
+   "shots": [
+    {
+     "photo": "Leucochloridium",
+     "obs": 42099276,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Leucochloridium",
+     "obs": 279504674,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "slow"
+    }
+   ]
   },
   {
    "say": "But this one has a flatworm inside it called Leucochloridium. It fills the snail's eye stalks with fat, striped, throbbing sacs.",
-   "pose": "disgust",
+   "pose": "nervous",
    "myth": "snail",
-   "photo": "Leucochloridium",
-   "obs": 388382542
+   "act": "shake",
+   "punch": [
+    "fat",
+    "throbbing"
+   ],
+   "sfx": [
+    "pop@fat",
+    "boing@throbbing"
+   ],
+   "shots": [
+    {
+     "photo": "Leucochloridium",
+     "obs": 388382542,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Leucochloridium",
+     "obs": 42099276,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "flatworm"
+    },
+    {
+     "photo": "Leucochloridium",
+     "obs": 388382542,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "fills"
+    }
+   ]
+  },
+  {
+   "say": "Throbbing. The word is throbbing. Happy Halloween, everybody.",
+   "pose": "nervous",
+   "myth": "intro",
+   "act": "puff",
+   "act_at": "throbbing",
+   "sfx": [
+    "boing@throbbing"
+   ],
+   "hold": 0.3,
+   "shots": [
+    {
+     "photo": "Leucochloridium",
+     "obs": 388382542,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
   },
   {
    "say": "They pulse. Green, banded, wiggling. To a bird, that looks a lot like a juicy caterpillar.",
    "pose": "nervous",
    "myth": "snail",
-   "text": "LOOKS LIKE\nA SNACK",
-   "hold": 0.3
+   "hold": 0.3,
+   "act": "deflate",
+   "act_at": "bird",
+   "punch": "caterpillar",
+   "sfx": [
+    "pop@caterpillar"
+   ],
+   "label": {
+    "text": "LOOKS LIKE\nA SNACK",
+    "at": 0.0
+   },
+   "shots": [
+    {
+     "photo": "Leucochloridium",
+     "obs": 279504674,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "blur": true
+    }
+   ]
   },
   {
    "say": "And infected snails tend to sit higher up, out in the open, in the light. Exactly where birds are looking.",
    "pose": "point",
    "myth": "snail",
-   "photo": "Leucochloridium",
-   "obs": 279504674
+   "act": "stand",
+   "punch": "birds",
+   "shots": [
+    {
+     "photo": "Leucochloridium",
+     "obs": 279504674,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Leucochloridium",
+     "obs": 42099276,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "light"
+    }
+   ]
+  },
+  {
+   "say": "Note to self. Stay in the shade.",
+   "pose": "nervous",
+   "myth": "intro",
+   "act": "hide",
+   "shots": [
+    {
+     "photo": "Leucochloridium",
+     "obs": 42099276,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "blur": true
+    }
+   ]
   },
   {
    "say": "A bird pecks off the eye stalk. The worm grows up inside the bird. The bird poops out the worm's eggs. Another snail eats the poop. And round it goes.",
    "pose": "deadpan",
    "myth": "snail",
-   "photo": "Leucochloridium",
-   "obs": 42099276
+   "act": "hit",
+   "act_at": "pecks",
+   "hit": "pecks",
+   "punch": [
+    "poops",
+    "poop"
+   ],
+   "sfx": [
+    "crunch@pecks",
+    "boing@round"
+   ],
+   "shots": [
+    {
+     "photo": "Leucochloridium",
+     "obs": 42099276,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Leucochloridium",
+     "obs": 388382542,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "pecks"
+    },
+    {
+     "photo": "Leucochloridium",
+     "obs": 279504674,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "poop"
+    },
+    {
+     "photo": "Leucochloridium",
+     "obs": 42099276,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "round"
+    }
+   ]
   },
   {
    "say": "The snail can even grow its eye stalk back. Which, honestly, makes it worse.",
    "pose": "deadpan",
    "myth": "snail",
-   "photo": "Leucochloridium",
-   "obs": 388382542
-  },
-  {
-   "say": "Your turn. Which of these would make the scariest Halloween costume? Tell me in the comments. Wrong answers welcome. The best one gets read out next episode.",
-   "pose": "point",
-   "myth": "intro",
-   "text": "BEST COSTUME?\nCOMMENT",
-   "hold": 0.3
+   "act": "shake",
+   "punch": "worse",
+   "sfx": [
+    "tink@worse"
+   ],
+   "hold": 0.3,
+   "shots": [
+    {
+     "photo": "Leucochloridium",
+     "obs": 388382542,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
   },
   {
    "say": "Okay. I promised you one of these might be inside you right now. Here it is.",
    "pose": "nervous",
    "myth": "rat",
-   "photo": "Rattus norvegicus",
-   "obs": 212925594,
+   "chapter": "The one that might be in you",
    "hook": true,
-   "chapter": "The one that might be in you"
+   "act": "peek",
+   "sfx": [
+    "whoosh"
+   ],
+   "punch": "inside",
+   "shots": [
+    {
+     "photo": "Rattus norvegicus",
+     "obs": 212925594,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Rattus norvegicus",
+     "obs": 116678795,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "here"
+    }
+   ]
   },
   {
    "say": "It's a tiny parasite called Toxoplasma. It can live in almost any warm-blooded animal. Rats, birds, sheep. People.",
    "pose": "point",
    "myth": "rat",
-   "photo": "Rattus norvegicus",
-   "obs": 116678795
+   "act": "stand",
+   "punch": [
+    "tiny",
+    "people"
+   ],
+   "sfx": [
+    "pop@people"
+   ],
+   "label": {
+    "text": "TOXOPLASMA",
+    "at": "toxoplasma"
+   },
+   "shots": [
+    {
+     "photo": "Rattus norvegicus",
+     "obs": 116678795,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Rattus norvegicus",
+     "obs": 212925594,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "rats"
+    },
+    {
+     "photo": "Felis catus",
+     "obs": 218557988,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "people"
+    }
+   ]
   },
   {
    "say": "But it can only finish its life cycle in one place. The gut of a cat.",
    "pose": "shock",
    "myth": "rat",
-   "photo": "Felis catus",
-   "obs": 218557988
+   "act": "launch",
+   "act_at": "cat",
+   "hit": "cat",
+   "sfx": [
+    "boing@cat"
+   ],
+   "animal": "lunge@cat",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 218557988,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "say": "A cat. Of course it's a cat. Cats have been looking at me funny for years.",
+   "pose": "shock",
+   "myth": "intro",
+   "act": "run_off",
+   "act_at": "years",
+   "sfx": [
+    "whoosh@years"
+   ],
+   "hold": 0.3,
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 234370227,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
   },
   {
    "say": "So it needs to get from the rat into the cat. And here's what scientists found.",
    "pose": "think",
    "myth": "rat",
-   "photo": "Rattus norvegicus",
-   "obs": 212925594
+   "act": "tumble",
+   "act_at": "rat",
+   "sfx": [
+    "thud@rat"
+   ],
+   "shots": [
+    {
+     "photo": "Rattus norvegicus",
+     "obs": 212925594,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Felis catus",
+     "obs": 234370227,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "cat"
+    }
+   ]
   },
   {
    "say": "Healthy rats stay away from places that smell like cat pee. Smart rats. Infected rats didn't. In one famous experiment, they seemed to prefer it.",
    "pose": "shock",
    "myth": "rat",
-   "photo": "Rattus norvegicus",
-   "obs": 116678795
+   "act": "shake",
+   "punch": [
+    "pee",
+    "prefer"
+   ],
+   "sfx": [
+    "scratch@pee",
+    "boing@prefer"
+   ],
+   "animal": "turn@infected",
+   "shots": [
+    {
+     "photo": "Rattus norvegicus",
+     "obs": 116678795,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Rattus norvegicus",
+     "obs": 212925594,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "infected"
+    },
+    {
+     "photo": "Rattus norvegicus",
+     "obs": 116678795,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "famous"
+    }
+   ]
+  },
+  {
+   "say": "Cat pee. That's where we are now.",
+   "pose": "deadpan",
+   "myth": "intro",
+   "act": "stand",
+   "sfx": [
+    "tink@now"
+   ],
+   "hold": 0.3,
+   "shots": [
+    {
+     "photo": "Rattus norvegicus",
+     "obs": 116678795,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "blur": true
+    }
+   ]
   },
   {
    "say": "And a rat that likes the smell of cats is a rat that ends up inside a cat. Which is exactly where the parasite wanted to go.",
    "pose": "deadpan",
    "myth": "rat",
-   "text": "FATAL\nATTRACTION",
-   "hold": 0.3
+   "hold": 0.3,
+   "act": "run_across",
+   "punch": "inside",
+   "sfx": [
+    "whoosh@inside"
+   ],
+   "label": {
+    "text": "FATAL\nATTRACTION",
+    "at": "inside"
+   },
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 234370227,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Rattus norvegicus",
+     "obs": 212925594,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "parasite"
+    }
+   ]
   },
   {
    "say": "Now, people. Scientists estimate that somewhere between a quarter and a third of all people on Earth have caught Toxoplasma at some point. Usually from undercooked meat, unwashed veggies, or a cat's litter box.",
    "pose": "nervous",
    "myth": "rat",
-   "text": "UP TO 1 IN 3\nPEOPLE",
-   "hold": 0.3
+   "hold": 0.3,
+   "act": "hit",
+   "act_at": "quarter",
+   "hit": "quarter",
+   "sfx": [
+    "zap@quarter"
+   ],
+   "punch": "third",
+   "label": {
+    "text": "UP TO 1 IN 3\nPEOPLE",
+    "at": 0.0
+   },
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 218557988,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "blur": true
+    },
+    {
+     "photo": "Rattus norvegicus",
+     "obs": 212925594,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "usually",
+     "blur": true
+    }
+   ]
   },
   {
    "say": "Undercooked meat. For the record, I am fully cooked.",
    "pose": "deadpan",
    "myth": "intro",
    "prop": "fork",
-   "aside": "(please check)"
+   "aside": "(please check)",
+   "act": "shake",
+   "act_at": "cooked",
+   "sfx": [
+    "tink@cooked"
+   ],
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 234370227,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "blur": true
+    }
+   ]
   },
   {
    "say": "For almost everyone, it's harmless. Your immune system keeps it asleep, and you never notice. Scientists still argue about whether it changes people at all, and most say: not in any way you'd notice.",
    "pose": "point",
    "myth": "rat",
-   "photo": "Felis catus",
-   "obs": 218557988
+   "act": "stand",
+   "punch": [
+    "harmless",
+    "argue"
+   ],
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 218557988,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Felis catus",
+     "obs": 234370227,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "immune"
+    },
+    {
+     "photo": "Felis catus",
+     "obs": 218557988,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "scientists"
+    }
+   ]
   },
   {
    "say": "The big exceptions are pregnancy and people with very weak immune systems. That's why doctors tell pregnant people to let somebody else clean the litter box.",
    "pose": "think",
    "myth": "rat",
-   "photo": "Felis catus",
-   "obs": 234370227
+   "act": "stand",
+   "punch": [
+    "pregnancy",
+    "litter"
+   ],
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 234370227,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Felis catus",
+     "obs": 218557988,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "litter"
+    }
+   ]
   },
   {
    "say": "So no, you are not a zombie. Probably. But if you've ever had a sudden, powerful urge to get a cat, I'm just saying.",
    "pose": "laugh",
    "myth": "rat",
-   "photo": "Felis catus",
-   "obs": 234370227,
-   "aside": "(it's not the parasite. probably.)"
+   "aside": "(it's not the parasite. probably.)",
+   "act": "shake",
+   "punch": [
+    "probably",
+    "cat"
+   ],
+   "sfx": [
+    "boing@probably"
+   ],
+   "animal": "turn@cat",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 234370227,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Rattus norvegicus",
+     "obs": 116678795,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "urge"
+    }
+   ]
   },
   {
    "say": "That's five puppet masters. A fungus, a wasp, a worm, a flatworm and a microbe. Two of them don't even have a brain. And every one of them can drive.",
    "pose": "deadpan",
    "myth": "intro",
-   "photo": "Ophiocordyceps unilateralis",
-   "obs": 5127531,
-   "chapter": "Five puppet masters"
+   "chapter": "Five puppet masters",
+   "act": "stand",
+   "punch": [
+    "brain",
+    "drive"
+   ],
+   "sfx": [
+    "whoosh@two"
+   ],
+   "shots": [
+    {
+     "photo": "Ophiocordyceps unilateralis",
+     "obs": 5127531,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Ampulex compressa",
+     "obs": 33480009,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "wasp"
+    },
+    {
+     "photo": "Nematomorpha",
+     "obs": 68490116,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "worm"
+    },
+    {
+     "photo": "Leucochloridium",
+     "obs": 388382542,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "flatworm"
+    },
+    {
+     "photo": "Rattus norvegicus",
+     "obs": 212925594,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "microbe"
+    }
+   ]
   },
   {
-   "say": "If you want true stories that are weirder than Halloween, subscribe. New Meatball every Tuesday and Saturday.",
+   "say": "So, were you right? Was it the ant, the snail, or the rat? Tell me in the comments.",
    "pose": "point",
-   "myth": "intro"
+   "myth": "intro",
+   "act": "peek",
+   "ask": {
+    "q": "WERE YOU RIGHT? 👇",
+    "at": "right"
+   },
+   "hold": 0.6,
+   "shots": [
+    {
+     "photo": "Rattus norvegicus",
+     "obs": 116678795,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Ophiocordyceps unilateralis",
+     "obs": 5127531,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "ant"
+    },
+    {
+     "photo": "Leucochloridium",
+     "obs": 388382542,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "snail"
+    },
+    {
+     "photo": "Rattus norvegicus",
+     "obs": 212925594,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "rat"
+    }
+   ]
   },
   {
    "say": "Tuesday: the deadliest animal on Earth. It isn't the shark, and you've almost certainly been bitten by one. See you then.",
    "pose": "nervous",
    "myth": "intro",
-   "text": "TUESDAY:\nDEADLIEST\nANIMAL?",
-   "hold": 0.4
+   "hold": 0.4,
+   "act": "run_off",
+   "act_at": "then",
+   "sfx": [
+    "whoosh@then"
+   ],
+   "label": {
+    "text": "TUESDAY:\nDEADLIEST\nANIMAL?",
+    "at": 0.0
+   },
+   "shots": [
+    {
+     "photo": "Ophiocordyceps unilateralis",
+     "obs": 5127531,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "blur": true
+    }
+   ]
   }
- ]
+ ],
+ "aspect": "16:9"
 }

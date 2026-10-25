@@ -5,12 +5,11 @@
   "The Deadliest Animal in the World (It's Not a Shark)",
   "Deadliest Animals in the World: Sharks Don't Even Come Close"
  ],
- "rate": "+4%",
+ "rate": "+0%",
  "short_rate": "+4%",
- "pitch": "-3Hz",
- "voice": "en-US-AndrewMultilingualNeural",
+ "voice": "kokoro:eric-michael",
  "music": "music/quiz-bed.m4a",
- "style": "classic",
+ "style": "v4",
  "names": {
   "Carcharodon carcharias": "Great white shark",
   "Panthera leo": "Lion",
@@ -21,7 +20,7 @@
   "Anopheles": "Malaria mosquito (Anopheles)",
   "Aedes aegypti": "Yellow fever mosquito"
  },
- "blurb": "Which animal kills the most people? Not the shark. Meatball ranks the deadliest animals on Earth by how many people they actually kill: sharks (about nine a year), the kissing bug that bites your face while you sleep, the dog (rabies), the snake that warns you by sizzling, and the tiny winner that kills more than half a million people a year.\n\nWhich animal are you most scared of? Best answer gets read out next time 👇",
+ "blurb": "Which animal kills the most people? Not the shark. Meatball ranks the deadliest animals on Earth by how many people they actually kill: sharks (about nine a year), the kissing bug that bites your face while you sleep, the dog (rabies), the snake that warns you by sizzling, and the tiny winner that kills more than half a million people a year.\n\nWhich animal kills the most people? 🐍 snake / 🐕 dog / 🦟 something tiny. Comment your guess before the end 👇",
  "next": "Saturday: another weird true story.\n\nSubscribe: new Meatball every Tuesday and Saturday.",
  "tags": [
   "most dangerous animal in the world",
@@ -41,8 +40,8 @@
   "Meatball Myths"
  ],
  "hashtags": "#dangerousanimals #mosquito #animalfacts #meatballexplains",
- "pinned": "🦟 Best answer gets read out in the next episode: which animal are you most scared of, and why?",
- "_note": "Meatball Explains #2 (Showrunner, 2026-10-24). One story: the deadliest animals ranked by human deaths a year, mosquito payoff promised at 0:00 and delivered last. Danger-to-you bucket; no repeats of animal-myths-04/07 or the survive pack (no bear/hippo/croc/spider myths). vidIQ 10/24: 'the most dangerous animal in the world' 12.6K/mo comp 59, 'deadliest animals' 49K/mo +76%, 'most dangerous animals in the world' 22K/mo +127%; title scored 100 (alts 99, 96). Shorts = hook groups (shark, bug, dog, snake, mosquito, breath), each 46-60 words incl. loop line, no text-card holds; 4 of 6 end on a spoken question. Beat 2 (viewer answers from Ep #1) is a PLACEHOLDER written before Ep #1 aired 10/31: check its real comments on 11/1-11/2 and re-render that beat if mammoth/dodo aren't among them. No short_voice: tools/episode.py passes the spec 'voice' to Shorts and has no separate Shorts voice. Photos: iNaturalist CC BY/CC0, wild, research grade (dogs: free-roaming, casual grade).",
+ "pinned": "Guess first: which animal kills the most people? 🐍 / 🐕 / 🦟 Comment your guess 👇 Follow Meatball for more 🍝",
+ "_note": "Meatball Explains #2 (Showrunner, 2026-10-24). One story: the deadliest animals ranked by human deaths a year, mosquito payoff promised at 0:00 and delivered last. Danger-to-you bucket; no repeats of animal-myths-04/07 or the survive pack (no bear/hippo/croc/spider myths). vidIQ 10/24: 'the most dangerous animal in the world' 12.6K/mo comp 59, 'deadliest animals' 49K/mo +76%, 'most dangerous animals in the world' 22K/mo +127%; title scored 100 (alts 99, 96). Shorts = hook groups (shark, bug, dog, snake, mosquito, breath), each 46-60 words incl. loop line, no text-card holds; 4 of 6 end on a spoken question. Beat 2 (viewer answers from Ep #1) is a PLACEHOLDER written before Ep #1 aired 10/31: check its real comments on 11/1-11/2 and re-render that beat if mammoth/dodo aren't among them. No short_voice: tools/episode.py passes the spec 'voice' to Shorts and has no separate Shorts voice. Photos: iNaturalist CC BY/CC0, wild, research grade (dogs: free-roaming, casual grade). | 10/25 Studio: re-cut as a v4 16:9 long-form with the early ask layout (OPERATIONS.md 'Always ask'): cold open, guess card ~0:20, one subscribe pill ~0:31, one like ask mid, 'Were you right?' at the end; in-story comment asks and the second subscribe ask removed; facts unchanged.",
  "sources": [
   "Malaria 2024: ~610,000 deaths, ~95% in Africa, ~75% of African deaths under 5; spread by female Anopheles (WHO fact sheet): https://www.who.int/news-room/fact-sheets/detail/malaria",
   "Snakebite: 5.4M bites, 81,410-137,880 deaths/yr, ~3x as many amputations/disabilities; NTD listing 2017 (WHO): https://www.who.int/news-room/fact-sheets/detail/snakebite-envenoming",
@@ -59,432 +58,2283 @@
   {
    "say": "One animal kills more than half a million people every year. Sharks? About ten. I'll show you the winner at the end. You've almost certainly met one.",
    "pose": "shock",
-   "photo": "Carcharodon carcharias",
-   "obs": 66241741,
    "myth": "intro",
-   "chapter": "Cold open"
-  },
-  {
-   "say": "Quick one before we start. Last time I asked which extinct animal you'd bring back. If you haven't answered yet, go tell me. I read them all, and the best one gets read out on the show.",
-   "pose": "laugh",
-   "myth": "intro",
-   "text": "WHICH ONE\nWOULD YOU\nBRING BACK?",
-   "aside": "(not the sabre-tooth cat, please)"
+   "chapter": "Cold open",
+   "act": "peek",
+   "punch": [
+    "million",
+    "ten"
+   ],
+   "hit": "million",
+   "sfx": [
+    "whoosh",
+    "hit@million"
+   ],
+   "animal": "lunge@sharks",
+   "shots": [
+    {
+     "photo": "Carcharodon carcharias",
+     "obs": 66241741,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Carcharodon carcharias",
+     "obs": 252279056,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "sharks"
+    },
+    {
+     "photo": "Carcharodon carcharias",
+     "obs": 167713627,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "winner",
+     "blur": true
+    }
+   ]
   },
   {
    "say": "I'm Meatball. I narrate nature. Nature, frankly, keeps trying to eat me. Today: the deadliest animals on Earth, ranked by how many people they actually kill. Smallest number first.",
    "pose": "deadpan",
-   "photo": "Panthera leo",
-   "obs": 9300136,
-   "myth": "intro"
+   "myth": "intro",
+   "act": "hit",
+   "act_at": "eat",
+   "hit": "eat",
+   "sfx": [
+    "crunch@eat",
+    "whoosh@today"
+   ],
+   "animal": "lunge@eat",
+   "contact": true,
+   "punch": "deadliest",
+   "label": {
+    "text": "DEADLIEST\nANIMALS",
+    "at": "deadliest"
+   },
+   "shots": [
+    {
+     "photo": "Panthera leo",
+     "obs": 9300136,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Panthera leo",
+     "obs": 304245771,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "nature"
+    },
+    {
+     "photo": "Carcharodon carcharias",
+     "obs": 339695873,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "today"
+    }
+   ]
+  },
+  {
+   "say": "Comment your guess before I tell you. Which animal kills the most people? The snake? The dog? Or something tiny? Lock it in. I'll wait.",
+   "pose": "think",
+   "myth": "intro",
+   "act": "tumble",
+   "act_at": "comment",
+   "sfx": [
+    "thud@comment"
+   ],
+   "ask": {
+    "q": "WHO KILLS THE\nMOST PEOPLE?",
+    "choices": [
+     "🐍",
+     "🐕",
+     "🦟"
+    ],
+    "at": "comment"
+   },
+   "hold": 2.0,
+   "shots": [
+    {
+     "photo": "Echis carinatus",
+     "obs": 184831979,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Canis familiaris",
+     "obs": 382216141,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "dog"
+    },
+    {
+     "photo": "Anopheles",
+     "obs": 290214126,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "tiny"
+    },
+    {
+     "photo": "Carcharodon carcharias",
+     "obs": 66241741,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "lock",
+     "blur": true
+    }
+   ]
+  },
+  {
+   "say": "Okay, while you type, a quick favor. If you like true stories that are weirder than fiction, subscribe. A new Meatball story every Tuesday and Saturday. From a safe distance.",
+   "pose": "point",
+   "myth": "intro",
+   "act": "stand",
+   "sub": {
+    "at": "subscribe"
+   },
+   "punch": "safe",
+   "sfx": [
+    "boing@safe"
+   ],
+   "shots": [
+    {
+     "photo": "Carcharodon carcharias",
+     "obs": 339695873,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "blur": true
+    },
+    {
+     "photo": "Carcharodon carcharias",
+     "obs": 167713627,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "safe"
+    }
+   ]
   },
   {
    "say": "Starting with the one everybody's scared of.",
    "pose": "nervous",
-   "photo": "Carcharodon carcharias",
-   "obs": 252279056,
-   "myth": "intro"
+   "myth": "intro",
+   "act": "peek",
+   "sfx": [
+    "whoosh"
+   ],
+   "punch": "everybody",
+   "shots": [
+    {
+     "photo": "Carcharodon carcharias",
+     "obs": 252279056,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
   },
   {
    "say": "Sharks kill fewer people than you think. In 2025, the whole world had nine unprovoked fatal shark bites. Nine.",
    "pose": "deadpan",
-   "photo": "Carcharodon carcharias",
-   "obs": 66241741,
    "myth": "shark",
-   "hook": true,
    "chapter": "Sharks: the one you're scared of",
-   "loop_say": "Nine. In a whole year. So remember,",
-   "short_title": "Sharks Kill Way Fewer People Than You Think 🦈",
-   "bonus": "Scientists log every confirmed bite worldwide; most years see somewhere between five and ten unprovoked deaths.",
-   "comment": "Still going in the water? 👇 Follow Meatball for more 🍝"
+   "hook": true,
+   "act": "launch",
+   "act_at": "sharks",
+   "hit": "sharks",
+   "sfx": [
+    "splash@sharks"
+   ],
+   "animal": "lunge@sharks",
+   "contact": true,
+   "label": {
+    "text": "9",
+    "at": "nine"
+   },
+   "shots": [
+    {
+     "photo": "Carcharodon carcharias",
+     "obs": 66241741,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Carcharodon carcharias",
+     "obs": 339695873,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "nine"
+    }
+   ]
   },
   {
    "say": "Scientists count every confirmed bite. Most years, it's somewhere between five and ten deaths. Worldwide.",
    "pose": "point",
-   "photo": "Carcharodon carcharias",
-   "obs": 339695873,
-   "myth": "shark"
+   "myth": "shark",
+   "act": "tumble",
+   "act_at": "scientists",
+   "sfx": [
+    "thud@scientists"
+   ],
+   "punch": [
+    "five",
+    "ten"
+   ],
+   "shots": [
+    {
+     "photo": "Carcharodon carcharias",
+     "obs": 339695873,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Carcharodon carcharias",
+     "obs": 167713627,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "most"
+    }
+   ]
+  },
+  {
+   "say": "Nine. I've lost more than nine meatballs at one dinner.",
+   "pose": "deadpan",
+   "myth": "intro",
+   "act": "shake",
+   "punch": "dinner",
+   "sfx": [
+    "tink@dinner"
+   ],
+   "hold": 0.3,
+   "shots": [
+    {
+     "photo": "Carcharodon carcharias",
+     "obs": 167713627,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
   },
   {
    "say": "So the ocean's most famous killer is, statistically, not very good at it.",
    "pose": "laugh",
-   "photo": "Carcharodon carcharias",
-   "obs": 167713627,
-   "myth": "shark"
-  },
-  {
-   "say": "Still going in the water? Comment.",
-   "pose": "point",
-   "myth": "shark"
+   "myth": "shark",
+   "act": "stand",
+   "punch": "statistically",
+   "sfx": [
+    "tink@it"
+   ],
+   "animal": "turn@famous",
+   "hold": 0.3,
+   "shots": [
+    {
+     "photo": "Carcharodon carcharias",
+     "obs": 167713627,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
   },
   {
    "say": "Meanwhile, people kill tens of millions of sharks every year. So, honestly. Who should be scared of whom?",
    "pose": "think",
-   "photo": "Carcharodon carcharias",
-   "obs": 252279056,
-   "myth": "intro"
+   "myth": "intro",
+   "act": "shake",
+   "punch": [
+    "millions",
+    "whom"
+   ],
+   "sfx": [
+    "zap@millions"
+   ],
+   "shots": [
+    {
+     "photo": "Carcharodon carcharias",
+     "obs": 252279056,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Carcharodon carcharias",
+     "obs": 66241741,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "who"
+    }
+   ]
   },
   {
-   "say": "Quick thing. If watching a meatball rank everything that could eat him is your idea of fun, subscribing genuinely keeps me off the menu. That's how it works. I checked.",
-   "pose": "point",
+   "say": "Honestly? I'd be scared of us too.",
+   "pose": "nervous",
    "myth": "intro",
-   "aside": "(it is not how it works)"
+   "act": "hide",
+   "hold": 0.3,
+   "shots": [
+    {
+     "photo": "Carcharodon carcharias",
+     "obs": 66241741,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "blur": true
+    }
+   ]
   },
   {
    "say": "What about the big scary ones? Lions. Hippos. Crocodiles. They do kill people. But none of them come anywhere near the top of this list.",
    "pose": "think",
-   "photo": "Panthera leo",
-   "obs": 304245771,
-   "myth": "intro"
+   "myth": "intro",
+   "act": "run_across",
+   "sfx": [
+    "whoosh@lions"
+   ],
+   "punch": [
+    "lions",
+    "none"
+   ],
+   "animal": "lunge@lions",
+   "shots": [
+    {
+     "photo": "Panthera leo",
+     "obs": 304245771,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Panthera leo",
+     "obs": 9300136,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "hippos"
+    },
+    {
+     "photo": "Panthera leo",
+     "obs": 304245771,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "none"
+    }
+   ]
+  },
+  {
+   "say": "Good. Because I am basically a snack with legs.",
+   "pose": "nervous",
+   "myth": "intro",
+   "act": "run_off",
+   "act_at": "snack",
+   "sfx": [
+    "whoosh@snack"
+   ],
+   "hold": 0.3,
+   "shots": [
+    {
+     "photo": "Panthera leo",
+     "obs": 304245771,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
   },
   {
    "say": "Because the top of the list is small. Some of it fits on your fingertip.",
    "pose": "deadpan",
-   "photo": "Triatoma",
-   "obs": 10640600,
-   "myth": "intro"
+   "myth": "intro",
+   "act": "peek",
+   "punch": "fingertip",
+   "sfx": [
+    "pop@fingertip"
+   ],
+   "shots": [
+    {
+     "photo": "Triatoma",
+     "obs": 10640600,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
   },
   {
    "say": "This bug bites people on the face while they sleep. It's called the kissing bug.",
    "pose": "shock",
-   "photo": "Triatoma",
-   "obs": 33036837,
    "myth": "bug",
-   "hook": true,
    "chapter": "The kissing bug",
-   "loop_say": "Check the ceiling tonight. Because",
-   "short_title": "The Bug That Bites Your Face While You Sleep 🪲",
-   "bonus": "Kissing bugs live mostly in Latin America, and some kinds live in the southern United States.",
-   "comment": "Would you sleep with the light on? 👇 Follow Meatball for more 🍝"
+   "hook": true,
+   "act": "shake",
+   "punch": [
+    "face",
+    "kissing"
+   ],
+   "hit": "face",
+   "sfx": [
+    "hit@face",
+    "boing@kissing"
+   ],
+   "label": {
+    "text": "KISSING\nBUG",
+    "at": "kissing"
+   },
+   "shots": [
+    {
+     "photo": "Triatoma",
+     "obs": 33036837,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Triatoma",
+     "obs": 58876742,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "kissing"
+    }
+   ]
+  },
+  {
+   "say": "That is the worst name anyone has ever given anything.",
+   "pose": "deadpan",
+   "myth": "intro",
+   "act": "stand",
+   "punch": "worst",
+   "sfx": [
+    "tink@anything"
+   ],
+   "hold": 0.3,
+   "shots": [
+    {
+     "photo": "Triatoma",
+     "obs": 33036837,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
   },
   {
    "say": "It hides in cracks in the walls by day, and drinks your blood at night.",
    "pose": "point",
-   "photo": "Triatoma",
-   "obs": 58876742,
-   "myth": "bug"
+   "myth": "bug",
+   "act": "hide",
+   "punch": [
+    "blood",
+    "night"
+   ],
+   "sfx": [
+    "scratch@blood"
+   ],
+   "shots": [
+    {
+     "photo": "Triatoma",
+     "obs": 58876742,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Triatoma",
+     "obs": 341989479,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "drinks"
+    }
+   ]
   },
   {
    "say": "The real danger is its poop, which can carry a parasite. The disease it causes kills more than ten thousand people a year.",
    "pose": "nervous",
-   "photo": "Triatoma",
-   "obs": 341989479,
-   "myth": "bug"
+   "myth": "bug",
+   "act": "hit",
+   "act_at": "poop",
+   "hit": "poop",
+   "sfx": [
+    "boing@poop"
+   ],
+   "punch": "ten",
+   "label": {
+    "text": "10,000+\nA YEAR",
+    "at": "ten"
+   },
+   "shots": [
+    {
+     "photo": "Triatoma",
+     "obs": 341989479,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Triatoma",
+     "obs": 10640600,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "disease"
+    }
+   ]
   },
   {
    "say": "It's part of the assassin bug family. Which is a lot of branding, for a bug that wins by pooping.",
    "pose": "laugh",
-   "photo": "Triatoma",
-   "obs": 58876742,
-   "myth": "intro"
+   "myth": "intro",
+   "act": "stand",
+   "punch": "pooping",
+   "sfx": [
+    "tink@pooping"
+   ],
+   "hold": 0.3,
+   "shots": [
+    {
+     "photo": "Triatoma",
+     "obs": 58876742,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
   },
   {
    "say": "Here's how. It bites near your mouth or eyes, then poops right next to the bite. You scratch in your sleep, and rub the parasite in.",
    "pose": "think",
-   "photo": "Triatoma",
-   "obs": 33036837,
-   "myth": "intro"
+   "myth": "intro",
+   "act": "shake",
+   "punch": [
+    "mouth",
+    "scratch"
+   ],
+   "sfx": [
+    "scratch@scratch"
+   ],
+   "animal": "strike@bites",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Triatoma",
+     "obs": 33036837,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Triatoma",
+     "obs": 58876742,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "poops"
+    },
+    {
+     "photo": "Triatoma",
+     "obs": 10640600,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "scratch"
+    }
+   ]
+  },
+  {
+   "say": "I will never scratch anything again. Ever.",
+   "pose": "nervous",
+   "myth": "intro",
+   "act": "hide",
+   "hold": 0.3,
+   "shots": [
+    {
+     "photo": "Triatoma",
+     "obs": 58876742,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "blur": true
+    }
+   ]
   },
   {
    "say": "The disease is called Chagas. About eight million people have it, mostly in Latin America, and many don't know, because it can stay quiet for years.",
    "pose": "point",
-   "photo": "Triatoma",
-   "obs": 10640600,
-   "myth": "intro"
+   "myth": "intro",
+   "act": "stand",
+   "punch": [
+    "chagas",
+    "eight"
+   ],
+   "label": {
+    "text": "CHAGAS",
+    "at": "chagas"
+   },
+   "shots": [
+    {
+     "photo": "Triatoma",
+     "obs": 10640600,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Triatoma",
+     "obs": 341989479,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "eight"
+    },
+    {
+     "photo": "Triatoma",
+     "obs": 33036837,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "quiet"
+    }
+   ]
   },
   {
    "say": "Something that sneaks up while you're asleep and eats. That's my entire fear, in one bug.",
    "pose": "nervous",
    "myth": "intro",
-   "prop": "fork",
    "hold": 0.5,
-   "sting": "tink",
-   "aside": "(I sleep with one eye open. I have two.)"
+   "prop": "fork",
+   "aside": "(I sleep with one eye open. I have two.)",
+   "act": "puff",
+   "act_at": "eats",
+   "sfx": [
+    "boing@eats"
+   ],
+   "shots": [
+    {
+     "photo": "Triatoma",
+     "obs": 58876742,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "blur": true
+    }
+   ]
   },
   {
    "say": "The next animal on the list is probably asleep on somebody's couch right now.",
    "pose": "deadpan",
-   "photo": "Canis familiaris",
-   "obs": 382216141,
-   "myth": "intro"
+   "myth": "intro",
+   "act": "deflate",
+   "act_at": "asleep",
+   "punch": "couch",
+   "sfx": [
+    "pop@couch"
+   ],
+   "shots": [
+    {
+     "photo": "Canis familiaris",
+     "obs": 382216141,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
   },
   {
    "say": "Dogs kill far more people than sharks. Tens of thousands a year. But not with their teeth.",
    "pose": "deadpan",
-   "photo": "Canis familiaris",
-   "obs": 382216141,
    "myth": "dog",
-   "hook": true,
    "chapter": "The dog",
-   "loop_say": "Your dog loves you. But remember,",
-   "short_title": "Dogs Kill More People Than Sharks. Here's How 🐕",
-   "bonus": "If an animal bites you, wash the wound with soap and water for about 15 minutes and get medical help fast.",
-   "comment": "Is your dog vaccinated? 👇 Follow Meatball for more 🍝"
+   "hook": true,
+   "act": "launch",
+   "act_at": "teeth",
+   "hit": "teeth",
+   "sfx": [
+    "crunch@teeth"
+   ],
+   "animal": "lunge@teeth",
+   "contact": true,
+   "punch": "tens",
+   "shots": [
+    {
+     "photo": "Canis familiaris",
+     "obs": 382216141,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Canis familiaris",
+     "obs": 127210455,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "tens"
+    }
+   ]
+  },
+  {
+   "say": "Not with their teeth. Which is somehow worse.",
+   "pose": "deadpan",
+   "myth": "intro",
+   "act": "tumble",
+   "act_at": "teeth",
+   "sfx": [
+    "thud@teeth"
+   ],
+   "hold": 0.3,
+   "shots": [
+    {
+     "photo": "Canis familiaris",
+     "obs": 127210455,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "blur": true
+    }
+   ]
   },
   {
    "say": "It's rabies, a virus spread by bites and scratches. Dogs cause nearly every human case.",
    "pose": "point",
-   "photo": "Canis familiaris",
-   "obs": 127210455,
-   "myth": "dog"
+   "myth": "dog",
+   "act": "tumble",
+   "act_at": "rabies",
+   "sfx": [
+    "thud@rabies"
+   ],
+   "label": {
+    "text": "RABIES",
+    "at": "rabies"
+   },
+   "shots": [
+    {
+     "photo": "Canis familiaris",
+     "obs": 127210455,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Canis familiaris",
+     "obs": 117208148,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "dogs"
+    }
+   ]
   },
   {
    "say": "Once symptoms start, it's almost always fatal. But a vaccine soon after the bite stops it.",
    "pose": "think",
-   "photo": "Canis familiaris",
-   "obs": 117208148,
-   "myth": "dog"
-  },
-  {
-   "say": "Is your dog vaccinated? Tell me.",
-   "pose": "point",
-   "myth": "dog"
+   "myth": "dog",
+   "act": "shake",
+   "punch": [
+    "fatal",
+    "vaccine"
+   ],
+   "sfx": [
+    "zap@fatal"
+   ],
+   "shots": [
+    {
+     "photo": "Canis familiaris",
+     "obs": 117208148,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Canis familiaris",
+     "obs": 127210455,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "vaccine"
+    }
+   ]
   },
   {
    "say": "Around four in ten of the people who die are children. Almost all of it happens in Asia and Africa, where many dogs aren't vaccinated.",
    "pose": "think",
-   "photo": "Canis familiaris",
-   "obs": 127210455,
-   "myth": "intro"
+   "myth": "intro",
+   "act": "stand",
+   "punch": "children",
+   "shots": [
+    {
+     "photo": "Canis familiaris",
+     "obs": 127210455,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Canis familiaris",
+     "obs": 382216141,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "asia"
+    }
+   ]
   },
   {
    "say": "The fix is boring, and it works. Vaccinate the dogs, and the people stop dying. If an animal ever bites you, wash it with soap and water for fifteen minutes, then get the shots. Fast.",
    "pose": "point",
-   "photo": "Canis familiaris",
-   "obs": 382216141,
-   "myth": "intro"
+   "myth": "intro",
+   "act": "stand",
+   "punch": [
+    "boring",
+    "soap",
+    "fast"
+   ],
+   "sfx": [
+    "pop@soap"
+   ],
+   "shots": [
+    {
+     "photo": "Canis familiaris",
+     "obs": 382216141,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Canis familiaris",
+     "obs": 117208148,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "bites"
+    },
+    {
+     "photo": "Canis familiaris",
+     "obs": 127210455,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "shots"
+    }
+   ]
+  },
+  {
+   "say": "Fifteen minutes. Sing a song. Sing several.",
+   "pose": "deadpan",
+   "myth": "intro",
+   "act": "stand",
+   "punch": "several",
+   "sfx": [
+    "pop@several"
+   ],
+   "hold": 0.3,
+   "shots": [
+    {
+     "photo": "Canis familiaris",
+     "obs": 382216141,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "blur": true
+    }
+   ]
   },
   {
    "say": "In 2015, the world set a goal: zero people dying of rabies from dogs by 2030. It's called Zero by Thirty. Catchy. Slightly terrifying.",
    "pose": "point",
-   "photo": "Canis familiaris",
-   "obs": 117208148,
-   "myth": "intro"
+   "myth": "intro",
+   "act": "stand",
+   "punch": "zero",
+   "sfx": [
+    "tink@terrifying"
+   ],
+   "label": {
+    "text": "ZERO BY 30",
+    "at": "zero"
+   },
+   "shots": [
+    {
+     "photo": "Canis familiaris",
+     "obs": 117208148,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Canis familiaris",
+     "obs": 382216141,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "zero"
+    }
+   ]
   },
   {
    "say": "Also, dogs love meatballs. I'm not saying that's related. I'm just saying it's on my mind.",
    "pose": "nervous",
    "myth": "intro",
-   "prop": "fork",
    "hold": 0.4,
-   "aside": "(good boy. stay.)"
+   "prop": "fork",
+   "aside": "(good boy. stay.)",
+   "act": "hide",
+   "act_at": "meatballs",
+   "sfx": [
+    "boing@meatballs"
+   ],
+   "animal": "turn@meatballs",
+   "shots": [
+    {
+     "photo": "Canis familiaris",
+     "obs": 382216141,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
   },
   {
    "say": "If that one surprised you, hit like, so I know to keep the scary ones coming. The dogs are fine with it. I asked.",
    "pose": "point",
    "myth": "intro",
-   "text": "LIKE IF\nYOU DIDN'T\nKNOW 👍"
+   "act": "stand",
+   "punch": "like",
+   "sfx": [
+    "pop@like"
+   ],
+   "label": {
+    "text": "HIT LIKE",
+    "at": "like"
+   },
+   "shots": [
+    {
+     "photo": "Canis familiaris",
+     "obs": 117208148,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "blur": true
+    }
+   ]
   },
   {
    "say": "Snakes kill somewhere between eighty and a hundred and forty thousand people every year.",
    "pose": "shock",
-   "photo": "Daboia russelii",
-   "obs": 33744257,
    "myth": "intro",
-   "chapter": "Snakes"
+   "chapter": "Snakes",
+   "act": "run_in",
+   "sfx": [
+    "whoosh"
+   ],
+   "punch": [
+    "eighty",
+    "forty"
+   ],
+   "animal": "strike@snakes",
+   "shots": [
+    {
+     "photo": "Daboia russelii",
+     "obs": 33744257,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Daboia russelii",
+     "obs": 301531006,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "hundred"
+    }
+   ]
   },
   {
    "say": "In India alone, scientists estimate about fifty eight thousand snakebite deaths a year. Most happen in villages, far from a hospital.",
    "pose": "think",
-   "photo": "Daboia russelii",
-   "obs": 301531006,
-   "myth": "intro"
+   "myth": "intro",
+   "act": "stand",
+   "punch": [
+    "fifty",
+    "hospital"
+   ],
+   "label": {
+    "text": "ABOUT\n58,000",
+    "at": "fifty"
+   },
+   "shots": [
+    {
+     "photo": "Daboia russelii",
+     "obs": 301531006,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Daboia russelii",
+     "obs": 259724106,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "villages"
+    }
+   ]
   },
   {
    "say": "This snake warns you with a sound like sizzling. It rubs its scales together.",
    "pose": "shock",
-   "photo": "Echis carinatus",
-   "obs": 184831979,
    "myth": "snake",
-   "hook": true,
    "chapter": "The snake that sizzles",
-   "loop_say": "Listen for the sizzle. Because",
-   "short_title": "This Snake Warns You by Sizzling 🐍",
-   "bonus": "The saw-scaled viper is one of India's 'Big Four', the snakes behind most serious bites there.",
-   "comment": "Would you hear it coming? 👇 Follow Meatball for more 🍝"
+   "hook": true,
+   "act": "shake",
+   "punch": "sizzling",
+   "sfx": [
+    "scratch@sizzling"
+   ],
+   "animal": "shake@sizzling",
+   "shots": [
+    {
+     "photo": "Echis carinatus",
+     "obs": 184831979,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Echis carinatus",
+     "obs": 184883202,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "rubs"
+    }
+   ]
   },
   {
    "say": "It's the saw-scaled viper. Small, and one of India's Big Four, the snakes behind most deadly bites there.",
    "pose": "point",
-   "photo": "Echis carinatus",
-   "obs": 184883202,
-   "myth": "snake"
+   "myth": "snake",
+   "act": "hit",
+   "act_at": "small",
+   "hit": "small",
+   "sfx": [
+    "zap@small"
+   ],
+   "animal": "strike@small",
+   "contact": true,
+   "label": {
+    "text": "THE BIG FOUR",
+    "at": "big"
+   },
+   "shots": [
+    {
+     "photo": "Echis carinatus",
+     "obs": 184883202,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Echis carinatus",
+     "obs": 119385246,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "big"
+    }
+   ]
   },
   {
    "say": "Sizzling. Of all the sounds.",
    "pose": "nervous",
    "myth": "snake",
-   "hold": 0.3
+   "hold": 0.3,
+   "act": "puff",
+   "act_at": "sounds",
+   "sfx": [
+    "boing@sounds"
+   ],
+   "shots": [
+    {
+     "photo": "Echis carinatus",
+     "obs": 119385246,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
   },
   {
-   "say": "Would you hear it coming? Comment.",
-   "pose": "point",
-   "photo": "Echis carinatus",
-   "obs": 119385246,
-   "myth": "snake"
+   "say": "I'm a meatball. Sizzling is how I end.",
+   "pose": "nervous",
+   "myth": "intro",
+   "act": "puffed",
+   "hold": 0.3,
+   "shots": [
+    {
+     "photo": "Echis carinatus",
+     "obs": 119385246,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "blur": true
+    }
+   ]
   },
   {
    "say": "And for every person a snake kills, about three more lose a limb, or are hurt for life. Most of them are farmers and children.",
    "pose": "think",
-   "photo": "Echis carinatus",
-   "obs": 202229594,
-   "myth": "intro"
+   "myth": "intro",
+   "act": "deflate",
+   "act_at": "three",
+   "punch": [
+    "three",
+    "life"
+   ],
+   "shots": [
+    {
+     "photo": "Echis carinatus",
+     "obs": 202229594,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Echis carinatus",
+     "obs": 184831979,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "farmers"
+    }
+   ]
   },
   {
    "say": "Antivenom works. But it has to reach you fast, and in a lot of places it doesn't. In 2017, the World Health Organization added snakebite to its list of neglected tropical diseases.",
    "pose": "think",
-   "photo": "Daboia russelii",
-   "obs": 259724106,
-   "myth": "intro"
+   "myth": "intro",
+   "act": "stand",
+   "punch": [
+    "fast",
+    "neglected"
+   ],
+   "sfx": [
+    "zap@neglected"
+   ],
+   "shots": [
+    {
+     "photo": "Daboia russelii",
+     "obs": 259724106,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Daboia russelii",
+     "obs": 33744257,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "lot"
+    },
+    {
+     "photo": "Daboia russelii",
+     "obs": 301531006,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "neglected"
+    }
+   ]
   },
   {
    "say": "India's Big Four are the cobra, the krait, Russell's viper and the saw-scaled viper. Sounds like a band. A band I would not see live.",
    "pose": "laugh",
    "myth": "intro",
-   "text": "THE BIG FOUR\n(NOT A BAND)"
+   "act": "shake",
+   "act_at": "band",
+   "sfx": [
+    "tink@live"
+   ],
+   "label": {
+    "text": "THE BIG FOUR\n(NOT A BAND)",
+    "at": 0.0
+   },
+   "shots": [
+    {
+     "photo": "Daboia russelii",
+     "obs": 33744257,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "blur": true
+    }
+   ]
   },
   {
    "say": "Let's check the scoreboard. Sharks: nine. The kissing bug: ten thousand. Dogs: tens of thousands. Snakes: more than eighty thousand. Number one isn't even close.",
    "pose": "deadpan",
    "myth": "intro",
-   "text": "#1 ISN'T\nEVEN CLOSE"
+   "act": "tumble",
+   "act_at": "number",
+   "hit": "close",
+   "sfx": [
+    "thud@number",
+    "hit@close"
+   ],
+   "label": {
+    "text": "#1 ISN'T\nEVEN CLOSE",
+    "at": 0.0
+   },
+   "shots": [
+    {
+     "photo": "Carcharodon carcharias",
+     "obs": 167713627,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "blur": true
+    },
+    {
+     "photo": "Triatoma",
+     "obs": 10640600,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "kissing",
+     "blur": true
+    },
+    {
+     "photo": "Canis familiaris",
+     "obs": 382216141,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "dogs",
+     "blur": true
+    },
+    {
+     "photo": "Daboia russelii",
+     "obs": 33744257,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "snakes",
+     "blur": true
+    },
+    {
+     "photo": "Anopheles",
+     "obs": 54184946,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "number",
+     "blur": true
+    }
+   ]
+  },
+  {
+   "say": "Drumroll, please.",
+   "pose": "nervous",
+   "myth": "intro",
+   "act": "shake",
+   "sfx": [
+    "thud@drumroll"
+   ],
+   "hold": 0.5,
+   "shots": [
+    {
+     "photo": "Anopheles",
+     "obs": 54184946,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "blur": true
+    }
+   ]
   },
   {
    "say": "The deadliest animal in the world is the mosquito. In 2024, malaria alone killed about six hundred thousand people.",
    "pose": "shock",
-   "photo": "Anopheles",
-   "obs": 54184946,
    "myth": "mosquito",
-   "hook": true,
    "chapter": "Number one",
-   "loop_say": "Swat responsibly. Because",
-   "short_title": "The Deadliest Animal on Earth Is Tiny 🦟",
-   "bonus": "Malaria is spread by some female Anopheles mosquitoes; about 95% of cases and deaths are in Africa.",
-   "comment": "How many did you swat this year? 👇 Follow Meatball for more 🍝"
+   "hook": true,
+   "act": "launch",
+   "act_at": "mosquito",
+   "hit": "mosquito",
+   "sfx": [
+    "zap@mosquito"
+   ],
+   "animal": "strike@mosquito",
+   "contact": true,
+   "label": {
+    "text": "ABOUT\n600,000",
+    "at": "six"
+   },
+   "shots": [
+    {
+     "photo": "Anopheles",
+     "obs": 54184946,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Anopheles",
+     "obs": 290214126,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "malaria"
+    }
+   ]
   },
   {
    "say": "Most of them were children under five, in Africa.",
    "pose": "think",
-   "photo": "Anopheles",
-   "obs": 290214126,
-   "myth": "mosquito"
+   "myth": "mosquito",
+   "act": "tumble",
+   "act_at": "children",
+   "sfx": [
+    "thud@children"
+   ],
+   "shots": [
+    {
+     "photo": "Anopheles",
+     "obs": 290214126,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
   },
   {
    "say": "And it weighs less than a grain of rice. I've been worried about the wrong animals my whole life.",
    "pose": "nervous",
-   "photo": "Anopheles",
-   "obs": 141719429,
-   "myth": "mosquito"
+   "myth": "mosquito",
+   "act": "shake",
+   "punch": [
+    "rice",
+    "wrong"
+   ],
+   "sfx": [
+    "tink@rice"
+   ],
+   "shots": [
+    {
+     "photo": "Anopheles",
+     "obs": 141719429,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Anopheles",
+     "obs": 2610656,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "worried"
+    }
+   ]
   },
   {
    "say": "Only the females bite. They need the blood to make their eggs. The males just drink nectar.",
    "pose": "point",
-   "photo": "Aedes aegypti",
-   "obs": 204939371,
-   "myth": "intro"
+   "myth": "intro",
+   "act": "stand",
+   "punch": [
+    "females",
+    "nectar"
+   ],
+   "shots": [
+    {
+     "photo": "Aedes aegypti",
+     "obs": 204939371,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Anopheles",
+     "obs": 141719429,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "males"
+    }
+   ]
+  },
+  {
+   "say": "So it's the moms. Of course it's the moms.",
+   "pose": "deadpan",
+   "myth": "intro",
+   "act": "stand",
+   "punch": "moms",
+   "sfx": [
+    "tink@moms"
+   ],
+   "hold": 0.3,
+   "shots": [
+    {
+     "photo": "Aedes aegypti",
+     "obs": 204939371,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
   },
   {
    "say": "Malaria itself is a tiny parasite. The mosquito sucks it up from one person's blood, and injects it into the next.",
    "pose": "think",
-   "photo": "Anopheles",
-   "obs": 141719429,
-   "myth": "intro"
+   "myth": "intro",
+   "act": "puff",
+   "act_at": "injects",
+   "hit": "injects",
+   "sfx": [
+    "zap@injects"
+   ],
+   "animal": "strike@injects",
+   "contact": true,
+   "shots": [
+    {
+     "photo": "Anopheles",
+     "obs": 141719429,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Anopheles",
+     "obs": 54184946,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "injects"
+    }
+   ]
   },
   {
    "say": "A flying needle that drinks blood and follows your breath. I don't have blood. I have sauce. I'm still not comfortable.",
    "pose": "nervous",
    "myth": "intro",
-   "prop": "fork",
    "hold": 0.5,
-   "sting": "tink",
-   "aside": "(marinara is not a blood type)"
+   "prop": "fork",
+   "aside": "(marinara is not a blood type)",
+   "act": "puffed",
+   "punch": "sauce",
+   "sfx": [
+    "tink@sauce"
+   ],
+   "shots": [
+    {
+     "photo": "Anopheles",
+     "obs": 2610656,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "blur": true
+    }
+   ]
   },
   {
    "say": "A mosquito finds you by smelling the carbon dioxide in your breath, from metres away. Then it follows your heat, and your smell.",
    "pose": "deadpan",
-   "photo": "Anopheles",
-   "obs": 2610656,
    "myth": "breath",
-   "hook": true,
    "chapter": "How it finds you",
-   "loop_say": "Hold your breath. Because",
-   "short_title": "Mosquitoes Find You by Smelling Your Breath 🦟",
-   "bonus": "Female mosquitoes sense carbon dioxide with special organs near their mouthparts.",
-   "comment": "Why do they always pick you? 👇 Follow Meatball for more 🍝"
+   "hook": true,
+   "act": "deflate",
+   "act_at": "breath",
+   "punch": [
+    "breath",
+    "heat"
+   ],
+   "label": {
+    "text": "IT FOLLOWS\nYOUR BREATH",
+    "at": "breath"
+   },
+   "shots": [
+    {
+     "photo": "Anopheles",
+     "obs": 2610656,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Anopheles",
+     "obs": 290214126,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "heat"
+    }
+   ]
   },
   {
    "say": "So, technically, every breath you take is an invitation. Including that one.",
    "pose": "deadpan",
-   "photo": "Anopheles",
-   "obs": 290214126,
-   "myth": "breath"
+   "myth": "breath",
+   "act": "stand",
+   "punch": "invitation",
+   "sfx": [
+    "pop@invitation"
+   ],
+   "shots": [
+    {
+     "photo": "Anopheles",
+     "obs": 290214126,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
   },
   {
-   "say": "Why do they always pick you? Comment.",
-   "pose": "point",
-   "myth": "breath"
+   "say": "Right. I'm holding my breath for the rest of the episode.",
+   "pose": "shock",
+   "myth": "intro",
+   "act": "puff",
+   "act_at": "holding",
+   "sfx": [
+    "boing@holding"
+   ],
+   "hold": 0.6,
+   "shots": [
+    {
+     "photo": "Anopheles",
+     "obs": 290214126,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "blur": true
+    }
+   ]
   },
   {
    "say": "And malaria is just one disease. Other mosquitoes, like this one, spread dengue, yellow fever and Zika.",
    "pose": "point",
-   "photo": "Aedes aegypti",
-   "obs": 135900004,
-   "myth": "intro"
+   "myth": "intro",
+   "act": "deflate",
+   "act_at": "malaria",
+   "punch": [
+    "dengue",
+    "zika"
+   ],
+   "shots": [
+    {
+     "photo": "Aedes aegypti",
+     "obs": 135900004,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Aedes aegypti",
+     "obs": 204939371,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "dengue"
+    }
+   ]
   },
   {
    "say": "Here's the twist I promised. The mosquito isn't deadly on its own. What it carries is. Same with the dog. Same with the bug.",
    "pose": "think",
-   "photo": "Anopheles",
-   "obs": 54184946,
-   "myth": "intro"
+   "myth": "intro",
+   "act": "shake",
+   "punch": [
+    "twist",
+    "carries"
+   ],
+   "sfx": [
+    "whoosh@dog",
+    "whoosh@bug"
+   ],
+   "shots": [
+    {
+     "photo": "Anopheles",
+     "obs": 54184946,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Canis familiaris",
+     "obs": 382216141,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "dog"
+    },
+    {
+     "photo": "Triatoma",
+     "obs": 33036837,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "bug"
+    }
+   ]
+  },
+  {
+   "say": "Tiny passengers. Riding along. Terrible ones.",
+   "pose": "nervous",
+   "myth": "intro",
+   "act": "hide",
+   "punch": "terrible",
+   "sfx": [
+    "boing@terrible"
+   ],
+   "hold": 0.3,
+   "shots": [
+    {
+     "photo": "Anopheles",
+     "obs": 141719429,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "blur": true
+    }
+   ]
   },
   {
    "say": "The good news: bed nets, medicine and new malaria vaccines save lives every year. Slowly, we're winning.",
    "pose": "point",
-   "photo": "Anopheles",
-   "obs": 290214126,
-   "myth": "intro"
+   "myth": "intro",
+   "act": "stand",
+   "punch": [
+    "winning"
+   ],
+   "sfx": [
+    "pop@winning"
+   ],
+   "shots": [
+    {
+     "photo": "Anopheles",
+     "obs": 290214126,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Anopheles",
+     "obs": 2610656,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "vaccines"
+    }
+   ]
   },
   {
    "say": "So here's the final list. Sharks, nine. The kissing bug, ten thousand. Dogs, tens of thousands. Snakes, around a hundred thousand. Mosquitoes, more than half a million.",
    "pose": "point",
-   "photo": "Anopheles",
-   "obs": 141719429,
    "myth": "outro",
-   "chapter": "So, what's the lesson?"
+   "chapter": "So, what's the lesson?",
+   "act": "stand",
+   "punch": [
+    "nine",
+    "million"
+   ],
+   "shots": [
+    {
+     "photo": "Carcharodon carcharias",
+     "obs": 66241741,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Triatoma",
+     "obs": 58876742,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "kissing"
+    },
+    {
+     "photo": "Canis familiaris",
+     "obs": 127210455,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "dogs"
+    },
+    {
+     "photo": "Echis carinatus",
+     "obs": 202229594,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "snakes"
+    },
+    {
+     "photo": "Anopheles",
+     "obs": 141719429,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "mosquitoes"
+    }
+   ]
   },
   {
    "say": "The lesson? The scariest animals aren't the big ones with teeth. They're the small ones nobody looks at twice.",
    "pose": "think",
-   "photo": "Triatoma",
-   "obs": 33036837,
-   "myth": "outro"
+   "myth": "outro",
+   "act": "stand",
+   "punch": [
+    "teeth",
+    "twice"
+   ],
+   "shots": [
+    {
+     "photo": "Triatoma",
+     "obs": 33036837,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Anopheles",
+     "obs": 54184946,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "small"
+    }
+   ]
+  },
+  {
+   "say": "Which is bad news for me. I'm small. Nobody looks at me twice.",
+   "pose": "nervous",
+   "myth": "intro",
+   "act": "shake",
+   "punch": "twice",
+   "sfx": [
+    "tink@twice"
+   ],
+   "hold": 0.3,
+   "shots": [
+    {
+     "photo": "Triatoma",
+     "obs": 33036837,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "blur": true
+    }
+   ]
   },
   {
    "say": "For the record, the official list of animals that eat meatballs grew by one today. The dog. I'm not angry. I'm just noting it.",
    "pose": "deadpan",
    "myth": "outro",
-   "text": "THE OFFICIAL\nLIST: +1\n(DOG)",
-   "aside": "(mosquito: not interested. rude.)"
+   "aside": "(mosquito: not interested. rude.)",
+   "act": "hit",
+   "act_at": "dog",
+   "hit": "dog",
+   "sfx": [
+    "boing@dog"
+   ],
+   "label": {
+    "text": "THE OFFICIAL\nLIST: +1\n(DOG)",
+    "at": 0.0
+   },
+   "shots": [
+    {
+     "photo": "Canis familiaris",
+     "obs": 382216141,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "blur": true
+    }
+   ]
   },
   {
    "say": "Last episode it was rats. Now dogs. At this rate, the list will need its own episode.",
    "pose": "deadpan",
-   "photo": "Carcharodon carcharias",
-   "obs": 167713627,
-   "myth": "outro"
+   "myth": "outro",
+   "act": "run_off",
+   "act_at": "episode",
+   "sfx": [
+    "whoosh@episode"
+   ],
+   "shots": [
+    {
+     "photo": "Carcharodon carcharias",
+     "obs": 167713627,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Canis familiaris",
+     "obs": 127210455,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "dogs"
+    }
+   ]
   },
   {
-   "say": "Now your turn. Which animal are you most scared of? Be honest. Best answer gets read out next time.",
+   "say": "So, were you right? Was it the snake, the dog, or something tiny? Tell me in the comments.",
    "pose": "point",
    "myth": "outro",
-   "text": "WHICH ANIMAL\nSCARES YOU\nMOST? 👇"
+   "act": "peek",
+   "ask": {
+    "q": "WERE YOU RIGHT? 👇",
+    "at": "right"
+   },
+   "hold": 0.6,
+   "shots": [
+    {
+     "photo": "Anopheles",
+     "obs": 54184946,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Echis carinatus",
+     "obs": 184831979,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "snake"
+    },
+    {
+     "photo": "Canis familiaris",
+     "obs": 382216141,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "dog"
+    },
+    {
+     "photo": "Anopheles",
+     "obs": 290214126,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "tiny"
+    }
+   ]
   },
   {
-   "say": "Subscribe, and I'll keep narrating from a safe distance. Saturday: another weird true story. New Meatball every Tuesday and Saturday.",
+   "say": "Saturday: another weird true story. See you then.",
    "pose": "wave",
    "myth": "outro",
-   "text": "NEW MEATBALL\nEVERY TUESDAY\n& SATURDAY"
+   "act": "run_off",
+   "act_at": "then",
+   "sfx": [
+    "whoosh@then"
+   ],
+   "label": {
+    "text": "SATURDAY:\nANOTHER WEIRD\nTRUE STORY",
+    "at": 0.0
+   },
+   "shots": [
+    {
+     "photo": "Anopheles",
+     "obs": 141719429,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "blur": true
+    }
+   ]
   }
- ]
+ ],
+ "aspect": "16:9"
 }
