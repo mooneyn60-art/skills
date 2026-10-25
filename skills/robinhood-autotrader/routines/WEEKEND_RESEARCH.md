@@ -105,26 +105,7 @@ needing his decision), send ONE `PushNotification` (status "proactive", <200
 chars, one line, no dollar balances per R13). Reaches his phone via Remote
 Control. Stay silent on a routine/no-news run.
 
-## ONE-TIME FIRST TASK, added 2026-10-01: decide R15 (repeal or reinstate)
-
-R15 was SUSPENDED on 2026-10-01 at Nolan's direction ("Do what you need to
-do"). R16.3 requires the result behind it to be re-read OUTSIDE a pressure
-state before it is adopted. Before anything else this block:
-  1. Check R16 is OFF (python3 paper/pressure_state.py; no R6 breaker).
-     If it is ON, skip this task and say so; it waits another week.
-  2. Re-run python3 paper/test_r15_integration.py and re-read
-     research/2026-09-26_R15_INTEGRATION.md. Check the result reproduces
-     (TARS-1 with R15: lower CAGR, deeper max drawdown).
-  3. If it reproduces: mark R15 REPEALED in TARS_RULES.md (banner at the top
-     of R15, text kept as history), remove the VIX-zone block from
-     routines/HOURLY_TRADING_CHECK.md except the VIX 25+ alert, log a
-     rule_change row, and tell Nolan in one line. If it does NOT reproduce,
-     report that and leave R15 suspended for Nolan to decide.
-Then delete this section.
-
-2026-10-04: SKIPPED, R16 still ON (4 consecutive TARS losing closes, none since 9/25). Waits for the next weekend block.
-2026-10-18: SKIPPED again, R16 ON via (b): R6 breaker fired 10/15 (HPE 10/14 + ASX 10/15 losing stops). pressure_state.py still blind to momentum_satellite rows (prints 0; real count 3: MU, HPE, ASX).
-2026-10-11: SKIPPED again, R16 still ON (script says 4; really 6, since RVMD/GH stops on 10/08 are untagged, see research/2026-10-11_R6_BREAKER_COST.md).
+(One-time R15 task DONE 2026-10-25: R15 REPEALED after it reproduced with R16 off; see TARS_RULES R15 banner.)
 
 ## UPDATE 2026-10-15: run it as a SWARM
 

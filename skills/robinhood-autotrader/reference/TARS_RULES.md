@@ -1,7 +1,7 @@
 # TARS-1 — Trading Rules
 
 One-line description: The complete, mechanical ruleset TARS trades. No discretion.
-Last Updated: 2026-10-01 (quarterly audit fixes; R15 SUSPENDED; R18 added; R4 and R13 clarified/tightened)
+Last Updated: 2026-10-25 (R15 REPEALED after the R16-off re-read; see its banner)
 Status: ACTIVE — TARS confirmed sole writer under R7 (2026-09-15)
 Audience: Nolan; any agent or session operating account #731951265
 
@@ -1618,6 +1618,18 @@ correct, the pooled test was the bug. TARS argued first in all three.
 
 
 ## R15 — The regime switch (ADOPTED 2026-09-23 at Nolan's direction)
+
+> **REPEALED 2026-10-25** under the 2026-10-01 authorisation (Nolan: "Do what
+> you need to do", replying to the quarterly rule audit), as the suspension
+> banner below specified. R16 was OFF at the re-read: no R6 breaker active
+> (last fired 10/15, pause ended), and the latest TARS-book closes were
+> non-losses. The integration test was re-run on data through 2026-10-22
+> (python3 paper/test_r15_integration.py) and reproduced: TARS-1 with R15
+> CAGR 10.46% vs 11.59% without (-1.13pp, was -1.14pp), max drawdown -45.9%
+> vs -33.6%, worse in both halves (-1.86 / -0.52pp) and with megacaps dropped
+> (-0.42pp), ahead in only 4 of 9 walk-forward windows. VIX 25+ remains an
+> ALERT to Nolan only. R2's 200-day gate applies at every VIX level. No
+> inverted entries. The text below is kept as history.
 
 > **SUSPENDED 2026-10-01, at Nolan's direction ("Do what you need to do",
 > replying to the quarterly rule audit).** While suspended, VIX >= 25 is an

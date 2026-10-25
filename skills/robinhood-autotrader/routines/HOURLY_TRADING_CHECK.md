@@ -40,30 +40,17 @@ SEND a push when any of these happened this run:
     dollar balances)
   - a position is within ~2% of its stop trigger
   - a stop was raised at the close check (name which + new level)
-  - VIX 25+ (R15 fires) or a position gapped >8%
+  - VIX 25+ (alert only; R15 repealed) or a position gapped >8%
   - anything that needs Nolan's decision before the desk can act
 Keep it specific and actionable: "SOFI $16C 1% from its 1.23 stop" beats "check
 your account". One push per run maximum. If nothing qualifies, send nothing.
 
-## CHECK THIS FIRST, EVERY TIME: THE VIX REGIME (R15 SUSPENDED 2026-10-01)
+## VIX ALERT (R15 REPEALED 2026-10-25)
 
-R15 IS SUSPENDED (see its banner in TARS_RULES.md). VIX 25+ is an ALERT to
-Nolan only: take NO inverted entries; R2's 200-day gate applies at every VIX
-level. The zones below are kept for when the weekend block decides repeal
-vs reinstatement.
-
-Pull VIX via get_index_quotes (instrument id
-3b912aa2-88f9-4682-8ae3-e39520bdf4db). Judge on the PRIOR CLOSE, not the
-intraday print.
-
-  VIX BELOW 20 -- normal. R2 unchanged, entry requires price ABOVE the
-                  200-day, buying weakness FORBIDDEN. Say nothing about it.
-  VIX 20 TO 25 -- dead zone. Change NOTHING. Mention it in one line only if
-                  it has newly entered the zone.
-  VIX 25+      -- ALERT NOLAN IMMEDIATELY AND LEAD WITH IT. R15 fires: the
-                  entry condition inverts for ranging names. It has not fired
-                  live yet. It is an out-of-sample test with real money and
-                  must be logged and scored as one. Read R15 in full first.
+R15 is REPEALED (see its banner in TARS_RULES.md). Pull VIX via
+get_index_quotes (instrument id 3b912aa2-88f9-4682-8ae3-e39520bdf4db), judged
+on the PRIOR CLOSE. VIX 25+ = ALERT NOLAN, lead with it. Nothing else changes:
+no inverted entries, and R2's 200-day gate applies at every VIX level.
 
 ## THE TWO BOOKENDS ARE DIFFERENT FROM THE REST
 
@@ -137,11 +124,11 @@ total_value by a FIXED $27.90. Subtract it.
 ## KEY RULES (full text in TARS_RULES.md)
 
 R2 entry: price > 200-day (same line is the exit); no earnings within 3
-trading days; fewer than 2 positions in the sector. R15 inverts the first
-condition when VIX >= 25.
+trading days; fewer than 2 positions in the sector. (R15 repealed 2026-10-25:
+no VIX inversion.)
 R3 sizing: 20% per-position cap, 15% cash floor, 8% total risk budget.
 R4 exits: 8% hard stop, breakeven raise at +8%, trail 20% below the highest
-close. Trend exit is a close below the 200-day, EXCEPT R15-tagged positions.
+close. Trend exit is a close below the 200-day.
 R6: -15% drawdown pauses new entries only.
 R9: TARS opens no options of its own until account > $2,000 AND 20 closed
 equity trades. R17 (Nolan's option slot) is the exception; see below.
