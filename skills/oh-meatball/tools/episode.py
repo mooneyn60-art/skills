@@ -18,6 +18,7 @@ import shutil
 import subprocess
 
 import explainer
+import openloop
 from shorts_split import END, tighten
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -115,8 +116,15 @@ def main():
     ap.add_argument("--skip-long", action="store_true")
     ap.add_argument("--skip-shorts", action="store_true")
     ap.add_argument("--skip-existing", action="store_true", help="keep Shorts already rendered (resume after a stop)")
+    ap.add_argument("--no-openloop", action="store_true", help="skip the deep-dive open-loop gate (old packs only)")
     a = ap.parse_args()
     spec = json.load(open(a.script))
+    # Deep dives (61-75 s) must promise something at 0:02 and pay it off at 50-80% (research/40, openloop.py).
+    bad = [r for r in openloop.check(spec) if r["fails"]]
+    if bad and not a.no_openloop:
+        for r in bad:
+            print(f"OPENLOOP FAIL {r['myth']}: " + "; ".join(r["fails"]))
+        raise SystemExit("deep dive(s) fail tools/openloop.py; fix the script or pass --no-openloop for an old pack")
     COMMON.update(spec.get("names", {}))
     beats = spec["beats"]
     out = f"{ROOT}/episodes/{a.slug}"
