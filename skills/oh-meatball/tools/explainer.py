@@ -138,14 +138,18 @@ WM_OK = ("public domain", "cc0", "cc by ", "pd", "no restrictions")   # no share
 def _ov_get(url, as_json=True):
     """Openverse / Flickr GET with backoff: both answer bursts with 429 (renders died on it, 10/26)."""
     import time
-    for k in range(6):
+    for k in range(8):
         try:
             r = urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "MeatballMyths/1.0"}), timeout=60)
             return json.load(r) if as_json else r.read()
         except urllib.error.HTTPError as e:
-            if e.code not in (429, 503) or k == 5:
+            # Openverse also answers overload with 500/502/504 (10/26 cases-02 render)
+            if e.code not in (429, 500, 502, 503, 504) or k == 7:
                 raise
-            time.sleep(5 * (k + 1))
+        except (urllib.error.URLError, TimeoutError):
+            if k == 7:
+                raise
+        time.sleep(min(60, 8 * (k + 1)))
 
 
 def _wm_get(url, as_json=True):
