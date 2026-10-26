@@ -187,7 +187,8 @@ subscribe pill ~6-10 s, reminder before the loop).
    382 kg of moon rock (NASA public-domain images throughout).
 7. **The Mandela Effect, Explained:** why whole crowds misremember (memory research), with Meatball misremembering his own sauce.
 8. **Secret Cold War Projects That Were Real:** Project Iceworm, Acoustic Kitty, Project A119 (the plan to nuke the Moon),
-   Operation Popeye (weather control) ("cold war secrets" +91%).
+   Operation Popeye (weather control) ("cold war secrets" +91%). Scripted for Tue 11/10 as
+   `scripts/longform-cold-war-secrets.json` (Popeye, A119, Iceworm, Azorian last; Kitty dropped, 11/7 has it), passes the gate.
 9. **The Deepest Hole on Earth and the "Well to Hell" Hoax:** the Kola borehole's real science, then the hoax's origin.
 10. **Animals That Fooled Scientists:** Mike the Headless Chicken, the platypus "hoax", the coelacanth (bridges the
     animal audience into the new show).

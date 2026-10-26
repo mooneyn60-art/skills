@@ -94,7 +94,11 @@ def check_views(root, now):
             shorts.append((pts[-1][1], vid, pts[-1][3]))
     if len(shorts) >= 6:
         med = st.median(v for v, _, _ in shorts)
-        weak = [s for s in shorts if s[0] < 0.4 * med]
+        try:  # a weak Short already written up in the intel playbook is handled; don't re-flag it daily
+            noted = open(os.path.join(root, "research", "experts", "intel.md"), encoding="utf-8").read()
+        except OSError:
+            noted = ""
+        weak = [s for s in shorts if s[0] < 0.4 * med and s[1] not in noted]
         for v, vid, title in sorted(weak)[:3]:
             add("INFO", "intel", f"Short {vid} '{title[:50]}' has {v} views, under 40% of the median Short ({med:.0f}).",
                 "Note what is different about it (length, first frame, topic) in the intel playbook; do not re-use that pattern.")
