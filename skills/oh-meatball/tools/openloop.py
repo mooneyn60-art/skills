@@ -10,7 +10,7 @@ Rules for a deep dive (a myth group whose first beat has "_len": "deep", or with
   R1 promise   one of the first 3 beats withholds something: "promise": true, or a cue such as
                "one weakness", "one thing", "except", "but", "the catch", "secret", or a question mark.
   R2 payoff    exactly one beat has "payoff": true, and it starts 50-80% of the way through the spoken words.
-  R3 decoys    at least 2 beats marked "decoy": true (wrong guesses) come before the payoff.
+  R3 decoys    RETIRED 2026-10-26 (no quizzes); kept only as a historical note.
   R4 rehook    a re-hook line ("now the weird part", "but", "here's the thing", "wait") lands in 30-60%.
 R1-R3 fail the check; R4 only warns. Story Cuts ("_len": "story", research/52) are checked too, without R3:
 their own questions replace quiz decoys (tools/story.py gates the rest of the story shape). Shorts (under 25 beats, no "_len": "deep") are skipped: claim-first
@@ -73,8 +73,7 @@ def check_myth(name, beats):
         if not lo <= pay_at <= hi:
             fails.append("R2 payoff starts at %d%% of the words; window is %d-%d%%" % (pay_at * 100, lo * 100, hi * 100))
     decoys = sum(1 for i, b in enumerate(beats) if b.get("decoy") and (not pay or i < pay[0]))
-    if decoys < MIN_DECOYS and beats[0].get("_len") != "story":
-        fails.append("R3 %d decoy beat(s) before the payoff; need %d" % (decoys, MIN_DECOYS))
+    # R3 retired 2026-10-26 (Nolan: "get rid of all quizzes"); decoy beats are no longer required.
     lo, hi = REHOOK_WINDOW
     if not any(lo <= starts[i] <= hi and REHOOK.search(b.get("say", "")) for i, b in enumerate(beats)):
         warns.append("R4 no re-hook line between %d%% and %d%%" % (lo * 100, hi * 100))

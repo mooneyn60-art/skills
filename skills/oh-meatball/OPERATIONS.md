@@ -20,6 +20,24 @@ Until the reset:
 - Free alternatives: Metricool analytics (YouTube and TikTok), yt-dlp metadata and comments from public videos, web search.
 
 
+
+## NO QUIZZES: just tell the story (Nolan, 2026-10-26; overrides any older rule)
+"Get rid of all quizzes and just tell the story, make it engaging and make sure you ask for subs."
+- Banned in every new script:
+  - "Guess" lines, "Guess one / Guess two" decoys
+  - "TRUE or FALSE", "Verdict:", "Did you guess right?"
+  - score counting, quiz long-forms
+  - the "decoy" beat key
+- Questions INSIDE the story are fine and wanted ("Did they get it?", "So where did ten people go?"). They are
+  open loops, not quizzes, and the next beats answer them.
+- Asks stay:
+  - subscribe or follow early (6-10 s) and again after the payoff, tied to the series ("New case every day")
+  - a one-tap OPINION poll card (no right answer: "Would you have signed it?", "Could it happen today?")
+  - a comment prompt asking for the viewer's theory or opinion
+  - never a guess-the-answer card
+- Gates: tools/openloop.py R3 (decoys) no longer applies; use story.py's escalation steps instead.
+- Queue: re-render queued quiz-style videos nearest-first as capacity allows; never post a TRUE-or-FALSE Short after 10/27.
+
 ## House opening: the "What if I told you" challenge (Nolan, 2026-10-26)
 Nolan picked opening C ("What if I told you Howard Hughes helped the CIA steal a Soviet submarine, nuclear
 missiles and all?") "by far" over a scene open (A) and a proof open (B). TARS also bet on C (45%).
