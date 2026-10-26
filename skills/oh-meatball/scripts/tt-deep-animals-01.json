@@ -419,6 +419,2273 @@
      ]
     }
    ]
+  },
+  {
+   "myth": "stonefish",
+   "_len": "deep",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "I stepped on a rock in a coral reef. Then the rock stung me.",
+   "headline": "THE ROCK BIT ME",
+   "headline_s": 2.2,
+   "theme": "animals",
+   "hook": true,
+   "punch": "stung",
+   "sfx": [
+    "crunch@stung"
+   ],
+   "shots": [
+    {
+     "photo": "Synanceia verrucosa",
+     "obs": 21612937,
+     "crop": [
+      0.275,
+      0.0,
+      0.725,
+      1.0
+     ]
+    },
+    {
+     "photo": "Synanceia verrucosa",
+     "obs": 37785908,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ],
+     "at": "stung"
+    }
+   ],
+   "loop_say": "So before you sit on a rock,",
+   "short_title": "Stonefish Are the Most Venomous Fish, and They Look Like Rocks 🪨",
+   "comment": "Would you have spotted it? 👀 yes / 🪨 no way",
+   "bonus": "First aid: get out of the water, soak in hot water (about 40-45 °C), get to hospital. An antivenom exists.",
+   "caption": "Stonefish, the most venomous fish, looks exactly like a rock. What would you do if one stung you? 🧊 ice / 🔥 hot water #stonefish #ocean #animalfacts #venomous Follow Meatball for more 🍝",
+   "sources": [
+    "Australian Museum, Reef Stonefish (Synanceia verrucosa): 'the most venomous fish in the world'; well camouflaged, sits still on the reef; thirteen dorsal spines deliver the toxin; most stings are on feet on reef flats; an antivenom is available — https://australian.museum/learn/animals/fishes/reef-stonefish-synanceia-verrucosa-bloch-schneider-1801/",
+    "MedlinePlus, Stonefish sting: soak in hot water (40-45 °C) for 30-90 minutes, seek emergency care — https://medlineplus.gov/ency/article/002854.htm",
+    "Queensland Health / Healthdirect: do not apply ice; immerse in hot water as hot as can be tolerated; antivenom available in hospital (checked 2026-10-26)"
+   ]
+  },
+  {
+   "myth": "stonefish",
+   "pose": "think",
+   "act": "stand",
+   "say": "There's one thing that helps a sting. Ice or hot water? Guess.",
+   "ask": {
+    "q": "WHAT HELPS?",
+    "choices": [
+     "🧊 ICE",
+     "🔥 HOT WATER"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Synanceia verrucosa",
+     "obs": 406736824,
+     "crop": [
+      0.125,
+      0.0,
+      0.875,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "stonefish",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "sub": {
+    "at": "Subscribe"
+   },
+   "shots": [
+    {
+     "photo": "Synanceia verrucosa",
+     "obs": 41545214,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "stonefish",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in reefs from the Red Sea to Australia lives the reef stonefish. The most venomous fish known.",
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "MOST\nVENOMOUS",
+    "at": "venomous"
+   },
+   "shots": [
+    {
+     "photo": "Synanceia verrucosa",
+     "obs": 37785908,
+     "crop": [
+      0.31,
+      0.05,
+      0.69,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "stonefish",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It lies totally still. Lumpy, brown, sometimes covered in algae. It looks exactly like a rock.",
+   "punch": "rock",
+   "shots": [
+    {
+     "photo": "Synanceia verrucosa",
+     "obs": 222359001,
+     "crop": [
+      0.331,
+      0.1,
+      0.669,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "stonefish",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Along its back: thirteen spines. Every one carries venom.",
+   "label": {
+    "text": "13 SPINES",
+    "at": "thirteen"
+   },
+   "sfx": [
+    "zap@venom"
+   ],
+   "shots": [
+    {
+     "photo": "Synanceia verrucosa",
+     "obs": 406736822,
+     "crop": [
+      0.163,
+      0.05,
+      0.837,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "stonefish",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: put ice on it. No. Doctors say no ice.",
+   "decoy": true,
+   "label": {
+    "text": "ICE?",
+    "at": "ice"
+   },
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Synanceia verrucosa",
+     "obs": 11081523,
+     "crop": [
+      0.293,
+      0.0,
+      0.707,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "stonefish",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: suck the venom out, like in the movies. Also no. Please don't.",
+   "decoy": true,
+   "shots": [
+    {
+     "photo": "Synanceia verrucosa",
+     "obs": 21612937,
+     "crop": [
+      0.32,
+      0.1,
+      0.68,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "stonefish",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "Meanwhile, I sat on another rock to think. Same rock. Bad idea.",
+   "act_at": "Bad",
+   "sfx": [
+    "thud@Bad"
+   ],
+   "jeopardy": true,
+   "shots": [
+    {
+     "photo": "Synanceia verrucosa",
+     "obs": 37785908,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "stonefish",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait, here's the thing. The pain is famous. People call it one of the worst pains there is.",
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Synanceia verrucosa",
+     "obs": 406736824,
+     "crop": [
+      0.237,
+      0.15,
+      0.762,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "stonefish",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: hot water. As hot as you can stand, without burning. Then straight to hospital.",
+   "payoff": true,
+   "label": {
+    "text": "HOT\nWATER",
+    "at": "hot"
+   },
+   "sfx": [
+    "pop@hot"
+   ],
+   "shots": [
+    {
+     "photo": "Synanceia verrucosa",
+     "obs": 406736822,
+     "crop": [
+      0.163,
+      0.05,
+      0.837,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "stonefish",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "And yes, there's an antivenom. Doctors have had it since the 1950s.",
+   "punch": "antivenom",
+   "shots": [
+    {
+     "photo": "Synanceia verrucosa",
+     "obs": 41545214,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "stonefish",
+   "pose": "point",
+   "act": "stand",
+   "say": "Most stings hit bare feet on reef flats. So wear reef shoes. And watch your step.",
+   "host": {
+    "moves": [
+     "lean@shoes"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Synanceia verrucosa",
+     "obs": 222359001,
+     "crop": [
+      0.331,
+      0.1,
+      0.669,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "stonefish",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "I don't have feet. Small win.",
+   "sfx": [
+    "pop@Small"
+   ],
+   "act_at": "Small",
+   "shots": [
+    {
+     "photo": "Synanceia verrucosa",
+     "obs": 11081523,
+     "crop": [
+      0.293,
+      0.0,
+      0.707,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "stonefish",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   },
+   "shots": [
+    {
+     "photo": "Synanceia verrucosa",
+     "obs": 37785908,
+     "crop": [
+      0.31,
+      0.05,
+      0.69,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "stonefish",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Hot water. That's the cure. Hot water is literally where I live.",
+   "kicker": true,
+   "hold": 0.25,
+   "prop": "fork",
+   "prop_at": "cure",
+   "sfx": [
+    "tink@cure"
+   ],
+   "punch": "live",
+   "shots": [
+    {
+     "photo": "Synanceia verrucosa",
+     "obs": 37268721,
+     "crop": [
+      0.369,
+      0.15,
+      0.631,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "balloon",
+   "_len": "deep",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A baby spider climbed to the tip of a leaf, pointed its butt at the sky, and took off.",
+   "headline": "SPIDERS CAN FLY",
+   "headline_s": 2.2,
+   "theme": "animals",
+   "hook": true,
+   "punch": "off",
+   "sfx": [
+    "whoosh@took"
+   ],
+   "animal": "turn@took",
+   "shots": [
+    {
+     "photo": "Misumena vatia",
+     "obs": 112317254,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "photo": "Misumena vatia",
+     "obs": 135571228,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ],
+     "at": "took"
+    }
+   ],
+   "loop_say": "So check the sky. Because",
+   "short_title": "Yes, It Can Actually Rain Spiders 🕷️ (Meatball vs Spiders #2)",
+   "comment": "Would you still go outside? 👍 yes / 👎 no",
+   "bonus": "In 2018, scientists showed spiders balloon on electric fields alone, with no wind at all.",
+   "caption": "Can spiders fly? Yes, without wings: it's called ballooning. What lifts them? 💨 wind / ⚡ electricity #spiders #ballooning #animalfacts #science Meatball vs Spiders #2. Follow for Part 3 🍝",
+   "sources": [
+    "Morley & Robert 2018, Current Biology 28: 2324-2330, 'Electric fields elicit ballooning in spiders' (spiders sense the atmospheric potential gradient with leg hairs and take off with no airflow) — https://www.cell.com/current-biology/fulltext/S0960-9822(18)30693-6",
+    "Glick 1939, USDA Tech. Bull. 673 (spiders collected by aircraft up to ~15,000 ft) and Darwin, Voyage of the Beagle 1832 (small spiders landed on the ship ~60 miles off the coast) — https://en.wikipedia.org/wiki/Ballooning_(spider) (checked 2026-10-26)",
+    "Goulburn, NSW, May 2015: millions of ballooning spiders left fields covered in silk ('angel hair') — https://www.smithsonianmag.com/smart-news/millions-baby-spiders-rained-down-australia-180955318/"
+   ]
+  },
+  {
+   "myth": "balloon",
+   "pose": "think",
+   "act": "stand",
+   "say": "No wings. So what lifts it? Guess.",
+   "ask": {
+    "q": "WHAT LIFTS IT?",
+    "choices": [
+     "💨 WIND",
+     "⚡ SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Misumena vatia",
+     "obs": 135571228,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "balloon",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "sub": {
+    "at": "Subscribe"
+   },
+   "shots": [
+    {
+     "photo": "Misumena vatia",
+     "obs": 112317254,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "balloon",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in 1832, Charles Darwin was sailing sixty miles off South America, and tiny spiders landed on his ship.",
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "60 MILES\nOUT",
+    "at": "sixty"
+   },
+   "shots": [
+    {
+     "photo": "Misumena vatia",
+     "obs": 135571228,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "balloon",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Later, planes caught spiders nearly three miles up in the sky.",
+   "label": {
+    "text": "3 MILES\nUP",
+    "at": "miles"
+   },
+   "shots": [
+    {
+     "photo": "Misumena vatia",
+     "obs": 112317254,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "balloon",
+   "pose": "point",
+   "act": "stand",
+   "say": "They let out threads of silk, like little kites. It's called ballooning.",
+   "label": {
+    "text": "SILK\nKITES",
+    "at": "silk"
+   },
+   "shots": [
+    {
+     "photo": "Misumena vatia",
+     "obs": 135571228,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "balloon",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: they jump really hard. No. They're tiny. That's not it.",
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Misumena vatia",
+     "obs": 112317254,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "balloon",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: just the wind. That's what people thought for almost two hundred years. But spiders take off even on calm days.",
+   "decoy": true,
+   "label": {
+    "text": "WIND?",
+    "at": "wind"
+   },
+   "shots": [
+    {
+     "photo": "Misumena vatia",
+     "obs": 135571228,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "balloon",
+   "pose": "shock",
+   "act": "launch",
+   "say": "So I climbed a leaf and tried it myself.",
+   "hit": "myself",
+   "sfx": [
+    "whoosh@climbed"
+   ],
+   "jeopardy": true,
+   "shots": [
+    {
+     "photo": "Misumena vatia",
+     "obs": 112317254,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "balloon",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait, here's the weird part. In 2018, scientists put spiders in a box with no wind at all.",
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Misumena vatia",
+     "obs": 135571228,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "balloon",
+   "pose": "point",
+   "act": "stand",
+   "say": "They switched on an electric field, and the spiders lifted off. The answer is electricity.",
+   "payoff": true,
+   "label": {
+    "text": "ELECTRIC\nFIELD",
+    "at": "electric"
+   },
+   "sfx": [
+    "zap@electric"
+   ],
+   "shots": [
+    {
+     "photo": "Misumena vatia",
+     "obs": 112317254,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "balloon",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The air always carries a faint electric charge. Spiders feel it with tiny hairs on their legs.",
+   "punch": "hairs",
+   "shots": [
+    {
+     "photo": "Misumena vatia",
+     "obs": 135571228,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "balloon",
+   "pose": "shock",
+   "act": "stand",
+   "say": "In 2015, so many landed in Australia that whole fields turned white with silk.",
+   "label": {
+    "text": "IT RAINED\nSPIDERS",
+    "at": "white"
+   },
+   "host": {
+    "moves": [
+     "lean@white"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Misumena vatia",
+     "obs": 112317254,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "balloon",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   },
+   "shots": [
+    {
+     "photo": "Misumena vatia",
+     "obs": 135571228,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "balloon",
+   "pose": "deadpan",
+   "act": "tumble",
+   "say": "As for my flight? I'm a meatball. I only go down.",
+   "kicker": true,
+   "hold": 0.25,
+   "act_at": "down",
+   "sfx": [
+    "thud@down"
+   ],
+   "punch": "down",
+   "shots": [
+    {
+     "photo": "Misumena vatia",
+     "obs": 112317254,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "moray",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A moray eel shot out of a crack in the reef and snapped up a fish in a flash.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "SECOND JAWS",
+   "punch": "snapped",
+   "sfx": [
+    "crunch@snapped"
+   ],
+   "loop_say": "Two sets of jaws. Because",
+   "short_title": "Moray Eels Have a Second Set of Jaws 🦷",
+   "comment": "Would you look down its throat? 👍 yes / 👎 no",
+   "bonus": "Moray eels launch a second set of jaws from the throat to drag prey down (Mehta & Wainwright 2007, Nature).",
+   "caption": "Moray eels have a second set of jaws hidden in their throat, like the movie Alien. How does it swallow big prey? 💨 suction / 🦷 something else #morayeel #ocean #animalfacts #alien Follow Meatball for more 🍝",
+   "sources": [
+    "Mehta & Wainwright 2007, Nature 449: 79-82, 'Raptorial jaws in the throat help moray eels swallow large prey' (pharyngeal jaws launch forward into the mouth, grab prey and pull it into the throat; morays are poor at suction feeding) — https://doi.org/10.1038/nature06062",
+    "National Geographic, 'Moray eels attack with second pair of Alien-style jaws' — https://www.nationalgeographic.com/science/article/moray-eels-attack-with-second-pair-of-alien-style-jaws",
+    "Moray eels are not venomous; they eat fish, octopus and crustaceans (checked 2026-10-26)"
+   ],
+   "shots": [
+    {
+     "photo": "Gymnothorax",
+     "obs": 28405497,
+     "crop": [
+      0.272,
+      0,
+      0.728,
+      1.0
+     ]
+    },
+    {
+     "photo": "Gymnothorax",
+     "obs": 193544371,
+     "crop": [
+      0.089,
+      0.0,
+      0.511,
+      1.0
+     ],
+     "at": "snapped"
+    }
+   ]
+  },
+  {
+   "myth": "moray",
+   "pose": "think",
+   "act": "stand",
+   "say": "But it has a secret weapon. How does it swallow? Guess.",
+   "shots": [
+    {
+     "photo": "Gymnothorax",
+     "obs": 193544371,
+     "crop": [
+      0.11,
+      0.05,
+      0.49,
+      0.95
+     ]
+    }
+   ],
+   "ask": {
+    "q": "HOW DOES IT SWALLOW?",
+    "choices": [
+     "💨 SUCTION",
+     "🦷 SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "moray",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Gymnothorax",
+     "obs": 291448831,
+     "crop": [
+      0.303,
+      0.15,
+      0.697,
+      0.85
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "moray",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in 2007, two scientists in California filmed morays eating in slow motion.",
+   "shots": [
+    {
+     "photo": "Gymnothorax",
+     "obs": 334186386,
+     "crop": [
+      0.478,
+      0.0,
+      0.922,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "2007",
+    "at": "2007"
+   }
+  },
+  {
+   "myth": "moray",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Morays hide in tiny cracks in the reef, so their heads are long and narrow.",
+   "shots": [
+    {
+     "photo": "Gymnothorax",
+     "obs": 45276855,
+     "crop": [
+      0.281,
+      0.1,
+      0.619,
+      0.9
+     ]
+    }
+   ],
+   "punch": "narrow"
+  },
+  {
+   "myth": "moray",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: it sucks the fish in, like most fish do. No. Morays are bad at suction.",
+   "shots": [
+    {
+     "photo": "Gymnothorax",
+     "obs": 28405497,
+     "crop": [
+      0.318,
+      0.05,
+      0.682,
+      0.85
+     ]
+    }
+   ],
+   "decoy": true,
+   "label": {
+    "text": "SUCTION?",
+    "at": "sucks"
+   },
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "moray",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: venom, to knock the fish out. Also no. Morays aren't venomous.",
+   "shots": [
+    {
+     "photo": "Gymnothorax",
+     "obs": 193544371,
+     "crop": [
+      0.089,
+      0.0,
+      0.511,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "label": {
+    "text": "VENOM?",
+    "at": "venom"
+   }
+  },
+  {
+   "myth": "moray",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I swam over and looked straight down its throat.",
+   "shots": [
+    {
+     "photo": "Gymnothorax",
+     "obs": 336118810,
+     "crop": [
+      0.403,
+      0.05,
+      0.797,
+      0.95
+     ]
+    }
+   ],
+   "act_at": "throat",
+   "sfx": [
+    "thud@throat"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "moray",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait. Something in there was looking back at me.",
+   "shots": [
+    {
+     "photo": "Gymnothorax",
+     "obs": 28405497,
+     "crop": [
+      0.341,
+      0.1,
+      0.659,
+      0.8
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "moray",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: a second set of jaws, hidden in its throat. They shoot forward, grab the fish, and drag it down.",
+   "shots": [
+    {
+     "photo": "Gymnothorax",
+     "obs": 193544371,
+     "crop": [
+      0.11,
+      0.05,
+      0.49,
+      0.95
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "SECOND\nJAWS",
+    "at": "second"
+   },
+   "sfx": [
+    "crunch@grab"
+   ]
+  },
+  {
+   "myth": "moray",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Scientists said it looks just like the alien in the movie Alien.",
+   "shots": [
+    {
+     "photo": "Gymnothorax",
+     "obs": 291448831,
+     "crop": [
+      0.303,
+      0.15,
+      0.697,
+      0.85
+     ]
+    }
+   ],
+   "punch": "Alien"
+  },
+  {
+   "myth": "moray",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "It eats fish, crabs and octopus. One bite, then the throat jaws do the rest.",
+   "shots": [
+    {
+     "photo": "Gymnothorax",
+     "obs": 334186386,
+     "crop": [
+      0.478,
+      0.0,
+      0.922,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@throat"
+    ]
+   }
+  },
+  {
+   "myth": "moray",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Two sets of jaws. I have zero.",
+   "shots": [
+    {
+     "photo": "Gymnothorax",
+     "obs": 336118810,
+     "crop": [
+      0.403,
+      0.05,
+      0.797,
+      0.95
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "zero",
+   "sfx": [
+    "tink@zero"
+   ]
+  },
+  {
+   "myth": "moray",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Gymnothorax",
+     "obs": 45276855,
+     "crop": [
+      0.281,
+      0.1,
+      0.619,
+      0.9
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "moray",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Good news: I'm not on the menu. Mostly because it can't find my throat.",
+   "shots": [
+    {
+     "photo": "Gymnothorax",
+     "obs": 28405497,
+     "crop": [
+      0.272,
+      0,
+      0.728,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "throat"
+  },
+  {
+   "myth": "housefly",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A fly landed on my sandwich, and rubbed its little hands together.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "WHAT IT DID NEXT",
+   "punch": "hands",
+   "loop_say": "Cover your food. Because",
+   "short_title": "House Flies Throw Up on Your Food 🪰",
+   "comment": "Still eating it after a fly lands? 👍 yes / 👎 no",
+   "bonus": "House flies can't chew: they spit digestive juices onto solid food and sponge up the soup; they taste with their feet.",
+   "caption": "Do flies throw up on your food? Yes: house flies spit digestive juice on solid food, then sponge it up. Still eating it? 👍 yes / 👎 no #housefly #gross #animalfacts #insects Follow Meatball for more 🍝",
+   "sources": [
+    "The Conversation / ScienceAlert, 'Do flies really throw up on your food?' (flies have sponging mouthparts and can't chew; they regurgitate digestive juices onto solid food, then suck it up; taste receptors on the feet) — https://www.sciencealert.com/do-flies-really-throw-up-on-your-food-when-they-land-on-it",
+    "HowStuffWorks, Housefly Diet (sponging mouthparts) — https://science.howstuffworks.com/environmental/life/zoology/insects-arachnids/housefly3.htm",
+    "Junqueira et al. 2017, Scientific Reports 7: 16324 (house flies and blow flies carry hundreds of bacterial species, many on legs and wings; hand-rubbing is grooming) — https://doi.org/10.1038/s41598-017-16353-x"
+   ],
+   "shots": [
+    {
+     "photo": "Musca domestica",
+     "obs": 131295935,
+     "crop": [
+      0.219,
+      0.0,
+      0.781,
+      1.0
+     ]
+    },
+    {
+     "photo": "Musca domestica",
+     "obs": 153591365,
+     "crop": [
+      0.339,
+      0.0,
+      0.761,
+      1.0
+     ],
+     "at": "hands"
+    }
+   ]
+  },
+  {
+   "myth": "housefly",
+   "pose": "think",
+   "act": "stand",
+   "say": "What it did next is the gross part. How does it eat? Guess.",
+   "shots": [
+    {
+     "photo": "Musca domestica",
+     "obs": 235798442,
+     "crop": [
+      0.41,
+      0.05,
+      0.79,
+      0.95
+     ]
+    }
+   ],
+   "ask": {
+    "q": "HOW DOES IT EAT?",
+    "choices": [
+     "🦷 BITES",
+     "🤮 SOMETHING GROSS"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "housefly",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Musca domestica",
+     "obs": 306866387,
+     "crop": [
+      0.352,
+      0.15,
+      0.648,
+      0.85
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "housefly",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in your kitchen, the house fly is the most common fly on Earth. And it lands on everything.",
+   "shots": [
+    {
+     "photo": "Musca domestica",
+     "obs": 69507092,
+     "crop": [
+      0.248,
+      0.0,
+      0.752,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ]
+  },
+  {
+   "myth": "housefly",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Trash, poop, and then your lunch. It tastes with its feet, so it tastes all of it.",
+   "shots": [
+    {
+     "photo": "Musca domestica",
+     "obs": 329853140,
+     "crop": [
+      0.434,
+      0.1,
+      0.766,
+      0.9
+     ]
+    }
+   ],
+   "label": {
+    "text": "TASTES WITH\nFEET",
+    "at": "feet"
+   }
+  },
+  {
+   "myth": "housefly",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: it bites off a piece. No. A house fly can't chew. It has no teeth.",
+   "shots": [
+    {
+     "photo": "Musca domestica",
+     "obs": 131295935,
+     "crop": [
+      0.303,
+      0.15,
+      0.697,
+      0.85
+     ]
+    }
+   ],
+   "decoy": true,
+   "label": {
+    "text": "NO\nTEETH",
+    "at": "teeth"
+   },
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "housefly",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: it just licks it. Closer. But that's not the gross part.",
+   "shots": [
+    {
+     "photo": "Musca domestica",
+     "obs": 153591365,
+     "crop": [
+      0.381,
+      0.1,
+      0.719,
+      0.9
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "housefly",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I let one land on me to watch. Feet first.",
+   "shots": [
+    {
+     "photo": "Musca domestica",
+     "obs": 153591365,
+     "crop": [
+      0.339,
+      0.0,
+      0.761,
+      1.0
+     ]
+    }
+   ],
+   "act_at": "Feet",
+   "sfx": [
+    "thud@Feet"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "housefly",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait. And the hand rubbing? That's not cute. It's cleaning its legs.",
+   "shots": [
+    {
+     "photo": "Musca domestica",
+     "obs": 105570516,
+     "crop": [
+      0.163,
+      0.05,
+      0.837,
+      0.95
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "housefly",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: it throws up on your food. It spits digestive juice onto it, the food turns to soup, and it sponges the soup up.",
+   "shots": [
+    {
+     "photo": "Musca domestica",
+     "obs": 235798442,
+     "crop": [
+      0.41,
+      0.05,
+      0.79,
+      0.95
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "FLY\nSOUP",
+    "at": "soup"
+   },
+   "sfx": [
+    "pop@spits"
+   ]
+  },
+  {
+   "myth": "housefly",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Its mouth works like a sponge on a stick. Solid food has to melt first.",
+   "shots": [
+    {
+     "photo": "Musca domestica",
+     "obs": 306866387,
+     "crop": [
+      0.31,
+      0.05,
+      0.69,
+      0.95
+     ]
+    }
+   ],
+   "punch": "sponge"
+  },
+  {
+   "myth": "housefly",
+   "pose": "shock",
+   "act": "stand",
+   "say": "And flies can carry hundreds of kinds of bacteria, on their legs and wings.",
+   "shots": [
+    {
+     "photo": "Musca domestica",
+     "obs": 69507092,
+     "crop": [
+      0.248,
+      0.0,
+      0.752,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@bacteria"
+    ]
+   },
+   "label": {
+    "text": "BACTERIA",
+    "at": "bacteria"
+   }
+  },
+  {
+   "myth": "housefly",
+   "pose": "point",
+   "act": "stand",
+   "say": "Cover your food. Please.",
+   "shots": [
+    {
+     "photo": "Musca domestica",
+     "obs": 105570516,
+     "crop": [
+      0.163,
+      0.05,
+      0.837,
+      0.95
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "food",
+   "sfx": [
+    "tink@food"
+   ]
+  },
+  {
+   "myth": "housefly",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Musca domestica",
+     "obs": 329853140,
+     "crop": [
+      0.434,
+      0.1,
+      0.766,
+      0.9
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "housefly",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "I was the lunch. And it didn't even say thank you.",
+   "shots": [
+    {
+     "photo": "Musca domestica",
+     "obs": 131295935,
+     "crop": [
+      0.219,
+      0.0,
+      0.781,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "thank"
+  },
+  {
+   "myth": "mantis",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A hummingbird stopped at a backyard feeder, and a praying mantis grabbed it.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "BUG EATS BIRD",
+   "punch": "grabbed",
+   "sfx": [
+    "crunch@grabbed"
+   ],
+   "loop_say": "The food chain is a suggestion. Because",
+   "short_title": "Praying Mantises Can Catch Hummingbirds 🦗",
+   "comment": "Would you still keep a hummingbird feeder? 👍 yes / 👎 no",
+   "bonus": "Scientists found 147 cases of mantises catching small birds in 13 countries, most at US hummingbird feeders (Nyffeler et al. 2017).",
+   "caption": "Can a praying mantis catch a hummingbird? Yes. Scientists found 147 cases. How often? 🦄 freak event / 🐦 more than you think #prayingmantis #hummingbird #animalfacts #birds Follow Meatball for more 🍝",
+   "sources": [
+    "Nyffeler, Maxwell & Remsen 2017, Wilson Journal of Ornithology 129(2): 331-344, 'Bird predation by praying mantises: a global perspective' (147 cases in 13 countries on all continents except Antarctica; >70% in the US, mostly at hummingbird feeders or plants; ruby-throated hummingbird most often; many US cases involve introduced Chinese and European mantises) — https://doi.org/10.1676/16-100.1",
+    "Scientific American blog, 'Praying Mantises Catch and Eat Birds Alive' — https://www.scientificamerican.com/blog/artful-amoeba/praying-mantises-catch-and-eat-birds-alive-video/"
+   ],
+   "shots": [
+    {
+     "photo": "Tenodera sinensis",
+     "obs": 32651057,
+     "crop": [
+      0.089,
+      0.0,
+      0.511,
+      1.0
+     ]
+    },
+    {
+     "photo": "Archilochus colubris",
+     "obs": 138799680,
+     "crop": [
+      0.339,
+      0.0,
+      0.761,
+      1.0
+     ],
+     "at": "grabbed"
+    }
+   ]
+  },
+  {
+   "myth": "mantis",
+   "pose": "think",
+   "act": "stand",
+   "say": "A bug ate a bird. How often does this happen? Guess.",
+   "shots": [
+    {
+     "photo": "Tenodera sinensis",
+     "obs": 329351875,
+     "crop": [
+      0.363,
+      0.0,
+      0.738,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "HOW OFTEN?",
+    "choices": [
+     "🦄 FREAK EVENT",
+     "🐦 A LOT"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "mantis",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Archilochus colubris",
+     "obs": 130313240,
+     "crop": [
+      0.374,
+      0.0,
+      0.726,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "mantis",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in 2017, three scientists went looking for every report of a mantis catching a bird.",
+   "shots": [
+    {
+     "photo": "Tenodera sinensis",
+     "obs": 32651057,
+     "crop": [
+      0.131,
+      0.1,
+      0.469,
+      0.9
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ]
+  },
+  {
+   "myth": "mantis",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Photos, videos, news stories, birdwatcher notes, from all over the world. They expected a handful.",
+   "shots": [
+    {
+     "photo": "Tenodera sinensis",
+     "obs": 248975789,
+     "crop": [
+      0.281,
+      0.1,
+      0.619,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "mantis",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: it happened once, a freak accident. No. Not even close.",
+   "shots": [
+    {
+     "photo": "Archilochus colubris",
+     "obs": 138799680,
+     "crop": [
+      0.36,
+      0.05,
+      0.74,
+      0.95
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "mantis",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: only in some faraway jungle. Also no. Most were right here in the US.",
+   "shots": [
+    {
+     "photo": "Tenodera sinensis",
+     "obs": 329351875,
+     "crop": [
+      0.419,
+      0.15,
+      0.681,
+      0.85
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "mantis",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I hid behind a mantis to stay safe. It turned around and looked at me.",
+   "shots": [
+    {
+     "photo": "Tenodera sinensis",
+     "obs": 248975789,
+     "crop": [
+      0.26,
+      0.05,
+      0.64,
+      0.95
+     ]
+    }
+   ],
+   "act_at": "turned",
+   "sfx": [
+    "thud@turned"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "mantis",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait. Here's the thing. The mantis just sits on the feeder and waits.",
+   "shots": [
+    {
+     "photo": "Tenodera sinensis",
+     "obs": 95709810,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "mantis",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: they found 147 cases in 13 countries. Most at American hummingbird feeders.",
+   "shots": [
+    {
+     "photo": "Archilochus colubris",
+     "obs": 130313240,
+     "crop": [
+      0.374,
+      0.0,
+      0.726,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "147\nCASES",
+    "at": "147"
+   },
+   "sfx": [
+    "pop@147"
+   ]
+  },
+  {
+   "myth": "mantis",
+   "pose": "shock",
+   "act": "stand",
+   "say": "The bird caught most often? The ruby-throated hummingbird.",
+   "shots": [
+    {
+     "photo": "Archilochus colubris",
+     "obs": 138799680,
+     "crop": [
+      0.339,
+      0.0,
+      0.761,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "mantis",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "And many of the mantises were invaders, brought from Asia and Europe.",
+   "shots": [
+    {
+     "photo": "Tenodera sinensis",
+     "obs": 32651057,
+     "crop": [
+      0.089,
+      0.0,
+      0.511,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@invaders"
+    ]
+   },
+   "label": {
+    "text": "INVADERS",
+    "at": "invaders"
+   }
+  },
+  {
+   "myth": "mantis",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "A bug that eats birds. The food chain is a suggestion.",
+   "shots": [
+    {
+     "photo": "Tenodera sinensis",
+     "obs": 248975789,
+     "crop": [
+      0.281,
+      0.1,
+      0.619,
+      0.9
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "food",
+   "sfx": [
+    "tink@food"
+   ]
+  },
+  {
+   "myth": "mantis",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Tenodera sinensis",
+     "obs": 329351875,
+     "crop": [
+      0.363,
+      0.0,
+      0.738,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "mantis",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "And if a bug can eat a bird, where does that leave me? Somewhere below the bird.",
+   "shots": [
+    {
+     "photo": "Archilochus colubris",
+     "obs": 130313240,
+     "crop": [
+      0.427,
+      0.15,
+      0.673,
+      0.85
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "below"
+  },
+  {
+   "myth": "recluse",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A man woke up with a red sore on his arm, and the doctor said: brown recluse.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "THE BITE THAT ROTS?",
+   "punch": "arm",
+   "loop_say": "Blame the spider? Because",
+   "short_title": "Most Brown Recluse Bites Don't Rot Your Skin 🕷️ (Meatball vs Spiders #3)",
+   "comment": "Ever blamed a spider for a bite? 👍 yes / 👎 no",
+   "bonus": "One Kansas home had 2,055 brown recluses in six months and nobody was bitten (Vetter & Barger 2002).",
+   "caption": "Do brown recluse bites rot your skin? Mostly no: most heal on their own, and many 'recluse bites' are infections. Ever blamed a spider? 👍 yes / 👎 no #brownrecluse #spiders #animalfacts #myths Meatball vs Spiders #3. Follow Meatball for more 🍝",
+   "sources": [
+    "Vetter & Barger 2002, Journal of Medical Entomology 39(6): 948-951, 'An infestation of 2,055 brown recluse spiders and no envenomations in a Kansas home' — https://doi.org/10.1603/0022-2585-39.6.948",
+    "Rick Vetter, UC Riverside, 'The Brown Recluse Spider' (most bites are minor and heal without scarring; serious necrosis is uncommon; many 'recluse bites' are misdiagnosed infections such as MRSA, including in areas with no recluses; range is the central and southern US) — https://spiders.ucr.edu/brown-recluse",
+    "Wikipedia, Brown recluse spider (checked 2026-10-26) — https://en.wikipedia.org/wiki/Brown_recluse_spider"
+   ],
+   "shots": [
+    {
+     "photo": "Loxosceles reclusa",
+     "obs": 125467825,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "recluse",
+   "pose": "think",
+   "act": "stand",
+   "say": "But is that true? Do their bites usually rot your skin? Guess.",
+   "shots": [
+    {
+     "photo": "Loxosceles reclusa",
+     "obs": 107294678,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "ROTS YOUR SKIN?",
+    "choices": [
+     "💀 USUALLY",
+     "🩹 RARELY"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "recluse",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Loxosceles reclusa",
+     "obs": 46037268,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "recluse",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in 2002, scientists heard about a house in Kansas. A family had lived there for years.",
+   "shots": [
+    {
+     "photo": "Loxosceles reclusa",
+     "obs": 285556518,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "KANSAS",
+    "at": "Kansas"
+   }
+  },
+  {
+   "myth": "recluse",
+   "pose": "shock",
+   "act": "stand",
+   "say": "They searched it for six months, and caught two thousand and fifty-five brown recluses.",
+   "shots": [
+    {
+     "photo": "Loxosceles reclusa",
+     "obs": 125467825,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "2,055",
+    "at": "fifty-five"
+   }
+  },
+  {
+   "myth": "recluse",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: the whole family got bitten. No. Nobody in that house was bitten.",
+   "shots": [
+    {
+     "photo": "Loxosceles reclusa",
+     "obs": 107294678,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "recluse",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: recluses live everywhere, so bites are everywhere. Also no. They mostly live in the central and southern US.",
+   "shots": [
+    {
+     "photo": "Loxosceles reclusa",
+     "obs": 46037268,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "label": {
+    "text": "NOT\nEVERYWHERE",
+    "at": "central"
+   }
+  },
+  {
+   "myth": "recluse",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I knocked on one's door to ask. It hid. Very polite.",
+   "shots": [
+    {
+     "photo": "Loxosceles reclusa",
+     "obs": 285556518,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "act_at": "hid",
+   "sfx": [
+    "thud@hid"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "recluse",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait. Here's the weird part. Doctors diagnose recluse bites in states with no recluses at all.",
+   "shots": [
+    {
+     "photo": "Loxosceles reclusa",
+     "obs": 125467825,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "recluse",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: most recluse bites are minor and heal on their own. And many 'bites' are really infections, like MRSA.",
+   "shots": [
+    {
+     "photo": "Loxosceles reclusa",
+     "obs": 107294678,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "OFTEN AN\nINFECTION",
+    "at": "infections"
+   },
+   "sfx": [
+    "pop@infections"
+   ]
+  },
+  {
+   "myth": "recluse",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "A bad bite can still need a doctor. It just doesn't happen often.",
+   "shots": [
+    {
+     "photo": "Loxosceles reclusa",
+     "obs": 46037268,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@doctor"
+    ]
+   }
+  },
+  {
+   "myth": "recluse",
+   "pose": "point",
+   "act": "stand",
+   "say": "They're shy. They hide in boxes and shoes, and bite only when pressed against skin.",
+   "shots": [
+    {
+     "photo": "Loxosceles reclusa",
+     "obs": 285556518,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "SHY",
+    "at": "shy"
+   }
+  },
+  {
+   "myth": "recluse",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "I'm a meatball. I respect a homebody.",
+   "shots": [
+    {
+     "photo": "Loxosceles reclusa",
+     "obs": 125467825,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "homebody",
+   "sfx": [
+    "tink@homebody"
+   ]
+  },
+  {
+   "myth": "recluse",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Loxosceles reclusa",
+     "obs": 107294678,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "recluse",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "It's called the recluse. It's in the name. It just wants to be left alone.",
+   "shots": [
+    {
+     "photo": "Loxosceles reclusa",
+     "obs": 46037268,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "alone"
   }
  ]
 }

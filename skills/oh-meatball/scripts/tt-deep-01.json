@@ -869,6 +869,298 @@
      "at": "band"
     }
    ]
+  },
+  {
+   "myth": "a119deep",
+   "_len": "deep",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A young physicist in Chicago sat down and worked out how to nuke the Moon.",
+   "shots": [
+    {
+     "photo": "Nuclear test cloud (Maralinga, 1956)",
+     "obs": "ov:2ac6230a-1d74-40e9-b13d-a75000615622",
+     "crop": [
+      0.04,
+      0.09,
+      0.96,
+      1.0
+     ]
+    },
+    {
+     "photo": "Full Moon (NASA)",
+     "obs": "ov:fef5b5cf-5f9b-4e75-94a2-01687e0b80fb",
+     "at": "Moon"
+    }
+   ],
+   "hook": true,
+   "headline": "NUKE THE MOON?",
+   "headline_s": 2.2,
+   "theme": "conspiracy",
+   "case": "CASE #4",
+   "punch": "nuke",
+   "short_title": "The US Planned to Nuke the Moon. It's REAL 🌕 Case #4",
+   "comment": "Would you have pushed the button? 🌕 yes / 🚫 no",
+   "bonus": "The study, 'A Study of Lunar Research Flights' (AFSWC-TR-59-39, 1959), stayed secret for about 40 years. Carl Sagan worked out how the dust cloud would spread.",
+   "caption": "Did the US plan to nuke the Moon? Yes: Project A119, 1958. Why? 🚀 moon base / 💥 show off #coldwar #weirdhistory #space #meatballinvestigates Follow Meatball for a new case every day 🍝",
+   "sources": [
+    "Wikipedia, Project A119 (US Air Force project carried out by the Armour Research Foundation at the Illinois Institute of Technology, Chicago, led by Leonard Reiffel; research began May 1958, cancelled January 1959; the blast was meant to be visible from Earth, partly to boost morale after Sputnik; Carl Sagan modelled the expansion of the dust cloud; revealed after Keay Davidson found Sagan had listed classified paper titles in his 1959 Miller Institute fellowship application) — https://en.wikipedia.org/wiki/Project_A119 (checked 2026-10-26)",
+    "L. Reiffel, 'A Study of Lunar Research Flights', Vol. I, Armour Research Foundation for the Air Force Special Weapons Center, 19 June 1959, AFSWC-TR-59-39, DTIC AD0425380 — https://apps.dtic.mil/sti/pdfs/AD0425380.pdf",
+    "Antony Barnett, The Observer, 14 May 2000 (Reiffel confirms the plan; the aim was a show of strength)"
+   ],
+   "loop_say": "Leave the Moon alone. Because"
+  },
+  {
+   "myth": "a119deep",
+   "pose": "think",
+   "act": "stand",
+   "say": "Why would anyone bomb the Moon? Guess before I tell you.",
+   "ask": {
+    "q": "WHY?",
+    "choices": [
+     "🚀 MOON BASE",
+     "💥 SHOW OFF"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.9,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Full Moon (NASA)",
+     "obs": "ov:1c9946e5-5a1f-4637-9f3d-7fddc0b7051e"
+    }
+   ]
+  },
+  {
+   "myth": "a119deep",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I investigate a weird case every day.",
+   "sub": {
+    "at": "Subscribe"
+   },
+   "shots": [
+    {
+     "photo": "Full Moon (NASA)",
+     "obs": "ov:fef5b5cf-5f9b-4e75-94a2-01687e0b80fb",
+     "board": {
+      "notes": [
+       "1958",
+       "US AIR FORCE",
+       "A119"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "myth": "a119deep",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in October 1957, the Soviets launched Sputnik, the first satellite. America panicked.",
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "SPUTNIK",
+    "at": "Sputnik"
+   },
+   "shots": [
+    {
+     "photo": "Sputnik 1 model",
+     "obs": "ov:eb47f646-34dd-4519-a3c3-4ddc173770a3"
+    }
+   ]
+  },
+  {
+   "myth": "a119deep",
+   "pose": "shock",
+   "act": "stand",
+   "say": "By 1958, the Air Force was paying for a secret study called Project A119.",
+   "label": {
+    "text": "PROJECT\nA119",
+    "at": "A119"
+   },
+   "shots": [
+    {
+     "photo": "Full Moon (NASA)",
+     "obs": "ov:1c9946e5-5a1f-4637-9f3d-7fddc0b7051e"
+    }
+   ]
+  },
+  {
+   "myth": "a119deep",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: to blast out a hole for a moon base. No. Nobody was building one.",
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Earthrise, Apollo 8 (NASA)",
+     "obs": "ov:95329716-7f19-4410-bb9e-bc6187afea97"
+    }
+   ]
+  },
+  {
+   "myth": "a119deep",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: to hit the Soviets from space. Also no. The Moon is very far away.",
+   "decoy": true,
+   "shots": [
+    {
+     "photo": "Full Moon (NASA)",
+     "obs": "ov:fef5b5cf-5f9b-4e75-94a2-01687e0b80fb"
+    }
+   ]
+  },
+  {
+   "myth": "a119deep",
+   "pose": "nervous",
+   "act": "tumble",
+   "say": "The Moon is round and gray. So am I. I'm staying indoors.",
+   "act_at": "So",
+   "jeopardy": true,
+   "sfx": [
+    "thud@So"
+   ],
+   "shots": [
+    {
+     "photo": "Full Moon (NASA)",
+     "obs": "ov:fef5b5cf-5f9b-4e75-94a2-01687e0b80fb"
+    }
+   ]
+  },
+  {
+   "myth": "a119deep",
+   "pose": "shock",
+   "act": "shake",
+   "say": "Wait. Here's the real reason. The flash had to be seen from Earth.",
+   "dark": true,
+   "punch": "flash",
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Earthrise, Apollo 8 (NASA)",
+     "obs": "ov:95329716-7f19-4410-bb9e-bc6187afea97"
+    },
+    {
+     "photo": "Full Moon (NASA)",
+     "obs": "ov:fef5b5cf-5f9b-4e75-94a2-01687e0b80fb",
+     "at": "flash"
+    }
+   ]
+  },
+  {
+   "myth": "a119deep",
+   "pose": "point",
+   "act": "stand",
+   "say": "Verdict: it was real, and it was mostly to show off. A glowing flash on the Moon, to prove America was still ahead.",
+   "payoff": true,
+   "stamp": {
+    "text": "PROVEN",
+    "at": "real"
+   },
+   "shots": [
+    {
+     "photo": "Full Moon (NASA)",
+     "obs": "ov:1c9946e5-5a1f-4637-9f3d-7fddc0b7051e",
+     "board": {
+      "notes": [
+       "A119",
+       "SHOW OF FORCE"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "myth": "a119deep",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The scientists also hoped to study the dust. A young Carl Sagan worked out how the cloud would spread.",
+   "label": {
+    "text": "CARL\nSAGAN",
+    "at": "Sagan"
+   },
+   "shots": [
+    {
+     "photo": "Earthrise, Apollo 8 (NASA)",
+     "obs": "ov:95329716-7f19-4410-bb9e-bc6187afea97"
+    }
+   ]
+  },
+  {
+   "myth": "a119deep",
+   "pose": "shock",
+   "act": "stand",
+   "say": "In January 1959, it was quietly cancelled. Then it stayed secret for about forty years.",
+   "label": {
+    "text": "CANCELLED",
+    "at": "cancelled"
+   },
+   "host": {
+    "moves": [
+     "lean@secret"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Full Moon (NASA)",
+     "obs": "ov:fef5b5cf-5f9b-4e75-94a2-01687e0b80fb"
+    }
+   ]
+  },
+  {
+   "myth": "a119deep",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   },
+   "shots": [
+    {
+     "photo": "Full Moon (NASA)",
+     "obs": "ov:1c9946e5-5a1f-4637-9f3d-7fddc0b7051e"
+    }
+   ]
+  },
+  {
+   "myth": "a119deep",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "How did it leak? Sagan listed the secret papers on a job application. Great résumé.",
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "résumé",
+   "shots": [
+    {
+     "photo": "Earthrise, Apollo 8 (NASA)",
+     "obs": "ov:95329716-7f19-4410-bb9e-bc6187afea97"
+    },
+    {
+     "photo": "Full Moon (NASA)",
+     "obs": "ov:1c9946e5-5a1f-4637-9f3d-7fddc0b7051e",
+     "at": "application"
+    }
+   ]
   }
  ]
 }
