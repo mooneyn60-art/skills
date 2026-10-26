@@ -1,6 +1,6 @@
 {
  "title": "Meatball Investigates: channel trailer",
- "_note": "Growth desk, research/51 §2. 30-45 s 16:9 channel trailer for non-subscribers: who he is, what the channel does, quick cuts from 5 real cases with their real verdicts, one subscribe ask. One theme (conspiracy), music low. Facts are the verdicts already stamped in weird-pilot-v2, cases-01 and cases-02. Render: python3 tools/explainer.py episodes/branding/trailer.json /tmp/meatball-trailer build episodes/branding/trailer.mp4",
+ "_note": "Growth desk, research/51 §2. 30-45 s 16:9 channel trailer for non-subscribers: who he is, what the channel does, quick cuts from 6 real cases with their real verdicts, one subscribe ask. One theme (conspiracy), music low. Facts are the verdicts already stamped in weird-pilot-v2, cases-01 and cases-02. Render: python3 tools/explainer.py episodes/branding/trailer.json /tmp/meatball-trailer build episodes/branding/trailer.mp4",
  "style": "v4",
  "aspect": "16:9",
  "captions": "bold",
@@ -43,21 +43,43 @@
    "myth": "trailer",
    "pose": "shock",
    "act": "shake",
-   "say": "The US planned to nuke the Moon.",
+   "say": "The US planned to nuke the Moon. That one's real.",
    "shots": [
     {
-     "photo": "Full Moon (NASA)",
-     "obs": "ov:fef5b5cf-5f9b-4e75-94a2-01687e0b80fb"
+     "photo": "Nuclear test cloud (Maralinga, 1956)",
+     "obs": "ov:2ac6230a-1d74-40e9-b13d-a75000615622"
     },
     {
-     "photo": "Nuclear test cloud (Maralinga, 1956)",
-     "obs": "ov:2ac6230a-1d74-40e9-b13d-a75000615622",
-     "at": "nuke"
+     "photo": "Full Moon (NASA)",
+     "obs": "ov:fef5b5cf-5f9b-4e75-94a2-01687e0b80fb",
+     "at": "Moon"
     }
    ],
    "stamp": {
     "text": "PROVEN",
-    "at": "Moon",
+    "at": "real",
+    "reveal": false
+   }
+  },
+  {
+   "myth": "trailer",
+   "pose": "shock",
+   "act": "launch",
+   "say": "Aliens crashed at Roswell? It was a spy balloon.",
+   "shots": [
+    {
+     "photo": "Roswell debris, 1947",
+     "obs": "wm:Marcel-roswell-debris 0.jpg"
+    },
+    {
+     "photo": "Project Mogul balloon train",
+     "obs": "wm:Mogul balloon train USAF 1995.png",
+     "at": "spy"
+    }
+   ],
+   "stamp": {
+    "text": "ALIENS\nBUSTED",
+    "at": "balloon",
     "reveal": false
    }
   },
@@ -116,7 +138,7 @@
    "myth": "trailer",
    "pose": "think",
    "act": "stand",
-   "say": "A ghost ship with nobody aboard.",
+   "say": "A ghost ship found with nobody aboard. Still unsolved.",
    "shots": [
     {
      "photo": "Mary Celeste, painted as the Amazon (1861)",
@@ -125,8 +147,13 @@
    ],
    "stamp": {
     "text": "UNSOLVED",
-    "at": "aboard",
-    "reveal": false
+    "at": "unsolved",
+    "reveal": false,
+    "color": [
+     35,
+     70,
+     170
+    ]
    }
   },
   {

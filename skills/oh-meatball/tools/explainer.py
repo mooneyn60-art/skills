@@ -145,6 +145,7 @@ def _ov_get(url, as_json=True):
         except urllib.error.HTTPError as e:
             # Openverse also answers overload with 500/502/504 (10/26 cases-02 render)
             if e.code not in (429, 500, 502, 503, 504) or k == 7:
+                print(f"openverse/flickr GET failed ({e.code}): {url}", flush=True)
                 raise
         except (urllib.error.URLError, TimeoutError):
             if k == 7:
