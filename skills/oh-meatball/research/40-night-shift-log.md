@@ -16,8 +16,9 @@ Next night takes the next letter; after g, start again at a.
 | Date | Letter | Avenue | Finding (one line) | Build | vidIQ credits |
 |---|---|---|---|---|---|
 | 2026-10-25 | a | Breakout formats | 62 s cartoon explainer (1.6M, 10.3x) holds its promised answer to 69%; all 8 of our deep dives give the answer in line 1 | `tools/openloop.py`, `scripts/v4-one-weakness-pangolin.json`, `research/40-openloop-gate.diff` | 30 |
+| 2026-10-26 | b | Competitor teardown (Voggle) | 5/5 of Voggle's top Shorts (2.7M-350K, 86-173 s) open on a past-tense scene mid-action; 5 of our 83 scripted Shorts do (1 of the 6 pilot cases); their famous Emu War did 9.5K vs a 27K median | `tools/coldopen.py`, `scripts/investigates-a119-moon-bomb.json` | 35 |
 
-**Next night: b** (competitor teardown).
+**Next night: c** (a 2026 platform rule change).
 
 ---
 
@@ -110,3 +111,79 @@ against the 3 deep dives before them (same voice, same length band). Keep it if 
     0:00 and on every ball shot. This is a Studio item.
   - At frame 0 the pangolin cut-out is small (about 1/5 of the frame width). That is v4's known cost (research/45 §7).
 - **Factdesk:** still needs the by-eye cut-out check. Obs 325086870 carries a grass stem along the cut-out's belly.
+
+---
+
+## 2026-10-26 — b. Competitor teardown: Voggle (weird-history Shorts)
+
+**Pick.** vidiq_outliers (Shorts, "conspiracies, mysteries and strange history", 5K-400K subs, 100K+ views) returned 30
+hits. Voggle (`UCOGuvK0sWCY-Vq9oQFwlAYg`, 60.9K subs, AU) is the closest rival to us: Shorts only, photo cut-outs with
+cartoon eyes and mouths (our v4 look), one narrator, strange true history. Its Mike the Headless Chicken is the 363x
+outlier already in research/48.
+**Credits: 35** (outliers 5, video metadata 5, 2 × watch_shortform 20, 1 transcript 5). Balance 553 → ~518. Free:
+yt-dlp channel listing (27 Shorts, view counts) and auto-captions for 2 Shorts. YouTube now bot-walls yt-dlp video
+downloads from our egress ("Sign in to confirm you're not a bot"), so frames came from vidIQ's watch, not local files.
+
+### The channel
+27 Shorts, **median 27K views**. Shorts only (no long-form tab). Top 5:
+| Short | Views | Outlier | Length | Likes/views | First line (verbatim) |
+|---|---|---|---|---|---|
+| The True Story of Mike the Headless Chicken | 2.72M | 363x | 2:53 | 10.1% | "The axe cut off the rooster's head, but as it dropped into the dirt..." |
+| They Brought Slugs Into War | 1.44M | 530x | 1:26 | 8.9% | "They took a slug into the trenches and put the sloppy little slime ball on lookout." |
+| They Taught a Horse Math | 846K | 186x | 2:16 | 12.0% | "The horse tapped out the answer to each maths problem with his hoof..." |
+| The King's Ship Sucks (Vasa, 1628) | 374K (1 day) | 40x | 2:21 | 4.9% | "30 men sprinted back and forth across the deck of the brand new warship..." |
+| The Best Day Out in Texas (Crash at Crush) | 350K | 8.8x | 2:28 | 4.1% | "The trains smashed head-on at full speed, and both boilers exploded..." |
+| *The Emu War (contrast)* | *9.5K* | *2.9x* | *2:13* | *5.4%* | — |
+
+### Findings
+1. **Hook = the most physical moment, mid-action, past tense (5/5).** No topic label, no question, no verdict, no date.
+   The date comes later, in a rewind: "See, during World War I..." (0:21), "See, in 1896..." (0:11), "See, the ship
+   belonged to King Gustav..." (0:27). Ours: `tools/coldopen.py` finds a scene-first line 1 in **5 of 83** scripted
+   Shorts across the pilot, TikTok packs 1-2 and all v4 scripts; **1 of the 6 pilot cases** (emuwar), and none of the
+   5 that open on a verdict or label ("The Roswell cover-up was real.", "In 1518, a town couldn't stop dancing.").
+2. **Pacing is not the gap.** Shot changes listed by vidIQ: Mike 88 in 173 s = **5.1 per 10 s** (9 in the first 10 s),
+   Clever Hans 60 in 136 s = **4.4 per 10 s**; about 2 s a shot. Narration is continuous at **182-191 words a minute**
+   (captions, slugs 271 words/85 s, Texas 445/147 s). Our v4 renders already run 14 visual events per 10 s (pangolin,
+   longest gap 2.1 s). vidIQ's own summary line said "3.1 cuts per 10 s" for Mike, which its list contradicts.
+3. **The verdict is one plain sentence, not a stamp, and it lands mid-video.** Mike: "Mike wasn't a miracle. He'd just
+   been really, really badly beheaded." at 1:13-1:38 (42-57%), over an anatomy diagram. Hans: the psychologist "stopped
+   watching the horse and started watching the humans" at 1:05-1:35 (48-70%), POV through binoculars, music drops to a
+   tick-tock bed, a chime on the reveal. Same window as openloop.py's 50-80% rule.
+4. **They end on an ironic kicker, no CTA, no loop line.** "...killed his golden goose" (cut to a goose on stage);
+   Crush "fired... and the next day, quietly hired him back"; the Vasa captain "was eventually promoted"; von Osten
+   "died still totally convinced". Every pilot case ends on "Did you guess right? Comment."
+5. **Fame does not carry a topic.** Their Emu War, the most famous story they've told, is their 15th-best at 9.5K
+   (0.35x median). The obscure ones (WW1 gas-detector slugs, Clever Hans) are their top 3. Emu War is #4 on our
+   research/48 list and one of the 6 pilot cases. [I] One rival, one data point: it is a warning, not a verdict.
+6. **Length: 86-173 s (mean 2:13).** Every hit is a long Short: well past TikTok's 60 s Creator Rewards bar. Our
+   E19 cases are 14-18 s by word count.
+7. **Titles and descriptions:** 3-6 plain words, wry, no emoji, no hashtags ("They Taught a Horse Math", "The King's
+   Ship Sucks"); the description does the search work in one sentence: "This is the [bizarre/unlikely] true story of
+   [name], [what], in [place] in [year]." Thumbnails are auto frames.
+8. **Music and voice:** a human British male narrator, mid-tempo storyteller with comic asides ("nominative
+   determinism"). Music is comic, not spooky: fingerpicked banjo (Mike), ragtime pizzicato/accordion (Hans), switching
+   to tense strings only for the dark turn (Mike's death). For the per-topic theme system: strange history = comic
+   pizzicato bed ("detective"), the mystery bed only for real unsolved/creepy cases.
+
+### The build
+1. **`tools/coldopen.py`** (new, standalone; exit 1 on fail): C1 scene-first line 1 (past-tense verb; no `?`, verdict
+   or stance word, date-first opening or hook stamp), C2 a rewind cue at 5-40% of the words, C3 `"kicker": true` on the
+   last story line. FAIL for 45 s+ groups, WARN under 45 s (research/38's claim-first finding still governs 20-25 s
+   Shorts; `"cold_open": "claim"` marks a deliberate choice). Tested: 5/5 Voggle hooks pass C1; pilot exits 0 with
+   warnings; the pangolin prototype and TikTok pack 1 fail (no rewind, no kicker).
+2. **`scripts/investigates-a119-moon-bomb.json`**: a Meatball Investigates case in Voggle's shape. Project A119, the
+   1958 US Air Force study on setting off a nuclear bomb on the Moon (turned-out-TRUE, Cold War, research/48 #8).
+   - 0:00 "A physicist in Chicago worked out how to set off a nuclear bomb on the Moon."
+   - "Opening the file." → "See, in 1958, the Soviets had just launched Sputnik."
+   - decoys: a moon base (no), aliens ("I checked. No aliens in the file. Phew."); re-hook "Wait. The flash had to be
+     visible from Earth."
+   - payoff at 54%: "It was a warning." PROVEN stamp.
+   - Meatball: "The Moon is round. I'm round. I'm taking this personally."
+   - kicker: "the world only found out because Sagan mentioned the secret project on a fellowship application."
+   - 189 words, ~65 s, `"theme": "conspiracy"`. Passes coldopen.py and openloop.py. Photos TBD (NASA PD); the
+     factdesk must verify 4 sources, especially the Sagan detail. Concept only: not rendered, not scheduled.
+
+### Proposed experiment (for the Mayor; one variable)
+E-CO: after E19's first 6 cases, make 3 cases 60-75 s long in the cold-open shape (scene line 1, rewind, kicker) and
+post them as TikToks against the 3 E19 TikToks before them. Metric: average watch time and the share of views past 60 s.
+Keep it if watch time is +10% or better. YouTube 9:30 cases stay 20-25 s claim-first until E19 is scored.
