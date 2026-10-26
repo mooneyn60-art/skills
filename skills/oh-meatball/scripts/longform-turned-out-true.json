@@ -1,0 +1,1046 @@
+{
+ "title": "Conspiracy Theories That Turned Out To Be TRUE",
+ "title_candidates": [
+  "Conspiracy Theories That Turned Out To Be TRUE",
+  "4 Conspiracy Theories That Were Actually True",
+  "The CIA Spy Cat Was Real (And 3 More True Conspiracies)"
+ ],
+ "thumb_text": "IT WAS REAL",
+ "voice": "kokoro:eric-michael",
+ "rate": "+0%",
+ "short_rate": "+0%",
+ "music": "gen:mystery",
+ "style": "v4",
+ "aspect": "16:9",
+ "progress": true,
+ "captions": "bold",
+ "series": {
+  "text": "MEATBALL INVESTIGATES",
+  "case": "CASE FILE"
+ },
+ "blurb": "Which conspiracy theories turned out to be true? Meatball investigates four that are documented in declassified files: the CIA's Acoustic Kitty spy cat, the Gulf of Tonkin attack that never happened, Operation Northwoods, and Project MKUltra. Sources are in the description; every claim is from public records.",
+ "next": "Saturday: Is the Bermuda Triangle real? Meatball checks the records.\n\nSubscribe: a new Meatball case every Tuesday and Saturday",
+ "pinned": "Guess before the end: which one helped start a war? 🐱 / 🚢 / 📄 / 🧪 Comment your guess 👇 Follow Meatball for more 🍝",
+ "hashtags": "#conspiracy #history #declassified #coldwar #meatballinvestigates",
+ "tags": [
+  "conspiracy theories that turned out to be true",
+  "conspiracy theories",
+  "true conspiracy theories",
+  "operation northwoods",
+  "mkultra",
+  "acoustic kitty",
+  "gulf of tonkin",
+  "cold war secrets",
+  "declassified",
+  "meatball investigates"
+ ],
+ "names": {
+  "Felis catus": "Domestic cat"
+ },
+ "subjects": {
+  "190139406": {},
+  "158077054": {},
+  "112832573": {}
+ },
+ "sources": [
+  "Acoustic Kitty: CIA memo 'Views on Trained Cats [deleted] for [deleted] Use', declassified 2001, National Security Archive Electronic Briefing Book No. 54 — https://nsarchive2.gwu.edu/NSAEBB/NSAEBB54/ ; Wikipedia, Acoustic Kitty (microphone in ear canal, transmitter at base of skull, antenna in tail; taxi story from former officer Victor Marchetti, disputed by other accounts) — https://en.wikipedia.org/wiki/Acoustic_Kitty (checked 2026-10-26)",
+  "Gulf of Tonkin: Robert J. Hanyok, 'Skunks, Bogies, Silent Hounds, and the Flying Fish: The Gulf of Tonkin Mystery, 2-4 August 1964', Cryptologic Quarterly, NSA, released 2005 (no attack on 4 August; SIGINT presented to support an attack that did not occur) — https://www.nsa.gov/portals/75/documents/news-features/declassified-documents/gulf-of-tonkin/articles/release-1/rel1_skunks_bogies.pdf ; Wikipedia, Gulf of Tonkin incident / Gulf of Tonkin Resolution (7 Aug 1964)",
+  "Operation Northwoods: JCS memorandum to the Secretary of Defense, 13 March 1962, 'Justification for US Military Intervention in Cuba', signed L. L. Lemnitzer; rejected by the Kennedy administration; declassified 1997 (ARRB), published 2001 — https://nsarchive2.gwu.edu/news/20010430/",
+  "MKUltra: US Senate, 'Project MKULTRA, the CIA's Program of Research in Behavioral Modification', Joint Hearing, 3 August 1977; Church Committee final report (1976); Helms ordered files destroyed in 1973; ~20,000 documents found in 1977 via FOIA (John Marks) — https://en.wikipedia.org/wiki/MKUltra (checked 2026-10-26)"
+ ],
+ "_note": "Meatball Investigates long-form pilot (research/48 §8 idea 1), Showrunner 2026-10-26. 4 documented 'turned out true' cases counted down #4 to #1, MKUltra last (payoff, promised in the cold open). Verdict stamps on each (PROVEN / CONFIRMED). No jokes about MKUltra's victims; the Acoustic Kitty taxi story is labelled as one officer's disputed claim. v4 16:9 with early asks (guess card, one subscribe pill, one like ask, reminder at the end). Passes tools/retention.py. NOT rendered for posting; NOT scheduled.",
+ "beats": [
+  {
+   "say": "The CIA once tried to turn a cat into a spy. With a microphone inside it. That's not a theory. It's in their own files.",
+   "pose": "shock",
+   "myth": "intro",
+   "act": "peek",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 190139406
+    }
+   ],
+   "punch": [
+    "spy",
+    "inside"
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "hit": "files",
+   "chapter": "Cold open"
+  },
+  {
+   "say": "Four conspiracy theories that sounded crazy, and turned out to be true. Counting down to the biggest one, the one the CIA tried to shred. That one's at the end.",
+   "pose": "nervous",
+   "myth": "intro",
+   "act": "shake",
+   "shots": [
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg",
+     "board": {
+      "notes": [
+       "TURNED OUT TRUE",
+       "4 CASES"
+      ],
+      "stamp": "CLASSIFIED"
+     }
+    }
+   ],
+   "punch": "true",
+   "label": {
+    "text": "TURNED OUT\nTRUE",
+    "at": "true"
+   },
+   "sfx": [
+    "whoosh@shred"
+   ],
+   "promise": true
+  },
+  {
+   "say": "And I'll be honest. I'm a meatball. Everyone already thinks I'm hiding something. It's sauce. I'm hiding sauce.",
+   "pose": "nervous",
+   "myth": "intro",
+   "act": "hide",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 158077054,
+     "blur": true
+    }
+   ],
+   "aside": "(it's marinara)",
+   "sfx": [
+    "tink@sauce"
+   ]
+  },
+  {
+   "say": "Comment your guess before I tell you. Which one of these actually helped start a war? The spy cat? The ship attack? The fake attack plan? Or the mind control? Lock it in.",
+   "pose": "think",
+   "myth": "intro",
+   "act": "tumble",
+   "shots": [
+    {
+     "photo": "Torpedo launchers from the Gulf of Tonkin gunboat, 1964",
+     "obs": "ov:e095690a-1e0a-4a76-89e9-667261f107af"
+    },
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg",
+     "at": "fake"
+    }
+   ],
+   "act_at": "Comment",
+   "sfx": [
+    "thud@Comment"
+   ],
+   "ask": {
+    "q": "WHICH ONE HELPED\nSTART A WAR?",
+    "choices": [
+     "🐱 SPY CAT",
+     "🚢 SHIP ATTACK",
+     "📄 FAKE PLAN",
+     "🧪 MIND CONTROL"
+    ],
+    "at": "Comment"
+   },
+   "hold": 0.6
+  },
+  {
+   "say": "I'm Meatball, by the way. I investigate weird stuff, and I tell you what's actually true. Subscribe. A new case every Tuesday and Saturday.",
+   "pose": "point",
+   "myth": "intro",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 112832573
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "say": "Number four. The nineteen sixties. The CIA has a problem. It wants to listen to private conversations, and people keep noticing the guy with the microphone.",
+   "pose": "nervous",
+   "myth": "kitty",
+   "act": "run_in",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 190139406
+    }
+   ],
+   "chapter": "Acoustic Kitty: the CIA spy cat",
+   "counter": {
+    "n": 1,
+    "of": 4,
+    "text": "#4"
+   },
+   "hook": true,
+   "sfx": [
+    "whoosh"
+   ],
+   "punch": "microphone"
+  },
+  {
+   "say": "But nobody notices a cat. So the plan was simple. Put the microphone inside the cat.",
+   "pose": "shock",
+   "myth": "kitty",
+   "act": "shake",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 158077054
+    }
+   ],
+   "punch": "inside",
+   "label": {
+    "text": "MIC INSIDE\nTHE CAT",
+    "at": "inside"
+   },
+   "sfx": [
+    "boing@inside"
+   ]
+  },
+  {
+   "say": "Inside the agency, the project got a name. Acoustic Kitty. Which, to be fair, is a great name.",
+   "pose": "point",
+   "myth": "kitty",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 190139406
+    }
+   ],
+   "label": {
+    "text": "ACOUSTIC\nKITTY",
+    "at": "Acoustic"
+   },
+   "punch": "great"
+  },
+  {
+   "say": "A microphone in its ear. A transmitter at the base of its skull. An antenna woven through its tail.",
+   "pose": "nervous",
+   "myth": "kitty",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 112832573,
+     "board": {
+      "notes": [
+       "MIC: EAR",
+       "ANTENNA: TAIL",
+       "1960s"
+      ]
+     }
+    }
+   ],
+   "punch": "tail"
+  },
+  {
+   "say": "As a meatball, I would also like to object to this. Nobody is putting an antenna in me. I don't even have a tail.",
+   "pose": "nervous",
+   "myth": "kitty",
+   "act": "hide",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 190139406,
+     "blur": true
+    }
+   ],
+   "aside": "(I checked)",
+   "jeopardy": true
+  },
+  {
+   "say": "Here's the catch. Cats do not take orders. In training, it kept wandering off whenever it got hungry.",
+   "pose": "deadpan",
+   "myth": "kitty",
+   "act": "tumble",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 158077054
+    }
+   ],
+   "act_at": "catch",
+   "sfx": [
+    "thud@catch"
+   ],
+   "twist": true
+  },
+  {
+   "say": "They kept trying anyway. The project took years of work, and one estimate put the cost at twenty million dollars. For a cat.",
+   "pose": "deadpan",
+   "myth": "kitty",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 112832573,
+     "blur": true
+    }
+   ],
+   "label": {
+    "text": "$20 MILLION?",
+    "at": "million"
+   },
+   "punch": "cat",
+   "aside": "(per one estimate)"
+  },
+  {
+   "say": "One former CIA officer later claimed that on its first real test, it was hit by a taxi. Other accounts say the cat lived. Either way, the mission went nowhere.",
+   "pose": "shock",
+   "myth": "kitty",
+   "act": "launch",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 112832573
+    }
+   ],
+   "hit": "taxi",
+   "sfx": [
+    "crunch@taxi"
+   ]
+  },
+  {
+   "say": "In 2001, a declassified CIA memo called the idea not practical. So: spy cat, real. Spy cat that works? Not so much.",
+   "pose": "point",
+   "myth": "kitty",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 190139406,
+     "board": {
+      "notes": [
+       "DECLASSIFIED 2001",
+       "NOT PRACTICAL"
+      ]
+     }
+    }
+   ],
+   "stamp": {
+    "text": "PROVEN",
+    "at": "real"
+   }
+  },
+  {
+   "say": "And that was the cute one. Number three helped start a war.",
+   "pose": "nervous",
+   "myth": "kitty",
+   "act": "shake",
+   "shots": [
+    {
+     "photo": "Thunderstorm at night (NOAA)",
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3"
+    }
+   ],
+   "punch": "war",
+   "rehook": true,
+   "sfx": [
+    "whoosh@war"
+   ]
+  },
+  {
+   "say": "Number three. August nineteen sixty-four. An American destroyer, the USS Maddox, is patrolling off the coast of North Vietnam.",
+   "pose": "deadpan",
+   "myth": "tonkin",
+   "act": "run_in",
+   "shots": [
+    {
+     "photo": "Torpedo launchers from the Gulf of Tonkin gunboat, 1964",
+     "obs": "ov:e095690a-1e0a-4a76-89e9-667261f107af"
+    }
+   ],
+   "chapter": "The Gulf of Tonkin",
+   "counter": {
+    "n": 2,
+    "of": 4,
+    "text": "#3"
+   },
+   "hook": true,
+   "sfx": [
+    "whoosh"
+   ],
+   "punch": "Maddox"
+  },
+  {
+   "say": "On August second, North Vietnamese torpedo boats really did attack it. That part is true. This bullet hit the ship.",
+   "pose": "shock",
+   "myth": "tonkin",
+   "act": "shake",
+   "shots": [
+    {
+     "photo": "Bullet that struck the USS Maddox, 2 Aug 1964 (Navy museum)",
+     "obs": "ov:9707ba54-d3e1-42a3-a703-1cd07d6b11b5"
+    }
+   ],
+   "punch": "bullet",
+   "hit": "bullet",
+   "sfx": [
+    "crunch@bullet"
+   ]
+  },
+  {
+   "say": "Two nights later, in a storm, the crews reported a second attack. Torpedoes in the water. Radar contacts everywhere.",
+   "pose": "shock",
+   "myth": "tonkin",
+   "act": "tumble",
+   "shots": [
+    {
+     "photo": "Thunderstorm at night (NOAA)",
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3"
+    },
+    {
+     "photo": "Torpedo launchers from the Gulf of Tonkin gunboat, 1964",
+     "obs": "ov:e095690a-1e0a-4a76-89e9-667261f107af",
+     "at": "Torpedoes"
+    }
+   ],
+   "act_at": "Torpedoes",
+   "sfx": [
+    "thud@Torpedoes",
+    "whoosh@Radar"
+   ],
+   "jeopardy": true
+  },
+  {
+   "say": "Within days, Congress passed the Gulf of Tonkin Resolution, and America's war in Vietnam grew fast.",
+   "pose": "deadpan",
+   "myth": "tonkin",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "The United States Capitol",
+     "obs": "ov:c90463c3-df1b-437e-88f7-7951c6f156ff"
+    }
+   ],
+   "punch": "grew"
+  },
+  {
+   "say": "The vote wasn't close. Four hundred sixteen to zero in the House. Eighty-eight to two in the Senate.",
+   "pose": "shock",
+   "myth": "tonkin",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "The United States Capitol",
+     "obs": "ov:c90463c3-df1b-437e-88f7-7951c6f156ff"
+    }
+   ],
+   "label": {
+    "text": "416 - 0",
+    "at": "sixteen"
+   },
+   "punch": "zero"
+  },
+  {
+   "say": "That same night, before anyone checked, the President went on TV and announced air strikes.",
+   "pose": "shock",
+   "myth": "tonkin",
+   "act": "shake",
+   "shots": [
+    {
+     "photo": "Thunderstorm at night (NOAA)",
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3"
+    }
+   ],
+   "punch": "strikes",
+   "sfx": [
+    "whoosh@strikes"
+   ]
+  },
+  {
+   "say": "But the destroyer's own commander had already sent a message saying the reports looked doubtful, and asking for a full review before anyone acted.",
+   "pose": "nervous",
+   "myth": "tonkin",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Torpedo launchers from the Gulf of Tonkin gunboat, 1964",
+     "obs": "ov:e095690a-1e0a-4a76-89e9-667261f107af"
+    }
+   ],
+   "punch": "doubtful"
+  },
+  {
+   "say": "Here's the twist. The second attack almost certainly never happened.",
+   "pose": "shock",
+   "myth": "tonkin",
+   "act": "shake",
+   "shots": [
+    {
+     "photo": "Thunderstorm at night (NOAA)",
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3"
+    }
+   ],
+   "twist": true,
+   "punch": "never"
+  },
+  {
+   "say": "In 2005, the National Security Agency released its own historian's study. It found no attack that night, and that the intercepts had been presented as proof when they weren't.",
+   "pose": "point",
+   "myth": "tonkin",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Bullet that struck the USS Maddox, 2 Aug 1964 (Navy museum)",
+     "obs": "ov:9707ba54-d3e1-42a3-a703-1cd07d6b11b5",
+     "board": {
+      "notes": [
+       "4 AUG 1964",
+       "NO ATTACK"
+      ]
+     }
+    }
+   ],
+   "stamp": {
+    "text": "PROVEN",
+    "at": "attack"
+   }
+  },
+  {
+   "say": "I've been attacked by a radar ghost too. It was a fork. It was just a fork.",
+   "pose": "nervous",
+   "myth": "tonkin",
+   "act": "hide",
+   "shots": [
+    {
+     "photo": "Thunderstorm at night (NOAA)",
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3",
+     "blur": true
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "fork",
+   "sting": "tink"
+  },
+  {
+   "say": "And remember the one the CIA tried to shred? We're getting closer. Stick around for it.",
+   "pose": "nervous",
+   "myth": "tonkin",
+   "act": "peek",
+   "shots": [
+    {
+     "photo": "Allen Dulles, CIA director",
+     "obs": "ov:1c0a5649-71f8-46e0-90d8-f9f189754f00",
+     "blur": true
+    }
+   ],
+   "tease": true,
+   "rehook": true
+  },
+  {
+   "say": "So that's how the guess comes out. The ship attack helped start a war. And number two is worse. Number two was planned on purpose.",
+   "pose": "nervous",
+   "myth": "tonkin",
+   "act": "shake",
+   "shots": [
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg"
+    }
+   ],
+   "rehook": true,
+   "punch": "purpose"
+  },
+  {
+   "say": "If this is the weirdest thing you've learned today, hit like. It helps more people find Meatball.",
+   "pose": "point",
+   "myth": "tonkin",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "The Pentagon",
+     "obs": "ov:d9cde009-48aa-4c0f-ad5a-1eef19190154"
+    }
+   ],
+   "label": {
+    "text": "HIT LIKE",
+    "at": "like"
+   },
+   "sfx": [
+    "pop@like"
+   ]
+  },
+  {
+   "say": "Number two. March nineteen sixty-two. America's top generals send a memo to the Secretary of Defense.",
+   "pose": "deadpan",
+   "myth": "northwoods",
+   "act": "run_in",
+   "shots": [
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg"
+    }
+   ],
+   "chapter": "Operation Northwoods",
+   "counter": {
+    "n": 3,
+    "of": 4,
+    "text": "#2"
+   },
+   "hook": true,
+   "sfx": [
+    "whoosh"
+   ],
+   "punch": "memo"
+  },
+  {
+   "say": "Its title: Justification for US Military Intervention in Cuba. The idea: invent reasons to start a war.",
+   "pose": "shock",
+   "myth": "northwoods",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Caribbean map (1950)",
+     "obs": "wm:Bermuda Triangle 1950 map.jpg"
+    }
+   ],
+   "label": {
+    "text": "INVENT\nREASONS",
+    "at": "invent"
+   },
+   "punch": "invent"
+  },
+  {
+   "say": "Stage attacks on the US base at Guantanamo. Blow up an American ship and blame Cuba.",
+   "pose": "shock",
+   "myth": "northwoods",
+   "act": "launch",
+   "shots": [
+    {
+     "photo": "The Pentagon",
+     "obs": "ov:d9cde009-48aa-4c0f-ad5a-1eef19190154"
+    }
+   ],
+   "hit": "Blow",
+   "sfx": [
+    "crunch@Blow"
+   ]
+  },
+  {
+   "say": "Sink a boat of Cuban refugees, real or simulated, and blame that too. And if John Glenn's space launch failed, blame Cuba for that as well.",
+   "pose": "nervous",
+   "myth": "northwoods",
+   "act": "shake",
+   "shots": [
+    {
+     "photo": "Caribbean map (1950)",
+     "obs": "wm:Bermuda Triangle 1950 map.jpg"
+    }
+   ],
+   "punch": [
+    "simulated",
+    "Glenn"
+   ],
+   "label": {
+    "text": "BLAME CUBA\nFOR SPACE?",
+    "at": "Glenn"
+   }
+  },
+  {
+   "say": "It even suggested holding funerals for fake victims, so the newspapers would print them. Fake victims. Real funerals. Someone typed that.",
+   "pose": "deadpan",
+   "myth": "northwoods",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg",
+     "blur": true
+    }
+   ],
+   "punch": "typed",
+   "aside": "(and someone signed it)"
+  },
+  {
+   "say": "Even fake the shooting down of a passenger plane, by swapping it for an empty drone.",
+   "pose": "nervous",
+   "myth": "northwoods",
+   "act": "tumble",
+   "shots": [
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg",
+     "board": {
+      "notes": [
+       "FAKE AIRLINER",
+       "DRONE"
+      ],
+      "stamp": "TOP SECRET"
+     }
+    }
+   ],
+   "act_at": "drone",
+   "sfx": [
+    "thud@drone"
+   ],
+   "jeopardy": true
+  },
+  {
+   "say": "The memo was signed by the chairman of the Joint Chiefs, General Lyman Lemnitzer.",
+   "pose": "deadpan",
+   "myth": "northwoods",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "General Lyman Lemnitzer",
+     "obs": "wm:GEN Lyman L. Lemnitzer, portrait as SACEUR (cropped 2).jpg"
+    }
+   ],
+   "punch": "signed"
+  },
+  {
+   "say": "For the record, I have never planned a fake anything. I'm a real meatball. Fully real. Look at me.",
+   "pose": "nervous",
+   "myth": "northwoods",
+   "act": "shake",
+   "shots": [
+    {
+     "photo": "The Pentagon",
+     "obs": "ov:d9cde009-48aa-4c0f-ad5a-1eef19190154",
+     "blur": true
+    }
+   ],
+   "aside": "(100% beef)"
+  },
+  {
+   "say": "Here's the good news. President Kennedy's administration said no. None of it happened.",
+   "pose": "point",
+   "myth": "northwoods",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "President Kennedy, 1963",
+     "obs": "wm:President Kennedy American University Commencement Address June 10, 1963.jpg"
+    }
+   ],
+   "twist": true,
+   "punch": "no"
+  },
+  {
+   "say": "We only know because the memo was declassified in nineteen ninety-seven, and published in two thousand one.",
+   "pose": "point",
+   "myth": "northwoods",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg"
+    }
+   ],
+   "stamp": {
+    "text": "CONFIRMED",
+    "at": "declassified"
+   }
+  },
+  {
+   "say": "So that's a plan that never happened. Number one did happen. For twenty years.",
+   "pose": "nervous",
+   "myth": "northwoods",
+   "act": "shake",
+   "shots": [
+    {
+     "photo": "Allen Dulles, CIA director",
+     "obs": "ov:1c0a5649-71f8-46e0-90d8-f9f189754f00",
+     "blur": true
+    }
+   ],
+   "rehook": true,
+   "punch": "twenty"
+  },
+  {
+   "say": "Number one. Project MKUltra. Nineteen fifty-three. The Cold War. The CIA is afraid its enemies have learned to control minds.",
+   "pose": "shock",
+   "myth": "mkultra",
+   "act": "run_in",
+   "shots": [
+    {
+     "photo": "Allen Dulles, CIA director",
+     "obs": "ov:1c0a5649-71f8-46e0-90d8-f9f189754f00"
+    }
+   ],
+   "chapter": "Project MKUltra",
+   "counter": {
+    "n": 4,
+    "of": 4,
+    "text": "#1"
+   },
+   "hook": true,
+   "payoff": true,
+   "sfx": [
+    "whoosh"
+   ],
+   "punch": "minds"
+  },
+  {
+   "say": "CIA director Allen Dulles approves a secret research program. For twenty years, the CIA pays for experiments at universities, hospitals and prisons, often through fake front groups.",
+   "pose": "deadpan",
+   "myth": "mkultra",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Allen Dulles, CIA director",
+     "obs": "ov:1c0a5649-71f8-46e0-90d8-f9f189754f00"
+    },
+    {
+     "photo": "The United States Capitol",
+     "obs": "ov:c90463c3-df1b-437e-88f7-7951c6f156ff",
+     "at": "universities"
+    }
+   ],
+   "punch": "fake"
+  },
+  {
+   "say": "There were about a hundred and fifty separate sub-projects. Some were run out of apartments in San Francisco and New York, where people were secretly given drugs.",
+   "pose": "shock",
+   "myth": "mkultra",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Allen Dulles, CIA director",
+     "obs": "ov:1c0a5649-71f8-46e0-90d8-f9f189754f00",
+     "at": "0"
+    },
+    {
+     "photo": "The United States Capitol",
+     "obs": "ov:c90463c3-df1b-437e-88f7-7951c6f156ff",
+     "at": "San"
+    }
+   ],
+   "punch": [
+    "hundred",
+    "secretly"
+   ]
+  },
+  {
+   "say": "They tested drugs, including LSD, plus hypnosis and sleep deprivation. Sometimes on people who never agreed to it, or never even knew.",
+   "pose": "nervous",
+   "myth": "mkultra",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "The United States Capitol",
+     "obs": "ov:c90463c3-df1b-437e-88f7-7951c6f156ff",
+     "board": {
+      "notes": [
+       "1953-1973",
+       "LSD",
+       "NO CONSENT"
+      ]
+     }
+    }
+   ],
+   "punch": "knew"
+  },
+  {
+   "say": "This part isn't funny, so I won't joke. Real people were hurt, and some lived with it for the rest of their lives.",
+   "pose": "deadpan",
+   "myth": "mkultra",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Allen Dulles, CIA director",
+     "obs": "ov:1c0a5649-71f8-46e0-90d8-f9f189754f00",
+     "blur": true
+    }
+   ],
+   "hold": 0.4
+  },
+  {
+   "say": "Then, in nineteen seventy-five, a presidential commission and Senate investigators started asking questions.",
+   "pose": "point",
+   "myth": "mkultra",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "The United States Capitol",
+     "obs": "ov:c90463c3-df1b-437e-88f7-7951c6f156ff"
+    }
+   ],
+   "punch": "questions",
+   "sfx": [
+    "whoosh@questions"
+   ]
+  },
+  {
+   "say": "In nineteen seventy-three, the CIA director ordered the MKUltra files destroyed.",
+   "pose": "shock",
+   "myth": "mkultra",
+   "act": "shake",
+   "shots": [
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg"
+    }
+   ],
+   "punch": "destroyed",
+   "label": {
+    "text": "SHRED IT",
+    "at": "destroyed"
+   }
+  },
+  {
+   "say": "Here's the twist. They missed some. In nineteen seventy-seven, about twenty thousand documents turned up, misfiled in a records center.",
+   "pose": "shock",
+   "myth": "mkultra",
+   "act": "launch",
+   "shots": [
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg",
+     "board": {
+      "notes": [
+       "20,000 PAGES",
+       "MISFILED"
+      ]
+     }
+    }
+   ],
+   "hit": "missed",
+   "sfx": [
+    "crunch@missed"
+   ],
+   "twist": true
+  },
+  {
+   "say": "That same year, the US Senate held public hearings. It's all on the record now.",
+   "pose": "point",
+   "myth": "mkultra",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "The United States Capitol",
+     "obs": "ov:c90463c3-df1b-437e-88f7-7951c6f156ff"
+    }
+   ],
+   "stamp": {
+    "text": "PROVEN",
+    "at": "record"
+   },
+   "hold": 0.3
+  },
+  {
+   "say": "So, four conspiracy theories, all true. A spy cat, an attack that didn't happen, a fake war plan, and a mind control program.",
+   "pose": "deadpan",
+   "myth": "outro",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 190139406
+    },
+    {
+     "photo": "Thunderstorm at night (NOAA)",
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3",
+     "at": "attack"
+    },
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg",
+     "at": "fake"
+    },
+    {
+     "photo": "Allen Dulles, CIA director",
+     "obs": "ov:1c0a5649-71f8-46e0-90d8-f9f189754f00",
+     "at": "mind"
+    }
+   ],
+   "chapter": "Case closed",
+   "counter": false
+  },
+  {
+   "say": "But look at how we know. Every one came out through documents, investigations and records you can read yourself.",
+   "pose": "point",
+   "myth": "outro",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg",
+     "board": {
+      "notes": [
+       "DOCUMENTS",
+       "HEARINGS",
+       "RECORDS"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "say": "That's the test. Most theories never pass it. These four did. Which is exactly why I check.",
+   "pose": "deadpan",
+   "myth": "outro",
+   "act": "shake",
+   "shots": [
+    {
+     "photo": "The United States Capitol",
+     "obs": "ov:c90463c3-df1b-437e-88f7-7951c6f156ff"
+    }
+   ]
+  },
+  {
+   "say": "And for every theory like these, there are dozens that fall apart the second you check. I'll investigate those too. Out loud. With stamps.",
+   "pose": "point",
+   "myth": "outro",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Caribbean map (1950)",
+     "obs": "wm:Bermuda Triangle 1950 map.jpg",
+     "board": {
+      "notes": [
+       "NEXT CASE",
+       "BERMUDA?"
+      ]
+     }
+    }
+   ],
+   "stamp": {
+    "text": "CASE\nCLOSED",
+    "at": "stamps",
+    "reveal": false
+   }
+  },
+  {
+   "say": "So, were you right? Which one helped start a war? Tell me in the comments.",
+   "pose": "point",
+   "myth": "outro",
+   "act": "peek",
+   "shots": [
+    {
+     "photo": "Torpedo launchers from the Gulf of Tonkin gunboat, 1964",
+     "obs": "ov:e095690a-1e0a-4a76-89e9-667261f107af"
+    }
+   ],
+   "ask": {
+    "q": "WERE YOU RIGHT? 👇",
+    "at": "right"
+   },
+   "hold": 0.5
+  },
+  {
+   "say": "Next case: the Bermuda Triangle. Ships, planes, a so-called curse. I checked the records. See you Saturday.",
+   "pose": "nervous",
+   "myth": "outro",
+   "act": "shake",
+   "shots": [
+    {
+     "photo": "Thunderstorm at night (NOAA)",
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3"
+    }
+   ],
+   "punch": "curse"
+  }
+ ]
+}

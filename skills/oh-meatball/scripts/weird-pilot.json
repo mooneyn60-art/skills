@@ -1,0 +1,924 @@
+{
+ "title": "Meatball Investigates: weird pilot pack (6 v4 Shorts)",
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+0%",
+ "short_rate": "+0%",
+ "tempo": 1.1,
+ "music": "gen:mystery",
+ "style": "v4",
+ "captions": "bold",
+ "series": {
+  "text": "MEATBALL INVESTIGATES"
+ },
+ "short_hashtags": "#shorts #meatballinvestigates #weirdhistory #mystery #meatballmyths",
+ "photo_source": "Wikimedia Commons, NOAA, NARA, iNaturalist, Openverse",
+ "_note": "Pilot for the 'Meatball investigates the weird' pivot (research/48), 2026-10-26. 6 YouTube Shorts at 20-25 s: 3 conspiracy/mystery (Bermuda Triangle debunk, Operation Northwoods turned-out-true, Roswell mixed verdict), 2 strange history (Great Emu War, Dancing Plague of 1518), 1 everyday myth (lightning strikes twice). v4 cut-outs for objects/animals where the matte passes (emus, Lewis gun, planes, balloon), v3 motion stills otherwise; evidence boards on case beats. Ask kit early (guess card 3-6 s, subscribe pill 6-10 s, reminder before the loop). Every payoff says what the evidence says. Voice Andrew +0% then atempo 1.10. Music: original procedural beds (tools/music.py), 'mystery' on 4 Shorts, 'detective' pizzicato on Roswell and Dancing for comparison. No real private people shown; public officials only in public-domain government or press photos. Photos PD/CC0/CC BY only (credits.txt). NOT SCHEDULED: samples for Nolan.",
+ "names": {},
+ "subjects": {
+  "147212260": {},
+  "295041423": {},
+  "142106655": {},
+  "ov:d01b7d32-2ecb-4d3e-855c-0645de9a6681": {
+   "cutout": false,
+   "_why": "the matte picks the radar dome, not the small balloon"
+  }
+ },
+ "beats": [
+  {
+   "myth": "bermuda",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Ships vanish in the Bermuda Triangle. Supposedly.",
+   "punch": "vanish",
+   "sfx": [
+    "whoosh@vanish"
+   ],
+   "shots": [
+    {
+     "photo": "TBM Avenger in Flight 19 markings",
+     "obs": "ov:6d383f9b-6822-4319-bce2-6fb7faf30b49"
+    }
+   ],
+   "hook": true,
+   "case": "CASE #1",
+   "music": "gen:mystery",
+   "loop_say": "Still not swimming there. Because",
+   "short_title": "Is the Bermuda Triangle Real? 🔍 Meatball Investigates",
+   "comment": "Would you sail through it? ⛵ yes / 🚫 no way",
+   "bonus": "Even the rescue plane sent after Flight 19 was lost, most likely in an explosion. The 'Bermuda Triangle' name comes from a 1964 magazine story by Vincent Gaddis.",
+   "caption": "Is the Bermuda Triangle cursed? Meatball checked the records. ⛵ or 🚫? #bermudatriangle #mystery #conspiracy #history",
+   "sources": [
+    "NOAA Ocean Service, 'What is the Bermuda Triangle?' (no evidence disappearances happen more often there than in any other large, heavily traveled area of ocean; the US Navy and Coast Guard agree) — https://oceanservice.noaa.gov/facts/bermudatri.html (checked 2026-10-26)",
+    "Wikipedia, Flight 19 (5 TBM Avengers lost 5 Dec 1945; navigation error, ran low on fuel over rough seas; PBM Mariner search plane also lost, likely exploded) — https://en.wikipedia.org/wiki/Flight_19",
+    "Wikipedia, Bermuda Triangle (term from Vincent Gaddis, Argosy, Feb 1964) — https://en.wikipedia.org/wiki/Bermuda_Triangle"
+   ]
+  },
+  {
+   "myth": "bermuda",
+   "pose": "think",
+   "act": "stand",
+   "say": "Cursed, or just ocean? Guess.",
+   "ask": {
+    "q": "CURSED?",
+    "choices": [
+     "🌀 CURSED",
+     "🌊 JUST OCEAN"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "shots": [
+    {
+     "photo": "Atlantic hurricane tracks",
+     "obs": "wm:Atlantic hurricane tracks.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "bermuda",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I investigate weird stuff daily.",
+   "sub": {
+    "at": "Subscribe"
+   },
+   "shots": [
+    {
+     "photo": "Bermuda Triangle map (1950)",
+     "obs": "wm:Bermuda Triangle 1950 map.jpg",
+     "board": {
+      "notes": [
+       "1945",
+       "5 PLANES",
+       "NO TRACE?"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "myth": "bermuda",
+   "pose": "shock",
+   "act": "run_in",
+   "say": "1945: five Navy bombers vanished.",
+   "punch": "vanished",
+   "sfx": [
+    "whoosh"
+   ],
+   "shots": [
+    {
+     "photo": "TBM Avenger bombers",
+     "obs": "ov:a51e5bfa-8605-4668-8314-d71d9e55b14d"
+    }
+   ]
+  },
+  {
+   "myth": "bermuda",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "Real cause? Lost, out of fuel.",
+   "act_at": "fuel",
+   "sfx": [
+    "thud@fuel"
+   ],
+   "shots": [
+    {
+     "photo": "Thunderstorm at night (NOAA)",
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3"
+    }
+   ]
+  },
+  {
+   "myth": "bermuda",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Experts checked: no more losses than anywhere.",
+   "stamp": {
+    "text": "BUSTED",
+    "at": "losses"
+   },
+   "hold": 0.5,
+   "shots": [
+    {
+     "photo": "Atlantic hurricane tracks",
+     "obs": "wm:Atlantic hurricane tracks.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "bermuda",
+   "pose": "think",
+   "act": "peek",
+   "say": "Did you guess right? Comment.",
+   "ask": {
+    "q": "GUESSED RIGHT? 👇",
+    "at": "guess"
+   },
+   "shots": [
+    {
+     "photo": "TBM Avenger bombers",
+     "obs": "ov:a51e5bfa-8605-4668-8314-d71d9e55b14d"
+    }
+   ]
+  },
+  {
+   "myth": "northwoods",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "US generals once planned fake attacks. Seriously.",
+   "punch": "fake",
+   "stamp": {
+    "text": "TOP SECRET",
+    "at": "attacks",
+    "y": 0.3,
+    "reveal": false
+   },
+   "shots": [
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg"
+    }
+   ],
+   "hook": true,
+   "case": "CASE #2",
+   "music": "gen:mystery",
+   "loop_say": "Always read the fine print. Because",
+   "short_title": "Operation Northwoods: The Conspiracy That Was TRUE 🔍",
+   "comment": "Did you know this was real? ✅ yes / 😳 no idea",
+   "bonus": "One idea in the plan: fake the shoot-down of a civilian airliner with a remote-controlled drone. The memo was declassified in 1997.",
+   "caption": "Operation Northwoods was real: a 1962 plan for fake attacks blamed on Cuba, rejected by Kennedy's team. ✅ or 😳? #conspiracy #history #coldwar #declassified",
+   "sources": [
+    "Joint Chiefs of Staff memorandum 'Justification for US Military Intervention in Cuba', 13 March 1962 (Operation Northwoods), National Security Archive, George Washington University — https://nsarchive2.gwu.edu/news/20010430/ (checked 2026-10-26)",
+    "Wikipedia, Operation Northwoods (proposed staged attacks incl. a faked shoot-down of a civilian airliner using a drone, blamed on Cuba; rejected by the Kennedy administration; declassified 1997 by the Assassination Records Review Board) — https://en.wikipedia.org/wiki/Operation_Northwoods"
+   ]
+  },
+  {
+   "myth": "northwoods",
+   "pose": "think",
+   "act": "stand",
+   "say": "So, did they actually do it? Guess.",
+   "ask": {
+    "q": "DID THEY DO IT?",
+    "choices": [
+     "✅ THEY DID",
+     "❌ NOPE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "shots": [
+    {
+     "photo": "The Pentagon",
+     "obs": "ov:d9cde009-48aa-4c0f-ad5a-1eef19190154"
+    }
+   ]
+  },
+  {
+   "myth": "northwoods",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I investigate weird stuff daily.",
+   "sub": {
+    "at": "Subscribe"
+   },
+   "shots": [
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg",
+     "board": {
+      "notes": [
+       "MARCH 1962",
+       "BLAME CUBA"
+      ],
+      "stamp": "CLASSIFIED"
+     }
+    }
+   ]
+  },
+  {
+   "myth": "northwoods",
+   "pose": "shock",
+   "act": "run_in",
+   "say": "1962: fake attacks, blamed on Cuba.",
+   "label": {
+    "text": "BLAME\nCUBA",
+    "at": "Cuba"
+   },
+   "sfx": [
+    "whoosh"
+   ],
+   "shots": [
+    {
+     "photo": "Bermuda Triangle map (1950)",
+     "obs": "wm:Bermuda Triangle 1950 map.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "northwoods",
+   "pose": "nervous",
+   "act": "tumble",
+   "say": "Even a fake airliner, shot down.",
+   "act_at": "down",
+   "sfx": [
+    "thud@down"
+   ],
+   "shots": [
+    {
+     "photo": "The Pentagon",
+     "obs": "ov:d9cde009-48aa-4c0f-ad5a-1eef19190154"
+    }
+   ]
+  },
+  {
+   "myth": "northwoods",
+   "pose": "shock",
+   "act": "launch",
+   "say": "I read the memo. It's real.",
+   "hit": "memo",
+   "sfx": [
+    "crunch@memo"
+   ],
+   "stamp": {
+    "text": "PROVEN",
+    "at": "real"
+   },
+   "hold": 0.5,
+   "shots": [
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg",
+     "board": {
+      "notes": [
+       "NORTHWOODS",
+       "1962"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "myth": "northwoods",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Kennedy's team said no.",
+   "punch": "no",
+   "shots": [
+    {
+     "photo": "President Kennedy, 1963",
+     "obs": "wm:President Kennedy American University Commencement Address June 10, 1963.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "northwoods",
+   "pose": "think",
+   "act": "peek",
+   "say": "Did you guess right? Comment.",
+   "ask": {
+    "q": "GUESSED RIGHT? 👇",
+    "at": "guess"
+   },
+   "shots": [
+    {
+     "photo": "The Pentagon",
+     "obs": "ov:d9cde009-48aa-4c0f-ad5a-1eef19190154"
+    }
+   ]
+  },
+  {
+   "myth": "roswell",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "The Roswell cover-up was real. Not aliens.",
+   "punch": "real",
+   "shots": [
+    {
+     "photo": "Roswell debris, 1947",
+     "obs": "wm:Ramey-dubose-debris.jpg"
+    }
+   ],
+   "hook": true,
+   "case": "CASE #3",
+   "music": "gen:detective",
+   "loop_say": "The truth was weirder. Because",
+   "short_title": "What REALLY Crashed at Roswell? 🔍 Meatball Investigates",
+   "comment": "What did you think crashed? 👽 aliens / 🎈 balloon",
+   "bonus": "Project Mogul's balloons carried microphones to listen for Soviet nuclear tests. The Air Force's reports came out in 1994-1997.",
+   "caption": "Roswell 1947: the cover-up was real, the aliens weren't. It was Project Mogul. 👽 or 🎈? #roswell #ufo #conspiracy #history",
+   "sources": [
+    "US Air Force, 'The Roswell Report: Fact vs. Fiction in the New Mexico Desert' (1994/1995) and 'The Roswell Report: Case Closed' (1997): debris came from Project Mogul, a classified balloon train carrying sensors to detect Soviet nuclear tests — https://en.wikipedia.org/wiki/Project_Mogul (checked 2026-10-26)",
+    "Wikipedia, Roswell incident (8 July 1947 RAAF press release announced a recovered 'flying disc'; the next day the Army said it was a weather balloon) — https://en.wikipedia.org/wiki/Roswell_incident"
+   ]
+  },
+  {
+   "myth": "roswell",
+   "pose": "think",
+   "act": "stand",
+   "say": "So what really crashed? Guess.",
+   "ask": {
+    "q": "WHAT CRASHED?",
+    "choices": [
+     "👽 ALIENS",
+     "🎈 SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "shots": [
+    {
+     "photo": "Roswell debris, 1947",
+     "obs": "wm:Marcel-roswell-debris 0.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "roswell",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I investigate weird stuff daily.",
+   "sub": {
+    "at": "Subscribe"
+   },
+   "shots": [
+    {
+     "photo": "Roswell debris, 1947",
+     "obs": "wm:Marcel-roswell-debris 0.jpg",
+     "board": {
+      "notes": [
+       "JULY 1947",
+       "FLYING DISC?"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "myth": "roswell",
+   "pose": "shock",
+   "act": "run_in",
+   "say": "1947: the Army announced a flying disc.",
+   "punch": "disc",
+   "sfx": [
+    "whoosh"
+   ],
+   "shots": [
+    {
+     "photo": "Roswell debris, 1947",
+     "obs": "wm:Ramey-dubose-debris.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "roswell",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Next day: just a weather balloon.",
+   "label": {
+    "text": "WEATHER\nBALLOON?",
+    "at": "weather"
+   },
+   "shots": [
+    {
+     "photo": "Weather balloon launch (NOAA)",
+     "obs": "ov:d01b7d32-2ecb-4d3e-855c-0645de9a6681"
+    }
+   ]
+  },
+  {
+   "myth": "roswell",
+   "pose": "point",
+   "act": "stand",
+   "say": "Truth: a secret spy balloon. Project Mogul.",
+   "stamp": {
+    "text": "COVER-UP\nTRUE",
+    "at": "Mogul"
+   },
+   "hold": 0.4,
+   "shots": [
+    {
+     "photo": "Project Mogul balloon train",
+     "obs": "wm:Mogul balloon train USAF 1995.png"
+    }
+   ]
+  },
+  {
+   "myth": "roswell",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "The Air Force admitted it in 1994.",
+   "act_at": "admitted",
+   "sfx": [
+    "thud@admitted"
+   ],
+   "stamp": {
+    "text": "ALIENS\nBUSTED",
+    "at": "admitted",
+    "y": 0.66
+   },
+   "hold": 0.6,
+   "shots": [
+    {
+     "photo": "The Roswell Report: Case Closed",
+     "obs": "wm:The Roswell Report - Case Closed.jpg",
+     "board": {
+      "notes": [
+       "PROJECT MOGUL",
+       "1994"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "myth": "roswell",
+   "pose": "think",
+   "act": "peek",
+   "say": "Did you guess right? Comment.",
+   "ask": {
+    "q": "GUESSED RIGHT? 👇",
+    "at": "guess"
+   },
+   "shots": [
+    {
+     "photo": "Roswell debris, 1947",
+     "obs": "wm:Marcel-roswell-debris 0.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "emuwar",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Australia went to war with emus. And lost.",
+   "punch": "lost",
+   "animal": "turn@lost",
+   "shots": [
+    {
+     "photo": "Dromaius novaehollandiae",
+     "obs": 142106655
+    }
+   ],
+   "hook": true,
+   "case": "CASE #4",
+   "music": "gen:mystery",
+   "loop_say": "Never fight a bird. Because",
+   "short_title": "The Great Emu War: Australia Lost to Birds 🔍",
+   "comment": "Who would you bet on? 🪖 army / 🐦 emus",
+   "bonus": "The soldiers fired almost 10,000 rounds. About 20,000 emus had moved onto the wheat farms.",
+   "caption": "In 1932 Australia sent soldiers with machine guns after 20,000 emus. The emus won. 🪖 or 🐦? #emuwar #history #weirdhistory #australia",
+   "sources": [
+    "Wikipedia, Emu War (Western Australia, Nov-Dec 1932; ~20,000 emus damaging wheat; soldiers under Major G.P.W. Meredith with two Lewis guns; emus scattered into small groups; the military withdrew twice) — https://en.wikipedia.org/wiki/Emu_War (checked 2026-10-26)",
+    "National Museum of Australia, 'Emu War' (Defining Moments) — https://www.nma.gov.au/defining-moments/resources/emu-war"
+   ]
+  },
+  {
+   "myth": "emuwar",
+   "pose": "think",
+   "act": "stand",
+   "say": "Who won? Guess.",
+   "ask": {
+    "q": "WHO WON?",
+    "choices": [
+     "🪖 THE ARMY",
+     "🐦 THE EMUS"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "shots": [
+    {
+     "photo": "Dromaius novaehollandiae",
+     "obs": 147212260
+    }
+   ],
+   "animal": "turn@won"
+  },
+  {
+   "myth": "emuwar",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I investigate weird stuff daily.",
+   "sub": {
+    "at": "Subscribe"
+   },
+   "shots": [
+    {
+     "photo": "Dromaius novaehollandiae",
+     "obs": 295041423
+    }
+   ]
+  },
+  {
+   "myth": "emuwar",
+   "pose": "shock",
+   "act": "run_in",
+   "say": "1932: machine guns versus twenty thousand emus.",
+   "label": {
+    "text": "20,000\nEMUS",
+    "at": "thousand"
+   },
+   "sfx": [
+    "whoosh"
+   ],
+   "shots": [
+    {
+     "photo": "Lewis gun",
+     "obs": "ov:184a2ede-cdaa-433d-aebe-36239fb697b7"
+    },
+    {
+     "photo": "Dromaius novaehollandiae",
+     "obs": 147212260,
+     "at": "twenty"
+    }
+   ]
+  },
+  {
+   "myth": "emuwar",
+   "pose": "shock",
+   "act": "launch",
+   "say": "The emus split up and ran.",
+   "hit": "ran",
+   "animal": "lunge@ran",
+   "contact": true,
+   "sfx": [
+    "crunch@ran"
+   ],
+   "shots": [
+    {
+     "photo": "Dromaius novaehollandiae",
+     "obs": 295041423
+    }
+   ]
+  },
+  {
+   "myth": "emuwar",
+   "pose": "point",
+   "act": "stand",
+   "say": "A month later, the army gave up.",
+   "stamp": {
+    "text": "EMUS WIN",
+    "at": "gave",
+    "color": [
+     30,
+     165,
+     70
+    ]
+   },
+   "hold": 0.5,
+   "animal": "turn@month",
+   "shots": [
+    {
+     "photo": "Dromaius novaehollandiae",
+     "obs": 142106655
+    }
+   ]
+  },
+  {
+   "myth": "emuwar",
+   "pose": "think",
+   "act": "peek",
+   "say": "Did you guess right? Comment.",
+   "ask": {
+    "q": "GUESSED RIGHT? 👇",
+    "at": "guess"
+   },
+   "shots": [
+    {
+     "photo": "Dromaius novaehollandiae",
+     "obs": 147212260
+    }
+   ]
+  },
+  {
+   "myth": "dancing",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "In 1518, a town couldn't stop dancing.",
+   "punch": "stop",
+   "shots": [
+    {
+     "photo": "Dancing mania engraving (1642)",
+     "obs": "wm:Dancingplague2 (alt).jpg"
+    }
+   ],
+   "hook": true,
+   "case": "CASE #5",
+   "music": "gen:detective",
+   "loop_say": "Never trust a catchy song. Because",
+   "short_title": "The Dancing Plague of 1518 Was REAL 🔍",
+   "comment": "Could this happen today? 😬 yes / 🙅 no way",
+   "bonus": "It happened in Strasbourg in July 1518. The physician Paracelsus wrote about it a few years later.",
+   "caption": "Strasbourg, 1518: people danced for days and the city hired a band to cure it. 😬 or 🙅? #dancingplague #history #weirdhistory #mystery",
+   "sources": [
+    "Wikipedia, Dancing plague of 1518 (Strasbourg, July 1518; began with one woman, Frau Troffea; dozens joined within a week; authorities prescribed more dancing, built a stage and hired musicians; leading explanation mass psychogenic illness amid famine and disease, ergot theory disputed) — https://en.wikipedia.org/wiki/Dancing_plague_of_1518 (checked 2026-10-26)",
+    "John Waller, 'A forgotten plague: making sense of dancing mania', The Lancet 373 (2009): 624-625 — https://doi.org/10.1016/S0140-6736(09)60386-X"
+   ]
+  },
+  {
+   "myth": "dancing",
+   "pose": "think",
+   "act": "stand",
+   "say": "So why did it happen? Guess.",
+   "ask": {
+    "q": "WHY?",
+    "choices": [
+     "🍞 BAD BREAD",
+     "😰 MASS PANIC"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "shots": [
+    {
+     "photo": "Dance at Molenbeek",
+     "obs": "wm:Dance at Molenbeek.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "dancing",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I investigate weird stuff daily.",
+   "sub": {
+    "at": "Subscribe"
+   },
+   "shots": [
+    {
+     "photo": "Brueghel, the Molenbeek dancers",
+     "obs": "wm:Die Wallfahrt der Fallsuechtigen nach Meulebeeck.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "dancing",
+   "pose": "shock",
+   "act": "run_in",
+   "say": "One woman started. Dozens joined.",
+   "label": {
+    "text": "DOZENS",
+    "at": "Dozens"
+   },
+   "sfx": [
+    "whoosh"
+   ],
+   "shots": [
+    {
+     "photo": "Dance at Molenbeek",
+     "obs": "wm:Dance at Molenbeek.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "dancing",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "The cure? Officials hired a band.",
+   "act_at": "band",
+   "sfx": [
+    "thud@band"
+   ],
+   "shots": [
+    {
+     "photo": "Brueghel, the Molenbeek dancers",
+     "obs": "wm:Die Wallfahrt der Fallsuechtigen nach Meulebeeck.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "dancing",
+   "pose": "point",
+   "act": "stand",
+   "say": "It's real. Records describe it.",
+   "stamp": {
+    "text": "TRUE",
+    "at": "real"
+   },
+   "hold": 0.3,
+   "shots": [
+    {
+     "photo": "Dancing mania engraving (1642)",
+     "obs": "wm:Dancingplague2 (alt).jpg"
+    }
+   ]
+  },
+  {
+   "myth": "dancing",
+   "pose": "think",
+   "act": "stand",
+   "say": "Likely cause: mass panic, after famine.",
+   "label": {
+    "text": "MASS\nPANIC",
+    "at": "panic"
+   },
+   "shots": [
+    {
+     "photo": "Dance at Molenbeek",
+     "obs": "wm:Dance at Molenbeek.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "dancing",
+   "pose": "think",
+   "act": "peek",
+   "say": "Did you guess right? Comment.",
+   "ask": {
+    "q": "GUESSED RIGHT? 👇",
+    "at": "guess"
+   },
+   "shots": [
+    {
+     "photo": "Brueghel, the Molenbeek dancers",
+     "obs": "wm:Die Wallfahrt der Fallsuechtigen nach Meulebeeck.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "lightning",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Lightning never strikes twice? Wrong.",
+   "stamp": {
+    "text": "FALSE",
+    "at": "Wrong"
+   },
+   "hold": 0.3,
+   "shots": [
+    {
+     "photo": "Lightning near Norman, Oklahoma (NOAA)",
+     "obs": "ov:8c737d35-5d03-4bf4-8e53-ecd88b0c4e5c"
+    }
+   ],
+   "hook": true,
+   "case": "CASE #6",
+   "music": "gen:mystery",
+   "loop_say": "Stay inside in storms. Because",
+   "short_title": "Lightning Never Strikes Twice? WRONG 🔍",
+   "comment": "Have you seen lightning hit something? ⚡ yes / 🙈 no",
+   "bonus": "Park ranger Roy Sullivan holds the record: struck by lightning 7 times between 1942 and 1977, and survived all of them.",
+   "caption": "Lightning strikes the same place again and again: the Empire State Building gets hit about 23 times a year. ⚡ or 🙈? #lightning #myths #science #facts",
+   "sources": [
+    "NOAA National Weather Service, Lightning Myths ('Lightning often strikes the same place repeatedly... The Empire State Building is hit an average of 23 times a year') — https://www.weather.gov/safety/lightning-myths (checked 2026-10-26)",
+    "Guinness World Records / Wikipedia, Roy Sullivan (US park ranger struck by lightning seven times, 1942-1977) — https://en.wikipedia.org/wiki/Roy_Sullivan"
+   ]
+  },
+  {
+   "myth": "lightning",
+   "pose": "think",
+   "act": "stand",
+   "say": "How often is one building hit? Guess.",
+   "ask": {
+    "q": "HOW OFTEN?",
+    "choices": [
+     "1️⃣ ONCE EVER",
+     "⚡ 20+ A YEAR"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "shots": [
+    {
+     "photo": "Empire State Building",
+     "obs": "wm:Empire State Building (aerial view).jpg"
+    }
+   ]
+  },
+  {
+   "myth": "lightning",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I investigate weird stuff daily.",
+   "sub": {
+    "at": "Subscribe"
+   },
+   "shots": [
+    {
+     "photo": "Lightning (NOAA NSSL)",
+     "obs": "ov:ccfe789b-905a-49e8-8121-e6d5b4765ce3"
+    }
+   ]
+  },
+  {
+   "myth": "lightning",
+   "pose": "shock",
+   "act": "run_in",
+   "say": "The Empire State: about twenty-three times a year.",
+   "label": {
+    "text": "23 / YEAR",
+    "at": "twenty-three"
+   },
+   "sfx": [
+    "zap@twenty-three"
+   ],
+   "shots": [
+    {
+     "photo": "Empire State Building",
+     "obs": "wm:Empire State Building (aerial view).jpg"
+    }
+   ]
+  },
+  {
+   "myth": "lightning",
+   "pose": "point",
+   "act": "stand",
+   "say": "Tall things get hit again and again.",
+   "punch": "again",
+   "shots": [
+    {
+     "photo": "Lightning striking the Eiffel Tower (1902)",
+     "obs": "wm:Lightning striking the Eiffel Tower - NOAA.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "lightning",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "I'm round and short. I'll take it.",
+   "shots": [
+    {
+     "photo": "Lightning (NOAA NSSL)",
+     "obs": "ov:ccfe789b-905a-49e8-8121-e6d5b4765ce3"
+    }
+   ]
+  },
+  {
+   "myth": "lightning",
+   "pose": "shock",
+   "act": "launch",
+   "say": "One park ranger got struck seven times.",
+   "hit": "seven",
+   "sfx": [
+    "zap@seven"
+   ],
+   "label": {
+    "text": "7 TIMES",
+    "at": "seven"
+   },
+   "shots": [
+    {
+     "photo": "Lightning striking the Eiffel Tower (1902)",
+     "obs": "wm:Lightning striking the Eiffel Tower - NOAA.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "lightning",
+   "pose": "think",
+   "act": "peek",
+   "say": "Did you guess right? Comment.",
+   "ask": {
+    "q": "GUESSED RIGHT? 👇",
+    "at": "guess"
+   },
+   "shots": [
+    {
+     "photo": "Empire State Building",
+     "obs": "wm:Empire State Building (aerial view).jpg"
+    }
+   ]
+  }
+ ]
+}

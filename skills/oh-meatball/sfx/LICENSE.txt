@@ -12,3 +12,8 @@ Packs downloaded from https://kenney.nl/assets/impact-sounds, /interface-sounds,
 Synthesized with ffmpeg lavfi in tools/make_sfx.py (no third-party audio, nothing to license):
   whoosh.wav boing.wav pop.wav scratch.wav splash.wav tink.wav
 All files: 48 kHz stereo 16-bit WAV, normalized to -3 dBFS peak; the mixer sets their level under the voice.
+
+Synthesized with numpy in tools/investigate.py ensure_sfx() (2026-10-26, "Meatball Investigates"; nothing to license):
+  stamp.wav (rubber-stamp thump + paper slap)  case.wav (typewriter clacks into a low dun-DUN series sting)
+Music beds for "music": "gen:mystery" / "gen:detective" are rendered per video by tools/music.py from oscillators
+and noise (original; released CC0), so there is no music file to license.

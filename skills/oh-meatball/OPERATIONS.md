@@ -267,3 +267,8 @@ Autopsy: our one long-form with a curve (gFhrONKK0rI, 2:15 quiz pilot, 11 viewer
 - **R6 Expectation match:** at least half the title/thumbnail words (`"thumb_text"`) are said or shown in the first 60 s, and chapter 1 starts by 0:60.
 - **R7 Length 5:00-7:00** (supersedes the ~10 min and 6-8 min lengths above) until long-form AVD clears 2:00. We give up mid-rolls (8:00+) on purpose: we aren't monetized, and watch hours grow faster from a held 6 min than from an abandoned 10. Test one 8:30 with a chapter-break mid-roll after 3 straight episodes over 2:00 AVD and 50% at 0:30.
 - **Every evening (Intel):** pull audience_retention for each long-form older than 48 h, log the drops in data/retention.csv, and send the top drop cause to the Showrunner.
+
+## Meatball Investigates: the tools (Showrunner 10/26, research/48 §6)
+- Script fields: spec `"series": {"text": "MEATBALL INVESTIGATES"}` + hook `"case": "CASE #3"` (case-file tag on every frame, card + sting on the hook); beat `"stamp": {"text": "BUSTED", "at": "word"}` (TRUE/PROVEN green, FALSE/BUSTED/CLASSIFIED red; `"reveal": false` = no music drop); shot `"board": {"notes": [...], "stamp": "CLASSIFIED"}` (evidence board); spec `"captions": "bold"`.
+- Music: `"music": "gen:mystery"` (main) or `"gen:detective"` (alternate), per Short via the hook's `"music"`; tools/music.py renders it to the timeline (rises into each stamp, drops out 0.42 s before it, hits on it, loop-safe) and v3.py mixes voice -16 / music -20 LUFS, ducked, master -14.
+- Photos: `"obs": "wm:File name.jpg"` (Commons PD/CC0/CC BY; licence cache data/wm-licenses.json for 429 storms). Never a time anchor that is a bare number (`"at": "1994"` is read as seconds): anchor on a word.

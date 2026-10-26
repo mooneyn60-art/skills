@@ -237,7 +237,7 @@ def render(kind, total, reveals=(), out=None):
     t = np.arange(len(sig)) / SR
     sig *= gaps(t, reveals)
     for r in reveals:   # the payoff hit: low boom + a bell a fifth over the key
-        add(sig, boom(1.4) * 0.9 + bell(hz(81 if kind == "mystery" else 74)) * 0.25, r)
+        add(sig, boom(1.4) * 0.55 + bell(hz(81 if kind == "mystery" else 74)) * 0.25, r)
     ramp = np.linspace(0, 1, xf, dtype=np.float32)   # loop: the tail fades into the head
     head = sig[:xf] * ramp + sig[N:N + xf] * (1 - ramp)
     sig = sig[:N]

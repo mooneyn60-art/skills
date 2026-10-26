@@ -44,7 +44,12 @@ Long-forms (spec "aspect": "16:9", no --vertical; landscape()): the same rendere
                          "outro" chapter (research/47, gate: tools/retention.py R3)
   spec "progress": true  a thin progress bar along the top edge with a tick at every counted chapter
                          Both are drawn after the camera moves (they never shake or punch in), 16:9 only.
-Photos come from explainer.photo() (pinned iNaturalist observations, full resolution).
+Photos come from explainer.photo() (pinned iNaturalist observations, "wm:" Commons files, "ov:"/"met:" art).
+"Meatball Investigates" (tools/investigate.py, research/48): spec "series" (case-file card + tag), beat "stamp"
+  (verdict stamp slam: TRUE / FALSE / PROVEN / BUSTED / CLASSIFIED), shot "board" (evidence board: polaroid,
+  notes, red string), spec "captions": "bold"; spec "music": "gen:mystery" | "gen:detective" renders an original
+  bed to the video's timeline (tools/music.py: builds into each stamp, drops out right before it, hits on it,
+  loop-safe) and mixes it by loudness: voice -16 LUFS, music -20 LUFS ducked under the voice, master -14.
 
 "style": "v4" (research/45) adds, on top of everything above:
   whole-animal cut-outs  every photo shot is cut out (tools/animal.py): the WHOLE animal, holes under 1%
@@ -82,6 +87,7 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 import animal
 import explainer as ex
+import investigate
 import mascot
 import stage
 
@@ -89,7 +95,8 @@ FPS, W, H, SR = 30, 1080, 1920, 48000
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SFX_DIR = os.path.join(ROOT, "sfx")
 GAIN = {"whoosh": 0.32, "boing": 0.22, "pop": 0.30, "scratch": 0.20, "splash": 0.34, "tink": 0.40,
-        "crunch": 0.42, "hit": 0.40, "thud": 0.42, "zap": 0.28, "plate": 0.30, "click": 0.45}
+        "crunch": 0.42, "hit": 0.40, "thud": 0.42, "zap": 0.28, "plate": 0.30, "click": 0.45, "stamp": 0.55,
+        "case": 0.50}
 R = 1.15          # photo bases are prepared 15% over frame size so slow pushes stay sharp
 GAP = 0.12        # silence after each line (v2 used 0.35)
 FLOOR = 1430      # Meatball's feet (screen y); captions sit just below
@@ -541,10 +548,14 @@ def plan_beats(spec, work):
                               for j in range(n_cut)]
             for a_, z_, s_ in pieces:
                 path = ex.photo(s_["photo"], s_.get("n", 0), work, s_.get("obs"), "original")
+                if s_.get("board"):   # evidence board: the photo pinned to cork with notes and red string
+                    path = investigate.board(path, s_["board"], work, vertical=H > W)
                 shots.append(dict(f0=int(round(a_ * FPS)), f1=int(round(z_ * FPS)), path=path, crop=s_.get("crop"),
                                   blur=bool(s_.get("blur")), whip=s_.get("whip", True), no=shot_no,
                                   parent=s_.get("parent")))
-                if v4:
+                if v4 and s_.get("board"):
+                    shots[-1].update(subj=None, cut=False, idle="bob", reg=None, why="evidence board")
+                elif v4:
                     subject(shots[-1], s_, pins.get(str(s_.get("obs")), {}))
                 shot_no += 1
         hit = word_time(words, b.get("hit"), None)
@@ -571,6 +582,20 @@ def plan_beats(spec, work):
         if isinstance(lab, str):
             lab = {"text": lab}
         lab_img = lab and label_img(lab["text"])
+        stamps = []
+        for sp in ([b["stamp"]] if isinstance(b.get("stamp"), (dict, str)) else b.get("stamp") or []):
+            sp = {"text": sp} if isinstance(sp, str) else sp
+            t_st = word_time(words, sp.get("at"), 0.5 * D)
+            st_img = investigate.stamp_img(sp["text"], sp.get("color"), 1.35 * UI)
+            if st_img.shape[1] > 0.86 * W:   # long words ("TOP SECRET") shrink to fit the frame, slam included
+                k_ = 0.86 * W / st_img.shape[1]
+                st_img = cv2.resize(st_img, (int(st_img.shape[1] * k_), int(st_img.shape[0] * k_)),
+                                    interpolation=cv2.INTER_AREA)
+            stamps.append(dict(img=st_img, f=int(round(t_st * FPS)),
+                               y=float(sp.get("y", 0.40)), text=sp["text"], reveal=sp.get("reveal", True)))
+            b = dict(b, sfx=list(b.get("sfx", [])) + [f"stamp@{t_st:.3f}"])
+            if hit is None:
+                hit = t_st
         if v4:
             for nm, at in animal.parse(b.get("animal")):
                 if nm not in ("lunge", "strike", "shake", "turn"):
@@ -608,7 +633,7 @@ def plan_beats(spec, work):
                         hit=None if hit is None else int(round(hit * FPS)),
                         punch=[int(round(word_time(words, p, 0.0) * FPS)) for p in punch],
                         punch_z=float(b.get("punch_z", 0.18)), sfx=sfx, size=size, side=side, moves=moves,
-                        contact=bool(b.get("contact")),
+                        contact=bool(b.get("contact")), stamps=stamps,
                         label=lab and dict(img=lab_img,
                                            f=int(round(word_time(words, lab.get("at"), 0.0) * FPS))),
                         prop=b.get("prop"), prop_f=int(round(word_time(words, b.get("prop_at"), 0.3) * FPS)),
@@ -784,6 +809,11 @@ def frame(g):
     if bt.get("aside") and f >= bt["aside"]["f"]:  # the footnote joke, low right, clear of the captions
         ai = bt["aside"]["img"]
         _over_scaled(frame_, ai, _pop(f - bt["aside"]["f"]), W - 40 - ai.shape[1] / 2, CAP_Y - 95 * UI - ai.shape[0] / 2)
+    for sp in bt["stamps"]:   # verdict stamp: slams down from big and settles, then holds to the end of the line
+        kf = f - sp["f"]
+        if kf >= 0:
+            s = [2.3, 1.6, 1.12, 0.95, 1.02][kf] if kf < 5 else 1.0
+            _over_scaled(frame_, sp["img"], s, W / 2, H * sp["y"])
     # camera: punch-in zooms and impact shake on the whole picture
     zc, sx, sy = 1.0, 0.0, 0.0
     for pf in bt["punch"]:
@@ -828,14 +858,24 @@ def frame(g):
             y += 165 * CARD
     if W > H:   # long-form HUD only (16:9)
         hud(frame_, bt, g)
+    if P.get("series"):   # "Meatball Investigates": the tag on every frame, the case-file card on the hook
+        card, tag = P["series"]
+        over(frame_, tag, int(30 * W / 1080), int((140 if H > W else 24) * UI))
+        if bi == 0 and f >= 4:
+            kf = f - 4
+            dy = [-260, -120, -30, 8, 0][kf] if kf < 5 else 0
+            over(frame_, card, int(W / 2 - card.shape[1] / 2), int((215 if H > W else 70) + dy))
     return frame_.tobytes(), qa
 
 
 def captions(beats, path):
     """Two-word cards in the lower third, the spoken word yellow; each card pops in."""
+    bold = PLAN.get("captions") == "bold"   # Meatball Investigates: heavier, bigger, thicker outline
+    style = (f"Style: Cap,Inter Black,{int(CAP_FS * 1.12)},&H00FFFFFF,&H00000000,&H96000000,0,1,11,5,5,0\n\n" if bold
+             else f"Style: Cap,DejaVu Sans,{CAP_FS},&H00FFFFFF,&H00000000,&H64000000,-1,1,8,3,5,0\n\n")
     head = (f"[Script Info]\nPlayResX: {W}\nPlayResY: {H}\n\n[V4+ Styles]\nFormat: Name, Fontname, Fontsize, "
             "PrimaryColour, OutlineColour, BackColour, Bold, BorderStyle, Outline, Shadow, Alignment, MarginV\n"
-            f"Style: Cap,DejaVu Sans,{CAP_FS},&H00FFFFFF,&H00000000,&H64000000,-1,1,8,3,5,0\n\n"
+            + style +
             "[Events]\nFormat: Layer, Start, End, Style, Text\n")
     from facts import ass_time
     lines = []
@@ -875,6 +915,7 @@ def gate(beats, total):
             events += [bt["F"] / FPS + f / FPS for f in [bt["ask"]["f"]] + bt["ask"]["fs"]]
         if bt.get("aside"):
             events.append(bt["F"] / FPS + bt["aside"]["f"] / FPS)
+        events += [bt["F"] / FPS + sp["f"] / FPS for sp in bt["stamps"]]
     for bt in beats:  # ask kit placement (research/46): hook first, guess card 3-6 s, pill 6-10 s, reminder at the end
         if bt["sub"]:
             t = (bt["F"] + bt["sub"]["f"]) / FPS
@@ -948,6 +989,11 @@ def build(spec, work, out, music=None, vertical=True):
     v4 = spec.get("style") == "v4"
     PLAN.update(progress=bool(spec.get("progress")) and not vertical,
                 ticks=sorted({bt["counter"]["F"] for bt in beats if bt.get("counter")}))
+    investigate.ensure_sfx(SFX_DIR)
+    PLAN.update(series=spec.get("series") and investigate.series_imgs(spec["series"], W),
+                captions=spec.get("captions"))
+    if spec.get("series"):   # the case sting under the card drop
+        beats[0]["sfx"] = list(beats[0]["sfx"]) + [(4 / FPS, "case")]
     PLAN.update(beats=beats, whips=cuts, props={"fork": np.asarray(mascot.prop("fork", int(520 * UI)))}, v4=v4,
                 total=total_f)
     for bt in beats:  # warm the photo (and v4 cut-out) caches before forking the workers
@@ -979,10 +1025,22 @@ def build(spec, work, out, music=None, vertical=True):
     write_wav(f"{work}/sfx.wav", sfx)
     cap = f"{work}/cap.ass"
     captions(beats, cap)
+    gen = str(spec.get("music") or "")
+    lufs = gen.startswith("gen:") or spec.get("music_mix") == "lufs"
+    if gen.startswith("gen:"):   # an original bed rendered to this timeline (tools/music.py)
+        import music as mus
+        reveals = [(bt["F"] + sp["f"]) / FPS for bt in beats for sp in bt["stamps"] if sp["reveal"]]
+        music = f"{work}/music-{gen[4:]}.wav"
+        mus.render(gen[4:], total, reveals, music)
     music = music if music and os.path.exists(music) else None
     cmd = ["ffmpeg", "-loglevel", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}",
            "-r", str(FPS), "-i", "pipe:0", "-i", f"{work}/voice.wav", "-i", f"{work}/sfx.wav"]
-    if music:
+    if music and lufs:   # Nolan 10/25: music around -20 LUFS against the voice at -16, ducked; voice always clear
+        cmd += (["-i", music] if gen.startswith("gen:") else ["-stream_loop", "-1", "-i", music])
+        af = ("[1:a]loudnorm=I=-16:TP=-2,asplit[vo][key];[3:a]loudnorm=I=-20:TP=-4[m];[m][key]sidechaincompress="
+              "threshold=0.05:ratio=3:attack=20:release=350[d];[vo][d][2:a]amix=inputs=3:duration=first:normalize=0,"
+              "loudnorm=I=-14:TP=-1.5[a]")
+    elif music:
         cmd += ["-stream_loop", "-1", "-i", music]
         af = ("[1:a]asplit[vo][key];[3:a]volume=0.12[m];[m][key]sidechaincompress=threshold=0.02:ratio=6:"
               "attack=30:release=500[d];[vo][d][2:a]amix=inputs=3:duration=first:normalize=0,"

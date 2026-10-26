@@ -184,6 +184,12 @@ def main():
                    **({"pitch": spec["pitch"]} if spec.get("pitch") else {}),
                    **({"tempo": spec["tempo"]} if spec.get("tempo") else {}),  # v3: atempo speed-up
                    **({"subjects": spec["subjects"]} if spec.get("subjects") else {}),  # v4: per-photo pins
+                   # Meatball Investigates (research/48): series card (hook "case" sets the number), bold
+                   # captions, and a generated music bed (hook "music" picks it per Short)
+                   **({"series": dict(spec["series"], **({"case": hook["case"]} if hook and hook.get("case") else {}))}
+                      if spec.get("series") else {}),
+                   **({"captions": spec["captions"]} if spec.get("captions") else {}),
+                   **({"music": hook["music"]} if hook and hook.get("music") else {}),
                    # "short_beats" lets a joke-dense script keep more than 3 hand-picked beats (default 3).
                    "beats": hook_loop(mb) if hook else loop(tighten(mb, spec.get("short_beats", 3)))},
                   open(sspec, "w"))
@@ -195,8 +201,9 @@ def main():
         if hook:  # v2: a statement, not a quiz, so the title/description/comment are not quiz-shaped
             release["shorts"].append({
                 "myth": m, "file": f"{RAW}/{a.slug}/short-{m}.mp4", "title": hook.get("short_title", hook["say"])[:100],
-                "description": f"{hook['say']} {hook.get('bonus', '')}\n\n#shorts #animalfacts #meatballmyths\n\n"
-                               "Photos (iNaturalist), cropped and color-adjusted: " + "; ".join(credit_lines(long_work, mb))
+                "description": f"{hook['say']} {hook.get('bonus', '')}\n\n"
+                               + spec.get("short_hashtags", "#shorts #animalfacts #meatballmyths") + "\n\n"
+                               + f"Photos ({spec.get('photo_source', 'iNaturalist')}), cropped and color-adjusted: " + "; ".join(credit_lines(long_work, mb))
                                + f". {LICENSES}",
                 "comment": hook.get("comment", "Who told you the opposite? 👇"),
                 "tags": [m, "animal facts", "animal myths", "fun facts", "shorts", "Meatball Myths"],

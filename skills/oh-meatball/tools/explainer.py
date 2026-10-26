@@ -141,7 +141,7 @@ def _wm_get(url, as_json=True):
     """Wikimedia GET with backoff: the shared egress gets 429s in bursts. Originals are refused (429), so
     images come from the standard thumbnail widths only."""
     import time
-    for k in range(6):
+    for k in range(3 if as_json else 6):
         try:
             r = urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "MeatballMythsBot/1.0 (research)"}),
                                        timeout=90)
@@ -149,7 +149,7 @@ def _wm_get(url, as_json=True):
         except urllib.error.HTTPError as e:
             if e.code not in (429, 503):
                 raise
-            time.sleep(6 * (k + 1))
+            time.sleep(4 * (k + 1))
     raise SystemExit(f"wikimedia: still rate-limited on {url}")
 
 
@@ -157,19 +157,30 @@ def wm_photo(title, label, path):
     """A Wikimedia Commons file ("wm:File name.jpg"): public domain, CC0 or CC BY only (license read from the
     file page's metadata via en.wikipedia's API), fetched as a standard-width thumbnail, credited."""
     import re
+    import hashlib as _h
+    cache = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "wm-licenses.json")))
     q = urllib.parse.urlencode({"action": "query", "titles": "File:" + title, "prop": "imageinfo",
                                 "iiprop": "extmetadata|size|url", "format": "json"})
-    page = next(iter(_wm_get("https://en.wikipedia.org/w/api.php?" + q)["query"]["pages"].values()))
-    ii = page["imageinfo"][0]
-    meta = ii.get("extmetadata", {})
-    lic = meta.get("LicenseShortName", {}).get("value", "?")
+    try:
+        page = next(iter(_wm_get("https://en.wikipedia.org/w/api.php?" + q)["query"]["pages"].values()))
+        ii = page["imageinfo"][0]
+        meta = ii.get("extmetadata", {})
+        lic = meta.get("LicenseShortName", {}).get("value", "?")
+        src, width = ii["url"].split("?")[0], ii["width"]
+        artist = re.sub(r"<[^>]+>", "", html.unescape(meta.get("Artist", {}).get("value", ""))).strip() or "unknown"
+    except SystemExit:
+        if title not in cache:   # rate-limited and never verified: refuse rather than guess a licence
+            raise
+        lic, artist = cache[title]
+        name = title.replace(" ", "_")
+        md5 = _h.md5(name.encode()).hexdigest()
+        src, width = f"https://upload.wikimedia.org/wikipedia/commons/{md5[0]}/{md5[:2]}/{urllib.parse.quote(name)}", 4000
     if not lic.lower().startswith(WM_OK) or "sa" in lic.lower().split():
         raise SystemExit(f"wm:{title}: license {lic} not reusable (PD, CC0 or CC BY only)")
-    src = ii["url"].split("?")[0]
     head, name = src.rsplit("/", 1)
     data = None
     for w in (1920, 1280, 960):
-        if w > ii["width"] * 1.6 and w != 960:
+        if w > width * 1.6 and w != 960:
             continue
         thumb = head.replace("/commons/", "/commons/thumb/") + f"/{name}/{w}px-{name}"
         if name.lower().endswith((".png", ".gif", ".tif", ".tiff")) and not name.lower().endswith(".png"):
@@ -182,7 +193,6 @@ def wm_photo(title, label, path):
     if data is None:
         raise SystemExit(f"wm:{title}: no thumbnail")
     open(path, "wb").write(data)
-    artist = re.sub(r"<[^>]+>", "", html.unescape(meta.get("Artist", {}).get("value", ""))).strip() or "unknown"
     open(path + ".credit", "w").write(f"{label}: \"{title}\" by {artist[:80]} ({lic}), via Wikimedia Commons")
     return path
 
