@@ -9232,6 +9232,2879 @@
    "kicker": true,
    "hold": 0.25,
    "punch": "Same"
+  },
+  {
+   "myth": "leech",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A surgeon sewed a torn ear back on, then reached for a jar of leeches.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "DOCTOR'S ORDERS",
+   "punch": "ear",
+   "loop_say": "And it's the one doctors trust. Because",
+   "short_title": "Leeches Are an FDA-Cleared Medical Device 🩸",
+   "comment": "Would you let a doctor use one on you? 👍 yes / 👎 no",
+   "bonus": "In 2004 the FDA cleared medicinal leeches as a medical device; they help reattached body parts by draining pooled blood.",
+   "caption": "Do hospitals really still use leeches? Yes, the FDA cleared them in 2004. For what? 🩸 bloodletting / 👂 something else #leech #medicine #animalfacts #science Follow Meatball for more 🍝",
+   "sources": [
+    "HealthDay, June 2004, 'It's Official: Leeches Are Medical Applications' (FDA clearance of Hirudo medicinalis for draining blood around skin grafts and reattached body parts) — https://www.healthday.com/health-news/alternative-medicine/it-s-official-leeches-are-medical-applications-519818.html",
+    "Pharmacy Times 2005 (three jaws with ~100 teeth each; hirudin anticoagulant keeps the bite bleeding for hours) — https://www.pharmacytimes.com/view/2005-11-5004",
+    "Wikipedia, Hirudo medicinalis (venous congestion after replantation of fingers and ears; feeds for 20-45 minutes; can take several times its body weight in blood) — https://en.wikipedia.org/wiki/Hirudo_medicinalis (checked 2026-10-26)"
+   ],
+   "shots": [
+    {
+     "photo": "Hirudo",
+     "obs": 352540712,
+     "crop": [
+      0.313,
+      0.0,
+      0.687,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "leech",
+   "pose": "think",
+   "act": "stand",
+   "say": "Why would a modern hospital use leeches? Guess.",
+   "shots": [
+    {
+     "photo": "Hirudo",
+     "obs": 149221866,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "WHY?",
+    "choices": [
+     "🩸 BLOODLETTING",
+     "👂 SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "leech",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Hirudo",
+     "obs": 156091374,
+     "crop": [
+      0.331,
+      0.05,
+      0.669,
+      0.95
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "leech",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in 2004, the US Food and Drug Administration cleared the medicinal leech as a medical device.",
+   "shots": [
+    {
+     "photo": "Hirudo",
+     "obs": 38344231,
+     "crop": [
+      0.37,
+      0.15,
+      0.63,
+      0.85
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "FDA\nCLEARED",
+    "at": "cleared"
+   }
+  },
+  {
+   "myth": "leech",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It bites with three jaws, and each jaw has about a hundred tiny teeth.",
+   "shots": [
+    {
+     "photo": "Hirudo",
+     "obs": 40132577,
+     "crop": [
+      0.125,
+      0.0,
+      0.875,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "3 JAWS",
+    "at": "three"
+   }
+  },
+  {
+   "myth": "leech",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: old-time bloodletting, to cure fevers. No. That idea is long dead.",
+   "shots": [
+    {
+     "photo": "Hirudo",
+     "obs": 352540712,
+     "crop": [
+      0.313,
+      0.0,
+      0.687,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "leech",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: to clean the wound. Also no. That job goes to maggots. Really.",
+   "shots": [
+    {
+     "photo": "Hirudo",
+     "obs": 149221866,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "leech",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I booked an appointment. It bit me with all three jaws.",
+   "shots": [
+    {
+     "photo": "Hirudo",
+     "obs": 156091374,
+     "crop": [
+      0.331,
+      0.05,
+      0.669,
+      0.95
+     ]
+    }
+   ],
+   "act_at": "bit",
+   "sfx": [
+    "thud@bit"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "leech",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait, here's the trick. Its spit has a chemical called hirudin. It stops blood from clotting.",
+   "shots": [
+    {
+     "photo": "Hirudo",
+     "obs": 38344231,
+     "crop": [
+      0.37,
+      0.15,
+      0.63,
+      0.85
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   },
+   "label": {
+    "text": "HIRUDIN",
+    "at": "hirudin"
+   }
+  },
+  {
+   "myth": "leech",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: when a body part is reattached, blood can pool and clog it. The leech drains it, so the veins can heal.",
+   "shots": [
+    {
+     "photo": "Hirudo",
+     "obs": 40132577,
+     "crop": [
+      0.125,
+      0.0,
+      0.875,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "DRAINS\nTHE BLOOD",
+    "at": "drains"
+   },
+   "sfx": [
+    "pop@drains"
+   ]
+  },
+  {
+   "myth": "leech",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Fingers, ears, skin grafts. A leech can save them.",
+   "shots": [
+    {
+     "photo": "Hirudo",
+     "obs": 352540712,
+     "crop": [
+      0.313,
+      0.0,
+      0.687,
+      1.0
+     ]
+    }
+   ],
+   "punch": "save"
+  },
+  {
+   "myth": "leech",
+   "pose": "shock",
+   "act": "stand",
+   "say": "One meal can be several times its own body weight in blood. And the bite keeps bleeding for hours.",
+   "shots": [
+    {
+     "photo": "Hirudo",
+     "obs": 149221866,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@hours"
+    ]
+   }
+  },
+  {
+   "myth": "leech",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Good news: I have no blood. Bad news: I have sauce.",
+   "shots": [
+    {
+     "photo": "Hirudo",
+     "obs": 156091374,
+     "crop": [
+      0.331,
+      0.05,
+      0.669,
+      0.95
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "sauce",
+   "sfx": [
+    "tink@sauce"
+   ]
+  },
+  {
+   "myth": "leech",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Hirudo",
+     "obs": 38344231,
+     "crop": [
+      0.37,
+      0.15,
+      0.63,
+      0.85
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "leech",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Doctors stopped using leeches for everything. Then started again, for one thing they're perfect at.",
+   "shots": [
+    {
+     "photo": "Hirudo",
+     "obs": 40132577,
+     "crop": [
+      0.125,
+      0.0,
+      0.875,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "perfect"
+  },
+  {
+   "myth": "dungbeetle",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Two beetles locked horns deep in a tunnel under a cow pat, and one pulled the other right out.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "STRONGEST BUG?",
+   "punch": "pulled",
+   "loop_say": "I'm sauce, and I'm stressed. Because",
+   "short_title": "This Dung Beetle Pulls 1,141 Times Its Own Weight 💪",
+   "comment": "What's the heaviest thing you've ever pulled? 🚌 a bus / 🛋️ a couch",
+   "bonus": "Onthophagus taurus males can pull 1,141 times their body weight, like a person pulling six double-decker buses (Knell & Simmons 2010).",
+   "caption": "What's the strongest insect for its size? A dung beetle that pulls 1,141x its weight. Why so strong? 💩 rolling dung / ⚔️ something else #dungbeetle #insects #animalfacts #strongest Follow Meatball for more 🍝",
+   "sources": [
+    "Knell & Simmons 2010, Proceedings of the Royal Society B 277: 2797-2802 (Onthophagus taurus males pull up to 1,141x body weight; strength used in tunnel fights over females) — summarised on Wikipedia, Dung beetle — https://en.wikipedia.org/wiki/Dung_beetle",
+    "BBC News 2010, 'Dung beetle is world's strongest insect' (like a person pulling six double-decker buses) — https://news.bbc.co.uk/2/hi/science/nature/8578941.stm",
+    "Dacke et al. 2013, Current Biology 23: 298-300 (an African dung beetle steers by the Milky Way) — https://doi.org/10.1016/j.cub.2012.12.034"
+   ],
+   "shots": [
+    {
+     "photo": "Onthophagus taurus",
+     "obs": 104080247,
+     "crop": [
+      0.219,
+      0.0,
+      0.781,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "dungbeetle",
+   "pose": "think",
+   "act": "stand",
+   "say": "This little beetle pulls over a thousand times its weight. Why so strong? Guess.",
+   "shots": [
+    {
+     "photo": "Onthophagus taurus",
+     "obs": 139836328,
+     "crop": [
+      0.313,
+      0.0,
+      0.687,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "WHY SO STRONG?",
+    "choices": [
+     "💩 ROLLING DUNG",
+     "⚔️ SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "dungbeetle",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Onthophagus taurus",
+     "obs": 57412774,
+     "crop": [
+      0.31,
+      0.05,
+      0.69,
+      0.95
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "dungbeetle",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in 2010, scientists tied tiny threads to bull-headed dung beetles and measured how hard they could pull.",
+   "shots": [
+    {
+     "photo": "Onthophagus taurus",
+     "obs": 250690730,
+     "crop": [
+      0.326,
+      0.15,
+      0.674,
+      0.85
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ]
+  },
+  {
+   "myth": "dungbeetle",
+   "pose": "shock",
+   "act": "stand",
+   "say": "One thousand one hundred and forty-one times its own body weight.",
+   "shots": [
+    {
+     "photo": "Onthophagus taurus",
+     "obs": 317938085,
+     "crop": [
+      0.209,
+      0.0,
+      0.791,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "1,141x",
+    "at": "thousand"
+   }
+  },
+  {
+   "myth": "dungbeetle",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "That's like you pulling six double-decker buses.",
+   "shots": [
+    {
+     "photo": "Onthophagus taurus",
+     "obs": 104080247,
+     "crop": [
+      0.219,
+      0.0,
+      0.781,
+      1.0
+     ]
+    }
+   ],
+   "punch": "buses"
+  },
+  {
+   "myth": "dungbeetle",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: to roll giant dung balls. No. This kind doesn't roll. It digs.",
+   "shots": [
+    {
+     "photo": "Onthophagus taurus",
+     "obs": 139836328,
+     "crop": [
+      0.313,
+      0.0,
+      0.687,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "dungbeetle",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: to carry food. Also no. Food isn't heavy. It's poop.",
+   "shots": [
+    {
+     "photo": "Onthophagus taurus",
+     "obs": 57412774,
+     "crop": [
+      0.31,
+      0.05,
+      0.69,
+      0.95
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "dungbeetle",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I challenged one to tug-of-war. I lost. Instantly.",
+   "shots": [
+    {
+     "photo": "Onthophagus taurus",
+     "obs": 250690730,
+     "crop": [
+      0.326,
+      0.15,
+      0.674,
+      0.85
+     ]
+    }
+   ],
+   "act_at": "lost",
+   "sfx": [
+    "thud@lost"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "dungbeetle",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait, here's the thing. The tunnel has a female in it.",
+   "shots": [
+    {
+     "photo": "Onthophagus taurus",
+     "obs": 317938085,
+     "crop": [
+      0.209,
+      0.0,
+      0.791,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "dungbeetle",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: fighting. Males battle in tunnels over females, shoving rivals out with their horns. Strength wins the date.",
+   "shots": [
+    {
+     "photo": "Onthophagus taurus",
+     "obs": 104080247,
+     "crop": [
+      0.219,
+      0.0,
+      0.781,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "TUNNEL\nFIGHTS",
+    "at": "fighting"
+   },
+   "sfx": [
+    "crunch@shoving"
+   ]
+  },
+  {
+   "myth": "dungbeetle",
+   "pose": "shock",
+   "act": "stand",
+   "say": "And another dung beetle in Africa steers at night by the Milky Way.",
+   "shots": [
+    {
+     "photo": "Onthophagus taurus",
+     "obs": 139836328,
+     "crop": [
+      0.313,
+      0.0,
+      0.687,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@Milky"
+    ]
+   },
+   "label": {
+    "text": "MILKY\nWAY",
+    "at": "Milky"
+   }
+  },
+  {
+   "myth": "dungbeetle",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "I get lost in a bowl.",
+   "shots": [
+    {
+     "photo": "Onthophagus taurus",
+     "obs": 57412774,
+     "crop": [
+      0.31,
+      0.05,
+      0.69,
+      0.95
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "bowl",
+   "sfx": [
+    "tink@bowl"
+   ]
+  },
+  {
+   "myth": "dungbeetle",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Onthophagus taurus",
+     "obs": 250690730,
+     "crop": [
+      0.326,
+      0.15,
+      0.674,
+      0.85
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "dungbeetle",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The strongest insect on Earth uses its power to win a date. In a tunnel. Under poop.",
+   "shots": [
+    {
+     "photo": "Onthophagus taurus",
+     "obs": 317938085,
+     "crop": [
+      0.209,
+      0.0,
+      0.791,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "poop"
+  },
+  {
+   "myth": "waterbug",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A frog swam past a dead leaf at the bottom of a pond. The leaf grabbed it.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "POND MONSTER",
+   "punch": "grabbed",
+   "loop_say": "My nightmare. My recipe. Because",
+   "short_title": "Giant Water Bugs Turn Their Prey Into Soup 🥣",
+   "comment": "Would you swim in a pond with these? 👍 yes / 👎 no",
+   "bonus": "Giant water bugs inject saliva that liquefies prey, then suck it out; people call them toe-biters.",
+   "caption": "What is a giant water bug? A pond hunter that turns prey into soup. How does it eat? 🦷 chews / 🥣 something else #giantwaterbug #toebiter #insects #animalfacts Follow Meatball for more 🍝",
+   "sources": [
+    "Wikipedia, Belostomatidae (giant water bugs; ambush predators of insects, fish, tadpoles and frogs; inject proteolytic saliva through the beak and suck out the liquefied tissue; 'toe-biters'; bite very painful but without lasting effects; in some genera males carry the eggs on their backs) — https://en.wikipedia.org/wiki/Belostomatidae",
+    "Live Science, Lethocerus eating a fish from the inside out — https://www.livescience.com/38574-giant-water-bug-eats-fish.html",
+    "Ohba 2011, Entomological Science 14: 364-365 (Lethocerus deyrollei preying on turtles) (checked 2026-10-26)"
+   ],
+   "shots": [
+    {
+     "photo": "Lethocerus",
+     "obs": 141233595,
+     "crop": [
+      0.275,
+      0.0,
+      0.725,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "waterbug",
+   "pose": "think",
+   "act": "stand",
+   "say": "That leaf was a bug. How does it eat a whole frog? Guess.",
+   "shots": [
+    {
+     "photo": "Lethocerus",
+     "obs": 136386809,
+     "crop": [
+      0.239,
+      0.0,
+      0.661,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "HOW DOES IT EAT?",
+    "choices": [
+     "🦷 CHEWS",
+     "🥣 SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "waterbug",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Lethocerus",
+     "obs": 123907701,
+     "crop": [
+      0.125,
+      0.0,
+      0.875,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "waterbug",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in ponds around the world lives the giant water bug. Some are as long as your finger.",
+   "shots": [
+    {
+     "photo": "Lethocerus",
+     "obs": 58507642,
+     "crop": [
+      0.237,
+      0.15,
+      0.762,
+      0.85
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ]
+  },
+  {
+   "myth": "waterbug",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It waits, perfectly still, then grabs with front legs like hooks. Fish, tadpoles, frogs.",
+   "shots": [
+    {
+     "photo": "Lethocerus",
+     "obs": 141233595,
+     "crop": [
+      0.275,
+      0.0,
+      0.725,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "HOOK\nLEGS",
+    "at": "hooks"
+   }
+  },
+  {
+   "myth": "waterbug",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: it chews them up. No. It has no jaws for chewing.",
+   "shots": [
+    {
+     "photo": "Lethocerus",
+     "obs": 136386809,
+     "crop": [
+      0.239,
+      0.0,
+      0.661,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "waterbug",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: it swallows them whole, like a snake. Also no. Its mouth is a beak, like a straw.",
+   "shots": [
+    {
+     "photo": "Lethocerus",
+     "obs": 123907701,
+     "crop": [
+      0.125,
+      0.0,
+      0.875,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "waterbug",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I went for a swim. It went for my toes.",
+   "shots": [
+    {
+     "photo": "Lethocerus",
+     "obs": 58507642,
+     "crop": [
+      0.237,
+      0.15,
+      0.762,
+      0.85
+     ]
+    }
+   ],
+   "act_at": "toes",
+   "sfx": [
+    "thud@toes"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "waterbug",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait. People really call it the toe-biter. The bite hurts a lot, but it isn't dangerous.",
+   "shots": [
+    {
+     "photo": "Lethocerus",
+     "obs": 141233595,
+     "crop": [
+      0.275,
+      0.0,
+      0.725,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   },
+   "label": {
+    "text": "TOE-\nBITER",
+    "at": "toe-biter"
+   }
+  },
+  {
+   "myth": "waterbug",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: it stabs its beak in and injects spit that melts the insides. Then it slurps the soup.",
+   "shots": [
+    {
+     "photo": "Lethocerus",
+     "obs": 136386809,
+     "crop": [
+      0.239,
+      0.0,
+      0.661,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "PREY\nSOUP",
+    "at": "soup"
+   },
+   "sfx": [
+    "pop@melts"
+   ]
+  },
+  {
+   "myth": "waterbug",
+   "pose": "shock",
+   "act": "stand",
+   "say": "In Japan, scientists even saw one catch a baby turtle.",
+   "shots": [
+    {
+     "photo": "Lethocerus",
+     "obs": 123907701,
+     "crop": [
+      0.125,
+      0.0,
+      0.875,
+      1.0
+     ]
+    }
+   ],
+   "punch": "turtle"
+  },
+  {
+   "myth": "waterbug",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "And in some kinds, the dads carry the eggs on their backs until they hatch.",
+   "shots": [
+    {
+     "photo": "Lethocerus",
+     "obs": 58507642,
+     "crop": [
+      0.237,
+      0.15,
+      0.762,
+      0.85
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@dads"
+    ]
+   },
+   "label": {
+    "text": "DAD\nDUTY",
+    "at": "dads"
+   }
+  },
+  {
+   "myth": "waterbug",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Great dads. Terrible neighbors.",
+   "shots": [
+    {
+     "photo": "Lethocerus",
+     "obs": 141233595,
+     "crop": [
+      0.275,
+      0.0,
+      0.725,
+      1.0
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "neighbors",
+   "sfx": [
+    "tink@neighbors"
+   ]
+  },
+  {
+   "myth": "waterbug",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Lethocerus",
+     "obs": 136386809,
+     "crop": [
+      0.239,
+      0.0,
+      0.661,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "waterbug",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "It turns its food into soup. Honestly, that's my recipe too.",
+   "shots": [
+    {
+     "photo": "Lethocerus",
+     "obs": 123907701,
+     "crop": [
+      0.125,
+      0.0,
+      0.875,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "recipe"
+  },
+  {
+   "myth": "skunk",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A dog ran at a skunk in the backyard. The skunk stomped its feet.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "IT WARNED ME",
+   "punch": "stomped",
+   "loop_say": "Like garlic. And oregano. Because",
+   "short_title": "Skunks Can Hit You From 10 Feet Away 🦨",
+   "comment": "Have you ever been sprayed? 👍 yes / 👎 no",
+   "bonus": "Skunk spray is made of thiols, the same family of chemicals added to natural gas; refilling the glands can take up to 10 days.",
+   "caption": "Why do skunks stomp before they spray? Because spray takes days to refill. What does a skunk do first? 💨 sprays / 🦶 something else #skunk #animalfacts #wildlife #smell Follow Meatball for more 🍝",
+   "sources": [
+    "Smithsonian, 'Ask Smithsonian: What Makes Skunk Spray Smell So Terrible?' (thiols, as added to natural gas; accurate up to about 20 ft; refilling glands can take up to 10 days) — https://www.smithsonianmag.com/smithsonian-institution/ask-smithsonian-what-makes-skunk-spray-smell-so-terrible-180955553/",
+    "Northern Woodlands, a few sprays per full charge (about 5-6) — https://northernwoodlands.org/outside_story/article/seasons-greeting-from-your-neighborhood-skunk",
+    "Wikipedia, Skunk (warning display: hissing, foot stamping, tail raising; spotted skunks do handstands) — https://en.wikipedia.org/wiki/Skunk (checked 2026-10-26)"
+   ],
+   "shots": [
+    {
+     "photo": "Mephitis mephitis",
+     "obs": 197025524,
+     "crop": [
+      0.213,
+      0.0,
+      0.587,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "skunk",
+   "pose": "think",
+   "act": "stand",
+   "say": "Why stomp, instead of spraying right away? Guess.",
+   "shots": [
+    {
+     "photo": "Mephitis mephitis",
+     "obs": 31994029,
+     "crop": [
+      0.272,
+      0.0,
+      0.728,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "WHY STOMP?",
+    "choices": [
+     "😤 IT'S MAD",
+     "⏳ SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "skunk",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Mephitis mephitis",
+     "obs": 177816815,
+     "crop": [
+      0.3,
+      0.05,
+      0.7,
+      0.95
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "skunk",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in North America, the striped skunk has a spray it can aim at about ten feet. Some hit targets even farther.",
+   "shots": [
+    {
+     "photo": "Mephitis mephitis",
+     "obs": 79104970,
+     "crop": [
+      0.323,
+      0.15,
+      0.677,
+      0.85
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "10 FT\nAIM",
+    "at": "ten"
+   }
+  },
+  {
+   "myth": "skunk",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The smell is a thiol. The same kind of chemical added to natural gas so you can smell leaks.",
+   "shots": [
+    {
+     "photo": "Mephitis mephitis",
+     "obs": 1714955,
+     "crop": [
+      0.217,
+      0.0,
+      0.783,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "THIOLS",
+    "at": "thiol"
+   }
+  },
+  {
+   "myth": "skunk",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: it's just angry. No. It's being polite.",
+   "shots": [
+    {
+     "photo": "Mephitis mephitis",
+     "obs": 197025524,
+     "crop": [
+      0.213,
+      0.0,
+      0.587,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "skunk",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: it's dancing to scare you. Close, but that's not the reason.",
+   "shots": [
+    {
+     "photo": "Mephitis mephitis",
+     "obs": 31994029,
+     "crop": [
+      0.272,
+      0.0,
+      0.728,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "skunk",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I stood eleven feet away to be safe. It turned around. Not safe.",
+   "shots": [
+    {
+     "photo": "Mephitis mephitis",
+     "obs": 177816815,
+     "crop": [
+      0.3,
+      0.05,
+      0.7,
+      0.95
+     ]
+    }
+   ],
+   "act_at": "turned",
+   "sfx": [
+    "thud@turned"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "skunk",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait. Here's the thing. A full tank holds only about five or six sprays.",
+   "shots": [
+    {
+     "photo": "Mephitis mephitis",
+     "obs": 79104970,
+     "crop": [
+      0.323,
+      0.15,
+      0.677,
+      0.85
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "skunk",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: spray is expensive. A refill can take up to ten days. So it warns you first. Stomp, hiss, tail up.",
+   "shots": [
+    {
+     "photo": "Mephitis mephitis",
+     "obs": 1714955,
+     "crop": [
+      0.217,
+      0.0,
+      0.783,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "10-DAY\nREFILL",
+    "at": "ten"
+   },
+   "sfx": [
+    "pop@warns"
+   ]
+  },
+  {
+   "myth": "skunk",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Some spotted skunks even do a handstand before they spray.",
+   "shots": [
+    {
+     "photo": "Mephitis mephitis",
+     "obs": 197025524,
+     "crop": [
+      0.213,
+      0.0,
+      0.587,
+      1.0
+     ]
+    }
+   ],
+   "punch": "handstand"
+  },
+  {
+   "myth": "skunk",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "If it gets out of ammo, it's defenseless. So it saves it for real danger.",
+   "shots": [
+    {
+     "photo": "Mephitis mephitis",
+     "obs": 31994029,
+     "crop": [
+      0.272,
+      0.0,
+      0.728,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@saves"
+    ]
+   }
+  },
+  {
+   "myth": "skunk",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "I also smell when threatened. Like garlic. And oregano.",
+   "shots": [
+    {
+     "photo": "Mephitis mephitis",
+     "obs": 177816815,
+     "crop": [
+      0.3,
+      0.05,
+      0.7,
+      0.95
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "garlic",
+   "sfx": [
+    "tink@garlic"
+   ]
+  },
+  {
+   "myth": "skunk",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Mephitis mephitis",
+     "obs": 79104970,
+     "crop": [
+      0.323,
+      0.15,
+      0.677,
+      0.85
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "skunk",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The skunk gives you a full warning, a dance, and a handstand. Most people still don't leave.",
+   "shots": [
+    {
+     "photo": "Mephitis mephitis",
+     "obs": 1714955,
+     "crop": [
+      0.217,
+      0.0,
+      0.783,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "leave"
+  },
+  {
+   "myth": "woodpecker",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A woodpecker drilled a hole in a dead tree, and shot its tongue deep inside to grab a grub.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "WHERE'S THE TONGUE?",
+   "punch": "shot",
+   "loop_say": "I'm keeping my distance. Because",
+   "short_title": "A Woodpecker's Tongue Wraps Around Its Skull 🐦",
+   "comment": "Would you want a tongue like that? 👅 yes / 🙅 no",
+   "bonus": "A woodpecker's tongue rides on loops of bone that curl around the back of its skull.",
+   "caption": "Where does a woodpecker keep its long tongue? Wrapped around its skull. Where? 👄 in its mouth / 💀 somewhere else #woodpecker #birds #animalfacts #weird Follow Meatball for more 🍝",
+   "sources": [
+    "American Bird Conservancy, 'The Amazing Secrets of Woodpecker Tongues' (hyoid apparatus wraps around the skull; barbed, sticky tips) — https://abcbirds.org/blog21/woodpecker-tongues/",
+    "TalkOrigins, Anatomy of the woodpecker's tongue (hyoid horns curl around the back and over the top of the skull) — https://poc3.talkorigins.org/faqs/woodpecker/woodpecker.html",
+    "Red-bellied woodpecker tongue nearly three times the length of its beak (popular source; worded 'almost') — https://www.todayifoundout.com/?p=2834"
+   ],
+   "shots": [
+    {
+     "photo": "Melanerpes carolinus",
+     "obs": 149781312,
+     "crop": [
+      0.213,
+      0.0,
+      0.587,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "woodpecker",
+   "pose": "think",
+   "act": "stand",
+   "say": "That tongue is huge. Where does it keep it? Guess.",
+   "shots": [
+    {
+     "photo": "Melanerpes carolinus",
+     "obs": 11417453,
+     "crop": [
+      0.219,
+      0.0,
+      0.781,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "WHERE IS IT?",
+    "choices": [
+     "👄 IN ITS MOUTH",
+     "💀 SOMEWHERE ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "woodpecker",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Melanerpes carolinus",
+     "obs": 280038514,
+     "crop": [
+      0.273,
+      0.05,
+      0.727,
+      0.95
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "woodpecker",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in the eastern US, the red-bellied woodpecker has a tongue almost three times as long as its beak.",
+   "shots": [
+    {
+     "photo": "Melanerpes carolinus",
+     "obs": 328258291,
+     "crop": [
+      0.302,
+      0.15,
+      0.598,
+      0.85
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "3x\nBEAK",
+    "at": "three"
+   }
+  },
+  {
+   "myth": "woodpecker",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The tip is barbed and sticky, for spearing bugs hidden in wood.",
+   "shots": [
+    {
+     "photo": "Melanerpes carolinus",
+     "obs": 6252444,
+     "crop": [
+      0.263,
+      0.0,
+      0.637,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "BARBED\nTIP",
+    "at": "barbed"
+   }
+  },
+  {
+   "myth": "woodpecker",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: rolled up in its mouth, like a party blower. No. There's no room.",
+   "shots": [
+    {
+     "photo": "Melanerpes carolinus",
+     "obs": 149781312,
+     "crop": [
+      0.213,
+      0.0,
+      0.587,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "woodpecker",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: down its throat. Also no. That would be very uncomfortable.",
+   "shots": [
+    {
+     "photo": "Melanerpes carolinus",
+     "obs": 11417453,
+     "crop": [
+      0.219,
+      0.0,
+      0.781,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "woodpecker",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I asked one to show me. It went for the wood. Then for me.",
+   "shots": [
+    {
+     "photo": "Melanerpes carolinus",
+     "obs": 280038514,
+     "crop": [
+      0.273,
+      0.05,
+      0.727,
+      0.95
+     ]
+    }
+   ],
+   "act_at": "me",
+   "sfx": [
+    "thud@me"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "woodpecker",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait, here's the weird part. The tongue is attached to bones that leave the mouth.",
+   "shots": [
+    {
+     "photo": "Melanerpes carolinus",
+     "obs": 328258291,
+     "crop": [
+      0.302,
+      0.15,
+      0.598,
+      0.85
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "woodpecker",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: around its skull. The tongue rides on loops of bone that curl around the back of its head, and over the top.",
+   "shots": [
+    {
+     "photo": "Melanerpes carolinus",
+     "obs": 6252444,
+     "crop": [
+      0.263,
+      0.0,
+      0.637,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "SKULL\nWRAP",
+    "at": "skull"
+   },
+   "sfx": [
+    "pop@skull"
+   ]
+  },
+  {
+   "myth": "woodpecker",
+   "pose": "shock",
+   "act": "stand",
+   "say": "When it strikes, those loops slide forward, and the tongue shoots out of the beak.",
+   "shots": [
+    {
+     "photo": "Melanerpes carolinus",
+     "obs": 149781312,
+     "crop": [
+      0.213,
+      0.0,
+      0.587,
+      1.0
+     ]
+    }
+   ],
+   "punch": "shoots"
+  },
+  {
+   "myth": "woodpecker",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Some kinds anchor that bone near the nostril, or even around the eye.",
+   "shots": [
+    {
+     "photo": "Melanerpes carolinus",
+     "obs": 11417453,
+     "crop": [
+      0.219,
+      0.0,
+      0.781,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@eye"
+    ]
+   }
+  },
+  {
+   "myth": "woodpecker",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "I have no bones to loop. I'm keeping my distance.",
+   "shots": [
+    {
+     "photo": "Melanerpes carolinus",
+     "obs": 280038514,
+     "crop": [
+      0.273,
+      0.05,
+      0.727,
+      0.95
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "distance",
+   "sfx": [
+    "tink@distance"
+   ]
+  },
+  {
+   "myth": "woodpecker",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Melanerpes carolinus",
+     "obs": 328258291,
+     "crop": [
+      0.302,
+      0.15,
+      0.598,
+      0.85
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "woodpecker",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "It keeps its tongue wrapped around its brain. And I thought my head was full of spaghetti.",
+   "shots": [
+    {
+     "photo": "Melanerpes carolinus",
+     "obs": 6252444,
+     "crop": [
+      0.263,
+      0.0,
+      0.637,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "spaghetti"
+  },
+  {
+   "myth": "shrike",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A little gray songbird caught a lizard, flew to a barbed wire fence, and stuck it on a spike.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "THE BUTCHER BIRD",
+   "punch": "spike",
+   "loop_say": "I'm not toxic. I'm marinated. Because",
+   "short_title": "This Songbird Hangs Its Food on Barbed Wire 🐦",
+   "comment": "Have you ever seen one of these pantries? 👍 yes / 👎 no",
+   "bonus": "Loggerhead shrikes impale prey on thorns and barbed wire; with toxic lubber grasshoppers they may wait a day or two before eating.",
+   "caption": "Why do shrikes hang food on barbed wire? This songbird hunts like a hawk without a hawk's feet. Why? 🎨 decoration / 🔪 something else #shrike #butcherbird #birds #animalfacts Follow Meatball for more 🍝",
+   "sources": [
+    "The Nature Conservancy, 'Shrikes: Meet the Bird That Impales Prey on Spikes' (songbirds with a hooked beak but weak feet, no talons; impale insects, lizards, mice and small birds on thorns and barbed wire to hold them while tearing, and as larders) — https://blog.nature.org/2020/01/27/shrikes-meet-the-bird-that-impales-prey-on-spikes/",
+    "Yosef & Whitman 1992, Evolutionary Ecology 6: 527-536 (loggerhead shrikes wait about 1-2 days before eating impaled toxic lubber grasshoppers) — worded 'may wait'",
+    "Yosef & Pinshow 1989 (larders may help males attract mates) — Travis Audubon, Bird of the week — https://travisaudubon.org/murmurations/bird-of-the-week"
+   ],
+   "shots": [
+    {
+     "photo": "Lanius ludovicianus",
+     "obs": 146980811,
+     "crop": [
+      0.325,
+      0.0,
+      0.775,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shrike",
+   "pose": "think",
+   "act": "stand",
+   "say": "Why would a songbird do that? Guess before I tell you.",
+   "shots": [
+    {
+     "photo": "Lanius ludovicianus",
+     "obs": 142995922,
+     "crop": [
+      0.363,
+      0.0,
+      0.737,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "WHY?",
+    "choices": [
+     "🎨 DECORATION",
+     "🔪 SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "shrike",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Lanius ludovicianus",
+     "obs": 208978883,
+     "crop": [
+      0.41,
+      0.05,
+      0.79,
+      0.95
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "shrike",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in North America, the loggerhead shrike is a songbird that hunts like a hawk. Bugs, lizards, even mice.",
+   "shots": [
+    {
+     "photo": "Lanius ludovicianus",
+     "obs": 111671031,
+     "crop": [
+      0.414,
+      0.0,
+      0.786,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ]
+  },
+  {
+   "myth": "shrike",
+   "pose": "shock",
+   "act": "stand",
+   "say": "People call it the butcher bird.",
+   "shots": [
+    {
+     "photo": "Lanius ludovicianus",
+     "obs": 146980811,
+     "crop": [
+      0.325,
+      0.0,
+      0.775,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "BUTCHER\nBIRD",
+    "at": "butcher"
+   }
+  },
+  {
+   "myth": "shrike",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: decoration, to look scary. No. It's not trying to be spooky.",
+   "shots": [
+    {
+     "photo": "Lanius ludovicianus",
+     "obs": 142995922,
+     "crop": [
+      0.363,
+      0.0,
+      0.737,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "shrike",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: to dry its food, like jerky. Not really. That's not the main reason.",
+   "shots": [
+    {
+     "photo": "Lanius ludovicianus",
+     "obs": 208978883,
+     "crop": [
+      0.41,
+      0.05,
+      0.79,
+      0.95
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "shrike",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I perched on its fence. I looked very skewer-able.",
+   "shots": [
+    {
+     "photo": "Lanius ludovicianus",
+     "obs": 111671031,
+     "crop": [
+      0.414,
+      0.0,
+      0.786,
+      1.0
+     ]
+    }
+   ],
+   "act_at": "skewer-able",
+   "sfx": [
+    "thud@skewer-able"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "shrike",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait. Look at its feet. Tiny, weak songbird feet. No hawk talons.",
+   "shots": [
+    {
+     "photo": "Lanius ludovicianus",
+     "obs": 146980811,
+     "crop": [
+      0.325,
+      0.0,
+      0.775,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "shrike",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: it can't hold its food. So the spike holds it, while the hooked beak tears it apart.",
+   "shots": [
+    {
+     "photo": "Lanius ludovicianus",
+     "obs": 142995922,
+     "crop": [
+      0.363,
+      0.0,
+      0.737,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "SPIKE\n= HANDS",
+    "at": "spike"
+   },
+   "sfx": [
+    "crunch@tears"
+   ]
+  },
+  {
+   "myth": "shrike",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "It also stores extra food there. A pantry on a fence. Full pantries may even impress females.",
+   "shots": [
+    {
+     "photo": "Lanius ludovicianus",
+     "obs": 208978883,
+     "crop": [
+      0.41,
+      0.05,
+      0.79,
+      0.95
+     ]
+    }
+   ],
+   "punch": "pantry"
+  },
+  {
+   "myth": "shrike",
+   "pose": "shock",
+   "act": "stand",
+   "say": "And with toxic lubber grasshoppers, it may wait a day or two, until the poison fades.",
+   "shots": [
+    {
+     "photo": "Lanius ludovicianus",
+     "obs": 111671031,
+     "crop": [
+      0.414,
+      0.0,
+      0.786,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@poison"
+    ]
+   },
+   "label": {
+    "text": "WAIT\n2 DAYS",
+    "at": "day"
+   }
+  },
+  {
+   "myth": "shrike",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "That's a kebab. I know kebabs.",
+   "shots": [
+    {
+     "photo": "Lanius ludovicianus",
+     "obs": 146980811,
+     "crop": [
+      0.325,
+      0.0,
+      0.775,
+      1.0
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "kebab",
+   "sfx": [
+    "tink@kebab"
+   ]
+  },
+  {
+   "myth": "shrike",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Lanius ludovicianus",
+     "obs": 142995922,
+     "crop": [
+      0.363,
+      0.0,
+      0.737,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "shrike",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "A songbird with no talons solved it with barbed wire. That's not a bird. That's a chef.",
+   "shots": [
+    {
+     "photo": "Lanius ludovicianus",
+     "obs": 208978883,
+     "crop": [
+      0.41,
+      0.05,
+      0.79,
+      0.95
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "chef"
+  },
+  {
+   "myth": "lamprey",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A lake trout swam past something on a rock. It latched onto the trout's side, and held on.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "A MOUTH OF TEETH",
+   "punch": "latched",
+   "loop_say": "And I'm brunch. Because",
+   "short_title": "Sea Lampreys Drink Fish Blood 🩸",
+   "comment": "Would you swim in a lake with these? 👍 yes / 👎 no",
+   "bonus": "One sea lamprey can kill up to 40 pounds of fish; they reached the upper Great Lakes through shipping canals.",
+   "caption": "How did sea lampreys get into the Great Lakes? Not by swimming up Niagara Falls. How? 🌊 the falls / 🚢 something else #sealamprey #greatlakes #fish #animalfacts Follow Meatball for more 🍝",
+   "sources": [
+    "Great Lakes Fishery Commission (sealamprey.org): sucking disc of sharp teeth around a rasping tongue; one lamprey can kill up to 40 lb of fish; invaded the upper Great Lakes via shipping canals (Welland Canal), first in Lake Erie 1921; controlled with lampricides and barriers — https://sealamprey.org/",
+    "CBC, GLFC's Marc Gaden: 'they bore a hole through the side of the fish, feeding on the fish's blood and body fluids' — https://www.cbc.ca/lite/story/1.4343218",
+    "Lampreys' lineage is about 340-360 million years old, older than dinosaurs (checked 2026-10-26)"
+   ],
+   "shots": [
+    {
+     "photo": "Petromyzon marinus",
+     "obs": 165189560,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "lamprey",
+   "pose": "think",
+   "act": "stand",
+   "say": "It's from the ocean. So how did it get into the Great Lakes? Guess.",
+   "shots": [
+    {
+     "photo": "Petromyzon marinus",
+     "obs": 220741076,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "HOW DID IT GET IN?",
+    "choices": [
+     "🌊 THE FALLS",
+     "🚢 SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "lamprey",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Petromyzon marinus",
+     "obs": 223388540,
+     "crop": [
+      0.302,
+      0.15,
+      0.598,
+      0.85
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "lamprey",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in the Atlantic Ocean lives the sea lamprey. No jaws. No bones. A round mouth full of teeth.",
+   "shots": [
+    {
+     "photo": "Petromyzon marinus",
+     "obs": 116319148,
+     "crop": [
+      0.342,
+      0.0,
+      0.658,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "NO JAWS",
+    "at": "jaws"
+   }
+  },
+  {
+   "myth": "lamprey",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It rasps a hole in a fish and drinks its blood and body fluids. One lamprey can kill forty pounds of fish.",
+   "shots": [
+    {
+     "photo": "Petromyzon marinus",
+     "obs": 165189560,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "40 LB\nOF FISH",
+    "at": "forty"
+   }
+  },
+  {
+   "myth": "lamprey",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: it swam up Niagara Falls. No. Nothing swims up that.",
+   "shots": [
+    {
+     "photo": "Petromyzon marinus",
+     "obs": 220741076,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "lamprey",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: people released it on purpose. Also no. Nobody wanted these.",
+   "shots": [
+    {
+     "photo": "Petromyzon marinus",
+     "obs": 223388540,
+     "crop": [
+      0.302,
+      0.15,
+      0.598,
+      0.85
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "lamprey",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I offered one a handshake. It latched on. Hard.",
+   "shots": [
+    {
+     "photo": "Petromyzon marinus",
+     "obs": 116319148,
+     "crop": [
+      0.342,
+      0.0,
+      0.658,
+      1.0
+     ]
+    }
+   ],
+   "act_at": "latched",
+   "sfx": [
+    "thud@latched"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "lamprey",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait. Here's the thing. Humans built it a shortcut, without meaning to.",
+   "shots": [
+    {
+     "photo": "Petromyzon marinus",
+     "obs": 165189560,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "lamprey",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: shipping canals. Canals built to get boats around Niagara Falls let lampreys right in. By 1921 they were in Lake Erie.",
+   "shots": [
+    {
+     "photo": "Petromyzon marinus",
+     "obs": 220741076,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "CANALS",
+    "at": "canals"
+   },
+   "sfx": [
+    "pop@canals"
+   ]
+  },
+  {
+   "myth": "lamprey",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Then they spread through the upper lakes, and lake trout catches crashed.",
+   "shots": [
+    {
+     "photo": "Petromyzon marinus",
+     "obs": 223388540,
+     "crop": [
+      0.302,
+      0.15,
+      0.598,
+      0.85
+     ]
+    }
+   ],
+   "punch": "crashed"
+  },
+  {
+   "myth": "lamprey",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Today, the lakes are treated with special chemicals that kill baby lampreys, every year.",
+   "shots": [
+    {
+     "photo": "Petromyzon marinus",
+     "obs": 116319148,
+     "crop": [
+      0.342,
+      0.0,
+      0.658,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@year"
+    ]
+   }
+  },
+  {
+   "myth": "lamprey",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Their family is older than dinosaurs. And they still look like it.",
+   "shots": [
+    {
+     "photo": "Petromyzon marinus",
+     "obs": 165189560,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "older",
+   "sfx": [
+    "tink@older"
+   ]
+  },
+  {
+   "myth": "lamprey",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Petromyzon marinus",
+     "obs": 220741076,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "lamprey",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Survived for hundreds of millions of years, then took a boat canal. Even monsters like a shortcut.",
+   "shots": [
+    {
+     "photo": "Petromyzon marinus",
+     "obs": 223388540,
+     "crop": [
+      0.302,
+      0.15,
+      0.598,
+      0.85
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "shortcut"
+  },
+  {
+   "myth": "velvetant",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "I picked up a fuzzy red ant from a sandy path. It squeaked at me.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "NOT AN ANT",
+   "punch": "squeaked",
+   "loop_say": "I'm called Meatball. Zero respect. Because",
+   "short_title": "Velvet Ants Aren't Ants. They're Wasps 🐜",
+   "comment": "Have you ever seen a cow killer? 👍 yes / 👎 no",
+   "bonus": "Velvet ants are wingless female wasps; the 'cow killer' nickname is an exaggeration, but the sting is very painful.",
+   "caption": "What is a velvet ant? Not an ant. Then what? 🐜 ant / 🕷️ spider / 🐝 something else #velvetant #cowkiller #insects #animalfacts Follow Meatball for more 🍝",
+   "sources": [
+    "Wikipedia, Velvet ant (Mutillidae: wasps with wingless females and winged males; very hard exoskeleton; females have a long, painful sting; can squeak by stridulation; Dasymutilla occidentalis nicknamed 'cow killer', an exaggeration) — https://en.wikipedia.org/wiki/Velvet_ant",
+    "UW-Milwaukee Field Station, Velvet Ant — https://uwm.edu/field-station/bug-of-the-week/velvet-ant/",
+    "Justin Schmidt's sting pain index rates the velvet ant sting high (checked 2026-10-26)"
+   ],
+   "shots": [
+    {
+     "photo": "Dasymutilla occidentalis",
+     "obs": 306804101,
+     "crop": [
+      0.125,
+      0.0,
+      0.875,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "velvetant",
+   "pose": "think",
+   "act": "stand",
+   "say": "It looks like an ant. What is it really? Guess.",
+   "shots": [
+    {
+     "photo": "Dasymutilla occidentalis",
+     "obs": 182511792,
+     "crop": [
+      0.14,
+      0.0,
+      0.86,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "WHAT IS IT?",
+    "choices": [
+     "🐜 AN ANT",
+     "🐝 SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "velvetant",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Dasymutilla occidentalis",
+     "obs": 121518610,
+     "crop": [
+      0.29,
+      0.05,
+      0.71,
+      0.95
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "velvetant",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in the southern US, people call this the cow killer. Bright red, fuzzy, and about an inch long.",
+   "shots": [
+    {
+     "photo": "Dasymutilla occidentalis",
+     "obs": 126346324,
+     "crop": [
+      0.389,
+      0.15,
+      0.611,
+      0.85
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "COW\nKILLER",
+    "at": "cow"
+   }
+  },
+  {
+   "myth": "velvetant",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Its armor is so tough that many predators just give up.",
+   "shots": [
+    {
+     "photo": "Dasymutilla occidentalis",
+     "obs": 183682087,
+     "crop": [
+      0.413,
+      0.0,
+      0.787,
+      1.0
+     ]
+    }
+   ],
+   "punch": "tough"
+  },
+  {
+   "myth": "velvetant",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: a very fluffy ant. No. It just looks like one.",
+   "shots": [
+    {
+     "photo": "Dasymutilla occidentalis",
+     "obs": 306804101,
+     "crop": [
+      0.125,
+      0.0,
+      0.875,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "velvetant",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: a tiny spider. Also no. Count the legs. Six.",
+   "shots": [
+    {
+     "photo": "Dasymutilla occidentalis",
+     "obs": 182511792,
+     "crop": [
+      0.14,
+      0.0,
+      0.86,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "velvetant",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I petted the fluffy one. It stung me.",
+   "shots": [
+    {
+     "photo": "Dasymutilla occidentalis",
+     "obs": 121518610,
+     "crop": [
+      0.29,
+      0.05,
+      0.71,
+      0.95
+     ]
+    }
+   ],
+   "act_at": "stung",
+   "sfx": [
+    "thud@stung"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "velvetant",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait, here's the weird part. The males of this species have wings. The females don't.",
+   "shots": [
+    {
+     "photo": "Dasymutilla occidentalis",
+     "obs": 126346324,
+     "crop": [
+      0.389,
+      0.15,
+      0.611,
+      0.85
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "velvetant",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: it's a wasp. A wingless female wasp, with one of the most painful stings around.",
+   "shots": [
+    {
+     "photo": "Dasymutilla occidentalis",
+     "obs": 183682087,
+     "crop": [
+      0.413,
+      0.0,
+      0.787,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "WASP!",
+    "at": "wasp"
+   },
+   "sfx": [
+    "zap@wasp"
+   ]
+  },
+  {
+   "myth": "velvetant",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Only the females sting. And they lay their eggs in the nests of other bees and wasps.",
+   "shots": [
+    {
+     "photo": "Dasymutilla occidentalis",
+     "obs": 306804101,
+     "crop": [
+      0.125,
+      0.0,
+      0.875,
+      1.0
+     ]
+    }
+   ],
+   "punch": "nests"
+  },
+  {
+   "myth": "velvetant",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Cow killer? Not really. It can't kill a cow. The name is an exaggeration.",
+   "shots": [
+    {
+     "photo": "Dasymutilla occidentalis",
+     "obs": 182511792,
+     "crop": [
+      0.14,
+      0.0,
+      0.86,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@cow"
+    ]
+   },
+   "label": {
+    "text": "NOT A\nCOW KILLER",
+    "at": "exaggeration"
+   }
+  },
+  {
+   "myth": "velvetant",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Bright red, fuzzy, called cow killer. I'm called Meatball. Zero respect.",
+   "shots": [
+    {
+     "photo": "Dasymutilla occidentalis",
+     "obs": 121518610,
+     "crop": [
+      0.29,
+      0.05,
+      0.71,
+      0.95
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "Meatball",
+   "sfx": [
+    "tink@Meatball"
+   ]
+  },
+  {
+   "myth": "velvetant",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Dasymutilla occidentalis",
+     "obs": 126346324,
+     "crop": [
+      0.389,
+      0.15,
+      0.611,
+      0.85
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "velvetant",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "It's not an ant, it's not velvet, and it can't kill a cow. Every part of the name is wrong.",
+   "shots": [
+    {
+     "photo": "Dasymutilla occidentalis",
+     "obs": 183682087,
+     "crop": [
+      0.413,
+      0.0,
+      0.787,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "wrong"
   }
  ]
 }
