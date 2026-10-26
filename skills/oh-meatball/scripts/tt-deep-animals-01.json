@@ -4167,6 +4167,2564 @@
    "kicker": true,
    "hold": 0.25,
    "punch": "help"
+  },
+  {
+   "myth": "opossum",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A dog cornered an opossum. The opossum flopped over, and died. Or did it?",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "DEAD? NOPE.",
+   "punch": "flopped",
+   "loop_say": "Fully committed to the bit. Because",
+   "short_title": "Opossums Can't Help Playing Dead 💀",
+   "comment": "Could you fake it this well? 👍 yes / 👎 no",
+   "bonus": "A scared opossum can stay 'dead' for up to four hours (National Wildlife Federation).",
+   "caption": "Do opossums play dead on purpose? No: it's involuntary, like fainting. Acting or not? 🎭 acting / 😵 can't help it #opossum #halloween #animalfacts #playingpossum Follow Meatball for more 🍝",
+   "sources": [
+    "National Wildlife Federation, Virginia opossum: 'playing possum' is an involuntary response to fear, like fainting; lips drawn back, teeth bared, saliva foams, a foul-smelling fluid from the anal glands; can last up to four hours — https://www.nwf.org/Educational-Resources/Wildlife-Guide/Mammals/Virginia-Opossum (checked 2026-10-26)",
+    "Wikipedia, Virginia opossum (thanatosis; tongue out; the only marsupial north of Mexico; 50 teeth) — https://en.wikipedia.org/wiki/Virginia_opossum"
+   ],
+   "shots": [
+    {
+     "photo": "Didelphis virginiana",
+     "obs": 7073976,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "opossum",
+   "pose": "think",
+   "act": "stand",
+   "say": "Is it acting, or can't it help it? Guess.",
+   "shots": [
+    {
+     "photo": "Didelphis virginiana",
+     "obs": 243652432,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "ACTING?",
+    "choices": [
+     "🎭 ACTING",
+     "😵 CAN'T HELP IT"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "opossum",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Didelphis virginiana",
+     "obs": 7073976,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "opossum",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in North America, the Virginia opossum is the only marsupial north of Mexico. A pouch, like a kangaroo.",
+   "shots": [
+    {
+     "photo": "Didelphis virginiana",
+     "obs": 243652432,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "MARSUPIAL",
+    "at": "marsupial"
+   }
+  },
+  {
+   "myth": "opossum",
+   "pose": "shock",
+   "act": "stand",
+   "say": "When it's really scared, it goes limp. Mouth open, tongue out, teeth showing. Drool and foam.",
+   "shots": [
+    {
+     "photo": "Didelphis virginiana",
+     "obs": 7073976,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "TONGUE\nOUT",
+    "at": "tongue"
+   }
+  },
+  {
+   "myth": "opossum",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: it's a clever act, like a movie star. No. It's not deciding anything.",
+   "shots": [
+    {
+     "photo": "Didelphis virginiana",
+     "obs": 243652432,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "opossum",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: it's actually hurt. Also no. Leave it alone, and it gets up fine.",
+   "shots": [
+    {
+     "photo": "Didelphis virginiana",
+     "obs": 7073976,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "opossum",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I poked one with a stick. Nothing. Fully committed to the bit.",
+   "shots": [
+    {
+     "photo": "Didelphis virginiana",
+     "obs": 243652432,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "act_at": "Nothing",
+   "sfx": [
+    "thud@Nothing"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "opossum",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait, it gets worse. It leaks a smell like a dead animal. From its butt.",
+   "shots": [
+    {
+     "photo": "Didelphis virginiana",
+     "obs": 7073976,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   },
+   "label": {
+    "text": "DEAD\nSMELL",
+    "at": "smell"
+   }
+  },
+  {
+   "myth": "opossum",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: it can't help it. Playing dead is involuntary, like fainting from fear.",
+   "shots": [
+    {
+     "photo": "Didelphis virginiana",
+     "obs": 243652432,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "LIKE\nFAINTING",
+    "at": "fainting"
+   },
+   "sfx": [
+    "pop@involuntary"
+   ]
+  },
+  {
+   "myth": "opossum",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Lots of predators won't eat something that already looks and smells dead. So it works.",
+   "shots": [
+    {
+     "photo": "Didelphis virginiana",
+     "obs": 7073976,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "punch": "works"
+  },
+  {
+   "myth": "opossum",
+   "pose": "shock",
+   "act": "stand",
+   "say": "And it can stay like that for up to four hours.",
+   "shots": [
+    {
+     "photo": "Didelphis virginiana",
+     "obs": 243652432,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "4 HOURS",
+    "at": "four"
+   },
+   "host": {
+    "moves": [
+     "lean@four"
+    ]
+   }
+  },
+  {
+   "myth": "opossum",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "I'm a meatball. I just lie there anyway.",
+   "shots": [
+    {
+     "photo": "Didelphis virginiana",
+     "obs": 7073976,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "lie",
+   "sfx": [
+    "tink@lie"
+   ]
+  },
+  {
+   "myth": "opossum",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Didelphis virginiana",
+     "obs": 243652432,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "opossum",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Its best defense is fainting and smelling bad. Somehow, that's a winning strategy.",
+   "shots": [
+    {
+     "photo": "Didelphis virginiana",
+     "obs": 7073976,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "winning"
+  },
+  {
+   "myth": "hawkmoth",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A moth with a skull on its back crawled into a beehive at night, and squeaked.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "SKULL ON ITS BACK",
+   "punch": "squeaked",
+   "loop_say": "I smell like dinner. Because",
+   "short_title": "This Moth Has a Skull on Its Back, and It Squeaks 💀",
+   "comment": "Would you let it land on you? 👍 yes / 👎 no",
+   "bonus": "The death's-head hawkmoth raids beehives for honey; its scent is close enough to the bees' that they mostly leave it alone.",
+   "caption": "The death's-head hawkmoth has a skull on its back, squeaks, and raids beehives. How does it survive the bees? 🛡️ armor / 🐝 something else #moth #halloween #animalfacts #insects Follow Meatball for more 🍝",
+   "sources": [
+    "Brehm et al. 2015, Journal of Experimental Biology 218: 3838-3845, 'The unique sound production of the Death's-head hawkmoth' (squeaks by pumping air in and out of the pharynx) — https://journals.biologists.com/jeb/article/218/24/3838/16911",
+    "Moritz et al. 1991, Naturwissenschaften 78: 179-182, chemical camouflage of Acherontia atropos in honeybee colonies (cuticle scent mimics the bees'; enters hives to feed on honey) — https://doi.org/10.1007/BF01131497",
+    "Wikipedia, Acherontia atropos (skull-shaped thorax pattern; appears in The Silence of the Lambs poster and novel, a related species) — https://en.wikipedia.org/wiki/Acherontia_atropos (checked 2026-10-26)"
+   ],
+   "shots": [
+    {
+     "photo": "Acherontia atropos",
+     "obs": 220675597,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hawkmoth",
+   "pose": "think",
+   "act": "stand",
+   "say": "Bees attack intruders. So how does it survive in there? Guess.",
+   "shots": [
+    {
+     "photo": "Acherontia atropos",
+     "obs": 117549550,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "HOW DOES IT SURVIVE?",
+    "choices": [
+     "🛡️ ARMOR",
+     "🐝 SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "hawkmoth",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Acherontia atropos",
+     "obs": 122835081,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "hawkmoth",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in Europe and Africa, this is the death's-head hawkmoth. The skull pattern is real, on its back.",
+   "shots": [
+    {
+     "photo": "Acherontia atropos",
+     "obs": 220675597,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "DEATH'S\nHEAD",
+    "at": "death's-head"
+   }
+  },
+  {
+   "myth": "hawkmoth",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Bother it, and it squeaks, by pumping air through its throat. A moth that screams.",
+   "shots": [
+    {
+     "photo": "Acherontia atropos",
+     "obs": 117549550,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "SQUEAK!",
+    "at": "squeaks"
+   },
+   "sfx": [
+    "boing@squeaks"
+   ]
+  },
+  {
+   "myth": "hawkmoth",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: thick armor against stings. No. It's a moth, soft and fuzzy.",
+   "shots": [
+    {
+     "photo": "Acherontia atropos",
+     "obs": 122835081,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "hawkmoth",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: the squeak scares the bees. That's an old idea. It's not the main trick.",
+   "shots": [
+    {
+     "photo": "Acherontia atropos",
+     "obs": 220675597,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "hawkmoth",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I tried sneaking into a hive myself. I'm a meatball. I smell like dinner.",
+   "shots": [
+    {
+     "photo": "Acherontia atropos",
+     "obs": 117549550,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "act_at": "dinner",
+   "sfx": [
+    "thud@dinner"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "hawkmoth",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait, here's the thing. It goes in for one thing. Honey.",
+   "shots": [
+    {
+     "photo": "Acherontia atropos",
+     "obs": 122835081,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "hawkmoth",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: it smells like the bees. Its body scent is so close to theirs that they mostly ignore it.",
+   "shots": [
+    {
+     "photo": "Acherontia atropos",
+     "obs": 220675597,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "BEE\nPERFUME",
+    "at": "smells"
+   },
+   "sfx": [
+    "pop@smells"
+   ]
+  },
+  {
+   "myth": "hawkmoth",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Chemical camouflage. It walks in, drinks honey, and walks out.",
+   "shots": [
+    {
+     "photo": "Acherontia atropos",
+     "obs": 117549550,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "punch": "camouflage"
+  },
+  {
+   "myth": "hawkmoth",
+   "pose": "shock",
+   "act": "stand",
+   "say": "A death's-head moth is the one on the Silence of the Lambs poster.",
+   "shots": [
+    {
+     "photo": "Acherontia atropos",
+     "obs": 122835081,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@poster"
+    ]
+   }
+  },
+  {
+   "myth": "hawkmoth",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Skull, squeak, honey thief. Full Halloween costume, every day.",
+   "shots": [
+    {
+     "photo": "Acherontia atropos",
+     "obs": 220675597,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "honey",
+   "sfx": [
+    "tink@honey"
+   ]
+  },
+  {
+   "myth": "hawkmoth",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Acherontia atropos",
+     "obs": 117549550,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "hawkmoth",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "It has a skull on its back, and its best trick is smelling nice.",
+   "shots": [
+    {
+     "photo": "Acherontia atropos",
+     "obs": 122835081,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "nice"
+  },
+  {
+   "myth": "thornydevil",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A spiky little lizard stepped onto wet sand, and started drinking. With its feet.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "DRINKS WITH SKIN",
+   "punch": "stepped",
+   "loop_say": "A skin straw. Because",
+   "short_title": "This Lizard Drinks Through Its Skin 🦎",
+   "comment": "Skin straw: cool or creepy? 😎 cool / 😬 creepy",
+   "bonus": "The thorny devil wicks water to its mouth through grooves in its skin, and eats thousands of ants a day.",
+   "caption": "How does the thorny devil drink? Through its skin: grooves wick water to its mouth. How? 👅 licks / 🦎 skin #thornydevil #lizard #reptiles #animalfacts Follow Meatball for more 🍝",
+   "sources": [
+    "Wikipedia, Thorny devil (capillary action moves water through channels in its skin to the mouth; spiny 'false head' on the neck; often eats thousands of ants in a day; up to 21 cm; lives in the Australian outback) — https://en.wikipedia.org/wiki/Thorny_devil (checked 2026-10-26)",
+    "Comanns et al. 2016, Royal Society Open Science 3: 160474, 'Cutaneous water collection by a moisture-harvesting lizard, the thorny devil' — https://doi.org/10.1098/rsos.160474"
+   ],
+   "shots": [
+    {
+     "photo": "Moloch horridus",
+     "obs": 67092398,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "thornydevil",
+   "pose": "think",
+   "act": "stand",
+   "say": "It never puts its mouth in the water. So how does it drink? Guess.",
+   "shots": [
+    {
+     "photo": "Moloch horridus",
+     "obs": 236175663,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "HOW DOES IT DRINK?",
+    "choices": [
+     "👅 LICKS",
+     "🦎 SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "thornydevil",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Moloch horridus",
+     "obs": 398422128,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "thornydevil",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in the Australian outback, the thorny devil lives where it barely rains. Covered in spikes.",
+   "shots": [
+    {
+     "photo": "Moloch horridus",
+     "obs": 282071327,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "OUTBACK",
+    "at": "outback"
+   }
+  },
+  {
+   "myth": "thornydevil",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "About the size of my hand. If I had hands.",
+   "shots": [
+    {
+     "photo": "Moloch horridus",
+     "obs": 67092398,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "punch": "hands"
+  },
+  {
+   "myth": "thornydevil",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: it licks dew off rocks. No. That's not how it gets most water.",
+   "shots": [
+    {
+     "photo": "Moloch horridus",
+     "obs": 236175663,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "thornydevil",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: it gets it all from its food. Also no. Ants are not juicy.",
+   "shots": [
+    {
+     "photo": "Moloch horridus",
+     "obs": 398422128,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "thornydevil",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I offered it a glass of water. It showed me its second head.",
+   "shots": [
+    {
+     "photo": "Moloch horridus",
+     "obs": 282071327,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "act_at": "second",
+   "sfx": [
+    "thud@second"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "thornydevil",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait. That second head is fake. A spiky lump on its neck. Predators bite that one.",
+   "shots": [
+    {
+     "photo": "Moloch horridus",
+     "obs": 67092398,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   },
+   "label": {
+    "text": "FAKE\nHEAD",
+    "at": "fake"
+   }
+  },
+  {
+   "myth": "thornydevil",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: tiny grooves between its scales. They wick water from wet sand, up its legs, to its mouth.",
+   "shots": [
+    {
+     "photo": "Moloch horridus",
+     "obs": 236175663,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "SKIN\nSTRAW",
+    "at": "grooves"
+   },
+   "sfx": [
+    "pop@grooves"
+   ]
+  },
+  {
+   "myth": "thornydevil",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "It's called capillary action. The same thing that pulls water up a paper towel.",
+   "shots": [
+    {
+     "photo": "Moloch horridus",
+     "obs": 398422128,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "punch": "towel"
+  },
+  {
+   "myth": "thornydevil",
+   "pose": "shock",
+   "act": "stand",
+   "say": "And it eats ants. Thousands of them, in a single day.",
+   "shots": [
+    {
+     "photo": "Moloch horridus",
+     "obs": 282071327,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "1000s OF\nANTS",
+    "at": "Thousands"
+   },
+   "host": {
+    "moves": [
+     "lean@Thousands"
+    ]
+   }
+  },
+  {
+   "myth": "thornydevil",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "I can't drink from a glass without spilling.",
+   "shots": [
+    {
+     "photo": "Moloch horridus",
+     "obs": 67092398,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "glass",
+   "sfx": [
+    "tink@glass"
+   ]
+  },
+  {
+   "myth": "thornydevil",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Moloch horridus",
+     "obs": 236175663,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "thornydevil",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "It looks like a monster, drinks like a paper towel, and eats like a vacuum.",
+   "shots": [
+    {
+     "photo": "Moloch horridus",
+     "obs": 398422128,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "vacuum"
+  },
+  {
+   "myth": "widow",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A tiny male spider climbed onto a black widow's web, and plucked the silk like a guitar.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "SHE ATE HIM?",
+   "punch": "crept",
+   "loop_say": "I'll see myself out. Because",
+   "short_title": "I Asked a Black Widow Out 🕷️ (Would Meatball Survive?)",
+   "comment": "Would you date her? 👍 yes / 👎 no",
+   "bonus": "Western black widows have never been seen eating their mates in the wild; the idea comes from lab cages where males couldn't escape (Burke Museum).",
+   "caption": "Do black widows eat their mates? Usually not. Where did the rumor come from? 🕸️ the wild / 🧪 somewhere else #blackwidow #spiders #halloween #myths Follow Meatball for more 🍝",
+   "sources": [
+    "Burke Museum spider myths (Rod Crawford), 'Myth: Black widows eat their mates': never observed in the wild for L. hesperus; old reports from lab cages where males couldn't escape; females weigh 10-160x males — https://www.burkemuseum.org/blog/myth-black-widows-eat-their-mates",
+    "LiveScience, black widow facts (females do not usually eat mates) — https://www.livescience.com/39919-black-widow-spiders.html",
+    "Photos are all Latrodectus hesperus (western black widow)."
+   ],
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 312620607,
+     "crop": [
+      0.239,
+      0.0,
+      0.661,
+      1.0
+     ]
+    },
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 177715400,
+     "crop": [
+      0.294,
+      0.1,
+      0.706,
+      1.0
+     ],
+     "at": "plucking"
+    }
+   ]
+  },
+  {
+   "myth": "widow",
+   "pose": "think",
+   "act": "stand",
+   "say": "Everyone says she eats him. Is that true? Guess.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 109595183,
+     "crop": [
+      0.247,
+      0.0,
+      0.553,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DOES SHE EAT HIM?",
+    "choices": [
+     "💀 ALWAYS",
+     "💔 RARELY"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "widow",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 324385129,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "widow",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in the American West, the western black widow can weigh up to a hundred and sixty times more than the male.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 324385129,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "160x",
+    "at": "sixty"
+   }
+  },
+  {
+   "myth": "widow",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "He's tiny. She's shiny, black, with a red hourglass.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 368355662,
+     "crop": [
+      0.36,
+      0.1,
+      0.74,
+      1.0
+     ]
+    }
+   ],
+   "punch": "hourglass"
+  },
+  {
+   "myth": "widow",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: she always eats him, every time. No. That's the myth.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 312620607,
+     "crop": [
+      0.281,
+      0.15,
+      0.619,
+      0.95
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "widow",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: he eats her. Also no. Nice try, buddy.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 177715400,
+     "crop": [
+      0.35,
+      0.2,
+      0.65,
+      0.8
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "widow",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I asked one out myself. Then I got stuck in her web.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 109595183,
+     "crop": [
+      0.258,
+      0.05,
+      0.502,
+      0.85
+     ]
+    }
+   ],
+   "act_at": "stuck",
+   "sfx": [
+    "thud@stuck"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "widow",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait. Here's the weird part. Nobody has seen a wild western widow eat her mate.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 324385129,
+     "crop": [
+      0.33,
+      0.1,
+      0.65,
+      0.8
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "widow",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: the rumor came from lab cages. The males couldn't escape, so some got eaten.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 368355662,
+     "crop": [
+      0.4,
+      0.2,
+      0.7,
+      0.85
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "LAB\nCAGES",
+    "at": "cages"
+   },
+   "sfx": [
+    "pop@cages"
+   ]
+  },
+  {
+   "myth": "widow",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "In the wild, the male usually just leaves. Alive.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 312620607,
+     "crop": [
+      0.239,
+      0.0,
+      0.661,
+      1.0
+     ]
+    }
+   ],
+   "punch": "Alive"
+  },
+  {
+   "myth": "widow",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Some other widow species do eat mates sometimes. Just not as a rule.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 177715400,
+     "crop": [
+      0.294,
+      0.1,
+      0.706,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@rule"
+    ]
+   }
+  },
+  {
+   "myth": "widow",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Good news: I'm not her mate. Bad news: I'm a snack.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 109595183,
+     "crop": [
+      0.247,
+      0.0,
+      0.553,
+      1.0
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "snack",
+   "sfx": [
+    "tink@snack"
+   ]
+  },
+  {
+   "myth": "widow",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 324385129,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "widow",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Turns out the scariest thing in her web was a bad first date. I'll see myself out. Slowly.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 368355662,
+     "crop": [
+      0.36,
+      0.1,
+      0.74,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "Slowly"
+  },
+  {
+   "myth": "vampire",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A vampire bat landed beside a sleeping cow, and crawled up to its leg. On foot.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "IT DOESN'T SUCK",
+   "punch": "landed",
+   "loop_say": "Would you volunteer? Because",
+   "short_title": "I Volunteered for a Vampire Bat 🦇 (Would Meatball Survive?)",
+   "comment": "Would you let one bite you for science? 👍 yes / 👎 no",
+   "bonus": "Vampire bat spit contains draculin, a blood thinner named after Dracula; hungry bats get blood shared by roostmates.",
+   "caption": "Do vampire bats suck blood? No: they cut and lap it. How do they drink? 🧛 suck / 👅 something else #vampirebat #bats #halloween #animalfacts Follow Meatball for more 🍝",
+   "sources": [
+    "National Geographic, vampire bats make a small cut and lap blood with a grooved tongue; saliva keeps it flowing — https://www.nationalgeographic.com/animals/article/151117-vampire-bats-blood-food-science-animals",
+    "Draculin, anticoagulant glycoprotein in Desmodus rotundus saliva, named after Count Dracula (Fernandez et al. 1998, Thromb. Haemost.) — https://en.wikipedia.org/wiki/Draculin",
+    "Wilkinson 1984, Nature 308: 181-184, 'Reciprocal food sharing in the vampire bat' — https://doi.org/10.1038/308181a0",
+    "Common vampire bats feed mainly on livestock; they can die after about two nights without a meal — https://en.wikipedia.org/wiki/Common_vampire_bat (checked 2026-10-26)"
+   ],
+   "shots": [
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 278432573,
+     "crop": [
+      0.363,
+      0.0,
+      0.737,
+      1.0
+     ]
+    },
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 320783448,
+     "crop": [
+      0.26,
+      0.0,
+      0.64,
+      0.9
+     ],
+     "at": "crawled"
+    }
+   ]
+  },
+  {
+   "myth": "vampire",
+   "pose": "think",
+   "act": "stand",
+   "say": "Everyone says it sucks blood. Does it? Guess.",
+   "shots": [
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 248835378,
+     "crop": [
+      0.451,
+      0.0,
+      0.789,
+      0.9
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DOES IT SUCK?",
+    "choices": [
+     "🧛 SUCKS",
+     "👅 SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "vampire",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 23985108,
+     "crop": [
+      0.21,
+      0.0,
+      0.59,
+      0.9
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "vampire",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in Mexico and South America, the common vampire bat lives on blood. Nothing else.",
+   "shots": [
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 72906803,
+     "crop": [
+      0.3,
+      0.1,
+      0.6,
+      0.8
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "ONLY\nBLOOD",
+    "at": "blood"
+   }
+  },
+  {
+   "myth": "vampire",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "It feels for warm spots with heat sensors on its nose.",
+   "shots": [
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 278432573,
+     "crop": [
+      0.42,
+      0.2,
+      0.7,
+      0.8
+     ]
+    }
+   ],
+   "punch": "nose"
+  },
+  {
+   "myth": "vampire",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: it sucks through hollow fangs, like Dracula. No. No straws in there.",
+   "shots": [
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 320783448,
+     "crop": [
+      0.3,
+      0.15,
+      0.6,
+      0.8
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "vampire",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: it drains the whole cow. Also no. It drinks about a spoonful or two.",
+   "shots": [
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 248835378,
+     "crop": [
+      0.479,
+      0.075,
+      0.761,
+      0.825
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "vampire",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I volunteered. For science. It looked at me like a buffet.",
+   "shots": [
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 23985108,
+     "crop": [
+      0.25,
+      0.1,
+      0.55,
+      0.8
+     ]
+    }
+   ],
+   "act_at": "buffet",
+   "sfx": [
+    "thud@buffet"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "vampire",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait. Here's the creepy part. Its spit keeps the blood from clotting.",
+   "shots": [
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 278432573,
+     "crop": [
+      0.363,
+      0.0,
+      0.737,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "vampire",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: it makes a tiny cut with razor teeth, then laps the blood up with its tongue. Like a kitten with milk.",
+   "shots": [
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 320783448,
+     "crop": [
+      0.26,
+      0.0,
+      0.64,
+      0.9
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "LAPS\nIT UP",
+    "at": "laps"
+   },
+   "sfx": [
+    "pop@laps"
+   ]
+  },
+  {
+   "myth": "vampire",
+   "pose": "shock",
+   "act": "stand",
+   "say": "The blood thinner in its spit is called draculin. Yes. Named after Dracula.",
+   "shots": [
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 248835378,
+     "crop": [
+      0.451,
+      0.0,
+      0.789,
+      0.9
+     ]
+    }
+   ],
+   "label": {
+    "text": "DRACULIN",
+    "at": "draculin"
+   }
+  },
+  {
+   "myth": "vampire",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "And when a bat misses dinner, a friend throws up blood to share. They remember who helped.",
+   "shots": [
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 72906803,
+     "crop": [
+      0.3,
+      0.1,
+      0.6,
+      0.8
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@friend"
+    ]
+   },
+   "punch": "remember"
+  },
+  {
+   "myth": "vampire",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Good news: it mostly bites cows. Bad news: I'm made of cow.",
+   "shots": [
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 23985108,
+     "crop": [
+      0.21,
+      0.0,
+      0.59,
+      0.9
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "cow",
+   "sfx": [
+    "tink@cow"
+   ]
+  },
+  {
+   "myth": "vampire",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 248835378,
+     "crop": [
+      0.451,
+      0.0,
+      0.789,
+      0.9
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "vampire",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The real vampire doesn't suck, doesn't fly in, and shares with friends. Dracula could learn a lot.",
+   "shots": [
+    {
+     "photo": "Desmodus rotundus",
+     "obs": 320783448,
+     "crop": [
+      0.26,
+      0.0,
+      0.64,
+      0.9
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "lot"
+  },
+  {
+   "myth": "blackcat",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A black cat crossed my path on Halloween night, and I froze.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "LUCKY OR UNLUCKY?",
+   "punch": "crossed",
+   "loop_say": "Lucky for you. Because",
+   "short_title": "I Adopted a Lucky Black Cat 🐈‍⬛ (Would Meatball Survive?)",
+   "comment": "Lucky or unlucky: which do you believe? 🍀 lucky / 💀 unlucky",
+   "bonus": "Black cats are seen as good luck in Japan and Scotland; a black cat's fur can turn rusty brown in strong sun.",
+   "caption": "Are black cats bad luck? Depends where you live: in Japan and Scotland they're lucky. Which do you believe? 🍀 lucky / 💀 unlucky #blackcat #cats #halloween #superstition Follow Meatball for more 🍝",
+   "sources": [
+    "Cats Protection (UK), black cat superstitions (lucky in Japan and parts of the UK) — https://www.cats.org.uk/cats-blog/black-cat-superstitions",
+    "Catster, are black cats good luck (a black cat on the doorstep means prosperity in Scotland; good luck in Japan; witch associations in medieval Europe) — https://www.catster.com/lifestyle/are-black-cats-good-luck",
+    "Black fur 'rusting': eumelanin in black fur can break down in sunlight, giving a reddish-brown tint (Wikipedia, Black cat) — https://en.wikipedia.org/wiki/Black_cat (checked 2026-10-26)",
+    "Folklore varies by region; the script says 'parts of England'."
+   ],
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 333436760,
+     "crop": [
+      0.219,
+      0.0,
+      0.781,
+      1.0
+     ]
+    },
+    {
+     "photo": "Felis catus",
+     "obs": 137560355,
+     "crop": [
+      0.462,
+      0.0,
+      0.778,
+      1.0
+     ],
+     "at": "froze"
+    }
+   ]
+  },
+  {
+   "myth": "blackcat",
+   "pose": "think",
+   "act": "stand",
+   "say": "Bad luck, or good luck? Guess before I tell you.",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 206822105,
+     "crop": [
+      0.219,
+      0.125,
+      0.781,
+      0.875
+     ]
+    }
+   ],
+   "ask": {
+    "q": "LUCK?",
+    "choices": [
+     "🍀 GOOD",
+     "💀 BAD"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "blackcat",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 70345133,
+     "crop": [
+      0.363,
+      0.0,
+      0.737,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "blackcat",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in medieval Europe, people linked black cats with witches. That's where the bad luck story started.",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 333436760,
+     "crop": [
+      0.3,
+      0.15,
+      0.7,
+      0.85
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "WITCHES?",
+    "at": "witches"
+   }
+  },
+  {
+   "myth": "blackcat",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "But the cat itself is just a cat. Same as any other color.",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 137560355,
+     "crop": [
+      0.493,
+      0.15,
+      0.747,
+      0.95
+     ]
+    }
+   ],
+   "punch": "cat"
+  },
+  {
+   "myth": "blackcat",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: bad luck, everywhere. No. That's only part of the story.",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 206822105,
+     "crop": [
+      0.3,
+      0.2,
+      0.7,
+      0.8
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "blackcat",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: it's science, black cats are unlucky. Also no. Luck is not a fur color.",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 70345133,
+     "crop": [
+      0.4,
+      0.15,
+      0.7,
+      0.95
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "blackcat",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I adopted one to test it. It batted me under the couch.",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 206822105,
+     "crop": [
+      0.3,
+      0.2,
+      0.7,
+      0.8
+     ]
+    }
+   ],
+   "act_at": "couch",
+   "sfx": [
+    "thud@couch"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "blackcat",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait. Here's the thing. Cats pounce on small things that roll. I'm small. I roll.",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 333436760,
+     "crop": [
+      0.225,
+      0.1,
+      0.675,
+      0.9
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "blackcat",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: it depends where you are. In Japan and Scotland, a black cat is good luck.",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 137560355,
+     "crop": [
+      0.462,
+      0.0,
+      0.778,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "GOOD\nLUCK",
+    "at": "good"
+   },
+   "sfx": [
+    "pop@good"
+   ]
+  },
+  {
+   "myth": "blackcat",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "In Scotland, one on your doorstep means money is coming. In parts of England, one crossing your path is lucky.",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 206822105,
+     "crop": [
+      0.219,
+      0.125,
+      0.781,
+      0.875
+     ]
+    }
+   ],
+   "punch": "lucky"
+  },
+  {
+   "myth": "blackcat",
+   "pose": "shock",
+   "act": "stand",
+   "say": "And a weird real fact: black fur can turn rusty brown in strong sun.",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 70345133,
+     "crop": [
+      0.363,
+      0.0,
+      0.737,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "RUSTY\nCAT",
+    "at": "rusty"
+   },
+   "host": {
+    "moves": [
+     "lean@rusty"
+    ]
+   }
+  },
+  {
+   "myth": "blackcat",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Lucky for you. Unclear for meatballs.",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 333436760,
+     "crop": [
+      0.219,
+      0.0,
+      0.781,
+      1.0
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "meatballs",
+   "sfx": [
+    "tink@meatballs"
+   ]
+  },
+  {
+   "myth": "blackcat",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 137560355,
+     "crop": [
+      0.462,
+      0.0,
+      0.778,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "blackcat",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "So the black cat isn't bad luck. Unless you're a meatball under its couch.",
+   "shots": [
+    {
+     "photo": "Felis catus",
+     "obs": 206822105,
+     "crop": [
+      0.219,
+      0.125,
+      0.781,
+      0.875
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "couch"
+  },
+  {
+   "myth": "wheelbug",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A caterpillar crawled up a leaf, and a bug with a gear on its back stabbed it.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "A GEAR ON ITS BACK",
+   "punch": "stabbed",
+   "loop_say": "I'm not a smoothie. Because",
+   "short_title": "This Bug Wears a Gear and Drinks Its Prey ⚙️",
+   "comment": "Bug soup: gross or genius? 🤢 gross / 🧠 genius",
+   "bonus": "The wheel bug's bite is considered worse than a wasp sting, and numbness can last for days.",
+   "caption": "What is the bug with a gear on its back? The wheel bug, an assassin bug that drinks its prey. How does it eat? 🦷 chews / 🥤 something else #wheelbug #assassinbug #halloween #insects Follow Meatball for more 🍝",
+   "sources": [
+    "Wikipedia, Arilus cristatus (North American wheel bug: cog-shaped crest; up to 38 mm, one of the largest terrestrial true bugs in North America; pins prey, stabs with its beak, injects saliva that paralyzes and dissolves the insides, then drains the fluids; bite considered more severe than a wasp sting, numbness can persist for days) — https://en.wikipedia.org/wiki/Arilus_cristatus (checked 2026-10-26)",
+    "Wikipedia, Arilus (wheel bugs, assassin bugs, generalist insect predators) — https://en.wikipedia.org/wiki/Arilus"
+   ],
+   "shots": [
+    {
+     "photo": "Arilus cristatus",
+     "obs": 313851153,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "wheelbug",
+   "pose": "think",
+   "act": "stand",
+   "say": "It has no teeth. So how does it eat? Guess.",
+   "shots": [
+    {
+     "photo": "Arilus cristatus",
+     "obs": 290212162,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "HOW DOES IT EAT?",
+    "choices": [
+     "🦷 CHEWS",
+     "🥤 SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "wheelbug",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Arilus cristatus",
+     "obs": 31220723,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "wheelbug",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in eastern North America lives the wheel bug. An assassin bug, up to an inch and a half long.",
+   "shots": [
+    {
+     "photo": "Arilus cristatus",
+     "obs": 65359179,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "ASSASSIN\nBUG",
+    "at": "assassin"
+   }
+  },
+  {
+   "myth": "wheelbug",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The gear on its back is a hard crest. Nobody knows for sure what it's for.",
+   "shots": [
+    {
+     "photo": "Arilus cristatus",
+     "obs": 313851153,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "punch": "gear"
+  },
+  {
+   "myth": "wheelbug",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: it chews with tiny jaws. No. Its mouth is a long, sharp beak.",
+   "shots": [
+    {
+     "photo": "Arilus cristatus",
+     "obs": 290212162,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "wheelbug",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: it sucks blood, like a mosquito. Also no. It wants the insides.",
+   "shots": [
+    {
+     "photo": "Arilus cristatus",
+     "obs": 31220723,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "wheelbug",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I asked to borrow the wheel. It stabbed toward me.",
+   "shots": [
+    {
+     "photo": "Arilus cristatus",
+     "obs": 65359179,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "act_at": "stabbed",
+   "sfx": [
+    "thud@stabbed"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "wheelbug",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait, it gets worse. Its bite on people hurts more than a wasp sting.",
+   "shots": [
+    {
+     "photo": "Arilus cristatus",
+     "obs": 313851153,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   },
+   "label": {
+    "text": "WORSE THAN\nA WASP",
+    "at": "wasp"
+   }
+  },
+  {
+   "myth": "wheelbug",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: it injects spit that melts the prey's insides. Then it drinks them, like a smoothie.",
+   "shots": [
+    {
+     "photo": "Arilus cristatus",
+     "obs": 290212162,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "BUG\nSMOOTHIE",
+    "at": "smoothie"
+   },
+   "sfx": [
+    "pop@melts"
+   ]
+  },
+  {
+   "myth": "wheelbug",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The spit also paralyzes it, so the meal can't run away.",
+   "shots": [
+    {
+     "photo": "Arilus cristatus",
+     "obs": 31220723,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "punch": "paralyzes"
+  },
+  {
+   "myth": "wheelbug",
+   "pose": "shock",
+   "act": "stand",
+   "say": "People it bites can stay numb for days. So look, don't touch.",
+   "shots": [
+    {
+     "photo": "Arilus cristatus",
+     "obs": 65359179,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@numb"
+    ]
+   },
+   "label": {
+    "text": "NUMB\nFOR DAYS",
+    "at": "numb"
+   }
+  },
+  {
+   "myth": "wheelbug",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Good news: it mostly hunts garden pests. Gardeners like it.",
+   "shots": [
+    {
+     "photo": "Arilus cristatus",
+     "obs": 313851153,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "pests",
+   "sfx": [
+    "tink@pests"
+   ]
+  },
+  {
+   "myth": "wheelbug",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Arilus cristatus",
+     "obs": 290212162,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "wheelbug",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "It wears a gear, melts its food, and drinks it with a straw. Basically a tiny robot vampire.",
+   "shots": [
+    {
+     "photo": "Arilus cristatus",
+     "obs": 31220723,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "vampire"
   }
  ]
 }
