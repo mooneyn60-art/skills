@@ -3,6 +3,21 @@
 Claude runs the channel; Nolan owns the accounts, gives direction, and does the few Studio-only
 taps. This file is the team, the daily routine, the numbers we steer by, and the rules for change.
 
+
+## vidIQ ration (OVERRIDES every routine's budget line, set 2026-10-26)
+
+378 credits are left until the 2026-11-24 reset, and the routines' listed caps add up to about 105 a day.
+Until the reset:
+- Morning 0 (use Metricool and the repo).
+- Marketing 5. Spend it on score_title only when a title is actually changing.
+- Evening 5 (one channel_analytics pull).
+- Night shift 0 (pick avenues g, c or d; no vidIQ).
+- Sunday summit 30 (one outlier search plus 2 watches).
+- Below 100 credits, only the Sunday summit may spend.
+- The lead session may spend when Nolan asks for research.
+- Never buy credits.
+- Free alternatives: Metricool analytics (YouTube and TikTok), yt-dlp metadata and comments from public videos, web search.
+
 ## Goal ladder (money)
 | Stage | Target | Unlocks |
 |---|---|---|
