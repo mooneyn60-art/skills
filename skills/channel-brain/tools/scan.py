@@ -178,10 +178,44 @@ def check_experiments(root, now):
             fmt = "tiktok" if "tiktok" in (r.get("change", "") + r.get("hypothesis", "")).lower() else (
                 "long" if re.search(r"long-?form|episode", r.get("change", "") + r.get("hypothesis", ""), re.I) else "short")
             running.setdefault(fmt, []).append(rid)
+    # confounding: several changes that went live within the same 7 days can't be told apart
+    live = []
+    for r in ex:
+        st_ = (r.get("status") or "").lower()
+        t0 = parse_ts(r.get("start") or "")
+        if t0 and not any(w in st_ for w in ("closed", "paused", "superseded", "replaced")) and (now - t0).days <= 21:
+            live.append((t0, (r.get("id") or "?").strip(), (r.get("hypothesis") or "")))
+    live.sort()
+    for i, (t0, rid, _) in enumerate(live):
+        window = [x for x in live if 0 <= (x[0] - t0).days <= 7]
+        if len(window) >= 3:
+            add("WARN", "mayor", f"{len(window)} experiments went live within 7 days of {t0:%m/%d} ({', '.join(x[1] for x in window)}). Their effects overlap, so none can be credited.",
+                "Pick the one that matters most for the bottleneck metric; pause or stagger the rest by a week, or state in each row which other test it is read alongside and how.")
+            break
+    paid = [x[1] for x in live if re.search(r"promot|paid|\bads?\b|boost", x[2], re.I)]
+    if paid:
+        add("WARN", "intel", f"Paid promotion is live ({', '.join(paid)}) while organic tests are scored on views/subs. Paid followers and views contaminate those numbers.",
+            "Score organic tests on organic traffic only (exclude promoted posts and their follower spike), or pause the paid test until the organic ones are read.")
     for fmt, rs in running.items():
         if len(rs) > 1:
             add("WARN", "mayor", f"{len(rs)} experiments are running on {fmt} videos at once ({', '.join(rs)}). Their effects mix and none can be read.",
                 "Keep one, pause the rest (one change per format per week).")
+
+
+def check_predictions(root, now):
+    p = os.path.join(root, "data", "predictions.jsonl")
+    if not os.path.exists(p):
+        add("INFO", "mayor", "No data/predictions.jsonl yet, so nobody can check whether the town's judgement is any good.",
+            "Every decision and experiment gets a probability it works, logged with tools/predict.py add.")
+        return
+    for line in open(p):
+        if not line.strip():
+            continue
+        r = json.loads(line)
+        due = parse_ts(r.get("settles", ""))
+        if r.get("hit") is None and due and due < now - dt.timedelta(days=1):
+            add("WARN", "intel", f"Prediction {r.get('id')} ('{r.get('what', '')[:50]}') was due {r['settles']} and is not settled.",
+                f"Settle it today: tools/predict.py settle {r.get('id')} 1|0 \"what happened\".")
 
 
 def check_subs(root, now):
@@ -246,7 +280,7 @@ def main():
     root = sys.argv[1]
     now = dt.datetime.now(dt.timezone.utc)
     for check in (lambda: check_views(root, now), lambda: check_queue(root, now), lambda: check_experiments(root, now),
-                  lambda: check_subs(root, now), lambda: check_docs(root), lambda: check_playbooks(root)):
+                  lambda: check_subs(root, now), lambda: check_predictions(root, now), lambda: check_docs(root), lambda: check_playbooks(root)):
         try:
             check()
         except Exception as e:  # a broken check is itself an issue, never a silent pass

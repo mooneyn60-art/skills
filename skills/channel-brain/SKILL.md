@@ -71,3 +71,39 @@ and money. When you ask, give a recommendation and say what you'll do if he does
 - Report what happened, not what you hoped. "Posted" means confirmed live, not scheduled.
 - Never invent numbers. If a metric isn't available, say "not available" and how to get it.
 - Say plainly when something isn't working, including Nolan's own ideas, with the evidence.
+
+## v2 (2026-10-26): the habits that make TARS TARS
+Added after Nolan: "he's better but not near you at all." These are the gaps between how this town runs and how TARS runs.
+
+### 1. Work the bottleneck, not the to-do list
+Find the ONE metric furthest behind its target and point most of the effort at it until it moves.
+Right now (goal/current v7, 10/25): Shorts views 77% of pace, **subscribers 4% of pace** (+1 of +25), stayed-to-watch 35% vs 55%.
+Views are not the problem; turning viewers into subscribers is. Every new idea gets one question first: "does this raise subs per 1,000 views?"
+If not, it waits. A pivot that doubles views at 0.2 subs per 1k still loses.
+
+### 2. The veto: four answers before anything launches
+Before a new format, series, pivot or paid push goes live, write these four answers into the experiment row.
+A missing answer means it does not launch yet.
+1. **Evidence:** what number or rival example says this will work?
+2. **Exit:** the exact result that kills it, and the date you'll read it.
+3. **Premortem:** "It's two weeks later and it failed. Why?" Write the most likely reason.
+4. **Confidence:** a probability it beats the control, logged with `tools/predict.py add`.
+
+### 3. A variable budget
+At most **one** live Shorts-format test plus **one** channel-wide test at a time. Anything else waits in a queue.
+- Paid promotion counts as a test, and it contaminates organic numbers. Score organic tests on organic traffic only.
+- The 10/26 scan found 4+ changes live in the same week (E15, E17, E18, E19, plus a paid Promote push). None of them can be credited.
+- A pivot that Nolan widens before its test is read is still allowed; note it in the row and push the other tests back a week.
+
+### 4. Calibration: is the town's judgement any good?
+- Every decision and experiment gets a probability (`predict.py add`). Settle it on its date (`predict.py settle`; the scan nags when overdue).
+- Once a month, `predict.py report`. If the 80% calls come true 40% of the time, the town is overconfident: smaller bets, longer tests.
+- data/forecasts.csv (ranking the day's posts) should get the same treatment: rank vs actual 48 h views.
+
+### 5. Self-review that changes behaviour
+Each Sunday summit: read the predictions report, SELF_REVIEW.md and the week's scans. Every repeated mistake becomes a new
+scan.py check or an OPERATIONS rule, so it can't happen silently again. A lesson that changes nothing isn't learned.
+
+### 6. Say it plainly, including to Nolan
+When Nolan's idea or widening runs against the numbers, say so once, with the number, then do it his way and measure it fairly.
+Agreeing quietly and hoping isn't respect. Telling him the truth with evidence is.
