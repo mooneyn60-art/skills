@@ -20,6 +20,8 @@ import premium_voice as pv
 KOKORO_DIR = os.environ.get("KOKORO_DIR", os.path.expanduser("~/.cache/kokoro"))
 BLENDS = {  # name -> [(kokoro voice, weight)]; C is Nolan's pick (research/39-voice-tests/kokoro-v2)
     "eric-michael": [("am_eric", 0.5), ("am_michael", 0.5)],
+    "onyx": [("am_onyx", 1.0)],        # deep male candidates for Meatball Investigates (10/26 voice sampler)
+    "fenrir": [("am_fenrir", 1.0)],
 }
 SPEED = 1.05
 # Warmth, presence, de-harsh, gentle compression, a touch of room, broadcast loudness.

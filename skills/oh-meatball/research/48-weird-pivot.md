@@ -198,3 +198,25 @@ subscribe pill ~6-10 s, reminder before the loop).
 - Keep the pivot if the weird Shorts' median views ≥ the animal median and subs/1K ≥ 3; kill a sub-pillar whose 3 Shorts all
   land under half the median.
 - Long-form: "Conspiracy Theories That Turned Out To Be TRUE" judged by the research/47 bar (AVD > 2:00, 0:30 retention > 60%).
+
+## 10. Pilot v2 (10/26): lower music, themed voices, more engaging (episodes/weird-pilot/v2/)
+Nolan: "Lower the music and make more engaging, maybe voice deeper", then "every topic should have different music and
+voices to go with the theme". The night shift's Voggle teardown (research/40) swapped the Emu War (Voggle's did 0.35x its
+median; obscure cases win) for **Project A119** (fact-checked: Wikipedia, the DTIC record of AFSWC-TR-59-39 with C. E.
+Sagan on the title page, Davidson's 1999 Sagan biography: Sagan listed the classified work on his 1959 Miller Institute
+fellowship application).
+- **Themes** (tools/themes.py, OPERATIONS.md "Themes"): each Short has its own voice + procedural bed. bermuda =
+  ocean-mystery (Andrew -8Hz, drones + sonar pings), northwoods = cold-war (Eric, ticking strings), roswell = ufo
+  (Christopher -6Hz, theremin), a119 = conspiracy (Christopher, dark synth), dancing = strange-history (Brian -4Hz,
+  music-box waltz that turns tense at the "dark" beat), lightning = science-myth (Steffan, electric arps).
+- **Music** -27 LUFS under a -16 LUFS voice, ducking ratio 8 (was -20 LUFS, ratio 3); build, pre-stamp silence and hit kept.
+- **Voice sampler** (`episodes/weird-pilot/voice-sampler.mp4` + `.json`): the same 5 Northwoods lines in every theme voice
+  over its own bed, with median pitch (librosa pyin) and faster-whisper word accuracy on screen. Current Andrew: 112 Hz,
+  100%. Deepest: Eric (cold-war) 105-106 Hz and Andrew -8Hz 106 Hz; Christopher -6Hz (ufo) 107-108 Hz is the deepest that
+  scored 100% in both runs. Kokoro onyx was deepest of all (90 Hz) but misheard 9% of words, so it isn't used.
+  Run-to-run noise is about one word in 41.
+- **Shape (Voggle + v2 brief):** frame 0 = the most striking picture + a 3-5 word headline question; scene-first past-tense
+  open; "See, in 19xx" rewind; a "Wait, it gets worse" twist; a Meatball jeopardy beat (Area 51 "HALT!", lightning hits
+  him twice, he's flung by the storm and the airliner plot, he can't stop dancing); one plain verdict sentence + stamp;
+  an ironic kicker over a moving picture as the end (no end CTA; ask kit stays early); a picture change every <=1.8 s.
+  Lengths 22.6-24.2 s. tools/coldopen.py (warning only at this length): 6/6 scene-first and all end on a kicker; the rewind lands at 41-45% of the words on northwoods, dancing and lightning (the tool aims for 5-40%).

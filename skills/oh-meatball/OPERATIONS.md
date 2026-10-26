@@ -272,3 +272,19 @@ Autopsy: our one long-form with a curve (gFhrONKK0rI, 2:15 quiz pilot, 11 viewer
 - Script fields: spec `"series": {"text": "MEATBALL INVESTIGATES"}` + hook `"case": "CASE #3"` (case-file tag on every frame, card + sting on the hook); beat `"stamp": {"text": "BUSTED", "at": "word"}` (TRUE/PROVEN green, FALSE/BUSTED/CLASSIFIED red; `"reveal": false` = no music drop); shot `"board": {"notes": [...], "stamp": "CLASSIFIED"}` (evidence board); spec `"captions": "bold"`.
 - Music: `"music": "gen:mystery"` (main) or `"gen:detective"` (alternate), per Short via the hook's `"music"`; tools/music.py renders it to the timeline (rises into each stamp, drops out 0.42 s before it, hits on it, loop-safe) and v3.py mixes voice -16 / music -20 LUFS, ducked, master -14.
 - Photos: `"obs": "wm:File name.jpg"` (Commons PD/CC0/CC BY; licence cache data/wm-licenses.json for 429 storms). Never a time anchor that is a bare number (`"at": "1994"` is read as seconds): anchor on a word.
+
+## Themes: every topic gets its own voice and music (Nolan 10/26; tools/themes.py)
+Every new script picks ONE theme: spec `"theme"` (whole script) or hook beat `"theme"` (one Short in a pack). The theme sets the narrator voice and the music bed and overrides the spec's own voice/rate/pitch/music. All lines are still Meatball's (same persona, same jokes); the theme only changes how he sounds. Music sits at -27 LUFS under a -16 LUFS voice with heavy ducking (`"music_lufs"`), keeps the build, the 0.42 s silence before each verdict stamp and the hit on it.
+| Theme | Use for | Voice (edge-tts, then atempo 1.12) | Music (tools/music.py) |
+|---|---|---|---|
+| `conspiracy` | famous theories, investigated (moon landing, A119) | Christopher +26% (deep documentary) | dark pulsing synth |
+| `cold-war` | Northwoods, MKUltra, Gulf of Tonkin | Eric +22% -2Hz (clipped, serious; deepest, 105 Hz) | tense ticking strings |
+| `ufo` | Roswell, Area 51 | Christopher +26% -6Hz (hushed deep) | eerie theremin + pads |
+| `ocean-mystery` | Bermuda Triangle, sea mysteries | Andrew +12% -8Hz (deep) | low drones + sonar pings |
+| `absurd-history` | Emu War, Molasses Flood, Tarrare | Brian +16% (playful) | mischievous pizzicato march |
+| `strange-history` | Dancing Plague, strange old Europe | Brian +12% -4Hz (storyteller) | eerie music-box waltz |
+| `science-myth` | lightning, body and science myths | Steffan +20% (crisp, quick) | electric arpeggios |
+| `animals` | animal Shorts | Andrew +0% then 1.10 (current) | quiz bed |
+- **Dark turn:** comic beds (absurd, waltz, detective) crossfade into the tense bed at the beat marked `"dark": true` (Voggle shape: comic until the story turns dark).
+- **Adding a voice:** measure it first with the voice sampler (median pitch, whisper word accuracy at least the current voice's). Kokoro onyx was the deepest (90 Hz) but misheard more (91%), so it isn't used.
+- **Shorts v2 shape (research/40 + 48):** scene-first past-tense open with a 3-5 word `"headline"` on frame 0; "See, in 19xx..." rewind; a "Wait, it gets worse" twist and a Meatball jeopardy beat; one plain verdict sentence + stamp; an ironic `"kicker"` as the last line over a moving picture (no end CTA; the ask kit stays early); `"max_shot": 1.8`; 18-24 s. `tools/coldopen.py` checks the open.

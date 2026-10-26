@@ -20,6 +20,7 @@ import subprocess
 import explainer
 import openloop
 import retention
+import themes
 from shorts_split import END, tighten
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -179,7 +180,7 @@ def main():
         sspec = f"{swork}/script.json"
         os.makedirs(swork, exist_ok=True)
         # Breakout single-myth Shorts run 17-30 s (vidIQ outliers, 10/23): claim, reveal, punchline, loop line.
-        json.dump({"voice": spec.get("voice", "en-US-AndrewNeural"), "rate": spec.get("short_rate", "+8%"),
+        sdict = {"voice": spec.get("voice", "en-US-AndrewNeural"), "rate": spec.get("short_rate", "+8%"),
                    "music": spec.get("music"), "style": spec.get("style"),
                    **({"pitch": spec["pitch"]} if spec.get("pitch") else {}),
                    **({"tempo": spec["tempo"]} if spec.get("tempo") else {}),  # v3: atempo speed-up
@@ -191,8 +192,11 @@ def main():
                    **({"captions": spec["captions"]} if spec.get("captions") else {}),
                    **({"music": hook["music"]} if hook and hook.get("music") else {}),
                    # "short_beats" lets a joke-dense script keep more than 3 hand-picked beats (default 3).
-                   "beats": hook_loop(mb) if hook else loop(tighten(mb, spec.get("short_beats", 3)))},
-                  open(sspec, "w"))
+                   **({k: spec[k] for k in ("max_shot", "music_lufs") if k in spec}),
+                   "beats": hook_loop(mb) if hook else loop(tighten(mb, spec.get("short_beats", 3)))}
+        # topic theme (tools/themes.py): the hook's "theme" or the script's sets this Short's voice and music
+        sdict = themes.apply(sdict, (hook or {}).get("theme") or spec.get("theme"))
+        json.dump(sdict, open(sspec, "w"))
         if not a.skip_shorts and not (a.skip_existing and os.path.exists(f"{out}/short-{m}.mp4")):
             os.makedirs(f"{swork}/photos", exist_ok=True)
             subprocess.run(f"cp -n {long_work}/photos/* {swork}/photos/ 2>/dev/null || true", shell=True)

@@ -1023,6 +1023,8 @@ def main():
     ap.add_argument("--vertical", action="store_true", help="1080x1920 Shorts layout with captions")
     a = ap.parse_args()
     spec = json.load(open(a.beats))
+    import themes
+    spec = themes.apply(spec)   # a script "theme" sets the voice and the music (tools/themes.py)
     global PUNCH, ANIMATE, COUNT_S, PITCH
     ANIMATE = spec.get("style") != "static"
     PITCH = spec.get("pitch", PITCH)

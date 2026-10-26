@@ -15,6 +15,10 @@ Script fields (v3/v4 specs):
       the shot's photo becomes a pinned polaroid on a cork evidence board, with index-card notes tied to it by
       red string (and an optional stamp printed on the photo). Board shots are drawn as v3 stills (no cut-out)
   spec "captions": "bold"   heavier captions (Inter Black, bigger, thicker outline)
+  hook beat "headline": "WAS IT REAL?"   a 3-5 word question on frame 0 (red tape strip, held "headline_s",
+      default 2 s, and again for the last 0.5 s so the loop seam matches); replaces the big case card
+  spec "series": {"card": false}   tag only, no case card
+  spec "max_shot": 1.8      re-cut any picture held longer than this (Shorts)
 """
 import math
 import os
@@ -252,3 +256,23 @@ def ensure_sfx(sfx_dir):
             tone = sum(np.sin(2 * np.pi * f * h * tt) / h for h in (1, 2, 3, 4, 5)) * np.exp(-tt * (3.5 / d))
             a[i:i + m] += tone[:n - i] * (0.7 if t0 < 0.5 else 1.0)
         _write(p, a)
+
+
+def headline_img(text, W):
+    """Frame-0 question (Meatball Investigates v2): 3-5 words, huge, white on a red tape strip with a black
+    edge, slightly tilted. Static (no pop) so the loop's last frame matches frame 0."""
+    f = font(INTER_BLACK, 112)
+    lines = text.upper().split("\n")
+    d = ImageDraw.Draw(Image.new("RGBA", (10, 10)))
+    tw = int(max(d.textlength(x, font=f) for x in lines))
+    w, h = tw + 90, 132 * len(lines) + 40
+    im = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    dr = ImageDraw.Draw(im)
+    dr.rounded_rectangle([0, 0, w - 1, h - 1], 18, fill=RED + (240,), outline=(0, 0, 0, 255), width=8)
+    for k, line in enumerate(lines):
+        dr.text(((w - dr.textlength(line, font=f)) / 2, 10 + k * 132), line, font=f, fill=(255, 255, 255),
+                stroke_width=6, stroke_fill=(0, 0, 0))
+    im = im.rotate(-3, expand=True, resample=Image.BICUBIC)
+    if im.width > W - 60:
+        im = im.resize((W - 60, int(im.height * (W - 60) / im.width)), Image.LANCZOS)
+    return np.asarray(im)

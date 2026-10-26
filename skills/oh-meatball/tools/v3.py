@@ -498,6 +498,7 @@ def plan_beats(spec, work):
     name, rate = spec.get("voice", "en-US-AndrewNeural"), spec.get("rate", "+0%")
     tempo = float(spec.get("tempo", 1.0))
     beats = spec["beats"]
+    ex.PITCH = spec.get("pitch", "+0Hz")   # v3 imports explainer afresh: the theme's pitch must be set here
     ex.voice(beats, work, name, rate)
     looping = any(b.get("loop") for b in beats)
     v4 = spec.get("style") == "v4"
@@ -633,7 +634,10 @@ def plan_beats(spec, work):
                         hit=None if hit is None else int(round(hit * FPS)),
                         punch=[int(round(word_time(words, p, 0.0) * FPS)) for p in punch],
                         punch_z=float(b.get("punch_z", 0.18)), sfx=sfx, size=size, side=side, moves=moves,
-                        contact=bool(b.get("contact")), stamps=stamps,
+                        contact=bool(b.get("contact")), stamps=stamps, dark=bool(b.get("dark")),
+                        headline=(b.get("headline") and i == 0 and dict(
+                            text=b["headline"] if isinstance(b["headline"], str) else b["headline"]["text"],
+                            f1=int(round(float(b.get("headline_s", 2.0)) * FPS)), tail=int(0.5 * FPS))),
                         label=lab and dict(img=lab_img,
                                            f=int(round(word_time(words, lab.get("at"), 0.0) * FPS))),
                         prop=b.get("prop"), prop_f=int(round(word_time(words, b.get("prop_at"), 0.3) * FPS)),
@@ -858,10 +862,13 @@ def frame(g):
             y += 165 * CARD
     if W > H:   # long-form HUD only (16:9)
         hud(frame_, bt, g)
+    hl = P.get("headline")
+    if hl and (g < hl["f1"] or g >= P["total"] - hl["tail"]):   # frame 0 question, static so the loop seam matches
+        over(frame_, hl["img"], int(W / 2 - hl["img"].shape[1] / 2), int(LABEL_Y - hl["img"].shape[0] / 2))
     if P.get("series"):   # "Meatball Investigates": the tag on every frame, the case-file card on the hook
         card, tag = P["series"]
         over(frame_, tag, int(30 * W / 1080), int((140 if H > W else 24) * UI))
-        if bi == 0 and f >= 4:
+        if P.get("card") and bi == 0 and f >= 4:
             kf = f - 4
             dy = [-260, -120, -30, 8, 0][kf] if kf < 5 else 0
             over(frame_, card, int(W / 2 - card.shape[1] / 2), int((215 if H > W else 70) + dy))
@@ -976,6 +983,9 @@ def build(spec, work, out, music=None, vertical=True):
         ex.vertical()
     else:
         landscape()
+    global MAX_SHOT
+    if spec.get("max_shot") and vertical:   # Meatball Investigates v2: a new picture every 1.5-2 s
+        MAX_SHOT = float(spec["max_shot"])
     beats = plan_beats(spec, work)
     total_f = beats[-1]["F"] + beats[-1]["n"]
     cuts = {}
@@ -990,9 +1000,12 @@ def build(spec, work, out, music=None, vertical=True):
     PLAN.update(progress=bool(spec.get("progress")) and not vertical,
                 ticks=sorted({bt["counter"]["F"] for bt in beats if bt.get("counter")}))
     investigate.ensure_sfx(SFX_DIR)
+    hl = beats[0].get("headline")
     PLAN.update(series=spec.get("series") and investigate.series_imgs(spec["series"], W),
+                card=bool(spec.get("series")) and spec["series"].get("card", True) and not hl,
+                headline=hl and dict(img=investigate.headline_img(hl["text"], W), f1=hl["f1"], tail=hl["tail"]),
                 captions=spec.get("captions"))
-    if spec.get("series"):   # the case sting under the card drop
+    if spec.get("series"):   # the case sting under the card drop (or under the headline)
         beats[0]["sfx"] = list(beats[0]["sfx"]) + [(4 / FPS, "case")]
     PLAN.update(beats=beats, whips=cuts, props={"fork": np.asarray(mascot.prop("fork", int(520 * UI)))}, v4=v4,
                 total=total_f)
@@ -1026,19 +1039,22 @@ def build(spec, work, out, music=None, vertical=True):
     cap = f"{work}/cap.ass"
     captions(beats, cap)
     gen = str(spec.get("music") or "")
-    lufs = gen.startswith("gen:") or spec.get("music_mix") == "lufs"
+    lufs = gen.startswith("gen:") or spec.get("music_mix") == "lufs" or "music_lufs" in spec
     if gen.startswith("gen:"):   # an original bed rendered to this timeline (tools/music.py)
         import music as mus
         reveals = [(bt["F"] + sp["f"]) / FPS for bt in beats for sp in bt["stamps"] if sp["reveal"]]
         music = f"{work}/music-{gen[4:]}.wav"
-        mus.render(gen[4:], total, reveals, music)
+        dark = next(((bt["F"]) / FPS for bt in beats if bt.get("dark")), None)   # beat "dark": true = the dark turn
+        mus.render(gen[4:], total, reveals, music, turn=dark)
     music = music if music and os.path.exists(music) else None
     cmd = ["ffmpeg", "-loglevel", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}",
            "-r", str(FPS), "-i", "pipe:0", "-i", f"{work}/voice.wav", "-i", f"{work}/sfx.wav"]
-    if music and lufs:   # Nolan 10/25: music around -20 LUFS against the voice at -16, ducked; voice always clear
+    m_lufs = float(spec.get("music_lufs", -20))
+    if music and lufs:   # music under the voice at -16 LUFS (Nolan 10/26: "lower the music": themes use -27)
         cmd += (["-i", music] if gen.startswith("gen:") else ["-stream_loop", "-1", "-i", music])
-        af = ("[1:a]loudnorm=I=-16:TP=-2,asplit[vo][key];[3:a]loudnorm=I=-20:TP=-4[m];[m][key]sidechaincompress="
-              "threshold=0.05:ratio=3:attack=20:release=350[d];[vo][d][2:a]amix=inputs=3:duration=first:normalize=0,"
+        duck = "threshold=0.02:ratio=8:attack=15:release=300" if m_lufs <= -24 else "threshold=0.05:ratio=3:attack=20:release=350"
+        af = (f"[1:a]loudnorm=I=-16:TP=-2,asplit[vo][key];[3:a]loudnorm=I={m_lufs:g}:TP=-6[m];[m][key]sidechaincompress="
+              f"{duck}[d];[vo][d][2:a]amix=inputs=3:duration=first:normalize=0,"
               "loudnorm=I=-14:TP=-1.5[a]")
     elif music:
         cmd += ["-stream_loop", "-1", "-i", music]
