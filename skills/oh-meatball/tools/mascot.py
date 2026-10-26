@@ -4,7 +4,8 @@
 Usage: mascot.py OUTDIR            -> renders every pose to OUTDIR/<pose>.png (+ sheet.png)
        from mascot import draw; draw("point", 600) -> RGBA PIL image (stills, thumbnails)
        mascot.animate(pose, size, words, dur, fps, outdir) -> talking PNG frames (video)
-Poses: neutral, point, present, shrug, think, shock, laugh, facepalm, wave, deadpan, nervous
+Poses: neutral, point, present, shrug, think, shock, laugh, facepalm, wave, deadpan, nervous,
+       subpoint; host shots (tools/host.py): desk, you, psst, lean
 Props (drawn beside him, never animated): prop("fork", height)
 
 The body is a skeleton (hip, knees, spine, neck, shoulders, head) with shoulder/elbow/wrist ANGLES per
@@ -62,11 +63,21 @@ POSES = {
     "deadpan":  {"l": (30, -20, 0), "r": (30, -20, 0), "mouth": "flat", "brow": "lid", "gaze": "viewer"},
     "nervous":  {"l": ("ik", "shoulder", (-12, 112), 1), "r": ("ik", "shoulder", (12, 112), 1), "knee": 4,
                  "shrug": 5, "mouth": "wobble", "brow": "worry", "gaze": "viewer"},
+    # Host shots (research/49, tools/host.py): talking to camera from behind the desk.
+    "desk":     {"l": ("ik", "shoulder", (-175, 205), 1), "r": ("ik", "shoulder", (175, 205), 1), "mouth": "flat",
+                 "brow": "lid", "gaze": "viewer"},   # deadpan, hands resting on the desk
+    "you":      {"l": ("ik", "shoulder", (-175, 205), 1), "r": ("ik", "shoulder", (46, 18), -1), "hand": {"r": 2.3},
+                 "lean": 1.5,
+                 "tilt": 3, "mouth": "talk", "brow": "up", "gaze": "viewer"},
+    "psst":     {"l": ("ik", "head", (-88, 74), -1), "hand": {"l": 1.4}, "r": ("ik", "shoulder", (175, 205), 1), "tilt": -8, "lean": -1.5,
+                 "mouth": "talk", "brow": "tilt", "gaze": "viewer"},
+    "lean":     {"l": ("ik", "shoulder", (-150, 215), 1), "r": ("ik", "shoulder", (150, 215), 1), "shrug": 4,
+                 "mouth": "talk", "brow": "up", "gaze": "viewer"},
 }
 BIG = {"shock", "shrug", "wave", "laugh"}   # moves that get an anticipation crouch
 REALIZE = {"shock", "laugh"}               # moves that land with a scale-pop
 GLOWS = {"white": None, "yellow": (255, 214, 10), "red": (232, 46, 36), "green": (70, 205, 90)}
-PERSONA = {"deadpan", "nervous", "think", "facepalm", "subpoint"}  # held for the whole line (the point too)
+PERSONA = {"deadpan", "nervous", "think", "facepalm", "subpoint", "desk"}  # held for the whole line (the point too)
 TRANSIENT = {"shock": 1.2, "laugh": 1.5, "wave": 1.4}   # real reaction beats only, then he moves on
 SECONDARY = {"point": ["present", "shrug"], "present": ["point", "shrug"], "shrug": ["present", "point"],
              "neutral": ["present", "point"], "shock": ["present", "point"], "laugh": ["present"],
@@ -74,6 +85,7 @@ SECONDARY = {"point": ["present", "shrug"], "present": ["point", "shrug"], "shru
 AFTER = {"shock": "present", "laugh": "neutral", "wave": "neutral"}
 STRESS = {"every", "never", "all", "only", "really", "not", "no", "exactly", "whole", "too", "still", "nothing",
           "always", "huge", "tiny", "million", "thousand", "both", "even", "true", "false", "actually", "zero"}
+HOLD_MAX = 1.1   # a host gesture on the last word still holds this long before the settle
 YOU = {"you", "your", "you'll", "you're", "yourself", "you've"}
 
 
@@ -323,7 +335,12 @@ def render(st, size, ss=2, origin=None, canvas=None):
         pen.line(j["sh"], elbow)
         pen.line(elbow, wrist)
         pen.line(wrist, hand)
-        pen.d.ellipse(pen.box(hand[0] - HAND_R, hand[1] - HAND_R, hand[0] + HAND_R, hand[1] + HAND_R), fill=INK)
+        hr = HAND_R * st.get("hands", {}).get(key, 1.0)   # host "you": the hand comes at the camera
+        pen.d.ellipse(pen.box(hand[0] - hr, hand[1] - hr, hand[0] + hr, hand[1] + hr), fill=INK)
+        if hr > HAND_R * 1.8:   # pointing straight at the viewer: the fingertip, foreshortened, with its nail
+            fr = hr * 0.42
+            pen.d.ellipse(pen.box(hand[0] - fr, hand[1] - hr * 0.35 - fr, hand[0] + fr, hand[1] - hr * 0.35 + fr),
+                          fill=SHINE, outline=WHITE, width=pen.w(5))
     im = im.reduce(ss) if ss > 1 else im
     return im if canvas is None else (im, box_px[:2])
 
@@ -334,6 +351,8 @@ def pose_state(pose, j=None, content=CONTENT):
     j = j or body(st)
     st["l"], st["r"] = arm_angles(p["l"], -1, j, content), arm_angles(p["r"], 1, j, content)
     st["mouth"], st["brow"], st["eyes"] = p["mouth"], p["brow"], p.get("eyes")
+    if "hand" in p:
+        st["hands"] = dict(p["hand"])
     return st
 
 
@@ -424,7 +443,7 @@ def _space(cands, gap, lo, hi):
     return sorted(picked)
 
 
-def plan(pose, words, dur, fps=30, seed=0, enter=True, exit=True):
+def plan(pose, words, dur, fps=30, seed=0, enter=True, exit=True, extra=None):
     """Acting plan for one line: keypose events [(start, pose, frames)], accents and gaze overrides.
     The beat's pose is the primary choice; extra gestures only on emphasis words, at most one per 1.5 s,
     each held at least ~1 s, settling to a relaxed idle in pauses and at the end of the line."""
@@ -473,8 +492,14 @@ def plan(pose, words, dur, fps=30, seed=0, enter=True, exit=True):
         if e[0] - kept[-1][0] >= 1.0:
             kept.append(e)
     ev = kept
+    for t, p, hold in extra or []:  # host gestures timed to words: they replace any gesture in their window
+        a = max(0.05, t - lead)
+        ev = [e for k, e in enumerate(ev) if k < 1 or not (a - 0.25 < e[0] < t + hold)]
+        ev += [(a, p, T)] + ([(t + hold, pose, T + 1)] if t + hold < speech1 else [])
+        ev = ev[:1] + sorted(ev[1:])
     if exit:
-        settle = min(max(speech1 + 0.12, (ev[-1][0] + 0.9) if len(ev) > 1 else 0), end)
+        settle = min(max(speech1 + 0.12, (ev[-1][0] + 0.9) if len(ev) > 1 else 0,
+                         max((t + min(h, HOLD_MAX) for t, _, h in extra or []), default=0)), end)
         if ev[-1][1] != "neutral":
             ev.append((max(settle, ev[-1][0] + 0.3), "neutral", T + 1))
     looks = [(s, e) for s, e, w in words if w.lower().strip(".,!?") in YOU]
@@ -521,10 +546,12 @@ def mouth_track(words, n, fps):
     return out
 
 
-def states(pose, words, dur, fps, seed=0, enter=True, exit=True, content=CONTENT, size=600):
-    """Every frame's rig state for one line (deterministic for a seed)."""
+def states(pose, words, dur, fps, seed=0, enter=True, exit=True, content=CONTENT, size=600, extra=None):
+    """Every frame's rig state for one line (deterministic for a seed). extra = [(t, pose, hold)] gestures
+    (host shots, tools/host.py): each takes over the face and arms for its hold, then he settles back."""
     pose = pose if pose in POSES else "point"
-    pl = plan(pose, words, dur, fps, seed, enter, exit)
+    pl = plan(pose, words, dur, fps, seed, enter, exit, extra)
+    gest = {p for _, p, _ in extra or []}
     ev, n = pl["events"], max(1, int(dur * fps))
     rng = random.Random(f"blink|{seed}|{pose}")
     blinks, t = [], 0.9 + rng.uniform(0, 1.6)
@@ -573,7 +600,7 @@ def states(pose, words, dur, fps, seed=0, enter=True, exit=True, content=CONTENT
             ang[0] += 0.9 * st["breath"] / amp if amp else 0.0
             st[key] = tuple(ang)
         dom = max(am, key=am.get)
-        face = pose if pose in PERSONA else dom
+        face = dom if dom in gest else (pose if pose in PERSONA else dom)
         st["mouth"], st["brow"], st["eyes"] = POSES[face]["mouth"], POSES[face]["brow"], POSES[face].get("eyes")
         if st["mouth"] == "talk":
             st["mouth"] = "smile"
@@ -581,6 +608,9 @@ def states(pose, words, dur, fps, seed=0, enter=True, exit=True, content=CONTENT
         gy = sum(w * gaze_of[POSES[p]["gaze"]][1] for p, w in bm.items())
         you = max([_ramp(t, s, e) for s, e in pl["looks"]] + [0.0])
         st["look"] = (round(gx * (1 - you)), round(gy * (1 - you)))
+        if any("hand" in POSES[p] for p in am):   # host "you": the hand size blends with the arm pose
+            st["hands"] = {key: sum(w * POSES[p].get("hand", {}).get(key, 1.0) for p, w in am.items())
+                           for key in ("l", "r")}
         st["level"] = 0 if last else mouth[f]
         st["blink"] = 0
         for b in blinks:

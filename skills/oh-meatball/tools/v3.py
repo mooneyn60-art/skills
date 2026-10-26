@@ -51,6 +51,11 @@ Photos come from explainer.photo() (pinned iNaturalist observations, "wm:" Commo
   bed to the video's timeline (tools/music.py: builds into each stamp, drops out right before it, hits on it,
   loop-safe) and mixes it by loudness: voice -16 LUFS, music -20 LUFS ducked under the voice, master -14.
 
+Host shots (tools/host.py, research/49): beat "host": true | {"moves": ["you@Guess", "lean@worse"], "notes": [...],
+  "fork": true}, or shot "host": true. Meatball centre-screen behind the investigator's desk (~45-55% of the frame
+  height), facing and talking to the viewer, over the case board drawn from the Short's evidence photos; medium /
+  close-up cut every max_shot s, a slow push, gestures you | psst | lean | shrug | sweat | shock on words.
+
 "style": "v4" (research/45) adds, on top of everything above:
   whole-animal cut-outs  every photo shot is cut out (tools/animal.py): the WHOLE animal, holes under 1%
                          filled, contour smoothed, 1 px under a uniform white stroke, soft shadow. The shot is
@@ -87,6 +92,7 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 import animal
 import explainer as ex
+import host as hostmod
 import investigate
 import mascot
 import stage
@@ -504,6 +510,8 @@ def plan_beats(spec, work):
     v4 = spec.get("style") == "v4"
     pins = {str(k): v for k, v in (spec.get("subjects") or {}).items()}
     out, F, shot_no, cur = [], 0, 0, None
+    seen = []   # evidence photos shown so far: host shots pin them to the case board behind him
+    hlay = hostmod.layout(W, H)
     for i, b in enumerate(beats):
         c = b.get("counter")
         if c is False or (b.get("chapter") and b.get("myth") == "outro"):
@@ -549,12 +557,25 @@ def plan_beats(spec, work):
                               for j in range(n_cut)]
             for a_, z_, s_ in pieces:
                 path = ex.photo(s_["photo"], s_.get("n", 0), work, s_.get("obs"), "original")
-                if s_.get("board"):   # evidence board: the photo pinned to cork with notes and red string
+                hs = s_.get("host")
+                if hs:   # host shot: Meatball at the desk, the case board (this photo + earlier evidence) behind
+                    hd = hs if isinstance(hs, dict) else {}
+                    notes = hd.get("notes") or (s_.get("board") or {}).get("notes") or []
+                if path not in seen:
+                    seen.append(path)
+                if hs:
+                    path = hostmod.backdrop([path] + [p for p in reversed(seen) if p != path], notes, work,
+                                            vertical=H > W, case=(spec.get("series") or {}).get("case", ""))
+                if s_.get("board") and not hs:   # evidence board: the photo pinned to cork with notes and red string
                     path = investigate.board(path, s_["board"], work, vertical=H > W)
-                shots.append(dict(f0=int(round(a_ * FPS)), f1=int(round(z_ * FPS)), path=path, crop=s_.get("crop"),
-                                  blur=bool(s_.get("blur")), whip=s_.get("whip", True), no=shot_no,
-                                  parent=s_.get("parent")))
-                if v4 and s_.get("board"):
+                shots.append(dict(f0=int(round(a_ * FPS)), f1=int(round(z_ * FPS)), path=path,
+                                  crop=None if hs else s_.get("crop"), blur=bool(s_.get("blur")) and not hs,
+                                  whip=s_.get("whip", True), no=shot_no, parent=s_.get("parent"),
+                                  host=bool(hs), close=bool(hs) and bool(s_.get("parent")),
+                                  fork=bool(hs) and isinstance(hs, dict) and bool(hs.get("fork"))))
+                if hs:
+                    shots[-1].update(subj=None, cut=False, idle="bob", reg=None, why="host shot")
+                elif v4 and s_.get("board"):
                     shots[-1].update(subj=None, cut=False, idle="bob", reg=None, why="evidence board")
                 elif v4:
                     subject(shots[-1], s_, pins.get(str(s_.get("obs")), {}))
@@ -578,6 +599,13 @@ def plan_beats(spec, work):
             ask = dict(title=title, chips=chips, f=int(round(t_ask * FPS)), fs=fs)
         pose = "subpoint" if sub else b.get("pose", "deadpan")
         sts = mascot.states(pose, [list(w) for w in words], D, FPS, seed=i)
+        hst = None
+        if any(s_.get("host") for s_ in shots):   # host shots: a second performance, to camera, with gestures
+            hsrc = b.get("host") or next((s_.get("host") for s_ in vis if s_.get("host")), None)
+            gx = hostmod.parse(hsrc, pose, words, word_time, D)
+            hst = dict(sts=mascot.states(hostmod.base_pose(pose), [list(w) for w in words], D, FPS, seed=i,
+                                         size=hlay["size"], extra=[(t, hostmod.GESTURES[g], h) for t, g, h in gx]),
+                       ev=gx, shake=b.get("act") == "shake")
         x, size, side, moves = float(b.get("x", HOME)), int(b.get("size", SIZE)), 1, []
         lab = b.get("label")
         if isinstance(lab, str):
@@ -593,7 +621,8 @@ def plan_beats(spec, work):
                 st_img = cv2.resize(st_img, (int(st_img.shape[1] * k_), int(st_img.shape[0] * k_)),
                                     interpolation=cv2.INTER_AREA)
             stamps.append(dict(img=st_img, f=int(round(t_st * FPS)),
-                               y=float(sp.get("y", 0.40)), text=sp["text"], reveal=sp.get("reveal", True)))
+                               y=float(sp.get("y", 0.21 if any(s_.get("host") for s_ in shots) else 0.40)),
+                               text=sp["text"], reveal=sp.get("reveal", True)))   # host: above his head
             b = dict(b, sfx=list(b.get("sfx", [])) + [f"stamp@{t_st:.3f}"])
             if hit is None:
                 hit = t_st
@@ -642,6 +671,7 @@ def plan_beats(spec, work):
                                            f=int(round(word_time(words, lab.get("at"), 0.0) * FPS))),
                         prop=b.get("prop"), prop_f=int(round(word_time(words, b.get("prop_at"), 0.3) * FPS)),
                         x=x, loop=bool(b.get("loop")), first=looping and i == 0, say=b["say"], sub=sub, ask=ask,
+                        host=hst,
                         counter=cur,
                         aside=b.get("aside") and dict(img=aside_img(b["aside"]),
                                                       f=int(round(word_time(words, b.get("aside_at"), 0.55 * D) * FPS)))))
@@ -781,14 +811,18 @@ def frame(g):
     if tr["eyes"]:
         st["eyes"] = tr["eyes"]
     st["head_s"] = tr["head"]
-    if bt["prop"] and f >= bt["prop_f"]:  # the Fork drops in beside him and stands there
+    if bt["prop"] and f >= bt["prop_f"] and not sh.get("host"):  # the Fork drops in beside him and stands there
         p = P["props"][bt["prop"]]
         kf = f - bt["prop_f"]
         drop = int(([-900, -520, -200, 0, -40, 0][kf] if kf < 6 else 0) * UI)
         px = int(bt["x"] * W + bt["size"] * 0.36) if bt["side"] == -1 or not P["v4"] else \
             int(bt["x"] * W - bt["size"] * 0.36 - p.shape[1])   # v4: on his free side, away from the animal
         over(frame_, p, px, FLOOR - p.shape[0] + int(20 * UI) + drop)
-    placed = place_meatball(frame_, st, tr, bt["size"])
+    if sh.get("host") and bt.get("host"):   # host shot: centre-screen, behind the desk, talking to camera
+        placed = None
+        draw_host(frame_, bt, sh, f)
+    else:
+        placed = place_meatball(frame_, st, tr, bt["size"])
     qa = (0, 0, False)
     if P["v4"] and ani is not None and not cut:  # QA (not during whip pans): Meatball over the animal, animal under the captions, animal clipped
         aa, ax0, ay0, clipped = ani
@@ -873,6 +907,23 @@ def frame(g):
             dy = [-260, -120, -30, 8, 0][kf] if kf < 5 else 0
             over(frame_, card, int(W / 2 - card.shape[1] / 2), int((215 if H > W else 70) + dy))
     return frame_.tobytes(), qa
+
+
+def draw_host(frame_, bt, sh, f):
+    """Host shot (tools/host.py): Meatball centred behind the desk, talk-bob with the mouth, gestures, then the
+    desk over his hips; the camera cuts medium/close per piece, pushes slowly, and leans in on "lean"."""
+    hb, lay = bt["host"], PLAN["host"]
+    st = hostmod.apply_face(dict(hb["sts"][min(f, len(hb["sts"]) - 1)]))
+    jx = 5.0 * math.sin(f * 1.9) if hb["shake"] else 0.0
+    tr = dict(hidden=False, x=lay["x"] / W, y=200.0 + hostmod.talk_bob(st.get("level", 0)), body=(1.0, 1.0),
+              rot=0.0, jx=jx, jy=0.0)
+    place_meatball(frame_, st, tr, lay["size"])
+    over(frame_, PLAN["desk"][1 if sh.get("fork") else 0], 0, FLOOR - 40)
+    z = hostmod.close_zoom(sh.get("close"), sh["f0"], f, FPS) * (1 + hostmod.lean_curve(hb["ev"], f / FPS))
+    if abs(z - 1) > 1e-3:
+        cx, cy = W / 2, lay["face"]
+        m = np.float32([[z, 0, cx - z * cx], [0, z, cy - z * cy]])
+        frame_[:] = cv2.warpAffine(frame_, m, (W, H), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
 
 
 def captions(beats, path):
@@ -961,13 +1012,15 @@ def report_v4(beats, work):
             e = dict(beat=bt["i"], photo=os.path.basename(s["path"]), crop=s["crop"], blur=s["blur"],
                      cut=s.get("cut"), why=s.get("why"), sec=round((s["f1"] - s["f0"]) / FPS, 2))
             shots.append(e)
-            if not s.get("cut"):
+            if not s.get("cut") and not s.get("host"):
                 stills.append(e)
                 print(f"V4 FALLBACK: beat {bt['i']} {e['photo']} {s['crop']}: {s.get('why')}", flush=True)
     marks = [dict(beat=bt["i"], x=round(bt["x"], 3), size=bt["size"], side=bt["side"], act=bt["act"],
                   contact=bt["contact"], moves=bt["moves"]) for bt in beats]
-    n = len(shots)
-    print(f"v4 gate: {n - len(stills)}/{n} shots act as cut-outs; {len(stills)} v3 stills", flush=True)
+    hosts = sum(1 for e in shots if e["why"] == "host shot")
+    n = len(shots) - hosts
+    print(f"v4 gate: {n - len(stills)}/{n} shots act as cut-outs; {len(stills)} v3 stills"
+          + (f"; {hosts} host shots" if hosts else ""), flush=True)
     for bt in beats:  # hard rules (Nolan, 10/25): a cut-out is the whole animal, none of it lost to clean-up
         for s in bt["shots"]:
             if s.get("cut") and (s["subj"].get("touch") or s["subj"].get("loss", 1) > animal.MAX_LOSS):
@@ -1009,6 +1062,10 @@ def build(spec, work, out, music=None, vertical=True):
         beats[0]["sfx"] = list(beats[0]["sfx"]) + [(4 / FPS, "case")]
     PLAN.update(beats=beats, whips=cuts, props={"fork": np.asarray(mascot.prop("fork", int(520 * UI)))}, v4=v4,
                 total=total_f)
+    if any(bt.get("host") for bt in beats):   # host shots: the desk (with and without the bagged Fork)
+        case = (spec.get("series") or {}).get("case", "")
+        PLAN.update(host=hostmod.layout(W, H), desk=[hostmod.desk_img(W, H, FLOOR, case),
+                                                     hostmod.desk_img(W, H, FLOOR, case, mascot.prop("fork", int(190 * UI)))])
     for bt in beats:  # warm the photo (and v4 cut-out) caches before forking the workers
         for s in bt["shots"]:
             base(s["path"], s["crop"], s["blur"])
