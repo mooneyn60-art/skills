@@ -1,0 +1,540 @@
+diff --git a/skills/oh-meatball/tools/v3.py b/skills/oh-meatball/tools/v3.py
+index 168b125..3e633b0 100644
+--- a/skills/oh-meatball/tools/v3.py
++++ b/skills/oh-meatball/tools/v3.py
+@@ -51,6 +51,11 @@ Photos come from explainer.photo() (pinned iNaturalist observations, "wm:" Commo
+   bed to the video's timeline (tools/music.py: builds into each stamp, drops out right before it, hits on it,
+   loop-safe) and mixes it by loudness: voice -16 LUFS, music -20 LUFS ducked under the voice, master -14.
+ 
++Host shots (tools/host.py, research/49): beat "host": true | {"moves": ["you@Guess", "lean@worse"], "notes": [...],
++  "fork": true}, or shot "host": true. Meatball centre-screen behind the investigator's desk (~45-55% of the frame
++  height), facing and talking to the viewer, over the case board drawn from the Short's evidence photos; medium /
++  close-up cut every max_shot s, a slow push, gestures you | psst | lean | shrug | sweat | shock on words.
++
+ "style": "v4" (research/45) adds, on top of everything above:
+   whole-animal cut-outs  every photo shot is cut out (tools/animal.py): the WHOLE animal, holes under 1%
+                          filled, contour smoothed, 1 px under a uniform white stroke, soft shadow. The shot is
+@@ -87,6 +92,7 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
+ 
+ import animal
+ import explainer as ex
++import host as hostmod
+ import investigate
+ import mascot
+ import stage
+@@ -504,6 +510,8 @@ def plan_beats(spec, work):
+     v4 = spec.get("style") == "v4"
+     pins = {str(k): v for k, v in (spec.get("subjects") or {}).items()}
+     out, F, shot_no, cur = [], 0, 0, None
++    seen = []   # evidence photos shown so far: host shots pin them to the case board behind him
++    hlay = hostmod.layout(W, H)
+     for i, b in enumerate(beats):
+         c = b.get("counter")
+         if c is False or (b.get("chapter") and b.get("myth") == "outro"):
+@@ -549,12 +557,25 @@ def plan_beats(spec, work):
+                               for j in range(n_cut)]
+             for a_, z_, s_ in pieces:
+                 path = ex.photo(s_["photo"], s_.get("n", 0), work, s_.get("obs"), "original")
+-                if s_.get("board"):   # evidence board: the photo pinned to cork with notes and red string
++                hs = s_.get("host")
++                if hs:   # host shot: Meatball at the desk, the case board (this photo + earlier evidence) behind
++                    hd = hs if isinstance(hs, dict) else {}
++                    notes = hd.get("notes") or (s_.get("board") or {}).get("notes") or []
++                if path not in seen:
++                    seen.append(path)
++                if hs:
++                    path = hostmod.backdrop([path] + [p for p in reversed(seen) if p != path], notes, work,
++                                            vertical=H > W, case=(spec.get("series") or {}).get("case", ""))
++                if s_.get("board") and not hs:   # evidence board: the photo pinned to cork with notes and red string
+                     path = investigate.board(path, s_["board"], work, vertical=H > W)
+-                shots.append(dict(f0=int(round(a_ * FPS)), f1=int(round(z_ * FPS)), path=path, crop=s_.get("crop"),
+-                                  blur=bool(s_.get("blur")), whip=s_.get("whip", True), no=shot_no,
+-                                  parent=s_.get("parent")))
+-                if v4 and s_.get("board"):
++                shots.append(dict(f0=int(round(a_ * FPS)), f1=int(round(z_ * FPS)), path=path,
++                                  crop=None if hs else s_.get("crop"), blur=bool(s_.get("blur")) and not hs,
++                                  whip=s_.get("whip", True), no=shot_no, parent=s_.get("parent"),
++                                  host=bool(hs), close=bool(hs) and bool(s_.get("parent")),
++                                  fork=bool(hs) and isinstance(hs, dict) and bool(hs.get("fork"))))
++                if hs:
++                    shots[-1].update(subj=None, cut=False, idle="bob", reg=None, why="host shot")
++                elif v4 and s_.get("board"):
+                     shots[-1].update(subj=None, cut=False, idle="bob", reg=None, why="evidence board")
+                 elif v4:
+                     subject(shots[-1], s_, pins.get(str(s_.get("obs")), {}))
+@@ -578,6 +599,13 @@ def plan_beats(spec, work):
+             ask = dict(title=title, chips=chips, f=int(round(t_ask * FPS)), fs=fs)
+         pose = "subpoint" if sub else b.get("pose", "deadpan")
+         sts = mascot.states(pose, [list(w) for w in words], D, FPS, seed=i)
++        hst = None
++        if any(s_.get("host") for s_ in shots):   # host shots: a second performance, to camera, with gestures
++            hsrc = b.get("host") or next((s_.get("host") for s_ in vis if s_.get("host")), None)
++            gx = hostmod.parse(hsrc, pose, words, word_time, D)
++            hst = dict(sts=mascot.states(hostmod.base_pose(pose), [list(w) for w in words], D, FPS, seed=i,
++                                         size=hlay["size"], extra=[(t, hostmod.GESTURES[g], h) for t, g, h in gx]),
++                       ev=gx, shake=b.get("act") == "shake")
+         x, size, side, moves = float(b.get("x", HOME)), int(b.get("size", SIZE)), 1, []
+         lab = b.get("label")
+         if isinstance(lab, str):
+@@ -593,7 +621,8 @@ def plan_beats(spec, work):
+                 st_img = cv2.resize(st_img, (int(st_img.shape[1] * k_), int(st_img.shape[0] * k_)),
+                                     interpolation=cv2.INTER_AREA)
+             stamps.append(dict(img=st_img, f=int(round(t_st * FPS)),
+-                               y=float(sp.get("y", 0.40)), text=sp["text"], reveal=sp.get("reveal", True)))
++                               y=float(sp.get("y", 0.21 if any(s_.get("host") for s_ in shots) else 0.40)),
++                               text=sp["text"], reveal=sp.get("reveal", True)))   # host: above his head
+             b = dict(b, sfx=list(b.get("sfx", [])) + [f"stamp@{t_st:.3f}"])
+             if hit is None:
+                 hit = t_st
+@@ -642,6 +671,7 @@ def plan_beats(spec, work):
+                                            f=int(round(word_time(words, lab.get("at"), 0.0) * FPS))),
+                         prop=b.get("prop"), prop_f=int(round(word_time(words, b.get("prop_at"), 0.3) * FPS)),
+                         x=x, loop=bool(b.get("loop")), first=looping and i == 0, say=b["say"], sub=sub, ask=ask,
++                        host=hst,
+                         counter=cur,
+                         aside=b.get("aside") and dict(img=aside_img(b["aside"]),
+                                                       f=int(round(word_time(words, b.get("aside_at"), 0.55 * D) * FPS)))))
+@@ -781,14 +811,18 @@ def frame(g):
+     if tr["eyes"]:
+         st["eyes"] = tr["eyes"]
+     st["head_s"] = tr["head"]
+-    if bt["prop"] and f >= bt["prop_f"]:  # the Fork drops in beside him and stands there
++    if bt["prop"] and f >= bt["prop_f"] and not sh.get("host"):  # the Fork drops in beside him and stands there
+         p = P["props"][bt["prop"]]
+         kf = f - bt["prop_f"]
+         drop = int(([-900, -520, -200, 0, -40, 0][kf] if kf < 6 else 0) * UI)
+         px = int(bt["x"] * W + bt["size"] * 0.36) if bt["side"] == -1 or not P["v4"] else \
+             int(bt["x"] * W - bt["size"] * 0.36 - p.shape[1])   # v4: on his free side, away from the animal
+         over(frame_, p, px, FLOOR - p.shape[0] + int(20 * UI) + drop)
+-    placed = place_meatball(frame_, st, tr, bt["size"])
++    if sh.get("host") and bt.get("host"):   # host shot: centre-screen, behind the desk, talking to camera
++        placed = None
++        draw_host(frame_, bt, sh, f)
++    else:
++        placed = place_meatball(frame_, st, tr, bt["size"])
+     qa = (0, 0, False)
+     if P["v4"] and ani is not None and not cut:  # QA (not during whip pans): Meatball over the animal, animal under the captions, animal clipped
+         aa, ax0, ay0, clipped = ani
+@@ -875,6 +909,23 @@ def frame(g):
+     return frame_.tobytes(), qa
+ 
+ 
++def draw_host(frame_, bt, sh, f):
++    """Host shot (tools/host.py): Meatball centred behind the desk, talk-bob with the mouth, gestures, then the
++    desk over his hips; the camera cuts medium/close per piece, pushes slowly, and leans in on "lean"."""
++    hb, lay = bt["host"], PLAN["host"]
++    st = hostmod.apply_face(dict(hb["sts"][min(f, len(hb["sts"]) - 1)]))
++    jx = 5.0 * math.sin(f * 1.9) if hb["shake"] else 0.0
++    tr = dict(hidden=False, x=lay["x"] / W, y=200.0 + hostmod.talk_bob(st.get("level", 0)), body=(1.0, 1.0),
++              rot=0.0, jx=jx, jy=0.0)
++    place_meatball(frame_, st, tr, lay["size"])
++    over(frame_, PLAN["desk"][1 if sh.get("fork") else 0], 0, FLOOR - 40)
++    z = hostmod.close_zoom(sh.get("close"), sh["f0"], f, FPS) * (1 + hostmod.lean_curve(hb["ev"], f / FPS))
++    if abs(z - 1) > 1e-3:
++        cx, cy = W / 2, lay["face"]
++        m = np.float32([[z, 0, cx - z * cx], [0, z, cy - z * cy]])
++        frame_[:] = cv2.warpAffine(frame_, m, (W, H), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
++
++
+ def captions(beats, path):
+     """Two-word cards in the lower third, the spoken word yellow; each card pops in."""
+     bold = PLAN.get("captions") == "bold"   # Meatball Investigates: heavier, bigger, thicker outline
+@@ -961,13 +1012,15 @@ def report_v4(beats, work):
+             e = dict(beat=bt["i"], photo=os.path.basename(s["path"]), crop=s["crop"], blur=s["blur"],
+                      cut=s.get("cut"), why=s.get("why"), sec=round((s["f1"] - s["f0"]) / FPS, 2))
+             shots.append(e)
+-            if not s.get("cut"):
++            if not s.get("cut") and not s.get("host"):
+                 stills.append(e)
+                 print(f"V4 FALLBACK: beat {bt['i']} {e['photo']} {s['crop']}: {s.get('why')}", flush=True)
+     marks = [dict(beat=bt["i"], x=round(bt["x"], 3), size=bt["size"], side=bt["side"], act=bt["act"],
+                   contact=bt["contact"], moves=bt["moves"]) for bt in beats]
+-    n = len(shots)
+-    print(f"v4 gate: {n - len(stills)}/{n} shots act as cut-outs; {len(stills)} v3 stills", flush=True)
++    hosts = sum(1 for e in shots if e["why"] == "host shot")
++    n = len(shots) - hosts
++    print(f"v4 gate: {n - len(stills)}/{n} shots act as cut-outs; {len(stills)} v3 stills"
++          + (f"; {hosts} host shots" if hosts else ""), flush=True)
+     for bt in beats:  # hard rules (Nolan, 10/25): a cut-out is the whole animal, none of it lost to clean-up
+         for s in bt["shots"]:
+             if s.get("cut") and (s["subj"].get("touch") or s["subj"].get("loss", 1) > animal.MAX_LOSS):
+@@ -1009,6 +1062,10 @@ def build(spec, work, out, music=None, vertical=True):
+         beats[0]["sfx"] = list(beats[0]["sfx"]) + [(4 / FPS, "case")]
+     PLAN.update(beats=beats, whips=cuts, props={"fork": np.asarray(mascot.prop("fork", int(520 * UI)))}, v4=v4,
+                 total=total_f)
++    if any(bt.get("host") for bt in beats):   # host shots: the desk (with and without the bagged Fork)
++        case = (spec.get("series") or {}).get("case", "")
++        PLAN.update(host=hostmod.layout(W, H), desk=[hostmod.desk_img(W, H, FLOOR, case),
++                                                     hostmod.desk_img(W, H, FLOOR, case, mascot.prop("fork", int(190 * UI)))])
+     for bt in beats:  # warm the photo (and v4 cut-out) caches before forking the workers
+         for s in bt["shots"]:
+             base(s["path"], s["crop"], s["blur"])
+diff --git a/skills/oh-meatball/tools/mascot.py b/skills/oh-meatball/tools/mascot.py
+index 6f9f217..c70d9a1 100644
+--- a/skills/oh-meatball/tools/mascot.py
++++ b/skills/oh-meatball/tools/mascot.py
+@@ -4,7 +4,8 @@
+ Usage: mascot.py OUTDIR            -> renders every pose to OUTDIR/<pose>.png (+ sheet.png)
+        from mascot import draw; draw("point", 600) -> RGBA PIL image (stills, thumbnails)
+        mascot.animate(pose, size, words, dur, fps, outdir) -> talking PNG frames (video)
+-Poses: neutral, point, present, shrug, think, shock, laugh, facepalm, wave, deadpan, nervous
++Poses: neutral, point, present, shrug, think, shock, laugh, facepalm, wave, deadpan, nervous,
++       subpoint; host shots (tools/host.py): desk, you, psst, lean
+ Props (drawn beside him, never animated): prop("fork", height)
+ 
+ The body is a skeleton (hip, knees, spine, neck, shoulders, head) with shoulder/elbow/wrist ANGLES per
+@@ -62,11 +63,21 @@ POSES = {
+     "deadpan":  {"l": (30, -20, 0), "r": (30, -20, 0), "mouth": "flat", "brow": "lid", "gaze": "viewer"},
+     "nervous":  {"l": ("ik", "shoulder", (-12, 112), 1), "r": ("ik", "shoulder", (12, 112), 1), "knee": 4,
+                  "shrug": 5, "mouth": "wobble", "brow": "worry", "gaze": "viewer"},
++    # Host shots (research/49, tools/host.py): talking to camera from behind the desk.
++    "desk":     {"l": ("ik", "shoulder", (-175, 205), 1), "r": ("ik", "shoulder", (175, 205), 1), "mouth": "flat",
++                 "brow": "lid", "gaze": "viewer"},   # deadpan, hands resting on the desk
++    "you":      {"l": ("ik", "shoulder", (-175, 205), 1), "r": ("ik", "shoulder", (46, 18), -1), "hand": {"r": 2.3},
++                 "lean": 1.5,
++                 "tilt": 3, "mouth": "talk", "brow": "up", "gaze": "viewer"},
++    "psst":     {"l": ("ik", "head", (-88, 74), -1), "hand": {"l": 1.4}, "r": ("ik", "shoulder", (175, 205), 1), "tilt": -8, "lean": -1.5,
++                 "mouth": "talk", "brow": "tilt", "gaze": "viewer"},
++    "lean":     {"l": ("ik", "shoulder", (-150, 215), 1), "r": ("ik", "shoulder", (150, 215), 1), "shrug": 4,
++                 "mouth": "talk", "brow": "up", "gaze": "viewer"},
+ }
+ BIG = {"shock", "shrug", "wave", "laugh"}   # moves that get an anticipation crouch
+ REALIZE = {"shock", "laugh"}               # moves that land with a scale-pop
+ GLOWS = {"white": None, "yellow": (255, 214, 10), "red": (232, 46, 36), "green": (70, 205, 90)}
+-PERSONA = {"deadpan", "nervous", "think", "facepalm", "subpoint"}  # held for the whole line (the point too)
++PERSONA = {"deadpan", "nervous", "think", "facepalm", "subpoint", "desk"}  # held for the whole line (the point too)
+ TRANSIENT = {"shock": 1.2, "laugh": 1.5, "wave": 1.4}   # real reaction beats only, then he moves on
+ SECONDARY = {"point": ["present", "shrug"], "present": ["point", "shrug"], "shrug": ["present", "point"],
+              "neutral": ["present", "point"], "shock": ["present", "point"], "laugh": ["present"],
+@@ -74,6 +85,7 @@ SECONDARY = {"point": ["present", "shrug"], "present": ["point", "shrug"], "shru
+ AFTER = {"shock": "present", "laugh": "neutral", "wave": "neutral"}
+ STRESS = {"every", "never", "all", "only", "really", "not", "no", "exactly", "whole", "too", "still", "nothing",
+           "always", "huge", "tiny", "million", "thousand", "both", "even", "true", "false", "actually", "zero"}
++HOLD_MAX = 1.1   # a host gesture on the last word still holds this long before the settle
+ YOU = {"you", "your", "you'll", "you're", "yourself", "you've"}
+ 
+ 
+@@ -323,7 +335,12 @@ def render(st, size, ss=2, origin=None, canvas=None):
+         pen.line(j["sh"], elbow)
+         pen.line(elbow, wrist)
+         pen.line(wrist, hand)
+-        pen.d.ellipse(pen.box(hand[0] - HAND_R, hand[1] - HAND_R, hand[0] + HAND_R, hand[1] + HAND_R), fill=INK)
++        hr = HAND_R * st.get("hands", {}).get(key, 1.0)   # host "you": the hand comes at the camera
++        pen.d.ellipse(pen.box(hand[0] - hr, hand[1] - hr, hand[0] + hr, hand[1] + hr), fill=INK)
++        if hr > HAND_R * 1.8:   # pointing straight at the viewer: the fingertip, foreshortened, with its nail
++            fr = hr * 0.42
++            pen.d.ellipse(pen.box(hand[0] - fr, hand[1] - hr * 0.35 - fr, hand[0] + fr, hand[1] - hr * 0.35 + fr),
++                          fill=SHINE, outline=WHITE, width=pen.w(5))
+     im = im.reduce(ss) if ss > 1 else im
+     return im if canvas is None else (im, box_px[:2])
+ 
+@@ -334,6 +351,8 @@ def pose_state(pose, j=None, content=CONTENT):
+     j = j or body(st)
+     st["l"], st["r"] = arm_angles(p["l"], -1, j, content), arm_angles(p["r"], 1, j, content)
+     st["mouth"], st["brow"], st["eyes"] = p["mouth"], p["brow"], p.get("eyes")
++    if "hand" in p:
++        st["hands"] = dict(p["hand"])
+     return st
+ 
+ 
+@@ -424,7 +443,7 @@ def _space(cands, gap, lo, hi):
+     return sorted(picked)
+ 
+ 
+-def plan(pose, words, dur, fps=30, seed=0, enter=True, exit=True):
++def plan(pose, words, dur, fps=30, seed=0, enter=True, exit=True, extra=None):
+     """Acting plan for one line: keypose events [(start, pose, frames)], accents and gaze overrides.
+     The beat's pose is the primary choice; extra gestures only on emphasis words, at most one per 1.5 s,
+     each held at least ~1 s, settling to a relaxed idle in pauses and at the end of the line."""
+@@ -473,8 +492,14 @@ def plan(pose, words, dur, fps=30, seed=0, enter=True, exit=True):
+         if e[0] - kept[-1][0] >= 1.0:
+             kept.append(e)
+     ev = kept
++    for t, p, hold in extra or []:  # host gestures timed to words: they replace any gesture in their window
++        a = max(0.05, t - lead)
++        ev = [e for k, e in enumerate(ev) if k < 1 or not (a - 0.25 < e[0] < t + hold)]
++        ev += [(a, p, T)] + ([(t + hold, pose, T + 1)] if t + hold < speech1 else [])
++        ev = ev[:1] + sorted(ev[1:])
+     if exit:
+-        settle = min(max(speech1 + 0.12, (ev[-1][0] + 0.9) if len(ev) > 1 else 0), end)
++        settle = min(max(speech1 + 0.12, (ev[-1][0] + 0.9) if len(ev) > 1 else 0,
++                         max((t + min(h, HOLD_MAX) for t, _, h in extra or []), default=0)), end)
+         if ev[-1][1] != "neutral":
+             ev.append((max(settle, ev[-1][0] + 0.3), "neutral", T + 1))
+     looks = [(s, e) for s, e, w in words if w.lower().strip(".,!?") in YOU]
+@@ -521,10 +546,12 @@ def mouth_track(words, n, fps):
+     return out
+ 
+ 
+-def states(pose, words, dur, fps, seed=0, enter=True, exit=True, content=CONTENT, size=600):
+-    """Every frame's rig state for one line (deterministic for a seed)."""
++def states(pose, words, dur, fps, seed=0, enter=True, exit=True, content=CONTENT, size=600, extra=None):
++    """Every frame's rig state for one line (deterministic for a seed). extra = [(t, pose, hold)] gestures
++    (host shots, tools/host.py): each takes over the face and arms for its hold, then he settles back."""
+     pose = pose if pose in POSES else "point"
+-    pl = plan(pose, words, dur, fps, seed, enter, exit)
++    pl = plan(pose, words, dur, fps, seed, enter, exit, extra)
++    gest = {p for _, p, _ in extra or []}
+     ev, n = pl["events"], max(1, int(dur * fps))
+     rng = random.Random(f"blink|{seed}|{pose}")
+     blinks, t = [], 0.9 + rng.uniform(0, 1.6)
+@@ -573,7 +600,7 @@ def states(pose, words, dur, fps, seed=0, enter=True, exit=True, content=CONTENT
+             ang[0] += 0.9 * st["breath"] / amp if amp else 0.0
+             st[key] = tuple(ang)
+         dom = max(am, key=am.get)
+-        face = pose if pose in PERSONA else dom
++        face = dom if dom in gest else (pose if pose in PERSONA else dom)
+         st["mouth"], st["brow"], st["eyes"] = POSES[face]["mouth"], POSES[face]["brow"], POSES[face].get("eyes")
+         if st["mouth"] == "talk":
+             st["mouth"] = "smile"
+@@ -581,6 +608,9 @@ def states(pose, words, dur, fps, seed=0, enter=True, exit=True, content=CONTENT
+         gy = sum(w * gaze_of[POSES[p]["gaze"]][1] for p, w in bm.items())
+         you = max([_ramp(t, s, e) for s, e in pl["looks"]] + [0.0])
+         st["look"] = (round(gx * (1 - you)), round(gy * (1 - you)))
++        if any("hand" in POSES[p] for p in am):   # host "you": the hand size blends with the arm pose
++            st["hands"] = {key: sum(w * POSES[p].get("hand", {}).get(key, 1.0) for p, w in am.items())
++                           for key in ("l", "r")}
+         st["level"] = 0 if last else mouth[f]
+         st["blink"] = 0
+         for b in blinks:
+diff --git a/skills/oh-meatball/tools/host.py b/skills/oh-meatball/tools/host.py
+new file mode 100644
+index 0000000..d58ff4a
+--- /dev/null
++++ b/skills/oh-meatball/tools/host.py
+@@ -0,0 +1,235 @@
++#!/usr/bin/env python3
++"""Host shots for tools/v3.py (research/49; Nolan 10/26: "Meatball needs to be in the middle of the screen
++talking sometimes"). On a host shot Meatball sits centre-screen behind the investigator's desk, about half the
++frame's height, faces the viewer and talks to camera (lip-flap from the word timings, blinks, breathing, a
++small talk-bob), with gestures timed to words. Behind him: the case board, drawn here from the Short's own
++evidence photos (pinned polaroids, index cards, red string), softly blurred and lit by a desk lamp. Nothing
++to license.
++
++Script fields (v3/v4 specs):
++  beat "host": true           every shot of the line is a host shot (shots inherit beat fields)
++  beat "host": {"moves": ["you@Guess", "lean@worse"], "notes": ["1962"], "fork": true}
++      moves: gesture@word (or @seconds), each held ~1.1 s (lean holds to the end of the line):
++        you    points at the viewer (the hand comes at the camera, drawn big)
++        psst   hand cupped by his mouth, head tilted in: the conspiratorial aside
++        lean   leans in to the camera (slow push to +12%) and stays there
++        shrug  palms up
++        sweat  nervous face with the sweat drop
++        shock  hands to face
++      notes: index cards on the case board (default: the shot's "board" notes)
++      fork:  the Fork, bagged and tagged as evidence, on the desk (the running gag; at most once per Short)
++  shot "host": true           only this shot of the line is a host shot (e.g. cut from the evidence photo
++                              to Meatball on a spoken word)
++Framing: a host line cuts between a medium shot and a close-up every max_shot seconds (a two-camera talk-show
++cut), and the camera keeps a slow push, so something changes at least every ~2 s without leaving him.
++The beat's "pose" is his base face (deadpan, nervous, think, shock...); a "point" line with no moves opens on "you".
++Captions, cards, stamps and the subscribe pill draw over the host shot as usual; his face sits between the
++comment card (top) and the captions (bottom) in both 9:16 and 16:9.
++"""
++import math
++import os
++
++import numpy as np
++from PIL import Image, ImageDraw, ImageFilter
++
++import investigate as inv
++
++GESTURES = {"you": "you", "psst": "psst", "lean": "lean", "shrug": "shrug", "sweat": "nervous", "shock": "shock"}
++HOLD = 1.1            # seconds a gesture is held before he settles back to his base pose
++LEAN_Z = 0.12         # lean-in: extra camera push
++CLOSE_Z = 1.16        # close-up framing (zoom about his face) on alternate host pieces
++BASE = {"deadpan": "desk", "point": "desk", "present": "desk", "neutral": "desk", "laugh": "desk", "wave": "desk"}
++AUTO = {"point": "you", "present": "you", "subpoint": None}   # a pointing line with no moves points at you first
++
++
++def layout(W, H):
++    """Host framing for the frame size: (x centre, desk top y, size px per 1000 units, face y).
++    9:16: head top ~610 px (under the comment card), desk at 1430, captions at 1560 on the desk.
++    16:9: head top ~380 px, desk at 930, captions at 1000."""
++    if H > W:
++        return dict(x=W / 2, desk=1430, size=1280, face=900)
++    return dict(x=W / 2, desk=930, size=860, face=590)
++
++
++def parse(host, pose, words, word_time, dur):
++    """[(t, pose, hold)] gesture events from beat "host" moves."""
++    moves = host.get("moves") if isinstance(host, dict) else None
++    if moves is None:
++        moves = [AUTO[pose] + "@" + f"{words[0][0] if words else 0.15:.2f}"] if AUTO.get(pose) else []
++    out = []
++    for m in moves:
++        name, _, at = str(m).partition("@")
++        if name not in GESTURES:
++            raise SystemExit(f"host move {name!r}: use one of {', '.join(GESTURES)}")
++        t = word_time(words, at or None, 0.15)
++        out.append((t, name, max(0.4, dur - t) if name == "lean" else HOLD))
++    return sorted(out)
++
++
++def lean_curve(events, t):
++    """Extra zoom from a lean-in at time t (eases in over 0.35 s)."""
++    z = 0.0
++    for t0, name, _ in events:
++        if name == "lean" and t >= t0:
++            u = min(1.0, (t - t0) / 0.35)
++            z = max(z, LEAN_Z * u * u * (3 - 2 * u))
++    return z
++
++
++def _polaroid(path, w, rot, seed):
++    ph = Image.open(path).convert("RGB")
++    h = int(w * min(1.2, max(0.68, ph.height / ph.width)))
++    s = max(w / ph.width, h / ph.height)
++    ph = ph.resize((int(ph.width * s) + 1, int(ph.height * s) + 1), Image.LANCZOS)
++    l, t = (ph.width - w) // 2, (ph.height - h) // 2
++    ph = ph.crop((l, t, l + w, t + h))
++    m = int(w * 0.06)
++    pol = Image.new("RGBA", (w + 2 * m, h + m + int(m * 3.0)), (248, 246, 238, 255))
++    pol.paste(ph, (m, m))
++    return pol.rotate(rot, expand=True, resample=Image.BICUBIC)
++
++
++def backdrop(paths, notes, work, vertical=True, case=""):
++    """The investigator's wall behind him: cork, the Short's evidence photos pinned as polaroids at the
++    edges (where he doesn't cover them), index cards, red string; blurred a little (depth of field), dimmed,
++    and lit by a warm desk-lamp pool behind his head. Returns an image path (credits copied)."""
++    paths = [p for p in dict.fromkeys(paths) if p][:3]
++    key = "|".join([os.path.basename(p) for p in paths] + list(notes) + [str(vertical), case])
++    out = f"{work}/photos/host_{abs(hash(key)) % 10 ** 10}.jpg"
++    if os.path.exists(out):
++        return out
++    W, H = (1300, 2311) if vertical else (2311, 1300)
++    bd = inv._cork(W, H, seed=11).convert("RGBA")
++    dr = ImageDraw.Draw(bd)
++    if vertical:   # top corners and the high middle stay visible above his shoulders
++        spots = [(0.24, 0.17, 0.40, -6), (0.78, 0.20, 0.36, 5), (0.50, 0.08, 0.26, -2)]
++        cards = [(0.16, 0.50), (0.86, 0.48), (0.50, 0.215)]
++    else:          # 16:9: big evidence left and right of him
++        spots = [(0.19, 0.38, 0.27, -5), (0.82, 0.36, 0.24, 4), (0.50, 0.10, 0.12, -2)]
++        cards = [(0.13, 0.80), (0.88, 0.78), (0.33, 0.12)]
++    pins = []
++    for k, p in enumerate(paths):
++        cx, cy, fw, rot = spots[k]
++        pol = _polaroid(p, int(W * fw), rot, k)
++        x, y = int(cx * W - pol.width / 2), int(cy * H - pol.height / 2)
++        sh = Image.new("RGBA", pol.size, (0, 0, 0, 0))
++        sh.putalpha(pol.getchannel("A").point(lambda v: v * 0.5))
++        bd.alpha_composite(sh.filter(ImageFilter.GaussianBlur(16)), (x + 16, y + 20))
++        bd.alpha_composite(pol, (x, y))
++        pins.append((int(cx * W), y + 34))
++    fn = inv.font(inv.MONO, int(W * (0.046 if vertical else 0.026)))
++    cpins = []
++    for k, note in enumerate(list(notes)[:3]):
++        nx, ny = int(cards[k][0] * W), int(cards[k][1] * H)
++        tw = int(dr.textlength(note, font=fn))
++        card = Image.new("RGBA", (tw + 60, int(fn.size * 2.0)), (255, 246, 170, 255))
++        cd = ImageDraw.Draw(card)
++        cd.line([(0, int(fn.size * 0.35)), (card.width, int(fn.size * 0.35))], fill=(230, 80, 80, 160), width=2)
++        cd.text((30, int(fn.size * 0.5)), note, font=fn, fill=(25, 25, 60))
++        card = card.rotate([4, -5, 2][k], expand=True, resample=Image.BICUBIC)
++        bd.alpha_composite(card, (nx - card.width // 2, ny - card.height // 2))
++        cpins.append((nx, ny - card.height // 2 + 20))
++    for a, b in zip(pins + cpins, (pins + cpins)[1:]):
++        inv._string(dr, a, b, sag=60)
++    for p in pins + cpins:
++        inv._pin(dr, *p, 15)
++    im = bd.convert("RGB").filter(ImageFilter.GaussianBlur(3.2))
++    # lamp light: a warm pool behind his head, the rest of the room falls off to dark
++    a = np.asarray(im).astype(np.float32)
++    yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
++    fy = 0.42 if vertical else 0.45
++    d2 = ((xx / W - 0.5) * (1.0 if vertical else 1.7)) ** 2 + ((yy / H - fy) * (0.8 if vertical else 1.0)) ** 2
++    light = 0.42 + 0.58 * np.exp(-d2 / 0.09)
++    warm = np.array([1.06, 0.98, 0.86], np.float32)
++    a = np.clip(a * light[..., None] * warm, 0, 255).astype(np.uint8)
++    os.makedirs(os.path.dirname(out), exist_ok=True)
++    Image.fromarray(a).save(out, quality=92)
++    credit = "".join(open(p + ".credit").read().strip() + "\n" for p in paths if os.path.exists(p + ".credit"))
++    open(out + ".credit", "w").write(credit.strip() + "\n" if credit else "")
++    return out
++
++
++def desk_img(W, H, desk, case="", fork=None):
++    """The desk in front of him (RGBA, full frame width, from desk top to the bottom): walnut top with a lit
++    edge, a banker's lamp at the left, a manila case file at the right, and optionally the bagged Fork."""
++    h = H - desk + 40
++    im = Image.new("RGBA", (W, h), (0, 0, 0, 0))
++    dr = ImageDraw.Draw(im)
++    top = 40
++    for y in range(top, h):   # wood: dark gradient with faint grain
++        u = (y - top) / max(1, h - top)
++        c = (int(92 - 46 * u), int(56 - 30 * u), int(34 - 18 * u), 255)
++        dr.line([(0, y), (W, y)], fill=c)
++    rng = np.random.default_rng(3)
++    for _ in range(26):
++        y0 = int(rng.uniform(top + 30, h))
++        dr.line([(0, y0), (W, y0 + rng.integers(-14, 14))], fill=(40, 22, 12, 70), width=2)
++    dr.rectangle([0, top, W, top + 10], fill=(150, 98, 60, 255))           # lit front edge
++    dr.rectangle([0, top + 10, W, top + 16], fill=(52, 30, 18, 255))
++    s = W / 1080 if H > W else H / 1920 * 1.55
++    # banker's lamp: brass stem, green shade, light spilling on the desk
++    lx = int(W * (0.10 if H > W else 0.16))
++    glow = Image.new("RGBA", (W, h), (0, 0, 0, 0))
++    ImageDraw.Draw(glow).ellipse([lx - 260 * s, top - 30 * s, lx + 300 * s, top + 120 * s], fill=(255, 210, 120, 70))
++    im.alpha_composite(glow.filter(ImageFilter.GaussianBlur(30 * s)))
++    dr = ImageDraw.Draw(im)
++    dr.rectangle([lx - 8 * s, top - 150 * s, lx + 8 * s, top + 4], fill=(176, 140, 60, 255))
++    dr.ellipse([lx - 60 * s, top - 6 * s, lx + 60 * s, top + 22 * s], fill=(150, 116, 46, 255))
++    dr.chord([lx - 95 * s, top - 215 * s, lx + 95 * s, top - 95 * s], 180, 360, fill=(26, 110, 62, 255),
++             outline=(12, 60, 32, 255), width=max(2, int(5 * s)))
++    dr.rectangle([lx - 95 * s, top - 157 * s, lx + 95 * s, top - 148 * s], fill=(255, 226, 150, 255))
++    # case file: manila folder lying on the desk, typed label, red TOP SECRET band
++    fx0, fy0 = int(W * 0.62), int(top + h * 0.42)
++    fw, fh = int(W * 0.32), int(h * 0.30)
++    dr.polygon([(fx0 + 12 * s, fy0), (fx0 + fw, fy0 - 10 * s), (fx0 + fw - 6 * s, fy0 + fh), (fx0, fy0 + fh + 8 * s)],
++               fill=inv.MANILA + (255,), outline=(120, 90, 40, 255))
++    f = inv.font(inv.MONO, max(12, int(26 * s)))
++    if case:
++        dr.text((fx0 + 26 * s, fy0 + 18 * s), case, font=f, fill=inv.INK)
++    dr.rectangle([fx0 + 20 * s, fy0 + fh * 0.55, fx0 + fw - 24 * s, fy0 + fh * 0.55 + 30 * s], fill=inv.RED + (230,))
++    dr.text((fx0 + 34 * s, fy0 + fh * 0.55 + 1 * s), "TOP SECRET", font=f, fill=(255, 255, 255))
++    if fork is not None:   # the Fork, evidence: in a clear bag with a tag (research/39 running gag)
++        fk = fork.rotate(-62, expand=True, resample=Image.BICUBIC)
++        bx, by = int(W * 0.30), int(top + 30 * s)
++        bag = Image.new("RGBA", (fk.width + int(40 * s), fk.height + int(30 * s)), (220, 235, 245, 70))
++        ImageDraw.Draw(bag).rectangle([0, 0, bag.width - 1, bag.height - 1], outline=(230, 240, 250, 200),
++                                      width=max(2, int(4 * s)))
++        bag.alpha_composite(fk, (int(20 * s), int(15 * s)))
++        im.alpha_composite(bag, (bx, by))
++        dr = ImageDraw.Draw(im)
++        dr.rectangle([bx + bag.width - 70 * s, by - 10 * s, bx + bag.width + 40 * s, by + 30 * s], fill=(250, 245, 225, 255))
++        dr.text((bx + bag.width - 62 * s, by - 6 * s), "EVIDENCE #?", font=inv.font(inv.MONO, max(10, int(16 * s))),
++                fill=inv.RED)
++    return np.asarray(im)
++
++
++def close_zoom(piece_close, f0, f, fps):
++    """Camera zoom on a host piece: a slow push (2.5%/s) and, on close-up pieces, the CLOSE_Z framing."""
++    return (CLOSE_Z if piece_close else 1.0) * (1.0 + 0.025 * (f - f0) / fps)
++
++
++def talk_bob(level):
++    """A small head-and-shoulders bob with the mouth (drawing units): he leans into stressed syllables."""
++    return -4.0 * level
++
++
++def base_pose(pose):
++    return BASE.get(pose, pose)
++
++
++def apply_face(st):
++    """Host: he looks at the viewer (pupils centred) unless thinking."""
++    if st.get("brow") != "tilt":
++        st["look"] = (0, 0)
++    return st
++
++
++def ok_size(lay, H):
++    """The fraction of frame height he fills above the desk (cap to hips) at the host size."""
++    return 695 * lay["size"] / 1000 / H
++
++
++if __name__ == "__main__":
++    for W, H in ((1080, 1920), (1920, 1080)):
++        lay = layout(W, H)
++        print(W, H, lay, f"visible above the desk {ok_size(lay, H):.0%} of frame height", math.isfinite(lay["size"]))

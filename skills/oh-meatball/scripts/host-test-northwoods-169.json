@@ -1,0 +1,105 @@
+{
+ "title": "host test 16:9",
+ "style": "v4",
+ "captions": "bold",
+ "series": {
+  "text": "MEATBALL INVESTIGATES",
+  "card": false,
+  "case": "CASE #2"
+ },
+ "max_shot": 1.8,
+ "music_lufs": -27,
+ "photo_source": "Wikimedia Commons, NOAA, NARA, iNaturalist, Openverse",
+ "_note": "v2 of the pilot. Emu War swapped for Project A119 (Voggle teardown, research/40: their Emu War did 0.35x median; obscure cases win). Voggle shape: scene-first past-tense open, See-rewind, plain one-sentence verdict + stamp, ironic kicker as the last line (no end CTA). Earlier:  (Nolan 10/26: 'Lower the music and make more engaging, maybe voice deeper'; 'every topic should have different music and voices'). Each Short has its own theme (tools/themes.py) = its own voice and its own procedural bed at -27 LUFS under a -16 LUFS voice with heavy ducking. Frame 0 = the most striking picture + a 3-5 word question; a new picture every <=1.8 s; a 'Wait, it gets worse' twist and a Meatball jeopardy beat in every Short; the punchline carries the reminder card and the Short ends 0.6 s later (endings rule). Facts and sources unchanged from v1. NOT SCHEDULED.",
+ "names": {},
+ "subjects": {
+  "ov:d01b7d32-2ecb-4d3e-855c-0645de9a6681": {
+   "cutout": false,
+   "_why": "the matte picks the radar dome, not the small balloon"
+  }
+ },
+ "aspect": "16:9",
+ "beats": [
+  {
+   "myth": "northwoods",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in 1962, the Pentagon wanted war with Cuba.",
+   "sfx": [
+    "whoosh"
+   ],
+   "shots": [
+    {
+     "photo": "Bermuda Triangle map (1950)",
+     "obs": "wm:Bermuda Triangle 1950 map.jpg"
+    },
+    {
+     "photo": "The Pentagon",
+     "obs": "ov:d9cde009-48aa-4c0f-ad5a-1eef19190154",
+     "at": "Pentagon"
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@See"
+    ]
+   }
+  },
+  {
+   "myth": "northwoods",
+   "pose": "shock",
+   "act": "launch",
+   "say": "Wait, it gets worse. Fake an airliner shootdown.",
+   "hit": "shootdown",
+   "sfx": [
+    "crunch@shootdown"
+   ],
+   "jeopardy": true,
+   "shots": [
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg",
+     "at": "airliner"
+    }
+   ]
+  },
+  {
+   "myth": "northwoods",
+   "pose": "point",
+   "act": "stand",
+   "say": "Verdict: the memo is real.",
+   "stamp": {
+    "text": "PROVEN",
+    "at": "real"
+   },
+   "shots": [
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg",
+     "board": {
+      "notes": [
+       "NORTHWOODS",
+       "1962"
+      ]
+     }
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@memo"
+    ],
+    "notes": [
+     "NORTHWOODS",
+     "1962"
+    ]
+   }
+  }
+ ],
+ "theme": "cold-war",
+ "voice": "en-US-EricNeural",
+ "rate": "+22%",
+ "short_rate": "+22%",
+ "pitch": "-2Hz",
+ "tempo": 1.12,
+ "music": "gen:cold-war"
+}

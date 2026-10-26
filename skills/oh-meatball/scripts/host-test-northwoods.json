@@ -1,0 +1,205 @@
+{
+ "title": "host test: northwoods (host beats)",
+ "style": "v4",
+ "captions": "bold",
+ "series": {
+  "text": "MEATBALL INVESTIGATES",
+  "card": false
+ },
+ "max_shot": 1.8,
+ "music_lufs": -27,
+ "short_hashtags": "#shorts #meatballinvestigates #weirdhistory #mystery #meatballmyths",
+ "photo_source": "Wikimedia Commons, NOAA, NARA, iNaturalist, Openverse",
+ "_note": "v2 of the pilot. Emu War swapped for Project A119 (Voggle teardown, research/40: their Emu War did 0.35x median; obscure cases win). Voggle shape: scene-first past-tense open, See-rewind, plain one-sentence verdict + stamp, ironic kicker as the last line (no end CTA). Earlier:  (Nolan 10/26: 'Lower the music and make more engaging, maybe voice deeper'; 'every topic should have different music and voices'). Each Short has its own theme (tools/themes.py) = its own voice and its own procedural bed at -27 LUFS under a -16 LUFS voice with heavy ducking. Frame 0 = the most striking picture + a 3-5 word question; a new picture every <=1.8 s; a 'Wait, it gets worse' twist and a Meatball jeopardy beat in every Short; the punchline carries the reminder card and the Short ends 0.6 s later (endings rule). Facts and sources unchanged from v1. NOT SCHEDULED.",
+ "names": {},
+ "subjects": {
+  "ov:d01b7d32-2ecb-4d3e-855c-0645de9a6681": {
+   "cutout": false,
+   "_why": "the matte picks the radar dome, not the small balloon"
+  }
+ },
+ "beats": [
+  {
+   "myth": "northwoods",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A US general signed a plan to blow up an American ship.",
+   "shots": [
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg"
+    },
+    {
+     "photo": "General Lyman Lemnitzer",
+     "obs": "wm:GEN Lyman L. Lemnitzer, portrait as SACEUR (cropped 2).jpg",
+     "at": "signed"
+    }
+   ],
+   "hook": true,
+   "headline": "FAKE ATTACKS?",
+   "headline_s": 2.2,
+   "theme": "cold-war",
+   "case": "CASE #2",
+   "short_title": "Operation Northwoods: The Conspiracy That Was TRUE 🔍",
+   "comment": "Did you know this was real? ✅ yes / 😳 no idea",
+   "bonus": "One idea in the plan: fake the shoot-down of a civilian airliner with a remote-controlled drone. The memo was declassified in 1997.",
+   "caption": "Operation Northwoods was real: a 1962 plan for fake attacks blamed on Cuba, rejected by Kennedy's team. ✅ or 😳? #conspiracy #history #coldwar #declassified",
+   "sources": [
+    "Joint Chiefs of Staff memorandum 'Justification for US Military Intervention in Cuba', 13 March 1962 (Operation Northwoods), National Security Archive, George Washington University — https://nsarchive2.gwu.edu/news/20010430/ (checked 2026-10-26)",
+    "Wikipedia, Operation Northwoods (proposed staged attacks incl. a faked shoot-down of a civilian airliner using a drone, blamed on Cuba; rejected by the Kennedy administration; declassified 1997 by the Assassination Records Review Board) — https://en.wikipedia.org/wiki/Operation_Northwoods"
+   ],
+   "loop_say": "Always read the fine print. Because",
+   "punch": "blow"
+  },
+  {
+   "myth": "northwoods",
+   "pose": "think",
+   "act": "stand",
+   "say": "So, did they do it? Guess.",
+   "ask": {
+    "q": "DID THEY DO IT?",
+    "choices": [
+     "✅ THEY DID",
+     "❌ NOPE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.9,
+   "shots": [
+    {
+     "photo": "The Pentagon",
+     "obs": "ov:d9cde009-48aa-4c0f-ad5a-1eef19190154"
+    }
+   ],
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "northwoods",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I investigate weird stuff daily.",
+   "sub": {
+    "at": "Subscribe"
+   },
+   "shots": [
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg",
+     "board": {
+      "notes": [
+       "MARCH 1962",
+       "BLAME CUBA"
+      ],
+      "stamp": "CLASSIFIED"
+     }
+    }
+   ]
+  },
+  {
+   "myth": "northwoods",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in 1962, the Pentagon wanted war with Cuba.",
+   "label": {
+    "text": "BLAME\nCUBA",
+    "at": "Cuba"
+   },
+   "sfx": [
+    "whoosh"
+   ],
+   "shots": [
+    {
+     "photo": "Bermuda Triangle map (1950)",
+     "obs": "wm:Bermuda Triangle 1950 map.jpg"
+    },
+    {
+     "photo": "The Pentagon",
+     "obs": "ov:d9cde009-48aa-4c0f-ad5a-1eef19190154",
+     "at": "Pentagon"
+    }
+   ]
+  },
+  {
+   "myth": "northwoods",
+   "pose": "shock",
+   "act": "launch",
+   "say": "Wait, it gets worse. Fake an airliner shootdown.",
+   "hit": "shootdown",
+   "sfx": [
+    "crunch@shootdown"
+   ],
+   "jeopardy": true,
+   "shots": [
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg",
+     "host": {
+      "moves": [
+       "psst@Wait"
+      ]
+     }
+    },
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg",
+     "at": "airliner"
+    }
+   ]
+  },
+  {
+   "myth": "northwoods",
+   "pose": "point",
+   "act": "stand",
+   "say": "Verdict: the memo is real.",
+   "stamp": {
+    "text": "PROVEN",
+    "at": "real"
+   },
+   "shots": [
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg",
+     "board": {
+      "notes": [
+       "NORTHWOODS",
+       "1962"
+      ]
+     }
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@memo"
+    ],
+    "notes": [
+     "NORTHWOODS",
+     "1962"
+    ]
+   }
+  },
+  {
+   "myth": "northwoods",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Kennedy's team said no. Secret till 1997.",
+   "kicker": true,
+   "hold": 0.25,
+   "shots": [
+    {
+     "photo": "President Kennedy, 1963",
+     "obs": "wm:President Kennedy American University Commencement Address June 10, 1963.jpg"
+    },
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg",
+     "at": "secret"
+    }
+   ],
+   "punch": "secret"
+  }
+ ]
+}
