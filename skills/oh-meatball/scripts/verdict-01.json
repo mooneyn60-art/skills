@@ -1,0 +1,1143 @@
+{
+ "title": "Verdict on the Viral One #1-#2: Phantom Time, Edward Mordrake (2 Shorts + 2 TikTok deep cuts)",
+ "style": "v4",
+ "captions": "bold",
+ "series": {
+  "text": "VERDICT ON THE VIRAL ONE",
+  "card": false
+ },
+ "caseboard": true,
+ "max_shot": 1.8,
+ "music_lufs": -27,
+ "short_hashtags": "#shorts #meatballinvestigates #verdictontheviralone #debunked #weirdhistory #meatballmyths",
+ "photo_source": "The Met Open Access (public domain), rawpixel, Flickr, Wikimedia Commons (public domain, CC0 or CC BY)",
+ "_note": "Weekly series (Nolan approved, research/50 idea 1). Meatball rules on a claim that is viral right now: PROVEN, BUSTED or UNSOLVED, with sources. Week 1 (Wed 10/28): Phantom Time. Week 2 (Wed 11/4): Edward Mordrake. Red list checked by the factdesk: neither is medical, electoral, a recent tragedy, a living private person or a group-targeting secret-society theory. No other creators' clips; Met Open Access / CC0 / CC BY art only; no image of 'Mordrake' is shown (the circulating ones are later fakes or CC BY-SA). The 'VERDICT ON THE VIRAL ONE #N' card drops on the verdict line (beat series_card); the tag runs on every frame. Case board arc: caseboard true; the Fork thread beat runs in Phantom Time deep (tools/caseboard.py fork-due said due).",
+ "names": {},
+ "subjects": {},
+ "beats": [
+  {
+   "myth": "phantom",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A German author added up the Middle Ages, and found three centuries missing.",
+   "shots": [
+    {
+     "photo": "Medieval manuscript calendar (rawpixel)",
+     "obs": "ov:bab284e0-a32f-4e6d-8eb7-1b9b432dc9e3"
+    },
+    {
+     "photo": "Charlemagne, woodcut by Hans Burgkmair (c. 1516)",
+     "obs": "met:373039",
+     "at": "missing"
+    }
+   ],
+   "hook": true,
+   "headline": "IS IT REALLY 1729?",
+   "headline_s": 2.2,
+   "short_title": "Did 300 Years of History Never Happen? 🕳️ Verdict on the Viral One #1",
+   "bonus": "The Phantom Time theory (Heribert Illig, 1991) says AD 614 to 911 were invented, so it's really about 1729. Busted: Chinese astronomers logged Halley's Comet in 837 right where orbital math puts it, eclipse records and tree-ring chronologies line up, and the 1582 calendar fix only reset the calendar to AD 325, not to Julius Caesar's time.",
+   "loop_say": "So, what year is it? Because",
+   "punch": "missing",
+   "cold_open": "scene",
+   "theme": "strange-history",
+   "case": "#1",
+   "comment": "Did those 300 years happen? 📜 yes / ❌ no / 🤷 I need proof\n\nGot a viral claim you want Meatball to rule on? Reply with it 👇 Top-liked one gets investigated.",
+   "caption": "Viral claim: 300 years of the Middle Ages never happened (Phantom Time). Meatball's verdict.",
+   "tags": [
+    "phantom time",
+    "phantom time hypothesis",
+    "is it really 1729",
+    "heribert illig",
+    "middle ages",
+    "missing years",
+    "fake history",
+    "conspiracy theories debunked",
+    "Verdict on the Viral One",
+    "Meatball Investigates",
+    "Meatball Myths"
+   ],
+   "sources": [
+    "Wikipedia, Phantom time conspiracy theory: proposed by Heribert Illig in 1991; claims Otto III and Pope Sylvester II invented AD 614-911 (297 years); refuted by ancient eclipse records (Pliny, AD 59), Tang-dynasty Chinese observations and Halley's Comet, dendrochronology and archaeology; the Gregorian reform (1582) restored the calendar to AD 325 (Council of Nicaea), not 45 BC, which explains Illig's 'missing' days — https://en.wikipedia.org/wiki/Phantom_time_conspiracy_theory (checked 2026-10-26)",
+    "Ethik und Sozialwissenschaften 8 (1997), critical discussion of Illig's thesis by historians",
+    "Halley's Comet 837 apparition recorded in Chinese and European annals — https://en.wikipedia.org/wiki/Halley%27s_Comet (apparitions table)"
+   ],
+   "board_title": "PHANTOM TIME"
+  },
+  {
+   "myth": "phantom",
+   "pose": "think",
+   "act": "stand",
+   "say": "Fake years? Guess.",
+   "shots": [
+    {
+     "photo": "Medieval manuscript calendar page (rawpixel)",
+     "obs": "ov:b4227a49-f8c9-469e-8362-afd85721385a"
+    }
+   ],
+   "ask": {
+    "q": "DID THEY HAPPEN?",
+    "choices": [
+     "❌ FAKE YEARS",
+     "📜 REAL"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.6,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ],
+    "notes": [
+     "614-911",
+     "297 YEARS?"
+    ]
+   }
+  },
+  {
+   "myth": "phantom",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. Verdicts every Wednesday.",
+   "shots": [
+    {
+     "photo": "Emperor Otto III, engraved portrait (Rijksmuseum)",
+     "obs": "ov:ad748cca-5601-423c-af19-755c620a06ee",
+     "board": {
+      "notes": [
+       "OTTO III",
+       "YEAR 1000"
+      ]
+     }
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "phantom",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in 1991, he blamed an emperor.",
+   "shots": [
+    {
+     "photo": "Medieval manuscript calendar (rawpixel)",
+     "obs": "ov:bab284e0-a32f-4e6d-8eb7-1b9b432dc9e3"
+    },
+    {
+     "photo": "Emperor Otto III, engraved portrait (Rijksmuseum)",
+     "obs": "ov:ad748cca-5601-423c-af19-755c620a06ee",
+     "at": "emperor"
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "OTTO III?",
+    "at": "emperor"
+   }
+  },
+  {
+   "myth": "phantom",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Wait, it gets worse. Charlemagne, invented too.",
+   "shots": [
+    {
+     "photo": "Charlemagne, woodcut by Hans Burgkmair (c. 1516)",
+     "obs": "met:373039",
+     "host": {
+      "moves": [
+       "psst@Wait"
+      ]
+     }
+    },
+    {
+     "photo": "Charlemagne, woodcut by Hans Burgkmair (c. 1516)",
+     "obs": "met:373039",
+     "at": "Charlemagne"
+    }
+   ],
+   "twist": true,
+   "sfx": [
+    "thud@invented"
+   ]
+  },
+  {
+   "myth": "phantom",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "Now I'm three centuries younger.",
+   "shots": [
+    {
+     "photo": "Medieval manuscript calendar page (rawpixel)",
+     "obs": "ov:b4227a49-f8c9-469e-8362-afd85721385a"
+    }
+   ],
+   "jeopardy": true,
+   "act_at": "younger",
+   "sfx": [
+    "boing@younger"
+   ]
+  },
+  {
+   "myth": "phantom",
+   "pose": "point",
+   "act": "stand",
+   "say": "But China logged Halley's Comet on schedule.",
+   "shots": [
+    {
+     "photo": "Dunhuang Star Chart, Tang dynasty China",
+     "obs": "ov:244c1ac6-3e33-4064-beb2-ad5293570a17"
+    },
+    {
+     "photo": "A comet over Strasbourg at night (print)",
+     "obs": "met:371126",
+     "at": "Comet"
+    }
+   ],
+   "label": {
+    "text": "837 AD",
+    "at": "schedule"
+   }
+  },
+  {
+   "myth": "phantom",
+   "pose": "point",
+   "act": "stand",
+   "say": "Verdict: those years happened.",
+   "shots": [
+    {
+     "photo": "Tree rings",
+     "obs": "ov:058f98a0-dde7-4e6d-81b6-f3378b8b0adf"
+    },
+    {
+     "photo": "Total solar eclipse, Caroline Island, 1883",
+     "obs": "met:786870",
+     "at": "happened"
+    }
+   ],
+   "stamp": {
+    "text": "BUSTED",
+    "at": "happened"
+   },
+   "series_card": true,
+   "hold": 0.4
+  },
+  {
+   "myth": "phantom",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Your rent is still due.",
+   "shots": [
+    {
+     "photo": "Pope Gregory XIII medal, promulgator of the Gregorian calendar (1579)",
+     "obs": "met:191961"
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "rent"
+  },
+  {
+   "myth": "phantomdeep",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A German author added up the Middle Ages, and found three centuries missing.",
+   "shots": [
+    {
+     "photo": "Medieval manuscript calendar (rawpixel)",
+     "obs": "ov:bab284e0-a32f-4e6d-8eb7-1b9b432dc9e3"
+    },
+    {
+     "photo": "Charlemagne, woodcut by Hans Burgkmair (c. 1516)",
+     "obs": "met:373039",
+     "at": "missing"
+    }
+   ],
+   "hook": true,
+   "headline": "IS IT REALLY 1729?",
+   "headline_s": 2.2,
+   "short_title": "Did 300 Years of History Never Happen? 🕳️ Verdict on the Viral One #1",
+   "bonus": "Phantom Time (Illig, 1991): AD 614-911 invented. Busted by Halley's Comet (837), eclipses, tree rings and the 1582 calendar math.",
+   "loop_say": "So, what year is it? Because",
+   "punch": "missing",
+   "cold_open": "scene",
+   "_len": "deep",
+   "theme": "strange-history",
+   "case": "#1",
+   "comment": "Did those 300 years happen? 📜 yes / ❌ no / 🤷 I need proof\n\nGot a viral claim you want Meatball to rule on? Reply with it 👇 Top-liked one gets investigated.",
+   "caption": "Viral claim: 300 years of the Middle Ages never happened (Phantom Time). Meatball's verdict.",
+   "tags": [
+    "phantom time",
+    "phantom time hypothesis",
+    "is it really 1729",
+    "heribert illig",
+    "middle ages",
+    "missing years",
+    "fake history",
+    "conspiracy theories debunked",
+    "Verdict on the Viral One",
+    "Meatball Investigates",
+    "Meatball Myths"
+   ],
+   "sources": [
+    "Wikipedia, Phantom time conspiracy theory: proposed by Heribert Illig in 1991; claims Otto III and Pope Sylvester II invented AD 614-911 (297 years); refuted by ancient eclipse records (Pliny, AD 59), Tang-dynasty Chinese observations and Halley's Comet, dendrochronology and archaeology; the Gregorian reform (1582) restored the calendar to AD 325 (Council of Nicaea), not 45 BC, which explains Illig's 'missing' days — https://en.wikipedia.org/wiki/Phantom_time_conspiracy_theory (checked 2026-10-26)",
+    "Ethik und Sozialwissenschaften 8 (1997), critical discussion of Illig's thesis by historians",
+    "Halley's Comet 837 apparition recorded in Chinese and European annals — https://en.wikipedia.org/wiki/Halley%27s_Comet (apparitions table)"
+   ],
+   "board_title": "PHANTOM TIME"
+  },
+  {
+   "myth": "phantomdeep",
+   "pose": "think",
+   "act": "stand",
+   "say": "It's going viral again. But one clue sinks it, and it's not on Earth.",
+   "shots": [
+    {
+     "photo": "Medieval manuscript calendar page (rawpixel)",
+     "obs": "ov:b4227a49-f8c9-469e-8362-afd85721385a"
+    },
+    {
+     "photo": "Book of the Fixed Stars (al-Sufi), manuscript",
+     "obs": "met:446297",
+     "at": "Earth"
+    }
+   ],
+   "promise": true
+  },
+  {
+   "myth": "phantomdeep",
+   "pose": "think",
+   "act": "stand",
+   "say": "Real or fake years? Guess before I tell you.",
+   "shots": [
+    {
+     "photo": "Medieval manuscript calendar page (rawpixel)",
+     "obs": "ov:b4227a49-f8c9-469e-8362-afd85721385a"
+    }
+   ],
+   "ask": {
+    "q": "DID THEY HAPPEN?",
+    "choices": [
+     "❌ FAKE YEARS",
+     "📜 REAL"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.9,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ],
+    "notes": [
+     "614-911",
+     "297 YEARS?"
+    ]
+   }
+  },
+  {
+   "myth": "phantomdeep",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. A new viral verdict every Wednesday.",
+   "shots": [
+    {
+     "photo": "Emperor Otto III, engraved portrait (Rijksmuseum)",
+     "obs": "ov:ad748cca-5601-423c-af19-755c620a06ee",
+     "board": {
+      "notes": [
+       "OTTO III",
+       "YEAR 1000"
+      ]
+     }
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "phantomdeep",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in 1991, Heribert Illig said Emperor Otto the Third faked the calendar.",
+   "shots": [
+    {
+     "photo": "Medieval manuscript calendar (rawpixel)",
+     "obs": "ov:bab284e0-a32f-4e6d-8eb7-1b9b432dc9e3"
+    },
+    {
+     "photo": "Emperor Otto III, engraved portrait (Rijksmuseum)",
+     "obs": "ov:ad748cca-5601-423c-af19-755c620a06ee",
+     "at": "Otto"
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ]
+  },
+  {
+   "myth": "phantomdeep",
+   "pose": "point",
+   "act": "stand",
+   "say": "His idea: put Otto on the throne in the year one thousand, by inventing six fourteen to nine eleven.",
+   "shots": [
+    {
+     "photo": "Emperor Otto III, engraved portrait (Rijksmuseum)",
+     "obs": "ov:ad748cca-5601-423c-af19-755c620a06ee"
+    },
+    {
+     "photo": "Medieval manuscript calendar page (rawpixel)",
+     "obs": "ov:b4227a49-f8c9-469e-8362-afd85721385a",
+     "at": "inventing"
+    }
+   ],
+   "label": {
+    "text": "614 → 911",
+    "at": "inventing"
+   }
+  },
+  {
+   "myth": "phantomdeep",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Wait, it gets worse. That deletes Charlemagne, and he's in every textbook.",
+   "shots": [
+    {
+     "photo": "Charlemagne, woodcut by Hans Burgkmair (c. 1516)",
+     "obs": "met:373039",
+     "host": {
+      "moves": [
+       "psst@Wait"
+      ]
+     }
+    },
+    {
+     "photo": "Charlemagne, woodcut by Hans Burgkmair (c. 1516)",
+     "obs": "met:373039",
+     "at": "Charlemagne"
+    }
+   ],
+   "twist": true,
+   "dark": true
+  },
+  {
+   "myth": "phantomdeep",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "If he's fake, I'm three centuries younger. I'm not ready to be a baby.",
+   "shots": [
+    {
+     "photo": "Medieval manuscript calendar page (rawpixel)",
+     "obs": "ov:b4227a49-f8c9-469e-8362-afd85721385a"
+    }
+   ],
+   "jeopardy": true,
+   "act_at": "younger",
+   "sfx": [
+    "boing@baby"
+   ]
+  },
+  {
+   "myth": "phantomdeep",
+   "pose": "think",
+   "act": "stand",
+   "say": "Old churches from back then? Illig says they're misdated.",
+   "shots": [
+    {
+     "photo": "Medieval manuscript calendar (rawpixel)",
+     "obs": "ov:bab284e0-a32f-4e6d-8eb7-1b9b432dc9e3"
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "phantomdeep",
+   "pose": "think",
+   "act": "stand",
+   "say": "Thousands of documents? Forged by monks, he says.",
+   "shots": [
+    {
+     "photo": "Medieval manuscript calendar page (rawpixel)",
+     "obs": "ov:b4227a49-f8c9-469e-8362-afd85721385a"
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "phantomdeep",
+   "pose": "point",
+   "act": "stand",
+   "say": "But here's the thing. Nobody can forge the sky.",
+   "shots": [
+    {
+     "photo": "Book of the Fixed Stars (al-Sufi), manuscript",
+     "obs": "met:446297"
+    }
+   ],
+   "punch": "sky"
+  },
+  {
+   "myth": "phantomdeep",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Chinese astronomers logged Halley's Comet in eight thirty seven, right where the math puts it.",
+   "shots": [
+    {
+     "photo": "Dunhuang Star Chart, Tang dynasty China",
+     "obs": "ov:244c1ac6-3e33-4064-beb2-ad5293570a17"
+    },
+    {
+     "photo": "A comet over Strasbourg at night (print)",
+     "obs": "met:371126",
+     "at": "Comet"
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "837 AD",
+    "at": "math"
+   }
+  },
+  {
+   "myth": "phantomdeep",
+   "pose": "point",
+   "act": "stand",
+   "say": "Eclipses line up too. So do tree rings, year by year.",
+   "shots": [
+    {
+     "photo": "Total solar eclipse, Caroline Island, 1883",
+     "obs": "met:786870"
+    },
+    {
+     "photo": "Tree rings",
+     "obs": "ov:058f98a0-dde7-4e6d-81b6-f3378b8b0adf",
+     "at": "tree"
+    }
+   ]
+  },
+  {
+   "myth": "phantomdeep",
+   "pose": "think",
+   "act": "stand",
+   "say": "And his missing days? The Pope's calendar fix only reset the clock to 325, not to Caesar.",
+   "shots": [
+    {
+     "photo": "Pope Gregory XIII medal, promulgator of the Gregorian calendar (1579)",
+     "obs": "met:191961"
+    },
+    {
+     "photo": "Medieval manuscript calendar page (rawpixel)",
+     "obs": "ov:b4227a49-f8c9-469e-8362-afd85721385a",
+     "at": "Caesar"
+    }
+   ],
+   "label": {
+    "text": "325 AD",
+    "at": "reset"
+   }
+  },
+  {
+   "myth": "phantomdeep",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Also, who keeps leaving this fork at my crime scenes?",
+   "shots": [
+    {
+     "photo": "Book of the Fixed Stars (al-Sufi), manuscript",
+     "obs": "met:446297"
+    }
+   ],
+   "host": {
+    "moves": [
+     "sweat@fork"
+    ],
+    "fork": true,
+    "notes": [
+     "WHO?",
+     "FORK #?"
+    ]
+   }
+  },
+  {
+   "myth": "phantomdeep",
+   "pose": "point",
+   "act": "stand",
+   "say": "Verdict: those three hundred years happened.",
+   "shots": [
+    {
+     "photo": "Tree rings",
+     "obs": "ov:058f98a0-dde7-4e6d-81b6-f3378b8b0adf"
+    },
+    {
+     "photo": "Total solar eclipse, Caroline Island, 1883",
+     "obs": "met:786870",
+     "at": "happened"
+    }
+   ],
+   "stamp": {
+    "text": "BUSTED",
+    "at": "happened"
+   },
+   "series_card": true,
+   "hold": 0.4
+  },
+  {
+   "myth": "phantomdeep",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "So it really is 2026. Your rent is still due.",
+   "shots": [
+    {
+     "photo": "Pope Gregory XIII medal, promulgator of the Gregorian calendar (1579)",
+     "obs": "met:191961"
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "rent"
+  },
+  {
+   "myth": "mordrake",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A newspaper printed a man with two faces, and people believed it.",
+   "shots": [
+    {
+     "photo": "The Lightning Steam Press, 'The Progress of the Century' (1876)",
+     "obs": "met:659890"
+    },
+    {
+     "photo": "Two-faced Janus figure (bronze)",
+     "obs": "met:307906",
+     "at": "faces"
+    }
+   ],
+   "hook": true,
+   "headline": "THE MAN WITH TWO FACES?",
+   "headline_s": 2.2,
+   "short_title": "The Man With Two Faces Never Existed 😳 Verdict on the Viral One #2",
+   "bonus": "Edward Mordrake (Mordake), the English heir with a whispering second face, first appeared on 8 December 1895 in the Boston Sunday Post, in an article by fiction writer Charles Lotin Hildreth that cited a 'Royal Scientific Society' that didn't exist then. A medical encyclopedia copied it in 1896 from that 'lay source'. No record of the man has ever been found.",
+   "loop_say": "Check the back of your head. Because",
+   "punch": "faces",
+   "cold_open": "scene",
+   "theme": "hoax",
+   "case": "#2",
+   "comment": "Did you believe the Edward Mordrake story? 😳 yes / 🙄 no / 👻 still kind of do\n\nGot a viral claim you want Meatball to rule on? Reply with it 👇 Top-liked one gets investigated.",
+   "caption": "Viral claim: Edward Mordrake, the man with two faces. Meatball traced it to an 1895 newspaper.",
+   "tags": [
+    "edward mordrake",
+    "edward mordake",
+    "two faced man",
+    "man with two faces",
+    "victorian hoax",
+    "urban legend",
+    "hoaxes debunked",
+    "Verdict on the Viral One",
+    "Meatball Investigates",
+    "Meatball Myths"
+   ],
+   "sources": [
+    "Wikipedia, Edward Mordake: apocryphal; first known appearance 8 December 1895, Boston Sunday Post, 'The Wonders of Modern Science' by fiction writer Charles Lotin Hildreth, citing reports of a 'Royal Scientific Society'; copied into Gould & Pyle, Anomalies and Curiosities of Medicine (1896), credited to a lay source — https://en.wikipedia.org/wiki/Edward_Mordake (checked 2026-10-26)",
+    "USA Today fact check (2021): the only known 'Royal Scientific Society' was founded in 1970 in Jordan; Royal Society of London records have nothing on the cases",
+    "Alex Boese, Museum of Hoaxes, 'The Legend of Edward Mordake' (traces the story to Hildreth's 1895 article)"
+   ],
+   "board_title": "TWO FACES"
+  },
+  {
+   "myth": "mordrake",
+   "pose": "think",
+   "act": "stand",
+   "say": "Real, or made up? Guess.",
+   "shots": [
+    {
+     "photo": "'The News Paper' (1808 print)",
+     "obs": "met:811266"
+    }
+   ],
+   "ask": {
+    "q": "REAL MAN?",
+    "choices": [
+     "👤 REAL",
+     "📰 MADE UP"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.6,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ],
+    "notes": [
+     "1895",
+     "TWO FACES?"
+    ]
+   }
+  },
+  {
+   "myth": "mordrake",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. Verdicts every Wednesday.",
+   "shots": [
+    {
+     "photo": "Newspaper collage (c. 1875)",
+     "obs": "met:764769",
+     "board": {
+      "notes": [
+       "BOSTON POST",
+       "DEC 8 1895"
+      ]
+     }
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "mordrake",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in 1895, it said the face whispered.",
+   "shots": [
+    {
+     "photo": "'The News Paper' (1808 print)",
+     "obs": "met:811266"
+    },
+    {
+     "photo": "Janus-headed bottle (c. 1760)",
+     "obs": "met:203478",
+     "at": "face"
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "dark": true
+  },
+  {
+   "myth": "mordrake",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Wait, it gets worse. A medical book copied it.",
+   "shots": [
+    {
+     "photo": "Anatomy book, De humani corporis fabrica (1555)",
+     "obs": "met:358129",
+     "host": {
+      "moves": [
+       "psst@Wait"
+      ]
+     }
+    },
+    {
+     "photo": "Anatomy book, De humani corporis fabrica (1555)",
+     "obs": "met:358129",
+     "at": "medical"
+    }
+   ],
+   "twist": true,
+   "label": {
+    "text": "1896",
+    "at": "copied"
+   }
+  },
+  {
+   "myth": "mordrake",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "I checked my head. Just meatball.",
+   "shots": [
+    {
+     "photo": "Two-faced Janus figure (bronze)",
+     "obs": "met:307906"
+    }
+   ],
+   "jeopardy": true,
+   "sfx": [
+    "boing@meatball"
+   ]
+  },
+  {
+   "myth": "mordrake",
+   "pose": "point",
+   "act": "stand",
+   "say": "Its source? A society that didn't exist.",
+   "shots": [
+    {
+     "photo": "The Lightning Steam Press, 'The Progress of the Century' (1876)",
+     "obs": "met:659890",
+     "board": {
+      "notes": [
+       "ROYAL SCIENTIFIC SOCIETY?",
+       "NO RECORD"
+      ]
+     }
+    }
+   ],
+   "label": {
+    "text": "NO RECORD",
+    "at": "exist"
+   }
+  },
+  {
+   "myth": "mordrake",
+   "pose": "point",
+   "act": "stand",
+   "say": "Verdict: just a story.",
+   "shots": [
+    {
+     "photo": "Circus Sideshow, Georges Seurat (1887-88)",
+     "obs": "met:437654"
+    },
+    {
+     "photo": "Newspaper collage (c. 1875)",
+     "obs": "met:764769",
+     "at": "story"
+    }
+   ],
+   "stamp": {
+    "text": "BUSTED",
+    "at": "story"
+   },
+   "series_card": true,
+   "hold": 0.4
+  },
+  {
+   "myth": "mordrake",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The writer's day job? Fiction.",
+   "shots": [
+    {
+     "photo": "'The News Paper' (1808 print)",
+     "obs": "met:811266"
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "Fiction"
+  },
+  {
+   "myth": "mordrakedeep",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A Boston newspaper printed a man with two faces, and the internet still believes it.",
+   "shots": [
+    {
+     "photo": "The Lightning Steam Press, 'The Progress of the Century' (1876)",
+     "obs": "met:659890"
+    },
+    {
+     "photo": "Two-faced Janus figure (bronze)",
+     "obs": "met:307906",
+     "at": "faces"
+    }
+   ],
+   "hook": true,
+   "headline": "THE MAN WITH TWO FACES?",
+   "headline_s": 2.2,
+   "short_title": "The Man With Two Faces Never Existed 😳 Verdict on the Viral One #2",
+   "bonus": "Edward Mordrake first appeared in an 1895 Boston Sunday Post article by a fiction writer; no record of him exists.",
+   "loop_say": "Check the back of your head. Because",
+   "punch": "faces",
+   "cold_open": "scene",
+   "_len": "deep",
+   "theme": "hoax",
+   "case": "#2",
+   "comment": "Did you believe the Edward Mordrake story? 😳 yes / 🙄 no / 👻 still kind of do\n\nGot a viral claim you want Meatball to rule on? Reply with it 👇 Top-liked one gets investigated.",
+   "caption": "Viral claim: Edward Mordrake, the man with two faces. Meatball traced it to an 1895 newspaper.",
+   "tags": [
+    "edward mordrake",
+    "edward mordake",
+    "two faced man",
+    "man with two faces",
+    "victorian hoax",
+    "urban legend",
+    "hoaxes debunked",
+    "Verdict on the Viral One",
+    "Meatball Investigates",
+    "Meatball Myths"
+   ],
+   "sources": [
+    "Wikipedia, Edward Mordake: apocryphal; first known appearance 8 December 1895, Boston Sunday Post, 'The Wonders of Modern Science' by fiction writer Charles Lotin Hildreth, citing reports of a 'Royal Scientific Society'; copied into Gould & Pyle, Anomalies and Curiosities of Medicine (1896), credited to a lay source — https://en.wikipedia.org/wiki/Edward_Mordake (checked 2026-10-26)",
+    "USA Today fact check (2021): the only known 'Royal Scientific Society' was founded in 1970 in Jordan; Royal Society of London records have nothing on the cases",
+    "Alex Boese, Museum of Hoaxes, 'The Legend of Edward Mordake' (traces the story to Hildreth's 1895 article)"
+   ],
+   "board_title": "TWO FACES"
+  },
+  {
+   "myth": "mordrakedeep",
+   "pose": "think",
+   "act": "stand",
+   "say": "But one line in that article gives the whole thing away.",
+   "shots": [
+    {
+     "photo": "'The News Paper' (1808 print)",
+     "obs": "met:811266"
+    }
+   ],
+   "promise": true
+  },
+  {
+   "myth": "mordrakedeep",
+   "pose": "think",
+   "act": "stand",
+   "say": "Real man, or made up? Guess before I tell you.",
+   "shots": [
+    {
+     "photo": "'The News Paper' (1808 print)",
+     "obs": "met:811266"
+    }
+   ],
+   "ask": {
+    "q": "REAL MAN?",
+    "choices": [
+     "👤 REAL",
+     "📰 MADE UP"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.9,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ],
+    "notes": [
+     "1895",
+     "TWO FACES?"
+    ]
+   }
+  },
+  {
+   "myth": "mordrakedeep",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. A new viral verdict every Wednesday.",
+   "shots": [
+    {
+     "photo": "Newspaper collage (c. 1875)",
+     "obs": "met:764769",
+     "board": {
+      "notes": [
+       "BOSTON POST",
+       "DEC 8 1895"
+      ]
+     }
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "mordrakedeep",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in 1895, the Boston Sunday Post told the story of Edward Mordake, an English heir.",
+   "shots": [
+    {
+     "photo": "The Lightning Steam Press, 'The Progress of the Century' (1876)",
+     "obs": "met:659890"
+    },
+    {
+     "photo": "Newspaper collage (c. 1875)",
+     "obs": "met:764769",
+     "at": "Mordake"
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "1895",
+    "at": "Post"
+   }
+  },
+  {
+   "myth": "mordrakedeep",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "It said a second face on the back of his head smiled while he cried, and whispered at night.",
+   "shots": [
+    {
+     "photo": "Two-faced Janus figure (bronze)",
+     "obs": "met:307906"
+    },
+    {
+     "photo": "Janus-headed bottle (c. 1760)",
+     "obs": "met:203478",
+     "at": "whispered"
+    }
+   ],
+   "dark": true
+  },
+  {
+   "myth": "mordrakedeep",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Wait, it gets worse. A year later, a real medical encyclopedia copied it.",
+   "shots": [
+    {
+     "photo": "Anatomy book, De humani corporis fabrica (1555)",
+     "obs": "met:358129",
+     "host": {
+      "moves": [
+       "psst@Wait"
+      ]
+     }
+    },
+    {
+     "photo": "Anatomy book, De humani corporis fabrica (1555)",
+     "obs": "met:358129",
+     "at": "medical"
+    }
+   ],
+   "twist": true,
+   "label": {
+    "text": "1896",
+    "at": "copied"
+   }
+  },
+  {
+   "myth": "mordrakedeep",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "So I checked the back of my head. Just more meatball. Phew.",
+   "shots": [
+    {
+     "photo": "Two-faced Janus figure (bronze)",
+     "obs": "met:307906"
+    }
+   ],
+   "jeopardy": true,
+   "sfx": [
+    "boing@Phew"
+   ]
+  },
+  {
+   "myth": "mordrakedeep",
+   "pose": "think",
+   "act": "stand",
+   "say": "Is the giveaway the second face? No. Rare two-faced births do exist.",
+   "shots": [
+    {
+     "photo": "Janus-headed bottle (c. 1760)",
+     "obs": "met:203478"
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "mordrakedeep",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did the doctors check it? No. They cited a lay source.",
+   "shots": [
+    {
+     "photo": "Anatomy book, De humani corporis fabrica (1555)",
+     "obs": "met:358129"
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "mordrakedeep",
+   "pose": "shock",
+   "act": "stand",
+   "say": "The giveaway is the source: reports of a Royal Scientific Society. In 1895, there wasn't one.",
+   "shots": [
+    {
+     "photo": "The Lightning Steam Press, 'The Progress of the Century' (1876)",
+     "obs": "met:659890",
+     "board": {
+      "notes": [
+       "ROYAL SCIENTIFIC SOCIETY?",
+       "NO RECORD"
+      ]
+     }
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "NO RECORD",
+    "at": "wasn't"
+   }
+  },
+  {
+   "myth": "mordrakedeep",
+   "pose": "point",
+   "act": "stand",
+   "say": "The same article had a woman with a fish tail and a man with four eyes.",
+   "shots": [
+    {
+     "photo": "Circus Sideshow, Georges Seurat (1887-88)",
+     "obs": "met:437654"
+    },
+    {
+     "photo": "'The News Paper' (1808 print)",
+     "obs": "met:811266",
+     "at": "four"
+    }
+   ]
+  },
+  {
+   "myth": "mordrakedeep",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "And the author, Charles Lotin Hildreth, was a fiction writer.",
+   "shots": [
+    {
+     "photo": "Newspaper collage (c. 1875)",
+     "obs": "met:764769"
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@fiction"
+    ]
+   }
+  },
+  {
+   "myth": "mordrakedeep",
+   "pose": "point",
+   "act": "stand",
+   "say": "Verdict: no record he ever lived. Just a newspaper story.",
+   "shots": [
+    {
+     "photo": "Circus Sideshow, Georges Seurat (1887-88)",
+     "obs": "met:437654"
+    },
+    {
+     "photo": "'The News Paper' (1808 print)",
+     "obs": "met:811266",
+     "at": "story"
+    }
+   ],
+   "stamp": {
+    "text": "BUSTED",
+    "at": "story"
+   },
+   "series_card": true,
+   "hold": 0.4
+  },
+  {
+   "myth": "mordrakedeep",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "A hundred and thirty years later, it's still going viral.",
+   "shots": [
+    {
+     "photo": "Newspaper collage (c. 1875)",
+     "obs": "met:764769"
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "viral"
+  }
+ ]
+}

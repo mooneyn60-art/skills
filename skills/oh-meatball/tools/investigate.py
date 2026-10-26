@@ -101,6 +101,9 @@ def series_imgs(series, W):
     f1, f2 = font(INTER_BLACK, 74), font(MONO, 50)
     d = ImageDraw.Draw(Image.new("RGBA", (10, 10)))
     tw = int(d.textlength(text, font=f1))
+    if tw > W - 170:   # long series names ("VERDICT ON THE VIRAL ONE") shrink to fit the card
+        f1 = font(INTER_BLACK, int(74 * (W - 170) / tw))
+        tw = int(d.textlength(text, font=f1))
     w = min(W - 60, tw + 110)
     h = 196 if case else 140
     im = Image.new("RGBA", (w, h + 46), (0, 0, 0, 0))

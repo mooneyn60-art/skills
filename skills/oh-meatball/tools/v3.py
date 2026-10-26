@@ -50,6 +50,8 @@ Photos come from explainer.photo() (pinned iNaturalist observations, "wm:" Commo
   notes, red string), spec "captions": "bold"; spec "music": "gen:mystery" | "gen:detective" renders an original
   bed to the video's timeline (tools/music.py: builds into each stamp, drops out right before it, hits on it,
   loop-safe) and mixes it by loudness: voice -16 LUFS, music -20 LUFS ducked under the voice, master -14.
+  Beat "series_card": true drops the series case-file card on that beat (e.g. "VERDICT ON THE VIRAL ONE #1" on
+  the verdict line when the hook carries a headline instead).
 
 Host shots (tools/host.py, research/49): beat "host": true | {"moves": ["you@Guess", "lean@worse"], "notes": [...],
   "fork": true}, or shot "host": true. Meatball centre-screen behind the investigator's desk (~45-55% of the frame
@@ -683,7 +685,7 @@ def plan_beats(spec, work):
                                            f=int(round(word_time(words, lab.get("at"), 0.0) * FPS))),
                         prop=b.get("prop"), prop_f=int(round(word_time(words, b.get("prop_at"), 0.3) * FPS)),
                         x=x, loop=bool(b.get("loop")), first=looping and i == 0, say=b["say"], sub=sub, ask=ask,
-                        host=hst,
+                        host=hst, series_card=bool(b.get("series_card")),
                         counter=cur,
                         aside=b.get("aside") and dict(img=aside_img(b["aside"]),
                                                       f=int(round(word_time(words, b.get("aside_at"), 0.55 * D) * FPS)))))
@@ -914,7 +916,7 @@ def frame(g):
     if P.get("series"):   # "Meatball Investigates": the tag on every frame, the case-file card on the hook
         card, tag = P["series"]
         over(frame_, tag, int(30 * W / 1080), int((140 if H > W else 24) * UI))
-        if P.get("card") and bi == 0 and f >= 4:
+        if (P.get("card") and bi == 0 or bt.get("series_card")) and f >= 4:   # beat "series_card": drop it here
             kf = f - 4
             dy = [-260, -120, -30, 8, 0][kf] if kf < 5 else 0
             over(frame_, card, int(W / 2 - card.shape[1] / 2), int((215 if H > W else 70) + dy))

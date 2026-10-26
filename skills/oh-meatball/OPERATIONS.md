@@ -309,3 +309,33 @@ Every new script picks ONE theme: spec `"theme"` (whole script) or hook beat `"t
 - **Dark turn:** comic beds (absurd, waltz, detective) crossfade into the tense bed at the beat marked `"dark": true` (Voggle shape: comic until the story turns dark).
 - **Adding a voice:** measure it first with the voice sampler (median pitch, whisper word accuracy at least the current voice's). Kokoro onyx was the deepest (90 Hz) but misheard more (91%), so it isn't used.
 - **Shorts v2 shape (research/40 + 48):** scene-first past-tense open with a 3-5 word `"headline"` on frame 0; "See, in 19xx..." rewind; a "Wait, it gets worse" twist and a Meatball jeopardy beat; one plain verdict sentence + stamp; an ironic `"kicker"` as the last line over a moving picture (no end CTA; the ask kit stays early); `"max_shot": 1.8`; 18-24 s. `tools/coldopen.py` checks the open.
+
+## Weekly cadence: Verdict Wednesday + Viewer Case Friday (Nolan approved research/50, 10/26)
+Extra slots on top of the daily mix: they never move the scaling agent's 09:30/16:00 YouTube cases or its two TikTok cases a day. All times ET. **YouTube Shorts stay 18-24 s** (Nolan 10/26: longer YouTube Shorts underperformed; the 60-120 s YouTube test is OFF). 60-75 s versions are TikTok only.
+| Day | Slot | What |
+|---|---|---|
+| **Wednesday** | YouTube 11:00 + TikTok 19:30 | **THE VERDICT ON THE VIRAL ONE #N**: an 18-24 s v2 case Short on YouTube; the 60-75 s open-loop deep cut (`tt-*.mp4`) on TikTok |
+| **Friday** | YouTube 11:00 + TikTok 19:30 | **VIEWER CASE FRIDAY**: the top safe submission from data/submissions.csv, same two formats |
+
+**The Verdict on the Viral One (weekly, Wednesday).** Meatball rules on a mystery claim that is viral *this week*: always a clear PROVEN, BUSTED or UNSOLVED stamp, with the sources on screen and in the description.
+- **Pick (Tuesday's marketing desk):** the most-viewed claim in vidIQ outliers/trending of the last 7 days that nobody gave a verdict on (research/50 §1). Check it against the red list first; skip anything on it.
+- **Never repeat the claim as fact** in the title or the first line: ask it ("Did 300 Years of History Never Happen?") or name it as a story ("A newspaper printed a man with two faces").
+- **Never show other creators' clips.** Evidence is public domain, CC0 or CC BY only (The Met `met:`, rawpixel/Flickr/Commons `ov:`/`wm:`); no photo of a hoax "subject" that is itself a fake or a CC BY-SA file.
+- **Script** `scripts/verdict-NN.json` (template `scripts/verdict-01.json`): spec `"series": {"text": "VERDICT ON THE VIRAL ONE", "card": false}`, `"caseboard": true`; hook `"case": "#N"` (the weekly number, its own count, never the daily CASE #); v2 case shape, theme, early ask kit, 2-3 host beats (ask `you`, twist `psst`), the verdict beat carries `"series_card": true` (the VERDICT ON THE VIRAL ONE #N card drops on the stamp line) and stays an evidence shot, ironic `kicker` last. Deep cut: same hook with `"_len": "deep"`, promise + 2 decoys + payoff (openloop.py).
+- **Gates:** `coldopen.py` and `openloop.py` pass; QA the 2 fps sheet of every render before posting.
+- **Post copy:** YouTube title "<question> <emoji> Verdict on the Viral One #N", EDUCATION, AI label on, topic tags + "Verdict on the Viral One"; description = the one-tap question, the case in two sentences, the verdict and the sources, the photo credits, "Subscribe: a new viral verdict every Wednesday 🍝". First comment = the one-tap theory question + the submission invite (below). TikTok: caption question first, the one-line case, hashtags, "Follow Meatball for a new verdict every Wednesday 🍝"; isAigc on.
+- Log both posts in data/posted.csv. Read at 48 h against the case median (research/50 pass bar: 1.5x and search as a traffic source).
+
+**You Submit, Meatball Investigates.** Every case and verdict post invites submissions:
+- **YouTube first comment / pinned (append after the theory question):** "🔍 Got a case for Meatball? Reply with the mystery, myth or viral claim you want investigated. The top-liked one gets investigated on Viewer Case Friday."
+- **YouTube description line:** "🔍 Submit a case in the comments: the top-liked one gets investigated on Viewer Case Friday."
+- **TikTok caption line (before the hashtags):** "Got a case for Meatball? Comment it 🔍 Top-liked one gets investigated Friday."
+- **Docket:** the evening Host desk saves `vidiq_video_comments` responses (channel, order "time"; 5 credits a pull) and runs `python3 tools/submissions.py PULL.json [...]`. It keeps viewer suggestions, drops red-list ones, ranks by likes and merges into `data/submissions.csv` (status new / picked / done / skip, permission ask / yes / no).
+
+**Viewer Case Friday (every Friday).** Investigate the top safe submission (`status` new, highest likes) in the Wednesday formats above.
+- The factdesk reads the row against the red list again before writing (the keyword filter only catches the obvious ones). If it fails, mark it `skip` with the reason and take the next one.
+- **Handles: ask first, or show none.** The Host replies to the submitter on Monday ("Meatball wants to investigate this on Friday. OK to show your handle on screen? Reply yes."; Nolan approves the exact reply text like every reply). Only on a written yes is `permission` set to `yes` and the Short opens on "Case submitted by @handle". Otherwise it says "Case submitted by a viewer". Never invent a submitter.
+- With no safe submission by Wednesday night, Friday runs the next case from the backlog and the pinned invite keeps running; never fake a submission.
+- After posting set `status` to `done (YYYY-MM-DD)` and reply to the submitter with the link.
+
+**Case board arc (season gag; research/50 idea 4).** Every case and verdict script sets `"caseboard": true`: host shots pin the last 4 past cases (polaroid + "#N VERDICT") on the board behind Meatball, so the board grows on screen. After a case posts, `python3 tools/caseboard.py add scripts/<pack>.json` pins it (data/caseboard.json). **The Fork thread:** run `python3 tools/caseboard.py fork-due` before writing; when it says "due" (4+ cases since the last), that case gets ONE host beat with `"host": {"fork": true, ...}` asking "Who keeps leaving this fork at my crime scenes?" (or a new variation). Never a real suspect; the payoff is the season-finale long-form.
