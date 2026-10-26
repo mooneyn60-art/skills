@@ -97,6 +97,13 @@ The goldfish curve loses half its remaining viewers between 47% and 75% of the v
 - `python3 tools/openloop.py SCRIPT.json` checks it; `research/40-openloop-gate.diff` makes episode.py enforce it.
 - Template: `scripts/v4-one-weakness-pangolin.json`. Rival evidence: 62 s T. rex cartoon explainer, 1.6M (10.3x), answer at 69%.
 
+## Story Cut + hook lab (research/52; TikTok 80-110 s)
+- A **Story Cut** is a TikTok story, not a quiz: a myth group with `"_len": "story"`. Someone wants something, every answer opens the next question, the stakes climb in steps, a false calm sits at 70-90%, and it ends on a kicker or a cliffhanger. The spec and the outlier evidence are in `research/52-story-engine.md`.
+- Beat flags: `"want"` (in the first 3 lines, names who), `"resolves"` / `"opens"`, `"step": 1..n` (3+), `"calm"` then `"drop"`, `"kicker"` or `"cliffhanger"`, and a `"host"` beat at least every 20 s.
+- Gates: `python3 tools/story.py SCRIPT.json` (S1-S6; `--self-test` runs its fixture), plus `openloop.py` and `coldopen.py`. Give a Story Cut 25+ beats so openloop checks it. B/C openings set `"cold_open": "claim"`. Budget about 250-265 spoken words on the cold-war voice for 100-110 s.
+- **Hook lab:** each case ships as 3 groups that differ only in beat 1 (A scene, B "this is real" proof, C "what if I told you" challenge). Post them on different days in the same slot. Log 3 s hold and average watch time in `data/hook-lab.csv`. After 4 cases (12 posts), the opening that wins 3 of 4 becomes the house opening. Then test the ending, one variable at a time.
+- First case: `scripts/story-01.json` (Project Azorian), rendered to `episodes/story-01/story-azorian-{A,B,C}.mp4`. The lead schedules them.
+
 ## Shorts v3 (the base v4 builds on; approved 10/24)
 - `"style": "v3"` (tools/v3.py, research/44).
 - **Meatball in jeopardy:** something happens to him, he doesn't narrate it.
