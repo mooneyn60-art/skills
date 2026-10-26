@@ -2686,6 +2686,1487 @@
    "kicker": true,
    "hold": 0.25,
    "punch": "alone"
+  },
+  {
+   "myth": "crow",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A crow fell dead on a lawn, and within minutes, dozens of crows gathered around it, screaming.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "WHY DO THEY GATHER?",
+   "punch": "gathered",
+   "loop_say": "I'm on the agenda now. Because",
+   "short_title": "I Crashed a Crow Meeting 🐦‍⬛ (Would Meatball Survive?)",
+   "comment": "Would you want a crow holding a grudge? 👍 yes / 👎 no",
+   "bonus": "In a 2015 study, crows scolded the person seen near a dead crow and avoided food there for up to six weeks.",
+   "caption": "Why do crows gather around a dead crow? It's not a funeral. What is it? ⚰️ funeral / ⚠️ danger lesson #crows #halloween #birds #animalfacts Follow Meatball for more 🍝",
+   "sources": [
+    "Swift & Marzluff 2015, Animal Behaviour 109: 187-197, 'Wild American crows gather around their dead to learn about danger' (crows mobbed a dead crow; scolded the person holding it; were slower to approach food at that spot, with the association lasting up to 6 weeks; a dead pigeon had no such effect) — https://doi.org/10.1016/j.anbehav.2015.08.021",
+    "Kaeli Swift, corvidresearch.blog, 'Why crows gather around their dead' — https://corvidresearch.blog/2015/09/26/why-crows-gather-around-their-dead/",
+    "Carl Zimmer, NYT 1 Oct 2015 — https://carlzimmer.com/crows-may-learn-lessons-from-death-88/"
+   ],
+   "shots": [
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 40536795,
+     "crop": [
+      0.532,
+      0.0,
+      0.948,
+      1.0
+     ]
+    },
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 161476215,
+     "crop": [
+      0.219,
+      0.0,
+      0.781,
+      1.0
+     ],
+     "at": "gathered"
+    }
+   ]
+  },
+  {
+   "myth": "crow",
+   "pose": "think",
+   "act": "stand",
+   "say": "Why do they do that? Guess before I tell you.",
+   "shots": [
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 370533885,
+     "crop": [
+      0.396,
+      0.05,
+      0.844,
+      0.85
+     ]
+    }
+   ],
+   "ask": {
+    "q": "WHY?",
+    "choices": [
+     "⚰️ FUNERAL",
+     "⚠️ SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "crow",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 72146984,
+     "crop": [
+      0.471,
+      0,
+      0.929,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "crow",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in Seattle, a scientist named Kaeli Swift decided to test it. With a mask and a stuffed dead crow.",
+   "shots": [
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 70485080,
+     "crop": [
+      0.313,
+      0,
+      0.687,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "SEATTLE",
+    "at": "Seattle"
+   }
+  },
+  {
+   "myth": "crow",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "She put food out for weeks, then walked in wearing the mask, holding the dead crow.",
+   "shots": [
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 161476215,
+     "crop": [
+      0.169,
+      0.0,
+      0.731,
+      1.0
+     ]
+    }
+   ],
+   "punch": "dead"
+  },
+  {
+   "myth": "crow",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: a funeral, because crows are sad. Not what the test found.",
+   "shots": [
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 40536795,
+     "crop": [
+      0.052,
+      0.1,
+      0.428,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "label": {
+    "text": "FUNERAL?",
+    "at": "funeral"
+   },
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "crow",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: they're about to eat it. No. They mostly don't touch it.",
+   "shots": [
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 370533885,
+     "crop": [
+      0.45,
+      0.1,
+      0.8,
+      0.8
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "crow",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I crashed the meeting. I brought snacks. Turns out I was the snacks.",
+   "shots": [
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 72146984,
+     "crop": [
+      0.5,
+      0.1,
+      0.85,
+      0.9
+     ]
+    }
+   ],
+   "act_at": "snacks",
+   "sfx": [
+    "thud@snacks"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "crow",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait, it gets worse. They screamed at the masked person, not just the body.",
+   "shots": [
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 70485080,
+     "crop": [
+      0.35,
+      0.1,
+      0.65,
+      0.8
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "crow",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: it's a danger lesson. They learn what killed one of them, and who was there.",
+   "shots": [
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 161476215,
+     "crop": [
+      0.219,
+      0.0,
+      0.781,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "DANGER\nLESSON",
+    "at": "danger"
+   },
+   "sfx": [
+    "pop@danger"
+   ]
+  },
+  {
+   "myth": "crow",
+   "pose": "shock",
+   "act": "stand",
+   "say": "After that, they stayed away from the food at that spot. For up to six weeks.",
+   "shots": [
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 40536795,
+     "crop": [
+      0.532,
+      0.0,
+      0.948,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "6 WEEKS",
+    "at": "six"
+   }
+  },
+  {
+   "myth": "crow",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "And a dead pigeon? They didn't care at all. It's personal.",
+   "shots": [
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 370533885,
+     "crop": [
+      0.396,
+      0.05,
+      0.844,
+      0.85
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@personal"
+    ]
+   },
+   "punch": "personal"
+  },
+  {
+   "myth": "crow",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Crows eat almost anything. Including leftovers. I am leftovers.",
+   "shots": [
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 72146984,
+     "crop": [
+      0.471,
+      0,
+      0.929,
+      1.0
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "leftovers",
+   "sfx": [
+    "tink@leftovers"
+   ]
+  },
+  {
+   "myth": "crow",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 70485080,
+     "crop": [
+      0.313,
+      0,
+      0.687,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "crow",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "So, not a funeral. A crime scene. And I'm on their list now.",
+   "shots": [
+    {
+     "photo": "Corvus brachyrhynchos",
+     "obs": 161476215,
+     "crop": [
+      0.219,
+      0.0,
+      0.781,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "list"
+  },
+  {
+   "myth": "ribbednewt",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Something grabbed a newt, and the newt's own ribs poked out through its skin.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "RIBS AS WEAPONS",
+   "punch": "poked",
+   "loop_say": "Hugs are cancelled. Because",
+   "short_title": "This Newt Stabs With Its Own Ribs 🦴",
+   "comment": "Would you hold one? 👍 yes / 👎 no",
+   "bonus": "The Iberian ribbed newt's ribs poke through its skin, coated in a milky poison, and the skin heals afterward. It has flown on at least six space missions.",
+   "caption": "This newt stabs with its own ribs: the Iberian ribbed newt. How does it survive it? 🦴 tough bones / 🩹 something else #newt #halloween #animalfacts #amphibians Follow Meatball for more 🍝",
+   "sources": [
+    "Wikipedia, Iberian ribbed newt (sharp ribs puncture through the stretched skin as a defence, causing little harm to the newt; milky poison secreted at the same time; the pierced skin regrows without infection; up to 30 cm; first sent to space in 1985 on Bion 7) — https://en.wikipedia.org/wiki/Iberian_ribbed_newt (checked 2026-10-26)",
+    "Heiss et al. 2010, Journal of Zoology 280: 156-162, 'Hurt yourself to hurt your enemy: new insights on the function of the bizarre antipredator mechanism in the salamandrid Pleurodeles waltl' — https://doi.org/10.1111/j.1469-7998.2009.00631.x"
+   ],
+   "shots": [
+    {
+     "photo": "Pleurodeles waltl",
+     "obs": 24742117,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "crunch@poked"
+   ]
+  },
+  {
+   "myth": "ribbednewt",
+   "pose": "think",
+   "act": "stand",
+   "say": "How does it survive stabbing itself? Guess.",
+   "shots": [
+    {
+     "photo": "Pleurodeles waltl",
+     "obs": 232943996,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "HOW DOES IT SURVIVE?",
+    "choices": [
+     "🦴 TOUGH BONES",
+     "🩹 SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "ribbednewt",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Pleurodeles waltl",
+     "obs": 249745403,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "ribbednewt",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in the ponds of Spain, Portugal and Morocco lives the Iberian ribbed newt. Up to a foot long.",
+   "shots": [
+    {
+     "photo": "Pleurodeles waltl",
+     "obs": 216890909,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "UP TO\n30 CM",
+    "at": "foot"
+   }
+  },
+  {
+   "myth": "ribbednewt",
+   "pose": "shock",
+   "act": "stand",
+   "say": "When something grabs it, it swings its ribs forward until the sharp tips break through its sides.",
+   "shots": [
+    {
+     "photo": "Pleurodeles waltl",
+     "obs": 24742117,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "RIB\nSPIKES",
+    "at": "tips"
+   }
+  },
+  {
+   "myth": "ribbednewt",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: its ribs have little holes ready to go. No. The ribs really tear through the skin.",
+   "shots": [
+    {
+     "photo": "Pleurodeles waltl",
+     "obs": 232943996,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "ribbednewt",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: it just doesn't feel it. Nobody knows that. It's not the trick.",
+   "shots": [
+    {
+     "photo": "Pleurodeles waltl",
+     "obs": 249745403,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "ribbednewt",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I offered it a hug. It said yes with its ribs.",
+   "shots": [
+    {
+     "photo": "Pleurodeles waltl",
+     "obs": 216890909,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "act_at": "ribs",
+   "sfx": [
+    "thud@ribs"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "ribbednewt",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait, it gets worse. As the ribs come out, its skin oozes a milky poison onto them.",
+   "shots": [
+    {
+     "photo": "Pleurodeles waltl",
+     "obs": 24742117,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   },
+   "label": {
+    "text": "POISON",
+    "at": "poison"
+   }
+  },
+  {
+   "myth": "ribbednewt",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: its skin heals fast, and doesn't get infected. The stab wounds just close up.",
+   "shots": [
+    {
+     "photo": "Pleurodeles waltl",
+     "obs": 232943996,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "HEALS\nFAST",
+    "at": "heals"
+   },
+   "sfx": [
+    "pop@heals"
+   ]
+  },
+  {
+   "myth": "ribbednewt",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "So the predator gets poison spikes in the mouth, and the newt walks away.",
+   "shots": [
+    {
+     "photo": "Pleurodeles waltl",
+     "obs": 249745403,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "punch": "spikes"
+  },
+  {
+   "myth": "ribbednewt",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It's also been to space. On at least six missions, starting in 1985.",
+   "shots": [
+    {
+     "photo": "Pleurodeles waltl",
+     "obs": 216890909,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "SPACE\nNEWT",
+    "at": "space"
+   },
+   "host": {
+    "moves": [
+     "lean@space"
+    ]
+   }
+  },
+  {
+   "myth": "ribbednewt",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Way more than me. I've been to the fridge.",
+   "shots": [
+    {
+     "photo": "Pleurodeles waltl",
+     "obs": 24742117,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "fridge",
+   "sfx": [
+    "tink@fridge"
+   ]
+  },
+  {
+   "myth": "ribbednewt",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Pleurodeles waltl",
+     "obs": 232943996,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "ribbednewt",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Its defense is hurting itself first. Honestly, relatable.",
+   "shots": [
+    {
+     "photo": "Pleurodeles waltl",
+     "obs": 249745403,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "relatable"
+  },
+  {
+   "myth": "spidereggs",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A story went viral. A spider laid eggs under someone's skin, and babies crawled out. Millions shared it.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "EGGS IN YOUR SKIN?",
+   "punch": "skin",
+   "loop_say": "Don't believe everything. Because",
+   "short_title": "I Tried to Help a Spider Mom 🕷️ (Would Meatball Survive?)",
+   "comment": "Ever heard spiders lay eggs in skin? 👍 yes / 👎 no",
+   "bonus": "No real case of a spider laying eggs in human skin exists in the scientific or medical literature (Burke Museum).",
+   "caption": "Can spiders lay eggs in your skin? No: there is no real case. So where do the eggs go? 🧍 in skin / 🕸️ silk sac #spiders #halloween #myths #animalfacts Follow Meatball for more 🍝",
+   "sources": [
+    "Burke Museum spider myths (Rod Crawford): no real case of spiders laying eggs under human skin or of baby spiders hatching from a bite in scientific or medical literature — https://www.burkemuseum.org/collections-and-research/biology/arachnology-and-entomology/spider-myths/myth-baby-spiders-bite",
+    "Wolf spiders (Lycosidae, incl. Pardosa) carry the egg sac attached to the spinnerets, and the hatched spiderlings ride on the mother's back; widows guard egg sacs in the web — https://www.burkemuseum.org/static/spidermyth/",
+    "Photos: Pardosa lugubris with egg sac (iNat 369498853), Latrodectus hesperus with egg sac (iNat 10679778)"
+   ],
+   "shots": [
+    {
+     "photo": "Pardosa lugubris",
+     "obs": 369498853,
+     "crop": [
+      0.144,
+      0.0,
+      0.856,
+      1.0
+     ]
+    },
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 10679778,
+     "crop": [
+      0.2,
+      0.15,
+      0.8,
+      0.95
+     ],
+     "at": "believed"
+    }
+   ]
+  },
+  {
+   "myth": "spidereggs",
+   "pose": "think",
+   "act": "stand",
+   "say": "So where do spider eggs really go? Guess.",
+   "shots": [
+    {
+     "photo": "Pardosa lugubris",
+     "obs": 369498853,
+     "crop": [
+      0.336,
+      0.32,
+      0.764,
+      0.92
+     ]
+    }
+   ],
+   "ask": {
+    "q": "WHERE DO THEY GO?",
+    "choices": [
+     "🧍 IN SKIN",
+     "🕸️ SOMEWHERE ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "spidereggs",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 10679778,
+     "crop": [
+      0.125,
+      0.0,
+      0.875,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "spidereggs",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in spider science, people have looked for a real case of eggs in human skin. For decades.",
+   "shots": [
+    {
+     "photo": "Pardosa lugubris",
+     "obs": 369498853,
+     "crop": [
+      0.372,
+      0.4,
+      0.728,
+      0.9
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ]
+  },
+  {
+   "myth": "spidereggs",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Not one has ever turned up in the medical records. Not one. Every viral story fell apart.",
+   "shots": [
+    {
+     "photo": "Pardosa lugubris",
+     "obs": 369498853,
+     "crop": [
+      0.144,
+      0.0,
+      0.856,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "ZERO\nCASES",
+    "at": "one"
+   }
+  },
+  {
+   "myth": "spidereggs",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: inside your ear, while you sleep. No. Also a myth.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 10679778,
+     "crop": [
+      0.2,
+      0.15,
+      0.8,
+      0.95
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "spidereggs",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: just dropped on the ground. Also no. Spider moms are way more careful.",
+   "shots": [
+    {
+     "photo": "Pardosa lugubris",
+     "obs": 369498853,
+     "crop": [
+      0.25,
+      0.2,
+      0.75,
+      0.9
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "spidereggs",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I offered this mom some help. She did not want help.",
+   "shots": [
+    {
+     "photo": "Pardosa lugubris",
+     "obs": 369498853,
+     "crop": [
+      0.336,
+      0.32,
+      0.764,
+      0.92
+     ]
+    }
+   ],
+   "act_at": "not",
+   "sfx": [
+    "thud@not"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "spidereggs",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait. Look at what she's dragging behind her.",
+   "shots": [
+    {
+     "photo": "Pardosa lugubris",
+     "obs": 369498853,
+     "crop": [
+      0.372,
+      0.4,
+      0.728,
+      0.9
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "spidereggs",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: into a silk sac. This wolf spider tows hers, stuck to the tip of her body.",
+   "shots": [
+    {
+     "photo": "Pardosa lugubris",
+     "obs": 369498853,
+     "crop": [
+      0.144,
+      0.0,
+      0.856,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "SILK\nSAC",
+    "at": "silk"
+   },
+   "sfx": [
+    "pop@silk"
+   ]
+  },
+  {
+   "myth": "spidereggs",
+   "pose": "shock",
+   "act": "stand",
+   "say": "When they hatch, the babies climb onto her back, and she carries them around.",
+   "shots": [
+    {
+     "photo": "Pardosa lugubris",
+     "obs": 369498853,
+     "crop": [
+      0.25,
+      0.2,
+      0.75,
+      0.9
+     ]
+    }
+   ],
+   "punch": "back"
+  },
+  {
+   "myth": "spidereggs",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Black widows hang their egg sacs in the web, and guard them.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 10679778,
+     "crop": [
+      0.314,
+      0.445,
+      0.726,
+      0.995
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@guard"
+    ]
+   }
+  },
+  {
+   "myth": "spidereggs",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Great parents. Very protective. I was raised by a frying pan.",
+   "shots": [
+    {
+     "photo": "Latrodectus hesperus",
+     "obs": 10679778,
+     "crop": [
+      0.2,
+      0.15,
+      0.8,
+      0.95
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "pan",
+   "sfx": [
+    "tink@pan"
+   ]
+  },
+  {
+   "myth": "spidereggs",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Pardosa lugubris",
+     "obs": 369498853,
+     "crop": [
+      0.336,
+      0.32,
+      0.764,
+      0.92
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "spidereggs",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The scariest thing here wasn't the spider. It was the video.",
+   "shots": [
+    {
+     "photo": "Pardosa lugubris",
+     "obs": 369498853,
+     "crop": [
+      0.144,
+      0.0,
+      0.856,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "video"
+  },
+  {
+   "myth": "owl",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "I turned my back in a dark barn. Something flew right over my head, and I heard nothing.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "SILENT HUNTER",
+   "punch": "nothing",
+   "loop_say": "I sleep with a nightlight now. Because",
+   "short_title": "An Owl Hunted Me in Total Silence 🦉 (Would Meatball Survive?)",
+   "comment": "Have you ever heard an owl fly? 👍 yes / 👎 never",
+   "bonus": "Barn owls can catch mice in total darkness by sound alone (Payne 1971; Konishi).",
+   "caption": "How do owls fly silently? Special feathers, and barn owls can hunt in total darkness. How does it find prey? 👀 eyes / 👂 something else #owl #halloween #birds #animalfacts Follow Meatball for more 🍝",
+   "sources": [
+    "Audubon, 'The Silent Flight of Owls, Explained' (comb-like leading edge, velvety surface, soft trailing fringe) — https://www.audubon.org/magazine/silent-flight-of-owls-explained",
+    "Knowable Magazine 2020, 'How owls fly without making a sound' — https://knowablemagazine.org/article/technology/2020/how-owls-fly-without-making-a-sound",
+    "Payne 1971, J. Exp. Biol. 54: 535-573 (barn owls locate and catch mice in total darkness by hearing); Konishi 1973, American Scientist 'How the owl tracks its prey' — https://www.americanscientist.org/node/2084",
+    "Owls as omens of death is folklore, not biology."
+   ],
+   "shots": [
+    {
+     "photo": "Tyto alba",
+     "obs": 40237382,
+     "crop": [
+      0.362,
+      0,
+      0.738,
+      1.0
+     ]
+    },
+    {
+     "photo": "Tyto alba",
+     "obs": 332079093,
+     "crop": [
+      0.232,
+      0.0,
+      0.607,
+      1.0
+     ],
+     "at": "nothing"
+    }
+   ]
+  },
+  {
+   "myth": "owl",
+   "pose": "think",
+   "act": "stand",
+   "say": "In total darkness, how does it find a mouse? Guess.",
+   "shots": [
+    {
+     "photo": "Tyto alba",
+     "obs": 106853702,
+     "crop": [
+      0.389,
+      0,
+      0.811,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "HOW DOES IT FIND IT?",
+    "choices": [
+     "👀 EYES",
+     "👂 SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "owl",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Tyto alba",
+     "obs": 103487807,
+     "crop": [
+      0.36,
+      0,
+      0.74,
+      0.9
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "owl",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in old stories, owls were omens of death. They're not. But the truth is creepier.",
+   "shots": [
+    {
+     "photo": "Tyto alba",
+     "obs": 106853702,
+     "crop": [
+      0.381,
+      0.05,
+      0.719,
+      0.85
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "OMEN?",
+    "at": "omens"
+   }
+  },
+  {
+   "myth": "owl",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Their feathers are built for silence. Comb-like edges break up the air. Soft velvet soaks up the sound.",
+   "shots": [
+    {
+     "photo": "Tyto alba",
+     "obs": 40237382,
+     "crop": [
+      0.237,
+      0.05,
+      0.463,
+      0.65
+     ]
+    }
+   ],
+   "label": {
+    "text": "SILENT\nFEATHERS",
+    "at": "silence"
+   }
+  },
+  {
+   "myth": "owl",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: super night vision. Owls do see well in dim light, but in total darkness, eyes don't help.",
+   "shots": [
+    {
+     "photo": "Tyto alba",
+     "obs": 332079093,
+     "crop": [
+      0.27,
+      0.15,
+      0.57,
+      0.95
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "owl",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: smell. No. Owls barely use smell to hunt.",
+   "shots": [
+    {
+     "photo": "Tyto alba",
+     "obs": 103487807,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "owl",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I hid in the hay and stayed very still. I sizzle. Loudly.",
+   "shots": [
+    {
+     "photo": "Tyto alba",
+     "obs": 332079093,
+     "crop": [
+      0.232,
+      0.0,
+      0.607,
+      1.0
+     ]
+    }
+   ],
+   "act_at": "sizzle",
+   "sfx": [
+    "thud@sizzle"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "owl",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait. Here's the creepy part. Scientists tested this in a room with no light at all.",
+   "shots": [
+    {
+     "photo": "Tyto alba",
+     "obs": 40237382,
+     "crop": [
+      0.4,
+      0.1,
+      0.7,
+      0.7
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "owl",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: its ears. A barn owl can catch a mouse in total darkness just by listening.",
+   "shots": [
+    {
+     "photo": "Tyto alba",
+     "obs": 106853702,
+     "crop": [
+      0.389,
+      0,
+      0.811,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "EARS",
+    "at": "ears"
+   },
+   "sfx": [
+    "pop@ears"
+   ]
+  },
+  {
+   "myth": "owl",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Its ears sit at different heights, so it can tell exactly where a sound came from. Up, down, left, right.",
+   "shots": [
+    {
+     "photo": "Tyto alba",
+     "obs": 103487807,
+     "crop": [
+      0.36,
+      0,
+      0.74,
+      0.9
+     ]
+    }
+   ],
+   "punch": "exactly"
+  },
+  {
+   "myth": "owl",
+   "pose": "shock",
+   "act": "stand",
+   "say": "And its round face works like a dish, funneling sound in.",
+   "shots": [
+    {
+     "photo": "Tyto alba",
+     "obs": 332079093,
+     "crop": [
+      0.27,
+      0.15,
+      0.57,
+      0.95
+     ]
+    }
+   ],
+   "label": {
+    "text": "SOUND\nDISH",
+    "at": "dish"
+   },
+   "host": {
+    "moves": [
+     "lean@dish"
+    ]
+   }
+  },
+  {
+   "myth": "owl",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Silent wings, perfect ears. I never stood a chance.",
+   "shots": [
+    {
+     "photo": "Tyto alba",
+     "obs": 40237382,
+     "crop": [
+      0.362,
+      0,
+      0.738,
+      1.0
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "chance",
+   "sfx": [
+    "tink@chance"
+   ]
+  },
+  {
+   "myth": "owl",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Tyto alba",
+     "obs": 106853702,
+     "crop": [
+      0.389,
+      0,
+      0.811,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "owl",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Omen? No. Hunter? Yes. I sleep with a nightlight now. It doesn't help.",
+   "shots": [
+    {
+     "photo": "Tyto alba",
+     "obs": 332079093,
+     "crop": [
+      0.232,
+      0.0,
+      0.607,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "help"
   }
  ]
 }
