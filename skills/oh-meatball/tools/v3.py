@@ -55,6 +55,7 @@ Host shots (tools/host.py, research/49): beat "host": true | {"moves": ["you@Gue
   "fork": true}, or shot "host": true. Meatball centre-screen behind the investigator's desk (~45-55% of the frame
   height), facing and talking to the viewer, over the case board drawn from the Short's evidence photos; medium /
   close-up cut every max_shot s, a slow push, gestures you | psst | lean | shrug | sweat | shock on words.
+  Spec "caseboard": true pins the last 4 past cases (data/caseboard.json, tools/caseboard.py) on that board.
 
 "style": "v4" (research/45) adds, on top of everything above:
   whole-animal cut-outs  every photo shot is cut out (tools/animal.py): the WHOLE animal, holes under 1%
@@ -512,6 +513,16 @@ def plan_beats(spec, work):
     out, F, shot_no, cur = [], 0, 0, None
     seen = []   # evidence photos shown so far: host shots pin them to the case board behind him
     hlay = hostmod.layout(W, H)
+    past = []   # spec "caseboard": earlier cases pinned on the board behind him (tools/caseboard.py season arc)
+    if spec.get("caseboard"):
+        import caseboard
+        for e in caseboard.past((spec.get("series") or {}).get("case", "")):
+            try:
+                ph = ex.photo(e["photo"], 0, work, e.get("obs"), "original")
+            except (SystemExit, Exception) as err:   # a dead photo never blocks the render
+                print(f"caseboard: skipped {e['case']} ({err})", flush=True)
+                continue
+            past.append((ph, f'{e["case"].replace("CASE ", "")} {e.get("verdict", "")}'.strip()))
     for i, b in enumerate(beats):
         c = b.get("counter")
         if c is False or (b.get("chapter") and b.get("myth") == "outro"):
@@ -565,7 +576,8 @@ def plan_beats(spec, work):
                     seen.append(path)
                 if hs:
                     path = hostmod.backdrop([path] + [p for p in reversed(seen) if p != path], notes, work,
-                                            vertical=H > W, case=(spec.get("series") or {}).get("case", ""))
+                                            vertical=H > W, case=(spec.get("series") or {}).get("case", ""),
+                                            past=past)
                 if s_.get("board") and not hs:   # evidence board: the photo pinned to cork with notes and red string
                     path = investigate.board(path, s_["board"], work, vertical=H > W)
                 shots.append(dict(f0=int(round(a_ * FPS)), f1=int(round(z_ * FPS)), path=path,

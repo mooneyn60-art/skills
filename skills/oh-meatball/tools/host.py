@@ -89,12 +89,16 @@ def _polaroid(path, w, rot, seed):
     return pol.rotate(rot, expand=True, resample=Image.BICUBIC)
 
 
-def backdrop(paths, notes, work, vertical=True, case=""):
+def backdrop(paths, notes, work, vertical=True, case="", past=()):
     """The investigator's wall behind him: cork, the Short's evidence photos pinned as polaroids at the
     edges (where he doesn't cover them), index cards, red string; blurred a little (depth of field), dimmed,
-    and lit by a warm desk-lamp pool behind his head. Returns an image path (credits copied)."""
+    and lit by a warm desk-lamp pool behind his head. `past`: [(photo path, "CASE #2 PROVEN")] of earlier cases
+    (tools/caseboard.py), pinned small and labelled low on the sides: the board grows from case to case.
+    Returns an image path (credits copied)."""
     paths = [p for p in dict.fromkeys(paths) if p][:3]
-    key = "|".join([os.path.basename(p) for p in paths] + list(notes) + [str(vertical), case])
+    past = list(past)[-4:]
+    key = "|".join([os.path.basename(p) for p in paths] + list(notes) + [str(vertical), case]
+                   + [os.path.basename(p) + l for p, l in past])
     out = f"{work}/photos/host_{abs(hash(key)) % 10 ** 10}.jpg"
     if os.path.exists(out):
         return out
@@ -117,6 +121,26 @@ def backdrop(paths, notes, work, vertical=True, case=""):
         bd.alpha_composite(sh.filter(ImageFilter.GaussianBlur(16)), (x + 16, y + 20))
         bd.alpha_composite(pol, (x, y))
         pins.append((int(cx * W), y + 34))
+    # past cases: small polaroids low on both sides (under the index cards), the case and verdict in marker
+    pspots = ([(0.12, 0.64, 0.17, -5), (0.88, 0.63, 0.17, 4), (0.10, 0.355, 0.14, 3), (0.90, 0.345, 0.14, -4)]
+              if vertical else [(0.06, 0.62, 0.09, -4), (0.94, 0.60, 0.09, 5), (0.06, 0.20, 0.08, 3),
+                                (0.94, 0.20, 0.08, -3)])
+    # (drawn on their own layer, added after the depth-of-field blur so the case labels stay readable)
+    lf = inv.font(inv.MONO, int(W * (0.034 if vertical else 0.017)))
+    layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    for (pp, label), (cx, cy, fw, rot) in zip(reversed(past), pspots):   # newest case nearest the desk
+        pol = _polaroid(pp, int(W * fw), 0, 0)
+        pd = ImageDraw.Draw(pol)
+        while pd.textlength(label, font=lf) > pol.width * 0.94 and lf.size > 12:
+            lf = inv.font(inv.MONO, lf.size - 2)
+        lw = pd.textlength(label, font=lf)
+        ink = (inv.RED if any(w in label for w in ("BUSTED", "FALSE", "HOAX", "MYTH", "FAKE")) else
+               (20, 110, 50) if any(w in label for w in ("PROVEN", "TRUE", "REAL")) else inv.INK)
+        pd.text(((pol.width - lw) / 2, pol.height - lf.size * 1.6), label, font=lf, fill=ink)
+        pol = pol.rotate(rot, expand=True, resample=Image.BICUBIC)
+        x, y = int(cx * W - pol.width / 2), int(cy * H - pol.height / 2)
+        layer.alpha_composite(pol, (x, y))
+        inv._pin(ImageDraw.Draw(layer), int(cx * W), y + 22, 11)
     fn = inv.font(inv.MONO, int(W * (0.046 if vertical else 0.026)))
     cpins = []
     for k, note in enumerate(list(notes)[:3]):
@@ -134,6 +158,10 @@ def backdrop(paths, notes, work, vertical=True, case=""):
     for p in pins + cpins:
         inv._pin(dr, *p, 15)
     im = bd.convert("RGB").filter(ImageFilter.GaussianBlur(3.2))
+    if past:
+        im = im.convert("RGBA")
+        im.alpha_composite(layer.filter(ImageFilter.GaussianBlur(0.8)))
+        im = im.convert("RGB")
     # lamp light: a warm pool behind his head, the rest of the room falls off to dark
     a = np.asarray(im).astype(np.float32)
     yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
@@ -144,7 +172,8 @@ def backdrop(paths, notes, work, vertical=True, case=""):
     a = np.clip(a * light[..., None] * warm, 0, 255).astype(np.uint8)
     os.makedirs(os.path.dirname(out), exist_ok=True)
     Image.fromarray(a).save(out, quality=92)
-    credit = "".join(open(p + ".credit").read().strip() + "\n" for p in paths if os.path.exists(p + ".credit"))
+    credit = "".join(open(p + ".credit").read().strip() + "\n" for p in paths + [p for p, _ in past]
+                     if os.path.exists(p + ".credit"))
     open(out + ".credit", "w").write(credit.strip() + "\n" if credit else "")
     return out
 
