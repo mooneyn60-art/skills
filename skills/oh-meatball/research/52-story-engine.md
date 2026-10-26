@@ -83,3 +83,28 @@ view and shows us watch time per post:
 Story Cuts keep the red list and never present a false conspiracy as true. A "this is real" opening is used
 only when the case is verified real (A119, Northwoods, Glomar, MKUltra, Acoustic Kitty); hoaxes and myths
 open on a scene instead.
+
+## Our own data, 10/26 (vidIQ public view counts; YouTube Analytics lags 2-3 days)
+
+YouTube Shorts are improving. The v4 animal Shorts (10/24-10/25) average about 1,200 views each, double the
+10/22-10/23 batch (about 600).
+
+| Short | Views | Notes |
+|---|---|---|
+| Are Daddy Longlegs the Most Venomous Spiders? (20 s) | 1,957 | Best. A question title about a scary myth |
+| Would Meatball Survive? (cassowary, honey badger) | 1,210-1,239 | Series |
+| Meatball vs Spiders #1 | 1,229 | Series |
+| Elephant trunk / ghost crab / goldfish | 1,111-1,211 | |
+| Lemmings (88 s) | 281 | Long |
+| Bulls (43 s) | 392 | Long |
+| Camel (27 s) | 228 | |
+| Owl (34 s) | 410 | |
+
+- On YouTube, length over about 30 s loses: the 43-88 s Shorts trail. This confirms Nolan's 18-24 s rule;
+  Story Cuts run on TikTok only.
+- Series titles ("Would Meatball Survive?", "Meatball vs Spiders #1") are in the top group. Every new format
+  gets a series name and a number.
+- Long-form thumbnails: "How Wolves Became Dogs" (57 views in 2 days) uses the wolf rule: one big subject, a
+  transformation arrow, one word. The cluttered "12 Animal Myths" (5 animals) and the Meatball-dominated "Extinct
+  Found Alive" (dark insect) have 4 views each. A thumbnail agent is remaking them and every queued long-form
+  thumbnail to the wolf rule.
