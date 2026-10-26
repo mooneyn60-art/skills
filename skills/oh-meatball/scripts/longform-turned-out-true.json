@@ -19,7 +19,7 @@
   "case": "CASE FILE"
  },
  "blurb": "Which conspiracy theories turned out to be true? Meatball investigates four that are documented in declassified files: the CIA's Acoustic Kitty spy cat, the Gulf of Tonkin attack that never happened, Operation Northwoods, and Project MKUltra. Sources are in the description; every claim is from public records.",
- "next": "Tuesday: secret Cold War projects that were actually real.\n\nSubscribe: a new Meatball case every Tuesday and Saturday",
+ "next": "Saturday: another case.\n\nSubscribe: a new Meatball case every Tuesday and Saturday",
  "pinned": "Guess before the end: which one helped start a war? 🐱 / 🚢 / 📄 / 🧪 Comment your guess 👇 Follow Meatball for more 🍝",
  "hashtags": "#conspiracy #history #declassified #coldwar #meatballinvestigates",
  "tags": [
@@ -48,7 +48,7 @@
   "Operation Northwoods: JCS memorandum to the Secretary of Defense, 13 March 1962, 'Justification for US Military Intervention in Cuba', signed L. L. Lemnitzer; rejected by the Kennedy administration; declassified 1997 (ARRB), published 2001 — https://nsarchive2.gwu.edu/news/20010430/",
   "MKUltra: US Senate, 'Project MKULTRA, the CIA's Program of Research in Behavioral Modification', Joint Hearing, 3 August 1977; Church Committee final report (1976); Helms ordered files destroyed in 1973; ~20,000 documents found in 1977 via FOIA (John Marks) — https://en.wikipedia.org/wiki/MKUltra (checked 2026-10-26)"
  ],
- "_note": "Meatball Investigates long-form pilot (research/48 §8 idea 1), Showrunner 2026-10-26. 4 documented 'turned out true' cases counted down #4 to #1, MKUltra last (payoff, promised in the cold open). Verdict stamps on each (PROVEN / CONFIRMED). No jokes about MKUltra's victims; the Acoustic Kitty taxi story is labelled as one officer's disputed claim. v4 16:9 with early asks (guess card, one subscribe pill, one like ask, reminder at the end). Passes tools/retention.py. NOT rendered for posting; NOT scheduled. Re-render 10/26 (Studio): theme cold-war (tools/themes.py: Eric +22% -2Hz, tense ticking strings at -27 LUFS) replaces Kokoro + gen:mystery; scheduled Sat 11/7 14:00.",
+ "_note": "Meatball Investigates long-form pilot (research/48 §8 idea 1), Showrunner 2026-10-26. 4 documented 'turned out true' cases counted down #4 to #1, MKUltra last (payoff, promised in the cold open). Verdict stamps on each (PROVEN / CONFIRMED). No jokes about MKUltra's victims; the Acoustic Kitty taxi story is labelled as one officer's disputed claim. v4 16:9 with early asks (guess card, one subscribe pill, one like ask, reminder at the end). Passes tools/retention.py. NOT rendered for posting; NOT scheduled. Re-render 10/26 (Studio): theme cold-war (tools/themes.py: Eric +22% -2Hz, tense ticking strings at -27 LUFS) replaces Kokoro + gen:mystery; scheduled Sat 11/7 14:00. 10/26 Mayor: scheduled Tue 10/27 14:00 instead (funnel); tease made generic ('Saturday: another case'); host beats per chapter (research/49).",
  "beats": [
   {
    "say": "The CIA once tried to turn a cat into a spy. With a microphone inside it. That's not a theory. It's in their own files.",
@@ -161,6 +161,11 @@
    ],
    "sub": {
     "at": "Subscribe"
+   },
+   "host": {
+    "moves": [
+     "you@Meatball"
+    ]
    }
   },
   {
@@ -330,6 +335,11 @@
    "stamp": {
     "text": "PROVEN",
     "at": "real"
+   },
+   "host": {
+    "moves": [
+     "lean@In"
+    ]
    }
   },
   {
@@ -505,6 +515,11 @@
    "stamp": {
     "text": "PROVEN",
     "at": "attack"
+   },
+   "host": {
+    "moves": [
+     "lean@In"
+    ]
    }
   },
   {
@@ -741,6 +756,11 @@
    "stamp": {
     "text": "CONFIRMED",
     "at": "declassified"
+   },
+   "host": {
+    "moves": [
+     "lean@We"
+    ]
    }
   },
   {
@@ -927,7 +947,12 @@
     "text": "PROVEN",
     "at": "record"
    },
-   "hold": 0.3
+   "hold": 0.3,
+   "host": {
+    "moves": [
+     "lean@That"
+    ]
+   }
   },
   {
    "say": "So, four conspiracy theories, all true. A spy cat, an attack that didn't happen, a fake war plan, and a mind control program.",
@@ -1027,10 +1052,15 @@
     "q": "WERE YOU RIGHT? 👇",
     "at": "right"
    },
-   "hold": 0.5
+   "hold": 0.5,
+   "host": {
+    "moves": [
+     "you@right"
+    ]
+   }
   },
   {
-   "say": "Next case: secret Cold War projects that were actually real. A plan to nuke the Moon, a city under the ice. See you Tuesday.",
+   "say": "Next case: another file somebody really didn't want opened. See you Saturday.",
    "pose": "nervous",
    "myth": "outro",
    "act": "shake",
@@ -1040,7 +1070,7 @@
      "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3"
     }
    ],
-   "punch": "Moon"
+   "punch": "Saturday"
   }
  ],
  "theme": "cold-war"
