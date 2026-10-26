@@ -6725,6 +6725,2513 @@
    "kicker": true,
    "hold": 0.25,
    "punch": "vampire"
+  },
+  {
+   "myth": "shoebill",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A giant gray bird stood in a swamp for a whole hour, and didn't move a feather.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "IT NEVER MOVES",
+   "punch": "moved",
+   "loop_say": "I blinked again. Because",
+   "short_title": "The Shoebill Stands Still Until You Forget It's There 🐦",
+   "comment": "Who wins a staring contest? 🐦 shoebill / 🍝 Meatball",
+   "bonus": "Shoebills stand up to 1.4 m tall, hunt lungfish by standing nearly motionless, and cool their eggs with water carried in the bill.",
+   "caption": "How does the shoebill hunt? By standing still until you forget it's there. Who wins a staring contest? 🐦 shoebill / 🍝 Meatball #shoebill #birds #animalfacts #africa Follow Meatball for more 🍝",
+   "sources": [
+    "Wikipedia, Shoebill (strides very slowly and is frequently motionless while hunting; prey includes marbled lungfish; bill-clattering displays at the nest; bill among the longest of living birds; typical height 110-140 cm; cools its eggs with water carried in the bill; population 5,000-8,000) — https://en.wikipedia.org/wiki/Shoebill (checked 2026-10-26)"
+   ],
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 39845076,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "think",
+   "act": "stand",
+   "say": "Why is it standing so still? Guess before I tell you.",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 192810220,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "WHY SO STILL?",
+    "choices": [
+     "😴 SLEEPING",
+     "🎣 SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "shoebill",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 39845076,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "shoebill",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in the swamps of East Africa lives the shoebill. Up to 140 centimeters tall.",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 192810220,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "140 CM",
+    "at": "140"
+   }
+  },
+  {
+   "myth": "shoebill",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "And a bill shaped like a giant wooden shoe. One of the longest bills of any bird.",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 39845076,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "punch": "shoe"
+  },
+  {
+   "myth": "shoebill",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: it's asleep standing up. No. Its eyes are wide open.",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 192810220,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "shoebill",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: it's showing off for a mate. Also no. It's alone.",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 39845076,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "shoebill",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I challenged it to a staring contest. It didn't blink. I did.",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 192810220,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "act_at": "blink",
+   "sfx": [
+    "thud@did"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "shoebill",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait. Something was moving under the water.",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 39845076,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "shoebill",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: it's hunting. It waits until a fish forgets it's there. Then it lunges. Grab. Gone.",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 192810220,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "AMBUSH",
+    "at": "hunting"
+   },
+   "sfx": [
+    "crunch@Grab"
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Its favorite meal is lungfish. Big, slippery fish that breathe air.",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 39845076,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "punch": "lungfish"
+  },
+  {
+   "myth": "shoebill",
+   "pose": "shock",
+   "act": "stand",
+   "say": "At the nest, it clatters its bill like castanets. And on hot days it brings water to cool its eggs.",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 192810220,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@eggs"
+    ]
+   },
+   "label": {
+    "text": "CLATTER",
+    "at": "clatters"
+   }
+  },
+  {
+   "myth": "shoebill",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Patience. I don't have it. I'm a meatball.",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 39845076,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "meatball",
+   "sfx": [
+    "tink@meatball"
+   ]
+  },
+  {
+   "myth": "shoebill",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 192810220,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "shoebill",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Its whole hunting plan is standing still. I have the same plan for doing chores.",
+   "shots": [
+    {
+     "photo": "Balaeniceps rex",
+     "obs": 39845076,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "chores"
+  },
+  {
+   "myth": "tortoise",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Sailors carried giant tortoises onto their ship, and stacked them in the dark below deck.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "A YEAR. NO FOOD.",
+   "punch": "stacked",
+   "loop_say": "Snacking for us both. Because",
+   "short_title": "Galápagos Tortoises Can Go a Year Without Food 🐢",
+   "comment": "How long could you skip snacks? ⏱️ a day / 💀 not even an hour",
+   "bonus": "Galápagos tortoises can live over 100 years and survive up to a year without food or water; sailors stacked them on ships as fresh meat.",
+   "caption": "How long can a Galápagos tortoise go without food? Up to a year. Why did that hurt them? 🦈 predators / ⛵ something else #galapagos #tortoise #reptiles #animalfacts Follow Meatball for more 🍝",
+   "sources": [
+    "Wikipedia, Galápagos tortoise (over 100 years in the wild, up to 177 in captivity; up to 417 kg; can go up to a year without food or water; whalers and sailors took them as fresh meat because they survived months in ships' holds; estimated 100,000-200,000 removed; Lonesome George died 24 June 2012) — https://en.wikipedia.org/wiki/Gal%C3%A1pagos_tortoise (checked 2026-10-26)"
+   ],
+   "shots": [
+    {
+     "photo": "Chelonoidis",
+     "obs": 20268417,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "tortoise",
+   "pose": "think",
+   "act": "stand",
+   "say": "Why would sailors want tortoises? Guess.",
+   "shots": [
+    {
+     "photo": "Chelonoidis",
+     "obs": 254254229,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "WHY?",
+    "choices": [
+     "🐢 PETS",
+     "🍽️ SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "tortoise",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Chelonoidis",
+     "obs": 20268417,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "tortoise",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in the Galápagos Islands, these tortoises can weigh over four hundred kilos and live past a hundred years.",
+   "shots": [
+    {
+     "photo": "Chelonoidis",
+     "obs": 254254229,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "100+\nYEARS",
+    "at": "hundred"
+   }
+  },
+  {
+   "myth": "tortoise",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "And they have a superpower. They can go up to a year without food or water.",
+   "shots": [
+    {
+     "photo": "Chelonoidis",
+     "obs": 20268417,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "1 YEAR\nNO FOOD",
+    "at": "year"
+   }
+  },
+  {
+   "myth": "tortoise",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: as pets, for good luck. No. Not even close.",
+   "shots": [
+    {
+     "photo": "Chelonoidis",
+     "obs": 254254229,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "tortoise",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: to sell to zoos. Also no. There weren't zoos buying them.",
+   "shots": [
+    {
+     "photo": "Chelonoidis",
+     "obs": 20268417,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "tortoise",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I raced one to the snack table. I won. It didn't care. It doesn't need snacks.",
+   "shots": [
+    {
+     "photo": "Chelonoidis",
+     "obs": 254254229,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "act_at": "won",
+   "sfx": [
+    "thud@won"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "tortoise",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait. Here's the dark part. That superpower is exactly why the sailors wanted them.",
+   "shots": [
+    {
+     "photo": "Chelonoidis",
+     "obs": 20268417,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   },
+   "dark": true
+  },
+  {
+   "myth": "tortoise",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: food. A tortoise stayed alive for months without feeding, so it was fresh meat for the whole voyage.",
+   "shots": [
+    {
+     "photo": "Chelonoidis",
+     "obs": 254254229,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "FRESH\nMEAT",
+    "at": "food"
+   },
+   "sfx": [
+    "pop@food"
+   ]
+  },
+  {
+   "myth": "tortoise",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Whalers took tens of thousands of them. Some islands lost their tortoises completely.",
+   "shots": [
+    {
+     "photo": "Chelonoidis",
+     "obs": 20268417,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "punch": "completely"
+  },
+  {
+   "myth": "tortoise",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The last Pinta Island tortoise, Lonesome George, died in 2012.",
+   "shots": [
+    {
+     "photo": "Chelonoidis",
+     "obs": 254254229,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@George"
+    ]
+   },
+   "label": {
+    "text": "LONESOME\nGEORGE",
+    "at": "George"
+   }
+  },
+  {
+   "myth": "tortoise",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Now they're protected, and some islands have them back. Slowly. Very slowly.",
+   "shots": [
+    {
+     "photo": "Chelonoidis",
+     "obs": 20268417,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "Slowly",
+   "sfx": [
+    "tink@Slowly"
+   ]
+  },
+  {
+   "myth": "tortoise",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Chelonoidis",
+     "obs": 254254229,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "tortoise",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Its best survival trick almost wiped it out. Being too good at waiting.",
+   "shots": [
+    {
+     "photo": "Chelonoidis",
+     "obs": 20268417,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "waiting"
+  },
+  {
+   "myth": "giraffe",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A giraffe stuck out a long, dark tongue, and wrapped it around a thorny branch.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "A BLACK TONGUE",
+   "punch": "tongue",
+   "loop_say": "I'm out of reach. Because",
+   "short_title": "A Giraffe's Tongue Is Black and 45 cm Long 🦒",
+   "comment": "Would you let a giraffe lick you? 👍 yes / 👎 no",
+   "bonus": "A giraffe's tongue is about 45 cm long and dark, maybe to protect it from sunburn; its 11 kg heart pumps about double our blood pressure.",
+   "caption": "Why is a giraffe's tongue black? Scientists think it may be sun protection. Why? 🍆 food stains / ☀️ something else #giraffe #animalfacts #wildlife #africa Follow Meatball for more 🍝",
+   "sources": [
+    "Wikipedia, Giraffe (tongue about 45 cm long, black, perhaps to protect against sunburn; prehensile tongue strips leaves from thorny acacias; captive studies found giraffes sleep around 4.6 hours per day; 11 kg heart produces about double the blood pressure of a human; males fight by 'necking'; 4.3-5.7 m tall) — https://en.wikipedia.org/wiki/Giraffe (checked 2026-10-26)"
+   ],
+   "shots": [
+    {
+     "photo": "Giraffa",
+     "obs": 249706797,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "giraffe",
+   "pose": "think",
+   "act": "stand",
+   "say": "Why is its tongue so dark? Guess before I tell you.",
+   "shots": [
+    {
+     "photo": "Giraffa",
+     "obs": 154740030,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "WHY SO DARK?",
+    "choices": [
+     "🍆 FOOD STAINS",
+     "☀️ SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "giraffe",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Giraffa",
+     "obs": 323129116,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "giraffe",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in the African savanna, giraffes eat from the tops of thorny acacia trees, all day long.",
+   "shots": [
+    {
+     "photo": "Giraffa",
+     "obs": 249706797,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ]
+  },
+  {
+   "myth": "giraffe",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "That tongue is about forty-five centimeters long. Longer than my whole body. Many times.",
+   "shots": [
+    {
+     "photo": "Giraffa",
+     "obs": 154740030,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "45 CM",
+    "at": "forty-five"
+   }
+  },
+  {
+   "myth": "giraffe",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: stains from all the leaves. No. It's the tongue's own color.",
+   "shots": [
+    {
+     "photo": "Giraffa",
+     "obs": 323129116,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "giraffe",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: it's bruised from the thorns. Also no. It grabs around them.",
+   "shots": [
+    {
+     "photo": "Giraffa",
+     "obs": 249706797,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "giraffe",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I asked for a lick test. Bad idea. It licked my whole head.",
+   "shots": [
+    {
+     "photo": "Giraffa",
+     "obs": 154740030,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "act_at": "licked",
+   "sfx": [
+    "thud@licked"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "giraffe",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait. Think about it. That tongue spends hours outside, in the hot sun.",
+   "shots": [
+    {
+     "photo": "Giraffa",
+     "obs": 323129116,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "giraffe",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: scientists think the dark color may protect it from sunburn. Built-in sunscreen.",
+   "shots": [
+    {
+     "photo": "Giraffa",
+     "obs": 249706797,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "SUNSCREEN",
+    "at": "sunburn"
+   },
+   "sfx": [
+    "pop@sunburn"
+   ]
+  },
+  {
+   "myth": "giraffe",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Its heart weighs about eleven kilos, and pumps about double our blood pressure. To push blood up that neck.",
+   "shots": [
+    {
+     "photo": "Giraffa",
+     "obs": 154740030,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "11 KG\nHEART",
+    "at": "eleven"
+   }
+  },
+  {
+   "myth": "giraffe",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "And in zoo studies, giraffes slept only about four and a half hours a day.",
+   "shots": [
+    {
+     "photo": "Giraffa",
+     "obs": 323129116,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@four"
+    ]
+   },
+   "punch": "hours"
+  },
+  {
+   "myth": "giraffe",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "I need eleven hours. And a nap.",
+   "shots": [
+    {
+     "photo": "Giraffa",
+     "obs": 249706797,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "nap",
+   "sfx": [
+    "tink@nap"
+   ]
+  },
+  {
+   "myth": "giraffe",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Giraffa",
+     "obs": 154740030,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "giraffe",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Tallest animal on Earth, and its tongue still needs sunscreen.",
+   "shots": [
+    {
+     "photo": "Giraffa",
+     "obs": 323129116,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "sunscreen"
+  },
+  {
+   "myth": "treefrog",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A snake found a clump of frog eggs on a leaf, and started biting into it.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "ESCAPE BEFORE BIRTH",
+   "punch": "shook",
+   "loop_say": "I'm still screaming. Because",
+   "short_title": "Red-Eyed Tree Frog Eggs Hatch Early to Escape Snakes 🐸",
+   "comment": "Would those eyes scare you? 😱 yes / 😎 no",
+   "bonus": "Red-eyed tree frog embryos can hatch early when they feel a snake or wasp attacking the clutch.",
+   "caption": "Can frog eggs escape a snake? Red-eyed tree frog embryos hatch early when a snake shakes them. How do they know? 👀 see it / 📳 something else #treefrog #frogs #rainforest #animalfacts Follow Meatball for more 🍝",
+   "sources": [
+    "Wikipedia, Agalychnis callidryas (embryos hatch early when they sense vibrations from predatory snakes and wasps; eggs typically hatch in 6-8 days undisturbed; laid on leaves over water; red eyes flashed to startle predators; not poisonous) — https://en.wikipedia.org/wiki/Agalychnis_callidryas (checked 2026-10-26)",
+    "Warkentin 1995, PNAS 92: 3507-3510, 'Adaptive plasticity in hatching age: a response to predation risk trade-offs' — https://doi.org/10.1073/pnas.92.8.3507"
+   ],
+   "shots": [
+    {
+     "photo": "Agalychnis callidryas",
+     "obs": 25105320,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "treefrog",
+   "pose": "think",
+   "act": "stand",
+   "say": "The eggs can't run. Or can they? Guess what they do.",
+   "shots": [
+    {
+     "photo": "Agalychnis callidryas",
+     "obs": 167258822,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "WHAT DO THEY DO?",
+    "choices": [
+     "😶 NOTHING",
+     "🏃 ESCAPE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "treefrog",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Agalychnis callidryas",
+     "obs": 17577418,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "treefrog",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in Central American rainforests, red-eyed tree frogs lay their eggs on leaves, hanging over ponds.",
+   "shots": [
+    {
+     "photo": "Agalychnis callidryas",
+     "obs": 25105320,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ]
+  },
+  {
+   "myth": "treefrog",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Left alone, the eggs take about a week to hatch.",
+   "shots": [
+    {
+     "photo": "Agalychnis callidryas",
+     "obs": 167258822,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "~1 WEEK",
+    "at": "week"
+   }
+  },
+  {
+   "myth": "treefrog",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: they just get eaten. Some do. But not all of them.",
+   "shots": [
+    {
+     "photo": "Agalychnis callidryas",
+     "obs": 17577418,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "treefrog",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: the mom comes back to fight. No. She's long gone.",
+   "shots": [
+    {
+     "photo": "Agalychnis callidryas",
+     "obs": 25105320,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "treefrog",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I snuck up for a closer look. An adult opened its huge red eyes. I screamed.",
+   "shots": [
+    {
+     "photo": "Agalychnis callidryas",
+     "obs": 167258822,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "act_at": "screamed",
+   "sfx": [
+    "thud@screamed"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "treefrog",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait. Here's the weird part. The babies can feel the difference between rain and a snake.",
+   "shots": [
+    {
+     "photo": "Agalychnis callidryas",
+     "obs": 17577418,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "treefrog",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: they hatch early, on purpose. They burst out and drop into the water below.",
+   "shots": [
+    {
+     "photo": "Agalychnis callidryas",
+     "obs": 25105320,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "HATCH\nEARLY",
+    "at": "hatch"
+   },
+   "sfx": [
+    "pop@burst"
+   ]
+  },
+  {
+   "myth": "treefrog",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Snake shaking feels different from rain shaking, and they can tell.",
+   "shots": [
+    {
+     "photo": "Agalychnis callidryas",
+     "obs": 167258822,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "punch": "tell"
+  },
+  {
+   "myth": "treefrog",
+   "pose": "shock",
+   "act": "stand",
+   "say": "And the adults flash those red eyes to startle predators. It buys a second to jump.",
+   "shots": [
+    {
+     "photo": "Agalychnis callidryas",
+     "obs": 17577418,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@eyes"
+    ]
+   },
+   "label": {
+    "text": "RED\nEYES",
+    "at": "red"
+   }
+  },
+  {
+   "myth": "treefrog",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Good news: they're not poisonous. Just dramatic.",
+   "shots": [
+    {
+     "photo": "Agalychnis callidryas",
+     "obs": 25105320,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "dramatic",
+   "sfx": [
+    "tink@dramatic"
+   ]
+  },
+  {
+   "myth": "treefrog",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Agalychnis callidryas",
+     "obs": 167258822,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "treefrog",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Escaping danger before you're even born. I can't even escape the couch.",
+   "shots": [
+    {
+     "photo": "Agalychnis callidryas",
+     "obs": 17577418,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "couch"
+  },
+  {
+   "myth": "bison",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A tourist walked up to a bison for a selfie. The bison charged.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "FASTER THAN IT LOOKS",
+   "punch": "charged",
+   "loop_say": "I'm staying in the car. Because",
+   "short_title": "A 2,000-Pound Bison Can Run 40 MPH 🦬",
+   "comment": "Would you get out of the car? 👍 yes / 👎 no",
+   "bonus": "American bison can weigh over a ton and run 40-45 mph; by 1889 only 541 were counted in the US.",
+   "caption": "How fast can a bison run? About 40 mph. How many were left by 1889? 💯 thousands / 😳 hundreds #bison #buffalo #animalfacts #yellowstone Follow Meatball for more 🍝",
+   "sources": [
+    "Wikipedia, American bison (adults typically 318-1,179 kg; observed running 65-70 km/h (40-45 mph); around 60 million in the late 18th century; reduced to 541 animals counted in the US by 1889; roughly 31,000 wild bison as of 2019; national mammal of the United States since 2016) — https://en.wikipedia.org/wiki/American_bison (checked 2026-10-26)",
+    "Yellowstone NPS: bison injure more visitors than any other animal; stay at least 25 yards away — https://www.nps.gov/yell/learn/nature/bison.htm"
+   ],
+   "shots": [
+    {
+     "photo": "Bison bison",
+     "obs": 171672860,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "bison",
+   "pose": "think",
+   "act": "stand",
+   "say": "It weighs a ton. How fast can it run? Guess.",
+   "shots": [
+    {
+     "photo": "Bison bison",
+     "obs": 10335353,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "HOW FAST?",
+    "choices": [
+     "🐢 SLOW",
+     "🚗 CAR FAST"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "bison",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Bison bison",
+     "obs": 171672860,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "bison",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in Yellowstone, bison hurt more visitors than any other animal. Including bears.",
+   "shots": [
+    {
+     "photo": "Bison bison",
+     "obs": 10335353,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "MORE THAN\nBEARS",
+    "at": "bears"
+   }
+  },
+  {
+   "myth": "bison",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Rangers say stay at least twenty-five yards away. Most people don't.",
+   "shots": [
+    {
+     "photo": "Bison bison",
+     "obs": 171672860,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "punch": "don't"
+  },
+  {
+   "myth": "bison",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: slow, like a cow. No. That's what tourists think.",
+   "shots": [
+    {
+     "photo": "Bison bison",
+     "obs": 10335353,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "bison",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: fast, but only for a second. Also no. It can keep going.",
+   "shots": [
+    {
+     "photo": "Bison bison",
+     "obs": 171672860,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "bison",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I challenged one to a race. It won. Also, it ran me over.",
+   "shots": [
+    {
+     "photo": "Bison bison",
+     "obs": 10335353,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "act_at": "over",
+   "sfx": [
+    "thud@over"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "bison",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait. Here's the thing. It can also jump fences and spin around fast.",
+   "shots": [
+    {
+     "photo": "Bison bison",
+     "obs": 171672860,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "bison",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: about forty miles an hour. A one-ton animal, as fast as a car on a city street.",
+   "shots": [
+    {
+     "photo": "Bison bison",
+     "obs": 10335353,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "40 MPH",
+    "at": "forty"
+   },
+   "sfx": [
+    "pop@forty"
+   ]
+  },
+  {
+   "myth": "bison",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Once, about sixty million roamed North America.",
+   "shots": [
+    {
+     "photo": "Bison bison",
+     "obs": 171672860,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "60\nMILLION",
+    "at": "sixty"
+   }
+  },
+  {
+   "myth": "bison",
+   "pose": "shock",
+   "act": "stand",
+   "say": "By 1889, after mass hunting, the US count was five hundred and forty-one.",
+   "shots": [
+    {
+     "photo": "Bison bison",
+     "obs": 10335353,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@1889"
+    ]
+   },
+   "label": {
+    "text": "541",
+    "at": "forty-one"
+   },
+   "dark": true
+  },
+  {
+   "myth": "bison",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Now it's the national mammal, and there are thousands again. I'm staying in the car.",
+   "shots": [
+    {
+     "photo": "Bison bison",
+     "obs": 171672860,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "car",
+   "sfx": [
+    "tink@car"
+   ]
+  },
+  {
+   "myth": "bison",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Bison bison",
+     "obs": 10335353,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "bison",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "It looks like a sleepy rug. It runs like a truck. Never trust a sleepy rug.",
+   "shots": [
+    {
+     "photo": "Bison bison",
+     "obs": 171672860,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "rug"
+  },
+  {
+   "myth": "booby",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A male bird lifted one bright blue foot, then the other, and stomped in front of a female.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "WHY BLUE FEET?",
+   "punch": "stomped",
+   "loop_say": "I'm washing my feet. Because",
+   "short_title": "Blue-Footed Boobies Get Their Color From Fish 🐟",
+   "comment": "What color would your feet be? 💙 blue / 🍝 sauce red",
+   "bonus": "Blue-footed boobies get their foot color from carotenoid pigments in fresh fish; females pick males with brighter feet.",
+   "caption": "Why are blue-footed boobies' feet blue? Pigments from the fish they eat. Why does it matter? 🧊 cold / 💘 something else #bluefootedbooby #galapagos #birds #animalfacts Follow Meatball for more 🍝",
+   "sources": [
+    "Wikipedia, Blue-footed booby (color from carotenoid pigments obtained from fresh fish; foot brightness drops with age and when hungry; females tend to choose males with brighter feet; male struts lifting feet; plunge-dives from 10-30.5 m; name from Spanish 'bobo') — https://en.wikipedia.org/wiki/Blue-footed_booby (checked 2026-10-26)",
+    "Velando, Beamonte-Barrientos & Torres 2006, Oecologia 149: 535-542 (foot color reflects current condition and changes within 48 hours of food deprivation) — https://doi.org/10.1007/s00442-006-0457-5"
+   ],
+   "shots": [
+    {
+     "photo": "Sula nebouxii",
+     "obs": 181993913,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "booby",
+   "pose": "think",
+   "act": "stand",
+   "say": "Why are its feet so blue? Guess before I tell you.",
+   "shots": [
+    {
+     "photo": "Sula nebouxii",
+     "obs": 40536646,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "WHY BLUE?",
+    "choices": [
+     "🧊 COLD",
+     "🐟 SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "booby",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Sula nebouxii",
+     "obs": 42065053,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "booby",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in the Galápagos, the blue-footed booby is famous for its feet. And its dance.",
+   "shots": [
+    {
+     "photo": "Sula nebouxii",
+     "obs": 167987942,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ]
+  },
+  {
+   "myth": "booby",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The name comes from the Spanish word bobo. It means clown.",
+   "shots": [
+    {
+     "photo": "Sula nebouxii",
+     "obs": 181993913,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "BOBO",
+    "at": "bobo"
+   }
+  },
+  {
+   "myth": "booby",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: cold feet, from the ocean. No. That's not where the blue comes from.",
+   "shots": [
+    {
+     "photo": "Sula nebouxii",
+     "obs": 40536646,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "booby",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: it's born that way, always the same. Also no. The color changes.",
+   "shots": [
+    {
+     "photo": "Sula nebouxii",
+     "obs": 42065053,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "booby",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I painted my feet blue and danced for her. She saw right through it.",
+   "shots": [
+    {
+     "photo": "Sula nebouxii",
+     "obs": 167987942,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "act_at": "through",
+   "sfx": [
+    "thud@through"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "booby",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait. Here's the weird part. When a booby goes hungry, its feet fade in about two days.",
+   "shots": [
+    {
+     "photo": "Sula nebouxii",
+     "obs": 181993913,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "booby",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: fish. Pigments in the fresh fish it eats turn its feet blue. Bright feet mean a well-fed bird.",
+   "shots": [
+    {
+     "photo": "Sula nebouxii",
+     "obs": 40536646,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "FISH\nPOWER",
+    "at": "fish"
+   },
+   "sfx": [
+    "pop@fish"
+   ]
+  },
+  {
+   "myth": "booby",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "So the females pick the brightest feet. It's an honest health report.",
+   "shots": [
+    {
+     "photo": "Sula nebouxii",
+     "obs": 42065053,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "punch": "honest"
+  },
+  {
+   "myth": "booby",
+   "pose": "shock",
+   "act": "stand",
+   "say": "And to catch those fish, they dive from up to about a hundred feet. Straight down.",
+   "shots": [
+    {
+     "photo": "Sula nebouxii",
+     "obs": 167987942,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@dive"
+    ]
+   },
+   "label": {
+    "text": "100 FT\nDIVE",
+    "at": "hundred"
+   }
+  },
+  {
+   "myth": "booby",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "My feet would be sauce red. That's an honest report too.",
+   "shots": [
+    {
+     "photo": "Sula nebouxii",
+     "obs": 181993913,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "sauce",
+   "sfx": [
+    "tink@sauce"
+   ]
+  },
+  {
+   "myth": "booby",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Sula nebouxii",
+     "obs": 40536646,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "booby",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "In their world, you are what you eat. And it shows on your shoes.",
+   "shots": [
+    {
+     "photo": "Sula nebouxii",
+     "obs": 42065053,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "shoes"
+  },
+  {
+   "myth": "capybara",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A jaguar crept toward a river, and a giant rodent slipped into the water and vanished.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "IT VANISHED",
+   "punch": "vanished",
+   "loop_say": "I'm out of breath. Because",
+   "short_title": "The Biggest Rodent on Earth Holds Its Breath 5 Minutes 🦫",
+   "comment": "Would you swim with one? 👍 yes / 👎 no",
+   "bonus": "The capybara is the largest living rodent; it can hold its breath underwater for up to five minutes.",
+   "caption": "How long can a capybara hold its breath? Up to five minutes. How? 🤿 lungs / 🦫 something else #capybara #rodents #animalfacts #southamerica Follow Meatball for more 🍝",
+   "sources": [
+    "Wikipedia, Capybara (largest living rodent; adults typically 35-66 kg; semi-aquatic with slightly webbed feet; eyes, ears and nostrils on top of the head; can stay underwater up to five minutes to hide from predators; teeth grow continuously; grazers) — https://en.wikipedia.org/wiki/Capybara (checked 2026-10-26)"
+   ],
+   "shots": [
+    {
+     "photo": "Hydrochoerus hydrochaeris",
+     "obs": 57700291,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "capybara",
+   "pose": "think",
+   "act": "stand",
+   "say": "How long can it stay under? Guess.",
+   "shots": [
+    {
+     "photo": "Hydrochoerus hydrochaeris",
+     "obs": 8066919,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "HOW LONG?",
+    "choices": [
+     "⏱️ 10 SECONDS",
+     "🫧 MINUTES"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "capybara",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Hydrochoerus hydrochaeris",
+     "obs": 57700291,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "capybara",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in South America lives the capybara. The biggest rodent on Earth. As heavy as a grown dog.",
+   "shots": [
+    {
+     "photo": "Hydrochoerus hydrochaeris",
+     "obs": 8066919,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "BIGGEST\nRODENT",
+    "at": "biggest"
+   }
+  },
+  {
+   "myth": "capybara",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Its eyes, ears and nose all sit on top of its head. Like a hippo.",
+   "shots": [
+    {
+     "photo": "Hydrochoerus hydrochaeris",
+     "obs": 57700291,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "punch": "hippo"
+  },
+  {
+   "myth": "capybara",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: ten seconds, like me. No. Way longer.",
+   "shots": [
+    {
+     "photo": "Hydrochoerus hydrochaeris",
+     "obs": 8066919,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "capybara",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: it breathes through a hidden snorkel. Also no. That's not a thing.",
+   "shots": [
+    {
+     "photo": "Hydrochoerus hydrochaeris",
+     "obs": 57700291,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "capybara",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I held my breath next to one. I lasted four seconds.",
+   "shots": [
+    {
+     "photo": "Hydrochoerus hydrochaeris",
+     "obs": 8066919,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "act_at": "four",
+   "sfx": [
+    "thud@four"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "capybara",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait. Look at its feet. They're a little webbed. Built for swimming.",
+   "shots": [
+    {
+     "photo": "Hydrochoerus hydrochaeris",
+     "obs": 57700291,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "capybara",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: up to five minutes underwater. Long enough for a hungry predator to give up.",
+   "shots": [
+    {
+     "photo": "Hydrochoerus hydrochaeris",
+     "obs": 8066919,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "5 MIN",
+    "at": "five"
+   },
+   "sfx": [
+    "pop@five"
+   ]
+  },
+  {
+   "myth": "capybara",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Then it pops up somewhere else, eyes and nose first.",
+   "shots": [
+    {
+     "photo": "Hydrochoerus hydrochaeris",
+     "obs": 57700291,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "punch": "first"
+  },
+  {
+   "myth": "capybara",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Its front teeth never stop growing, so it chews grass all day to wear them down.",
+   "shots": [
+    {
+     "photo": "Hydrochoerus hydrochaeris",
+     "obs": 8066919,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@teeth"
+    ]
+   },
+   "label": {
+    "text": "TEETH\nKEEP GROWING",
+    "at": "growing"
+   }
+  },
+  {
+   "myth": "capybara",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Biggest rodent. Total vegetarian. I was safe. Mostly.",
+   "shots": [
+    {
+     "photo": "Hydrochoerus hydrochaeris",
+     "obs": 57700291,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "safe",
+   "sfx": [
+    "tink@safe"
+   ]
+  },
+  {
+   "myth": "capybara",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Hydrochoerus hydrochaeris",
+     "obs": 8066919,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "capybara",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The calmest animal on Earth survives by hiding in a river and waiting it out. Same.",
+   "shots": [
+    {
+     "photo": "Hydrochoerus hydrochaeris",
+     "obs": 57700291,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "Same"
   }
  ]
 }
