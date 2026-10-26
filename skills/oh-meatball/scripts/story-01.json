@@ -1,0 +1,1533 @@
+{
+ "title": "Story Cut 01: Project Azorian (hook lab A/B/C; TikTok 80-110 s)",
+ "style": "v4",
+ "captions": "bold",
+ "series": {
+  "text": "MEATBALL INVESTIGATES",
+  "card": false
+ },
+ "max_shot": 1.8,
+ "music_lufs": -27,
+ "short_hashtags": "#meatballinvestigates #coldwar #declassified #weirdhistory #projectazorian",
+ "photo_source": "Wikimedia Commons, CIA, USGS, NOAA (public domain)",
+ "names": {},
+ "subjects": {},
+ "_note": "Story Cut (research/52): protagonist with a want, stacked loops, 4 escalation steps (cover story, claw, break mid-lift, press), payoff ~60%, false calm ~80% then the drop, ironic kicker. Hook lab: three myth groups that differ ONLY in the first beat (A scene, B proof, C challenge); every later line is identical so the opening is the only variable. Photos reuse the licence-checked Glomar set from cases-01 (Commons PD: CIA, US Government, USGS; Openverse NOAA PD). Gates: tools/story.py, openloop.py, coldopen.py. Render: episode.py scripts/story-01.json story-01 --skip-long, then rename short-azorian<V>.mp4 to story-azorian-<V>.mp4.",
+ "beats": [
+  {
+   "myth": "azorianA",
+   "_len": "story",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "The claw closed around the Soviet submarine three miles down, and started to lift.",
+   "shots": [
+    {
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
+    }
+   ],
+   "hook": true,
+   "headline": "THREE MILES DOWN",
+   "headline_s": 2.2,
+   "theme": "cold-war",
+   "case": "CASE #8",
+   "hook_variant": "A",
+   "short_title": "The CIA Stole a Soviet Nuclear Sub 🔍 Case #8",
+   "comment": "Did the CIA get the sub? 🚢 all of it / 🧩 a piece / ❌ nothing",
+   "bonus": "Project Azorian (1974): the CIA's Hughes Glomar Explorer, sold to the world as Howard Hughes's deep-sea mining ship, lifted part of the sunken Soviet missile submarine K-129 from about 16,500 feet down. It cost about $800 million. Asked about the ship, the CIA would 'neither confirm nor deny', now called a Glomar response.",
+   "caption": "Project Azorian: the CIA's secret plan to steal a Soviet submarine. Did they get it? 🚢 all of it / 🧩 a piece / ❌ nothing #projectazorian #coldwar #cia #declassified #meatballinvestigates Follow Meatball for a new case every day 🍝",
+   "tags": [
+    "project azorian",
+    "glomar explorer",
+    "glomar response",
+    "k-129",
+    "cia",
+    "cold war secrets",
+    "Meatball Investigates"
+   ],
+   "sources": [
+    "Wikipedia, Project Azorian: 1974 CIA recovery of part of Soviet submarine K-129 from about 16,500 ft (5,000 m) with the Hughes Glomar Explorer; Howard Hughes's Summa Corporation fronted the ship as a deep-sea manganese-nodule mining venture; the capture vehicle (nicknamed Clementine) was lowered on a pipe string through the ship's moon pool in July-August 1974; part of the grapple failed during the lift and most of the section broke away; a forward section was recovered with the remains of six Soviet sailors, buried at sea with honors in September 1974 (filmed; the film was given to Russia in 1992); the Los Angeles Times broke the story in February 1975; total cost about US$800 million — https://en.wikipedia.org/wiki/Project_Azorian (checked 2026-10-26)",
+    "Wikipedia, Soviet submarine K-129 (1959): Golf II-class diesel-electric ballistic missile submarine, sank in the North Pacific in March 1968 with all 98 crew; carried three R-21 nuclear-armed ballistic missiles (plus nuclear torpedoes); the Soviet search failed; the US located it with SOSUS data and USS Halibut photographed the wreck — https://en.wikipedia.org/wiki/Soviet_submarine_K-129_(1960)",
+    "Wikipedia, Glomar response: 'we can neither confirm nor deny', the CIA's answer to journalist Harriet Ann Phillippi's FOIA request about the Glomar Explorer (Phillippi v. CIA, D.C. Cir. 1976); the term is still used for such answers by US agencies and others today — https://en.wikipedia.org/wiki/Glomar_response",
+    "CIA, 'Project AZORIAN' (CIA Museum exhibit and declassified history, 2010) — https://www.cia.gov/legacy/museum/exhibit/project-azorian/",
+    "National Security Archive (George Washington University), 'Project Azorian: The CIA's Declassified History of the Glomar Explorer' (Electronic Briefing Book No. 305, 2010) — https://nsarchive2.gwu.edu/nukevault/ebb305/"
+   ],
+   "loop_say": "And that's why, in the dark Pacific,"
+  },
+  {
+   "myth": "azorianA",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "The CIA wanted that sub. Did they get it? Guess.",
+   "want": true,
+   "promise": true,
+   "ask": {
+    "q": "DID THE CIA GET IT?",
+    "choices": [
+     "🚢 ALL OF IT",
+     "🧩 A PIECE",
+     "❌ NOTHING"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.9,
+   "host": {
+    "moves": [
+     "sweat@CIA",
+     "you@Guess"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianA",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I open a new case every day.",
+   "sub": {
+    "at": "Subscribe"
+   },
+   "shots": [
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg",
+     "board": {
+      "notes": [
+       "1974",
+       "3 MILES DOWN",
+       "TOP SECRET"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "myth": "azorianA",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in 1968, a Soviet sub, K-129, sank with ninety-eight men.",
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "K-129\n1968",
+    "at": "Soviet"
+   },
+   "shots": [
+    {
+     "photo": "Soviet submarine K-129 (CIA photo)",
+     "obs": "wm:Soviet_ballistic_missile_submarine_K-129.jpg"
+    },
+    {
+     "photo": "Thunderstorm at night (NOAA)",
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3",
+     "at": "sank"
+    }
+   ]
+  },
+  {
+   "myth": "azorianA",
+   "pose": "shock",
+   "act": "shake",
+   "say": "It carried three nuclear missiles. And the Soviets couldn't find it.",
+   "punch": "nuclear",
+   "shots": [
+    {
+     "photo": "Soviet submarine K-129 (CIA photo)",
+     "obs": "wm:Soviet_ballistic_missile_submarine_K-129.jpg"
+    },
+    {
+     "photo": "Thunderstorm at night (NOAA)",
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3",
+     "at": "find"
+    }
+   ]
+  },
+  {
+   "myth": "azorianA",
+   "pose": "point",
+   "act": "stand",
+   "say": "The Americans could. A US spy sub photographed the wreck.",
+   "resolves": true,
+   "shots": [
+    {
+     "photo": "K-129 recovery site map",
+     "obs": "wm:K129_HGE_recoverysite.png"
+    },
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg",
+     "at": "photographed"
+    }
+   ]
+  },
+  {
+   "myth": "azorianA",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Problem: it was three miles down. So how do you grab it?",
+   "opens": true,
+   "label": {
+    "text": "16,500 FT",
+    "at": "three"
+   },
+   "host": {
+    "moves": [
+     "lean@grab"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianA",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: divers. They'd be crushed flat.",
+   "decoy": true,
+   "sfx": [
+    "crunch@crushed"
+   ],
+   "shots": [
+    {
+     "photo": "Thunderstorm at night (NOAA)",
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3"
+    }
+   ]
+  },
+  {
+   "myth": "azorianA",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Guess two: ask Moscow nicely. It's the Cold War. No.",
+   "decoy": true,
+   "shots": [
+    {
+     "photo": "Soviet submarine K-129 (CIA photo)",
+     "obs": "wm:Soviet_ballistic_missile_submarine_K-129.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianA",
+   "pose": "think",
+   "act": "run_in",
+   "say": "So the CIA built a giant ship. But it needed a cover story.",
+   "step": 1,
+   "opens": true,
+   "shots": [
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianA",
+   "pose": "point",
+   "act": "stand",
+   "say": "Enter Howard Hughes. The billionaire said it was his ship, mining rocks.",
+   "resolves": true,
+   "punch": "Hughes",
+   "host": {
+    "moves": [
+     "psst@billionaire"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Howard Hughes, 1938",
+     "obs": "wm:Howard_Hughes_1938.jpg"
+    },
+    {
+     "photo": "Manganese nodule from the cover story (CIA)",
+     "obs": "wm:Glomar_Manganese_Nodule_Encased_in_Lucite.jpg",
+     "at": "mining"
+    }
+   ]
+  },
+  {
+   "myth": "azorianA",
+   "pose": "shock",
+   "act": "stand",
+   "say": "But this mining ship had a secret pool in its belly.",
+   "opens": true,
+   "label": {
+    "text": "MOON\nPOOL",
+    "at": "pool"
+   },
+   "shots": [
+    {
+     "photo": "Glomar Explorer in Suisun Bay (USGS)",
+     "obs": "wm:Glomar_Explorer_Suisun_Bay_CA.jpg"
+    },
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg",
+     "at": "belly"
+    }
+   ]
+  },
+  {
+   "myth": "azorianA",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Hidden inside was the claw. The crew called it Clementine.",
+   "step": 2,
+   "punch": "claw",
+   "sfx": [
+    "whoosh@claw"
+   ],
+   "shots": [
+    {
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianA",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Summer 1974. They lowered it three miles, one pipe at a time.",
+   "shots": [
+    {
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
+    },
+    {
+     "photo": "K-129 recovery site map",
+     "obs": "wm:K129_HGE_recoverysite.png",
+     "at": "pipe"
+    }
+   ]
+  },
+  {
+   "myth": "azorianA",
+   "pose": "point",
+   "act": "stand",
+   "say": "The claw closed around the sub, and it started to rise.",
+   "resolves": true,
+   "host": {
+    "moves": [
+     "you@closed",
+     "lean@rise"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianA",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "Then, on the way up, part of the claw broke. Most of the sub fell back.",
+   "step": 3,
+   "opens": true,
+   "act_at": "broke",
+   "jeopardy": true,
+   "sfx": [
+    "thud@broke"
+   ],
+   "dark": true,
+   "shots": [
+    {
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
+    },
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg",
+     "at": "fell"
+    }
+   ]
+  },
+  {
+   "myth": "azorianA",
+   "pose": "point",
+   "act": "stand",
+   "say": "Verdict: they got a piece. A chunk of a Soviet nuclear sub, stolen.",
+   "payoff": true,
+   "resolves": true,
+   "stamp": {
+    "text": "PROVEN",
+    "at": "piece"
+   },
+   "shots": [
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg"
+    },
+    {
+     "photo": "Glomar Explorer patch (CIA)",
+     "obs": "wm:Glomar_Patch.jpg",
+     "at": "stolen"
+    }
+   ]
+  },
+  {
+   "myth": "azorianA",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "And inside it? Six Soviet sailors.",
+   "opens": true,
+   "host": {
+    "moves": [
+     "psst@inside"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Project AZORIAN artifacts (CIA)",
+     "obs": "wm:Sherman_Wetmore_poses_next_to_a_collection_of_Project_AZORIAN_artifacts_on_display.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianA",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The CIA buried them at sea, with honors.",
+   "shots": [
+    {
+     "photo": "Thunderstorm at night (NOAA)",
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3"
+    }
+   ]
+  },
+  {
+   "myth": "azorianA",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The ship sailed home. Nobody knew. Everything was fine.",
+   "calm": true,
+   "host": {
+    "moves": [
+     "shrug@fine"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Glomar Explorer in Suisun Bay (USGS)",
+     "obs": "wm:Glomar_Explorer_Suisun_Bay_CA.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianA",
+   "pose": "shock",
+   "act": "run_across",
+   "say": "Until 1975, when a newspaper got the story.",
+   "drop": true,
+   "step": 4,
+   "act_at": "newspaper",
+   "sfx": [
+    "whoosh@newspaper"
+   ],
+   "label": {
+    "text": "LEAKED",
+    "at": "newspaper"
+   },
+   "shots": [
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianA",
+   "pose": "think",
+   "act": "stand",
+   "say": "A reporter asked the CIA what the ship was for. The answer?",
+   "opens": true,
+   "shots": [
+    {
+     "photo": "Glomar Explorer patch (CIA)",
+     "obs": "wm:Glomar_Patch.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianA",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "We can neither confirm nor deny.",
+   "resolves": true,
+   "punch": "deny",
+   "label": {
+    "text": "NEITHER CONFIRM\nNOR DENY",
+    "at": "neither"
+   },
+   "shots": [
+    {
+     "photo": "Glomar Explorer patch (CIA)",
+     "obs": "wm:Glomar_Patch.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianA",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   },
+   "host": {
+    "moves": [
+     "you@Comment"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianA",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "That non-answer is named after the fake ship. A Glomar response. Governments still use it today.",
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "Glomar",
+   "shots": [
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianB",
+   "_len": "story",
+   "pose": "shock",
+   "act": "shake",
+   "say": "This is a real CIA photo of a Soviet submarine. The CIA built a whole fake ship to steal it.",
+   "cold_open": "claim",
+   "shots": [
+    {
+     "photo": "Soviet submarine K-129 (CIA photo)",
+     "obs": "wm:Soviet_ballistic_missile_submarine_K-129.jpg"
+    },
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg",
+     "at": "ship"
+    }
+   ],
+   "hook": true,
+   "headline": "REAL CIA PHOTO",
+   "headline_s": 2.2,
+   "theme": "cold-war",
+   "case": "CASE #8",
+   "hook_variant": "B",
+   "short_title": "The CIA Stole a Soviet Nuclear Sub 🔍 Case #8",
+   "comment": "Did the CIA get the sub? 🚢 all of it / 🧩 a piece / ❌ nothing",
+   "bonus": "Project Azorian (1974): the CIA's Hughes Glomar Explorer, sold to the world as Howard Hughes's deep-sea mining ship, lifted part of the sunken Soviet missile submarine K-129 from about 16,500 feet down. It cost about $800 million. Asked about the ship, the CIA would 'neither confirm nor deny', now called a Glomar response.",
+   "caption": "Project Azorian: the CIA's secret plan to steal a Soviet submarine. Did they get it? 🚢 all of it / 🧩 a piece / ❌ nothing #projectazorian #coldwar #cia #declassified #meatballinvestigates Follow Meatball for a new case every day 🍝",
+   "tags": [
+    "project azorian",
+    "glomar explorer",
+    "glomar response",
+    "k-129",
+    "cia",
+    "cold war secrets",
+    "Meatball Investigates"
+   ],
+   "sources": [
+    "Wikipedia, Project Azorian: 1974 CIA recovery of part of Soviet submarine K-129 from about 16,500 ft (5,000 m) with the Hughes Glomar Explorer; Howard Hughes's Summa Corporation fronted the ship as a deep-sea manganese-nodule mining venture; the capture vehicle (nicknamed Clementine) was lowered on a pipe string through the ship's moon pool in July-August 1974; part of the grapple failed during the lift and most of the section broke away; a forward section was recovered with the remains of six Soviet sailors, buried at sea with honors in September 1974 (filmed; the film was given to Russia in 1992); the Los Angeles Times broke the story in February 1975; total cost about US$800 million — https://en.wikipedia.org/wiki/Project_Azorian (checked 2026-10-26)",
+    "Wikipedia, Soviet submarine K-129 (1959): Golf II-class diesel-electric ballistic missile submarine, sank in the North Pacific in March 1968 with all 98 crew; carried three R-21 nuclear-armed ballistic missiles (plus nuclear torpedoes); the Soviet search failed; the US located it with SOSUS data and USS Halibut photographed the wreck — https://en.wikipedia.org/wiki/Soviet_submarine_K-129_(1960)",
+    "Wikipedia, Glomar response: 'we can neither confirm nor deny', the CIA's answer to journalist Harriet Ann Phillippi's FOIA request about the Glomar Explorer (Phillippi v. CIA, D.C. Cir. 1976); the term is still used for such answers by US agencies and others today — https://en.wikipedia.org/wiki/Glomar_response",
+    "CIA, 'Project AZORIAN' (CIA Museum exhibit and declassified history, 2010) — https://www.cia.gov/legacy/museum/exhibit/project-azorian/",
+    "National Security Archive (George Washington University), 'Project Azorian: The CIA's Declassified History of the Glomar Explorer' (Electronic Briefing Book No. 305, 2010) — https://nsarchive2.gwu.edu/nukevault/ebb305/"
+   ],
+   "loop_say": "Still don't believe me?"
+  },
+  {
+   "myth": "azorianB",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "The CIA wanted that sub. Did they get it? Guess.",
+   "want": true,
+   "promise": true,
+   "ask": {
+    "q": "DID THE CIA GET IT?",
+    "choices": [
+     "🚢 ALL OF IT",
+     "🧩 A PIECE",
+     "❌ NOTHING"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.9,
+   "host": {
+    "moves": [
+     "sweat@CIA",
+     "you@Guess"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianB",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I open a new case every day.",
+   "sub": {
+    "at": "Subscribe"
+   },
+   "shots": [
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg",
+     "board": {
+      "notes": [
+       "1974",
+       "3 MILES DOWN",
+       "TOP SECRET"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "myth": "azorianB",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in 1968, a Soviet sub, K-129, sank with ninety-eight men.",
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "K-129\n1968",
+    "at": "Soviet"
+   },
+   "shots": [
+    {
+     "photo": "Soviet submarine K-129 (CIA photo)",
+     "obs": "wm:Soviet_ballistic_missile_submarine_K-129.jpg"
+    },
+    {
+     "photo": "Thunderstorm at night (NOAA)",
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3",
+     "at": "sank"
+    }
+   ]
+  },
+  {
+   "myth": "azorianB",
+   "pose": "shock",
+   "act": "shake",
+   "say": "It carried three nuclear missiles. And the Soviets couldn't find it.",
+   "punch": "nuclear",
+   "shots": [
+    {
+     "photo": "Soviet submarine K-129 (CIA photo)",
+     "obs": "wm:Soviet_ballistic_missile_submarine_K-129.jpg"
+    },
+    {
+     "photo": "Thunderstorm at night (NOAA)",
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3",
+     "at": "find"
+    }
+   ]
+  },
+  {
+   "myth": "azorianB",
+   "pose": "point",
+   "act": "stand",
+   "say": "The Americans could. A US spy sub photographed the wreck.",
+   "resolves": true,
+   "shots": [
+    {
+     "photo": "K-129 recovery site map",
+     "obs": "wm:K129_HGE_recoverysite.png"
+    },
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg",
+     "at": "photographed"
+    }
+   ]
+  },
+  {
+   "myth": "azorianB",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Problem: it was three miles down. So how do you grab it?",
+   "opens": true,
+   "label": {
+    "text": "16,500 FT",
+    "at": "three"
+   },
+   "host": {
+    "moves": [
+     "lean@grab"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianB",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: divers. They'd be crushed flat.",
+   "decoy": true,
+   "sfx": [
+    "crunch@crushed"
+   ],
+   "shots": [
+    {
+     "photo": "Thunderstorm at night (NOAA)",
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3"
+    }
+   ]
+  },
+  {
+   "myth": "azorianB",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Guess two: ask Moscow nicely. It's the Cold War. No.",
+   "decoy": true,
+   "shots": [
+    {
+     "photo": "Soviet submarine K-129 (CIA photo)",
+     "obs": "wm:Soviet_ballistic_missile_submarine_K-129.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianB",
+   "pose": "think",
+   "act": "run_in",
+   "say": "So the CIA built a giant ship. But it needed a cover story.",
+   "step": 1,
+   "opens": true,
+   "shots": [
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianB",
+   "pose": "point",
+   "act": "stand",
+   "say": "Enter Howard Hughes. The billionaire said it was his ship, mining rocks.",
+   "resolves": true,
+   "punch": "Hughes",
+   "host": {
+    "moves": [
+     "psst@billionaire"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Howard Hughes, 1938",
+     "obs": "wm:Howard_Hughes_1938.jpg"
+    },
+    {
+     "photo": "Manganese nodule from the cover story (CIA)",
+     "obs": "wm:Glomar_Manganese_Nodule_Encased_in_Lucite.jpg",
+     "at": "mining"
+    }
+   ]
+  },
+  {
+   "myth": "azorianB",
+   "pose": "shock",
+   "act": "stand",
+   "say": "But this mining ship had a secret pool in its belly.",
+   "opens": true,
+   "label": {
+    "text": "MOON\nPOOL",
+    "at": "pool"
+   },
+   "shots": [
+    {
+     "photo": "Glomar Explorer in Suisun Bay (USGS)",
+     "obs": "wm:Glomar_Explorer_Suisun_Bay_CA.jpg"
+    },
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg",
+     "at": "belly"
+    }
+   ]
+  },
+  {
+   "myth": "azorianB",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Hidden inside was the claw. The crew called it Clementine.",
+   "step": 2,
+   "punch": "claw",
+   "sfx": [
+    "whoosh@claw"
+   ],
+   "shots": [
+    {
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianB",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Summer 1974. They lowered it three miles, one pipe at a time.",
+   "shots": [
+    {
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
+    },
+    {
+     "photo": "K-129 recovery site map",
+     "obs": "wm:K129_HGE_recoverysite.png",
+     "at": "pipe"
+    }
+   ]
+  },
+  {
+   "myth": "azorianB",
+   "pose": "point",
+   "act": "stand",
+   "say": "The claw closed around the sub, and it started to rise.",
+   "resolves": true,
+   "host": {
+    "moves": [
+     "you@closed",
+     "lean@rise"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianB",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "Then, on the way up, part of the claw broke. Most of the sub fell back.",
+   "step": 3,
+   "opens": true,
+   "act_at": "broke",
+   "jeopardy": true,
+   "sfx": [
+    "thud@broke"
+   ],
+   "dark": true,
+   "shots": [
+    {
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
+    },
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg",
+     "at": "fell"
+    }
+   ]
+  },
+  {
+   "myth": "azorianB",
+   "pose": "point",
+   "act": "stand",
+   "say": "Verdict: they got a piece. A chunk of a Soviet nuclear sub, stolen.",
+   "payoff": true,
+   "resolves": true,
+   "stamp": {
+    "text": "PROVEN",
+    "at": "piece"
+   },
+   "shots": [
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg"
+    },
+    {
+     "photo": "Glomar Explorer patch (CIA)",
+     "obs": "wm:Glomar_Patch.jpg",
+     "at": "stolen"
+    }
+   ]
+  },
+  {
+   "myth": "azorianB",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "And inside it? Six Soviet sailors.",
+   "opens": true,
+   "host": {
+    "moves": [
+     "psst@inside"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Project AZORIAN artifacts (CIA)",
+     "obs": "wm:Sherman_Wetmore_poses_next_to_a_collection_of_Project_AZORIAN_artifacts_on_display.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianB",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The CIA buried them at sea, with honors.",
+   "shots": [
+    {
+     "photo": "Thunderstorm at night (NOAA)",
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3"
+    }
+   ]
+  },
+  {
+   "myth": "azorianB",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The ship sailed home. Nobody knew. Everything was fine.",
+   "calm": true,
+   "host": {
+    "moves": [
+     "shrug@fine"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Glomar Explorer in Suisun Bay (USGS)",
+     "obs": "wm:Glomar_Explorer_Suisun_Bay_CA.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianB",
+   "pose": "shock",
+   "act": "run_across",
+   "say": "Until 1975, when a newspaper got the story.",
+   "drop": true,
+   "step": 4,
+   "act_at": "newspaper",
+   "sfx": [
+    "whoosh@newspaper"
+   ],
+   "label": {
+    "text": "LEAKED",
+    "at": "newspaper"
+   },
+   "shots": [
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianB",
+   "pose": "think",
+   "act": "stand",
+   "say": "A reporter asked the CIA what the ship was for. The answer?",
+   "opens": true,
+   "shots": [
+    {
+     "photo": "Glomar Explorer patch (CIA)",
+     "obs": "wm:Glomar_Patch.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianB",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "We can neither confirm nor deny.",
+   "resolves": true,
+   "punch": "deny",
+   "label": {
+    "text": "NEITHER CONFIRM\nNOR DENY",
+    "at": "neither"
+   },
+   "shots": [
+    {
+     "photo": "Glomar Explorer patch (CIA)",
+     "obs": "wm:Glomar_Patch.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianB",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   },
+   "host": {
+    "moves": [
+     "you@Comment"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianB",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "That non-answer is named after the fake ship. A Glomar response. Governments still use it today.",
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "Glomar",
+   "shots": [
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianC",
+   "_len": "story",
+   "pose": "think",
+   "act": "shake",
+   "say": "What if I told you Howard Hughes helped the CIA steal a Soviet submarine with nuclear missiles on board?",
+   "cold_open": "claim",
+   "shots": [
+    {
+     "photo": "Howard Hughes, 1938",
+     "obs": "wm:Howard_Hughes_1938.jpg"
+    },
+    {
+     "photo": "Soviet submarine K-129 (CIA photo)",
+     "obs": "wm:Soviet_ballistic_missile_submarine_K-129.jpg",
+     "at": "steal"
+    }
+   ],
+   "hook": true,
+   "headline": "HUGHES + THE CIA?",
+   "headline_s": 2.2,
+   "theme": "cold-war",
+   "case": "CASE #8",
+   "hook_variant": "C",
+   "short_title": "The CIA Stole a Soviet Nuclear Sub 🔍 Case #8",
+   "comment": "Did the CIA get the sub? 🚢 all of it / 🧩 a piece / ❌ nothing",
+   "bonus": "Project Azorian (1974): the CIA's Hughes Glomar Explorer, sold to the world as Howard Hughes's deep-sea mining ship, lifted part of the sunken Soviet missile submarine K-129 from about 16,500 feet down. It cost about $800 million. Asked about the ship, the CIA would 'neither confirm nor deny', now called a Glomar response.",
+   "caption": "Project Azorian: the CIA's secret plan to steal a Soviet submarine. Did they get it? 🚢 all of it / 🧩 a piece / ❌ nothing #projectazorian #coldwar #cia #declassified #meatballinvestigates Follow Meatball for a new case every day 🍝",
+   "tags": [
+    "project azorian",
+    "glomar explorer",
+    "glomar response",
+    "k-129",
+    "cia",
+    "cold war secrets",
+    "Meatball Investigates"
+   ],
+   "sources": [
+    "Wikipedia, Project Azorian: 1974 CIA recovery of part of Soviet submarine K-129 from about 16,500 ft (5,000 m) with the Hughes Glomar Explorer; Howard Hughes's Summa Corporation fronted the ship as a deep-sea manganese-nodule mining venture; the capture vehicle (nicknamed Clementine) was lowered on a pipe string through the ship's moon pool in July-August 1974; part of the grapple failed during the lift and most of the section broke away; a forward section was recovered with the remains of six Soviet sailors, buried at sea with honors in September 1974 (filmed; the film was given to Russia in 1992); the Los Angeles Times broke the story in February 1975; total cost about US$800 million — https://en.wikipedia.org/wiki/Project_Azorian (checked 2026-10-26)",
+    "Wikipedia, Soviet submarine K-129 (1959): Golf II-class diesel-electric ballistic missile submarine, sank in the North Pacific in March 1968 with all 98 crew; carried three R-21 nuclear-armed ballistic missiles (plus nuclear torpedoes); the Soviet search failed; the US located it with SOSUS data and USS Halibut photographed the wreck — https://en.wikipedia.org/wiki/Soviet_submarine_K-129_(1960)",
+    "Wikipedia, Glomar response: 'we can neither confirm nor deny', the CIA's answer to journalist Harriet Ann Phillippi's FOIA request about the Glomar Explorer (Phillippi v. CIA, D.C. Cir. 1976); the term is still used for such answers by US agencies and others today — https://en.wikipedia.org/wiki/Glomar_response",
+    "CIA, 'Project AZORIAN' (CIA Museum exhibit and declassified history, 2010) — https://www.cia.gov/legacy/museum/exhibit/project-azorian/",
+    "National Security Archive (George Washington University), 'Project Azorian: The CIA's Declassified History of the Glomar Explorer' (Electronic Briefing Book No. 305, 2010) — https://nsarchive2.gwu.edu/nukevault/ebb305/"
+   ],
+   "loop_say": "So, one more time."
+  },
+  {
+   "myth": "azorianC",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "The CIA wanted that sub. Did they get it? Guess.",
+   "want": true,
+   "promise": true,
+   "ask": {
+    "q": "DID THE CIA GET IT?",
+    "choices": [
+     "🚢 ALL OF IT",
+     "🧩 A PIECE",
+     "❌ NOTHING"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.9,
+   "host": {
+    "moves": [
+     "sweat@CIA",
+     "you@Guess"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianC",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I open a new case every day.",
+   "sub": {
+    "at": "Subscribe"
+   },
+   "shots": [
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg",
+     "board": {
+      "notes": [
+       "1974",
+       "3 MILES DOWN",
+       "TOP SECRET"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "myth": "azorianC",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in 1968, a Soviet sub, K-129, sank with ninety-eight men.",
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "K-129\n1968",
+    "at": "Soviet"
+   },
+   "shots": [
+    {
+     "photo": "Soviet submarine K-129 (CIA photo)",
+     "obs": "wm:Soviet_ballistic_missile_submarine_K-129.jpg"
+    },
+    {
+     "photo": "Thunderstorm at night (NOAA)",
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3",
+     "at": "sank"
+    }
+   ]
+  },
+  {
+   "myth": "azorianC",
+   "pose": "shock",
+   "act": "shake",
+   "say": "It carried three nuclear missiles. And the Soviets couldn't find it.",
+   "punch": "nuclear",
+   "shots": [
+    {
+     "photo": "Soviet submarine K-129 (CIA photo)",
+     "obs": "wm:Soviet_ballistic_missile_submarine_K-129.jpg"
+    },
+    {
+     "photo": "Thunderstorm at night (NOAA)",
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3",
+     "at": "find"
+    }
+   ]
+  },
+  {
+   "myth": "azorianC",
+   "pose": "point",
+   "act": "stand",
+   "say": "The Americans could. A US spy sub photographed the wreck.",
+   "resolves": true,
+   "shots": [
+    {
+     "photo": "K-129 recovery site map",
+     "obs": "wm:K129_HGE_recoverysite.png"
+    },
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg",
+     "at": "photographed"
+    }
+   ]
+  },
+  {
+   "myth": "azorianC",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Problem: it was three miles down. So how do you grab it?",
+   "opens": true,
+   "label": {
+    "text": "16,500 FT",
+    "at": "three"
+   },
+   "host": {
+    "moves": [
+     "lean@grab"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianC",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: divers. They'd be crushed flat.",
+   "decoy": true,
+   "sfx": [
+    "crunch@crushed"
+   ],
+   "shots": [
+    {
+     "photo": "Thunderstorm at night (NOAA)",
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3"
+    }
+   ]
+  },
+  {
+   "myth": "azorianC",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Guess two: ask Moscow nicely. It's the Cold War. No.",
+   "decoy": true,
+   "shots": [
+    {
+     "photo": "Soviet submarine K-129 (CIA photo)",
+     "obs": "wm:Soviet_ballistic_missile_submarine_K-129.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianC",
+   "pose": "think",
+   "act": "run_in",
+   "say": "So the CIA built a giant ship. But it needed a cover story.",
+   "step": 1,
+   "opens": true,
+   "shots": [
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianC",
+   "pose": "point",
+   "act": "stand",
+   "say": "Enter Howard Hughes. The billionaire said it was his ship, mining rocks.",
+   "resolves": true,
+   "punch": "Hughes",
+   "host": {
+    "moves": [
+     "psst@billionaire"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Howard Hughes, 1938",
+     "obs": "wm:Howard_Hughes_1938.jpg"
+    },
+    {
+     "photo": "Manganese nodule from the cover story (CIA)",
+     "obs": "wm:Glomar_Manganese_Nodule_Encased_in_Lucite.jpg",
+     "at": "mining"
+    }
+   ]
+  },
+  {
+   "myth": "azorianC",
+   "pose": "shock",
+   "act": "stand",
+   "say": "But this mining ship had a secret pool in its belly.",
+   "opens": true,
+   "label": {
+    "text": "MOON\nPOOL",
+    "at": "pool"
+   },
+   "shots": [
+    {
+     "photo": "Glomar Explorer in Suisun Bay (USGS)",
+     "obs": "wm:Glomar_Explorer_Suisun_Bay_CA.jpg"
+    },
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg",
+     "at": "belly"
+    }
+   ]
+  },
+  {
+   "myth": "azorianC",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "Hidden inside was the claw. The crew called it Clementine.",
+   "step": 2,
+   "punch": "claw",
+   "sfx": [
+    "whoosh@claw"
+   ],
+   "shots": [
+    {
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianC",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Summer 1974. They lowered it three miles, one pipe at a time.",
+   "shots": [
+    {
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
+    },
+    {
+     "photo": "K-129 recovery site map",
+     "obs": "wm:K129_HGE_recoverysite.png",
+     "at": "pipe"
+    }
+   ]
+  },
+  {
+   "myth": "azorianC",
+   "pose": "point",
+   "act": "stand",
+   "say": "The claw closed around the sub, and it started to rise.",
+   "resolves": true,
+   "host": {
+    "moves": [
+     "you@closed",
+     "lean@rise"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianC",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "Then, on the way up, part of the claw broke. Most of the sub fell back.",
+   "step": 3,
+   "opens": true,
+   "act_at": "broke",
+   "jeopardy": true,
+   "sfx": [
+    "thud@broke"
+   ],
+   "dark": true,
+   "shots": [
+    {
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
+    },
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg",
+     "at": "fell"
+    }
+   ]
+  },
+  {
+   "myth": "azorianC",
+   "pose": "point",
+   "act": "stand",
+   "say": "Verdict: they got a piece. A chunk of a Soviet nuclear sub, stolen.",
+   "payoff": true,
+   "resolves": true,
+   "stamp": {
+    "text": "PROVEN",
+    "at": "piece"
+   },
+   "shots": [
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg"
+    },
+    {
+     "photo": "Glomar Explorer patch (CIA)",
+     "obs": "wm:Glomar_Patch.jpg",
+     "at": "stolen"
+    }
+   ]
+  },
+  {
+   "myth": "azorianC",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "And inside it? Six Soviet sailors.",
+   "opens": true,
+   "host": {
+    "moves": [
+     "psst@inside"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Project AZORIAN artifacts (CIA)",
+     "obs": "wm:Sherman_Wetmore_poses_next_to_a_collection_of_Project_AZORIAN_artifacts_on_display.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianC",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The CIA buried them at sea, with honors.",
+   "shots": [
+    {
+     "photo": "Thunderstorm at night (NOAA)",
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3"
+    }
+   ]
+  },
+  {
+   "myth": "azorianC",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The ship sailed home. Nobody knew. Everything was fine.",
+   "calm": true,
+   "host": {
+    "moves": [
+     "shrug@fine"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Glomar Explorer in Suisun Bay (USGS)",
+     "obs": "wm:Glomar_Explorer_Suisun_Bay_CA.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianC",
+   "pose": "shock",
+   "act": "run_across",
+   "say": "Until 1975, when a newspaper got the story.",
+   "drop": true,
+   "step": 4,
+   "act_at": "newspaper",
+   "sfx": [
+    "whoosh@newspaper"
+   ],
+   "label": {
+    "text": "LEAKED",
+    "at": "newspaper"
+   },
+   "shots": [
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianC",
+   "pose": "think",
+   "act": "stand",
+   "say": "A reporter asked the CIA what the ship was for. The answer?",
+   "opens": true,
+   "shots": [
+    {
+     "photo": "Glomar Explorer patch (CIA)",
+     "obs": "wm:Glomar_Patch.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianC",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "We can neither confirm nor deny.",
+   "resolves": true,
+   "punch": "deny",
+   "label": {
+    "text": "NEITHER CONFIRM\nNOR DENY",
+    "at": "neither"
+   },
+   "shots": [
+    {
+     "photo": "Glomar Explorer patch (CIA)",
+     "obs": "wm:Glomar_Patch.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianC",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   },
+   "host": {
+    "moves": [
+     "you@Comment"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianC",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "That non-answer is named after the fake ship. A Glomar response. Governments still use it today.",
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "Glomar",
+   "shots": [
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
+    }
+   ]
+  }
+ ]
+}
