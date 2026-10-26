@@ -19,6 +19,16 @@ Until the reset:
 - Never buy credits.
 - Free alternatives: Metricool analytics (YouTube and TikTok), yt-dlp metadata and comments from public videos, web search.
 
+
+## House opening: the "What if I told you" challenge (Nolan, 2026-10-26)
+Nolan picked opening C ("What if I told you Howard Hughes helped the CIA steal a Soviet submarine, nuclear
+missiles and all?") "by far" over a scene open (A) and a proof open (B). TARS also bet on C (45%).
+- Default for Story Cuts and case TikToks: line 1 is "What if I told you [famous name or everyday thing] + [true
+  claim that sounds impossible]?"
+- It must be 100% true as stated; use it only for verified-real cases. Hoaxes and myths keep the scene open.
+- Line 2 confirms and raises the stakes ("It's real..."). It must not repeat line 1.
+- The hook lab keeps checking C against the TikTok Studio numbers (3 s hold, average watch). Data can overrule it.
+
 ## Goal ladder (money)
 | Stage | Target | Unlocks |
 |---|---|---|
