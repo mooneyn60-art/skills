@@ -17,7 +17,7 @@
    "myth": "iceworm",
    "pose": "nervous",
    "act": "shake",
-   "say": "Soldiers dug a town inside the Greenland ice, and ran it on a nuclear reactor.",
+   "say": "A town under Greenland's ice ran on a nuclear reactor.",
    "shots": [
     {
      "photo": "Greenland ice sheet",
@@ -60,7 +60,7 @@
    "myth": "iceworm",
    "pose": "think",
    "act": "stand",
-   "say": "Science camp, or missile base? Guess.",
+   "say": "Science, or nukes? Guess.",
    "shots": [
     {
      "photo": "Glacial canyon, northern Greenland (NASA)",
@@ -103,7 +103,7 @@
    "myth": "iceworm",
    "pose": "think",
    "act": "run_in",
-   "say": "See, in 1959, they called it a science camp.",
+   "say": "See, in 1959, it was a science camp.",
    "shots": [
     {
      "photo": "Ice tunnel",
@@ -123,7 +123,7 @@
    "myth": "iceworm",
    "pose": "shock",
    "act": "tumble",
-   "say": "Wait, it gets worse. Six hundred nuclear missiles.",
+   "say": "Wait, it gets worse. Six hundred nukes.",
    "shots": [
     {
      "photo": "Titan missile",
@@ -132,7 +132,7 @@
     {
      "photo": "Nuclear missile silo",
      "obs": "ov:fad40dd3-4fa8-4b73-89d7-8c36d506af65",
-     "at": "missiles"
+     "at": "nukes"
     }
    ],
    "act_at": "Six",
@@ -142,14 +142,14 @@
    "twist": true,
    "label": {
     "text": "600 MISSILES",
-    "at": "missiles"
+    "at": "nukes"
    }
   },
   {
    "myth": "iceworm",
    "pose": "nervous",
    "act": "shake",
-   "say": "It's freezing in here. I'm a hot meatball. Bad mix.",
+   "say": "It's freezing. I'm sauce. Bad mix.",
    "shots": [
     {
      "photo": "Ice tunnel",
@@ -165,7 +165,7 @@
    "myth": "iceworm",
    "pose": "point",
    "act": "stand",
-   "say": "Verdict: real. The ice moved, and the plan died.",
+   "say": "Verdict: real. The ice won.",
    "shots": [
     {
      "photo": "Jakobshavn calving front (NASA)",
@@ -174,7 +174,7 @@
     {
      "photo": "Glacial canyon, northern Greenland (NASA)",
      "obs": "ov:8bfe0d48-42e2-42e7-aa7e-ee45be4bcf27",
-     "at": "died"
+     "at": "won"
     }
    ],
    "stamp": {
@@ -186,7 +186,7 @@
    "myth": "iceworm",
    "pose": "deadpan",
    "act": "stand",
-   "say": "The waste is still under the ice. Waiting for it to melt.",
+   "say": "Its waste is still in the ice.",
    "shots": [
     {
      "photo": "Greenland meltpond (NASA)",
@@ -195,7 +195,7 @@
    ],
    "kicker": true,
    "hold": 0.25,
-   "punch": "melt"
+   "punch": "ice"
   },
   {
    "myth": "icewormdeep",
@@ -502,7 +502,7 @@
    "myth": "mike",
    "pose": "nervous",
    "act": "shake",
-   "say": "A farmer swung the axe at a rooster, and the rooster walked away.",
+   "say": "A farmer swung an axe, and the rooster walked away.",
    "shots": [
     {
      "photo": "Silver-laced Wyandotte rooster",
@@ -634,7 +634,7 @@
    "myth": "mike",
    "pose": "nervous",
    "act": "shake",
-   "say": "I'm keeping my head on. Both hands.",
+   "say": "I'm holding my head on. Both hands.",
    "shots": [
     {
      "photo": "Chopping block",
@@ -650,7 +650,7 @@
    "myth": "mike",
    "pose": "point",
    "act": "stand",
-   "say": "Verdict: true. Most of his brain stem was left.",
+   "say": "Verdict: true. His brain stem survived.",
    "shots": [
     {
      "photo": "Rooster",
@@ -1167,7 +1167,7 @@
    "myth": "kola",
    "pose": "nervous",
    "act": "shake",
-   "say": "Soviet scientists drilled seven miles into the Earth, and a story said they heard screams.",
+   "say": "Soviet scientists drilled seven miles down, and a story said they heard screams.",
    "shots": [
     {
      "photo": "Soviet stamp of the Kola Superdeep Borehole (1987)",
@@ -1202,7 +1202,7 @@
     "Wikipedia, Kola Superdeep Borehole: SG-3 reached 12,262 m (40,230 ft) in 1989; drilling stopped at about 180 °C; drilling ended 1995; the borehole is welded shut — https://en.wikipedia.org/wiki/Kola_Superdeep_Borehole (checked 2026-10-26)",
     "Snopes, 'Well to Hell' (the screams story traced to 1989-90 broadcasts and newsletters, with no source in the project's records) — https://www.snopes.com/fact-check/well-to-hell/"
    ],
-   "loop_say": "Don't dig too deep. Because",
+   "loop_say": "Don't dig deeper. Because",
    "punch": "screams",
    "cold_open": "scene",
    "sfx": [
@@ -1256,7 +1256,7 @@
    "myth": "kola",
    "pose": "think",
    "act": "run_in",
-   "say": "See, in 1989, they hit twelve kilometers. A world record.",
+   "say": "See, in 1989, they hit twelve kilometers.",
    "shots": [
     {
      "photo": "Soviet stamp of the Kola Superdeep Borehole (1987)",
@@ -1276,7 +1276,7 @@
    "myth": "kola",
    "pose": "shock",
    "act": "tumble",
-   "say": "Wait, it gets hotter. Down there, the rock hit 180 degrees.",
+   "say": "Wait, it gets hotter. The rock hit 180 degrees.",
    "shots": [
     {
      "photo": "Granite from the Kola region",
@@ -1290,7 +1290,7 @@
    "twist": true,
    "label": {
     "text": "180°C",
-    "at": "180"
+    "at": "degrees"
    }
   },
   {
@@ -1313,7 +1313,7 @@
    "myth": "kola",
    "pose": "point",
    "act": "stand",
-   "say": "Verdict: busted. No scientist ever recorded screams.",
+   "say": "Verdict: busted. No recorded screams.",
    "shots": [
     {
      "photo": "Teriberka, Kola Peninsula",
@@ -1322,7 +1322,7 @@
     {
      "photo": "Soviet stamp of the Kola Superdeep Borehole (1987)",
      "obs": "wm:1987_CPA_5892.jpg",
-     "at": "scientist"
+     "at": "recorded"
     }
    ],
    "stamp": {
@@ -1334,7 +1334,7 @@
    "myth": "kola",
    "pose": "deadpan",
    "act": "stand",
-   "say": "The deepest hole on Earth? Welded shut under a rusty cap.",
+   "say": "The deepest hole on Earth? Welded shut.",
    "shots": [
     {
      "photo": "Rusty metal cover",
@@ -1343,13 +1343,13 @@
    ],
    "kicker": true,
    "hold": 0.25,
-   "punch": "cap"
+   "punch": "shut"
   },
   {
    "myth": "mkultra",
    "pose": "nervous",
    "act": "shake",
-   "say": "The CIA's director ordered the files destroyed, and twenty thousand pages survived anyway.",
+   "say": "The CIA ordered its files destroyed. Twenty thousand pages survived.",
    "shots": [
     {
      "photo": "Declassified MKUltra document (CIA)",
@@ -1392,7 +1392,7 @@
    "myth": "mkultra",
    "pose": "think",
    "act": "stand",
-   "say": "Real program, or myth? Guess.",
+   "say": "Real, or myth? Guess.",
    "shots": [
     {
      "photo": "CIA headquarters, Langley (Carol M. Highsmith)",
@@ -1435,7 +1435,7 @@
    "myth": "mkultra",
    "pose": "think",
    "act": "run_in",
-   "say": "See, in 1953, the CIA wanted to control minds.",
+   "say": "See, in 1953, the CIA wanted mind control.",
    "shots": [
     {
      "photo": "Sidney Gottlieb (US government photo)",
@@ -1444,7 +1444,7 @@
     {
      "photo": "CIA headquarters, Langley (Carol M. Highsmith)",
      "obs": "wm:Aerial_view_of_the_Central_Intelligence_Agency_headquarters,_Langley,_Virginia_-_Corrected_and_Cropped.jpg",
-     "at": "minds"
+     "at": "control"
     }
    ],
    "sfx": [
@@ -1455,7 +1455,7 @@
    "myth": "mkultra",
    "pose": "shock",
    "act": "tumble",
-   "say": "Wait, it gets worse. Some test subjects never knew.",
+   "say": "Wait, it gets worse. Some subjects never knew.",
    "shots": [
     {
      "photo": "Declassified MKUltra document (CIA)",
@@ -1477,7 +1477,7 @@
    "myth": "mkultra",
    "pose": "nervous",
    "act": "shake",
-   "say": "I'm not drinking anything they hand me.",
+   "say": "Not drinking anything here.",
    "shots": [
     {
      "photo": "Helms letter (CIA)",
@@ -1490,7 +1490,7 @@
    "myth": "mkultra",
    "pose": "point",
    "act": "stand",
-   "say": "Verdict: MKUltra was real. Congress heard it in 1977.",
+   "say": "Verdict: real. Congress heard it.",
    "shots": [
     {
      "photo": "Senator Frank Church",
@@ -1511,7 +1511,7 @@
    "myth": "mkultra",
    "pose": "deadpan",
    "act": "stand",
-   "say": "The files survived because someone filed them under money.",
+   "say": "Saved by a filing mistake. Under money.",
    "shots": [
     {
      "photo": "Archive filing cabinets",
@@ -1815,7 +1815,7 @@
    "myth": "laughter",
    "pose": "nervous",
    "act": "shake",
-   "say": "Three schoolgirls started laughing, and they couldn't stop.",
+   "say": "Three schoolgirls started laughing, and couldn't stop.",
    "shots": [
     {
      "photo": "Sunset on Lake Victoria",
@@ -1858,7 +1858,7 @@
    "myth": "laughter",
    "pose": "think",
    "act": "stand",
-   "say": "A virus, or the mind? Guess.",
+   "say": "Virus, or the mind? Guess.",
    "shots": [
     {
      "photo": "Lake Victoria from the air",
@@ -1901,7 +1901,7 @@
    "myth": "laughter",
    "pose": "think",
    "act": "run_in",
-   "say": "See, in 1962, it spread through the whole school.",
+   "say": "See, in 1962, it spread through the school.",
    "shots": [
     {
      "photo": "Bukoba, Tanzania",
@@ -1984,7 +1984,7 @@
    "myth": "laughter",
    "pose": "deadpan",
    "act": "stand",
-   "say": "The cure was the hardest part. Closing the schools.",
+   "say": "The cure? Closing the schools.",
    "shots": [
     {
      "photo": "Bukoba, Tanzania",
