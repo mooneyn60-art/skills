@@ -1,0 +1,424 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+0%",
+ "short_rate": "+0%",
+ "tempo": 1.1,
+ "music": "music/quiz-bed.m4a",
+ "style": "v4",
+ "title": "TikTok deep cuts: animals 01 (61-75 s, Creator Rewards)",
+ "captions": "bold",
+ "max_shot": 1.8,
+ "short_hashtags": "#animalfacts #meatballmyths",
+ "photo_source": "iNaturalist (research-grade, CC0/CC BY)",
+ "_note": "TikTok Money desk 2026-10-26: deep (61-75 s) versions of queued sub-60 s animal TikToks, which earn $0 under Creator Rewards. Each: mid-action past-tense open with a frame-0 headline, 'See, in...' rewind, promise + 2 decoys + payoff at 50-70%, ironic kicker; theme 'animals'; early ask kit (guess card ~3-6 s, subscribe pill ~6-10 s, reminder before the kicker); host beats about every 15 s; one Fork. Photos are the licence-checked iNaturalist research-grade CC0/CC BY pictures of the original pack (whole animal). Facts re-checked 10/26; sources on each hook beat. Rendered one myth at a time into episodes/tt-deep-01/tt-<myth>.mp4.",
+ "beats": [
+  {
+   "myth": "ironclad",
+   "_len": "deep",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A scientist drove a car right over a tiny beetle. It got up and walked away.",
+   "headline": "RUN OVER. FINE.",
+   "headline_s": 2.2,
+   "theme": "animals",
+   "hook": true,
+   "punch": "walked",
+   "sfx": [
+    "crunch@over"
+   ],
+   "shots": [
+    {
+     "photo": "Phloeodes diabolicus",
+     "obs": 341007194,
+     "crop": [
+      0.313,
+      0.0,
+      0.687,
+      1.0
+     ]
+    },
+    {
+     "photo": "Phloeodes diabolicus",
+     "obs": 64982710,
+     "crop": [
+      0.125,
+      0.0,
+      0.875,
+      1.0
+     ],
+     "at": "walked"
+    }
+   ],
+   "loop_say": "Don't test it on me. Because",
+   "short_title": "This Beetle Survives Being Run Over by a Car 🪲",
+   "comment": "What would you make uncrushable? 🪲 phone / 🚗 car / 🍝 me",
+   "bonus": "The diabolical ironclad beetle's shell takes about 39,000 times its body weight; its wing cases lock together with jigsaw-like joints.",
+   "caption": "Beetle that survives being run over by a car: the diabolical ironclad beetle. How did it survive? 🛡️ thick shell / 🧩 something else? #beetle #animalfacts #insects #science Follow Meatball for more 🍝",
+   "sources": [
+    "Rivera et al. 2020, Nature 586: 543-548, 'Toughening mechanisms of the elytra of the diabolical ironclad beetle': exoskeleton withstands ~149 N (~39,000x body weight); fused elytra joined by interlocking jigsaw-like blades that delaminate gradually instead of snapping — https://doi.org/10.1038/s41586-020-2813-8",
+    "CNN 2020-10-21: the team ran one over with a Toyota Camry and it survived; inspiration for tougher fasteners for aircraft — https://edition.cnn.com/2020/10/21/world/beetle-engineering-intl-scli-scn",
+    "Purdue University news 2020: lives under the bark of trees in western North America, eats fungus, can't fly (fused wing cases); entomologists need a drill to pin specimens — https://www.purdue.edu/newsroom/releases/2020/Q4/diabolical-ironclad-beetles-are-nearly-uncrushable.-heres-why.html"
+   ]
+  },
+  {
+   "myth": "ironclad",
+   "pose": "think",
+   "act": "stand",
+   "say": "How did it survive? Guess before I tell you.",
+   "ask": {
+    "q": "HOW DID IT SURVIVE?",
+    "choices": [
+     "🛡️ THICK SHELL",
+     "🧩 SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Phloeodes diabolicus",
+     "obs": 195627886,
+     "crop": [
+      0.217,
+      0.05,
+      0.783,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ironclad",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "sub": {
+    "at": "Subscribe"
+   },
+   "shots": [
+    {
+     "photo": "Phloeodes diabolicus",
+     "obs": 167733956,
+     "crop": [
+      0.302,
+      0.15,
+      0.598,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ironclad",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in 2020, scientists in California tested the diabolical ironclad beetle.",
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "DIABOLICAL\nIRONCLAD",
+    "at": "diabolical"
+   },
+   "shots": [
+    {
+     "photo": "Phloeodes diabolicus",
+     "obs": 300320562,
+     "crop": [
+      0.025,
+      0.0,
+      0.775,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ironclad",
+   "pose": "shock",
+   "act": "stand",
+   "say": "They pressed on it until it broke. It took about 39,000 times its own weight.",
+   "label": {
+    "text": "39,000x",
+    "at": "39,000"
+   },
+   "sfx": [
+    "scratch@39,000"
+   ],
+   "shots": [
+    {
+     "photo": "Phloeodes diabolicus",
+     "obs": 167733956,
+     "crop": [
+      0.302,
+      0.15,
+      0.598,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ironclad",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "That's like me holding up a cruise ship. I can't hold up a plate.",
+   "punch": "plate",
+   "shots": [
+    {
+     "photo": "Phloeodes diabolicus",
+     "obs": 3392685,
+     "crop": [
+      0.341,
+      0.1,
+      0.659,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ironclad",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: its shell is just super thick. Nope. Thickness alone doesn't explain it.",
+   "decoy": true,
+   "label": {
+    "text": "THICK?",
+    "at": "thick"
+   },
+   "shots": [
+    {
+     "photo": "Phloeodes diabolicus",
+     "obs": 262226429,
+     "crop": [
+      0.163,
+      0.05,
+      0.837,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ironclad",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: it hides in metal. Also no. It lives under tree bark and eats fungus.",
+   "decoy": true,
+   "label": {
+    "text": "FUNGUS",
+    "at": "fungus"
+   },
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Phloeodes diabolicus",
+     "obs": 50020032,
+     "crop": [
+      0.22,
+      0.15,
+      0.48,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ironclad",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I lay down next to it and let them press on me. Crumbs everywhere.",
+   "act_at": "Crumbs",
+   "sfx": [
+    "crunch@Crumbs"
+   ],
+   "jeopardy": true,
+   "shots": [
+    {
+     "photo": "Phloeodes diabolicus",
+     "obs": 341007194,
+     "crop": [
+      0.313,
+      0.0,
+      0.687,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ironclad",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait, here's the thing. Its wing cases are welded shut. It can't even fly.",
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Phloeodes diabolicus",
+     "obs": 300320562,
+     "crop": [
+      0.025,
+      0.0,
+      0.775,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ironclad",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: down the middle, the two halves lock together like jigsaw puzzle pieces.",
+   "payoff": true,
+   "label": {
+    "text": "JIGSAW\nJOINT",
+    "at": "jigsaw"
+   },
+   "sfx": [
+    "pop@jigsaw"
+   ],
+   "shots": [
+    {
+     "photo": "Phloeodes diabolicus",
+     "obs": 300320562,
+     "crop": [
+      0.025,
+      0.0,
+      0.775,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ironclad",
+   "pose": "shock",
+   "act": "stand",
+   "say": "When something crushes it, the pieces peel apart slowly instead of snapping.",
+   "punch": "slowly",
+   "shots": [
+    {
+     "photo": "Phloeodes diabolicus",
+     "obs": 64982710,
+     "crop": [
+      0.2,
+      0.1,
+      0.8,
+      0.9
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ironclad",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Bug collectors can't push a pin through it. They have to drill a hole first.",
+   "label": {
+    "text": "DRILL\nREQUIRED",
+    "at": "drill"
+   },
+   "host": {
+    "moves": [
+     "lean@drill"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Phloeodes diabolicus",
+     "obs": 195627886,
+     "crop": [
+      0.217,
+      0.05,
+      0.783,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ironclad",
+   "pose": "nervous",
+   "act": "hit",
+   "say": "One fork, and I fall apart.",
+   "sfx": [
+    "tink@fork",
+    "crunch@apart"
+   ],
+   "prop": "fork",
+   "prop_at": "fork",
+   "act_at": "fork",
+   "shots": [
+    {
+     "photo": "Phloeodes diabolicus",
+     "obs": 262226429,
+     "crop": [
+      0.163,
+      0.05,
+      0.837,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ironclad",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   },
+   "shots": [
+    {
+     "photo": "Phloeodes diabolicus",
+     "obs": 167733956,
+     "crop": [
+      0.302,
+      0.15,
+      0.598,
+      0.85
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "ironclad",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Engineers now copy its joints to build tougher airplane parts. From a beetle that eats mold under a log.",
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "log",
+   "shots": [
+    {
+     "photo": "Phloeodes diabolicus",
+     "obs": 341007194,
+     "crop": [
+      0.313,
+      0.0,
+      0.687,
+      1.0
+     ]
+    }
+   ]
+  }
+ ]
+}

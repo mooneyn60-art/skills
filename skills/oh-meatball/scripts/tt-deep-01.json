@@ -1,0 +1,321 @@
+{
+ "style": "v4",
+ "captions": "bold",
+ "series": {
+  "text": "MEATBALL INVESTIGATES",
+  "card": false
+ },
+ "max_shot": 1.8,
+ "music_lufs": -27,
+ "short_hashtags": "#shorts #meatballinvestigates #weirdhistory #mystery #meatballmyths",
+ "photo_source": "Wikimedia Commons, NOAA, NARA, iNaturalist, Openverse",
+ "names": {},
+ "subjects": {
+  "ov:d01b7d32-2ecb-4d3e-855c-0645de9a6681": {
+   "cutout": false,
+   "_why": "the matte picks the radar dome, not the small balloon"
+  }
+ },
+ "title": "TikTok deep cuts 01 (61-75 s, Creator Rewards): weird-pilot cases + animal deep dives",
+ "_note": "TikTok Money desk 2026-10-26: every queued TikTok under 60 s earns $0 (Creator Rewards pays only 60 s+). Each myth here is the 61-75 s deep version of a queued sub-60 s TikTok: mid-action open, 'See, in...' rewind, promise + 2 decoys + payoff/verdict at 50-70%, ironic kicker; theme per hook; early ask kit (guess card ~3-6 s, subscribe pill ~6-10 s); host beats about every 15 s. Photos reuse the licence-checked pictures of the original Shorts (Wikimedia Commons PD/CC0/CC BY; iNaturalist research-grade CC0/CC BY, whole animal). Rendered one myth at a time; saved as episodes/tt-deep-01/tt-<myth>.mp4.",
+ "beats": [
+  {
+   "myth": "roswelldeep",
+   "_len": "deep",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A New Mexico rancher rode out across his ranch, and found shiny wreckage scattered all over the ground.",
+   "shots": [
+    {
+     "photo": "Roswell debris, 1947",
+     "obs": "wm:Marcel-roswell-debris 0.jpg"
+    }
+   ],
+   "hook": true,
+   "headline": "WHAT CRASHED?",
+   "headline_s": 2.2,
+   "theme": "ufo",
+   "case": "CASE #3",
+   "punch": "wreckage",
+   "short_title": "What REALLY Crashed at Roswell? 👽 Case #3",
+   "comment": "What did you think crashed? 👽 aliens / 🎈 balloon",
+   "bonus": "Project Mogul's balloon trains carried microphones to listen for Soviet nuclear tests. The Air Force's reports came out in 1994 and 1997.",
+   "caption": "What really crashed at Roswell in 1947? The cover-up was real. The aliens weren't. What did you guess? 👽 aliens / 🎈 balloon #roswell #ufo #history #meatballinvestigates Follow Meatball for a new case every day 🍝",
+   "sources": [
+    "US Air Force, 'The Roswell Report: Fact vs. Fiction in the New Mexico Desert' (1995) and 'The Roswell Report: Case Closed' (1997): the debris came from Project Mogul, a classified balloon train carrying sensors to detect Soviet nuclear tests; the 'alien body' stories were explained as anthropomorphic test dummies from 1950s high-altitude drops — https://en.wikipedia.org/wiki/Project_Mogul (checked 2026-10-26)",
+    "Wikipedia, Roswell incident (rancher W. W. 'Mac' Brazel found debris in June-July 1947; 8 July 1947 RAAF press release announced a recovered 'flying disc'; the next day Gen. Roger Ramey said it was a weather balloon; interest revived in the late 1970s) — https://en.wikipedia.org/wiki/Roswell_incident"
+   ],
+   "loop_say": "Weirder than aliens. Because"
+  },
+  {
+   "myth": "roswelldeep",
+   "pose": "think",
+   "act": "stand",
+   "say": "Foil, sticks, tape, rubber. So what really crashed? Guess.",
+   "ask": {
+    "q": "WHAT CRASHED?",
+    "choices": [
+     "👽 ALIENS",
+     "🎈 SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.9,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Roswell debris, 1947",
+     "obs": "wm:Ramey-dubose-debris.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "roswelldeep",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I investigate a weird case every day.",
+   "sub": {
+    "at": "Subscribe"
+   },
+   "shots": [
+    {
+     "photo": "Roswell debris, 1947",
+     "obs": "wm:Marcel-roswell-debris 0.jpg",
+     "board": {
+      "notes": [
+       "JULY 1947",
+       "FLYING DISC?"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "myth": "roswelldeep",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in July 1947, the Army base at Roswell put out a press release. They said they'd recovered a flying disc.",
+   "label": {
+    "text": "FLYING\nDISC?",
+    "at": "flying"
+   },
+   "sfx": [
+    "whoosh"
+   ],
+   "shots": [
+    {
+     "photo": "Roswell debris, 1947",
+     "obs": "wm:Ramey-dubose-debris.jpg"
+    },
+    {
+     "photo": "Roswell debris, 1947",
+     "obs": "wm:Marcel-roswell-debris 0.jpg",
+     "at": "flying"
+    }
+   ]
+  },
+  {
+   "myth": "roswelldeep",
+   "pose": "shock",
+   "act": "stand",
+   "say": "The next day, a general posed with the pieces and said, never mind, it's a weather balloon.",
+   "punch": "balloon",
+   "shots": [
+    {
+     "photo": "Roswell debris, 1947",
+     "obs": "wm:Ramey-dubose-debris.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "roswelldeep",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: a flying saucer, and the bodies were hidden. That's what the books said decades later.",
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Area 51 from Tikaboo Peak",
+     "obs": "wm:Area51 Tikaboo Peak 07.2008.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "roswelldeep",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Guess two: a plain weather balloon, exactly what the Army said. That's not it either.",
+   "decoy": true,
+   "shots": [
+    {
+     "photo": "Roswell debris, 1947",
+     "obs": "wm:Marcel-roswell-debris 0.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "roswelldeep",
+   "pose": "shock",
+   "act": "run_across",
+   "say": "So I went to check Area 51 myself. Bad idea. They do not do tours.",
+   "act_at": "Bad",
+   "jeopardy": true,
+   "sfx": [
+    "whoosh@Bad"
+   ],
+   "label": {
+    "text": "HALT!",
+    "at": "Bad"
+   },
+   "shots": [
+    {
+     "photo": "Area 51 from Tikaboo Peak",
+     "obs": "wm:Area51 Tikaboo Peak 07.2008.jpg"
+    },
+    {
+     "photo": "Lockheed U-2",
+     "obs": "wm:Usaf.u2.750pix.jpg",
+     "at": "Bad"
+    }
+   ]
+  },
+  {
+   "myth": "roswelldeep",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait. Here's the weird part. The balloon story was a cover story too.",
+   "dark": true,
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "The Roswell Report: Case Closed",
+     "obs": "wm:The Roswell Report - Case Closed.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "roswelldeep",
+   "pose": "point",
+   "act": "stand",
+   "say": "Verdict: a secret spy balloon. Project Mogul. A long train of balloons carrying microphones, to hear Soviet nuclear tests.",
+   "payoff": true,
+   "stamp": {
+    "text": "ALIENS\nBUSTED",
+    "at": "spy"
+   },
+   "shots": [
+    {
+     "photo": "Project Mogul balloon train",
+     "obs": "wm:Mogul balloon train USAF 1995.png"
+    }
+   ]
+  },
+  {
+   "myth": "roswelldeep",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It was top secret, so nobody could say what it really was. For decades.",
+   "label": {
+    "text": "TOP\nSECRET",
+    "at": "secret"
+   },
+   "shots": [
+    {
+     "photo": "Project Mogul balloon train",
+     "obs": "wm:Mogul balloon train USAF 1995.png"
+    }
+   ]
+  },
+  {
+   "myth": "roswelldeep",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The Air Force finally explained it in 1994. Then came the alien bodies.",
+   "host": {
+    "moves": [
+     "lean@bodies"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "The Roswell Report: Case Closed",
+     "obs": "wm:The Roswell Report - Case Closed.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "roswelldeep",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "Their answer? Crash test dummies, dropped from the sky in the 1950s.",
+   "act_at": "dummies",
+   "sfx": [
+    "thud@dummies"
+   ],
+   "punch": "dummies",
+   "shots": [
+    {
+     "photo": "Lockheed U-2",
+     "obs": "wm:Usaf.u2.750pix.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "roswelldeep",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "So the cover-up was real. The aliens weren't.",
+   "shots": [
+    {
+     "photo": "Roswell debris, 1947",
+     "obs": "wm:Ramey-dubose-debris.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "roswelldeep",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   },
+   "shots": [
+    {
+     "photo": "Project Mogul balloon train",
+     "obs": "wm:Mogul balloon train USAF 1995.png"
+    }
+   ]
+  },
+  {
+   "myth": "roswelldeep",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "And the name of the Air Force's last report on it? Case Closed. It did not close the case.",
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "Closed",
+   "shots": [
+    {
+     "photo": "The Roswell Report: Case Closed",
+     "obs": "wm:The Roswell Report - Case Closed.jpg"
+    }
+   ]
+  }
+ ]
+}
