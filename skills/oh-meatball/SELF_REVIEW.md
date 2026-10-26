@@ -27,3 +27,9 @@ Seeded by TARS on 2026-10-24 from the first scan of the channel.
 
 ## 10/26: TikToks drifted under 60 s (Nolan: "TikTok was always supposed to be this way")
 OPERATIONS said from 10/25 that every TikTok runs over 60 s, because Creator Rewards pays only for 60 s+. Pack 1, the v3/v4 cross-posts and the pilot cases still went out at 20-25 s, and the only check was "at least one 60 s+ TikTok a day". Fix: scan.py now flags any queued TikTok under 60 s as CRITICAL across the whole future queue, and the morning prompt and OPERATIONS say every TikTok is 61-75 s. Lesson: when Nolan states a rule, encode it as a hard check the same day, not a soft daily minimum.
+
+## 2026-10-26: "deep" cuts that weren't 60 s
+I moved four "deep" case TikToks into today's slots without ffprobing them. Cardiff was 59.6 s and Mary Celeste
+57.9 s, so both would have earned $0; the midday scan caught it 40 minutes before the 1 PM post. Fixed with a 4 s
+"NEXT CASE TOMORROW / Follow Meatball" end card (63.6 s and 61.9 s).
+Rule: ffprobe every TikTok before it is scheduled or moved, and use 61 s as the floor (60.0 is a coin flip).
