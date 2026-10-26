@@ -12105,6 +12105,5374 @@
    "kicker": true,
    "hold": 0.25,
    "punch": "wrong"
+  },
+  {
+   "myth": "archerfish",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A fish poked its mouth out of a river, and spat a jet of water at a bug on a leaf. The bug dropped.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "SNIPER FISH",
+   "punch": "spat",
+   "loop_say": "I'm drying off. Because",
+   "short_title": "Archerfish Shoot Bugs Down With Water 💦",
+   "comment": "Would you trust a fish that remembers your face? 👍 yes / 👎 no",
+   "bonus": "Archerfish knock insects off leaves with jets of water from up to two meters away, and can learn to recognize human faces.",
+   "caption": "How does an archerfish hunt? It shoots bugs off leaves with water. What else can it do? 🎯 nothing / 🧠 something else #archerfish #fish #animalfacts #science Follow Meatball for more 🍝",
+   "sources": [
+    "Australian Geographic, 'Smart fish that spit' (archerfish knock insects off overhanging foliage with water jets, from up to two metres away; they correct for light bending at the water surface) — https://www.australiangeographic.com.au/topics/wildlife/2017/08/smart-fish-that-spit",
+    "Newport et al. 2016, Scientific Reports 6: 27523 (archerfish trained to spit at one face picked it out of 44 new faces with about 81-86% accuracy) — https://doi.org/10.1038/srep27523"
+   ],
+   "shots": [
+    {
+     "photo": "Toxotes",
+     "obs": 321013010,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "archerfish",
+   "pose": "think",
+   "act": "stand",
+   "say": "Aiming is easy. But what else can this fish learn? Guess.",
+   "shots": [
+    {
+     "photo": "Toxotes",
+     "obs": 310996412,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "WHAT ELSE?",
+    "choices": [
+     "🎯 NOTHING",
+     "🧠 SOMETHING WILD"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "archerfish",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Toxotes",
+     "obs": 213176183,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "archerfish",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in mangroves from India to Australia live archerfish. They shoot from up to two meters away.",
+   "shots": [
+    {
+     "photo": "Toxotes",
+     "obs": 321013010,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "2 M\nSHOT",
+    "at": "two"
+   }
+  },
+  {
+   "myth": "archerfish",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Water bends light, so the bug isn't where it looks. Archerfish correct for that.",
+   "shots": [
+    {
+     "photo": "Toxotes",
+     "obs": 310996412,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "punch": "correct"
+  },
+  {
+   "myth": "archerfish",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: count to three. No. That's not the wild one.",
+   "shots": [
+    {
+     "photo": "Toxotes",
+     "obs": 213176183,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "archerfish",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: play fetch. Also no. Fish don't fetch.",
+   "shots": [
+    {
+     "photo": "Toxotes",
+     "obs": 321013010,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "archerfish",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I stood on a leaf above one. It spat. I fell in.",
+   "shots": [
+    {
+     "photo": "Toxotes",
+     "obs": 310996412,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "act_at": "fell",
+   "sfx": [
+    "thud@fell"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "archerfish",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait, here's the weird part. Fish brains don't have the part we use for faces.",
+   "shots": [
+    {
+     "photo": "Toxotes",
+     "obs": 213176183,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "archerfish",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: human faces. In 2016, archerfish learned one face, then picked it out of forty-four strangers, and spat at it.",
+   "shots": [
+    {
+     "photo": "Toxotes",
+     "obs": 321013010,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "FACE\nRECOGNITION",
+    "at": "faces"
+   },
+   "sfx": [
+    "pop@faces"
+   ]
+  },
+  {
+   "myth": "archerfish",
+   "pose": "shock",
+   "act": "stand",
+   "say": "They got it right about eight times out of ten.",
+   "shots": [
+    {
+     "photo": "Toxotes",
+     "obs": 310996412,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "~8 / 10",
+    "at": "eight"
+   }
+  },
+  {
+   "myth": "archerfish",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "So a fish can recognize you, and aim at you.",
+   "shots": [
+    {
+     "photo": "Toxotes",
+     "obs": 213176183,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@aim"
+    ]
+   },
+   "punch": "aim"
+  },
+  {
+   "myth": "archerfish",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "It knows my face now. I don't even have a good side.",
+   "shots": [
+    {
+     "photo": "Toxotes",
+     "obs": 321013010,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "side",
+   "sfx": [
+    "tink@side"
+   ]
+  },
+  {
+   "myth": "archerfish",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Toxotes",
+     "obs": 310996412,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "archerfish",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "A fish that remembers your face and spits at it. That's not a fish. That's my cousin.",
+   "shots": [
+    {
+     "photo": "Toxotes",
+     "obs": 213176183,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "cousin"
+  },
+  {
+   "myth": "glassfrog",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "I picked up a tiny green frog, flipped it over, and saw its heart beating.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "SEE-THROUGH FROG",
+   "punch": "beating",
+   "loop_say": "I'm getting a mirror. Because",
+   "short_title": "Glass Frogs Have See-Through Bellies 🐸",
+   "comment": "Would you want a see-through belly? 👍 yes / 👎 no",
+   "bonus": "Sleeping glass frogs pull about 89% of their red blood cells out of circulation and pack them into the liver, becoming 2-3 times more transparent (Taboada et al. 2022).",
+   "caption": "How do glass frogs turn invisible? They hide their blood. Where? 🫀 heart / 🟤 liver #glassfrog #frogs #rainforest #science Follow Meatball for more 🍝",
+   "sources": [
+    "Wikipedia, Glass frog (heart, liver and gut visible through the belly skin; 3-7.5 cm; males guard the eggs) — https://en.wikipedia.org/wiki/Glass_frog (checked 2026-10-26)",
+    "Taboada et al. 2022, Science 378: 1315-1320 (resting Hyalinobatrachium fleischmanni remove ~89% of red blood cells from circulation and pack them in the liver, increasing transparency 2-3x) — https://pratt.duke.edu/news/glassfrogs-hide-red-blood-cells-their-liver-become-transparent/"
+   ],
+   "shots": [
+    {
+     "photo": "Centrolenidae",
+     "obs": 143897116,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "glassfrog",
+   "pose": "think",
+   "act": "stand",
+   "say": "When it sleeps, it gets even more see-through. How? Guess.",
+   "shots": [
+    {
+     "photo": "Centrolenidae",
+     "obs": 126434695,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "HOW?",
+    "choices": [
+     "🫥 FADES ITS SKIN",
+     "🩸 SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "glassfrog",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Centrolenidae",
+     "obs": 306137643,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "glassfrog",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in Central and South American rainforests live glass frogs. Their bellies are clear.",
+   "shots": [
+    {
+     "photo": "Centrolenidae",
+     "obs": 17652481,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ]
+  },
+  {
+   "myth": "glassfrog",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Heart, liver, gut. All on display. Like a frog with a window.",
+   "shots": [
+    {
+     "photo": "Centrolenidae",
+     "obs": 102281019,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "punch": "window"
+  },
+  {
+   "myth": "glassfrog",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: its skin changes color. No. Its skin stays the same.",
+   "shots": [
+    {
+     "photo": "Centrolenidae",
+     "obs": 112080784,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "glassfrog",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: it stops its heart. Also no. That would be bad.",
+   "shots": [
+    {
+     "photo": "Centrolenidae",
+     "obs": 143897116,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "glassfrog",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I looked inside for its feelings. Just organs. Zero feelings.",
+   "shots": [
+    {
+     "photo": "Centrolenidae",
+     "obs": 126434695,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "act_at": "Zero",
+   "sfx": [
+    "thud@Zero"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "glassfrog",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait. Here's the thing. Red blood is the hardest part to hide. It soaks up light.",
+   "shots": [
+    {
+     "photo": "Centrolenidae",
+     "obs": 306137643,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "glassfrog",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: it hides its blood. While asleep, it pulls almost ninety percent of its red blood cells into its liver.",
+   "shots": [
+    {
+     "photo": "Centrolenidae",
+     "obs": 17652481,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "BLOOD\n→ LIVER",
+    "at": "liver"
+   },
+   "sfx": [
+    "pop@liver"
+   ]
+  },
+  {
+   "myth": "glassfrog",
+   "pose": "shock",
+   "act": "stand",
+   "say": "That makes it two to three times clearer. Then it wakes up and lets them out.",
+   "shots": [
+    {
+     "photo": "Centrolenidae",
+     "obs": 102281019,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "2-3x\nCLEARER",
+    "at": "clearer"
+   }
+  },
+  {
+   "myth": "glassfrog",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "And the blood doesn't clot while packed. Doctors want to know how.",
+   "shots": [
+    {
+     "photo": "Centrolenidae",
+     "obs": 112080784,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@Doctors"
+    ]
+   },
+   "punch": "how"
+  },
+  {
+   "myth": "glassfrog",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "I tried it. I'm still a meatball.",
+   "shots": [
+    {
+     "photo": "Centrolenidae",
+     "obs": 143897116,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "meatball",
+   "sfx": [
+    "tink@meatball"
+   ]
+  },
+  {
+   "myth": "glassfrog",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Centrolenidae",
+     "obs": 126434695,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "glassfrog",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Its camouflage is hiding its own blood in its liver. Mine is hiding in sauce.",
+   "shots": [
+    {
+     "photo": "Centrolenidae",
+     "obs": 306137643,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "sauce"
+  },
+  {
+   "myth": "armadillo",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A mother armadillo gave birth in her burrow, to four babies that were exactly the same.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "FOUR OF THEM?",
+   "punch": "four",
+   "loop_say": "I'm working on my jump. Because",
+   "short_title": "Armadillos Are Born as Identical Quadruplets 🐣",
+   "comment": "Could you tell armadillo quadruplets apart? 👍 yes / 👎 no",
+   "bonus": "Nine-banded armadillos give birth to identical quadruplets: one embryo splits into four.",
+   "caption": "Are armadillos always born as quadruplets? Nine-banded ones, yes, identical ones. How? 🥚 four eggs / ✂️ something else #armadillo #animalfacts #wildlife #texas Follow Meatball for more 🍝",
+   "sources": [
+    "Wikipedia, Nine-banded armadillo (the embryo splits into four identical embryos; holds its breath up to six minutes; crosses rivers by gulping air to float or walking along the bottom; when startled can jump 3-4 ft straight up; cannot roll itself into a ball, unlike three-banded armadillos) — https://en.wikipedia.org/wiki/Nine-banded_armadillo (checked 2026-10-26)"
+   ],
+   "shots": [
+    {
+     "photo": "Dasypus novemcinctus",
+     "obs": 17438657,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "armadillo",
+   "pose": "think",
+   "act": "stand",
+   "say": "Every time, four identical babies. How? Guess.",
+   "shots": [
+    {
+     "photo": "Dasypus novemcinctus",
+     "obs": 388886399,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "HOW?",
+    "choices": [
+     "🥚 FOUR EGGS",
+     "✂️ SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "armadillo",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Dasypus novemcinctus",
+     "obs": 250621565,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "armadillo",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in Texas and across the Americas lives the nine-banded armadillo. Armored, and full of surprises.",
+   "shots": [
+    {
+     "photo": "Dasypus novemcinctus",
+     "obs": 17438657,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ]
+  },
+  {
+   "myth": "armadillo",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "It can hold its breath for six minutes, and walk right across the bottom of a stream.",
+   "shots": [
+    {
+     "photo": "Dasypus novemcinctus",
+     "obs": 388886399,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "6 MIN",
+    "at": "six"
+   }
+  },
+  {
+   "myth": "armadillo",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: four eggs at once. No. Then the babies would be different.",
+   "shots": [
+    {
+     "photo": "Dasypus novemcinctus",
+     "obs": 250621565,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "armadillo",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: the mom copies the first baby. Also no. Moms are not printers.",
+   "shots": [
+    {
+     "photo": "Dasypus novemcinctus",
+     "obs": 17438657,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "armadillo",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I tried to tell them apart. I startled one. It jumped straight up. Three feet.",
+   "shots": [
+    {
+     "photo": "Dasypus novemcinctus",
+     "obs": 388886399,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "act_at": "jumped",
+   "sfx": [
+    "thud@jumped"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "armadillo",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait, here's the weird part. It all starts with just one fertilized egg.",
+   "shots": [
+    {
+     "photo": "Dasypus novemcinctus",
+     "obs": 250621565,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "armadillo",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: that one embryo splits into four. Four identical babies, every single time.",
+   "shots": [
+    {
+     "photo": "Dasypus novemcinctus",
+     "obs": 17438657,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "1 → 4",
+    "at": "splits"
+   },
+   "sfx": [
+    "pop@splits"
+   ]
+  },
+  {
+   "myth": "armadillo",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Same genes. Same sex. Real quadruplets, in litter after litter after litter.",
+   "shots": [
+    {
+     "photo": "Dasypus novemcinctus",
+     "obs": 388886399,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "punch": "quadruplets"
+  },
+  {
+   "myth": "armadillo",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "And no, this armadillo can't roll into a ball. That's a different species.",
+   "shots": [
+    {
+     "photo": "Dasypus novemcinctus",
+     "obs": 250621565,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@ball"
+    ]
+   },
+   "label": {
+    "text": "NO\nBALL",
+    "at": "ball"
+   }
+  },
+  {
+   "myth": "armadillo",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "I can roll into a ball. It's my whole thing.",
+   "shots": [
+    {
+     "photo": "Dasypus novemcinctus",
+     "obs": 17438657,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "thing",
+   "sfx": [
+    "tink@thing"
+   ]
+  },
+  {
+   "myth": "armadillo",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Dasypus novemcinctus",
+     "obs": 388886399,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "armadillo",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Four identical babies, and each one can jump three feet. Good luck, mom.",
+   "shots": [
+    {
+     "photo": "Dasypus novemcinctus",
+     "obs": 250621565,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "mom"
+  },
+  {
+   "myth": "puffin",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A puffin flew back to its burrow with its beak stuffed with fish. Sixty-two of them.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "62 FISH. ONE BEAK.",
+   "punch": "stuffed",
+   "loop_say": "I'm hiding from puffins. Because",
+   "short_title": "One Puffin Carried 62 Fish at Once 🐟",
+   "comment": "How many fish could you carry in your mouth? 🐟 one / 🍝 zero",
+   "bonus": "The record for one Atlantic puffin in Britain is 62 fish carried at once; the average is around 10.",
+   "caption": "How many fish can a puffin carry? The record is 62 at once. How? 👅 something else / 🎒 a pouch #puffin #birds #animalfacts #seabirds Follow Meatball for more 🍝",
+   "sources": [
+    "BirdLife International, Seabird of the month: Atlantic Puffin (average catch around 10 fish per trip; record in Britain 62 fish at once) — https://www.birdlife.org/news/2022/04/06/seabird-of-the-month-atlantic-puffin-fratercula-arctica/",
+    "Wikipedia, Atlantic puffin (holds earlier catches with its muscular, grooved tongue against spines on the palate; top flight speed about 80 km/h; bright bill plates are shed after breeding) — https://en.wikipedia.org/wiki/Atlantic_puffin (checked 2026-10-26)"
+   ],
+   "shots": [
+    {
+     "photo": "Fratercula arctica",
+     "obs": 289718369,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "puffin",
+   "pose": "think",
+   "act": "stand",
+   "say": "How does it keep catching fish without dropping the rest? Guess.",
+   "shots": [
+    {
+     "photo": "Fratercula arctica",
+     "obs": 229159353,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "HOW?",
+    "choices": [
+     "🎒 A POUCH",
+     "👅 SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "puffin",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Fratercula arctica",
+     "obs": 170606502,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "puffin",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in the North Atlantic, puffins dive for small fish to feed their one chick. Usually around ten per trip.",
+   "shots": [
+    {
+     "photo": "Fratercula arctica",
+     "obs": 204790970,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "~10\nUSUALLY",
+    "at": "ten"
+   }
+  },
+  {
+   "myth": "puffin",
+   "pose": "shock",
+   "act": "stand",
+   "say": "The record in Britain? Sixty-two at once.",
+   "shots": [
+    {
+     "photo": "Fratercula arctica",
+     "obs": 289718369,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "62",
+    "at": "Sixty-two"
+   }
+  },
+  {
+   "myth": "puffin",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: a throat pouch, like a pelican. No. Puffins don't have one.",
+   "shots": [
+    {
+     "photo": "Fratercula arctica",
+     "obs": 229159353,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "puffin",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: it swallows them and brings them back up. Also no. They stay in the beak.",
+   "shots": [
+    {
+     "photo": "Fratercula arctica",
+     "obs": 170606502,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "puffin",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I asked if it had room for me. It went for one more.",
+   "shots": [
+    {
+     "photo": "Fratercula arctica",
+     "obs": 204790970,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "act_at": "more",
+   "sfx": [
+    "thud@more"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "puffin",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait. Here's the trick. It's inside the mouth.",
+   "shots": [
+    {
+     "photo": "Fratercula arctica",
+     "obs": 289718369,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "puffin",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: its tongue. A grooved, muscular tongue pins the fish against tiny spines in its mouth, so it can open up and grab another.",
+   "shots": [
+    {
+     "photo": "Fratercula arctica",
+     "obs": 229159353,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "TONGUE\nCLAMP",
+    "at": "tongue"
+   },
+   "sfx": [
+    "pop@tongue"
+   ]
+  },
+  {
+   "myth": "puffin",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Then it flies home at up to fifty miles an hour, flapping super fast.",
+   "shots": [
+    {
+     "photo": "Fratercula arctica",
+     "obs": 170606502,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "50 MPH",
+    "at": "fifty"
+   }
+  },
+  {
+   "myth": "puffin",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "And that bright orange beak? It's seasonal. The colorful plates fall off after breeding.",
+   "shots": [
+    {
+     "photo": "Fratercula arctica",
+     "obs": 204790970,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@seasonal"
+    ]
+   },
+   "punch": "seasonal"
+  },
+  {
+   "myth": "puffin",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "It's a costume. I'm not.",
+   "shots": [
+    {
+     "photo": "Fratercula arctica",
+     "obs": 289718369,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "costume",
+   "sfx": [
+    "tink@costume"
+   ]
+  },
+  {
+   "myth": "puffin",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Fratercula arctica",
+     "obs": 229159353,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "puffin",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Sixty-two fish in one trip, and I can't carry two plates.",
+   "shots": [
+    {
+     "photo": "Fratercula arctica",
+     "obs": 170606502,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "plates"
+  },
+  {
+   "myth": "mudskipper",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A fish climbed out of the water, crawled across the mud on its fins, and blinked at me.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "A FISH ON LAND",
+   "punch": "climbed",
+   "loop_say": "I'm out of towels. Because",
+   "short_title": "Mudskippers Are Fish That Live on Land 🐟",
+   "comment": "Is a mudskipper more fish or more frog? 🐟 fish / 🐸 frog",
+   "bonus": "Mudskippers spend up to three quarters of their lives on land, and blink by pulling their eyes into their sockets.",
+   "caption": "Can a fish live on land? Mudskippers spend most of their life out of water. How do they breathe? 🫁 lungs / 💧 something else #mudskipper #fish #animalfacts #weird Follow Meatball for more 🍝",
+   "sources": [
+    "Wikipedia, Mudskipper (spend up to three quarters of their life on land; breathe through the skin and the lining of mouth and throat when wet; keep water in large gill chambers; eyes on top of the head; live in burrows in intertidal mud) — https://en.wikipedia.org/wiki/Mudskipper (checked 2026-10-26)",
+    "Aiello et al. 2023, PNAS 120: e2220404120 (mudskippers blink by retracting the eyes into the sockets, almost only on land) — https://www.psu.edu/news/eberly-college-science/story/blinking-fish-reveals-clues-how-our-ancestors-evolved-water-land"
+   ],
+   "shots": [
+    {
+     "photo": "Periophthalmus",
+     "obs": 302609014,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "mudskipper",
+   "pose": "think",
+   "act": "stand",
+   "say": "It's out of the water for hours. How does it breathe? Guess.",
+   "shots": [
+    {
+     "photo": "Periophthalmus",
+     "obs": 243035106,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "HOW?",
+    "choices": [
+     "🫁 LUNGS",
+     "💧 SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "mudskipper",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Periophthalmus",
+     "obs": 76137975,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "mudskipper",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in mangrove mudflats from Africa to Australia live mudskippers. Fish that spend most of their lives on land.",
+   "shots": [
+    {
+     "photo": "Periophthalmus",
+     "obs": 302608986,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ]
+  },
+  {
+   "myth": "mudskipper",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Up to three quarters of their lives. They walk, skip, and fight on the mud.",
+   "shots": [
+    {
+     "photo": "Periophthalmus",
+     "obs": 302609014,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "75%\nON LAND",
+    "at": "quarters"
+   }
+  },
+  {
+   "myth": "mudskipper",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: lungs, like us. No. Mudskippers have no lungs.",
+   "shots": [
+    {
+     "photo": "Periophthalmus",
+     "obs": 243035106,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "mudskipper",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: they hold their breath. Also no. Not for hours.",
+   "shots": [
+    {
+     "photo": "Periophthalmus",
+     "obs": 76137975,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "mudskipper",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I brought one a towel. It skipped right at me.",
+   "shots": [
+    {
+     "photo": "Periophthalmus",
+     "obs": 302608986,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "act_at": "skipped",
+   "sfx": [
+    "thud@skipped"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "mudskipper",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait. Here's the weird part. It needs to stay wet, not dry.",
+   "shots": [
+    {
+     "photo": "Periophthalmus",
+     "obs": 302609014,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "mudskipper",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: through its wet skin and the inside of its mouth. And it carries water in big gill pouches, like a backpack.",
+   "shots": [
+    {
+     "photo": "Periophthalmus",
+     "obs": 243035106,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "SKIN\nBREATHING",
+    "at": "skin"
+   },
+   "sfx": [
+    "pop@skin"
+   ]
+  },
+  {
+   "myth": "mudskipper",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Its eyes sit on top of its head, like a periscope.",
+   "shots": [
+    {
+     "photo": "Periophthalmus",
+     "obs": 76137975,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "punch": "periscope"
+  },
+  {
+   "myth": "mudskipper",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "And it blinks by pulling its eyes down into its head. Fish don't usually blink at all.",
+   "shots": [
+    {
+     "photo": "Periophthalmus",
+     "obs": 302608986,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@blinks"
+    ]
+   },
+   "label": {
+    "text": "IT\nBLINKS",
+    "at": "blinks"
+   }
+  },
+  {
+   "myth": "mudskipper",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "I'm a meatball. I can't even swim.",
+   "shots": [
+    {
+     "photo": "Periophthalmus",
+     "obs": 302609014,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "swim",
+   "sfx": [
+    "tink@swim"
+   ]
+  },
+  {
+   "myth": "mudskipper",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Periophthalmus",
+     "obs": 243035106,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "mudskipper",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "A fish that lives on land and carries its own water. It's basically camping.",
+   "shots": [
+    {
+     "photo": "Periophthalmus",
+     "obs": 76137975,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "camping"
+  },
+  {
+   "myth": "peregrine",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A pigeon flew past a skyscraper. A falcon folded its wings and dove at it.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "FASTEST ANIMAL",
+   "punch": "dove",
+   "loop_say": "I'm wearing a helmet. Because",
+   "short_title": "The Peregrine Falcon Punches Prey With Its Foot 🦅",
+   "comment": "Would you watch one dive? 👍 yes / 👎 no",
+   "bonus": "The peregrine falcon is the fastest animal on Earth in a dive; it strikes prey with a clenched foot.",
+   "caption": "What is the fastest animal on Earth? The peregrine falcon, in a dive. How does it hit prey? 🦷 bites / 👊 something else #peregrinefalcon #birds #fastest #animalfacts Follow Meatball for more 🍝",
+   "sources": [
+    "Wikipedia, Peregrine falcon (fastest animal in a hunting dive or stoop; over 320 km/h claimed, highest reliably measured 184 km/h / 114 mph in some studies; strikes its prey with a clenched foot, stunning or killing it; nictitating membranes; bony tubercles in the nostrils may guide airflow; nests on skyscraper ledges; removed from the US endangered list in 1999 after DDT ban) — https://en.wikipedia.org/wiki/Peregrine_falcon (checked 2026-10-26)"
+   ],
+   "shots": [
+    {
+     "photo": "Falco peregrinus",
+     "obs": 345609021,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "peregrine",
+   "pose": "think",
+   "act": "stand",
+   "say": "When it hits, what does it use? Guess.",
+   "shots": [
+    {
+     "photo": "Falco peregrinus",
+     "obs": 12075369,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "WHAT HITS?",
+    "choices": [
+     "🦷 BEAK",
+     "👊 SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "peregrine",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Falco peregrinus",
+     "obs": 26836496,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "peregrine",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in cities around the world, peregrine falcons nest on skyscraper ledges. And they're the fastest animal on Earth.",
+   "shots": [
+    {
+     "photo": "Falco peregrinus",
+     "obs": 99718239,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "FASTEST",
+    "at": "fastest"
+   }
+  },
+  {
+   "myth": "peregrine",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "In a dive, faster than highway traffic. Some measurements topped a hundred miles an hour.",
+   "shots": [
+    {
+     "photo": "Falco peregrinus",
+     "obs": 345609021,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "100+\nMPH",
+    "at": "hundred"
+   }
+  },
+  {
+   "myth": "peregrine",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: it bites with its beak first. No. Not at that speed.",
+   "shots": [
+    {
+     "photo": "Falco peregrinus",
+     "obs": 12075369,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "peregrine",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: it grabs with open talons. Also no. Not always.",
+   "shots": [
+    {
+     "photo": "Falco peregrinus",
+     "obs": 26836496,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "peregrine",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I stood in its flight path to watch. It noticed.",
+   "shots": [
+    {
+     "photo": "Falco peregrinus",
+     "obs": 99718239,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "act_at": "noticed",
+   "sfx": [
+    "thud@noticed"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "peregrine",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait, here's the thing. At that speed, a grab could break its own legs.",
+   "shots": [
+    {
+     "photo": "Falco peregrinus",
+     "obs": 345609021,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "peregrine",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: a punch. It balls up its foot and slams the prey midair, stunning it. Then it swoops to catch it.",
+   "shots": [
+    {
+     "photo": "Falco peregrinus",
+     "obs": 12075369,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "FEATHERED\nFIST",
+    "at": "punch"
+   },
+   "sfx": [
+    "crunch@slams"
+   ]
+  },
+  {
+   "myth": "peregrine",
+   "pose": "shock",
+   "act": "stand",
+   "say": "It has a third eyelid to protect its eyes in the dive.",
+   "shots": [
+    {
+     "photo": "Falco peregrinus",
+     "obs": 26836496,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "3RD\nEYELID",
+    "at": "third"
+   }
+  },
+  {
+   "myth": "peregrine",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "And in the 1970s, pesticides nearly wiped them out. Now they're back, on skyscrapers.",
+   "shots": [
+    {
+     "photo": "Falco peregrinus",
+     "obs": 99718239,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@back"
+    ]
+   },
+   "punch": "skyscrapers"
+  },
+  {
+   "myth": "peregrine",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "I'm wearing a helmet now.",
+   "shots": [
+    {
+     "photo": "Falco peregrinus",
+     "obs": 345609021,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "helmet",
+   "sfx": [
+    "tink@helmet"
+   ]
+  },
+  {
+   "myth": "peregrine",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Falco peregrinus",
+     "obs": 12075369,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "peregrine",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The fastest animal on Earth wins with a punch. Just like a cartoon.",
+   "shots": [
+    {
+     "photo": "Falco peregrinus",
+     "obs": 26836496,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "cartoon"
+  },
+  {
+   "myth": "kangaroo",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A red kangaroo bounded across the outback, and cleared nine meters in a single hop.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "NINE METERS",
+   "punch": "bounded",
+   "loop_say": "I'm practicing hops. Because",
+   "short_title": "A Red Kangaroo Can Jump 9 Meters in One Hop 🦘",
+   "comment": "Could you jump that far? 👍 yes / 👎 no",
+   "bonus": "Red kangaroos can cover 8-9 m in one leap and hop around 60 km/h; moms can pause an embryo's development.",
+   "caption": "How far can a kangaroo jump? About 9 meters in one hop. But the weirdest part is the mom. Why? 🦘 two pouches / ⏸️ something else #kangaroo #australia #animalfacts #wildlife Follow Meatball for more 🍝",
+   "sources": [
+    "Wikipedia, Red kangaroo (largest living marsupial; around 60 km/h; males cover 8-9 m in one leap; tail used as a tripod; females can freeze the development of an embryo until the previous joey leaves the pouch (embryonic diapause); can nurse a young joey and an older one at the same time with different milk from different teats) — https://en.wikipedia.org/wiki/Red_kangaroo (checked 2026-10-26)"
+   ],
+   "shots": [
+    {
+     "photo": "Osphranter rufus",
+     "obs": 250230032,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "kangaroo",
+   "pose": "think",
+   "act": "stand",
+   "say": "Its jump is amazing, but its mom trick is weirder. What is it? Guess.",
+   "shots": [
+    {
+     "photo": "Osphranter rufus",
+     "obs": 67840305,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "THE MOM TRICK?",
+    "choices": [
+     "🦘 TWO POUCHES",
+     "⏸️ SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "kangaroo",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Osphranter rufus",
+     "obs": 67840304,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "kangaroo",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in Australia, the red kangaroo is the biggest marsupial alive. It hops up to about sixty kilometers an hour.",
+   "shots": [
+    {
+     "photo": "Osphranter rufus",
+     "obs": 246136281,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "60 KM/H",
+    "at": "sixty"
+   }
+  },
+  {
+   "myth": "kangaroo",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "It leans on its tail like a stool, and kicks with both back legs.",
+   "shots": [
+    {
+     "photo": "Osphranter rufus",
+     "obs": 250230032,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "punch": "stool"
+  },
+  {
+   "myth": "kangaroo",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: two pouches, for two babies. No. Just one pouch.",
+   "shots": [
+    {
+     "photo": "Osphranter rufus",
+     "obs": 67840305,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "kangaroo",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: dads carry the babies. Also no. That's a seahorse thing.",
+   "shots": [
+    {
+     "photo": "Osphranter rufus",
+     "obs": 67840304,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "kangaroo",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I challenged one to a long jump. I rolled about a meter.",
+   "shots": [
+    {
+     "photo": "Osphranter rufus",
+     "obs": 246136281,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "act_at": "rolled",
+   "sfx": [
+    "thud@rolled"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "kangaroo",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait. Here's the weird part. She can be pregnant and not be growing a baby.",
+   "shots": [
+    {
+     "photo": "Osphranter rufus",
+     "obs": 250230032,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "kangaroo",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: she can pause a pregnancy. The tiny embryo waits, frozen in time, until the joey in the pouch moves out.",
+   "shots": [
+    {
+     "photo": "Osphranter rufus",
+     "obs": 67840305,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "PAUSE\nBUTTON",
+    "at": "pause"
+   },
+   "sfx": [
+    "pop@pause"
+   ]
+  },
+  {
+   "myth": "kangaroo",
+   "pose": "shock",
+   "act": "stand",
+   "say": "She can even feed a baby in the pouch and an older joey outside, with two different milks.",
+   "shots": [
+    {
+     "photo": "Osphranter rufus",
+     "obs": 67840304,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "2 MILKS",
+    "at": "different"
+   }
+  },
+  {
+   "myth": "kangaroo",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "So one mom can have three kids at three stages, at once.",
+   "shots": [
+    {
+     "photo": "Osphranter rufus",
+     "obs": 246136281,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@three"
+    ]
+   },
+   "punch": "once"
+  },
+  {
+   "myth": "kangaroo",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "I can't even pause a video without spilling sauce.",
+   "shots": [
+    {
+     "photo": "Osphranter rufus",
+     "obs": 250230032,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "sauce",
+   "sfx": [
+    "tink@sauce"
+   ]
+  },
+  {
+   "myth": "kangaroo",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Osphranter rufus",
+     "obs": 67840305,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "kangaroo",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Nine meters in one hop. And still, the most impressive thing is mom.",
+   "shots": [
+    {
+     "photo": "Osphranter rufus",
+     "obs": 67840304,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "mom"
+  },
+  {
+   "myth": "baldeagle",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "An osprey caught a fish over a lake. A bald eagle chased it down and snatched it.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "THE THIEF",
+   "punch": "snatched",
+   "loop_say": "I'm guarding my lunch. Because",
+   "short_title": "Bald Eagles Steal Fish From Other Birds 🦅",
+   "comment": "Did you know the national bird steals lunch? 👍 yes / 😳 no",
+   "bonus": "Bald eagles often steal fish from ospreys; their real call is a weak, chirpy whistle.",
+   "caption": "Do bald eagles steal food? Yes, especially from ospreys. And their real call? 🦅 a scream / 🐦 something else #baldeagle #birds #animalfacts #usa Follow Meatball for more 🍝",
+   "sources": [
+    "Wikipedia, Bald eagle (recorded stealing fish from ospreys, herons and otters; white head at four to five years; largest recorded nest in Florida, 1963, 2.9 m wide and 6.1 m deep; call described as weak staccato, chirping whistles; in films the call of a red-tailed hawk is often dubbed in; removed from the endangered list in 2007) — https://en.wikipedia.org/wiki/Bald_eagle (checked 2026-10-26)",
+    "Benjamin Franklin's 1784 letter calling the bald eagle 'a bird of bad moral character' — https://founders.archives.gov/documents/Franklin/01-41-02-0327"
+   ],
+   "shots": [
+    {
+     "photo": "Haliaeetus leucocephalus",
+     "obs": 193272057,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "baldeagle",
+   "pose": "think",
+   "act": "stand",
+   "say": "The national bird steals lunch. But the bigger secret is its voice. Guess.",
+   "shots": [
+    {
+     "photo": "Haliaeetus leucocephalus",
+     "obs": 142995957,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "ITS VOICE?",
+    "choices": [
+     "🦅 A SCREAM",
+     "🐦 SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "baldeagle",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Haliaeetus leucocephalus",
+     "obs": 193272057,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "baldeagle",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in 1784, Benjamin Franklin complained that the bald eagle had bad moral character. Because it steals.",
+   "shots": [
+    {
+     "photo": "Haliaeetus leucocephalus",
+     "obs": 142995957,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "1784",
+    "at": "1784"
+   }
+  },
+  {
+   "myth": "baldeagle",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "It robs ospreys, herons, even otters. It chases them until they drop the fish. Why fish when you can steal?",
+   "shots": [
+    {
+     "photo": "Haliaeetus leucocephalus",
+     "obs": 193272057,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "punch": "steal"
+  },
+  {
+   "myth": "baldeagle",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: a mighty scream, like in movies. No. That's not its voice.",
+   "shots": [
+    {
+     "photo": "Haliaeetus leucocephalus",
+     "obs": 142995957,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "baldeagle",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: a deep roar. Also no. Birds don't roar.",
+   "shots": [
+    {
+     "photo": "Haliaeetus leucocephalus",
+     "obs": 193272057,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "baldeagle",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I packed a fish sandwich to watch. Swiped.",
+   "shots": [
+    {
+     "photo": "Haliaeetus leucocephalus",
+     "obs": 142995957,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "act_at": "Swiped",
+   "sfx": [
+    "thud@Swiped"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "baldeagle",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait, here's the funny part. Movies swap in another bird's call.",
+   "shots": [
+    {
+     "photo": "Haliaeetus leucocephalus",
+     "obs": 193272057,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "baldeagle",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: its real call is a weak, chirpy whistle. The movie scream is usually a red-tailed hawk.",
+   "shots": [
+    {
+     "photo": "Haliaeetus leucocephalus",
+     "obs": 142995957,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "CHIRP",
+    "at": "chirpy"
+   },
+   "sfx": [
+    "pop@whistle"
+   ]
+  },
+  {
+   "myth": "baldeagle",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Its white head only shows up around age four or five.",
+   "shots": [
+    {
+     "photo": "Haliaeetus leucocephalus",
+     "obs": 193272057,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "AGE\n4-5",
+    "at": "four"
+   }
+  },
+  {
+   "myth": "baldeagle",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The biggest nest ever found was about twenty feet deep. And they left the endangered list in 2007.",
+   "shots": [
+    {
+     "photo": "Haliaeetus leucocephalus",
+     "obs": 142995957,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@twenty"
+    ]
+   },
+   "label": {
+    "text": "20 FT\nNEST",
+    "at": "twenty"
+   }
+  },
+  {
+   "myth": "baldeagle",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "I'm guarding my lunch now.",
+   "shots": [
+    {
+     "photo": "Haliaeetus leucocephalus",
+     "obs": 193272057,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "lunch",
+   "sfx": [
+    "tink@lunch"
+   ]
+  },
+  {
+   "myth": "baldeagle",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Haliaeetus leucocephalus",
+     "obs": 142995957,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "baldeagle",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "America's symbol of power steals its food and chirps like a toy. Honestly, iconic.",
+   "shots": [
+    {
+     "photo": "Haliaeetus leucocephalus",
+     "obs": 193272057,
+     "crop": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "iconic"
+  },
+  {
+   "myth": "hippo",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A hippo slid into a river, sank out of sight, and came up on the far side.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "IT CAN'T SWIM",
+   "punch": "vanished",
+   "loop_say": "I'm a patty now. Because",
+   "short_title": "I Raced a Hippo 🦛 (Would Meatball Survive?)",
+   "comment": "Did you know hippos can't float? 👍 yes / 😳 no",
+   "bonus": "Hippos are too dense to float; they walk or bounce along the riverbed and can hold their breath for five minutes or more.",
+   "caption": "Can hippos swim? No: they're too heavy to float. So how do they cross rivers? 🏊 swim / 🦶 something else #hippo #africa #animalfacts #wildlife Follow Meatball for more 🍝",
+   "sources": [
+    "San Diego Zoo Wildlife Alliance, 'Making Waves' (hippos are too dense to float; they push off and move along the riverbed in a slow-motion gallop) — https://stories.sdzwa.org/?p=146524",
+    "San Diego Zoo animal profile (close nostrils and ears underwater; hold breath 5 minutes or longer; grazers) — https://animals.sandiegozoo.org/node/111",
+    "BBC Discover Wildlife (sleeping hippos float up to breathe and sink back without waking) — https://www.discoverwildlife.com/animal-facts/can-hippos-breathe-underwater"
+   ],
+   "shots": [
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 149728796,
+     "crop": [
+      0.393,
+      0.0,
+      0.767,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "hippo",
+   "pose": "think",
+   "act": "stand",
+   "say": "Hippos live in water. But how do they get across? Guess.",
+   "shots": [
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 36204497,
+     "crop": [
+      0.111,
+      0.15,
+      0.449,
+      0.95
+     ]
+    }
+   ],
+   "ask": {
+    "q": "HOW?",
+    "choices": [
+     "🏊 SWIM",
+     "🦶 SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "hippo",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 264030208,
+     "crop": [
+      0.251,
+      0.05,
+      0.589,
+      0.95
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "hippo",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in African rivers, hippos spend most of the day in the water, to stay cool.",
+   "shots": [
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 32088742,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ]
+  },
+  {
+   "myth": "hippo",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "They close their nostrils and ears, and hold their breath for five minutes or more.",
+   "shots": [
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 198786138,
+     "crop": [
+      0.223,
+      0.0,
+      0.577,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "5 MIN",
+    "at": "five"
+   }
+  },
+  {
+   "myth": "hippo",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: they're great swimmers. No. Hippos can't really swim.",
+   "shots": [
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 149728796,
+     "crop": [
+      0.393,
+      0.0,
+      0.767,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "hippo",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: they float like a log. Also no. They're too heavy to float.",
+   "shots": [
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 36204497,
+     "crop": [
+      0.111,
+      0.15,
+      0.449,
+      0.95
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "hippo",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I challenged one to a race across the river. I swam. It didn't need to.",
+   "shots": [
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 264030208,
+     "crop": [
+      0.251,
+      0.05,
+      0.589,
+      0.95
+     ]
+    }
+   ],
+   "act_at": "didn't",
+   "sfx": [
+    "thud@didn't"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "hippo",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait, here's the weird part. Even asleep underwater, it floats up to breathe, then sinks back. Without waking.",
+   "shots": [
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 32088742,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "hippo",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: they walk. Hippos push off and bounce along the river bottom, like a slow-motion gallop.",
+   "shots": [
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 198786138,
+     "crop": [
+      0.223,
+      0.0,
+      0.577,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "BOTTOM\nWALKERS",
+    "at": "walk"
+   },
+   "sfx": [
+    "pop@bounce"
+   ]
+  },
+  {
+   "myth": "hippo",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Two tons, moonwalking underwater.",
+   "shots": [
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 149728796,
+     "crop": [
+      0.393,
+      0.0,
+      0.767,
+      1.0
+     ]
+    }
+   ],
+   "punch": "moonwalking"
+  },
+  {
+   "myth": "hippo",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Good news: it eats grass. Bad news: it's very grumpy about its river.",
+   "shots": [
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 36204497,
+     "crop": [
+      0.111,
+      0.15,
+      0.449,
+      0.95
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@grumpy"
+    ]
+   },
+   "label": {
+    "text": "GRUMPY",
+    "at": "grumpy"
+   }
+  },
+  {
+   "myth": "hippo",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "It wouldn't eat me. Just flatten me. I'm a patty now.",
+   "shots": [
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 264030208,
+     "crop": [
+      0.251,
+      0.05,
+      0.589,
+      0.95
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "patty",
+   "sfx": [
+    "tink@patty"
+   ]
+  },
+  {
+   "myth": "hippo",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 32088742,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "hippo",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The river horse can't swim. It just walks on the bottom and dares you to say something.",
+   "shots": [
+    {
+     "photo": "Hippopotamus amphibius",
+     "obs": 198786138,
+     "crop": [
+      0.223,
+      0.0,
+      0.577,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "something"
+  },
+  {
+   "myth": "moose",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A moose waded into a lake, put its whole head under, and disappeared.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "IT DOVE UNDER",
+   "punch": "disappeared",
+   "loop_say": "I am a snack. Because",
+   "short_title": "I Tried to Outrow a Moose 🫎 (Would Meatball Survive?)",
+   "comment": "Could you outswim a moose? 👍 yes / 👎 no",
+   "bonus": "Moose can swim about 6 mph for up to two hours, and dunk completely underwater to eat water plants.",
+   "caption": "Can moose swim? Yes, and they dive. Why go under? 🐟 fish / 🌿 something else #moose #alaska #animalfacts #wildlife Follow Meatball for more 🍝",
+   "sources": [
+    "Alaska Dept. of Fish and Game, moose (can swim at about 6 mph for up to two hours) — https://www.adfg.alaska.gov/index.cfm?adfg=viewing.landmammals&species=moose",
+    "Teton Science Schools, 'Can Moose Really Dive?' (moose submerge entirely to feed on aquatic plants, up to ~50 s; nostrils close underwater; swims of 10+ miles) — https://tetonscience.org/can-moose-really-dive/",
+    "Moose are herbivores; aquatic plants supply sodium (Wikipedia, Moose, checked 2026-10-26) — https://en.wikipedia.org/wiki/Moose"
+   ],
+   "shots": [
+    {
+     "photo": "Alces alces",
+     "obs": 293795860,
+     "crop": [
+      0.342,
+      0.0,
+      0.658,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "moose",
+   "pose": "think",
+   "act": "stand",
+   "say": "Why would a moose go underwater? Guess.",
+   "shots": [
+    {
+     "photo": "Alces alces",
+     "obs": 92166840,
+     "crop": [
+      0.391,
+      0.0,
+      0.709,
+      0.85
+     ]
+    }
+   ],
+   "ask": {
+    "q": "WHY?",
+    "choices": [
+     "🐟 FISHING",
+     "🌿 SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "moose",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Alces alces",
+     "obs": 102548882,
+     "crop": [
+      0.521,
+      0.025,
+      0.839,
+      0.875
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "moose",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in Alaska and Canada, moose are huge swimmers. About six miles an hour, for up to two hours.",
+   "shots": [
+    {
+     "photo": "Alces alces",
+     "obs": 28395848,
+     "crop": [
+      0.389,
+      0.0,
+      0.811,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "6 MPH",
+    "at": "six"
+   }
+  },
+  {
+   "myth": "moose",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Some swim more than ten miles, across lakes and even between islands.",
+   "shots": [
+    {
+     "photo": "Alces alces",
+     "obs": 336096285,
+     "crop": [
+      0.313,
+      0.0,
+      0.687,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "10+\nMILES",
+    "at": "ten"
+   }
+  },
+  {
+   "myth": "moose",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: to catch fish. No. Moose don't eat fish.",
+   "shots": [
+    {
+     "photo": "Alces alces",
+     "obs": 293795860,
+     "crop": [
+      0.342,
+      0.0,
+      0.658,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "moose",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: to hide from wolves. They might, sometimes. But that's not the main reason.",
+   "shots": [
+    {
+     "photo": "Alces alces",
+     "obs": 92166840,
+     "crop": [
+      0.391,
+      0.0,
+      0.709,
+      0.85
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "moose",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I tried rowing away from one. Rowing away is not a plan.",
+   "shots": [
+    {
+     "photo": "Alces alces",
+     "obs": 102548882,
+     "crop": [
+      0.521,
+      0.025,
+      0.839,
+      0.875
+     ]
+    }
+   ],
+   "act_at": "plan",
+   "sfx": [
+    "thud@plan"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "moose",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait. Here's the thing. Its nose has flaps that close underwater.",
+   "shots": [
+    {
+     "photo": "Alces alces",
+     "obs": 28395848,
+     "crop": [
+      0.389,
+      0.0,
+      0.811,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "moose",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: salad. Moose dunk all the way under to eat water plants off the bottom, for up to about a minute.",
+   "shots": [
+    {
+     "photo": "Alces alces",
+     "obs": 336096285,
+     "crop": [
+      0.313,
+      0.0,
+      0.687,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "WATER\nSALAD",
+    "at": "salad"
+   },
+   "sfx": [
+    "pop@salad"
+   ]
+  },
+  {
+   "myth": "moose",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Those water plants are full of salt and minerals they can't get from trees in summer.",
+   "shots": [
+    {
+     "photo": "Alces alces",
+     "obs": 293795860,
+     "crop": [
+      0.342,
+      0.0,
+      0.658,
+      1.0
+     ]
+    }
+   ],
+   "punch": "salt"
+  },
+  {
+   "myth": "moose",
+   "pose": "shock",
+   "act": "stand",
+   "say": "An animal that weighs more than a car, snorkeling for lettuce.",
+   "shots": [
+    {
+     "photo": "Alces alces",
+     "obs": 92166840,
+     "crop": [
+      0.391,
+      0.0,
+      0.709,
+      0.85
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@snorkeling"
+    ]
+   }
+  },
+  {
+   "myth": "moose",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "I can't swim at all. I float. Like a sad crouton.",
+   "shots": [
+    {
+     "photo": "Alces alces",
+     "obs": 102548882,
+     "crop": [
+      0.521,
+      0.025,
+      0.839,
+      0.875
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "crouton",
+   "sfx": [
+    "tink@crouton"
+   ]
+  },
+  {
+   "myth": "moose",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Alces alces",
+     "obs": 28395848,
+     "crop": [
+      0.389,
+      0.0,
+      0.811,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "moose",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "A moose will dive into a freezing lake for a salad. I won't walk to the fridge for one.",
+   "shots": [
+    {
+     "photo": "Alces alces",
+     "obs": 336096285,
+     "crop": [
+      0.313,
+      0.0,
+      0.687,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "one"
+  },
+  {
+   "myth": "cone",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A pretty shell sat on the reef. A fish swam close, slowed down, and stopped moving.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "THE SNAIL STRUCK",
+   "punch": "harpoon",
+   "loop_say": "Just never pick one up. Because",
+   "short_title": "I Picked Up a Cone Snail 🐚 (Would Meatball Survive?)",
+   "comment": "Would you ever pick up a pretty shell again? 👍 yes / 👎 no",
+   "bonus": "Some fish-hunting cone snails release insulin into the water to drop fish blood sugar; Conus geographus has caused human deaths.",
+   "caption": "How does a snail catch a fish? The geography cone uses a venom harpoon, and something stranger. What? 🧪 poison / 🍬 something else #conesnail #ocean #venomous #animalfacts Follow Meatball for more 🍝",
+   "sources": [
+    "Safavi-Hemami et al. 2015, PNAS 112: 1743-1748, 'Specialized insulin is used for chemical warfare by fish-hunting cone snails' (Conus geographus, C. tulipa) — https://archive.unews.utah.edu/news_releases/killer-snail-venom-insulin/",
+    "Wikipedia, Cone snail (harpoon = modified, barbed, hollow radular tooth fired from an extendable proboscis) — https://en.wikipedia.org/wiki/Cone_snail",
+    "Wikipedia, Conus geographus (about 36 recorded human deaths; no antivenom) — https://en.wikipedia.org/wiki/Conus_geographus (checked 2026-10-26)",
+    "Photo note: the harpoon beat shows Californiconus californicus (also a venomous cone snail); insulin and 'killed people' beats use C. geographus."
+   ],
+   "shots": [
+    {
+     "photo": "Conus geographus",
+     "obs": 37854913,
+     "crop": [
+      0.239,
+      0.0,
+      0.661,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "cone",
+   "pose": "think",
+   "act": "stand",
+   "say": "A snail is catching a fish. How? Guess.",
+   "shots": [
+    {
+     "photo": "Conus geographus",
+     "obs": 37710971,
+     "crop": [
+      0.381,
+      0.1,
+      0.719,
+      0.9
+     ]
+    }
+   ],
+   "ask": {
+    "q": "HOW?",
+    "choices": [
+     "🧪 POISON",
+     "🍬 SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "cone",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Conus geographus",
+     "obs": 37854913,
+     "crop": [
+      0.239,
+      0.0,
+      0.661,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "cone",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in the Indian and Pacific Oceans lives the geography cone snail. A beautiful shell, and a killer.",
+   "shots": [
+    {
+     "photo": "Conus geographus",
+     "obs": 37710971,
+     "crop": [
+      0.41,
+      0.05,
+      0.79,
+      0.95
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ]
+  },
+  {
+   "myth": "cone",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Cone snails fire a harpoon. A hollow, barbed tooth full of venom.",
+   "shots": [
+    {
+     "photo": "Californiconus californicus",
+     "obs": 66506998,
+     "crop": [
+      0.316,
+      0.0,
+      0.784,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "HARPOON",
+    "at": "harpoon"
+   }
+  },
+  {
+   "myth": "cone",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: it chases the fish down. No. It's a snail.",
+   "shots": [
+    {
+     "photo": "Conus geographus",
+     "obs": 37854913,
+     "crop": [
+      0.473,
+      0.25,
+      0.727,
+      0.85
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "cone",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: just the harpoon. Close. But the fish was already slowing down first.",
+   "shots": [
+    {
+     "photo": "Conus geographus",
+     "obs": 37710971,
+     "crop": [
+      0.381,
+      0.1,
+      0.719,
+      0.9
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "cone",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I picked one up. It's pretty. Then it turned its harpoon toward me.",
+   "shots": [
+    {
+     "photo": "Californiconus californicus",
+     "obs": 66606761,
+     "crop": [
+      0.239,
+      0.0,
+      0.661,
+      1.0
+     ]
+    }
+   ],
+   "act_at": "turned",
+   "sfx": [
+    "thud@turned"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "cone",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait. Here's the weird part. It doesn't start with venom. It starts with sugar.",
+   "shots": [
+    {
+     "photo": "Conus geographus",
+     "obs": 37854913,
+     "crop": [
+      0.239,
+      0.0,
+      0.661,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "cone",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: insulin. It clouds the water with insulin, the fish's blood sugar crashes, and it gets too sleepy to swim away.",
+   "shots": [
+    {
+     "photo": "Conus geographus",
+     "obs": 37710971,
+     "crop": [
+      0.41,
+      0.05,
+      0.79,
+      0.95
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "INSULIN",
+    "at": "insulin"
+   },
+   "sfx": [
+    "pop@insulin"
+   ]
+  },
+  {
+   "myth": "cone",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Then it opens its mouth wide and swallows the fish whole.",
+   "shots": [
+    {
+     "photo": "Conus geographus",
+     "obs": 37854913,
+     "crop": [
+      0.239,
+      0.0,
+      0.661,
+      1.0
+     ]
+    }
+   ],
+   "punch": "whole"
+  },
+  {
+   "myth": "cone",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "This kind has killed people. Dozens recorded. And there's no antivenom.",
+   "shots": [
+    {
+     "photo": "Conus geographus",
+     "obs": 37710971,
+     "crop": [
+      0.381,
+      0.1,
+      0.719,
+      0.9
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@antivenom"
+    ]
+   },
+   "label": {
+    "text": "NO\nANTIVENOM",
+    "at": "antivenom"
+   }
+  },
+  {
+   "myth": "cone",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "It swallows fish whole. I'm fish-sized.",
+   "shots": [
+    {
+     "photo": "Conus geographus",
+     "obs": 37854913,
+     "crop": [
+      0.473,
+      0.25,
+      0.727,
+      0.85
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "fish-sized",
+   "sfx": [
+    "tink@fish-sized"
+   ]
+  },
+  {
+   "myth": "cone",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Conus geographus",
+     "obs": 37710971,
+     "crop": [
+      0.41,
+      0.05,
+      0.79,
+      0.95
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "cone",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The deadliest snail on the reef hunts with a sugar crash. Never pick up a pretty shell.",
+   "shots": [
+    {
+     "photo": "Conus geographus",
+     "obs": 37854913,
+     "crop": [
+      0.239,
+      0.0,
+      0.661,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "shell"
+  },
+  {
+   "myth": "komodo",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A Komodo dragon tore into a deer, and swallowed huge chunks without chewing.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "ONE MEAL",
+   "punch": "swallowed",
+   "loop_say": "No chewing. No dignity. Because",
+   "short_title": "I Brought a Komodo Dragon a Snack 🦎 (Would Meatball Survive?)",
+   "comment": "What's the most you've ever eaten in one sitting? 🍕 a lot / 🍝 a meatball",
+   "bonus": "An adult Komodo dragon can eat up to 80% of its body weight in one meal (Smithsonian's National Zoo).",
+   "caption": "How much can a Komodo dragon eat? Up to 80% of its body weight in one meal. How? 🦷 chews fast / 🎈 something else #komododragon #lizard #reptiles #animalfacts Follow Meatball for more 🍝",
+   "sources": [
+    "Smithsonian's National Zoo, Komodo dragon (largest living lizard; stomach expands so an adult can eat up to 80% of its body weight in a single meal) — https://www.nationalzoo.si.edu/node/6852",
+    "Fry et al. 2009, PNAS 106: 8969-8974 (venom glands in the lower jaw) — https://www.nationalgeographic.com/science/article/venomous-komodo-dragons-kill-prey-with-wound-and-poison-tactics",
+    "LITFL, 'Komodo dragons: myth vs reality' (the venom's role in kills is debated; the old 'deadly bacteria' story is largely discredited) — https://litfl.com/komodo-dragons-myth-vs-reality/"
+   ],
+   "shots": [
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 341853813,
+     "crop": [
+      0.339,
+      0,
+      0.761,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "komodo",
+   "pose": "think",
+   "act": "stand",
+   "say": "How much can it eat in one meal? Guess.",
+   "shots": [
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 363007686,
+     "crop": [
+      0.26,
+      0.1,
+      0.64,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "HOW MUCH?",
+    "choices": [
+     "🍽️ A LITTLE",
+     "🐉 MOST OF ITSELF"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "komodo",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 259851971,
+     "crop": [
+      0.262,
+      0.0,
+      0.578,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "komodo",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, on a few Indonesian islands lives the Komodo dragon. The biggest lizard on Earth.",
+   "shots": [
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 259738154,
+     "crop": [
+      0.389,
+      0.0,
+      0.811,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "BIGGEST\nLIZARD",
+    "at": "biggest"
+   }
+  },
+  {
+   "myth": "komodo",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Up to three meters long, heavier than a grown man, with serrated teeth like a shark.",
+   "shots": [
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 244517845,
+     "crop": [
+      0.47,
+      0.1,
+      0.85,
+      1.0
+     ]
+    }
+   ],
+   "punch": "shark"
+  },
+  {
+   "myth": "komodo",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: a small snack, every day. No. It can go weeks between meals, then eats huge.",
+   "shots": [
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 333369842,
+     "crop": [
+      0.192,
+      0.0,
+      0.508,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "komodo",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: maybe a quarter of its weight. Also no. Way more.",
+   "shots": [
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 341853813,
+     "crop": [
+      0.339,
+      0,
+      0.761,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "komodo",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I brought it a snack. Turns out I'm the snack.",
+   "shots": [
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 363007686,
+     "crop": [
+      0.26,
+      0.1,
+      0.64,
+      1.0
+     ]
+    }
+   ],
+   "act_at": "snack",
+   "sfx": [
+    "thud@snack"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "komodo",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait, here's the thing. Its stomach isn't a normal size. It stretches.",
+   "shots": [
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 259851971,
+     "crop": [
+      0.262,
+      0.0,
+      0.578,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "komodo",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: up to eighty percent of its own body weight. In a single meal.",
+   "shots": [
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 259738154,
+     "crop": [
+      0.389,
+      0.0,
+      0.811,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "80%",
+    "at": "eighty"
+   },
+   "sfx": [
+    "pop@eighty"
+   ]
+  },
+  {
+   "myth": "komodo",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Its jaw is loose and its stomach expands, so it can gulp down enormous pieces, bones and all.",
+   "shots": [
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 244517845,
+     "crop": [
+      0.47,
+      0.1,
+      0.85,
+      1.0
+     ]
+    }
+   ],
+   "punch": "gulp"
+  },
+  {
+   "myth": "komodo",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "It also has venom glands in its jaw. How much they matter? Scientists still argue.",
+   "shots": [
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 333369842,
+     "crop": [
+      0.192,
+      0.0,
+      0.508,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@argue"
+    ]
+   },
+   "label": {
+    "text": "VENOM?",
+    "at": "venom"
+   }
+  },
+  {
+   "myth": "komodo",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Eighty percent of a meatball is a meatball.",
+   "shots": [
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 341853813,
+     "crop": [
+      0.339,
+      0,
+      0.761,
+      1.0
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "meatball",
+   "sfx": [
+    "tink@meatball"
+   ]
+  },
+  {
+   "myth": "komodo",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 363007686,
+     "crop": [
+      0.26,
+      0.1,
+      0.64,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "komodo",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "It eats almost its whole body weight, then lies in the sun for days. Thanksgiving, but every time.",
+   "shots": [
+    {
+     "photo": "Varanus komodoensis",
+     "obs": 259851971,
+     "crop": [
+      0.262,
+      0.0,
+      0.578,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "time"
+  },
+  {
+   "myth": "piranha",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A school of piranhas swarmed together in a murky river. Everyone on the boat froze.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "WHY THE CROWD?",
+   "punch": "swarmed",
+   "loop_say": "And I'm, technically, meat. Because",
+   "short_title": "I Tried to Hug a Piranha 🐟 (Would Meatball Survive?)",
+   "comment": "Did movies ruin piranhas for you? 👍 yes / 👎 no",
+   "bonus": "Red-bellied piranhas shoal mainly for safety; in small groups they breathe faster, a stress sign (Queiroz & Magurran 2005). They also bark when handled.",
+   "caption": "Why do piranhas swim in groups? Not to hunt like in movies. Why? 🍖 to hunt / 😰 something else #piranha #amazon #fish #animalfacts Follow Meatball for more 🍝",
+   "sources": [
+    "Queiroz & Magurran 2005, Biology Letters 1: 155-157, 'Safety in numbers? Shoaling behaviour of the Amazonian red-bellied piranha' (higher breathing rate in small shoals; slower recovery after a model-predator attack) — https://research-portal.st-andrews.ac.uk/en/publications/safety-in-numbers-shoaling-behaviour-of-the-amazonian-red-bellied/",
+    "St Andrews release, 'Rehabilitating piranhas' (groups for protection from cormorants, caimans and river dolphins, not pack hunting) — https://news.st-andrews.ac.uk/archive/rehabilitating-piranhas/",
+    "Millot, Vandewalle & Parmentier 2011, J. Exp. Biol. 214: 3613-3618 (red-bellied piranhas bark when handled) — https://www.npr.org/sections/thetwo-way/2011/10/14/141350706/listen-up-heres-how-some-piranhas-bark-before-they-bit"
+   ],
+   "shots": [
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 228497872,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "piranha",
+   "pose": "think",
+   "act": "stand",
+   "say": "Why do piranhas stick together? Guess.",
+   "shots": [
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 8734928,
+     "crop": [
+      0.31,
+      0.0,
+      0.69,
+      0.9
+     ]
+    }
+   ],
+   "ask": {
+    "q": "WHY GROUPS?",
+    "choices": [
+     "🍖 TO HUNT",
+     "😰 SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "piranha",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 395989341,
+     "crop": [
+      0.323,
+      0.0,
+      0.677,
+      0.9
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "piranha",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in the Amazon, the red-bellied piranha has razor teeth and a terrible movie reputation.",
+   "shots": [
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 345090765,
+     "crop": [
+      0.389,
+      0.0,
+      0.811,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ]
+  },
+  {
+   "myth": "piranha",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Movies say they hunt in giant packs and strip a whole cow to the bone in seconds. Scary stuff.",
+   "shots": [
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 150282373,
+     "crop": [
+      0.492,
+      0.0,
+      0.808,
+      1.0
+     ]
+    }
+   ],
+   "punch": "seconds"
+  },
+  {
+   "myth": "piranha",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: pack hunting, like wolves. No. Scientists didn't find that.",
+   "shots": [
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 241309079,
+     "crop": [
+      0.342,
+      0.0,
+      0.658,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "piranha",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: they're just friendly and like company. Also no. Not friendly. Not even a little.",
+   "shots": [
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 228497872,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "piranha",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I jumped in to comfort them. Then I hugged one. It barked.",
+   "shots": [
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 8734928,
+     "crop": [
+      0.31,
+      0.0,
+      0.69,
+      0.9
+     ]
+    }
+   ],
+   "act_at": "barked",
+   "sfx": [
+    "thud@barked"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "piranha",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait. Yes, piranhas really bark when you grab them. Scientists recorded it.",
+   "shots": [
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 395989341,
+     "crop": [
+      0.323,
+      0.0,
+      0.677,
+      0.9
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   },
+   "label": {
+    "text": "BARK!",
+    "at": "bark"
+   }
+  },
+  {
+   "myth": "piranha",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: fear. They group up for safety, because birds, caimans and river dolphins eat them.",
+   "shots": [
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 345090765,
+     "crop": [
+      0.389,
+      0.0,
+      0.811,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "SAFETY\nIN NUMBERS",
+    "at": "safety"
+   },
+   "sfx": [
+    "pop@safety"
+   ]
+  },
+  {
+   "myth": "piranha",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Scientists tested them. In small groups, they breathed faster. That's a stress sign.",
+   "shots": [
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 150282373,
+     "crop": [
+      0.492,
+      0.0,
+      0.808,
+      1.0
+     ]
+    }
+   ],
+   "punch": "stress"
+  },
+  {
+   "myth": "piranha",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "And after a fake bird attack, small groups took longer to calm down. Big groups felt safer.",
+   "shots": [
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 241309079,
+     "crop": [
+      0.342,
+      0.0,
+      0.658,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@slower"
+    ]
+   }
+  },
+  {
+   "myth": "piranha",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Fish should not bark. I'm upset. And a little scared.",
+   "shots": [
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 228497872,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "upset",
+   "sfx": [
+    "tink@upset"
+   ]
+  },
+  {
+   "myth": "piranha",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 8734928,
+     "crop": [
+      0.31,
+      0.0,
+      0.69,
+      0.9
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "piranha",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Movie monsters. Real life? A crowd of nervous fish with very sharp teeth.",
+   "shots": [
+    {
+     "photo": "Pygocentrus nattereri",
+     "obs": 395989341,
+     "crop": [
+      0.323,
+      0.0,
+      0.677,
+      0.9
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "teeth"
+  },
+  {
+   "myth": "croc",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A scientist held a metal sensor up to a saltwater crocodile's mouth. It clamped down.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "STRONGEST BITE",
+   "punch": "clamped",
+   "loop_say": "No twist needed. Because",
+   "short_title": "I Held the Croc Bite Sensor 🐊 (Would Meatball Survive?)",
+   "comment": "Would you hold the sensor? 👍 yes / 👎 no",
+   "bonus": "A saltwater crocodile bit with about 3,700 pounds of force, the strongest bite ever measured (Erickson et al. 2012).",
+   "caption": "What animal has the strongest bite? A saltwater crocodile, about 3,700 pounds of force. But can it chew? 🦷 yes / 🌀 something else #crocodile #saltwatercrocodile #animalfacts #strongest Follow Meatball for more 🍝",
+   "sources": [
+    "Erickson et al. 2012, PLOS ONE 7: e31781 (bite forces of all 23 living crocodilian species; saltwater crocodile ~3,700 lbf, the highest measured) — https://www.sciencedaily.com/releases/2012/03/120316093427.htm",
+    "Guinness World Records: 16,414 N (about 3,690 lbf) from a saltwater crocodile — https://www.guinnessworldrecords.com/world-records/401566-strongest-molariform-bite-force-for-a-crocodile",
+    "National Geographic: crocodilians can't chew; they tear chunks with a 'death roll' and swallow — https://www.nationalgeographic.com/animals/article/120315-crocodiles-bite-force-erickson-science-plos-one-strongest"
+   ],
+   "shots": [
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 205463382,
+     "crop": [
+      0.282,
+      0.0,
+      0.658,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "croc",
+   "pose": "think",
+   "act": "stand",
+   "say": "Strongest bite ever measured. But can it chew? Guess.",
+   "shots": [
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 306412669,
+     "crop": [
+      0.342,
+      0.0,
+      0.658,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "CAN IT CHEW?",
+    "choices": [
+     "🦷 YES",
+     "🌀 SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "croc",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 194174556,
+     "crop": [
+      0.313,
+      0.0,
+      0.687,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "croc",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in 2012, scientists measured the bite of every living crocodile species. All twenty-three.",
+   "shots": [
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 104022814,
+     "crop": [
+      0.139,
+      0.0,
+      0.561,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "23\nSPECIES",
+    "at": "twenty-three"
+   }
+  },
+  {
+   "myth": "croc",
+   "pose": "shock",
+   "act": "stand",
+   "say": "The saltwater croc won. About thirty-seven hundred pounds of force.",
+   "shots": [
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 14789694,
+     "crop": [
+      0.192,
+      0.0,
+      0.568,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "3,700 LB",
+    "at": "thirty-seven"
+   }
+  },
+  {
+   "myth": "croc",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: it chews like a dog. No. Croc jaws only go up and down. No grinding.",
+   "shots": [
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 205463382,
+     "crop": [
+      0.282,
+      0.0,
+      0.658,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "croc",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: it swallows everything whole, like a snake. Not quite. Big prey doesn't fit.",
+   "shots": [
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 306412669,
+     "crop": [
+      0.342,
+      0.0,
+      0.658,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "croc",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I held the sensor next. It clamped.",
+   "shots": [
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 194174556,
+     "crop": [
+      0.313,
+      0.0,
+      0.687,
+      1.0
+     ]
+    }
+   ],
+   "act_at": "clamped",
+   "sfx": [
+    "crunch@clamped"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "croc",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait, here's the thing. All that power is for holding on, not slicing.",
+   "shots": [
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 104022814,
+     "crop": [
+      0.139,
+      0.0,
+      0.561,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "croc",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: it can't chew. It bites, then spins its whole body in a death roll to tear off chunks, and swallows them.",
+   "shots": [
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 14789694,
+     "crop": [
+      0.192,
+      0.0,
+      0.568,
+      1.0
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "DEATH\nROLL",
+    "at": "roll"
+   },
+   "sfx": [
+    "whoosh@spins"
+   ]
+  },
+  {
+   "myth": "croc",
+   "pose": "shock",
+   "act": "stand",
+   "say": "The muscles that close its jaw are huge. The ones that open it are surprisingly weak.",
+   "shots": [
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 205463382,
+     "crop": [
+      0.282,
+      0.0,
+      0.658,
+      1.0
+     ]
+    }
+   ],
+   "punch": "weak"
+  },
+  {
+   "myth": "croc",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "That's why handlers can hold a croc's mouth shut with tape.",
+   "shots": [
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 306412669,
+     "crop": [
+      0.342,
+      0.0,
+      0.658,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@tape"
+    ]
+   },
+   "label": {
+    "text": "TAPE",
+    "at": "tape"
+   }
+  },
+  {
+   "myth": "croc",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "I'm already chunk-sized. No twist needed.",
+   "shots": [
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 194174556,
+     "crop": [
+      0.313,
+      0.0,
+      0.687,
+      1.0
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "chunk-sized",
+   "sfx": [
+    "tink@chunk-sized"
+   ]
+  },
+  {
+   "myth": "croc",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 104022814,
+     "crop": [
+      0.139,
+      0.0,
+      0.561,
+      1.0
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "croc",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Strongest bite on Earth, and it still can't chew its food. Nobody's perfect.",
+   "shots": [
+    {
+     "photo": "Crocodylus porosus",
+     "obs": 14789694,
+     "crop": [
+      0.192,
+      0.0,
+      0.568,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "perfect"
+  },
+  {
+   "myth": "octopus",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "I reached into a tide pool, and a tiny octopus flashed bright blue rings at me.",
+   "_len": "deep",
+   "theme": "animals",
+   "hook": true,
+   "headline_s": 2.2,
+   "headline": "THE RINGS GLOWED",
+   "punch": "flashed",
+   "loop_say": "I checked. Twice. Because",
+   "short_title": "I High-Fived a Blue-Ringed Octopus 🐙 (Would Meatball Survive?)",
+   "comment": "Did you know the bite might not even hurt? 👍 yes / 😳 no",
+   "bonus": "A blue-ringed octopus bite can be painless; its tetrodotoxin paralyzes breathing muscles; there's no antivenom, but people survive with rescue breathing.",
+   "caption": "Is a blue-ringed octopus bite deadly? It can be, and there's no antivenom. So how do people survive? 💉 antidote / 🫁 something else #blueringedoctopus #ocean #venomous #animalfacts Follow Meatball for more 🍝",
+   "sources": [
+    "Divers Alert Network (bite usually painless or like a bee sting; tetrodotoxin causes paralysis including breathing muscles; no antivenom; full recovery expected with timely rescue breathing / ventilation and medical care) — https://dan.org/health-medicine/health-resources/diseases-conditions/blue-ringed-octopus/",
+    "Wikipedia, Hapalochlaena (rings flash brighter when threatened; small, fits in a hand; eats crabs and shrimp) — https://en.wikipedia.org/wiki/Hapalochlaena (checked 2026-10-26)"
+   ],
+   "shots": [
+    {
+     "photo": "Hapalochlaena lunulata",
+     "obs": 393772050,
+     "crop": [
+      0.369,
+      0.0,
+      0.791,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "myth": "octopus",
+   "pose": "think",
+   "act": "stand",
+   "say": "Its bite can stop your breathing, and there's no antivenom. So how do people survive? Guess.",
+   "shots": [
+    {
+     "photo": "Hapalochlaena lunulata",
+     "obs": 26159142,
+     "crop": [
+      0.315,
+      0.0,
+      0.685,
+      0.9
+     ]
+    }
+   ],
+   "ask": {
+    "q": "HOW?",
+    "choices": [
+     "💉 ANTIDOTE",
+     "🫁 SOMETHING ELSE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.8,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "octopus",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I face a new animal every day.",
+   "shots": [
+    {
+     "photo": "Hapalochlaena lunulata",
+     "obs": 38183739,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "octopus",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in tide pools from Japan to Australia live blue-ringed octopuses. Small enough to fit in your hand.",
+   "shots": [
+    {
+     "photo": "Hapalochlaena maculosa",
+     "obs": 100557962,
+     "crop": [
+      0.312,
+      0.0,
+      0.688,
+      1.0
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ]
+  },
+  {
+   "myth": "octopus",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "When it's upset, the rings get brighter. That's the warning.",
+   "shots": [
+    {
+     "photo": "Hapalochlaena lunulata",
+     "obs": 393772050,
+     "crop": [
+      0.369,
+      0.0,
+      0.791,
+      1.0
+     ]
+    }
+   ],
+   "label": {
+    "text": "WARNING",
+    "at": "brighter"
+   }
+  },
+  {
+   "myth": "octopus",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: a hospital antidote. No. There isn't one.",
+   "shots": [
+    {
+     "photo": "Hapalochlaena lunulata",
+     "obs": 26159142,
+     "crop": [
+      0.316,
+      0.05,
+      0.644,
+      0.85
+     ]
+    }
+   ],
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
+  },
+  {
+   "myth": "octopus",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: suck out the venom. Also no. That doesn't work.",
+   "shots": [
+    {
+     "photo": "Hapalochlaena maculosa",
+     "obs": 67075415,
+     "crop": [
+      0.292,
+      0.0,
+      0.608,
+      1.0
+     ]
+    }
+   ],
+   "decoy": true
+  },
+  {
+   "myth": "octopus",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "So I gave it a high five. The rings got very bright.",
+   "shots": [
+    {
+     "photo": "Hapalochlaena lunulata",
+     "obs": 38183739,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ],
+   "act_at": "bright",
+   "sfx": [
+    "zap@bright"
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "octopus",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Wait. Here's the scary part. The bite can be painless. You might not even notice.",
+   "shots": [
+    {
+     "photo": "Hapalochlaena lunulata",
+     "obs": 393772050,
+     "crop": [
+      0.369,
+      0.0,
+      0.791,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
+  },
+  {
+   "myth": "octopus",
+   "pose": "point",
+   "act": "stand",
+   "say": "The answer: someone breathes for you. The venom paralyzes your breathing muscles, so rescue breathing keeps you alive until it wears off.",
+   "shots": [
+    {
+     "photo": "Hapalochlaena lunulata",
+     "obs": 26159142,
+     "crop": [
+      0.315,
+      0.0,
+      0.685,
+      0.9
+     ]
+    }
+   ],
+   "payoff": true,
+   "label": {
+    "text": "BREATHE\nFOR THEM",
+    "at": "breathes"
+   },
+   "sfx": [
+    "pop@breathes"
+   ]
+  },
+  {
+   "myth": "octopus",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "With quick help and a hospital, people make a full recovery.",
+   "shots": [
+    {
+     "photo": "Hapalochlaena maculosa",
+     "obs": 100557962,
+     "crop": [
+      0.312,
+      0.0,
+      0.688,
+      1.0
+     ]
+    }
+   ],
+   "punch": "recovery"
+  },
+  {
+   "myth": "octopus",
+   "pose": "shock",
+   "act": "stand",
+   "say": "The venom is the same kind found in pufferfish. Made by bacteria living inside it.",
+   "shots": [
+    {
+     "photo": "Hapalochlaena lunulata",
+     "obs": 38183739,
+     "crop": [
+      0.289,
+      0.0,
+      0.711,
+      1.0
+     ]
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@pufferfish"
+    ]
+   }
+  },
+  {
+   "myth": "octopus",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "Good news: it eats crabs. I'm not a crab. I checked. Twice.",
+   "shots": [
+    {
+     "photo": "Hapalochlaena lunulata",
+     "obs": 393772050,
+     "crop": [
+      0.369,
+      0.0,
+      0.791,
+      1.0
+     ]
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "crab",
+   "sfx": [
+    "tink@crab"
+   ]
+  },
+  {
+   "myth": "octopus",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "shots": [
+    {
+     "photo": "Hapalochlaena lunulata",
+     "obs": 26159142,
+     "crop": [
+      0.316,
+      0.05,
+      0.644,
+      0.85
+     ]
+    }
+   ],
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "octopus",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The most dangerous thing in the tide pool is cute, tiny, and glows. Just admire it from far away.",
+   "shots": [
+    {
+     "photo": "Hapalochlaena lunulata",
+     "obs": 393772050,
+     "crop": [
+      0.369,
+      0.0,
+      0.791,
+      1.0
+     ]
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "away"
   }
  ]
 }
