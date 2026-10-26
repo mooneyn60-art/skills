@@ -216,7 +216,7 @@ def main():
         xmark(c, *[int(v) for v in a.xmark.split(",")])
         elements += 1
 
-    tbox, cap = headline(c, a.text.upper(), free0, free1, 6, a.text_color, H - a.meatball_h + 20)
+    tbox, cap = headline(c, a.text.upper(), free0, free1, 6, a.text_color, H - a.meatball_h - 50)
     # Meatball: small reaction in the free corner, never over the words or the hook.
     mb = meatball(a.pose, not left, a.meatball_h)
     mx = W - mb.width + 30 if left else -30
