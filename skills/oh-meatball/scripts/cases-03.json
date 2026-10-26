@@ -75,7 +75,12 @@
     ],
     "at": "Guess"
    },
-   "hold": 0.9
+   "hold": 0.9,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
   },
   {
    "myth": "lochness",
@@ -138,6 +143,11 @@
    "label": {
     "text": "1994",
     "at": "truth"
+   },
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
    }
   },
   {
@@ -164,7 +174,12 @@
    "shots": [
     {
      "photo": "Vintage toy submarine",
-     "obs": "ov:32f89c91-1965-44fb-8802-2121419b03d2"
+     "obs": "ov:32f89c91-1965-44fb-8802-2121419b03d2",
+     "host": {
+      "moves": [
+       "lean@Verdict"
+      ]
+     }
     },
     {
      "photo": "The 'Surgeon's Photograph', 1934",
@@ -254,7 +269,12 @@
     ],
     "at": "Guess"
    },
-   "hold": 0.9
+   "hold": 0.9,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
   },
   {
    "myth": "turk",
@@ -317,6 +337,11 @@
    "label": {
     "text": "FRANKLIN TOO",
     "at": "Franklin"
+   },
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
    }
   },
   {
@@ -343,7 +368,12 @@
    "shots": [
     {
      "photo": "The Turk, from Kempelen's drawings",
-     "obs": "wm:Tuerkischer_schachspieler_windisch4.jpg"
+     "obs": "wm:Tuerkischer_schachspieler_windisch4.jpg",
+     "host": {
+      "moves": [
+       "lean@Verdict"
+      ]
+     }
     },
     {
      "photo": "The Turk, engraving",
@@ -435,7 +465,12 @@
     "at": "Guess"
    },
    "hold": 0.9,
-   "promise": true
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
   },
   {
    "myth": "turkdeep",
@@ -526,7 +561,12 @@
      "obs": "wm:Tuerkischer_schachspieler_windisch4.jpg"
     }
    ],
-   "decoy": true
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
   },
   {
    "myth": "turkdeep",
@@ -568,7 +608,12 @@
      "photo": "The Turk, engraving",
      "obs": "wm:Turk-engraving4.jpg"
     }
-   ]
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
   },
   {
    "myth": "turkdeep",
@@ -630,7 +675,12 @@
      "photo": "Johann Maelzel",
      "obs": "wm:Henkin12.jpg"
     }
-   ]
+   ],
+   "host": {
+    "moves": [
+     "lean@Later"
+    ]
+   }
   },
   {
    "myth": "turkdeep",
@@ -721,7 +771,12 @@
     ],
     "at": "Guess"
    },
-   "hold": 0.9
+   "hold": 0.9,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
   },
   {
    "myth": "ghostarmy",
@@ -784,6 +839,11 @@
    "label": {
     "text": "FAKE SOUNDS",
     "at": "noises"
+   },
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
    }
   },
   {
@@ -810,7 +870,12 @@
    "shots": [
     {
      "photo": "Ghost Army dummy tank (International Spy Museum)",
-     "obs": "wm:Ghost_Army_dummy_tank,_International_Spy_Museum.jpg"
+     "obs": "wm:Ghost_Army_dummy_tank,_International_Spy_Museum.jpg",
+     "host": {
+      "moves": [
+       "lean@Verdict"
+      ]
+     }
     },
     {
      "photo": "Ghost Army insignia (US Army)",
@@ -900,7 +965,12 @@
     ],
     "at": "Guess"
    },
-   "hold": 0.9
+   "hold": 0.9,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
   },
   {
    "myth": "popeye",
@@ -963,6 +1033,11 @@
    "label": {
     "text": "5 YEARS",
     "at": "Five"
+   },
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
    }
   },
   {
@@ -989,7 +1064,12 @@
    "shots": [
     {
      "photo": "Cloud seeding plane, Corryong, 1966",
-     "obs": "wm:Cloud_seeding_at_Corryong,_Victoria_-_Cessna_410_-_Athol_Hodgson,_1966.jpg"
+     "obs": "wm:Cloud_seeding_at_Corryong,_Victoria_-_Cessna_410_-_Athol_Hodgson,_1966.jpg",
+     "host": {
+      "moves": [
+       "lean@Verdict"
+      ]
+     }
     },
     {
      "photo": "Steel Tiger operations map",
@@ -1081,7 +1161,12 @@
     "at": "Guess"
    },
    "hold": 0.9,
-   "promise": true
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
   },
   {
    "myth": "popeyedeep",
@@ -1161,7 +1246,12 @@
      "obs": "wm:Ho_chi_minh_trail.jpg"
     }
    ],
-   "decoy": true
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
   },
   {
    "myth": "popeyedeep",
@@ -1206,7 +1296,12 @@
      "photo": "Ho Chi Minh Trail (US archive)",
      "obs": "wm:Ho_chi_minh_trail.jpg"
     }
-   ]
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
   },
   {
    "myth": "popeyedeep",
@@ -1268,7 +1363,12 @@
      "photo": "Steel Tiger operations map",
      "obs": "wm:Steel_Tiger.jpg"
     }
-   ]
+   ],
+   "host": {
+    "moves": [
+     "lean@Even"
+    ]
+   }
   },
   {
    "myth": "popeyedeep",
@@ -1375,7 +1475,12 @@
     ],
     "at": "Guess"
    },
-   "hold": 0.9
+   "hold": 0.9,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
   },
   {
    "myth": "piltdown",
@@ -1438,6 +1543,11 @@
    "label": {
     "text": "41 YEARS",
     "at": "forty"
+   },
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
    }
   },
   {
@@ -1464,7 +1574,12 @@
    "shots": [
     {
      "photo": "Comparison of jaws (American Museum Journal)",
-     "obs": "wm:Comparison_of_mandibles,_The_American_Museum_journal_(c1900-(1918)).jpg"
+     "obs": "wm:Comparison_of_mandibles,_The_American_Museum_journal_(c1900-(1918)).jpg",
+     "host": {
+      "moves": [
+       "lean@Verdict"
+      ]
+     }
     },
     {
      "photo": "CT scan of Piltdown Man (De Groote et al.)",
@@ -1554,7 +1669,12 @@
     ],
     "at": "Guess"
    },
-   "hold": 0.9
+   "hold": 0.9,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
   },
   {
    "myth": "pigeon",
@@ -1617,6 +1737,11 @@
    "label": {
     "text": "IT WORKED",
     "at": "worked"
+   },
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
    }
   },
   {
@@ -1643,7 +1768,12 @@
    "shots": [
     {
      "photo": "B. F. Skinner (Silly rabbit)",
-     "obs": "wm:B.F._Skinner_at_Harvard_circa_1950_(cropped).jpg"
+     "obs": "wm:B.F._Skinner_at_Harvard_circa_1950_(cropped).jpg",
+     "host": {
+      "moves": [
+       "lean@Verdict"
+      ]
+     }
     },
     {
      "photo": "US Navy Bat glide bomb",
@@ -1735,7 +1865,12 @@
     "at": "Guess"
    },
    "hold": 0.9,
-   "promise": true
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
   },
   {
    "myth": "pigeondeep",
@@ -1815,7 +1950,12 @@
      "obs": "ov:2ff01500-e374-4f15-904e-d9158a4356b2"
     }
    ],
-   "decoy": true
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
   },
   {
    "myth": "pigeondeep",
@@ -1861,6 +2001,11 @@
    "label": {
     "text": "SCREEN",
     "at": "screen"
+   },
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
    }
   },
   {
@@ -1923,6 +2068,11 @@
    "label": {
     "text": "10,000 PECKS",
     "at": "ten"
+   },
+   "host": {
+    "moves": [
+     "lean@One"
+    ]
    }
   },
   {

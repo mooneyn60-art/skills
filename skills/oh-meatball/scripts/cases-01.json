@@ -1015,7 +1015,12 @@
     ],
     "at": "Guess"
    },
-   "hold": 0.9
+   "hold": 0.9,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
   },
   {
    "myth": "flannan",
@@ -1083,6 +1088,11 @@
    "label": {
     "text": "1 COAT",
     "at": "coat"
+   },
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
    }
   },
   {
@@ -1109,7 +1119,12 @@
    "shots": [
     {
      "photo": "Waves crashing on the west coast",
-     "obs": "ov:4670a64a-c9cd-4257-abe4-90168f638edb"
+     "obs": "ov:4670a64a-c9cd-4257-abe4-90168f638edb",
+     "host": {
+      "moves": [
+       "lean@Verdict"
+      ]
+     }
     },
     {
      "photo": "Waves on the rocks",

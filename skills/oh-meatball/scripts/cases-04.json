@@ -75,7 +75,12 @@
     ],
     "at": "Guess"
    },
-   "hold": 0.9
+   "hold": 0.9,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
   },
   {
    "myth": "tunguska",
@@ -138,6 +143,11 @@
    "label": {
     "text": "80 MILLION TREES",
     "at": "trees"
+   },
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
    }
   },
   {
@@ -164,7 +174,12 @@
    "shots": [
     {
      "photo": "Thunderstorm at night (NOAA)",
-     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3"
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3",
+     "host": {
+      "moves": [
+       "lean@Verdict"
+      ]
+     }
     },
     {
      "photo": "South Siberian taiga forest",
@@ -254,7 +269,12 @@
     ],
     "at": "Guess"
    },
-   "hold": 0.9
+   "hold": 0.9,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
   },
   {
    "myth": "stargate",
@@ -317,6 +337,11 @@
    "label": {
     "text": "17 YEARS",
     "at": "seventeen"
+   },
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
    }
   },
   {
@@ -343,7 +368,12 @@
    "shots": [
     {
      "photo": "CIA headquarters, Langley (Carol M. Highsmith)",
-     "obs": "wm:Aerial_view_of_the_Central_Intelligence_Agency_headquarters,_Langley,_Virginia_-_Corrected_and_Cropped.jpg"
+     "obs": "wm:Aerial_view_of_the_Central_Intelligence_Agency_headquarters,_Langley,_Virginia_-_Corrected_and_Cropped.jpg",
+     "host": {
+      "moves": [
+       "lean@Verdict"
+      ]
+     }
     },
     {
      "photo": "NSA headquarters, Fort Meade (NSA)",
@@ -435,7 +465,12 @@
     "at": "Guess"
    },
    "hold": 0.9,
-   "promise": true
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
   },
   {
    "myth": "stargatedeep",
@@ -526,7 +561,12 @@
      "obs": "wm:National_Security_Agency_headquarters,_Fort_Meade,_Maryland.jpg"
     }
    ],
-   "decoy": true
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
   },
   {
    "myth": "stargatedeep",
@@ -575,6 +615,11 @@
    "label": {
     "text": "17 YEARS",
     "at": "seventeen"
+   },
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
    }
   },
   {
@@ -637,6 +682,11 @@
    "label": {
     "text": "$20 MILLION",
     "at": "twenty"
+   },
+   "host": {
+    "moves": [
+     "lean@Total"
+    ]
    }
   },
   {
@@ -728,7 +778,12 @@
     ],
     "at": "Guess"
    },
-   "hold": 0.9
+   "hold": 0.9,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
   },
   {
    "myth": "greatstink",
@@ -791,6 +846,11 @@
    "label": {
     "text": "HEAT WAVE",
     "at": "heat"
+   },
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
    }
   },
   {
@@ -817,7 +877,12 @@
    "shots": [
     {
      "photo": "Sir Joseph Bazalgette (Wellcome)",
-     "obs": "wm:Portrait_of_Sir_Joseph_William_Bazalgette_(1819-1891)_Wellcome_M0016460.jpg"
+     "obs": "wm:Portrait_of_Sir_Joseph_William_Bazalgette_(1819-1891)_Wellcome_M0016460.jpg",
+     "host": {
+      "moves": [
+       "lean@Verdict"
+      ]
+     }
     },
     {
      "photo": "London sewers under construction, 1860",
@@ -907,7 +972,12 @@
     ],
     "at": "Guess"
    },
-   "hold": 0.9
+   "hold": 0.9,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
   },
   {
    "myth": "voynich",
@@ -970,6 +1040,11 @@
    "label": {
     "text": "UNKNOWN PLANTS",
     "at": "exist"
+   },
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
    }
   },
   {
@@ -996,7 +1071,12 @@
    "shots": [
     {
      "photo": "Voynich manuscript, foldout (Beinecke)",
-     "obs": "wm:Voynich_Manuscript_(170).jpg"
+     "obs": "wm:Voynich_Manuscript_(170).jpg",
+     "host": {
+      "moves": [
+       "lean@Verdict"
+      ]
+     }
     },
     {
      "photo": "Voynich manuscript page (Beinecke)",
@@ -1089,7 +1169,12 @@
     "at": "Guess"
    },
    "hold": 1.1,
-   "promise": true
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
   },
   {
    "myth": "voynichdeep",
@@ -1173,6 +1258,11 @@
    "label": {
     "text": "1404-1438",
     "at": "1400s"
+   },
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
    }
   },
   {
@@ -1218,7 +1308,12 @@
      "photo": "Voynich manuscript page (Beinecke)",
      "obs": "wm:Voynich_Manuscript_(158).jpg"
     }
-   ]
+   ],
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   }
   },
   {
    "myth": "voynichdeep",
@@ -1276,7 +1371,12 @@
      "photo": "Voynich manuscript, plant page (Beinecke)",
      "obs": "wm:Voynich_Manuscript_(32).jpg"
     }
-   ]
+   ],
+   "host": {
+    "moves": [
+     "lean@Today"
+    ]
+   }
   },
   {
    "myth": "voynichdeep",
@@ -1367,7 +1467,12 @@
     ],
     "at": "Guess"
    },
-   "hold": 0.9
+   "hold": 0.9,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
   },
   {
    "myth": "norton",
@@ -1430,6 +1535,11 @@
    "label": {
     "text": "HIS OWN MONEY",
     "at": "money"
+   },
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
    }
   },
   {
@@ -1456,7 +1566,12 @@
    "shots": [
     {
      "photo": "Norton at the funeral of the dog Lazarus (Edward Jump)",
-     "obs": "wm:Lazarus2.jpg"
+     "obs": "wm:Lazarus2.jpg",
+     "host": {
+      "moves": [
+       "lean@Verdict"
+      ]
+     }
     },
     {
      "photo": "Emperor Norton (H.W. Bradley & Rulofson)",
@@ -1546,7 +1661,12 @@
     ],
     "at": "Guess"
    },
-   "hold": 0.9
+   "hold": 0.9,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
   },
   {
    "myth": "mincemeat",
@@ -1594,7 +1714,7 @@
    "myth": "mincemeat",
    "pose": "shock",
    "act": "tumble",
-   "say": "Wait. He never existed.",
+   "say": "Wait. The officer never existed.",
    "shots": [
     {
      "photo": "Operation Mincemeat file (UK National Archives)",
@@ -1610,6 +1730,11 @@
    "label": {
     "text": "MAJOR WHO?",
     "at": "existed"
+   },
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
    }
   },
   {
@@ -1629,11 +1754,16 @@
    "myth": "mincemeat",
    "pose": "point",
    "act": "stand",
-   "say": "Verdict: true. The Germans bought it.",
+   "say": "Verdict: true. The Germans bought every word.",
    "shots": [
     {
      "photo": "Charles Cholmondeley and Ewen Montagu, 1943",
-     "obs": "wm:Charles_Cholmondeley_and_Ewen_Montagu.jpg"
+     "obs": "wm:Charles_Cholmondeley_and_Ewen_Montagu.jpg",
+     "host": {
+      "moves": [
+       "lean@Verdict"
+      ]
+     }
     },
     {
      "photo": "Officers of HM Submarine Seraph, 1943 (Royal Navy)",
@@ -1650,7 +1780,7 @@
    "myth": "mincemeat",
    "pose": "deadpan",
    "act": "stand",
-   "say": "His name stayed secret until 1996.",
+   "say": "The dead man's real name stayed secret until 1996.",
    "shots": [
     {
      "photo": "Royal Navy, WWII (official photograph)",
@@ -1659,7 +1789,7 @@
    ],
    "kicker": true,
    "hold": 0.25,
-   "punch": "1996"
+   "punch": "secret"
   },
   {
    "myth": "mincemeatdeep",
@@ -1725,7 +1855,12 @@
     "at": "Guess"
    },
    "hold": 0.9,
-   "promise": true
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   }
   },
   {
    "myth": "mincemeatdeep",
@@ -1800,7 +1935,12 @@
      "obs": "wm:UK_National_Archives_-_WO_1065921.jpg"
     }
    ],
-   "decoy": true
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   }
   },
   {
    "myth": "mincemeatdeep",
@@ -1847,6 +1987,11 @@
    "label": {
     "text": "MAJOR WHO?",
     "at": "existed"
+   },
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
    }
   },
   {
@@ -1909,7 +2054,12 @@
      "photo": "Rough sea (Bernd Thaller)",
      "obs": "ov:3c42c784-2a30-423a-b959-75fa3c6aed1f"
     }
-   ]
+   ],
+   "host": {
+    "moves": [
+     "lean@The"
+    ]
+   }
   },
   {
    "myth": "mincemeatdeep",
