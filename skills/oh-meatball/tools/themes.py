@@ -26,6 +26,10 @@ THEMES = {
     "strange-history": dict(voice="en-US-BrianMultilingualNeural", rate="+12%", pitch="-4Hz", music="gen:waltz"),
     # electric and bright + crisp, quick voice (lightning, body and science myths)
     "science-myth": dict(voice="en-US-SteffanNeural", rate="+20%", pitch="+0Hz", music="gen:science"),
+    # famous fakes and hoaxes (Cardiff Giant, Piltdown, the Mechanical Turk): curious pizzicato + dry British
+    # storyteller (Voggle's register). Measured 10/26 on the same Cardiff lines: Thomas +14% 123 Hz, whisper
+    # 0.949 (Ryan +14% was 0.915, so not used)
+    "hoax": dict(voice="en-GB-ThomasNeural", rate="+14%", pitch="+0Hz", music="gen:detective"),
     # the current animal Shorts: quiz bed + Andrew at +10% (rate +0% then atempo 1.10)
     "animals": dict(voice="en-US-AndrewMultilingualNeural", rate="+0%", pitch="+0Hz", tempo=1.1,
                     music="music/quiz-bed.m4a", music_lufs=None),

@@ -1,26 +1,871 @@
 {
  "_note": "Commons licence metadata read from the en.wikipedia API (imageinfo extmetadata) on 2026-10-25/26, kept so a render survives Wikimedia's 429 rate limit. tools/explainer.py wm_photo() uses the live API first and falls back to this. Only PD / CC0 / CC BY entries belong here.",
- "NorthwoodsMemorandum.jpg": ["Public domain", "U.S. Joint Chiefs of Staff (1962 memorandum)"],
- "Mogul balloon train USAF 1995.png": ["Public domain", "United States Air Force"],
- "Usaf.u2.750pix.jpg": ["Public domain", "United States Department of the Air Force"],
- "Ramey-dubose-debris.jpg": ["Public domain", "Fort Worth Star-Telegram"],
- "Marcel-roswell-debris 0.jpg": ["Public domain", "Fort Worth Star-Telegram"],
- "The Roswell Report - Case Closed.jpg": ["Public domain", "James McAndrew (USAF)"],
- "The Roswell Report - front.jpg": ["Public domain", "Richard Weaver and James McAndrew (USAF)"],
- "Area51 Tikaboo Peak 07.2008.jpg": ["Public domain", "Geckow"],
- "Area 51 - diagram.jpg": ["Public domain", "Central Intelligence Agency"],
- "A-12 Schalk Flight, 1962.jpg": ["Public domain", "CIA / Roadrunners Internationale"],
- "Dancingplague2 (alt).jpg": ["Public domain", "Hendrik Hondius I after Pieter Brueghel the Elder (1642)"],
- "Die Wallfahrt der Fallsuechtigen nach Meulebeeck.jpg": ["Public domain", "Pieter Brueghel the Elder"],
- "Dance at Molenbeek.jpg": ["Public domain", "Pieter Brueghel the Younger"],
- "Lightning striking the Eiffel Tower - NOAA.jpg": ["Public domain", "Gabriel Loppé (1902), NOAA Photo Library"],
- "Empire State Building (aerial view).jpg": ["Public domain", "Sam Valadi"],
- "Atlantic hurricane tracks.jpg": ["Public domain", "Nilfanion (NOAA data)"],
- "The missing Training Ship, HMS 'Atlanta' - The Graphic 1880.jpg": ["Public domain", "William Edward Atkins (The Graphic, 1880)"],
- "Martin PBM-5 Mariner in flight, circa in 1945 (SDASM 00006374).jpg": ["Public domain", "San Diego Air & Space Museum"],
- "President Kennedy American University Commencement Address June 10, 1963.jpg": ["Public domain", "Cecil Stoughton, White House"],
- "Bermuda Triangle 1950 map.jpg": ["Public domain", "Wide World and Associated Press"],
- "GEN Lyman L. Lemnitzer, portrait as SACEUR (cropped 2).jpg": ["Public domain", "U.S. European Command"],
- "Gulfstream1.jpg": ["Public domain", "NOAA"],
- "Fallow caused by emus.jpg": ["Public domain", "unknown (1930s)"]
+ "NorthwoodsMemorandum.jpg": [
+  "Public domain",
+  "U.S. Joint Chiefs of Staff (1962 memorandum)"
+ ],
+ "Mogul balloon train USAF 1995.png": [
+  "Public domain",
+  "United States Air Force"
+ ],
+ "Usaf.u2.750pix.jpg": [
+  "Public domain",
+  "United States Department of the Air Force"
+ ],
+ "Ramey-dubose-debris.jpg": [
+  "Public domain",
+  "Fort Worth Star-Telegram"
+ ],
+ "Marcel-roswell-debris 0.jpg": [
+  "Public domain",
+  "Fort Worth Star-Telegram"
+ ],
+ "The Roswell Report - Case Closed.jpg": [
+  "Public domain",
+  "James McAndrew (USAF)"
+ ],
+ "The Roswell Report - front.jpg": [
+  "Public domain",
+  "Richard Weaver and James McAndrew (USAF)"
+ ],
+ "Area51 Tikaboo Peak 07.2008.jpg": [
+  "Public domain",
+  "Geckow"
+ ],
+ "Area 51 - diagram.jpg": [
+  "Public domain",
+  "Central Intelligence Agency"
+ ],
+ "A-12 Schalk Flight, 1962.jpg": [
+  "Public domain",
+  "CIA / Roadrunners Internationale"
+ ],
+ "Dancingplague2 (alt).jpg": [
+  "Public domain",
+  "Hendrik Hondius I after Pieter Brueghel the Elder (1642)"
+ ],
+ "Die Wallfahrt der Fallsuechtigen nach Meulebeeck.jpg": [
+  "Public domain",
+  "Pieter Brueghel the Elder"
+ ],
+ "Dance at Molenbeek.jpg": [
+  "Public domain",
+  "Pieter Brueghel the Younger"
+ ],
+ "Lightning striking the Eiffel Tower - NOAA.jpg": [
+  "Public domain",
+  "Gabriel Loppé (1902), NOAA Photo Library"
+ ],
+ "Empire State Building (aerial view).jpg": [
+  "Public domain",
+  "Sam Valadi"
+ ],
+ "Atlantic hurricane tracks.jpg": [
+  "Public domain",
+  "Nilfanion (NOAA data)"
+ ],
+ "The missing Training Ship, HMS 'Atlanta' - The Graphic 1880.jpg": [
+  "Public domain",
+  "William Edward Atkins (The Graphic, 1880)"
+ ],
+ "Martin PBM-5 Mariner in flight, circa in 1945 (SDASM 00006374).jpg": [
+  "Public domain",
+  "San Diego Air & Space Museum"
+ ],
+ "President Kennedy American University Commencement Address June 10, 1963.jpg": [
+  "Public domain",
+  "Cecil Stoughton, White House"
+ ],
+ "Bermuda Triangle 1950 map.jpg": [
+  "Public domain",
+  "Wide World and Associated Press"
+ ],
+ "GEN Lyman L. Lemnitzer, portrait as SACEUR (cropped 2).jpg": [
+  "Public domain",
+  "U.S. European Command"
+ ],
+ "Gulfstream1.jpg": [
+  "Public domain",
+  "NOAA"
+ ],
+ "Fallow caused by emus.jpg": [
+  "Public domain",
+  "unknown (1930s)"
+ ],
+ "Arthur Conan Doyle by Walter Benington, 1914.png": [
+  "Public domain",
+  "Walter Benington"
+ ],
+ "Lbj2.jpg": [
+  "Public domain",
+  "Yoichi Okamoto"
+ ],
+ "37 Lyndon Johnson 3x4.jpg": [
+  "Public domain",
+  "Arnold Newman"
+ ],
+ "Mary_Celeste_as_Amazon_in_1861_(cropped).jpg": [
+  "Public domain",
+  "Unconfirmed, possibly Honore Pellegrin (1800–c.1870). This speculative attributi"
+ ],
+ "Lap_desk_of_Captain_Benjamin_Briggs_from_the_Mary_Celeste_(PEM_M6557)_02.jpg": [
+  "CC0",
+  "Crawdad Blues"
+ ],
+ "George_McCord_-_New_York_Harbor.jpg": [
+  "Public domain",
+  "George McCord"
+ ],
+ "Sir_James_Cochrane_1841-1877.jpg": [
+  "Public domain",
+  "Unknown authorUnknown author"
+ ],
+ "Trombe.jpg": [
+  "Public domain",
+  "Dr. Joseph Golden, NOAA"
+ ],
+ "Arthur_Conan_Doyle_by_Herbert_Rose_Barraud_1893.jpg": [
+  "Public domain",
+  "Herbert Rose Barraud (1845 - c1896)"
+ ],
+ "Mary_Celeste_NYTimes_1873February26.png": [
+  "Public domain",
+  "Boston Post"
+ ],
+ "Gonave.jpg": [
+  "Public domain",
+  "NASA"
+ ],
+ "USNS_Glomar_Explorer_(T-AG-193).jpg": [
+  "Public domain",
+  "U.S. Government"
+ ],
+ "Soviet_ballistic_missile_submarine_K-129.jpg": [
+  "Public domain",
+  "CIA photo"
+ ],
+ "Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg": [
+  "Public domain",
+  "The Central Intelligence Agency"
+ ],
+ "Painting-of-AZORIAN-mission-approved.jpg": [
+  "Public domain",
+  "Central Intelligence Agency"
+ ],
+ "Sherman_Wetmore_poses_next_to_a_collection_of_Project_AZORIAN_artifacts_on_display.jpg": [
+  "Public domain",
+  "Central Intelligence Agency"
+ ],
+ "Glomar_Manganese_Nodule_Encased_in_Lucite.jpg": [
+  "Public domain",
+  "Central Intelligence Agency"
+ ],
+ "Glomar_Patch.jpg": [
+  "Public domain",
+  "Central Intelligence Agency"
+ ],
+ "Glomar_Explorer_Suisun_Bay_CA.jpg": [
+  "Public domain",
+  "United States Geological Survey"
+ ],
+ "Cardiff_giant_exhumed_1869.jpg": [
+  "Public domain",
+  "unknown"
+ ],
+ "Cardiff_Giant.png": [
+  "Public domain",
+  "Unknown authorUnknown author"
+ ],
+ "Bat_Bomb_Canister.jpg": [
+  "Public domain",
+  "United States Army Air Forces"
+ ],
+ "Tadarida_brasiliensis.jpg": [
+  "Public domain",
+  "NPS"
+ ],
+ "Carlsbad_AAF_Fire_after_Bat_Bomb_Accident.jpg": [
+  "Public domain",
+  "United States Army Air Forces"
+ ],
+ "Tonkingunboats.jpg": [
+  "Public domain",
+  "U.S. Navy sailor aboard USS Maddox (DD-731)"
+ ],
+ "1954_Geneva_Conference.jpg": [
+  "Public domain",
+  "US Army Photograph"
+ ],
+ "U.S._Navy_PTF_boats_traveling_at_high_speed_during_trials_off_the_Virginia_Capes_(USA),_early_May_1963_(USN_711288).jpg": [
+  "Public domain",
+  "unknown"
+ ],
+ "USS_Maddox_(DD-731).jpg": [
+  "Public domain",
+  "Unknown authorUnknown author"
+ ],
+ "PikiWiki_Israel_10477_egyptian_torpedo_boat_k-123.jpg": [
+  "CC BY 2.5",
+  "ד\"ר אבישי טייכר"
+ ],
+ "F-8E_VMF-212_CVA-34_1965_(cropped).jpg": [
+  "Public domain",
+  "Jimmy Labianco"
+ ],
+ "North_Vietnamese_P-4_under_fire_from_USS_Maddox_(2_August_1964).jpg": [
+  "Public domain",
+  "U.S. Navy"
+ ],
+ "Sonar_Console_C_Mk_1_Mod_0,_Westinghouse_Electric_Corporation_-_National_Electronics_Museum_-_DSC00484.JPG": [
+  "CC0",
+  "Daderot"
+ ],
+ "37_Lyndon_Johnson_3x4.jpg": [
+  "Public domain",
+  "Arnold Newman"
+ ],
+ "Wayne_Morse.jpg": [
+  "Public domain",
+  "United States Congress."
+ ],
+ "Advisors_meeting_at_Camp_David_-_NARA_-_192569_crop_William_Bundy.jpg": [
+  "CC0",
+  "Yoichi Okamoto"
+ ],
+ "President_Lyndon_B._Johnson_signs_Gulf_of_Tonkin_resolution_-_NARA_-_192484.jpg": [
+  "Public domain",
+  "Cecil W. Stoughton"
+ ],
+ "Joint_Resolution_for_the_Maintenance_of_Peace_and_Security_in_Southeast_Asia_-_DPLA_-_0f7693e83ae519b750f466badb772021.jpg": [
+  "Public domain",
+  "National Archives and Records Administration. Office of the Chief Operating Offi"
+ ],
+ "Tonkin_Gulf_incident_map_of_alleged_attacks_on_4_August_1964.png": [
+  "Public domain",
+  "U.S. Navy"
+ ],
+ "Mr._Vo_Nguyen_Giap.jpg": [
+  "Public domain",
+  "Unknown authorUnknown author"
+ ],
+ "Flannan_isles.jpg": [
+  "Public domain",
+  "Rossser1954 - Roger Griffith"
+ ],
+ "Wilfrid_Wilson_Gibson_in_The_Bookman_volume_57_December_1919_p._101.jpg": [
+  "Public domain",
+  "Unknown photographer"
+ ],
+ "NLB_HQ.JPG": [
+  "Public domain",
+  "Emoscopes"
+ ],
+ "Howard_Hughes_1938.jpg": [
+  "Public domain",
+  "Acme Newspictures"
+ ],
+ "Howard_Hughes_as_child_(4729132038).jpg": [
+  "Public domain",
+  "SDASM Archives"
+ ],
+ "Howard-Hughes-TIME-1948.jpg": [
+  "Public domain",
+  "Time Inc., illustration by Ernest Hamlin Baker. Time failed to renew the copyrig"
+ ],
+ "Janet_Leigh_and_John_Wayne_in_'Jet_Pilot',_1957.jpg": [
+  "Public domain",
+  "RKO Pictures. Photographer not credited"
+ ],
+ "Howard_Hughes.jpg": [
+  "Public domain",
+  "unknown"
+ ],
+ "HughesAircraftCo.png": [
+  "Public domain",
+  "Hughes Aircraft Company"
+ ],
+ "H-4_Hercules_2.jpg": [
+  "Public domain",
+  "SDASM Archives"
+ ],
+ "Hughes.Family.Gravesite.jpg": [
+  "CC BY 2.5",
+  "unknown"
+ ],
+ "Aerial_view_of_the_Central_Intelligence_Agency_headquarters,_Langley,_Virginia_-_Corrected_and_Cropped.jpg": [
+  "Public domain",
+  "Carol M. Highsmith"
+ ],
+ "Central_Intelligence_Agency_(CIA)_organizational_chart_(2015).jpg": [
+  "Public domain",
+  "Central Intelligence Agency"
+ ],
+ "CIA_Memorial_Wall_2023.jpg": [
+  "Public domain",
+  "CIA"
+ ],
+ "Allen_Dulles-TIME-1953.jpg": [
+  "Public domain",
+  "Boris Artzybasheff"
+ ],
+ "Portrait_of_Mohammad_Mosaddegh_-_circa_1952_(B&W).jpg": [
+  "Public domain",
+  "iichs.ir"
+ ],
+ "HowardHughesGravestone.jpg": [
+  "Public domain",
+  "unknown"
+ ],
+ "Jacobo_Arbenz_Guzman_(oficial).jpg": [
+  "Public domain",
+  "Gobierno de Guatemala"
+ ],
+ "Allen_Dulles_appointed_DCI,_26_February_1953.jpg": [
+  "Public domain",
+  "CIA photo"
+ ],
+ "New_Headquarters_Building_Atrium_-_Flickr_-_The_Central_Intelligence_Agency.jpg": [
+  "Public domain",
+  "The Central Intelligence Agency"
+ ],
+ "Sam_Giancana.jpg": [
+  "Public domain",
+  "Unknown authorUnknown author"
+ ],
+ "President_Ford_meets_with_CIA_Director-designate_George_Bush_-_NARA_-_7141445.jpg": [
+  "Public domain",
+  "David Hume Kennerly"
+ ],
+ "WTC_smoking_on_9-11.jpeg": [
+  "CC BY 2.0",
+  "Flickr user Michael Foran"
+ ],
+ "A_bounty_leaflect_prepared_by_the_USA_for_use_in_Afghanistan_(front)_-a.jpg": [
+  "Public domain",
+  "CIA"
+ ],
+ "Cia-mi17.jpg": [
+  "Public domain",
+  "Master Sgt. Keith Reed"
+ ],
+ "Defense.gov_News_Photo_070208-D-7203T-015.jpg": [
+  "Public domain",
+  "Cherie A. Thurlby"
+ ],
+ "CIA_Michael_Morell.jpg": [
+  "Public domain",
+  "Central Intelligence Agency"
+ ],
+ "P._T._Barnum_-_02176a_(cropped).jpg": [
+  "Public domain",
+  "Brady-Handy Photograph Collection (Library of Congress)"
+ ],
+ "The_Fairy_Wedding_group_-_From_photographic_negative_in_Brady's_National_Portrait_Gallery,_from_photographic_negative_by_Brady._LCCN2017659631.jpg": [
+  "Public domain",
+  "Brady, Mathew B., approximately 1823-1896, photographer"
+ ],
+ "Barnumad.png": [
+  "Public domain",
+  "Barnum's American Museum"
+ ],
+ "Jenny_Lind_New_York_Concert.jpg": [
+  "Public domain",
+  "unknown"
+ ],
+ "Panorama_of_Humbug_with_Jenny_Lind.jpg": [
+  "Public domain",
+  "W. Schaus"
+ ],
+ "P._T._Barnum_letter_to_Henry_Ashley,_1882-06-28.jpg": [
+  "Public domain",
+  "P. T Barnum"
+ ],
+ "Barnum_and_Commodore_Nutt.jpg": [
+  "Public domain",
+  "Charles DeForest Fredricks"
+ ],
+ "Winter_Quarters_of_the_Great_Barnum-London_Show.jpg": [
+  "Public domain",
+  "Unknown authorUnknown author"
+ ],
+ "Barnum_&_Bailey_1902.jpg": [
+  "Public domain",
+  "Unbekannte Autoren und Grafiker; Scan vom EDHAC e.V."
+ ],
+ "Barnum_Humbug.jpg": [
+  "Public domain",
+  "Henry Louis Stephens (1824-82)"
+ ],
+ "P._T._Barnum_Vanity_Fair_16_November_1889.JPG": [
+  "Public domain",
+  "Leslie Ward"
+ ],
+ "P._T._Barnum_Monument_(1887),_Seaside_Park,_Bridgeport,_CT_-_April_2016.JPG": [
+  "Public domain",
+  "Marty Aligata"
+ ],
+ "Bridgeport_obverse.jpg": [
+  "CC BY 3.0",
+  "Matt_Gies (talk) (Uploads)"
+ ],
+ "Othniel_Charles_Marsh_-_Brady-Handy.jpg": [
+  "Public domain",
+  "w:en:Mathew Brady (1822-1896) or w:en:Levin Corbin Handy (1855–1932)"
+ ],
+ "OCmarsh.jpg": [
+  "Public domain",
+  "Unknown; Lambert lists \"John Ostrom/Peabody Museum\" as picture credits and sourc"
+ ],
+ "Othniel_C_Marsh_and_Red_Cloud_in_New_Haven_Connecticut.jpg": [
+  "Public domain",
+  "Unknown authorUnknown author"
+ ],
+ "Hesperornis_Regalis_-_Project_Gutenberg_eText_16474.jpg": [
+  "Public domain",
+  "Othniel Charles Marsh (1831 – 1899)"
+ ],
+ "Profhuxleyiname00huxlgoog-35.png": [
+  "Public domain",
+  "T.H. Huxley"
+ ],
+ "K129_HGE_recoverysite.png": [
+  "Public domain",
+  "Enemenemu"
+ ],
+ "SSN-579_BWN00174364_1968_03_page03.png": [
+  "Public domain",
+  "Thomas Clogher Maloney, LCDR"
+ ],
+ "Fruita-Interstate70-signage.JPG": [
+  "Public domain",
+  "Librarian Hat, AG"
+ ],
+ "DinosaurHill.jpg": [
+  "CC0",
+  "Librarianhat at English Wikipedia"
+ ],
+ "Maximum_Triceratops.jpg": [
+  "CC BY 2.0",
+  "Ellen from Ann Arbor, MI, USA"
+ ],
+ "Silver-laced_Wyandotte_rooster_(cropped).jpg": [
+  "CC BY 2.0",
+  "ripperda"
+ ],
+ "Pluimveetentoonstellingen,_SFA022806246_(cropped).jpg": [
+  "Public domain",
+  "Unknown authorUnknown author"
+ ],
+ "PM2Anuclearpowerplant.jpg": [
+  "Public domain",
+  "US Army"
+ ],
+ "Aerial_Picture_Of_Thule_Air_Base.jpg": [
+  "Public domain",
+  "unknown"
+ ],
+ "Thule_Air_Base_aerial_view.jpg": [
+  "Public domain",
+  "TSGT Lee E. Schading / U.S. Air Force"
+ ],
+ "74th_Fighter-Interceptor_Squadron_F-89s_Thule_1955.jpg": [
+  "Public domain",
+  "United States Air Force"
+ ],
+ "Reconnaissance_from_Thule_Air_Base.jpg": [
+  "Public domain",
+  "unknown"
+ ],
+ "Her_Majesty_the_Queen_of_Denmark,_Margrethe_II,_visits_Thule_(211102-F-X1914-1002).jpg": [
+  "Public domain",
+  "U.S. Air Force photo by Staff Sgt. Aziza Wilkerson"
+ ],
+ "Thule_AB,_Greenland_(39033264061).jpg": [
+  "Public domain",
+  "Air Force Space Command"
+ ],
+ "1987_CPA_5892.jpg": [
+  "Public domain",
+  "Scanned and processed by Mariluna"
+ ],
+ "Habakukk_aircraft_01_(cropped).jpg": [
+  "Public domain",
+  "Unknown authorUnknown author"
+ ],
+ "Habakukk_aircraft_02.jpg": [
+  "Public domain",
+  "Unknown authorUnknown author"
+ ],
+ "Habakukk_aircraft_03.jpg": [
+  "Public domain",
+  "Unknown authorUnknown author"
+ ],
+ "Vattensagspan2.JPG": [
+  "Public domain",
+  "Kr-val"
+ ],
+ "Screw_Propelled_Weasle_Prototype.jpg": [
+  "Public domain",
+  "Office of Stategic Services"
+ ],
+ "M29_Weasel_3.jpg": [
+  "Public domain",
+  "Jake68046 at English Wikipedia"
+ ],
+ "Lord_Louis_Mountbatten1925.jpg": [
+  "Public domain",
+  "Philip de László"
+ ],
+ "Edward_VIII_with_his_staff_in_Japan_1922.jpg": [
+  "Public domain",
+  "Unknown authorUnknown author"
+ ],
+ "Rear_Admiral_Lord_Louis_Mountbatten_H17387.jpg": [
+  "Public domain",
+  "War Office official photographer, Puttnam (Lt)"
+ ],
+ "Mountbatten_Short_and_Kimmel_in_Hawaii_1941.jpg": [
+  "Public domain",
+  "US Military"
+ ],
+ "SE_000014_Mountbatten_as_SACSEA_during_Arakan_tour.jpg": [
+  "Public domain",
+  "Official photographer of No.9 Army Film and Photographic Unit."
+ ],
+ "Mountbatten_address,_Singapore_1945.jpg": [
+  "Public domain",
+  "Royal Navy official photographer: Trusler C (Lt)"
+ ],
+ "Lord_Mountbatten_visits_Punjabi_riot_scenes.jpg": [
+  "Public domain",
+  "Unknown authorUnknown author"
+ ],
+ "Mountbatten_visiting_Sardar.jpg": [
+  "Public domain",
+  "Unknown authorUnknown author"
+ ],
+ "Mountbattens_with_Gandhi_(IND_5298).jpg": [
+  "Public domain",
+  "No 9 Army Film & Photographic Unit"
+ ],
+ "Lord_Mountbatten_meets_Nehru,_Jinnah_and_other_Leaders_to_plan_Partition_of_India.jpg": [
+  "Public domain",
+  "Unknown authorUnknown author"
+ ],
+ "Lord_Mountbatten_swears_in_Jawaharlal_Nehru_as_the_first_Prime_Minister_of_free_India_on_Aug_15,_1947.jpg": [
+  "Public domain",
+  "photodivision.gov.in"
+ ],
+ "Mountbatten_Jinnah.jpg": [
+  "Public domain",
+  "No 9 Army Film & Photographic Unit"
+ ],
+ "Lord_Louis_Mountbatten_Visits_Malayan_Contingent,_Kensington_Gardens,_London,_England,_UK,_1946_D28023.jpg": [
+  "Public domain",
+  "Ministry of Information Photo Division Photographer"
+ ],
+ "HMS_Glasgow_Mounbatten.jpg": [
+  "Public domain",
+  "Royal Navy official photographer"
+ ],
+ "KN-C17494._President_John_F._Kennedy_Meets_with_Lord_Louis_Mountbatten.jpg": [
+  "Public domain",
+  "Robert Knudsen"
+ ],
+ "Louis_Mountbatten_visit_to_Israel_(997009932856605171).jpg": [
+  "CC BY 4.0",
+  "Boris Carmi"
+ ],
+ "Louis_and_Edwina_Mountbatten_01.jpg": [
+  "Public domain",
+  "Unknown (Bain News Service, publisher)"
+ ],
+ "Wikimania_2018_by_Rainer_Halama-0503_cropped.jpg": [
+  "CC BY 4.0",
+  "Rainer Halama"
+ ],
+ "MountbattenTomb.JPG": [
+  "CC0",
+  "JohnArmagh"
+ ],
+ "Tanzania-Uganda_border.png": [
+  "Public domain",
+  "US DEPARTMENT OF STATE"
+ ],
+ "Bukoba_Airport.jpg": [
+  "CC BY 2.0",
+  "Blandina"
+ ],
+ "The_book_of_antelopes_(1894)_Ourebia_nigricaudata.png": [
+  "Public domain",
+  "Philip Sclater"
+ ],
+ "DeclassifiedMKULTRA.jpg": [
+  "Public domain",
+  "Central Intelligence Agency"
+ ],
+ "Mkultra-lsd-doc.jpg": [
+  "Public domain",
+  "Dr. Sidney Gottlieb's approval of an w:en:MKULTRA subproject on LSD."
+ ],
+ "Donald_Ewen_Cameron_canmedaj01237-0046-a.jpg": [
+  "Public domain",
+  "Unknown authorUnknown author"
+ ],
+ "FrankChurch.jpg": [
+  "Public domain",
+  "unknown"
+ ],
+ "Frank_Olsen_(1910-1953).jpg": [
+  "Public domain",
+  "AnonymousUnknown author"
+ ],
+ "Sidney_Gottlieb_photo.jpg": [
+  "Public domain",
+  "US Federal Government"
+ ],
+ "Richard_M_Helms_(cropped).jpg": [
+  "Public domain",
+  "CIA-employee (or so we hope)"
+ ],
+ "Helms_Letter_-_Flickr_-_The_Central_Intelligence_Agency.jpg": [
+  "Public domain",
+  "The Central Intelligence Agency"
+ ],
+ "William_Colby.jpg": [
+  "Public domain",
+  "Central Intelligence Agency (CIA)"
+ ],
+ "Vietnamese_villagers_suspected_of_being_communists_by_the_US_Army_-_1966.jpg": [
+  "Public domain",
+  "United States Army"
+ ],
+ "SH-3A_Sea_King_hovers_over_the_damaged_USS_Liberty_(AGTR-5)_on_8_June_1967_(USN_1123118).jpg": [
+  "Public domain",
+  "Unknown authorUnknown author"
+ ],
+ "Richard_Helms.jpg": [
+  "Public domain",
+  "White House Photograph Office"
+ ],
+ "Henry_Kissinger.png": [
+  "Public domain",
+  "White House Photographic Office"
+ ],
+ "Watergate_complex_(cropped).jpg": [
+  "Public domain",
+  "unknown"
+ ],
+ "BCN-René_Schneider_Chereau.jpg": [
+  "CC BY 3.0 cl",
+  "Biblioteca del Congreso Nacional de Chile."
+ ],
+ "Richard_Helms,_Ronald_Reagan,_and_Sarah_Brady_1988.jpg": [
+  "Public domain",
+  "Series: Reagan White House Photographs, 1/20/1981 - 1/20/1989\n\nCollection: White"
+ ],
+ "John_Tower.jpg": [
+  "Public domain",
+  "US Congress"
+ ],
+ "Philip_Hart_(D-MI).jpg": [
+  "Public domain",
+  "U.S. Congress"
+ ],
+ "Howard_Baker_photo.jpg": [
+  "Public domain",
+  "U.S. Senate"
+ ],
+ "Walter_Mondale_1977_vice_presidential_portrait.jpg": [
+  "Public domain",
+  "credit: United States Senate Historical Office"
+ ],
+ "Unsuccessful_1964.jpg": [
+  "Public domain",
+  "Trikosko, Marion S., photographer"
+ ],
+ "WHuddleston.jpg": [
+  "Public domain",
+  "unknown"
+ ],
+ "Charlesmathiasjr.jpg": [
+  "Public domain",
+  "U.S. Congress"
+ ],
+ "Sen_Robert_B_Morgan.jpg": [
+  "Public domain",
+  "Unknown authorUnknown author"
+ ],
+ "RichardSchweiker.jpg": [
+  "Public domain",
+  "unknown"
+ ],
+ "Gary_hart.jpg": [
+  "Public domain",
+  "U.S. Congress"
+ ],
+ "Loch_Ness_Monster_Surgeon's_photograph.jpg": [
+  "Public domain",
+  "M. A. Wetherell"
+ ],
+ "Arthur_Grant_loch_ness_sketch.png": [
+  "Public domain",
+  "AnonymousUnknown author"
+ ],
+ "Loch_Ness_0406.JPG": [
+  "Public domain",
+  "User:Paste"
+ ],
+ "Loch_Ness_Panoramin_July_2008.JPG": [
+  "CC BY 3.0",
+  "Carlesmari"
+ ],
+ "Urquhart_Castle_from_Loch_Ness_Scotland.jpg": [
+  "CC BY 2.0",
+  "dave conner"
+ ],
+ "Jezioro_loch_Ness.JPG": [
+  "Public domain",
+  "Blueye"
+ ],
+ "Fourteenth_Century_Brooches_Callander_1924_Figure_6_26679_0220_-_cropped_No._6.jpg": [
+  "Public domain",
+  "Callander, J.G. (John Graham) 1873–1938"
+ ],
+ "Deceased_emu_during_Emu_War.jpg": [
+  "Public domain",
+  "Unknown authorUnknown author"
+ ],
+ "Fallow_caused_by_emus.jpg": [
+  "Public domain",
+  "Unknown authorUnknown author"
+ ],
+ "Sir_George_Pearce.jpg": [
+  "Public domain",
+  "Unknown authorUnknown author"
+ ],
+ "Joseph_Lyons_seated.jpg": [
+  "Public domain",
+  "Fairfax"
+ ],
+ "Emu_skeleton.jpg": [
+  "CC0",
+  "Sklmsta"
+ ],
+ "Dromaius_novaehollandiae_-zoo_-two_feet.jpg": [
+  "CC BY 3.0",
+  "FunkMonk"
+ ],
+ "Dromaius_novaehollandiae_(head)_Battersea_Park_Children's_Zoo.jpg": [
+  "CC BY 2.0",
+  "William Warby"
+ ],
+ "Emu_size.png": [
+  "CC BY 2.5",
+  "Tim H. Heupink, Leon Huynen, David M. Lambert"
+ ],
+ "Pinnacles_040116_gnangarra-102.jpg": [
+  "CC BY 2.5 au",
+  "Gnangarra"
+ ],
+ "Emu_at_zoo.jpg": [
+  "CC0",
+  "Rivadavia.vila"
+ ],
+ "Baby_Emu.jpg": [
+  "Public domain",
+  "unknown"
+ ],
+ "John_Gould_Emu.jpg": [
+  "Public domain",
+  "John Gould"
+ ],
+ "Stalking_emu,_ca._1885,_attributed_to_Tommy_McRae.jpg": [
+  "Public domain",
+  "Tommy McRae"
+ ],
+ "Feeding_farmed_Emu.jpg": [
+  "Public domain",
+  "Larry Rana"
+ ],
+ "Baudin_emus.jpg": [
+  "Public domain",
+  "Charles-Alexandre Lesueur, F. Lambert"
+ ],
+ "Emu_public.jpg": [
+  "CC BY 2.5",
+  "Ray Norris"
+ ],
+ "Australianstamp_1505.jpg": [
+  "Public domain",
+  "Australia Post"
+ ],
+ "Tasmanian_Emu.jpg": [
+  "Public domain",
+  "John Gerrard Keulemans"
+ ],
+ "Lewis_Gun_(derivated).jpg": [
+  "CC BY 2.5",
+  "Balcer"
+ ],
+ "LewisGunParts1.jpg": [
+  "Public domain",
+  "unknown"
+ ],
+ "Lewis_gun_St_Thomas_3.JPG": [
+  "CC BY 2.5",
+  "Balcer"
+ ],
+ "First_in_France_-_US_Marines_(IWM_PST_0233).jpg": [
+  "Public domain",
+  "John A. Coughlin"
+ ],
+ "Lewis_gun_drill.jpg": [
+  "Public domain",
+  "Australian official photographer"
+ ],
+ "Lewis_gun_world_war_I.jpg": [
+  "Public domain",
+  "Frank Hurley"
+ ],
+ "ChandlerKirtlandLewisGun.jpg": [
+  "Public domain",
+  "MacCartee"
+ ],
+ "Sopdol2.jpg": [
+  "Public domain",
+  "unknown"
+ ],
+ "Aircraft_Lewis_Machine_Gun.jpg": [
+  "Public domain",
+  "Unknown (Roy Cole?)"
+ ],
+ "Singapore_Volunteer_Force_training_November_1941.jpg": [
+  "Public domain",
+  "Palmert (Lt)"
+ ],
+ "Royal_Navy_Motor_Torpedo_Boats_on_patrol,_1940._A60.jpg": [
+  "Public domain",
+  "Royal Navy official photographer"
+ ],
+ "Letecké_muzeum_Kbely_(9).jpg": [
+  "CC BY 3.0",
+  "Dezidor"
+ ],
+ "The_Home_Guard_1939-45_H14697.jpg": [
+  "Public domain",
+  "Console (Capt), War Office official photographer"
+ ],
+ "The_Royal_Navy_during_the_Second_World_War_A27255.jpg": [
+  "Public domain",
+  "Royal Navy official photographer, Zimmerman, E A (Lt)"
+ ],
+ "D50-2_Nr_107_(f)_(1941-01-02)_leichtes_Maschinengewehr_107_(f)_-_Fusil-mitrailleur_Lewis_Mle_1924_(Bild).png": [
+  "Public domain",
+  "Heereswaffenamt"
+ ],
+ "Sir_Winston_Churchill_-_19086236948.jpg": [
+  "Public domain",
+  "unknown"
+ ]
 }
