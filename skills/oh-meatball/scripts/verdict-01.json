@@ -650,7 +650,7 @@
    "myth": "mordrake",
    "pose": "think",
    "act": "stand",
-   "say": "Real? Guess.",
+   "say": "Real, or made up? Guess.",
    "shots": [
     {
      "photo": "'The News Paper' (1808 print)",
@@ -722,7 +722,7 @@
    "myth": "mordrake",
    "pose": "shock",
    "act": "stand",
-   "say": "Wait, it gets worse. A medical book copied it.",
+   "say": "Wait. Then a medical book copied it.",
    "shots": [
     {
      "photo": "Anatomy book, De humani corporis fabrica (1555)",
@@ -749,7 +749,7 @@
    "myth": "mordrake",
    "pose": "nervous",
    "act": "shake",
-   "say": "I checked my head. Just meatball.",
+   "say": "I checked. Just meatball.",
    "shots": [
     {
      "photo": "Two-faced Janus figure (bronze)",
@@ -765,7 +765,7 @@
    "myth": "mordrake",
    "pose": "point",
    "act": "stand",
-   "say": "Its source? A society that didn't exist.",
+   "say": "Its source? A fake society.",
    "shots": [
     {
      "photo": "The Lightning Steam Press, 'The Progress of the Century' (1876)",
@@ -780,7 +780,7 @@
    ],
    "label": {
     "text": "NO RECORD",
-    "at": "exist"
+    "at": "fake"
    }
   },
   {
@@ -803,8 +803,7 @@
     "text": "BUSTED",
     "at": "story"
    },
-   "series_card": true,
-   "hold": 0.2
+   "series_card": true
   },
   {
    "myth": "mordrake",
