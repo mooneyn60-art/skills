@@ -116,7 +116,9 @@ def check(img_path, spec):
     if "cutout_holes" in spec:  # a torn matte passes every box rule, so check the silhouette itself
         ok = spec["cutout_holes"] <= 0.03 and spec.get("cutout_pieces", 1) <= 2
         rule("cut-outs intact (no torn matte)", ok,
-             f"tear {spec['cutout_holes']:.1%} (<= 3%), pieces {spec.get('cutout_pieces')} (<= 2)")
+             f"tear {spec['cutout_holes']:.1%} (<= 3%), pieces {spec.get('cutout_pieces')} (<= 2)"
+             + (" [reviewed by eye: thin legs, not a tear]" if spec.get("tear_reviewed") else ""),
+             hard=not spec.get("tear_reviewed"), cost=5 if spec.get("tear_reviewed") else 15)
     cut = spec.get("cutouts", 1)
     rule("<= 2 cut-outs besides Meatball", cut <= 2, f"{cut} cut-outs")
     el = spec.get("elements", 0)

@@ -45,16 +45,22 @@ def photo(spec):
     if m["license"] not in OK_LICENSES:
         sys.exit(f"wolf_thumb: {spec} is CC {m['license']}; CC0 / PD / CC BY only")
     if not os.path.exists(path):
-        req = urllib.request.Request(m["url"], headers=UA)
+        url = m["url"].split("?")[0]
+        if "upload.wikimedia.org/wikipedia/commons/" in url and "/thumb/" not in url:
+            head, name = url.rsplit("/", 1)  # Commons 429s originals on our shared egress; thumbs work
+            url = head.replace("/commons/", "/commons/thumb/") + f"/{name}/960px-{name}"
+        req = urllib.request.Request(url, headers=UA)
         open(path, "wb").write(urllib.request.urlopen(req, timeout=120).read())
     lic = "public domain" if m["license"] in ("pdm", "cc0") else f"CC BY {m.get('license_version', '')}".strip()
     credit = f"\"{m['title']}\" by {m.get('creator') or 'unknown'} ({lic}), via {m.get('source')}: {m.get('foreign_landing_url')}"
     return path, credit
 
 
-def subject(spec, crop, flip):
+def subject(spec, crop, flip, lift=True, rotate=0):
     path, credit = photo(spec)
     src = Image.open(path).convert("RGB")
+    if rotate:
+        src = src.rotate(rotate, expand=True)
     if crop:
         x0, y0, x1, y1 = crop
         src = src.crop((int(x0 * src.width), int(y0 * src.height), int(x1 * src.width), int(y1 * src.height)))
@@ -69,7 +75,7 @@ def subject(spec, crop, flip):
     # Sharp and bright at feed size: lift shadows, then sharpen.
     rgb, a = cut.convert("RGB"), cut.split()[3]
     lum = np.asarray(rgb.convert("L"))[np.asarray(a) > 128]
-    if lum.size and lum.mean() < 115:  # gamma lift: opens dark fur/shell without clipping highlights
+    if lift and lum.size and lum.mean() < 115:  # gamma lift: opens dark fur/shell without clipping highlights
         g = np.log(125 / 255) / np.log(max(float(lum.mean()), 1) / 255)
         rgb = rgb.point(lambda v: int(255 * (v / 255) ** g))
         rgb = ImageEnhance.Color(ImageEnhance.Contrast(rgb).enhance(1.15)).enhance(1.2)
@@ -138,13 +144,17 @@ def headline(c, text, x0, x1, y0, color, max_h=420):
     best = None
     for lines in [[text]] + [[" ".join(ws[:k]), " ".join(ws[k:])] for k in range(1, len(ws))]:
         size = 260
-        while size > 90:
+        while size >= 60:
             f = ImageFont.truetype(HEAVY, size)
             if max(d.textlength(ln, font=f) for ln in lines) <= x1 - x0 and size * len(lines) * 1.05 <= max_h:
                 break
             size -= 4
+        else:
+            continue  # never fits: not a candidate
         if not best or size > best[0] * (1.0 if len(lines) == 1 else 1.25):
             best = (size, lines)
+    if not best:
+        sys.exit(f"wolf_thumb: {text!r} does not fit {x1 - x0} px; use fewer words or a smaller --area")
     size, lines = best
     f = ImageFont.truetype(HEAVY, size)
     y, box = y0, [W, H, 0, 0]
@@ -218,6 +228,10 @@ def main():
     ap.add_argument("--text-color", choices=("red", "ink", "yellow"), default="red")
     ap.add_argument("--bleed", action="store_true", help="hero photo fills the frame (no cut-out): for water, sky, "
                     "dark-on-dark subjects rembg tears; give --subject-box")
+    ap.add_argument("--tear-reviewed", action="store_true",
+                    help="a human looked: the tear score is thin legs/whiskers, not a torn matte (downgrades to a warning)")
+    ap.add_argument("--rotate", type=int, default=0, help="degrees CCW, before --hero-crop")
+    ap.add_argument("--no-lift", action="store_true", help="skip the shadow lift (glossy black subjects blow out)")
     ap.add_argument("--bleed-scale", type=float, default=1.0)
     ap.add_argument("--bleed-anchor", default="1,1", help="fx,fy where the shrunk photo sits")
     ap.add_argument("--subject-box", help="x0,y0,x1,y1 output px of the subject in --bleed mode")
@@ -234,7 +248,7 @@ def main():
         sbox = [int(v) for v in fr(a.subject_box)]
         mask, holes, pieces, n_cut = None, 0.0, 1, 0
     else:
-        hero, credit = subject(a.hero, fr(a.hero_crop), a.flip)
+        hero, credit = subject(a.hero, fr(a.hero_crop), a.flip, not a.no_lift, a.rotate)
         # Scale so the hero's box covers --area of the frame; it may bleed off the bottom/side edge.
         s = (a.area * W * H / (hero.width * hero.height)) ** 0.5
         s = min(s, H * 1.02 / hero.height, W * 0.66 / hero.width) if hero.height * s > H * 1.02 else s
@@ -308,7 +322,7 @@ def main():
     open(base + ".credit", "w").write("\n".join(x for x in credits if x) + "\n")
     spec = {"title": a.title, "text": a.text, "hook": a.hook, "subject_box": sbox, "subject_mask": mpath,
             "meatball_box": mbox, "text_box": tbox, "cap_px": cap, "cutouts": cutouts, "elements": elements,
-            "cutout_holes": round(holes, 3), "cutout_pieces": pieces, "bleed": a.bleed,
+            "cutout_holes": round(holes, 3), "cutout_pieces": pieces, "bleed": a.bleed, "tear_reviewed": a.tear_reviewed,
             "credits": [x for x in credits if x]}
     json.dump(spec, open(base + ".json", "w"), indent=1)
     print(f"ok {a.out} {os.path.getsize(a.out) // 1024} KB")
