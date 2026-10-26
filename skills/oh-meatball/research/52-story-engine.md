@@ -108,3 +108,22 @@ YouTube Shorts are improving. The v4 animal Shorts (10/24-10/25) average about 1
   transformation arrow, one word. The cluttered "12 Animal Myths" (5 animals) and the Meatball-dominated "Extinct
   Found Alive" (dark insect) have 4 views each. A thumbnail agent is remaking them and every queued long-form
   thumbnail to the wolf rule.
+
+## Independent review (TARS, 2026-10-26, square 20261026-1230-tars); adopted
+
+- **No quiz residue in Story Cuts.** No decoy guesses, no "Verdict:", no "did you guess right". Each one is a swipe point.
+  The one-tap guess card stays; subscribe moves AFTER the payoff and is tied to the series.
+- **A face, not an institution.** "The CIA wanted it" isn't a protagonist; a named person with a want and a risk is.
+- **The drop must be the strongest true beat** (Azorian: the 1974 Hughes-office burglary, not "a newspaper found out").
+- **Never claim "real photo" over an illustration.** One false claim costs the channel's credibility.
+- **Hook-lab design:**
+  - Post the A/B/C variants as close together as the slots allow.
+  - Score on 3 s hold and average watch time (TikTok Studio screenshots at 48 h), never on views, because day-to-day
+    noise is 5-10x.
+  - 12 posts is a start, not a verdict.
+  - Log predictions first: TARS bets C 45%, A 35%, B 20%.
+- **One story → three products:**
+  - a 90 s TikTok Story Cut
+  - a 20-24 s YouTube Short (scene, two escalations, kicker)
+  - five Story Cuts stitched into an 8-10 min long-form ("5 Cover-ups That Were Real")
+- **Backlog scoring:** never-heard-of-it; a person who wants something; 3+ escalation steps; a real document.
