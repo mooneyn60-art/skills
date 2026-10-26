@@ -58,51 +58,29 @@
    "myth": "azorianA",
    "pose": "nervous",
    "act": "stand",
-   "say": "The CIA wanted that sub. Did they get it? Guess.",
+   "say": "The CIA wanted that sub. And Howard Hughes put his own name on the plan. Did they get it?",
    "want": true,
    "promise": true,
    "ask": {
-    "q": "DID THE CIA GET IT?",
+    "q": "DID THEY GET IT?",
     "choices": [
      "🚢 ALL OF IT",
      "🧩 A PIECE",
      "❌ NOTHING"
     ],
-    "at": "Guess"
+    "at": "get"
    },
    "hold": 0.9,
    "host": {
     "moves": [
-     "sweat@CIA",
-     "you@Guess"
+     "sweat@Hughes",
+     "you@get"
     ]
    },
    "shots": [
     {
-     "photo": "CIA painting of the AZORIAN recovery",
-     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
-    }
-   ]
-  },
-  {
-   "myth": "azorianA",
-   "pose": "point",
-   "act": "stand",
-   "say": "Subscribe. I open a new case every day.",
-   "sub": {
-    "at": "Subscribe"
-   },
-   "shots": [
-    {
-     "photo": "Hughes Glomar Explorer (US Government)",
-     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg",
-     "board": {
-      "notes": [
-       "1974",
-       "3 MILES DOWN",
-       "TOP SECRET"
-      ]
-     }
+     "photo": "Howard Hughes, 1938",
+     "obs": "wm:Howard_Hughes_1938.jpg"
     }
    ]
   },
@@ -191,37 +169,8 @@
   {
    "myth": "azorianA",
    "pose": "think",
-   "act": "peek",
-   "say": "Guess one: divers. They'd be crushed flat.",
-   "decoy": true,
-   "sfx": [
-    "crunch@crushed"
-   ],
-   "shots": [
-    {
-     "photo": "Thunderstorm at night (NOAA)",
-     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3"
-    }
-   ]
-  },
-  {
-   "myth": "azorianA",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "Guess two: ask Moscow nicely. It's the Cold War. No.",
-   "decoy": true,
-   "shots": [
-    {
-     "photo": "Soviet submarine K-129 (CIA photo)",
-     "obs": "wm:Soviet_ballistic_missile_submarine_K-129.jpg"
-    }
-   ]
-  },
-  {
-   "myth": "azorianA",
-   "pose": "think",
    "act": "run_in",
-   "say": "So the CIA built a giant ship. But it needed a cover story.",
+   "say": "Build a giant ship with a claw. But a ship like that needs a cover story.",
    "step": 1,
    "opens": true,
    "shots": [
@@ -235,7 +184,7 @@
    "myth": "azorianA",
    "pose": "point",
    "act": "stand",
-   "say": "Enter Howard Hughes. The billionaire said it was his ship, mining rocks.",
+   "say": "Enter Howard Hughes. The billionaire said it was his ship, mining rocks off the sea floor.",
    "resolves": true,
    "punch": "Hughes",
    "host": {
@@ -257,40 +206,65 @@
   },
   {
    "myth": "azorianA",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "His name, on a spy ship. If it went wrong, it was on him. I'd have fainted.",
+   "jeopardy": true,
+   "sfx": [
+    "boing@fainted"
+   ],
+   "shots": [
+    {
+     "photo": "Howard Hughes, 1938",
+     "obs": "wm:Howard_Hughes_1938.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianA",
    "pose": "shock",
    "act": "stand",
-   "say": "But this mining ship had a secret pool in its belly.",
+   "say": "But this mining ship had a secret pool in its belly. Hidden inside was the claw.",
+   "step": 2,
    "opens": true,
    "label": {
     "text": "MOON\nPOOL",
     "at": "pool"
    },
+   "punch": "claw",
    "shots": [
     {
      "photo": "Glomar Explorer in Suisun Bay (USGS)",
      "obs": "wm:Glomar_Explorer_Suisun_Bay_CA.jpg"
     },
     {
-     "photo": "Hughes Glomar Explorer (US Government)",
-     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg",
-     "at": "belly"
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg",
+     "at": "claw"
     }
    ]
   },
   {
    "myth": "azorianA",
    "pose": "nervous",
-   "act": "shake",
-   "say": "Hidden inside was the claw. The crew called it Clementine.",
-   "step": 2,
-   "punch": "claw",
-   "sfx": [
-    "whoosh@claw"
-   ],
+   "act": "stand",
+   "say": "July 1974. The ship parked over the wreck. Then a Soviet ship showed up, and watched.",
+   "opens": true,
+   "host": {
+    "moves": [
+     "sweat@Soviet",
+     "lean@watched"
+    ]
+   },
    "shots": [
     {
-     "photo": "CIA painting of the AZORIAN recovery",
-     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
+    },
+    {
+     "photo": "Thunderstorm at night (NOAA)",
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3",
+     "at": "Soviet"
     }
    ]
   },
@@ -298,7 +272,7 @@
    "myth": "azorianA",
    "pose": "deadpan",
    "act": "stand",
-   "say": "Summer 1974. They lowered it three miles, one pipe at a time.",
+   "say": "So they lowered the claw three miles, one pipe at a time, with the Soviets right there.",
    "shots": [
     {
      "photo": "CIA painting of the AZORIAN recovery",
@@ -317,12 +291,6 @@
    "act": "stand",
    "say": "The claw closed around the sub, and it started to rise.",
    "resolves": true,
-   "host": {
-    "moves": [
-     "you@closed",
-     "lean@rise"
-    ]
-   },
    "shots": [
     {
      "photo": "CIA painting of the AZORIAN recovery",
@@ -338,7 +306,6 @@
    "step": 3,
    "opens": true,
    "act_at": "broke",
-   "jeopardy": true,
    "sfx": [
     "thud@broke"
    ],
@@ -359,12 +326,17 @@
    "myth": "azorianA",
    "pose": "point",
    "act": "stand",
-   "say": "Verdict: they got a piece. A chunk of a Soviet nuclear sub, stolen.",
+   "say": "But they got a piece. A chunk of a Soviet nuclear sub, stolen.",
    "payoff": true,
    "resolves": true,
    "stamp": {
-    "text": "PROVEN",
+    "text": "STOLEN",
     "at": "piece"
+   },
+   "host": {
+    "moves": [
+     "you@piece"
+    ]
    },
    "shots": [
     {
@@ -382,29 +354,40 @@
    "myth": "azorianA",
    "pose": "deadpan",
    "act": "stand",
-   "say": "And inside it? Six Soviet sailors.",
+   "say": "And inside it? Six Soviet sailors. The CIA buried them at sea, with honors.",
    "opens": true,
-   "host": {
-    "moves": [
-     "psst@inside"
-    ]
-   },
    "shots": [
     {
      "photo": "CIA model of the sunken K-129",
      "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg"
-    }
-   ]
-  },
-  {
-   "myth": "azorianA",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "The CIA buried them at sea, with honors.",
-   "shots": [
+    },
     {
      "photo": "Thunderstorm at night (NOAA)",
-     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3"
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3",
+     "at": "buried"
+    }
+   ]
+  },
+  {
+   "myth": "azorianA",
+   "pose": "point",
+   "act": "stand",
+   "say": "Follow Meatball Investigates. Case files every day.",
+   "sub": {
+    "at": "Follow",
+    "text": "FOLLOW"
+   },
+   "shots": [
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg",
+     "board": {
+      "notes": [
+       "1974",
+       "3 MILES DOWN",
+       "TOP SECRET"
+      ]
+     }
     }
    ]
   },
@@ -412,7 +395,7 @@
    "myth": "azorianA",
    "pose": "deadpan",
    "act": "stand",
-   "say": "The ship sailed home. Nobody knew. Everything was fine.",
+   "say": "The ship sailed home. The cover held. Everything was fine.",
    "calm": true,
    "host": {
     "moves": [
@@ -430,16 +413,47 @@
    "myth": "azorianA",
    "pose": "shock",
    "act": "run_across",
-   "say": "Until 1975, when a newspaper got the story.",
+   "say": "Except, just before it sailed, thieves had broken into Hughes's company office in Los Angeles.",
    "drop": true,
    "step": 4,
-   "act_at": "newspaper",
+   "act_at": "thieves",
    "sfx": [
-    "whoosh@newspaper"
+    "whoosh@thieves"
    ],
    "label": {
-    "text": "LEAKED",
-    "at": "newspaper"
+    "text": "BREAK-IN",
+    "at": "thieves"
+   },
+   "shots": [
+    {
+     "photo": "Howard Hughes, 1938",
+     "obs": "wm:Howard_Hughes_1938.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianA",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "They took secret papers. One tied Hughes to the CIA.",
+   "punch": "CIA",
+   "shots": [
+    {
+     "photo": "Glomar Explorer patch (CIA)",
+     "obs": "wm:Glomar_Patch.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianA",
+   "pose": "think",
+   "act": "stand",
+   "say": "The CIA called the FBI. The FBI called the police. The secret leaked.",
+   "opens": true,
+   "host": {
+    "moves": [
+     "psst@secret"
+    ]
    },
    "shots": [
     {
@@ -452,12 +466,16 @@
    "myth": "azorianA",
    "pose": "think",
    "act": "stand",
-   "say": "A reporter asked the CIA what the ship was for. The answer?",
+   "say": "In 1975, the papers printed it. A reporter asked the CIA about the ship.",
    "opens": true,
+   "label": {
+    "text": "LEAKED",
+    "at": "printed"
+   },
    "shots": [
     {
-     "photo": "Glomar Explorer patch (CIA)",
-     "obs": "wm:Glomar_Patch.jpg"
+     "photo": "Glomar Explorer in Suisun Bay (USGS)",
+     "obs": "wm:Glomar_Explorer_Suisun_Bay_CA.jpg"
     }
    ]
   },
@@ -465,7 +483,7 @@
    "myth": "azorianA",
    "pose": "deadpan",
    "act": "stand",
-   "say": "We can neither confirm nor deny.",
+   "say": "The answer? We can neither confirm nor deny.",
    "resolves": true,
    "punch": "deny",
    "label": {
@@ -476,27 +494,6 @@
     {
      "photo": "Glomar Explorer patch (CIA)",
      "obs": "wm:Glomar_Patch.jpg"
-    }
-   ]
-  },
-  {
-   "myth": "azorianA",
-   "pose": "think",
-   "act": "stand",
-   "say": "Did you guess right? Comment.",
-   "ask": {
-    "q": "DID YOU GUESS RIGHT?",
-    "at": "Comment"
-   },
-   "host": {
-    "moves": [
-     "you@Comment"
-    ]
-   },
-   "shots": [
-    {
-     "photo": "CIA model of the sunken K-129",
-     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg"
     }
    ]
   },
@@ -520,21 +517,21 @@
    "_len": "story",
    "pose": "shock",
    "act": "shake",
-   "say": "This is a real CIA photo of a Soviet submarine. The CIA built a whole fake ship to steal it.",
+   "say": "This is the real ship the CIA built to steal a Soviet submarine.",
    "cold_open": "claim",
    "shots": [
     {
-     "photo": "Soviet submarine K-129 (CIA photo)",
-     "obs": "wm:Soviet_ballistic_missile_submarine_K-129.jpg"
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
     },
     {
-     "photo": "Hughes Glomar Explorer (US Government)",
-     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg",
-     "at": "ship"
+     "photo": "Soviet submarine K-129 (CIA photo)",
+     "obs": "wm:Soviet_ballistic_missile_submarine_K-129.jpg",
+     "at": "submarine"
     }
    ],
    "hook": true,
-   "headline": "REAL CIA PHOTO",
+   "headline": "THE REAL SHIP",
    "headline_s": 2.2,
    "theme": "cold-war",
    "case": "CASE #8",
@@ -565,51 +562,29 @@
    "myth": "azorianB",
    "pose": "nervous",
    "act": "stand",
-   "say": "The CIA wanted that sub. Did they get it? Guess.",
+   "say": "The CIA wanted that sub. And Howard Hughes put his own name on the plan. Did they get it?",
    "want": true,
    "promise": true,
    "ask": {
-    "q": "DID THE CIA GET IT?",
+    "q": "DID THEY GET IT?",
     "choices": [
      "🚢 ALL OF IT",
      "🧩 A PIECE",
      "❌ NOTHING"
     ],
-    "at": "Guess"
+    "at": "get"
    },
    "hold": 0.9,
    "host": {
     "moves": [
-     "sweat@CIA",
-     "you@Guess"
+     "sweat@Hughes",
+     "you@get"
     ]
    },
    "shots": [
     {
-     "photo": "CIA painting of the AZORIAN recovery",
-     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
-    }
-   ]
-  },
-  {
-   "myth": "azorianB",
-   "pose": "point",
-   "act": "stand",
-   "say": "Subscribe. I open a new case every day.",
-   "sub": {
-    "at": "Subscribe"
-   },
-   "shots": [
-    {
-     "photo": "Hughes Glomar Explorer (US Government)",
-     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg",
-     "board": {
-      "notes": [
-       "1974",
-       "3 MILES DOWN",
-       "TOP SECRET"
-      ]
-     }
+     "photo": "Howard Hughes, 1938",
+     "obs": "wm:Howard_Hughes_1938.jpg"
     }
    ]
   },
@@ -698,37 +673,8 @@
   {
    "myth": "azorianB",
    "pose": "think",
-   "act": "peek",
-   "say": "Guess one: divers. They'd be crushed flat.",
-   "decoy": true,
-   "sfx": [
-    "crunch@crushed"
-   ],
-   "shots": [
-    {
-     "photo": "Thunderstorm at night (NOAA)",
-     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3"
-    }
-   ]
-  },
-  {
-   "myth": "azorianB",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "Guess two: ask Moscow nicely. It's the Cold War. No.",
-   "decoy": true,
-   "shots": [
-    {
-     "photo": "Soviet submarine K-129 (CIA photo)",
-     "obs": "wm:Soviet_ballistic_missile_submarine_K-129.jpg"
-    }
-   ]
-  },
-  {
-   "myth": "azorianB",
-   "pose": "think",
    "act": "run_in",
-   "say": "So the CIA built a giant ship. But it needed a cover story.",
+   "say": "Build a giant ship with a claw. But a ship like that needs a cover story.",
    "step": 1,
    "opens": true,
    "shots": [
@@ -742,7 +688,7 @@
    "myth": "azorianB",
    "pose": "point",
    "act": "stand",
-   "say": "Enter Howard Hughes. The billionaire said it was his ship, mining rocks.",
+   "say": "Enter Howard Hughes. The billionaire said it was his ship, mining rocks off the sea floor.",
    "resolves": true,
    "punch": "Hughes",
    "host": {
@@ -764,40 +710,65 @@
   },
   {
    "myth": "azorianB",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "His name, on a spy ship. If it went wrong, it was on him. I'd have fainted.",
+   "jeopardy": true,
+   "sfx": [
+    "boing@fainted"
+   ],
+   "shots": [
+    {
+     "photo": "Howard Hughes, 1938",
+     "obs": "wm:Howard_Hughes_1938.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianB",
    "pose": "shock",
    "act": "stand",
-   "say": "But this mining ship had a secret pool in its belly.",
+   "say": "But this mining ship had a secret pool in its belly. Hidden inside was the claw.",
+   "step": 2,
    "opens": true,
    "label": {
     "text": "MOON\nPOOL",
     "at": "pool"
    },
+   "punch": "claw",
    "shots": [
     {
      "photo": "Glomar Explorer in Suisun Bay (USGS)",
      "obs": "wm:Glomar_Explorer_Suisun_Bay_CA.jpg"
     },
     {
-     "photo": "Hughes Glomar Explorer (US Government)",
-     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg",
-     "at": "belly"
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg",
+     "at": "claw"
     }
    ]
   },
   {
    "myth": "azorianB",
    "pose": "nervous",
-   "act": "shake",
-   "say": "Hidden inside was the claw. The crew called it Clementine.",
-   "step": 2,
-   "punch": "claw",
-   "sfx": [
-    "whoosh@claw"
-   ],
+   "act": "stand",
+   "say": "July 1974. The ship parked over the wreck. Then a Soviet ship showed up, and watched.",
+   "opens": true,
+   "host": {
+    "moves": [
+     "sweat@Soviet",
+     "lean@watched"
+    ]
+   },
    "shots": [
     {
-     "photo": "CIA painting of the AZORIAN recovery",
-     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
+    },
+    {
+     "photo": "Thunderstorm at night (NOAA)",
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3",
+     "at": "Soviet"
     }
    ]
   },
@@ -805,7 +776,7 @@
    "myth": "azorianB",
    "pose": "deadpan",
    "act": "stand",
-   "say": "Summer 1974. They lowered it three miles, one pipe at a time.",
+   "say": "So they lowered the claw three miles, one pipe at a time, with the Soviets right there.",
    "shots": [
     {
      "photo": "CIA painting of the AZORIAN recovery",
@@ -824,12 +795,6 @@
    "act": "stand",
    "say": "The claw closed around the sub, and it started to rise.",
    "resolves": true,
-   "host": {
-    "moves": [
-     "you@closed",
-     "lean@rise"
-    ]
-   },
    "shots": [
     {
      "photo": "CIA painting of the AZORIAN recovery",
@@ -845,7 +810,6 @@
    "step": 3,
    "opens": true,
    "act_at": "broke",
-   "jeopardy": true,
    "sfx": [
     "thud@broke"
    ],
@@ -866,12 +830,17 @@
    "myth": "azorianB",
    "pose": "point",
    "act": "stand",
-   "say": "Verdict: they got a piece. A chunk of a Soviet nuclear sub, stolen.",
+   "say": "But they got a piece. A chunk of a Soviet nuclear sub, stolen.",
    "payoff": true,
    "resolves": true,
    "stamp": {
-    "text": "PROVEN",
+    "text": "STOLEN",
     "at": "piece"
+   },
+   "host": {
+    "moves": [
+     "you@piece"
+    ]
    },
    "shots": [
     {
@@ -889,29 +858,40 @@
    "myth": "azorianB",
    "pose": "deadpan",
    "act": "stand",
-   "say": "And inside it? Six Soviet sailors.",
+   "say": "And inside it? Six Soviet sailors. The CIA buried them at sea, with honors.",
    "opens": true,
-   "host": {
-    "moves": [
-     "psst@inside"
-    ]
-   },
    "shots": [
     {
      "photo": "CIA model of the sunken K-129",
      "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg"
-    }
-   ]
-  },
-  {
-   "myth": "azorianB",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "The CIA buried them at sea, with honors.",
-   "shots": [
+    },
     {
      "photo": "Thunderstorm at night (NOAA)",
-     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3"
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3",
+     "at": "buried"
+    }
+   ]
+  },
+  {
+   "myth": "azorianB",
+   "pose": "point",
+   "act": "stand",
+   "say": "Follow Meatball Investigates. Case files every day.",
+   "sub": {
+    "at": "Follow",
+    "text": "FOLLOW"
+   },
+   "shots": [
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg",
+     "board": {
+      "notes": [
+       "1974",
+       "3 MILES DOWN",
+       "TOP SECRET"
+      ]
+     }
     }
    ]
   },
@@ -919,7 +899,7 @@
    "myth": "azorianB",
    "pose": "deadpan",
    "act": "stand",
-   "say": "The ship sailed home. Nobody knew. Everything was fine.",
+   "say": "The ship sailed home. The cover held. Everything was fine.",
    "calm": true,
    "host": {
     "moves": [
@@ -937,16 +917,47 @@
    "myth": "azorianB",
    "pose": "shock",
    "act": "run_across",
-   "say": "Until 1975, when a newspaper got the story.",
+   "say": "Except, just before it sailed, thieves had broken into Hughes's company office in Los Angeles.",
    "drop": true,
    "step": 4,
-   "act_at": "newspaper",
+   "act_at": "thieves",
    "sfx": [
-    "whoosh@newspaper"
+    "whoosh@thieves"
    ],
    "label": {
-    "text": "LEAKED",
-    "at": "newspaper"
+    "text": "BREAK-IN",
+    "at": "thieves"
+   },
+   "shots": [
+    {
+     "photo": "Howard Hughes, 1938",
+     "obs": "wm:Howard_Hughes_1938.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianB",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "They took secret papers. One tied Hughes to the CIA.",
+   "punch": "CIA",
+   "shots": [
+    {
+     "photo": "Glomar Explorer patch (CIA)",
+     "obs": "wm:Glomar_Patch.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianB",
+   "pose": "think",
+   "act": "stand",
+   "say": "The CIA called the FBI. The FBI called the police. The secret leaked.",
+   "opens": true,
+   "host": {
+    "moves": [
+     "psst@secret"
+    ]
    },
    "shots": [
     {
@@ -959,12 +970,16 @@
    "myth": "azorianB",
    "pose": "think",
    "act": "stand",
-   "say": "A reporter asked the CIA what the ship was for. The answer?",
+   "say": "In 1975, the papers printed it. A reporter asked the CIA about the ship.",
    "opens": true,
+   "label": {
+    "text": "LEAKED",
+    "at": "printed"
+   },
    "shots": [
     {
-     "photo": "Glomar Explorer patch (CIA)",
-     "obs": "wm:Glomar_Patch.jpg"
+     "photo": "Glomar Explorer in Suisun Bay (USGS)",
+     "obs": "wm:Glomar_Explorer_Suisun_Bay_CA.jpg"
     }
    ]
   },
@@ -972,7 +987,7 @@
    "myth": "azorianB",
    "pose": "deadpan",
    "act": "stand",
-   "say": "We can neither confirm nor deny.",
+   "say": "The answer? We can neither confirm nor deny.",
    "resolves": true,
    "punch": "deny",
    "label": {
@@ -983,27 +998,6 @@
     {
      "photo": "Glomar Explorer patch (CIA)",
      "obs": "wm:Glomar_Patch.jpg"
-    }
-   ]
-  },
-  {
-   "myth": "azorianB",
-   "pose": "think",
-   "act": "stand",
-   "say": "Did you guess right? Comment.",
-   "ask": {
-    "q": "DID YOU GUESS RIGHT?",
-    "at": "Comment"
-   },
-   "host": {
-    "moves": [
-     "you@Comment"
-    ]
-   },
-   "shots": [
-    {
-     "photo": "CIA model of the sunken K-129",
-     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg"
     }
    ]
   },
@@ -1027,7 +1021,7 @@
    "_len": "story",
    "pose": "think",
    "act": "shake",
-   "say": "What if I told you Howard Hughes helped the CIA steal a Soviet submarine with nuclear missiles on board?",
+   "say": "What if I told you Howard Hughes helped the CIA steal a Soviet submarine, nuclear missiles and all?",
    "cold_open": "claim",
    "shots": [
     {
@@ -1072,51 +1066,29 @@
    "myth": "azorianC",
    "pose": "nervous",
    "act": "stand",
-   "say": "The CIA wanted that sub. Did they get it? Guess.",
+   "say": "The CIA wanted that sub. And Howard Hughes put his own name on the plan. Did they get it?",
    "want": true,
    "promise": true,
    "ask": {
-    "q": "DID THE CIA GET IT?",
+    "q": "DID THEY GET IT?",
     "choices": [
      "🚢 ALL OF IT",
      "🧩 A PIECE",
      "❌ NOTHING"
     ],
-    "at": "Guess"
+    "at": "get"
    },
    "hold": 0.9,
    "host": {
     "moves": [
-     "sweat@CIA",
-     "you@Guess"
+     "sweat@Hughes",
+     "you@get"
     ]
    },
    "shots": [
     {
-     "photo": "CIA painting of the AZORIAN recovery",
-     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
-    }
-   ]
-  },
-  {
-   "myth": "azorianC",
-   "pose": "point",
-   "act": "stand",
-   "say": "Subscribe. I open a new case every day.",
-   "sub": {
-    "at": "Subscribe"
-   },
-   "shots": [
-    {
-     "photo": "Hughes Glomar Explorer (US Government)",
-     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg",
-     "board": {
-      "notes": [
-       "1974",
-       "3 MILES DOWN",
-       "TOP SECRET"
-      ]
-     }
+     "photo": "Howard Hughes, 1938",
+     "obs": "wm:Howard_Hughes_1938.jpg"
     }
    ]
   },
@@ -1205,37 +1177,8 @@
   {
    "myth": "azorianC",
    "pose": "think",
-   "act": "peek",
-   "say": "Guess one: divers. They'd be crushed flat.",
-   "decoy": true,
-   "sfx": [
-    "crunch@crushed"
-   ],
-   "shots": [
-    {
-     "photo": "Thunderstorm at night (NOAA)",
-     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3"
-    }
-   ]
-  },
-  {
-   "myth": "azorianC",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "Guess two: ask Moscow nicely. It's the Cold War. No.",
-   "decoy": true,
-   "shots": [
-    {
-     "photo": "Soviet submarine K-129 (CIA photo)",
-     "obs": "wm:Soviet_ballistic_missile_submarine_K-129.jpg"
-    }
-   ]
-  },
-  {
-   "myth": "azorianC",
-   "pose": "think",
    "act": "run_in",
-   "say": "So the CIA built a giant ship. But it needed a cover story.",
+   "say": "Build a giant ship with a claw. But a ship like that needs a cover story.",
    "step": 1,
    "opens": true,
    "shots": [
@@ -1249,7 +1192,7 @@
    "myth": "azorianC",
    "pose": "point",
    "act": "stand",
-   "say": "Enter Howard Hughes. The billionaire said it was his ship, mining rocks.",
+   "say": "Enter Howard Hughes. The billionaire said it was his ship, mining rocks off the sea floor.",
    "resolves": true,
    "punch": "Hughes",
    "host": {
@@ -1271,40 +1214,65 @@
   },
   {
    "myth": "azorianC",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "His name, on a spy ship. If it went wrong, it was on him. I'd have fainted.",
+   "jeopardy": true,
+   "sfx": [
+    "boing@fainted"
+   ],
+   "shots": [
+    {
+     "photo": "Howard Hughes, 1938",
+     "obs": "wm:Howard_Hughes_1938.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianC",
    "pose": "shock",
    "act": "stand",
-   "say": "But this mining ship had a secret pool in its belly.",
+   "say": "But this mining ship had a secret pool in its belly. Hidden inside was the claw.",
+   "step": 2,
    "opens": true,
    "label": {
     "text": "MOON\nPOOL",
     "at": "pool"
    },
+   "punch": "claw",
    "shots": [
     {
      "photo": "Glomar Explorer in Suisun Bay (USGS)",
      "obs": "wm:Glomar_Explorer_Suisun_Bay_CA.jpg"
     },
     {
-     "photo": "Hughes Glomar Explorer (US Government)",
-     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg",
-     "at": "belly"
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg",
+     "at": "claw"
     }
    ]
   },
   {
    "myth": "azorianC",
    "pose": "nervous",
-   "act": "shake",
-   "say": "Hidden inside was the claw. The crew called it Clementine.",
-   "step": 2,
-   "punch": "claw",
-   "sfx": [
-    "whoosh@claw"
-   ],
+   "act": "stand",
+   "say": "July 1974. The ship parked over the wreck. Then a Soviet ship showed up, and watched.",
+   "opens": true,
+   "host": {
+    "moves": [
+     "sweat@Soviet",
+     "lean@watched"
+    ]
+   },
    "shots": [
     {
-     "photo": "CIA painting of the AZORIAN recovery",
-     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
+    },
+    {
+     "photo": "Thunderstorm at night (NOAA)",
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3",
+     "at": "Soviet"
     }
    ]
   },
@@ -1312,7 +1280,7 @@
    "myth": "azorianC",
    "pose": "deadpan",
    "act": "stand",
-   "say": "Summer 1974. They lowered it three miles, one pipe at a time.",
+   "say": "So they lowered the claw three miles, one pipe at a time, with the Soviets right there.",
    "shots": [
     {
      "photo": "CIA painting of the AZORIAN recovery",
@@ -1331,12 +1299,6 @@
    "act": "stand",
    "say": "The claw closed around the sub, and it started to rise.",
    "resolves": true,
-   "host": {
-    "moves": [
-     "you@closed",
-     "lean@rise"
-    ]
-   },
    "shots": [
     {
      "photo": "CIA painting of the AZORIAN recovery",
@@ -1352,7 +1314,6 @@
    "step": 3,
    "opens": true,
    "act_at": "broke",
-   "jeopardy": true,
    "sfx": [
     "thud@broke"
    ],
@@ -1373,12 +1334,17 @@
    "myth": "azorianC",
    "pose": "point",
    "act": "stand",
-   "say": "Verdict: they got a piece. A chunk of a Soviet nuclear sub, stolen.",
+   "say": "But they got a piece. A chunk of a Soviet nuclear sub, stolen.",
    "payoff": true,
    "resolves": true,
    "stamp": {
-    "text": "PROVEN",
+    "text": "STOLEN",
     "at": "piece"
+   },
+   "host": {
+    "moves": [
+     "you@piece"
+    ]
    },
    "shots": [
     {
@@ -1396,29 +1362,40 @@
    "myth": "azorianC",
    "pose": "deadpan",
    "act": "stand",
-   "say": "And inside it? Six Soviet sailors.",
+   "say": "And inside it? Six Soviet sailors. The CIA buried them at sea, with honors.",
    "opens": true,
-   "host": {
-    "moves": [
-     "psst@inside"
-    ]
-   },
    "shots": [
     {
      "photo": "CIA model of the sunken K-129",
      "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg"
-    }
-   ]
-  },
-  {
-   "myth": "azorianC",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "The CIA buried them at sea, with honors.",
-   "shots": [
+    },
     {
      "photo": "Thunderstorm at night (NOAA)",
-     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3"
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3",
+     "at": "buried"
+    }
+   ]
+  },
+  {
+   "myth": "azorianC",
+   "pose": "point",
+   "act": "stand",
+   "say": "Follow Meatball Investigates. Case files every day.",
+   "sub": {
+    "at": "Follow",
+    "text": "FOLLOW"
+   },
+   "shots": [
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg",
+     "board": {
+      "notes": [
+       "1974",
+       "3 MILES DOWN",
+       "TOP SECRET"
+      ]
+     }
     }
    ]
   },
@@ -1426,7 +1403,7 @@
    "myth": "azorianC",
    "pose": "deadpan",
    "act": "stand",
-   "say": "The ship sailed home. Nobody knew. Everything was fine.",
+   "say": "The ship sailed home. The cover held. Everything was fine.",
    "calm": true,
    "host": {
     "moves": [
@@ -1444,16 +1421,47 @@
    "myth": "azorianC",
    "pose": "shock",
    "act": "run_across",
-   "say": "Until 1975, when a newspaper got the story.",
+   "say": "Except, just before it sailed, thieves had broken into Hughes's company office in Los Angeles.",
    "drop": true,
    "step": 4,
-   "act_at": "newspaper",
+   "act_at": "thieves",
    "sfx": [
-    "whoosh@newspaper"
+    "whoosh@thieves"
    ],
    "label": {
-    "text": "LEAKED",
-    "at": "newspaper"
+    "text": "BREAK-IN",
+    "at": "thieves"
+   },
+   "shots": [
+    {
+     "photo": "Howard Hughes, 1938",
+     "obs": "wm:Howard_Hughes_1938.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianC",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "They took secret papers. One tied Hughes to the CIA.",
+   "punch": "CIA",
+   "shots": [
+    {
+     "photo": "Glomar Explorer patch (CIA)",
+     "obs": "wm:Glomar_Patch.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "azorianC",
+   "pose": "think",
+   "act": "stand",
+   "say": "The CIA called the FBI. The FBI called the police. The secret leaked.",
+   "opens": true,
+   "host": {
+    "moves": [
+     "psst@secret"
+    ]
    },
    "shots": [
     {
@@ -1466,12 +1474,16 @@
    "myth": "azorianC",
    "pose": "think",
    "act": "stand",
-   "say": "A reporter asked the CIA what the ship was for. The answer?",
+   "say": "In 1975, the papers printed it. A reporter asked the CIA about the ship.",
    "opens": true,
+   "label": {
+    "text": "LEAKED",
+    "at": "printed"
+   },
    "shots": [
     {
-     "photo": "Glomar Explorer patch (CIA)",
-     "obs": "wm:Glomar_Patch.jpg"
+     "photo": "Glomar Explorer in Suisun Bay (USGS)",
+     "obs": "wm:Glomar_Explorer_Suisun_Bay_CA.jpg"
     }
    ]
   },
@@ -1479,7 +1491,7 @@
    "myth": "azorianC",
    "pose": "deadpan",
    "act": "stand",
-   "say": "We can neither confirm nor deny.",
+   "say": "The answer? We can neither confirm nor deny.",
    "resolves": true,
    "punch": "deny",
    "label": {
@@ -1490,27 +1502,6 @@
     {
      "photo": "Glomar Explorer patch (CIA)",
      "obs": "wm:Glomar_Patch.jpg"
-    }
-   ]
-  },
-  {
-   "myth": "azorianC",
-   "pose": "think",
-   "act": "stand",
-   "say": "Did you guess right? Comment.",
-   "ask": {
-    "q": "DID YOU GUESS RIGHT?",
-    "at": "Comment"
-   },
-   "host": {
-    "moves": [
-     "you@Comment"
-    ]
-   },
-   "shots": [
-    {
-     "photo": "CIA model of the sunken K-129",
-     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg"
     }
    ]
   },
