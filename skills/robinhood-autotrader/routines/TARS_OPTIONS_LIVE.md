@@ -2,7 +2,7 @@
 
 The rules TARS trades SPY options by, with a $500 buffer Nolan authorized. Frozen by hash; changed only with Nolan's words.
 
-Last Updated: 2026-10-15
+Last Updated: 2026-10-26
 Status: ACTIVE from 2026-10-16
 Audience: TARS (this session's hourly fires), Nolan
 
@@ -35,6 +35,9 @@ Kept in `paper/live_options/state.json` as `mood` and `loss_streak` (losing trad
 
 Updating: after every closed trade, a loss adds 1 to loss_streak and a win (net after fees) resets it to 0. Then mood is recomputed from the table; the worse of the two triggers wins. Recovery is one step per win: stressed → tense → calm.
 Every check line and every message to Nolan states the mood and what it changed.
+
+**Change (Nolan, 2026-10-26 11:49 ET): "Dot switch something based on emotion if the charts show it go for it market is very weird during this time feel free to make options".**
+How TARS applies it: mood no longer switches setups on or off. S1 and S2 both run whenever their chart conditions fire (including S2's prior-close-above-20-day-average filter), in every mood except halted. Size: TARS keeps the "tense" cap of $250 per trade until the next win, then the normal $500 cap. That is money protection after two losses, not emotion, and Nolan can lift it by saying so. The money rules (−35% stop, day stop, $300 hard stop, 10:30-14:30 window) are unchanged.
 
 ## What TARS trades
 - SPY options expiring the NEXT trading day (1DTE). Why: about half the hourly time decay of 0DTE at midday, less whipsaw, no 3:45 force-close. Positions are still closed the same day.

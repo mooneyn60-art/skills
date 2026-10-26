@@ -9,3 +9,4 @@
 {"ts":"2026-10-21T11:15-04:00","mood":"stressed","spy":770.90,"open":771.16,"day_range":"768.40-771.34","s1":"no (gap 0.27%)","s2":"skipped (stressed)","note":"Nolan: \"Make some trades it's a good day\" - no rule fires; no order","result":"no trade"}
 {"ts":"2026-10-21T11:20-04:00","mood":"stressed","spy":771.02,"vwap_approx":770.2,"note":"near day high, above VWAP; no S2 dip signal even if enabled; S1 out (no gap)","nolan":"Keep looking and feel free to trade today","result":"no trade"}
 {"ts":"2026-10-26T11:48-04:00","mood":"stressed","spy":766.57,"open":762.26,"prev_close":759.97,"gap_pct":0.30,"s1":"no (gap 0.30% < 0.6%)","s2":"skipped (stressed)","result":"no trade"}
+{"ts":"2026-10-26T11:50-04:00","rules":"mood gate removed per Nolan 11:49","spy":766.6,"s1":"no (gap 0.30%)","s2":"no (prior close 759.97 < 20d avg 770.15: not an uptrend)","result":"no trade"}
