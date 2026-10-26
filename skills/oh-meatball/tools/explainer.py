@@ -93,8 +93,7 @@ def photo(taxon, n, work, obs=None, size="large"):
         return wm_photo(obs[3:], taxon, path)
     if isinstance(obs, str) and obs.startswith("ov:"):
         # Openverse id (CC/public-domain art, fossils, museum pieces) for history beats with no live animal.
-        o = json.load(urllib.request.urlopen(urllib.request.Request(
-            f"https://api.openverse.org/v1/images/{obs[3:]}/", headers={"User-Agent": "MeatballMyths/1.0"}), timeout=60))
+        o = _ov_get(f"https://api.openverse.org/v1/images/{obs[3:]}/")
         if o["license"] not in ("cc0", "pdm", "by", "by-sa"):
             raise SystemExit(f"{obs}: license {o['license']} not reusable")
         url = o["url"].split("?")[0]
@@ -104,8 +103,7 @@ def photo(taxon, n, work, obs=None, size="large"):
             w = 1920 if (o.get("width") or 0) >= 1600 else 1280
             data = _wm_get(head.replace("/commons/", "/commons/thumb/") + f"/{name}/{w}px-{name}", as_json=False)
         else:
-            data = urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "MeatballMyths/1.0"}),
-                                          timeout=60).read()
+            data = _ov_get(url, as_json=False)
         open(path, "wb").write(data)
         lic = "public domain" if o["license"] in ("cc0", "pdm") else f"CC {o['license'].upper()} {o['license_version']}"
         open(path + ".credit", "w").write(f"{taxon}: \"{o['title']}\" by {o.get('creator') or 'unknown'} ({lic}), via {o['source']}")
@@ -137,11 +135,24 @@ def photo(taxon, n, work, obs=None, size="large"):
 WM_OK = ("public domain", "cc0", "cc by ", "pd", "no restrictions")   # no share-alike (research/30)
 
 
+def _ov_get(url, as_json=True):
+    """Openverse / Flickr GET with backoff: both answer bursts with 429 (renders died on it, 10/26)."""
+    import time
+    for k in range(6):
+        try:
+            r = urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "MeatballMyths/1.0"}), timeout=60)
+            return json.load(r) if as_json else r.read()
+        except urllib.error.HTTPError as e:
+            if e.code not in (429, 503) or k == 5:
+                raise
+            time.sleep(5 * (k + 1))
+
+
 def _wm_get(url, as_json=True):
     """Wikimedia GET with backoff: the shared egress gets 429s in bursts. Originals are refused (429), so
     images come from the standard thumbnail widths only."""
     import time
-    for k in range(3 if as_json else 6):
+    for k in range(6 if as_json else 12):   # bursts of 429 last minutes on the shared egress (10/26)
         try:
             r = urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "MeatballMythsBot/1.0 (research)"}),
                                        timeout=90)
@@ -149,7 +160,7 @@ def _wm_get(url, as_json=True):
         except urllib.error.HTTPError as e:
             if e.code not in (429, 503):
                 raise
-            time.sleep(4 * (k + 1))
+            time.sleep(min(45, 5 * (k + 1)))
     raise SystemExit(f"wikimedia: still rate-limited on {url}")
 
 
