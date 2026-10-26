@@ -602,15 +602,8 @@
    "_len": "deep",
    "pose": "nervous",
    "act": "shake",
-   "say": "A woman stepped into a street in Strasbourg and started dancing. She kept going for days.",
-   "shots": [
-    {
-     "photo": "Dancing mania engraving (1642)",
-     "obs": "wm:Dancingplague2 (alt).jpg"
-    }
-   ],
    "hook": true,
-   "headline": "COULDN'T STOP DANCING",
+   "headline": "A DANCING PLAGUE",
    "headline_s": 2.2,
    "theme": "strange-history",
    "case": "CASE #5",
@@ -618,48 +611,66 @@
    "short_title": "The Dancing Plague of 1518 Was REAL 💃 Case #5",
    "comment": "Could this happen today? 😬 yes / 🙅 no way",
    "bonus": "It happened in Strasbourg in July 1518. The physician Paracelsus wrote about it a few years later.",
-   "caption": "The dancing plague of 1518: people danced for days in Strasbourg, and the city hired a band. Why? 🍞 bad bread / 😰 mass panic #dancingplague #history #weirdhistory #meatballinvestigates Follow Meatball for a new case every day 🍝",
+   "caption": "The dancing plague of 1518 was real: people in Strasbourg danced for days, and the city hired a band. Could it happen today? 😬 yes / 🙅 no way #dancingplague #history #weirdhistory #meatballinvestigates Follow Meatball for a new case every day 🍝",
    "sources": [
     "Wikipedia, Dancing plague of 1518 (Strasbourg, July 1518; began with one woman, Frau Troffea; dozens joined within a week, later accounts say up to about 400; authorities prescribed more dancing, opened guild halls, built a stage and hired musicians; dancers were later taken to a shrine of St. Vitus; leading explanation mass psychogenic illness amid famine and disease, ergot theory disputed) — https://en.wikipedia.org/wiki/Dancing_plague_of_1518 (checked 2026-10-26)",
     "John Waller, 'A forgotten plague: making sense of dancing mania', The Lancet 373 (2009): 624-625 — https://doi.org/10.1016/S0140-6736(09)60386-X"
    ],
-   "loop_say": "Never trust a catchy song. Because"
+   "loop_say": "Never trust a catchy song. Because",
+   "say": "What if I told you that in 1518, a whole city caught a dancing plague, and people couldn't stop for days?",
+   "shots": [
+    {
+     "photo": "Dancing mania engraving (1642)",
+     "obs": "wm:Dancingplague2 (alt).jpg"
+    }
+   ],
+   "cold_open": "claim",
+   "promise": true
   },
   {
    "myth": "dancingdeep",
-   "pose": "think",
+   "pose": "shock",
    "act": "stand",
-   "say": "Why couldn't she stop? Guess before I tell you.",
-   "ask": {
-    "q": "WHY?",
-    "choices": [
-     "🍞 BAD BREAD",
-     "😰 MASS PANIC"
-    ],
-    "at": "Guess"
-   },
-   "hold": 0.9,
-   "promise": true,
-   "host": {
-    "moves": [
-     "you@Guess"
-    ]
-   },
+   "say": "It's real. City records, doctors' notes, even a sermon. It started with one woman, in July.",
    "shots": [
     {
      "photo": "Dance at Molenbeek",
      "obs": "wm:Dance at Molenbeek.jpg"
     }
-   ]
+   ],
+   "punch": "woman"
+  },
+  {
+   "myth": "dancingdeep",
+   "pose": "think",
+   "act": "stand",
+   "say": "Could something like this happen today? Vote.",
+   "shots": [
+    {
+     "photo": "Brueghel, the Molenbeek dancers",
+     "obs": "wm:Die Wallfahrt der Fallsuechtigen nach Meulebeeck.jpg"
+    }
+   ],
+   "ask": {
+    "q": "COULD IT HAPPEN TODAY?",
+    "choices": [
+     "😬 YES",
+     "🙅 NO WAY"
+    ],
+    "at": "Vote"
+   },
+   "hold": 0.8,
+   "host": {
+    "moves": [
+     "you@Vote"
+    ]
+   }
   },
   {
    "myth": "dancingdeep",
    "pose": "point",
    "act": "stand",
-   "say": "Subscribe. I investigate a weird case every day.",
-   "sub": {
-    "at": "Subscribe"
-   },
+   "say": "Subscribe. I open a new case every day.",
    "shots": [
     {
      "photo": "Brueghel, the Molenbeek dancers",
@@ -671,193 +682,93 @@
       ]
      }
     }
-   ]
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
   },
   {
    "myth": "dancingdeep",
    "pose": "think",
    "act": "run_in",
-   "say": "See, in July 1518, this was a real city with real records. And within a week, dozens of people joined her.",
+   "say": "See, in July 1518, Strasbourg was starving. Bad harvests, freezing winters, sickness everywhere.",
+   "shots": [
+    {
+     "photo": "Dance at Molenbeek",
+     "obs": "wm:Dance at Molenbeek.jpg"
+    },
+    {
+     "photo": "Dancing mania engraving (1642)",
+     "obs": "wm:Dancingplague2 (alt).jpg",
+     "at": "sickness"
+    }
+   ],
+   "sfx": [
+    "whoosh"
+   ],
+   "label": {
+    "text": "1518",
+    "at": "1518"
+   }
+  },
+  {
+   "myth": "dancingdeep",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Then a woman stepped into the street and began to dance. No music. She didn't stop for days.",
+   "shots": [
+    {
+     "photo": "Dancing mania engraving (1642)",
+     "obs": "wm:Dancingplague2 (alt).jpg"
+    }
+   ],
+   "step": 1,
+   "punch": "days"
+  },
+  {
+   "myth": "dancingdeep",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Within a week, dozens more had joined her. Later accounts say hundreds.",
+   "shots": [
+    {
+     "photo": "Dance at Molenbeek",
+     "obs": "wm:Dance at Molenbeek.jpg"
+    }
+   ],
+   "step": 2,
    "label": {
     "text": "DOZENS",
     "at": "dozens"
    },
-   "sfx": [
-    "whoosh"
-   ],
-   "shots": [
-    {
-     "photo": "Dance at Molenbeek",
-     "obs": "wm:Dance at Molenbeek.jpg"
-    },
-    {
-     "photo": "Dancing mania engraving (1642)",
-     "obs": "wm:Dancingplague2 (alt).jpg",
-     "at": "dozens"
-    }
-   ]
-  },
-  {
-   "myth": "dancingdeep",
-   "pose": "shock",
-   "act": "stand",
-   "say": "Later accounts say hundreds. Nobody was having fun.",
-   "punch": "fun",
-   "shots": [
-    {
-     "photo": "Brueghel, the Molenbeek dancers",
-     "obs": "wm:Die Wallfahrt der Fallsuechtigen nach Meulebeeck.jpg"
-    }
-   ]
-  },
-  {
-   "myth": "dancingdeep",
-   "pose": "think",
-   "act": "peek",
-   "say": "Guess one: a curse from a saint. That's what people said then. Not likely.",
-   "decoy": true,
    "host": {
     "moves": [
-     "shrug@Guess"
+     "shock@dozens"
     ]
-   },
-   "shots": [
-    {
-     "photo": "Dancing mania engraving (1642)",
-     "obs": "wm:Dancingplague2 (alt).jpg"
-    }
-   ]
-  },
-  {
-   "myth": "dancingdeep",
-   "pose": "think",
-   "act": "peek",
-   "say": "Guess two: moldy bread, a fungus called ergot. Popular theory. But ergot causes cramps, not days of dancing.",
-   "decoy": true,
-   "label": {
-    "text": "ERGOT?",
-    "at": "ergot"
-   },
-   "shots": [
-    {
-     "photo": "Dance at Molenbeek",
-     "obs": "wm:Dance at Molenbeek.jpg"
-    }
-   ]
-  },
-  {
-   "myth": "dancingdeep",
-   "pose": "nervous",
-   "act": "shake",
-   "say": "I read about it too long. Now my foot is tapping.",
-   "jeopardy": true,
-   "sfx": [
-    "boing@tapping"
-   ],
-   "shots": [
-    {
-     "photo": "Brueghel, the Molenbeek dancers",
-     "obs": "wm:Die Wallfahrt der Fallsuechtigen nach Meulebeeck.jpg"
-    }
-   ]
-  },
-  {
-   "myth": "dancingdeep",
-   "pose": "point",
-   "act": "stand",
-   "say": "Verdict: it really happened. The best explanation is mass panic, a stress illness that spread through a starving city.",
-   "payoff": true,
-   "stamp": {
-    "text": "TRUE",
-    "at": "happened"
-   },
-   "host": {
-    "moves": [
-     "lean@Verdict"
-    ]
-   },
-   "shots": [
-    {
-     "photo": "Brueghel, the Molenbeek dancers",
-     "obs": "wm:Die Wallfahrt der Fallsuechtigen nach Meulebeeck.jpg"
-    },
-    {
-     "photo": "Dancing mania engraving (1642)",
-     "obs": "wm:Dancingplague2 (alt).jpg",
-     "at": "panic"
-    }
-   ]
-  },
-  {
-   "myth": "dancingdeep",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "Famine, disease, and a belief that a saint could curse you to dance.",
-   "shots": [
-    {
-     "photo": "Dancing mania engraving (1642)",
-     "obs": "wm:Dancingplague2 (alt).jpg"
-    }
-   ]
-  },
-  {
-   "myth": "dancingdeep",
-   "pose": "shock",
-   "act": "tumble",
-   "say": "Wait, it gets worse. Some dancers reportedly collapsed.",
-   "act_at": "collapsed",
-   "sfx": [
-    "thud@collapsed"
-   ],
-   "dark": true,
-   "host": {
-    "moves": [
-     "psst@Wait"
-    ]
-   },
-   "shots": [
-    {
-     "photo": "Dance at Molenbeek",
-     "obs": "wm:Dance at Molenbeek.jpg"
-    }
-   ]
+   }
   },
   {
    "myth": "dancingdeep",
    "pose": "nervous",
    "act": "stand",
-   "say": "In the end, they were taken to a mountain shrine to pray it away.",
+   "say": "But here's the thing. The city leaders made it worse.",
    "shots": [
     {
      "photo": "Brueghel, the Molenbeek dancers",
      "obs": "wm:Die Wallfahrt der Fallsuechtigen nach Meulebeeck.jpg"
     }
-   ]
-  },
-  {
-   "myth": "dancingdeep",
-   "pose": "think",
-   "act": "stand",
-   "say": "Did you guess right? Comment.",
-   "ask": {
-    "q": "DID YOU GUESS RIGHT?",
-    "at": "Comment"
-   },
-   "shots": [
-    {
-     "photo": "Dance at Molenbeek",
-     "obs": "wm:Dance at Molenbeek.jpg"
-    }
-   ]
+   ],
+   "host": {
+    "moves": [
+     "psst@But"
+    ]
+   }
   },
   {
    "myth": "dancingdeep",
    "pose": "deadpan",
    "act": "stand",
-   "say": "But first, the city's cure? More dancing. They built a stage and hired a band.",
-   "kicker": true,
-   "hold": 0.25,
-   "punch": "band",
+   "say": "Doctors said the cure was more dancing. So the city opened halls, built a stage, and hired a band.",
    "shots": [
     {
      "photo": "Dance at Molenbeek",
@@ -868,14 +779,157 @@
      "obs": "wm:Die Wallfahrt der Fallsuechtigen nach Meulebeeck.jpg",
      "at": "band"
     }
+   ],
+   "step": 3,
+   "label": {
+    "text": "HIRE A\nBAND",
+    "at": "band"
+   },
+   "sfx": [
+    "pop@band"
    ]
+  },
+  {
+   "myth": "dancingdeep",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "I read about it too long. Now my foot is tapping. Please send help.",
+   "shots": [
+    {
+     "photo": "Brueghel, the Molenbeek dancers",
+     "obs": "wm:Die Wallfahrt der Fallsuechtigen nach Meulebeeck.jpg"
+    }
+   ],
+   "jeopardy": true,
+   "sfx": [
+    "boing@tapping"
+   ]
+  },
+  {
+   "myth": "dancingdeep",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "Some dancers reportedly collapsed from exhaustion. The city finally banned public dancing and music.",
+   "shots": [
+    {
+     "photo": "Dancing mania engraving (1642)",
+     "obs": "wm:Dancingplague2 (alt).jpg"
+    }
+   ],
+   "act_at": "collapsed",
+   "sfx": [
+    "thud@collapsed"
+   ],
+   "dark": true
+  },
+  {
+   "myth": "dancingdeep",
+   "pose": "point",
+   "act": "stand",
+   "say": "Today, most historians think it was mass panic, a stress illness that spread through a starving, frightened city.",
+   "shots": [
+    {
+     "photo": "Dance at Molenbeek",
+     "obs": "wm:Dance at Molenbeek.jpg"
+    }
+   ],
+   "host": {
+    "moves": [
+     "lean@panic"
+    ]
+   },
+   "label": {
+    "text": "MASS\nPANIC",
+    "at": "panic"
+   },
+   "payoff": true
+  },
+  {
+   "myth": "dancingdeep",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The dancers were taken up a mountain to a saint's shrine, and given red shoes.",
+   "shots": [
+    {
+     "photo": "Brueghel, the Molenbeek dancers",
+     "obs": "wm:Die Wallfahrt der Fallsuechtigen nach Meulebeeck.jpg"
+    }
+   ],
+   "punch": "shoes"
+  },
+  {
+   "myth": "dancingdeep",
+   "pose": "think",
+   "act": "stand",
+   "say": "What's your theory? Comment it.",
+   "shots": [
+    {
+     "photo": "Dancing mania engraving (1642)",
+     "obs": "wm:Dancingplague2 (alt).jpg"
+    }
+   ],
+   "ask": {
+    "q": "YOUR THEORY?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "dancingdeep",
+   "pose": "point",
+   "act": "stand",
+   "say": "Follow Meatball. A new case every day.",
+   "shots": [
+    {
+     "photo": "Dance at Molenbeek",
+     "obs": "wm:Dance at Molenbeek.jpg"
+    }
+   ],
+   "sfx": [
+    "pop@Follow"
+   ]
+  },
+  {
+   "myth": "dancingdeep",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "The city's first cure for a dancing plague was a live band. Nobody checked who was booking the gigs.",
+   "shots": [
+    {
+     "photo": "Dance at Molenbeek",
+     "obs": "wm:Dance at Molenbeek.jpg"
+    },
+    {
+     "photo": "Brueghel, the Molenbeek dancers",
+     "obs": "wm:Die Wallfahrt der Fallsuechtigen nach Meulebeeck.jpg",
+     "at": "band"
+    }
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "gigs"
   },
   {
    "myth": "a119deep",
    "_len": "deep",
    "pose": "nervous",
    "act": "shake",
-   "say": "A young physicist in Chicago sat down and worked out how to nuke the Moon.",
+   "hook": true,
+   "headline": "NUKE THE MOON?",
+   "headline_s": 2.2,
+   "theme": "conspiracy",
+   "case": "CASE #4",
+   "punch": "nuke",
+   "short_title": "The US Planned to Nuke the Moon. It's REAL 🌕 Case #4",
+   "comment": "Would you have pushed the button? 🌕 yes / 🚫 no",
+   "bonus": "The study, 'A Study of Lunar Research Flights' (AFSWC-TR-59-39, 1959), stayed secret for about 40 years. Carl Sagan worked out how the dust cloud would spread.",
+   "caption": "Did the US plan to nuke the Moon? Yes: Project A119, 1958. Would you have pushed the button? 🌕 yes / 🚫 no #coldwar #weirdhistory #space #meatballinvestigates Follow Meatball for a new case every day 🍝",
+   "sources": [
+    "Wikipedia, Project A119 (US Air Force project carried out by the Armour Research Foundation at the Illinois Institute of Technology, Chicago, led by Leonard Reiffel; research began May 1958, cancelled January 1959; the blast was meant to be visible from Earth, partly to boost morale after Sputnik; Carl Sagan modelled the expansion of the dust cloud; revealed after Keay Davidson found Sagan had listed classified paper titles in his 1959 Miller Institute fellowship application) — https://en.wikipedia.org/wiki/Project_A119 (checked 2026-10-26)",
+    "L. Reiffel, 'A Study of Lunar Research Flights', Vol. I, Armour Research Foundation for the Air Force Special Weapons Center, 19 June 1959, AFSWC-TR-59-39, DTIC AD0425380 — https://apps.dtic.mil/sti/pdfs/AD0425380.pdf",
+    "Antony Barnett, The Observer, 14 May 2000 (Reiffel confirms the plan; the aim was a show of strength)"
+   ],
+   "loop_say": "Leave the Moon alone. Because",
+   "say": "What if I told you the US Air Force once studied how to set off a nuclear bomb on the Moon?",
    "shots": [
     {
      "photo": "Nuclear test cloud (Maralinga, 1956)",
@@ -893,58 +947,53 @@
      "at": "Moon"
     }
    ],
-   "hook": true,
-   "headline": "NUKE THE MOON?",
-   "headline_s": 2.2,
-   "theme": "conspiracy",
-   "case": "CASE #4",
-   "punch": "nuke",
-   "short_title": "The US Planned to Nuke the Moon. It's REAL 🌕 Case #4",
-   "comment": "Would you have pushed the button? 🌕 yes / 🚫 no",
-   "bonus": "The study, 'A Study of Lunar Research Flights' (AFSWC-TR-59-39, 1959), stayed secret for about 40 years. Carl Sagan worked out how the dust cloud would spread.",
-   "caption": "Did the US plan to nuke the Moon? Yes: Project A119, 1958. Why? 🚀 moon base / 💥 show off #coldwar #weirdhistory #space #meatballinvestigates Follow Meatball for a new case every day 🍝",
-   "sources": [
-    "Wikipedia, Project A119 (US Air Force project carried out by the Armour Research Foundation at the Illinois Institute of Technology, Chicago, led by Leonard Reiffel; research began May 1958, cancelled January 1959; the blast was meant to be visible from Earth, partly to boost morale after Sputnik; Carl Sagan modelled the expansion of the dust cloud; revealed after Keay Davidson found Sagan had listed classified paper titles in his 1959 Miller Institute fellowship application) — https://en.wikipedia.org/wiki/Project_A119 (checked 2026-10-26)",
-    "L. Reiffel, 'A Study of Lunar Research Flights', Vol. I, Armour Research Foundation for the Air Force Special Weapons Center, 19 June 1959, AFSWC-TR-59-39, DTIC AD0425380 — https://apps.dtic.mil/sti/pdfs/AD0425380.pdf",
-    "Antony Barnett, The Observer, 14 May 2000 (Reiffel confirms the plan; the aim was a show of strength)"
-   ],
-   "loop_say": "Leave the Moon alone. Because"
+   "cold_open": "claim",
+   "promise": true
   },
   {
    "myth": "a119deep",
-   "pose": "think",
+   "pose": "shock",
    "act": "stand",
-   "say": "Why would anyone bomb the Moon? Guess before I tell you.",
-   "ask": {
-    "q": "WHY?",
-    "choices": [
-     "🚀 MOON BASE",
-     "💥 SHOW OFF"
-    ],
-    "at": "Guess"
-   },
-   "hold": 0.9,
-   "promise": true,
-   "host": {
-    "moves": [
-     "you@Guess"
-    ]
-   },
+   "say": "It's real. The project was called A119, and the plan was for people on Earth to see the flash.",
    "shots": [
     {
      "photo": "Full Moon (NASA)",
      "obs": "ov:1c9946e5-5a1f-4637-9f3d-7fddc0b7051e"
     }
-   ]
+   ],
+   "punch": "flash"
+  },
+  {
+   "myth": "a119deep",
+   "pose": "think",
+   "act": "stand",
+   "say": "Would you have pushed the button? Vote.",
+   "shots": [
+    {
+     "photo": "Full Moon (NASA)",
+     "obs": "ov:fef5b5cf-5f9b-4e75-94a2-01687e0b80fb"
+    }
+   ],
+   "ask": {
+    "q": "WOULD YOU PUSH IT?",
+    "choices": [
+     "🌕 YES",
+     "🚫 NO"
+    ],
+    "at": "Vote"
+   },
+   "hold": 0.8,
+   "host": {
+    "moves": [
+     "you@Vote"
+    ]
+   }
   },
   {
    "myth": "a119deep",
    "pose": "point",
    "act": "stand",
-   "say": "Subscribe. I investigate a weird case every day.",
-   "sub": {
-    "at": "Subscribe"
-   },
+   "say": "Subscribe. I open a new case every day.",
    "shots": [
     {
      "photo": "Full Moon (NASA)",
@@ -957,103 +1006,71 @@
       ]
      }
     }
-   ]
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
   },
   {
    "myth": "a119deep",
    "pose": "think",
    "act": "run_in",
-   "say": "See, in October 1957, the Soviets launched Sputnik, the first satellite. America panicked.",
+   "say": "See, in October 1957, the Soviets launched Sputnik, the first satellite. Americans could watch it fly over their heads.",
+   "shots": [
+    {
+     "photo": "Sputnik 1 model",
+     "obs": "ov:eb47f646-34dd-4519-a3c3-4ddc173770a3"
+    }
+   ],
    "sfx": [
     "whoosh"
    ],
    "label": {
     "text": "SPUTNIK",
     "at": "Sputnik"
-   },
-   "shots": [
-    {
-     "photo": "Sputnik 1 model",
-     "obs": "ov:eb47f646-34dd-4519-a3c3-4ddc173770a3"
-    }
-   ]
+   }
   },
   {
    "myth": "a119deep",
-   "pose": "shock",
+   "pose": "deadpan",
    "act": "stand",
-   "say": "By 1958, the Air Force was paying for a secret study called Project A119.",
-   "label": {
-    "text": "PROJECT\nA119",
-    "at": "A119"
-   },
-   "shots": [
-    {
-     "photo": "Full Moon (NASA)",
-     "obs": "ov:1c9946e5-5a1f-4637-9f3d-7fddc0b7051e"
-    }
-   ]
-  },
-  {
-   "myth": "a119deep",
-   "pose": "think",
-   "act": "peek",
-   "say": "Guess one: to blast out a hole for a moon base. No. Nobody was building one.",
-   "decoy": true,
-   "host": {
-    "moves": [
-     "shrug@Guess"
-    ]
-   },
+   "say": "America felt like it was losing the space race. Badly. So the Air Force wanted something big.",
    "shots": [
     {
      "photo": "Earthrise, Apollo 8 (NASA)",
      "obs": "ov:95329716-7f19-4410-bb9e-bc6187afea97"
     }
-   ]
+   ],
+   "step": 1,
+   "punch": "big",
+   "host": {
+    "moves": [
+     "sweat@Badly"
+    ]
+   }
   },
   {
    "myth": "a119deep",
    "pose": "think",
-   "act": "peek",
-   "say": "Guess two: to hit the Soviets from space. Also no. The Moon is very far away.",
-   "decoy": true,
+   "act": "stand",
+   "say": "In 1958, it quietly hired a lab in Chicago to study a lunar research flight. That was the polite name.",
    "shots": [
     {
      "photo": "Full Moon (NASA)",
-     "obs": "ov:fef5b5cf-5f9b-4e75-94a2-01687e0b80fb"
+     "obs": "ov:1c9946e5-5a1f-4637-9f3d-7fddc0b7051e"
     }
-   ]
+   ],
+   "step": 2,
+   "label": {
+    "text": "PROJECT\nA119",
+    "at": "lab"
+   }
   },
   {
    "myth": "a119deep",
    "pose": "nervous",
-   "act": "tumble",
-   "say": "The Moon is round and gray. So am I. I'm staying indoors.",
-   "act_at": "So",
-   "jeopardy": true,
-   "sfx": [
-    "thud@So"
-   ],
-   "shots": [
-    {
-     "photo": "Full Moon (NASA)",
-     "obs": "ov:fef5b5cf-5f9b-4e75-94a2-01687e0b80fb"
-    }
-   ]
-  },
-  {
-   "myth": "a119deep",
-   "pose": "shock",
-   "act": "shake",
-   "say": "Wait. Here's the real reason. The flash had to be seen from Earth.",
-   "dark": true,
-   "punch": "flash",
-   "host": {
-    "moves": [
-     "psst@Wait"
-    ]
-   },
+   "act": "stand",
+   "say": "Wait. Here's the real goal. A bomb on the edge of the Moon, timed so the flash would be seen from Earth.",
    "shots": [
     {
      "photo": "Earthrise, Apollo 8 (NASA)",
@@ -1064,92 +1081,119 @@
      "obs": "ov:fef5b5cf-5f9b-4e75-94a2-01687e0b80fb",
      "at": "flash"
     }
+   ],
+   "step": 3,
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   },
+   "dark": true
+  },
+  {
+   "myth": "a119deep",
+   "pose": "shock",
+   "act": "stand",
+   "say": "A show of strength, so the whole world could look up and see it.",
+   "shots": [
+    {
+     "photo": "Full Moon (NASA)",
+     "obs": "ov:fef5b5cf-5f9b-4e75-94a2-01687e0b80fb"
+    }
+   ],
+   "punch": "world",
+   "payoff": true
+  },
+  {
+   "myth": "a119deep",
+   "pose": "nervous",
+   "act": "tumble",
+   "say": "The Moon is round and gray. So am I. I'm staying indoors.",
+   "shots": [
+    {
+     "photo": "Full Moon (NASA)",
+     "obs": "ov:fef5b5cf-5f9b-4e75-94a2-01687e0b80fb"
+    }
+   ],
+   "act_at": "So",
+   "jeopardy": true,
+   "sfx": [
+    "thud@So"
    ]
   },
   {
    "myth": "a119deep",
    "pose": "point",
    "act": "stand",
-   "say": "Verdict: it was real, and it was mostly to show off. A glowing flash on the Moon, to prove America was still ahead.",
-   "payoff": true,
-   "stamp": {
-    "text": "PROVEN",
-    "at": "real"
-   },
-   "shots": [
-    {
-     "photo": "Full Moon (NASA)",
-     "obs": "ov:1c9946e5-5a1f-4637-9f3d-7fddc0b7051e",
-     "board": {
-      "notes": [
-       "A119",
-       "SHOW OF FORCE"
-      ]
-     }
-    }
-   ]
-  },
-  {
-   "myth": "a119deep",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "The scientists also hoped to study the dust. A young Carl Sagan worked out how the cloud would spread.",
-   "label": {
-    "text": "CARL\nSAGAN",
-    "at": "Sagan"
-   },
+   "say": "A young scientist named Carl Sagan worked out how the dust cloud would spread.",
    "shots": [
     {
      "photo": "Earthrise, Apollo 8 (NASA)",
      "obs": "ov:95329716-7f19-4410-bb9e-bc6187afea97"
     }
-   ]
+   ],
+   "host": {
+    "moves": [
+     "lean@Sagan"
+    ]
+   },
+   "label": {
+    "text": "CARL\nSAGAN",
+    "at": "Sagan"
+   }
   },
   {
    "myth": "a119deep",
    "pose": "shock",
    "act": "stand",
-   "say": "In January 1959, it was quietly cancelled. Then it stayed secret for about forty years.",
-   "label": {
-    "text": "CANCELLED",
-    "at": "cancelled"
-   },
-   "host": {
-    "moves": [
-     "lean@secret"
-    ]
-   },
-   "shots": [
-    {
-     "photo": "Full Moon (NASA)",
-     "obs": "ov:fef5b5cf-5f9b-4e75-94a2-01687e0b80fb"
-    }
-   ]
-  },
-  {
-   "myth": "a119deep",
-   "pose": "think",
-   "act": "stand",
-   "say": "Did you guess right? Comment.",
-   "ask": {
-    "q": "DID YOU GUESS RIGHT?",
-    "at": "Comment"
-   },
+   "say": "Then, in January 1959, it was cancelled. People feared the fallout, and the backlash. It stayed secret for about forty years.",
    "shots": [
     {
      "photo": "Full Moon (NASA)",
      "obs": "ov:1c9946e5-5a1f-4637-9f3d-7fddc0b7051e"
     }
+   ],
+   "label": {
+    "text": "CANCELLED",
+    "at": "cancelled"
+   }
+  },
+  {
+   "myth": "a119deep",
+   "pose": "think",
+   "act": "stand",
+   "say": "What's your theory: would it have worked? Comment it.",
+   "shots": [
+    {
+     "photo": "Full Moon (NASA)",
+     "obs": "ov:fef5b5cf-5f9b-4e75-94a2-01687e0b80fb"
+    }
+   ],
+   "ask": {
+    "q": "YOUR THEORY?",
+    "at": "Comment"
+   }
+  },
+  {
+   "myth": "a119deep",
+   "pose": "point",
+   "act": "stand",
+   "say": "Follow Meatball. A new case every day.",
+   "shots": [
+    {
+     "photo": "Earthrise, Apollo 8 (NASA)",
+     "obs": "ov:95329716-7f19-4410-bb9e-bc6187afea97"
+    }
+   ],
+   "sfx": [
+    "pop@Follow"
    ]
   },
   {
    "myth": "a119deep",
    "pose": "deadpan",
    "act": "stand",
-   "say": "How did it leak? Sagan listed the secret papers on a job application. Great résumé.",
-   "kicker": true,
-   "hold": 0.25,
-   "punch": "résumé",
+   "say": "How did the world find out? Sagan listed the secret papers on a job application. Great résumé.",
    "shots": [
     {
      "photo": "Earthrise, Apollo 8 (NASA)",
@@ -1160,7 +1204,10 @@
      "obs": "ov:1c9946e5-5a1f-4637-9f3d-7fddc0b7051e",
      "at": "application"
     }
-   ]
+   ],
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "résumé"
   }
  ]
 }
