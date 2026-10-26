@@ -1,0 +1,191 @@
+{
+ "title": "Meatball Investigates: channel trailer",
+ "_note": "Growth desk, research/51 §2. 30-45 s 16:9 channel trailer for non-subscribers: who he is, what the channel does, quick cuts from 5 real cases with their real verdicts, one subscribe ask. One theme (conspiracy), music low. Facts are the verdicts already stamped in weird-pilot-v2, cases-01 and cases-02. Render: python3 tools/explainer.py episodes/branding/trailer.json /tmp/meatball-trailer build episodes/branding/trailer.mp4",
+ "style": "v4",
+ "aspect": "16:9",
+ "captions": "bold",
+ "series": {
+  "text": "MEATBALL INVESTIGATES",
+  "card": false
+ },
+ "max_shot": 1.8,
+ "music_lufs": -30,
+ "theme": "conspiracy",
+ "photo_source": "Wikimedia Commons, NASA, NOAA, Openverse",
+ "names": {},
+ "subjects": {},
+ "beats": [
+  {
+   "myth": "trailer",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "I'm Meatball. I investigate the weirdest claims on the internet, and I give every one a verdict.",
+   "shots": [
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg"
+    }
+   ],
+   "host": {
+    "moves": [
+     "you@investigate"
+    ],
+    "notes": [
+     "CASE FILES",
+     "EVERY CASE GETS A VERDICT"
+    ]
+   },
+   "sfx": [
+    "whoosh"
+   ]
+  },
+  {
+   "myth": "trailer",
+   "pose": "shock",
+   "act": "shake",
+   "say": "The US planned to nuke the Moon.",
+   "shots": [
+    {
+     "photo": "Full Moon (NASA)",
+     "obs": "ov:fef5b5cf-5f9b-4e75-94a2-01687e0b80fb"
+    },
+    {
+     "photo": "Nuclear test cloud (Maralinga, 1956)",
+     "obs": "ov:2ac6230a-1d74-40e9-b13d-a75000615622",
+     "at": "nuke"
+    }
+   ],
+   "stamp": {
+    "text": "PROVEN",
+    "at": "Moon",
+    "reveal": false
+   }
+  },
+  {
+   "myth": "trailer",
+   "pose": "nervous",
+   "act": "tumble",
+   "say": "The Bermuda Triangle eats ships?",
+   "shots": [
+    {
+     "photo": "Bermuda Triangle map (1950)",
+     "obs": "wm:Bermuda Triangle 1950 map.jpg"
+    }
+   ],
+   "stamp": {
+    "text": "BUSTED",
+    "at": "ships",
+    "reveal": false
+   }
+  },
+  {
+   "myth": "trailer",
+   "pose": "nervous",
+   "act": "tumble",
+   "say": "Scientists drilled seven miles down and heard screams?",
+   "shots": [
+    {
+     "photo": "Soviet stamp of the Kola Superdeep Borehole (1987)",
+     "obs": "wm:1987_CPA_5892.jpg"
+    }
+   ],
+   "stamp": {
+    "text": "BUSTED",
+    "at": "screams",
+    "reveal": false
+   }
+  },
+  {
+   "myth": "trailer",
+   "pose": "shock",
+   "act": "launch",
+   "say": "Australia lost a war to emus.",
+   "shots": [
+    {
+     "photo": "Emu (CC0)",
+     "obs": "wm:Emu_at_zoo.jpg"
+    }
+   ],
+   "stamp": {
+    "text": "TRUE",
+    "at": "emus",
+    "reveal": false
+   }
+  },
+  {
+   "myth": "trailer",
+   "pose": "think",
+   "act": "stand",
+   "say": "A ghost ship with nobody aboard.",
+   "shots": [
+    {
+     "photo": "Mary Celeste, painted as the Amazon (1861)",
+     "obs": "wm:Mary_Celeste_as_Amazon_in_1861_(cropped).jpg"
+    }
+   ],
+   "stamp": {
+    "text": "UNSOLVED",
+    "at": "aboard",
+    "reveal": false
+   }
+  },
+  {
+   "myth": "trailer",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "The CIA tried mind control. And the files survived.",
+   "shots": [
+    {
+     "photo": "Declassified MKUltra document (CIA)",
+     "obs": "wm:DeclassifiedMKULTRA.jpg"
+    }
+   ],
+   "stamp": {
+    "text": "PROVEN",
+    "at": "survived"
+   }
+  },
+  {
+   "myth": "trailer",
+   "pose": "point",
+   "act": "stand",
+   "say": "Conspiracies, strange history, weird animals. Real sources, a verdict every time. Subscribe. I open a new case every day.",
+   "shots": [
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg"
+    }
+   ],
+   "host": {
+    "moves": [
+     "you@Subscribe"
+    ],
+    "notes": [
+     "NEW CASE DAILY"
+    ]
+   },
+   "sub": {
+    "at": "Subscribe",
+    "text": "SUBSCRIBE"
+   }
+  },
+  {
+   "myth": "trailer",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Got a case? Comment it. I'm a meatball. Nobody suspects me.",
+   "shots": [
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg"
+    }
+   ],
+   "host": {
+    "moves": [
+     "psst@Nobody"
+    ],
+    "fork": true
+   }
+  }
+ ]
+}
