@@ -58,7 +58,7 @@
    "myth": "azorianA",
    "pose": "nervous",
    "act": "stand",
-   "say": "The CIA wanted that sub. And Howard Hughes put his own name on the plan. Did they get it?",
+   "say": "The CIA wanted that sub. Howard Hughes put his name on the plan. Did they get it?",
    "want": true,
    "promise": true,
    "ask": {
@@ -170,7 +170,7 @@
    "myth": "azorianA",
    "pose": "think",
    "act": "run_in",
-   "say": "Build a giant ship with a claw. But a ship like that needs a cover story.",
+   "say": "Build a giant ship with a claw. But that ship needs a cover story.",
    "step": 1,
    "opens": true,
    "shots": [
@@ -184,7 +184,7 @@
    "myth": "azorianA",
    "pose": "point",
    "act": "stand",
-   "say": "Enter Howard Hughes. The billionaire said it was his ship, mining rocks off the sea floor.",
+   "say": "Enter Howard Hughes. He said it was his ship, mining rocks off the sea floor.",
    "resolves": true,
    "punch": "Hughes",
    "host": {
@@ -208,7 +208,7 @@
    "myth": "azorianA",
    "pose": "nervous",
    "act": "shake",
-   "say": "His name, on a spy ship. If it went wrong, it was on him. I'd have fainted.",
+   "say": "His name, on a spy ship. If it went wrong? I'd have fainted.",
    "jeopardy": true,
    "sfx": [
     "boing@fainted"
@@ -224,7 +224,7 @@
    "myth": "azorianA",
    "pose": "shock",
    "act": "stand",
-   "say": "But this mining ship had a secret pool in its belly. Hidden inside was the claw.",
+   "say": "But this mining ship had a secret pool in its belly, hiding a claw.",
    "step": 2,
    "opens": true,
    "label": {
@@ -248,7 +248,7 @@
    "myth": "azorianA",
    "pose": "nervous",
    "act": "stand",
-   "say": "July 1974. The ship parked over the wreck. Then a Soviet ship showed up, and watched.",
+   "say": "July 1974. They lowered the claw three miles. Then a Soviet ship showed up, and watched.",
    "opens": true,
    "host": {
     "moves": [
@@ -258,30 +258,13 @@
    },
    "shots": [
     {
-     "photo": "Hughes Glomar Explorer (US Government)",
-     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
     },
     {
      "photo": "Thunderstorm at night (NOAA)",
      "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3",
      "at": "Soviet"
-    }
-   ]
-  },
-  {
-   "myth": "azorianA",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "So they lowered the claw three miles, one pipe at a time, with the Soviets right there.",
-   "shots": [
-    {
-     "photo": "CIA painting of the AZORIAN recovery",
-     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
-    },
-    {
-     "photo": "K-129 recovery site map",
-     "obs": "wm:K129_HGE_recoverysite.png",
-     "at": "pipe"
     }
    ]
   },
@@ -354,7 +337,7 @@
    "myth": "azorianA",
    "pose": "deadpan",
    "act": "stand",
-   "say": "And inside it? Six Soviet sailors. The CIA buried them at sea, with honors.",
+   "say": "And inside? Six Soviet sailors, buried at sea with honors.",
    "opens": true,
    "shots": [
     {
@@ -413,7 +396,7 @@
    "myth": "azorianA",
    "pose": "shock",
    "act": "run_across",
-   "say": "Except, just before it sailed, thieves had broken into Hughes's company office in Los Angeles.",
+   "say": "Except, just before it sailed, thieves had robbed Hughes's company office in Los Angeles.",
    "drop": true,
    "step": 4,
    "act_at": "thieves",
@@ -448,7 +431,7 @@
    "myth": "azorianA",
    "pose": "think",
    "act": "stand",
-   "say": "The CIA called the FBI. The FBI called the police. The secret leaked.",
+   "say": "The CIA called the FBI. The FBI called the police. By 1975, it was in the papers.",
    "opens": true,
    "host": {
     "moves": [
@@ -466,11 +449,11 @@
    "myth": "azorianA",
    "pose": "think",
    "act": "stand",
-   "say": "In 1975, the papers printed it. A reporter asked the CIA about the ship.",
+   "say": "A reporter asked the CIA about the ship.",
    "opens": true,
    "label": {
     "text": "LEAKED",
-    "at": "printed"
+    "at": "reporter"
    },
    "shots": [
     {
@@ -501,7 +484,7 @@
    "myth": "azorianA",
    "pose": "deadpan",
    "act": "stand",
-   "say": "That non-answer is named after the fake ship. A Glomar response. Governments still use it today.",
+   "say": "That non-answer is named after the fake ship: a Glomar response. Governments still use it today.",
    "kicker": true,
    "hold": 0.25,
    "punch": "Glomar",
@@ -562,7 +545,7 @@
    "myth": "azorianB",
    "pose": "nervous",
    "act": "stand",
-   "say": "The CIA wanted that sub. And Howard Hughes put his own name on the plan. Did they get it?",
+   "say": "The CIA wanted that sub. Howard Hughes put his name on the plan. Did they get it?",
    "want": true,
    "promise": true,
    "ask": {
@@ -674,7 +657,7 @@
    "myth": "azorianB",
    "pose": "think",
    "act": "run_in",
-   "say": "Build a giant ship with a claw. But a ship like that needs a cover story.",
+   "say": "Build a giant ship with a claw. But that ship needs a cover story.",
    "step": 1,
    "opens": true,
    "shots": [
@@ -688,7 +671,7 @@
    "myth": "azorianB",
    "pose": "point",
    "act": "stand",
-   "say": "Enter Howard Hughes. The billionaire said it was his ship, mining rocks off the sea floor.",
+   "say": "Enter Howard Hughes. He said it was his ship, mining rocks off the sea floor.",
    "resolves": true,
    "punch": "Hughes",
    "host": {
@@ -712,7 +695,7 @@
    "myth": "azorianB",
    "pose": "nervous",
    "act": "shake",
-   "say": "His name, on a spy ship. If it went wrong, it was on him. I'd have fainted.",
+   "say": "His name, on a spy ship. If it went wrong? I'd have fainted.",
    "jeopardy": true,
    "sfx": [
     "boing@fainted"
@@ -728,7 +711,7 @@
    "myth": "azorianB",
    "pose": "shock",
    "act": "stand",
-   "say": "But this mining ship had a secret pool in its belly. Hidden inside was the claw.",
+   "say": "But this mining ship had a secret pool in its belly, hiding a claw.",
    "step": 2,
    "opens": true,
    "label": {
@@ -752,7 +735,7 @@
    "myth": "azorianB",
    "pose": "nervous",
    "act": "stand",
-   "say": "July 1974. The ship parked over the wreck. Then a Soviet ship showed up, and watched.",
+   "say": "July 1974. They lowered the claw three miles. Then a Soviet ship showed up, and watched.",
    "opens": true,
    "host": {
     "moves": [
@@ -762,30 +745,13 @@
    },
    "shots": [
     {
-     "photo": "Hughes Glomar Explorer (US Government)",
-     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
     },
     {
      "photo": "Thunderstorm at night (NOAA)",
      "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3",
      "at": "Soviet"
-    }
-   ]
-  },
-  {
-   "myth": "azorianB",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "So they lowered the claw three miles, one pipe at a time, with the Soviets right there.",
-   "shots": [
-    {
-     "photo": "CIA painting of the AZORIAN recovery",
-     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
-    },
-    {
-     "photo": "K-129 recovery site map",
-     "obs": "wm:K129_HGE_recoverysite.png",
-     "at": "pipe"
     }
    ]
   },
@@ -858,7 +824,7 @@
    "myth": "azorianB",
    "pose": "deadpan",
    "act": "stand",
-   "say": "And inside it? Six Soviet sailors. The CIA buried them at sea, with honors.",
+   "say": "And inside? Six Soviet sailors, buried at sea with honors.",
    "opens": true,
    "shots": [
     {
@@ -917,7 +883,7 @@
    "myth": "azorianB",
    "pose": "shock",
    "act": "run_across",
-   "say": "Except, just before it sailed, thieves had broken into Hughes's company office in Los Angeles.",
+   "say": "Except, just before it sailed, thieves had robbed Hughes's company office in Los Angeles.",
    "drop": true,
    "step": 4,
    "act_at": "thieves",
@@ -952,7 +918,7 @@
    "myth": "azorianB",
    "pose": "think",
    "act": "stand",
-   "say": "The CIA called the FBI. The FBI called the police. The secret leaked.",
+   "say": "The CIA called the FBI. The FBI called the police. By 1975, it was in the papers.",
    "opens": true,
    "host": {
     "moves": [
@@ -970,11 +936,11 @@
    "myth": "azorianB",
    "pose": "think",
    "act": "stand",
-   "say": "In 1975, the papers printed it. A reporter asked the CIA about the ship.",
+   "say": "A reporter asked the CIA about the ship.",
    "opens": true,
    "label": {
     "text": "LEAKED",
-    "at": "printed"
+    "at": "reporter"
    },
    "shots": [
     {
@@ -1005,7 +971,7 @@
    "myth": "azorianB",
    "pose": "deadpan",
    "act": "stand",
-   "say": "That non-answer is named after the fake ship. A Glomar response. Governments still use it today.",
+   "say": "That non-answer is named after the fake ship: a Glomar response. Governments still use it today.",
    "kicker": true,
    "hold": 0.25,
    "punch": "Glomar",
@@ -1066,7 +1032,7 @@
    "myth": "azorianC",
    "pose": "nervous",
    "act": "stand",
-   "say": "The CIA wanted that sub. And Howard Hughes put his own name on the plan. Did they get it?",
+   "say": "The CIA wanted that sub. Howard Hughes put his name on the plan. Did they get it?",
    "want": true,
    "promise": true,
    "ask": {
@@ -1178,7 +1144,7 @@
    "myth": "azorianC",
    "pose": "think",
    "act": "run_in",
-   "say": "Build a giant ship with a claw. But a ship like that needs a cover story.",
+   "say": "Build a giant ship with a claw. But that ship needs a cover story.",
    "step": 1,
    "opens": true,
    "shots": [
@@ -1192,7 +1158,7 @@
    "myth": "azorianC",
    "pose": "point",
    "act": "stand",
-   "say": "Enter Howard Hughes. The billionaire said it was his ship, mining rocks off the sea floor.",
+   "say": "Enter Howard Hughes. He said it was his ship, mining rocks off the sea floor.",
    "resolves": true,
    "punch": "Hughes",
    "host": {
@@ -1216,7 +1182,7 @@
    "myth": "azorianC",
    "pose": "nervous",
    "act": "shake",
-   "say": "His name, on a spy ship. If it went wrong, it was on him. I'd have fainted.",
+   "say": "His name, on a spy ship. If it went wrong? I'd have fainted.",
    "jeopardy": true,
    "sfx": [
     "boing@fainted"
@@ -1232,7 +1198,7 @@
    "myth": "azorianC",
    "pose": "shock",
    "act": "stand",
-   "say": "But this mining ship had a secret pool in its belly. Hidden inside was the claw.",
+   "say": "But this mining ship had a secret pool in its belly, hiding a claw.",
    "step": 2,
    "opens": true,
    "label": {
@@ -1256,7 +1222,7 @@
    "myth": "azorianC",
    "pose": "nervous",
    "act": "stand",
-   "say": "July 1974. The ship parked over the wreck. Then a Soviet ship showed up, and watched.",
+   "say": "July 1974. They lowered the claw three miles. Then a Soviet ship showed up, and watched.",
    "opens": true,
    "host": {
     "moves": [
@@ -1266,30 +1232,13 @@
    },
    "shots": [
     {
-     "photo": "Hughes Glomar Explorer (US Government)",
-     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
     },
     {
      "photo": "Thunderstorm at night (NOAA)",
      "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3",
      "at": "Soviet"
-    }
-   ]
-  },
-  {
-   "myth": "azorianC",
-   "pose": "deadpan",
-   "act": "stand",
-   "say": "So they lowered the claw three miles, one pipe at a time, with the Soviets right there.",
-   "shots": [
-    {
-     "photo": "CIA painting of the AZORIAN recovery",
-     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
-    },
-    {
-     "photo": "K-129 recovery site map",
-     "obs": "wm:K129_HGE_recoverysite.png",
-     "at": "pipe"
     }
    ]
   },
@@ -1362,7 +1311,7 @@
    "myth": "azorianC",
    "pose": "deadpan",
    "act": "stand",
-   "say": "And inside it? Six Soviet sailors. The CIA buried them at sea, with honors.",
+   "say": "And inside? Six Soviet sailors, buried at sea with honors.",
    "opens": true,
    "shots": [
     {
@@ -1421,7 +1370,7 @@
    "myth": "azorianC",
    "pose": "shock",
    "act": "run_across",
-   "say": "Except, just before it sailed, thieves had broken into Hughes's company office in Los Angeles.",
+   "say": "Except, just before it sailed, thieves had robbed Hughes's company office in Los Angeles.",
    "drop": true,
    "step": 4,
    "act_at": "thieves",
@@ -1456,7 +1405,7 @@
    "myth": "azorianC",
    "pose": "think",
    "act": "stand",
-   "say": "The CIA called the FBI. The FBI called the police. The secret leaked.",
+   "say": "The CIA called the FBI. The FBI called the police. By 1975, it was in the papers.",
    "opens": true,
    "host": {
     "moves": [
@@ -1474,11 +1423,11 @@
    "myth": "azorianC",
    "pose": "think",
    "act": "stand",
-   "say": "In 1975, the papers printed it. A reporter asked the CIA about the ship.",
+   "say": "A reporter asked the CIA about the ship.",
    "opens": true,
    "label": {
     "text": "LEAKED",
-    "at": "printed"
+    "at": "reporter"
    },
    "shots": [
     {
@@ -1509,7 +1458,7 @@
    "myth": "azorianC",
    "pose": "deadpan",
    "act": "stand",
-   "say": "That non-answer is named after the fake ship. A Glomar response. Governments still use it today.",
+   "say": "That non-answer is named after the fake ship: a Glomar response. Governments still use it today.",
    "kicker": true,
    "hold": 0.25,
    "punch": "Glomar",
