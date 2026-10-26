@@ -8,6 +8,7 @@ taps. This file is the team, the daily routine, the numbers we steer by, and the
 
 378 credits are left until the 2026-11-24 reset, and the routines' listed caps add up to about 105 a day.
 Until the reset:
+- Nolan, 2026-10-26: spend 0 vidIQ credits for the rest of 10/26. Tonight's evening meeting and night shift use Metricool and the repo only.
 - Morning 0 (use Metricool and the repo).
 - Marketing 5. Spend it on score_title only when a title is actually changing.
 - Evening 5 (one channel_analytics pull).
