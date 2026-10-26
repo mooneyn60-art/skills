@@ -72,6 +72,7 @@ def subject(spec, crop, flip):
     if lum.size and lum.mean() < 115:  # gamma lift: opens dark fur/shell without clipping highlights
         g = np.log(125 / 255) / np.log(max(float(lum.mean()), 1) / 255)
         rgb = rgb.point(lambda v: int(255 * (v / 255) ** g))
+        rgb = ImageEnhance.Color(ImageEnhance.Contrast(rgb).enhance(1.15)).enhance(1.2)
     rgb = ImageEnhance.Sharpness(rgb).enhance(1.3)
     rgb.putalpha(a)
     return rgb, credit
