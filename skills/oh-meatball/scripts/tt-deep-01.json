@@ -316,6 +316,559 @@
      "obs": "wm:The Roswell Report - Case Closed.jpg"
     }
    ]
+  },
+  {
+   "myth": "northwoodsdeep",
+   "_len": "deep",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "America's top general signed a plan to blow up an American ship, and blame it on Cuba.",
+   "shots": [
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg"
+    },
+    {
+     "photo": "General Lyman Lemnitzer",
+     "obs": "wm:GEN Lyman L. Lemnitzer, portrait as SACEUR (cropped 2).jpg",
+     "at": "signed"
+    }
+   ],
+   "hook": true,
+   "headline": "FAKE ATTACKS?",
+   "headline_s": 2.2,
+   "theme": "cold-war",
+   "case": "CASE #2",
+   "punch": "blow",
+   "short_title": "Operation Northwoods: The Conspiracy That Was TRUE 🔍 Case #2",
+   "comment": "Did you know this was real? ✅ yes / 😳 no idea",
+   "bonus": "One idea in the plan: fake the shoot-down of a civilian airliner with a remote-controlled drone. The memo was declassified in 1997.",
+   "caption": "Operation Northwoods: the 1962 plan for fake attacks blamed on Cuba. Did they do it? ✅ yes / ❌ no #conspiracy #history #coldwar #declassified #meatballinvestigates Follow Meatball for a new case every day 🍝",
+   "sources": [
+    "Joint Chiefs of Staff memorandum to the Secretary of Defense, 'Justification for US Military Intervention in Cuba', 13 March 1962 (Operation Northwoods), signed by Gen. L. L. Lemnitzer; includes 'We could blow up a US ship in Guantanamo Bay and blame Cuba' and a drone substituted for a civilian airliner — National Security Archive — https://nsarchive2.gwu.edu/news/20010430/ (checked 2026-10-26)",
+    "Wikipedia, Operation Northwoods (rejected by the Kennedy administration; Kennedy did not reappoint Lemnitzer as Chairman, he became NATO's SACEUR in late 1962; declassified 1997 by the Assassination Records Review Board) — https://en.wikipedia.org/wiki/Operation_Northwoods"
+   ],
+   "loop_say": "Always read the fine print. Because"
+  },
+  {
+   "myth": "northwoodsdeep",
+   "pose": "think",
+   "act": "stand",
+   "say": "So, did they actually do it? Guess.",
+   "ask": {
+    "q": "DID THEY DO IT?",
+    "choices": [
+     "✅ THEY DID",
+     "❌ NOPE"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.9,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "The Pentagon",
+     "obs": "ov:d9cde009-48aa-4c0f-ad5a-1eef19190154"
+    }
+   ]
+  },
+  {
+   "myth": "northwoodsdeep",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I investigate a weird case every day.",
+   "sub": {
+    "at": "Subscribe"
+   },
+   "shots": [
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg",
+     "board": {
+      "notes": [
+       "MARCH 1962",
+       "BLAME CUBA"
+      ],
+      "stamp": "CLASSIFIED"
+     }
+    }
+   ]
+  },
+  {
+   "myth": "northwoodsdeep",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in March 1962, the Pentagon wanted a reason to invade Cuba. So the Joint Chiefs wrote one.",
+   "label": {
+    "text": "BLAME\nCUBA",
+    "at": "Cuba"
+   },
+   "sfx": [
+    "whoosh"
+   ],
+   "shots": [
+    {
+     "photo": "The Pentagon",
+     "obs": "ov:d9cde009-48aa-4c0f-ad5a-1eef19190154"
+    },
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg",
+     "at": "Joint"
+    }
+   ]
+  },
+  {
+   "myth": "northwoodsdeep",
+   "pose": "shock",
+   "act": "stand",
+   "say": "The memo listed fake attacks. Blow up a ship at Guantanamo. Stage a terror campaign in Miami.",
+   "punch": "Miami",
+   "shots": [
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "northwoodsdeep",
+   "pose": "shock",
+   "act": "launch",
+   "say": "Wait, it gets worse. Swap a passenger plane for a drone, and fake its shoot-down.",
+   "hit": "shoot-down",
+   "sfx": [
+    "crunch@shoot-down"
+   ],
+   "jeopardy": true,
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Bermuda Triangle map (1950)",
+     "obs": "wm:Bermuda Triangle 1950 map.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "northwoodsdeep",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: they did it, and history got the blame wrong. No. None of these attacks happened.",
+   "decoy": true,
+   "shots": [
+    {
+     "photo": "The Pentagon",
+     "obs": "ov:d9cde009-48aa-4c0f-ad5a-1eef19190154"
+    }
+   ]
+  },
+  {
+   "myth": "northwoodsdeep",
+   "pose": "deadpan",
+   "act": "peek",
+   "say": "Guess two: the memo is a forgery the internet made up. Also no.",
+   "decoy": true,
+   "shots": [
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "northwoodsdeep",
+   "pose": "nervous",
+   "act": "tumble",
+   "say": "So I asked for a copy. They stamped me CLASSIFIED.",
+   "act_at": "stamped",
+   "sfx": [
+    "thud@stamped"
+   ],
+   "label": {
+    "text": "CLASSIFIED",
+    "at": "CLASSIFIED"
+   },
+   "shots": [
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "northwoodsdeep",
+   "pose": "point",
+   "act": "stand",
+   "say": "Verdict: the memo is real. The top brass really proposed it, and Kennedy's team said no.",
+   "payoff": true,
+   "stamp": {
+    "text": "PROVEN",
+    "at": "real"
+   },
+   "host": {
+    "moves": [
+     "lean@Verdict"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg",
+     "board": {
+      "notes": [
+       "NORTHWOODS",
+       "1962"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "myth": "northwoodsdeep",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Months later, the general who signed it was moved out, to a job in Europe.",
+   "punch": "Europe",
+   "shots": [
+    {
+     "photo": "General Lyman Lemnitzer",
+     "obs": "wm:GEN Lyman L. Lemnitzer, portrait as SACEUR (cropped 2).jpg"
+    }
+   ]
+  },
+  {
+   "myth": "northwoodsdeep",
+   "pose": "shock",
+   "act": "stand",
+   "say": "And the memo stayed secret until 1997, when a records board finally released it.",
+   "label": {
+    "text": "1997",
+    "at": "1997"
+   },
+   "shots": [
+    {
+     "photo": "President Kennedy, 1963",
+     "obs": "wm:President Kennedy American University Commencement Address June 10, 1963.jpg"
+    },
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg",
+     "at": "released"
+    }
+   ]
+  },
+  {
+   "myth": "northwoodsdeep",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   },
+   "shots": [
+    {
+     "photo": "The Pentagon",
+     "obs": "ov:d9cde009-48aa-4c0f-ad5a-1eef19190154"
+    }
+   ]
+  },
+  {
+   "myth": "northwoodsdeep",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "A plan to fool the public, hidden from the public for thirty-five years. Very on brand.",
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "brand",
+   "shots": [
+    {
+     "photo": "Northwoods memorandum",
+     "obs": "wm:NorthwoodsMemorandum.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "dancingdeep",
+   "_len": "deep",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "A woman stepped into a street in Strasbourg and started dancing. She kept going for days.",
+   "shots": [
+    {
+     "photo": "Dancing mania engraving (1642)",
+     "obs": "wm:Dancingplague2 (alt).jpg"
+    }
+   ],
+   "hook": true,
+   "headline": "COULDN'T STOP DANCING",
+   "headline_s": 2.2,
+   "theme": "strange-history",
+   "case": "CASE #5",
+   "punch": "days",
+   "short_title": "The Dancing Plague of 1518 Was REAL 💃 Case #5",
+   "comment": "Could this happen today? 😬 yes / 🙅 no way",
+   "bonus": "It happened in Strasbourg in July 1518. The physician Paracelsus wrote about it a few years later.",
+   "caption": "The dancing plague of 1518: people danced for days in Strasbourg, and the city hired a band. Why? 🍞 bad bread / 😰 mass panic #dancingplague #history #weirdhistory #meatballinvestigates Follow Meatball for a new case every day 🍝",
+   "sources": [
+    "Wikipedia, Dancing plague of 1518 (Strasbourg, July 1518; began with one woman, Frau Troffea; dozens joined within a week, later accounts say up to about 400; authorities prescribed more dancing, opened guild halls, built a stage and hired musicians; dancers were later taken to a shrine of St. Vitus; leading explanation mass psychogenic illness amid famine and disease, ergot theory disputed) — https://en.wikipedia.org/wiki/Dancing_plague_of_1518 (checked 2026-10-26)",
+    "John Waller, 'A forgotten plague: making sense of dancing mania', The Lancet 373 (2009): 624-625 — https://doi.org/10.1016/S0140-6736(09)60386-X"
+   ],
+   "loop_say": "Never trust a catchy song. Because"
+  },
+  {
+   "myth": "dancingdeep",
+   "pose": "think",
+   "act": "stand",
+   "say": "Why couldn't she stop? Guess before I tell you.",
+   "ask": {
+    "q": "WHY?",
+    "choices": [
+     "🍞 BAD BREAD",
+     "😰 MASS PANIC"
+    ],
+    "at": "Guess"
+   },
+   "hold": 0.9,
+   "promise": true,
+   "host": {
+    "moves": [
+     "you@Guess"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Dance at Molenbeek",
+     "obs": "wm:Dance at Molenbeek.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "dancingdeep",
+   "pose": "point",
+   "act": "stand",
+   "say": "Subscribe. I investigate a weird case every day.",
+   "sub": {
+    "at": "Subscribe"
+   },
+   "shots": [
+    {
+     "photo": "Brueghel, the Molenbeek dancers",
+     "obs": "wm:Die Wallfahrt der Fallsuechtigen nach Meulebeeck.jpg",
+     "board": {
+      "notes": [
+       "JULY 1518",
+       "STRASBOURG"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "myth": "dancingdeep",
+   "pose": "think",
+   "act": "run_in",
+   "say": "See, in July 1518, this was a real city with real records. And within a week, dozens of people joined her.",
+   "label": {
+    "text": "DOZENS",
+    "at": "dozens"
+   },
+   "sfx": [
+    "whoosh"
+   ],
+   "shots": [
+    {
+     "photo": "Dance at Molenbeek",
+     "obs": "wm:Dance at Molenbeek.jpg"
+    },
+    {
+     "photo": "Dancing mania engraving (1642)",
+     "obs": "wm:Dancingplague2 (alt).jpg",
+     "at": "dozens"
+    }
+   ]
+  },
+  {
+   "myth": "dancingdeep",
+   "pose": "shock",
+   "act": "stand",
+   "say": "Later accounts say hundreds. Nobody was having fun.",
+   "punch": "fun",
+   "shots": [
+    {
+     "photo": "Brueghel, the Molenbeek dancers",
+     "obs": "wm:Die Wallfahrt der Fallsuechtigen nach Meulebeeck.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "dancingdeep",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess one: a curse from a saint. That's what people said then. Not likely.",
+   "decoy": true,
+   "host": {
+    "moves": [
+     "shrug@Guess"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Dancing mania engraving (1642)",
+     "obs": "wm:Dancingplague2 (alt).jpg"
+    }
+   ]
+  },
+  {
+   "myth": "dancingdeep",
+   "pose": "think",
+   "act": "peek",
+   "say": "Guess two: moldy bread, a fungus called ergot. Popular theory. But ergot causes cramps, not days of dancing.",
+   "decoy": true,
+   "label": {
+    "text": "ERGOT?",
+    "at": "ergot"
+   },
+   "shots": [
+    {
+     "photo": "Dance at Molenbeek",
+     "obs": "wm:Dance at Molenbeek.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "dancingdeep",
+   "pose": "nervous",
+   "act": "shake",
+   "say": "I read about it too long. Now my foot is tapping.",
+   "jeopardy": true,
+   "sfx": [
+    "boing@tapping"
+   ],
+   "shots": [
+    {
+     "photo": "Brueghel, the Molenbeek dancers",
+     "obs": "wm:Die Wallfahrt der Fallsuechtigen nach Meulebeeck.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "dancingdeep",
+   "pose": "point",
+   "act": "stand",
+   "say": "Verdict: it really happened. The best explanation is mass panic, a stress illness that spread through a starving city.",
+   "payoff": true,
+   "stamp": {
+    "text": "TRUE",
+    "at": "happened"
+   },
+   "host": {
+    "moves": [
+     "lean@Verdict"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Brueghel, the Molenbeek dancers",
+     "obs": "wm:Die Wallfahrt der Fallsuechtigen nach Meulebeeck.jpg"
+    },
+    {
+     "photo": "Dancing mania engraving (1642)",
+     "obs": "wm:Dancingplague2 (alt).jpg",
+     "at": "panic"
+    }
+   ]
+  },
+  {
+   "myth": "dancingdeep",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "Famine, disease, and a belief that a saint could curse you to dance.",
+   "shots": [
+    {
+     "photo": "Dancing mania engraving (1642)",
+     "obs": "wm:Dancingplague2 (alt).jpg"
+    }
+   ]
+  },
+  {
+   "myth": "dancingdeep",
+   "pose": "shock",
+   "act": "tumble",
+   "say": "Wait, it gets worse. Some dancers reportedly collapsed.",
+   "act_at": "collapsed",
+   "sfx": [
+    "thud@collapsed"
+   ],
+   "dark": true,
+   "host": {
+    "moves": [
+     "psst@Wait"
+    ]
+   },
+   "shots": [
+    {
+     "photo": "Dance at Molenbeek",
+     "obs": "wm:Dance at Molenbeek.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "dancingdeep",
+   "pose": "nervous",
+   "act": "stand",
+   "say": "In the end, they were taken to a mountain shrine to pray it away.",
+   "shots": [
+    {
+     "photo": "Brueghel, the Molenbeek dancers",
+     "obs": "wm:Die Wallfahrt der Fallsuechtigen nach Meulebeeck.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "dancingdeep",
+   "pose": "think",
+   "act": "stand",
+   "say": "Did you guess right? Comment.",
+   "ask": {
+    "q": "DID YOU GUESS RIGHT?",
+    "at": "Comment"
+   },
+   "shots": [
+    {
+     "photo": "Dance at Molenbeek",
+     "obs": "wm:Dance at Molenbeek.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "dancingdeep",
+   "pose": "deadpan",
+   "act": "stand",
+   "say": "But first, the city's cure? More dancing. They built a stage and hired a band.",
+   "kicker": true,
+   "hold": 0.25,
+   "punch": "band",
+   "shots": [
+    {
+     "photo": "Dance at Molenbeek",
+     "obs": "wm:Dance at Molenbeek.jpg"
+    },
+    {
+     "photo": "Brueghel, the Molenbeek dancers",
+     "obs": "wm:Die Wallfahrt der Fallsuechtigen nach Meulebeeck.jpg",
+     "at": "band"
+    }
+   ]
   }
  ]
 }
