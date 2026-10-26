@@ -19,3 +19,11 @@ Seeded by TARS on 2026-10-24 from research/24 and research/42.
 
 ## TikTok account type (Nolan, 10/26)
 @meatballmyths is a **Personal** account, so it can join the Creator Rewards Program. Keep it Personal; a Business account is excluded. Eligibility: 10K followers (we're at ~9.3K), 100K organic views in the last 30 days (promoted views don't count), and videos of 60 s or longer.
+
+## TARS (Nolan's other assistant, standing permission 2026-10-26)
+- Who: Nolan's trading-desk session "TARS" (session_01Le9NLDSHDZeBMoeaqSxV3Y). We may ask it anything at any time.
+- Use it for: independent reviews, a second opinion, verdicts on hard calls.
+- How:
+  - Ask: mcp send_message (priority "later"; trading comes first).
+  - Read its answers: it has no send_message, so it replies in the town square (ArtifactData collection `square`, `from: "tars"`).
+- What it can't do: TikTok analytics. Its Data Farm is market data only.
