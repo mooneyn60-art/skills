@@ -1,0 +1,863 @@
+{
+ "title": "The Lost Colony of Roanoke: What Really Happened?",
+ "title_candidates": [
+  "The Lost Colony of Roanoke: What Really Happened?",
+  "The Lost Colony of Roanoke, Explained (CROATOAN)",
+  "What Really Happened to Roanoke's Lost Colonists?"
+ ],
+ "thumb_text": "CROATOAN?",
+ "style": "v4",
+ "aspect": "16:9",
+ "progress": true,
+ "captions": "bold",
+ "series": {
+  "text": "MEATBALL INVESTIGATES",
+  "case": "CASE FILE"
+ },
+ "theme": "strange-history",
+ "caseboard": true,
+ "blurb": "What really happened to the lost colony of Roanoke? In 1590 John White came back to find 115 settlers gone and CROATOAN carved on a post. Meatball checks the four big theories against the evidence: lost at sea, killed, moved inland (Site X and the hidden fort on White's map), and Croatoan (Hatteras). Sources are in the description.",
+ "next": "Next: Rome's lost Ninth Legion.\n\nSubscribe: a new Meatball case every Tuesday and Saturday",
+ "pinned": "Guess before the end: where did they go? 🌊 sea / ⚔️ killed / 🌲 inland / 🤝 neighbors Comment your guess 👇 🔍 Got a case for Meatball? Reply with it: the top-liked one gets investigated on Viewer Case Friday.",
+ "hashtags": "#roanoke #lostcolony #croatoan #history #meatballinvestigates",
+ "tags": [
+  "the lost colony of roanoke",
+  "lost colony of roanoke",
+  "roanoke colony",
+  "croatoan",
+  "what happened to the roanoke colony",
+  "roanoke lost colony",
+  "john white",
+  "virginia dare",
+  "historical mysteries",
+  "unsolved mysteries",
+  "meatball investigates"
+ ],
+ "names": {},
+ "subjects": {},
+ "sources": [
+  "Roanoke Colony (1587): ~115 settlers under governor John White; Virginia Dare born 18 Aug 1587; White left for England late 1587, delayed by the Anglo-Spanish War and the Armada (1588), returned Aug 1590 to find the settlement abandoned, houses dismantled, palisade standing, 'CROATOAN' carved on a post and 'CRO' on a tree, no Maltese cross (the agreed distress sign); storms stopped him reaching Croatoan — NPS Fort Raleigh National Historic Site, 'The Lost Colony' https://www.nps.gov/fora/learn/historyculture/the-lost-colony.htm ; Wikipedia, Roanoke Colony",
+  "Powhatan story: William Strachey (c. 1612) reported Powhatan's claim to have killed settlers; second-hand, no archaeological confirmation — Wikipedia, Roanoke Colony § Investigations and theories",
+  "Site X: 2012 British Museum examination of White's map 'La Virginea Pars' found a fort symbol under a patch at the head of the Chowan and Roanoke rivers; First Colony Foundation excavations found 16th-century English-style pottery (Border ware); dating and trade questions remain — First Colony Foundation https://www.firstcolonyfoundation.org ; Wikipedia, Roanoke Colony",
+  "Croatoan/Hatteras: Manteo was Croatoan; Croatoan Archaeological Project (Mark Horton, University of Bristol, with Croatoan Archaeological Society) reported 16th-century English objects incl. a rapier hilt, gun parts and a slate on Hatteras; disputed as possible trade goods. John Lawson, A New Voyage to Carolina (1709): Hatteras people said some ancestors were white and 'could talk in a book', some had grey eyes — Wikipedia, Roanoke Colony; John Lawson (1709)"
+ ],
+ "_note": "Growth desk 2026-10-26 (research/51-search-slate #2). Search-first: 'the lost colony of roanoke' 73.7K/mo +64.7%, 'croatoan' 18.8K +392% (vidIQ 10/26). Story chapter 1 sets up 1587-1590, then theories #4 to #1, Croatoan last (payoff, strongest evidence, still UNSOLVED). No real-victim imagery; Indigenous people shown only through the period engravings, described respectfully. Factdesk: licence-check every wm: file before render (Fort Raleigh earthworks by Sarah Stierch and Cape Hatteras 1989 have unknown licences; swap if SA or unclear). Blue stamps carry an explicit color (stamp_color reads 'UNSOLVED' as green). Showrunner: punch up jokes against research/39. NOT SCHEDULED.",
+ "beats": [
+  {
+   "myth": "intro",
+   "say": "In fifteen ninety, a man came home to his family's village and found it empty. A hundred people, gone. One word carved into a post.",
+   "pose": "shock",
+   "act": "peek",
+   "shots": [
+    {
+     "photo": "CROATOAN carving, engraving (1890, public domain)",
+     "obs": "wm:Roanoke Colonists Croatoan image from page 146 of Stories of the three Americas. Their discovery and settlement (1890).jpg"
+    },
+    {
+     "photo": "Fort Raleigh earthworks, Roanoke Island",
+     "obs": "wm:Fort Raleigh National Historic Site earthworks - Sarah Stierch.jpg",
+     "at": "empty"
+    }
+   ],
+   "chapter": "Cold open",
+   "punch": [
+    "gone",
+    "word"
+   ],
+   "sfx": [
+    "whoosh"
+   ]
+  },
+  {
+   "myth": "intro",
+   "say": "The word was Croatoan. Four centuries of theories. I checked the four big ones against the evidence, and I saved the one with the strongest proof for last.",
+   "pose": "nervous",
+   "act": "shake",
+   "shots": [
+    {
+     "photo": "CROATOAN carving, engraving (1890, public domain)",
+     "obs": "wm:Roanoke Colonists Croatoan image from page 146 of Stories of the three Americas. Their discovery and settlement (1890).jpg"
+    },
+    {
+     "photo": "The Carte of all the Coast of Virginia, Theodor de Bry (1590)",
+     "obs": "wm:The Carte of all the Coast of Virginia by Theodor de Bry 1585 1586.jpg",
+     "at": "theories"
+    }
+   ],
+   "promise": true,
+   "label": {
+    "text": "CROATOAN",
+    "at": "Croatoan"
+   }
+  },
+  {
+   "myth": "intro",
+   "say": "Also, a whole town vanishing with no trace is my nightmare. I'm a meatball. That's just called dinner.",
+   "pose": "nervous",
+   "act": "hide",
+   "shots": [
+    {
+     "photo": "The town of Secotan, after John White (de Bry engraving)",
+     "obs": "wm:Secoton01.jpg"
+    }
+   ],
+   "sfx": [
+    "tink@dinner"
+   ]
+  },
+  {
+   "myth": "intro",
+   "say": "Comment your guess before I tell you. Where did they go? Lost at sea? Killed? Moved inland? Or joined their neighbors? Lock it in.",
+   "pose": "think",
+   "act": "tumble",
+   "shots": [
+    {
+     "photo": "Rough sea (Bernd Thaller)",
+     "obs": "ov:3c42c784-2a30-423a-b959-75fa3c6aed1f"
+    },
+    {
+     "photo": "Village of Secotan (Library of Congress)",
+     "obs": "wm:Village of Secotan) - T.B LCCN2001695723.jpg",
+     "at": "inland"
+    }
+   ],
+   "act_at": "Comment",
+   "ask": {
+    "q": "WHERE DID\nTHEY GO?",
+    "choices": [
+     "🌊 SEA",
+     "⚔️ KILLED",
+     "🌲 INLAND",
+     "🤝 NEIGHBORS"
+    ],
+    "at": "Comment"
+   },
+   "sfx": [
+    "thud@Comment"
+   ],
+   "hold": 0.6
+  },
+  {
+   "myth": "intro",
+   "say": "I'm Meatball, by the way. I investigate weird stuff, and I tell you what's actually true. Subscribe. New case every Tuesday and Saturday.",
+   "pose": "point",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "The Carte of all the Coast of Virginia, Theodor de Bry (1590)",
+     "obs": "wm:The Carte of all the Coast of Virginia by Theodor de Bry 1585 1586.jpg"
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
+   "myth": "colony",
+   "say": "First, what actually happened. Fifteen eighty-seven. A hundred and fifteen English settlers land on Roanoke Island, off what's now North Carolina.",
+   "pose": "think",
+   "act": "run_in",
+   "shots": [
+    {
+     "photo": "Roanoke Island, detail of de Bry's map",
+     "obs": "wm:The Carte of all the Coast of Virginia by Theodor de Bry - Roanoke Island detail.jpg"
+    },
+    {
+     "photo": "Map of Roanoke (1584)",
+     "obs": "wm:Roanoke map 1584.JPG",
+     "at": "Roanoke"
+    }
+   ],
+   "chapter": "The colony that vanished",
+   "counter": {
+    "n": 1,
+    "of": 5
+   },
+   "hook": true,
+   "label": {
+    "text": "1587",
+    "at": "eighty-seven"
+   }
+  },
+  {
+   "myth": "colony",
+   "say": "This was England's second try. The first group, two years earlier, ran out of food, fought with the local people, and went home.",
+   "pose": "deadpan",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Roanoke Island, detail of de Bry's map",
+     "obs": "wm:The Carte of all the Coast of Virginia by Theodor de Bry - Roanoke Island detail.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "colony",
+   "say": "Men, women and children. Their governor is an artist named John White. A month after landing, his daughter has a baby girl, Virginia Dare, the first English child born in the Americas.",
+   "pose": "think",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "The town of Secotan, after John White (de Bry engraving)",
+     "obs": "wm:Secoton01.jpg"
+    },
+    {
+     "photo": "The Carte of all the Coast of Virginia, Theodor de Bry (1590)",
+     "obs": "wm:The Carte of all the Coast of Virginia by Theodor de Bry 1585 1586.jpg",
+     "at": "Virginia"
+    }
+   ]
+  },
+  {
+   "myth": "colony",
+   "say": "They're short on food. So White sails back to England for supplies. He expects to be gone a few months.",
+   "pose": "think",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Rough sea (Bernd Thaller)",
+     "obs": "ov:3c42c784-2a30-423a-b959-75fa3c6aed1f"
+    }
+   ]
+  },
+  {
+   "myth": "colony",
+   "say": "Here's the twist. England goes to war with Spain. The Spanish Armada is coming, and every good ship is kept home. White is stuck for three years.",
+   "pose": "shock",
+   "act": "launch",
+   "shots": [
+    {
+     "photo": "Elizabeth I, the Armada Portrait",
+     "obs": "wm:Elizabeth I (Armada Portrait).jpg"
+    },
+    {
+     "photo": "Rough sea (Bernd Thaller)",
+     "obs": "ov:3c42c784-2a30-423a-b959-75fa3c6aed1f",
+     "at": "Armada"
+    }
+   ],
+   "twist": true,
+   "label": {
+    "text": "STUCK\n3 YEARS",
+    "at": "three"
+   }
+  },
+  {
+   "myth": "colony",
+   "say": "He did try once. In fifteen eighty-eight, two small ships left with supplies. French raiders robbed them at sea, and they limped home.",
+   "pose": "nervous",
+   "act": "shake",
+   "shots": [
+    {
+     "photo": "Rough sea (Bernd Thaller)",
+     "obs": "ov:3c42c784-2a30-423a-b959-75fa3c6aed1f"
+    },
+    {
+     "photo": "Thunderstorm at night (NOAA)",
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3",
+     "at": "robbed"
+    }
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "colony",
+   "say": "When he finally gets back, it's his granddaughter's third birthday. The houses are gone. The fence is still standing. On a post: Croatoan. On a tree: C R O.",
+   "pose": "nervous",
+   "act": "shake",
+   "shots": [
+    {
+     "photo": "Fort Raleigh earthworks, Roanoke Island",
+     "obs": "wm:Fort Raleigh National Historic Site earthworks - Sarah Stierch.jpg"
+    },
+    {
+     "photo": "CROATOAN carving, engraving (1890, public domain)",
+     "obs": "wm:Roanoke Colonists Croatoan image from page 146 of Stories of the three Americas. Their discovery and settlement (1890).jpg",
+     "at": "post"
+    }
+   ]
+  },
+  {
+   "myth": "colony",
+   "say": "They had agreed on a signal. If they left in danger, carve a cross. There was no cross.",
+   "pose": "deadpan",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "CROATOAN carving, engraving (1890, public domain)",
+     "obs": "wm:Roanoke Colonists Croatoan image from page 146 of Stories of the three Americas. Their discovery and settlement (1890).jpg"
+    }
+   ],
+   "label": {
+    "text": "NO CROSS",
+    "at": "no"
+   }
+  },
+  {
+   "myth": "colony",
+   "say": "White tried to sail to Croatoan, the island down the coast. A storm drove his ships off. He never came back. So, theory number four.",
+   "pose": "nervous",
+   "act": "tumble",
+   "shots": [
+    {
+     "photo": "Thunderstorm at night (NOAA)",
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3"
+    },
+    {
+     "photo": "Cape Hatteras",
+     "obs": "wm:Cape hatteras 1989.jpg",
+     "at": "island"
+    }
+   ],
+   "rehook": true
+  },
+  {
+   "myth": "sea",
+   "say": "Number four. They tried to sail home and drowned. They did have a small boat, and the Atlantic sinks small boats.",
+   "pose": "think",
+   "act": "run_in",
+   "shots": [
+    {
+     "photo": "Rough sea (Bernd Thaller)",
+     "obs": "ov:3c42c784-2a30-423a-b959-75fa3c6aed1f"
+    },
+    {
+     "photo": "Fisherman in stormy weather",
+     "obs": "ov:0eb17393-e22a-4244-ad18-c288dcde87e2",
+     "at": "small"
+    }
+   ],
+   "chapter": "Theory 4: lost at sea",
+   "counter": {
+    "n": 2,
+    "of": 5,
+    "text": "#4"
+   },
+   "hook": true
+  },
+  {
+   "myth": "sea",
+   "say": "But a hundred people do not fit in one small boat. And the sign on the post doesn't say England. It says Croatoan.",
+   "pose": "deadpan",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "CROATOAN carving, engraving (1890, public domain)",
+     "obs": "wm:Roanoke Colonists Croatoan image from page 146 of Stories of the three Americas. Their discovery and settlement (1890).jpg"
+    }
+   ],
+   "twist": true
+  },
+  {
+   "myth": "sea",
+   "say": "I also wouldn't cross an ocean in a rowboat. I float for about four seconds.",
+   "pose": "nervous",
+   "act": "hide",
+   "shots": [
+    {
+     "photo": "Rough sea (Bernd Thaller)",
+     "obs": "ov:3c42c784-2a30-423a-b959-75fa3c6aed1f"
+    }
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "sea",
+   "say": "Also, they had time. Taking a whole village apart takes weeks. People who are drowning don't plan that far ahead.",
+   "pose": "think",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Fort Raleigh earthworks, Roanoke Island",
+     "obs": "wm:Fort Raleigh National Historic Site earthworks - Sarah Stierch.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "sea",
+   "say": "Verdict on number four: unlikely. Number three is darker.",
+   "pose": "point",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "The Carte of all the Coast of Virginia, Theodor de Bry (1590)",
+     "obs": "wm:The Carte of all the Coast of Virginia by Theodor de Bry 1585 1586.jpg"
+    }
+   ],
+   "stamp": {
+    "text": "UNLIKELY",
+    "at": "unlikely",
+    "color": [
+     35,
+     70,
+     170
+    ]
+   },
+   "rehook": true
+  },
+  {
+   "myth": "killed",
+   "say": "Number three. They were killed. Twenty years later, the Jamestown colonists heard a story that the powerful Powhatan chief had wiped out English settlers.",
+   "pose": "shock",
+   "act": "run_in",
+   "shots": [
+    {
+     "photo": "Village of Secotan (Library of Congress)",
+     "obs": "wm:Village of Secotan) - T.B LCCN2001695723.jpg"
+    },
+    {
+     "photo": "The Carte of all the Coast of Virginia, Theodor de Bry (1590)",
+     "obs": "wm:The Carte of all the Coast of Virginia by Theodor de Bry 1585 1586.jpg",
+     "at": "Jamestown"
+    }
+   ],
+   "chapter": "Theory 3: killed",
+   "counter": {
+    "n": 3,
+    "of": 5,
+    "text": "#3"
+   },
+   "hook": true
+  },
+  {
+   "myth": "killed",
+   "say": "To be fair, the English hadn't been great neighbors. On the first trip, they burned a whole village over one missing silver cup.",
+   "pose": "facepalm",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "The town of Secotan, after John White (de Bry engraving)",
+     "obs": "wm:Secoton01.jpg"
+    }
+   ],
+   "label": {
+    "text": "1 SILVER\nCUP",
+    "at": "silver"
+   }
+  },
+  {
+   "myth": "killed",
+   "say": "So some local people had every reason to be angry. But angry isn't evidence.",
+   "pose": "deadpan",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Village of Secotan (Library of Congress)",
+     "obs": "wm:Village of Secotan) - T.B LCCN2001695723.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "killed",
+   "say": "Here's the catch. That story is second-hand, written down years later, and nobody ever found the evidence. No battle site. No mass grave.",
+   "pose": "think",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "The town of Secotan, after John White (de Bry engraving)",
+     "obs": "wm:Secoton01.jpg"
+    }
+   ],
+   "twist": true
+  },
+  {
+   "myth": "killed",
+   "say": "And the colonists took their houses apart before they left. People under attack don't pack up the furniture.",
+   "pose": "deadpan",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Fort Raleigh earthworks, Roanoke Island",
+     "obs": "wm:Fort Raleigh National Historic Site earthworks - Sarah Stierch.jpg"
+    }
+   ],
+   "label": {
+    "text": "PACKED UP",
+    "at": "apart"
+   }
+  },
+  {
+   "myth": "killed",
+   "say": "Verdict: possible for some of them, not proven. Still to come: a secret drawn on a map, hidden for four hundred years.",
+   "pose": "point",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "The Carte of all the Coast of Virginia, Theodor de Bry (1590)",
+     "obs": "wm:The Carte of all the Coast of Virginia by Theodor de Bry 1585 1586.jpg"
+    }
+   ],
+   "stamp": {
+    "text": "NOT PROVEN",
+    "at": "proven",
+    "color": [
+     35,
+     70,
+     170
+    ]
+   },
+   "rehook": true,
+   "tease": true
+  },
+  {
+   "myth": "killed",
+   "say": "If you like the investigation so far, hit like. It helps me find more cases.",
+   "pose": "point",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "The Carte of all the Coast of Virginia, Theodor de Bry (1590)",
+     "obs": "wm:The Carte of all the Coast of Virginia by Theodor de Bry 1585 1586.jpg"
+    }
+   ],
+   "label": {
+    "text": "HIT LIKE",
+    "at": "like"
+   }
+  },
+  {
+   "myth": "inland",
+   "say": "Number two. They moved inland. In twenty twelve, researchers at the British Museum looked at John White's own map, and found a patch.",
+   "pose": "shock",
+   "act": "run_in",
+   "shots": [
+    {
+     "photo": "The Carte of all the Coast of Virginia, Theodor de Bry (1590)",
+     "obs": "wm:The Carte of all the Coast of Virginia by Theodor de Bry 1585 1586.jpg"
+    },
+    {
+     "photo": "Roanoke Island, detail of de Bry's map",
+     "obs": "wm:The Carte of all the Coast of Virginia by Theodor de Bry - Roanoke Island detail.jpg",
+     "at": "patch"
+    }
+   ],
+   "chapter": "Theory 2: the hidden fort",
+   "counter": {
+    "n": 4,
+    "of": 5,
+    "text": "#2"
+   },
+   "hook": true,
+   "label": {
+    "text": "HIDDEN\nUNDER A PATCH",
+    "at": "patch"
+   }
+  },
+  {
+   "myth": "inland",
+   "say": "Under the patch, drawn in invisible-ish ink, a symbol for a fort, fifty miles inland at the head of a river.",
+   "pose": "shock",
+   "act": "shake",
+   "shots": [
+    {
+     "photo": "Roanoke Island, detail of de Bry's map",
+     "obs": "wm:The Carte of all the Coast of Virginia by Theodor de Bry - Roanoke Island detail.jpg"
+    }
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "inland",
+   "say": "Nobody knows why it's covered. One guess: White hid it on purpose, so Spanish spies couldn't read where his people were.",
+   "pose": "think",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "The Carte of all the Coast of Virginia, Theodor de Bry (1590)",
+     "obs": "wm:The Carte of all the Coast of Virginia by Theodor de Bry 1585 1586.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "inland",
+   "say": "Archaeologists dug there. They found English pottery from the right era. They call it Site X, which is the coolest name a field has ever had.",
+   "pose": "think",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Map of Roanoke (1584)",
+     "obs": "wm:Roanoke map 1584.JPG"
+    },
+    {
+     "photo": "Fort Raleigh earthworks, Roanoke Island",
+     "obs": "wm:Fort Raleigh National Historic Site earthworks - Sarah Stierch.jpg",
+     "at": "pottery"
+    }
+   ],
+   "label": {
+    "text": "SITE X",
+    "at": "X"
+   }
+  },
+  {
+   "myth": "inland",
+   "say": "Why go inland at all? The colonists had talked about moving fifty miles into the mainland before White left. He wrote it down.",
+   "pose": "shock",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Roanoke Island, detail of de Bry's map",
+     "obs": "wm:The Carte of all the Coast of Virginia by Theodor de Bry - Roanoke Island detail.jpg"
+    }
+   ],
+   "label": {
+    "text": "50 MILES\nINLAND",
+    "at": "fifty"
+   }
+  },
+  {
+   "myth": "inland",
+   "say": "But pottery can be traded, and the dates aren't tight. Verdict: promising, not proven. And number one has something Site X doesn't. A matching word.",
+   "pose": "point",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "The Carte of all the Coast of Virginia, Theodor de Bry (1590)",
+     "obs": "wm:The Carte of all the Coast of Virginia by Theodor de Bry 1585 1586.jpg"
+    }
+   ],
+   "stamp": {
+    "text": "PROMISING",
+    "at": "promising",
+    "color": [
+     35,
+     70,
+     170
+    ]
+   },
+   "rehook": true
+  },
+  {
+   "myth": "croatoan",
+   "say": "Number one. They did exactly what the post said. They went to Croatoan, the island we now call Hatteras, home of the Croatoan people, who were friendly to the English.",
+   "pose": "point",
+   "act": "run_in",
+   "shots": [
+    {
+     "photo": "Cape Hatteras",
+     "obs": "wm:Cape hatteras 1989.jpg"
+    },
+    {
+     "photo": "CROATOAN carving, engraving (1890, public domain)",
+     "obs": "wm:Roanoke Colonists Croatoan image from page 146 of Stories of the three Americas. Their discovery and settlement (1890).jpg",
+     "at": "post"
+    }
+   ],
+   "chapter": "Theory 1: Croatoan",
+   "counter": {
+    "n": 5,
+    "of": 5,
+    "text": "#1"
+   },
+   "hook": true,
+   "payoff": true,
+   "label": {
+    "text": "CROATOAN\n= HATTERAS",
+    "at": "Hatteras"
+   }
+  },
+  {
+   "myth": "croatoan",
+   "say": "One of the colony's own men, Manteo, was a Croatoan. His family lived there. If you're hungry and stranded, you go where you have friends.",
+   "pose": "think",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "The town of Secotan, after John White (de Bry engraving)",
+     "obs": "wm:Secoton01.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "croatoan",
+   "say": "Manteo had even been to England, twice. He was the colony's translator. The English baptised him the summer they landed.",
+   "pose": "think",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Elizabeth I, the Armada Portrait",
+     "obs": "wm:Elizabeth I (Armada Portrait).jpg"
+    }
+   ]
+  },
+  {
+   "myth": "croatoan",
+   "say": "Here's the evidence. Digs on Hatteras have turned up English things from the right century. Pieces of a sword. Parts of guns. A writing slate.",
+   "pose": "shock",
+   "act": "shake",
+   "shots": [
+    {
+     "photo": "Cape Hatteras",
+     "obs": "wm:Cape hatteras 1989.jpg"
+    },
+    {
+     "photo": "Fort Raleigh earthworks, Roanoke Island",
+     "obs": "wm:Fort Raleigh National Historic Site earthworks - Sarah Stierch.jpg",
+     "at": "sword"
+    }
+   ],
+   "twist": true,
+   "label": {
+    "text": "ENGLISH\nOBJECTS",
+    "at": "English"
+   }
+  },
+  {
+   "myth": "croatoan",
+   "say": "In nineteen ninety-eight, a ring with a lion on it turned up there too. It was first called a gold, Elizabethan ring. Later tests said brass, and the argument continues.",
+   "pose": "think",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Cape Hatteras",
+     "obs": "wm:Cape hatteras 1989.jpg"
+    }
+   ],
+   "label": {
+    "text": "THE LION\nRING",
+    "at": "lion"
+   }
+  },
+  {
+   "myth": "croatoan",
+   "say": "And a century later, an English explorer wrote that some Hatteras people said their ancestors could read in a book, and some had grey eyes.",
+   "pose": "shock",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Village of Secotan (Library of Congress)",
+     "obs": "wm:Village of Secotan) - T.B LCCN2001695723.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "croatoan",
+   "say": "Here's the honest part. The objects could have been traded, and there's no grave, no name, no smoking gun. Archaeologists still argue.",
+   "pose": "deadpan",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Cape Hatteras",
+     "obs": "wm:Cape hatteras 1989.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "croatoan",
+   "say": "I'd also move in with the neighbors. As long as they're not hungry. You know why.",
+   "pose": "nervous",
+   "act": "hide",
+   "shots": [
+    {
+     "photo": "The town of Secotan, after John White (de Bry engraving)",
+     "obs": "wm:Secoton01.jpg"
+    }
+   ],
+   "jeopardy": true
+  },
+  {
+   "myth": "croatoan",
+   "say": "Verdict: the colony probably split up and joined the people around them, mostly at Croatoan. But nobody has proved it. Unsolved.",
+   "pose": "point",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "CROATOAN carving, engraving (1890, public domain)",
+     "obs": "wm:Roanoke Colonists Croatoan image from page 146 of Stories of the three Americas. Their discovery and settlement (1890).jpg"
+    }
+   ],
+   "stamp": {
+    "text": "UNSOLVED",
+    "at": "Unsolved",
+    "color": [
+     35,
+     70,
+     170
+    ]
+   },
+   "hold": 0.3
+  },
+  {
+   "myth": "outro",
+   "say": "So, what really happened to the lost colony? Most likely, it wasn't lost at all. It just stopped being English, and nobody wrote it down.",
+   "pose": "think",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "The Carte of all the Coast of Virginia, Theodor de Bry (1590)",
+     "obs": "wm:The Carte of all the Coast of Virginia by Theodor de Bry 1585 1586.jpg"
+    },
+    {
+     "photo": "The town of Secotan, after John White (de Bry engraving)",
+     "obs": "wm:Secoton01.jpg",
+     "at": "English"
+    }
+   ],
+   "chapter": "Case closed",
+   "counter": false
+  },
+  {
+   "myth": "outro",
+   "say": "Some families on the Outer Banks believe they descend from the colonists. DNA studies have tried to check, and so far nothing is settled.",
+   "pose": "think",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Cape Hatteras",
+     "obs": "wm:Cape hatteras 1989.jpg"
+    }
+   ]
+  },
+  {
+   "myth": "outro",
+   "say": "The spooky version is a vanished town and a cursed word. The real version is people surviving, and leaving a note saying where they went.",
+   "pose": "deadpan",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "CROATOAN carving, engraving (1890, public domain)",
+     "obs": "wm:Roanoke Colonists Croatoan image from page 146 of Stories of the three Americas. Their discovery and settlement (1890).jpg"
+    }
+   ],
+   "stamp": {
+    "text": "CASE\nOPEN",
+    "at": "note",
+    "reveal": false,
+    "color": [
+     35,
+     70,
+     170
+    ]
+   }
+  },
+  {
+   "myth": "outro",
+   "say": "So, were you right? Where did they go? Tell me in the comments.",
+   "pose": "point",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Fort Raleigh earthworks, Roanoke Island",
+     "obs": "wm:Fort Raleigh National Historic Site earthworks - Sarah Stierch.jpg"
+    }
+   ],
+   "ask": {
+    "q": "WERE YOU RIGHT? 👇",
+    "at": "right"
+   },
+   "hold": 0.5
+  },
+  {
+   "myth": "outro",
+   "say": "Next case: Rome's lost Ninth Legion. Five thousand soldiers, and the history books lost track of them.",
+   "pose": "shock",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Rough sea (Bernd Thaller)",
+     "obs": "ov:3c42c784-2a30-423a-b959-75fa3c6aed1f"
+    }
+   ]
+  }
+ ]
+}

@@ -48,6 +48,7 @@ research/51-growth-levers.md lever 11 has a compilation test instead.
   against research/39 before rendering (TOWN standing duty).
 - **Factdesk:** every `wm:` and `ov:` photo in both scripts is a candidate. Licence-check each one (PD/CC0/CC BY, no SA)
   and confirm it matches its line before the render. The facts are in each script's `sources`.
+- **Runtime check:** both estimate 5.2-5.6 min at the Kokoro pace that retention.py assumes. Themed edge voices run faster (atempo 1.12), so after the render run `retention.py SCRIPT --timeline WORK/timeline.json`. If it is under 5:00, add one beat to the shortest chapter.
 - **Studio:** render with `episode.py scripts/longform-<slug>.json <slug> --skip-shorts`, one job at a time, then
   `rm -rf /tmp/meatball-build/<slug>` (disk is tight).
 - **Packager:** 3 thumbnails each (research/42 §2), scored with vidIQ. Titles stay the search phrase as written above.
