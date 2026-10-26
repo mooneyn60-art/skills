@@ -284,7 +284,7 @@ def check_durations(root, now):
     # 10/25: a 73 s bolas render sat in a YouTube Shorts slot (rule: 20-25 s; 43 s+ Shorts got 98-239 views
     # vs a ~620 median) and nothing caught it. TikTok needs one 60 s+ deep dive a day for Creator Rewards.
     et = dt.timezone(dt.timedelta(hours=-4))
-    now_et, long_yt, deep_days, tt_days = now.astimezone(et), [], set(), set()
+    now_et, long_yt, deep_days, tt_days, short_tt = now.astimezone(et), [], set(), set(), []
     for r in rows(os.path.join(root, "data", "posted.csv")):
         t = parse_ts((r.get("date") or "")[:16])
         f = r.get("file", "")
@@ -292,7 +292,7 @@ def check_durations(root, now):
         if not t or not f or f.startswith("ep") or not now_et < t.replace(tzinfo=et):
             continue
         soon = t.replace(tzinfo=et) <= now_et + dt.timedelta(days=3)
-        if r.get("network") != "youtube" and not soon:
+        if r.get("network") != "youtube" and r.get("network") != "tiktok" and not soon:
             continue
         secs = video_seconds(os.path.join(root, "episodes", r.get("episode", ""), f))
         if secs is None:
@@ -303,9 +303,14 @@ def check_durations(root, now):
             tt_days.add(t.date())
             if secs >= 60:
                 deep_days.add(t.date())
+            else:  # Nolan, 10/26: every TikTok is 60 s+; it was always the rule and the queue drifted.
+                short_tt.append(f"{r['date']} {f} ({secs:.0f} s)")
     if long_yt:
         add("WARN", "postmaster", f"{len(long_yt)} queued YouTube Short(s) run over 35 s: {', '.join(long_yt[:4])}.",
             "Swap in a 20-25 s render or set the post to draft; the long cut belongs on TikTok.")
+    if short_tt:
+        add("CRITICAL", "postmaster", f"{len(short_tt)} queued TikTok(s) under 60 s earn $0: {', '.join(short_tt[:4])}.",
+            "Swap each for its 61-75 s deep version (render one if missing); never queue a sub-60 s TikTok.")
     missing = sorted(d.isoformat() for d in tt_days - deep_days)
     if missing:
         add("WARN", "postmaster", f"No 60 s+ TikTok on {', '.join(missing)} (Creator Rewards pays only 60 s+).",
