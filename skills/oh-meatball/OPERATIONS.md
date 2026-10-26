@@ -268,6 +268,27 @@ Autopsy: our one long-form with a curve (gFhrONKK0rI, 2:15 quiz pilot, 11 viewer
 - **R7 Length 5:00-7:00** (supersedes the ~10 min and 6-8 min lengths above) until long-form AVD clears 2:00. We give up mid-rolls (8:00+) on purpose: we aren't monetized, and watch hours grow faster from a held 6 min than from an abandoned 10. Test one 8:30 with a chapter-break mid-roll after 3 straight episodes over 2:00 AVD and 50% at 0:30.
 - **Every evening (Intel):** pull audience_retention for each long-form older than 48 h, log the drops in data/retention.csv, and send the top drop cause to the Showrunner.
 
+## Daily mix from 10/28: cases scale up (Nolan 10/26: "I want some of those going out today, we will need to scale")
+Supersedes the E19 one-slot rollout above. All times ET.
+| Slot | YouTube Short | TikTok |
+|---|---|---|
+| 09:30 | **Case A** (18-24 s v2 case) | animal (unchanged) |
+| 12:00 | | **Case A** repost (same file) |
+| 13:00 | animal (v4) | |
+| 16:00 | **Case B** (18-24 s v2 case) | |
+| 18:00 | | animal (repost of the 13:00 Short) |
+| 20:00 | | **Case B deep** (60-75 s `tt-*.mp4`, Voggle shape + open-loop rules) |
+- 2 of 3 YouTube Shorts and 2 of 4 TikToks are cases. Case B's TikTok is always its deep cut, never the Short.
+- **Halloween 10/28-10/31:** Halloween posts keep their slots. A case only takes a slot a non-Halloween post held (10/29: 13:00 YouTube + 15:00 TikTok; 10/31: 09:30 + 12:00). On a crowded day a case can be an extra TikTok at 12:00/15:00/20:00.
+- **Displaced animal posts are never deleted:** `updateScheduledPost` with the full payload and only `publicationDate` changed, to the next open date for the same slot after the case run (11/11 onward). posted.csv rows move with them.
+- **Case numbers** run in posting order from #7 (the 6 pilot cases are #1-#6) and match the on-screen `"case"` tag; the title ends "Case #N Meatball Investigates" (TikTok: "Case #N").
+- **Scripts:** `scripts/cases-NN.json` (one pack per 3-4 days: Shorts + deep cuts with `"_len": "deep"`), rendered to `episodes/cases-NN/`. Each hook beat carries `theme`, `case`, `short_title`, `comment`, `bonus`, `caption`, `tags` (topic tags, never "animal facts") and `sources`. Deep cuts are renamed `tt-<myth>.mp4` after render.
+- **Length budget (measured 10/26):** 18-24 s needs about 52 spoken words on the cold-war voice (Eric, slowest), about 58 on the other themes, about 64 on absurd-history (Brian). A deep cut needs 165-195 words.
+- **Post copy:** YouTube description and first comment open with the one-tap emoji question; description ends "Subscribe: Meatball opens a new case every day 🍝"; EDUCATION, AI label on, topic tags. TikTok caption: question first, then the one-line case, hashtags, "Follow Meatball for a new case every day 🍝"; AI label on.
+- **New theme `hoax`** (famous fakes: Cardiff Giant, Piltdown, the Mechanical Turk): en-GB-ThomasNeural +14% over the detective pizzicato bed.
+- **Photos:** Commons files are found through the article's media list and licence-checked (PD/CC0/CC BY, no SA) before use; Openverse for generic shots. No identifiable private people.
+- **Score it like E19:** after 7 days compare case vs animal Shorts on 48 h views, engaged views and subs/1K; deep cuts vs 23 s reposts on TikTok watch time and views past 60 s.
+
 ## Meatball Investigates: the tools (Showrunner 10/26, research/48 §6)
 - Script fields: spec `"series": {"text": "MEATBALL INVESTIGATES"}` + hook `"case": "CASE #3"` (case-file tag on every frame, card + sting on the hook); beat `"stamp": {"text": "BUSTED", "at": "word"}` (TRUE/PROVEN green, FALSE/BUSTED/CLASSIFIED red; `"reveal": false` = no music drop); shot `"board": {"notes": [...], "stamp": "CLASSIFIED"}` (evidence board); spec `"captions": "bold"`.
 - Music: `"music": "gen:mystery"` (main) or `"gen:detective"` (alternate), per Short via the hook's `"music"`; tools/music.py renders it to the timeline (rises into each stamp, drops out 0.42 s before it, hits on it, loop-safe) and v3.py mixes voice -16 / music -20 LUFS, ducked, master -14.
