@@ -156,7 +156,7 @@ picks a winner by watch-time share. Only test long-forms that are getting impres
 
 | Long-form | Goes live | Upload these files |
 |---|---|---|
-| Conspiracy Theories That Turned Out To Be TRUE | when queued (lever 1) | `episodes/longform-turned-out-true/thumb.jpg` (spy cat, "IT WAS REAL") · `thumb_b.jpg` (Northwoods memo, "CIA FILES") · `thumb_c.jpg` (MKUltra file, "PROVEN") |
+| Conspiracy Theories That Turned Out To Be TRUE | when queued (lever 1) | `episodes/longform-turned-out-true/thumb.jpg` (spy cat, "IT WAS REAL") · `thumb_b.jpg` (Northwoods memo, "REAL MEMO") · `thumb_c.jpg` (spy cat, nervous Meatball, "SPY CAT?") |
 | Zombie Animals Are Real (And One Might Be Inside You) | Sat 10/31 14:00 | `episodes/explains-03/thumb.jpg` · `thumb_b.jpg` · `thumb_c.jpg` |
 | The Most Dangerous Animal in the World Isn't What You Think | Tue 11/3 14:00 | `episodes/explains-02/thumb.jpg` · `thumb_b.jpg` · `thumb_c.jpg` |
 | Weird Animal Facts You Didn't Know (3 Are Fake…) | today 14:00 | `episodes/myths-05/thumb.jpg` · `thumb_b.jpg` · `thumb_v2.jpg` |
@@ -214,7 +214,7 @@ current uploads are axolotl stories and celebrity human-interest clips).
 Collaborations (Studio → the video → Details → Show more → Collaboration) when both agree. A Community-post shout-out is the
 zero-effort swap. TikTok duets and stitches of a partner earn $0 Creator Rewards, so on TikTok it's tag-in-caption only.
 
-**Gmail drafts (in the connected Gmail account, no recipient set: Nolan adds each channel's business email from its
+**Gmail drafts (in the Gmail account connected to this session, which reports itself as taptobookco@gmail.com, not mooneyn60@gmail.com. No recipient is set: Nolan adds each channel's business email from its
 About page → "View email address", reads it, and sends himself):**
 1. `Case swap? Dumb History x Meatball Investigates`
 2. `Your "mysteries that had an answer" video, and a verdict collab idea`
@@ -243,7 +243,7 @@ About page → "View email address", reads it, and sends himself):**
 1. **Name** (1 min): Customization → Basic info → Name → `Meatball Investigates` → Publish. Leave the Handle as is.
 2. **Description + keywords** (1 min): same page → Description → paste §2d → Publish. Then Settings → Channel → Basic info → Keywords → paste §2e → Save.
 3. **Banner + picture + watermark** (1 min): Customization → Branding → Picture: Change → `episodes/branding/avatar.png` → Banner image: Change → `episodes/branding/banner.jpg` (accept the default crop) → Video watermark: Change → `avatar.png`, **Entire video** → Publish.
-4. **Trailer** (2 min): Create → Upload videos → `episodes/branding/trailer.mp4`, title `Meatball Investigates: what this channel is`, Not made for kids, **Altered or synthetic content: No** (stylized animation), Visibility **Unlisted** → Save. Then Customization → Layout → Channel trailer for people who haven't subscribed → Add → pick it → Publish.
+4. **Trailer** (2 min): Create → Upload videos → `episodes/branding/trailer.mp4`, title `Meatball Investigates: what this channel is`, description = paste `episodes/branding/trailer-credits.txt` under one line "Meatball investigates the weird. New case every day.", Not made for kids, **Altered or synthetic content: No** (stylized animation), Visibility **Unlisted** → Save. Then Customization → Layout → Channel trailer for people who haven't subscribed → Add → pick it → Publish.
 5. **Playlists** (3 min): Content → Playlists → New playlist, four times, in the order of §2f (copy each title and description; Public). Add the live videos listed there (in the playlist: ⋯ → Add videos → Your YouTube videos).
 6. **Home sections** (1 min): Customization → Layout → Featured sections → Add section → the order in §2g → Publish.
 7. **Related video on the live Shorts** (2 min, then 1 tap per new Short): Content → Shorts → a Short → Details → **Related video** → pick the long-form in its `best_longform` row of data/related-video-map.csv (open it in GitHub; filter by `short_video_id`). Today: the 9 Shorts with a `short_video_id`. From 10/26 14:00 most animal ones can use "Weird Animal Facts You Didn't Know".
