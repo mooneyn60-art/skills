@@ -236,7 +236,7 @@
   },
   {
    "myth": "startiger",
-   "say": "Ships and planes searched for five days. They covered thousands of square miles of ocean. They found nothing at all.",
+   "say": "Ships and planes searched for days, across thousands of square miles of ocean. They found nothing at all.",
    "pose": "think",
    "act": "stand",
    "shots": [
@@ -379,7 +379,7 @@
   },
   {
    "myth": "sulphur",
-   "say": "Nine days later, the Coast Guard started searching. Nine days. Because nobody noticed it was late.",
+   "say": "It was due in Virginia a few days later. It never arrived, and the search found no ship.",
    "pose": "shock",
    "act": "stand",
    "shots": [
@@ -387,11 +387,7 @@
      "photo": "Gulf Stream, infrared image (NOAA)",
      "obs": "wm:Infrared imagery of Gulf Stream off the Virginia Capes (2268-445).jpg"
     }
-   ],
-   "label": {
-    "text": "9 DAYS\nLATE",
-    "at": "Nine"
-   }
+   ]
   },
   {
    "myth": "sulphur",
@@ -605,6 +601,22 @@
      "at": "sank"
     }
    ]
+  },
+  {
+   "myth": "flight19",
+   "say": "Here's how a myth gets made. The Navy's first report blamed the flight leader. His mother fought it, and the Navy changed the cause to unknown. Unknown. That one word did a lot of work for the next fifty years.",
+   "pose": "deadpan",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "TBM Avenger in Flight 19 markings",
+     "obs": "ov:6d383f9b-6822-4319-bce2-6fb7faf30b49"
+    }
+   ],
+   "label": {
+    "text": "CAUSE:\nUNKNOWN",
+    "at": "unknown"
+   }
   },
   {
    "myth": "flight19",
@@ -865,6 +877,34 @@
     "at": "wrong",
     "reveal": false
    }
+  },
+  {
+   "myth": "outro",
+   "say": "One researcher, Larry Kusche, went back to the original records in the nineteen seventies. Some of the famous ships sank in calm weather, or far away. One sank in a different ocean.",
+   "pose": "shock",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "HMS Atlanta, lost 1880 (The Graphic)",
+     "obs": "wm:The missing Training Ship, HMS 'Atlanta' - The Graphic 1880.jpg"
+    }
+   ],
+   "label": {
+    "text": "WRONG\nOCEAN",
+    "at": "different"
+   }
+  },
+  {
+   "myth": "outro",
+   "say": "That's the Triangle's real trick. Every retelling drops the boring explanation and keeps the spooky part. And spooky gets clicks. Even mine.",
+   "pose": "deadpan",
+   "act": "hide",
+   "shots": [
+    {
+     "photo": "Bermuda Triangle map (1950)",
+     "obs": "wm:Bermuda Triangle 1950 map.jpg"
+    }
+   ]
   },
   {
    "myth": "outro",
