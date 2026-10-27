@@ -28,3 +28,9 @@ E24 (TikTok, drawn): A = current (Meatball on most lines) vs B = outlier ratio (
 lines; Meatball cuts in for the hook reaction, one joke and the tease). Alternate A/B by air date. Metric: TikTok average
 watch time and full-watch rate per post (Metricool TKPO13/TKPO15) at 72 h. Read after 6 posts each (~11/8).
 Prediction: B wins average watch time, P = 60%.
+
+## Our own version (Nolan, 10/27: "make our own version, be original")
+Variant B is not a copy of the outliers. It's "Meatball Goes Tiny": Meatball shrinks to bug size in his room (`shrink`),
+then travels through the animal's world (`tiny`): the animal fills the screen, as the outliers do, but Meatball stays on
+screen, small and reacting, so he's still the main character. The habitat changes become his trip, and the tease brings
+him home full size. Sample: episodes/samples-1027/yt-jumping-spider-tiny.mp4.
