@@ -29,3 +29,14 @@ not yet. Same week's animal Shorts: ~1,000 each.
    (needs Nolan's OK per reply).
 4. Retention data blind spot: Metricool lags 1-2 days and has no YouTube retention. Need TikTok Studio / YT Studio
    screenshots from Nolan at 48 h.
+
+## Update 6:23 PM (Nolan's YouTube Studio screenshot)
+| Short | Style | Age | Views | Views/hour |
+|---|---|---|---|---|
+| Millions of Mites (#2) | drawn | 3 h | 746 | ~249 |
+| 30-Legged Hunter (#1) | drawn | 5 h | ~1,000 | ~200 |
+| House Flies | photo | 5 h | 779 | ~156 |
+| Bermuda Triangle (case file) | photo board + pop-up text | 8 h | 384 | ~48 |
+Drawn animal Shorts lead, at ~1.3-1.6x the photo animal Short and 4-5x the case file. Likes ~1% everywhere; the 1
+comment on each is ours. Decision holds: YouTube = drawn animals; cases = TikTok + compilations, with the 4 drawn case
+yt cuts as a one-off test of whether drawing rescues cases on YouTube.
