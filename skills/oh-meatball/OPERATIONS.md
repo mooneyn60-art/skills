@@ -21,6 +21,14 @@ Until the reset:
 
 
 
+
+## Drawn look (Nolan, 2026-10-27): the house style for new videos
+- Everything is drawn (tools/drawn.py): animals with faces in a drawn version of their habitat; for cases, drawn people, ships and rooms (generic figures, no photo likenesses). Use at most one real "proof" photo.
+- Meatball is BIG, 35-50% of frame height: the main character, acting in every scene.
+- NO pop-up text: no label cards, banners, polls, pills or keyword cards.
+- CAPTIONS ON: small 1-3 word spoken-word captions (Nolan's pick).
+- The only ask is one spoken subscribe line at the end, tied to the series.
+
 ## NO QUIZZES: just tell the story (Nolan, 2026-10-26; overrides any older rule)
 "Get rid of all quizzes and just tell the story, make it engaging and make sure you ask for subs."
 - Banned in every new script:
