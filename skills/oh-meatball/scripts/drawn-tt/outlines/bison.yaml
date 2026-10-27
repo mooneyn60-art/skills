@@ -2,47 +2,128 @@ slug: bison
 variant: A
 out: episodes/drawn-tt
 specs: scripts/drawn-tt
-series: "Meatball's Animal Files"
+series: Meatball's Animal Files
 title: The Animal That Hurts the Most People in Yellowstone Isn't a Bear 🦬
-tiktok_caption: "the animal that hurts the most people in yellowstone isn't a bear 🦬 it's a grass eater that runs 35 mph. Would you walk up to one for a selfie? 📸 yes / 🏃 no way / 🚗 stay in the car #meatballmyths #learnontiktok #bison #yellowstone #animalfacts"
+tiktok_caption: 'the animal that hurts the most people in yellowstone isn''t a bear 🦬 it''s a grass eater that runs 35 mph.
+  Would you walk up to one for a selfie? 📸 yes / 🏃 no way / 🚗 stay in the car #meatballmyths #learnontiktok #bison #yellowstone
+  #animalfacts'
 creature: bison
-creature_cfg: {plan: mammal, label: bison, color: "#5b3a22", dark: "#3b2414", belly: "#7a5236", length: 680,
-                    height: 500, leg_len: 140, leg_w: 52, ears: pointed, whiskers: false, tail_w: 12, mood: smug, s: 0.55}
+creature_cfg:
+  plan: mammal
+  label: bison
+  color: '#5b3a22'
+  dark: '#3b2414'
+  belly: '#7a5236'
+  length: 680
+  height: 500
+  leg_len: 140
+  leg_w: 52
+  ears: round
+  whiskers: false
+  tail_w: 12
+  mood: smug
+  s: 0.55
+  hump: 1.0
+  mane: '#3b2414'
+  horns: true
+  beard: true
 s: 0.55
 scene: garden
-scene_p: {time: day, palette: {sky: "#9fd3ef", ground: "#b9c46a", ground2: "#97a24c"},
-          props: [[grass, 150, 1500, 1.1], [rock, -60, 1500, 0.9], [bush, 1180, 1500, 0.9], [grass, 980, 1500, 1.0]]}
+scene_p:
+  time: day
+  palette:
+    sky: '#9fd3ef'
+    ground: '#b9c46a'
+    ground2: '#97a24c'
+  props:
+  - - grass
+    - 150
+    - 1500
+    - 1.1
+  - - rock
+    - -60
+    - 1500
+    - 0.9
+  - - bush
+    - 1180
+    - 1500
+    - 0.9
+  - - grass
+    - 980
+    - 1500
+    - 1.0
 wild: garden
-wild_p: {time: dusk, palette: {sky: "#f5b27a", ground: "#c8b05a", ground2: "#a8903e"},
-         props: [[grass, 60, 1500, 1.2], [grass, 1050, 1500, 1.2], [rock, 1180, 1500, 0.8]]}
+wild_p:
+  time: dusk
+  palette:
+    sky: '#f5b27a'
+    ground: '#c8b05a'
+    ground2: '#a8903e'
+  props:
+  - - grass
+    - 60
+    - 1500
+    - 1.2
+  - - grass
+    - 1050
+    - 1500
+    - 1.2
+  - - rock
+    - 1180
+    - 1500
+    - 0.8
 music: mystery
 next: Next, the fastest animal on the planet.
 sources:
-  - "National Park Service, Yellowstone, Safety in the Park: bison 'have injured more people in Yellowstone than any other animal'; can run 3x faster than humans; keep at least 25 yards (23 m) away; warning signs include bluff charging, head bobbing, pawing, bellowing or raising its tail; https://www.nps.gov/yell/planyourvisit/safety.htm"
-  - "National Park Service, Yellowstone, Bison: largest land mammal in North America; bulls up to 2,000 lb; can run 35 mph; can clear obstacles about 5 ft high; the hump is large muscles on long vertebrae, used to swing the head like a snowplow; wallowing deters biting flies, removes molted fur and leaves scent, bulls wallow in the rut to show strength; 30-60 million bison before the mid-1800s, Yellowstone herd fell to about two dozen by 1902; https://www.nps.gov/yell/learn/nature/bison.htm"
-  - "U.S. Department of the Interior, 15 Facts About Our National Mammal: the American Bison: national mammal since May 9, 2016; bulls about 2,000 lb and 6 ft tall; run up to 35 mph, spin quickly, jump high fences; tail hanging down and swishing usually means calm, tail straight up can signal a charge; poor eyesight, excellent smell and hearing; calves born orange-red ('red dogs'); https://www.doi.gov/blog/15-facts-about-our-national-mammal-american-bison"
+- 'National Park Service, Yellowstone, Safety in the Park: bison ''have injured more people in Yellowstone than any other
+  animal''; can run 3x faster than humans; keep at least 25 yards (23 m) away; warning signs include bluff charging, head
+  bobbing, pawing, bellowing or raising its tail; https://www.nps.gov/yell/planyourvisit/safety.htm'
+- 'National Park Service, Yellowstone, Bison: largest land mammal in North America; bulls up to 2,000 lb; can run 35 mph;
+  can clear obstacles about 5 ft high; the hump is large muscles on long vertebrae, used to swing the head like a snowplow;
+  wallowing deters biting flies, removes molted fur and leaves scent, bulls wallow in the rut to show strength; 30-60 million
+  bison before the mid-1800s, Yellowstone herd fell to about two dozen by 1902; https://www.nps.gov/yell/learn/nature/bison.htm'
+- 'U.S. Department of the Interior, 15 Facts About Our National Mammal: the American Bison: national mammal since May 9, 2016;
+  bulls about 2,000 lb and 6 ft tall; run up to 35 mph, spin quickly, jump high fences; tail hanging down and swishing usually
+  means calm, tail straight up can signal a charge; poor eyesight, excellent smell and hearing; calves born orange-red (''red
+  dogs''); https://www.doi.gov/blog/15-facts-about-our-national-mammal-american-bison'
 yt:
-  - hook: The animal that hurts the most people in Yellowstone isn't a bear. It's this.
-  - name: The American bison. The biggest land animal in North America.
-  - fact: A bull can weigh two thousand pounds, and stand six feet tall.
-  - solo: It looks slow and sleepy, munching grass all day.
-    hero_at: {x: 600}
-  - escalate: But it can run thirty five miles an hour. Three times faster than you.
-  - calm: It just stands there, chewing. Until it doesn't.
+- hook: The animal that hurts the most people in Yellowstone isn't a bear. It's this.
+- name: The American bison. The biggest land animal in North America.
+- fact: A bull can weigh two thousand pounds, and stand six feet tall.
+- solo: It looks slow and sleepy, munching grass all day.
+  hero_at:
+    x: 600
+- escalate: But it can run thirty five miles an hour. Three times faster than you.
+- calm: It just stands there, chewing. Until it doesn't.
 tt:
-  - fact: So watch the tail. Hanging down and swishing usually means it's calm.
-  - escalate: Tail sticking straight up? It may be about to charge.
-  - fact: It can spin on the spot, and jump over a five foot fence.
-  - fact: That giant hump isn't fat. It's a wall of muscle.
-  - solo: In winter, it swings its huge head like a snowplow, to dig grass out of the snow.
-    hero_at: {x: 600}
-    scene_p: {time: day, palette: {sky: "#cfe3f2", ground: "#f4f8fb", ground2: "#d6e2ec"},
-              props: [[rock, 1180, 1500, 0.8], [bush, -40, 1500, 0.8]]}
-  - fact: Its eyesight is bad. But it can smell you, and hear you, just fine.
-  - fact: It rolls around in the dirt, to scare off biting flies and rub off old fur.
-  - fact: Once, tens of millions may have roamed. By nineteen oh two, Yellowstone had about two dozen left.
-  - solo: Now it's the national mammal of the United States.
-    hero_at: {x: 600}
-  - fact: The rule? Stay at least twenty five yards away. Always.
-  - fact: Would you walk up to one for a selfie?
-  - punch: It eats grass all day, and still hurts more people here than bears.
+- fact: So watch the tail. Hanging down and swishing usually means it's calm.
+- escalate: Tail sticking straight up? It may be about to charge.
+- fact: It can spin on the spot, and jump over a five foot fence.
+- fact: That giant hump isn't fat. It's a wall of muscle.
+- solo: In winter, it swings its huge head like a snowplow, to dig grass out of the snow.
+  hero_at:
+    x: 600
+  scene_p:
+    time: day
+    palette:
+      sky: '#cfe3f2'
+      ground: '#f4f8fb'
+      ground2: '#d6e2ec'
+    props:
+    - - rock
+      - 1180
+      - 1500
+      - 0.8
+    - - bush
+      - -40
+      - 1500
+      - 0.8
+- fact: Its eyesight is bad. But it can smell you, and hear you, just fine.
+- fact: It rolls around in the dirt, to scare off biting flies and rub off old fur.
+- fact: Once, tens of millions may have roamed. By nineteen oh two, Yellowstone had about two dozen left.
+- solo: Now it's the national mammal of the United States.
+  hero_at:
+    x: 600
+- fact: The rule? Stay at least twenty five yards away. Always.
+- fact: Would you walk up to one for a selfie?
+- punch: It eats grass all day, and still hurts more people here than bears.
