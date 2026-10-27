@@ -20,16 +20,18 @@
    "time": "day"
   },
   "creature_cfg": {
-   "plan": "reptile",
+   "plan": "frog",
    "label": "gray tree frog",
    "color": "#8fa086",
    "dark": "#5f6e58",
-   "length": 300,
+   "length": 420,
    "height": 260,
    "leg_len": 80,
    "eye_r": 46,
    "mood": "happy",
-   "s": 0.8
+   "s": 0.8,
+   "spots": 4,
+   "toe_pads": true
   },
   "s": 0.8,
   "wild": "garden",
