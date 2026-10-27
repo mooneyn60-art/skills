@@ -437,3 +437,7 @@ TikTok is monetized through Creator Rewards; YouTube is not yet. Creator Rewards
 - **Rewards counts qualified views.** Viewers have to watch past the first few seconds, so the hook and the first 5 s decide the money. The 2 fps QA checks frame 0 and the first 5 s hardest.
 - **Every TikTok caption** opens with the phrase people search for, then a one-tap question, then "Follow Meatball for a new case every day 🍝".
 - **Weekly earnings log:** Nolan reads the Creator Rewards dashboard (estimated rewards, qualified views, RPM) and drops the numbers on the town square; the Accountant logs them in data/tiktok-rewards.csv. Topics with the best RPM get more slots.
+
+## Scene changes (Nolan, 10/27)
+Every drawn video has 2-3 `solo` lines: a complete scene change to the creature ALONE in its real habitat, big and
+centred, no Meatball (outline `wild:` + `solo:` lines; tools/drawn_macros.py). The room with Meatball is the home base.
