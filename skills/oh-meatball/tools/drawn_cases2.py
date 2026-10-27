@@ -588,6 +588,16 @@ def student(ctx, t, p):
         ctx.translate(10 * lg * math.sin(t * 30 + p.get("seed", 0)), -18 * lg * abs(math.sin(t * 15)))
         ctx.rotate(0.05 * lg * math.sin(t * 11))
     person(ctx, t, q)
+    bob = 6 * math.sin(t * 2.2 + p.get("seed", 0))
+    hy = -830 + bob
+    shape(ctx, lambda c: p_poly(c, [(-125, -400 + bob), (125, -400 + bob), (175, -150), (-175, -150)]),
+          q["body"], OUT, (0.12, 0))   # the skirt of the school dress
+    for s in (-1, 1):   # two hair puffs
+        shape(ctx, lambda c, s=s: p_ellipse(c, s * 120, hy - 110, 55, 55), q["hair"], OUT * 0.8, None)
+    if lg > 0.3:   # squeezed-shut laughing eyes
+        for s in (-1, 1):
+            flat(ctx, lambda c, s=s: p_ellipse(c, s * 46, hy - 30, 36, 40), q["skin"])
+            stroke(ctx, [(s * 46 - 26, hy - 20), (s * 46, hy - 44), (s * 46 + 26, hy - 20)], 9)
     if p.get("cry"):
         for s in (-1, 1):
             u = (t * 1.5 + (s + 1) * 0.3) % 1

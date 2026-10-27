@@ -1,0 +1,213 @@
+{
+ "series": "Meatball Investigates, Part",
+ "sources": [
+  "Christian F. Hempelmann, 'The laughter of the 1962 Tanganyika laughter epidemic', Humor: International Journal of Humor Research 20(1), 2007, pp. 49-71, DOI 10.1515/HUMOR.2007.003, quoting Rankin and Philip (1963, Central African Journal of Medicine): the disease began on 30 January 1962 at a mission-run girls' school at Kashasha, 25 miles from Bukoba, when three pupils began to act abnormally; by 18 March 1962, when the school was forced to close, 95 of the 159 pupils were affected; 57 more pupils after it reopened on 21 May until it shut again; attacks of laughing and crying lasting a few hours, in a few cases up to 16 days, with restlessness; spread to Nshamba village (217 people) and Ramashenye girls' middle school (48 of 154 pupils), with further school closures; tests for food poisoning and toxic substances were negative; Rankin and Philip suggested mass hysteria; Hempelmann argues it was mass psychogenic illness and links it to stress, noting Tanganyika became independent on 9 December 1961; https://doi.org/10.1515/HUMOR.2007.003",
+  "Office of the Historian, US Department of State, 'Tanzania - Countries': the US recognized Tanganyika on December 9, 1961, when it won independence from Great Britain; https://history.state.gov/countries/tanzania"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "student",
+  "scene": "classroom",
+  "scene_p": {},
+  "creature_cfg": {
+   "floor": true
+  },
+  "s": 0.85,
+  "actor": "student",
+  "wild": "village",
+  "wild_p": {
+   "school": true
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "A Laughing Epidemic Shut Down Schools In 1962 😂",
+ "tiktok_caption": "a laughing epidemic shut down schools in 1962 😂 95 girls at one school, then whole villages, and doctors found no poison. Could you watch someone laugh and not laugh too? 😂 no / 😐 yes #meatballmyths #learnontiktok #history #psychology #tanzania",
+ "beats": [
+  {
+   "act": {
+    "laugh": 1.0
+   },
+   "m": "hook",
+   "say": "What if I told you a laughing fit once spread so fast, it shut down a school?"
+  },
+  {
+   "hero": false,
+   "m": "solo",
+   "say": "January 1962. A girls' boarding school in Kashasha, Tanganyika, near Lake Victoria."
+  },
+  {
+   "hero": {
+    "laugh": 1.0
+   },
+   "with": [
+    {
+     "type": "student",
+     "x": 1010,
+     "y": 1540,
+     "s": 0.75,
+     "pop": false,
+     "p": {
+      "laugh": 1.0,
+      "seed": 3
+     }
+    }
+   ],
+   "m": "fact",
+   "say": "Three girls start laughing. And they can't stop."
+  },
+  {
+   "hero": {
+    "laugh": 1.0
+   },
+   "with": [
+    {
+     "type": "student",
+     "x": 1010,
+     "y": 1540,
+     "s": 0.75,
+     "p": {
+      "laugh": 1.0,
+      "seed": 3
+     }
+    },
+    {
+     "type": "student",
+     "x": 640,
+     "y": 1600,
+     "s": 0.7,
+     "front": true,
+     "p": {
+      "laugh": 1.0,
+      "seed": 5
+     }
+    },
+    {
+     "type": "student",
+     "x": 930,
+     "y": 1650,
+     "s": 0.7,
+     "front": true,
+     "p": {
+      "laugh": 1.0,
+      "seed": 7
+     }
+    }
+   ],
+   "m": "count",
+   "say": "Then it spreads. In seven weeks, ninety-five of the school's hundred and fifty-nine girls have it."
+  },
+  {
+   "hero": {
+    "laugh": 1.0,
+    "cry": true
+   },
+   "m": "escalate",
+   "say": "This was not fun laughing. It came with crying and panic. Attacks lasted hours. A few, sixteen days."
+  },
+  {
+   "hero": false,
+   "scene_p": {
+    "school": true,
+    "locked": 1.0
+   },
+   "m": "solo",
+   "say": "On March eighteenth, the school shut its doors."
+  },
+  {
+   "m": "fact",
+   "say": "So the girls were sent home. And it went with them."
+  },
+  {
+   "hero": false,
+   "scene_p": {
+    "huts": [
+     [
+      260,
+      0.7
+     ],
+     [
+      860,
+      0.75
+     ]
+    ]
+   },
+   "with": [
+    {
+     "type": "student",
+     "x": 420,
+     "y": 1640,
+     "s": 0.6,
+     "pop": false,
+     "front": true,
+     "p": {
+      "laugh": 1.0,
+      "seed": 2
+     }
+    },
+    {
+     "type": "student",
+     "x": 680,
+     "y": 1700,
+     "s": 0.6,
+     "pop": false,
+     "front": true,
+     "p": {
+      "laugh": 1.0,
+      "cry": true,
+      "seed": 6
+     }
+    }
+   ],
+   "m": "solo",
+   "say": "In one village, two hundred and seventeen people started laughing and crying."
+  },
+  {
+   "m": "fact",
+   "say": "At another girls' school, forty-eight more."
+  },
+  {
+   "hero": {
+    "laugh": 1.0
+   },
+   "m": "fact",
+   "say": "Kashasha reopened in May. Fifty-seven more girls caught it, and it shut again."
+  },
+  {
+   "m": "fact",
+   "say": "Doctors tested for food poisoning and toxins. Nothing."
+  },
+  {
+   "m": "calm",
+   "say": "No poison, no germ found. The cause was in their minds, and the symptoms were real."
+  },
+  {
+   "m": "fact",
+   "say": "Experts call it mass psychogenic illness. Stress, spreading from person to person."
+  },
+  {
+   "m": "fact",
+   "say": "And the country had become independent just seven weeks before. Huge change. Huge stress."
+  },
+  {
+   "hero": {
+    "laugh": 1.0
+   },
+   "m": "fact",
+   "say": "Could you watch someone laugh and not laugh too?"
+  },
+  {
+   "m": "punch",
+   "say": "Laughter really was contagious. And nobody was having any fun."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, another case file history almost forgot."
+  }
+ ]
+}
