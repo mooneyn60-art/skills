@@ -1,0 +1,133 @@
+slug: waterbug
+variant: B
+out: episodes/drawn-tt
+specs: scripts/drawn-tt
+series: Meatball's Animal Files
+title: This Bug Melts Its Prey From the Inside and Drinks It 🪲
+tiktok_caption: 'this bug melts its prey from the inside and drinks it 🫠 it eats turtles, snakes and ducklings and they call
+  it the toe biter. Would you eat one? 🍽️ yes / 🤢 never / 🦶 it''d eat me first #meatballmyths #learnontiktok #giantwaterbug
+  #insects #animalfacts'
+creature: giant_water_bug
+creature_cfg:
+  plan: insect
+  label: giant water bug
+  body: round
+  color: '#6e5236'
+  dark: '#4a3622'
+  length: 580
+  height: 200
+  leg_len: 110
+  ant: 0
+  wings: shell
+  stripes: 3
+  mood: angry
+  mouth: grin
+  s: 0.68
+s: 0.68
+scene: bedroom
+scene_p:
+  time: day
+wild: swamp
+wild_p:
+  time: day
+music: mystery
+next: Next, an animal that can hit you with its spray from ten feet away.
+sources:
+- 'University of Maine Cooperative Extension, Giant Water Bug (Lethocerus americanus) fact sheet: 2 to 4 inches long, the
+  largest true bug (Hemiptera) in the US and Canada; common names include toe-biters (they can inflict a painful bite) and
+  electric-light bugs (adults fly and are attracted to lights at night); https://extension.umaine.edu/home-and-garden-ipm/fact-sheets/common-name-listing/giant-water-bug/'
+- 'KQED Science / Deep Look (PBS), Don''t Go Chasing Water Bugs, quoting entomologists Chris Goforth (North Carolina Museum
+  of Natural Sciences) and Robert Sites (University of Missouri): bite among the most painful of any insect, delivered with
+  dagger-like mouthparts; they inject venom that liquefies the prey''s insides and suck it back out, the prey likely still
+  alive; they eat animals as large as turtles, snakes and ducklings; in Abedus the female glues eggs onto the male''s back
+  and leaves, and he carries them for several weeks; in parts of Asia they are a delicacy, with a nutty flavour; Santa Monica
+  Mountains rangers warned of bites in 2018; https://www.kqed.org/science/1979474/dont-go-chasing-water-bugs'
+yt:
+- hook: This bug can eat a turtle. It melts the insides, and drinks them.
+- shrink: So I shrank myself down to its size, to get a closer look.
+- tiny: The giant water bug. Up to four inches long.
+- tiny: It's the biggest true bug in the United States and Canada.
+- tiny: It hides underwater, and grabs prey with its powerful legs.
+  act:
+    wave: 1.0
+- tiny: Then it stabs with a dagger-like beak, and injects venom.
+  act:
+    bite: 1.0
+- solo: The venom turns the insides to soup. Then it sucks them out.
+  hero_at:
+    x: 540
+  act:
+    chew: 1.0
+  scene: reef
+  scene_p:
+    time: day
+    palette: &id001
+      ground: '#6a5a3c'
+      ground2: '#57492f'
+    props: &id002
+    - - seaweed
+      - 60
+      - 1500
+      - 1.3
+    - - seaweed
+      - 1080
+      - 1500
+      - 1.2
+    - - rock
+      - 900
+      - 1500
+      - 0.7
+tt:
+- solo: And the prey is probably still alive while it's being eaten.
+  hero_at:
+    x: 540
+  scene_p:
+    time: night
+    palette: *id001
+    props: *id002
+  act:
+    mood: smug
+  scene: reef
+- tiny: And I complain when my soup is too hot.
+  pose: laugh
+- tiny: It eats snakes, turtles, even ducklings.
+  scene: swamp
+  scene_p:
+    time: dusk
+  act:
+    bite: 1.0
+- tiny: Its nickname? The toe biter. Its bite is one of the most painful of any insect.
+  scene: swamp
+  scene_p:
+    time: day
+  act:
+    mood: angry
+    bite: 1.0
+- tiny: It also flies to lights at night. So some people call it the electric light bug.
+  scene: garden
+  scene_p:
+    time: night
+    palette:
+      ground: '#4a6a3a'
+      ground2: '#3a5a2e'
+    props:
+    - - lamp
+      - 900
+      - 1500
+      - 1.2
+    - - bush
+      - -60
+      - 1500
+      - 0.8
+- tiny: In some kinds, mom glues her eggs onto dad's back. Then she leaves.
+  act:
+    mood: shock
+- tiny: Dad carries them for weeks, until they hatch.
+  act:
+    mood: calm
+- tiny: And in parts of Asia, people eat it. Some say it tastes nutty.
+  scene: forest_floor
+  scene_p:
+    time: day
+- fact: Would you eat one?
+- punch: It drinks turtles, bites toes, and dad does all the babysitting.
