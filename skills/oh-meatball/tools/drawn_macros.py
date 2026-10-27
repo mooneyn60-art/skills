@@ -18,6 +18,8 @@ Macros:
   calm      calm-then-drop: a relaxed half, then a snap zoom and a jump scare on the last words
   punch     the punchline: back to the hook's framing so the loop reads
   tease     "Subscribe. Part N is ...": the only ask, on the last line
+  solo      a full scene change: the creature ALONE in its wild habitat (stage "wild", or the line's "scene"), big and
+            centred, no Meatball, slow push-in; use 2-3 per video so it doesn't stay in one room (Nolan, 10/27)
 Per-line overrides: scene, scene_p, with (list of species names, or {"sp" | "type", "x", "y", "s", "p", "front",
 "pop": false = there from frame 0, "set", "moves"} for any actor), hero (false = not on
 stage, or a dict of creature params), act (creature params set at 30 %), hero_at {x, y, rot}, hero_moves, mb_x (Meatball's mark), pose, prop, mood, sfx, pad.
@@ -46,6 +48,8 @@ class Stage:
         self.type = st.get("actor") or ("sp." + self.name)
         self.scene = st.get("scene", "basement")
         self.scene_p = st.get("scene_p", {})
+        self.wild = st.get("wild")
+        self.wild_p = st.get("wild_p", {})
         self.hero_p = st.get("hero_p", {})
         self.side = self.cfg.get("plan") in SIDE or self.cfg.get("shape") == "long"
         self.s = st.get("s", self.cfg.get("s", 0.9))
@@ -148,6 +152,8 @@ def expand(spec):
             out.append(line)
             continue
         m = line["m"]
+        if m == "solo" and "scene" not in line and stage.wild:
+            line = dict(line, scene=stage.wild, scene_p=line.get("scene_p", stage.wild_p))
         scene = line.get("scene", stage.scene)
         F = stage.floor(scene)
         C = _cams(F)
@@ -229,6 +235,13 @@ def expand(spec):
         elif m == "punch":
             b = _beat(stage, line, F, [{"cam": C["two"], "to": C["wide"]}], hero,
                       _mb(stage, F, "deadpan", water=water, look="viewer", gest=[["60%", "laugh", 1.4]]), ["pop@60%"])
+        elif m == "solo":
+            hy = stage.hero_y(F)
+            hero = _hero(stage, F, x=540, s=stage.s * line.get("zoom", 1.3), p={"mood": line.get("mood", "smug")})
+            hero["p"].update(line.get("act", {}))
+            cy = hy - 300 if stage.cfg.get("floor", True) else hy + 200
+            b = _beat(stage, line, F, [{"cam": [540, cy, 1.15], "to": [540, cy + 20, 1.32]}], hero,
+                      _mb(stage, F, "think", hidden=True), ["whoosh@2%", "tink@60%"])
         elif m == "tease":
             nscene = line.get("scene", stage.scene)
             F = stage.floor(nscene)

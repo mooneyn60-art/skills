@@ -17,6 +17,7 @@ Outline (see scripts/drawn-house/outlines/*.yaml):
   tiktok_caption: "silverfish in my books 😬 ... Would you keep the books? 📚 yes / 🔥 no"
   creature: silverfish        # a drawn_species name (or creature_cfg: {...} for a new animal inline)
   scene: study                # a drawn_habitats kind;  scene_p: {time: night}
+  wild: forest_floor          # optional: the habitat for "solo" lines (the creature alone, no Meatball)
   music: mystery
   next: Part five is in your basement.     # the tease, said after "Subscribe."
   next_scene: basement                     # optional: the tease plays in the next part's room
@@ -28,7 +29,7 @@ Outline (see scripts/drawn-house/outlines/*.yaml):
       with: [booklouse]
   tt:                         # act 2: TikTok only, between act 1 and the tease
     - calm: ...
-Macros: hook name fact xray scale count escalate chase calm punch tease (see drawn_macros.py).
+Macros: hook name fact xray scale count escalate chase calm punch tease solo (see drawn_macros.py).
 """
 import argparse
 import json
@@ -41,7 +42,7 @@ import time
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
-MACROS = ("hook", "name", "fact", "xray", "scale", "count", "escalate", "chase", "calm", "punch", "tease")
+MACROS = ("hook", "name", "fact", "xray", "scale", "count", "escalate", "chase", "calm", "punch", "tease", "solo")
 YT_RANGE, TT_RANGE = (18.0, 24.0), (61.0, 75.0)
 
 
@@ -63,7 +64,7 @@ def line(item):
 
 def specs(o):
     stage = {"creature": o["creature"], "scene": o["scene"], "scene_p": o.get("scene_p", {})}
-    for k in ("creature_cfg", "hero_p", "s", "actor"):
+    for k in ("creature_cfg", "hero_p", "s", "actor", "wild", "wild_p"):
         if k in o:
             stage[k] = o[k]
     tease = {"m": "tease", "say": "Subscribe. " + o["next"]}
