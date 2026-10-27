@@ -1,0 +1,124 @@
+{
+ "series": "Things Living In Your House, Part 9",
+ "sources": [
+  "University of California IPM, Pest Notes: House Mouse (Publication 74106): mice squeeze through openings as small as 1/4 inch; can jump up to 12 inches from the floor onto a flat surface; females have 5-10 litters a year of about 5 or 6 pups; sexually mature 5-6 weeks after birth; do not need to drink water to survive if food supplies moisture; mostly nocturnal; gnaw electrical wires, gas lines, appliance cords and storage containers; seldom venture more than 30 feet from nest and food; can carry leptospirosis, salmonella and LCM virus; urine is a major allergen linked to early-onset asthma in sensitive children; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7483.html",
+  "Texas A&M AgriLife Extension, Rodents and Rodent Control (public health license course, 2024): house mouse leaves 50 to 75 droppings a day, droppings 1/8-1/4 inch with pointed ends; up to 3,000 urine microdroplets produced daily; many live outside during summer; https://extensionentomology.tamu.edu/wp-content/uploads/sites/6/2024/02/Rodents-and-rodent-control-public-health-license-course.pdf"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "house_mouse",
+  "scene": "kitchen",
+  "scene_p": {
+   "time": "night"
+  },
+  "s": 0.65
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "One Mouse Leaves 75 Droppings a Day in Your Kitchen 🐭",
+ "tiktok_caption": "one mouse can leave up to 75 droppings and 3,000 drops of pee a day 🐭 and the nest is probably close. Would you share your kitchen with one? 🧀 sure / 🪤 no way",
+ "beats": [
+  {
+   "m": "hook",
+   "say": "One mouse in your kitchen can leave up to seventy five droppings a day."
+  },
+  {
+   "m": "name",
+   "say": "The house mouse. It comes out at night, while you sleep."
+  },
+  {
+   "m": "fact",
+   "say": "It gets in through a gap just a quarter of an inch wide."
+  },
+  {
+   "m": "solo",
+   "say": "And it can jump a foot straight up, right onto your counter."
+  },
+  {
+   "m": "escalate",
+   "say": "It doesn't even need to drink. It gets its water from food."
+  },
+  {
+   "m": "punch",
+   "say": "Your food."
+  },
+  {
+   "m": "fact",
+   "say": "A female can have five to ten litters a year."
+  },
+  {
+   "with": [
+    "house_mouse",
+    "house_mouse",
+    "house_mouse"
+   ],
+   "m": "count",
+   "say": "Five or six babies, every time."
+  },
+  {
+   "m": "escalate",
+   "say": "And those babies can start having babies at about six weeks old."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "m": "solo",
+   "say": "In summer, lots of mice live outside, in gardens and fields."
+  },
+  {
+   "m": "fact",
+   "say": "Inside, they chew through wires, gas lines, and plastic containers."
+  },
+  {
+   "m": "fact",
+   "say": "And they rarely travel more than thirty feet from the nest."
+  },
+  {
+   "m": "calm",
+   "say": "Now the gross part. While a mouse explores, it doesn't hold it in."
+  },
+  {
+   "m": "escalate",
+   "say": "One mouse can leave up to three thousand tiny drops of pee a day."
+  },
+  {
+   "scene": "kitchen",
+   "scene_p": {
+    "time": "night"
+   },
+   "m": "solo",
+   "say": "All over your counters and cupboards, in the dark."
+  },
+  {
+   "m": "fact",
+   "say": "Mouse pee is a major allergen. It's linked to asthma in some kids."
+  },
+  {
+   "m": "fact",
+   "say": "And mice can carry germs like salmonella."
+  },
+  {
+   "m": "fact",
+   "say": "Would you share your kitchen with one?"
+  },
+  {
+   "m": "punch",
+   "say": "If you've seen one, its nest is probably closer than you think."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Part ten is hiding in your closet.",
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "day"
+   }
+  }
+ ]
+}

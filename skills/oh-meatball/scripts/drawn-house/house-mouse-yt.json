@@ -1,0 +1,59 @@
+{
+ "series": "Things Living In Your House, Part 9",
+ "sources": [
+  "University of California IPM, Pest Notes: House Mouse (Publication 74106): mice squeeze through openings as small as 1/4 inch; can jump up to 12 inches from the floor onto a flat surface; females have 5-10 litters a year of about 5 or 6 pups; sexually mature 5-6 weeks after birth; do not need to drink water to survive if food supplies moisture; mostly nocturnal; gnaw electrical wires, gas lines, appliance cords and storage containers; seldom venture more than 30 feet from nest and food; can carry leptospirosis, salmonella and LCM virus; urine is a major allergen linked to early-onset asthma in sensitive children; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7483.html",
+  "Texas A&M AgriLife Extension, Rodents and Rodent Control (public health license course, 2024): house mouse leaves 50 to 75 droppings a day, droppings 1/8-1/4 inch with pointed ends; up to 3,000 urine microdroplets produced daily; many live outside during summer; https://extensionentomology.tamu.edu/wp-content/uploads/sites/6/2024/02/Rodents-and-rodent-control-public-health-license-course.pdf"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "house_mouse",
+  "scene": "kitchen",
+  "scene_p": {
+   "time": "night"
+  },
+  "s": 0.65
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "One Mouse Leaves 75 Droppings a Day in Your Kitchen 🐭",
+ "tiktok_caption": "one mouse can leave up to 75 droppings and 3,000 drops of pee a day 🐭 and the nest is probably close. Would you share your kitchen with one? 🧀 sure / 🪤 no way",
+ "beats": [
+  {
+   "m": "hook",
+   "say": "One mouse in your kitchen can leave up to seventy five droppings a day."
+  },
+  {
+   "m": "name",
+   "say": "The house mouse. It comes out at night, while you sleep."
+  },
+  {
+   "m": "fact",
+   "say": "It gets in through a gap just a quarter of an inch wide."
+  },
+  {
+   "m": "solo",
+   "say": "And it can jump a foot straight up, right onto your counter."
+  },
+  {
+   "m": "escalate",
+   "say": "It doesn't even need to drink. It gets its water from food."
+  },
+  {
+   "m": "punch",
+   "say": "Your food."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Part ten is hiding in your closet.",
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "day"
+   }
+  }
+ ]
+}
