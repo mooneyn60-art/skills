@@ -1,0 +1,79 @@
+{
+ "title": "Are Daddy Longlegs the Most Venomous Spiders? (fully drawn, 10/27)",
+ "_note": "Facts from scripts/samples-1027/s1-daddy.json (unchanged): harvestmen (Opiliones) have no venom glands and no silk; the cellar spider (Pholcus) does have venom but it is weak; a MythBusters host was bitten and felt only a mild, brief burn. No poll, no subscribe pill, no label cards (Nolan 10/27). Loops: the last line runs into the first.",
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+6%",
+ "music": "detective",
+ "music_db": -24,
+ "captions": 66,
+ "caption_y": 1560,
+ "beats": [
+  {"say": "This daddy longlegs has zero venom.", "scene": "basement", "pad": 0.1,
+   "shots": [{"cam": [600, 1060, 1.12], "to": [620, 1080, 1.16]}],
+   "actors": [
+     {"id": "chair", "type": "chair", "pos": [330, 1500], "s": 0.8},
+     {"id": "h", "type": "harvestman", "pos": [1250, 1500], "s": 0.9, "p": {"mood": "happy", "look": [-1, 0]},
+      "moves": [{"at": 0, "dur": 1.6, "pos": [840, 1500], "walk": true, "linear": true}]}],
+   "mb": {"pose": "shock", "pos": [430, 1500], "size": 1000, "look": "h", "shake": 0.5,
+          "moves": [{"at": "longlegs", "dur": 0.45, "pos": [330, 1124], "hop": 260}]},
+   "sfx": ["boing@longlegs", "pop@zero"]},
+
+  {"say": "It's not even a spider. It's a harvestman.", "keep": true,
+   "shots": [{"cam": [600, 1110, 1.2], "to": [620, 1110, 1.25]}, {"at": "It's#2", "cam": [640, 1060, 1.26], "to": [650, 1060, 1.3]}],
+   "actors": [{"id": "h", "set": [{"at": "harvestman", "p": {"wave": 1.0, "mood": "happy"}}]}],
+   "mb": {"pose": "think", "look": "h", "shake": 0.2},
+   "sfx": ["tink@harvestman"]},
+
+  {"say": "No silk. No venom glands.", "keep": true,
+   "shots": [{"cam": [820, 1280, 1.65], "to": [820, 1290, 1.8]}, {"at": "glands", "cam": [600, 1080, 1.1]}],
+   "actors": [{"id": "h", "p": {"wave": 0.0}, "set": [{"at": "venom", "dur": 0.25, "p": {"xray": 1.0}}, {"at": "glands+0.5", "dur": 0.3, "p": {"xray": 0.0}}]}],
+   "mb": {"pose": "deadpan", "look": "h",
+          "moves": [{"at": "glands", "dur": 0.4, "pos": [520, 1500], "hop": 200}]},
+   "sfx": ["zap@venom", "thud@glands+0.4"]},
+
+  {"say": "But another daddy longlegs lives in your basement.", "keep": true,
+   "shots": [{"cam": [600, 1080, 1.1]}, {"at": "lives", "cam": [620, 1060, 1.1], "to": [720, 760, 1.12]}],
+   "actors": [
+     {"id": "web", "type": "web", "pos": [900, 160], "s": 1.0},
+     {"id": "c", "type": "cellar_spider", "pos": [900, 140], "s": 0.95, "p": {"mood": "worry", "look": [0, 1]},
+      "moves": [{"at": 0, "dur": 0.01, "pos": [900, -700]}, {"at": "lives", "dur": 0.9, "pos": [900, 140]}]}],
+   "mb": {"pose": "nervous", "look": "c", "shake": 0.4},
+   "sfx": ["whoosh@lives"]},
+
+  {"say": "This one has venom.", "keep": true,
+   "shots": [{"cam": [610, 760, 1.18], "to": [620, 760, 1.22]}],
+   "actors": [
+     {"id": "c", "p": {"mood": "angry"}, "set": [{"at": "venom", "dur": 0.2, "p": {"fangs": 1.0, "shiver": 1.0}}]},
+     {"id": "flash", "type": "danger", "pos": [900, 420], "s": 1.0, "p": {"hidden": true}, "set": [{"at": "venom", "p": {"hidden": false}}]}],
+   "mb": {"pose": "shock", "look": "c", "shake": 0.6,
+          "moves": [{"at": "venom", "dur": 0.45, "pos": [330, 1124], "hop": 300}]},
+   "sfx": ["zap@venom", "boing@venom+0.1"]},
+
+  {"say": "But it's weak. One bit a MythBusters host.", "keep": true, "drop": ["flash"],
+   "shots": [{"cam": [600, 1080, 1.2], "to": [620, 1090, 1.26]}],
+   "actors": [
+     {"id": "c", "p": {"fangs": 0.0, "shiver": 0.0, "mood": "smug"}},
+     {"id": "arm", "type": "arm", "pos": [1040, 1270], "s": 0.8, "front": true, "p": {"burn": 0.0},
+      "moves": [{"at": 0, "dur": 0.01, "pos": [-200, 1270]}, {"at": "One", "dur": 0.4, "pos": [1040, 1270]}]},
+     {"id": "c2", "type": "cellar_spider", "pos": [600, 1000], "s": 0.32, "front": true, "p": {"mood": "angry", "hidden": true},
+      "set": [{"at": "bit", "p": {"hidden": false, "fangs": 1.0}}]}],
+   "mb": {"pose": "nervous", "look": "arm"},
+   "sfx": ["whoosh@One", "tink@bit"]},
+
+  {"say": "A tiny burn, gone in seconds.", "keep": true,
+   "shots": [{"cam": [560, 1120, 1.3], "to": [540, 1110, 1.22]}],
+   "actors": [
+     {"id": "c2", "moves": [{"at": "tiny", "dur": 0.4, "pos": [1500, 900], "hop": 300}]},
+     {"id": "arm", "set": [{"at": "tiny", "dur": 0.2, "p": {"burn": 1.0, "ouch": 1.0}}, {"at": "gone", "dur": 0.6, "p": {"burn": 0.0, "ouch": 0.0}}],
+      "moves": [{"at": "seconds+0.1", "dur": 0.4, "pos": [-300, 1270]}]}],
+   "mb": {"pose": "laugh", "look": "viewer",
+          "moves": [{"at": "seconds", "dur": 0.42, "pos": [440, 1500], "hop": 180}]},
+   "sfx": ["pop@tiny", "thud@seconds+0.42"]},
+
+  {"say": "Most venomous? Nope. Because", "keep": true, "drop": ["c2", "arm"], "pad": 0.05,
+   "shots": [{"cam": [620, 1080, 1.16], "to": [600, 1060, 1.12]}],
+   "actors": [{"id": "h", "p": {"mood": "happy", "xray": 0.0, "look": [1, 0]}, "flip": true,
+               "moves": [{"at": 0.2, "dur": 1.4, "pos": [1300, 1500], "walk": true, "linear": true}]}],
+   "mb": {"pose": "shrug", "look": "viewer", "moves": [{"at": "Because", "dur": 0.3, "pos": [430, 1500]}]}}
+ ]
+}

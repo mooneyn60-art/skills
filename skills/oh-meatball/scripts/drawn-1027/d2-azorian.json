@@ -1,0 +1,149 @@
+{
+ "title": "The CIA's Giant Claw: Project Azorian (fully drawn TikTok case, 10/27)",
+ "_note": "Narration trimmed from scripts/story-01.json group azorianC (same facts): K-129 sank in 1968 with 98 men and three nuclear missiles; a US spy sub (Halibut) found it ~3 miles down; the CIA built the Hughes Glomar Explorer with Howard Hughes's mining-ship cover story; July 1974 recovery watched by a Soviet ship; the claw broke and most of the sub fell back, a bow section was kept; a burglary at Hughes's company office in LA (June 1974) took papers tying Hughes to the CIA; press reports in 1975; the CIA's 'neither confirm nor deny' became the Glomar response. Hughes appears only as a stock cartoon tycoon, not a likeness. No pop-up text (Nolan 10/27).",
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+4%",
+ "music": "cold-war",
+ "music_db": -25,
+ "captions": 66,
+ "caption_y": 1560,
+ "beats": [
+  {"say": "What if I told you Howard Hughes helped the CIA steal a Soviet submarine, nuclear missiles and all?",
+   "scene": "deep",
+   "shots": [{"cam": [650, 7950, 0.85], "to": [700, 8030, 0.9]}, {"at": "steal", "cam": [680, 8080, 1.0], "to": [690, 8090, 1.04]},
+             {"at": "nuclear", "cam": [560, 8080, 1.1], "to": [580, 8080, 1.16]}],
+   "actors": [
+     {"id": "sub", "type": "sub", "pos": [820, 8470], "s": 0.7, "rot": 4},
+     {"id": "claw", "type": "claw", "pos": [830, 7300], "s": 0.75, "p": {"close": 0.0},
+      "moves": [{"at": 0, "dur": 2.6, "pos": [830, 8150]}], "set": [{"at": "steal", "dur": 0.6, "p": {"close": 1.0}}]},
+     {"id": "bub", "type": "bubbles", "pos": [830, 8400], "s": 1.2, "p": {"n": 16}}],
+   "mb": {"pose": "shock", "pos": [300, 8330], "size": 1100, "float": true, "helmet": true, "prop": "flashlight", "look": "claw", "shake": 0.5,
+          "gest": [["nuclear", "nervous", 1.6]]},
+   "sfx": ["whoosh@0.1", "crunch@steal", "zap@nuclear"], "shake": ["steal"]},
+
+  {"say": "In 1968, a Soviet sub, K-129, sank with ninety-eight men and three nuclear missiles.",
+   "shots": [{"cam": [640, 1800, 0.9], "to": [700, 3150, 0.9]}],
+   "actors": [
+     {"id": "sub", "type": "sub", "pos": [860, 1900], "s": 0.7, "rot": 0, "p": {"missiles": 0},
+      "moves": [{"at": 0, "dur": 7.4, "pos": [920, 3250], "rot": 14, "linear": true}],
+      "set": [{"at": "three", "dur": 0.3, "p": {"missiles": 1}}]},
+     {"id": "bub", "type": "bubbles", "pos": [860, 1850], "s": 1.3, "p": {"n": 20},
+      "moves": [{"at": 0, "dur": 7.4, "pos": [920, 3200], "linear": true}]}],
+   "mb": {"pose": "nervous", "pos": [290, 2080], "look": "sub", "shake": 0.3,
+          "moves": [{"at": 0, "dur": 7.4, "pos": [340, 3420], "linear": true}], "gest": [["three", "shock", 1.4]]},
+   "sfx": ["splash@0.1", "whoosh@sank", "zap@three"]},
+
+  {"say": "The Soviets couldn't find it. A US spy sub could. Three miles down.",
+   "shots": [{"cam": [700, 8070, 0.9]}, {"at": "Three", "cam": [700, 8070, 0.9], "to": [640, 650, 0.9], "dur": 1.5}],
+   "actors": [
+     {"id": "ruler", "type": "ruler", "pos": [200, 0], "s": 1.0, "p": {"length": 8550}},
+     {"id": "sub", "type": "sub", "pos": [820, 8470], "s": 0.7, "rot": 6, "p": {"missiles": 0}},
+     {"id": "us", "type": "us_sub", "pos": [1900, 8000], "s": 0.7, "p": {"light": 1, "flash": 0},
+      "moves": [{"at": "A", "dur": 1.0, "pos": [1020, 7880]}],
+      "set": [{"at": "could", "p": {"flash": 1}}, {"at": "could+0.3", "p": {"flash": 0}}]}],
+   "mb": {"pose": "think", "pos": [380, 8300], "look": "us", "shake": 0.0, "moves": [{"at": "Three", "dur": 1.5, "pos": [520, 950]}], "gest": [["Three", "shock", 1.5]]},
+   "sfx": ["tink@could", "whoosh@Three"]},
+
+  {"say": "So the CIA built a giant ship with a claw. And Howard Hughes said it was his, for mining rocks off the sea floor.",
+   "scene": "ocean", "scene_p": {},
+   "shots": [{"cam": [820, 950, 0.85], "to": [720, 950, 0.88]}, {"at": "Howard", "cam": [620, 870, 1.1], "to": [630, 880, 1.16]}],
+   "actors": [
+     {"id": "ship", "type": "glomar", "pos": [1250, 1180], "s": 0.85, "moves": [{"at": 0, "dur": 2.0, "pos": [640, 1180]}]},
+     {"id": "boss", "type": "billionaire", "pos": [380, 1300], "s": 0.75, "p": {"hidden": true, "arm": "up", "item": "rock"},
+      "set": [{"at": "Howard", "p": {"hidden": false}}, {"at": "mining", "p": {"arm": "point", "item": null}}, {"at": "rocks", "p": {"arm": "up", "item": "rock"}}],
+      "moves": [{"at": "Howard", "dur": 0.4, "pos": [400, 1056], "hop": 220}]}],
+   "mb": {"pose": "point", "pos": [1480, 1056], "size": 1000, "float": false, "helmet": false, "prop": null, "look": "ship",
+          "moves": [{"at": 0, "dur": 2.0, "pos": [870, 1056]}], "gest": [["Howard", "shock", 1.0], ["rocks", "shrug", 1.2]]},
+   "sfx": ["splash@0.2", "boing@Howard", "pop@rocks"]},
+
+  {"say": "July 1974. The claw went down three miles, while a Soviet ship watched.",
+   "shots": [{"cam": [680, 1050, 0.85], "to": [660, 1250, 0.85]}, {"at": "Soviet", "cam": [1080, 940, 1.04], "to": [1100, 940, 1.08]}],
+   "actors": [
+     {"id": "ship", "type": "glomar", "pos": [640, 1180], "s": 0.85, "p": {"pipe": 0}, "set": [{"at": "claw", "dur": 2.2, "p": {"pipe": 1400}}]},
+     {"id": "rus", "type": "soviet_ship", "pos": [1330, 1010], "s": 0.6, "depth": 1.0}],
+   "mb": {"pose": "nervous", "pos": [870, 1056], "look": "rus", "shake": 0.3, "gest": [["Soviet", "shock", 1.0]]},
+   "sfx": ["click@claw", "whoosh@Soviet"]},
+
+  {"say": "It closed around the sub, and started to rise.",
+   "scene": "deep", "shots": [{"cam": [780, 7980, 0.92], "to": [780, 7700, 0.92]}],
+   "actors": [
+     {"id": "sub", "type": "sub", "pos": [820, 8470], "s": 0.7, "rot": 4, "moves": [{"at": "rise", "dur": 1.4, "pos": [820, 7900], "rot": 0}]},
+     {"id": "claw", "type": "claw", "pos": [830, 8150], "s": 0.75, "p": {"close": 0.0},
+      "set": [{"at": "closed", "dur": 0.5, "p": {"close": 1.0}}], "moves": [{"at": "rise", "dur": 1.4, "pos": [830, 7580]}]},
+     {"id": "bub", "type": "bubbles", "pos": [830, 8500], "s": 1.4, "p": {"n": 22}}],
+   "mb": {"pose": "nervous", "pos": [1060, 8060], "float": true, "helmet": true, "prop": null, "look": "sub", "shake": 0.4,
+          "moves": [{"at": "rise", "dur": 1.4, "pos": [1060, 7490]}]},
+   "sfx": ["crunch@closed", "whoosh@rise"]},
+
+  {"say": "Then part of the claw broke. Most of the sub fell back.",
+   "shots": [{"cam": [760, 5480, 0.92]}, {"at": "Most", "cam": [760, 5560, 0.92], "to": [760, 5900, 0.85]}],
+   "actors": [
+     {"id": "claw", "type": "claw", "pos": [830, 5380], "s": 0.75, "p": {"close": 1.0, "broken": 0.0},
+      "set": [{"at": "broke", "dur": 1.0, "p": {"broken": 1.0}}]},
+     {"id": "sub", "type": "sub", "pos": [820, 5700], "s": 0.7, "rot": 0, "p": {"split": 0.0},
+      "set": [{"at": "fell", "dur": 1.3, "p": {"split": 1.0}}]},
+     {"id": "bub", "type": "bubbles", "pos": [830, 5800], "s": 1.4, "p": {"n": 22}}],
+   "mb": {"pose": "shock", "pos": [1060, 5290], "look": "sub", "shake": 0.7, "moves": [], "gest": [["fell", "facepalm", 1.2]]},
+   "sfx": ["crunch@broke", "hit@broke+0.1", "whoosh@fell"], "shake": ["broke"], "flash": ["broke"]},
+
+  {"say": "They kept a piece. The ship sailed home. Everything was fine.",
+   "scene": "ocean", "scene_p": {"sky": "sunset"},
+   "shots": [{"cam": [700, 960, 0.88], "to": [560, 940, 0.92]}],
+   "actors": [
+     {"id": "ship", "type": "glomar", "pos": [760, 1180], "s": 0.85, "flip": true, "p": {"pipe": 0}, "moves": [{"at": 0, "dur": 3.8, "pos": [480, 1180], "linear": true}]},
+     {"id": "g1", "type": "gull", "pos": [300, 520], "s": 0.8, "moves": [{"at": 0, "dur": 3.8, "pos": [900, 470], "linear": true}]},
+     {"id": "g2", "type": "gull", "pos": [100, 640], "s": 0.6, "p": {"seed": 2}, "moves": [{"at": 0, "dur": 3.8, "pos": [700, 600], "linear": true}]}],
+   "mb": {"pose": "neutral", "pos": [560, 1056], "float": false, "helmet": false, "look": "viewer", "shake": 0.0,
+          "moves": [{"at": 0, "dur": 3.8, "pos": [280, 1056], "linear": true}], "gest": [["fine", "laugh", 1.2]]},
+   "sfx": ["splash@0.2", "tink@fine"]},
+
+  {"say": "Except, just before it sailed, thieves had robbed Hughes's company office in Los Angeles.",
+   "scene": "office", "scene_p": {},
+   "shots": [{"cam": [720, 1060, 0.9], "to": [760, 1080, 0.95]}],
+   "actors": [
+     {"id": "b1", "type": "burglar", "pos": [-300, 1540], "s": 0.85, "p": {"pace": 7}, "moves": [{"at": "thieves", "dur": 1.8, "pos": [420, 1540], "walk": true}]},
+     {"id": "b2", "type": "burglar", "pos": [-750, 1540], "s": 0.8, "p": {"item": "sack", "arm": "down", "pace": 7, "seed": 2},
+      "moves": [{"at": "thieves+0.3", "dur": 2.0, "pos": [60, 1540], "walk": true}]},
+     {"id": "desk", "type": "desk", "pos": [1060, 1540], "s": 0.95, "front": true}],
+   "mb": {"pose": "nervous", "pos": [1080, 1540], "size": 1000, "look": "b1", "shake": 0.6},
+   "sfx": ["click@Except", "scratch@robbed"]},
+
+  {"say": "They took secret papers. One tied Hughes to the CIA.", "keep": true,
+   "shots": [{"cam": [700, 1060, 0.95]}, {"at": "One", "cam": [640, 960, 1.05], "to": [650, 960, 1.12]}],
+   "actors": [
+     {"id": "b1", "p": {"item": "papers", "arm": "hold"}},
+     {"id": "doc", "type": "papers", "pos": [560, 900], "s": 1.05, "front": true, "p": {"hidden": true, "string": 0.0},
+      "set": [{"at": "One", "p": {"hidden": false}}, {"at": "tied", "dur": 0.4, "p": {"string": 1.0}}],
+      "moves": [{"at": "One", "dur": 0.01, "pos": [560, 2600]}, {"at": "One+0.02", "dur": 0.35, "pos": [560, 900]}]}],
+   "mb": {"pose": "shock", "look": "doc", "shake": 0.2, "gest": [["One", "shock", 1.6]]},
+   "sfx": ["scratch@papers", "whoosh@One", "stamp@tied"]},
+
+  {"say": "By 1975, it was in the papers. A reporter asked the CIA about the ship.",
+   "scene": "press", "scene_p": {},
+   "shots": [{"cam": [560, 960, 1.0]}, {"at": "A", "cam": [600, 1040, 0.98], "to": [620, 1040, 1.04]}],
+   "actors": [
+     {"id": "spk", "type": "spokesman", "pos": [720, 1600], "s": 0.9, "p": {"mood": "calm"}},
+     {"id": "news", "type": "newspaper", "pos": [560, 820], "s": 0.95, "front": true, "p": {"grow": 0.05, "spin": 1.0},
+      "set": [{"at": 0, "dur": 0.8, "p": {"grow": 1.0, "spin": 0.0}}],
+      "moves": [{"at": "A", "dur": 0.4, "pos": [1800, -600]}]},
+     {"id": "press", "type": "reporters", "pos": [560, 2020], "s": 1.0, "front": true}],
+   "mb": {"pose": "point", "pos": [300, 1820], "size": 1050, "prop": "mic", "look": "spk", "shake": 0.0, "gest": [["reporter", "point", 2]]},
+   "sfx": ["whoosh@0", "plate@papers", "click@ship"], "flash": ["ship"]},
+
+  {"say": "The answer? We can neither confirm nor deny.", "keep": true, "drop": ["news"],
+   "shots": [{"cam": [700, 1080, 1.3], "to": [710, 1060, 1.42]}],
+   "actors": [{"id": "spk", "talks": true, "p": {"sweat": true, "mood": "worry"}}],
+   "mb": {"pose": "deadpan", "pos": [360, 1820], "mute": true, "look": "spk", "gest": [["deny", "facepalm", 1.2]]},
+   "sfx": ["click@confirm", "click@deny"], "flash": ["confirm", "deny"]},
+
+  {"say": "That non-answer is still named after the ship. A Glomar response.",
+   "scene": "ocean", "scene_p": {},
+   "shots": [{"cam": [640, 960, 0.9], "to": [700, 960, 1.0]}],
+   "actors": [
+     {"id": "ship", "type": "glomar", "pos": [640, 1180], "s": 0.85, "p": {"pipe": 0}},
+     {"id": "boss", "type": "billionaire", "pos": [400, 1056], "s": 0.75, "p": {"arm": "down", "item": null, "mood": "smug"}}],
+   "mb": {"pose": "deadpan", "pos": [880, 1056], "size": 1000, "prop": null, "mute": false, "look": "viewer",
+          "gest": [["Glomar", "shrug", 1.4]]},
+   "sfx": ["splash@0.1", "stamp@Glomar"]}
+ ]
+}
