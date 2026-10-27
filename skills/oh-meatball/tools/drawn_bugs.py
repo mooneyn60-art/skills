@@ -443,6 +443,16 @@ def silk_throw(ctx, t, p):
         stroke(ctx, pts, 4, smooth=True, color=C["silk"], a=0.9)
 
 
+def heart(ctx, t, p):
+    """A little red heart that bobs (the mites found a mate); base at its point."""
+    b = 1 + 0.08 * math.sin(t * 8)
+    ctx.scale(b, b)
+    shape(ctx, lambda c: (c.move_to(0, 0), c.curve_to(-120, -80, -110, -200, -50, -200),
+                          c.curve_to(-20, -200, 0, -170, 0, -150), c.curve_to(0, -170, 20, -200, 50, -200),
+                          c.curve_to(110, -200, 120, -80, 0, 0)), hexc("#e8463a"), OUT * 0.8, (0.1, 0.1),
+          hi=(0.3, 0.25, 0.25))
+
+
 def eggs(ctx, t, p):
     """A clutch of p['n'] pale oval eggs on the ground (pops in egg by egg as p['n'] rises)."""
     n = int(p.get("n", 8))
@@ -470,6 +480,6 @@ def droplets(ctx, t, p):
               hexc("#78bef0"), OUT * 0.45, None, a=min(1, 3 * (1 - u)))
 
 
-ACTORS = {"eggs": eggs, "droplets": droplets, "house_centipede": house_centipede, "roach": roach, "fly": fly, "dust_mite": dust_mite,
+ACTORS = {"heart": heart, "eggs": eggs, "droplets": droplets, "house_centipede": house_centipede, "roach": roach, "fly": fly, "dust_mite": dust_mite,
           "skin_flake": skin_flake, "mite_crowd": mite_crowd, "demodex": demodex, "silverfish": silverfish,
           "jumping_spider": jumping_spider, "widow": widow, "wolf_spider": wolf_spider, "silk_throw": silk_throw}

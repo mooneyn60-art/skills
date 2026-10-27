@@ -60,9 +60,12 @@ FONT = os.path.join(ROOT, "brand/fonts/Anton-Regular.ttf")
 
 def tts(text, voice, rate, pitch, mp3):
     from facts import speak
-    if not (os.path.exists(mp3) and os.path.exists(mp3 + ".words.json")):
+    key = json.dumps([text, voice, rate, pitch])   # the cache is per beat index: re-speak when the line changes
+    fresh = os.path.exists(mp3 + ".key") and open(mp3 + ".key").read() == key
+    if not (fresh and os.path.exists(mp3) and os.path.exists(mp3 + ".words.json")):
         words = asyncio.run(speak(text, voice, mp3, rate, pitch))
         json.dump(words, open(mp3 + ".words.json", "w"))
+        open(mp3 + ".key", "w").write(key)
     return json.load(open(mp3 + ".words.json"))
 
 

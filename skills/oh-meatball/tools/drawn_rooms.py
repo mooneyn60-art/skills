@@ -173,18 +173,18 @@ def skin(ctx, t, layer, p):
     stroke(ctx, [(-1000, 1650), (2100, 1650)], 4, color=C["skin_d"])
     for x in (-540, 0, 540, 1080, 1620):
         # follicle tube with an oil gland
-        shape(ctx, lambda c, x=x: p_smooth(c, [(x - 70, 1100), (x - 60, 1400), (x - 55, 1750), (x, 1820),
-                                                 (x + 55, 1750), (x + 60, 1400), (x + 70, 1100)], close=False),
+        shape(ctx, lambda c, x=x: p_smooth(c, [(x - 120, 1100), (x - 105, 1400), (x - 95, 1780), (x, 1860),
+                                                 (x + 95, 1780), (x + 105, 1400), (x + 120, 1100)], close=False),
               C["skin_d"], BG_OUT, None)
-        shape(ctx, lambda c, x=x: p_blob(c, x + 120, 1450, 70, 90, 0.1, seed=x), C["oil"], BG_OUT * 0.8,
+        shape(ctx, lambda c, x=x: p_blob(c, x + 185, 1330, 80, 100, 0.1, seed=x), C["oil"], BG_OUT * 0.8,
               (0.1, 0.1))
-        stroke(ctx, [(x + 60, 1440), (x + 80, 1450)], BG_OUT)
+        stroke(ctx, [(x + 104, 1320), (x + 110, 1330)], BG_OUT)
         # hair shaft growing out
         sway = 20 * math.sin(t * 0.9 + x)
         limb(ctx, [(x, 1800), (x + 6, 1100), (x + 40 + sway, 500), (x + 120 + sway * 2, -100)], 34, C["hairc"],
              BG_OUT * 0.8)
-    stroke(ctx, [(-1000, 1100), (-610, 1100)], BG_OUT)
-    for a, b in ((-470, -70), (70, 470), (610, 1010), (1150, 1550), (1690, 2100)):
+    stroke(ctx, [(-1000, 1100), (-660, 1100)], BG_OUT)
+    for a, b in ((-420, -120), (120, 420), (660, 960), (1200, 1500), (1740, 2100)):
         pts = [(x, 1100 + 6 * math.sin(x / 40)) for x in range(a, b, 20)] + [(b, 1100)]
         stroke(ctx, pts, BG_OUT)
 
