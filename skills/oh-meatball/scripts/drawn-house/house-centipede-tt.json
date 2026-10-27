@@ -1,0 +1,1538 @@
+{
+ "title": "A 30-Legged Hunter Lives in Your House (Full Story)",
+ "series": "Things Living In Your House, Part 1",
+ "tiktok_caption": "house centipede facts 😱 30 legs, lives 7 years, hunts the other bugs in your house. Would you let it live with you? 🐛 yes / 🙅 no",
+ "sources": [
+  "Connecticut Agricultural Experiment Station, House Centipede (Scutigera coleoptrata) fact sheet, K. Dugas: 15 pairs of legs; antennae look like legs so predators can't tell which way it faces; fast runners that chase prey; forcipules (modified pincer-like legs) give a venomous sting to prey; stinging a human is very rare and only from rough handling; flees when discovered; hunts cockroach nymphs, bed bugs, flies, ants, silverfish, spiders; nocturnal; https://portal.ct.gov/-/media/caes/documents/publications/fact_sheets/entomology/house_centipede_scutigera.pdf",
+  "Washington State University Extension PestSense, House centipede: hunts spiders and insects including flies, cockroaches, moths; usually active at night; https://pestsense.cahnrs.wsu.edu/fact-sheet/house-centipede/",
+  "Penn State Extension, House Centipedes: 15 pairs of legs; feeds on silverfish, firebrats, carpet beetle larvae, cockroaches, spiders; comes out at night; harmless; https://extension.psu.edu/house-centipedes",
+  "Washington State University Extension PestSense, House centipede: newly hatched nymphs have four pairs of legs, with more pairs added at each molt; https://pestsense.cahnrs.wsu.edu/fact-sheet/house-centipede/ (CAES fact sheet above: upwards of 3 years to mature, can live as long as 7 years, frequents basements, cellars and first-floor bathrooms, most are never seen, pesticides not recommended, reduce humidity and exclude the insects they prey on; Penn State above: the female's last pair of legs is nearly twice the body length)"
+ ],
+ "photo_credits": [],
+ "_note": "Fully drawn (tools/drawn.py). No pop-up text. Ends on the next part's name; the only ask is the spoken subscribe line.",
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "detective",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1600,
+ "beats": [
+  {
+   "say": "Something with thirty legs hunts in your house at night.",
+   "scene": "bathroom",
+   "pad": 0.1,
+   "shots": [
+    {
+     "cam": [
+      560,
+      1120,
+      1.12
+     ],
+     "to": [
+      600,
+      1130,
+      1.18
+     ]
+    },
+    {
+     "at": "hunts",
+     "cam": [
+      640,
+      1180,
+      1.25
+     ],
+     "to": [
+      600,
+      1160,
+      1.2
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "c",
+     "type": "house_centipede",
+     "pos": [
+      1250,
+      1500
+     ],
+     "s": 0.68,
+     "flip": true,
+     "p": {
+      "mood": "smug",
+      "look": [
+       1,
+       0
+      ]
+     },
+     "moves": [
+      {
+       "at": 0,
+       "dur": 1.5,
+       "pos": [
+        900,
+        1500
+       ],
+       "walk": true,
+       "linear": true
+      },
+      {
+       "at": "house",
+       "dur": 0.6,
+       "pos": [
+        860,
+        1500
+       ],
+       "walk": true
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "shock",
+    "pos": [
+     300,
+     1500
+    ],
+    "size": 980,
+    "look": "c",
+    "shake": 0.6,
+    "moves": [
+     {
+      "at": "legs",
+      "dur": 0.45,
+      "pos": [
+       260,
+       1500
+      ],
+      "hop": 260
+     }
+    ]
+   },
+   "sfx": [
+    "scratch@0",
+    "boing@legs",
+    "scratch@house"
+   ]
+  },
+  {
+   "say": "It's a house centipede. Fifteen pairs of legs.",
+   "keep": true,
+   "shots": [
+    {
+     "cam": [
+      640,
+      1200,
+      1.3
+     ],
+     "to": [
+      680,
+      1220,
+      1.38
+     ]
+    },
+    {
+     "at": "Fifteen",
+     "cam": [
+      700,
+      1260,
+      1.45
+     ],
+     "to": [
+      720,
+      1270,
+      1.5
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "c",
+     "p": {
+      "mood": "happy",
+      "talk": 0
+     },
+     "set": [
+      {
+       "at": "Fifteen",
+       "dur": 0.3,
+       "p": {
+        "bite": 0.0
+       }
+      }
+     ],
+     "moves": [
+      {
+       "at": "Fifteen",
+       "dur": 0.8,
+       "pos": [
+        880,
+        1500
+       ],
+       "walk": true
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "think",
+    "pos": [
+     300,
+     1500
+    ],
+    "look": "c",
+    "moves": [
+     {
+      "at": "Fifteen",
+      "dur": 0.5,
+      "pos": [
+       420,
+       1500
+      ],
+      "walk": true
+     }
+    ],
+    "gest": [
+     [
+      "Fifteen",
+      "point",
+      1.2
+     ]
+    ]
+   },
+   "sfx": [
+    "pop@house",
+    "tink@Fifteen",
+    "tink@pairs"
+   ]
+  },
+  {
+   "say": "Its feelers look like legs. Which end is the face?",
+   "keep": true,
+   "shots": [
+    {
+     "cam": [
+      860,
+      1150,
+      1.25
+     ],
+     "to": [
+      880,
+      1160,
+      1.28
+     ]
+    },
+    {
+     "at": "which",
+     "cam": [
+      560,
+      1150,
+      1.3
+     ],
+     "to": [
+      540,
+      1160,
+      1.33
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "c",
+     "p": {
+      "mood": "calm"
+     }
+    }
+   ],
+   "mb": {
+    "pose": "nervous",
+    "pos": [
+     420,
+     1500
+    ],
+    "look": "c",
+    "moves": [
+     {
+      "at": 0.2,
+      "dur": 0.6,
+      "pos": [
+       620,
+       1500
+      ],
+      "walk": true
+     },
+     {
+      "at": "which",
+      "dur": 0.6,
+      "pos": [
+       380,
+       1500
+      ],
+      "walk": true
+     }
+    ]
+   },
+   "sfx": [
+    "whoosh@0.1",
+    "whoosh@which",
+    "pop@face"
+   ]
+  },
+  {
+   "say": "And it hunts. Cockroaches. Flies. Spiders.",
+   "keep": true,
+   "shots": [
+    {
+     "cam": [
+      640,
+      1150,
+      1.15
+     ],
+     "to": [
+      660,
+      1150,
+      1.18
+     ]
+    },
+    {
+     "at": "Spiders",
+     "cam": [
+      700,
+      1080,
+      1.12
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "c",
+     "p": {
+      "mood": "angry"
+     },
+     "set": [
+      {
+       "at": "Cockroaches",
+       "dur": 0.2,
+       "p": {
+        "bite": 1.0
+       }
+      },
+      {
+       "at": "Flies",
+       "dur": 0.2,
+       "p": {
+        "bite": 0.0
+       }
+      },
+      {
+       "at": "Spiders",
+       "dur": 0.2,
+       "p": {
+        "bite": 1.0
+       }
+      }
+     ],
+     "moves": [
+      {
+       "at": "hunts",
+       "dur": 0.4,
+       "pos": [
+        900,
+        1500
+       ],
+       "walk": true
+      }
+     ]
+    },
+    {
+     "id": "r",
+     "type": "roach",
+     "pos": [
+      1500,
+      1500
+     ],
+     "s": 0.8,
+     "flip": true,
+     "p": {
+      "mood": "shock"
+     },
+     "moves": [
+      {
+       "at": "Cockroaches-0.3",
+       "dur": 0.5,
+       "pos": [
+        1130,
+        1500
+       ],
+       "walk": true
+      }
+     ]
+    },
+    {
+     "id": "f",
+     "type": "fly",
+     "pos": [
+      1500,
+      700
+     ],
+     "s": 0.9,
+     "flip": true,
+     "p": {
+      "mood": "shock"
+     },
+     "moves": [
+      {
+       "at": "Flies-0.3",
+       "dur": 0.5,
+       "pos": [
+        1000,
+        820
+       ]
+      }
+     ]
+    },
+    {
+     "id": "sp",
+     "type": "cellar_spider",
+     "pos": [
+      980,
+      -900
+     ],
+     "s": 0.7,
+     "p": {
+      "mood": "shock"
+     },
+     "moves": [
+      {
+       "at": "Spiders-0.3",
+       "dur": 0.5,
+       "pos": [
+        980,
+        300
+       ]
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "shock",
+    "pos": [
+     380,
+     1500
+    ],
+    "look": "c",
+    "shake": 0.4,
+    "moves": [
+     {
+      "at": "Cockroaches",
+      "dur": 0.4,
+      "pos": [
+       340,
+       1500
+      ],
+      "hop": 160
+     }
+    ]
+   },
+   "sfx": [
+    "thud@hunts",
+    "scratch@Cockroaches",
+    "zap@Flies",
+    "whoosh@Spiders"
+   ]
+  },
+  {
+   "say": "It stings them with legs that turned into fangs.",
+   "keep": true,
+   "drop": [
+    "f",
+    "sp"
+   ],
+   "shots": [
+    {
+     "cam": [
+      780,
+      1220,
+      1.3
+     ],
+     "to": [
+      820,
+      1240,
+      1.38
+     ]
+    },
+    {
+     "at": "fangs",
+     "cam": [
+      740,
+      1170,
+      1.22
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "c",
+     "moves": [
+      {
+       "at": 0,
+       "dur": 0.5,
+       "pos": [
+        920,
+        1500
+       ],
+       "walk": true
+      }
+     ],
+     "set": [
+      {
+       "at": "stings",
+       "dur": 0.15,
+       "p": {
+        "bite": 0.0
+       }
+      },
+      {
+       "at": "stings+0.2",
+       "dur": 0.12,
+       "p": {
+        "bite": 1.0
+       }
+      },
+      {
+       "at": "turned",
+       "dur": 0.15,
+       "p": {
+        "bite": 0.0
+       }
+      },
+      {
+       "at": "fangs",
+       "dur": 0.12,
+       "p": {
+        "bite": 1.0
+       }
+      }
+     ]
+    },
+    {
+     "id": "r",
+     "moves": [
+      {
+       "at": 0,
+       "dur": 0.4,
+       "pos": [
+        1120,
+        1500
+       ]
+      }
+     ],
+     "set": [
+      {
+       "at": "fangs",
+       "p": {
+        "dead": true
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "shock",
+    "pos": [
+     400,
+     1500
+    ],
+    "look": "c",
+    "moves": [
+     {
+      "at": 0,
+      "dur": 0.4,
+      "pos": [
+       500,
+       1500
+      ],
+      "walk": true
+     }
+    ]
+   },
+   "sfx": [
+    "zap@stings+0.2",
+    "crunch@fangs",
+    "hit@fangs+0.1"
+   ]
+  },
+  {
+   "say": "Will it sting you? Almost never.",
+   "keep": true,
+   "drop": [
+    "r"
+   ],
+   "shots": [
+    {
+     "cam": [
+      560,
+      1120,
+      1.15
+     ],
+     "to": [
+      540,
+      1110,
+      1.2
+     ]
+    },
+    {
+     "at": "Almost",
+     "cam": [
+      620,
+      1140,
+      1.12
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "c",
+     "p": {
+      "bite": 0.0,
+      "mood": "calm"
+     },
+     "moves": [
+      {
+       "at": 0,
+       "dur": 0.8,
+       "pos": [
+        880,
+        1500
+       ],
+       "walk": true
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "you",
+    "pos": [
+     420,
+     1500
+    ],
+    "look": "viewer",
+    "gest": [
+     [
+      "Almost",
+      "laugh",
+      1.2
+     ]
+    ],
+    "moves": [
+     {
+      "at": "never",
+      "dur": 0.4,
+      "pos": [
+       420,
+       1500
+      ],
+      "hop": 150
+     }
+    ]
+   },
+   "sfx": [
+    "tink@you",
+    "pop@never",
+    "boing@never"
+   ]
+  },
+  {
+   "say": "Only if you grab it roughly.",
+   "keep": true,
+   "shots": [
+    {
+     "cam": [
+      640,
+      1150,
+      1.2
+     ],
+     "to": [
+      660,
+      1160,
+      1.26
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "c",
+     "p": {
+      "mood": "angry"
+     },
+     "set": [
+      {
+       "at": "grab",
+       "dur": 0.15,
+       "p": {
+        "bite": 1.0
+       }
+      },
+      {
+       "at": "roughly",
+       "dur": 0.15,
+       "p": {
+        "bite": 0.0
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "nervous",
+    "pos": [
+     420,
+     1500
+    ],
+    "look": "c",
+    "gest": [
+     [
+      "grab",
+      "point",
+      0.8
+     ]
+    ],
+    "moves": [
+     {
+      "at": "roughly",
+      "dur": 0.4,
+      "pos": [
+       360,
+       1500
+      ],
+      "hop": 160
+     }
+    ]
+   },
+   "sfx": [
+    "tink@grab",
+    "zap@roughly",
+    "boing@roughly+0.1"
+   ]
+  },
+  {
+   "say": "It would rather run. Most house centipedes are never seen.",
+   "keep": true,
+   "shots": [
+    {
+     "cam": [
+      600,
+      1120,
+      1.14
+     ],
+     "to": [
+      700,
+      1110,
+      1.12
+     ]
+    },
+    {
+     "at": "Most",
+     "cam": [
+      560,
+      1100,
+      1.1
+     ],
+     "to": [
+      540,
+      1090,
+      1.16
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "c",
+     "flip": false,
+     "p": {
+      "mood": "shock",
+      "look": [
+       1,
+       0
+      ]
+     },
+     "moves": [
+      {
+       "at": "run",
+       "dur": 0.9,
+       "pos": [
+        1750,
+        1500
+       ],
+       "walk": true,
+       "linear": true
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "shrug",
+    "pos": [
+     420,
+     1500
+    ],
+    "look": "c",
+    "gest": [
+     [
+      "Most",
+      "think",
+      1.5
+     ]
+    ]
+   },
+   "sfx": [
+    "scratch@run",
+    "whoosh@run+0.2",
+    "tink@never"
+   ]
+  },
+  {
+   "say": "Because by day they hide. Basements. Cellars. Bathrooms.",
+   "scene": "basement",
+   "drop": [
+    "c"
+   ],
+   "shots": [
+    {
+     "cam": [
+      620,
+      1080,
+      1.1
+     ],
+     "to": [
+      640,
+      1090,
+      1.14
+     ]
+    },
+    {
+     "at": "Cellars",
+     "cam": [
+      900,
+      1150,
+      1.2
+     ],
+     "to": [
+      920,
+      1150,
+      1.22
+     ]
+    },
+    {
+     "at": "Bathrooms",
+     "cam": [
+      560,
+      1090,
+      1.12
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "c2",
+     "type": "house_centipede",
+     "pos": [
+      1150,
+      1500
+     ],
+     "s": 0.55,
+     "flip": true,
+     "p": {
+      "mood": "sleepy",
+      "look": [
+       -1,
+       0
+      ]
+     },
+     "moves": [
+      {
+       "at": "hide",
+       "dur": 0.8,
+       "pos": [
+        1250,
+        1500
+       ],
+       "walk": true
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "nervous",
+    "pos": [
+     430,
+     1500
+    ],
+    "size": 980,
+    "prop": "flashlight",
+    "look": "c2",
+    "moves": [
+     {
+      "at": "Cellars",
+      "dur": 0.6,
+      "pos": [
+       700,
+       1500
+      ],
+      "walk": true
+     }
+    ]
+   },
+   "sfx": [
+    "click@0.1",
+    "whoosh@Cellars",
+    "pop@Bathrooms"
+   ]
+  },
+  {
+   "say": "Now the creepy part.",
+   "keep": true,
+   "shots": [
+    {
+     "cam": [
+      620,
+      1180,
+      1.25
+     ],
+     "to": [
+      640,
+      1200,
+      1.35
+     ]
+    }
+   ],
+   "actors": [],
+   "mb": {
+    "pose": "psst",
+    "pos": [
+     620,
+     1500
+    ],
+    "look": "viewer",
+    "prop": null
+   },
+   "sfx": [
+    "thud@creepy"
+   ]
+  },
+  {
+   "say": "A baby hatches with just four pairs of legs.",
+   "keep": true,
+   "drop": [
+    "c2"
+   ],
+   "shots": [
+    {
+     "cam": [
+      700,
+      1250,
+      1.35
+     ],
+     "to": [
+      760,
+      1300,
+      1.55
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "baby",
+     "type": "house_centipede",
+     "pos": [
+      980,
+      1500
+     ],
+     "s": 0.0,
+     "p": {
+      "pairs": 4,
+      "mood": "happy",
+      "look": [
+       -1,
+       0
+      ]
+     },
+     "flip": true,
+     "moves": [
+      {
+       "at": "baby",
+       "dur": 0.5,
+       "s": 0.3
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "shock",
+    "pos": [
+     560,
+     1500
+    ],
+    "look": "baby"
+   },
+   "sfx": [
+    "pop@baby",
+    "tink@four"
+   ]
+  },
+  {
+   "say": "Every time it molts, it grows more.",
+   "keep": true,
+   "shots": [
+    {
+     "cam": [
+      760,
+      1280,
+      1.45
+     ],
+     "to": [
+      760,
+      1220,
+      1.25
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "baby",
+     "set": [
+      {
+       "at": "molts",
+       "dur": 0.4,
+       "p": {
+        "pairs": 8
+       }
+      },
+      {
+       "at": "grows",
+       "dur": 0.4,
+       "p": {
+        "pairs": 12
+       }
+      },
+      {
+       "at": "more",
+       "dur": 0.4,
+       "p": {
+        "pairs": 15
+       }
+      }
+     ],
+     "moves": [
+      {
+       "at": "molts",
+       "dur": 0.4,
+       "s": 0.38
+      },
+      {
+       "at": "grows",
+       "dur": 0.4,
+       "s": 0.46
+      },
+      {
+       "at": "more",
+       "dur": 0.4,
+       "s": 0.55
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "think",
+    "pos": [
+     520,
+     1500
+    ],
+    "look": "baby",
+    "moves": [
+     {
+      "at": "more",
+      "dur": 0.4,
+      "pos": [
+       480,
+       1500
+      ],
+      "hop": 140
+     }
+    ]
+   },
+   "sfx": [
+    "pop@molts",
+    "pop@grows",
+    "pop@more"
+   ]
+  },
+  {
+   "say": "It takes about three years to grow up.",
+   "keep": true,
+   "shots": [
+    {
+     "cam": [
+      640,
+      1150,
+      1.18
+     ],
+     "to": [
+      660,
+      1150,
+      1.2
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "baby",
+     "set": [
+      {
+       "at": "grow",
+       "dur": 0.6,
+       "p": {
+        "mood": "smug"
+       }
+      }
+     ],
+     "moves": [
+      {
+       "at": "three",
+       "dur": 1.0,
+       "s": 0.68
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "deadpan",
+    "pos": [
+     480,
+     1500
+    ],
+    "look": "viewer"
+   },
+   "sfx": [
+    "tink@three",
+    "whoosh@grow"
+   ]
+  },
+  {
+   "say": "And it can live up to seven years.",
+   "keep": true,
+   "shots": [
+    {
+     "cam": [
+      600,
+      1120,
+      1.15
+     ],
+     "to": [
+      620,
+      1110,
+      1.2
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "baby",
+     "p": {
+      "mood": "happy"
+     }
+    }
+   ],
+   "mb": {
+    "pose": "shock",
+    "pos": [
+     480,
+     1500
+    ],
+    "look": "baby",
+    "shake": 0.5,
+    "moves": [
+     {
+      "at": "seven",
+      "dur": 0.45,
+      "pos": [
+       330,
+       1500
+      ],
+      "hop": 220
+     }
+    ]
+   },
+   "sfx": [
+    "boing@seven",
+    "pop@years"
+   ]
+  },
+  {
+   "say": "In your house.",
+   "keep": true,
+   "shots": [
+    {
+     "cam": [
+      420,
+      1060,
+      1.3
+     ],
+     "to": [
+      400,
+      1020,
+      1.4
+     ]
+    }
+   ],
+   "actors": [],
+   "mb": {
+    "pose": "nervous",
+    "pos": [
+     330,
+     1500
+    ],
+    "look": "viewer",
+    "shake": 0.6
+   },
+   "sfx": [
+    "thud@house"
+   ]
+  },
+  {
+   "say": "And the female's back legs are almost twice as long as her body.",
+   "keep": true,
+   "shots": [
+    {
+     "cam": [
+      700,
+      1300,
+      1.4
+     ],
+     "to": [
+      1000,
+      1300,
+      1.4
+     ]
+    },
+    {
+     "at": "twice",
+     "cam": [
+      760,
+      1200,
+      1.2
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "baby",
+     "pos": [
+      980,
+      1500
+     ],
+     "flip": false,
+     "p": {
+      "mood": "smug",
+      "look": [
+       -1,
+       0
+      ]
+     }
+    },
+    {
+     "id": "rul",
+     "type": "ruler",
+     "pos": [
+      400,
+      1390
+     ],
+     "s": 0.0,
+     "rot": -90,
+     "front": true,
+     "p": {
+      "length": 900
+     },
+     "moves": [
+      {
+       "at": "legs",
+       "dur": 0.4,
+       "s": 0.6
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "point",
+    "pos": [
+     470,
+     1500
+    ],
+    "look": "baby",
+    "gest": [
+     [
+      "twice",
+      "shock",
+      1.2
+     ]
+    ]
+   },
+   "sfx": [
+    "whoosh@back",
+    "tink@legs",
+    "pop@twice"
+   ]
+  },
+  {
+   "say": "So should you squish it?",
+   "keep": true,
+   "drop": [
+    "rul"
+   ],
+   "shots": [
+    {
+     "cam": [
+      600,
+      1120,
+      1.15
+     ],
+     "to": [
+      620,
+      1130,
+      1.22
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "baby",
+     "p": {
+      "mood": "worry"
+     }
+    }
+   ],
+   "mb": {
+    "pose": "think",
+    "pos": [
+     480,
+     1500
+    ],
+    "look": "baby",
+    "moves": [
+     {
+      "at": "squish",
+      "dur": 0.4,
+      "pos": [
+       560,
+       1500
+      ],
+      "hop": 120
+     }
+    ]
+   },
+   "sfx": [
+    "thud@squish+0.3"
+   ]
+  },
+  {
+   "say": "Bug experts say don't bother spraying it.",
+   "keep": true,
+   "shots": [
+    {
+     "cam": [
+      620,
+      1100,
+      1.12
+     ],
+     "to": [
+      600,
+      1100,
+      1.16
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "baby",
+     "p": {
+      "mood": "happy"
+     }
+    }
+   ],
+   "mb": {
+    "pose": "deadpan",
+    "pos": [
+     560,
+     1500
+    ],
+    "look": "viewer",
+    "gest": [
+     [
+      "spraying",
+      "facepalm",
+      1.2
+     ]
+    ]
+   },
+   "sfx": [
+    "tink@experts",
+    "pop@spraying"
+   ]
+  },
+  {
+   "say": "Dry out the damp, and the bugs it eats move out.",
+   "keep": true,
+   "shots": [
+    {
+     "cam": [
+      700,
+      1100,
+      1.1
+     ],
+     "to": [
+      740,
+      1110,
+      1.14
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "r2",
+     "type": "roach",
+     "pos": [
+      1400,
+      1500
+     ],
+     "s": 0.6,
+     "flip": false,
+     "p": {
+      "mood": "worry"
+     },
+     "moves": [
+      {
+       "at": "bugs",
+       "dur": 1.2,
+       "pos": [
+        1800,
+        1500
+       ],
+       "walk": true
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "present",
+    "pos": [
+     560,
+     1500
+    ],
+    "look": "r2"
+   },
+   "sfx": [
+    "whoosh@damp",
+    "scratch@bugs"
+   ]
+  },
+  {
+   "say": "Fewer bugs, fewer centipedes.",
+   "keep": true,
+   "shots": [
+    {
+     "cam": [
+      700,
+      1100,
+      1.12
+     ],
+     "to": [
+      760,
+      1100,
+      1.12
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "baby",
+     "flip": false,
+     "p": {
+      "mood": "worry",
+      "look": [
+       1,
+       0
+      ]
+     },
+     "moves": [
+      {
+       "at": "fewer#2",
+       "dur": 1.0,
+       "pos": [
+        1800,
+        1500
+       ],
+       "walk": true,
+       "linear": true
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "laugh",
+    "pos": [
+     560,
+     1500
+    ],
+    "look": "baby"
+   },
+   "sfx": [
+    "scratch@fewer#2",
+    "pop@centipedes"
+   ]
+  },
+  {
+   "say": "Subscribe. Part two is in your bed.",
+   "scene": "bedroom",
+   "drop": [
+    "baby",
+    "r2"
+   ],
+   "pad": 0.4,
+   "shots": [
+    {
+     "cam": [
+      560,
+      1120,
+      1.12
+     ],
+     "to": [
+      580,
+      1150,
+      1.2
+     ]
+    }
+   ],
+   "actors": [],
+   "mb": {
+    "pose": "point",
+    "pos": [
+     720,
+     1500
+    ],
+    "size": 980,
+    "look": "viewer",
+    "gest": [
+     [
+      "bed",
+      "psst",
+      1.2
+     ]
+    ]
+   },
+   "sfx": [
+    "pop@0.05",
+    "whoosh@bed"
+   ]
+  }
+ ]
+}

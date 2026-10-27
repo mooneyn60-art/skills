@@ -44,16 +44,16 @@ def _banded(ctx, pts, w, col, band):
 
 def house_centipede(ctx, t, p):
     """Side view facing right, ~1900 wide with antennae and last legs. p: mood, look, bite (0..1 fangs snap),
-    talk."""
+    talk, pairs (leg pairs, default 15)."""
     ph = p.get("phase", 0.0)
     walking = p.get("walking", False)
     by = -230 + (5 * math.sin(ph * 2) if walking else 4 * math.sin(t * 2))
-    n = 15
-    hips = [(250 - i * 36, by + 10) for i in range(n)]
+    n = int(p.get("pairs", 15))   # babies hatch with 4 pairs and add more at each moult
+    hips = [(250 - i * 36 * 15 / max(n, 4), by + 10) for i in range(n)]
 
     def leg(i, far):
         hx, hy = hips[i]
-        reach = 560 - i * 85
+        reach = 560 - i * 85 * 14 / max(n - 1, 3)
         fx, fy = hx + reach * (0.85 if far else 1.0) + (-40 if far else 0), (-34.0 if far else 0.0)
         q = ph * 1.4 - i * 0.75 + (math.pi if far else 0)
         if walking:
@@ -61,7 +61,7 @@ def house_centipede(ctx, t, p):
             fy -= 40 * max(0.0, math.cos(q))
         else:
             fx += 8 * math.sin(t * 2 + i)
-        kh = (150 if far else 175) + abs(7 - i) * 9
+        kh = (150 if far else 175) + abs(7 - i * 14 / max(n - 1, 3)) * 9
         kx = hx + (fx - hx) * 0.45
         pts = [(hx, hy), (kx, min(hy, fy) - kh), (fx, fy)]
         if i == n - 1:  # the very long last legs trail back like a second pair of antennae
@@ -84,7 +84,7 @@ def house_centipede(ctx, t, p):
     ctx.clip()
     for dy in (-40, -8, 24):
         stroke(ctx, [(-310, by + dy), (300, by + dy - 6)], 12, color=C["cent_st"])
-    for i in range(n):
+    for i in range(15):
         x = 262 - i * 38
         stroke(ctx, [(x, by - 80), (x - 6, by + 50)], 4, color=C["cent_dk"])
     ctx.restore()
