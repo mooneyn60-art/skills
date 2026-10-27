@@ -1,0 +1,114 @@
+{
+ "series": "Things Living In Your House, Part 10",
+ "sources": [
+  "University of Kentucky Entomology, Clothes Moths (ENTFACT-609): adults do not feed and cause no injury to fabrics; adults lay about 40-50 eggs on vulnerable materials; worm-like larvae digest keratin, a fibrous protein in animal materials; larvae eat wool, fur, silk, feathers, felt and leather, plus lint and shed pet hair in vents and ducts; cotton and synthetics rarely attacked unless blended with wool or soiled with food stains or body oils; perspiration odors attract; avoid light, seldom seen; prefer dark closets, basements, attics; https://entomology.mgcafe.uky.edu/ef609",
+  "University of California IPM, Pest Notes: Clothes Moths (Publication 7435): larvae are the damaging stage; females lay 40-50 eggs; adults about 1/4 inch at rest; casemaking larvae carry a silken case that takes on the color of the fabric they eat; larval stage lasts 35 days to 2 1/2 years depending on temperature and food; adults are weak, fluttery flyers that stay near dark closets; laundering at 120 F or more for 20-30 minutes, or sealing in a bag and freezing for several days below 18 F, kills all stages; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7435.html",
+  "NC State Extension, Clothes Moths and Carpet Beetles: Controlling Fabric Pests: fabric pests are among the few insects that can digest keratin; https://content.ces.ncsu.edu/clothes-moths-carpet-beetles-controlling-fabric-pests"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "moth",
+  "scene": "bedroom",
+  "scene_p": {
+   "time": "dusk"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "The Moth in Your Closet Never Eats. Its Babies Eat Your Sweater 🧶",
+ "tiktok_caption": "the moth in your closet never eats 🧶 its babies do, and they go for the sweaty clothes first. Would you check your wool sweaters tonight? 🔦 checking / 🙈 nope",
+ "beats": [
+  {
+   "m": "hook",
+   "say": "The moth in your closet never eats. Not once."
+  },
+  {
+   "m": "name",
+   "say": "The clothes moth. Tiny, beige, and it hates the light."
+  },
+  {
+   "m": "fact",
+   "say": "The adult can't hurt your clothes. It just lays forty to fifty eggs."
+  },
+  {
+   "scene": "fibers",
+   "m": "solo",
+   "say": "Right on your wool sweater. In the dark."
+  },
+  {
+   "m": "escalate",
+   "say": "Then the babies hatch, and start eating."
+  },
+  {
+   "m": "punch",
+   "say": "That hole in your sweater? That was dinner."
+  },
+  {
+   "m": "fact",
+   "say": "The babies are tiny, worm-like caterpillars."
+  },
+  {
+   "m": "xray",
+   "say": "They digest keratin, the tough protein in wool, fur and feathers."
+  },
+  {
+   "m": "fact",
+   "say": "Very few bugs can do that. These can."
+  },
+  {
+   "with": [
+    "moth",
+    "moth",
+    "moth"
+   ],
+   "m": "count",
+   "say": "Wool. Fur. Silk. Feathers. Even leather."
+  },
+  {
+   "scene": "basement",
+   "m": "solo",
+   "say": "They'll even eat the lint and pet hair inside your heating vents."
+  },
+  {
+   "m": "escalate",
+   "say": "And here's the gross part. They go for your sweat. Clothes with body oils and food stains get eaten first."
+  },
+  {
+   "m": "fact",
+   "say": "Some babies spin a little silk case and carry it around like a sleeping bag."
+  },
+  {
+   "m": "escalate",
+   "say": "And the case turns the color of whatever fabric it ate."
+  },
+  {
+   "m": "calm",
+   "say": "They're patient too. With cool air and little food, a baby can take up to two and a half years to grow up."
+  },
+  {
+   "m": "fact",
+   "say": "The fix? Wash wool hot, or seal it in a bag and freeze it for a few days."
+  },
+  {
+   "m": "fact",
+   "say": "Would you check your wool sweaters tonight?"
+  },
+  {
+   "m": "punch",
+   "say": "The moth you see isn't the problem. It's the babies you don't."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Part eleven lives between the pages of your books.",
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   }
+  }
+ ]
+}
