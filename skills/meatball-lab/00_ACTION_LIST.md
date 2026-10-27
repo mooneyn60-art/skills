@@ -3,6 +3,16 @@
 Files: 01 watch hours, 02 breakout Shorts, 03 subscriber conversion, 04 review risk, 05 production, 06 other levers. Data is in `data/`.
 **vidIQ credits spent: 105 of 248** (01: 25, 02: 75, 03: 5). About 143 are left for the channel until the Nov 24 reset.
 
+**UPDATE 2026-10-27 (late), stick-figure focus (file 07):**
+- Measured against stick-figure explainer accounts only, Meatball is already top-quartile on YouTube Shorts.
+- Peer stick-figure explainer channels on YouTube have a median of 846 views (n=53 Shorts, 2 channels). The same creators get 1-6.5M on TikTok/Instagram at 56-313 s.
+- So:
+  - **(a)** Make TikTok the stick-figure Shorts engine with a "Why It Sucks to Be Born as a [Animal]" series at 60-120 s (P beats the TikTok median by 3x within 10 posts: 55%).
+  - **(b)** YouTube Shorts are 30-45 s cut-downs, not ≤20 s.
+  - **(c)** YouTube's real job is long-form compilations (rank 2 below).
+  - **(d)** Keep the stick figure and draw the world in the same doodle style. The $250-600 character kit in rank 5 becomes doodle backgrounds and animals instead.
+- vidIQ: 170 of 248 spent; 78 left.
+
 **Deadline:** both bars met and the application filed by **about Dec 15**. Review takes about a month, a rejection adds a 30-day wait, and from Feb 1 the bar is 8,000 h. All YPP odds below are for acceptance under today's rules.
 
 | Rank | Action | Owner | Probability it does what it says |

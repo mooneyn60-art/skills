@@ -12,18 +12,21 @@ Start with `00_ACTION_LIST.md`.
 | 04_review_risk.md | Inauthentic and reused content policy, real cases, a 20-item self-audit |
 | 05_production_at_scale.md | Puppet-compositor pipeline, costs, and what to buy first |
 | 06_other_levers.md | Other levers ranked, deadline math, and YPP odds |
+| 07_stick_figure_focus.md | Stick-figure explainer accounts only: YouTube ceiling vs TikTok/IG, series formats, length |
 
 ## Data files (`data/`)
 - `shorts_outliers_raw.csv`
 - `shorts_outliers_coded.csv`
 - `compilations.csv`
 - `channels_conversion.csv`
+- `stickfigure_youtube_shorts.csv`
 
 ## vidIQ credit log (2026-10-27)
-248 at start, 105 spent, about 143 left.
+248 at start, 170 spent, 78 left.
 
 | Item | Credits | Spent on |
 |---|---|---|
 | 02 | 75 | 3 outlier searches (15) and 6 Shorts watched (60) |
 | 01 | 25 | 2 long-form outlier searches (10), 1 video metadata batch (5), 2 keyword searches (10) |
 | 03 | 5 | 1 channel batch |
+| 07 | 65 | 3 outlier searches (15), 1 peer-channel search (5), 9 channel upload lists (45) |
