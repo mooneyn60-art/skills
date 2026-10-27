@@ -239,7 +239,7 @@ def expand(spec):
             hy = stage.hero_y(F)
             hero = _hero(stage, F, x=540, s=stage.s * line.get("zoom", 1.3), p={"mood": line.get("mood", "smug")})
             hero["p"].update(line.get("act", {}))
-            cy = hy - 300 if stage.cfg.get("floor", True) else hy + 200
+            cy = hy - 470 if stage.cfg.get("floor", True) else hy + 120
             b = _beat(stage, line, F, [{"cam": [540, cy, 1.15], "to": [540, cy + 20, 1.32]}], hero,
                       _mb(stage, F, "think", hidden=True), ["whoosh@2%", "tink@60%"])
         elif m == "tease":

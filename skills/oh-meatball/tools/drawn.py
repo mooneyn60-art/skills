@@ -645,7 +645,11 @@ def main():
     ap.add_argument("--stills", help="write PNG stills at these comma-separated seconds and stop")
     ap.add_argument("--work")
     args = ap.parse_args()
-    spec = drawn_macros.expand(json.load(open(args.spec)))
+    raw = json.load(open(args.spec))
+    st = raw.get("stage", {})
+    if st.get("creature_cfg") and not st.get("actor"):   # an inline new animal: build it before the fork pool
+        ACTORS.setdefault("sp." + st["creature"], build(dict(SPECIES.get(st["creature"], {}), **st["creature_cfg"])))
+    spec = drawn_macros.expand(raw)
     work = args.work or os.path.join(os.path.dirname(os.path.abspath(args.out)), ".work-" +
                                      os.path.splitext(os.path.basename(args.out))[0])
     os.makedirs(work, exist_ok=True)
