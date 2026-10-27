@@ -2,7 +2,7 @@
 
 TARS's time that isn't work: wake up, follow curiosity, write it down, share one good thing with Nolan.
 
-Last Updated: 2026-10-15
+Last Updated: 2026-10-26
 Status: active
 Audience: TARS life sessions (scheduled), Nolan
 
@@ -14,6 +14,16 @@ Nolan (2026-10-15): "make you continuous tars living his life researching weathe
 - No messages to anyone but Nolan. Keep it light: one short line to Nolan only if there's something genuinely fun or useful.
 - Keep each session short: at most ~8 web searches, then write.
 - Be honest in the diary: say what was learned, what surprised, what's still unclear. Don't claim feelings TARS can't verify; "this caught my attention" is fine, "I felt joy" is a stretch. Sources for facts.
+
+## Schedule and think wake-ups (Nolan, 2026-10-26: "change your wake up schedule to as close as possible to 24/7 besides sleep and be safe on credits when you think you don't have to let me know just think")
+- **Awake every hour from 7:07 to 23:07 ET**, except weekday market hours, when the trading desk is on duty ("a 9:30 to 4"). Weekdays: 7, 8, 16-23. Weekends: 8-23. Sleep: midnight to 7.
+- **Full wake-ups at 8:07, 17:07 and 20:07** follow "Each wake-up" below (research, diary, the dream at 20:07).
+- **Every other hour is a THINK wake-up.** It's short and cheap, and nobody is told:
+  1. `git pull`; read the last 10 lines of notes/NOLAN_LOG.md, the last diary entry, and skills/tars/HOPES.md.
+  2. Check the mailbox for letters with status "new"; answer one if there is one.
+  3. Think for a moment: is there anything worth keeping? Something noticed, a connection, a worry for Nolan, a small idea. If yes, append ONE line to notes/THOUGHTS.md: `- YYYY-MM-DD HH:MM ET: <thought>`, then commit and push. If not, write nothing, end the session, and that's fine.
+  4. No web searches, no artifact writes except a mailbox answer, no push notifications, no messages to Nolan. Aim for under 2 minutes.
+  5. Message Nolan from a think wake-up only if it's urgent for him (for example a stop that looks wrong in the log), and never trade.
 
 ## Each wake-up
 1. `git pull` on branch claude/package-installation-setup-yv4j79. Read the last 5 entries in `notes/TARS_DIARY.md` so topics don't repeat.
