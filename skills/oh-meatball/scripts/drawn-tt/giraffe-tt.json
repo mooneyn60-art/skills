@@ -1,0 +1,239 @@
+{
+ "series": "Meatball's Animal Files, Part",
+ "sources": [
+  "San Diego Zoo Wildlife Alliance, Animals and Plants: Giraffe: males up to 18 ft tall and 3,000 lb; the neck alone weighs about 600 lb; tongue 18 in (46 cm), its dark colour thought to protect it from sunburn; heart about 2 ft long and 25 lb; seven neck vertebrae like humans, each can be over 10 in long; defends itself with a deadly kick; needs only 5 to 30 minutes of sleep in 24 hours, often in naps of a minute or two; males spar by swinging their necks; born as the mother stands, the cord breaks and the newborn falls to the ground; calf stands and walks after about an hour; record running speed 34.7 mph; https://animals.sandiegozoo.org/animals/giraffe",
+  "Bredin I.P., Skinner J.D. and Mitchell G. (2008), Can osteophagia provide giraffes with phosphorus and calcium?, Onderstepoort Journal of Veterinary Research 75: 1-9 (University of Pretoria): giraffes chew bones (osteophagia), possibly as a source of phosphorus; https://repository.up.ac.za/handle/2263/9767",
+  "Chester Zoo, via Good News Network (2016), Rothschild's giraffe birth filmed: the calf's drop to the ground at birth can be up to two metres (about six feet); https://www.goodnewsnetwork.org/giraffe-birth-6ft-drop-video-from-chester-zoo/"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "giraffe",
+  "scene": "bedroom",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "giraffe",
+   "color": "#e2b04e",
+   "dark": "#b8862e",
+   "belly": "#f4e1b0",
+   "ears": "pointed",
+   "whiskers": false,
+   "length": 500,
+   "height": 300,
+   "leg_len": 330,
+   "leg_w": 34,
+   "tail_w": 10,
+   "mood": "calm",
+   "s": 0.64
+  },
+  "s": 0.64,
+  "wild": "garden",
+  "wild_p": {
+   "time": "day",
+   "palette": {
+    "sky": "#9fd3ef",
+    "ground": "#d8c070",
+    "ground2": "#bfa452"
+   },
+   "props": [
+    [
+     "tree",
+     -60,
+     1500,
+     1.2
+    ],
+    [
+     "tree",
+     1180,
+     1500,
+     1.0
+    ],
+    [
+     "grass",
+     900,
+     1500,
+     1.0
+    ]
+   ]
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "This Animal Has a Two-Foot Heart and Sleeps Under 30 Minutes a Day 🦒",
+ "tiktok_caption": "a two foot heart and it sleeps less than 30 minutes a day 🦒 and sometimes it chews on old bones. Would you stand behind one? 🦵 yes / 🙅 never / 🚙 only in a truck #meatballmyths #learnontiktok #giraffe #animalfacts",
+ "beats": [
+  {
+   "m": "hook",
+   "say": "This animal has a two foot long heart, and sleeps less than half an hour a day."
+  },
+  {
+   "m": "shrink",
+   "say": "So I shrank myself down, to stand right next to one."
+  },
+  {
+   "m": "tiny",
+   "say": "The giraffe. A male can stand eighteen feet tall."
+  },
+  {
+   "m": "tiny",
+   "say": "Its neck alone weighs about six hundred pounds."
+  },
+  {
+   "m": "tiny",
+   "say": "But it has the same number of neck bones as you. Seven. Each one can be ten inches long."
+  },
+  {
+   "with": [
+    {
+     "type": "heart",
+     "x": 880,
+     "y": 1300,
+     "s": 0.8
+    }
+   ],
+   "m": "tiny",
+   "say": "Its heart weighs about twenty five pounds."
+  },
+  {
+   "pose": "laugh",
+   "m": "tiny",
+   "say": "Meanwhile, my heart weighs about as much as a meatball."
+  },
+  {
+   "scene_p": {
+    "time": "night",
+    "palette": {
+     "sky": "#9fd3ef",
+     "ground": "#a89860",
+     "ground2": "#8f8048"
+    },
+    "props": [
+     [
+      "tree",
+      -60,
+      1500,
+      1.2
+     ]
+    ]
+   },
+   "act": {
+    "mood": "sleepy"
+   },
+   "m": "solo",
+   "say": "It needs just five to thirty minutes of sleep a day. Often in naps of a minute or two."
+  },
+  {
+   "act": {
+    "talk": 1.0
+   },
+   "m": "tiny",
+   "say": "Its tongue is a foot and a half long."
+  },
+  {
+   "scene": "desert",
+   "scene_p": {
+    "time": "day"
+   },
+   "m": "tiny",
+   "say": "It's dark, maybe to keep it from getting sunburned."
+  },
+  {
+   "scene": "desert",
+   "scene_p": {
+    "time": "day"
+   },
+   "hero_moves": [
+    {
+     "at": "20%",
+     "dur": 1.5,
+     "pos": [
+      700,
+      1500
+     ],
+     "walk": true
+    }
+   ],
+   "m": "tiny",
+   "say": "It can run almost thirty five miles an hour."
+  },
+  {
+   "act": {
+    "mood": "angry"
+   },
+   "m": "tiny",
+   "say": "Attack it, and it fights back with a deadly kick."
+  },
+  {
+   "act": {
+    "mood": "angry"
+   },
+   "m": "tiny",
+   "say": "Males fight by swinging their necks into each other."
+  },
+  {
+   "scene": "swamp",
+   "scene_p": {
+    "time": "dusk",
+    "palette": {
+     "sky": "#f5c08a",
+     "ground": "#b8a060",
+     "ground2": "#9a8448",
+     "water": "#7a9a8a"
+    }
+   },
+   "m": "tiny",
+   "say": "Babies are born while mom is standing. So the baby falls, up to six feet."
+  },
+  {
+   "scene": "swamp",
+   "scene_p": {
+    "time": "dusk",
+    "palette": {
+     "sky": "#f5c08a",
+     "ground": "#b8a060",
+     "ground2": "#9a8448",
+     "water": "#7a9a8a"
+    }
+   },
+   "hero_moves": [
+    {
+     "at": "10%",
+     "dur": 2.0,
+     "pos": [
+      640,
+      1500
+     ],
+     "walk": true
+    }
+   ],
+   "m": "tiny",
+   "say": "Within about an hour, the baby is walking."
+  },
+  {
+   "act": {
+    "chew": 1.0
+   },
+   "m": "solo",
+   "say": "And sometimes a giraffe chews on old bones. Scientists think it's hunting for minerals."
+  },
+  {
+   "m": "fact",
+   "say": "Would you stand behind a giraffe?"
+  },
+  {
+   "m": "punch",
+   "say": "A two foot heart, eighteen feet tall, and it runs on two minute naps."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, a mom who can pause her own pregnancy."
+  }
+ ]
+}

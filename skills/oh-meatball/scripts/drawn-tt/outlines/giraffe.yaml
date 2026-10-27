@@ -1,0 +1,145 @@
+slug: giraffe
+variant: B
+out: episodes/drawn-tt
+specs: scripts/drawn-tt
+series: Meatball's Animal Files
+title: This Animal Has a Two-Foot Heart and Sleeps Under 30 Minutes a Day 🦒
+tiktok_caption: 'a two foot heart and it sleeps less than 30 minutes a day 🦒 and sometimes it chews on old bones. Would you
+  stand behind one? 🦵 yes / 🙅 never / 🚙 only in a truck #meatballmyths #learnontiktok #giraffe #animalfacts'
+creature: giraffe
+creature_cfg:
+  plan: mammal
+  label: giraffe
+  color: '#e2b04e'
+  dark: '#b8862e'
+  belly: '#f4e1b0'
+  ears: pointed
+  whiskers: false
+  length: 500
+  height: 300
+  leg_len: 330
+  leg_w: 34
+  tail_w: 10
+  mood: calm
+  s: 0.64
+s: 0.64
+scene: bedroom
+scene_p:
+  time: day
+wild: garden
+wild_p:
+  time: day
+  palette:
+    sky: '#9fd3ef'
+    ground: '#d8c070'
+    ground2: '#bfa452'
+  props:
+  - - tree
+    - -60
+    - 1500
+    - 1.2
+  - - tree
+    - 1180
+    - 1500
+    - 1.0
+  - - grass
+    - 900
+    - 1500
+    - 1.0
+music: mystery
+next: Next, a mom who can pause her own pregnancy.
+sources:
+- 'San Diego Zoo Wildlife Alliance, Animals and Plants: Giraffe: males up to 18 ft tall and 3,000 lb; the neck alone weighs
+  about 600 lb; tongue 18 in (46 cm), its dark colour thought to protect it from sunburn; heart about 2 ft long and 25 lb;
+  seven neck vertebrae like humans, each can be over 10 in long; defends itself with a deadly kick; needs only 5 to 30 minutes
+  of sleep in 24 hours, often in naps of a minute or two; males spar by swinging their necks; born as the mother stands, the
+  cord breaks and the newborn falls to the ground; calf stands and walks after about an hour; record running speed 34.7 mph;
+  https://animals.sandiegozoo.org/animals/giraffe'
+- 'Bredin I.P., Skinner J.D. and Mitchell G. (2008), Can osteophagia provide giraffes with phosphorus and calcium?, Onderstepoort
+  Journal of Veterinary Research 75: 1-9 (University of Pretoria): giraffes chew bones (osteophagia), possibly as a source
+  of phosphorus; https://repository.up.ac.za/handle/2263/9767'
+- 'Chester Zoo, via Good News Network (2016), Rothschild''s giraffe birth filmed: the calf''s drop to the ground at birth
+  can be up to two metres (about six feet); https://www.goodnewsnetwork.org/giraffe-birth-6ft-drop-video-from-chester-zoo/'
+yt:
+- hook: This animal has a two foot long heart, and sleeps less than half an hour a day.
+- shrink: So I shrank myself down, to stand right next to one.
+- tiny: The giraffe. A male can stand eighteen feet tall.
+- tiny: Its neck alone weighs about six hundred pounds.
+- tiny: But it has the same number of neck bones as you. Seven. Each one can be ten inches long.
+- tiny: Its heart weighs about twenty five pounds.
+  with:
+  - type: heart
+    x: 880
+    y: 1300
+    s: 0.8
+- tiny: Meanwhile, my heart weighs about as much as a meatball.
+  pose: laugh
+tt:
+- solo: It needs just five to thirty minutes of sleep a day. Often in naps of a minute or two.
+  scene_p:
+    time: night
+    palette:
+      sky: '#9fd3ef'
+      ground: '#a89860'
+      ground2: '#8f8048'
+    props:
+    - - tree
+      - -60
+      - 1500
+      - 1.2
+  act:
+    mood: sleepy
+- tiny: Its tongue is a foot and a half long.
+  act:
+    talk: 1.0
+- tiny: It's dark, maybe to keep it from getting sunburned.
+  scene: desert
+  scene_p:
+    time: day
+- tiny: It can run almost thirty five miles an hour.
+  scene: desert
+  scene_p:
+    time: day
+  hero_moves:
+  - at: 20%
+    dur: 1.5
+    pos:
+    - 700
+    - 1500
+    walk: true
+- tiny: Attack it, and it fights back with a deadly kick.
+  act:
+    mood: angry
+- tiny: Males fight by swinging their necks into each other.
+  act:
+    mood: angry
+- tiny: Babies are born while mom is standing. So the baby falls, up to six feet.
+  scene: swamp
+  scene_p:
+    time: dusk
+    palette:
+      sky: '#f5c08a'
+      ground: '#b8a060'
+      ground2: '#9a8448'
+      water: '#7a9a8a'
+- tiny: Within about an hour, the baby is walking.
+  scene: swamp
+  scene_p:
+    time: dusk
+    palette:
+      sky: '#f5c08a'
+      ground: '#b8a060'
+      ground2: '#9a8448'
+      water: '#7a9a8a'
+  hero_moves:
+  - at: 10%
+    dur: 2.0
+    pos:
+    - 640
+    - 1500
+    walk: true
+- solo: And sometimes a giraffe chews on old bones. Scientists think it's hunting for minerals.
+  act:
+    chew: 1.0
+- fact: Would you stand behind a giraffe?
+- punch: A two foot heart, eighteen feet tall, and it runs on two minute naps.
