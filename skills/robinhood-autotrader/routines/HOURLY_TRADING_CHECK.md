@@ -149,7 +149,7 @@ option, answer about the option.
 
 ## SOFI IS CARVED OUT (Nolan's decision 2026-09-22)
 
-His discretionary position, 1-2 year thesis, >$20 target. STOPPED OUT 2026-09-30 3:55pm ET: all 5 shares sold at 15.755 by stop 6ab12ef4 (-6.2% vs 16.80 avg). RE-BOUGHT 2026-10-19 11:05 ET: 5 sh @14.48 (Nolan, in the app). Nolan let TARS pick ("Your the bosss") then said "Start ratchet": GTC stop-market 13.32 (-8%), order 6ad63a8a, confirmed 11:43 ET. RATCHET = R4 at the 5:17 close check: stop = max(13.32, 14.48 once a close >= 15.64, 0.80 x highest close since 10/19). Only raise; cancel, confirm, re-place, confirm. Earnings ~10/27 can gap through it. Exempt from the
+His discretionary position, 1-2 year thesis, >$20 target. STOPPED OUT 2026-09-30 3:55pm ET: all 5 shares sold at 15.755 by stop 6ab12ef4 (-6.2% vs 16.80 avg). RE-BOUGHT 2026-10-19 11:05 ET: 5 sh @14.48 (Nolan, in the app). Nolan let TARS pick ("Your the bosss") then said "Start ratchet": GTC stop-market 13.32 (-8%), order 6ad63a8a, confirmed 11:43 ET. RAISED 2026-10-27 5:18pm ET to BREAKEVEN 14.48 (order 6ae1153c; 6ad63a8a cancelled) after a 16.395 close on the Q3 beat. RATCHET = R4 at the 5:17 close check: stop = max(13.32, 14.48 once a close >= 15.64, 0.80 x highest close since 10/19). Only raise; cancel, confirm, re-place, confirm. Earnings ~10/27 can gap through it. Exempt from the
 trend exit and the sector cap, excluded from expectancy. Stop per the ratchet above
 unless he says otherwise. Q3 earnings expected 2026-10-27.
 
