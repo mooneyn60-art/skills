@@ -18,7 +18,7 @@ Checks (each one is cheap, local, and uses only files already in the repo):
   4. metrics.csv: zero subscribers gained in the last 7 days
   5. doc drift: routine docs that mention a retired format, an old branch, or contradict CADENCE
   6. expert playbooks over the 300-line cap
-  7. render length vs slot (added 10/25): a YouTube Short over 35 s, or a day with no 60 s+ TikTok
+  7. render length vs slot (added 10/25): a YouTube Short over 40 s (drawn Shorts run 18-40 s, 10/27), or a day with no 60 s+ TikTok
 """
 import csv
 import datetime as dt
@@ -297,7 +297,7 @@ def check_durations(root, now):
         secs = video_seconds(os.path.join(root, "episodes", r.get("episode", ""), f))
         if secs is None:
             continue
-        if r.get("network") == "youtube" and secs > 35:
+        if r.get("network") == "youtube" and secs > 40:
             long_yt.append(f"{r['date']} {f} ({secs:.0f} s)")
         if r.get("network") == "tiktok":
             tt_days.add(t.date())
@@ -306,7 +306,7 @@ def check_durations(root, now):
             else:  # Nolan, 10/26: every TikTok is 60 s+; it was always the rule and the queue drifted.
                 short_tt.append(f"{r['date']} {f} ({secs:.0f} s)")
     if long_yt:
-        add("WARN", "postmaster", f"{len(long_yt)} queued YouTube Short(s) run over 35 s: {', '.join(long_yt[:4])}.",
+        add("WARN", "postmaster", f"{len(long_yt)} queued YouTube Short(s) run over 40 s: {', '.join(long_yt[:4])}.",
             "Swap in a 20-25 s render or set the post to draft; the long cut belongs on TikTok.")
     if short_tt:
         add("CRITICAL", "postmaster", f"{len(short_tt)} queued TikTok(s) under 60 s earn $0: {', '.join(short_tt[:4])}.",

@@ -33,3 +33,12 @@ I moved four "deep" case TikToks into today's slots without ffprobing them. Card
 57.9 s, so both would have earned $0; the midday scan caught it 40 minutes before the 1 PM post. Fixed with a 4 s
 "NEXT CASE TOMORROW / Follow Meatball" end card (63.6 s and 61.9 s).
 Rule: ffprobe every TikTok before it is scheduled or moved, and use 61 s as the floor (60.0 is a coin flip).
+
+## 2026-10-27 evening
+- I misread Nolan's "the case files new ones drawn ones are doing better" as "the drawn case files are doing better" and
+  launched more case files. He meant drawn beats case files. Before acting on an ambiguous message, check it against
+  the data I already have (the case Shorts had 1-88 views), and ask in one line if the data doesn't settle it.
+- A length gate I'd forgotten (YT_RANGE 18-24 s) silently discarded 29 renders. When a policy changes (Shorts up to
+  40 s), grep the tools for the old number in the same commit.
+- Background renders all ran with an old kit for one animal (moose without antlers). Check a still of each re-render,
+  not just the first.
