@@ -1,0 +1,163 @@
+{
+ "title": "S1 sample: Are Daddy Longlegs the Most Venomous Spiders? (fixed renderer, 10/27)",
+ "_note": "Re-render of the 10/24 Short (episodes/myths-02/short-daddy.mp4, scripts/myths-02-shorts/daddy.json) on the TARS 10/27 renderer defaults: hard cuts, no picture over 2.5 s, frame 0 sharp and subject-filled, Meatball clear of the subject, no photo blown up past 1.5x, poll at ~10-12 s, one subscribe pill in the last 3-5 s. No quiz (OPERATIONS: NO QUIZZES). Facts unchanged from the original script. Photos: iNaturalist, CC0/CC BY only.",
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+0%",
+ "tempo": 1.1,
+ "style": "v4",
+ "music": "music/quiz-bed.m4a",
+ "names": {
+  "Opiliones": "Harvestman",
+  "Pholcus phalangioides": "Cellar spider"
+ },
+ "beats": [
+  {
+   "say": "This daddy longlegs has zero venom.",
+   "pose": "shock",
+   "act": "peek",
+   "label": {
+    "text": "ZERO\nVENOM",
+    "at": "zero"
+   },
+   "sfx": [
+    "pop@zero"
+   ],
+   "shots": [
+    {
+     "photo": "Opiliones",
+     "obs": 191157326
+    }
+   ]
+  },
+  {
+   "say": "It's not even a spider. It's a harvestman.",
+   "pose": "point",
+   "punch": "harvestman",
+   "shots": [
+    {
+     "photo": "Opiliones",
+     "obs": 98286913
+    },
+    {
+     "photo": "Opiliones",
+     "obs": 33697019,
+     "at": "harvestman"
+    }
+   ]
+  },
+  {
+   "say": "No silk. No venom glands.",
+   "pose": "deadpan",
+   "label": {
+    "text": "NO VENOM\nGLANDS",
+    "at": "glands"
+   },
+   "shots": [
+    {
+     "photo": "Opiliones",
+     "obs": 191157326
+    },
+    {
+     "photo": "Opiliones",
+     "obs": 98286913,
+     "at": "venom"
+    }
+   ]
+  },
+  {
+   "say": "Another daddy longlegs lives in your basement.",
+   "pose": "nervous",
+   "act": "shake",
+   "label": {
+    "text": "CELLAR\nSPIDER",
+    "at": "basement"
+   },
+   "sfx": [
+    "whoosh@Another"
+   ],
+   "shots": [
+    {
+     "photo": "Pholcus phalangioides",
+     "obs": 280911762
+    },
+    {
+     "photo": "Pholcus phalangioides",
+     "obs": 296194035,
+     "at": "your"
+    }
+   ]
+  },
+  {
+   "say": "This one has venom. Roommate, or evict? Comment.",
+   "pose": "think",
+   "ask": {
+    "q": "ROOMMATE OR EVICT?",
+    "choices": [
+     "🏠 ROOMMATE",
+     "🚪 EVICT"
+    ],
+    "at": "Roommate"
+   },
+   "shots": [
+    {
+     "photo": "Pholcus phalangioides",
+     "obs": 330324
+    },
+    {
+     "photo": "Pholcus phalangioides",
+     "obs": 280911762,
+     "at": "Comment"
+    }
+   ]
+  },
+  {
+   "say": "It's weak. One bit a MythBusters host. Tiny burn, gone in seconds.",
+   "pose": "shock",
+   "act": "tumble",
+   "act_at": "burn",
+   "hit": "burn",
+   "sfx": [
+    "thud@burn"
+   ],
+   "label": {
+    "text": "A TINY\nBURN",
+    "at": "Tiny"
+   },
+   "shots": [
+    {
+     "photo": "Pholcus phalangioides",
+     "obs": 296194035
+    },
+    {
+     "photo": "Pholcus phalangioides",
+     "obs": 330324,
+     "at": "MythBusters"
+    }
+   ]
+  },
+  {
+   "say": "Subscribe. New animal myth daily.",
+   "sub": {
+    "at": "Subscribe"
+   },
+   "shots": [
+    {
+     "photo": "Opiliones",
+     "obs": 33697019
+    }
+   ]
+  },
+  {
+   "say": "Most venomous? Nope. Because",
+   "pose": "shock",
+   "loop": true,
+   "act": "loop_out",
+   "shots": [
+    {
+     "photo": "Opiliones",
+     "obs": 191157326
+    }
+   ]
+  }
+ ]
+}

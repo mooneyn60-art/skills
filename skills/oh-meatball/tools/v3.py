@@ -95,6 +95,7 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 import animal
 import explainer as ex
+import framing
 import host as hostmod
 import investigate
 import mascot
@@ -122,9 +123,18 @@ PILL_Y = 1440     # the subscribe pill, just under his pointing hand
 CAM_Y = 860       # centre of punch-ins and shakes
 CAP_FS = 100      # caption font size
 HOLD_MAX, GAP_MAX = 2.5, 3.0   # gate: longest single picture, longest stretch with nothing new (s)
-# ask-kit placement gate (s): no ask before, guess card window, pill window (Shorts; landscape() sets long-form)
-ASK_NONE, ASK_GUESS, ASK_PILL = 3.0, (3.0, 7.0), (5.5, 10.5)
+# ask placement gate (TARS 10/27): no poll or pill before 0:10; the opinion poll at ~10-12 s; ONE subscribe
+# pill in the last 3-5 s, tied to the series. ASK_PILL is measured back from the end (s before the end).
+# Spec "early_asks": true restores the old ask kit (guess 3-7 s, pill 5.5-10.5 s) for the 6-v-6 ask test.
+ASK_NONE, ASK_GUESS, ASK_PILL = 10.0, (9.5, 13.0), ("end", 6.0, 2.5)
+EARLY_ASKS = (3.0, (3.0, 7.0), (5.5, 10.5))
+# TARS 10/27 picture rules, each a default with the old behaviour behind a spec flag (tools/framing.py):
+#   hard cuts ["whip": true = the old motion-blur whip pan], frame 0 sharp and 50%+ subject ["frame0": false],
+#   Meatball dodges the subject ["dodge": false], no soft photos, no upscale over 1.5x ["soft_ok": true]
+FLAGS = dict(whip=False, frame0=True, dodge=True, soft_ok=False, early_asks=False, transition="cut")
+FADE = 0.8        # spec "transition": "dissolve" (sleep compilations): cross-dissolve length (s)
 PLAN = {}         # filled before the frame workers fork
+LANDSCAPE = False
 
 
 def landscape():
@@ -137,6 +147,8 @@ def landscape():
     UI, CARD, LABEL_Y, PILL_Y, CAM_Y, CAP_FS = 0.62, 0.9, 190, 860, 500, 66
     MAX_SHOT, HOLD_MAX, GAP_MAX = 3.4, 3.5, 4.0   # Nolan 10/25: a new picture or a whip every 3-4 s at most
     ASK_NONE, ASK_GUESS, ASK_PILL = 15.0, (15.0, 40.0), (28.0, 55.0)  # long-form: cold open, then the early asks
+    global LANDSCAPE
+    LANDSCAPE = True
     stage.configure(W, H, FLOOR, (0.015 * W, 30.0, 0.985 * W, FLOOR + 25.0))
 
 
@@ -201,9 +213,11 @@ def write_wav(path, a):
 _BASES = {}
 
 
-def base(path, crop=None, blur=False):
-    """The shot's photo cropped and scaled to cover the frame at R x size (cached)."""
-    key = (path, tuple(crop or ()), blur)
+def base(path, crop=None, blur=False, fit=None):
+    """The shot's photo cropped and scaled to cover the frame at R x size (cached). fit (tools/framing.py
+    cap_crop): the photo is too small to cover the frame within the 1.5x upscale cap, so it is drawn at scale
+    `fit`, centred over a blurred, dimmed copy of itself."""
+    key = (path, tuple(crop or ()), blur, fit)
     if key not in _BASES:
         im = Image.open(path).convert("RGB")
         if crop:
@@ -211,9 +225,14 @@ def base(path, crop=None, blur=False):
                           int(crop[3] * im.height)))
         bw, bh = int(W * R), int(H * R)
         s = max(bw / im.width, bh / im.height)
+        src = im
         im = im.resize((int(im.width * s) + 1, int(im.height * s) + 1), Image.LANCZOS)
         l, t = (im.width - bw) // 2, (im.height - bh) // 2
         im = im.crop((l, t, l + bw, t + bh))
+        if fit:
+            im = im.filter(ImageFilter.GaussianBlur(28)).point(lambda v: int(v * 0.55))
+            sm = src.resize((max(1, int(src.width * fit)), max(1, int(src.height * fit))), Image.LANCZOS)
+            im.paste(sm, ((bw - sm.width) // 2, (bh - sm.height) // 2))
         if blur:
             im = im.filter(ImageFilter.GaussianBlur(10)).point(lambda v: int(v * 0.78))
         _BASES[key] = np.asarray(im)
@@ -327,6 +346,26 @@ def ask_imgs(q):
     chips = [c if c.shape[1] <= W - 60 else cv2.resize(c, (W - 60, int(c.shape[0] * (W - 60) / c.shape[1])))
              for c in chips]
     return im, chips
+
+
+def chapter_img(c):
+    """A calm chapter card: "FACT 3" small over the title, white on a soft dark plate (beat "chapter_card":
+    "Title" or {"kicker": "FACT 3", "text": "Title"})."""
+    c = {"text": c} if isinstance(c, str) else c
+    fk, ft = ImageFont.truetype(ex.BOLD, 46), ImageFont.truetype(ex.BOLD, 84)
+    d = ImageDraw.Draw(Image.new("RGBA", (10, 10)))
+    kick = c.get("kicker", "")
+    tw = int(max(d.textlength(c["text"], font=ft), d.textlength(kick, font=fk) if kick else 0)) + 110
+    h = 150 + (62 if kick else 0)
+    im = _rounded(tw, h, 36, (14, 18, 30, 200))
+    dr = ImageDraw.Draw(im)
+    y = 26
+    if kick:
+        dr.text(((tw - dr.textlength(kick, font=fk)) / 2, y), kick, font=fk, fill=(255, 214, 10))
+        y += 62
+    dr.text(((tw - dr.textlength(c["text"], font=ft)) / 2, y), c["text"], font=ft, fill=(245, 245, 245))
+    a = np.asarray(im)
+    return _ui(a) if a.shape[1] * UI <= W - 40 else cv2.resize(a, (W - 40, int(a.shape[0] * (W - 40) / a.shape[1])))
 
 
 def counter_img(c):
@@ -489,7 +528,7 @@ def stage_v4(shots, n, b, moves, top, act):
     best = None
     for x, sz in marks:
         keep = stage.keepout(x, sz, side, top, contact, act)
-        fits = [stage.frame_fit(outline(s), moves, s["idle"], side, contact, keep) for s in cuts]
+        fits = [stage.frame_fit(outline(s), moves, s["idle"], side, contact, keep, gmax=_gmax()) for s in cuts]
         worst = min([ft["g"] for ft in fits] + [9.0])
         if best is None or worst > best[0] * 1.08:
             best = (worst, x, sz, fits)
@@ -499,14 +538,152 @@ def stage_v4(shots, n, b, moves, top, act):
     return x, size, side
 
 
+def _gmax():
+    """Largest cut-out scale (screen px per photo px): 1.5x unless spec "soft_ok" (old: stage.GMAX = 2.0)."""
+    return stage.GMAX if FLAGS["soft_ok"] else min(stage.GMAX, framing.MAX_UP)
+
+
 def outline(sh):
     return animal.outline(sh["path"], sh["crop"], sh["reg"])
+
+
+def _fetch(s, work):
+    return ex.photo(s["photo"], s.get("n", 0), work, s.get("obs"), "original")
+
+
+def prep_shots(vis, work):
+    """(e) Per shot: its photo path ("_path"), a crop widened to keep the upscale <= 1.5x, and "_fit" when even
+    the whole photo is too small. A photo under 900 px on its short side is swapped for the beat's sharpest
+    big photo when the beat has one (spec "soft_ok": true keeps the old behaviour)."""
+    photos = [s for s in vis if s.get("photo") and not s.get("host") and not s.get("board")]
+    for s in photos:
+        s["_path"] = _fetch(s, work)
+    if FLAGS["soft_ok"]:
+        return vis
+    big = [s for s in photos if not framing.soft(s["_path"], s.get("crop"))]
+    for s in photos:
+        if framing.soft(s["_path"], s.get("crop")) and big:
+            alt = max(big, key=lambda t: framing.score(t["_path"], t.get("crop")))
+            print(f"SOFT PHOTO: {os.path.basename(s['_path'])} {framing.size(s['_path'])} -> "
+                  f"{os.path.basename(alt['_path'])}", flush=True)
+            for k in ("photo", "obs", "n", "crop", "_path"):
+                if k in alt:
+                    s[k] = alt[k]
+                else:
+                    s.pop(k, None)
+        c, fit = framing.cap_crop(s["_path"], s.get("crop"), W, H, R)
+        if FLAGS["dodge"] and not fit:   # (c) slide the crop so the subject leaves Meatball a free side
+            c = framing.make_room(s["_path"], c, W, H)
+        if c != list(s.get("crop") or [0, 0, 1, 1]):
+            s["crop"] = [round(v, 4) for v in c]
+        s["_fit"] = fit
+    return vis
+
+
+def frame0(beats, work, v4):
+    """(b) Frame 0 shows the first beat's sharpest photo with the subject filling 50%+ of the frame: that shot
+    moves first and is cropped around its subject (the cut-out box, else saliency) as tight as the 1.5x
+    upscale cap allows. A v4 cut-out that already isolates the animal keeps its crop (the solo framing fills
+    the frame). The loop tail, which mirrors frame 0, gets the same picture. Spec "frame0": false = old."""
+    if not beats:
+        return beats
+    b0 = beats[0]
+    vis = ex.shots(b0)
+    cands = [s for s in vis if s.get("photo") and not s.get("host") and not s.get("board") and not s.get("blur")]
+    if not cands:
+        return beats
+    orig = {k: cands[0].get(k) for k in ("photo", "obs", "n", "crop")}
+    paths = [_fetch(s, work) for s in cands]
+    best = max(range(len(cands)), key=lambda k: framing.score(paths[k], cands[k].get("crop")))
+    s, path = cands[best], paths[best]
+    box, src = framing.subject(path)
+    keep = False
+    if v4:
+        info = animal.subject(path, s.get("crop"))
+        keep = info.get("quality") == "ok"
+    if not keep:
+        got = framing.frame0_crop(path, box, W, H, R)
+        if got:
+            crop, fill = got
+            s = dict(s, crop=[round(v, 4) for v in crop])
+            print(f"FRAME 0: {os.path.basename(path)} subject ({src}) fills {fill:.0%} of the frame", flush=True)
+    new = dict(s)
+    if "shots" in b0:
+        sh = [dict({k: v for k, v in x.items() if k in ex.VISUAL or k in ("at", "whip", "blur", "host", "board")})
+              for x in b0["shots"]]
+        k0 = next(k for k, x in enumerate(b0["shots"]) if x.get("photo") == cands[best].get("photo")
+                  and x.get("obs") == cands[best].get("obs") and x.get("crop") == cands[best].get("crop"))
+        first = {k: v for k, v in new.items() if k in ("photo", "obs", "n", "crop")}
+        rest = [x for k, x in enumerate(sh) if k != k0]
+        sh = [first] + [dict(x) for x in rest]
+        for k in range(1, len(sh)):   # keep the cut words in order
+            sh[k]["at"] = (b0["shots"][k] or {}).get("at", sh[k].get("at"))
+        sh[0].pop("at", None)
+        beats[0] = dict(b0, shots=sh)
+    else:
+        beats[0] = dict(b0, **{k: v for k, v in new.items() if k in ("photo", "obs", "n", "crop")})
+    pick = {k: new.get(k) for k in ("photo", "obs", "n", "crop")}
+    for i, b in enumerate(beats):   # the loop tail mirrors frame 0
+        if i and b.get("loop"):
+            if "shots" in b:
+                beats[i] = dict(b, shots=[dict(x, **{k: v for k, v in pick.items() if v is not None})
+                                          if {k: x.get(k) for k in ("photo", "obs", "n", "crop")} == orig else x
+                                          for x in b["shots"]])
+            elif {k: b.get(k) for k in ("photo", "obs", "n", "crop")} == orig:
+                beats[i] = dict(b, **{k: v for k, v in pick.items() if v is not None})
+    return beats
+
+
+def alt_piece(s, vis, v4=False, tighter=True):
+    """(a) The next piece when one picture would stay up longer than MAX_SHOT, always a visibly new framing:
+    a tighter (or wider) crop of the same photo within the 1.5x cap, else the beat's next photo, else the
+    same photo pulled back to 82% over its own blur. Spec "soft_ok": true = the old 80% tighter crop."""
+    c = s.get("crop") or [0, 0, 1, 1]
+    if FLAGS["soft_ok"] or not s.get("_path"):
+        cx, cy, cw, ch = (c[0] + c[2]) / 2, (c[1] + c[3]) / 2, (c[2] - c[0]) * 0.8, (c[3] - c[1]) * 0.8
+        if v4:  # re-cut from the top edge down, so a tighter crop never slices through the head
+            cy = c[1] + ch / 2
+        return dict(s, crop=[cx - cw / 2, cy - ch / 2, cx + cw / 2, cy + ch / 2], parent=c)
+    nc = recut(s, s["_path"], s.get("_fit"), tighter)
+    if nc and FLAGS["dodge"]:
+        nc = framing.make_room(s["_path"], nc, W, H)
+    if nc:
+        return dict(s, crop=nc, _fit=framing.cap_crop(s["_path"], nc, W, H, R)[1], parent=c)
+    other = next((o for o in vis if o.get("_path") and o["_path"] != s["_path"]), None)
+    if other:
+        return dict(s, **{k: other[k] for k in ("photo", "obs", "n", "crop", "_path", "_fit") if k in other},
+                    parent=None)
+    u = (s["_fit"] / R) if s.get("_fit") else framing.upscale(s["_path"], c, W, H)
+    return dict(s, _fit=round(0.82 * u * R, 4), parent=c)
+
+
+def recut(s, path, fit, tighter=True):
+    """A re-cut of the same photo for a line longer than MAX_SHOT: a tighter crop when the 1.5x cap allows,
+    else a wider one (pull back), so the second piece is always a visibly new, sharp framing."""
+    c = s.get("crop") or [0, 0, 1, 1]
+    cx, cy = (c[0] + c[2]) / 2, (c[1] + c[3]) / 2
+    for k in ((0.8, 1.3) if tighter else (1.3, 0.8)):
+        cw, ch = min(1.0, (c[2] - c[0]) * k), min(1.0, (c[3] - c[1]) * k)
+        x0, y0 = min(max(0.0, cx - cw / 2), 1 - cw), min(max(0.0, cy - ch / 2), 1 - ch)
+        nc = [x0, y0, x0 + cw, y0 + ch]
+        if not FLAGS["soft_ok"] and path:
+            nc2, _ = framing.cap_crop(path, nc, W, H, R)
+            if max(abs(a - b) for a, b in zip(nc2, nc)) > 1e-3:
+                continue   # this re-cut would blow the photo up past 1.5x
+        if path and abs(framing.upscale(path, nc, W, H) / framing.upscale(path, c, W, H) - 1) < 0.1:
+            continue   # the cover crop would show the same framing (e.g. widened past the photo's height)
+        if max(abs(a - b) for a, b in zip(nc, c)) > 0.02:
+            return [round(float(v), 4) for v in nc]
+    return None
 
 
 def plan_beats(spec, work):
     name, rate = spec.get("voice", "en-US-AndrewNeural"), spec.get("rate", "+0%")
     tempo = float(spec.get("tempo", 1.0))
-    beats = spec["beats"]
+    beats = list(spec["beats"])
+    v4 = spec.get("style") == "v4"
+    if FLAGS["frame0"]:
+        beats = frame0(beats, work, v4)
     ex.PITCH = spec.get("pitch", "+0Hz")   # v3 imports explainer afresh: the theme's pitch must be set here
     ex.voice(beats, work, name, rate)
     looping = any(b.get("loop") for b in beats)
@@ -538,7 +715,7 @@ def plan_beats(spec, work):
         n = int(round((spoken + GAP + float(b.get("hold", 0))) * FPS))
         D = n / FPS
         # pictures: cut on "at" words; a shot longer than MAX_SHOT is re-cut tighter on the same photo
-        vis = ex.shots(b)
+        vis = prep_shots([dict(s) for s in ex.shots(b)], work)
         starts, after = [0.0], -1.0
         for s in vis[1:]:
             t = word_time(words, s.get("at"), None, after)
@@ -549,19 +726,21 @@ def plan_beats(spec, work):
             a, z = starts[k], (starts[k + 1] if k + 1 < len(vis) else D)
             pieces = [(a, z, s)]
             if z - a > MAX_SHOT:
-                n_cut = max(2, math.ceil((z - a) / MAX_SHOT))   # Shorts: 2; long lines alternate crops every <=MAX_SHOT
+                # (a) cap: pieces of <= HOLD_MAX; a cut snaps to a word only within 0.25 s of its even split
+                n_cut = max(2, math.ceil((z - a) / max(0.5, MAX_SHOT - 0.3)))
                 cuts_ = []
                 for j in range(1, n_cut):
                     aim = a + (z - a) * j / n_cut
-                    lo = (cuts_[-1] if cuts_ else a) + 0.9
-                    cuts_.append(min((w[0] for w in words if lo <= w[0] <= z - 0.9), key=lambda t: abs(t - aim),
-                                     default=aim))
+                    lo = (cuts_[-1] if cuts_ else a) + 0.6
+                    near = min((w[0] for w in words if lo <= w[0] <= z - 0.6 and abs(w[0] - aim) <= 0.25),
+                               key=lambda t: abs(t - aim), default=None)
+                    cuts_.append(near if near is not None else aim)
                 mid = cuts_[0]
                 c = s.get("crop") or [0, 0, 1, 1]
                 cx, cy, cw, ch = (c[0] + c[2]) / 2, (c[1] + c[3]) / 2, (c[2] - c[0]) * 0.8, (c[3] - c[1]) * 0.8
                 if v4:  # re-cut from the top edge down, so a tighter crop never slices through the head
                     cy = c[1] + ch / 2
-                tight = dict(s, crop=[cx - cw / 2, cy - ch / 2, cx + cw / 2, cy + ch / 2], whip=False, parent=c)
+                tight = dict(alt_piece(s, vis, v4), whip=False)
                 # the loop tail must END on its original crop (= frame 0), so it opens on the tight one
                 pieces = [(a, mid, tight), (mid, z, dict(s, whip=False))] if b.get("loop") else [(a, mid, s), (mid, z, tight)]
                 if n_cut > 2 and not b.get("loop"):
@@ -569,7 +748,8 @@ def plan_beats(spec, work):
                     pieces = [(edges[j], edges[j + 1], (tight if j % 2 else (s if j == 0 else dict(s, whip=False))))
                               for j in range(n_cut)]
             for a_, z_, s_ in pieces:
-                path = ex.photo(s_["photo"], s_.get("n", 0), work, s_.get("obs"), "original")
+                path = s_.get("_path") or ex.photo(s_["photo"], s_.get("n", 0), work, s_.get("obs"), "original")
+                fit_ = s_.get("_fit")
                 hs = s_.get("host")
                 if hs:   # host shot: Meatball at the desk, the case board (this photo + earlier evidence) behind
                     hd = hs if isinstance(hs, dict) else {}
@@ -583,6 +763,7 @@ def plan_beats(spec, work):
                 if s_.get("board") and not hs:   # evidence board: the photo pinned to cork with notes and red string
                     path = investigate.board(path, s_["board"], work, vertical=H > W)
                 shots.append(dict(f0=int(round(a_ * FPS)), f1=int(round(z_ * FPS)), path=path,
+                                  pfit=None if (hs or s_.get("board")) else fit_,
                                   crop=None if hs else s_.get("crop"), blur=bool(s_.get("blur")) and not hs,
                                   whip=s_.get("whip", True), no=shot_no, parent=s_.get("parent"),
                                   host=bool(hs), close=bool(hs) and bool(s_.get("parent")),
@@ -594,6 +775,26 @@ def plan_beats(spec, work):
                 elif v4:
                     subject(shots[-1], s_, pins.get(str(s_.get("obs")), {}))
                 shot_no += 1
+        # (a) the same photo and crop never continues across a line break: the new line opens on a re-cut
+        if out and shots and not b.get("loop") and not shots[0].get("host") and not shots[0].get("cut"):
+            pv = out[-1]["shots"][-1]
+            if (pv["path"], pv["crop"] or [0, 0, 1, 1], pv.get("pfit")) == \
+                    (shots[0]["path"], shots[0]["crop"] or [0, 0, 1, 1], shots[0].get("pfit")) \
+                    and not FLAGS["soft_ok"]:
+                a_ = alt_piece(dict(_path=shots[0]["path"], crop=shots[0]["crop"], _fit=shots[0].get("pfit")), [],
+                               tighter=bool(shots[0]["no"] % 2))
+                shots[0]["crop"], shots[0]["pfit"] = a_["crop"], a_.get("_fit")
+        for s_ in shots:   # (e) the slow push and punch-ins stop where the picture would pass 1.5x
+            if not (s_.get("host") or FLAGS["soft_ok"]) and os.path.exists(s_["path"]):
+                s_["u"] = (s_["pfit"] / R) if s_.get("pfit") else framing.upscale(s_["path"], s_["crop"], W, H)
+                s_["zcap"] = max(1.0, framing.MAX_UP / s_["u"])
+        for s_ in shots:   # (c) the subject's screen box on every still, for Meatball's mark and the QA
+            if not (s_.get("host") or s_.get("cut") or s_.get("blur")) and FLAGS["dodge"]:
+                try:
+                    s_["sbox"] = framing.to_screen(s_["path"], s_["crop"], framing.core(s_["path"]), W, H, R, 1.04,
+                                                   s_.get("pfit"))
+                except Exception as err:   # a missing box never blocks the render
+                    print(f"dodge: no subject box for {os.path.basename(s_['path'])} ({err})", flush=True)
         hit = word_time(words, b.get("hit"), None)
         act = b.get("act") or ("loop_out" if b.get("loop") else "stand")
         dflt = hit if hit is not None else (max(0.0, D - 0.6) if act == "run_off" else 0.25)
@@ -658,7 +859,13 @@ def plan_beats(spec, work):
                     s_["fit"], s_["solo"] = t0.get("fit"), t0.get("solo")
                     if s_.get("cut") and s_["fit"] is None:
                         s_["fit"] = stage.frame_fit(outline(s_), moves, s_["idle"], side, False,
-                                                    stage.keepout(x, size, side, act="peek"))
+                                                    stage.keepout(x, size, side, act="peek"), gmax=_gmax())
+            elif "x" not in b and FLAGS["dodge"] and not any(s_.get("cut") or s_.get("subj") for s_ in shots) \
+                    and any(s_.get("sbox") for s_ in shots):   # v4 fell back to stills with no matte: dodge
+                x, size, ov = framing.dodge([s_.get("sbox") for s_ in shots], W, H, FLOOR, HOME_V4,
+                                            int(b.get("size", SIZE_V4)), stage.MB_HALF_W, stage.MB_TOP)
+                bxs = [s_["sbox"] for s_ in shots if s_.get("sbox")]
+                side = 1 if sum((q[0] + q[2]) / 2 for q in bxs) / len(bxs) >= x * W else -1
             elif "x" not in b:
                 top = LABEL_Y + lab_img.shape[0] / 2 + 12 if lab else stage.SAFE[1]
                 x, size, side = stage_v4(shots, n, b, moves, top, act)
@@ -666,9 +873,17 @@ def plan_beats(spec, work):
                     for s_ in shots:
                         if s_.get("cut"):
                             s_["solo"] = stage.frame_fit(outline(s_), moves, s_["idle"], side, False,
-                                                         dict(stage.SOLO, top=top))
+                                                         dict(stage.SOLO, top=top), gmax=_gmax())
             trk = stage.track(mascot, act, n, FPS, t_act, x, side, i)
         else:
+            if b.get("loop") and out:   # the loop tail ends on frame 0's framing
+                x, size = out[0]["x"], out[0]["size"]
+            elif "x" not in b and FLAGS["dodge"] and any(s_.get("sbox") for s_ in shots) \
+                    and not any(s_.get("host") for s_ in shots):
+                x, size, ov = framing.dodge([s_.get("sbox") for s_ in shots], W, H, FLOOR, HOME,
+                                            int(b.get("size", SIZE)), stage.MB_HALF_W, stage.MB_TOP)
+                if ov > 0.02:
+                    print(f"DODGE: beat {i} Meatball still covers {ov:.0%} of the subject at size {size}", flush=True)
             trk = mascot.act_track(act, n, FPS, t_act, x, seed=i)
         punch = b.get("punch") or []
         punch = [punch] if isinstance(punch, str) else punch
@@ -686,6 +901,8 @@ def plan_beats(spec, work):
                         prop=b.get("prop"), prop_f=int(round(word_time(words, b.get("prop_at"), 0.3) * FPS)),
                         x=x, loop=bool(b.get("loop")), first=looping and i == 0, say=b["say"], sub=sub, ask=ask,
                         host=hst, series_card=bool(b.get("series_card")),
+                        chapter=b.get("chapter_card") and (chapter_img(b["chapter_card"]),
+                                                           min(n, int(float(b.get("chapter_s", 4.0)) * FPS))),
                         counter=cur,
                         aside=b.get("aside") and dict(img=aside_img(b["aside"]),
                                                       f=int(round(word_time(words, b.get("aside_at"), 0.55 * D) * FPS)))))
@@ -702,8 +919,9 @@ def _ease_out(u):
 
 def shot_view(bt, sh, f):
     """Background frame for shot sh at beat frame f: a slow push that never stops."""
-    img = base(sh["path"], sh["crop"], sh["blur"])
+    img = base(sh["path"], sh["crop"], sh["blur"], sh.get("pfit"))
     t = (f - sh["f0"]) / FPS
+    zcap = sh.get("zcap") or 9.0
     if bt["loop"]:
         z = 1.0 + PUSH * (bt["n"] - 1 - f) / FPS   # ends exactly on frame 0's zoom
     elif bt["first"] and sh is bt["shots"][0]:
@@ -712,7 +930,7 @@ def shot_view(bt, sh, f):
         z = max(1.0, 1.0 + PUSH * 3 - PUSH * t)     # push out
     else:
         z = 1.0 + PUSH * t
-    return img, z
+    return img, min(z, zcap) if not sh.get("cut") else z
 
 
 _LAYERS = {}
@@ -809,6 +1027,14 @@ def frame(g):
         bg = np.concatenate([A[:, o:], B[:, :o]], axis=1)
         bg = cv2.blur(bg, (int(170 * math.sin(math.pi * u)) | 1, 1))
     ani = None
+    fd = P["fades"].get(g)   # spec "transition": "dissolve": the old picture melts into the new one
+    if bg is None and fd:
+        gc, pb, ps, nb, ns, nf = fd
+        u = (g - gc + 1) / (nf + 1)
+        u = u * u * (3 - 2 * u)
+        A = picture(pb, ps, g - pb["F"], g)[0].astype(np.float32)
+        B = picture(nb, ns, g - nb["F"], g)[0].astype(np.float32)
+        bg = (A * (1 - u) + B * u).astype(np.uint8)
     if bg is None:
         bg, ani = picture(bt, sh, f, g)
     frame_ = np.ascontiguousarray(bg)
@@ -838,6 +1064,13 @@ def frame(g):
     else:
         placed = place_meatball(frame_, st, tr, bt["size"])
     qa = (0, 0, False)
+    if placed is not None and sh.get("sbox") and ani is None and not cut:   # (c) QA: Meatball over a still's subject
+        al, mx, my = placed
+        b_ = [int(v) for v in sh["sbox"]]
+        x0, y0, x1, y1 = max(b_[0], mx), max(b_[1], my), min(b_[2], mx + al.shape[1]), min(b_[3], my + al.shape[0])
+        if x1 > x0 and y1 > y0:
+            area_ = max(1, (b_[2] - b_[0]) * (b_[3] - b_[1]))   # stills: share of the core in 1e-4 (300 = 3%)
+            qa = (int(1e4 * (al[y0 - my:y1 - my, x0 - mx:x1 - mx] > 128).sum() / area_), 0, False)
     if P["v4"] and ani is not None and not cut:  # QA (not during whip pans): Meatball over the animal, animal under the captions, animal clipped
         aa, ax0, ay0, clipped = ani
         over_mb = 0
@@ -873,6 +1106,8 @@ def frame(g):
         if d >= 0:
             env = _ease_out((d + 1) / 3) if d < 3 else (1.0 if d < 3 + 0.75 * FPS else max(0.0, 1 - (d - 3 - 0.75 * FPS) / 8))
             zc = max(zc, 1 + bt["punch_z"] * env)
+    if sh.get("u") and zc > 1.0 and not sh.get("cut"):   # (e) a punch-in never takes the photo past 1.5x
+        zc = min(zc, max(1.0, framing.MAX_UP / (sh["u"] * shot_view(bt, sh, f)[1])))
     if bt["hit"] is not None and 0 <= f - bt["hit"] < 10:
         d = f - bt["hit"]
         amp = 34 * math.exp(-d / 3.5)
@@ -908,6 +1143,15 @@ def frame(g):
                 x += c.shape[1] + gap
                 k += 1
             y += 165 * CARD
+    if bt.get("chapter"):   # chapter card (sleep compilations): fades in, holds, fades out over the line's start
+        ci, hold = bt["chapter"]
+        a = min(1.0, f / 12.0, max(0.0, (hold - f) / 12.0))
+        if a > 0:
+            y0 = int(60 * UI) if W > H else int(LABEL_Y - ci.shape[0] / 2)
+            x0 = int(W / 2 - ci.shape[1] / 2)
+            c = ci.copy()
+            c[..., 3] = (c[..., 3].astype(np.float32) * a).astype(np.uint8)
+            over(frame_, c, x0, y0)
     if W > H:   # long-form HUD only (16:9)
         hud(frame_, bt, g)
     hl = P.get("headline")
@@ -991,15 +1235,17 @@ def gate(beats, total):
     for bt in beats:  # ask kit placement (research/46): hook first, guess card 3-6 s, pill 6-10 s, reminder at the end
         if bt["sub"]:
             t = (bt["F"] + bt["sub"]["f"]) / FPS
-            if not ASK_PILL[0] <= t <= ASK_PILL[1]:
+            if ASK_PILL[0] == "end":   # default: the pill sits in the last 3-5 s, tied to the series
+                if not ASK_PILL[2] <= total - t <= ASK_PILL[1]:
+                    warn.append(f"beat {bt['i']} subscribe pill {total - t:.1f}s before the end (aim: last 3-5 s)")
+            elif not ASK_PILL[0] <= t <= ASK_PILL[1]:
                 warn.append(f"beat {bt['i']} subscribe pill at {t:.1f}s (aim {ASK_PILL[0]:g}-{ASK_PILL[1]:g} s)")
         if bt["ask"]:
             t = (bt["F"] + bt["ask"]["f"]) / FPS
             if t < ASK_NONE:
                 warn.append(f"beat {bt['i']} comment card at {t:.1f}s: no ask in the first {ASK_NONE:g} s")
             elif bt["ask"]["chips"] and not ASK_GUESS[0] <= t <= ASK_GUESS[1]:
-                warn.append(f"beat {bt['i']} guess card at {t:.1f}s (aim {ASK_GUESS[0]:g}-{ASK_GUESS[1]:g} s, "
-                            "right after the hook)")
+                warn.append(f"beat {bt['i']} poll card at {t:.1f}s (aim {ASK_GUESS[0]:g}-{ASK_GUESS[1]:g} s)")
             elif not bt["ask"]["chips"] and any(b_["loop"] for b_ in beats) and bt["i"] + 1 < len(beats) \
                     and not beats[bt["i"] + 1]["loop"]:
                 warn.append(f"beat {bt['i']} reminder card is not the last beat before the loop")
@@ -1044,24 +1290,76 @@ def report_v4(beats, work):
     return stills
 
 
+def timeline(beats, total, trans, qas):
+    """What the viewer sees, for tools/screengate.py: pictures (merged when the same photo and crop run on
+    across a line), transitions, asks, and per beat the frames where Meatball covers a still's subject."""
+    over_ = {}
+    for g, q in enumerate(qas):
+        if q and q[0] > 300:
+            bt = max((b for b in beats if b["F"] <= g), key=lambda b: b["F"])
+            over_[bt["i"]] = over_.get(bt["i"], 0) + 1
+    asks = []
+    for bt in beats:
+        if bt["sub"]:
+            asks.append(dict(kind="pill", t=round((bt["F"] + bt["sub"]["f"]) / FPS, 2), beat=bt["i"]))
+        if bt["ask"]:
+            asks.append(dict(kind="poll" if bt["ask"]["chips"] else "card",
+                             t=round((bt["F"] + bt["ask"]["f"]) / FPS, 2), beat=bt["i"]))
+    out = []
+    for bt in beats:
+        out.append(dict(i=bt["i"], start=bt["F"] / FPS, dur=bt["n"] / FPS, act=bt["act"], say=bt["say"],
+                        shots=[(s["f0"] / FPS, s["f1"] / FPS) for s in bt["shots"]], sfx=bt["sfx"],
+                        pics=[f'{os.path.basename(s["path"])}|{s["crop"] or [0.0, 0.0, 1.0, 1.0]}|{s.get("pfit")}'
+                              for s in bt["shots"]],
+                        covers=over_.get(bt["i"], 0)))
+    # merge runs of one picture across line breaks for the hold check (the beats list keeps them apart)
+    merged, gate_beats = [], []
+    for e in out:
+        for (a, z), key in zip(e["shots"], e["pics"]):
+            A, Z = e["start"] + a, e["start"] + z
+            if merged and merged[-1][2] == key and abs(merged[-1][1] - A) < 0.04 and not merged[-1][3]:
+                merged[-1][1] = Z
+            else:
+                merged.append([A, Z, key, False])
+    gate_beats = [dict(i=k, start=0.0, shots=[(a, z)]) for k, (a, z, _, _) in enumerate(merged)]
+    pol = dict(hold=HOLD_MAX, asks="landscape" if LANDSCAPE else ("early" if FLAGS["early_asks"] else "default"),
+               flags=dict(FLAGS))
+    return dict(total=total, policy=pol, beats=out, pictures=gate_beats, transitions=trans, asks=asks)
+
+
 def build(spec, work, out, music=None, vertical=True):
     os.makedirs(work, exist_ok=True)
     if vertical:
         ex.vertical()
     else:
         landscape()
-    global MAX_SHOT
-    if spec.get("max_shot") and vertical:   # Meatball Investigates v2: a new picture every 1.5-2 s
+    global MAX_SHOT, HOLD_MAX, ASK_NONE, ASK_GUESS, ASK_PILL
+    FLAGS.update(whip=bool(spec.get("whip", False)), frame0=spec.get("frame0", True) is not False,
+                 dodge=spec.get("dodge", True) is not False, soft_ok=bool(spec.get("soft_ok")),
+                 early_asks=bool(spec.get("early_asks")), transition=spec.get("transition", "cut"))
+    if spec.get("max_shot"):   # Investigates v2: 1.5-2 s; sleep compilations: gentle 4-6 s holds
         MAX_SHOT = float(spec["max_shot"])
+        HOLD_MAX = max(HOLD_MAX, MAX_SHOT + 0.1) if MAX_SHOT > HOLD_MAX else HOLD_MAX
+    if vertical and FLAGS["early_asks"]:   # the 6-v-6 ask test: the old ask kit
+        ASK_NONE, ASK_GUESS, ASK_PILL = EARLY_ASKS
     beats = plan_beats(spec, work)
     total_f = beats[-1]["F"] + beats[-1]["n"]
-    cuts = {}
+    cuts, fades, trans = {}, {}, []
     flat = [(bt, s) for bt in beats for s in bt["shots"]]
+    nf = int(FADE * FPS)
     for (pb, ps), (nb, ns) in zip(flat, flat[1:]):
         g = nb["F"] + ns["f0"]
-        if ns["whip"] and (ns["path"], ns["crop"]) != (ps["path"], ps["crop"]) and not ns.get("blur"):
+        new_pic = (ns["path"], ns["crop"]) != (ps["path"], ps["crop"])
+        if FLAGS["whip"] and ns["whip"] and new_pic and not ns.get("blur"):   # old: motion-blur whip pan
             for d in range(-3, 3):
                 cuts[g + d] = (g, pb, ps, nb, ns)
+            trans.append(dict(t=round(g / FPS, 3), kind="whip"))
+        elif FLAGS["transition"] == "dissolve" and new_pic:   # sleep: a slow cross-dissolve, never a smear
+            for d in range(nf):
+                fades[g + d] = (g, pb, ps, nb, ns, nf)
+            trans.append(dict(t=round(g / FPS, 3), kind="dissolve"))
+        else:
+            trans.append(dict(t=round(g / FPS, 3), kind="cut"))
     PLAN.clear()
     v4 = spec.get("style") == "v4"
     PLAN.update(progress=bool(spec.get("progress")) and not vertical,
@@ -1074,7 +1372,7 @@ def build(spec, work, out, music=None, vertical=True):
                 captions=spec.get("captions"))
     if spec.get("series"):   # the case sting under the card drop (or under the headline)
         beats[0]["sfx"] = list(beats[0]["sfx"]) + [(4 / FPS, "case")]
-    PLAN.update(beats=beats, whips=cuts, props={"fork": np.asarray(mascot.prop("fork", int(520 * UI)))}, v4=v4,
+    PLAN.update(beats=beats, whips=cuts, fades=fades, props={"fork": np.asarray(mascot.prop("fork", int(520 * UI)))}, v4=v4,
                 total=total_f)
     if any(bt.get("host") for bt in beats):   # host shots: the desk (with and without the bagged Fork)
         case = (spec.get("series") or {}).get("case", "")
@@ -1082,7 +1380,7 @@ def build(spec, work, out, music=None, vertical=True):
                                                      hostmod.desk_img(W, H, FLOOR, case, mascot.prop("fork", int(190 * UI)))])
     for bt in beats:  # warm the photo (and v4 cut-out) caches before forking the workers
         for s in bt["shots"]:
-            base(s["path"], s["crop"], s["blur"])
+            base(s["path"], s["crop"], s["blur"], s.get("pfit"))
             if s.get("cut"):
                 layer(s)
                 if s.get("solo"):
@@ -1151,9 +1449,18 @@ def build(spec, work, out, music=None, vertical=True):
         raise SystemExit("ffmpeg failed")
     used = sorted({s["path"] for bt in beats for s in bt["shots"]})
     open(f"{work}/credits.txt", "w").write("".join(open(u + ".credit").read() + "\n" for u in used))
-    json.dump([dict(i=bt["i"], start=bt["F"] / FPS, dur=bt["n"] / FPS, act=bt["act"], say=bt["say"],
-                    shots=[(s["f0"] / FPS, s["f1"] / FPS) for s in bt["shots"]], sfx=bt["sfx"]) for bt in beats],
-              open(f"{work}/timeline.json", "w"), indent=1)
+    tl = timeline(beats, total, trans, qas)
+    json.dump(tl["beats"], open(f"{work}/timeline.json", "w"), indent=1)   # the old list (episode.chapters)
+    json.dump(tl, open(f"{work}/screen.json", "w"), indent=1)
+    import screengate
+    rep = screengate.check_timeline(tl)
+    for nt in rep["notes"]:
+        print("screengate:", nt, flush=True)
+    for fl in rep["fails"]:
+        print("SCREENGATE FAIL", fl, flush=True)
+    if rep["fails"] and spec.get("screengate", "fail") == "fail":
+        os.replace(out, out + ".rejected.mp4")
+        raise SystemExit(f"screengate: {len(rep['fails'])} fail(s); render kept as {out}.rejected.mp4")
     if v4:  # QA by beat: frames where Meatball covers the animal (contact beats may), animal under captions
         bad = {}
         for g, (mb, cap, clip) in enumerate(qas):
