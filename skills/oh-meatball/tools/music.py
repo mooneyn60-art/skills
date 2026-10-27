@@ -381,11 +381,35 @@ def waltz(total, reveals, seed=8):
     return low * 0.6 + box * (0.35 + 0.25 * I) + drone * 0.25, bar
 
 
-BEDS = {"waltz": waltz, "mystery": mystery, "conspiracy": mystery, "detective": detective, "cold-war": cold_war, "ufo": ufo,
+def sleep(total, reveals, seed=9):
+    """Sleep compilations (C1 "Weird Animal Facts to Fall Asleep To"): a soft, slow pad and a warm noise wash,
+    no beat, no hits. Three-note chords (Am9 -> Fmaj7 -> Cmaj7 -> G6) swell over 12 s each, low-passed, with a
+    slow 'breathing' wash under them. Mixed very low under the voice (spec "music_lufs" about -34)."""
+    n = int((total + 3) * SR)
+    t = (np.arange(n) / SR).astype(np.float32)
+    chords = [(57, 64, 71), (53, 60, 69), (48, 55, 64), (55, 62, 64)]
+    pad = np.zeros(n, np.float32)
+    seg = int(12 * SR)
+    win = np.sin(np.linspace(0, np.pi, 2 * seg, dtype=np.float32)) ** 2   # overlapping 24 s swells
+    for k, start in enumerate(range(-seg, n, seg)):
+        notes = chords[k % len(chords)]
+        a, z = max(0, start), min(n, start + 2 * seg)
+        if z <= a:
+            continue
+        tt = t[a:z]
+        tone = sum(np.sin(2 * np.pi * hz(m) * tt + j) + 0.3 * np.sin(2 * np.pi * hz(m) * 2.003 * tt) for j, m in enumerate(notes))
+        pad[a:z] += (tone * win[a - start:z - start]).astype(np.float32)
+    pad = lp_fast(pad, 900)
+    wash = lp_fast(np.random.default_rng(seed).standard_normal(n).astype(np.float32), 350)
+    wash *= (0.55 + 0.45 * np.sin(2 * np.pi * t / 9.0) ** 2).astype(np.float32)   # slow breathing
+    return pad * 0.5 + wash * 0.18, 12.0
+
+
+BEDS = {"sleep": sleep, "waltz": waltz, "mystery": mystery, "conspiracy": mystery, "detective": detective, "cold-war": cold_war, "ufo": ufo,
         "ocean": ocean, "absurd": absurd, "science": science}
-VERB = {"waltz": (2.0, 0.28), "mystery": (2.4, 0.30), "conspiracy": (2.4, 0.30), "ufo": (3.0, 0.40), "ocean": (3.2, 0.38),
+VERB = {"sleep": (3.5, 0.45), "waltz": (2.0, 0.28), "mystery": (2.4, 0.30), "conspiracy": (2.4, 0.30), "ufo": (3.0, 0.40), "ocean": (3.2, 0.38),
         "cold-war": (1.4, 0.18), "detective": (1.2, 0.18), "absurd": (0.9, 0.12), "science": (1.2, 0.18)}
-HIT = {"waltz": 81, "mystery": 81, "conspiracy": 81, "detective": 74, "cold-war": 74, "ufo": 85, "ocean": 79, "absurd": 84,
+HIT = {"sleep": 69, "waltz": 81, "mystery": 81, "conspiracy": 81, "detective": 74, "cold-war": 74, "ufo": 85, "ocean": 79, "absurd": 84,
        "science": 88}
 
 

@@ -1,0 +1,411 @@
+{
+ "title": "Why It Sucks to Be Born as a Mayfly (Part 1) - TikTok pilot sample 10/27",
+ "_note": "Lab 07 series pilot: Meatball IS the mayfly ('you'), narration from 0 s, escalation rough -> worse -> absurd, opinion poll ~10-12 s, one follow ask in the last 3-5 s tied to the series. Rendered on the 10/27 renderer defaults, v3 stills (v4 cut-outs of small insects stay tiny under the 1.5x cap). Photos: iNaturalist, CC0/CC BY only, credited. No swarm/bridge photo with a usable licence was reachable (Commons rate-limited), so those lines play over mayfly photos with labels.",
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+0%",
+ "tempo": 1.1,
+ "style": "v3",
+ "music": "music/quiz-bed.m4a",
+ "series": {
+  "text": "WHY IT SUCKS TO BE BORN AS...",
+  "case": "PART 1"
+ },
+ "names": {
+  "Ephemera danica": "Green drake mayfly",
+  "Hexagenia": "Giant mayfly",
+  "Ephemera japonica": "Mayfly nymph",
+  "Ephoron": "White mayfly"
+ },
+ "sources": [
+  "Adults don't feed; mouthparts vestigial/non-functional; gut filled with air: Texas A&M AgriLife Field Guide (texasinsects.tamu.edu/ephemeroptera/), NC State Insect ID (genent.cals.ncsu.edu/insect-identification/order-ephemeroptera)",
+  "Nymphs live underwater about 1-2 years; the only insects that molt again after getting working wings (subimago -> imago): PNAS commentary (pmc.ncbi.nlm.nih.gov/articles/PMC8463790), Missouri Dept. of Conservation field guide (mdc.mo.gov/discover-nature/field-guide/mayfly-larvae)",
+  "Adults live from a couple of hours to a day or two, none longer than ~3 days: Illinois DNR (dnr.illinois.gov ... mayfly.pdf)",
+  "Female Dolania americana: under 5 minutes as an adult: Univ. of Florida Book of Insect Records ch. 37 (entnemdept.ufl.edu/walker/ufbir/chapters/chapter_37.shtml)",
+  "Mayfly swarms on NWS weather radar (La Crosse 2014; Cleveland/Detroit): Christian Science Monitor 2014-07-25; Cleveland Magazine",
+  "June 2015: swarm closed the Route 462 Columbia-Wrightsville bridge, PA; bulldozers cleared the piles: Science News; WITF 2015-06-15; AP",
+  "Ephemeroptera from Greek ephemeros 'lasting a day' + pteron 'wing'; fly anglers tie mayfly imitations: Wikipedia 'Mayfly' (etymology), common fly-fishing practice",
+  "Male mayflies have large eyes for spotting females in swarms; first winged stage (subimago/dun) has dull, cloudy wings: Wikipedia 'Mayfly'; Missouri Dept. of Conservation",
+  "Mayflies are pollution-sensitive; big swarms indicate clean water (NWS Cleveland via Cleveland Magazine; CSM 2014)"
+ ],
+ "beats": [
+  {
+   "say": "You're a mayfly. You spent a year or two underwater, eating algae in the dark.",
+   "pose": "nervous",
+   "act": "peek",
+   "shots": [
+    {
+     "photo": "Ephemera danica",
+     "obs": 25314586
+    },
+    {
+     "photo": "Ephemera japonica",
+     "obs": 145186179,
+     "at": "spent"
+    }
+   ]
+  },
+  {
+   "say": "Finally, you grow wings. Time to live!",
+   "pose": "shock",
+   "act": "launch",
+   "act_at": "wings",
+   "sfx": [
+    "whoosh@wings"
+   ],
+   "shots": [
+    {
+     "photo": "Hexagenia",
+     "obs": 123187938
+    }
+   ]
+  },
+  {
+   "say": "Bad news. You get a day. Maybe two.",
+   "pose": "shock",
+   "act": "tumble",
+   "act_at": "day",
+   "hit": "day",
+   "sfx": [
+    "thud@day"
+   ],
+   "label": {
+    "text": "1-2 DAYS",
+    "at": "day"
+   },
+   "shots": [
+    {
+     "photo": "Hexagenia",
+     "obs": 114488135
+    }
+   ]
+  },
+  {
+   "say": "Years of mud, for a day of flying. Worth it? Comment.",
+   "pose": "think",
+   "ask": {
+    "q": "WORTH IT?",
+    "choices": [
+     "✅ WORTH IT",
+     "❌ NOPE"
+    ],
+    "at": "Worth"
+   },
+   "shots": [
+    {
+     "photo": "Hexagenia",
+     "obs": 90321569
+    },
+    {
+     "photo": "Ephemera danica",
+     "obs": 394645767,
+     "at": "Worth"
+    }
+   ]
+  },
+  {
+   "say": "And you can't eat. Your mouth doesn't even work.",
+   "pose": "shock",
+   "punch": "work",
+   "label": {
+    "text": "NO WORKING\nMOUTH",
+    "at": "mouth"
+   },
+   "shots": [
+    {
+     "photo": "Ephemera danica",
+     "obs": 25314586
+    }
+   ]
+  },
+  {
+   "say": "Your stomach? Full of air.",
+   "pose": "deadpan",
+   "act": "puff",
+   "act_at": "air",
+   "sfx": [
+    "boing@air"
+   ],
+   "label": {
+    "text": "AIR",
+    "at": "air"
+   },
+   "shots": [
+    {
+     "photo": "Ephemera danica",
+     "obs": 280373520
+    }
+   ]
+  },
+  {
+   "say": "So you get one job. Find a mate. Fast.",
+   "pose": "point",
+   "punch": "Fast",
+   "shots": [
+    {
+     "photo": "Hexagenia",
+     "obs": 5884124
+    }
+   ]
+  },
+  {
+   "say": "If you're a male, you even get giant eyes, just to spot females in the swarm.",
+   "pose": "point",
+   "punch": "giant",
+   "label": {
+    "text": "GIANT\nEYES",
+    "at": "giant"
+   },
+   "shots": [
+    {
+     "photo": "Hexagenia",
+     "obs": 50101622
+    },
+    {
+     "photo": "Ephoron",
+     "obs": 60782304,
+     "at": "spot"
+    }
+   ]
+  },
+  {
+   "say": "But first, you have to molt. Again. After you can already fly.",
+   "pose": "facepalm",
+   "label": {
+    "text": "MOLT\nAGAIN",
+    "at": "Again"
+   },
+   "shots": [
+    {
+     "photo": "Ephoron",
+     "obs": 128954287
+    }
+   ]
+  },
+  {
+   "say": "No other insect does that. Your first wings come out dull. So you crawl out of your own skin, wings and all.",
+   "pose": "nervous",
+   "act": "shake",
+   "label": {
+    "text": "ONLY\nINSECT",
+    "at": "other"
+   },
+   "shots": [
+    {
+     "photo": "Ephoron",
+     "obs": 128954287
+    },
+    {
+     "photo": "Hexagenia",
+     "obs": 78246523,
+     "at": "crawl"
+    }
+   ]
+  },
+  {
+   "say": "Now everything wants to eat you. Fish. Birds. Bats.",
+   "pose": "shock",
+   "act": "run_across",
+   "sfx": [
+    "whoosh@everything"
+   ],
+   "punch": [
+    "Fish",
+    "Birds",
+    "Bats"
+   ],
+   "shots": [
+    {
+     "photo": "Hexagenia",
+     "obs": 50101622
+    }
+   ]
+  },
+  {
+   "say": "People even tie fake versions of you, to catch fish.",
+   "pose": "facepalm",
+   "label": {
+    "text": "FAKE\nYOU",
+    "at": "fake"
+   },
+   "shots": [
+    {
+     "photo": "Ephoron",
+     "obs": 127589671
+    }
+   ]
+  },
+  {
+   "say": "And you're not alone. Millions of you hatch on the same night.",
+   "pose": "nervous",
+   "punch": "Millions",
+   "label": {
+    "text": "MILLIONS",
+    "at": "Millions"
+   },
+   "shots": [
+    {
+     "photo": "Hexagenia",
+     "obs": 239893296
+    },
+    {
+     "photo": "Ephoron",
+     "obs": 296009462,
+     "at": "hatch"
+    }
+   ]
+  },
+  {
+   "say": "So many, you show up on weather radar. Like a storm.",
+   "pose": "shock",
+   "act": "shake",
+   "sfx": [
+    "zap@radar"
+   ],
+   "label": {
+    "text": "ON WEATHER\nRADAR",
+    "at": "radar"
+   },
+   "shots": [
+    {
+     "photo": "Ephemera danica",
+     "obs": 394645767
+    }
+   ]
+  },
+  {
+   "say": "In 2015, a swarm of you closed a bridge in Pennsylvania.",
+   "pose": "shock",
+   "hit": "closed",
+   "sfx": [
+    "crunch@closed"
+   ],
+   "label": {
+    "text": "BRIDGE\nCLOSED",
+    "at": "closed"
+   },
+   "shots": [
+    {
+     "photo": "Hexagenia",
+     "obs": 123187938
+    }
+   ]
+  },
+  {
+   "say": "They brought in bulldozers to clear the piles.",
+   "pose": "facepalm",
+   "punch": "bulldozers",
+   "label": {
+    "text": "BULLDOZERS",
+    "at": "bulldozers"
+   },
+   "shots": [
+    {
+     "photo": "Ephoron",
+     "obs": 316467853
+    }
+   ]
+  },
+  {
+   "say": "And if you're a female Dolania mayfly?",
+   "pose": "think",
+   "shots": [
+    {
+     "photo": "Ephemera danica",
+     "obs": 280373520
+    }
+   ]
+  },
+  {
+   "say": "You get less than five minutes.",
+   "pose": "shock",
+   "act": "tumble",
+   "act_at": "five",
+   "hit": "five",
+   "sfx": [
+    "thud@five"
+   ],
+   "label": {
+    "text": "UNDER 5\nMINUTES",
+    "at": "five"
+   },
+   "shots": [
+    {
+     "photo": "Hexagenia",
+     "obs": 114488135
+    }
+   ]
+  },
+  {
+   "say": "Five minutes. To mate, lay your eggs, and die.",
+   "pose": "deadpan",
+   "punch": "die",
+   "shots": [
+    {
+     "photo": "Ephemera danica",
+     "obs": 194174000
+    }
+   ]
+  },
+  {
+   "say": "Scientists even named you after it. Ephemeroptera. Wings for a day.",
+   "pose": "facepalm",
+   "label": {
+    "text": "WINGS FOR\nA DAY",
+    "at": "Wings"
+   },
+   "shots": [
+    {
+     "photo": "Ephemera danica",
+     "obs": 25314586
+    },
+    {
+     "photo": "Hexagenia",
+     "obs": 90321569,
+     "at": "Wings"
+    }
+   ]
+  },
+  {
+   "say": "The one upside? Big swarms of you mean the river is clean.",
+   "pose": "shrug",
+   "label": {
+    "text": "CLEAN\nRIVER",
+    "at": "clean"
+   },
+   "shots": [
+    {
+     "photo": "Hexagenia",
+     "obs": 239893296
+    }
+   ]
+  },
+  {
+   "say": "That was Why It Sucks to Be Born as a Mayfly. Part one.",
+   "pose": "point",
+   "label": {
+    "text": "PART 1",
+    "at": "part"
+   },
+   "shots": [
+    {
+     "photo": "Hexagenia",
+     "obs": 5884124
+    }
+   ]
+  },
+  {
+   "say": "Follow for the next animal.",
+   "hold": 2.0,
+   "sub": {
+    "at": "Follow",
+    "text": "FOLLOW"
+   },
+   "shots": [
+    {
+     "photo": "Ephemera danica",
+     "obs": 25314586
+    }
+   ]
+  }
+ ]
+}

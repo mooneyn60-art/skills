@@ -96,7 +96,7 @@ def check_video(path, hold=HOLD):
     top = slice(0, int(h * 0.62)) if H > W else slice(0, int(h * 0.8))
     small = np.stack([cv2.resize(cv2.GaussianBlur(x[top], (0, 0), 2), (48, 48)) for x in g])
     d = np.abs(np.diff(small, axis=0)).mean(axis=(1, 2))
-    cuts = [0] + [k + 1 for k in range(len(d)) if d[k] > 14 and (k == 0 or d[k] > 2.2 * np.median(d[max(0, k - 15):k + 15]))]
+    cuts = [0] + [k + 1 for k in range(len(d)) if d[k] > 8 and (k == 0 or d[k] > 2.5 * np.median(d[max(0, k - 15):k + 15]))]
     cuts.append(len(g))
     fails, holds = [], []
     for a, z in zip(cuts, cuts[1:]):

@@ -65,8 +65,8 @@ def saliency(path):
 
 
 def core(path):
-    """The subject's solid core in photo fractions, for Meatball to stay clear of: the cut-out matte with thin
-    parts (legs, antennae, tails, fins) eroded away, its largest piece, grown 12%. Saliency's top 6% else."""
+    """The subject's solid core in photo fractions, for Meatball to stay clear of: the box holding the middle 84%
+    of the cut-out matte's area (legs, antennae and tails drop out), grown 8%. Saliency's box else."""
     if ("core", path) in _SAL:
         return _SAL[("core", path)]
     box = None
@@ -75,22 +75,17 @@ def core(path):
         _, _, _, m = animal._mask(path, [0, 0, 1, 1], [0.0, 0.0, 1.0, 1.0])
         if m.sum() > 50:
             h, w = m.shape
-            k = max(3, int(0.045 * max(w, h)))
-            e = cv2.erode(m, np.ones((k, k), np.uint8))
-            if e.sum() < 20:
-                e = cv2.erode(m, np.ones((k // 2, k // 2), np.uint8))
-            src = e if e.sum() >= 20 else m
-            n, lab, st, _ = cv2.connectedComponentsWithStats(src, 8)
-            j = 1 + int(np.argmax(st[1:, cv2.CC_STAT_AREA]))
-            x, y, bw, bh = st[j][:4]
-            gx, gy = 0.12 * bw + k / 2, 0.12 * bh + k / 2
-            box = [max(0, (x - gx) / w), max(0, (y - gy) / h), min(1, (x + bw + gx) / w), min(1, (y + bh + gy) / h)]
+            ys, xs = np.nonzero(m)   # the box holding the middle 84% of the matte's area: thin legs,
+            x0, x1 = np.percentile(xs, [8, 92])   # antennae and tails carry little area, the body most
+            y0, y1 = np.percentile(ys, [8, 92])
+            gx, gy = 0.08 * (x1 - x0), 0.08 * (y1 - y0)
+            box = [max(0.0, (x0 - gx) / w), max(0.0, (y0 - gy) / h), min(1.0, (x1 + gx) / w), min(1.0, (y1 + gy) / h)]
     except Exception:
         box = None
     if box is None or (box[2] - box[0]) * (box[3] - box[1]) > 0.8:
         box = saliency(path)
-    _SAL[("core", path)] = box
-    return box
+    _SAL[("core", path)] = [float(v) for v in box]
+    return _SAL[("core", path)]
 
 
 def subject(path, info=None):
@@ -127,17 +122,14 @@ def sharp(path, box=None):
 
 def score(path, crop=None):
     """Bigger is better: sharpness of the subject, halved for a photo under MIN_SHORT px."""
-    w, h = size(path)
-    c = crop or [0, 0, 1, 1]
-    short = min((c[2] - c[0]) * w, (c[3] - c[1]) * h)
+    short = min(size(path))
     box, _ = subject(path)
     return sharp(path, box) * (1.0 if short >= MIN_SHORT else 0.5 * short / MIN_SHORT)
 
 
 def soft(path, crop=None):
-    w, h = size(path)
-    c = crop or [0, 0, 1, 1]
-    return min((c[2] - c[0]) * w, (c[3] - c[1]) * h) < MIN_SHORT
+    """The source photo's short side is under MIN_SHORT px (the crop's own blow-up is cap_crop()'s job)."""
+    return min(size(path)) < MIN_SHORT
 
 
 def upscale(path, crop, W, H):

@@ -148,6 +148,17 @@ The goldfish curve loses half its remaining viewers between 47% and 75% of the v
 - **Hook lab:** each case ships as 3 groups that differ only in beat 1 (A scene, B "this is real" proof, C "what if I told you" challenge). Post them on different days in the same slot. Log 3 s hold and average watch time in `data/hook-lab.csv`. After 4 cases (12 posts), the opening that wins 3 of 4 becomes the house opening. Then test the ending, one variable at a time.
 - First case: `scripts/story-01.json` (Project Azorian), rendered to `episodes/story-01/story-azorian-{A,B,C}.mp4`. The lead schedules them.
 
+## Screen rules (TARS 10/27 review; renderer defaults from 10/27, tools/v3.py + tools/framing.py)
+- No picture on screen over 2.5 s; frame 0 = the sharpest photo with the subject filling 50%+; Meatball
+  never covers the subject (he shrinks first); hard cuts only (no blur whip); no photo under 900 px when a
+  bigger one exists, nothing blown up past 1.5x.
+- Asks: nothing before 0:10, the opinion poll at ~10-12 s, one subscribe/follow pill in the last 3-5 s tied
+  to the series. This replaces the 3-10 s Shorts ask kit below; spec `"early_asks": true` keeps the old
+  windows for the 6-v-6 test arm only.
+- `tools/screengate.py` checks every render (timeline) and any mp4 (pixels); a fail renames the output to
+  `*.rejected.mp4`. Old flags: `"whip"`, `"frame0": false`, `"dodge": false`, `"soft_ok"`, `"screengate": "warn"`.
+- Samples: `episodes/samples-1027/`.
+
 ## Shorts v3 (the base v4 builds on; approved 10/24)
 - `"style": "v3"` (tools/v3.py, research/44).
 - **Meatball in jeopardy:** something happens to him, he doesn't narrate it.

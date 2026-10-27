@@ -1,6 +1,21 @@
 #!/usr/bin/env python3
 """Shorts v3 renderer (research/44): Meatball in jeopardy, with motion, impacts and sound effects.
 
+TARS screen review 10/27 (defaults; the old behaviour only behind the spec flag in brackets; tools/framing.py):
+  (a) no picture on screen over 2.5 s: a long line re-cuts tighter/wider, swaps to the beat's next photo or
+      pulls back over a blur; one photo+crop never runs on across a line break   [spec "max_shot" raises it]
+  (b) frame 0 = the first beat's sharpest photo, cropped so its subject fills 50%+ of the frame   ["frame0": false]
+  (c) Meatball stands on the side the subject's core leaves free (the crop slides to make room); he shrinks
+      to 62% before he covers it                                                 ["dodge": false]
+  (d) hard cuts only; "transition": "dissolve" for sleep compilations           ["whip": true = old blur whip]
+  (e) a photo under 900 px (short side) is swapped for the beat's bigger one; nothing (push and punch-ins
+      included) is drawn past 1.5x of the photo's pixels                        ["soft_ok": true]
+  (f) asks: no poll or pill before 0:10, the opinion poll at ~10-12 s, ONE subscribe pill in the last 3-5 s
+                                                                                 ["early_asks": true = old ask kit]
+  Every render writes WORK/screen.json and runs tools/screengate.py on it; a fail renames the output to
+  OUT.rejected.mp4 and stops (spec "screengate": "warn" only prints). The "ask kit" notes below describe
+  the old early_asks windows.
+
 Selected by "style": "v3" in a Shorts spec (explainer.py dispatches here; episode.py --skip-long builds it).
 Every frame is composed in Python (numpy/cv2) and piped once into ffmpeg, so the camera can move across
 cuts: the photo always pushes, cuts to a new photo whip-pan, key words punch in, hits shake the frame and
@@ -119,6 +134,7 @@ SIZE = 1000       # Meatball's default size (px per 1000 drawing units)
 UI = 1.0          # scale of the labels, footnotes and props (landscape() shrinks them for 1080 px of height)
 CARD = 1.0        # scale of the ask kit (comment card, chips, subscribe pill): kept big enough to read and tap
 LABEL_Y = 330     # centre line of pop-in labels and the comment card's title
+TOP_SAFE = 230    # a label's top edge stays below this (series tag above; a punch-in can still lift it ~95 px)
 PILL_Y = 1440     # the subscribe pill, just under his pointing hand
 CAM_Y = 860       # centre of punch-ins and shakes
 CAP_FS = 100      # caption font size
@@ -145,6 +161,8 @@ def landscape():
     W, H, FLOOR, CAP_Y = 1920, 1080, 930, 1000
     SIZE, SIZE_V4, HOME, HOME_V4 = 680, 600, 0.17, 0.13
     UI, CARD, LABEL_Y, PILL_Y, CAM_Y, CAP_FS = 0.62, 0.9, 190, 860, 500, 66
+    global TOP_SAFE
+    TOP_SAFE = 60
     MAX_SHOT, HOLD_MAX, GAP_MAX = 3.4, 3.5, 4.0   # Nolan 10/25: a new picture or a whip every 3-4 s at most
     ASK_NONE, ASK_GUESS, ASK_PILL = 15.0, (15.0, 40.0), (28.0, 55.0)  # long-form: cold open, then the early asks
     global LANDSCAPE
@@ -258,6 +276,9 @@ def label_img(text):
         x = (tw - d.textlength(line, font=f)) / 2
         d.text((x, 20 + k * 175), line, font=f, fill=ex.YELLOW, stroke_width=12, stroke_fill=(0, 0, 0))
     im = im.rotate(5, expand=True, resample=Image.BICUBIC)
+    k = min(1.0, (W - 90) / (im.width * UI), (0.19 * H) / (im.height * UI))   # long / two-line labels fit the frame
+    if k < 1.0:
+        im = im.resize((max(1, int(im.width * k)), max(1, int(im.height * k))), Image.LANCZOS)
     return _ui(np.asarray(im))
 
 
@@ -364,8 +385,9 @@ def chapter_img(c):
         dr.text(((tw - dr.textlength(kick, font=fk)) / 2, y), kick, font=fk, fill=(255, 214, 10))
         y += 62
     dr.text(((tw - dr.textlength(c["text"], font=ft)) / 2, y), c["text"], font=ft, fill=(245, 245, 245))
-    a = np.asarray(im)
-    return _ui(a) if a.shape[1] * UI <= W - 40 else cv2.resize(a, (W - 40, int(a.shape[0] * (W - 40) / a.shape[1])))
+    a = np.asarray(im)   # long-forms: full size (a chapter card must read on a TV), Shorts: the UI scale
+    a = a if W > H else _ui(a)
+    return a if a.shape[1] <= W - 40 else cv2.resize(a, (W - 40, int(a.shape[0] * (W - 40) / a.shape[1])))
 
 
 def counter_img(c):
@@ -534,6 +556,11 @@ def stage_v4(shots, n, b, moves, top, act):
             best = (worst, x, sz, fits)
     _, x, size, fits = best
     for s, ft in zip(cuts, fits):
+        if s.get("alt") and not FLAGS["soft_ok"]:   # (a) a re-cut cut-out: the same animal pulled back to 80%
+            pb = animal.photo_box(s["path"], s["subj"])
+            cx, cy = (pb[0] + pb[2]) / 2, pb[3]
+            sx, sy, g2 = ft["tx"] + ft["g"] * cx, ft["ty"] + ft["g"] * cy, ft["g"] * 0.8
+            ft = dict(ft, g=g2, tx=sx - g2 * cx, ty=sy - g2 * cy)
         s["fit"] = ft
     return x, size, side
 
@@ -583,8 +610,8 @@ def prep_shots(vis, work):
 def frame0(beats, work, v4):
     """(b) Frame 0 shows the first beat's sharpest photo with the subject filling 50%+ of the frame: that shot
     moves first and is cropped around its subject (the cut-out box, else saliency) as tight as the 1.5x
-    upscale cap allows. A v4 cut-out that already isolates the animal keeps its crop (the solo framing fills
-    the frame). The loop tail, which mirrors frame 0, gets the same picture. Spec "frame0": false = old."""
+    upscale cap allows. In v4 that shot is drawn as the still, not a cut-out (a cut-out is re-framed smaller,
+    over a blurred copy). The loop tail, which mirrors frame 0, gets the same picture. Spec "frame0": false = old."""
     if not beats:
         return beats
     b0 = beats[0]
@@ -597,11 +624,9 @@ def frame0(beats, work, v4):
     best = max(range(len(cands)), key=lambda k: framing.score(paths[k], cands[k].get("crop")))
     s, path = cands[best], paths[best]
     box, src = framing.subject(path)
-    keep = False
-    if v4:
-        info = animal.subject(path, s.get("crop"))
-        keep = info.get("quality") == "ok"
-    if not keep:
+    if v4:   # a cut-out is re-framed small over a blurred photo: frame 0 is the cropped still instead
+        s = dict(s, cutout=False)
+    if True:
         got = framing.frame0_crop(path, box, W, H, R)
         if got:
             crop, fill = got
@@ -613,7 +638,7 @@ def frame0(beats, work, v4):
               for x in b0["shots"]]
         k0 = next(k for k, x in enumerate(b0["shots"]) if x.get("photo") == cands[best].get("photo")
                   and x.get("obs") == cands[best].get("obs") and x.get("crop") == cands[best].get("crop"))
-        first = {k: v for k, v in new.items() if k in ("photo", "obs", "n", "crop")}
+        first = {k: v for k, v in new.items() if k in ("photo", "obs", "n", "crop", "cutout")}
         rest = [x for k, x in enumerate(sh) if k != k0]
         sh = [first] + [dict(x) for x in rest]
         for k in range(1, len(sh)):   # keep the cut words in order
@@ -621,8 +646,8 @@ def frame0(beats, work, v4):
         sh[0].pop("at", None)
         beats[0] = dict(b0, shots=sh)
     else:
-        beats[0] = dict(b0, **{k: v for k, v in new.items() if k in ("photo", "obs", "n", "crop")})
-    pick = {k: new.get(k) for k in ("photo", "obs", "n", "crop")}
+        beats[0] = dict(b0, **{k: v for k, v in new.items() if k in ("photo", "obs", "n", "crop", "cutout")})
+    pick = {k: new.get(k) for k in ("photo", "obs", "n", "crop", "cutout")}
     for i, b in enumerate(beats):   # the loop tail mirrors frame 0
         if i and b.get("loop"):
             if "shots" in b:
@@ -634,7 +659,7 @@ def frame0(beats, work, v4):
     return beats
 
 
-def alt_piece(s, vis, v4=False, tighter=True):
+def alt_piece(s, vis, v4=False, tighter=True, avoid=()):
     """(a) The next piece when one picture would stay up longer than MAX_SHOT, always a visibly new framing:
     a tighter (or wider) crop of the same photo within the 1.5x cap, else the beat's next photo, else the
     same photo pulled back to 82% over its own blur. Spec "soft_ok": true = the old 80% tighter crop."""
@@ -647,14 +672,14 @@ def alt_piece(s, vis, v4=False, tighter=True):
     nc = recut(s, s["_path"], s.get("_fit"), tighter)
     if nc and FLAGS["dodge"]:
         nc = framing.make_room(s["_path"], nc, W, H)
-    if nc:
-        return dict(s, crop=nc, _fit=framing.cap_crop(s["_path"], nc, W, H, R)[1], parent=c)
-    other = next((o for o in vis if o.get("_path") and o["_path"] != s["_path"]), None)
+    if nc:   # a cut-out (v4) re-frames to the whole animal anyway: "_alt" also draws it at 80%
+        return dict(s, crop=nc, _fit=framing.cap_crop(s["_path"], nc, W, H, R)[1], parent=c, _alt=True)
+    other = next((o for o in vis if o.get("_path") and o["_path"] != s["_path"] and o["_path"] not in avoid), None)
     if other:
         return dict(s, **{k: other[k] for k in ("photo", "obs", "n", "crop", "_path", "_fit") if k in other},
-                    parent=None)
+                    parent=None, _alt=False)
     u = (s["_fit"] / R) if s.get("_fit") else framing.upscale(s["_path"], c, W, H)
-    return dict(s, _fit=round(0.82 * u * R, 4), parent=c)
+    return dict(s, _fit=round(0.82 * u * R, 4), parent=c, _alt=True)
 
 
 def recut(s, path, fit, tighter=True):
@@ -740,7 +765,8 @@ def plan_beats(spec, work):
                 cx, cy, cw, ch = (c[0] + c[2]) / 2, (c[1] + c[3]) / 2, (c[2] - c[0]) * 0.8, (c[3] - c[1]) * 0.8
                 if v4:  # re-cut from the top edge down, so a tighter crop never slices through the head
                     cy = c[1] + ch / 2
-                tight = dict(alt_piece(s, vis, v4), whip=False)
+                avoid = {vis[j].get("_path") for j in (k - 1, k + 1) if 0 <= j < len(vis)}
+                tight = dict(alt_piece(s, vis, v4, avoid=avoid), whip=False)
                 # the loop tail must END on its original crop (= frame 0), so it opens on the tight one
                 pieces = [(a, mid, tight), (mid, z, dict(s, whip=False))] if b.get("loop") else [(a, mid, s), (mid, z, tight)]
                 if n_cut > 2 and not b.get("loop"):
@@ -763,7 +789,7 @@ def plan_beats(spec, work):
                 if s_.get("board") and not hs:   # evidence board: the photo pinned to cork with notes and red string
                     path = investigate.board(path, s_["board"], work, vertical=H > W)
                 shots.append(dict(f0=int(round(a_ * FPS)), f1=int(round(z_ * FPS)), path=path,
-                                  pfit=None if (hs or s_.get("board")) else fit_,
+                                  pfit=None if (hs or s_.get("board")) else fit_, alt=bool(s_.get("_alt")),
                                   crop=None if hs else s_.get("crop"), blur=bool(s_.get("blur")) and not hs,
                                   whip=s_.get("whip", True), no=shot_no, parent=s_.get("parent"),
                                   host=bool(hs), close=bool(hs) and bool(s_.get("parent")),
@@ -783,7 +809,11 @@ def plan_beats(spec, work):
                     and not FLAGS["soft_ok"]:
                 a_ = alt_piece(dict(_path=shots[0]["path"], crop=shots[0]["crop"], _fit=shots[0].get("pfit")), [],
                                tighter=bool(shots[0]["no"] % 2))
-                shots[0]["crop"], shots[0]["pfit"] = a_["crop"], a_.get("_fit")
+                old = (shots[0]["crop"], shots[0].get("pfit"))
+                shots[0]["crop"], shots[0]["pfit"], shots[0]["alt"] = a_["crop"], a_.get("_fit"), True
+                if len(shots) > 1 and (shots[1]["path"], shots[1]["crop"], shots[1].get("pfit")) == \
+                        (shots[0]["path"], shots[0]["crop"], shots[0].get("pfit")):   # its re-cut was this framing
+                    shots[1]["crop"], shots[1]["pfit"], shots[1]["alt"] = old[0], old[1], False
         for s_ in shots:   # (e) the slow push and punch-ins stop where the picture would pass 1.5x
             if not (s_.get("host") or FLAGS["soft_ok"]) and os.path.exists(s_["path"]):
                 s_["u"] = (s_["pfit"] / R) if s_.get("pfit") else framing.upscale(s_["path"], s_["crop"], W, H)
@@ -1089,8 +1119,9 @@ def frame(g):
         kf = f - bt["label"]["f"]
         s = [0.35, 0.75, 1.15, 1.06, 1.0][kf] if kf < 5 else 1.0
         li = bt["label"]["img"]
+        cy = LABEL_Y if FLAGS["soft_ok"] else max(LABEL_Y, int(TOP_SAFE + li.shape[0] / 2))   # never cut off at the top
         li = cv2.resize(li, (max(1, int(li.shape[1] * s)), max(1, int(li.shape[0] * s))))
-        over(frame_, li, W // 2 - li.shape[1] // 2, LABEL_Y - li.shape[0] // 2)
+        over(frame_, li, W // 2 - li.shape[1] // 2, cy - li.shape[0] // 2)
     if bt.get("aside") and f >= bt["aside"]["f"]:  # the footnote joke, low right, clear of the captions
         ai = bt["aside"]["img"]
         _over_scaled(frame_, ai, _pop(f - bt["aside"]["f"]), W - 40 - ai.shape[1] / 2, CAP_Y - 95 * UI - ai.shape[0] / 2)
@@ -1309,7 +1340,8 @@ def timeline(beats, total, trans, qas):
     for bt in beats:
         out.append(dict(i=bt["i"], start=bt["F"] / FPS, dur=bt["n"] / FPS, act=bt["act"], say=bt["say"],
                         shots=[(s["f0"] / FPS, s["f1"] / FPS) for s in bt["shots"]], sfx=bt["sfx"],
-                        pics=[f'{os.path.basename(s["path"])}|{s["crop"] or [0.0, 0.0, 1.0, 1.0]}|{s.get("pfit")}'
+                        pics=[(f'{os.path.basename(s["path"])}|cut|{s.get("alt")}' if s.get("cut") else
+                               f'{os.path.basename(s["path"])}|{s["crop"] or [0.0, 0.0, 1.0, 1.0]}|{s.get("pfit")}')
                               for s in bt["shots"]],
                         covers=over_.get(bt["i"], 0)))
     # merge runs of one picture across line breaks for the hold check (the beats list keeps them apart)

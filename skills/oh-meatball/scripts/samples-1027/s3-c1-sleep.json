@@ -1,0 +1,316 @@
+{
+ "title": "Weird Animal Facts to Fall Asleep To (C1) - 3-minute sample segment",
+ "_note": "Sleep-style compilation sample: our own facts only (sloth, koala, owl: scripts/animal-myths-02.json; ballooning spiders: scripts/v4-spiders.json; harvestman: scripts/myths-02-shorts/daddy.json), no new claims. Calm voice (Andrew -10%, no speed-up), very low original ambient bed (tools/music.py 'sleep', -34 LUFS), cross-dissolves only, 4-6 s holds, a chapter card per fact, one quiet ask at the start and none after. Photos: the original scripts' iNaturalist pins, CC BY/CC0 only (two CC BY-SA pins dropped).",
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "-10%",
+ "tempo": 1.0,
+ "style": "v3",
+ "aspect": "16:9",
+ "music": "gen:sleep",
+ "music_lufs": -34,
+ "max_shot": 6.0,
+ "transition": "dissolve",
+ "names": {
+  "Bradypus variegatus": "Brown-throated sloth",
+  "Phascolarctos cinereus": "Koala",
+  "Bubo virginianus": "Great horned owl",
+  "Misumena vatia": "Goldenrod crab spider",
+  "Opiliones": "Harvestman"
+ },
+ "beats": [
+  {
+   "say": "Get comfortable. If you like falling asleep to these, you can subscribe. Quietly. No pressure.",
+   "pose": "deadpan",
+   "chapter_card": {
+    "kicker": "WEIRD ANIMAL FACTS",
+    "text": "to fall asleep to"
+   },
+   "chapter_s": 6,
+   "shots": [
+    {
+     "photo": "Bradypus variegatus",
+     "obs": 336925506
+    }
+   ],
+   "hold": 1.8
+  },
+  {
+   "say": "Sloths are not lazy. They're on the most extreme budget in the animal kingdom.",
+   "pose": "deadpan",
+   "chapter_card": {
+    "kicker": "FACT 1",
+    "text": "The sloth's budget"
+   },
+   "shots": [
+    {
+     "photo": "Bradypus variegatus",
+     "obs": 190111588
+    }
+   ],
+   "hold": 1.8
+  },
+  {
+   "say": "Sloths eat leaves, and leaves have almost no energy in them. Digesting one meal can take days. Sometimes weeks.",
+   "pose": "deadpan",
+   "shots": [
+    {
+     "photo": "Bradypus variegatus",
+     "obs": 2603934
+    },
+    {
+     "photo": "Bradypus variegatus",
+     "obs": 336925506
+    }
+   ],
+   "hold": 1.8
+  },
+  {
+   "say": "So they save energy everywhere. They move slowly. They keep an unusually low body temperature for a mammal. And they blend into the trees, so they never have to run.",
+   "pose": "deadpan",
+   "shots": [
+    {
+     "photo": "Bradypus variegatus",
+     "obs": 190111588
+    },
+    {
+     "photo": "Bradypus variegatus",
+     "obs": 2603934
+    },
+    {
+     "photo": "Bradypus variegatus",
+     "obs": 173122648
+    }
+   ],
+   "hold": 1.8
+  },
+  {
+   "say": "They climb down about once a week, to go to the bathroom. That's the big trip. And, slow on land, they're surprisingly good swimmers.",
+   "pose": "deadpan",
+   "shots": [
+    {
+     "photo": "Bradypus variegatus",
+     "obs": 2603934
+    },
+    {
+     "photo": "Bradypus variegatus",
+     "obs": 173122648
+    }
+   ],
+   "hold": 1.8
+  },
+  {
+   "say": "Koalas are not bears. They're marsupials. Their closest living relatives are wombats.",
+   "pose": "deadpan",
+   "chapter_card": {
+    "kicker": "FACT 2",
+    "text": "The koala is not a bear"
+   },
+   "shots": [
+    {
+     "photo": "Phascolarctos cinereus",
+     "obs": 183808890
+    }
+   ],
+   "hold": 1.8
+  },
+  {
+   "say": "A baby koala, called a joey, grows up in its mother's pouch, like a kangaroo.",
+   "pose": "deadpan",
+   "shots": [
+    {
+     "photo": "Phascolarctos cinereus",
+     "obs": 262236073
+    }
+   ],
+   "hold": 1.8
+  },
+  {
+   "say": "Early settlers saw a round, fluffy, tree climbing animal, and thought, close enough. Bear. The name stuck.",
+   "pose": "deadpan",
+   "shots": [
+    {
+     "photo": "Phascolarctos cinereus",
+     "obs": 120218756
+    },
+    {
+     "photo": "Phascolarctos cinereus",
+     "obs": 265802941
+    }
+   ],
+   "hold": 1.8
+  },
+  {
+   "say": "They eat almost nothing but eucalyptus leaves, which are tough, low in energy, and toxic to most animals. So koalas rest, or sleep, for up to around twenty hours a day.",
+   "pose": "deadpan",
+   "shots": [
+    {
+     "photo": "Phascolarctos cinereus",
+     "obs": 265802941
+    },
+    {
+     "photo": "Phascolarctos cinereus",
+     "obs": 262236073
+    },
+    {
+     "photo": "Phascolarctos cinereus",
+     "obs": 183808890
+    }
+   ],
+   "hold": 1.8
+  },
+  {
+   "say": "Owls cannot spin their heads all the way around. They turn about two hundred and seventy degrees.",
+   "pose": "deadpan",
+   "chapter_card": {
+    "kicker": "FACT 3",
+    "text": "The owl's neck"
+   },
+   "shots": [
+    {
+     "photo": "Bubo virginianus",
+     "obs": 9837694
+    },
+    {
+     "photo": "Bubo virginianus",
+     "obs": 146498526
+    }
+   ],
+   "hold": 1.8
+  },
+  {
+   "say": "Their eyes are shaped more like tubes than balls, so they can't roll them around. The whole head has to move instead.",
+   "pose": "deadpan",
+   "shots": [
+    {
+     "photo": "Bubo virginianus",
+     "obs": 9145070
+    },
+    {
+     "photo": "Bubo virginianus",
+     "obs": 258532565
+    }
+   ],
+   "hold": 1.8
+  },
+  {
+   "say": "To make that work, an owl has fourteen neck bones. You have seven. And special blood vessels keep blood flowing to the brain while it turns.",
+   "pose": "deadpan",
+   "shots": [
+    {
+     "photo": "Bubo virginianus",
+     "obs": 258532565
+    },
+    {
+     "photo": "Bubo virginianus",
+     "obs": 9837694
+    }
+   ],
+   "hold": 1.8
+  },
+  {
+   "say": "Some spiders can fly, with no wings at all.",
+   "pose": "deadpan",
+   "chapter_card": {
+    "kicker": "FACT 4",
+    "text": "Spiders that fly"
+   },
+   "shots": [
+    {
+     "photo": "Misumena vatia",
+     "obs": 112317254
+    }
+   ],
+   "hold": 1.8
+  },
+  {
+   "say": "They climb up high, lift their bodies, and let out long threads of silk. The wind, and even electricity in the air, lifts them away.",
+   "pose": "deadpan",
+   "shots": [
+    {
+     "photo": "Misumena vatia",
+     "obs": 135571228
+    },
+    {
+     "photo": "Misumena vatia",
+     "obs": 112317254
+    }
+   ],
+   "hold": 1.8
+  },
+  {
+   "say": "Planes have caught them nearly three miles up. Darwin found them sixty miles out at sea.",
+   "pose": "deadpan",
+   "shots": [
+    {
+     "photo": "Misumena vatia",
+     "obs": 135571228
+    },
+    {
+     "photo": "Misumena vatia",
+     "obs": 112317254
+    }
+   ],
+   "hold": 1.8
+  },
+  {
+   "say": "And once, in Australia, so many came down at once that whole fields turned white.",
+   "pose": "deadpan",
+   "shots": [
+    {
+     "photo": "Misumena vatia",
+     "obs": 135571228
+    },
+    {
+     "photo": "Misumena vatia",
+     "obs": 112317254
+    }
+   ],
+   "hold": 1.8
+  },
+  {
+   "say": "The long-legged thing most people call a daddy longlegs is usually a harvestman. And a harvestman isn't a spider at all.",
+   "pose": "deadpan",
+   "chapter_card": {
+    "kicker": "FACT 5",
+    "text": "The daddy longlegs"
+   },
+   "shots": [
+    {
+     "photo": "Opiliones",
+     "obs": 191157326
+    },
+    {
+     "photo": "Opiliones",
+     "obs": 33697019
+    }
+   ],
+   "hold": 1.8
+  },
+  {
+   "say": "It has one round body instead of two sections. It doesn't make silk. And it has no venom glands at all.",
+   "pose": "deadpan",
+   "shots": [
+    {
+     "photo": "Opiliones",
+     "obs": 98286913
+    },
+    {
+     "photo": "Opiliones",
+     "obs": 191157326
+    }
+   ],
+   "hold": 1.8
+  },
+  {
+   "say": "Just a tiny, walking button on stilts. Goodnight.",
+   "pose": "deadpan",
+   "hold": 2.0,
+   "shots": [
+    {
+     "photo": "Opiliones",
+     "obs": 33697019
+    }
+   ]
+  }
+ ]
+}
