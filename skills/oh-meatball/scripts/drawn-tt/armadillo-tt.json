@@ -1,0 +1,130 @@
+{
+ "series": "Meatball's Animal Files, Part",
+ "sources": [
+  "Florida Museum of Natural History (University of Florida), Five facts about the nine-banded armadillo: nearly always litters of four, identical quadruplets; when startled can jump four to five feet high, which doesn't help against cars, so many are killed on roads; can hold their breath for up to six minutes and walk underwater to cross streams; mostly eat bugs, beetles, grubs, worms, spiders and termites; wild armadillos have passed leprosy to humans in a growing number of confirmed cases, so avoid handling them; https://www.floridamuseum.ufl.edu/discover/story/five-facts-nine-banded-armadillo/",
+  "National Park Service, Lincoln Boyhood National Memorial, Nine-banded Armadillo: if frightened can jump 3-4 feet straight up; females always deliver quadruplets, nearly identical and same-sex; hold breath up to 6 minutes; inflation of their intestines lets them swim, or they walk along the bottom; cannot roll into a ball; sensitive nose detects food through eight inches of soil; long middle claw for digging; primarily nocturnal, foraging dusk to dawn; carries the bacterium that causes leprosy; https://home.nps.gov/liri/learn/nature/mammals-nine-banded-armadillo.htm"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "armadillo",
+  "scene": "forest_floor",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "nine-banded armadillo",
+   "color": "#a8988a",
+   "dark": "#7c6e62",
+   "belly": "#e3d3c4",
+   "ears": "pointed",
+   "whiskers": false,
+   "length": 560,
+   "height": 260,
+   "leg_len": 70,
+   "leg_w": 30,
+   "tail_w": 20,
+   "mood": "calm",
+   "s": 0.72
+  },
+  "s": 0.72,
+  "wild": "forest_floor",
+  "wild_p": {
+   "time": "dusk"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "This Animal Almost Always Has Identical Quadruplets 🐣",
+ "tiktok_caption": "this animal almost always has identical quadruplets 4️⃣ and it can carry leprosy. Would you pick one up? 🖐️ yes / 🧤 with gloves / 🙅 no way #meatballmyths #learnontiktok #armadillo #animalfacts",
+ "beats": [
+  {
+   "m": "hook",
+   "say": "This animal almost always gives birth to identical quadruplets."
+  },
+  {
+   "m": "name",
+   "say": "The nine-banded armadillo. Wrapped in bony armor."
+  },
+  {
+   "m": "fact",
+   "say": "Every litter, four babies. Identical, and all the same sex."
+  },
+  {
+   "m": "escalate",
+   "say": "And when it's scared, it jumps straight up. Three to four feet in the air."
+  },
+  {
+   "m": "fact",
+   "say": "But that jump doesn't help against cars. That's why so many end up on roadsides."
+  },
+  {
+   "m": "calm",
+   "say": "And no, it can't roll up into a ball."
+  },
+  {
+   "m": "fact",
+   "say": "Its nose can smell food through eight inches of dirt."
+  },
+  {
+   "act": {
+    "chew": 1.0
+   },
+   "m": "fact",
+   "say": "It digs with a long claw, for ants, termites, grubs, and worms."
+  },
+  {
+   "hero_at": {
+    "x": 590
+   },
+   "scene_p": {
+    "time": "night"
+   },
+   "m": "solo",
+   "say": "It comes out at night, and forages from dusk till dawn."
+  },
+  {
+   "hero_at": {
+    "x": 590
+   },
+   "scene": "swamp",
+   "scene_p": {
+    "time": "day"
+   },
+   "m": "solo",
+   "say": "It can hold its breath for up to six minutes."
+  },
+  {
+   "m": "fact",
+   "say": "To swim, it puffs up its own guts with air. Or it sinks, and walks along the bottom."
+  },
+  {
+   "m": "escalate",
+   "say": "Now the scary part. It can carry the germ that causes leprosy."
+  },
+  {
+   "m": "fact",
+   "say": "Wild armadillos have passed leprosy to people. So don't pick one up."
+  },
+  {
+   "hero_at": {
+    "x": 590
+   },
+   "m": "solo",
+   "say": "Would you pick one up?"
+  },
+  {
+   "m": "punch",
+   "say": "Armor plating, four identical babies, and it still loses to a pickup truck."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, a bug nicknamed the toe biter."
+  }
+ ]
+}

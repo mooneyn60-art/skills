@@ -1,0 +1,44 @@
+slug: armadillo
+variant: A
+out: episodes/drawn-tt
+specs: scripts/drawn-tt
+series: "Meatball's Animal Files"
+title: This Animal Almost Always Has Identical Quadruplets 🐣
+tiktok_caption: "this animal almost always has identical quadruplets 4️⃣ and it can carry leprosy. Would you pick one up? 🖐️ yes / 🧤 with gloves / 🙅 no way #meatballmyths #learnontiktok #armadillo #animalfacts"
+creature: armadillo
+creature_cfg: {plan: mammal, label: nine-banded armadillo, color: "#a8988a", dark: "#7c6e62", belly: "#e3d3c4", ears: pointed,
+               whiskers: false, length: 560, height: 260, leg_len: 70, leg_w: 30, tail_w: 20, mood: calm, s: 0.72}
+s: 0.72
+scene: forest_floor
+scene_p: {time: day}
+wild: forest_floor
+wild_p: {time: dusk}
+music: mystery
+next: Next, a bug nicknamed the toe biter.
+sources:
+  - "Florida Museum of Natural History (University of Florida), Five facts about the nine-banded armadillo: nearly always litters of four, identical quadruplets; when startled can jump four to five feet high, which doesn't help against cars, so many are killed on roads; can hold their breath for up to six minutes and walk underwater to cross streams; mostly eat bugs, beetles, grubs, worms, spiders and termites; wild armadillos have passed leprosy to humans in a growing number of confirmed cases, so avoid handling them; https://www.floridamuseum.ufl.edu/discover/story/five-facts-nine-banded-armadillo/"
+  - "National Park Service, Lincoln Boyhood National Memorial, Nine-banded Armadillo: if frightened can jump 3-4 feet straight up; females always deliver quadruplets, nearly identical and same-sex; hold breath up to 6 minutes; inflation of their intestines lets them swim, or they walk along the bottom; cannot roll into a ball; sensitive nose detects food through eight inches of soil; long middle claw for digging; primarily nocturnal, foraging dusk to dawn; carries the bacterium that causes leprosy; https://home.nps.gov/liri/learn/nature/mammals-nine-banded-armadillo.htm"
+yt:
+  - hook: This animal almost always gives birth to identical quadruplets.
+  - name: The nine-banded armadillo. Wrapped in bony armor.
+  - fact: Every litter, four babies. Identical, and all the same sex.
+  - escalate: And when it's scared, it jumps straight up. Three to four feet in the air.
+  - fact: But that jump doesn't help against cars. That's why so many end up on roadsides.
+  - calm: And no, it can't roll up into a ball.
+tt:
+  - fact: Its nose can smell food through eight inches of dirt.
+  - fact: It digs with a long claw, for ants, termites, grubs, and worms.
+    act: {chew: 1.0}
+  - solo: It comes out at night, and forages from dusk till dawn.
+    hero_at: {x: 590}
+    scene_p: {time: night}
+  - solo: It can hold its breath for up to six minutes.
+    hero_at: {x: 590}
+    scene: swamp
+    scene_p: {time: day}
+  - fact: To swim, it puffs up its own guts with air. Or it sinks, and walks along the bottom.
+  - escalate: Now the scary part. It can carry the germ that causes leprosy.
+  - fact: Wild armadillos have passed leprosy to people. So don't pick one up.
+  - solo: Would you pick one up?
+    hero_at: {x: 590}
+  - punch: Armor plating, four identical babies, and it still loses to a pickup truck.
