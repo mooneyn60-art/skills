@@ -1,0 +1,85 @@
+slug: puffin
+out: episodes/drawn-tt
+specs: scripts/drawn-tt
+series: "Meatball's Animal Files"
+variant: B (tiny)
+title: This Bird Can Cram 62 Fish Into Its Beak at Once 🐟
+tiktok_caption: "a bird that crams 62 fish in its beak at once 🐟 and it scratches its back with a stick. Could you fit 62 fish in your mouth? 🐟 easy / 🤢 no way #meatballmyths #learnontiktok #puffin #animalfacts"
+creature: atlantic_puffin
+actor: creature
+creature_cfg: &cfg {plan: bird, label: Atlantic puffin, color: "#22222a", belly: "#f4f2ec", beak: short,
+                    length: 440, height: 300, leg_len: 120, mood: happy, s: 0.75}
+hero_p: {cfg: *cfg}
+scene: garden
+scene_p: &cliff {time: day, palette: {sky: "#9cc8e0", ground: "#7fae5a", ground2: "#5f8f44"},
+          props: [["rock", -60, 1500, 1.3], ["rock", 1150, 1500, 1.1], ["grass", 900, 1500, 1.0]]}
+wild: garden
+wild_p: {time: dusk, palette: {sky: "#e0a87c", ground: "#7fae5a", ground2: "#5f8f44"},
+         props: [["rock", 100, 1500, 1.4], ["grass", 1000, 1500, 1.2]]}
+music: mystery
+next: Next, a fish that walks out of the water.
+sources:
+  - "BirdLife International, Seabird of the month: Atlantic Puffin (2022): average about 10 fish per trip, British record 62 fish at once; dives as deep as 40 m and stays under up to a minute; uses its wings underwater so it looks like it is flying under water; digs burrows in the ground or between rocks; bright orange bills and feet in breeding season fade to duller shades in winter; lives over 20 years, oldest recorded 36; https://www.birdlife.org/news/2022/04/06/seabird-of-the-month-atlantic-puffin-fratercula-arctica"
+  - "BBC Countryfile, How do puffins manage to catch so many fish in one go?: a modified tongue and a series of spines on the upper palate; the tongue pushes each fish against the spines so it can catch more; https://www.countryfile.com/wildlife/birds/how-much-fish-puffins-carry"
+  - "University of Nottingham press release (2019), Puffin bills 'glow' under UV light: Jamie Dunning found by accident that the bill ridges of a dead puffin fluoresce under UV light; https://www.nottingham.ac.uk/news/pressreleases/2019/jan/puffin-bills-%27glow%27-under-uv-light-study-discovers.aspx"
+  - "Smithsonian Magazine (2019), Scientists film a puffin scratching its back with a stick (Fayet et al., PNAS, Oxford): a camera trap on Grimsey Island, Iceland filmed an Atlantic puffin pick up a stick and scratch itself, the first documented tool use in a seabird; https://www.smithsonianmag.com/smart-news/first-scientists-film-puffin-scratching-its-back-stick-180973883/"
+yt:
+  - hook: This bird can cram sixty-two fish into its beak at once.
+    hero_at: {x: 760}
+  - shrink: So I shrank myself down to fish size, to see how it does it.
+  - tiny: The Atlantic puffin. A tuxedo body, and a clown-colored beak.
+    zoom: 1.0
+    scene: garden
+    scene_p: *cliff
+  - tiny: Its tongue pins each fish against spikes on the roof of its mouth.
+    zoom: 1.0
+    scene: garden
+    scene_p: *cliff
+    act: {xray: 1.0}
+    pose: nervous
+  - tiny: So it can open its beak again, and grab another, and another.
+    zoom: 1.0
+    scene: garden
+    scene_p: *cliff
+    act: {bite: 1.0}
+    pose: shock
+  - solo: To hunt, it flaps its wings underwater, like it's flying through the sea.
+    zoom: 1.0
+    scene: ocean
+    act: {fly: 1.0}
+tt:
+  - tiny: It can dive as deep as forty meters, and stay under for a whole minute.
+    zoom: 1.0
+    pose: shock
+  - tiny: On land, it digs a burrow in the ground, or between the rocks.
+    zoom: 1.0
+  - tiny: That bright orange beak is only for the breeding season. In winter, it fades.
+    zoom: 1.0
+    scene: garden
+    scene_p: *cliff
+  - tiny: And under ultraviolet light, parts of its beak glow.
+    zoom: 1.0
+    scene: garden
+    scene_p: {time: night, palette: {sky: "#9cc8e0", ground: "#7fae5a", ground2: "#5f8f44"}, props: [["rock", -60, 1500, 1.3], ["rock", 1150, 1500, 1.1], ["grass", 900, 1500, 1.0]]}
+  - tiny: A scientist found that by accident, shining a UV lamp on a dead puffin.
+    zoom: 1.0
+    scene: garden
+    scene_p: {time: night, palette: {sky: "#9cc8e0", ground: "#7fae5a", ground2: "#5f8f44"}, props: [["rock", -60, 1500, 1.3], ["rock", 1150, 1500, 1.1], ["grass", 900, 1500, 1.0]]}
+    pose: think
+  - tiny: Some live over twenty years. The oldest known was thirty-six.
+    zoom: 1.0
+    scene: garden
+    scene_p: *cliff
+  - tiny: But the strangest part? One was caught on camera using a tool.
+    zoom: 1.0
+    pose: shock
+  - solo: It picked up a stick, and scratched itself with it.
+    zoom: 1.0
+    act: {wave: 1.0}
+  - tiny: The first time a seabird was ever seen using a tool.
+    zoom: 1.0
+    pose: laugh
+  - fact: Could you fit sixty-two fish in your mouth?
+    hero_at: {x: 760}
+  - punch: A bird with a fish buffet in its face, and its own back scratcher.
+    hero_at: {x: 760}
