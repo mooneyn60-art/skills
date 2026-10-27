@@ -1,0 +1,230 @@
+{
+ "series": "Meatball Investigates, Part",
+ "sources": [
+  "Nautilus, 'The Soviets Drilled the Deepest Hole Ever': drilling began May 24, 1970 on the Kola Peninsula; the deepest point reached 40,230 feet (12,262 m); near 22,000 feet cores held plankton microfossils from two dozen species more than 2 billion years old; near 40,000 feet temperatures reached nearly 356 F (180 C), about twice what was predicted; the rock deformed plastically and crept in to pinch the hole shut; Russia halted drilling in 1992; since 2008 it is sealed with a steel cap about 9 inches across; the 'Well to Hell' story aired on TBN in the late 1980s claiming recorded screams; the site is on the Kola Peninsula near Norway, not Siberia; the screams were a sound loop from the 1972 horror film Baron Blood; a Norwegian teacher admitted he planted the winged-figure story to test the producers; https://nautil.us/the-soviets-drilled-the-deepest-hole-ever-1283561",
+  "Skeptoid #4307 (Brian Dunning), 'The Well to Hell': TBN ran 'Scientists Discover Hell' in broadcast and print in late 1989, citing the Finnish source Ammennusastia, a small Evangelical Lutheran magazine, which traced to a reader-contribution section of a Finnish daily newspaper; TBN named a 'Dr. Azzacov'; claimed 14.5 km depth and about 1,100 C in Siberia; Norwegian teacher Age Rendalen sent a fake add-on; the audio first appeared in 2002 and is digitally looped and processed; https://skeptoid.com/episodes/4307",
+  "NOAA Ocean Exploration, 'How deep is the ocean?': the Challenger Deep in the Mariana Trench is about 10,935 m deep, shallower than the 12,262 m borehole; https://oceanexplorer.noaa.gov/facts/ocean-depth.html"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "drill_rig",
+  "scene": "tundra",
+  "scene_p": {},
+  "creature_cfg": {
+   "floor": true
+  },
+  "s": 0.55,
+  "actor": "drill_rig"
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "The Deepest Hole Ever Drilled Goes Down Over 12 Kilometers 🕳️",
+ "tiktok_caption": "the deepest hole on earth is real, the screams were a hoax 🕳️ 12,262 meters down, 180°C rock, and a fake 'well to hell' story on tv. Would you lower a microphone down there? 🎤 yes / 🏃 no #meatballmyths #learnontiktok #history #hoax #science",
+ "beats": [
+  {
+   "m": "hook",
+   "say": "This is the deepest hole humans ever drilled. Over twelve kilometers down."
+  },
+  {
+   "m": "name",
+   "say": "The Kola Superdeep Borehole, in the Soviet Arctic."
+  },
+  {
+   "m": "fact",
+   "say": "Drilling started in 1970. The record came in 1989."
+  },
+  {
+   "hero": false,
+   "scene": "tundra",
+   "with": [
+    {
+     "type": "section",
+     "x": 540,
+     "y": 520,
+     "s": 0.8,
+     "pop": false,
+     "p": {
+      "depth": 0.05,
+      "trench": 0.0
+     },
+     "set": [
+      {
+       "at": "5%",
+       "dur": 2.8,
+       "p": {
+        "depth": 1.0
+       }
+      },
+      {
+       "at": "Deeper",
+       "dur": 0.5,
+       "p": {
+        "trench": 1.0
+       }
+      }
+     ]
+    }
+   ],
+   "m": "solo",
+   "say": "Twelve thousand, two hundred sixty-two meters. Deeper than the ocean's deepest point."
+  },
+  {
+   "with": [
+    {
+     "type": "well_cap",
+     "x": 620,
+     "y": 1560,
+     "s": 0.7,
+     "pop": false,
+     "front": true
+    }
+   ],
+   "m": "fact",
+   "say": "And the hole is only about nine inches wide."
+  },
+  {
+   "hero": false,
+   "with": [
+    {
+     "type": "section",
+     "x": 540,
+     "y": 520,
+     "s": 0.8,
+     "pop": false,
+     "p": {
+      "depth": 1.0,
+      "fossils": true
+     }
+    }
+   ],
+   "m": "solo",
+   "say": "Nearly seven kilometers down, they found plankton fossils over two billion years old."
+  },
+  {
+   "m": "escalate",
+   "say": "At the bottom, the rock hit 180 degrees Celsius. Twice what they expected."
+  },
+  {
+   "m": "fact",
+   "say": "The hot rock went soft and squeezed the hole shut. In 1992, they quit."
+  },
+  {
+   "hero": false,
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   },
+   "with": [
+    {
+     "type": "tv",
+     "x": 540,
+     "y": 1500,
+     "s": 1.0,
+     "pop": false,
+     "p": {
+      "show": "flames"
+     }
+    }
+   ],
+   "m": "solo",
+   "say": "Then American Christian TV aired a story. Scientists had drilled into hell."
+  },
+  {
+   "with": [
+    {
+     "type": "mic_cable",
+     "x": 650,
+     "y": 1300,
+     "s": 0.8,
+     "pop": false,
+     "front": true
+    }
+   ],
+   "m": "fact",
+   "say": "A Doctor Azzacov supposedly recorded screams down the hole."
+  },
+  {
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   },
+   "hero": false,
+   "with": [
+    {
+     "type": "tv",
+     "x": 860,
+     "y": 1500,
+     "s": 0.8,
+     "pop": false,
+     "p": {
+      "show": "flames"
+     }
+    }
+   ],
+   "m": "fact",
+   "say": "It came from a small Finnish Christian magazine. No Doctor Azzacov. Not even the right place."
+  },
+  {
+   "m": "calm",
+   "say": "A Norwegian teacher even sent in a fake demon story, to test them. It spread too."
+  },
+  {
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   },
+   "hero": false,
+   "with": [
+    {
+     "type": "tv",
+     "x": 860,
+     "y": 1500,
+     "s": 0.8,
+     "pop": false,
+     "p": {
+      "show": "flames"
+     }
+    }
+   ],
+   "m": "fact",
+   "say": "The screams audio online? A looped clip, widely traced to a 1972 horror movie."
+  },
+  {
+   "with": [
+    {
+     "type": "mic_cable",
+     "x": 650,
+     "y": 1300,
+     "s": 0.8,
+     "pop": false,
+     "front": true
+    }
+   ],
+   "m": "fact",
+   "say": "Would you lower a microphone down there?"
+  },
+  {
+   "with": [
+    {
+     "type": "well_cap",
+     "x": 620,
+     "y": 1560,
+     "s": 0.7,
+     "pop": false,
+     "front": true
+    }
+   ],
+   "m": "punch",
+   "say": "Today it's a rusty metal cap. No screams. Just hot rock."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, a laughing fit that shut down a school."
+  }
+ ]
+}

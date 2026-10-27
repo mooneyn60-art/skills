@@ -510,6 +510,7 @@ def wall_clock(ctx, t, p):
 
 def drill_rig(ctx, t, p):
     """The borehole's tall drilling tower inside a boxy sheathed derrick, base y = 0, ~1300 tall."""
+    ctx.translate(-150, 0)   # drawn left of its mark so the wide base stays on screen
     shape(ctx, lambda c: c.rectangle(-560, -360, 1120, 360), hexc("#b5563a"), OUT, (0.12, 0))
     for x in range(-500, 560, 140):
         shape(ctx, lambda c, x=x: c.rectangle(x, -300, 80, 70), hexc("#3a5a7a"), OUT * 0.5, None)
