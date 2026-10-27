@@ -1,0 +1,61 @@
+{
+ "series": "Things Living In Your House, Part 11",
+ "sources": [
+  "Utah State University Extension, Booklice fact sheet (Utah Pests): booklice are flat, pale, soft-bodied, 1-4 mm long; do not feed on bindings or glue but on mold and other fungi present in books; also occur in rugs, stored grains, damp construction materials; many but not all species reproduce parthenogenetically, all females that do not require fertilization by males; life cycle 4 weeks to 2 months, a single generation in as few as 25 days under ideal conditions; do not bite or transmit disease; control by decreasing humidity and increasing airflow; https://extension.usu.edu/pests/uppdl/files/factsheet/booklice.pdf",
+  "Utah State University Extension IPM, Booklice and Psocids: indoors found in damp books, around leaking or sweating pipes, in voids and cardboard boxes; eat mold spores; indicator of moisture issues; https://extension.usu.edu/planthealth/ipm/notes_nuisance/booklice-psocids",
+  "Clemson Cooperative Extension HGIC, Booklice: not true lice, related to barklice; do not bite people or pets; feed on mold, and starchy foods like flour, grains and dried fruit; damage damp books by feeding on moldy paper; ideal 75-90% relative humidity; 50-60% is harmful and they can die within weeks if humidity stays low; keep humidity below 50%; large populations build up in newly built structures because fresh plaster and drywall hold moisture that supports mold; https://hgic.clemson.edu/factsheet/booklice/"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "booklouse",
+  "scene": "study",
+  "scene_p": {
+   "time": "night"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Many Bugs in Your Old Books Are All Female, No Males Needed 📚",
+ "tiktok_caption": "the tiny bugs in your old books aren't eating the pages 📚 they're eating mold you can't see, and many kinds don't need males. Would you still read a book that had them? 📖 yes / 🗑️ toss it",
+ "beats": [
+  {
+   "m": "hook",
+   "say": "Many of the tiny bugs in your old books are all female. No males needed."
+  },
+  {
+   "m": "name",
+   "say": "Booklice. Pale, soft, and about a millimeter long."
+  },
+  {
+   "m": "fact",
+   "say": "And they're not real lice. They don't bite you."
+  },
+  {
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   },
+   "m": "tiny",
+   "say": "They aren't eating your books. They're eating the mold growing on them."
+  },
+  {
+   "m": "escalate",
+   "say": "Mold so thin you usually can't even see it."
+  },
+  {
+   "m": "punch",
+   "say": "So if you've got booklice, you've got damp."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Part twelve has pincers, and it hides in your bathroom.",
+   "scene": "bathroom",
+   "scene_p": {}
+  }
+ ]
+}

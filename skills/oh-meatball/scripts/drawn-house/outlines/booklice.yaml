@@ -1,0 +1,43 @@
+slug: booklice
+out: episodes/drawn-house
+specs: scripts/drawn-house
+series: Things Living In Your House
+part: 11
+title: Many Bugs in Your Old Books Are All Female, No Males Needed 📚
+tiktok_caption: "the tiny bugs in your old books aren't eating the pages 📚 they're eating mold you can't see, and many kinds don't need males. Would you still read a book that had them? 📖 yes / 🗑️ toss it"
+creature: booklouse
+scene: study
+scene_p: {time: night}
+music: mystery
+next: Part twelve has pincers, and it hides in your bathroom.
+next_scene: bathroom
+sources:
+  - "Utah State University Extension, Booklice fact sheet (Utah Pests): booklice are flat, pale, soft-bodied, 1-4 mm long; do not feed on bindings or glue but on mold and other fungi present in books; also occur in rugs, stored grains, damp construction materials; many but not all species reproduce parthenogenetically, all females that do not require fertilization by males; life cycle 4 weeks to 2 months, a single generation in as few as 25 days under ideal conditions; do not bite or transmit disease; control by decreasing humidity and increasing airflow; https://extension.usu.edu/pests/uppdl/files/factsheet/booklice.pdf"
+  - "Utah State University Extension IPM, Booklice and Psocids: indoors found in damp books, around leaking or sweating pipes, in voids and cardboard boxes; eat mold spores; indicator of moisture issues; https://extension.usu.edu/planthealth/ipm/notes_nuisance/booklice-psocids"
+  - "Clemson Cooperative Extension HGIC, Booklice: not true lice, related to barklice; do not bite people or pets; feed on mold, and starchy foods like flour, grains and dried fruit; damage damp books by feeding on moldy paper; ideal 75-90% relative humidity; 50-60% is harmful and they can die within weeks if humidity stays low; keep humidity below 50%; large populations build up in newly built structures because fresh plaster and drywall hold moisture that supports mold; https://hgic.clemson.edu/factsheet/booklice/"
+yt:
+  - hook: Many of the tiny bugs in your old books are all female. No males needed.
+  - name: Booklice. Pale, soft, and about a millimeter long.
+  - fact: And they're not real lice. They don't bite you.
+  - tiny: They aren't eating your books. They're eating the mold growing on them.
+    scene: study
+    scene_p: {time: night}
+  - escalate: Mold so thin you usually can't even see it.
+  - punch: So if you've got booklice, you've got damp.
+tt:
+  - fact: They love sticky, humid air. Seventy five to ninety percent is perfect.
+  - solo: Damp cardboard boxes. Sweaty pipes. Wet basements.
+    scene: basement
+  - tiny: They'll move into your flour, your grains, and your dried fruit too.
+    scene: kitchen
+    scene_p: {time: night}
+  - count: In perfect conditions, a whole new generation grows up in just twenty five days.
+    with: [booklouse, booklouse, booklouse]
+  - escalate: And in many species, every single one is a female that lays eggs without a male.
+  - solo: Brand new houses can get swarms of them. Fresh drywall holds moisture, and mold grows.
+    scene: study
+    scene_p: {time: day}
+  - calm: But they have one big weakness. They need damp air.
+  - escalate: Keep your humidity under fifty percent, and they can die within weeks.
+  - fact: Would you still read a book that had them?
+  - punch: The real bookworm in your house isn't eating the book. It's eating the mold.
