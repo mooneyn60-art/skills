@@ -1,0 +1,275 @@
+{
+ "series": "Meatball's Animal Files, Part",
+ "sources": [
+  "Great Lakes Fishery Commission, Sea Lamprey: no jaws, cartilage skeleton; a large oral sucking disk filled with sharp horn-shaped teeth around a razor-sharp rasping tongue; attaches and rasps through scales and skin, secreting an enzyme that stops blood clotting like a leech; each can kill up to 40 lb of fish in its 12-18 month feeding period; largely unchanged for more than 340 million years, survived at least four major extinctions; first recorded in Lake Ontario 1835, Welland Canal improvements let it past Niagara Falls into Lake Erie by 1921 and Lake Superior by 1938; lake trout catch fell from about 15 million lb a year to about 300,000 lb; up to 85 percent of surviving fish bore lamprey wounds; https://www.glfc.org/sea-lamprey.php",
+  "U.S. Fish and Wildlife Service, Sea Lamprey: larvae develop in stream sediment for about four to 17 years; a female can produce up to 100,000 eggs; females die soon after spawning, males within one to three days; https://www.fws.gov/midwest/SeaLamprey/"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "sea_lamprey",
+  "scene": "ocean",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "fish",
+   "label": "sea lamprey",
+   "color": "#6e6a52",
+   "dark": "#4a4636",
+   "length": 900,
+   "height": 200,
+   "teeth": true,
+   "eye_r": 22,
+   "mood": "angry",
+   "floor": false,
+   "s": 0.55
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "fish",
+    "label": "sea lamprey",
+    "color": "#6e6a52",
+    "dark": "#4a4636",
+    "length": 900,
+    "height": 200,
+    "teeth": true,
+    "eye_r": 22,
+    "mood": "angry",
+    "floor": false,
+    "s": 0.55
+   }
+  },
+  "actor": "creature",
+  "wild": "deep"
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "This Fish Latches On to Other Fish and Drinks Their Blood 🩸",
+ "tiktok_caption": "a fish that latches on to other fish and drinks their blood 🩸 no jaws, just a sucker full of teeth, and older than dinosaurs. Would you swim in a lake with these? 🏊 yes / 🙅 never #meatballmyths #learnontiktok #lamprey #animalfacts",
+ "beats": [
+  {
+   "hero_moves": [
+    {
+     "at": 0,
+     "dur": 1.2,
+     "pos": [
+      780,
+      1200
+     ],
+     "walk": true
+    }
+   ],
+   "m": "hook",
+   "say": "This fish latches on to other fish, and drinks their blood."
+  },
+  {
+   "hero_at": {
+    "x": 780,
+    "y": 1200
+   },
+   "m": "shrink",
+   "say": "So I shrank myself down, to get a closer look at that mouth."
+  },
+  {
+   "zoom": 1.4,
+   "hero_at": {
+    "x": 570,
+    "y": 1150
+   },
+   "scene": "deep",
+   "m": "tiny",
+   "say": "The sea lamprey. No jaws, and no bones. Just cartilage."
+  },
+  {
+   "zoom": 1.4,
+   "hero_at": {
+    "x": 570,
+    "y": 1150
+   },
+   "scene": "deep",
+   "act": {
+    "bite": 1.0
+   },
+   "pose": "shock",
+   "m": "tiny",
+   "say": "Its mouth is a round sucking disk, packed with sharp teeth, and a razor tongue."
+  },
+  {
+   "zoom": 1.4,
+   "hero_at": {
+    "x": 570,
+    "y": 1150
+   },
+   "scene": "ocean",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "act": {
+    "chew": 1.0
+   },
+   "with": [
+    {
+     "sp": "goldfish",
+     "x": 330,
+     "y": 760,
+     "s": 0.45,
+     "front": false
+    }
+   ],
+   "m": "tiny",
+   "say": "It latches on, and grinds right through the scales and skin."
+  },
+  {
+   "zoom": 1.4,
+   "hero_at": {
+    "x": 570,
+    "y": 1150
+   },
+   "scene": "ocean",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "act": {
+    "xray": 1.0
+   },
+   "m": "tiny",
+   "say": "Then it oozes a chemical that stops the blood from clotting."
+  },
+  {
+   "zoom": 1.4,
+   "hero_at": {
+    "x": 570,
+    "y": 1150
+   },
+   "scene": "ocean",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "pose": "deadpan",
+   "m": "tiny",
+   "say": "So, a leech. But it's a fish. And it's two feet long."
+  },
+  {
+   "zoom": 1.4,
+   "hero_at": {
+    "x": 570,
+    "y": 1150
+   },
+   "scene": "ocean",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "act": {
+    "chew": 1.0
+   },
+   "m": "tiny",
+   "say": "One lamprey can kill up to forty pounds of fish."
+  },
+  {
+   "scene": "swamp",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "hero_at": {
+    "x": 540,
+    "y": 1470
+   },
+   "m": "solo",
+   "say": "Its babies hide in the mud at the bottom of a stream, for four to seventeen years."
+  },
+  {
+   "zoom": 1.4,
+   "hero_at": {
+    "x": 570,
+    "y": 1150
+   },
+   "scene": "ocean",
+   "scene_p": {
+    "time": "day"
+   },
+   "m": "tiny",
+   "say": "About a hundred years ago, a ship canal let it past Niagara Falls, into the Great Lakes."
+  },
+  {
+   "zoom": 1.4,
+   "hero_at": {
+    "x": 570,
+    "y": 1150
+   },
+   "scene": "ocean",
+   "scene_p": {
+    "time": "day"
+   },
+   "pose": "shock",
+   "m": "tiny",
+   "say": "The lake trout catch crashed by about ninety-eight percent."
+  },
+  {
+   "zoom": 1.4,
+   "hero_at": {
+    "x": 570,
+    "y": 1150
+   },
+   "act": {
+    "bite": 1.0
+   },
+   "m": "tiny",
+   "say": "At the worst, most of the fish that survived an attack had lamprey wounds."
+  },
+  {
+   "scene": "deep",
+   "m": "solo",
+   "say": "And this design is ancient. Over three hundred forty million years, barely changed."
+  },
+  {
+   "zoom": 1.4,
+   "hero_at": {
+    "x": 570,
+    "y": 1150
+   },
+   "scene": "deep",
+   "pose": "think",
+   "m": "tiny",
+   "say": "It survived at least four mass extinctions."
+  },
+  {
+   "zoom": 1.4,
+   "hero_at": {
+    "x": 570,
+    "y": 1150
+   },
+   "scene": "ocean",
+   "scene_p": {
+    "time": "night"
+   },
+   "pose": "nervous",
+   "m": "tiny",
+   "say": "One female can lay up to a hundred thousand eggs. And then she dies."
+  },
+  {
+   "hero_at": {
+    "x": 780,
+    "y": 1200
+   },
+   "m": "fact",
+   "say": "Would you swim in a lake with these?"
+  },
+  {
+   "hero_at": {
+    "x": 780,
+    "y": 1200
+   },
+   "m": "punch",
+   "say": "Older than dinosaurs, tougher than extinctions, and it still eats like a vampire."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, an ant that's actually a wasp, with a sting they call the cow killer."
+  }
+ ]
+}
