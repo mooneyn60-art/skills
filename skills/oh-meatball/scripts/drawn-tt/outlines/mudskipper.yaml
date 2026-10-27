@@ -1,0 +1,54 @@
+slug: mudskipper
+out: episodes/drawn-tt
+specs: scripts/drawn-tt
+series: "Meatball's Animal Files"
+variant: A
+title: This Fish Walks Out of the Water and Lives on Land 🐟
+tiktok_caption: "a fish that walks out of the water and lives on land 🐟 it blinks by sucking its eyeballs into its head. Would you let one walk on your hand? 🐟 yes / 🙅 no #meatballmyths #learnontiktok #mudskipper #animalfacts"
+creature: mudskipper
+actor: creature
+creature_cfg: &cfg {plan: fish, label: mudskipper, color: "#8a7a5a", dark: "#5e5238", accent: "#c9b98a",
+                    length: 620, height: 220, eye_r: 40, mood: happy, s: 0.65}
+hero_p: {cfg: *cfg}
+scene: swamp
+scene_p: {time: day}
+wild: swamp
+wild_p: {time: dusk, palette: {ground: "#6b5a44", ground2: "#57472f"}}
+music: mystery
+next: Next, an animal that oozes red goo as sunscreen.
+sources:
+  - "EarthDate (Bureau of Economic Geology, University of Texas at Austin), Fish Out of Water: some mudskippers spend three-quarters of their lives on land; take in oxygen through skin, mouth and throat as long as they are wet; muscular pectoral fins move them across mud; eyes adapted for aerial vision and can't focus when submerged; eyes rotate independently to spot prey; blink by pulling the eyes into the head; at high tide live in burrows in the mud; burrows hold eggs and an air pocket; https://www.earthdate.org/episodes/fish-out-of-water"
+  - "National Geographic magazine (2020), Mudskipper builds ideal nest for his offspring: males flare fins and leap high to court; an impressed female follows him to the burrow; eggs laid on the chamber ceiling; the male gulps air, carries it down and exhales it, roughly 100 mouthfuls to make the air bubble (Karen Martin); he times the air release so water floods in and the larvae hatch; https://www.nationalgeographic.com/magazine/article/mudskipper-builds-ideal-nest-for-his-offspring"
+  - "BBC Wildlife (Discover Wildlife), Fish that can walk on land evolved the ability to blink like we do (Aiello, Stewart et al., PNAS 2023): mudskippers blink by pulling their eyeballs back into their skulls; https://discoverwildlife.com/news/fish-that-can-walk-on-land-evolved-the-ability-to-blink-like-we-do"
+yt:
+  - hook: This fish walks out of the water, and spends most of its life on land.
+    hero_moves: [{at: 0, dur: 1.2, pos: [760, 1500], walk: true}]
+  - name: The mudskipper. A fish with bulging eyes on top of its head.
+    hero_at: {x: 760}
+  - fact: It crawls across the mud on its front fins, like little arms.
+    hero_at: {x: 760}
+  - solo: It breathes through its skin and its mouth, as long as it stays wet.
+  - escalate: And underwater, it can't even see properly. Its eyes are made for air.
+    hero_at: {x: 760}
+  - calm: Each eye swivels on its own, to spot bugs above and below.
+tt:
+  - fact: When the tide comes in, it hides in a burrow in the mud.
+    hero_at: {x: 760}
+  - solo: To show off, males flare their fins and leap high into the air.
+  - fact: If a female is impressed, she follows him home to his burrow.
+    hero_at: {x: 760}
+  - fact: She lays her eggs inside. But at high tide, the burrow is underwater.
+    hero_at: {x: 760}
+  - scale: He gulps air at the surface, carries it down, and spits it into the chamber.
+    how: grow
+  - fact: Around a hundred mouthfuls, to build one air bubble for his eggs.
+    hero_at: {x: 760}
+  - fact: Then, right on time, he lets the air out, the water floods in, and the babies hatch.
+    hero_at: {x: 760}
+  - escalate: And when its eyes dry out? It sucks its eyeballs down into its head.
+    hero_at: {x: 760}
+  - solo: That's how it blinks. Eyeballs in, eyeballs out.
+  - fact: Would you let one walk across your hand?
+    hero_at: {x: 760}
+  - punch: A fish that walks, breathes through its skin, and blinks with its whole eyeball.
+    hero_at: {x: 760}
