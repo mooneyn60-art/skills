@@ -1,60 +1,108 @@
 slug: octopus
 out: episodes/drawn-tt
 specs: scripts/drawn-tt
-series: "Meatball's Animal Files"
+series: Meatball's Animal Files
 variant: A
 title: The Octopus Has Three Hearts and Blue Blood 🐙
-tiktok_caption: "three hearts, blue blood, and arms that think for themselves 🐙 a cut-off arm can still react. Would you shake hands with one? 🤝 yes / 🙅 no #meatballmyths #learnontiktok #octopus #oceanlife"
+tiktok_caption: 'three hearts, blue blood, and arms that think for themselves 🐙 a cut-off arm can still react. Would you shake
+  hands with one? 🤝 yes / 🙅 no #meatballmyths #learnontiktok #octopus #oceanlife'
 creature: common_octopus
 actor: creature
-creature_cfg: &cfg {plan: mite, label: common octopus, shape: round, color: "#e0704a", dark: "#b8502e", rx: 230, ry: 210,
-                    leg_len: 1.4, hairs: false, eye_r: 44, mood: happy, xray: heart, s: 0.8}
-hero_p: {cfg: *cfg}
+creature_cfg: &id001
+  plan: octopus
+  label: common octopus
+  shape: round
+  color: '#e0704a'
+  dark: '#b8502e'
+  rx: 230
+  ry: 210
+  leg_len: 1.4
+  hairs: false
+  eye_r: 44
+  mood: happy
+  xray: heart
+  s: 0.8
+  size: 260
+hero_p:
+  cfg: *id001
 scene: reef
-scene_p: {time: day}
+scene_p:
+  time: day
 wild: reef
-wild_p: {time: dusk}
+wild_p:
+  time: dusk
 music: mystery
 next: Next, another animal that shouldn't exist.
 sources:
-  - "Smithsonian Magazine, Ten Wild Facts About Octopuses: three hearts, two pump blood through the gills and one to the organs; the organ heart stops beating when the octopus swims, so they prefer crawling; two-thirds of neurons are in the arms; arms can react after being severed from a dead animal; ink irritates a predator's eyes; copper-based blood looks blue; oldest octopus ancestor about 330 million years old; males die shortly after mating and females after their eggs hatch; https://www.smithsonianmag.com/science-nature/ten-wild-facts-about-octopuses-they-have-three-hearts-big-brains-and-blue-blood-7625828/"
-  - "Natural History Museum (London), Octopuses keep surprising us: blue blood from copper-based haemocyanin; each arm can taste, touch and move without direction from the central brain; colour and skin texture change in an instant; veined octopuses carry coconut shells to build shelters; an octopus reportedly raided fish from a neighbouring tank; https://www.nhm.ac.uk/discover/octopuses-keep-surprising-us-here-are-eight-examples-how.html"
+- 'Smithsonian Magazine, Ten Wild Facts About Octopuses: three hearts, two pump blood through the gills and one to the organs;
+  the organ heart stops beating when the octopus swims, so they prefer crawling; two-thirds of neurons are in the arms; arms
+  can react after being severed from a dead animal; ink irritates a predator''s eyes; copper-based blood looks blue; oldest
+  octopus ancestor about 330 million years old; males die shortly after mating and females after their eggs hatch; https://www.smithsonianmag.com/science-nature/ten-wild-facts-about-octopuses-they-have-three-hearts-big-brains-and-blue-blood-7625828/'
+- 'Natural History Museum (London), Octopuses keep surprising us: blue blood from copper-based haemocyanin; each arm can taste,
+  touch and move without direction from the central brain; colour and skin texture change in an instant; veined octopuses
+  carry coconut shells to build shelters; an octopus reportedly raided fish from a neighbouring tank; https://www.nhm.ac.uk/discover/octopuses-keep-surprising-us-here-are-eight-examples-how.html'
 yt:
-  - hook: This animal has three hearts, and blue blood.
-    hero_moves: [{at: 0, dur: 1.2, pos: [760, 1500], walk: true}]
-  - name: The common octopus. Eight arms, covered in suckers.
-    hero_at: {x: 760}
-  - fact: Two hearts pump blood through its gills. The third pumps it around the body.
-    hero_at: {x: 760}
-  - xray: And that third heart stops beating when it swims. So it would rather crawl.
-    hero_at: {x: 760}
-  - escalate: Its blood is blue, because it's built on copper, not iron.
-    hero_at: {x: 760}
-  - calm: And most of its brain isn't even in its head.
+- hook: This animal has three hearts, and blue blood.
+  hero_moves:
+  - at: 0
+    dur: 1.2
+    pos:
+    - 760
+    - 1500
+    walk: true
+- name: The common octopus. Eight arms, covered in suckers.
+  hero_at:
+    x: 760
+- fact: Two hearts pump blood through its gills. The third pumps it around the body.
+  hero_at:
+    x: 760
+- xray: And that third heart stops beating when it swims. So it would rather crawl.
+  hero_at:
+    x: 760
+- escalate: Its blood is blue, because it's built on copper, not iron.
+  hero_at:
+    x: 760
+- calm: And most of its brain isn't even in its head.
 tt:
-  - fact: Two-thirds of its nerve cells are in its arms.
-    hero_at: {x: 760}
-  - fact: Each arm can taste, touch, and move, all on its own.
-    hero_at: {x: 760}
-  - solo: It can change color in an instant, and even change the bumps on its skin.
-    act: {mood: smug}
-  - fact: Spray its ink in a predator's eyes, and it stings.
-    hero_at: {x: 760}
-  - fact: Its family is ancient. Its oldest known ancestor lived three hundred thirty million years ago.
-    hero_at: {x: 760}
-  - solo: Some octopuses even carry coconut shells around, to build a shelter.
-    scene: reef
-    scene_p: {time: day}
-  - fact: One was reported sneaking into the next aquarium tank to steal fish.
-    hero_at: {x: 760}
-  - fact: But its life is short. Males die soon after mating.
-    hero_at: {x: 760}
-  - solo: And moms guard their eggs, then die after they hatch.
-    scene: deep
-    with: [{type: eggs, x: 250, y: 1300, s: 0.7, front: true}]
-  - escalate: Here's the creepiest part. A cut-off arm can still react, even from a dead octopus.
-    hero_at: {x: 760}
-  - fact: Would you shake hands with one?
-    hero_at: {x: 760}
-  - punch: Three hearts, blue blood, and arms that keep going without it.
-    hero_at: {x: 760}
+- fact: Two-thirds of its nerve cells are in its arms.
+  hero_at:
+    x: 760
+- fact: Each arm can taste, touch, and move, all on its own.
+  hero_at:
+    x: 760
+- solo: It can change color in an instant, and even change the bumps on its skin.
+  act:
+    mood: smug
+- fact: Spray its ink in a predator's eyes, and it stings.
+  hero_at:
+    x: 760
+- fact: Its family is ancient. Its oldest known ancestor lived three hundred thirty million years ago.
+  hero_at:
+    x: 760
+- solo: Some octopuses even carry coconut shells around, to build a shelter.
+  scene: reef
+  scene_p:
+    time: day
+- fact: One was reported sneaking into the next aquarium tank to steal fish.
+  hero_at:
+    x: 760
+- fact: But its life is short. Males die soon after mating.
+  hero_at:
+    x: 760
+- solo: And moms guard their eggs, then die after they hatch.
+  scene: deep
+  with:
+  - type: eggs
+    x: 250
+    y: 1300
+    s: 0.7
+    front: true
+- escalate: Here's the creepiest part. A cut-off arm can still react, even from a dead octopus.
+  hero_at:
+    x: 760
+- fact: Would you shake hands with one?
+  hero_at:
+    x: 760
+- punch: Three hearts, blue blood, and arms that keep going without it.
+  hero_at:
+    x: 760

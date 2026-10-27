@@ -1,39 +1,61 @@
 slug: shoebill
 out: episodes/drawn-tt
 specs: scripts/drawn-tt
-series: "Meatball's Animal Files"
+series: Meatball's Animal Files
 variant: A
 title: This Bird Falls Face-First Into the Swamp to Hunt, Then Bites the Head Off 🐦
-tiktok_caption: "the shoebill hunts by falling on its face 🐦 then bites the head off its catch, and sometimes eats baby crocodiles. Would you stand next to one? 😬 sure / 🏃 nope #meatballmyths #learnontiktok #shoebill #birds"
+tiktok_caption: 'the shoebill hunts by falling on its face 🐦 then bites the head off its catch, and sometimes eats baby crocodiles.
+  Would you stand next to one? 😬 sure / 🏃 nope #meatballmyths #learnontiktok #shoebill #birds'
 creature: shoebill
-creature_cfg: {plan: bird, label: shoebill, color: "#8c9aa6", dark: "#5e6a76", belly: "#b4c0ca", beak: long, beak_color: "#c9b98a", foot_color: "#4a4a4e", length: 440, height: 300, leg_len: 260, mood: angry, s: 1.0}
+creature_cfg:
+  plan: bird
+  label: shoebill
+  color: '#8c9aa6'
+  dark: '#5e6a76'
+  belly: '#b4c0ca'
+  beak: shoe
+  beak_color: '#b8a888'
+  foot_color: '#4a4a4e'
+  length: 440
+  height: 300
+  leg_len: 260
+  mood: angry
+  s: 1.0
 scene: swamp
-scene_p: {time: day}
+scene_p:
+  time: day
 wild: swamp
-wild_p: {time: dusk}
+wild_p:
+  time: dusk
 music: mystery
 next: Next, another animal that shouldn't exist.
 sources:
-  - "Animal Diversity Web (University of Michigan Museum of Zoology), Balaeniceps rex (shoebill): stands 110 to 140 cm tall; bill resembles a wooden shoe and ends in a sharp curved hook; inhabits freshwater swamps and dense marshes, endemic to east-central Africa; eats mainly fish such as lungfish, bichirs, catfish and tilapia, plus watersnakes, occasionally frogs, monitor lizards, turtles, young crocodiles; hunts by 'stand and wait' or wading slowly; the 'collapse': head and neck stretch forward into the water so the bird over-balances and collapses forwards and downwards; prey is usually decapitated before swallowing; usually silent but bill-clatters, most often when greeting at the nest; lays one to three, normally two eggs; adults pour mouthfuls of water over the nest to keep eggs cool; usually only one chick remains by the end of the breeding cycle; https://animaldiversity.org/accounts/Balaeniceps_rex/"
+- 'Animal Diversity Web (University of Michigan Museum of Zoology), Balaeniceps rex (shoebill): stands 110 to 140 cm tall;
+  bill resembles a wooden shoe and ends in a sharp curved hook; inhabits freshwater swamps and dense marshes, endemic to east-central
+  Africa; eats mainly fish such as lungfish, bichirs, catfish and tilapia, plus watersnakes, occasionally frogs, monitor lizards,
+  turtles, young crocodiles; hunts by ''stand and wait'' or wading slowly; the ''collapse'': head and neck stretch forward
+  into the water so the bird over-balances and collapses forwards and downwards; prey is usually decapitated before swallowing;
+  usually silent but bill-clatters, most often when greeting at the nest; lays one to three, normally two eggs; adults pour
+  mouthfuls of water over the nest to keep eggs cool; usually only one chick remains by the end of the breeding cycle; https://animaldiversity.org/accounts/Balaeniceps_rex/'
 yt:
-  - hook: This bird hunts by falling face-first into the swamp. Then it bites the head off its catch.
-  - name: The shoebill. Up to four and a half feet tall, with a beak shaped like a wooden shoe.
-  - solo: It lives in the swamps and marshes of east-central Africa.
-    zoom: 0.95
-  - fact: It hunts by standing still in the water, and waiting.
-  - escalate: When a fish swims close, it throws its head and neck forward so hard, it loses its balance,
-  - calm: and collapses, face-first, into the water.
+- hook: This bird hunts by falling face-first into the swamp. Then it bites the head off its catch.
+- name: The shoebill. Up to four and a half feet tall, with a beak shaped like a wooden shoe.
+- solo: It lives in the swamps and marshes of east-central Africa.
+  zoom: 0.95
+- fact: It hunts by standing still in the water, and waiting.
+- escalate: When a fish swims close, it throws its head and neck forward so hard, it loses its balance,
+- calm: and collapses, face-first, into the water.
 tt:
-  - fact: Scientists call it the collapse.
-  - xray: At the tip of that giant beak is a sharp hook.
-  - fact: It mostly eats fish, like lungfish and catfish. And water snakes.
-  - escalate: Sometimes it eats monitor lizards, turtles, and even baby crocodiles.
-  - solo: When it greets its mate at the nest, it claps its beak together, over and over.
-    zoom: 0.95
-  - fact: It fills its beak with water, and pours it over its eggs to keep them cool.
-  - fact: It usually lays two eggs. But by the end, usually only one chick is left.
-  - escalate: And before it swallows its catch, it usually bites the head off.
-  - solo: Then it goes right back to standing still, like nothing happened.
-    zoom: 0.95
-  - fact: So, would you stand next to one?
-  - punch: A bird shaped like a shoe, that eats baby crocodiles, and falls on its face to do it.
+- fact: Scientists call it the collapse.
+- xray: At the tip of that giant beak is a sharp hook.
+- fact: It mostly eats fish, like lungfish and catfish. And water snakes.
+- escalate: Sometimes it eats monitor lizards, turtles, and even baby crocodiles.
+- solo: When it greets its mate at the nest, it claps its beak together, over and over.
+  zoom: 0.95
+- fact: It fills its beak with water, and pours it over its eggs to keep them cool.
+- fact: It usually lays two eggs. But by the end, usually only one chick is left.
+- escalate: And before it swallows its catch, it usually bites the head off.
+- solo: Then it goes right back to standing still, like nothing happened.
+  zoom: 0.95
+- fact: So, would you stand next to one?
+- punch: A bird shaped like a shoe, that eats baby crocodiles, and falls on its face to do it.

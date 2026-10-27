@@ -18,7 +18,9 @@ Body plans (all in the drawn_kit house style: thick ink outline, flat colour + o
   reptile    side view lizard: long body, tapering tail, 4 sprawled legs, spikes, or a turtle shell
   frog       side view frog: squat body, folded hind legs, big eyes on top, wide mouth (spots, toe_pads)
 Mammal extras: neck (px, giraffe) + ossicones, spots + spot_color, hump (0..1) + mane, horns, beard, bands (armadillo),
-back_stripe (colour, skunk). Bird extras: foot_color, beak_color.
+back_stripe (colour, skunk). Bird extras: foot_color, beak_color, beak: shoe, face_disc + disc_color, ear_tufts (owl).
+Mammal bat_wings (+ wing_color; flaps with p fly). Mammal antlers, ears tiny, snout big (hippo). Reptile snout long (croc). Fish sucker (lamprey).
+Bird face_color (puffin). Plan octopus (size). Worm snake_head (hawkmoth caterpillar's fake viper head).
 
 Config keys (all optional): plan, color, dark, accent, belly, length, height, legs, leg_len, ant (antennae
 length), wings, tails, tail_len, stripes, sheen, eye_r, eyes, mouth, fangs, teeth, pattern, hairs, mood (the
@@ -278,6 +280,16 @@ def centipede(ctx, t, cfg, p):
         for k in range(1, 10):
             x, y = pts[k]
             stroke(ctx, [(x, y - H * 0.45), (x, y + H * 0.45)], 4, color=dk)
+        if cfg.get("snake_head"):   # hawkmoth caterpillar: inflated fake viper head with big eye spots
+            hx, hy = x1 + H * 0.35, pts[-1][1]
+            shape(ctx, lambda c: p_poly(c, [(x1 - H * 0.3, hy - H * 0.55), (hx + H * 0.9, hy - H * 0.25),
+                                            (hx + H * 1.0, hy + H * 0.2), (x1 - H * 0.3, hy + H * 0.55)]), col, OUT, (0.05, 0.2))
+            for k in (-1, 1):
+                ey = hy + k * H * 0.28
+                shape(ctx, lambda c, ey=ey: p_ellipse(c, hx + H * 0.15, ey, H * 0.26, H * 0.2), hexc("#f4f0e0"), OUT * 0.6, None)
+                flat(ctx, lambda c, ey=ey: p_ellipse(c, hx + H * 0.2, ey, H * 0.12, H * 0.16), INK)
+                flat(ctx, lambda c, ey=ey: p_ellipse(c, hx + H * 0.24, ey - H * 0.05, H * 0.04, H * 0.04), hexc("#ffffff"))
+            return
         _face(ctx, cfg, p, x1 - H * 0.25, pts[-1][1] - H * 0.15, H * 0.2, col, H * 0.3)
         return
     hips = [(x1 - 40 - i * (L - 60) / n, by + 10) for i in range(n)]
@@ -416,6 +428,11 @@ def fish(ctx, t, cfg, p):
         stroke(ctx, [(x1 - L * 0.2, -H * 0.4), (x1 + 60, -H * 1.1 + sw), (x1 + 160, -H * 0.8 + sw)], 8, smooth=True)
         shape(ctx, lambda c: p_ellipse(c, x1 + 160, -H * 0.8 + sw, 34, 34), PAL["light"], OUT * 0.6, None)
         flat(ctx, lambda c: p_ellipse(c, x1 + 160, -H * 0.8 + sw, 90, 90), PAL["light"], a=0.25)
+    if cfg.get("sucker"):   # lamprey: round toothed sucker mouth at the front
+        shape(ctx, lambda c: p_ellipse(c, x1 + H * 0.05, 0, H * 0.22, H * 0.42), hexc("#c86a6a"), OUT, None)
+        for k in range(10):
+            a = k * math.pi / 5
+            flat(ctx, lambda c, a=a: p_ellipse(c, x1 + H * 0.05 + H * 0.12 * math.cos(a), H * 0.26 * math.sin(a), 6, 6), hexc("#fff8e0"))
     _face(ctx, cfg, p, x1 - L * 0.2, -H * 0.12, cfg.get("eye_r", H * 0.12), col, H * 0.22)
     _overlays(ctx, cfg, p, path, 0, 0, L / 2, H / 2)
 
@@ -439,10 +456,25 @@ def bird(ctx, t, cfg, p):
     flat(ctx, lambda c: p_ellipse(c, L * 0.08, by + H * 0.18, L * 0.3, H * 0.28), bel)
     hx, hy, hr = L * 0.42, by - H * 0.42, H * 0.38
     beak = cfg.get("beak", "short")
-    bl = {"short": hr * 0.8, "long": hr * 2.0, "hook": hr * 0.9}.get(beak, hr)
-    shape(ctx, lambda c: p_poly(c, [(hx + hr * 0.8, hy - hr * 0.15), (hx + hr * 0.8 + bl, hy + (hr * 0.3 if beak == "hook" else 0.1)),
-                                    (hx + hr * 0.8, hy + hr * 0.3)]), _c(cfg, "beak_color", "#f2b33d"), OUT * 0.8, None)
+    bc = _c(cfg, "beak_color", "#f2b33d")
+    if cfg.get("ear_tufts"):
+        for k in (-1, 1):
+            shape(ctx, lambda c, k=k: p_poly(c, [(hx + k * hr * 0.5, hy - hr * 0.7), (hx + k * hr * 0.75, hy - hr * 1.5),
+                                                 (hx + k * hr * 0.15, hy - hr * 0.85)]), dk, OUT * 0.7, None)
+    if beak == "shoe":   # shoebill: huge broad clog-shaped bill with a hooked tip
+        shape(ctx, lambda c: p_smooth(c, [(hx + hr * 0.5, hy - hr * 0.45), (hx + hr * 2.2, hy - hr * 0.2), (hx + hr * 2.45, hy + hr * 0.3),
+                                          (hx + hr * 2.2, hy + hr * 0.75), (hx + hr * 0.5, hy + hr * 0.7)], close=True), bc, OUT, (0.05, 0.2))
+        stroke(ctx, [(hx + hr * 0.6, hy + hr * 0.2), (hx + hr * 2.35, hy + hr * 0.35)], 6)
+    else:
+        bl = {"short": hr * 0.8, "long": hr * 2.0, "hook": hr * 0.9}.get(beak, hr)
+        shape(ctx, lambda c: p_poly(c, [(hx + hr * 0.8, hy - hr * 0.15), (hx + hr * 0.8 + bl, hy + (hr * 0.3 if beak == "hook" else 0.1)),
+                                        (hx + hr * 0.8, hy + hr * 0.3)]), bc, OUT * 0.8, None)
     shape(ctx, lambda c: p_ellipse(c, hx, hy, hr, hr), col, OUT, (0.08, 0.15))
+    if cfg.get("face_color"):   # puffin: pale face patch
+        flat(ctx, lambda c: p_ellipse(c, hx + hr * 0.2, hy + hr * 0.05, hr * 0.7, hr * 0.6), _c(cfg, "face_color", "#f2f2f2"))
+    if cfg.get("face_disc"):   # owl: pale heart-shaped facial disc
+        shape(ctx, lambda c: p_ellipse(c, hx + hr * 0.15, hy, hr * 0.78, hr * 0.72), _c(cfg, "disc_color", None) or lighter(col, 0.55),
+              OUT * 0.6, None)
     if cfg.get("crest"):
         for k in range(3):
             stroke(ctx, [(hx - 10, hy - hr * 0.8), (hx - 40 - k * 20, hy - hr * 1.6 + k * 15)], 10, color=dk)
@@ -472,6 +504,22 @@ def mammal(ctx, t, cfg, p):
         dx, dy = _walk(p, k, far)
         limb(ctx, [(x, by), (x + dx * 0.5, by + ll * 0.6), (x + dx, dy)], cfg.get("leg_w", 34),
              dk if far else col, OUT * 0.7)
+    if cfg.get("bat_wings"):   # vampire bat: membrane wings with finger struts, flap when p fly
+        fl = p.get("fly", 0.0)
+        wf = math.sin(t * 14) if fl else 0.15 * math.sin(t * 2)
+        wc = _c(cfg, "wing_color", None) or darker(col, 0.7)
+        for k in (-1, 1):
+            sh = (k * L * 0.12, by - H * 0.25)
+            tips = [(k * L * (0.7 + 0.1 * wf), by - H * (1.5 + 0.6 * wf)), (k * L * 1.05, by - H * (0.6 + 0.3 * wf)),
+                    (k * L * 0.9, by + H * 0.35), (k * L * 0.5, by + H * 0.45)]
+            pts = [sh, tips[0]]
+            for a_, b_ in zip(tips, tips[1:]):   # scalloped membrane between the finger tips
+                mx, my = (a_[0] + b_[0]) / 2, (a_[1] + b_[1]) / 2
+                pts += [(mx + (sh[0] - mx) * 0.22, my + (sh[1] - my) * 0.22), b_]
+            pts += [(k * L * 0.2, by + H * 0.2)]
+            shape(ctx, lambda c, pts=pts: p_poly(c, pts), wc, OUT, None)
+            for q in tips[:3]:
+                stroke(ctx, [sh, q], 7, color=darker(wc, 0.65))
     if cfg.get("hump"):   # bison: a shaggy shoulder hump drawn behind the body
         shape(ctx, lambda c: p_blob(c, L * 0.18, by - H * 0.42, L * 0.3, H * 0.5 * cfg["hump"], 0.1, seed=7),
               _c(cfg, "mane", None) or dk, OUT, (0.05, 0.1))
@@ -514,6 +562,8 @@ def mammal(ctx, t, cfg, p):
         if ears == "long":
             shape(ctx, lambda c, ex=ex: p_ellipse(c, ex, hy - hr * 1.3, hr * 0.28, hr * 0.85, -0.2), col, OUT,
                   (0.1, 0))
+        elif ears == "tiny":
+            shape(ctx, lambda c, ex=ex: p_ellipse(c, ex, hy - hr * 0.8, hr * 0.16, hr * 0.14), col, OUT * 0.7, None)
         elif ears == "pointed":
             shape(ctx, lambda c, ex=ex: p_poly(c, [(ex - hr * 0.35, hy - hr * 0.5), (ex, hy - hr * 1.4),
                                                    (ex + hr * 0.35, hy - hr * 0.5)]), col, OUT, None)
@@ -525,10 +575,22 @@ def mammal(ctx, t, cfg, p):
         for k, ex in enumerate((hx - hr * 0.55, hx + hr * 0.25)):
             stroke(ctx, [(ex, hy - hr * 0.55), (ex - hr * 0.25, hy - hr * 1.0), (ex + hr * 0.05, hy - hr * 1.25)], 16,
                    smooth=True, color=_c(cfg, "horn_color", "#e8e0cc"))
+    if cfg.get("antlers"):   # moose: broad palmate antlers
+        for k in (-1, 1):
+            ax, ay = hx - hr * 0.2 + k * hr * 0.35, hy - hr * 0.75
+            shape(ctx, lambda c, ax=ax, ay=ay, k=k: p_poly(c, [(ax, ay), (ax + k * hr * 0.4, ay - hr * 0.5), (ax + k * hr * 1.4, ay - hr * 0.9),
+                  (ax + k * hr * 1.3, ay - hr * 0.6), (ax + k * hr * 1.6, ay - hr * 0.55), (ax + k * hr * 1.2, ay - hr * 0.2),
+                  (ax + k * hr * 0.5, ay - hr * 0.15)]), _c(cfg, "antler_color", "#d8c8a0"), OUT * 0.8, None)
     if cfg.get("beard"):
         shape(ctx, lambda c: p_blob(c, hx + hr * 0.4, hy + hr * 0.95, hr * 0.35, hr * 0.45, 0.15, seed=3), dk, OUT * 0.6, None)
-    shape(ctx, lambda c: p_ellipse(c, hx + hr * 0.85, hy + hr * 0.25, hr * 0.45, hr * 0.32), bel, OUT * 0.8, None)
-    flat(ctx, lambda c: p_ellipse(c, hx + hr * 1.25, hy + hr * 0.15, hr * 0.13, hr * 0.11), INK)
+    if cfg.get("snout") == "big":   # hippo: huge boxy muzzle
+        shape(ctx, lambda c: p_rrect(c, hx + hr * 0.2, hy - hr * 0.1, hr * 1.5, hr * 1.1, hr * 0.4), col, OUT, (0.05, 0.15))
+        for nx in (hx + hr * 1.35, hx + hr * 1.55):
+            flat(ctx, lambda c, nx=nx: p_ellipse(c, nx, hy + hr * 0.05, hr * 0.07, hr * 0.05), INK)
+    else:
+        shape(ctx, lambda c: p_ellipse(c, hx + hr * 0.85, hy + hr * 0.25, hr * 0.45, hr * 0.32), bel, OUT * 0.8, None)
+    if cfg.get("snout") != "big":
+        flat(ctx, lambda c: p_ellipse(c, hx + hr * 1.25, hy + hr * 0.15, hr * 0.13, hr * 0.11), INK)
     if cfg.get("whiskers", True):
         for k in (-1, 0, 1):
             stroke(ctx, [(hx + hr * 1.05, hy + hr * 0.3), (hx + hr * 1.8, hy + hr * (0.3 + 0.2 * k))], 3)
@@ -567,6 +629,13 @@ def reptile(ctx, t, cfg, p):
             x = -L * 0.25 + k * 90
             stroke(ctx, [(x, by - H * 0.45), (x + 20, by + H * 0.4)], 12, color=dk)
     hx, hy, hr = L * 0.5, by - H * 0.15, H * 0.45
+    if cfg.get("snout") == "long":   # crocodile: long toothy snout
+        shape(ctx, lambda c: p_rrect(c, hx, hy - hr * 0.35, hr * 4.2, hr * 0.95, hr * 0.35), col, OUT, (0.05, 0.15))
+        for k in range(7):
+            x = hx + hr * (0.6 + k * 0.5)
+            shape(ctx, lambda c, x=x: p_poly(c, [(x, hy + hr * 0.25), (x + hr * 0.12, hy + hr * 0.5), (x + hr * 0.24, hy + hr * 0.25)]),
+                  hexc("#f6f2e6"), OUT * 0.4, None)
+        stroke(ctx, [(hx, hy + hr * 0.25), (hx + hr * 4.1, hy + hr * 0.2)], 6)
     shape(ctx, lambda c: p_rrect(c, hx - hr, hy - hr * 0.8, hr * 2.6, hr * 1.6, hr * 0.7), col, OUT, (0.08, 0.15))
     _face(ctx, cfg, p, hx + hr * 0.3, hy - hr * 0.35, hr * 0.32, col, hr * 0.7)
     _overlays(ctx, cfg, p, path, 0, by, L * 0.42, H * 0.5)
@@ -603,8 +672,30 @@ def frog(ctx, t, cfg, p):
     _overlays(ctx, cfg, p, path, 0, by, L * 0.45, H * 0.5)
 
 
+def octopus(ctx, t, cfg, p):
+    """Front view octopus: big round mantle, eyes low on it, 8 curling tentacles with suckers."""
+    R = cfg.get("size", 260)
+    col = _c(cfg, "color", "#d8643c")
+    dk = _c(cfg, "dark", None) or darker(col, 0.72)
+    by = -R * 0.9 + 6 * math.sin(t * 2)
+    for k in range(8):
+        a = -0.95 + k * 1.9 / 7
+        sw = 18 * math.sin(t * 2.4 + k)
+        x0, y0 = math.sin(a) * R * 0.55, by + R * 0.55
+        pts = [(x0, y0), (x0 + math.sin(a) * R * 0.7, y0 + R * 0.35 + sw), (x0 + math.sin(a) * R * 1.25 + sw, y0 + R * 0.75),
+               (x0 + math.sin(a) * R * 1.05 + (1 if a > 0 else -1) * R * 0.25, y0 + R * 0.95 - sw * 0.5)]
+        stroke(ctx, pts, R * 0.22 + 2 * OUT, smooth=True)
+        stroke(ctx, pts, R * 0.22, smooth=True, color=dk if k in (0, 7) else col)
+        for q in pts[1:3]:
+            flat(ctx, lambda c, q=q: p_ellipse(c, q[0], q[1] + R * 0.05, R * 0.05, R * 0.04), lighter(col, 0.45))
+    path = lambda c: p_ellipse(c, 0, by - R * 0.15, R * 0.75, R * 0.85)  # noqa
+    shape(ctx, path, col, OUT, (0.0, 0.2), hi=(0.3, 0.2, 0.25))
+    _face(ctx, cfg, p, 0, by + R * 0.25, R * 0.2, col, R * 0.42, side=False)
+    _overlays(ctx, cfg, p, path, 0, by, R * 0.75, R * 0.85)
+
+
 PLANS = {"insect": insect, "arachnid": arachnid, "centipede": centipede, "worm": centipede, "mite": mite,
-         "fish": fish, "bird": bird, "mammal": mammal, "reptile": reptile, "frog": frog}
+         "fish": fish, "bird": bird, "mammal": mammal, "reptile": reptile, "frog": frog, "octopus": octopus}
 
 
 def build(cfg):
