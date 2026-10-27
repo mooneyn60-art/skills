@@ -279,7 +279,137 @@
    ]
   },
   {
-   "say": "And it hunts. Cockroaches. Flies. Spiders.",
+   "say": "That's the trick. A predator can't tell which way it's facing.",
+   "keep": true,
+   "shots": [
+    {
+     "cam": [
+      700,
+      1150,
+      1.2
+     ],
+     "to": [
+      720,
+      1160,
+      1.24
+     ]
+    },
+    {
+     "at": "facing",
+     "cam": [
+      640,
+      1120,
+      1.15
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "c",
+     "p": {
+      "mood": "smug"
+     }
+    }
+   ],
+   "mb": {
+    "pose": "think",
+    "pos": [
+     380,
+     1500
+    ],
+    "look": "c",
+    "gest": [
+     [
+      "facing",
+      "shrug",
+      1.0
+     ]
+    ]
+   },
+   "sfx": [
+    "tink@trick",
+    "pop@facing"
+   ]
+  },
+  {
+   "say": "And it's fast. It chases down its food.",
+   "keep": true,
+   "shots": [
+    {
+     "cam": [
+      700,
+      1120,
+      1.12
+     ],
+     "to": [
+      760,
+      1120,
+      1.14
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "c",
+     "flip": false,
+     "p": {
+      "mood": "angry",
+      "look": [
+       1,
+       0
+      ]
+     },
+     "moves": [
+      {
+       "at": "fast",
+       "dur": 0.6,
+       "pos": [
+        1300,
+        1500
+       ],
+       "walk": true,
+       "linear": true
+      },
+      {
+       "at": "chases",
+       "dur": 0.8,
+       "pos": [
+        880,
+        1500
+       ],
+       "walk": true
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "shock",
+    "pos": [
+     380,
+     1500
+    ],
+    "look": "c",
+    "shake": 0.4,
+    "moves": [
+     {
+      "at": "fast",
+      "dur": 0.4,
+      "pos": [
+       380,
+       1500
+      ],
+      "hop": 150
+     }
+    ]
+   },
+   "sfx": [
+    "scratch@fast",
+    "whoosh@fast+0.2",
+    "scratch@chases"
+   ]
+  },
+  {
+   "say": "It hunts cockroaches. Flies. Spiders.",
    "keep": true,
    "shots": [
     {
@@ -342,7 +472,8 @@
        ],
        "walk": true
       }
-     ]
+     ],
+     "flip": true
     },
     {
      "id": "r",
@@ -442,11 +573,88 @@
    ]
   },
   {
-   "say": "It stings them with legs that turned into fangs.",
+   "say": "Even silverfish.",
    "keep": true,
    "drop": [
     "f",
     "sp"
+   ],
+   "shots": [
+    {
+     "cam": [
+      720,
+      1180,
+      1.22
+     ],
+     "to": [
+      740,
+      1190,
+      1.28
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "sv",
+     "type": "silverfish",
+     "pos": [
+      1500,
+      1500
+     ],
+     "s": 0.85,
+     "flip": true,
+     "p": {
+      "mood": "shock",
+      "look": [
+       1,
+       0
+      ]
+     },
+     "moves": [
+      {
+       "at": 0,
+       "dur": 0.6,
+       "pos": [
+        1180,
+        1500
+       ],
+       "walk": true
+      }
+     ]
+    },
+    {
+     "id": "c",
+     "set": [
+      {
+       "at": "silverfish",
+       "dur": 0.2,
+       "p": {
+        "bite": 1.0
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "nervous",
+    "pos": [
+     380,
+     1500
+    ],
+    "look": "sv"
+   },
+   "sfx": [
+    "scratch@0.1",
+    "zap@silverfish"
+   ]
+  },
+  {
+   "say": "It stings them with legs that turned into fangs.",
+   "keep": true,
+   "drop": [
+    "f",
+    "sp",
+    "sv"
    ],
    "shots": [
     {
@@ -837,7 +1045,7 @@
      "id": "c2",
      "type": "house_centipede",
      "pos": [
-      1150,
+      1000,
       1500
      ],
      "s": 0.55,
@@ -854,7 +1062,7 @@
        "at": "hide",
        "dur": 0.8,
        "pos": [
-        1250,
+        1060,
         1500
        ],
        "walk": true
@@ -986,12 +1194,12 @@
    "shots": [
     {
      "cam": [
-      760,
-      1280,
-      1.45
+      700,
+      1270,
+      1.4
      ],
      "to": [
-      760,
+      720,
       1220,
       1.25
      ]
@@ -1244,8 +1452,8 @@
      "id": "rul",
      "type": "ruler",
      "pos": [
-      400,
-      1390
+      640,
+      1475
      ],
      "s": 0.0,
      "rot": -90,
@@ -1275,6 +1483,17 @@
       "shock",
       1.2
      ]
+    ],
+    "moves": [
+     {
+      "at": 0.2,
+      "dur": 1.6,
+      "pos": [
+       760,
+       1500
+      ],
+      "walk": true
+     }
     ]
    },
    "sfx": [
@@ -1401,7 +1620,7 @@
      "id": "r2",
      "type": "roach",
      "pos": [
-      1400,
+      1080,
       1500
      ],
      "s": 0.6,

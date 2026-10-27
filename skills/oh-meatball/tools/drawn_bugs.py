@@ -171,15 +171,15 @@ def dust_mite(ctx, t, p):
     for s in (-1, 1):
         for i in range(4):
             q = ph * 1.5 + i * 1.3 + (s > 0) * math.pi
-            hx, hy = s * (120 + i * 18), by + 40 + i * 30
-            fx = s * (260 + i * 70) + (25 * math.sin(q) if wk else 4 * math.sin(t * 3 + i))
+            hx, hy = s * (150 + i * 14), by + 10 + i * 34
+            fx = s * (330 + i * 75) + (25 * math.sin(q) if wk else 4 * math.sin(t * 3 + i))
             fy = -(30 * max(0, math.cos(q)) if wk else 0)
-            kx, ky = s * (220 + i * 55), by - 30 + i * 40
-            limb(ctx, [(hx, hy), (kx, ky), (fx, fy)], 22, C["mite_dk"], OUT * 0.6, smooth=False)
-            for u in (0.3, 0.6):
+            kx, ky = s * (300 + i * 60), by - 110 + i * 45
+            limb(ctx, [(hx, hy), (kx, ky), (fx, fy)], 24, C["mite_dk"], OUT * 0.65, smooth=False)
+            for u in (0.35, 0.7):
                 x, y = kx + (fx - kx) * u, ky + (fy - ky) * u
                 stroke(ctx, [(x, y), (x + s * 40, y - 30)], 4)
-    shape(ctx, lambda c: p_blob(c, 0, by, 230, 205, 0.04, seed=3), C["mite"], OUT, (0.1, 0.12),
+    shape(ctx, lambda c: p_blob(c, 0, by, 250, 195, 0.04, seed=3), C["mite"], OUT, (0.1, 0.12),
           hi=(0.3, 0.25, 0.25))
     for k in range(3):
         stroke(ctx, [(-150 + k * 20, by - 120 + k * 90), (0, by - 100 + k * 90), (150 - k * 20, by - 120 + k * 90)],
@@ -203,9 +203,34 @@ def dust_mite(ctx, t, p):
         shape(ctx, lambda c, x=x, y=y: p_ellipse(c, x, y, 30, 24), C["poo"], OUT * 0.5, (0.1, 0.2))
 
 
+def mite_crowd(ctx, t, p):
+    """Rows of small dust mites filling the ground (a pull-back gag); p: n (how many are shown, rises), rows."""
+    n = int(p.get("n", 30))
+    rng = random.Random(6)
+    spots = []
+    for r in range(int(p.get("rows", 4))):
+        for k in range(10):
+            spots.append(((k - 4.5) * 260 + (r % 2) * 130 + rng.uniform(-30, 30), r * 150, 0.28 + 0.04 * r))
+    for i, (x, y, sc) in enumerate(spots[:n]):
+        ctx.save()
+        ctx.translate(x, y)
+        ctx.scale(sc, sc)
+        dust_mite(ctx, t + i, {"mood": ("happy", "smug", "calm")[i % 3], "blink": 0,
+                               "chew": float(i % 2), "phase": t * 9 + i, "walking": False})
+        ctx.restore()
+
+
 def skin_flake(ctx, t, p):
     shape(ctx, lambda c: p_blob(c, 0, -60, 170, 70, 0.22, seed=p.get("seed", 3)), hexc("#f7efe0"), OUT * 0.8,
           (0.05, 0.2))
+    m = p.get("mold", 0.0)
+    if m > 0:   # micro-mould growing on the flake
+        rng = random.Random(1)
+        for k in range(14):
+            x, y = rng.uniform(-130, 130), rng.uniform(-110, -30)
+            r = (10 + 12 * rng.random()) * m
+            flat(ctx, lambda c, x=x, y=y, r=r: p_ellipse(c, x, y, r, r), hexc("#7fae4a"), OUT * 0.3)
+            stroke(ctx, [(x, y), (x + 4, y - 30 * m)], 3, color=hexc("#5d8a34"))
 
 
 # ================================================================= demodex face mite
@@ -418,6 +443,33 @@ def silk_throw(ctx, t, p):
         stroke(ctx, pts, 4, smooth=True, color=C["silk"], a=0.9)
 
 
-ACTORS = {"house_centipede": house_centipede, "roach": roach, "fly": fly, "dust_mite": dust_mite,
-          "skin_flake": skin_flake, "demodex": demodex, "silverfish": silverfish,
+def eggs(ctx, t, p):
+    """A clutch of p['n'] pale oval eggs on the ground (pops in egg by egg as p['n'] rises)."""
+    n = int(p.get("n", 8))
+    rng = random.Random(2)
+    for k in range(n):
+        x, y = (k % 5) * 70 - 140 + rng.uniform(-12, 12), -30 - (k // 5) * 55
+        shape(ctx, lambda c, x=x, y=y: p_ellipse(c, x, y, 32, 24), hexc("#f8f2e2"), OUT * 0.5, (0.1, 0.2),
+              hi=(0.3, 0.25, 0.3))
+
+
+def droplets(ctx, t, p):
+    """Water droplets drifting in toward the origin from all around (moisture soaked out of the air);
+    p: n, r (start radius)."""
+    n = int(p.get("n", 10))
+    R = p.get("r", 520)
+    for k in range(n):
+        a = 2 * math.pi * k / n + 0.3
+        u = (t * 0.45 + k / n) % 1
+        rr = R * (1 - u)
+        x, y = rr * math.cos(a), rr * math.sin(a) * 0.8
+        s = 26 * (1 - 0.6 * u)
+        shape(ctx, lambda c, x=x, y=y, s=s: (c.move_to(x, y - s), c.curve_to(x + s * 0.7, y, x + s * 0.6, y + s * 0.8,
+                                                                             x, y + s * 0.8),
+                                             c.curve_to(x - s * 0.6, y + s * 0.8, x - s * 0.7, y, x, y - s)),
+              hexc("#78bef0"), OUT * 0.45, None, a=min(1, 3 * (1 - u)))
+
+
+ACTORS = {"eggs": eggs, "droplets": droplets, "house_centipede": house_centipede, "roach": roach, "fly": fly, "dust_mite": dust_mite,
+          "skin_flake": skin_flake, "mite_crowd": mite_crowd, "demodex": demodex, "silverfish": silverfish,
           "jumping_spider": jumping_spider, "widow": widow, "wolf_spider": wolf_spider, "silk_throw": silk_throw}

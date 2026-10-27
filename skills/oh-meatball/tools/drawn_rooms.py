@@ -345,4 +345,13 @@ def pillow_face(ctx, t, p):
         flat(ctx, lambda c, x=x, y=y: p_ellipse(c, x, y, 9, 6), P["skin2_dk"])
 
 
-ACTORS = {"book": book, "trex": trex, "sleeper": sleeper, "pillow_face": pillow_face}
+def encasement(ctx, t, p):
+    """A zip-up allergen cover over the bed's mattress (matches bedroom: mattress x 180..1680, top y 1180);
+    drawn in world units at the scene origin (place it at pos [0, 0]). p: zip (0..1 how far it's zipped)."""
+    z = p.get("zip", 1.0)
+    shape(ctx, lambda c: p_rrect(c, 170, 1110, 1520, 310, 40), (0.96, 0.97, 1.0), OUT, (0, 0.15), a=0.92)
+    stroke(ctx, [(190, 1300), (190 + 1480 * z, 1300)], 10, color=P["steel_dk"])
+    shape(ctx, lambda c: p_rrect(c, 170 + 1480 * z, 1280, 40, 50, 8), P["steel"], OUT * 0.6, None)
+
+
+ACTORS = {"encasement": encasement, "book": book, "trex": trex, "sleeper": sleeper, "pillow_face": pillow_face}

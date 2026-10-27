@@ -259,7 +259,7 @@ def draw_actor(ctx, cam, a, b, t, words):
                 old = p.get(key, 0.0)
                 p[key] = old + (v - old) * u if isinstance(v, (int, float)) and isinstance(old, (int, float)) \
                     and not isinstance(v, bool) else v
-    if p.get("hidden"):
+    if p.get("hidden") or abs(s) < 1e-3:
         return
     p["blink"] = blinker(hash(a["id"]) % 97, b["t0"] + t)
     p["walking"] = walking
