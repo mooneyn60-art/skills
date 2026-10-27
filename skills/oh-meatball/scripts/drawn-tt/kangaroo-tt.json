@@ -1,0 +1,192 @@
+{
+ "series": "Meatball's Animal Files, Part",
+ "sources": [
+  "Australian Museum, Red Kangaroo: males up to 92 kg; males usually orange-red, females often blue-grey; one baby at a time, the size of a jellybean at birth, which climbs straight into the pouch; joeys permanently leave the pouch at about 235 days; females can delay the birth of their next baby until the previous joey has left the pouch (embryonic diapause); https://australian.museum/learn/animals/mammals/red-kangaroo/",
+  "National Geographic, Red Kangaroo: world's largest marsupial, about 200 pounds; over 35 miles an hour; can cover 25 feet in a single leap and jump 6 feet high; males box rivals, leaning back on their tails and striking with their strong hind legs; https://www.nationalgeographic.com/animals/mammals/facts/red-kangaroo",
+  "UNSW Sydney news (2014), Kangaroos use tail as fifth leg (Dawson et al., Biology Letters): when grazing on all fours, red kangaroo tails provide about as much propulsive force as the front and hind legs combined; https://www.unsw.edu.au/newsroom/news/2014/07/kangaroos-use-tail-as-fifth-leg",
+  "Taronga Conservation Society Australia, What Personal Space?: red kangaroos can produce two different types of milk at once for a joey in the pouch and another on the ground; a female can become pregnant again while a joey is still in the pouch; https://taronga.org.au/news/2018-07-11/what-personal-space",
+  "Frontiers for Young Minds (2024), co-authored at the University of Queensland, on kangaroo cooling: kangaroos spread saliva on their forearms, where a large network of blood vessels lies under thin skin, and the evaporating saliva cools them like sweat; https://kids.frontiersin.org/articles/10.3389/frym.2024.1333636"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "red_kangaroo",
+  "scene": "desert",
+  "scene_p": {
+   "time": "day",
+   "palette": {
+    "sky": "#8fd0f2",
+    "ground": "#c8663a",
+    "ground2": "#a9502c"
+   },
+   "props": [
+    [
+     "rock",
+     -60,
+     1500,
+     1.0
+    ],
+    [
+     "bush",
+     1180,
+     1500,
+     0.8
+    ],
+    [
+     "grass",
+     300,
+     1500,
+     1.0
+    ]
+   ]
+  },
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "red kangaroo",
+   "color": "#c4643a",
+   "dark": "#97492a",
+   "belly": "#f0d9c4",
+   "ears": "long",
+   "whiskers": false,
+   "length": 520,
+   "height": 330,
+   "leg_len": 150,
+   "leg_w": 40,
+   "tail_w": 44,
+   "mood": "smug",
+   "s": 0.72
+  },
+  "s": 0.72,
+  "wild": "desert",
+  "wild_p": {
+   "time": "dusk",
+   "palette": {
+    "sky": "#f5a86a",
+    "ground": "#c8663a",
+    "ground2": "#a9502c"
+   },
+   "props": [
+    [
+     "tree",
+     -80,
+     1500,
+     0.9
+    ],
+    [
+     "grass",
+     980,
+     1500,
+     1.0
+    ],
+    [
+     "rock",
+     1180,
+     1500,
+     0.8
+    ]
+   ]
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "A Kangaroo Mom Can Put Her Pregnancy on Pause 🦘",
+ "tiktok_caption": "a kangaroo mom can put her pregnancy on pause 🦘 and she cools off by licking spit onto her arms. Would you get in the ring with one? 🥊 yes / 🏃 no way / 🦘 team kangaroo #meatballmyths #learnontiktok #kangaroo #australia #animalfacts",
+ "beats": [
+  {
+   "m": "hook",
+   "say": "A kangaroo mom can put her own pregnancy on pause."
+  },
+  {
+   "m": "name",
+   "say": "The red kangaroo. The biggest marsupial in the world."
+  },
+  {
+   "m": "fact",
+   "say": "A big male can weigh about two hundred pounds."
+  },
+  {
+   "m": "escalate",
+   "say": "It can cover twenty five feet in one leap, and jump six feet high."
+  },
+  {
+   "hero_moves": [
+    {
+     "at": "15%",
+     "dur": 1.6,
+     "pos": [
+      640,
+      1500
+     ],
+     "walk": true
+    }
+   ],
+   "m": "solo",
+   "say": "Top speed? Over thirty five miles an hour."
+  },
+  {
+   "m": "calm",
+   "say": "But when it grazes, it walks slowly, on five legs."
+  },
+  {
+   "m": "fact",
+   "say": "The fifth leg is its tail. It pushes as hard as the front and back legs combined."
+  },
+  {
+   "m": "fact",
+   "say": "Now the babies. A newborn joey is the size of a jellybean."
+  },
+  {
+   "m": "fact",
+   "say": "It climbs straight into mom's pouch, all by itself."
+  },
+  {
+   "m": "escalate",
+   "say": "And mom can already be pregnant again, with the next baby on pause."
+  },
+  {
+   "m": "fact",
+   "say": "That baby waits, until the joey leaves the pouch. Then it's born."
+  },
+  {
+   "m": "fact",
+   "say": "She can feed a joey in the pouch, and a bigger one outside, with two different kinds of milk."
+  },
+  {
+   "act": {
+    "mood": "angry"
+   },
+   "m": "solo",
+   "say": "Males fight by leaning back on their tails, and boxing with their back legs."
+  },
+  {
+   "act": {
+    "talk": 1.0
+   },
+   "m": "fact",
+   "say": "And in the heat, it licks its arms, and covers them in spit."
+  },
+  {
+   "m": "escalate",
+   "say": "As the spit dries, it cools the blood underneath."
+  },
+  {
+   "act": {
+    "mood": "angry"
+   },
+   "m": "solo",
+   "say": "Would you get in the ring with one?"
+  },
+  {
+   "m": "punch",
+   "say": "It pauses babies, makes two kinds of milk, and cools off with its own spit."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, a bird that shows off its bright blue feet to get a date."
+  }
+ ]
+}
