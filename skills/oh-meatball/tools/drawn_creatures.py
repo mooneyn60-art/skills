@@ -16,6 +16,9 @@ Body plans (all in the drawn_kit house style: thick ink outline, flat colour + o
   mammal     side view small mammal: body, head + snout, ears (round | pointed | long), tail (thin | fluffy),
              4 legs, whiskers
   reptile    side view lizard: long body, tapering tail, 4 sprawled legs, spikes, or a turtle shell
+  frog       side view frog: squat body, folded hind legs, big eyes on top, wide mouth (spots, toe_pads)
+Mammal extras: neck (px, giraffe) + ossicones, spots + spot_color, hump (0..1) + mane, horns, beard, bands (armadillo),
+back_stripe (colour, skunk). Bird extras: foot_color, beak_color.
 
 Config keys (all optional): plan, color, dark, accent, belly, length, height, legs, leg_len, ant (antennae
 length), wings, tails, tail_len, stripes, sheen, eye_r, eyes, mouth, fangs, teeth, pattern, hairs, mood (the
@@ -426,8 +429,9 @@ def bird(ctx, t, cfg, p):
     by = -cfg.get("leg_len", 140) - H / 2 - (60 * fly)
     if not fly:
         for k in (-1, 1):
-            stroke(ctx, [(k * 30, by + H * 0.4), (k * 30 + 10, -4)], 9, color=hexc("#e0a030"))
-            stroke(ctx, [(k * 30 - 20, 0), (k * 30 + 50, 0)], 8, color=hexc("#e0a030"))
+            fc = _c(cfg, "foot_color", "#e0a030")
+            stroke(ctx, [(k * 30, by + H * 0.4), (k * 30 + 10, -4)], 9, color=fc)
+            shape(ctx, lambda c, k=k: p_ellipse(c, k * 30 + 15, -2, 42, 12), fc, OUT * 0.6, None)
     shape(ctx, lambda c: p_poly(c, [(-L * 0.4, by), (-L * 0.85, by - H * 0.25), (-L * 0.8, by + H * 0.15)]), dk, OUT,
           None)
     path = lambda c: p_ellipse(c, 0, by, L / 2, H / 2)  # noqa
@@ -437,7 +441,7 @@ def bird(ctx, t, cfg, p):
     beak = cfg.get("beak", "short")
     bl = {"short": hr * 0.8, "long": hr * 2.0, "hook": hr * 0.9}.get(beak, hr)
     shape(ctx, lambda c: p_poly(c, [(hx + hr * 0.8, hy - hr * 0.15), (hx + hr * 0.8 + bl, hy + (hr * 0.3 if beak == "hook" else 0.1)),
-                                    (hx + hr * 0.8, hy + hr * 0.3)]), hexc("#f2b33d"), OUT * 0.8, None)
+                                    (hx + hr * 0.8, hy + hr * 0.3)]), _c(cfg, "beak_color", "#f2b33d"), OUT * 0.8, None)
     shape(ctx, lambda c: p_ellipse(c, hx, hy, hr, hr), col, OUT, (0.08, 0.15))
     if cfg.get("crest"):
         for k in range(3):
@@ -468,10 +472,43 @@ def mammal(ctx, t, cfg, p):
         dx, dy = _walk(p, k, far)
         limb(ctx, [(x, by), (x + dx * 0.5, by + ll * 0.6), (x + dx, dy)], cfg.get("leg_w", 34),
              dk if far else col, OUT * 0.7)
+    if cfg.get("hump"):   # bison: a shaggy shoulder hump drawn behind the body
+        shape(ctx, lambda c: p_blob(c, L * 0.18, by - H * 0.42, L * 0.3, H * 0.5 * cfg["hump"], 0.1, seed=7),
+              _c(cfg, "mane", None) or dk, OUT, (0.05, 0.1))
     path = lambda c: p_ellipse(c, 0, by, L / 2, H / 2)  # noqa
     shape(ctx, path, col, OUT, (0.0, 0.2), hi=(0.35, 0.2, 0.22))
-    flat(ctx, lambda c: p_ellipse(c, L * 0.05, by + H * 0.2, L * 0.32, H * 0.22), bel)
+    if not cfg.get("bands"):
+        flat(ctx, lambda c: p_ellipse(c, L * 0.05, by + H * 0.2, L * 0.32, H * 0.22), bel)
+    for k in range(cfg.get("bands", 0)):   # armadillo armour bands across the back
+        x = -L * 0.3 + k * L * 0.6 / max(cfg["bands"] - 1, 1)
+        stroke(ctx, [(x, by - H * 0.48), (x * 1.05, by + H * 0.42)], 9, color=dk)
+    if cfg.get("back_stripe"):   # skunk: a white stripe along the back
+        stroke(ctx, [(-L * 0.42, by - H * 0.05), (-L * 0.1, by - H * 0.3), (L * 0.25, by - H * 0.3), (L * 0.42, by - H * 0.42)],
+               cfg.get("back_stripe_w", 34), smooth=True, color=_c(cfg, "back_stripe", "#ffffff"))
+    rnd = random.Random(11)
+    for _ in range(cfg.get("spots", 0)):   # giraffe patches
+        sx, sy = rnd.uniform(-L * 0.38, L * 0.38), rnd.uniform(-H * 0.35, H * 0.3)
+        flat(ctx, lambda c, sx=sx, sy=sy: p_blob(c, sx, by + sy, L * 0.07, H * 0.12, 0.25, seed=int(sx) % 97),
+             _c(cfg, "spot_color", None) or dk)
     hx, hy, hr = L * 0.48, by - H * 0.38, H * 0.48
+    neck = cfg.get("neck", 0)
+    if neck:   # long neck: the head sits up at the top of it
+        nx, ny = L * 0.55, by - H * 0.38 - neck
+        shape(ctx, lambda c: p_poly(c, [(L * 0.22, by - H * 0.2), (L * 0.42, by + H * 0.15), (nx + H * 0.22, ny + H * 0.1),
+                                        (nx - H * 0.18, ny)]), col, OUT, (0.0, 0.15))
+        rnd2 = random.Random(5)
+        for k in range(cfg.get("spots", 0) // 3):
+            f = (k + 0.5) / max(cfg.get("spots", 0) // 3, 1)
+            cx_, cy_ = L * 0.32 + (nx - L * 0.32) * f, by - H * 0.05 + (ny - by + H * 0.05) * f
+            flat(ctx, lambda c, cx_=cx_, cy_=cy_: p_blob(c, cx_ + rnd2.uniform(-12, 12), cy_, H * 0.12, H * 0.1, 0.25, seed=k),
+                 _c(cfg, "spot_color", None) or dk)
+        if cfg.get("mane_line", True):
+            stroke(ctx, [(L * 0.25, by - H * 0.35), (nx - H * 0.2, ny + H * 0.05)], 12, color=dk)
+        hx, hy, hr = nx + H * 0.15, ny - H * 0.1, H * 0.42
+        if cfg.get("ossicones"):
+            for ox in (-0.35, 0.05):
+                stroke(ctx, [(hx + hr * ox, hy - hr * 0.7), (hx + hr * ox, hy - hr * 1.5)], 12, color=dk)
+                shape(ctx, lambda c, ox=ox: p_ellipse(c, hx + hr * ox, hy - hr * 1.55, 14, 14), INK, 0, None)
     ears = cfg.get("ears", "round")
     for k, ex in enumerate((hx - hr * 0.5, hx + hr * 0.05)):
         if ears == "long":
@@ -484,6 +521,12 @@ def mammal(ctx, t, cfg, p):
             shape(ctx, lambda c, ex=ex: p_ellipse(c, ex, hy - hr * 0.85, hr * 0.42, hr * 0.42), col, OUT, None)
             flat(ctx, lambda c, ex=ex: p_ellipse(c, ex, hy - hr * 0.85, hr * 0.24, hr * 0.24), hexc("#f2b5b5"))
     shape(ctx, lambda c: p_ellipse(c, hx, hy, hr, hr * 0.9), col, OUT, (0.08, 0.15))
+    if cfg.get("horns"):   # short curved horns (bison)
+        for k, ex in enumerate((hx - hr * 0.55, hx + hr * 0.25)):
+            stroke(ctx, [(ex, hy - hr * 0.55), (ex - hr * 0.25, hy - hr * 1.0), (ex + hr * 0.05, hy - hr * 1.25)], 16,
+                   smooth=True, color=_c(cfg, "horn_color", "#e8e0cc"))
+    if cfg.get("beard"):
+        shape(ctx, lambda c: p_blob(c, hx + hr * 0.4, hy + hr * 0.95, hr * 0.35, hr * 0.45, 0.15, seed=3), dk, OUT * 0.6, None)
     shape(ctx, lambda c: p_ellipse(c, hx + hr * 0.85, hy + hr * 0.25, hr * 0.45, hr * 0.32), bel, OUT * 0.8, None)
     flat(ctx, lambda c: p_ellipse(c, hx + hr * 1.25, hy + hr * 0.15, hr * 0.13, hr * 0.11), INK)
     if cfg.get("whiskers", True):
@@ -529,8 +572,39 @@ def reptile(ctx, t, cfg, p):
     _overlays(ctx, cfg, p, path, 0, by, L * 0.42, H * 0.5)
 
 
+def frog(ctx, t, cfg, p):
+    """Side view frog: squat body, folded hind leg, big eyes on top, wide mouth, no tail."""
+    L, H = cfg.get("length", 420), cfg.get("height", 260)
+    col = _c(cfg, "color", "#7fb85a")
+    dk = _c(cfg, "dark", None) or darker(col, 0.72)
+    bel = _c(cfg, "belly", None) or lighter(col, 0.5)
+    hop = abs(math.sin(t * 3)) * 18 * (1 if p.get("walking") else 0)
+    by = -H * 0.5 - hop
+    shape(ctx, lambda c: p_smooth(c, [(-L * 0.3, by + H * 0.1), (-L * 0.62, by + H * 0.35), (-L * 0.2, by + H * 0.5),
+                                      (L * 0.05, by + H * 0.5)], close=True), dk, OUT * 0.8, None)   # far hind leg
+    limb(ctx, [(L * 0.2, by + H * 0.2), (L * 0.28, by + H * 0.4), (L * 0.33, 0)], 26, dk, OUT * 0.6)
+    path = lambda c: p_smooth(c, [(-L * 0.45, by + H * 0.35), (-L * 0.4, by - H * 0.2), (L * 0.05, by - H * 0.45),  # noqa
+                                  (L * 0.45, by - H * 0.15), (L * 0.45, by + H * 0.25), (0, by + H * 0.5)], close=True)
+    shape(ctx, path, col, OUT, (0.0, 0.2), hi=(0.3, 0.2, 0.2))
+    flat(ctx, lambda c: p_ellipse(c, L * 0.08, by + H * 0.28, L * 0.3, H * 0.18), bel)
+    for k in range(cfg.get("spots", 0)):
+        sx = -L * 0.3 + k * L * 0.5 / max(cfg["spots"] - 1, 1)
+        flat(ctx, lambda c, sx=sx: p_ellipse(c, sx, by - H * 0.1 + (k % 2) * 30, 26, 20), dk)
+    shape(ctx, lambda c: p_smooth(c, [(-L * 0.2, by + H * 0.15), (-L * 0.55, by + H * 0.4), (-L * 0.3, by + H * 0.52),
+                                      (L * 0.0, by + H * 0.48)], close=True), col, OUT * 0.8, (0, 0.2))   # near hind leg
+    limb(ctx, [(L * 0.28, by + H * 0.2), (L * 0.38, by + H * 0.42), (L * 0.42, 0)], 26, col, OUT * 0.6)
+    if cfg.get("toe_pads"):
+        for fx in (L * 0.42, L * 0.33, -L * 0.3):
+            flat(ctx, lambda c, fx=fx: p_ellipse(c, fx, -4, 16, 10), _c(cfg, "toe_color", None) or lighter(col, 0.3))
+    ex, ey, er = L * 0.28, by - H * 0.42, H * 0.22
+    shape(ctx, lambda c: p_ellipse(c, ex, ey, er, er), col, OUT, None)
+    stroke(ctx, [(L * 0.1, by + H * 0.08), (L * 0.46, by + H * 0.02)], 6)
+    _face(ctx, cfg, p, ex + er * 0.1, ey, er * 0.62, col, H * 0.4)
+    _overlays(ctx, cfg, p, path, 0, by, L * 0.45, H * 0.5)
+
+
 PLANS = {"insect": insect, "arachnid": arachnid, "centipede": centipede, "worm": centipede, "mite": mite,
-         "fish": fish, "bird": bird, "mammal": mammal, "reptile": reptile}
+         "fish": fish, "bird": bird, "mammal": mammal, "reptile": reptile, "frog": frog}
 
 
 def build(cfg):

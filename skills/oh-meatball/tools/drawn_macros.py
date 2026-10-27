@@ -134,8 +134,7 @@ def _beat(stage, line, F, shots, hero, mb, sfx, extra=None, **kw):
 def _mb(stage, F, pose, x=MB_X, moves=None, gest=None, **kw):
     scene_water = kw.pop("water", False)
     m = {"pose": pose, "pos": [x, F], "size": 980, "look": "hero", "prop": None}
-    if scene_water:
-        m.update(helmet=True, float=True)
+    m.update(helmet=bool(scene_water), float=bool(scene_water))   # explicit, so a water line never leaks onward
     if moves:
         m["moves"] = moves
     if gest:
