@@ -1,0 +1,276 @@
+{
+ "series": "Meatball's Animal Files, Part",
+ "sources": [
+  "National Geographic (2012), Crocodiles have strongest bite ever measured (Erickson et al., PLOS ONE): all 23 crocodilian species tested; a 17-foot saltwater crocodile bit with about 3,700 pounds (16,460 newtons), the highest bite force ever recorded; https://www.nationalgeographic.com/animals/article/120315-crocodiles-bite-force-erickson-science-plos-one-strongest",
+  "Australian Museum, Estuarine Crocodile: largest reliably measured at least 615 cm; larger ones eat water birds, sea turtles and mammals up to water buffalo size, are cannibalistic and scavenge; cross large stretches of open ocean, found on islands up to 96 km from the mainland; relocated crocodiles found their way back; mound nests up to 2.5 m long; cooler nests tend to produce females and warmer nests males; most attacks are on swimmers or people bending down at the water's edge, and people seized in the water have little chance of escape; https://australian.museum/learn/animals/reptiles/estuarine-crocodile/",
+  "Campbell et al. (2010), Estuarine crocodiles ride surface currents to facilitate long-distance travel, Journal of Animal Ecology 79:955-964 (University of Queensland): crocodiles start long-distance travel within an hour of the tide changing; a 3.84 m male travelled 590 km in 25 days riding a seasonal current; https://pubmed.ncbi.nlm.nih.gov/20546063"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "saltwater_crocodile",
+  "scene": "swamp",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "reptile",
+   "label": "saltwater crocodile",
+   "color": "#6f7a4a",
+   "dark": "#4a5230",
+   "length": 640,
+   "height": 220,
+   "leg_len": 50,
+   "spikes": 7,
+   "teeth": true,
+   "mood": "angry",
+   "s": 0.5
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "reptile",
+    "label": "saltwater crocodile",
+    "color": "#6f7a4a",
+    "dark": "#4a5230",
+    "length": 640,
+    "height": 220,
+    "leg_len": 50,
+    "spikes": 7,
+    "teeth": true,
+    "mood": "angry",
+    "s": 0.5
+   }
+  },
+  "actor": "creature",
+  "wild": "swamp",
+  "wild_p": {
+   "time": "dusk"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "This Crocodile Has the Strongest Bite Ever Measured 🐊",
+ "tiktok_caption": "the strongest bite ever measured belongs to this crocodile 🐊 and it surfs ocean currents for hundreds of km. Would you fish at the water's edge here? 🎣 sure / 🏃 nope #meatballmyths #learnontiktok #crocodile #animalfacts",
+ "beats": [
+  {
+   "hero_moves": [
+    {
+     "at": 0,
+     "dur": 1.2,
+     "pos": [
+      640,
+      1500
+     ],
+     "walk": true
+    }
+   ],
+   "m": "hook",
+   "say": "This crocodile has the strongest bite ever measured."
+  },
+  {
+   "m": "shrink",
+   "say": "So I shrank myself down, to see that bite up close."
+  },
+  {
+   "zoom": 1.3,
+   "hero_at": {
+    "x": 520
+   },
+   "pose": "shock",
+   "m": "tiny",
+   "say": "The saltwater crocodile. The biggest one measured was over six meters long."
+  },
+  {
+   "zoom": 1.3,
+   "hero_at": {
+    "x": 520
+   },
+   "act": {
+    "bite": 1.0
+   },
+   "pose": "nervous",
+   "m": "tiny",
+   "say": "Its bite hit about thirty-seven hundred pounds of force."
+  },
+  {
+   "zoom": 1.3,
+   "hero_at": {
+    "x": 520
+   },
+   "act": {
+    "bite": 1.0
+   },
+   "m": "tiny",
+   "say": "The strongest bite of any animal scientists have ever tested."
+  },
+  {
+   "zoom": 1.3,
+   "hero_at": {
+    "x": 520
+   },
+   "scene": "swamp",
+   "scene_p": {
+    "time": "day"
+   },
+   "m": "tiny",
+   "say": "Big ones eat water birds, sea turtles, even water buffalo."
+  },
+  {
+   "zoom": 1.3,
+   "hero_at": {
+    "x": 520
+   },
+   "pose": "nervous",
+   "m": "tiny",
+   "say": "It eats buffalo. Right now, I'm basically a crumb."
+  },
+  {
+   "zoom": 1.2,
+   "hero_at": {
+    "x": 480
+   },
+   "scene": "ocean",
+   "scene_p": {
+    "time": "day"
+   },
+   "m": "solo",
+   "say": "It's not just a river animal. It swims out into the open ocean."
+  },
+  {
+   "zoom": 1.2,
+   "hero_at": {
+    "x": 480
+   },
+   "scene": "ocean",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "m": "solo",
+   "say": "Scientists tracked one that surfed five hundred ninety kilometers in twenty-five days."
+  },
+  {
+   "zoom": 1.3,
+   "hero_at": {
+    "x": 520
+   },
+   "scene": "swamp",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "m": "tiny",
+   "say": "It waits for the tide to turn, and then surfs it."
+  },
+  {
+   "zoom": 1.3,
+   "hero_at": {
+    "x": 520
+   },
+   "scene": "swamp",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "pose": "shock",
+   "m": "tiny",
+   "say": "They've turned up on islands almost a hundred kilometers from the mainland."
+  },
+  {
+   "zoom": 1.3,
+   "hero_at": {
+    "x": 520
+   },
+   "scene": "swamp",
+   "scene_p": {
+    "time": "night"
+   },
+   "pose": "laugh",
+   "m": "tiny",
+   "say": "Move a problem croc far away, and it often swims right back home."
+  },
+  {
+   "zoom": 1.3,
+   "hero_at": {
+    "x": 520
+   },
+   "scene": "forest_floor",
+   "scene_p": {
+    "time": "day"
+   },
+   "with": [
+    {
+     "type": "eggs",
+     "x": 800,
+     "y": 1560,
+     "s": 0.6,
+     "front": true
+    }
+   ],
+   "m": "tiny",
+   "say": "Mom builds a nest mound out of plants and mud, up to two and a half meters long."
+  },
+  {
+   "zoom": 1.3,
+   "hero_at": {
+    "x": 520
+   },
+   "scene": "forest_floor",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "with": [
+    {
+     "type": "eggs",
+     "x": 800,
+     "y": 1560,
+     "s": 0.6,
+     "front": true
+    }
+   ],
+   "pose": "think",
+   "m": "tiny",
+   "say": "The nest's heat decides if the babies are boys or girls."
+  },
+  {
+   "zoom": 1.3,
+   "hero_at": {
+    "x": 520
+   },
+   "act": {
+    "bite": 1.0
+   },
+   "pose": "nervous",
+   "m": "tiny",
+   "say": "Most attacks hit people swimming, or bending down at the water's edge."
+  },
+  {
+   "zoom": 1.3,
+   "hero_at": {
+    "x": 520
+   },
+   "pose": "shock",
+   "m": "tiny",
+   "say": "Grabbed in the water, there's very little chance of escape."
+  },
+  {
+   "hero_at": {
+    "x": 640
+   },
+   "m": "fact",
+   "say": "Would you go fishing at the water's edge here?"
+  },
+  {
+   "hero_at": {
+    "x": 640
+   },
+   "m": "punch",
+   "say": "It surfs the ocean, finds its way home, and bites harder than anything ever tested."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, an animal with three hearts and blue blood."
+  }
+ ]
+}
