@@ -290,11 +290,12 @@ def trex(ctx, t, p):
     ctx.translate(0, bob)
     shape(ctx, lambda c: p_smooth(c, [(-900, -700), (-400, -820), (-100, -900), (60, -800), (20, -560),
                                       (-300, -500), (-600, -560)]), C["rex"], OUT, (0.05, 0.15))
-    for s, ox in ((-1, -60), (1, 60)):
-        limb(ctx, [(-150 + ox, -620), (-120 + ox, -330), (-180 + ox, 0)], 110, C["rex_dk"] if s < 0 else C["rex"],
-             OUT)
-        shape(ctx, lambda c, ox=ox: p_ellipse(c, -130 + ox, -10, 110, 34), C["rex_dk"], OUT * 0.7, None)
     shape(ctx, lambda c: p_blob(c, -120, -760, 300, 230, 0.05, seed=1), C["rex"], OUT, (0.1, 0.15))
+    for s, ox in ((-1, -90), (1, 40)):
+        col = C["rex_dk"] if s < 0 else C["rex"]
+        shape(ctx, lambda c, ox=ox, col=col: p_ellipse(c, -170 + ox, -560, 140, 190, 0.3), col, OUT, (0.1, 0.1))
+        limb(ctx, [(-160 + ox, -440), (-80 + ox, -230), (-150 + ox, -20)], 80, col, OUT)
+        shape(ctx, lambda c, ox=ox: p_ellipse(c, -110 + ox, -14, 120, 36), C["rex_dk"], OUT * 0.7, None)
     shape(ctx, lambda c: p_blob(c, -60, -680, 180, 140, 0.05, seed=2), C["rex_belly"], OUT * 0.7, None)
     limb(ctx, [(60, -760), (120, -700), (170, -730)], 26, C["rex"], OUT * 0.7)   # tiny arm
     ctx.save()

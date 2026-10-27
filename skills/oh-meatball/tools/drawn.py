@@ -20,7 +20,7 @@ Spec (see scripts/drawn-1027/*.json):
     keep                   true = carry every actor of the previous beat forward; "drop": [ids] removes some
     mb                     Meatball: {"pose", "pos": feet [x, y], "size" (px per 1000 rig units at zoom 1),
                            "moves": [...as actors], "gest": [[at, pose, hold]], "look": actor id | "viewer",
-                           "shake": 0..1, "helmet": bool, "prop": "flashlight" | "mic" | "paper"}
+                           "shake": 0..1, "helmet": bool, "prop": "flashlight" | "mic" | "paper" | "magnifier"}
     sfx                    ["pop@word", "whoosh@0.4"]: tools' sfx/*.wav at a word or time in the beat
     flash                  [at, ...] white camera-flash frames;  shake: [at, ...] camera shake hits
   "at" is seconds into the beat or a spoken word ("claw", "claw+0.3", "claw#2" = its 2nd occurrence).
@@ -42,11 +42,14 @@ sys.path.insert(0, HERE)
 import mascot  # noqa: E402
 import music  # noqa: E402
 from drawn_kit import INK, OUT, PAL, ease, ink, p_ellipse, src, stroke  # noqa: E402
-from drawn_assets import SCENES  # noqa: E402
+from drawn_assets import SCENES as S1  # noqa: E402
 from drawn_actors import ACTORS as A1  # noqa: E402
 from drawn_cast import ACTORS as A2  # noqa: E402
+from drawn_rooms import ACTORS as A3, SCENES as S2  # noqa: E402
+from drawn_bugs import ACTORS as A4  # noqa: E402
 
-ACTORS = {**A1, **A2}
+ACTORS = {**A1, **A2, **A3, **A4}
+SCENES = {**S1, **S2}
 ROOT = os.path.dirname(HERE)
 W, H = 1080, 1920
 SR = 48000
@@ -403,6 +406,24 @@ def draw_prop(ctx, prop, hx, hy, k, t):
         ctx.fill_preserve()
         ink(ctx, OUT * k)
         ctx.stroke()
+        ctx.restore()
+    elif prop == "magnifier":
+        ctx.save()
+        ctx.translate(hx, hy)
+        ctx.rotate(-0.6)
+        ctx.rectangle(-14 * k, 0, 28 * k, 150 * k)
+        src(ctx, PAL["wood_dk"])
+        ctx.fill_preserve()
+        ink(ctx, OUT * k)
+        ctx.stroke()
+        p_ellipse(ctx, 0, -80 * k, 85 * k, 85 * k)
+        src(ctx, (0.8, 0.94, 1.0), 0.35)
+        ctx.fill_preserve()
+        ink(ctx, OUT * 1.6 * k)
+        ctx.stroke()
+        p_ellipse(ctx, -28 * k, -108 * k, 22 * k, 14 * k, -0.6)
+        src(ctx, (1, 1, 1), 0.8)
+        ctx.fill()
         ctx.restore()
     elif prop == "paper":
         ctx.save()
