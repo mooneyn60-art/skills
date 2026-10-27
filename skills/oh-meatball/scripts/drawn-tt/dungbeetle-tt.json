@@ -1,0 +1,282 @@
+{
+ "series": "Meatball's Animal Files, Part",
+ "sources": [
+  "National Geographic (2013), Dung beetles navigate by the Milky Way (Dacke et al., Current Biology, Lund University and University of Pretoria): first animal known to navigate using the Milky Way; beetles fitted with little cardboard hats that blocked the sky rolled aimlessly; in the Johannesburg Planetarium they oriented as well under the Milky Way alone as under a full starry sky; they must leave the dung pile quickly in a straight line or thieves steal the ball; buried dung balls become food for their young; https://www.nationalgeographic.com/animals/article/dung-beetles-milky-way-navigation",
+  "ScienceDaily (2012), Smolka et al., Dung beetles use their dung ball as a mobile thermal refuge, Current Biology 22(20): balls weigh up to 50 times the beetle's body weight; beetles climb on the moist ball when their front legs and head overheat on hot sand, seven times as often on hot soil; silicone boots on the front legs made them climb less; on the ball they often wipe their faces, which researchers suspect spreads regurgitated liquid to cool them; https://www.sciencedaily.com/releases/2012/10/121022122054.htm",
+  "ScienceDaily (2010), Queen Mary University of London press release on Knell and Simmons, Proceedings of the Royal Society B: the dung beetle Onthophagus taurus can pull 1,141 times its own body weight; https://www.sciencedaily.com/releases/2010/03/100323212158.htm"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "dung_beetle",
+  "scene": "bedroom",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "insect",
+   "label": "dung beetle",
+   "body": "round",
+   "color": "#2b2622",
+   "dark": "#171310",
+   "length": 470,
+   "height": 230,
+   "leg_len": 130,
+   "ant": 120,
+   "wings": "shell",
+   "sheen": true,
+   "mood": "smug",
+   "s": 0.75
+  },
+  "s": 0.75,
+  "wild": "desert",
+  "wild_p": {
+   "time": "day",
+   "palette": {
+    "sky": "#9fd3ef",
+    "ground": "#c9a868",
+    "ground2": "#b09058"
+   },
+   "props": [
+    [
+     "bush",
+     -60,
+     1500,
+     0.8
+    ],
+    [
+     "grass",
+     1050,
+     1500,
+     1.0
+    ]
+   ]
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "This Beetle Steers Its Poop Ball by the Milky Way 🌌",
+ "tiktok_caption": "this beetle steers its poop ball by the milky way 🌌 and cools off on top of it. Would you let one crawl on you? 🪲 yes / 💩 not after where it's been / 🙅 no #meatballmyths #learnontiktok #dungbeetle #insects #animalfacts",
+ "beats": [
+  {
+   "m": "hook",
+   "say": "This beetle steers by the Milky Way, while rolling a ball of poop."
+  },
+  {
+   "m": "shrink",
+   "say": "So I shrank myself down to beetle size, to follow one."
+  },
+  {
+   "m": "tiny",
+   "say": "The dung beetle. It lives on poop."
+  },
+  {
+   "m": "tiny",
+   "say": "It packs dung into a ball, up to fifty times heavier than itself."
+  },
+  {
+   "hero_moves": [
+    {
+     "at": "20%",
+     "dur": 2.0,
+     "pos": [
+      640,
+      1500
+     ],
+     "walk": true
+    }
+   ],
+   "m": "tiny",
+   "say": "Then it rolls it away in a straight line, fast, before another beetle steals it."
+  },
+  {
+   "hero_at": {
+    "x": 540
+   },
+   "scene_p": {
+    "time": "night",
+    "palette": {
+     "ground": "#b09058",
+     "ground2": "#957848"
+    },
+    "props": []
+   },
+   "act": {
+    "mood": "calm"
+   },
+   "m": "solo",
+   "say": "At night, it keeps that line, by the glow of the Milky Way."
+  },
+  {
+   "scene_p": {
+    "time": "night",
+    "palette": {
+     "ground": "#b09058",
+     "ground2": "#957848"
+    },
+    "props": []
+   },
+   "act": {
+    "mood": "shock"
+   },
+   "m": "tiny",
+   "say": "To test it, scientists put tiny cardboard hats on the beetles, to block the sky."
+  },
+  {
+   "scene_p": {
+    "time": "night",
+    "palette": {
+     "ground": "#b09058",
+     "ground2": "#957848"
+    },
+    "props": []
+   },
+   "act": {
+    "mood": "worry"
+   },
+   "m": "tiny",
+   "say": "With hats on, they rolled around, lost."
+  },
+  {
+   "pose": "laugh",
+   "m": "tiny",
+   "say": "Honestly, I get lost with a phone."
+  },
+  {
+   "scene": "cave",
+   "scene_p": {
+    "time": "night"
+   },
+   "m": "tiny",
+   "say": "In a planetarium, the Milky Way alone was enough to steer by."
+  },
+  {
+   "scene_p": {
+    "time": "day",
+    "palette": {
+     "sky": "#ffd39a",
+     "ground": "#e6b45c",
+     "ground2": "#d09a40"
+    },
+    "props": [
+     [
+      "cactus",
+      1150,
+      1500,
+      0.8
+     ]
+    ]
+   },
+   "m": "tiny",
+   "say": "By day, the sand gets hot. So it climbs on top of its ball, to cool its feet."
+  },
+  {
+   "scene_p": {
+    "time": "day",
+    "palette": {
+     "sky": "#ffd39a",
+     "ground": "#e6b45c",
+     "ground2": "#d09a40"
+    },
+    "props": []
+   },
+   "act": {
+    "mood": "smug"
+   },
+   "m": "tiny",
+   "say": "Scientists gave beetles tiny silicone boots. With boots on, they climbed less."
+  },
+  {
+   "hero_at": {
+    "x": 540
+   },
+   "scene_p": {
+    "time": "day",
+    "palette": {
+     "sky": "#ffd39a",
+     "ground": "#e6b45c",
+     "ground2": "#d09a40"
+    },
+    "props": []
+   },
+   "act": {
+    "chew": 1.0,
+    "mood": "calm"
+   },
+   "m": "solo",
+   "say": "Up there, it wipes its face. Scientists suspect it's smearing its own throw up on its head, to cool down."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "dusk",
+    "palette": {
+     "sky": "#f5b27a",
+     "ground": "#6b4a2f",
+     "ground2": "#57391f"
+    },
+    "props": [
+     [
+      "grass",
+      200,
+      1500,
+      1.0
+     ],
+     [
+      "grass",
+      900,
+      1500,
+      1.0
+     ]
+    ]
+   },
+   "m": "tiny",
+   "say": "Then it buries the ball. That poop becomes food for its babies."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "day",
+    "palette": {
+     "ground": "#6b4a2f",
+     "ground2": "#57391f"
+    },
+    "props": [
+     [
+      "grass",
+      200,
+      1500,
+      1.0
+     ],
+     [
+      "grass",
+      900,
+      1500,
+      1.0
+     ]
+    ]
+   },
+   "act": {
+    "mood": "angry"
+   },
+   "m": "tiny",
+   "say": "And one kind can pull more than a thousand times its own body weight."
+  },
+  {
+   "m": "fact",
+   "say": "Would you let one crawl on you?"
+  },
+  {
+   "m": "punch",
+   "say": "It steers by the galaxy, and it's pushing a ball of poop."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, an animal that almost always has identical quadruplets."
+  }
+ ]
+}
