@@ -441,3 +441,11 @@ TikTok is monetized through Creator Rewards; YouTube is not yet. Creator Rewards
 ## Scene changes (Nolan, 10/27)
 Every drawn video has 2-3 `solo` lines: a complete scene change to the creature ALONE in its real habitat, big and
 centred, no Meatball (outline `wild:` + `solo:` lines; tools/drawn_macros.py). The room with Meatball is the home base.
+
+## Drawn only (Nolan, 10/27: "Wayyy better, I want only those going out, same style for long form")
+- Only drawn-style videos publish (tools/drawn_quick.py). Every queued photo-style post from 10/27 on was set to draft
+  (logged in data/held.csv). Don't un-draft them; replace slots with drawn cuts.
+- YouTube Shorts = the drawn yt cut (21-37 s, rendered with --force; the Lab found no evidence for <=20 s). TikTok = the
+  drawn tt cut (61-75 s).
+- Long-form = drawn compilations (tools/drawn_compile.py): finished tt cuts, 16:9 over a blurred copy, chapters from
+  the segment titles, ordered so each "Next, ..." tease points at the next segment. No new 5-7 min photo long-forms.
