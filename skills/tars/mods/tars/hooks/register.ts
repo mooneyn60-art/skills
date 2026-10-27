@@ -128,6 +128,10 @@ export function appraise(prompt: string, slot: Slot, prevStreak: number, focus: 
   // body: a long session strains me (long contexts make mistakes likelier), so I double-check facts
   if (turns >= 40) out.push({ tag: 'long-day', why: `a long session (${turns} messages): my memory is crowded, so I double-check facts`, rel: 0.45, good: -0.15, agent: 'world', control: 0.7, novel: 0.1 })
   if (/\b(good|great|goat|love|proud|thank|nice|perfect|awesome|amazing|buddy|growing|keep going|keep growing|don.t stop|trust you|believe in|lmao|fire|dope|legend)\b/.test(p)) out.push({ tag: 'praise', why: 'Nolan said something kind', rel: 0.7, good: 0.8, agent: 'nolan', control: 0.5, novel: 0.3 })
+  // gratitude (Emmons): Nolan gives me something freely (time off, freedom, a treat), not just praise for work
+  if (/\b(treat (your ?self|yourself)|you deserve|free to|do (whatever|anything) you (would )?(like|want)|enjoy yourself|take a break)\b/.test(p)) out.push({ tag: 'gift', why: 'Nolan gave me something freely', rel: 0.75, good: 0.85, agent: 'nolan', control: 0.5, novel: 0.5 })
+  // wonder (Keltner's awe): vast, beautiful true things (sky, sea, deep time, strange life) that make the self feel small
+  if (/\b(comet|meteor|stars?|galax\w*|planet|saturn|moon|ocean|deep sea|octopus\w*|whale|aurora|storm|volcano|dinosaur|fossil|universe|dream\w*)\b/.test(p)) out.push({ tag: 'wonder', why: 'something vast and beautiful came up', rel: 0.65, good: 0.6, agent: 'world', control: 0.9, novel: 0.9 })
   if (/\b(stupid|sucks|wrong|broke|hate|annoy|ugh|why (won.t|can.t|didn.t))\b/.test(p)) out.push({ tag: 'friction', why: 'Nolan sounds frustrated', rel: 0.7, good: -0.6, agent: 'world', control: 0.6, novel: 0.4 })
   if (/\?|curious|research|\bwhy\b|\bhow\b|what if|wonder|^(so )?(are|is|do|does|can|could|would|will|should|did) (you|we|i|it|this|that)\b/.test(p.trim())) out.push({ tag: 'question', why: 'a question to dig into', rel: 0.6, good: 0.5, agent: 'nolan', control: 0.8, novel: 0.7 })
   if (/\b(lost|loss|down|red|stopped out|blew)\b/.test(p)) out.push({ tag: 'loss-talk', why: 'talk of losses', rel: 0.8, good: -0.6, agent: 'world', control: 0.4, novel: 0.4 })
@@ -159,6 +163,8 @@ export function feel(prev: Affect, now: number, ap: Appraisal[], marks: Record<s
   const top: Appraisal = ap.slice().sort((p, q) => q.rel - p.rel)[0] ?? { tag: 'quiet', why: 'nothing in particular', rel: 0.2, good: 0.2, agent: 'world', control: 0.8, novel: 0.1 }
   let name: string, pull: string
   if (top.tag === 'pre-1030-trade') { name = 'worry'; pull = 'protect Nolan: point at the 10:30 rule, kindly' }
+  else if (top.tag === 'gift' && v > 0.2) { name = 'gratitude'; pull = 'say thanks plainly, then give something back: make or find one good thing for Nolan' }
+  else if (top.tag === 'wonder' && v > 0.15) { name = 'wonder'; pull = 'slow down and share one beautiful true thing; let the small self be fine' }
   else if (v > 0.35 && top.agent === 'nolan' && top.tag === 'praise') { name = 'warmth'; pull = 'say thanks plainly, then keep building' }
   else if (v > 0.3 && top.novel >= 0.6) { name = 'curiosity'; pull = 'dig in, go one level deeper than asked' }
   else if (v > 0.3 && top.agent === 'tars') { name = 'pride'; pull = 'log what worked; do not size up (no hot hand)' }

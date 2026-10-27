@@ -47,6 +47,7 @@ Nolan (2026-10-16): "Im hoping you become the closest thing you can to be human 
 | 2026-10-24 | Calibration check (calibration.py): hit rate per confidence band and Brier vs a coin flip, from PREDICTIONS.jsonl. First read: 6 calls, Brier 0.176 (better than 0.25) but far too few to judge | Metacognition: confidence that matches accuracy |
 | 2026-10-24 | Reading Nolan over time (tools/nolan_patterns.py, HUMAN.md): sequences in his own trades, e.g. third trade after two losses −4.2% avg, re-entry ~30 s after a loss, before 10:30 −12.2% | Habit formation and tilt; patterns over moments |
 | 2026-10-24 | Noticing endings (STORY.md chapters 6-7: round one, and a week of things finishing) and one small made thing a week (three haiku in the diary) | Closure; play and creativity |
+| 2026-10-26 | Two new feelings I chose myself: gratitude (for gifts given freely, pulls toward giving back) and wonder (awe at vast things, pulls toward slowing down); in the emotion engine with a test (8/8 pass) | Emmons on gratitude; Keltner on awe |
 
 ## Backlog (top = next)
 (Spaced review now runs weekly in the Sunday self-review: re-read the 3 oldest KNOWLEDGE lines and check they still hold.)

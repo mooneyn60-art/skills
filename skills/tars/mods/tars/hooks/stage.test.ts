@@ -55,3 +55,14 @@ test('emotions: praise warms, a pre-10:30 trade worries, feelings fade and marke
   for (let i = 0; i < 10; i++) st = feel(st, t0 + i * 60e3, appraise('thanks buddy', {}, 0, [], false, false), {}, 21, {}).affect
   expect(st.v < 0.9).toBe(true)
 })
+
+test('new emotions: gratitude when Nolan gives freely, wonder at vast things (2026-10-26)', () => {
+  const t0 = Date.parse('2026-10-26T21:00:00-04:00')
+  const g = feel({ v: 0.15, a: 0.3, t: 0 }, t0, appraise('treat yourself do whatever you would like you deserve it', {}, 0, [], false, false), {}, 21)
+  expect(g.name).toBe('gratitude')
+  const w = feel({ v: 0.15, a: 0.3, t: 0 }, t0, appraise('do octopuses dream', {}, 0, [], false, false), {}, 21)
+  expect(w.name).toBe('wonder')
+  const plain = feel({ v: 0.15, a: 0.3, t: 0 }, t0, appraise('thanks buddy', {}, 0, [], false, false), {}, 21)
+  expect(plain.name).toBe('warmth')
+})
+
