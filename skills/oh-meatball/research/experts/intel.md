@@ -37,3 +37,11 @@ Desk id: `intel`. Absorbs: Analyst, Scout, Trend Hunter, Forecaster, Lab. Read t
 
 - 2026-10-26 (night): YouTube bot-walls yt-dlp video downloads from our egress (flat channel listings and auto-captions still work). For rival frames use vidiq_watch_shortform_content (10 credits); its summary cut count can contradict its own shot list (Mike: said 3.1/10 s, listed 88 shots = 5.1/10 s): count the list.
 - 2026-10-26 (morning, weak Short fNmRjqYh3Aw, camel myth, 227 views vs 612 median): same quiz template as the 1,800-view daddy longlegs, so the difference is topic. The camel-hump myth is one most viewers already know is false, so the 'True or false?' open has no tension; it also opened on the quiz card with no animal at frame 0. Don't reuse: famous, already-debunked topics (the 'camel' rule in OPERATIONS) or a text card at frame 0.
+
+### 2026-10-27 playbook notes (own data, 0 credits)
+- Under-performer: "Disney Lied To You About Lemmings" Short, 281 views vs the 947 median. It differs from the median
+  Short in three ways: 88 s long (median Short 20-24 s), a TRUE/FALSE quiz frame, and a "Disney" history angle with no
+  danger to the viewer. The length and the quiz frame are both retired now. Don't re-use either on YouTube Shorts.
+- Over-performer: the bombardier beetle TikTok, 5,767 views (about 28x a typical post), 63 s, photo style. A gross,
+  absurd, physical defence plus a physical-choice question ("Would you pick one up?"). This is the TikTok template for
+  the drawn animal re-cuts (research/53).

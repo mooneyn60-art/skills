@@ -6,7 +6,9 @@ taps. This file is the team, the daily routine, the numbers we steer by, and the
 
 ## vidIQ ration (OVERRIDES every routine's budget line, set 2026-10-26)
 
-378 credits are left until the 2026-11-24 reset, and the routines' listed caps add up to about 105 a day.
+UPDATE 10/27 12:30: balance is 68 (Lab used ~300). Below 100 = Sunday summit only; every other routine spends 0.
+
+378 credits were left (10/26) until the 2026-11-24 reset, and the routines' listed caps add up to about 105 a day.
 Until the reset:
 - Nolan, 2026-10-26: spend 0 vidIQ credits for the rest of 10/26. Tonight's evening meeting and night shift use Metricool and the repo only.
 - Morning 0 (use Metricool and the repo).
