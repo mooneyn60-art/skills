@@ -1,0 +1,41 @@
+slug: silverfish
+series: Things Living In Your House
+part: 4
+title: A Bug Older Than Dinosaurs Is Eating Your Books
+tiktok_caption: "silverfish eating my books 😬 older than dinosaurs and it eats glue and paper. Would you keep the books? 📚 keep / 🗑️ toss"
+creature: silverfish
+scene: study
+scene_p: {time: night}
+music: mystery
+next: Part five is in your basement.
+next_scene: basement
+sources:
+  - "Connecticut Agricultural Experiment Station, Silverfish and Firebrats (Zygentoma) fact sheet, K. Dugas: primitive wingless insects from an ancient lineage; scales give a silvery look; two antennae and three tail filaments; hide in cracks by day, active at night; silverfish prefer cool humid places such as basements, firebrats warm places near furnaces and heating ducts; feed mainly on starch including glue, paste and paper, scraping off individual layers until paper is tissue-thin with ragged holes; 3 months to 2 years to develop; adults keep molting all their lives; lower humidity, store paper in dry airtight containers, discard unused cardboard and old newspapers; https://portal.ct.gov/-/media/caes/documents/publications/fact_sheets/entomology/silverfish_firebrats_zygentoma.pdf"
+  - "University of Maryland, Bug of the Week (Prof. Michael J. Raupp), 'Ancient insect in a modern world: silverfish': among the most ancient of insects, 'a creature older than dinosaurs'; eats paper, book glue and natural fabrics, also cereals and preserved meat, and dead insects including other silverfish; pests in libraries and museums; https://bugoftheweek.com/blog/2021/2/12/ancient-insect-in-a-modern-world-silverfish-lepismatidae"
+  - "Penn State Extension, House Centipedes: house centipedes feed on silverfish, firebrats, cockroaches and spiders; https://extension.psu.edu/house-centipedes"
+yt:
+  - hook: Something older than dinosaurs is eating your books.
+    act: {chew: 1.0}
+  - name: Silverfish. No wings, and covered in silver scales.
+  - fact: It eats starch. Glue, paste, and paper.
+    with: [{type: book, x: 1000, front: true, s: 0.6, p: {holes: 0.0}}]
+  - xray: It scrapes off one thin layer at a time,
+  - escalate: until your pages turn to tissue, full of holes.
+    with: [{type: book, x: 1000, front: true, s: 0.6, p: {holes: 1.0}}]
+  - calm: It even eats dead insects. Including other silverfish.
+tt:
+  - fact: Two long feelers up front. Three tails out back.
+  - fact: By day, it hides in cracks. At night, it comes out.
+  - fact: It loves cool, damp places, like basements.
+  - fact: Its cousin, the firebrat, likes it hot, near the furnace.
+  - scale: It grows slowly. Three months to two years.
+    how: grow
+  - fact: And unlike most insects, it keeps molting its whole life.
+  - fact: It also eats cereal, and even preserved meat.
+  - fact: In libraries and museums, it's a real pest.
+  - count: Who eats silverfish? The house centipede from Part one.
+    with: [house_centipede]
+  - fact: Want them gone? Dry out the air.
+  - fact: Keep old papers in dry, airtight boxes.
+  - fact: And toss the old cardboard. That's their pantry.
+  - punch: Older than dinosaurs, and it loses to a plastic box.

@@ -23,7 +23,9 @@ Spec (see scripts/drawn-1027/*.json):
                            "shake": 0..1, "helmet": bool, "prop": "flashlight" | "mic" | "paper" | "magnifier"}
     sfx                    ["pop@word", "whoosh@0.4"]: tools' sfx/*.wav at a word or time in the beat
     flash                  [at, ...] white camera-flash frames;  shake: [at, ...] camera shake hits
-  "at" is seconds into the beat or a spoken word ("claw", "claw+0.3", "claw#2" = its 2nd occurrence).
+  "at" is seconds into the beat, a share of the line ("40%"), or a spoken word ("claw", "claw+0.3", "claw#2").
+  Short form: beats with "m" (a macro name) are expanded by drawn_macros (hook, name, fact, xray, scale, count,
+  escalate, chase, calm, punch, tease); see tools/drawn_quick.py for the outline that writes them.
 """
 import asyncio
 import json
@@ -42,14 +44,17 @@ sys.path.insert(0, HERE)
 import mascot  # noqa: E402
 import music  # noqa: E402
 from drawn_kit import INK, OUT, PAL, ease, ink, p_ellipse, src, stroke  # noqa: E402
-from drawn_assets import SCENES as S1  # noqa: E402
 from drawn_actors import ACTORS as A1  # noqa: E402
 from drawn_cast import ACTORS as A2  # noqa: E402
-from drawn_rooms import ACTORS as A3, SCENES as S2  # noqa: E402
+from drawn_rooms import ACTORS as A3  # noqa: E402
 from drawn_bugs import ACTORS as A4  # noqa: E402
+from drawn_habitats import SCENES  # noqa: E402,F401  (every scene, wrapped so each takes "time")
+from drawn_creatures import build, creature  # noqa: E402
+from drawn_species import SPECIES  # noqa: E402
+import drawn_macros  # noqa: E402
 
-ACTORS = {**A1, **A2, **A3, **A4}
-SCENES = {**S1, **S2}
+ACTORS = {**A1, **A2, **A3, **A4, "creature": creature}
+ACTORS.update({"sp." + k: build(v) for k, v in SPECIES.items()})
 ROOT = os.path.dirname(HERE)
 W, H = 1080, 1920
 SR = 48000
@@ -69,6 +74,31 @@ def tts(text, voice, rate, pitch, mp3):
     return json.load(open(mp3 + ".words.json"))
 
 
+def prefetch(spec, work, limit=6):
+    """Speak every stale line at once (a few at a time) so a 25-line spec doesn't wait on 25 round trips."""
+    from facts import speak
+    voice, rate, pitch = spec.get("voice", "en-US-AndrewMultilingualNeural"), spec.get("rate", "+4%"), \
+        spec.get("pitch", "+0Hz")
+    jobs = []
+    for i, b in enumerate(spec["beats"]):
+        mp3 = f"{work}/v{i:02d}.mp3"
+        key = json.dumps([b["say"], voice, rate, pitch])
+        if not (os.path.exists(mp3 + ".key") and open(mp3 + ".key").read() == key):
+            jobs.append((b["say"], mp3, key))
+
+    async def run():
+        sem = asyncio.Semaphore(limit)
+
+        async def one(text, mp3, key):
+            async with sem:
+                words = await speak(text, voice, mp3, rate, pitch)
+            json.dump(words, open(mp3 + ".words.json", "w"))
+            open(mp3 + ".key", "w").write(key)
+        await asyncio.gather(*(one(*j) for j in jobs))
+    if jobs:
+        asyncio.run(run())
+
+
 def decode(path):
     raw = subprocess.run(["ffmpeg", "-v", "error", "-i", path, "-ac", "1", "-ar", str(SR), "-f", "f32le", "-"],
                          capture_output=True, check=True).stdout
@@ -83,6 +113,8 @@ def at_time(words, at, default=0.0):
         return default
     if isinstance(at, (int, float)):
         return float(at)
+    if at.endswith("%"):   # a share of the spoken line (drawn_macros times everything this way)
+        return float(at[:-1]) / 100 * (words[-1][1] if words else 0.0)
     w, off = at, 0.0
     for sign in ("+", "-"):
         if sign in w[1:]:
@@ -135,6 +167,7 @@ def track(start, moves, words, t, scale0=1.0, rot0=0.0):
 def plan(spec, work):
     voice, rate, pitch = spec.get("voice", "en-US-AndrewMultilingualNeural"), spec.get("rate", "+4%"), \
         spec.get("pitch", "+0Hz")
+    prefetch(spec, work)
     beats, t0 = [], 0.0
     prev_actors, scene, scene_p, cam = {}, None, {}, [540, 960, 1.0]
     prev_mb = {}
@@ -312,14 +345,17 @@ def draw_meatball(ctx, cam, b, st, t):
         st["look"] = (0, 0)
     elif look:
         tgt = b["actors"].get(look) if isinstance(look, str) else None
-        if tgt is not None:
+        if tgt is None and isinstance(look, str):
+            st["look"] = (0, 0)
+        elif tgt is not None:
             tx, ty, *_ = track(tgt.get("pos", (0, 0)), tgt.get("moves", []), words, t)
             ty -= 150 * tgt.get("s", 1.0)
         else:
             tx, ty = look
-        dx, dy = tx - x, ty - (y - 600 * size / 1000)
-        n = math.hypot(dx, dy) or 1
-        st["look"] = (round(10 * dx / n), round(10 * dy / n))
+        if tgt is not None or not isinstance(look, str):
+            dx, dy = tx - x, ty - (y - 600 * size / 1000)
+            n = math.hypot(dx, dy) or 1
+            st["look"] = (round(10 * dx / n), round(10 * dy / n))
     if mb.get("mute"):
         st["level"] = 0
     if mb.get("float"):
@@ -609,7 +645,7 @@ def main():
     ap.add_argument("--stills", help="write PNG stills at these comma-separated seconds and stop")
     ap.add_argument("--work")
     args = ap.parse_args()
-    spec = json.load(open(args.spec))
+    spec = drawn_macros.expand(json.load(open(args.spec)))
     work = args.work or os.path.join(os.path.dirname(os.path.abspath(args.out)), ".work-" +
                                      os.path.splitext(os.path.basename(args.out))[0])
     os.makedirs(work, exist_ok=True)

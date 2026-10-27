@@ -1,0 +1,75 @@
+"""Creature configs for drawn_creatures.build: one short dict per animal. Each is registered in drawn.py as the
+actor type "sp.<name>" (e.g. "sp.silverfish"). "s" is the stage scale that reads big next to a 980 px Meatball;
+"floor": false = it floats (fish, flying insects). "label" is the plain name the authoring tool may speak."""
+
+SPECIES = {
+    # ---- mites (microscopic)
+    "dust_mite": {"plan": "mite", "label": "dust mite", "color": "#f1e2c4", "dark": "#d6c29a", "mood": "happy",
+                  "s": 0.95, "xray": "gut"},
+    "demodex": {"plan": "mite", "shape": "long", "label": "face mite", "color": "#f3e6d2", "dark": "#d9c6a8",
+                "length": 760, "height": 160, "mood": "smug", "s": 0.82, "xray": "gut"},
+    # ---- insects
+    "silverfish": {"plan": "insect", "label": "silverfish", "body": "carrot", "color": "#bcc6cf", "dark": "#8e9aa6",
+                   "length": 640, "height": 240, "leg_len": 70, "ant": 330, "tails": 3, "tail_len": 220,
+                   "stripes": 10, "sheen": True, "mood": "smug", "mouth": "grin", "head": "#a9b4be", "head_r": 0.4,
+                   "s": 0.75, "xray": "gut"},
+    "roach": {"plan": "insect", "label": "cockroach", "body": "round", "color": "#8a4b25", "length": 520,
+              "height": 170, "leg_len": 130, "ant": 360, "wings": "shell", "mood": "worry", "s": 0.8},
+    "booklouse": {"plan": "insect", "label": "booklouse", "body": "round", "color": "#e9dcc6", "length": 360,
+                  "height": 170, "leg_len": 110, "ant": 260, "mood": "happy", "s": 1.0},
+    "ant": {"plan": "insect", "label": "ant", "body": "round", "color": "#3a2a24", "length": 380, "height": 150,
+            "leg_len": 170, "ant": 240, "stripes": 2, "mood": "angry", "s": 0.9},
+    "beetle": {"plan": "insect", "label": "beetle", "body": "round", "color": "#3c6e4a", "length": 460, "height": 220,
+               "leg_len": 120, "ant": 140, "wings": "shell", "sheen": True, "s": 0.9},
+    "fly": {"plan": "insect", "label": "fly", "body": "round", "color": "#4a4f57", "length": 300, "height": 150,
+            "leg_len": 90, "wings": "clear", "eye_r": 30, "floor": False, "s": 0.9},
+    "moth": {"plan": "insect", "label": "moth", "body": "long", "color": "#b8a07a", "length": 340, "height": 120,
+             "leg_len": 80, "ant": 160, "wings": "clear", "floor": False, "s": 1.0},
+    "bed_bug": {"plan": "insect", "label": "bed bug", "body": "round", "color": "#9a4a2a", "length": 420,
+                "height": 150, "leg_len": 90, "ant": 150, "stripes": 5, "mood": "smug", "s": 1.0},
+    "earwig": {"plan": "insect", "label": "earwig", "body": "long", "color": "#6a3a22", "length": 560, "height": 120,
+               "leg_len": 90, "ant": 240, "tails": 2, "tail_len": 160, "stripes": 6, "s": 0.9},
+    # ---- arachnids
+    "jumping_spider": {"plan": "arachnid", "label": "jumping spider", "color": "#2b2b2e", "dark": "#55555a",
+                       "accent": "#f4f4f4", "eyes": "jumper", "fangs": "big", "fang_color": "#2fbf9e", "fuzz": True,
+                       "bands": True, "pattern": "spots", "s": 0.75},
+    "black_widow": {"plan": "arachnid", "label": "black widow", "color": "#1d1d22", "dark": "#3a3a44",
+                    "accent": "#e0261e", "abdomen_front": True, "abdomen": 210, "ceph": (110, 90), "leg_w": 14,
+                    "leg_len": 1.1, "pattern": "hourglass", "bands": True, "s": 0.7, "xray": "venom"},
+    "wolf_spider": {"plan": "arachnid", "label": "wolf spider", "color": "#8a6a44", "dark": "#5e452a",
+                    "accent": "#c9a874", "eyes": "row", "fuzz": True, "bands": True, "pattern": "stripe",
+                    "s": 0.7},
+    "tick": {"plan": "arachnid", "label": "tick", "color": "#6b3a2a", "accent": "#3a1a12", "abdomen_front": True,
+             "abdomen": 230, "ceph": (90, 70), "leg_w": 16, "leg_len": 0.7, "s": 0.8},
+    # ---- centipedes and worms
+    "house_centipede": {"plan": "centipede", "label": "house centipede", "color": "#cdb27c", "dark": "#4a3b2c",
+                        "legs": 15, "s": 0.68},
+    "millipede": {"plan": "centipede", "label": "millipede", "color": "#4a2f2a", "legs": 30, "leg_len": 0.35,
+                  "ant": 160, "long_last": False, "bands": False, "stripes": 0, "height": 150, "length": 900,
+                  "s": 0.7},
+    "earthworm": {"plan": "worm", "label": "earthworm", "color": "#d98a8a", "length": 900, "height": 120, "s": 0.8},
+    # ---- fish
+    "goldfish": {"plan": "fish", "label": "goldfish", "color": "#f29a3c", "floor": False, "s": 0.9},
+    "clownfish": {"plan": "fish", "label": "clownfish", "color": "#f07a2a", "accent": "#ffffff", "stripes": 3,
+                  "floor": False, "s": 0.9},
+    "anglerfish": {"plan": "fish", "label": "anglerfish", "color": "#3a3640", "length": 560, "height": 420,
+                   "teeth": True, "lure": True, "mood": "angry", "mouth": "grin", "floor": False, "s": 0.9},
+    "shark": {"plan": "fish", "label": "shark", "color": "#7f8f9c", "length": 900, "height": 300, "teeth": True,
+              "mood": "smug", "floor": False, "s": 0.9},
+    # ---- birds
+    "pigeon": {"plan": "bird", "label": "pigeon", "color": "#8c94a8", "belly": "#b6a0c0", "s": 1.0},
+    "sparrow": {"plan": "bird", "label": "sparrow", "color": "#9a6a44", "belly": "#e9d8be", "s": 1.0},
+    "parrot": {"plan": "bird", "label": "parrot", "color": "#3cb05a", "belly": "#f2d23c", "beak": "hook",
+               "crest": True, "s": 1.0},
+    # ---- small mammals
+    "house_mouse": {"plan": "mammal", "label": "house mouse", "color": "#9a8a7a", "ears": "round", "s": 1.0},
+    "rat": {"plan": "mammal", "label": "rat", "color": "#6e6258", "length": 640, "ears": "round", "s": 0.9},
+    "squirrel": {"plan": "mammal", "label": "squirrel", "color": "#b0683a", "ears": "pointed", "tail": "fluffy",
+                 "s": 0.9},
+    "rabbit": {"plan": "mammal", "label": "rabbit", "color": "#c9b8a2", "ears": "long", "tail": "fluffy", "s": 0.9},
+    # ---- reptiles
+    "gecko": {"plan": "reptile", "label": "gecko", "color": "#c9b26a", "dark": "#8a7440", "stripes": 4, "s": 0.9},
+    "iguana": {"plan": "reptile", "label": "iguana", "color": "#6fae5a", "spikes": 7, "s": 0.8},
+    "turtle": {"plan": "reptile", "label": "turtle", "color": "#7fae6a", "accent": "#8a6a3c", "shell": True,
+               "s": 0.9},
+}

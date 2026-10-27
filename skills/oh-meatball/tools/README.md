@@ -31,3 +31,20 @@ DATETIME is any `date -d` string, e.g. `"2026-10-14 03:12:44"`. When it is omitt
 ```
 
 `samples/` holds example outputs from the test clips.
+
+## Drawn videos, fast lane (`drawn_quick.py`)
+
+One short YAML outline makes both cuts of a fully drawn video: the YouTube Short (18-24 s) and the TikTok deep cut (61-75 s, the outline's `tt:` lines are its second act). It writes both specs, checks their spoken length before rendering, renders, ffprobe-checks (both streams, under 50 MB, length in range; nothing is written under the final name until it passes) and writes 2 fps contact sheets.
+
+```bash
+python3 tools/drawn_quick.py scripts/drawn-house/outlines/silverfish.yaml            # specs + renders + contact sheets
+python3 tools/drawn_quick.py OUTLINE.yaml --no-render                                # lengths only (seconds)
+python3 tools/drawn_quick.py --scaffold "booklouse | study | Tiny bugs are eating the glue in your books." --facts facts.txt > outline.yaml
+python3 tools/drawn.py scripts/drawn-house/silverfish-tt.json /tmp/x.mp4 --stills 0,3,6   # QA frames before a render
+```
+
+Each outline line is `{macro: "the spoken line", ...overrides}`. Macros (`drawn_macros.py`): `hook`, `name`, `fact`, `xray`, `scale`, `count`, `escalate`, `chase`, `calm`, `punch`, `tease`. The tease ("Subscribe. Part N is ...") is added from `next:`. Overrides: `scene`, `scene_p`, `with` (extra creatures or props), `hero: false`, `hero_at`, `act`, `mb_x`, `pose`, `prop`, `mood`.
+
+- **New animal:** add a config to `drawn_species.py` (plans: insect, arachnid, centipede, worm, mite, fish, bird, mammal, reptile; see `drawn_creatures.py`). No drawing code.
+- **New place:** pick a habitat from `drawn_habitats.py` and pass `scene_p` (`time: day|dusk|night`, `palette`, `props`, `add`).
+- Facts go in `sources:` with the URL and what each source supports; the specs carry them through.

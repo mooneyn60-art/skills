@@ -1,0 +1,74 @@
+slug: dust-mites
+series: Things Living In Your House
+part: 2
+title: Millions of Mites Can Live in Your Mattress
+tiktok_caption: "dust mites in your bed 😬 they eat the skin you shed while you sleep. Would you still sleep in there? 😴 yes / 🙅 no"
+creature: dust_mite
+scene: fibers
+scene_p: {flakes: 14}
+music: sleep
+next: Part three is on your face.
+next_scene: skin
+next_scene_p: {night: true}
+sources:
+  - "University of Kentucky Entomology, House Dust Mites (ENTFACT-646): usually visible only under a microscope; primary food is skin scales shed by people and pets, plus micro molds that grow on them; thousands of mites in a single gram of house dust; an infested mattress can hold millions; most numerous in beds, sofas, chairs and nearby carpet; allergenic proteins especially in their feces; adults live about 1-2 months; females lay about 50 eggs; about one month egg to adult; struggle below 50 percent relative humidity; encase mattresses, box springs and pillows in allergen-impermeable covers; https://entomology.mgcafe.uky.edu/ef646"
+  - "American Lung Association, Dust Mites: too small to see; feed on dead skin cells; get moisture from the air; do not bite, sting or burrow; allergens come from feces, urine and decaying bodies; most exposure happens during sleep; roughly four in five U.S. homes have dust mite allergens in at least one bed; keep indoor humidity below 50 percent; https://www.lung.org/clean-air/indoor-air/indoor-air-pollutants/dust-mites"
+  - "University of Maine Cooperative Extension, Dust Mites: eight legs; related to ticks and spiders, not insects; https://extension.umaine.edu/home-and-garden-ipm/fact-sheets/common-name-listing/dust-mites/"
+  - "Texas A&M Field Guide to Common Texas Insects, House Dust Mite: house dust mites do not bite; https://texasinsects.tamu.edu/house-dust-mite/"
+yt:
+  - hook: There are tiny monsters in your bed, eating your skin.
+    act: {chew: 1.0}
+    with: [{type: skin_flake, x: 1010, y: 1500, s: 0.8, front: true, pop: false}]
+  - name: Dust mites. Eight legs. Cousins of spiders and ticks.
+  - fact: Way too small to see.
+    scene: bedroom
+    scene_p: {no_pillow: true, time: night}
+    hero: false
+    mb_x: 780
+    prop: magnifier
+    with: [{type: sleeper, x: 400, y: 1190, s: 1.0, pop: false, front: false, flip: false, p: {zz: 1.0}}]
+  - fact: They eat the skin flakes you shed.
+    act: {chew: 1.0}
+    with: [{type: skin_flake, x: 1010, y: 1500, s: 0.8, front: true}]
+  - count: One gram of dust can hold thousands.
+    with: [dust_mite, dust_mite, dust_mite]
+  - fact: They don't drink. They soak water out of the air.
+    with: [{type: droplets, x: 820, y: 1220, s: 1.0, front: true}]
+  - calm: They don't bite. It's their poop that makes you sneeze.
+    act: {pellets: 8}
+tt:
+  - fact: They also eat the mold that grows on your skin flakes.
+    with: [{type: skin_flake, x: 1010, y: 1500, s: 0.8, front: true, pop: false, set: [{at: "40%", dur: 0.6, p: {mold: 1.0}}]}]
+  - punch: Your bed is basically a buffet.
+  - fact: They live in couches and carpets too, but beds stay warm and humid.
+  - fact: A mite lives one to two months.
+  - count: But a female lays about fifty eggs.
+    with: [{type: eggs, x: 1060, y: 1500, s: 1.0, front: true, p: {n: 0}, pop: false, set: [{at: "20%", dur: 1.0, p: {n: 10}}]}]
+  - scale: Egg to adult? About a month.
+    how: grow
+  - escalate: So a mattress can end up holding millions.
+    with: [{type: mite_crowd, x: 560, y: 1500, s: 1.0, front: true, pop: false, p: {n: 0}, set: [{at: "15%", dur: 1.4, p: {n: 40}}]}]
+  - fact: And most of your exposure happens while you sleep.
+    scene: bedroom
+    scene_p: {no_pillow: true, time: night}
+    hero: false
+    mb_x: 780
+    with: [{type: sleeper, x: 400, y: 1190, s: 1.0, pop: false, front: false, flip: false, p: {zz: 1.0, snore: true}}]
+  - fact: Four in five American homes have their allergens in at least one bed.
+    scene: bedroom
+    scene_p: {no_pillow: true, time: night}
+    hero: false
+    mb_x: 780
+    with: [{type: sleeper, x: 400, y: 1190, s: 1.0, pop: false, front: false, flip: false, p: {zz: 1.0}}]
+  - fact: Now the good news. They dry out easily.
+  - fact: Below fifty percent humidity, they struggle.
+    mood: sleepy
+  - fact: The Lung Association says keep your home under fifty percent.
+    mood: sleepy
+  - fact: And zip your mattress and pillows into allergen covers.
+    scene: bedroom
+    scene_p: {time: night}
+    hero: false
+    mb_x: 780
+    with: [{type: encasement, x: 0, y: 0, s: 1.0, pop: false, front: false, flip: false, p: {zip: 0.0}, set: [{at: "20%", dur: 1.6, p: {zip: 1.0}}]}]
+  - punch: Buffet closed.
