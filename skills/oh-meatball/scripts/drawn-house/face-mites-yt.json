@@ -1,608 +1,126 @@
 {
- "title": "Tiny Mites Live in Your Face Right Now",
  "series": "Things Living In Your House, Part 3",
- "tiktok_caption": "demodex face mites 😳 they live in your pores and come out at night. Would you rather not know? 🙈 tell me / 🙅 don't",
  "sources": [
   "University of Reading news, 'Secret lives of skin mites in our faces' (2022, on Smith et al., Molecular Biology and Evolution, doi:10.1093/molbev/msac125): carried by almost every human; about 0.3 mm long; live in hair follicles on the face, including the eyelashes; eat the sebum in the pores; active at night, moving between follicles looking to mate; passed from mother to baby during or after birth; legs powered by three single-cell muscles; cannot make melatonin and use the melatonin human skin secretes at dusk; lost the gene that makes animals wake in daylight; the study confirmed they do have anuses; numbers peak in adults as pores grow bigger; https://www.reading.ac.uk/news/2022/Research-News/Secret-lives-of-skin-mites-in-our-faces",
   "Thoms et al. (2014), 'Ubiquity of Demodex mites in humans', PLOS ONE 9(8): e106265: Demodex DNA detected in 100% of adults over 18 sampled (n = 19); https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0106265",
   "DermNet (New Zealand Dermatological Society), Demodex: semi-transparent elongated body about 0.3-0.4 mm, eight short legs on the front body segment, invisible to the naked eye; most people carry them without symptoms; https://dermnetnz.org/topics/demodex"
  ],
  "photo_credits": [],
- "_note": "Fully drawn. Meatball shrunk onto a cross-section of facial skin (pores = hair follicles with oil glands). Mites drawn with cartoon faces.",
  "voice": "en-US-AndrewMultilingualNeural",
  "rate": "+12%",
  "music": "mystery",
  "music_db": -26,
  "captions": 66,
- "caption_y": 1680,
+ "caption_y": 1700,
+ "stage": {
+  "creature": "demodex",
+  "scene": "skin",
+  "scene_p": {
+   "night": true
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Tiny Mites Live in Your Face Right Now",
+ "tiktok_caption": "demodex face mites 😳 they live in your pores and crawl out at night to mate. Would you rather not know? 🙈 tell me / 🙅 don't",
  "beats": [
   {
-   "say": "Tiny mites are living in your face right now.",
-   "scene": "skin",
-   "scene_p": {
-    "night": true
+   "act": {
+    "wiggle": 1.0
    },
-   "pad": 0.1,
-   "shots": [
+   "m": "hook",
+   "say": "Tiny mites are living in your face right now."
+  },
+  {
+   "hero_at": {
+    "x": 540,
+    "y": 1520,
+    "rot": 90
+   },
+   "hero_moves": [
     {
-     "cam": [
-      500,
-      880,
-      1.12
-     ],
-     "to": [
-      520,
-      900,
-      1.16
-     ]
-    },
-    {
-     "at": "face",
-     "cam": [
-      560,
-      940,
-      1.18
-     ],
-     "to": [
-      580,
-      950,
-      1.22
-     ]
-    }
-   ],
-   "actors": [
-    {
-     "id": "d",
-     "type": "demodex",
+     "at": "50%",
+     "dur": 0.6,
      "pos": [
       540,
-      1820
-     ],
-     "s": 0.85,
-     "p": {
-      "mood": "happy",
-      "look": [
-       -1,
-       -1
-      ],
-      "wiggle": 1.0
-     },
-     "moves": [
-      {
-       "at": 0,
-       "dur": 1.2,
-       "pos": [
-        540,
-        1660
-       ]
-      }
-     ]
-    },
-    {
-     "id": "d2",
-     "type": "demodex",
-     "pos": [
-      1080,
-      1900
-     ],
-     "s": 0.85,
-     "p": {
-      "mood": "smug",
-      "look": [
-       -1,
-       0
-      ]
-     },
-     "moves": [
-      {
-       "at": "face",
-       "dur": 0.8,
-       "pos": [
-        1080,
-        1760
-       ]
-      }
+      1420
      ]
     }
    ],
-   "mb": {
-    "pose": "shock",
-    "pos": [
-     250,
-     1100
-    ],
-    "size": 960,
-    "look": "d",
-    "shake": 0.5,
-    "moves": [
-     {
-      "at": "mites",
-      "dur": 0.45,
-      "pos": [
-       230,
-       1100
-      ],
-      "hop": 220
-     }
-    ]
-   },
-   "sfx": [
-    "scratch@0",
-    "boing@mites",
-    "pop@face"
-   ]
+   "m": "name",
+   "say": "Demodex. They live in your pores, even your eyelashes."
   },
   {
-   "say": "Demodex. They live in your pores, even your eyelashes.",
-   "keep": true,
-   "shots": [
-    {
-     "cam": [
-      560,
-      950,
-      1.18
-     ],
-     "to": [
-      580,
-      960,
-      1.22
-     ]
-    },
-    {
-     "at": "even",
-     "cam": [
-      500,
-      880,
-      1.12
-     ]
-    }
-   ],
-   "actors": [
-    {
-     "id": "d",
-     "moves": [
-      {
-       "at": "pores",
-       "dur": 0.6,
-       "pos": [
-        540,
-        1840
-       ]
-      },
-      {
-       "at": "eyelashes",
-       "dur": 0.5,
-       "pos": [
-        540,
-        1680
-       ]
-      }
-     ]
-    }
-   ],
-   "mb": {
-    "pose": "point",
-    "pos": [
-     250,
-     1100
-    ],
-    "look": "d",
-    "gest": [
-     [
-      "eyelashes",
-      "shock",
-      1.0
-     ]
-    ]
+   "hero_at": {
+    "x": 540,
+    "y": 1460,
+    "rot": 80
    },
-   "sfx": [
-    "tink@Demodex",
-    "whoosh@pores",
-    "pop@eyelashes"
-   ]
+   "act": {
+    "talk": 1.0
+   },
+   "m": "fact",
+   "say": "They eat the oil your skin makes."
   },
   {
-   "say": "They eat the oil your skin makes.",
-   "keep": true,
-   "shots": [
-    {
-     "cam": [
-      600,
-      960,
-      1.2
-     ],
-     "to": [
-      620,
-      970,
-      1.24
-     ]
-    }
-   ],
-   "actors": [
-    {
-     "id": "d",
-     "rot": 12,
-     "p": {
-      "mood": "happy",
-      "talk": 0,
-      "mouth": "o"
-     },
-     "moves": [
-      {
-       "at": 0,
-       "dur": 0.5,
-       "pos": [
-        530,
-        1840
-       ]
-      }
-     ]
-    }
-   ],
-   "mb": {
-    "pose": "nervous",
-    "pos": [
-     300,
-     1100
-    ],
-    "look": "d"
-   },
-   "sfx": [
-    "crunch@eat",
-    "crunch@oil",
-    "crunch@makes"
-   ]
-  },
-  {
-   "say": "At night, they crawl out of your pores,",
-   "keep": true,
    "pad": 0.05,
-   "shots": [
-    {
-     "cam": [
-      540,
-      900,
-      1.15
-     ],
-     "to": [
-      580,
-      900,
-      1.18
-     ]
-    }
-   ],
-   "actors": [
-    {
-     "id": "d",
-     "rot": 0,
-     "p": {
-      "mouth": "smile",
-      "mood": "smug",
-      "look": [
-       1,
-       -1
-      ]
-     },
-     "moves": [
-      {
-       "at": 0,
-       "dur": 0.01,
-       "pos": [
-        540,
-        1800
-       ]
-      },
-      {
-       "at": "crawl",
-       "dur": 0.7,
-       "pos": [
-        540,
-        1400
-       ]
-      },
-      {
-       "at": "pores",
-       "dur": 0.6,
-       "pos": [
-        400,
-        1035
-       ],
-       "rot": 90
-      }
-     ]
-    }
-   ],
-   "mb": {
-    "pose": "shock",
-    "pos": [
-     230,
-     1100
-    ],
-    "look": "d",
-    "moves": [
-     {
-      "at": "crawl",
-      "dur": 0.4,
-      "pos": [
-       200,
-       1100
-      ],
-      "hop": 160
-     }
-    ]
+   "hero_at": {
+    "x": 540,
+    "y": 1520,
+    "rot": 90
    },
-   "sfx": [
-    "scratch@crawl",
-    "pop@pores"
-   ]
-  },
-  {
-   "say": "and walk across your face to find a mate.",
-   "keep": true,
-   "shots": [
+   "hero_moves": [
     {
-     "cam": [
-      600,
-      900,
-      1.12
-     ],
-     "to": [
-      620,
-      910,
-      1.14
-     ]
-    }
-   ],
-   "actors": [
-    {
-     "id": "d",
-     "rot": 90,
-     "p": {
-      "wiggle": 1.0,
-      "look": [
-       1,
-       0
-      ],
-      "mood": "happy"
-     },
-     "moves": [
-      {
-       "at": 0,
-       "dur": 1.8,
-       "pos": [
-        440,
-        1035
-       ],
-       "linear": true
-      }
-     ]
-    },
-    {
-     "id": "d2",
-     "rot": 0,
-     "p": {
-      "mood": "happy",
-      "look": [
-       -1,
-       -1
-      ]
-     },
-     "moves": [
-      {
-       "at": "across",
-       "dur": 0.6,
-       "pos": [
-        1080,
-        1560
-       ]
-      }
-     ]
-    },
-    {
-     "id": "h",
-     "type": "heart",
+     "at": "20%",
+     "dur": 0.6,
      "pos": [
-      960,
-      640
-     ],
-     "s": 0.0,
-     "front": true,
-     "moves": [
-      {
-       "at": "mate",
-       "dur": 0.35,
-       "s": 0.9
-      }
-     ]
-    }
-   ],
-   "mb": {
-    "pose": "facepalm",
-    "pos": [
-     330,
-     1100
-    ],
-    "look": "d",
-    "moves": [
-     {
-      "at": 0.2,
-      "dur": 0.6,
-      "pos": [
-       240,
-       1100
-      ],
-      "walk": true
-     }
-    ]
-   },
-   "sfx": [
-    "scratch@walk",
-    "pop@mate",
-    "tink@mate+0.2"
-   ]
-  },
-  {
-   "say": "One study found their DNA on every adult it tested.",
-   "keep": true,
-   "drop": [
-    "h"
-   ],
-   "shots": [
-    {
-     "cam": [
-      600,
-      860,
-      1.12
-     ],
-     "to": [
-      600,
-      870,
-      1.16
+      540,
+      1240
      ]
     },
     {
-     "at": "every",
-     "cam": [
-      520,
+     "at": "70%",
+     "dur": 0.5,
+     "pos": [
       820,
-      1.2
-     ]
-    }
-   ],
-   "actors": [
-    {
-     "id": "d",
-     "p": {
-      "mood": "smug",
-      "wiggle": 0.0
-     }
-    }
-   ],
-   "mb": {
-    "pose": "think",
-    "pos": [
-     240,
-     1100
-    ],
-    "look": "viewer",
-    "gest": [
-     [
-      "every",
-      "shock",
-      1.0
-     ]
-    ],
-    "moves": [
-     {
-      "at": "every",
-      "dur": 0.4,
-      "pos": [
-       230,
-       1100
-      ],
-      "hop": 150
-     }
-    ]
-   },
-   "sfx": [
-    "tink@study",
-    "pop@every"
-   ]
-  },
-  {
-   "say": "You likely got yours from your mom, at birth.",
-   "keep": true,
-   "shots": [
-    {
-     "cam": [
-      620,
-      860,
-      1.15
+      1100
      ],
-     "to": [
-      620,
-      840,
-      1.22
-     ]
+     "rot": 0
     }
    ],
-   "actors": [
-    {
-     "id": "d",
-     "p": {
-      "mood": "happy",
-      "look": [
-       -1,
-       0
-      ]
-     }
-    }
-   ],
-   "mb": {
-    "pose": "you",
-    "pos": [
-     240,
-     1100
-    ],
-    "look": "viewer",
-    "gest": [
-     [
-      "mom",
-      "facepalm",
-      1.4
-     ]
-    ]
-   },
-   "sfx": [
-    "tink@yours",
-    "boing@mom"
-   ]
+   "m": "fact",
+   "say": "At night, they crawl out of your pores,"
   },
   {
+   "act": {
+    "wiggle": 1.0
+   },
+   "with": [
+    {
+     "type": "heart",
+     "x": 960,
+     "y": 640,
+     "s": 0.9,
+     "front": true
+    }
+   ],
+   "m": "chase",
+   "say": "and walk across your face to find a mate."
+  },
+  {
+   "m": "fact",
+   "say": "One study found their DNA on every adult it tested."
+  },
+  {
+   "m": "punch",
+   "say": "You likely got yours from your mom, at birth."
+  },
+  {
+   "m": "tease",
    "say": "Subscribe. Part four is in your books.",
-   "keep": true,
-   "pad": 0.4,
-   "shots": [
-    {
-     "cam": [
-      620,
-      880,
-      1.12
-     ],
-     "to": [
-      620,
-      860,
-      1.2
-     ]
-    }
-   ],
-   "actors": [
-    {
-     "id": "d",
-     "p": {
-      "mood": "smug"
-     }
-    }
-   ],
-   "mb": {
-    "pose": "point",
-    "pos": [
-     240,
-     1100
-    ],
-    "look": "viewer",
-    "gest": [
-     [
-      "books",
-      "psst",
-      1.2
-     ]
-    ]
-   },
-   "sfx": [
-    "pop@0.05",
-    "whoosh@books"
-   ]
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   }
   }
  ]
 }

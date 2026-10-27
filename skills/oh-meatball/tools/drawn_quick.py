@@ -33,6 +33,7 @@ Macros: hook name fact xray scale count escalate chase calm punch tease (see dra
 import argparse
 import json
 import os
+import shutil
 import subprocess
 import sys
 import time
@@ -155,12 +156,12 @@ def main():
         if args.no_render:
             continue
         mp4 = os.path.join(out_dir, f'{cut}-{o["slug"]}.mp4')
-        tmp = mp4 + ".part.mp4"
+        tmp = os.path.join(work, f"render-{cut}.mp4")   # rendered and checked outside the repo first
         subprocess.run([sys.executable, os.path.join(HERE, "drawn.py"), sp, tmp, "--work", work], check=True)
         dur, kinds, mb = probe(tmp)
         if kinds != ["audio", "video"] or mb >= 50 or not (rng[0] - 0.5 <= dur <= rng[1] + 0.5):
             raise SystemExit(f"drawn_quick: {tmp} failed the check ({dur:.2f} s, {kinds}, {mb:.1f} MB)")
-        os.replace(tmp, mp4)   # never leave an incomplete mp4 under the real name
+        shutil.move(tmp, mp4)   # never leave an incomplete mp4 under the real name
         jpg = os.path.join(out_dir, f'{cut}-{o["slug"]}-contact-2fps.jpg')
         contact(mp4, jpg)
         report.append(f"   {mp4}  {dur:.2f} s  {mb:.1f} MB  contact: {jpg}")
