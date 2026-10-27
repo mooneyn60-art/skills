@@ -1,0 +1,73 @@
+{
+ "series": "Things Living In Your House, Part 12",
+ "sources": [
+  "The Scientist, The Earwig's Tale (May Berenbaum, entomologist, University of Illinois): surveying about ten centuries of literature she could find only a single report of an earwig in an ear; https://www.the-scientist.com/the-earwigs-tale-43480",
+  "University of California IPM, Earwigs (Pest Notes): not harmful to people, though they can pinch if trapped in clothing or sat on; feed at night on aphids, insect eggs and plant shoots, can damage seedlings; hide by day in dark, cool, moist places; come indoors when outdoor conditions are too dry, hot or cold; pincers somewhat curved in males, straighter in females; most species have wings under short hard covers but seldom fly; females dig cells in soil, lay masses of 30 or more eggs, and nymphs are protected and fed by their mother until their first molt; rolled newspaper or tubes placed on soil before dark collect earwigs, emptied each morning; https://ipm.ucanr.edu/home-and-landscape/earwigs/",
+  "Science News, Earwigs take origami to extremes to fold their wings (2018, on Faber, Arrieta and Studart, Science): earwigs pack their wings into packages with a surface area more than 10 times smaller than unfurled; ETH Zurich team built folding structures inspired by them for possible use in robotics, biomedical devices and spacecraft; https://www.sciencenews.org/article/earwigs-take-origami-extremes-fold-their-wings"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "earwig",
+  "scene": "bathroom",
+  "scene_p": {},
+  "s": 0.65,
+  "wild": "garden",
+  "wild_p": {
+   "time": "night"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "The Bug Named After Your Ear Almost Never Goes in One 👂",
+ "tiktok_caption": "the earwig almost never goes in ears 👂 but it hides origami wings and it's a devoted mom. Would you let one crawl on your hand? ✋ sure / 😱 never",
+ "beats": [
+  {
+   "hero_at": {
+    "x": 660
+   },
+   "m": "hook",
+   "say": "The bug named after your ear has almost never been found in one."
+  },
+  {
+   "hero_at": {
+    "x": 660
+   },
+   "m": "name",
+   "say": "The earwig. Pincers on its rear end, and it wanders indoors when it's too dry outside."
+  },
+  {
+   "hero_at": {
+    "x": 660
+   },
+   "m": "fact",
+   "say": "One entomologist searched ten centuries of writing, and found one single case."
+  },
+  {
+   "m": "solo",
+   "say": "At night, it hunts in the garden. Aphids, insect eggs, and your seedlings."
+  },
+  {
+   "hero_at": {
+    "x": 660
+   },
+   "m": "escalate",
+   "say": "Those pincers can give you a pinch, if one gets trapped in your clothes."
+  },
+  {
+   "hero_at": {
+    "x": 660
+   },
+   "m": "punch",
+   "say": "But your ears? Almost never."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Part thirteen is hiding somewhere else in your house."
+  }
+ ]
+}

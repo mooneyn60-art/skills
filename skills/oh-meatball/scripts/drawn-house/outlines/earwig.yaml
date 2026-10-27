@@ -1,0 +1,49 @@
+slug: earwig
+out: episodes/drawn-house
+specs: scripts/drawn-house
+series: Things Living In Your House
+part: 12
+title: The Bug Named After Your Ear Almost Never Goes in One 👂
+tiktok_caption: "the earwig almost never goes in ears 👂 but it hides origami wings and it's a devoted mom. Would you let one crawl on your hand? ✋ sure / 😱 never"
+creature: earwig
+s: 0.65
+scene: bathroom
+wild: garden
+wild_p: {time: night}
+music: mystery
+next: Part thirteen is hiding somewhere else in your house.
+sources:
+  - "The Scientist, The Earwig's Tale (May Berenbaum, entomologist, University of Illinois): surveying about ten centuries of literature she could find only a single report of an earwig in an ear; https://www.the-scientist.com/the-earwigs-tale-43480"
+  - "University of California IPM, Earwigs (Pest Notes): not harmful to people, though they can pinch if trapped in clothing or sat on; feed at night on aphids, insect eggs and plant shoots, can damage seedlings; hide by day in dark, cool, moist places; come indoors when outdoor conditions are too dry, hot or cold; pincers somewhat curved in males, straighter in females; most species have wings under short hard covers but seldom fly; females dig cells in soil, lay masses of 30 or more eggs, and nymphs are protected and fed by their mother until their first molt; rolled newspaper or tubes placed on soil before dark collect earwigs, emptied each morning; https://ipm.ucanr.edu/home-and-landscape/earwigs/"
+  - "Science News, Earwigs take origami to extremes to fold their wings (2018, on Faber, Arrieta and Studart, Science): earwigs pack their wings into packages with a surface area more than 10 times smaller than unfurled; ETH Zurich team built folding structures inspired by them for possible use in robotics, biomedical devices and spacecraft; https://www.sciencenews.org/article/earwigs-take-origami-extremes-fold-their-wings"
+yt:
+  - hook: The bug named after your ear has almost never been found in one.
+    hero_at: {x: 660}
+  - name: The earwig. Pincers on its rear end, and it wanders indoors when it's too dry outside.
+    hero_at: {x: 660}
+  - fact: One entomologist searched ten centuries of writing, and found one single case.
+    hero_at: {x: 660}
+  - solo: At night, it hunts in the garden. Aphids, insect eggs, and your seedlings.
+  - escalate: Those pincers can give you a pinch, if one gets trapped in your clothes.
+    hero_at: {x: 660}
+  - punch: But your ears? Almost never.
+    hero_at: {x: 660}
+tt:
+  - fact: Here's how to tell them apart. Male pincers curve. Female pincers are straighter.
+    hero_at: {x: 660}
+  - xray: And under those tiny wing covers, it hides a pair of big, thin wings.
+    hero_at: {x: 660}
+  - escalate: Folded so tight, they shrink to less than a tenth of their open size.
+    hero_at: {x: 660}
+  - fact: And yet, earwigs hardly ever fly.
+    hero_at: {x: 660}
+  - solo: Now the sweet part. The mother digs a little room in the soil, and lays thirty or more eggs.
+  - count: Then she stays. She guards her babies and feeds them, until their first molt.
+    hero_at: {x: 660}
+    with: [earwig, earwig, earwig]
+  - fact: Got them in the house? Lay a rolled up newspaper outside before dark. In the morning, check inside it.
+    hero_at: {x: 660}
+  - fact: Would you let one crawl on your hand?
+    hero_at: {x: 660}
+  - punch: The scariest looking bug in your bathroom is a devoted mom with origami wings.
+    hero_at: {x: 660}
