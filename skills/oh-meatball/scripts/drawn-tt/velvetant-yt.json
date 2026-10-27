@@ -1,0 +1,120 @@
+{
+ "series": "Meatball's Animal Files, Part",
+ "sources": [
+  "Clemson University Home & Garden Information Center, Velvet Ants: wasps (Mutillidae), not ants; eastern velvet ant about 3/4 inch; dense velvety fuzz with bold warning colors; wingless females deliver a severe, very painful sting; winged males are harmless; nicknamed 'cow killers' but no record of a cow ever killed; squeak by rubbing two abdominal segments together; exoskeleton so tough that chemical and mechanical control rarely work; parasitize ground-nesting bees and wasps, laying eggs on the host's immature stages, which the developing velvet ant consumes until the host dies; adults feed on flower nectar; https://hgic.clemson.edu/factsheet/velvet-ants/",
+  "Science News (2025), Velvet ants have the Swiss Army knife of venoms (Borjon et al., Current Biology; Indiana University, University of Queensland, Utah State): scarlet velvet ant venom has 24 peptides, some targeting insect neurons and some causing pain in mammals; Justin Schmidt described the sting as 'hot oil from the deep fryer spilling over your entire hand'; extremely tough exoskeleton; mammals, reptiles, amphibians and birds react to the sting; nothing seems to consistently eat velvet ants; https://sciencenews.org/?p=3147950"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "velvet_ant",
+  "scene": "garden",
+  "scene_p": {
+   "time": "day",
+   "palette": {
+    "ground": "#d9b878",
+    "ground2": "#c4a05e"
+   }
+  },
+  "creature_cfg": {
+   "plan": "insect",
+   "label": "velvet ant",
+   "body": "round",
+   "color": "#e0402a",
+   "dark": "#1e1a1a",
+   "head": "#1e1a1a",
+   "length": 460,
+   "height": 210,
+   "leg_len": 130,
+   "ant": 160,
+   "stripes": 2,
+   "mood": "angry",
+   "xray": "venom",
+   "s": 0.9
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "insect",
+    "label": "velvet ant",
+    "body": "round",
+    "color": "#e0402a",
+    "dark": "#1e1a1a",
+    "head": "#1e1a1a",
+    "length": 460,
+    "height": 210,
+    "leg_len": 130,
+    "ant": 160,
+    "stripes": 2,
+    "mood": "angry",
+    "xray": "venom",
+    "s": 0.9
+   }
+  },
+  "actor": "creature",
+  "wild": "desert",
+  "wild_p": {
+   "time": "day"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "This Fuzzy Ant Is Actually a Wasp Called the Cow Killer 🐜",
+ "tiktok_caption": "this fuzzy red ant is actually a wasp called the cow killer 🐜 its sting feels like hot fryer oil on your hand. Would you pick one up? 🖐️ sure / 🏃 run #meatballmyths #learnontiktok #velvetant #bugs",
+ "beats": [
+  {
+   "hero_moves": [
+    {
+     "at": 0,
+     "dur": 1.2,
+     "pos": [
+      720,
+      1500
+     ],
+     "walk": true
+    }
+   ],
+   "m": "hook",
+   "say": "This fuzzy red ant is actually a wasp. And they call it the cow killer."
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "name",
+   "say": "The velvet ant. No wings, and covered in red and black fuzz."
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "fact",
+   "say": "Only the females are wingless. The males can fly, but can't sting."
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "xray",
+   "say": "Her venom is a mix of twenty-four different ingredients."
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "escalate",
+   "say": "One scientist said the sting feels like hot oil from a deep fryer, spilling over your whole hand."
+  },
+  {
+   "m": "calm",
+   "say": "But relax. There's no record of it ever killing a cow."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, a crocodile that swims out to sea."
+  }
+ ]
+}

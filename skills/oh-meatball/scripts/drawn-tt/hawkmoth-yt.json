@@ -1,0 +1,100 @@
+{
+ "series": "Meatball's Animal Files, Part",
+ "sources": [
+  "bioGraphic (science magazine), 'Snake Fake' (M. Pobis, photos M. Bowler, 2019): the sphinx hawk moth caterpillar Hemeroplanes triptolemus, photographed in Peru, is a snake mimic; when threatened it pulls air in through tiny holes in its surface and inflates its head into a triangular viper-like shape; its underside is patterned in faux snakeskin with eyespots that appear to glisten; if that fails it lunges as if to strike; it has no venom or actual weaponry; birds and lizards hunt it; experiments with artificial pastry-dough caterpillars found eyespots and a snake-shaped head improved survival against birds; sphinx moth caterpillars become fluffy moths; https://www.biographic.com/snake-fake/",
+  "Skelhorn J., Dorrington G., Hossie T.J., Sherratt T.N. (2014) 'The position of eyespots and thickened segments influence their protective value to caterpillars', Behavioral Ecology 25(6):1417-1422: naive chicks were most wary of artificial caterpillars with eyespots or a thickened section at the front end (like a head); the traits deter predators by making caterpillars resemble dangerous vertebrates, not just by being conspicuous; https://ideas.repec.org/a/oup/beheco/v25y2014i6p1417-1422..html",
+  "Area de Conservacion Guanacaste caterpillar database (D. H. Janzen and W. Hallwachs, University of Pennsylvania), voucher 91-SRNP-1284: Hemeroplanes triptolemus (Sphingidae) reared in Costa Rica, food plant Mandevilla subsagittata (Apocynaceae); https://junquillal.info/voucher/91-SRNP-1284"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "hawkmoth_caterpillar",
+  "scene": "sill",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "worm",
+   "label": "hawkmoth caterpillar",
+   "color": "#8a7a4a",
+   "dark": "#5a4a2a",
+   "accent": "#e8d9a0",
+   "length": 680,
+   "height": 300,
+   "stripes": 5,
+   "mood": "angry",
+   "s": 1.0,
+   "snake_head": true
+  },
+  "wild": "forest_floor",
+  "wild_p": {
+   "time": "day"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "This Caterpillar Turns Itself Into a Fake Snake 🐍",
+ "tiktok_caption": "this 'snake' is a caterpillar 🐍 it flips over, puffs up a fake viper head and even strikes. no venom at all. Would you pick it up? ✋ yes / 😱 no way #meatballmyths #learnontiktok #caterpillar #animalfacts",
+ "beats": [
+  {
+   "m": "hook",
+   "say": "This caterpillar can turn itself into a fake snake head. And it strikes."
+  },
+  {
+   "m": "shrink",
+   "say": "So I shrank down to caterpillar size, to see the trick up close."
+  },
+  {
+   "scene": "forest_floor",
+   "scene_p": {
+    "time": "day"
+   },
+   "m": "tiny",
+   "say": "It's a hawkmoth caterpillar, from the rainforests of Central and South America."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "day"
+   },
+   "act": {
+    "chew": 1.0,
+    "mood": "happy"
+   },
+   "m": "tiny",
+   "say": "Most of the time, it just munches leaves."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "day"
+   },
+   "pose": "nervous",
+   "act": {
+    "crouch": 1.0,
+    "mood": "angry"
+   },
+   "m": "tiny",
+   "say": "But bother it, and it pulls its head and legs in, and flips over."
+  },
+  {
+   "scene": "forest_floor",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "act": {
+    "xray": 1.0
+   },
+   "m": "solo",
+   "say": "Then it sucks air in through tiny holes, and puffs up into a viper head."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, a bird that can turn its head almost all the way around."
+  }
+ ]
+}

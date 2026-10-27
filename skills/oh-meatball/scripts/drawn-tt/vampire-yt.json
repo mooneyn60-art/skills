@@ -1,0 +1,127 @@
+{
+ "series": "Meatball's Animal Files, Part",
+ "sources": [
+  "Royal Ontario Museum, 'Living Vampires' (ROM Magazine): stomach holds about two tablespoons of blood, feeding can take nearly 20 minutes and the bat can gain as much as 60 percent of its body weight; it starts urinating almost as soon as it begins drinking; heat receptor near the nose pad helps locate a vein; it hops on its feet when approaching a sleeping animal on the ground; cuts away fur and bites a 3 to 4 mm hole with razor-sharp front teeth; saliva contains draculin, which keeps blood flowing; common vampire bats feed mostly on large mammals such as pigs and cattle, occasionally humans; victims usually keep sleeping; successful bats share blood with less successful colony members by regurgitating, and the generosity is repaid; can't survive more than a few days without a blood meal; https://www.rom.on.ca/magazine/living-vampires",
+  "Cornell Chronicle, 'Unlike other bats, vampire bats keep out of trouble by running' (Riskin and Hermanson, Nature 2005): of roughly 1,100 bat species the common vampire bat is the only one so far to break into a run on a treadmill test; runs up to about 2.5 mph; powers its run with its forelimbs (wings); native to Central and South America; feeds on cattle while they sleep, about a tablespoon of blood over about 10 minutes; https://news.cornell.edu/node/282646",
+  "Gracheva E.O. et al. (2011) 'Ganglion-specific splicing of TRPV1 underlies infrared sensation in vampire bats', Nature 476:88-91: vampire bats detect infrared heat with a TRPV1 variant in the nose pit organs, used to find hot spots for feeding; https://doi.org/10.1038/nature10245",
+  "Wilkinson G.S. (1984) 'Reciprocal food sharing in the vampire bat', Nature 308:181-184: common vampire bats regurgitate blood to roostmates, both kin and non-kin, and the sharing is reciprocal; https://doi.org/10.1038/308181a0"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "vampire_bat",
+  "scene": "bedroom",
+  "scene_p": {
+   "time": "night"
+  },
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "vampire bat",
+   "color": "#5a4636",
+   "dark": "#3a2a20",
+   "belly": "#8a6a54",
+   "ears": "pointed",
+   "tail": "thin",
+   "tail_len": 60,
+   "length": 420,
+   "height": 230,
+   "mood": "smug",
+   "s": 1.0,
+   "bat_wings": true,
+   "whiskers": false
+  },
+  "wild": "garden",
+  "wild_p": {
+   "time": "night"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "This Bat Drinks So Much Blood It Pees While It Eats 🦇",
+ "tiktok_caption": "vampire bats are real and they're gross 🦇 they pee mid-meal, run on their wings, and throw up blood for hungry friends. Would you sleep with your feet outside? 🦶 sure / 🛏️ blanket on #meatballmyths #learnontiktok #vampirebat #animalfacts",
+ "beats": [
+  {
+   "m": "hook",
+   "say": "This bat drinks so much blood, it has to pee while it's still eating."
+  },
+  {
+   "m": "shrink",
+   "say": "So I shrank myself to bat size, and followed one out for dinner."
+  },
+  {
+   "scene": "cave",
+   "scene_p": {
+    "time": "night"
+   },
+   "pose": "shock",
+   "m": "tiny",
+   "say": "The common vampire bat, from Central and South America."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "night"
+   },
+   "pose": "nervous",
+   "act": {
+    "look": [
+     1,
+     0
+    ]
+   },
+   "m": "tiny",
+   "say": "At night, it finds a sleeping cow, or a pig."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "night"
+   },
+   "hero_moves": [
+    {
+     "at": 0,
+     "dur": 2.0,
+     "pos": [
+      700,
+      1500
+     ],
+     "walk": true
+    }
+   ],
+   "m": "tiny",
+   "say": "It lands nearby, and hops over on the ground."
+  },
+  {
+   "scene": "forest_floor",
+   "scene_p": {
+    "time": "night"
+   },
+   "act": {
+    "xray": 1.0
+   },
+   "m": "solo",
+   "say": "A heat sensor on its nose finds a warm vein."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "night"
+   },
+   "pose": "shock",
+   "act": {
+    "bite": 1.0,
+    "mood": "angry"
+   },
+   "m": "tiny",
+   "say": "It shaves off a little fur, then razor-sharp front teeth cut a tiny hole."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, a bug with a saw blade on its back, and a bite worse than a hornet sting."
+  }
+ ]
+}

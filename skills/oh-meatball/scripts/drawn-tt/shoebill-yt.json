@@ -1,0 +1,73 @@
+{
+ "series": "Meatball's Animal Files, Part",
+ "sources": [
+  "Animal Diversity Web (University of Michigan Museum of Zoology), Balaeniceps rex (shoebill): stands 110 to 140 cm tall; bill resembles a wooden shoe and ends in a sharp curved hook; inhabits freshwater swamps and dense marshes, endemic to east-central Africa; eats mainly fish such as lungfish, bichirs, catfish and tilapia, plus watersnakes, occasionally frogs, monitor lizards, turtles, young crocodiles; hunts by 'stand and wait' or wading slowly; the 'collapse': head and neck stretch forward into the water so the bird over-balances and collapses forwards and downwards; prey is usually decapitated before swallowing; usually silent but bill-clatters, most often when greeting at the nest; lays one to three, normally two eggs; adults pour mouthfuls of water over the nest to keep eggs cool; usually only one chick remains by the end of the breeding cycle; https://animaldiversity.org/accounts/Balaeniceps_rex/"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "shoebill",
+  "scene": "swamp",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "bird",
+   "label": "shoebill",
+   "color": "#8c9aa6",
+   "dark": "#5e6a76",
+   "belly": "#b4c0ca",
+   "beak": "shoe",
+   "beak_color": "#b8a888",
+   "foot_color": "#4a4a4e",
+   "length": 440,
+   "height": 300,
+   "leg_len": 260,
+   "mood": "angry",
+   "s": 1.0
+  },
+  "wild": "swamp",
+  "wild_p": {
+   "time": "dusk"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "This Bird Falls Face-First Into the Swamp to Hunt, Then Bites the Head Off 🐦",
+ "tiktok_caption": "the shoebill hunts by falling on its face 🐦 then bites the head off its catch, and sometimes eats baby crocodiles. Would you stand next to one? 😬 sure / 🏃 nope #meatballmyths #learnontiktok #shoebill #birds",
+ "beats": [
+  {
+   "m": "hook",
+   "say": "This bird hunts by falling face-first into the swamp. Then it bites the head off its catch."
+  },
+  {
+   "m": "name",
+   "say": "The shoebill. Up to four and a half feet tall, with a beak shaped like a wooden shoe."
+  },
+  {
+   "zoom": 0.95,
+   "m": "solo",
+   "say": "It lives in the swamps and marshes of east-central Africa."
+  },
+  {
+   "m": "fact",
+   "say": "It hunts by standing still in the water, and waiting."
+  },
+  {
+   "m": "escalate",
+   "say": "When a fish swims close, it throws its head and neck forward so hard, it loses its balance,"
+  },
+  {
+   "m": "calm",
+   "say": "and collapses, face-first, into the water."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, another animal that shouldn't exist."
+  }
+ ]
+}

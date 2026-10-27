@@ -1,0 +1,243 @@
+{
+ "series": "Meatball's Animal Files, Part",
+ "sources": [
+  "BirdLife International, Seabird of the month: Atlantic Puffin (2022): average about 10 fish per trip, British record 62 fish at once; dives as deep as 40 m and stays under up to a minute; uses its wings underwater so it looks like it is flying under water; digs burrows in the ground or between rocks; bright orange bills and feet in breeding season fade to duller shades in winter; lives over 20 years, oldest recorded 36; https://www.birdlife.org/news/2022/04/06/seabird-of-the-month-atlantic-puffin-fratercula-arctica",
+  "BBC Countryfile, How do puffins manage to catch so many fish in one go?: a modified tongue and a series of spines on the upper palate; the tongue pushes each fish against the spines so it can catch more; https://www.countryfile.com/wildlife/birds/how-much-fish-puffins-carry",
+  "University of Nottingham press release (2019), Puffin bills 'glow' under UV light: Jamie Dunning found by accident that the bill ridges of a dead puffin fluoresce under UV light; https://www.nottingham.ac.uk/news/pressreleases/2019/jan/puffin-bills-%27glow%27-under-uv-light-study-discovers.aspx",
+  "Smithsonian Magazine (2019), Scientists film a puffin scratching its back with a stick (Fayet et al., PNAS, Oxford): a camera trap on Grimsey Island, Iceland filmed an Atlantic puffin pick up a stick and scratch itself, the first documented tool use in a seabird; https://www.smithsonianmag.com/smart-news/first-scientists-film-puffin-scratching-its-back-stick-180973883/"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "atlantic_puffin",
+  "scene": "garden",
+  "scene_p": {
+   "time": "day",
+   "palette": {
+    "sky": "#9cc8e0",
+    "ground": "#7fae5a",
+    "ground2": "#5f8f44"
+   },
+   "props": [
+    [
+     "rock",
+     -60,
+     1500,
+     1.3
+    ],
+    [
+     "rock",
+     1150,
+     1500,
+     1.1
+    ],
+    [
+     "grass",
+     900,
+     1500,
+     1.0
+    ]
+   ]
+  },
+  "creature_cfg": {
+   "plan": "bird",
+   "label": "Atlantic puffin",
+   "color": "#22222a",
+   "belly": "#f4f2ec",
+   "beak": "short",
+   "length": 440,
+   "height": 300,
+   "leg_len": 120,
+   "mood": "happy",
+   "s": 0.75,
+   "face_color": "#f2f2f2",
+   "beak_color": "#e8662a",
+   "foot_color": "#e8662a"
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "bird",
+    "label": "Atlantic puffin",
+    "color": "#22222a",
+    "belly": "#f4f2ec",
+    "beak": "short",
+    "length": 440,
+    "height": 300,
+    "leg_len": 120,
+    "mood": "happy",
+    "s": 0.75,
+    "face_color": "#f2f2f2",
+    "beak_color": "#e8662a",
+    "foot_color": "#e8662a"
+   }
+  },
+  "actor": "creature",
+  "wild": "garden",
+  "wild_p": {
+   "time": "dusk",
+   "palette": {
+    "sky": "#e0a87c",
+    "ground": "#7fae5a",
+    "ground2": "#5f8f44"
+   },
+   "props": [
+    [
+     "rock",
+     100,
+     1500,
+     1.4
+    ],
+    [
+     "grass",
+     1000,
+     1500,
+     1.2
+    ]
+   ]
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "This Bird Can Cram 62 Fish Into Its Beak at Once 🐟",
+ "tiktok_caption": "a bird that crams 62 fish in its beak at once 🐟 and it scratches its back with a stick. Could you fit 62 fish in your mouth? 🐟 easy / 🤢 no way #meatballmyths #learnontiktok #puffin #animalfacts",
+ "beats": [
+  {
+   "hero_at": {
+    "x": 760
+   },
+   "m": "hook",
+   "say": "This bird can cram sixty-two fish into its beak at once."
+  },
+  {
+   "m": "shrink",
+   "say": "So I shrank myself down to fish size, to see how it does it."
+  },
+  {
+   "zoom": 1.0,
+   "scene": "garden",
+   "scene_p": {
+    "time": "day",
+    "palette": {
+     "sky": "#9cc8e0",
+     "ground": "#7fae5a",
+     "ground2": "#5f8f44"
+    },
+    "props": [
+     [
+      "rock",
+      -60,
+      1500,
+      1.3
+     ],
+     [
+      "rock",
+      1150,
+      1500,
+      1.1
+     ],
+     [
+      "grass",
+      900,
+      1500,
+      1.0
+     ]
+    ]
+   },
+   "m": "tiny",
+   "say": "The Atlantic puffin. A tuxedo body, and a clown-colored beak."
+  },
+  {
+   "zoom": 1.0,
+   "scene": "garden",
+   "scene_p": {
+    "time": "day",
+    "palette": {
+     "sky": "#9cc8e0",
+     "ground": "#7fae5a",
+     "ground2": "#5f8f44"
+    },
+    "props": [
+     [
+      "rock",
+      -60,
+      1500,
+      1.3
+     ],
+     [
+      "rock",
+      1150,
+      1500,
+      1.1
+     ],
+     [
+      "grass",
+      900,
+      1500,
+      1.0
+     ]
+    ]
+   },
+   "act": {
+    "xray": 1.0
+   },
+   "pose": "nervous",
+   "m": "tiny",
+   "say": "Its tongue pins each fish against spikes on the roof of its mouth."
+  },
+  {
+   "zoom": 1.0,
+   "scene": "garden",
+   "scene_p": {
+    "time": "day",
+    "palette": {
+     "sky": "#9cc8e0",
+     "ground": "#7fae5a",
+     "ground2": "#5f8f44"
+    },
+    "props": [
+     [
+      "rock",
+      -60,
+      1500,
+      1.3
+     ],
+     [
+      "rock",
+      1150,
+      1500,
+      1.1
+     ],
+     [
+      "grass",
+      900,
+      1500,
+      1.0
+     ]
+    ]
+   },
+   "act": {
+    "bite": 1.0
+   },
+   "pose": "shock",
+   "m": "tiny",
+   "say": "So it can open its beak again, and grab another, and another."
+  },
+  {
+   "zoom": 1.0,
+   "scene": "ocean",
+   "act": {
+    "fly": 1.0
+   },
+   "m": "solo",
+   "say": "To hunt, it flaps its wings underwater, like it's flying through the sea."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, a fish that walks out of the water."
+  }
+ ]
+}

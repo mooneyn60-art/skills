@@ -1,0 +1,126 @@
+{
+ "series": "Meatball's Animal Files, Part",
+ "sources": [
+  "Alaska Department of Fish and Game, Alaska Fish & Wildlife News (Jan 2020): more people are injured in Alaska by moose than by bears; moose can deliver dangerous blows with their hooves when threatened; https://www.adfg.alaska.gov/index.cfm?adfg=wildlifenews.view_article&articles_id=939",
+  "National Wildlife Federation, Moose: largest deer, about six feet tall at the shoulder; excellent swimmers that can hold their breath underwater for 30 seconds; can run over 35 mph; antlers up to six feet across; females protect calves with kicks that can break bones; https://www.nwf.org/Educational-Resources/Wildlife-Guide/Mammals/Moose",
+  "National Park Service, Moose: Did You Know?: largest bull at the Kenai Moose Research Station weighed 1,697 lb; mature moose grow about an inch of antler a day; antlers up to 75 lb; tested down to -22 F without feeling cold; https://www.nps.gov/articles/moose-did-you-know.htm",
+  "National Park Service, Isle Royale: Moose: in summer moose feed in lakes and beaver ponds on aquatic plants that grow beneath the surface; https://www.nps.gov/isro/learn/nature/moose.htm",
+  "National Park Service, Yellowstone: Moose: bulls shed antlers in winter and grow new ones each spring; https://www.nps.gov/yell/learn/nature/moose.htm",
+  "North Dakota Game and Fish, Winter Ticks and Moose: in good tick years 75,000 to 150,000 winter ticks on a single moose; infested moose rub off much of their hair, looking grey ('ghost moose'); https://gf.nd.gov/wildlife-notes/winter-ticks-and-moose"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "moose",
+  "scene": "forest_floor",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "moose",
+   "color": "#5c3f2b",
+   "dark": "#3e2a1c",
+   "belly": "#8a6a50",
+   "length": 700,
+   "height": 300,
+   "leg_len": 380,
+   "leg_w": 34,
+   "ears": "pointed",
+   "tail": "thin",
+   "tail_w": 8,
+   "whiskers": false,
+   "mood": "calm",
+   "s": 0.75,
+   "antlers": true,
+   "beard": true
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "mammal",
+    "label": "moose",
+    "color": "#5c3f2b",
+    "dark": "#3e2a1c",
+    "belly": "#8a6a50",
+    "length": 700,
+    "height": 300,
+    "leg_len": 380,
+    "leg_w": 34,
+    "ears": "pointed",
+    "tail": "thin",
+    "tail_w": 8,
+    "whiskers": false,
+    "mood": "calm",
+    "s": 0.75,
+    "antlers": true,
+    "beard": true
+   }
+  },
+  "actor": "creature",
+  "wild": "swamp",
+  "wild_p": {
+   "time": "dusk"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "In Alaska, Moose Injure More People Than Bears 🫎",
+ "tiktok_caption": "in alaska moose injure more people than bears 🫎 and one moose can carry 75,000 ticks. Would you get out of the car to pet one? 🫎 yes / 🚗 stay in #meatballmyths #learnontiktok #moose #animalfacts",
+ "beats": [
+  {
+   "hero_moves": [
+    {
+     "at": 0,
+     "dur": 1.2,
+     "pos": [
+      800,
+      1500
+     ],
+     "walk": true
+    }
+   ],
+   "m": "hook",
+   "say": "In Alaska, moose injure more people than bears do."
+  },
+  {
+   "hero_at": {
+    "x": 800
+   },
+   "m": "name",
+   "say": "The moose. The biggest deer on Earth. Six feet tall at the shoulder."
+  },
+  {
+   "hero_at": {
+    "x": 800
+   },
+   "m": "fact",
+   "say": "The biggest one ever weighed at an Alaska research station was nearly seventeen hundred pounds."
+  },
+  {
+   "hero_at": {
+    "x": 800
+   },
+   "m": "fact",
+   "say": "And it can run over thirty-five miles an hour."
+  },
+  {
+   "hero_at": {
+    "x": 800
+   },
+   "m": "escalate",
+   "say": "A mother moose kicks hard enough to break bones."
+  },
+  {
+   "m": "calm",
+   "say": "Most of the time, though, it just wants to eat."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, a fish with no jaws and a mouth full of teeth."
+  }
+ ]
+}

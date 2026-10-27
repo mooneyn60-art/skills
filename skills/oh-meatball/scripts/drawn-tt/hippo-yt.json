@@ -1,0 +1,126 @@
+{
+ "series": "Meatball's Animal Files, Part",
+ "sources": [
+  "San Diego Zoo Wildlife Alliance, Animals and Plants: Hippopotamus: males 3,500-9,920 lb; hippos can't swim or even float, they walk or gallop along the riverbed; adults hold their breath five minutes or longer; sleep submerged, surfacing by reflex without waking; thick red secretion shields skin from sunburn, keeps it moist and may help prevent infection; eat about 88 lb of food a night; gaping display opens the mouth up to 150 degrees; canine teeth reach 20 inches and grow continuously; charge at up to 14 mph on land; among the most aggressive mammals and can kill people; the dominant male marks territory by flinging dung with his fan-shaped tail; https://animals.sandiegozoo.org/animals/hippo"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "hippopotamus",
+  "scene": "swamp",
+  "scene_p": {
+   "time": "day",
+   "palette": {
+    "water": "#5f7a6a"
+   }
+  },
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "hippopotamus",
+   "color": "#8c7d8e",
+   "dark": "#5f5263",
+   "belly": "#d9a8a8",
+   "length": 760,
+   "height": 420,
+   "leg_len": 90,
+   "leg_w": 70,
+   "ears": "tiny",
+   "tail": "thin",
+   "whiskers": false,
+   "teeth": true,
+   "mood": "angry",
+   "s": 0.42,
+   "snout": "big"
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "mammal",
+    "label": "hippopotamus",
+    "color": "#8c7d8e",
+    "dark": "#5f5263",
+    "belly": "#d9a8a8",
+    "length": 760,
+    "height": 420,
+    "leg_len": 90,
+    "leg_w": 70,
+    "ears": "tiny",
+    "tail": "thin",
+    "whiskers": false,
+    "teeth": true,
+    "mood": "angry",
+    "s": 0.42,
+    "snout": "big"
+   }
+  },
+  "actor": "creature",
+  "wild": "swamp",
+  "wild_p": {
+   "time": "day",
+   "palette": {
+    "water": "#5f7a6a"
+   }
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Hippos Can't Swim and They Can't Even Float 🦛",
+ "tiktok_caption": "hippos can't swim or even float 🦛 they ooze red sunscreen goo and fling their poop with their tails. Would you go boating near one? 🛶 sure / 🏃 nope #meatballmyths #learnontiktok #hippo #animalfacts",
+ "beats": [
+  {
+   "hero_moves": [
+    {
+     "at": 0,
+     "dur": 1.2,
+     "pos": [
+      700,
+      1500
+     ],
+     "walk": true
+    }
+   ],
+   "m": "hook",
+   "say": "Hippos can't swim. They can't even float."
+  },
+  {
+   "m": "shrink",
+   "say": "So I shrank myself down, and hopped into the river with one."
+  },
+  {
+   "zoom": 1.5,
+   "m": "tiny",
+   "say": "The hippopotamus. A big male can weigh nearly ten thousand pounds."
+  },
+  {
+   "zoom": 1.0,
+   "scene": "ocean",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "m": "solo",
+   "say": "It's too heavy to float, so it gallops along the bottom of the river."
+  },
+  {
+   "zoom": 1.5,
+   "pose": "nervous",
+   "m": "tiny",
+   "say": "It can hold its breath for five minutes or more."
+  },
+  {
+   "zoom": 1.0,
+   "scene": "ocean",
+   "scene_p": {
+    "time": "night"
+   },
+   "m": "solo",
+   "say": "It even sleeps underwater. It floats up for air and sinks back down, still asleep."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, a deer that dives underwater to eat."
+  }
+ ]
+}

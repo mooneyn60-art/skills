@@ -1,0 +1,197 @@
+{
+ "series": "Meatball Investigates, Part",
+ "sources": [
+  "History Hit, 'Flannan Isle Mystery: When Three Lighthouse Keepers Vanished Forever': keepers James Ducat, Thomas Marshall and Donald McArthur made their last slate entries on 15 December 1900; the steamer Archtor saw the light was not lit; the relief vessel Hesperus could not land on 20 December and arrived about midday on 26 December; Captain Harvie sounded the horn and fired a flare with no reply; relief keeper Joseph Moore went ashore alone, found the gate and main door closed and the clock stopped; a set of oilskins left behind suggested one keeper went out without them; superintendent Robert Muirhead concluded the men were swept away by the storm at the west landing; no trace was ever found; reported log entries about crying and praying were found never to have been made and were likely falsified; https://www.historyhit.com/the-flannan-isle-mystery-when-three-lighthouse-keepers-vanished-overnight/",
+  "Scotia (Brooklyn College, CUNY), John May, 'The Flannan Isle Lighthouse', quoting Muirhead's report of 8 January 1901: a box of mooring ropes secured in a crevice about 110 feet above sea level was gone, iron railings displaced and twisted; Muirhead concluded 'an unexpectedly large roller had come up on the island' and swept the men away; Gibson's poem was 'not historically accurate'; https://userhome.brooklyn.cuny.edu/anthro/jbeatty/Scotia/issue38/issue38a.html",
+  "Skeptoid #610 (Brian Dunning, citing historian Mike Dash): the half-eaten meal and knocked-over chair come from W. W. Gibson's 1912 poem; Moore's report describes a normal interior; the dramatic log entries first appeared in print in 1965, traced to 1929 fiction; the real logbook's last entry was the 13th; two oilskins were missing and storm damage was found at the west landing; https://skeptoid.com/episodes/610"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "lighthouse",
+  "scene": "isle",
+  "scene_p": {},
+  "creature_cfg": {
+   "floor": true
+  },
+  "hero_p": {
+   "lit": 0.0
+  },
+  "s": 0.72,
+  "actor": "lighthouse",
+  "wild": "night_sea",
+  "wild_p": {
+   "storm": true
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Three Lighthouse Keepers Vanished From This Island In 1900 🌊",
+ "tiktok_caption": "three lighthouse keepers vanished in 1900 🌊 two coats gone, one left on the peg, and nobody was ever found. Would you take the job? 🗼 yes / 🚣 no way #meatballmyths #learnontiktok #history #unsolved #scotland",
+ "beats": [
+  {
+   "with": [
+    {
+     "type": "keeper",
+     "x": 560,
+     "y": 1500,
+     "s": 0.42,
+     "pop": false,
+     "front": true,
+     "set": [
+      {
+       "at": "never",
+       "dur": 1.0,
+       "p": {
+        "fade": 1.0
+       }
+      }
+     ]
+    },
+    {
+     "type": "keeper",
+     "x": 660,
+     "y": 1520,
+     "s": 0.42,
+     "pop": false,
+     "front": true,
+     "p": {
+      "seed": 2
+     },
+     "set": [
+      {
+       "at": "never",
+       "dur": 1.2,
+       "p": {
+        "fade": 1.0
+       }
+      }
+     ]
+    },
+    {
+     "type": "keeper",
+     "x": 760,
+     "y": 1510,
+     "s": 0.42,
+     "pop": false,
+     "front": true,
+     "p": {
+      "seed": 4
+     },
+     "set": [
+      {
+       "at": "never",
+       "dur": 1.4,
+       "p": {
+        "fade": 1.0
+       }
+      }
+     ]
+    }
+   ],
+   "m": "hook",
+   "say": "Three lighthouse keepers walked out of this lighthouse, and were never seen again."
+  },
+  {
+   "hero": false,
+   "with": [
+    {
+     "type": "isle_rock",
+     "x": 540,
+     "y": 1450,
+     "s": 0.85,
+     "pop": false,
+     "p": {
+      "lit": 0
+     }
+    }
+   ],
+   "m": "solo",
+   "say": "December 1900. The Flannan Isles, a lonely rock off Scotland. A passing ship sees the light is out."
+  },
+  {
+   "m": "fact",
+   "say": "Storms keep the relief boat away for days."
+  },
+  {
+   "hero": false,
+   "with": [
+    {
+     "type": "isle_rock",
+     "x": 380,
+     "y": 1300,
+     "s": 0.5,
+     "pop": false,
+     "p": {
+      "lit": 0
+     }
+    },
+    {
+     "type": "steamer",
+     "x": 640,
+     "y": 1640,
+     "s": 0.55,
+     "pop": false,
+     "p": {
+      "flare": 0
+     },
+     "set": [
+      {
+       "at": "Fires",
+       "dur": 1.2,
+       "p": {
+        "flare": 1.0
+       }
+      }
+     ]
+    }
+   ],
+   "m": "solo",
+   "say": "On December twenty-sixth, it finally arrives. It blows its horn. Fires a flare. Nothing."
+  },
+  {
+   "scene": "keeper_room",
+   "hero": false,
+   "with": [
+    {
+     "type": "wall_clock",
+     "x": 900,
+     "y": 600,
+     "s": 0.9,
+     "pop": false,
+     "p": {
+      "stopped": true
+     }
+    }
+   ],
+   "m": "fact",
+   "say": "The relief keeper goes up alone. The gate and the door are shut. The clock has stopped."
+  },
+  {
+   "scene": "keeper_room",
+   "hero": false,
+   "with": [
+    {
+     "type": "coat_pegs",
+     "x": 700,
+     "y": 1500,
+     "s": 0.85,
+     "pop": false,
+     "p": {
+      "coats": 1
+     }
+    }
+   ],
+   "m": "xray",
+   "say": "Two of the three oilskin coats are gone. One man went out into a winter storm without his coat."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, the deepest hole ever dug, and the screams that weren't real."
+  }
+ ]
+}

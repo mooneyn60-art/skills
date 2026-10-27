@@ -1,0 +1,110 @@
+{
+ "series": "Meatball's Animal Files, Part",
+ "sources": [
+  "Galapagos Conservancy, Giant Tortoises: can survive without food or water for up to a year; pirates, whalers and fur sealers stored live giant tortoises in ship holds as fresh meat; tortoise oil lit the lamps of Quito; 100,000 to 200,000 tortoises lost; eat cactus pads, grasses and fruit; store large amounts of water in their bladders; 20,000-25,000 wild today; 'Galapagos' from the old Spanish word for saddle; finches dance in front of tortoises to ask to eat ticks and the tortoise stretches its neck; https://www.galapagos.org/about_galapagos/about-galapagos/biodiversity/tortoises/",
+  "Smithsonian's National Zoo, Aldabra Tortoise: males up to 550 lb (250 kg); live more than 100 years; sleep about 18 hours a day; may eat dead tortoises or feces; wallow in mud against mosquitoes; https://nationalzoo.si.edu/animals/aldabra-tortoise",
+  "Linda Hall Library, Voyages of the Beagle (Darwin's Voyage, Galapagos excerpt): Darwin got on the tortoises' backs, rapped their shells to make them walk, and found it very difficult to keep his balance; https://voyages.lindahall.org/darwin3.shtml"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "giant_tortoise",
+  "scene": "desert",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "reptile",
+   "label": "giant tortoise",
+   "color": "#8a8a7a",
+   "dark": "#5e5e52",
+   "accent": "#6a5a44",
+   "shell": true,
+   "length": 700,
+   "height": 230,
+   "mood": "calm",
+   "s": 0.75
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "reptile",
+    "label": "giant tortoise",
+    "color": "#8a8a7a",
+    "dark": "#5e5e52",
+    "accent": "#6a5a44",
+    "shell": true,
+    "length": 700,
+    "height": 230,
+    "mood": "calm",
+    "s": 0.75
+   }
+  },
+  "actor": "creature",
+  "wild": "desert",
+  "wild_p": {
+   "time": "dusk"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "This Tortoise Can Go a Whole Year Without Food or Water 🐢",
+ "tiktok_caption": "a tortoise that can skip food and water for a year 🐢 sailors stacked them alive as ship snacks. Would you ride one? 🐢 giddy up / 🙅 no way #meatballmyths #learnontiktok #tortoise #animalfacts",
+ "beats": [
+  {
+   "hero_moves": [
+    {
+     "at": 0,
+     "dur": 1.2,
+     "pos": [
+      760,
+      1500
+     ],
+     "walk": true
+    }
+   ],
+   "m": "hook",
+   "say": "This tortoise can go a whole year without food or water."
+  },
+  {
+   "hero_at": {
+    "x": 760
+   },
+   "m": "name",
+   "say": "The giant tortoise. Some weigh over five hundred pounds."
+  },
+  {
+   "m": "solo",
+   "say": "It stores water in its bladder, like a living canteen."
+  },
+  {
+   "hero_at": {
+    "x": 760
+   },
+   "m": "xray",
+   "say": "And it can live for more than a hundred years."
+  },
+  {
+   "hero_at": {
+    "x": 760
+   },
+   "m": "escalate",
+   "say": "That's exactly why sailors loved it."
+  },
+  {
+   "scene": "ship_deck",
+   "scene_p": {
+    "time": "day"
+   },
+   "m": "solo",
+   "say": "They stacked them alive in the ship, as fresh meat for the trip."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, a worm that doctors still put on people."
+  }
+ ]
+}

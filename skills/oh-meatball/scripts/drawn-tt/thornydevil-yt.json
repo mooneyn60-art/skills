@@ -1,0 +1,233 @@
+{
+ "series": "Meatball's Animal Files, Part",
+ "sources": [
+  "Parks Australia, Uluru-Kata Tjuta National Park, Thorny devil: a small dragon covered in densely packed spikes; unusual rocking walk thought to confuse birds of prey; knob-like 'false head' on its shoulders; can puff itself up when threatened; eats only ants, parks beside an ant trail; a single devil can eat thousands of ants in a day; standing in a puddle or wet sand, water runs up its legs and over its body to its mouth via narrow grooves between scales; pale yellow and red in warm weather, darker when cold or alarmed; https://uluru.gov.au/discover/nature/animals/thorny-devil",
+  "University of Western Australia news, 'Flat out lizard drinking: thorny devil's remarkable desert survival' (2016; Prof. P. Withers): drinks from puddles via skin capillary channels between overlapping scales that lead to the mouth; flicks moist sand onto its back to absorb some moisture; about a pinhead of water per gulp; condensation from humid air is not enough to drink; https://news.uwa.edu.au/201611039172/research/flat-out-lizard-drinking-thorny-devils-remarkable-desert-survival",
+  "Comanns P., Withers P.C., Esser F.J., Baumgartner W. (2016) 'Cutaneous water collection by a moisture-harvesting lizard, the thorny devil (Moloch horridus)', Journal of Experimental Biology 219:3473-3479: lizards standing in water fill their skin capillary system and drink from it; rain and moist sand are likely regular water sources; https://doi.org/10.1242/jeb.151407",
+  "PBS Nature, 'Featured Creature: Thorny Devil': the neck knob is a false head meant to deceive predators; when threatened it curls its real head between its front legs; eats mainly ants, estimated 600 to 2500 per meal; https://www.pbs.org/wnet/nature/blog/inside-nature-featured-creature-thorny-devil"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "thorny_devil",
+  "scene": "bedroom",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "reptile",
+   "label": "thorny devil",
+   "color": "#d9a85a",
+   "dark": "#9a5a2a",
+   "accent": "#b8442a",
+   "spikes": 12,
+   "stripes": 3,
+   "length": 620,
+   "height": 200,
+   "s": 1.0
+  },
+  "wild": "desert",
+  "wild_p": {
+   "time": "day",
+   "props": [
+    [
+     "dune",
+     900,
+     1320,
+     1.2
+    ],
+    [
+     "rock",
+     -40,
+     1500,
+     0.9
+    ],
+    [
+     "grass",
+     1150,
+     1500,
+     1.0
+    ]
+   ]
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "This Lizard Drinks Water Through Its Feet 🦎",
+ "tiktok_caption": "this spiky lizard drinks through its skin 🦎 water runs up its legs to its mouth, it has a fake head, and eats thousands of ants a day. Would you hold one? 🤲 yes / 🌵 too spiky #meatballmyths #learnontiktok #thornydevil #australia",
+ "beats": [
+  {
+   "m": "hook",
+   "say": "This lizard drinks with its feet. Water runs up its legs, and into its mouth."
+  },
+  {
+   "m": "shrink",
+   "say": "So I shrank myself to lizard size, and went to the Australian desert."
+  },
+  {
+   "scene": "desert",
+   "scene_p": {
+    "time": "day",
+    "props": [
+     [
+      "dune",
+      900,
+      1320,
+      1.2
+     ],
+     [
+      "rock",
+      -40,
+      1500,
+      0.9
+     ],
+     [
+      "grass",
+      1150,
+      1500,
+      1.0
+     ]
+    ]
+   },
+   "pose": "shock",
+   "m": "tiny",
+   "say": "The thorny devil. A small dragon, covered in spikes."
+  },
+  {
+   "scene": "desert",
+   "scene_p": {
+    "time": "dusk",
+    "props": [
+     [
+      "dune",
+      900,
+      1320,
+      1.2
+     ],
+     [
+      "rock",
+      -40,
+      1500,
+      0.9
+     ],
+     [
+      "rock",
+      1150,
+      1500,
+      1.1
+     ]
+    ]
+   },
+   "m": "tiny",
+   "say": "After a rain, it steps into a puddle."
+  },
+  {
+   "scene": "desert",
+   "scene_p": {
+    "time": "dusk",
+    "props": [
+     [
+      "dune",
+      900,
+      1320,
+      1.2
+     ],
+     [
+      "rock",
+      -40,
+      1500,
+      0.9
+     ],
+     [
+      "rock",
+      1150,
+      1500,
+      1.1
+     ]
+    ]
+   },
+   "pose": "think",
+   "act": {
+    "xray": 1.0
+   },
+   "m": "tiny",
+   "say": "Its skin is full of tiny grooves between the scales."
+  },
+  {
+   "scene": "desert",
+   "scene_p": {
+    "time": "dusk",
+    "props": [
+     [
+      "dune",
+      900,
+      1320,
+      1.2
+     ],
+     [
+      "rock",
+      -40,
+      1500,
+      0.9
+     ],
+     [
+      "rock",
+      1150,
+      1500,
+      1.1
+     ]
+    ]
+   },
+   "act": {
+    "xray": 1.0,
+    "look": [
+     1,
+     -1
+    ]
+   },
+   "m": "solo",
+   "say": "The water creeps up those grooves, over its body, all the way to its mouth."
+  },
+  {
+   "scene": "desert",
+   "scene_p": {
+    "time": "dusk",
+    "props": [
+     [
+      "dune",
+      900,
+      1320,
+      1.2
+     ],
+     [
+      "rock",
+      -40,
+      1500,
+      0.9
+     ],
+     [
+      "rock",
+      1150,
+      1500,
+      1.1
+     ]
+    ]
+   },
+   "pose": "laugh",
+   "act": {
+    "chew": 1.0,
+    "mood": "happy"
+   },
+   "m": "tiny",
+   "say": "Then it gulps. About a pinhead of water per sip."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, the spider whose silk was strung inside wartime bombsights."
+  }
+ ]
+}

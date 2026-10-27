@@ -1,0 +1,110 @@
+{
+ "series": "Meatball's Animal Files, Part",
+ "sources": [
+  "Vermont Reptile and Amphibian Atlas (J. Andrews), Herp Update: Gray Treefrogs are freeze tolerant; water between their cells freezes, heart and lungs stop, cell sugars act as antifreeze; they thaw out in spring perfectly healthy without having eaten in seven months; probably overwinter in leaf litter; https://www.vtherpatlas.org/?p=4339",
+  "The Canadian Encyclopedia, Gray Treefrog: can survive having more than 40 per cent of its body fluids freeze without ill effect, protecting cells with glucose and glycerol; overwinters under leaf litter and snow; can change colour rapidly; large toepads for climbing; up to 6 cm; its trill is one of the loudest frog calls in North America; females lay up to 2,600 eggs a year; undersides of thighs bright yellow-orange, usually hidden; cannot be told apart by sight from Cope's gray treefrog; https://thecanadianencyclopedia.ca/en/article/gray-treefrog",
+  "University of Georgia, Savannah River Ecology Lab Herpetology, Cope's Gray Treefrog: skin secretions contain toxins that may irritate eyes, lips, mucous membranes and open cuts, wash hands after handling; colour mottled gray to light green, shifts with surroundings; bright yellow-orange flash colours on the inner thighs; D. chrysoscelis is diploid and D. versicolor tetraploid, morphologically indistinguishable; https://srelherp.uga.edu/frogs-and-toads/copes-gray-treefrog/",
+  "Irwin J.T. and Lee R.E. (2003), Geographic variation in energy storage and cryoprotectants in overwintering adult gray treefrogs, Journal of Experimental Biology 206: 2859: peer-reviewed study of freeze tolerance and glycerol/glucose cryoprotectants in gray treefrogs; https://journals.biologists.com/jeb/article/206/16/2859/13723/Geographic-variation-in-energy-storage-and"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "gray_treefrog",
+  "scene": "forest_floor",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "frog",
+   "label": "gray tree frog",
+   "color": "#8fa086",
+   "dark": "#5f6e58",
+   "length": 420,
+   "height": 260,
+   "leg_len": 80,
+   "eye_r": 46,
+   "mood": "happy",
+   "s": 0.8,
+   "spots": 4,
+   "toe_pads": true
+  },
+  "s": 0.8,
+  "wild": "garden",
+  "wild_p": {
+   "time": "day",
+   "palette": {
+    "sky": "#9fd3ef",
+    "ground": "#6fae5a",
+    "ground2": "#5a944a"
+   },
+   "props": [
+    [
+     "tree",
+     -60,
+     1500,
+     1.1
+    ],
+    [
+     "tree",
+     1160,
+     1500,
+     0.9
+    ],
+    [
+     "fern",
+     980,
+     1500,
+     0.9
+    ]
+   ]
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "This Frog Freezes Every Winter, and Its Heart Stops 🐸",
+ "tiktok_caption": "this frog freezes every winter and its heart stops 🐸🧊 then it thaws out in spring and hops away. Would you pick up a frozen frog? 🧊 yes / 🙅 no / 🧼 only with soap after #meatballmyths #learnontiktok #treefrog #frogs #animalfacts",
+ "beats": [
+  {
+   "m": "hook",
+   "say": "This frog freezes every winter. Its heart stops. And in spring, it hops away."
+  },
+  {
+   "m": "name",
+   "say": "The gray tree frog. Smaller than your palm, with big sticky toe pads."
+  },
+  {
+   "m": "fact",
+   "say": "In fall, it hides under dead leaves and snow."
+  },
+  {
+   "scene_p": {
+    "time": "night"
+   },
+   "m": "escalate",
+   "say": "Then the ice comes. The water between its cells turns to ice."
+  },
+  {
+   "m": "xray",
+   "say": "Inside, sugars work like antifreeze, and keep each cell from freezing."
+  },
+  {
+   "with": [
+    {
+     "type": "heart",
+     "x": 900,
+     "s": 0.5
+    }
+   ],
+   "m": "calm",
+   "say": "Its heart stops. Its lungs stop. And it just... waits."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, an animal with a heart two feet long."
+  }
+ ]
+}

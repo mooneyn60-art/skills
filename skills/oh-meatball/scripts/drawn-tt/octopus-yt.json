@@ -1,0 +1,116 @@
+{
+ "series": "Meatball's Animal Files, Part",
+ "sources": [
+  "Smithsonian Magazine, Ten Wild Facts About Octopuses: three hearts, two pump blood through the gills and one to the organs; the organ heart stops beating when the octopus swims, so they prefer crawling; two-thirds of neurons are in the arms; arms can react after being severed from a dead animal; ink irritates a predator's eyes; copper-based blood looks blue; oldest octopus ancestor about 330 million years old; males die shortly after mating and females after their eggs hatch; https://www.smithsonianmag.com/science-nature/ten-wild-facts-about-octopuses-they-have-three-hearts-big-brains-and-blue-blood-7625828/",
+  "Natural History Museum (London), Octopuses keep surprising us: blue blood from copper-based haemocyanin; each arm can taste, touch and move without direction from the central brain; colour and skin texture change in an instant; veined octopuses carry coconut shells to build shelters; an octopus reportedly raided fish from a neighbouring tank; https://www.nhm.ac.uk/discover/octopuses-keep-surprising-us-here-are-eight-examples-how.html"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "common_octopus",
+  "scene": "reef",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "octopus",
+   "label": "common octopus",
+   "shape": "round",
+   "color": "#e0704a",
+   "dark": "#b8502e",
+   "rx": 230,
+   "ry": 210,
+   "leg_len": 1.4,
+   "hairs": false,
+   "eye_r": 44,
+   "mood": "happy",
+   "xray": "heart",
+   "s": 0.8,
+   "size": 260
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "octopus",
+    "label": "common octopus",
+    "shape": "round",
+    "color": "#e0704a",
+    "dark": "#b8502e",
+    "rx": 230,
+    "ry": 210,
+    "leg_len": 1.4,
+    "hairs": false,
+    "eye_r": 44,
+    "mood": "happy",
+    "xray": "heart",
+    "s": 0.8,
+    "size": 260
+   }
+  },
+  "actor": "creature",
+  "wild": "reef",
+  "wild_p": {
+   "time": "dusk"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "The Octopus Has Three Hearts and Blue Blood 🐙",
+ "tiktok_caption": "three hearts, blue blood, and arms that think for themselves 🐙 a cut-off arm can still react. Would you shake hands with one? 🤝 yes / 🙅 no #meatballmyths #learnontiktok #octopus #oceanlife",
+ "beats": [
+  {
+   "hero_moves": [
+    {
+     "at": 0,
+     "dur": 1.2,
+     "pos": [
+      760,
+      1500
+     ],
+     "walk": true
+    }
+   ],
+   "m": "hook",
+   "say": "This animal has three hearts, and blue blood."
+  },
+  {
+   "hero_at": {
+    "x": 760
+   },
+   "m": "name",
+   "say": "The common octopus. Eight arms, covered in suckers."
+  },
+  {
+   "hero_at": {
+    "x": 760
+   },
+   "m": "fact",
+   "say": "Two hearts pump blood through its gills. The third pumps it around the body."
+  },
+  {
+   "hero_at": {
+    "x": 760
+   },
+   "m": "xray",
+   "say": "And that third heart stops beating when it swims. So it would rather crawl."
+  },
+  {
+   "hero_at": {
+    "x": 760
+   },
+   "m": "escalate",
+   "say": "Its blood is blue, because it's built on copper, not iron."
+  },
+  {
+   "m": "calm",
+   "say": "And most of its brain isn't even in its head."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, another animal that shouldn't exist."
+  }
+ ]
+}

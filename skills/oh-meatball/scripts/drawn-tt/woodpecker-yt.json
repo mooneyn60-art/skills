@@ -1,0 +1,117 @@
+{
+ "series": "Meatball's Animal Files, Part",
+ "sources": [
+  "Revista Pesquisa FAPESP (2022), Why woodpeckers do not suffer from headaches: woodpeckers can peck a tree trunk up to 20 times a second; https://revistapesquisa.fapesp.br/en/why-woodpeckers-do-not-suffer-from-headaches/",
+  "Smithsonian Magazine (2022), Woodpeckers Don't Have Shock-Absorbing Skulls, on Van Wassenbergh et al., Current Biology: woodpeckers drill about 12 thousand times a day; high-speed video of black, pileated and great spotted woodpeckers showed the head acts as a stiff hammer rather than a shock absorber; protection comes mainly from small size, the brain roughly 700 times smaller than a human's, and they would need to strike about twice as fast to risk concussion; https://www.smithsonianmag.com/smart-news/woodpecker-skulls-dont-absorb-shock-like-previously-thought-180980426/",
+  "National Park Service, Pinnacles National Park, Woodpeckers: tongues so long they wrap around the skull when not in use; barbs on the tongue tips hold insect prey; stiff tails for balancing on trunks; acorn woodpeckers store up to 50,000 acorns in a single granary tree; https://www.nps.gov/pinn/learn/nature/woodpeckers.htm"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "woodpecker",
+  "scene": "sill",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "bird",
+   "label": "woodpecker",
+   "color": "#2a2a30",
+   "dark": "#141418",
+   "belly": "#f4f4f2",
+   "beak": "long",
+   "crest": true,
+   "length": 400,
+   "height": 250,
+   "leg_len": 110,
+   "mood": "angry",
+   "s": 0.62
+  },
+  "s": 0.62,
+  "wild": "forest_floor",
+  "wild_p": {
+   "time": "day"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "A Woodpecker Slams Its Face Into Wood Up to 20 Times a Second 🪵",
+ "tiktok_caption": "a woodpecker slams its face into wood up to 20 times a second 🪵 and its tongue wraps around its skull. Would you want one drumming outside your window at 6am? 🥁 yes / 😴 no / 🪵 only on the neighbor's house #meatballmyths #learnontiktok #woodpecker #birds #animalfacts",
+ "beats": [
+  {
+   "m": "hook",
+   "say": "A woodpecker slams its face into wood up to twenty times a second."
+  },
+  {
+   "m": "shrink",
+   "say": "So I shrank myself down to bird size, to watch it up close."
+  },
+  {
+   "act": {
+    "bite": 1.0
+   },
+   "m": "tiny",
+   "say": "The woodpecker. It can peck about twelve thousand times a day."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "day",
+    "props": [
+     [
+      "tree",
+      -60,
+      1500,
+      1.2
+     ],
+     [
+      "tree",
+      1150,
+      1500,
+      1.0
+     ]
+    ]
+   },
+   "m": "tiny",
+   "say": "For years, people thought its head worked like a shock absorber."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "day",
+    "props": [
+     [
+      "tree",
+      -60,
+      1500,
+      1.2
+     ],
+     [
+      "tree",
+      1150,
+      1500,
+      1.0
+     ]
+    ]
+   },
+   "pose": "shock",
+   "m": "tiny",
+   "say": "Then high speed cameras caught it in the act. It doesn't."
+  },
+  {
+   "act": {
+    "bite": 1.0
+   },
+   "m": "tiny",
+   "say": "Its head hits like a stiff hammer. Beak and brain stop together."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, another animal that shouldn't exist."
+  }
+ ]
+}

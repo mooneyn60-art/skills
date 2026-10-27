@@ -1,0 +1,119 @@
+{
+ "series": "Meatball's Animal Files, Part",
+ "sources": [
+  "University of Maine Cooperative Extension, Giant Water Bug (Lethocerus americanus) fact sheet: 2 to 4 inches long, the largest true bug (Hemiptera) in the US and Canada; common names include toe-biters (they can inflict a painful bite) and electric-light bugs (adults fly and are attracted to lights at night); https://extension.umaine.edu/home-and-garden-ipm/fact-sheets/common-name-listing/giant-water-bug/",
+  "KQED Science / Deep Look (PBS), Don't Go Chasing Water Bugs, quoting entomologists Chris Goforth (North Carolina Museum of Natural Sciences) and Robert Sites (University of Missouri): bite among the most painful of any insect, delivered with dagger-like mouthparts; they inject venom that liquefies the prey's insides and suck it back out, the prey likely still alive; they eat animals as large as turtles, snakes and ducklings; in Abedus the female glues eggs onto the male's back and leaves, and he carries them for several weeks; in parts of Asia they are a delicacy, with a nutty flavour; Santa Monica Mountains rangers warned of bites in 2018; https://www.kqed.org/science/1979474/dont-go-chasing-water-bugs"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "giant_water_bug",
+  "scene": "bedroom",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "insect",
+   "label": "giant water bug",
+   "body": "round",
+   "color": "#6e5236",
+   "dark": "#4a3622",
+   "length": 580,
+   "height": 200,
+   "leg_len": 110,
+   "ant": 0,
+   "wings": "shell",
+   "stripes": 3,
+   "mood": "angry",
+   "mouth": "grin",
+   "s": 0.68
+  },
+  "s": 0.68,
+  "wild": "swamp",
+  "wild_p": {
+   "time": "day"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "This Bug Melts Its Prey From the Inside and Drinks It 🪲",
+ "tiktok_caption": "this bug melts its prey from the inside and drinks it 🫠 it eats turtles, snakes and ducklings and they call it the toe biter. Would you eat one? 🍽️ yes / 🤢 never / 🦶 it'd eat me first #meatballmyths #learnontiktok #giantwaterbug #insects #animalfacts",
+ "beats": [
+  {
+   "m": "hook",
+   "say": "This bug can eat a turtle. It melts the insides, and drinks them."
+  },
+  {
+   "m": "shrink",
+   "say": "So I shrank myself down to its size, to get a closer look."
+  },
+  {
+   "m": "tiny",
+   "say": "The giant water bug. Up to four inches long."
+  },
+  {
+   "m": "tiny",
+   "say": "It's the biggest true bug in the United States and Canada."
+  },
+  {
+   "act": {
+    "wave": 1.0
+   },
+   "m": "tiny",
+   "say": "It hides underwater, and grabs prey with its powerful legs."
+  },
+  {
+   "act": {
+    "bite": 1.0
+   },
+   "m": "tiny",
+   "say": "Then it stabs with a dagger-like beak, and injects venom."
+  },
+  {
+   "hero_at": {
+    "x": 540
+   },
+   "act": {
+    "chew": 1.0
+   },
+   "scene": "reef",
+   "scene_p": {
+    "time": "day",
+    "palette": {
+     "ground": "#6a5a3c",
+     "ground2": "#57492f"
+    },
+    "props": [
+     [
+      "seaweed",
+      60,
+      1500,
+      1.3
+     ],
+     [
+      "seaweed",
+      1080,
+      1500,
+      1.2
+     ],
+     [
+      "rock",
+      900,
+      1500,
+      0.7
+     ]
+    ]
+   },
+   "m": "solo",
+   "say": "The venom turns the insides to soup. Then it sucks them out."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, an animal that can hit you with its spray from ten feet away."
+  }
+ ]
+}

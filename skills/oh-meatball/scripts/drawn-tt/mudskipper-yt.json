@@ -1,0 +1,110 @@
+{
+ "series": "Meatball's Animal Files, Part",
+ "sources": [
+  "EarthDate (Bureau of Economic Geology, University of Texas at Austin), Fish Out of Water: some mudskippers spend three-quarters of their lives on land; take in oxygen through skin, mouth and throat as long as they are wet; muscular pectoral fins move them across mud; eyes adapted for aerial vision and can't focus when submerged; eyes rotate independently to spot prey; blink by pulling the eyes into the head; at high tide live in burrows in the mud; burrows hold eggs and an air pocket; https://www.earthdate.org/episodes/fish-out-of-water",
+  "National Geographic magazine (2020), Mudskipper builds ideal nest for his offspring: males flare fins and leap high to court; an impressed female follows him to the burrow; eggs laid on the chamber ceiling; the male gulps air, carries it down and exhales it, roughly 100 mouthfuls to make the air bubble (Karen Martin); he times the air release so water floods in and the larvae hatch; https://www.nationalgeographic.com/magazine/article/mudskipper-builds-ideal-nest-for-his-offspring",
+  "BBC Wildlife (Discover Wildlife), Fish that can walk on land evolved the ability to blink like we do (Aiello, Stewart et al., PNAS 2023): mudskippers blink by pulling their eyeballs back into their skulls; https://discoverwildlife.com/news/fish-that-can-walk-on-land-evolved-the-ability-to-blink-like-we-do"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "mudskipper",
+  "scene": "swamp",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "fish",
+   "label": "mudskipper",
+   "color": "#8a7a5a",
+   "dark": "#5e5238",
+   "accent": "#c9b98a",
+   "length": 620,
+   "height": 220,
+   "eye_r": 40,
+   "mood": "happy",
+   "s": 0.65
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "fish",
+    "label": "mudskipper",
+    "color": "#8a7a5a",
+    "dark": "#5e5238",
+    "accent": "#c9b98a",
+    "length": 620,
+    "height": 220,
+    "eye_r": 40,
+    "mood": "happy",
+    "s": 0.65
+   }
+  },
+  "actor": "creature",
+  "wild": "swamp",
+  "wild_p": {
+   "time": "dusk",
+   "palette": {
+    "ground": "#6b5a44",
+    "ground2": "#57472f"
+   }
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "This Fish Walks Out of the Water and Lives on Land 🐟",
+ "tiktok_caption": "a fish that walks out of the water and lives on land 🐟 it blinks by sucking its eyeballs into its head. Would you let one walk on your hand? 🐟 yes / 🙅 no #meatballmyths #learnontiktok #mudskipper #animalfacts",
+ "beats": [
+  {
+   "hero_moves": [
+    {
+     "at": 0,
+     "dur": 1.2,
+     "pos": [
+      760,
+      1500
+     ],
+     "walk": true
+    }
+   ],
+   "m": "hook",
+   "say": "This fish walks out of the water, and spends most of its life on land."
+  },
+  {
+   "hero_at": {
+    "x": 760
+   },
+   "m": "name",
+   "say": "The mudskipper. A fish with bulging eyes on top of its head."
+  },
+  {
+   "hero_at": {
+    "x": 760
+   },
+   "m": "fact",
+   "say": "It crawls across the mud on its front fins, like little arms."
+  },
+  {
+   "m": "solo",
+   "say": "It breathes through its skin and its mouth, as long as it stays wet."
+  },
+  {
+   "hero_at": {
+    "x": 760
+   },
+   "m": "escalate",
+   "say": "And underwater, it can't even see properly. Its eyes are made for air."
+  },
+  {
+   "m": "calm",
+   "say": "Each eye swivels on its own, to spot bugs above and below."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, an animal that oozes red goo as sunscreen."
+  }
+ ]
+}

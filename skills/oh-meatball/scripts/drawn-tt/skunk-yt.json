@@ -1,0 +1,77 @@
+{
+ "series": "Meatball's Animal Files, Part",
+ "sources": [
+  "Texas Parks and Wildlife, Introducing Mammals: Skunks: each of the two glands holds about a tablespoon of musk, enough for five or six shots; a full refill takes several days; can fire right, left, front and back without turning around; targets within ten to twelve feet usually in range; warns by arching its back, raising its tail and stamping its front feet, and may rear on its front legs as if doing a handstand to spray over its head; a direct hit in the face can cause painful but temporary blindness; insects and grubs are at least half its diet; great horned owls and coyotes occasionally kill skunks; https://tpwd.texas.gov/publications/nonpwdpubs/introducing_mammals/skunks",
+  "Illinois Department of Natural Resources, Wildlife Illinois, Striped Skunk: size of a small house cat; can accurately direct its musk up to 10 feet, some reaching nearly 20 feet; stamps its front feet and raises its tail as a warning; the musk is butyl mercaptan, a strong sulfur odor; can carry rabies; odor-removal mix of 3% hydrogen peroxide, baking soda and liquid soap; https://wildlifeillinois.org/identify-wildlife/striped-skunk/",
+  "National Geographic Kids, Skunk: great horned owls are a main predator, and scientists think their weak sense of smell makes the spray useless against them; https://kids.nationalgeographic.com/animals/mammals/skunk/"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "striped_skunk",
+  "scene": "garden",
+  "scene_p": {
+   "time": "night"
+  },
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "striped skunk",
+   "color": "#1f1f24",
+   "dark": "#0f0f12",
+   "belly": "#1f1f24",
+   "ears": "round",
+   "whiskers": true,
+   "tail": "fluffy",
+   "length": 520,
+   "height": 260,
+   "leg_len": 70,
+   "leg_w": 30,
+   "mood": "smug",
+   "s": 0.78,
+   "back_stripe": "#ffffff"
+  },
+  "s": 0.78,
+  "wild": "forest_floor",
+  "wild_p": {
+   "time": "dusk"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "A Skunk Can Hit You in the Face From 10 Feet Away 🦨",
+ "tiktok_caption": "a skunk can hit you in the face from 10 feet away 🦨 it has about a dozen shots and can aim backwards. Would you pet one? 🖐️ yes / 🏃 run / 🧼 only with a gallon of peroxide #meatballmyths #learnontiktok #skunk #animalfacts",
+ "beats": [
+  {
+   "m": "hook",
+   "say": "A skunk can hit you in the face from ten feet away."
+  },
+  {
+   "m": "name",
+   "say": "The striped skunk. About the size of a house cat."
+  },
+  {
+   "m": "fact",
+   "say": "Under its tail, two glands, each holding about a tablespoon of stinky musk."
+  },
+  {
+   "m": "escalate",
+   "say": "That's enough for ten or twelve shots."
+  },
+  {
+   "m": "fact",
+   "say": "And it can aim left, right, front, or back, without even turning around."
+  },
+  {
+   "m": "calm",
+   "say": "The smell is a sulfur chemical, called butyl mercaptan."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, a bird that hammers its face into wood all day, and doesn't get a headache."
+  }
+ ]
+}
