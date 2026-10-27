@@ -1,0 +1,210 @@
+{
+ "series": "Meatball's Animal Files, Part",
+ "sources": [
+  "Duke University Pratt School of Engineering news (2022), Glassfrogs Hide Red Blood Cells in Their Liver to Become Transparent (Taboada, Delia, Yao et al., Science, Dec 2022): northern glassfrog no more than a few centimeters; rests by day hanging upside down under leaves; while asleep removes nearly 90 percent of circulating red blood cells into a mirror-coated liver; avoids a huge blood clot; cells flow back when active; https://pratt.duke.edu/news/glassfrogs-hide-red-blood-cells-their-liver-become-transparent/",
+  "Sci.News, Study: Glassfrogs Hide Red Blood Cells in Their Liver to Achieve Transparency (reporting the Science paper): resting glassfrogs increase transparency two- to threefold; liver contains reflective guanine crystals; could inform biomedical research on clotting; https://www.sci.news/biology/glassfrog-transparency-11520.html",
+  "National Geographic magazine, These see-through frogs are full of surprises: male sun glass frog's heart beats visibly through its chest; a female's eggs visible through her stomach; some species smaller than a paper clip; 156 known species mainly in the northern Andes and Central America; males of at least 24 species care for eggs, sitting on them to keep them hydrated; the father sucks water up into his urinary bladder through a highly vascularized region of the belly; tadpoles fall into the stream below; https://www.nationalgeographic.com/magazine/article/these-see-through-frogs-are-full-of-surprises-feature"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "glass_frog",
+  "scene": "forest_floor",
+  "scene_p": {
+   "time": "dusk"
+  },
+  "creature_cfg": {
+   "plan": "reptile",
+   "label": "glass frog",
+   "color": "#9fdc7a",
+   "dark": "#6fae52",
+   "accent": "#a8e486",
+   "shell": true,
+   "length": 400,
+   "height": 150,
+   "leg_len": 60,
+   "eye_r": 46,
+   "mood": "happy",
+   "xray": "heart",
+   "s": 1.0
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "reptile",
+    "label": "glass frog",
+    "color": "#9fdc7a",
+    "dark": "#6fae52",
+    "accent": "#a8e486",
+    "shell": true,
+    "length": 400,
+    "height": 150,
+    "leg_len": 60,
+    "eye_r": 46,
+    "mood": "happy",
+    "xray": "heart",
+    "s": 1.0
+   }
+  },
+  "actor": "creature",
+  "wild": "forest_floor",
+  "wild_p": {
+   "time": "night"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "This Frog Is See-Through and You Can Watch Its Heart Beat 🐸",
+ "tiktok_caption": "a frog so see-through you can watch its heart beat 🐸 it hides 90% of its blood in its liver to vanish. Would you hold one? 🐸 yes / 🙅 no #meatballmyths #learnontiktok #glassfrog #animalfacts",
+ "beats": [
+  {
+   "hero_moves": [
+    {
+     "at": 0,
+     "dur": 1.2,
+     "pos": [
+      720,
+      1500
+     ],
+     "walk": true
+    }
+   ],
+   "m": "hook",
+   "say": "This frog is see-through. You can watch its heart beat."
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "name",
+   "say": "The glass frog. Some are smaller than a paper clip."
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "xray",
+   "say": "Its belly is a window. Heart, guts, all of it."
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "fact",
+   "say": "A mother's eggs even show right through her stomach."
+  },
+  {
+   "m": "solo",
+   "say": "By day, it sleeps upside down, under a leaf."
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "escalate",
+   "say": "And while it sleeps, it hides almost ninety percent of its red blood."
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "fact",
+   "say": "It packs the red blood cells into its liver."
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "fact",
+   "say": "The liver is coated in tiny mirror crystals, so the red stays hidden."
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "fact",
+   "say": "That makes it two to three times more see-through."
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "fact",
+   "say": "And somehow, all that packed blood never clots."
+  },
+  {
+   "m": "solo",
+   "say": "When it wakes up, the blood flows back out into its body."
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "fact",
+   "say": "Scientists are studying it to learn about blood clots."
+  },
+  {
+   "with": [
+    {
+     "type": "eggs",
+     "x": 300,
+     "y": 1200,
+     "s": 0.7,
+     "front": true
+    }
+   ],
+   "m": "solo",
+   "say": "Its eggs sit on a leaf over a stream. The tadpoles drop into the water."
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "fact",
+   "say": "In some species, the dad guards the eggs."
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "escalate",
+   "say": "Here's the weird part. He soaks water up into his bladder, through his belly."
+  },
+  {
+   "with": [
+    {
+     "type": "eggs",
+     "x": 960,
+     "y": 1500,
+     "s": 0.6
+    }
+   ],
+   "hero_at": {
+    "x": 720
+   },
+   "m": "fact",
+   "say": "Then he sits on the eggs, to keep them wet."
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "fact",
+   "say": "Would you hold one?"
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "punch",
+   "say": "A belly like a window, and a dad who's a walking water balloon."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, a bird that flies underwater."
+  }
+ ]
+}

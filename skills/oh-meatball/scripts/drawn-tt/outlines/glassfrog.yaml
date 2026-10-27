@@ -1,0 +1,59 @@
+slug: glassfrog
+out: episodes/drawn-tt
+specs: scripts/drawn-tt
+series: "Meatball's Animal Files"
+variant: A
+title: This Frog Is See-Through and You Can Watch Its Heart Beat 🐸
+tiktok_caption: "a frog so see-through you can watch its heart beat 🐸 it hides 90% of its blood in its liver to vanish. Would you hold one? 🐸 yes / 🙅 no #meatballmyths #learnontiktok #glassfrog #animalfacts"
+creature: glass_frog
+actor: creature
+creature_cfg: &cfg {plan: reptile, label: glass frog, color: "#9fdc7a", dark: "#6fae52", accent: "#a8e486", shell: true,
+                    length: 400, height: 150, leg_len: 60, eye_r: 46, mood: happy, xray: heart, s: 1.0}
+hero_p: {cfg: *cfg}
+scene: forest_floor
+scene_p: {time: dusk}
+wild: forest_floor
+wild_p: {time: night}
+music: mystery
+next: Next, a bird that flies underwater.
+sources:
+  - "Duke University Pratt School of Engineering news (2022), Glassfrogs Hide Red Blood Cells in Their Liver to Become Transparent (Taboada, Delia, Yao et al., Science, Dec 2022): northern glassfrog no more than a few centimeters; rests by day hanging upside down under leaves; while asleep removes nearly 90 percent of circulating red blood cells into a mirror-coated liver; avoids a huge blood clot; cells flow back when active; https://pratt.duke.edu/news/glassfrogs-hide-red-blood-cells-their-liver-become-transparent/"
+  - "Sci.News, Study: Glassfrogs Hide Red Blood Cells in Their Liver to Achieve Transparency (reporting the Science paper): resting glassfrogs increase transparency two- to threefold; liver contains reflective guanine crystals; could inform biomedical research on clotting; https://www.sci.news/biology/glassfrog-transparency-11520.html"
+  - "National Geographic magazine, These see-through frogs are full of surprises: male sun glass frog's heart beats visibly through its chest; a female's eggs visible through her stomach; some species smaller than a paper clip; 156 known species mainly in the northern Andes and Central America; males of at least 24 species care for eggs, sitting on them to keep them hydrated; the father sucks water up into his urinary bladder through a highly vascularized region of the belly; tadpoles fall into the stream below; https://www.nationalgeographic.com/magazine/article/these-see-through-frogs-are-full-of-surprises-feature"
+yt:
+  - hook: This frog is see-through. You can watch its heart beat.
+    hero_moves: [{at: 0, dur: 1.2, pos: [720, 1500], walk: true}]
+  - name: The glass frog. Some are smaller than a paper clip.
+    hero_at: {x: 720}
+  - xray: Its belly is a window. Heart, guts, all of it.
+    hero_at: {x: 720}
+  - fact: A mother's eggs even show right through her stomach.
+    hero_at: {x: 720}
+  - solo: By day, it sleeps upside down, under a leaf.
+  - escalate: And while it sleeps, it hides almost ninety percent of its red blood.
+    hero_at: {x: 720}
+tt:
+  - fact: It packs the red blood cells into its liver.
+    hero_at: {x: 720}
+  - fact: The liver is coated in tiny mirror crystals, so the red stays hidden.
+    hero_at: {x: 720}
+  - fact: That makes it two to three times more see-through.
+    hero_at: {x: 720}
+  - fact: And somehow, all that packed blood never clots.
+    hero_at: {x: 720}
+  - solo: When it wakes up, the blood flows back out into its body.
+  - fact: Scientists are studying it to learn about blood clots.
+    hero_at: {x: 720}
+  - solo: Its eggs sit on a leaf over a stream. The tadpoles drop into the water.
+    with: [{type: eggs, x: 300, y: 1200, s: 0.7, front: true}]
+  - fact: In some species, the dad guards the eggs.
+    hero_at: {x: 720}
+  - escalate: Here's the weird part. He soaks water up into his bladder, through his belly.
+    hero_at: {x: 720}
+  - fact: Then he sits on the eggs, to keep them wet.
+    with: [{type: eggs, x: 960, y: 1500, s: 0.6}]
+    hero_at: {x: 720}
+  - fact: Would you hold one?
+    hero_at: {x: 720}
+  - punch: A belly like a window, and a dad who's a walking water balloon.
+    hero_at: {x: 720}
