@@ -42,7 +42,7 @@ import time
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
-MACROS = ("hook", "name", "fact", "xray", "scale", "count", "escalate", "chase", "calm", "punch", "tease", "solo")
+MACROS = ("hook", "name", "fact", "xray", "scale", "count", "escalate", "chase", "calm", "punch", "tease", "solo", "shrink", "tiny")
 YT_RANGE, TT_RANGE = (18.0, 24.0), (61.0, 75.0)
 
 

@@ -1,0 +1,70 @@
+{
+ "series": "Things Living In Your House, Part 6",
+ "sources": [
+  "Oklahoma State University Extension, Jumping spiders: hunt during the day; often seen on windows and walls where insect prey gathers; https://extension.okstate.edu/programs/digital-diagnostics/insects-and-arthropods/jumping-spiders",
+  "Utah State University Extension, Jumping Spiders: most visible near windows and bright spots; not known to pose a health hazard; beneficial; catch in a jar and release outside; https://extension.usu.edu/planthealth/ipm/notes_nuisance/jumping-spiders.php",
+  "Australian Museum, Jumping spiders (Salticidae): daylight hunters with large eyes and excellent vision, used to track, stalk and judge distance before leaping; hunt by stalking, not webs; body 3-12 mm; males use colourful courtship displays; peacock spiders raise a coloured abdominal flap; https://australian.museum/learn/animals/spiders/jumping-spiders/",
+  "Wikipedia, Jumping spider (citing Land 1969, Foelix): largest spider family, over 6,000 described species; eight eyes, large front pair for 3D vision and range-finding; attaches a silk dragline before a jump and climbs back up it if it falls; legs straightened by a fast rise in blood pressure (hydraulics) rather than extensor muscles; https://en.wikipedia.org/wiki/Jumping_spider"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "jumping_spider",
+  "scene": "sill",
+  "scene_p": {
+   "time": "day"
+  },
+  "wild": "garden",
+  "wild_p": {
+   "time": "day"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "The Spider on Your Window Is Watching You Back",
+ "tiktok_caption": "the spider on my window turned and looked at me 👀 it hunts with no web and jumps with blood pressure. Would you let it stay? 🏠 stay / 🫙 jar it outside",
+ "beats": [
+  {
+   "m": "hook",
+   "say": "The spider on your window can see you. And it just turned to look."
+  },
+  {
+   "m": "shrink",
+   "say": "So I shrank myself to its size, to see what it sees."
+  },
+  {
+   "scene": "sill",
+   "m": "tiny",
+   "say": "Up close, it has eight eyes. Two giant ones, aimed right at me."
+  },
+  {
+   "scene": "garden",
+   "m": "tiny",
+   "say": "Outside, it hunts in daylight. No web at all."
+  },
+  {
+   "scene": "garden",
+   "pose": "nervous",
+   "m": "tiny",
+   "say": "Before it leaps, it glues down a silk safety line."
+  },
+  {
+   "scene": "forest_floor",
+   "act": {
+    "bite": 1.0
+   },
+   "m": "solo",
+   "say": "And jumps."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Part seven hides in your bed.",
+   "scene": "bedroom",
+   "scene_p": {}
+  }
+ ]
+}

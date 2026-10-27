@@ -20,6 +20,9 @@ Macros:
   tease     "Subscribe. Part N is ...": the only ask, on the last line
   solo      a full scene change: the creature ALONE in its wild habitat (stage "wild", or the line's "scene"), big and
             centred, no Meatball, slow push-in; use 2-3 per video so it doesn't stay in one room (Nolan, 10/27)
+  shrink    "Meatball Goes Tiny" (our own format, 10/27): Meatball shrinks to bug size in the home scene
+  tiny      inside the animal's world: the creature HUGE, Meatball tiny beside it reacting (pose rotates, or "pose");
+            set "scene" per line to travel through 3-4 habitats. The tease afterwards brings him back full size.
 Per-line overrides: scene, scene_p, with (list of species names, or {"sp" | "type", "x", "y", "s", "p", "front",
 "pop": false = there from frame 0, "set", "moves"} for any actor), hero (false = not on
 stage, or a dict of creature params), act (creature params set at 30 %), hero_at {x, y, rot}, hero_moves, mb_x (Meatball's mark), pose, prop, mood, sfx, pad.
@@ -152,7 +155,7 @@ def expand(spec):
             out.append(line)
             continue
         m = line["m"]
-        if m == "solo" and "scene" not in line and stage.wild:
+        if m in ("solo", "tiny") and "scene" not in line and stage.wild:
             line = dict(line, scene=stage.wild, scene_p=line.get("scene_p", stage.wild_p))
         scene = line.get("scene", stage.scene)
         F = stage.floor(scene)
@@ -242,6 +245,24 @@ def expand(spec):
             cy = hy - 470 if stage.cfg.get("floor", True) else hy + 120
             b = _beat(stage, line, F, [{"cam": [540, cy, 1.15], "to": [540, cy + 20, 1.32]}], hero,
                       _mb(stage, F, "think", hidden=True), ["whoosh@2%", "tink@60%"])
+        elif m == "shrink":
+            mb = _mb(stage, F, "shock", water=water, shake=0.4,
+                     moves=[{"at": "35%", "dur": 0.7, "s": 300, "pos": [MB_X + 120, F], "hop": 240}])
+            b = _beat(stage, line, F, [{"cam": C["two"], "to": [MB_X + 160, F - 260, 1.45]}], hero, mb,
+                      ["whoosh@30%", "boing@45%", "tink@75%"])
+        elif m == "tiny":
+            ntiny = sum(1 for x in out if x.get("_tiny"))
+            pose = line.get("pose") or ["shock", "think", "nervous", "point", "laugh", "deadpan"][ntiny % 6]
+            hy = stage.hero_y(F)
+            hero = _hero(stage, F, x=720, s=stage.s * line.get("zoom", 1.35),
+                         p={"mood": line.get("mood", ["smug", "happy", "angry", "calm"][ntiny % 4]), "look": [-1, 0]})
+            hero["p"].update(line.get("act", {}))
+            mb = _mb(stage, F, pose, x=150, water=water, size=470, look="hero",
+                     moves=[{"at": "10%", "dur": 0.5, "pos": [190, F], "walk": True}] if ntiny % 2 else None)
+            cy = hy - 430 if stage.cfg.get("floor", True) else hy + 120
+            b = _beat(stage, line, F, [{"cam": [520, cy, 1.05], "to": [540, cy + 10, 1.16]}], hero, mb,
+                      ["whoosh@2%", "tink@55%"])
+            b["_tiny"] = True
         elif m == "tease":
             nscene = line.get("scene", stage.scene)
             F = stage.floor(nscene)
@@ -254,6 +275,8 @@ def expand(spec):
         else:
             raise SystemExit(f"drawn_macros: unknown macro {m!r}")
         out.append(b)
+    for x in out:
+        x.pop("_tiny", None)
     spec = copy.deepcopy(spec)
     spec["beats"] = out
     return spec
