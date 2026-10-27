@@ -1,0 +1,124 @@
+{
+ "series": "Things Living In Your House, Part 5",
+ "sources": [
+  "Penn State Extension, Cellar Spiders (S. Jacobs): family Pholcidae, often called daddy longlegs; very long thin legs, small body; live in dark damp places such as basements and crawl spaces; loose irregular webs in corners; when disturbed they vibrate rapidly in the web; feed on insects and other spiders; harmless to people; https://extension.psu.edu/cellar-spiders",
+  "UC Riverside, Spider Research (R. Vetter), The 'Daddy-long-legs Spider is the Most Venomous Spider' Myth: no evidence pholcid venom is dangerous to people; the 'fangs too short' claim is false; https://spiders.ucr.edu/daddy-long-legs-myth",
+  "Burke Museum, Spider Myths (R. Crawford): cellar spiders are a major predator of other spiders, invading webs; females carry their eggs in their jaws; https://www.burkemuseum.org/collections-and-research/biology/arachnology-and-entomology/spider-myths",
+  "MythBusters episode 13 (2004): Adam Savage let a daddy-longlegs spider bite him and felt only a brief mild burning sensation."
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "cellar_spider",
+  "scene": "basement",
+  "scene_p": {},
+  "creature_cfg": {
+   "floor": false,
+   "label": "cellar spider"
+  },
+  "s": 0.68,
+  "actor": "cellar_spider"
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "The Spider in Your Basement Hunts Black Widows",
+ "tiktok_caption": "the spider in my basement corner 🕷️ it hunts other spiders, even black widows. Would you let it stay? 🏠 stay / 🧹 broom",
+ "beats": [
+  {
+   "m": "hook",
+   "say": "There's a spider in your basement that hunts black widows."
+  },
+  {
+   "with": [
+    {
+     "type": "web",
+     "x": 540,
+     "y": 160,
+     "s": 1.0
+    }
+   ],
+   "m": "name",
+   "say": "The cellar spider. Tiny body, eight super long legs."
+  },
+  {
+   "with": [
+    {
+     "type": "widow",
+     "x": 860,
+     "s": 0.38,
+     "front": true
+    }
+   ],
+   "m": "fact",
+   "say": "It walks into other spiders' webs, and eats the owner."
+  },
+  {
+   "m": "xray",
+   "say": "People say its venom is the deadliest of all."
+  },
+  {
+   "m": "escalate",
+   "say": "But a MythBusters host let one bite him. Just a tiny burn."
+  },
+  {
+   "m": "calm",
+   "say": "To you, it's harmless."
+  },
+  {
+   "hero_p": {
+    "shiver": 1.0
+   },
+   "m": "fact",
+   "say": "Poke its web, and it shakes so fast it turns into a blur."
+  },
+  {
+   "m": "fact",
+   "say": "That blur makes it hard for a hunter to grab."
+  },
+  {
+   "m": "fact",
+   "say": "Its web is a messy tangle, up in the corner of the ceiling."
+  },
+  {
+   "m": "fact",
+   "say": "It loves dark, damp places. Basements. Crawl spaces."
+  },
+  {
+   "m": "fact",
+   "say": "And no, it's not the daddy longlegs from the garden. That one is not even a spider."
+  },
+  {
+   "how": "grow",
+   "m": "scale",
+   "say": "Its legs can be ten times longer than its body."
+  },
+  {
+   "m": "fact",
+   "say": "And the mom carries her eggs in her jaws until they hatch."
+  },
+  {
+   "m": "fact",
+   "say": "It eats flies, mosquitoes, and other spiders."
+  },
+  {
+   "m": "count",
+   "say": "So every cellar spider in the corner means fewer bugs in your house."
+  },
+  {
+   "m": "fact",
+   "say": "Want fewer? Dry out the basement, and sweep the corners."
+  },
+  {
+   "m": "punch",
+   "say": "The scariest-looking spider in your house is guarding it."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Part six can leap many times its own length."
+  }
+ ]
+}
