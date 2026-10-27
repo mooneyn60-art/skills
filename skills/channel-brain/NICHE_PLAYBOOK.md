@@ -2,7 +2,7 @@
 
 A production spec for Meatball, built from 8 outlier videos watched second by second plus about 90 outlier search results.
 
-Last Updated: 2026-10-27
+Last Updated: 2026-10-27 (Shorts length per Nolan)
 Status: active (replaces the "real footage" advice in REVIEW_2026-10-27.md)
 Audience: Meatball Town (Mayor, Showrunner, Studio, Packager), Nolan
 
@@ -80,7 +80,9 @@ The vidIQ analysts named our exact format as the contrast case: "a 2D cutout flo
     - "Animals With Impossible Superpowers"
 
 ### Lengths
-- **YouTube Shorts:** 40-60 s for an animated explainer (Nostril 40 s). Our 18-24 s rule came from the photo format; re-test it on the new look.
+- **YouTube Shorts: 20 s or less, with a seamless loop.** Nolan's own data (10/27): the 20 s Daddy Longlegs leads; the 43-88 s Shorts trail. 2026 outliers agree (animal-transformation Shorts at 12-31 s with 2-9M views). Nostril's 40 s is the exception, not the rule.
+  - Squeeze the 3-item escalation into 20 s: about 5 s per item plus the hook.
+  - Or make each item its own Short in the series ("Part 1/2/3").
 - **TikTok:** 60-90 s for Creator Rewards; the stick-figure winners also run 3.5-6.5 min.
 - **Long-form:** the brainbites structure is the template.
   - A countdown with checkpoints (Hour 1, Day 1, Week 1).
