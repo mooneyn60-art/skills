@@ -1,713 +1,128 @@
 {
- "title": "Millions of Mites Can Live in Your Mattress",
  "series": "Things Living In Your House, Part 2",
- "tiktok_caption": "dust mites in your bed 😬 they eat your dead skin while you sleep. Would you still sleep in there? 😬 yes / 🙅 no",
  "sources": [
-  "University of Kentucky Entomology, House Dust Mites (ENTFACT-646): usually visible only under a microscope; primary food is skin scales (dander) shed by people and pets; thousands of mites in a single gram of house dust; an infested mattress can hold millions; most numerous in beds, sofas, chairs and nearby carpet; allergenic proteins especially in their feces; adults live about 1-2 months; females lay about 50 eggs; about one month egg to adult; struggle below 50 percent relative humidity; encase mattresses, box springs and pillows; https://entomology.mgcafe.uky.edu/ef646",
+  "University of Kentucky Entomology, House Dust Mites (ENTFACT-646): usually visible only under a microscope; primary food is skin scales shed by people and pets, plus micro molds that grow on them; thousands of mites in a single gram of house dust; an infested mattress can hold millions; most numerous in beds, sofas, chairs and nearby carpet; allergenic proteins especially in their feces; adults live about 1-2 months; females lay about 50 eggs; about one month egg to adult; struggle below 50 percent relative humidity; encase mattresses, box springs and pillows in allergen-impermeable covers; https://entomology.mgcafe.uky.edu/ef646",
   "American Lung Association, Dust Mites: too small to see; feed on dead skin cells; get moisture from the air; do not bite, sting or burrow; allergens come from feces, urine and decaying bodies; most exposure happens during sleep; roughly four in five U.S. homes have dust mite allergens in at least one bed; keep indoor humidity below 50 percent; https://www.lung.org/clean-air/indoor-air/indoor-air-pollutants/dust-mites",
   "University of Maine Cooperative Extension, Dust Mites: eight legs; related to ticks and spiders, not insects; https://extension.umaine.edu/home-and-garden-ipm/fact-sheets/common-name-listing/dust-mites/",
   "Texas A&M Field Guide to Common Texas Insects, House Dust Mite: house dust mites do not bite; https://texasinsects.tamu.edu/house-dust-mite/"
  ],
  "photo_credits": [],
- "_note": "Fully drawn. Meatball is shrunk to mite size in the pillow-fabric world (the scale gag); the bedroom shots show the mites are invisible at normal size. Mites drawn with cartoon faces.",
  "voice": "en-US-AndrewMultilingualNeural",
  "rate": "+12%",
  "music": "sleep",
  "music_db": -26,
  "captions": 66,
  "caption_y": 1640,
+ "stage": {
+  "creature": "dust_mite",
+  "scene": "fibers",
+  "scene_p": {
+   "flakes": 14
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Millions of Mites Can Live in Your Mattress",
+ "tiktok_caption": "dust mites in your bed 😬 they eat the skin you shed while you sleep. Would you still sleep in there? 😴 yes / 🙅 no",
  "beats": [
   {
-   "say": "There are tiny monsters in your bed, eating your skin.",
-   "scene": "fibers",
-   "scene_p": {
-    "flakes": 12
+   "act": {
+    "chew": 1.0
    },
-   "pad": 0.1,
-   "shots": [
+   "with": [
     {
-     "cam": [
-      620,
-      1090,
-      1.15
-     ],
-     "to": [
-      660,
-      1100,
-      1.2
-     ]
-    },
-    {
-     "at": "eating",
-     "cam": [
-      760,
-      1180,
-      1.32
-     ],
-     "to": [
-      780,
-      1190,
-      1.38
-     ]
+     "type": "skin_flake",
+     "x": 1010,
+     "y": 1500,
+     "s": 0.8,
+     "front": true,
+     "pop": false
     }
    ],
-   "actors": [
-    {
-     "id": "m",
-     "type": "dust_mite",
-     "pos": [
-      880,
-      1480
-     ],
-     "s": 0.95,
-     "p": {
-      "mood": "happy",
-      "chew": 1.0,
-      "flake": 1.0,
-      "look": [
-       -1,
-       0
-      ]
-     }
-    },
-    {
-     "id": "m2",
-     "type": "dust_mite",
-     "pos": [
-      1300,
-      1440
-     ],
-     "s": 0.5,
-     "p": {
-      "mood": "smug",
-      "chew": 1.0
-     },
-     "depth": 0.85
-    }
-   ],
-   "mb": {
-    "pose": "shock",
-    "pos": [
-     320,
-     1480
-    ],
-    "size": 980,
-    "look": "m",
-    "shake": 0.5,
-    "moves": [
-     {
-      "at": "monsters",
-      "dur": 0.45,
-      "pos": [
-       300,
-       1480
-      ],
-      "hop": 220
-     }
-    ]
-   },
-   "sfx": [
-    "crunch@0",
-    "boing@monsters",
-    "crunch@eating",
-    "crunch@skin"
-   ]
+   "m": "hook",
+   "say": "There are tiny monsters in your bed, eating your skin."
   },
   {
-   "say": "Dust mites. Eight legs. Cousins of spiders and ticks.",
-   "keep": true,
-   "shots": [
-    {
-     "cam": [
-      820,
-      1180,
-      1.35
-     ],
-     "to": [
-      840,
-      1200,
-      1.45
-     ]
-    },
-    {
-     "at": "Cousins",
-     "cam": [
-      640,
-      1100,
-      1.15
-     ],
-     "to": [
-      660,
-      1110,
-      1.18
-     ]
-    }
-   ],
-   "actors": [
-    {
-     "id": "m",
-     "p": {
-      "chew": 0.0,
-      "flake": 0.0,
-      "mood": "happy",
-      "look": [
-       -1,
-       0
-      ]
-     },
-     "moves": [
-      {
-       "at": "Eight",
-       "dur": 0.6,
-       "pos": [
-        860,
-        1480
-       ],
-       "walk": true
-      }
-     ]
-    },
-    {
-     "id": "sp",
-     "type": "cellar_spider",
-     "pos": [
-      1180,
-      -800
-     ],
-     "s": 0.6,
-     "p": {
-      "mood": "happy"
-     },
-     "moves": [
-      {
-       "at": "spiders-0.2",
-       "dur": 0.5,
-       "pos": [
-        1180,
-        120
-       ]
-      }
-     ]
-    }
-   ],
-   "mb": {
-    "pose": "think",
-    "pos": [
-     380,
-     1480
-    ],
-    "look": "m",
-    "moves": [
-     {
-      "at": "Eight",
-      "dur": 0.5,
-      "pos": [
-       470,
-       1480
-      ],
-      "walk": true
-     }
-    ],
-    "gest": [
-     [
-      "Eight",
-      "point",
-      1.0
-     ]
-    ]
-   },
-   "sfx": [
-    "pop@mites",
-    "tink@Eight",
-    "whoosh@spiders"
-   ]
+   "m": "name",
+   "say": "Dust mites. Eight legs. Cousins of spiders and ticks."
   },
   {
-   "say": "Way too small to see.",
    "scene": "bedroom",
    "scene_p": {
-    "no_pillow": true
+    "no_pillow": true,
+    "time": "night"
    },
-   "drop": [
-    "m",
-    "m2",
-    "sp"
-   ],
-   "shots": [
+   "hero": false,
+   "mb_x": 780,
+   "prop": "magnifier",
+   "with": [
     {
-     "cam": [
-      560,
-      1080,
-      1.1
-     ],
-     "to": [
-      520,
-      1120,
-      1.32
-     ]
-    }
-   ],
-   "actors": [
-    {
-     "id": "sl",
      "type": "sleeper",
-     "pos": [
-      400,
-      1190
-     ],
+     "x": 400,
+     "y": 1190,
      "s": 1.0,
+     "pop": false,
+     "front": false,
+     "flip": false,
      "p": {
       "zz": 1.0
      }
     }
    ],
-   "mb": {
-    "pose": "point",
-    "pos": [
-     760,
-     1500
-    ],
-    "size": 980,
-    "look": "sl",
-    "prop": "magnifier",
-    "moves": [
-     {
-      "at": "small",
-      "dur": 0.5,
-      "pos": [
-       700,
-       1500
-      ],
-      "walk": true
-     }
-    ]
-   },
-   "sfx": [
-    "whoosh@0",
-    "tink@see"
-   ]
+   "m": "fact",
+   "say": "Way too small to see."
   },
   {
-   "say": "They eat the skin flakes you shed.",
-   "scene": "fibers",
-   "scene_p": {
-    "flakes": 22
+   "act": {
+    "chew": 1.0
    },
-   "shots": [
+   "with": [
     {
-     "cam": [
-      640,
-      1050,
-      1.12
-     ],
-     "to": [
-      680,
-      1080,
-      1.2
-     ]
-    }
-   ],
-   "actors": [
-    {
-     "id": "m",
-     "type": "dust_mite",
-     "pos": [
-      880,
-      1480
-     ],
-     "s": 0.95,
-     "p": {
-      "mood": "happy",
-      "chew": 0.0,
-      "flake": 0.0,
-      "look": [
-       0,
-       -1
-      ]
-     },
-     "set": [
-      {
-       "at": "flakes",
-       "p": {
-        "flake": 1.0,
-        "chew": 1.0,
-        "look": [
-         -1,
-         0
-        ]
-       }
-      }
-     ]
-    },
-    {
-     "id": "fl",
      "type": "skin_flake",
-     "pos": [
-      940,
-      200
-     ],
-     "s": 1.0,
-     "moves": [
-      {
-       "at": 0,
-       "dur": 1.0,
-       "pos": [
-        960,
-        1330
-       ],
-       "rot": 30
-      }
-     ],
-     "front": true,
-     "set": [
-      {
-       "at": "flakes",
-       "p": {
-        "hidden": true
-       }
-      }
-     ]
+     "x": 1010,
+     "y": 1500,
+     "s": 0.8,
+     "front": true
     }
    ],
-   "mb": {
-    "pose": "nervous",
-    "pos": [
-     380,
-     1480
-    ],
-    "size": 980,
-    "look": "fl",
-    "prop": null
-   },
-   "sfx": [
-    "whoosh@0.1",
-    "crunch@flakes",
-    "crunch@shed"
-   ]
+   "m": "fact",
+   "say": "They eat the skin flakes you shed."
   },
   {
-   "say": "One gram of dust can hold thousands.",
-   "keep": true,
-   "drop": [
-    "fl"
+   "with": [
+    "dust_mite",
+    "dust_mite",
+    "dust_mite"
    ],
-   "shots": [
-    {
-     "cam": [
-      660,
-      1060,
-      1.12
-     ],
-     "to": [
-      640,
-      960,
-      0.95
-     ]
-    }
-   ],
-   "actors": [
-    {
-     "id": "a1",
-     "type": "dust_mite",
-     "pos": [
-      1050,
-      1300
-     ],
-     "s": 0.0,
-     "depth": 0.9,
-     "p": {
-      "mood": "happy"
-     },
-     "moves": [
-      {
-       "at": "gram",
-       "dur": 0.3,
-       "s": 0.5
-      }
-     ]
-    },
-    {
-     "id": "a2",
-     "type": "dust_mite",
-     "pos": [
-      190,
-      1320
-     ],
-     "s": 0.0,
-     "depth": 0.9,
-     "p": {
-      "mood": "smug"
-     },
-     "moves": [
-      {
-       "at": "dust",
-       "dur": 0.3,
-       "s": 0.45
-      }
-     ]
-    },
-    {
-     "id": "a3",
-     "type": "dust_mite",
-     "pos": [
-      1010,
-      1580
-     ],
-     "s": 0.0,
-     "front": true,
-     "p": {
-      "mood": "happy",
-      "chew": 1.0
-     },
-     "moves": [
-      {
-       "at": "hold",
-       "dur": 0.3,
-       "s": 0.6
-      }
-     ]
-    },
-    {
-     "id": "a4",
-     "type": "dust_mite",
-     "pos": [
-      140,
-      1600
-     ],
-     "s": 0.0,
-     "front": true,
-     "p": {
-      "mood": "calm"
-     },
-     "moves": [
-      {
-       "at": "thousands",
-       "dur": 0.3,
-       "s": 0.55
-      }
-     ]
-    }
-   ],
-   "mb": {
-    "pose": "shock",
-    "pos": [
-     520,
-     1480
-    ],
-    "look": "viewer",
-    "shake": 0.4
-   },
-   "sfx": [
-    "pop@gram",
-    "pop@dust",
-    "pop@hold",
-    "pop@thousands"
-   ]
+   "m": "count",
+   "say": "One gram of dust can hold thousands."
   },
   {
-   "say": "They don't drink. They soak water out of the air.",
-   "keep": true,
-   "drop": [
-    "a1",
-    "a2",
-    "a3",
-    "a4"
-   ],
-   "shots": [
+   "with": [
     {
-     "cam": [
-      760,
-      1150,
-      1.28
-     ],
-     "to": [
-      780,
-      1160,
-      1.34
-     ]
-    }
-   ],
-   "actors": [
-    {
-     "id": "m",
-     "p": {
-      "flake": 0.0,
-      "chew": 0.0,
-      "mood": "smug"
-     }
-    },
-    {
-     "id": "dr",
      "type": "droplets",
-     "pos": [
-      880,
-      1220
-     ],
-     "s": 0.0,
-     "front": true,
-     "p": {
-      "n": 12
-     },
-     "moves": [
-      {
-       "at": "soak",
-       "dur": 0.3,
-       "s": 1.0
-      }
-     ]
+     "x": 820,
+     "y": 1220,
+     "s": 1.0,
+     "front": true
     }
    ],
-   "mb": {
-    "pose": "think",
-    "pos": [
-     480,
-     1480
-    ],
-    "look": "m"
-   },
-   "sfx": [
-    "tink@drink",
-    "whoosh@soak",
-    "pop@air"
-   ]
+   "m": "fact",
+   "say": "They don't drink. They soak water out of the air."
   },
   {
-   "say": "They don't bite. It's their poop that makes you sneeze.",
-   "keep": true,
-   "drop": [
-    "dr"
-   ],
-   "shots": [
-    {
-     "cam": [
-      700,
-      1120,
-      1.2
-     ],
-     "to": [
-      720,
-      1130,
-      1.24
-     ]
-    },
-    {
-     "at": "poop",
-     "cam": [
-      560,
-      1240,
-      1.4
-     ],
-     "to": [
-      540,
-      1240,
-      1.45
-     ]
-    }
-   ],
-   "actors": [
-    {
-     "id": "m",
-     "p": {
-      "mood": "happy",
-      "pellets": 0
-     },
-     "set": [
-      {
-       "at": "poop",
-       "dur": 0.6,
-       "p": {
-        "pellets": 8.0
-       }
-      }
-     ]
-    }
-   ],
-   "mb": {
-    "pose": "laugh",
-    "pos": [
-     480,
-     1480
-    ],
-    "look": "m",
-    "gest": [
-     [
-      "poop",
-      "facepalm",
-      1.5
-     ]
-    ],
-    "moves": [
-     {
-      "at": "sneeze",
-      "dur": 0.35,
-      "pos": [
-       380,
-       1480
-      ],
-      "hop": 200
-     }
-    ]
+   "act": {
+    "pellets": 8
    },
-   "sfx": [
-    "pop@poop",
-    "pop@poop+0.2",
-    "pop@poop+0.4",
-    "boing@sneeze"
-   ],
-   "shake": [
-    "sneeze"
-   ]
+   "m": "calm",
+   "say": "They don't bite. It's their poop that makes you sneeze."
   },
   {
+   "m": "tease",
    "say": "Subscribe. Part three is on your face.",
-   "keep": true,
-   "pad": 0.4,
-   "shots": [
-    {
-     "cam": [
-      600,
-      1080,
-      1.12
-     ],
-     "to": [
-      560,
-      1060,
-      1.22
-     ]
-    }
-   ],
-   "actors": [
-    {
-     "id": "m",
-     "p": {
-      "pellets": 8,
-      "mood": "smug",
-      "look": [
-       -1,
-       0
-      ]
-     }
-    }
-   ],
-   "mb": {
-    "pose": "point",
-    "pos": [
-     440,
-     1480
-    ],
-    "look": "viewer",
-    "gest": [
-     [
-      "face",
-      "psst",
-      1.2
-     ]
-    ]
-   },
-   "sfx": [
-    "pop@0.05",
-    "whoosh@face"
-   ]
+   "scene": "skin",
+   "scene_p": {
+    "night": true
+   }
   }
  ]
 }
