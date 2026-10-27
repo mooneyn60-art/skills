@@ -1,0 +1,83 @@
+slug: leech
+out: episodes/drawn-tt
+specs: scripts/drawn-tt
+series: "Meatball's Animal Files"
+variant: B
+title: Doctors Still Put Blood-Sucking Leeches on People 🩸
+tiktok_caption: "doctors still put leeches on people on purpose 🩸 it drinks up to 8x its weight in blood and it's an official medical device. Would you let one bite you? 🩸 yes / 😱 never #meatballmyths #learnontiktok #leech #animalfacts"
+creature: medicinal_leech
+actor: creature
+creature_cfg: &cfg {plan: worm, label: medicinal leech, color: "#4a5a34", dark: "#2e3a20", accent: "#d98a3a",
+                    length: 900, height: 150, stripes: 4, segments: 14, mood: angry, s: 0.6}
+hero_p: {cfg: *cfg}
+scene: swamp
+scene_p: {time: day}
+wild: swamp
+wild_p: {time: dusk}
+music: mystery
+next: Next, a frog you can see straight through.
+sources:
+  - "U.S. FDA 510(k) K040187, Medicinal Leeches (Ricarimpex), cleared June 2004: Hirudo medicinalis cleared as a medical device, an adjunct to graft healing when venous congestion threatens the tissue; https://www.accessdata.fda.gov/cdrh_docs/pdf4/K040187.pdf"
+  - "Kumar et al. / Journal of Ayurveda and Integrative Medicine (2019 review, PMC7772495), Leech therapy: saliva has more than 100 bioactive substances, is anesthetic so the host does not notice the bite, hirudin inhibits thrombin (anticoagulant); bite scar resembles the Mercedes-Benz emblem; bleeding oozes 10-48 h after the session; in 1830-1840 Europe used 60 million leeches a year; St Bartholomew's Hospital London used 97,300 leeches in 1832; used for venous congestion in reattached digits, ears, lips; https://pmc.ncbi.nlm.nih.gov/articles/PMC7772495"
+  - "Lent, Fliegner, Freedman & Dickinson (1988), Ingestive behaviour and physiology of the medicinal leech, Journal of Experimental Biology 137: meal size up to 8.15 times body mass for 1 g leeches; https://authors.library.caltech.edu/records/70c1w-4gx12"
+  - "PBS NOVA scienceNOW, Leeches (Mark Siddall, AMNH; Amir Taghinia and Joseph Upton, Beth Israel Deaconess): leeches take six to eight times their unfed weight in blood; in a reattached finger blood flows in but not out, pressure builds; the leech injects hirudin and the finger keeps bleeding after it falls off; https://www.pbs.org/wgbh/nova/body/leeches.html"
+  - "Fields/Whitaker et al., World Journal of Surgery (2000, University of Michigan Deep Blue): the medicinal leech's small anterior sucker is used for feeding, with three jaws; https://deepblue.lib.umich.edu/bitstream/handle/2027.42/42411/268-24-7-878_00240878.pdf"
+yt:
+  - hook: Doctors still put blood-sucking leeches on people. On purpose.
+    hero_moves: [{at: 0, dur: 1.2, pos: [760, 1500], walk: true}]
+  - solo: The medicinal leech. A slimy worm with a sucker at each end.
+    zoom: 1.15
+  - solo: Its mouth has three tiny jaws, lined with teeth.
+    scene: microscope
+    act: {bite: 1.0}
+  - solo: The bite leaves a scar shaped like a three-pointed star.
+    zoom: 1.15
+    scene: microscope
+    act: {bite: 1.0}
+  - solo: Its spit numbs you, so you might not even feel it.
+    zoom: 1.15
+    act: {xray: 1.0}
+  - solo: Then it drinks up to eight times its own weight in blood.
+    zoom: 1.15
+    scene: swamp
+    scene_p: {time: night}
+    act: {chew: 1.0}
+tt:
+  - solo: Its spit has more than a hundred different chemicals in it.
+    zoom: 1.15
+    scene: microscope
+    act: {xray: 1.0}
+  - solo: One of them, hirudin, stops your blood from clotting.
+    zoom: 1.15
+    scene: microscope
+  - solo: So even after it drops off, the bite keeps bleeding for hours.
+    zoom: 1.15
+  - solo: In the eighteen thirties, Europe used about sixty million leeches a year.
+    scene: study
+    scene_p: {time: night}
+  - solo: One London hospital used ninety-seven thousand in a single year.
+    zoom: 1.15
+    scene: study
+    scene_p: {time: night}
+  - solo: Then medicine moved on. Until surgeons brought it back.
+    zoom: 1.15
+    scene: office
+  - solo: When a finger gets sewn back on, blood can flow in, but not out.
+    zoom: 1.15
+    scene: office
+  - solo: The finger swells up with trapped blood, and it can die.
+    zoom: 1.15
+    scene: office
+  - solo: So they put a leech on it, and it drinks the extra blood.
+    zoom: 1.15
+    scene: office
+    act: {chew: 1.0}
+  - solo: In two thousand four, the US government cleared leeches as a medical device.
+    zoom: 1.15
+    scene: office
+  - fact: Would you let one bite you?
+    hero_at: {x: 760}
+  - solo: The worm you'd scream at in a pond is saving fingers in hospitals.
+    zoom: 1.15
+    scene: swamp
+    scene_p: {time: night}
