@@ -1,0 +1,52 @@
+slug: archerfish
+variant: A
+out: episodes/drawn-tt
+specs: scripts/drawn-tt
+series: "Meatball's Animal Files"
+title: This Fish Shoots Bugs Off Leaves and Can Learn Your Face 🎯
+tiktok_caption: "this fish shoots bugs off leaves with a jet of water 🎯 and in a lab it learned to pick out a human face. Would you let one spit in your face? 💦 sure / 🙅 no / 🥽 goggles first #meatballmyths #learnontiktok #archerfish #fish #animalfacts"
+creature: archerfish
+creature_cfg: {plan: fish, label: archerfish, color: "#d6dade", dark: "#9aa3aa", accent: "#2a2a30", stripes: 4,
+               length: 600, height: 300, mood: smug, floor: false, s: 0.65}
+s: 0.65
+scene: reef
+scene_p: {time: day, palette: {sky: "#5c9a86", ground: "#8a7a56", ground2: "#746644"},
+          props: [[seaweed, 60, 1500, 1.3], [seaweed, 1100, 1500, 1.1], [log, 1000, 1500, 0.7], [shell, 700, 1500, 1.0]]}
+wild: reef
+wild_p: {time: day, palette: {sky: "#3f7a66", ground: "#7a6a4a", ground2: "#655638"},
+         props: [[seaweed, 120, 1500, 1.2], [seaweed, 980, 1500, 1.2], [log, 1050, 1500, 0.8]]}
+music: mystery
+next: Next, a beetle that finds its way home using the Milky Way.
+sources:
+  - "Fishes of Australia (Museums Victoria), Family Toxotidae, Archerfishes: shoot powerful jets of water at terrestrial insects, knocking them into the water, hitting prey at more than ten times their body length; the palate groove becomes a tube when the tongue is pressed against it; they also spray bottom sediment to dislodge buried prey; mangrove-lined estuaries and fresh waters from India to Vanuatu and northern Australia; https://fishesofaustralia.net.au/home/family/313"
+  - "Los Angeles Zoo, Banded Archerfish: adults can fire as many as seven jets of water up to six feet in rapid succession; presses its tongue onto a groove along the roof of its mouth; young archerfish learn to adjust for the refraction of light; lives in mangrove swamps; https://lazoo.org/explore-your-zoo/our-animals/fish/banded-archerfish"
+  - "Newport C., Wallis G., Reshitnyk Y. and Siebeck U.E. (2016), Discrimination of human faces by archerfish (Toxotes chatareus), Scientific Reports 6: 27523 (Oxford and University of Queensland), reported by Smithsonian Magazine: fish trained to spit at one face picked it out from up to 44 new faces, with up to 81 per cent accuracy; https://www.smithsonianmag.com/smart-news/some-fish-can-be-taught-recognize-human-faces-180959340/"
+yt:
+  - hook: This fish shoots bugs off leaves with a water gun in its mouth. And it can learn your face.
+  - name: The archerfish. It lives in mangrove swamps, from India to Australia.
+  - fact: It spots a bug sitting on a leaf, above the water.
+    scene: swamp
+    scene_p: {time: day}
+    hero_at: {x: 690, y: 1660}
+    with: [{sp: fly, x: 720, y: 1150, s: 0.6}]
+  - escalate: Then it fires. A jet of water knocks the bug right into the water.
+    scene: swamp
+    scene_p: {time: day}
+    hero_at: {x: 690, y: 1660}
+    with: [{sp: fly, x: 720, y: 1150, s: 0.6}]
+  - xray: How? It presses its tongue into a groove in its mouth. A water gun barrel.
+  - calm: The bug never sees it coming.
+tt:
+  - fact: It can hit prey more than ten times its own body length away.
+  - fact: An adult can fire up to seven shots in a row.
+    act: {talk: 1.0}
+  - solo: And here's the hard part. Its eyes are underwater. The bug is in the air.
+  - fact: Light bends at the surface. Young fish learn to adjust their aim for that.
+  - solo: It even spits at the mud, to blast buried food loose.
+    act: {talk: 1.0}
+  - fact: Then scientists showed archerfish pictures of human faces.
+  - escalate: They trained them to spit at one face, and they picked it out from up to forty four strangers.
+  - fact: The best scores? About eight times out of ten.
+  - solo: Would you let one spit in your face?
+    act: {mood: smug}
+  - punch: A fish with a water gun, and it remembers your face.
