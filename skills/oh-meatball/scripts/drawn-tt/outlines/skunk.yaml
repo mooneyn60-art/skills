@@ -1,0 +1,44 @@
+slug: skunk
+variant: A
+out: episodes/drawn-tt
+specs: scripts/drawn-tt
+series: "Meatball's Animal Files"
+title: A Skunk Can Hit You in the Face From 10 Feet Away 🦨
+tiktok_caption: "a skunk can hit you in the face from 10 feet away 🦨 it has about a dozen shots and can aim backwards. Would you pet one? 🖐️ yes / 🏃 run / 🧼 only with a gallon of peroxide #meatballmyths #learnontiktok #skunk #animalfacts"
+creature: striped_skunk
+creature_cfg: {plan: mammal, label: striped skunk, color: "#1f1f24", dark: "#0f0f12", belly: "#f2f2f2", ears: round,
+               whiskers: true, tail: fluffy, length: 520, height: 260, leg_len: 70, leg_w: 30, mood: smug, s: 0.78}
+s: 0.78
+scene: garden
+scene_p: {time: night}
+wild: forest_floor
+wild_p: {time: dusk}
+music: mystery
+next: Next, a bird that hammers its face into wood all day, and doesn't get a headache.
+sources:
+  - "Texas Parks and Wildlife, Introducing Mammals: Skunks: each of the two glands holds about a tablespoon of musk, enough for five or six shots; a full refill takes several days; can fire right, left, front and back without turning around; targets within ten to twelve feet usually in range; warns by arching its back, raising its tail and stamping its front feet, and may rear on its front legs as if doing a handstand to spray over its head; a direct hit in the face can cause painful but temporary blindness; insects and grubs are at least half its diet; great horned owls and coyotes occasionally kill skunks; https://tpwd.texas.gov/publications/nonpwdpubs/introducing_mammals/skunks"
+  - "Illinois Department of Natural Resources, Wildlife Illinois, Striped Skunk: size of a small house cat; can accurately direct its musk up to 10 feet, some reaching nearly 20 feet; stamps its front feet and raises its tail as a warning; the musk is butyl mercaptan, a strong sulfur odor; can carry rabies; odor-removal mix of 3% hydrogen peroxide, baking soda and liquid soap; https://wildlifeillinois.org/identify-wildlife/striped-skunk/"
+  - "National Geographic Kids, Skunk: great horned owls are a main predator, and scientists think their weak sense of smell makes the spray useless against them; https://kids.nationalgeographic.com/animals/mammals/skunk/"
+yt:
+  - hook: A skunk can hit you in the face from ten feet away.
+  - name: The striped skunk. About the size of a house cat.
+  - fact: Under its tail, two glands, each holding about a tablespoon of stinky musk.
+  - escalate: That's enough for ten or twelve shots.
+  - fact: And it can aim left, right, front, or back, without even turning around.
+  - calm: The smell is a sulfur chemical, called butyl mercaptan.
+tt:
+  - fact: Luckily, it warns you first. It stamps its front feet, and raises its tail.
+  - fact: It can even rear up on its front legs, like a handstand, to spray over its head.
+    act: {wave: 1.0}
+  - escalate: Ignore the warning, and it fires. A hit in the face can mean painful, temporary blindness.
+  - fact: After that, it takes several days to fully refill.
+  - solo: At night, it hunts insects and grubs. They're at least half of what it eats.
+    hero_at: {x: 480}
+    act: {chew: 1.0}
+  - solo: But one hunter doesn't care about the stink. The great horned owl.
+    hero_at: {x: 480}
+    act: {mood: shock}
+  - fact: Scientists think owls have such a weak sense of smell, the spray barely bothers them.
+  - fact: Got sprayed? Wildlife experts suggest peroxide, baking soda, and a little soap.
+  - fact: Would you pet one?
+  - punch: Cat sized, a dozen shots of stink, and it can aim backwards.
