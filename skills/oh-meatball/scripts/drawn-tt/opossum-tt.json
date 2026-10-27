@@ -1,0 +1,126 @@
+{
+ "series": "Meatball's Animal Files, Part",
+ "sources": [
+  "North Carolina Wildlife Resources Commission, Virginia Opossum species profile: when cornered they hiss and drool as a threat display; will feign death while defecating and emitting a foul-smelling greenish substance from its anal glands; 50 teeth, more than any other North American mammal; young weigh 0.13 grams at birth; highly resistant to rabies; resistant to the venom of common venomous snakes; prehensile, nearly hairless tail; https://www.ncwildlife.gov/species/virginia-opossum",
+  "National Park Service, Virginia Opossum: may fall into a catatonic state when too stressed, 'playing possum' is an involuntary reaction; 50 teeth, more than any North American land mammal; https://www.nps.gov/cwdw/learn/nature/virginia-opossum.htm",
+  "The Nature Conservancy, Cool Green Science, 'Strange and Surprising Facts about Opossums' (2021): remains in the death-feigning state for minutes to hours; emits a foul substance from its anus with a corpse-like smell; teeth visible as in a death grimace; newborns about the size of a honeybee; a litter may be 25 young but females have only 13 nipples, a baby that doesn't fasten to a nipple dies; resistant to most snake venom including rattlesnake and copperhead; rarely contracts rabies; https://blog.nature.org/2021/05/11/strange-and-surprising-facts-about-opossums",
+  "Maryland Department of Natural Resources, Opossum: the only marsupial (pouched mammal) native to North America; fakes illness by drooling, which can deter predators since many avoid sick prey; cannot hang upside down by its tail but uses it to climb; exactly 50 teeth; babies the size of a honeybee at birth, nurse in the pouch for two months; mother often carries young on her back; https://dnr.maryland.gov/wildlife/Pages/plants_wildlife/opossum.aspx"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "opossum",
+  "scene": "garden",
+  "scene_p": {
+   "time": "night"
+  },
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "opossum",
+   "color": "#c9c4bc",
+   "dark": "#8f8a84",
+   "belly": "#ece8e2",
+   "ears": "round",
+   "tail": "thin",
+   "tail_color": "#e8c8c0",
+   "length": 640
+  },
+  "wild": "forest_floor",
+  "wild_p": {
+   "time": "night"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "This Animal Fakes Its Own Death and Smells Like a Corpse 💀",
+ "tiktok_caption": "the possum in my yard dropped dead… then got up 💀 it drools, bares 50 teeth and leaks corpse-smelling goo. Would you poke a 'dead' possum? 👉 poke it / 🏃 run #meatballmyths #learnontiktok #opossum #animalfacts",
+ "beats": [
+  {
+   "m": "hook",
+   "say": "When it's scared, this animal fakes its own death. And makes itself smell like a corpse."
+  },
+  {
+   "m": "name",
+   "say": "The Virginia opossum. North America's only pouched mammal."
+  },
+  {
+   "zoom": 1.05,
+   "m": "solo",
+   "say": "Corner one at night, and first, it hisses and drools."
+  },
+  {
+   "m": "fact",
+   "say": "Then it drops. Mouth open. Teeth showing, like a death grin."
+  },
+  {
+   "m": "escalate",
+   "say": "And it leaks a green goo from its rear end that smells like a rotting body."
+  },
+  {
+   "m": "calm",
+   "say": "It can lie there for minutes. Or for hours."
+  },
+  {
+   "m": "fact",
+   "say": "Here's the weird part. It isn't acting."
+  },
+  {
+   "m": "xray",
+   "say": "It's an automatic reaction. It doesn't choose to do it."
+  },
+  {
+   "m": "fact",
+   "say": "Many hunters avoid prey that looks sick. And this looks very sick."
+  },
+  {
+   "m": "count",
+   "say": "And look at that grin. Fifty teeth. More than any other land mammal in North America."
+  },
+  {
+   "zoom": 1.05,
+   "m": "solo",
+   "say": "Its tail grabs branches as it climbs."
+  },
+  {
+   "m": "fact",
+   "say": "But no, it can't hang upside down by its tail. That's a cartoon."
+  },
+  {
+   "how": "shrink",
+   "m": "scale",
+   "say": "Its babies are born the size of a honeybee."
+  },
+  {
+   "m": "escalate",
+   "say": "A mom can have up to twenty-five babies. But she only has thirteen nipples."
+  },
+  {
+   "m": "fact",
+   "say": "The babies that don't grab one, don't survive."
+  },
+  {
+   "m": "fact",
+   "say": "It shrugs off the venom of most snakes, like rattlesnakes and copperheads."
+  },
+  {
+   "m": "fact",
+   "say": "And it almost never gets rabies."
+  },
+  {
+   "m": "fact",
+   "say": "So if you find one lying still and stinking, would you poke it?"
+  },
+  {
+   "m": "punch",
+   "say": "The best way to win a fight? Drop dead, and stink."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, a caterpillar that turns itself into a fake snake."
+  }
+ ]
+}
