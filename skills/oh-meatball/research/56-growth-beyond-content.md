@@ -37,3 +37,10 @@ for the dropped case-file show) for the drawn animal show.
 3. Create the 3 YouTube playlists and 2 TikTok playlists (lever 4).
 4. Say yes or no to us drafting comment replies for you to post.
 5. Send one TikTok Studio "Traffic source" screenshot for any house TikTok.
+
+## Lever 2 done: YouTube moves (10/28)
+- **20 YouTube posts moved** (non-draft, YouTube-only), publication dates 10/29 to 11/13. Nothing at 19:00 or later was left after 11/13; 11/14 to 11/24 had no non-draft YouTube posts in that window. 10/28, drafts and TikTok were not touched.
+- **Rule:** each day, try 15:00, 15:30, 16:00, 16:30, then 14:30. Take the first one with no other non-draft YouTube post within 30 minutes (30 minutes apart counts as a clash), counting posts already moved. Long-forms get first pick of 15:00 or 16:00 (none were in scope). House-series parts stay in order.
+- **Result:** 13 Shorts 19:00 → 15:00 (wheel bug 10/29 → 14:30), and 7 house Shorts 21:30 → 15:00 or 16:00 (Parts 9 and 12-18).
+- **Left at 21:30:** house Parts 6, 7, 8, 10 and 11 (10/29 to 11/3). Every target slot was within 30 minutes of an existing YouTube post (case Shorts at 15:30/16:00, long-form at 17:00). They can move after the 15:30/16:00 case slots clear.
+- TikTok moves (21:00 → 10:00, 14:30 → 12:00/18:00) are still to do.
