@@ -74,11 +74,19 @@
    "hero_at": {
     "x": 720
    },
+   "gag": {
+    "prop": "magnifier",
+    "at": "30%"
+   },
    "m": "hook",
    "say": "That fruit fly? It probably rode home on your bananas."
   },
   {
    "scene": "kitchen",
+   "gag": {
+    "prop": "ruler",
+    "at": "70%"
+   },
    "m": "solo",
    "say": "The fruit fly. About the size of a sesame seed."
   },
@@ -87,12 +95,22 @@
    "scene_p": {
     "time": "dusk"
    },
+   "gag": {
+    "pile": "egg",
+    "n": 6,
+    "r": 24,
+    "at": "30%"
+   },
    "m": "solo",
    "say": "Its eggs often ride in on the fruit itself."
   },
   {
    "act": {
     "chew": 1.0
+   },
+   "gag": {
+    "mark": "stink",
+    "at": "70%"
    },
    "m": "solo",
    "say": "Outside, it lives on ripe, rotting fruit."
@@ -117,6 +135,13 @@
     "fly",
     "fly"
    ],
+   "gag": {
+    "pile": "egg",
+    "n": 10,
+    "r": 24,
+    "at": "50%",
+    "dur": 1.8
+   },
    "m": "solo",
    "say": "One female can lay about five hundred eggs."
   },
@@ -124,6 +149,10 @@
    "scene": "kitchen",
    "act": {
     "fly": 1.0
+   },
+   "gag": {
+    "clock": 3,
+    "at": "30%"
    },
    "m": "solo",
    "say": "In about ten days, the babies are adults."

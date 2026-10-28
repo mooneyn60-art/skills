@@ -73,6 +73,12 @@
      "walk": true
     }
    ],
+   "gag": {
+    "pile": "heart",
+    "n": 3,
+    "r": 40,
+    "at": "40%"
+   },
    "m": "hook",
    "say": "This animal has three hearts, and blue blood."
   },
@@ -87,12 +93,20 @@
    "hero_at": {
     "x": 760
    },
+   "gag": {
+    "heart": 2,
+    "at": "60%"
+   },
    "m": "fact",
    "say": "Two hearts pump blood through its gills. The third pumps it around the body."
   },
   {
    "hero_at": {
     "x": 760
+   },
+   "gag": {
+    "mark": "sweat",
+    "at": "70%"
    },
    "m": "xray",
    "say": "And that third heart stops beating when it swims. So it would rather crawl."
@@ -101,16 +115,30 @@
    "hero_at": {
     "x": 760
    },
+   "gag": {
+    "pile": "coin",
+    "n": 4,
+    "at": "60%"
+   },
    "m": "escalate",
    "say": "Its blood is blue, because it's built on copper, not iron."
   },
   {
+   "gag": {
+    "mark": "dizzy",
+    "at": "50%"
+   },
    "m": "calm",
    "say": "And most of its brain isn't even in its head."
   },
   {
    "hero_at": {
     "x": 760
+   },
+   "gag": {
+    "zap": true,
+    "at": "60%",
+    "len": 300
    },
    "m": "fact",
    "say": "Two-thirds of its nerve cells are in its arms."
@@ -126,6 +154,10 @@
    "act": {
     "mood": "smug"
    },
+   "gag": {
+    "mark": "stars",
+    "at": "50%"
+   },
    "m": "solo",
    "say": "It can change color in an instant, and even change the bumps on its skin."
   },
@@ -139,6 +171,11 @@
   {
    "hero_at": {
     "x": 760
+   },
+   "gag": {
+    "clock": 6,
+    "at": "60%",
+    "dur": 1.8
    },
    "m": "fact",
    "say": "Its family is ancient. Its oldest known ancestor lived three hundred thirty million years ago."
@@ -155,6 +192,10 @@
    "hero_at": {
     "x": 760
    },
+   "gag": {
+    "thought": "fish",
+    "at": "70%"
+   },
    "m": "fact",
    "say": "One was reported sneaking into the next aquarium tank to steal fish."
   },
@@ -162,6 +203,16 @@
    "hero_at": {
     "x": 760
    },
+   "gag": [
+    {
+     "mark": "hearts",
+     "at": "60%"
+    },
+    {
+     "prop": "skull",
+     "at": "85%"
+    }
+   ],
    "m": "fact",
    "say": "But its life is short. Males die soon after mating."
   },
@@ -176,12 +227,22 @@
      "front": true
     }
    ],
+   "gag": {
+    "pile": "egg",
+    "n": 8,
+    "r": 26,
+    "at": "40%"
+   },
    "m": "solo",
    "say": "And moms guard their eggs, then die after they hatch."
   },
   {
    "hero_at": {
     "x": 760
+   },
+   "gag": {
+    "zap": true,
+    "at": "50%"
    },
    "m": "escalate",
    "say": "Here's the creepiest part. A cut-off arm can still react, even from a dead octopus."

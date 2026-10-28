@@ -79,12 +79,28 @@
      "walk": true
     }
    ],
+   "gag": [
+    {
+     "pile": "egg",
+     "n": 3,
+     "r": 40,
+     "at": "40%"
+    },
+    {
+     "mark": "stars",
+     "at": "80%"
+    }
+   ],
    "m": "hook",
    "say": "No stomach. Lays eggs. And it glows under a blacklight."
   },
   {
    "hero_at": {
     "x": 800
+   },
+   "gag": {
+    "prop": "magnifier",
+    "at": "40%"
    },
    "m": "name",
    "say": "The platypus. A duck bill, on a furry mammal."
@@ -113,6 +129,10 @@
     "time": "night"
    },
    "mood": "shock",
+   "gag": {
+    "mark": "shock",
+    "at": "50%"
+   },
    "m": "solo",
    "say": "No stomach at all."
   },
@@ -141,12 +161,20 @@
      "mood": "happy"
     }
    },
+   "gag": {
+    "mark": "stars",
+    "at": "60%"
+   },
    "m": "solo",
    "say": "Shine an ultraviolet light on it, and its fur glows blue-green."
   },
   {
    "hero_at": {
     "x": 800
+   },
+   "gag": {
+    "zap": true,
+    "at": "70%"
    },
    "m": "escalate",
    "say": "And the males have venom spurs on their back legs."

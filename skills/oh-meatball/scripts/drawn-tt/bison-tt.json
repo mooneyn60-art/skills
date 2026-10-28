@@ -105,14 +105,32 @@
  "tiktok_caption": "the animal that hurts the most people in yellowstone isn't a bear 🦬 it's a grass eater that runs 35 mph. Would you walk up to one for a selfie? 📸 yes / 🏃 no way / 🚗 stay in the car #meatballmyths #learnontiktok #bison #yellowstone #animalfacts",
  "beats": [
   {
+   "gag": [
+    {
+     "prop": "trophy",
+     "at": "30%"
+    },
+    {
+     "mark": "anger",
+     "at": "80%"
+    }
+   ],
    "m": "hook",
    "say": "The animal that hurts the most people in Yellowstone isn't a bear. It's this."
   },
   {
+   "gag": {
+    "prop": "crown",
+    "at": "60%"
+   },
    "m": "name",
    "say": "The American bison. The biggest land animal in North America."
   },
   {
+   "gag": {
+    "meter": 1.0,
+    "at": "40%"
+   },
    "m": "fact",
    "say": "A bull can weigh two thousand pounds, and stand six feet tall."
   },
@@ -120,14 +138,26 @@
    "hero_at": {
     "x": 600
    },
+   "gag": {
+    "mark": "zzz",
+    "at": "40%"
+   },
    "m": "solo",
    "say": "It looks slow and sleepy, munching grass all day."
   },
   {
+   "gag": {
+    "meter": 0.9,
+    "at": "30%"
+   },
    "m": "escalate",
    "say": "But it can run thirty five miles an hour. Three times faster than you."
   },
   {
+   "gag": {
+    "mark": "anger",
+    "at": "85%"
+   },
    "m": "calm",
    "say": "It just stands there, chewing. Until it doesn't."
   },
@@ -136,14 +166,26 @@
    "say": "So watch the tail. Hanging down and swishing usually means it's calm."
   },
   {
+   "gag": {
+    "mark": "alarm",
+    "at": "40%"
+   },
    "m": "escalate",
    "say": "Tail sticking straight up? It may be about to charge."
   },
   {
+   "gag": {
+    "mark": "dizzy",
+    "at": "20%"
+   },
    "m": "fact",
    "say": "It can spin on the spot, and jump over a five foot fence."
   },
   {
+   "gag": {
+    "meter": 1.0,
+    "at": "60%"
+   },
    "m": "fact",
    "say": "That giant hump isn't fat. It's a wall of muscle."
   },
@@ -173,6 +215,10 @@
      ]
     ]
    },
+   "gag": {
+    "prop": "snowflake",
+    "at": "10%"
+   },
    "m": "solo",
    "say": "In winter, it swings its huge head like a snowplow, to dig grass out of the snow."
   },
@@ -185,12 +231,20 @@
    "say": "It rolls around in the dirt, to scare off biting flies and rub off old fur."
   },
   {
+   "gag": {
+    "prop": "skull",
+    "at": "70%"
+   },
    "m": "fact",
    "say": "Once, tens of millions may have roamed. By nineteen oh two, Yellowstone had about two dozen left."
   },
   {
    "hero_at": {
     "x": 600
+   },
+   "gag": {
+    "prop": "trophy",
+    "at": "60%"
    },
    "m": "solo",
    "say": "Now it's the national mammal of the United States."

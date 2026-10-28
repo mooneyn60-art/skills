@@ -59,6 +59,16 @@
    "hero_at": {
     "x": 760
    },
+   "gag": [
+    {
+     "meter": 1.0,
+     "at": "40%"
+    },
+    {
+     "zap": true,
+     "at": "50%"
+    }
+   ],
    "m": "hook",
    "say": "One kind of electric eel can hit eight hundred sixty volts."
   },
@@ -76,12 +86,20 @@
    },
    "scene": "deep",
    "mood": "smug",
+   "gag": {
+    "mark": "shock",
+    "at": "60%"
+   },
    "m": "solo",
    "say": "First, a secret. It isn't actually an eel."
   },
   {
    "hero_at": {
     "x": 760
+   },
+   "gag": {
+    "thought": "fish",
+    "at": "60%"
    },
    "m": "name",
    "say": "It's a knifefish, closer to catfish than to eels."
@@ -90,6 +108,10 @@
    "how": "grow",
    "hero_at": {
     "x": 760
+   },
+   "gag": {
+    "prop": "ruler",
+    "at": "50%"
    },
    "m": "scale",
    "say": "And it grows up to eight feet long."
@@ -114,6 +136,10 @@
      "mood": "angry"
     }
    },
+   "gag": {
+    "zap": true,
+    "at": "60%"
+   },
    "m": "solo",
    "say": "Most of that body is packed with electric organs."
   },
@@ -132,6 +158,10 @@
   {
    "hero_at": {
     "x": 760
+   },
+   "gag": {
+    "mark": "anger",
+    "at": "40%"
    },
    "m": "chase",
    "say": "Threaten it, and it leaps out of the water at you."

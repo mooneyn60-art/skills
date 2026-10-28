@@ -70,12 +70,20 @@
    "hero_at": {
     "x": 720
    },
+   "gag": {
+    "mark": "shock",
+    "at": "60%"
+   },
    "m": "hook",
    "say": "That fuzzy fly on your bathroom wall? It grew up in your drain."
   },
   {
    "hero_at": {
     "x": 720
+   },
+   "gag": {
+    "thought": "heart",
+    "at": "70%"
    },
    "m": "name",
    "say": "The drain fly. Fuzzy wings, shaped like a heart."
@@ -88,6 +96,10 @@
    "act": {
     "fly": 1.0
    },
+   "gag": {
+    "mark": "sweat",
+    "at": "40%"
+   },
    "m": "solo",
    "say": "It barely flies. It just hops along the wall."
   },
@@ -96,6 +108,13 @@
    "scene_p": {
     "time": "night"
    },
+   "gag": {
+    "pile": "egg",
+    "n": 10,
+    "r": 24,
+    "at": "50%",
+    "dur": 1.8
+   },
    "m": "solo",
    "say": "Mom lays up to a hundred eggs."
   },
@@ -103,6 +122,10 @@
    "scene": "swamp",
    "scene_p": {
     "time": "night"
+   },
+   "gag": {
+    "mark": "stink",
+    "at": "60%"
    },
    "m": "solo",
    "say": "Right in the slime inside your drain."
@@ -129,6 +152,12 @@
    "act": {
     "chew": 1.0
    },
+   "gag": {
+    "pile": "baby",
+    "n": 5,
+    "r": 26,
+    "at": "40%"
+   },
    "m": "solo",
    "say": "The babies are tiny worms that eat the slime."
   },
@@ -149,6 +178,10 @@
    "hero_at": {
     "x": 760,
     "y": 1500
+   },
+   "gag": {
+    "mark": "shock",
+    "at": "60%"
    },
    "m": "escalate",
    "say": "And they breathe through a snorkel on their butt."
