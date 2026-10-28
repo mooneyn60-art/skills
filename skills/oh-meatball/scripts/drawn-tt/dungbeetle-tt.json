@@ -63,6 +63,17 @@
  "tiktok_caption": "this beetle steers its poop ball by the milky way 🌌 and cools off on top of it. Would you let one crawl on you? 🪲 yes / 💩 not after where it's been / 🙅 no #meatballmyths #learnontiktok #dungbeetle #insects #animalfacts",
  "beats": [
   {
+   "gag": [
+    {
+     "prop": "moon",
+     "at": "30%"
+    },
+    {
+     "pile": "poop",
+     "n": 3,
+     "at": "70%"
+    }
+   ],
    "m": "hook",
    "say": "This beetle steers by the Milky Way, while rolling a ball of poop."
   },
@@ -71,10 +82,18 @@
    "say": "So I shrank myself down to beetle size, to follow one."
   },
   {
+   "gag": {
+    "thought": "poop",
+    "at": "70%"
+   },
    "m": "tiny",
    "say": "The dung beetle. It lives on poop."
   },
   {
+   "gag": {
+    "meter": 1.0,
+    "at": "50%"
+   },
    "m": "tiny",
    "say": "It packs dung into a ball, up to fifty times heavier than itself."
   },
@@ -90,6 +109,10 @@
      "walk": true
     }
    ],
+   "gag": {
+    "mark": "sweat",
+    "at": "50%"
+   },
    "m": "tiny",
    "say": "Then it rolls it away in a straight line, fast, before another beetle steals it."
   },
@@ -108,6 +131,10 @@
    "act": {
     "mood": "calm"
    },
+   "gag": {
+    "mark": "stars",
+    "at": "70%"
+   },
    "m": "solo",
    "say": "At night, it keeps that line, by the glow of the Milky Way."
   },
@@ -122,6 +149,10 @@
    },
    "act": {
     "mood": "shock"
+   },
+   "gag": {
+    "prop": "magnifier",
+    "at": "30%"
    },
    "m": "tiny",
    "say": "To test it, scientists put tiny cardboard hats on the beetles, to block the sky."
@@ -138,6 +169,10 @@
    "act": {
     "mood": "worry"
    },
+   "gag": {
+    "mark": "dizzy",
+    "at": "40%"
+   },
    "m": "tiny",
    "say": "With hats on, they rolled around, lost."
   },
@@ -150,6 +185,10 @@
    "scene": "cave",
    "scene_p": {
     "time": "night"
+   },
+   "gag": {
+    "mark": "stars",
+    "at": "50%"
    },
    "m": "tiny",
    "say": "In a planetarium, the Milky Way alone was enough to steer by."
@@ -171,6 +210,16 @@
      ]
     ]
    },
+   "gag": [
+    {
+     "meter": 1.0,
+     "at": "20%"
+    },
+    {
+     "mark": "sweat",
+     "at": "50%"
+    }
+   ],
    "m": "tiny",
    "say": "By day, the sand gets hot. So it climbs on top of its ball, to cool its feet."
   },
@@ -234,6 +283,10 @@
      ]
     ]
    },
+   "gag": {
+    "thought": "baby",
+    "at": "60%"
+   },
    "m": "tiny",
    "say": "Then it buries the ball. That poop becomes food for its babies."
   },
@@ -263,6 +316,16 @@
    "act": {
     "mood": "angry"
    },
+   "gag": [
+    {
+     "meter": 1.0,
+     "at": "40%"
+    },
+    {
+     "prop": "trophy",
+     "at": "80%"
+    }
+   ],
    "m": "tiny",
    "say": "And one kind can pull more than a thousand times its own body weight."
   },
@@ -276,7 +339,7 @@
   },
   {
    "m": "tease",
-   "say": "Subscribe. Next, an animal that almost always has identical quadruplets."
+   "say": "Follow me. Next, an animal that almost always has identical quadruplets."
   }
  ]
 }

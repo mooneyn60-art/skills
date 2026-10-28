@@ -74,6 +74,10 @@
    "hero_at": {
     "x": 720
    },
+   "gag": {
+    "prop": "rocket",
+    "at": "70%"
+   },
    "m": "hook",
    "say": "The moss on your roof is full of tiny animals that survived space."
   },
@@ -85,6 +89,10 @@
   {
    "scene": "microscope",
    "mood": "smug",
+   "gag": {
+    "prop": "ruler",
+    "at": "60%"
+   },
    "m": "solo",
    "say": "Most are about half a millimeter long."
   },
@@ -109,6 +117,10 @@
    "act": {
     "mood": "calm"
    },
+   "gag": {
+    "mark": "zzz",
+    "at": "60%"
+   },
    "m": "solo",
    "say": "When the moss dries out, it curls into a ball."
   },
@@ -120,6 +132,10 @@
    "act": {
     "mood": "calm"
    },
+   "gag": {
+    "clock": 4,
+    "at": "40%"
+   },
    "m": "solo",
    "say": "Its body almost stops working, and waits."
   },
@@ -129,12 +145,20 @@
     "time": "dusk"
    },
    "mood": "happy",
+   "gag": {
+    "mark": "alarm",
+    "at": "50%"
+   },
    "m": "solo",
    "say": "Add water, and it wakes up."
   },
   {
    "hero_at": {
     "x": 720
+   },
+   "gag": {
+    "clock": 0,
+    "at": "60%"
    },
    "m": "punch",
    "say": "Basically, it can pause its own life."
@@ -144,6 +168,10 @@
    "scene_p": {
     "time": "night"
    },
+   "gag": {
+    "prop": "rocket",
+    "at": "50%"
+   },
    "m": "solo",
    "say": "In 2007, scientists sent dried ones into space."
   },
@@ -151,6 +179,10 @@
    "scene": "deep",
    "scene_p": {
     "time": "night"
+   },
+   "gag": {
+    "mark": "shock",
+    "at": "50%"
    },
    "m": "solo",
    "say": "Outside the spacecraft, in the empty vacuum."
@@ -167,6 +199,10 @@
     "time": "day"
    },
    "mood": "smug",
+   "gag": {
+    "zap": true,
+    "at": "40%"
+   },
    "m": "solo",
    "say": "Some even survived the sun's raw radiation."
   },
@@ -178,6 +214,16 @@
    "act": {
     "mood": "calm"
    },
+   "gag": [
+    {
+     "mark": "ice",
+     "at": "40%"
+    },
+    {
+     "clock": 5,
+     "at": "70%"
+    }
+   ],
    "m": "solo",
    "say": "Another was frozen in Antarctic moss for thirty years."
   },
@@ -187,6 +233,10 @@
     "time": "day"
    },
    "mood": "happy",
+   "gag": {
+    "mark": "stars",
+    "at": "60%"
+   },
    "m": "solo",
    "say": "Scientists thawed it. It came back to life."
   },
@@ -194,6 +244,12 @@
    "scene": "forest_floor",
    "scene_p": {
     "time": "dusk"
+   },
+   "gag": {
+    "pile": "baby",
+    "n": 4,
+    "r": 26,
+    "at": "50%"
    },
    "m": "solo",
    "say": "And it even had babies afterwards."
@@ -212,6 +268,10 @@
    "act": {
     "chew": 1.0
    },
+   "gag": {
+    "thought": "leaf",
+    "at": "60%"
+   },
    "m": "tiny",
    "say": "It stabs moss cells and slurps out the juice."
   },
@@ -219,6 +279,10 @@
    "scene": "garden",
    "scene_p": {
     "time": "dusk"
+   },
+   "gag": {
+    "mark": "sweat",
+    "at": "50%"
    },
    "m": "tiny",
    "say": "Awake, though, it's actually pretty fragile."
@@ -239,6 +303,10 @@
   {
    "scene": "microscope",
    "mood": "happy",
+   "gag": {
+    "prop": "magnifier",
+    "at": "60%"
+   },
    "m": "solo",
    "say": "Then look with a cheap microscope."
   },
@@ -253,12 +321,16 @@
    "hero_at": {
     "x": 720
    },
+   "gag": {
+    "prop": "trophy",
+    "at": "50%"
+   },
    "m": "punch",
    "say": "The toughest animal at your house is half a millimeter long."
   },
   {
    "m": "tease",
-   "say": "Subscribe. More things living in your house, soon."
+   "say": "Follow me. More things living in your house, soon."
   }
  ]
 }
