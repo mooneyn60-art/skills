@@ -1,0 +1,104 @@
+slug: wolf-spider
+series: Is This Spider Venomous?
+part: 1
+title: Is This Spider Venomous? [Wolf Spider] 🕷️ (#1)
+tiktok_caption: 'is this spider venomous? wolf spider 🕷️ the big hairy spider running
+  across your floor, with babies on its back. Is a wolf spider dangerous, and how to
+  tell it from a brown recluse. Would you let one live in your garage? 🏠 yes / 🔥 no
+  #isthisspidervenomous #wolfspider #spiders #meatballmyths #learnontiktok'
+creature: wolf_spider
+scene: bedroom
+scene_p:
+  time: night
+wild: forest_floor
+wild_p:
+  time: night
+music: mystery
+next: Part two is the spider hiding in your shoes.
+next_scene: basement
+sources:
+- 'Missouri Department of Conservation, Field Guide: Wolf Spiders: a row of four small
+  eyes below the four larger ones; at night, shine a flashlight held beside your eyes
+  and their eyes shine back at you like a cat''s; they do not spin webs, they run prey
+  down; the female attaches her egg sac to her spinnerets and later carries her babies
+  on her back; body length 1/4 inch to 1 inch depending on species; North American
+  wolf spider bites are harmless; https://mdc.mo.gov/discover-nature/field-guide/wolf-spiders'
+- 'Penn State Extension, Wolf Spiders: bite if mishandled or trapped next to the skin;
+  initial pain and redness, possibly localized swelling, subsiding within 24 hours;
+  no serious medical consequences of these bites have been noted; females commonly
+  carry their young on their backs in summer; build retreats in soil and under objects
+  and come out at night to look for prey; fertilized females overwinter in protected
+  places including human-made structures; Hogna carolinensis females 22-35 mm long;
+  https://extension.psu.edu/wolf-spiders'
+- 'Montana State University Extension, Spiders of Montana: Wolf Spiders: hunting spiders
+  that do not build webs to catch prey; excellent vision used for prey capture; females
+  attach egg sacs to their spinnerets; hatched spiderlings stay on the mother''s abdomen
+  until ready to disperse; https://urbanipm.montana.edu/entomology/resources/fact-sheets/spiders_of_montana/wolf.spiders.html'
+- 'University of California Statewide IPM Program, Pest Notes: Black Widow and Other
+  Widow Spiders (general spider section): most spiders have venom which they use to
+  kill their prey; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7442.html'
+- 'UC Riverside, Rick Vetter, How to Identify (and Misidentify) a Brown Recluse Spider:
+  recluses have six eyes in three pairs, while most spiders have eight; https://spiders.ucr.edu/recluseid.html'
+yt:
+- hook: A big spider is running across your floor, with its back covered in babies.
+  gag:
+    mark: shock
+    at: 70%
+- escalate: Turn off the lights, shine a flashlight, and its eyes glow back at you, like a cat's.
+  gag:
+    prop: moon
+    at: 35%
+- name: The wolf spider. No web. It runs its prey down.
+  gag:
+    mark: alarm
+    at: 70%
+- fact: Venomous? Yes. Most spiders have venom, to kill its prey.
+  gag:
+    prop: skull
+    at: 40%
+- calm: But it only bites if you grab it, or trap it against your skin.
+- fact: The bite hurts, and goes red. But it fades within a day.
+  gag:
+    clock: 3
+    at: 55%
+    dur: 1.4
+- xray: How to tell it's a wolf spider? Four small eyes in a row, under four big ones.
+  gag:
+    prop: magnifier
+    at: 60%
+- punch: Scary to look at. Harmless to you. And a really good mom.
+  gag:
+    mark: hearts
+    at: 75%
+tt:
+- solo: First, the mom carries her egg sac, stuck to the tip of her body.
+- solo: When the babies hatch, they ride on her back, until they can live on their own.
+  scene: garden
+  scene_p:
+    time: dusk
+  mood: happy
+- count: Some kinds are big. A female Carolina wolf spider can be well over an inch long.
+  gag:
+    prop: ruler
+    at: 55%
+- solo: By day, it hides in the soil, and under rocks and logs.
+  scene: forest_floor
+  scene_p:
+    time: day
+  gag:
+    mark: zzz
+    at: 40%
+- solo: At night, it comes out to hunt, with excellent eyesight.
+  gag:
+    prop: moon
+    at: 15%
+- fact: In the fall, some females move into buildings, to spend the winter.
+  gag:
+    prop: snowflake
+    at: 55%
+- escalate: But don't mix it up with a brown recluse.
+  gag:
+    mark: alarm
+    at: 50%
+- fact: A recluse has only six eyes, in three pairs. Most spiders have eight.
+- fact: Would you let a wolf spider live in your garage?
