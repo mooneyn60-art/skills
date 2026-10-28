@@ -1,0 +1,222 @@
+{
+ "series": "Meatball's Animal Files, Part",
+ "sources": [
+  "Park et al. 2017, Science, Fructose-driven glycolysis supports anoxia resistance in the naked mole-rat: naked mole-rats survived 18 minutes of total oxygen deprivation without apparent injury, switching to fructose-based metabolism; https://doi.org/10.1126/science.aab3896",
+  "Smithsonian's National Zoo, Naked mole-rat: lives underground in East Africa (Kenya, Ethiopia, Somalia); colonies are led by a single breeding queen, like bees and ants; nearly blind, small eyes; lips close behind the front teeth so they can dig with their teeth without getting dirt in their mouths; can live more than 30 years; huddle together to keep warm; https://nationalzoo.si.edu/animals/naked-mole-rat",
+  "Buffenstein lab / Ruby et al. 2018, eLife: naked mole-rat mortality does not rise with age, lifespans past 30 years; cancer is extremely rare in the species (only a handful of cases ever reported); https://doi.org/10.7554/eLife.31157",
+  "Park et al. 2008, PLoS Biology, Selective inflammatory pain insensitivity in the African naked mole-rat: their skin does not respond with pain to acid or capsaicin; https://doi.org/10.1371/journal.pbio.0060013",
+  "Encyclopaedia Britannica, Naked mole rat: not a true mole or rat; a rodent more closely related to porcupines and guinea pigs; can move its lower incisors independently; https://www.britannica.com/animal/naked-mole-rat"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "naked_mole_rat",
+  "scene": "cave",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "naked mole rat",
+   "color": "#eaa99c",
+   "dark": "#c9837a",
+   "belly": "#f3c4b8",
+   "length": 540,
+   "height": 210,
+   "leg_len": 60,
+   "leg_w": 26,
+   "ears": "tiny",
+   "tail": "thin",
+   "tail_w": 12,
+   "whiskers": true,
+   "teeth": true,
+   "mouth": "grin",
+   "eye_r": 10,
+   "mood": "happy",
+   "s": 0.85
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "mammal",
+    "label": "naked mole rat",
+    "color": "#eaa99c",
+    "dark": "#c9837a",
+    "belly": "#f3c4b8",
+    "length": 540,
+    "height": 210,
+    "leg_len": 60,
+    "leg_w": 26,
+    "ears": "tiny",
+    "tail": "thin",
+    "tail_w": 12,
+    "whiskers": true,
+    "teeth": true,
+    "mouth": "grin",
+    "eye_r": 10,
+    "mood": "happy",
+    "s": 0.85
+   }
+  },
+  "actor": "creature",
+  "wild": "desert",
+  "wild_p": {
+   "time": "day"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "A Naked Mole Rat Can Last 18 Minutes Without Any Oxygen 🐀",
+ "tiktok_caption": "a naked mole rat survived 18 minutes with zero oxygen 🐀 and it can live over 30 years. Would you hold one? 🤲 yes / 🙅 no #meatballmyths #learnontiktok #nakedmolerat #animalfacts",
+ "beats": [
+  {
+   "hero_moves": [
+    {
+     "at": 0,
+     "dur": 1.2,
+     "pos": [
+      800,
+      1500
+     ],
+     "walk": true
+    }
+   ],
+   "m": "hook",
+   "say": "No air at all for eighteen minutes, and it was fine."
+  },
+  {
+   "scene": "cave",
+   "m": "solo",
+   "say": "Deep underground in East Africa, it digs tunnels."
+  },
+  {
+   "hero_at": {
+    "x": 800
+   },
+   "m": "name",
+   "say": "The naked mole rat. Pink, wrinkly, and almost blind."
+  },
+  {
+   "scene": "microscope",
+   "mood": "worry",
+   "m": "solo",
+   "say": "Scientists took away all of its oxygen."
+  },
+  {
+   "scene": "microscope",
+   "mood": "smug",
+   "m": "solo",
+   "say": "Its body switched to burning a different sugar."
+  },
+  {
+   "scene": "cave",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "mood": "happy",
+   "m": "solo",
+   "say": "Eighteen minutes later, it woke up, unharmed."
+  },
+  {
+   "hero_at": {
+    "x": 800
+   },
+   "with": [
+    {
+     "type": "creature",
+     "s": 0.45,
+     "p": {
+      "cfg": {
+       "plan": "mammal",
+       "label": "naked mole rat",
+       "color": "#eaa99c",
+       "dark": "#c9837a",
+       "belly": "#f3c4b8",
+       "length": 540,
+       "height": 210,
+       "leg_len": 60,
+       "leg_w": 26,
+       "ears": "tiny",
+       "tail": "thin",
+       "tail_w": 12,
+       "whiskers": true,
+       "teeth": true,
+       "mouth": "grin",
+       "eye_r": 10,
+       "mood": "happy",
+       "s": 0.85
+      }
+     }
+    },
+    {
+     "type": "creature",
+     "s": 0.45,
+     "p": {
+      "cfg": {
+       "plan": "mammal",
+       "label": "naked mole rat",
+       "color": "#eaa99c",
+       "dark": "#c9837a",
+       "belly": "#f3c4b8",
+       "length": 540,
+       "height": 210,
+       "leg_len": 60,
+       "leg_w": 26,
+       "ears": "tiny",
+       "tail": "thin",
+       "tail_w": 12,
+       "whiskers": true,
+       "teeth": true,
+       "mouth": "grin",
+       "eye_r": 10,
+       "mood": "happy",
+       "s": 0.85
+      }
+     }
+    },
+    {
+     "type": "creature",
+     "s": 0.45,
+     "p": {
+      "cfg": {
+       "plan": "mammal",
+       "label": "naked mole rat",
+       "color": "#eaa99c",
+       "dark": "#c9837a",
+       "belly": "#f3c4b8",
+       "length": 540,
+       "height": 210,
+       "leg_len": 60,
+       "leg_w": 26,
+       "ears": "tiny",
+       "tail": "thin",
+       "tail_w": 12,
+       "whiskers": true,
+       "teeth": true,
+       "mouth": "grin",
+       "eye_r": 10,
+       "mood": "happy",
+       "s": 0.85
+      }
+     }
+    }
+   ],
+   "m": "count",
+   "say": "And its colony has just one queen, like bees."
+  },
+  {
+   "hero_at": {
+    "x": 800
+   },
+   "m": "calm",
+   "say": "A mouse lives about two years. This one lives over thirty."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, a mammal that lays eggs and glows."
+  }
+ ]
+}
