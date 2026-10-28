@@ -7,10 +7,10 @@
   "Museum pest guidance (MuseumPests.net, Carpet beetles): carpet beetles are among the most damaging pests of museum collections, attacking wool, fur, feathers, taxidermy and insect collections; https://museumpests.net/carpet-beetles/"
  ],
  "photo_credits": [],
- "voice": "en-US-AndrewMultilingualNeural",
+ "voice": "kokoro:fenrir",
  "rate": "+10%",
  "music": "mystery",
- "music_db": -26,
+ "music_db": -20,
  "captions": 66,
  "caption_y": 1640,
  "stage": {
@@ -244,9 +244,8 @@
   },
   {
    "m": "tease",
-   "say": "Subscribe. Part fourteen is hiding in your fruit bowl.",
-   "scene": "kitchen",
-   "scene_p": {}
+   "say": "Subscribe. Part fourteen is hiding in your fruit bowl."
   }
- ]
+ ],
+ "loop": true
 }
