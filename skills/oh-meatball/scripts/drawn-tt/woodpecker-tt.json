@@ -43,6 +43,10 @@
  "tiktok_caption": "a woodpecker slams its face into wood up to 20 times a second 🪵 and its tongue wraps around its skull. Would you want one drumming outside your window at 6am? 🥁 yes / 😴 no / 🪵 only on the neighbor's house #meatballmyths #learnontiktok #woodpecker #birds #animalfacts",
  "beats": [
   {
+   "gag": {
+    "meter": 1.0,
+    "at": "40%"
+   },
    "m": "hook",
    "say": "A woodpecker slams its face into wood up to twenty times a second."
   },
@@ -53,6 +57,10 @@
   {
    "act": {
     "bite": 1.0
+   },
+   "gag": {
+    "clock": 4,
+    "at": "50%"
    },
    "m": "tiny",
    "say": "The woodpecker. It can peck about twelve thousand times a day."
@@ -99,6 +107,10 @@
     ]
    },
    "pose": "shock",
+   "gag": {
+    "prop": "magnifier",
+    "at": "30%"
+   },
    "m": "tiny",
    "say": "Then high speed cameras caught it in the act. It doesn't."
   },
@@ -110,11 +122,19 @@
    "say": "Its head hits like a stiff hammer. Beak and brain stop together."
   },
   {
+   "gag": {
+    "prop": "ruler",
+    "at": "70%"
+   },
    "m": "tiny",
    "say": "So why no concussion? Its brain is about seven hundred times smaller than ours."
   },
   {
    "pose": "think",
+   "gag": {
+    "meter": 0.5,
+    "at": "60%"
+   },
    "m": "tiny",
    "say": "Tiny brains take hits better. It would have to strike about twice as fast to get hurt."
   },
@@ -126,12 +146,20 @@
    "act": {
     "mood": "smug"
    },
+   "gag": {
+    "prop": "skull",
+    "at": "60%"
+   },
    "m": "solo",
    "say": "And its tongue? It's so long, it wraps around its skull when it's not in use."
   },
   {
    "act": {
     "talk": 1.0
+   },
+   "gag": {
+    "thought": "tick",
+    "at": "60%"
    },
    "m": "tiny",
    "say": "The tip has barbs, to hook bugs out of their holes."
@@ -197,6 +225,10 @@
      ]
     ]
    },
+   "gag": {
+    "prop": "trophy",
+    "at": "50%"
+   },
    "m": "solo",
    "say": "A single tree can hold up to fifty thousand acorns."
   },
@@ -206,16 +238,24 @@
    "say": "Meanwhile, I can't even find my keys."
   },
   {
+   "gag": {
+    "mark": "alarm",
+    "at": "70%"
+   },
    "m": "fact",
    "say": "Would you want one drumming outside your window at six in the morning?"
   },
   {
+   "gag": {
+    "mark": "dizzy",
+    "at": "40%"
+   },
    "m": "punch",
    "say": "Twelve thousand head bangs a day, and its tongue lives wrapped around its skull."
   },
   {
    "m": "tease",
-   "say": "Subscribe. Next, another animal that shouldn't exist."
+   "say": "Follow me. Next, another animal that shouldn't exist."
   }
  ]
 }

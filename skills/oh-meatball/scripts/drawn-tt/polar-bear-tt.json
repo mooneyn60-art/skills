@@ -76,11 +76,19 @@
      "walk": true
     }
    ],
+   "gag": {
+    "mark": "shock",
+    "at": "60%"
+   },
    "m": "hook",
    "say": "A polar bear's fur isn't actually white."
   },
   {
    "scene": "cave",
+   "gag": {
+    "prop": "magnifier",
+    "at": "40%"
+   },
    "m": "solo",
    "say": "Each hair is clear, like fishing line."
   },
@@ -90,6 +98,10 @@
     "time": "dusk"
    },
    "mood": "smug",
+   "gag": {
+    "mark": "stars",
+    "at": "50%"
+   },
    "m": "solo",
    "say": "Light bounces around inside, so it looks white."
   },
@@ -115,11 +127,19 @@
      "mood": "shock"
     }
    },
+   "gag": {
+    "mark": "shock",
+    "at": "70%"
+   },
    "m": "solo",
    "say": "And under all that fur, its skin is black."
   },
   {
    "how": "grow",
+   "gag": {
+    "prop": "trophy",
+    "at": "40%"
+   },
    "m": "scale",
    "say": "It's the biggest meat eater that lives on land."
   },
@@ -151,6 +171,10 @@
    "scene": "ship_deck",
    "scene_p": {
     "time": "dusk"
+   },
+   "gag": {
+    "prop": "ruler",
+    "at": "60%"
    },
    "m": "solo",
    "say": "Its front paws are up to a foot wide."
@@ -190,6 +214,11 @@
      "walk": true
     }
    ],
+   "gag": {
+    "clock": 5,
+    "at": "50%",
+    "dur": 1.8
+   },
    "m": "solo",
    "say": "One mother bear swam for nine days straight."
   },
@@ -199,6 +228,10 @@
     "time": "day"
    },
    "mood": "worry",
+   "gag": {
+    "mark": "sweat",
+    "at": "70%"
+   },
    "m": "solo",
    "say": "Over four hundred miles, without stopping."
   },
@@ -206,6 +239,10 @@
    "scene": "cave",
    "scene_p": {
     "time": "day"
+   },
+   "gag": {
+    "prop": "snowflake",
+    "at": "60%"
    },
    "m": "solo",
    "say": "Little bumps on its paws grip the ice."
@@ -227,6 +264,10 @@
     "time": "dusk"
    },
    "mood": "smug",
+   "gag": {
+    "meter": 1.0,
+    "at": "60%"
+   },
    "m": "solo",
    "say": "Big males can weigh over a thousand pounds."
   },
@@ -251,6 +292,10 @@
      "whiskers": false,
      "mood": "happy"
     }
+   },
+   "gag": {
+    "prop": "ruler",
+    "at": "70%"
    },
    "m": "solo",
    "say": "But a newborn cub weighs about a pound."
@@ -277,6 +322,10 @@
      "mood": "calm"
     }
    },
+   "gag": {
+    "prop": "snowflake",
+    "at": "60%"
+   },
    "m": "solo",
    "say": "It's born in a snow den, in the middle of winter."
   },
@@ -286,6 +335,10 @@
     "time": "dusk"
    },
    "mood": "worry",
+   "gag": {
+    "clock": 4,
+    "at": "60%"
+   },
    "m": "solo",
    "say": "Mom stays with it, and can go eight months without eating."
   },
@@ -319,6 +372,10 @@
      }
     }
    ],
+   "gag": {
+    "mark": "hearts",
+    "at": "50%"
+   },
    "m": "solo",
    "say": "In spring, she finally leads her cubs out into the snow."
   },
@@ -338,7 +395,7 @@
   },
   {
    "m": "tease",
-   "say": "Subscribe. Next, a rat with no fur that almost never gets cancer."
+   "say": "Follow me. Next, a rat with no fur that almost never gets cancer."
   }
  ]
 }

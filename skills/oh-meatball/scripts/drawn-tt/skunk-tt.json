@@ -46,10 +46,24 @@
  "tiktok_caption": "a skunk can hit you in the face from 10 feet away 🦨 it has about a dozen shots and can aim backwards. Would you pet one? 🖐️ yes / 🏃 run / 🧼 only with a gallon of peroxide #meatballmyths #learnontiktok #skunk #animalfacts",
  "beats": [
   {
+   "gag": [
+    {
+     "mark": "stink",
+     "at": "50%"
+    },
+    {
+     "prop": "ruler",
+     "at": "80%"
+    }
+   ],
    "m": "hook",
    "say": "A skunk can hit you in the face from ten feet away."
   },
   {
+   "gag": {
+    "prop": "ruler",
+    "at": "70%"
+   },
    "m": "name",
    "say": "The striped skunk. About the size of a house cat."
   },
@@ -58,10 +72,18 @@
    "say": "Under its tail, two glands, each holding about a tablespoon of stinky musk."
   },
   {
+   "gag": {
+    "meter": 1.0,
+    "at": "50%"
+   },
    "m": "escalate",
    "say": "That's enough for ten or twelve shots."
   },
   {
+   "gag": {
+    "mark": "stink",
+    "at": "60%"
+   },
    "m": "fact",
    "say": "And it can aim left, right, front, or back, without even turning around."
   },
@@ -70,6 +92,10 @@
    "say": "The smell is a sulfur chemical, called butyl mercaptan."
   },
   {
+   "gag": {
+    "mark": "anger",
+    "at": "40%"
+   },
    "m": "fact",
    "say": "Luckily, it warns you first. It stamps its front feet, and raises its tail."
   },
@@ -81,10 +107,18 @@
    "say": "It can even rear up on its front legs, like a handstand, to spray over its head."
   },
   {
+   "gag": {
+    "mark": "shock",
+    "at": "60%"
+   },
    "m": "escalate",
    "say": "Ignore the warning, and it fires. A hit in the face can mean painful, temporary blindness."
   },
   {
+   "gag": {
+    "clock": 3,
+    "at": "50%"
+   },
    "m": "fact",
    "say": "After that, it takes several days to fully refill."
   },
@@ -95,6 +129,16 @@
    "act": {
     "chew": 1.0
    },
+   "gag": [
+    {
+     "prop": "moon",
+     "at": "10%"
+    },
+    {
+     "thought": "tick",
+     "at": "60%"
+    }
+   ],
    "m": "solo",
    "say": "At night, it hunts insects and grubs. They're at least half of what it eats."
   },
@@ -104,6 +148,10 @@
    },
    "act": {
     "mood": "shock"
+   },
+   "gag": {
+    "mark": "sweat",
+    "at": "60%"
    },
    "m": "solo",
    "say": "But one hunter doesn't care about the stink. The great horned owl."
@@ -121,12 +169,16 @@
    "say": "Would you pet one?"
   },
   {
+   "gag": {
+    "mark": "stink",
+    "at": "50%"
+   },
    "m": "punch",
    "say": "Cat sized, a dozen shots of stink, and it can aim backwards."
   },
   {
    "m": "tease",
-   "say": "Subscribe. Next, a bird that hammers its face into wood all day, and doesn't get a headache."
+   "say": "Follow me. Next, a bird that hammers its face into wood all day, and doesn't get a headache."
   }
  ]
 }
