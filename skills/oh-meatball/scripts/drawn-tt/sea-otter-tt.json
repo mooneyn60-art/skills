@@ -75,6 +75,16 @@
      "walk": true
     }
    ],
+   "gag": [
+    {
+     "prop": "rock",
+     "at": "70%"
+    },
+    {
+     "mark": "hearts",
+     "at": "90%"
+    }
+   ],
    "m": "hook",
    "say": "Under its arm, it keeps a pocket for its favorite rock."
   },
@@ -83,6 +93,10 @@
     "x": 560,
     "y": 1180,
     "rot": 180
+   },
+   "gag": {
+    "clock": 3,
+    "at": "60%"
    },
    "m": "solo",
    "say": "It floats on its back, belly up, all day."
@@ -119,6 +133,10 @@
    "act": {
     "chew": 1.0
    },
+   "gag": {
+    "prop": "rock",
+    "at": "40%"
+   },
    "m": "solo",
    "say": "Then it pounds the shell on its rock, until it cracks."
   },
@@ -138,6 +156,10 @@
    "hero_at": {
     "x": 800
    },
+   "gag": {
+    "mark": "ice",
+    "at": "60%"
+   },
    "m": "escalate",
    "say": "It has no blubber, so the cold sea is a real danger."
   },
@@ -150,12 +172,20 @@
     "time": "day"
    },
    "mood": "happy",
+   "gag": {
+    "prop": "trophy",
+    "at": "40%"
+   },
    "m": "solo",
    "say": "Its fur is the thickest of any animal on Earth."
   },
   {
    "hero_at": {
     "x": 800
+   },
+   "gag": {
+    "prop": "magnifier",
+    "at": "70%"
    },
    "m": "punch",
    "say": "A rock in its pocket, and up to a million hairs per square inch."
@@ -185,6 +215,10 @@
    "act": {
     "chew": 1.0
    },
+   "gag": {
+    "clock": 3,
+    "at": "40%"
+   },
    "m": "solo",
    "say": "So it spends hours every day, grooming."
   },
@@ -197,6 +231,10 @@
     "time": "night"
    },
    "mood": "worry",
+   "gag": {
+    "meter": 1.0,
+    "at": "40%"
+   },
    "m": "solo",
    "say": "Staying warm burns a lot of energy."
   },
@@ -211,6 +249,10 @@
    "act": {
     "chew": 1.0
    },
+   "gag": {
+    "meter": 0.25,
+    "at": "50%"
+   },
    "m": "solo",
    "say": "It eats about a quarter of its weight in food, every day."
   },
@@ -224,6 +266,10 @@
    },
    "act": {
     "bite": 1.0
+   },
+   "gag": {
+    "mark": "hearts",
+    "at": "50%"
    },
    "m": "solo",
    "say": "Its favorite snack is sea urchins."
@@ -249,6 +295,10 @@
     "time": "day"
    },
    "mood": "happy",
+   "gag": {
+    "prop": "trophy",
+    "at": "60%"
+   },
    "m": "solo",
    "say": "So otters help keep the kelp forest alive."
   },
@@ -263,6 +313,10 @@
     "rot": 180
    },
    "mood": "calm",
+   "gag": {
+    "mark": "zzz",
+    "at": "30%"
+   },
    "m": "solo",
    "say": "To sleep, it wraps itself in kelp, so it won't drift away."
   },
@@ -355,6 +409,10 @@
     "rot": 180
    },
    "mood": "happy",
+   "gag": {
+    "thought": "baby",
+    "at": "50%"
+   },
    "m": "solo",
    "say": "Moms float their babies on their bellies."
   },
@@ -369,12 +427,16 @@
    "hero_at": {
     "x": 800
    },
+   "gag": {
+    "prop": "rock",
+    "at": "80%"
+   },
    "m": "punch",
    "say": "The fluffiest animal in the sea, with a rock in its pocket."
   },
   {
    "m": "tease",
-   "say": "Subscribe. Next, a shark that might live four hundred years."
+   "say": "Follow me. Next, a shark that might live four hundred years."
   }
  ]
 }

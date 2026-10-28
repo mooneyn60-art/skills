@@ -61,6 +61,11 @@
     "x": 760,
     "y": 1000
    },
+   "gag": {
+    "clock": 6,
+    "at": "40%",
+    "dur": 1.8
+   },
    "m": "hook",
    "say": "Some of these sharks were born before the United States existed."
   },
@@ -71,6 +76,10 @@
    "scene": "deep",
    "scene_p": {
     "time": "night"
+   },
+   "gag": {
+    "prop": "snowflake",
+    "at": "30%"
    },
    "m": "solo",
    "say": "Deep in the freezing Arctic, it cruises in the dark."
@@ -90,6 +99,11 @@
    },
    "scene": "deep",
    "mood": "calm",
+   "gag": {
+    "clock": 8,
+    "at": "50%",
+    "dur": 1.8
+   },
    "m": "solo",
    "say": "The biggest one was guessed to be about four hundred years old."
   },
@@ -97,6 +111,10 @@
    "hero_at": {
     "x": 760,
     "y": 1000
+   },
+   "gag": {
+    "prop": "ruler",
+    "at": "40%"
    },
    "m": "count",
    "say": "It grows about one centimeter a year."
@@ -110,6 +128,10 @@
     "time": "night"
    },
    "mood": "smug",
+   "gag": {
+    "thought": "baby",
+    "at": "60%"
+   },
    "m": "solo",
    "say": "It isn't ready to have babies until it's about a hundred fifty."
   },
@@ -117,6 +139,10 @@
    "hero_at": {
     "x": 760,
     "y": 1000
+   },
+   "gag": {
+    "prop": "trophy",
+    "at": "60%"
    },
    "m": "name",
    "say": "The Greenland shark. The longest-living animal with a backbone."
@@ -138,6 +164,10 @@
     "time": "day"
    },
    "mood": "calm",
+   "gag": {
+    "meter": 0.05,
+    "at": "50%"
+   },
    "m": "solo",
    "say": "It's also one of the slowest fish ever measured."
   },
@@ -179,6 +209,11 @@
     "time": "night"
    },
    "mood": "smug",
+   "gag": {
+    "pile": "bone",
+    "n": 5,
+    "at": "50%"
+   },
    "m": "solo",
    "say": "And even pieces of polar bears and reindeer, probably scavenged."
   },
@@ -191,6 +226,10 @@
     "time": "dusk"
    },
    "mood": "worry",
+   "gag": {
+    "mark": "dizzy",
+    "at": "60%"
+   },
    "m": "solo",
    "say": "Many have a little parasite hanging from one eye."
   },
@@ -203,6 +242,10 @@
     "time": "dusk"
    },
    "zoom": 1.5,
+   "gag": {
+    "prop": "ruler",
+    "at": "50%"
+   },
    "m": "solo",
    "say": "It can grow longer than a car."
   },
@@ -215,6 +258,10 @@
     "time": "day"
    },
    "mood": "angry",
+   "gag": {
+    "prop": "skull",
+    "at": "60%"
+   },
    "m": "solo",
    "say": "Fresh, its meat is poisonous to people."
   },
@@ -222,6 +269,10 @@
    "hero_at": {
     "x": 760,
     "y": 1000
+   },
+   "gag": {
+    "clock": 3,
+    "at": "50%"
    },
    "m": "fact",
    "say": "In Iceland, people ferment it for months, then eat it."
@@ -235,6 +286,10 @@
     "time": "dusk"
    },
    "mood": "smug",
+   "gag": {
+    "mark": "stink",
+    "at": "70%"
+   },
    "m": "solo",
    "say": "It's called hakarl, and it's famous for its smell."
   },
@@ -256,7 +311,7 @@
   },
   {
    "m": "tease",
-   "say": "Subscribe. Next, another animal that shouldn't exist."
+   "say": "Follow me. Next, another animal that shouldn't exist."
   }
  ]
 }
