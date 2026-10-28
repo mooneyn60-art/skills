@@ -1,0 +1,143 @@
+{
+ "series": "Is This Spider Venomous?, Part 4",
+ "sources": [
+  "Natural History Museum (London), How dangerous are false widow spiders?: looks similar to the more dangerous black widows with a similar dark, globular body; the pattern on its back is often described as skull-shaped; usually the only symptom of a bite is pain at the site which may radiate, ordinarily lasting one to 12 hours, no worse than a wasp sting; first recorded in the UK in the 1870s, probably a stowaway from its native Madeira and Canary Islands, strong foothold only since the 1980s; body length 7-14 mm, females larger; indoors often in kitchens and conservatories; webs usually at least 1.5 m off the ground; https://www.nhm.ac.uk/discover/how-dangerous-are-false-widow-spiders.html",
+  "University of Galway (NUI Galway) Venom Systems Lab, May 2021, New study confirms noble false widow spider bites can result in hospitalisation (Dunbar et al., Clinical Toxicology, https://doi.org/10.1080/15563650.2021.1928165): some victims have symptoms very similar to true black widow bites and some severe cases require hospitalisation; only cases with a clear identification of the spider were used, some confirmed by DNA; most cases have a mild outcome; https://universityofgalway.ie/about-us/news-and-events/news-archive/2021/may/new-study-confirms-noble-false-widow-spiders-bites-can-result-in-hospitalisation.html",
+  "University of California Statewide IPM Program, Pest Notes: Black Widow and Other Widow Spiders: adult female has a shiny black body and a red or orange hourglass on the underside of the large round abdomen; hangs upside down in an irregular, tough, sticky cobweb in dark, sheltered places such as wood piles and garages; males are one-half to two-thirds the length of the female; death from a bite is very unlikely; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7442.html",
+  "MedlinePlus (U.S. National Library of Medicine), Black widow spider bite: muscle pain spreading from the bite, painful cramps, sweating; https://medlineplus.gov/ency/article/002858.htm"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:fenrir",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "false_widow",
+  "scene": "kitchen",
+  "scene_p": {
+   "time": "night"
+  },
+  "creature_cfg": {
+   "plan": "arachnid",
+   "label": "noble false widow",
+   "color": "#3a2620",
+   "dark": "#5a4034",
+   "accent": "#e9dcc0",
+   "abdomen_front": true,
+   "abdomen": 200,
+   "ceph": [
+    110,
+    90
+   ],
+   "leg_w": 14,
+   "leg_len": 1.0,
+   "pattern": "spots",
+   "bands": true,
+   "mood": "angry",
+   "xray": "venom",
+   "s": 0.7
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "arachnid",
+    "label": "noble false widow",
+    "color": "#3a2620",
+    "dark": "#5a4034",
+    "accent": "#e9dcc0",
+    "abdomen_front": true,
+    "abdomen": 200,
+    "ceph": [
+     110,
+     90
+    ],
+    "leg_w": 14,
+    "leg_len": 1.0,
+    "pattern": "spots",
+    "bands": true,
+    "mood": "angry",
+    "xray": "venom",
+    "s": 0.7
+   }
+  },
+  "actor": "creature",
+  "wild": "garden",
+  "wild_p": {
+   "time": "night"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Is This Spider Venomous? [False Widow vs Black Widow] 🕷️ (#4)",
+ "tiktok_caption": "is this spider venomous? false widow vs black widow 🕷️ the shiny black spider in your kitchen. How dangerous is a false widow bite, and how to tell it from a real black widow. Would you check it for a red hourglass? 🔍 yes / 🏃 no way #isthisspidervenomous #falsewidow #blackwidow #spiders #meatballmyths",
+ "beats": [
+  {
+   "with": [
+    "black_widow"
+   ],
+   "gag": {
+    "mark": "shock",
+    "at": "70%"
+   },
+   "m": "hook",
+   "say": "The shiny black spider in your kitchen looks just like a black widow."
+  },
+  {
+   "gag": {
+    "prop": "skull",
+    "at": "70%"
+   },
+   "m": "name",
+   "say": "It's a noble false widow. And the pattern on its back looks like a skull."
+  },
+  {
+   "gag": {
+    "mark": "alarm",
+    "at": "60%"
+   },
+   "m": "escalate",
+   "say": "In Ireland, scientists found some of its bites put people in the hospital."
+  },
+  {
+   "gag": {
+    "clock": 4,
+    "at": "60%",
+    "dur": 1.4
+   },
+   "m": "calm",
+   "say": "But most bites are mild. Pain like a wasp sting, gone within half a day."
+  },
+  {
+   "hero": {
+    "cfg": "black_widow"
+   },
+   "scene": "garden",
+   "scene_p": {
+    "time": "night"
+   },
+   "m": "solo",
+   "say": "Now the real black widow. Shiny black, with a red hourglass under its belly."
+  },
+  {
+   "hero": {
+    "cfg": "black_widow"
+   },
+   "scene": "basement",
+   "m": "solo",
+   "say": "Its venom hits your nerves. Painful cramps, and sweating. But death is very unlikely."
+  },
+  {
+   "gag": {
+    "mark": "dizzy",
+    "at": "80%"
+   },
+   "m": "punch",
+   "say": "So the spider with a skull on its back is the less dangerous one."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, Meatball versus a spider that hunts spiders in their own webs."
+  }
+ ],
+ "loop": true
+}

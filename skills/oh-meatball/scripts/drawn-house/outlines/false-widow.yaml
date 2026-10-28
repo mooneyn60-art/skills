@@ -1,0 +1,113 @@
+slug: false-widow
+series: Is This Spider Venomous?
+part: 4
+title: Is This Spider Venomous? [False Widow vs Black Widow] 🕷️ (#4)
+tiktok_caption: 'is this spider venomous? false widow vs black widow 🕷️ the shiny black
+  spider in your kitchen. How dangerous is a false widow bite, and how to tell it from
+  a real black widow. Would you check it for a red hourglass? 🔍 yes / 🏃 no way #isthisspidervenomous
+  #falsewidow #blackwidow #spiders #meatballmyths'
+creature: false_widow
+actor: creature
+creature_cfg: &steatoda
+  plan: arachnid
+  label: noble false widow
+  color: '#3a2620'
+  dark: '#5a4034'
+  accent: '#e9dcc0'
+  abdomen_front: true
+  abdomen: 200
+  ceph: [110, 90]
+  leg_w: 14
+  leg_len: 1.0
+  pattern: spots
+  bands: true
+  mood: angry
+  xray: venom
+  s: 0.7
+hero_p:
+  cfg: *steatoda
+scene: kitchen
+scene_p:
+  time: night
+wild: garden
+wild_p:
+  time: night
+music: mystery
+next: Next, Meatball versus a spider that hunts spiders in their own webs.
+sources:
+- 'Natural History Museum (London), How dangerous are false widow spiders?: looks similar
+  to the more dangerous black widows with a similar dark, globular body; the pattern
+  on its back is often described as skull-shaped; usually the only symptom of a bite
+  is pain at the site which may radiate, ordinarily lasting one to 12 hours, no worse
+  than a wasp sting; first recorded in the UK in the 1870s, probably a stowaway from
+  its native Madeira and Canary Islands, strong foothold only since the 1980s; body
+  length 7-14 mm, females larger; indoors often in kitchens and conservatories; webs
+  usually at least 1.5 m off the ground; https://www.nhm.ac.uk/discover/how-dangerous-are-false-widow-spiders.html'
+- 'University of Galway (NUI Galway) Venom Systems Lab, May 2021, New study confirms
+  noble false widow spider bites can result in hospitalisation (Dunbar et al., Clinical
+  Toxicology, https://doi.org/10.1080/15563650.2021.1928165): some victims have symptoms
+  very similar to true black widow bites and some severe cases require hospitalisation;
+  only cases with a clear identification of the spider were used, some confirmed by
+  DNA; most cases have a mild outcome; https://universityofgalway.ie/about-us/news-and-events/news-archive/2021/may/new-study-confirms-noble-false-widow-spiders-bites-can-result-in-hospitalisation.html'
+- 'University of California Statewide IPM Program, Pest Notes: Black Widow and Other
+  Widow Spiders: adult female has a shiny black body and a red or orange hourglass
+  on the underside of the large round abdomen; hangs upside down in an irregular,
+  tough, sticky cobweb in dark, sheltered places such as wood piles and garages; males
+  are one-half to two-thirds the length of the female; death from a bite is very unlikely;
+  https://ipm.ucanr.edu/PMG/PESTNOTES/pn7442.html'
+- 'MedlinePlus (U.S. National Library of Medicine), Black widow spider bite: muscle
+  pain spreading from the bite, painful cramps, sweating; https://medlineplus.gov/ency/article/002858.htm'
+yt:
+- hook: The shiny black spider in your kitchen looks just like a black widow.
+  with:
+  - black_widow
+  gag:
+    mark: shock
+    at: 70%
+- name: It's a noble false widow. And the pattern on its back looks like a skull.
+  gag:
+    prop: skull
+    at: 70%
+- escalate: In Ireland, scientists found some of its bites put people in the hospital.
+  gag:
+    mark: alarm
+    at: 60%
+- calm: But most bites are mild. Pain like a wasp sting, gone within half a day.
+  gag:
+    clock: 4
+    at: 60%
+    dur: 1.4
+- solo: Now the real black widow. Shiny black, with a red hourglass under its belly.
+  hero:
+    cfg: black_widow
+  scene: garden
+  scene_p:
+    time: night
+- solo: Its venom hits your nerves. Painful cramps, and sweating. But death is very unlikely.
+  hero:
+    cfg: black_widow
+  scene: basement
+- punch: So the spider with a skull on its back is the less dangerous one.
+  gag:
+    mark: dizzy
+    at: 80%
+tt:
+- solo: False widows reached Britain from Madeira and the Canary Islands, back in the eighteen seventies.
+  scene: ship_deck
+  scene_p:
+    time: day
+- fact: But only since the nineteen eighties have they really spread.
+- scale: Its body is seven to fourteen millimeters long.
+  how: grow
+- count: In the Irish study, scientists only counted bites where they knew the spider. Some, by its DNA.
+  gag:
+    prop: magnifier
+    at: 50%
+- solo: The black widow hides in woodpiles and garages, hanging upside down in a messy web.
+  hero:
+    cfg: black_widow
+  scene: garden
+  scene_p:
+    time: dusk
+- fact: So, red hourglass? Black widow. No hourglass, cream markings? Probably a false widow.
+- fact: Would you get close enough to check for the hourglass?
