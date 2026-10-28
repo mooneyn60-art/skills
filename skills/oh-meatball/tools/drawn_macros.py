@@ -124,6 +124,17 @@ def _beat(stage, line, F, shots, hero, mb, sfx, extra=None, **kw):
         if line.get("act"):
             hero.setdefault("set", []).append({"at": "30%", "dur": 0.3, "p": line["act"]})
         b["actors"].append(hero)
+        if line.get("gag"):   # show the fact (drawn_gags): piles, zaps, hearts, reactions, props
+            import drawn_gags
+            hs = hero.get("s", stage.s)
+            top = -((stage.cfg.get("height", 240) + stage.cfg.get("leg_len", 60)) * hs) - 40
+            face_left = bool(hero.get("flip"))
+            for mv in hero.get("moves", []):
+                if "face" in mv:
+                    face_left = mv["face"] < 0
+            g_actors, g_sfx = drawn_gags.build(line["gag"], hero, top, face_left, tag="L%d" % (sum(map(ord, line["say"])) % 99991))
+            b["actors"] += g_actors
+            b["sfx"] = list(b["sfx"]) + g_sfx
     b["actors"] += _extras(stage, line, F) + (extra or [])
     if line.get("mb_x"):   # move Meatball's mark (and any walk) when the room needs it
         dx = line["mb_x"] - mb["pos"][0]

@@ -48,12 +48,13 @@ from drawn_actors import ACTORS as A1  # noqa: E402
 from drawn_cast import ACTORS as A2  # noqa: E402
 from drawn_rooms import ACTORS as A3  # noqa: E402
 from drawn_bugs import ACTORS as A4  # noqa: E402
+from drawn_gags import ACTORS as A5  # noqa: E402
 from drawn_habitats import SCENES  # noqa: E402,F401  (every scene, wrapped so each takes "time")
 from drawn_creatures import build, creature  # noqa: E402
 from drawn_species import SPECIES  # noqa: E402
 import drawn_macros  # noqa: E402
 
-ACTORS = {**A1, **A2, **A3, **A4, "creature": creature}
+ACTORS = {**A1, **A2, **A3, **A4, **A5, "creature": creature}
 ACTORS.update({"sp." + k: build(v) for k, v in SPECIES.items()})
 ROOT = os.path.dirname(HERE)
 W, H = 1080, 1920
@@ -286,6 +287,12 @@ def blinker(seed, t):
 def draw_actor(ctx, cam, a, b, t, words):
     x, y, s, rot, land, walking = track(a.get("pos", (0, 0)), a.get("moves", []), words, t, a.get("s", 1.0),
                                         a.get("rot", 0.0))
+    if a.get("attach"):   # gags ride on another actor (pos is then an offset from its feet)
+        acts = b["actors"].values() if isinstance(b["actors"], dict) else b["actors"]
+        tgt = next((o for o in acts if isinstance(o, dict) and o.get("id") == a["attach"]), None)
+        if tgt is not None:
+            tx, ty, *_ = track(tgt.get("pos", (0, 0)), tgt.get("moves", []), words, t, tgt.get("s", 1.0))
+            x, y = x + tx, y + ty
     p = dict(a.get("p", {}))
     for st in a.get("set", []):
         t1 = at_time(words, st.get("at"), 0.0)
