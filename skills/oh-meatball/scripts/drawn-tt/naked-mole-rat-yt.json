@@ -84,11 +84,21 @@
      "walk": true
     }
    ],
+   "gag": {
+    "clock": 1,
+    "at": "40%"
+   },
    "m": "hook",
    "say": "No air at all for eighteen minutes, and it was fine."
   },
   {
    "scene": "cave",
+   "gag": {
+    "pile": "rock",
+    "n": 5,
+    "r": 24,
+    "at": "50%"
+   },
    "m": "solo",
    "say": "Deep underground in East Africa, it digs tunnels."
   },
@@ -102,12 +112,22 @@
   {
    "scene": "microscope",
    "mood": "worry",
+   "gag": {
+    "mark": "alarm",
+    "at": "50%"
+   },
    "m": "solo",
    "say": "Scientists took away all of its oxygen."
   },
   {
    "scene": "microscope",
    "mood": "smug",
+   "gag": {
+    "pile": "cube",
+    "n": 4,
+    "r": 28,
+    "at": "60%"
+   },
    "m": "solo",
    "say": "Its body switched to burning a different sugar."
   },
@@ -117,6 +137,10 @@
     "time": "dusk"
    },
    "mood": "happy",
+   "gag": {
+    "clock": 1,
+    "at": "10%"
+   },
    "m": "solo",
    "say": "Eighteen minutes later, it woke up, unharmed."
   },
@@ -204,12 +228,21 @@
      }
     }
    ],
+   "gag": {
+    "prop": "crown",
+    "at": "50%"
+   },
    "m": "count",
    "say": "And its colony has just one queen, like bees."
   },
   {
    "hero_at": {
     "x": 800
+   },
+   "gag": {
+    "clock": 6,
+    "at": "50%",
+    "dur": 1.8
    },
    "m": "calm",
    "say": "A mouse lives about two years. This one lives over thirty."

@@ -68,17 +68,29 @@
    "hero_at": {
     "x": 720
    },
+   "gag": {
+    "mark": "shock",
+    "at": "70%"
+   },
    "m": "hook",
    "say": "The tiny beetle on your window? Its babies eat sweaters."
   },
   {
    "scene": "sill",
+   "gag": {
+    "prop": "ruler",
+    "at": "60%"
+   },
    "m": "solo",
    "say": "The carpet beetle. Smaller than a grain of rice."
   },
   {
    "act": {
     "chew": 1.0
+   },
+   "gag": {
+    "mark": "hearts",
+    "at": "50%"
    },
    "m": "solo",
    "say": "Outside, it sips pollen from flowers."
@@ -87,6 +99,12 @@
    "scene": "bedroom",
    "scene_p": {
     "time": "dusk"
+   },
+   "gag": {
+    "pile": "egg",
+    "n": 6,
+    "r": 24,
+    "at": "50%"
    },
    "m": "solo",
    "say": "But it lays its eggs inside."
@@ -112,6 +130,12 @@
    },
    "hero_at": {
     "x": 700
+   },
+   "gag": {
+    "pile": "baby",
+    "n": 4,
+    "r": 28,
+    "at": "30%"
    },
    "m": "solo",
    "say": "Its babies hatch fuzzy, and hungry."
@@ -200,12 +224,20 @@
    "act": {
     "chew": 1.0
    },
+   "gag": {
+    "prop": "moon",
+    "at": "20%"
+   },
    "m": "solo",
    "say": "In the dark, they chew holes in sweaters."
   },
   {
    "hero_at": {
     "x": 720
+   },
+   "gag": {
+    "mark": "hearts",
+    "at": "70%"
    },
    "m": "punch",
    "say": "So the cute little beetle? It's the mom."

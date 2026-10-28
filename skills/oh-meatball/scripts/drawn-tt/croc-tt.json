@@ -70,6 +70,16 @@
      "walk": true
     }
    ],
+   "gag": [
+    {
+     "meter": 1.0,
+     "at": "40%"
+    },
+    {
+     "prop": "trophy",
+     "at": "80%"
+    }
+   ],
    "m": "hook",
    "say": "This crocodile has the strongest bite ever measured."
   },
@@ -83,6 +93,10 @@
     "x": 520
    },
    "pose": "shock",
+   "gag": {
+    "prop": "ruler",
+    "at": "60%"
+   },
    "m": "tiny",
    "say": "The saltwater crocodile. The biggest one measured was over six meters long."
   },
@@ -95,6 +109,10 @@
     "bite": 1.0
    },
    "pose": "nervous",
+   "gag": {
+    "meter": 1.0,
+    "at": "40%"
+   },
    "m": "tiny",
    "say": "Its bite hit about thirty-seven hundred pounds of force."
   },
@@ -105,6 +123,10 @@
    },
    "act": {
     "bite": 1.0
+   },
+   "gag": {
+    "prop": "trophy",
+    "at": "40%"
    },
    "m": "tiny",
    "say": "The strongest bite of any animal scientists have ever tested."
@@ -117,6 +139,10 @@
    "scene": "swamp",
    "scene_p": {
     "time": "day"
+   },
+   "gag": {
+    "thought": "bone",
+    "at": "80%"
    },
    "m": "tiny",
    "say": "Big ones eat water birds, sea turtles, even water buffalo."
@@ -150,6 +176,10 @@
    "scene": "ocean",
    "scene_p": {
     "time": "dusk"
+   },
+   "gag": {
+    "clock": 4,
+    "at": "70%"
    },
    "m": "solo",
    "say": "Scientists tracked one that surfed five hundred ninety kilometers in twenty-five days."
@@ -210,6 +240,11 @@
      "front": true
     }
    ],
+   "gag": {
+    "pile": "leaf",
+    "n": 8,
+    "at": "40%"
+   },
    "m": "tiny",
    "say": "Mom builds a nest mound out of plants and mud, up to two and a half meters long."
   },
@@ -232,6 +267,16 @@
     }
    ],
    "pose": "think",
+   "gag": [
+    {
+     "meter": 0.7,
+     "at": "40%"
+    },
+    {
+     "thought": "egg",
+     "at": "80%"
+    }
+   ],
    "m": "tiny",
    "say": "The nest's heat decides if the babies are boys or girls."
   },
@@ -244,6 +289,10 @@
     "bite": 1.0
    },
    "pose": "nervous",
+   "gag": {
+    "mark": "anger",
+    "at": "60%"
+   },
    "m": "tiny",
    "say": "Most attacks hit people swimming, or bending down at the water's edge."
   },
@@ -253,6 +302,10 @@
     "x": 520
    },
    "pose": "shock",
+   "gag": {
+    "prop": "skull",
+    "at": "60%"
+   },
    "m": "tiny",
    "say": "Grabbed in the water, there's very little chance of escape."
   },
@@ -266,6 +319,10 @@
   {
    "hero_at": {
     "x": 640
+   },
+   "gag": {
+    "prop": "trophy",
+    "at": "85%"
    },
    "m": "punch",
    "say": "It surfs the ocean, finds its way home, and bites harder than anything ever tested."
