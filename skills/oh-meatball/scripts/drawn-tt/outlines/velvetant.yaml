@@ -89,9 +89,6 @@ yt:
   - meter: 1.0
     at: 50%
 - calm: But relax. There's no record of it ever killing a cow.
-  gag:
-    mark: hearts
-    at: 40%
 tt:
 - fact: Those bright colors are a warning. Back off.
   hero_at:
@@ -133,6 +130,9 @@ tt:
 - fact: She lays an egg right on a baby bee.
   hero_at:
     x: 720
+  gag:
+    prop: magnifier
+    at: 50%
 - solo: Her baby hatches, and eats the baby bee, until it dies.
   zoom: 1.05
   scene_p:
