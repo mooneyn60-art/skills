@@ -3,48 +3,167 @@ out: episodes/drawn-tt
 specs: scripts/drawn-tt
 series: Meatball Investigates
 title: A Laughing Epidemic Shut Down Schools In 1962 😂
-tiktok_caption: "a laughing epidemic shut down schools in 1962 😂 95 girls at one school, then whole villages, and doctors found no poison. Could you watch someone laugh and not laugh too? 😂 no / 😐 yes #meatballmyths #learnontiktok #history #psychology #tanzania"
+tiktok_caption: 'a laughing epidemic shut down schools in 1962 😂 95 girls at one school,
+  then whole villages, and doctors found no poison. Could you watch someone laugh
+  and not laugh too? 😂 no / 😐 yes #meatballmyths #learnontiktok #history #psychology
+  #tanzania'
 creature: student
 actor: student
-creature_cfg: {floor: true}
+creature_cfg:
+  floor: true
 s: 0.85
 scene: classroom
 wild: village
-wild_p: {school: true}
+wild_p:
+  school: true
 music: mystery
 next: Next, another case file history almost forgot.
 sources:
-  - "Christian F. Hempelmann, 'The laughter of the 1962 Tanganyika laughter epidemic', Humor: International Journal of Humor Research 20(1), 2007, pp. 49-71, DOI 10.1515/HUMOR.2007.003, quoting Rankin and Philip (1963, Central African Journal of Medicine): the disease began on 30 January 1962 at a mission-run girls' school at Kashasha, 25 miles from Bukoba, when three pupils began to act abnormally; by 18 March 1962, when the school was forced to close, 95 of the 159 pupils were affected; 57 more pupils after it reopened on 21 May until it shut again; attacks of laughing and crying lasting a few hours, in a few cases up to 16 days, with restlessness; spread to Nshamba village (217 people) and Ramashenye girls' middle school (48 of 154 pupils), with further school closures; tests for food poisoning and toxic substances were negative; Rankin and Philip suggested mass hysteria; Hempelmann argues it was mass psychogenic illness and links it to stress, noting Tanganyika became independent on 9 December 1961; https://doi.org/10.1515/HUMOR.2007.003"
-  - "Office of the Historian, US Department of State, 'Tanzania - Countries': the US recognized Tanganyika on December 9, 1961, when it won independence from Great Britain; https://history.state.gov/countries/tanzania"
+- 'Christian F. Hempelmann, ''The laughter of the 1962 Tanganyika laughter epidemic'',
+  Humor: International Journal of Humor Research 20(1), 2007, pp. 49-71, DOI 10.1515/HUMOR.2007.003,
+  quoting Rankin and Philip (1963, Central African Journal of Medicine): the disease
+  began on 30 January 1962 at a mission-run girls'' school at Kashasha, 25 miles from
+  Bukoba, when three pupils began to act abnormally; by 18 March 1962, when the school
+  was forced to close, 95 of the 159 pupils were affected; 57 more pupils after it
+  reopened on 21 May until it shut again; attacks of laughing and crying lasting a
+  few hours, in a few cases up to 16 days, with restlessness; spread to Nshamba village
+  (217 people) and Ramashenye girls'' middle school (48 of 154 pupils), with further
+  school closures; tests for food poisoning and toxic substances were negative; Rankin
+  and Philip suggested mass hysteria; Hempelmann argues it was mass psychogenic illness
+  and links it to stress, noting Tanganyika became independent on 9 December 1961;
+  https://doi.org/10.1515/HUMOR.2007.003'
+- 'Office of the Historian, US Department of State, ''Tanzania - Countries'': the
+  US recognized Tanganyika on December 9, 1961, when it won independence from Great
+  Britain; https://history.state.gov/countries/tanzania'
 yt:
-  - hook: What if I told you a laughing fit once spread so fast, it shut down a school?
-    act: {laugh: 1.0}
-  - solo: January 1962. A girls' boarding school in Kashasha, Tanganyika, near Lake Victoria.
-    hero: false
-  - fact: Three girls start laughing. And they can't stop.
-    hero: {laugh: 1.0}
-    with: [{type: student, x: 1010, y: 1540, s: 0.75, pop: false, p: {laugh: 1.0, seed: 3}}]
-  - count: Then it spreads. In seven weeks, ninety-five of the school's hundred and fifty-nine girls have it.
-    hero: {laugh: 1.0}
-    with: [{type: student, x: 1010, y: 1540, s: 0.75, p: {laugh: 1.0, seed: 3}}, {type: student, x: 640, y: 1600, s: 0.7, front: true, p: {laugh: 1.0, seed: 5}}, {type: student, x: 930, y: 1650, s: 0.7, front: true, p: {laugh: 1.0, seed: 7}}]
-  - escalate: This was not fun laughing. It came with crying and panic. Attacks lasted hours. A few, sixteen days.
-    hero: {laugh: 1.0, cry: true}
-  - solo: On March eighteenth, the school shut its doors.
-    hero: false
-    scene_p: {school: true, locked: 1.0}
+- hook: What if I told you a laughing fit once spread so fast, it shut down a school?
+  act:
+    laugh: 1.0
+  gag:
+    mark: shock
+    at: 70%
+- solo: January 1962. A girls' boarding school in Kashasha, Tanganyika, near Lake
+    Victoria.
+  hero: false
+- fact: Three girls start laughing. And they can't stop.
+  hero:
+    laugh: 1.0
+  with:
+  - type: student
+    x: 1010
+    y: 1540
+    s: 0.75
+    pop: false
+    p:
+      laugh: 1.0
+      seed: 3
+  gag:
+    mark: dizzy
+    at: 50%
+- count: Then it spreads. In seven weeks, ninety-five of the school's hundred and
+    fifty-nine girls have it.
+  hero:
+    laugh: 1.0
+  with:
+  - type: student
+    x: 1010
+    y: 1540
+    s: 0.75
+    p:
+      laugh: 1.0
+      seed: 3
+  - type: student
+    x: 640
+    y: 1600
+    s: 0.7
+    front: true
+    p:
+      laugh: 1.0
+      seed: 5
+  - type: student
+    x: 930
+    y: 1650
+    s: 0.7
+    front: true
+    p:
+      laugh: 1.0
+      seed: 7
+  gag:
+    clock: 3
+    at: 20%
+- escalate: This was not fun laughing. It came with crying and panic. Attacks lasted
+    hours. A few, sixteen days.
+  hero:
+    laugh: 1.0
+    cry: true
+  gag:
+    mark: sweat
+    at: 30%
+- solo: On March eighteenth, the school shut its doors.
+  hero: false
+  scene_p:
+    school: true
+    locked: 1.0
+  gag:
+    mark: alarm
+    at: 60%
 tt:
-  - fact: So the girls were sent home. And it went with them.
-  - solo: In one village, two hundred and seventeen people started laughing and crying.
-    hero: false
-    scene_p: {huts: [[260, 0.7], [860, 0.75]]}
-    with: [{type: student, x: 420, y: 1640, s: 0.6, pop: false, front: true, p: {laugh: 1.0, seed: 2}}, {type: student, x: 680, y: 1700, s: 0.6, pop: false, front: true, p: {laugh: 1.0, cry: true, seed: 6}}]
-  - fact: At another girls' school, forty-eight more.
-  - fact: Kashasha reopened in May. Fifty-seven more girls caught it, and it shut again.
-    hero: {laugh: 1.0}
-  - fact: Doctors tested for food poisoning and toxins. Nothing.
-  - calm: No poison, no germ found. The cause was in their minds, and the symptoms were real.
-  - fact: Experts call it mass psychogenic illness. Stress, spreading from person to person.
-  - fact: And the country had become independent just seven weeks before. Huge change. Huge stress.
-  - fact: Could you watch someone laugh and not laugh too?
-    hero: {laugh: 1.0}
-  - punch: Laughter really was contagious. And nobody was having any fun.
+- fact: So the girls were sent home. And it went with them.
+- solo: In one village, two hundred and seventeen people started laughing and crying.
+  hero: false
+  scene_p:
+    huts:
+    - - 260
+      - 0.7
+    - - 860
+      - 0.75
+  with:
+  - type: student
+    x: 420
+    y: 1640
+    s: 0.6
+    pop: false
+    front: true
+    p:
+      laugh: 1.0
+      seed: 2
+  - type: student
+    x: 680
+    y: 1700
+    s: 0.6
+    pop: false
+    front: true
+    p:
+      laugh: 1.0
+      cry: true
+      seed: 6
+  gag:
+    mark: dizzy
+    at: 60%
+- fact: At another girls' school, forty-eight more.
+- fact: Kashasha reopened in May. Fifty-seven more girls caught it, and it shut again.
+  hero:
+    laugh: 1.0
+  gag:
+    mark: shock
+    at: 70%
+- fact: Doctors tested for food poisoning and toxins. Nothing.
+  gag:
+    prop: magnifier
+    at: 40%
+- calm: No poison, no germ found. The cause was in their minds, and the symptoms were
+    real.
+- fact: Experts call it mass psychogenic illness. Stress, spreading from person to
+    person.
+  gag:
+    mark: sweat
+    at: 70%
+- fact: And the country had become independent just seven weeks before. Huge change.
+    Huge stress.
+  gag:
+    clock: 2
+    at: 40%
+- fact: Could you watch someone laugh and not laugh too?
+  hero:
+    laugh: 1.0
+- punch: Laughter really was contagious. And nobody was having any fun.

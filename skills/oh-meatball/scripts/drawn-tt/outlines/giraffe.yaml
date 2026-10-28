@@ -4,8 +4,9 @@ out: episodes/drawn-tt
 specs: scripts/drawn-tt
 series: Meatball's Animal Files
 title: This Animal Has a Two-Foot Heart and Sleeps Under 30 Minutes a Day 🦒
-tiktok_caption: 'a two foot heart and it sleeps less than 30 minutes a day 🦒 and sometimes it chews on old bones. Would you
-  stand behind one? 🦵 yes / 🙅 never / 🚙 only in a truck #meatballmyths #learnontiktok #giraffe #animalfacts'
+tiktok_caption: 'a two foot heart and it sleeps less than 30 minutes a day 🦒 and sometimes
+  it chews on old bones. Would you stand behind one? 🦵 yes / 🙅 never / 🚙 only in a
+  truck #meatballmyths #learnontiktok #giraffe #animalfacts'
 creature: giraffe
 creature_cfg:
   plan: mammal
@@ -53,33 +54,54 @@ wild_p:
 music: mystery
 next: Next, a mom who can pause her own pregnancy.
 sources:
-- 'San Diego Zoo Wildlife Alliance, Animals and Plants: Giraffe: males up to 18 ft tall and 3,000 lb; the neck alone weighs
-  about 600 lb; tongue 18 in (46 cm), its dark colour thought to protect it from sunburn; heart about 2 ft long and 25 lb;
-  seven neck vertebrae like humans, each can be over 10 in long; defends itself with a deadly kick; needs only 5 to 30 minutes
-  of sleep in 24 hours, often in naps of a minute or two; males spar by swinging their necks; born as the mother stands, the
-  cord breaks and the newborn falls to the ground; calf stands and walks after about an hour; record running speed 34.7 mph;
-  https://animals.sandiegozoo.org/animals/giraffe'
-- 'Bredin I.P., Skinner J.D. and Mitchell G. (2008), Can osteophagia provide giraffes with phosphorus and calcium?, Onderstepoort
-  Journal of Veterinary Research 75: 1-9 (University of Pretoria): giraffes chew bones (osteophagia), possibly as a source
+- 'San Diego Zoo Wildlife Alliance, Animals and Plants: Giraffe: males up to 18 ft
+  tall and 3,000 lb; the neck alone weighs about 600 lb; tongue 18 in (46 cm), its
+  dark colour thought to protect it from sunburn; heart about 2 ft long and 25 lb;
+  seven neck vertebrae like humans, each can be over 10 in long; defends itself with
+  a deadly kick; needs only 5 to 30 minutes of sleep in 24 hours, often in naps of
+  a minute or two; males spar by swinging their necks; born as the mother stands,
+  the cord breaks and the newborn falls to the ground; calf stands and walks after
+  about an hour; record running speed 34.7 mph; https://animals.sandiegozoo.org/animals/giraffe'
+- 'Bredin I.P., Skinner J.D. and Mitchell G. (2008), Can osteophagia provide giraffes
+  with phosphorus and calcium?, Onderstepoort Journal of Veterinary Research 75: 1-9
+  (University of Pretoria): giraffes chew bones (osteophagia), possibly as a source
   of phosphorus; https://repository.up.ac.za/handle/2263/9767'
-- 'Chester Zoo, via Good News Network (2016), Rothschild''s giraffe birth filmed: the calf''s drop to the ground at birth
-  can be up to two metres (about six feet); https://www.goodnewsnetwork.org/giraffe-birth-6ft-drop-video-from-chester-zoo/'
+- 'Chester Zoo, via Good News Network (2016), Rothschild''s giraffe birth filmed:
+  the calf''s drop to the ground at birth can be up to two metres (about six feet);
+  https://www.goodnewsnetwork.org/giraffe-birth-6ft-drop-video-from-chester-zoo/'
 yt:
-- hook: This animal has a two foot long heart, and sleeps less than half an hour a day.
+- hook: This animal has a two foot long heart, and sleeps less than half an hour a
+    day.
+  gag:
+  - heart: 1
+    at: 30%
+  - mark: zzz
+    at: 75%
 - shrink: So I shrank myself down, to stand right next to one.
 - tiny: The giraffe. A male can stand eighteen feet tall.
+  gag:
+    prop: ruler
+    at: 60%
 - tiny: Its neck alone weighs about six hundred pounds.
-- tiny: But it has the same number of neck bones as you. Seven. Each one can be ten inches long.
+  gag:
+    meter: 1.0
+    at: 40%
+- tiny: But it has the same number of neck bones as you. Seven. Each one can be ten
+    inches long.
 - tiny: Its heart weighs about twenty five pounds.
   with:
   - type: heart
     x: 880
     y: 1300
     s: 0.8
+  gag:
+    heart: 1
+    at: 40%
 - tiny: Meanwhile, my heart weighs about as much as a meatball.
   pose: laugh
 tt:
-- solo: It needs just five to thirty minutes of sleep a day. Often in naps of a minute or two.
+- solo: It needs just five to thirty minutes of sleep a day. Often in naps of a minute
+    or two.
   scene_p:
     time: night
     palette:
@@ -93,9 +115,17 @@ tt:
       - 1.2
   act:
     mood: sleepy
+  gag:
+  - mark: zzz
+    at: 30%
+  - clock: 1
+    at: 60%
 - tiny: Its tongue is a foot and a half long.
   act:
     talk: 1.0
+  gag:
+    prop: ruler
+    at: 40%
 - tiny: It's dark, maybe to keep it from getting sunburned.
   scene: desert
   scene_p:
@@ -111,12 +141,21 @@ tt:
     - 700
     - 1500
     walk: true
+  gag:
+    meter: 0.9
+    at: 40%
 - tiny: Attack it, and it fights back with a deadly kick.
   act:
     mood: angry
+  gag:
+    prop: skull
+    at: 70%
 - tiny: Males fight by swinging their necks into each other.
   act:
     mood: angry
+  gag:
+    mark: stars
+    at: 70%
 - tiny: Babies are born while mom is standing. So the baby falls, up to six feet.
   scene: swamp
   scene_p:
@@ -126,6 +165,9 @@ tt:
       ground: '#b8a060'
       ground2: '#9a8448'
       water: '#7a9a8a'
+  gag:
+    mark: shock
+    at: 80%
 - tiny: Within about an hour, the baby is walking.
   scene: swamp
   scene_p:
@@ -142,8 +184,15 @@ tt:
     - 640
     - 1500
     walk: true
-- solo: And sometimes a giraffe chews on old bones. Scientists think it's hunting for minerals.
+  gag:
+    clock: 1
+    at: 30%
+- solo: And sometimes a giraffe chews on old bones. Scientists think it's hunting
+    for minerals.
   act:
     chew: 1.0
+  gag:
+    thought: bone
+    at: 40%
 - fact: Would you stand behind a giraffe?
 - punch: A two foot heart, eighteen feet tall, and it runs on two minute naps.

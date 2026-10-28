@@ -2,47 +2,159 @@ slug: kangaroo
 variant: A
 out: episodes/drawn-tt
 specs: scripts/drawn-tt
-series: "Meatball's Animal Files"
+series: Meatball's Animal Files
 title: A Kangaroo Mom Can Put Her Pregnancy on Pause 🦘
-tiktok_caption: "a kangaroo mom can put her pregnancy on pause 🦘 and she cools off by licking spit onto her arms. Would you get in the ring with one? 🥊 yes / 🏃 no way / 🦘 team kangaroo #meatballmyths #learnontiktok #kangaroo #australia #animalfacts"
+tiktok_caption: 'a kangaroo mom can put her pregnancy on pause 🦘 and she cools off
+  by licking spit onto her arms. Would you get in the ring with one? 🥊 yes / 🏃 no
+  way / 🦘 team kangaroo #meatballmyths #learnontiktok #kangaroo #australia #animalfacts'
 creature: red_kangaroo
-creature_cfg: {plan: mammal, label: red kangaroo, color: "#c4643a", dark: "#97492a", belly: "#f0d9c4", ears: long,
-               whiskers: false, length: 520, height: 330, leg_len: 150, leg_w: 40, tail_w: 44, mood: smug, s: 0.72}
+creature_cfg:
+  plan: mammal
+  label: red kangaroo
+  color: '#c4643a'
+  dark: '#97492a'
+  belly: '#f0d9c4'
+  ears: long
+  whiskers: false
+  length: 520
+  height: 330
+  leg_len: 150
+  leg_w: 40
+  tail_w: 44
+  mood: smug
+  s: 0.72
 s: 0.72
 scene: desert
-scene_p: {time: day, palette: {sky: "#8fd0f2", ground: "#c8663a", ground2: "#a9502c"},
-          props: [[rock, -60, 1500, 1.0], [bush, 1180, 1500, 0.8], [grass, 300, 1500, 1.0]]}
+scene_p:
+  time: day
+  palette:
+    sky: '#8fd0f2'
+    ground: '#c8663a'
+    ground2: '#a9502c'
+  props:
+  - - rock
+    - -60
+    - 1500
+    - 1.0
+  - - bush
+    - 1180
+    - 1500
+    - 0.8
+  - - grass
+    - 300
+    - 1500
+    - 1.0
 wild: desert
-wild_p: {time: dusk, palette: {sky: "#f5a86a", ground: "#c8663a", ground2: "#a9502c"},
-         props: [[tree, -80, 1500, 0.9], [grass, 980, 1500, 1.0], [rock, 1180, 1500, 0.8]]}
+wild_p:
+  time: dusk
+  palette:
+    sky: '#f5a86a'
+    ground: '#c8663a'
+    ground2: '#a9502c'
+  props:
+  - - tree
+    - -80
+    - 1500
+    - 0.9
+  - - grass
+    - 980
+    - 1500
+    - 1.0
+  - - rock
+    - 1180
+    - 1500
+    - 0.8
 music: mystery
 next: Next, a bird that shows off its bright blue feet to get a date.
 sources:
-  - "Australian Museum, Red Kangaroo: males up to 92 kg; males usually orange-red, females often blue-grey; one baby at a time, the size of a jellybean at birth, which climbs straight into the pouch; joeys permanently leave the pouch at about 235 days; females can delay the birth of their next baby until the previous joey has left the pouch (embryonic diapause); https://australian.museum/learn/animals/mammals/red-kangaroo/"
-  - "National Geographic, Red Kangaroo: world's largest marsupial, about 200 pounds; over 35 miles an hour; can cover 25 feet in a single leap and jump 6 feet high; males box rivals, leaning back on their tails and striking with their strong hind legs; https://www.nationalgeographic.com/animals/mammals/facts/red-kangaroo"
-  - "UNSW Sydney news (2014), Kangaroos use tail as fifth leg (Dawson et al., Biology Letters): when grazing on all fours, red kangaroo tails provide about as much propulsive force as the front and hind legs combined; https://www.unsw.edu.au/newsroom/news/2014/07/kangaroos-use-tail-as-fifth-leg"
-  - "Taronga Conservation Society Australia, What Personal Space?: red kangaroos can produce two different types of milk at once for a joey in the pouch and another on the ground; a female can become pregnant again while a joey is still in the pouch; https://taronga.org.au/news/2018-07-11/what-personal-space"
-  - "Frontiers for Young Minds (2024), co-authored at the University of Queensland, on kangaroo cooling: kangaroos spread saliva on their forearms, where a large network of blood vessels lies under thin skin, and the evaporating saliva cools them like sweat; https://kids.frontiersin.org/articles/10.3389/frym.2024.1333636"
+- 'Australian Museum, Red Kangaroo: males up to 92 kg; males usually orange-red, females
+  often blue-grey; one baby at a time, the size of a jellybean at birth, which climbs
+  straight into the pouch; joeys permanently leave the pouch at about 235 days; females
+  can delay the birth of their next baby until the previous joey has left the pouch
+  (embryonic diapause); https://australian.museum/learn/animals/mammals/red-kangaroo/'
+- 'National Geographic, Red Kangaroo: world''s largest marsupial, about 200 pounds;
+  over 35 miles an hour; can cover 25 feet in a single leap and jump 6 feet high;
+  males box rivals, leaning back on their tails and striking with their strong hind
+  legs; https://www.nationalgeographic.com/animals/mammals/facts/red-kangaroo'
+- 'UNSW Sydney news (2014), Kangaroos use tail as fifth leg (Dawson et al., Biology
+  Letters): when grazing on all fours, red kangaroo tails provide about as much propulsive
+  force as the front and hind legs combined; https://www.unsw.edu.au/newsroom/news/2014/07/kangaroos-use-tail-as-fifth-leg'
+- 'Taronga Conservation Society Australia, What Personal Space?: red kangaroos can
+  produce two different types of milk at once for a joey in the pouch and another
+  on the ground; a female can become pregnant again while a joey is still in the pouch;
+  https://taronga.org.au/news/2018-07-11/what-personal-space'
+- 'Frontiers for Young Minds (2024), co-authored at the University of Queensland,
+  on kangaroo cooling: kangaroos spread saliva on their forearms, where a large network
+  of blood vessels lies under thin skin, and the evaporating saliva cools them like
+  sweat; https://kids.frontiersin.org/articles/10.3389/frym.2024.1333636'
 yt:
-  - hook: A kangaroo mom can put her own pregnancy on pause.
-  - name: The red kangaroo. The biggest marsupial in the world.
-  - fact: A big male can weigh about two hundred pounds.
-  - escalate: It can cover twenty five feet in one leap, and jump six feet high.
-  - solo: Top speed? Over thirty five miles an hour.
-    hero_moves: [{at: "15%", dur: 1.6, pos: [640, 1500], walk: true}]
-  - calm: But when it grazes, it walks slowly, on five legs.
+- hook: A kangaroo mom can put her own pregnancy on pause.
+  gag:
+  - thought: baby
+    at: 30%
+  - clock: 0
+    at: 60%
+- name: The red kangaroo. The biggest marsupial in the world.
+  gag:
+    prop: trophy
+    at: 60%
+- fact: A big male can weigh about two hundred pounds.
+  gag:
+    meter: 0.8
+    at: 50%
+- escalate: It can cover twenty five feet in one leap, and jump six feet high.
+  gag:
+    prop: ruler
+    at: 40%
+- solo: Top speed? Over thirty five miles an hour.
+  hero_moves:
+  - at: 15%
+    dur: 1.6
+    pos:
+    - 640
+    - 1500
+    walk: true
+  gag:
+    meter: 0.95
+    at: 30%
+- calm: But when it grazes, it walks slowly, on five legs.
 tt:
-  - fact: The fifth leg is its tail. It pushes as hard as the front and back legs combined.
-  - fact: Now the babies. A newborn joey is the size of a jellybean.
-  - fact: It climbs straight into mom's pouch, all by itself.
-  - escalate: And mom can already be pregnant again, with the next baby on pause.
-  - fact: That baby waits, until the joey leaves the pouch. Then it's born.
-  - fact: She can feed a joey in the pouch, and a bigger one outside, with two different kinds of milk.
-  - solo: Males fight by leaning back on their tails, and boxing with their back legs.
-    act: {mood: angry}
-  - fact: And in the heat, it licks its arms, and covers them in spit.
-    act: {talk: 1.0}
-  - escalate: As the spit dries, it cools the blood underneath.
-  - solo: Would you get in the ring with one?
-    act: {mood: angry}
-  - punch: It pauses babies, makes two kinds of milk, and cools off with its own spit.
+- fact: The fifth leg is its tail. It pushes as hard as the front and back legs combined.
+  gag:
+    meter: 1.0
+    at: 50%
+- fact: Now the babies. A newborn joey is the size of a jellybean.
+  gag:
+    prop: ruler
+    at: 70%
+- fact: It climbs straight into mom's pouch, all by itself.
+- escalate: And mom can already be pregnant again, with the next baby on pause.
+  gag:
+    thought: baby
+    at: 60%
+- fact: That baby waits, until the joey leaves the pouch. Then it's born.
+  gag:
+    clock: 2
+    at: 30%
+- fact: She can feed a joey in the pouch, and a bigger one outside, with two different
+    kinds of milk.
+- solo: Males fight by leaning back on their tails, and boxing with their back legs.
+  act:
+    mood: angry
+  gag:
+    mark: anger
+    at: 50%
+- fact: And in the heat, it licks its arms, and covers them in spit.
+  act:
+    talk: 1.0
+  gag:
+    mark: sweat
+    at: 60%
+- escalate: As the spit dries, it cools the blood underneath.
+  gag:
+    prop: snowflake
+    at: 60%
+- solo: Would you get in the ring with one?
+  act:
+    mood: angry
+- punch: It pauses babies, makes two kinds of milk, and cools off with its own spit.

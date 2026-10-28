@@ -2,85 +2,268 @@ slug: peregrine
 variant: B
 out: episodes/drawn-tt
 specs: scripts/drawn-tt
-series: "Meatball's Animal Files"
+series: Meatball's Animal Files
 title: This Bird Hits Its Prey at 200 Miles an Hour, Feet First 🦅
-tiktok_caption: "this bird hits its prey at 200 mph, feet first 🦅 and now it lives on skyscrapers. Would you want one nesting on your building? 🏙️ yes / 🐦 sorry pigeons / 😬 no #meatballmyths #learnontiktok #peregrinefalcon #birds #animalfacts"
+tiktok_caption: 'this bird hits its prey at 200 mph, feet first 🦅 and now it lives
+  on skyscrapers. Would you want one nesting on your building? 🏙️ yes / 🐦 sorry pigeons
+  / 😬 no #meatballmyths #learnontiktok #peregrinefalcon #birds #animalfacts'
 creature: peregrine
-creature_cfg: {plan: bird, label: peregrine falcon, color: "#5b6673", dark: "#39424d", belly: "#f1e9da",
-               beak: hook, length: 440, height: 270, leg_len: 110, mood: angry, s: 0.85}
+creature_cfg:
+  plan: bird
+  label: peregrine falcon
+  color: '#5b6673'
+  dark: '#39424d'
+  belly: '#f1e9da'
+  beak: hook
+  length: 440
+  height: 270
+  leg_len: 110
+  mood: angry
+  s: 0.85
 s: 0.85
 scene: desert
-scene_p: {time: day, palette: {sky: "#9fd3ef", ground: "#8a8580", ground2: "#6f6a66"},
-          props: [[rock, -80, 1500, 1.3], [rock, 1150, 1500, 1.0], [grass, 980, 1500, 0.8]]}
+scene_p:
+  time: day
+  palette:
+    sky: '#9fd3ef'
+    ground: '#8a8580'
+    ground2: '#6f6a66'
+  props:
+  - - rock
+    - -80
+    - 1500
+    - 1.3
+  - - rock
+    - 1150
+    - 1500
+    - 1.0
+  - - grass
+    - 980
+    - 1500
+    - 0.8
 wild: desert
-wild_p: {time: day, palette: {sky: "#9fd3ef", ground: "#8a8580", ground2: "#6f6a66"},
-         props: [[rock, -40, 1500, 1.2], [rock, 1180, 1500, 1.1]]}
+wild_p:
+  time: day
+  palette:
+    sky: '#9fd3ef'
+    ground: '#8a8580'
+    ground2: '#6f6a66'
+  props:
+  - - rock
+    - -40
+    - 1500
+    - 1.2
+  - - rock
+    - 1180
+    - 1500
+    - 1.1
 music: mystery
 next: Next, a frog whose heart stops all winter.
 sources:
-  - "U.S. Fish and Wildlife Service, press release Aug 1999, 'The Peregrine Falcon is Back!': world's fastest bird, reaching speeds of 200 miles an hour as it dives after its prey; DDT caused peregrines to lay thin-shelled eggs that broke during incubation; by 1975 an all-time low of 324 nesting pairs in North America; has adapted to nesting on skyscrapers where it hunts pigeons and starlings; https://www.fws.gov/press-release/1999-08/peregrine-falcon-back-babbit-announces-removal-worlds-fastest-bird-endangered"
-  - "Cornell Lab of Ornithology, All About Birds, Peregrine Falcon: hunting stoop from heights of over 1 km, reaching about 320 km/h (200 mph); hunts medium-sized birds; nearly eradicated from eastern North America by pesticide poisoning, now regularly seen in large cities; found on every continent except Antarctica; https://www.allaboutbirds.org/guide/Peregrine_Falcon/overview"
-  - "BBC Wildlife (Discover Wildlife), Peregrine falcon facts: folds wings and tail into a teardrop shape and strikes prey in mid-air with its talons; the tomial tooth, a notch on the upper bill, breaks the prey's neck and spinal cord; tubercles in the nostrils slow incoming air so it can breathe while diving; a semi-transparent nictitating membrane protects the eyes at top speed; nests on high-rise blocks and cathedrals as replicas of its cliff ledges; feral pigeons are common urban prey; https://www.discoverwildlife.com/animal-facts/birds/peregrine-falcon-facts"
+- 'U.S. Fish and Wildlife Service, press release Aug 1999, ''The Peregrine Falcon
+  is Back!'': world''s fastest bird, reaching speeds of 200 miles an hour as it dives
+  after its prey; DDT caused peregrines to lay thin-shelled eggs that broke during
+  incubation; by 1975 an all-time low of 324 nesting pairs in North America; has adapted
+  to nesting on skyscrapers where it hunts pigeons and starlings; https://www.fws.gov/press-release/1999-08/peregrine-falcon-back-babbit-announces-removal-worlds-fastest-bird-endangered'
+- 'Cornell Lab of Ornithology, All About Birds, Peregrine Falcon: hunting stoop from
+  heights of over 1 km, reaching about 320 km/h (200 mph); hunts medium-sized birds;
+  nearly eradicated from eastern North America by pesticide poisoning, now regularly
+  seen in large cities; found on every continent except Antarctica; https://www.allaboutbirds.org/guide/Peregrine_Falcon/overview'
+- 'BBC Wildlife (Discover Wildlife), Peregrine falcon facts: folds wings and tail
+  into a teardrop shape and strikes prey in mid-air with its talons; the tomial tooth,
+  a notch on the upper bill, breaks the prey''s neck and spinal cord; tubercles in
+  the nostrils slow incoming air so it can breathe while diving; a semi-transparent
+  nictitating membrane protects the eyes at top speed; nests on high-rise blocks and
+  cathedrals as replicas of its cliff ledges; feral pigeons are common urban prey;
+  https://www.discoverwildlife.com/animal-facts/birds/peregrine-falcon-facts'
 yt:
-  - hook: This bird hits its prey at two hundred miles an hour. Feet first.
-  - solo: The peregrine falcon. The fastest bird in the world.
-    hero_at: {x: 515}
-    act: {mood: smug}
-  - solo: It climbs more than half a mile into the sky.
-    scene: garden
-    scene_p: {time: day, palette: {sky: "#7cc4ef", ground: "#7cc46a"}, props: [[tree, -100, 1500, 0.6], [bush, 1150, 1500, 0.6]]}
-    act: {fly: 1.0}
-    hero_at: {x: 620, y: 1150}
-  - solo: Then it folds its wings into a teardrop, and drops.
-    scene: garden
-    scene_p: {time: day, palette: {sky: "#7cc4ef", ground: "#7cc46a"}, props: [[tree, -100, 1500, 0.6], [bush, 1150, 1500, 0.6]]}
-    act: {fly: 1.0, mood: angry}
-    hero_at: {x: 620, y: 900}
-    hero_moves: [{at: "45%", dur: 0.7, pos: [580, 1500]}]
-  - solo: It punches a bird right out of the air, with its talons.
-    hero_at: {x: 515}
-    scene: garden
-    scene_p: {time: day, palette: {sky: "#7cc4ef", ground: "#7cc46a"}, props: [[tree, -100, 1500, 0.6], [bush, 1150, 1500, 0.6]]}
-    with: [{sp: pigeon, x: 900, y: 1150, s: 0.6, p: {fly: 1.0, mood: shock}}]
+- hook: This bird hits its prey at two hundred miles an hour. Feet first.
+  gag:
+    meter: 1.0
+    at: 30%
+- solo: The peregrine falcon. The fastest bird in the world.
+  hero_at:
+    x: 515
+  act:
+    mood: smug
+  gag:
+    prop: trophy
+    at: 60%
+- solo: It climbs more than half a mile into the sky.
+  scene: garden
+  scene_p:
+    time: day
+    palette:
+      sky: '#7cc4ef'
+      ground: '#7cc46a'
+    props:
+    - - tree
+      - -100
+      - 1500
+      - 0.6
+    - - bush
+      - 1150
+      - 1500
+      - 0.6
+  act:
+    fly: 1.0
+  hero_at:
+    x: 620
+    y: 1150
+  gag:
+    prop: rocket
+    at: 40%
+- solo: Then it folds its wings into a teardrop, and drops.
+  scene: garden
+  scene_p:
+    time: day
+    palette:
+      sky: '#7cc4ef'
+      ground: '#7cc46a'
+    props:
+    - - tree
+      - -100
+      - 1500
+      - 0.6
+    - - bush
+      - 1150
+      - 1500
+      - 0.6
+  act:
+    fly: 1.0
+    mood: angry
+  hero_at:
+    x: 620
+    y: 900
+  hero_moves:
+  - at: 45%
+    dur: 0.7
+    pos:
+    - 580
+    - 1500
+  gag:
+    meter: 1.0
+    at: 70%
+- solo: It punches a bird right out of the air, with its talons.
+  hero_at:
+    x: 515
+  scene: garden
+  scene_p:
+    time: day
+    palette:
+      sky: '#7cc4ef'
+      ground: '#7cc46a'
+    props:
+    - - tree
+      - -100
+      - 1500
+      - 0.6
+    - - bush
+      - 1150
+      - 1500
+      - 0.6
+  with:
+  - sp: pigeon
+    x: 900
+    y: 1150
+    s: 0.6
+    p:
+      fly: 1.0
+      mood: shock
+  gag:
+    mark: anger
+    at: 40%
 tt:
-  - solo: At that speed, how does it even breathe? Tiny bumps in its nostrils slow the rushing air.
-    hero_at: {x: 515}
-  - solo: And a see-through third eyelid slides over each eye, like built in goggles.
-    hero_at: {x: 515}
-    act: {mood: calm}
-  - solo: Fifty years ago, it almost vanished. The bug spray DDT poisoned it.
-    hero_at: {x: 515}
-    scene: swamp
-    scene_p: {time: dusk}
-    act: {mood: worry}
-  - solo: Its eggshells got so thin, they cracked under the parents.
-    hero_at: {x: 515}
-    scene: swamp
-    scene_p: {time: dusk}
-    act: {mood: worry}
-  - solo: By nineteen seventy five, North America was down to three hundred twenty four pairs.
-    hero_at: {x: 515}
-    scene: swamp
-    scene_p: {time: night}
-    act: {mood: worry}
-  - solo: Then it came back. And it moved to the city.
-    hero_at: {x: 515}
-    scene: sill
-    scene_p: {time: day}
-    act: {mood: smug}
-  - solo: Skyscrapers are its new cliffs. Pigeons are its new snack.
-    hero_at: {x: 515}
-    scene: sill
-    scene_p: {time: day}
-    with: [{sp: pigeon, x: 930, s: 0.5}]
-  - solo: If a pigeon survives the hit, a notch on its beak finishes the job. It bites through the neck.
-    hero_at: {x: 515}
-    scene: sill
-    scene_p: {time: day}
-    act: {mood: angry}
-    with: [{sp: pigeon, x: 930, s: 0.5, p: {mood: shock}}]
-  - solo: Would you want one nesting on your building?
-    hero_at: {x: 515}
-    scene: sill
-    scene_p: {time: dusk}
-  - punch: Two hundred miles an hour, just to eat the pigeons off your window.
+- solo: At that speed, how does it even breathe? Tiny bumps in its nostrils slow the
+    rushing air.
+  hero_at:
+    x: 515
+- solo: And a see-through third eyelid slides over each eye, like built in goggles.
+  hero_at:
+    x: 515
+  act:
+    mood: calm
+  gag:
+    prop: magnifier
+    at: 50%
+- solo: Fifty years ago, it almost vanished. The bug spray DDT poisoned it.
+  hero_at:
+    x: 515
+  scene: swamp
+  scene_p:
+    time: dusk
+  act:
+    mood: worry
+  gag:
+    prop: skull
+    at: 70%
+- solo: Its eggshells got so thin, they cracked under the parents.
+  hero_at:
+    x: 515
+  scene: swamp
+  scene_p:
+    time: dusk
+  act:
+    mood: worry
+  gag:
+  - pile: egg
+    n: 3
+    r: 40
+    at: 50%
+  - mark: shock
+    at: 80%
+- solo: By nineteen seventy five, North America was down to three hundred twenty four
+    pairs.
+  hero_at:
+    x: 515
+  scene: swamp
+  scene_p:
+    time: night
+  act:
+    mood: worry
+- solo: Then it came back. And it moved to the city.
+  hero_at:
+    x: 515
+  scene: sill
+  scene_p:
+    time: day
+  act:
+    mood: smug
+- solo: Skyscrapers are its new cliffs. Pigeons are its new snack.
+  hero_at:
+    x: 515
+  scene: sill
+  scene_p:
+    time: day
+  with:
+  - sp: pigeon
+    x: 930
+    s: 0.5
+  gag:
+    mark: hearts
+    at: 70%
+- solo: If a pigeon survives the hit, a notch on its beak finishes the job. It bites
+    through the neck.
+  hero_at:
+    x: 515
+  scene: sill
+  scene_p:
+    time: day
+  act:
+    mood: angry
+  with:
+  - sp: pigeon
+    x: 930
+    s: 0.5
+    p:
+      mood: shock
+- solo: Would you want one nesting on your building?
+  hero_at:
+    x: 515
+  scene: sill
+  scene_p:
+    time: dusk
+- punch: Two hundred miles an hour, just to eat the pigeons off your window.
+  gag:
+    meter: 1.0
+    at: 20%

@@ -4,8 +4,9 @@ out: episodes/drawn-tt
 specs: scripts/drawn-tt
 series: Meatball's Animal Files
 title: This Bird Dives Headfirst Into the Ocean From 80 Feet Up 🌊
-tiktok_caption: 'this bird dives headfirst into the ocean from 80 feet up 🌊 its nostrils are sealed shut and its feet are
-  bright blue. Would you dive from 80 feet headfirst? 🌊 yes / 🙅 no / 🩴 only feet first #meatballmyths #learnontiktok #bluefootedbooby
+tiktok_caption: 'this bird dives headfirst into the ocean from 80 feet up 🌊 its nostrils
+  are sealed shut and its feet are bright blue. Would you dive from 80 feet headfirst?
+  🌊 yes / 🙅 no / 🩴 only feet first #meatballmyths #learnontiktok #bluefootedbooby
   #galapagos #birds'
 creature: blue_footed_booby
 creature_cfg:
@@ -39,21 +40,30 @@ wild_p:
 music: mystery
 next: Next, a fish with a water gun in its mouth.
 sources:
-- 'National Geographic, Blue-footed booby: the Galapagos population includes about half of all breeding pairs; dives into
-  the water from as high as 80 feet; males show off their feet with a high-stepping walk, the bluer the feet the more attractive
-  the mate; the name is thought to come from the Spanish ''bobo'', meaning stupid, as the birds looked clumsy on land; eats
-  small fish such as anchovies; https://www.nationalgeographic.com/animals/birds/facts/blue-footed-booby'
-- 'PBS Nature, Blue-Footed Booby: feet coloured by carotenoids from its fish diet, more intense blue linked to greater mating
-  success; plunges from about 30 m and swims as deep as about 25 m (80 ft); a specialized air sac protects it from impact
-  and pressure; permanently closed nostrils; 2-3 eggs incubated by both parents using their warm, blood-vessel-rich feet;
-  https://www.pbs.org/wnet/nature/group/birds/blue-footed-booby-birds'
-- 'Bizberg-Barraza G., Rodriguez C. and Drummond H. (2024), Parental overproduction allows siblicidal bird to adjust brood
-  size to climate-driven prey variation, Behavioral Ecology 35(2): 264-273: blue-footed booby broods are reduced by siblicide
-  when prey is scarce, the dominant first-hatched chick attacking its sibling; https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10878367/'
+- 'National Geographic, Blue-footed booby: the Galapagos population includes about
+  half of all breeding pairs; dives into the water from as high as 80 feet; males
+  show off their feet with a high-stepping walk, the bluer the feet the more attractive
+  the mate; the name is thought to come from the Spanish ''bobo'', meaning stupid,
+  as the birds looked clumsy on land; eats small fish such as anchovies; https://www.nationalgeographic.com/animals/birds/facts/blue-footed-booby'
+- 'PBS Nature, Blue-Footed Booby: feet coloured by carotenoids from its fish diet,
+  more intense blue linked to greater mating success; plunges from about 30 m and
+  swims as deep as about 25 m (80 ft); a specialized air sac protects it from impact
+  and pressure; permanently closed nostrils; 2-3 eggs incubated by both parents using
+  their warm, blood-vessel-rich feet; https://www.pbs.org/wnet/nature/group/birds/blue-footed-booby-birds'
+- 'Bizberg-Barraza G., Rodriguez C. and Drummond H. (2024), Parental overproduction
+  allows siblicidal bird to adjust brood size to climate-driven prey variation, Behavioral
+  Ecology 35(2): 264-273: blue-footed booby broods are reduced by siblicide when prey
+  is scarce, the dominant first-hatched chick attacking its sibling; https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10878367/'
 yt:
 - hook: This bird dives headfirst into the ocean from as high as eighty feet.
+  gag:
+    meter: 1.0
+    at: 40%
 - shrink: So I shrank myself down, to meet one face to face.
 - tiny: The blue-footed booby. And yes, its feet really are bright blue.
+  gag:
+    prop: magnifier
+    at: 60%
 - tiny: About half of all the pairs nest on the Galapagos Islands.
   scene: desert
   scene_p:
@@ -76,6 +86,9 @@ yt:
     - 1600
   act:
     mood: angry
+  gag:
+    meter: 1.0
+    at: 50%
 - solo: Then it swims as deep as eighty feet, chasing fish.
   hero_at:
     x: 530
@@ -87,6 +100,9 @@ yt:
     x: 880
     y: 1150
     s: 0.4
+  gag:
+    thought: fish
+    at: 60%
 - tiny: A special air sac helps cushion the crash.
 - tiny: Meanwhile, I belly flop off the low dive.
   pose: laugh
@@ -94,6 +110,9 @@ tt:
 - tiny: And its nostrils are sealed shut. Permanently.
   act:
     mood: smug
+  gag:
+    mark: shock
+    at: 60%
 - tiny: Where does the blue come from? Pigments in the fish it eats.
   scene: desert
   scene_p:
@@ -107,6 +126,9 @@ tt:
       - 1160
       - 1500
       - 0.9
+  gag:
+    thought: fish
+    at: 70%
 - tiny: The bluer his feet, the more the females like him.
   scene: desert
   scene_p:
@@ -122,6 +144,9 @@ tt:
       - 0.9
   act:
     mood: smug
+  gag:
+    mark: hearts
+    at: 60%
 - tiny: So he shows them off, with a high stepping strut.
   scene: desert
   scene_p:
@@ -142,10 +167,19 @@ tt:
     - 640
     - 1500
     walk: true
+  gag:
+    prop: crown
+    at: 50%
 - tiny: Its name probably comes from the Spanish word bobo. Meaning stupid.
+  gag:
+    mark: dizzy
+    at: 70%
 - tiny: Because on land, it looks so clumsy.
   act:
     mood: shock
+  gag:
+    mark: sweat
+    at: 60%
 - tiny: Parents keep their eggs warm with those feet.
   scene: desert
   scene_p:
@@ -159,7 +193,13 @@ tt:
       - 1160
       - 1500
       - 0.9
-- solo: But when food runs short, the older chick attacks its little brother or sister. And can kill it.
+  gag:
+    pile: egg
+    n: 3
+    r: 40
+    at: 60%
+- solo: But when food runs short, the older chick attacks its little brother or sister.
+    And can kill it.
   hero_at:
     x: 530
   scene: desert
@@ -189,5 +229,10 @@ tt:
         length: 300
         height: 240
         leg_len: 60
+  gag:
+  - mark: anger
+    at: 40%
+  - prop: skull
+    at: 85%
 - fact: Would you dive from eighty feet, headfirst?
 - punch: Blue feet, no nostrils, and a big sibling you really don't want.

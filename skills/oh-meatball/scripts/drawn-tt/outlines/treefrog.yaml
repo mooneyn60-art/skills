@@ -4,8 +4,9 @@ out: episodes/drawn-tt
 specs: scripts/drawn-tt
 series: Meatball's Animal Files
 title: This Frog Freezes Every Winter, and Its Heart Stops 🐸
-tiktok_caption: 'this frog freezes every winter and its heart stops 🐸🧊 then it thaws out in spring and hops away. Would you
-  pick up a frozen frog? 🧊 yes / 🙅 no / 🧼 only with soap after #meatballmyths #learnontiktok #treefrog #frogs #animalfacts'
+tiktok_caption: 'this frog freezes every winter and its heart stops 🐸🧊 then it thaws
+  out in spring and hops away. Would you pick up a frozen frog? 🧊 yes / 🙅 no / 🧼 only
+  with soap after #meatballmyths #learnontiktok #treefrog #frogs #animalfacts'
 creature: gray_treefrog
 creature_cfg:
   plan: frog
@@ -47,48 +48,93 @@ wild_p:
 music: mystery
 next: Next, an animal with a heart two feet long.
 sources:
-- 'Vermont Reptile and Amphibian Atlas (J. Andrews), Herp Update: Gray Treefrogs are freeze tolerant; water between their
-  cells freezes, heart and lungs stop, cell sugars act as antifreeze; they thaw out in spring perfectly healthy without having
-  eaten in seven months; probably overwinter in leaf litter; https://www.vtherpatlas.org/?p=4339'
-- 'The Canadian Encyclopedia, Gray Treefrog: can survive having more than 40 per cent of its body fluids freeze without ill
-  effect, protecting cells with glucose and glycerol; overwinters under leaf litter and snow; can change colour rapidly; large
-  toepads for climbing; up to 6 cm; its trill is one of the loudest frog calls in North America; females lay up to 2,600 eggs
-  a year; undersides of thighs bright yellow-orange, usually hidden; cannot be told apart by sight from Cope''s gray treefrog;
+- 'Vermont Reptile and Amphibian Atlas (J. Andrews), Herp Update: Gray Treefrogs are
+  freeze tolerant; water between their cells freezes, heart and lungs stop, cell sugars
+  act as antifreeze; they thaw out in spring perfectly healthy without having eaten
+  in seven months; probably overwinter in leaf litter; https://www.vtherpatlas.org/?p=4339'
+- 'The Canadian Encyclopedia, Gray Treefrog: can survive having more than 40 per cent
+  of its body fluids freeze without ill effect, protecting cells with glucose and
+  glycerol; overwinters under leaf litter and snow; can change colour rapidly; large
+  toepads for climbing; up to 6 cm; its trill is one of the loudest frog calls in
+  North America; females lay up to 2,600 eggs a year; undersides of thighs bright
+  yellow-orange, usually hidden; cannot be told apart by sight from Cope''s gray treefrog;
   https://thecanadianencyclopedia.ca/en/article/gray-treefrog'
-- 'University of Georgia, Savannah River Ecology Lab Herpetology, Cope''s Gray Treefrog: skin secretions contain toxins that
-  may irritate eyes, lips, mucous membranes and open cuts, wash hands after handling; colour mottled gray to light green,
-  shifts with surroundings; bright yellow-orange flash colours on the inner thighs; D. chrysoscelis is diploid and D. versicolor
-  tetraploid, morphologically indistinguishable; https://srelherp.uga.edu/frogs-and-toads/copes-gray-treefrog/'
-- 'Irwin J.T. and Lee R.E. (2003), Geographic variation in energy storage and cryoprotectants in overwintering adult gray
-  treefrogs, Journal of Experimental Biology 206: 2859: peer-reviewed study of freeze tolerance and glycerol/glucose cryoprotectants
-  in gray treefrogs; https://journals.biologists.com/jeb/article/206/16/2859/13723/Geographic-variation-in-energy-storage-and'
+- 'University of Georgia, Savannah River Ecology Lab Herpetology, Cope''s Gray Treefrog:
+  skin secretions contain toxins that may irritate eyes, lips, mucous membranes and
+  open cuts, wash hands after handling; colour mottled gray to light green, shifts
+  with surroundings; bright yellow-orange flash colours on the inner thighs; D. chrysoscelis
+  is diploid and D. versicolor tetraploid, morphologically indistinguishable; https://srelherp.uga.edu/frogs-and-toads/copes-gray-treefrog/'
+- 'Irwin J.T. and Lee R.E. (2003), Geographic variation in energy storage and cryoprotectants
+  in overwintering adult gray treefrogs, Journal of Experimental Biology 206: 2859:
+  peer-reviewed study of freeze tolerance and glycerol/glucose cryoprotectants in
+  gray treefrogs; https://journals.biologists.com/jeb/article/206/16/2859/13723/Geographic-variation-in-energy-storage-and'
 yt:
 - hook: This frog freezes every winter. Its heart stops. And in spring, it hops away.
+  gag:
+    mark: ice
+    at: 20%
 - name: The gray tree frog. Smaller than your palm, with big sticky toe pads.
+  gag:
+    prop: ruler
+    at: 40%
 - fact: In fall, it hides under dead leaves and snow.
+  gag:
+    pile: leaf
+    n: 6
+    at: 40%
 - escalate: Then the ice comes. The water between its cells turns to ice.
   scene_p:
     time: night
+  gag:
+    prop: snowflake
+    at: 50%
 - xray: Inside, sugars work like antifreeze, and keep each cell from freezing.
 - calm: Its heart stops. Its lungs stop. And it just... waits.
   with:
   - type: heart
     x: 900
     s: 0.5
+  gag:
+    clock: 3
+    at: 80%
 tt:
 - fact: More than forty percent of the fluid in its body can freeze, and it's fine.
-- solo: Then spring comes. It thaws out, perfectly healthy, after seven months without a meal.
+  gag:
+    mark: ice
+    at: 40%
+- solo: Then spring comes. It thaws out, perfectly healthy, after seven months without
+    a meal.
+  gag:
+    clock: 4
+    at: 60%
 - fact: It climbs straight up tree bark with those toes.
-- solo: Its thighs hide a secret. Bright yellow orange, flashed when it stretches its legs.
+- solo: Its thighs hide a secret. Bright yellow orange, flashed when it stretches
+    its legs.
 - fact: And its call is one of the loudest of any frog in North America.
+  gag:
+    meter: 1.0
+    at: 40%
 - fact: A female can lay up to twenty six hundred eggs in one year.
   with:
   - type: eggs
     x: 950
     s: 1.0
+  gag:
+    pile: egg
+    n: 10
+    r: 24
+    at: 50%
+    dur: 1.8
 - fact: It has a twin species. They look exactly the same.
 - escalate: But one of them has twice as many chromosomes.
-- fact: Careful. Its skin has toxins that can irritate your eyes and lips. Wash your hands after.
+  gag:
+    mark: shock
+    at: 40%
+- fact: Careful. Its skin has toxins that can irritate your eyes and lips. Wash your
+    hands after.
+  gag:
+    mark: alarm
+    at: 20%
 - solo: Would you pick up a frozen frog?
   scene: garden
   scene_p:
