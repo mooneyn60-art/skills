@@ -45,3 +45,11 @@ for the dropped case-file show) for the drawn animal show.
 - **Left at 21:30:** house Parts 6, 7, 8, 10 and 11 (10/29 to 11/3). Every target slot was within 30 minutes of an existing YouTube post (case Shorts at 15:30/16:00, long-form at 17:00). They can move after the 15:30/16:00 case slots clear.
 - TikTok moves (21:00 → 10:00, 14:30 → 12:00/18:00) are still to do.
 - **Follow-up (lead override of the 30-minute rule):** house Parts 6 (10/29 → 16:15), 7, 8, 10 and 11 (10/30, 10/31, 11/2, 11/3 → 16:30) moved out of 21:30, so no house Short in 10/29-11/13 posts at 21:30 now. That makes 25 YouTube moves in total.
+
+## Lever 2: TikTok moves done (10/28)
+- **23 TikTok posts moved** (non-draft, TikTok-only), publication dates 10/29 to 11/14, all into the 11:30-17:30 ET peak window (Nolan's TikTok analytics: viewers peak 12-5 PM, 8 PM+ and before 11 AM are weak). 11/15 to 11/24 were already in the window. Drafts and YouTube were not touched.
+- **Rule:** each day, try 12:00, 13:00, 14:00, 15:00, 16:00, 17:00, then 12:30-17:30 on the half hour, then 11:30. Take the first one with no other non-draft TikTok post within 45 minutes, counting posts already moved; if none, allow a 30-minute gap. House-series parts (14:30/13:30) and Bombardier Beetle Part 2 (10/29 17:00) were already in the window and kept their slots, so part order is unchanged.
+- **Result:** 18:00 → 12:00/13:00/15:30/16:00/17:00, 20:00-21:00 → 13:00/17:30, 09:30-10:00 → 12:00/13:00/15:00.
+- **30-minute fallback used twice:** owl 10/29 21:00 → 13:00 and black cat 10/31 21:00 → 13:00 (13:30 TikTok next to them).
+- **Over 5 a day:** 10/29, 10/30 and 10/31 have 6 non-draft TikToks each; moved inside the window anyway, none dropped.
+- Nothing left outside the window.
