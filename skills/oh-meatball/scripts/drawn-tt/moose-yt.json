@@ -9,10 +9,10 @@
   "North Dakota Game and Fish, Winter Ticks and Moose: in good tick years 75,000 to 150,000 winter ticks on a single moose; infested moose rub off much of their hair, looking grey ('ghost moose'); https://gf.nd.gov/wildlife-notes/winter-ticks-and-moose"
  ],
  "photo_credits": [],
- "voice": "en-US-AndrewMultilingualNeural",
+ "voice": "kokoro:fenrir",
  "rate": "+12%",
  "music": "mystery",
- "music_db": -26,
+ "music_db": -20,
  "captions": 66,
  "caption_y": 1640,
  "stage": {
@@ -88,7 +88,7 @@
     "at": "60%"
    },
    "m": "hook",
-   "say": "In Alaska, moose injure more people than bears do."
+   "say": "In Alaska, a moose is more likely to hurt you than a bear is."
   },
   {
    "hero_at": {
@@ -143,5 +143,6 @@
    "m": "tease",
    "say": "Subscribe. Next, a fish with no jaws and a mouth full of teeth."
   }
- ]
+ ],
+ "loop": true
 }
