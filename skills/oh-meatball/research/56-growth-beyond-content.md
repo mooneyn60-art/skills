@@ -44,3 +44,4 @@ for the dropped case-file show) for the drawn animal show.
 - **Result:** 13 Shorts 19:00 → 15:00 (wheel bug 10/29 → 14:30), and 7 house Shorts 21:30 → 15:00 or 16:00 (Parts 9 and 12-18).
 - **Left at 21:30:** house Parts 6, 7, 8, 10 and 11 (10/29 to 11/3). Every target slot was within 30 minutes of an existing YouTube post (case Shorts at 15:30/16:00, long-form at 17:00). They can move after the 15:30/16:00 case slots clear.
 - TikTok moves (21:00 → 10:00, 14:30 → 12:00/18:00) are still to do.
+- **Follow-up (lead override of the 30-minute rule):** house Parts 6 (10/29 → 16:15), 7, 8, 10 and 11 (10/30, 10/31, 11/2, 11/3 → 16:30) moved out of 21:30, so no house Short in 10/29-11/13 posts at 21:30 now. That makes 25 YouTube moves in total.
