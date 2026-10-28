@@ -1,0 +1,109 @@
+{
+ "series": "Things Living In Your House, Part 25",
+ "sources": [
+  "Missouri Department of Conservation, Camel crickets (cave crickets): wingless and cannot chirp but jump a surprising distance; humped back, long antennae, large hind legs; caves, basements and cellars; completely harmless; eat decaying plant and animal matter and small arthropods; about an inch long without legs and antennae; https://mdc.mo.gov/discover-nature/field-guide/camel-crickets-cave-crickets",
+  "Epps, Menninger, LaSala & Dunn 2014, PeerJ 2: e523, Too big to be noticed: cryptic invasion of Asian camel crickets in North American houses: the greenhouse camel cricket (native to Japan or Sichuan, China) first recorded in North America in 1898 in a Minnesota greenhouse; about 88% of houses with identifiable camel crickets had it, 12% the native Ceuthophilus; citizen-science photos and specimens; pitfall traps in 10 Raleigh yards caught 158, all the Asian species, more near houses; omnivorous scavenger eating plant matter and dead insects; https://doi.org/10.7717/peerj.523",
+  "Iowa State University Extension, Camel cricket: seal cracks in foundations, siding, windows and doors; https://yardandgarden.extension.iastate.edu/encyclopedia/camel-cricket",
+  "University of Maine Cooperative Extension, Camel cricket: a nuisance when they take up residence in buildings, especially basements; attracted to cool, dark, moist places; generally do not reproduce indoors except where conditions stay continuously dark and moist; https://extension.umaine.edu/home-and-garden-ipm/common-name-listing/camel-cricket/"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:fenrir",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "camel_cricket",
+  "scene": "basement",
+  "scene_p": {
+   "time": "night"
+  },
+  "creature_cfg": {
+   "plan": "insect",
+   "label": "camel cricket",
+   "body": "round",
+   "color": "#a8784a",
+   "dark": "#6e4a2a",
+   "length": 460,
+   "height": 260,
+   "leg_len": 220,
+   "ant": 420,
+   "stripes": 5,
+   "mood": "worry",
+   "s": 0.75
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "insect",
+    "label": "camel cricket",
+    "body": "round",
+    "color": "#a8784a",
+    "dark": "#6e4a2a",
+    "length": 460,
+    "height": 260,
+    "leg_len": 220,
+    "ant": 420,
+    "stripes": 5,
+    "mood": "worry",
+    "s": 0.75
+   }
+  },
+  "actor": "creature",
+  "wild": "cave"
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "A Hunchbacked Cricket Is Jumping Out of Your Basement",
+ "tiktok_caption": "camel crickets (spider crickets) in my basement 😱 no wings, can't chirp, but they jump surprisingly far, and most in US homes are from Asia. Would you go down to that basement? 🏃 yes / 🚪 lock the door #camelcricket #spidercricket #bugsinyourhouse #meatballmyths",
+ "beats": [
+  {
+   "gag": {
+    "mark": "shock",
+    "at": "70%"
+   },
+   "m": "hook",
+   "say": "Turn on your basement light, and a hunchbacked cricket jumps out of the dark."
+  },
+  {
+   "m": "escalate",
+   "say": "No wings, and it can't chirp. But it can jump surprisingly far."
+  },
+  {
+   "m": "name",
+   "say": "The camel cricket. A humped back, giant back legs, and super long antennae."
+  },
+  {
+   "gag": {
+    "mark": "alarm",
+    "at": "60%"
+   },
+   "m": "fact",
+   "say": "Most camel crickets in American homes aren't even from here."
+  },
+  {
+   "m": "count",
+   "say": "In one study, almost nine out of ten houses with camel crickets had an Asian species."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "day"
+   },
+   "m": "solo",
+   "say": "It first showed up in North America in eighteen ninety eight, in a Minnesota greenhouse."
+  },
+  {
+   "gag": {
+    "mark": "hearts",
+    "at": "75%"
+   },
+   "m": "punch",
+   "say": "And for all that jumping, it's completely harmless to you."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. More things living in your house, soon."
+  }
+ ],
+ "loop": true
+}

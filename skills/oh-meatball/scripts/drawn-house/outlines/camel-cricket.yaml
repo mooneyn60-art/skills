@@ -1,0 +1,80 @@
+slug: camel-cricket
+series: Things Living In Your House
+part: 25
+title: A Hunchbacked Cricket Is Jumping Out of Your Basement
+tiktok_caption: 'camel crickets (spider crickets) in my basement 😱 no wings, can''t chirp, but they jump surprisingly far,
+  and most in US homes are from Asia. Would you go down to that basement? 🏃 yes / 🚪 lock the door #camelcricket #spidercricket
+  #bugsinyourhouse #meatballmyths'
+creature: camel_cricket
+actor: creature
+creature_cfg: &id001
+  plan: insect
+  label: camel cricket
+  body: round
+  color: '#a8784a'
+  dark: '#6e4a2a'
+  length: 460
+  height: 260
+  leg_len: 220
+  ant: 420
+  stripes: 5
+  mood: worry
+  s: 0.75
+hero_p:
+  cfg: *id001
+scene: basement
+scene_p:
+  time: night
+wild: cave
+music: mystery
+next: More things living in your house, soon.
+sources:
+- 'Missouri Department of Conservation, Camel crickets (cave crickets): wingless and cannot chirp but jump a surprising distance;
+  humped back, long antennae, large hind legs; caves, basements and cellars; completely harmless; eat decaying plant and animal
+  matter and small arthropods; about an inch long without legs and antennae; https://mdc.mo.gov/discover-nature/field-guide/camel-crickets-cave-crickets'
+- 'Epps, Menninger, LaSala & Dunn 2014, PeerJ 2: e523, Too big to be noticed: cryptic invasion of Asian camel crickets in
+  North American houses: the greenhouse camel cricket (native to Japan or Sichuan, China) first recorded in North America
+  in 1898 in a Minnesota greenhouse; about 88% of houses with identifiable camel crickets had it, 12% the native Ceuthophilus;
+  citizen-science photos and specimens; pitfall traps in 10 Raleigh yards caught 158, all the Asian species, more near houses;
+  omnivorous scavenger eating plant matter and dead insects; https://doi.org/10.7717/peerj.523'
+- 'Iowa State University Extension, Camel cricket: seal cracks in foundations, siding, windows and doors; https://yardandgarden.extension.iastate.edu/encyclopedia/camel-cricket'
+- 'University of Maine Cooperative Extension, Camel cricket: a nuisance when they take up residence in buildings, especially
+  basements; attracted to cool, dark, moist places; generally do not reproduce indoors except where conditions stay continuously
+  dark and moist; https://extension.umaine.edu/home-and-garden-ipm/common-name-listing/camel-cricket/'
+yt:
+- hook: Turn on your basement light, and a hunchbacked cricket jumps out of the dark.
+  gag:
+    mark: shock
+    at: 70%
+- escalate: No wings, and it can't chirp. But it can jump surprisingly far.
+- name: The camel cricket. A humped back, giant back legs, and super long antennae.
+- fact: Most camel crickets in American homes aren't even from here.
+  gag:
+    mark: alarm
+    at: 60%
+- count: In one study, almost nine out of ten houses with camel crickets had an Asian species.
+- solo: It first showed up in North America in eighteen ninety eight, in a Minnesota greenhouse.
+  scene: garden
+  scene_p:
+    time: day
+- punch: And for all that jumping, it's completely harmless to you.
+  gag:
+    mark: hearts
+    at: 75%
+tt:
+- solo: It loves cool, damp, dark places. Caves, cellars, basements.
+  scene: cave
+- solo: It eats rotting plants, dead insects, and other little bugs.
+  scene: forest_floor
+  scene_p:
+    time: night
+- fact: It grows to about an inch long, not counting the legs.
+  gag:
+    prop: ruler
+    at: 50%
+- fact: Scientists asked people across North America to send in photos and specimens.
+- count: In ten yards in Raleigh, traps caught a hundred fifty eight. Every one was the Asian species.
+- fact: The closer to the house, the more they caught.
+- fact: To keep them out, seal the cracks in your foundation, and around doors and windows.
+- fact: It usually doesn't breed indoors, unless it stays dark and damp all the time.
+- fact: Would you go down to that basement?
