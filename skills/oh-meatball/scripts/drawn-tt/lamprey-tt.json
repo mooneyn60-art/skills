@@ -66,6 +66,10 @@
      "walk": true
     }
    ],
+   "gag": {
+    "thought": "fish",
+    "at": "40%"
+   },
    "m": "hook",
    "say": "This fish latches on to other fish, and drinks their blood."
   },
@@ -98,6 +102,10 @@
     "bite": 1.0
    },
    "pose": "shock",
+   "gag": {
+    "prop": "magnifier",
+    "at": "40%"
+   },
    "m": "tiny",
    "say": "Its mouth is a round sucking disk, packed with sharp teeth, and a razor tongue."
   },
@@ -123,6 +131,10 @@
      "front": false
     }
    ],
+   "gag": {
+    "mark": "anger",
+    "at": "40%"
+   },
    "m": "tiny",
    "say": "It latches on, and grinds right through the scales and skin."
   },
@@ -139,6 +151,10 @@
    "act": {
     "xray": 1.0
    },
+   "gag": {
+    "heart": 3,
+    "at": "50%"
+   },
    "m": "tiny",
    "say": "Then it oozes a chemical that stops the blood from clotting."
   },
@@ -153,6 +169,10 @@
     "time": "dusk"
    },
    "pose": "deadpan",
+   "gag": {
+    "prop": "ruler",
+    "at": "70%"
+   },
    "m": "tiny",
    "say": "So, a leech. But it's a fish. And it's two feet long."
   },
@@ -169,6 +189,11 @@
    "act": {
     "chew": 1.0
    },
+   "gag": {
+    "pile": "fish",
+    "n": 8,
+    "at": "40%"
+   },
    "m": "tiny",
    "say": "One lamprey can kill up to forty pounds of fish."
   },
@@ -180,6 +205,10 @@
    "hero_at": {
     "x": 540,
     "y": 1470
+   },
+   "gag": {
+    "clock": 5,
+    "at": "50%"
    },
    "m": "solo",
    "say": "Its babies hide in the mud at the bottom of a stream, for four to seventeen years."
@@ -208,6 +237,10 @@
     "time": "day"
    },
    "pose": "shock",
+   "gag": {
+    "prop": "skull",
+    "at": "50%"
+   },
    "m": "tiny",
    "say": "The lake trout catch crashed by about ninety-eight percent."
   },
@@ -225,6 +258,11 @@
   },
   {
    "scene": "deep",
+   "gag": {
+    "clock": 6,
+    "at": "40%",
+    "dur": 1.8
+   },
    "m": "solo",
    "say": "And this design is ancient. Over three hundred forty million years, barely changed."
   },
@@ -236,6 +274,10 @@
    },
    "scene": "deep",
    "pose": "think",
+   "gag": {
+    "prop": "trophy",
+    "at": "50%"
+   },
    "m": "tiny",
    "say": "It survived at least four mass extinctions."
   },
@@ -250,6 +292,18 @@
     "time": "night"
    },
    "pose": "nervous",
+   "gag": [
+    {
+     "pile": "egg",
+     "n": 10,
+     "r": 24,
+     "at": "30%"
+    },
+    {
+     "prop": "skull",
+     "at": "85%"
+    }
+   ],
    "m": "tiny",
    "say": "One female can lay up to a hundred thousand eggs. And then she dies."
   },

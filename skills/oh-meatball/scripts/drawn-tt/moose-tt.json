@@ -83,6 +83,10 @@
      "walk": true
     }
    ],
+   "gag": {
+    "mark": "anger",
+    "at": "60%"
+   },
    "m": "hook",
    "say": "In Alaska, moose injure more people than bears do."
   },
@@ -90,12 +94,20 @@
    "hero_at": {
     "x": 800
    },
+   "gag": {
+    "prop": "crown",
+    "at": "40%"
+   },
    "m": "name",
    "say": "The moose. The biggest deer on Earth. Six feet tall at the shoulder."
   },
   {
    "hero_at": {
     "x": 800
+   },
+   "gag": {
+    "meter": 1.0,
+    "at": "60%"
    },
    "m": "fact",
    "say": "The biggest one ever weighed at an Alaska research station was nearly seventeen hundred pounds."
@@ -111,10 +123,19 @@
    "hero_at": {
     "x": 800
    },
+   "gag": {
+    "pile": "bone",
+    "n": 3,
+    "at": "60%"
+   },
    "m": "escalate",
    "say": "A mother moose kicks hard enough to break bones."
   },
   {
+   "gag": {
+    "thought": "leaf",
+    "at": "50%"
+   },
    "m": "calm",
    "say": "Most of the time, though, it just wants to eat."
   },
@@ -127,12 +148,20 @@
    "hero_at": {
     "x": 800
    },
+   "gag": {
+    "clock": 0.5,
+    "at": "60%"
+   },
    "m": "fact",
    "say": "It can hold its breath underwater for about thirty seconds."
   },
   {
    "hero_at": {
     "x": 800
+   },
+   "gag": {
+    "prop": "ruler",
+    "at": "50%"
    },
    "m": "fact",
    "say": "A bull's antlers can grow about an inch a day."
@@ -145,6 +174,10 @@
   {
    "hero_at": {
     "x": 800
+   },
+   "gag": {
+    "prop": "snowflake",
+    "at": "40%"
    },
    "m": "fact",
    "say": "Then every winter, he drops them, and grows a new pair."
@@ -160,6 +193,10 @@
    "hero_at": {
     "x": 800
    },
+   "gag": {
+    "mark": "shock",
+    "at": "50%"
+   },
    "m": "escalate",
    "say": "But here's the grossest part. Ticks."
   },
@@ -169,12 +206,23 @@
    "scene_p": {
     "time": "night"
    },
+   "gag": {
+    "pile": "tick",
+    "n": 10,
+    "r": 26,
+    "at": "40%",
+    "dur": 1.8
+   },
    "m": "solo",
    "say": "In a bad year, one moose can carry seventy-five thousand ticks."
   },
   {
    "hero_at": {
     "x": 800
+   },
+   "gag": {
+    "mark": "sweat",
+    "at": "50%"
    },
    "m": "fact",
    "say": "It rubs its own hair off, trying to get rid of them."
@@ -215,6 +263,10 @@
   {
    "hero_at": {
     "x": 800
+   },
+   "gag": {
+    "mark": "dizzy",
+    "at": "85%"
    },
    "m": "punch",
    "say": "The biggest deer on Earth, and it can lose a fight to tiny ticks."

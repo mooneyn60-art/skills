@@ -82,6 +82,10 @@
      "walk": true
     }
    ],
+   "gag": {
+    "mark": "sweat",
+    "at": "40%"
+   },
    "m": "hook",
    "say": "Hippos can't swim. They can't even float."
   },
@@ -91,6 +95,10 @@
   },
   {
    "zoom": 1.5,
+   "gag": {
+    "meter": 1.0,
+    "at": "60%"
+   },
    "m": "tiny",
    "say": "The hippopotamus. A big male can weigh nearly ten thousand pounds."
   },
@@ -106,6 +114,10 @@
   {
    "zoom": 1.5,
    "pose": "nervous",
+   "gag": {
+    "clock": 1,
+    "at": "50%"
+   },
    "m": "tiny",
    "say": "It can hold its breath for five minutes or more."
   },
@@ -114,6 +126,10 @@
    "scene": "ocean",
    "scene_p": {
     "time": "night"
+   },
+   "gag": {
+    "mark": "zzz",
+    "at": "20%"
    },
    "m": "solo",
    "say": "It even sleeps underwater. It floats up for air and sinks back down, still asleep."
@@ -197,6 +213,16 @@
    "act": {
     "chew": 1.0
    },
+   "gag": [
+    {
+     "prop": "moon",
+     "at": "10%"
+    },
+    {
+     "thought": "leaf",
+     "at": "60%"
+    }
+   ],
    "m": "tiny",
    "say": "At night, it walks out of the river and eats about eighty-eight pounds of grass."
   },
@@ -229,6 +255,10 @@
     "bite": 1.0
    },
    "pose": "shock",
+   "gag": {
+    "meter": 0.85,
+    "at": "60%"
+   },
    "m": "tiny",
    "say": "To scare a rival, it opens its mouth to a hundred and fifty degrees."
   },
@@ -261,6 +291,10 @@
     "bite": 1.0
    },
    "pose": "nervous",
+   "gag": {
+    "prop": "ruler",
+    "at": "40%"
+   },
    "m": "tiny",
    "say": "Its tusks can grow twenty inches long. That's taller than me right now."
   },
@@ -289,6 +323,16 @@
      ]
     ]
    },
+   "gag": [
+    {
+     "mark": "anger",
+     "at": "40%"
+    },
+    {
+     "meter": 0.8,
+     "at": "50%"
+    }
+   ],
    "m": "tiny",
    "say": "On land, an angry hippo can charge at fourteen miles an hour."
   },
@@ -299,6 +343,10 @@
     "time": "dusk"
    },
    "pose": "nervous",
+   "gag": {
+    "prop": "skull",
+    "at": "70%"
+   },
    "m": "tiny",
    "say": "It's one of the most aggressive mammals there is, and it can kill people."
   },
@@ -309,6 +357,17 @@
     "time": "dusk"
    },
    "pose": "shock",
+   "gag": [
+    {
+     "prop": "crown",
+     "at": "20%"
+    },
+    {
+     "pile": "poop",
+     "n": 5,
+     "at": "70%"
+    }
+   ],
    "m": "tiny",
    "say": "But the grossest part? The boss male marks his turf with poop."
   },
@@ -319,6 +378,10 @@
     "time": "dusk"
    },
    "pose": "laugh",
+   "gag": {
+    "mark": "stink",
+    "at": "60%"
+   },
    "m": "tiny",
    "say": "He spins his tail like a fan, and flings his poop everywhere."
   },
@@ -332,6 +395,10 @@
   {
    "hero_at": {
     "x": 700
+   },
+   "gag": {
+    "prop": "crown",
+    "at": "80%"
    },
    "m": "punch",
    "say": "It can't swim, it can't float, and it still rules the river."

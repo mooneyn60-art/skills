@@ -76,11 +76,19 @@
      "walk": true
     }
    ],
+   "gag": {
+    "mark": "shock",
+    "at": "60%"
+   },
    "m": "hook",
    "say": "A polar bear's fur isn't actually white."
   },
   {
    "scene": "cave",
+   "gag": {
+    "prop": "magnifier",
+    "at": "40%"
+   },
    "m": "solo",
    "say": "Each hair is clear, like fishing line."
   },
@@ -90,6 +98,10 @@
     "time": "dusk"
    },
    "mood": "smug",
+   "gag": {
+    "mark": "stars",
+    "at": "50%"
+   },
    "m": "solo",
    "say": "Light bounces around inside, so it looks white."
   },
@@ -115,11 +127,19 @@
      "mood": "shock"
     }
    },
+   "gag": {
+    "mark": "shock",
+    "at": "70%"
+   },
    "m": "solo",
    "say": "And under all that fur, its skin is black."
   },
   {
    "how": "grow",
+   "gag": {
+    "prop": "trophy",
+    "at": "40%"
+   },
    "m": "scale",
    "say": "It's the biggest meat eater that lives on land."
   },
