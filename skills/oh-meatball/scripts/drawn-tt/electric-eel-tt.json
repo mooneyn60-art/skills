@@ -1,0 +1,347 @@
+{
+ "series": "Meatball's Animal Files, Part",
+ "sources": [
+  "de Santana et al. 2019, Nature Communications, Unexpected species diversity in electric eels: Electrophorus voltai discharged up to 860 volts, the strongest bioelectric discharge known; electric eels are knifefishes, not true eels; https://doi.org/10.1038/s41467-019-11690-z",
+  "Smithsonian's National Zoo / Smithsonian Magazine (2019): electric eels live in the Amazon and Orinoco basins, grow up to about 8 feet, breathe air and must surface to gulp it, getting most of their oxygen from the air; electric organs fill most of the body; weak electric pulses help them sense their surroundings in murky water; https://nationalzoo.si.edu/animals/electric-eel",
+  "Catania 2014, Science, The shocking predatory strike of the electric eel: high-voltage pulses make hidden prey twitch, revealing it; Catania 2016, PNAS, Leaping eels electrify threats: eels leap out of the water and press their chin against a threat to deliver shocks; https://doi.org/10.1073/pnas.1604009113",
+  "Bastos et al. 2021, Ecology and Evolution, Social predation in electric eels: groups of Electrophorus voltai herd small fish and strike together; https://doi.org/10.1002/ece3.7121"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "electric_eel",
+  "scene": "swamp",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "worm",
+   "label": "electric eel",
+   "color": "#4b4a3a",
+   "dark": "#2e2d22",
+   "length": 760,
+   "height": 150,
+   "ant": 0,
+   "stripes": 0,
+   "mood": "smug",
+   "s": 0.85
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "worm",
+    "label": "electric eel",
+    "color": "#4b4a3a",
+    "dark": "#2e2d22",
+    "length": 760,
+    "height": 150,
+    "ant": 0,
+    "stripes": 0,
+    "mood": "smug",
+    "s": 0.85
+   }
+  },
+  "actor": "creature",
+  "wild": "deep",
+  "wild_p": {
+   "time": "day"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "The Electric Eel Isn't an Eel, and It Can Hit 860 Volts ⚡",
+ "tiktok_caption": "the electric eel isn't even an eel ⚡ one species can hit 860 volts, and it leaps out of the water to zap you. Would you swim in its river? 🏊 yes / ⚡ no way #meatballmyths #learnontiktok #electriceel #animalfacts",
+ "beats": [
+  {
+   "hero_at": {
+    "x": 760
+   },
+   "m": "hook",
+   "say": "One kind of electric eel can hit eight hundred sixty volts."
+  },
+  {
+   "hero_at": {
+    "x": 600
+   },
+   "scene": "swamp",
+   "m": "solo",
+   "say": "It hunts in the muddy rivers of the Amazon."
+  },
+  {
+   "hero_at": {
+    "x": 600
+   },
+   "scene": "deep",
+   "mood": "smug",
+   "m": "solo",
+   "say": "First, a secret. It isn't actually an eel."
+  },
+  {
+   "hero_at": {
+    "x": 760
+   },
+   "m": "name",
+   "say": "It's a knifefish, closer to catfish than to eels."
+  },
+  {
+   "how": "grow",
+   "hero_at": {
+    "x": 760
+   },
+   "m": "scale",
+   "say": "And it grows up to eight feet long."
+  },
+  {
+   "hero_at": {
+    "x": 600
+   },
+   "scene": "deep",
+   "scene_p": {
+    "time": "night"
+   },
+   "hero": {
+    "cfg": {
+     "plan": "worm",
+     "color": "#e8d24a",
+     "dark": "#b89a20",
+     "length": 760,
+     "height": 150,
+     "ant": 0,
+     "stripes": 0,
+     "mood": "angry"
+    }
+   },
+   "m": "solo",
+   "say": "Most of that body is packed with electric organs."
+  },
+  {
+   "hero_at": {
+    "x": 600
+   },
+   "scene": "swamp",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "mood": "happy",
+   "m": "solo",
+   "say": "It even breathes air, so it pops up to gulp it."
+  },
+  {
+   "hero_at": {
+    "x": 760
+   },
+   "m": "chase",
+   "say": "Threaten it, and it leaps out of the water at you."
+  },
+  {
+   "hero_at": {
+    "x": 760
+   },
+   "m": "punch",
+   "say": "Not an eel. Still a shock."
+  },
+  {
+   "hero_at": {
+    "x": 600
+   },
+   "scene": "swamp",
+   "scene_p": {
+    "time": "night"
+   },
+   "act": {
+    "bite": 1.0
+   },
+   "m": "solo",
+   "say": "It presses its chin on you, and zaps."
+  },
+  {
+   "hero_at": {
+    "x": 600
+   },
+   "scene": "swamp",
+   "scene_p": {
+    "time": "day"
+   },
+   "mood": "angry",
+   "m": "solo",
+   "say": "Out of the water, the shock goes straight into you."
+  },
+  {
+   "hero_at": {
+    "x": 600
+   },
+   "scene": "deep",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "mood": "calm",
+   "m": "solo",
+   "say": "In murky water, it uses tiny weak pulses to sense around it."
+  },
+  {
+   "hero_at": {
+    "x": 600
+   },
+   "scene": "reef",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "with": [
+    "goldfish"
+   ],
+   "m": "solo",
+   "say": "When a fish hides, it sends a big pulse."
+  },
+  {
+   "hero_at": {
+    "x": 600
+   },
+   "scene": "reef",
+   "scene_p": {
+    "time": "night"
+   },
+   "act": {
+    "bite": 1.0
+   },
+   "m": "solo",
+   "say": "The fish twitches, and gives away where it is."
+  },
+  {
+   "hero_at": {
+    "x": 600
+   },
+   "scene": "deep",
+   "scene_p": {
+    "time": "day"
+   },
+   "with": [
+    {
+     "type": "creature",
+     "x": 300,
+     "y": 700,
+     "s": 0.5,
+     "p": {
+      "cfg": {
+       "plan": "worm",
+       "label": "electric eel",
+       "color": "#4b4a3a",
+       "dark": "#2e2d22",
+       "length": 760,
+       "height": 150,
+       "ant": 0,
+       "stripes": 0,
+       "mood": "smug",
+       "s": 0.85
+      }
+     }
+    },
+    {
+     "type": "creature",
+     "x": 820,
+     "y": 1250,
+     "s": 0.5,
+     "p": {
+      "cfg": {
+       "plan": "worm",
+       "label": "electric eel",
+       "color": "#4b4a3a",
+       "dark": "#2e2d22",
+       "length": 760,
+       "height": 150,
+       "ant": 0,
+       "stripes": 0,
+       "mood": "smug",
+       "s": 0.85
+      }
+     }
+    }
+   ],
+   "m": "solo",
+   "say": "Some electric eels even hunt in packs."
+  },
+  {
+   "hero_at": {
+    "x": 600
+   },
+   "scene": "swamp",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "with": [
+    "goldfish",
+    "goldfish",
+    "goldfish"
+   ],
+   "m": "solo",
+   "say": "They herd little fish into a ball."
+  },
+  {
+   "hero_at": {
+    "x": 600
+   },
+   "scene": "deep",
+   "scene_p": {
+    "time": "night"
+   },
+   "hero": {
+    "cfg": {
+     "plan": "worm",
+     "color": "#e8d24a",
+     "dark": "#b89a20",
+     "length": 760,
+     "height": 150,
+     "ant": 0,
+     "stripes": 0,
+     "mood": "angry"
+    }
+   },
+   "m": "solo",
+   "say": "Then they all strike together."
+  },
+  {
+   "hero_at": {
+    "x": 600
+   },
+   "scene": "swamp",
+   "scene_p": {
+    "time": "day"
+   },
+   "mood": "happy",
+   "m": "solo",
+   "say": "Every few minutes, it rises to gulp air."
+  },
+  {
+   "hero_at": {
+    "x": 600
+   },
+   "scene": "swamp",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "mood": "calm",
+   "m": "solo",
+   "say": "Most of its oxygen comes from that air, not its gills."
+  },
+  {
+   "hero_at": {
+    "x": 760
+   },
+   "m": "fact",
+   "say": "Would you swim in its river?"
+  },
+  {
+   "hero_at": {
+    "x": 760
+   },
+   "m": "punch",
+   "say": "A fish called an eel, that hits harder than a wall socket."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, a bird with a dagger on its foot."
+  }
+ ]
+}

@@ -1,0 +1,122 @@
+slug: electric-eel
+out: episodes/drawn-tt
+specs: scripts/drawn-tt
+series: Meatball's Animal Files
+variant: B
+title: The Electric Eel Isn't an Eel, and It Can Hit 860 Volts ⚡
+tiktok_caption: 'the electric eel isn''t even an eel ⚡ one species can hit 860 volts, and it leaps out of the water to zap you. Would you swim in its river? 🏊 yes / ⚡ no way #meatballmyths #learnontiktok #electriceel #animalfacts'
+creature: electric_eel
+actor: creature
+creature_cfg: &id001
+  plan: worm
+  label: electric eel
+  color: '#4b4a3a'
+  dark: '#2e2d22'
+  length: 760
+  height: 150
+  ant: 0
+  stripes: 0
+  mood: smug
+  s: 0.85
+hero_p:
+  cfg: *id001
+scene: swamp
+scene_p: {time: day}
+wild: deep
+wild_p: {time: day}
+rate: '+10%'
+music: mystery
+next: Next, a bird with a dagger on its foot.
+sources:
+  - "de Santana et al. 2019, Nature Communications, Unexpected species diversity in electric eels: Electrophorus voltai discharged up to 860 volts, the strongest bioelectric discharge known; electric eels are knifefishes, not true eels; https://doi.org/10.1038/s41467-019-11690-z"
+  - "Smithsonian's National Zoo / Smithsonian Magazine (2019): electric eels live in the Amazon and Orinoco basins, grow up to about 8 feet, breathe air and must surface to gulp it, getting most of their oxygen from the air; electric organs fill most of the body; weak electric pulses help them sense their surroundings in murky water; https://nationalzoo.si.edu/animals/electric-eel"
+  - "Catania 2014, Science, The shocking predatory strike of the electric eel: high-voltage pulses make hidden prey twitch, revealing it; Catania 2016, PNAS, Leaping eels electrify threats: eels leap out of the water and press their chin against a threat to deliver shocks; https://doi.org/10.1073/pnas.1604009113"
+  - "Bastos et al. 2021, Ecology and Evolution, Social predation in electric eels: groups of Electrophorus voltai herd small fish and strike together; https://doi.org/10.1002/ece3.7121"
+yt:
+  - hook: One kind of electric eel can hit eight hundred sixty volts.
+    hero_at: {x: 760}
+  - solo: It hunts in the muddy rivers of the Amazon.
+    hero_at: {x: 600}
+    scene: swamp
+  - solo: First, a secret. It isn't actually an eel.
+    hero_at: {x: 600}
+    scene: deep
+    mood: smug
+  - name: It's a knifefish, closer to catfish than to eels.
+    hero_at: {x: 760}
+  - scale: And it grows up to eight feet long.
+    how: grow
+    hero_at: {x: 760}
+  - solo: Most of that body is packed with electric organs.
+    hero_at: {x: 600}
+    scene: deep
+    scene_p: {time: night}
+    hero:
+      cfg: {plan: worm, color: '#e8d24a', dark: '#b89a20', length: 760, height: 150, ant: 0, stripes: 0, mood: angry}
+  - solo: It even breathes air, so it pops up to gulp it.
+    hero_at: {x: 600}
+    scene: swamp
+    scene_p: {time: dusk}
+    mood: happy
+  - chase: Threaten it, and it leaps out of the water at you.
+    hero_at: {x: 760}
+  - punch: Not an eel. Still a shock.
+    hero_at: {x: 760}
+tt:
+  - solo: It presses its chin on you, and zaps.
+    hero_at: {x: 600}
+    scene: swamp
+    scene_p: {time: night}
+    act: {bite: 1.0}
+  - solo: Out of the water, the shock goes straight into you.
+    hero_at: {x: 600}
+    scene: swamp
+    scene_p: {time: day}
+    mood: angry
+  - solo: In murky water, it uses tiny weak pulses to sense around it.
+    hero_at: {x: 600}
+    scene: deep
+    scene_p: {time: dusk}
+    mood: calm
+  - solo: When a fish hides, it sends a big pulse.
+    hero_at: {x: 600}
+    scene: reef
+    scene_p: {time: dusk}
+    with: [goldfish]
+  - solo: The fish twitches, and gives away where it is.
+    hero_at: {x: 600}
+    scene: reef
+    scene_p: {time: night}
+    act: {bite: 1.0}
+  - solo: Some electric eels even hunt in packs.
+    hero_at: {x: 600}
+    scene: deep
+    scene_p: {time: day}
+    with:
+    - {type: creature, x: 300, y: 700, s: 0.5, p: {cfg: *id001}}
+    - {type: creature, x: 820, y: 1250, s: 0.5, p: {cfg: *id001}}
+  - solo: They herd little fish into a ball.
+    hero_at: {x: 600}
+    scene: swamp
+    scene_p: {time: dusk}
+    with: [goldfish, goldfish, goldfish]
+  - solo: Then they all strike together.
+    hero_at: {x: 600}
+    scene: deep
+    scene_p: {time: night}
+    hero:
+      cfg: {plan: worm, color: '#e8d24a', dark: '#b89a20', length: 760, height: 150, ant: 0, stripes: 0, mood: angry}
+  - solo: Every few minutes, it rises to gulp air.
+    hero_at: {x: 600}
+    scene: swamp
+    scene_p: {time: day}
+    mood: happy
+  - solo: Most of its oxygen comes from that air, not its gills.
+    hero_at: {x: 600}
+    scene: swamp
+    scene_p: {time: dusk}
+    mood: calm
+  - fact: Would you swim in its river?
+    hero_at: {x: 760}
+  - punch: A fish called an eel, that hits harder than a wall socket.
+    hero_at: {x: 760}
