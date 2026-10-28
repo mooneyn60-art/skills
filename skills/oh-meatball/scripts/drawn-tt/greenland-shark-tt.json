@@ -1,0 +1,262 @@
+{
+ "series": "Meatball's Animal Files, Part",
+ "sources": [
+  "Nielsen et al. 2016, Science, Eye lens radiocarbon reveals centuries of longevity in the Greenland shark: lifespan of at least 272 years, the largest shark (502 cm) estimated at 392 +/- 120 years; the longest-lived vertebrate known; sexual maturity reached at about 150 years; growth of roughly 1 cm per year; https://doi.org/10.1126/science.aaf1703",
+  "Watanabe et al. 2012, Journal of Experimental Marine Biology and Ecology, The slowest fish: Greenland sharks cruise at about 0.34 m/s (0.76 mph), the slowest swim speed measured in fish relative to size; https://doi.org/10.1016/j.jembe.2012.06.004",
+  "NOAA Ocean Exploration / Smithsonian Ocean, Greenland shark: lives in the cold North Atlantic and Arctic, down to about 2,200 m; often carries a parasitic copepod hanging from its eye; its flesh is toxic when fresh because of trimethylamine oxide, and in Iceland it is fermented and dried to make hakarl; stomach contents have included seals and even remains of polar bears and reindeer, likely scavenged; https://ocean.si.edu/ocean-life/sharks-rays/greenland-shark"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "greenland_shark",
+  "scene": "deep",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "fish",
+   "label": "Greenland shark",
+   "color": "#6a6458",
+   "dark": "#4a4538",
+   "length": 900,
+   "height": 260,
+   "teeth": true,
+   "mood": "calm",
+   "floor": false,
+   "eye_r": 22,
+   "s": 0.85
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "fish",
+    "label": "Greenland shark",
+    "color": "#6a6458",
+    "dark": "#4a4538",
+    "length": 900,
+    "height": 260,
+    "teeth": true,
+    "mood": "calm",
+    "floor": false,
+    "eye_r": 22,
+    "s": 0.85
+   }
+  },
+  "actor": "creature",
+  "wild": "deep",
+  "wild_p": {
+   "time": "night"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Some Greenland Sharks Alive Today Were Born Before the USA Existed 🦈",
+ "tiktok_caption": "some greenland sharks swimming right now were born before the USA existed 🦈 they grow about 1 cm a year and might live 400 years. Would you want to live that long? ⏳ yes / 🙅 no #meatballmyths #learnontiktok #greenlandshark #animalfacts",
+ "beats": [
+  {
+   "hero_at": {
+    "x": 760,
+    "y": 1000
+   },
+   "m": "hook",
+   "say": "Some of these sharks were born before the United States existed."
+  },
+  {
+   "hero_at": {
+    "x": 760
+   },
+   "scene": "deep",
+   "scene_p": {
+    "time": "night"
+   },
+   "m": "solo",
+   "say": "Deep in the freezing Arctic, it cruises in the dark."
+  },
+  {
+   "hero_at": {
+    "x": 760
+   },
+   "scene": "microscope",
+   "mood": "shock",
+   "m": "solo",
+   "say": "Scientists dated the lenses in their eyes."
+  },
+  {
+   "hero_at": {
+    "x": 760
+   },
+   "scene": "deep",
+   "mood": "calm",
+   "m": "solo",
+   "say": "The biggest one was guessed to be about four hundred years old."
+  },
+  {
+   "hero_at": {
+    "x": 760,
+    "y": 1000
+   },
+   "m": "count",
+   "say": "It grows about one centimeter a year."
+  },
+  {
+   "hero_at": {
+    "x": 760
+   },
+   "scene": "deep",
+   "scene_p": {
+    "time": "night"
+   },
+   "mood": "smug",
+   "m": "solo",
+   "say": "It isn't ready to have babies until it's about a hundred fifty."
+  },
+  {
+   "hero_at": {
+    "x": 760,
+    "y": 1000
+   },
+   "m": "name",
+   "say": "The Greenland shark. The longest-living animal with a backbone."
+  },
+  {
+   "hero_at": {
+    "x": 760,
+    "y": 1000
+   },
+   "m": "punch",
+   "say": "Older than your country, and still swimming."
+  },
+  {
+   "hero_at": {
+    "x": 760
+   },
+   "scene": "deep",
+   "scene_p": {
+    "time": "day"
+   },
+   "mood": "calm",
+   "m": "solo",
+   "say": "It's also one of the slowest fish ever measured."
+  },
+  {
+   "scene": "deep",
+   "scene_p": {
+    "time": "night"
+   },
+   "pose": "laugh",
+   "m": "tiny",
+   "say": "I could almost keep up. Almost."
+  },
+  {
+   "hero_at": {
+    "x": 760
+   },
+   "scene": "deep",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "mood": "calm",
+   "m": "solo",
+   "say": "Under one mile an hour."
+  },
+  {
+   "hero_at": {
+    "x": 760,
+    "y": 1000
+   },
+   "m": "xray",
+   "say": "Yet in its stomach, scientists have found seals."
+  },
+  {
+   "hero_at": {
+    "x": 760
+   },
+   "scene": "cave",
+   "scene_p": {
+    "time": "night"
+   },
+   "mood": "smug",
+   "m": "solo",
+   "say": "And even pieces of polar bears and reindeer, probably scavenged."
+  },
+  {
+   "hero_at": {
+    "x": 760
+   },
+   "scene": "deep",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "mood": "worry",
+   "m": "solo",
+   "say": "Many have a little parasite hanging from one eye."
+  },
+  {
+   "hero_at": {
+    "x": 760
+   },
+   "scene": "deep",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "zoom": 1.5,
+   "m": "solo",
+   "say": "It can grow longer than a car."
+  },
+  {
+   "hero_at": {
+    "x": 760
+   },
+   "scene": "cave",
+   "scene_p": {
+    "time": "day"
+   },
+   "mood": "angry",
+   "m": "solo",
+   "say": "Fresh, its meat is poisonous to people."
+  },
+  {
+   "hero_at": {
+    "x": 760,
+    "y": 1000
+   },
+   "m": "fact",
+   "say": "In Iceland, people ferment it for months, then eat it."
+  },
+  {
+   "hero_at": {
+    "x": 760
+   },
+   "scene": "cave",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "mood": "smug",
+   "m": "solo",
+   "say": "It's called hakarl, and it's famous for its smell."
+  },
+  {
+   "hero_at": {
+    "x": 760,
+    "y": 1000
+   },
+   "m": "fact",
+   "say": "Would you want to live four hundred years?"
+  },
+  {
+   "hero_at": {
+    "x": 760,
+    "y": 1000
+   },
+   "m": "punch",
+   "say": "Slow, with a parasite on its eye, and maybe centuries old."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, another animal that shouldn't exist."
+  }
+ ]
+}

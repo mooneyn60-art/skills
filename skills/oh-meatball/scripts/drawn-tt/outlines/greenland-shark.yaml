@@ -1,0 +1,108 @@
+slug: greenland-shark
+out: episodes/drawn-tt
+specs: scripts/drawn-tt
+series: Meatball's Animal Files
+variant: B
+title: Some Greenland Sharks Alive Today Were Born Before the USA Existed 🦈
+tiktok_caption: 'some greenland sharks swimming right now were born before the USA existed 🦈 they grow about 1 cm a year and might live 400 years. Would you want to live that long? ⏳ yes / 🙅 no #meatballmyths #learnontiktok #greenlandshark #animalfacts'
+creature: greenland_shark
+actor: creature
+creature_cfg: &id001
+  plan: fish
+  label: Greenland shark
+  color: '#6a6458'
+  dark: '#4a4538'
+  length: 900
+  height: 260
+  teeth: true
+  mood: calm
+  floor: false
+  eye_r: 22
+  s: 0.85
+hero_p:
+  cfg: *id001
+scene: deep
+scene_p: {time: day}
+wild: deep
+wild_p: {time: night}
+rate: '+10%'
+music: mystery
+next: Next, another animal that shouldn't exist.
+sources:
+  - "Nielsen et al. 2016, Science, Eye lens radiocarbon reveals centuries of longevity in the Greenland shark: lifespan of at least 272 years, the largest shark (502 cm) estimated at 392 +/- 120 years; the longest-lived vertebrate known; sexual maturity reached at about 150 years; growth of roughly 1 cm per year; https://doi.org/10.1126/science.aaf1703"
+  - "Watanabe et al. 2012, Journal of Experimental Marine Biology and Ecology, The slowest fish: Greenland sharks cruise at about 0.34 m/s (0.76 mph), the slowest swim speed measured in fish relative to size; https://doi.org/10.1016/j.jembe.2012.06.004"
+  - "NOAA Ocean Exploration / Smithsonian Ocean, Greenland shark: lives in the cold North Atlantic and Arctic, down to about 2,200 m; often carries a parasitic copepod hanging from its eye; its flesh is toxic when fresh because of trimethylamine oxide, and in Iceland it is fermented and dried to make hakarl; stomach contents have included seals and even remains of polar bears and reindeer, likely scavenged; https://ocean.si.edu/ocean-life/sharks-rays/greenland-shark"
+yt:
+  - hook: Some of these sharks were born before the United States existed.
+    hero_at: {x: 760, y: 1000}
+  - solo: Deep in the freezing Arctic, it cruises in the dark.
+    hero_at: {x: 760}
+    scene: deep
+    scene_p: {time: night}
+  - solo: Scientists dated the lenses in their eyes.
+    hero_at: {x: 760}
+    scene: microscope
+    mood: shock
+  - solo: The biggest one was guessed to be about four hundred years old.
+    hero_at: {x: 760}
+    scene: deep
+    mood: calm
+  - count: It grows about one centimeter a year.
+    hero_at: {x: 760, y: 1000}
+  - solo: It isn't ready to have babies until it's about a hundred fifty.
+    hero_at: {x: 760}
+    scene: deep
+    scene_p: {time: night}
+    mood: smug
+  - name: The Greenland shark. The longest-living animal with a backbone.
+    hero_at: {x: 760, y: 1000}
+  - punch: Older than your country, and still swimming.
+    hero_at: {x: 760, y: 1000}
+tt:
+  - solo: It's also one of the slowest fish ever measured.
+    hero_at: {x: 760}
+    scene: deep
+    scene_p: {time: day}
+    mood: calm
+  - tiny: I could almost keep up. Almost.
+    scene: deep
+    scene_p: {time: night}
+    pose: laugh
+  - solo: Under one mile an hour.
+    hero_at: {x: 760}
+    scene: deep
+    scene_p: {time: dusk}
+    mood: calm
+  - xray: Yet in its stomach, scientists have found seals.
+    hero_at: {x: 760, y: 1000}
+  - solo: And even pieces of polar bears and reindeer, probably scavenged.
+    hero_at: {x: 760}
+    scene: cave
+    scene_p: {time: night}
+    mood: smug
+  - solo: Many have a little parasite hanging from one eye.
+    hero_at: {x: 760}
+    scene: deep
+    scene_p: {time: dusk}
+    mood: worry
+  - solo: It can grow longer than a car.
+    hero_at: {x: 760}
+    scene: deep
+    scene_p: {time: dusk}
+    zoom: 1.5
+  - solo: Fresh, its meat is poisonous to people.
+    hero_at: {x: 760}
+    scene: cave
+    scene_p: {time: day}
+    mood: angry
+  - fact: In Iceland, people ferment it for months, then eat it.
+    hero_at: {x: 760, y: 1000}
+  - solo: It's called hakarl, and it's famous for its smell.
+    hero_at: {x: 760}
+    scene: cave
+    scene_p: {time: dusk}
+    mood: smug
+  - fact: Would you want to live four hundred years?
+    hero_at: {x: 760, y: 1000}
+  - punch: Slow, with a parasite on its eye, and maybe centuries old.
+    hero_at: {x: 760, y: 1000}
