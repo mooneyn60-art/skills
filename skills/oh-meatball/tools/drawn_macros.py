@@ -7,7 +7,7 @@ A macro spec has a "stage" and beats with "m" (the macro) and "say" (the line):
 Every macro is timed to the line's own TTS ("40%" = 40 % of the way through the spoken line), places the hero
 creature and Meatball on the same stage, and picks camera moves, Meatball poses and sound effects for itself.
 Macros:
-  hook      frame 0 = the creature already doing its creepy thing; Meatball jumps; camera pushes in
+  hook      frame 0 = both on stage, fully in frame, the creature already mid-action (no walk-in); Meatball jumps
   name      the creature turns to camera; Meatball points ("Silverfish. Three tails.")
   fact      a plain fact line; four rotating stagings so consecutive facts never look the same
   xray      the anatomy reveal (the creature's config says what the x-ray shows)
@@ -25,10 +25,15 @@ Macros:
             set "scene" per line to travel through 3-4 habitats. The tease afterwards brings him back full size.
 Per-line overrides: scene, scene_p, with (list of species names, or {"sp" | "type", "x", "y", "s", "p", "front",
 "pop": false = there from frame 0, "set", "moves"} for any actor), hero (false = not on
-stage, or a dict of creature params), act (creature params set at 30 %), hero_at {x, y, rot}, hero_moves, mb_x (Meatball's mark), pose, prop, mood, sfx, pad.
+stage, or a dict of creature params), act (creature params set at 30 %), hero_at {x, y, rot}, hero_moves, mb_x (Meatball's mark), pose, prop, mood, sfx, pad,
+gag (false = none), acting (false = no automatic acting).
+Every hero line is marked "acting": drawn.plan() then has the animal act through it (drawn_acting.act: verbs in the
+line -> lunge, dash, dig, slump, chomp, hop, shake, spin; idle bobs, shuffles and glances in between; hand-set and macro
+moves win). A line without a `gag:` gets one picked from its words (drawn_acting.auto_gag).
 """
 import copy
 
+import drawn_acting
 from drawn_species import SPECIES
 
 SIDE = {"insect", "centipede", "worm", "fish", "bird", "mammal", "reptile"}
@@ -56,6 +61,8 @@ class Stage:
         self.hero_p = st.get("hero_p", {})
         self.side = self.cfg.get("plan") in SIDE or self.cfg.get("shape") == "long"
         self.s = st.get("s", self.cfg.get("s", 0.9))
+        label = self.cfg.get("label") or (self.name or "").replace("_", " ")
+        self.subject = set(label.lower().split())   # its name: a glance cue, and never a gag keyword
 
     def floor(self, scene):
         return FLOOR.get(scene, 1500)
@@ -100,7 +107,7 @@ def _extras(stage, line, F, at=("25%", "50%", "75%")):
 def _beat(stage, line, F, shots, hero, mb, sfx, extra=None, **kw):
     scene = line.get("scene", stage.scene)
     b = {"say": line["say"], "scene": scene, "scene_p": line.get("scene_p", stage.scene_p if scene == stage.scene else {}),
-         "shots": shots, "actors": [], "mb": mb, "sfx": line.get("sfx", sfx), "pad": line.get("pad", 0.15)}
+         "shots": shots, "actors": [], "mb": mb, "sfx": line.get("sfx", sfx), "pad": line.get("pad", 0.08)}
     if hero is not None and line.get("hero", True) is not False:
         if isinstance(line.get("hero"), dict):
             hero["p"].update(line["hero"])
@@ -124,7 +131,15 @@ def _beat(stage, line, F, shots, hero, mb, sfx, extra=None, **kw):
         if line.get("act"):
             hero.setdefault("set", []).append({"at": "30%", "dur": 0.3, "p": line["act"]})
         b["actors"].append(hero)
-        if line.get("gag"):   # show the fact (drawn_gags): piles, zaps, hearts, reactions, props
+        if line.get("acting", True) is not False:   # drawn_acting keys 2-4 actions to the line's words
+            b["acting"] = {"side": stage.side, "subject": stage.subject}
+        gag = line.get("gag")
+        if gag is None and line.get("m") != "tease":   # no gag written: pick one from what's said
+            gag = drawn_acting.auto_gag(line["say"], stage.subject)
+        if gag and mb.get("hidden"):   # solo shots frame the animal centred: keep dials inside the frame
+            gag = [dict(g, x=g.get("x", 760), s=g.get("s", 0.8)) if ("meter" in g or "clock" in g) else g
+                   for g in (gag if isinstance(gag, list) else [gag])]
+        if gag:   # show the fact (drawn_gags): piles, zaps, hearts, reactions, props
             import drawn_gags
             hs = hero.get("s", stage.s)
             top = -((stage.cfg.get("height", 240) + stage.cfg.get("leg_len", 60)) * hs) - 40
@@ -132,10 +147,13 @@ def _beat(stage, line, F, shots, hero, mb, sfx, extra=None, **kw):
             for mv in hero.get("moves", []):
                 if "face" in mv:
                     face_left = mv["face"] < 0
-            g_actors, g_sfx = drawn_gags.build(line["gag"], hero, top, face_left, tag="L%d" % (sum(map(ord, line["say"])) % 99991))
+            g_actors, g_sfx = drawn_gags.build(gag, hero, top, face_left, tag="L%d" % (sum(map(ord, line["say"])) % 99991))
             b["actors"] += g_actors
-            b["sfx"] = list(b["sfx"]) + g_sfx
-    b["actors"] += _extras(stage, line, F) + (extra or [])
+            b["sfx"] = g_sfx + list(b["sfx"])   # the gag's cues first: drawn.mix_audio keeps 2 a line
+    ex = _extras(stage, line, F)
+    if b.get("acting"):
+        b["acting"]["extras"] = [(x["pos"][0], x["moves"][0]["at"]) for x in ex if x.get("moves")]
+    b["actors"] += ex + (extra or [])
     if line.get("mb_x"):   # move Meatball's mark (and any walk) when the room needs it
         dx = line["mb_x"] - mb["pos"][0]
         mb["pos"][0] += dx
@@ -150,6 +168,17 @@ def _beat(stage, line, F, shots, hero, mb, sfx, extra=None, **kw):
         b["actors"][0]["p"]["mood"] = line["mood"]
     b.update(kw)
     return b
+
+
+def _hook_frame(stage, cam, lunge=30):
+    """(hero x, opening camera) for the hook: the animal clear of Meatball (air for its pounce) and the whole of
+    both inside frame 0. A long animal pushes its mark right and the camera out (never under 0.95x)."""
+    if not stage.side:
+        return HERO_X, list(cam)
+    body = stage.cfg.get("length", 400) * stage.s
+    hx = max(HERO_X - 40, MB_X + 190 + lunge + 0.6 * body)   # Meatball's arms reach ~150 px right of his mark
+    z = min(cam[2], max(0.95, 540 / (hx + 0.55 * body + 20 - cam[0])))
+    return int(hx), [cam[0], cam[1], round(z, 3)]
 
 
 def _mb(stage, F, pose, x=MB_X, moves=None, gest=None, **kw):
@@ -169,19 +198,19 @@ def _solo_motion(n, hy, no_ground):
     Returns (moves with the start x in moves[0]["from"], param sets, footstep sfx)."""
     v = n % 6
     if v == 0:   # walks in from the right and stops in the middle
-        mv = [{"from": 780, "at": 0, "dur": 1.3, "pos": [540, hy], "walk": True, "face": -1}]
+        mv = [{"from": 780, "at": 0, "dur": 0.9, "pos": [540, hy], "walk": True, "face": -1}]
     elif v == 1:   # crosses the frame left to right
-        mv = [{"from": 360, "at": "5%", "dur": 2.4, "pos": [720, hy], "walk": True, "linear": True, "face": 1}]
+        mv = [{"from": 360, "at": "5%", "dur": 1.7, "pos": [720, hy], "walk": True, "linear": True, "face": 1}]
     elif v == 2:   # comes at the camera
-        mv = [{"from": 600, "at": "10%", "dur": 1.4, "pos": [520, hy + 40], "grow": 1.22, "walk": True, "face": -1}]
+        mv = [{"from": 600, "at": "10%", "dur": 1.0, "pos": [520, hy + 40], "grow": 1.22, "walk": True, "face": -1}]
     elif v == 3:   # trots in, then hops
-        mv = [{"from": 700, "at": 0, "dur": 0.8, "pos": [560, hy], "walk": True, "face": -1},
+        mv = [{"from": 700, "at": 0, "dur": 0.6, "pos": [560, hy], "walk": True, "face": -1},
               {"at": "50%", "dur": 0.45, "pos": [500, hy], "hop": 150}]
     elif v == 4:   # looks left, looks right, wanders off
-        mv = [{"from": 560, "at": "62%", "dur": 1.1, "pos": [400, hy], "walk": True, "face": -1}]
+        mv = [{"from": 560, "at": "62%", "dur": 0.8, "pos": [400, hy], "walk": True, "face": -1}]
     else:   # walks away, turns round, comes back
-        mv = [{"from": 520, "at": "5%", "dur": 0.9, "pos": [690, hy], "walk": True, "face": 1},
-              {"at": "50%", "dur": 0.9, "pos": [560, hy], "walk": True, "face": -1}]
+        mv = [{"from": 520, "at": "5%", "dur": 0.65, "pos": [690, hy], "walk": True, "face": 1},
+              {"at": "50%", "dur": 0.65, "pos": [560, hy], "walk": True, "face": -1}]
     sets = []
     if v == 2:
         sets = [{"at": "65%", "dur": 0.15, "p": {"bite": 1.0}}, {"at": "85%", "dur": 0.2, "p": {"bite": 0.0}}]
@@ -212,14 +241,27 @@ def expand(spec):
         water = scene in WATER
         hero = _hero(stage, F)
         if m == "hook":
-            hero = _hero(stage, F, x=HERO_X + 260, p={"mood": "smug"},
-                         moves=[{"at": 0, "dur": 1.2, "pos": [HERO_X, stage.hero_y(F)], "walk": True}])
+            # Frame 0 (Studio 10/28: half the viewers swipe in 1-2 s): both on stage, fully in frame, and the animal
+            # already mid-action: frame 0 is the top of a pounce at Meatball (it began 0.25 s "before" the video, so
+            # the YouTube loop can start the same pounce in its last frames). No walk-in from off screen.
+            hy = stage.hero_y(F)
+            hx, open_cam = _hook_frame(stage, C["wide"])
+            hero = _hero(stage, F, x=hx, p={"mood": "smug"},
+                         moves=[{"at": -0.25, "dur": 0.6, "pos": [hx - 30, hy], "hop": 140},
+                                {"at": 0.5, "dur": 0.4, "pos": [hx, hy], "walk": True}],
+                         sets=[{"at": 0, "p": {"bite": 1.0}}, {"at": 0.4, "dur": 0.2, "p": {"bite": 0.0}}])
             hero["p"].update(line.get("act", {}))
+            if line.get("hero_moves"):   # an outline's walk-in becomes moves from the on-stage mark
+                line = dict(line, hero_moves=[dict(mv, pos=[min(mv["pos"][0], hx), mv["pos"][1]]) if "pos" in mv else mv
+                                              for mv in line["hero_moves"] if not (mv.get("walk") and not mv.get("at"))])
+                if not line["hero_moves"]:
+                    line.pop("hero_moves")
             mb = _mb(stage, F, "shock", water=water, shake=0.5,
                      moves=[{"at": "30%", "dur": 0.45, "pos": [MB_X - 30, F], "hop": 220}])
-            b = _beat(stage, line, F, [{"cam": C["wide"], "to": C["two"]}, {"at": "55%", "cam": C["two"], "to": C["close"]}],
+            b = _beat(stage, line, F, [{"cam": open_cam, "to": C["two"]}, {"at": "55%", "cam": C["two"], "to": C["close"]}],
                       hero, mb, ["scratch@0", "boing@30%", "pop@55%"])
-            b["pad"] = line.get("pad", 0.1)
+            b["sfx"] = ["sting@0"] + list(b["sfx"])   # the series' signature cue under the first word (sfx/v2/sting.wav)
+            b["pad"] = line.get("pad", 0.06)
         elif m == "name":
             hero["p"].update({"mood": "happy", "wave": 1.0})
             b = _beat(stage, line, F, [{"cam": C["close"], "to": [C["close"][0] - 10, C["close"][1], 1.36]}], hero,
@@ -237,7 +279,7 @@ def expand(spec):
                           _mb(stage, F, "nervous", water=water), ["whoosh@5%", "tink@60%"])
             elif v == 2:
                 b = _beat(stage, line, F, [{"cam": C["two"], "to": [C["two"][0] + 60, C["two"][1], 1.2]}], hero,
-                          _mb(stage, F, "point", water=water, moves=[{"at": "10%", "dur": 0.6, "pos": [MB_X + 90, F], "walk": True}],
+                          _mb(stage, F, "point", water=water, moves=[{"at": "10%", "dur": 0.45, "pos": [MB_X + 90, F], "walk": True}],
                               gest=[["70%", "shrug", 1.0]]), ["scratch@10%", "pop@70%"])
             else:
                 hero["p"]["mood"] = "happy"
@@ -247,7 +289,7 @@ def expand(spec):
         elif m == "xray":
             hero["set"] = [{"at": "25%", "dur": 0.3, "p": {"xray": 1.0}}, {"at": "92%", "dur": 0.25, "p": {"xray": 0.0}}]
             b = _beat(stage, line, F, [{"cam": C["close"], "to": [C["close"][0] - 20, C["close"][1] + 20, 1.42]}], hero,
-                      _mb(stage, F, "think", water=water, gest=[["30%", "shock", 1.0]]), ["zap@25%", "tink@60%", "pop@92%"])
+                      _mb(stage, F, "think", water=water, gest=[["30%", "shock", 1.0]]), ["whoosh@25%", "tink@60%", "pop@92%"])
         elif m == "scale":
             if line.get("how", "shrink") == "grow":
                 hero["moves"] = [{"at": "30%", "dur": 0.6, "s": stage.s * 1.6}]
@@ -266,12 +308,12 @@ def expand(spec):
                   "set": [{"at": "55%", "p": {"hidden": False}}]}
             b = _beat(stage, line, F, [{"cam": C["two"], "to": C["two"]}, {"at": "55%", "cam": C["close"], "to": [C["close"][0] - 40, C["close"][1] + 20, 1.42]}],
                       hero, _mb(stage, F, "nervous", water=water, shake=0.7, gest=[["55%", "shock", 1.2]]),
-                      ["thud@10%", "zap@55%", "hit@60%"], extra=[dg], shake=["55%"])
+                      ["thud@10%", "thud@55%"], extra=[dg], shake=["55%"])
         elif m == "chase":
-            hero["moves"] = [{"at": "15%", "dur": 1.0, "pos": [MB_X + 260, stage.hero_y(F)], "walk": True, "linear": True}]
+            hero["moves"] = [{"at": "15%", "dur": 0.7, "pos": [MB_X + 260, stage.hero_y(F)], "walk": True, "linear": True}]
             hero["p"]["mood"] = "angry"
             mb = _mb(stage, F, "shock", water=water, shake=0.4,
-                     moves=[{"at": "20%", "dur": 0.8, "pos": [MB_X - 140, F], "walk": True},
+                     moves=[{"at": "20%", "dur": 0.6, "pos": [MB_X - 140, F], "walk": True},
                             {"at": "70%", "dur": 0.4, "pos": [MB_X - 140, F], "hop": 200}])
             b = _beat(stage, line, F, [{"cam": C["two"], "to": [C["wide"][0] - 80, C["wide"][1], 1.12]}], hero, mb,
                       ["scratch@15%", "whoosh@25%", "boing@70%"])
@@ -289,13 +331,26 @@ def expand(spec):
                       _mb(stage, F, "deadpan", water=water, look="viewer", gest=[["60%", "laugh", 1.4]]), ["pop@60%"])
         elif m == "solo":
             hy = stage.hero_y(F)
-            hero = _hero(stage, F, x=540, s=stage.s * line.get("zoom", 1.3), p={"mood": line.get("mood", "smug")})
+            L = stage.cfg.get("length", 400) if stage.side else 0
+            ss = stage.s * line.get("zoom", 1.3)
+            if L and "zoom" not in line:   # a long animal would fill the push-in frame and lose its head off the edge
+                ss = min(ss, 500 / L)
+            hero = _hero(stage, F, x=540, s=ss, p={"mood": line.get("mood", "smug")})
             hero["p"].update(line.get("act", {}))
             cy = hy - 470 if stage.cfg.get("floor", True) else hy + 120
             nsolo = sum(1 for x in out if x.get("_solo"))
             mv, sets, steps = _solo_motion(nsolo, hy, water or not stage.cfg.get("floor", True))
             if not line.get("hero_moves"):
                 hero["pos"] = [mv[0].pop("from"), hy]
+                if L:   # keep the whole animal in the 1.32x frame (~818 world px): shrink the walk, centre the body
+                    k = max(0.0, min(1.0, (818 - 1.45 * L * ss) / 2 / 180))
+                    face = -1 if hero.get("flip") else 1
+                    fit = lambda x, f: 540 + (x - 540) * k - f * 0.15 * L * ss  # noqa: E731  (head side is longer)
+                    hero["pos"][0] = fit(hero["pos"][0], mv[0].get("face", face))
+                    for m in mv:
+                        face = m.get("face", face)
+                        if "pos" in m:
+                            m["pos"] = [fit(m["pos"][0], face), m["pos"][1]]
                 for m in mv:
                     if "grow" in m:
                         m["s"] = hero["s"] * m.pop("grow")
@@ -325,7 +380,7 @@ def expand(spec):
                 hero["_cx"] = 720
                 if v == 0:   # strolls in toward Meatball
                     hero["pos"] = [860, hy]
-                    hero["moves"] = [{"at": 0, "dur": 1.1, "pos": [720, hy], "walk": True}]
+                    hero["moves"] = [{"at": 0, "dur": 0.8, "pos": [720, hy], "walk": True}]
                 elif v == 1:   # hops at him
                     hero["moves"] = [{"at": "40%", "dur": 0.45, "pos": [680, hy], "hop": 150}]
                 else:   # leans in and snaps
@@ -339,11 +394,12 @@ def expand(spec):
             nscene = line.get("scene", stage.scene)
             F = stage.floor(nscene)
             C = _cams(F)
-            b = _beat(stage, line, F, [{"cam": C["two"], "to": [C["two"][0] - 30, C["two"][1] + 20, 1.26]}],
+            end = C["two"] if spec.get("loop") else [C["two"][0] - 30, C["two"][1] + 20, 1.26]   # loop: <= 1.25x back to frame 0
+            b = _beat(stage, line, F, [{"cam": C["two"], "to": end}],
                       hero if nscene == stage.scene else None,
                       _mb(stage, F, "point", look="viewer", water=nscene in WATER, gest=[["55%", "psst", 1.4]]),
                       ["pop@2%", "whoosh@60%"])
-            b["pad"] = line.get("pad", 0.45)
+            b["pad"] = line.get("pad", 0.35)
         else:
             raise SystemExit(f"drawn_macros: unknown macro {m!r}")
         out.append(b)

@@ -40,6 +40,8 @@ def title_for(outline):
     heads = json.load(open(os.path.join(ROOT, "data/tt_headers.json")))
     slug = outline["slug"].replace("-tiny", "")
     sub = f'PART {outline["part"]}' if outline.get("part") else None
+    if sub and outline.get("series", "").lower() == "things living in your house":   # numbered series badge (10/28)
+        sub = f'THINGS LIVING IN YOUR HOUSE #{outline["part"]}'
     return heads.get(slug), sub
 
 
@@ -50,7 +52,8 @@ def bar(title, sub=None):
          f"drawtext=fontfile={FONT}:text='{esc(title)}':fontcolor=white:fontsize={fs}:x=(w-tw)/2:y={175 + (84 - fs) // 2}:"
          "borderw=6:bordercolor=black"]
     if sub:
-        f.append(f"drawtext=fontfile={FONT}:text='{esc(sub)}':fontcolor=#ffd34d:fontsize=60:x=(w-tw)/2:y=278:"
+        ss = fit(sub, 52 if "#" in sub else 60, 960)   # the series badge is smaller, on one line
+        f.append(f"drawtext=fontfile={FONT}:text='{esc(sub)}':fontcolor=#ffd34d:fontsize={ss}:x=(w-tw)/2:y={278 + (60 - ss) // 2}:"
                  "borderw=5:bordercolor=black")
     return ",".join(f)
 

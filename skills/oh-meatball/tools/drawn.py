@@ -6,7 +6,8 @@ Usage: drawn.py SPEC.json OUT.mp4 [--nocap OUT_NOCAP.mp4] [--fps 30] [--frames-o
        (renders the voice once; writes the captioned cut and, with --nocap, the same cut without captions)
 
 Spec (see scripts/drawn-1027/*.json):
-  voice, rate, pitch       edge-tts voice for Meatball's narration (he is the narrator; his mouth flaps on it)
+  voice, rate, pitch       Meatball's narration voice (he is the narrator; his mouth flaps on it): an edge-tts voice,
+                           or "kokoro:<blend>" (tools/free_voice.py; rate/pitch ignored, the blend sets its speed)
   music, music_db          a tools/music.py bed kind ("detective", "cold-war", "ocean", ...) and its level
   captions                 caption size in px (small 1-3 word spoken-word captions; the --nocap cut drops them)
   beats[]                  one spoken line each:
@@ -21,8 +22,13 @@ Spec (see scripts/drawn-1027/*.json):
     mb                     Meatball: {"pose", "pos": feet [x, y], "size" (px per 1000 rig units at zoom 1),
                            "moves": [...as actors], "gest": [[at, pose, hold]], "look": actor id | "viewer",
                            "shake": 0..1, "helmet": bool, "prop": "flashlight" | "mic" | "paper" | "magnifier"}
-    sfx                    ["pop@word", "whoosh@0.4"]: tools' sfx/*.wav at a word or time in the beat
+    sfx                    ["pop@word", "whoosh@0.4"]: tools' sfx/*.wav at a word or time in the beat (at most 2
+                           a line, 0.5 s apart; spec "sfx_gain" 0.22, ducked "sfx_duck_db" -6 under words)
     flash                  [at, ...] white camera-flash frames;  shake: [at, ...] camera shake hits
+  loop                     true: the last line ends on the first frame's framing, marks and poses (YouTube loop)
+  recut                    false = no automatic camera change every <= 2.5 s inside a long line
+  tempo                    dead-air trim (default on): {"lead", "tail", "thr", "cam"}; false = the old timing
+  acting                   false = no automatic acting on beats the macros marked "acting"
   "at" is seconds into the beat, a share of the line ("40%"), or a spoken word ("claw", "claw+0.3", "claw#2").
   Short form: beats with "m" (a macro name) are expanded by drawn_macros (hook, name, fact, xray, scale, count,
   escalate, chase, calm, punch, tease); see tools/drawn_quick.py for the outline that writes them.
@@ -53,6 +59,7 @@ from drawn_habitats import SCENES  # noqa: E402,F401  (every scene, wrapped so e
 from drawn_creatures import build, creature  # noqa: E402
 from drawn_species import SPECIES  # noqa: E402
 import drawn_macros  # noqa: E402
+import drawn_acting  # noqa: E402
 
 ACTORS = {**A1, **A2, **A3, **A4, **A5, "creature": creature}
 ACTORS.update({"sp." + k: build(v) for k, v in SPECIES.items()})
@@ -64,11 +71,31 @@ FONT = os.path.join(ROOT, "brand/fonts/Anton-Regular.ttf")
 
 # ---------------------------------------------------------------- voice
 
+def line_key(text, voice, rate, pitch):
+    if voice.startswith("kokoro:"):   # Kokoro ignores rate/pitch; its blend tuning is part of the voice
+        import free_voice
+        return json.dumps([text, free_voice.cache_name(voice)])
+    return json.dumps([text, voice, rate, pitch])
+
+
+def kokoro(text, voice, mp3, key):
+    """A "kokoro:<blend>" line (tools/free_voice.py, local, cached): copy its mp3 + words.json to the beat's path."""
+    import shutil
+    import free_voice
+    src = free_voice.make(voice, text)
+    shutil.copy(src, mp3)
+    shutil.copy(src + ".words.json", mp3 + ".words.json")
+    open(mp3 + ".key", "w").write(key)
+
+
 def tts(text, voice, rate, pitch, mp3):
     from facts import speak
-    key = json.dumps([text, voice, rate, pitch])   # the cache is per beat index: re-speak when the line changes
+    key = line_key(text, voice, rate, pitch)   # the cache is per beat index: re-speak when the line changes
     fresh = os.path.exists(mp3 + ".key") and open(mp3 + ".key").read() == key
     if not (fresh and os.path.exists(mp3) and os.path.exists(mp3 + ".words.json")):
+        if voice.startswith("kokoro:"):
+            kokoro(text, voice, mp3, key)
+            return json.load(open(mp3 + ".words.json"))
         words = asyncio.run(speak(text, voice, mp3, rate, pitch))
         json.dump(words, open(mp3 + ".words.json", "w"))
         open(mp3 + ".key", "w").write(key)
@@ -83,9 +110,12 @@ def prefetch(spec, work, limit=6):
     jobs = []
     for i, b in enumerate(spec["beats"]):
         mp3 = f"{work}/v{i:02d}.mp3"
-        key = json.dumps([b["say"], voice, rate, pitch])
+        key = line_key(b["say"], voice, rate, pitch)
         if not (os.path.exists(mp3 + ".key") and open(mp3 + ".key").read() == key):
-            jobs.append((b["say"], mp3, key))
+            if voice.startswith("kokoro:"):   # local and cached: no edge batch
+                kokoro(b["say"], voice, mp3, key)
+            else:
+                jobs.append((b["say"], mp3, key))
 
     async def run():
         sem = asyncio.Semaphore(limit)
@@ -98,6 +128,28 @@ def prefetch(spec, work, limit=6):
         await asyncio.gather(*(one(*j) for j in jobs))
     if jobs:
         asyncio.run(run())
+
+
+TEMPO = {"lead": 0.01, "tail": 0.03, "thr": 0.01, "cam": 0.7}   # Nolan 10/28 "the tempo is slow"
+
+
+def trim_air(audio, words, lead, tail, thr=0.01):
+    """Cut the silence the TTS bakes into each line (edge-tts (~0.14 s lead-in, 0.35-0.8 s tail): keep `lead` s before the
+    first sample above thr and `tail` s after the last (the voice itself is untouched). Returns (audio, words
+    shifted back by the cut lead-in, so captions, mouth flaps and keyed actions stay in sync)."""
+    on = np.where(np.abs(audio) > thr)[0]
+    if not len(on):
+        return audio, words
+    first, last = on[0] / SR, (on[-1] + 1) / SR
+    if words:
+        last = max(last, words[-1][1])
+    cut = max(0.0, first - lead)
+    end = min(len(audio) / SR, last + tail)
+    out = audio[int(cut * SR):int(end * SR)].copy()
+    f = min(len(out), int(0.03 * SR))
+    if f:
+        out[-f:] *= np.linspace(1, 0, f, dtype=np.float32)
+    return out, [(max(0.0, a - cut), max(0.0, b - cut), w) for a, b, w in words]
 
 
 def decode(path):
@@ -114,6 +166,12 @@ def at_time(words, at, default=0.0):
         return default
     if isinstance(at, (int, float)):
         return float(at)
+    if "|" in at:   # "word|40%": the word if the TTS said it that way, else the share (drawn_acting.auto_gag)
+        first, alt = at.split("|", 1)
+        try:
+            return at_time(words, first, default)
+        except SystemExit:
+            return at_time(words, alt, default)
     if at.endswith("%"):   # a share of the spoken line (drawn_macros times everything this way)
         return float(at[:-1]) / 100 * (words[-1][1] if words else 0.0)
     w, off = at, 0.0
@@ -163,6 +221,78 @@ def track(start, moves, words, t, scale0=1.0, rot0=0.0):
     return x, y, s, rot, land, walking
 
 
+# ---------------------------------------------------------------- recut and loop seam
+
+RECUT, RECUT_EVERY, RECUT_EASE, RECUT_ZOOM = 2.5, 2.25, 0.45, 1.15   # Studio 10/28: a visual change every <= 2.5 s
+LOOP_LAND = 0.6   # the loop's last move starts this long before the end and lands 0.15 s before it
+
+
+def hero_box(hero):
+    """(half body length, height to the head) of a hero actor, in world px."""
+    if hero is None:
+        return 0.0, 0.0
+    cfg = getattr(ACTORS.get(hero.get("type")), "cfg", None) or hero.get("p", {}).get("cfg") or {}
+    cfg = SPECIES.get(cfg, {}) if isinstance(cfg, str) else cfg
+    hs = hero.get("s", 1.0)
+    return 0.5 * cfg.get("length", 400) * hs, (cfg.get("height", 240) + cfg.get("leg_len", 80)) * hs
+
+
+def recut(b, shots, dur, hero, k, until):
+    """Add a camera change wherever a beat holds one framing for more than RECUT s: short eased steps that
+    alternate a punch-in on the animal (x RECUT_ZOOM) with a return to the macro's framing (a pull-out when a
+    punch-in would cut the animal off). Never more than a 1.25x zoom step."""
+    orig = dict(b, shots=shots, dur=dur)
+    marks = sorted({0.0, until} | {s["at"] for s in shots if s["at"] < until})
+    at = []
+    for a, z in zip(marks, marks[1:]):
+        n = math.ceil((z - a) / RECUT_EVERY) - 1 if z - a > RECUT else 0
+        at += [a + (z - a) * j / (n + 1) for j in range(1, n + 1)]
+    if not at:
+        return shots
+    out = list(shots)
+    half, top = hero_box(hero)
+    hx = hero["pos"][0] if hero else None
+    hy = hero["pos"][1] if hero else None
+    punched = False
+    for t in at:
+        cur, _ = cam_at(dict(b, shots=sorted(out, key=lambda s: s["at"]), dur=dur), t)
+        base, _ = cam_at(orig, t)
+        if punched:
+            to = list(base)
+        else:
+            z = min(cur[2] * RECUT_ZOOM, 1.6)
+            x = cur[0] + 0.4 * ((hx if hx is not None else cur[0]) - cur[0])
+            fits = hx is None or (abs(hx - x) + 1.3 * half <= 540 / z - 20 and
+                                  (hy - top - cur[1]) * z + 960 >= 440)   # below the title bar
+            to = [x, cur[1], z] if fits else [cur[0], cur[1], max(0.9, cur[2] / RECUT_ZOOM)]
+        if max(to[2], cur[2]) / min(to[2], cur[2]) > 1.25:
+            to[2] = cur[2] * (1.25 if to[2] > cur[2] else 0.8)
+        out.append({"at": t, "cam": cur, "to": to, "dur": RECUT_EASE, "k": k, "recut": True})
+        punched = not punched
+    return sorted(out, key=lambda s: s["at"])
+
+
+def loop_hero(b, hook, dur):
+    """The YouTube loop: in the last line the hero goes back to its frame-0 mark, mood and mouth, and starts the
+    hook's opening move (any hook move keyed before 0 s) so the last frame runs straight into frame 0."""
+    first = hook["actors"].get("hero")
+    hero = next((a for a in b.get("actors", []) if a.get("id") == "hero"), None)
+    if first is None or hero is None:
+        return
+    keys = ("mood", "look", "bite", "wave", "chew")
+    p0 = {k: v for k, v in first.get("p", {}).items() if k in keys}
+    for st in first.get("set", []):
+        if not st.get("at"):
+            p0.update({k: v for k, v in st["p"].items() if k in keys})
+    pre = [dict(m, at=dur + m["at"]) for m in first.get("moves", [])
+           if isinstance(m.get("at"), (int, float)) and m["at"] < 0]
+    ts = max(0.0, dur - LOOP_LAND)
+    back = max(0.15, min([m["at"] for m in pre] + [dur - 0.15]) - ts - 0.03)
+    hero.setdefault("moves", []).extend([{"at": ts, "dur": back, "pos": list(first["pos"]), "s": first.get("s", 1.0),
+                                          "face": -1 if first.get("flip") else 1}] + pre)
+    hero.setdefault("set", []).append({"at": ts, "dur": back, "p": p0})
+
+
 # ---------------------------------------------------------------- plan
 
 def plan(spec, work):
@@ -176,10 +306,17 @@ def plan(spec, work):
         mp3 = f"{work}/v{i:02d}.mp3"
         words = [tuple(w) for w in tts(b["say"], voice, rate, pitch, mp3)]
         audio = decode(mp3)
+        tempo = dict(TEMPO, **spec["tempo"]) if isinstance(spec.get("tempo"), dict) else \
+            (TEMPO if spec.get("tempo", True) else None)
+        if tempo:
+            audio, words = trim_air(audio, words, tempo["lead"], tempo["tail"], tempo["thr"])
         speech = len(audio) / SR
-        dur = speech + b.get("pad", 0.18)
+        dur = speech + b.get("pad", 0.08)
         scene = b.get("scene", scene)
         scene_p = b.get("scene_p", scene_p if "scene" not in b else {})
+        seam = spec.get("loop") and i == len(spec["beats"]) - 1 and beats   # the last line cuts back into frame 0
+        if seam:
+            loop_hero(b, beats[0], dur)
         # actors: inherit end states
         actors = {}
         if b.get("keep"):
@@ -195,8 +332,31 @@ def plan(spec, work):
         for s in shots:
             c0 = list(s.get("cam", cam))
             c1 = list(s.get("to", c0))
-            sh2.append(dict(s, cam=c0, to=c1, at=at_time(words, s.get("at"), 0.0)))
+            sh2.append(dict(s, cam=c0, to=c1, at=at_time(words, s.get("at"), 0.0), k=tempo["cam"] if tempo else 1.0))
             cam = c1
+        hero_a = next((a for a in b.get("actors", []) if a.get("id") == "hero"), None)
+        if seam:   # land on the hook's opening framing just before the cut back to frame 0
+            ts = max(0.0, dur - LOOP_LAND)
+            c, _ = cam_at(dict(b, shots=sh2, dur=dur), ts)
+            sh2.append({"at": ts, "cam": c, "to": list(beats[0]["shots"][0]["cam"]), "dur": LOOP_LAND - 0.15, "k": 1.0})
+            cam = sh2[-1]["to"]
+        if spec.get("recut", True) and dur > RECUT:
+            sh2 = recut(b, sh2, dur, hero_a, tempo["cam"] if tempo else 1.0, until=dur - LOOP_LAND if seam else dur)
+        if b.get("acting") and spec.get("acting", True):   # the hero acts through the line (drawn_acting)
+            hero = next((a for a in b.get("actors", []) if a.get("id") == "hero"), None)
+            if hero is not None:
+                hero.setdefault("rot", 0.0)   # a slump or a dig never leaks into the next line
+                cfg = getattr(ACTORS.get(hero.get("type")), "cfg", None) or hero.get("p", {}).get("cfg") or {}
+                cfg = SPECIES.get(cfg, {}) if isinstance(cfg, str) else cfg
+                hs = hero.get("s", 1.0)
+                half = 0.78 * cfg.get("length", 400) * hs
+                top = (cfg.get("height", 240) + cfg.get("leg_len", 80)) * hs
+                info = dict(b["acting"], mb_x=None if b.get("mb", {}).get("hidden") else b.get("mb", {}).get("pos", [None])[0])
+                done = drawn_acting.act(dict(b, shots=sh2, dur=dur), words, dur, hero, info, at_time, track, cam_at,
+                                        half, top)
+                print(f"  act {i:02d}: {' '.join(done) or '-'}", flush=True)
+                actors["hero"].update(moves=hero["moves"], set=hero["set"], rot=hero["rot"])
+                actors["hero"].setdefault("p", {})["idle"] = True
         mb = dict(prev_mb)
         mb.update(b.get("mb", {}))
         mb.setdefault("pos", [540, 1700])
@@ -207,7 +367,7 @@ def plan(spec, work):
             if k not in b.get("mb", {}):
                 mb[k] = prev_mb.get(k) if k in ("helmet", "float") else None
         beats.append(dict(b, i=i, t0=t0, dur=dur, speech=speech, words=words, audio=audio, scene=scene,
-                          scene_p=scene_p, actors=actors, shots=sh2, mb=mb))
+                          scene_p=scene_p, actors=actors, shots=sh2, mb=mb, loop_seam=bool(seam)))
         # end states for inheritance
         end = {}
         for k, a in actors.items():
@@ -246,6 +406,18 @@ def rig_tracks(beats, fps):
                     st[key] = tuple(a + (c - a) * u for a, c in zip(last[key], st[key]))
         out.append(sts[:n])
         last = sts[n - 1] if n else last
+    if len(out) > 1 and beats[-1].get("loop_seam") and out[0] and out[-1]:   # the loop: end on frame 0's pose
+        first, tail = out[0][0], out[-1]
+        m = min(10, len(tail))
+        for j in range(m):
+            u = ease((j + 1) / m)
+            st = tail[len(tail) - m + j]
+            for key in ("lean", "tilt", "knee", "shrug"):
+                st[key] = st[key] + (first[key] - st[key]) * u
+            for key in ("l", "r"):
+                st[key] = tuple(a + (c - a) * u for a, c in zip(st[key], first[key]))
+            if j >= m - 4:   # the face too, for the last few frames
+                st.update(mouth=first["mouth"], brow=first["brow"], eyes=first["eyes"], blink=0)
     return out
 
 
@@ -257,7 +429,7 @@ def cam_at(b, t):
         if s["at"] <= t + 1e-6:
             cur = s
     nxt = [s["at"] for s in b["shots"] if s["at"] > cur["at"]]
-    end = cur.get("dur") or ((min(nxt) if nxt else b["dur"]) - cur["at"])
+    end = cur.get("dur") or ((min(nxt) if nxt else b["dur"]) - cur["at"]) * cur.get("k", 1.0)   # tempo: land sooner
     u = ease((t - cur["at"]) / max(end, 1e-3)) if cur.get("ease", "inout") != "linear" else \
         min(1, (t - cur["at"]) / max(end, 1e-3))
     c = [a + (z - a) * u for a, z in zip(cur["cam"], cur["to"])]
@@ -311,6 +483,9 @@ def draw_actor(ctx, cam, a, b, t, words):
         p["talk"] = talk_level(words, t)
     set_layer(ctx, cam, a.get("depth", 1.0))
     ctx.translate(x, y)
+    if p.get("idle") and not walking and a.get("type") != "photo":   # breathing (the photo actor breathes itself)
+        br = math.sin((b["t0"] + t) * 2 * math.pi * 0.8 + (hash(a["id"]) % 7))
+        ctx.scale(1 - 0.008 * br, 1 + 0.018 * br)
     if land is not None and land < 0.25:
         q = 1 - land / 0.25
         ctx.scale(1 + 0.18 * q, 1 - 0.18 * q)
@@ -601,28 +776,60 @@ def frame_at(f):
     return [o.tobytes() for o in outs]
 
 
+SFX_MAX, SFX_GAP, SFX_DUCK_DB = 2, 0.5, -6.0   # Nolan 10/28 "get rid of the loud beeps and make it softer"
+
+
+def sfx_cues(beats):
+    """[(t, name)] of the cues to play: at most SFX_MAX a line and SFX_GAP s between any two. A line's cues are
+    kept in its list order (gag cues first, then the macro's), footsteps last; the rest are dropped."""
+    kept = []
+    for b in beats:
+        cand = []
+        for k, e in enumerate(b.get("sfx", [])):
+            name, _, at = e.partition("@")
+            num = at.replace(".", "", 1).isdigit()
+            t = b["t0"] + at_time(b["words"], float(at) if num else (at or 0.0))
+            cand.append((name == "step", k, t, name))
+        n = 0
+        for _, _, t, name in sorted(cand):
+            if n < SFX_MAX and all(abs(t - t2) >= SFX_GAP for t2, _ in kept):
+                kept.append((t, name))
+                n += 1
+    return sorted(kept)
+
+
 def mix_audio(spec, beats, total, path):
     n = int(total * SR) + SR
     voice = np.zeros(n, np.float32)
     sfx = np.zeros(n, np.float32)
+    talk = np.zeros(n, np.float32)   # 1 while a word is spoken: the sfx bus ducks under it
     for b in beats:
         a = b["audio"]
         o = int(b["t0"] * SR)
         voice[o:o + len(a)] += a[:max(0, n - o)]
-        for e in b.get("sfx", []):
-            name, _, at = e.partition("@")
-            num = at.replace(".", "", 1).isdigit()
-            t = b["t0"] + at_time(b["words"], float(at) if num else (at or 0.0))
-            kit = os.path.join(ROOT, "sfx", spec.get("sfx_kit", "v2"), name + ".wav")   # v2 nature kit (10/28)
-            with wave.open(kit if os.path.exists(kit) else os.path.join(ROOT, "sfx", name + ".wav")) as w:
-                raw = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768
-                if w.getnchannels() == 2:
-                    raw = raw.reshape(-1, 2).mean(1)
-                if w.getframerate() != SR:
-                    idx = np.arange(0, len(raw), w.getframerate() / SR)
-                    raw = np.interp(idx, np.arange(len(raw)), raw).astype(np.float32)
-            o = int(t * SR)
-            sfx[o:o + len(raw)] += raw[:max(0, n - o)] * spec.get("sfx_gain", 0.45)
+        for s0, e0, _ in b["words"]:
+            talk[int((b["t0"] + s0) * SR):int((b["t0"] + e0) * SR)] = 1.0
+    for t, name in sfx_cues(beats):
+        kit = os.path.join(ROOT, "sfx", spec.get("sfx_kit", "v2"), name + ".wav")   # v2 nature kit (10/28)
+        with wave.open(kit if os.path.exists(kit) else os.path.join(ROOT, "sfx", name + ".wav")) as w:
+            raw = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768
+            if w.getnchannels() == 2:
+                raw = raw.reshape(-1, 2).mean(1)
+            if w.getframerate() != SR:
+                idx = np.arange(0, len(raw), w.getframerate() / SR)
+                raw = np.interp(idx, np.arange(len(raw)), raw).astype(np.float32)
+        o = int(t * SR)
+        sfx[o:o + len(raw)] += raw[:max(0, n - o)] * spec.get("sfx_gain", 0.22)
+    r = int(0.04 * SR)   # 40 ms duck ramps
+    talk = np.convolve(talk, np.ones(r, np.float32) / r, mode="same")
+    duck = 10 ** (spec.get("sfx_duck_db", SFX_DUCK_DB) / 20)
+    sfx *= 1 - talk * (1 - duck)
+    if os.environ.get("DRAWN_SFX_STATS"):   # sfx bus vs voice, for the "softer" check
+        db = lambda x: 20 * np.log10(max(float(x), 1e-9))   # noqa: E731
+        on = np.abs(sfx) > 1e-4
+        print(f"sfx stats: voice peak {db(np.abs(voice).max()):.1f} dBFS rms {db(np.sqrt(np.mean(voice[talk > 0.5] ** 2))):.1f}"
+              f" | sfx peak {db(np.abs(sfx).max()):.1f} rms(active) {db(np.sqrt(np.mean(sfx[on] ** 2)) if on.any() else 0):.1f}"
+              f" | cues {len(sfx_cues(beats))}", flush=True)
     bed = music.render(spec.get("music", "detective"), total)
     bed = bed.mean(1) if bed.ndim == 2 else bed
     g = 10 ** (spec.get("music_db", -21) / 20)

@@ -43,6 +43,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 MACROS = ("hook", "name", "fact", "xray", "scale", "count", "escalate", "chase", "calm", "punch", "tease", "solo", "shrink", "tiny")
+# Narrator: Kokoro fenrir (0.86x, comma pauses <= 0.22 s; tools/free_voice.py), picked 10/28 from the outlier-matching
+# voice test. An outline's "voice:" (and "rate:" for an edge-tts voice, e.g. en-US-AndrewMultilingualNeural) overrides it.
+VOICE = "kokoro:fenrir"
 YT_RANGE, TT_RANGE = (18.0, 40.0), (61.0, 75.0)   # YT 18-40 s: Lab found no edge for <=20 s (research 02)
 
 
@@ -67,20 +70,19 @@ def specs(o):
     for k in ("creature_cfg", "hero_p", "s", "actor", "wild", "wild_p"):
         if k in o:
             stage[k] = o[k]
-    tease = {"m": "tease", "say": "Subscribe. " + o["next"]}
-    if o.get("next_scene"):
-        tease["scene"] = o["next_scene"]
-        tease["scene_p"] = o.get("next_scene_p", {})
+    tease = {"m": "tease", "say": "Subscribe. " + o["next"]}   # YouTube: stays in the hook's room so the loop is seamless
+    tt_room = {"scene": o["next_scene"], "scene_p": o.get("next_scene_p", {})} if o.get("next_scene") else {}
     act1 = [line(x) for x in o["yt"]]
     act2 = [line(x) for x in o.get("tt", [])]
     base = {"series": f'{o.get("series", "")}, Part {o.get("part", "")}'.strip(", "), "sources": o["sources"],
-            "photo_credits": [], "voice": o.get("voice", "en-US-AndrewMultilingualNeural"), "rate": o.get("rate", "+12%"),
-            "music": o.get("music", "mystery"), "music_db": o.get("music_db", -26), "captions": 66,
+            "photo_credits": [], "voice": o.get("voice", VOICE), "rate": o.get("rate", "+12%"),
+            "music": o.get("music", "mystery"), "music_db": o.get("music_db", -20), "captions": 66,
             "caption_y": o.get("caption_y", 1640), "stage": stage,
             "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines."}
     # TikTok says "Follow", not "Subscribe": Creator Rewards needs 10K followers (Nolan's TikTok analytics 10/28)
-    tt_tease = dict(tease, say="Follow me. " + o["next"])
-    yt = dict(base, title=o["title"], tiktok_caption=o["tiktok_caption"], beats=act1 + [tease])
+    tt_tease = dict(tease, say="Follow me. " + o["next"], **tt_room)
+    # YouTube Shorts loop: the last frame cuts back into frame 0 (Studio 10/28: make the end loop into the hook)
+    yt = dict(base, title=o["title"], tiktok_caption=o["tiktok_caption"], beats=act1 + [tease], loop=True)
     tt = dict(base, title=o.get("tt_title", o["title"]), tiktok_caption=o["tiktok_caption"],
               beats=act1 + act2 + [tt_tease])
     return yt, tt
@@ -166,14 +168,15 @@ def main():
         tmp = os.path.join(work, f"render-{cut}.mp4")   # rendered and checked outside the repo first
         subprocess.run([sys.executable, os.path.join(HERE, "drawn.py"), sp, tmp, "--work", work], check=True)
         dur, kinds, mb = probe(tmp)
-        if kinds != ["audio", "video"] or mb >= 50 or not (rng[0] - 0.5 <= dur <= rng[1] + 0.5):
+        if kinds != ["audio", "video"] or mb >= 50 or not (args.force or rng[0] - 0.5 <= dur <= rng[1] + 0.5):
             raise SystemExit(f"drawn_quick: {tmp} failed the check ({dur:.2f} s, {kinds}, {mb:.1f} MB)")
-        if cut == "tt":   # TikTok title bar for the whole video (Nolan 10/28; tools/tt_style.py)
-            import tt_style
-            title, sub = tt_style.title_for(o)
-            if title:
-                tt_style.header(tmp, tmp + ".hdr.mp4", title, sub)
-                shutil.move(tmp + ".hdr.mp4", tmp)
+        # The topic as a title bar for the whole video, both cuts (TikTok: Nolan 10/28; YouTube: Studio 10/28 "bold
+        # text in the first frame"). tools/tt_style.py puts it at y 150-340 (400 with "PART N"), under both apps' top UI.
+        import tt_style
+        title, sub = tt_style.title_for(o)
+        if title:
+            tt_style.header(tmp, tmp + ".hdr.mp4", title, sub)
+            shutil.move(tmp + ".hdr.mp4", tmp)
         shutil.move(tmp, mp4)   # never leave an incomplete mp4 under the real name
         jpg = os.path.join(out_dir, f'{cut}-{o["slug"]}-contact-2fps.jpg')
         contact(mp4, jpg)

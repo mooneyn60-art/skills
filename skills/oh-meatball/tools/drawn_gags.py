@@ -328,12 +328,16 @@ def thought(ctx, t, p):
 ACTORS = {"g.pile": pile, "g.bolt": bolt, "g.heart": big_heart, "g.mark": mark, "g.meter": meter, "g.clock": clock,
           "g.prop": prop, "g.thought": thought}
 
-SFX = {"pile": ["pop@{a}", "pop@{b}", "tink@{c}"], "zap": ["zap@{a}", "hit@{a}"], "heart": ["thud@{a}", "thud@{b}"],
-       "mark": ["tink@{a}"], "meter": ["whoosh@{a}", "zap@{c}"], "clock": ["click@{a}", "click@{b}", "click@{c}"],
+# Soft cues only (Nolan 10/28 "get rid of the loud beeps"): no zap crackle, one click per clock.
+SFX = {"pile": ["pop@{a}", "pop@{b}", "tink@{c}"], "zap": ["thud@{a}"], "heart": ["thud@{a}", "thud@{b}"],
+       "mark": ["tink@{a}"], "meter": ["whoosh@{a}", "thud@{c}"], "clock": ["click@{a}"],
        "prop": ["tink@{a}"], "thought": ["pop@{a}"]}
 
 
 def _pct(at, off):
+    if isinstance(at, str) and "|" in at:   # "word#n|pct" (drawn_acting.auto_gag): offset both forms
+        w, p = at.split("|", 1)
+        return f"{w}+{off * 0.02:g}|{_pct(p, off)}"
     if isinstance(at, str) and at.endswith("%"):
         return f"{min(97, float(at[:-1]) + off):g}%"
     return at
