@@ -74,6 +74,16 @@
  "tiktok_caption": "a two foot heart and it sleeps less than 30 minutes a day 🦒 and sometimes it chews on old bones. Would you stand behind one? 🦵 yes / 🙅 never / 🚙 only in a truck #meatballmyths #learnontiktok #giraffe #animalfacts",
  "beats": [
   {
+   "gag": [
+    {
+     "heart": 1,
+     "at": "30%"
+    },
+    {
+     "mark": "zzz",
+     "at": "75%"
+    }
+   ],
    "m": "hook",
    "say": "This animal has a two foot long heart, and sleeps less than half an hour a day."
   },
@@ -82,10 +92,18 @@
    "say": "So I shrank myself down, to stand right next to one."
   },
   {
+   "gag": {
+    "prop": "ruler",
+    "at": "60%"
+   },
    "m": "tiny",
    "say": "The giraffe. A male can stand eighteen feet tall."
   },
   {
+   "gag": {
+    "meter": 1.0,
+    "at": "40%"
+   },
    "m": "tiny",
    "say": "Its neck alone weighs about six hundred pounds."
   },
@@ -102,6 +120,10 @@
      "s": 0.8
     }
    ],
+   "gag": {
+    "heart": 1,
+    "at": "40%"
+   },
    "m": "tiny",
    "say": "Its heart weighs about twenty five pounds."
   },
@@ -130,12 +152,26 @@
    "act": {
     "mood": "sleepy"
    },
+   "gag": [
+    {
+     "mark": "zzz",
+     "at": "30%"
+    },
+    {
+     "clock": 1,
+     "at": "60%"
+    }
+   ],
    "m": "solo",
    "say": "It needs just five to thirty minutes of sleep a day. Often in naps of a minute or two."
   },
   {
    "act": {
     "talk": 1.0
+   },
+   "gag": {
+    "prop": "ruler",
+    "at": "40%"
    },
    "m": "tiny",
    "say": "Its tongue is a foot and a half long."
@@ -164,6 +200,10 @@
      "walk": true
     }
    ],
+   "gag": {
+    "meter": 0.9,
+    "at": "40%"
+   },
    "m": "tiny",
    "say": "It can run almost thirty five miles an hour."
   },
@@ -171,12 +211,20 @@
    "act": {
     "mood": "angry"
    },
+   "gag": {
+    "prop": "skull",
+    "at": "70%"
+   },
    "m": "tiny",
    "say": "Attack it, and it fights back with a deadly kick."
   },
   {
    "act": {
     "mood": "angry"
+   },
+   "gag": {
+    "mark": "stars",
+    "at": "70%"
    },
    "m": "tiny",
    "say": "Males fight by swinging their necks into each other."
@@ -191,6 +239,10 @@
      "ground2": "#9a8448",
      "water": "#7a9a8a"
     }
+   },
+   "gag": {
+    "mark": "shock",
+    "at": "80%"
    },
    "m": "tiny",
    "say": "Babies are born while mom is standing. So the baby falls, up to six feet."
@@ -217,12 +269,20 @@
      "walk": true
     }
    ],
+   "gag": {
+    "clock": 1,
+    "at": "30%"
+   },
    "m": "tiny",
    "say": "Within about an hour, the baby is walking."
   },
   {
    "act": {
     "chew": 1.0
+   },
+   "gag": {
+    "thought": "bone",
+    "at": "40%"
    },
    "m": "solo",
    "say": "And sometimes a giraffe chews on old bones. Scientists think it's hunting for minerals."

@@ -76,12 +76,28 @@
      "walk": true
     }
    ],
+   "gag": [
+    {
+     "pile": "cube",
+     "n": 3,
+     "at": "45%",
+     "dur": 1.0
+    },
+    {
+     "mark": "shock",
+     "at": "40%"
+    }
+   ],
    "m": "hook",
    "say": "Its poop comes out shaped like little cubes."
   },
   {
    "hero_at": {
     "x": 800
+   },
+   "gag": {
+    "mark": "hearts",
+    "at": "30%"
    },
    "m": "name",
    "say": "The wombat. A chunky digger from Australia."
@@ -114,6 +130,19 @@
      ]
     ]
    },
+   "gag": [
+    {
+     "pile": "cube",
+     "n": 10,
+     "at": "25%",
+     "dur": 1.8
+    },
+    {
+     "clock": 2,
+     "at": "10%",
+     "dur": 1.6
+    }
+   ],
    "m": "solo",
    "say": "Every night, it leaves eighty to a hundred cubes."
   },
@@ -123,6 +152,10 @@
    },
    "scene": "microscope",
    "mood": "smug",
+   "gag": {
+    "prop": "magnifier",
+    "at": "15%"
+   },
    "m": "solo",
    "say": "Scientists wanted to know how."
   },
@@ -139,6 +172,10 @@
    },
    "scene": "microscope",
    "mood": "shock",
+   "gag": {
+    "thought": "cube",
+    "at": "20%"
+   },
    "m": "solo",
    "say": "Those squeeze the poop into corners, as it dries."
   },
@@ -151,6 +188,17 @@
     "time": "day"
    },
    "mood": "happy",
+   "gag": [
+    {
+     "prop": "trophy",
+     "at": "35%"
+    },
+    {
+     "mark": "stars",
+     "at": "40%",
+     "y": -180
+    }
+   ],
    "m": "solo",
    "say": "That study won an Ig Nobel Prize."
   },
@@ -175,6 +223,12 @@
       0.32
      ]
     ]
+   },
+   "gag": {
+    "pile": "cube",
+    "n": 4,
+    "at": "30%",
+    "dur": 1.0
    },
    "m": "solo",
    "say": "It leaves its cubes on rocks and logs, to mark its turf."

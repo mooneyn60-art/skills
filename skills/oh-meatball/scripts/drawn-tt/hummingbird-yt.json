@@ -74,6 +74,10 @@
     "x": 780,
     "y": 1000
    },
+   "gag": {
+    "heart": 8,
+    "at": "30%"
+   },
    "m": "hook",
    "say": "Its heart can beat over twelve hundred times a minute."
   },
@@ -91,6 +95,10 @@
    },
    "act": {
     "fly": 1.0
+   },
+   "gag": {
+    "meter": 1.0,
+    "at": "50%"
    },
    "m": "solo",
    "say": "A ruby-throat beats its wings about fifty times a second."
@@ -113,6 +121,10 @@
      ]
     }
    ],
+   "gag": {
+    "prop": "trophy",
+    "at": "60%"
+   },
    "m": "solo",
    "say": "It's the only bird that can truly fly backwards."
   },
@@ -130,6 +142,16 @@
     "time": "night"
    },
    "mood": "calm",
+   "gag": [
+    {
+     "prop": "moon",
+     "at": "20%"
+    },
+    {
+     "mark": "zzz",
+     "at": "60%"
+    }
+   ],
    "m": "solo",
    "say": "So every night, it powers down to save energy."
   },
@@ -141,6 +163,10 @@
    "act": {
     "mood": "calm"
    },
+   "gag": {
+    "heart": 1,
+    "at": "60%"
+   },
    "m": "solo",
    "say": "Its body cools, and its heart slows way down."
   },
@@ -150,6 +176,10 @@
     "x": 780,
     "y": 1000
    },
+   "gag": {
+    "prop": "ruler",
+    "at": "60%"
+   },
    "m": "scale",
    "say": "The smallest kind, the bee hummingbird, weighs about two grams."
   },
@@ -157,6 +187,10 @@
    "hero_at": {
     "x": 780,
     "y": 1000
+   },
+   "gag": {
+    "heart": 8,
+    "at": "30%"
    },
    "m": "punch",
    "say": "A heart this fast, in a bird this small."

@@ -38,6 +38,10 @@
    "hero_at": {
     "x": 720
    },
+   "gag": {
+    "mark": "shock",
+    "at": "60%"
+   },
    "m": "hook",
    "say": "That lizard on your ceiling can't blink. So it licks its eyeballs."
   },
@@ -46,6 +50,10 @@
    "scene_p": {
     "time": "night"
    },
+   "gag": {
+    "prop": "moon",
+    "at": "30%"
+   },
    "m": "solo",
    "say": "The house gecko. Out at night, on your walls."
   },
@@ -53,6 +61,10 @@
    "scene": "garden",
    "scene_p": {
     "time": "night"
+   },
+   "gag": {
+    "clock": 2,
+    "at": "30%"
    },
    "m": "solo",
    "say": "It waits by your porch light."
@@ -68,6 +80,10 @@
    "with": [
     "moth"
    ],
+   "gag": {
+    "thought": "tick",
+    "at": "40%"
+   },
    "m": "solo",
    "say": "Bugs fly to the light, and it snaps them up."
   },
@@ -86,6 +102,10 @@
    "act": {
     "talk": 1.0
    },
+   "gag": {
+    "mark": "stars",
+    "at": "70%"
+   },
    "m": "solo",
    "say": "So it wipes its eyes with its tongue."
   },
@@ -94,12 +114,20 @@
    "scene_p": {
     "time": "night"
    },
+   "gag": {
+    "mark": "dizzy",
+    "at": "40%"
+   },
    "m": "solo",
    "say": "And it walks across the ceiling, no glue at all."
   },
   {
    "hero_at": {
     "x": 720
+   },
+   "gag": {
+    "prop": "trophy",
+    "at": "50%"
    },
    "m": "calm",
    "say": "It's the cleanest-eyed roommate you've got."

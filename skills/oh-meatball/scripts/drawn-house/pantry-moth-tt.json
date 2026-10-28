@@ -68,6 +68,18 @@
    "hero_at": {
     "x": 720
    },
+   "gag": [
+    {
+     "thought": "cube",
+     "at": "40%"
+    },
+    {
+     "pile": "baby",
+     "n": 4,
+     "r": 26,
+     "at": "80%"
+    }
+   ],
    "m": "hook",
    "say": "That moth in your kitchen isn't eating your cereal. Its babies are."
   },
@@ -78,6 +90,10 @@
    },
    "act": {
     "fly": 1.0
+   },
+   "gag": {
+    "prop": "magnifier",
+    "at": "50%"
    },
    "m": "solo",
    "say": "The pantry moth. Copper wing tips, and pale shoulders."
@@ -94,6 +110,13 @@
    "scene": "basement",
    "scene_p": {
     "time": "dusk"
+   },
+   "gag": {
+    "pile": "egg",
+    "n": 10,
+    "r": 24,
+    "at": "50%",
+    "dur": 1.8
    },
    "m": "solo",
    "say": "But mom lays hundreds of eggs, right in it."
@@ -116,6 +139,10 @@
    "hero_at": {
     "x": 600,
     "y": 1380
+   },
+   "gag": {
+    "prop": "ruler",
+    "at": "50%"
    },
    "m": "solo",
    "say": "The babies hatch as tiny caterpillars."
@@ -142,6 +169,10 @@
    "act": {
     "chew": 1.0
    },
+   "gag": {
+    "thought": "cube",
+    "at": "40%"
+   },
    "m": "solo",
    "say": "They eat cereal, flour, nuts, and dried fruit."
   },
@@ -166,6 +197,10 @@
    },
    "act": {
     "chew": 1.0
+   },
+   "gag": {
+    "thought": "bone",
+    "at": "40%"
    },
    "m": "solo",
    "say": "Even pet food and chocolate."
@@ -195,6 +230,10 @@
   {
    "hero_at": {
     "x": 720
+   },
+   "gag": {
+    "prop": "magnifier",
+    "at": "60%"
    },
    "m": "punch",
    "say": "So that clumpy cereal? Check it for webs."
@@ -250,6 +289,10 @@
    "act": {
     "chew": 1.0
    },
+   "gag": {
+    "meter": 1.0,
+    "at": "40%"
+   },
    "m": "solo",
    "say": "They can chew right through, and through cardboard too."
   },
@@ -298,6 +341,10 @@
     "y": 1380
    },
    "mood": "calm",
+   "gag": {
+    "mark": "dizzy",
+    "at": "70%"
+   },
    "m": "solo",
    "say": "Up the walls, even onto the ceiling."
   },
@@ -308,6 +355,10 @@
    },
    "act": {
     "fly": 1.0
+   },
+   "gag": {
+    "mark": "zzz",
+    "at": "40%"
    },
    "m": "solo",
    "say": "There they wrap up, and turn into moths."
@@ -329,6 +380,10 @@
    "scene_p": {
     "time": "day"
    },
+   "gag": {
+    "mark": "shock",
+    "at": "30%"
+   },
    "m": "tiny",
    "say": "Not from India. Indian meal was an old word for cornmeal."
   },
@@ -349,6 +404,10 @@
      "stripes": 0,
      "mood": "happy"
     }
+   },
+   "gag": {
+    "thought": "cube",
+    "at": "60%"
    },
    "m": "tiny",
    "say": "It got the name after its babies were found eating it."
@@ -377,6 +436,16 @@
     "time": "night"
    },
    "mood": "worry",
+   "gag": [
+    {
+     "prop": "snowflake",
+     "at": "30%"
+    },
+    {
+     "clock": 4,
+     "at": "70%"
+    }
+   ],
    "m": "solo",
    "say": "Or freeze new flour for four days first."
   },
@@ -390,6 +459,12 @@
   {
    "hero_at": {
     "x": 720
+   },
+   "gag": {
+    "pile": "baby",
+    "n": 5,
+    "r": 26,
+    "at": "70%"
    },
    "m": "punch",
    "say": "The moth isn't the problem. Its hungry babies are."
