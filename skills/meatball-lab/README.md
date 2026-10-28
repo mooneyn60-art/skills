@@ -12,6 +12,7 @@ Start with `00_ACTION_LIST.md`.
 | 04_review_risk.md | Inauthentic and reused content policy, real cases, a 20-item self-audit |
 | 05_production_at_scale.md | Puppet-compositor pipeline, costs, and what to buy first |
 | 06_other_levers.md | Other levers ranked, deadline math, and YPP odds |
+| 08_own_analytics_1028.md | Nolan's TikTok + YouTube Studio numbers: stayed-to-watch by format, long-form drop-off, returning viewers |
 | 07_stick_figure_focus.md | Stick-figure explainer accounts only: YouTube ceiling vs TikTok/IG, series formats, length |
 
 ## Data files (`data/`)
