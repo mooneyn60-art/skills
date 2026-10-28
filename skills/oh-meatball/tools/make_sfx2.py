@@ -2,10 +2,11 @@
 """Build the v2 "nature doc" sound kit in sfx/v2/ (Nolan 10/28: switch away from the cartoon boing/pop kit).
 
 Same names as sfx/ so every spec and macro keeps working; drawn.py reads sfx/v2/ first.
-  whoosh  soft cloth swish            tink   warm kalimba pluck        pop    wooden marimba knock
+  whoosh  soft cloth swish            tink   soft light tap            pop    leather drop
   boing   soft landing bump           scratch paper flick              thud   soft heavy bump
-  hit     light body punch            zap    gentle shimmer sweep       step   one grass footstep
-  splash, click, crunch, plate, stamp, case: copied from sfx/ unchanged
+  hit     light body punch            zap    electric crackle           step   one grass footstep  (no beeps: Nolan 10/28)
+  click   short tap (clock ticks)
+  splash, crunch, plate, stamp, case: copied from sfx/ unchanged
 
 Usage: make_sfx2.py KENNEY_DIR   (unzipped Kenney CC0 packs: "RPG Audio", "Impact Sounds", "Interface Sounds";
        only .ogg files are read, nothing in it is run)
@@ -28,18 +29,16 @@ KENNEY = {  # name -> (file, extra filter chain)
     "thud": ("impactSoft_heavy_002.ogg", None),
     "hit": ("impactPunch_medium_002.ogg", "lowpass=f=4000"),
     "step": ("footstep_grass_001.ogg", None),
+    # Nolan 10/28: no beeps. Every cue is a natural, unpitched foley sound.
+    "tink": ("impactGeneric_light_002.ogg", None),
+    "pop": ("dropLeather.ogg", None),
+    "click": ("impactGeneric_light_000.ogg", "atrim=0:0.15"),
 }
 SYNTH = {
-    # kalimba: two partials with fast decay, slight detune
-    "tink": ("aevalsrc=0.55*sin(2*PI*880*t)*exp(-9*t)+0.2*sin(2*PI*2640*t)*exp(-20*t)+0.08*sin(2*PI*5300*t)*exp(-40*t)"
-             ":d=0.6:s=48000", None),
-    # marimba knock: low fundamental + hollow 4th harmonic
-    "pop": ("aevalsrc=0.7*sin(2*PI*523*t)*exp(-14*t)+0.3*sin(2*PI*2092*t)*exp(-30*t):d=0.35:s=48000", None),
-    # shimmer: rising soft sine cluster
-    "zap": ("aevalsrc=0.25*(sin(2*PI*(700*t+500*t*t))+sin(2*PI*(1050*t+750*t*t))+sin(2*PI*(1400*t+900*t*t)))"
-            "*sin(PI*t/0.7):d=0.7:s=48000", "lowpass=f=5000"),
+    # electric crackle: sparse random clicks through a band-pass, no pitch
+    "zap": ("aevalsrc=(2*random(0)-1)*gt(random(1)\\,0.82)*exp(-4*t):d=0.5:s=48000", "bandpass=f=2500:w=3000"),
 }
-KEEP = ["splash", "click", "crunch", "plate", "stamp", "case"]
+KEEP = ["splash", "crunch", "plate", "stamp", "case"]
 
 
 def norm(args, out, chain=None, peak=-6):

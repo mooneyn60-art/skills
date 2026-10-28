@@ -22,5 +22,7 @@ v2 "nature doc" kit (sfx/v2/, 2026-10-28, tools/make_sfx2.py; drawn.py uses it b
   From Kenney (www.kenney.nl), CC0 1.0: whoosh <- RPG Audio cloth2.ogg; scratch <- RPG Audio bookFlip2.ogg;
   step <- RPG Audio footstep_grass_001.ogg; boing <- Impact Sounds impactSoft_medium_001.ogg;
   thud <- Impact Sounds impactSoft_heavy_002.ogg; hit <- Impact Sounds impactPunch_medium_002.ogg
-  Synthesized with ffmpeg lavfi (nothing to license): tink (kalimba), pop (marimba), zap (shimmer)
-  splash, click, crunch, plate, stamp, case: copies of the v1 files above.
+  tink <- Impact Sounds impactGeneric_light_002.ogg; click <- Impact Sounds impactGeneric_light_000.ogg;
+  pop <- RPG Audio dropLeather.ogg (10/28: Nolan asked for no beeps, so no pitched synth sounds)
+  Synthesized with ffmpeg lavfi (nothing to license): zap (unpitched electric crackle)
+  splash, crunch, plate, stamp, case: copies of the v1 files above.
