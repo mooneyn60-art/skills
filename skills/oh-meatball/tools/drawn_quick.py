@@ -78,9 +78,11 @@ def specs(o):
             "music": o.get("music", "mystery"), "music_db": o.get("music_db", -26), "captions": 66,
             "caption_y": o.get("caption_y", 1640), "stage": stage,
             "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines."}
+    # TikTok says "Follow", not "Subscribe": Creator Rewards needs 10K followers (Nolan's TikTok analytics 10/28)
+    tt_tease = dict(tease, say="Follow me. " + o["next"])
     yt = dict(base, title=o["title"], tiktok_caption=o["tiktok_caption"], beats=act1 + [tease])
     tt = dict(base, title=o.get("tt_title", o["title"]), tiktok_caption=o["tiktok_caption"],
-              beats=act1 + act2 + [tease])
+              beats=act1 + act2 + [tt_tease])
     return yt, tt
 
 
