@@ -44,6 +44,10 @@
  "tiktok_caption": "this bug melts its prey from the inside and drinks it 🫠 it eats turtles, snakes and ducklings and they call it the toe biter. Would you eat one? 🍽️ yes / 🤢 never / 🦶 it'd eat me first #meatballmyths #learnontiktok #giantwaterbug #insects #animalfacts",
  "beats": [
   {
+   "gag": {
+    "mark": "shock",
+    "at": "40%"
+   },
    "m": "hook",
    "say": "This bug can eat a turtle. It melts the insides, and drinks them."
   },
@@ -52,10 +56,18 @@
    "say": "So I shrank myself down to its size, to get a closer look."
   },
   {
+   "gag": {
+    "prop": "ruler",
+    "at": "60%"
+   },
    "m": "tiny",
    "say": "The giant water bug. Up to four inches long."
   },
   {
+   "gag": {
+    "prop": "trophy",
+    "at": "40%"
+   },
    "m": "tiny",
    "say": "It's the biggest true bug in the United States and Canada."
   },
@@ -63,12 +75,20 @@
    "act": {
     "wave": 1.0
    },
+   "gag": {
+    "meter": 1.0,
+    "at": "70%"
+   },
    "m": "tiny",
    "say": "It hides underwater, and grabs prey with its powerful legs."
   },
   {
    "act": {
     "bite": 1.0
+   },
+   "gag": {
+    "zap": true,
+    "at": "60%"
    },
    "m": "tiny",
    "say": "Then it stabs with a dagger-like beak, and injects venom."
@@ -162,6 +182,10 @@
    "act": {
     "bite": 1.0
    },
+   "gag": {
+    "mark": "shock",
+    "at": "80%"
+   },
    "m": "tiny",
    "say": "It eats snakes, turtles, even ducklings."
   },
@@ -173,6 +197,10 @@
    "act": {
     "mood": "angry",
     "bite": 1.0
+   },
+   "gag": {
+    "meter": 1.0,
+    "at": "60%"
    },
    "m": "tiny",
    "say": "Its nickname? The toe biter. Its bite is one of the most painful of any insect."
@@ -200,12 +228,22 @@
      ]
     ]
    },
+   "gag": {
+    "zap": true,
+    "at": "70%"
+   },
    "m": "tiny",
    "say": "It also flies to lights at night. So some people call it the electric light bug."
   },
   {
    "act": {
     "mood": "shock"
+   },
+   "gag": {
+    "pile": "egg",
+    "n": 8,
+    "r": 26,
+    "at": "30%"
    },
    "m": "tiny",
    "say": "In some kinds, mom glues her eggs onto dad's back. Then she leaves."
@@ -214,6 +252,10 @@
    "act": {
     "mood": "calm"
    },
+   "gag": {
+    "clock": 3,
+    "at": "40%"
+   },
    "m": "tiny",
    "say": "Dad carries them for weeks, until they hatch."
   },
@@ -221,6 +263,10 @@
    "scene": "forest_floor",
    "scene_p": {
     "time": "day"
+   },
+   "gag": {
+    "mark": "sweat",
+    "at": "40%"
    },
    "m": "tiny",
    "say": "And in parts of Asia, people eat it. Some say it tastes nutty."
@@ -235,7 +281,7 @@
   },
   {
    "m": "tease",
-   "say": "Subscribe. Next, an animal that can hit you with its spray from ten feet away."
+   "say": "Follow me. Next, an animal that can hit you with its spray from ten feet away."
   }
  ]
 }

@@ -80,6 +80,10 @@
      "walk": true
     }
    ],
+   "gag": {
+    "mark": "dizzy",
+    "at": "60%"
+   },
    "m": "hook",
    "say": "Grab a honey badger, and it spins around inside its own skin."
   },
@@ -89,6 +93,10 @@
    "say": "Its skin is thick, and super loose."
   },
   {
+   "gag": {
+    "mark": "anger",
+    "at": "60%"
+   },
    "m": "chase",
    "say": "So it can twist right around, and bite back."
   },
@@ -98,6 +106,11 @@
     "fly",
     "fly"
    ],
+   "gag": {
+    "zap": true,
+    "at": "40%",
+    "len": 250
+   },
    "m": "solo",
    "say": "That tough skin shrugs off bee stings."
   },
@@ -108,6 +121,10 @@
    },
    "act": {
     "chew": 1.0
+   },
+   "gag": {
+    "meter": 1.0,
+    "at": "30%"
    },
    "m": "solo",
    "say": "So it rips open beehives, for the baby bees."
@@ -126,12 +143,20 @@
   {
    "scene": "forest_floor",
    "mood": "smug",
+   "gag": {
+    "mark": "stars",
+    "at": "70%"
+   },
    "m": "solo",
    "say": "It even has a built in resistance to snake venom."
   },
   {
    "hero_at": {
     "x": 800
+   },
+   "gag": {
+    "prop": "crown",
+    "at": "70%"
    },
    "m": "punch",
    "say": "About the size of a small dog. Afraid of nothing."
@@ -153,12 +178,22 @@
    "act": {
     "chew": 1.0
    },
+   "gag": {
+    "pile": "rock",
+    "n": 5,
+    "r": 24,
+    "at": "40%"
+   },
    "m": "solo",
    "say": "Those front claws dig burrows, fast."
   },
   {
    "scene": "cave",
    "mood": "calm",
+   "gag": {
+    "mark": "zzz",
+    "at": "30%"
+   },
    "m": "solo",
    "say": "It sleeps in a hole by day."
   },
@@ -178,6 +213,10 @@
      "walk": true
     }
    ],
+   "gag": {
+    "prop": "moon",
+    "at": "10%"
+   },
    "m": "solo",
    "say": "At night, it trots out to hunt."
   },
@@ -198,6 +237,10 @@
     "time": "dusk"
    },
    "mood": "smug",
+   "gag": {
+    "mark": "stink",
+    "at": "60%"
+   },
    "m": "solo",
    "say": "And like a skunk, it can let out a stink."
   },
@@ -226,12 +269,21 @@
      "walk": true
     }
    ],
+   "gag": {
+    "mark": "anger",
+    "at": "50%"
+   },
    "m": "solo",
    "say": "He kept breaking out of his pen."
   },
   {
    "scene": "forest_floor",
    "mood": "smug",
+   "gag": {
+    "pile": "rock",
+    "n": 6,
+    "at": "40%"
+   },
    "m": "solo",
    "say": "He stacked logs and rocks, to climb the wall."
   },
@@ -241,6 +293,10 @@
     "time": "dusk"
    },
    "mood": "happy",
+   "gag": {
+    "prop": "trophy",
+    "at": "60%"
+   },
    "m": "solo",
    "say": "He even learned to open the gate."
   },
@@ -250,6 +306,10 @@
     "time": "day"
    },
    "mood": "angry",
+   "gag": {
+    "mark": "stars",
+    "at": "60%"
+   },
    "m": "solo",
    "say": "His escapes were filmed for a TV documentary."
   },
@@ -269,7 +329,7 @@
   },
   {
    "m": "tease",
-   "say": "Subscribe. Next, a white bear whose fur isn't actually white."
+   "say": "Follow me. Next, a white bear whose fur isn't actually white."
   }
  ]
 }
