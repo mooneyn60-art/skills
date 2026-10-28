@@ -1,46 +1,130 @@
 slug: wheelbug
 out: episodes/drawn-tt
 specs: scripts/drawn-tt
-series: "Meatball's Animal Files"
+series: Meatball's Animal Files
 variant: A
 title: This Bug's Bite Can Be Worse Than a Hornet Sting ⚙️
-tiktok_caption: "found a bug with a saw blade on its back ⚙️ its bite can be worse than a hornet sting and it melts its prey from the inside. Would you brush it off with your bare hand? ✋ bare hand / 🧹 broom #meatballmyths #learnontiktok #wheelbug #insects"
+tiktok_caption: 'found a bug with a saw blade on its back ⚙️ its bite can be worse
+  than a hornet sting and it melts its prey from the inside. Would you brush it off
+  with your bare hand? ✋ bare hand / 🧹 broom #meatballmyths #learnontiktok #wheelbug
+  #insects'
 creature: wheel_bug
-creature_cfg: {plan: insect, label: wheel bug, body: long, color: "#8a8a86", dark: "#5a5a58", length: 520, height: 240, legs: 6, leg_len: 170, ant: 220, stripes: 0, mood: angry, s: 1.2}
+creature_cfg:
+  plan: insect
+  label: wheel bug
+  body: long
+  color: '#8a8a86'
+  dark: '#5a5a58'
+  length: 520
+  height: 240
+  legs: 6
+  leg_len: 170
+  ant: 220
+  stripes: 0
+  mood: angry
+  s: 1.2
 scene: garden
-scene_p: {time: day}
+scene_p:
+  time: day
 wild: forest_floor
-wild_p: {time: day}
+wild_p:
+  time: day
 music: mystery
 next: Next, the cat people blamed for witchcraft.
 sources:
-  - "NC State Extension, Lee County Center, 'Watch Out for Wheel Bugs': bite can be much more powerful than a hornet or wasp sting if carelessly handled; initial pain followed by numbness, healing takes about 10 days to two weeks; North Carolina's largest assassin bug, up to 1 3/8 inches; raised semicircular crest like half a cogwheel, the only U.S. species with this feature; injects prey with saliva containing enzymes that digest its tissues, sucks out the liquid and leaves shriveled remains; eats cabbageworms, Japanese beetles, stink bugs, aphids; sometimes eats other wheel bugs, females seen feeding on males after mating; don't handle, dislodge with a brush, broom or hose; nymphs bright red with black marks and lack the crest; eggs laid in clusters of up to 182, like small brown bottles with white stoppers; https://lee.ces.ncsu.edu/news/watch-out-for-wheel-bugs"
-  - "University of Illinois Extension, Good Growing, 'Wheel bugs: good bugs with a painful bite' (2022): bite described as as bad or worse than a wasp or hornet sting; bites only when harassed or handled; area may be numb for several days, wound can take a few weeks to heal; raptorial front legs, saliva paralyzes prey and starts digestion; cog-like toothed wheel with about 8 to 12 teeth, adults only; adults 1 to 1.5 inches; releases an unpleasant odor when disturbed; https://extension.illinois.edu/blogs/good-growing/2022-10-07-wheel-bugs-good-bugs-painful-bite"
-  - "Texas A&M AgriLife Extension, Insects in the City, Wheel bugs and other assassin bugs (ENT-1003): gray, about 3 cm; cog-like crest on the thorax; prey immobilized by a paralyzing toxin and body fluids drawn out through straw-like mouthparts; bite immediately and intensely painful; highly beneficial; https://citybugs.tamu.edu/factsheets/landscape/others/ent-1003/"
-  - "Carnegie Museum of Natural History, 'So just what is a wheel bug?': serrated crest on the pronotum like part of a gear, no other U.S. insect has it; injects enzymes that kill and begin digesting prey from the inside; the author's own bite: an electric-shock jolt, then burning pain peaking after about 5 minutes and lasting hours, a throbbing ache for a couple of days; https://carnegiemnh.org/so-just-what-is-a-wheel-bug/"
+- 'NC State Extension, Lee County Center, ''Watch Out for Wheel Bugs'': bite can be
+  much more powerful than a hornet or wasp sting if carelessly handled; initial pain
+  followed by numbness, healing takes about 10 days to two weeks; North Carolina''s
+  largest assassin bug, up to 1 3/8 inches; raised semicircular crest like half a
+  cogwheel, the only U.S. species with this feature; injects prey with saliva containing
+  enzymes that digest its tissues, sucks out the liquid and leaves shriveled remains;
+  eats cabbageworms, Japanese beetles, stink bugs, aphids; sometimes eats other wheel
+  bugs, females seen feeding on males after mating; don''t handle, dislodge with a
+  brush, broom or hose; nymphs bright red with black marks and lack the crest; eggs
+  laid in clusters of up to 182, like small brown bottles with white stoppers; https://lee.ces.ncsu.edu/news/watch-out-for-wheel-bugs'
+- 'University of Illinois Extension, Good Growing, ''Wheel bugs: good bugs with a
+  painful bite'' (2022): bite described as as bad or worse than a wasp or hornet sting;
+  bites only when harassed or handled; area may be numb for several days, wound can
+  take a few weeks to heal; raptorial front legs, saliva paralyzes prey and starts
+  digestion; cog-like toothed wheel with about 8 to 12 teeth, adults only; adults
+  1 to 1.5 inches; releases an unpleasant odor when disturbed; https://extension.illinois.edu/blogs/good-growing/2022-10-07-wheel-bugs-good-bugs-painful-bite'
+- 'Texas A&M AgriLife Extension, Insects in the City, Wheel bugs and other assassin
+  bugs (ENT-1003): gray, about 3 cm; cog-like crest on the thorax; prey immobilized
+  by a paralyzing toxin and body fluids drawn out through straw-like mouthparts; bite
+  immediately and intensely painful; highly beneficial; https://citybugs.tamu.edu/factsheets/landscape/others/ent-1003/'
+- 'Carnegie Museum of Natural History, ''So just what is a wheel bug?'': serrated
+  crest on the pronotum like part of a gear, no other U.S. insect has it; injects
+  enzymes that kill and begin digesting prey from the inside; the author''s own bite:
+  an electric-shock jolt, then burning pain peaking after about 5 minutes and lasting
+  hours, a throbbing ache for a couple of days; https://carnegiemnh.org/so-just-what-is-a-wheel-bug/'
 yt:
-  - hook: This bug's bite can be worse than a hornet sting. And it can leave your skin numb for days.
-  - name: The wheel bug. A big gray assassin bug, with a saw blade on its back.
-  - xray: That spiky crest looks like half a gear. No other bug in the U.S. has one.
-  - fact: It snatches other bugs with its front legs.
-  - escalate: Then it stabs them with its beak, and pumps in spit that paralyzes them.
-  - calm: And then, it starts digesting them. From the inside.
+- hook: This bug's bite can be worse than a hornet sting. And it can leave your skin
+    numb for days.
+  gag:
+  - zap: true
+    at: 30%
+  - clock: 3
+    at: 80%
+- name: The wheel bug. A big gray assassin bug, with a saw blade on its back.
+  gag:
+    prop: magnifier
+    at: 70%
+- xray: That spiky crest looks like half a gear. No other bug in the U.S. has one.
+- fact: It snatches other bugs with its front legs.
+  gag:
+    thought: tick
+    at: 60%
+- escalate: Then it stabs them with its beak, and pumps in spit that paralyzes them.
+  gag:
+    zap: true
+    at: 60%
+- calm: And then, it starts digesting them. From the inside.
 tt:
-  - solo: In the garden, it hunts caterpillars, beetles, and stink bugs.
-    scene: garden
-    scene_p: {time: day}
-    zoom: 1.1
-  - fact: The spit turns their insides to soup. It sucks it out like a straw.
-  - fact: All that's left is an empty, shriveled shell.
-  - fact: That's why gardeners call it a good bug. It eats pests.
-  - chase: But pick one up, and it bites you with that same beak.
-  - escalate: A museum expert who got bitten said it felt like an electric shock, then burning pain for hours.
-  - fact: Your skin can stay numb for days. The wound can take weeks to heal.
-  - solo: Its babies are bright red and black, with no wheel yet.
-    zoom: 1.1
-  - fact: Its eggs look like tiny brown bottles, with white caps.
-  - fact: And sometimes, the female eats the male. Right after mating.
-  - fact: So, would you brush one off with your bare hand?
-  - solo: Do what the experts say. Use a broom. Or a hose.
-    zoom: 1.1
-  - punch: Best bodyguard in your garden. Just don't shake its hand.
+- solo: In the garden, it hunts caterpillars, beetles, and stink bugs.
+  scene: garden
+  scene_p:
+    time: day
+  zoom: 1.1
+- fact: The spit turns their insides to soup. It sucks it out like a straw.
+- fact: All that's left is an empty, shriveled shell.
+  gag:
+    prop: skull
+    at: 50%
+- fact: That's why gardeners call it a good bug. It eats pests.
+  gag:
+    prop: trophy
+    at: 50%
+- chase: But pick one up, and it bites you with that same beak.
+  gag:
+    mark: anger
+    at: 50%
+- escalate: A museum expert who got bitten said it felt like an electric shock, then
+    burning pain for hours.
+  gag:
+    zap: true
+    at: 40%
+- fact: Your skin can stay numb for days. The wound can take weeks to heal.
+  gag:
+    clock: 4
+    at: 50%
+- solo: Its babies are bright red and black, with no wheel yet.
+  zoom: 1.1
+  gag:
+    pile: baby
+    n: 4
+    r: 30
+    at: 30%
+- fact: Its eggs look like tiny brown bottles, with white caps.
+  gag:
+    pile: egg
+    n: 7
+    r: 26
+    at: 40%
+- fact: And sometimes, the female eats the male. Right after mating.
+  gag:
+    mark: hearts
+    at: 40%
+- fact: So, would you brush one off with your bare hand?
+- solo: Do what the experts say. Use a broom. Or a hose.
+  zoom: 1.1
+- punch: Best bodyguard in your garden. Just don't shake its hand.

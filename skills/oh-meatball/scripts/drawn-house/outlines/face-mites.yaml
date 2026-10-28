@@ -2,61 +2,191 @@ slug: face-mites
 series: Things Living In Your House
 part: 3
 title: Tiny Mites Live in Your Face Right Now
-tiktok_caption: "demodex face mites 😳 they live in your pores and crawl out at night to mate. Would you rather not know? 🙈 tell me / 🙅 don't"
+tiktok_caption: demodex face mites 😳 they live in your pores and crawl out at night
+  to mate. Would you rather not know? 🙈 tell me / 🙅 don't
 creature: demodex
 scene: skin
-scene_p: {night: true}
+scene_p:
+  night: true
 music: mystery
 caption_y: 1700
 next: Part four is in your books.
 next_scene: study
-next_scene_p: {time: night}
+next_scene_p:
+  time: night
 sources:
-  - "University of Reading news, 'Secret lives of skin mites in our faces' (2022, on Smith et al., Molecular Biology and Evolution, doi:10.1093/molbev/msac125): carried by almost every human; about 0.3 mm long; live in hair follicles on the face, including the eyelashes; eat the sebum in the pores; active at night, moving between follicles looking to mate; passed from mother to baby during or after birth; legs powered by three single-cell muscles; cannot make melatonin and use the melatonin human skin secretes at dusk; lost the gene that makes animals wake in daylight; the study confirmed they do have anuses; numbers peak in adults as pores grow bigger; https://www.reading.ac.uk/news/2022/Research-News/Secret-lives-of-skin-mites-in-our-faces"
-  - "Thoms et al. (2014), 'Ubiquity of Demodex mites in humans', PLOS ONE 9(8): e106265: Demodex DNA detected in 100% of adults over 18 sampled (n = 19); https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0106265"
-  - "DermNet (New Zealand Dermatological Society), Demodex: semi-transparent elongated body about 0.3-0.4 mm, eight short legs on the front body segment, invisible to the naked eye; most people carry them without symptoms; https://dermnetnz.org/topics/demodex"
+- 'University of Reading news, ''Secret lives of skin mites in our faces'' (2022,
+  on Smith et al., Molecular Biology and Evolution, doi:10.1093/molbev/msac125): carried
+  by almost every human; about 0.3 mm long; live in hair follicles on the face, including
+  the eyelashes; eat the sebum in the pores; active at night, moving between follicles
+  looking to mate; passed from mother to baby during or after birth; legs powered
+  by three single-cell muscles; cannot make melatonin and use the melatonin human
+  skin secretes at dusk; lost the gene that makes animals wake in daylight; the study
+  confirmed they do have anuses; numbers peak in adults as pores grow bigger; https://www.reading.ac.uk/news/2022/Research-News/Secret-lives-of-skin-mites-in-our-faces'
+- 'Thoms et al. (2014), ''Ubiquity of Demodex mites in humans'', PLOS ONE 9(8): e106265:
+  Demodex DNA detected in 100% of adults over 18 sampled (n = 19); https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0106265'
+- 'DermNet (New Zealand Dermatological Society), Demodex: semi-transparent elongated
+  body about 0.3-0.4 mm, eight short legs on the front body segment, invisible to
+  the naked eye; most people carry them without symptoms; https://dermnetnz.org/topics/demodex'
 yt:
-  - hook: Tiny mites are living in your face right now.
-    act: {wiggle: 1.0}
-  - name: Demodex. They live in your pores, even your eyelashes.
-    hero_at: {x: 540, y: 1520, rot: 90}
-    hero_moves: [{at: "50%", dur: 0.6, pos: [540, 1420]}]
-  - fact: They eat the oil your skin makes.
-    hero_at: {x: 540, y: 1460, rot: 80}
-    act: {talk: 1.0}
-  - fact: At night, they crawl out of your pores,
-    pad: 0.05
-    hero_at: {x: 540, y: 1520, rot: 90}
-    hero_moves: [{at: "20%", dur: 0.6, pos: [540, 1240]}, {at: "70%", dur: 0.5, pos: [820, 1100], rot: 0}]
-  - chase: and walk across your face to find a mate.
-    act: {wiggle: 1.0}
-    with: [{type: heart, x: 960, y: 640, s: 0.9, front: true}]
-  - fact: One study found their DNA on every adult it tested.
-  - punch: You likely got yours from your mom, at birth.
+- hook: Tiny mites are living in your face right now.
+  act:
+    wiggle: 1.0
+  gag:
+  - prop: magnifier
+    at: 20%
+  - mark: shock
+    at: 60%
+- name: Demodex. They live in your pores, even your eyelashes.
+  hero_at:
+    x: 540
+    y: 1520
+    rot: 90
+  hero_moves:
+  - at: 50%
+    dur: 0.6
+    pos:
+    - 540
+    - 1420
+- fact: They eat the oil your skin makes.
+  hero_at:
+    x: 540
+    y: 1460
+    rot: 80
+  act:
+    talk: 1.0
+- fact: At night, they crawl out of your pores,
+  pad: 0.05
+  hero_at:
+    x: 540
+    y: 1520
+    rot: 90
+  hero_moves:
+  - at: 20%
+    dur: 0.6
+    pos:
+    - 540
+    - 1240
+  - at: 70%
+    dur: 0.5
+    pos:
+    - 820
+    - 1100
+    rot: 0
+  gag:
+    prop: moon
+    at: 15%
+- chase: and walk across your face to find a mate.
+  act:
+    wiggle: 1.0
+  with:
+  - type: heart
+    x: 960
+    y: 640
+    s: 0.9
+    front: true
+  gag:
+    mark: hearts
+    at: 70%
+- fact: One study found their DNA on every adult it tested.
+  gag:
+    prop: magnifier
+    at: 40%
+- punch: You likely got yours from your mom, at birth.
 tt:
-  - fact: They're about a third of a millimeter long.
-  - fact: Up close, they look like tiny worms with legs.
-  - fact: And it's not just faces. Nipples too.
-  - xray: Eight stubby legs, all up front.
-  - fact: And those legs run on just three single-cell muscles.
-    act: {wiggle: 2.0}
-  - calm: Here's why they only come out at night.
-  - fact: They can't make melatonin, the sleep hormone.
-  - fact: So they borrow yours. Your skin releases it at dusk.
-    scene: bedroom
-    scene_p: {no_pillow: true, time: dusk}
-    hero: false
-    mb_x: 780
-    with: [{type: sleeper, x: 400, y: 1190, s: 1.0, pop: false, front: false, flip: false, p: {zz: 1.0}}]
-  - fact: They've even lost the gene that wakes animals up in daylight.
-    scene_p: {night: false}
-    mood: sleepy
-  - fact: For years, people said they had no butt.
-  - escalate: A 2022 study checked. They have one.
-  - count: Numbers peak in adults, as your pores get bigger.
-    with: [{type: demodex, x: 1080, y: 1880, s: 0.8, front: false, p: {mood: happy}}, {type: demodex, x: 0, y: 1880, s: 0.8, front: false, p: {mood: smug}}]
-  - fact: For most people, they're harmless.
-  - fact: So tonight, while you sleep,
-    pad: 0.05
-  - punch: they'll be out on your face, looking for love.
-    with: [{type: heart, x: 960, y: 640, s: 0.9, front: true}]
+- fact: They're about a third of a millimeter long.
+  gag:
+    prop: ruler
+    at: 50%
+- fact: Up close, they look like tiny worms with legs.
+- fact: And it's not just faces. Nipples too.
+  gag:
+    mark: shock
+    at: 70%
+- xray: Eight stubby legs, all up front.
+- fact: And those legs run on just three single-cell muscles.
+  act:
+    wiggle: 2.0
+  gag:
+    meter: 0.15
+    at: 50%
+- calm: Here's why they only come out at night.
+  gag:
+    prop: moon
+    at: 80%
+- fact: They can't make melatonin, the sleep hormone.
+  gag:
+    mark: zzz
+    at: 80%
+- fact: So they borrow yours. Your skin releases it at dusk.
+  scene: bedroom
+  scene_p:
+    no_pillow: true
+    time: dusk
+  hero: false
+  mb_x: 780
+  with:
+  - type: sleeper
+    x: 400
+    y: 1190
+    s: 1.0
+    pop: false
+    front: false
+    flip: false
+    p:
+      zz: 1.0
+- fact: They've even lost the gene that wakes animals up in daylight.
+  scene_p:
+    night: false
+  mood: sleepy
+  gag:
+    mark: alarm
+    at: 60%
+- fact: For years, people said they had no butt.
+- escalate: A 2022 study checked. They have one.
+  gag:
+  - prop: magnifier
+    at: 30%
+  - pile: poop
+    n: 3
+    r: 28
+    at: 75%
+    dur: 0.8
+- count: Numbers peak in adults, as your pores get bigger.
+  with:
+  - type: demodex
+    x: 1080
+    y: 1880
+    s: 0.8
+    front: false
+    p:
+      mood: happy
+  - type: demodex
+    x: 0
+    y: 1880
+    s: 0.8
+    front: false
+    p:
+      mood: smug
+  gag:
+    pile: tick
+    n: 8
+    r: 26
+    at: 20%
+    dur: 1.6
+- fact: For most people, they're harmless.
+- fact: So tonight, while you sleep,
+  pad: 0.05
+  gag:
+    mark: zzz
+    at: 70%
+- punch: they'll be out on your face, looking for love.
+  with:
+  - type: heart
+    x: 960
+    y: 640
+    s: 0.9
+    front: true
+  gag:
+    mark: hearts
+    at: 85%

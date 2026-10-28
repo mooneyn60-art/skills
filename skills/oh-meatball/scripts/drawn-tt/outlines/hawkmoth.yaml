@@ -4,8 +4,9 @@ specs: scripts/drawn-tt
 series: Meatball's Animal Files
 variant: B
 title: This Caterpillar Turns Itself Into a Fake Snake 🐍
-tiktok_caption: 'this ''snake'' is a caterpillar 🐍 it flips over, puffs up a fake viper head and even strikes. no venom at
-  all. Would you pick it up? ✋ yes / 😱 no way #meatballmyths #learnontiktok #caterpillar #animalfacts'
+tiktok_caption: 'this ''snake'' is a caterpillar 🐍 it flips over, puffs up a fake
+  viper head and even strikes. no venom at all. Would you pick it up? ✋ yes / 😱 no
+  way #meatballmyths #learnontiktok #caterpillar #animalfacts'
 creature: hawkmoth_caterpillar
 creature_cfg:
   plan: worm
@@ -28,21 +29,29 @@ wild_p:
 music: mystery
 next: Next, a bird that can turn its head almost all the way around.
 sources:
-- 'bioGraphic (science magazine), ''Snake Fake'' (M. Pobis, photos M. Bowler, 2019): the sphinx hawk moth caterpillar Hemeroplanes
-  triptolemus, photographed in Peru, is a snake mimic; when threatened it pulls air in through tiny holes in its surface and
-  inflates its head into a triangular viper-like shape; its underside is patterned in faux snakeskin with eyespots that appear
-  to glisten; if that fails it lunges as if to strike; it has no venom or actual weaponry; birds and lizards hunt it; experiments
-  with artificial pastry-dough caterpillars found eyespots and a snake-shaped head improved survival against birds; sphinx
-  moth caterpillars become fluffy moths; https://www.biographic.com/snake-fake/'
-- 'Skelhorn J., Dorrington G., Hossie T.J., Sherratt T.N. (2014) ''The position of eyespots and thickened segments influence
-  their protective value to caterpillars'', Behavioral Ecology 25(6):1417-1422: naive chicks were most wary of artificial
-  caterpillars with eyespots or a thickened section at the front end (like a head); the traits deter predators by making caterpillars
-  resemble dangerous vertebrates, not just by being conspicuous; https://ideas.repec.org/a/oup/beheco/v25y2014i6p1417-1422..html'
-- 'Area de Conservacion Guanacaste caterpillar database (D. H. Janzen and W. Hallwachs, University of Pennsylvania), voucher
-  91-SRNP-1284: Hemeroplanes triptolemus (Sphingidae) reared in Costa Rica, food plant Mandevilla subsagittata (Apocynaceae);
-  https://junquillal.info/voucher/91-SRNP-1284'
+- 'bioGraphic (science magazine), ''Snake Fake'' (M. Pobis, photos M. Bowler, 2019):
+  the sphinx hawk moth caterpillar Hemeroplanes triptolemus, photographed in Peru,
+  is a snake mimic; when threatened it pulls air in through tiny holes in its surface
+  and inflates its head into a triangular viper-like shape; its underside is patterned
+  in faux snakeskin with eyespots that appear to glisten; if that fails it lunges
+  as if to strike; it has no venom or actual weaponry; birds and lizards hunt it;
+  experiments with artificial pastry-dough caterpillars found eyespots and a snake-shaped
+  head improved survival against birds; sphinx moth caterpillars become fluffy moths;
+  https://www.biographic.com/snake-fake/'
+- 'Skelhorn J., Dorrington G., Hossie T.J., Sherratt T.N. (2014) ''The position of
+  eyespots and thickened segments influence their protective value to caterpillars'',
+  Behavioral Ecology 25(6):1417-1422: naive chicks were most wary of artificial caterpillars
+  with eyespots or a thickened section at the front end (like a head); the traits
+  deter predators by making caterpillars resemble dangerous vertebrates, not just
+  by being conspicuous; https://ideas.repec.org/a/oup/beheco/v25y2014i6p1417-1422..html'
+- 'Area de Conservacion Guanacaste caterpillar database (D. H. Janzen and W. Hallwachs,
+  University of Pennsylvania), voucher 91-SRNP-1284: Hemeroplanes triptolemus (Sphingidae)
+  reared in Costa Rica, food plant Mandevilla subsagittata (Apocynaceae); https://junquillal.info/voucher/91-SRNP-1284'
 yt:
 - hook: This caterpillar can turn itself into a fake snake head. And it strikes.
+  gag:
+    mark: alarm
+    at: 80%
 - shrink: So I shrank down to caterpillar size, to see the trick up close.
 - tiny: It's a hawkmoth caterpillar, from the rainforests of Central and South America.
   scene: forest_floor
@@ -55,6 +64,9 @@ yt:
   act:
     chew: 1.0
     mood: happy
+  gag:
+    thought: leaf
+    at: 60%
 - tiny: But bother it, and it pulls its head and legs in, and flips over.
   scene: garden
   scene_p:
@@ -63,12 +75,18 @@ yt:
   act:
     crouch: 1.0
     mood: angry
+  gag:
+    mark: dizzy
+    at: 70%
 - solo: Then it sucks air in through tiny holes, and puffs up into a viper head.
   scene: forest_floor
   scene_p:
     time: dusk
   act:
     xray: 1.0
+  gag:
+    meter: 1.0
+    at: 60%
 tt:
 - tiny: Two fake eyes stare at me. They even look wet and shiny.
   scene: forest_floor
@@ -77,6 +95,9 @@ tt:
   pose: shock
   act:
     mood: angry
+  gag:
+    prop: magnifier
+    at: 20%
 - tiny: Its belly looks like snakeskin.
   scene: forest_floor
   scene_p:
@@ -96,11 +117,17 @@ tt:
   act:
     bite: 1.0
     mood: angry
+  gag:
+    mark: anger
+    at: 40%
 - tiny: Here's the twist. It has no venom. No fangs. Nothing.
   scene: swamp
   scene_p:
     time: dusk
   pose: laugh
+  gag:
+    mark: sweat
+    at: 60%
 - tiny: The whole snake is a bluff. Made of air and paint.
   scene: forest_floor
   scene_p:
@@ -111,6 +138,9 @@ tt:
   scene_p:
     time: day
   pose: think
+  gag:
+    prop: magnifier
+    at: 60%
 - tiny: The ones with eyespots and a snake-shaped head survived birds better.
   scene: garden
   scene_p:
@@ -119,10 +149,17 @@ tt:
   - sp: sparrow
     x: 880
     s: 0.7
-- tiny: In another test, chicks were most scared when the eyespots sat up front, where a head would be.
+  gag:
+    prop: trophy
+    at: 40%
+- tiny: In another test, chicks were most scared when the eyespots sat up front, where
+    a head would be.
   scene: forest_floor
   scene_p:
     time: dusk
+  gag:
+    mark: shock
+    at: 50%
 - tiny: One day, it turns into a hawkmoth, a fluffy moth.
   scene: forest_floor
   scene_p:
@@ -132,5 +169,11 @@ tt:
     x: 820
     y: 900
     s: 1.0
+  gag:
+    clock: 2
+    at: 15%
 - fact: So if a tiny viper struck at you from a leaf, would you pick it up?
+  gag:
+    mark: alarm
+    at: 40%
 - punch: The scariest snake in the rainforest is a caterpillar full of air.

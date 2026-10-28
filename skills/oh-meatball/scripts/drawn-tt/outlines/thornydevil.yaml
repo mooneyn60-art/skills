@@ -1,89 +1,403 @@
 slug: thornydevil
 out: episodes/drawn-tt
 specs: scripts/drawn-tt
-series: "Meatball's Animal Files"
+series: Meatball's Animal Files
 variant: B
 title: This Lizard Drinks Water Through Its Feet 🦎
-tiktok_caption: "this spiky lizard drinks through its skin 🦎 water runs up its legs to its mouth, it has a fake head, and eats thousands of ants a day. Would you hold one? 🤲 yes / 🌵 too spiky #meatballmyths #learnontiktok #thornydevil #australia"
+tiktok_caption: 'this spiky lizard drinks through its skin 🦎 water runs up its legs
+  to its mouth, it has a fake head, and eats thousands of ants a day. Would you hold
+  one? 🤲 yes / 🌵 too spiky #meatballmyths #learnontiktok #thornydevil #australia'
 creature: thorny_devil
-creature_cfg: {plan: reptile, label: thorny devil, color: "#d9a85a", dark: "#9a5a2a", accent: "#b8442a", spikes: 12, stripes: 3, length: 620, height: 200, s: 1.0}
+creature_cfg:
+  plan: reptile
+  label: thorny devil
+  color: '#d9a85a'
+  dark: '#9a5a2a'
+  accent: '#b8442a'
+  spikes: 12
+  stripes: 3
+  length: 620
+  height: 200
+  s: 1.0
 scene: bedroom
-scene_p: {time: day}
+scene_p:
+  time: day
 wild: desert
-wild_p: {time: day, props: [[dune, 900, 1320, 1.2], [rock, -40, 1500, 0.9], [grass, 1150, 1500, 1.0]]}
+wild_p:
+  time: day
+  props:
+  - - dune
+    - 900
+    - 1320
+    - 1.2
+  - - rock
+    - -40
+    - 1500
+    - 0.9
+  - - grass
+    - 1150
+    - 1500
+    - 1.0
 music: mystery
 next: Next, the spider whose silk was strung inside wartime bombsights.
 sources:
-  - "Parks Australia, Uluru-Kata Tjuta National Park, Thorny devil: a small dragon covered in densely packed spikes; unusual rocking walk thought to confuse birds of prey; knob-like 'false head' on its shoulders; can puff itself up when threatened; eats only ants, parks beside an ant trail; a single devil can eat thousands of ants in a day; standing in a puddle or wet sand, water runs up its legs and over its body to its mouth via narrow grooves between scales; pale yellow and red in warm weather, darker when cold or alarmed; https://uluru.gov.au/discover/nature/animals/thorny-devil"
-  - "University of Western Australia news, 'Flat out lizard drinking: thorny devil's remarkable desert survival' (2016; Prof. P. Withers): drinks from puddles via skin capillary channels between overlapping scales that lead to the mouth; flicks moist sand onto its back to absorb some moisture; about a pinhead of water per gulp; condensation from humid air is not enough to drink; https://news.uwa.edu.au/201611039172/research/flat-out-lizard-drinking-thorny-devils-remarkable-desert-survival"
-  - "Comanns P., Withers P.C., Esser F.J., Baumgartner W. (2016) 'Cutaneous water collection by a moisture-harvesting lizard, the thorny devil (Moloch horridus)', Journal of Experimental Biology 219:3473-3479: lizards standing in water fill their skin capillary system and drink from it; rain and moist sand are likely regular water sources; https://doi.org/10.1242/jeb.151407"
-  - "PBS Nature, 'Featured Creature: Thorny Devil': the neck knob is a false head meant to deceive predators; when threatened it curls its real head between its front legs; eats mainly ants, estimated 600 to 2500 per meal; https://www.pbs.org/wnet/nature/blog/inside-nature-featured-creature-thorny-devil"
+- 'Parks Australia, Uluru-Kata Tjuta National Park, Thorny devil: a small dragon covered
+  in densely packed spikes; unusual rocking walk thought to confuse birds of prey;
+  knob-like ''false head'' on its shoulders; can puff itself up when threatened; eats
+  only ants, parks beside an ant trail; a single devil can eat thousands of ants in
+  a day; standing in a puddle or wet sand, water runs up its legs and over its body
+  to its mouth via narrow grooves between scales; pale yellow and red in warm weather,
+  darker when cold or alarmed; https://uluru.gov.au/discover/nature/animals/thorny-devil'
+- 'University of Western Australia news, ''Flat out lizard drinking: thorny devil''s
+  remarkable desert survival'' (2016; Prof. P. Withers): drinks from puddles via skin
+  capillary channels between overlapping scales that lead to the mouth; flicks moist
+  sand onto its back to absorb some moisture; about a pinhead of water per gulp; condensation
+  from humid air is not enough to drink; https://news.uwa.edu.au/201611039172/research/flat-out-lizard-drinking-thorny-devils-remarkable-desert-survival'
+- 'Comanns P., Withers P.C., Esser F.J., Baumgartner W. (2016) ''Cutaneous water collection
+  by a moisture-harvesting lizard, the thorny devil (Moloch horridus)'', Journal of
+  Experimental Biology 219:3473-3479: lizards standing in water fill their skin capillary
+  system and drink from it; rain and moist sand are likely regular water sources;
+  https://doi.org/10.1242/jeb.151407'
+- 'PBS Nature, ''Featured Creature: Thorny Devil'': the neck knob is a false head
+  meant to deceive predators; when threatened it curls its real head between its front
+  legs; eats mainly ants, estimated 600 to 2500 per meal; https://www.pbs.org/wnet/nature/blog/inside-nature-featured-creature-thorny-devil'
 yt:
-  - hook: This lizard drinks with its feet. Water runs up its legs, and into its mouth.
-  - shrink: So I shrank myself to lizard size, and went to the Australian desert.
-  - tiny: The thorny devil. A small dragon, covered in spikes.
-    scene: desert
-    scene_p: {time: day, props: [[dune, 900, 1320, 1.2], [rock, -40, 1500, 0.9], [grass, 1150, 1500, 1.0]]}
-    pose: shock
-  - tiny: After a rain, it steps into a puddle.
-    scene: desert
-    scene_p: {time: dusk, props: [[dune, 900, 1320, 1.2], [rock, -40, 1500, 0.9], [rock, 1150, 1500, 1.1]]}
-  - tiny: Its skin is full of tiny grooves between the scales.
-    scene: desert
-    scene_p: {time: dusk, props: [[dune, 900, 1320, 1.2], [rock, -40, 1500, 0.9], [rock, 1150, 1500, 1.1]]}
-    pose: think
-    act: {xray: 1.0}
-  - solo: The water creeps up those grooves, over its body, all the way to its mouth.
-    scene: desert
-    scene_p: {time: dusk, props: [[dune, 900, 1320, 1.2], [rock, -40, 1500, 0.9], [rock, 1150, 1500, 1.1]]}
-    act: {xray: 1.0, look: [1, -1]}
-  - tiny: Then it gulps. About a pinhead of water per sip.
-    scene: desert
-    scene_p: {time: dusk, props: [[dune, 900, 1320, 1.2], [rock, -40, 1500, 0.9], [rock, 1150, 1500, 1.1]]}
-    pose: laugh
-    act: {chew: 1.0, mood: happy}
+- hook: This lizard drinks with its feet. Water runs up its legs, and into its mouth.
+  gag:
+    mark: sweat
+    at: 45%
+- shrink: So I shrank myself to lizard size, and went to the Australian desert.
+- tiny: The thorny devil. A small dragon, covered in spikes.
+  scene: desert
+  scene_p:
+    time: day
+    props:
+    - - dune
+      - 900
+      - 1320
+      - 1.2
+    - - rock
+      - -40
+      - 1500
+      - 0.9
+    - - grass
+      - 1150
+      - 1500
+      - 1.0
+  pose: shock
+  gag:
+    prop: crown
+    at: 50%
+- tiny: After a rain, it steps into a puddle.
+  scene: desert
+  scene_p:
+    time: dusk
+    props:
+    - - dune
+      - 900
+      - 1320
+      - 1.2
+    - - rock
+      - -40
+      - 1500
+      - 0.9
+    - - rock
+      - 1150
+      - 1500
+      - 1.1
+- tiny: Its skin is full of tiny grooves between the scales.
+  scene: desert
+  scene_p:
+    time: dusk
+    props:
+    - - dune
+      - 900
+      - 1320
+      - 1.2
+    - - rock
+      - -40
+      - 1500
+      - 0.9
+    - - rock
+      - 1150
+      - 1500
+      - 1.1
+  pose: think
+  act:
+    xray: 1.0
+  gag:
+    prop: magnifier
+    at: 50%
+- solo: The water creeps up those grooves, over its body, all the way to its mouth.
+  scene: desert
+  scene_p:
+    time: dusk
+    props:
+    - - dune
+      - 900
+      - 1320
+      - 1.2
+    - - rock
+      - -40
+      - 1500
+      - 0.9
+    - - rock
+      - 1150
+      - 1500
+      - 1.1
+  act:
+    xray: 1.0
+    look:
+    - 1
+    - -1
+  gag:
+    mark: shock
+    at: 80%
+- tiny: Then it gulps. About a pinhead of water per sip.
+  scene: desert
+  scene_p:
+    time: dusk
+    props:
+    - - dune
+      - 900
+      - 1320
+      - 1.2
+    - - rock
+      - -40
+      - 1500
+      - 0.9
+    - - rock
+      - 1150
+      - 1500
+      - 1.1
+  pose: laugh
+  act:
+    chew: 1.0
+    mood: happy
+  gag:
+    prop: ruler
+    at: 60%
 tt:
-  - tiny: It even flicks wet sand onto its own back to wet its skin even more.
-    scene: desert
-    scene_p: {time: day, props: [[dune, 900, 1320, 1.2], [rock, -40, 1500, 0.9], [grass, 1150, 1500, 1.0]]}
-  - tiny: Here's the weird part. It has two heads. Sort of.
-    scene: desert
-    scene_p: {time: night, props: [[rock, -40, 1500, 1.1], [grass, 1150, 1500, 1.0], [rock, 1000, 1500, 0.8]]}
-    pose: nervous
-  - solo: On its shoulders is a spiky knob that looks like a head.
-    scene: desert
-    scene_p: {time: night, props: [[rock, -40, 1500, 1.1], [grass, 1150, 1500, 1.0], [rock, 1000, 1500, 0.8]]}
-  - tiny: When something attacks, it tucks its real head down between its front legs.
-    scene: desert
-    scene_p: {time: night, props: [[rock, -40, 1500, 1.1], [grass, 1150, 1500, 1.0], [rock, 1000, 1500, 0.8]]}
-    pose: shock
-    act: {crouch: 1.0, mood: worry}
-  - tiny: So the hunter is looking at the fake head instead.
-    scene: desert
-    scene_p: {time: night, props: [[rock, -40, 1500, 1.1], [grass, 1150, 1500, 1.0], [rock, 1000, 1500, 0.8]]}
-    pose: deadpan
-    act: {crouch: 1.0}
-  - tiny: It can also puff itself up to look bigger.
-    scene: desert
-    scene_p: {time: day, props: [[dune, 900, 1320, 1.2], [rock, -40, 1500, 0.9], [grass, 1150, 1500, 1.0]]}
-    pose: nervous
-    act: {mood: angry}
-  - tiny: And it walks with a strange rocking motion, to confuse hungry birds.
-    scene: desert
-    scene_p: {time: day, props: [[dune, 900, 1320, 1.2], [rock, -40, 1500, 0.9], [grass, 1150, 1500, 1.0]]}
-  - tiny: It eats one thing. Ants.
-    scene: desert
-    scene_p: {time: dusk, props: [[dune, 900, 1320, 1.2], [rock, -40, 1500, 0.9], [rock, 1150, 1500, 1.1]]}
-    with: [{sp: ant, x: 880, s: 0.5}]
-  - tiny: It parks next to an ant trail, and snaps them up, one by one.
-    scene: desert
-    scene_p: {time: dusk, props: [[dune, 900, 1320, 1.2], [rock, -40, 1500, 0.9], [rock, 1150, 1500, 1.1]]}
-    act: {bite: 1.0}
-    with: [{sp: ant, x: 860, s: 0.45}, {sp: ant, x: 960, s: 0.45}]
-  - tiny: Thousands of ants, in a single day.
-    scene: desert
-    scene_p: {time: day, props: [[dune, 900, 1320, 1.2], [rock, -40, 1500, 0.9], [grass, 1150, 1500, 1.0]]}
-    pose: shock
-    act: {chew: 1.0, mood: happy}
-  - fact: Would you hold one?
-  - punch: A spiky dragon with a spare head, sipping water through its feet.
+- tiny: It even flicks wet sand onto its own back to wet its skin even more.
+  scene: desert
+  scene_p:
+    time: day
+    props:
+    - - dune
+      - 900
+      - 1320
+      - 1.2
+    - - rock
+      - -40
+      - 1500
+      - 0.9
+    - - grass
+      - 1150
+      - 1500
+      - 1.0
+  gag:
+    pile: rock
+    n: 5
+    r: 24
+    at: 40%
+- tiny: Here's the weird part. It has two heads. Sort of.
+  scene: desert
+  scene_p:
+    time: night
+    props:
+    - - rock
+      - -40
+      - 1500
+      - 1.1
+    - - grass
+      - 1150
+      - 1500
+      - 1.0
+    - - rock
+      - 1000
+      - 1500
+      - 0.8
+  pose: nervous
+  gag:
+    mark: dizzy
+    at: 50%
+- solo: On its shoulders is a spiky knob that looks like a head.
+  scene: desert
+  scene_p:
+    time: night
+    props:
+    - - rock
+      - -40
+      - 1500
+      - 1.1
+    - - grass
+      - 1150
+      - 1500
+      - 1.0
+    - - rock
+      - 1000
+      - 1500
+      - 0.8
+  gag:
+    prop: magnifier
+    at: 50%
+- tiny: When something attacks, it tucks its real head down between its front legs.
+  scene: desert
+  scene_p:
+    time: night
+    props:
+    - - rock
+      - -40
+      - 1500
+      - 1.1
+    - - grass
+      - 1150
+      - 1500
+      - 1.0
+    - - rock
+      - 1000
+      - 1500
+      - 0.8
+  pose: shock
+  act:
+    crouch: 1.0
+    mood: worry
+  gag:
+    mark: alarm
+    at: 30%
+- tiny: So the hunter is looking at the fake head instead.
+  scene: desert
+  scene_p:
+    time: night
+    props:
+    - - rock
+      - -40
+      - 1500
+      - 1.1
+    - - grass
+      - 1150
+      - 1500
+      - 1.0
+    - - rock
+      - 1000
+      - 1500
+      - 0.8
+  pose: deadpan
+  act:
+    crouch: 1.0
+- tiny: It can also puff itself up to look bigger.
+  scene: desert
+  scene_p:
+    time: day
+    props:
+    - - dune
+      - 900
+      - 1320
+      - 1.2
+    - - rock
+      - -40
+      - 1500
+      - 0.9
+    - - grass
+      - 1150
+      - 1500
+      - 1.0
+  pose: nervous
+  act:
+    mood: angry
+  gag:
+    meter: 1.0
+    at: 40%
+- tiny: And it walks with a strange rocking motion, to confuse hungry birds.
+  scene: desert
+  scene_p:
+    time: day
+    props:
+    - - dune
+      - 900
+      - 1320
+      - 1.2
+    - - rock
+      - -40
+      - 1500
+      - 0.9
+    - - grass
+      - 1150
+      - 1500
+      - 1.0
+  gag:
+    mark: dizzy
+    at: 60%
+- tiny: It eats one thing. Ants.
+  scene: desert
+  scene_p:
+    time: dusk
+    props:
+    - - dune
+      - 900
+      - 1320
+      - 1.2
+    - - rock
+      - -40
+      - 1500
+      - 0.9
+    - - rock
+      - 1150
+      - 1500
+      - 1.1
+  with:
+  - sp: ant
+    x: 880
+    s: 0.5
+- tiny: It parks next to an ant trail, and snaps them up, one by one.
+  scene: desert
+  scene_p:
+    time: dusk
+    props:
+    - - dune
+      - 900
+      - 1320
+      - 1.2
+    - - rock
+      - -40
+      - 1500
+      - 0.9
+    - - rock
+      - 1150
+      - 1500
+      - 1.1
+  act:
+    bite: 1.0
+  with:
+  - sp: ant
+    x: 860
+    s: 0.45
+  - sp: ant
+    x: 960
+    s: 0.45
+- tiny: Thousands of ants, in a single day.
+  scene: desert
+  scene_p:
+    time: day
+    props:
+    - - dune
+      - 900
+      - 1320
+      - 1.2
+    - - rock
+      - -40
+      - 1500
+      - 0.9
+    - - grass
+      - 1150
+      - 1500
+      - 1.0
+  pose: shock
+  act:
+    chew: 1.0
+    mood: happy
+  gag:
+    clock: 1
+    at: 60%
+- fact: Would you hold one?
+- punch: A spiky dragon with a spare head, sipping water through its feet.

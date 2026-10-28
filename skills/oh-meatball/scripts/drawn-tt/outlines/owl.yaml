@@ -4,8 +4,9 @@ specs: scripts/drawn-tt
 series: Meatball's Animal Files
 variant: A
 title: An Owl Can Turn Its Head 270 Degrees Without Choking Its Brain 🦉
-tiktok_caption: 'my owl turned its head almost all the way around 🦉 270 degrees, silent wings, and it coughs up the bones
-  of everything it eats. Would you pick up an owl pellet? 🧤 yes / 🤢 no #meatballmyths #learnontiktok #owl #animalfacts'
+tiktok_caption: 'my owl turned its head almost all the way around 🦉 270 degrees, silent
+  wings, and it coughs up the bones of everything it eats. Would you pick up an owl
+  pellet? 🧤 yes / 🤢 no #meatballmyths #learnontiktok #owl #animalfacts'
 creature: owl
 creature_cfg:
   plan: bird
@@ -28,41 +29,85 @@ wild_p:
 music: mystery
 next: Next, a spiky lizard that drinks through its skin.
 sources:
-- 'Johns Hopkins Medicine news release via ScienceDaily, ''Owl mystery unraveled'' (Jan 31, 2013; F. de Kok-Mercado, P. Gailloud):
-  owls turn their heads as much as 270 degrees in either direction; study of snowy, barred and great horned owls; bony holes
-  around the vertebral artery about 10 times larger than the artery; 12 of the 14 cervical vertebrae; contractile blood reservoirs
-  at the base of the head pool blood for their large brains and eyes; in humans sudden neck twists can tear artery linings
-  and cause stroke; https://www.sciencedaily.com/releases/2013/01/130131144102.htm'
-- 'Smithsonian Magazine, ''Solving the Mystery of Owls'' Head-Turning Abilities'' (2013): up to 270 degrees in either direction;
-  adaptation found in 12 of 14 neck vertebrae; dye pooled in reservoirs near the base of the skull; https://www.smithsonianmag.com/science-nature/solving-the-mystery-of-owls-head-turning-abilities-9561557/'
-- 'National Geographic, ''How Owls Twist Their Heads Almost 360 Degrees'': maximum 270 degrees; owls have fixed eye sockets
-  so their eyeballs can''t rotate; https://www.nationalgeographic.com/animals/article/how-owls-twist-heads-almost-360-degrees'
-- 'Audubon Magazine, ''The Silent Flight of Owls, Explained'': comb-like serrations on the leading edge of wing feathers break
-  up turbulent air; a velvety texture and a soft trailing-edge fringe dampen sound; owls can fly virtually silently; large
-  owls such as the Barn Owl can fly as slowly as two mph; study of 70 owl species (K. Le Piane); https://www.audubon.org/magazine/silent-flight-of-owls-explained'
-- 'University of Illinois College of Veterinary Medicine, Owl Pellet worksheet (Wildlife Encounters): owls have no crop and
-  no teeth; food is swallowed whole; about 12 hours after eating the owl regurgitates undigested material as a pellet; https://vetmed.illinois.edu/wp-content/uploads/2021/05/OwlPelletWorksheet_WildlifeEncounters.pdf'
-- 'University of Alaska Museum of the North, Dissect an Owl Pellet activity: owls can''t chew, swallow prey whole or in pieces;
-  bones, fur and feathers collect in the gizzard and are regurgitated as a pellet; https://www.uaf.edu/museum/education/kids-families/hands-on-programs/virtualjuniorcurators/pdfs/Dissect-An-Owl-Pellet-Activity.pdf'
+- 'Johns Hopkins Medicine news release via ScienceDaily, ''Owl mystery unraveled''
+  (Jan 31, 2013; F. de Kok-Mercado, P. Gailloud): owls turn their heads as much as
+  270 degrees in either direction; study of snowy, barred and great horned owls; bony
+  holes around the vertebral artery about 10 times larger than the artery; 12 of the
+  14 cervical vertebrae; contractile blood reservoirs at the base of the head pool
+  blood for their large brains and eyes; in humans sudden neck twists can tear artery
+  linings and cause stroke; https://www.sciencedaily.com/releases/2013/01/130131144102.htm'
+- 'Smithsonian Magazine, ''Solving the Mystery of Owls'' Head-Turning Abilities''
+  (2013): up to 270 degrees in either direction; adaptation found in 12 of 14 neck
+  vertebrae; dye pooled in reservoirs near the base of the skull; https://www.smithsonianmag.com/science-nature/solving-the-mystery-of-owls-head-turning-abilities-9561557/'
+- 'National Geographic, ''How Owls Twist Their Heads Almost 360 Degrees'': maximum
+  270 degrees; owls have fixed eye sockets so their eyeballs can''t rotate; https://www.nationalgeographic.com/animals/article/how-owls-twist-heads-almost-360-degrees'
+- 'Audubon Magazine, ''The Silent Flight of Owls, Explained'': comb-like serrations
+  on the leading edge of wing feathers break up turbulent air; a velvety texture and
+  a soft trailing-edge fringe dampen sound; owls can fly virtually silently; large
+  owls such as the Barn Owl can fly as slowly as two mph; study of 70 owl species
+  (K. Le Piane); https://www.audubon.org/magazine/silent-flight-of-owls-explained'
+- 'University of Illinois College of Veterinary Medicine, Owl Pellet worksheet (Wildlife
+  Encounters): owls have no crop and no teeth; food is swallowed whole; about 12 hours
+  after eating the owl regurgitates undigested material as a pellet; https://vetmed.illinois.edu/wp-content/uploads/2021/05/OwlPelletWorksheet_WildlifeEncounters.pdf'
+- 'University of Alaska Museum of the North, Dissect an Owl Pellet activity: owls
+  can''t chew, swallow prey whole or in pieces; bones, fur and feathers collect in
+  the gizzard and are regurgitated as a pellet; https://www.uaf.edu/museum/education/kids-families/hands-on-programs/virtualjuniorcurators/pdfs/Dissect-An-Owl-Pellet-Activity.pdf'
 yt:
-- hook: An owl can turn its head two hundred seventy degrees. Without choking off its own brain.
+- hook: An owl can turn its head two hundred seventy degrees. Without choking off
+    its own brain.
+  gag:
+    meter: 0.75
+    at: 35%
 - name: The owl. And no, it can't go all the way around. That's a myth.
+  gag:
+    mark: dizzy
+    at: 60%
 - fact: Its eyeballs are locked in place. They can't roll around like yours.
+  gag:
+    prop: magnifier
+    at: 30%
 - xray: So it turns its whole head instead, on fourteen neck bones.
 - escalate: Twist your neck that hard, and you could tear an artery, and have a stroke.
+  gag:
+    mark: alarm
+    at: 50%
 - calm: So how does the owl survive it?
 tt:
 - fact: Scientists at Johns Hopkins injected dye into dead owls' necks to find out.
+  gag:
+    prop: magnifier
+    at: 30%
 - fact: The holes in its neck bones are ten times wider than the artery inside.
+  gag:
+    prop: ruler
+    at: 50%
 - fact: So the artery has room to twist, without getting pinched.
 - xray: And at the base of its head, blood pools in little reserve tanks,
+  gag:
+    heart: 2
+    at: 60%
 - fact: to keep its big brain and big eyes fed while the head turns.
 - solo: Then it takes off. And you hear almost nothing.
   zoom: 0.95
 - fact: Its wing feathers have a comb along the front edge that breaks up the air.
 - solo: A barn owl can fly as slow as two miles an hour.
   zoom: 0.95
+  gag:
+    meter: 0.1
+    at: 60%
 - escalate: Now the gross part. An owl has no teeth. It swallows small prey whole.
+  gag:
+    mark: shock
+    at: 60%
 - fact: About twelve hours later, it coughs up a pellet of bones and fur.
+  gag:
+  - clock: 1
+    at: 15%
+  - pile: bone
+    n: 4
+    at: 60%
 - fact: Would you pick up an owl pellet?
 - punch: It eats dinner whole, and hands you back the skeleton.
+  gag:
+    prop: skull
+    at: 80%
