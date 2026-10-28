@@ -308,7 +308,11 @@ def draw_actor(ctx, cam, a, b, t, words):
         q = 1 - land / 0.25
         ctx.scale(1 + 0.18 * q, 1 - 0.18 * q)
     ctx.rotate(math.radians(rot))
-    ctx.scale(s * (-1 if a.get("flip") else 1), s)
+    flip = a.get("flip")
+    for m in a.get("moves", []):   # a move may turn the actor round when it starts ("face": +1 right / -1 left)
+        if "face" in m and t >= at_time(words, m.get("at"), 0.0):
+            flip = m["face"] < 0   # the kit draws animals facing right; flip = face left
+    ctx.scale(s * (-1 if flip else 1), s)
     ACTORS[a["type"]](ctx, b["t0"] + t, p)
 
 
@@ -602,7 +606,8 @@ def mix_audio(spec, beats, total, path):
             name, _, at = e.partition("@")
             num = at.replace(".", "", 1).isdigit()
             t = b["t0"] + at_time(b["words"], float(at) if num else (at or 0.0))
-            with wave.open(os.path.join(ROOT, "sfx", name + ".wav")) as w:
+            kit = os.path.join(ROOT, "sfx", spec.get("sfx_kit", "v2"), name + ".wav")   # v2 nature kit (10/28)
+            with wave.open(kit if os.path.exists(kit) else os.path.join(ROOT, "sfx", name + ".wav")) as w:
                 raw = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768
                 if w.getnchannels() == 2:
                     raw = raw.reshape(-1, 2).mean(1)

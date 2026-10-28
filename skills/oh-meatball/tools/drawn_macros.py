@@ -106,9 +106,19 @@ def _beat(stage, line, F, shots, hero, mb, sfx, extra=None, **kw):
             hero["p"].update(line["hero"])
         if line.get("hero_at"):   # a special mark for this line: {"x", "y", "rot"}, e.g. down inside a pore
             h = line["hero_at"]
-            hero["pos"] = [h.get("x", hero["pos"][0]), h.get("y", hero["pos"][1])]
-            hero["rot"] = h.get("rot", 0)
-            hero.pop("moves", None)
+            cx = hero.pop("_cx", None)
+            if cx is not None and not h.get("rot"):   # keep the solo/tiny motion, centred on the new mark
+                dx = max(-80, min(80, h.get("x", cx) - cx))   # motion needs room; stay near the centre
+                dy = h.get("y", hero["pos"][1]) - hero["pos"][1]
+                hero["pos"] = [hero["pos"][0] + dx, hero["pos"][1] + dy]
+                for mv in hero.get("moves", []):
+                    if "pos" in mv:
+                        mv["pos"] = [mv["pos"][0] + dx, mv["pos"][1] + dy]
+            else:
+                hero["pos"] = [h.get("x", hero["pos"][0]), h.get("y", hero["pos"][1])]
+                hero["rot"] = h.get("rot", 0)
+                hero.pop("moves", None)
+        hero.pop("_cx", None)
         if line.get("hero_moves"):
             hero["moves"] = line["hero_moves"]
         if line.get("act"):
@@ -141,6 +151,35 @@ def _mb(stage, F, pose, x=MB_X, moves=None, gest=None, **kw):
         m["gest"] = gest
     m.update(kw)
     return m
+
+
+def _solo_motion(n, hy, no_ground):
+    """Six rotating ways an animal moves through its solo shot (Nolan 10/28: the animal has to move more).
+    Returns (moves with the start x in moves[0]["from"], param sets, footstep sfx)."""
+    v = n % 6
+    if v == 0:   # walks in from the right and stops in the middle
+        mv = [{"from": 780, "at": 0, "dur": 1.3, "pos": [540, hy], "walk": True, "face": -1}]
+    elif v == 1:   # crosses the frame left to right
+        mv = [{"from": 360, "at": "5%", "dur": 2.4, "pos": [720, hy], "walk": True, "linear": True, "face": 1}]
+    elif v == 2:   # comes at the camera
+        mv = [{"from": 600, "at": "10%", "dur": 1.4, "pos": [520, hy + 40], "grow": 1.22, "walk": True, "face": -1}]
+    elif v == 3:   # trots in, then hops
+        mv = [{"from": 700, "at": 0, "dur": 0.8, "pos": [560, hy], "walk": True, "face": -1},
+              {"at": "50%", "dur": 0.45, "pos": [500, hy], "hop": 150}]
+    elif v == 4:   # looks left, looks right, wanders off
+        mv = [{"from": 560, "at": "62%", "dur": 1.1, "pos": [400, hy], "walk": True, "face": -1}]
+    else:   # walks away, turns round, comes back
+        mv = [{"from": 520, "at": "5%", "dur": 0.9, "pos": [690, hy], "walk": True, "face": 1},
+              {"at": "50%", "dur": 0.9, "pos": [560, hy], "walk": True, "face": -1}]
+    sets = []
+    if v == 2:
+        sets = [{"at": "65%", "dur": 0.15, "p": {"bite": 1.0}}, {"at": "85%", "dur": 0.2, "p": {"bite": 0.0}}]
+    if v == 4:
+        sets = [{"at": "10%", "p": {"look": [-1, 0]}}, {"at": "35%", "p": {"look": [1, 0]}}]
+    steps = [] if no_ground else {0: ["step@3%", "step@20%"], 1: ["step@8%", "step@35%", "step@60%"],
+                                  2: ["step@15%"], 3: ["step@3%", "thud@62%"], 4: ["step@65%", "step@85%"],
+                                  5: ["step@8%", "step@55%"]}[v]
+    return mv, sets, steps
 
 
 def expand(spec):
@@ -242,8 +281,19 @@ def expand(spec):
             hero = _hero(stage, F, x=540, s=stage.s * line.get("zoom", 1.3), p={"mood": line.get("mood", "smug")})
             hero["p"].update(line.get("act", {}))
             cy = hy - 470 if stage.cfg.get("floor", True) else hy + 120
+            nsolo = sum(1 for x in out if x.get("_solo"))
+            mv, sets, steps = _solo_motion(nsolo, hy, water or not stage.cfg.get("floor", True))
+            if not line.get("hero_moves"):
+                hero["pos"] = [mv[0].pop("from"), hy]
+                for m in mv:
+                    if "grow" in m:
+                        m["s"] = hero["s"] * m.pop("grow")
+                hero["moves"] = mv
+                hero["_cx"] = 540
+                hero.setdefault("set", []).extend(sets)
             b = _beat(stage, line, F, [{"cam": [540, cy, 1.15], "to": [540, cy + 20, 1.32]}], hero,
-                      _mb(stage, F, "think", hidden=True), ["whoosh@2%", "tink@60%"])
+                      _mb(stage, F, "think", hidden=True), ["whoosh@2%", "tink@60%"] + steps)
+            b["_solo"] = True
         elif m == "shrink":
             mb = _mb(stage, F, "shock", water=water, shake=0.4,
                      moves=[{"at": "35%", "dur": 0.7, "s": 300, "pos": [MB_X + 120, F], "hop": 240}])
@@ -259,8 +309,20 @@ def expand(spec):
             mb = _mb(stage, F, pose, x=150, water=water, size=470, look="hero",
                      moves=[{"at": "10%", "dur": 0.5, "pos": [190, F], "walk": True}] if ntiny % 2 else None)
             cy = hy - 430 if stage.cfg.get("floor", True) else hy + 120
+            v = ntiny % 3
+            if not line.get("hero_moves"):
+                hero["_cx"] = 720
+                if v == 0:   # strolls in toward Meatball
+                    hero["pos"] = [860, hy]
+                    hero["moves"] = [{"at": 0, "dur": 1.1, "pos": [720, hy], "walk": True}]
+                elif v == 1:   # hops at him
+                    hero["moves"] = [{"at": "40%", "dur": 0.45, "pos": [680, hy], "hop": 150}]
+                else:   # leans in and snaps
+                    hero["moves"] = [{"at": "45%", "dur": 0.35, "pos": [650, hy]}, {"at": "75%", "dur": 0.5, "pos": [720, hy], "walk": True}]
+                    hero.setdefault("set", []).extend([{"at": "45%", "dur": 0.15, "p": {"bite": 1.0}},
+                                                       {"at": "70%", "dur": 0.2, "p": {"bite": 0.0}}])
             b = _beat(stage, line, F, [{"cam": [520, cy, 1.05], "to": [540, cy + 10, 1.16]}], hero, mb,
-                      ["whoosh@2%", "tink@55%"])
+                      ["whoosh@2%", "tink@55%"] + (["step@5%", "step@25%"] if v == 0 and not water else []))
             b["_tiny"] = True
         elif m == "tease":
             nscene = line.get("scene", stage.scene)
@@ -276,6 +338,7 @@ def expand(spec):
         out.append(b)
     for x in out:
         x.pop("_tiny", None)
+        x.pop("_solo", None)
     spec = copy.deepcopy(spec)
     spec["beats"] = out
     return spec
