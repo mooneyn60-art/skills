@@ -43,6 +43,10 @@
  "tiktok_caption": "a woodpecker slams its face into wood up to 20 times a second 🪵 and its tongue wraps around its skull. Would you want one drumming outside your window at 6am? 🥁 yes / 😴 no / 🪵 only on the neighbor's house #meatballmyths #learnontiktok #woodpecker #birds #animalfacts",
  "beats": [
   {
+   "gag": {
+    "meter": 1.0,
+    "at": "40%"
+   },
    "m": "hook",
    "say": "A woodpecker slams its face into wood up to twenty times a second."
   },
@@ -53,6 +57,10 @@
   {
    "act": {
     "bite": 1.0
+   },
+   "gag": {
+    "clock": 4,
+    "at": "50%"
    },
    "m": "tiny",
    "say": "The woodpecker. It can peck about twelve thousand times a day."
@@ -99,6 +107,10 @@
     ]
    },
    "pose": "shock",
+   "gag": {
+    "prop": "magnifier",
+    "at": "30%"
+   },
    "m": "tiny",
    "say": "Then high speed cameras caught it in the act. It doesn't."
   },

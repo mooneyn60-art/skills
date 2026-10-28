@@ -83,6 +83,10 @@
      "walk": true
     }
    ],
+   "gag": {
+    "mark": "anger",
+    "at": "60%"
+   },
    "m": "hook",
    "say": "In Alaska, moose injure more people than bears do."
   },
@@ -90,12 +94,20 @@
    "hero_at": {
     "x": 800
    },
+   "gag": {
+    "prop": "crown",
+    "at": "40%"
+   },
    "m": "name",
    "say": "The moose. The biggest deer on Earth. Six feet tall at the shoulder."
   },
   {
    "hero_at": {
     "x": 800
+   },
+   "gag": {
+    "meter": 1.0,
+    "at": "60%"
    },
    "m": "fact",
    "say": "The biggest one ever weighed at an Alaska research station was nearly seventeen hundred pounds."
@@ -111,10 +123,19 @@
    "hero_at": {
     "x": 800
    },
+   "gag": {
+    "pile": "bone",
+    "n": 3,
+    "at": "60%"
+   },
    "m": "escalate",
    "say": "A mother moose kicks hard enough to break bones."
   },
   {
+   "gag": {
+    "thought": "leaf",
+    "at": "50%"
+   },
    "m": "calm",
    "say": "Most of the time, though, it just wants to eat."
   },

@@ -45,10 +45,20 @@
  "tiktok_caption": "this animal almost always has identical quadruplets 4️⃣ and it can carry leprosy. Would you pick one up? 🖐️ yes / 🧤 with gloves / 🙅 no way #meatballmyths #learnontiktok #armadillo #animalfacts",
  "beats": [
   {
+   "gag": {
+    "pile": "baby",
+    "n": 4,
+    "r": 34,
+    "at": "60%"
+   },
    "m": "hook",
    "say": "This animal almost always gives birth to identical quadruplets."
   },
   {
+   "gag": {
+    "meter": 1.0,
+    "at": "60%"
+   },
    "m": "name",
    "say": "The nine-banded armadillo. Wrapped in bony armor."
   },
@@ -57,14 +67,26 @@
    "say": "Every litter, four babies. Identical, and all the same sex."
   },
   {
+   "gag": {
+    "mark": "shock",
+    "at": "20%"
+   },
    "m": "escalate",
    "say": "And when it's scared, it jumps straight up. Three to four feet in the air."
   },
   {
+   "gag": {
+    "prop": "skull",
+    "at": "60%"
+   },
    "m": "fact",
    "say": "But that jump doesn't help against cars. That's why so many end up on roadsides."
   },
   {
+   "gag": {
+    "mark": "sweat",
+    "at": "60%"
+   },
    "m": "calm",
    "say": "And no, it can't roll up into a ball."
   },

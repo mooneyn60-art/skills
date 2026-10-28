@@ -46,10 +46,24 @@
  "tiktok_caption": "a skunk can hit you in the face from 10 feet away 🦨 it has about a dozen shots and can aim backwards. Would you pet one? 🖐️ yes / 🏃 run / 🧼 only with a gallon of peroxide #meatballmyths #learnontiktok #skunk #animalfacts",
  "beats": [
   {
+   "gag": [
+    {
+     "mark": "stink",
+     "at": "50%"
+    },
+    {
+     "prop": "ruler",
+     "at": "80%"
+    }
+   ],
    "m": "hook",
    "say": "A skunk can hit you in the face from ten feet away."
   },
   {
+   "gag": {
+    "prop": "ruler",
+    "at": "70%"
+   },
    "m": "name",
    "say": "The striped skunk. About the size of a house cat."
   },
@@ -58,10 +72,18 @@
    "say": "Under its tail, two glands, each holding about a tablespoon of stinky musk."
   },
   {
+   "gag": {
+    "meter": 1.0,
+    "at": "50%"
+   },
    "m": "escalate",
    "say": "That's enough for ten or twelve shots."
   },
   {
+   "gag": {
+    "mark": "stink",
+    "at": "60%"
+   },
    "m": "fact",
    "say": "And it can aim left, right, front, or back, without even turning around."
   },

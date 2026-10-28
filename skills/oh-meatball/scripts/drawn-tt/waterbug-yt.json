@@ -44,6 +44,10 @@
  "tiktok_caption": "this bug melts its prey from the inside and drinks it 🫠 it eats turtles, snakes and ducklings and they call it the toe biter. Would you eat one? 🍽️ yes / 🤢 never / 🦶 it'd eat me first #meatballmyths #learnontiktok #giantwaterbug #insects #animalfacts",
  "beats": [
   {
+   "gag": {
+    "mark": "shock",
+    "at": "40%"
+   },
    "m": "hook",
    "say": "This bug can eat a turtle. It melts the insides, and drinks them."
   },
@@ -52,10 +56,18 @@
    "say": "So I shrank myself down to its size, to get a closer look."
   },
   {
+   "gag": {
+    "prop": "ruler",
+    "at": "60%"
+   },
    "m": "tiny",
    "say": "The giant water bug. Up to four inches long."
   },
   {
+   "gag": {
+    "prop": "trophy",
+    "at": "40%"
+   },
    "m": "tiny",
    "say": "It's the biggest true bug in the United States and Canada."
   },
@@ -63,12 +75,20 @@
    "act": {
     "wave": 1.0
    },
+   "gag": {
+    "meter": 1.0,
+    "at": "70%"
+   },
    "m": "tiny",
    "say": "It hides underwater, and grabs prey with its powerful legs."
   },
   {
    "act": {
     "bite": 1.0
+   },
+   "gag": {
+    "zap": true,
+    "at": "60%"
    },
    "m": "tiny",
    "say": "Then it stabs with a dagger-like beak, and injects venom."

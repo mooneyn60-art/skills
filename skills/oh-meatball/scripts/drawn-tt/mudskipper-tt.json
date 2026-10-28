@@ -70,12 +70,26 @@
      "walk": true
     }
    ],
+   "gag": [
+    {
+     "thought": "fish",
+     "at": "10%"
+    },
+    {
+     "mark": "shock",
+     "at": "50%"
+    }
+   ],
    "m": "hook",
    "say": "This fish walks out of the water, and spends most of its life on land."
   },
   {
    "hero_at": {
     "x": 760
+   },
+   "gag": {
+    "prop": "magnifier",
+    "at": "70%"
    },
    "m": "name",
    "say": "The mudskipper. A fish with bulging eyes on top of its head."
@@ -88,6 +102,10 @@
    "say": "It crawls across the mud on its front fins, like little arms."
   },
   {
+   "gag": {
+    "mark": "sweat",
+    "at": "70%"
+   },
    "m": "solo",
    "say": "It breathes through its skin and its mouth, as long as it stays wet."
   },
@@ -95,10 +113,18 @@
    "hero_at": {
     "x": 760
    },
+   "gag": {
+    "mark": "dizzy",
+    "at": "50%"
+   },
    "m": "escalate",
    "say": "And underwater, it can't even see properly. Its eyes are made for air."
   },
   {
+   "gag": {
+    "prop": "magnifier",
+    "at": "40%"
+   },
    "m": "calm",
    "say": "Each eye swivels on its own, to spot bugs above and below."
   },
@@ -110,6 +136,10 @@
    "say": "When the tide comes in, it hides in a burrow in the mud."
   },
   {
+   "gag": {
+    "meter": 1.0,
+    "at": "60%"
+   },
    "m": "solo",
    "say": "To show off, males flare their fins and leap high into the air."
   },
@@ -117,12 +147,22 @@
    "hero_at": {
     "x": 760
    },
+   "gag": {
+    "mark": "hearts",
+    "at": "40%"
+   },
    "m": "fact",
    "say": "If a female is impressed, she follows him home to his burrow."
   },
   {
    "hero_at": {
     "x": 760
+   },
+   "gag": {
+    "pile": "egg",
+    "n": 6,
+    "r": 26,
+    "at": "20%"
    },
    "m": "fact",
    "say": "She lays her eggs inside. But at high tide, the burrow is underwater."
@@ -136,6 +176,10 @@
    "hero_at": {
     "x": 760
    },
+   "gag": {
+    "clock": 3,
+    "at": "30%"
+   },
    "m": "fact",
    "say": "Around a hundred mouthfuls, to build one air bubble for his eggs."
   },
@@ -143,12 +187,22 @@
    "hero_at": {
     "x": 760
    },
+   "gag": {
+    "pile": "baby",
+    "n": 6,
+    "r": 26,
+    "at": "70%"
+   },
    "m": "fact",
    "say": "Then, right on time, he lets the air out, the water floods in, and the babies hatch."
   },
   {
    "hero_at": {
     "x": 760
+   },
+   "gag": {
+    "mark": "shock",
+    "at": "60%"
    },
    "m": "escalate",
    "say": "And when its eyes dry out? It sucks its eyeballs down into its head."

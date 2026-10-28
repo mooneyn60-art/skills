@@ -109,6 +109,13 @@
    "hero_at": {
     "x": 760
    },
+   "gag": {
+    "pile": "fish",
+    "n": 10,
+    "r": 30,
+    "at": "40%",
+    "dur": 1.8
+   },
    "m": "hook",
    "say": "This bird can cram sixty-two fish into its beak at once."
   },
@@ -185,6 +192,10 @@
     "xray": 1.0
    },
    "pose": "nervous",
+   "gag": {
+    "thought": "fish",
+    "at": "50%"
+   },
    "m": "tiny",
    "say": "Its tongue pins each fish against spikes on the roof of its mouth."
   },
@@ -223,6 +234,12 @@
     "bite": 1.0
    },
    "pose": "shock",
+   "gag": {
+    "pile": "fish",
+    "n": 4,
+    "r": 30,
+    "at": "40%"
+   },
    "m": "tiny",
    "say": "So it can open its beak again, and grab another, and another."
   },
@@ -238,6 +255,10 @@
   {
    "zoom": 1.0,
    "pose": "shock",
+   "gag": {
+    "clock": 1,
+    "at": "70%"
+   },
    "m": "tiny",
    "say": "It can dive as deep as forty meters, and stay under for a whole minute."
   },
@@ -277,6 +298,10 @@
      ]
     ]
    },
+   "gag": {
+    "prop": "snowflake",
+    "at": "80%"
+   },
    "m": "tiny",
    "say": "That bright orange beak is only for the breeding season. In winter, it fades."
   },
@@ -310,6 +335,10 @@
       1.0
      ]
     ]
+   },
+   "gag": {
+    "mark": "stars",
+    "at": "70%"
    },
    "m": "tiny",
    "say": "And under ultraviolet light, parts of its beak glow."
@@ -346,6 +375,10 @@
     ]
    },
    "pose": "think",
+   "gag": {
+    "prop": "magnifier",
+    "at": "50%"
+   },
    "m": "tiny",
    "say": "A scientist found that by accident, shining a UV lamp on a dead puffin."
   },
@@ -380,12 +413,20 @@
      ]
     ]
    },
+   "gag": {
+    "clock": 4,
+    "at": "40%"
+   },
    "m": "tiny",
    "say": "Some live over twenty years. The oldest known was thirty-six."
   },
   {
    "zoom": 1.0,
    "pose": "shock",
+   "gag": {
+    "mark": "shock",
+    "at": "60%"
+   },
    "m": "tiny",
    "say": "But the strangest part? One was caught on camera using a tool."
   },
@@ -394,12 +435,20 @@
    "act": {
     "wave": 1.0
    },
+   "gag": {
+    "mark": "hearts",
+    "at": "70%"
+   },
    "m": "solo",
    "say": "It picked up a stick, and scratched itself with it."
   },
   {
    "zoom": 1.0,
    "pose": "laugh",
+   "gag": {
+    "prop": "trophy",
+    "at": "40%"
+   },
    "m": "tiny",
    "say": "The first time a seabird was ever seen using a tool."
   },
