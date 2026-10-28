@@ -1,0 +1,121 @@
+slug: honey-badger
+out: episodes/drawn-tt
+specs: scripts/drawn-tt
+series: Meatball's Animal Files
+variant: B
+title: Grab a Honey Badger and It Turns Around Inside Its Own Skin 🦡
+tiktok_caption: 'grab a honey badger and it twists around inside its own skin to bite you 🦡 and it shrugs off bee stings. Would you try to keep one as a pet? 🦡 yes / 🏃 no way #meatballmyths #learnontiktok #honeybadger #animalfacts'
+creature: honey_badger
+actor: creature
+creature_cfg: &id001
+  plan: mammal
+  label: honey badger
+  color: '#2a2522'
+  dark: '#171412'
+  belly: '#2a2522'
+  length: 560
+  height: 240
+  leg_len: 90
+  leg_w: 36
+  ears: round
+  tail: thin
+  tail_w: 14
+  whiskers: false
+  back_stripe: '#d9d5cc'
+  back_stripe_w: 70
+  mood: angry
+  s: 0.85
+hero_p:
+  cfg: *id001
+scene: desert
+scene_p: {time: day}
+wild: forest_floor
+wild_p: {time: dusk}
+rate: '+10%'
+music: mystery
+next: Next, a white bear whose fur isn't actually white.
+sources:
+  - "San Diego Zoo Wildlife Alliance, Honey badger (ratel): found across Africa, the Middle East and India; thick, loose skin lets it twist around to bite an attacker that grabs it, and protects against bee stings, porcupine quills and bites; eats almost anything, including bee larvae and honey, rodents, snakes, scorpions, roots and berries; strong claws for digging burrows; anal pouch releases a strong-smelling secretion; https://animals.sandiegozoo.org/animals/honey-badger"
+  - "Drabeck, Dean & Jansa 2015, Toxicon, Why the honey badger don't care: convergent evolution of venom-targeted nicotinic acetylcholine receptors in mammals that survive venomous snake bites: honey badgers carry receptor mutations that resist snake alpha-neurotoxins; https://doi.org/10.1016/j.toxicon.2015.01.004"
+  - "BBC, Honey Badgers: Masters of Mayhem (2014): Stoffel, a honey badger at a South African rehabilitation centre, repeatedly escaped enclosures, stacking objects and opening gates; https://www.bbc.co.uk/programmes/b04nrjvy"
+yt:
+  - hook: Grab a honey badger, and it spins around inside its own skin.
+    hero_moves:
+    - at: 0
+      dur: 1.2
+      pos: [800, 1500]
+      walk: true
+  - solo: Its skin is thick, and super loose.
+    scene: desert
+  - chase: So it can twist right around, and bite back.
+  - solo: That tough skin shrugs off bee stings.
+    scene: garden
+    with: [fly, fly]
+  - solo: So it rips open beehives, for the baby bees.
+    scene: garden
+    scene_p: {time: dusk}
+    act: {chew: 1.0}
+  - solo: It also eats scorpions, and even snakes.
+    scene: desert
+    scene_p: {time: night}
+    act: {bite: 1.0}
+  - solo: It even has a built in resistance to snake venom.
+    scene: forest_floor
+    mood: smug
+  - punch: About the size of a small dog. Afraid of nothing.
+    hero_at: {x: 800}
+tt:
+  - solo: It lives in Africa, the Middle East, and India.
+    scene: desert
+    scene_p: {time: day}
+    mood: calm
+  - solo: Those front claws dig burrows, fast.
+    scene: forest_floor
+    scene_p: {time: day}
+    act: {chew: 1.0}
+  - solo: It sleeps in a hole by day.
+    scene: cave
+    mood: calm
+  - solo: At night, it trots out to hunt.
+    scene: forest_floor
+    scene_p: {time: night}
+    hero_moves:
+    - at: 0
+      dur: 1.6
+      pos: [600, 1500]
+      walk: true
+  - solo: It digs out mice, lizards, and roots.
+    scene: swamp
+    scene_p: {time: dusk}
+    with: [house_mouse]
+  - solo: And like a skunk, it can let out a stink.
+    scene: forest_floor
+    scene_p: {time: dusk}
+    mood: smug
+  - solo: One badger named Stoffel lived at a rescue center.
+    scene: garden
+    scene_p: {time: day}
+    mood: happy
+  - solo: He kept breaking out of his pen.
+    scene: garden
+    scene_p: {time: night}
+    hero_moves:
+    - at: 0
+      dur: 1.6
+      pos: [800, 1500]
+      walk: true
+  - solo: He stacked logs and rocks, to climb the wall.
+    scene: forest_floor
+    mood: smug
+  - solo: He even learned to open the gate.
+    scene: garden
+    scene_p: {time: dusk}
+    mood: happy
+  - solo: His escapes were filmed for a TV documentary.
+    scene: cave
+    scene_p: {time: day}
+    mood: angry
+  - fact: Would you try to keep one as a pet?
+    hero_at: {x: 800}
+  - punch: A small dog in a baggy coat, that bites back from inside it.
+    hero_at: {x: 800}

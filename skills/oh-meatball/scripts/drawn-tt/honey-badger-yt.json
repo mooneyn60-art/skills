@@ -1,0 +1,144 @@
+{
+ "series": "Meatball's Animal Files, Part",
+ "sources": [
+  "San Diego Zoo Wildlife Alliance, Honey badger (ratel): found across Africa, the Middle East and India; thick, loose skin lets it twist around to bite an attacker that grabs it, and protects against bee stings, porcupine quills and bites; eats almost anything, including bee larvae and honey, rodents, snakes, scorpions, roots and berries; strong claws for digging burrows; anal pouch releases a strong-smelling secretion; https://animals.sandiegozoo.org/animals/honey-badger",
+  "Drabeck, Dean & Jansa 2015, Toxicon, Why the honey badger don't care: convergent evolution of venom-targeted nicotinic acetylcholine receptors in mammals that survive venomous snake bites: honey badgers carry receptor mutations that resist snake alpha-neurotoxins; https://doi.org/10.1016/j.toxicon.2015.01.004",
+  "BBC, Honey Badgers: Masters of Mayhem (2014): Stoffel, a honey badger at a South African rehabilitation centre, repeatedly escaped enclosures, stacking objects and opening gates; https://www.bbc.co.uk/programmes/b04nrjvy"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "honey_badger",
+  "scene": "desert",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "honey badger",
+   "color": "#2a2522",
+   "dark": "#171412",
+   "belly": "#2a2522",
+   "length": 560,
+   "height": 240,
+   "leg_len": 90,
+   "leg_w": 36,
+   "ears": "round",
+   "tail": "thin",
+   "tail_w": 14,
+   "whiskers": false,
+   "back_stripe": "#d9d5cc",
+   "back_stripe_w": 70,
+   "mood": "angry",
+   "s": 0.85
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "mammal",
+    "label": "honey badger",
+    "color": "#2a2522",
+    "dark": "#171412",
+    "belly": "#2a2522",
+    "length": 560,
+    "height": 240,
+    "leg_len": 90,
+    "leg_w": 36,
+    "ears": "round",
+    "tail": "thin",
+    "tail_w": 14,
+    "whiskers": false,
+    "back_stripe": "#d9d5cc",
+    "back_stripe_w": 70,
+    "mood": "angry",
+    "s": 0.85
+   }
+  },
+  "actor": "creature",
+  "wild": "forest_floor",
+  "wild_p": {
+   "time": "dusk"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Grab a Honey Badger and It Turns Around Inside Its Own Skin 🦡",
+ "tiktok_caption": "grab a honey badger and it twists around inside its own skin to bite you 🦡 and it shrugs off bee stings. Would you try to keep one as a pet? 🦡 yes / 🏃 no way #meatballmyths #learnontiktok #honeybadger #animalfacts",
+ "beats": [
+  {
+   "hero_moves": [
+    {
+     "at": 0,
+     "dur": 1.2,
+     "pos": [
+      800,
+      1500
+     ],
+     "walk": true
+    }
+   ],
+   "m": "hook",
+   "say": "Grab a honey badger, and it spins around inside its own skin."
+  },
+  {
+   "scene": "desert",
+   "m": "solo",
+   "say": "Its skin is thick, and super loose."
+  },
+  {
+   "m": "chase",
+   "say": "So it can twist right around, and bite back."
+  },
+  {
+   "scene": "garden",
+   "with": [
+    "fly",
+    "fly"
+   ],
+   "m": "solo",
+   "say": "That tough skin shrugs off bee stings."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "act": {
+    "chew": 1.0
+   },
+   "m": "solo",
+   "say": "So it rips open beehives, for the baby bees."
+  },
+  {
+   "scene": "desert",
+   "scene_p": {
+    "time": "night"
+   },
+   "act": {
+    "bite": 1.0
+   },
+   "m": "solo",
+   "say": "It also eats scorpions, and even snakes."
+  },
+  {
+   "scene": "forest_floor",
+   "mood": "smug",
+   "m": "solo",
+   "say": "It even has a built in resistance to snake venom."
+  },
+  {
+   "hero_at": {
+    "x": 800
+   },
+   "m": "punch",
+   "say": "About the size of a small dog. Afraid of nothing."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, a white bear whose fur isn't actually white."
+  }
+ ]
+}
