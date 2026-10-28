@@ -76,6 +76,10 @@
      "walk": true
     }
    ],
+   "gag": {
+    "prop": "ruler",
+    "at": "70%"
+   },
    "m": "hook",
    "say": "Each foot hides a dagger, about four inches long."
   },
@@ -90,12 +94,20 @@
     "time": "day"
    },
    "mood": "smug",
+   "gag": {
+    "prop": "ruler",
+    "at": "40%"
+   },
    "m": "solo",
    "say": "Almost as tall as a person, with a bright blue face."
   },
   {
    "hero_at": {
     "x": 800
+   },
+   "gag": {
+    "prop": "crown",
+    "at": "70%"
    },
    "m": "name",
    "say": "The southern cassowary. A helmet on its head."
@@ -107,6 +119,10 @@
    },
    "act": {
     "bite": 1.0
+   },
+   "gag": {
+    "mark": "anger",
+    "at": "40%"
    },
    "m": "solo",
    "say": "Corner it, and it kicks with that dagger claw."
@@ -127,6 +143,10 @@
      "walk": true
     }
    ],
+   "gag": {
+    "meter": 0.9,
+    "at": "50%"
+   },
    "m": "solo",
    "say": "And it can run up to thirty miles an hour."
   },
@@ -136,6 +156,10 @@
     "time": "night"
    },
    "mood": "angry",
+   "gag": {
+    "mark": "alarm",
+    "at": "50%"
+   },
    "m": "solo",
    "say": "Most attacks happen after people feed them."
   },

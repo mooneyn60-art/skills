@@ -68,6 +68,18 @@
    "hero_at": {
     "x": 720
    },
+   "gag": [
+    {
+     "thought": "cube",
+     "at": "40%"
+    },
+    {
+     "pile": "baby",
+     "n": 4,
+     "r": 26,
+     "at": "80%"
+    }
+   ],
    "m": "hook",
    "say": "That moth in your kitchen isn't eating your cereal. Its babies are."
   },
@@ -78,6 +90,10 @@
    },
    "act": {
     "fly": 1.0
+   },
+   "gag": {
+    "prop": "magnifier",
+    "at": "50%"
    },
    "m": "solo",
    "say": "The pantry moth. Copper wing tips, and pale shoulders."
@@ -94,6 +110,13 @@
    "scene": "basement",
    "scene_p": {
     "time": "dusk"
+   },
+   "gag": {
+    "pile": "egg",
+    "n": 10,
+    "r": 24,
+    "at": "50%",
+    "dur": 1.8
    },
    "m": "solo",
    "say": "But mom lays hundreds of eggs, right in it."
@@ -116,6 +139,10 @@
    "hero_at": {
     "x": 600,
     "y": 1380
+   },
+   "gag": {
+    "prop": "ruler",
+    "at": "50%"
    },
    "m": "solo",
    "say": "The babies hatch as tiny caterpillars."
@@ -142,6 +169,10 @@
    "act": {
     "chew": 1.0
    },
+   "gag": {
+    "thought": "cube",
+    "at": "40%"
+   },
    "m": "solo",
    "say": "They eat cereal, flour, nuts, and dried fruit."
   },
@@ -166,6 +197,10 @@
    },
    "act": {
     "chew": 1.0
+   },
+   "gag": {
+    "thought": "bone",
+    "at": "40%"
    },
    "m": "solo",
    "say": "Even pet food and chocolate."
@@ -195,6 +230,10 @@
   {
    "hero_at": {
     "x": 720
+   },
+   "gag": {
+    "prop": "magnifier",
+    "at": "60%"
    },
    "m": "punch",
    "say": "So that clumpy cereal? Check it for webs."

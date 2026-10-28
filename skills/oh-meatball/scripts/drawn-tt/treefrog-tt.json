@@ -69,20 +69,37 @@
  "tiktok_caption": "this frog freezes every winter and its heart stops 🐸🧊 then it thaws out in spring and hops away. Would you pick up a frozen frog? 🧊 yes / 🙅 no / 🧼 only with soap after #meatballmyths #learnontiktok #treefrog #frogs #animalfacts",
  "beats": [
   {
+   "gag": {
+    "mark": "ice",
+    "at": "20%"
+   },
    "m": "hook",
    "say": "This frog freezes every winter. Its heart stops. And in spring, it hops away."
   },
   {
+   "gag": {
+    "prop": "ruler",
+    "at": "40%"
+   },
    "m": "name",
    "say": "The gray tree frog. Smaller than your palm, with big sticky toe pads."
   },
   {
+   "gag": {
+    "pile": "leaf",
+    "n": 6,
+    "at": "40%"
+   },
    "m": "fact",
    "say": "In fall, it hides under dead leaves and snow."
   },
   {
    "scene_p": {
     "time": "night"
+   },
+   "gag": {
+    "prop": "snowflake",
+    "at": "50%"
    },
    "m": "escalate",
    "say": "Then the ice comes. The water between its cells turns to ice."
@@ -99,14 +116,26 @@
      "s": 0.5
     }
    ],
+   "gag": {
+    "clock": 3,
+    "at": "80%"
+   },
    "m": "calm",
    "say": "Its heart stops. Its lungs stop. And it just... waits."
   },
   {
+   "gag": {
+    "mark": "ice",
+    "at": "40%"
+   },
    "m": "fact",
    "say": "More than forty percent of the fluid in its body can freeze, and it's fine."
   },
   {
+   "gag": {
+    "clock": 4,
+    "at": "60%"
+   },
    "m": "solo",
    "say": "Then spring comes. It thaws out, perfectly healthy, after seven months without a meal."
   },
@@ -119,6 +148,10 @@
    "say": "Its thighs hide a secret. Bright yellow orange, flashed when it stretches its legs."
   },
   {
+   "gag": {
+    "meter": 1.0,
+    "at": "40%"
+   },
    "m": "fact",
    "say": "And its call is one of the loudest of any frog in North America."
   },
@@ -130,6 +163,13 @@
      "s": 1.0
     }
    ],
+   "gag": {
+    "pile": "egg",
+    "n": 10,
+    "r": 24,
+    "at": "50%",
+    "dur": 1.8
+   },
    "m": "fact",
    "say": "A female can lay up to twenty six hundred eggs in one year."
   },
@@ -138,10 +178,18 @@
    "say": "It has a twin species. They look exactly the same."
   },
   {
+   "gag": {
+    "mark": "shock",
+    "at": "40%"
+   },
    "m": "escalate",
    "say": "But one of them has twice as many chromosomes."
   },
   {
+   "gag": {
+    "mark": "alarm",
+    "at": "20%"
+   },
    "m": "fact",
    "say": "Careful. Its skin has toxins that can irritate your eyes and lips. Wash your hands after."
   },
