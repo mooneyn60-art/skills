@@ -1,0 +1,113 @@
+{
+ "series": "Things Living In Your House, Part 19",
+ "sources": [
+  "Penn State Extension, Brown Marmorated Stink Bug: accidentally introduced from East Asia, first collected in Allentown, PA in 1998; adults seek sheltered places such as houses in fall; scent glands release defensive chemicals that can be an aeroallergen; crushing on skin can cause dermatitis in a small percentage of people; does not reproduce in or damage structures; feeds on apples (cat-facing makes fruit unmarketable), peaches, tomatoes, corn and more; adults about 17 mm, nearly as wide as long, banded antennae; vacuuming works but the vacuum may keep the smell; seal entry points with caulk; https://extension.psu.edu/brown-marmorated-stink-bug",
+  "Inkley 2012, Journal of Entomological Science 47(2): 125-130, Characteristics of home invasion by the brown marmorated stink bug: 26,205 adults collected inside one home in Washington County, Maryland over a 181-day study (January-June 2011); blocking exits from walls into living space reduced the collection rate but did not halt it; https://doi.org/10.18474/0749-8004-47.2.125"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:fenrir",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "stink_bug",
+  "scene": "bedroom",
+  "scene_p": {
+   "time": "dusk"
+  },
+  "creature_cfg": {
+   "plan": "insect",
+   "label": "brown marmorated stink bug",
+   "body": "round",
+   "color": "#7a5a3c",
+   "dark": "#4e3a26",
+   "length": 460,
+   "height": 200,
+   "leg_len": 100,
+   "ant": 170,
+   "wings": "shell",
+   "stripes": 4,
+   "mood": "smug",
+   "s": 0.75
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "insect",
+    "label": "brown marmorated stink bug",
+    "body": "round",
+    "color": "#7a5a3c",
+    "dark": "#4e3a26",
+    "length": 460,
+    "height": 200,
+    "leg_len": 100,
+    "ant": 170,
+    "wings": "shell",
+    "stripes": 4,
+    "mood": "smug",
+    "s": 0.75
+   }
+  },
+  "actor": "creature",
+  "wild": "garden"
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Thousands of Stink Bugs Are Crawling Out of Your Walls",
+ "tiktok_caption": "stink bugs in my house 😬 brown marmorated stink bugs crawl into your walls in fall. One man caught 26,205 inside his house. Would you vacuum them or flush them? 🌀 vacuum / 🚽 flush #stinkbug #stinkbugs #bugsinyourhouse #meatballmyths #learnontiktok",
+ "beats": [
+  {
+   "gag": {
+    "mark": "shock",
+    "at": "70%"
+   },
+   "m": "hook",
+   "say": "Thousands of stink bugs are crawling out of your walls."
+  },
+  {
+   "gag": {
+    "mark": "dizzy",
+    "at": "80%"
+   },
+   "m": "escalate",
+   "say": "One man in Maryland caught over twenty six thousand inside his house, in six months."
+  },
+  {
+   "gag": {
+    "prop": "magnifier",
+    "at": "70%"
+   },
+   "m": "name",
+   "say": "The brown marmorated stink bug. Shaped like a shield, with striped antennae."
+  },
+  {
+   "gag": {
+    "prop": "snowflake",
+    "at": "60%"
+   },
+   "m": "fact",
+   "say": "In the fall, they crawl into your house, to spend the winter."
+  },
+  {
+   "m": "xray",
+   "say": "Squeeze one, and glands on its body let out a stinking spray."
+  },
+  {
+   "m": "calm",
+   "say": "They don't breed in your house, and they don't damage it."
+  },
+  {
+   "gag": {
+    "mark": "stink",
+    "at": "70%"
+   },
+   "m": "punch",
+   "say": "So don't crush them. Even your vacuum will stink for a while."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Part twenty is eating your house."
+  }
+ ],
+ "loop": true
+}
