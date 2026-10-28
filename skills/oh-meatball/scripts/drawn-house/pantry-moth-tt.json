@@ -1,0 +1,406 @@
+{
+ "series": "Things Living In Your House, Part 16",
+ "sources": [
+  "University of California IPM, Pantry Pests (Pest Notes 7452): the Indian meal moth is the most common moth pest of stored food in homes; adults have reddish-brown or copper outer wings with a pale grey-cream base; larvae feed on grains, cereals, flour, dried fruit, nuts, pet food, birdseed and chocolate, and leave silk webbing in the food; mature larvae often leave the food to pupate and may be found on walls and ceilings; adult moths do not feed on stored products; some pantry pests can chew through thin plastic bags and cardboard, so store food in glass, metal or heavy plastic containers with tight lids; freezing infested or new products (0 F for about 4 days) kills all stages; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7452.html",
+  "University of Florida Featured Creatures, Indian meal moth (Plodia interpunctella): the common name comes from an early report of the larvae feeding on Indian meal, a historical name for cornmeal; females lay roughly 60 to 400 eggs; https://entnemdept.ufl.edu/creatures/urban/stored/indian_meal_moth.htm"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "pantry_moth",
+  "scene": "kitchen",
+  "scene_p": {
+   "time": "night"
+  },
+  "creature_cfg": {
+   "plan": "insect",
+   "label": "pantry moth",
+   "body": "long",
+   "color": "#a8683a",
+   "dark": "#d9cdb4",
+   "head": "#8a5a34",
+   "length": 360,
+   "height": 120,
+   "leg_len": 80,
+   "ant": 170,
+   "stripes": 3,
+   "wings": "clear",
+   "floor": false,
+   "mood": "smug",
+   "s": 1.0
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "insect",
+    "label": "pantry moth",
+    "body": "long",
+    "color": "#a8683a",
+    "dark": "#d9cdb4",
+    "head": "#8a5a34",
+    "length": 360,
+    "height": 120,
+    "leg_len": 80,
+    "ant": 170,
+    "stripes": 3,
+    "wings": "clear",
+    "floor": false,
+    "mood": "smug",
+    "s": 1.0
+   }
+  },
+  "s": 1.0,
+  "actor": "creature",
+  "wild": "garden",
+  "wild_p": {
+   "time": "dusk"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "The Moth in Your Kitchen Isn't Eating Your Cereal. Its Babies Are 🥣",
+ "tiktok_caption": "the moth flying around my kitchen isn't the one eating my cereal 🥣 its caterpillars are, and they can chew through plastic bags. Would you check your pantry tonight? 🔦 yes / 🙈 no",
+ "beats": [
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "hook",
+   "say": "That moth in your kitchen isn't eating your cereal. Its babies are."
+  },
+  {
+   "scene": "kitchen",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "act": {
+    "fly": 1.0
+   },
+   "m": "solo",
+   "say": "The pantry moth. Copper wing tips, and pale shoulders."
+  },
+  {
+   "scene": "kitchen",
+   "scene_p": {
+    "time": "night"
+   },
+   "m": "solo",
+   "say": "The grown-up moth doesn't eat your food at all."
+  },
+  {
+   "scene": "basement",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "m": "solo",
+   "say": "But mom lays hundreds of eggs, right in it."
+  },
+  {
+   "scene": "microscope",
+   "hero": {
+    "cfg": {
+     "plan": "worm",
+     "label": "pantry moth caterpillar",
+     "color": "#efe4cc",
+     "dark": "#a8946c",
+     "length": 300,
+     "height": 110,
+     "ant": 0,
+     "stripes": 0,
+     "mood": "happy"
+    }
+   },
+   "hero_at": {
+    "x": 600,
+    "y": 1380
+   },
+   "m": "solo",
+   "say": "The babies hatch as tiny caterpillars."
+  },
+  {
+   "scene": "kitchen",
+   "hero": {
+    "cfg": {
+     "plan": "worm",
+     "label": "pantry moth caterpillar",
+     "color": "#efe4cc",
+     "dark": "#a8946c",
+     "length": 300,
+     "height": 110,
+     "ant": 0,
+     "stripes": 0,
+     "mood": "happy"
+    }
+   },
+   "hero_at": {
+    "x": 600,
+    "y": 1380
+   },
+   "act": {
+    "chew": 1.0
+   },
+   "m": "solo",
+   "say": "They eat cereal, flour, nuts, and dried fruit."
+  },
+  {
+   "scene": "basement",
+   "hero": {
+    "cfg": {
+     "plan": "worm",
+     "label": "pantry moth caterpillar",
+     "color": "#efe4cc",
+     "dark": "#a8946c",
+     "length": 300,
+     "height": 110,
+     "ant": 0,
+     "stripes": 0,
+     "mood": "happy"
+    }
+   },
+   "hero_at": {
+    "x": 600,
+    "y": 1380
+   },
+   "act": {
+    "chew": 1.0
+   },
+   "m": "solo",
+   "say": "Even pet food and chocolate."
+  },
+  {
+   "scene": "fibers",
+   "hero": {
+    "cfg": {
+     "plan": "worm",
+     "label": "pantry moth caterpillar",
+     "color": "#efe4cc",
+     "dark": "#a8946c",
+     "length": 300,
+     "height": 110,
+     "ant": 0,
+     "stripes": 0,
+     "mood": "happy"
+    }
+   },
+   "hero_at": {
+    "x": 600,
+    "y": 1380
+   },
+   "m": "solo",
+   "say": "And they leave sticky silk webs in it."
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "punch",
+   "say": "So that clumpy cereal? Check it for webs."
+  },
+  {
+   "scene": "kitchen",
+   "scene_p": {
+    "time": "night"
+   },
+   "hero": {
+    "cfg": {
+     "plan": "worm",
+     "label": "pantry moth caterpillar",
+     "color": "#efe4cc",
+     "dark": "#a8946c",
+     "length": 300,
+     "height": 110,
+     "ant": 0,
+     "stripes": 0,
+     "mood": "happy"
+    }
+   },
+   "hero_at": {
+    "x": 600,
+    "y": 1380
+   },
+   "mood": "smug",
+   "m": "solo",
+   "say": "Thin plastic bags won't stop them."
+  },
+  {
+   "scene": "basement",
+   "scene_p": {
+    "time": "night"
+   },
+   "hero": {
+    "cfg": {
+     "plan": "worm",
+     "label": "pantry moth caterpillar",
+     "color": "#efe4cc",
+     "dark": "#a8946c",
+     "length": 300,
+     "height": 110,
+     "ant": 0,
+     "stripes": 0,
+     "mood": "happy"
+    }
+   },
+   "hero_at": {
+    "x": 600,
+    "y": 1380
+   },
+   "act": {
+    "chew": 1.0
+   },
+   "m": "solo",
+   "say": "They can chew right through, and through cardboard too."
+  },
+  {
+   "scene": "kitchen",
+   "hero": {
+    "cfg": {
+     "plan": "worm",
+     "label": "pantry moth caterpillar",
+     "color": "#efe4cc",
+     "dark": "#a8946c",
+     "length": 300,
+     "height": 110,
+     "ant": 0,
+     "stripes": 0,
+     "mood": "happy"
+    }
+   },
+   "hero_at": {
+    "x": 600,
+    "y": 1380
+   },
+   "m": "solo",
+   "say": "When they're ready, they crawl away from the food."
+  },
+  {
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "hero": {
+    "cfg": {
+     "plan": "worm",
+     "label": "pantry moth caterpillar",
+     "color": "#efe4cc",
+     "dark": "#a8946c",
+     "length": 300,
+     "height": 110,
+     "ant": 0,
+     "stripes": 0,
+     "mood": "happy"
+    }
+   },
+   "hero_at": {
+    "x": 600,
+    "y": 1380
+   },
+   "mood": "calm",
+   "m": "solo",
+   "say": "Up the walls, even onto the ceiling."
+  },
+  {
+   "scene": "sill",
+   "scene_p": {
+    "time": "night"
+   },
+   "act": {
+    "fly": 1.0
+   },
+   "m": "solo",
+   "say": "There they wrap up, and turn into moths."
+  },
+  {
+   "m": "shrink",
+   "say": "So I shrank down to see its name."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "day"
+   },
+   "m": "tiny",
+   "say": "It's also called the Indian meal moth."
+  },
+  {
+   "scene": "desert",
+   "scene_p": {
+    "time": "day"
+   },
+   "m": "tiny",
+   "say": "Not from India. Indian meal was an old word for cornmeal."
+  },
+  {
+   "scene": "kitchen",
+   "scene_p": {
+    "time": "day"
+   },
+   "hero": {
+    "cfg": {
+     "plan": "worm",
+     "label": "pantry moth caterpillar",
+     "color": "#efe4cc",
+     "dark": "#a8946c",
+     "length": 300,
+     "height": 110,
+     "ant": 0,
+     "stripes": 0,
+     "mood": "happy"
+    }
+   },
+   "m": "tiny",
+   "say": "It got the name after its babies were found eating it."
+  },
+  {
+   "scene": "kitchen",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "mood": "worry",
+   "m": "solo",
+   "say": "Want them gone? Throw out the webby food."
+  },
+  {
+   "scene": "kitchen",
+   "scene_p": {
+    "time": "day"
+   },
+   "mood": "worry",
+   "m": "solo",
+   "say": "Keep the rest in jars with tight lids."
+  },
+  {
+   "scene": "basement",
+   "scene_p": {
+    "time": "night"
+   },
+   "mood": "worry",
+   "m": "solo",
+   "say": "Or freeze new flour for four days first."
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "fact",
+   "say": "Would you check your pantry tonight?"
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "punch",
+   "say": "The moth isn't the problem. Its hungry babies are."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Part seventeen climbs your walls.",
+   "scene": "sill",
+   "scene_p": {
+    "time": "night"
+   }
+  }
+ ]
+}
