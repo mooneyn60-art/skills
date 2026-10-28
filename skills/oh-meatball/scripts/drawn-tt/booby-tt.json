@@ -53,6 +53,10 @@
  "tiktok_caption": "this bird dives headfirst into the ocean from 80 feet up 🌊 its nostrils are sealed shut and its feet are bright blue. Would you dive from 80 feet headfirst? 🌊 yes / 🙅 no / 🩴 only feet first #meatballmyths #learnontiktok #bluefootedbooby #galapagos #birds",
  "beats": [
   {
+   "gag": {
+    "meter": 1.0,
+    "at": "40%"
+   },
    "m": "hook",
    "say": "This bird dives headfirst into the ocean from as high as eighty feet."
   },
@@ -61,6 +65,10 @@
    "say": "So I shrank myself down, to meet one face to face."
   },
   {
+   "gag": {
+    "prop": "magnifier",
+    "at": "60%"
+   },
    "m": "tiny",
    "say": "The blue-footed booby. And yes, its feet really are bright blue."
   },
@@ -99,6 +107,10 @@
    "act": {
     "mood": "angry"
    },
+   "gag": {
+    "meter": 1.0,
+    "at": "50%"
+   },
    "m": "tiny",
    "say": "It folds its wings back, and drops like a dart."
   },
@@ -118,6 +130,10 @@
      "s": 0.4
     }
    ],
+   "gag": {
+    "thought": "fish",
+    "at": "60%"
+   },
    "m": "solo",
    "say": "Then it swims as deep as eighty feet, chasing fish."
   },
@@ -133,6 +149,10 @@
   {
    "act": {
     "mood": "smug"
+   },
+   "gag": {
+    "mark": "shock",
+    "at": "60%"
    },
    "m": "tiny",
    "say": "And its nostrils are sealed shut. Permanently."
@@ -154,6 +174,10 @@
       0.9
      ]
     ]
+   },
+   "gag": {
+    "thought": "fish",
+    "at": "70%"
    },
    "m": "tiny",
    "say": "Where does the blue come from? Pigments in the fish it eats."
@@ -178,6 +202,10 @@
    },
    "act": {
     "mood": "smug"
+   },
+   "gag": {
+    "mark": "hearts",
+    "at": "60%"
    },
    "m": "tiny",
    "say": "The bluer his feet, the more the females like him."
@@ -211,16 +239,28 @@
      "walk": true
     }
    ],
+   "gag": {
+    "prop": "crown",
+    "at": "50%"
+   },
    "m": "tiny",
    "say": "So he shows them off, with a high stepping strut."
   },
   {
+   "gag": {
+    "mark": "dizzy",
+    "at": "70%"
+   },
    "m": "tiny",
    "say": "Its name probably comes from the Spanish word bobo. Meaning stupid."
   },
   {
    "act": {
     "mood": "shock"
+   },
+   "gag": {
+    "mark": "sweat",
+    "at": "60%"
    },
    "m": "tiny",
    "say": "Because on land, it looks so clumsy."
@@ -242,6 +282,12 @@
       0.9
      ]
     ]
+   },
+   "gag": {
+    "pile": "egg",
+    "n": 3,
+    "r": 40,
+    "at": "60%"
    },
    "m": "tiny",
    "say": "Parents keep their eggs warm with those feet."
@@ -288,6 +334,16 @@
      }
     }
    ],
+   "gag": [
+    {
+     "mark": "anger",
+     "at": "40%"
+    },
+    {
+     "prop": "skull",
+     "at": "85%"
+    }
+   ],
    "m": "solo",
    "say": "But when food runs short, the older chick attacks its little brother or sister. And can kill it."
   },
@@ -301,7 +357,7 @@
   },
   {
    "m": "tease",
-   "say": "Subscribe. Next, a fish with a water gun in its mouth."
+   "say": "Follow me. Next, a fish with a water gun in its mouth."
   }
  ]
 }

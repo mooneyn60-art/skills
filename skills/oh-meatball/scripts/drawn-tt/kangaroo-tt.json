@@ -97,18 +97,40 @@
  "tiktok_caption": "a kangaroo mom can put her pregnancy on pause 🦘 and she cools off by licking spit onto her arms. Would you get in the ring with one? 🥊 yes / 🏃 no way / 🦘 team kangaroo #meatballmyths #learnontiktok #kangaroo #australia #animalfacts",
  "beats": [
   {
+   "gag": [
+    {
+     "thought": "baby",
+     "at": "30%"
+    },
+    {
+     "clock": 0,
+     "at": "60%"
+    }
+   ],
    "m": "hook",
    "say": "A kangaroo mom can put her own pregnancy on pause."
   },
   {
+   "gag": {
+    "prop": "trophy",
+    "at": "60%"
+   },
    "m": "name",
    "say": "The red kangaroo. The biggest marsupial in the world."
   },
   {
+   "gag": {
+    "meter": 0.8,
+    "at": "50%"
+   },
    "m": "fact",
    "say": "A big male can weigh about two hundred pounds."
   },
   {
+   "gag": {
+    "prop": "ruler",
+    "at": "40%"
+   },
    "m": "escalate",
    "say": "It can cover twenty five feet in one leap, and jump six feet high."
   },
@@ -124,6 +146,10 @@
      "walk": true
     }
    ],
+   "gag": {
+    "meter": 0.95,
+    "at": "30%"
+   },
    "m": "solo",
    "say": "Top speed? Over thirty five miles an hour."
   },
@@ -132,10 +158,18 @@
    "say": "But when it grazes, it walks slowly, on five legs."
   },
   {
+   "gag": {
+    "meter": 1.0,
+    "at": "50%"
+   },
    "m": "fact",
    "say": "The fifth leg is its tail. It pushes as hard as the front and back legs combined."
   },
   {
+   "gag": {
+    "prop": "ruler",
+    "at": "70%"
+   },
    "m": "fact",
    "say": "Now the babies. A newborn joey is the size of a jellybean."
   },
@@ -144,10 +178,18 @@
    "say": "It climbs straight into mom's pouch, all by itself."
   },
   {
+   "gag": {
+    "thought": "baby",
+    "at": "60%"
+   },
    "m": "escalate",
    "say": "And mom can already be pregnant again, with the next baby on pause."
   },
   {
+   "gag": {
+    "clock": 2,
+    "at": "30%"
+   },
    "m": "fact",
    "say": "That baby waits, until the joey leaves the pouch. Then it's born."
   },
@@ -159,6 +201,10 @@
    "act": {
     "mood": "angry"
    },
+   "gag": {
+    "mark": "anger",
+    "at": "50%"
+   },
    "m": "solo",
    "say": "Males fight by leaning back on their tails, and boxing with their back legs."
   },
@@ -166,10 +212,18 @@
    "act": {
     "talk": 1.0
    },
+   "gag": {
+    "mark": "sweat",
+    "at": "60%"
+   },
    "m": "fact",
    "say": "And in the heat, it licks its arms, and covers them in spit."
   },
   {
+   "gag": {
+    "prop": "snowflake",
+    "at": "60%"
+   },
    "m": "escalate",
    "say": "As the spit dries, it cools the blood underneath."
   },
@@ -186,7 +240,7 @@
   },
   {
    "m": "tease",
-   "say": "Subscribe. Next, a bird that shows off its bright blue feet to get a date."
+   "say": "Follow me. Next, a bird that shows off its bright blue feet to get a date."
   }
  ]
 }
