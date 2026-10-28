@@ -38,6 +38,10 @@
    "hero_at": {
     "x": 720
    },
+   "gag": {
+    "mark": "shock",
+    "at": "60%"
+   },
    "m": "hook",
    "say": "That lizard on your ceiling can't blink. So it licks its eyeballs."
   },
@@ -46,6 +50,10 @@
    "scene_p": {
     "time": "night"
    },
+   "gag": {
+    "prop": "moon",
+    "at": "30%"
+   },
    "m": "solo",
    "say": "The house gecko. Out at night, on your walls."
   },
@@ -53,6 +61,10 @@
    "scene": "garden",
    "scene_p": {
     "time": "night"
+   },
+   "gag": {
+    "clock": 2,
+    "at": "30%"
    },
    "m": "solo",
    "say": "It waits by your porch light."
@@ -68,6 +80,10 @@
    "with": [
     "moth"
    ],
+   "gag": {
+    "thought": "tick",
+    "at": "40%"
+   },
    "m": "solo",
    "say": "Bugs fly to the light, and it snaps them up."
   },
@@ -86,6 +102,10 @@
    "act": {
     "talk": 1.0
    },
+   "gag": {
+    "mark": "stars",
+    "at": "70%"
+   },
    "m": "solo",
    "say": "So it wipes its eyes with its tongue."
   },
@@ -94,6 +114,10 @@
    "scene_p": {
     "time": "night"
    },
+   "gag": {
+    "mark": "dizzy",
+    "at": "40%"
+   },
    "m": "solo",
    "say": "And it walks across the ceiling, no glue at all."
   },
@@ -101,11 +125,19 @@
    "hero_at": {
     "x": 720
    },
+   "gag": {
+    "prop": "trophy",
+    "at": "50%"
+   },
    "m": "calm",
    "say": "It's the cleanest-eyed roommate you've got."
   },
   {
    "scene": "microscope",
+   "gag": {
+    "prop": "magnifier",
+    "at": "50%"
+   },
    "m": "solo",
    "say": "Its toe pads are covered in microscopic hairs."
   },
@@ -126,6 +158,10 @@
   {
    "scene": "office",
    "mood": "happy",
+   "gag": {
+    "prop": "trophy",
+    "at": "60%"
+   },
    "m": "solo",
    "say": "Engineers copy those toes, to make sticky gloves."
   },
@@ -135,6 +171,10 @@
     "time": "dusk"
    },
    "mood": "shock",
+   "gag": {
+    "mark": "alarm",
+    "at": "30%"
+   },
    "m": "solo",
    "say": "Grab its tail, and it lets go of it."
   },
@@ -142,6 +182,10 @@
    "scene": "forest_floor",
    "scene_p": {
     "time": "night"
+   },
+   "gag": {
+    "mark": "shock",
+    "at": "50%"
    },
    "m": "solo",
    "say": "The dropped tail keeps wiggling, to fool the hunter."
@@ -152,6 +196,10 @@
     "time": "day"
    },
    "mood": "happy",
+   "gag": {
+    "clock": 2,
+    "at": "20%"
+   },
    "m": "solo",
    "say": "Then it grows a new one, with no bones inside."
   },
@@ -192,6 +240,10 @@
     "time": "night"
    },
    "mood": "happy",
+   "gag": {
+    "mark": "hearts",
+    "at": "50%"
+   },
    "m": "solo",
    "say": "Good news. It's harmless to you."
   },
@@ -202,6 +254,10 @@
    },
    "act": {
     "chew": 1.0
+   },
+   "gag": {
+    "thought": "tick",
+    "at": "50%"
    },
    "m": "solo",
    "say": "And it eats the bugs you don't want."
@@ -222,7 +278,7 @@
   },
   {
    "m": "tease",
-   "say": "Subscribe. Part eighteen lives on your roof.",
+   "say": "Follow me. Part eighteen lives on your roof.",
    "scene": "garden",
    "scene_p": {
     "time": "day"

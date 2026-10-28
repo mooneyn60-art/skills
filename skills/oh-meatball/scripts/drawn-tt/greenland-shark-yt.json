@@ -61,6 +61,11 @@
     "x": 760,
     "y": 1000
    },
+   "gag": {
+    "clock": 6,
+    "at": "40%",
+    "dur": 1.8
+   },
    "m": "hook",
    "say": "Some of these sharks were born before the United States existed."
   },
@@ -71,6 +76,10 @@
    "scene": "deep",
    "scene_p": {
     "time": "night"
+   },
+   "gag": {
+    "prop": "snowflake",
+    "at": "30%"
    },
    "m": "solo",
    "say": "Deep in the freezing Arctic, it cruises in the dark."
@@ -90,6 +99,11 @@
    },
    "scene": "deep",
    "mood": "calm",
+   "gag": {
+    "clock": 8,
+    "at": "50%",
+    "dur": 1.8
+   },
    "m": "solo",
    "say": "The biggest one was guessed to be about four hundred years old."
   },
@@ -97,6 +111,10 @@
    "hero_at": {
     "x": 760,
     "y": 1000
+   },
+   "gag": {
+    "prop": "ruler",
+    "at": "40%"
    },
    "m": "count",
    "say": "It grows about one centimeter a year."
@@ -110,6 +128,10 @@
     "time": "night"
    },
    "mood": "smug",
+   "gag": {
+    "thought": "baby",
+    "at": "60%"
+   },
    "m": "solo",
    "say": "It isn't ready to have babies until it's about a hundred fifty."
   },
@@ -117,6 +139,10 @@
    "hero_at": {
     "x": 760,
     "y": 1000
+   },
+   "gag": {
+    "prop": "trophy",
+    "at": "60%"
    },
    "m": "name",
    "say": "The Greenland shark. The longest-living animal with a backbone."

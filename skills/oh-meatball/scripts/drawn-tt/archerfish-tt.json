@@ -98,6 +98,10 @@
  "tiktok_caption": "this fish shoots bugs off leaves with a jet of water 🎯 and in a lab it learned to pick out a human face. Would you let one spit in your face? 💦 sure / 🙅 no / 🥽 goggles first #meatballmyths #learnontiktok #archerfish #fish #animalfacts",
  "beats": [
   {
+   "gag": {
+    "thought": "tick",
+    "at": "30%"
+   },
    "m": "hook",
    "say": "This fish shoots bugs off leaves with a water gun in its mouth. And it can learn your face."
   },
@@ -122,6 +126,10 @@
      "s": 0.6
     }
    ],
+   "gag": {
+    "prop": "magnifier",
+    "at": "30%"
+   },
    "m": "fact",
    "say": "It spots a bug sitting on a leaf, above the water."
   },
@@ -142,6 +150,10 @@
      "s": 0.6
     }
    ],
+   "gag": {
+    "meter": 1.0,
+    "at": "20%"
+   },
    "m": "escalate",
    "say": "Then it fires. A jet of water knocks the bug right into the water."
   },
@@ -154,6 +166,10 @@
    "say": "The bug never sees it coming."
   },
   {
+   "gag": {
+    "prop": "ruler",
+    "at": "60%"
+   },
    "m": "fact",
    "say": "It can hit prey more than ten times its own body length away."
   },
@@ -165,10 +181,18 @@
    "say": "An adult can fire up to seven shots in a row."
   },
   {
+   "gag": {
+    "mark": "dizzy",
+    "at": "60%"
+   },
    "m": "solo",
    "say": "And here's the hard part. Its eyes are underwater. The bug is in the air."
   },
   {
+   "gag": {
+    "prop": "magnifier",
+    "at": "40%"
+   },
    "m": "fact",
    "say": "Light bends at the surface. Young fish learn to adjust their aim for that."
   },
@@ -176,18 +200,36 @@
    "act": {
     "talk": 1.0
    },
+   "gag": {
+    "pile": "rock",
+    "n": 4,
+    "r": 24,
+    "at": "50%"
+   },
    "m": "solo",
    "say": "It even spits at the mud, to blast buried food loose."
   },
   {
+   "gag": {
+    "mark": "shock",
+    "at": "70%"
+   },
    "m": "fact",
    "say": "Then scientists showed archerfish pictures of human faces."
   },
   {
+   "gag": {
+    "prop": "trophy",
+    "at": "80%"
+   },
    "m": "escalate",
    "say": "They trained them to spit at one face, and they picked it out from up to forty four strangers."
   },
   {
+   "gag": {
+    "meter": 0.8,
+    "at": "40%"
+   },
    "m": "fact",
    "say": "The best scores? About eight times out of ten."
   },
@@ -204,7 +246,7 @@
   },
   {
    "m": "tease",
-   "say": "Subscribe. Next, a beetle that finds its way home using the Milky Way."
+   "say": "Follow me. Next, a beetle that finds its way home using the Milky Way."
   }
  ]
 }

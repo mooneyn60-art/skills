@@ -74,6 +74,10 @@
    "hero_at": {
     "x": 720
    },
+   "gag": {
+    "prop": "rocket",
+    "at": "70%"
+   },
    "m": "hook",
    "say": "The moss on your roof is full of tiny animals that survived space."
   },
@@ -85,6 +89,10 @@
   {
    "scene": "microscope",
    "mood": "smug",
+   "gag": {
+    "prop": "ruler",
+    "at": "60%"
+   },
    "m": "solo",
    "say": "Most are about half a millimeter long."
   },
@@ -109,6 +117,10 @@
    "act": {
     "mood": "calm"
    },
+   "gag": {
+    "mark": "zzz",
+    "at": "60%"
+   },
    "m": "solo",
    "say": "When the moss dries out, it curls into a ball."
   },
@@ -120,6 +132,10 @@
    "act": {
     "mood": "calm"
    },
+   "gag": {
+    "clock": 4,
+    "at": "40%"
+   },
    "m": "solo",
    "say": "Its body almost stops working, and waits."
   },
@@ -129,12 +145,20 @@
     "time": "dusk"
    },
    "mood": "happy",
+   "gag": {
+    "mark": "alarm",
+    "at": "50%"
+   },
    "m": "solo",
    "say": "Add water, and it wakes up."
   },
   {
    "hero_at": {
     "x": 720
+   },
+   "gag": {
+    "clock": 0,
+    "at": "60%"
    },
    "m": "punch",
    "say": "Basically, it can pause its own life."
