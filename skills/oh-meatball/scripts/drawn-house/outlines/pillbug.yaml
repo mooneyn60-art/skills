@@ -1,0 +1,80 @@
+slug: pillbug
+series: Things Living In Your House
+part: 23
+title: The Little Gray Bug in Your Basement Isn't a Bug
+tiktok_caption: 'pillbugs (roly polys) in my basement 🐚 they aren''t insects, they''re crustaceans like crabs and shrimp,
+  and they roll into a ball to hold in water. Would you let one crawl on your hand? ✋ yes / 🙅 no #pillbug #rolypoly #bugsinyourhouse
+  #meatballmyths #learnontiktok'
+creature: pillbug
+actor: creature
+creature_cfg: &id001
+  plan: centipede
+  label: pillbug
+  color: '#6e7078'
+  dark: '#46484e'
+  legs: 7
+  length: 520
+  height: 200
+  leg_len: 0.4
+  ant: 140
+  long_last: false
+  stripes: 0
+  segments: 8
+  s: 0.8
+hero_p:
+  cfg: *id001
+scene: basement
+scene_p:
+  time: day
+wild: forest_floor
+music: mystery
+next: Part twenty four runs across your floor at night.
+next_scene: bedroom
+sources:
+- 'University of Kentucky Entomology, ENTFACT-439 Sowbugs & Pillbugs: isopods, crustaceans that live on land; seven pairs
+  of legs; pillbugs roll into a ball, which also retains water, sowbugs cannot and have two tail-like uropods; eat decaying
+  plant matter and fungi, sometimes seedlings; do not bite or sting, harmless; females carry eggs and young in a brood pouch
+  (marsupium); live about 3 years; come indoors for moisture and struggle without high humidity; https://entomology.mgcafe.uky.edu/ef439'
+- 'UF/IFAS EDIS IG093, Pillbugs and sowbugs: the only crustaceans fully adapted to land; beneficial nutrient recyclers; https://edis.ifas.ufl.edu/publication/IG093'
+yt:
+- hook: Touch the little armored bug in your basement, and it locks itself into a ball.
+  gag:
+    mark: shock
+    at: 75%
+- escalate: And it isn't even an insect. It's a crustacean, a cousin of crabs and shrimp.
+  gag:
+    thought: fish
+    at: 75%
+- name: The pillbug. Seven pairs of legs, and plates of armor.
+- fact: It rolls up to protect itself, and to hold in water.
+- count: Its cousin, the sowbug, can't roll up. It has two little tails instead.
+- solo: It eats dead leaves, rotting plants, and fungus.
+  scene: forest_floor
+  scene_p:
+    time: dusk
+- punch: Its group are the only crustaceans that fully moved onto land.
+  gag:
+    prop: trophy
+    at: 70%
+tt:
+- solo: It comes inside looking for water, into basements and crawl spaces.
+- fact: But in a dry house, it struggles to survive.
+  gag:
+    mark: sweat
+    at: 50%
+- fact: It doesn't bite or sting. It's harmless to people and pets.
+- fact: The mom carries her eggs and babies in a pouch, called a marsupium.
+- fact: It can live about three years.
+  gag:
+    clock: 3
+    at: 40%
+    dur: 1.4
+- solo: Outside, it's a helper. It recycles dead plants back into the soil.
+  scene: garden
+  scene_p:
+    time: day
+- fact: Sometimes, though, it nibbles young seedlings.
+- fact: Its back is seven hard plates, overlapping like armor.
+- fact: Indoors, it usually shows up in basements and ground floor rooms.
+- fact: Pillbugs and sowbugs are isopods, a group of crustaceans.
+- fact: Would you let one crawl on your hand?

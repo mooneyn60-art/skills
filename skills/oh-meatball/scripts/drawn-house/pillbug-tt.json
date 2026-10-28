@@ -1,0 +1,163 @@
+{
+ "series": "Things Living In Your House, Part 23",
+ "sources": [
+  "University of Kentucky Entomology, ENTFACT-439 Sowbugs & Pillbugs: isopods, crustaceans that live on land; seven pairs of legs; pillbugs roll into a ball, which also retains water, sowbugs cannot and have two tail-like uropods; eat decaying plant matter and fungi, sometimes seedlings; do not bite or sting, harmless; females carry eggs and young in a brood pouch (marsupium); live about 3 years; come indoors for moisture and struggle without high humidity; https://entomology.mgcafe.uky.edu/ef439",
+  "UF/IFAS EDIS IG093, Pillbugs and sowbugs: the only crustaceans fully adapted to land; beneficial nutrient recyclers; https://edis.ifas.ufl.edu/publication/IG093"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:fenrir",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "pillbug",
+  "scene": "basement",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "centipede",
+   "label": "pillbug",
+   "color": "#6e7078",
+   "dark": "#46484e",
+   "legs": 7,
+   "length": 520,
+   "height": 200,
+   "leg_len": 0.4,
+   "ant": 140,
+   "long_last": false,
+   "stripes": 0,
+   "segments": 8,
+   "s": 0.8
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "centipede",
+    "label": "pillbug",
+    "color": "#6e7078",
+    "dark": "#46484e",
+    "legs": 7,
+    "length": 520,
+    "height": 200,
+    "leg_len": 0.4,
+    "ant": 140,
+    "long_last": false,
+    "stripes": 0,
+    "segments": 8,
+    "s": 0.8
+   }
+  },
+  "actor": "creature",
+  "wild": "forest_floor"
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "The Little Gray Bug in Your Basement Isn't a Bug",
+ "tiktok_caption": "pillbugs (roly polys) in my basement 🐚 they aren't insects, they're crustaceans like crabs and shrimp, and they roll into a ball to hold in water. Would you let one crawl on your hand? ✋ yes / 🙅 no #pillbug #rolypoly #bugsinyourhouse #meatballmyths #learnontiktok",
+ "beats": [
+  {
+   "gag": {
+    "mark": "shock",
+    "at": "75%"
+   },
+   "m": "hook",
+   "say": "Touch the little armored bug in your basement, and it locks itself into a ball."
+  },
+  {
+   "gag": {
+    "thought": "fish",
+    "at": "75%"
+   },
+   "m": "escalate",
+   "say": "And it isn't even an insect. It's a crustacean, a cousin of crabs and shrimp."
+  },
+  {
+   "m": "name",
+   "say": "The pillbug. Seven pairs of legs, and plates of armor."
+  },
+  {
+   "m": "fact",
+   "say": "It rolls up to protect itself, and to hold in water."
+  },
+  {
+   "m": "count",
+   "say": "Its cousin, the sowbug, can't roll up. It has two little tails instead."
+  },
+  {
+   "scene": "forest_floor",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "m": "solo",
+   "say": "It eats dead leaves, rotting plants, and fungus."
+  },
+  {
+   "gag": {
+    "prop": "trophy",
+    "at": "70%"
+   },
+   "m": "punch",
+   "say": "Its group are the only crustaceans that fully moved onto land."
+  },
+  {
+   "m": "solo",
+   "say": "It comes inside looking for water, into basements and crawl spaces."
+  },
+  {
+   "gag": {
+    "mark": "sweat",
+    "at": "50%"
+   },
+   "m": "fact",
+   "say": "But in a dry house, it struggles to survive."
+  },
+  {
+   "m": "fact",
+   "say": "It doesn't bite or sting. It's harmless to people and pets."
+  },
+  {
+   "m": "fact",
+   "say": "The mom carries her eggs and babies in a pouch, called a marsupium."
+  },
+  {
+   "gag": {
+    "clock": 3,
+    "at": "40%",
+    "dur": 1.4
+   },
+   "m": "fact",
+   "say": "It can live about three years."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "day"
+   },
+   "m": "solo",
+   "say": "Outside, it's a helper. It recycles dead plants back into the soil."
+  },
+  {
+   "m": "fact",
+   "say": "Sometimes, though, it nibbles young seedlings."
+  },
+  {
+   "m": "fact",
+   "say": "Its back is seven hard plates, overlapping like armor."
+  },
+  {
+   "m": "fact",
+   "say": "Indoors, it usually shows up in basements and ground floor rooms."
+  },
+  {
+   "m": "fact",
+   "say": "Would you let one crawl on your hand?"
+  },
+  {
+   "m": "tease",
+   "say": "Follow me. Part twenty four runs across your floor at night.",
+   "scene": "bedroom",
+   "scene_p": {}
+  }
+ ]
+}
