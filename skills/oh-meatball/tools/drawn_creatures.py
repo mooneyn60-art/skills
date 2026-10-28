@@ -21,6 +21,8 @@ Mammal extras: neck (px, giraffe) + ossicones, spots + spot_color, hump (0..1) +
 back_stripe (colour, skunk). Bird extras: foot_color, beak_color, beak: shoe, face_disc + disc_color, ear_tufts (owl).
 Mammal bat_wings (+ wing_color; flaps with p fly). Mammal antlers, ears tiny, snout big (hippo). Reptile snout long (croc). Fish sucker (lamprey).
 Bird face_color (puffin). Plan octopus (size). Worm snake_head (hawkmoth caterpillar's fake viper head).
+Octopus rings (n flashing blue rings). Plan cone (cone snail: tents, p bite = harpoon out). Plan jelly (size, tentacles per corner, tent_len, alpha: see-through box jellyfish). Fish spines (n venom spines along
+the back, stonefish) + warts (lumpy camouflage blotches).
 
 Config keys (all optional): plan, color, dark, accent, belly, length, height, legs, leg_len, ant (antennae
 length), wings, tails, tail_len, stripes, sheen, eye_r, eyes, mouth, fangs, teeth, pattern, hairs, mood (the
@@ -433,6 +435,16 @@ def fish(ctx, t, cfg, p):
         for k in range(10):
             a = k * math.pi / 5
             flat(ctx, lambda c, a=a: p_ellipse(c, x1 + H * 0.05 + H * 0.12 * math.cos(a), H * 0.26 * math.sin(a), 6, 6), hexc("#fff8e0"))
+    rng = random.Random(7)
+    for k in range(cfg.get("warts", 0)):   # stonefish: lumpy camouflage blotches
+        rx_, ry_ = rng.random(), rng.random()
+        flat(ctx, lambda c, rx_=rx_, ry_=ry_: p_ellipse(c, x0 + L * (0.15 + 0.6 * rx_), H * (0.36 * ry_ - 0.2),
+                                                        L * 0.05, H * 0.07), _c(cfg, "accent", "#c9824a"), OUT * 0.4)
+    for k in range(cfg.get("spines", 0)):   # stonefish: a row of venom spines along the back
+        x = x0 + L * 0.28 + k * L * 0.5 / max(cfg["spines"] - 1, 1)
+        yb = -H * 0.44
+        stroke(ctx, [(x, yb), (x - 10, yb - H * 0.42)], 18, color=INK)
+        stroke(ctx, [(x, yb), (x - 10, yb - H * 0.42)], 9, color=hexc("#e8e0c8"))
     _face(ctx, cfg, p, x1 - L * 0.2, -H * 0.12, cfg.get("eye_r", H * 0.12), col, H * 0.22)
     _overlays(ctx, cfg, p, path, 0, 0, L / 2, H / 2)
 
@@ -690,12 +702,77 @@ def octopus(ctx, t, cfg, p):
             flat(ctx, lambda c, q=q: p_ellipse(c, q[0], q[1] + R * 0.05, R * 0.05, R * 0.04), lighter(col, 0.45))
     path = lambda c: p_ellipse(c, 0, by - R * 0.15, R * 0.75, R * 0.85)  # noqa
     shape(ctx, path, col, OUT, (0.0, 0.2), hi=(0.3, 0.2, 0.25))
+    rng = random.Random(3)
+    for k in range(cfg.get("rings", 0)):   # blue-ringed octopus: iridescent rings that flash (p flash 0..1)
+        x, y = rng.uniform(-0.55, 0.55) * R, by - R * 0.15 + rng.uniform(-0.65, 0.5) * R
+        a = 0.35 + 0.65 * p.get("flash", 0.5 + 0.5 * math.sin(t * 5))
+        stroke(ctx, [(x + R * 0.1 * math.cos(q * 0.7), y + R * 0.1 * math.sin(q * 0.7)) for q in range(10)], 11,
+               color=INK, a=a)
+        stroke(ctx, [(x + R * 0.1 * math.cos(q * 0.7), y + R * 0.1 * math.sin(q * 0.7)) for q in range(10)], 7,
+               color=hexc("#1e8cff"), a=a)
     _face(ctx, cfg, p, 0, by + R * 0.25, R * 0.2, col, R * 0.42, side=False)
     _overlays(ctx, cfg, p, path, 0, by, R * 0.75, R * 0.85)
 
 
+def jelly(ctx, t, cfg, p):
+    """Front view box jellyfish: a see-through cube bell, a bunch of long thin tentacles trailing from each of 4 corners."""
+    R = cfg.get("size", 220)
+    col = _c(cfg, "color", "#bfe6f2")
+    dk = _c(cfg, "dark", None) or darker(col, 0.75)
+    al = cfg.get("alpha", 0.7)
+    by = -R * 2.6 + 10 * math.sin(t * 1.8)   # base = the sea floor: tentacle tips just reach it
+    pulse = 1.0 + 0.05 * math.sin(t * 3.0)
+    w, h = R * 1.5 * pulse, R * 1.3 / pulse
+    for k, cx in enumerate((-w * 0.48, -w * 0.18, w * 0.18, w * 0.48)):
+        for j in range(cfg.get("tentacles", 4)):
+            x0 = cx + (j - 1.5) * 9
+            L = cfg.get("tent_len", R * 2.2) * (0.85 + 0.05 * j)
+            pts = [(x0 + 22 * math.sin(t * 2 + k + j * 0.7 + q * 0.9) * q / 4, by + h * 0.45 + L * q / 4)
+                   for q in range(5)]
+            stroke(ctx, pts, 9, smooth=True, color=dk, a=0.9)
+    path = lambda c: p_rrect(c, -w / 2, by - h / 2, w, h, R * 0.35)  # noqa
+    shape(ctx, path, col, OUT, (0.0, 0.18), hi=(0.3, 0.2, 0.22), a=al)
+    for cx in (-w * 0.3, w * 0.3):   # the eye clusters on the bell's sides
+        flat(ctx, lambda c, cx=cx: p_ellipse(c, cx, by + h * 0.28, 9, 9), INK)
+    _face(ctx, cfg, p, 0, by - h * 0.05, R * 0.16, col, R * 0.3, side=False)
+    _overlays(ctx, cfg, p, path, 0, by, w / 2, h / 2)
+
+
+def cone(ctx, t, cfg, p):
+    """Side view cone snail: a patterned cone shell pointing left, soft foot below, a siphon and a harpoon proboscis."""
+    L = cfg.get("length", 560)
+    H = L * 0.55
+    col = _c(cfg, "color", "#c98a4a")
+    dk = _c(cfg, "dark", None) or darker(col, 0.6)
+    by = -H * 0.6 + 3 * math.sin(t * 1.5)
+    shape(ctx, lambda c: p_rrect(c, -L * 0.45, by + H * 0.3, L * 0.9, H * 0.35, H * 0.15), hexc("#d9b8a0"), OUT * 0.8,
+          None)
+    ext = p.get("bite", 0.0)   # the proboscis reaches out with the harpoon tooth
+    if ext > 0:
+        x0 = L * 0.45
+        stroke(ctx, [(x0, by + H * 0.2), (x0 + 160 * ext, by + H * 0.1), (x0 + 260 * ext, by)], 16, smooth=True,
+               color=hexc("#e8a090"))
+        stroke(ctx, [(x0 + 250 * ext, by), (x0 + 300 * ext, by - 6)], 5, color=INK)
+    stroke(ctx, [(L * 0.4, by - H * 0.1), (L * 0.55, by - H * 0.45)], 14, smooth=True, color=hexc("#e8a090"))
+    path = lambda c: p_poly(c, [(-L * 0.5, by), (L * 0.35, by - H * 0.5), (L * 0.47, by - H * 0.2),  # noqa
+                                (L * 0.47, by + H * 0.2), (L * 0.35, by + H * 0.5)])
+    shape(ctx, path, col, OUT, (0.0, 0.2), hi=(0.3, 0.2, 0.2))
+    ctx.save()
+    path(ctx)
+    ctx.clip()
+    rng = random.Random(5)
+    for _ in range(cfg.get("tents", 26)):   # the tented "map" pattern of the geography cone
+        x, y = rng.uniform(-0.45, 0.4) * L, by + rng.uniform(-0.45, 0.45) * H
+        flat(ctx, lambda c, x=x, y=y: p_poly(c, [(x - 22, y + 12), (x, y - 16), (x + 22, y + 12)]), dk)
+    ctx.restore()
+    shape(ctx, path, (0, 0, 0), OUT, None, a=0.0)
+    _face(ctx, cfg, p, L * 0.28, by - H * 0.05, cfg.get("eye_r", H * 0.11), col, H * 0.25)
+    _overlays(ctx, cfg, p, path, 0, by, L / 2, H / 2)
+
+
 PLANS = {"insect": insect, "arachnid": arachnid, "centipede": centipede, "worm": centipede, "mite": mite,
-         "fish": fish, "bird": bird, "mammal": mammal, "reptile": reptile, "frog": frog, "octopus": octopus}
+         "fish": fish, "bird": bird, "mammal": mammal, "reptile": reptile, "frog": frog, "octopus": octopus,
+         "jelly": jelly, "cone": cone}
 
 
 def build(cfg):

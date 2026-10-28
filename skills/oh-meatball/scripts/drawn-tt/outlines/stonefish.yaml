@@ -1,0 +1,127 @@
+slug: stonefish
+out: episodes/drawn-tt
+specs: scripts/drawn-tt
+series: Would Meatball Survive?
+title: Stonefish, the Most Venomous Fish. Would Meatball Survive? 🐟
+tiktok_caption: 'stonefish sting 🐟 the most venomous fish looks exactly like a rock,
+  and 13 spines on its back carry venom. What a stonefish sting is like, and the antivenom
+  that exists. Would you wade barefoot on a reef? 🦶 yes / 🩴 shoes on #stonefish #venomous
+  #wouldmeatballsurvive #meatballmyths #oceanlife'
+creature: stonefish
+actor: creature
+creature_cfg: &stonefish
+  plan: fish
+  label: stonefish
+  color: '#7c6a52'
+  dark: '#54463a'
+  accent: '#b8743e'
+  length: 640
+  height: 360
+  spines: 13
+  warts: 9
+  eye_r: 26
+  mood: angry
+  floor: true
+  xray: venom
+  s: 0.8
+hero_p:
+  cfg: *stonefish
+scene: reef
+scene_p:
+  time: day
+wild: reef
+wild_p:
+  time: dusk
+rate: +10%
+music: mystery
+next: Next, would Meatball survive the box jellyfish?
+sources:
+- 'Fishes of Australia (Museums Victoria / OzFishNet), Bray 2022, Estuarine Stonefish,
+  Synanceia horrida: along with the Reef Stonefish considered the most venomous of
+  fishes; dorsal spines with venom glands at their base; venom affects the cardiovascular
+  and neuromuscular systems; the sting is excruciatingly painful and may be fatal unless
+  antivenom is given; an antivenom developed in 1959 reduces the likelihood of death;
+  no deaths recorded in Australia since European arrival; superbly camouflaged ambush
+  predator in sandy and muddy areas of sheltered coastal reefs and estuaries, often
+  very shallow; nocturnal, feeds on small fishes, crustaceans and cephalopods; max
+  size 60 cm; https://fishesofaustralia.net.au/home/species/3751'
+- 'Sunshine Coast Council (Queensland), Stonefish on the Sunshine Coast: grow to 30
+  cm and are among the most venomous fish; 13 spines along their back; bumpy brown
+  or grey skin with orange, red or green patches camouflages them among rocks or rubble,
+  sometimes in mud or sand; live in coastal shallow waters, estuaries and creek mouths;
+  venom causes immediate and very severe pain that may last for days, and can cause
+  swelling, tissue damage, nausea, cardiac effects and shock; wear sturdy thick-soled
+  shoes and shuffle your feet when wading; if stung leave the water, call for urgent
+  medical help, remove spines and soak in water as hot as can be tolerated; antivenom
+  may be needed; https://www.sunshinecoast.qld.gov.au/Environment/Education-Resources-and-Events/Environment-Resources-and-Publications/Coast-and-Marine/Stonefish-on-the-Sunshine-Coast'
+- 'Little 1990, Emergency Medicine (Australasia) 2(4): 5, Stonefish (Synancea species)
+  sting (James Cook University ResearchOnline): antivenom available since 1959 but
+  rarely used; a review of antivenom use over 12 months found only 10 cases where stonefish
+  antivenom was used; https://researchonline.jcu.edu.au/39469/'
+yt:
+- hook: Step on this rock, and thirteen spines full of venom go into your foot.
+  gag:
+    zap: true
+    at: 55%
+- escalate: The pain hits right away. And it can last for days.
+  gag:
+    clock: 5
+    at: 55%
+    dur: 1.6
+- name: It's not a rock. It's a stonefish. The most venomous fish known.
+  gag:
+    prop: skull
+    at: 75%
+- xray: Each spine has a venom gland at its base.
+- solo: The venom can bring swelling, damaged skin, sickness, even shock.
+  scene: reef
+  scene_p:
+    time: dusk
+  gag:
+    mark: dizzy
+    at: 60%
+- fact: Its bumpy skin hides it among rocks and rubble, in shallow water.
+  gag:
+    prop: rock
+    at: 50%
+- punch: Would Meatball survive? With fast help, very likely. There's been an antivenom since nineteen fifty nine.
+  gag:
+    prop: trophy
+    at: 70%
+tt:
+- solo: It just sits still, and waits. Then it gulps down small fish and shrimp.
+  scene: reef
+  scene_p:
+    time: night
+  act:
+    bite: 1.0
+  gag:
+    thought: fish
+    at: 70%
+- solo: It lives on reefs, in estuaries, and at creek mouths, sometimes buried in sand.
+  scene: reef
+  scene_p:
+    time: day
+  mood: calm
+- count: The biggest ones grow to about two feet long.
+  gag:
+    prop: ruler
+    at: 40%
+- calm: Its venom works on the heart, and the muscles.
+- fact: If you're stung, get out of the water, and call for help.
+  gag:
+    mark: alarm
+    at: 30%
+- fact: Pull out any spines, and soak the foot in water as hot as you can stand.
+  gag:
+    meter: 1.0
+    at: 60%
+- fact: If that's not enough, doctors give the antivenom.
+- fact: It's rarely needed. One review found it used only ten times in a whole year.
+- solo: In Australia, no deaths from a stonefish have been recorded.
+  scene: reef
+  scene_p:
+    time: dusk
+  mood: smug
+- fact: So wear thick soled shoes, and shuffle your feet when you wade.
+- fact: Would you wade barefoot on a reef?

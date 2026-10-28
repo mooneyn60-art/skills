@@ -36,7 +36,7 @@ import copy
 import drawn_acting
 from drawn_species import SPECIES
 
-SIDE = {"insect", "centipede", "worm", "fish", "bird", "mammal", "reptile"}
+SIDE = {"insect", "centipede", "worm", "fish", "bird", "mammal", "reptile", "cone"}
 WATER = {"reef", "ocean", "deep"}
 FLOOR = {"skin": 1100, "office": 1540, "press": 1600, "fibers": 1480}
 MB_X, HERO_X = 330, 820
