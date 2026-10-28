@@ -61,7 +61,10 @@ from drawn_species import SPECIES  # noqa: E402
 import drawn_macros  # noqa: E402
 import drawn_acting  # noqa: E402
 
-ACTORS = {**A1, **A2, **A3, **A4, **A5, "creature": creature}
+import drawn_cases2  # noqa: E402  (history-case scenes and cast: "Meatball Investigates" outlines use them)
+
+SCENES.update(drawn_cases2.SCENES)
+ACTORS = {**A1, **A2, **A3, **A4, **A5, **drawn_cases2.ACTORS, "creature": creature}
 ACTORS.update({"sp." + k: build(v) for k, v in SPECIES.items()})
 ROOT = os.path.dirname(HERE)
 W, H = 1080, 1920
