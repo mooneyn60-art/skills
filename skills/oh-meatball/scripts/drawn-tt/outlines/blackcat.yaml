@@ -1,73 +1,172 @@
 slug: blackcat
 out: episodes/drawn-tt
 specs: scripts/drawn-tt
-series: "Meatball's Animal Files"
+series: Meatball's Animal Files
 variant: B
 title: A 1233 Pope's Letter Accused People of Worshipping a Black Cat 🐈‍⬛
-tiktok_caption: "why are black cats 'bad luck'? 🐈‍⬛ a letter from 1233 claimed a cult worshipped one... and kissed its rear end. Would you keep walking if one crossed your path? 🚶 keep walking / 🔄 turn around #meatballmyths #learnontiktok #blackcat #history"
+tiktok_caption: 'why are black cats ''bad luck''? 🐈‍⬛ a letter from 1233 claimed a
+  cult worshipped one... and kissed its rear end. Would you keep walking if one crossed
+  your path? 🚶 keep walking / 🔄 turn around #meatballmyths #learnontiktok #blackcat
+  #history'
 creature: black_cat
-creature_cfg: {plan: mammal, label: black cat, color: "#26262c", dark: "#101014", belly: "#34343c", ears: pointed, tail: thin, tail_len: 360, length: 560, height: 280, mood: smug, s: 0.95}
+creature_cfg:
+  plan: mammal
+  label: black cat
+  color: '#26262c'
+  dark: '#101014'
+  belly: '#34343c'
+  ears: pointed
+  tail: thin
+  tail_len: 360
+  length: 560
+  height: 280
+  mood: smug
+  s: 0.95
 scene: bedroom
-scene_p: {time: night}
+scene_p:
+  time: night
 wild: basement
-wild_p: {time: night}
+wild_p:
+  time: night
 music: mystery
-next: Next, a giant bird that stands still like a statue, then claps its beak like a drum.
+next: Next, a giant bird that stands still like a statue, then claps its beak like
+  a drum.
 sources:
-  - "Novotny F. (2021) 'The Birth of the Luciferians: Revisiting the Persecution of Heretics by Conrad of Marburg', Mediaeval Studies 83:119-164 (Pontifical Institute of Mediaeval Studies): Pope Gregory IX's bull Vox in Rama (1233), addressed to Conrad of Marburg, German prelates, Emperor Frederick II and Henry VII, describes a Luciferian sect; quotes the bull: a black cat the size of a medium dog descends backwards down a statue with its tail turned back, and the novice, the master and then each member kiss its hindquarters; historians (Hergemoller, Brunn, Novotny) conclude a small circle including Conrad fabricated the Luciferian sect; cat-worship accusations were older topoi: heretics of Orleans burned in 1022, Walter Map (c.1180), Alan of Lille deriving 'Cathar' from cattus because Lucifer appears to them as a cat, and a Mainz exorcism account of the devil as a white cat as big as a medium-sized dog covered with bird feathers; https://pims.ca/wp-content/uploads/2022/04/MS-83-119.pdf"
-  - "The Metropolitan Museum of Art, Statuette of cat-headed Bastet (58.67), collection notes: Bastet shown as a cat-headed goddess, a powerful protective figure; her main cult center was Bubastis in the Delta, where thousands of cat mummies and many cat statuettes were found; https://www.metmuseum.org/art/collection/search/558306"
-  - "UC Davis Veterinary Genetics Laboratory, Agouti (cat) test: the agouti signaling protein switches hairs between black and red pigment, creating bands; a 2 bp deletion in ASIP (c.123delCA) stops the switch, so a/a cats have solid self-coloured coats; https://vgl.ucdavis.edu/test/agouti-cat"
+- 'Novotny F. (2021) ''The Birth of the Luciferians: Revisiting the Persecution of
+  Heretics by Conrad of Marburg'', Mediaeval Studies 83:119-164 (Pontifical Institute
+  of Mediaeval Studies): Pope Gregory IX''s bull Vox in Rama (1233), addressed to
+  Conrad of Marburg, German prelates, Emperor Frederick II and Henry VII, describes
+  a Luciferian sect; quotes the bull: a black cat the size of a medium dog descends
+  backwards down a statue with its tail turned back, and the novice, the master and
+  then each member kiss its hindquarters; historians (Hergemoller, Brunn, Novotny)
+  conclude a small circle including Conrad fabricated the Luciferian sect; cat-worship
+  accusations were older topoi: heretics of Orleans burned in 1022, Walter Map (c.1180),
+  Alan of Lille deriving ''Cathar'' from cattus because Lucifer appears to them as
+  a cat, and a Mainz exorcism account of the devil as a white cat as big as a medium-sized
+  dog covered with bird feathers; https://pims.ca/wp-content/uploads/2022/04/MS-83-119.pdf'
+- 'The Metropolitan Museum of Art, Statuette of cat-headed Bastet (58.67), collection
+  notes: Bastet shown as a cat-headed goddess, a powerful protective figure; her main
+  cult center was Bubastis in the Delta, where thousands of cat mummies and many cat
+  statuettes were found; https://www.metmuseum.org/art/collection/search/558306'
+- 'UC Davis Veterinary Genetics Laboratory, Agouti (cat) test: the agouti signaling
+  protein switches hairs between black and red pigment, creating bands; a 2 bp deletion
+  in ASIP (c.123delCA) stops the switch, so a/a cats have solid self-coloured coats;
+  https://vgl.ucdavis.edu/test/agouti-cat'
 yt:
-  - hook: Almost eight hundred years ago, a pope's letter accused people of worshipping a black cat.
-  - shrink: So I shrank to mouse size, to follow this cat through history.
-  - tiny: Pope Gregory the Ninth sent it in twelve thirty-three.
-    scene: basement
-    scene_p: {time: night}
-    pose: think
-  - tiny: It warned of a secret devil cult, spreading across Germany.
-    scene: basement
-    scene_p: {time: night}
-    pose: nervous
-    act: {mood: angry}
-  - tiny: The stories came from a hunter of heretics, named Conrad of Marburg.
-    scene: cave
-    scene_p: {time: night}
-    pose: shock
-  - tiny: Historians now think Conrad and a few others made the cult up.
-    scene: cave
-    scene_p: {time: night}
-    pose: deadpan
-    act: {mood: smug}
+- hook: Almost eight hundred years ago, a pope's letter accused people of worshipping
+    a black cat.
+  gag:
+  - clock: 4
+    at: 10%
+  - mark: shock
+    at: 80%
+- shrink: So I shrank to mouse size, to follow this cat through history.
+- tiny: Pope Gregory the Ninth sent it in twelve thirty-three.
+  scene: basement
+  scene_p:
+    time: night
+  pose: think
+  gag:
+    prop: crown
+    at: 30%
+- tiny: It warned of a secret devil cult, spreading across Germany.
+  scene: basement
+  scene_p:
+    time: night
+  pose: nervous
+  act:
+    mood: angry
+  gag:
+    mark: alarm
+    at: 50%
+- tiny: The stories came from a hunter of heretics, named Conrad of Marburg.
+  scene: cave
+  scene_p:
+    time: night
+  pose: shock
+- tiny: Historians now think Conrad and a few others made the cult up.
+  scene: cave
+  scene_p:
+    time: night
+  pose: deadpan
+  act:
+    mood: smug
+  gag:
+    mark: anger
+    at: 70%
 tt:
-  - tiny: A teacher in Paris even claimed the name Cathar, for one group of heretics, came from the Latin word for cat.
-    scene: garden
-    scene_p: {time: night}
-    pose: laugh
-  - tiny: Another story said the devil showed up as a white cat, as big as a dog, covered in bird feathers.
-    scene: garden
-    scene_p: {time: night}
-    pose: shock
-    with: [{sp: sparrow, x: 880, s: 0.6}]
-  - tiny: Not everyone feared cats. In ancient Egypt, the goddess Bastet had a cat's head.
-    scene: desert
-    scene_p: {time: day}
-    act: {mood: happy}
-  - tiny: In her temple city, Bubastis, thousands of cat mummies have been found.
-    scene: desert
-    scene_p: {time: dusk}
-    pose: shock
-  - tiny: And the black fur? One tiny change in one gene.
-    scene: bedroom
-    scene_p: {time: day}
-    pose: think
-    act: {xray: 1.0}
-  - solo: The strangest part? It says a black cat, as big as a dog, walked backwards down a statue.
-    scene: basement
-    scene_p: {time: night}
-    hero_moves: [{at: 0, dur: 2.5, pos: [700, 1500], walk: true}]
-  - solo: And then every member of the cult kissed its rear end.
-    scene: basement
-    scene_p: {time: night}
-    act: {mood: shock}
-  - fact: So if a black cat crossed your path, would you keep walking?
-  - punch: Eight hundred years later, black cats are still paying for one very weird letter.
+- tiny: A teacher in Paris even claimed the name Cathar, for one group of heretics,
+    came from the Latin word for cat.
+  scene: garden
+  scene_p:
+    time: night
+  pose: laugh
+- tiny: Another story said the devil showed up as a white cat, as big as a dog, covered
+    in bird feathers.
+  scene: garden
+  scene_p:
+    time: night
+  pose: shock
+  with:
+  - sp: sparrow
+    x: 880
+    s: 0.6
+  gag:
+    prop: ruler
+    at: 50%
+- tiny: Not everyone feared cats. In ancient Egypt, the goddess Bastet had a cat's
+    head.
+  scene: desert
+  scene_p:
+    time: day
+  act:
+    mood: happy
+  gag:
+    prop: crown
+    at: 60%
+- tiny: In her temple city, Bubastis, thousands of cat mummies have been found.
+  scene: desert
+  scene_p:
+    time: dusk
+  pose: shock
+  gag:
+    pile: bone
+    n: 6
+    at: 50%
+- tiny: And the black fur? One tiny change in one gene.
+  scene: bedroom
+  scene_p:
+    time: day
+  pose: think
+  act:
+    xray: 1.0
+  gag:
+    prop: magnifier
+    at: 60%
+- solo: The strangest part? It says a black cat, as big as a dog, walked backwards
+    down a statue.
+  scene: basement
+  scene_p:
+    time: night
+  hero_moves:
+  - at: 0
+    dur: 2.5
+    pos:
+    - 700
+    - 1500
+    walk: true
+  gag:
+    mark: dizzy
+    at: 60%
+- solo: And then every member of the cult kissed its rear end.
+  scene: basement
+  scene_p:
+    time: night
+  act:
+    mood: shock
+  gag:
+    mark: hearts
+    at: 60%
+- fact: So if a black cat crossed your path, would you keep walking?
+- punch: Eight hundred years later, black cats are still paying for one very weird
+    letter.

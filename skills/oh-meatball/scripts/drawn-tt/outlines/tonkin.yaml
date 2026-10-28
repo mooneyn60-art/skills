@@ -3,63 +3,210 @@ out: episodes/drawn-tt
 specs: scripts/drawn-tt
 series: Meatball Investigates
 title: America Went To War Over A Sea Battle That Never Happened 🚢
-tiktok_caption: "the sea battle that never happened 😳 two destroyers fired for hours at radar ghosts, and congress voted for war. Would you trust the radar? 📡 yes / 🙅 no / 🐟 flying fish #meatballmyths #learnontiktok #history #vietnamwar #coldwar"
+tiktok_caption: 'the sea battle that never happened 😳 two destroyers fired for hours
+  at radar ghosts, and congress voted for war. Would you trust the radar? 📡 yes /
+  🙅 no / 🐟 flying fish #meatballmyths #learnontiktok #history #vietnamwar #coldwar'
 creature: operator
 actor: operator
-creature_cfg: {floor: true}
+creature_cfg:
+  floor: true
 s: 0.85
 scene: radar_room
 wild: night_sea
 music: cold-war
 next: Next, three lighthouse keepers who vanished into a storm.
 sources:
-  - "Office of the Historian, US Department of State, 'The Gulf of Tonkin Incident, 1964': the destroyers Maddox and Turner Joy reported attacks by North Vietnamese patrol boats on August 2 and a second on August 4, 1964; historians later questioned whether the second attack took place; Congress passed the Gulf of Tonkin Resolution on August 7, the House unanimously and the Senate with only two votes against; it let the president take any measures he deemed necessary and preceded Rolling Thunder and ground troop deployments; https://history.state.gov/milestones/1961-1968/gulf-of-tonkin"
-  - "National Security Archive (George Washington University), 'Tonkin Gulf Intelligence Skewed According to Official History and Intercepts' (Dec 1, 2005): NSA declassified Robert Hanyok's history; SIGINT shows a second attack on August 4, 1964 'did not occur'; torpedo boats did attack the Maddox on August 2; 'the overwhelming body of reports, if used, would have told the story that no attack occurred'; NSA deputy director Louis Tordella was quoted in 1972 saying the 4 August intercepts pertained to the 2 August attacks; https://nsarchive2.gwu.edu/NSAEBB/NSAEBB132/press20051201.htm"
-  - "Council on Foreign Relations, 'TWE Remembers: The Gulf of Tonkin Incident': Maddox reported unidentified ships at 8:40 p.m. Aug 4 and maneuvered for about three hours against perceived attacks; Capt. Herrick's message: 'Freak weather effects on radar and overeager sonarmen may have accounted for many reports' and 'No actual visual sightings by MADDOX'; pilot overhead James Stockdale saw 'no boats, no boat wakes, no boat gunfire, no torpedo wakes, nothing but black sea and American firepower'; at 11:30 p.m. Johnson went on national TV announcing air strikes; Johnson later: 'those damn, stupid sailors were just shooting at flying fish'; https://www.cfr.org/articles/twe-remembers-gulf-tonkin-incident"
+- 'Office of the Historian, US Department of State, ''The Gulf of Tonkin Incident,
+  1964'': the destroyers Maddox and Turner Joy reported attacks by North Vietnamese
+  patrol boats on August 2 and a second on August 4, 1964; historians later questioned
+  whether the second attack took place; Congress passed the Gulf of Tonkin Resolution
+  on August 7, the House unanimously and the Senate with only two votes against; it
+  let the president take any measures he deemed necessary and preceded Rolling Thunder
+  and ground troop deployments; https://history.state.gov/milestones/1961-1968/gulf-of-tonkin'
+- 'National Security Archive (George Washington University), ''Tonkin Gulf Intelligence
+  Skewed According to Official History and Intercepts'' (Dec 1, 2005): NSA declassified
+  Robert Hanyok''s history; SIGINT shows a second attack on August 4, 1964 ''did not
+  occur''; torpedo boats did attack the Maddox on August 2; ''the overwhelming body
+  of reports, if used, would have told the story that no attack occurred''; NSA deputy
+  director Louis Tordella was quoted in 1972 saying the 4 August intercepts pertained
+  to the 2 August attacks; https://nsarchive2.gwu.edu/NSAEBB/NSAEBB132/press20051201.htm'
+- 'Council on Foreign Relations, ''TWE Remembers: The Gulf of Tonkin Incident'': Maddox
+  reported unidentified ships at 8:40 p.m. Aug 4 and maneuvered for about three hours
+  against perceived attacks; Capt. Herrick''s message: ''Freak weather effects on
+  radar and overeager sonarmen may have accounted for many reports'' and ''No actual
+  visual sightings by MADDOX''; pilot overhead James Stockdale saw ''no boats, no
+  boat wakes, no boat gunfire, no torpedo wakes, nothing but black sea and American
+  firepower''; at 11:30 p.m. Johnson went on national TV announcing air strikes; Johnson
+  later: ''those damn, stupid sailors were just shooting at flying fish''; https://www.cfr.org/articles/twe-remembers-gulf-tonkin-incident'
 yt:
-  - hook: What if I told you America went to war over a sea battle that never happened?
-    act: {blips: 1.0, ghost: true}
-  - solo: August 1964. The destroyer Maddox is on a spy patrol off North Vietnam.
-    hero: false
-    scene_p: {}
-    with: [{type: destroyer, x: 540, y: 1500, s: 0.62, pop: false}]
-  - solo: On August second, three torpedo boats really do attack it. The Maddox drives them off.
-    hero: false
-    scene_p: {day: true}
-    with: [{type: destroyer, x: 380, y: 1470, s: 0.42, pop: false, p: {fire: 1.0}}, {type: torpedo_boat, x: 770, y: 1300, s: 0.5, flip: true}, {type: torpedo_boat, x: 700, y: 1720, s: 0.6, flip: true}, {type: torpedo_boat, x: 820, y: 1520, s: 0.45, flip: true}]
-  - fact: Two nights later, it is back with a second destroyer. A pitch-black, stormy night.
-    hero: {blips: 0.0}
-  - escalate: Then the radar lights up. Boats! Torpedoes!
-    hero: {blips: 1.0, ghost: true, mood: shock}
-  - solo: For hours, both ships fire at targets nobody can see.
-    hero: false
-    scene_p: {storm: true}
-    with: [{type: destroyer, x: 650, y: 1300, s: 0.32, pop: false, p: {fire: 1.0}}, {type: destroyer, x: 420, y: 1620, s: 0.48, pop: false, p: {fire: 1.0, light: true}}]
+- hook: What if I told you America went to war over a sea battle that never happened?
+  act:
+    blips: 1.0
+    ghost: true
+  gag:
+    mark: shock
+    at: 70%
+- solo: August 1964. The destroyer Maddox is on a spy patrol off North Vietnam.
+  hero: false
+  scene_p: {}
+  with:
+  - type: destroyer
+    x: 540
+    y: 1500
+    s: 0.62
+    pop: false
+- solo: On August second, three torpedo boats really do attack it. The Maddox drives
+    them off.
+  hero: false
+  scene_p:
+    day: true
+  with:
+  - type: destroyer
+    x: 380
+    y: 1470
+    s: 0.42
+    pop: false
+    p:
+      fire: 1.0
+  - type: torpedo_boat
+    x: 770
+    y: 1300
+    s: 0.5
+    flip: true
+  - type: torpedo_boat
+    x: 700
+    y: 1720
+    s: 0.6
+    flip: true
+  - type: torpedo_boat
+    x: 820
+    y: 1520
+    s: 0.45
+    flip: true
+  gag:
+    mark: alarm
+    at: 40%
+- fact: Two nights later, it is back with a second destroyer. A pitch-black, stormy
+    night.
+  hero:
+    blips: 0.0
+  gag:
+    prop: moon
+    at: 60%
+- escalate: Then the radar lights up. Boats! Torpedoes!
+  hero:
+    blips: 1.0
+    ghost: true
+    mood: shock
+  gag:
+    mark: alarm
+    at: 30%
+- solo: For hours, both ships fire at targets nobody can see.
+  hero: false
+  scene_p:
+    storm: true
+  with:
+  - type: destroyer
+    x: 650
+    y: 1300
+    s: 0.32
+    pop: false
+    p:
+      fire: 1.0
+  - type: destroyer
+    x: 420
+    y: 1620
+    s: 0.48
+    pop: false
+    p:
+      fire: 1.0
+      light: true
+  gag:
+    clock: 3
+    at: 10%
 tt:
-  - fact: Then the captain warns, freak weather and overeager sonarmen may explain the reports. Nobody saw a boat.
-    hero: {blips: 0.5, ghost: true, sweat: true}
-  - solo: A pilot flying overhead saw no boats. No wakes. Nothing but black sea.
-    hero: false
-    scene_p: {storm: true}
-    with: [{type: jet, x: 300, y: 820, s: 0.6, pop: false, moves: [{at: 0, dur: 4.5, pos: [900, 780], linear: true}]}]
-  - fact: Too late. That night, the President went on TV and announced air strikes.
-    hero: false
-    scene: study
-    scene_p: {time: night}
-    with: [{type: tv, x: 840, y: 1500, s: 0.85, pop: false, p: {show: podium}}]
-  - fact: Three days later, Congress gave him power to fight. Not one House member voted no.
-    hero: false
-    scene: study
-    scene_p: {time: night}
-    with: [{type: tv, x: 840, y: 1500, s: 0.85, pop: false, p: {show: podium}}]
-  - escalate: That vote opened the door to the Vietnam War.
-    hero: false
-    scene: study
-    scene_p: {time: night}
-    with: [{type: tv, x: 840, y: 1500, s: 0.85, pop: false, p: {show: flames}}]
-  - fact: In 2005, the NSA released its own secret history.
-  - calm: Its verdict? The second attack never happened.
-    hero: {blips: 0.0}
-  - fact: The intercepts that seemed to prove it were about the first fight.
-  - fact: Would you have trusted the radar?
-  - punch: Even the President later grumbled, they were just shooting at flying fish.
+- fact: Then the captain warns, freak weather and overeager sonarmen may explain the
+    reports. Nobody saw a boat.
+  hero:
+    blips: 0.5
+    ghost: true
+    sweat: true
+  gag:
+    mark: sweat
+    at: 50%
+- solo: A pilot flying overhead saw no boats. No wakes. Nothing but black sea.
+  hero: false
+  scene_p:
+    storm: true
+  with:
+  - type: jet
+    x: 300
+    y: 820
+    s: 0.6
+    pop: false
+    moves:
+    - at: 0
+      dur: 4.5
+      pos:
+      - 900
+      - 780
+      linear: true
+- fact: Too late. That night, the President went on TV and announced air strikes.
+  hero: false
+  scene: study
+  scene_p:
+    time: night
+  with:
+  - type: tv
+    x: 840
+    y: 1500
+    s: 0.85
+    pop: false
+    p:
+      show: podium
+  gag:
+    prop: rocket
+    at: 80%
+- fact: Three days later, Congress gave him power to fight. Not one House member voted
+    no.
+  hero: false
+  scene: study
+  scene_p:
+    time: night
+  with:
+  - type: tv
+    x: 840
+    y: 1500
+    s: 0.85
+    pop: false
+    p:
+      show: podium
+- escalate: That vote opened the door to the Vietnam War.
+  hero: false
+  scene: study
+  scene_p:
+    time: night
+  with:
+  - type: tv
+    x: 840
+    y: 1500
+    s: 0.85
+    pop: false
+    p:
+      show: flames
+  gag:
+    prop: skull
+    at: 70%
+- fact: In 2005, the NSA released its own secret history.
+- calm: Its verdict? The second attack never happened.
+  hero:
+    blips: 0.0
+  gag:
+    mark: shock
+    at: 60%
+- fact: The intercepts that seemed to prove it were about the first fight.
+- fact: Would you have trusted the radar?
+- punch: Even the President later grumbled, they were just shooting at flying fish.
+  gag:
+    thought: fish
+    at: 80%

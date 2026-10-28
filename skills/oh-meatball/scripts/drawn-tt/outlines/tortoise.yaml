@@ -1,59 +1,145 @@
 slug: tortoise
 out: episodes/drawn-tt
 specs: scripts/drawn-tt
-series: "Meatball's Animal Files"
+series: Meatball's Animal Files
 variant: A
 title: This Tortoise Can Go a Whole Year Without Food or Water 🐢
-tiktok_caption: "a tortoise that can skip food and water for a year 🐢 sailors stacked them alive as ship snacks. Would you ride one? 🐢 giddy up / 🙅 no way #meatballmyths #learnontiktok #tortoise #animalfacts"
+tiktok_caption: 'a tortoise that can skip food and water for a year 🐢 sailors stacked
+  them alive as ship snacks. Would you ride one? 🐢 giddy up / 🙅 no way #meatballmyths
+  #learnontiktok #tortoise #animalfacts'
 creature: giant_tortoise
 actor: creature
-creature_cfg: &cfg {plan: reptile, label: giant tortoise, color: "#8a8a7a", dark: "#5e5e52", accent: "#6a5a44",
-                    shell: true, length: 700, height: 230, mood: calm, s: 0.75}
-hero_p: {cfg: *cfg}
+creature_cfg: &id001
+  plan: reptile
+  label: giant tortoise
+  color: '#8a8a7a'
+  dark: '#5e5e52'
+  accent: '#6a5a44'
+  shell: true
+  length: 700
+  height: 230
+  mood: calm
+  s: 0.75
+hero_p:
+  cfg: *id001
 scene: desert
-scene_p: {time: day}
+scene_p:
+  time: day
 wild: desert
-wild_p: {time: dusk}
+wild_p:
+  time: dusk
 music: mystery
 next: Next, a worm that doctors still put on people.
 sources:
-  - "Galapagos Conservancy, Giant Tortoises: can survive without food or water for up to a year; pirates, whalers and fur sealers stored live giant tortoises in ship holds as fresh meat; tortoise oil lit the lamps of Quito; 100,000 to 200,000 tortoises lost; eat cactus pads, grasses and fruit; store large amounts of water in their bladders; 20,000-25,000 wild today; 'Galapagos' from the old Spanish word for saddle; finches dance in front of tortoises to ask to eat ticks and the tortoise stretches its neck; https://www.galapagos.org/about_galapagos/about-galapagos/biodiversity/tortoises/"
-  - "Smithsonian's National Zoo, Aldabra Tortoise: males up to 550 lb (250 kg); live more than 100 years; sleep about 18 hours a day; may eat dead tortoises or feces; wallow in mud against mosquitoes; https://nationalzoo.si.edu/animals/aldabra-tortoise"
-  - "Linda Hall Library, Voyages of the Beagle (Darwin's Voyage, Galapagos excerpt): Darwin got on the tortoises' backs, rapped their shells to make them walk, and found it very difficult to keep his balance; https://voyages.lindahall.org/darwin3.shtml"
+- 'Galapagos Conservancy, Giant Tortoises: can survive without food or water for up
+  to a year; pirates, whalers and fur sealers stored live giant tortoises in ship
+  holds as fresh meat; tortoise oil lit the lamps of Quito; 100,000 to 200,000 tortoises
+  lost; eat cactus pads, grasses and fruit; store large amounts of water in their
+  bladders; 20,000-25,000 wild today; ''Galapagos'' from the old Spanish word for
+  saddle; finches dance in front of tortoises to ask to eat ticks and the tortoise
+  stretches its neck; https://www.galapagos.org/about_galapagos/about-galapagos/biodiversity/tortoises/'
+- 'Smithsonian''s National Zoo, Aldabra Tortoise: males up to 550 lb (250 kg); live
+  more than 100 years; sleep about 18 hours a day; may eat dead tortoises or feces;
+  wallow in mud against mosquitoes; https://nationalzoo.si.edu/animals/aldabra-tortoise'
+- 'Linda Hall Library, Voyages of the Beagle (Darwin''s Voyage, Galapagos excerpt):
+  Darwin got on the tortoises'' backs, rapped their shells to make them walk, and
+  found it very difficult to keep his balance; https://voyages.lindahall.org/darwin3.shtml'
 yt:
-  - hook: This tortoise can go a whole year without food or water.
-    hero_moves: [{at: 0, dur: 1.2, pos: [760, 1500], walk: true}]
-  - name: The giant tortoise. Some weigh over five hundred pounds.
-    hero_at: {x: 760}
-  - solo: It stores water in its bladder, like a living canteen.
-  - xray: And it can live for more than a hundred years.
-    hero_at: {x: 760}
-  - escalate: That's exactly why sailors loved it.
-    hero_at: {x: 760}
-  - solo: They stacked them alive in the ship, as fresh meat for the trip.
-    scene: ship_deck
-    scene_p: {time: day}
+- hook: This tortoise can go a whole year without food or water.
+  hero_moves:
+  - at: 0
+    dur: 1.2
+    pos:
+    - 760
+    - 1500
+    walk: true
+  gag:
+  - clock: 4
+    at: 40%
+  - thought: leaf
+    at: 70%
+- name: The giant tortoise. Some weigh over five hundred pounds.
+  hero_at:
+    x: 760
+  gag:
+    meter: 1.0
+    at: 60%
+- solo: It stores water in its bladder, like a living canteen.
+- xray: And it can live for more than a hundred years.
+  hero_at:
+    x: 760
+  gag:
+    clock: 6
+    at: 50%
+    dur: 1.8
+- escalate: That's exactly why sailors loved it.
+  hero_at:
+    x: 760
+  gag:
+    mark: alarm
+    at: 50%
+- solo: They stacked them alive in the ship, as fresh meat for the trip.
+  scene: ship_deck
+  scene_p:
+    time: day
+  gag:
+    mark: shock
+    at: 40%
 tt:
-  - fact: Pirates, whalers, and seal hunters all did it.
-    hero_at: {x: 760}
-  - fact: As many as two hundred thousand tortoises were lost.
-    hero_at: {x: 760}
-  - fact: Their oil was even burned to light lamps in the city of Quito.
-    hero_at: {x: 760}
-  - fact: Today, only about twenty thousand roam the Galapagos.
-    hero_at: {x: 760}
-  - fact: The islands are named after them. Galapago meant saddle, like their shell.
-    hero_at: {x: 760}
-  - scale: Charles Darwin climbed onto their backs, and rode them.
-    how: shrink
-  - fact: He said keeping his balance was very hard.
-    hero_at: {x: 760}
-  - fact: It sleeps about eighteen hours a day.
-    hero_at: {x: 760}
-  - solo: Little birds dance in front of it, and it stretches out its neck so they can eat its ticks.
-  - escalate: And it's not a picky eater. It will eat dead tortoises. And poop.
-    hero_at: {x: 760}
-  - fact: Would you ride one?
-    hero_at: {x: 760}
-  - punch: Five hundred pounds, a hundred years old, and it snacks on poop.
-    hero_at: {x: 760}
+- fact: Pirates, whalers, and seal hunters all did it.
+  hero_at:
+    x: 760
+- fact: As many as two hundred thousand tortoises were lost.
+  hero_at:
+    x: 760
+  gag:
+    prop: skull
+    at: 50%
+- fact: Their oil was even burned to light lamps in the city of Quito.
+  hero_at:
+    x: 760
+- fact: Today, only about twenty thousand roam the Galapagos.
+  hero_at:
+    x: 760
+- fact: The islands are named after them. Galapago meant saddle, like their shell.
+  hero_at:
+    x: 760
+- scale: Charles Darwin climbed onto their backs, and rode them.
+  how: shrink
+  gag:
+    mark: sweat
+    at: 60%
+- fact: He said keeping his balance was very hard.
+  hero_at:
+    x: 760
+- fact: It sleeps about eighteen hours a day.
+  hero_at:
+    x: 760
+  gag:
+  - mark: zzz
+    at: 30%
+  - clock: 3
+    at: 60%
+- solo: Little birds dance in front of it, and it stretches out its neck so they can
+    eat its ticks.
+  gag:
+    pile: tick
+    n: 6
+    r: 26
+    at: 80%
+- escalate: And it's not a picky eater. It will eat dead tortoises. And poop.
+  hero_at:
+    x: 760
+  gag:
+    thought: poop
+    at: 85%
+- fact: Would you ride one?
+  hero_at:
+    x: 760
+- punch: Five hundred pounds, a hundred years old, and it snacks on poop.
+  hero_at:
+    x: 760
+  gag:
+    pile: poop
+    n: 4
+    at: 80%

@@ -4,46 +4,120 @@ specs: scripts/drawn-house
 series: Things Living In Your House
 part: 7
 title: Bed Bugs Drink Your Blood While You Sleep 🩸
-tiktok_caption: "bed bugs drink your blood for up to ten minutes and you never feel it 🩸 then they mate by stabbing. Would you check your mattress tonight? 🔦 yes / 🙈 never"
+tiktok_caption: bed bugs drink your blood for up to ten minutes and you never feel
+  it 🩸 then they mate by stabbing. Would you check your mattress tonight? 🔦 yes /
+  🙈 never
 creature: bed_bug
 s: 0.72
 scene: bedroom
-scene_p: {time: night}
+scene_p:
+  time: night
 music: mystery
 next: Part eight lives in your kitchen.
 next_scene: kitchen
-next_scene_p: {time: night}
+next_scene_p:
+  time: night
 sources:
-  - "University of Kentucky Entomology, Bed Bugs (ENTFACT-636, M. Potter): adults about 3/16 inch, reddish-brown, oval and flattened; fit into crevices no wider than a toothpick; active mainly at night; the bite is painless and a blood meal takes about three to ten minutes; nymphs and adults persist months without feeding, up to about a year at 55 F or cooler; females lay one or more eggs a day, hundreds in a lifetime; eggs about the size of a dust speck; nymphs molt five times and need a blood meal between each molt; disease transmission to humans not proven and considered unlikely; hide in mattress seams, box springs, bed frames, headboards; https://entomology.mgcafe.uky.edu/ef636"
-  - "US EPA, Bed Bugs: Appearance and Life Cycle: adult about the size of an apple seed; https://www.epa.gov/bedbugs/bed-bugs-appearance-and-life-cycle"
-  - "US Centers for Disease Control and Prevention, About Bed Bugs: 1-7 mm; not known to spread disease; bite at night while people sleep; stay near where people sleep; spread by hiding in luggage, bags, folded clothes and furniture; https://www.cdc.gov/bed-bugs/about/index.html"
-  - "University of Kentucky College of Agriculture news, UK entomologists help sequence bed bug genome: traumatic insemination, 'a male pierces the female's body and deposits sperm into her body cavity'; https://news.mgcafe.uky.edu/article/uk-entomologists-help-sequence-bed-bug-genome"
-  - "Wang et al. 2009, Journal of Economic Entomology (hosted by Purdue Extension), bed bug pitfall traps: carbon dioxide and heat both attract bed bugs, CO2 more strongly; https://www.extension.entm.purdue.edu/bedbugs/pdf/BedBugTrap.pdf"
+- 'University of Kentucky Entomology, Bed Bugs (ENTFACT-636, M. Potter): adults about
+  3/16 inch, reddish-brown, oval and flattened; fit into crevices no wider than a
+  toothpick; active mainly at night; the bite is painless and a blood meal takes about
+  three to ten minutes; nymphs and adults persist months without feeding, up to about
+  a year at 55 F or cooler; females lay one or more eggs a day, hundreds in a lifetime;
+  eggs about the size of a dust speck; nymphs molt five times and need a blood meal
+  between each molt; disease transmission to humans not proven and considered unlikely;
+  hide in mattress seams, box springs, bed frames, headboards; https://entomology.mgcafe.uky.edu/ef636'
+- 'US EPA, Bed Bugs: Appearance and Life Cycle: adult about the size of an apple seed;
+  https://www.epa.gov/bedbugs/bed-bugs-appearance-and-life-cycle'
+- 'US Centers for Disease Control and Prevention, About Bed Bugs: 1-7 mm; not known
+  to spread disease; bite at night while people sleep; stay near where people sleep;
+  spread by hiding in luggage, bags, folded clothes and furniture; https://www.cdc.gov/bed-bugs/about/index.html'
+- 'University of Kentucky College of Agriculture news, UK entomologists help sequence
+  bed bug genome: traumatic insemination, ''a male pierces the female''s body and
+  deposits sperm into her body cavity''; https://news.mgcafe.uky.edu/article/uk-entomologists-help-sequence-bed-bug-genome'
+- 'Wang et al. 2009, Journal of Economic Entomology (hosted by Purdue Extension),
+  bed bug pitfall traps: carbon dioxide and heat both attract bed bugs, CO2 more strongly;
+  https://www.extension.entm.purdue.edu/bedbugs/pdf/BedBugTrap.pdf'
 yt:
-  - hook: Right now, something in your bed is waiting for you to fall asleep.
-  - name: The bed bug. Flat, reddish brown, about the size of an apple seed.
-  - solo: By day, it hides in the seams of your mattress.
-    scene: fibers
-  - solo: At night, it follows your breath. The carbon dioxide you breathe out.
-    scene: bedroom
-    scene_p: {time: night}
-    with: [{type: sleeper, x: 380, y: 1190, s: 1.0, pop: false, front: false, p: {zz: 1.0}}]
-  - escalate: Then it bites, and drinks your blood for up to ten minutes.
-  - punch: And you never feel a thing.
+- hook: Right now, something in your bed is waiting for you to fall asleep.
+  gag:
+    prop: bed
+    at: 50%
+- name: The bed bug. Flat, reddish brown, about the size of an apple seed.
+  gag:
+    prop: ruler
+    at: 80%
+- solo: By day, it hides in the seams of your mattress.
+  scene: fibers
+- solo: At night, it follows your breath. The carbon dioxide you breathe out.
+  scene: bedroom
+  scene_p:
+    time: night
+  with:
+  - type: sleeper
+    x: 380
+    y: 1190
+    s: 1.0
+    pop: false
+    front: false
+    p:
+      zz: 1.0
+  gag:
+    prop: moon
+    at: 10%
+- escalate: Then it bites, and drinks your blood for up to ten minutes.
+  gag:
+    clock: 1
+    at: 70%
+- punch: And you never feel a thing.
+  gag:
+    mark: zzz
+    at: 50%
 tt:
-  - xray: Its bite is painless, so you just keep sleeping.
-  - fact: The babies need a full blood meal before every single growth stage.
-  - count: Five stages. Five meals. All of them, you.
-    with: [bed_bug, bed_bug, bed_bug]
-  - solo: A female lays eggs every day. Hundreds in her life. Each one the size of a dust speck.
-    scene: fibers
-  - fact: Now the gross part. The male doesn't mate the normal way.
-  - escalate: He stabs straight through her body, and injects his sperm inside.
-  - fact: Scientists actually call it traumatic insemination.
-  - calm: And starving them out doesn't work. In a cool room, they can wait about a year without eating.
-  - fact: The good news? They're not known to spread disease. Just itchy bites.
-  - solo: They ride home in luggage and folded clothes.
-    scene: bedroom
-    scene_p: {time: day}
-  - fact: Would you check your mattress tonight?
-  - punch: Sleep tight. Something in there is counting on it.
+- xray: Its bite is painless, so you just keep sleeping.
+- fact: The babies need a full blood meal before every single growth stage.
+- count: Five stages. Five meals. All of them, you.
+  with:
+  - bed_bug
+  - bed_bug
+  - bed_bug
+- solo: A female lays eggs every day. Hundreds in her life. Each one the size of a
+    dust speck.
+  scene: fibers
+  gag:
+    pile: egg
+    n: 10
+    r: 24
+    at: 30%
+    dur: 1.8
+- fact: Now the gross part. The male doesn't mate the normal way.
+  gag:
+    mark: hearts
+    at: 70%
+- escalate: He stabs straight through her body, and injects his sperm inside.
+  gag:
+    mark: shock
+    at: 40%
+- fact: Scientists actually call it traumatic insemination.
+  gag:
+    prop: magnifier
+    at: 40%
+- calm: And starving them out doesn't work. In a cool room, they can wait about a
+    year without eating.
+  gag:
+  - prop: snowflake
+    at: 30%
+  - clock: 4
+    at: 70%
+- fact: The good news? They're not known to spread disease. Just itchy bites.
+- solo: They ride home in luggage and folded clothes.
+  scene: bedroom
+  scene_p:
+    time: day
+- fact: Would you check your mattress tonight?
+  gag:
+    prop: bed
+    at: 70%
+- punch: Sleep tight. Something in there is counting on it.
+  gag:
+    mark: zzz
+    at: 20%

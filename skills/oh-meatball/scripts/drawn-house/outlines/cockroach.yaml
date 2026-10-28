@@ -4,40 +4,111 @@ specs: scripts/drawn-house
 series: Things Living In Your House
 part: 8
 title: A Cockroach Can Live for Weeks Without Its Head 🪳
-tiktok_caption: "a cockroach can live for weeks with no head 🪳 and it eats your soap. Would you stomp it or run? 👟 stomp / 🏃 run"
+tiktok_caption: a cockroach can live for weeks with no head 🪳 and it eats your soap.
+  Would you stomp it or run? 👟 stomp / 🏃 run
 creature: roach
 s: 0.7
 scene: kitchen
-scene_p: {time: night}
+scene_p:
+  time: night
 music: mystery
 next: Part nine comes out in your kitchen at night.
 next_scene: kitchen
-next_scene_p: {time: night}
+next_scene_p:
+  time: night
 sources:
-  - "Scientific American, Fact or Fiction?: A Cockroach Can Live without Its Head (C. Choi, 2007), quoting entomologist Christopher Tipping (Delaware Valley College) and physiologist Joseph Kunkel (UMass Amherst): decapitated American cockroaches, necks sealed, lasted several weeks in a jar; open circulatory system with low pressure, necks often seal by clotting; they breathe through spiracles in body segments without needing the brain; can survive weeks on one meal; eventually die of mold, bacteria or virus; https://www.scientificamerican.com/article/fact-or-fiction-cockroach-can-live-without-head/"
-  - "UC Berkeley News, Cockroach inspires robot that squeezes through cracks (2016, Jayaram and Full, PNAS): cockroaches compress to about a quarter of their standing height, about two stacked pennies; withstand forces of 900 times their body weight without injury; https://news.berkeley.edu/2016/02/08/cockroach-inspires-robot-that-squeezes-through-cracks/"
-  - "University of Kentucky Entomology, Cockroach Control Manual (ENTFACT-614): German cockroach most common indoors; most active at night, hide in cracks near food, warmth and moisture; eat nearly all human food plus soap, toothpaste, glue, hair; up to 40 young hatch from one German cockroach egg case; one mated female can produce thousands of cockroaches in less than a year; droppings and shed skins cause allergies and can trigger asthma, especially in children; can spread microbes that cause food poisoning; https://entomology.mgcafe.uky.edu/ef614"
+- 'Scientific American, Fact or Fiction?: A Cockroach Can Live without Its Head (C.
+  Choi, 2007), quoting entomologist Christopher Tipping (Delaware Valley College)
+  and physiologist Joseph Kunkel (UMass Amherst): decapitated American cockroaches,
+  necks sealed, lasted several weeks in a jar; open circulatory system with low pressure,
+  necks often seal by clotting; they breathe through spiracles in body segments without
+  needing the brain; can survive weeks on one meal; eventually die of mold, bacteria
+  or virus; https://www.scientificamerican.com/article/fact-or-fiction-cockroach-can-live-without-head/'
+- 'UC Berkeley News, Cockroach inspires robot that squeezes through cracks (2016,
+  Jayaram and Full, PNAS): cockroaches compress to about a quarter of their standing
+  height, about two stacked pennies; withstand forces of 900 times their body weight
+  without injury; https://news.berkeley.edu/2016/02/08/cockroach-inspires-robot-that-squeezes-through-cracks/'
+- 'University of Kentucky Entomology, Cockroach Control Manual (ENTFACT-614): German
+  cockroach most common indoors; most active at night, hide in cracks near food, warmth
+  and moisture; eat nearly all human food plus soap, toothpaste, glue, hair; up to
+  40 young hatch from one German cockroach egg case; one mated female can produce
+  thousands of cockroaches in less than a year; droppings and shed skins cause allergies
+  and can trigger asthma, especially in children; can spread microbes that cause food
+  poisoning; https://entomology.mgcafe.uky.edu/ef614'
 yt:
-  - hook: A cockroach can live for weeks without its head.
-  - name: The cockroach. And it's in your kitchen, after dark.
-  - solo: It doesn't need a head to breathe. Air goes in through little holes along its body.
-  - xray: And its blood runs at such low pressure that the neck often just clots shut.
-  - escalate: In one lab, headless roaches lasted weeks in a jar.
-  - punch: It just never gets to eat again.
+- hook: A cockroach can live for weeks without its head.
+  gag:
+  - mark: dizzy
+    at: 30%
+  - clock: 3
+    at: 50%
+- name: The cockroach. And it's in your kitchen, after dark.
+  gag:
+    prop: moon
+    at: 80%
+- solo: It doesn't need a head to breathe. Air goes in through little holes along
+    its body.
+- xray: And its blood runs at such low pressure that the neck often just clots shut.
+- escalate: In one lab, headless roaches lasted weeks in a jar.
+  gag:
+    clock: 4
+    at: 60%
+- punch: It just never gets to eat again.
+  gag:
+    thought: bone
+    at: 60%
 tt:
-  - solo: At night it comes out of the cracks, looking for food.
-    scene: kitchen
-    scene_p: {time: night}
-  - fact: And it eats almost anything. Your crumbs. Your soap. Glue. Toothpaste. Even hair.
-  - fact: It can flatten itself to a quarter of its height.
-  - solo: That's a gap as thin as two stacked pennies.
-    scene: basement
-  - escalate: Berkeley scientists found it can take forces 900 times its body weight, and walk away.
-  - count: One egg case can hatch up to forty babies.
-    with: [roach, roach, roach]
-  - escalate: One female can start thousands of roaches in less than a year.
-  - calm: And here's the part nobody thinks about. Their droppings and shed skins float in the air.
-  - fact: For some kids, that can trigger asthma.
-  - fact: They also track germs from the trash onto your food.
-  - fact: So, you see one on the counter. Would you stomp it, or run?
-  - punch: Just don't count on the head to finish it off.
+- solo: At night it comes out of the cracks, looking for food.
+  scene: kitchen
+  scene_p:
+    time: night
+- fact: And it eats almost anything. Your crumbs. Your soap. Glue. Toothpaste. Even
+    hair.
+  gag:
+    thought: cube
+    at: 40%
+- fact: It can flatten itself to a quarter of its height.
+  gag:
+    prop: ruler
+    at: 50%
+- solo: That's a gap as thin as two stacked pennies.
+  scene: basement
+- escalate: Berkeley scientists found it can take forces 900 times its body weight,
+    and walk away.
+  gag:
+  - meter: 1.0
+    at: 40%
+  - mark: stars
+    at: 90%
+- count: One egg case can hatch up to forty babies.
+  with:
+  - roach
+  - roach
+  - roach
+  gag:
+    pile: baby
+    n: 10
+    r: 26
+    at: 40%
+    dur: 1.8
+- escalate: One female can start thousands of roaches in less than a year.
+  gag:
+    clock: 2
+    at: 70%
+- calm: And here's the part nobody thinks about. Their droppings and shed skins float
+    in the air.
+  gag:
+    pile: poop
+    n: 5
+    r: 26
+    at: 40%
+- fact: For some kids, that can trigger asthma.
+- fact: They also track germs from the trash onto your food.
+  gag:
+    mark: stink
+    at: 50%
+- fact: So, you see one on the counter. Would you stomp it, or run?
+  gag:
+    mark: alarm
+    at: 60%
+- punch: Just don't count on the head to finish it off.
