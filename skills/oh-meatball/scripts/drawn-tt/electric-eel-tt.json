@@ -59,6 +59,16 @@
    "hero_at": {
     "x": 760
    },
+   "gag": [
+    {
+     "meter": 1.0,
+     "at": "40%"
+    },
+    {
+     "zap": true,
+     "at": "50%"
+    }
+   ],
    "m": "hook",
    "say": "One kind of electric eel can hit eight hundred sixty volts."
   },
@@ -76,12 +86,20 @@
    },
    "scene": "deep",
    "mood": "smug",
+   "gag": {
+    "mark": "shock",
+    "at": "60%"
+   },
    "m": "solo",
    "say": "First, a secret. It isn't actually an eel."
   },
   {
    "hero_at": {
     "x": 760
+   },
+   "gag": {
+    "thought": "fish",
+    "at": "60%"
    },
    "m": "name",
    "say": "It's a knifefish, closer to catfish than to eels."
@@ -90,6 +108,10 @@
    "how": "grow",
    "hero_at": {
     "x": 760
+   },
+   "gag": {
+    "prop": "ruler",
+    "at": "50%"
    },
    "m": "scale",
    "say": "And it grows up to eight feet long."
@@ -114,6 +136,10 @@
      "mood": "angry"
     }
    },
+   "gag": {
+    "zap": true,
+    "at": "60%"
+   },
    "m": "solo",
    "say": "Most of that body is packed with electric organs."
   },
@@ -132,6 +158,10 @@
   {
    "hero_at": {
     "x": 760
+   },
+   "gag": {
+    "mark": "anger",
+    "at": "40%"
    },
    "m": "chase",
    "say": "Threaten it, and it leaps out of the water at you."
@@ -154,6 +184,10 @@
    "act": {
     "bite": 1.0
    },
+   "gag": {
+    "zap": true,
+    "at": "70%"
+   },
    "m": "solo",
    "say": "It presses its chin on you, and zaps."
   },
@@ -166,6 +200,10 @@
     "time": "day"
    },
    "mood": "angry",
+   "gag": {
+    "mark": "shock",
+    "at": "50%"
+   },
    "m": "solo",
    "say": "Out of the water, the shock goes straight into you."
   },
@@ -192,6 +230,10 @@
    "with": [
     "goldfish"
    ],
+   "gag": {
+    "zap": true,
+    "at": "70%"
+   },
    "m": "solo",
    "say": "When a fish hides, it sends a big pulse."
   },
@@ -205,6 +247,10 @@
    },
    "act": {
     "bite": 1.0
+   },
+   "gag": {
+    "thought": "fish",
+    "at": "40%"
    },
    "m": "solo",
    "say": "The fish twitches, and gives away where it is."
@@ -275,6 +321,12 @@
     "goldfish",
     "goldfish"
    ],
+   "gag": {
+    "pile": "fish",
+    "n": 8,
+    "r": 30,
+    "at": "50%"
+   },
    "m": "solo",
    "say": "They herd little fish into a ball."
   },
@@ -298,6 +350,10 @@
      "mood": "angry"
     }
    },
+   "gag": {
+    "zap": true,
+    "at": "50%"
+   },
    "m": "solo",
    "say": "Then they all strike together."
   },
@@ -310,6 +366,10 @@
     "time": "day"
    },
    "mood": "happy",
+   "gag": {
+    "clock": 1,
+    "at": "30%"
+   },
    "m": "solo",
    "say": "Every few minutes, it rises to gulp air."
   },
@@ -336,12 +396,16 @@
    "hero_at": {
     "x": 760
    },
+   "gag": {
+    "meter": 1.0,
+    "at": "70%"
+   },
    "m": "punch",
    "say": "A fish called an eel, that hits harder than a wall socket."
   },
   {
    "m": "tease",
-   "say": "Subscribe. Next, a bird with a dagger on its foot."
+   "say": "Follow me. Next, a bird with a dagger on its foot."
   }
  ]
 }
