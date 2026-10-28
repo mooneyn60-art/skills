@@ -25,10 +25,24 @@
  "tiktok_caption": "a cockroach can live for weeks with no head 🪳 and it eats your soap. Would you stomp it or run? 👟 stomp / 🏃 run",
  "beats": [
   {
+   "gag": [
+    {
+     "mark": "dizzy",
+     "at": "30%"
+    },
+    {
+     "clock": 3,
+     "at": "50%"
+    }
+   ],
    "m": "hook",
    "say": "A cockroach can live for weeks without its head."
   },
   {
+   "gag": {
+    "prop": "moon",
+    "at": "80%"
+   },
    "m": "name",
    "say": "The cockroach. And it's in your kitchen, after dark."
   },
@@ -41,10 +55,18 @@
    "say": "And its blood runs at such low pressure that the neck often just clots shut."
   },
   {
+   "gag": {
+    "clock": 4,
+    "at": "60%"
+   },
    "m": "escalate",
    "say": "In one lab, headless roaches lasted weeks in a jar."
   },
   {
+   "gag": {
+    "thought": "bone",
+    "at": "60%"
+   },
    "m": "punch",
    "say": "It just never gets to eat again."
   },
