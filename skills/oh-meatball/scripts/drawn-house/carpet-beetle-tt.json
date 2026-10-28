@@ -7,10 +7,10 @@
   "Museum pest guidance (MuseumPests.net, Carpet beetles): carpet beetles are among the most damaging pests of museum collections, attacking wool, fur, feathers, taxidermy and insect collections; https://museumpests.net/carpet-beetles/"
  ],
  "photo_credits": [],
- "voice": "en-US-AndrewMultilingualNeural",
+ "voice": "kokoro:fenrir",
  "rate": "+10%",
  "music": "mystery",
- "music_db": -26,
+ "music_db": -20,
  "captions": 66,
  "caption_y": 1640,
  "stage": {
@@ -417,6 +417,33 @@
    },
    "m": "tiny",
    "say": "Along the edges of the rug."
+  },
+  {
+   "scene": "fibers",
+   "hero": {
+    "cfg": {
+     "plan": "centipede",
+     "label": "carpet beetle larva",
+     "color": "#9a6a3c",
+     "dark": "#5a3a20",
+     "legs": 3,
+     "leg_len": 0.35,
+     "ant": 30,
+     "long_last": false,
+     "bands": false,
+     "stripes": 6,
+     "length": 440,
+     "height": 170,
+     "mood": "happy"
+    }
+   },
+   "m": "tiny",
+   "say": "And in your closet, wherever it's dark and nobody looks."
+  },
+  {
+   "scene": "sill",
+   "m": "solo",
+   "say": "They even eat dead bugs, so your dusty windowsill is a buffet."
   },
   {
    "scene": "sill",
