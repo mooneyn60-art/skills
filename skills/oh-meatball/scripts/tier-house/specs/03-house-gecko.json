@@ -1,0 +1,212 @@
+{
+ "voice": "kokoro:fenrir",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "photo_credits": [],
+ "stage": {
+  "creature": "gecko",
+  "s": 0.6,
+  "scene": "sill",
+  "scene_p": {
+   "time": "night"
+  },
+  "creature_cfg": {
+   "length": 520,
+   "height": 140,
+   "leg_len": 70,
+   "s": 0.6
+  },
+  "wild": "garden",
+  "wild_p": {
+   "time": "night"
+  }
+ },
+ "sources": [
+  "Autumn et al. 2000, Nature, Adhesive force of a single gecko foot-hair; and Lewis & Clark College / UC Berkeley summaries: gecko toe pads carry millions of microscopic hairs (setae) that branch into hundreds of even finer tips (spatulae); they stick by van der Waals forces, dry, with no glue or suction; https://www.nature.com/articles/35015073",
+  "Smithsonian's National Zoo, Leopard gecko / gecko facts; San Diego Zoo Wildlife Alliance, Lizards: most geckos have no movable eyelids, a clear scale covers the eye and the gecko licks it clean with its tongue; many lizards, including geckos, can drop the tail to escape a predator, the dropped tail keeps wriggling, and it grows back with cartilage instead of bone; https://animals.sandiegozoo.org/animals/lizard",
+  "University of Florida IFAS (Wildlife Ecology, Florida's introduced reptiles: Hemidactylus geckos), Common house gecko and Mediterranean house gecko: nocturnal, often seen on walls and around outdoor lights hunting insects attracted to the light; the common house gecko is native to Southeast Asia and has spread around the world with people and cargo; house geckos are harmless to people; they make chirping calls; https://edis.ifas.ufl.edu/publication/UW259"
+ ],
+ "beats": [
+  {
+   "m": "name",
+   "say": "Number fifteen. The house gecko. Out at night, on your walls."
+  },
+  {
+   "m": "fact",
+   "say": "It waits by your porch light. Bugs fly to the light, and it snaps them up."
+  },
+  {
+   "m": "xray",
+   "say": "It has no eyelids, just a clear scale. So it licks its eyeballs clean."
+  },
+  {
+   "m": "fact",
+   "say": "And it walks across the ceiling with no glue at all. Its toes are covered in microscopic hairs."
+  },
+  {
+   "m": "fact",
+   "say": "Grab its tail, and it lets go. The tail keeps wiggling, to fool the hunter."
+  },
+  {
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   },
+   "say": "House gecko. F tier. Harmless, and it eats the bugs you don't want.",
+   "pad": 0.25,
+   "shots": [
+    {
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      930,
+      1.05
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "pos": [
+      540,
+      430
+     ],
+     "s": 0.92,
+     "id": "board",
+     "type": "tierboard",
+     "p": {
+      "icons": [
+       {
+        "type": "cellar_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.jumping_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.gecko",
+        "tier": "F"
+       }
+      ],
+      "hide_s": true,
+      "drop": 0.0
+     },
+     "set": [
+      {
+       "at": "12%",
+       "dur": 0.75,
+       "p": {
+        "drop": 1.0
+       }
+      },
+      {
+       "at": "35%",
+       "dur": 0.3,
+       "p": {
+        "glow": 1.0
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "point",
+    "pos": [
+     150,
+     1890
+    ],
+    "size": 560,
+    "look": "board",
+    "gest": [
+     [
+      "55%",
+      "shrug",
+      1.2
+     ]
+    ]
+   },
+   "sfx": [
+    "whoosh@10%",
+    "boing@32%"
+   ]
+  },
+  {
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   },
+   "say": "Still to come. The one at the top has venom fifteen times more toxic than a rattlesnake's.",
+   "pad": 0.25,
+   "shots": [
+    {
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      640,
+      1.22
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "pos": [
+      540,
+      430
+     ],
+     "s": 0.92,
+     "id": "board",
+     "type": "tierboard",
+     "p": {
+      "icons": [
+       {
+        "type": "cellar_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.jumping_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.gecko",
+        "tier": "F"
+       }
+      ],
+      "hide_s": true,
+      "drop": 1.0
+     },
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "think",
+    "pos": [
+     150,
+     1890
+    ],
+    "size": 560,
+    "look": "board",
+    "gest": [
+     [
+      "55%",
+      "shock",
+      1.2
+     ]
+    ]
+   },
+   "sfx": [
+    "whoosh@5%",
+    "tink@60%"
+   ]
+  }
+ ]
+}

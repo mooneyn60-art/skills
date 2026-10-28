@@ -1,0 +1,246 @@
+{
+ "voice": "kokoro:fenrir",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "photo_credits": [],
+ "stage": {
+  "creature": "carpet_beetle",
+  "actor": "creature",
+  "s": 0.85,
+  "scene": "sill",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "insect",
+   "label": "carpet beetle",
+   "body": "round",
+   "color": "#6b4f3a",
+   "dark": "#efe4c8",
+   "head": "#3a2a20",
+   "length": 400,
+   "height": 230,
+   "leg_len": 90,
+   "ant": 120,
+   "stripes": 3,
+   "wings": "shell",
+   "mood": "smug",
+   "s": 0.85
+  },
+  "wild": "garden",
+  "wild_p": {
+   "time": "day"
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "insect",
+    "label": "carpet beetle",
+    "body": "round",
+    "color": "#6b4f3a",
+    "dark": "#efe4c8",
+    "head": "#3a2a20",
+    "length": 400,
+    "height": 230,
+    "leg_len": 90,
+    "ant": 120,
+    "stripes": 3,
+    "wings": "shell",
+    "mood": "smug",
+    "s": 0.85
+   }
+  }
+ },
+ "sources": [
+  "University of California IPM, Carpets beetles (Pest Notes 7436): adults are small (about 1/8 inch), round, often mottled with white, brown and yellow scales; adults feed on pollen and nectar outdoors and are attracted to light, often found at windows; larvae damage wool, fur, feathers, silk, hair and dead insects; larvae shed skins as they grow; larval hairs can irritate skin in some people; control by regular vacuuming of carpets, edges and under furniture and by cleaning wool items before storage; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7436.html",
+  "University of Minnesota Extension, Carpet beetles: larvae feed in dark, undisturbed places such as under furniture, along carpet edges and in closets; shed larval skins are a common sign; https://extension.umn.edu/product-and-food-pests/carpet-beetles",
+  "Smithsonian National Museum of Natural History, Osteology Prep Lab: colonies of dermestid beetles (family Dermestidae, the carpet beetle family) clean the soft tissue from skeletons for the collection, gentle enough for small delicate bones; https://naturalhistory.si.edu/research/vertebrate-zoology",
+  "Museum pest guidance (MuseumPests.net, Carpet beetles): carpet beetles are among the most damaging pests of museum collections, attacking wool, fur, feathers, taxidermy and insect collections; https://museumpests.net/carpet-beetles/"
+ ],
+ "beats": [
+  {
+   "m": "name",
+   "say": "Number eight. The carpet beetle on your window. Smaller than a grain of rice."
+  },
+  {
+   "m": "fact",
+   "say": "Outside, it sips pollen from flowers. But it lays its eggs inside."
+  },
+  {
+   "m": "fact",
+   "say": "Its babies hatch fuzzy and hungry. They eat wool, fur, feathers, and silk."
+  },
+  {
+   "m": "fact",
+   "say": "In the dark, they chew holes in your sweaters. Even the pet hair under your couch."
+  },
+  {
+   "m": "xray",
+   "say": "Up close, it's covered in bristles. And on some people, they cause an itchy rash."
+  },
+  {
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   },
+   "say": "Carpet beetle. C tier. Holes in your sweaters, and a rash for some people.",
+   "pad": 0.25,
+   "shots": [
+    {
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      930,
+      1.05
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "pos": [
+      540,
+      430
+     ],
+     "s": 0.92,
+     "id": "board",
+     "type": "tierboard",
+     "p": {
+      "icons": [
+       {
+        "type": "cellar_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.jumping_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.gecko",
+        "tier": "F"
+       },
+       {
+        "type": "sp.demodex",
+        "tier": "F"
+       },
+       {
+        "type": "sp.silverfish",
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "fruit fly",
+         "body": "round",
+         "color": "#c99a5a",
+         "dark": "#7a4a24",
+         "head": "#b8742e",
+         "length": 320,
+         "height": 160,
+         "leg_len": 90,
+         "ant": 70,
+         "stripes": 4,
+         "wings": "clear",
+         "eye_r": 34,
+         "floor": false,
+         "mood": "smug",
+         "s": 0.95
+        },
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "pantry moth",
+         "body": "long",
+         "color": "#a8683a",
+         "dark": "#d9cdb4",
+         "head": "#8a5a34",
+         "length": 360,
+         "height": 120,
+         "leg_len": 80,
+         "ant": 170,
+         "stripes": 3,
+         "wings": "clear",
+         "floor": false,
+         "mood": "smug",
+         "s": 1.0
+        },
+        "tier": "D"
+       },
+       {
+        "type": "sp.earwig",
+        "tier": "D"
+       },
+       {
+        "type": "sp.house_centipede",
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "carpet beetle",
+         "body": "round",
+         "color": "#6b4f3a",
+         "dark": "#efe4c8",
+         "head": "#3a2a20",
+         "length": 400,
+         "height": 230,
+         "leg_len": 90,
+         "ant": 120,
+         "stripes": 3,
+         "wings": "shell",
+         "mood": "smug",
+         "s": 0.85
+        },
+        "tier": "C"
+       }
+      ],
+      "hide_s": true,
+      "drop": 0.0
+     },
+     "set": [
+      {
+       "at": "12%",
+       "dur": 0.75,
+       "p": {
+        "drop": 1.0
+       }
+      },
+      {
+       "at": "35%",
+       "dur": 0.3,
+       "p": {
+        "glow": 1.0
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "point",
+    "pos": [
+     150,
+     1890
+    ],
+    "size": 560,
+    "look": "board",
+    "gest": [
+     [
+      "55%",
+      "shrug",
+      1.2
+     ]
+    ]
+   },
+   "sfx": [
+    "whoosh@10%",
+    "boing@32%"
+   ]
+  }
+ ]
+}

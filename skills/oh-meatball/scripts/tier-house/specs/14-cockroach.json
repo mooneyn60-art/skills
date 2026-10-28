@@ -1,0 +1,386 @@
+{
+ "voice": "kokoro:fenrir",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "photo_credits": [],
+ "stage": {
+  "creature": "roach",
+  "s": 0.7,
+  "scene": "kitchen",
+  "scene_p": {
+   "time": "night"
+  }
+ },
+ "sources": [
+  "Scientific American, Fact or Fiction?: A Cockroach Can Live without Its Head (C. Choi, 2007), quoting entomologist Christopher Tipping (Delaware Valley College) and physiologist Joseph Kunkel (UMass Amherst): decapitated American cockroaches, necks sealed, lasted several weeks in a jar; open circulatory system with low pressure, necks often seal by clotting; they breathe through spiracles in body segments without needing the brain; can survive weeks on one meal; eventually die of mold, bacteria or virus; https://www.scientificamerican.com/article/fact-or-fiction-cockroach-can-live-without-head/",
+  "UC Berkeley News, Cockroach inspires robot that squeezes through cracks (2016, Jayaram and Full, PNAS): cockroaches compress to about a quarter of their standing height, about two stacked pennies; withstand forces of 900 times their body weight without injury; https://news.berkeley.edu/2016/02/08/cockroach-inspires-robot-that-squeezes-through-cracks/",
+  "University of Kentucky Entomology, Cockroach Control Manual (ENTFACT-614): German cockroach most common indoors; most active at night, hide in cracks near food, warmth and moisture; eat nearly all human food plus soap, toothpaste, glue, hair; up to 40 young hatch from one German cockroach egg case; one mated female can produce thousands of cockroaches in less than a year; droppings and shed skins cause allergies and can trigger asthma, especially in children; can spread microbes that cause food poisoning; https://entomology.mgcafe.uky.edu/ef614"
+ ],
+ "beats": [
+  {
+   "m": "name",
+   "say": "Number four. The cockroach. In your kitchen, after dark."
+  },
+  {
+   "m": "fact",
+   "say": "It eats almost anything. Your crumbs. Your soap. Glue. Toothpaste. Even hair."
+  },
+  {
+   "m": "fact",
+   "say": "It can flatten itself into a gap as thin as two stacked pennies."
+  },
+  {
+   "m": "escalate",
+   "say": "Now the part nobody thinks about. Their droppings and shed skins float in the air."
+  },
+  {
+   "m": "fact",
+   "say": "For some kids, that can trigger asthma. And they track germs from the trash onto your food."
+  },
+  {
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   },
+   "say": "Cockroach. A tier. Asthma triggers, and germs on your food.",
+   "pad": 0.25,
+   "shots": [
+    {
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      930,
+      1.05
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "pos": [
+      540,
+      430
+     ],
+     "s": 0.92,
+     "id": "board",
+     "type": "tierboard",
+     "p": {
+      "icons": [
+       {
+        "type": "cellar_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.jumping_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.gecko",
+        "tier": "F"
+       },
+       {
+        "type": "sp.demodex",
+        "tier": "F"
+       },
+       {
+        "type": "sp.silverfish",
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "fruit fly",
+         "body": "round",
+         "color": "#c99a5a",
+         "dark": "#7a4a24",
+         "head": "#b8742e",
+         "length": 320,
+         "height": 160,
+         "leg_len": 90,
+         "ant": 70,
+         "stripes": 4,
+         "wings": "clear",
+         "eye_r": 34,
+         "floor": false,
+         "mood": "smug",
+         "s": 0.95
+        },
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "pantry moth",
+         "body": "long",
+         "color": "#a8683a",
+         "dark": "#d9cdb4",
+         "head": "#8a5a34",
+         "length": 360,
+         "height": 120,
+         "leg_len": 80,
+         "ant": 170,
+         "stripes": 3,
+         "wings": "clear",
+         "floor": false,
+         "mood": "smug",
+         "s": 1.0
+        },
+        "tier": "D"
+       },
+       {
+        "type": "sp.earwig",
+        "tier": "D"
+       },
+       {
+        "type": "sp.house_centipede",
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "carpet beetle",
+         "body": "round",
+         "color": "#6b4f3a",
+         "dark": "#efe4c8",
+         "head": "#3a2a20",
+         "length": 400,
+         "height": 230,
+         "leg_len": 90,
+         "ant": 120,
+         "stripes": 3,
+         "wings": "shell",
+         "mood": "smug",
+         "s": 0.85
+        },
+        "tier": "C"
+       },
+       {
+        "type": "sp.dust_mite",
+        "tier": "C"
+       },
+       {
+        "type": "sp.bed_bug",
+        "tier": "C"
+       },
+       {
+        "type": "sp.wolf_spider",
+        "tier": "B"
+       },
+       {
+        "type": "sp.roach",
+        "tier": "A"
+       }
+      ],
+      "hide_s": true,
+      "drop": 0.0
+     },
+     "set": [
+      {
+       "at": "12%",
+       "dur": 0.75,
+       "p": {
+        "drop": 1.0
+       }
+      },
+      {
+       "at": "35%",
+       "dur": 0.3,
+       "p": {
+        "glow": 1.0
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "point",
+    "pos": [
+     150,
+     1890
+    ],
+    "size": 560,
+    "look": "board",
+    "gest": [
+     [
+      "55%",
+      "shrug",
+      1.2
+     ]
+    ]
+   },
+   "sfx": [
+    "whoosh@10%",
+    "boing@32%"
+   ]
+  },
+  {
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   },
+   "say": "Three left. And the top two are both spiders, with real venom.",
+   "pad": 0.25,
+   "shots": [
+    {
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      640,
+      1.22
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "pos": [
+      540,
+      430
+     ],
+     "s": 0.92,
+     "id": "board",
+     "type": "tierboard",
+     "p": {
+      "icons": [
+       {
+        "type": "cellar_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.jumping_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.gecko",
+        "tier": "F"
+       },
+       {
+        "type": "sp.demodex",
+        "tier": "F"
+       },
+       {
+        "type": "sp.silverfish",
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "fruit fly",
+         "body": "round",
+         "color": "#c99a5a",
+         "dark": "#7a4a24",
+         "head": "#b8742e",
+         "length": 320,
+         "height": 160,
+         "leg_len": 90,
+         "ant": 70,
+         "stripes": 4,
+         "wings": "clear",
+         "eye_r": 34,
+         "floor": false,
+         "mood": "smug",
+         "s": 0.95
+        },
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "pantry moth",
+         "body": "long",
+         "color": "#a8683a",
+         "dark": "#d9cdb4",
+         "head": "#8a5a34",
+         "length": 360,
+         "height": 120,
+         "leg_len": 80,
+         "ant": 170,
+         "stripes": 3,
+         "wings": "clear",
+         "floor": false,
+         "mood": "smug",
+         "s": 1.0
+        },
+        "tier": "D"
+       },
+       {
+        "type": "sp.earwig",
+        "tier": "D"
+       },
+       {
+        "type": "sp.house_centipede",
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "carpet beetle",
+         "body": "round",
+         "color": "#6b4f3a",
+         "dark": "#efe4c8",
+         "head": "#3a2a20",
+         "length": 400,
+         "height": 230,
+         "leg_len": 90,
+         "ant": 120,
+         "stripes": 3,
+         "wings": "shell",
+         "mood": "smug",
+         "s": 0.85
+        },
+        "tier": "C"
+       },
+       {
+        "type": "sp.dust_mite",
+        "tier": "C"
+       },
+       {
+        "type": "sp.bed_bug",
+        "tier": "C"
+       },
+       {
+        "type": "sp.wolf_spider",
+        "tier": "B"
+       },
+       {
+        "type": "sp.roach",
+        "tier": "A"
+       }
+      ],
+      "hide_s": true,
+      "drop": 1.0
+     },
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "think",
+    "pos": [
+     150,
+     1890
+    ],
+    "size": 560,
+    "look": "board",
+    "gest": [
+     [
+      "55%",
+      "shock",
+      1.2
+     ]
+    ]
+   },
+   "sfx": [
+    "whoosh@5%",
+    "tink@60%"
+   ]
+  }
+ ]
+}

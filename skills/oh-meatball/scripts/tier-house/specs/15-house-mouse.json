@@ -1,0 +1,225 @@
+{
+ "voice": "kokoro:fenrir",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "photo_credits": [],
+ "stage": {
+  "creature": "house_mouse",
+  "s": 0.65,
+  "scene": "kitchen",
+  "scene_p": {
+   "time": "night"
+  }
+ },
+ "sources": [
+  "University of California IPM, Pest Notes: House Mouse (Publication 74106): mice squeeze through openings as small as 1/4 inch; can jump up to 12 inches from the floor onto a flat surface; females have 5-10 litters a year of about 5 or 6 pups; sexually mature 5-6 weeks after birth; do not need to drink water to survive if food supplies moisture; mostly nocturnal; gnaw electrical wires, gas lines, appliance cords and storage containers; seldom venture more than 30 feet from nest and food; can carry leptospirosis, salmonella and LCM virus; urine is a major allergen linked to early-onset asthma in sensitive children; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7483.html",
+  "Texas A&M AgriLife Extension, Rodents and Rodent Control (public health license course, 2024): house mouse leaves 50 to 75 droppings a day, droppings 1/8-1/4 inch with pointed ends; up to 3,000 urine microdroplets produced daily; many live outside during summer; https://extensionentomology.tamu.edu/wp-content/uploads/sites/6/2024/02/Rodents-and-rodent-control-public-health-license-course.pdf"
+ ],
+ "beats": [
+  {
+   "m": "name",
+   "say": "Number three. The house mouse. It gets in through a gap a quarter of an inch wide."
+  },
+  {
+   "m": "fact",
+   "say": "It can jump a foot straight up, right onto your counter."
+  },
+  {
+   "m": "fact",
+   "say": "One mouse can leave up to seventy five droppings a day."
+  },
+  {
+   "m": "escalate",
+   "say": "And up to three thousand tiny drops of pee. All over your counters, in the dark."
+  },
+  {
+   "m": "fact",
+   "say": "Mouse pee is a major allergen, linked to asthma in some kids. And mice can carry germs like salmonella."
+  },
+  {
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   },
+   "say": "House mouse. A tier. Germs and allergens, everywhere it walks.",
+   "pad": 0.25,
+   "shots": [
+    {
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      930,
+      1.05
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "pos": [
+      540,
+      430
+     ],
+     "s": 0.92,
+     "id": "board",
+     "type": "tierboard",
+     "p": {
+      "icons": [
+       {
+        "type": "cellar_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.jumping_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.gecko",
+        "tier": "F"
+       },
+       {
+        "type": "sp.demodex",
+        "tier": "F"
+       },
+       {
+        "type": "sp.silverfish",
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "fruit fly",
+         "body": "round",
+         "color": "#c99a5a",
+         "dark": "#7a4a24",
+         "head": "#b8742e",
+         "length": 320,
+         "height": 160,
+         "leg_len": 90,
+         "ant": 70,
+         "stripes": 4,
+         "wings": "clear",
+         "eye_r": 34,
+         "floor": false,
+         "mood": "smug",
+         "s": 0.95
+        },
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "pantry moth",
+         "body": "long",
+         "color": "#a8683a",
+         "dark": "#d9cdb4",
+         "head": "#8a5a34",
+         "length": 360,
+         "height": 120,
+         "leg_len": 80,
+         "ant": 170,
+         "stripes": 3,
+         "wings": "clear",
+         "floor": false,
+         "mood": "smug",
+         "s": 1.0
+        },
+        "tier": "D"
+       },
+       {
+        "type": "sp.earwig",
+        "tier": "D"
+       },
+       {
+        "type": "sp.house_centipede",
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "carpet beetle",
+         "body": "round",
+         "color": "#6b4f3a",
+         "dark": "#efe4c8",
+         "head": "#3a2a20",
+         "length": 400,
+         "height": 230,
+         "leg_len": 90,
+         "ant": 120,
+         "stripes": 3,
+         "wings": "shell",
+         "mood": "smug",
+         "s": 0.85
+        },
+        "tier": "C"
+       },
+       {
+        "type": "sp.dust_mite",
+        "tier": "C"
+       },
+       {
+        "type": "sp.bed_bug",
+        "tier": "C"
+       },
+       {
+        "type": "sp.wolf_spider",
+        "tier": "B"
+       },
+       {
+        "type": "sp.roach",
+        "tier": "A"
+       },
+       {
+        "type": "sp.house_mouse",
+        "tier": "A"
+       }
+      ],
+      "hide_s": true,
+      "drop": 0.0
+     },
+     "set": [
+      {
+       "at": "12%",
+       "dur": 0.75,
+       "p": {
+        "drop": 1.0
+       }
+      },
+      {
+       "at": "35%",
+       "dur": 0.3,
+       "p": {
+        "glow": 1.0
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "point",
+    "pos": [
+     150,
+     1890
+    ],
+    "size": 560,
+    "look": "board",
+    "gest": [
+     [
+      "55%",
+      "shrug",
+      1.2
+     ]
+    ]
+   },
+   "sfx": [
+    "whoosh@10%",
+    "boing@32%"
+   ]
+  }
+ ]
+}

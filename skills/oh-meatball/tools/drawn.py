@@ -66,6 +66,9 @@ import drawn_cases2  # noqa: E402  (history-case scenes and cast: "Meatball Inve
 SCENES.update(drawn_cases2.SCENES)
 ACTORS = {**A1, **A2, **A3, **A4, **A5, **drawn_cases2.ACTORS, "creature": creature}
 ACTORS.update({"sp." + k: build(v) for k, v in SPECIES.items()})
+import drawn_tier  # noqa: E402  (the ranked-video tier board draws the same creatures as icons)
+drawn_tier.ACT = ACTORS
+ACTORS.update(drawn_tier.ACTORS)
 ROOT = os.path.dirname(HERE)
 W, H = 1080, 1920
 SR = 48000

@@ -1,0 +1,253 @@
+{
+ "voice": "kokoro:fenrir",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "photo_credits": [],
+ "stage": {
+  "creature": "black_widow",
+  "scene": "basement",
+  "wild": "garden",
+  "wild_p": {
+   "time": "night"
+  }
+ },
+ "sources": [
+  "University of California Statewide IPM Program, Pest Notes: Black Widow and Other Widow Spiders: adult female has a red or orange hourglass on the underside of the large round abdomen; irregular, tough-stranded, sticky cobweb, hangs belly-up; found in dark, dry, sheltered, undisturbed places such as wood piles and garages; bite reactions range from mild to painful and serious, but death is very unlikely; males are smaller and their fangs are too small to break human skin; contrary to popular belief the female rarely eats the male after mating but may do so if hungry; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7442.html",
+  "University of Wisconsin-Milwaukee Field Station, Bug of the Week, 'Speed-dating the Spiders: Black Widows': female venom is 15 times more toxic than that of a rattlesnake, but widows inject very little per bite; strong, messy, sticky, three-dimensional web; egg sacs contain about 250 eggs, up to nine sacs per summer; sibling cannibalism is rampant right after spiderlings emerge, only a small fraction survive; https://uwm.edu/field-station/bug-of-the-week/speed-dating-the-spiders-black-widows/",
+  "MedlinePlus (U.S. National Library of Medicine), Black widow spider bite: venom symptoms include muscle pain spreading from the bite to the whole body, very painful muscle cramps or spasms, increased sweating; https://medlineplus.gov/ency/article/002858.htm",
+  "NCBI Bookshelf / StatPearls, Black Widow Spider Toxicity: main toxin alpha-latrotoxin is a neurotoxin causing massive neurotransmitter release, producing pain, muscle rigidity, vomiting and sweating; https://www.ncbi.nlm.nih.gov/books/NBK499987/",
+  "The Scientist, 'The Spider Lady, Circa 1939' (Nan Songer): human hair used for crosshairs in aircraft bombsights froze and broke at high altitude, so the US Bureau of Standards called for spider silk; her silk supplied bombsight crosshairs in World War II; Songer split black widow six-strand draglines into single strands with a needle to reach the width needed; https://www.the-scientist.com/the-spider-lady-circa-1939-70053"
+ ],
+ "beats": [
+  {
+   "m": "name",
+   "say": "And number one. The black widow. Shiny black, with a red hourglass on its belly."
+  },
+  {
+   "m": "fact",
+   "say": "It hides in dark, quiet places. Woodpiles. Garages."
+  },
+  {
+   "m": "xray",
+   "say": "Its venom attacks your nerves. Cramps, pain, and sweating."
+  },
+  {
+   "m": "escalate",
+   "say": "Fifteen times more toxic than a rattlesnake's. But it only injects a tiny drop."
+  },
+  {
+   "m": "fact",
+   "say": "Only the big female can bite you. The male's fangs are too small to break your skin."
+  },
+  {
+   "m": "calm",
+   "say": "Death from a bite is very unlikely. But it can still hurt, a lot."
+  },
+  {
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   },
+   "say": "Black widow. S tier. The most dangerous creature in your house.",
+   "pad": 0.25,
+   "shots": [
+    {
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      930,
+      1.05
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "pos": [
+      540,
+      430
+     ],
+     "s": 0.92,
+     "id": "board",
+     "type": "tierboard",
+     "p": {
+      "icons": [
+       {
+        "type": "cellar_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.jumping_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.gecko",
+        "tier": "F"
+       },
+       {
+        "type": "sp.demodex",
+        "tier": "F"
+       },
+       {
+        "type": "sp.silverfish",
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "fruit fly",
+         "body": "round",
+         "color": "#c99a5a",
+         "dark": "#7a4a24",
+         "head": "#b8742e",
+         "length": 320,
+         "height": 160,
+         "leg_len": 90,
+         "ant": 70,
+         "stripes": 4,
+         "wings": "clear",
+         "eye_r": 34,
+         "floor": false,
+         "mood": "smug",
+         "s": 0.95
+        },
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "pantry moth",
+         "body": "long",
+         "color": "#a8683a",
+         "dark": "#d9cdb4",
+         "head": "#8a5a34",
+         "length": 360,
+         "height": 120,
+         "leg_len": 80,
+         "ant": 170,
+         "stripes": 3,
+         "wings": "clear",
+         "floor": false,
+         "mood": "smug",
+         "s": 1.0
+        },
+        "tier": "D"
+       },
+       {
+        "type": "sp.earwig",
+        "tier": "D"
+       },
+       {
+        "type": "sp.house_centipede",
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "carpet beetle",
+         "body": "round",
+         "color": "#6b4f3a",
+         "dark": "#efe4c8",
+         "head": "#3a2a20",
+         "length": 400,
+         "height": 230,
+         "leg_len": 90,
+         "ant": 120,
+         "stripes": 3,
+         "wings": "shell",
+         "mood": "smug",
+         "s": 0.85
+        },
+        "tier": "C"
+       },
+       {
+        "type": "sp.dust_mite",
+        "tier": "C"
+       },
+       {
+        "type": "sp.bed_bug",
+        "tier": "C"
+       },
+       {
+        "type": "sp.wolf_spider",
+        "tier": "B"
+       },
+       {
+        "type": "sp.roach",
+        "tier": "A"
+       },
+       {
+        "type": "sp.house_mouse",
+        "tier": "A"
+       },
+       {
+        "cfg": {
+         "plan": "arachnid",
+         "label": "brown recluse",
+         "color": "#b48a58",
+         "dark": "#7a5a34",
+         "accent": "#4a3220",
+         "eyes": "pair",
+         "leg_len": 1.15,
+         "leg_w": 16,
+         "abdomen": 170,
+         "mood": "angry",
+         "xray": "venom",
+         "s": 0.65
+        },
+        "tier": "S"
+       },
+       {
+        "type": "sp.black_widow",
+        "tier": "S"
+       }
+      ],
+      "hide_s": false,
+      "drop": 0.0
+     },
+     "set": [
+      {
+       "at": "12%",
+       "dur": 0.75,
+       "p": {
+        "drop": 1.0
+       }
+      },
+      {
+       "at": "35%",
+       "dur": 0.3,
+       "p": {
+        "glow": 1.0
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "point",
+    "pos": [
+     150,
+     1890
+    ],
+    "size": 560,
+    "look": "board",
+    "gest": [
+     [
+      "55%",
+      "shrug",
+      1.2
+     ]
+    ]
+   },
+   "sfx": [
+    "whoosh@10%",
+    "boing@32%"
+   ]
+  }
+ ]
+}

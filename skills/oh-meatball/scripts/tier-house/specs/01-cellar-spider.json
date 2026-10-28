@@ -1,0 +1,125 @@
+{
+ "voice": "kokoro:fenrir",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "photo_credits": [],
+ "stage": {
+  "creature": "cellar_spider",
+  "actor": "cellar_spider",
+  "s": 0.68,
+  "scene": "basement",
+  "creature_cfg": {
+   "floor": false,
+   "label": "cellar spider"
+  }
+ },
+ "sources": [
+  "Penn State Extension, Cellar Spiders (S. Jacobs): family Pholcidae, often called daddy longlegs; very long thin legs, small body; live in dark damp places such as basements and crawl spaces; loose irregular webs in corners; when disturbed they vibrate rapidly in the web; feed on insects and other spiders; harmless to people; https://extension.psu.edu/cellar-spiders",
+  "UC Riverside, Spider Research (R. Vetter), The 'Daddy-long-legs Spider is the Most Venomous Spider' Myth: no evidence pholcid venom is dangerous to people; the 'fangs too short' claim is false; https://spiders.ucr.edu/daddy-long-legs-myth",
+  "Burke Museum, Spider Myths (R. Crawford): cellar spiders are a major predator of other spiders, invading webs; females carry their eggs in their jaws; https://www.burkemuseum.org/collections-and-research/biology/arachnology-and-entomology/spider-myths",
+  "MythBusters episode 13 (2004): Adam Savage let a daddy-longlegs spider bite him and felt only a brief mild burning sensation."
+ ],
+ "beats": [
+  {
+   "m": "name",
+   "say": "Number seventeen. The cellar spider. Most people call it a daddy longlegs."
+  },
+  {
+   "m": "fact",
+   "say": "Tiny body, eight super long legs, in a messy web up in the corner of your basement."
+  },
+  {
+   "m": "xray",
+   "say": "The myth says its venom is the deadliest of all, but its fangs are too short to bite you."
+  },
+  {
+   "m": "escalate",
+   "say": "Wrong, twice. A MythBusters host let one bite him. He felt a tiny burn. That's it."
+  },
+  {
+   "m": "fact",
+   "say": "And it hunts other spiders. It walks into their webs, and eats the owner."
+  },
+  {
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   },
+   "say": "Daddy longlegs. F tier. Harmless to you. Myth busted.",
+   "pad": 0.25,
+   "shots": [
+    {
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      930,
+      1.05
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "pos": [
+      540,
+      430
+     ],
+     "s": 0.92,
+     "id": "board",
+     "type": "tierboard",
+     "p": {
+      "icons": [
+       {
+        "type": "cellar_spider",
+        "tier": "F"
+       }
+      ],
+      "hide_s": true,
+      "drop": 0.0
+     },
+     "set": [
+      {
+       "at": "12%",
+       "dur": 0.75,
+       "p": {
+        "drop": 1.0
+       }
+      },
+      {
+       "at": "35%",
+       "dur": 0.3,
+       "p": {
+        "glow": 1.0
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "point",
+    "pos": [
+     150,
+     1890
+    ],
+    "size": 560,
+    "look": "board",
+    "gest": [
+     [
+      "55%",
+      "shrug",
+      1.2
+     ]
+    ]
+   },
+   "sfx": [
+    "whoosh@10%",
+    "boing@32%"
+   ]
+  }
+ ]
+}

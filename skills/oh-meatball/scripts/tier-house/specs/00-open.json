@@ -1,0 +1,145 @@
+{
+ "voice": "kokoro:fenrir",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "photo_credits": [],
+ "stage": {
+  "creature": "black_widow",
+  "scene": "basement",
+  "wild": "garden",
+  "wild_p": {
+   "time": "night"
+  }
+ },
+ "sources": [
+  "University of California Statewide IPM Program, Pest Notes: Black Widow and Other Widow Spiders: adult female has a red or orange hourglass on the underside of the large round abdomen; irregular, tough-stranded, sticky cobweb, hangs belly-up; found in dark, dry, sheltered, undisturbed places such as wood piles and garages; bite reactions range from mild to painful and serious, but death is very unlikely; males are smaller and their fangs are too small to break human skin; contrary to popular belief the female rarely eats the male after mating but may do so if hungry; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7442.html",
+  "University of Wisconsin-Milwaukee Field Station, Bug of the Week, 'Speed-dating the Spiders: Black Widows': female venom is 15 times more toxic than that of a rattlesnake, but widows inject very little per bite; strong, messy, sticky, three-dimensional web; egg sacs contain about 250 eggs, up to nine sacs per summer; sibling cannibalism is rampant right after spiderlings emerge, only a small fraction survive; https://uwm.edu/field-station/bug-of-the-week/speed-dating-the-spiders-black-widows/",
+  "MedlinePlus (U.S. National Library of Medicine), Black widow spider bite: venom symptoms include muscle pain spreading from the bite to the whole body, very painful muscle cramps or spasms, increased sweating; https://medlineplus.gov/ency/article/002858.htm",
+  "NCBI Bookshelf / StatPearls, Black Widow Spider Toxicity: main toxin alpha-latrotoxin is a neurotoxin causing massive neurotransmitter release, producing pain, muscle rigidity, vomiting and sweating; https://www.ncbi.nlm.nih.gov/books/NBK499987/",
+  "The Scientist, 'The Spider Lady, Circa 1939' (Nan Songer): human hair used for crosshairs in aircraft bombsights froze and broke at high altitude, so the US Bureau of Standards called for spider silk; her silk supplied bombsight crosshairs in World War II; Songer split black widow six-strand draglines into single strands with a needle to reach the width needed; https://www.the-scientist.com/the-spider-lady-circa-1939-70053"
+ ],
+ "beats": [
+  {
+   "m": "hook",
+   "say": "This spider's venom is fifteen times more toxic than a rattlesnake's. And it might be in your house right now."
+  },
+  {
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   },
+   "say": "I ranked seventeen creatures living in your house, from harmless, to deadly.",
+   "pad": 0.25,
+   "shots": [
+    {
+     "cam": [
+      540,
+      700,
+      1.15
+     ],
+     "to": [
+      540,
+      960,
+      1.0
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "pos": [
+      540,
+      430
+     ],
+     "s": 0.92,
+     "id": "board",
+     "type": "tierboard",
+     "p": {
+      "icons": [],
+      "hide_s": true,
+      "drop": 1.0
+     },
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "shock",
+    "pos": [
+     150,
+     1890
+    ],
+    "size": 560,
+    "look": "board",
+    "gest": [
+     [
+      "55%",
+      "shrug",
+      1.2
+     ]
+    ]
+   },
+   "sfx": [
+    "tink@10%"
+   ]
+  },
+  {
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   },
+   "say": "The top spot stays hidden till the end. We start at the bottom.",
+   "pad": 0.25,
+   "shots": [
+    {
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      930,
+      1.05
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "pos": [
+      540,
+      430
+     ],
+     "s": 0.92,
+     "id": "board",
+     "type": "tierboard",
+     "p": {
+      "icons": [],
+      "hide_s": true,
+      "drop": 1.0
+     },
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "point",
+    "pos": [
+     150,
+     1890
+    ],
+    "size": 560,
+    "look": "board",
+    "gest": [
+     [
+      "55%",
+      "shrug",
+      1.2
+     ]
+    ]
+   },
+   "sfx": [
+    "tink@10%"
+   ]
+  }
+ ]
+}

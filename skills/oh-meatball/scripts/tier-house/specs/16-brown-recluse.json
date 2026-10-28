@@ -1,0 +1,285 @@
+{
+ "voice": "kokoro:fenrir",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "photo_credits": [],
+ "stage": {
+  "creature": "brown_recluse",
+  "actor": "creature",
+  "scene": "basement",
+  "scene_p": {
+   "time": "night"
+  },
+  "creature_cfg": {
+   "plan": "arachnid",
+   "label": "brown recluse",
+   "color": "#b48a58",
+   "dark": "#7a5a34",
+   "accent": "#4a3220",
+   "eyes": "pair",
+   "leg_len": 1.15,
+   "leg_w": 16,
+   "abdomen": 170,
+   "mood": "angry",
+   "xray": "venom",
+   "s": 0.65
+  },
+  "wild": "forest_floor",
+  "wild_p": {
+   "time": "night"
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "arachnid",
+    "label": "brown recluse",
+    "color": "#b48a58",
+    "dark": "#7a5a34",
+    "accent": "#4a3220",
+    "eyes": "pair",
+    "leg_len": 1.15,
+    "leg_w": 16,
+    "abdomen": 170,
+    "mood": "angry",
+    "xray": "venom",
+    "s": 0.65
+   }
+  }
+ },
+ "sources": [
+  "University of California Statewide IPM Program, Brown Recluse and Other Recluse Spiders: 6 equal-sized eyes in 3 pairs; uniformly colored abdomen and legs, no leg spines, body no longer than 3/8 inch; the violin marking is not a reliable way to identify it; no populations in California; lives in the south central Midwest from southeastern Nebraska to southwestern Ohio, south through Texas to northern Georgia; nocturnal, emerging at night to hunt; found in storage boxes and under clutter, and at dawn may shelter in clothing or shoes; about 10% of bites cause moderate or greater tissue damage and scarring, the vast majority heal well without medical intervention; deaths reported in children are extremely rare; necrotic wounds are commonly misdiagnosed as brown recluse bites; shake out clothes and shoes, use sticky traps along floor boards, move the bed away from the wall; https://ipm.ucanr.edu/home-and-landscape/brown-recluse-and-other-recluse-spiders/",
+  "UC Riverside, Rick Vetter, How to Identify (and Misidentify) a Brown Recluse Spider: six eyes in pairs (one pair in front, one on either side), most spiders have eight; dark violin shape on the cephalothorax but not reliable for non-experts; uniformly light-colored legs, no stripes or bands; no spines on the legs; about 3/8 inch body length, longer than 1/2 inch is not a recluse; outside the range map it is highly unlikely you have one; https://spiders.ucr.edu/recluseid.html",
+  "Vetter & Barger 2002, Journal of Medical Entomology 39(6): 948-951, An infestation of 2,055 brown recluse spiders (Araneae: Sicariidae) and no envenomations in a Kansas home: 2,055 collected in six months (2001) from a home in Lenexa, Kansas, at least 400 large enough to envenomate, and no envenomations of the residents; https://doi.org/10.1603/0022-2585-39.6.948"
+ ],
+ "beats": [
+  {
+   "m": "name",
+   "say": "Number two. The brown recluse. By day, it hides in boxes, clothes, and shoes."
+  },
+  {
+   "m": "xray",
+   "say": "Its venom can kill the skin around its bite. About one bite in ten leaves a scar."
+  },
+  {
+   "m": "fact",
+   "say": "Six eyes, in three pairs. Legs all one plain color. No stripes, and no spines."
+  },
+  {
+   "m": "escalate",
+   "say": "In one Kansas house, over two thousand were caught in six months. And nobody got bitten."
+  },
+  {
+   "m": "fact",
+   "say": "Most bites heal well, and many wounds blamed on a recluse are really something else."
+  },
+  {
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   },
+   "say": "Brown recluse. S tier. Rare bites, but real damage. One spot left.",
+   "pad": 0.25,
+   "shots": [
+    {
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      930,
+      1.05
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "pos": [
+      540,
+      430
+     ],
+     "s": 0.92,
+     "id": "board",
+     "type": "tierboard",
+     "p": {
+      "icons": [
+       {
+        "type": "cellar_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.jumping_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.gecko",
+        "tier": "F"
+       },
+       {
+        "type": "sp.demodex",
+        "tier": "F"
+       },
+       {
+        "type": "sp.silverfish",
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "fruit fly",
+         "body": "round",
+         "color": "#c99a5a",
+         "dark": "#7a4a24",
+         "head": "#b8742e",
+         "length": 320,
+         "height": 160,
+         "leg_len": 90,
+         "ant": 70,
+         "stripes": 4,
+         "wings": "clear",
+         "eye_r": 34,
+         "floor": false,
+         "mood": "smug",
+         "s": 0.95
+        },
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "pantry moth",
+         "body": "long",
+         "color": "#a8683a",
+         "dark": "#d9cdb4",
+         "head": "#8a5a34",
+         "length": 360,
+         "height": 120,
+         "leg_len": 80,
+         "ant": 170,
+         "stripes": 3,
+         "wings": "clear",
+         "floor": false,
+         "mood": "smug",
+         "s": 1.0
+        },
+        "tier": "D"
+       },
+       {
+        "type": "sp.earwig",
+        "tier": "D"
+       },
+       {
+        "type": "sp.house_centipede",
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "carpet beetle",
+         "body": "round",
+         "color": "#6b4f3a",
+         "dark": "#efe4c8",
+         "head": "#3a2a20",
+         "length": 400,
+         "height": 230,
+         "leg_len": 90,
+         "ant": 120,
+         "stripes": 3,
+         "wings": "shell",
+         "mood": "smug",
+         "s": 0.85
+        },
+        "tier": "C"
+       },
+       {
+        "type": "sp.dust_mite",
+        "tier": "C"
+       },
+       {
+        "type": "sp.bed_bug",
+        "tier": "C"
+       },
+       {
+        "type": "sp.wolf_spider",
+        "tier": "B"
+       },
+       {
+        "type": "sp.roach",
+        "tier": "A"
+       },
+       {
+        "type": "sp.house_mouse",
+        "tier": "A"
+       },
+       {
+        "cfg": {
+         "plan": "arachnid",
+         "label": "brown recluse",
+         "color": "#b48a58",
+         "dark": "#7a5a34",
+         "accent": "#4a3220",
+         "eyes": "pair",
+         "leg_len": 1.15,
+         "leg_w": 16,
+         "abdomen": 170,
+         "mood": "angry",
+         "xray": "venom",
+         "s": 0.65
+        },
+        "tier": "S"
+       }
+      ],
+      "hide_s": true,
+      "drop": 0.0,
+      "unveil": 0.0
+     },
+     "set": [
+      {
+       "at": "5%",
+       "dur": 0.7,
+       "p": {
+        "unveil": 1.0
+       }
+      },
+      {
+       "at": "30%",
+       "dur": 0.75,
+       "p": {
+        "drop": 1.0
+       }
+      },
+      {
+       "at": "35%",
+       "dur": 0.3,
+       "p": {
+        "glow": 1.0
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "point",
+    "pos": [
+     150,
+     1890
+    ],
+    "size": 560,
+    "look": "board",
+    "gest": [
+     [
+      "55%",
+      "shrug",
+      1.2
+     ]
+    ]
+   },
+   "sfx": [
+    "whoosh@10%",
+    "boing@32%"
+   ]
+  }
+ ]
+}

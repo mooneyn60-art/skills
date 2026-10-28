@@ -881,6 +881,39 @@ def t3c():
 
 # ------------------------------------------------------------------ preview sheets
 
+TIER_COL = {"S": (255, 90, 90), "A": (255, 159, 67), "B": (255, 211, 77)}
+
+
+def l_tier():
+    """Tier list (10/28): a drawn tier board, the S row glowing red around a black widow, a horrified Meatball."""
+    cv = night_bg()
+    d = ImageDraw.Draw(cv)
+    x0, x1, lab = 500, 1250, 150
+    rows = (("S", 150, 400), ("A", 400, 560), ("B", 560, 720))
+    d.rounded_rectangle([x0 - 14, 136, x1 + 14, H + 40], 22, fill=(58, 44, 34), outline=INK, width=10)
+    for k, (t, y0, y1) in enumerate(rows):
+        d.rectangle([x0 + lab, y0, x1, y1], fill=(43, 43, 51) if k % 2 == 0 else (51, 51, 61))
+        d.rectangle([x0, y0, x0 + lab, y1], fill=TIER_COL[t])
+        d.text((x0 + lab / 2, (y0 + y1) / 2 + 4), t, font=ImageFont.truetype(ANTON, 130 if t == "S" else 96),
+               fill=WHITE, anchor="mm", stroke_width=7, stroke_fill=INK)
+        d.line([(x0, y1), (x1, y1)], fill=INK, width=8)
+    d.line([(x0 + lab, 150), (x0 + lab, H)], fill=INK, width=8)
+    glow = radial(x1 - x0 - lab, 250, (150, 20, 20), (43, 43, 51), cx=0.5, cy=0.5, r=0.7)
+    cv.alpha_composite(glow, (x0 + lab, 150))
+    widow = actor(sp("black_widow"), {"mood": "angry", "look": (-0.6, 0.3)}, 1.0, 2000, 1400, 1000, 1000)
+    paste_c(cv, pop(fit(widow, 470, 300), 9, 9, (255, 80, 60), 34, (255, 40, 30), 255), 900, 268)
+    mouse = actor(sp("house_mouse"), {"mood": "shock"}, 0.8, 1600, 900, 800, 760)
+    paste_c(cv, pop(fit(mouse, 220, 130), 6, 5, WHITE, 10), 760, 480)
+    roach = actor(sp("roach"), {"mood": "smug"}, 0.8, 1600, 900, 800, 760)
+    paste_c(cv, pop(fit(roach, 200, 120), 6, 5, WHITE, 10), 990, 480)
+    wolf = actor(sp("wolf_spider"), {"mood": "angry"}, 0.8, 1800, 1200, 900, 900)
+    paste_c(cv, pop(fit(wolf, 190, 120), 6, 5, WHITE, 10), 760, 650)
+    mb_left(cv, 470, (22, -6), sweat=False)
+    words(cv, "S TIER?!", 24, -8, 190, YEL, max_w=600)
+    badge(cv, "RANKED", 24, 214, 64, **EXPL_TAG)
+    return cv
+
+
 def small(im, w):
     return im.convert("RGB").resize((w, int(w * im.height / im.width)), Image.LANCZOS)
 
@@ -941,9 +974,10 @@ def _wrap(text, f, w, d):
 
 
 T1 = "6 Creatures Living In Your House Right Now (You Never See Them)"
+T_TIER = "I Ranked Every Creature Living In Your House From Harmless to Deadly"
 T2 = "6 More Creatures Living In Your House (Bed Bugs Are Just the Start)"
 CONCEPTS = {"t1a": t1a, "t1b": t1b, "t1c": t1c, "t1d": t1d, "t2a": t2a, "t2b": t2b, "t2c": t2c, "t3a": t3a, "t3b": t3b, "t3c": t3c, "l_ostrich": l_ostrich, "l_lemming": l_lemming, "l_wolf": l_wolf, "l_stick": l_stick,
-            "l_wombat": l_wombat, "l_cat": l_cat}
+            "l_wombat": l_wombat, "l_cat": l_cat, "l_tier": l_tier}
 
 
 def main():
@@ -970,7 +1004,7 @@ def main():
     titles = {c: t for _, t, c in LONGFORMS}
     items = [(n, im) for n, im in done.items() if n.startswith("l_")]
     for k in range(0, len(items), 3):
-        sheet(items[k:k + 3], [titles[n] for n, _ in items[k:k + 3]], os.path.join(a.outdir, f"sheet-l{k // 3 + 1}.png"))
+        sheet(items[k:k + 3], [titles.get(n, T_TIER) for n, _ in items[k:k + 3]], os.path.join(a.outdir, f"sheet-l{k // 3 + 1}.png"))
 
 
 if __name__ == "__main__":

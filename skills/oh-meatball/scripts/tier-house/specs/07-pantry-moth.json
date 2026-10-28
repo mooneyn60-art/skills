@@ -1,0 +1,219 @@
+{
+ "voice": "kokoro:fenrir",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "photo_credits": [],
+ "stage": {
+  "creature": "pantry_moth",
+  "actor": "creature",
+  "s": 1.0,
+  "scene": "kitchen",
+  "scene_p": {
+   "time": "night"
+  },
+  "creature_cfg": {
+   "plan": "insect",
+   "label": "pantry moth",
+   "body": "long",
+   "color": "#a8683a",
+   "dark": "#d9cdb4",
+   "head": "#8a5a34",
+   "length": 360,
+   "height": 120,
+   "leg_len": 80,
+   "ant": 170,
+   "stripes": 3,
+   "wings": "clear",
+   "floor": false,
+   "mood": "smug",
+   "s": 1.0
+  },
+  "wild": "garden",
+  "wild_p": {
+   "time": "dusk"
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "insect",
+    "label": "pantry moth",
+    "body": "long",
+    "color": "#a8683a",
+    "dark": "#d9cdb4",
+    "head": "#8a5a34",
+    "length": 360,
+    "height": 120,
+    "leg_len": 80,
+    "ant": 170,
+    "stripes": 3,
+    "wings": "clear",
+    "floor": false,
+    "mood": "smug",
+    "s": 1.0
+   }
+  }
+ },
+ "sources": [
+  "University of California IPM, Pantry Pests (Pest Notes 7452): the Indian meal moth is the most common moth pest of stored food in homes; adults have reddish-brown or copper outer wings with a pale grey-cream base; larvae feed on grains, cereals, flour, dried fruit, nuts, pet food, birdseed and chocolate, and leave silk webbing in the food; mature larvae often leave the food to pupate and may be found on walls and ceilings; adult moths do not feed on stored products; some pantry pests can chew through thin plastic bags and cardboard, so store food in glass, metal or heavy plastic containers with tight lids; freezing infested or new products (0 F for about 4 days) kills all stages; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7452.html",
+  "University of Florida Featured Creatures, Indian meal moth (Plodia interpunctella): the common name comes from an early report of the larvae feeding on Indian meal, a historical name for cornmeal; females lay roughly 60 to 400 eggs; https://entnemdept.ufl.edu/creatures/urban/stored/indian_meal_moth.htm"
+ ],
+ "beats": [
+  {
+   "m": "name",
+   "say": "Number eleven. The pantry moth. Copper wing tips, and pale shoulders."
+  },
+  {
+   "m": "fact",
+   "say": "The grown up moth doesn't eat your food at all. But mom lays hundreds of eggs, right in it."
+  },
+  {
+   "m": "fact",
+   "say": "The babies eat cereal, flour, nuts, dried fruit, even pet food and chocolate."
+  },
+  {
+   "m": "xray",
+   "say": "And they leave sticky silk webs in it. So that clumpy cereal? Check it for webs."
+  },
+  {
+   "m": "fact",
+   "say": "Thin plastic bags won't stop them. They chew right through, and through cardboard too."
+  },
+  {
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   },
+   "say": "Pantry moth. D tier. Bad news for your cereal.",
+   "pad": 0.25,
+   "shots": [
+    {
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      930,
+      1.05
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "pos": [
+      540,
+      430
+     ],
+     "s": 0.92,
+     "id": "board",
+     "type": "tierboard",
+     "p": {
+      "icons": [
+       {
+        "type": "cellar_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.jumping_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.gecko",
+        "tier": "F"
+       },
+       {
+        "type": "sp.demodex",
+        "tier": "F"
+       },
+       {
+        "type": "sp.silverfish",
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "fruit fly",
+         "body": "round",
+         "color": "#c99a5a",
+         "dark": "#7a4a24",
+         "head": "#b8742e",
+         "length": 320,
+         "height": 160,
+         "leg_len": 90,
+         "ant": 70,
+         "stripes": 4,
+         "wings": "clear",
+         "eye_r": 34,
+         "floor": false,
+         "mood": "smug",
+         "s": 0.95
+        },
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "pantry moth",
+         "body": "long",
+         "color": "#a8683a",
+         "dark": "#d9cdb4",
+         "head": "#8a5a34",
+         "length": 360,
+         "height": 120,
+         "leg_len": 80,
+         "ant": 170,
+         "stripes": 3,
+         "wings": "clear",
+         "floor": false,
+         "mood": "smug",
+         "s": 1.0
+        },
+        "tier": "D"
+       }
+      ],
+      "hide_s": true,
+      "drop": 0.0
+     },
+     "set": [
+      {
+       "at": "12%",
+       "dur": 0.75,
+       "p": {
+        "drop": 1.0
+       }
+      },
+      {
+       "at": "35%",
+       "dur": 0.3,
+       "p": {
+        "glow": 1.0
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "point",
+    "pos": [
+     150,
+     1890
+    ],
+    "size": 560,
+    "look": "board",
+    "gest": [
+     [
+      "55%",
+      "shrug",
+      1.2
+     ]
+    ]
+   },
+   "sfx": [
+    "whoosh@10%",
+    "boing@32%"
+   ]
+  }
+ ]
+}

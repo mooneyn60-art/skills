@@ -1,0 +1,395 @@
+{
+ "voice": "kokoro:fenrir",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "photo_credits": [],
+ "stage": {
+  "creature": "black_widow",
+  "scene": "basement",
+  "wild": "garden",
+  "wild_p": {
+   "time": "night"
+  }
+ },
+ "sources": [],
+ "beats": [
+  {
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   },
+   "say": "That's all seventeen. Harmless at the bottom, dangerous venom at the top.",
+   "pad": 0.25,
+   "shots": [
+    {
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      940,
+      1.06
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "pos": [
+      540,
+      430
+     ],
+     "s": 0.92,
+     "id": "board",
+     "type": "tierboard",
+     "p": {
+      "icons": [
+       {
+        "type": "cellar_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.jumping_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.gecko",
+        "tier": "F"
+       },
+       {
+        "type": "sp.demodex",
+        "tier": "F"
+       },
+       {
+        "type": "sp.silverfish",
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "fruit fly",
+         "body": "round",
+         "color": "#c99a5a",
+         "dark": "#7a4a24",
+         "head": "#b8742e",
+         "length": 320,
+         "height": 160,
+         "leg_len": 90,
+         "ant": 70,
+         "stripes": 4,
+         "wings": "clear",
+         "eye_r": 34,
+         "floor": false,
+         "mood": "smug",
+         "s": 0.95
+        },
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "pantry moth",
+         "body": "long",
+         "color": "#a8683a",
+         "dark": "#d9cdb4",
+         "head": "#8a5a34",
+         "length": 360,
+         "height": 120,
+         "leg_len": 80,
+         "ant": 170,
+         "stripes": 3,
+         "wings": "clear",
+         "floor": false,
+         "mood": "smug",
+         "s": 1.0
+        },
+        "tier": "D"
+       },
+       {
+        "type": "sp.earwig",
+        "tier": "D"
+       },
+       {
+        "type": "sp.house_centipede",
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "carpet beetle",
+         "body": "round",
+         "color": "#6b4f3a",
+         "dark": "#efe4c8",
+         "head": "#3a2a20",
+         "length": 400,
+         "height": 230,
+         "leg_len": 90,
+         "ant": 120,
+         "stripes": 3,
+         "wings": "shell",
+         "mood": "smug",
+         "s": 0.85
+        },
+        "tier": "C"
+       },
+       {
+        "type": "sp.dust_mite",
+        "tier": "C"
+       },
+       {
+        "type": "sp.bed_bug",
+        "tier": "C"
+       },
+       {
+        "type": "sp.wolf_spider",
+        "tier": "B"
+       },
+       {
+        "type": "sp.roach",
+        "tier": "A"
+       },
+       {
+        "type": "sp.house_mouse",
+        "tier": "A"
+       },
+       {
+        "cfg": {
+         "plan": "arachnid",
+         "label": "brown recluse",
+         "color": "#b48a58",
+         "dark": "#7a5a34",
+         "accent": "#4a3220",
+         "eyes": "pair",
+         "leg_len": 1.15,
+         "leg_w": 16,
+         "abdomen": 170,
+         "mood": "angry",
+         "xray": "venom",
+         "s": 0.65
+        },
+        "tier": "S"
+       },
+       {
+        "type": "sp.black_widow",
+        "tier": "S"
+       }
+      ],
+      "hide_s": false,
+      "drop": 1.0
+     },
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "point",
+    "pos": [
+     150,
+     1890
+    ],
+    "size": 560,
+    "look": "board",
+    "gest": [
+     [
+      "55%",
+      "shrug",
+      1.2
+     ]
+    ]
+   },
+   "sfx": [
+    "tink@10%"
+   ]
+  },
+  {
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   },
+   "say": "Which one is in your house? Comment the tier.",
+   "pad": 0.25,
+   "shots": [
+    {
+     "cam": [
+      540,
+      930,
+      1.06
+     ],
+     "to": [
+      540,
+      900,
+      1.12
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "pos": [
+      540,
+      430
+     ],
+     "s": 0.92,
+     "id": "board",
+     "type": "tierboard",
+     "p": {
+      "icons": [
+       {
+        "type": "cellar_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.jumping_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.gecko",
+        "tier": "F"
+       },
+       {
+        "type": "sp.demodex",
+        "tier": "F"
+       },
+       {
+        "type": "sp.silverfish",
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "fruit fly",
+         "body": "round",
+         "color": "#c99a5a",
+         "dark": "#7a4a24",
+         "head": "#b8742e",
+         "length": 320,
+         "height": 160,
+         "leg_len": 90,
+         "ant": 70,
+         "stripes": 4,
+         "wings": "clear",
+         "eye_r": 34,
+         "floor": false,
+         "mood": "smug",
+         "s": 0.95
+        },
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "pantry moth",
+         "body": "long",
+         "color": "#a8683a",
+         "dark": "#d9cdb4",
+         "head": "#8a5a34",
+         "length": 360,
+         "height": 120,
+         "leg_len": 80,
+         "ant": 170,
+         "stripes": 3,
+         "wings": "clear",
+         "floor": false,
+         "mood": "smug",
+         "s": 1.0
+        },
+        "tier": "D"
+       },
+       {
+        "type": "sp.earwig",
+        "tier": "D"
+       },
+       {
+        "type": "sp.house_centipede",
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "carpet beetle",
+         "body": "round",
+         "color": "#6b4f3a",
+         "dark": "#efe4c8",
+         "head": "#3a2a20",
+         "length": 400,
+         "height": 230,
+         "leg_len": 90,
+         "ant": 120,
+         "stripes": 3,
+         "wings": "shell",
+         "mood": "smug",
+         "s": 0.85
+        },
+        "tier": "C"
+       },
+       {
+        "type": "sp.dust_mite",
+        "tier": "C"
+       },
+       {
+        "type": "sp.bed_bug",
+        "tier": "C"
+       },
+       {
+        "type": "sp.wolf_spider",
+        "tier": "B"
+       },
+       {
+        "type": "sp.roach",
+        "tier": "A"
+       },
+       {
+        "type": "sp.house_mouse",
+        "tier": "A"
+       },
+       {
+        "cfg": {
+         "plan": "arachnid",
+         "label": "brown recluse",
+         "color": "#b48a58",
+         "dark": "#7a5a34",
+         "accent": "#4a3220",
+         "eyes": "pair",
+         "leg_len": 1.15,
+         "leg_w": 16,
+         "abdomen": 170,
+         "mood": "angry",
+         "xray": "venom",
+         "s": 0.65
+        },
+        "tier": "S"
+       },
+       {
+        "type": "sp.black_widow",
+        "tier": "S"
+       }
+      ],
+      "hide_s": false,
+      "drop": 1.0
+     },
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "wave",
+    "pos": [
+     150,
+     1890
+    ],
+    "size": 560,
+    "look": "board",
+    "gest": [
+     [
+      "55%",
+      "shrug",
+      1.2
+     ]
+    ]
+   },
+   "sfx": [
+    "tink@10%"
+   ]
+  }
+ ]
+}

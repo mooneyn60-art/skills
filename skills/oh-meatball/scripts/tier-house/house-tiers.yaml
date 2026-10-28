@@ -1,0 +1,237 @@
+# "I Ranked Every Creature Living In Your House From Harmless to Deadly" (drawn long-form tier list, 10/28).
+# tools/tier_video.py turns this into one drawn segment per creature (its own outline's stage, scene and sources),
+# a tier board (tools/drawn_tier.py) that fills in after each creature, a cold open and an ending.
+# Every claim below comes from the creature's own outline sources (scripts/drawn-house/outlines/*.yaml,
+# scripts/drawn-tt/outlines/widow.yaml, scripts/drawn-house/house-centipede-tt.json). Ranked by actual danger to
+# a person: F harmless, D nuisance, C allergy and itchy bites, B a mild venomous bite, A germs and asthma,
+# S medically significant venom.
+title: I Ranked Every Creature Living In Your House From Harmless to Deadly
+music: mystery
+open:
+  outline: scripts/drawn-tt/outlines/widow.yaml
+  lines:
+    - hook: This spider's venom is fifteen times more toxic than a rattlesnake's. And it might be in your house right now.
+  board:
+    - I ranked seventeen creatures living in your house, from harmless, to deadly.
+    - The top spot stays hidden till the end. We start at the bottom.
+tiers:
+  F: Harmless
+  D: Nuisance
+  C: Allergies and Itchy Bites
+  B: A Painful Bite
+  A: Germs and Asthma
+  S: Dangerous Venom
+creatures:
+  - slug: cellar-spider
+    rank: 17
+    tier: F
+    label: DADDY LONGLEGS
+    outline: scripts/drawn-house/outlines/cellar-spider.yaml
+    body:
+      - name: Number seventeen. The cellar spider. Most people call it a daddy longlegs.
+      - fact: Tiny body, eight super long legs, in a messy web up in the corner of your basement.
+      - xray: The myth says its venom is the deadliest of all, but its fangs are too short to bite you.
+      - escalate: Wrong, twice. A MythBusters host let one bite him. He felt a tiny burn. That's it.
+      - fact: And it hunts other spiders. It walks into their webs, and eats the owner.
+    verdict: Daddy longlegs. F tier. Harmless to you. Myth busted.
+  - slug: jumping-spider
+    rank: 16
+    tier: F
+    label: JUMPING SPIDER
+    outline: scripts/drawn-house/outlines/jumping-spider.yaml
+    body:
+      - name: Number sixteen. The jumping spider on your window. Eight eyes, and two giant ones in front.
+      - fact: It hunts in daylight, with no web at all. It stalks a fly, and judges the distance.
+      - fact: Then it jumps. But first, it glues down a silk safety line.
+      - fact: If it misses, it just climbs back up the line.
+      - calm: Experts say it's not known to be a health hazard. It's just looking at you.
+    verdict: Jumping spider. F tier. Harmless, and it hunts the flies at your window.
+  - slug: house-gecko
+    rank: 15
+    tier: F
+    label: HOUSE GECKO
+    outline: scripts/drawn-house/outlines/house-gecko.yaml
+    body:
+      - name: Number fifteen. The house gecko. Out at night, on your walls.
+      - fact: It waits by your porch light. Bugs fly to the light, and it snaps them up.
+      - xray: It has no eyelids, just a clear scale. So it licks its eyeballs clean.
+      - fact: And it walks across the ceiling with no glue at all. Its toes are covered in microscopic hairs.
+      - fact: Grab its tail, and it lets go. The tail keeps wiggling, to fool the hunter.
+    verdict: House gecko. F tier. Harmless, and it eats the bugs you don't want.
+    tease: Still to come. The one at the top has venom fifteen times more toxic than a rattlesnake's.
+  - slug: face-mites
+    rank: 14
+    tier: F
+    label: FACE MITES
+    outline: scripts/drawn-house/outlines/face-mites.yaml
+    body:
+      - name: Number fourteen is on your face. Demodex mites, living in your pores, and your eyelashes.
+      - fact: One study found their DNA on every adult it tested. So yes, you too.
+      - fact: They're about a third of a millimeter long, and they eat the oil your skin makes.
+      - calm: And at night, they crawl out of your pores, and walk across your face, to find a mate.
+    verdict: Face mites. F tier. For most people, they're harmless.
+  - slug: silverfish
+    rank: 13
+    tier: D
+    label: SILVERFISH
+    outline: scripts/drawn-house/outlines/silverfish.yaml
+    body:
+      - name: Number thirteen. Silverfish. No wings, covered in silver scales, and older than dinosaurs.
+      - fact: It eats starch. Glue, paste, and paper.
+      - fact: It scrapes off one thin layer at a time, until your pages turn to tissue, full of holes.
+      - fact: By day, it hides in cracks. At night, it comes out. It loves cool, damp basements.
+      - fact: In libraries and museums, it's a real pest.
+    verdict: Silverfish. D tier. A nuisance for your books and papers.
+  - slug: fruit-fly
+    rank: 12
+    tier: D
+    label: FRUIT FLY
+    outline: scripts/drawn-house/outlines/fruit-fly.yaml
+    body:
+      - name: Number twelve. The fruit fly. It probably rode home on your bananas.
+      - fact: Its eggs often ride in on the fruit itself. One female can lay about five hundred.
+      - fact: And in about ten days, the babies are adults. Your fruit bowl is a fly nursery.
+      - escalate: But in nineteen forty seven, fruit flies rode a rocket. The first animals ever sent into space.
+      - fact: Want them gone? Cider vinegar in a jar, with a drop of dish soap.
+    verdict: Fruit fly. D tier. A nuisance, in your fruit bowl.
+    tease: Coming up, one creature on this list has its allergens in four out of five American beds.
+  - slug: pantry-moth
+    rank: 11
+    tier: D
+    label: PANTRY MOTH
+    outline: scripts/drawn-house/outlines/pantry-moth.yaml
+    body:
+      - name: Number eleven. The pantry moth. Copper wing tips, and pale shoulders.
+      - fact: The grown up moth doesn't eat your food at all. But mom lays hundreds of eggs, right in it.
+      - fact: The babies eat cereal, flour, nuts, dried fruit, even pet food and chocolate.
+      - xray: And they leave sticky silk webs in it. So that clumpy cereal? Check it for webs.
+      - fact: Thin plastic bags won't stop them. They chew right through, and through cardboard too.
+    verdict: Pantry moth. D tier. Bad news for your cereal.
+  - slug: earwig
+    rank: 10
+    tier: D
+    label: EARWIG
+    outline: scripts/drawn-house/outlines/earwig.yaml
+    body:
+      - name: Number ten. The earwig. Pincers on its rear end, and named after your ear.
+      - xray: The myth says it crawls into your ear while you sleep.
+      - escalate: One entomologist searched ten centuries of writing, and found one single case.
+      - fact: Those pincers can give you a pinch, if one gets trapped in your clothes.
+      - fact: It wanders indoors when it's too dry outside. At night, it hunts aphids and insect eggs.
+    verdict: Earwig. D tier. A pinch at worst. And your ears are safe. Myth busted.
+  - slug: house-centipede
+    rank: 9
+    tier: D
+    label: HOUSE CENTIPEDE
+    stage: {creature: house_centipede, scene: basement, scene_p: {time: night}}
+    sources_from: scripts/drawn-house/house-centipede-tt.json
+    body:
+      - name: Number nine. The house centipede. Fifteen pairs of legs, and fast.
+      - fact: Its feelers look like legs, so a predator can't tell which way it's facing.
+      - fact: It hunts cockroaches, flies, spiders, and even silverfish.
+      - xray: It stings them with legs that turned into fangs.
+      - fact: Will it sting you? Very rarely. Only if you grab it roughly. It would rather run.
+    verdict: House centipede. D tier. Creepy, but it's eating your other bugs.
+    tease: Still coming, number two. In one Kansas house, over two thousand were caught in six months.
+  - slug: carpet-beetle
+    rank: 8
+    tier: C
+    label: CARPET BEETLE
+    outline: scripts/drawn-house/outlines/carpet-beetle.yaml
+    body:
+      - name: Number eight. The carpet beetle on your window. Smaller than a grain of rice.
+      - fact: Outside, it sips pollen from flowers. But it lays its eggs inside.
+      - fact: Its babies hatch fuzzy and hungry. They eat wool, fur, feathers, and silk.
+      - fact: In the dark, they chew holes in your sweaters. Even the pet hair under your couch.
+      - xray: Up close, it's covered in bristles. And on some people, they cause an itchy rash.
+    verdict: Carpet beetle. C tier. Holes in your sweaters, and a rash for some people.
+  - slug: dust-mites
+    rank: 7
+    tier: C
+    label: DUST MITES
+    outline: scripts/drawn-house/outlines/dust-mites.yaml
+    body:
+      - name: Number seven. Dust mites. Eight legs, cousins of spiders and ticks, and way too small to see.
+      - fact: They eat the skin flakes you shed. One gram of dust can hold thousands.
+      - fact: A mattress can end up holding millions.
+      - calm: They don't bite. It's their poop that makes you sneeze.
+      - fact: Four in five American homes have their allergens in at least one bed.
+    verdict: Dust mites. C tier. No bites, but real allergies, right where you sleep.
+  - slug: bed-bugs
+    rank: 6
+    tier: C
+    label: BED BUGS
+    outline: scripts/drawn-house/outlines/bed-bugs.yaml
+    body:
+      - name: Number six. The bed bug. Flat, reddish brown, about the size of an apple seed.
+      - fact: By day, it hides in the seams of your mattress.
+      - fact: At night, it follows your breath. The carbon dioxide you breathe out.
+      - escalate: Then it bites, and drinks your blood for up to ten minutes. And you never feel a thing.
+      - fact: The good news? They're not known to spread disease. Just itchy bites.
+    verdict: Bed bugs. C tier. Gross and itchy, but not known to spread disease.
+    tease: Five left. And the one at the top injects only a tiny drop, and that can still hurt, a lot.
+  - slug: wolf-spider
+    rank: 5
+    tier: B
+    label: WOLF SPIDER
+    outline: scripts/drawn-house/outlines/wolf-spider.yaml
+    body:
+      - name: Number five. The wolf spider. It runs across your floor, with its back covered in babies.
+      - fact: Shine a flashlight at night, and its eyes glow back at you, like a cat's.
+      - xray: Venomous? Yes. Most spiders have venom. But it only bites if you grab it, or trap it against your skin.
+      - fact: The bite hurts, and goes red. But it fades within a day.
+      - fact: And don't mix it up with a brown recluse. A recluse has only six eyes. Most spiders have eight.
+    verdict: Wolf spider. B tier. A painful bite, but no serious medical problems on record.
+  - slug: cockroach
+    rank: 4
+    tier: A
+    label: COCKROACH
+    outline: scripts/drawn-house/outlines/cockroach.yaml
+    body:
+      - name: Number four. The cockroach. In your kitchen, after dark.
+      - fact: It eats almost anything. Your crumbs. Your soap. Glue. Toothpaste. Even hair.
+      - fact: It can flatten itself into a gap as thin as two stacked pennies.
+      - escalate: Now the part nobody thinks about. Their droppings and shed skins float in the air.
+      - fact: For some kids, that can trigger asthma. And they track germs from the trash onto your food.
+    verdict: Cockroach. A tier. Asthma triggers, and germs on your food.
+    tease: Three left. And the top two are both spiders, with real venom.
+  - slug: house-mouse
+    rank: 3
+    tier: A
+    label: HOUSE MOUSE
+    outline: scripts/drawn-house/outlines/house-mouse.yaml
+    body:
+      - name: Number three. The house mouse. It gets in through a gap a quarter of an inch wide.
+      - fact: It can jump a foot straight up, right onto your counter.
+      - fact: One mouse can leave up to seventy five droppings a day.
+      - escalate: And up to three thousand tiny drops of pee. All over your counters, in the dark.
+      - fact: Mouse pee is a major allergen, linked to asthma in some kids. And mice can carry germs like salmonella.
+    verdict: House mouse. A tier. Germs and allergens, everywhere it walks.
+  - slug: brown-recluse
+    rank: 2
+    tier: S
+    label: BROWN RECLUSE
+    outline: scripts/drawn-house/outlines/brown-recluse.yaml
+    body:
+      - name: Number two. The brown recluse. By day, it hides in boxes, clothes, and shoes.
+      - xray: Its venom can kill the skin around its bite. About one bite in ten leaves a scar.
+      - fact: Six eyes, in three pairs. Legs all one plain color. No stripes, and no spines.
+      - escalate: In one Kansas house, over two thousand were caught in six months. And nobody got bitten.
+      - fact: Most bites heal well, and many wounds blamed on a recluse are really something else.
+    verdict: Brown recluse. S tier. Rare bites, but real damage. One spot left.
+  - slug: black-widow
+    rank: 1
+    tier: S
+    label: BLACK WIDOW
+    outline: scripts/drawn-tt/outlines/widow.yaml
+    body:
+      - name: And number one. The black widow. Shiny black, with a red hourglass on its belly.
+      - fact: It hides in dark, quiet places. Woodpiles. Garages.
+      - xray: Its venom attacks your nerves. Cramps, pain, and sweating.
+      - escalate: Fifteen times more toxic than a rattlesnake's. But it only injects a tiny drop.
+      - fact: Only the big female can bite you. The male's fangs are too small to break your skin.
+      - calm: Death from a bite is very unlikely. But it can still hurt, a lot.
+    verdict: Black widow. S tier. The most dangerous creature in your house.
+end:
+  - That's all seventeen. Harmless at the bottom, dangerous venom at the top.
+  - Which one is in your house? Comment the tier.

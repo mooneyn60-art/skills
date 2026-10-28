@@ -1,0 +1,316 @@
+{
+ "voice": "kokoro:fenrir",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "photo_credits": [],
+ "stage": {
+  "creature": "house_centipede",
+  "scene": "basement",
+  "scene_p": {
+   "time": "night"
+  }
+ },
+ "sources": [
+  "Connecticut Agricultural Experiment Station, House Centipede (Scutigera coleoptrata) fact sheet, K. Dugas: 15 pairs of legs; antennae look like legs so predators can't tell which way it faces; fast runners that chase prey; forcipules (modified pincer-like legs) give a venomous sting to prey; stinging a human is very rare and only from rough handling; flees when discovered; hunts cockroach nymphs, bed bugs, flies, ants, silverfish, spiders; nocturnal; https://portal.ct.gov/-/media/caes/documents/publications/fact_sheets/entomology/house_centipede_scutigera.pdf",
+  "Washington State University Extension PestSense, House centipede: hunts spiders and insects including flies, cockroaches, moths; usually active at night; https://pestsense.cahnrs.wsu.edu/fact-sheet/house-centipede/",
+  "Penn State Extension, House Centipedes: 15 pairs of legs; feeds on silverfish, firebrats, carpet beetle larvae, cockroaches, spiders; comes out at night; harmless; https://extension.psu.edu/house-centipedes",
+  "Washington State University Extension PestSense, House centipede: newly hatched nymphs have four pairs of legs, with more pairs added at each molt; https://pestsense.cahnrs.wsu.edu/fact-sheet/house-centipede/ (CAES fact sheet above: upwards of 3 years to mature, can live as long as 7 years, frequents basements, cellars and first-floor bathrooms, most are never seen, pesticides not recommended, reduce humidity and exclude the insects they prey on; Penn State above: the female's last pair of legs is nearly twice the body length)"
+ ],
+ "beats": [
+  {
+   "m": "name",
+   "say": "Number nine. The house centipede. Fifteen pairs of legs, and fast."
+  },
+  {
+   "m": "fact",
+   "say": "Its feelers look like legs, so a predator can't tell which way it's facing."
+  },
+  {
+   "m": "fact",
+   "say": "It hunts cockroaches, flies, spiders, and even silverfish."
+  },
+  {
+   "m": "xray",
+   "say": "It stings them with legs that turned into fangs."
+  },
+  {
+   "m": "fact",
+   "say": "Will it sting you? Very rarely. Only if you grab it roughly. It would rather run."
+  },
+  {
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   },
+   "say": "House centipede. D tier. Creepy, but it's eating your other bugs.",
+   "pad": 0.25,
+   "shots": [
+    {
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      930,
+      1.05
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "pos": [
+      540,
+      430
+     ],
+     "s": 0.92,
+     "id": "board",
+     "type": "tierboard",
+     "p": {
+      "icons": [
+       {
+        "type": "cellar_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.jumping_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.gecko",
+        "tier": "F"
+       },
+       {
+        "type": "sp.demodex",
+        "tier": "F"
+       },
+       {
+        "type": "sp.silverfish",
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "fruit fly",
+         "body": "round",
+         "color": "#c99a5a",
+         "dark": "#7a4a24",
+         "head": "#b8742e",
+         "length": 320,
+         "height": 160,
+         "leg_len": 90,
+         "ant": 70,
+         "stripes": 4,
+         "wings": "clear",
+         "eye_r": 34,
+         "floor": false,
+         "mood": "smug",
+         "s": 0.95
+        },
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "pantry moth",
+         "body": "long",
+         "color": "#a8683a",
+         "dark": "#d9cdb4",
+         "head": "#8a5a34",
+         "length": 360,
+         "height": 120,
+         "leg_len": 80,
+         "ant": 170,
+         "stripes": 3,
+         "wings": "clear",
+         "floor": false,
+         "mood": "smug",
+         "s": 1.0
+        },
+        "tier": "D"
+       },
+       {
+        "type": "sp.earwig",
+        "tier": "D"
+       },
+       {
+        "type": "sp.house_centipede",
+        "tier": "D"
+       }
+      ],
+      "hide_s": true,
+      "drop": 0.0
+     },
+     "set": [
+      {
+       "at": "12%",
+       "dur": 0.75,
+       "p": {
+        "drop": 1.0
+       }
+      },
+      {
+       "at": "35%",
+       "dur": 0.3,
+       "p": {
+        "glow": 1.0
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "point",
+    "pos": [
+     150,
+     1890
+    ],
+    "size": 560,
+    "look": "board",
+    "gest": [
+     [
+      "55%",
+      "shrug",
+      1.2
+     ]
+    ]
+   },
+   "sfx": [
+    "whoosh@10%",
+    "boing@32%"
+   ]
+  },
+  {
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   },
+   "say": "Still coming, number two. In one Kansas house, over two thousand were caught in six months.",
+   "pad": 0.25,
+   "shots": [
+    {
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      640,
+      1.22
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "pos": [
+      540,
+      430
+     ],
+     "s": 0.92,
+     "id": "board",
+     "type": "tierboard",
+     "p": {
+      "icons": [
+       {
+        "type": "cellar_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.jumping_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.gecko",
+        "tier": "F"
+       },
+       {
+        "type": "sp.demodex",
+        "tier": "F"
+       },
+       {
+        "type": "sp.silverfish",
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "fruit fly",
+         "body": "round",
+         "color": "#c99a5a",
+         "dark": "#7a4a24",
+         "head": "#b8742e",
+         "length": 320,
+         "height": 160,
+         "leg_len": 90,
+         "ant": 70,
+         "stripes": 4,
+         "wings": "clear",
+         "eye_r": 34,
+         "floor": false,
+         "mood": "smug",
+         "s": 0.95
+        },
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "pantry moth",
+         "body": "long",
+         "color": "#a8683a",
+         "dark": "#d9cdb4",
+         "head": "#8a5a34",
+         "length": 360,
+         "height": 120,
+         "leg_len": 80,
+         "ant": 170,
+         "stripes": 3,
+         "wings": "clear",
+         "floor": false,
+         "mood": "smug",
+         "s": 1.0
+        },
+        "tier": "D"
+       },
+       {
+        "type": "sp.earwig",
+        "tier": "D"
+       },
+       {
+        "type": "sp.house_centipede",
+        "tier": "D"
+       }
+      ],
+      "hide_s": true,
+      "drop": 1.0
+     },
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "think",
+    "pos": [
+     150,
+     1890
+    ],
+    "size": 560,
+    "look": "board",
+    "gest": [
+     [
+      "55%",
+      "shock",
+      1.2
+     ]
+    ]
+   },
+   "sfx": [
+    "whoosh@5%",
+    "tink@60%"
+   ]
+  }
+ ]
+}

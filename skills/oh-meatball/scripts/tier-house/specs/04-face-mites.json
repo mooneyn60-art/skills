@@ -1,0 +1,129 @@
+{
+ "voice": "kokoro:fenrir",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "photo_credits": [],
+ "stage": {
+  "creature": "demodex",
+  "scene": "skin",
+  "scene_p": {
+   "night": true
+  }
+ },
+ "sources": [
+  "University of Reading news, 'Secret lives of skin mites in our faces' (2022, on Smith et al., Molecular Biology and Evolution, doi:10.1093/molbev/msac125): carried by almost every human; about 0.3 mm long; live in hair follicles on the face, including the eyelashes; eat the sebum in the pores; active at night, moving between follicles looking to mate; passed from mother to baby during or after birth; legs powered by three single-cell muscles; cannot make melatonin and use the melatonin human skin secretes at dusk; lost the gene that makes animals wake in daylight; the study confirmed they do have anuses; numbers peak in adults as pores grow bigger; https://www.reading.ac.uk/news/2022/Research-News/Secret-lives-of-skin-mites-in-our-faces",
+  "Thoms et al. (2014), 'Ubiquity of Demodex mites in humans', PLOS ONE 9(8): e106265: Demodex DNA detected in 100% of adults over 18 sampled (n = 19); https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0106265",
+  "DermNet (New Zealand Dermatological Society), Demodex: semi-transparent elongated body about 0.3-0.4 mm, eight short legs on the front body segment, invisible to the naked eye; most people carry them without symptoms; https://dermnetnz.org/topics/demodex"
+ ],
+ "beats": [
+  {
+   "m": "name",
+   "say": "Number fourteen is on your face. Demodex mites, living in your pores, and your eyelashes."
+  },
+  {
+   "m": "fact",
+   "say": "One study found their DNA on every adult it tested. So yes, you too."
+  },
+  {
+   "m": "fact",
+   "say": "They're about a third of a millimeter long, and they eat the oil your skin makes."
+  },
+  {
+   "m": "calm",
+   "say": "And at night, they crawl out of your pores, and walk across your face, to find a mate."
+  },
+  {
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   },
+   "say": "Face mites. F tier. For most people, they're harmless.",
+   "pad": 0.25,
+   "shots": [
+    {
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      930,
+      1.05
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "pos": [
+      540,
+      430
+     ],
+     "s": 0.92,
+     "id": "board",
+     "type": "tierboard",
+     "p": {
+      "icons": [
+       {
+        "type": "cellar_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.jumping_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.gecko",
+        "tier": "F"
+       },
+       {
+        "type": "sp.demodex",
+        "tier": "F"
+       }
+      ],
+      "hide_s": true,
+      "drop": 0.0
+     },
+     "set": [
+      {
+       "at": "12%",
+       "dur": 0.75,
+       "p": {
+        "drop": 1.0
+       }
+      },
+      {
+       "at": "35%",
+       "dur": 0.3,
+       "p": {
+        "glow": 1.0
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "point",
+    "pos": [
+     150,
+     1890
+    ],
+    "size": 560,
+    "look": "board",
+    "gest": [
+     [
+      "55%",
+      "shrug",
+      1.2
+     ]
+    ]
+   },
+   "sfx": [
+    "whoosh@10%",
+    "boing@32%"
+   ]
+  }
+ ]
+}

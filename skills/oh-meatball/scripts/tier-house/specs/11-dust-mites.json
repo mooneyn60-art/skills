@@ -1,0 +1,210 @@
+{
+ "voice": "kokoro:fenrir",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "photo_credits": [],
+ "stage": {
+  "creature": "dust_mite",
+  "scene": "fibers",
+  "scene_p": {
+   "flakes": 14
+  }
+ },
+ "sources": [
+  "University of Kentucky Entomology, House Dust Mites (ENTFACT-646): usually visible only under a microscope; primary food is skin scales shed by people and pets, plus micro molds that grow on them; thousands of mites in a single gram of house dust; an infested mattress can hold millions; most numerous in beds, sofas, chairs and nearby carpet; allergenic proteins especially in their feces; adults live about 1-2 months; females lay about 50 eggs; about one month egg to adult; struggle below 50 percent relative humidity; encase mattresses, box springs and pillows in allergen-impermeable covers; https://entomology.mgcafe.uky.edu/ef646",
+  "American Lung Association, Dust Mites: too small to see; feed on dead skin cells; get moisture from the air; do not bite, sting or burrow; allergens come from feces, urine and decaying bodies; most exposure happens during sleep; roughly four in five U.S. homes have dust mite allergens in at least one bed; keep indoor humidity below 50 percent; https://www.lung.org/clean-air/indoor-air/indoor-air-pollutants/dust-mites",
+  "University of Maine Cooperative Extension, Dust Mites: eight legs; related to ticks and spiders, not insects; https://extension.umaine.edu/home-and-garden-ipm/fact-sheets/common-name-listing/dust-mites/",
+  "Texas A&M Field Guide to Common Texas Insects, House Dust Mite: house dust mites do not bite; https://texasinsects.tamu.edu/house-dust-mite/"
+ ],
+ "beats": [
+  {
+   "m": "name",
+   "say": "Number seven. Dust mites. Eight legs, cousins of spiders and ticks, and way too small to see."
+  },
+  {
+   "m": "fact",
+   "say": "They eat the skin flakes you shed. One gram of dust can hold thousands."
+  },
+  {
+   "m": "fact",
+   "say": "A mattress can end up holding millions."
+  },
+  {
+   "m": "calm",
+   "say": "They don't bite. It's their poop that makes you sneeze."
+  },
+  {
+   "m": "fact",
+   "say": "Four in five American homes have their allergens in at least one bed."
+  },
+  {
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   },
+   "say": "Dust mites. C tier. No bites, but real allergies, right where you sleep.",
+   "pad": 0.25,
+   "shots": [
+    {
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      930,
+      1.05
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "pos": [
+      540,
+      430
+     ],
+     "s": 0.92,
+     "id": "board",
+     "type": "tierboard",
+     "p": {
+      "icons": [
+       {
+        "type": "cellar_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.jumping_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.gecko",
+        "tier": "F"
+       },
+       {
+        "type": "sp.demodex",
+        "tier": "F"
+       },
+       {
+        "type": "sp.silverfish",
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "fruit fly",
+         "body": "round",
+         "color": "#c99a5a",
+         "dark": "#7a4a24",
+         "head": "#b8742e",
+         "length": 320,
+         "height": 160,
+         "leg_len": 90,
+         "ant": 70,
+         "stripes": 4,
+         "wings": "clear",
+         "eye_r": 34,
+         "floor": false,
+         "mood": "smug",
+         "s": 0.95
+        },
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "pantry moth",
+         "body": "long",
+         "color": "#a8683a",
+         "dark": "#d9cdb4",
+         "head": "#8a5a34",
+         "length": 360,
+         "height": 120,
+         "leg_len": 80,
+         "ant": 170,
+         "stripes": 3,
+         "wings": "clear",
+         "floor": false,
+         "mood": "smug",
+         "s": 1.0
+        },
+        "tier": "D"
+       },
+       {
+        "type": "sp.earwig",
+        "tier": "D"
+       },
+       {
+        "type": "sp.house_centipede",
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "carpet beetle",
+         "body": "round",
+         "color": "#6b4f3a",
+         "dark": "#efe4c8",
+         "head": "#3a2a20",
+         "length": 400,
+         "height": 230,
+         "leg_len": 90,
+         "ant": 120,
+         "stripes": 3,
+         "wings": "shell",
+         "mood": "smug",
+         "s": 0.85
+        },
+        "tier": "C"
+       },
+       {
+        "type": "sp.dust_mite",
+        "tier": "C"
+       }
+      ],
+      "hide_s": true,
+      "drop": 0.0
+     },
+     "set": [
+      {
+       "at": "12%",
+       "dur": 0.75,
+       "p": {
+        "drop": 1.0
+       }
+      },
+      {
+       "at": "35%",
+       "dur": 0.3,
+       "p": {
+        "glow": 1.0
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "point",
+    "pos": [
+     150,
+     1890
+    ],
+    "size": 560,
+    "look": "board",
+    "gest": [
+     [
+      "55%",
+      "shrug",
+      1.2
+     ]
+    ]
+   },
+   "sfx": [
+    "whoosh@10%",
+    "boing@32%"
+   ]
+  }
+ ]
+}

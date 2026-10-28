@@ -1,0 +1,184 @@
+{
+ "voice": "kokoro:fenrir",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "photo_credits": [],
+ "stage": {
+  "creature": "earwig",
+  "s": 0.65,
+  "scene": "bathroom",
+  "wild": "garden",
+  "wild_p": {
+   "time": "night"
+  }
+ },
+ "sources": [
+  "The Scientist, The Earwig's Tale (May Berenbaum, entomologist, University of Illinois): surveying about ten centuries of literature she could find only a single report of an earwig in an ear; https://www.the-scientist.com/the-earwigs-tale-43480",
+  "University of California IPM, Earwigs (Pest Notes): not harmful to people, though they can pinch if trapped in clothing or sat on; feed at night on aphids, insect eggs and plant shoots, can damage seedlings; hide by day in dark, cool, moist places; come indoors when outdoor conditions are too dry, hot or cold; pincers somewhat curved in males, straighter in females; most species have wings under short hard covers but seldom fly; females dig cells in soil, lay masses of 30 or more eggs, and nymphs are protected and fed by their mother until their first molt; rolled newspaper or tubes placed on soil before dark collect earwigs, emptied each morning; https://ipm.ucanr.edu/home-and-landscape/earwigs/",
+  "Science News, Earwigs take origami to extremes to fold their wings (2018, on Faber, Arrieta and Studart, Science): earwigs pack their wings into packages with a surface area more than 10 times smaller than unfurled; ETH Zurich team built folding structures inspired by them for possible use in robotics, biomedical devices and spacecraft; https://www.sciencenews.org/article/earwigs-take-origami-extremes-fold-their-wings"
+ ],
+ "beats": [
+  {
+   "m": "name",
+   "say": "Number ten. The earwig. Pincers on its rear end, and named after your ear."
+  },
+  {
+   "m": "xray",
+   "say": "The myth says it crawls into your ear while you sleep."
+  },
+  {
+   "m": "escalate",
+   "say": "One entomologist searched ten centuries of writing, and found one single case."
+  },
+  {
+   "m": "fact",
+   "say": "Those pincers can give you a pinch, if one gets trapped in your clothes."
+  },
+  {
+   "m": "fact",
+   "say": "It wanders indoors when it's too dry outside. At night, it hunts aphids and insect eggs."
+  },
+  {
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   },
+   "say": "Earwig. D tier. A pinch at worst. And your ears are safe. Myth busted.",
+   "pad": 0.25,
+   "shots": [
+    {
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      930,
+      1.05
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "pos": [
+      540,
+      430
+     ],
+     "s": 0.92,
+     "id": "board",
+     "type": "tierboard",
+     "p": {
+      "icons": [
+       {
+        "type": "cellar_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.jumping_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.gecko",
+        "tier": "F"
+       },
+       {
+        "type": "sp.demodex",
+        "tier": "F"
+       },
+       {
+        "type": "sp.silverfish",
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "fruit fly",
+         "body": "round",
+         "color": "#c99a5a",
+         "dark": "#7a4a24",
+         "head": "#b8742e",
+         "length": 320,
+         "height": 160,
+         "leg_len": 90,
+         "ant": 70,
+         "stripes": 4,
+         "wings": "clear",
+         "eye_r": 34,
+         "floor": false,
+         "mood": "smug",
+         "s": 0.95
+        },
+        "tier": "D"
+       },
+       {
+        "cfg": {
+         "plan": "insect",
+         "label": "pantry moth",
+         "body": "long",
+         "color": "#a8683a",
+         "dark": "#d9cdb4",
+         "head": "#8a5a34",
+         "length": 360,
+         "height": 120,
+         "leg_len": 80,
+         "ant": 170,
+         "stripes": 3,
+         "wings": "clear",
+         "floor": false,
+         "mood": "smug",
+         "s": 1.0
+        },
+        "tier": "D"
+       },
+       {
+        "type": "sp.earwig",
+        "tier": "D"
+       }
+      ],
+      "hide_s": true,
+      "drop": 0.0
+     },
+     "set": [
+      {
+       "at": "12%",
+       "dur": 0.75,
+       "p": {
+        "drop": 1.0
+       }
+      },
+      {
+       "at": "35%",
+       "dur": 0.3,
+       "p": {
+        "glow": 1.0
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "point",
+    "pos": [
+     150,
+     1890
+    ],
+    "size": 560,
+    "look": "board",
+    "gest": [
+     [
+      "55%",
+      "shrug",
+      1.2
+     ]
+    ]
+   },
+   "sfx": [
+    "whoosh@10%",
+    "boing@32%"
+   ]
+  }
+ ]
+}

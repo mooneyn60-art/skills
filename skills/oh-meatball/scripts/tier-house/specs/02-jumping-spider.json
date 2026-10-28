@@ -1,0 +1,130 @@
+{
+ "voice": "kokoro:fenrir",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "photo_credits": [],
+ "stage": {
+  "creature": "jumping_spider",
+  "scene": "sill",
+  "scene_p": {
+   "time": "day"
+  },
+  "wild": "garden",
+  "wild_p": {
+   "time": "day"
+  }
+ },
+ "sources": [
+  "Oklahoma State University Extension, Jumping spiders: hunt during the day; often seen on windows and walls where insect prey gathers; https://extension.okstate.edu/programs/digital-diagnostics/insects-and-arthropods/jumping-spiders",
+  "Utah State University Extension, Jumping Spiders: most visible near windows and bright spots; not known to pose a health hazard; beneficial; catch in a jar and release outside; https://extension.usu.edu/planthealth/ipm/notes_nuisance/jumping-spiders.php",
+  "Australian Museum, Jumping spiders (Salticidae): daylight hunters with large eyes and excellent vision, used to track, stalk and judge distance before leaping; hunt by stalking, not webs; body 3-12 mm; males use colourful courtship displays; peacock spiders raise a coloured abdominal flap; https://australian.museum/learn/animals/spiders/jumping-spiders/",
+  "Wikipedia, Jumping spider (citing Land 1969, Foelix): largest spider family, over 6,000 described species; eight eyes, large front pair for 3D vision and range-finding; attaches a silk dragline before a jump and climbs back up it if it falls; legs straightened by a fast rise in blood pressure (hydraulics) rather than extensor muscles; https://en.wikipedia.org/wiki/Jumping_spider"
+ ],
+ "beats": [
+  {
+   "m": "name",
+   "say": "Number sixteen. The jumping spider on your window. Eight eyes, and two giant ones in front."
+  },
+  {
+   "m": "fact",
+   "say": "It hunts in daylight, with no web at all. It stalks a fly, and judges the distance."
+  },
+  {
+   "m": "fact",
+   "say": "Then it jumps. But first, it glues down a silk safety line."
+  },
+  {
+   "m": "fact",
+   "say": "If it misses, it just climbs back up the line."
+  },
+  {
+   "m": "calm",
+   "say": "Experts say it's not known to be a health hazard. It's just looking at you."
+  },
+  {
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   },
+   "say": "Jumping spider. F tier. Harmless, and it hunts the flies at your window.",
+   "pad": 0.25,
+   "shots": [
+    {
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      930,
+      1.05
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "pos": [
+      540,
+      430
+     ],
+     "s": 0.92,
+     "id": "board",
+     "type": "tierboard",
+     "p": {
+      "icons": [
+       {
+        "type": "cellar_spider",
+        "tier": "F"
+       },
+       {
+        "type": "sp.jumping_spider",
+        "tier": "F"
+       }
+      ],
+      "hide_s": true,
+      "drop": 0.0
+     },
+     "set": [
+      {
+       "at": "12%",
+       "dur": 0.75,
+       "p": {
+        "drop": 1.0
+       }
+      },
+      {
+       "at": "35%",
+       "dur": 0.3,
+       "p": {
+        "glow": 1.0
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "point",
+    "pos": [
+     150,
+     1890
+    ],
+    "size": 560,
+    "look": "board",
+    "gest": [
+     [
+      "55%",
+      "shrug",
+      1.2
+     ]
+    ]
+   },
+   "sfx": [
+    "whoosh@10%",
+    "boing@32%"
+   ]
+  }
+ ]
+}
