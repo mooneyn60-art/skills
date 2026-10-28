@@ -4,8 +4,9 @@ specs: scripts/drawn-tt
 series: Meatball's Animal Files
 variant: B (tiny)
 title: This Fish Latches On to Other Fish and Drinks Their Blood 🩸
-tiktok_caption: 'a fish that latches on to other fish and drinks their blood 🩸 no jaws, just a sucker full of teeth, and older
-  than dinosaurs. Would you swim in a lake with these? 🏊 yes / 🙅 never #meatballmyths #learnontiktok #lamprey #animalfacts'
+tiktok_caption: 'a fish that latches on to other fish and drinks their blood 🩸 no
+  jaws, just a sucker full of teeth, and older than dinosaurs. Would you swim in a
+  lake with these? 🏊 yes / 🙅 never #meatballmyths #learnontiktok #lamprey #animalfacts'
 creature: sea_lamprey
 actor: creature
 creature_cfg: &id001
@@ -30,14 +31,18 @@ wild: deep
 music: mystery
 next: Next, an ant that's actually a wasp, with a sting they call the cow killer.
 sources:
-- 'Great Lakes Fishery Commission, Sea Lamprey: no jaws, cartilage skeleton; a large oral sucking disk filled with sharp horn-shaped
-  teeth around a razor-sharp rasping tongue; attaches and rasps through scales and skin, secreting an enzyme that stops blood
-  clotting like a leech; each can kill up to 40 lb of fish in its 12-18 month feeding period; largely unchanged for more than
-  340 million years, survived at least four major extinctions; first recorded in Lake Ontario 1835, Welland Canal improvements
-  let it past Niagara Falls into Lake Erie by 1921 and Lake Superior by 1938; lake trout catch fell from about 15 million
-  lb a year to about 300,000 lb; up to 85 percent of surviving fish bore lamprey wounds; https://www.glfc.org/sea-lamprey.php'
-- 'U.S. Fish and Wildlife Service, Sea Lamprey: larvae develop in stream sediment for about four to 17 years; a female can
-  produce up to 100,000 eggs; females die soon after spawning, males within one to three days; https://www.fws.gov/midwest/SeaLamprey/'
+- 'Great Lakes Fishery Commission, Sea Lamprey: no jaws, cartilage skeleton; a large
+  oral sucking disk filled with sharp horn-shaped teeth around a razor-sharp rasping
+  tongue; attaches and rasps through scales and skin, secreting an enzyme that stops
+  blood clotting like a leech; each can kill up to 40 lb of fish in its 12-18 month
+  feeding period; largely unchanged for more than 340 million years, survived at least
+  four major extinctions; first recorded in Lake Ontario 1835, Welland Canal improvements
+  let it past Niagara Falls into Lake Erie by 1921 and Lake Superior by 1938; lake
+  trout catch fell from about 15 million lb a year to about 300,000 lb; up to 85 percent
+  of surviving fish bore lamprey wounds; https://www.glfc.org/sea-lamprey.php'
+- 'U.S. Fish and Wildlife Service, Sea Lamprey: larvae develop in stream sediment
+  for about four to 17 years; a female can produce up to 100,000 eggs; females die
+  soon after spawning, males within one to three days; https://www.fws.gov/midwest/SeaLamprey/'
 yt:
 - hook: This fish latches on to other fish, and drinks their blood.
   hero_moves:
@@ -47,6 +52,9 @@ yt:
     - 780
     - 1200
     walk: true
+  gag:
+    thought: fish
+    at: 40%
 - shrink: So I shrank myself down, to get a closer look at that mouth.
   hero_at:
     x: 780
@@ -66,6 +74,9 @@ yt:
   act:
     bite: 1.0
   pose: shock
+  gag:
+    prop: magnifier
+    at: 40%
 - tiny: It latches on, and grinds right through the scales and skin.
   zoom: 1.4
   hero_at:
@@ -82,6 +93,9 @@ yt:
     y: 760
     s: 0.45
     front: false
+  gag:
+    mark: anger
+    at: 40%
 tt:
 - tiny: Then it oozes a chemical that stops the blood from clotting.
   zoom: 1.4
@@ -93,6 +107,9 @@ tt:
     time: dusk
   act:
     xray: 1.0
+  gag:
+    heart: 3
+    at: 50%
 - tiny: So, a leech. But it's a fish. And it's two feet long.
   zoom: 1.4
   hero_at:
@@ -102,6 +119,9 @@ tt:
   scene_p:
     time: dusk
   pose: deadpan
+  gag:
+    prop: ruler
+    at: 70%
 - tiny: One lamprey can kill up to forty pounds of fish.
   zoom: 1.4
   hero_at:
@@ -112,14 +132,23 @@ tt:
     time: dusk
   act:
     chew: 1.0
-- solo: Its babies hide in the mud at the bottom of a stream, for four to seventeen years.
+  gag:
+    pile: fish
+    n: 8
+    at: 40%
+- solo: Its babies hide in the mud at the bottom of a stream, for four to seventeen
+    years.
   scene: swamp
   scene_p:
     time: dusk
   hero_at:
     x: 540
     y: 1470
-- tiny: About a hundred years ago, a ship canal let it past Niagara Falls, into the Great Lakes.
+  gag:
+    clock: 5
+    at: 50%
+- tiny: About a hundred years ago, a ship canal let it past Niagara Falls, into the
+    Great Lakes.
   zoom: 1.4
   hero_at:
     x: 570
@@ -136,6 +165,9 @@ tt:
   scene_p:
     time: day
   pose: shock
+  gag:
+    prop: skull
+    at: 50%
 - tiny: At the worst, most of the fish that survived an attack had lamprey wounds.
   zoom: 1.4
   hero_at:
@@ -143,8 +175,13 @@ tt:
     y: 1150
   act:
     bite: 1.0
-- solo: And this design is ancient. Over three hundred forty million years, barely changed.
+- solo: And this design is ancient. Over three hundred forty million years, barely
+    changed.
   scene: deep
+  gag:
+    clock: 6
+    at: 40%
+    dur: 1.8
 - tiny: It survived at least four mass extinctions.
   zoom: 1.4
   hero_at:
@@ -152,6 +189,9 @@ tt:
     y: 1150
   scene: deep
   pose: think
+  gag:
+    prop: trophy
+    at: 50%
 - tiny: One female can lay up to a hundred thousand eggs. And then she dies.
   zoom: 1.4
   hero_at:
@@ -161,11 +201,19 @@ tt:
   scene_p:
     time: night
   pose: nervous
+  gag:
+  - pile: egg
+    n: 10
+    r: 24
+    at: 30%
+  - prop: skull
+    at: 85%
 - fact: Would you swim in a lake with these?
   hero_at:
     x: 780
     y: 1200
-- punch: Older than dinosaurs, tougher than extinctions, and it still eats like a vampire.
+- punch: Older than dinosaurs, tougher than extinctions, and it still eats like a
+    vampire.
   hero_at:
     x: 780
     y: 1200

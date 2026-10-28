@@ -1,59 +1,154 @@
 slug: velvetant
 out: episodes/drawn-tt
 specs: scripts/drawn-tt
-series: "Meatball's Animal Files"
+series: Meatball's Animal Files
 variant: A
 title: This Fuzzy Ant Is Actually a Wasp Called the Cow Killer 🐜
-tiktok_caption: "this fuzzy red ant is actually a wasp called the cow killer 🐜 its sting feels like hot fryer oil on your hand. Would you pick one up? 🖐️ sure / 🏃 run #meatballmyths #learnontiktok #velvetant #bugs"
+tiktok_caption: 'this fuzzy red ant is actually a wasp called the cow killer 🐜 its
+  sting feels like hot fryer oil on your hand. Would you pick one up? 🖐️ sure / 🏃
+  run #meatballmyths #learnontiktok #velvetant #bugs'
 creature: velvet_ant
 actor: creature
-creature_cfg: &cfg {plan: insect, label: velvet ant, body: round, color: "#e0402a", dark: "#1e1a1a", head: "#1e1a1a",
-                    length: 460, height: 210, leg_len: 130, ant: 160, stripes: 2, mood: angry, xray: venom, s: 0.9}
-hero_p: {cfg: *cfg}
+creature_cfg: &id001
+  plan: insect
+  label: velvet ant
+  body: round
+  color: '#e0402a'
+  dark: '#1e1a1a'
+  head: '#1e1a1a'
+  length: 460
+  height: 210
+  leg_len: 130
+  ant: 160
+  stripes: 2
+  mood: angry
+  xray: venom
+  s: 0.9
+hero_p:
+  cfg: *id001
 scene: garden
-scene_p: {time: day, palette: {ground: "#d9b878", ground2: "#c4a05e"}}
+scene_p:
+  time: day
+  palette:
+    ground: '#d9b878'
+    ground2: '#c4a05e'
 wild: desert
-wild_p: {time: day}
+wild_p:
+  time: day
 music: mystery
 next: Next, a crocodile that swims out to sea.
 sources:
-  - "Clemson University Home & Garden Information Center, Velvet Ants: wasps (Mutillidae), not ants; eastern velvet ant about 3/4 inch; dense velvety fuzz with bold warning colors; wingless females deliver a severe, very painful sting; winged males are harmless; nicknamed 'cow killers' but no record of a cow ever killed; squeak by rubbing two abdominal segments together; exoskeleton so tough that chemical and mechanical control rarely work; parasitize ground-nesting bees and wasps, laying eggs on the host's immature stages, which the developing velvet ant consumes until the host dies; adults feed on flower nectar; https://hgic.clemson.edu/factsheet/velvet-ants/"
-  - "Science News (2025), Velvet ants have the Swiss Army knife of venoms (Borjon et al., Current Biology; Indiana University, University of Queensland, Utah State): scarlet velvet ant venom has 24 peptides, some targeting insect neurons and some causing pain in mammals; Justin Schmidt described the sting as 'hot oil from the deep fryer spilling over your entire hand'; extremely tough exoskeleton; mammals, reptiles, amphibians and birds react to the sting; nothing seems to consistently eat velvet ants; https://sciencenews.org/?p=3147950"
+- 'Clemson University Home & Garden Information Center, Velvet Ants: wasps (Mutillidae),
+  not ants; eastern velvet ant about 3/4 inch; dense velvety fuzz with bold warning
+  colors; wingless females deliver a severe, very painful sting; winged males are
+  harmless; nicknamed ''cow killers'' but no record of a cow ever killed; squeak by
+  rubbing two abdominal segments together; exoskeleton so tough that chemical and
+  mechanical control rarely work; parasitize ground-nesting bees and wasps, laying
+  eggs on the host''s immature stages, which the developing velvet ant consumes until
+  the host dies; adults feed on flower nectar; https://hgic.clemson.edu/factsheet/velvet-ants/'
+- 'Science News (2025), Velvet ants have the Swiss Army knife of venoms (Borjon et
+  al., Current Biology; Indiana University, University of Queensland, Utah State):
+  scarlet velvet ant venom has 24 peptides, some targeting insect neurons and some
+  causing pain in mammals; Justin Schmidt described the sting as ''hot oil from the
+  deep fryer spilling over your entire hand''; extremely tough exoskeleton; mammals,
+  reptiles, amphibians and birds react to the sting; nothing seems to consistently
+  eat velvet ants; https://sciencenews.org/?p=3147950'
 yt:
-  - hook: This fuzzy red ant is actually a wasp. And they call it the cow killer.
-    hero_moves: [{at: 0, dur: 1.2, pos: [720, 1500], walk: true}]
-  - name: The velvet ant. No wings, and covered in red and black fuzz.
-    hero_at: {x: 720}
-  - fact: Only the females are wingless. The males can fly, but can't sting.
-    hero_at: {x: 720}
-  - xray: Her venom is a mix of twenty-four different ingredients.
-    hero_at: {x: 720}
-  - escalate: One scientist said the sting feels like hot oil from a deep fryer, spilling over your whole hand.
-    hero_at: {x: 720}
-  - calm: But relax. There's no record of it ever killing a cow.
+- hook: This fuzzy red ant is actually a wasp. And they call it the cow killer.
+  hero_moves:
+  - at: 0
+    dur: 1.2
+    pos:
+    - 720
+    - 1500
+    walk: true
+  gag:
+  - mark: shock
+    at: 40%
+  - prop: skull
+    at: 80%
+- name: The velvet ant. No wings, and covered in red and black fuzz.
+  hero_at:
+    x: 720
+  gag:
+    prop: magnifier
+    at: 60%
+- fact: Only the females are wingless. The males can fly, but can't sting.
+  hero_at:
+    x: 720
+- xray: Her venom is a mix of twenty-four different ingredients.
+  hero_at:
+    x: 720
+- escalate: One scientist said the sting feels like hot oil from a deep fryer, spilling
+    over your whole hand.
+  hero_at:
+    x: 720
+  gag:
+  - zap: true
+    at: 20%
+  - meter: 1.0
+    at: 50%
+- calm: But relax. There's no record of it ever killing a cow.
+  gag:
+    mark: hearts
+    at: 40%
 tt:
-  - fact: Those bright colors are a warning. Back off.
-    hero_at: {x: 720}
-  - solo: Grab it, and it squeaks, by rubbing parts of its belly together.
-    zoom: 1.05
-  - fact: And its armor is so tough that bug spray and swatting rarely work.
-    hero_at: {x: 720}
-  - solo: Scientists found that almost nothing regularly eats it.
-    zoom: 1.05
-  - fact: Birds, lizards, frogs and mammals all flinch at the sting.
-    hero_at: {x: 720}
-  - fact: Some of its venom attacks bug nerves. Some is made to hurt animals like you.
-    hero_at: {x: 720}
-  - escalate: Now the gross part. Mom sneaks into a bee nest, underground.
-    hero_at: {x: 720}
-  - fact: She lays an egg right on a baby bee.
-    hero_at: {x: 720}
-  - solo: Her baby hatches, and eats the baby bee, until it dies.
-    zoom: 1.05
-    scene_p: {time: night}
-  - fact: As an adult, it just sips nectar from flowers.
-    hero_at: {x: 720}
-  - fact: Would you pick one up?
-    hero_at: {x: 720}
-  - punch: Fuzzy, cute, and it grew up eating a baby bee.
-    hero_at: {x: 720}
+- fact: Those bright colors are a warning. Back off.
+  hero_at:
+    x: 720
+  gag:
+    mark: alarm
+    at: 40%
+- solo: Grab it, and it squeaks, by rubbing parts of its belly together.
+  zoom: 1.05
+  gag:
+    mark: shock
+    at: 30%
+- fact: And its armor is so tough that bug spray and swatting rarely work.
+  hero_at:
+    x: 720
+  gag:
+    meter: 1.0
+    at: 40%
+- solo: Scientists found that almost nothing regularly eats it.
+  zoom: 1.05
+  gag:
+    prop: trophy
+    at: 60%
+- fact: Birds, lizards, frogs and mammals all flinch at the sting.
+  hero_at:
+    x: 720
+  gag:
+    zap: true
+    at: 70%
+- fact: Some of its venom attacks bug nerves. Some is made to hurt animals like you.
+  hero_at:
+    x: 720
+  gag:
+    zap: true
+    at: 30%
+- escalate: Now the gross part. Mom sneaks into a bee nest, underground.
+  hero_at:
+    x: 720
+- fact: She lays an egg right on a baby bee.
+  hero_at:
+    x: 720
+- solo: Her baby hatches, and eats the baby bee, until it dies.
+  zoom: 1.05
+  scene_p:
+    time: night
+  gag:
+    prop: skull
+    at: 80%
+- fact: As an adult, it just sips nectar from flowers.
+  hero_at:
+    x: 720
+  gag:
+    mark: hearts
+    at: 50%
+- fact: Would you pick one up?
+  hero_at:
+    x: 720
+- punch: Fuzzy, cute, and it grew up eating a baby bee.
+  hero_at:
+    x: 720

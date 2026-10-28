@@ -4,8 +4,9 @@ specs: scripts/drawn-tt
 series: Meatball's Animal Files
 variant: B (tiny)
 title: Hippos Can't Swim and They Can't Even Float 🦛
-tiktok_caption: 'hippos can''t swim or even float 🦛 they ooze red sunscreen goo and fling their poop with their tails. Would
-  you go boating near one? 🛶 sure / 🏃 nope #meatballmyths #learnontiktok #hippo #animalfacts'
+tiktok_caption: 'hippos can''t swim or even float 🦛 they ooze red sunscreen goo and
+  fling their poop with their tails. Would you go boating near one? 🛶 sure / 🏃 nope
+  #meatballmyths #learnontiktok #hippo #animalfacts'
 creature: hippopotamus
 actor: creature
 creature_cfg: &id001
@@ -37,12 +38,14 @@ wild_p: *id002
 music: mystery
 next: Next, a deer that dives underwater to eat.
 sources:
-- 'San Diego Zoo Wildlife Alliance, Animals and Plants: Hippopotamus: males 3,500-9,920 lb; hippos can''t swim or even float,
-  they walk or gallop along the riverbed; adults hold their breath five minutes or longer; sleep submerged, surfacing by reflex
-  without waking; thick red secretion shields skin from sunburn, keeps it moist and may help prevent infection; eat about
-  88 lb of food a night; gaping display opens the mouth up to 150 degrees; canine teeth reach 20 inches and grow continuously;
-  charge at up to 14 mph on land; among the most aggressive mammals and can kill people; the dominant male marks territory
-  by flinging dung with his fan-shaped tail; https://animals.sandiegozoo.org/animals/hippo'
+- 'San Diego Zoo Wildlife Alliance, Animals and Plants: Hippopotamus: males 3,500-9,920
+  lb; hippos can''t swim or even float, they walk or gallop along the riverbed; adults
+  hold their breath five minutes or longer; sleep submerged, surfacing by reflex without
+  waking; thick red secretion shields skin from sunburn, keeps it moist and may help
+  prevent infection; eat about 88 lb of food a night; gaping display opens the mouth
+  up to 150 degrees; canine teeth reach 20 inches and grow continuously; charge at
+  up to 14 mph on land; among the most aggressive mammals and can kill people; the
+  dominant male marks territory by flinging dung with his fan-shaped tail; https://animals.sandiegozoo.org/animals/hippo'
 yt:
 - hook: Hippos can't swim. They can't even float.
   hero_moves:
@@ -52,9 +55,15 @@ yt:
     - 700
     - 1500
     walk: true
+  gag:
+    mark: sweat
+    at: 40%
 - shrink: So I shrank myself down, and hopped into the river with one.
 - tiny: The hippopotamus. A big male can weigh nearly ten thousand pounds.
   zoom: 1.5
+  gag:
+    meter: 1.0
+    at: 60%
 - solo: It's too heavy to float, so it gallops along the bottom of the river.
   zoom: 1.0
   scene: ocean
@@ -63,11 +72,18 @@ yt:
 - tiny: It can hold its breath for five minutes or more.
   zoom: 1.5
   pose: nervous
-- solo: It even sleeps underwater. It floats up for air and sinks back down, still asleep.
+  gag:
+    clock: 1
+    at: 50%
+- solo: It even sleeps underwater. It floats up for air and sinks back down, still
+    asleep.
   zoom: 1.0
   scene: ocean
   scene_p:
     time: night
+  gag:
+    mark: zzz
+    at: 20%
 tt:
 - tiny: And its skin oozes a thick red goo.
   zoom: 1.5
@@ -107,7 +123,8 @@ tt:
       mood: happy
 - tiny: It keeps the skin moist, and may even help stop infections.
   zoom: 1.5
-- tiny: At night, it walks out of the river and eats about eighty-eight pounds of grass.
+- tiny: At night, it walks out of the river and eats about eighty-eight pounds of
+    grass.
   zoom: 1.5
   scene: garden
   scene_p:
@@ -127,6 +144,11 @@ tt:
       - 1.0
   act:
     chew: 1.0
+  gag:
+  - prop: moon
+    at: 10%
+  - thought: leaf
+    at: 60%
 - tiny: To scare a rival, it opens its mouth to a hundred and fifty degrees.
   zoom: 1.5
   scene: garden
@@ -148,6 +170,9 @@ tt:
   act:
     bite: 1.0
   pose: shock
+  gag:
+    meter: 0.85
+    at: 60%
 - tiny: Its tusks can grow twenty inches long. That's taller than me right now.
   zoom: 1.5
   scene: garden
@@ -169,6 +194,9 @@ tt:
   act:
     bite: 1.0
   pose: nervous
+  gag:
+    prop: ruler
+    at: 40%
 - tiny: On land, an angry hippo can charge at fourteen miles an hour.
   zoom: 1.5
   scene: garden
@@ -187,27 +215,47 @@ tt:
       - 1150
       - 1300
       - 1.0
+  gag:
+  - mark: anger
+    at: 40%
+  - meter: 0.8
+    at: 50%
 - tiny: It's one of the most aggressive mammals there is, and it can kill people.
   zoom: 1.5
   scene: swamp
   scene_p:
     time: dusk
   pose: nervous
+  gag:
+    prop: skull
+    at: 70%
 - tiny: But the grossest part? The boss male marks his turf with poop.
   zoom: 1.5
   scene: swamp
   scene_p:
     time: dusk
   pose: shock
+  gag:
+  - prop: crown
+    at: 20%
+  - pile: poop
+    n: 5
+    at: 70%
 - tiny: He spins his tail like a fan, and flings his poop everywhere.
   zoom: 1.5
   scene: swamp
   scene_p:
     time: dusk
   pose: laugh
+  gag:
+    mark: stink
+    at: 60%
 - fact: Would you go boating near one?
   hero_at:
     x: 700
 - punch: It can't swim, it can't float, and it still rules the river.
   hero_at:
     x: 700
+  gag:
+    prop: crown
+    at: 80%

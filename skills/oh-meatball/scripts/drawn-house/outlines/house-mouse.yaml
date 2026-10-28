@@ -4,41 +4,101 @@ specs: scripts/drawn-house
 series: Things Living In Your House
 part: 9
 title: One Mouse Leaves 75 Droppings a Day in Your Kitchen 🐭
-tiktok_caption: "one mouse can leave up to 75 droppings and 3,000 drops of pee a day 🐭 and the nest is probably close. Would you share your kitchen with one? 🧀 sure / 🪤 no way"
+tiktok_caption: one mouse can leave up to 75 droppings and 3,000 drops of pee a day
+  🐭 and the nest is probably close. Would you share your kitchen with one? 🧀 sure
+  / 🪤 no way
 creature: house_mouse
 s: 0.65
 scene: kitchen
-scene_p: {time: night}
+scene_p:
+  time: night
 music: mystery
 next: Part ten is hiding in your closet.
 next_scene: bedroom
-next_scene_p: {time: day}
+next_scene_p:
+  time: day
 sources:
-  - "University of California IPM, Pest Notes: House Mouse (Publication 74106): mice squeeze through openings as small as 1/4 inch; can jump up to 12 inches from the floor onto a flat surface; females have 5-10 litters a year of about 5 or 6 pups; sexually mature 5-6 weeks after birth; do not need to drink water to survive if food supplies moisture; mostly nocturnal; gnaw electrical wires, gas lines, appliance cords and storage containers; seldom venture more than 30 feet from nest and food; can carry leptospirosis, salmonella and LCM virus; urine is a major allergen linked to early-onset asthma in sensitive children; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7483.html"
-  - "Texas A&M AgriLife Extension, Rodents and Rodent Control (public health license course, 2024): house mouse leaves 50 to 75 droppings a day, droppings 1/8-1/4 inch with pointed ends; up to 3,000 urine microdroplets produced daily; many live outside during summer; https://extensionentomology.tamu.edu/wp-content/uploads/sites/6/2024/02/Rodents-and-rodent-control-public-health-license-course.pdf"
+- 'University of California IPM, Pest Notes: House Mouse (Publication 74106): mice
+  squeeze through openings as small as 1/4 inch; can jump up to 12 inches from the
+  floor onto a flat surface; females have 5-10 litters a year of about 5 or 6 pups;
+  sexually mature 5-6 weeks after birth; do not need to drink water to survive if
+  food supplies moisture; mostly nocturnal; gnaw electrical wires, gas lines, appliance
+  cords and storage containers; seldom venture more than 30 feet from nest and food;
+  can carry leptospirosis, salmonella and LCM virus; urine is a major allergen linked
+  to early-onset asthma in sensitive children; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7483.html'
+- 'Texas A&M AgriLife Extension, Rodents and Rodent Control (public health license
+  course, 2024): house mouse leaves 50 to 75 droppings a day, droppings 1/8-1/4 inch
+  with pointed ends; up to 3,000 urine microdroplets produced daily; many live outside
+  during summer; https://extensionentomology.tamu.edu/wp-content/uploads/sites/6/2024/02/Rodents-and-rodent-control-public-health-license-course.pdf'
 yt:
-  - hook: One mouse in your kitchen can leave up to seventy five droppings a day.
-  - name: The house mouse. It comes out at night, while you sleep.
-  - fact: It gets in through a gap just a quarter of an inch wide.
-  - solo: And it can jump a foot straight up, right onto your counter.
-  - escalate: It doesn't even need to drink. It gets its water from food.
-  - punch: Your food.
+- hook: One mouse in your kitchen can leave up to seventy five droppings a day.
+  gag:
+    pile: poop
+    n: 10
+    r: 28
+    at: 55%
+    dur: 1.8
+- name: The house mouse. It comes out at night, while you sleep.
+  gag:
+    prop: moon
+    at: 40%
+- fact: It gets in through a gap just a quarter of an inch wide.
+- solo: And it can jump a foot straight up, right onto your counter.
+  gag:
+    meter: 1.0
+    at: 40%
+- escalate: It doesn't even need to drink. It gets its water from food.
+  gag:
+    thought: cube
+    at: 70%
+- punch: Your food.
 tt:
-  - fact: A female can have five to ten litters a year.
-  - count: Five or six babies, every time.
-    with: [house_mouse, house_mouse, house_mouse]
-  - escalate: And those babies can start having babies at about six weeks old.
-  - solo: In summer, lots of mice live outside, in gardens and fields.
-    scene: garden
-    scene_p: {time: dusk}
-  - fact: Inside, they chew through wires, gas lines, and plastic containers.
-  - fact: And they rarely travel more than thirty feet from the nest.
-  - calm: Now the gross part. While a mouse explores, it doesn't hold it in.
-  - escalate: One mouse can leave up to three thousand tiny drops of pee a day.
-  - solo: All over your counters and cupboards, in the dark.
-    scene: kitchen
-    scene_p: {time: night}
-  - fact: Mouse pee is a major allergen. It's linked to asthma in some kids.
-  - fact: And mice can carry germs like salmonella.
-  - fact: Would you share your kitchen with one?
-  - punch: If you've seen one, its nest is probably closer than you think.
+- fact: A female can have five to ten litters a year.
+  gag:
+    clock: 1
+    at: 70%
+- count: Five or six babies, every time.
+  with:
+  - house_mouse
+  - house_mouse
+  - house_mouse
+  gag:
+    pile: baby
+    n: 6
+    r: 28
+    at: 20%
+- escalate: And those babies can start having babies at about six weeks old.
+  gag:
+    mark: shock
+    at: 50%
+- solo: In summer, lots of mice live outside, in gardens and fields.
+  scene: garden
+  scene_p:
+    time: dusk
+- fact: Inside, they chew through wires, gas lines, and plastic containers.
+  gag:
+    zap: true
+    at: 40%
+- fact: And they rarely travel more than thirty feet from the nest.
+  gag:
+    prop: ruler
+    at: 60%
+- calm: Now the gross part. While a mouse explores, it doesn't hold it in.
+- escalate: One mouse can leave up to three thousand tiny drops of pee a day.
+- solo: All over your counters and cupboards, in the dark.
+  scene: kitchen
+  scene_p:
+    time: night
+  gag:
+    prop: moon
+    at: 70%
+- fact: Mouse pee is a major allergen. It's linked to asthma in some kids.
+  gag:
+    mark: alarm
+    at: 40%
+- fact: And mice can carry germs like salmonella.
+  gag:
+    mark: stink
+    at: 60%
+- fact: Would you share your kitchen with one?
+- punch: If you've seen one, its nest is probably closer than you think.
