@@ -28,14 +28,32 @@
  "tiktok_caption": "the black widow in my woodpile 🕷️ venom 15x a rattlesnake's, babies that eat each other, and silk that went into bombsights. Would you reach in there without gloves? 🧤 gloves on / 🙅 never #meatballmyths #learnontiktok #blackwidow #spiders",
  "beats": [
   {
+   "gag": [
+    {
+     "meter": 1.0,
+     "at": "35%"
+    },
+    {
+     "prop": "skull",
+     "at": "75%"
+    }
+   ],
    "m": "hook",
    "say": "A black widow's venom is fifteen times more toxic than a rattlesnake's."
   },
   {
+   "gag": {
+    "prop": "magnifier",
+    "at": "70%"
+   },
    "m": "name",
    "say": "The black widow. Shiny black, with a red hourglass on its belly."
   },
   {
+   "gag": {
+    "mark": "dizzy",
+    "at": "40%"
+   },
    "m": "fact",
    "say": "It hangs upside down in its web, so the hourglass shows."
   },
@@ -44,10 +62,24 @@
    "say": "It hides in dark, quiet places. Woodpiles. Garages."
   },
   {
+   "gag": [
+    {
+     "zap": true,
+     "at": "30%"
+    },
+    {
+     "mark": "sweat",
+     "at": "80%"
+    }
+   ],
    "m": "escalate",
    "say": "And that venom attacks your nerves. Cramps, pain, sweating."
   },
   {
+   "gag": {
+    "prop": "ruler",
+    "at": "70%"
+   },
    "m": "calm",
    "say": "But here's the good news. It only injects a tiny drop."
   },
@@ -56,6 +88,10 @@
    "say": "Death from a bite is very unlikely. But it can still hurt, a lot."
   },
   {
+   "gag": {
+    "prop": "crown",
+    "at": "20%"
+   },
    "m": "fact",
    "say": "Only the big female can bite you. The male's fangs are too small to break your skin."
   },
@@ -64,18 +100,45 @@
    "say": "And the name? Black widow, because she eats her mate."
   },
   {
+   "gag": {
+    "thought": "heart",
+    "at": "70%"
+   },
    "m": "fact",
    "say": "Except she rarely does. Only if she's really hungry."
   },
   {
+   "gag": {
+    "meter": 0.9,
+    "at": "30%"
+   },
    "m": "fact",
    "say": "Its web is a strong, sticky, messy tangle."
   },
   {
+   "gag": {
+    "pile": "egg",
+    "n": 9,
+    "r": 30,
+    "at": "30%",
+    "dur": 1.8
+   },
    "m": "solo",
    "say": "One mom can make up to nine egg sacs in a summer. About two hundred fifty eggs in each."
   },
   {
+   "gag": [
+    {
+     "pile": "baby",
+     "n": 5,
+     "r": 26,
+     "at": "20%"
+    },
+    {
+     "mark": "shock",
+     "at": "70%"
+    }
+   ],
    "m": "escalate",
    "say": "But the babies hatch hungry. And they start eating each other."
   },
@@ -88,10 +151,18 @@
    "say": "In World War Two, its silk went to war."
   },
   {
+   "gag": {
+    "prop": "magnifier",
+    "at": "70%"
+   },
    "m": "fact",
    "say": "A woman split its threads into single strands, for the crosshairs in bombsights."
   },
   {
+   "gag": {
+    "mark": "alarm",
+    "at": "50%"
+   },
    "m": "fact",
    "say": "So, would you reach into a woodpile without gloves?"
   },
