@@ -53,3 +53,6 @@ for the dropped case-file show) for the drawn animal show.
 - **30-minute fallback used twice:** owl 10/29 21:00 → 13:00 and black cat 10/31 21:00 → 13:00 (13:30 TikTok next to them).
 - **Over 5 a day:** 10/29, 10/30 and 10/31 have 6 non-draft TikToks each; moved inside the window anyway, none dropped.
 - Nothing left outside the window.
+
+## Case files held (10/28)
+Nolan: animals only. The 8 scheduled Meatball Investigates posts (tonkin, kola, flannan, laughter; YouTube and TikTok) were set to draft in Metricool and removed from posted.csv. Their slots get backfilled by new animal videos.
