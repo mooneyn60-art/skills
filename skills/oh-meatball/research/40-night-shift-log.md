@@ -17,8 +17,9 @@ Next night takes the next letter; after g, start again at a.
 |---|---|---|---|---|---|
 | 2026-10-25 | a | Breakout formats | 62 s cartoon explainer (1.6M, 10.3x) holds its promised answer to 69%; all 8 of our deep dives give the answer in line 1 | `tools/openloop.py`, `scripts/v4-one-weakness-pangolin.json`, `research/40-openloop-gate.diff` | 30 |
 | 2026-10-26 | b | Competitor teardown (Voggle) | 5/5 of Voggle's top Shorts (2.7M-350K, 86-173 s) open on a past-tense scene mid-action; 5 of our 83 scripted Shorts do (1 of the 6 pilot cases); their famous Emu War did 9.5K vs a 27K median | `tools/coldopen.py`, `scripts/investigates-a119-moon-bomb.json` | 35 |
+| 2026-10-28 | c | YouTube "inauthentic content" (July 2026 clarification) | Bucket 1 demonetizes template videos "with little variation"; 5 of our YT cuts share one exact skeleton and the new batch was converging on another (hook-solo x6-punch, 4 outlines) | `tools/sameness.py`, gate in `tools/drawn_quick.py` | 0 (balance ~28, below 300) |
 
-**Next night: c** (a 2026 platform rule change).
+**Next night: d** (a new revenue or distribution avenue).
 
 ---
 
@@ -187,3 +188,40 @@ downloads from our egress ("Sign in to confirm you're not a bot"), so frames cam
 E-CO: after E19's first 6 cases, make 3 cases 60-75 s long in the cold-open shape (scene line 1, rewind, kicker) and
 post them as TikToks against the 3 E19 TikToks before them. Metric: average watch time and the share of views past 60 s.
 Keep it if watch time is +10% or better. YouTube 9:30 cases stay 20-25 s claim-first until E19 is scored.
+
+## 2026-10-28 — c. Platform rule: YouTube "inauthentic content" (template sameness)
+
+### The finding
+- On 2026-07-16 YouTube clarified that three kinds of "inauthentic content" can't earn in YPP. Matt Halprin (trust and safety) announced it on Creator Insider; TechCrunch covered it 7/20.
+  1. Generic, repetitive or template-based videos, "easy to mass-produce with AI, CGI or templates, with little variation", that "don't really have a narrative arc".
+  2. Distressing or manipulative bait, e.g. staged animal rescues.
+  3. AI personas giving health, finance or legal advice.
+- A channel with "too much" of any bucket can't monetize. YouTube gives no number for "too much" and sets no upload-volume limit. AI itself is allowed: "you can create a higher volume of high-quality content that we want to encourage".
+- Sources: https://techcrunch.com/2026/07/20/youtube-clarifies-policies-around-ai-slop-and-upsetting-videos/ ;
+  https://www.androidheadlines.com/2026/07/youtube-monetization-rules-ai-slop-inauthentic-content.html
+- What this means for us:
+  - Bucket 2: we're safe. We stage no distress or rescues.
+  - Bucket 3: we're safe. Meatball is a cartoon and gives no advice.
+  - Bucket 1 is the live risk, because the reviewer looks at a channel, not one video.
+  - It answers Nolan's 10/28 question "are we posting too much". Volume isn't penalized; sameness is.
+- Audit of 55 drawn outlines (`tools/sameness.py`):
+  - 32 distinct YT skeletons. The most common, hook-name-fact-xray-escalate-calm, appears 5 times.
+  - The batch started 10/28 was converging on hook-solo-solo-solo-solo-solo-solo-punch: drain fly, fruit fly, carpet beetle and polar bear.
+  - Stock lines: "Here's the weird part." and "Now the gross part." are each in 4 outlines.
+  - Hook and title openers: "This bird/fish/animal..." 10 times.
+  - TikTok cuts are fine: 54 distinct skeletons out of 55.
+
+### The build
+1. **`tools/sameness.py`.** It runs on its own and exits 1 on a FAIL.
+   - S1 (FAIL): exactly the same macro skeleton as 3+ other outlines in the same cut.
+   - S2 (WARN): the hook's first two words are shared by 25% or more of outlines.
+   - S3 (WARN): the title's first two words are shared by 25% or more of outlines.
+   - S4 (WARN): the same sentence appears in 3+ outlines; subscribe lines are exempt.
+   - With no arguments it reports on every outline.
+   - Tested: moose passes; octopus fails S1, as expected.
+2. **`tools/drawn_quick.py`.** It now runs the gate before rendering and refuses on S1 unless `--force` is given. Already-rendered and scheduled cuts are left alone.
+3. **Contrarian alert.** Sent to the producer batch: vary the YT beat order from the next outline on, and drop the two stock lines.
+
+### Proposed rule (for the Mayor)
+- Before 11/15, when the monetization review window opens, no two Shorts posted on the same day share a skeleton.
+- No hook opener is used more than twice a week.

@@ -137,6 +137,10 @@ def main():
     spec_dir = os.path.join(ROOT, o.get("specs", "scripts/drawn-house"))
     os.makedirs(out_dir, exist_ok=True)
     os.makedirs(spec_dir, exist_ok=True)
+    # YouTube "inauthentic content": a shot skeleton shared by 3+ other outlines reads as a template
+    same = subprocess.run([sys.executable, os.path.join(HERE, "sameness.py"), args.outline])
+    if same.returncode and not args.force:
+        sys.exit("sameness gate failed: vary the beat order (or --force)")
     yt, tt = specs(o)
     ok = True
     report = []
