@@ -1,0 +1,166 @@
+{
+ "series": "Meatball's Animal Files, Part",
+ "sources": [
+  "Australian Museum, Platypus: found in eastern Australia; one of only five living egg-laying mammals (monotremes); males have a venomous spur on each hind ankle, the venom causes severe pain but is not known to kill people; the bill is packed with electroreceptors and touch receptors, and it hunts underwater with eyes, ears and nostrils closed; adults have no teeth and grind food with horny pads; mothers have no nipples, milk seeps from patches on the belly; https://australian.museum/learn/animals/mammals/platypus/",
+  "Anich et al. 2020, Mammalia, Biofluorescence in the platypus: platypus fur glows blue-green under ultraviolet light; https://doi.org/10.1515/mammalia-2020-0027",
+  "Ordoñez et al. 2008, Genome Research / University of Sydney: the platypus lacks a true stomach; the gullet connects straight to the intestine; https://doi.org/10.1101/gr.7096208",
+  "Natural History Museum (London), The platypus specimen: when the first platypus specimen reached Britain (described by George Shaw, 1799), naturalists suspected it might be a fake stitched together from different animals; https://www.nhm.ac.uk/discover/platypus.html"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "platypus",
+  "scene": "swamp",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "platypus",
+   "color": "#7a5236",
+   "dark": "#563a26",
+   "belly": "#a07a58",
+   "length": 560,
+   "height": 220,
+   "leg_len": 55,
+   "leg_w": 30,
+   "ears": "tiny",
+   "tail": "fluffy",
+   "snout": "big",
+   "whiskers": false,
+   "mood": "happy",
+   "xray": "empty",
+   "s": 0.85
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "mammal",
+    "label": "platypus",
+    "color": "#7a5236",
+    "dark": "#563a26",
+    "belly": "#a07a58",
+    "length": 560,
+    "height": 220,
+    "leg_len": 55,
+    "leg_w": 30,
+    "ears": "tiny",
+    "tail": "fluffy",
+    "snout": "big",
+    "whiskers": false,
+    "mood": "happy",
+    "xray": "empty",
+    "s": 0.85
+   }
+  },
+  "actor": "creature",
+  "wild": "swamp",
+  "wild_p": {
+   "time": "dusk"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "The Platypus Has No Stomach, and It Glows Under Blacklight 🦆",
+ "tiktok_caption": "the platypus has no stomach, lays eggs, and glows under a blacklight 🦆 and the males are venomous. Would you pet one? 🤚 yes / ☠️ no #meatballmyths #learnontiktok #platypus #animalfacts",
+ "beats": [
+  {
+   "hero_moves": [
+    {
+     "at": 0,
+     "dur": 1.2,
+     "pos": [
+      800,
+      1500
+     ],
+     "walk": true
+    }
+   ],
+   "m": "hook",
+   "say": "No stomach. Lays eggs. And it glows under a blacklight."
+  },
+  {
+   "hero_at": {
+    "x": 800
+   },
+   "m": "name",
+   "say": "The platypus. A duck bill, on a furry mammal."
+  },
+  {
+   "hero_at": {
+    "x": 660
+   },
+   "scene": "swamp",
+   "m": "solo",
+   "say": "It lives in rivers and streams in eastern Australia."
+  },
+  {
+   "hero_at": {
+    "x": 800
+   },
+   "m": "xray",
+   "say": "Look inside. Its food tube goes straight to its gut."
+  },
+  {
+   "hero_at": {
+    "x": 660
+   },
+   "scene": "swamp",
+   "scene_p": {
+    "time": "night"
+   },
+   "mood": "shock",
+   "m": "solo",
+   "say": "No stomach at all."
+  },
+  {
+   "hero_at": {
+    "x": 660
+   },
+   "scene": "cave",
+   "scene_p": {
+    "time": "night"
+   },
+   "hero": {
+    "cfg": {
+     "plan": "mammal",
+     "color": "#4fd0b0",
+     "dark": "#2a8a78",
+     "belly": "#8ae8d0",
+     "length": 560,
+     "height": 220,
+     "leg_len": 55,
+     "leg_w": 30,
+     "ears": "tiny",
+     "tail": "fluffy",
+     "snout": "big",
+     "whiskers": false,
+     "mood": "happy"
+    }
+   },
+   "m": "solo",
+   "say": "Shine an ultraviolet light on it, and its fur glows blue-green."
+  },
+  {
+   "hero_at": {
+    "x": 800
+   },
+   "m": "escalate",
+   "say": "And the males have venom spurs on their back legs."
+  },
+  {
+   "hero_at": {
+    "x": 800
+   },
+   "m": "punch",
+   "say": "A mammal that lays eggs, glows, and stings."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, a fish that isn't an eel, and shocks with 860 volts."
+  }
+ ]
+}
