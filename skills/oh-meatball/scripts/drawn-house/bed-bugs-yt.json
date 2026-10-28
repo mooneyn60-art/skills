@@ -27,10 +27,18 @@
  "tiktok_caption": "bed bugs drink your blood for up to ten minutes and you never feel it 🩸 then they mate by stabbing. Would you check your mattress tonight? 🔦 yes / 🙈 never",
  "beats": [
   {
+   "gag": {
+    "prop": "bed",
+    "at": "50%"
+   },
    "m": "hook",
    "say": "Right now, something in your bed is waiting for you to fall asleep."
   },
   {
+   "gag": {
+    "prop": "ruler",
+    "at": "80%"
+   },
    "m": "name",
    "say": "The bed bug. Flat, reddish brown, about the size of an apple seed."
   },
@@ -57,14 +65,26 @@
      }
     }
    ],
+   "gag": {
+    "prop": "moon",
+    "at": "10%"
+   },
    "m": "solo",
    "say": "At night, it follows your breath. The carbon dioxide you breathe out."
   },
   {
+   "gag": {
+    "clock": 1,
+    "at": "70%"
+   },
    "m": "escalate",
    "say": "Then it bites, and drinks your blood for up to ten minutes."
   },
   {
+   "gag": {
+    "mark": "zzz",
+    "at": "50%"
+   },
    "m": "punch",
    "say": "And you never feel a thing."
   },

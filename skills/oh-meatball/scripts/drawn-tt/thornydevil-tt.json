@@ -61,6 +61,10 @@
  "tiktok_caption": "this spiky lizard drinks through its skin 🦎 water runs up its legs to its mouth, it has a fake head, and eats thousands of ants a day. Would you hold one? 🤲 yes / 🌵 too spiky #meatballmyths #learnontiktok #thornydevil #australia",
  "beats": [
   {
+   "gag": {
+    "mark": "sweat",
+    "at": "45%"
+   },
    "m": "hook",
    "say": "This lizard drinks with its feet. Water runs up its legs, and into its mouth."
   },
@@ -94,6 +98,10 @@
     ]
    },
    "pose": "shock",
+   "gag": {
+    "prop": "crown",
+    "at": "50%"
+   },
    "m": "tiny",
    "say": "The thorny devil. A small dragon, covered in spikes."
   },
@@ -154,6 +162,10 @@
    "act": {
     "xray": 1.0
    },
+   "gag": {
+    "prop": "magnifier",
+    "at": "50%"
+   },
    "m": "tiny",
    "say": "Its skin is full of tiny grooves between the scales."
   },
@@ -189,6 +201,10 @@
      -1
     ]
    },
+   "gag": {
+    "mark": "shock",
+    "at": "80%"
+   },
    "m": "solo",
    "say": "The water creeps up those grooves, over its body, all the way to its mouth."
   },
@@ -222,6 +238,10 @@
     "chew": 1.0,
     "mood": "happy"
    },
+   "gag": {
+    "prop": "ruler",
+    "at": "60%"
+   },
    "m": "tiny",
    "say": "Then it gulps. About a pinhead of water per sip."
   },
@@ -249,6 +269,12 @@
       1.0
      ]
     ]
+   },
+   "gag": {
+    "pile": "rock",
+    "n": 5,
+    "r": 24,
+    "at": "40%"
    },
    "m": "tiny",
    "say": "It even flicks wet sand onto its own back to wet its skin even more."
@@ -279,6 +305,10 @@
     ]
    },
    "pose": "nervous",
+   "gag": {
+    "mark": "dizzy",
+    "at": "50%"
+   },
    "m": "tiny",
    "say": "Here's the weird part. It has two heads. Sort of."
   },
@@ -306,6 +336,10 @@
       0.8
      ]
     ]
+   },
+   "gag": {
+    "prop": "magnifier",
+    "at": "50%"
    },
    "m": "solo",
    "say": "On its shoulders is a spiky knob that looks like a head."
@@ -339,6 +373,10 @@
    "act": {
     "crouch": 1.0,
     "mood": "worry"
+   },
+   "gag": {
+    "mark": "alarm",
+    "at": "30%"
    },
    "m": "tiny",
    "say": "When something attacks, it tucks its real head down between its front legs."
@@ -404,6 +442,10 @@
    "act": {
     "mood": "angry"
    },
+   "gag": {
+    "meter": 1.0,
+    "at": "40%"
+   },
    "m": "tiny",
    "say": "It can also puff itself up to look bigger."
   },
@@ -431,6 +473,10 @@
       1.0
      ]
     ]
+   },
+   "gag": {
+    "mark": "dizzy",
+    "at": "60%"
    },
    "m": "tiny",
    "say": "And it walks with a strange rocking motion, to confuse hungry birds."
@@ -542,6 +588,10 @@
    "act": {
     "chew": 1.0,
     "mood": "happy"
+   },
+   "gag": {
+    "clock": 1,
+    "at": "60%"
    },
    "m": "tiny",
    "say": "Thousands of ants, in a single day."
