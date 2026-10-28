@@ -5,10 +5,10 @@
   "National Park Service, Lincoln Boyhood National Memorial, Nine-banded Armadillo: if frightened can jump 3-4 feet straight up; females always deliver quadruplets, nearly identical and same-sex; hold breath up to 6 minutes; inflation of their intestines lets them swim, or they walk along the bottom; cannot roll into a ball; sensitive nose detects food through eight inches of soil; long middle claw for digging; primarily nocturnal, foraging dusk to dawn; carries the bacterium that causes leprosy; https://home.nps.gov/liri/learn/nature/mammals-nine-banded-armadillo.htm"
  ],
  "photo_credits": [],
- "voice": "en-US-AndrewMultilingualNeural",
+ "voice": "kokoro:fenrir",
  "rate": "+12%",
  "music": "mystery",
- "music_db": -26,
+ "music_db": -20,
  "captions": 66,
  "caption_y": 1640,
  "stage": {
@@ -52,7 +52,7 @@
     "at": "60%"
    },
    "m": "hook",
-   "say": "This animal almost always gives birth to identical quadruplets."
+   "say": "Every armadillo you see was almost certainly born one of four identical quadruplets."
   },
   {
    "gag": {
@@ -94,5 +94,6 @@
    "m": "tease",
    "say": "Subscribe. Next, a bug nicknamed the toe biter."
   }
- ]
+ ],
+ "loop": true
 }
