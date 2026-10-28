@@ -24,14 +24,28 @@
  "tiktok_caption": "the tiny bugs in your old books aren't eating the pages 📚 they're eating mold you can't see, and many kinds don't need males. Would you still read a book that had them? 📖 yes / 🗑️ toss it",
  "beats": [
   {
+   "gag": {
+    "pile": "egg",
+    "n": 6,
+    "r": 26,
+    "at": "70%"
+   },
    "m": "hook",
    "say": "Many of the tiny bugs in your old books are all female. No males needed."
   },
   {
+   "gag": {
+    "prop": "ruler",
+    "at": "70%"
+   },
    "m": "name",
    "say": "Booklice. Pale, soft, and about a millimeter long."
   },
   {
+   "gag": {
+    "mark": "hearts",
+    "at": "60%"
+   },
    "m": "fact",
    "say": "And they're not real lice. They don't bite you."
   },
@@ -39,6 +53,10 @@
    "scene": "study",
    "scene_p": {
     "time": "night"
+   },
+   "gag": {
+    "prop": "magnifier",
+    "at": "60%"
    },
    "m": "tiny",
    "say": "They aren't eating your books. They're eating the mold growing on them."
@@ -48,10 +66,18 @@
    "say": "Mold so thin you usually can't even see it."
   },
   {
+   "gag": {
+    "mark": "sweat",
+    "at": "70%"
+   },
    "m": "punch",
    "say": "So if you've got booklice, you've got damp."
   },
   {
+   "gag": {
+    "meter": 0.85,
+    "at": "50%"
+   },
    "m": "fact",
    "say": "They love sticky, humid air. Seventy five to ninety percent is perfect."
   },
@@ -65,6 +91,10 @@
    "scene_p": {
     "time": "night"
    },
+   "gag": {
+    "thought": "cube",
+    "at": "40%"
+   },
    "m": "tiny",
    "say": "They'll move into your flour, your grains, and your dried fruit too."
   },
@@ -74,10 +104,20 @@
     "booklouse",
     "booklouse"
    ],
+   "gag": {
+    "clock": 2,
+    "at": "60%"
+   },
    "m": "count",
    "say": "In perfect conditions, a whole new generation grows up in just twenty five days."
   },
   {
+   "gag": {
+    "pile": "egg",
+    "n": 8,
+    "r": 24,
+    "at": "50%"
+   },
    "m": "escalate",
    "say": "And in many species, every single one is a female that lays eggs without a male."
   },
@@ -94,6 +134,16 @@
    "say": "But they have one big weakness. They need damp air."
   },
   {
+   "gag": [
+    {
+     "meter": 0.3,
+     "at": "40%"
+    },
+    {
+     "prop": "skull",
+     "at": "80%"
+    }
+   ],
    "m": "escalate",
    "say": "Keep your humidity under fifty percent, and they can die within weeks."
   },

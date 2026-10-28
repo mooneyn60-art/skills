@@ -86,6 +86,10 @@
  "tiktok_caption": "this bird hits its prey at 200 mph, feet first 🦅 and now it lives on skyscrapers. Would you want one nesting on your building? 🏙️ yes / 🐦 sorry pigeons / 😬 no #meatballmyths #learnontiktok #peregrinefalcon #birds #animalfacts",
  "beats": [
   {
+   "gag": {
+    "meter": 1.0,
+    "at": "30%"
+   },
    "m": "hook",
    "say": "This bird hits its prey at two hundred miles an hour. Feet first."
   },
@@ -95,6 +99,10 @@
    },
    "act": {
     "mood": "smug"
+   },
+   "gag": {
+    "prop": "trophy",
+    "at": "60%"
    },
    "m": "solo",
    "say": "The peregrine falcon. The fastest bird in the world."
@@ -128,6 +136,10 @@
    "hero_at": {
     "x": 620,
     "y": 1150
+   },
+   "gag": {
+    "prop": "rocket",
+    "at": "40%"
    },
    "m": "solo",
    "say": "It climbs more than half a mile into the sky."
@@ -173,6 +185,10 @@
      ]
     }
    ],
+   "gag": {
+    "meter": 1.0,
+    "at": "70%"
+   },
    "m": "solo",
    "say": "Then it folds its wings into a teardrop, and drops."
   },
@@ -214,6 +230,10 @@
      }
     }
    ],
+   "gag": {
+    "mark": "anger",
+    "at": "40%"
+   },
    "m": "solo",
    "say": "It punches a bird right out of the air, with its talons."
   },

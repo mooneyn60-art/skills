@@ -74,6 +74,16 @@
  "tiktok_caption": "a two foot heart and it sleeps less than 30 minutes a day 🦒 and sometimes it chews on old bones. Would you stand behind one? 🦵 yes / 🙅 never / 🚙 only in a truck #meatballmyths #learnontiktok #giraffe #animalfacts",
  "beats": [
   {
+   "gag": [
+    {
+     "heart": 1,
+     "at": "30%"
+    },
+    {
+     "mark": "zzz",
+     "at": "75%"
+    }
+   ],
    "m": "hook",
    "say": "This animal has a two foot long heart, and sleeps less than half an hour a day."
   },
@@ -82,10 +92,18 @@
    "say": "So I shrank myself down, to stand right next to one."
   },
   {
+   "gag": {
+    "prop": "ruler",
+    "at": "60%"
+   },
    "m": "tiny",
    "say": "The giraffe. A male can stand eighteen feet tall."
   },
   {
+   "gag": {
+    "meter": 1.0,
+    "at": "40%"
+   },
    "m": "tiny",
    "say": "Its neck alone weighs about six hundred pounds."
   },
@@ -102,6 +120,10 @@
      "s": 0.8
     }
    ],
+   "gag": {
+    "heart": 1,
+    "at": "40%"
+   },
    "m": "tiny",
    "say": "Its heart weighs about twenty five pounds."
   },

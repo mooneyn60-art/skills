@@ -70,6 +70,10 @@
      "walk": true
     }
    ],
+   "gag": {
+    "mark": "shock",
+    "at": "50%"
+   },
    "m": "hook",
    "say": "Doctors still put blood-sucking leeches on people. On purpose."
   },
@@ -83,6 +87,10 @@
    "act": {
     "bite": 1.0
    },
+   "gag": {
+    "prop": "magnifier",
+    "at": "50%"
+   },
    "m": "solo",
    "say": "Its mouth has three tiny jaws, lined with teeth."
   },
@@ -91,6 +99,10 @@
    "scene": "microscope",
    "act": {
     "bite": 1.0
+   },
+   "gag": {
+    "mark": "stars",
+    "at": "80%"
    },
    "m": "solo",
    "say": "The bite leaves a scar shaped like a three-pointed star."
@@ -112,6 +124,10 @@
    "act": {
     "chew": 1.0
    },
+   "gag": {
+    "meter": 1.0,
+    "at": "40%"
+   },
    "m": "solo",
    "say": "Then it drinks up to eight times its own weight in blood."
   },
@@ -127,11 +143,19 @@
   {
    "zoom": 1.15,
    "scene": "microscope",
+   "gag": {
+    "heart": 3,
+    "at": "60%"
+   },
    "m": "solo",
    "say": "One of them, hirudin, stops your blood from clotting."
   },
   {
    "zoom": 1.15,
+   "gag": {
+    "clock": 3,
+    "at": "70%"
+   },
    "m": "solo",
    "say": "So even after it drops off, the bite keeps bleeding for hours."
   },
@@ -139,6 +163,10 @@
    "scene": "study",
    "scene_p": {
     "time": "night"
+   },
+   "gag": {
+    "clock": 1,
+    "at": "80%"
    },
    "m": "solo",
    "say": "In the eighteen thirties, Europe used about sixty million leeches a year."
@@ -161,12 +189,20 @@
   {
    "zoom": 1.15,
    "scene": "office",
+   "gag": {
+    "heart": 2,
+    "at": "50%"
+   },
    "m": "solo",
    "say": "When a finger gets sewn back on, blood can flow in, but not out."
   },
   {
    "zoom": 1.15,
    "scene": "office",
+   "gag": {
+    "prop": "skull",
+    "at": "80%"
+   },
    "m": "solo",
    "say": "The finger swells up with trapped blood, and it can die."
   },
@@ -176,12 +212,20 @@
    "act": {
     "chew": 1.0
    },
+   "gag": {
+    "mark": "hearts",
+    "at": "60%"
+   },
    "m": "solo",
    "say": "So they put a leech on it, and it drinks the extra blood."
   },
   {
    "zoom": 1.15,
    "scene": "office",
+   "gag": {
+    "prop": "trophy",
+    "at": "70%"
+   },
    "m": "solo",
    "say": "In two thousand four, the US government cleared leeches as a medical device."
   },
@@ -197,6 +241,10 @@
    "scene": "swamp",
    "scene_p": {
     "time": "night"
+   },
+   "gag": {
+    "prop": "crown",
+    "at": "80%"
    },
    "m": "solo",
    "say": "The worm you'd scream at in a pond is saving fingers in hospitals."

@@ -24,14 +24,28 @@
  "tiktok_caption": "the tiny bugs in your old books aren't eating the pages 📚 they're eating mold you can't see, and many kinds don't need males. Would you still read a book that had them? 📖 yes / 🗑️ toss it",
  "beats": [
   {
+   "gag": {
+    "pile": "egg",
+    "n": 6,
+    "r": 26,
+    "at": "70%"
+   },
    "m": "hook",
    "say": "Many of the tiny bugs in your old books are all female. No males needed."
   },
   {
+   "gag": {
+    "prop": "ruler",
+    "at": "70%"
+   },
    "m": "name",
    "say": "Booklice. Pale, soft, and about a millimeter long."
   },
   {
+   "gag": {
+    "mark": "hearts",
+    "at": "60%"
+   },
    "m": "fact",
    "say": "And they're not real lice. They don't bite you."
   },
@@ -39,6 +53,10 @@
    "scene": "study",
    "scene_p": {
     "time": "night"
+   },
+   "gag": {
+    "prop": "magnifier",
+    "at": "60%"
    },
    "m": "tiny",
    "say": "They aren't eating your books. They're eating the mold growing on them."
@@ -48,6 +66,10 @@
    "say": "Mold so thin you usually can't even see it."
   },
   {
+   "gag": {
+    "mark": "sweat",
+    "at": "70%"
+   },
    "m": "punch",
    "say": "So if you've got booklice, you've got damp."
   },
