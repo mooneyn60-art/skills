@@ -1,0 +1,123 @@
+slug: cassowary
+out: episodes/drawn-tt
+specs: scripts/drawn-tt
+series: Meatball's Animal Files
+variant: B
+title: The Cassowary Has a 4-Inch Dagger on Each Foot 🦶
+tiktok_caption: 'the cassowary has a four inch dagger claw on each foot 🦶 and dad raises the babies alone. Would you walk through its rainforest? 🌴 yes / 🏃 no #meatballmyths #learnontiktok #cassowary #animalfacts'
+creature: cassowary
+actor: creature
+creature_cfg: &id001
+  plan: bird
+  label: southern cassowary
+  color: '#1d1d22'
+  dark: '#34343c'
+  belly: '#2a2a30'
+  length: 520
+  height: 380
+  leg_len: 300
+  beak: short
+  beak_color: '#3a3a3a'
+  face_color: '#3d7fe0'
+  foot_color: '#8a7a5a'
+  crest: true
+  mood: angry
+  s: 0.75
+hero_p:
+  cfg: *id001
+scene: forest_floor
+scene_p: {time: day}
+wild: forest_floor
+wild_p: {time: dusk}
+rate: '+10%'
+music: mystery
+next: Next, an animal with cube-shaped poop.
+sources:
+  - "Queensland Government, Department of Environment, Southern cassowary: lives in tropical rainforest in north Queensland (also New Guinea); can run up to 50 km/h; good swimmers; the inner toe of each foot carries a long dagger-like claw; males incubate the bright green eggs for about 50 days and raise the striped chicks for about nine months; disperses the seeds of many rainforest plants; most attacks on people happen after cassowaries have been fed; https://environment.desi.qld.gov.au/wildlife/animals/living-with/cassowaries"
+  - "San Diego Zoo Wildlife Alliance, Cassowary: inner claw up to about 4 inches (10 cm) long; casque on the head; one of the heaviest birds, after ostriches; https://animals.sandiegozoo.org/animals/cassowary"
+  - "Natural History Museum (London), Birds are dinosaurs: modern birds are living theropod dinosaurs; https://www.nhm.ac.uk/discover/how-dinosaurs-evolved-into-birds.html"
+yt:
+  - hook: Each foot hides a dagger, about four inches long.
+    hero_moves:
+    - at: 0
+      dur: 1.2
+      pos: [800, 1500]
+      walk: true
+  - solo: It lives deep in the rainforests of northern Australia.
+    scene: forest_floor
+  - solo: Almost as tall as a person, with a bright blue face.
+    scene: forest_floor
+    scene_p: {time: day}
+    mood: smug
+  - name: The southern cassowary. A helmet on its head.
+    hero_at: {x: 800}
+  - solo: Corner it, and it kicks with that dagger claw.
+    scene: swamp
+    scene_p: {time: dusk}
+    act: {bite: 1.0}
+  - solo: And it can run up to thirty miles an hour.
+    scene: garden
+    scene_p: {time: day}
+    hero_moves:
+    - at: 0
+      dur: 1.6
+      pos: [700, 1500]
+      walk: true
+  - solo: Most attacks happen after people feed them.
+    scene: forest_floor
+    scene_p: {time: night}
+    mood: angry
+  - tiny: So I watched from far away. Very far.
+    scene: forest_floor
+    scene_p: {time: dusk}
+    pose: nervous
+  - punch: A dinosaur-looking bird, with knives for toes.
+    hero_at: {x: 800}
+tt:
+  - solo: It's one of the heaviest birds on Earth.
+    scene: desert
+    scene_p: {time: day}
+    mood: smug
+  - solo: Only ostriches weigh more.
+    scene: desert
+    scene_p: {time: dusk}
+    mood: angry
+  - solo: It can't fly, but it's a strong swimmer.
+    scene: swamp
+    scene_p: {time: day}
+    mood: happy
+  - solo: It mostly eats fruit that falls from the trees.
+    scene: forest_floor
+    scene_p: {time: day}
+    act: {chew: 1.0}
+  - solo: The seeds come out the other end, all over the forest.
+    scene: garden
+    scene_p: {time: dusk}
+    mood: smug
+  - solo: So it plants new trees wherever it goes.
+    scene: forest_floor
+    scene_p: {time: dusk}
+    mood: happy
+  - solo: And here's the twist. Mom lays the eggs, and walks away.
+    scene: forest_floor
+    scene_p: {time: day}
+    with:
+    - {type: eggs, x: 250, y: 1500, s: 1.0, front: true}
+  - solo: Dad sits on them, for about fifty days.
+    scene: forest_floor
+    scene_p: {time: night}
+    mood: calm
+    with:
+    - {type: eggs, x: 250, y: 1500, s: 1.0, front: true, pop: false}
+  - solo: Then he raises the striped chicks for about nine months.
+    scene: swamp
+    scene_p: {time: day}
+    mood: happy
+  - solo: Birds are living dinosaurs. This one looks the part.
+    scene: desert
+    scene_p: {time: dusk}
+    mood: angry
+  - fact: Would you walk through its rainforest?
+    hero_at: {x: 800}
+  - punch: A single dad with a blue face and daggers on his feet.
+    hero_at: {x: 800}
