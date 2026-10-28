@@ -30,12 +30,20 @@
    "hero_at": {
     "x": 660
    },
+   "gag": {
+    "prop": "magnifier",
+    "at": "70%"
+   },
    "m": "hook",
    "say": "The bug named after your ear has almost never been found in one."
   },
   {
    "hero_at": {
     "x": 660
+   },
+   "gag": {
+    "mark": "sweat",
+    "at": "85%"
    },
    "m": "name",
    "say": "The earwig. Pincers on its rear end, and it wanders indoors when it's too dry outside."
@@ -44,16 +52,35 @@
    "hero_at": {
     "x": 660
    },
+   "gag": {
+    "clock": 6,
+    "at": "40%",
+    "dur": 1.8
+   },
    "m": "fact",
    "say": "One entomologist searched ten centuries of writing, and found one single case."
   },
   {
+   "gag": [
+    {
+     "prop": "moon",
+     "at": "10%"
+    },
+    {
+     "thought": "leaf",
+     "at": "80%"
+    }
+   ],
    "m": "solo",
    "say": "At night, it hunts in the garden. Aphids, insect eggs, and your seedlings."
   },
   {
    "hero_at": {
     "x": 660
+   },
+   "gag": {
+    "mark": "anger",
+    "at": "60%"
    },
    "m": "escalate",
    "say": "Those pincers can give you a pinch, if one gets trapped in your clothes."

@@ -98,6 +98,10 @@
  "tiktok_caption": "this fish shoots bugs off leaves with a jet of water 🎯 and in a lab it learned to pick out a human face. Would you let one spit in your face? 💦 sure / 🙅 no / 🥽 goggles first #meatballmyths #learnontiktok #archerfish #fish #animalfacts",
  "beats": [
   {
+   "gag": {
+    "thought": "tick",
+    "at": "30%"
+   },
    "m": "hook",
    "say": "This fish shoots bugs off leaves with a water gun in its mouth. And it can learn your face."
   },
@@ -122,6 +126,10 @@
      "s": 0.6
     }
    ],
+   "gag": {
+    "prop": "magnifier",
+    "at": "30%"
+   },
    "m": "fact",
    "say": "It spots a bug sitting on a leaf, above the water."
   },
@@ -142,6 +150,10 @@
      "s": 0.6
     }
    ],
+   "gag": {
+    "meter": 1.0,
+    "at": "20%"
+   },
    "m": "escalate",
    "say": "Then it fires. A jet of water knocks the bug right into the water."
   },

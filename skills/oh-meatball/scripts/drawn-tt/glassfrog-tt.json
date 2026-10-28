@@ -70,12 +70,26 @@
      "walk": true
     }
    ],
+   "gag": [
+    {
+     "prop": "magnifier",
+     "at": "20%"
+    },
+    {
+     "heart": 2,
+     "at": "60%"
+    }
+   ],
    "m": "hook",
    "say": "This frog is see-through. You can watch its heart beat."
   },
   {
    "hero_at": {
     "x": 720
+   },
+   "gag": {
+    "prop": "ruler",
+    "at": "70%"
    },
    "m": "name",
    "say": "The glass frog. Some are smaller than a paper clip."
@@ -91,16 +105,30 @@
    "hero_at": {
     "x": 720
    },
+   "gag": {
+    "pile": "egg",
+    "n": 8,
+    "r": 26,
+    "at": "50%"
+   },
    "m": "fact",
    "say": "A mother's eggs even show right through her stomach."
   },
   {
+   "gag": {
+    "mark": "zzz",
+    "at": "20%"
+   },
    "m": "solo",
    "say": "By day, it sleeps upside down, under a leaf."
   },
   {
    "hero_at": {
     "x": 720
+   },
+   "gag": {
+    "meter": 0.9,
+    "at": "60%"
    },
    "m": "escalate",
    "say": "And while it sleeps, it hides almost ninety percent of its red blood."
@@ -116,6 +144,10 @@
    "hero_at": {
     "x": 720
    },
+   "gag": {
+    "prop": "magnifier",
+    "at": "60%"
+   },
    "m": "fact",
    "say": "The liver is coated in tiny mirror crystals, so the red stays hidden."
   },
@@ -130,16 +162,34 @@
    "hero_at": {
     "x": 720
    },
+   "gag": {
+    "mark": "shock",
+    "at": "60%"
+   },
    "m": "fact",
    "say": "And somehow, all that packed blood never clots."
   },
   {
+   "gag": [
+    {
+     "mark": "alarm",
+     "at": "10%"
+    },
+    {
+     "heart": 3,
+     "at": "40%"
+    }
+   ],
    "m": "solo",
    "say": "When it wakes up, the blood flows back out into its body."
   },
   {
    "hero_at": {
     "x": 720
+   },
+   "gag": {
+    "prop": "magnifier",
+    "at": "30%"
    },
    "m": "fact",
    "say": "Scientists are studying it to learn about blood clots."
@@ -161,12 +211,22 @@
    "hero_at": {
     "x": 720
    },
+   "gag": {
+    "pile": "egg",
+    "n": 5,
+    "r": 28,
+    "at": "60%"
+   },
    "m": "fact",
    "say": "In some species, the dad guards the eggs."
   },
   {
    "hero_at": {
     "x": 720
+   },
+   "gag": {
+    "meter": 1.0,
+    "at": "60%"
    },
    "m": "escalate",
    "say": "Here's the weird part. He soaks water up into his bladder, through his belly."
@@ -182,6 +242,10 @@
    ],
    "hero_at": {
     "x": 720
+   },
+   "gag": {
+    "mark": "hearts",
+    "at": "50%"
    },
    "m": "fact",
    "say": "Then he sits on the eggs, to keep them wet."

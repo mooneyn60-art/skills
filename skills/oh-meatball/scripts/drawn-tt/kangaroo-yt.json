@@ -97,18 +97,40 @@
  "tiktok_caption": "a kangaroo mom can put her pregnancy on pause 🦘 and she cools off by licking spit onto her arms. Would you get in the ring with one? 🥊 yes / 🏃 no way / 🦘 team kangaroo #meatballmyths #learnontiktok #kangaroo #australia #animalfacts",
  "beats": [
   {
+   "gag": [
+    {
+     "thought": "baby",
+     "at": "30%"
+    },
+    {
+     "clock": 0,
+     "at": "60%"
+    }
+   ],
    "m": "hook",
    "say": "A kangaroo mom can put her own pregnancy on pause."
   },
   {
+   "gag": {
+    "prop": "trophy",
+    "at": "60%"
+   },
    "m": "name",
    "say": "The red kangaroo. The biggest marsupial in the world."
   },
   {
+   "gag": {
+    "meter": 0.8,
+    "at": "50%"
+   },
    "m": "fact",
    "say": "A big male can weigh about two hundred pounds."
   },
   {
+   "gag": {
+    "prop": "ruler",
+    "at": "40%"
+   },
    "m": "escalate",
    "say": "It can cover twenty five feet in one leap, and jump six feet high."
   },
@@ -124,6 +146,10 @@
      "walk": true
     }
    ],
+   "gag": {
+    "meter": 0.95,
+    "at": "30%"
+   },
    "m": "solo",
    "say": "Top speed? Over thirty five miles an hour."
   },

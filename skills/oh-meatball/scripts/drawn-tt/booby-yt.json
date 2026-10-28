@@ -53,6 +53,10 @@
  "tiktok_caption": "this bird dives headfirst into the ocean from 80 feet up 🌊 its nostrils are sealed shut and its feet are bright blue. Would you dive from 80 feet headfirst? 🌊 yes / 🙅 no / 🩴 only feet first #meatballmyths #learnontiktok #bluefootedbooby #galapagos #birds",
  "beats": [
   {
+   "gag": {
+    "meter": 1.0,
+    "at": "40%"
+   },
    "m": "hook",
    "say": "This bird dives headfirst into the ocean from as high as eighty feet."
   },
@@ -61,6 +65,10 @@
    "say": "So I shrank myself down, to meet one face to face."
   },
   {
+   "gag": {
+    "prop": "magnifier",
+    "at": "60%"
+   },
    "m": "tiny",
    "say": "The blue-footed booby. And yes, its feet really are bright blue."
   },
@@ -99,6 +107,10 @@
    "act": {
     "mood": "angry"
    },
+   "gag": {
+    "meter": 1.0,
+    "at": "50%"
+   },
    "m": "tiny",
    "say": "It folds its wings back, and drops like a dart."
   },
@@ -118,6 +130,10 @@
      "s": 0.4
     }
    ],
+   "gag": {
+    "thought": "fish",
+    "at": "60%"
+   },
    "m": "solo",
    "say": "Then it swims as deep as eighty feet, chasing fish."
   },

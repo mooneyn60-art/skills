@@ -30,12 +30,20 @@
    "hero_at": {
     "x": 660
    },
+   "gag": {
+    "prop": "magnifier",
+    "at": "70%"
+   },
    "m": "hook",
    "say": "The bug named after your ear has almost never been found in one."
   },
   {
    "hero_at": {
     "x": 660
+   },
+   "gag": {
+    "mark": "sweat",
+    "at": "85%"
    },
    "m": "name",
    "say": "The earwig. Pincers on its rear end, and it wanders indoors when it's too dry outside."
@@ -44,16 +52,35 @@
    "hero_at": {
     "x": 660
    },
+   "gag": {
+    "clock": 6,
+    "at": "40%",
+    "dur": 1.8
+   },
    "m": "fact",
    "say": "One entomologist searched ten centuries of writing, and found one single case."
   },
   {
+   "gag": [
+    {
+     "prop": "moon",
+     "at": "10%"
+    },
+    {
+     "thought": "leaf",
+     "at": "80%"
+    }
+   ],
    "m": "solo",
    "say": "At night, it hunts in the garden. Aphids, insect eggs, and your seedlings."
   },
   {
    "hero_at": {
     "x": 660
+   },
+   "gag": {
+    "mark": "anger",
+    "at": "60%"
    },
    "m": "escalate",
    "say": "Those pincers can give you a pinch, if one gets trapped in your clothes."
@@ -69,6 +96,10 @@
    "hero_at": {
     "x": 660
    },
+   "gag": {
+    "prop": "magnifier",
+    "at": "30%"
+   },
    "m": "fact",
    "say": "Here's how to tell them apart. Male pincers curve. Female pincers are straighter."
   },
@@ -83,6 +114,10 @@
    "hero_at": {
     "x": 660
    },
+   "gag": {
+    "prop": "ruler",
+    "at": "60%"
+   },
    "m": "escalate",
    "say": "Folded so tight, they shrink to less than a tenth of their open size."
   },
@@ -94,6 +129,12 @@
    "say": "And yet, earwigs hardly ever fly."
   },
   {
+   "gag": {
+    "pile": "egg",
+    "n": 8,
+    "r": 26,
+    "at": "70%"
+   },
    "m": "solo",
    "say": "Now the sweet part. The mother digs a little room in the soil, and lays thirty or more eggs."
   },
@@ -106,6 +147,10 @@
     "earwig",
     "earwig"
    ],
+   "gag": {
+    "mark": "hearts",
+    "at": "40%"
+   },
    "m": "count",
    "say": "Then she stays. She guards her babies and feeds them, until their first molt."
   },
