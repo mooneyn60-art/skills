@@ -27,10 +27,18 @@
  "tiktok_caption": "bed bugs drink your blood for up to ten minutes and you never feel it 🩸 then they mate by stabbing. Would you check your mattress tonight? 🔦 yes / 🙈 never",
  "beats": [
   {
+   "gag": {
+    "prop": "bed",
+    "at": "50%"
+   },
    "m": "hook",
    "say": "Right now, something in your bed is waiting for you to fall asleep."
   },
   {
+   "gag": {
+    "prop": "ruler",
+    "at": "80%"
+   },
    "m": "name",
    "say": "The bed bug. Flat, reddish brown, about the size of an apple seed."
   },
@@ -57,14 +65,26 @@
      }
     }
    ],
+   "gag": {
+    "prop": "moon",
+    "at": "10%"
+   },
    "m": "solo",
    "say": "At night, it follows your breath. The carbon dioxide you breathe out."
   },
   {
+   "gag": {
+    "clock": 1,
+    "at": "70%"
+   },
    "m": "escalate",
    "say": "Then it bites, and drinks your blood for up to ten minutes."
   },
   {
+   "gag": {
+    "mark": "zzz",
+    "at": "50%"
+   },
    "m": "punch",
    "say": "And you never feel a thing."
   },
@@ -87,22 +107,51 @@
   },
   {
    "scene": "fibers",
+   "gag": {
+    "pile": "egg",
+    "n": 10,
+    "r": 24,
+    "at": "30%",
+    "dur": 1.8
+   },
    "m": "solo",
    "say": "A female lays eggs every day. Hundreds in her life. Each one the size of a dust speck."
   },
   {
+   "gag": {
+    "mark": "hearts",
+    "at": "70%"
+   },
    "m": "fact",
    "say": "Now the gross part. The male doesn't mate the normal way."
   },
   {
+   "gag": {
+    "mark": "shock",
+    "at": "40%"
+   },
    "m": "escalate",
    "say": "He stabs straight through her body, and injects his sperm inside."
   },
   {
+   "gag": {
+    "prop": "magnifier",
+    "at": "40%"
+   },
    "m": "fact",
    "say": "Scientists actually call it traumatic insemination."
   },
   {
+   "gag": [
+    {
+     "prop": "snowflake",
+     "at": "30%"
+    },
+    {
+     "clock": 4,
+     "at": "70%"
+    }
+   ],
    "m": "calm",
    "say": "And starving them out doesn't work. In a cool room, they can wait about a year without eating."
   },
@@ -119,10 +168,18 @@
    "say": "They ride home in luggage and folded clothes."
   },
   {
+   "gag": {
+    "prop": "bed",
+    "at": "70%"
+   },
    "m": "fact",
    "say": "Would you check your mattress tonight?"
   },
   {
+   "gag": {
+    "mark": "zzz",
+    "at": "20%"
+   },
    "m": "punch",
    "say": "Sleep tight. Something in there is counting on it."
   },
