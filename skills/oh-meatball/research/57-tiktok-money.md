@@ -65,3 +65,9 @@ Third-party guides only; TikTok publishes no fixed rate.
 2. **Rewards analytics → Overview:** qualified views and RPM, 3 days after the new style goes out.
 3. **TikTok bio link:** set it to the YouTube channel.
 4. **Pins:** pin 3 posts (beetle, centipede, tarantula hawk).
+
+## Viewers (Nolan's TikTok Analytics screenshots, 10/28)
+- **Who:** 61% male, 38% female. Ages 18-24 40%, 25-34 34%, 35-44 14%, 45+ 12%: an adult audience. Write for grown men who like gnarly animal facts (fights, venom, gross, survival); the art must look like nature documentary, not a kids' show.
+- **Where:** US 45.4%, Pakistan 19.3%, UK 6.8%, Netherlands 2.6%, Germany 2.5%. About 55% are in high-pay countries. Keep topics US/UK-relatable (house, backyard and North American animals).
+- **When (Oct 26, the promoted day, ET):** viewers climb from 8 AM, peak 2-4 PM (~1K), and are still ~500/h at 7 PM. TikTok's own peak: Monday 2-3 PM. TikToks now go out between 12 and 5 PM ET; nothing at 9 PM.
+- **Daily active viewers:** about 30 (10/21) → 150 (10/25) → 540 (10/26, promotion). This is from one week of data, so check it again on 11/4.
