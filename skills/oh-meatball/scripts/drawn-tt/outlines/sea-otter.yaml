@@ -1,0 +1,128 @@
+slug: sea-otter
+out: episodes/drawn-tt
+specs: scripts/drawn-tt
+series: Meatball's Animal Files
+variant: B
+title: Sea Otters Have a Skin Pocket for Their Favorite Rock 🦦
+tiktok_caption: 'sea otters keep their favorite rock in a skin pocket under their arm 🦦 and they have the thickest fur of any animal. Would you share your snacks with one? 🐚 yes / 🙅 mine #meatballmyths #learnontiktok #seaotter #animalfacts'
+creature: sea_otter
+actor: creature
+creature_cfg: &id001
+  plan: mammal
+  label: sea otter
+  color: '#6b4a32'
+  dark: '#4a3222'
+  belly: '#c9b89a'
+  length: 600
+  height: 230
+  leg_len: 60
+  leg_w: 30
+  ears: tiny
+  tail: thin
+  tail_w: 24
+  whiskers: true
+  mood: happy
+  s: 0.85
+hero_p:
+  cfg: *id001
+scene: ocean
+scene_p: {time: day}
+wild: ocean
+wild_p: {time: dusk}
+rate: '+10%'
+music: mystery
+next: Next, a shark that might live four hundred years.
+sources:
+  - "Monterey Bay Aquarium, Sea otter: the densest fur of any animal, up to about a million hairs per square inch; no blubber, they stay warm with fur and trapped air and must groom constantly; they eat about a quarter of their body weight a day; they use rocks as tools to crack open shellfish while floating on their backs; a loose pouch of skin under each forearm stores food and a favourite rock; they wrap themselves in kelp to keep from drifting while they sleep, and groups resting together are called rafts; mothers carry pups on their chests and pups' fluffy fur keeps them afloat; https://www.montereybayaquarium.org/animals/animals-a-to-z/sea-otter"
+  - "US Fish & Wildlife Service / NOAA, Southern sea otter: a keystone species, eating sea urchins that would otherwise overgraze kelp forests; https://www.fws.gov/species/southern-sea-otter-enhydra-lutris-nereis"
+yt:
+  - hook: Under its arm, it keeps a pocket for its favorite rock.
+    hero_moves:
+    - at: 0
+      dur: 1.2
+      pos: [800, 1500]
+      walk: true
+  - solo: It floats on its back, belly up, all day.
+    hero_at: {x: 560, y: 1180, rot: 180}
+  - name: The sea otter. Whiskers, paws, and a rock in its pocket.
+    hero_at: {x: 800}
+  - solo: It dives down and grabs a clam.
+    hero_at: {x: 600}
+    scene: reef
+    scene_p: {time: day}
+    act: {bite: 1.0}
+  - solo: Then it pounds the shell on its rock, until it cracks.
+    hero_at: {x: 600}
+    scene: ocean
+    scene_p: {time: day}
+    act: {chew: 1.0}
+  - solo: The rock goes back in the pocket, for next time.
+    hero_at: {x: 600}
+    scene: ocean
+    scene_p: {time: dusk}
+    mood: smug
+  - escalate: It has no blubber, so the cold sea is a real danger.
+    hero_at: {x: 800}
+  - solo: Its fur is the thickest of any animal on Earth.
+    hero_at: {x: 600}
+    scene: ship_deck
+    scene_p: {time: day}
+    mood: happy
+  - punch: A rock in its pocket, and up to a million hairs per square inch.
+    hero_at: {x: 800}
+tt:
+  - solo: Air trapped in that fur keeps its skin dry.
+    hero_at: {x: 600}
+    scene: reef
+    scene_p: {time: dusk}
+    mood: calm
+  - solo: So it spends hours every day, grooming.
+    scene: ocean
+    scene_p: {time: day}
+    hero_at: {x: 560, y: 1180, rot: 180}
+    act: {chew: 1.0}
+  - solo: Staying warm burns a lot of energy.
+    hero_at: {x: 600}
+    scene: ocean
+    scene_p: {time: night}
+    mood: worry
+  - solo: It eats about a quarter of its weight in food, every day.
+    hero_at: {x: 600}
+    scene: reef
+    scene_p: {time: day}
+    act: {chew: 1.0}
+  - solo: Its favorite snack is sea urchins.
+    hero_at: {x: 600}
+    scene: deep
+    scene_p: {time: day}
+    act: {bite: 1.0}
+  - solo: Without otters, urchins can chew kelp forests down to nothing.
+    hero_at: {x: 600}
+    scene: reef
+    scene_p: {time: night}
+    mood: angry
+  - solo: So otters help keep the kelp forest alive.
+    hero_at: {x: 600}
+    scene: reef
+    scene_p: {time: day}
+    mood: happy
+  - solo: To sleep, it wraps itself in kelp, so it won't drift away.
+    scene: ocean
+    scene_p: {time: night}
+    hero_at: {x: 560, y: 1180, rot: 180}
+    mood: calm
+  - count: A group resting together is called a raft.
+    hero_at: {x: 800}
+    with:
+    - {type: creature, s: 0.45, p: {cfg: *id001}}
+    - {type: creature, s: 0.45, p: {cfg: *id001}}
+    - {type: creature, s: 0.45, p: {cfg: *id001}}
+  - solo: Moms float their babies on their bellies.
+    scene: ocean
+    scene_p: {time: day}
+    hero_at: {x: 560, y: 1180, rot: 180}
+    mood: happy
+  - fact: Would you share your snacks with one?
+    hero_at: {x: 800}
+  - punch: The fluffiest animal in the sea, with a rock in its pocket.
+    hero_at: {x: 800}
