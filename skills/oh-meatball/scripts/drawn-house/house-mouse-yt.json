@@ -5,10 +5,10 @@
   "Texas A&M AgriLife Extension, Rodents and Rodent Control (public health license course, 2024): house mouse leaves 50 to 75 droppings a day, droppings 1/8-1/4 inch with pointed ends; up to 3,000 urine microdroplets produced daily; many live outside during summer; https://extensionentomology.tamu.edu/wp-content/uploads/sites/6/2024/02/Rodents-and-rodent-control-public-health-license-course.pdf"
  ],
  "photo_credits": [],
- "voice": "en-US-AndrewMultilingualNeural",
+ "voice": "kokoro:fenrir",
  "rate": "+12%",
  "music": "mystery",
- "music_db": -26,
+ "music_db": -20,
  "captions": 66,
  "caption_y": 1640,
  "stage": {
@@ -68,11 +68,8 @@
   },
   {
    "m": "tease",
-   "say": "Subscribe. Part ten is hiding in your closet.",
-   "scene": "bedroom",
-   "scene_p": {
-    "time": "day"
-   }
+   "say": "Subscribe. Part ten is hiding in your closet."
   }
- ]
+ ],
+ "loop": true
 }
