@@ -66,6 +66,10 @@
      "walk": true
     }
    ],
+   "gag": {
+    "thought": "fish",
+    "at": "40%"
+   },
    "m": "hook",
    "say": "This fish latches on to other fish, and drinks their blood."
   },
@@ -98,6 +102,10 @@
     "bite": 1.0
    },
    "pose": "shock",
+   "gag": {
+    "prop": "magnifier",
+    "at": "40%"
+   },
    "m": "tiny",
    "say": "Its mouth is a round sucking disk, packed with sharp teeth, and a razor tongue."
   },
@@ -123,6 +131,10 @@
      "front": false
     }
    ],
+   "gag": {
+    "mark": "anger",
+    "at": "40%"
+   },
    "m": "tiny",
    "say": "It latches on, and grinds right through the scales and skin."
   },

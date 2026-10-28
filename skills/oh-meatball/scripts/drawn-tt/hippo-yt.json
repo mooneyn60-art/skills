@@ -82,6 +82,10 @@
      "walk": true
     }
    ],
+   "gag": {
+    "mark": "sweat",
+    "at": "40%"
+   },
    "m": "hook",
    "say": "Hippos can't swim. They can't even float."
   },
@@ -91,6 +95,10 @@
   },
   {
    "zoom": 1.5,
+   "gag": {
+    "meter": 1.0,
+    "at": "60%"
+   },
    "m": "tiny",
    "say": "The hippopotamus. A big male can weigh nearly ten thousand pounds."
   },
@@ -106,6 +114,10 @@
   {
    "zoom": 1.5,
    "pose": "nervous",
+   "gag": {
+    "clock": 1,
+    "at": "50%"
+   },
    "m": "tiny",
    "say": "It can hold its breath for five minutes or more."
   },
@@ -114,6 +126,10 @@
    "scene": "ocean",
    "scene_p": {
     "time": "night"
+   },
+   "gag": {
+    "mark": "zzz",
+    "at": "20%"
    },
    "m": "solo",
    "say": "It even sleeps underwater. It floats up for air and sinks back down, still asleep."

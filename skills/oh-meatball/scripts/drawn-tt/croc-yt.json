@@ -70,6 +70,16 @@
      "walk": true
     }
    ],
+   "gag": [
+    {
+     "meter": 1.0,
+     "at": "40%"
+    },
+    {
+     "prop": "trophy",
+     "at": "80%"
+    }
+   ],
    "m": "hook",
    "say": "This crocodile has the strongest bite ever measured."
   },
@@ -83,6 +93,10 @@
     "x": 520
    },
    "pose": "shock",
+   "gag": {
+    "prop": "ruler",
+    "at": "60%"
+   },
    "m": "tiny",
    "say": "The saltwater crocodile. The biggest one measured was over six meters long."
   },
@@ -95,6 +109,10 @@
     "bite": 1.0
    },
    "pose": "nervous",
+   "gag": {
+    "meter": 1.0,
+    "at": "40%"
+   },
    "m": "tiny",
    "say": "Its bite hit about thirty-seven hundred pounds of force."
   },
@@ -105,6 +123,10 @@
    },
    "act": {
     "bite": 1.0
+   },
+   "gag": {
+    "prop": "trophy",
+    "at": "40%"
    },
    "m": "tiny",
    "say": "The strongest bite of any animal scientists have ever tested."
@@ -117,6 +139,10 @@
    "scene": "swamp",
    "scene_p": {
     "time": "day"
+   },
+   "gag": {
+    "thought": "bone",
+    "at": "80%"
    },
    "m": "tiny",
    "say": "Big ones eat water birds, sea turtles, even water buffalo."
