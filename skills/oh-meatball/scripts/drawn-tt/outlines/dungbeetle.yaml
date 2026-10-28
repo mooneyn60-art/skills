@@ -4,8 +4,9 @@ out: episodes/drawn-tt
 specs: scripts/drawn-tt
 series: Meatball's Animal Files
 title: This Beetle Steers Its Poop Ball by the Milky Way 🌌
-tiktok_caption: 'this beetle steers its poop ball by the milky way 🌌 and cools off on top of it. Would you let one crawl on
-  you? 🪲 yes / 💩 not after where it''s been / 🙅 no #meatballmyths #learnontiktok #dungbeetle #insects #animalfacts'
+tiktok_caption: 'this beetle steers its poop ball by the milky way 🌌 and cools off
+  on top of it. Would you let one crawl on you? 🪲 yes / 💩 not after where it''s been
+  / 🙅 no #meatballmyths #learnontiktok #dungbeetle #insects #animalfacts'
 creature: dung_beetle
 creature_cfg:
   plan: insect
@@ -44,23 +45,41 @@ wild_p:
 music: mystery
 next: Next, an animal that almost always has identical quadruplets.
 sources:
-- 'National Geographic (2013), Dung beetles navigate by the Milky Way (Dacke et al., Current Biology, Lund University and
-  University of Pretoria): first animal known to navigate using the Milky Way; beetles fitted with little cardboard hats that
-  blocked the sky rolled aimlessly; in the Johannesburg Planetarium they oriented as well under the Milky Way alone as under
-  a full starry sky; they must leave the dung pile quickly in a straight line or thieves steal the ball; buried dung balls
+- 'National Geographic (2013), Dung beetles navigate by the Milky Way (Dacke et al.,
+  Current Biology, Lund University and University of Pretoria): first animal known
+  to navigate using the Milky Way; beetles fitted with little cardboard hats that
+  blocked the sky rolled aimlessly; in the Johannesburg Planetarium they oriented
+  as well under the Milky Way alone as under a full starry sky; they must leave the
+  dung pile quickly in a straight line or thieves steal the ball; buried dung balls
   become food for their young; https://www.nationalgeographic.com/animals/article/dung-beetles-milky-way-navigation'
-- 'ScienceDaily (2012), Smolka et al., Dung beetles use their dung ball as a mobile thermal refuge, Current Biology 22(20):
-  balls weigh up to 50 times the beetle''s body weight; beetles climb on the moist ball when their front legs and head overheat
-  on hot sand, seven times as often on hot soil; silicone boots on the front legs made them climb less; on the ball they often
-  wipe their faces, which researchers suspect spreads regurgitated liquid to cool them; https://www.sciencedaily.com/releases/2012/10/121022122054.htm'
-- 'ScienceDaily (2010), Queen Mary University of London press release on Knell and Simmons, Proceedings of the Royal Society
-  B: the dung beetle Onthophagus taurus can pull 1,141 times its own body weight; https://www.sciencedaily.com/releases/2010/03/100323212158.htm'
+- 'ScienceDaily (2012), Smolka et al., Dung beetles use their dung ball as a mobile
+  thermal refuge, Current Biology 22(20): balls weigh up to 50 times the beetle''s
+  body weight; beetles climb on the moist ball when their front legs and head overheat
+  on hot sand, seven times as often on hot soil; silicone boots on the front legs
+  made them climb less; on the ball they often wipe their faces, which researchers
+  suspect spreads regurgitated liquid to cool them; https://www.sciencedaily.com/releases/2012/10/121022122054.htm'
+- 'ScienceDaily (2010), Queen Mary University of London press release on Knell and
+  Simmons, Proceedings of the Royal Society B: the dung beetle Onthophagus taurus
+  can pull 1,141 times its own body weight; https://www.sciencedaily.com/releases/2010/03/100323212158.htm'
 yt:
 - hook: This beetle steers by the Milky Way, while rolling a ball of poop.
+  gag:
+  - prop: moon
+    at: 30%
+  - pile: poop
+    n: 3
+    at: 70%
 - shrink: So I shrank myself down to beetle size, to follow one.
 - tiny: The dung beetle. It lives on poop.
+  gag:
+    thought: poop
+    at: 70%
 - tiny: It packs dung into a ball, up to fifty times heavier than itself.
-- tiny: Then it rolls it away in a straight line, fast, before another beetle steals it.
+  gag:
+    meter: 1.0
+    at: 50%
+- tiny: Then it rolls it away in a straight line, fast, before another beetle steals
+    it.
   hero_moves:
   - at: 20%
     dur: 2.0
@@ -68,6 +87,9 @@ yt:
     - 640
     - 1500
     walk: true
+  gag:
+    mark: sweat
+    at: 50%
 - solo: At night, it keeps that line, by the glow of the Milky Way.
   hero_at:
     x: 540
@@ -79,7 +101,11 @@ yt:
     props: []
   act:
     mood: calm
-- tiny: To test it, scientists put tiny cardboard hats on the beetles, to block the sky.
+  gag:
+    mark: stars
+    at: 70%
+- tiny: To test it, scientists put tiny cardboard hats on the beetles, to block the
+    sky.
   scene_p:
     time: night
     palette:
@@ -88,6 +114,9 @@ yt:
     props: []
   act:
     mood: shock
+  gag:
+    prop: magnifier
+    at: 30%
 tt:
 - tiny: With hats on, they rolled around, lost.
   scene_p:
@@ -98,12 +127,18 @@ tt:
     props: []
   act:
     mood: worry
+  gag:
+    mark: dizzy
+    at: 40%
 - tiny: Honestly, I get lost with a phone.
   pose: laugh
 - tiny: In a planetarium, the Milky Way alone was enough to steer by.
   scene: cave
   scene_p:
     time: night
+  gag:
+    mark: stars
+    at: 50%
 - tiny: By day, the sand gets hot. So it climbs on top of its ball, to cool its feet.
   scene_p:
     time: day
@@ -116,6 +151,11 @@ tt:
       - 1150
       - 1500
       - 0.8
+  gag:
+  - meter: 1.0
+    at: 20%
+  - mark: sweat
+    at: 50%
 - tiny: Scientists gave beetles tiny silicone boots. With boots on, they climbed less.
   scene_p:
     time: day
@@ -126,7 +166,8 @@ tt:
     props: []
   act:
     mood: smug
-- solo: Up there, it wipes its face. Scientists suspect it's smearing its own throw up on its head, to cool down.
+- solo: Up there, it wipes its face. Scientists suspect it's smearing its own throw
+    up on its head, to cool down.
   hero_at:
     x: 540
   scene_p:
@@ -156,6 +197,9 @@ tt:
       - 900
       - 1500
       - 1.0
+  gag:
+    thought: baby
+    at: 60%
 - tiny: And one kind can pull more than a thousand times its own body weight.
   scene: garden
   scene_p:
@@ -174,5 +218,10 @@ tt:
       - 1.0
   act:
     mood: angry
+  gag:
+  - meter: 1.0
+    at: 40%
+  - prop: trophy
+    at: 80%
 - fact: Would you let one crawl on you?
 - punch: It steers by the galaxy, and it's pushing a ball of poop.

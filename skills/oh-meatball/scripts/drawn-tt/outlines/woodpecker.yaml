@@ -2,57 +2,171 @@ slug: woodpecker
 variant: B
 out: episodes/drawn-tt
 specs: scripts/drawn-tt
-series: "Meatball's Animal Files"
+series: Meatball's Animal Files
 title: A Woodpecker Slams Its Face Into Wood Up to 20 Times a Second 🪵
-tiktok_caption: "a woodpecker slams its face into wood up to 20 times a second 🪵 and its tongue wraps around its skull. Would you want one drumming outside your window at 6am? 🥁 yes / 😴 no / 🪵 only on the neighbor's house #meatballmyths #learnontiktok #woodpecker #birds #animalfacts"
+tiktok_caption: 'a woodpecker slams its face into wood up to 20 times a second 🪵 and
+  its tongue wraps around its skull. Would you want one drumming outside your window
+  at 6am? 🥁 yes / 😴 no / 🪵 only on the neighbor''s house #meatballmyths #learnontiktok
+  #woodpecker #birds #animalfacts'
 creature: woodpecker
-creature_cfg: {plan: bird, label: woodpecker, color: "#2a2a30", dark: "#141418", belly: "#f4f4f2", beak: long, crest: true,
-               length: 400, height: 250, leg_len: 110, mood: angry, s: 0.62}
+creature_cfg:
+  plan: bird
+  label: woodpecker
+  color: '#2a2a30'
+  dark: '#141418'
+  belly: '#f4f4f2'
+  beak: long
+  crest: true
+  length: 400
+  height: 250
+  leg_len: 110
+  mood: angry
+  s: 0.62
 s: 0.62
 scene: sill
-scene_p: {time: day}
+scene_p:
+  time: day
 wild: forest_floor
-wild_p: {time: day}
+wild_p:
+  time: day
 music: mystery
 next: Next, another animal that shouldn't exist.
 sources:
-  - "Revista Pesquisa FAPESP (2022), Why woodpeckers do not suffer from headaches: woodpeckers can peck a tree trunk up to 20 times a second; https://revistapesquisa.fapesp.br/en/why-woodpeckers-do-not-suffer-from-headaches/"
-  - "Smithsonian Magazine (2022), Woodpeckers Don't Have Shock-Absorbing Skulls, on Van Wassenbergh et al., Current Biology: woodpeckers drill about 12 thousand times a day; high-speed video of black, pileated and great spotted woodpeckers showed the head acts as a stiff hammer rather than a shock absorber; protection comes mainly from small size, the brain roughly 700 times smaller than a human's, and they would need to strike about twice as fast to risk concussion; https://www.smithsonianmag.com/smart-news/woodpecker-skulls-dont-absorb-shock-like-previously-thought-180980426/"
-  - "National Park Service, Pinnacles National Park, Woodpeckers: tongues so long they wrap around the skull when not in use; barbs on the tongue tips hold insect prey; stiff tails for balancing on trunks; acorn woodpeckers store up to 50,000 acorns in a single granary tree; https://www.nps.gov/pinn/learn/nature/woodpeckers.htm"
+- 'Revista Pesquisa FAPESP (2022), Why woodpeckers do not suffer from headaches: woodpeckers
+  can peck a tree trunk up to 20 times a second; https://revistapesquisa.fapesp.br/en/why-woodpeckers-do-not-suffer-from-headaches/'
+- 'Smithsonian Magazine (2022), Woodpeckers Don''t Have Shock-Absorbing Skulls, on
+  Van Wassenbergh et al., Current Biology: woodpeckers drill about 12 thousand times
+  a day; high-speed video of black, pileated and great spotted woodpeckers showed
+  the head acts as a stiff hammer rather than a shock absorber; protection comes mainly
+  from small size, the brain roughly 700 times smaller than a human''s, and they would
+  need to strike about twice as fast to risk concussion; https://www.smithsonianmag.com/smart-news/woodpecker-skulls-dont-absorb-shock-like-previously-thought-180980426/'
+- 'National Park Service, Pinnacles National Park, Woodpeckers: tongues so long they
+  wrap around the skull when not in use; barbs on the tongue tips hold insect prey;
+  stiff tails for balancing on trunks; acorn woodpeckers store up to 50,000 acorns
+  in a single granary tree; https://www.nps.gov/pinn/learn/nature/woodpeckers.htm'
 yt:
-  - hook: A woodpecker slams its face into wood up to twenty times a second.
-  - shrink: So I shrank myself down to bird size, to watch it up close.
-  - tiny: The woodpecker. It can peck about twelve thousand times a day.
-    act: {bite: 1.0}
-  - tiny: For years, people thought its head worked like a shock absorber.
-    scene: garden
-    scene_p: {time: day, props: [[tree, -60, 1500, 1.2], [tree, 1150, 1500, 1.0]]}
-  - tiny: Then high speed cameras caught it in the act. It doesn't.
-    scene: garden
-    scene_p: {time: day, props: [[tree, -60, 1500, 1.2], [tree, 1150, 1500, 1.0]]}
-    pose: shock
-  - tiny: Its head hits like a stiff hammer. Beak and brain stop together.
-    act: {bite: 1.0}
+- hook: A woodpecker slams its face into wood up to twenty times a second.
+  gag:
+    meter: 1.0
+    at: 40%
+- shrink: So I shrank myself down to bird size, to watch it up close.
+- tiny: The woodpecker. It can peck about twelve thousand times a day.
+  act:
+    bite: 1.0
+  gag:
+    clock: 4
+    at: 50%
+- tiny: For years, people thought its head worked like a shock absorber.
+  scene: garden
+  scene_p:
+    time: day
+    props:
+    - - tree
+      - -60
+      - 1500
+      - 1.2
+    - - tree
+      - 1150
+      - 1500
+      - 1.0
+- tiny: Then high speed cameras caught it in the act. It doesn't.
+  scene: garden
+  scene_p:
+    time: day
+    props:
+    - - tree
+      - -60
+      - 1500
+      - 1.2
+    - - tree
+      - 1150
+      - 1500
+      - 1.0
+  pose: shock
+  gag:
+    prop: magnifier
+    at: 30%
+- tiny: Its head hits like a stiff hammer. Beak and brain stop together.
+  act:
+    bite: 1.0
 tt:
-  - tiny: So why no concussion? Its brain is about seven hundred times smaller than ours.
-  - tiny: Tiny brains take hits better. It would have to strike about twice as fast to get hurt.
-    pose: think
-  - solo: And its tongue? It's so long, it wraps around its skull when it's not in use.
-    scene: forest_floor
-    scene_p: {time: dusk}
-    act: {mood: smug}
-  - tiny: The tip has barbs, to hook bugs out of their holes.
-    act: {talk: 1.0}
-  - tiny: Stiff tail feathers prop it up on the trunk, like a kickstand.
-    scene: garden
-    scene_p: {time: dusk, props: [[tree, -60, 1500, 1.2], [tree, 1150, 1500, 1.0]]}
-  - tiny: One kind, the acorn woodpecker, stuffs acorns into holes in a tree. One per hole.
-    scene: desert
-    scene_p: {time: day, palette: {sky: "#9fd3ef", ground: "#b8a068", ground2: "#a08850"}, props: [[tree, -60, 1500, 1.1]]}
-  - solo: A single tree can hold up to fifty thousand acorns.
-    scene: desert
-    scene_p: {time: dusk, palette: {sky: "#f5b27a", ground: "#b8a068", ground2: "#a08850"}, props: [[tree, 1100, 1500, 1.1]]}
-  - tiny: Meanwhile, I can't even find my keys.
-    pose: laugh
-  - fact: Would you want one drumming outside your window at six in the morning?
-  - punch: Twelve thousand head bangs a day, and its tongue lives wrapped around its skull.
+- tiny: So why no concussion? Its brain is about seven hundred times smaller than
+    ours.
+  gag:
+    prop: ruler
+    at: 70%
+- tiny: Tiny brains take hits better. It would have to strike about twice as fast
+    to get hurt.
+  pose: think
+  gag:
+    meter: 0.5
+    at: 60%
+- solo: And its tongue? It's so long, it wraps around its skull when it's not in use.
+  scene: forest_floor
+  scene_p:
+    time: dusk
+  act:
+    mood: smug
+  gag:
+    prop: skull
+    at: 60%
+- tiny: The tip has barbs, to hook bugs out of their holes.
+  act:
+    talk: 1.0
+  gag:
+    thought: tick
+    at: 60%
+- tiny: Stiff tail feathers prop it up on the trunk, like a kickstand.
+  scene: garden
+  scene_p:
+    time: dusk
+    props:
+    - - tree
+      - -60
+      - 1500
+      - 1.2
+    - - tree
+      - 1150
+      - 1500
+      - 1.0
+- tiny: One kind, the acorn woodpecker, stuffs acorns into holes in a tree. One per
+    hole.
+  scene: desert
+  scene_p:
+    time: day
+    palette:
+      sky: '#9fd3ef'
+      ground: '#b8a068'
+      ground2: '#a08850'
+    props:
+    - - tree
+      - -60
+      - 1500
+      - 1.1
+- solo: A single tree can hold up to fifty thousand acorns.
+  scene: desert
+  scene_p:
+    time: dusk
+    palette:
+      sky: '#f5b27a'
+      ground: '#b8a068'
+      ground2: '#a08850'
+    props:
+    - - tree
+      - 1100
+      - 1500
+      - 1.1
+  gag:
+    prop: trophy
+    at: 50%
+- tiny: Meanwhile, I can't even find my keys.
+  pose: laugh
+- fact: Would you want one drumming outside your window at six in the morning?
+  gag:
+    mark: alarm
+    at: 70%
+- punch: Twelve thousand head bangs a day, and its tongue lives wrapped around its
+    skull.
+  gag:
+    mark: dizzy
+    at: 40%

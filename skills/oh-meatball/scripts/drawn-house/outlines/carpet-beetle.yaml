@@ -4,10 +4,12 @@ specs: scripts/drawn-house
 series: Things Living In Your House
 part: 13
 title: The Tiny Beetle on Your Window Has Babies Eating Your Sweaters 🧶
-tiktok_caption: "the tiny beetle on my windowsill has babies eating my sweaters 🧶 and its cousins clean skeletons for museums. Would you check under your bed tonight? 🛏️ yes / 🙈 no"
+tiktok_caption: the tiny beetle on my windowsill has babies eating my sweaters 🧶 and
+  its cousins clean skeletons for museums. Would you check under your bed tonight?
+  🛏️ yes / 🙈 no
 creature: carpet_beetle
 actor: creature
-creature_cfg: &adult
+creature_cfg: &id001
   plan: insect
   label: carpet beetle
   body: round
@@ -23,112 +25,231 @@ creature_cfg: &adult
   mood: smug
   s: 0.85
 hero_p:
-  cfg: *adult
+  cfg: *id001
 s: 0.85
 scene: sill
-scene_p: {time: day}
+scene_p:
+  time: day
 wild: garden
-wild_p: {time: day}
-rate: '+10%'
+wild_p:
+  time: day
+rate: +10%
 music: mystery
 next: Part fourteen is hiding in your fruit bowl.
 next_scene: kitchen
 sources:
-  - "University of California IPM, Carpets beetles (Pest Notes 7436): adults are small (about 1/8 inch), round, often mottled with white, brown and yellow scales; adults feed on pollen and nectar outdoors and are attracted to light, often found at windows; larvae damage wool, fur, feathers, silk, hair and dead insects; larvae shed skins as they grow; larval hairs can irritate skin in some people; control by regular vacuuming of carpets, edges and under furniture and by cleaning wool items before storage; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7436.html"
-  - "University of Minnesota Extension, Carpet beetles: larvae feed in dark, undisturbed places such as under furniture, along carpet edges and in closets; shed larval skins are a common sign; https://extension.umn.edu/product-and-food-pests/carpet-beetles"
-  - "Smithsonian National Museum of Natural History, Osteology Prep Lab: colonies of dermestid beetles (family Dermestidae, the carpet beetle family) clean the soft tissue from skeletons for the collection, gentle enough for small delicate bones; https://naturalhistory.si.edu/research/vertebrate-zoology"
-  - "Museum pest guidance (MuseumPests.net, Carpet beetles): carpet beetles are among the most damaging pests of museum collections, attacking wool, fur, feathers, taxidermy and insect collections; https://museumpests.net/carpet-beetles/"
+- 'University of California IPM, Carpets beetles (Pest Notes 7436): adults are small
+  (about 1/8 inch), round, often mottled with white, brown and yellow scales; adults
+  feed on pollen and nectar outdoors and are attracted to light, often found at windows;
+  larvae damage wool, fur, feathers, silk, hair and dead insects; larvae shed skins
+  as they grow; larval hairs can irritate skin in some people; control by regular
+  vacuuming of carpets, edges and under furniture and by cleaning wool items before
+  storage; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7436.html'
+- 'University of Minnesota Extension, Carpet beetles: larvae feed in dark, undisturbed
+  places such as under furniture, along carpet edges and in closets; shed larval skins
+  are a common sign; https://extension.umn.edu/product-and-food-pests/carpet-beetles'
+- 'Smithsonian National Museum of Natural History, Osteology Prep Lab: colonies of
+  dermestid beetles (family Dermestidae, the carpet beetle family) clean the soft
+  tissue from skeletons for the collection, gentle enough for small delicate bones;
+  https://naturalhistory.si.edu/research/vertebrate-zoology'
+- 'Museum pest guidance (MuseumPests.net, Carpet beetles): carpet beetles are among
+  the most damaging pests of museum collections, attacking wool, fur, feathers, taxidermy
+  and insect collections; https://museumpests.net/carpet-beetles/'
 yt:
-  - hook: The tiny beetle on your window? Its babies eat sweaters.
-    hero_at: {x: 720}
-  - solo: The carpet beetle. Smaller than a grain of rice.
-    scene: sill
-  - solo: Outside, it sips pollen from flowers.
-    act: {chew: 1.0}
-  - solo: But it lays its eggs inside.
-    scene: bedroom
-    scene_p: {time: dusk}
-  - solo: Its babies hatch fuzzy, and hungry.
-    scene: fibers
-    hero: &larva
-      cfg: {plan: centipede, label: carpet beetle larva, color: '#9a6a3c', dark: '#5a3a20', legs: 3, leg_len: 0.35, ant: 30, long_last: false, bands: false, stripes: 6, length: 440, height: 170, mood: happy}
-    hero_at: {x: 700}
-  - solo: They eat wool, fur, feathers, silk.
-    scene: fibers
-    hero: *larva
-    hero_at: {x: 700}
-    act: {chew: 1.0}
-  - solo: Even the pet hair under your couch.
-    scene: basement
-    hero: *larva
-    hero_at: {x: 700}
-    act: {chew: 1.0}
-  - solo: In the dark, they chew holes in sweaters.
-    scene: bedroom
-    scene_p: {time: night}
-    hero: *larva
-    hero_at: {x: 700}
-    act: {chew: 1.0}
-  - punch: So the cute little beetle? It's the mom.
-    hero_at: {x: 720}
+- hook: The tiny beetle on your window? Its babies eat sweaters.
+  hero_at:
+    x: 720
+  gag:
+    mark: shock
+    at: 70%
+- solo: The carpet beetle. Smaller than a grain of rice.
+  scene: sill
+  gag:
+    prop: ruler
+    at: 60%
+- solo: Outside, it sips pollen from flowers.
+  act:
+    chew: 1.0
+  gag:
+    mark: hearts
+    at: 50%
+- solo: But it lays its eggs inside.
+  scene: bedroom
+  scene_p:
+    time: dusk
+  gag:
+    pile: egg
+    n: 6
+    r: 24
+    at: 50%
+- solo: Its babies hatch fuzzy, and hungry.
+  scene: fibers
+  hero: &id002
+    cfg:
+      plan: centipede
+      label: carpet beetle larva
+      color: '#9a6a3c'
+      dark: '#5a3a20'
+      legs: 3
+      leg_len: 0.35
+      ant: 30
+      long_last: false
+      bands: false
+      stripes: 6
+      length: 440
+      height: 170
+      mood: happy
+  hero_at:
+    x: 700
+  gag:
+    pile: baby
+    n: 4
+    r: 28
+    at: 30%
+- solo: They eat wool, fur, feathers, silk.
+  scene: fibers
+  hero: *id002
+  hero_at:
+    x: 700
+  act:
+    chew: 1.0
+- solo: Even the pet hair under your couch.
+  scene: basement
+  hero: *id002
+  hero_at:
+    x: 700
+  act:
+    chew: 1.0
+- solo: In the dark, they chew holes in sweaters.
+  scene: bedroom
+  scene_p:
+    time: night
+  hero: *id002
+  hero_at:
+    x: 700
+  act:
+    chew: 1.0
+  gag:
+    prop: moon
+    at: 20%
+- punch: So the cute little beetle? It's the mom.
+  hero_at:
+    x: 720
+  gag:
+    mark: hearts
+    at: 70%
 tt:
-  - solo: Up close, it's covered in bristles.
-    scene: microscope
-    hero: *larva
-    hero_at: {x: 700}
-  - solo: On some people, they cause an itchy rash.
-    scene: fibers
-    hero: *larva
-    hero_at: {x: 700}
-    mood: smug
-  - solo: It sheds its skin again and again.
-    scene: basement
-    scene_p: {time: night}
-    hero: *larva
-    hero_at: {x: 700}
-  - solo: Those empty skins are the first clue.
-    scene: basement
-    hero: *larva
-    hero_at: {x: 700}
-    mood: calm
-  - shrink: So I shrank down to find them.
-  - tiny: Under the bed, in the lint.
-    scene: bedroom
-    scene_p: {time: night}
-    hero: *larva
-  - tiny: Along the edges of the rug.
-    scene: fibers
-    hero: *larva
-  - solo: Grown up, it flies toward the light.
-    scene: sill
-    scene_p: {time: dusk}
-  - solo: Museums fear it. It eats stuffed animals.
-    scene: study
-    scene_p: {time: night}
-    mood: angry
-  - solo: But its family works for museums.
-    scene: cave
-    hero: &hide
-      cfg: {plan: insect, label: hide beetle, body: long, color: '#2a2422', dark: '#4a403a', length: 520, height: 170, leg_len: 100, ant: 110, wings: shell, sheen: true, mood: happy}
-  - solo: Its cousins eat the meat off skeletons.
-    scene: desert
-    hero: *hide
-    act: {chew: 1.0}
-  - solo: Gentle enough to clean the tiniest bones.
-    scene: desert
-    scene_p: {time: dusk}
-    hero: *hide
-  - solo: To stop them, vacuum under furniture.
-    scene: bedroom
-    hero: *larva
-    hero_at: {x: 700}
-    mood: worry
-  - solo: And wash wool before storing it.
-    scene: fibers
-    hero: *larva
-    hero_at: {x: 700}
-    mood: worry
-  - fact: Would you check under your bed tonight?
-    hero_at: {x: 720}
-  - punch: The cutest bug on your window raises sweater eaters.
-    hero_at: {x: 720}
+- solo: Up close, it's covered in bristles.
+  scene: microscope
+  hero: *id002
+  hero_at:
+    x: 700
+  gag:
+    prop: magnifier
+    at: 40%
+- solo: On some people, they cause an itchy rash.
+  scene: fibers
+  hero: *id002
+  hero_at:
+    x: 700
+  mood: smug
+  gag:
+    mark: alarm
+    at: 60%
+- solo: It sheds its skin again and again.
+  scene: basement
+  scene_p:
+    time: night
+  hero: *id002
+  hero_at:
+    x: 700
+  gag:
+    clock: 3
+    at: 60%
+- solo: Those empty skins are the first clue.
+  scene: basement
+  hero: *id002
+  hero_at:
+    x: 700
+  mood: calm
+  gag:
+    prop: magnifier
+    at: 50%
+- shrink: So I shrank down to find them.
+- tiny: Under the bed, in the lint.
+  scene: bedroom
+  scene_p:
+    time: night
+  hero: *id002
+  gag:
+    prop: bed
+    at: 30%
+- tiny: Along the edges of the rug.
+  scene: fibers
+  hero: *id002
+- solo: Grown up, it flies toward the light.
+  scene: sill
+  scene_p:
+    time: dusk
+- solo: Museums fear it. It eats stuffed animals.
+  scene: study
+  scene_p:
+    time: night
+  mood: angry
+  gag:
+    mark: alarm
+    at: 30%
+- solo: But its family works for museums.
+  scene: cave
+  hero: &id003
+    cfg:
+      plan: insect
+      label: hide beetle
+      body: long
+      color: '#2a2422'
+      dark: '#4a403a'
+      length: 520
+      height: 170
+      leg_len: 100
+      ant: 110
+      wings: shell
+      sheen: true
+      mood: happy
+  gag:
+    prop: trophy
+    at: 60%
+- solo: Its cousins eat the meat off skeletons.
+  scene: desert
+  hero: *id003
+  act:
+    chew: 1.0
+  gag:
+    pile: bone
+    n: 5
+    at: 50%
+- solo: Gentle enough to clean the tiniest bones.
+  scene: desert
+  scene_p:
+    time: dusk
+  hero: *id003
+  gag:
+    prop: skull
+    at: 60%
+- solo: To stop them, vacuum under furniture.
+  scene: bedroom
+  hero: *id002
+  hero_at:
+    x: 700
+  mood: worry
+- solo: And wash wool before storing it.
+  scene: fibers
+  hero: *id002
+  hero_at:
+    x: 700
+  mood: worry
+- fact: Would you check under your bed tonight?
+  hero_at:
+    x: 720
+- punch: The cutest bug on your window raises sweater eaters.
+  hero_at:
+    x: 720

@@ -4,8 +4,9 @@ specs: scripts/drawn-tt
 series: Meatball's Animal Files
 variant: A
 title: In Alaska, Moose Injure More People Than Bears 🫎
-tiktok_caption: 'in alaska moose injure more people than bears 🫎 and one moose can carry 75,000 ticks. Would you get out of
-  the car to pet one? 🫎 yes / 🚗 stay in #meatballmyths #learnontiktok #moose #animalfacts'
+tiktok_caption: 'in alaska moose injure more people than bears 🫎 and one moose can
+  carry 75,000 ticks. Would you get out of the car to pet one? 🫎 yes / 🚗 stay in #meatballmyths
+  #learnontiktok #moose #animalfacts'
 creature: moose
 actor: creature
 creature_cfg: &id001
@@ -37,18 +38,23 @@ wild_p:
 music: mystery
 next: Next, a fish with no jaws and a mouth full of teeth.
 sources:
-- 'Alaska Department of Fish and Game, Alaska Fish & Wildlife News (Jan 2020): more people are injured in Alaska by moose
-  than by bears; moose can deliver dangerous blows with their hooves when threatened; https://www.adfg.alaska.gov/index.cfm?adfg=wildlifenews.view_article&articles_id=939'
-- 'National Wildlife Federation, Moose: largest deer, about six feet tall at the shoulder; excellent swimmers that can hold
-  their breath underwater for 30 seconds; can run over 35 mph; antlers up to six feet across; females protect calves with
-  kicks that can break bones; https://www.nwf.org/Educational-Resources/Wildlife-Guide/Mammals/Moose'
-- 'National Park Service, Moose: Did You Know?: largest bull at the Kenai Moose Research Station weighed 1,697 lb; mature
-  moose grow about an inch of antler a day; antlers up to 75 lb; tested down to -22 F without feeling cold; https://www.nps.gov/articles/moose-did-you-know.htm'
-- 'National Park Service, Isle Royale: Moose: in summer moose feed in lakes and beaver ponds on aquatic plants that grow beneath
-  the surface; https://www.nps.gov/isro/learn/nature/moose.htm'
-- 'National Park Service, Yellowstone: Moose: bulls shed antlers in winter and grow new ones each spring; https://www.nps.gov/yell/learn/nature/moose.htm'
-- 'North Dakota Game and Fish, Winter Ticks and Moose: in good tick years 75,000 to 150,000 winter ticks on a single moose;
-  infested moose rub off much of their hair, looking grey (''ghost moose''); https://gf.nd.gov/wildlife-notes/winter-ticks-and-moose'
+- 'Alaska Department of Fish and Game, Alaska Fish & Wildlife News (Jan 2020): more
+  people are injured in Alaska by moose than by bears; moose can deliver dangerous
+  blows with their hooves when threatened; https://www.adfg.alaska.gov/index.cfm?adfg=wildlifenews.view_article&articles_id=939'
+- 'National Wildlife Federation, Moose: largest deer, about six feet tall at the shoulder;
+  excellent swimmers that can hold their breath underwater for 30 seconds; can run
+  over 35 mph; antlers up to six feet across; females protect calves with kicks that
+  can break bones; https://www.nwf.org/Educational-Resources/Wildlife-Guide/Mammals/Moose'
+- 'National Park Service, Moose: Did You Know?: largest bull at the Kenai Moose Research
+  Station weighed 1,697 lb; mature moose grow about an inch of antler a day; antlers
+  up to 75 lb; tested down to -22 F without feeling cold; https://www.nps.gov/articles/moose-did-you-know.htm'
+- 'National Park Service, Isle Royale: Moose: in summer moose feed in lakes and beaver
+  ponds on aquatic plants that grow beneath the surface; https://www.nps.gov/isro/learn/nature/moose.htm'
+- 'National Park Service, Yellowstone: Moose: bulls shed antlers in winter and grow
+  new ones each spring; https://www.nps.gov/yell/learn/nature/moose.htm'
+- 'North Dakota Game and Fish, Winter Ticks and Moose: in good tick years 75,000 to
+  150,000 winter ticks on a single moose; infested moose rub off much of their hair,
+  looking grey (''ghost moose''); https://gf.nd.gov/wildlife-notes/winter-ticks-and-moose'
 yt:
 - hook: In Alaska, moose injure more people than bears do.
   hero_moves:
@@ -58,47 +64,85 @@ yt:
     - 800
     - 1500
     walk: true
+  gag:
+    mark: anger
+    at: 60%
 - name: The moose. The biggest deer on Earth. Six feet tall at the shoulder.
   hero_at:
     x: 800
-- fact: The biggest one ever weighed at an Alaska research station was nearly seventeen hundred pounds.
+  gag:
+    prop: crown
+    at: 40%
+- fact: The biggest one ever weighed at an Alaska research station was nearly seventeen
+    hundred pounds.
   hero_at:
     x: 800
+  gag:
+    meter: 1.0
+    at: 60%
 - fact: And it can run over thirty-five miles an hour.
   hero_at:
     x: 800
 - escalate: A mother moose kicks hard enough to break bones.
   hero_at:
     x: 800
+  gag:
+    pile: bone
+    n: 3
+    at: 60%
 - calm: Most of the time, though, it just wants to eat.
+  gag:
+    thought: leaf
+    at: 50%
 tt:
 - solo: It's a great swimmer, and it eats plants that grow under the water.
   zoom: 0.95
 - fact: It can hold its breath underwater for about thirty seconds.
   hero_at:
     x: 800
+  gag:
+    clock: 0.5
+    at: 60%
 - fact: A bull's antlers can grow about an inch a day.
   hero_at:
     x: 800
+  gag:
+    prop: ruler
+    at: 50%
 - scale: Fully grown, they can be six feet across, and weigh up to seventy-five pounds.
   how: shrink
 - fact: Then every winter, he drops them, and grows a new pair.
   hero_at:
     x: 800
+  gag:
+    prop: snowflake
+    at: 40%
 - fact: It was tested at minus twenty-two degrees, and still wasn't cold.
   hero_at:
     x: 800
 - escalate: But here's the grossest part. Ticks.
   hero_at:
     x: 800
+  gag:
+    mark: shock
+    at: 50%
 - solo: In a bad year, one moose can carry seventy-five thousand ticks.
   zoom: 0.95
   scene: forest_floor
   scene_p:
     time: night
+  gag:
+    pile: tick
+    n: 10
+    r: 26
+    at: 40%
+    dur: 1.8
 - fact: It rubs its own hair off, trying to get rid of them.
   hero_at:
     x: 800
+  gag:
+    mark: sweat
+    at: 50%
 - solo: It turns pale and patchy. People call it a ghost moose.
   zoom: 0.95
   scene: forest_floor
@@ -125,3 +169,6 @@ tt:
 - punch: The biggest deer on Earth, and it can lose a fight to tiny ticks.
   hero_at:
     x: 800
+  gag:
+    mark: dizzy
+    at: 85%

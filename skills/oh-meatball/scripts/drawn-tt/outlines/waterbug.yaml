@@ -4,9 +4,10 @@ out: episodes/drawn-tt
 specs: scripts/drawn-tt
 series: Meatball's Animal Files
 title: This Bug Melts Its Prey From the Inside and Drinks It 🪲
-tiktok_caption: 'this bug melts its prey from the inside and drinks it 🫠 it eats turtles, snakes and ducklings and they call
-  it the toe biter. Would you eat one? 🍽️ yes / 🤢 never / 🦶 it''d eat me first #meatballmyths #learnontiktok #giantwaterbug
-  #insects #animalfacts'
+tiktok_caption: 'this bug melts its prey from the inside and drinks it 🫠 it eats turtles,
+  snakes and ducklings and they call it the toe biter. Would you eat one? 🍽️ yes /
+  🤢 never / 🦶 it''d eat me first #meatballmyths #learnontiktok #giantwaterbug #insects
+  #animalfacts'
 creature: giant_water_bug
 creature_cfg:
   plan: insect
@@ -33,26 +34,44 @@ wild_p:
 music: mystery
 next: Next, an animal that can hit you with its spray from ten feet away.
 sources:
-- 'University of Maine Cooperative Extension, Giant Water Bug (Lethocerus americanus) fact sheet: 2 to 4 inches long, the
-  largest true bug (Hemiptera) in the US and Canada; common names include toe-biters (they can inflict a painful bite) and
-  electric-light bugs (adults fly and are attracted to lights at night); https://extension.umaine.edu/home-and-garden-ipm/fact-sheets/common-name-listing/giant-water-bug/'
-- 'KQED Science / Deep Look (PBS), Don''t Go Chasing Water Bugs, quoting entomologists Chris Goforth (North Carolina Museum
-  of Natural Sciences) and Robert Sites (University of Missouri): bite among the most painful of any insect, delivered with
-  dagger-like mouthparts; they inject venom that liquefies the prey''s insides and suck it back out, the prey likely still
-  alive; they eat animals as large as turtles, snakes and ducklings; in Abedus the female glues eggs onto the male''s back
-  and leaves, and he carries them for several weeks; in parts of Asia they are a delicacy, with a nutty flavour; Santa Monica
-  Mountains rangers warned of bites in 2018; https://www.kqed.org/science/1979474/dont-go-chasing-water-bugs'
+- 'University of Maine Cooperative Extension, Giant Water Bug (Lethocerus americanus)
+  fact sheet: 2 to 4 inches long, the largest true bug (Hemiptera) in the US and Canada;
+  common names include toe-biters (they can inflict a painful bite) and electric-light
+  bugs (adults fly and are attracted to lights at night); https://extension.umaine.edu/home-and-garden-ipm/fact-sheets/common-name-listing/giant-water-bug/'
+- 'KQED Science / Deep Look (PBS), Don''t Go Chasing Water Bugs, quoting entomologists
+  Chris Goforth (North Carolina Museum of Natural Sciences) and Robert Sites (University
+  of Missouri): bite among the most painful of any insect, delivered with dagger-like
+  mouthparts; they inject venom that liquefies the prey''s insides and suck it back
+  out, the prey likely still alive; they eat animals as large as turtles, snakes and
+  ducklings; in Abedus the female glues eggs onto the male''s back and leaves, and
+  he carries them for several weeks; in parts of Asia they are a delicacy, with a
+  nutty flavour; Santa Monica Mountains rangers warned of bites in 2018; https://www.kqed.org/science/1979474/dont-go-chasing-water-bugs'
 yt:
 - hook: This bug can eat a turtle. It melts the insides, and drinks them.
+  gag:
+    mark: shock
+    at: 40%
 - shrink: So I shrank myself down to its size, to get a closer look.
 - tiny: The giant water bug. Up to four inches long.
+  gag:
+    prop: ruler
+    at: 60%
 - tiny: It's the biggest true bug in the United States and Canada.
+  gag:
+    prop: trophy
+    at: 40%
 - tiny: It hides underwater, and grabs prey with its powerful legs.
   act:
     wave: 1.0
+  gag:
+    meter: 1.0
+    at: 70%
 - tiny: Then it stabs with a dagger-like beak, and injects venom.
   act:
     bite: 1.0
+  gag:
+    zap: true
+    at: 60%
 - solo: The venom turns the insides to soup. Then it sucks them out.
   hero_at:
     x: 540
@@ -96,6 +115,9 @@ tt:
     time: dusk
   act:
     bite: 1.0
+  gag:
+    mark: shock
+    at: 80%
 - tiny: Its nickname? The toe biter. Its bite is one of the most painful of any insect.
   scene: swamp
   scene_p:
@@ -103,7 +125,11 @@ tt:
   act:
     mood: angry
     bite: 1.0
-- tiny: It also flies to lights at night. So some people call it the electric light bug.
+  gag:
+    meter: 1.0
+    at: 60%
+- tiny: It also flies to lights at night. So some people call it the electric light
+    bug.
   scene: garden
   scene_p:
     time: night
@@ -119,15 +145,29 @@ tt:
       - -60
       - 1500
       - 0.8
+  gag:
+    zap: true
+    at: 70%
 - tiny: In some kinds, mom glues her eggs onto dad's back. Then she leaves.
   act:
     mood: shock
+  gag:
+    pile: egg
+    n: 8
+    r: 26
+    at: 30%
 - tiny: Dad carries them for weeks, until they hatch.
   act:
     mood: calm
+  gag:
+    clock: 3
+    at: 40%
 - tiny: And in parts of Asia, people eat it. Some say it tastes nutty.
   scene: forest_floor
   scene_p:
     time: day
+  gag:
+    mark: sweat
+    at: 40%
 - fact: Would you eat one?
 - punch: It drinks turtles, bites toes, and dad does all the babysitting.

@@ -4,7 +4,9 @@ specs: scripts/drawn-tt
 series: Meatball's Animal Files
 variant: B
 title: A Naked Mole Rat Can Last 18 Minutes Without Any Oxygen 🐀
-tiktok_caption: 'a naked mole rat survived 18 minutes with zero oxygen 🐀 and it can live over 30 years. Would you hold one? 🤲 yes / 🙅 no #meatballmyths #learnontiktok #nakedmolerat #animalfacts'
+tiktok_caption: 'a naked mole rat survived 18 minutes with zero oxygen 🐀 and it can
+  live over 30 years. Would you hold one? 🤲 yes / 🙅 no #meatballmyths #learnontiktok
+  #nakedmolerat #animalfacts'
 creature: naked_mole_rat
 actor: creature
 creature_cfg: &id001
@@ -29,87 +31,179 @@ creature_cfg: &id001
 hero_p:
   cfg: *id001
 scene: cave
-scene_p: {time: day}
+scene_p:
+  time: day
 wild: desert
-wild_p: {time: day}
-rate: '+10%'
+wild_p:
+  time: day
+rate: +10%
 music: mystery
 next: Next, a mammal that lays eggs and glows.
 sources:
-  - "Park et al. 2017, Science, Fructose-driven glycolysis supports anoxia resistance in the naked mole-rat: naked mole-rats survived 18 minutes of total oxygen deprivation without apparent injury, switching to fructose-based metabolism; https://doi.org/10.1126/science.aab3896"
-  - "Smithsonian's National Zoo, Naked mole-rat: lives underground in East Africa (Kenya, Ethiopia, Somalia); colonies are led by a single breeding queen, like bees and ants; nearly blind, small eyes; lips close behind the front teeth so they can dig with their teeth without getting dirt in their mouths; can live more than 30 years; huddle together to keep warm; https://nationalzoo.si.edu/animals/naked-mole-rat"
-  - "Buffenstein lab / Ruby et al. 2018, eLife: naked mole-rat mortality does not rise with age, lifespans past 30 years; cancer is extremely rare in the species (only a handful of cases ever reported); https://doi.org/10.7554/eLife.31157"
-  - "Park et al. 2008, PLoS Biology, Selective inflammatory pain insensitivity in the African naked mole-rat: their skin does not respond with pain to acid or capsaicin; https://doi.org/10.1371/journal.pbio.0060013"
-  - "Encyclopaedia Britannica, Naked mole rat: not a true mole or rat; a rodent more closely related to porcupines and guinea pigs; can move its lower incisors independently; https://www.britannica.com/animal/naked-mole-rat"
+- 'Park et al. 2017, Science, Fructose-driven glycolysis supports anoxia resistance
+  in the naked mole-rat: naked mole-rats survived 18 minutes of total oxygen deprivation
+  without apparent injury, switching to fructose-based metabolism; https://doi.org/10.1126/science.aab3896'
+- 'Smithsonian''s National Zoo, Naked mole-rat: lives underground in East Africa (Kenya,
+  Ethiopia, Somalia); colonies are led by a single breeding queen, like bees and ants;
+  nearly blind, small eyes; lips close behind the front teeth so they can dig with
+  their teeth without getting dirt in their mouths; can live more than 30 years; huddle
+  together to keep warm; https://nationalzoo.si.edu/animals/naked-mole-rat'
+- 'Buffenstein lab / Ruby et al. 2018, eLife: naked mole-rat mortality does not rise
+  with age, lifespans past 30 years; cancer is extremely rare in the species (only
+  a handful of cases ever reported); https://doi.org/10.7554/eLife.31157'
+- 'Park et al. 2008, PLoS Biology, Selective inflammatory pain insensitivity in the
+  African naked mole-rat: their skin does not respond with pain to acid or capsaicin;
+  https://doi.org/10.1371/journal.pbio.0060013'
+- 'Encyclopaedia Britannica, Naked mole rat: not a true mole or rat; a rodent more
+  closely related to porcupines and guinea pigs; can move its lower incisors independently;
+  https://www.britannica.com/animal/naked-mole-rat'
 yt:
-  - hook: No air at all for eighteen minutes, and it was fine.
-    hero_moves:
-    - at: 0
-      dur: 1.2
-      pos: [800, 1500]
-      walk: true
-  - solo: Deep underground in East Africa, it digs tunnels.
-    scene: cave
-  - name: The naked mole rat. Pink, wrinkly, and almost blind.
-    hero_at: {x: 800}
-  - solo: Scientists took away all of its oxygen.
-    scene: microscope
-    mood: worry
-  - solo: Its body switched to burning a different sugar.
-    scene: microscope
-    mood: smug
-  - solo: Eighteen minutes later, it woke up, unharmed.
-    scene: cave
-    scene_p: {time: dusk}
-    mood: happy
-  - count: And its colony has just one queen, like bees.
-    hero_at: {x: 800}
-    with:
-    - {type: creature, s: 0.45, p: {cfg: *id001}}
-    - {type: creature, s: 0.45, p: {cfg: *id001}}
-    - {type: creature, s: 0.45, p: {cfg: *id001}}
-  - calm: A mouse lives about two years. This one lives over thirty.
-    hero_at: {x: 800}
+- hook: No air at all for eighteen minutes, and it was fine.
+  hero_moves:
+  - at: 0
+    dur: 1.2
+    pos:
+    - 800
+    - 1500
+    walk: true
+  gag:
+    clock: 1
+    at: 40%
+- solo: Deep underground in East Africa, it digs tunnels.
+  scene: cave
+  gag:
+    pile: rock
+    n: 5
+    r: 24
+    at: 50%
+- name: The naked mole rat. Pink, wrinkly, and almost blind.
+  hero_at:
+    x: 800
+- solo: Scientists took away all of its oxygen.
+  scene: microscope
+  mood: worry
+  gag:
+    mark: alarm
+    at: 50%
+- solo: Its body switched to burning a different sugar.
+  scene: microscope
+  mood: smug
+  gag:
+    pile: cube
+    n: 4
+    r: 28
+    at: 60%
+- solo: Eighteen minutes later, it woke up, unharmed.
+  scene: cave
+  scene_p:
+    time: dusk
+  mood: happy
+  gag:
+    clock: 1
+    at: 10%
+- count: And its colony has just one queen, like bees.
+  hero_at:
+    x: 800
+  with:
+  - type: creature
+    s: 0.45
+    p:
+      cfg: *id001
+  - type: creature
+    s: 0.45
+    p:
+      cfg: *id001
+  - type: creature
+    s: 0.45
+    p:
+      cfg: *id001
+  gag:
+    prop: crown
+    at: 50%
+- calm: A mouse lives about two years. This one lives over thirty.
+  hero_at:
+    x: 800
+  gag:
+    clock: 6
+    at: 50%
+    dur: 1.8
 tt:
-  - solo: And it almost never gets cancer.
-    scene: desert
-    scene_p: {time: dusk}
-    mood: smug
-  - solo: Scientists study it to learn why.
-    scene: microscope
-  - solo: It digs with its front teeth.
-    scene: cave
-    act: {chew: 1.0}
-  - solo: Its lips close behind them, so it doesn't eat dirt.
-    scene: cave
-    scene_p: {time: night}
-    mood: happy
-  - solo: It can even move its bottom teeth apart, like chopsticks.
-    scene: desert
-    scene_p: {time: day}
-    act: {bite: 1.0}
-  - solo: Acid on its skin doesn't hurt it like it hurts us.
-    scene: microscope
-    mood: calm
-  - solo: It can't keep itself very warm.
-    scene: cave
-    scene_p: {time: night}
-    mood: worry
-  - solo: So the whole colony piles up in a big warm heap.
-    scene: cave
-    scene_p: {time: dusk}
-    with:
-    - {type: creature, s: 0.6, p: {cfg: *id001}}
-    - {type: creature, s: 0.6, p: {cfg: *id001}}
-  - solo: Funny thing is, it's not a mole, and not a rat.
-    scene: desert
-    scene_p: {time: night}
-    mood: shock
-  - solo: Its cousins are porcupines and guinea pigs.
-    scene: forest_floor
-    scene_p: {time: day}
-    mood: happy
-  - fact: Would you hold one in your hand?
-    hero_at: {x: 800}
-  - punch: Wrinkly, pink, nearly blind, and built to last.
-    hero_at: {x: 800}
+- solo: And it almost never gets cancer.
+  scene: desert
+  scene_p:
+    time: dusk
+  mood: smug
+- solo: Scientists study it to learn why.
+  scene: microscope
+  gag:
+    prop: magnifier
+    at: 40%
+- solo: It digs with its front teeth.
+  scene: cave
+  act:
+    chew: 1.0
+  gag:
+    pile: rock
+    n: 4
+    r: 24
+    at: 40%
+- solo: Its lips close behind them, so it doesn't eat dirt.
+  scene: cave
+  scene_p:
+    time: night
+  mood: happy
+- solo: It can even move its bottom teeth apart, like chopsticks.
+  scene: desert
+  scene_p:
+    time: day
+  act:
+    bite: 1.0
+  gag:
+    mark: shock
+    at: 60%
+- solo: Acid on its skin doesn't hurt it like it hurts us.
+  scene: microscope
+  mood: calm
+- solo: It can't keep itself very warm.
+  scene: cave
+  scene_p:
+    time: night
+  mood: worry
+  gag:
+    mark: ice
+    at: 50%
+- solo: So the whole colony piles up in a big warm heap.
+  scene: cave
+  scene_p:
+    time: dusk
+  with:
+  - type: creature
+    s: 0.6
+    p:
+      cfg: *id001
+  - type: creature
+    s: 0.6
+    p:
+      cfg: *id001
+  gag:
+    meter: 0.7
+    at: 60%
+- solo: Funny thing is, it's not a mole, and not a rat.
+  scene: desert
+  scene_p:
+    time: night
+  mood: shock
+  gag:
+    mark: dizzy
+    at: 50%
+- solo: Its cousins are porcupines and guinea pigs.
+  scene: forest_floor
+  scene_p:
+    time: day
+  mood: happy
+- fact: Would you hold one in your hand?
+  hero_at:
+    x: 800
+- punch: Wrinkly, pink, nearly blind, and built to last.
+  hero_at:
+    x: 800
