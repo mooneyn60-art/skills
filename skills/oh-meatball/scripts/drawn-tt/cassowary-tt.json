@@ -76,6 +76,10 @@
      "walk": true
     }
    ],
+   "gag": {
+    "prop": "ruler",
+    "at": "70%"
+   },
    "m": "hook",
    "say": "Each foot hides a dagger, about four inches long."
   },
@@ -90,12 +94,20 @@
     "time": "day"
    },
    "mood": "smug",
+   "gag": {
+    "prop": "ruler",
+    "at": "40%"
+   },
    "m": "solo",
    "say": "Almost as tall as a person, with a bright blue face."
   },
   {
    "hero_at": {
     "x": 800
+   },
+   "gag": {
+    "prop": "crown",
+    "at": "70%"
    },
    "m": "name",
    "say": "The southern cassowary. A helmet on its head."
@@ -107,6 +119,10 @@
    },
    "act": {
     "bite": 1.0
+   },
+   "gag": {
+    "mark": "anger",
+    "at": "40%"
    },
    "m": "solo",
    "say": "Corner it, and it kicks with that dagger claw."
@@ -127,6 +143,10 @@
      "walk": true
     }
    ],
+   "gag": {
+    "meter": 0.9,
+    "at": "50%"
+   },
    "m": "solo",
    "say": "And it can run up to thirty miles an hour."
   },
@@ -136,6 +156,10 @@
     "time": "night"
    },
    "mood": "angry",
+   "gag": {
+    "mark": "alarm",
+    "at": "50%"
+   },
    "m": "solo",
    "say": "Most attacks happen after people feed them."
   },
@@ -161,6 +185,10 @@
     "time": "day"
    },
    "mood": "smug",
+   "gag": {
+    "meter": 1.0,
+    "at": "50%"
+   },
    "m": "solo",
    "say": "It's one of the heaviest birds on Earth."
   },
@@ -179,6 +207,10 @@
     "time": "day"
    },
    "mood": "happy",
+   "gag": {
+    "mark": "sweat",
+    "at": "40%"
+   },
    "m": "solo",
    "say": "It can't fly, but it's a strong swimmer."
   },
@@ -199,6 +231,11 @@
     "time": "dusk"
    },
    "mood": "smug",
+   "gag": {
+    "pile": "poop",
+    "n": 4,
+    "at": "50%"
+   },
    "m": "solo",
    "say": "The seeds come out the other end, all over the forest."
   },
@@ -208,6 +245,10 @@
     "time": "dusk"
    },
    "mood": "happy",
+   "gag": {
+    "prop": "trophy",
+    "at": "60%"
+   },
    "m": "solo",
    "say": "So it plants new trees wherever it goes."
   },
@@ -225,6 +266,12 @@
      "front": true
     }
    ],
+   "gag": {
+    "pile": "egg",
+    "n": 4,
+    "r": 40,
+    "at": "40%"
+   },
    "m": "solo",
    "say": "And here's the twist. Mom lays the eggs, and walks away."
   },
@@ -244,6 +291,10 @@
      "pop": false
     }
    ],
+   "gag": {
+    "clock": 3,
+    "at": "60%"
+   },
    "m": "solo",
    "say": "Dad sits on them, for about fifty days."
   },
@@ -253,6 +304,10 @@
     "time": "day"
    },
    "mood": "happy",
+   "gag": {
+    "mark": "hearts",
+    "at": "50%"
+   },
    "m": "solo",
    "say": "Then he raises the striped chicks for about nine months."
   },
@@ -262,6 +317,11 @@
     "time": "dusk"
    },
    "mood": "angry",
+   "gag": {
+    "pile": "bone",
+    "n": 4,
+    "at": "60%"
+   },
    "m": "solo",
    "say": "Birds are living dinosaurs. This one looks the part."
   },
@@ -281,7 +341,7 @@
   },
   {
    "m": "tease",
-   "say": "Subscribe. Next, an animal with cube-shaped poop."
+   "say": "Follow me. Next, an animal with cube-shaped poop."
   }
  ]
 }

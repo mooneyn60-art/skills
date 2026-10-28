@@ -79,12 +79,28 @@
      "walk": true
     }
    ],
+   "gag": [
+    {
+     "pile": "egg",
+     "n": 3,
+     "r": 40,
+     "at": "40%"
+    },
+    {
+     "mark": "stars",
+     "at": "80%"
+    }
+   ],
    "m": "hook",
    "say": "No stomach. Lays eggs. And it glows under a blacklight."
   },
   {
    "hero_at": {
     "x": 800
+   },
+   "gag": {
+    "prop": "magnifier",
+    "at": "40%"
    },
    "m": "name",
    "say": "The platypus. A duck bill, on a furry mammal."
@@ -113,6 +129,10 @@
     "time": "night"
    },
    "mood": "shock",
+   "gag": {
+    "mark": "shock",
+    "at": "50%"
+   },
    "m": "solo",
    "say": "No stomach at all."
   },
@@ -141,12 +161,20 @@
      "mood": "happy"
     }
    },
+   "gag": {
+    "mark": "stars",
+    "at": "60%"
+   },
    "m": "solo",
    "say": "Shine an ultraviolet light on it, and its fur glows blue-green."
   },
   {
    "hero_at": {
     "x": 800
+   },
+   "gag": {
+    "zap": true,
+    "at": "70%"
    },
    "m": "escalate",
    "say": "And the males have venom spurs on their back legs."
@@ -167,6 +195,10 @@
     "time": "dusk"
    },
    "mood": "angry",
+   "gag": {
+    "meter": 1.0,
+    "at": "60%"
+   },
    "m": "solo",
    "say": "The venom won't kill you, but the pain is terrible."
   },
@@ -205,6 +237,11 @@
    "act": {
     "bite": 1.0
    },
+   "gag": {
+    "zap": true,
+    "at": "50%",
+    "len": 250
+   },
    "m": "solo",
    "say": "It feels the tiny electric signals of moving prey."
   },
@@ -218,6 +255,10 @@
    },
    "act": {
     "chew": 1.0
+   },
+   "gag": {
+    "mark": "shock",
+    "at": "40%"
    },
    "m": "solo",
    "say": "It has no teeth, just hard pads to grind its food."
@@ -239,6 +280,12 @@
      "front": true
     }
    ],
+   "gag": {
+    "pile": "egg",
+    "n": 3,
+    "r": 40,
+    "at": "30%"
+   },
    "m": "solo",
    "say": "Mom lays eggs, in a burrow by the river."
   },
@@ -251,6 +298,10 @@
     "time": "dusk"
    },
    "mood": "happy",
+   "gag": {
+    "mark": "sweat",
+    "at": "60%"
+   },
    "m": "solo",
    "say": "Her milk doesn't come from nipples. It seeps out of her skin."
   },
@@ -263,6 +314,10 @@
     "time": "night"
    },
    "mood": "shock",
+   "gag": {
+    "prop": "magnifier",
+    "at": "60%"
+   },
    "m": "solo",
    "say": "When scientists in Britain first saw one, they thought it was fake."
   },
@@ -275,6 +330,10 @@
     "time": "day"
    },
    "mood": "smug",
+   "gag": {
+    "mark": "dizzy",
+    "at": "60%"
+   },
    "m": "solo",
    "say": "Like someone sewed a duck bill onto a beaver."
   },
@@ -294,7 +353,7 @@
   },
   {
    "m": "tease",
-   "say": "Subscribe. Next, a fish that isn't an eel, and shocks with 860 volts."
+   "say": "Follow me. Next, a fish that isn't an eel, and shocks with 860 volts."
   }
  ]
 }
