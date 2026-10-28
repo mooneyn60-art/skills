@@ -6,10 +6,10 @@
   "University of Kentucky Entomology, Cockroach Control Manual (ENTFACT-614): German cockroach most common indoors; most active at night, hide in cracks near food, warmth and moisture; eat nearly all human food plus soap, toothpaste, glue, hair; up to 40 young hatch from one German cockroach egg case; one mated female can produce thousands of cockroaches in less than a year; droppings and shed skins cause allergies and can trigger asthma, especially in children; can spread microbes that cause food poisoning; https://entomology.mgcafe.uky.edu/ef614"
  ],
  "photo_credits": [],
- "voice": "en-US-AndrewMultilingualNeural",
+ "voice": "kokoro:fenrir",
  "rate": "+12%",
  "music": "mystery",
- "music_db": -26,
+ "music_db": -20,
  "captions": 66,
  "caption_y": 1640,
  "stage": {
@@ -36,7 +36,7 @@
     }
    ],
    "m": "hook",
-   "say": "A cockroach can live for weeks without its head."
+   "say": "A cockroach in your house could live for weeks without its head."
   },
   {
    "gag": {
@@ -72,11 +72,8 @@
   },
   {
    "m": "tease",
-   "say": "Subscribe. Part nine comes out in your kitchen at night.",
-   "scene": "kitchen",
-   "scene_p": {
-    "time": "night"
-   }
+   "say": "Subscribe. Part nine comes out in your kitchen at night."
   }
- ]
+ ],
+ "loop": true
 }
