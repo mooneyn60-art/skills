@@ -6,10 +6,10 @@
   "Council on Foreign Relations, 'TWE Remembers: The Gulf of Tonkin Incident': Maddox reported unidentified ships at 8:40 p.m. Aug 4 and maneuvered for about three hours against perceived attacks; Capt. Herrick's message: 'Freak weather effects on radar and overeager sonarmen may have accounted for many reports' and 'No actual visual sightings by MADDOX'; pilot overhead James Stockdale saw 'no boats, no boat wakes, no boat gunfire, no torpedo wakes, nothing but black sea and American firepower'; at 11:30 p.m. Johnson went on national TV announcing air strikes; Johnson later: 'those damn, stupid sailors were just shooting at flying fish'; https://www.cfr.org/articles/twe-remembers-gulf-tonkin-incident"
  ],
  "photo_credits": [],
- "voice": "en-US-AndrewMultilingualNeural",
+ "voice": "kokoro:fenrir",
  "rate": "+12%",
  "music": "cold-war",
- "music_db": -26,
+ "music_db": -20,
  "captions": 66,
  "caption_y": 1640,
  "stage": {
@@ -31,6 +31,10 @@
    "act": {
     "blips": 1.0,
     "ghost": true
+   },
+   "gag": {
+    "mark": "shock",
+    "at": "70%"
    },
    "m": "hook",
    "say": "What if I told you America went to war over a sea battle that never happened?"
@@ -88,12 +92,20 @@
      "flip": true
     }
    ],
+   "gag": {
+    "mark": "alarm",
+    "at": "40%"
+   },
    "m": "solo",
    "say": "On August second, three torpedo boats really do attack it. The Maddox drives them off."
   },
   {
    "hero": {
     "blips": 0.0
+   },
+   "gag": {
+    "prop": "moon",
+    "at": "60%"
    },
    "m": "fact",
    "say": "Two nights later, it is back with a second destroyer. A pitch-black, stormy night."
@@ -103,6 +115,10 @@
     "blips": 1.0,
     "ghost": true,
     "mood": "shock"
+   },
+   "gag": {
+    "mark": "alarm",
+    "at": "30%"
    },
    "m": "escalate",
    "say": "Then the radar lights up. Boats! Torpedoes!"
@@ -135,6 +151,10 @@
      }
     }
    ],
+   "gag": {
+    "clock": 3,
+    "at": "10%"
+   },
    "m": "solo",
    "say": "For hours, both ships fire at targets nobody can see."
   },
@@ -143,6 +163,10 @@
     "blips": 0.5,
     "ghost": true,
     "sweat": true
+   },
+   "gag": {
+    "mark": "sweat",
+    "at": "50%"
    },
    "m": "fact",
    "say": "Then the captain warns, freak weather and overeager sonarmen may explain the reports. Nobody saw a boat."
@@ -193,6 +217,10 @@
      }
     }
    ],
+   "gag": {
+    "prop": "rocket",
+    "at": "80%"
+   },
    "m": "fact",
    "say": "Too late. That night, the President went on TV and announced air strikes."
   },
@@ -235,6 +263,10 @@
      }
     }
    ],
+   "gag": {
+    "prop": "skull",
+    "at": "70%"
+   },
    "m": "escalate",
    "say": "That vote opened the door to the Vietnam War."
   },
@@ -245,6 +277,10 @@
   {
    "hero": {
     "blips": 0.0
+   },
+   "gag": {
+    "mark": "shock",
+    "at": "60%"
    },
    "m": "calm",
    "say": "Its verdict? The second attack never happened."
@@ -258,12 +294,16 @@
    "say": "Would you have trusted the radar?"
   },
   {
+   "gag": {
+    "thought": "fish",
+    "at": "80%"
+   },
    "m": "punch",
    "say": "Even the President later grumbled, they were just shooting at flying fish."
   },
   {
    "m": "tease",
-   "say": "Subscribe. Next, three lighthouse keepers who vanished into a storm."
+   "say": "Follow me. Next, three lighthouse keepers who vanished into a storm."
   }
  ]
 }
