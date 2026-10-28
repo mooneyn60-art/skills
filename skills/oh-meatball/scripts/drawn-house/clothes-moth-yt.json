@@ -24,23 +24,48 @@
  "tiktok_caption": "the moth in your closet never eats 🧶 its babies do, and they go for the sweaty clothes first. Would you check your wool sweaters tonight? 🔦 checking / 🙈 nope",
  "beats": [
   {
+   "gag": {
+    "mark": "shock",
+    "at": "50%"
+   },
    "m": "hook",
    "say": "The moth in your closet never eats. Not once."
   },
   {
+   "gag": {
+    "mark": "anger",
+    "at": "80%"
+   },
    "m": "name",
    "say": "The clothes moth. Tiny, beige, and it hates the light."
   },
   {
+   "gag": {
+    "pile": "egg",
+    "n": 10,
+    "r": 24,
+    "at": "60%",
+    "dur": 1.8
+   },
    "m": "fact",
    "say": "The adult can't hurt your clothes. It just lays forty to fifty eggs."
   },
   {
    "scene": "fibers",
+   "gag": {
+    "prop": "moon",
+    "at": "70%"
+   },
    "m": "solo",
    "say": "Right on your wool sweater. In the dark."
   },
   {
+   "gag": {
+    "pile": "baby",
+    "n": 5,
+    "r": 26,
+    "at": "20%"
+   },
    "m": "escalate",
    "say": "Then the babies hatch, and start eating."
   },

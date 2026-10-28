@@ -73,6 +73,12 @@
      "walk": true
     }
    ],
+   "gag": {
+    "pile": "heart",
+    "n": 3,
+    "r": 40,
+    "at": "40%"
+   },
    "m": "hook",
    "say": "This animal has three hearts, and blue blood."
   },
@@ -87,12 +93,20 @@
    "hero_at": {
     "x": 760
    },
+   "gag": {
+    "heart": 2,
+    "at": "60%"
+   },
    "m": "fact",
    "say": "Two hearts pump blood through its gills. The third pumps it around the body."
   },
   {
    "hero_at": {
     "x": 760
+   },
+   "gag": {
+    "mark": "sweat",
+    "at": "70%"
    },
    "m": "xray",
    "say": "And that third heart stops beating when it swims. So it would rather crawl."
@@ -101,10 +115,19 @@
    "hero_at": {
     "x": 760
    },
+   "gag": {
+    "pile": "coin",
+    "n": 4,
+    "at": "60%"
+   },
    "m": "escalate",
    "say": "Its blood is blue, because it's built on copper, not iron."
   },
   {
+   "gag": {
+    "mark": "dizzy",
+    "at": "50%"
+   },
    "m": "calm",
    "say": "And most of its brain isn't even in its head."
   },

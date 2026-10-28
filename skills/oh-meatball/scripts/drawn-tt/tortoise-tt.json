@@ -66,12 +66,26 @@
      "walk": true
     }
    ],
+   "gag": [
+    {
+     "clock": 4,
+     "at": "40%"
+    },
+    {
+     "thought": "leaf",
+     "at": "70%"
+    }
+   ],
    "m": "hook",
    "say": "This tortoise can go a whole year without food or water."
   },
   {
    "hero_at": {
     "x": 760
+   },
+   "gag": {
+    "meter": 1.0,
+    "at": "60%"
    },
    "m": "name",
    "say": "The giant tortoise. Some weigh over five hundred pounds."
@@ -84,12 +98,21 @@
    "hero_at": {
     "x": 760
    },
+   "gag": {
+    "clock": 6,
+    "at": "50%",
+    "dur": 1.8
+   },
    "m": "xray",
    "say": "And it can live for more than a hundred years."
   },
   {
    "hero_at": {
     "x": 760
+   },
+   "gag": {
+    "mark": "alarm",
+    "at": "50%"
    },
    "m": "escalate",
    "say": "That's exactly why sailors loved it."
@@ -98,6 +121,10 @@
    "scene": "ship_deck",
    "scene_p": {
     "time": "day"
+   },
+   "gag": {
+    "mark": "shock",
+    "at": "40%"
    },
    "m": "solo",
    "say": "They stacked them alive in the ship, as fresh meat for the trip."
@@ -112,6 +139,10 @@
   {
    "hero_at": {
     "x": 760
+   },
+   "gag": {
+    "prop": "skull",
+    "at": "50%"
    },
    "m": "fact",
    "say": "As many as two hundred thousand tortoises were lost."
@@ -139,6 +170,10 @@
   },
   {
    "how": "shrink",
+   "gag": {
+    "mark": "sweat",
+    "at": "60%"
+   },
    "m": "scale",
    "say": "Charles Darwin climbed onto their backs, and rode them."
   },
@@ -153,16 +188,36 @@
    "hero_at": {
     "x": 760
    },
+   "gag": [
+    {
+     "mark": "zzz",
+     "at": "30%"
+    },
+    {
+     "clock": 3,
+     "at": "60%"
+    }
+   ],
    "m": "fact",
    "say": "It sleeps about eighteen hours a day."
   },
   {
+   "gag": {
+    "pile": "tick",
+    "n": 6,
+    "r": 26,
+    "at": "80%"
+   },
    "m": "solo",
    "say": "Little birds dance in front of it, and it stretches out its neck so they can eat its ticks."
   },
   {
    "hero_at": {
     "x": 760
+   },
+   "gag": {
+    "thought": "poop",
+    "at": "85%"
    },
    "m": "escalate",
    "say": "And it's not a picky eater. It will eat dead tortoises. And poop."
@@ -177,6 +232,11 @@
   {
    "hero_at": {
     "x": 760
+   },
+   "gag": {
+    "pile": "poop",
+    "n": 4,
+    "at": "80%"
    },
    "m": "punch",
    "say": "Five hundred pounds, a hundred years old, and it snacks on poop."

@@ -77,12 +77,26 @@
      "walk": true
     }
    ],
+   "gag": [
+    {
+     "mark": "shock",
+     "at": "40%"
+    },
+    {
+     "prop": "skull",
+     "at": "80%"
+    }
+   ],
    "m": "hook",
    "say": "This fuzzy red ant is actually a wasp. And they call it the cow killer."
   },
   {
    "hero_at": {
     "x": 720
+   },
+   "gag": {
+    "prop": "magnifier",
+    "at": "60%"
    },
    "m": "name",
    "say": "The velvet ant. No wings, and covered in red and black fuzz."
@@ -105,6 +119,16 @@
    "hero_at": {
     "x": 720
    },
+   "gag": [
+    {
+     "zap": true,
+     "at": "20%"
+    },
+    {
+     "meter": 1.0,
+     "at": "50%"
+    }
+   ],
    "m": "escalate",
    "say": "One scientist said the sting feels like hot oil from a deep fryer, spilling over your whole hand."
   },
