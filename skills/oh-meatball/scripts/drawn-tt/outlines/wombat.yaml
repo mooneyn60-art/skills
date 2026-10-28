@@ -1,0 +1,126 @@
+slug: wombat
+out: episodes/drawn-tt
+specs: scripts/drawn-tt
+series: Meatball's Animal Files
+variant: B
+title: Wombats Poop Cubes, Up to 100 a Night 🟫
+tiktok_caption: 'wombats poop cubes, up to 100 a night 🟫 and their pouch opens backwards. Would you want one as a neighbor? 🏡 yes / 🙅 no #meatballmyths #learnontiktok #wombat #animalfacts'
+creature: wombat
+actor: creature
+creature_cfg: &id001
+  plan: mammal
+  label: common wombat
+  color: '#8a7560'
+  dark: '#5e4e3e'
+  belly: '#a8937c'
+  length: 560
+  height: 300
+  leg_len: 60
+  leg_w: 40
+  ears: round
+  tail: thin
+  tail_w: 0.1
+  whiskers: true
+  mood: happy
+  s: 0.8
+hero_p:
+  cfg: *id001
+scene: forest_floor
+scene_p: {time: night}
+wild: desert
+wild_p: {time: night}
+rate: '+10%'
+music: mystery
+next: Next, a bird whose heart beats over a thousand times a minute.
+sources:
+  - "Yang et al. 2021, Soft Matter, Intestines of non-uniform stiffness mold the corners of wombat feces: bare-nosed wombats produce cube-shaped faeces, about 80-100 cubes per night, shaped in the last part of the intestine by stiff and soft regions of the intestinal wall; the earlier work won a 2019 Ig Nobel Prize in Physics; https://doi.org/10.1039/D0SM01230K"
+  - "Australian Museum, Common (bare-nosed) wombat: nocturnal burrowing marsupial of south-eastern Australia; the pouch opens backwards so soil doesn't get in when digging; teeth grow continuously; deposits scats on rocks and logs as territory markers; https://australian.museum/learn/animals/mammals/common-wombat/"
+  - "Australian Geographic / Wombat Protection Society: wombats can run at up to about 40 km/h; the rump is reinforced with a tough cartilage plate used to block the burrow entrance against predators; https://www.australiangeographic.com.au/topics/wildlife/2016/02/wombat-facts/"
+yt:
+  - hook: Its poop comes out shaped like little cubes.
+    hero_moves:
+    - at: 0
+      dur: 1.2
+      pos: [800, 1500]
+      walk: true
+  - name: The wombat. A chunky digger from Australia.
+    hero_at: {x: 800}
+  - solo: Every night, it leaves eighty to a hundred cubes.
+    hero_at: {x: 680}
+    scene: desert
+    scene_p: {time: night, add: [[crate, 130, 1500, 0.32], [crate, 230, 1500, 0.32], [crate, 180, 1420, 0.32]]}
+  - solo: Scientists wanted to know how.
+    hero_at: {x: 680}
+    scene: microscope
+    mood: smug
+  - xray: The end of its gut has stiff spots and stretchy spots.
+    hero_at: {x: 800}
+  - solo: Those squeeze the poop into corners, as it dries.
+    hero_at: {x: 680}
+    scene: microscope
+    mood: shock
+  - solo: That study won an Ig Nobel Prize.
+    hero_at: {x: 680}
+    scene: study
+    scene_p: {time: day}
+    mood: happy
+  - solo: It leaves its cubes on rocks and logs, to mark its turf.
+    hero_at: {x: 680}
+    scene: forest_floor
+    scene_p: {time: dusk, add: [[crate, 130, 1500, 0.32], [crate, 230, 1500, 0.32]]}
+  - punch: Square poop, and science figured out how.
+    hero_at: {x: 800}
+tt:
+  - solo: Its pouch faces backwards.
+    hero_at: {x: 680}
+    scene: forest_floor
+    scene_p: {time: night}
+    mood: smug
+  - solo: So when mom digs, no dirt gets on her baby.
+    hero_at: {x: 680}
+    scene: cave
+    scene_p: {time: day}
+    act: {chew: 1.0}
+  - solo: It digs long burrows, and sleeps in them all day.
+    hero_at: {x: 680}
+    scene: cave
+    scene_p: {time: night}
+    mood: calm
+  - solo: Its teeth never stop growing.
+    hero_at: {x: 680}
+    scene: forest_floor
+    scene_p: {time: day}
+    act: {chew: 1.0}
+  - solo: Chewing tough grass and roots keeps them worn down.
+    hero_at: {x: 680}
+    scene: garden
+    scene_p: {time: dusk}
+    act: {chew: 1.0}
+  - solo: Its backside has a tough plate, like a shield.
+    hero_at: {x: 680}
+    scene: cave
+    scene_p: {time: dusk}
+    mood: angry
+  - solo: If something chases it home, it plugs the hole with its bum.
+    hero_at: {x: 680}
+    scene: cave
+    scene_p: {time: day}
+    mood: smug
+  - solo: It looks slow and chubby.
+    hero_at: {x: 680}
+    scene: desert
+    scene_p: {time: dusk}
+    mood: calm
+  - solo: But a wombat can run about twenty five miles an hour.
+    hero_at: {x: 680}
+    scene: desert
+    scene_p: {time: day}
+    hero_moves:
+    - at: 0
+      dur: 1.8
+      pos: [700, 1500]
+      walk: true
+  - fact: Would you want one as your neighbor?
+    hero_at: {x: 800}
+  - punch: Square poop, a backwards pouch, and a bum that works like a door.
+    hero_at: {x: 800}
