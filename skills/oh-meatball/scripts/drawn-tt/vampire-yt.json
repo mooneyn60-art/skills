@@ -45,6 +45,16 @@
  "tiktok_caption": "vampire bats are real and they're gross 🦇 they pee mid-meal, run on their wings, and throw up blood for hungry friends. Would you sleep with your feet outside? 🦶 sure / 🛏️ blanket on #meatballmyths #learnontiktok #vampirebat #animalfacts",
  "beats": [
   {
+   "gag": [
+    {
+     "meter": 1.0,
+     "at": "35%"
+    },
+    {
+     "mark": "sweat",
+     "at": "80%"
+    }
+   ],
    "m": "hook",
    "say": "This bat drinks so much blood, it has to pee while it's still eating."
   },
@@ -72,6 +82,10 @@
      1,
      0
     ]
+   },
+   "gag": {
+    "prop": "moon",
+    "at": "10%"
    },
    "m": "tiny",
    "say": "At night, it finds a sleeping cow, or a pig."
@@ -102,6 +116,10 @@
    },
    "act": {
     "xray": 1.0
+   },
+   "gag": {
+    "meter": 0.9,
+    "at": "40%"
    },
    "m": "solo",
    "say": "A heat sensor on its nose finds a warm vein."

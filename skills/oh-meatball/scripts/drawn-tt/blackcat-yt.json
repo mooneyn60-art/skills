@@ -42,6 +42,16 @@
  "tiktok_caption": "why are black cats 'bad luck'? 🐈‍⬛ a letter from 1233 claimed a cult worshipped one... and kissed its rear end. Would you keep walking if one crossed your path? 🚶 keep walking / 🔄 turn around #meatballmyths #learnontiktok #blackcat #history",
  "beats": [
   {
+   "gag": [
+    {
+     "clock": 4,
+     "at": "10%"
+    },
+    {
+     "mark": "shock",
+     "at": "80%"
+    }
+   ],
    "m": "hook",
    "say": "Almost eight hundred years ago, a pope's letter accused people of worshipping a black cat."
   },
@@ -55,6 +65,10 @@
     "time": "night"
    },
    "pose": "think",
+   "gag": {
+    "prop": "crown",
+    "at": "30%"
+   },
    "m": "tiny",
    "say": "Pope Gregory the Ninth sent it in twelve thirty-three."
   },
@@ -66,6 +80,10 @@
    "pose": "nervous",
    "act": {
     "mood": "angry"
+   },
+   "gag": {
+    "mark": "alarm",
+    "at": "50%"
    },
    "m": "tiny",
    "say": "It warned of a secret devil cult, spreading across Germany."
@@ -87,6 +105,10 @@
    "pose": "deadpan",
    "act": {
     "mood": "smug"
+   },
+   "gag": {
+    "mark": "anger",
+    "at": "70%"
    },
    "m": "tiny",
    "say": "Historians now think Conrad and a few others made the cult up."
