@@ -1,0 +1,155 @@
+{
+ "series": "Things Living In Your House, Part 24",
+ "sources": [
+  "Washington State University Pestsense, Giant house spider: body 1/2-1 inch, leg span up to 4 inches; flat sheet web with a funnel; most seen mid-summer to early fall when males are highly mobile; smaller males often mistaken for hobo spiders; not aggressive, runs when startled; bite not known to threaten humans, bring the spider for identification if bitten; prefers garages and basements, found in sinks and tubs searching for water; color and markings not reliable for ID; https://pestsense.cahnrs.wsu.edu/fact-sheet/giant-house-spider/",
+  "The Wildlife Trusts, WildlifeWatch: Giant house spider: one of our fastest invertebrates, running up to half a metre per second; https://wildlifewatch.org.uk/wildlife-explorer/invertebrates/spiders/giant-house-spider",
+  "McKeown, Vetter & Hendrickson 2014, Toxicon 84: 51-55, Verified spider bites in Oregon (USA) with the intent to assess hobo spider venom toxicity: 33 verified bites, none developed significant symptoms or dermonecrosis; one hobo spider bite (pain, redness, calf twitching, resolved in 12 h) and one giant house spider bite, which is readily confused with the hobo; https://doi.org/10.1016/j.toxicon.2014.03.009"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:fenrir",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "giant_house_spider",
+  "scene": "bathroom",
+  "scene_p": {
+   "time": "night"
+  },
+  "creature_cfg": {
+   "plan": "arachnid",
+   "label": "giant house spider",
+   "color": "#7a5636",
+   "dark": "#4e3420",
+   "accent": "#c9a274",
+   "eyes": "pair",
+   "pattern": "stripe",
+   "bands": true,
+   "fuzz": true,
+   "leg_len": 1.45,
+   "leg_w": 16,
+   "mood": "angry",
+   "s": 0.7
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "arachnid",
+    "label": "giant house spider",
+    "color": "#7a5636",
+    "dark": "#4e3420",
+    "accent": "#c9a274",
+    "eyes": "pair",
+    "pattern": "stripe",
+    "bands": true,
+    "fuzz": true,
+    "leg_len": 1.45,
+    "leg_w": 16,
+    "mood": "angry",
+    "s": 0.7
+   }
+  },
+  "actor": "creature",
+  "wild": "basement"
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "A Spider With 4-Inch Legs Is Running Across Your Floor",
+ "tiktok_caption": "giant house spider 🕷️ legs up to 4 inches across, one of the fastest bugs around, and that's why it's stuck in your bathtub. Is it dangerous? Would you trap it in a cup? 🥤 cup / 🏃 run #giantspider #housespider #spiders #isthisspidervenomous #meatballmyths",
+ "beats": [
+  {
+   "gag": {
+    "prop": "ruler",
+    "at": "45%"
+   },
+   "m": "hook",
+   "say": "A spider with legs four inches across is running across your floor."
+  },
+  {
+   "gag": {
+    "meter": 1.0,
+    "at": "40%"
+   },
+   "m": "escalate",
+   "say": "It can run about half a meter every second."
+  },
+  {
+   "m": "name",
+   "say": "The giant house spider. It lives in garages and basements."
+  },
+  {
+   "m": "solo",
+   "say": "It spins a flat web with a funnel, and waits inside it."
+  },
+  {
+   "m": "fact",
+   "say": "In late summer and fall, the males wander, looking for females."
+  },
+  {
+   "gag": {
+    "mark": "sweat",
+    "at": "70%"
+   },
+   "m": "fact",
+   "say": "That's why you find them stuck in your bathtub, looking for water."
+  },
+  {
+   "gag": {
+    "mark": "dizzy",
+    "at": "85%"
+   },
+   "m": "punch",
+   "say": "Venomous? Yes. But its bite isn't known to threaten people. It would rather run."
+  },
+  {
+   "m": "count",
+   "say": "Its body is half an inch to an inch long."
+  },
+  {
+   "m": "fact",
+   "say": "The smaller males get mistaken for hobo spiders."
+  },
+  {
+   "m": "calm",
+   "say": "It's not aggressive. Startle it, and it runs away fast."
+  },
+  {
+   "m": "fact",
+   "say": "In a study of thirty three confirmed spider bites in Oregon, one was a giant house spider."
+  },
+  {
+   "m": "fact",
+   "say": "None of those bites caused serious symptoms."
+  },
+  {
+   "m": "fact",
+   "say": "Color and markings won't reliably tell you which spider it is."
+  },
+  {
+   "m": "fact",
+   "say": "If one bites you, bring the spider along, so an expert can identify it."
+  },
+  {
+   "m": "fact",
+   "say": "Around Seattle's Puget Sound, giant house spiders are far more common than hobo spiders."
+  },
+  {
+   "m": "fact",
+   "say": "Indoors, they usually stay down on the floor."
+  },
+  {
+   "m": "fact",
+   "say": "So a big one in your tub in the fall is probably a wandering male."
+  },
+  {
+   "m": "fact",
+   "say": "Would you trap it in a cup, or run?"
+  },
+  {
+   "m": "tease",
+   "say": "Follow me. Part twenty five jumps out of the dark.",
+   "scene": "basement",
+   "scene_p": {}
+  }
+ ]
+}
