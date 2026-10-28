@@ -70,6 +70,10 @@
      "walk": true
     }
    ],
+   "gag": {
+    "mark": "shock",
+    "at": "50%"
+   },
    "m": "hook",
    "say": "Doctors still put blood-sucking leeches on people. On purpose."
   },
@@ -83,6 +87,10 @@
    "act": {
     "bite": 1.0
    },
+   "gag": {
+    "prop": "magnifier",
+    "at": "50%"
+   },
    "m": "solo",
    "say": "Its mouth has three tiny jaws, lined with teeth."
   },
@@ -91,6 +99,10 @@
    "scene": "microscope",
    "act": {
     "bite": 1.0
+   },
+   "gag": {
+    "mark": "stars",
+    "at": "80%"
    },
    "m": "solo",
    "say": "The bite leaves a scar shaped like a three-pointed star."
@@ -111,6 +123,10 @@
    },
    "act": {
     "chew": 1.0
+   },
+   "gag": {
+    "meter": 1.0,
+    "at": "40%"
    },
    "m": "solo",
    "say": "Then it drinks up to eight times its own weight in blood."
