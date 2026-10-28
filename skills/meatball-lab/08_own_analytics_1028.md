@@ -40,3 +40,41 @@ Sources: TikTok Studio, Viewers tab (7 days to 10/27), and YouTube Studio's AI a
 5. **The 39.5% channel stayed-to-watch is the gate for everything.** Every point gained there multiplies reach.
    - The quiz and photo-slideshow back catalogue drags the average down.
    - **New uploads should only be the 45%+ formats** (house series, story openers). Pause anything that opens on a question card.
+
+## Addendum: the full YouTube Studio AI report (Nolan's screen recording, 10/28 3:17 pm)
+**Retention curves**
+- **Daddy Longlegs (best):**
+  - 0:00-0:04 stays above 120% (viewers rewind to look at the creepy visuals).
+  - 0:05-0:15 drops from ~114% to ~69% as viewers absorb the answer.
+  - Flattens around 54% to the end, with no exit spike.
+- **Porcupines TRUE/FALSE (worst):**
+  - Steady at ~106% for 0:00-0:04.
+  - **0:04-0:08 is the big drop, 106% to 75%, exactly when the narration leaves the trivia setup.**
+  - Then a steady slide to 15.7% by the end.
+- **Lesson:** the leak is the moment the hook hands over to the explanation. Shorten that handover, and keep the creepy picture on screen while the answer starts.
+
+**Subscribers and returning viewers (this week)**
+- Most subs: "This Spider Hunts Other Spiders (Meatball vs Spiders #1)" +2 (1,260 views); "Ghost Crabs Growl With Teeth in Their Stomach" +2 (1,206); "Ostriches Bury Their Heads" +2 (571). The numbers are tiny, so no pattern can be read from them.
+- **Most returning viewers: "I Poked a Honey Badger (Would Meatball Survive?)" 181**; "Do Bulls Really Hate Red?" 176; "Goldfish 3-Second Memory" 174.
+- **"Would Meatball Survive?" is the series pulling existing viewers back. Keep it, with varied outcomes (review risk, file 04).**
+
+**Long-form, first minute**
+| Video | CTR | 0:30 retention | 1:00 retention | Overall avg % viewed |
+|---|---|---|---|---|
+| How Wolves Became Dogs | 1.97% | 48.1% | 29.6% | 16.4% |
+| Animals Thought Extinct Found Alive | 2.65% | 57.9% | 21.1% | 15.5% |
+| Weird Animal Facts You Didn't Know (3 Are Fake) | 1.66% | 40.0% | 26.7% | 11.3% |
+
+- 42-60% leave by 0:30, and 21-30% remain at 1:00. Viewers who pass 1:00 **stay stable through 3:00-4:00**.
+- **For C1:** the first 60 s decide the compilation. Open on the single strangest item, no intro, and show the chapter list on screen at 0:05. Survivors of minute 1 stay, so 2 h can work.
+
+**Search terms bringing new viewers**
+1. "daddy long legs" / "daddy long legs spider": >5.6% of search traffic.
+2. "spiders", "is this spider venomous" / "poisonous spider".
+3. "cassowary".
+4. "stonefish".
+5. "jellyfish".
+
+**Correction to my file 02, rec 4 ("questions become claims"):** Daddy Longlegs is a *question* title that matches what people type into search, and search keeps feeding it. **For evergreen, searched animals, keep the searched question or name in the title.** Use the claim style only for non-search feed Shorts.
+
+**C1 chapter titles should use these exact search names:** Daddy Long Legs, Cassowary, Stonefish, Box Jellyfish, Spiders (Is It Venomous?).
