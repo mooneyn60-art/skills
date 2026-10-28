@@ -40,3 +40,24 @@ not yet. Same week's animal Shorts: ~1,000 each.
 Drawn animal Shorts lead, at ~1.3-1.6x the photo animal Short and 4-5x the case file. Likes ~1% everywhere; the 1
 comment on each is ours. Decision holds: YouTube = drawn animals; cases = TikTok + compilations, with the 4 drawn case
 yt cuts as a one-off test of whether drawing rescues cases on YouTube.
+
+## Night read 10/27 ~22:45 ET (vidIQ live + Metricool)
+- **YT drawn house series is accelerating.** Approximate views per hour since posting:
+
+  | Part | Views per hour |
+  |---|---|
+  | #1 | ~60 |
+  | #2 | ~80 (1,288 views at 16 h) |
+  | #3 | ~200 (845 views at 4 h) |
+  | #4 | ~380 (652 views at 1.7 h) |
+
+  Each part beats the one before it. Best format on the channel.
+- **Case / conspiracy Shorts are dead.** Northwoods 1 view, Nuke the Moon 4, Roswell 17, Dancing Plague 150, Bermuda 402. Likely limited distribution on the topic, not just weak hooks. No more photo cases; E25 (drawn cases) is the last test.
+- **Subscribers are stuck at 959** (flat since 10/26 on 2-7k views/day). That's about 1 sub per 1,000 views, so the failing part is converting viewers into subscribers, not getting views. The series "Part N" format is the best lever, along with long-form for watch hours.
+- **Metricool average view duration is 5-14 s on 20-25 s Shorts** (10/24-26 cohort). The Would Meatball Survive honey badger is best at 14 s.
+- **TikTok:**
+  - The bombardier beetle (photo, 10/26) reached 5,788, our top post.
+  - House centipede (drawn) 680; dust mites 207 at 6 h.
+  - Case TikToks 79-133 (bottom).
+  - Bugs and creepy-crawlies near you win on both platforms.
+- **Next batch topic signal:** more bugs near you. Options: a "Things Living In Your Backyard" spin-off, and house Parts 19+.
