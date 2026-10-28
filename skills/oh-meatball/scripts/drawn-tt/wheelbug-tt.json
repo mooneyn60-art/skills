@@ -44,10 +44,24 @@
  "tiktok_caption": "found a bug with a saw blade on its back ⚙️ its bite can be worse than a hornet sting and it melts its prey from the inside. Would you brush it off with your bare hand? ✋ bare hand / 🧹 broom #meatballmyths #learnontiktok #wheelbug #insects",
  "beats": [
   {
+   "gag": [
+    {
+     "zap": true,
+     "at": "30%"
+    },
+    {
+     "clock": 3,
+     "at": "80%"
+    }
+   ],
    "m": "hook",
    "say": "This bug's bite can be worse than a hornet sting. And it can leave your skin numb for days."
   },
   {
+   "gag": {
+    "prop": "magnifier",
+    "at": "70%"
+   },
    "m": "name",
    "say": "The wheel bug. A big gray assassin bug, with a saw blade on its back."
   },
@@ -56,10 +70,18 @@
    "say": "That spiky crest looks like half a gear. No other bug in the U.S. has one."
   },
   {
+   "gag": {
+    "thought": "tick",
+    "at": "60%"
+   },
    "m": "fact",
    "say": "It snatches other bugs with its front legs."
   },
   {
+   "gag": {
+    "zap": true,
+    "at": "60%"
+   },
    "m": "escalate",
    "say": "Then it stabs them with its beak, and pumps in spit that paralyzes them."
   },
@@ -81,35 +103,71 @@
    "say": "The spit turns their insides to soup. It sucks it out like a straw."
   },
   {
+   "gag": {
+    "prop": "skull",
+    "at": "50%"
+   },
    "m": "fact",
    "say": "All that's left is an empty, shriveled shell."
   },
   {
+   "gag": {
+    "prop": "trophy",
+    "at": "50%"
+   },
    "m": "fact",
    "say": "That's why gardeners call it a good bug. It eats pests."
   },
   {
+   "gag": {
+    "mark": "anger",
+    "at": "50%"
+   },
    "m": "chase",
    "say": "But pick one up, and it bites you with that same beak."
   },
   {
+   "gag": {
+    "zap": true,
+    "at": "40%"
+   },
    "m": "escalate",
    "say": "A museum expert who got bitten said it felt like an electric shock, then burning pain for hours."
   },
   {
+   "gag": {
+    "clock": 4,
+    "at": "50%"
+   },
    "m": "fact",
    "say": "Your skin can stay numb for days. The wound can take weeks to heal."
   },
   {
    "zoom": 1.1,
+   "gag": {
+    "pile": "baby",
+    "n": 4,
+    "r": 30,
+    "at": "30%"
+   },
    "m": "solo",
    "say": "Its babies are bright red and black, with no wheel yet."
   },
   {
+   "gag": {
+    "pile": "egg",
+    "n": 7,
+    "r": 26,
+    "at": "40%"
+   },
    "m": "fact",
    "say": "Its eggs look like tiny brown bottles, with white caps."
   },
   {
+   "gag": {
+    "mark": "hearts",
+    "at": "40%"
+   },
    "m": "fact",
    "say": "And sometimes, the female eats the male. Right after mating."
   },
