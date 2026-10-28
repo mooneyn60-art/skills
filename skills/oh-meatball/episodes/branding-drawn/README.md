@@ -26,7 +26,7 @@ TikTok app: **Profile** → **Edit profile** → **Change photo** → `avatar.pn
 ## Channel keywords (10)
 
 ```
-"animal facts" "weird animal facts" "animated animal facts" "animal shorts" "true animal facts" "Meatball Myths" "Things Living In Your House" "Meatball's Animal Files" "nature facts for kids" "cartoon animals"
+"animal facts" "weird animal facts" "animated animal facts" "animal shorts" "true animal facts" "Meatball Myths" "Things Living In Your House" "Meatball's Animal Files" "cartoon animals" "bugs in your house"
 ```
 
 ## TikTok bio (51 characters, limit 80)
