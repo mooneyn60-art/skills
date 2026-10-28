@@ -1,0 +1,115 @@
+slug: tardigrade
+out: episodes/drawn-house
+specs: scripts/drawn-house
+series: Things Living In Your House
+part: 18
+title: The Moss on Your Roof Hides an Animal That Survived Outer Space 🐻
+tiktok_caption: "the moss on my roof is full of tiny animals that survived outer space 🐻🚀 one came back to life after 30 years frozen. Would you look at your moss under a microscope? 🔬 yes / 🙅 no"
+creature: tardigrade
+actor: creature
+creature_cfg: &bear
+  plan: insect
+  label: tardigrade
+  body: long
+  color: '#e8c9a8'
+  dark: '#c29e7c'
+  head: '#e0bf9c'
+  length: 480
+  height: 240
+  legs: 8
+  leg_len: 70
+  leg_w: 30
+  ant: 0
+  head_r: 0.5
+  stripes: 4
+  eye_r: 30
+  mood: happy
+  s: 0.85
+hero_p:
+  cfg: *bear
+s: 0.85
+scene: garden
+scene_p: {time: day}
+wild: forest_floor
+wild_p: {time: day}
+rate: '+10%'
+music: mystery
+next: More things living in your house, soon.
+sources:
+  - "Encyclopaedia Britannica, Tardigrade: microscopic invertebrates, most under 0.5 mm (1/50 inch); four pairs of stubby clawed legs; live in films of water on moss and lichen, and in fresh water and the sea; first described by J. A. E. Goeze in 1773, who called them little water bears; feed by piercing plant cells with stylets and sucking the contents; survive drying by entering a tun state (cryptobiosis) with almost no metabolism, then revive in water; more than 1,000 species; https://www.britannica.com/animal/tardigrade"
+  - "Jönsson et al. 2008, Current Biology, Tardigrades survive exposure to space in low Earth orbit (FOTON-M3, 2007): dried tardigrades survived open space vacuum, and some survived space vacuum plus solar UV radiation; https://doi.org/10.1016/j.cub.2008.06.048"
+  - "Tsujimoto, Imura & Kanda 2016, Cryobiology, Recovery and reproduction of an Antarctic tardigrade retrieved from a moss sample frozen for over 30 years: tardigrades from moss collected in 1983 and stored frozen at -20 C were thawed in 2014; two revived and one reproduced; https://doi.org/10.1016/j.cryobiol.2015.12.003"
+  - "Natural History Museum (London), Tardigrades: active tardigrades are not especially tough, their resilience comes from the dried tun state; you can find them by soaking moss in water and looking with a microscope; https://www.nhm.ac.uk/discover/news/2019/september/tardigrades-are-not-invincible.html"
+yt:
+  - hook: The moss on your roof is full of tiny animals that survived space.
+    hero_at: {x: 720}
+  - solo: The tardigrade. People call it the water bear.
+    scene: microscope
+  - solo: Most are about half a millimeter long.
+    scene: microscope
+    mood: smug
+  - solo: Eight chubby legs, each with tiny claws.
+    scene: forest_floor
+    act: {wave: 1.0}
+  - solo: It lives in the wet film on moss.
+    scene: swamp
+    scene_p: {time: day}
+  - solo: When the moss dries out, it curls into a ball.
+    scene: desert
+    act: {mood: calm}
+  - solo: Its body almost stops working, and waits.
+    scene: desert
+    scene_p: {time: night}
+    act: {mood: calm}
+  - solo: Add water, and it wakes up.
+    scene: swamp
+    scene_p: {time: dusk}
+    mood: happy
+  - punch: Basically, it can pause its own life.
+    hero_at: {x: 720}
+tt:
+  - solo: In 2007, scientists sent dried ones into space.
+    scene: sill
+    scene_p: {time: night}
+  - solo: Outside the spacecraft, in the empty vacuum.
+    scene: deep
+    scene_p: {time: night}
+  - solo: Back home, many of them woke up.
+    scene: microscope
+    mood: happy
+  - solo: Some even survived the sun's raw radiation.
+    scene: desert
+    scene_p: {time: day}
+    mood: smug
+  - solo: Another was frozen in Antarctic moss for thirty years.
+    scene: cave
+    scene_p: {time: night}
+    act: {mood: calm}
+  - solo: Scientists thawed it. It came back to life.
+    scene: cave
+    scene_p: {time: day}
+    mood: happy
+  - solo: And it even had babies afterwards.
+    scene: forest_floor
+    scene_p: {time: dusk}
+  - shrink: So I shrank down to find one.
+  - tiny: Inside the moss, it's a jungle.
+    scene: forest_floor
+  - tiny: It stabs moss cells and slurps out the juice.
+    scene: swamp
+    act: {chew: 1.0}
+  - tiny: Awake, though, it's actually pretty fragile.
+    scene: garden
+    scene_p: {time: dusk}
+  - solo: There are over a thousand kinds, all over Earth.
+    scene: reef
+  - solo: Want to see one? Soak some moss in water.
+    scene: garden
+    scene_p: {time: day}
+  - solo: Then look with a cheap microscope.
+    scene: microscope
+    mood: happy
+  - fact: Would you look at your moss?
+    hero_at: {x: 720}
+  - punch: The toughest animal at your house is half a millimeter long.
+    hero_at: {x: 720}

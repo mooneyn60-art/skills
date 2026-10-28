@@ -1,0 +1,264 @@
+{
+ "series": "Things Living In Your House, Part 18",
+ "sources": [
+  "Encyclopaedia Britannica, Tardigrade: microscopic invertebrates, most under 0.5 mm (1/50 inch); four pairs of stubby clawed legs; live in films of water on moss and lichen, and in fresh water and the sea; first described by J. A. E. Goeze in 1773, who called them little water bears; feed by piercing plant cells with stylets and sucking the contents; survive drying by entering a tun state (cryptobiosis) with almost no metabolism, then revive in water; more than 1,000 species; https://www.britannica.com/animal/tardigrade",
+  "Jönsson et al. 2008, Current Biology, Tardigrades survive exposure to space in low Earth orbit (FOTON-M3, 2007): dried tardigrades survived open space vacuum, and some survived space vacuum plus solar UV radiation; https://doi.org/10.1016/j.cub.2008.06.048",
+  "Tsujimoto, Imura & Kanda 2016, Cryobiology, Recovery and reproduction of an Antarctic tardigrade retrieved from a moss sample frozen for over 30 years: tardigrades from moss collected in 1983 and stored frozen at -20 C were thawed in 2014; two revived and one reproduced; https://doi.org/10.1016/j.cryobiol.2015.12.003",
+  "Natural History Museum (London), Tardigrades: active tardigrades are not especially tough, their resilience comes from the dried tun state; you can find them by soaking moss in water and looking with a microscope; https://www.nhm.ac.uk/discover/news/2019/september/tardigrades-are-not-invincible.html"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "tardigrade",
+  "scene": "garden",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "insect",
+   "label": "tardigrade",
+   "body": "long",
+   "color": "#e8c9a8",
+   "dark": "#c29e7c",
+   "head": "#e0bf9c",
+   "length": 480,
+   "height": 240,
+   "legs": 8,
+   "leg_len": 70,
+   "leg_w": 30,
+   "ant": 0,
+   "head_r": 0.5,
+   "stripes": 4,
+   "eye_r": 30,
+   "mood": "happy",
+   "s": 0.85
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "insect",
+    "label": "tardigrade",
+    "body": "long",
+    "color": "#e8c9a8",
+    "dark": "#c29e7c",
+    "head": "#e0bf9c",
+    "length": 480,
+    "height": 240,
+    "legs": 8,
+    "leg_len": 70,
+    "leg_w": 30,
+    "ant": 0,
+    "head_r": 0.5,
+    "stripes": 4,
+    "eye_r": 30,
+    "mood": "happy",
+    "s": 0.85
+   }
+  },
+  "s": 0.85,
+  "actor": "creature",
+  "wild": "forest_floor",
+  "wild_p": {
+   "time": "day"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "The Moss on Your Roof Hides an Animal That Survived Outer Space 🐻",
+ "tiktok_caption": "the moss on my roof is full of tiny animals that survived outer space 🐻🚀 one came back to life after 30 years frozen. Would you look at your moss under a microscope? 🔬 yes / 🙅 no",
+ "beats": [
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "hook",
+   "say": "The moss on your roof is full of tiny animals that survived space."
+  },
+  {
+   "scene": "microscope",
+   "m": "solo",
+   "say": "The tardigrade. People call it the water bear."
+  },
+  {
+   "scene": "microscope",
+   "mood": "smug",
+   "m": "solo",
+   "say": "Most are about half a millimeter long."
+  },
+  {
+   "scene": "forest_floor",
+   "act": {
+    "wave": 1.0
+   },
+   "m": "solo",
+   "say": "Eight chubby legs, each with tiny claws."
+  },
+  {
+   "scene": "swamp",
+   "scene_p": {
+    "time": "day"
+   },
+   "m": "solo",
+   "say": "It lives in the wet film on moss."
+  },
+  {
+   "scene": "desert",
+   "act": {
+    "mood": "calm"
+   },
+   "m": "solo",
+   "say": "When the moss dries out, it curls into a ball."
+  },
+  {
+   "scene": "desert",
+   "scene_p": {
+    "time": "night"
+   },
+   "act": {
+    "mood": "calm"
+   },
+   "m": "solo",
+   "say": "Its body almost stops working, and waits."
+  },
+  {
+   "scene": "swamp",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "mood": "happy",
+   "m": "solo",
+   "say": "Add water, and it wakes up."
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "punch",
+   "say": "Basically, it can pause its own life."
+  },
+  {
+   "scene": "sill",
+   "scene_p": {
+    "time": "night"
+   },
+   "m": "solo",
+   "say": "In 2007, scientists sent dried ones into space."
+  },
+  {
+   "scene": "deep",
+   "scene_p": {
+    "time": "night"
+   },
+   "m": "solo",
+   "say": "Outside the spacecraft, in the empty vacuum."
+  },
+  {
+   "scene": "microscope",
+   "mood": "happy",
+   "m": "solo",
+   "say": "Back home, many of them woke up."
+  },
+  {
+   "scene": "desert",
+   "scene_p": {
+    "time": "day"
+   },
+   "mood": "smug",
+   "m": "solo",
+   "say": "Some even survived the sun's raw radiation."
+  },
+  {
+   "scene": "cave",
+   "scene_p": {
+    "time": "night"
+   },
+   "act": {
+    "mood": "calm"
+   },
+   "m": "solo",
+   "say": "Another was frozen in Antarctic moss for thirty years."
+  },
+  {
+   "scene": "cave",
+   "scene_p": {
+    "time": "day"
+   },
+   "mood": "happy",
+   "m": "solo",
+   "say": "Scientists thawed it. It came back to life."
+  },
+  {
+   "scene": "forest_floor",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "m": "solo",
+   "say": "And it even had babies afterwards."
+  },
+  {
+   "m": "shrink",
+   "say": "So I shrank down to find one."
+  },
+  {
+   "scene": "forest_floor",
+   "m": "tiny",
+   "say": "Inside the moss, it's a jungle."
+  },
+  {
+   "scene": "swamp",
+   "act": {
+    "chew": 1.0
+   },
+   "m": "tiny",
+   "say": "It stabs moss cells and slurps out the juice."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "m": "tiny",
+   "say": "Awake, though, it's actually pretty fragile."
+  },
+  {
+   "scene": "reef",
+   "m": "solo",
+   "say": "There are over a thousand kinds, all over Earth."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "day"
+   },
+   "m": "solo",
+   "say": "Want to see one? Soak some moss in water."
+  },
+  {
+   "scene": "microscope",
+   "mood": "happy",
+   "m": "solo",
+   "say": "Then look with a cheap microscope."
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "fact",
+   "say": "Would you look at your moss?"
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "punch",
+   "say": "The toughest animal at your house is half a millimeter long."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. More things living in your house, soon."
+  }
+ ]
+}
