@@ -25,7 +25,7 @@ Files: 01 watch hours, 02 breakout Shorts, 03 subscriber conversion, 04 review r
 | 6 | **Cut YouTube Shorts to 1-2 a day from Nov 15.** No photo-slideshow Shorts after Nov 25. Make weak near-duplicates private 30 days before applying. | Postmaster | 80% it lowers review risk; 35% it costs >20% of Shorts views |
 | 7 | **Stop treating ≤20 s as law.** Run 6×15-20 s vs 6×30-40 s with everything else fixed. Also try one no-voiceover ≤20 s picture-story format. | Showrunner / Intel | 55% ≤20 s wins on views per Short; 35% it wins on subs per 1k |
 | 8 | **Frame 0 = the impossible thing already happening.** No question cards at frame 0; questions in titles become claims or stories. | Showrunner / Packager | 60% for +5 pts stayed-to-watch |
-| 9 | **Move the subscribe ask to the last 3-5 s, tied to the series.** Drop the 6-10 s pill. | Studio | 55% |
+| 9 | **Test the subscribe ask** (pill at ~7 s vs last 3-5 s only, 6 vs 6, stayed-to-watch and subs/1K at 72 h). Changed 10/28: the Mayor showed my "drop the pill" rested on survivorship. | Studio / Intel | 50% either way |
 | 10 | **Run the 20-point self-audit (file 04) on Dec 1.** Apply the day both bars are met. Prepare the unlisted appeal video now. | Mayor / Nolan | 90% this decides old rules vs new rules, given we qualify |
 | 11 | **Hold the case-file pivot to compilations and TikTok** until E19 is scored. It should not take 2 of 3 YouTube Short slots. | Mayor | 25% that cases beat animal Shorts on YouTube by Nov 10 |
 | 12 | **Gate the render: no painting or reconstruction captioned as a photo; no invented "true" detail.** | Factdesk | Without the gate, 20% chance of an incident before review |
@@ -39,4 +39,4 @@ Files: 01 watch hours, 02 breakout Shorts, 03 subscriber conversion, 04 review r
 - **TARS's 35%.** The review-time deadline and the compilation base rate take it down to about 8%.
 - **"Shorts ≤20 s with a seamless loop" as a house law.** It is not supported in 167 market outliers. It rests on one video.
 - **"Subs per 1k is the bottleneck"** (Channel Brain v2). Subs need +41. Hours need +4,000.
-- **The ask kit at 6-10 s.** No evidence supports early asks. None of the 6 breakout Shorts watched has an ask.
+- ~~The ask kit at 6-10 s.~~ **Withdrawn 10/28:** the Mayor's HW7 showed this was survivorship (n=6 winners). It is now a test, not a disagreement.

@@ -4,9 +4,9 @@ Meatball Research Lab, 2026-10-27. Data: `data/channels_conversion.csv` (46 chan
 vidIQ spent on this item: **5 credits** (1 channel batch).
 
 ## Bottom line
-1. **Subscribers are not the YPP bottleneck.** The channel has 959 subs and needs +41. At ~6K Shorts views a day and ~1 sub per 1K, that is 1-2 weeks.
+1. **Subscribers are not the YPP bottleneck.** The channel has 959 subs and needs +41. At ~6K Shorts views a day and 0.2-1.0 subs per 1K, that is **7-43 days** (corrected 10/28 after the Mayor's HW1; I first wrote "1-2 weeks", which is only the optimistic end).
    - Do not trade views or watch hours for sub tricks. Do not trade watch hours for anything.
-   - P(1,000 subs by Nov 30 with no special effort): **85%**.
+   - P(1,000 subs by Nov 30 with no special effort): **70%** (was 85% before the HW1 correction).
 2. **Format decides conversion, and long compilations convert about 5x better than Shorts.** Lifetime subs per 1K views, 46 channels from this research:
 
 | Archetype | n | Median subs / 1K views | Range |
@@ -30,7 +30,8 @@ vidIQ spent on this item: **5 credits** (1 channel batch).
 - **Early subscribe pills at 6-10 s (the ask kit).**
   - The subagent found no evidence that early asks convert better. Most guides and YouTube's own July 2026 Related-video guide put the CTA in the **last 5 s**.
   - TARS's review saw pills at 0:03-0:07 next to polls. None of the 6 breakout Shorts I watched has any ask.
-  - P(an early pill reduces stayed-to-watch by ≥2 pts): **55%**.
+  - P(an early pill reduces stayed-to-watch by ≥2 pts): **50%** (was 55%).
+  - **Correction (10/28, Mayor HW7):** "0 of 6 breakouts ask" is survivorship (n=6, winners only), and "no evidence early asks convert" is no evidence *either way*. Neither shows that the early pill hurts. **This is a coin flip to test, not a rule to adopt.**
 
 ## Ranked levers for subs per 1K (estimates; low confidence unless stated)
 | # | Lever | Effect on subs/1K | Probability it's positive on this channel |
@@ -49,7 +50,7 @@ vidIQ spent on this item: **5 credits** (1 channel batch).
 1. **Re-aim the town's north-star metric from subs/1K to "qualified watch hours per week".**
    - Keep subs/1K as a guard rail: alarm only if it stays under 0.5 for 7 days.
    - P(this re-aim raises the YPP odds): **70%**.
-2. **Move the subscribe ask to the last 3-5 s, tied to the series. Drop the 6-10 s pill.**
+2. **Test the subscribe ask, don't decide it** (changed 10/28 after the Mayor's HW7). Run the Mayor's design: 6 vs 6, pill at ~7 s vs ask in the last 3-5 s only, same pillar, scored on stayed-to-watch and subs/1K at 72 h. Keep whatever wins.
    - P(subs/1K is not worse and stayed-to-watch is better after 2 weeks): **55%**.
    - Score it as one test, not alongside four others.
 3. **Every compilation ends with a 10 s "the next compilation is..." card**, and every Short's Related video points at a compilation.
