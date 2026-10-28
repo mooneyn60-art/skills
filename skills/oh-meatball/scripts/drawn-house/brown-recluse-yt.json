@@ -1,0 +1,121 @@
+{
+ "series": "Is This Spider Venomous?, Part 2",
+ "sources": [
+  "University of California Statewide IPM Program, Brown Recluse and Other Recluse Spiders: 6 equal-sized eyes in 3 pairs; uniformly colored abdomen and legs, no leg spines, body no longer than 3/8 inch; the violin marking is not a reliable way to identify it; no populations in California; lives in the south central Midwest from southeastern Nebraska to southwestern Ohio, south through Texas to northern Georgia; nocturnal, emerging at night to hunt; found in storage boxes and under clutter, and at dawn may shelter in clothing or shoes; about 10% of bites cause moderate or greater tissue damage and scarring, the vast majority heal well without medical intervention; deaths reported in children are extremely rare; necrotic wounds are commonly misdiagnosed as brown recluse bites; shake out clothes and shoes, use sticky traps along floor boards, move the bed away from the wall; https://ipm.ucanr.edu/home-and-landscape/brown-recluse-and-other-recluse-spiders/",
+  "UC Riverside, Rick Vetter, How to Identify (and Misidentify) a Brown Recluse Spider: six eyes in pairs (one pair in front, one on either side), most spiders have eight; dark violin shape on the cephalothorax but not reliable for non-experts; uniformly light-colored legs, no stripes or bands; no spines on the legs; about 3/8 inch body length, longer than 1/2 inch is not a recluse; outside the range map it is highly unlikely you have one; https://spiders.ucr.edu/recluseid.html",
+  "Vetter & Barger 2002, Journal of Medical Entomology 39(6): 948-951, An infestation of 2,055 brown recluse spiders (Araneae: Sicariidae) and no envenomations in a Kansas home: 2,055 collected in six months (2001) from a home in Lenexa, Kansas, at least 400 large enough to envenomate, and no envenomations of the residents; https://doi.org/10.1603/0022-2585-39.6.948"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:fenrir",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "brown_recluse",
+  "scene": "basement",
+  "scene_p": {
+   "time": "night"
+  },
+  "creature_cfg": {
+   "plan": "arachnid",
+   "label": "brown recluse",
+   "color": "#b48a58",
+   "dark": "#7a5a34",
+   "accent": "#4a3220",
+   "eyes": "pair",
+   "leg_len": 1.15,
+   "leg_w": 16,
+   "abdomen": 170,
+   "mood": "angry",
+   "xray": "venom",
+   "s": 0.65
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "arachnid",
+    "label": "brown recluse",
+    "color": "#b48a58",
+    "dark": "#7a5a34",
+    "accent": "#4a3220",
+    "eyes": "pair",
+    "leg_len": 1.15,
+    "leg_w": 16,
+    "abdomen": 170,
+    "mood": "angry",
+    "xray": "venom",
+    "s": 0.65
+   }
+  },
+  "actor": "creature",
+  "wild": "forest_floor",
+  "wild_p": {
+   "time": "night"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Is This Spider Venomous? [Brown Recluse] 🕷️ (#2)",
+ "tiktok_caption": "is this spider venomous? brown recluse 🕷️ the spider hiding in your shoes. Is a brown recluse dangerous, how to tell it apart (6 eyes!), and the Kansas house with 2,055 of them. Would you put your shoes back on? 👟 yes / 🔥 no #isthisspidervenomous #brownrecluse #spiders #meatballmyths #learnontiktok",
+ "beats": [
+  {
+   "gag": {
+    "mark": "shock",
+    "at": "65%"
+   },
+   "m": "hook",
+   "say": "The spider hiding in your shoe has venom that can kill the skin around its bite."
+  },
+  {
+   "gag": [
+    {
+     "meter": 0.1,
+     "at": "30%"
+    },
+    {
+     "mark": "sweat",
+     "at": "70%"
+    }
+   ],
+   "m": "escalate",
+   "say": "About one bite in ten does real damage to the skin, and leaves a scar."
+  },
+  {
+   "gag": {
+    "prop": "magnifier",
+    "at": "60%"
+   },
+   "m": "name",
+   "say": "The brown recluse. By day, it hides in boxes, clothes, and shoes."
+  },
+  {
+   "m": "fact",
+   "say": "Is it venomous? Yes. But most bites heal well, without a doctor."
+  },
+  {
+   "m": "xray",
+   "say": "How to tell? It has six eyes, in three pairs. Most spiders have eight."
+  },
+  {
+   "gag": {
+    "prop": "ruler",
+    "at": "40%"
+   },
+   "m": "fact",
+   "say": "Its legs are one plain color. No stripes, and no spines."
+  },
+  {
+   "gag": {
+    "mark": "dizzy",
+    "at": "85%"
+   },
+   "m": "punch",
+   "say": "In one Kansas house, over two thousand were caught in six months. And nobody got bitten."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Part three is the giant spider in your garden."
+  }
+ ],
+ "loop": true
+}
