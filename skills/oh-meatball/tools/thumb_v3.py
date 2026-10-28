@@ -324,7 +324,7 @@ def eyes_in_dark(cv, n=24, keep_out=(330, 950), y0=230, seed=9):
 
 
 def t1b():
-    """RIGHT NOW: Meatball in bed at night, blanket to his chin, a house centipede crawling over the blanket at
+    """THEY'RE AWAKE: Meatball in bed at night, blanket to his chin, a house centipede crawling over the blanket at
     him and dozens of glowing eyes in the dark."""
     cv = night_bg()
     eyes_in_dark(cv, 22, (250, 900))
@@ -346,8 +346,8 @@ def t1b():
                                      "bite": 0.0}, 0.62, 2600, 1300, 1300, 1000)
     cent = cent.transpose(Image.FLIP_LEFT_RIGHT)
     cent = pop(cent, 3, 4, (255, 214, 90), 22, (255, 190, 60)).rotate(8, expand=True, resample=Image.BICUBIC)
-    cv.alpha_composite(cent, (400, 175))
-    words(cv, "RIGHT NOW", 1260, -6, 170, YEL, anchor="ra", max_w=560)
+    cv.alpha_composite(cent, (410, 205))
+    words(cv, "THEY'RE AWAKE", 1260, -6, 160, YEL, anchor="ra", max_w=720)
     badge(cv, "#1", 18, 18)
     return cv
 
@@ -403,7 +403,7 @@ def t1c():
 
 
 def t1d():
-    """6 HIDING: the house cut open like a doll's house, six creatures in six rooms, a red arrow in."""
+    """WHERE?!: the house cut open like a doll's house, six creatures in six rooms, a red arrow in."""
     cv = night_bg()
     d = ImageDraw.Draw(cv)
     x0, x1, yt, yb = 330, 1250, 240, 712
@@ -429,9 +429,201 @@ def t1d():
     mb = pop(fit(meatball("shock", 1000, look=(18, -4), head=0.46, sweat=False), h=380), 7, 7, WHITE, 18)
     cv.alpha_composite(mb, (-20, H - mb.height + 30))
     arrow(cv, (250, 150), (420, 300))
-    words(cv, "6 HIDING", 18, -6, 150, YEL, max_w=480)
+    words(cv, "WHERE?!", 18, -6, 170, YEL, max_w=480)
     badge(cv, "#1", 1100, 18, 62)
     return cv
+
+
+# ------------------------------------------------------------------ target 2: "6 More Creatures Living In Your House"
+# Same kit as #1 (yellow Anton words, horrified Meatball head bottom-left, glowing outlined creature, house badge).
+
+def bug_cfg(name, **kw):
+    cfg = dict(SPECIES[name])
+    cfg.update(kw)
+    return cfg
+
+
+def sheet_bg(w=W, h=H):
+    """Bed sheet at night: pale blue cotton with folds, dark at the edges."""
+    bg = radial(w, h, (176, 196, 236), (22, 28, 70), cx=0.62, cy=0.55, r=0.9)
+    d = ImageDraw.Draw(bg)
+    for k in range(7):
+        y = 120 + k * 100
+        d.arc([-200, y - 60, w + 200, y + 120], 190, 350, fill=(140, 160, 210), width=6)
+    return bg.filter(ImageFilter.GaussianBlur(1.5))
+
+
+def blood_drop(cv, x, y, r):
+    d = ImageDraw.Draw(cv)
+    d.polygon([(x, y - 2.3 * r), (x - r, y), (x + r, y)], fill=(214, 20, 30), outline=INK, width=6)
+    d.ellipse([x - r, y - r * 0.9, x + r, y + r * 1.1], fill=(214, 20, 30), outline=INK, width=6)
+    d.polygon([(x, y - 2.1 * r), (x - r + 5, y), (x + r - 5, y)], fill=(214, 20, 30))
+    d.ellipse([x - r * 0.45, y - r * 0.5, x - r * 0.1, y - r * 0.05], fill=(255, 150, 150))
+
+
+def t2a():
+    """WHILE YOU SLEEP: a fat blood-full bed bug on your sheet, grinning, a drop of blood at its mouth."""
+    cv = sheet_bg()
+    cfg = bug_cfg("bed_bug", color="#b0301e", length=560, height=330, leg_len=70, head_r=0.38, eye_r=50,
+                  teeth=True, fangs=True, mood="smug", mouth="grin", stripes=6, sheen=True)
+    bug = actor(sp(cfg), {"look": (-0.4, 0.4), "talk": 0.7}, 1.25, 2000, 1100, 1000, 900)
+    bug = pop(bug.transpose(Image.FLIP_LEFT_RIGHT), 9, 9, (255, 236, 200), 36, (255, 120, 90))
+    paste_c(cv, bug, 860, 430, -4)
+    blood_drop(cv, 520, 590, 30)
+    blood_drop(cv, 590, 660, 20)
+    vignette(cv, 0.25)
+    mb = pop(fit(meatball("shock", 1000, look=(16, 2), head=0.46), h=420), 7, 7, WHITE, 18)
+    cv.alpha_composite(mb, (-20, H - mb.height + 30))
+    words(cv, "WHILE YOU SLEEP", 22, -6, 140, YEL, max_w=800)
+    badge(cv, "#2", 1120, 18)
+    return cv
+
+
+def tiles_bg(w=W, h=H):
+    bg = Image.new("RGBA", (w, h), (0, 0, 0, 255))
+    d = ImageDraw.Draw(bg)
+    s = 120
+    for i in range(-1, w // s + 2):
+        for j in range(-1, h // s + 2):
+            c = (34, 98, 104) if (i + j) % 2 else (22, 70, 78)
+            d.rectangle([i * s, j * s, i * s + s - 4, j * s + s - 4], fill=c)
+    v = radial(w, h, (255, 255, 255), (40, 40, 40), cx=0.6, cy=0.55, r=0.85).convert("RGB")
+    return Image.fromarray((np.array(bg.convert("RGB"), np.float32) * np.array(v, np.float32) / 255).astype(
+        np.uint8)).convert("RGBA")
+
+
+def split_actor(fn, p, scale, xu, w=2400, h=1300, ox=1200, oy=1050):
+    """Render an actor and cut it in two at drawing x = xu: (left part, right part), each cropped."""
+    s = cairo.ImageSurface(cairo.FORMAT_ARGB32, w, h)
+    c = cairo.Context(s)
+    c.translate(ox, oy)
+    c.scale(scale, scale)
+    fn(c, 0.3, dict({"phase": 0.0, "walking": False, "blink": 0}, **p))
+    s.flush()
+    im = Image.frombuffer("RGBA", (w, h), bytes(s.get_data()), "raw", "BGRa", 0, 1)
+    cut = int(ox + xu * scale)
+    left, right = im.crop((0, 0, cut, h)), im.crop((cut, 0, w, h))
+    return left.crop(left.getbbox()), right.crop(right.getbbox())
+
+
+def t2b():
+    """NO HEAD?!: a cockroach still walking with its head gone; the head lies beside it, still blinking."""
+    cv = tiles_bg()
+    cfg = bug_cfg("roach", head_r=0.6, eye_r=32, mood="shock", mouth="o", ant=0)
+    fn = sp(cfg)
+    body, _ = split_actor(fn, {"walking": True, "phase": 1.2}, 0.95, 140)
+    _, head = split_actor(fn, {"look": (-0.8, -0.3)}, 1.0, 150)
+    body = pop(body, 9, 9, (255, 214, 90), 34, (255, 190, 60))
+    head = pop(head, 9, 9, (255, 214, 90), 30, (255, 190, 60))
+    paste_c(cv, body, 700, 420)
+    ring(cv, 700 + body.width / 2 - 115, 420 + 25, 70)   # the empty neck
+    paste_c(cv, head, 1060, 540, -30)
+    d = ImageDraw.Draw(cv)
+    for k in range(3):   # shock marks around the head
+        a = -2.2 + k * 0.55
+        x, y = 1040 + 160 * math.cos(a), 520 + 160 * math.sin(a)
+        d.line([(x, y), (x + 34 * math.cos(a), y + 34 * math.sin(a))], fill=INK, width=18)
+        d.line([(x, y), (x + 34 * math.cos(a), y + 34 * math.sin(a))], fill=WHITE, width=9)
+    mb = pop(fit(meatball("shock", 1000, look=(18, 6), head=0.46), h=420), 7, 7, WHITE, 18)
+    cv.alpha_composite(mb, (-20, H - mb.height + 30))
+    words(cv, "NO HEAD?!", 22, -6, 190, YEL, max_w=640)
+    badge(cv, "#2", 1120, 18)
+    return cv
+
+
+def _earwig_pincers(c, t, p):
+    cfg = p["cfg"]
+    creature(c, t, p)
+    H_, ll, L = cfg["height"], cfg["leg_len"], cfg["length"]
+    by = -H_ * 0.55 - ll * 0.45 + 3 * math.sin(t * 2.4)
+    x0 = -L * 0.5
+    for s in (-1, 1):
+        pts = [(x0 + 20, by + s * H_ * 0.18), (x0 - 140, by + s * 70), (x0 - 260, by + s * 20)]
+        B.stroke(c, pts, 40, smooth=True)
+        B.stroke(c, pts, 24, smooth=True, color=B.hexc("#4a2414"))
+
+
+def t2c():
+    """YOUR EAR?!: an earwig, pincers up, marching at Meatball's head; red arrow from bug to his ear."""
+    cv = night_bg()
+    eyes_in_dark(cv, 12, (0, 760), 260, seed=4)
+    cfg = bug_cfg("earwig", tails=0, head_r=0.75, eye_r=34, mood="angry", mouth="grin", teeth=True, length=620,
+                  height=140)
+    bug = actor(lambda c, t, p: _earwig_pincers(c, t, dict(p, cfg=cfg)), {"look": (-1, 0), "talk": 0.6,
+                                                                          "walking": True, "phase": 0.6},
+                0.8, 2600, 1100, 1300, 900)
+    bug = pop(bug.transpose(Image.FLIP_LEFT_RIGHT), 9, 9, (255, 214, 90), 34, (255, 170, 60))
+    paste_c(cv, bug, 880, 440, -10)
+    mb = pop(fit(meatball("shock", 1000, look=(18, 0), head=0.46), h=470), 7, 7, WHITE, 18)
+    cv.alpha_composite(mb, (-30, H - mb.height + 30))
+    words(cv, "YOUR EAR?!", 22, -6, 190, YEL, max_w=700)
+    badge(cv, "#2", 1120, 18)
+    return cv
+
+
+# ------------------------------------------------------------------ target 3: Shorts cover template (1080x1920)
+# Series band up top (inside the safe area), the animal huge in the middle with its glow, 1-3 words under it,
+# horrified Meatball head bottom-left. The centre 1080x1080 alone still reads (search crops it square).
+
+SERIES = {"house": ("IN YOUR HOUSE", YEL, ((52, 64, 132), (8, 10, 30))),
+          "survive": ("WOULD MEATBALL SURVIVE?", (255, 120, 40), ((150, 62, 30), (30, 10, 6))),
+          "vs": ("MEATBALL VS", (90, 220, 120), ((30, 100, 70), (6, 24, 18)))}
+
+
+def series_band(cv, series, part, y=170):
+    label, col, _ = SERIES[series]
+    d = ImageDraw.Draw(cv)
+    f = ImageFont.truetype(ANTON, 92)
+    text = f"{label}  #{part}" if part else label
+    tw = d.textlength(text, font=f)
+    w = tw + 170
+    x = (cv.width - w) / 2
+    d.rounded_rectangle([x, y, x + w, y + 132], 30, fill=col, outline=INK, width=10)
+    hx, hy, sz = x + 70, y + 70, 34
+    if series == "house":
+        d.polygon([(hx - sz * 1.3, hy - 2), (hx, hy - sz * 1.3), (hx + sz * 1.3, hy - 2)], fill=INK)
+        d.rectangle([hx - sz * 0.9, hy - 4, hx + sz * 0.9, hy + sz], fill=INK)
+    else:
+        d.ellipse([hx - sz, hy - sz, hx + sz, hy + sz], fill=(150, 78, 44), outline=INK, width=6)
+        d.chord([hx - sz, hy - sz, hx + sz, hy + sz * 0.2], 200, 340, fill=(196, 38, 30))
+    d.text((x + 125, y + 66), text, font=f, fill=INK, anchor="lm")
+
+
+def cover(series, part, hero, text, look=(14, -10)):
+    w, h = 1080, 1920
+    inner, outer = SERIES[series][2]
+    cv = radial(w, h, inner, outer, cx=0.5, cy=0.42, r=0.8)
+    if series == "house":
+        eyes_in_dark(cv, 16, (160, 920), 360, seed=3)
+    series_band(cv, series, part)
+    paste_c(cv, fit(hero, 1150, 980), 560, 1230)
+    lines = text.split("|")
+    y = 330
+    for i, ln in enumerate(lines):
+        bx = words(cv, ln, 540, y, 230, YEL if i == len(lines) - 1 else WHITE, anchor="ma", max_w=980)
+        y = bx[3] - 40
+    mb = pop(fit(meatball("shock", 1000, look=look, head=0.46), h=400), 8, 8, WHITE, 20)
+    cv.alpha_composite(mb, (0, h - mb.height - 60))
+    return cv
+
+
+def t3a():
+    hero = actor(B.silverfish, {"mood": "smug", "look": (-0.2, 0.4), "mouth": "grin", "talk": 0.6}, 1.0,
+                 2000, 900, 1100, 700)
+    hero = pop(hero, 10, 10, (230, 240, 255), 40, (170, 210, 255)).rotate(24, expand=True, resample=Image.BICUBIC)
+    return cover("house", 9, hero, "1 YEAR|NO FOOD", look=(14, -14))
+
+
+def t3b():
+    hero = actor(cellar_spider, {"mood": "angry", "fangs": 1.0, "look": (0, 0.5)}, 1.6, 1400, 1300, 700, 60)
+    return cover("vs", 1, pop(hero, 8, 8, (255, 236, 180), 36, (255, 210, 120)), "EATS|SPIDERS", look=(14, -14))
+
+
+def t3c():
+    hero = actor(sp(BADGER), {"mood": "angry", "look": (-1, 0.2), "mouth": "grin", "talk": 0.7}, 1.25,
+                 2000, 1000, 1000, 850)
+    hero = hero.transpose(Image.FLIP_LEFT_RIGHT)
+    return cover("survive", 0, pop(hero, 10, 10, (255, 220, 160), 40, (255, 150, 60)), "BAD|IDEA", look=(16, -6))
 
 
 # ------------------------------------------------------------------ preview sheets
@@ -496,7 +688,7 @@ def _wrap(text, f, w, d):
 
 T1 = "6 Creatures Living In Your House Right Now (You Never See Them)"
 T2 = "6 More Creatures Living In Your House (Bed Bugs Are Just the Start)"
-CONCEPTS = {"t1a": t1a, "t1b": t1b, "t1c": t1c, "t1d": t1d}
+CONCEPTS = {"t1a": t1a, "t1b": t1b, "t1c": t1c, "t1d": t1d, "t2a": t2a, "t2b": t2b, "t2c": t2c, "t3a": t3a, "t3b": t3b, "t3c": t3c}
 
 
 def main():
@@ -516,7 +708,7 @@ def main():
             small(im, w).save(os.path.join(a.outdir, f"{name}_{w}.png"))
         done[name] = im
         print("ok", name)
-    for group, title in (("t1", T1), ("t2", T2), ("t3", "Silverfish Can Go a Year Without Food")):
+    for group, title in (("t1", T1), ("t2", T2), ("t3", "Things Living In Your House")):
         items = [(n, im) for n, im in done.items() if n.startswith(group)]
         if items:
             sheet(items, title, os.path.join(a.outdir, f"sheet-{group}.png"))
