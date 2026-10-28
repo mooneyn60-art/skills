@@ -1,0 +1,311 @@
+{
+ "series": "Meatball's Animal Files, Part",
+ "sources": [
+  "Smithsonian's National Zoo / Migratory Bird Center, Hummingbird facts: hummingbirds are the only birds that can fly backwards (in sustained flight) and hover; heart rates as high as about 1,260 beats per minute in the blue-throated hummingbird; the ruby-throated hummingbird beats its wings about 50 times per second and many fly nonstop across the Gulf of Mexico (about 500 miles) on migration; at night they can enter torpor, dropping body temperature and heart rate to save energy; https://nationalzoo.si.edu/migratory-birds/news/hummingbird-facts",
+  "Encyclopaedia Britannica, Bee hummingbird: the smallest living bird, about 5-6 cm long and around 2 g, found in Cuba; https://www.britannica.com/animal/bee-hummingbird",
+  "Rico-Guevara & Rubega 2011, PNAS, The hummingbird tongue is a fluid trap, not a capillary tube: the forked tongue tips open and close to trap nectar; https://doi.org/10.1073/pnas.1016944108"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "hummingbird",
+  "scene": "garden",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "bird",
+   "label": "ruby-throated hummingbird",
+   "color": "#3fa86a",
+   "dark": "#2a7a4a",
+   "belly": "#eef2ea",
+   "length": 300,
+   "height": 200,
+   "leg_len": 60,
+   "beak": "long",
+   "beak_color": "#2a2a2a",
+   "foot_color": "#3a3a3a",
+   "face_color": "#d83a4a",
+   "mood": "happy",
+   "floor": false,
+   "xray": "heart",
+   "s": 0.9
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "bird",
+    "label": "ruby-throated hummingbird",
+    "color": "#3fa86a",
+    "dark": "#2a7a4a",
+    "belly": "#eef2ea",
+    "length": 300,
+    "height": 200,
+    "leg_len": 60,
+    "beak": "long",
+    "beak_color": "#2a2a2a",
+    "foot_color": "#3a3a3a",
+    "face_color": "#d83a4a",
+    "mood": "happy",
+    "floor": false,
+    "xray": "heart",
+    "s": 0.9
+   }
+  },
+  "actor": "creature",
+  "wild": "garden",
+  "wild_p": {
+   "time": "dusk"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "A Hummingbird's Heart Can Beat Over 1,200 Times a Minute 🐦",
+ "tiktok_caption": "a hummingbird's heart can beat over 1,200 times a minute 🐦 and it's the only bird that can really fly backwards. Would you hand-feed one? 🌺 yes / 😳 too fast #meatballmyths #learnontiktok #hummingbird #animalfacts",
+ "beats": [
+  {
+   "act": {
+    "fly": 1.0
+   },
+   "hero_at": {
+    "x": 780,
+    "y": 1000
+   },
+   "m": "hook",
+   "say": "Its heart can beat over twelve hundred times a minute."
+  },
+  {
+   "act": {
+    "fly": 1.0
+   },
+   "m": "solo",
+   "say": "The hummingbird. It hovers in place, wings a blur."
+  },
+  {
+   "scene": "forest_floor",
+   "scene_p": {
+    "time": "day"
+   },
+   "act": {
+    "fly": 1.0
+   },
+   "m": "solo",
+   "say": "A ruby-throat beats its wings about fifty times a second."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "act": {
+    "fly": 1.0
+   },
+   "hero_moves": [
+    {
+     "at": 0.2,
+     "dur": 1.6,
+     "pos": [
+      740,
+      900
+     ]
+    }
+   ],
+   "m": "solo",
+   "say": "It's the only bird that can truly fly backwards."
+  },
+  {
+   "hero_at": {
+    "x": 780,
+    "y": 1000
+   },
+   "m": "xray",
+   "say": "That tiny heart races just to keep it in the air."
+  },
+  {
+   "scene": "forest_floor",
+   "scene_p": {
+    "time": "night"
+   },
+   "mood": "calm",
+   "m": "solo",
+   "say": "So every night, it powers down to save energy."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "night"
+   },
+   "act": {
+    "mood": "calm"
+   },
+   "m": "solo",
+   "say": "Its body cools, and its heart slows way down."
+  },
+  {
+   "how": "shrink",
+   "hero_at": {
+    "x": 780,
+    "y": 1000
+   },
+   "m": "scale",
+   "say": "The smallest kind, the bee hummingbird, weighs about two grams."
+  },
+  {
+   "hero_at": {
+    "x": 780,
+    "y": 1000
+   },
+   "m": "punch",
+   "say": "A heart this fast, in a bird this small."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "day"
+   },
+   "act": {
+    "fly": 1.0
+   },
+   "m": "solo",
+   "say": "It doesn't sip nectar through its beak like a straw."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "act": {
+    "fly": 1.0,
+    "talk": 1.0
+   },
+   "m": "solo",
+   "say": "Its tongue splits at the tip, and traps the nectar."
+  },
+  {
+   "scene": "desert",
+   "scene_p": {
+    "time": "day"
+   },
+   "act": {
+    "fly": 1.0
+   },
+   "m": "solo",
+   "say": "Every fall, many ruby-throats head south."
+  },
+  {
+   "scene": "ocean",
+   "scene_p": {
+    "time": "day"
+   },
+   "act": {
+    "fly": 1.0
+   },
+   "m": "solo",
+   "say": "Some fly right across the Gulf of Mexico."
+  },
+  {
+   "scene": "ocean",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "act": {
+    "fly": 1.0
+   },
+   "mood": "worry",
+   "m": "solo",
+   "say": "About five hundred miles, without stopping."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "day"
+   },
+   "act": {
+    "chew": 1.0
+   },
+   "m": "solo",
+   "say": "Before the trip, it eats and eats, to store fat."
+  },
+  {
+   "scene": "forest_floor",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "hero": {
+    "cfg": {
+     "plan": "bird",
+     "color": "#3a8ad0",
+     "dark": "#2a5a9a",
+     "belly": "#eef2ea",
+     "length": 220,
+     "height": 150,
+     "leg_len": 50,
+     "beak": "long",
+     "beak_color": "#2a2a2a",
+     "foot_color": "#3a3a3a",
+     "mood": "happy"
+    }
+   },
+   "act": {
+    "fly": 1.0
+   },
+   "m": "solo",
+   "say": "In Cuba lives the bee hummingbird, the smallest bird on Earth."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "day"
+   },
+   "hero": {
+    "cfg": {
+     "plan": "bird",
+     "color": "#3a8ad0",
+     "dark": "#2a5a9a",
+     "belly": "#eef2ea",
+     "length": 220,
+     "height": 150,
+     "leg_len": 50,
+     "beak": "long",
+     "beak_color": "#2a2a2a",
+     "foot_color": "#3a3a3a",
+     "mood": "smug"
+    }
+   },
+   "act": {
+    "fly": 1.0
+   },
+   "m": "solo",
+   "say": "It's about as long as your thumb."
+  },
+  {
+   "hero_at": {
+    "x": 780,
+    "y": 1000
+   },
+   "act": {
+    "fly": 1.0
+   },
+   "m": "fact",
+   "say": "Would you hold out your hand to feed one?"
+  },
+  {
+   "hero_at": {
+    "x": 780,
+    "y": 1000
+   },
+   "act": {
+    "fly": 1.0
+   },
+   "m": "punch",
+   "say": "Fifty wingbeats a second, and it can still fly in reverse."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, an animal with a pocket for its favorite rock."
+  }
+ ]
+}
