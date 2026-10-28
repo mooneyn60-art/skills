@@ -1,0 +1,123 @@
+{
+ "series": "Is This Spider Venomous?, Part 3",
+ "sources": [
+  "Penn State Extension, Yellow Garden Spider (Argiope aurantia): females 19-28 mm, males 5-8 mm; webs 50-100 cm in diameter are not uncommon; a white zigzag stripe down the centre, the stabilimentum, whose exact function is unclear; people are not likely to be bitten unless they handle a female with an egg sac in the web, and a bite would cause no more discomfort than a wasp or bee sting for most people; not medically important; papery egg sacs laid in late summer, 500-1,000 spiderlings emerge in early spring; https://extension.psu.edu/yellow-garden-spider",
+  "Missouri Department of Conservation, Field Guide: Black-and-Yellow Garden Spider: harmless; circular web about two feet across with a vertical zigzag silk band; females 3/4 to 1 inch, males about 1/4 inch and rarely noticed; makes its web vibrate when disturbed; eats mostly grasshoppers and katydids; papery tan egg cases a little smaller than ping-pong balls that can contain over 1,000 eggs each; the female slows and dies in the first frosts; https://mdc.mo.gov/discover-nature/field-guide/black-yellow-garden-spider",
+  "National Wildlife Federation, Wildlife Guide: Yellow Garden Spider: venom harmless to humans; stabilimentum purpose unknown, it may warn birds away from the web; may eat and respin its web each night; males usually die after mating; https://www.nwf.org/Educational-Resources/Wildlife-Guide/Invertebrates/Yellow-Garden-Spider"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:fenrir",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "garden_spider",
+  "scene": "garden",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "arachnid",
+   "label": "yellow garden spider",
+   "color": "#1d1d22",
+   "dark": "#d99a2b",
+   "accent": "#f2c230",
+   "eyes": "pair",
+   "pattern": "spots",
+   "bands": true,
+   "leg_len": 1.25,
+   "leg_w": 16,
+   "abdomen": 200,
+   "mood": "calm",
+   "xray": "venom",
+   "s": 0.7
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "arachnid",
+    "label": "yellow garden spider",
+    "color": "#1d1d22",
+    "dark": "#d99a2b",
+    "accent": "#f2c230",
+    "eyes": "pair",
+    "pattern": "spots",
+    "bands": true,
+    "leg_len": 1.25,
+    "leg_w": 16,
+    "abdomen": 200,
+    "mood": "calm",
+    "xray": "venom",
+    "s": 0.7
+   }
+  },
+  "actor": "creature",
+  "wild": "garden",
+  "wild_p": {
+   "time": "dusk"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Is This Spider Venomous? [Yellow Garden Spider] 🕷️ (#3)",
+ "tiktok_caption": "is this spider venomous? yellow garden spider 🕷️ the big black and yellow spider with a zigzag web in your garden. Is it dangerous, and why does it shake its web? Would you leave the web up? 🕸️ leave it / 🧹 knock it down #isthisspidervenomous #yellowgardenspider #argiope #spiders #meatballmyths",
+ "beats": [
+  {
+   "gag": {
+    "prop": "ruler",
+    "at": "85%"
+   },
+   "m": "hook",
+   "say": "A huge black and yellow spider just strung a web across your garden path, up to three feet wide."
+  },
+  {
+   "gag": {
+    "mark": "alarm",
+    "at": "40%"
+   },
+   "m": "chase",
+   "say": "Walk too close, and it shakes its whole web at you."
+  },
+  {
+   "gag": {
+    "prop": "magnifier",
+    "at": "65%"
+   },
+   "m": "name",
+   "say": "The yellow garden spider. With a thick white zigzag in the middle."
+  },
+  {
+   "gag": {
+    "thought": "leaf",
+    "at": "75%"
+   },
+   "m": "calm",
+   "say": "Does it have venom? Yes. But its venom is for bugs, like grasshoppers."
+  },
+  {
+   "gag": {
+    "mark": "sweat",
+    "at": "80%"
+   },
+   "m": "fact",
+   "say": "It only bites if you handle it. And for most people, that feels like a bee sting."
+  },
+  {
+   "m": "solo",
+   "say": "How to tell? A big black and yellow body, and that zigzag."
+  },
+  {
+   "gag": {
+    "mark": "dizzy",
+    "at": "70%"
+   },
+   "m": "punch",
+   "say": "And nobody knows for sure what the zigzag is for."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Part four is the spider people mistake for a black widow."
+  }
+ ],
+ "loop": true
+}
