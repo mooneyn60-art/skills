@@ -7,6 +7,7 @@ taps. This file is the team, the daily routine, the numbers we steer by, and the
 ## vidIQ ration (OVERRIDES every routine's budget line, set 2026-10-26)
 
 UPDATE 10/27 12:30: balance is 68 (Lab used ~300). Below 100 = Sunday summit only; every other routine spends 0.
+UPDATE 10/28 12:25: balance 13 before the midday desk, 8 after its one TikTok outlier search (5). Lead-approved cap for 10/28: 6. No score_title or keyword research until the 11/24 reset unless Nolan asks.
 
 378 credits were left (10/26) until the 2026-11-24 reset, and the routines' listed caps add up to about 105 a day.
 Until the reset:
@@ -449,3 +450,33 @@ centred, no Meatball (outline `wild:` + `solo:` lines; tools/drawn_macros.py). T
   drawn tt cut (61-75 s).
 - Long-form = drawn compilations (tools/drawn_compile.py): finished tt cuts, 16:9 over a blurred copy, chapters from
   the segment titles, ordered so each "Next, ..." tease points at the next segment. No new 5-7 min photo long-forms.
+
+## Growth sprint: week of 10/29-11/4 (Wednesday marketing desk, 10/28)
+**Checkpoint read (research/31, day 7 = 10/31):**
+| Metric | Checkpoint | Now (10/28) | Read |
+|---|---|---|---|
+| YouTube Shorts views, lifetime public | 15k by 10/31 | 22,815 (stats.py 10/28 16:22 UTC; +12.2k since 10/24) | passed early |
+| Pace to day 14 (100k by 11/7) | ~7.7k/day from here | ~3k/day (10/24-10/28) | ~40% of pace: a miss by more than half triggers a format change at the 11/1 summit |
+| YouTube subscribers | 981 (+25) | 959, flat since 10/26 (+3 since 10/24, ~0.25 per 1K Shorts views) | behind: conversion is the gap, not reach |
+| Stayed-to-watch | 55% | not available today (Studio lag) | unread |
+| TikTok, Oct 20-26 | (no checkpoint) | 11.4K views, For You 96.8%; best ORGANIC post ~806. The 5.8K bombardier beetle was a PAID promotion: never count it as a baseline or a winner | organic baseline ~5.6K/week |
+| TikTok audience | | 61% male, 74% aged 18-34; US 45%, Pakistan 19%, UK 7%; peak 12-5 PM ET | write for US/UK adult men; post 12-5 PM |
+
+**Shipped 10/28 (one bundle, read together, don't stack more TikTok style changes on it before 11/4):** TikTok title bar,
+list videos, beetle Part 2 (10/29), posts moved to peak hours, Halloween list (10/31), fact gags + foley sounds.
+Pending Nolan: photo-cutout animals in the drawn scenes (test video sent). If he says yes it starts 11/4 as its own
+experiment, after this week's read, never stacked on this one.
+
+**The 3 bets (logged E26-E28 in data/experiments.csv):**
+1. **E26 TikTok list videos vs single-animal cuts.** Every TikTok in 12-5 PM ET; 90-120 s lists on today's outlier hooks
+   (which bite crushes YOUR skeleton, "never walk up to X when it looks like this", what happens to the spider you
+   vacuum). Pass: list median organic views at least 1.5x the single cuts' and average watch 45 s+, n=5+ a side
+   (tools/abtest.py). Kill: lists under the single-cut median. Read 11/4.
+2. **E27 Part-2 rule on autopilot (TikTok).** Any ORGANIC TikTok at 800+ views in 24 h (2x the ~400 median) gets a Part 2
+   within 48 h; beetle Part 2 (10/29) is the first one. Pass: first organic TikTok at 2K+ by 11/4, and Part 2s at or
+   above their Part 1. Promoted posts never trigger the rule.
+3. **E28 YouTube subscribers: convert, don't add content.** The 10/29 house long-form is the Related video on every house
+   Short (Nolan sets it after it goes public), playlists in series order, a pinned "next part" comment on new house posts
+   (only after the render-swap jobs stop changing Metricool ids). Pass: 1.0+ subs per 1K Shorts views by 11/4
+   (from ~0.25). Kill: under 0.5 with the links set, so the end ask changes next.
+

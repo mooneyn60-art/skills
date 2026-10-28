@@ -118,6 +118,11 @@ def check_views(root, now):
                 "Find the cause before changing anything: a missed post, a weaker topic, or a dead first frame. Post the finding as a decision.")
 
 
+def is_longform(r):
+    # 10/28: drawn compilations (episode longform-drawn, house-all.mp4) were flagged as 383-405 s "Shorts".
+    return r.get("file", "").startswith("ep") or r.get("episode", "").startswith("longform")
+
+
 def check_queue(root, now):
     ps = rows(os.path.join(root, "data", "posted.csv"))
     if not ps:
@@ -142,8 +147,8 @@ def check_queue(root, now):
     posts = {}
     for r in ps:
         t = parse_ts((r.get("date") or "")[:16])
-        if t and not (r.get("network") == "youtube" and r.get("file", "").startswith("ep")):
-            # long-forms (ep*.mp4 at 14:00) must not fill a 13:00 or 16:00 Shorts slot
+        if t and not (r.get("network") == "youtube" and is_longform(r)):
+            # long-forms (ep*.mp4, or a longform-* episode) must not fill a Shorts slot
             posts.setdefault(r.get("network", ""), []).append(t)
     used = set()
 
@@ -289,7 +294,7 @@ def check_durations(root, now):
         t = parse_ts((r.get("date") or "")[:16])
         f = r.get("file", "")
         # 10/25 summit: YouTube length runs on the whole future ledger (two 65-67 s renders sat on 11/10, past 3 days).
-        if not t or not f or f.startswith("ep") or not now_et < t.replace(tzinfo=et):
+        if not t or not f or is_longform(r) or not now_et < t.replace(tzinfo=et):
             continue
         soon = t.replace(tzinfo=et) <= now_et + dt.timedelta(days=3)
         if r.get("network") != "youtube" and r.get("network") != "tiktok" and not soon:
