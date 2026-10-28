@@ -29,9 +29,9 @@ import statistics as st
 import sys
 
 # --- keep this in sync with OPERATIONS.md (the scanner flags docs that disagree with it) ---------------
-CADENCE = {  # network: list of ET posting times per day
-    "youtube-short": ["09:30", "13:00", "16:00"],
-    "tiktok": ["09:30", "12:00", "18:00", "20:00"],
+CADENCE = {  # network: list of ET posting times per day (10/28: 2 YT Shorts, 3 TikToks in 12:00-17:30)
+    "youtube-short": ["15:00", "16:00"],
+    "tiktok": ["12:00", "13:30", "15:00"],
 }
 CURRENT_BRANCH = "claude/youtube-monetization-strategy-m9vz6i"
 RETIRED = {  # phrase found in a routine doc -> why it is stale
