@@ -1,0 +1,220 @@
+{
+ "series": "Things Living In Your House, Part 13",
+ "sources": [
+  "University of California IPM, Carpets beetles (Pest Notes 7436): adults are small (about 1/8 inch), round, often mottled with white, brown and yellow scales; adults feed on pollen and nectar outdoors and are attracted to light, often found at windows; larvae damage wool, fur, feathers, silk, hair and dead insects; larvae shed skins as they grow; larval hairs can irritate skin in some people; control by regular vacuuming of carpets, edges and under furniture and by cleaning wool items before storage; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7436.html",
+  "University of Minnesota Extension, Carpet beetles: larvae feed in dark, undisturbed places such as under furniture, along carpet edges and in closets; shed larval skins are a common sign; https://extension.umn.edu/product-and-food-pests/carpet-beetles",
+  "Smithsonian National Museum of Natural History, Osteology Prep Lab: colonies of dermestid beetles (family Dermestidae, the carpet beetle family) clean the soft tissue from skeletons for the collection, gentle enough for small delicate bones; https://naturalhistory.si.edu/research/vertebrate-zoology",
+  "Museum pest guidance (MuseumPests.net, Carpet beetles): carpet beetles are among the most damaging pests of museum collections, attacking wool, fur, feathers, taxidermy and insect collections; https://museumpests.net/carpet-beetles/"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "carpet_beetle",
+  "scene": "sill",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "insect",
+   "label": "carpet beetle",
+   "body": "round",
+   "color": "#6b4f3a",
+   "dark": "#efe4c8",
+   "head": "#3a2a20",
+   "length": 400,
+   "height": 230,
+   "leg_len": 90,
+   "ant": 120,
+   "stripes": 3,
+   "wings": "shell",
+   "mood": "smug",
+   "s": 0.85
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "insect",
+    "label": "carpet beetle",
+    "body": "round",
+    "color": "#6b4f3a",
+    "dark": "#efe4c8",
+    "head": "#3a2a20",
+    "length": 400,
+    "height": 230,
+    "leg_len": 90,
+    "ant": 120,
+    "stripes": 3,
+    "wings": "shell",
+    "mood": "smug",
+    "s": 0.85
+   }
+  },
+  "s": 0.85,
+  "actor": "creature",
+  "wild": "garden",
+  "wild_p": {
+   "time": "day"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "The Tiny Beetle on Your Window Has Babies Eating Your Sweaters 🧶",
+ "tiktok_caption": "the tiny beetle on my windowsill has babies eating my sweaters 🧶 and its cousins clean skeletons for museums. Would you check under your bed tonight? 🛏️ yes / 🙈 no",
+ "beats": [
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "hook",
+   "say": "The tiny beetle on your window? Its babies eat sweaters."
+  },
+  {
+   "scene": "sill",
+   "m": "solo",
+   "say": "The carpet beetle. Smaller than a grain of rice."
+  },
+  {
+   "act": {
+    "chew": 1.0
+   },
+   "m": "solo",
+   "say": "Outside, it sips pollen from flowers."
+  },
+  {
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "m": "solo",
+   "say": "But it lays its eggs inside."
+  },
+  {
+   "scene": "fibers",
+   "hero": {
+    "cfg": {
+     "plan": "centipede",
+     "label": "carpet beetle larva",
+     "color": "#9a6a3c",
+     "dark": "#5a3a20",
+     "legs": 3,
+     "leg_len": 0.35,
+     "ant": 30,
+     "long_last": false,
+     "bands": false,
+     "stripes": 6,
+     "length": 440,
+     "height": 170,
+     "mood": "happy"
+    }
+   },
+   "hero_at": {
+    "x": 700
+   },
+   "m": "solo",
+   "say": "Its babies hatch fuzzy, and hungry."
+  },
+  {
+   "scene": "fibers",
+   "hero": {
+    "cfg": {
+     "plan": "centipede",
+     "label": "carpet beetle larva",
+     "color": "#9a6a3c",
+     "dark": "#5a3a20",
+     "legs": 3,
+     "leg_len": 0.35,
+     "ant": 30,
+     "long_last": false,
+     "bands": false,
+     "stripes": 6,
+     "length": 440,
+     "height": 170,
+     "mood": "happy"
+    }
+   },
+   "hero_at": {
+    "x": 700
+   },
+   "act": {
+    "chew": 1.0
+   },
+   "m": "solo",
+   "say": "They eat wool, fur, feathers, silk."
+  },
+  {
+   "scene": "basement",
+   "hero": {
+    "cfg": {
+     "plan": "centipede",
+     "label": "carpet beetle larva",
+     "color": "#9a6a3c",
+     "dark": "#5a3a20",
+     "legs": 3,
+     "leg_len": 0.35,
+     "ant": 30,
+     "long_last": false,
+     "bands": false,
+     "stripes": 6,
+     "length": 440,
+     "height": 170,
+     "mood": "happy"
+    }
+   },
+   "hero_at": {
+    "x": 700
+   },
+   "act": {
+    "chew": 1.0
+   },
+   "m": "solo",
+   "say": "Even the pet hair under your couch."
+  },
+  {
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "hero": {
+    "cfg": {
+     "plan": "centipede",
+     "label": "carpet beetle larva",
+     "color": "#9a6a3c",
+     "dark": "#5a3a20",
+     "legs": 3,
+     "leg_len": 0.35,
+     "ant": 30,
+     "long_last": false,
+     "bands": false,
+     "stripes": 6,
+     "length": 440,
+     "height": 170,
+     "mood": "happy"
+    }
+   },
+   "hero_at": {
+    "x": 700
+   },
+   "act": {
+    "chew": 1.0
+   },
+   "m": "solo",
+   "say": "In the dark, they chew holes in sweaters."
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "punch",
+   "say": "So the cute little beetle? It's the mom."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Part fourteen is hiding in your fruit bowl.",
+   "scene": "kitchen",
+   "scene_p": {}
+  }
+ ]
+}
