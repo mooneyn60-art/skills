@@ -40,27 +40,58 @@
  "tiktok_caption": "the possum in my yard dropped dead… then got up 💀 it drools, bares 50 teeth and leaks corpse-smelling goo. Would you poke a 'dead' possum? 👉 poke it / 🏃 run #meatballmyths #learnontiktok #opossum #animalfacts",
  "beats": [
   {
+   "gag": [
+    {
+     "mark": "dizzy",
+     "at": "30%"
+    },
+    {
+     "mark": "stink",
+     "at": "80%"
+    }
+   ],
    "m": "hook",
    "say": "When it's scared, this animal fakes its own death. And makes itself smell like a corpse."
   },
   {
+   "gag": {
+    "thought": "baby",
+    "at": "70%"
+   },
    "m": "name",
    "say": "The Virginia opossum. North America's only pouched mammal."
   },
   {
    "zoom": 1.05,
+   "gag": {
+    "mark": "anger",
+    "at": "60%"
+   },
    "m": "solo",
    "say": "Corner one at night, and first, it hisses and drools."
   },
   {
+   "gag": {
+    "prop": "skull",
+    "at": "70%"
+   },
    "m": "fact",
    "say": "Then it drops. Mouth open. Teeth showing, like a death grin."
   },
   {
+   "gag": {
+    "mark": "stink",
+    "at": "60%"
+   },
    "m": "escalate",
    "say": "And it leaks a green goo from its rear end that smells like a rotting body."
   },
   {
+   "gag": {
+    "clock": 3,
+    "at": "40%",
+    "dur": 1.8
+   },
    "m": "calm",
    "say": "It can lie there for minutes. Or for hours."
   },
@@ -73,10 +104,18 @@
    "say": "It's an automatic reaction. It doesn't choose to do it."
   },
   {
+   "gag": {
+    "mark": "dizzy",
+    "at": "75%"
+   },
    "m": "fact",
    "say": "Many hunters avoid prey that looks sick. And this looks very sick."
   },
   {
+   "gag": {
+    "prop": "trophy",
+    "at": "50%"
+   },
    "m": "count",
    "say": "And look at that grin. Fifty teeth. More than any other land mammal in North America."
   },
@@ -91,10 +130,27 @@
   },
   {
    "how": "shrink",
+   "gag": {
+    "prop": "ruler",
+    "at": "60%"
+   },
    "m": "scale",
    "say": "Its babies are born the size of a honeybee."
   },
   {
+   "gag": [
+    {
+     "pile": "baby",
+     "n": 10,
+     "r": 26,
+     "at": "35%",
+     "dur": 1.8
+    },
+    {
+     "mark": "sweat",
+     "at": "75%"
+    }
+   ],
    "m": "escalate",
    "say": "A mom can have up to twenty-five babies. But she only has thirteen nipples."
   },
@@ -103,6 +159,10 @@
    "say": "The babies that don't grab one, don't survive."
   },
   {
+   "gag": {
+    "zap": true,
+    "at": "35%"
+   },
    "m": "fact",
    "say": "It shrugs off the venom of most snakes, like rattlesnakes and copperheads."
   },
@@ -111,16 +171,24 @@
    "say": "And it almost never gets rabies."
   },
   {
+   "gag": {
+    "mark": "stink",
+    "at": "70%"
+   },
    "m": "fact",
    "say": "So if you find one lying still and stinking, would you poke it?"
   },
   {
+   "gag": {
+    "prop": "trophy",
+    "at": "20%"
+   },
    "m": "punch",
    "say": "The best way to win a fight? Drop dead, and stink."
   },
   {
    "m": "tease",
-   "say": "Subscribe. Next, a caterpillar that turns itself into a fake snake."
+   "say": "Follow me. Next, a caterpillar that turns itself into a fake snake."
   }
  ]
 }

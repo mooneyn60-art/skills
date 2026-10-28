@@ -29,6 +29,10 @@
  "tiktok_caption": "the spider on my window turned and looked at me 👀 it hunts with no web and jumps with blood pressure. Would you let it stay? 🏠 stay / 🫙 jar it outside",
  "beats": [
   {
+   "gag": {
+    "prop": "magnifier",
+    "at": "30%"
+   },
    "m": "hook",
    "say": "The spider on your window can see you. And it just turned to look."
   },
@@ -41,42 +45,82 @@
    "say": "Outside, it hunts in daylight. No web at all."
   },
   {
+   "gag": {
+    "prop": "ruler",
+    "at": "70%"
+   },
    "m": "fact",
    "say": "It stalks a fly, judges the distance with those big eyes,"
   },
   {
+   "gag": {
+    "meter": 1.0,
+    "at": "10%"
+   },
    "m": "escalate",
    "say": "and jumps. Before it leaps, it glues down a silk safety line."
   },
   {
+   "gag": {
+    "mark": "hearts",
+    "at": "60%"
+   },
    "m": "calm",
    "say": "To you, it's harmless."
   },
   {
+   "gag": {
+    "mark": "sweat",
+    "at": "40%"
+   },
    "m": "solo",
    "say": "If it misses, it just climbs back up the line."
   },
   {
+   "gag": {
+    "prop": "magnifier",
+    "at": "50%"
+   },
    "m": "fact",
    "say": "Here's the weird part. Its legs don't have muscles to kick out."
   },
   {
+   "gag": {
+    "heart": 4,
+    "at": "30%"
+   },
    "m": "xray",
    "say": "It pumps blood into its legs so fast they snap straight."
   },
   {
+   "gag": {
+    "meter": 1.0,
+    "at": "40%"
+   },
    "m": "fact",
    "say": "A jump powered by blood pressure. No muscles needed for the kick."
   },
   {
+   "gag": {
+    "mark": "hearts",
+    "at": "40%"
+   },
    "m": "solo",
    "say": "Some males dance to win a mate, waving bright colored legs."
   },
   {
+   "gag": {
+    "prop": "trophy",
+    "at": "40%"
+   },
    "m": "count",
    "say": "It's the biggest spider family on Earth. Over six thousand kinds."
   },
   {
+   "gag": {
+    "prop": "ruler",
+    "at": "50%"
+   },
    "m": "fact",
    "say": "Most are smaller than your fingernail."
   },
@@ -98,7 +142,7 @@
   },
   {
    "m": "tease",
-   "say": "Subscribe. Part seven hides in your bed.",
+   "say": "Follow me. Part seven hides in your bed.",
    "scene": "bedroom",
    "scene_p": {}
   }
