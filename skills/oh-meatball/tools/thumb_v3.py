@@ -180,17 +180,24 @@ def words(canvas, text, x, y, size, fill=YEL, stroke=None, anchor="la", rot=0, m
     return (px, py, px + lay.width, py + lay.height)
 
 
-def badge(canvas, label, x=18, y=18, h=78, col=YEL, fg=INK):
-    """Series badge, top-left: a yellow tag with a little ink house and the part number."""
+def badge(canvas, label, x=18, y=18, h=78, col=YEL, fg=INK, icon="house"):
+    """Series badge: a tag with a little ink icon (house | x | mag) and the label (part number or series)."""
     d = ImageDraw.Draw(canvas)
     f = ImageFont.truetype(ANTON, int(h * 0.62))
     tw = d.textlength(label, font=f)
     wbox = int(h * 1.05 + tw + h * 0.35)
     d.rounded_rectangle([x, y, x + wbox, y + h], int(h * 0.22), fill=col, outline=INK, width=max(4, h // 14))
     hx, hy, s = x + h * 0.55, y + h * 0.54, h * 0.3
-    d.polygon([(hx - s * 1.25, hy - s * 0.05), (hx, hy - s * 1.25), (hx + s * 1.25, hy - s * 0.05)], fill=fg)
-    d.rectangle([hx - s * 0.85, hy - s * 0.1, hx + s * 0.85, hy + s * 1.0], fill=fg)
-    d.rectangle([hx - s * 0.25, hy + s * 0.3, hx + s * 0.25, hy + s * 1.0], fill=col)
+    if icon == "house":
+        d.polygon([(hx - s * 1.25, hy - s * 0.05), (hx, hy - s * 1.25), (hx + s * 1.25, hy - s * 0.05)], fill=fg)
+        d.rectangle([hx - s * 0.85, hy - s * 0.1, hx + s * 0.85, hy + s * 1.0], fill=fg)
+        d.rectangle([hx - s * 0.25, hy + s * 0.3, hx + s * 0.25, hy + s * 1.0], fill=col)
+    elif icon == "x":
+        for a, b in (((-1, -1), (1, 1)), ((1, -1), (-1, 1))):
+            d.line([(hx + a[0] * s, hy + a[1] * s), (hx + b[0] * s, hy + b[1] * s)], fill=fg, width=int(s * 0.6))
+    else:   # magnifier
+        d.ellipse([hx - s, hy - s * 1.1, hx + s * 0.6, hy + s * 0.5], outline=fg, width=int(s * 0.4))
+        d.line([(hx + s * 0.4, hy + s * 0.3), (hx + s * 1.1, hy + s * 1.0)], fill=fg, width=int(s * 0.5))
     d.text((x + h * 1.05, y + h * 0.5), label, font=f, fill=fg, anchor="lm")
 
 
@@ -561,6 +568,198 @@ def t2c():
     return cv
 
 
+# ------------------------------------------------------------------ published long-forms (Nolan 10/28: redo them all)
+# Same kit; series badge colour by show: MYTHS red-X tag, EXPLAINS yellow, INVESTIGATES green magnifier.
+
+MYTH_TAG = dict(col=(255, 255, 255), icon="x")
+EXPL_TAG = dict(col=YEL, icon="house")
+CASE_TAG = dict(col=(90, 220, 120), icon="mag")
+
+
+def sky_bg(top, bottom, w=W, h=H):
+    a = np.linspace(0, 1, h)[:, None, None]
+    g = np.array(top, np.float32) * (1 - a) + np.array(bottom, np.float32) * a
+    return Image.fromarray(np.repeat(g, w, axis=1).astype(np.uint8), "RGB").convert("RGBA")
+
+
+def red_x(cv, cx, cy, r, w=30):
+    d = ImageDraw.Draw(cv)
+    for a, b in (((-1, -1), (1, 1)), ((1, -1), (-1, 1))):
+        p0, p1 = (cx + a[0] * r, cy + a[1] * r), (cx + b[0] * r, cy + b[1] * r)
+        d.line([p0, p1], fill=INK, width=w + 16)
+    for a, b in (((-1, -1), (1, 1)), ((1, -1), (-1, 1))):
+        d.line([(cx + a[0] * r, cy + a[1] * r), (cx + b[0] * r, cy + b[1] * r)], fill=RED, width=w)
+
+
+def mb_left(cv, h=430, look=(16, 0), y_off=30, sweat=True):
+    mb = pop(fit(meatball("shock", 1000, look=look, head=0.46, sweat=sweat), h=h), 7, 7, WHITE, 18)
+    cv.alpha_composite(mb, (-20, H - mb.height + y_off))
+
+
+OSTRICH = {"plan": "bird", "color": "#2b2522", "belly": "#3a322e", "dark": "#151110", "length": 560, "height": 360,
+           "leg_len": 330, "foot_color": "#e7a6a0", "beak_color": "#e7a6a0", "mood": "calm"}
+
+
+def l_ostrich():
+    """gFhrONKK0rI Everything You Know About Animals Is WRONG -> FAKE!: a smug ostrich standing tall beside the sand hole it never
+    sticks its head in (red X)."""
+    cv = sky_bg((120, 196, 240), (250, 214, 140))
+    d = ImageDraw.Draw(cv)
+    d.rectangle([0, 560, W, H], fill=(226, 180, 104))
+    d.ellipse([560, 590, 820, 660], fill=(120, 80, 40), outline=INK, width=8)   # the sand hole it never uses
+    d.ellipse([600, 600, 780, 640], fill=(60, 36, 18))
+    bird = actor(sp(OSTRICH), {"look": (-1, 0.3), "mood": "smug", "mouth": "grin", "talk": 0.5}, 1.0, 2000, 1500,
+                 900, 1250)
+    bird = pop(fit(bird.transpose(Image.FLIP_LEFT_RIGHT), 560, 600), 9, 8, WHITE, 26, (255, 236, 170))
+    paste_c(cv, bird, 1000, 380)
+    red_x(cv, 690, 590, 80)
+    vignette(cv, 0.25)
+    mb_left(cv, 420, (18, -4))
+    words(cv, "FAKE!", 30, -6, 230, YEL)
+    badge(cv, "MYTHS", 1050, 18, 70, **MYTH_TAG)
+    return cv
+
+
+LEMMING = {"plan": "mammal", "color": "#c98a4a", "dark": "#7a4a22", "belly": "#f0dcc0", "length": 420, "height": 230,
+           "leg_len": 60, "leg_w": 26, "ears": "round", "tail": "thin", "tail_w": 10, "mood": "shock", "mouth": "o"}
+
+
+def l_lemming():
+    """RwbgzQisvYM 12 Animal Myths ... (Disney Faked One) -> STAGED!: lemmings flung off a cliff past a film camera."""
+    cv = sky_bg((90, 150, 220), (40, 70, 140))
+    d = ImageDraw.Draw(cv)
+    d.polygon([(0, 330), (560, 300), (600, 360), (520, H), (0, H)], fill=(110, 96, 86), outline=INK, width=10)
+    d.polygon([(0, 300), (560, 280), (566, 320), (0, 340)], fill=(236, 240, 248), outline=INK, width=6)   # snow lip
+    d.rectangle([600, 640, W, H], fill=(40, 90, 150))
+    lem = actor(sp(LEMMING), {}, 0.95, 1400, 900, 700, 750)
+    for x, y, r, s in ((700, 330, -60, 0.7), (900, 470, -140, 1.0), (1090, 300, -30, 0.62)):
+        paste_c(cv, pop(fit(lem, int(lem.width * s * 0.62)), 7, 6, WHITE, 18, (255, 236, 170)), x, y, r)
+    cam = Image.new("RGBA", (300, 240), (0, 0, 0, 0))   # an old film camera on a tripod, aimed at the drop
+    e = ImageDraw.Draw(cam)
+    e.rounded_rectangle([20, 60, 220, 170], 14, fill=(40, 40, 46), outline=INK, width=8)
+    e.ellipse([10, 0, 90, 80], fill=(60, 60, 66), outline=INK, width=8)
+    e.ellipse([100, 0, 180, 80], fill=(60, 60, 66), outline=INK, width=8)
+    e.polygon([(220, 90), (290, 70), (290, 160), (220, 140)], fill=(60, 60, 66), outline=INK)
+    for x in (60, 120, 180):
+        e.line([(120, 170), (x, 240)], fill=INK, width=10)
+    paste_c(cv, pop(cam, 6, 6, WHITE, 12), 300, 230)
+    mb_left(cv, 400, (18, -8))
+    words(cv, "STAGED!", 1262, -6, 200, YEL, anchor="ra", max_w=620)
+    badge(cv, "MYTHS", 18, 18, 70, **MYTH_TAG)
+    return cv
+
+
+WOLF = {"plan": "mammal", "color": "#8e8f99", "dark": "#5d5e68", "belly": "#e2e2e6", "length": 680, "height": 300,
+        "leg_len": 170, "leg_w": 40, "ears": "pointed", "tail": "fluffy", "whiskers": False, "mood": "angry",
+        "mouth": "grin", "teeth": True}
+PUP = {"plan": "mammal", "color": "#e9b06a", "dark": "#b07a3a", "belly": "#fff6e6", "length": 380, "height": 240,
+       "leg_len": 80, "leg_w": 30, "ears": "pointed", "tail": "fluffy", "whiskers": False, "mood": "happy"}
+
+
+def l_wolf():
+    """Uqj0QL8G0d4 How Wolves Became Dogs -> HOW?!: a snarling wolf, red arrow, a tiny fluffy pup."""
+    cv = night_bg()
+    wolf = actor(sp(WOLF), {"look": (1, 0.2), "talk": 0.7}, 1.0, 2000, 1100, 1000, 950)
+    paste_c(cv, pop(fit(wolf, 600, 420), 9, 8, (220, 230, 255), 26, (150, 170, 255)), 690, 440)
+    pup = actor(sp(PUP), {"look": (-1, 0), "talk": 0.4}, 0.7, 1400, 800, 700, 700)
+    paste_c(cv, pop(fit(pup.transpose(Image.FLIP_LEFT_RIGHT), 260, 200), 7, 7, WHITE, 22, (255, 220, 150)),
+            1090, 540)
+    arrow(cv, (930, 300), (1060, 440))
+    mb_left(cv, 400, (18, -4))
+    words(cv, "HOW?!", 30, -6, 230, YEL)
+    badge(cv, "EXPLAINS", 990, 18, 70, **EXPL_TAG)
+    return cv
+
+
+STICK = {"plan": "insect", "body": "long", "color": "#1f1a17", "dark": "#0e0b0a", "length": 900, "height": 120,
+         "leg_len": 210, "leg_w": 18, "ant": 320, "sheen": True, "head_r": 0.75, "eye_r": 32, "mood": "worry"}
+
+
+def l_stick():
+    """o9Emu9oMgCs Animals Thought Extinct Found Alive -> ONLY 24: the tree lobster on its sea-stack rock."""
+    cv = sky_bg((40, 70, 140), (120, 170, 220))
+    d = ImageDraw.Draw(cv)
+    d.rectangle([0, 600, W, H], fill=(30, 100, 160))
+    for k in range(5):
+        d.arc([k * 300 - 100, 600, k * 300 + 200, 660], 200, 340, fill=(200, 230, 250), width=6)
+    d.polygon([(920, 640), (990, 260), (1030, 90), (1070, 250), (1180, 640)], fill=(96, 92, 96), outline=INK,
+              width=10)
+    d.polygon([(1000, 260), (1030, 120), (1060, 260)], fill=(130, 126, 130))
+    bug = actor(sp(STICK), {"look": (1, 0.3), "mouth": "o"}, 0.95, 2400, 1000, 1200, 800)
+    bug = pop(fit(bug, 600, 300), 9, 9, (255, 236, 170), 34, (255, 210, 110))
+    paste_c(cv, bug, 640, 420, 10)
+    ring(cv, 1035, 190, 70)
+    mb_left(cv, 380, (18, -6))
+    words(cv, "ONLY 24", 24, -6, 200, YEL, max_w=600)
+    badge(cv, "EXPLAINS", 990, 18, 70, **EXPL_TAG)
+    return cv
+
+
+WOMBAT = {"plan": "mammal", "color": "#8b6a4d", "dark": "#5c4430", "belly": "#a8896a", "length": 580, "height": 330,
+          "leg_len": 70, "leg_w": 44, "ears": "round", "tail": "thin", "tail_w": 0.01, "tail_color": "#8b6a4d", "whiskers": True, "mood": "smug",
+          "mouth": "grin"}
+
+
+def l_wombat():
+    """z-Kg8sXCxlU Weird Animal Facts (3 Are Fake) -> CUBES?!: a smug wombat beside a stack of cube poops."""
+    cv = radial(W, H, (120, 190, 110), (24, 60, 30), cx=0.6, cy=0.5, r=0.85)
+    wom = actor(sp(WOMBAT), {"look": (-0.6, 0.4), "talk": 0.4}, 1.15, 2000, 1100, 1000, 950)
+    paste_c(cv, pop(fit(wom.transpose(Image.FLIP_LEFT_RIGHT), 600, 400), 9, 8, WHITE, 24, (255, 236, 170)), 940, 450)
+    cube = Image.new("RGBA", (130, 130), (0, 0, 0, 0))
+    e = ImageDraw.Draw(cube)
+    e.polygon([(10, 40), (70, 10), (120, 40), (60, 70)], fill=(140, 96, 56), outline=INK, width=6)
+    e.polygon([(10, 40), (60, 70), (60, 125), (10, 95)], fill=(110, 72, 40), outline=INK, width=6)
+    e.polygon([(60, 70), (120, 40), (120, 95), (60, 125)], fill=(90, 58, 32), outline=INK, width=6)
+    for x, y in ((530, 610), (640, 610), (585, 530)):
+        paste_c(cv, pop(cube, 4, 5, (255, 236, 170), 14), x, y)
+    ring(cv, 585, 580, 135)
+    mb_left(cv, 400, (18, 6))
+    words(cv, "CUBES?!", 24, -6, 210, YEL, max_w=620)
+    badge(cv, "MYTHS", 1050, 18, 70, **MYTH_TAG)
+    return cv
+
+
+CAT = {"plan": "mammal", "color": "#f1ede4", "dark": "#bdb6a8", "belly": "#ffffff", "length": 560, "height": 260,
+       "leg_len": 140, "leg_w": 32, "ears": "pointed", "tail": "thin", "tail_w": 16, "tail_color": "#e2dccf",
+       "whiskers": True, "mood": "angry", "mouth": "grin", "teeth": True}
+
+
+def l_cat():
+    """2EC5LDtbUbo Conspiracy Theories That Turned Out To Be TRUE -> SPY CAT?!: Acoustic Kitty, a white cat with a
+    CIA antenna wired up its tail, in a dark interrogation-room spotlight."""
+    cv = radial(W, H, (60, 66, 80), (8, 8, 12), cx=0.62, cy=0.5, r=0.75)
+    g = Image.new("RGBA", cv.size, (0, 0, 0, 0))
+    ImageDraw.Draw(g).polygon([(760, -20), (900, -20), (1240, 700), (420, 700)], fill=(255, 244, 200, 70))
+    cv.alpha_composite(g.filter(ImageFilter.GaussianBlur(20)))
+    cat = actor(sp(CAT), {"look": (-0.8, 0.2), "talk": 0.6}, 1.05, 2000, 1100, 1000, 950)
+    cat = fit(cat.transpose(Image.FLIP_LEFT_RIGHT), 600, 380)
+    lay = Image.new("RGBA", (cat.width + 200, cat.height + 260), (0, 0, 0, 0))
+    lay.alpha_composite(cat, (0, 260))
+    e = ImageDraw.Draw(lay)
+    ax = cat.width - 40   # antenna rising off the tail end, with a red tip bulb
+    ay = 260 + int(cat.height * 0.35)
+    e.line([(ax, ay), (ax + 60, 40)], fill=INK, width=14)
+    e.line([(ax, ay), (ax + 60, 40)], fill=(200, 200, 210), width=6)
+    e.ellipse([ax + 38, 10, ax + 82, 54], fill=RED, outline=INK, width=6)
+    lay = pop(lay, 9, 8, WHITE, 24, (255, 236, 170))
+    paste_c(cv, lay, 900, 400)
+    ring(cv, 900 - lay.width / 2 + ax + 60 + 70, 400 - lay.height / 2 + 32 + 70, 60)
+    mb_left(cv, 420, (18, -2))
+    words(cv, "SPY CAT?!", 24, -6, 190, YEL, max_w=620)
+    badge(cv, "INVESTIGATES", 18, 640, 62, **CASE_TAG)
+    return cv
+
+
+LONGFORMS = [   # (video id, current public title, concept)
+    ("gFhrONKK0rI", "Everything You Know About Animals Is WRONG", "l_ostrich"),
+    ("RwbgzQisvYM", "12 Animal Myths You've Believed Your Whole Life (Disney Faked One)", "l_lemming"),
+    ("Uqj0QL8G0d4", "How Wolves Became Dogs (The Funny History of Man's Best Friend)", "l_wolf"),
+    ("o9Emu9oMgCs", "Animals Thought Extinct Found Alive (One Was Hiding on a Rock for 80 Years)", "l_stick"),
+    ("z-Kg8sXCxlU", "Weird Animal Facts You Didn't Know (3 Are Fake. Can You Spot Them?)", "l_wombat"),
+    ("2EC5LDtbUbo", "Conspiracy Theories That Turned Out To Be TRUE", "l_cat"),
+]
+
+
 # ------------------------------------------------------------------ target 3: Shorts cover template (1080x1920)
 # Series band up top (inside the safe area), the animal huge in the middle with its glow, 1-3 words under it,
 # horrified Meatball head bottom-left. The centre 1080x1080 alone still reads (search crops it square).
@@ -633,6 +832,7 @@ def small(im, w):
 
 
 def sheet(items, title_of, out):
+    titles = title_of if isinstance(title_of, list) else [title_of] * len(items)
     """Dark YouTube UI: each thumbnail at 640x360 with its 360x202 search-row size and 168x94 mobile-feed size
     under it, title text beside the small ones, as in the feed."""
     vert = items[0][1].height > items[0][1].width
@@ -653,7 +853,7 @@ def sheet(items, title_of, out):
             for w in (180, 110):
                 s = small(im, w)
                 sh.paste(s, (x, y))
-                d.text((x, y + s.height + 6), title_of[:26] + "...", font=fr, fill=(241, 241, 241))
+                d.text((x, y + s.height + 6), titles[i][:26] + "...", font=fr, fill=(241, 241, 241))
                 y += s.height + 40
             continue
         s = small(im, 360)
@@ -663,7 +863,7 @@ def sheet(items, title_of, out):
         s = small(im, 168)
         sh.paste(s, (x, y))
         _dur(d, x + 168, y + 94, fr)
-        lines = _wrap(title_of, fb, 168 + 250, d)[:2]
+        lines = _wrap(titles[i], fb, 168 + 250, d)[:2]
         for j, ln in enumerate(lines):
             d.text((x + 180, y + j * 22), ln, font=fb, fill=(241, 241, 241))
         d.text((x + 180, y + 50), "Meatball Myths · 1.2K views · 1 day ago", font=fr, fill=(170, 170, 170))
@@ -688,7 +888,8 @@ def _wrap(text, f, w, d):
 
 T1 = "6 Creatures Living In Your House Right Now (You Never See Them)"
 T2 = "6 More Creatures Living In Your House (Bed Bugs Are Just the Start)"
-CONCEPTS = {"t1a": t1a, "t1b": t1b, "t1c": t1c, "t1d": t1d, "t2a": t2a, "t2b": t2b, "t2c": t2c, "t3a": t3a, "t3b": t3b, "t3c": t3c}
+CONCEPTS = {"t1a": t1a, "t1b": t1b, "t1c": t1c, "t1d": t1d, "t2a": t2a, "t2b": t2b, "t2c": t2c, "t3a": t3a, "t3b": t3b, "t3c": t3c, "l_ostrich": l_ostrich, "l_lemming": l_lemming, "l_wolf": l_wolf, "l_stick": l_stick,
+            "l_wombat": l_wombat, "l_cat": l_cat}
 
 
 def main():
@@ -712,6 +913,10 @@ def main():
         items = [(n, im) for n, im in done.items() if n.startswith(group)]
         if items:
             sheet(items, title, os.path.join(a.outdir, f"sheet-{group}.png"))
+    titles = {c: t for _, t, c in LONGFORMS}
+    items = [(n, im) for n, im in done.items() if n.startswith("l_")]
+    for k in range(0, len(items), 3):
+        sheet(items[k:k + 3], [titles[n] for n, _ in items[k:k + 3]], os.path.join(a.outdir, f"sheet-l{k // 3 + 1}.png"))
 
 
 if __name__ == "__main__":
