@@ -1,0 +1,445 @@
+{
+ "series": "Meatball's Animal Files, Part",
+ "sources": [
+  "Sugiura & Sato 2018, Biology Letters 14: 20170647, Successful escape of bombardier beetles from predator digestive systems: Japanese toads (Bufo japonicus) and stream toads (B. torrenticola) that swallowed Pheropsophus jessoensis vomited them 12-107 min later; 43% of swallowed beetles escaped this way, all alive and active; popping sounds were heard from inside the toads; beetles made to discharge their spray beforehand were almost never vomited; https://doi.org/10.1098/rsbl.2017.0647",
+  "Eisner's research: Aneshansley, Eisner et al. 1969, Science 165: 61-63, Biochemistry at 100 C: explosive secretory discharge of bombardier beetles (hydroquinones and hydrogen peroxide from a reservoir mixed with catalases and peroxidases in a reaction chamber, spray ejected at about 100 C with an audible pop); Eisner & Aneshansley 1999, PNAS 96: 9705-9709, Spray aiming in the bombardier beetle: they rotate the abdominal tip to aim the spray at a grabbed leg, even forward over the back; https://doi.org/10.1073/pnas.96.17.9705",
+  "Arndt et al. 2015, Science 348: 563-567, Mechanistic origins of bombardier beetle (Brachinini) explosion-induced defensive spray pulsation: synchrotron X-ray imaging shows the spray comes out as a rapid series of pulses (hundreds per second, about 500 Hz in Brachinus per Dean et al. 1990, Science 248: 1219-1221); https://doi.org/10.1126/science.1261166"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "bombardier_beetle",
+  "scene": "garden",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "insect",
+   "label": "bombardier beetle",
+   "body": "round",
+   "color": "#2b3a5c",
+   "dark": "#161e30",
+   "head": "#d9702a",
+   "length": 470,
+   "height": 220,
+   "leg_len": 125,
+   "ant": 150,
+   "wings": "shell",
+   "sheen": true,
+   "xray": "venom",
+   "mood": "smug",
+   "s": 0.75
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "insect",
+    "label": "bombardier beetle",
+    "body": "round",
+    "color": "#2b3a5c",
+    "dark": "#161e30",
+    "head": "#d9702a",
+    "length": 470,
+    "height": 220,
+    "leg_len": 125,
+    "ant": 150,
+    "wings": "shell",
+    "sheen": true,
+    "xray": "venom",
+    "mood": "smug",
+    "s": 0.75
+   }
+  },
+  "s": 0.75,
+  "actor": "creature",
+  "wild": "forest_floor",
+  "wild_p": {
+   "time": "day"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "This Beetle Gets Swallowed by a Toad and Makes It Throw Up 🪲",
+ "tiktok_caption": "bombardier beetle vs toad 🪲🐸 it got swallowed, fired boiling spray inside the toad, and got thrown back up alive. Would you pick one up bare-handed? 🪲 yes / 🔥 no way. Follow Meatball for a new case every day 🍝 #meatballmyths #learnontiktok #bombardierbeetle #insects #animalfacts",
+ "beats": [
+  {
+   "with": [
+    {
+     "type": "creature",
+     "x": 1060,
+     "s": 0.7,
+     "mood": "happy",
+     "p": {
+      "cfg": {
+       "plan": "frog",
+       "label": "Japanese toad",
+       "color": "#9a7448",
+       "dark": "#654a2c",
+       "belly": "#d8c29a",
+       "length": 640,
+       "height": 380,
+       "leg_len": 90,
+       "eye_r": 50,
+       "spots": 6,
+       "mood": "happy"
+      }
+     }
+    }
+   ],
+   "gag": {
+    "mark": "shock",
+    "at": "65%"
+   },
+   "m": "hook",
+   "say": "This beetle got swallowed by a toad. And the toad threw it back up, alive."
+  },
+  {
+   "gag": {
+    "meter": 1.0,
+    "at": "40%",
+    "dur": 1.2
+   },
+   "m": "name",
+   "say": "The bombardier beetle. It fights back with boiling hot spray."
+  },
+  {
+   "zoom": 0.9,
+   "hero_at": {
+    "x": 290,
+    "rot": 0.001
+   },
+   "hero_moves": [
+    {
+     "at": 0,
+     "dur": 1.4,
+     "pos": [
+      350,
+      1500
+     ],
+     "walk": true,
+     "face": 1
+    }
+   ],
+   "with": [
+    {
+     "type": "creature",
+     "x": 700,
+     "s": 0.75,
+     "pop": false,
+     "mood": "happy",
+     "p": {
+      "cfg": {
+       "plan": "frog",
+       "label": "Japanese toad",
+       "color": "#9a7448",
+       "dark": "#654a2c",
+       "belly": "#d8c29a",
+       "length": 640,
+       "height": 380,
+       "leg_len": 90,
+       "eye_r": 50,
+       "spots": 6,
+       "mood": "happy"
+      },
+      "look": [
+       -1,
+       0
+      ],
+      "bite": 1.0
+     },
+     "flip": true
+    }
+   ],
+   "gag": {
+    "thought": "tick",
+    "at": "5%",
+    "x": 330,
+    "y": -60
+   },
+   "m": "solo",
+   "say": "A hungry toad spotted one, and gulped it down."
+  },
+  {
+   "zoom": 0.9,
+   "hero_at": {
+    "x": 290,
+    "rot": 0.001
+   },
+   "hero_moves": [
+    {
+     "at": 0,
+     "dur": 1.4,
+     "pos": [
+      350,
+      1500
+     ],
+     "walk": true,
+     "face": 1
+    }
+   ],
+   "with": [
+    {
+     "type": "creature",
+     "x": 700,
+     "s": 0.75,
+     "pop": false,
+     "mood": "shock",
+     "p": {
+      "cfg": {
+       "plan": "frog",
+       "label": "Japanese toad",
+       "color": "#9a7448",
+       "dark": "#654a2c",
+       "belly": "#d8c29a",
+       "length": 640,
+       "height": 380,
+       "leg_len": 90,
+       "eye_r": 50,
+       "spots": 6,
+       "mood": "happy"
+      },
+      "look": [
+       -1,
+       0
+      ]
+     },
+     "flip": true
+    }
+   ],
+   "gag": [
+    {
+     "zap": true,
+     "at": "35%"
+    },
+    {
+     "mark": "stink",
+     "at": "60%"
+    }
+   ],
+   "m": "solo",
+   "say": "But inside the toad's belly, the beetle fired its spray."
+  },
+  {
+   "scene": "study",
+   "scene_p": {
+    "time": "day"
+   },
+   "mood": "calm",
+   "gag": {
+    "prop": "magnifier",
+    "at": "20%"
+   },
+   "m": "solo",
+   "say": "Scientists in Japan fed these beetles to toads, to see what happens."
+  },
+  {
+   "zoom": 0.9,
+   "hero_at": {
+    "x": 290,
+    "rot": 0.001
+   },
+   "hero_moves": [
+    {
+     "at": 0,
+     "dur": 1.4,
+     "pos": [
+      350,
+      1500
+     ],
+     "walk": true,
+     "face": 1
+    }
+   ],
+   "with": [
+    {
+     "type": "creature",
+     "x": 700,
+     "s": 0.75,
+     "pop": false,
+     "mood": "worry",
+     "p": {
+      "cfg": {
+       "plan": "frog",
+       "label": "Japanese toad",
+       "color": "#9a7448",
+       "dark": "#654a2c",
+       "belly": "#d8c29a",
+       "length": 640,
+       "height": 380,
+       "leg_len": 90,
+       "eye_r": 50,
+       "spots": 6,
+       "mood": "happy"
+      },
+      "look": [
+       -1,
+       0
+      ]
+     },
+     "flip": true
+    }
+   ],
+   "gag": [
+    {
+     "clock": 2,
+     "at": "10%",
+     "dur": 1.4
+    },
+    {
+     "mark": "dizzy",
+     "at": "55%"
+    }
+   ],
+   "m": "solo",
+   "say": "Twelve minutes to almost two hours later, the toad threw up."
+  },
+  {
+   "mood": "happy",
+   "gag": {
+    "mark": "stars",
+    "at": "40%"
+   },
+   "m": "solo",
+   "say": "Out came the beetle. Alive, and it walked away."
+  },
+  {
+   "m": "punch",
+   "say": "It got eaten, and it still won."
+  },
+  {
+   "mood": "smug",
+   "gag": {
+    "meter": 0.45,
+    "at": "30%",
+    "dur": 1.0
+   },
+   "m": "solo",
+   "say": "Almost half the swallowed beetles escaped like that."
+  },
+  {
+   "scene": "forest_floor",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "mood": "worry",
+   "gag": {
+    "mark": "sweat",
+    "at": "45%"
+   },
+   "m": "solo",
+   "say": "Beetles that had already used up their spray almost never got out."
+  },
+  {
+   "m": "xray",
+   "say": "So how does the spray work? In its rear, it keeps two chemicals."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "mood": "angry",
+   "gag": {
+    "pile": "egg",
+    "n": 3,
+    "r": 30,
+    "at": "35%",
+    "dur": 1.2
+   },
+   "m": "solo",
+   "say": "When it's grabbed, it squirts them into a tough little chamber, with enzymes."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "day"
+   },
+   "mood": "angry",
+   "gag": [
+    {
+     "meter": 1.0,
+     "at": "25%",
+     "dur": 1.0
+    },
+    {
+     "mark": "shock",
+     "at": "60%"
+    }
+   ],
+   "m": "solo",
+   "say": "They react, and the spray comes out at about boiling, one hundred degrees."
+  },
+  {
+   "scene": "forest_floor",
+   "scene_p": {
+    "time": "night"
+   },
+   "mood": "angry",
+   "gag": {
+    "zap": true,
+    "at": "30%",
+    "dur": 2.0
+   },
+   "m": "solo",
+   "say": "It's not one blast. It fires hundreds of tiny pops every second."
+  },
+  {
+   "scene": "forest_floor",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "mood": "smug",
+   "gag": {
+    "mark": "alarm",
+    "at": "40%"
+   },
+   "m": "solo",
+   "say": "You can even hear it go pop."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "mood": "angry",
+   "gag": {
+    "mark": "anger",
+    "at": "40%"
+   },
+   "m": "solo",
+   "say": "And it can aim. It swings its rear end to hit whatever grabbed it."
+  },
+  {
+   "scene": "forest_floor",
+   "scene_p": {
+    "time": "day"
+   },
+   "mood": "smug",
+   "gag": {
+    "mark": "stink",
+    "at": "40%"
+   },
+   "m": "solo",
+   "say": "On your fingers, it stings, stains your skin, and stinks."
+  },
+  {
+   "m": "fact",
+   "say": "Would you pick one up with your bare hands?"
+  },
+  {
+   "gag": {
+    "zap": true,
+    "at": "40%"
+   },
+   "m": "punch",
+   "say": "Swallowed, set off a bomb in a toad's stomach, and walked out."
+  },
+  {
+   "m": "tease",
+   "say": "Follow me. Next, a bug that never stops growing."
+  }
+ ]
+}
