@@ -1,0 +1,145 @@
+{
+ "series": "Things Living In Your House, Part 14",
+ "sources": [
+  "Penn State Extension, Fruit Flies: attracted to ripened fruits and vegetables; infestations often begin with overripe produce brought into the home, since eggs may already be on it; a female can lay about 500 eggs; the life cycle from egg to adult can be completed in about a week; control by removing ripe produce and using cider-vinegar traps; https://extension.psu.edu/fruit-flies",
+  "University of Kentucky Entomology, Fruit Flies (Ent-621): fruit flies are attracted to fermenting fruit; development from egg to adult takes about 8-10 days; traps of apple cider vinegar; refrigerate ripe produce; https://entomology.ca.uky.edu/ef621",
+  "NASA History, A Brief History of Animals in Space: the first animals deliberately sent into space were fruit flies, launched aboard a US V-2 rocket on 20 February 1947; the capsule was recovered with the flies alive; https://history.nasa.gov/animals.html",
+  "Reiter et al. 2001, Genome Research, A systematic analysis of human disease-associated gene sequences in Drosophila melanogaster: about 77% of human disease genes examined had a recognizable match in the fruit fly; https://genome.cshlp.org/content/11/6/1114",
+  "Nobel Prize: Thomas Hunt Morgan (1933, studied Drosophila from about 1910); Lewis, Nüsslein-Volhard and Wieschaus (1995); Hoffmann (2011); Hall, Rosbash and Young (2017) for fruit fly research; https://www.nobelprize.org/prizes/medicine/",
+  "Fruit fly flight: Drosophila beat their wings about 200 times per second; compound eyes of about 700-800 facets (ommatidia) with red pigment (e.g. Dickinson lab, Caltech; FlyBase); https://www.dickinsonlab.caltech.edu/"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "fruit_fly",
+  "scene": "kitchen",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "insect",
+   "label": "fruit fly",
+   "body": "round",
+   "color": "#c99a5a",
+   "dark": "#7a4a24",
+   "head": "#b8742e",
+   "length": 320,
+   "height": 160,
+   "leg_len": 90,
+   "ant": 70,
+   "stripes": 4,
+   "wings": "clear",
+   "eye_r": 34,
+   "floor": false,
+   "mood": "smug",
+   "s": 0.95
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "insect",
+    "label": "fruit fly",
+    "body": "round",
+    "color": "#c99a5a",
+    "dark": "#7a4a24",
+    "head": "#b8742e",
+    "length": 320,
+    "height": 160,
+    "leg_len": 90,
+    "ant": 70,
+    "stripes": 4,
+    "wings": "clear",
+    "eye_r": 34,
+    "floor": false,
+    "mood": "smug",
+    "s": 0.95
+   }
+  },
+  "s": 0.95,
+  "actor": "creature",
+  "wild": "garden",
+  "wild_p": {
+   "time": "day"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "The Fly in Your Fruit Bowl Went to Space Before Humans Did 🍌",
+ "tiktok_caption": "the fly in my fruit bowl went to space before any human 🍌🚀 and it helped win Nobel prizes. Would you still eat that banana? 🍌 yes / 🗑️ no",
+ "beats": [
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "hook",
+   "say": "That fruit fly? It probably rode home on your bananas."
+  },
+  {
+   "scene": "kitchen",
+   "m": "solo",
+   "say": "The fruit fly. About the size of a sesame seed."
+  },
+  {
+   "scene": "kitchen",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "m": "solo",
+   "say": "Its eggs often ride in on the fruit itself."
+  },
+  {
+   "act": {
+    "chew": 1.0
+   },
+   "m": "solo",
+   "say": "Outside, it lives on ripe, rotting fruit."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "act": {
+    "fly": 1.0
+   },
+   "m": "solo",
+   "say": "It follows the smell of fermenting fruit."
+  },
+  {
+   "scene": "kitchen",
+   "scene_p": {
+    "time": "night"
+   },
+   "with": [
+    "fly",
+    "fly"
+   ],
+   "m": "solo",
+   "say": "One female can lay about five hundred eggs."
+  },
+  {
+   "scene": "kitchen",
+   "act": {
+    "fly": 1.0
+   },
+   "m": "solo",
+   "say": "In about ten days, the babies are adults."
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "punch",
+   "say": "Your fruit bowl is a fly nursery."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Part fifteen lives in your drain.",
+   "scene": "bathroom",
+   "scene_p": {}
+  }
+ ]
+}

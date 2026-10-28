@@ -1,0 +1,110 @@
+slug: fruit-fly
+out: episodes/drawn-house
+specs: scripts/drawn-house
+series: Things Living In Your House
+part: 14
+title: The Fly in Your Fruit Bowl Went to Space Before Humans Did 🍌
+tiktok_caption: "the fly in my fruit bowl went to space before any human 🍌🚀 and it helped win Nobel prizes. Would you still eat that banana? 🍌 yes / 🗑️ no"
+creature: fruit_fly
+actor: creature
+creature_cfg: &adult
+  plan: insect
+  label: fruit fly
+  body: round
+  color: '#c99a5a'
+  dark: '#7a4a24'
+  head: '#b8742e'
+  length: 320
+  height: 160
+  leg_len: 90
+  ant: 70
+  stripes: 4
+  wings: clear
+  eye_r: 34
+  floor: false
+  mood: smug
+  s: 0.95
+hero_p:
+  cfg: *adult
+s: 0.95
+scene: kitchen
+scene_p: {time: day}
+wild: garden
+wild_p: {time: day}
+rate: '+10%'
+music: mystery
+next: Part fifteen lives in your drain.
+next_scene: bathroom
+sources:
+  - "Penn State Extension, Fruit Flies: attracted to ripened fruits and vegetables; infestations often begin with overripe produce brought into the home, since eggs may already be on it; a female can lay about 500 eggs; the life cycle from egg to adult can be completed in about a week; control by removing ripe produce and using cider-vinegar traps; https://extension.psu.edu/fruit-flies"
+  - "University of Kentucky Entomology, Fruit Flies (Ent-621): fruit flies are attracted to fermenting fruit; development from egg to adult takes about 8-10 days; traps of apple cider vinegar; refrigerate ripe produce; https://entomology.ca.uky.edu/ef621"
+  - "NASA History, A Brief History of Animals in Space: the first animals deliberately sent into space were fruit flies, launched aboard a US V-2 rocket on 20 February 1947; the capsule was recovered with the flies alive; https://history.nasa.gov/animals.html"
+  - "Reiter et al. 2001, Genome Research, A systematic analysis of human disease-associated gene sequences in Drosophila melanogaster: about 77% of human disease genes examined had a recognizable match in the fruit fly; https://genome.cshlp.org/content/11/6/1114"
+  - "Nobel Prize: Thomas Hunt Morgan (1933, studied Drosophila from about 1910); Lewis, Nüsslein-Volhard and Wieschaus (1995); Hoffmann (2011); Hall, Rosbash and Young (2017) for fruit fly research; https://www.nobelprize.org/prizes/medicine/"
+  - "Fruit fly flight: Drosophila beat their wings about 200 times per second; compound eyes of about 700-800 facets (ommatidia) with red pigment (e.g. Dickinson lab, Caltech; FlyBase); https://www.dickinsonlab.caltech.edu/"
+yt:
+  - hook: That fruit fly? It probably rode home on your bananas.
+    hero_at: {x: 720}
+  - solo: The fruit fly. About the size of a sesame seed.
+    scene: kitchen
+  - solo: Its eggs often ride in on the fruit itself.
+    scene: kitchen
+    scene_p: {time: dusk}
+  - solo: Outside, it lives on ripe, rotting fruit.
+    act: {chew: 1.0}
+  - solo: It follows the smell of fermenting fruit.
+    scene: garden
+    scene_p: {time: dusk}
+    act: {fly: 1.0}
+  - solo: One female can lay about five hundred eggs.
+    scene: kitchen
+    scene_p: {time: night}
+    with: [fly, fly]
+  - solo: In about ten days, the babies are adults.
+    scene: kitchen
+    act: {fly: 1.0}
+  - punch: Your fruit bowl is a fly nursery.
+    hero_at: {x: 720}
+tt:
+  - solo: But this tiny fly is also a science hero.
+    scene: sill
+    scene_p: {time: day}
+  - solo: Scientists have studied it for over a hundred years.
+    scene: microscope
+  - solo: Most human disease genes have a match in it.
+    scene: microscope
+    mood: happy
+  - solo: Fruit fly research has won several Nobel Prizes.
+    scene: office
+    mood: happy
+  - solo: And in 1947, fruit flies rode a rocket into space.
+    scene: sill
+    scene_p: {time: night}
+    act: {fly: 1.0}
+  - solo: The first animals ever sent up there.
+    scene: desert
+    scene_p: {time: night}
+    act: {fly: 1.0}
+  - solo: And they came back alive.
+    scene: garden
+    scene_p: {time: day}
+    mood: happy
+  - shrink: So I shrank down to meet one.
+  - tiny: Its eyes are red, and made of hundreds of lenses.
+    scene: kitchen
+  - tiny: Its wings beat about two hundred times a second.
+    scene: garden
+    act: {fly: 1.0}
+  - solo: Want them gone? Fill a jar with cider vinegar.
+    scene: kitchen
+    scene_p: {time: dusk}
+  - solo: Add a drop of dish soap. They fall in, and sink.
+    scene: kitchen
+    scene_p: {time: night}
+    mood: worry
+  - solo: And keep ripe fruit in the fridge.
+    scene: kitchen
+  - fact: Would you still eat that banana?
+    hero_at: {x: 720}
+  - punch: The smallest pest in your kitchen beat humans to space.
+    hero_at: {x: 720}
