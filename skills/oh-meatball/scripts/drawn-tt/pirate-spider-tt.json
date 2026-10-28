@@ -1,0 +1,247 @@
+{
+ "series": "Meatball vs Spiders, Part 2",
+ "sources": [
+  "Guarisco 2001, The Journal of Arachnology 29: 267-269, Description of the egg sac of Mimetus notius (Araneae, Mimetidae): mimetids have earned the names assassin and pirate spiders; armed with a series of long, slightly curved spines on legs I and II, they enter spider webs, especially of comb-footed spiders (Theridiidae) and orb weavers (Araneidae), and prey on the occupants; Jackson & Whitehouse (1986) observed mimetids using vibratory aggressive mimicry to lure spiders within striking range; four Mimetus species found in Kansas, M. notius taken on eaves and outer walls of a building; the egg sac hangs inside a thin net of silk; https://www.americanarachnology.org/journal-joa/joa-all-articles/article/download/arac_29_02_0267.pdf",
+  "Zhang, Zhang, Liu, Yu & Xu 2025, Zoosystematics and Evolution 101(2): 711-734, A survey of mimetid spiders from Central Guizhou Province, China: instead of building their own webs, mimetids invade other spiders' webs and imitate prey vibrations or courtship signals, a well documented example of aggressive mimicry; prominent rows of raptorial spines on the front legs form a basket that holds the prey; once seen as eating only spiders, they also eat other arthropods; 163 species worldwide; https://doi.org/10.3897/zse.101.146895",
+  "Jackson & Whitehouse 1986, Journal of Zoology 210: 279-303, The biology of New Zealand and Queensland pirate spiders (Araneae, Mimetidae): aggressive mimicry, araneophagy and prey specialization; https://doi.org/10.1111/j.1469-7998.1986.tb03635.x"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:fenrir",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "pirate_spider",
+  "scene": "sill",
+  "scene_p": {
+   "time": "night"
+  },
+  "creature_cfg": {
+   "plan": "arachnid",
+   "label": "pirate spider",
+   "color": "#c9a36a",
+   "dark": "#7a5230",
+   "accent": "#5a3a22",
+   "eyes": "pair",
+   "pattern": "spots",
+   "bands": true,
+   "leg_len": 1.3,
+   "leg_w": 15,
+   "abdomen": 190,
+   "mood": "smug",
+   "xray": "venom",
+   "s": 0.65
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "arachnid",
+    "label": "pirate spider",
+    "color": "#c9a36a",
+    "dark": "#7a5230",
+    "accent": "#5a3a22",
+    "eyes": "pair",
+    "pattern": "spots",
+    "bands": true,
+    "leg_len": 1.3,
+    "leg_w": 15,
+    "abdomen": 190,
+    "mood": "smug",
+    "xray": "venom",
+    "s": 0.65
+   }
+  },
+  "actor": "creature",
+  "wild": "garden",
+  "wild_p": {
+   "time": "night"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Pirate Spider Hunts Other Spiders in Their Own Webs 🕷️ (Meatball vs Spiders",
+ "tiktok_caption": "pirate spider 🕷️ a spider that hunts other spiders: it walks onto their web, plucks it like a trapped bug, and grabs the owner. Meatball vs Spiders part 2. Would you want one on your porch eating the other spiders? 🕸️ yes / 🙅 no #piratespider #spiders #spidersofinstagram #meatballmyths #learnontiktok",
+ "beats": [
+  {
+   "with": [
+    {
+     "type": "creature",
+     "x": 1020,
+     "s": 0.45,
+     "mood": "worry",
+     "p": {
+      "cfg": {
+       "plan": "arachnid",
+       "label": "orb weaver",
+       "color": "#8a8a3a",
+       "dark": "#5a5a24",
+       "accent": "#e9e0a0",
+       "eyes": "pair",
+       "pattern": "stripe",
+       "abdomen": 200,
+       "mood": "worry"
+      }
+     }
+    }
+   ],
+   "gag": {
+    "mark": "alarm",
+    "at": "70%"
+   },
+   "m": "hook",
+   "say": "A spider is creeping onto the web outside your window, to eat the spider that lives there."
+  },
+  {
+   "gag": {
+    "prop": "skull",
+    "at": "70%"
+   },
+   "m": "name",
+   "say": "The pirate spider. It hunts other spiders."
+  },
+  {
+   "gag": {
+    "mark": "hearts",
+    "at": "75%"
+   },
+   "m": "solo",
+   "say": "It plucks the web, like a bug stuck in it, or a male coming to court."
+  },
+  {
+   "with": [
+    {
+     "type": "creature",
+     "x": 1020,
+     "s": 0.45,
+     "mood": "shock",
+     "p": {
+      "cfg": {
+       "plan": "arachnid",
+       "label": "orb weaver",
+       "color": "#8a8a3a",
+       "dark": "#5a5a24",
+       "accent": "#e9e0a0",
+       "eyes": "pair",
+       "pattern": "stripe",
+       "abdomen": 200,
+       "mood": "worry"
+      }
+     }
+    }
+   ],
+   "gag": {
+    "mark": "shock",
+    "at": "75%"
+   },
+   "m": "escalate",
+   "say": "The owner comes to check. And the pirate grabs her, in a basket of spiny legs."
+  },
+  {
+   "act": {
+    "bite": 1.0
+   },
+   "m": "fact",
+   "say": "Then it bites, and eats her. Right in her own web."
+  },
+  {
+   "with": [
+    {
+     "type": "creature",
+     "s": 0.45,
+     "p": {
+      "cfg": {
+       "plan": "arachnid",
+       "label": "orb weaver",
+       "color": "#8a8a3a",
+       "dark": "#5a5a24",
+       "accent": "#e9e0a0",
+       "eyes": "pair",
+       "pattern": "stripe",
+       "abdomen": 200,
+       "mood": "worry"
+      }
+     }
+    },
+    "black_widow"
+   ],
+   "m": "count",
+   "say": "Its favorite targets? Orb weavers, and cobweb spiders."
+  },
+  {
+   "gag": {
+    "mark": "stars",
+    "at": "70%"
+   },
+   "m": "punch",
+   "say": "It never builds a web to hunt. Why bother, when someone else already did?"
+  },
+  {
+   "scene": "forest_floor",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "m": "solo",
+   "say": "There are over a hundred and sixty kinds, all over the world."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "day"
+   },
+   "gag": {
+    "prop": "magnifier",
+    "at": "60%"
+   },
+   "m": "solo",
+   "say": "In Kansas, scientists found four kinds. One was living on the walls of a building."
+  },
+  {
+   "m": "xray",
+   "say": "Its front legs carry rows of long, curved spines."
+  },
+  {
+   "m": "fact",
+   "say": "The trick has a name. Aggressive mimicry. It pretends to be food, to catch the hunter."
+  },
+  {
+   "scene": "forest_floor",
+   "scene_p": {
+    "time": "night"
+   },
+   "mood": "smug",
+   "m": "solo",
+   "say": "Scientists in New Zealand and Australia watched pirates lure spiders this way."
+  },
+  {
+   "gag": {
+    "thought": "tick",
+    "at": "70%"
+   },
+   "m": "fact",
+   "say": "And it doesn't only eat spiders. It can eat other bugs too."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "mood": "calm",
+   "gag": {
+    "pile": "egg",
+    "n": 1,
+    "r": 40,
+    "at": "50%"
+   },
+   "m": "solo",
+   "say": "The mom hangs her egg sac inside a little net of silk."
+  },
+  {
+   "m": "fact",
+   "say": "Would you want one on your porch, eating the other spiders?"
+  },
+  {
+   "m": "tease",
+   "say": "Follow me. Part three is another spider that hunts spiders."
+  }
+ ]
+}
