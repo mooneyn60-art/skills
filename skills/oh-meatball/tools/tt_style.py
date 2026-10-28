@@ -27,10 +27,27 @@ def esc(s):
     return s.replace("\\", "\\\\").replace(":", "\\:").replace("'", "’").replace("%", "\\%")
 
 
+def fit(title, size=84, width=1000):
+    """Largest font size (<= size) at which the title fits the frame width."""
+    from PIL import ImageFont
+    while size > 40 and ImageFont.truetype(FONT, size).getlength(title) > width:
+        size -= 2
+    return size
+
+
+def title_for(outline):
+    """(title, sub) for a drawn outline: data/tt_headers.json by slug; house parts get "PART N"."""
+    heads = json.load(open(os.path.join(ROOT, "data/tt_headers.json")))
+    slug = outline["slug"].replace("-tiny", "")
+    sub = f'PART {outline["part"]}' if outline.get("part") else None
+    return heads.get(slug), sub
+
+
 def bar(title, sub=None):
     """drawtext filters for the top title bar (inside TikTok's safe area: below the status bar, above the caption)."""
+    fs = fit(title)
     f = [f"drawbox=x=0:y=150:w=iw:h={250 if sub else 190}:color=black@0.55:t=fill",
-         f"drawtext=fontfile={FONT}:text='{esc(title)}':fontcolor=white:fontsize=84:x=(w-tw)/2:y=175:"
+         f"drawtext=fontfile={FONT}:text='{esc(title)}':fontcolor=white:fontsize={fs}:x=(w-tw)/2:y={175 + (84 - fs) // 2}:"
          "borderw=6:bordercolor=black"]
     if sub:
         f.append(f"drawtext=fontfile={FONT}:text='{esc(sub)}':fontcolor=#ffd34d:fontsize=60:x=(w-tw)/2:y=278:"

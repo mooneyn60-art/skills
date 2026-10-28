@@ -168,6 +168,12 @@ def main():
         dur, kinds, mb = probe(tmp)
         if kinds != ["audio", "video"] or mb >= 50 or not (rng[0] - 0.5 <= dur <= rng[1] + 0.5):
             raise SystemExit(f"drawn_quick: {tmp} failed the check ({dur:.2f} s, {kinds}, {mb:.1f} MB)")
+        if cut == "tt":   # TikTok title bar for the whole video (Nolan 10/28; tools/tt_style.py)
+            import tt_style
+            title, sub = tt_style.title_for(o)
+            if title:
+                tt_style.header(tmp, tmp + ".hdr.mp4", title, sub)
+                shutil.move(tmp + ".hdr.mp4", tmp)
         shutil.move(tmp, mp4)   # never leave an incomplete mp4 under the real name
         jpg = os.path.join(out_dir, f'{cut}-{o["slug"]}-contact-2fps.jpg')
         contact(mp4, jpg)
