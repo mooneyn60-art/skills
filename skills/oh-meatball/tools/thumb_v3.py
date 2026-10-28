@@ -600,6 +600,70 @@ OSTRICH = {"plan": "bird", "color": "#2b2522", "belly": "#3a322e", "dark": "#151
            "leg_len": 330, "foot_color": "#e7a6a0", "beak_color": "#e7a6a0", "mood": "calm"}
 
 
+def ostrich(c, t, p):
+    """Ostrich, side view facing right, feet at y = 0: fluffy black body, white plumes, long thick neck, small head
+    with big lashed eyes and a flat beak, long bare pink legs with two toes."""
+    K = B
+    pink, pink_dk = K.hexc("#e7a6a0"), K.hexc("#c9807a")
+    for hx, far in ((-30, True), (60, False)):   # legs: thigh, backward knee, shin, two toes
+        col = pink_dk if far else pink
+        K.limb(c, [(hx, -470), (hx + 40, -300), (hx - 10, -40)], 30 if not far else 26, col, K.OUT * 0.7)
+        for dx in (60, 110):
+            K.limb(c, [(hx - 10, -30), (hx - 10 + dx, -6)], 22, col, K.OUT * 0.6)
+    K.shape(c, lambda q: K.p_smooth(q, [(-150, -620), (-330, -760), (-290, -600), (-380, -650), (-300, -520)]),
+            (1, 1, 1), K.OUT, (0.05, 0.1))   # white tail plumes
+    K.shape(c, lambda q: K.p_blob(q, 0, -580, 250, 170, 0.07, seed=5), K.hexc("#221c1a"), K.OUT, (0.1, 0.15),
+            hi=(0.3, 0.2, 0.15))
+    for k in range(9):   # fluff
+        a = math.pi * (1.05 + 0.9 * k / 8)
+        x, y = 250 * math.cos(a), -580 + 170 * math.sin(a)
+        K.stroke(c, [(x, y), (x * 1.12, y - 18)], 8, color=K.hexc("#3a302c"))
+    K.shape(c, lambda q: K.p_smooth(q, [(-120, -600), (40, -660), (160, -560), (40, -520)]), (1, 1, 1), K.OUT * 0.8,
+            (0.05, 0.15))   # white wing plume
+    K.limb(c, [(170, -640), (250, -820), (230, -1000), (270, -1090)], 56, K.hexc("#d7b2a8"), K.OUT)   # neck
+    K.shape(c, lambda q: K.p_poly(q, [(310, -1110), (420, -1085), (312, -1060)]), K.hexc("#e9b28a"), K.OUT * 0.7,
+            None)   # flat beak
+    K.shape(c, lambda q: K.p_ellipse(q, 280, -1100, 64, 54), K.hexc("#d7b2a8"), K.OUT, (0.08, 0.15))
+    K.eyes(c, 282, -1112, 30, 26, p.get("look", (1, 0)), p.get("mood", "smug"), 0, K.OUT * 0.6,
+           lid=K.hexc("#d7b2a8"))
+    for ex in (256, 308):   # big lashes
+        for k in range(3):
+            a = -math.pi / 2 + (k - 1) * 0.45
+            K.stroke(c, [(ex + 22 * math.cos(a), -1150 + 22 * math.sin(a)),
+                         (ex + 46 * math.cos(a), -1150 + 46 * math.sin(a))], 7)
+    K.mouth(c, 345, -1082, 40, p.get("mouth", "grin"), p.get("talk", 0.0), K.OUT * 0.5)
+
+
+def cat(c, t, p):
+    """House cat, side view facing right, feet at y = 0: slim body, rounded head, triangle ears, whiskers, long curled
+    tail, slim legs with paws; a red collar with a CIA antenna. """
+    K = B
+    fur, fur_dk = K.hexc("#f1ede4"), K.hexc("#c9c2b4")
+    K.stroke(c, [(-210, -250), (-360, -330), (-420, -520), (-330, -620), (-280, -540)], 34, smooth=True)
+    K.stroke(c, [(-210, -250), (-360, -330), (-420, -520), (-330, -620), (-280, -540)], 20, smooth=True, color=fur)
+    for hx, far in ((-150, True), (150, True), (-110, False), (190, False)):
+        col = fur_dk if far else fur
+        K.limb(c, [(hx, -230), (hx + 10, -110), (hx + 4, -16)], 28, col, K.OUT * 0.6)
+        K.shape(c, lambda q, hx=hx: K.p_ellipse(q, hx + 18, -14, 30, 16), col, K.OUT * 0.6, None)
+    K.shape(c, lambda q: K.p_ellipse(q, 0, -280, 240, 105), fur, K.OUT, (0.05, 0.18), hi=(0.35, 0.2, 0.2))
+    for s_ in (-1, 1):   # ears
+        ex = 300 + s_ * 70
+        K.shape(c, lambda q, ex=ex, s_=s_: K.p_poly(q, [(ex - 50, -440), (ex + s_ * 10, -560), (ex + 50, -430)]),
+                fur, K.OUT, None)
+        K.flat(c, lambda q, ex=ex, s_=s_: K.p_poly(q, [(ex - 26, -450), (ex + s_ * 8, -520), (ex + 26, -445)]),
+               K.hexc("#f2a6b4"))
+    K.shape(c, lambda q: K.p_ellipse(q, 300, -380, 125, 112), fur, K.OUT, (0.06, 0.15))
+    K.shape(c, lambda q: K.p_rrect(q, 190, -300, 120, 34, 14), K.hexc("#d8322a"), K.OUT * 0.7, None)   # collar
+    K.stroke(c, [(205, -290), (110, -640)], 14)   # antenna on the collar, raked back behind the head
+    K.stroke(c, [(205, -290), (110, -640)], 6, color=K.hexc("#c8ccd4"))
+    K.shape(c, lambda q: K.p_ellipse(q, 106, -655, 24, 24), K.hexc("#ff3a2a"), K.OUT * 0.6, None)
+    K.eyes(c, 310, -400, 34, 46, p.get("look", (1, 0)), p.get("mood", "angry"), 0, K.OUT * 0.6, lid=fur)
+    K.shape(c, lambda q: K.p_poly(q, [(360, -366), (388, -366), (374, -348)]), K.hexc("#f28aa0"), K.OUT * 0.4, None)
+    K.mouth(c, 370, -322, 42, p.get("mouth", "grin"), p.get("talk", 0.0), K.OUT * 0.5)
+    for k in (-1, 0, 1):   # whiskers
+        K.stroke(c, [(330, -345 + k * 14), (418, -352 + k * 22)], 4)
+
+
 def l_ostrich():
     """gFhrONKK0rI Everything You Know About Animals Is WRONG -> FAKE!: a smug ostrich standing tall beside the sand hole it never
     sticks its head in (red X)."""
@@ -608,9 +672,9 @@ def l_ostrich():
     d.rectangle([0, 560, W, H], fill=(226, 180, 104))
     d.ellipse([560, 590, 820, 660], fill=(120, 80, 40), outline=INK, width=8)   # the sand hole it never uses
     d.ellipse([600, 600, 780, 640], fill=(60, 36, 18))
-    bird = actor(sp(OSTRICH), {"look": (-1, 0.3), "mood": "smug", "mouth": "grin", "talk": 0.5}, 1.0, 2000, 1500,
-                 900, 1250)
-    bird = pop(fit(bird.transpose(Image.FLIP_LEFT_RIGHT), 560, 600), 9, 8, WHITE, 26, (255, 236, 170))
+    bird = actor(ostrich, {"look": (1, 0.3), "mood": "smug", "mouth": "grin", "talk": 0.5}, 1.0, 1600, 1500,
+                 800, 1350)
+    bird = pop(fit(bird.transpose(Image.FLIP_LEFT_RIGHT), 560, 620), 9, 8, WHITE, 26, (255, 236, 170))
     paste_c(cv, bird, 1000, 380)
     red_x(cv, 690, 590, 80)
     vignette(cv, 0.25)
@@ -731,19 +795,9 @@ def l_cat():
     g = Image.new("RGBA", cv.size, (0, 0, 0, 0))
     ImageDraw.Draw(g).polygon([(760, -20), (900, -20), (1240, 700), (420, 700)], fill=(255, 244, 200, 70))
     cv.alpha_composite(g.filter(ImageFilter.GaussianBlur(20)))
-    cat = actor(sp(CAT), {"look": (-0.8, 0.2), "talk": 0.6}, 1.05, 2000, 1100, 1000, 950)
-    cat = fit(cat.transpose(Image.FLIP_LEFT_RIGHT), 600, 380)
-    lay = Image.new("RGBA", (cat.width + 200, cat.height + 260), (0, 0, 0, 0))
-    lay.alpha_composite(cat, (0, 260))
-    e = ImageDraw.Draw(lay)
-    ax = cat.width - 40   # antenna rising off the tail end, with a red tip bulb
-    ay = 260 + int(cat.height * 0.35)
-    e.line([(ax, ay), (ax + 60, 40)], fill=INK, width=14)
-    e.line([(ax, ay), (ax + 60, 40)], fill=(200, 200, 210), width=6)
-    e.ellipse([ax + 38, 10, ax + 82, 54], fill=RED, outline=INK, width=6)
-    lay = pop(lay, 9, 8, WHITE, 24, (255, 236, 170))
-    paste_c(cv, lay, 900, 400)
-    ring(cv, 900 - lay.width / 2 + ax + 60 + 70, 400 - lay.height / 2 + 32 + 70, 60)
+    kitty = actor(cat, {"look": (1, 0.2), "talk": 0.6}, 1.0, 1400, 1000, 700, 900)
+    kitty = pop(fit(kitty.transpose(Image.FLIP_LEFT_RIGHT), 640, 480), 9, 8, WHITE, 24, (255, 236, 170))
+    paste_c(cv, kitty, 900, 400)
     mb_left(cv, 420, (18, -2))
     words(cv, "SPY CAT?!", 24, -6, 190, YEL, max_w=620)
     badge(cv, "INVESTIGATES", 18, 640, 62, **CASE_TAG)
