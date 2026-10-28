@@ -1,0 +1,103 @@
+{
+ "series": "Is This Spider Venomous?, Part 5",
+ "sources": [
+  "Washington State University Pestsense, Hobo spider: 1-1 3/4 inches including legs, swift-running; funnel web in dark moist areas, often basements, waits at the funnel mouth; improperly identified as dangerous, recent research has not shown it harmful to humans; https://pestsense.cahnrs.wsu.edu/fact-sheet/hobo-spider/",
+  "Gaver-Wainwright, Zack, Foradori & Lavine 2011, Journal of Medical Entomology 48(2): 382-388: the European hobo spider has been implicated as medically important in the Pacific Northwest; only ubiquitous bacteria on the spiders, none transferred MRSA; venom not harmful to vertebrate red blood cells; bacterial infections such as MRSA are often misdiagnosed as spider bites; https://doi.org/10.1603/me09224",
+  "McKeown, Vetter & Hendrickson 2014, Toxicon 84: 51-55, Verified spider bites in Oregon (USA) with the intent to assess hobo spider venom toxicity: 33 verified bites, none developed significant symptoms or dermonecrosis; one hobo spider bite (pain, redness, calf twitching, resolved in 12 h) and one giant house spider bite, which is readily confused with the hobo; https://doi.org/10.1016/j.toxicon.2014.03.009"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:fenrir",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "hobo_spider",
+  "scene": "basement",
+  "scene_p": {
+   "time": "night"
+  },
+  "creature_cfg": {
+   "plan": "arachnid",
+   "label": "hobo spider",
+   "color": "#8a6440",
+   "dark": "#5e4228",
+   "accent": "#b8946a",
+   "eyes": "pair",
+   "pattern": "stripe",
+   "leg_len": 1.2,
+   "leg_w": 15,
+   "mood": "calm",
+   "s": 0.65
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "arachnid",
+    "label": "hobo spider",
+    "color": "#8a6440",
+    "dark": "#5e4228",
+    "accent": "#b8946a",
+    "eyes": "pair",
+    "pattern": "stripe",
+    "leg_len": 1.2,
+    "leg_w": 15,
+    "mood": "calm",
+    "s": 0.65
+   }
+  },
+  "actor": "creature",
+  "wild": "forest_floor"
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Is This Spider Venomous? [Hobo Spider] 🕷️ (#5)",
+ "tiktok_caption": "is this spider venomous? hobo spider 🕷️ the funnel web spider in your basement was blamed for rotting wounds for years. What the science says now, and how it gets confused with the giant house spider. Would you leave its web up? 🕸️ yes / 🧹 no #isthisspidervenomous #hobospider #spiders #meatballmyths",
+ "beats": [
+  {
+   "gag": {
+    "mark": "alarm",
+    "at": "70%"
+   },
+   "m": "hook",
+   "say": "The spider in the funnel web in your basement was once blamed for rotting wounds."
+  },
+  {
+   "m": "escalate",
+   "say": "In the Pacific Northwest, it was called a dangerous spider for years."
+  },
+  {
+   "m": "name",
+   "say": "The hobo spider. A fast brown funnel web spider, from Europe."
+  },
+  {
+   "m": "fact",
+   "say": "Is it venomous? Yes. But research hasn't shown it's harmful to people."
+  },
+  {
+   "m": "xray",
+   "say": "Scientists tested its venom on red blood cells. It didn't harm them."
+  },
+  {
+   "gag": {
+    "prop": "magnifier",
+    "at": "50%"
+   },
+   "m": "fact",
+   "say": "And in tests, the spiders didn't spread the MRSA germ."
+  },
+  {
+   "gag": {
+    "clock": 12,
+    "at": "50%",
+    "dur": 1.4
+   },
+   "m": "punch",
+   "say": "One confirmed hobo spider bite in Oregon? Gone in twelve hours."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Part six is the daddy long legs."
+  }
+ ],
+ "loop": true
+}
