@@ -1,0 +1,170 @@
+{
+ "series": "Things Living In Your House, Part 15",
+ "sources": [
+  "University of California IPM, Drain flies (Moth flies, Pest Notes 7487): small fuzzy flies about 1/8 inch, wings held roof-like over the body and covered with hairs; weak fliers that make short hopping flights; larvae live in the gelatinous film in drains and feed on the organic material and microorganisms in it; larvae breathe through a tube at the rear end; to find the source, tape over drains overnight and look for flies on the tape; the best control is cleaning the film out with a stiff brush, pouring chemicals down the drain is usually not effective; they do not bite; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7487.html",
+  "Penn State Extension, Moth flies (drain flies): females lay 30-100 eggs in the drain film; the life cycle takes about 8 to 24 days; adults live about two weeks; also called filter flies because they breed in huge numbers in sewage treatment trickling filters; https://extension.psu.edu/moth-flies"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "drain_fly",
+  "scene": "bathroom",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "insect",
+   "label": "drain fly",
+   "body": "round",
+   "color": "#8c8a84",
+   "dark": "#5e5c58",
+   "head": "#6a6864",
+   "length": 340,
+   "height": 190,
+   "leg_len": 80,
+   "ant": 110,
+   "stripes": 5,
+   "wings": "clear",
+   "eye_r": 30,
+   "floor": false,
+   "mood": "calm",
+   "s": 0.95
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "insect",
+    "label": "drain fly",
+    "body": "round",
+    "color": "#8c8a84",
+    "dark": "#5e5c58",
+    "head": "#6a6864",
+    "length": 340,
+    "height": 190,
+    "leg_len": 80,
+    "ant": 110,
+    "stripes": 5,
+    "wings": "clear",
+    "eye_r": 30,
+    "floor": false,
+    "mood": "calm",
+    "s": 0.95
+   }
+  },
+  "s": 0.95,
+  "actor": "creature",
+  "wild": "swamp",
+  "wild_p": {
+   "time": "dusk"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "The Fuzzy Fly on Your Bathroom Wall Grew Up in Your Drain 🚿",
+ "tiktok_caption": "the fuzzy little fly on my bathroom wall grew up inside my drain 🚿 and its babies breathe through a snorkel. Would you check your drain tonight? 🔦 yes / 🙈 no way",
+ "beats": [
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "hook",
+   "say": "That fuzzy fly on your bathroom wall? It grew up in your drain."
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "name",
+   "say": "The drain fly. Fuzzy wings, shaped like a heart."
+  },
+  {
+   "scene": "bathroom",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "act": {
+    "fly": 1.0
+   },
+   "m": "solo",
+   "say": "It barely flies. It just hops along the wall."
+  },
+  {
+   "scene": "basement",
+   "scene_p": {
+    "time": "night"
+   },
+   "m": "solo",
+   "say": "Mom lays up to a hundred eggs."
+  },
+  {
+   "scene": "swamp",
+   "scene_p": {
+    "time": "night"
+   },
+   "m": "solo",
+   "say": "Right in the slime inside your drain."
+  },
+  {
+   "scene": "swamp",
+   "hero": {
+    "cfg": {
+     "plan": "worm",
+     "label": "drain fly larva",
+     "color": "#d6cdb6",
+     "dark": "#8a8270",
+     "length": 300,
+     "height": 110,
+     "ant": 0,
+     "stripes": 0,
+     "mood": "happy"
+    }
+   },
+   "hero_at": {
+    "x": 600,
+    "y": 1380
+   },
+   "act": {
+    "chew": 1.0
+   },
+   "m": "solo",
+   "say": "The babies are tiny worms that eat the slime."
+  },
+  {
+   "hero": {
+    "cfg": {
+     "plan": "worm",
+     "label": "drain fly larva",
+     "color": "#d6cdb6",
+     "dark": "#8a8270",
+     "length": 300,
+     "height": 110,
+     "ant": 0,
+     "stripes": 0,
+     "mood": "happy"
+    }
+   },
+   "hero_at": {
+    "x": 760,
+    "y": 1500
+   },
+   "m": "escalate",
+   "say": "And they breathe through a snorkel on their butt."
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "punch",
+   "say": "Your drain is basically a fly nursery."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Part sixteen is hiding in your cereal.",
+   "scene": "kitchen",
+   "scene_p": {}
+  }
+ ]
+}
