@@ -29,6 +29,10 @@
  "tiktok_caption": "the spider on my window turned and looked at me 👀 it hunts with no web and jumps with blood pressure. Would you let it stay? 🏠 stay / 🫙 jar it outside",
  "beats": [
   {
+   "gag": {
+    "prop": "magnifier",
+    "at": "30%"
+   },
    "m": "hook",
    "say": "The spider on your window can see you. And it just turned to look."
   },
@@ -41,14 +45,26 @@
    "say": "Outside, it hunts in daylight. No web at all."
   },
   {
+   "gag": {
+    "prop": "ruler",
+    "at": "70%"
+   },
    "m": "fact",
    "say": "It stalks a fly, judges the distance with those big eyes,"
   },
   {
+   "gag": {
+    "meter": 1.0,
+    "at": "10%"
+   },
    "m": "escalate",
    "say": "and jumps. Before it leaps, it glues down a silk safety line."
   },
   {
+   "gag": {
+    "mark": "hearts",
+    "at": "60%"
+   },
    "m": "calm",
    "say": "To you, it's harmless."
   },
