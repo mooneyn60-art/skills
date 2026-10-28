@@ -41,10 +41,24 @@
  "tiktok_caption": "the shoebill hunts by falling on its face 🐦 then bites the head off its catch, and sometimes eats baby crocodiles. Would you stand next to one? 😬 sure / 🏃 nope #meatballmyths #learnontiktok #shoebill #birds",
  "beats": [
   {
+   "gag": [
+    {
+     "mark": "dizzy",
+     "at": "40%"
+    },
+    {
+     "thought": "fish",
+     "at": "80%"
+    }
+   ],
    "m": "hook",
    "say": "This bird hunts by falling face-first into the swamp. Then it bites the head off its catch."
   },
   {
+   "gag": {
+    "prop": "ruler",
+    "at": "30%"
+   },
    "m": "name",
    "say": "The shoebill. Up to four and a half feet tall, with a beak shaped like a wooden shoe."
   },
@@ -54,14 +68,26 @@
    "say": "It lives in the swamps and marshes of east-central Africa."
   },
   {
+   "gag": {
+    "clock": 2,
+    "at": "60%"
+   },
    "m": "fact",
    "say": "It hunts by standing still in the water, and waiting."
   },
   {
+   "gag": {
+    "meter": 1.0,
+    "at": "40%"
+   },
    "m": "escalate",
    "say": "When a fish swims close, it throws its head and neck forward so hard, it loses its balance,"
   },
   {
+   "gag": {
+    "mark": "dizzy",
+    "at": "50%"
+   },
    "m": "calm",
    "say": "and collapses, face-first, into the water."
   },
@@ -74,27 +100,53 @@
    "say": "At the tip of that giant beak is a sharp hook."
   },
   {
+   "gag": {
+    "thought": "fish",
+    "at": "40%"
+   },
    "m": "fact",
    "say": "It mostly eats fish, like lungfish and catfish. And water snakes."
   },
   {
+   "gag": {
+    "mark": "shock",
+    "at": "80%"
+   },
    "m": "escalate",
    "say": "Sometimes it eats monitor lizards, turtles, and even baby crocodiles."
   },
   {
    "zoom": 0.95,
+   "gag": {
+    "mark": "hearts",
+    "at": "40%"
+   },
    "m": "solo",
    "say": "When it greets its mate at the nest, it claps its beak together, over and over."
   },
   {
+   "gag": {
+    "pile": "egg",
+    "n": 3,
+    "r": 40,
+    "at": "60%"
+   },
    "m": "fact",
    "say": "It fills its beak with water, and pours it over its eggs to keep them cool."
   },
   {
+   "gag": {
+    "thought": "baby",
+    "at": "80%"
+   },
    "m": "fact",
    "say": "It usually lays two eggs. But by the end, usually only one chick is left."
   },
   {
+   "gag": {
+    "prop": "skull",
+    "at": "50%"
+   },
    "m": "escalate",
    "say": "And before it swallows its catch, it usually bites the head off."
   },

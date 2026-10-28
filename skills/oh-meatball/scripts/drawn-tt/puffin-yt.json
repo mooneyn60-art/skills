@@ -109,6 +109,13 @@
    "hero_at": {
     "x": 760
    },
+   "gag": {
+    "pile": "fish",
+    "n": 10,
+    "r": 30,
+    "at": "40%",
+    "dur": 1.8
+   },
    "m": "hook",
    "say": "This bird can cram sixty-two fish into its beak at once."
   },
@@ -185,6 +192,10 @@
     "xray": 1.0
    },
    "pose": "nervous",
+   "gag": {
+    "thought": "fish",
+    "at": "50%"
+   },
    "m": "tiny",
    "say": "Its tongue pins each fish against spikes on the roof of its mouth."
   },
@@ -223,6 +234,12 @@
     "bite": 1.0
    },
    "pose": "shock",
+   "gag": {
+    "pile": "fish",
+    "n": 4,
+    "r": 30,
+    "at": "40%"
+   },
    "m": "tiny",
    "say": "So it can open its beak again, and grab another, and another."
   },

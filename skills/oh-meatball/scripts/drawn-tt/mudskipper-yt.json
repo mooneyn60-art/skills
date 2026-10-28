@@ -70,12 +70,26 @@
      "walk": true
     }
    ],
+   "gag": [
+    {
+     "thought": "fish",
+     "at": "10%"
+    },
+    {
+     "mark": "shock",
+     "at": "50%"
+    }
+   ],
    "m": "hook",
    "say": "This fish walks out of the water, and spends most of its life on land."
   },
   {
    "hero_at": {
     "x": 760
+   },
+   "gag": {
+    "prop": "magnifier",
+    "at": "70%"
    },
    "m": "name",
    "say": "The mudskipper. A fish with bulging eyes on top of its head."
@@ -88,6 +102,10 @@
    "say": "It crawls across the mud on its front fins, like little arms."
   },
   {
+   "gag": {
+    "mark": "sweat",
+    "at": "70%"
+   },
    "m": "solo",
    "say": "It breathes through its skin and its mouth, as long as it stays wet."
   },
@@ -95,10 +113,18 @@
    "hero_at": {
     "x": 760
    },
+   "gag": {
+    "mark": "dizzy",
+    "at": "50%"
+   },
    "m": "escalate",
    "say": "And underwater, it can't even see properly. Its eyes are made for air."
   },
   {
+   "gag": {
+    "prop": "magnifier",
+    "at": "40%"
+   },
    "m": "calm",
    "say": "Each eye swivels on its own, to spot bugs above and below."
   },

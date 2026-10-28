@@ -24,10 +24,21 @@
  "tiktok_caption": "one mouse can leave up to 75 droppings and 3,000 drops of pee a day 🐭 and the nest is probably close. Would you share your kitchen with one? 🧀 sure / 🪤 no way",
  "beats": [
   {
+   "gag": {
+    "pile": "poop",
+    "n": 10,
+    "r": 28,
+    "at": "55%",
+    "dur": 1.8
+   },
    "m": "hook",
    "say": "One mouse in your kitchen can leave up to seventy five droppings a day."
   },
   {
+   "gag": {
+    "prop": "moon",
+    "at": "40%"
+   },
    "m": "name",
    "say": "The house mouse. It comes out at night, while you sleep."
   },
@@ -36,10 +47,18 @@
    "say": "It gets in through a gap just a quarter of an inch wide."
   },
   {
+   "gag": {
+    "meter": 1.0,
+    "at": "40%"
+   },
    "m": "solo",
    "say": "And it can jump a foot straight up, right onto your counter."
   },
   {
+   "gag": {
+    "thought": "cube",
+    "at": "70%"
+   },
    "m": "escalate",
    "say": "It doesn't even need to drink. It gets its water from food."
   },
@@ -48,6 +67,10 @@
    "say": "Your food."
   },
   {
+   "gag": {
+    "clock": 1,
+    "at": "70%"
+   },
    "m": "fact",
    "say": "A female can have five to ten litters a year."
   },
@@ -57,10 +80,20 @@
     "house_mouse",
     "house_mouse"
    ],
+   "gag": {
+    "pile": "baby",
+    "n": 6,
+    "r": 28,
+    "at": "20%"
+   },
    "m": "count",
    "say": "Five or six babies, every time."
   },
   {
+   "gag": {
+    "mark": "shock",
+    "at": "50%"
+   },
    "m": "escalate",
    "say": "And those babies can start having babies at about six weeks old."
   },
@@ -73,10 +106,18 @@
    "say": "In summer, lots of mice live outside, in gardens and fields."
   },
   {
+   "gag": {
+    "zap": true,
+    "at": "40%"
+   },
    "m": "fact",
    "say": "Inside, they chew through wires, gas lines, and plastic containers."
   },
   {
+   "gag": {
+    "prop": "ruler",
+    "at": "60%"
+   },
    "m": "fact",
    "say": "And they rarely travel more than thirty feet from the nest."
   },
@@ -93,14 +134,26 @@
    "scene_p": {
     "time": "night"
    },
+   "gag": {
+    "prop": "moon",
+    "at": "70%"
+   },
    "m": "solo",
    "say": "All over your counters and cupboards, in the dark."
   },
   {
+   "gag": {
+    "mark": "alarm",
+    "at": "40%"
+   },
    "m": "fact",
    "say": "Mouse pee is a major allergen. It's linked to asthma in some kids."
   },
   {
+   "gag": {
+    "mark": "stink",
+    "at": "60%"
+   },
    "m": "fact",
    "say": "And mice can carry germs like salmonella."
   },
