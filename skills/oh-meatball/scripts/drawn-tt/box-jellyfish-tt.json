@@ -1,0 +1,186 @@
+{
+ "series": "Would Meatball Survive?, Part",
+ "sources": [
+  "NOAA National Ocean Service, What is the most venomous marine animal?: the Australian box jellyfish is considered the most venomous marine animal; tentacles covered in nematocysts, tiny darts loaded with poison; victims may experience paralysis, cardiac arrest and even death within a few minutes of being stung; of about 50 box jellyfish species only a few have venom that can be lethal to humans; Chironex fleckeri is the largest, body up to one foot across with tentacles up to 10 feet long; clusters of eyes on each side of the box; can swim at speeds approaching four knots; may actively hunt shrimp and small fish; lethal kinds found mainly in the Indo-Pacific and northern Australia; https://oceanservice.noaa.gov/facts/box-jellyfish.html",
+  "Animal Diversity Web (University of Michigan Museum of Zoology), Chironex fleckeri: as many as 15 tentacles from each of the four corners (pedalia), up to 3 m long; transparent bell; 24 eyes but no brain; symptoms include extreme pain, shortness of breath and purple welts; more than 60 deaths in the last 100 years; an antivenom can save lives if given quickly; box jellyfish nets have been built on beaches where stings occur; https://animaldiversity.org/site/accounts/information/Chironex_fleckeri.html",
+  "Bielecki et al. 2014, PLoS ONE 9(6): e98870: cubozoans rely on 24 special-purpose eyes, six on each of four rhopalia, two of them lens eyes comparable to vertebrate eyes; https://doi.org/10.1371/journal.pone.0098870",
+  "O'Reilly, Isbister, Lawrie, Treston & Currie 2001, Medical Journal of Australia 175(11): 652-655, Prospective study of jellyfish stings from tropical Australia, including the major box jellyfish Chironex fleckeri: 40 patients over 12 months at Royal Darwin Hospital, 28 typical of C. fleckeri; severe envenoming was rare, none life-threatening, no antivenom given, no deaths; https://www.mja.com.au/journal/2001/175/11/prospective-study-jellyfish-stings-tropical-australia-including-major-box"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:fenrir",
+ "rate": "+10%",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "box_jellyfish",
+  "scene": "ocean",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "jelly",
+   "label": "box jellyfish",
+   "color": "#bfe6f2",
+   "dark": "#7fb8cc",
+   "size": 220,
+   "tentacles": 4,
+   "alpha": 0.7,
+   "mood": "angry",
+   "floor": true,
+   "xray": "venom",
+   "s": 0.8
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "jelly",
+    "label": "box jellyfish",
+    "color": "#bfe6f2",
+    "dark": "#7fb8cc",
+    "size": 220,
+    "tentacles": 4,
+    "alpha": 0.7,
+    "mood": "angry",
+    "floor": true,
+    "xray": "venom",
+    "s": 0.8
+   }
+  },
+  "actor": "creature",
+  "wild": "ocean",
+  "wild_p": {
+   "time": "dusk"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Box Jellyfish, the Most Venomous Animal in the Sea. Would Meatball Survive? 🪼",
+ "tiktok_caption": "box jellyfish 🪼 the most venomous animal in the sea is see-through, has 24 eyes and no brain, and a bad sting can stop your heart in minutes. Would you survive a box jellyfish sting? Would you swim there in stinger season? 🏊 yes / 🚫 no way #boxjellyfish #jellyfish #wouldmeatballsurvive #meatballmyths #oceanlife",
+ "beats": [
+  {
+   "gag": {
+    "mark": "shock",
+    "at": "80%"
+   },
+   "m": "hook",
+   "say": "You can barely see it in the water. But its tentacles can stop your heart in minutes."
+  },
+  {
+   "gag": {
+    "prop": "ruler",
+    "at": "70%"
+   },
+   "m": "escalate",
+   "say": "Up to fifteen tentacles on every corner. Each one up to ten feet long."
+  },
+  {
+   "gag": {
+    "prop": "skull",
+    "at": "75%"
+   },
+   "m": "name",
+   "say": "The box jellyfish. Called the most venomous animal in the sea."
+  },
+  {
+   "m": "xray",
+   "say": "Its tentacles are covered in tiny darts, loaded with venom."
+  },
+  {
+   "scene": "ocean",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "gag": {
+    "mark": "dizzy",
+    "at": "70%"
+   },
+   "m": "solo",
+   "say": "It has twenty four eyes. And no brain."
+  },
+  {
+   "m": "chase",
+   "say": "And unlike most jellyfish, it swims. Up to four knots."
+  },
+  {
+   "gag": {
+    "prop": "trophy",
+    "at": "75%"
+   },
+   "m": "punch",
+   "say": "Would Meatball survive? Probably. In one year of stings at a Darwin hospital, nobody died."
+  },
+  {
+   "scene": "ocean",
+   "scene_p": {
+    "time": "day"
+   },
+   "mood": "calm",
+   "m": "solo",
+   "say": "It lives in warm coastal water, in the Indo Pacific, and northern Australia."
+  },
+  {
+   "gag": {
+    "prop": "ruler",
+    "at": "55%"
+   },
+   "m": "fact",
+   "say": "Its see through bell can be about a foot across."
+  },
+  {
+   "scene": "reef",
+   "scene_p": {
+    "time": "day"
+   },
+   "gag": {
+    "thought": "fish",
+    "at": "40%"
+   },
+   "m": "solo",
+   "say": "It hunts shrimp and small fish."
+  },
+  {
+   "m": "calm",
+   "say": "In that hospital study, there were forty stings. Not one was life threatening."
+  },
+  {
+   "gag": {
+    "mark": "sweat",
+    "at": "50%"
+   },
+   "m": "escalate",
+   "say": "But a bad sting means extreme pain, trouble breathing, and purple welts."
+  },
+  {
+   "scene": "ocean",
+   "scene_p": {
+    "time": "night"
+   },
+   "gag": {
+    "prop": "skull",
+    "at": "60%"
+   },
+   "m": "solo",
+   "say": "Over the last hundred years, it's been blamed for more than sixty deaths."
+  },
+  {
+   "m": "fact",
+   "say": "Fast help matters. There is an antivenom."
+  },
+  {
+   "m": "fact",
+   "say": "Beaches where stings happen put up nets to keep them out."
+  },
+  {
+   "m": "fact",
+   "say": "And of about fifty kinds of box jellyfish, only a few can kill a person."
+  },
+  {
+   "m": "fact",
+   "say": "Would you swim there in stinger season?"
+  },
+  {
+   "m": "tease",
+   "say": "Follow me. Next, Meatball versus spiders, part two."
+  }
+ ]
+}

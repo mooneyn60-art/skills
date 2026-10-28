@@ -1,0 +1,117 @@
+slug: box-jellyfish
+out: episodes/drawn-tt
+specs: scripts/drawn-tt
+series: Would Meatball Survive?
+title: Box Jellyfish, the Most Venomous Animal in the Sea. Would Meatball Survive? 🪼
+tiktok_caption: 'box jellyfish 🪼 the most venomous animal in the sea is see-through,
+  has 24 eyes and no brain, and a bad sting can stop your heart in minutes. Would you
+  survive a box jellyfish sting? Would you swim there in stinger season? 🏊 yes / 🚫
+  no way #boxjellyfish #jellyfish #wouldmeatballsurvive #meatballmyths #oceanlife'
+creature: box_jellyfish
+actor: creature
+creature_cfg: &jelly
+  plan: jelly
+  label: box jellyfish
+  color: '#bfe6f2'
+  dark: '#7fb8cc'
+  size: 220
+  tentacles: 4
+  alpha: 0.7
+  mood: angry
+  floor: true
+  xray: venom
+  s: 0.8
+hero_p:
+  cfg: *jelly
+scene: ocean
+scene_p:
+  time: day
+wild: ocean
+wild_p:
+  time: dusk
+rate: +10%
+music: mystery
+next: Next, Meatball versus spiders, part two.
+sources:
+- 'NOAA National Ocean Service, What is the most venomous marine animal?: the Australian
+  box jellyfish is considered the most venomous marine animal; tentacles covered in
+  nematocysts, tiny darts loaded with poison; victims may experience paralysis, cardiac
+  arrest and even death within a few minutes of being stung; of about 50 box jellyfish
+  species only a few have venom that can be lethal to humans; Chironex fleckeri is
+  the largest, body up to one foot across with tentacles up to 10 feet long; clusters
+  of eyes on each side of the box; can swim at speeds approaching four knots; may actively
+  hunt shrimp and small fish; lethal kinds found mainly in the Indo-Pacific and northern
+  Australia; https://oceanservice.noaa.gov/facts/box-jellyfish.html'
+- 'Animal Diversity Web (University of Michigan Museum of Zoology), Chironex fleckeri:
+  as many as 15 tentacles from each of the four corners (pedalia), up to 3 m long;
+  transparent bell; 24 eyes but no brain; symptoms include extreme pain, shortness
+  of breath and purple welts; more than 60 deaths in the last 100 years; an antivenom
+  can save lives if given quickly; box jellyfish nets have been built on beaches where
+  stings occur; https://animaldiversity.org/site/accounts/information/Chironex_fleckeri.html'
+- 'Bielecki et al. 2014, PLoS ONE 9(6): e98870: cubozoans rely on 24 special-purpose
+  eyes, six on each of four rhopalia, two of them lens eyes comparable to vertebrate
+  eyes; https://doi.org/10.1371/journal.pone.0098870'
+- 'O''Reilly, Isbister, Lawrie, Treston & Currie 2001, Medical Journal of Australia
+  175(11): 652-655, Prospective study of jellyfish stings from tropical Australia,
+  including the major box jellyfish Chironex fleckeri: 40 patients over 12 months at
+  Royal Darwin Hospital, 28 typical of C. fleckeri; severe envenoming was rare, none
+  life-threatening, no antivenom given, no deaths; https://www.mja.com.au/journal/2001/175/11/prospective-study-jellyfish-stings-tropical-australia-including-major-box'
+yt:
+- hook: You can barely see it in the water. But its tentacles can stop your heart in minutes.
+  gag:
+    mark: shock
+    at: 80%
+- escalate: Up to fifteen tentacles on every corner. Each one up to ten feet long.
+  gag:
+    prop: ruler
+    at: 70%
+- name: The box jellyfish. Called the most venomous animal in the sea.
+  gag:
+    prop: skull
+    at: 75%
+- xray: Its tentacles are covered in tiny darts, loaded with venom.
+- solo: It has twenty four eyes. And no brain.
+  scene: ocean
+  scene_p:
+    time: dusk
+  gag:
+    mark: dizzy
+    at: 70%
+- chase: And unlike most jellyfish, it swims. Up to four knots.
+- punch: Would Meatball survive? Probably. In one year of stings at a Darwin hospital, nobody died.
+  gag:
+    prop: trophy
+    at: 75%
+tt:
+- solo: It lives in warm coastal water, in the Indo Pacific, and northern Australia.
+  scene: ocean
+  scene_p:
+    time: day
+  mood: calm
+- fact: Its see through bell can be about a foot across.
+  gag:
+    prop: ruler
+    at: 55%
+- solo: It hunts shrimp and small fish.
+  scene: reef
+  scene_p:
+    time: day
+  gag:
+    thought: fish
+    at: 40%
+- calm: In that hospital study, there were forty stings. Not one was life threatening.
+- escalate: But a bad sting means extreme pain, trouble breathing, and purple welts.
+  gag:
+    mark: sweat
+    at: 50%
+- solo: Over the last hundred years, it's been blamed for more than sixty deaths.
+  scene: ocean
+  scene_p:
+    time: night
+  gag:
+    prop: skull
+    at: 60%
+- fact: Fast help matters. There is an antivenom.
+- fact: Beaches where stings happen put up nets to keep them out.
+- fact: And of about fifty kinds of box jellyfish, only a few can kill a person.
+- fact: Would you swim there in stinger season?
