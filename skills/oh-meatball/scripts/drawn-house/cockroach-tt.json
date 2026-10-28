@@ -25,10 +25,24 @@
  "tiktok_caption": "a cockroach can live for weeks with no head 🪳 and it eats your soap. Would you stomp it or run? 👟 stomp / 🏃 run",
  "beats": [
   {
+   "gag": [
+    {
+     "mark": "dizzy",
+     "at": "30%"
+    },
+    {
+     "clock": 3,
+     "at": "50%"
+    }
+   ],
    "m": "hook",
    "say": "A cockroach can live for weeks without its head."
   },
   {
+   "gag": {
+    "prop": "moon",
+    "at": "80%"
+   },
    "m": "name",
    "say": "The cockroach. And it's in your kitchen, after dark."
   },
@@ -41,10 +55,18 @@
    "say": "And its blood runs at such low pressure that the neck often just clots shut."
   },
   {
+   "gag": {
+    "clock": 4,
+    "at": "60%"
+   },
    "m": "escalate",
    "say": "In one lab, headless roaches lasted weeks in a jar."
   },
   {
+   "gag": {
+    "thought": "bone",
+    "at": "60%"
+   },
    "m": "punch",
    "say": "It just never gets to eat again."
   },
@@ -57,10 +79,18 @@
    "say": "At night it comes out of the cracks, looking for food."
   },
   {
+   "gag": {
+    "thought": "cube",
+    "at": "40%"
+   },
    "m": "fact",
    "say": "And it eats almost anything. Your crumbs. Your soap. Glue. Toothpaste. Even hair."
   },
   {
+   "gag": {
+    "prop": "ruler",
+    "at": "50%"
+   },
    "m": "fact",
    "say": "It can flatten itself to a quarter of its height."
   },
@@ -70,6 +100,16 @@
    "say": "That's a gap as thin as two stacked pennies."
   },
   {
+   "gag": [
+    {
+     "meter": 1.0,
+     "at": "40%"
+    },
+    {
+     "mark": "stars",
+     "at": "90%"
+    }
+   ],
    "m": "escalate",
    "say": "Berkeley scientists found it can take forces 900 times its body weight, and walk away."
   },
@@ -79,14 +119,31 @@
     "roach",
     "roach"
    ],
+   "gag": {
+    "pile": "baby",
+    "n": 10,
+    "r": 26,
+    "at": "40%",
+    "dur": 1.8
+   },
    "m": "count",
    "say": "One egg case can hatch up to forty babies."
   },
   {
+   "gag": {
+    "clock": 2,
+    "at": "70%"
+   },
    "m": "escalate",
    "say": "One female can start thousands of roaches in less than a year."
   },
   {
+   "gag": {
+    "pile": "poop",
+    "n": 5,
+    "r": 26,
+    "at": "40%"
+   },
    "m": "calm",
    "say": "And here's the part nobody thinks about. Their droppings and shed skins float in the air."
   },
@@ -95,10 +152,18 @@
    "say": "For some kids, that can trigger asthma."
   },
   {
+   "gag": {
+    "mark": "stink",
+    "at": "50%"
+   },
    "m": "fact",
    "say": "They also track germs from the trash onto your food."
   },
   {
+   "gag": {
+    "mark": "alarm",
+    "at": "60%"
+   },
    "m": "fact",
    "say": "So, you see one on the counter. Would you stomp it, or run?"
   },

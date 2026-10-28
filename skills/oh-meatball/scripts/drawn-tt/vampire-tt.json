@@ -45,6 +45,16 @@
  "tiktok_caption": "vampire bats are real and they're gross 🦇 they pee mid-meal, run on their wings, and throw up blood for hungry friends. Would you sleep with your feet outside? 🦶 sure / 🛏️ blanket on #meatballmyths #learnontiktok #vampirebat #animalfacts",
  "beats": [
   {
+   "gag": [
+    {
+     "meter": 1.0,
+     "at": "35%"
+    },
+    {
+     "mark": "sweat",
+     "at": "80%"
+    }
+   ],
    "m": "hook",
    "say": "This bat drinks so much blood, it has to pee while it's still eating."
   },
@@ -72,6 +82,10 @@
      1,
      0
     ]
+   },
+   "gag": {
+    "prop": "moon",
+    "at": "10%"
    },
    "m": "tiny",
    "say": "At night, it finds a sleeping cow, or a pig."
@@ -103,6 +117,10 @@
    "act": {
     "xray": 1.0
    },
+   "gag": {
+    "meter": 0.9,
+    "at": "40%"
+   },
    "m": "solo",
    "say": "A heat sensor on its nose finds a warm vein."
   },
@@ -125,6 +143,10 @@
     "time": "night"
    },
    "pose": "think",
+   "gag": {
+    "heart": 2,
+    "at": "60%"
+   },
    "m": "tiny",
    "say": "Its spit has a chemical called draculin, that keeps the blood flowing."
   },
@@ -137,6 +159,10 @@
    "act": {
     "chew": 1.0
    },
+   "gag": {
+    "meter": 0.6,
+    "at": "50%"
+   },
    "m": "tiny",
    "say": "In one meal, it can gain up to sixty percent of its body weight."
   },
@@ -148,6 +174,10 @@
    "pose": "laugh",
    "act": {
     "mood": "smug"
+   },
+   "gag": {
+    "mark": "sweat",
+    "at": "30%"
    },
    "m": "tiny",
    "say": "That's too heavy to fly. So it starts peeing almost as soon as it starts drinking."
@@ -168,6 +198,10 @@
      "walk": true
     }
    ],
+   "gag": {
+    "prop": "trophy",
+    "at": "40%"
+   },
    "m": "solo",
    "say": "Of over a thousand kinds of bats, it's the only one seen running on a treadmill."
   },
@@ -199,6 +233,10 @@
    "act": {
     "mood": "worry"
    },
+   "gag": {
+    "clock": 2,
+    "at": "60%"
+   },
    "m": "tiny",
    "say": "Back in the cave, things get gross. Without blood every few days, it starves."
   },
@@ -218,6 +256,10 @@
      }
     }
    ],
+   "gag": {
+    "mark": "shock",
+    "at": "60%"
+   },
    "m": "tiny",
    "say": "So when a roostmate comes home hungry, a full bat throws up blood, right into its mouth."
   },
@@ -227,10 +269,18 @@
     "time": "night"
    },
    "pose": "deadpan",
+   "gag": {
+    "mark": "hearts",
+    "at": "50%"
+   },
    "m": "tiny",
    "say": "And the bats that share are the ones that get fed back later."
   },
   {
+   "gag": {
+    "prop": "bed",
+    "at": "70%"
+   },
    "m": "fact",
    "say": "Sometimes, it even bites people. Would you sleep with your feet outside the blanket?"
   },
