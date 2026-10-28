@@ -44,14 +44,26 @@
  "tiktok_caption": "my owl turned its head almost all the way around 🦉 270 degrees, silent wings, and it coughs up the bones of everything it eats. Would you pick up an owl pellet? 🧤 yes / 🤢 no #meatballmyths #learnontiktok #owl #animalfacts",
  "beats": [
   {
+   "gag": {
+    "meter": 0.75,
+    "at": "35%"
+   },
    "m": "hook",
    "say": "An owl can turn its head two hundred seventy degrees. Without choking off its own brain."
   },
   {
+   "gag": {
+    "mark": "dizzy",
+    "at": "60%"
+   },
    "m": "name",
    "say": "The owl. And no, it can't go all the way around. That's a myth."
   },
   {
+   "gag": {
+    "prop": "magnifier",
+    "at": "30%"
+   },
    "m": "fact",
    "say": "Its eyeballs are locked in place. They can't roll around like yours."
   },
@@ -60,6 +72,10 @@
    "say": "So it turns its whole head instead, on fourteen neck bones."
   },
   {
+   "gag": {
+    "mark": "alarm",
+    "at": "50%"
+   },
    "m": "escalate",
    "say": "Twist your neck that hard, and you could tear an artery, and have a stroke."
   },
@@ -68,10 +84,18 @@
    "say": "So how does the owl survive it?"
   },
   {
+   "gag": {
+    "prop": "magnifier",
+    "at": "30%"
+   },
    "m": "fact",
    "say": "Scientists at Johns Hopkins injected dye into dead owls' necks to find out."
   },
   {
+   "gag": {
+    "prop": "ruler",
+    "at": "50%"
+   },
    "m": "fact",
    "say": "The holes in its neck bones are ten times wider than the artery inside."
   },
@@ -80,6 +104,10 @@
    "say": "So the artery has room to twist, without getting pinched."
   },
   {
+   "gag": {
+    "heart": 2,
+    "at": "60%"
+   },
    "m": "xray",
    "say": "And at the base of its head, blood pools in little reserve tanks,"
   },
@@ -98,14 +126,33 @@
   },
   {
    "zoom": 0.95,
+   "gag": {
+    "meter": 0.1,
+    "at": "60%"
+   },
    "m": "solo",
    "say": "A barn owl can fly as slow as two miles an hour."
   },
   {
+   "gag": {
+    "mark": "shock",
+    "at": "60%"
+   },
    "m": "escalate",
    "say": "Now the gross part. An owl has no teeth. It swallows small prey whole."
   },
   {
+   "gag": [
+    {
+     "clock": 1,
+     "at": "15%"
+    },
+    {
+     "pile": "bone",
+     "n": 4,
+     "at": "60%"
+    }
+   ],
    "m": "fact",
    "say": "About twelve hours later, it coughs up a pellet of bones and fur."
   },
@@ -114,12 +161,16 @@
    "say": "Would you pick up an owl pellet?"
   },
   {
+   "gag": {
+    "prop": "skull",
+    "at": "80%"
+   },
    "m": "punch",
    "say": "It eats dinner whole, and hands you back the skeleton."
   },
   {
    "m": "tease",
-   "say": "Subscribe. Next, a spiky lizard that drinks through its skin."
+   "say": "Follow me. Next, a spiky lizard that drinks through its skin."
   }
  ]
 }

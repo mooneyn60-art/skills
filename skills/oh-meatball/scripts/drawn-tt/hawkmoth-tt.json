@@ -41,6 +41,10 @@
  "tiktok_caption": "this 'snake' is a caterpillar 🐍 it flips over, puffs up a fake viper head and even strikes. no venom at all. Would you pick it up? ✋ yes / 😱 no way #meatballmyths #learnontiktok #caterpillar #animalfacts",
  "beats": [
   {
+   "gag": {
+    "mark": "alarm",
+    "at": "80%"
+   },
    "m": "hook",
    "say": "This caterpillar can turn itself into a fake snake head. And it strikes."
   },
@@ -65,6 +69,10 @@
     "chew": 1.0,
     "mood": "happy"
    },
+   "gag": {
+    "thought": "leaf",
+    "at": "60%"
+   },
    "m": "tiny",
    "say": "Most of the time, it just munches leaves."
   },
@@ -78,6 +86,10 @@
     "crouch": 1.0,
     "mood": "angry"
    },
+   "gag": {
+    "mark": "dizzy",
+    "at": "70%"
+   },
    "m": "tiny",
    "say": "But bother it, and it pulls its head and legs in, and flips over."
   },
@@ -88,6 +100,10 @@
    },
    "act": {
     "xray": 1.0
+   },
+   "gag": {
+    "meter": 1.0,
+    "at": "60%"
    },
    "m": "solo",
    "say": "Then it sucks air in through tiny holes, and puffs up into a viper head."
@@ -100,6 +116,10 @@
    "pose": "shock",
    "act": {
     "mood": "angry"
+   },
+   "gag": {
+    "prop": "magnifier",
+    "at": "20%"
    },
    "m": "tiny",
    "say": "Two fake eyes stare at me. They even look wet and shiny."
@@ -136,6 +156,10 @@
     "bite": 1.0,
     "mood": "angry"
    },
+   "gag": {
+    "mark": "anger",
+    "at": "40%"
+   },
    "m": "solo",
    "say": "Still not scared? It lunges, like it's going to bite."
   },
@@ -145,6 +169,10 @@
     "time": "dusk"
    },
    "pose": "laugh",
+   "gag": {
+    "mark": "sweat",
+    "at": "60%"
+   },
    "m": "tiny",
    "say": "Here's the twist. It has no venom. No fangs. Nothing."
   },
@@ -163,6 +191,10 @@
     "time": "day"
    },
    "pose": "think",
+   "gag": {
+    "prop": "magnifier",
+    "at": "60%"
+   },
    "m": "tiny",
    "say": "And the bluff works. Scientists made fake caterpillars out of pastry dough."
   },
@@ -178,6 +210,10 @@
      "s": 0.7
     }
    ],
+   "gag": {
+    "prop": "trophy",
+    "at": "40%"
+   },
    "m": "tiny",
    "say": "The ones with eyespots and a snake-shaped head survived birds better."
   },
@@ -185,6 +221,10 @@
    "scene": "forest_floor",
    "scene_p": {
     "time": "dusk"
+   },
+   "gag": {
+    "mark": "shock",
+    "at": "50%"
    },
    "m": "tiny",
    "say": "In another test, chicks were most scared when the eyespots sat up front, where a head would be."
@@ -202,10 +242,18 @@
      "s": 1.0
     }
    ],
+   "gag": {
+    "clock": 2,
+    "at": "15%"
+   },
    "m": "tiny",
    "say": "One day, it turns into a hawkmoth, a fluffy moth."
   },
   {
+   "gag": {
+    "mark": "alarm",
+    "at": "40%"
+   },
    "m": "fact",
    "say": "So if a tiny viper struck at you from a leaf, would you pick it up?"
   },
@@ -215,7 +263,7 @@
   },
   {
    "m": "tease",
-   "say": "Subscribe. Next, a bird that can turn its head almost all the way around."
+   "say": "Follow me. Next, a bird that can turn its head almost all the way around."
   }
  ]
 }
