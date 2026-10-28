@@ -4,7 +4,9 @@ specs: scripts/drawn-tt
 series: Meatball's Animal Files
 variant: B
 title: A Hummingbird's Heart Can Beat Over 1,200 Times a Minute 🐦
-tiktok_caption: 'a hummingbird''s heart can beat over 1,200 times a minute 🐦 and it''s the only bird that can really fly backwards. Would you hand-feed one? 🌺 yes / 😳 too fast #meatballmyths #learnontiktok #hummingbird #animalfacts'
+tiktok_caption: 'a hummingbird''s heart can beat over 1,200 times a minute 🐦 and it''s
+  the only bird that can really fly backwards. Would you hand-feed one? 🌺 yes / 😳
+  too fast #meatballmyths #learnontiktok #hummingbird #animalfacts'
 creature: hummingbird
 actor: creature
 creature_cfg: &id001
@@ -27,90 +29,201 @@ creature_cfg: &id001
 hero_p:
   cfg: *id001
 scene: garden
-scene_p: {time: day}
+scene_p:
+  time: day
 wild: garden
-wild_p: {time: dusk}
-rate: '+10%'
+wild_p:
+  time: dusk
+rate: +10%
 music: mystery
 next: Next, an animal with a pocket for its favorite rock.
 sources:
-  - "Smithsonian's National Zoo / Migratory Bird Center, Hummingbird facts: hummingbirds are the only birds that can fly backwards (in sustained flight) and hover; heart rates as high as about 1,260 beats per minute in the blue-throated hummingbird; the ruby-throated hummingbird beats its wings about 50 times per second and many fly nonstop across the Gulf of Mexico (about 500 miles) on migration; at night they can enter torpor, dropping body temperature and heart rate to save energy; https://nationalzoo.si.edu/migratory-birds/news/hummingbird-facts"
-  - "Encyclopaedia Britannica, Bee hummingbird: the smallest living bird, about 5-6 cm long and around 2 g, found in Cuba; https://www.britannica.com/animal/bee-hummingbird"
-  - "Rico-Guevara & Rubega 2011, PNAS, The hummingbird tongue is a fluid trap, not a capillary tube: the forked tongue tips open and close to trap nectar; https://doi.org/10.1073/pnas.1016944108"
+- 'Smithsonian''s National Zoo / Migratory Bird Center, Hummingbird facts: hummingbirds
+  are the only birds that can fly backwards (in sustained flight) and hover; heart
+  rates as high as about 1,260 beats per minute in the blue-throated hummingbird;
+  the ruby-throated hummingbird beats its wings about 50 times per second and many
+  fly nonstop across the Gulf of Mexico (about 500 miles) on migration; at night they
+  can enter torpor, dropping body temperature and heart rate to save energy; https://nationalzoo.si.edu/migratory-birds/news/hummingbird-facts'
+- 'Encyclopaedia Britannica, Bee hummingbird: the smallest living bird, about 5-6
+  cm long and around 2 g, found in Cuba; https://www.britannica.com/animal/bee-hummingbird'
+- 'Rico-Guevara & Rubega 2011, PNAS, The hummingbird tongue is a fluid trap, not a
+  capillary tube: the forked tongue tips open and close to trap nectar; https://doi.org/10.1073/pnas.1016944108'
 yt:
-  - hook: Its heart can beat over twelve hundred times a minute.
-    act: {fly: 1.0}
-    hero_at: {x: 780, y: 1000}
-  - solo: The hummingbird. It hovers in place, wings a blur.
-    act: {fly: 1.0}
-  - solo: A ruby-throat beats its wings about fifty times a second.
-    scene: forest_floor
-    scene_p: {time: day}
-    act: {fly: 1.0}
-  - solo: It's the only bird that can truly fly backwards.
-    scene: garden
-    scene_p: {time: dusk}
-    act: {fly: 1.0}
-    hero_moves:
-    - at: 0.2
-      dur: 1.6
-      pos: [740, 900]
-  - xray: That tiny heart races just to keep it in the air.
-    hero_at: {x: 780, y: 1000}
-  - solo: So every night, it powers down to save energy.
-    scene: forest_floor
-    scene_p: {time: night}
+- hook: Its heart can beat over twelve hundred times a minute.
+  act:
+    fly: 1.0
+  hero_at:
+    x: 780
+    y: 1000
+  gag:
+    heart: 8
+    at: 30%
+- solo: The hummingbird. It hovers in place, wings a blur.
+  act:
+    fly: 1.0
+- solo: A ruby-throat beats its wings about fifty times a second.
+  scene: forest_floor
+  scene_p:
+    time: day
+  act:
+    fly: 1.0
+  gag:
+    meter: 1.0
+    at: 50%
+- solo: It's the only bird that can truly fly backwards.
+  scene: garden
+  scene_p:
+    time: dusk
+  act:
+    fly: 1.0
+  hero_moves:
+  - at: 0.2
+    dur: 1.6
+    pos:
+    - 740
+    - 900
+  gag:
+    prop: trophy
+    at: 60%
+- xray: That tiny heart races just to keep it in the air.
+  hero_at:
+    x: 780
+    y: 1000
+- solo: So every night, it powers down to save energy.
+  scene: forest_floor
+  scene_p:
+    time: night
+  mood: calm
+  gag:
+  - prop: moon
+    at: 20%
+  - mark: zzz
+    at: 60%
+- solo: Its body cools, and its heart slows way down.
+  scene: garden
+  scene_p:
+    time: night
+  act:
     mood: calm
-  - solo: Its body cools, and its heart slows way down.
-    scene: garden
-    scene_p: {time: night}
-    act: {mood: calm}
-  - scale: The smallest kind, the bee hummingbird, weighs about two grams.
-    how: shrink
-    hero_at: {x: 780, y: 1000}
-  - punch: A heart this fast, in a bird this small.
-    hero_at: {x: 780, y: 1000}
+  gag:
+    heart: 1
+    at: 60%
+- scale: The smallest kind, the bee hummingbird, weighs about two grams.
+  how: shrink
+  hero_at:
+    x: 780
+    y: 1000
+  gag:
+    prop: ruler
+    at: 60%
+- punch: A heart this fast, in a bird this small.
+  hero_at:
+    x: 780
+    y: 1000
+  gag:
+    heart: 8
+    at: 30%
 tt:
-  - solo: It doesn't sip nectar through its beak like a straw.
-    scene: garden
-    scene_p: {time: day}
-    act: {fly: 1.0}
-  - solo: Its tongue splits at the tip, and traps the nectar.
-    scene: garden
-    scene_p: {time: dusk}
-    act: {fly: 1.0, talk: 1.0}
-  - solo: Every fall, many ruby-throats head south.
-    scene: desert
-    scene_p: {time: day}
-    act: {fly: 1.0}
-  - solo: Some fly right across the Gulf of Mexico.
-    scene: ocean
-    scene_p: {time: day}
-    act: {fly: 1.0}
-  - solo: About five hundred miles, without stopping.
-    scene: ocean
-    scene_p: {time: dusk}
-    act: {fly: 1.0}
-    mood: worry
-  - solo: Before the trip, it eats and eats, to store fat.
-    scene: garden
-    scene_p: {time: day}
-    act: {chew: 1.0}
-  - solo: In Cuba lives the bee hummingbird, the smallest bird on Earth.
-    scene: forest_floor
-    scene_p: {time: dusk}
-    hero:
-      cfg: {plan: bird, color: '#3a8ad0', dark: '#2a5a9a', belly: '#eef2ea', length: 220, height: 150, leg_len: 50, beak: long, beak_color: '#2a2a2a', foot_color: '#3a3a3a', mood: happy}
-    act: {fly: 1.0}
-  - solo: It's about as long as your thumb.
-    scene: garden
-    scene_p: {time: day}
-    hero:
-      cfg: {plan: bird, color: '#3a8ad0', dark: '#2a5a9a', belly: '#eef2ea', length: 220, height: 150, leg_len: 50, beak: long, beak_color: '#2a2a2a', foot_color: '#3a3a3a', mood: smug}
-    act: {fly: 1.0}
-  - fact: Would you hold out your hand to feed one?
-    hero_at: {x: 780, y: 1000}
-    act: {fly: 1.0}
-  - punch: Fifty wingbeats a second, and it can still fly in reverse.
-    hero_at: {x: 780, y: 1000}
-    act: {fly: 1.0}
+- solo: It doesn't sip nectar through its beak like a straw.
+  scene: garden
+  scene_p:
+    time: day
+  act:
+    fly: 1.0
+- solo: Its tongue splits at the tip, and traps the nectar.
+  scene: garden
+  scene_p:
+    time: dusk
+  act:
+    fly: 1.0
+    talk: 1.0
+  gag:
+    prop: magnifier
+    at: 40%
+- solo: Every fall, many ruby-throats head south.
+  scene: desert
+  scene_p:
+    time: day
+  act:
+    fly: 1.0
+- solo: Some fly right across the Gulf of Mexico.
+  scene: ocean
+  scene_p:
+    time: day
+  act:
+    fly: 1.0
+- solo: About five hundred miles, without stopping.
+  scene: ocean
+  scene_p:
+    time: dusk
+  act:
+    fly: 1.0
+  mood: worry
+  gag:
+    mark: sweat
+    at: 60%
+- solo: Before the trip, it eats and eats, to store fat.
+  scene: garden
+  scene_p:
+    time: day
+  act:
+    chew: 1.0
+  gag:
+    meter: 1.0
+    at: 60%
+- solo: In Cuba lives the bee hummingbird, the smallest bird on Earth.
+  scene: forest_floor
+  scene_p:
+    time: dusk
+  hero:
+    cfg:
+      plan: bird
+      color: '#3a8ad0'
+      dark: '#2a5a9a'
+      belly: '#eef2ea'
+      length: 220
+      height: 150
+      leg_len: 50
+      beak: long
+      beak_color: '#2a2a2a'
+      foot_color: '#3a3a3a'
+      mood: happy
+  act:
+    fly: 1.0
+  gag:
+    prop: trophy
+    at: 60%
+- solo: It's about as long as your thumb.
+  scene: garden
+  scene_p:
+    time: day
+  hero:
+    cfg:
+      plan: bird
+      color: '#3a8ad0'
+      dark: '#2a5a9a'
+      belly: '#eef2ea'
+      length: 220
+      height: 150
+      leg_len: 50
+      beak: long
+      beak_color: '#2a2a2a'
+      foot_color: '#3a3a3a'
+      mood: smug
+  act:
+    fly: 1.0
+  gag:
+    prop: ruler
+    at: 60%
+- fact: Would you hold out your hand to feed one?
+  hero_at:
+    x: 780
+    y: 1000
+  act:
+    fly: 1.0
+- punch: Fifty wingbeats a second, and it can still fly in reverse.
+  hero_at:
+    x: 780
+    y: 1000
+  act:
+    fly: 1.0

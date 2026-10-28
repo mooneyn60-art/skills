@@ -4,10 +4,12 @@ specs: scripts/drawn-house
 series: Things Living In Your House
 part: 16
 title: The Moth in Your Kitchen Isn't Eating Your Cereal. Its Babies Are 🥣
-tiktok_caption: "the moth flying around my kitchen isn't the one eating my cereal 🥣 its caterpillars are, and they can chew through plastic bags. Would you check your pantry tonight? 🔦 yes / 🙈 no"
+tiktok_caption: the moth flying around my kitchen isn't the one eating my cereal 🥣
+  its caterpillars are, and they can chew through plastic bags. Would you check your
+  pantry tonight? 🔦 yes / 🙈 no
 creature: pantry_moth
 actor: creature
-creature_cfg: &adult
+creature_cfg: &id001
   plan: insect
   label: pantry moth
   body: long
@@ -24,105 +26,218 @@ creature_cfg: &adult
   mood: smug
   s: 1.0
 hero_p:
-  cfg: *adult
+  cfg: *id001
 s: 1.0
 scene: kitchen
-scene_p: {time: night}
+scene_p:
+  time: night
 wild: garden
-wild_p: {time: dusk}
-rate: '+10%'
+wild_p:
+  time: dusk
+rate: +10%
 music: mystery
 next: Part seventeen climbs your walls.
 next_scene: sill
-next_scene_p: {time: night}
+next_scene_p:
+  time: night
 sources:
-  - "University of California IPM, Pantry Pests (Pest Notes 7452): the Indian meal moth is the most common moth pest of stored food in homes; adults have reddish-brown or copper outer wings with a pale grey-cream base; larvae feed on grains, cereals, flour, dried fruit, nuts, pet food, birdseed and chocolate, and leave silk webbing in the food; mature larvae often leave the food to pupate and may be found on walls and ceilings; adult moths do not feed on stored products; some pantry pests can chew through thin plastic bags and cardboard, so store food in glass, metal or heavy plastic containers with tight lids; freezing infested or new products (0 F for about 4 days) kills all stages; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7452.html"
-  - "University of Florida Featured Creatures, Indian meal moth (Plodia interpunctella): the common name comes from an early report of the larvae feeding on Indian meal, a historical name for cornmeal; females lay roughly 60 to 400 eggs; https://entnemdept.ufl.edu/creatures/urban/stored/indian_meal_moth.htm"
+- 'University of California IPM, Pantry Pests (Pest Notes 7452): the Indian meal moth
+  is the most common moth pest of stored food in homes; adults have reddish-brown
+  or copper outer wings with a pale grey-cream base; larvae feed on grains, cereals,
+  flour, dried fruit, nuts, pet food, birdseed and chocolate, and leave silk webbing
+  in the food; mature larvae often leave the food to pupate and may be found on walls
+  and ceilings; adult moths do not feed on stored products; some pantry pests can
+  chew through thin plastic bags and cardboard, so store food in glass, metal or heavy
+  plastic containers with tight lids; freezing infested or new products (0 F for about
+  4 days) kills all stages; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7452.html'
+- 'University of Florida Featured Creatures, Indian meal moth (Plodia interpunctella):
+  the common name comes from an early report of the larvae feeding on Indian meal,
+  a historical name for cornmeal; females lay roughly 60 to 400 eggs; https://entnemdept.ufl.edu/creatures/urban/stored/indian_meal_moth.htm'
 yt:
-  - hook: That moth in your kitchen isn't eating your cereal. Its babies are.
-    hero_at: {x: 720}
-  - solo: The pantry moth. Copper wing tips, and pale shoulders.
-    scene: kitchen
-    scene_p: {time: dusk}
-    act: {fly: 1.0}
-  - solo: The grown-up moth doesn't eat your food at all.
-    scene: kitchen
-    scene_p: {time: night}
-  - solo: But mom lays hundreds of eggs, right in it.
-    scene: basement
-    scene_p: {time: dusk}
-  - solo: The babies hatch as tiny caterpillars.
-    scene: microscope
-    hero: &larva
-      cfg: {plan: worm, label: pantry moth caterpillar, color: '#efe4cc', dark: '#a8946c', length: 300, height: 110, ant: 0, stripes: 0, mood: happy}
-    hero_at: {x: 600, y: 1380}
-  - solo: They eat cereal, flour, nuts, and dried fruit.
-    scene: kitchen
-    hero: *larva
-    hero_at: {x: 600, y: 1380}
-    act: {chew: 1.0}
-  - solo: Even pet food and chocolate.
-    scene: basement
-    hero: *larva
-    hero_at: {x: 600, y: 1380}
-    act: {chew: 1.0}
-  - solo: And they leave sticky silk webs in it.
-    scene: fibers
-    hero: *larva
-    hero_at: {x: 600, y: 1380}
-  - punch: So that clumpy cereal? Check it for webs.
-    hero_at: {x: 720}
+- hook: That moth in your kitchen isn't eating your cereal. Its babies are.
+  hero_at:
+    x: 720
+  gag:
+  - thought: cube
+    at: 40%
+  - pile: baby
+    n: 4
+    r: 26
+    at: 80%
+- solo: The pantry moth. Copper wing tips, and pale shoulders.
+  scene: kitchen
+  scene_p:
+    time: dusk
+  act:
+    fly: 1.0
+  gag:
+    prop: magnifier
+    at: 50%
+- solo: The grown-up moth doesn't eat your food at all.
+  scene: kitchen
+  scene_p:
+    time: night
+- solo: But mom lays hundreds of eggs, right in it.
+  scene: basement
+  scene_p:
+    time: dusk
+  gag:
+    pile: egg
+    n: 10
+    r: 24
+    at: 50%
+    dur: 1.8
+- solo: The babies hatch as tiny caterpillars.
+  scene: microscope
+  hero: &id002
+    cfg:
+      plan: worm
+      label: pantry moth caterpillar
+      color: '#efe4cc'
+      dark: '#a8946c'
+      length: 300
+      height: 110
+      ant: 0
+      stripes: 0
+      mood: happy
+  hero_at:
+    x: 600
+    y: 1380
+  gag:
+    prop: ruler
+    at: 50%
+- solo: They eat cereal, flour, nuts, and dried fruit.
+  scene: kitchen
+  hero: *id002
+  hero_at:
+    x: 600
+    y: 1380
+  act:
+    chew: 1.0
+  gag:
+    thought: cube
+    at: 40%
+- solo: Even pet food and chocolate.
+  scene: basement
+  hero: *id002
+  hero_at:
+    x: 600
+    y: 1380
+  act:
+    chew: 1.0
+  gag:
+    thought: bone
+    at: 40%
+- solo: And they leave sticky silk webs in it.
+  scene: fibers
+  hero: *id002
+  hero_at:
+    x: 600
+    y: 1380
+- punch: So that clumpy cereal? Check it for webs.
+  hero_at:
+    x: 720
+  gag:
+    prop: magnifier
+    at: 60%
 tt:
-  - solo: Thin plastic bags won't stop them.
-    scene: kitchen
-    scene_p: {time: night}
-    hero: *larva
-    hero_at: {x: 600, y: 1380}
-    mood: smug
-  - solo: They can chew right through, and through cardboard too.
-    scene: basement
-    scene_p: {time: night}
-    hero: *larva
-    hero_at: {x: 600, y: 1380}
-    act: {chew: 1.0}
-  - solo: When they're ready, they crawl away from the food.
-    scene: kitchen
-    hero: *larva
-    hero_at: {x: 600, y: 1380}
-  - solo: Up the walls, even onto the ceiling.
-    scene: bedroom
-    scene_p: {time: night}
-    hero: *larva
-    hero_at: {x: 600, y: 1380}
-    mood: calm
-  - solo: There they wrap up, and turn into moths.
-    scene: sill
-    scene_p: {time: night}
-    act: {fly: 1.0}
-  - shrink: So I shrank down to see its name.
-  - tiny: It's also called the Indian meal moth.
-    scene: garden
-    scene_p: {time: day}
-  - tiny: Not from India. Indian meal was an old word for cornmeal.
-    scene: desert
-    scene_p: {time: day}
-  - tiny: It got the name after its babies were found eating it.
-    scene: kitchen
-    scene_p: {time: day}
-    hero: *larva
-  - solo: Want them gone? Throw out the webby food.
-    scene: kitchen
-    scene_p: {time: dusk}
-    mood: worry
-  - solo: Keep the rest in jars with tight lids.
-    scene: kitchen
-    scene_p: {time: day}
-    mood: worry
-  - solo: Or freeze new flour for four days first.
-    scene: basement
-    scene_p: {time: night}
-    mood: worry
-  - fact: Would you check your pantry tonight?
-    hero_at: {x: 720}
-  - punch: The moth isn't the problem. Its hungry babies are.
-    hero_at: {x: 720}
+- solo: Thin plastic bags won't stop them.
+  scene: kitchen
+  scene_p:
+    time: night
+  hero: *id002
+  hero_at:
+    x: 600
+    y: 1380
+  mood: smug
+- solo: They can chew right through, and through cardboard too.
+  scene: basement
+  scene_p:
+    time: night
+  hero: *id002
+  hero_at:
+    x: 600
+    y: 1380
+  act:
+    chew: 1.0
+  gag:
+    meter: 1.0
+    at: 40%
+- solo: When they're ready, they crawl away from the food.
+  scene: kitchen
+  hero: *id002
+  hero_at:
+    x: 600
+    y: 1380
+- solo: Up the walls, even onto the ceiling.
+  scene: bedroom
+  scene_p:
+    time: night
+  hero: *id002
+  hero_at:
+    x: 600
+    y: 1380
+  mood: calm
+  gag:
+    mark: dizzy
+    at: 70%
+- solo: There they wrap up, and turn into moths.
+  scene: sill
+  scene_p:
+    time: night
+  act:
+    fly: 1.0
+  gag:
+    mark: zzz
+    at: 40%
+- shrink: So I shrank down to see its name.
+- tiny: It's also called the Indian meal moth.
+  scene: garden
+  scene_p:
+    time: day
+- tiny: Not from India. Indian meal was an old word for cornmeal.
+  scene: desert
+  scene_p:
+    time: day
+  gag:
+    mark: shock
+    at: 30%
+- tiny: It got the name after its babies were found eating it.
+  scene: kitchen
+  scene_p:
+    time: day
+  hero: *id002
+  gag:
+    thought: cube
+    at: 60%
+- solo: Want them gone? Throw out the webby food.
+  scene: kitchen
+  scene_p:
+    time: dusk
+  mood: worry
+- solo: Keep the rest in jars with tight lids.
+  scene: kitchen
+  scene_p:
+    time: day
+  mood: worry
+- solo: Or freeze new flour for four days first.
+  scene: basement
+  scene_p:
+    time: night
+  mood: worry
+  gag:
+  - prop: snowflake
+    at: 30%
+  - clock: 4
+    at: 70%
+- fact: Would you check your pantry tonight?
+  hero_at:
+    x: 720
+- punch: The moth isn't the problem. Its hungry babies are.
+  hero_at:
+    x: 720
+  gag:
+    pile: baby
+    n: 5
+    r: 26
+    at: 70%

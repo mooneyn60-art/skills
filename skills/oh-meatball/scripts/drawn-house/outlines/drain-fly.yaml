@@ -4,10 +4,12 @@ specs: scripts/drawn-house
 series: Things Living In Your House
 part: 15
 title: The Fuzzy Fly on Your Bathroom Wall Grew Up in Your Drain 🚿
-tiktok_caption: "the fuzzy little fly on my bathroom wall grew up inside my drain 🚿 and its babies breathe through a snorkel. Would you check your drain tonight? 🔦 yes / 🙈 no way"
+tiktok_caption: the fuzzy little fly on my bathroom wall grew up inside my drain 🚿
+  and its babies breathe through a snorkel. Would you check your drain tonight? 🔦
+  yes / 🙈 no way
 creature: drain_fly
 actor: creature
-creature_cfg: &adult
+creature_cfg: &id001
   plan: insect
   label: drain fly
   body: round
@@ -25,94 +27,196 @@ creature_cfg: &adult
   mood: calm
   s: 0.95
 hero_p:
-  cfg: *adult
+  cfg: *id001
 s: 0.95
 scene: bathroom
-scene_p: {time: day}
+scene_p:
+  time: day
 wild: swamp
-wild_p: {time: dusk}
-rate: '+10%'
+wild_p:
+  time: dusk
+rate: +10%
 music: mystery
 next: Part sixteen is hiding in your cereal.
 next_scene: kitchen
 sources:
-  - "University of California IPM, Drain flies (Moth flies, Pest Notes 7487): small fuzzy flies about 1/8 inch, wings held roof-like over the body and covered with hairs; weak fliers that make short hopping flights; larvae live in the gelatinous film in drains and feed on the organic material and microorganisms in it; larvae breathe through a tube at the rear end; to find the source, tape over drains overnight and look for flies on the tape; the best control is cleaning the film out with a stiff brush, pouring chemicals down the drain is usually not effective; they do not bite; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7487.html"
-  - "Penn State Extension, Moth flies (drain flies): females lay 30-100 eggs in the drain film; the life cycle takes about 8 to 24 days; adults live about two weeks; also called filter flies because they breed in huge numbers in sewage treatment trickling filters; https://extension.psu.edu/moth-flies"
+- 'University of California IPM, Drain flies (Moth flies, Pest Notes 7487): small
+  fuzzy flies about 1/8 inch, wings held roof-like over the body and covered with
+  hairs; weak fliers that make short hopping flights; larvae live in the gelatinous
+  film in drains and feed on the organic material and microorganisms in it; larvae
+  breathe through a tube at the rear end; to find the source, tape over drains overnight
+  and look for flies on the tape; the best control is cleaning the film out with a
+  stiff brush, pouring chemicals down the drain is usually not effective; they do
+  not bite; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7487.html'
+- 'Penn State Extension, Moth flies (drain flies): females lay 30-100 eggs in the
+  drain film; the life cycle takes about 8 to 24 days; adults live about two weeks;
+  also called filter flies because they breed in huge numbers in sewage treatment
+  trickling filters; https://extension.psu.edu/moth-flies'
 yt:
-  - hook: That fuzzy fly on your bathroom wall? It grew up in your drain.
-    hero_at: {x: 720}
-  - name: The drain fly. Fuzzy wings, shaped like a heart.
-    hero_at: {x: 720}
-  - solo: It barely flies. It just hops along the wall.
-    scene: bathroom
-    scene_p: {time: dusk}
-    act: {fly: 1.0}
-  - solo: Mom lays up to a hundred eggs.
-    scene: basement
-    scene_p: {time: night}
-  - solo: Right in the slime inside your drain.
-    scene: swamp
-    scene_p: {time: night}
-  - solo: The babies are tiny worms that eat the slime.
-    scene: swamp
-    hero: &larva
-      cfg: {plan: worm, label: drain fly larva, color: '#d6cdb6', dark: '#8a8270', length: 300, height: 110, ant: 0, stripes: 0, mood: happy}
-    hero_at: {x: 600, y: 1380}
-    act: {chew: 1.0}
-  - escalate: And they breathe through a snorkel on their butt.
-    hero: *larva
-    hero_at: {x: 760, y: 1500}
-  - punch: Your drain is basically a fly nursery.
-    hero_at: {x: 720}
+- hook: That fuzzy fly on your bathroom wall? It grew up in your drain.
+  hero_at:
+    x: 720
+  gag:
+    mark: shock
+    at: 60%
+- name: The drain fly. Fuzzy wings, shaped like a heart.
+  hero_at:
+    x: 720
+  gag:
+    thought: heart
+    at: 70%
+- solo: It barely flies. It just hops along the wall.
+  scene: bathroom
+  scene_p:
+    time: dusk
+  act:
+    fly: 1.0
+  gag:
+    mark: sweat
+    at: 40%
+- solo: Mom lays up to a hundred eggs.
+  scene: basement
+  scene_p:
+    time: night
+  gag:
+    pile: egg
+    n: 10
+    r: 24
+    at: 50%
+    dur: 1.8
+- solo: Right in the slime inside your drain.
+  scene: swamp
+  scene_p:
+    time: night
+  gag:
+    mark: stink
+    at: 60%
+- solo: The babies are tiny worms that eat the slime.
+  scene: swamp
+  hero: &id002
+    cfg:
+      plan: worm
+      label: drain fly larva
+      color: '#d6cdb6'
+      dark: '#8a8270'
+      length: 300
+      height: 110
+      ant: 0
+      stripes: 0
+      mood: happy
+  hero_at:
+    x: 600
+    y: 1380
+  act:
+    chew: 1.0
+  gag:
+    pile: baby
+    n: 5
+    r: 26
+    at: 40%
+- escalate: And they breathe through a snorkel on their butt.
+  hero: *id002
+  hero_at:
+    x: 760
+    y: 1500
+  gag:
+    mark: shock
+    at: 60%
+- punch: Your drain is basically a fly nursery.
+  hero_at:
+    x: 720
 tt:
-  - solo: They poke that tube up, out of the gunk.
-    scene: swamp
-    scene_p: {time: dusk}
-    hero: *larva
-    hero_at: {x: 600, y: 1380}
-  - solo: In about two weeks, they're flying.
-    scene: bathroom
-    scene_p: {time: night}
-    act: {fly: 1.0}
-  - solo: Good news. They don't bite.
-    scene: bathroom
-    mood: happy
-  - solo: And the adults only live about two weeks.
-    scene: basement
-    scene_p: {time: dusk}
-    mood: calm
-  - solo: At sewage plants, they live by the millions.
-    scene: swamp
-    scene_p: {time: day}
-    with: [fly, fly]
-  - solo: There, their babies help eat the gunk.
-    scene: swamp
-    hero: *larva
-    hero_at: {x: 600, y: 1380}
-    act: {chew: 1.0}
-  - shrink: So I shrank down to look inside the drain.
-    scene: bathroom
-  - tiny: It's dark, wet, and slimy down here.
-    scene: cave
-    hero: *larva
-  - tiny: And the babies are everywhere.
-    scene: swamp
-    scene_p: {time: night}
-    hero: *larva
-  - solo: Want to know if they're in your drain?
-    scene: bathroom
-    scene_p: {time: dusk}
-  - solo: Tape over it at night. Check the tape in the morning.
-    scene: bathroom
-    scene_p: {time: night}
-    mood: worry
-  - solo: Pouring stuff down usually doesn't work.
-    scene: basement
-    mood: smug
-  - solo: You have to scrub the slime out, with a brush.
-    scene: bathroom
-    mood: worry
-  - fact: Would you check your drain tonight?
-    hero_at: {x: 720}
-  - punch: The fuzziest fly in your house grew up breathing through its butt.
-    hero_at: {x: 720}
+- solo: They poke that tube up, out of the gunk.
+  scene: swamp
+  scene_p:
+    time: dusk
+  hero: *id002
+  hero_at:
+    x: 600
+    y: 1380
+- solo: In about two weeks, they're flying.
+  scene: bathroom
+  scene_p:
+    time: night
+  act:
+    fly: 1.0
+  gag:
+    clock: 2
+    at: 40%
+- solo: Good news. They don't bite.
+  scene: bathroom
+  mood: happy
+  gag:
+    mark: hearts
+    at: 50%
+- solo: And the adults only live about two weeks.
+  scene: basement
+  scene_p:
+    time: dusk
+  mood: calm
+  gag:
+    clock: 2
+    at: 60%
+- solo: At sewage plants, they live by the millions.
+  scene: swamp
+  scene_p:
+    time: day
+  with:
+  - fly
+  - fly
+  gag:
+    mark: stink
+    at: 50%
+- solo: There, their babies help eat the gunk.
+  scene: swamp
+  hero: *id002
+  hero_at:
+    x: 600
+    y: 1380
+  act:
+    chew: 1.0
+  gag:
+    prop: trophy
+    at: 60%
+- shrink: So I shrank down to look inside the drain.
+  scene: bathroom
+- tiny: It's dark, wet, and slimy down here.
+  scene: cave
+  hero: *id002
+- tiny: And the babies are everywhere.
+  scene: swamp
+  scene_p:
+    time: night
+  hero: *id002
+  gag:
+    pile: baby
+    n: 8
+    r: 24
+    at: 40%
+- solo: Want to know if they're in your drain?
+  scene: bathroom
+  scene_p:
+    time: dusk
+- solo: Tape over it at night. Check the tape in the morning.
+  scene: bathroom
+  scene_p:
+    time: night
+  mood: worry
+  gag:
+    prop: moon
+    at: 50%
+- solo: Pouring stuff down usually doesn't work.
+  scene: basement
+  mood: smug
+- solo: You have to scrub the slime out, with a brush.
+  scene: bathroom
+  mood: worry
+  gag:
+    mark: sweat
+    at: 50%
+- fact: Would you check your drain tonight?
+  hero_at:
+    x: 720
+- punch: The fuzziest fly in your house grew up breathing through its butt.
+  hero_at:
+    x: 720

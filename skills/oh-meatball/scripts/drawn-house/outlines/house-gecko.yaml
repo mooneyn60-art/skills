@@ -4,91 +4,177 @@ specs: scripts/drawn-house
 series: Things Living In Your House
 part: 17
 title: The Lizard on Your Ceiling Can't Blink, So It Licks Its Eyes 🦎
-tiktok_caption: "the lizard on my ceiling can't blink so it licks its own eyeballs 🦎 and its toes stick with no glue at all. Would you let one live in your house? 🦎 yes / 🚪 no"
+tiktok_caption: the lizard on my ceiling can't blink so it licks its own eyeballs
+  🦎 and its toes stick with no glue at all. Would you let one live in your house?
+  🦎 yes / 🚪 no
 creature: gecko
-creature_cfg: {length: 520, height: 140, leg_len: 70, s: 0.6}
+creature_cfg:
+  length: 520
+  height: 140
+  leg_len: 70
+  s: 0.6
 s: 0.6
 scene: sill
-scene_p: {time: night}
+scene_p:
+  time: night
 wild: garden
-wild_p: {time: night}
-rate: '+10%'
+wild_p:
+  time: night
+rate: +10%
 music: mystery
 next: Part eighteen lives on your roof.
 next_scene: garden
-next_scene_p: {time: day}
+next_scene_p:
+  time: day
 sources:
-  - "Autumn et al. 2000, Nature, Adhesive force of a single gecko foot-hair; and Lewis & Clark College / UC Berkeley summaries: gecko toe pads carry millions of microscopic hairs (setae) that branch into hundreds of even finer tips (spatulae); they stick by van der Waals forces, dry, with no glue or suction; https://www.nature.com/articles/35015073"
-  - "Smithsonian's National Zoo, Leopard gecko / gecko facts; San Diego Zoo Wildlife Alliance, Lizards: most geckos have no movable eyelids, a clear scale covers the eye and the gecko licks it clean with its tongue; many lizards, including geckos, can drop the tail to escape a predator, the dropped tail keeps wriggling, and it grows back with cartilage instead of bone; https://animals.sandiegozoo.org/animals/lizard"
-  - "University of Florida IFAS (Wildlife Ecology, Florida's introduced reptiles: Hemidactylus geckos), Common house gecko and Mediterranean house gecko: nocturnal, often seen on walls and around outdoor lights hunting insects attracted to the light; the common house gecko is native to Southeast Asia and has spread around the world with people and cargo; house geckos are harmless to people; they make chirping calls; https://edis.ifas.ufl.edu/publication/UW259"
+- 'Autumn et al. 2000, Nature, Adhesive force of a single gecko foot-hair; and Lewis
+  & Clark College / UC Berkeley summaries: gecko toe pads carry millions of microscopic
+  hairs (setae) that branch into hundreds of even finer tips (spatulae); they stick
+  by van der Waals forces, dry, with no glue or suction; https://www.nature.com/articles/35015073'
+- 'Smithsonian''s National Zoo, Leopard gecko / gecko facts; San Diego Zoo Wildlife
+  Alliance, Lizards: most geckos have no movable eyelids, a clear scale covers the
+  eye and the gecko licks it clean with its tongue; many lizards, including geckos,
+  can drop the tail to escape a predator, the dropped tail keeps wriggling, and it
+  grows back with cartilage instead of bone; https://animals.sandiegozoo.org/animals/lizard'
+- 'University of Florida IFAS (Wildlife Ecology, Florida''s introduced reptiles: Hemidactylus
+  geckos), Common house gecko and Mediterranean house gecko: nocturnal, often seen
+  on walls and around outdoor lights hunting insects attracted to the light; the common
+  house gecko is native to Southeast Asia and has spread around the world with people
+  and cargo; house geckos are harmless to people; they make chirping calls; https://edis.ifas.ufl.edu/publication/UW259'
 yt:
-  - hook: That lizard on your ceiling can't blink. So it licks its eyeballs.
-    hero_at: {x: 720}
-  - solo: The house gecko. Out at night, on your walls.
-    scene: sill
-    scene_p: {time: night}
-  - solo: It waits by your porch light.
-    scene: garden
-    scene_p: {time: night}
-  - solo: Bugs fly to the light, and it snaps them up.
-    scene: garden
-    scene_p: {time: dusk}
-    act: {bite: 1.0}
-    with: [moth]
-  - xray: It has no eyelids, just a clear scale.
-    hero_at: {x: 760}
-  - solo: So it wipes its eyes with its tongue.
-    scene: bedroom
-    scene_p: {time: dusk}
-    act: {talk: 1.0}
-  - solo: And it walks across the ceiling, no glue at all.
-    scene: kitchen
-    scene_p: {time: night}
-  - calm: It's the cleanest-eyed roommate you've got.
-    hero_at: {x: 720}
+- hook: That lizard on your ceiling can't blink. So it licks its eyeballs.
+  hero_at:
+    x: 720
+  gag:
+    mark: shock
+    at: 60%
+- solo: The house gecko. Out at night, on your walls.
+  scene: sill
+  scene_p:
+    time: night
+  gag:
+    prop: moon
+    at: 30%
+- solo: It waits by your porch light.
+  scene: garden
+  scene_p:
+    time: night
+  gag:
+    clock: 2
+    at: 30%
+- solo: Bugs fly to the light, and it snaps them up.
+  scene: garden
+  scene_p:
+    time: dusk
+  act:
+    bite: 1.0
+  with:
+  - moth
+  gag:
+    thought: tick
+    at: 40%
+- xray: It has no eyelids, just a clear scale.
+  hero_at:
+    x: 760
+- solo: So it wipes its eyes with its tongue.
+  scene: bedroom
+  scene_p:
+    time: dusk
+  act:
+    talk: 1.0
+  gag:
+    mark: stars
+    at: 70%
+- solo: And it walks across the ceiling, no glue at all.
+  scene: kitchen
+  scene_p:
+    time: night
+  gag:
+    mark: dizzy
+    at: 40%
+- calm: It's the cleanest-eyed roommate you've got.
+  hero_at:
+    x: 720
+  gag:
+    prop: trophy
+    at: 50%
 tt:
-  - solo: Its toe pads are covered in microscopic hairs.
-    scene: microscope
-  - solo: Each hair splits into hundreds of even tinier tips.
-    scene: microscope
-    mood: happy
-  - solo: They get so close to the wall, they just stick.
-    scene: cave
-    scene_p: {time: day}
-  - solo: Engineers copy those toes, to make sticky gloves.
-    scene: office
-    mood: happy
-  - solo: Grab its tail, and it lets go of it.
-    scene: forest_floor
-    scene_p: {time: dusk}
-    mood: shock
-  - solo: The dropped tail keeps wiggling, to fool the hunter.
-    scene: forest_floor
-    scene_p: {time: night}
-  - solo: Then it grows a new one, with no bones inside.
-    scene: garden
-    scene_p: {time: day}
-    mood: happy
-  - shrink: So I shrank down to hear it talk.
-  - tiny: It chirps. Some people call it chee-chak.
-    scene: sill
-    scene_p: {time: night}
-    act: {talk: 1.0}
-  - tiny: It came from Southeast Asia, riding on ships.
-    scene: ship_deck
-    scene_p: {time: dusk}
-  - tiny: Now it lives on houses around the world.
-    scene: garden
-    scene_p: {time: night}
-  - solo: Good news. It's harmless to you.
-    scene: bedroom
-    scene_p: {time: night}
-    mood: happy
-  - solo: And it eats the bugs you don't want.
-    scene: kitchen
-    scene_p: {time: night}
-    act: {chew: 1.0}
-  - fact: Would you let one live in your house?
-    hero_at: {x: 720}
-  - punch: Your quietest roommate licks its eyes, and walks on the ceiling.
-    hero_at: {x: 720}
+- solo: Its toe pads are covered in microscopic hairs.
+  scene: microscope
+  gag:
+    prop: magnifier
+    at: 50%
+- solo: Each hair splits into hundreds of even tinier tips.
+  scene: microscope
+  mood: happy
+- solo: They get so close to the wall, they just stick.
+  scene: cave
+  scene_p:
+    time: day
+- solo: Engineers copy those toes, to make sticky gloves.
+  scene: office
+  mood: happy
+  gag:
+    prop: trophy
+    at: 60%
+- solo: Grab its tail, and it lets go of it.
+  scene: forest_floor
+  scene_p:
+    time: dusk
+  mood: shock
+  gag:
+    mark: alarm
+    at: 30%
+- solo: The dropped tail keeps wiggling, to fool the hunter.
+  scene: forest_floor
+  scene_p:
+    time: night
+  gag:
+    mark: shock
+    at: 50%
+- solo: Then it grows a new one, with no bones inside.
+  scene: garden
+  scene_p:
+    time: day
+  mood: happy
+  gag:
+    clock: 2
+    at: 20%
+- shrink: So I shrank down to hear it talk.
+- tiny: It chirps. Some people call it chee-chak.
+  scene: sill
+  scene_p:
+    time: night
+  act:
+    talk: 1.0
+- tiny: It came from Southeast Asia, riding on ships.
+  scene: ship_deck
+  scene_p:
+    time: dusk
+- tiny: Now it lives on houses around the world.
+  scene: garden
+  scene_p:
+    time: night
+- solo: Good news. It's harmless to you.
+  scene: bedroom
+  scene_p:
+    time: night
+  mood: happy
+  gag:
+    mark: hearts
+    at: 50%
+- solo: And it eats the bugs you don't want.
+  scene: kitchen
+  scene_p:
+    time: night
+  act:
+    chew: 1.0
+  gag:
+    thought: tick
+    at: 50%
+- fact: Would you let one live in your house?
+  hero_at:
+    x: 720
+- punch: Your quietest roommate licks its eyes, and walks on the ceiling.
+  hero_at:
+    x: 720
