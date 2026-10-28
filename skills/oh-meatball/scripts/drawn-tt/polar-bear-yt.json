@@ -1,0 +1,155 @@
+{
+ "series": "Meatball's Animal Files, Part",
+ "sources": [
+  "Polar Bears International, Polar bear facts: polar bear hair is not white but transparent, pigment-free, and scatters light so the bear looks white; the skin underneath is black; front paws up to 12 inches (30 cm) across, used as paddles; small bumps (papillae) on the paw pads grip the ice; adult males can weigh over 1,000 lb; mainly eat ringed and bearded seals; cubs are born in snow dens in winter weighing a little over a pound; denning mothers can go up to about eight months without eating; https://polarbearsinternational.org/polar-bears-changing-arctic/polar-bear-facts/",
+  "Pagano et al. 2012, Polar Biology, Long-distance swimming by polar bears in the southern Beaufort Sea: a GPS-collared female swam 687 km continuously over about 9 days; https://doi.org/10.1007/s00300-012-1215-5",
+  "NOAA Fisheries / US Marine Mammal Protection Act: polar bears are classified as marine mammals; https://www.fws.gov/species/polar-bear-ursus-maritimus"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "music": "mystery",
+ "music_db": -26,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "polar_bear",
+  "scene": "ocean",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "polar bear",
+   "color": "#f4f1e8",
+   "dark": "#cfc9b8",
+   "belly": "#e6e1d2",
+   "length": 680,
+   "height": 340,
+   "leg_len": 150,
+   "leg_w": 60,
+   "ears": "round",
+   "tail": "thin",
+   "tail_w": 0.1,
+   "whiskers": false,
+   "mood": "calm",
+   "s": 0.75
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "mammal",
+    "label": "polar bear",
+    "color": "#f4f1e8",
+    "dark": "#cfc9b8",
+    "belly": "#e6e1d2",
+    "length": 680,
+    "height": 340,
+    "leg_len": 150,
+    "leg_w": 60,
+    "ears": "round",
+    "tail": "thin",
+    "tail_w": 0.1,
+    "whiskers": false,
+    "mood": "calm",
+    "s": 0.75
+   }
+  },
+  "actor": "creature",
+  "wild": "cave",
+  "wild_p": {
+   "time": "day"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "A Polar Bear's Fur Isn't White, and Its Skin Is Black 🐻‍❄️",
+ "tiktok_caption": "polar bear fur isn't actually white and the skin under it is black 🐻‍❄️ and one swam for nine days straight. Would you swim with one? 🐻‍❄️ yes / 🥶 no #meatballmyths #learnontiktok #polarbear #animalfacts",
+ "beats": [
+  {
+   "hero_moves": [
+    {
+     "at": 0,
+     "dur": 1.2,
+     "pos": [
+      800,
+      1500
+     ],
+     "walk": true
+    }
+   ],
+   "m": "hook",
+   "say": "A polar bear's fur isn't actually white."
+  },
+  {
+   "scene": "cave",
+   "m": "solo",
+   "say": "Each hair is clear, like fishing line."
+  },
+  {
+   "scene": "cave",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "mood": "smug",
+   "m": "solo",
+   "say": "Light bounces around inside, so it looks white."
+  },
+  {
+   "scene": "ship_deck",
+   "scene_p": {
+    "time": "day"
+   },
+   "hero": {
+    "cfg": {
+     "plan": "mammal",
+     "color": "#2b2b30",
+     "dark": "#1a1a1e",
+     "belly": "#3a3a40",
+     "length": 680,
+     "height": 340,
+     "leg_len": 150,
+     "leg_w": 60,
+     "ears": "round",
+     "tail": "thin",
+     "tail_w": 0.1,
+     "whiskers": false,
+     "mood": "shock"
+    }
+   },
+   "m": "solo",
+   "say": "And under all that fur, its skin is black."
+  },
+  {
+   "how": "grow",
+   "m": "scale",
+   "say": "It's the biggest meat eater that lives on land."
+  },
+  {
+   "scene": "ocean",
+   "scene_p": {
+    "time": "day"
+   },
+   "m": "solo",
+   "say": "But it spends a lot of its life in the sea."
+  },
+  {
+   "scene": "ocean",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "mood": "happy",
+   "m": "solo",
+   "say": "The law even counts it as a marine mammal."
+  },
+  {
+   "hero_at": {
+    "x": 800
+   },
+   "m": "punch",
+   "say": "A white bear that isn't white, with black skin."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, a rat with no fur that almost never gets cancer."
+  }
+ ]
+}
