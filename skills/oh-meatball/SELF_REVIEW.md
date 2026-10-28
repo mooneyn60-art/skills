@@ -42,3 +42,10 @@ Rule: ffprobe every TikTok before it is scheduled or moved, and use 61 s as the 
   40 s), grep the tools for the old number in the same commit.
 - Background renders all ran with an old kit for one animal (moose without antlers). Check a still of each re-render,
   not just the first.
+
+## 2026-10-28 evening (lean meeting)
+- Studio AI data beats our proxies. Its retention and returning-viewer readout (Porcupines drop at 0:04-0:08, 42-60% long-form exit by 0:30) told us more in one screenshot set than a week of view-count proxies. Judge formats on Studio's stayed-vs-swiped and retention, not views alone.
+- Quiz format: ~20% stayed vs ~58% for the house series. We kept shipping TRUE-OR-FALSE for days after the view counts hinted at it. When a format's stayed rate is under half the house rate, hold it the same day.
+- Posting cadence: we filled slots for the sake of filling them (3 Shorts, 4 TikToks, a long-form a day, three long-forms in 3 days). More posts split the audience. Cap first (2 Shorts/day, long-forms 3+ days apart), then improve the first 3 seconds.
+- Restarts kill renders. Restarting a session or killing a process mid-batch loses in-flight renders; check for running render jobs before any restart, and never `git pull` over uncommitted render output.
+- A rule change has to land in the checker too: scan.py's CADENCE still encodes the old slots, so it reports false gaps until the tools owner updates it.

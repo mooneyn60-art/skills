@@ -4,6 +4,14 @@ Claude runs the channel; Nolan owns the accounts, gives direction, and does the 
 taps. This file is the team, the daily routine, the numbers we steer by, and the rules for change.
 
 
+## Cadence (Nolan, 2026-10-28 evening; OVERRIDES every older cadence line in this file and the routines)
+
+- **YouTube Shorts: 2 a day max.** Do not add posts to reach 3; an empty third slot is correct.
+- **TikToks: 3-4 a day, all between 12:00 and 17:30 ET** (still 61 s+ for Creator Rewards). No 09:30 or 20:00 TikToks.
+- **Long-forms: at least 3 days apart, at most 2 a week, at 17:00 ET.** Already scheduled: 10/29, 11/1, 11/5.
+- Animals only. The TRUE-OR-FALSE quiz format and the "Meatball Investigates" case files are on hold as drafts; ignore drafts.
+- scan.py's CADENCE still lists the old slots (3 Shorts, TikToks 09:30-20:00); its empty-slot warnings above the new caps are not work. The tools owner should update CADENCE to match.
+
 ## vidIQ ration (OVERRIDES every routine's budget line, set 2026-10-26)
 
 UPDATE 10/27 12:30: balance is 68 (Lab used ~300). Below 100 = Sunday summit only; every other routine spends 0.
@@ -84,7 +92,7 @@ missiles and all?") "by far" over a scene open (A) and a proof open (B). TARS al
 | 08:13 | Production: inbox, build the episode for 2 days out, fill the queue | episode + 3 Shorts + 4 TikToks queued 2 days ahead |
 | 18:41 | Review: stats, analytics, rivals, HQ report, next topics | HQ Daily report + rivals, backlog updated |
 
-Cadence: one long-form a day at 2 PM (Saturdays: the "Meatball Explains" history episode instead of a myth episode, never both); YouTube Shorts 9:30 AM, 1 PM and 4 PM (from the newest episode that is
+Cadence (SUPERSEDED 10/28, see the Cadence section at the top): one long-form a day at 2 PM (Saturdays: the "Meatball Explains" history episode instead of a myth episode, never both); YouTube Shorts 9:30 AM, 1 PM and 4 PM (from the newest episode that is
 already live, so Related video can point at it); TikToks 4 a day from 10/25: 9:30 AM, 12 PM, 6 PM, 8 PM, all over 60 s and freshly rendered (Creator Rewards pays only 60 s+; research/32). The 11/1 summit moves it to 5 if qualified views per post hold, or back to 3 if they fall 25%+; TikTok is the lab and YouTube the showroom (research/33). Times follow Metricool best-time data
 (checked 2026-10-24): YouTube peaks 3-5 PM (4 PM top) with a second peak at 10 AM, so the episode goes live at 2 PM, ahead of the
 big wave; TikTok peaks 10 AM, 12 PM and 6 PM every day.
