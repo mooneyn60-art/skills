@@ -1,0 +1,57 @@
+{
+ "series": "Things Living In Your House, Part 10",
+ "sources": [
+  "University of Kentucky Entomology, Clothes Moths (ENTFACT-609): adults do not feed and cause no injury to fabrics; adults lay about 40-50 eggs on vulnerable materials; worm-like larvae digest keratin, a fibrous protein in animal materials; larvae eat wool, fur, silk, feathers, felt and leather, plus lint and shed pet hair in vents and ducts; cotton and synthetics rarely attacked unless blended with wool or soiled with food stains or body oils; perspiration odors attract; avoid light, seldom seen; prefer dark closets, basements, attics; https://entomology.mgcafe.uky.edu/ef609",
+  "University of California IPM, Pest Notes: Clothes Moths (Publication 7435): larvae are the damaging stage; females lay 40-50 eggs; adults about 1/4 inch at rest; casemaking larvae carry a silken case that takes on the color of the fabric they eat; larval stage lasts 35 days to 2 1/2 years depending on temperature and food; adults are weak, fluttery flyers that stay near dark closets; laundering at 120 F or more for 20-30 minutes, or sealing in a bag and freezing for several days below 18 F, kills all stages; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7435.html",
+  "NC State Extension, Clothes Moths and Carpet Beetles: Controlling Fabric Pests: fabric pests are among the few insects that can digest keratin; https://content.ces.ncsu.edu/clothes-moths-carpet-beetles-controlling-fabric-pests"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:fenrir",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "moth",
+  "scene": "bedroom",
+  "scene_p": {
+   "time": "dusk"
+  },
+  "creature_cfg": {
+   "xray": "gut"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "The Moth in Your Closet Never Eats. Its Babies Eat Your Sweater 🧶",
+ "tiktok_caption": "the moth in your closet never eats 🧶 its babies do, and they go for the sweaty clothes first. Would you check your wool sweaters tonight? 🔦 checking / 🙈 nope",
+ "beats": [
+  {
+   "m": "hook",
+   "say": "The moth in your closet never eats. Not once."
+  },
+  {
+   "scene": "fibers",
+   "m": "tiny",
+   "say": "Shrink down. Up to fifty eggs, on your sweater."
+  },
+  {
+   "m": "count",
+   "say": "Then the babies hatch, and eat."
+  },
+  {
+   "scene": "bedroom",
+   "m": "xray",
+   "say": "They digest keratin, the tough protein in wool."
+  },
+  {
+   "m": "punch",
+   "say": "That hole in your sweater? That was dinner."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next: the book bugs that don't need males."
+  }
+ ],
+ "loop": true
+}
