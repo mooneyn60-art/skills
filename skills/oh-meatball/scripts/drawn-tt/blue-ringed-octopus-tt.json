@@ -1,0 +1,160 @@
+{
+ "series": "Would Meatball Survive?, Part",
+ "sources": [
+  "Mathger, Bell, Kuzirian & Hanlon 2012, Journal of Experimental Biology 215: 3752-3757, How does the blue-ringed octopus flash its blue rings?: one of the world's most venomous animals; camouflaged in hiding most of the time; when disturbed flashes around 60 iridescent blue rings, and when strongly harassed bites with a neurotoxin that can kill a human; rings exposed and hidden by muscles under neural control; https://doi.org/10.1242/jeb.076869",
+  "Sheumack et al. 1978, Science 199: 188-189: maculotoxin from the blue-ringed octopus identified as tetrodotoxin, the first time tetrodotoxin was found in a venom; https://doi.org/10.1126/science.619451",
+  "Cavazzoni et al. 2008, Clinical Toxicology 46(8): 760-761, Blue-ringed octopus envenomation of a 4-year-old boy: bitten at a Queensland beach; within 10 minutes vomiting, unable to stand, blurred vision; toxin can cause respiratory arrest within minutes; intubated and ventilated 17 hours, discharged with no long-term effects; https://doi.org/10.1080/15563650701601790",
+  "Currie 2003, Journal of Toxicology: Clinical Toxicology 41(3): 301-308, Marine antivenoms: fatalities from cone snails and blue-ringed octopus among others; antivenoms only available for certain sea snakes, box jellyfish and stonefish; https://doi.org/10.1081/clt-120021115"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:fenrir",
+ "rate": "+10%",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "blue_ringed_octopus",
+  "scene": "reef",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "octopus",
+   "label": "blue-ringed octopus",
+   "color": "#e8c25a",
+   "dark": "#b8923a",
+   "size": 200,
+   "rings": 12,
+   "mood": "angry",
+   "floor": true,
+   "s": 0.7
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "octopus",
+    "label": "blue-ringed octopus",
+    "color": "#e8c25a",
+    "dark": "#b8923a",
+    "size": 200,
+    "rings": 12,
+    "mood": "angry",
+    "floor": true,
+    "s": 0.7
+   }
+  },
+  "actor": "creature",
+  "wild": "reef",
+  "wild_p": {
+   "time": "dusk"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Blue-Ringed Octopus: Tiny, and Its Bite Can Kill You. Would Meatball Survive? 🐙",
+ "tiktok_caption": "blue-ringed octopus 🐙 turn over a rock in a tide pool and it flashes about 60 blue rings at you. Its bite carries tetrodotoxin and there's no antivenom. Would you survive? Would you flip rocks in a tide pool? 🪨 yes / 🙅 no #blueringedoctopus #octopus #venomous #wouldmeatballsurvive #meatballmyths",
+ "beats": [
+  {
+   "gag": {
+    "mark": "alarm",
+    "at": "70%"
+   },
+   "m": "hook",
+   "say": "Turn over a rock in a tide pool, and a tiny octopus flashes blue rings at you."
+  },
+  {
+   "gag": {
+    "prop": "skull",
+    "at": "60%"
+   },
+   "m": "escalate",
+   "say": "That's a warning. Its bite can kill a human."
+  },
+  {
+   "m": "name",
+   "say": "The blue-ringed octopus. One of the most venomous animals in the world."
+  },
+  {
+   "m": "xray",
+   "say": "Its venom is a nerve toxin, called tetrodotoxin."
+  },
+  {
+   "scene": "reef",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "m": "solo",
+   "say": "A four year old bitten at a Queensland beach couldn't stand, within ten minutes."
+  },
+  {
+   "gag": {
+    "mark": "sweat",
+    "at": "60%"
+   },
+   "m": "fact",
+   "say": "And there's no antivenom."
+  },
+  {
+   "gag": {
+    "prop": "trophy",
+    "at": "75%"
+   },
+   "m": "punch",
+   "say": "Would Meatball survive? Yes, on a breathing machine. The boy needed seventeen hours, then went home fine."
+  },
+  {
+   "scene": "reef",
+   "scene_p": {
+    "time": "night"
+   },
+   "m": "solo",
+   "say": "Most of the time, it hides, camouflaged."
+  },
+  {
+   "act": {
+    "flash": 1.0
+   },
+   "m": "solo",
+   "say": "Disturb it, and it flashes around sixty blue rings."
+  },
+  {
+   "m": "fact",
+   "say": "Muscles squeeze over each ring, to hide it, or show it, in a flash."
+  },
+  {
+   "m": "escalate",
+   "say": "The toxin paralyzes muscles. It can stop your breathing in minutes."
+  },
+  {
+   "m": "fact",
+   "say": "Scientists found tetrodotoxin in its venom in nineteen seventy eight. The first time it was found in any venom."
+  },
+  {
+   "gag": {
+    "mark": "dizzy",
+    "at": "60%"
+   },
+   "m": "fact",
+   "say": "The boy threw up, and his eyesight blurred."
+  },
+  {
+   "m": "calm",
+   "say": "Doctors kept him breathing until his muscles came back."
+  },
+  {
+   "m": "fact",
+   "say": "The rings work like tiny mirrors, reflecting blue green light."
+  },
+  {
+   "m": "fact",
+   "say": "It's small enough to hide under a rock in a tide pool."
+  },
+  {
+   "m": "fact",
+   "say": "Would you turn over rocks in a tide pool?"
+  },
+  {
+   "m": "tease",
+   "say": "Follow me. Next, would Meatball survive a Komodo dragon?"
+  }
+ ]
+}
