@@ -1,0 +1,30 @@
+{
+ "option_id": "2c14d155-7369-4f13-b767-227565540e33",
+ "contract": "SPY 2026-10-23 769C",
+ "entry": 4.37,
+ "stop": 4.37,
+ "stop_order": "6ad63aa8-8214-424d-8dcc-ba7a4e8d78c7",
+ "high_mark": 5.3,
+ "steps": [
+  [
+   5.24,
+   4.37
+  ],
+  [
+   5.9,
+   4.8
+  ],
+  [
+   6.56,
+   5.25
+  ]
+ ],
+ "trail_above": 0.8,
+ "step": 1,
+ "closed": true,
+ "exit": 4.36,
+ "exit_ts": "2026-10-19T16:03:14Z",
+ "exit_order": "6ad63aa8-8214-424d-8dcc-ba7a4e8d78c7",
+ "result": -1.0,
+ "note": "breakeven stop hit after a +21% spike; stop-market filled 1c under"
+}

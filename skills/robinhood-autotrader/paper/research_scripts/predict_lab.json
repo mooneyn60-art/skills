@@ -1,0 +1,133 @@
+{
+ "DAY SESSION (open->close), known at 9:30": {
+  "logit": {
+   "2011-18": {
+    "acc": 53.8,
+    "base_up": 54.4,
+    "n_trades": 1471,
+    "trade_bp": 2.05,
+    "t": 1.14,
+    "long_only_n": 1334,
+    "long_bp": 1.65,
+    "long_t": 0.91,
+    "all_days_bp": 1.41
+   },
+   "2019-26": {
+    "acc": 54.4,
+    "base_up": 54.3,
+    "n_trades": 1675,
+    "trade_bp": 2.88,
+    "t": 1.34,
+    "long_only_n": 1578,
+    "long_bp": 1.97,
+    "long_t": 0.91,
+    "all_days_bp": 3.08
+   }
+  },
+  "weights": {
+   "dist20": -0.091,
+   "opex": -0.088,
+   "gap": 0.068,
+   "intra1": -0.061,
+   "r20": 0.058,
+   "asia": 0.054,
+   "daxgap": -0.053,
+   "r5": 0.034,
+   "dvix": -0.023,
+   "dow": 0.019,
+   "pc": -0.018,
+   "r1": 0.016,
+   "vix": -0.01,
+   "rng1": 0.009,
+   "vixrel": -0.006
+  },
+  "boost": {
+   "2011-18": {
+    "acc": 54.1,
+    "base_up": 54.4,
+    "n_trades": 1528,
+    "trade_bp": 3.79,
+    "t": 2.05,
+    "long_only_n": 1099,
+    "long_bp": 2.82,
+    "long_t": 1.38,
+    "all_days_bp": 1.41
+   },
+   "2019-26": {
+    "acc": 52.4,
+    "base_up": 54.3,
+    "n_trades": 1401,
+    "trade_bp": 1.72,
+    "t": 0.72,
+    "long_only_n": 1166,
+    "long_bp": 2.47,
+    "long_t": 0.93,
+    "all_days_bp": 3.08
+   }
+  }
+ },
+ "OVERNIGHT (close->next open), known at 16:00": {
+  "logit": {
+   "2011-18": {
+    "acc": 54.3,
+    "base_up": 54.1,
+    "n_trades": 1425,
+    "trade_bp": 0.67,
+    "t": 0.43,
+    "long_only_n": 1363,
+    "long_bp": 1.18,
+    "long_t": 0.76,
+    "all_days_bp": 2.28
+   },
+   "2019-26": {
+    "acc": 55.5,
+    "base_up": 56.3,
+    "n_trades": 1354,
+    "trade_bp": 3.03,
+    "t": 1.27,
+    "long_only_n": 1228,
+    "long_bp": 2.31,
+    "long_t": 0.99,
+    "all_days_bp": 3.53
+   }
+  },
+  "weights": {
+   "gap": -0.139,
+   "clv": -0.122,
+   "dist20": -0.077,
+   "r5": -0.06,
+   "rng": -0.059,
+   "dow": -0.042,
+   "intra": 0.042,
+   "r1": 0.041,
+   "dvix": -0.04,
+   "vix": -0.032,
+   "dax": 0.016,
+   "opex": 0.007
+  },
+  "boost": {
+   "2011-18": {
+    "acc": 51.3,
+    "base_up": 54.1,
+    "n_trades": 1572,
+    "trade_bp": -1.29,
+    "t": -0.88,
+    "long_only_n": 1109,
+    "long_bp": 0.57,
+    "long_t": 0.3,
+    "all_days_bp": 2.28
+   },
+   "2019-26": {
+    "acc": 55.0,
+    "base_up": 56.3,
+    "n_trades": 1388,
+    "trade_bp": 3.93,
+    "t": 1.69,
+    "long_only_n": 1051,
+    "long_bp": 3.6,
+    "long_t": 1.4,
+    "all_days_bp": 3.53
+   }
+  }
+ }
+}

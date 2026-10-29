@@ -1,0 +1,141 @@
+{
+ "start": "2026-09-25",
+ "last_run": "2026-10-23",
+ "spy_start": 771.3,
+ "books": {
+  "tars1": {
+   "cash": 0.14244439264396305,
+   "pos": {
+    "MRNA": {
+     "entry": 198.89,
+     "units": 0.0010045763980099545,
+     "high": 236.5,
+     "last": 200.05,
+     "entry_date": "2026-09-25",
+     "sector": "Healthcare"
+    },
+    "MPC": {
+     "entry": 478.24,
+     "units": 0.00039307048535801146,
+     "high": 478.24,
+     "last": 457.1998,
+     "entry_date": "2026-10-16",
+     "sector": "Energy"
+    },
+    "OKTA": {
+     "entry": 187.245,
+     "units": 0.0010039361740907123,
+     "high": 213.2259,
+     "last": 213.2259,
+     "entry_date": "2026-10-16",
+     "sector": "Technology"
+    },
+    "XP": {
+     "entry": 30.395,
+     "units": 0.006057331734070248,
+     "high": 30.395,
+     "last": 30.395,
+     "entry_date": "2026-10-23",
+     "sector": "Financial Services"
+    }
+   },
+   "closed": [
+    {
+     "date": "2026-10-06",
+     "book": "tars1",
+     "event": "EXIT",
+     "sym": "TXG",
+     "reason": "R4_stop",
+     "entry_date": "2026-09-25",
+     "entry": 85.71,
+     "exit": 80.66,
+     "ret": -0.0608
+    },
+    {
+     "date": "2026-10-13",
+     "book": "tars1",
+     "event": "EXIT",
+     "sym": "TXG",
+     "reason": "R4_stop",
+     "entry_date": "2026-10-06",
+     "entry": 80.66,
+     "exit": 71.78,
+     "ret": -0.11187
+    },
+    {
+     "date": "2026-10-14",
+     "book": "tars1",
+     "event": "EXIT",
+     "sym": "DELL",
+     "reason": "R4_stop",
+     "entry_date": "2026-09-25",
+     "entry": 562.8701,
+     "exit": 507.58,
+     "ret": -0.10003
+    },
+    {
+     "date": "2026-10-16",
+     "book": "tars1",
+     "event": "EXIT",
+     "sym": "OKTA",
+     "reason": "R4_stop",
+     "entry_date": "2026-09-25",
+     "entry": 195.14,
+     "exit": 187.245,
+     "ret": -0.04238
+    },
+    {
+     "date": "2026-10-23",
+     "book": "tars1",
+     "event": "EXIT",
+     "sym": "PBF",
+     "reason": "R4_stop",
+     "entry_date": "2026-10-13",
+     "entry": 91.175,
+     "exit": 76.18,
+     "ret": -0.16613
+    }
+   ],
+   "nav": 0.9212994406775542
+  },
+  "trend_only": {
+   "cash": 0.20000000000000007,
+   "pos": {
+    "MRNA": {
+     "entry": 198.89,
+     "units": 0.0010045763980099545,
+     "high": 236.5,
+     "last": 200.05,
+     "entry_date": "2026-09-25",
+     "sector": "Healthcare"
+    },
+    "TXG": {
+     "entry": 85.71,
+     "units": 0.002331118886946679,
+     "high": 97.93,
+     "last": 71.44,
+     "entry_date": "2026-09-25",
+     "sector": "Healthcare"
+    },
+    "DELL": {
+     "entry": 562.8701,
+     "units": 0.0003549668028204018,
+     "high": 586.38,
+     "last": 456.57,
+     "entry_date": "2026-09-25",
+     "sector": "Technology"
+    },
+    "OKTA": {
+     "entry": 195.14,
+     "units": 0.0010238813149543908,
+     "high": 232.07,
+     "last": 213.2259,
+     "entry_date": "2026-09-25",
+     "sector": "Technology"
+    }
+   },
+   "closed": [],
+   "nav": 0.9478858497434065
+  }
+ }
+}
