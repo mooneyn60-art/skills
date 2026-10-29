@@ -1,0 +1,93 @@
+slug: cone-snail
+out: episodes/drawn-tt
+specs: scripts/drawn-tt
+series: Would Meatball Survive?
+title: 'Cone Snail: Pick Up This Shell and It Harpoons You. Would Meatball Survive? 🐚'
+tiktok_caption: 'cone snail 🐚 pick up this pretty shell and it can stab you with a venom harpoon. Stings have killed at least
+  36 people, and it hunts fish with insulin. Would you pick up a shell on the reef? 🐚 yes / 🙅 no #conesnail #venomous #wouldmeatballsurvive
+  #meatballmyths #oceanlife'
+creature: cone_snail
+actor: creature
+creature_cfg: &id001
+  plan: cone
+  label: geography cone snail
+  color: '#e0b88a'
+  dark: '#8a4a2a'
+  length: 560
+  mood: smug
+  xray: venom
+  s: 0.8
+hero_p:
+  cfg: *id001
+scene: reef
+scene_p:
+  time: day
+wild: reef
+wild_p:
+  time: dusk
+rate: +10%
+music: mystery
+next: Next, would Meatball survive the blue-ringed octopus?
+sources:
+- 'Kohn 2018, Toxins 11(1): 10, Conus envenomation of humans: in fact and fiction: fish-hunting cones use a long barbed radular
+  tooth that works as a harpoon and hypodermic needle; at least 141 human envenomations 1670-2017, 36 fatal; Conus geographus
+  causes 57% of envenomations and likely nearly all deaths; prey engulfed whole; one victim felt an immediate burning sensation;
+  https://doi.org/10.3390/toxins11010010'
+- 'Currie 2003, Journal of Toxicology: Clinical Toxicology 41(3): 301-308, Marine antivenoms: fatalities from cone snails
+  and blue-ringed octopus among others; antivenoms only available for certain sea snakes, box jellyfish and stonefish; https://doi.org/10.1081/clt-120021115'
+- 'National Geographic, Geography cone: venom of hundreds of different toxins delivered by a harpoon-like tooth from an extendable
+  proboscis; https://www.nationalgeographic.com/animals/invertebrates/facts/geography-cone'
+- 'Safavi-Hemami et al. 2015, PNAS 112(6): 1743-1748, Specialized insulin is used for chemical warfare by fish-hunting cone
+  snails: Conus geographus venom insulin causes hypoglycemic shock in fish; released into the water to disorient schools,
+  engulfed with a distended false mouth that works as a net; https://doi.org/10.1073/pnas.1423857112'
+- 'Williams, Day & Heavner 2008, Expert Opinion on Pharmacotherapy 9(9): 1575-1583, Ziconotide: an update and review: FDA-approved
+  for severe chronic pain, a synthetic version of a toxin from the fish-hunting cone snail Conus magus; https://doi.org/10.1517/14656566.9.9.1575'
+yt:
+- hook: Pick up this pretty shell, and it can stab you with a venom harpoon.
+  act:
+    bite: 1.0
+  gag:
+    zap: true
+    at: 55%
+- escalate: Cone snail stings have killed at least thirty six people.
+  gag:
+    prop: skull
+    at: 60%
+- name: The geography cone snail. Almost all of those deaths came from this one kind.
+- xray: Its harpoon is a hollow tooth, like a needle, fired from a long tube.
+  act:
+    bite: 1.0
+- fact: Its venom mixes hundreds of different toxins.
+- fact: And there's no antivenom for it.
+  gag:
+    mark: sweat
+    at: 60%
+- punch: Would Meatball survive? Probably. Most people stung on record lived. Just don't pick it up.
+  gag:
+    prop: trophy
+    at: 70%
+tt:
+- solo: It hunts fish. It opens its mouth wide, like a net.
+  act:
+    bite: 1.0
+- solo: Then it lets out insulin into the water.
+  scene: reef
+  scene_p:
+    time: night
+- escalate: The fish's blood sugar crashes, and the whole school gets dizzy.
+  gag:
+    mark: dizzy
+    at: 60%
+- solo: Then the snail swallows them whole.
+  scene: reef
+  scene_p:
+    time: dusk
+- fact: One person stung by a cone snail felt a burning pain right away.
+- fact: But a toxin from a cone snail became a painkiller drug, approved in the US.
+  gag:
+    mark: hearts
+    at: 70%
+- calm: It's made for severe pain that other medicines can't help.
+- fact: People have recorded cone snail stings since the sixteen hundreds.
+- fact: The geography cone alone causes more than half of all known stings.
+- fact: Would you pick up a shell on the reef?

@@ -1,0 +1,111 @@
+{
+ "series": "Would Meatball Survive?, Part",
+ "sources": [
+  "Kohn 2018, Toxins 11(1): 10, Conus envenomation of humans: in fact and fiction: fish-hunting cones use a long barbed radular tooth that works as a harpoon and hypodermic needle; at least 141 human envenomations 1670-2017, 36 fatal; Conus geographus causes 57% of envenomations and likely nearly all deaths; prey engulfed whole; one victim felt an immediate burning sensation; https://doi.org/10.3390/toxins11010010",
+  "Currie 2003, Journal of Toxicology: Clinical Toxicology 41(3): 301-308, Marine antivenoms: fatalities from cone snails and blue-ringed octopus among others; antivenoms only available for certain sea snakes, box jellyfish and stonefish; https://doi.org/10.1081/clt-120021115",
+  "National Geographic, Geography cone: venom of hundreds of different toxins delivered by a harpoon-like tooth from an extendable proboscis; https://www.nationalgeographic.com/animals/invertebrates/facts/geography-cone",
+  "Safavi-Hemami et al. 2015, PNAS 112(6): 1743-1748, Specialized insulin is used for chemical warfare by fish-hunting cone snails: Conus geographus venom insulin causes hypoglycemic shock in fish; released into the water to disorient schools, engulfed with a distended false mouth that works as a net; https://doi.org/10.1073/pnas.1423857112",
+  "Williams, Day & Heavner 2008, Expert Opinion on Pharmacotherapy 9(9): 1575-1583, Ziconotide: an update and review: FDA-approved for severe chronic pain, a synthetic version of a toxin from the fish-hunting cone snail Conus magus; https://doi.org/10.1517/14656566.9.9.1575"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:fenrir",
+ "rate": "+10%",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "cone_snail",
+  "scene": "reef",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "cone",
+   "label": "geography cone snail",
+   "color": "#e0b88a",
+   "dark": "#8a4a2a",
+   "length": 560,
+   "mood": "smug",
+   "xray": "venom",
+   "s": 0.8
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "cone",
+    "label": "geography cone snail",
+    "color": "#e0b88a",
+    "dark": "#8a4a2a",
+    "length": 560,
+    "mood": "smug",
+    "xray": "venom",
+    "s": 0.8
+   }
+  },
+  "actor": "creature",
+  "wild": "reef",
+  "wild_p": {
+   "time": "dusk"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Cone Snail: Pick Up This Shell and It Harpoons You. Would Meatball Survive? 🐚",
+ "tiktok_caption": "cone snail 🐚 pick up this pretty shell and it can stab you with a venom harpoon. Stings have killed at least 36 people, and it hunts fish with insulin. Would you pick up a shell on the reef? 🐚 yes / 🙅 no #conesnail #venomous #wouldmeatballsurvive #meatballmyths #oceanlife",
+ "beats": [
+  {
+   "act": {
+    "bite": 1.0
+   },
+   "gag": {
+    "zap": true,
+    "at": "55%"
+   },
+   "m": "hook",
+   "say": "Pick up this pretty shell, and it can stab you with a venom harpoon."
+  },
+  {
+   "gag": {
+    "prop": "skull",
+    "at": "60%"
+   },
+   "m": "escalate",
+   "say": "Cone snail stings have killed at least thirty six people."
+  },
+  {
+   "m": "name",
+   "say": "The geography cone snail. Almost all of those deaths came from this one kind."
+  },
+  {
+   "act": {
+    "bite": 1.0
+   },
+   "m": "xray",
+   "say": "Its harpoon is a hollow tooth, like a needle, fired from a long tube."
+  },
+  {
+   "m": "fact",
+   "say": "Its venom mixes hundreds of different toxins."
+  },
+  {
+   "gag": {
+    "mark": "sweat",
+    "at": "60%"
+   },
+   "m": "fact",
+   "say": "And there's no antivenom for it."
+  },
+  {
+   "gag": {
+    "prop": "trophy",
+    "at": "70%"
+   },
+   "m": "punch",
+   "say": "Would Meatball survive? Probably. Most people stung on record lived. Just don't pick it up."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, would Meatball survive the blue-ringed octopus?"
+  }
+ ],
+ "loop": true
+}
