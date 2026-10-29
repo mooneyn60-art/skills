@@ -1,0 +1,94 @@
+slug: cassowary-wms
+out: episodes/drawn-tt
+specs: scripts/drawn-tt
+series: Would Meatball Survive?
+title: 'Cassowary: Corner It and It Kicks With a Dagger Claw. Would Meatball Survive? 🦶'
+tiktok_caption: 'cassowary 🦶 corner one and it kicks with a 4-inch dagger claw, and it runs about 30 mph. Most attacks happen
+  after people feed them. Would you survive? Would you get out of the car to see one? 🚗 stay / 🚶 out #cassowary #wouldmeatballsurvive
+  #birds #meatballmyths #animalfacts'
+creature: cassowary
+actor: creature
+creature_cfg: &id001
+  plan: bird
+  label: southern cassowary
+  color: '#1d1d22'
+  dark: '#34343c'
+  belly: '#2a2a30'
+  length: 520
+  height: 380
+  leg_len: 300
+  beak: short
+  beak_color: '#3a3a3a'
+  face_color: '#3d7fe0'
+  foot_color: '#8a7a5a'
+  crest: true
+  mood: angry
+  s: 0.75
+hero_p:
+  cfg: *id001
+scene: forest_floor
+scene_p:
+  time: day
+wild: swamp
+wild_p:
+  time: day
+rate: +10%
+music: mystery
+next: Next, Meatball versus spiders, part three.
+sources:
+- 'Queensland Government, Southern cassowary: tropical rainforest of north Queensland and New Guinea; runs up to 50 km/h;
+  good swimmer; dagger-like claw on the inner toe; males incubate the bright green eggs about 50 days and raise the striped
+  chicks about nine months; disperses seeds of many rainforest plants; most attacks on people happen after cassowaries have
+  been fed; https://environment.desi.qld.gov.au/wildlife/animals/living-with/cassowaries'
+- 'San Diego Zoo Wildlife Alliance, Cassowary: inner claw up to about 4 inches; casque on the head; one of the heaviest birds
+  after ostriches; https://animals.sandiegozoo.org/animals/cassowary'
+- 'Natural History Museum (London), Birds are dinosaurs: modern birds are living theropod dinosaurs; https://www.nhm.ac.uk/discover/how-dinosaurs-evolved-into-birds.html'
+yt:
+- hook: Corner a cassowary, and it kicks at you with a four inch dagger claw.
+  gag:
+    zap: true
+    at: 60%
+- escalate: And it runs up to fifty kilometers an hour. About thirty miles an hour.
+  gag:
+    meter: 1.0
+    at: 50%
+- name: The southern cassowary. One of the heaviest birds on Earth.
+- calm: Most attacks on people happen after cassowaries have been fed.
+- solo: It lives in the rainforests of north Queensland, and New Guinea.
+- solo: It's a good swimmer, too.
+  scene: swamp
+  scene_p:
+    time: dusk
+- punch: Would Meatball survive? Yes. If he keeps his sandwich to himself.
+  gag:
+    thought: bone
+    at: 75%
+tt:
+- fact: The dad sits on the bright green eggs for about fifty days.
+  gag:
+    pile: egg
+    at: 40%
+    n: 3
+    r: 30
+- fact: Then he raises the striped chicks for about nine months.
+- solo: It spreads the seeds of many rainforest plants.
+  scene: forest_floor
+  scene_p:
+    time: dusk
+- fact: That helmet on its head is called a casque.
+  gag:
+    prop: crown
+    at: 60%
+- fact: Birds are living dinosaurs. This one really looks the part.
+- escalate: That inner claw can be up to four inches long.
+- solo: The dad does all the babysitting, eggs and chicks.
+  scene: forest_floor
+  scene_p:
+    time: day
+- fact: Scientists say birds are living dinosaurs, the theropod kind.
+- fact: So leave it alone, and never, ever feed it.
+- solo: After the ostrich, it's one of the heaviest birds alive.
+  scene: swamp
+  scene_p:
+    time: day
+- fact: Would you get out of the car to see one?

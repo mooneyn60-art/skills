@@ -1,0 +1,182 @@
+{
+ "series": "Would Meatball Survive?, Part",
+ "sources": [
+  "Queensland Government, Southern cassowary: tropical rainforest of north Queensland and New Guinea; runs up to 50 km/h; good swimmer; dagger-like claw on the inner toe; males incubate the bright green eggs about 50 days and raise the striped chicks about nine months; disperses seeds of many rainforest plants; most attacks on people happen after cassowaries have been fed; https://environment.desi.qld.gov.au/wildlife/animals/living-with/cassowaries",
+  "San Diego Zoo Wildlife Alliance, Cassowary: inner claw up to about 4 inches; casque on the head; one of the heaviest birds after ostriches; https://animals.sandiegozoo.org/animals/cassowary",
+  "Natural History Museum (London), Birds are dinosaurs: modern birds are living theropod dinosaurs; https://www.nhm.ac.uk/discover/how-dinosaurs-evolved-into-birds.html"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:fenrir",
+ "rate": "+10%",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "cassowary",
+  "scene": "forest_floor",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "bird",
+   "label": "southern cassowary",
+   "color": "#1d1d22",
+   "dark": "#34343c",
+   "belly": "#2a2a30",
+   "length": 520,
+   "height": 380,
+   "leg_len": 300,
+   "beak": "short",
+   "beak_color": "#3a3a3a",
+   "face_color": "#3d7fe0",
+   "foot_color": "#8a7a5a",
+   "crest": true,
+   "mood": "angry",
+   "s": 0.75
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "bird",
+    "label": "southern cassowary",
+    "color": "#1d1d22",
+    "dark": "#34343c",
+    "belly": "#2a2a30",
+    "length": 520,
+    "height": 380,
+    "leg_len": 300,
+    "beak": "short",
+    "beak_color": "#3a3a3a",
+    "face_color": "#3d7fe0",
+    "foot_color": "#8a7a5a",
+    "crest": true,
+    "mood": "angry",
+    "s": 0.75
+   }
+  },
+  "actor": "creature",
+  "wild": "swamp",
+  "wild_p": {
+   "time": "day"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Cassowary: Corner It and It Kicks With a Dagger Claw. Would Meatball Survive? 🦶",
+ "tiktok_caption": "cassowary 🦶 corner one and it kicks with a 4-inch dagger claw, and it runs about 30 mph. Most attacks happen after people feed them. Would you survive? Would you get out of the car to see one? 🚗 stay / 🚶 out #cassowary #wouldmeatballsurvive #birds #meatballmyths #animalfacts",
+ "beats": [
+  {
+   "gag": {
+    "zap": true,
+    "at": "60%"
+   },
+   "m": "hook",
+   "say": "Corner a cassowary, and it kicks at you with a four inch dagger claw."
+  },
+  {
+   "gag": {
+    "meter": 1.0,
+    "at": "50%"
+   },
+   "m": "escalate",
+   "say": "And it runs up to fifty kilometers an hour. About thirty miles an hour."
+  },
+  {
+   "m": "name",
+   "say": "The southern cassowary. One of the heaviest birds on Earth."
+  },
+  {
+   "m": "calm",
+   "say": "Most attacks on people happen after cassowaries have been fed."
+  },
+  {
+   "m": "solo",
+   "say": "It lives in the rainforests of north Queensland, and New Guinea."
+  },
+  {
+   "scene": "swamp",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "m": "solo",
+   "say": "It's a good swimmer, too."
+  },
+  {
+   "gag": {
+    "thought": "bone",
+    "at": "75%"
+   },
+   "m": "punch",
+   "say": "Would Meatball survive? Yes. If he keeps his sandwich to himself."
+  },
+  {
+   "gag": {
+    "pile": "egg",
+    "at": "40%",
+    "n": 3,
+    "r": 30
+   },
+   "m": "fact",
+   "say": "The dad sits on the bright green eggs for about fifty days."
+  },
+  {
+   "m": "fact",
+   "say": "Then he raises the striped chicks for about nine months."
+  },
+  {
+   "scene": "forest_floor",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "m": "solo",
+   "say": "It spreads the seeds of many rainforest plants."
+  },
+  {
+   "gag": {
+    "prop": "crown",
+    "at": "60%"
+   },
+   "m": "fact",
+   "say": "That helmet on its head is called a casque."
+  },
+  {
+   "m": "fact",
+   "say": "Birds are living dinosaurs. This one really looks the part."
+  },
+  {
+   "m": "escalate",
+   "say": "That inner claw can be up to four inches long."
+  },
+  {
+   "scene": "forest_floor",
+   "scene_p": {
+    "time": "day"
+   },
+   "m": "solo",
+   "say": "The dad does all the babysitting, eggs and chicks."
+  },
+  {
+   "m": "fact",
+   "say": "Scientists say birds are living dinosaurs, the theropod kind."
+  },
+  {
+   "m": "fact",
+   "say": "So leave it alone, and never, ever feed it."
+  },
+  {
+   "scene": "swamp",
+   "scene_p": {
+    "time": "day"
+   },
+   "m": "solo",
+   "say": "After the ostrich, it's one of the heaviest birds alive."
+  },
+  {
+   "m": "fact",
+   "say": "Would you get out of the car to see one?"
+  },
+  {
+   "m": "tease",
+   "say": "Follow me. Next, Meatball versus spiders, part three."
+  }
+ ]
+}
