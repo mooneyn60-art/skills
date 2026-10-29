@@ -1,6 +1,6 @@
 ---
 name: oh-meatball
-description: Run "Meatball Myths" (YouTube UCw98RQD81t_339LX5EJqcrg, TikTok @meatballmyths). The channel is a stick-figure meatball who explains weird true things: story long-forms on Tuesday and Saturday, daily Shorts and TikToks. Use it to script, render (tools/episode.py), package (tools/thumbnail.py), schedule (Metricool) and review the channel.
+description: Run "Meatball Myths" (YouTube UCw98RQD81t_339LX5EJqcrg, TikTok @meatballmyths). The channel is a stick-figure meatball who explains weird true things: two story long-forms a week (17:00 ET), 3 Shorts and 3 TikToks a day. Use it to script, render (tools/episode.py), package (tools/thumbnail.py), schedule (Metricool) and review the channel.
 ---
 
 # Meatball Myths
@@ -15,6 +15,7 @@ The old cat soap opera (numbered serial episodes, Veo shots, OpusClip) was retir
 3. `TOWN.md`: the 10 desks, the daily rhythm, and the square on the town artifact.
 4. `research/42-growth-reset.md` (niche, thumbnails, repeat audience), `research/39-meatball-show-bible.md` (persona) and `research/41-stickman-reference.md` (animation).
 5. `KNOWLEDGE.md` (tested findings) and `SELF_REVIEW.md` (mistakes and the checks that catch them).
+6. `research/60-growth-research-1029.md` (sourced 2026 platform research: Shorts→long-form tap, auto dubbing, Test & Compare, TikTok frequency/search). Its rules live in PLAYBOOK.md and OPERATIONS.md.
 
 ## Pipeline
 - **Script:** `scripts/<slug>.json`.

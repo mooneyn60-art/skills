@@ -29,10 +29,11 @@ import statistics as st
 import sys
 
 # --- keep this in sync with OPERATIONS.md (the scanner flags docs that disagree with it) ---------------
-CADENCE = {  # network: list of ET posting times per day (10/28: 2 YT Shorts, 3 TikToks in 12:00-17:30)
-    "youtube-short": ["15:00", "16:00"],
-    "tiktok": ["12:00", "13:30", "15:00"],
+CADENCE = {  # network: list of ET posting times per day (10/29: 3 YT Shorts, 3 TikToks; long-forms 17:00)
+    "youtube-short": ["09:30", "14:00", "18:00"],
+    "tiktok": ["12:00", "14:30", "17:00"],
 }
+LONGFORM_DAY_SKIP = {"youtube-short": "18:00"}  # no 18:00 Short on a day with a 17:00 long-form
 CURRENT_BRANCH = "claude/youtube-monetization-strategy-m9vz6i"
 RETIRED = {  # phrase found in a routine doc -> why it is stale
     r"Oh Meatball Pt|story part|STORY PART|season1\.md": "the Oh Meatball story format was retired on 10/22",
@@ -144,7 +145,10 @@ def check_queue(root, now):
     net_alias = {"youtube-short": ("youtube-short", "yt-short", "youtube"), "tiktok": ("tiktok",)}
     # Metricool can save a post up to 2 h off its slot (DST drift, SELF_REVIEW 10/24); a post within
     # 2 h fills the slot, and each post fills only one slot, so a drifted post isn't a false gap.
-    posts = {}
+    posts, lf_days = {}, set()
+    for r in ps:
+        if r.get("network") == "youtube" and is_longform(r) and parse_ts((r.get("date") or "")[:16]):
+            lf_days.add(parse_ts(r["date"][:16]).date())
     for r in ps:
         t = parse_ts((r.get("date") or "")[:16])
         if t and not (r.get("network") == "youtube" and is_longform(r)):
@@ -169,6 +173,8 @@ def check_queue(root, now):
         for d in range(0, 8):
             day = (now_et + dt.timedelta(days=d)).date()
             for t in times:
+                if LONGFORM_DAY_SKIP.get(net) == t and day in lf_days:
+                    continue
                 slot = dt.datetime.combine(day, dt.time.fromisoformat(t), et)
                 if now_et < slot <= now_et + horizon:
                     slots.append(slot)

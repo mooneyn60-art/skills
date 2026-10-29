@@ -4,13 +4,13 @@ Claude runs the channel; Nolan owns the accounts, gives direction, and does the 
 taps. This file is the team, the daily routine, the numbers we steer by, and the rules for change.
 
 
-## Cadence (Nolan, 2026-10-28 evening; OVERRIDES every older cadence line in this file and the routines)
+## Cadence (source of truth, 2026-10-29; OVERRIDES every older time or count in this file, TOWN.md and the routines)
 
-- **YouTube Shorts: 2 a day max.** Do not add posts to reach 3; an empty third slot is correct.
-- **TikToks: 3-4 a day, all between 12:00 and 17:30 ET** (still 61 s+ for Creator Rewards). No 09:30 or 20:00 TikToks.
-- **Long-forms: at least 3 days apart, at most 2 a week, at 17:00 ET.** Already scheduled: 10/29, 11/1, 11/5.
-- Animals only. The TRUE-OR-FALSE quiz format and the "Meatball Investigates" case files are on hold as drafts; ignore drafts.
-- scan.py's CADENCE still lists the old slots (3 Shorts, TikToks 09:30-20:00); its empty-slot warnings above the new caps are not work. The tools owner should update CADENCE to match.
+- **YouTube Shorts: 09:30, 14:00 and 18:00 ET.** On a long-form day there is no 18:00 Short (2 that day).
+- **TikToks: 3 a day at 12:00, 14:30 and 17:00 ET**, every one 61 s+ for Creator Rewards.
+- **Long-forms: 17:00 ET, at least 3 days apart, at most 2 a week.** Already scheduled: 10/29, 11/1, 11/5.
+- `brain/tools/scan.py` CADENCE matches this (it skips the 18:00 Short on long-form days).
+- Animals only. The TRUE-OR-FALSE quiz format and the "Meatball Investigates" case files are on hold as drafts; ignore drafts. Every case/verdict slot table further down is historical.
 
 ## vidIQ ration (OVERRIDES every routine's budget line, set 2026-10-26)
 
@@ -71,7 +71,7 @@ missiles and all?") "by far" over a scene open (A) and a proof open (B). TARS al
 |---|---|---|
 | 1 Seed | 1 episode > 1k views; 30 s retention > 70% | proof the format holds strangers |
 | 2 Traction | YouTube 1,000 subs; TikTok follower growth | YPP eligibility path |
-| 3 Monetize | YouTube Partner Program: 1,000 subs + 4,000 long-form watch hours / 12 months (~1,300 episode views/week at 3.5 min AVD) | ad revenue |
+| 3 Monetize | YouTube Partner Program: 1,000 subs + 4,000 long-form watch hours / 12 months (~1,300 episode views/week at 3.5 min AVD). Doubles to 8,000 h / 20M Shorts views for applicants from 2027-02-01 (research/59 §4). Shorts-feed hours never count, so the Related video tap is the bridge (research/60) | ad revenue |
 | 4 Scale | Part 2s of every winner, 30-50 myth compilations, second series | more revenue lines |
 
 ## Team (Claude spawns these as agents; one writer per file)
@@ -83,20 +83,16 @@ missiles and all?") "by far" over a scene open (A) and a proof open (B). TARS al
 | Writer | next episode script (cold open, 12 myths, jokes, ~1,600-1,700 words) | morning run, 2 days ahead |
 | Photo editor | iNaturalist candidate sheets, live/unharmed/right-species picks | morning run |
 | Producer | episode.py (long + Shorts), tiktok.py, thumb3 + thumb2 | morning run |
-| Scheduler | Metricool queue: 1 episode, 3 Shorts, 4 TikToks a day, first comments; re-check best times weekly | morning run |
+| Scheduler | Metricool queue per the Cadence section (3 Shorts, 3 TikToks a day, 2 long-forms a week), first comments; re-check best times weekly | morning run |
 | Inbox | Nolan's chat messages + comments on the HQ page; acts on them first | every run |
 
 ## Daily routine (scheduled tasks fire into this session; all ET)
 | When | Run | Output |
 |---|---|---|
-| 08:13 | Production: inbox, build the episode for 2 days out, fill the queue | episode + 3 Shorts + 4 TikToks queued 2 days ahead |
+| 08:13 | Production: inbox, build the episode for 2 days out, fill the queue | the Cadence section's slots queued 2 days ahead |
 | 18:41 | Review: stats, analytics, rivals, HQ report, next topics | HQ Daily report + rivals, backlog updated |
 
-Cadence (SUPERSEDED 10/28, see the Cadence section at the top): one long-form a day at 2 PM (Saturdays: the "Meatball Explains" history episode instead of a myth episode, never both); YouTube Shorts 9:30 AM, 1 PM and 4 PM (from the newest episode that is
-already live, so Related video can point at it); TikToks 4 a day from 10/25: 9:30 AM, 12 PM, 6 PM, 8 PM, all over 60 s and freshly rendered (Creator Rewards pays only 60 s+; research/32). The 11/1 summit moves it to 5 if qualified views per post hold, or back to 3 if they fall 25%+; TikTok is the lab and YouTube the showroom (research/33). Times follow Metricool best-time data
-(checked 2026-10-24): YouTube peaks 3-5 PM (4 PM top) with a second peak at 10 AM, so the episode goes live at 2 PM, ahead of the
-big wave; TikTok peaks 10 AM, 12 PM and 6 PM every day.
-**First slot is 9:30 AM ET (Nolan, 10/25).** vidIQ subscriber activity runs about even at 9 and 10 AM; Metricool favors 10. Nolan chose 9:30. Put the week's strongest Short at Thursday 4 PM: vidIQ's busiest subscriber window is Thursday 3-6 PM.
+Times: see the Cadence section at the top (the old 2 PM / 9:30-20:00 slot lists are retired). Put the week's strongest Short at the Thursday 14:00 slot: vidIQ's busiest subscriber window is Thursday 3-6 PM.
 
 ## Numbers we steer by
 Episodes: impressions CTR, 30 s retention, average view duration, views in 48 h.
@@ -222,8 +218,7 @@ The goldfish curve loses half its remaining viewers between 47% and 75% of the v
 - Narration: en-US-AndrewMultilingualNeural at +15% everywhere (Nolan picked it 2026-10-23) with the light music bed
   (`brand/music/quiz-bed.m4a`, original vidIQ track, ducked under the voice). Set per script:
   `"rate"`, `"short_rate"`, `"music"`.
-- One long-form episode a day at 2 PM ET; 4 TikToks a day (9:30 AM, 12 PM, 6 PM, 8 PM), every one
-  over 60 s (Creator Rewards floor) with the AI-content label on.
+- Posting times: the Cadence section at the top. Every TikTok is over 60 s (Creator Rewards floor) with the AI-content label on.
 
 ## Guardrails
 - Original characters and stories only; label AI content where the platform asks.
@@ -252,7 +247,7 @@ The goldfish curve loses half its remaining viewers between 47% and 75% of the v
   - brand colors
   - 3 variants, each scored with vidIQ
 - **Repeat audience:**
-  - fixed Tuesday/Saturday days
+  - a fixed rhythm: 2 long-forms a week at 17:00, at least 3 days apart
   - named series with their own playlists
   - running gags
   - read commenters' answers on screen
@@ -266,7 +261,7 @@ Never assume viewers will engage. Every video asks, in Meatball's voice and with
 - **Style:** story long-forms render with `"style": "v4", "aspect": "16:9"` (tools/v3.py `landscape()`, 1920x1080): Meatball in jeopardy (an action move at least once a minute, a gag or escalation every 15-20 s), punch-ins on key words, a whip or new picture every 3-4 s at most, SFX under the voice, moving cut-outs where the photo shows the whole animal (v3 stills otherwise). Text cards become `"label"`s over a blurred photo; `"aside"` footnotes still work. Still 6-8 min and one story; facts unchanged, jokes in the research/39 voice only. Samples: `scripts/explains-0{2,3}-*.json`.
 - **0:00-~0:20 cold open: hook only, no ask.**
 - **~0:20-0:35 guess-first comment card** (beat `ask` with `choices`): "Comment your guess before I tell you", 2-3 emoji choices tied to the episode's big question (zombies: "WHICH ONE COULD BE INSIDE YOU? 🐜 / 🐌 / 🐀"), held ~2 s. The episode must answer it.
-- **~0:30-0:50 one subscribe pill** (beat `sub`): "Subscribe. A new Meatball story every Tuesday and Saturday." Meatball points, the SUBSCRIBE pill pops and is pressed. This is the ONLY subscribe ask: no second one later.
+- **~0:30-0:50 one subscribe pill** (beat `sub`): "Subscribe. Two new Meatball stories every week." Meatball points, the SUBSCRIBE pill pops and is pressed. This is the ONLY subscribe ask: no second one later.
 - **One like ask mid-video** (a spoken line + "HIT LIKE" label).
 - **Ending:** "So, were you right? ... Tell me in the comments." (reminder card "WERE YOU RIGHT? 👇"), then the tease for the next episode. No extra in-story comment asks.
 - **First comment / pinned:** the same emoji guess question. The description's first question line matches it.
@@ -282,7 +277,7 @@ Never assume viewers will engage. Every video asks, in Meatball's voice and with
 
 **First comment (YouTube) and caption (TikTok):** lead with ONE binary or pick-one question with 2-3 emoji choices, tied to that video's animal and accurate to it ("Would you pick it up? 👍 yes / 👎 no / 💀 only with gloves"). On ask-kit Shorts use the same guess question as the card. YouTube first comment ends with "Follow Meatball for more 🍝"; TikTok caption = question first, then the fact and hashtags, then "Follow Meatball for more 🍝" (or the real "Follow for Part N").
 
-**Description:** the first line is the same question when it fits. The subscribe line gives the concrete reason: "Subscribe: Meatball faces a new animal every day 🍝" (long-forms keep "new Meatball every Tuesday and Saturday").
+**Description:** the first line is the same question when it fits. The subscribe line gives the concrete reason: "Subscribe: Meatball faces a new animal every day 🍝" (long-forms say "two new Meatball stories every week").
 
 **Comment replies (10/24):** vidIQ can now post replies as the channel. The tool requires Nolan to approve the exact text, so the Host drafts replies in Meatball's voice, sends them to Nolan, and posts them on his "post them". The first 4 went live 10/24.
 
@@ -303,8 +298,8 @@ Data, last 30 days:
 - Diagnosis: YouTube isn't showing our long-form to anyone. The few people who click leave within half a minute, because the 12-card quiz with countdowns repeats the same pattern. Shorts carry discovery; long-form carries watch hours and RPM. Both need to work.
 
 Rules from 10/30:
-- **Cadence (Nolan, 10/24):** start at TWO story long-forms a week, Tuesday and Saturday at 2 PM. Episodes already queued through 10/29 stay.
-  - Go to THREE (adding Thursday) as soon as one episode clears the retention gate below.
+- **Cadence:** two long-forms a week at 17:00 ET, at least 3 days apart (Cadence section; the 10/24 Tue/Sat 2 PM rule is retired).
+  - A third weekly long-form needs Nolan's yes and one episode clearing the retention gate below (Metricool finds 2-4/week is the long-form sweet spot; research/60).
   - Long-form pays a much higher RPM than Shorts, and the 3,000/4,000 watch-hour path needs it.
 - **Format: one story, not 12 cards.**
   - 6-8 minutes about one searched question, e.g. "Which spider bite can actually kill you?", "How did wolves become dogs?", "Animals scientists thought were extinct".
@@ -318,7 +313,11 @@ Rules from 10/30:
   - Each long-form is cut into 6-12 Shorts.
   - Every one of those Shorts gets the long-form as its YouTube "Related video" (Nolan, in Studio; the API can't set it).
   - Pinned comment: "Full story: <title>".
-- **Freed render time goes to Shorts:** 3 YouTube Shorts a day; 4 TikToks a day; a "Would Meatball Survive?" series in the 1 PM slot.
+  - **Ask for the tap (research/60 R60-1, E29):** once its long-form is public, a linked Short's last 3-5 s are Meatball pointing down and saying "the full story's in the link below". On those Shorts this replaces the subscribe pill. Shorts views give 0 watch hours unless the viewer taps.
+  - **Pay it off in 10 s (R60-2):** the long-form's first 10 s show the animal or claim the linked Shorts promised.
+- **Test & Compare on every long-form (R60-4):** 3 titles (or 3 title+thumb pairs), set by Nolan at publish. YouTube picks by watch time per impression; read that, not CTR.
+- **Auto dubbing (R60-3):** on, with "Publish manually"; review the Hindi, Spanish and Portuguese dubs. If Studio flags the speech as too fast, long-form narration drops from +15% to +5%.
+- **Freed render time goes to Shorts:** the Cadence section's 3 YouTube Shorts and 3 TikToks a day; "Would Meatball Survive?" gets a regular Short slot.
 - **Judge by retention:** keep a format only if average view duration is above 2:00 and retention at 30 seconds is above 60%. Check after each episode with vidIQ audience_retention.
 
 ## Narrator voice (Nolan, 10/24): Bill
@@ -350,7 +349,7 @@ Autopsy: our one long-form with a curve (gFhrONKK0rI, 2:15 quiz pilot, 11 viewer
 - **Every evening (Intel):** pull audience_retention for each long-form older than 48 h, log the drops in data/retention.csv, and send the top drop cause to the Showrunner.
 
 ## Daily mix from 10/28: cases scale up (Nolan 10/26: "I want some of those going out today, we will need to scale")
-Supersedes the E19 one-slot rollout above. All times ET.
+**HISTORICAL: case files are on hold (10/28); slot times are in the Cadence section.** Supersedes the E19 one-slot rollout above. All times ET.
 | Slot | YouTube Short | TikTok |
 |---|---|---|
 | 09:30 | **Case A** (18-24 s v2 case) | animal (unchanged) |
@@ -392,6 +391,7 @@ Every new script picks ONE theme: spec `"theme"` (whole script) or hook beat `"t
 - **Shorts v2 shape (research/40 + 48):** scene-first past-tense open with a 3-5 word `"headline"` on frame 0; "See, in 19xx..." rewind; a "Wait, it gets worse" twist and a Meatball jeopardy beat; one plain verdict sentence + stamp; an ironic `"kicker"` as the last line over a moving picture (no end CTA; the ask kit stays early); `"max_shot": 1.8`; 18-24 s. `tools/coldopen.py` checks the open.
 
 ## Weekly cadence: Verdict Wednesday + Viewer Case Friday (Nolan approved research/50, 10/26)
+**ON HOLD with the case files (10/28); the 11:00 / 19:30 slots below are not live.**
 Extra slots on top of the daily mix: they never move the scaling agent's 09:30/16:00 YouTube cases or its two TikTok cases a day. All times ET. **YouTube Shorts stay 18-24 s** (Nolan 10/26: longer YouTube Shorts underperformed; the 60-120 s YouTube test is OFF). 60-75 s versions are TikTok only.
 | Day | Slot | What |
 |---|---|---|
@@ -435,7 +435,7 @@ Beyond making more videos, these run every day. The ranked list, tests and metri
 ## Weird-news fast lane (Growth desk 10/26, research/51 §5)
 A same-day "Meatball Investigates" Short on a strange discovery, a newly declassified file or an odd science result. It's an **extra** post: it never moves a queued post.
 - **Sources (12:19 marketing desk; 08:13 if time):** Smithsonian "Smart News", Live Science, Science/Nature news, EurekAlert!, NASA/NOAA newsrooms, NARA and the CIA FOIA Reading Room "recently released", the FBI Vault, Atlas Obscura, museum press pages. vidIQ `trending_videos` or `keyword_research mode=rising` (5 credits each) only within the week's cap.
-- **Turnaround: source → posted in ≤ 8 h.** Intel flags it (30 min) → factdesk confirms with 2 independent reputable sources (30 min) → showrunner writes `scripts/news-NN.json` from the verdict-01 template, an 18-24 s v2 case (45 min) → studio renders and QAs the 2 fps sheet (2 h) → postmaster adds an extra YouTube post (18:00 or the next free slot) and a TikTok at 21:00. Log both in data/posted.csv and a row in data/related-video-map.csv.
+- **Turnaround: source → posted in ≤ 8 h.** Intel flags it (30 min) → factdesk confirms with 2 independent reputable sources (30 min) → showrunner writes `scripts/news-NN.json` from the verdict-01 template, an 18-24 s v2 case (45 min) → studio renders and QAs the 2 fps sheet (2 h) → postmaster adds an extra YouTube post and an extra TikTok in the next free gap between Cadence slots (on hold with the case files). Log both in data/posted.csv and a row in data/related-video-map.csv.
 - **Safety (on top of the red list):** no deaths or tragedies from the last 12 months; no living private people; no health or medical claims; a preliminary study is stamped **TOO EARLY** and says "one study"; no news-outlet photos (PD/CC0/CC BY, NASA, NOAA, NARA, museum open access or a host shot only); no other creators' clips; sources named on screen and in the description; no "BREAKING" or fake urgency; a factual update after posting gets a pinned correction within 24 h (host drafts, Nolan approves).
 - **Score:** 48 h views vs the case median and search as a traffic source. Keep the lane if 2 news Shorts in a week land at 1.5x or more; kill it after 3 land under half the median.
 
