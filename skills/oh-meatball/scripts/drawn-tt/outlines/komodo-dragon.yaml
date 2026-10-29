@@ -1,0 +1,88 @@
+slug: komodo-dragon
+out: episodes/drawn-tt
+specs: scripts/drawn-tt
+series: Would Meatball Survive?
+title: 'Komodo Dragon: A 10-Foot Lizard With a Venomous Bite. Would Meatball Survive? 🦎'
+tiktok_caption: 'komodo dragon 🦎 a 10-foot lizard that smells you with its forked tongue, and its venom stops your blood from
+  clotting. The dirty-mouth myth, and babies with no father. Would you visit Komodo Island? 🏝️ yes / 🙅 no #komododragon #venomous
+  #wouldmeatballsurvive #meatballmyths #animalfacts'
+creature: komodo_dragon
+actor: creature
+creature_cfg: &id001
+  plan: reptile
+  label: Komodo dragon
+  color: '#7a6e5a'
+  dark: '#544a3a'
+  length: 900
+  height: 220
+  leg_len: 80
+  mood: smug
+  s: 0.8
+hero_p:
+  cfg: *id001
+scene: forest_floor
+scene_p:
+  time: day
+wild: desert
+wild_p:
+  time: day
+rate: +10%
+music: mystery
+next: Next, would Meatball survive a swarm of killer bees?
+next_scene: garden
+sources:
+- 'Smithsonian''s National Zoo, Komodo dragon: wild adults about 154 lb; largest verified 10.3 ft and 366 lb; venom gland
+  in the lower jaw, venom prevents clotting, causing massive blood loss and shock; can eat up to 80% of its body weight in
+  one meal; smell is its main food detector, sampled with a forked tongue; runs briefly 10-13 mph but hunts by stealth and
+  power; only on a few Indonesian islands (Komodo, Rintja, Padar, Flores); https://nationalzoo.si.edu/animals/komodo-dragon'
+- 'Fry et al. 2009, PNAS 106(22): 8969-8974: Komodo skull poorly adapted to high bite force but resists pulling loads; rejects
+  the toxic-bacteria idea; venom causes anticoagulation and shock; https://doi.org/10.1073/pnas.0810883106'
+- 'Watts et al. 2006, Nature 444: 1021-1022, Parthenogenesis in Komodo dragons: genetic fingerprinting showed offspring of
+  two zoo females kept away from males had no father; https://doi.org/10.1038/4441021a'
+yt:
+- hook: A lizard ten feet long is tasting the air for you, with its forked tongue.
+  gag:
+    mark: alarm
+    at: 70%
+- escalate: Its bite has venom that stops your blood from clotting.
+  gag:
+    mark: shock
+    at: 70%
+- name: The Komodo dragon. About a hundred fifty pounds, in the wild.
+- chase: It can run ten to thirteen miles an hour, in short bursts.
+- fact: It can eat up to eighty percent of its own weight, in one meal.
+  gag:
+    meter: 0.8
+    at: 40%
+- calm: People said its dirty mouth germs killed its prey. Scientists say it's the venom.
+- punch: Would Meatball survive? Only if he stays home. It lives on just a few islands in Indonesia.
+  gag:
+    prop: trophy
+    at: 75%
+tt:
+- solo: The biggest one ever measured was over ten feet long, and three hundred sixty six pounds.
+  gag:
+    prop: ruler
+    at: 40%
+- solo: It hunts with stealth and power, more than speed.
+  scene: forest_floor
+  scene_p:
+    time: dusk
+- fact: Its venom causes massive bleeding, and shock.
+- escalate: Its skull isn't built for a hard bite. It's built to pull, and rip.
+- solo: And two zoo females, kept away from males, had babies anyway.
+  scene: desert
+  scene_p:
+    time: dusk
+  mood: happy
+- fact: Scientists checked the babies' DNA. No father.
+  gag:
+    mark: dizzy
+    at: 60%
+- fact: Its sense of smell is how it finds food.
+- solo: Komodo, Rinca, Padar and Flores are its islands.
+  scene: desert
+  scene_p:
+    time: day
+- fact: Its numbers have dropped, because its home is so small.
+- fact: Would you visit Komodo Island?

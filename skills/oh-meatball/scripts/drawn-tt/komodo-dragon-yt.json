@@ -1,0 +1,105 @@
+{
+ "series": "Would Meatball Survive?, Part",
+ "sources": [
+  "Smithsonian's National Zoo, Komodo dragon: wild adults about 154 lb; largest verified 10.3 ft and 366 lb; venom gland in the lower jaw, venom prevents clotting, causing massive blood loss and shock; can eat up to 80% of its body weight in one meal; smell is its main food detector, sampled with a forked tongue; runs briefly 10-13 mph but hunts by stealth and power; only on a few Indonesian islands (Komodo, Rintja, Padar, Flores); https://nationalzoo.si.edu/animals/komodo-dragon",
+  "Fry et al. 2009, PNAS 106(22): 8969-8974: Komodo skull poorly adapted to high bite force but resists pulling loads; rejects the toxic-bacteria idea; venom causes anticoagulation and shock; https://doi.org/10.1073/pnas.0810883106",
+  "Watts et al. 2006, Nature 444: 1021-1022, Parthenogenesis in Komodo dragons: genetic fingerprinting showed offspring of two zoo females kept away from males had no father; https://doi.org/10.1038/4441021a"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:fenrir",
+ "rate": "+10%",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "komodo_dragon",
+  "scene": "forest_floor",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "reptile",
+   "label": "Komodo dragon",
+   "color": "#7a6e5a",
+   "dark": "#544a3a",
+   "length": 900,
+   "height": 220,
+   "leg_len": 80,
+   "mood": "smug",
+   "s": 0.8
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "reptile",
+    "label": "Komodo dragon",
+    "color": "#7a6e5a",
+    "dark": "#544a3a",
+    "length": 900,
+    "height": 220,
+    "leg_len": 80,
+    "mood": "smug",
+    "s": 0.8
+   }
+  },
+  "actor": "creature",
+  "wild": "desert",
+  "wild_p": {
+   "time": "day"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Komodo Dragon: A 10-Foot Lizard With a Venomous Bite. Would Meatball Survive? 🦎",
+ "tiktok_caption": "komodo dragon 🦎 a 10-foot lizard that smells you with its forked tongue, and its venom stops your blood from clotting. The dirty-mouth myth, and babies with no father. Would you visit Komodo Island? 🏝️ yes / 🙅 no #komododragon #venomous #wouldmeatballsurvive #meatballmyths #animalfacts",
+ "beats": [
+  {
+   "gag": {
+    "mark": "alarm",
+    "at": "70%"
+   },
+   "m": "hook",
+   "say": "A lizard ten feet long is tasting the air for you, with its forked tongue."
+  },
+  {
+   "gag": {
+    "mark": "shock",
+    "at": "70%"
+   },
+   "m": "escalate",
+   "say": "Its bite has venom that stops your blood from clotting."
+  },
+  {
+   "m": "name",
+   "say": "The Komodo dragon. About a hundred fifty pounds, in the wild."
+  },
+  {
+   "m": "chase",
+   "say": "It can run ten to thirteen miles an hour, in short bursts."
+  },
+  {
+   "gag": {
+    "meter": 0.8,
+    "at": "40%"
+   },
+   "m": "fact",
+   "say": "It can eat up to eighty percent of its own weight, in one meal."
+  },
+  {
+   "m": "calm",
+   "say": "People said its dirty mouth germs killed its prey. Scientists say it's the venom."
+  },
+  {
+   "gag": {
+    "prop": "trophy",
+    "at": "75%"
+   },
+   "m": "punch",
+   "say": "Would Meatball survive? Only if he stays home. It lives on just a few islands in Indonesia."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next, would Meatball survive a swarm of killer bees?"
+  }
+ ],
+ "loop": true
+}
