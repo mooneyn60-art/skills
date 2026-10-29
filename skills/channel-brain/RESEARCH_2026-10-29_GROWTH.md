@@ -53,6 +53,32 @@ rate-limited the container. So no second-by-second watching this time. Sources a
 5. Keep/kill rule: 2x average twice = make a Part 2; under that after ~5 tries = drop.
 6. Weekly metric: subscribers per 1,000 views.
 
+## 5. Second pass: official YouTube, policy, case studies, funnels
+- **Shorts and long-form have separate recommendation systems** (YouTube Blog, 2025-05-06): no evidence Shorts hurt long-form.
+  https://blog.youtube/creator-and-artist-stories/debunking-common-myths-about-youtube-shorts/
+- **"Viewed vs swiped away" has no official target.** YouTube says compare Shorts of the same format, not against a viral hit.
+  The 75-80% benchmarks are vendor numbers. https://support.google.com/youtube/answer/12942217
+- **New Shorts go to a small test group first**; volume and timing unlock nothing; reposting can read as spam
+  (Creator Insider, Aug 2023). Since 2025-03-31 a view counts on play; YPP still uses engaged views.
+- **Oct 1 2026: Shorts ranking further favours original content** over re-uploads (TeamYouTube, via 9to5google).
+- **Related video link:** match the link to what the viewer wants, spoken + visual CTA in the last 5 s, deliver the topic
+  in the long video's first 5-10 s (YouTube Blog, 2026-07-14). No conversion data.
+- **Inauthentic-content policy (official wording, support.google.com/youtube/answer/1311392):** not allowed: generic AI
+  templates that look mass-produced; repetitive content with minimal variation; image slideshows with little narrative;
+  "characters put in the same situation over and over again with the same outcome"; content made only to shock;
+  misleading imagery. Allowed: a series with recurring characters if each episode has its own storyline/focus;
+  templates and tools if the result shows creative vision. TTS is not mentioned. **Risk for us = sameness, plus the
+  shock/misleading wording on the mystery Shorts.** Each House episode needs its own creature, facts and story.
+- **vidIQ first-10-videos study (2026-07-28, 448K new channels):** median 30-day views per Short ~1,350, flat from
+  upload 1 to 10; best of first 10 = 8,832; 48% of Shorts channels hit a 10K Short within their first 10. Long-form
+  180 -> 272. **So our 550-1,500 is about the median, not a breakout.** https://vidiq.com/research/youtube-first-10-videos-study/
+- **Case studies are anecdotal:** Block Facts (one ~27 s format, 1M subs), Jake Fellman (distinct art style), Jeanelle
+  Eats (3 Shorts/day, +600K/yr). Common thread (opinion): one recognizable character/style, one repeatable format, volume.
+- **Shorts -> long-form funnels: no independent proof.** Vendor numbers: related links +10-20% long-form views (Spotter,
+  2024); 11K-34K Shorts views per 1,000 long-form views (AIR, 2026, correlational). A 2024 arXiv paper reports long-form
+  declines after Shorts (no effect sizes, not peer-reviewed). Cheapest test: link each winning House Short to one
+  same-topic long video with matching titles and a last-5-s CTA, then read that long video's Shorts traffic in Studio.
+
 ## Sources
 - https://youmind.com/landing/x-viral-articles/youtube-niche-domination-playbook
 - https://www.colinandsamir.com/resources/the-new-rules-of-youtube-from-paddy-galloway
