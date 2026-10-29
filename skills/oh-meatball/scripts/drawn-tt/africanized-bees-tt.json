@@ -1,0 +1,161 @@
+{
+ "series": "Would Meatball Survive?, Part",
+ "sources": [
+  "California Department of Food and Agriculture, Africanized Honeybee Fact vs. Fiction: same appearance and same venom as European honey bees, both sting only once; Africanized bees guard a larger area, respond faster and in larger numbers, and chase threats up to a quarter mile; run in a straight line, cover face and eyes, shelter in a car or house; walk away from swarms and nests and call pest control or emergency responders; https://www.cdfa.ca.gov/Plant/pdep/target_pest_disease_profiles/factVSfiction.html",
+  "Mingomataj et al. 2014, Clinical Reviews in Allergy & Immunology 47(1): 91-99: massive envenomation by Africanized bees can cause rhabdomyolysis (muscle breakdown) and acute kidney injury; https://doi.org/10.1007/s12016-014-8434-y"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:fenrir",
+ "rate": "+10%",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "africanized_bees",
+  "scene": "garden",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "insect",
+   "label": "Africanized honey bee",
+   "body": "round",
+   "color": "#e0a830",
+   "dark": "#3a2a1a",
+   "length": 420,
+   "height": 200,
+   "leg_len": 90,
+   "ant": 130,
+   "wings": "clear",
+   "stripes": 3,
+   "mood": "angry",
+   "s": 0.75
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "insect",
+    "label": "Africanized honey bee",
+    "body": "round",
+    "color": "#e0a830",
+    "dark": "#3a2a1a",
+    "length": 420,
+    "height": 200,
+    "leg_len": 90,
+    "ant": 130,
+    "wings": "clear",
+    "stripes": 3,
+    "mood": "angry",
+    "s": 0.75
+   }
+  },
+  "actor": "creature",
+  "wild": "garden",
+  "wild_p": {
+   "time": "dusk"
+  }
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Africanized Bees Can Chase You a Quarter Mile. Would Meatball Survive? 🐝",
+ "tiktok_caption": "africanized honey bees (killer bees) 🐝 bump the wrong tree and they chase you a quarter mile. Same venom as regular honey bees, the danger is how many sting. What to do if they chase you. Could you outrun them? 🏃 yes / 🚗 car #africanizedbees #killerbees #bees #wouldmeatballsurvive #meatballmyths",
+ "beats": [
+  {
+   "gag": {
+    "mark": "shock",
+    "at": "70%"
+   },
+   "m": "hook",
+   "say": "Bump the wrong tree, and a swarm of bees chases you for a quarter of a mile."
+  },
+  {
+   "gag": {
+    "mark": "anger",
+    "at": "60%"
+   },
+   "m": "escalate",
+   "say": "Africanized honey bees guard a bigger area. They come faster, and in bigger swarms."
+  },
+  {
+   "m": "name",
+   "say": "The Africanized honey bee. It looks just like a regular honey bee."
+  },
+  {
+   "m": "fact",
+   "say": "Its venom is the same. The danger is how many of them sting."
+  },
+  {
+   "gag": {
+    "prop": "magnifier",
+    "at": "60%"
+   },
+   "m": "fact",
+   "say": "Each bee can only sting once."
+  },
+  {
+   "m": "chase",
+   "say": "If they come after you, run in a straight line, and cover your face."
+  },
+  {
+   "gag": {
+    "prop": "trophy",
+    "at": "75%"
+   },
+   "m": "punch",
+   "say": "Would Meatball survive? Yes, if he keeps running, and gets inside a car or a house."
+  },
+  {
+   "m": "escalate",
+   "say": "Hundreds of stings at once can break down your muscles, and hurt your kidneys."
+  },
+  {
+   "m": "fact",
+   "say": "Pull your shirt or jacket up over your face and eyes while you run."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "m": "solo",
+   "say": "See a swarm or a nest? Walk away."
+  },
+  {
+   "m": "fact",
+   "say": "Then call pest control, or emergency services, to deal with it."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "day"
+   },
+   "gag": {
+    "prop": "magnifier",
+    "at": "60%"
+   },
+   "m": "solo",
+   "say": "Regular honey bees and Africanized bees look the same, even up close."
+  },
+  {
+   "m": "calm",
+   "say": "What's different is how hard they defend their home."
+  },
+  {
+   "m": "fact",
+   "say": "Doctors say severe reactions to mass stings are rare. But serious."
+  },
+  {
+   "m": "fact",
+   "say": "The danger isn't a stronger sting. It's hundreds of them."
+  },
+  {
+   "m": "fact",
+   "say": "Could you outrun them, or would you head for the car?"
+  },
+  {
+   "m": "tease",
+   "say": "Follow me. Next, would Meatball survive a cassowary?",
+   "scene": "forest_floor",
+   "scene_p": {}
+  }
+ ]
+}

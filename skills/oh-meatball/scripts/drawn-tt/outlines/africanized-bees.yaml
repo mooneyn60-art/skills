@@ -1,0 +1,82 @@
+slug: africanized-bees
+out: episodes/drawn-tt
+specs: scripts/drawn-tt
+series: Would Meatball Survive?
+title: Africanized Bees Can Chase You a Quarter Mile. Would Meatball Survive? 🐝
+tiktok_caption: 'africanized honey bees (killer bees) 🐝 bump the wrong tree and they chase you a quarter mile. Same venom
+  as regular honey bees, the danger is how many sting. What to do if they chase you. Could you outrun them? 🏃 yes / 🚗 car
+  #africanizedbees #killerbees #bees #wouldmeatballsurvive #meatballmyths'
+creature: africanized_bees
+actor: creature
+creature_cfg: &id001
+  plan: insect
+  label: Africanized honey bee
+  body: round
+  color: '#e0a830'
+  dark: '#3a2a1a'
+  length: 420
+  height: 200
+  leg_len: 90
+  ant: 130
+  wings: clear
+  stripes: 3
+  mood: angry
+  s: 0.75
+hero_p:
+  cfg: *id001
+scene: garden
+scene_p:
+  time: day
+wild: garden
+wild_p:
+  time: dusk
+rate: +10%
+music: mystery
+next: Next, would Meatball survive a cassowary?
+next_scene: forest_floor
+sources:
+- 'California Department of Food and Agriculture, Africanized Honeybee Fact vs. Fiction: same appearance and same venom as
+  European honey bees, both sting only once; Africanized bees guard a larger area, respond faster and in larger numbers, and
+  chase threats up to a quarter mile; run in a straight line, cover face and eyes, shelter in a car or house; walk away from
+  swarms and nests and call pest control or emergency responders; https://www.cdfa.ca.gov/Plant/pdep/target_pest_disease_profiles/factVSfiction.html'
+- 'Mingomataj et al. 2014, Clinical Reviews in Allergy & Immunology 47(1): 91-99: massive envenomation by Africanized bees
+  can cause rhabdomyolysis (muscle breakdown) and acute kidney injury; https://doi.org/10.1007/s12016-014-8434-y'
+yt:
+- hook: Bump the wrong tree, and a swarm of bees chases you for a quarter of a mile.
+  gag:
+    mark: shock
+    at: 70%
+- escalate: Africanized honey bees guard a bigger area. They come faster, and in bigger swarms.
+  gag:
+    mark: anger
+    at: 60%
+- name: The Africanized honey bee. It looks just like a regular honey bee.
+- fact: Its venom is the same. The danger is how many of them sting.
+- fact: Each bee can only sting once.
+  gag:
+    prop: magnifier
+    at: 60%
+- chase: If they come after you, run in a straight line, and cover your face.
+- punch: Would Meatball survive? Yes, if he keeps running, and gets inside a car or a house.
+  gag:
+    prop: trophy
+    at: 75%
+tt:
+- escalate: Hundreds of stings at once can break down your muscles, and hurt your kidneys.
+- fact: Pull your shirt or jacket up over your face and eyes while you run.
+- solo: See a swarm or a nest? Walk away.
+  scene: garden
+  scene_p:
+    time: dusk
+- fact: Then call pest control, or emergency services, to deal with it.
+- solo: Regular honey bees and Africanized bees look the same, even up close.
+  scene: garden
+  scene_p:
+    time: day
+  gag:
+    prop: magnifier
+    at: 60%
+- calm: What's different is how hard they defend their home.
+- fact: Doctors say severe reactions to mass stings are rare. But serious.
+- fact: The danger isn't a stronger sting. It's hundreds of them.
+- fact: Could you outrun them, or would you head for the car?
