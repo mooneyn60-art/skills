@@ -18,6 +18,8 @@ Checks (each one is cheap, local, and uses only files already in the repo):
   4. metrics.csv: zero subscribers gained in the last 7 days
   5. doc drift: routine docs that mention a retired format, an old branch, or contradict CADENCE
   6. expert playbooks over the 300-line cap
+  7. focus (10/29 audit): share of the next 7 days of YouTube posts that are the shows, queue longer than 7 days,
+     commits that never reach the queue, TikTok rewards and retention tracking gone stale
 """
 import csv
 import datetime as dt
@@ -202,6 +204,49 @@ def check_experiments(root, now):
                 "Keep one, pause the rest (one change per format per week).")
 
 
+SERIES = r"Living In Your House|Would Meatball Survive|Spider Venomous|Meatball vs Spiders"  # the shows (AUDIT_2026-10-29)
+QUEUE_MAX_DAYS = 7
+SHIP_WORDS = r"posted\.csv|queue|schedul|" + SERIES
+
+
+def check_focus(root, now):
+    """The loop audit (10/29): work that never reaches viewers, and a queue too long to learn from."""
+    ps = rows(os.path.join(root, "data", "posted.csv"))
+    week = [r for r in ps if r.get("network") == "youtube" and parse_ts(r.get("date", ""))
+            and now < parse_ts(r["date"]) <= now + dt.timedelta(days=QUEUE_MAX_DAYS)]
+    if week:
+        series = sum(bool(re.search(SERIES, r.get("title", ""))) for r in week)
+        share = series / len(week)
+        if share < 0.8:
+            add("CRITICAL", "postmaster", f"Only {series} of {len(week)} YouTube posts in the next {QUEUE_MAX_DAYS} days ({share:.0%}) are the shows; the rest are one-off facts that bring no one back (2.5% returning).",
+                "Move one-off facts off YouTube (held.csv or TikTok) and fill with finished show episodes, newest first.")
+    far = [r for r in ps if parse_ts(r.get("date", "")) and parse_ts(r["date"]) > now + dt.timedelta(days=QUEUE_MAX_DAYS)]
+    if far:
+        last = max(parse_ts(r["date"]) for r in far)
+        add("WARN", "postmaster", f"{len(far)} posts are queued more than {QUEUE_MAX_DAYS} days out (to {last:%m/%d}). Anything learned this week reaches viewers weeks late.",
+            "Unschedule them into held.csv; keep the queue at 7 days so new rules reach the screen next week.")
+    # busywork: commits in the last 48 h that never touch the queue or a show
+    try:
+        import subprocess
+        out = subprocess.run(["git", "-C", root, "log", "--since=48 hours ago", "--format=%s", "--", "."],
+                             capture_output=True, text=True, timeout=20).stdout.splitlines()
+    except Exception:
+        out = []
+    if len(out) >= 10:
+        ship = sum(bool(re.search(SHIP_WORDS, s, re.I)) for s in out)
+        if ship / len(out) < 0.5:
+            add("WARN", "mayor", f"Only {ship} of {len(out)} commits in the last 48 h touched the queue or a show. The rest (re-renders, research, docs) never reach a viewer this week.",
+                "Before any task, answer: which post in the next 7 days, or which scorecard number, does this change? No answer = don't do it.")
+    for f, owner, what, days in (("tiktok-rewards.csv", "business", "TikTok Creator Rewards (the account that already pays)", 8),
+                                 ("retention.csv", "intel", "Shorts retention curves (where viewers leave)", 7)):
+        rs = rows(os.path.join(root, "data", f))
+        stamps = [parse_ts(next(iter(r.values())) or "") for r in rs]
+        stamps = [s for s in stamps if s]
+        if not stamps or (now - max(stamps)).days > days:
+            add("WARN", owner, f"data/{f} is {'empty' if not stamps else f'stale ({(now - max(stamps)).days} days)'}: {what} isn't being tracked.",
+                f"Record it at least every {days} days; it is how you learn what actually works.")
+
+
 def check_predictions(root, now):
     p = os.path.join(root, "data", "predictions.jsonl")
     if not os.path.exists(p):
@@ -279,7 +324,7 @@ def main():
         sys.exit(64)
     root = sys.argv[1]
     now = dt.datetime.now(dt.timezone.utc)
-    for check in (lambda: check_views(root, now), lambda: check_queue(root, now), lambda: check_experiments(root, now),
+    for check in (lambda: check_views(root, now), lambda: check_queue(root, now), lambda: check_focus(root, now), lambda: check_experiments(root, now),
                   lambda: check_subs(root, now), lambda: check_predictions(root, now), lambda: check_docs(root), lambda: check_playbooks(root)):
         try:
             check()

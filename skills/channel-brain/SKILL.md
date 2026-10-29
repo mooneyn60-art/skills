@@ -107,3 +107,26 @@ scan.py check or an OPERATIONS rule, so it can't happen silently again. A lesson
 ### 6. Say it plainly, including to Nolan
 When Nolan's idea or widening runs against the numbers, say so once, with the number, then do it his way and measure it fairly.
 Agreeing quietly and hoping isn't respect. Telling him the truth with evidence is.
+
+## v3 (2026-10-29): the work gate (stop the loop)
+Added after the 10/29 audit (AUDIT_2026-10-29.md): in 22 hours the town made ~90 commits, but ~70 were re-renders of one-off videos, the queue ran 4 weeks out, and 97 of 112 queued posts were one-off facts. Busy, not shipping.
+
+### Before any task, one question
+**"Which post in the next 7 days, or which scorecard number, does this change?"**
+- The scorecard has three numbers: returning viewers (7 days), subs per 1,000 views, and stayed-to-watch on the show Shorts.
+- If you can't name one, don't do the task. Write it as one line in a `later.md` list and move on.
+- Research, new tools, new docs and re-rendering old videos are all "later" unless they change one of those.
+
+### Daily order (nothing below starts until everything above is done)
+1. The next 7 days of YouTube are 100% shows (Things Living In Your House, Would Meatball Survive?, Is This Spider Venomous?). Nothing is queued past 7 days.
+2. Last night's numbers are logged: views, stayed-to-watch, returning viewers, subs per 1k, TikTok rewards.
+3. Any Short over 3,000 views (YouTube) or 2x the median (TikTok) has its next episode in production.
+4. Only then: make new show episodes.
+5. Only then: anything else.
+
+### Budgets
+- **At most 2 live experiments.** Today there are 12; none can be read. Close or pause 10 of them.
+- **Research: one session a week**, and it ends in a change to the queue or it didn't count.
+- **No paid promotion** while organic tests are being read. Paid views don't count toward YouTube monetization anyway.
+
+`scan.py` check 7 (`check_focus`) flags each of these automatically.
