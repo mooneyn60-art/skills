@@ -1,0 +1,72 @@
+slug: scabies
+series: Things Living In Your House
+part: 22
+title: Tiny Mites Can Burrow Into Your Skin and Lay Eggs
+tiktok_caption: 'scabies mites 😖 the human itch mite burrows into your skin and lays eggs, and the itch is worst at night.
+  How it spreads and why it can take weeks to itch. Would you tell your friends? 🗣️ tell / 🤐 keep it secret #scabies #mites
+  #bugsinyourhouse #meatballmyths #learnontiktok'
+creature: scabies
+actor: creature
+creature_cfg: &id001
+  plan: mite
+  label: scabies mite
+  color: '#efe2cc'
+  dark: '#cdb894'
+  mood: smug
+  s: 0.9
+hero_p:
+  cfg: *id001
+scene: bedroom
+scene_p:
+  time: night
+wild: skin
+music: mystery
+next: Part twenty three rolls into a ball.
+next_scene: basement
+sources:
+- 'CDC, About Scabies: infestation by the human itch mite, which burrows into the upper skin layer where it lives and lays
+  eggs; intense itching especially at night and a pimple-like rash; children often on head, face, neck, palms and soles; spread
+  mainly by direct prolonged skin-to-skin contact, less often by shared clothing, towels or bedding; first infestation symptoms
+  take 4-8 weeks, but people can spread it before symptoms; mites do not survive more than 2-3 days away from human skin;
+  prescription scabicides; no non-prescription product tested and approved; crusted scabies is very contagious; https://www.cdc.gov/scabies/about/index.html'
+yt:
+- hook: Tiny mites can burrow into your skin, and lay their eggs there.
+  gag:
+    mark: shock
+    at: 70%
+- escalate: And the first time, you might not itch for four to eight weeks.
+  gag:
+    clock: 6
+    at: 55%
+    dur: 1.6
+- name: The human itch mite. It causes scabies.
+  gag:
+    prop: magnifier
+    at: 60%
+- solo: It tunnels through the top layer of your skin, laying eggs as it goes.
+- fact: The itch is worst at night.
+  gag:
+    prop: moon
+    at: 50%
+- fact: It spreads by long skin to skin contact.
+- punch: The good news? Off a person, it dies in two or three days.
+  gag:
+    prop: trophy
+    at: 70%
+tt:
+- fact: Its rash looks like little pimples.
+- fact: Kids often get it on the head, face, neck, palms, and the soles of the feet.
+- escalate: And you can pass it on before you even feel the itch.
+  gag:
+    mark: alarm
+    at: 50%
+- fact: Less often, it spreads through shared clothes, towels, or bedding.
+- solo: A severe form, crusted scabies, is very contagious.
+  scene: skin
+- fact: Doctors treat it with prescription creams, lotions, or pills.
+- fact: No store bought product has been tested and approved for it.
+- fact: Itching like crazy every night? See a doctor.
+- fact: The mites are microscopic. Far too small to see.
+- fact: With crusted scabies, a late diagnosis can lead to outbreaks.
+- calm: The good news? A prescription treatment kills the mites.
+- fact: Would you tell your friends, or keep it secret?

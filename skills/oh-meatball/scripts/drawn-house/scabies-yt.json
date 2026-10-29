@@ -1,0 +1,99 @@
+{
+ "series": "Things Living In Your House, Part 22",
+ "sources": [
+  "CDC, About Scabies: infestation by the human itch mite, which burrows into the upper skin layer where it lives and lays eggs; intense itching especially at night and a pimple-like rash; children often on head, face, neck, palms and soles; spread mainly by direct prolonged skin-to-skin contact, less often by shared clothing, towels or bedding; first infestation symptoms take 4-8 weeks, but people can spread it before symptoms; mites do not survive more than 2-3 days away from human skin; prescription scabicides; no non-prescription product tested and approved; crusted scabies is very contagious; https://www.cdc.gov/scabies/about/index.html"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:fenrir",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "scabies",
+  "scene": "bedroom",
+  "scene_p": {
+   "time": "night"
+  },
+  "creature_cfg": {
+   "plan": "mite",
+   "label": "scabies mite",
+   "color": "#efe2cc",
+   "dark": "#cdb894",
+   "mood": "smug",
+   "s": 0.9
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "mite",
+    "label": "scabies mite",
+    "color": "#efe2cc",
+    "dark": "#cdb894",
+    "mood": "smug",
+    "s": 0.9
+   }
+  },
+  "actor": "creature",
+  "wild": "skin"
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Tiny Mites Can Burrow Into Your Skin and Lay Eggs",
+ "tiktok_caption": "scabies mites 😖 the human itch mite burrows into your skin and lays eggs, and the itch is worst at night. How it spreads and why it can take weeks to itch. Would you tell your friends? 🗣️ tell / 🤐 keep it secret #scabies #mites #bugsinyourhouse #meatballmyths #learnontiktok",
+ "beats": [
+  {
+   "gag": {
+    "mark": "shock",
+    "at": "70%"
+   },
+   "m": "hook",
+   "say": "Tiny mites can burrow into your skin, and lay their eggs there."
+  },
+  {
+   "gag": {
+    "clock": 6,
+    "at": "55%",
+    "dur": 1.6
+   },
+   "m": "escalate",
+   "say": "And the first time, you might not itch for four to eight weeks."
+  },
+  {
+   "gag": {
+    "prop": "magnifier",
+    "at": "60%"
+   },
+   "m": "name",
+   "say": "The human itch mite. It causes scabies."
+  },
+  {
+   "m": "solo",
+   "say": "It tunnels through the top layer of your skin, laying eggs as it goes."
+  },
+  {
+   "gag": {
+    "prop": "moon",
+    "at": "50%"
+   },
+   "m": "fact",
+   "say": "The itch is worst at night."
+  },
+  {
+   "m": "fact",
+   "say": "It spreads by long skin to skin contact."
+  },
+  {
+   "gag": {
+    "prop": "trophy",
+    "at": "70%"
+   },
+   "m": "punch",
+   "say": "The good news? Off a person, it dies in two or three days."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Part twenty three rolls into a ball."
+  }
+ ],
+ "loop": true
+}
