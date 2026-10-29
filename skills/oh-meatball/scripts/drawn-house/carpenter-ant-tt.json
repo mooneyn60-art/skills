@@ -1,0 +1,158 @@
+{
+ "series": "Things Living In Your House, Part 21",
+ "sources": [
+  "University of Minnesota Extension, Carpenter ants: they do not eat wood, they remove it to make galleries for nesting; coarse sawdust near a nest is a sign; indoor nests are usually in moist or decayed wood around tubs, sinks, dishwashers and roofs; workers about 3/8-1/2 inch, queens about 1 inch; parent colonies often outdoors with satellite nests indoors; workers forage mainly sunset to midnight; eat insects, honeydew, meats and sweets; many winged ants indoors in late winter-spring suggest a nest inside, a few winged queens may only be seeking a nest site; find and destroy the nest, replace damaged wood, fix moisture; https://extension.umn.edu/insects-infest-homes/carpenter-ants",
+  "University of Maryland Extension, Ants and Termites: How to Tell the Difference: ants have elbowed antennae, termites straight beaded ones; ants have a pinched waist, termites do not; ant front wings are longer than hind wings, termite wings are about equal in length; https://extension.umd.edu/resource/ants-and-termites-how-tell-difference"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:fenrir",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "carpenter_ant",
+  "scene": "kitchen",
+  "scene_p": {
+   "time": "night"
+  },
+  "creature_cfg": {
+   "plan": "insect",
+   "label": "carpenter ant",
+   "body": "round",
+   "color": "#1e1a1a",
+   "dark": "#3a3434",
+   "length": 520,
+   "height": 190,
+   "leg_len": 140,
+   "ant": 220,
+   "mood": "angry",
+   "s": 0.75
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "insect",
+    "label": "carpenter ant",
+    "body": "round",
+    "color": "#1e1a1a",
+    "dark": "#3a3434",
+    "length": 520,
+    "height": 190,
+    "leg_len": 140,
+    "ant": 220,
+    "mood": "angry",
+    "s": 0.75
+   }
+  },
+  "actor": "creature",
+  "wild": "forest_floor"
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Giant Ants Are Chewing Tunnels Through Your Walls",
+ "tiktok_caption": "carpenter ants in my house 🐜 they chew tunnels in the wet wood of your walls, and the queen is an inch long. The sawdust sign, and why the real nest may be outside. Would you go looking for the nest? 🔦 yes / 📞 call a pro #carpenterants #ants #bugsinyourhouse #meatballmyths",
+ "beats": [
+  {
+   "gag": {
+    "mark": "anger",
+    "at": "60%"
+   },
+   "m": "hook",
+   "say": "Giant black ants are chewing tunnels through the wood in your walls."
+  },
+  {
+   "gag": {
+    "prop": "crown",
+    "at": "60%"
+   },
+   "m": "escalate",
+   "say": "And the queen can be an inch long."
+  },
+  {
+   "m": "solo",
+   "say": "Carpenter ants. The workers, half an inch long."
+  },
+  {
+   "m": "fact",
+   "say": "They don't even eat the wood. They chew it out, to make room for the nest."
+  },
+  {
+   "gag": {
+    "prop": "magnifier",
+    "at": "60%"
+   },
+   "m": "fact",
+   "say": "The clue? Little piles of coarse sawdust."
+  },
+  {
+   "scene": "kitchen",
+   "scene_p": {
+    "time": "night"
+   },
+   "m": "solo",
+   "say": "They come out to hunt at night, from sunset to midnight."
+  },
+  {
+   "gag": {
+    "mark": "dizzy",
+    "at": "80%"
+   },
+   "m": "punch",
+   "say": "And the big nest is often outside. The one in your walls is just a second home."
+  },
+  {
+   "m": "fact",
+   "say": "They pick wet or rotting wood, around tubs, sinks, dishwashers, and roofs."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "day"
+   },
+   "m": "solo",
+   "say": "They eat other insects, sweet honeydew, meat, and your sweets."
+  },
+  {
+   "m": "escalate",
+   "say": "Lots of winged ants inside, in late winter or spring? There's probably a nest in the house."
+  },
+  {
+   "m": "calm",
+   "say": "But a few winged queens may just be looking for a home."
+  },
+  {
+   "m": "fact",
+   "say": "And they're not termites. Ants have bent antennae and a skinny waist."
+  },
+  {
+   "m": "fact",
+   "say": "To stop them, fix the leaks, and dry out the wood."
+  },
+  {
+   "m": "fact",
+   "say": "Then find the nest, and replace the damaged wood."
+  },
+  {
+   "m": "fact",
+   "say": "The parent nest is often outside, in a stump, a tree, or a log."
+  },
+  {
+   "m": "fact",
+   "say": "Inside, workers may nest in drier spots, like insulation or hollow doors."
+  },
+  {
+   "m": "fact",
+   "say": "The nests are hidden, so experts suggest calling a pest professional."
+  },
+  {
+   "m": "fact",
+   "say": "Would you go looking for the nest yourself?"
+  },
+  {
+   "m": "tease",
+   "say": "Follow me. Part twenty two is living in your skin.",
+   "scene": "bedroom",
+   "scene_p": {}
+  }
+ ]
+}
