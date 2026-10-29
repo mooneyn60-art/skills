@@ -138,6 +138,12 @@ tt:
   gag:
     prop: magnifier
     at: 40%
+- solo: And its risk of dying doesn't go up as it gets older.
+  scene: microscope
+  mood: happy
+  gag:
+    clock: 2
+    at: 40%
 - solo: It digs with its front teeth.
   scene: cave
   act:
@@ -164,6 +170,12 @@ tt:
 - solo: Acid on its skin doesn't hurt it like it hurts us.
   scene: microscope
   mood: calm
+- solo: Chili pepper that would burn your skin? It doesn't feel that either.
+  scene: cave
+  mood: smug
+  gag:
+    mark: stars
+    at: 60%
 - solo: It can't keep itself very warm.
   scene: cave
   scene_p:

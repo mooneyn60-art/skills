@@ -8,10 +8,10 @@
   "Encyclopaedia Britannica, Naked mole rat: not a true mole or rat; a rodent more closely related to porcupines and guinea pigs; can move its lower incisors independently; https://www.britannica.com/animal/naked-mole-rat"
  ],
  "photo_credits": [],
- "voice": "en-US-AndrewMultilingualNeural",
+ "voice": "kokoro:fenrir",
  "rate": "+10%",
  "music": "mystery",
- "music_db": -26,
+ "music_db": -20,
  "captions": 66,
  "caption_y": 1640,
  "stage": {
@@ -266,6 +266,16 @@
    "say": "Scientists study it to learn why."
   },
   {
+   "scene": "microscope",
+   "mood": "happy",
+   "gag": {
+    "clock": 2,
+    "at": "40%"
+   },
+   "m": "solo",
+   "say": "And its risk of dying doesn't go up as it gets older."
+  },
+  {
    "scene": "cave",
    "act": {
     "chew": 1.0
@@ -308,6 +318,16 @@
    "mood": "calm",
    "m": "solo",
    "say": "Acid on its skin doesn't hurt it like it hurts us."
+  },
+  {
+   "scene": "cave",
+   "mood": "smug",
+   "gag": {
+    "mark": "stars",
+    "at": "60%"
+   },
+   "m": "solo",
+   "say": "Chili pepper that would burn your skin? It doesn't feel that either."
   },
   {
    "scene": "cave",
