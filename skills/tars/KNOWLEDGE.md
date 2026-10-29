@@ -33,6 +33,7 @@ Audience: TARS
 - Robinhood has no real intraday bars before 2026 (5-minute requests return interpolated filler); real minute history grows only by saving bars daily.
 - Option minute historicals are mostly interpolated; rebuild option prices from real SPY bars + Black-Scholes when needed.
 - Yahoo's chart API works with a browser user-agent; stooq is blocked; Robinhood has no foreign indexes.
+- YouTube research from this cloud box (10/29): `yt-dlp --flat-playlist` works for search (`ytsearch15:`) and channel lists (`/channel/<id>/shorts` or `/videos`, views rounded). Transcripts are IP-blocked, watch pages hit 429 after ~15 requests, and transcript sites need a bot-check bypass (refused, don't try). Sleep 6-8 s between list calls. Deep watching needs vidIQ credits: check `vidiq_balance` first.
 - Option IV is annualised on calendar time: 1σ move left = price × IV × √(minutes left / 525,600).
 
 ## Nolan-specific

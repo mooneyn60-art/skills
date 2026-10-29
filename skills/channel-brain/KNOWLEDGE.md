@@ -10,3 +10,6 @@ Seeded by TARS on 2026-10-24 from research/24 and research/42.
 - **0 subscribers from ~5,600 views.** Nothing recurring gives a reason to subscribe.
 - **Short length:** best Shorts ran 27-49 s (river shark 769, goldfish 661); the 88 s lemming got 188. Outlier rivals run 17-30 s.
 - **Character-led "weird true things" channels break out** (Mister Fabio 288x, Sam O'Nella compilations 1,618x); topic-led quizzes don't.
+- **(10/29, public views) The numbered "Things Living In Your House" series is the steadiest format:** #1-#5 got 547-1,500 each; single animal facts ~500-1,000; case-file Shorts 1-431 (5 tries); long-forms 2-152. Source: RESEARCH_2026-10-29_GROWTH.md.
+- **(10/29) Rival outliers don't lift a base:** Nostril Animation has one 4.2M Short; its other Shorts run 1.4K-25K. Series (Colossal Cranium "YES IT'S TRUE", 100K-1.5M) and sequels of hits (Paint Explainer 2.3M -> Pt. 2 736K) are what repeat.
+- **(Galloway, opinion with case studies) Format rule:** a test that does 2x the channel average twice in a row is a winning format; 70%+ of growth comes from 1-2 formats. (2023 study, 5,400 Shorts: long-form 22.7 vs Shorts 16.9 subs per 10K views; 50-60 s Shorts averaged the most.)
