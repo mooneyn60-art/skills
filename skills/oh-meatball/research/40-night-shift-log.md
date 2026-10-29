@@ -18,6 +18,7 @@ Next night takes the next letter; after g, start again at a.
 | 2026-10-25 | a | Breakout formats | 62 s cartoon explainer (1.6M, 10.3x) holds its promised answer to 69%; all 8 of our deep dives give the answer in line 1 | `tools/openloop.py`, `scripts/v4-one-weakness-pangolin.json`, `research/40-openloop-gate.diff` | 30 |
 | 2026-10-26 | b | Competitor teardown (Voggle) | 5/5 of Voggle's top Shorts (2.7M-350K, 86-173 s) open on a past-tense scene mid-action; 5 of our 83 scripted Shorts do (1 of the 6 pilot cases); their famous Emu War did 9.5K vs a 27K median | `tools/coldopen.py`, `scripts/investigates-a119-moon-bomb.json` | 35 |
 | 2026-10-28 | c | YouTube "inauthentic content" (July 2026 clarification) | Bucket 1 demonetizes template videos "with little variation"; 5 of our YT cuts share one exact skeleton and the new batch was converging on another (hook-solo x6-punch, 4 outlines) | `tools/sameness.py`, gate in `tools/drawn_quick.py` | 0 (balance ~28, below 300) |
+| 2026-10-29 | c | night e: (c) platform rules (YPP, AI labels, TikTok originality, thresholds) | YPP Help 1311392 bans "characters put in the same situation over and over again with the same outcome" (our Meatball series); TikTok FYF bars "reused material without anything new" (our list videos re-cut posted clips); YPP update 2027-02-01 reportedly doubles the bar to 8,000 h / 20M Shorts views | `research/59-platform-rules-2026.md` | 0 (balance 3, below 300) |
 
 **Next night: d** (a new revenue or distribution avenue).
 
@@ -225,3 +226,19 @@ Keep it if watch time is +10% or better. YouTube 9:30 cases stay 20-25 s claim-f
 ### Proposed rule (for the Mayor)
 - Before 11/15, when the monetization review window opens, no two Shorts posted on the same day share a skeleton.
 - No hook opener is used more than twice a week.
+
+---
+## 2026-10-29 — night e: (c) platform rules
+
+Full write-up: `research/59-platform-rules-2026.md`. Sources checked: YouTube Help 1311392, 14328491 and 72851; TikTok Community Guidelines (Integrity & Authenticity); third-party guides for Creator Rewards.
+
+### What we found
+1. **YPP inauthentic content.** The Help page lists "Videos where characters are put in the same situation over and over again with the same outcome" as not allowed. This puts Would Meatball Survive? and Meatball vs X at risk unless the outcomes and settings vary.
+2. **TikTok For You feed.** "Content is also ineligible for the FYF if it includes unoriginal or reused material without anything new." A list video re-cut from TikToks we already posted can earn $0 Rewards. The fix is new narration, no reused segment over 3 s, and at least 30% new frames.
+3. **AI labels.** Neither platform requires one for drawn, non-realistic content. YouTube says disclosure doesn't affect earning, so we keep both flags on.
+4. **YPP thresholds.** Today's bar is 1K subs plus either 4K watch hours in 12 months or 10M Shorts views in 90 days. YouTube confirms a YPP update on 2027-02-01; outlets report 8K hours / 20M views for new applicants after that date. **Owner decision:** sprint on watch hours before 1/31 or replan stage 3.
+
+### Proposed for a g night
+- Add a `series_outcome` field to the Meatball series scripts.
+- Make `tools/sameness.py` WARN when 3 episodes in a row share an outcome, or when a list reuses more than 70% of frames from posted cuts.
+
