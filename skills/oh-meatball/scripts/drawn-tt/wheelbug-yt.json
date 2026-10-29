@@ -7,10 +7,10 @@
   "Carnegie Museum of Natural History, 'So just what is a wheel bug?': serrated crest on the pronotum like part of a gear, no other U.S. insect has it; injects enzymes that kill and begin digesting prey from the inside; the author's own bite: an electric-shock jolt, then burning pain peaking after about 5 minutes and lasting hours, a throbbing ache for a couple of days; https://carnegiemnh.org/so-just-what-is-a-wheel-bug/"
  ],
  "photo_credits": [],
- "voice": "en-US-AndrewMultilingualNeural",
+ "voice": "kokoro:fenrir",
  "rate": "+12%",
  "music": "mystery",
- "music_db": -26,
+ "music_db": -20,
  "captions": 66,
  "caption_y": 1640,
  "stage": {
@@ -44,10 +44,24 @@
  "tiktok_caption": "found a bug with a saw blade on its back ⚙️ its bite can be worse than a hornet sting and it melts its prey from the inside. Would you brush it off with your bare hand? ✋ bare hand / 🧹 broom #meatballmyths #learnontiktok #wheelbug #insects",
  "beats": [
   {
+   "gag": [
+    {
+     "zap": true,
+     "at": "30%"
+    },
+    {
+     "clock": 3,
+     "at": "80%"
+    }
+   ],
    "m": "hook",
    "say": "This bug's bite can be worse than a hornet sting. And it can leave your skin numb for days."
   },
   {
+   "gag": {
+    "prop": "magnifier",
+    "at": "70%"
+   },
    "m": "name",
    "say": "The wheel bug. A big gray assassin bug, with a saw blade on its back."
   },
@@ -56,10 +70,18 @@
    "say": "That spiky crest looks like half a gear. No other bug in the U.S. has one."
   },
   {
+   "gag": {
+    "thought": "tick",
+    "at": "60%"
+   },
    "m": "fact",
    "say": "It snatches other bugs with its front legs."
   },
   {
+   "gag": {
+    "zap": true,
+    "at": "60%"
+   },
    "m": "escalate",
    "say": "Then it stabs them with its beak, and pumps in spit that paralyzes them."
   },
@@ -71,5 +93,6 @@
    "m": "tease",
    "say": "Subscribe. Next, the cat people blamed for witchcraft."
   }
- ]
+ ],
+ "loop": true
 }
