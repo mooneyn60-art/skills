@@ -1,0 +1,255 @@
+{
+ "series": "Is This Spider Venomous?, Part 6",
+ "sources": [
+  "UF/IFAS Extension Manatee County, A Tale of Three Daddy Long Legs: harvestmen (Opiliones) have one fused body, two eyes, no silk and no venom, omnivores; cellar spiders (Pholcidae) have two body parts, eight eyes, silk, and venom considered medically insignificant; crane flies are insects that don't bite or sting; https://blogs.ifas.ufl.edu/manateeco/?p=9645",
+  "Penn State Extension, Cellar Spiders: loose irregular webs in dark damp places; vibrate rapidly in the web when disturbed; harmless to people; https://extension.psu.edu/cellar-spiders",
+  "UC Riverside, Rick Vetter, The daddy-long-legs myth: no evidence pholcid venom is dangerous to people; the 'fangs too short' claim is false; https://spiders.ucr.edu/daddy-long-legs-myth",
+  "Burke Museum, Spider Myths (R. Crawford): cellar spiders are a major predator of other spiders, invading webs; females carry their eggs in their jaws; https://www.burkemuseum.org/collections-and-research/biology/arachnology-and-entomology/spider-myths",
+  "MythBusters episode 13 (2004): Adam Savage let a daddy-longlegs (cellar) spider bite him and felt only a brief mild burning sensation."
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:fenrir",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "daddy_long_legs",
+  "scene": "basement",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "arachnid",
+   "label": "harvestman",
+   "color": "#8a6a4a",
+   "dark": "#5a4630",
+   "abdomen_front": true,
+   "abdomen": 150,
+   "ceph": [
+    70,
+    50
+   ],
+   "leg_w": 7,
+   "leg_len": 1.9,
+   "eyes": "pair",
+   "mood": "happy",
+   "s": 0.7
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "arachnid",
+    "label": "harvestman",
+    "color": "#8a6a4a",
+    "dark": "#5a4630",
+    "abdomen_front": true,
+    "abdomen": 150,
+    "ceph": [
+     70,
+     50
+    ],
+    "leg_w": 7,
+    "leg_len": 1.9,
+    "eyes": "pair",
+    "mood": "happy",
+    "s": 0.7
+   }
+  },
+  "actor": "creature",
+  "wild": "forest_floor"
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Is This Spider Venomous? [Daddy Long Legs] 🕷️ (#6)",
+ "tiktok_caption": "is a daddy long legs venomous? 🕷️ the most venomous spider with fangs too short to bite you? Two different animals get that name: the harvestman (no venom) and the cellar spider. Would you let one live in your room? 🏠 yes / 🔥 no #daddylonglegs #isthisspidervenomous #spiders #meatballmyths",
+ "beats": [
+  {
+   "gag": {
+    "prop": "skull",
+    "at": "45%"
+   },
+   "m": "hook",
+   "say": "You've heard the daddy long legs has the deadliest venom, and fangs too short to bite you."
+  },
+  {
+   "gag": {
+    "mark": "shock",
+    "at": "75%"
+   },
+   "m": "escalate",
+   "say": "But two different animals get that name. And one isn't even a spider."
+  },
+  {
+   "m": "name",
+   "say": "The harvestman. One round body, two eyes, no silk, and no venom at all."
+  },
+  {
+   "hero": {
+    "cfg": {
+     "plan": "arachnid",
+     "label": "cellar spider",
+     "color": "#c9b48a",
+     "dark": "#9a8460",
+     "eyes": "pair",
+     "abdomen": 150,
+     "leg_w": 6,
+     "leg_len": 1.9,
+     "mood": "calm",
+     "s": 0.7
+    }
+   },
+   "m": "fact",
+   "say": "The cellar spider. Two body parts, eight eyes, and a messy web in your basement."
+  },
+  {
+   "hero": {
+    "cfg": {
+     "plan": "arachnid",
+     "label": "cellar spider",
+     "color": "#c9b48a",
+     "dark": "#9a8460",
+     "eyes": "pair",
+     "abdomen": 150,
+     "leg_w": 6,
+     "leg_len": 1.9,
+     "mood": "calm",
+     "s": 0.7
+    }
+   },
+   "m": "fact",
+   "say": "It does have venom. But there's no evidence it's dangerous to people."
+  },
+  {
+   "hero": {
+    "cfg": {
+     "plan": "arachnid",
+     "label": "cellar spider",
+     "color": "#c9b48a",
+     "dark": "#9a8460",
+     "eyes": "pair",
+     "abdomen": 150,
+     "leg_w": 6,
+     "leg_len": 1.9,
+     "mood": "calm",
+     "s": 0.7
+    }
+   },
+   "m": "calm",
+   "say": "Bother it, and it shakes its web so fast, it blurs."
+  },
+  {
+   "gag": {
+    "mark": "dizzy",
+    "at": "70%"
+   },
+   "m": "punch",
+   "say": "And the fangs too short story? That's false too."
+  },
+  {
+   "scene": "forest_floor",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "m": "solo",
+   "say": "Harvestmen eat small bugs, dead stuff, fungus, and plants."
+  },
+  {
+   "m": "fact",
+   "say": "A third animal gets the name too. The crane fly. It's an insect, and it doesn't bite or sting."
+  },
+  {
+   "hero": {
+    "cfg": {
+     "plan": "arachnid",
+     "label": "cellar spider",
+     "color": "#c9b48a",
+     "dark": "#9a8460",
+     "eyes": "pair",
+     "abdomen": 150,
+     "leg_w": 6,
+     "leg_len": 1.9,
+     "mood": "calm",
+     "s": 0.7
+    }
+   },
+   "scene": "basement",
+   "scene_p": {
+    "time": "night"
+   },
+   "m": "solo",
+   "say": "Cellar spiders are big hunters of other spiders."
+  },
+  {
+   "hero": {
+    "cfg": {
+     "plan": "arachnid",
+     "label": "cellar spider",
+     "color": "#c9b48a",
+     "dark": "#9a8460",
+     "eyes": "pair",
+     "abdomen": 150,
+     "leg_w": 6,
+     "leg_len": 1.9,
+     "mood": "calm",
+     "s": 0.7
+    }
+   },
+   "scene": "basement",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "m": "solo",
+   "say": "They even walk into other spiders' webs to catch them."
+  },
+  {
+   "hero": {
+    "cfg": {
+     "plan": "arachnid",
+     "label": "cellar spider",
+     "color": "#c9b48a",
+     "dark": "#9a8460",
+     "eyes": "pair",
+     "abdomen": 150,
+     "leg_w": 6,
+     "leg_len": 1.9,
+     "mood": "calm",
+     "s": 0.7
+    }
+   },
+   "m": "fact",
+   "say": "The mom carries her eggs in her jaws."
+  },
+  {
+   "hero": {
+    "cfg": {
+     "plan": "arachnid",
+     "label": "cellar spider",
+     "color": "#c9b48a",
+     "dark": "#9a8460",
+     "eyes": "pair",
+     "abdomen": 150,
+     "leg_w": 6,
+     "leg_len": 1.9,
+     "mood": "calm",
+     "s": 0.7
+    }
+   },
+   "m": "fact",
+   "say": "On MythBusters, Adam Savage let a cellar spider bite him. He felt a brief, mild burn."
+  },
+  {
+   "m": "fact",
+   "say": "How to tell? One round body is a harvestman. Two parts is a cellar spider."
+  },
+  {
+   "m": "fact",
+   "say": "Would you let one live in the corner of your room?"
+  },
+  {
+   "m": "tease",
+   "say": "Follow me. Part seven is the spider watching you from your window.",
+   "scene": "sill",
+   "scene_p": {}
+  }
+ ]
+}
