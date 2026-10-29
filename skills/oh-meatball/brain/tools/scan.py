@@ -19,6 +19,8 @@ Checks (each one is cheap, local, and uses only files already in the repo):
   5. doc drift: routine docs that mention a retired format, an old branch, or contradict CADENCE
   6. expert playbooks over the 300-line cap
   7. render length vs slot (added 10/25): a YouTube Short over 40 s (drawn Shorts run 18-40 s, 10/27), or a day with no 60 s+ TikTok
+  8. focus (10/29 audit): share of the next 7 days of YouTube posts that are the shows, queue longer than 7 days,
+     commits that never reach the queue, TikTok rewards and retention tracking gone stale
 """
 import csv
 import datetime as dt
@@ -224,7 +226,33 @@ def check_experiments(root, now):
         if len(rs) > 1:
             add("WARN", "mayor", f"{len(rs)} experiments are running on {fmt} videos at once ({', '.join(rs)}). Their effects mix and none can be read.",
                 "Keep one, pause the rest (one change per format per week).")
+    # confounding: several changes that went live within the same 7 days can't be told apart
+    live = []
+    for r in ex:
+        st_ = (r.get("status") or "").lower()
+        t0 = parse_ts(r.get("start") or "")
+        if t0 and not any(w in st_ for w in ("closed", "paused", "superseded", "replaced")) and (now - t0).days <= 21:
+            live.append((t0, (r.get("id") or "?").strip(), (r.get("hypothesis") or "")))
+    live.sort()
+    for i, (t0, rid, _) in enumerate(live):
+        window = [x for x in live if 0 <= (x[0] - t0).days <= 7]
+        if len(window) >= 3:
+            add("WARN", "mayor", f"{len(window)} experiments went live within 7 days of {t0:%m/%d} ({', '.join(x[1] for x in window)}). Their effects overlap, so none can be credited.",
+                "Pick the one that matters most for the bottleneck metric; pause or stagger the rest by a week, or state in each row which other test it is read alongside and how.")
+            break
+    paid = [x[1] for x in live if re.search(r"promot|paid|\bads?\b|boost", x[2], re.I)]
+    if paid:
+        add("WARN", "intel", f"Paid promotion is live ({', '.join(paid)}) while organic tests are scored on views/subs. Paid followers and views contaminate those numbers.",
+            "Score organic tests on organic traffic only (exclude promoted posts and their follower spike), or pause the paid test until the organic ones are read.")
+    for fmt, rs in running.items():
+        if len(rs) > 1:
+            add("WARN", "mayor", f"{len(rs)} experiments are running on {fmt} videos at once ({', '.join(rs)}). Their effects mix and none can be read.",
+                "Keep one, pause the rest (one change per format per week).")
 
+
+SERIES = r"Living In Your House|Would Meatball Survive|Spider Venomous|Meatball vs Spiders"  # the shows (AUDIT_2026-10-29)
+QUEUE_MAX_DAYS = 7
+SHIP_WORDS = r"posted\.csv|queue|schedul|" + SERIES
 
 def check_subs(root, now):
     ms = rows(os.path.join(root, "data", "metrics.csv"))
@@ -279,6 +307,65 @@ def check_playbooks(root):
                 if n > PLAYBOOK_MAX_LINES:
                     add("INFO", name[:-3], f"research/experts/{name} is {n} lines (cap {PLAYBOOK_MAX_LINES}).",
                         "Fold proven lessons into its Rules section and delete the rest.")
+
+
+SERIES = r"Living In Your House|Would Meatball Survive|Spider Venomous|Meatball vs Spiders"  # the shows (AUDIT_2026-10-29)
+QUEUE_MAX_DAYS = 7
+SHIP_WORDS = r"posted\.csv|queue|schedul|" + SERIES
+
+
+def check_focus(root, now):
+    """The loop audit (10/29): work that never reaches viewers, and a queue too long to learn from."""
+    ps = rows(os.path.join(root, "data", "posted.csv"))
+    week = [r for r in ps if r.get("network") == "youtube" and parse_ts(r.get("date", ""))
+            and now < parse_ts(r["date"]) <= now + dt.timedelta(days=QUEUE_MAX_DAYS)]
+    if week:
+        series = sum(bool(re.search(SERIES, r.get("title", ""))) for r in week)
+        share = series / len(week)
+        if share < 0.8:
+            add("CRITICAL", "postmaster", f"Only {series} of {len(week)} YouTube posts in the next {QUEUE_MAX_DAYS} days ({share:.0%}) are the shows; the rest are one-off facts that bring no one back (2.5% returning).",
+                "Move one-off facts off YouTube (held.csv or TikTok) and fill with finished show episodes, newest first.")
+    far = [r for r in ps if parse_ts(r.get("date", "")) and parse_ts(r["date"]) > now + dt.timedelta(days=QUEUE_MAX_DAYS)]
+    if far:
+        last = max(parse_ts(r["date"]) for r in far)
+        add("WARN", "postmaster", f"{len(far)} posts are queued more than {QUEUE_MAX_DAYS} days out (to {last:%m/%d}). Anything learned this week reaches viewers weeks late.",
+            "Unschedule them into held.csv; keep the queue at 7 days so new rules reach the screen next week.")
+    # busywork: commits in the last 48 h that never touch the queue or a show
+    try:
+        import subprocess
+        out = subprocess.run(["git", "-C", root, "log", "--since=48 hours ago", "--format=%s", "--", "."],
+                             capture_output=True, text=True, timeout=20).stdout.splitlines()
+    except Exception:
+        out = []
+    if len(out) >= 10:
+        ship = sum(bool(re.search(SHIP_WORDS, s, re.I)) for s in out)
+        if ship / len(out) < 0.5:
+            add("WARN", "mayor", f"Only {ship} of {len(out)} commits in the last 48 h touched the queue or a show. The rest (re-renders, research, docs) never reach a viewer this week.",
+                "Before any task, answer: which post in the next 7 days, or which scorecard number, does this change? No answer = don't do it.")
+    for f, owner, what, days in (("tiktok-rewards.csv", "business", "TikTok Creator Rewards (the account that already pays)", 8),
+                                 ("retention.csv", "intel", "Shorts retention curves (where viewers leave)", 7)):
+        rs = rows(os.path.join(root, "data", f))
+        stamps = [parse_ts(next(iter(r.values())) or "") for r in rs]
+        stamps = [s for s in stamps if s]
+        if not stamps or (now - max(stamps)).days > days:
+            add("WARN", owner, f"data/{f} is {'empty' if not stamps else f'stale ({(now - max(stamps)).days} days)'}: {what} isn't being tracked.",
+                f"Record it at least every {days} days; it is how you learn what actually works.")
+
+
+def check_predictions(root, now):
+    p = os.path.join(root, "data", "predictions.jsonl")
+    if not os.path.exists(p):
+        add("INFO", "mayor", "No data/predictions.jsonl yet, so nobody can check whether the town's judgement is any good.",
+            "Every decision and experiment gets a probability it works, logged with tools/predict.py add.")
+        return
+    for line in open(p):
+        if not line.strip():
+            continue
+        r = json.loads(line)
+        due = parse_ts(r.get("settles", ""))
+        if r.get("hit") is None and due and due < now - dt.timedelta(days=1):
+            add("WARN", "intel", f"Prediction {r.get('id')} ('{r.get('what', '')[:50]}') was due {r['settles']} and is not settled.",
+                f"Settle it today: tools/predict.py settle {r.get('id')} 1|0 \"what happened\".")
 
 
 def video_seconds(path):
@@ -336,7 +423,8 @@ def main():
     now = dt.datetime.now(dt.timezone.utc)
     for check in (lambda: check_views(root, now), lambda: check_queue(root, now), lambda: check_experiments(root, now),
                   lambda: check_subs(root, now), lambda: check_docs(root), lambda: check_playbooks(root),
-                  lambda: check_durations(root, now)):
+                  lambda: check_durations(root, now), lambda: check_focus(root, now),
+                  lambda: check_predictions(root, now)):
         try:
             check()
         except Exception as e:  # a broken check is itself an issue, never a silent pass
