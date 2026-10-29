@@ -1,0 +1,131 @@
+{
+ "series": "Is This Spider Venomous?, Part 7",
+ "sources": [
+  "Australian Museum, Jumping spiders (Salticidae): daylight hunters with large eyes and excellent vision used to track, stalk and judge distance before leaping; no web for hunting; body 3-12 mm; males use colourful courtship displays; peacock spiders raise a coloured abdominal flap; https://australian.museum/learn/animals/spiders/jumping-spiders/",
+  "Oklahoma State University Extension, Jumping spiders: hunt during the day, often on windows and walls where insect prey gathers; https://extension.okstate.edu/programs/digital-diagnostics/insects-and-arthropods/jumping-spiders",
+  "Utah State University Extension, Jumping Spiders: most visible near windows and bright spots; not known to pose a health hazard; beneficial; catch in a jar and release outside; https://extension.usu.edu/planthealth/ipm/notes_nuisance/jumping-spiders.php"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:fenrir",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "jumping_spider",
+  "scene": "sill",
+  "scene_p": {
+   "time": "day"
+  },
+  "wild": "garden"
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Is This Spider Venomous? [Jumping Spider] 🕷️ (#7)",
+ "tiktok_caption": "is this spider venomous? jumping spider 🕷️ the fuzzy little spider on your window is watching you, and it hunts by leaping, no web. Is it dangerous? Would you let it jump on your hand? ✋ yes / 🙅 no #isthisspidervenomous #jumpingspider #spiders #meatballmyths",
+ "beats": [
+  {
+   "gag": {
+    "prop": "magnifier",
+    "at": "70%"
+   },
+   "m": "hook",
+   "say": "The fuzzy little spider on your window is watching you, with eyes that judge distance."
+  },
+  {
+   "gag": {
+    "mark": "alarm",
+    "at": "70%"
+   },
+   "m": "escalate",
+   "say": "Then it stalks its prey, and leaps. No web needed."
+  },
+  {
+   "m": "name",
+   "say": "The jumping spider. Two huge front eyes, and a hairy little body."
+  },
+  {
+   "m": "fact",
+   "say": "Is it venomous? Yes. But it's not known to be a health hazard."
+  },
+  {
+   "m": "solo",
+   "say": "It hunts in the daytime, on windows and walls where bugs gather."
+  },
+  {
+   "m": "fact",
+   "say": "It's beneficial. It eats the bugs in your house."
+  },
+  {
+   "gag": {
+    "mark": "hearts",
+    "at": "70%"
+   },
+   "m": "punch",
+   "say": "Want it out? Catch it in a jar, and let it go outside."
+  },
+  {
+   "gag": {
+    "prop": "ruler",
+    "at": "50%"
+   },
+   "m": "count",
+   "say": "Its body is only three to twelve millimeters long."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "day"
+   },
+   "mood": "happy",
+   "m": "solo",
+   "say": "Males dance to win females, with colorful courtship displays."
+  },
+  {
+   "scene": "forest_floor",
+   "scene_p": {
+    "time": "day"
+   },
+   "m": "solo",
+   "say": "Peacock spiders even lift a bright colored flap on their back."
+  },
+  {
+   "m": "fact",
+   "say": "You'll see them most near windows, and bright spots."
+  },
+  {
+   "m": "xray",
+   "say": "Its big eyes let it track, stalk, and judge distance before it leaps."
+  },
+  {
+   "m": "fact",
+   "say": "How to tell? Two giant eyes up front, and it hunts by jumping, not with a web."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "day"
+   },
+   "m": "solo",
+   "say": "It stalks its prey without a web, then pounces."
+  },
+  {
+   "m": "fact",
+   "say": "Most are tiny, about the size of your fingernail or smaller."
+  },
+  {
+   "m": "fact",
+   "say": "For a spider, its eyesight is excellent."
+  },
+  {
+   "m": "fact",
+   "say": "Would you let one jump on your hand?"
+  },
+  {
+   "m": "tease",
+   "say": "Follow me. Part eight is the desert spider soldiers were scared of.",
+   "scene": "desert",
+   "scene_p": {}
+  }
+ ]
+}
