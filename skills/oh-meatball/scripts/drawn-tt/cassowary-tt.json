@@ -6,10 +6,10 @@
   "Natural History Museum (London), Birds are dinosaurs: modern birds are living theropod dinosaurs; https://www.nhm.ac.uk/discover/how-dinosaurs-evolved-into-birds.html"
  ],
  "photo_credits": [],
- "voice": "en-US-AndrewMultilingualNeural",
+ "voice": "kokoro:fenrir",
  "rate": "+10%",
  "music": "mystery",
- "music_db": -26,
+ "music_db": -20,
  "captions": 66,
  "caption_y": 1640,
  "stage": {
@@ -217,6 +217,14 @@
   {
    "scene": "forest_floor",
    "scene_p": {
+    "time": "dusk"
+   },
+   "m": "solo",
+   "say": "You'd also find it in New Guinea, not just Australia."
+  },
+  {
+   "scene": "forest_floor",
+   "scene_p": {
     "time": "day"
    },
    "act": {
@@ -274,6 +282,16 @@
    },
    "m": "solo",
    "say": "And here's the twist. Mom lays the eggs, and walks away."
+  },
+  {
+   "scene": "forest_floor",
+   "mood": "shock",
+   "gag": {
+    "mark": "stars",
+    "at": "50%"
+   },
+   "m": "solo",
+   "say": "The eggs are bright green. Not what you'd expect from a bird."
   },
   {
    "scene": "forest_floor",

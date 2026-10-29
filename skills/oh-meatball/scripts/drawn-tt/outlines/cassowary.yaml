@@ -136,6 +136,10 @@ tt:
   gag:
     mark: sweat
     at: 40%
+- solo: You'd also find it in New Guinea, not just Australia.
+  scene: forest_floor
+  scene_p:
+    time: dusk
 - solo: It mostly eats fruit that falls from the trees.
   scene: forest_floor
   scene_p:
@@ -174,6 +178,12 @@ tt:
     n: 4
     r: 40
     at: 40%
+- solo: The eggs are bright green. Not what you'd expect from a bird.
+  scene: forest_floor
+  mood: shock
+  gag:
+    mark: stars
+    at: 50%
 - solo: Dad sits on them, for about fifty days.
   scene: forest_floor
   scene_p:

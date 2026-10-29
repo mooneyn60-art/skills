@@ -47,7 +47,7 @@ sources:
 - 'Bastos et al. 2021, Ecology and Evolution, Social predation in electric eels: groups
   of Electrophorus voltai herd small fish and strike together; https://doi.org/10.1002/ece3.7121'
 yt:
-- hook: One kind of electric eel can hit eight hundred sixty volts.
+- hook: One kind of electric eel can hit you with eight hundred sixty volts.
   hero_at:
     x: 760
   gag:
@@ -137,6 +137,12 @@ tt:
   gag:
     mark: shock
     at: 50%
+- solo: No animal we know makes a stronger shock than that eight hundred sixty volts.
+  scene: swamp
+  mood: shock
+  gag:
+    mark: alarm
+    at: 40%
 - solo: In murky water, it uses tiny weak pulses to sense around it.
   hero_at:
     x: 600
@@ -219,6 +225,10 @@ tt:
   gag:
     zap: true
     at: 50%
+- solo: You'd find it in the Orinoco River too, not just the Amazon.
+  scene: swamp
+  scene_p:
+    time: dusk
 - solo: Every few minutes, it rises to gulp air.
   hero_at:
     x: 600

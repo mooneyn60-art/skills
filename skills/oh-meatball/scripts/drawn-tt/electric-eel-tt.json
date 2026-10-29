@@ -7,10 +7,10 @@
   "Bastos et al. 2021, Ecology and Evolution, Social predation in electric eels: groups of Electrophorus voltai herd small fish and strike together; https://doi.org/10.1002/ece3.7121"
  ],
  "photo_credits": [],
- "voice": "en-US-AndrewMultilingualNeural",
+ "voice": "kokoro:fenrir",
  "rate": "+10%",
  "music": "mystery",
- "music_db": -26,
+ "music_db": -20,
  "captions": 66,
  "caption_y": 1640,
  "stage": {
@@ -70,7 +70,7 @@
     }
    ],
    "m": "hook",
-   "say": "One kind of electric eel can hit eight hundred sixty volts."
+   "say": "One kind of electric eel can hit you with eight hundred sixty volts."
   },
   {
    "hero_at": {
@@ -206,6 +206,16 @@
    },
    "m": "solo",
    "say": "Out of the water, the shock goes straight into you."
+  },
+  {
+   "scene": "swamp",
+   "mood": "shock",
+   "gag": {
+    "mark": "alarm",
+    "at": "40%"
+   },
+   "m": "solo",
+   "say": "No animal we know makes a stronger shock than that eight hundred sixty volts."
   },
   {
    "hero_at": {
@@ -356,6 +366,14 @@
    },
    "m": "solo",
    "say": "Then they all strike together."
+  },
+  {
+   "scene": "swamp",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "m": "solo",
+   "say": "You'd find it in the Orinoco River too, not just the Amazon."
   },
   {
    "hero_at": {
