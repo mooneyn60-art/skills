@@ -6,10 +6,10 @@
   "University of Florida IFAS (Wildlife Ecology, Florida's introduced reptiles: Hemidactylus geckos), Common house gecko and Mediterranean house gecko: nocturnal, often seen on walls and around outdoor lights hunting insects attracted to the light; the common house gecko is native to Southeast Asia and has spread around the world with people and cargo; house geckos are harmless to people; they make chirping calls; https://edis.ifas.ufl.edu/publication/UW259"
  ],
  "photo_credits": [],
- "voice": "en-US-AndrewMultilingualNeural",
+ "voice": "kokoro:fenrir",
  "rate": "+10%",
  "music": "mystery",
- "music_db": -26,
+ "music_db": -20,
  "captions": 66,
  "caption_y": 1640,
  "stage": {
@@ -134,11 +134,8 @@
   },
   {
    "m": "tease",
-   "say": "Subscribe. Part eighteen lives on your roof.",
-   "scene": "garden",
-   "scene_p": {
-    "time": "day"
-   }
+   "say": "Subscribe. Part eighteen lives on your roof."
   }
- ]
+ ],
+ "loop": true
 }
