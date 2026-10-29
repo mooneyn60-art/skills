@@ -1,0 +1,66 @@
+{
+ "series": "Things Living In Your House, Part 19",
+ "sources": [
+  "CDC, About Scabies: https://www.cdc.gov/scabies/about/index.html"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:fenrir",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "scabies",
+  "scene": "bedroom",
+  "scene_p": {
+   "time": "night"
+  },
+  "creature_cfg": {
+   "plan": "mite",
+   "label": "scabies mite",
+   "color": "#efe2cc",
+   "dark": "#cdb894",
+   "mood": "sneaky",
+   "s": 0.9
+  },
+  "wild": "skin"
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Something Is Digging a Tunnel in Your Skin Right Now",
+ "tiktok_caption": "",
+ "beats": [
+  {
+   "m": "hook",
+   "say": "Something is digging a tunnel in your skin right now."
+  },
+  {
+   "scene": "skin",
+   "m": "tiny",
+   "say": "Shrink down. It's a mite, laying eggs as it digs."
+  },
+  {
+   "gag": {
+    "clock": 6,
+    "at": "40%",
+    "dur": 1.6
+   },
+   "m": "escalate",
+   "say": "You won't even itch for a month."
+  },
+  {
+   "scene": "skin",
+   "m": "xray",
+   "say": "Every tunnel is packed with eggs."
+  },
+  {
+   "m": "punch",
+   "say": "It spreads by touch. So... who did you touch today?"
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next: the bug that rolls into a ball."
+  }
+ ],
+ "loop": true
+}

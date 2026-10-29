@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""One outline -> both cuts. Writes the YouTube Short (18-24 s) and the TikTok deep cut (61-75 s) specs from ONE
+"""One outline -> both cuts. Writes the YouTube Short (14-20 s) and the TikTok deep cut (61-75 s) specs from ONE
 short YAML outline, checks their spoken length, renders both with tools/drawn.py, writes 2 fps contact sheets
 and ffprobe-checks every file.
 
@@ -46,7 +46,7 @@ MACROS = ("hook", "name", "fact", "xray", "scale", "count", "escalate", "chase",
 # Narrator: Kokoro fenrir (0.86x, comma pauses <= 0.22 s; tools/free_voice.py), picked 10/28 from the outlier-matching
 # voice test. An outline's "voice:" (and "rate:" for an edge-tts voice, e.g. en-US-AndrewMultilingualNeural) overrides it.
 VOICE = "kokoro:fenrir"
-YT_RANGE, TT_RANGE = (18.0, 40.0), (61.0, 75.0)   # YT 18-40 s: Lab found no edge for <=20 s (research 02)
+YT_RANGE, TT_RANGE = (14.0, 20.0), (61.0, 75.0)   # YT <=20 s (Nolan 10/29, channel-brain vidcheck.py gate); TT 61-75 s for Creator Rewards
 
 
 def load(path):
@@ -82,8 +82,8 @@ def specs(o):
     # TikTok says "Follow", not "Subscribe": Creator Rewards needs 10K followers (Nolan's TikTok analytics 10/28)
     tt_tease = dict(tease, say="Follow me. " + o["next"], **tt_room)
     # YouTube Shorts loop: the last frame cuts back into frame 0 (Studio 10/28: make the end loop into the hook)
-    yt = dict(base, title=o["title"], tiktok_caption=o["tiktok_caption"], beats=act1 + [tease], loop=True)
-    tt = dict(base, title=o.get("tt_title", o["title"]), tiktok_caption=o["tiktok_caption"],
+    yt = dict(base, title=o["title"], tiktok_caption=o.get("tiktok_caption", ""), beats=act1 + [tease], loop=True)
+    tt = dict(base, title=o.get("tt_title", o["title"]), tiktok_caption=o.get("tiktok_caption", ""),
               beats=act1 + act2 + [tt_tease])
     return yt, tt
 

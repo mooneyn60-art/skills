@@ -461,12 +461,23 @@ def bird(ctx, t, cfg, p):
             fc = _c(cfg, "foot_color", "#e0a030")
             stroke(ctx, [(k * 30, by + H * 0.4), (k * 30 + 10, -4)], 9, color=fc)
             shape(ctx, lambda c, k=k: p_ellipse(c, k * 30 + 15, -2, 42, 12), fc, OUT * 0.6, None)
+            if cfg.get("claw"):   # cassowary: the dagger toe, long enough for a close-up
+                cl = cfg.get("claw_len", 46)
+                shape(ctx, lambda c, k=k: p_poly(c, [(k * 30 + 20, -10), (k * 30 + 20 + cl, -14), (k * 30 + 24, 4)]),
+                      _c(cfg, "claw_color", "#2b2b2b"), OUT * 0.6, None)
     shape(ctx, lambda c: p_poly(c, [(-L * 0.4, by), (-L * 0.85, by - H * 0.25), (-L * 0.8, by + H * 0.15)]), dk, OUT,
           None)
     path = lambda c: p_ellipse(c, 0, by, L / 2, H / 2)  # noqa
     shape(ctx, path, col, OUT, (0.0, 0.2))
     flat(ctx, lambda c: p_ellipse(c, L * 0.08, by + H * 0.18, L * 0.3, H * 0.28), bel)
     hx, hy, hr = L * 0.42, by - H * 0.42, H * 0.38
+    nk = cfg.get("neck", 0)
+    if nk:   # cassowary: a long blue neck lifts the head, red wattle under it
+        hy -= nk
+        stroke(ctx, [(L * 0.3, by - H * 0.3), (hx, hy + hr * 0.5)], hr * 1.1, color=_c(cfg, "neck_color", "#2f6fd6"))
+        if cfg.get("wattle"):
+            shape(ctx, lambda c: p_ellipse(c, hx + hr * 0.3, hy + hr * 1.3, hr * 0.18, hr * 0.45),
+                  _c(cfg, "wattle", "#d8342c"), OUT * 0.5, None)
     beak = cfg.get("beak", "short")
     bc = _c(cfg, "beak_color", "#f2b33d")
     if cfg.get("ear_tufts"):
@@ -482,6 +493,9 @@ def bird(ctx, t, cfg, p):
         shape(ctx, lambda c: p_poly(c, [(hx + hr * 0.8, hy - hr * 0.15), (hx + hr * 0.8 + bl, hy + (hr * 0.3 if beak == "hook" else 0.1)),
                                         (hx + hr * 0.8, hy + hr * 0.3)]), bc, OUT * 0.8, None)
     shape(ctx, lambda c: p_ellipse(c, hx, hy, hr, hr), col, OUT, (0.08, 0.15))
+    if cfg.get("casque"):   # cassowary helmet
+        shape(ctx, lambda c: p_ellipse(c, hx - hr * 0.1, hy - hr * 1.05, hr * 0.45, hr * 0.6),
+              _c(cfg, "casque", "#8a6a3a"), OUT * 0.7, (0.05, 0.2))
     if cfg.get("face_color"):   # puffin: pale face patch
         flat(ctx, lambda c: p_ellipse(c, hx + hr * 0.2, hy + hr * 0.05, hr * 0.7, hr * 0.6), _c(cfg, "face_color", "#f2f2f2"))
     if cfg.get("face_disc"):   # owl: pale heart-shaped facial disc

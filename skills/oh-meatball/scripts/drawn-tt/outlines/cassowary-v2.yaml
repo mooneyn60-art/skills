@@ -1,0 +1,19 @@
+# Would Meatball Survive? rewritten (TARS 10/29): a story with stakes and a twist verdict, ~19 s.
+slug: cassowary-v2
+out: episodes/drawn-tt
+series: Would Meatball Survive?
+part: 1
+title: Meatball Walked Into a Rainforest Holding a Sandwich
+creature: cassowary
+creature_cfg: {plan: bird, label: cassowary, color: '#1b1b1b', neck: 120, neck_color: '#2f6fd6', wattle: '#d8342c', casque: '#8a6a3a', claw: true, claw_len: 60, leg_len: 200, s: 1.3, mood: angry}
+scene: forest_floor
+music: conspiracy
+next: "Next: the snail that harpoons you."
+sources: ["Queensland Government, cassowary safety; Kofron 1999/2003 attack reviews (most attacks followed feeding)"]
+yt:
+  - hook: Meatball walked into a rainforest holding a sandwich.
+  - chase: A cassowary smelled it. They run thirty miles an hour.
+  - xray: Each foot hides a four inch dagger claw.
+  - scale: It stands as tall as a grown man.
+    how: grow
+  - punch: Would Meatball survive? Only if he drops the sandwich. He didn't.
