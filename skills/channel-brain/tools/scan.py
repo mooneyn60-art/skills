@@ -31,11 +31,11 @@ import statistics as st
 import sys
 
 # --- keep this in sync with OPERATIONS.md (the scanner flags docs that disagree with it) ---------------
-CADENCE = {  # network: list of ET posting times per day (10/29: 3 YT Shorts, 3 TikToks; long-forms 17:00)
-    "youtube-short": ["09:30", "14:00", "18:00"],
+CADENCE = {  # network: list of ET posting times per day (MASTER_ORDERS 10/29: YT 12:00 + 16:00, TikTok in the 12-5 pm window)
+    "youtube-short": ["12:00", "16:00"],
     "tiktok": ["12:00", "14:30", "17:00"],
 }
-LONGFORM_DAY_SKIP = {"youtube-short": "18:00"}  # no 18:00 Short on a day with a 17:00 long-form
+LONGFORM_DAY_SKIP = {}  # both Shorts (12:00, 16:00) land before a 17:00 long-form
 CURRENT_BRANCH = "claude/youtube-monetization-strategy-m9vz6i"
 RETIRED = {  # phrase found in a routine doc -> why it is stale
     r"Oh Meatball Pt|story part|STORY PART|season1\.md": "the Oh Meatball story format was retired on 10/22",
