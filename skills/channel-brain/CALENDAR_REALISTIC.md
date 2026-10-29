@@ -58,3 +58,37 @@ Order: topics that already worked on this channel go first (daddy longlegs, spid
 - Every episode ≤20 s on YouTube (about 52 words), 60-75 s cut for TikTok (Creator Rewards needs 60+).
 - Any Short beating 2x the median gets a Part 2 within 48 h, which jumps the bank.
 - Wrong facts are the fastest way to lose trust: when the source disagrees with this table, the source wins.
+
+## Bank 2 (10/29): new animals, not yet made on the channel
+TARS's top 5 to make first: botfly, hagfish, mantis shrimp, tongue-eating louse, horned lizard.
+
+| Show | Animal | Hook | Oh no / twist | Footage search |
+|---|---|---|---|---|
+| House | Human botfly | This fly uses a mosquito to put its baby in your skin. | The larva lives under your skin for weeks, breathing through a tiny hole. | human botfly Dermatobia |
+| House | Kissing bug | This bug bites you on the face while you sleep. | It can carry a disease you might not notice for years (Chagas). | kissing bug Triatoma |
+| House | Tardigrade | There's an animal in your gutter that survived outer space. | It dries into a "tun" and comes back to life with water. | tardigrade microscope |
+| House | Hammerhead flatworm | This worm in your garden is toxic, and cutting it makes more. | Each piece can grow into a new worm. | hammerhead flatworm Bipalium |
+| House | Puss caterpillar | The fluffiest caterpillar in America has one of the most painful stings. | The fur hides venom spines. Don't pet it. | puss caterpillar Megalopyge |
+| House | Cicada killer | This wasp is huge, and it's flying at you. | Males can't sting at all. They're just bluffing. | cicada killer wasp |
+| Spider | Goliath birdeater | This spider is the size of a dinner plate and hisses at you. | It flicks itchy hairs off its belly at your face. | goliath birdeater |
+| Spider | Bolas spider | This spider goes fishing. | It swings a sticky ball and fakes a female moth's scent. | bolas spider |
+| Spider | Peacock spider | This spider dances for its life. | If she doesn't like the dance, she eats him. | peacock spider Maratus |
+| Spider | Ogre-faced spider | This spider throws a net. | Its eyes are so big it hunts in the dark. | net-casting spider Deinopis |
+| Spider | Ballooning spiders | Spiders can fly. | They ride silk threads on the wind for miles. | ballooning spider silk |
+| Spider | Portia jumping spider | This spider plans its attack like a chess player. | It takes detours to sneak up on other spiders. | Portia spider |
+| Survive | Mantis shrimp | Meatball put his finger in a tank with a mantis shrimp. | It punches fast enough to crack aquarium glass. | mantis shrimp strike |
+| Survive | Pistol shrimp | Meatball heard a gunshot under the water. | It was a shrimp. Its snap makes a bubble hotter than the sun's surface, for a split second. | pistol shrimp snap |
+| Survive | Golden poison frog | Meatball picked up a bright yellow frog. | One frog has enough poison to kill about 10 people. | golden poison dart frog |
+| Survive | Cape buffalo | Meatball thought it was just a cow. | Hunters call it "the black death". It circles back. | cape buffalo charge |
+| Survive | Harpy eagle | Meatball went for a walk in the rainforest. | Its talons are longer than a grizzly bear's claws. | harpy eagle |
+| Survive | Lion's mane jellyfish | Meatball swam into a jellyfish. | Its tentacles can be longer than a blue whale. | lion's mane jellyfish |
+| Survive | Cookiecutter shark | Meatball dove in a submarine. | This shark bites perfect round holes, even in submarines. | cookiecutter shark bite |
+| Weird | Hagfish | This fish can fill a bucket with slime in seconds. | It ties itself in a knot to wipe the slime off. | hagfish slime |
+| Weird | Tongue-eating louse | This bug eats a fish's tongue, then BECOMES the tongue. | The fish keeps living with it. | Cymothoa exigua |
+| Weird | Horned lizard | This lizard shoots blood from its eyes. | Aimed at coyotes, and it works. | horned lizard blood squirt |
+| Weird | Lyrebird | This bird copies chainsaws and camera shutters. | It learned the sounds from humans. | lyrebird mimic chainsaw |
+| Weird | Immortal jellyfish | This jellyfish can turn back into a baby. | Over and over. | Turritopsis dohrnii |
+| Weird | Sea cucumber | This animal fights by throwing its guts at you. | Then it grows new ones. | sea cucumber evisceration |
+| Myth | Candiru | The fish that swims up into you (the scariest myth on the internet). | Almost no proof it has ever happened. | candiru fish |
+
+Note: "Weird" fits Things Living In Your House poorly. Run it as TikTok-only first; if two hit 2x median, it becomes a 4th YouTube show after the 8-week lock. Verify every number before scripting.
