@@ -1,0 +1,76 @@
+slug: camel-spider
+series: Is This Spider Venomous?
+part: 8
+title: Is This Spider Venomous? [Camel Spider] 🕷️ (#8)
+tiktok_caption: 'is a camel spider venomous? 🕷️ soldiers'' stories said it chases you, screams and eats camels. The truth:
+  it''s not a spider and has no venom. Would you sleep in that desert tent? ⛺ yes / 🙅 no #camelspider #isthisspidervenomous
+  #spiders #meatballmyths'
+creature: camel_spider
+actor: creature
+creature_cfg: &id001
+  plan: arachnid
+  label: camel spider
+  color: '#d9b27a'
+  dark: '#a8824a'
+  accent: '#8a5a2a'
+  eyes: pair
+  fangs: big
+  fang_color: '#c98a4a'
+  fuzz: true
+  leg_len: 1.2
+  leg_w: 18
+  mood: angry
+  s: 0.7
+hero_p:
+  cfg: *id001
+scene: desert
+scene_p:
+  time: night
+wild: desert
+music: mystery
+next: More spiders, soon.
+sources:
+- 'Burke Museum, Myth: Near East camel spiders'' danger: camel spiders are solpugids, not spiders; no venom; strictly predatory
+  on smaller creatures; legend over 200 years old in Arab countries, spread to North America by Gulf War veterans; no named
+  victim ever produced; https://www.burkemuseum.org/blog/myth-near-east-camel-spiders-danger'
+- 'Burke Museum, Myth: Too many camel spider tall tales: maximum body length 5 cm; only accurately measured speeds under 1
+  mph (10 mph cited as a maximum); some species make a barely audible stridulation; do not feed on camels or humans, lay eggs
+  in soil; run toward people in the sun to reach shade; 2004 viral photo used false perspective, 8-10x life size; https://www.burkemuseum.org/blog/myth-too-many-camel-spider-tall-tales'
+yt:
+- hook: Soldiers said a giant desert spider would chase you down, and scream.
+  gag:
+    mark: shock
+    at: 75%
+- escalate: A photo went around of ones so big, they looked like dinner plates.
+- name: The camel spider. And it isn't even a spider. It's a solpugid.
+- fact: Venomous? No. It has no venom at all.
+  gag:
+    mark: dizzy
+    at: 70%
+- fact: That photo was a trick. Held close to the camera, they looked eight to ten times bigger.
+- chase: And chasing you? It's running for your shade.
+- punch: It doesn't eat camels, or people. Only small animals.
+  gag:
+    thought: tick
+    at: 70%
+tt:
+- count: The biggest bodies are about five centimeters, two inches.
+  gag:
+    prop: ruler
+    at: 50%
+- fact: Fast? The only measured speeds were under one mile an hour.
+- fact: Scream? Some can make a tiny buzz or hiss.
+- solo: The legend is over two hundred years old in Arab countries.
+- fact: Americans first heard it from Gulf War veterans.
+- calm: Nobody has ever named a real victim. It always happened to a friend.
+- solo: It lays its eggs in the soil, not under a camel's skin.
+  scene: desert
+  scene_p:
+    time: day
+- fact: Even the highest speed scientists mention is about ten miles an hour.
+- solo: It's a desert hunter, of creatures smaller than itself.
+  scene: desert
+  scene_p:
+    time: dusk
+- fact: That viral photo was emailed around in two thousand four.
+- fact: Would you still sleep in that desert tent?
