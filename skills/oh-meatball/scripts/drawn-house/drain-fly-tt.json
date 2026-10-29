@@ -5,10 +5,10 @@
   "Penn State Extension, Moth flies (drain flies): females lay 30-100 eggs in the drain film; the life cycle takes about 8 to 24 days; adults live about two weeks; also called filter flies because they breed in huge numbers in sewage treatment trickling filters; https://extension.psu.edu/moth-flies"
  ],
  "photo_credits": [],
- "voice": "en-US-AndrewMultilingualNeural",
+ "voice": "kokoro:fenrir",
  "rate": "+10%",
  "music": "mystery",
- "music_db": -26,
+ "music_db": -20,
  "captions": 66,
  "caption_y": 1640,
  "stage": {
@@ -232,6 +232,19 @@
    },
    "m": "solo",
    "say": "In about two weeks, they're flying."
+  },
+  {
+   "scene": "bathroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "m": "solo",
+   "say": "Sometimes faster. Your drain can turn out a new batch in about eight days."
+  },
+  {
+   "scene": "bathroom",
+   "m": "solo",
+   "say": "Its hairy wings fold like a little roof. That's why it's also called a moth fly."
   },
   {
    "scene": "bathroom",
