@@ -154,6 +154,13 @@ tt:
   gag:
     mark: sweat
     at: 70%
+- solo: Scientists tracked her with a GPS collar, in the sea north of Alaska.
+  scene: ship_deck
+  scene_p:
+    time: day
+  gag:
+    prop: magnifier
+    at: 40%
 - solo: Little bumps on its paws grip the ice.
   scene: cave
   scene_p:
@@ -167,6 +174,12 @@ tt:
     time: night
   act:
     bite: 1.0
+- solo: Its favorite meals are ringed seals and bearded seals.
+  scene: ship_deck
+  scene_p:
+    time: dusk
+  act:
+    chew: 1.0
 - solo: Big males can weigh over a thousand pounds.
   scene: cave
   scene_p:

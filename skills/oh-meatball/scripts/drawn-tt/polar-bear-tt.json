@@ -6,10 +6,10 @@
   "NOAA Fisheries / US Marine Mammal Protection Act: polar bears are classified as marine mammals; https://www.fws.gov/species/polar-bear-ursus-maritimus"
  ],
  "photo_credits": [],
- "voice": "en-US-AndrewMultilingualNeural",
+ "voice": "kokoro:fenrir",
  "rate": "+10%",
  "music": "mystery",
- "music_db": -26,
+ "music_db": -20,
  "captions": 66,
  "caption_y": 1640,
  "stage": {
@@ -236,6 +236,18 @@
    "say": "Over four hundred miles, without stopping."
   },
   {
+   "scene": "ship_deck",
+   "scene_p": {
+    "time": "day"
+   },
+   "gag": {
+    "prop": "magnifier",
+    "at": "40%"
+   },
+   "m": "solo",
+   "say": "Scientists tracked her with a GPS collar, in the sea north of Alaska."
+  },
+  {
    "scene": "cave",
    "scene_p": {
     "time": "day"
@@ -257,6 +269,17 @@
    },
    "m": "solo",
    "say": "It mostly hunts seals, waiting at holes in the ice."
+  },
+  {
+   "scene": "ship_deck",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "act": {
+    "chew": 1.0
+   },
+   "m": "solo",
+   "say": "Its favorite meals are ringed seals and bearded seals."
   },
   {
    "scene": "cave",
