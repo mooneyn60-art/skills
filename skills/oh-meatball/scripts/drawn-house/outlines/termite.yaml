@@ -1,0 +1,86 @@
+slug: termite
+series: Things Living In Your House
+part: 20
+title: Something Is Eating Your House From the Inside
+tiktok_caption: 'termites in my house 😳 termites eat your house from the inside, and one home can have several colonies. How
+  to tell termites from flying ants. Would you sell the house or call the exterminator? 🏚️ sell / 📞 call #termites #termite
+  #bugsinyourhouse #meatballmyths #learnontiktok'
+creature: termite
+actor: creature
+creature_cfg: &id001
+  plan: insect
+  label: termite
+  body: long
+  color: '#e8d6b0'
+  dark: '#b89a6a'
+  head: '#c9823a'
+  length: 500
+  height: 150
+  leg_len: 90
+  ant: 140
+  mood: calm
+  xray: gut
+  s: 0.75
+hero_p:
+  cfg: *id001
+scene: basement
+scene_p:
+  time: night
+wild: forest_floor
+music: mystery
+next: Part twenty one is chewing tunnels in your walls.
+sources:
+- 'UC Statewide IPM Program, Pest Notes: Termites: subterranean termites live in soil and reach wood through tunnels or shelter
+  (mud) tubes made of saliva, soil and wood; drywood termites nest above ground and leave six-sided fecal pellets below exit
+  holes; protists in the gut digest cellulose; colonies range up to hundreds of thousands, possibly millions; a 2,400 sq ft
+  home can host several colonies; Reticulitermes swarm in spring or fall on clear days after heavy rain, most swarmers are
+  eaten by predators; seeing swarms does not always mean the building is infested; damaged wood has a thin, easily punctured
+  surface; inspect every 3-5 years; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7415.html'
+- 'University of Maryland Extension, Ants and Termites: How to Tell the Difference: ants have elbowed antennae, termites straight
+  beaded ones; ants have a pinched waist, termites do not; ant front wings are longer than hind wings, termite wings are about
+  equal in length; https://extension.umd.edu/resource/ants-and-termites-how-tell-difference'
+yt:
+- hook: Something is eating your house from the inside, and you can't see it.
+  gag:
+    mark: alarm
+    at: 60%
+- escalate: One colony can grow to hundreds of thousands. Maybe millions.
+  gag:
+    meter: 1.0
+    at: 40%
+- name: Termites. Pale, soft workers that eat wood.
+- xray: Tiny microbes in their gut turn the wood into food.
+- solo: Underground termites build mud tubes up to the wood, to stay damp.
+- fact: The wood looks fine outside. But it's thin, and a screwdriver pokes right through.
+  gag:
+    mark: shock
+    at: 75%
+- punch: And one house can have several colonies at once.
+  gag:
+    mark: dizzy
+    at: 70%
+tt:
+- solo: After a heavy rain, winged termites swarm out, to start new colonies.
+  scene: garden
+  scene_p:
+    time: day
+- solo: Most of them get eaten in the air.
+  scene: garden
+  scene_p:
+    time: dusk
+- solo: A new queen usually lands less than a hundred meters from home.
+  scene: garden
+  scene_p:
+    time: day
+- fact: Termite or flying ant? Check three things.
+- fact: A termite's antennae are straight. An ant's bend, like an elbow.
+- fact: A termite has a thick waist. An ant's is pinched thin.
+- fact: And a termite's four wings are all about the same length.
+- fact: Drywood termites leave tiny six sided pellets under their holes.
+- calm: But a swarm outside doesn't always mean your house has them.
+- fact: Experts say get an inspection every three to five years.
+  gag:
+    clock: 4
+    at: 40%
+    dur: 1.4
+- fact: Would you sell the house, or call the exterminator?

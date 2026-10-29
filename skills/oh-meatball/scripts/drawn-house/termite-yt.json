@@ -1,0 +1,109 @@
+{
+ "series": "Things Living In Your House, Part 20",
+ "sources": [
+  "UC Statewide IPM Program, Pest Notes: Termites: subterranean termites live in soil and reach wood through tunnels or shelter (mud) tubes made of saliva, soil and wood; drywood termites nest above ground and leave six-sided fecal pellets below exit holes; protists in the gut digest cellulose; colonies range up to hundreds of thousands, possibly millions; a 2,400 sq ft home can host several colonies; Reticulitermes swarm in spring or fall on clear days after heavy rain, most swarmers are eaten by predators; seeing swarms does not always mean the building is infested; damaged wood has a thin, easily punctured surface; inspect every 3-5 years; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7415.html",
+  "University of Maryland Extension, Ants and Termites: How to Tell the Difference: ants have elbowed antennae, termites straight beaded ones; ants have a pinched waist, termites do not; ant front wings are longer than hind wings, termite wings are about equal in length; https://extension.umd.edu/resource/ants-and-termites-how-tell-difference"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:fenrir",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "termite",
+  "scene": "basement",
+  "scene_p": {
+   "time": "night"
+  },
+  "creature_cfg": {
+   "plan": "insect",
+   "label": "termite",
+   "body": "long",
+   "color": "#e8d6b0",
+   "dark": "#b89a6a",
+   "head": "#c9823a",
+   "length": 500,
+   "height": 150,
+   "leg_len": 90,
+   "ant": 140,
+   "mood": "calm",
+   "xray": "gut",
+   "s": 0.75
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "insect",
+    "label": "termite",
+    "body": "long",
+    "color": "#e8d6b0",
+    "dark": "#b89a6a",
+    "head": "#c9823a",
+    "length": 500,
+    "height": 150,
+    "leg_len": 90,
+    "ant": 140,
+    "mood": "calm",
+    "xray": "gut",
+    "s": 0.75
+   }
+  },
+  "actor": "creature",
+  "wild": "forest_floor"
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Something Is Eating Your House From the Inside",
+ "tiktok_caption": "termites in my house 😳 termites eat your house from the inside, and one home can have several colonies. How to tell termites from flying ants. Would you sell the house or call the exterminator? 🏚️ sell / 📞 call #termites #termite #bugsinyourhouse #meatballmyths #learnontiktok",
+ "beats": [
+  {
+   "gag": {
+    "mark": "alarm",
+    "at": "60%"
+   },
+   "m": "hook",
+   "say": "Something is eating your house from the inside, and you can't see it."
+  },
+  {
+   "gag": {
+    "meter": 1.0,
+    "at": "40%"
+   },
+   "m": "escalate",
+   "say": "One colony can grow to hundreds of thousands. Maybe millions."
+  },
+  {
+   "m": "name",
+   "say": "Termites. Pale, soft workers that eat wood."
+  },
+  {
+   "m": "xray",
+   "say": "Tiny microbes in their gut turn the wood into food."
+  },
+  {
+   "m": "solo",
+   "say": "Underground termites build mud tubes up to the wood, to stay damp."
+  },
+  {
+   "gag": {
+    "mark": "shock",
+    "at": "75%"
+   },
+   "m": "fact",
+   "say": "The wood looks fine outside. But it's thin, and a screwdriver pokes right through."
+  },
+  {
+   "gag": {
+    "mark": "dizzy",
+    "at": "70%"
+   },
+   "m": "punch",
+   "say": "And one house can have several colonies at once."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Part twenty one is chewing tunnels in your walls."
+  }
+ ],
+ "loop": true
+}
