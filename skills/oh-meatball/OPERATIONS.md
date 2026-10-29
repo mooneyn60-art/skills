@@ -12,6 +12,14 @@ taps. This file is the team, the daily routine, the numbers we steer by, and the
 - `brain/tools/scan.py` CADENCE matches this (it skips the 18:00 Short on long-form days).
 - Animals only. The TRUE-OR-FALSE quiz format and the "Meatball Investigates" case files are on hold as drafts; ignore drafts. Every case/verdict slot table further down is historical.
 
+## Gate: every YouTube Short is a show episode of 20 s or less (Nolan, 10/29; permanent)
+
+- **Before render:** `python3 skills/channel-brain/tools/outline_lint.py <outline>` must PASS (5 lines, ≤52 words, ≥2 action macros, ≤1 fact, a twist punch, a tease that names the next creature, series + part).
+- **Render:** `python3 skills/oh-meatball/tools/drawn_quick.py <outline> --only yt` (its YouTube gate is 14-20 s; never `--force`).
+- **Before queue:** `python3 skills/channel-brain/tools/vidcheck.py <mp4>` must PASS (≤20 s). Then look at the 2 fps contact sheet: frame 0 shows the creature, and Meatball acts.
+- **Models:** `scripts/drawn-house/outlines/scabies-v2.yaml` (House #19) and `scripts/drawn-tt/outlines/cassowary-v2.yaml` (Survive #1).
+- One-offs (no show and number) don't go on YouTube.
+
 ## vidIQ ration (OVERRIDES every routine's budget line, set 2026-10-26)
 
 UPDATE 10/27 12:30: balance is 68 (Lab used ~300). Below 100 = Sunday summit only; every other routine spends 0.
@@ -141,7 +149,7 @@ Nolan turned the channel toward conspiracy theories (debunked or proven), strang
 - **Red list (factdesk owns it; research/38 summit problem 3):** no vaccines or medical cures, elections, recent tragedies, living private people, or secret-society theories that target a group. Fabricated "proof" (time travelers, AI fakes) is never shown as real. When in doubt, pick the declassified-document case.
 - **Topic test (research/38 summit problem 2):** lead with the case most viewers haven't heard of. A famous debunk everyone knows (moon landing, flat Earth) is our "camel" (227 views vs 1,800 for the same template on a surprising topic).
 - **Music:** one mysterious bed (low synth or pizzicato), vidIQ-generated or our own, ducked under the voice; one sting for the file opening and one for the stamp.
-- Everything else holds: v4 style, bigger animals, the early ask kit ("Real or fake?" guess card), 20-25 s YouTube / 61-75 s open-loop TikTok, AI label on, YouTube and TikTok only.
+- Everything else holds: v4 style, bigger animals, the early ask kit ("Real or fake?" guess card), 14-20 s YouTube (see Gate) / 61-75 s open-loop TikTok, AI label on, YouTube and TikTok only.
 
 ## Shorts endings (Sunday Summit 10/25, research/38 problem 1)
 The goldfish curve loses half its remaining viewers between 47% and 75% of the video, where we park a text-only punchline card and an ask. From 10/26 renders:
@@ -183,7 +191,7 @@ The goldfish curve loses half its remaining viewers between 47% and 75% of the v
   - a whip pan or new picture every 2.5 s or less
   - SFX under the voice
   - a joke or escalation every 4-6 s
-- **Length:** 20-25 s on YouTube. TikTok deep dives run 61-75 s.
+- **Length:** 14-20 s on YouTube (see Gate). TikTok deep dives run 61-75 s.
 - **Voice (Nolan, 10/24):** v3 Shorts and TikToks use the prototype voice, edge-tts en-US-AndrewMultilingualNeural at +10%. Nolan preferred it to Bill on v3, and it's free. Bill is retired from v3.
 - **ONLY v3 Shorts and TikToks get posted (Nolan, 10/24).**
   - Every queued non-v3 Short or TikTok is set to draft (held, never published) and replaced by v3 nearest-first.
@@ -352,10 +360,10 @@ Autopsy: our one long-form with a curve (gFhrONKK0rI, 2:15 quiz pilot, 11 viewer
 **HISTORICAL: case files are on hold (10/28); slot times are in the Cadence section.** Supersedes the E19 one-slot rollout above. All times ET.
 | Slot | YouTube Short | TikTok |
 |---|---|---|
-| 09:30 | **Case A** (18-24 s v2 case) | animal (unchanged) |
+| 09:30 | **Case A** (14-20 s v2 case) | animal (unchanged) |
 | 12:00 | | **Case A** repost (same file) |
 | 13:00 | animal (v4) | |
-| 16:00 | **Case B** (18-24 s v2 case) | |
+| 16:00 | **Case B** (14-20 s v2 case) | |
 | 18:00 | | animal (repost of the 13:00 Short) |
 | 20:00 | | **Case B deep** (60-75 s `tt-*.mp4`, Voggle shape + open-loop rules) |
 - 2 of 3 YouTube Shorts and 2 of 4 TikToks are cases. Case B's TikTok is always its deep cut, never the Short.
@@ -363,7 +371,7 @@ Autopsy: our one long-form with a curve (gFhrONKK0rI, 2:15 quiz pilot, 11 viewer
 - **Displaced animal posts are never deleted:** `updateScheduledPost` with the full payload and only `publicationDate` changed, to the next open date for the same slot after the case run (11/11 onward). posted.csv rows move with them.
 - **Case numbers** run in posting order from #7 (the 6 pilot cases are #1-#6) and match the on-screen `"case"` tag; the title ends "Case #N Meatball Investigates" (TikTok: "Case #N").
 - **Scripts:** `scripts/cases-NN.json` (one pack per 3-4 days: Shorts + deep cuts with `"_len": "deep"`), rendered to `episodes/cases-NN/`. Each hook beat carries `theme`, `case`, `short_title`, `comment`, `bonus`, `caption`, `tags` (topic tags, never "animal facts") and `sources`. Deep cuts are renamed `tt-<myth>.mp4` after render.
-- **Length budget (measured 10/26):** 18-24 s needs about 52 spoken words on the cold-war voice (Eric, slowest), about 58 on the other themes, about 64 on absurd-history (Brian). A deep cut needs 165-195 words.
+- **Length budget (measured 10/26; YouTube Shorts now 14-20 s, see Gate):** ≤52 spoken words fits on the cold-war voice (Eric, slowest), about 58 on the other themes, about 64 on absurd-history (Brian). A deep cut needs 165-195 words.
 - **Post copy:** YouTube description and first comment open with the one-tap emoji question; description ends "Subscribe: Meatball opens a new case every day 🍝"; EDUCATION, AI label on, topic tags. TikTok caption: question first, then the one-line case, hashtags, "Follow Meatball for a new case every day 🍝"; AI label on.
 - **New theme `hoax`** (famous fakes: Cardiff Giant, Piltdown, the Mechanical Turk): en-GB-ThomasNeural +14% over the detective pizzicato bed.
 - **Photos:** Commons files are found through the article's media list and licence-checked (PD/CC0/CC BY, no SA) before use; Openverse for generic shots. No identifiable private people.
@@ -388,14 +396,14 @@ Every new script picks ONE theme: spec `"theme"` (whole script) or hook beat `"t
 | `animals` | animal Shorts | Andrew +0% then 1.10 (current) | quiz bed |
 - **Dark turn:** comic beds (absurd, waltz, detective) crossfade into the tense bed at the beat marked `"dark": true` (Voggle shape: comic until the story turns dark).
 - **Adding a voice:** measure it first with the voice sampler (median pitch, whisper word accuracy at least the current voice's). Kokoro onyx was the deepest (90 Hz) but misheard more (91%), so it isn't used.
-- **Shorts v2 shape (research/40 + 48):** scene-first past-tense open with a 3-5 word `"headline"` on frame 0; "See, in 19xx..." rewind; a "Wait, it gets worse" twist and a Meatball jeopardy beat; one plain verdict sentence + stamp; an ironic `"kicker"` as the last line over a moving picture (no end CTA; the ask kit stays early); `"max_shot": 1.8`; 18-24 s. `tools/coldopen.py` checks the open.
+- **Shorts v2 shape (research/40 + 48):** scene-first past-tense open with a 3-5 word `"headline"` on frame 0; "See, in 19xx..." rewind; a "Wait, it gets worse" twist and a Meatball jeopardy beat; one plain verdict sentence + stamp; an ironic `"kicker"` as the last line over a moving picture (no end CTA; the ask kit stays early); `"max_shot": 1.8`; 14-20 s (see Gate). `tools/coldopen.py` checks the open.
 
 ## Weekly cadence: Verdict Wednesday + Viewer Case Friday (Nolan approved research/50, 10/26)
 **ON HOLD with the case files (10/28); the 11:00 / 19:30 slots below are not live.**
-Extra slots on top of the daily mix: they never move the scaling agent's 09:30/16:00 YouTube cases or its two TikTok cases a day. All times ET. **YouTube Shorts stay 18-24 s** (Nolan 10/26: longer YouTube Shorts underperformed; the 60-120 s YouTube test is OFF). 60-75 s versions are TikTok only.
+Extra slots on top of the daily mix: they never move the scaling agent's 09:30/16:00 YouTube cases or its two TikTok cases a day. All times ET. **YouTube Shorts stay 14-20 s** (Nolan 10/29 Gate; 10/26: longer YouTube Shorts underperformed; the 60-120 s YouTube test is OFF). 60-75 s versions are TikTok only.
 | Day | Slot | What |
 |---|---|---|
-| **Wednesday** | YouTube 11:00 + TikTok 19:30 | **THE VERDICT ON THE VIRAL ONE #N**: an 18-24 s v2 case Short on YouTube; the 60-75 s open-loop deep cut (`tt-*.mp4`) on TikTok |
+| **Wednesday** | YouTube 11:00 + TikTok 19:30 | **THE VERDICT ON THE VIRAL ONE #N**: a 14-20 s v2 case Short on YouTube; the 60-75 s open-loop deep cut (`tt-*.mp4`) on TikTok |
 | **Friday** | YouTube 11:00 + TikTok 19:30 | **VIEWER CASE FRIDAY**: the top safe submission from data/submissions.csv, same two formats |
 
 **The Verdict on the Viral One (weekly, Wednesday).** Meatball rules on a mystery claim that is viral *this week*: always a clear PROVEN, BUSTED or UNSOLVED stamp, with the sources on screen and in the description.
@@ -435,14 +443,14 @@ Beyond making more videos, these run every day. The ranked list, tests and metri
 ## Weird-news fast lane (Growth desk 10/26, research/51 §5)
 A same-day "Meatball Investigates" Short on a strange discovery, a newly declassified file or an odd science result. It's an **extra** post: it never moves a queued post.
 - **Sources (12:19 marketing desk; 08:13 if time):** Smithsonian "Smart News", Live Science, Science/Nature news, EurekAlert!, NASA/NOAA newsrooms, NARA and the CIA FOIA Reading Room "recently released", the FBI Vault, Atlas Obscura, museum press pages. vidIQ `trending_videos` or `keyword_research mode=rising` (5 credits each) only within the week's cap.
-- **Turnaround: source → posted in ≤ 8 h.** Intel flags it (30 min) → factdesk confirms with 2 independent reputable sources (30 min) → showrunner writes `scripts/news-NN.json` from the verdict-01 template, an 18-24 s v2 case (45 min) → studio renders and QAs the 2 fps sheet (2 h) → postmaster adds an extra YouTube post and an extra TikTok in the next free gap between Cadence slots (on hold with the case files). Log both in data/posted.csv and a row in data/related-video-map.csv.
+- **Turnaround: source → posted in ≤ 8 h.** Intel flags it (30 min) → factdesk confirms with 2 independent reputable sources (30 min) → showrunner writes `scripts/news-NN.json` from the verdict-01 template, a 14-20 s v2 case (45 min) → studio renders and QAs the 2 fps sheet (2 h) → postmaster adds an extra YouTube post and an extra TikTok in the next free gap between Cadence slots (on hold with the case files). Log both in data/posted.csv and a row in data/related-video-map.csv.
 - **Safety (on top of the red list):** no deaths or tragedies from the last 12 months; no living private people; no health or medical claims; a preliminary study is stamped **TOO EARLY** and says "one study"; no news-outlet photos (PD/CC0/CC BY, NASA, NOAA, NARA, museum open access or a host shot only); no other creators' clips; sources named on screen and in the description; no "BREAKING" or fake urgency; a factual update after posting gets a pinned correction within 24 h (host drafts, Nolan approves).
 - **Score:** 48 h views vs the case median and search as a traffic source. Keep the lane if 2 news Shorts in a week land at 1.5x or more; kill it after 3 land under half the median.
 
 ## TikTok is the money now (Nolan, 10/26)
 TikTok is monetized through Creator Rewards; YouTube is not yet. Creator Rewards pays only for videos of **60 s or longer**, so:
 - **Every TikTok is a 61-75 s deep version**: open mid-action, rewind, verdict at 45-70%, ironic kicker, a host beat about every 15 s, a theme, the early ask kit, and the open-loop gate. Never post a 20-24 s cut to TikTok.
-- **YouTube Shorts stay 18-24 s.** Longer YouTube Shorts underperformed. YouTube's job is growth to monetization: the Shorts-to-long-form funnel, search long-forms, and subscribers.
+- **YouTube Shorts stay 14-20 s (see Gate).** Longer YouTube Shorts underperformed. YouTube's job is growth to monetization: the Shorts-to-long-form funnel, search long-forms, and subscribers.
 - **Rewards counts qualified views.** Viewers have to watch past the first few seconds, so the hook and the first 5 s decide the money. The 2 fps QA checks frame 0 and the first 5 s hardest.
 - **Every TikTok caption** opens with the phrase people search for, then a one-tap question, then "Follow Meatball for a new case every day 🍝".
 - **Weekly earnings log:** Nolan reads the Creator Rewards dashboard (estimated rewards, qualified views, RPM) and drops the numbers on the town square; the Accountant logs them in data/tiktok-rewards.csv. Topics with the best RPM get more slots.
@@ -454,7 +462,7 @@ centred, no Meatball (outline `wild:` + `solo:` lines; tools/drawn_macros.py). T
 ## Drawn only (Nolan, 10/27: "Wayyy better, I want only those going out, same style for long form")
 - Only drawn-style videos publish (tools/drawn_quick.py). Every queued photo-style post from 10/27 on was set to draft
   (logged in data/held.csv). Don't un-draft them; replace slots with drawn cuts.
-- YouTube Shorts = the drawn yt cut (21-37 s, rendered with --force; the Lab found no evidence for <=20 s). TikTok = the
+- YouTube Shorts = the drawn yt cut (14-20 s, never --force; see Gate). TikTok = the
   drawn tt cut (61-75 s).
 - Long-form = drawn compilations (tools/drawn_compile.py): finished tt cuts, 16:9 over a blurred copy, chapters from
   the segment titles, ordered so each "Next, ..." tease points at the next segment. No new 5-7 min photo long-forms.

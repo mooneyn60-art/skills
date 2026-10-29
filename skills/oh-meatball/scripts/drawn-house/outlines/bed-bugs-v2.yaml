@@ -1,0 +1,38 @@
+# Things Living In Your House #7 re-cut 10/29 (shows-only YouTube, <=20 s): one story, 2+ action lines. Facts from bed-bugs.yaml.
+slug: bed-bugs-v2
+series: Things Living In Your House
+part: 7
+title: Bed Bugs Drink Your Blood While You Sleep 🩸
+creature: bed_bug
+creature_cfg:
+  xray: gut
+s: 0.72
+scene: bedroom
+scene_p:
+  time: night
+music: mystery
+next: 'Next: the roach that lives without its head.'
+tiktok_caption: bed bugs drink your blood for up to ten minutes and you never feel it 🩸 then they mate by stabbing. Would
+  you check your mattress tonight? 🔦 yes / 🙈 never
+sources:
+- 'University of Kentucky Entomology, Bed Bugs (ENTFACT-636, M. Potter): adults about 3/16 inch, reddish-brown, oval and flattened;
+  fit into crevices no wider than a toothpick; active mainly at night; the bite is painless and a blood meal takes about three
+  to ten minutes; nymphs and adults persist months without feeding, up to about a year at 55 F or cooler; females lay one
+  or more eggs a day, hundreds in a lifetime; eggs about the size of a dust speck; nymphs molt five times and need a blood
+  meal between each molt; disease transmission to humans not proven and considered unlikely; hide in mattress seams, box springs,
+  bed frames, headboards; https://entomology.mgcafe.uky.edu/ef636'
+- 'US EPA, Bed Bugs: Appearance and Life Cycle: adult about the size of an apple seed; https://www.epa.gov/bedbugs/bed-bugs-appearance-and-life-cycle'
+- 'US Centers for Disease Control and Prevention, About Bed Bugs: 1-7 mm; not known to spread disease; bite at night while
+  people sleep; stay near where people sleep; spread by hiding in luggage, bags, folded clothes and furniture; https://www.cdc.gov/bed-bugs/about/index.html'
+- 'University of Kentucky College of Agriculture news, UK entomologists help sequence bed bug genome: traumatic insemination,
+  ''a male pierces the female''s body and deposits sperm into her body cavity''; https://news.mgcafe.uky.edu/article/uk-entomologists-help-sequence-bed-bug-genome'
+- 'Wang et al. 2009, Journal of Economic Entomology (hosted by Purdue Extension), bed bug pitfall traps: carbon dioxide and
+  heat both attract bed bugs, CO2 more strongly; https://www.extension.entm.purdue.edu/bedbugs/pdf/BedBugTrap.pdf'
+yt:
+- hook: Something in your bed is waiting for you to fall asleep.
+- tiny: Shrink down. It hides in your mattress seams.
+  scene: fibers
+- chase: At night, it follows your breath to you.
+  scene: bedroom
+- xray: Then it drinks your blood for up to ten minutes.
+- punch: You never feel a thing. Goodnight.

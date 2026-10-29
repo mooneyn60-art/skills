@@ -1,0 +1,60 @@
+{
+ "series": "Things Living In Your House, Part 7",
+ "sources": [
+  "University of Kentucky Entomology, Bed Bugs (ENTFACT-636, M. Potter): adults about 3/16 inch, reddish-brown, oval and flattened; fit into crevices no wider than a toothpick; active mainly at night; the bite is painless and a blood meal takes about three to ten minutes; nymphs and adults persist months without feeding, up to about a year at 55 F or cooler; females lay one or more eggs a day, hundreds in a lifetime; eggs about the size of a dust speck; nymphs molt five times and need a blood meal between each molt; disease transmission to humans not proven and considered unlikely; hide in mattress seams, box springs, bed frames, headboards; https://entomology.mgcafe.uky.edu/ef636",
+  "US EPA, Bed Bugs: Appearance and Life Cycle: adult about the size of an apple seed; https://www.epa.gov/bedbugs/bed-bugs-appearance-and-life-cycle",
+  "US Centers for Disease Control and Prevention, About Bed Bugs: 1-7 mm; not known to spread disease; bite at night while people sleep; stay near where people sleep; spread by hiding in luggage, bags, folded clothes and furniture; https://www.cdc.gov/bed-bugs/about/index.html",
+  "University of Kentucky College of Agriculture news, UK entomologists help sequence bed bug genome: traumatic insemination, 'a male pierces the female's body and deposits sperm into her body cavity'; https://news.mgcafe.uky.edu/article/uk-entomologists-help-sequence-bed-bug-genome",
+  "Wang et al. 2009, Journal of Economic Entomology (hosted by Purdue Extension), bed bug pitfall traps: carbon dioxide and heat both attract bed bugs, CO2 more strongly; https://www.extension.entm.purdue.edu/bedbugs/pdf/BedBugTrap.pdf"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:fenrir",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "bed_bug",
+  "scene": "bedroom",
+  "scene_p": {
+   "time": "night"
+  },
+  "creature_cfg": {
+   "xray": "gut"
+  },
+  "s": 0.72
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Bed Bugs Drink Your Blood While You Sleep 🩸",
+ "tiktok_caption": "bed bugs drink your blood for up to ten minutes and you never feel it 🩸 then they mate by stabbing. Would you check your mattress tonight? 🔦 yes / 🙈 never",
+ "beats": [
+  {
+   "m": "hook",
+   "say": "Something in your bed is waiting for you to fall asleep."
+  },
+  {
+   "scene": "fibers",
+   "m": "tiny",
+   "say": "Shrink down. It hides in your mattress seams."
+  },
+  {
+   "scene": "bedroom",
+   "m": "chase",
+   "say": "At night, it follows your breath to you."
+  },
+  {
+   "m": "xray",
+   "say": "Then it drinks your blood for up to ten minutes."
+  },
+  {
+   "m": "punch",
+   "say": "You never feel a thing. Goodnight."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next: the roach that lives without its head."
+  }
+ ],
+ "loop": true
+}

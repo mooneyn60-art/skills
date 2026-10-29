@@ -17,6 +17,13 @@ The old cat soap opera (numbered serial episodes, Veo shots, OpusClip) was retir
 5. `KNOWLEDGE.md` (tested findings) and `SELF_REVIEW.md` (mistakes and the checks that catch them).
 6. `research/60-growth-research-1029.md` (sourced 2026 platform research: Shorts→long-form tap, auto dubbing, Test & Compare, TikTok frequency/search). Its rules live in PLAYBOOK.md and OPERATIONS.md.
 
+## Gate: YouTube Shorts (Nolan, 10/29; permanent)
+Every YouTube Short is a show episode (series + part) of 20 s or less.
+- **Before render:** `python3 skills/channel-brain/tools/outline_lint.py <outline>` must PASS.
+- **Render:** `python3 skills/oh-meatball/tools/drawn_quick.py <outline> --only yt` (YouTube gate 14-20 s).
+- **Before queue:** `python3 skills/channel-brain/tools/vidcheck.py <mp4>` must PASS (≤20 s), and the 2 fps contact sheet must show the creature at frame 0 and Meatball acting.
+- **Models:** `scripts/drawn-house/outlines/scabies-v2.yaml` and `scripts/drawn-tt/outlines/cassowary-v2.yaml`.
+
 ## Pipeline
 - **Script:** `scripts/<slug>.json`.
   - Long-form: one story, 6-8 min.

@@ -1,0 +1,34 @@
+# Is This Spider Venomous? #7 re-cut 10/29 (shows-only YouTube, <=20 s): one story, 2+ action lines. Facts from jumping-spider-id.yaml.
+slug: jumping-spider-id-v2
+series: Is This Spider Venomous?
+part: 7
+title: Is This Spider Venomous? [Jumping Spider] 🕷️ (#7)
+creature: jumping_spider
+creature_cfg:
+  xray: gut
+scene: sill
+scene_p:
+  time: day
+wild: garden
+music: detective
+next: 'Next: the desert spider soldiers said screams.'
+tiktok_caption: 'is this spider venomous? jumping spider 🕷️ the fuzzy little spider on your window is watching you, and it
+  hunts by leaping, no web. Is it dangerous? Would you let it jump on your hand? ✋ yes / 🙅 no #isthisspidervenomous #jumpingspider
+  #spiders #meatballmyths'
+sources:
+- 'Australian Museum, Jumping spiders (Salticidae): daylight hunters with large eyes and excellent vision used to track, stalk
+  and judge distance before leaping; no web for hunting; body 3-12 mm; males use colourful courtship displays; peacock spiders
+  raise a coloured abdominal flap; https://australian.museum/learn/animals/spiders/jumping-spiders/'
+- 'Oklahoma State University Extension, Jumping spiders: hunt during the day, often on windows and walls where insect prey
+  gathers; https://extension.okstate.edu/programs/digital-diagnostics/insects-and-arthropods/jumping-spiders'
+- 'Utah State University Extension, Jumping Spiders: most visible near windows and bright spots; not known to pose a health
+  hazard; beneficial; catch in a jar and release outside; https://extension.usu.edu/planthealth/ipm/notes_nuisance/jumping-spiders.php'
+yt:
+- hook: The fuzzy spider on your window is watching you.
+- xray: Two huge front eyes judge the distance.
+- chase: Then it stalks, and leaps. No web needed.
+  scene: garden
+- scale: Most are smaller than your fingernail.
+  how: shrink
+- punch: Venomous? Yes, but no known health hazard. And it eats your bugs.
+  scene: sill

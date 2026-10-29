@@ -1,0 +1,46 @@
+# Things Living In Your House #22 re-cut 10/29 (shows-only YouTube, <=20 s): one story, 2+ action lines. Facts from carpenter-ant.yaml.
+slug: carpenter-ant-v2
+series: Things Living In Your House
+part: 22
+title: Giant Ants Are Chewing Tunnels Through Your Walls
+creature: carpenter_ant
+creature_cfg:
+  plan: insect
+  label: carpenter ant
+  body: round
+  color: '#1e1a1a'
+  dark: '#3a3434'
+  length: 520
+  height: 190
+  leg_len: 140
+  ant: 220
+  mood: angry
+  s: 0.75
+  xray: gut
+scene: kitchen
+scene_p:
+  time: night
+wild: forest_floor
+music: mystery
+next: 'Next: thousands of stink bugs in your walls.'
+tiktok_caption: 'carpenter ants in my house 🐜 they chew tunnels in the wet wood of your walls, and the queen is an inch long.
+  The sawdust sign, and why the real nest may be outside. Would you go looking for the nest? 🔦 yes / 📞 call a pro #carpenterants
+  #ants #bugsinyourhouse #meatballmyths'
+sources:
+- 'University of Minnesota Extension, Carpenter ants: they do not eat wood, they remove it to make galleries for nesting;
+  coarse sawdust near a nest is a sign; indoor nests are usually in moist or decayed wood around tubs, sinks, dishwashers
+  and roofs; workers about 3/8-1/2 inch, queens about 1 inch; parent colonies often outdoors with satellite nests indoors;
+  workers forage mainly sunset to midnight; eat insects, honeydew, meats and sweets; many winged ants indoors in late winter-spring
+  suggest a nest inside, a few winged queens may only be seeking a nest site; find and destroy the nest, replace damaged wood,
+  fix moisture; https://extension.umn.edu/insects-infest-homes/carpenter-ants'
+- 'University of Maryland Extension, Ants and Termites: How to Tell the Difference: ants have elbowed antennae, termites straight
+  beaded ones; ants have a pinched waist, termites do not; ant front wings are longer than hind wings, termite wings are about
+  equal in length; https://extension.umd.edu/resource/ants-and-termites-how-tell-difference'
+yt:
+- hook: Giant black ants are tunneling through your walls.
+- xray: They don't eat wood. They chew out a nest.
+- chase: They hunt at night, sunset to midnight.
+- scale: The queen can be an inch long.
+  how: grow
+- punch: The big nest is often outside. Your walls? A second home.
+  scene: forest_floor

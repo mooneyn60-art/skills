@@ -1,0 +1,51 @@
+# Is This Spider Venomous? #3 re-cut 10/29 (shows-only YouTube, <=20 s): one story, 2+ action lines. Facts from yellow-garden-spider.yaml.
+slug: yellow-garden-spider-v2
+series: Is This Spider Venomous?
+part: 3
+title: Is This Spider Venomous? [Yellow Garden Spider] 🕷️ (#3)
+creature: garden_spider
+creature_cfg:
+  plan: arachnid
+  label: yellow garden spider
+  color: '#1d1d22'
+  dark: '#d99a2b'
+  accent: '#f2c230'
+  eyes: pair
+  pattern: spots
+  bands: true
+  leg_len: 1.25
+  leg_w: 16
+  abdomen: 200
+  mood: calm
+  xray: venom
+  s: 0.7
+scene: garden
+scene_p:
+  time: day
+wild: garden
+wild_p:
+  time: dusk
+music: detective
+next: 'Next: the spider mistaken for a black widow.'
+tiktok_caption: 'is this spider venomous? yellow garden spider 🕷️ the big black and yellow spider with a zigzag web in your
+  garden. Is it dangerous, and why does it shake its web? Would you leave the web up? 🕸️ leave it / 🧹 knock it down #isthisspidervenomous
+  #yellowgardenspider #argiope #spiders #meatballmyths'
+sources:
+- 'Penn State Extension, Yellow Garden Spider (Argiope aurantia): females 19-28 mm, males 5-8 mm; webs 50-100 cm in diameter
+  are not uncommon; a white zigzag stripe down the centre, the stabilimentum, whose exact function is unclear; people are
+  not likely to be bitten unless they handle a female with an egg sac in the web, and a bite would cause no more discomfort
+  than a wasp or bee sting for most people; not medically important; papery egg sacs laid in late summer, 500-1,000 spiderlings
+  emerge in early spring; https://extension.psu.edu/yellow-garden-spider'
+- 'Missouri Department of Conservation, Field Guide: Black-and-Yellow Garden Spider: harmless; circular web about two feet
+  across with a vertical zigzag silk band; females 3/4 to 1 inch, males about 1/4 inch and rarely noticed; makes its web vibrate
+  when disturbed; eats mostly grasshoppers and katydids; papery tan egg cases a little smaller than ping-pong balls that can
+  contain over 1,000 eggs each; the female slows and dies in the first frosts; https://mdc.mo.gov/discover-nature/field-guide/black-yellow-garden-spider'
+- 'National Wildlife Federation, Wildlife Guide: Yellow Garden Spider: venom harmless to humans; stabilimentum purpose unknown,
+  it may warn birds away from the web; may eat and respin its web each night; males usually die after mating; https://www.nwf.org/Educational-Resources/Wildlife-Guide/Invertebrates/Yellow-Garden-Spider'
+yt:
+- hook: A black and yellow spider just webbed your garden path.
+- chase: Walk close, and it shakes the web at you.
+- xray: Venomous? Yes, but its venom is for bugs.
+- scale: She's an inch. He's a quarter inch.
+  how: shrink
+- punch: Nobody knows what its zigzag is for.

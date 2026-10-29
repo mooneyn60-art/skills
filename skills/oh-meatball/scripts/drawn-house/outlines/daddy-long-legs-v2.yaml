@@ -1,0 +1,51 @@
+# Is This Spider Venomous? #6 re-cut 10/29 (shows-only YouTube, <=20 s): one story, 2+ action lines. Facts from daddy-long-legs.yaml.
+slug: daddy-long-legs-v2
+series: Is This Spider Venomous?
+part: 6
+title: Is This Spider Venomous? [Daddy Long Legs] 🕷️ (#6)
+creature: daddy_long_legs
+creature_cfg:
+  plan: arachnid
+  label: harvestman
+  color: '#8a6a4a'
+  dark: '#5a4630'
+  abdomen_front: true
+  abdomen: 150
+  ceph:
+  - 70
+  - 50
+  leg_w: 7
+  leg_len: 1.9
+  eyes: pair
+  mood: happy
+  s: 0.7
+  xray: gut
+scene: basement
+scene_p:
+  time: day
+wild: forest_floor
+music: detective
+next: 'Next: the spider watching you from your window.'
+tiktok_caption: 'is a daddy long legs venomous? 🕷️ the most venomous spider with fangs too short to bite you? Two different
+  animals get that name: the harvestman (no venom) and the cellar spider. Would you let one live in your room? 🏠 yes / 🔥 no
+  #daddylonglegs #isthisspidervenomous #spiders #meatballmyths'
+sources:
+- 'UF/IFAS Extension Manatee County, A Tale of Three Daddy Long Legs: harvestmen (Opiliones) have one fused body, two eyes,
+  no silk and no venom, omnivores; cellar spiders (Pholcidae) have two body parts, eight eyes, silk, and venom considered
+  medically insignificant; crane flies are insects that don''t bite or sting; https://blogs.ifas.ufl.edu/manateeco/?p=9645'
+- 'Penn State Extension, Cellar Spiders: loose irregular webs in dark damp places; vibrate rapidly in the web when disturbed;
+  harmless to people; https://extension.psu.edu/cellar-spiders'
+- 'UC Riverside, Rick Vetter, The daddy-long-legs myth: no evidence pholcid venom is dangerous to people; the ''fangs too
+  short'' claim is false; https://spiders.ucr.edu/daddy-long-legs-myth'
+- 'Burke Museum, Spider Myths (R. Crawford): cellar spiders are a major predator of other spiders, invading webs; females
+  carry their eggs in their jaws; https://www.burkemuseum.org/collections-and-research/biology/arachnology-and-entomology/spider-myths'
+- 'MythBusters episode 13 (2004): Adam Savage let a daddy-longlegs (cellar) spider bite him and felt only a brief mild burning
+  sensation.'
+yt:
+- hook: 'Daddy long legs: deadliest venom, fangs too short to bite?'
+- count: Two animals share that name.
+- xray: The harvestman has no venom. It isn't even a spider.
+  scene: forest_floor
+- calm: The cellar spider has venom. No evidence it hurts people.
+  scene: basement
+- punch: And the short fangs story? False too.

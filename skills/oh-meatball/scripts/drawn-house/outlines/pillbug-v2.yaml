@@ -1,0 +1,43 @@
+# Things Living In Your House #20 re-cut 10/29 (shows-only YouTube, <=20 s): one story, 2+ action lines. Facts from pillbug.yaml.
+slug: pillbug-v2
+series: Things Living In Your House
+part: 20
+title: Touch This Bug in Your Basement and It Rolls Into a Ball
+creature: pillbug
+creature_cfg:
+  plan: centipede
+  label: pillbug
+  color: '#6e7078'
+  dark: '#46484e'
+  legs: 7
+  length: 520
+  height: 200
+  leg_len: 0.4
+  ant: 140
+  long_last: false
+  stripes: 0
+  segments: 8
+  s: 0.8
+  xray: gut
+scene: basement
+scene_p:
+  time: day
+wild: forest_floor
+music: mystery
+next: 'Next: termites eating your house from the inside.'
+tiktok_caption: 'pillbugs (roly polys) in my basement 🐚 they aren''t insects, they''re crustaceans like crabs and shrimp,
+  and they roll into a ball to hold in water. Would you let one crawl on your hand? ✋ yes / 🙅 no #pillbug #rolypoly #bugsinyourhouse
+  #meatballmyths #learnontiktok'
+sources:
+- 'University of Kentucky Entomology, ENTFACT-439 Sowbugs & Pillbugs: isopods, crustaceans that live on land; seven pairs
+  of legs; pillbugs roll into a ball, which also retains water, sowbugs cannot and have two tail-like uropods; eat decaying
+  plant matter and fungi, sometimes seedlings; do not bite or sting, harmless; females carry eggs and young in a brood pouch
+  (marsupium); live about 3 years; come indoors for moisture and struggle without high humidity; https://entomology.mgcafe.uky.edu/ef439'
+- 'UF/IFAS EDIS IG093, Pillbugs and sowbugs: the only crustaceans fully adapted to land; beneficial nutrient recyclers; https://edis.ifas.ufl.edu/publication/IG093'
+yt:
+- hook: Touch the armored bug in your basement. It rolls into a ball.
+- xray: It's not an insect. It's a cousin of crabs.
+- count: Seven pairs of legs, seven armor plates.
+- tiny: It eats dead leaves and fungus.
+  scene: forest_floor
+- punch: The only crustaceans that fully moved onto land.

@@ -34,7 +34,7 @@ DATETIME is any `date -d` string, e.g. `"2026-10-14 03:12:44"`. When it is omitt
 
 ## Drawn videos, fast lane (`drawn_quick.py`)
 
-One short YAML outline makes both cuts of a fully drawn video: the YouTube Short (18-24 s) and the TikTok deep cut (61-75 s, the outline's `tt:` lines are its second act). It writes both specs, checks their spoken length before rendering, renders, ffprobe-checks (both streams, under 50 MB, length in range; nothing is written under the final name until it passes) and writes 2 fps contact sheets.
+One short YAML outline makes both cuts of a fully drawn video: the YouTube Short (14-20 s; outline_lint.py before, vidcheck.py after) and the TikTok deep cut (61-75 s, the outline's `tt:` lines are its second act). It writes both specs, checks their spoken length before rendering, renders, ffprobe-checks (both streams, under 50 MB, length in range; nothing is written under the final name until it passes) and writes 2 fps contact sheets.
 
 ```bash
 python3 tools/drawn_quick.py scripts/drawn-house/outlines/silverfish.yaml            # specs + renders + contact sheets

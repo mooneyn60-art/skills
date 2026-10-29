@@ -1,0 +1,46 @@
+# Is This Spider Venomous? #5 re-cut 10/29 (shows-only YouTube, <=20 s): one story, 2+ action lines. Facts from hobo-spider.yaml.
+slug: hobo-spider-v2
+series: Is This Spider Venomous?
+part: 5
+title: Is This Spider Venomous? [Hobo Spider] 🕷️ (#5)
+creature: hobo_spider
+creature_cfg:
+  plan: arachnid
+  label: hobo spider
+  color: '#8a6440'
+  dark: '#5e4228'
+  accent: '#b8946a'
+  eyes: pair
+  pattern: stripe
+  leg_len: 1.2
+  leg_w: 15
+  mood: calm
+  s: 0.65
+  xray: venom
+scene: basement
+scene_p:
+  time: night
+wild: forest_floor
+music: detective
+next: 'Next: the daddy long legs venom myth.'
+tiktok_caption: 'is this spider venomous? hobo spider 🕷️ the funnel web spider in your basement was blamed for rotting wounds
+  for years. What the science says now, and how it gets confused with the giant house spider. Would you leave its web up?
+  🕸️ yes / 🧹 no #isthisspidervenomous #hobospider #spiders #meatballmyths'
+sources:
+- 'Washington State University Pestsense, Hobo spider: 1-1 3/4 inches including legs, swift-running; funnel web in dark moist
+  areas, often basements, waits at the funnel mouth; improperly identified as dangerous, recent research has not shown it
+  harmful to humans; https://pestsense.cahnrs.wsu.edu/fact-sheet/hobo-spider/'
+- 'Gaver-Wainwright, Zack, Foradori & Lavine 2011, Journal of Medical Entomology 48(2): 382-388: the European hobo spider
+  has been implicated as medically important in the Pacific Northwest; only ubiquitous bacteria on the spiders, none transferred
+  MRSA; venom not harmful to vertebrate red blood cells; bacterial infections such as MRSA are often misdiagnosed as spider
+  bites; https://doi.org/10.1603/me09224'
+- 'McKeown, Vetter & Hendrickson 2014, Toxicon 84: 51-55, Verified spider bites in Oregon (USA) with the intent to assess
+  hobo spider venom toxicity: 33 verified bites, none developed significant symptoms or dermonecrosis; one hobo spider bite
+  (pain, redness, calf twitching, resolved in 12 h) and one giant house spider bite, which is readily confused with the hobo;
+  https://doi.org/10.1016/j.toxicon.2014.03.009'
+yt:
+- hook: The funnel web spider in your basement was blamed for rotting wounds.
+- chase: It's fast, and it's from Europe.
+- xray: Scientists tested its venom on blood cells. No harm.
+- count: Thirty three confirmed bites in Oregon. None serious.
+- punch: The one hobo bite? Gone in twelve hours.

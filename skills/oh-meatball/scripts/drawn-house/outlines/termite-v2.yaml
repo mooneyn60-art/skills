@@ -1,0 +1,47 @@
+# Things Living In Your House #21 re-cut 10/29 (shows-only YouTube, <=20 s): one story, 2+ action lines. Facts from termite.yaml.
+slug: termite-v2
+series: Things Living In Your House
+part: 21
+title: Something Is Eating Your House From the Inside
+creature: termite
+creature_cfg:
+  plan: insect
+  label: termite
+  body: long
+  color: '#e8d6b0'
+  dark: '#b89a6a'
+  head: '#c9823a'
+  length: 500
+  height: 150
+  leg_len: 90
+  ant: 140
+  mood: calm
+  xray: gut
+  s: 0.75
+scene: basement
+scene_p:
+  time: night
+wild: forest_floor
+music: mystery
+next: 'Next: giant ants tunneling through your walls.'
+tiktok_caption: 'termites in my house 😳 termites eat your house from the inside, and one home can have several colonies. How
+  to tell termites from flying ants. Would you sell the house or call the exterminator? 🏚️ sell / 📞 call #termites #termite
+  #bugsinyourhouse #meatballmyths #learnontiktok'
+sources:
+- 'UC Statewide IPM Program, Pest Notes: Termites: subterranean termites live in soil and reach wood through tunnels or shelter
+  (mud) tubes made of saliva, soil and wood; drywood termites nest above ground and leave six-sided fecal pellets below exit
+  holes; protists in the gut digest cellulose; colonies range up to hundreds of thousands, possibly millions; a 2,400 sq ft
+  home can host several colonies; Reticulitermes swarm in spring or fall on clear days after heavy rain, most swarmers are
+  eaten by predators; seeing swarms does not always mean the building is infested; damaged wood has a thin, easily punctured
+  surface; inspect every 3-5 years; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7415.html'
+- 'University of Maryland Extension, Ants and Termites: How to Tell the Difference: ants have elbowed antennae, termites straight
+  beaded ones; ants have a pinched waist, termites do not; ant front wings are longer than hind wings, termite wings are about
+  equal in length; https://extension.umd.edu/resource/ants-and-termites-how-tell-difference'
+yt:
+- hook: Something is eating your house, and you can't see it.
+- count: One colony can reach hundreds of thousands.
+- tiny: Shrink down. Pale, soft workers are eating the wood.
+  scene: forest_floor
+- xray: Microbes in their gut turn wood into food.
+- punch: The wood looks fine, but a screwdriver pokes right through.
+  scene: basement

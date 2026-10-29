@@ -1,0 +1,47 @@
+# Things Living In Your House #23 re-cut 10/29 (shows-only YouTube, <=20 s): one story, 2+ action lines. Facts from stink-bug.yaml.
+slug: stink-bug-v2
+series: Things Living In Your House
+part: 23
+title: Thousands of Stink Bugs Are Crawling Out of Your Walls
+creature: stink_bug
+creature_cfg:
+  plan: insect
+  label: brown marmorated stink bug
+  body: round
+  color: '#7a5a3c'
+  dark: '#4e3a26'
+  length: 460
+  height: 200
+  leg_len: 100
+  ant: 170
+  wings: shell
+  stripes: 4
+  mood: smug
+  s: 0.75
+  xray: gut
+scene: bedroom
+scene_p:
+  time: dusk
+wild: garden
+music: mystery
+next: 'Next: the hunchbacked cricket in your basement.'
+tiktok_caption: 'stink bugs in my house 😬 brown marmorated stink bugs crawl into your walls in fall. One man caught 26,205
+  inside his house. Would you vacuum them or flush them? 🌀 vacuum / 🚽 flush #stinkbug #stinkbugs #bugsinyourhouse #meatballmyths
+  #learnontiktok'
+sources:
+- 'Penn State Extension, Brown Marmorated Stink Bug: accidentally introduced from East Asia, first collected in Allentown,
+  PA in 1998; adults seek sheltered places such as houses in fall; scent glands release defensive chemicals that can be an
+  aeroallergen; crushing on skin can cause dermatitis in a small percentage of people; does not reproduce in or damage structures;
+  feeds on apples (cat-facing makes fruit unmarketable), peaches, tomatoes, corn and more; adults about 17 mm, nearly as wide
+  as long, banded antennae; vacuuming works but the vacuum may keep the smell; seal entry points with caulk; https://extension.psu.edu/brown-marmorated-stink-bug'
+- 'Inkley 2012, Journal of Entomological Science 47(2): 125-130, Characteristics of home invasion by the brown marmorated
+  stink bug: 26,205 adults collected inside one home in Washington County, Maryland over a 181-day study (January-June 2011);
+  blocking exits from walls into living space reduced the collection rate but did not halt it; https://doi.org/10.18474/0749-8004-47.2.125'
+yt:
+- hook: Thousands of stink bugs are crawling out of your walls.
+- count: One Maryland man caught twenty six thousand inside.
+- xray: Squeeze one, and it sprays a stink.
+- chase: In the fall, they crawl inside for winter.
+  scene: garden
+- punch: Don't crush them. Even your vacuum will stink.
+  scene: bedroom
