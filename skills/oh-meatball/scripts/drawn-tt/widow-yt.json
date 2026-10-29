@@ -8,10 +8,10 @@
   "The Scientist, 'The Spider Lady, Circa 1939' (Nan Songer): human hair used for crosshairs in aircraft bombsights froze and broke at high altitude, so the US Bureau of Standards called for spider silk; her silk supplied bombsight crosshairs in World War II; Songer split black widow six-strand draglines into single strands with a needle to reach the width needed; https://www.the-scientist.com/the-spider-lady-circa-1939-70053"
  ],
  "photo_credits": [],
- "voice": "en-US-AndrewMultilingualNeural",
+ "voice": "kokoro:fenrir",
  "rate": "+12%",
  "music": "mystery",
- "music_db": -26,
+ "music_db": -20,
  "captions": 66,
  "caption_y": 1640,
  "stage": {
@@ -28,14 +28,32 @@
  "tiktok_caption": "the black widow in my woodpile 🕷️ venom 15x a rattlesnake's, babies that eat each other, and silk that went into bombsights. Would you reach in there without gloves? 🧤 gloves on / 🙅 never #meatballmyths #learnontiktok #blackwidow #spiders",
  "beats": [
   {
+   "gag": [
+    {
+     "meter": 1.0,
+     "at": "35%"
+    },
+    {
+     "prop": "skull",
+     "at": "75%"
+    }
+   ],
    "m": "hook",
-   "say": "A black widow's venom is fifteen times more toxic than a rattlesnake's."
+   "say": "A black widow in your garage has venom fifteen times more toxic than a rattlesnake's."
   },
   {
+   "gag": {
+    "prop": "magnifier",
+    "at": "70%"
+   },
    "m": "name",
    "say": "The black widow. Shiny black, with a red hourglass on its belly."
   },
   {
+   "gag": {
+    "mark": "dizzy",
+    "at": "40%"
+   },
    "m": "fact",
    "say": "It hangs upside down in its web, so the hourglass shows."
   },
@@ -44,10 +62,24 @@
    "say": "It hides in dark, quiet places. Woodpiles. Garages."
   },
   {
+   "gag": [
+    {
+     "zap": true,
+     "at": "30%"
+    },
+    {
+     "mark": "sweat",
+     "at": "80%"
+    }
+   ],
    "m": "escalate",
    "say": "And that venom attacks your nerves. Cramps, pain, sweating."
   },
   {
+   "gag": {
+    "prop": "ruler",
+    "at": "70%"
+   },
    "m": "calm",
    "say": "But here's the good news. It only injects a tiny drop."
   },
@@ -55,5 +87,6 @@
    "m": "tease",
    "say": "Subscribe. Next, a bat that runs on the ground and lives on blood."
   }
- ]
+ ],
+ "loop": true
 }
