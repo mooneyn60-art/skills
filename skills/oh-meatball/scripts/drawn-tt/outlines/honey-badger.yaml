@@ -149,6 +149,23 @@ tt:
     time: dusk
   with:
   - house_mouse
+- solo: It even eats berries. It'll eat almost anything you've got.
+  scene: forest_floor
+  scene_p:
+    time: day
+  act:
+    chew: 1.0
+  gag:
+    thought: tick
+    at: 40%
+- solo: Its skin blocks porcupine quills, and other animals' bites.
+  scene: forest_floor
+  scene_p:
+    time: dusk
+  mood: smug
+  gag:
+    mark: shock
+    at: 50%
 - solo: And like a skunk, it can let out a stink.
   scene: forest_floor
   scene_p:

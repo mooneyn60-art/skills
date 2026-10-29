@@ -6,10 +6,10 @@
   "BBC, Honey Badgers: Masters of Mayhem (2014): Stoffel, a honey badger at a South African rehabilitation centre, repeatedly escaped enclosures, stacking objects and opening gates; https://www.bbc.co.uk/programmes/b04nrjvy"
  ],
  "photo_credits": [],
- "voice": "en-US-AndrewMultilingualNeural",
+ "voice": "kokoro:fenrir",
  "rate": "+10%",
  "music": "mystery",
- "music_db": -26,
+ "music_db": -20,
  "captions": 66,
  "caption_y": 1640,
  "stage": {
@@ -230,6 +230,34 @@
    ],
    "m": "solo",
    "say": "It digs out mice, lizards, and roots."
+  },
+  {
+   "scene": "forest_floor",
+   "scene_p": {
+    "time": "day"
+   },
+   "act": {
+    "chew": 1.0
+   },
+   "gag": {
+    "thought": "tick",
+    "at": "40%"
+   },
+   "m": "solo",
+   "say": "It even eats berries. It'll eat almost anything you've got."
+  },
+  {
+   "scene": "forest_floor",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "mood": "smug",
+   "gag": {
+    "mark": "shock",
+    "at": "50%"
+   },
+   "m": "solo",
+   "say": "Its skin blocks porcupine quills, and other animals' bites."
   },
   {
    "scene": "forest_floor",
