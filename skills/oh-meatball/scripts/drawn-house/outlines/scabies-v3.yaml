@@ -1,0 +1,28 @@
+# scabies with TARS's species-accurate creature (drawn_anatomy, 10/30)
+slug: scabies-v3
+series: Things Living In Your House
+part: 19
+title: Something Is Digging a Tunnel in Your Skin Right Now
+creature: scabies
+scene: bedroom
+scene_p:
+  time: night
+wild: skin
+music: mystery
+next: 'Next: the bug that rolls into a ball.'
+sources:
+- 'CDC, About Scabies: https://www.cdc.gov/scabies/about/index.html'
+yt:
+- hook: Something is digging a tunnel in your skin right now.
+- tiny: Shrink down. It's a mite, laying eggs as it digs.
+  scene: skin
+- escalate: You won't even itch for a month.
+  gag:
+    clock: 6
+    at: 40%
+    dur: 1.6
+- xray: Every tunnel is packed with eggs.
+  scene: skin
+- punch: It spreads by touch. So... who did you touch today?
+actor: scabies_mite
+s: 0.8
