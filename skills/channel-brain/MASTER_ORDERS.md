@@ -90,6 +90,11 @@ Pick episodes from `CALENDAR_REALISTIC.md`, top down. Any Short that beats 2x th
 - **AI-made shots** (if any): turn on "altered or synthetic content" in YouTube Studio.
 
 ## Watch hours (the hard part of YPP)
+- **Nolan, 10/30 (overrides the compilation below):** the weekly long-form is a **Meatball Investigates case file**, 8-12 min, one real story told properly. Use the style and voice of "Conspiracy Theories That Turned Out To Be TRUE" (10/27; `scripts/longform-turned-out-true.json`, style v4, voice kokoro:eric-michael, music gen:mystery).
+  - Every claim is sourced and labelled proven or debunked; never present a false conspiracy as true.
+  - It needs a cold open, a twist at the end and its own story arc. It is never stitched-together Shorts.
+  - Case files stay long-form only; case Shorts got 1-4 views.
+  - First episode: Sunday 11/8. The 11/1 tier list stays.
 - **Every Sunday:** one 30-60 min compilation of a show ("Every Spider in Your House, Ranked: The Complete Collection").
   - a new cold open
   - Meatball linking segments
