@@ -349,3 +349,15 @@ ANATOMY = {"cassowary": cassowary, "camel_cricket": camel_cricket, "cockroach": 
            "black_widow": black_widow, "brown_recluse": brown_recluse, "wolf_spider": wolf_spider,
            "jumping_spider": jumping_spider, "camel_spider": camel_spider, "scabies_mite": scabies_mite,
            "house_centipede": house_centipede}
+
+
+def _alive(fn):
+    # drawn.py sets p["walking"] on a moving actor (the old creatures read that); these builders read p["walk"].
+    # Without this bridge the new animals glide with frozen legs. Idle 0.15 keeps legs twitching when standing.
+    def draw(ctx, t, p):
+        w = 1.0 if p.get("walking") else p.get("walk", 0.15)
+        return fn(ctx, t, {**p, "walk": w})
+    return draw
+
+
+ANATOMY = {k: _alive(v) for k, v in ANATOMY.items()}
