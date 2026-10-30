@@ -55,6 +55,7 @@ from drawn_cast import ACTORS as A2  # noqa: E402
 from drawn_rooms import ACTORS as A3  # noqa: E402
 from drawn_bugs import ACTORS as A4  # noqa: E402
 from drawn_gags import ACTORS as A5  # noqa: E402
+from drawn_anatomy import ANATOMY  # noqa: E402  (TARS 10/30: species-accurate creatures)
 from drawn_habitats import SCENES  # noqa: E402,F401  (every scene, wrapped so each takes "time")
 from drawn_creatures import build, creature  # noqa: E402
 from drawn_species import SPECIES  # noqa: E402
@@ -64,7 +65,7 @@ import drawn_acting  # noqa: E402
 import drawn_cases2  # noqa: E402  (history-case scenes and cast: "Meatball Investigates" outlines use them)
 
 SCENES.update(drawn_cases2.SCENES)
-ACTORS = {**A1, **A2, **A3, **A4, **A5, **drawn_cases2.ACTORS, "creature": creature}
+ACTORS = {**A1, **A2, **A3, **A4, **A5, **drawn_cases2.ACTORS, **ANATOMY, "creature": creature}
 ACTORS.update({"sp." + k: build(v) for k, v in SPECIES.items()})
 import drawn_tier  # noqa: E402  (the ranked-video tier board draws the same creatures as icons)
 drawn_tier.ACT = ACTORS
