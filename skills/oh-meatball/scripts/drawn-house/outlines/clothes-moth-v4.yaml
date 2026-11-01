@@ -1,0 +1,88 @@
+# v4 (11/1): the approved standard (house-centipede-2-v2): Andrew voice default, 3+ locations, hook + last line share a room.
+slug: clothes-moth-v4
+series: Things Living In Your House
+part: 10
+title: The Moth in Your Closet Never Eats. Its Babies Eat Your Sweater 🧶
+creature: moth
+creature_cfg:
+  xray: gut
+scene: bedroom
+scene_p:
+  time: dusk
+music: mystery
+next: 'Next: the book bugs that don''t need males.'
+tiktok_caption: the moth in your closet never eats 🧶 its babies do, and they go for the sweaty clothes first. Would you check your wool sweaters tonight? 🔦 checking / 🙈 nope
+sources:
+- 'University of Kentucky Entomology, Clothes Moths (ENTFACT-609): adults do not feed and cause no injury to fabrics; adults lay about 40-50 eggs on vulnerable materials; worm-like larvae digest keratin,
+  a fibrous protein in animal materials; larvae eat wool, fur, silk, feathers, felt and leather, plus lint and shed pet hair in vents and ducts; cotton and synthetics rarely attacked unless blended with
+  wool or soiled with food stains or body oils; perspiration odors attract; avoid light, seldom seen; prefer dark closets, basements, attics; https://entomology.mgcafe.uky.edu/ef609'
+- 'University of California IPM, Pest Notes: Clothes Moths (Publication 7435): larvae are the damaging stage; females lay 40-50 eggs; adults about 1/4 inch at rest; casemaking larvae carry a silken case
+  that takes on the color of the fabric they eat; larval stage lasts 35 days to 2 1/2 years depending on temperature and food; adults are weak, fluttery flyers that stay near dark closets; laundering at
+  120 F or more for 20-30 minutes, or sealing in a bag and freezing for several days below 18 F, kills all stages; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7435.html'
+- 'NC State Extension, Clothes Moths and Carpet Beetles: Controlling Fabric Pests: fabric pests are among the few insects that can digest keratin; https://content.ces.ncsu.edu/clothes-moths-carpet-beetles-controlling-fabric-pests'
+yt:
+- hook: The moth in your closet never eats. Not once.
+- tiny: Shrink down. Up to fifty eggs, on your sweater.
+  scene: fibers
+- count: Then the babies hatch, and eat.
+  scene: basement
+- xray: They digest keratin, the tough protein in wool.
+  scene: study
+- punch: That hole in your sweater? That was dinner.
+tt:
+- fact: The babies are tiny, worm-like caterpillars.
+  gag:
+    prop: magnifier
+    at: 50%
+  scene: fibers
+- fact: Very few bugs can digest keratin. These can.
+  gag:
+    prop: trophy
+    at: 50%
+  scene: study
+- count: Wool. Fur. Silk. Feathers. Even leather.
+  with:
+  - moth
+  - moth
+  - moth
+  scene: fibers
+- fact: Cotton and polyester are mostly safe, unless they're blended with wool.
+  scene: study
+- solo: They'll even eat the lint and pet hair inside your heating vents.
+  scene: basement
+- chase: The adults are weak, fluttery flyers, only about a quarter inch long.
+  scene: bathroom
+- calm: And they hate light. They hide in dark closets, basements and attics.
+  scene: study
+- escalate: And here's the gross part. They go for your sweat. Clothes with body oils and food stains get eaten first.
+  gag:
+    mark: stink
+    at: 50%
+  scene: basement
+- fact: Some babies spin a little silk case and carry it around like a sleeping bag.
+  gag:
+    prop: bed
+    at: 70%
+  scene: study
+- escalate: And the case turns the color of whatever fabric it ate.
+  gag:
+    mark: shock
+    at: 60%
+  scene: fibers
+- calm: They're patient too. With cool air and little food, a baby can take up to two and a half years to grow up.
+  gag:
+  - prop: snowflake
+    at: 20%
+  - clock: 4
+    at: 70%
+  scene: bathroom
+- fact: The fix? Wash wool hot, or seal it in a bag and freeze it for a few days.
+  gag:
+  - meter: 1.0
+    at: 25%
+  - mark: ice
+    at: 80%
+  scene: basement
+- fact: Would you check your wool sweaters tonight?
+  scene: study
+- punch: The moth you see isn't the problem. It's the babies you don't.

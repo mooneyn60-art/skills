@@ -27,3 +27,80 @@ yt:
 - count: Plus up to three thousand drops of pee.
   scene: study
 - punch: It doesn't drink. It gets water from your food.
+tt:
+- fact: A female can have five to ten litters a year.
+  scene: bedroom
+  gag:
+    clock: 1
+    at: 70%
+- count: Five or six babies, every time.
+  scene: basement
+  with:
+  - house_mouse
+  - house_mouse
+  - house_mouse
+  gag:
+    pile: baby
+    n: 6
+    r: 28
+    at: 20%
+- escalate: And those babies can start having babies at about six weeks old.
+  scene: study
+  gag:
+    mark: shock
+    at: 50%
+- solo: In summer, lots of mice live outside, in gardens and fields.
+  scene: garden
+  scene_p:
+    time: dusk
+- fact: Inside, they chew through wires, gas lines, and plastic containers.
+  scene: basement
+  gag:
+    mark: alarm
+    at: 40%
+- count: Even appliance cords and storage boxes.
+  scene: study
+  gag:
+    mark: shock
+    at: 50%
+- fact: And they rarely travel more than thirty feet from the nest.
+  scene: bedroom
+  gag:
+    prop: ruler
+    at: 60%
+- chase: They come out at night, while you sleep.
+  scene: bathroom
+  gag:
+    prop: moon
+    at: 50%
+- calm: Now the gross part. While a mouse explores, it doesn't hold it in.
+  scene: study
+- escalate: One mouse can leave up to three thousand tiny drops of pee a day.
+  scene: bathroom
+- xray: All over your counters and cupboards, in the dark.
+  scene: basement
+  gag:
+    prop: moon
+    at: 70%
+- fact: Mouse pee is a major allergen. It's linked to asthma in some kids.
+  scene: bedroom
+  gag:
+    mark: alarm
+    at: 40%
+- fact: And mice can carry germs like salmonella.
+  scene: study
+  gag:
+    mark: stink
+    at: 60%
+- fact: Plus leptospirosis, and a virus called LCM.
+  scene: basement
+  gag:
+    mark: alarm
+    at: 50%
+- xray: How do you know? Look for droppings a quarter inch long, with pointed ends.
+  scene: garden
+  scene_p:
+    time: night
+- fact: Would you share your kitchen with one?
+  scene: bathroom
+- punch: If you've seen one, its nest is probably closer than you think.
