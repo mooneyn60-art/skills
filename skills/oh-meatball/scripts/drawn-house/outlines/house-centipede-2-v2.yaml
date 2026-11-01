@@ -1,0 +1,60 @@
+slug: house-centipede-2-v2
+series: Things Living In Your House
+part: 21
+title: Never Squish the 30-Legged Bug in Your House
+tiktok_caption: house centipede part 2 🐛 it hunts the bed bugs and roaches in your house. Would you let it stay? 🐛 stay / 🙅 squish
+creature: house_centipede
+actor: house_centipede
+s: 0.8
+scene: bathroom
+scene_p:
+  time: night
+music: mystery
+next: 'Next: the bug that''s older than dinosaurs.'
+sources:
+- 'Connecticut Agricultural Experiment Station, House Centipede fact sheet (K. Dugas): 15 pairs of legs; hunts cockroach nymphs, bed bugs, flies, ants, silverfish, spiders; venomous forcipules sting prey;
+  stinging a human is very rare, only from rough handling; flees when discovered; nocturnal; https://portal.ct.gov/-/media/caes/documents/publications/fact_sheets/entomology/house_centipede_scutigera.pdf'
+- 'Penn State Extension, House Centipedes: feeds on silverfish, carpet beetle larvae, cockroaches, spiders; harmless; https://extension.psu.edu/house-centipedes'
+- 'Washington State University Extension PestSense, House centipede: hunts flies, cockroaches, moths at night; https://pestsense.cahnrs.wsu.edu/fact-sheet/house-centipede/'
+yt:
+- hook: You just saw the thirty-legged bug in your bathroom.
+- chase: Don't squish it. It's hunting.
+  scene: basement
+- xray: It eats bed bugs and baby cockroaches.
+  scene: kitchen
+- count: Silverfish. Spiders. Flies.
+  scene: bedroom
+- punch: Squish it, and they all stay.
+tt:
+- fact: It has fifteen pairs of legs, and it uses them to chase.
+  scene: kitchen
+- calm: It stings its prey with legs that turned into fangs.
+  scene: basement
+- fact: Will it sting you? Almost never. Only if you grab it hard.
+  scene: kitchen
+- fact: It even eats moths and carpet beetle larvae.
+  scene: bedroom
+- chase: It would rather run. It's one of the fastest things in your house.
+  scene: basement
+- escalate: And it hunts at night, while you sleep.
+  scene: bedroom
+- fact: Most people never even see theirs.
+  scene: kitchen
+- calm: So the one you just saw? It's working for you.
+  scene: basement
+- fact: Its long feelers look just like its legs.
+  scene: bedroom
+- calm: So a predator can't tell which end is the face.
+  scene: kitchen
+- fact: A baby hatches with only four pairs of legs.
+  scene: basement
+- escalate: It grows more every time it molts, until it has fifteen pairs.
+  scene: bedroom
+- fact: It takes about three years to grow up, and it can live up to seven.
+  scene: kitchen
+- fact: And the female's back legs are almost twice as long as her body.
+  scene: basement
+- fact: They hide by day in basements, cellars and bathrooms.
+- calm: Bug experts say don't bother spraying it.
+- fact: Dry out the damp spots, and the bugs it eats move out.
+- punch: Fewer bugs, fewer centipedes. So, would you let it stay?
