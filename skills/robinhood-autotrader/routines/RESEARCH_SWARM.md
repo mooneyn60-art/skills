@@ -76,11 +76,14 @@ Target: under $25 of model usage per swarm run.
    (added 2026-10-18): the live 12-1 screen ITSELF vs SPY through the
    four hurdles (it has only been measured in-sample, on hand-picked names),
    plus its 6 live trades scored in R. Uses mom_screen_base.py.
-2. OPTIONS APPRENTICE Stage 2 (see routines/OPTIONS_APPRENTICE.md): write
+2. BLOCKED 2026-11-01: needs paper/history/owner_trips.json (owner option round trips with entry
+   times; trips.json from owner_trips_build.py was never committed). Desk: commit it.
+   OPTIONS APPRENTICE Stage 2 (see routines/OPTIONS_APPRENTICE.md): write
    2-3 candidate SPY-options rule sets, apply each to Nolan's logged option
    trades (owner_options_mistakes.py data), report in-sample results with
    the best day removed, freeze the winner for the Stage 3 paper book.
-3. Range-regime exit rule (the standing open question in WEEKEND_RESEARCH).
+3. DONE 2026-11-01: no exit monetises it (research/2026-11-01_RANGE_EXIT_SWARM.md).
+   Range-regime exit rule (the standing open question in WEEKEND_RESEARCH).
 4. Earnings-gap continuation for momentum names (hold through vs exit
    before earnings), using paper/history/earnings_reports.json.
 5. ICT / "smart money" intraday setups (Nolan shared a TikTok 2026-10-15:
