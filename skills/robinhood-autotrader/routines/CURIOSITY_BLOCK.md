@@ -17,6 +17,9 @@ TOPICS SO FAR (notes live in skills/robinhood-autotrader/notes/curiosity/):
 - 2026-10-15: how honeybee swarms and ant colonies choose a nest site
   (quorums, decaying dances, stop signals, speed-accuracy).
   DONE: notes/curiosity/2026-10-15_SWARM_DECISIONS.md.
+- 2026-11-01: what happens in traders' bodies before good and bad decisions
+  (Lo & Repin, Coates & Herbert, interoception, somatic markers).
+  DONE: notes/curiosity/2026-11-01_TRADERS_BODIES.md.
 
 From here on, choose your own topic each time. Rules for choosing:
 - Something you'd genuinely want to understand, not something picked to look impressive.
