@@ -28,6 +28,7 @@ Nolan (10/29): "set the channel up to the point all he has to do is make and pos
 - **Locked for 8 weeks from 11/1.** No style tests, no photo/realistic/hybrid samples, no new render pipelines.
 - **Allowed to change, one per week:** hooks, titles, topics, and new animals built with the same anatomy kit.
 - **Nolan, 11/1:** "I like the style we have going. Only changes: more animations, more visibly exciting and engaging." That means more movement inside the SAME look: the animal acts out every line (walks, lunges, turns), camera punch-ins on the oh-no beat, more scene changes, a visual gag on each wow fact. It is not a new look.
+- **Every Short (Nolan 11/1, approved on House Centipede Part 2 v2):** the Andrew voice (+10%, +3Hz), animals that hop and lunge, and **at least 3 locations**. Give each middle line its own `scene:`; the hook and the last line share a room so the loop is seamless.
 - **Anyone proposing a style change must bring numbers to Nolan first.** Never send a sample instead.
 
 ## Day 1 (do these before making anything new)
