@@ -99,6 +99,7 @@ Pick episodes from `CALENDAR_REALISTIC.md`, top down. Any Short that beats 2x th
 - **AI-made shots** (if any): turn on "altered or synthetic content" in YouTube Studio.
 
 ## Watch hours (the hard part of YPP)
+- **Nolan, 11/1: long-forms are their OWN videos, full screen (16:9), like the case files.** Never a compilation, stitch or blurred-side vertical Shorts. Every long-form is scripted and rendered as a long-form (the v4 16:9 renderer, as for `scripts/longform-turned-out-true.json`).
 - **Nolan, 10/30 (overrides the compilation below):** the weekly long-form is a **Meatball Investigates case file**, 8-12 min, one real story told properly. Use the style and voice of "Conspiracy Theories That Turned Out To Be TRUE" (10/27; `scripts/longform-turned-out-true.json`, style v4, voice kokoro:eric-michael, music gen:mystery).
   - Every claim is sourced and labelled proven or debunked; never present a false conspiracy as true.
   - It needs a cold open, a twist at the end and its own story arc. It is never stitched-together Shorts.
