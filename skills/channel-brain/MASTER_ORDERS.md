@@ -22,6 +22,13 @@ Nolan (10/29): "set the channel up to the point all he has to do is make and pos
 - 2.5% of viewers return
 - TikTok: already monetized
 
+## STYLE LOCK (Nolan, 11/1): no more style changes
+- **The look is locked:** the drawn style with stick-figure Meatball and TARS's species-accurate animals (`art/drawn_anatomy.py`). Nolan approved it on 10/30 ("way better, continue this style").
+- **The voice is locked:** kokoro:fenrir, unless Nolan picks another from the 10/30 samples.
+- **Locked for 8 weeks from 11/1.** No style tests, no photo/realistic/hybrid samples, no new render pipelines.
+- **Allowed to change, one per week:** hooks, titles, topics, and new animals built with the same anatomy kit.
+- **Anyone proposing a style change must bring numbers to Nolan first.** Never send a sample instead.
+
 ## Day 1 (do these before making anything new)
 1. `git pull` the channel-brain folder from TARS's branch `claude/package-installation-setup-yv4j79`, then run:
    ```
