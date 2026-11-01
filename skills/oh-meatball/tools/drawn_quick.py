@@ -45,7 +45,7 @@ sys.path.insert(0, HERE)
 MACROS = ("hook", "name", "fact", "xray", "scale", "count", "escalate", "chase", "calm", "punch", "tease", "solo", "shrink", "tiny")
 # Narrator: Kokoro fenrir (0.86x, comma pauses <= 0.22 s; tools/free_voice.py), picked 10/28 from the outlier-matching
 # voice test. An outline's "voice:" (and "rate:" for an edge-tts voice, e.g. en-US-AndrewMultilingualNeural) overrides it.
-VOICE = "kokoro:fenrir"
+VOICE = "en-US-AndrewMultilingualNeural"  # Nolan 11/1: back to the old voice (the top Shorts), warmer and happier: rate +10%, pitch +3Hz
 YT_RANGE, TT_RANGE = (14.0, 20.0), (61.0, 75.0)   # YT <=20 s (Nolan 10/29, channel-brain vidcheck.py gate); TT 61-75 s for Creator Rewards
 
 
@@ -75,7 +75,7 @@ def specs(o):
     act1 = [line(x) for x in o["yt"]]
     act2 = [line(x) for x in o.get("tt", [])]
     base = {"series": f'{o.get("series", "")}, Part {o.get("part", "")}'.strip(", "), "sources": o["sources"],
-            "photo_credits": [], "voice": o.get("voice", VOICE), "rate": o.get("rate", "+12%"),
+            "photo_credits": [], "voice": o.get("voice", VOICE), "rate": o.get("rate", "+10%"), "pitch": o.get("pitch", "+3Hz"),
             "music": o.get("music", "mystery"), "music_db": o.get("music_db", -20), "captions": 66,
             "caption_y": o.get("caption_y", 1640), "stage": stage,
             "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines."}

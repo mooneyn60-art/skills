@@ -353,10 +353,18 @@ ANATOMY = {"cassowary": cassowary, "camel_cricket": camel_cricket, "cockroach": 
 
 def _alive(fn):
     # drawn.py sets p["walking"] on a moving actor (the old creatures read that); these builders read p["walk"].
-    # Without this bridge the new animals glide with frozen legs. Idle 0.15 keeps legs twitching when standing.
+    # Nolan 11/1 ("more animations, more visibly exciting"): standing animals never freeze. Every ~2.3 s they
+    # hop/lunge forward in a short burst (jaws/kick on builders that read "lunge"), with a squash on landing.
     def draw(ctx, t, p):
-        w = 1.0 if p.get("walking") else p.get("walk", 0.15)
-        return fn(ctx, t, {**p, "walk": w})
+        burst = max(0.0, math.sin(t * 2.7)) ** 8           # short spikes, ~0.4 s each
+        w = 1.0 if p.get("walking") else max(p.get("walk", 0.0), 0.35 + 0.65 * burst)
+        hop = 0.0 if p.get("walking") else 34 * burst
+        ctx.save()
+        ctx.translate(18 * burst, -hop)
+        ctx.scale(1 + 0.05 * burst, 1 - 0.04 * burst)
+        out = fn(ctx, t, {**p, "walk": w, "lunge": max(p.get("lunge", 0.0), burst)})
+        ctx.restore()
+        return out
     return draw
 
 
