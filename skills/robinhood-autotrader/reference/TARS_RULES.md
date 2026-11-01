@@ -1,7 +1,7 @@
 # TARS-1 — Trading Rules
 
 One-line description: The complete, mechanical ruleset TARS trades. No discretion.
-Last Updated: 2026-10-25 (R15 REPEALED after the R16-off re-read; see its banner)
+Last Updated: 2026-11-01 (R15 back to SUSPENDED: the 10/25 repeal ran while R16 was ON via the R6 drawdown halt)
 Status: ACTIVE — TARS confirmed sole writer under R7 (2026-09-15)
 Audience: Nolan; any agent or session operating account #731951265
 
@@ -1619,7 +1619,15 @@ correct, the pooled test was the bug. TARS argued first in all three.
 
 ## R15 — The regime switch (ADOPTED 2026-09-23 at Nolan's direction)
 
-> **REPEALED 2026-10-25** under the 2026-10-01 authorisation (Nolan: "Do what
+> **BACK TO SUSPENDED 2026-11-01 (repeal of 2026-10-25 withdrawn).** The
+> 10/25 repeal checked R16 incompletely: the R6 DRAWDOWN HALT was active
+> (10/15-10/29), so R16 was ON and the routine said to wait. Behaviour is
+> unchanged: VIX 25+ is an alert only, no inverted entries, R2's 200-day gate
+> at every VIX level. The repeal is retried at a weekend block where R16 is
+> verifiably OFF (research/2026-11-01_MONTHLY_AUDIT.md). The withdrawn text
+> follows for the record.
+>
+> ~~REPEALED 2026-10-25~~ under the 2026-10-01 authorisation (Nolan: "Do what
 > you need to do", replying to the quarterly rule audit), as the suspension
 > banner below specified. R16 was OFF at the re-read: no R6 breaker active
 > (last fired 10/15, pause ended), and the latest TARS-book closes were

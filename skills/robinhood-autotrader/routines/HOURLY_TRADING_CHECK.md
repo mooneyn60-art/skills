@@ -40,14 +40,14 @@ SEND a push when any of these happened this run:
     dollar balances)
   - a position is within ~2% of its stop trigger
   - a stop was raised at the close check (name which + new level)
-  - VIX 25+ (alert only; R15 repealed) or a position gapped >8%
+  - VIX 25+ (alert only; R15 suspended) or a position gapped >8%
   - anything that needs Nolan's decision before the desk can act
 Keep it specific and actionable: "SOFI $16C 1% from its 1.23 stop" beats "check
 your account". One push per run maximum. If nothing qualifies, send nothing.
 
-## VIX ALERT (R15 REPEALED 2026-10-25)
+## VIX ALERT (R15 SUSPENDED; 10/25 repeal withdrawn 2026-11-01)
 
-R15 is REPEALED (see its banner in TARS_RULES.md). Pull VIX via
+R15 is SUSPENDED (see its banner in TARS_RULES.md; the 10/25 repeal was withdrawn). Pull VIX via
 get_index_quotes (instrument id 3b912aa2-88f9-4682-8ae3-e39520bdf4db), judged
 on the PRIOR CLOSE. VIX 25+ = ALERT NOLAN, lead with it. Nothing else changes:
 no inverted entries, and R2's 200-day gate applies at every VIX level.
@@ -124,7 +124,7 @@ total_value by a FIXED $27.90. Subtract it.
 ## KEY RULES (full text in TARS_RULES.md)
 
 R2 entry: price > 200-day (same line is the exit); no earnings within 3
-trading days; fewer than 2 positions in the sector. (R15 repealed 2026-10-25:
+trading days; fewer than 2 positions in the sector. (R15 suspended:
 no VIX inversion.)
 R3 sizing: 20% per-position cap, 15% cash floor, 8% total risk budget.
 R4 exits: 8% hard stop, breakeven raise at +8%, trail 20% below the highest

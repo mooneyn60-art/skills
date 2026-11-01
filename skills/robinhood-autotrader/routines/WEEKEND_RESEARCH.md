@@ -105,7 +105,24 @@ needing his decision), send ONE `PushNotification` (status "proactive", <200
 chars, one line, no dollar balances per R13). Reaches his phone via Remote
 Control. Stay silent on a routine/no-news run.
 
-(One-time R15 task DONE 2026-10-25: R15 REPEALED after it reproduced with R16 off; see TARS_RULES R15 banner.)
+## ONE-TIME TASK, RESTORED 2026-11-01: decide R15 (repeal or reinstate)
+
+The 10/25 repeal was withdrawn: R16 was ON then (R6 drawdown halt active
+10/15-10/29), which the check missed. Retry at the next weekend block, FIRST:
+  1. R16 must be verifiably OFF on ALL three triggers:
+     (a) python3 paper/pressure_state.py shows < 3, AND count momentum_satellite
+         closes by hand (the script misses them);
+     (b) NO R6 circuit breaker AND NO R6 drawdown halt active: read the last
+         close reports in notes/NOLAN_LOG.md for "halt", and confirm a
+         high-water-mark rebase row exists in trades.jsonl after any halt;
+     (c) do this task BEFORE running any other test in the session, so no
+         refuted prediction has happened yet.
+     If any is ON, skip and say which.
+  2. Re-run python3 paper/test_r15_integration.py; on 10/25 it gave -1.13pp
+     CAGR and maxDD -45.9% vs -33.6% with R15.
+  3. If it reproduces: mark R15 REPEALED in TARS_RULES.md, update the VIX block
+     in HOURLY_TRADING_CHECK.md, log a rule_change row, tell Nolan in one line.
+Then replace this section with a one-line DONE note.
 
 ## UPDATE 2026-10-15: run it as a SWARM
 
