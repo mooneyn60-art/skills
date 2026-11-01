@@ -1,0 +1,117 @@
+{
+ "series": "Things Living In Your House, Part 21",
+ "sources": [
+  "Connecticut Agricultural Experiment Station, House Centipede fact sheet (K. Dugas): 15 pairs of legs; hunts cockroach nymphs, bed bugs, flies, ants, silverfish, spiders; venomous forcipules sting prey; stinging a human is very rare, only from rough handling; flees when discovered; nocturnal; https://portal.ct.gov/-/media/caes/documents/publications/fact_sheets/entomology/house_centipede_scutigera.pdf",
+  "Penn State Extension, House Centipedes: feeds on silverfish, carpet beetle larvae, cockroaches, spiders; harmless; https://extension.psu.edu/house-centipedes",
+  "Washington State University Extension PestSense, House centipede: hunts flies, cockroaches, moths at night; https://pestsense.cahnrs.wsu.edu/fact-sheet/house-centipede/"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:fenrir",
+ "rate": "+12%",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "house_centipede",
+  "scene": "bathroom",
+  "scene_p": {
+   "time": "night"
+  },
+  "s": 0.8,
+  "actor": "house_centipede"
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Never Squish the 30-Legged Bug in Your House",
+ "tiktok_caption": "house centipede part 2 🐛 it hunts the bed bugs and roaches in your house. Would you let it stay? 🐛 stay / 🙅 squish",
+ "beats": [
+  {
+   "m": "hook",
+   "say": "You just saw the thirty-legged bug in your bathroom."
+  },
+  {
+   "m": "chase",
+   "say": "Don't squish it. It's hunting."
+  },
+  {
+   "m": "xray",
+   "say": "It eats bed bugs and baby cockroaches."
+  },
+  {
+   "m": "count",
+   "say": "Silverfish. Spiders. Flies."
+  },
+  {
+   "m": "punch",
+   "say": "Squish it, and they all stay."
+  },
+  {
+   "m": "calm",
+   "say": "It stings its prey with legs that turned into fangs."
+  },
+  {
+   "m": "fact",
+   "say": "Will it sting you? Almost never. Only if you grab it hard."
+  },
+  {
+   "m": "chase",
+   "say": "It would rather run. It's one of the fastest things in your house."
+  },
+  {
+   "m": "escalate",
+   "say": "And it hunts at night, while you sleep."
+  },
+  {
+   "m": "fact",
+   "say": "Most people never even see theirs."
+  },
+  {
+   "m": "calm",
+   "say": "So the one you just saw? It's working for you."
+  },
+  {
+   "m": "fact",
+   "say": "Its long feelers look just like its legs."
+  },
+  {
+   "m": "calm",
+   "say": "So a predator can't tell which end is the face."
+  },
+  {
+   "m": "fact",
+   "say": "A baby hatches with only four pairs of legs."
+  },
+  {
+   "m": "escalate",
+   "say": "It grows more every time it molts, until it has fifteen pairs."
+  },
+  {
+   "m": "fact",
+   "say": "It takes about three years to grow up, and it can live up to seven."
+  },
+  {
+   "m": "fact",
+   "say": "And the female's back legs are almost twice as long as her body."
+  },
+  {
+   "m": "fact",
+   "say": "They hide by day in basements, cellars and bathrooms."
+  },
+  {
+   "m": "calm",
+   "say": "Bug experts say don't bother spraying it."
+  },
+  {
+   "m": "fact",
+   "say": "Dry out the damp spots, and the bugs it eats move out."
+  },
+  {
+   "m": "punch",
+   "say": "Fewer bugs, fewer centipedes. So, would you let it stay?"
+  },
+  {
+   "m": "tease",
+   "say": "Follow me. Next: the bug that's older than dinosaurs."
+  }
+ ]
+}
