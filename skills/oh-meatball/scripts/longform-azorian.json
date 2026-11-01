@@ -36,8 +36,29 @@
   "declassified",
   "meatball investigates"
  ],
- "names": {},
- "subjects": {},
+ "names": {
+  "Cover": "Glomar Explorer coveralls and ashtray (CIA Museum)"
+ },
+ "subjects": {
+  "wm:Aerial_view_of_the_Central_Intelligence_Agency_headquarters,_Langley,_Virginia_-_Corrected_and_Cropped.jpg": {
+   "cutout": false
+  },
+  "wm:New_Headquarters_Building_Atrium_-_Flickr_-_The_Central_Intelligence_Agency.jpg": {
+   "cutout": false
+  },
+  "wm:Glomar_Explorer_Suisun_Bay_CA.jpg": {
+   "cutout": false
+  },
+  "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3": {
+   "cutout": false
+  },
+  "wm:Trombe.jpg": {
+   "cutout": false
+  },
+  "wm:Sonar_Console_C_Mk_1_Mod_0,_Westinghouse_Electric_Corporation_-_National_Electronics_Museum_-_DSC00484.JPG": {
+   "cutout": false
+  }
+ },
  "sources": [
   "CIA (author's name withheld), 'Project AZORIAN: The Story of the Hughes Glomar Explorer', Studies in Intelligence, Fall 1985, declassified and released 12 Feb 2010 — https://nsarchive2.gwu.edu/nukevault/ebb305/doc01.pdf",
   "National Security Archive, Electronic Briefing Book No. 305, 'Project Azorian: The CIA's Declassified History of the Glomar Explorer' (ed. Matthew Aid, William Burr, Thomas Blanton, 12 Feb 2010): page-cited summary of the CIA history (Jennifer compartment vs the name Azorian; 10% odds; 1971 near-cancellation; 1972 Pentagon objections and Nixon's 11 Dec 1972 decision; arrival 4 Jul 1974; ~14 days of Soviet surveillance; crates on the helideck; 'guns were not issued'; lift 1-8 Aug 1974; plutonium contamination p. 46); the Phillippi FOIA request, 'neither confirm nor deny' and Phillippi v. CIA (1976); the LA Times (Feb 1975), Jack Anderson and Seymour Hersh (NYT, 19 Mar 1975) reports; Blind Man's Bluff (1998) 38-ft claim; the 1993 Russian report on two nuclear torpedoes; cost estimate ~$500 million — https://nsarchive2.gwu.edu/nukevault/ebb305/",
@@ -181,15 +202,15 @@
     {
      "photo": "CIA headquarters, Langley (Carol M. Highsmith)",
      "obs": "wm:Aerial_view_of_the_Central_Intelligence_Agency_headquarters,_Langley,_Virginia_-_Corrected_and_Cropped.jpg"
+    },
+    {
+     "photo": "Glomar Explorer crew patch (CIA)",
+     "obs": "wm:Glomar_Patch.jpg",
+     "at": "Subscribe"
     }
    ],
    "sub": {
     "at": "Subscribe"
-   },
-   "host": {
-    "moves": [
-     "you@Meatball"
-    ]
    }
   },
   {
@@ -251,8 +272,8 @@
    "act": "stand",
    "shots": [
     {
-     "photo": "Rough sea (Bernd Thaller)",
-     "obs": "ov:3c42c784-2a30-423a-b959-75fa3c6aed1f"
+     "photo": "Waterspout at sea (NOAA)",
+     "obs": "wm:Trombe.jpg"
     },
     {
      "photo": "K-129 recovery site map",
@@ -305,8 +326,8 @@
    "act": "hide",
    "shots": [
     {
-     "photo": "Rough sea (Bernd Thaller)",
-     "obs": "ov:3c42c784-2a30-423a-b959-75fa3c6aed1f",
+     "photo": "Waterspout at sea (NOAA)",
+     "obs": "wm:Trombe.jpg",
      "blur": true
     }
    ],
@@ -325,8 +346,8 @@
      "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3"
     },
     {
-     "photo": "Rough sea (Bernd Thaller)",
-     "obs": "ov:3c42c784-2a30-423a-b959-75fa3c6aed1f",
+     "photo": "Waterspout at sea (NOAA)",
+     "obs": "wm:Trombe.jpg",
      "at": "search"
     }
    ],
@@ -428,8 +449,8 @@
      "obs": "wm:New_Headquarters_Building_Atrium_-_Flickr_-_The_Central_Intelligence_Agency.jpg"
     },
     {
-     "photo": "CIA painting of the AZORIAN recovery",
-     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg",
+     "photo": "Empire State Building (aerial view)",
+     "obs": "wm:Empire State Building (aerial view).jpg",
      "at": "Empire"
     }
    ],
@@ -444,6 +465,11 @@
     {
      "photo": "CIA painting of the AZORIAN recovery",
      "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
+    },
+    {
+     "photo": "Empire State Building (aerial view)",
+     "obs": "wm:Empire State Building (aerial view).jpg",
+     "at": "lift"
     }
    ],
    "punch": "noticing",
@@ -555,14 +581,19 @@
    "punch": "secret"
   },
   {
-   "say": "The secret gets locked inside a security code word: Jennifer. Even Henry Kissinger is on the short list of people who know.",
+   "say": "CIA director Richard Helms locks the secret inside a security code word: Jennifer. Even Henry Kissinger is on the short list of people who know.",
    "pose": "point",
    "myth": "cover",
    "act": "stand",
    "shots": [
     {
+     "photo": "CIA director Richard Helms",
+     "obs": "wm:Richard_Helms.jpg"
+    },
+    {
      "photo": "Henry Kissinger (White House)",
-     "obs": "wm:Henry_Kissinger.png"
+     "obs": "wm:Henry_Kissinger.png",
+     "at": "Kissinger"
     }
    ],
    "label": {
@@ -622,8 +653,8 @@
      "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
     },
     {
-     "photo": "Rough sea (Bernd Thaller)",
-     "obs": "ov:3c42c784-2a30-423a-b959-75fa3c6aed1f",
+     "photo": "Waterspout at sea (NOAA)",
+     "obs": "wm:Trombe.jpg",
      "at": "ocean"
     }
    ],
@@ -692,8 +723,8 @@
    "act": "stand",
    "shots": [
     {
-     "photo": "Project AZORIAN artifacts at the CIA Museum",
-     "obs": "wm:Sherman_Wetmore_poses_next_to_a_collection_of_Project_AZORIAN_artifacts_on_display.jpg"
+     "photo": "Cover",
+     "obs": "wm:Hughes_Glomar_Explorer_coveralls_and_ashtray_are_examples_of_the_depth_of_cover_that_CIA_and_Hughes_manufactured_for_the_expedition_and_these_artifacts_have_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg"
     }
    ],
    "punch": "ashtrays"
@@ -705,8 +736,8 @@
    "act": "hide",
    "shots": [
     {
-     "photo": "Project AZORIAN artifacts at the CIA Museum",
-     "obs": "wm:Sherman_Wetmore_poses_next_to_a_collection_of_Project_AZORIAN_artifacts_on_display.jpg",
+     "photo": "Cover",
+     "obs": "wm:Hughes_Glomar_Explorer_coveralls_and_ashtray_are_examples_of_the_depth_of_cover_that_CIA_and_Hughes_manufactured_for_the_expedition_and_these_artifacts_have_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg",
      "blur": true
     }
    ],
@@ -733,8 +764,13 @@
    "act": "run_in",
    "shots": [
     {
-     "photo": "Hughes Glomar Explorer (US Government)",
-     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
+     "photo": "Glomar Explorer drawing from the CIA 2010 release",
+     "obs": "wm:Project_Azorian_Released_Files_01-04-2010_Page_21.jpg"
+    },
+    {
+     "photo": "Glomar Explorer in Suisun Bay (USGS)",
+     "obs": "wm:Glomar_Explorer_Suisun_Bay_CA.jpg",
+     "at": "keel"
     }
    ],
    "chapter": "The ship and the claw",
@@ -760,13 +796,13 @@
      "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
     },
     {
-     "photo": "Hughes Glomar Explorer (US Government)",
-     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg",
+     "photo": "Glomar Explorer in Suisun Bay (USGS)",
+     "obs": "wm:Glomar_Explorer_Suisun_Bay_CA.jpg",
      "at": "derrick"
     },
     {
-     "photo": "Glomar Explorer in Suisun Bay (USGS)",
-     "obs": "wm:Glomar_Explorer_Suisun_Bay_CA.jpg",
+     "photo": "Glomar Explorer drawing from the CIA 2010 release",
+     "obs": "wm:Project_Azorian_Released_Files_01-04-2010_Page_21.jpg",
      "at": "crane"
     }
    ],
@@ -779,8 +815,13 @@
    "act": "shake",
    "shots": [
     {
-     "photo": "CIA painting of the AZORIAN recovery",
-     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
+     "photo": "CIA 3-D rendering of the AZORIAN recovery",
+     "obs": "wm:3-D_interactive_rendering_of_Project_AZORIAN_operation_(52456690589).jpg"
+    },
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg",
+     "at": "moon"
     }
    ],
    "label": {
@@ -800,8 +841,8 @@
      "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
     },
     {
-     "photo": "Hughes Glomar Explorer (US Government)",
-     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg",
+     "photo": "CIA 3-D rendering of the AZORIAN recovery",
+     "obs": "wm:3-D_interactive_rendering_of_Project_AZORIAN_operation_(52456690589).jpg",
      "at": "satellite"
     }
    ],
@@ -885,8 +926,8 @@
    "act": "shake",
    "shots": [
     {
-     "photo": "The Pentagon",
-     "obs": "ov:d9cde009-48aa-4c0f-ad5a-1eef19190154"
+     "photo": "Glomar Explorer in Suisun Bay (USGS)",
+     "obs": "wm:Glomar_Explorer_Suisun_Bay_CA.jpg"
     }
    ],
    "punch": "killing"
@@ -898,8 +939,8 @@
    "act": "stand",
    "shots": [
     {
-     "photo": "The United States Capitol",
-     "obs": "ov:c90463c3-df1b-437e-88f7-7951c6f156ff"
+     "photo": "Glomar Explorer drawing from the CIA 2010 release",
+     "obs": "wm:Project_Azorian_Released_Files_01-04-2010_Page_21.jpg"
     }
    ],
    "twist": true,
@@ -915,8 +956,8 @@
    "act": "stand",
    "shots": [
     {
-     "photo": "The United States Capitol",
-     "obs": "ov:c90463c3-df1b-437e-88f7-7951c6f156ff"
+     "photo": "CIA headquarters, Langley (Carol M. Highsmith)",
+     "obs": "wm:Aerial_view_of_the_Central_Intelligence_Agency_headquarters,_Langley,_Virginia_-_Corrected_and_Cropped.jpg"
     }
    ],
    "label": {
@@ -975,8 +1016,8 @@
      "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
     },
     {
-     "photo": "The United States Capitol",
-     "obs": "ov:c90463c3-df1b-437e-88f7-7951c6f156ff",
+     "photo": "CIA headquarters, Langley (Carol M. Highsmith)",
+     "obs": "wm:Aerial_view_of_the_Central_Intelligence_Agency_headquarters,_Langley,_Virginia_-_Corrected_and_Cropped.jpg",
      "at": "Nixon"
     }
    ],
@@ -1022,8 +1063,8 @@
      "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
     },
     {
-     "photo": "CIA model of the sunken K-129",
-     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg",
+     "photo": "CIA 3-D rendering of the AZORIAN recovery",
+     "obs": "wm:3-D_interactive_rendering_of_Project_AZORIAN_operation_(52456690589).jpg",
      "at": "claw"
     }
    ],
@@ -1043,8 +1084,8 @@
      "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3"
     },
     {
-     "photo": "Rough sea (Bernd Thaller)",
-     "obs": "ov:3c42c784-2a30-423a-b959-75fa3c6aed1f",
+     "photo": "Waterspout at sea (NOAA)",
+     "obs": "wm:Trombe.jpg",
      "at": "circle"
     }
    ],
@@ -1097,8 +1138,8 @@
    "act": "hide",
    "shots": [
     {
-     "photo": "Rough sea (Bernd Thaller)",
-     "obs": "ov:3c42c784-2a30-423a-b959-75fa3c6aed1f",
+     "photo": "Waterspout at sea (NOAA)",
+     "obs": "wm:Trombe.jpg",
      "blur": true
     }
    ],
@@ -1188,8 +1229,8 @@
    "act": "peek",
    "shots": [
     {
-     "photo": "Glomar Explorer crew patch (CIA)",
-     "obs": "wm:Glomar_Patch.jpg",
+     "photo": "Glomar Explorer drawing from the CIA 2010 release",
+     "obs": "wm:Project_Azorian_Released_Files_01-04-2010_Page_21.jpg",
      "board": {
       "notes": [
        "[REDACTED]",
@@ -1224,8 +1265,13 @@
    "act": "stand",
    "shots": [
     {
-     "photo": "Rough sea (Bernd Thaller)",
-     "obs": "ov:3c42c784-2a30-423a-b959-75fa3c6aed1f"
+     "photo": "Waterspout at sea (NOAA)",
+     "obs": "wm:Trombe.jpg"
+    },
+    {
+     "photo": "CIA Museum: The Debrief, GLOMAR",
+     "obs": "wm:The_Debrief_Behind_the_Artifact_-_GLOMAR.jpg",
+     "at": "filmed"
     }
    ],
    "hold": 0.4
@@ -1237,8 +1283,8 @@
    "act": "stand",
    "shots": [
     {
-     "photo": "Rough sea (Bernd Thaller)",
-     "obs": "ov:3c42c784-2a30-423a-b959-75fa3c6aed1f"
+     "photo": "Thunderstorm at night (NOAA)",
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3"
     },
     {
      "photo": "CIA headquarters, Langley (Carol M. Highsmith)",
@@ -1332,18 +1378,18 @@
    "act": "stand",
    "shots": [
     {
-     "photo": "Glomar Explorer crew patch (CIA)",
-     "obs": "wm:Glomar_Patch.jpg"
+     "photo": "Glomar Explorer drawing from the CIA 2010 release",
+     "obs": "wm:Project_Azorian_Released_Files_01-04-2010_Page_21.jpg"
+    },
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg",
+     "at": "Fifty"
     }
    ],
    "stamp": {
     "text": "STILL\nCLASSIFIED",
     "at": "classified"
-   },
-   "host": {
-    "moves": [
-     "lean@What"
-    ]
    }
   },
   {
@@ -1371,6 +1417,11 @@
     {
      "photo": "Howard Hughes, 1938",
      "obs": "wm:Howard_Hughes_1938.jpg"
+    },
+    {
+     "photo": "Cover",
+     "obs": "wm:Hughes_Glomar_Explorer_coveralls_and_ashtray_are_examples_of_the_depth_of_cover_that_CIA_and_Hughes_manufactured_for_the_expedition_and_these_artifacts_have_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg",
+     "at": "Thieves"
     }
    ],
    "chapter": "The leak: neither confirm nor deny",
@@ -1446,8 +1497,8 @@
    "act": "stand",
    "shots": [
     {
-     "photo": "The United States Capitol",
-     "obs": "ov:c90463c3-df1b-437e-88f7-7951c6f156ff"
+     "photo": "CIA Museum: The Debrief, GLOMAR",
+     "obs": "wm:The_Debrief_Behind_the_Artifact_-_GLOMAR.jpg"
     }
    ],
    "punch": "rumors"
@@ -1472,12 +1523,18 @@
    "act": "shake",
    "shots": [
     {
-     "photo": "William Colby, CIA director",
-     "obs": "wm:William_Colby.jpg"
+     "photo": "Howard Hughes, 1938",
+     "obs": "wm:Howard_Hughes_1938.jpg",
+     "at": "0"
     },
     {
-     "photo": "Hughes Glomar Explorer (US Government)",
-     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg",
+     "photo": "CIA headquarters, Langley (Carol M. Highsmith)",
+     "obs": "wm:Aerial_view_of_the_Central_Intelligence_Agency_headquarters,_Langley,_Virginia_-_Corrected_and_Cropped.jpg",
+     "at": "CIA."
+    },
+    {
+     "photo": "Soviet submarine K-129 (CIA photo)",
+     "obs": "wm:Soviet_ballistic_missile_submarine_K-129.jpg",
      "at": "submarine"
     }
    ],
@@ -1493,8 +1550,13 @@
    "act": "stand",
    "shots": [
     {
-     "photo": "President Ford at the White House (NARA)",
-     "obs": "wm:President_Ford_meets_with_CIA_Director-designate_George_Bush_-_NARA_-_7141445.jpg"
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
+    },
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg",
+     "at": "Times"
     }
    ],
    "punch": "Hersh"
@@ -1510,8 +1572,8 @@
      "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
     },
     {
-     "photo": "Rough sea (Bernd Thaller)",
-     "obs": "ov:3c42c784-2a30-423a-b959-75fa3c6aed1f",
+     "photo": "Waterspout at sea (NOAA)",
+     "obs": "wm:Trombe.jpg",
      "at": "Soviets"
     }
    ],
@@ -1524,8 +1586,8 @@
    "act": "stand",
    "shots": [
     {
-     "photo": "The United States Capitol",
-     "obs": "ov:c90463c3-df1b-437e-88f7-7951c6f156ff"
+     "photo": "President Ford at the White House (NARA)",
+     "obs": "wm:President_Ford_meets_with_CIA_Director-designate_George_Bush_-_NARA_-_7141445.jpg"
     }
    ],
    "label": {
@@ -1574,8 +1636,8 @@
    "act": "stand",
    "shots": [
     {
-     "photo": "The United States Capitol",
-     "obs": "ov:c90463c3-df1b-437e-88f7-7951c6f156ff"
+     "photo": "CIA headquarters, Langley (Carol M. Highsmith)",
+     "obs": "wm:Aerial_view_of_the_Central_Intelligence_Agency_headquarters,_Langley,_Virginia_-_Corrected_and_Cropped.jpg"
     }
    ],
    "punch": "CIA"
@@ -1589,16 +1651,16 @@
     {
      "photo": "Hughes Glomar Explorer (US Government)",
      "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
+    },
+    {
+     "photo": "CIA 3-D rendering of the AZORIAN recovery",
+     "obs": "wm:3-D_interactive_rendering_of_Project_AZORIAN_operation_(52456690589).jpg",
+     "at": "Glomar"
     }
    ],
    "label": {
     "text": "GLOMAR\nRESPONSE",
     "at": "Glomar"
-   },
-   "host": {
-    "moves": [
-     "lean@That"
-    ]
    }
   },
   {
@@ -1673,20 +1735,20 @@
    "act": "stand",
    "shots": [
     {
-     "photo": "Project AZORIAN artifacts at the CIA Museum",
-     "obs": "wm:Sherman_Wetmore_poses_next_to_a_collection_of_Project_AZORIAN_artifacts_on_display.jpg"
+     "photo": "Glomar Explorer drawing from the CIA 2010 release",
+     "obs": "wm:Project_Azorian_Released_Files_01-04-2010_Page_21.jpg"
+    },
+    {
+     "photo": "CIA Museum: The Debrief, GLOMAR",
+     "obs": "wm:The_Debrief_Behind_the_Artifact_-_GLOMAR.jpg",
+     "at": "Azorian"
     }
    ],
    "stamp": {
     "text": "PROVEN",
     "at": "record"
    },
-   "hold": 0.3,
-   "host": {
-    "moves": [
-     "lean@Yes"
-    ]
-   }
+   "hold": 0.3
   },
   {
    "say": "Did it work? Partly. They got a piece. What was in that piece, they still won't fully say.",
@@ -1710,18 +1772,18 @@
     {
      "photo": "CIA painting of the AZORIAN recovery",
      "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
+    },
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg",
+     "at": "piece"
     }
    ],
    "ask": {
     "q": "WERE YOU RIGHT? 👇",
     "at": "right"
    },
-   "hold": 0.5,
-   "host": {
-    "moves": [
-     "you@right"
-    ]
-   }
+   "hold": 0.5
   },
   {
    "say": "Next case: another file somebody really didn't want opened. See you there.",
