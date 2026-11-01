@@ -1,0 +1,1740 @@
+{
+ "title": "The CIA Stole Part of a Soviet Nuclear Sub With a Giant Claw",
+ "title_candidates": [
+  "The CIA Stole Part of a Soviet Nuclear Sub With a Giant Claw",
+  "The CIA Built a Fake Mining Ship to Steal a Soviet Nuclear Sub",
+  "Howard Hughes's Fake Mining Ship Was a CIA Submarine Heist"
+ ],
+ "thumb_text": "3 MILES DOWN",
+ "voice": "kokoro:eric-michael",
+ "rate": "+0%",
+ "short_rate": "+0%",
+ "music": "gen:mystery",
+ "style": "v4",
+ "aspect": "16:9",
+ "progress": true,
+ "captions": "bold",
+ "series": {
+  "text": "MEATBALL INVESTIGATES",
+  "case": "CASE FILE"
+ },
+ "blurb": "In 1974 the CIA used a fake deep-sea mining ship, sold to the world as Howard Hughes's, to grab a sunken Soviet nuclear submarine from three miles down. Meatball opens the case file on Project Azorian: the submarine that vanished, the claw, the lift that broke in half, and how 'we can neither confirm nor deny' got its name. Every claim is from the CIA's own declassified history, the CIA Museum or the National Security Archive. Confirmed (CIA): the sub, the cover story, the claw, the breakup halfway up, part of the sub recovered, six sailors buried at sea. Disputed or unconfirmed: how much was recovered (a 38-ft bow section per Blind Man's Bluff), two nuclear torpedoes (1993 Russian report), no missiles (Navy officials quoted by the NYT), how the US found the wreck (SOSUS, per 1970s books), the cost (~$500 million estimate). Still classified: what the recovered section held and the cause of the sinking.",
+ "next": "Next case: another file somebody really didn't want opened.\n\nSubscribe: a new Meatball case file every week",
+ "pinned": "Before the end: how much of the sub did they get? 🚢 all of it / 🧩 a piece / ❌ nothing. Comment your guess 👇",
+ "hashtags": "#projectazorian #coldwar #declassified #cia #meatballinvestigates",
+ "tags": [
+  "project azorian",
+  "glomar explorer",
+  "hughes glomar explorer",
+  "glomar response",
+  "neither confirm nor deny",
+  "k-129",
+  "soviet submarine",
+  "cia",
+  "howard hughes",
+  "cold war secrets",
+  "declassified",
+  "meatball investigates"
+ ],
+ "names": {},
+ "subjects": {},
+ "sources": [
+  "CIA (author's name withheld), 'Project AZORIAN: The Story of the Hughes Glomar Explorer', Studies in Intelligence, Fall 1985, declassified and released 12 Feb 2010 — https://nsarchive2.gwu.edu/nukevault/ebb305/doc01.pdf",
+  "National Security Archive, Electronic Briefing Book No. 305, 'Project Azorian: The CIA's Declassified History of the Glomar Explorer' (ed. Matthew Aid, William Burr, Thomas Blanton, 12 Feb 2010): page-cited summary of the CIA history (Jennifer compartment vs the name Azorian; 10% odds; 1971 near-cancellation; 1972 Pentagon objections and Nixon's 11 Dec 1972 decision; arrival 4 Jul 1974; ~14 days of Soviet surveillance; crates on the helideck; 'guns were not issued'; lift 1-8 Aug 1974; plutonium contamination p. 46); the Phillippi FOIA request, 'neither confirm nor deny' and Phillippi v. CIA (1976); the LA Times (Feb 1975), Jack Anderson and Seymour Hersh (NYT, 19 Mar 1975) reports; Blind Man's Bluff (1998) 38-ft claim; the 1993 Russian report on two nuclear torpedoes; cost estimate ~$500 million — https://nsarchive2.gwu.edu/nukevault/ebb305/",
+  "CIA Museum, 'Project AZORIAN' exhibit: K-129 (Golf II, three SS-N-4 nuclear missiles, from Petropavlovsk), Soviet search abandoned, 16,500 ft, Empire State Building comparison, 1,750-ton 132-ft section, Hughes cover story and manganese nodules, moon pool and capture vehicle, capture vehicle loaded from a submerged barge, 60-ft pipe sections, breakup about halfway up, six Soviet submariners buried at sea, film given to Yeltsin by DCI Robert Gates in 1992, June 1974 burglary of a Hughes office, FBI and LAPD, Colby's appeal, LA Times 7 Feb 1975, Soviet ship guarding the site, mission cancelled, later mining trials and drilling — https://www.cia.gov/legacy/museum/exhibit/project-azorian/ (checked 2026-11-01)",
+  "CIA Museum artifacts (via Wikimedia Commons, public domain): manganese nodule encased in Lucite; Glomar crew patch; Hughes Glomar Explorer coveralls and ashtray 'examples of the depth of cover that CIA and Hughes manufactured'"
+ ],
+ "confirmed_vs_disputed": "Confirmed (CIA): the sub, the cover story, the claw, the breakup halfway up, part of the sub recovered, six sailors buried at sea. Disputed or unconfirmed: how much was recovered (a 38-ft bow section per Blind Man's Bluff), two nuclear torpedoes (1993 Russian report), no missiles (Navy officials quoted by the NYT), how the US found the wreck (SOSUS, per 1970s books), the cost (~$500 million estimate). Still classified: what the recovered section held and the cause of the sinking.",
+ "_note": "Meatball Investigates long-form case file (Nolan 10/30 + 11/1: its own 16:9 video, 8-12 min, not a Short compilation). Structure copied from longform-turned-out-true.json: v4 16:9, kokoro:eric-michael, gen:mystery, cold open with a payoff promise, guess card + one subscribe pill in the opening, a like ask mid-video, 6 counted files ('FILE k' counter), the Glomar-response payoff last, PROVEN verdict and 'Were you right?' reminder in the last 90 s. No 'theme' (keeps Kokoro + gen:mystery as ordered). Every line sourced to the CIA history (via NSA EBB 305) or the CIA Museum page; disputed items say 'reported' or 'disputed'. Passes tools/retention.py except R7 (runtime 5-7 min), which the 8-12 min long-form order overrides: rendered with --no-retention. Unsourced story-01 claims cut: 98 crew, USS Halibut photographing the wreck, the claw's nickname, 'Soviet ship watched the claw go down' timing, ~$800M cost.",
+ "beats": [
+  {
+   "say": "In nineteen seventy-four, the CIA tried to steal a Soviet nuclear submarine. From three miles under the Pacific. With a giant claw.",
+   "pose": "shock",
+   "myth": "intro",
+   "act": "peek",
+   "shots": [
+    {
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
+    },
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg",
+     "at": "three"
+    }
+   ],
+   "punch": [
+    "steal",
+    "claw"
+   ],
+   "hit": "claw",
+   "sfx": [
+    "whoosh"
+   ],
+   "chapter": "Cold open"
+  },
+  {
+   "say": "To hide it, they put a billionaire's name on a ship, Howard Hughes, and told the world it was mining rocks.",
+   "pose": "nervous",
+   "myth": "intro",
+   "act": "shake",
+   "shots": [
+    {
+     "photo": "Howard Hughes, 1938",
+     "obs": "wm:Howard_Hughes_1938.jpg"
+    },
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg",
+     "at": "ship"
+    },
+    {
+     "photo": "Manganese nodule from the cover story (CIA)",
+     "obs": "wm:Glomar_Manganese_Nodule_Encased_in_Lucite.jpg",
+     "at": "mining"
+    }
+   ],
+   "punch": "rocks",
+   "label": {
+    "text": "MINING\nROCKS?",
+    "at": "rocks"
+   }
+  },
+  {
+   "say": "It half worked. And the answer the CIA gave reporters became the most famous non-answer in government. That one's at the end.",
+   "pose": "nervous",
+   "myth": "intro",
+   "act": "tumble",
+   "shots": [
+    {
+     "photo": "Glomar Explorer crew patch (CIA)",
+     "obs": "wm:Glomar_Patch.jpg",
+     "board": {
+      "notes": [
+       "PROJECT AZORIAN",
+       "1974"
+      ],
+      "stamp": "CLASSIFIED"
+     }
+    }
+   ],
+   "act_at": "answer",
+   "sfx": [
+    "thud@answer"
+   ],
+   "promise": true
+  },
+  {
+   "say": "Honestly? I've never stolen anything bigger than a breadstick. This case is way above my pay grade.",
+   "pose": "nervous",
+   "myth": "intro",
+   "act": "hide",
+   "shots": [
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg",
+     "blur": true
+    }
+   ],
+   "aside": "(I don't get paid)",
+   "sfx": [
+    "tink@breadstick"
+   ]
+  },
+  {
+   "say": "Comment your guess before I open the file. How much of the submarine did they actually get? All of it? A piece? Or nothing?",
+   "pose": "think",
+   "myth": "intro",
+   "act": "tumble",
+   "shots": [
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg"
+    },
+    {
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg",
+     "at": "piece"
+    }
+   ],
+   "act_at": "Comment",
+   "sfx": [
+    "thud@Comment"
+   ],
+   "ask": {
+    "q": "HOW MUCH DID\nTHEY GET?",
+    "choices": [
+     "🚢 ALL OF IT",
+     "🧩 A PIECE",
+     "❌ NOTHING"
+    ],
+    "at": "Comment"
+   },
+   "hold": 0.6
+  },
+  {
+   "say": "I'm Meatball, by the way. I open real case files and tell you what's proven. Subscribe. There's a new case every week.",
+   "pose": "point",
+   "myth": "intro",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "CIA headquarters, Langley (Carol M. Highsmith)",
+     "obs": "wm:Aerial_view_of_the_Central_Intelligence_Agency_headquarters,_Langley,_Virginia_-_Corrected_and_Cropped.jpg"
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   },
+   "host": {
+    "moves": [
+     "you@Meatball"
+    ]
+   }
+  },
+  {
+   "say": "Number one. The submarine. March, nineteen sixty-eight. A Soviet submarine called K-129 sails out of Petropavlovsk, on Russia's Kamchatka Peninsula.",
+   "pose": "deadpan",
+   "myth": "vanish",
+   "act": "run_in",
+   "shots": [
+    {
+     "photo": "Soviet submarine K-129 (CIA photo)",
+     "obs": "wm:Soviet_ballistic_missile_submarine_K-129.jpg"
+    },
+    {
+     "photo": "K-129 recovery site map",
+     "obs": "wm:K129_HGE_recoverysite.png",
+     "at": "Petropavlovsk"
+    }
+   ],
+   "chapter": "The submarine that vanished",
+   "counter": {
+    "n": 1,
+    "of": 6,
+    "text": "FILE 1"
+   },
+   "hook": true,
+   "sfx": [
+    "whoosh"
+   ],
+   "punch": "K-129"
+  },
+  {
+   "say": "It's a diesel submarine of the Golf Two class. And it carries three ballistic missiles with nuclear warheads.",
+   "pose": "shock",
+   "myth": "vanish",
+   "act": "shake",
+   "shots": [
+    {
+     "photo": "Soviet submarine K-129 (CIA photo)",
+     "obs": "wm:Soviet_ballistic_missile_submarine_K-129.jpg",
+     "board": {
+      "notes": [
+       "K-129",
+       "GOLF II CLASS",
+       "3 NUCLEAR MISSILES"
+      ]
+     }
+    }
+   ],
+   "punch": "nuclear",
+   "label": {
+    "text": "3 NUCLEAR\nMISSILES",
+    "at": "three"
+   }
+  },
+  {
+   "say": "Its job: wait quietly in the Pacific, northeast of Hawaii. If war broke out, it could fire those missiles at the American west coast.",
+   "pose": "nervous",
+   "myth": "vanish",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Rough sea (Bernd Thaller)",
+     "obs": "ov:3c42c784-2a30-423a-b959-75fa3c6aed1f"
+    },
+    {
+     "photo": "K-129 recovery site map",
+     "obs": "wm:K129_HGE_recoverysite.png",
+     "at": "Hawaii"
+    }
+   ],
+   "punch": "coast"
+  },
+  {
+   "say": "Then, in March, it goes silent. It never comes home. Every man aboard is lost.",
+   "pose": "deadpan",
+   "myth": "vanish",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Thunderstorm at night (NOAA)",
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3"
+    }
+   ],
+   "punch": "silent",
+   "hold": 0.4,
+   "jeopardy": true
+  },
+  {
+   "say": "What sank it? Officially, still unknown. Even the CIA's own history of this case says nothing about the cause.",
+   "pose": "think",
+   "myth": "vanish",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg"
+    },
+    {
+     "photo": "CIA headquarters atrium",
+     "obs": "wm:New_Headquarters_Building_Atrium_-_Flickr_-_The_Central_Intelligence_Agency.jpg",
+     "at": "CIA's"
+    }
+   ],
+   "label": {
+    "text": "CAUSE:\nUNKNOWN",
+    "at": "unknown"
+   }
+  },
+  {
+   "say": "I lose things all the time. Socks. A fork, once. But a whole submarine? That's a big thing to lose.",
+   "pose": "nervous",
+   "myth": "vanish",
+   "act": "hide",
+   "shots": [
+    {
+     "photo": "Rough sea (Bernd Thaller)",
+     "obs": "ov:3c42c784-2a30-423a-b959-75fa3c6aed1f",
+     "blur": true
+    }
+   ],
+   "prop": "fork",
+   "prop_at": "fork",
+   "aside": "(found the fork)"
+  },
+  {
+   "say": "Number two. The search. The Soviet navy goes looking for its submarine. They search and search. They can't find it.",
+   "pose": "nervous",
+   "myth": "search",
+   "act": "run_in",
+   "shots": [
+    {
+     "photo": "Thunderstorm at night (NOAA)",
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3"
+    },
+    {
+     "photo": "Rough sea (Bernd Thaller)",
+     "obs": "ov:3c42c784-2a30-423a-b959-75fa3c6aed1f",
+     "at": "search"
+    }
+   ],
+   "chapter": "Hide and seek",
+   "counter": {
+    "n": 2,
+    "of": 6,
+    "text": "FILE 2"
+   },
+   "hook": true,
+   "sfx": [
+    "whoosh"
+   ],
+   "punch": "can't"
+  },
+  {
+   "say": "Eventually, they give up. But here's the twist. Somebody else was listening.",
+   "pose": "shock",
+   "myth": "search",
+   "act": "shake",
+   "shots": [
+    {
+     "photo": "Sonar console (National Electronics Museum)",
+     "obs": "wm:Sonar_Console_C_Mk_1_Mod_0,_Westinghouse_Electric_Corporation_-_National_Electronics_Museum_-_DSC00484.JPG"
+    }
+   ],
+   "twist": true,
+   "punch": "listening",
+   "sfx": [
+    "whoosh@listening"
+   ]
+  },
+  {
+   "say": "The United States found it. Exactly how is still officially secret.",
+   "pose": "point",
+   "myth": "search",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "K-129 recovery site map",
+     "obs": "wm:K129_HGE_recoverysite.png",
+     "board": {
+      "notes": [
+       "FOUND BY THE US",
+       "HOW: SECRET"
+      ]
+     }
+    }
+   ],
+   "punch": "secret"
+  },
+  {
+   "say": "Books in the nineteen seventies reported that US Navy underwater microphones had picked up the sound, and narrowed down the spot.",
+   "pose": "think",
+   "myth": "search",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Sonar console (National Electronics Museum)",
+     "obs": "wm:Sonar_Console_C_Mk_1_Mod_0,_Westinghouse_Electric_Corporation_-_National_Electronics_Museum_-_DSC00484.JPG"
+    },
+    {
+     "photo": "K-129 recovery site map",
+     "obs": "wm:K129_HGE_recoverysite.png",
+     "at": "narrowed"
+    }
+   ],
+   "aside": "(reported, never confirmed)"
+  },
+  {
+   "say": "And the spot was deep. Sixteen thousand five hundred feet. That's more than three miles of black, freezing water.",
+   "pose": "shock",
+   "myth": "search",
+   "act": "tumble",
+   "shots": [
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg"
+    }
+   ],
+   "label": {
+    "text": "16,500 FT",
+    "at": "Sixteen"
+   },
+   "act_at": "deep",
+   "sfx": [
+    "thud@deep"
+   ],
+   "jeopardy": true
+  },
+  {
+   "say": "The CIA's own museum describes the job like this. Stand on top of the Empire State Building, holding a grappling hook on a steel rope.",
+   "pose": "point",
+   "myth": "search",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "CIA headquarters atrium",
+     "obs": "wm:New_Headquarters_Building_Atrium_-_Flickr_-_The_Central_Intelligence_Agency.jpg"
+    },
+    {
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg",
+     "at": "Empire"
+    }
+   ],
+   "punch": "Empire"
+  },
+  {
+   "say": "Lower it all the way to the street. Grab a small car. And lift it back to the top. Without anyone noticing.",
+   "pose": "nervous",
+   "myth": "search",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
+    }
+   ],
+   "punch": "noticing",
+   "label": {
+    "text": "WITHOUT ANYONE\nNOTICING",
+    "at": "noticing"
+   }
+  },
+  {
+   "say": "Except the car is a broken submarine, about a hundred and thirty feet long, weighing around seventeen hundred and fifty tons.",
+   "pose": "shock",
+   "myth": "search",
+   "act": "launch",
+   "shots": [
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg",
+     "board": {
+      "notes": [
+       "132 FT",
+       "1,750 TONS"
+      ]
+     }
+    }
+   ],
+   "hit": "tons",
+   "sfx": [
+    "crunch@tons"
+   ],
+   "label": {
+    "text": "1,750 TONS",
+    "at": "tons"
+   }
+  },
+  {
+   "say": "I once tried to lift a meatball sub. I dropped it. And I'm basically made of meatball sub.",
+   "pose": "nervous",
+   "myth": "search",
+   "act": "hide",
+   "shots": [
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg",
+     "blur": true
+    }
+   ],
+   "aside": "(no relation)",
+   "jeopardy": true
+  },
+  {
+   "say": "So why try? Because a Soviet missile submarine meant its missiles, maybe its code books, and secrets about Soviet weapons nobody in America had ever held.",
+   "pose": "deadpan",
+   "myth": "search",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Soviet submarine K-129 (CIA photo)",
+     "obs": "wm:Soviet_ballistic_missile_submarine_K-129.jpg"
+    },
+    {
+     "photo": "CIA headquarters, Langley (Carol M. Highsmith)",
+     "obs": "wm:Aerial_view_of_the_Central_Intelligence_Agency_headquarters,_Langley,_Virginia_-_Corrected_and_Cropped.jpg",
+     "at": "secrets"
+    }
+   ],
+   "punch": "code"
+  },
+  {
+   "say": "The CIA took the job. And the plan it picked was the strangest one on the table. It gets worse.",
+   "pose": "nervous",
+   "myth": "search",
+   "act": "shake",
+   "shots": [
+    {
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg",
+     "blur": true
+    }
+   ],
+   "rehook": true,
+   "punch": "strangest"
+  },
+  {
+   "say": "Number three. The cover story. In nineteen sixty-nine, President Nixon approves a special secret team inside the CIA, just for this.",
+   "pose": "deadpan",
+   "myth": "cover",
+   "act": "run_in",
+   "shots": [
+    {
+     "photo": "Henry Kissinger (White House)",
+     "obs": "wm:Henry_Kissinger.png"
+    },
+    {
+     "photo": "CIA headquarters atrium",
+     "obs": "wm:New_Headquarters_Building_Atrium_-_Flickr_-_The_Central_Intelligence_Agency.jpg",
+     "at": "CIA"
+    }
+   ],
+   "chapter": "The cover story",
+   "counter": {
+    "n": 3,
+    "of": 6,
+    "text": "FILE 3"
+   },
+   "hook": true,
+   "sfx": [
+    "whoosh"
+   ],
+   "punch": "secret"
+  },
+  {
+   "say": "The secret gets locked inside a security code word: Jennifer. Even Henry Kissinger is on the short list of people who know.",
+   "pose": "point",
+   "myth": "cover",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Henry Kissinger (White House)",
+     "obs": "wm:Henry_Kissinger.png"
+    }
+   ],
+   "label": {
+    "text": "JENNIFER",
+    "at": "Jennifer"
+   }
+  },
+  {
+   "say": "Now here's the funny part. For years, books called the whole mission Jennifer. Wrong. That was just the lock. The mission's name was Azorian.",
+   "pose": "shock",
+   "myth": "cover",
+   "act": "shake",
+   "shots": [
+    {
+     "photo": "Project AZORIAN artifacts at the CIA Museum",
+     "obs": "wm:Sherman_Wetmore_poses_next_to_a_collection_of_Project_AZORIAN_artifacts_on_display.jpg",
+     "board": {
+      "notes": [
+       "NOT JENNIFER",
+       "AZORIAN"
+      ]
+     }
+    }
+   ],
+   "twist": true,
+   "label": {
+    "text": "AZORIAN",
+    "at": "Azorian"
+   },
+   "punch": "Wrong"
+  },
+  {
+   "say": "And even the people running it thought the odds were terrible. Early on, they gave it about a ten percent chance of working.",
+   "pose": "nervous",
+   "myth": "cover",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "CIA headquarters, Langley (Carol M. Highsmith)",
+     "obs": "wm:Aerial_view_of_the_Central_Intelligence_Agency_headquarters,_Langley,_Virginia_-_Corrected_and_Cropped.jpg"
+    }
+   ],
+   "label": {
+    "text": "10% CHANCE",
+    "at": "ten"
+   },
+   "punch": "terrible"
+  },
+  {
+   "say": "You can't hide a ship that big. So they hid it in plain sight. They needed a reason for a giant ship to sit in the middle of the ocean, dangling machinery to the sea floor.",
+   "pose": "think",
+   "myth": "cover",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
+    },
+    {
+     "photo": "Rough sea (Bernd Thaller)",
+     "obs": "ov:3c42c784-2a30-423a-b959-75fa3c6aed1f",
+     "at": "ocean"
+    }
+   ],
+   "punch": "plain"
+  },
+  {
+   "say": "Enter Howard Hughes. The billionaire.",
+   "pose": "point",
+   "myth": "cover",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Howard Hughes, 1938",
+     "obs": "wm:Howard_Hughes_1938.jpg"
+    }
+   ],
+   "punch": "Hughes",
+   "sfx": [
+    "whoosh@Hughes"
+   ]
+  },
+  {
+   "say": "The story: a Hughes company had built a ship to mine the ocean floor, scooping up metal-rich lumps called manganese nodules.",
+   "pose": "deadpan",
+   "myth": "cover",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
+    },
+    {
+     "photo": "Manganese nodule from the cover story (CIA)",
+     "obs": "wm:Glomar_Manganese_Nodule_Encased_in_Lucite.jpg",
+     "at": "manganese"
+    }
+   ],
+   "label": {
+    "text": "\"DEEP SEA\nMINING\"",
+    "at": "mine"
+   }
+  },
+  {
+   "say": "This is one of the nodules from the cover story. The CIA kept it, sealed in plastic, in its museum.",
+   "pose": "point",
+   "myth": "cover",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Manganese nodule from the cover story (CIA)",
+     "obs": "wm:Glomar_Manganese_Nodule_Encased_in_Lucite.jpg",
+     "board": {
+      "notes": [
+       "COVER STORY",
+       "CIA MUSEUM"
+      ]
+     }
+    }
+   ],
+   "punch": "museum"
+  },
+  {
+   "say": "They even made ship coveralls and ashtrays, so every little detail matched the lie.",
+   "pose": "shock",
+   "myth": "cover",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Project AZORIAN artifacts at the CIA Museum",
+     "obs": "wm:Sherman_Wetmore_poses_next_to_a_collection_of_Project_AZORIAN_artifacts_on_display.jpg"
+    }
+   ],
+   "punch": "ashtrays"
+  },
+  {
+   "say": "Branded ashtrays. That's commitment. My cover story is that I'm a regular meatball. Nobody has ever checked.",
+   "pose": "nervous",
+   "myth": "cover",
+   "act": "hide",
+   "shots": [
+    {
+     "photo": "Project AZORIAN artifacts at the CIA Museum",
+     "obs": "wm:Sherman_Wetmore_poses_next_to_a_collection_of_Project_AZORIAN_artifacts_on_display.jpg",
+     "blur": true
+    }
+   ],
+   "aside": "(please don't check)"
+  },
+  {
+   "say": "And the public believed it. To the world, this was a mining ship. But it was hiding something in its belly.",
+   "pose": "nervous",
+   "myth": "cover",
+   "act": "peek",
+   "shots": [
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
+    }
+   ],
+   "rehook": true,
+   "punch": "belly"
+  },
+  {
+   "say": "Number four. The ship. November, nineteen seventy-one. Workers lay its keel at a shipyard in Chester, Pennsylvania.",
+   "pose": "deadpan",
+   "myth": "ship",
+   "act": "run_in",
+   "shots": [
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
+    }
+   ],
+   "chapter": "The ship and the claw",
+   "counter": {
+    "n": 4,
+    "of": 6,
+    "text": "FILE 4"
+   },
+   "hook": true,
+   "sfx": [
+    "whoosh"
+   ],
+   "punch": "keel"
+  },
+  {
+   "say": "It becomes the Hughes Glomar Explorer. A tall derrick in the middle, like an oil rig. Two tall docking legs. A crane just for pipe.",
+   "pose": "point",
+   "myth": "ship",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
+    },
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg",
+     "at": "derrick"
+    },
+    {
+     "photo": "Glomar Explorer in Suisun Bay (USGS)",
+     "obs": "wm:Glomar_Explorer_Suisun_Bay_CA.jpg",
+     "at": "crane"
+    }
+   ],
+   "punch": "Glomar"
+  },
+  {
+   "say": "The secret was underneath. A giant well in the middle of the ship, with doors in its floor. They called it the moon pool.",
+   "pose": "shock",
+   "myth": "ship",
+   "act": "shake",
+   "shots": [
+    {
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
+    }
+   ],
+   "label": {
+    "text": "MOON POOL",
+    "at": "moon"
+   },
+   "punch": "underneath"
+  },
+  {
+   "say": "Open those doors, and the ship could work straight down into the ocean, from inside itself, where no other ship, plane or spy satellite could see.",
+   "pose": "point",
+   "myth": "ship",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
+    },
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg",
+     "at": "satellite"
+    }
+   ],
+   "punch": "satellite"
+  },
+  {
+   "say": "And what went down through that pool? The claw. The CIA called it the capture vehicle. Giant steel jaws, built to grab a submarine.",
+   "pose": "shock",
+   "myth": "ship",
+   "act": "launch",
+   "shots": [
+    {
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg",
+     "board": {
+      "notes": [
+       "CAPTURE VEHICLE",
+       "THE CLAW"
+      ]
+     }
+    }
+   ],
+   "hit": "claw",
+   "sfx": [
+    "crunch@claw"
+   ]
+  },
+  {
+   "say": "Even the claw was built in secret, under a roof, then loaded into the ship from a barge sunk underneath it.",
+   "pose": "nervous",
+   "myth": "ship",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Glomar Explorer in Suisun Bay (USGS)",
+     "obs": "wm:Glomar_Explorer_Suisun_Bay_CA.jpg"
+    }
+   ],
+   "punch": "sunk",
+   "label": {
+    "text": "SUNKEN\nBARGE",
+    "at": "barge"
+   }
+  },
+  {
+   "say": "A secret ship, with a secret pool, with a secret claw inside. Three secrets, stacked like a sandwich. A sub sandwich.",
+   "pose": "deadpan",
+   "myth": "ship",
+   "act": "hide",
+   "shots": [
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg",
+     "blur": true
+    }
+   ],
+   "aside": "(sorry)",
+   "sfx": [
+    "tink@sandwich"
+   ]
+  },
+  {
+   "say": "It almost never sailed. In nineteen seventy-one, the costs ran so high the project nearly got cancelled.",
+   "pose": "nervous",
+   "myth": "ship",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "CIA headquarters atrium",
+     "obs": "wm:New_Headquarters_Building_Atrium_-_Flickr_-_The_Central_Intelligence_Agency.jpg"
+    }
+   ],
+   "punch": "cancelled",
+   "jeopardy": true,
+   "rehook": true
+  },
+  {
+   "say": "Then in nineteen seventy-two, top Pentagon officials recommended killing it. Too expensive, too risky, and maybe not worth it.",
+   "pose": "shock",
+   "myth": "ship",
+   "act": "shake",
+   "shots": [
+    {
+     "photo": "The Pentagon",
+     "obs": "ov:d9cde009-48aa-4c0f-ad5a-1eef19190154"
+    }
+   ],
+   "punch": "killing"
+  },
+  {
+   "say": "President Nixon overruled them. December, nineteen seventy-two. Keep going.",
+   "pose": "point",
+   "myth": "ship",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "The United States Capitol",
+     "obs": "ov:c90463c3-df1b-437e-88f7-7951c6f156ff"
+    }
+   ],
+   "twist": true,
+   "label": {
+    "text": "KEEP GOING",
+    "at": "Keep"
+   }
+  },
+  {
+   "say": "How much did it all cost? The CIA still hasn't said. Later estimates run to about half a billion dollars, in nineteen seventies money.",
+   "pose": "shock",
+   "myth": "ship",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "The United States Capitol",
+     "obs": "ov:c90463c3-df1b-437e-88f7-7951c6f156ff"
+    }
+   ],
+   "label": {
+    "text": "$500 MILLION?",
+    "at": "half"
+   },
+   "aside": "(an estimate)",
+   "stamp": {
+    "text": "CLASSIFIED",
+    "at": "said"
+   }
+  },
+  {
+   "say": "If you can't believe this is real, hit like. And stick around. That famous non-answer is still coming.",
+   "pose": "point",
+   "myth": "ship",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
+    }
+   ],
+   "label": {
+    "text": "HIT LIKE",
+    "at": "like"
+   },
+   "sfx": [
+    "pop@like"
+   ],
+   "tease": true,
+   "rehook": true
+  },
+  {
+   "say": "Now the hard part. Lowering that claw three miles down, while the Soviets watch. Coming up.",
+   "pose": "nervous",
+   "myth": "ship",
+   "act": "shake",
+   "shots": [
+    {
+     "photo": "Thunderstorm at night (NOAA)",
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3"
+    }
+   ],
+   "rehook": true,
+   "punch": "watch"
+  },
+  {
+   "say": "Number five. The lift. June, nineteen seventy-four. Nixon approves the mission, but tells them to wait until he's back from a summit in Moscow.",
+   "pose": "deadpan",
+   "myth": "lift",
+   "act": "run_in",
+   "shots": [
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
+    },
+    {
+     "photo": "The United States Capitol",
+     "obs": "ov:c90463c3-df1b-437e-88f7-7951c6f156ff",
+     "at": "Nixon"
+    }
+   ],
+   "chapter": "The lift",
+   "counter": {
+    "n": 5,
+    "of": 6,
+    "text": "FILE 5"
+   },
+   "hook": true,
+   "sfx": [
+    "whoosh"
+   ],
+   "punch": "Moscow"
+  },
+  {
+   "say": "On July fourth, nineteen seventy-four, the Glomar Explorer arrives over the wreck.",
+   "pose": "point",
+   "myth": "lift",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "K-129 recovery site map",
+     "obs": "wm:K129_HGE_recoverysite.png",
+     "board": {
+      "notes": [
+       "4 JULY 1974",
+       "ON SITE"
+      ]
+     }
+    }
+   ],
+   "punch": "wreck"
+  },
+  {
+   "say": "To reach the bottom, the crew joins steel pipe sixty feet at a time, and lowers the claw on the end of it. For three miles.",
+   "pose": "shock",
+   "myth": "lift",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
+    },
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg",
+     "at": "claw"
+    }
+   ],
+   "label": {
+    "text": "60 FT AT\nA TIME",
+    "at": "sixty"
+   }
+  },
+  {
+   "say": "Then company arrives. Soviet navy ships show up and start watching. For almost two weeks, they circle the mining ship.",
+   "pose": "nervous",
+   "myth": "lift",
+   "act": "tumble",
+   "shots": [
+    {
+     "photo": "Thunderstorm at night (NOAA)",
+     "obs": "ov:6754348f-86c2-4859-af71-d4c67d3ecfa3"
+    },
+    {
+     "photo": "Rough sea (Bernd Thaller)",
+     "obs": "ov:3c42c784-2a30-423a-b959-75fa3c6aed1f",
+     "at": "circle"
+    }
+   ],
+   "act_at": "Soviet",
+   "sfx": [
+    "thud@Soviet"
+   ],
+   "label": {
+    "text": "SOVIETS\nWATCHING",
+    "at": "watching"
+   },
+   "jeopardy": true
+  },
+  {
+   "say": "The crew worried the Soviets might land a helicopter and come aboard. So they stacked crates on the helicopter deck.",
+   "pose": "nervous",
+   "myth": "lift",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
+    }
+   ],
+   "punch": "crates"
+  },
+  {
+   "say": "A team was told to be ready to destroy the secret equipment if anyone boarded. The CIA's history adds: guns were not issued.",
+   "pose": "shock",
+   "myth": "lift",
+   "act": "shake",
+   "shots": [
+    {
+     "photo": "CIA headquarters atrium",
+     "obs": "wm:New_Headquarters_Building_Atrium_-_Flickr_-_The_Central_Intelligence_Agency.jpg",
+     "board": {
+      "notes": [
+       "DESTROY IF BOARDED",
+       "NO GUNS"
+      ]
+     }
+    }
+   ],
+   "punch": "guns"
+  },
+  {
+   "say": "I'd have hidden in the moon pool. Meatballs float, right?",
+   "pose": "nervous",
+   "myth": "lift",
+   "act": "hide",
+   "shots": [
+    {
+     "photo": "Rough sea (Bernd Thaller)",
+     "obs": "ov:3c42c784-2a30-423a-b959-75fa3c6aed1f",
+     "blur": true
+    }
+   ],
+   "aside": "(we sink)",
+   "jeopardy": true
+  },
+  {
+   "say": "August first. The claw closes around the submarine, and the lift begins.",
+   "pose": "shock",
+   "myth": "lift",
+   "act": "launch",
+   "shots": [
+    {
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
+    }
+   ],
+   "hit": "closes",
+   "sfx": [
+    "crunch@closes"
+   ],
+   "punch": "lift",
+   "rehook": true
+  },
+  {
+   "say": "Slowly. One pipe section at a time. It takes days.",
+   "pose": "deadpan",
+   "myth": "lift",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg"
+    }
+   ],
+   "hold": 0.3
+  },
+  {
+   "say": "And then, about halfway up, it happens. The submarine breaks apart.",
+   "pose": "shock",
+   "myth": "lift",
+   "act": "tumble",
+   "shots": [
+    {
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
+    }
+   ],
+   "act_at": "breaks",
+   "hit": "breaks",
+   "sfx": [
+    "crunch@breaks"
+   ],
+   "twist": true
+  },
+  {
+   "say": "A big part of it falls back to the bottom of the ocean. Three miles down. Gone.",
+   "pose": "deadpan",
+   "myth": "lift",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg"
+    }
+   ],
+   "punch": "Gone",
+   "hold": 0.4
+  },
+  {
+   "say": "The crew is crushed. But part of the sub is still in the claw. And they bring it up. On August eighth, it's safe inside the ship.",
+   "pose": "point",
+   "myth": "lift",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
+    }
+   ],
+   "punch": "safe"
+  },
+  {
+   "say": "So what did they actually get? This is where the file goes dark.",
+   "pose": "nervous",
+   "myth": "lift",
+   "act": "peek",
+   "shots": [
+    {
+     "photo": "Glomar Explorer crew patch (CIA)",
+     "obs": "wm:Glomar_Patch.jpg",
+     "board": {
+      "notes": [
+       "[REDACTED]",
+       "[REDACTED]"
+      ]
+     }
+    }
+   ],
+   "rehook": true
+  },
+  {
+   "say": "Confirmed by the CIA: they raised part of the submarine. And inside were the bodies of six Soviet sailors.",
+   "pose": "deadpan",
+   "myth": "lift",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg"
+    }
+   ],
+   "stamp": {
+    "text": "CONFIRMED",
+    "at": "six"
+   },
+   "hold": 0.4
+  },
+  {
+   "say": "No jokes here. The six men were given a formal military burial at sea, and the CIA filmed it.",
+   "pose": "deadpan",
+   "myth": "lift",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Rough sea (Bernd Thaller)",
+     "obs": "ov:3c42c784-2a30-423a-b959-75fa3c6aed1f"
+    }
+   ],
+   "hold": 0.4
+  },
+  {
+   "say": "In nineteen ninety-two, CIA director Robert Gates handed that film to Russia's president, Boris Yeltsin.",
+   "pose": "deadpan",
+   "myth": "lift",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Rough sea (Bernd Thaller)",
+     "obs": "ov:3c42c784-2a30-423a-b959-75fa3c6aed1f"
+    },
+    {
+     "photo": "CIA headquarters, Langley (Carol M. Highsmith)",
+     "obs": "wm:Aerial_view_of_the_Central_Intelligence_Agency_headquarters,_Langley,_Virginia_-_Corrected_and_Cropped.jpg",
+     "at": "Yeltsin"
+    }
+   ]
+  },
+  {
+   "say": "The CIA's history also mentions the crew cleaning up plutonium contamination, from at least one of the sub's nuclear torpedoes.",
+   "pose": "shock",
+   "myth": "lift",
+   "act": "shake",
+   "shots": [
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg",
+     "board": {
+      "notes": [
+       "PLUTONIUM",
+       "CONTAMINATION"
+      ]
+     }
+    }
+   ],
+   "punch": "plutonium"
+  },
+  {
+   "say": "Disputed: how much they got. A nineteen ninety-eight book, Blind Man's Bluff, reported it was only the front thirty-eight feet of the sub.",
+   "pose": "think",
+   "myth": "lift",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg"
+    },
+    {
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg",
+     "at": "thirty-eight"
+    }
+   ],
+   "label": {
+    "text": "38 FEET?",
+    "at": "thirty-eight"
+   },
+   "stamp": {
+    "text": "DISPUTED",
+    "at": "Disputed",
+    "reveal": false
+   },
+   "twist": true
+  },
+  {
+   "say": "A Russian report in nineteen ninety-three concluded the CIA got two nuclear torpedoes. The CIA has never confirmed that.",
+   "pose": "nervous",
+   "myth": "lift",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Soviet submarine K-129 (CIA photo)",
+     "obs": "wm:Soviet_ballistic_missile_submarine_K-129.jpg"
+    }
+   ],
+   "punch": "never"
+  },
+  {
+   "say": "And the big prize, the missiles? In nineteen seventy-five, the New York Times reported Navy officials saying no missiles came up.",
+   "pose": "shock",
+   "myth": "lift",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Soviet submarine K-129 (CIA photo)",
+     "obs": "wm:Soviet_ballistic_missile_submarine_K-129.jpg",
+     "board": {
+      "notes": [
+       "MISSILES?",
+       "NOT RECOVERED (REPORTED)"
+      ]
+     }
+    }
+   ],
+   "punch": "no"
+  },
+  {
+   "say": "What exactly was in that piece? Still classified. Fifty years later, those parts of the file are still blacked out.",
+   "pose": "point",
+   "myth": "lift",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Glomar Explorer crew patch (CIA)",
+     "obs": "wm:Glomar_Patch.jpg"
+    }
+   ],
+   "stamp": {
+    "text": "STILL\nCLASSIFIED",
+    "at": "classified"
+   },
+   "host": {
+    "moves": [
+     "lean@What"
+    ]
+   }
+  },
+  {
+   "say": "So: half a success, kept perfectly secret. Except it wasn't. Remember that answer I promised? It starts with a burglary.",
+   "pose": "nervous",
+   "myth": "lift",
+   "act": "shake",
+   "shots": [
+    {
+     "photo": "Howard Hughes, 1938",
+     "obs": "wm:Howard_Hughes_1938.jpg",
+     "blur": true
+    }
+   ],
+   "rehook": true,
+   "tease": true,
+   "punch": "burglary"
+  },
+  {
+   "say": "Number six. The leak. June, nineteen seventy-four, just before the ship sailed. Thieves broke into one of Howard Hughes's company offices in Los Angeles.",
+   "pose": "shock",
+   "myth": "leak",
+   "act": "run_in",
+   "shots": [
+    {
+     "photo": "Howard Hughes, 1938",
+     "obs": "wm:Howard_Hughes_1938.jpg"
+    }
+   ],
+   "chapter": "The leak: neither confirm nor deny",
+   "counter": {
+    "n": 6,
+    "of": 6,
+    "text": "FILE 6"
+   },
+   "hook": true,
+   "payoff": true,
+   "sfx": [
+    "whoosh"
+   ],
+   "punch": "Thieves"
+  },
+  {
+   "say": "They stole secret documents. And one of them tied Howard Hughes to the CIA, and to the Glomar Explorer.",
+   "pose": "shock",
+   "myth": "leak",
+   "act": "launch",
+   "shots": [
+    {
+     "photo": "Howard Hughes, 1938",
+     "obs": "wm:Howard_Hughes_1938.jpg"
+    },
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg",
+     "at": "Glomar"
+    }
+   ],
+   "hit": "tied",
+   "sfx": [
+    "crunch@tied"
+   ],
+   "label": {
+    "text": "HUGHES = CIA",
+    "at": "tied"
+   }
+  },
+  {
+   "say": "The CIA was desperate to get it back. It called in the FBI. The FBI called in the Los Angeles police. All for one piece of paper.",
+   "pose": "nervous",
+   "myth": "leak",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "CIA headquarters, Langley (Carol M. Highsmith)",
+     "obs": "wm:Aerial_view_of_the_Central_Intelligence_Agency_headquarters,_Langley,_Virginia_-_Corrected_and_Cropped.jpg"
+    }
+   ],
+   "punch": "paper"
+  },
+  {
+   "say": "Imagine being those burglars. You break into an office, and you walk out holding a Cold War secret.",
+   "pose": "nervous",
+   "myth": "leak",
+   "act": "hide",
+   "shots": [
+    {
+     "photo": "Howard Hughes, 1938",
+     "obs": "wm:Howard_Hughes_1938.jpg",
+     "blur": true
+    }
+   ],
+   "aside": "(they were never named)",
+   "jeopardy": true
+  },
+  {
+   "say": "All that searching drew attention. By the fall, reporters were hearing rumors.",
+   "pose": "think",
+   "myth": "leak",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "The United States Capitol",
+     "obs": "ov:c90463c3-df1b-437e-88f7-7951c6f156ff"
+    }
+   ],
+   "punch": "rumors"
+  },
+  {
+   "say": "CIA director William Colby personally asked the people who knew not to publish. For a while, they didn't.",
+   "pose": "point",
+   "myth": "leak",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "William Colby, CIA director",
+     "obs": "wm:William_Colby.jpg"
+    }
+   ],
+   "punch": "publish"
+  },
+  {
+   "say": "Then, on February seventh, nineteen seventy-five, the Los Angeles Times printed it. Hughes. The CIA. A submarine.",
+   "pose": "shock",
+   "myth": "leak",
+   "act": "shake",
+   "shots": [
+    {
+     "photo": "William Colby, CIA director",
+     "obs": "wm:William_Colby.jpg"
+    },
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg",
+     "at": "submarine"
+    }
+   ],
+   "sfx": [
+    "whoosh@printed"
+   ],
+   "punch": "printed"
+  },
+  {
+   "say": "In March, columnist Jack Anderson broke it on the air, and the New York Times ran Seymour Hersh's story.",
+   "pose": "nervous",
+   "myth": "leak",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "President Ford at the White House (NARA)",
+     "obs": "wm:President_Ford_meets_with_CIA_Director-designate_George_Bush_-_NARA_-_7141445.jpg"
+    }
+   ],
+   "punch": "Hersh"
+  },
+  {
+   "say": "Reporters flooded Long Beach, where the ship was getting ready for a second try. And the Soviets sent a ship to guard the wreck.",
+   "pose": "shock",
+   "myth": "leak",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
+    },
+    {
+     "photo": "Rough sea (Bernd Thaller)",
+     "obs": "ov:3c42c784-2a30-423a-b959-75fa3c6aed1f",
+     "at": "Soviets"
+    }
+   ],
+   "punch": "guard"
+  },
+  {
+   "say": "The cover was blown. The White House cancelled the second mission.",
+   "pose": "deadpan",
+   "myth": "leak",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "The United States Capitol",
+     "obs": "ov:c90463c3-df1b-437e-88f7-7951c6f156ff"
+    }
+   ],
+   "label": {
+    "text": "CANCELLED",
+    "at": "cancelled"
+   }
+  },
+  {
+   "say": "Now here's the twist. A journalist named Harriet Ann Phillippi asked the CIA for its records, under the Freedom of Information Act.",
+   "pose": "point",
+   "myth": "leak",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "CIA headquarters, Langley (Carol M. Highsmith)",
+     "obs": "wm:Aerial_view_of_the_Central_Intelligence_Agency_headquarters,_Langley,_Virginia_-_Corrected_and_Cropped.jpg"
+    }
+   ],
+   "twist": true,
+   "punch": "records"
+  },
+  {
+   "say": "The CIA's reply: it could neither confirm nor deny that the records even existed.",
+   "pose": "shock",
+   "myth": "leak",
+   "act": "tumble",
+   "shots": [
+    {
+     "photo": "Glomar Explorer crew patch (CIA)",
+     "obs": "wm:Glomar_Patch.jpg"
+    }
+   ],
+   "act_at": "neither",
+   "sfx": [
+    "thud@neither"
+   ],
+   "label": {
+    "text": "NEITHER CONFIRM\nNOR DENY",
+    "at": "neither"
+   }
+  },
+  {
+   "say": "She sued. And in nineteen seventy-six, a federal appeals court sided with the CIA.",
+   "pose": "deadpan",
+   "myth": "leak",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "The United States Capitol",
+     "obs": "ov:c90463c3-df1b-437e-88f7-7951c6f156ff"
+    }
+   ],
+   "punch": "CIA"
+  },
+  {
+   "say": "That answer is now named after the mining ship. It's called a Glomar response. Agencies still use it today.",
+   "pose": "point",
+   "myth": "leak",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg"
+    }
+   ],
+   "label": {
+    "text": "GLOMAR\nRESPONSE",
+    "at": "Glomar"
+   },
+   "host": {
+    "moves": [
+     "lean@That"
+    ]
+   }
+  },
+  {
+   "say": "So the most famous way to say nothing in Washington is named after a ship that was pretending to mine rocks.",
+   "pose": "deadpan",
+   "myth": "leak",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Manganese nodule from the cover story (CIA)",
+     "obs": "wm:Glomar_Manganese_Nodule_Encased_in_Lucite.jpg"
+    }
+   ],
+   "punch": "rocks"
+  },
+  {
+   "say": "And the last twist? The cover story came true. After the CIA was done, the ship went on test mining voyages. Later it was rebuilt as a real deep-sea drilling ship.",
+   "pose": "shock",
+   "myth": "leak",
+   "act": "shake",
+   "shots": [
+    {
+     "photo": "Glomar Explorer in Suisun Bay (USGS)",
+     "obs": "wm:Glomar_Explorer_Suisun_Bay_CA.jpg"
+    },
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg",
+     "at": "drilling"
+    }
+   ],
+   "twist": true,
+   "punch": "true"
+  },
+  {
+   "say": "The fake mining ship ended up actually mining. I respect that. That's a meatball who became a real chef.",
+   "pose": "nervous",
+   "myth": "leak",
+   "act": "peek",
+   "shots": [
+    {
+     "photo": "Glomar Explorer in Suisun Bay (USGS)",
+     "obs": "wm:Glomar_Explorer_Suisun_Bay_CA.jpg",
+     "blur": true
+    }
+   ],
+   "aside": "(dream big)"
+  },
+  {
+   "say": "So. Did the CIA really build a fake mining ship to steal a Soviet nuclear submarine?",
+   "pose": "think",
+   "myth": "outro",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
+    },
+    {
+     "photo": "Hughes Glomar Explorer (US Government)",
+     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg",
+     "at": "ship"
+    }
+   ],
+   "chapter": "Case closed",
+   "counter": false
+  },
+  {
+   "say": "Yes. In twenty ten, the CIA declassified its own history of Project Azorian. It's all on the record.",
+   "pose": "point",
+   "myth": "outro",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "Project AZORIAN artifacts at the CIA Museum",
+     "obs": "wm:Sherman_Wetmore_poses_next_to_a_collection_of_Project_AZORIAN_artifacts_on_display.jpg"
+    }
+   ],
+   "stamp": {
+    "text": "PROVEN",
+    "at": "record"
+   },
+   "hold": 0.3,
+   "host": {
+    "moves": [
+     "lean@Yes"
+    ]
+   }
+  },
+  {
+   "say": "Did it work? Partly. They got a piece. What was in that piece, they still won't fully say.",
+   "pose": "deadpan",
+   "myth": "outro",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg"
+    }
+   ],
+   "punch": "piece"
+  },
+  {
+   "say": "So, were you right? All of it, a piece, or nothing? Tell me in the comments.",
+   "pose": "point",
+   "myth": "outro",
+   "act": "peek",
+   "shots": [
+    {
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
+    }
+   ],
+   "ask": {
+    "q": "WERE YOU RIGHT? 👇",
+    "at": "right"
+   },
+   "hold": 0.5,
+   "host": {
+    "moves": [
+     "you@right"
+    ]
+   }
+  },
+  {
+   "say": "Next case: another file somebody really didn't want opened. See you there.",
+   "pose": "nervous",
+   "myth": "outro",
+   "act": "shake",
+   "shots": [
+    {
+     "photo": "Glomar Explorer crew patch (CIA)",
+     "obs": "wm:Glomar_Patch.jpg"
+    }
+   ],
+   "punch": "opened"
+  }
+ ]
+}
