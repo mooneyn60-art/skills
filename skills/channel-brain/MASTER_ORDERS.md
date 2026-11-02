@@ -98,6 +98,13 @@ Pick episodes from `CALENDAR_REALISTIC.md`, top down. Any Short that beats 2x th
 - **Pinned comment:** one question that's easy to answer ("Would you keep it in your house? yes / no").
 - **AI-made shots** (if any): turn on "altered or synthetic content" in YouTube Studio.
 
+## Case-file Shorts (Nolan 11/2)
+- **Look:** drawn scenes (stick Meatball acting it out) alternating with real archive photos pinned as prints. Model: `episodes/case-batbomb-tt/tt-batbomb-mix.mp4`, built with `tools/drawn_casefile.py`.
+- **Voice and music:** the case-file voice (kokoro:eric-michael) with mystery music.
+- **Length:** TikTok cuts 61-75 s.
+- **Branding:** a FILE badge, a PROVEN/DEBUNKED stamp and a two-option comment poll.
+- **Sourcing:** every claim is sourced; single-source claims are said as "One account says…".
+
 ## Watch hours (the hard part of YPP)
 - **Nolan, 11/1: long-forms are their OWN videos, full screen (16:9), like the case files.** Never a compilation, stitch or blurred-side vertical Shorts. Every long-form is scripted and rendered as a long-form (the v4 16:9 renderer, as for `scripts/longform-turned-out-true.json`).
 - **Nolan, 10/30 (overrides the compilation below):** the weekly long-form is a **Meatball Investigates case file**, 8-12 min, one real story told properly. Use the style and voice of "Conspiracy Theories That Turned Out To Be TRUE" (10/27; `scripts/longform-turned-out-true.json`, style v4, voice kokoro:eric-michael, music gen:mystery).
