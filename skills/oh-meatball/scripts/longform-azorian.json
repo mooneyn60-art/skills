@@ -93,9 +93,10 @@
     "whoosh"
    ],
    "chapter": "Cold open",
-   "label": {
-    "text": "3 MILES\nDOWN",
-    "at": "three"
+   "stamp": {
+    "text": "3 MILES DOWN",
+    "at": "three",
+    "y": 0.5
    }
   },
   {
@@ -141,6 +142,21 @@
       ],
       "stamp": "CLASSIFIED"
      }
+    },
+    {
+     "photo": "CIA Museum: The Debrief, GLOMAR",
+     "obs": "wm:The_Debrief_Behind_the_Artifact_-_GLOMAR.jpg",
+     "at": "neither"
+    },
+    {
+     "photo": "CIA headquarters atrium",
+     "obs": "wm:New_Headquarters_Building_Atrium_-_Flickr_-_The_Central_Intelligence_Agency.jpg",
+     "at": "became"
+    },
+    {
+     "photo": "CIA headquarters, Langley (Carol M. Highsmith)",
+     "obs": "wm:Aerial_view_of_the_Central_Intelligence_Agency_headquarters,_Langley,_Virginia_-_Corrected_and_Cropped.jpg",
+     "at": "famous"
     }
    ],
    "act_at": "answer",
@@ -156,8 +172,13 @@
    "act": "run_in",
    "shots": [
     {
+     "photo": "K-129 recovery site map",
+     "obs": "wm:K129_HGE_recoverysite.png"
+    },
+    {
      "photo": "Soviet submarine K-129 (CIA photo)",
-     "obs": "wm:Soviet_ballistic_missile_submarine_K-129.jpg"
+     "obs": "wm:Soviet_ballistic_missile_submarine_K-129.jpg",
+     "at": "called"
     },
     {
      "photo": "K-129 recovery site map",
