@@ -1,0 +1,58 @@
+{
+ "series": "Things Living In Your House, Part 22",
+ "sources": [
+  "Connecticut Agricultural Experiment Station, House Centipede fact sheet (K. Dugas): nocturnal; fast runners that chase prey; flees when discovered; frequents basements, cellars and first-floor bathrooms; most are never seen; antennae look like legs; 15 pairs of legs; upwards of 3 years to mature, can live up to 7 years; https://portal.ct.gov/-/media/caes/documents/publications/fact_sheets/entomology/house_centipede_scutigera.pdf",
+  "Penn State Extension, House Centipedes: comes out at night; feeds on silverfish, carpet beetle larvae, cockroaches, spiders; harmless; https://extension.psu.edu/house-centipedes",
+  "Washington State University Extension PestSense, House centipede: usually active at night; https://pestsense.cahnrs.wsu.edu/fact-sheet/house-centipede/"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "house_centipede",
+  "scene": "bathroom",
+  "scene_p": {
+   "time": "night"
+  },
+  "s": 0.8,
+  "actor": "house_centipede"
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Turn On Your Bathroom Light at 3 A.M.",
+ "tiktok_caption": "house centipede part 3 🐛 turn on the light at 3am and this is who's working the night shift. Would you flip the switch? 💡 yes / 🙈 never",
+ "beats": [
+  {
+   "m": "hook",
+   "say": "Turn on your bathroom light at three A.M."
+  },
+  {
+   "scene": "basement",
+   "m": "chase",
+   "say": "That blur running for the drain? Thirty legs."
+  },
+  {
+   "scene": "kitchen",
+   "m": "xray",
+   "say": "It works the night shift. Hunting roaches."
+  },
+  {
+   "scene": "bedroom",
+   "m": "scale",
+   "say": "Its feelers look like legs. Which end is the face?"
+  },
+  {
+   "m": "punch",
+   "say": "Turn it off. Let it work."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Next: the bug living in your bed."
+  }
+ ],
+ "loop": true
+}

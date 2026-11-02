@@ -1,0 +1,151 @@
+{
+ "series": "Things Living In Your House, Part 22",
+ "sources": [
+  "Connecticut Agricultural Experiment Station, House Centipede fact sheet (K. Dugas): nocturnal; fast runners that chase prey; flees when discovered; frequents basements, cellars and first-floor bathrooms; most are never seen; venomous forcipules sting prey; stinging a human is very rare, only from rough handling; hunts bed bugs and cockroach nymphs; reduce humidity and exclude the insects they prey on; antennae look like legs; 15 pairs of legs; upwards of 3 years to mature, can live up to 7 years; https://portal.ct.gov/-/media/caes/documents/publications/fact_sheets/entomology/house_centipede_scutigera.pdf",
+  "Penn State Extension, House Centipedes: comes out at night; feeds on silverfish, carpet beetle larvae, cockroaches, spiders; harmless; https://extension.psu.edu/house-centipedes",
+  "Washington State University Extension PestSense, House centipede: usually active at night; https://pestsense.cahnrs.wsu.edu/fact-sheet/house-centipede/"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "house_centipede",
+  "scene": "bathroom",
+  "scene_p": {
+   "time": "night"
+  },
+  "s": 0.8,
+  "actor": "house_centipede"
+ },
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Turn On Your Bathroom Light at 3 A.M.",
+ "tiktok_caption": "house centipede part 3 🐛 turn on the light at 3am and this is who's working the night shift. Would you flip the switch? 💡 yes / 🙈 never",
+ "beats": [
+  {
+   "m": "hook",
+   "say": "Turn on your bathroom light at three A.M."
+  },
+  {
+   "scene": "basement",
+   "m": "chase",
+   "say": "That blur running for the drain? Thirty legs."
+  },
+  {
+   "scene": "kitchen",
+   "m": "xray",
+   "say": "It works the night shift. Hunting roaches."
+  },
+  {
+   "scene": "bedroom",
+   "m": "scale",
+   "say": "Its feelers look like legs. Which end is the face?"
+  },
+  {
+   "m": "punch",
+   "say": "Turn it off. Let it work."
+  },
+  {
+   "scene": "basement",
+   "m": "fact",
+   "say": "It's a house centipede, and it hunts at night."
+  },
+  {
+   "scene": "kitchen",
+   "m": "chase",
+   "say": "It's a fast runner. It chases down its food."
+  },
+  {
+   "scene": "bedroom",
+   "m": "fact",
+   "say": "Silverfish, spiders, cockroaches, carpet beetle larvae."
+  },
+  {
+   "scene": "basement",
+   "m": "calm",
+   "say": "When you flip on the light, it runs. It doesn't want you."
+  },
+  {
+   "scene": "kitchen",
+   "m": "fact",
+   "say": "That's why most people never see theirs."
+  },
+  {
+   "scene": "basement",
+   "m": "fact",
+   "say": "By day it hides in basements, cellars and bathrooms."
+  },
+  {
+   "scene": "bedroom",
+   "m": "escalate",
+   "say": "Its long feelers look just like legs."
+  },
+  {
+   "scene": "kitchen",
+   "m": "calm",
+   "say": "So a predator can't tell which end is the face."
+  },
+  {
+   "scene": "basement",
+   "m": "fact",
+   "say": "Fifteen pairs of legs. About three years to grow up."
+  },
+  {
+   "scene": "bedroom",
+   "m": "escalate",
+   "say": "And it can live up to seven years. In your house."
+  },
+  {
+   "scene": "kitchen",
+   "m": "fact",
+   "say": "Bug experts say it's harmless to people."
+  },
+  {
+   "scene": "kitchen",
+   "m": "xray",
+   "say": "It stings its prey with legs that turned into fangs."
+  },
+  {
+   "scene": "bedroom",
+   "m": "fact",
+   "say": "Will it sting you? Almost never. Only if you grab it hard."
+  },
+  {
+   "scene": "basement",
+   "m": "fact",
+   "say": "It even eats bed bugs and baby cockroaches."
+  },
+  {
+   "scene": "kitchen",
+   "m": "calm",
+   "say": "Want fewer of them? Dry out the damp spots."
+  },
+  {
+   "scene": "basement",
+   "m": "fact",
+   "say": "The bugs it eats move out, and so does it."
+  },
+  {
+   "scene": "bedroom",
+   "m": "fact",
+   "say": "Even silverfish and moths. It eats the bugs you hate."
+  },
+  {
+   "scene": "kitchen",
+   "m": "calm",
+   "say": "It would rather run than fight you."
+  },
+  {
+   "m": "punch",
+   "say": "So next time, turn the light off and let it work. Would you?"
+  },
+  {
+   "m": "tease",
+   "say": "Follow me. Next: the bug living in your bed."
+  }
+ ]
+}
