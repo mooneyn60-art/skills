@@ -11,9 +11,10 @@ Script fields (v3/v4 specs):
       a rubber stamp slams onto the picture on the word, with a thud, a screen shake and the music's drop-out
       and hit (tools/music.py). Colours: TRUE / PROVEN / REAL green; FALSE / BUSTED / MYTH red;
       CLASSIFIED / TOP SECRET red; anything else ink blue. "color": [r, g, b] overrides
-  shot "board": {"notes": ["1962", "TOP SECRET"], "stamp": "CLASSIFIED"}
+  shot "board": {"notes": ["1962", "TOP SECRET"], "stamp": "CLASSIFIED", "whole": true}
       the shot's photo becomes a pinned polaroid on a cork evidence board, with index-card notes tied to it by
-      red string (and an optional stamp printed on the photo). Board shots are drawn as v3 stills (no cut-out)
+      red string (and an optional stamp printed on the photo; "whole" keeps a very wide photo uncropped). Board
+      shots are drawn as v3 stills (no cut-out)
   spec "captions": "bold"   heavier captions (Inter Black, bigger, thicker outline)
   hook beat "headline": "WAS IT REAL?"   a 3-5 word question on frame 0 (red tape strip, held "headline_s",
       default 2 s, and again for the last 0.5 s so the loop seam matches); replaces the big case card
@@ -163,7 +164,8 @@ def _string(dr, a, b, sag=40):
 def board(path, spec, work, vertical=True):
     """Compose the evidence board for a shot photo; returns the new image path (credit copied)."""
     notes = list(spec.get("notes") or [])
-    key = f"{os.path.basename(path)}|{'|'.join(notes)}|{spec.get('stamp', '')}|{vertical}"
+    dy = float(spec.get("notes_dy", 0.0))   # push the note cards down (clear of the series tag)
+    key = f"{os.path.basename(path)}|{'|'.join(notes)}|{spec.get('stamp', '')}|{vertical}|{dy:g}|{spec.get('whole', '')}"
     out = f"{work}/photos/board_{abs(hash(key)) % 10 ** 10}.jpg"
     if os.path.exists(out):
         return out
@@ -171,7 +173,7 @@ def board(path, spec, work, vertical=True):
     bd = _cork(W, H).convert("RGBA")
     ph = Image.open(path).convert("RGB")
     pw = int(W * (0.66 if vertical else 0.40))
-    phh = int(pw * min(1.25, max(0.62, ph.height / ph.width)))
+    phh = int(pw * min(1.25, max(0.3 if spec.get("whole") else 0.62, ph.height / ph.width)))   # "whole": no side crop
     s = max(pw / ph.width, phh / ph.height)
     ph = ph.resize((int(ph.width * s) + 1, int(ph.height * s) + 1), Image.LANCZOS)
     l, t = (ph.width - pw) // 2, (ph.height - phh) // 2
@@ -195,7 +197,7 @@ def board(path, spec, work, vertical=True):
     fn = font(MONO, int(W * (0.050 if vertical else 0.030)))
     pins = []
     for k, note in enumerate(notes[:3]):
-        nx, ny = int(spots[k][0] * W), int(spots[k][1] * H)
+        nx, ny = int(spots[k][0] * W), int((spots[k][1] + dy) * H)
         tw = int(dr.textlength(note, font=fn))
         card = Image.new("RGBA", (tw + 70, int(fn.size * 2.1)), (255, 246, 170, 255))
         cd = ImageDraw.Draw(card)

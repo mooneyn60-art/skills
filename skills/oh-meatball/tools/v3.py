@@ -930,7 +930,7 @@ def plan_beats(spec, work):
                                            f=int(round(word_time(words, lab.get("at"), 0.0) * FPS))),
                         prop=b.get("prop"), prop_f=int(round(word_time(words, b.get("prop_at"), 0.3) * FPS)),
                         x=x, loop=bool(b.get("loop")), first=looping and i == 0, say=b["say"], sub=sub, ask=ask,
-                        host=hst, series_card=bool(b.get("series_card")),
+                        host=hst, series_card=bool(b.get("series_card")), keys=b.get("keys") or [],
                         chapter=b.get("chapter_card") and (chapter_img(b["chapter_card"]),
                                                            min(n, int(float(b.get("chapter_s", 4.0)) * FPS))),
                         counter=cur,
@@ -1226,7 +1226,9 @@ def captions(beats, path):
             "[Events]\nFormat: Layer, Start, End, Style, Text\n")
     from facts import ass_time
     lines = []
-    for bt in beats:
+    if PLAN.get("cap_phrase"):
+        lines = phrase_cards(beats, ass_time)
+    for bt in ([] if lines else beats):
         T0, words = bt["F"] / FPS, bt["words"]
         for i in range(0, len(words), 2):
             group = words[i:i + 2]
@@ -1239,6 +1241,39 @@ def captions(beats, path):
                 lines.append(f"Dialogue: 0,{ass_time(T0 + s)},{ass_time(T0 + end)},Cap,"
                              f"{{\\an5\\pos({W // 2},{CAP_Y}){pop}}}{text}")
     open(path, "w").write(head + "\n".join(lines) + "\n")
+
+
+def phrase_cards(beats, ass_time):
+    """spec "cap_phrase": 2-3-word phrase cards (a break after punctuation), the key word yellow for the whole
+    card: a beat "keys" word, else any number, else the phrase's longest word."""
+    out = []
+    for bt in beats:
+        T0, words = bt["F"] / FPS, bt["words"]
+        keys = {_key(k) for k in bt.get("keys", [])}
+        groups, cur = [], []
+        for w in words:
+            cur.append(w)
+            if len(cur) == 3 or w[2].rstrip()[-1:] in ".,!?;:" and len(cur) >= 2:
+                groups.append(cur)
+                cur = []
+        if cur:
+            if len(cur) == 1 and groups and len(groups[-1]) < 4:
+                groups[-1] += cur
+            else:
+                groups.append(cur)
+        for g, group in enumerate(groups):
+            ws = [w for _, _, w in group]
+            hot = [q for q, w in enumerate(ws) if _key(w) in keys or any(c.isdigit() or c == "$" for c in w)]
+            if not hot:
+                hot = [max(range(len(ws)), key=lambda q: len(_key(ws[q])))]
+            end = groups[g + 1][0][0] if g + 1 < len(groups) else group[-1][1] + 0.08
+            text = " ".join(("{\\c&H00FFFF&}" + w.upper() + "{\\c&HFFFFFF&}") if q in hot else w.upper()
+                            for q, w in enumerate(ws))
+            k = min(100, int(100 * 13 / max(1, len(" ".join(ws)))))   # ~13 caps fill the frame width at full size
+            pop = rf"\fscx{k * 7 // 10}\fscy{k * 7 // 10}\t(0,90,\fscx{k}\fscy{k})"
+            out.append(f"Dialogue: 0,{ass_time(T0 + group[0][0])},{ass_time(T0 + end)},Cap,"
+                       f"{{\\an5\\pos({W // 2},{CAP_Y}){pop}}}{text}")
+    return out
 
 
 def gate(beats, total):
@@ -1401,7 +1436,7 @@ def build(spec, work, out, music=None, vertical=True):
     PLAN.update(series=spec.get("series") and investigate.series_imgs(spec["series"], W),
                 card=bool(spec.get("series")) and spec["series"].get("card", True) and not hl,
                 headline=hl and dict(img=investigate.headline_img(hl["text"], W), f1=hl["f1"], tail=hl["tail"]),
-                captions=spec.get("captions"))
+                captions=spec.get("captions"), cap_phrase=bool(spec.get("cap_phrase")))
     if spec.get("series"):   # the case sting under the card drop (or under the headline)
         beats[0]["sfx"] = list(beats[0]["sfx"]) + [(4 / FPS, "case")]
     PLAN.update(beats=beats, whips=cuts, fades=fades, props={"fork": np.asarray(mascot.prop("fork", int(520 * UI)))}, v4=v4,
@@ -1465,7 +1500,7 @@ def build(spec, work, out, music=None, vertical=True):
     else:
         af = "[1:a][2:a]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-14:TP=-1.5[a]"
     cmd += ["-filter_complex", f"[0:v]ass={cap},format=yuv420p[v];{af}", "-map", "[v]", "-map", "[a]",
-            "-t", f"{total:.3f}", "-c:v", "libx264", "-crf", "20", "-preset", "medium", "-c:a", "aac",
+            "-t", f"{total:.3f}", "-c:v", "libx264", "-crf", str(spec.get("crf", 20)), "-preset", "medium", "-c:a", "aac",
             "-b:a", "160k", "-movflags", "+faststart", out]
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     jobs = int(os.environ.get("MEATBALL_JOBS", "2"))

@@ -1,0 +1,870 @@
+{
+ "title": "Meatball Investigates: the WWII bat bomb, mixed drawn + archive photo TikTok cut (version B)",
+ "voice": "kokoro:eric-michael",
+ "music": "mystery",
+ "music_db": -21,
+ "captions": 92,
+ "caption_y": 1665,
+ "series": {
+  "text": "MEATBALL INVESTIGATES",
+  "case": "CASE FILE #9"
+ },
+ "loop": true,
+ "stage": {
+  "creature": "freetail_bat",
+  "actor": "armed_bat",
+  "scene": "cave",
+  "scene_p": {
+   "time": "night"
+  },
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "free-tailed bat",
+   "color": "#6b5a4e",
+   "dark": "#4a3c33",
+   "belly": "#9a8474",
+   "ears": "pointed",
+   "tail": "thin",
+   "tail_len": 90,
+   "length": 380,
+   "height": 210,
+   "mood": "smug",
+   "s": 0.95,
+   "bat_wings": true,
+   "whiskers": false
+  }
+ },
+ "sources": [
+  "Wikipedia, Bat bomb: proposed by dental surgeon Lytle S. Adams in January 1942; approved by President Roosevelt; Mexican free-tailed bats carrying small timed incendiaries were meant to roost in Japanese buildings; each bomb carrier held 1,040 bats; on 15 May 1943 armed bats were accidentally released, roosted under a fuel tank and set the Carlsbad Army Airfield Auxiliary Air Base test range on fire; the Navy took over in August 1943 (Project X-Ray); the chief chemist estimated 3,625-4,748 fires per load against 167-400 for regular incendiary bombs; Fleet Admiral Ernest King cancelled it in 1944 after about $2 million — https://en.wikipedia.org/wiki/Bat_bomb (checked 2026-11-02)",
+  "Carroll V. Glines, 'The Bat Bombers', Air & Space Forces Magazine (Air Force Association), 1 Oct 1990: about 3,500 bats collected at Carlsbad Caverns in May 1943; incendiaries of 17 g and 28 g, the larger burning six minutes; a handler left a door open and bats escaped with live incendiaries, setting fire to a hangar and a general's car (this account; the official report says only that a fire destroyed much of the test material); Roosevelt approved; an Army test burned a village simulating Japanese structures to the ground; about $2 million; cancelled by Adm. King — https://www.airandspaceforces.com/article/1090bat/ (checked 2026-11-02)",
+  "Wikimedia Commons, 'Carlsbad AAF Fire after Bat Bomb Accident.jpg' (USAAF, public domain): errant bats from the bat bomb set the Army Air Base in Carlsbad, New Mexico on fire",
+  "Jack Couffer, 'Bat Bomb: World War II's Other Secret Weapon' (University of Texas Press, 1992)"
+ ],
+ "photo_credits": [
+  "Carlsbad AAF fire after the bat bomb accident (USAAF, public domain, Wikimedia Commons)",
+  "Bat bomb canister (USAAF, public domain, Wikimedia Commons)",
+  "Mexican free-tailed bats exiting Bracken Bat Cave, USFWS Headquarters (CC BY 2.0, Flickr)",
+  "Franklin D. Roosevelt, 1944, Leon Perskie (CC BY 2.0, Wikimedia Commons)"
+ ],
+ "_note": "Version B of the 11/2 bat-bomb case file (Nolan wants A/B): the same lines and facts as case-batbomb-tt.json; every other line drawn (drawn_macros + the drawn_casefile kit: an armed bat, canister, hangar, fuel tank, flames), the rest archive photos as prints inside the drawn frame. Render: python3 tools/drawn_casefile.py scripts/case-batbomb-mix-tt.json OUT.mp4 --work DIR (photos are fetched through explainer.photo into WORK/photos). NOT scheduled.",
+ "beats": [
+  {
+   "m": "hook",
+   "say": "The US Army strapped tiny firebombs to bats.",
+   "keys": [
+    "firebombs",
+    "bats"
+   ],
+   "scene": "cave",
+   "scene_p": {
+    "time": "night"
+   },
+   "act": {
+    "lit": 1.0
+   },
+   "headline": "REAL BAT BOMBS",
+   "headline_s": 2.0,
+   "gag": {
+    "mark": "alarm",
+    "at": "40%"
+   }
+  },
+  {
+   "say": "Wait, what? And wait till you see what they set on fire.",
+   "keys": [
+    "fire"
+   ],
+   "scene": "office",
+   "scene_p": {
+    "time": "night"
+   },
+   "actors": [
+    {
+     "id": "pic",
+     "type": "photo",
+     "pos": [
+      540,
+      1420
+     ],
+     "p": {
+      "photo": "Carlsbad air base fire after the bat bomb accident (USAAF)",
+      "obs": "wm:Carlsbad_AAF_Fire_after_Bat_Bomb_Accident.jpg",
+      "w": 740,
+      "h": 880
+     },
+     "front": false
+    }
+   ],
+   "pad": 0.32,
+   "mb": {
+    "pose": "shock",
+    "pos": [
+     160,
+     1600
+    ],
+    "size": 520,
+    "look": "viewer",
+    "hidden": false
+   },
+   "shots": [
+    {
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      930,
+      1.07
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh@see"
+   ]
+  },
+  {
+   "m": "fact",
+   "say": "In 1942, a dentist named Lytle Adams pitched it.",
+   "keys": [
+    "1942",
+    "dentist"
+   ],
+   "scene": "office",
+   "label": {
+    "text": "A DENTIST",
+    "at": "dentist"
+   }
+  },
+  {
+   "say": "Pack bats into a bomb. Drop it over Japan.",
+   "keys": [
+    "bomb",
+    "Japan"
+   ],
+   "scene": "office",
+   "scene_p": {
+    "time": "night"
+   },
+   "actors": [
+    {
+     "id": "pic",
+     "type": "photo",
+     "pos": [
+      540,
+      1420
+     ],
+     "p": {
+      "photo": "Bat bomb canister (USAAF)",
+      "obs": "wm:Bat_Bomb_Canister.jpg",
+      "w": 740,
+      "h": 880
+     },
+     "front": false
+    }
+   ],
+   "pad": 0.32,
+   "mb": {
+    "pose": "point",
+    "pos": [
+     160,
+     1600
+    ],
+    "size": 520,
+    "look": "viewer",
+    "hidden": false
+   },
+   "shots": [
+    {
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      930,
+      1.07
+     ]
+    }
+   ],
+   "label": {
+    "text": "BAT BOMB",
+    "at": "bomb"
+   }
+  },
+  {
+   "m": "fact",
+   "say": "The bats hide in the roofs. Then the timers go off. Fire.",
+   "keys": [
+    "roofs",
+    "timers",
+    "fire"
+   ],
+   "scene": "village",
+   "scene_p": {
+    "time": "night"
+   },
+   "with": [
+    {
+     "type": "flames",
+     "x": 820,
+     "y": 1180,
+     "s": 1.2,
+     "p": {
+      "k": 1.0
+     }
+    }
+   ],
+   "sfx": [
+    "whoosh@Fire"
+   ]
+  },
+  {
+   "say": "And President Roosevelt said yes!",
+   "keys": [
+    "yes"
+   ],
+   "scene": "office",
+   "scene_p": {
+    "time": "night"
+   },
+   "actors": [
+    {
+     "id": "pic",
+     "type": "photo",
+     "pos": [
+      540,
+      1450
+     ],
+     "p": {
+      "photo": "President Franklin D. Roosevelt, 1944",
+      "obs": "wm:FDR_1944_Color_Portrait.jpg",
+      "w": 740,
+      "h": 1000
+     },
+     "front": false
+    }
+   ],
+   "pad": 0.32,
+   "mb": {
+    "pose": "shock",
+    "pos": [
+     160,
+     1600
+    ],
+    "size": 520,
+    "look": "viewer",
+    "hidden": false
+   },
+   "shots": [
+    {
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      930,
+      1.07
+     ]
+    }
+   ],
+   "label": {
+    "text": "APPROVED",
+    "at": "yes",
+    "y": 1150
+   },
+   "sfx": [
+    "pop@yes"
+   ]
+  },
+  {
+   "m": "fact",
+   "say": "May 1943. They caught 3,500 bats at Carlsbad Caverns.",
+   "keys": [
+    "3,500"
+   ],
+   "scene": "cave",
+   "scene_p": {
+    "time": "night"
+   },
+   "with": [
+    {
+     "type": "armed_bat",
+     "s": 0.55,
+     "p": {
+      "mood": "smug",
+      "bomb": true
+     }
+    },
+    {
+     "type": "armed_bat",
+     "s": 0.55,
+     "p": {
+      "mood": "smug",
+      "bomb": true
+     }
+    },
+    {
+     "type": "armed_bat",
+     "s": 0.55,
+     "p": {
+      "mood": "smug",
+      "bomb": true
+     }
+    }
+   ],
+   "label": {
+    "text": "3,500 BATS",
+    "at": "bats"
+   }
+  },
+  {
+   "say": "One bomb could hold over a thousand bats.",
+   "keys": [
+    "thousand"
+   ],
+   "scene": "office",
+   "scene_p": {
+    "time": "night"
+   },
+   "actors": [
+    {
+     "id": "pic",
+     "type": "photo",
+     "pos": [
+      540,
+      1420
+     ],
+     "p": {
+      "photo": "Bat bomb canister (USAAF)",
+      "obs": "wm:Bat_Bomb_Canister.jpg",
+      "w": 740,
+      "h": 880
+     },
+     "front": false
+    }
+   ],
+   "pad": 0.32,
+   "mb": {
+    "pose": "think",
+    "pos": [
+     160,
+     1600
+    ],
+    "size": 520,
+    "look": "viewer",
+    "hidden": false
+   },
+   "shots": [
+    {
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      930,
+      1.07
+     ]
+    }
+   ],
+   "label": {
+    "text": "1,040 BATS",
+    "at": "thousand"
+   }
+  },
+  {
+   "m": "fact",
+   "say": "Each one, a tiny firebomb that burns for six minutes.",
+   "keys": [
+    "six"
+   ],
+   "scene": "cave",
+   "scene_p": {
+    "time": "night"
+   },
+   "act": {
+    "lit": 1.0
+   },
+   "gag": {
+    "clock": 2,
+    "at": "60%"
+   },
+   "label": {
+    "text": "6 MINUTES",
+    "at": "six"
+   }
+  },
+  {
+   "say": "But then, some armed bats got loose.",
+   "keys": [
+    "loose"
+   ],
+   "scene": "office",
+   "scene_p": {
+    "time": "night"
+   },
+   "actors": [
+    {
+     "id": "pic",
+     "type": "photo",
+     "pos": [
+      540,
+      1420
+     ],
+     "p": {
+      "photo": "Mexican free-tailed bats (USFWS)",
+      "obs": "ov:992ea9c5-4c79-42bc-90c9-72e785df8c32",
+      "w": 740,
+      "h": 880
+     },
+     "front": false
+    }
+   ],
+   "pad": 0.32,
+   "mb": {
+    "pose": "nervous",
+    "pos": [
+     160,
+     1600
+    ],
+    "size": 520,
+    "look": "viewer",
+    "hidden": false
+   },
+   "shots": [
+    {
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      930,
+      1.07
+     ]
+    }
+   ],
+   "sfx": [
+    "whoosh@loose"
+   ]
+  },
+  {
+   "m": "escalate",
+   "say": "They roosted on their own air base. Under a fuel tank.",
+   "keys": [
+    "own",
+    "fuel"
+   ],
+   "scene": "desert",
+   "with": [
+    {
+     "type": "hangar",
+     "x": 300,
+     "y": 1500,
+     "s": 0.8,
+     "pop": false,
+     "front": false
+    },
+    {
+     "type": "fuel_tank",
+     "x": 820,
+     "y": 1500,
+     "s": 1.0,
+     "pop": false,
+     "front": false
+    }
+   ],
+   "label": {
+    "text": "FUEL TANK",
+    "at": "fuel"
+   }
+  },
+  {
+   "say": "Oh no. The timers went off, and the base caught fire!",
+   "keys": [
+    "fire"
+   ],
+   "scene": "office",
+   "scene_p": {
+    "time": "night"
+   },
+   "actors": [
+    {
+     "id": "pic",
+     "type": "photo",
+     "pos": [
+      540,
+      1420
+     ],
+     "p": {
+      "photo": "Carlsbad air base fire after the bat bomb accident (USAAF)",
+      "obs": "wm:Carlsbad_AAF_Fire_after_Bat_Bomb_Accident.jpg",
+      "w": 740,
+      "h": 880
+     },
+     "front": false
+    }
+   ],
+   "pad": 0.32,
+   "mb": {
+    "pose": "shock",
+    "pos": [
+     160,
+     1600
+    ],
+    "size": 520,
+    "look": "viewer",
+    "hidden": false,
+    "shake": 0.8
+   },
+   "shots": [
+    {
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      930,
+      1.07
+     ]
+    }
+   ],
+   "label": {
+    "text": "FIRE!",
+    "at": "fire"
+   },
+   "sfx": [
+    "crunch@fire"
+   ]
+  },
+  {
+   "m": "chase",
+   "say": "One account says a hangar burned. And a general's car.",
+   "keys": [
+    "hangar",
+    "car"
+   ],
+   "scene": "desert",
+   "with": [
+    {
+     "type": "hangar",
+     "x": 560,
+     "y": 1500,
+     "s": 0.9,
+     "pop": false,
+     "front": false,
+     "p": {
+      "fire": 1.0
+     }
+    }
+   ],
+   "label": {
+    "text": "A GENERAL'S CAR?",
+    "at": "car"
+   }
+  },
+  {
+   "say": "Verdict: proven. The US really built bat bombs.",
+   "keys": [
+    "proven"
+   ],
+   "scene": "office",
+   "scene_p": {
+    "time": "night"
+   },
+   "actors": [
+    {
+     "id": "pic",
+     "type": "photo",
+     "pos": [
+      540,
+      1420
+     ],
+     "p": {
+      "photo": "Mexican free-tailed bats leaving Bracken Cave (USFWS)",
+      "obs": "ov:bffad467-14e2-49f6-96ba-b0d230092b9b",
+      "w": 740,
+      "h": 880
+     },
+     "front": false
+    }
+   ],
+   "pad": 0.32,
+   "mb": {
+    "pose": "point",
+    "pos": [
+     160,
+     1600
+    ],
+    "size": 520,
+    "look": "viewer",
+    "hidden": false
+   },
+   "shots": [
+    {
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      930,
+      1.07
+     ]
+    }
+   ],
+   "stamp": {
+    "text": "PROVEN",
+    "at": "proven"
+   },
+   "sfx": [
+    "stamp@proven"
+   ]
+  },
+  {
+   "say": "The twist? Tests said up to 4,748 fires a load. Normal bombs, about 400.",
+   "keys": [
+    "4,748",
+    "400"
+   ],
+   "scene": "office",
+   "scene_p": {
+    "time": "night"
+   },
+   "actors": [
+    {
+     "id": "pic",
+     "type": "photo",
+     "pos": [
+      540,
+      1420
+     ],
+     "p": {
+      "photo": "Bat bomb canister (USAAF)",
+      "obs": "wm:Bat_Bomb_Canister.jpg",
+      "w": 740,
+      "h": 880
+     },
+     "front": false
+    }
+   ],
+   "pad": 0.32,
+   "mb": {
+    "pose": "shock",
+    "pos": [
+     160,
+     1600
+    ],
+    "size": 520,
+    "look": "viewer",
+    "hidden": false
+   },
+   "shots": [
+    {
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      930,
+      1.07
+     ]
+    }
+   ],
+   "label": {
+    "text": "4,748 FIRES",
+    "at": "fires"
+   }
+  },
+  {
+   "m": "escalate",
+   "say": "In one test, the bats burned a mock Japanese village to the ground.",
+   "keys": [
+    "village"
+   ],
+   "scene": "village",
+   "scene_p": {
+    "time": "night"
+   },
+   "with": [
+    {
+     "type": "flames",
+     "x": 250,
+     "y": 1200,
+     "s": 1.0,
+     "p": {
+      "k": 1.0
+     }
+    },
+    {
+     "type": "flames",
+     "x": 850,
+     "y": 1150,
+     "s": 1.2,
+     "p": {
+      "k": 1.0
+     }
+    }
+   ],
+   "label": {
+    "text": "MOCK VILLAGE",
+    "at": "village"
+   }
+  },
+  {
+   "say": "The Navy cancelled it anyway, after two million dollars.",
+   "keys": [
+    "million"
+   ],
+   "scene": "office",
+   "scene_p": {
+    "time": "night"
+   },
+   "actors": [
+    {
+     "id": "pic",
+     "type": "photo",
+     "pos": [
+      540,
+      1420
+     ],
+     "p": {
+      "photo": "Carlsbad air base fire after the bat bomb accident (USAAF)",
+      "obs": "wm:Carlsbad_AAF_Fire_after_Bat_Bomb_Accident.jpg",
+      "w": 740,
+      "h": 880
+     },
+     "front": false
+    }
+   ],
+   "pad": 0.32,
+   "mb": {
+    "pose": "think",
+    "pos": [
+     160,
+     1600
+    ],
+    "size": 520,
+    "look": "viewer",
+    "hidden": false
+   },
+   "shots": [
+    {
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      930,
+      1.07
+     ]
+    }
+   ],
+   "label": {
+    "text": "$2 MILLION",
+    "at": "dollars"
+   }
+  },
+  {
+   "m": "punch",
+   "say": "Final score: bats, one. US Army, zero.",
+   "keys": [
+    "one",
+    "zero"
+   ],
+   "scene": "desert"
+  },
+  {
+   "say": "Would you trust a bat with a bomb? Comment.",
+   "keys": [
+    "trust"
+   ],
+   "scene": "office",
+   "scene_p": {
+    "time": "night"
+   },
+   "actors": [
+    {
+     "id": "pic",
+     "type": "photo",
+     "pos": [
+      540,
+      1420
+     ],
+     "p": {
+      "photo": "Mexican free-tailed bats (USFWS)",
+      "obs": "ov:992ea9c5-4c79-42bc-90c9-72e785df8c32",
+      "w": 740,
+      "h": 880
+     },
+     "front": false
+    }
+   ],
+   "pad": 0.32,
+   "mb": {
+    "pose": "think",
+    "pos": [
+     160,
+     1600
+    ],
+    "size": 520,
+    "look": "viewer",
+    "hidden": false
+   },
+   "shots": [
+    {
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      930,
+      1.07
+     ]
+    }
+   ],
+   "label": {
+    "text": "TRUST A BAT\nWITH A BOMB?",
+    "at": "trust"
+   }
+  },
+  {
+   "m": "tease",
+   "say": "Follow Meatball for more case files.",
+   "keys": [
+    "case"
+   ],
+   "scene": "cave",
+   "scene_p": {
+    "time": "night"
+   }
+  },
+  {
+   "m": "punch",
+   "say": "Never trust a bat. Because",
+   "scene": "cave",
+   "scene_p": {
+    "time": "night"
+   },
+   "keys": [
+    "trust"
+   ]
+  }
+ ]
+}
