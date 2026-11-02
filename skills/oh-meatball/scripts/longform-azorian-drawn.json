@@ -1,0 +1,958 @@
+{
+ "title": "Project Azorian long-form: 16:9 drawn cut-ins (case-file mix look)",
+ "_note": "Nolan 11/2 'make it better': 8 drawn action beats cut into the long-form's own lines (same text, same Kokoro voice, so Meatball's mouth runs with the narration). Rendered one beat per clip with tools/drawn_wide.py (1920x1080); only the video is used, laid over the long-form at that line (the long-form's audio, captions-off window gets this clip's yellow key-word captions). Visuals stay inside the sourced facts: no crew count, no spy sub, Hughes is a stock cartoon tycoon. 'lf' = the long-form beat index.",
+ "voice": "kokoro:eric-michael",
+ "captions": 78,
+ "caption_y": 990,
+ "tempo": false,
+ "series": {
+  "text": "MEATBALL INVESTIGATES",
+  "case": "CASE FILE"
+ },
+ "beats": [
+  {
+   "lf": 6,
+   "say": "Then, in March, it goes silent. It never comes home. Every man aboard is lost.",
+   "keys": [
+    "silent",
+    "lost"
+   ],
+   "scene": "deep",
+   "shots": [
+    {
+     "cam": [
+      700,
+      1800,
+      0.95
+     ],
+     "to": [
+      760,
+      2700,
+      0.95
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "sub",
+     "type": "sub",
+     "pos": [
+      900,
+      1950
+     ],
+     "s": 0.7,
+     "rot": 0,
+     "p": {
+      "missiles": 0
+     },
+     "moves": [
+      {
+       "at": 0,
+       "dur": 5.5,
+       "pos": [
+        980,
+        3100
+       ],
+       "rot": 14,
+       "linear": true
+      }
+     ]
+    },
+    {
+     "id": "bub",
+     "type": "bubbles",
+     "pos": [
+      900,
+      1900
+     ],
+     "s": 1.3,
+     "p": {
+      "n": 20
+     },
+     "moves": [
+      {
+       "at": 0,
+       "dur": 5.5,
+       "pos": [
+        980,
+        3050
+       ],
+       "linear": true
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "nervous",
+    "pos": [
+     420,
+     2050
+    ],
+    "float": true,
+    "helmet": true,
+    "prop": "flashlight",
+    "look": "sub",
+    "shake": 0.3,
+    "moves": [
+     {
+      "at": 0,
+      "dur": 5.5,
+      "pos": [
+       480,
+       2950
+      ],
+      "linear": true
+     }
+    ],
+    "gest": [
+     [
+      "lost",
+      "shock",
+      1.4
+     ]
+    ],
+    "size": 650
+   },
+   "sfx": [
+    "whoosh@silent"
+   ],
+   "pad": 1.92
+  },
+  {
+   "lf": 9,
+   "say": "Number two. The search. The Soviet navy goes looking for its submarine. They search and search. They can't find it.",
+   "keys": [
+    "search",
+    "can't"
+   ],
+   "scene": "ocean",
+   "scene_p": {},
+   "shots": [
+    {
+     "cam": [
+      820,
+      900,
+      0.8
+     ],
+     "to": [
+      700,
+      900,
+      0.84
+     ]
+    },
+    {
+     "at": "search#2",
+     "cam": [
+      600,
+      860,
+      1.0
+     ],
+     "to": [
+      620,
+      860,
+      1.05
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "rus",
+     "type": "soviet_ship",
+     "pos": [
+      1700,
+      1010
+     ],
+     "s": 0.6,
+     "moves": [
+      {
+       "at": 0,
+       "dur": 6.0,
+       "pos": [
+        300,
+        1010
+       ],
+       "linear": true
+      }
+     ]
+    },
+    {
+     "id": "dst",
+     "type": "destroyer",
+     "pos": [
+      -500,
+      1060
+     ],
+     "s": 0.55,
+     "moves": [
+      {
+       "at": 0,
+       "dur": 6.0,
+       "pos": [
+        1250,
+        1060
+       ],
+       "linear": true
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "think",
+    "pos": [
+     700,
+     1056
+    ],
+    "size": 750,
+    "prop": "magnifier",
+    "look": "rus",
+    "gest": [
+     [
+      "search",
+      "think",
+      1.6
+     ],
+     [
+      "can't",
+      "shrug",
+      1.6
+     ]
+    ]
+   },
+   "sfx": [
+    "splash@0.2",
+    "tink@can't"
+   ],
+   "pad": 1.92
+  },
+  {
+   "lf": 27,
+   "say": "The story: a Hughes company had built a ship to mine the ocean floor, scooping up metal-rich lumps called manganese nodules.",
+   "keys": [
+    "mine",
+    "nodules"
+   ],
+   "scene": "ocean",
+   "scene_p": {},
+   "shots": [
+    {
+     "cam": [
+      760,
+      900,
+      0.82
+     ],
+     "to": [
+      700,
+      900,
+      0.86
+     ]
+    },
+    {
+     "at": "scooping",
+     "cam": [
+      600,
+      880,
+      0.95
+     ],
+     "to": [
+      610,
+      880,
+      1.0
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "ship",
+     "type": "glomar",
+     "pos": [
+      1500,
+      1180
+     ],
+     "s": 0.8,
+     "moves": [
+      {
+       "at": 0,
+       "dur": 2.0,
+       "pos": [
+        900,
+        1180
+       ]
+      }
+     ]
+    },
+    {
+     "id": "boss",
+     "type": "billionaire",
+     "pos": [
+      380,
+      1056
+     ],
+     "s": 0.75,
+     "p": {
+      "arm": "up",
+      "item": "rock"
+     },
+     "set": [
+      {
+       "at": "mine",
+       "p": {
+        "arm": "point",
+        "item": null
+       }
+      },
+      {
+       "at": "scooping",
+       "p": {
+        "arm": "up",
+        "item": "rock"
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "think",
+    "pos": [
+     1250,
+     1056
+    ],
+    "size": 900,
+    "look": "boss",
+    "gest": [
+     [
+      "nodules",
+      "deadpan",
+      1.6
+     ]
+    ]
+   },
+   "sfx": [
+    "splash@0.1",
+    "tink@nodules"
+   ],
+   "pad": 1.92
+  },
+  {
+   "lf": 35,
+   "say": "And what went down through that pool? The claw. The CIA called it the capture vehicle. Giant steel jaws, built to grab a submarine.",
+   "keys": [
+    "claw",
+    "jaws"
+   ],
+   "scene": "ocean",
+   "scene_p": {},
+   "shots": [
+    {
+     "cam": [
+      760,
+      1150,
+      0.62
+     ],
+     "to": [
+      740,
+      1250,
+      0.62
+     ]
+    },
+    {
+     "at": "claw",
+     "cam": [
+      740,
+      1300,
+      0.62
+     ],
+     "to": [
+      740,
+      2200,
+      0.62
+     ],
+     "dur": 3.5
+    }
+   ],
+   "actors": [
+    {
+     "id": "claw",
+     "type": "claw",
+     "pos": [
+      700,
+      1350
+     ],
+     "s": 0.55,
+     "p": {
+      "close": 0.0
+     },
+     "moves": [
+      {
+       "at": "claw",
+       "dur": 3.5,
+       "pos": [
+        700,
+        2500
+       ]
+      }
+     ],
+     "set": [
+      {
+       "at": "grab",
+       "dur": 0.5,
+       "p": {
+        "close": 1.0
+       }
+      }
+     ]
+    },
+    {
+     "id": "ship",
+     "type": "glomar",
+     "pos": [
+      700,
+      1180
+     ],
+     "s": 0.85,
+     "p": {
+      "pipe": 0
+     }
+    }
+   ],
+   "mb": {
+    "pose": "point",
+    "pos": [
+     1350,
+     1060
+    ],
+    "size": 620,
+    "look": "claw",
+    "gest": [
+     [
+      "jaws",
+      "shock",
+      1.4
+     ]
+    ]
+   },
+   "sfx": [
+    "click@claw",
+    "whoosh@jaws"
+   ]
+  },
+  {
+   "lf": 49,
+   "say": "August first. The claw closes around the submarine, and the lift begins.",
+   "keys": [
+    "claw",
+    "lift"
+   ],
+   "scene": "deep",
+   "shots": [
+    {
+     "cam": [
+      800,
+      8100,
+      0.8
+     ],
+     "to": [
+      800,
+      7850,
+      0.8
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "sub",
+     "type": "sub",
+     "pos": [
+      820,
+      8470
+     ],
+     "s": 0.7,
+     "rot": 4,
+     "moves": [
+      {
+       "at": "lift",
+       "dur": 1.4,
+       "pos": [
+        820,
+        7900
+       ],
+       "rot": 0
+      }
+     ]
+    },
+    {
+     "id": "claw",
+     "type": "claw",
+     "pos": [
+      830,
+      7300
+     ],
+     "s": 0.75,
+     "p": {
+      "close": 0.0
+     },
+     "moves": [
+      {
+       "at": 0,
+       "dur": 1.4,
+       "pos": [
+        830,
+        8150
+       ]
+      },
+      {
+       "at": "lift",
+       "dur": 1.4,
+       "pos": [
+        830,
+        7580
+       ]
+      }
+     ],
+     "set": [
+      {
+       "at": "closes",
+       "dur": 0.5,
+       "p": {
+        "close": 1.0
+       }
+      }
+     ]
+    },
+    {
+     "id": "bub",
+     "type": "bubbles",
+     "pos": [
+      830,
+      8500
+     ],
+     "s": 1.4,
+     "p": {
+      "n": 22
+     }
+    }
+   ],
+   "mb": {
+    "pose": "nervous",
+    "pos": [
+     1380,
+     8250
+    ],
+    "float": true,
+    "helmet": true,
+    "look": "sub",
+    "shake": 0.4,
+    "moves": [
+     {
+      "at": "lift",
+      "dur": 1.4,
+      "pos": [
+       1380,
+       7700
+      ]
+     }
+    ],
+    "gest": [
+     [
+      "closes",
+      "shock",
+      1.2
+     ]
+    ],
+    "size": 650
+   },
+   "sfx": [
+    "crunch@closes",
+    "whoosh@lift"
+   ],
+   "pad": 1.92
+  },
+  {
+   "lf": 51,
+   "say": "And then, about halfway up, it happens. The submarine breaks apart.",
+   "keys": [
+    "halfway",
+    "breaks"
+   ],
+   "scene": "deep",
+   "shots": [
+    {
+     "cam": [
+      780,
+      5480,
+      0.9
+     ]
+    },
+    {
+     "at": "breaks",
+     "cam": [
+      780,
+      5560,
+      0.9
+     ],
+     "to": [
+      780,
+      5900,
+      0.82
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "claw",
+     "type": "claw",
+     "pos": [
+      830,
+      5380
+     ],
+     "s": 0.75,
+     "p": {
+      "close": 1.0,
+      "broken": 0.0
+     },
+     "moves": [
+      {
+       "at": 0,
+       "dur": 2.5,
+       "pos": [
+        830,
+        5300
+       ]
+      }
+     ],
+     "set": [
+      {
+       "at": "breaks",
+       "dur": 1.0,
+       "p": {
+        "broken": 1.0
+       }
+      }
+     ]
+    },
+    {
+     "id": "sub",
+     "type": "sub",
+     "pos": [
+      820,
+      5700
+     ],
+     "s": 0.7,
+     "rot": 0,
+     "p": {
+      "split": 0.0
+     },
+     "moves": [
+      {
+       "at": 0,
+       "dur": 2.5,
+       "pos": [
+        820,
+        5620
+       ]
+      }
+     ],
+     "set": [
+      {
+       "at": "apart",
+       "dur": 1.3,
+       "p": {
+        "split": 1.0
+       }
+      }
+     ]
+    },
+    {
+     "id": "bub",
+     "type": "bubbles",
+     "pos": [
+      830,
+      5800
+     ],
+     "s": 1.4,
+     "p": {
+      "n": 22
+     }
+    }
+   ],
+   "mb": {
+    "pose": "nervous",
+    "pos": [
+     1420,
+     5700
+    ],
+    "float": true,
+    "helmet": true,
+    "look": "sub",
+    "shake": 0.7,
+    "gest": [
+     [
+      "breaks",
+      "shock",
+      1.6
+     ]
+    ],
+    "size": 600
+   },
+   "sfx": [
+    "crunch@breaks",
+    "hit@breaks+0.1"
+   ],
+   "shake": [
+    "breaks"
+   ],
+   "flash": [
+    "breaks"
+   ],
+   "pad": 1.92
+  },
+  {
+   "lf": 65,
+   "say": "They stole secret documents. And one of them tied Howard Hughes to the CIA, and to the Glomar Explorer.",
+   "keys": [
+    "secret",
+    "CIA"
+   ],
+   "scene": "office",
+   "scene_p": {},
+   "shots": [
+    {
+     "cam": [
+      700,
+      1100,
+      0.85
+     ],
+     "to": [
+      740,
+      1100,
+      0.9
+     ]
+    },
+    {
+     "at": "tied",
+     "cam": [
+      640,
+      980,
+      1.05
+     ],
+     "to": [
+      650,
+      980,
+      1.1
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "b1",
+     "type": "burglar",
+     "pos": [
+      -300,
+      1540
+     ],
+     "s": 0.85,
+     "p": {
+      "pace": 7,
+      "item": "papers",
+      "arm": "hold"
+     },
+     "moves": [
+      {
+       "at": 0,
+       "dur": 2.0,
+       "pos": [
+        420,
+        1540
+       ],
+       "walk": true
+      }
+     ]
+    },
+    {
+     "id": "b2",
+     "type": "burglar",
+     "pos": [
+      -750,
+      1540
+     ],
+     "s": 0.8,
+     "p": {
+      "item": "sack",
+      "arm": "down",
+      "pace": 7,
+      "seed": 2
+     },
+     "moves": [
+      {
+       "at": 0.3,
+       "dur": 2.2,
+       "pos": [
+        60,
+        1540
+       ],
+       "walk": true
+      }
+     ]
+    },
+    {
+     "id": "desk",
+     "type": "desk",
+     "pos": [
+      1300,
+      1540
+     ],
+     "s": 0.95,
+     "front": true
+    },
+    {
+     "id": "doc",
+     "type": "papers",
+     "pos": [
+      700,
+      900
+     ],
+     "s": 1.0,
+     "front": true,
+     "p": {
+      "hidden": true,
+      "string": 0.0
+     },
+     "set": [
+      {
+       "at": "one",
+       "p": {
+        "hidden": false
+       }
+      },
+      {
+       "at": "tied",
+       "dur": 0.4,
+       "p": {
+        "string": 1.0
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "nervous",
+    "pos": [
+     1150,
+     1540
+    ],
+    "size": 1000,
+    "look": "b1",
+    "shake": 0.4,
+    "gest": [
+     [
+      "tied",
+      "shock",
+      1.6
+     ]
+    ]
+   },
+   "sfx": [
+    "scratch@stole",
+    "stamp@tied"
+   ],
+   "pad": 1.92
+  },
+  {
+   "lf": 74,
+   "say": "The CIA's reply: it could neither confirm nor deny that the records even existed.",
+   "keys": [
+    "neither",
+    "deny"
+   ],
+   "scene": "press",
+   "scene_p": {},
+   "shots": [
+    {
+     "cam": [
+      620,
+      1080,
+      1.0
+     ],
+     "to": [
+      640,
+      1060,
+      1.06
+     ]
+    },
+    {
+     "at": "neither",
+     "cam": [
+      720,
+      1060,
+      1.3
+     ],
+     "to": [
+      730,
+      1050,
+      1.4
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "spk",
+     "type": "spokesman",
+     "pos": [
+      760,
+      1600
+     ],
+     "s": 0.9,
+     "talks": true,
+     "p": {
+      "mood": "calm"
+     },
+     "set": [
+      {
+       "at": "neither",
+       "p": {
+        "sweat": true,
+        "mood": "worry"
+       }
+      }
+     ]
+    },
+    {
+     "id": "press",
+     "type": "reporters",
+     "pos": [
+      620,
+      2020
+     ],
+     "s": 1.0,
+     "front": true
+    }
+   ],
+   "mb": {
+    "pose": "point",
+    "pos": [
+     200,
+     1820
+    ],
+    "size": 1000,
+    "prop": "mic",
+    "mute": true,
+    "look": "spk",
+    "gest": [
+     [
+      "deny",
+      "facepalm",
+      1.4
+     ]
+    ]
+   },
+   "sfx": [
+    "click@neither",
+    "click@deny"
+   ],
+   "flash": [
+    "confirm",
+    "deny"
+   ],
+   "pad": 1.92
+  }
+ ]
+}

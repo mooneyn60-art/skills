@@ -1,11 +1,11 @@
 {
- "title": "The CIA Stole Part of a Soviet Nuclear Sub With a Giant Claw",
+ "title": "Why the CIA Says \"We Can Neither Confirm Nor Deny\"",
  "title_candidates": [
-  "The CIA Stole Part of a Soviet Nuclear Sub With a Giant Claw",
-  "The CIA Built a Fake Mining Ship to Steal a Soviet Nuclear Sub",
-  "Howard Hughes's Fake Mining Ship Was a CIA Submarine Heist"
+  "Why the CIA Says \"We Can Neither Confirm Nor Deny\"",
+  "The CIA Built a Fake Mining Ship to Steal a Soviet Sub",
+  "Project Azorian: The CIA's Giant Claw Heist"
  ],
- "thumb_text": "3 MILES DOWN",
+ "thumb_text": "STEAL A SUB?!",
  "voice": "kokoro:eric-michael",
  "rate": "+0%",
  "short_rate": "+0%",
@@ -66,7 +66,7 @@
   "CIA Museum artifacts (via Wikimedia Commons, public domain): manganese nodule encased in Lucite; Glomar crew patch; Hughes Glomar Explorer coveralls and ashtray 'examples of the depth of cover that CIA and Hughes manufactured'"
  ],
  "confirmed_vs_disputed": "Confirmed (CIA): the sub, the cover story, the claw, the breakup halfway up, part of the sub recovered, six sailors buried at sea. Disputed or unconfirmed: how much was recovered (a 38-ft bow section per Blind Man's Bluff), two nuclear torpedoes (1993 Russian report), no missiles (Navy officials quoted by the NYT), how the US found the wreck (SOSUS, per 1970s books), the cost (~$500 million estimate). Still classified: what the recovered section held and the cause of the sinking.",
- "_note": "Meatball Investigates long-form case file (Nolan 10/30 + 11/1: its own 16:9 video, 8-12 min, not a Short compilation). Structure copied from longform-turned-out-true.json: v4 16:9, kokoro:eric-michael, gen:mystery, cold open with a payoff promise, guess card + one subscribe pill in the opening, a like ask mid-video, 6 counted files ('FILE k' counter), the Glomar-response payoff last, PROVEN verdict and 'Were you right?' reminder in the last 90 s. No 'theme' (keeps Kokoro + gen:mystery as ordered). Every line sourced to the CIA history (via NSA EBB 305) or the CIA Museum page; disputed items say 'reported' or 'disputed'. Passes tools/retention.py except R7 (runtime 5-7 min), which the 8-12 min long-form order overrides: rendered with --no-retention. Unsourced story-01 claims cut: 98 crew, USS Halibut photographing the wreck, the claw's nickname, 'Soviet ship watched the claw go down' timing, ~$800M cost.",
+ "_note": "Meatball Investigates long-form case file (Nolan 10/30 + 11/1: its own 16:9 video, 8-12 min, not a Short compilation). Structure copied from longform-turned-out-true.json: v4 16:9, kokoro:eric-michael, gen:mystery, cold open with a payoff promise, guess card + one subscribe pill in the opening, a like ask mid-video, 6 counted files ('FILE k' counter), the Glomar-response payoff last, PROVEN verdict and 'Were you right?' reminder in the last 90 s. No 'theme' (keeps Kokoro + gen:mystery as ordered). Every line sourced to the CIA history (via NSA EBB 305) or the CIA Museum page; disputed items say 'reported' or 'disputed'. Passes tools/retention.py except R7 (runtime 5-7 min), which the 8-12 min long-form order overrides: rendered with --no-retention. Unsourced story-01 claims cut: 98 crew, USS Halibut photographing the wreck, the claw's nickname, 'Soviet ship watched the claw go down' timing, ~$800M cost. 11/2 re-cut (research/61): story starts right after the 3-beat cold open; breadstick joke cut; guess ask + 'I'm Meatball'/subscribe moved to the end of File 2 (~2 min); blurred-host joke asides cut (search/cover/ship/lift/leak), blurred rehooks and the fork beat un-blurred. Sourced lines unchanged.",
  "beats": [
   {
    "say": "In nineteen seventy-four, the CIA tried to steal a Soviet nuclear submarine. From three miles under the Pacific. With a giant claw.",
@@ -92,7 +92,11 @@
    "sfx": [
     "whoosh"
    ],
-   "chapter": "Cold open"
+   "chapter": "Cold open",
+   "label": {
+    "text": "3 MILES\nDOWN",
+    "at": "three"
+   }
   },
   {
    "say": "To hide it, they put a billionaire's name on a ship, Howard Hughes, and told the world it was mining rocks.",
@@ -122,7 +126,7 @@
    }
   },
   {
-   "say": "It half worked. And the answer the CIA gave reporters became the most famous non-answer in government. That one's at the end.",
+   "say": "It half worked. And the CIA's answer to reporters, we can neither confirm nor deny, became the most famous non-answer in government. Where that came from is at the end.",
    "pose": "nervous",
    "myth": "intro",
    "act": "tumble",
@@ -144,74 +148,6 @@
     "thud@answer"
    ],
    "promise": true
-  },
-  {
-   "say": "Honestly? I've never stolen anything bigger than a breadstick. This case is way above my pay grade.",
-   "pose": "nervous",
-   "myth": "intro",
-   "act": "hide",
-   "shots": [
-    {
-     "photo": "CIA model of the sunken K-129",
-     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg",
-     "blur": true
-    }
-   ],
-   "aside": "(I don't get paid)",
-   "sfx": [
-    "tink@breadstick"
-   ]
-  },
-  {
-   "say": "Comment your guess before I open the file. How much of the submarine did they actually get? All of it? A piece? Or nothing?",
-   "pose": "think",
-   "myth": "intro",
-   "act": "tumble",
-   "shots": [
-    {
-     "photo": "CIA model of the sunken K-129",
-     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg"
-    },
-    {
-     "photo": "CIA painting of the AZORIAN recovery",
-     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg",
-     "at": "piece"
-    }
-   ],
-   "act_at": "Comment",
-   "sfx": [
-    "thud@Comment"
-   ],
-   "ask": {
-    "q": "HOW MUCH DID\nTHEY GET?",
-    "choices": [
-     "🚢 ALL OF IT",
-     "🧩 A PIECE",
-     "❌ NOTHING"
-    ],
-    "at": "Comment"
-   },
-   "hold": 0.6
-  },
-  {
-   "say": "I'm Meatball, by the way. I open real case files and tell you what's proven. Subscribe. There's a new case every week.",
-   "pose": "point",
-   "myth": "intro",
-   "act": "stand",
-   "shots": [
-    {
-     "photo": "CIA headquarters, Langley (Carol M. Highsmith)",
-     "obs": "wm:Aerial_view_of_the_Central_Intelligence_Agency_headquarters,_Langley,_Virginia_-_Corrected_and_Cropped.jpg"
-    },
-    {
-     "photo": "Glomar Explorer crew patch (CIA)",
-     "obs": "wm:Glomar_Patch.jpg",
-     "at": "Subscribe"
-    }
-   ],
-   "sub": {
-    "at": "Subscribe"
-   }
   },
   {
    "say": "Number one. The submarine. March, nineteen sixty-eight. A Soviet submarine called K-129 sails out of Petropavlovsk, on Russia's Kamchatka Peninsula.",
@@ -239,7 +175,11 @@
    "sfx": [
     "whoosh"
    ],
-   "punch": "K-129"
+   "punch": "K-129",
+   "label": {
+    "text": "1968",
+    "at": "nineteen"
+   }
   },
   {
    "say": "It's a diesel submarine of the Golf Two class. And it carries three ballistic missiles with nuclear warheads.",
@@ -295,7 +235,7 @@
     }
    ],
    "punch": "silent",
-   "hold": 0.4,
+   "hold": 1.8,
    "jeopardy": true
   },
   {
@@ -327,8 +267,7 @@
    "shots": [
     {
      "photo": "Waterspout at sea (NOAA)",
-     "obs": "wm:Trombe.jpg",
-     "blur": true
+     "obs": "wm:Trombe.jpg"
     }
    ],
    "prop": "fork",
@@ -361,7 +300,8 @@
    "sfx": [
     "whoosh"
    ],
-   "punch": "can't"
+   "punch": "can't",
+   "hold": 1.8
   },
   {
    "say": "Eventually, they give up. But here's the twist. Somebody else was listening.",
@@ -505,21 +445,6 @@
    }
   },
   {
-   "say": "I once tried to lift a meatball sub. I dropped it. And I'm basically made of meatball sub.",
-   "pose": "nervous",
-   "myth": "search",
-   "act": "hide",
-   "shots": [
-    {
-     "photo": "CIA model of the sunken K-129",
-     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg",
-     "blur": true
-    }
-   ],
-   "aside": "(no relation)",
-   "jeopardy": true
-  },
-  {
    "say": "So why try? Because a Soviet missile submarine meant its missiles, maybe its code books, and secrets about Soviet weapons nobody in America had ever held.",
    "pose": "deadpan",
    "myth": "search",
@@ -538,6 +463,57 @@
    "punch": "code"
   },
   {
+   "say": "Quick guess, before the CIA makes its move. Comment it: how much of the submarine did they actually get? All of it? A piece? Or nothing?",
+   "pose": "think",
+   "myth": "search",
+   "act": "tumble",
+   "shots": [
+    {
+     "photo": "CIA model of the sunken K-129",
+     "obs": "wm:Model_of_the_sunken_and_deteriorated_K-129_submarine_was_created_by_the_CIA_during_the_AZORIAN_mission_that_has_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg"
+    },
+    {
+     "photo": "CIA painting of the AZORIAN recovery",
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg",
+     "at": "piece"
+    }
+   ],
+   "act_at": "Comment",
+   "sfx": [
+    "thud@Comment"
+   ],
+   "ask": {
+    "q": "HOW MUCH DID\nTHEY GET?",
+    "choices": [
+     "🚢 ALL OF IT",
+     "🧩 A PIECE",
+     "❌ NOTHING"
+    ],
+    "at": "Comment"
+   },
+   "hold": 0.6
+  },
+  {
+   "say": "I'm Meatball, by the way. I open real case files and tell you what's proven. Subscribe. There's a new case every week.",
+   "pose": "point",
+   "myth": "search",
+   "act": "stand",
+   "shots": [
+    {
+     "photo": "CIA headquarters, Langley (Carol M. Highsmith)",
+     "obs": "wm:Aerial_view_of_the_Central_Intelligence_Agency_headquarters,_Langley,_Virginia_-_Corrected_and_Cropped.jpg"
+    },
+    {
+     "photo": "Glomar Explorer crew patch (CIA)",
+     "obs": "wm:Glomar_Patch.jpg",
+     "at": "Subscribe"
+    }
+   ],
+   "sub": {
+    "at": "Subscribe"
+   }
+  },
+  {
    "say": "The CIA took the job. And the plan it picked was the strangest one on the table. It gets worse.",
    "pose": "nervous",
    "myth": "search",
@@ -545,8 +521,7 @@
    "shots": [
     {
      "photo": "CIA painting of the AZORIAN recovery",
-     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg",
-     "blur": true
+     "obs": "wm:Painting-of-AZORIAN-mission-approved.jpg"
     }
    ],
    "rehook": true,
@@ -695,7 +670,8 @@
    "label": {
     "text": "\"DEEP SEA\nMINING\"",
     "at": "mine"
-   }
+   },
+   "hold": 1.8
   },
   {
    "say": "This is one of the nodules from the cover story. The CIA kept it, sealed in plastic, in its museum.",
@@ -728,20 +704,6 @@
     }
    ],
    "punch": "ashtrays"
-  },
-  {
-   "say": "Branded ashtrays. That's commitment. My cover story is that I'm a regular meatball. Nobody has ever checked.",
-   "pose": "nervous",
-   "myth": "cover",
-   "act": "hide",
-   "shots": [
-    {
-     "photo": "Cover",
-     "obs": "wm:Hughes_Glomar_Explorer_coveralls_and_ashtray_are_examples_of_the_depth_of_cover_that_CIA_and_Hughes_manufactured_for_the_expedition_and_these_artifacts_have_never_been_displayed_before_at_the_CIA_Museum_in_2022.jpg",
-     "blur": true
-    }
-   ],
-   "aside": "(please don't check)"
   },
   {
    "say": "And the public believed it. To the world, this was a mining ship. But it was hiding something in its belly.",
@@ -886,23 +848,6 @@
     "text": "SUNKEN\nBARGE",
     "at": "barge"
    }
-  },
-  {
-   "say": "A secret ship, with a secret pool, with a secret claw inside. Three secrets, stacked like a sandwich. A sub sandwich.",
-   "pose": "deadpan",
-   "myth": "ship",
-   "act": "hide",
-   "shots": [
-    {
-     "photo": "Hughes Glomar Explorer (US Government)",
-     "obs": "wm:USNS_Glomar_Explorer_(T-AG-193).jpg",
-     "blur": true
-    }
-   ],
-   "aside": "(sorry)",
-   "sfx": [
-    "tink@sandwich"
-   ]
   },
   {
    "say": "It almost never sailed. In nineteen seventy-one, the costs ran so high the project nearly got cancelled.",
@@ -1050,7 +995,11 @@
      }
     }
    ],
-   "punch": "wreck"
+   "punch": "wreck",
+   "label": {
+    "text": "1974",
+    "at": "nineteen"
+   }
   },
   {
    "say": "To reach the bottom, the crew joins steel pipe sixty feet at a time, and lowers the claw on the end of it. For three miles.",
@@ -1132,21 +1081,6 @@
    "punch": "guns"
   },
   {
-   "say": "I'd have hidden in the moon pool. Meatballs float, right?",
-   "pose": "nervous",
-   "myth": "lift",
-   "act": "hide",
-   "shots": [
-    {
-     "photo": "Waterspout at sea (NOAA)",
-     "obs": "wm:Trombe.jpg",
-     "blur": true
-    }
-   ],
-   "aside": "(we sink)",
-   "jeopardy": true
-  },
-  {
    "say": "August first. The claw closes around the submarine, and the lift begins.",
    "pose": "shock",
    "myth": "lift",
@@ -1162,7 +1096,8 @@
     "crunch@closes"
    ],
    "punch": "lift",
-   "rehook": true
+   "rehook": true,
+   "hold": 1.8
   },
   {
    "say": "Slowly. One pipe section at a time. It takes days.",
@@ -1193,7 +1128,8 @@
    "sfx": [
     "crunch@breaks"
    ],
-   "twist": true
+   "twist": true,
+   "hold": 1.8
   },
   {
    "say": "A big part of it falls back to the bottom of the ocean. Three miles down. Gone.",
@@ -1256,7 +1192,11 @@
     "text": "CONFIRMED",
     "at": "six"
    },
-   "hold": 0.4
+   "hold": 0.4,
+   "label": {
+    "text": "6 SAILORS",
+    "at": "sailors"
+   }
   },
   {
    "say": "No jokes here. The six men were given a formal military burial at sea, and the CIA filmed it.",
@@ -1400,8 +1340,7 @@
    "shots": [
     {
      "photo": "Howard Hughes, 1938",
-     "obs": "wm:Howard_Hughes_1938.jpg",
-     "blur": true
+     "obs": "wm:Howard_Hughes_1938.jpg"
     }
    ],
    "rehook": true,
@@ -1460,7 +1399,8 @@
    "label": {
     "text": "HUGHES = CIA",
     "at": "tied"
-   }
+   },
+   "hold": 1.8
   },
   {
    "say": "The CIA was desperate to get it back. It called in the FBI. The FBI called in the Los Angeles police. All for one piece of paper.",
@@ -1474,21 +1414,6 @@
     }
    ],
    "punch": "paper"
-  },
-  {
-   "say": "Imagine being those burglars. You break into an office, and you walk out holding a Cold War secret.",
-   "pose": "nervous",
-   "myth": "leak",
-   "act": "hide",
-   "shots": [
-    {
-     "photo": "Howard Hughes, 1938",
-     "obs": "wm:Howard_Hughes_1938.jpg",
-     "blur": true
-    }
-   ],
-   "aside": "(they were never named)",
-   "jeopardy": true
   },
   {
    "say": "All that searching drew attention. By the fall, reporters were hearing rumors.",
@@ -1627,7 +1552,8 @@
    "label": {
     "text": "NEITHER CONFIRM\nNOR DENY",
     "at": "neither"
-   }
+   },
+   "hold": 1.8
   },
   {
    "say": "She sued. And in nineteen seventy-six, a federal appeals court sided with the CIA.",
@@ -1694,20 +1620,6 @@
    ],
    "twist": true,
    "punch": "true"
-  },
-  {
-   "say": "The fake mining ship ended up actually mining. I respect that. That's a meatball who became a real chef.",
-   "pose": "nervous",
-   "myth": "leak",
-   "act": "peek",
-   "shots": [
-    {
-     "photo": "Glomar Explorer in Suisun Bay (USGS)",
-     "obs": "wm:Glomar_Explorer_Suisun_Bay_CA.jpg",
-     "blur": true
-    }
-   ],
-   "aside": "(dream big)"
   },
   {
    "say": "So. Did the CIA really build a fake mining ship to steal a Soviet nuclear submarine?",
@@ -1798,5 +1710,7 @@
    ],
    "punch": "opened"
   }
- ]
+ ],
+ "cap_phrase": true,
+ "max_shot": 2.4
 }
