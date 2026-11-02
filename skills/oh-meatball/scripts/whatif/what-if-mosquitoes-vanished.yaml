@@ -1,0 +1,44 @@
+slug: what-if-mosquitoes-vanished
+title: "What If Every Mosquito Vanished? (But There's a Catch) 🦟"
+title_text: What if every mosquito vanished?
+format: whatif_flat (tools/whatif_flat.py), research/63 topic 1
+counter_label: DAYS WITHOUT MOSQUITOES
+end_card: {top: WOULD YOU DELETE, accent: "EVERY MOSQUITO?", comment: "Comment  YES  or  NO"}
+cap_key: [day, mosquito, mosquitoes, females, blood, malaria, children, africa, fish, bats, birds, arctic, orchid, pollinate, disagree, die, bites, species]
+sources:
+  - "WHO, World malaria report 2024 (page summary): an estimated 263 million cases and 597,000 malaria deaths worldwide in 2023; https://www.who.int/teams/global-malaria-programme/reports/world-malaria-report-2024"
+  - "WHO, Malaria fact sheet: the WHO African Region carries about 95% of malaria cases and deaths; children under 5 account for about 76% of malaria deaths in the Region; malaria is spread by the bites of infected female Anopheles mosquitoes; https://www.who.int/news-room/fact-sheets/detail/malaria"
+  - "UC IPM Pest Notes: Mosquitoes (Pub. 7451): female mosquitoes require blood to develop eggs; some species lay rafts of 100 or more eggs; larvae live in ponds and standing water; mosquito-eating fish control larvae; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7451.html"
+  - "Fang, J. 'Ecology: A world without mosquitoes', Nature 466, 432-434 (2010), doi:10.1038/466432a: about 3,500 named species, only a few hundred bite humans; larvae are food for fish; in the Arctic tundra, mosquito swarms are a food source for migrating birds; bats and most birds eat many other insects; some mosquitoes pollinate plants; researchers disagree on how much ecosystems would suffer, many expect other insects to fill the niche; https://www.nature.com/articles/466432a"
+  - "Lahondère, C. et al. 'The olfactory basis of orchid pollination by mosquitoes', PNAS 117(1):708-716 (2020): Aedes mosquitoes pollinate the blunt-leaf orchid (Platanthera obtusata); https://www.pnas.org/doi/10.1073/pnas.1910589117"
+  - "Counter: 'MOSQUITOES LEFT: TRILLIONS' is deliberately not an exact number; the often-quoted 110 trillion figure has no primary source we could verify. Day numbers are a what-if timeline."
+  - "Disputed: the ecological impact is presented as a scientific disagreement (Nature 2010), with a DISPUTED stamp on screen."
+tt:
+  - {say: "What if every mosquito on Earth vanished tonight?", counter: 0, stat: "MOSQUITOES LEFT: TRILLIONS", shots: [mosq_night, mosquito]}
+  - {say: "Day 1. No buzzing. No bites. Not one itchy bump.", counter: 1, stat: "MOSQUITOES LEFT: 0", shots: [calendar, you_bed]}
+  - {say: "Only females bite. They need blood to make their eggs.", shots: [mosquito, eggraft]}
+  - {say: "There are about 3,500 kinds of mosquito. Only a few hundred bite people.", shots: [species, mosq_night]}
+  - {say: "Day 7. Malaria can't spread anymore. Mosquitoes carried it.", counter: 7, shots: [calendar, globe]}
+  - {say: "In 2023, malaria killed about 597,000 people, the World Health Organization says.", stat: "MALARIA DEATHS 2023: 597,000", shots: [globe, clinic]}
+  - {say: "Most were young children in Africa.", shots: [clinic]}
+  - {say: "Day 30. Now the animals notice.", counter: 30, stat: "MOSQUITOES LEFT: 0", shots: [calendar, pond]}
+  - {say: "Fish ate mosquito babies in ponds and puddles.", shots: [pond, eggraft]}
+  - {say: "Bats and birds lose a snack. But most of them eat plenty of other bugs.", shots: [bats, mosq_night]}
+  - {say: "Day 100. In the Arctic, huge swarms used to feed migrating birds.", counter: 100, shots: [arctic, mosq_night]}
+  - {say: "Some mosquitoes even pollinate flowers, like the blunt-leaf orchid.", shots: [orchid, mosquito]}
+  - {say: "Day 365. So did nature fall apart?", counter: 365, shots: [bats, debate]}
+  - {say: "Scientists disagree. Many think other insects would fill the gap. Others say we can't be sure.", shots: [debate, pond]}
+  - {say: "But one thing is clear. Far fewer people would die.", shots: [clinic, globe]}
+  - {say: "Would you delete every mosquito? Comment yes or no.", shots: [end]}
+yt:
+  - {say: "What if every mosquito on Earth vanished tonight?", counter: 0, stat: "MOSQUITOES LEFT: TRILLIONS", shots: [mosq_night, mosquito]}
+  - {say: "Day 1. No buzzing. No bites. Not one itchy bump.", counter: 1, stat: "MOSQUITOES LEFT: 0", shots: [calendar, you_bed]}
+  - {say: "Only females bite. They need blood to make their eggs.", shots: [mosquito, eggraft]}
+  - {say: "Day 7. Malaria can't spread anymore. Mosquitoes carried it.", counter: 7, shots: [calendar, globe]}
+  - {say: "In 2023, malaria killed about 597,000 people, the World Health Organization says.", stat: "MALARIA DEATHS 2023: 597,000", shots: [globe, clinic]}
+  - {say: "Day 30. Fish lose the mosquito babies they ate in ponds.", counter: 30, stat: "MOSQUITOES LEFT: 0", shots: [calendar, pond]}
+  - {say: "Bats and birds lose a snack. But most of them eat plenty of other bugs.", shots: [bats, mosq_night]}
+  - {say: "Day 100. In the Arctic, huge swarms used to feed migrating birds.", counter: 100, shots: [arctic, pond]}
+  - {say: "Some mosquitoes even pollinate flowers, like the blunt-leaf orchid.", shots: [orchid, mosquito]}
+  - {say: "Day 365. Did nature fall apart? Scientists disagree. Many think other insects would fill the gap.", counter: 365, shots: [debate, globe]}
+  - {say: "But far fewer people would die. Would you delete every mosquito?", shots: [clinic, end]}

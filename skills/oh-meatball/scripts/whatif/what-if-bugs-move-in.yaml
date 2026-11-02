@@ -1,0 +1,46 @@
+slug: what-if-bugs-move-in
+title: "What If You Let the Bugs Move In? 🪳😨"
+title_text: What if you let the bugs move in?
+format: whatif_flat (tools/whatif_flat.py), research/63
+counter_label: DAYS THE BUGS LIVE HERE
+end_card: {top: WOULD YOU SURVIVE, accent: "DAY 365?", comment: "Comment  YES  or  NO"}
+cap_key: [day, mites, cockroaches, roaches, spiders, centipedes, termites, thousands, bugs, hunters, webs, legs, wood, survive]
+sources:
+  - "University of Kentucky Entomology, House Dust Mites (Ent-646): primary food is skin scales shed by people and pets; thousands of mites in a single gram of house dust are not uncommon; https://entomology.mgcafe.uky.edu/ef646"
+  - "University of Kentucky Entomology, Cockroach Control Manual (Ent-614): German cockroaches favour warm, humid kitchens and bathrooms near food and water; spills, food waste and dirty dishes feed them; they hide in cracks and crevices by day and are active at night; up to 40 nymphs emerge from each egg case; https://entomology.mgcafe.uky.edu/ef614"
+  - "UC IPM Pest Notes: Spiders (Pub. 7442): spiders are mostly beneficial because they feed on pest insects; cobweb spiders (Theridiidae, incl. the common house spider) feed on insects that walk or fly into their webs; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7442.html"
+  - "Connecticut Agricultural Experiment Station, House Centipede fact sheet: 15 pairs of legs (thirty legs); hunts cockroach nymphs, flies, silverfish and spiders; https://portal.ct.gov/-/media/caes/documents/publications/fact_sheets/entomology/house_centipede_scutigera.pdf"
+  - "Penn State Extension, House Centipedes: often come up from damp basements; feed on cockroaches, spiders and other small arthropods; frequent sightings indicate some prey arthropod is abundant; https://extension.psu.edu/house-centipedes"
+  - "UC IPM Pest Notes: Subterranean and Other Termites (Pub. 7415): subterranean termites need moisture and soil contact, attack wood from the inside, and damage is often hidden until it is extensive; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7415.html"
+  - "Timeline framing: the DAY numbers are a what-if story, not a measured invasion schedule; each creature fact is from the sources above."
+tt:
+  - {say: "What if you let the bugs move in? This is day 365.", counter: 365, stat: "MOVED IN: ALL OF THEM", shots: [nightmare, swarm]}
+  - {say: "Day 1. You stop cleaning. Nothing seems to happen.", counter: 1, stat: "MOVED IN: NOTHING YET", shots: [calendar, you]}
+  - {say: "But dust mites already live in your bed, eating the skin you shed.", stat: "MOVED IN: DUST MITES", shots: [bed, mite_zoom]}
+  - {say: "A single gram of dust can hold thousands of them.", shots: [mites, mite]}
+  - {say: "Day 7. Crumbs, spills and dirty dishes pile up.", counter: 7, shots: [calendar, trash]}
+  - {say: "German cockroaches move in. They love warm, damp kitchens.", stat: "MOVED IN: COCKROACHES", shots: [roach, fridge]}
+  - {say: "One egg case hatches up to 40 babies.", shots: [eggcase, crumbs]}
+  - {say: "They hide in the cracks by day and come out at night.", shots: [kitchen_dark, swarm]}
+  - {say: "Day 30. All those bugs are food. So the hunters arrive.", counter: 30, shots: [calendar, kitchen_dark]}
+  - {say: "House spiders build webs in the corners and catch what wanders in.", stat: "MOVED IN: HOUSE SPIDERS", shots: [spider, web]}
+  - {say: "Day 100. Something faster comes up from the basement.", counter: 100, shots: [stairs, centipede_wall]}
+  - {say: "House centipedes. Thirty legs, and they hunt roaches and spiders.", stat: "MOVED IN: CENTIPEDES", shots: [centipede, chase]}
+  - {say: "Lots of centipedes means lots of bugs for them to eat.", shots: [wall_many, chase]}
+  - {say: "Day 365. Under the floor, termites find damp wood.", counter: 365, stat: "MOVED IN: TERMITES", shots: [house, termite_wood]}
+  - {say: "They eat it from the inside, and the damage hides in your walls.", shots: [termite, termite_wood]}
+  - {say: "Mites, roaches, spiders, centipedes, termites. It's their house now.", shots: [nightmare, wall_many]}
+  - {say: "Would you survive day 365? Comment yes or no.", shots: [end]}
+yt:
+  - {say: "What if you let the bugs move in? This is day 365.", counter: 365, stat: "MOVED IN: ALL OF THEM", shots: [nightmare, swarm]}
+  - {say: "Day 1. You stop cleaning. Nothing seems to happen.", counter: 1, stat: "MOVED IN: NOTHING YET", shots: [calendar, you]}
+  - {say: "But dust mites already live in your bed, eating the skin you shed.", stat: "MOVED IN: DUST MITES", shots: [bed, mite_zoom]}
+  - {say: "A single gram of dust can hold thousands of them.", shots: [mites, mite]}
+  - {say: "Day 7. Crumbs, spills and dirty dishes pile up.", counter: 7, shots: [calendar, trash]}
+  - {say: "German cockroaches move in. One egg case hatches up to 40 babies.", stat: "MOVED IN: COCKROACHES", shots: [roach, eggcase]}
+  - {say: "Day 30. All those bugs are food. So the hunters arrive.", counter: 30, shots: [calendar, kitchen_dark]}
+  - {say: "House spiders build webs in the corners and catch what wanders in.", stat: "MOVED IN: HOUSE SPIDERS", shots: [spider, web]}
+  - {say: "Day 100. House centipedes. Thirty legs, and they hunt roaches and spiders.", counter: 100, stat: "MOVED IN: CENTIPEDES", shots: [centipede, chase]}
+  - {say: "Lots of centipedes means lots of bugs for them to eat.", shots: [wall_many, chase]}
+  - {say: "Day 365. Termites find damp wood and eat it from the inside.", counter: 365, stat: "MOVED IN: TERMITES", shots: [house, termite_wood]}
+  - {say: "It's their house now. Would you survive day 365?", shots: [nightmare, end]}

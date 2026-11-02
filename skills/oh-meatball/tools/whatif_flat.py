@@ -45,6 +45,10 @@ STEEL, CREAM = (112, 132, 168), (226, 230, 240)
 DAYMESS = {1: 0, 3: 1, 7: 2, 30: 3, 365: 4}
 
 
+def mess_for(day):
+    return DAYMESS.get(day, 0 if day < 3 else 1 if day < 7 else 2 if day < 30 else 3 if day < 365 else 4)
+
+
 def F(kind, size):
     return ImageFont.truetype(kind, int(size))
 
@@ -122,7 +126,7 @@ def bug_img(kind, L, phase=0, ang=0):
     key = (kind, int(L), phase, int(round(ang / 15)) * 15 % 360)
     if key in _BUG:
         return _BUG[key]
-    wide = 2.6 if kind == "centipede" else 2.0
+    wide = {"centipede": 2.6, "mosquito": 2.3, "spider": 2.2, "fish": 1.8}.get(kind, 2.0)
     ss = max(1, min(3, int(600 / max(L, 1)) + 1))
     S = int(L * wide * ss)
     im = Image.new("RGBA", (S, S), (0, 0, 0, 0))
@@ -244,6 +248,62 @@ def bug_img(kind, L, phase=0, ang=0):
         for yy in range(-66, 72, 11):
             Ln([(-34 + abs(yy) * 0.25, yy), (34 - abs(yy) * 0.25, yy)], (86, 50, 26), 3)
         Ln([(0, -78), (0, 78)], (150, 96, 52), 3)
+    elif kind == "mosquito":
+        leg = (40, 40, 48)
+        for side in (-1, 1):
+            for j, a in enumerate((-40, 5, 50)):
+                r = math.radians(a + 6 * sw * (1 if j % 2 else -1))
+                Ln([(side * 3, -12 + j * 5), (side * 30 * math.cos(r), -12 + j * 5 + 30 * math.sin(r) - 14),
+                    (side * 62 * math.cos(r * 0.8), -12 + j * 5 + 62 * math.sin(r) + 6)], leg, 1.3)
+        Pg(_rell(-11, 6, 5, 25, -16 - 12 * phase), (205, 216, 236, 140))
+        Pg(_rell(11, 6, 5, 25, 16 + 12 * phase), (205, 216, 236, 140))
+        E(0, 18, 5, 25, (58, 56, 66))
+        for yy in (6, 14, 22, 30):
+            Ln([(-4, yy), (4, yy)], (220, 220, 228), 1.6)
+        E(0, -12, 8, 9, (66, 62, 72))
+        E(0, -25, 5, 5, (52, 50, 58))
+        Ln([(0, -29), (0, -60)], (52, 50, 58), 1.6)
+        Ln([(-2, -28), (-10, -44)], (90, 88, 98), 1.4)
+        Ln([(2, -28), (10, -44)], (90, 88, 98), 1.4)
+    elif kind == "spider":
+        leg = (84, 64, 44)
+        for side in (-1, 1):
+            for j, a in enumerate((-62, -22, 18, 55)):
+                r = math.radians(a + 7 * sw * (1 if j % 2 else -1))
+                kx, ky = side * 34 * math.cos(r), -10 + 34 * math.sin(r) - 16
+                Ln([(side * 8, -12 + j * 5), (kx, ky), (side * 66 * math.cos(r * 0.9), -6 + 70 * math.sin(r))], leg, 2.6)
+        E(0, 22, 24, 28, (104, 80, 56))
+        for yy in (10, 22, 34):
+            E(0, yy, 10 - abs(yy - 22) * 0.3, 4, (150, 120, 84))
+        E(0, -12, 15, 15, (118, 92, 64))
+        E(-4, -24, 2.5, 2.5, (20, 16, 14))
+        E(4, -24, 2.5, 2.5, (20, 16, 14))
+    elif kind == "termite":
+        legs([-14, -8, -2], 18, (210, 196, 166), 2)
+        Ln([(-4, -40), (-10, -54), (-14, -64)], (170, 110, 50), 2)
+        Ln([(4, -40), (10, -54), (14, -64)], (170, 110, 50), 2)
+        E(0, 18, 13, 26, (236, 224, 194))
+        for yy in (8, 16, 24, 32):
+            Ln([(-11, yy), (11, yy)], (214, 200, 168), 2)
+        E(0, -10, 10, 8, (228, 214, 182))
+        E(0, -28, 12, 13, (196, 128, 54))
+    elif kind == "fish":
+        Pg([(-38, 0), (-64, -20), (-60, 0), (-64, 20)], (210, 120, 60))
+        E(0, 0, 42, 19, (228, 142, 70))
+        Pg([(-6, -16), (14, -30), (18, -14)], (210, 120, 60))
+        E(24, -4, 5, 5, (20, 20, 26))
+    elif kind in ("bat", "bird"):
+        col = (14, 14, 22) if kind == "bat" else (24, 30, 46)
+        f = 18 * phase
+        if kind == "bat":
+            Pg([(0, -6), (-30, -22 + f), (-62, -10 + f), (-52, 6), (-40, 0), (-30, 12), (-14, 4)], col)
+            Pg([(0, -6), (30, -22 + f), (62, -10 + f), (52, 6), (40, 0), (30, 12), (14, 4)], col)
+            E(0, 0, 9, 14, col)
+            Pg([(-7, -10), (-4, -22), (-1, -12)], col)
+            Pg([(7, -10), (4, -22), (1, -12)], col)
+        else:
+            Ln([(-60, -14 + f), (-28, -6), (0, 4), (28, -6), (60, -14 + f)], col, 7)
+            E(0, 4, 10, 7, col)
     out = im.resize((max(1, S // ss), max(1, S // ss)), Image.LANCZOS) if ss > 1 else im
     if key[3]:
         out = out.rotate(-key[3], resample=Image.BICUBIC, expand=False)
@@ -745,10 +805,13 @@ def s_clock(p, c):
 
 def s_end(p, c):
     p.full((14, 14, 18))
-    p.text(540, 760, "IS YOUR HOUSE", FONT % "Black", 104, (230, 230, 236))
-    p.text(540, 900, "NEXT?", FONT % "Black", 150, RED)
-    p.text(540, 1060, "Comment  DAY 1  or  DAY 365", FONT % "Bold", 46, (200, 200, 210))
-    p.text(540, 1150, "PART 2 SOON", FONT % "Bold", 40, (120, 120, 132), spacing=6)
+    e = c.get("end") or dict(top="IS YOUR HOUSE", accent="NEXT?", comment="Comment  DAY 1  or  DAY 365", small="PART 2 SOON")
+    fit = lambda t, mx: min(mx, int(1320 / max(1, len(t))))
+    p.text(540, 760, e["top"], FONT % "Black", fit(e["top"], 104), (230, 230, 236))
+    p.text(540, 900, e["accent"], FONT % "Black", fit(e["accent"], 150), RED)
+    p.text(540, 1060, e.get("comment", ""), FONT % "Bold", 46, (200, 200, 210))
+    if e.get("small"):
+        p.text(540, 1150, e["small"], FONT % "Bold", 40, (120, 120, 132), spacing=6)
     try:
         import mascot
         p.ell(540, 1600, 190, 190, (34, 36, 48))
@@ -759,6 +822,203 @@ def s_end(p, c):
     except Exception as e:   # the cameo is branding only
         print("end card: no Meatball cameo:", e, flush=True)
     return []
+
+
+# ------------------------------------------------------------------ bug-invasion + mosquito shots
+def stamp(p, x, y, text, ang=-14, col=RED, size=96):
+    f = F(FONT % "Black", size * SS)
+    d0 = ImageDraw.Draw(Image.new("RGBA", (4, 4)))
+    w_, h_ = d0.textlength(text, font=f), size * SS * 1.25
+    im = Image.new("RGBA", (int(w_ + 80 * SS), int(h_ + 60 * SS)), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    d.rounded_rectangle([8 * SS, 8 * SS, im.width - 8 * SS, im.height - 8 * SS], radius=18 * SS, outline=col, width=12 * SS)
+    d.text((im.width / 2, im.height / 2), text, font=f, fill=col, anchor="mm")
+    im = im.rotate(ang, expand=True, resample=Image.BICUBIC)
+    px, py = p.P(x, y)
+    p.im.paste(im, (int(px - im.width / 2), int(py - im.height / 2)), im)
+
+
+def s_nightmare(p, c):
+    sp = s_house(p, dict(c, mess=4))
+    p.rect(-OX, -OY, W + OX, H + OY, (60, 0, 10, 40))
+    sp += crawlers(8, (250, 900, 830, 1460), kind="roach", L=80, seed=41, speed=120)
+    sp += crawlers(3, (250, 900, 830, 1460), kind="centipede", L=170, seed=42, speed=90)
+    sp += crawlers(3, (250, 1300, 830, 1700), kind="spider", L=90, seed=43, speed=80)
+    return sp
+
+
+def s_web(p, c):
+    p.full(N2)
+    p.poly([(540, -OY), (W + OX, -OY), (W + OX, H + OY), (540, H + OY)], N3)
+    p.poly([(-OX, -OY), (W + OX, -OY), (W + OX, 260), (540, 380), (-OX, 260)], N1)
+    cx, cy = 540, 380
+    for k in range(9):
+        a = math.radians(15 + k * 18.75)
+        p.line([(cx, cy), (cx + 900 * math.cos(a), cy + 900 * math.sin(a))], (210, 218, 236, 150), 2.5)
+    for r in range(80, 860, 70):
+        pts = [(cx + r * math.cos(math.radians(15 + k * 18.75)), cy + r * math.sin(math.radians(15 + k * 18.75))) for k in range(9)]
+        p.line(pts, (210, 218, 236, 120), 2)
+    p.sprite("fruitfly", 70, 380, 820, ang=60)
+    p.sprite("roach", 110, 760, 1050, ang=200)
+    return [dict(kind="spider", L=230, mode="breathe", x=560, y=720, h=180, seed=1)]
+
+
+def s_termite_wood(p, c):
+    p.full((150, 100, 60))
+    for i in range(30):
+        y = -OY + i * 72
+        p.line([(-OX, y), (300, y + 14), (700, y - 10), (W + OX, y + 8)], (128, 84, 48), 5)
+    r = np.random.RandomState(8)
+    for _ in range(7):
+        x, y = r.uniform(100, 980), r.uniform(200, 1700)
+        pts = [(x, y)]
+        for _ in range(6):
+            x, y = x + r.uniform(-160, 160), y + r.uniform(-160, 160)
+            pts.append((x, y))
+        p.line(pts, (66, 40, 22), 46)
+    return crawlers(12, (60, 200, 1020, 1750), kind="termite", L=110, seed=5, speed=90)
+
+
+def s_mosq_night(p, c):
+    p.vgrad(-OY, 1400, N0, N2)
+    p.ell(800, 460, 60, 60, (224, 230, 242))
+    p.glow(800, 460, 180, (200, 210, 240), 14)
+    p.rect(-OX, 1400, W + OX, H + OY, (12, 24, 28))
+    for i in range(34):
+        x = -OX + i * 36
+        p.poly([(x, 1420), (x + 14, 1300 - (i * 53) % 110), (x + 30, 1420)], (16, 34, 38))
+    return flies(40, (60, 500, 1020, 1500), kind="mosquito", L=40, seed=12)
+
+
+def s_you_bed(p, c):
+    bed(p, 0)
+    p.ell(300, 1040, 70, 64, HAIR)
+    p.ell(640, 1180, 360, 110, (66, 98, 154))
+    return []
+
+
+def s_eggraft(p, c):
+    p.full((22, 48, 82))
+    for i in range(16):
+        y = 200 + i * 110
+        p.line([(-OX, y), (300, y - 10), (700, y + 10), (W + OX, y)], (34, 66, 108), 4)
+    for i in range(120):
+        a, rr = i * 2.4, 6 * math.sqrt(i)
+        p.ell(540 + 2.2 * rr * math.cos(a), 1180 + rr * math.sin(a), 7, 13, (40, 34, 30))
+    p.text(540, 1460, "100+ EGGS PER RAFT", FONT % "Bold", 36, (170, 186, 214), spacing=4)
+    return [dict(kind="mosquito", L=300, mode="hover", x=560, y=760, A=40, B=24, seed=2)]
+
+
+def s_species(p, c):
+    p.full(N1)
+    for i in range(30):
+        x, y = 160 + (i % 5) * 190, 560 + (i // 5) * 150
+        p.sprite("mosquito", 90, x, y, ang=(i * 37) % 60 - 30)
+        if i in (6, 17, 23):
+            p.ell(x, y, 70, 70, None, oc=RED, ow=6)
+    p.text(540, 1500, "3,500+ SPECIES", FONT % "Black", 70, YEL, spacing=4)
+    return []
+
+
+def s_globe(p, c):
+    p.full(N0)
+    p.glow(540, 1000, 560, N3, 20)
+    p.ell(540, 1000, 420, 420, (32, 70, 128))
+    for (x, y, rx, ry) in ((520, 960, 120, 170), (560, 1150, 90, 120), (380, 760, 110, 70), (720, 780, 150, 90),
+                           (300, 1000, 60, 80), (800, 1080, 70, 60)):
+        p.ell(x, y, rx, ry, (62, 120, 92))
+    for i in range(26):
+        p.ell(470 + (i * 37) % 160, 900 + (i * 53) % 330, 9, 9, RED)
+    p.text(540, 1520, "MALARIA", FONT % "Black", 60, RED, spacing=8)
+    return []
+
+
+def s_clinic(p, c):
+    p.full(N2)
+    p.rect(-OX, 1420, W + OX, H + OY, (16, 24, 44))
+    p.rect(140, 1080, 940, 1180, CREAM, r=20)
+    p.rect(140, 1180, 940, 1220, STEEL)
+    p.line([(170, 1220), (170, 1440)], STEEL, 14)
+    p.line([(910, 1220), (910, 1440)], STEEL, 14)
+    p.ell(300, 1060, 110, 40, (240, 242, 248))
+    p.line([(980, 400), (980, 1440)], STEEL, 10)
+    p.rect(930, 420, 1030, 600, (190, 220, 240, 220), r=20)
+    p.poly([(540, 220), (120, 1100), (960, 1100)], (230, 236, 248, 70))
+    p.line([(540, 220), (120, 1100)], (230, 236, 248, 160), 3)
+    p.line([(540, 220), (960, 1100)], (230, 236, 248, 160), 3)
+    return []
+
+
+def s_pond(p, c):
+    p.vgrad(-OY, H + OY, (26, 62, 88), (10, 24, 40))
+    for (x, y) in ((200, 420), (820, 600), (380, 1500)):
+        p.ell(x, y, 120, 50, (50, 120, 80))
+        p.poly([(x, y), (x + 120, y - 12), (x + 120, y + 12)], (26, 62, 88))
+    sp = flies(5, (150, 700, 930, 1500), kind="fish", L=170, seed=4)
+    sp += crawlers(10, (100, 300, 980, 1700), kind="larva", L=50, seed=6, speed=40)
+    return sp
+
+
+def s_bats(p, c):
+    p.vgrad(-OY, 1500, N0, N2)
+    p.ell(760, 520, 70, 70, (224, 230, 242))
+    p.glow(760, 520, 200, (200, 210, 240), 14)
+    p.rect(-OX, 1500, W + OX, H + OY, (8, 14, 22))
+    for i in range(14):
+        x = -OX + i * 90
+        p.poly([(x - 60, 1520), (x + 45, 1180 - (i * 61) % 180), (x + 150, 1520)], (10, 18, 26))
+    return flies(6, (120, 500, 960, 1200), kind="bat", L=150, seed=9)
+
+
+def s_arctic(p, c):
+    p.vgrad(-OY, 1250, (40, 52, 90), (196, 122, 92))
+    p.ell(760, 1220, 90, 90, (255, 200, 120))
+    p.rect(-OX, 1250, W + OX, H + OY, (70, 92, 112))
+    for i in range(10):
+        p.ell(100 + (i * 173) % 900, 1400 + (i * 97) % 400, 120, 22, (210, 222, 236))
+    sp = flies(36, (300, 700, 900, 1200), kind="mosquito", L=26, seed=7)
+    return sp + flies(4, (100, 300, 980, 700), kind="bird", L=120, seed=3)
+
+
+def s_orchid(p, c):
+    p.full(N1)
+    p.glow(540, 900, 520, N3, 26)
+    p.line([(540, 1700), (548, 1200), (540, 600)], (70, 130, 80), 14)
+    p.ell(470, 1560, 50, 170, (60, 120, 74))
+    p.ell(610, 1600, 44, 150, (54, 110, 68))
+    for k in range(7):
+        y = 640 + k * 85
+        sd = -1 if k % 2 else 1
+        x = 544 + sd * 40
+        p.ell(x, y, 34, 22, (196, 222, 160))
+        p.ell(x + sd * 30, y + 26, 10, 26, (186, 214, 150))
+    p.text(540, 1820, "BLUNT-LEAF ORCHID", FONT % "Bold", 36, (150, 166, 200), spacing=6)
+    return [dict(kind="mosquito", L=200, mode="hover", x=720, y=760, A=40, B=30, seed=3)]
+
+
+def s_debate(p, c):
+    p.full(N1)
+    p.line([(540, 640), (540, 1400)], STEEL, 18)
+    p.rect(420, 1390, 660, 1430, STEEL, r=10)
+    p.line([(200, 760), (880, 700)], STEEL, 14)
+    for (x, y, lab) in ((200, 760, "SMALL\nIMPACT"), (880, 700, "BIG\nIMPACT")):
+        p.line([(x, y), (x - 110, y + 220)], STEEL, 4)
+        p.line([(x, y), (x + 110, y + 220)], STEEL, 4)
+        p.ell(x, y + 225, 140, 30, N3)
+        for j, ln in enumerate(lab.split("\n")):
+            p.text(x, y + 300 + j * 52, ln, FONT % "Black", 46, (230, 234, 244))
+    stamp(p, 760, 1170, "DISPUTED", size=80)
+    return []
+
+
+SHOTS_MORE = {
+    "nightmare": s_nightmare, "web": s_web, "termite_wood": s_termite_wood, "mosq_night": s_mosq_night,
+    "you_bed": s_you_bed, "eggraft": s_eggraft, "species": s_species, "globe": s_globe, "clinic": s_clinic,
+    "pond": s_pond, "bats": s_bats, "arctic": s_arctic, "orchid": s_orchid, "debate": s_debate,
+    "spider": lambda p, c: s_portrait(p, c, "spider", "HOUSE SPIDER", 460),
+    "termite": lambda p, c: s_portrait(p, c, "termite", "TERMITE", 460),
+    "mosquito": lambda p, c: s_portrait(p, c, "mosquito", "MOSQUITO", 420),
+}
 
 
 SHOTS = {
@@ -777,6 +1037,8 @@ SHOTS = {
     "wall_many": s_wall_many, "doorway": s_doorway, "clock": s_clock, "end": s_end,
     "feet_floor": lambda p, c: s_feet(p, c, bath=False),
 }
+
+SHOTS.update(SHOTS_MORE)
 
 PLANS = {"what-if-never-clean": {
     "tt": [["house", "you"], ["calendar", "sink"], ["sink_flies", "banana"], ["fly", "eggs"], ["hallway", "feet"],
@@ -839,11 +1101,14 @@ def title_img(text):
 _CNT = {}
 
 
-def counter_img(n, flash):
-    key = (n, flash)
+def counter_img(n, flash, label="DAYS WITHOUT CLEANING", stat=None):
+    key = (n, flash, label, stat)
     if key not in _CNT:
-        _CNT[key] = _txt_img([("DAYS WITHOUT CLEANING", FONT % "Bold", 34, (200, 210, 230), 4),
-                              (f"{n:,}", SERIF % "Bold", 170 if not flash else 190, YEL if flash else (255, 255, 255), 0)])
+        rows = [(label, FONT % "Bold", 34, (200, 210, 230), 4),
+                (f"{n:,}", SERIF % "Bold", 170 if not flash else 190, YEL if flash else (255, 255, 255), 0)]
+        if stat:
+            rows.append((stat, FONT % "ExtraBold", 40, YEL, 2))
+        _CNT[key] = _txt_img(rows)
     return _CNT[key]
 
 
@@ -901,10 +1166,10 @@ def plan(o, cut, work):
     import free_voice as fv
     slug = o["slug"]
     items = o[cut]
-    lines = [str(list(it.values())[0]) for it in items]
-    if cut == "tt":
+    lines = [str(it.get("say") or list(it.values())[0]) for it in items]
+    if cut == "tt" and o.get("next") and not items[-1].get("shots") == ["end"]:
         lines.append("Follow me. " + o["next"])
-    shots_plan = PLANS[slug][cut]
+    shots_plan = [it["shots"] for it in items] if all(it.get("shots") for it in items) else PLANS[slug][cut]
     assert len(shots_plan) == len(lines), (len(shots_plan), len(lines))
     beats, t, day = [], 0.0, 1
     for i, say in enumerate(lines):
@@ -916,7 +1181,8 @@ def plan(o, cut, work):
         if i < len(items) and items[i].get("counter") is not None:
             day = int(items[i]["counter"])
         last = i == len(lines) - 1
-        D = dur + (1.6 if last and cut == "tt" else (0.5 if last else GAP))
+        end = shots_plan[i] == ["end"]
+        D = dur + (1.6 if last and end else (0.5 if last else GAP))
         names = shots_plan[i]
         n = max(len(names), math.ceil(D / MAX_SHOT))
         cuts = [0.0]
@@ -930,9 +1196,10 @@ def plan(o, cut, work):
         for k in range(n):
             nm = names[k % len(names)]
             shots.append(dict(name=nm, a=t + cuts[k], z=t + cuts[k + 1], alt=k // len(names), day=day,
-                              mess=DAYMESS.get(day, 4)))
+                              mess=mess_for(day)))
         beats.append(dict(i=i, say=say, mp3=mp3, words=words, t=t, dur=dur, D=D, day=day,
-                          tick=items[i].get("counter") if i < len(items) else None, shots=shots))
+                          tick=items[i].get("counter") if i < len(items) else None, shots=shots,
+                          stat=items[i].get("stat") if i < len(items) else None))
         t += D
     return beats, t
 
@@ -944,7 +1211,7 @@ def build_shots(beats):
             key = (s["name"], s["mess"], s["day"])
             if key not in cache:
                 p = Pen()
-                ctx = dict(mess=s["mess"], day=s["day"])
+                ctx = dict(mess=s["mess"], day=s["day"], end=PL.get("end"))
                 sp = SHOTS[s["name"]](p, ctx) or []
                 cache[key] = (p.done(), sp)
             base, sp = cache[key]
@@ -997,13 +1264,14 @@ def frame(g):
         for (t0, a), (t1, b) in zip(ticks, ticks[1:]):
             if t0 <= T < t1:   # holds, then rolls up over the last 1.2 s into the next day tick
                 uu = max(0.0, (T - (t1 - 1.2)) / 1.2)
-                val = int(round(a * (b / a) ** uu))
+                val = int(round(a * (b / a) ** uu)) if b > a > 0 else a
                 break
         else:
             if T >= ticks[-1][0]:
                 val = ticks[-1][1]
         flash = any(0 <= T - t0 < 0.35 for t0, _ in ticks[1:])
-        ci = counter_img(val, flash)
+        stat = next((x for t_, x in reversed(PL["stats"]) if t_ <= T), None)
+        ci = counter_img(val, flash, PL["label"], stat)
         over(fr, ci, 52, 330)
     ti = PL["title"]
     if T < PL["title_end"]:
@@ -1035,7 +1303,10 @@ def captions(beats, keys, path):
                 groups[-1] += cur
             else:
                 groups.append(cur)
+        ends = [sh["a"] for sh in bt["shots"] if sh["name"] == "end"]
         for gi, gr in enumerate(groups):
+            if ends and bt["t"] + gr[0][0] >= ends[0] - 0.05:   # the end card carries its own text
+                continue
             ws = [w for _, _, w in gr]
             hot = [q for q, w in enumerate(ws) if kk(w) in keys or any(ch.isdigit() for ch in w)][:1] or \
                 [max(range(len(ws)), key=lambda q: len(kk(ws[q])))]
@@ -1076,10 +1347,13 @@ def main():
     a = ap.parse_args()
     os.makedirs(a.work, exist_ok=True)
     o = yaml.safe_load(open(a.outline))
+    PL.update(end=o.get("end_card") if isinstance(o.get("end_card"), dict) and "top" in o["end_card"] else None)
     beats, total = plan(o, a.cut, a.work)
     print(f"plan: {len(beats)} lines, {total:.2f} s, {sum(len(b['shots']) for b in beats)} shots", flush=True)
     ticks = [(b["t"], int(b["tick"])) for b in beats if b["tick"] is not None]
-    PL.update(shots=build_shots(beats), ticks=ticks, title=title_img(str(o[a.cut][0][next(iter(o[a.cut][0]))])),
+    PL.update(shots=build_shots(beats), ticks=ticks, title=title_img(str(o.get("title_text") or o[a.cut][0].get("say") or o[a.cut][0][next(iter(o[a.cut][0]))])),
+              label=o.get("counter_label", "DAYS WITHOUT CLEANING"),
+              stats=[(b["t"], b["stat"]) for b in beats if b["stat"]],
               title_end=beats[1]["t"] + 1.2)
     total_f = int(round(total * FPS))
     if a.stills:
@@ -1126,7 +1400,7 @@ def main():
     tl = dict(total=total, policy=dict(hold=2.5),
               beats=[dict(start=b["t"], shots=[(s["a"] - b["t"], s["z"] - b["t"]) for s in b["shots"]]) for b in beats],
               transitions=[dict(t=s["a"], kind="cut") for s in PL["shots"][1:]],
-              asks=[dict(kind="poll", t=b["t"]) for b in beats if b["shots"][0]["name"] == "poll"])
+              asks=[dict(kind="poll", t=b["t"]) for b in beats if b["shots"][0]["name"] in ("poll", "debate")])
     json.dump(tl, open(f"{a.work}/screen.json", "w"), indent=1)
     import screengate
     rep = screengate.check_timeline(tl)
