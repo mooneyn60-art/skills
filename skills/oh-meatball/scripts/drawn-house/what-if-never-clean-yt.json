@@ -1,0 +1,243 @@
+{
+ "series": "Things Living In Your House, Part 26",
+ "sources": [
+  "University of Kentucky Entomology, Fruit Flies (Ent-621): females lay about 500 eggs; egg to adult takes about a week; eggs laid on the surface of fermenting foods or other moist organic material; they also breed in drains, garbage disposals, trash containers, mops and rags; https://entomology.mgcafe.uky.edu/ef621",
+  "Iowa State University Extension, Yard and Garden, Moth fly (drain fly): usually originate in sink, bathtub, shower or floor drains, especially slow-running or seldom-used ones; larvae feed on the gelatinous film (slime) that builds up inside drains; https://yardandgarden.extension.iastate.edu/encyclopedia/moth-fly",
+  "University of Kentucky Entomology, Cockroach Control Manual (Ent-614): clean up spills and food waste, do not leave dirty dishes or pet food out overnight, do not let garbage pile up; up to 40 nymphs emerge from each German cockroach egg case; the German cockroach can produce several thousand offspring in less than a year; https://entomology.mgcafe.uky.edu/ef614",
+  "University of Kentucky Entomology, House Dust Mites (Ent-646): primary food is dander (skin scales) shed by people and pets; thousands of mites in a single gram of house dust are not uncommon; an infested mattress can contain millions; https://entomology.mgcafe.uky.edu/ef646",
+  "University of Kentucky Entomology, Carpet Beetles (Ent-601): carpet beetles thrive on lint, hair and debris under baseboards and in vents and ducts; a favored food of the larvae is dead insects; https://entomology.mgcafe.uky.edu/ef601",
+  "Penn State Extension, House Centipedes: feed on silverfish, firebrats, carpet beetle larvae, cockroaches, spiders and other small arthropods; frequent sightings indicate some prey arthropod is in abundance; https://extension.psu.edu/house-centipedes",
+  "Connecticut Agricultural Experiment Station, House Centipede fact sheet: 15 pairs of legs (thirty legs); hunts cockroach nymphs, flies, silverfish and spiders; https://portal.ct.gov/-/media/caes/documents/publications/fact_sheets/entomology/house_centipede_scutigera.pdf",
+  "Timeline framing: the DAY numbers are a what-if story, not measured timelines; each day only uses a rate the sources give (egg to adult in about a week; thousands of roaches in less than a year)."
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "fruit_fly",
+  "scene": "kitchen",
+  "scene_p": {
+   "time": "night",
+   "mess": 1
+  },
+  "creature_cfg": {
+   "plan": "insect",
+   "label": "fruit fly",
+   "body": "round",
+   "color": "#c99a5a",
+   "dark": "#7a4a24",
+   "head": "#b8742e",
+   "length": 320,
+   "height": 160,
+   "leg_len": 90,
+   "ant": 70,
+   "stripes": 4,
+   "wings": "clear",
+   "eye_r": 34,
+   "floor": false,
+   "mood": "smug",
+   "s": 0.95
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "insect",
+    "label": "fruit fly",
+    "body": "round",
+    "color": "#c99a5a",
+    "dark": "#7a4a24",
+    "head": "#b8742e",
+    "length": 320,
+    "height": 160,
+    "leg_len": 90,
+    "ant": 70,
+    "stripes": 4,
+    "wings": "clear",
+    "eye_r": 34,
+    "floor": false,
+    "mood": "smug",
+    "s": 0.95
+   }
+  },
+  "s": 0.95,
+  "actor": "creature"
+ },
+ "counter": {
+  "label": "DAY",
+  "values": [
+   1,
+   3,
+   7,
+   30,
+   365
+  ],
+  "y": 400,
+  "px": 150,
+  "sfx": "whoosh"
+ },
+ "music_reveals": "counter",
+ "cap_key": [
+  "day",
+  "one",
+  "three",
+  "seven",
+  "thirty",
+  "sixty",
+  "five",
+  "forty",
+  "hundred",
+  "thousands",
+  "eggs",
+  "flies",
+  "fly",
+  "cockroach",
+  "cockroaches",
+  "mites",
+  "beetles",
+  "centipedes",
+  "slime",
+  "silence"
+ ],
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "What If You Never Cleaned Your House Again?",
+ "tiktok_caption": "what if you never cleaned your house again? 🪳 day 1 to day 365. How many days would you last? 👇",
+ "beats": [
+  {
+   "counter": 1,
+   "m": "hook",
+   "say": "What if you never cleaned your house again?"
+  },
+  {
+   "counter": 3,
+   "cast": {
+    "creature": "drain_fly",
+    "actor": "creature",
+    "creature_cfg": {
+     "plan": "insect",
+     "label": "drain fly",
+     "body": "round",
+     "color": "#8c8a84",
+     "dark": "#5e5c58",
+     "head": "#6a6864",
+     "length": 340,
+     "height": 190,
+     "leg_len": 80,
+     "ant": 110,
+     "stripes": 5,
+     "wings": "clear",
+     "eye_r": 30,
+     "floor": false,
+     "mood": "calm",
+     "s": 0.95
+    },
+    "hero_p": {
+     "cfg": {
+      "plan": "insect",
+      "label": "drain fly",
+      "body": "round",
+      "color": "#8c8a84",
+      "dark": "#5e5c58",
+      "head": "#6a6864",
+      "length": 340,
+      "height": 190,
+      "leg_len": 80,
+      "ant": 110,
+      "stripes": 5,
+      "wings": "clear",
+      "eye_r": 30,
+      "floor": false,
+      "mood": "calm",
+      "s": 0.95
+     }
+    },
+    "s": 0.95
+   },
+   "scene": "bathroom",
+   "scene_p": {
+    "time": "night",
+    "mess": 2
+   },
+   "m": "escalate",
+   "say": "Day three. Flies breed in your drain slime."
+  },
+  {
+   "counter": 7,
+   "cast": {
+    "creature": "roach",
+    "actor": "cockroach",
+    "s": 0.9
+   },
+   "scene": "kitchen",
+   "scene_p": {
+    "time": "night",
+    "mess": 2
+   },
+   "m": "chase",
+   "say": "Day seven. Your crumbs bring cockroaches."
+  },
+  {
+   "counter": 30,
+   "cast": {
+    "creature": "dust_mite"
+   },
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "night",
+    "mess": 3
+   },
+   "m": "xray",
+   "say": "Day thirty. Mites are eating the skin you shed."
+  },
+  {
+   "counter": 365,
+   "cast": {
+    "creature": "house_centipede",
+    "actor": "house_centipede",
+    "s": 0.8
+   },
+   "scene": "basement",
+   "scene_p": {
+    "time": "night",
+    "mess": 4
+   },
+   "m": "punch",
+   "say": "Day three sixty five. House centipedes move in to hunt your roaches."
+  },
+  {
+   "m": "tease",
+   "say": "Subscribe. Part two: never wash your sheets.",
+   "card": {
+    "rows": [
+     [
+      "IS YOUR HOUSE",
+      "#ffffff",
+      130
+     ],
+     [
+      "NEXT?",
+      "#ffd34d",
+      170
+     ],
+     [
+      "COMMENT DAY 1 OR DAY 365",
+      "#ffffff",
+      70,
+      true
+     ],
+     [
+      "PART 2 SOON",
+      "#ff5a4d",
+      80
+     ]
+    ],
+    "y": 640,
+    "at": "35%"
+   }
+  }
+ ],
+ "loop": true
+}

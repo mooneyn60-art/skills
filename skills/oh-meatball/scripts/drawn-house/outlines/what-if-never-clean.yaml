@@ -1,0 +1,317 @@
+slug: what-if-never-clean
+series: Things Living In Your House
+part: 26
+title: What If You Never Cleaned Your House Again?
+tiktok_caption: what if you never cleaned your house again? 🪳 day 1 to day 365. How many days would you last? 👇
+creature: fruit_fly
+actor: creature
+creature_cfg: &id001
+  plan: insect
+  label: fruit fly
+  body: round
+  color: '#c99a5a'
+  dark: '#7a4a24'
+  head: '#b8742e'
+  length: 320
+  height: 160
+  leg_len: 90
+  ant: 70
+  stripes: 4
+  wings: clear
+  eye_r: 34
+  floor: false
+  mood: smug
+  s: 0.95
+hero_p:
+  cfg: *id001
+s: 0.95
+scene: kitchen
+scene_p:
+  time: night
+  mess: 1
+music: mystery
+music_db: -13
+music_reveals: counter
+counter:
+  label: DAY
+  values:
+  - 1
+  - 3
+  - 7
+  - 30
+  - 365
+  y: 400
+  px: 150
+  sfx: whoosh
+cap_key:
+- day
+- one
+- three
+- seven
+- thirty
+- sixty
+- five
+- forty
+- hundred
+- thousands
+- eggs
+- flies
+- fly
+- cockroach
+- cockroaches
+- mites
+- beetles
+- centipedes
+- slime
+- silence
+next: 'Part two: never wash your sheets.'
+end_card:
+  rows:
+  - - IS YOUR HOUSE
+    - '#ffffff'
+    - 130
+  - - NEXT?
+    - '#ffd34d'
+    - 170
+  - - COMMENT DAY 1 OR DAY 365
+    - '#ffffff'
+    - 70
+    - true
+  - - PART 2 SOON
+    - '#ff5a4d'
+    - 80
+  y: 640
+  at: 35%
+tt_standalone: true
+sources:
+- 'University of Kentucky Entomology, Fruit Flies (Ent-621): females lay about 500 eggs; egg to adult takes about a week; eggs laid on the surface of fermenting foods or other moist organic material; they
+  also breed in drains, garbage disposals, trash containers, mops and rags; https://entomology.mgcafe.uky.edu/ef621'
+- 'Iowa State University Extension, Yard and Garden, Moth fly (drain fly): usually originate in sink, bathtub, shower or floor drains, especially slow-running or seldom-used ones; larvae feed on the gelatinous
+  film (slime) that builds up inside drains; https://yardandgarden.extension.iastate.edu/encyclopedia/moth-fly'
+- 'University of Kentucky Entomology, Cockroach Control Manual (Ent-614): clean up spills and food waste, do not leave dirty dishes or pet food out overnight, do not let garbage pile up; up to 40 nymphs
+  emerge from each German cockroach egg case; the German cockroach can produce several thousand offspring in less than a year; https://entomology.mgcafe.uky.edu/ef614'
+- 'University of Kentucky Entomology, House Dust Mites (Ent-646): primary food is dander (skin scales) shed by people and pets; thousands of mites in a single gram of house dust are not uncommon; an infested
+  mattress can contain millions; https://entomology.mgcafe.uky.edu/ef646'
+- 'University of Kentucky Entomology, Carpet Beetles (Ent-601): carpet beetles thrive on lint, hair and debris under baseboards and in vents and ducts; a favored food of the larvae is dead insects; https://entomology.mgcafe.uky.edu/ef601'
+- 'Penn State Extension, House Centipedes: feed on silverfish, firebrats, carpet beetle larvae, cockroaches, spiders and other small arthropods; frequent sightings indicate some prey arthropod is in abundance;
+  https://extension.psu.edu/house-centipedes'
+- 'Connecticut Agricultural Experiment Station, House Centipede fact sheet: 15 pairs of legs (thirty legs); hunts cockroach nymphs, flies, silverfish and spiders; https://portal.ct.gov/-/media/caes/documents/publications/fact_sheets/entomology/house_centipede_scutigera.pdf'
+- 'Timeline framing: the DAY numbers are a what-if story, not measured timelines; each day only uses a rate the sources give (egg to adult in about a week; thousands of roaches in less than a year).'
+yt:
+- hook: What if you never cleaned your house again?
+  counter: 1
+- escalate: Day three. Flies breed in your drain slime.
+  counter: 3
+  cast: &id003
+    creature: drain_fly
+    actor: creature
+    creature_cfg: &id002
+      plan: insect
+      label: drain fly
+      body: round
+      color: '#8c8a84'
+      dark: '#5e5c58'
+      head: '#6a6864'
+      length: 340
+      height: 190
+      leg_len: 80
+      ant: 110
+      stripes: 5
+      wings: clear
+      eye_r: 30
+      floor: false
+      mood: calm
+      s: 0.95
+    hero_p:
+      cfg: *id002
+    s: 0.95
+  scene: bathroom
+  scene_p:
+    time: night
+    mess: 2
+- chase: Day seven. Your crumbs bring cockroaches.
+  counter: 7
+  cast: &id004
+    creature: roach
+    actor: cockroach
+    s: 0.9
+  scene: kitchen
+  scene_p:
+    time: night
+    mess: 2
+- xray: Day thirty. Mites are eating the skin you shed.
+  counter: 30
+  cast: &id005
+    creature: dust_mite
+  scene: bedroom
+  scene_p:
+    time: night
+    mess: 3
+- punch: Day three sixty five. House centipedes move in to hunt your roaches.
+  counter: 365
+  cast: &id008
+    creature: house_centipede
+    actor: house_centipede
+    s: 0.8
+  scene: basement
+  scene_p:
+    time: night
+    mess: 4
+tt:
+- hook: What if you never cleaned your house again?
+  counter: 1
+- fact: Day one. You leave one dish in the sink, and a banana on the counter.
+  counter: 1
+  gag:
+    clock: 2
+- name: Fruit flies find it first. They lay eggs on the rotting fruit.
+- scale: One female can lay about five hundred eggs.
+  how: grow
+- escalate: Day three. You hear buzzing in the bathroom.
+  counter: 3
+  cast: *id003
+  scene: bathroom
+  scene_p:
+    time: night
+    mess: 2
+- xray: Drain flies. Their babies live in the slime inside your drain, and eat it.
+  cast: *id003
+  scene: bathroom
+  scene_p:
+    time: night
+    mess: 2
+- fact: You never scrub it, so the slime keeps feeding them.
+  cast: *id003
+  scene: bathroom
+  scene_p:
+    time: night
+    mess: 2
+- calm: Day seven. A fruit fly grows from egg to adult in about a week.
+  counter: 7
+  scene: kitchen
+  scene_p:
+    time: night
+    mess: 2
+  gag:
+    clock: 3
+- solo: Then, silence. Something moves under the fridge.
+  cast: *id004
+  scene: kitchen
+  scene_p:
+    time: night
+    mess: 2
+- chase: Cockroaches. Your spills and crumbs are dinner.
+  cast: *id004
+  scene: kitchen
+  scene_p:
+    time: night
+    mess: 3
+- count: One German cockroach egg case hatches up to forty babies.
+  cast: *id004
+  scene: basement
+  scene_p:
+    time: night
+    mess: 3
+  with:
+  - roach
+  - roach
+  - roach
+- tiny: Day thirty. Dust, hair and dead skin pile up in your bed.
+  counter: 30
+  cast: *id005
+  scene: bedroom
+  scene_p:
+    time: night
+    mess: 3
+- xray: Dust mites eat the skin you shed. Thousands can live in one gram of dust.
+  cast: *id005
+  scene: bedroom
+  scene_p:
+    time: night
+    mess: 3
+- fact: Carpet beetles move in for the lint, the hair, and the dead bugs.
+  cast: &id007
+    creature: carpet_beetle
+    actor: creature
+    creature_cfg: &id006
+      plan: insect
+      label: carpet beetle
+      body: round
+      color: '#6b4f3a'
+      dark: '#efe4c8'
+      head: '#3a2a20'
+      length: 400
+      height: 230
+      leg_len: 90
+      ant: 120
+      stripes: 3
+      wings: shell
+      mood: smug
+      s: 0.85
+    hero_p:
+      cfg: *id006
+    s: 0.85
+  scene: bedroom
+  scene_p:
+    time: night
+    mess: 4
+- fact: Be honest. What would you do?
+  cast: *id007
+  scene: bedroom
+  scene_p:
+    time: night
+    mess: 4
+  card:
+    rows:
+    - - WHAT WOULD YOU DO?
+      - '#ffd34d'
+      - 96
+    - - MOVE OUT
+      - '#ffffff'
+      - 68
+      - true
+    - - BURN THE HOUSE
+      - '#ff5a4d'
+      - 68
+      - true
+    - - ADOPT THEM
+      - '#ffffff'
+      - 68
+      - true
+    - - CLEAN. RIGHT. NOW.
+      - '#ffffff'
+      - 68
+      - true
+    y: 620
+    at: 20%
+  gag: false
+- escalate: Day three sixty five. One cockroach can lead to thousands in under a year.
+  counter: 365
+  cast: *id004
+  scene: basement
+  scene_p:
+    time: night
+    mess: 4
+- chase: Then something with thirty legs comes for them.
+  cast: *id008
+  scene: basement
+  scene_p:
+    time: night
+    mess: 4
+- tiny: House centipedes. They hunt your cockroaches, spiders and beetle larvae.
+  cast: *id008
+  scene: basement
+  scene_p:
+    time: night
+    mess: 4
+- punch: The twist? Lots of centipedes means lots of bugs for them to eat.
+  cast: *id008
+  scene: kitchen
+  scene_p:
+    time: night
+    mess: 4
+- fact: So how many days would you last?
+  scene: kitchen
+  scene_p:
+    time: night
+    mess: 4

@@ -27,7 +27,9 @@ Outline (see scripts/drawn-house/outlines/*.yaml):
     - name: Silverfish. No wings, and covered in silver scales.
     - fact: It eats starch. Glue, paste, paper.
       with: [booklouse]
-  tt:                         # act 2: TikTok only, between act 1 and the tease
+  tt:                         # act 2: TikTok only, between act 1 and the tease (tt_standalone: true = the whole TikTok)
+  counter: {label: DAY, values: [...]}   # optional drawn.py overlays: lines then carry "counter: N"; cap_key: [words]
+  end_card: {rows: [[text, "#hex", px], ...]}  # optional text card over the last line of both cuts
     - calm: ...
 Macros: hook name fact xray scale count escalate chase calm punch tease solo (see drawn_macros.py).
 """
@@ -70,7 +72,9 @@ def specs(o):
     for k in ("creature_cfg", "hero_p", "s", "actor", "wild", "wild_p"):
         if k in o:
             stage[k] = o[k]
-    tease = {"m": "tease", "say": "Subscribe. " + o["next"]}   # YouTube: stays in the hook's room so the loop is seamless
+    tease = {"m": "tease", "say": "Subscribe. " + o["next"]}
+    if o.get("end_card"):   # a text card over the last line of both cuts
+        tease["card"] = o["end_card"]
     tt_room = {"scene": o["next_scene"], "scene_p": o.get("next_scene_p", {})} if o.get("next_scene") else {}
     act1 = [line(x) for x in o["yt"]]
     act2 = [line(x) for x in o.get("tt", [])]
@@ -78,13 +82,15 @@ def specs(o):
             "photo_credits": [], "voice": o.get("voice", VOICE), "rate": o.get("rate", "+10%"), "pitch": o.get("pitch", "+3Hz"),
             "music": o.get("music", "mystery"), "music_db": o.get("music_db", -20), "captions": 66,
             "caption_y": o.get("caption_y", 1640), "stage": stage,
+            **{k: o[k] for k in ("counter", "music_reveals", "cap_key", "sfx_gain") if k in o},
             "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines."}
     # TikTok says "Follow", not "Subscribe": Creator Rewards needs 10K followers (Nolan's TikTok analytics 10/28)
     tt_tease = dict(tease, say="Follow me. " + o["next"], **tt_room)
     # YouTube Shorts loop: the last frame cuts back into frame 0 (Studio 10/28: make the end loop into the hook)
     yt = dict(base, title=o["title"], tiktok_caption=o.get("tiktok_caption", ""), beats=act1 + [tease], loop=True)
+    # tt_standalone: the tt list is the whole TikTok (e.g. a counter that must run 1 -> 365 in each cut separately)
     tt = dict(base, title=o.get("tt_title", o["title"]), tiktok_caption=o.get("tiktok_caption", ""),
-              beats=act1 + act2 + [tt_tease])
+              beats=(act2 if o.get("tt_standalone") else act1 + act2) + [tt_tease])
     return yt, tt
 
 

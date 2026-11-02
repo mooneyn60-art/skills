@@ -74,6 +74,12 @@ Host shots (tools/host.py, research/49): beat "host": true | {"moves": ["you@Gue
   close-up cut every max_shot s, a slow push, gestures you | psst | lean | shrug | sweat | shock on words.
   Spec "caseboard": true pins the last 4 past cases (data/caseboard.json, tools/caseboard.py) on that board.
 
+Data readout ("What If" format, like an altitude box): spec "readout": {"label": "DAYS WITHOUT CLEANING",
+  "y": 330, "stat_label": "BUGS"}; beat "day": N sets the big number at that line's start, and the number rolls
+  up continuously (geometrically) between ticks, holding the last value; beat "stat": "500 EGGS EACH" (a sourced
+  count, or the species name) swaps the small line under it. Each tick gets a soft whoosh, and with a "gen:" bed
+  the music builds into every tick without dropping out (music.render drop=False, hit=False).
+
 "style": "v4" (research/45) adds, on top of everything above:
   whole-animal cut-outs  every photo shot is cut out (tools/animal.py): the WHOLE animal, holes under 1%
                          filled, contour smoothed, 1 px under a uniform white stroke, soft shadow. The shot is
@@ -933,7 +939,7 @@ def plan_beats(spec, work):
                         host=hst, series_card=bool(b.get("series_card")), keys=b.get("keys") or [],
                         chapter=b.get("chapter_card") and (chapter_img(b["chapter_card"]),
                                                            min(n, int(float(b.get("chapter_s", 4.0)) * FPS))),
-                        counter=cur,
+                        counter=cur, day=b.get("day"), stat=b.get("stat"),
                         aside=b.get("aside") and dict(img=aside_img(b["aside"]),
                                                       f=int(round(word_time(words, b.get("aside_at"), 0.55 * D) * FPS)))))
         F += n
@@ -1195,7 +1201,58 @@ def frame(g):
             kf = f - 4
             dy = [-260, -120, -30, 8, 0][kf] if kf < 5 else 0
             over(frame_, card, int(W / 2 - card.shape[1] / 2), int((215 if H > W else 70) + dy))
+    if P.get("readout"):
+        draw_readout(frame_, g)
     return frame_.tobytes(), qa
+
+
+_RO = {}
+
+
+def readout_value(ticks, T):
+    """The rolling number at T: geometric between ticks [(t, v)], the first value before, the last after."""
+    if T <= ticks[0][0]:
+        return ticks[0][1]
+    for (t0, a), (t1, b) in zip(ticks, ticks[1:]):
+        if T < t1:
+            u = (T - t0) / max(t1 - t0, 1e-6)
+            return int(max(a, 1) * (max(b, 1) / max(a, 1)) ** u)
+    return ticks[-1][1]
+
+
+def readout_img(label, num, stat):
+    key = (label, num, stat)
+    if key not in _RO:
+        f1 = ImageFont.truetype(ex.BOLD, 40)
+        f2 = ImageFont.truetype(ex.BOLD, 150)
+        f3 = ImageFont.truetype(ex.BOLD, 50)
+        d = ImageDraw.Draw(Image.new("RGBA", (8, 8)))
+        rows = [(label, f1, (255, 255, 255)), (f"{num:,}", f2, (255, 211, 77))] + ([(stat, f3, (255, 255, 255))] if stat else [])
+        sz = [d.textbbox((0, 0), t, font=f, stroke_width=4) for t, f, _ in rows]
+        w = max(b[2] - b[0] for b in sz) + 80
+        h = sum(b[3] - b[1] for b in sz) + 30 * len(rows) + 30
+        im = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+        dr = ImageDraw.Draw(im)
+        dr.rounded_rectangle((0, 0, w - 1, h - 1), radius=26, fill=(8, 10, 18, 170), outline=(255, 211, 77, 255), width=5)
+        y = 24
+        for (t, f, c), b in zip(rows, sz):
+            dr.text(((w - (b[2] - b[0])) / 2 - b[0], y - b[1]), t, font=f, fill=c, stroke_width=4, stroke_fill=(0, 0, 0))
+            y += b[3] - b[1] + 30
+        _RO[key] = np.asarray(im)
+    return _RO[key]
+
+
+def draw_readout(frame_, g):
+    """spec "readout": the big rolling number box, top-center (drawn after the camera: it never shakes)."""
+    P = PLAN
+    ro, T = P["readout"], g / FPS
+    bt = max((b for b in P["beats"] if b["F"] <= g), key=lambda b: b["F"])
+    stat = next((b.get("stat") for b in sorted(P["beats"], key=lambda b: -b["F"]) if b["F"] <= g and b.get("stat")), None)
+    if stat and ro.get("stat_label"):
+        stat = f'{ro["stat_label"]}: {stat}'
+    img = readout_img(ro.get("label", ""), readout_value(P["ro_ticks"], T), stat)
+    del bt
+    over(frame_, img, W // 2 - img.shape[1] // 2, int(ro.get("y", 300)))
 
 
 def draw_host(frame_, bt, sh, f):
@@ -1439,6 +1496,14 @@ def build(spec, work, out, music=None, vertical=True):
                 captions=spec.get("captions"), cap_phrase=bool(spec.get("cap_phrase")))
     if spec.get("series"):   # the case sting under the card drop (or under the headline)
         beats[0]["sfx"] = list(beats[0]["sfx"]) + [(4 / FPS, "case")]
+    ro_ticks = [(bt["F"] / FPS, int(bt["day"])) for bt in beats if bt.get("day") is not None]
+    PLAN.update(readout=spec.get("readout") if ro_ticks else None, ro_ticks=ro_ticks)
+    if PLAN["readout"]:   # the readout owns the top: pop-in labels and the ask kit move below it
+        global LABEL_Y, TOP_SAFE
+        LABEL_Y, TOP_SAFE = int(spec["readout"].get("label_y", 820)), int(spec["readout"].get("label_y", 820)) - 100
+    for bt in beats:   # a soft whoosh on every readout tick (the first one is frame 0: no cue)
+        if bt.get("day") is not None and bt["F"] > 0:
+            bt["sfx"] = [(bt["F"] / FPS + 0.02, "whoosh")] + list(bt["sfx"])
     PLAN.update(beats=beats, whips=cuts, fades=fades, props={"fork": np.asarray(mascot.prop("fork", int(520 * UI)))}, v4=v4,
                 total=total_f)
     if any(bt.get("host") for bt in beats):   # host shots: the desk (with and without the bagged Fork)
@@ -1481,7 +1546,10 @@ def build(spec, work, out, music=None, vertical=True):
         reveals = [(bt["F"] + sp["f"]) / FPS for bt in beats for sp in bt["stamps"] if sp["reveal"]]
         music = f"{work}/music-{gen[4:]}.wav"
         dark = next(((bt["F"]) / FPS for bt in beats if bt.get("dark")), None)   # beat "dark": true = the dark turn
-        mus.render(gen[4:], total, reveals, music, turn=dark)
+        if ro_ticks:   # the bed builds into every readout tick, no drop-out, no hit (spec "readout")
+            mus.render(gen[4:], total, [t for t, _ in ro_ticks[1:]], music, turn=dark, drop=False, hit=False)
+        else:
+            mus.render(gen[4:], total, reveals, music, turn=dark)
     music = music if music and os.path.exists(music) else None
     cmd = ["ffmpeg", "-loglevel", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}",
            "-r", str(FPS), "-i", "pipe:0", "-i", f"{work}/voice.wav", "-i", f"{work}/sfx.wav"]

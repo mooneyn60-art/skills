@@ -23,7 +23,9 @@ Macros:
   shrink    "Meatball Goes Tiny" (our own format, 10/27): Meatball shrinks to bug size in the home scene
   tiny      inside the animal's world: the creature HUGE, Meatball tiny beside it reacting (pose rotates, or "pose");
             set "scene" per line to travel through 3-4 habitats. The tease afterwards brings him back full size.
-Per-line overrides: scene, scene_p, with (list of species names, or {"sp" | "type", "x", "y", "s", "p", "front",
+Per-line overrides: cast (a new hero animal for this line: {creature, actor, creature_cfg, hero_p, s}, e.g. a
+"What If" episode where a new creature moves in each day), counter (drawn.py's on-screen counter value from this
+line on), card (a drawn.py text card over this line), scene, scene_p, with (list of species names, or {"sp" | "type", "x", "y", "s", "p", "front",
 "pop": false = there from frame 0, "set", "moves"} for any actor), hero (false = not on
 stage, or a dict of creature params), act (creature params set at 30 %), hero_at {x, y, rot}, hero_moves, mb_x (Meatball's mark), pose, prop, mood, sfx, pad,
 gag (false = none), acting (false = no automatic acting).
@@ -166,6 +168,9 @@ def _beat(stage, line, F, shots, hero, mb, sfx, extra=None, **kw):
         mb["prop"] = line["prop"]
     if line.get("mood") and b["actors"] and b["actors"][0]["id"] == "hero":
         b["actors"][0]["p"]["mood"] = line["mood"]
+    for k in ("counter", "card"):   # drawn.py overlays: the counter value, a text card
+        if k in line:
+            b[k] = line[k]
     b.update(kw)
     return b
 
@@ -225,7 +230,8 @@ def _solo_motion(n, hy, no_ground):
 def expand(spec):
     if not any("m" in b for b in spec.get("beats", [])):
         return spec
-    stage = Stage(spec.get("stage", {}))
+    stage0 = Stage(spec.get("stage", {}))
+    who = ("creature", "actor", "creature_cfg", "hero_p", "s")
     out = []
     nfact = 0
     for i, line in enumerate(spec["beats"]):
@@ -233,6 +239,10 @@ def expand(spec):
             out.append(line)
             continue
         m = line["m"]
+        stage = stage0
+        if line.get("cast"):   # this line's hero is another animal; the rest of the stage stays
+            st = {k: v for k, v in spec.get("stage", {}).items() if k not in who}
+            stage = Stage(dict(st, **line["cast"]))
         if m in ("solo", "tiny") and "scene" not in line and stage.wild:
             line = dict(line, scene=stage.wild, scene_p=line.get("scene_p", stage.wild_p))
         scene = line.get("scene", stage.scene)

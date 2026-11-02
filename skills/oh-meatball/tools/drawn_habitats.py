@@ -1,6 +1,8 @@
 """Parametric habitat kit for tools/drawn.py: every habitat is a recipe (backdrop + ground + props) that a
 config can recolour, re-prop and re-light. Use it as a scene: "scene": "kitchen", "scene_p": {"time": "night",
-"props": [["plant", 900, 1500, 1.0]], "palette": {"wall": "#88aacc"}, "add": [...]}.
+"props": [["plant", 900, 1500, 1.0]], "palette": {"wall": "#88aacc"}, "add": [...], "mess": 0-4}.
+mess (any scene): 1 crumbs and wall stains, 2 dust bunnies and a puddle, 3 cobwebs and a trash bag, 4 a second bag,
+a pizza box and a grimy grade; drawn at the frame edges and behind the actors.
 
 Kinds: bedroom, kitchen, bathroom, basement, sill, garden, forest_floor, reef, ocean, deep, desert, swamp, cave,
 microscope, office, press, ship_deck, plus the macro worlds fibers (pillow fabric) and skin (pores) and study.
@@ -13,6 +15,8 @@ railing, mast, lifebuoy, barrel, cells.
 """
 import math
 import random
+
+import numpy as np
 
 from drawn_kit import BG_OUT, OUT, PAL, darker, flat, hexc, ink, lighter, p_blob, p_ellipse, p_poly, p_rrect, \
     p_smooth, shape, src, stroke
@@ -434,18 +438,60 @@ def habitat(kind):
             _ground(ctx, rec["ground"], P, t)
         for name, x, y, s in props:
             PROPS[name](ctx, x, y, s, P, t, time)
+        _mess(ctx, kind, p.get("mess", 0), layer)
         if rec["back"] == "lens":
             _lens_mask(ctx)
         _grade(ctx, time if rec["back"] != "lens" else "day")
     return scene
 
 
-def _wrap(fn):
+def _mess(ctx, kind, level, layer):
+    """Clutter that grows with level (0-4), for "things get worse" episodes. Deterministic per room."""
+    if not level:
+        return
+    layer(1.0)
+    F = FLOOR.get(kind, 1500)
+    rng = random.Random(sum(map(ord, kind)))
+    brown, grey = hexc("#6b4a2a"), hexc("#8d8a84")
+    for k in range(int(5 * level)):   # wall stains
+        x, y = rng.uniform(-80, 1160), rng.uniform(500, F - 260)
+        flat(ctx, lambda c, x=x, y=y, k=k: p_blob(c, x, y, rng.uniform(25, 70), rng.uniform(20, 55), 0.2, k), brown, a=0.22)
+    for k in range(int(14 * level)):   # crumbs on the floor
+        x, y = rng.uniform(-100, 1180), rng.uniform(F + 10, F + 260)
+        flat(ctx, lambda c, x=x, y=y: p_ellipse(c, x, y, rng.uniform(5, 13), rng.uniform(4, 9)), hexc("#c99a5a"), BG_OUT * 0.5)
+    if level >= 2:
+        for k, (x, y) in enumerate([(60, F + 40), (1040, F + 70), (560, F + 220)][:level]):   # dust bunnies
+            shape(ctx, lambda c, x=x, y=y, k=k: p_blob(c, x, y, 70, 38, 0.25, 7 + k), grey, BG_OUT * 0.6, (0, 0.2))
+        flat(ctx, lambda c: p_ellipse(c, 980, F + 160, 120, 26), hexc("#7e8a3a"), a=0.55)   # a sticky puddle
+    if level >= 3:
+        for cx, sx in ((-20, 1), (1100, -1)):   # cobwebs in the top corners
+            for r in (90, 170, 250):
+                stroke(ctx, [(cx + sx * r * math.cos(a), 330 + r * math.sin(a)) for a in np.linspace(0.05, 1.5, 7)], 3,
+                       smooth=True, color=hexc("#f4f4f0"), a=0.7)
+            for a in np.linspace(0.05, 1.5, 5):
+                stroke(ctx, [(cx, 330), (cx + sx * 280 * math.cos(a), 330 + 280 * math.sin(a))], 3, color=hexc("#f4f4f0"), a=0.7)
+        bags = [(120, F + 30)] + ([(1000, F + 50)] if level >= 4 else [])
+        for x, y in bags:   # trash bags
+            shape(ctx, lambda c, x=x, y=y: p_blob(c, x, y - 120, 130, 125, 0.12, 3), hexc("#2f4a33"), BG_OUT, (0.15, 0.1))
+            stroke(ctx, [(x - 25, y - 250), (x, y - 225), (x + 25, y - 255)], 8, color=hexc("#2f4a33"))
+    if level >= 4:
+        shape(ctx, lambda c: p_poly(c, [(300, F + 250), (560, F + 230), (600, F + 290), (330, F + 315)]), hexc("#d9b077"), BG_OUT, (0, 0.2))
+        flat(ctx, lambda c: p_ellipse(c, 450, F + 272, 60, 14), hexc("#c0623c"), a=0.8)   # a greasy pizza box
+        ctx.save()
+        ctx.identity_matrix()
+        ctx.rectangle(0, 0, 1080, 1920)
+        src(ctx, hexc("#5a4a1a"), 0.10)
+        ctx.fill()
+        ctx.restore()
+
+
+def _wrap(fn, kind=""):
     def scene(ctx, t, layer, p):
         fn(ctx, t, layer, p)
+        _mess(ctx, kind, p.get("mess", 0), layer)
         _grade(ctx, p.get("time", "day"))
     return scene
 
 
-SCENES = {k: _wrap(v) for k, v in {**OLD1, **OLD2}.items()}
+SCENES = {k: _wrap(v, k) for k, v in {**OLD1, **OLD2}.items()}
 SCENES.update({k: habitat(k) for k in RECIPES})

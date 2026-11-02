@@ -1,0 +1,519 @@
+{
+ "title": "What If You Never Cleaned Your House Again? (V2: photo What If)",
+ "style": "v3",
+ "voice": "kokoro:onyx",
+ "music": "gen:cold-war",
+ "music_lufs": -19,
+ "cap_phrase": true,
+ "screengate": "warn",
+ "whip": false,
+ "readout": {
+  "label": "DAYS WITHOUT CLEANING",
+  "y": 150,
+  "stat_label": "BUGS",
+  "label_y": 820
+ },
+ "sources": [
+  "University of Kentucky Entomology, Fruit Flies (Ent-621): females lay about 500 eggs; egg to adult takes about a week; eggs laid on the surface of fermenting foods or other moist organic material; they also breed in drains, garbage disposals, trash containers, mops and rags; https://entomology.mgcafe.uky.edu/ef621",
+  "Iowa State University Extension, Yard and Garden, Moth fly (drain fly): usually originate in sink, bathtub, shower or floor drains, especially slow-running or seldom-used ones; larvae feed on the gelatinous film (slime) that builds up inside drains; https://yardandgarden.extension.iastate.edu/encyclopedia/moth-fly",
+  "University of Kentucky Entomology, Cockroach Control Manual (Ent-614): clean up spills and food waste, do not leave dirty dishes or pet food out overnight, do not let garbage pile up; up to 40 nymphs emerge from each German cockroach egg case; the German cockroach can produce several thousand offspring in less than a year; https://entomology.mgcafe.uky.edu/ef614",
+  "University of Kentucky Entomology, House Dust Mites (Ent-646): primary food is dander (skin scales) shed by people and pets; thousands of mites in a single gram of house dust are not uncommon; an infested mattress can contain millions; https://entomology.mgcafe.uky.edu/ef646",
+  "University of Kentucky Entomology, Carpet Beetles (Ent-601): carpet beetles thrive on lint, hair and debris under baseboards and in vents and ducts; a favored food of the larvae is dead insects; https://entomology.mgcafe.uky.edu/ef601",
+  "Penn State Extension, House Centipedes: feed on silverfish, firebrats, carpet beetle larvae, cockroaches, spiders and other small arthropods; frequent sightings indicate some prey arthropod is in abundance; https://extension.psu.edu/house-centipedes",
+  "Connecticut Agricultural Experiment Station, House Centipede fact sheet: 15 pairs of legs (thirty legs); hunts cockroach nymphs, flies, silverfish and spiders; https://portal.ct.gov/-/media/caes/documents/publications/fact_sheets/entomology/house_centipede_scutigera.pdf",
+  "Timeline framing: the DAY numbers are a what-if story, not measured timelines; each day only uses a rate the sources give (egg to adult in about a week; thousands of roaches in less than a year)."
+ ],
+ "beats": [
+  {
+   "say": "What if you never cleaned your house again?",
+   "shots": [
+    {
+     "photo": "Dirty dishes in a sink",
+     "obs": "wm:Sink full of dirty dishes.jpg"
+    },
+    {
+     "photo": "Drosophila melanogaster",
+     "n": 0,
+     "at": "cleaned"
+    }
+   ],
+   "act": "peek",
+   "pose": "shock",
+   "size": 760,
+   "keys": [],
+   "punch": "never",
+   "hook": true,
+   "day": 1,
+   "stat": "FRUIT FLIES"
+  },
+  {
+   "say": "Day one. You leave one dish in the sink, and a banana on the counter.",
+   "shots": [
+    {
+     "photo": "Dirty dishes in a sink",
+     "obs": "wm:Sink full of dirty dishes.jpg"
+    },
+    {
+     "photo": "Dirty dishes in a sink",
+     "obs": "wm:Dirty dishes in the sink.jpg",
+     "at": "the"
+    }
+   ],
+   "act": "stand",
+   "pose": "think",
+   "size": 760,
+   "keys": [
+    "day",
+    "one",
+    "one"
+   ],
+   "punch": "dish"
+  },
+  {
+   "say": "Fruit flies find it first. They lay eggs on the rotting fruit.",
+   "shots": [
+    {
+     "photo": "Drosophila melanogaster",
+     "n": 1
+    },
+    {
+     "photo": "Drosophila melanogaster",
+     "n": 2,
+     "at": "lay"
+    }
+   ],
+   "act": "run_in",
+   "pose": "point",
+   "size": 760,
+   "keys": [
+    "flies",
+    "eggs"
+   ],
+   "punch": "first"
+  },
+  {
+   "say": "One female can lay about five hundred eggs.",
+   "shots": [
+    {
+     "photo": "Drosophila melanogaster",
+     "n": 3
+    },
+    {
+     "photo": "Drosophila melanogaster",
+     "n": 0,
+     "at": "about"
+    }
+   ],
+   "act": "shake",
+   "pose": "shock",
+   "size": 760,
+   "keys": [
+    "one",
+    "five",
+    "hundred",
+    "eggs"
+   ],
+   "punch": "hundred",
+   "stat": "500 EGGS PER FLY"
+  },
+  {
+   "say": "Day three. You hear buzzing in the bathroom.",
+   "shots": [
+    {
+     "photo": "Bathroom drain",
+     "obs": "wm:Bathroom sink drain cover 2017 A.jpg"
+    },
+    {
+     "photo": "Clogmia albipunctata",
+     "n": 0,
+     "at": "buzzing"
+    }
+   ],
+   "act": "peek",
+   "pose": "nervous",
+   "size": 760,
+   "keys": [
+    "day",
+    "three"
+   ],
+   "punch": "buzzing",
+   "day": 3,
+   "stat": "DRAIN FLIES"
+  },
+  {
+   "say": "Drain flies. Their babies live in the slime inside your drain, and eat it.",
+   "shots": [
+    {
+     "photo": "Clogmia albipunctata",
+     "n": 1
+    },
+    {
+     "photo": "Toilet drain",
+     "obs": "wm:Toilet drain.jpg",
+     "at": "slime"
+    }
+   ],
+   "act": "stand",
+   "pose": "think",
+   "size": 760,
+   "keys": [
+    "flies",
+    "slime"
+   ],
+   "punch": "slime"
+  },
+  {
+   "say": "You never scrub it, so the slime keeps feeding them.",
+   "shots": [
+    {
+     "photo": "Toilet drain",
+     "obs": "wm:Toilet drain.jpg"
+    },
+    {
+     "photo": "Clogmia albipunctata",
+     "n": 2,
+     "at": "the"
+    }
+   ],
+   "act": "shake",
+   "pose": "deadpan",
+   "size": 760,
+   "keys": [
+    "slime"
+   ],
+   "punch": "scrub"
+  },
+  {
+   "say": "Day seven. A fruit fly grows from egg to adult in about a week.",
+   "shots": [
+    {
+     "photo": "Dirty dishes in a sink",
+     "obs": "wm:Dirty dishes in the sink.jpg"
+    },
+    {
+     "photo": "Drosophila melanogaster",
+     "n": 1,
+     "at": "egg"
+    }
+   ],
+   "act": "stand",
+   "pose": "shock",
+   "size": 760,
+   "keys": [
+    "day",
+    "seven",
+    "fly"
+   ],
+   "punch": "week",
+   "day": 7
+  },
+  {
+   "say": "Then, silence. Something moves under the fridge.",
+   "shots": [
+    {
+     "photo": "Dirty dishes in a sink",
+     "obs": "wm:Dirty dishes in the sink.jpg"
+    },
+    {
+     "photo": "Blattella germanica",
+     "n": 0,
+     "at": "moves"
+    }
+   ],
+   "act": "hide",
+   "pose": "nervous",
+   "size": 760,
+   "keys": [
+    "silence"
+   ],
+   "punch": "moves",
+   "stat": "COCKROACHES"
+  },
+  {
+   "say": "Cockroaches. Your spills and crumbs are dinner.",
+   "shots": [
+    {
+     "photo": "Blattella germanica",
+     "n": 1
+    },
+    {
+     "photo": "Blattella germanica",
+     "n": 2,
+     "at": "and"
+    }
+   ],
+   "act": "run_off",
+   "pose": "shock",
+   "size": 760,
+   "keys": [
+    "cockroaches"
+   ],
+   "punch": "crumbs"
+  },
+  {
+   "say": "One German cockroach egg case hatches up to forty babies.",
+   "shots": [
+    {
+     "photo": "Blattella germanica",
+     "n": 3
+    },
+    {
+     "photo": "Blattella germanica",
+     "n": 0,
+     "at": "hatches"
+    }
+   ],
+   "act": "shake",
+   "pose": "shock",
+   "size": 760,
+   "keys": [
+    "one",
+    "cockroach",
+    "forty"
+   ],
+   "punch": "forty",
+   "stat": "40 PER EGG CASE"
+  },
+  {
+   "say": "Day thirty. Dust, hair and dead skin pile up in your bed.",
+   "shots": [
+    {
+     "photo": "Messy room",
+     "obs": "wm:Messy UVA dorm.jpg"
+    },
+    {
+     "photo": "Messy room",
+     "obs": "wm:Old table in a messy room (Unsplash).jpg",
+     "at": "skin"
+    }
+   ],
+   "act": "peek",
+   "pose": "nervous",
+   "size": 760,
+   "keys": [
+    "day",
+    "thirty"
+   ],
+   "punch": "skin",
+   "day": 30,
+   "stat": "DUST MITES"
+  },
+  {
+   "say": "Dust mites eat the skin you shed. Thousands can live in one gram of dust.",
+   "shots": [
+    {
+     "photo": "Dust mite",
+     "obs": "wm:CSIRO ScienceImage 11085 A scanning electron micrograph of a female dust mite.jpg"
+    },
+    {
+     "photo": "Messy room",
+     "obs": "wm:Messy UVA dorm.jpg",
+     "at": "Thousands"
+    }
+   ],
+   "act": "shake",
+   "pose": "shock",
+   "size": 760,
+   "keys": [
+    "mites",
+    "thousands",
+    "one"
+   ],
+   "punch": "thousands",
+   "stat": "1,000s PER GRAM OF DUST"
+  },
+  {
+   "say": "Carpet beetles move in for the lint, the hair, and the dead bugs.",
+   "shots": [
+    {
+     "photo": "Anthrenus verbasci",
+     "n": 0
+    },
+    {
+     "photo": "Anthrenus verbasci",
+     "n": 1,
+     "at": "lint"
+    }
+   ],
+   "act": "stand",
+   "pose": "think",
+   "size": 760,
+   "keys": [
+    "beetles"
+   ],
+   "punch": "lint",
+   "stat": "CARPET BEETLES"
+  },
+  {
+   "say": "Be honest. What would you do?",
+   "shots": [
+    {
+     "photo": "Messy room",
+     "obs": "wm:Old table in a messy room (Unsplash).jpg"
+    },
+    {
+     "photo": "Anthrenus verbasci",
+     "n": 2,
+     "at": "would"
+    }
+   ],
+   "act": "stand",
+   "pose": "deadpan",
+   "size": 760,
+   "keys": [],
+   "punch": "honest",
+   "ask": {
+    "q": "WHAT WOULD YOU DO?",
+    "choices": [
+     "🚚 MOVE OUT",
+     "🔥 BURN IT",
+     "🧽 CLEAN NOW"
+    ],
+    "at": "honest"
+   }
+  },
+  {
+   "say": "Day three sixty five. One cockroach can lead to thousands in under a year.",
+   "shots": [
+    {
+     "photo": "Cluttered storage room",
+     "obs": "wm:Messy storage room with boxes.jpg"
+    },
+    {
+     "photo": "Blattella germanica",
+     "n": 1,
+     "at": "lead"
+    }
+   ],
+   "act": "shake",
+   "pose": "shock",
+   "size": 760,
+   "keys": [
+    "day",
+    "three",
+    "sixty",
+    "five",
+    "one",
+    "cockroach",
+    "thousands"
+   ],
+   "punch": "thousands",
+   "day": 365,
+   "stat": "ROACHES: 1,000s IN A YEAR"
+  },
+  {
+   "say": "Then something with thirty legs comes for them.",
+   "shots": [
+    {
+     "photo": "Cluttered storage room",
+     "obs": "wm:Messy storage room with boxes.jpg"
+    },
+    {
+     "photo": "Scutigera coleoptrata",
+     "n": 0,
+     "at": "legs"
+    }
+   ],
+   "act": "hide",
+   "pose": "nervous",
+   "size": 760,
+   "keys": [
+    "thirty"
+   ],
+   "punch": "thirty",
+   "stat": "HOUSE CENTIPEDES"
+  },
+  {
+   "say": "House centipedes. They hunt your cockroaches, spiders and beetle larvae.",
+   "shots": [
+    {
+     "photo": "Scutigera coleoptrata",
+     "n": 1
+    },
+    {
+     "photo": "Scutigera coleoptrata",
+     "n": 2,
+     "at": "cockroaches"
+    }
+   ],
+   "act": "run_in",
+   "pose": "point",
+   "size": 760,
+   "keys": [
+    "centipedes",
+    "cockroaches"
+   ],
+   "punch": "hunt"
+  },
+  {
+   "say": "The twist? Lots of centipedes means lots of bugs for them to eat.",
+   "shots": [
+    {
+     "photo": "Scutigera coleoptrata",
+     "n": 3
+    },
+    {
+     "photo": "Cluttered storage room",
+     "obs": "wm:Messy storage room with boxes.jpg",
+     "at": "lots"
+    }
+   ],
+   "act": "stand",
+   "pose": "think",
+   "size": 760,
+   "keys": [
+    "centipedes"
+   ],
+   "punch": "twist"
+  },
+  {
+   "say": "So how many days would you last?",
+   "shots": [
+    {
+     "photo": "Dirty dishes in a sink",
+     "obs": "wm:Dirty dishes in the sink.jpg"
+    },
+    {
+     "photo": "Cluttered storage room",
+     "obs": "wm:Messy storage room with boxes.jpg",
+     "at": "days"
+    }
+   ],
+   "act": "stand",
+   "pose": "deadpan",
+   "size": 760,
+   "keys": [],
+   "punch": "days"
+  },
+  {
+   "say": "Follow me. Part two: never wash your sheets.",
+   "shots": [
+    {
+     "photo": "Dirty dishes in a sink",
+     "obs": "wm:Sink full of dirty dishes.jpg"
+    },
+    {
+     "photo": "Drosophila melanogaster",
+     "n": 0,
+     "at": "never"
+    }
+   ],
+   "act": "stand",
+   "pose": "point",
+   "size": 760,
+   "keys": [],
+   "punch": "sheets",
+   "ask": {
+    "q": "IS YOUR HOUSE NEXT?",
+    "choices": [
+     "DAY 1",
+     "DAY 365"
+    ],
+    "at": "Follow"
+   }
+  }
+ ],
+ "_note": "V2 of What If You Never Cleaned Your House? (same script and facts as scripts/drawn-house/outlines/what-if-never-clean.yaml): real photos (iNaturalist CC0/CC BY, Wikimedia Commons PD/CC0/CC BY), the DAYS WITHOUT CLEANING readout, deep Kokoro onyx narrator, cold-war bed rising into each day.",
+ "tempo": 0.95,
+ "max_shot": 2.2
+}

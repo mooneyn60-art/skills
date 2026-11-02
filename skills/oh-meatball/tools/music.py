@@ -413,8 +413,9 @@ HIT = {"sleep": 69, "waltz": 81, "mystery": 81, "conspiracy": 81, "detective": 7
        "science": 88}
 
 
-def render(kind, total, reveals=(), out=None, turn=None, turn_kind="mystery"):
+def render(kind, total, reveals=(), out=None, turn=None, turn_kind="mystery", drop=True, hit=True):
     """The bed as stereo float32 (n, 2) at SR, exactly `total` s long, loop-safe; written to `out` if given.
+    drop/hit = False: the reveals only raise the build (no drop-out before them, no boom + bell on them).
     turn = seconds of the story's dark turn: a comic bed ("absurd", "waltz", "detective") crossfades over 1 s into
     the tense `turn_kind` bed there (Voggle shape, research/40: comic until the story turns dark)."""
     reveals = sorted(r for r in reveals if 0.5 < r < total)
@@ -431,8 +432,9 @@ def render(kind, total, reveals=(), out=None, turn=None, turn_kind="mystery"):
     xf = int(min(1.2, total / 6) * SR)
     sig = mix[:N + xf].copy()
     t = np.arange(len(sig)) / SR
-    sig *= gaps(t, reveals)
-    for r in reveals:   # the payoff hit: low boom + a bell a fifth over the key
+    if drop:
+        sig *= gaps(t, reveals)
+    for r in (reveals if hit else ()):   # the payoff hit: low boom + a bell a fifth over the key
         add(sig, boom(1.4) * 0.55 + bell(hz(HIT[kind])) * 0.25, r)
     ramp = np.linspace(0, 1, xf, dtype=np.float32)   # loop: the tail fades into the head
     head = sig[:xf] * ramp + sig[N:N + xf] * (1 - ramp)

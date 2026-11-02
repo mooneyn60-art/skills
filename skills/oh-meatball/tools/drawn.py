@@ -25,6 +25,15 @@ Spec (see scripts/drawn-1027/*.json):
     sfx                    ["pop@word", "whoosh@0.4"]: tools' sfx/*.wav at a word or time in the beat (at most 2
                            a line, 0.5 s apart; spec "sfx_gain" 0.22, ducked "sfx_duck_db" -6 under words)
     flash                  [at, ...] white camera-flash frames;  shake: [at, ...] camera shake hits
+  counter                  a persistent number ticker, top-center, for the whole video ("What If" format):
+                           {"label": "DAY", "values": [1, 3, 7, 30, 365], "at": [0, 2, 4, 6, 8]} (beat indices
+                           where each value starts), or a beat's own "counter": N; it rolls up over "roll" s at the
+                           beat start; optional "y" (center, px), "px", "color", "sfx" (cue on each tick, "whoosh")
+  cap_key                  words drawn yellow in the captions (the key word of a line: numbers, the animal)
+  beat "card"              a text card over the line: {"rows": [[text, "#hex", px, chip], ...], "y", "at", "pop"}
+                           (chip true = a rounded dark chip behind the row; rows stack downward from "y")
+  music_reveals            "counter": every counter tick is a music.render reveal (the bed rises into each new
+                           value, no drop-out, no hit)
   loop                     true: the last line ends on the first frame's framing, marks and poses (YouTube loop)
   recut                    false = no automatic camera change every <= 2.5 s inside a long line
   tempo                    dead-air trim (default on): {"lead", "tail", "thr", "cam"}; false = the old timing
@@ -329,10 +338,13 @@ def plan(spec, work):
         if b.get("keep"):
             actors = {k: dict(v, moves=[], set=[]) for k, v in prev_actors.items() if k not in b.get("drop", [])}
         for a in b.get("actors", []):
-            base = dict(prev_actors.get(a["id"], {}), moves=[], set=[])
+            prev = prev_actors.get(a["id"], {})
+            if prev.get("type") not in (None, a.get("type")):   # another animal under the same id: nothing leaks
+                prev = {}
+            base = dict(prev, moves=[], set=[])
             base.update(a)
-            if a["id"] in prev_actors and "p" in a:
-                base["p"] = {**prev_actors[a["id"]].get("p", {}), **a["p"]}
+            if prev and "p" in a:
+                base["p"] = {**prev.get("p", {}), **a["p"]}
             actors[a["id"]] = base
         shots = b.get("shots") or [{}]
         sh2 = []
@@ -703,17 +715,132 @@ def caption_chunks(beats):
 _CAP = {}
 
 
-def caption_img(text, px):
+def caption_img(text, px, keys=()):
     if (text, px) not in _CAP:
         f = ImageFont.truetype(FONT, px)
         sw = max(5, px // 11)
         d = ImageDraw.Draw(Image.new("RGBA", (10, 10)))
         x0, y0, x1, y1 = d.textbbox((0, 0), text, font=f, stroke_width=sw)
         im = Image.new("RGBA", (x1 - x0 + 8, y1 - y0 + 8), (0, 0, 0, 0))
-        ImageDraw.Draw(im).text((4 - x0, 4 - y0), text, font=f, fill=(255, 255, 255, 255), stroke_width=sw,
-                                stroke_fill=(17, 17, 17, 255))
+        dr = ImageDraw.Draw(im)
+        x = 4 - x0
+        for k, w in enumerate(text.split(" ")):   # key words (spec "cap_key") in yellow, the rest white
+            key = "".join(ch for ch in w.lower() if ch.isalnum()) in keys
+            dr.text((x, 4 - y0), w, font=f, fill=(255, 211, 77, 255) if key else (255, 255, 255, 255), stroke_width=sw,
+                    stroke_fill=(17, 17, 17, 255))
+            x += f.getlength(w + " ")
         _CAP[(text, px)] = im
     return _CAP[(text, px)]
+
+
+_CARD = {}
+
+
+def card_img(rows):
+    """A stacked text card: rows of [text, color, px, chip]; chip rows get a rounded dark plate."""
+    key = json.dumps(rows)
+    if key not in _CARD:
+        parts = []
+        for r in rows:
+            text, col, px = r[0], r[1] if len(r) > 1 else "#ffffff", r[2] if len(r) > 2 else 110
+            chip = len(r) > 3 and r[3]
+            f = ImageFont.truetype(FONT, px)
+            sw = 0 if chip else max(5, px // 10)
+            d = ImageDraw.Draw(Image.new("RGBA", (10, 10)))
+            x0, y0, x1, y1 = d.textbbox((0, 0), text, font=f, stroke_width=sw)
+            pad = (36, 18) if chip else (6, 6)
+            im = Image.new("RGBA", (x1 - x0 + 2 * pad[0], y1 - y0 + 2 * pad[1]), (0, 0, 0, 0))
+            dr = ImageDraw.Draw(im)
+            if chip:
+                dr.rounded_rectangle((0, 0, im.width - 1, im.height - 1), radius=im.height // 2, fill=(18, 22, 40, 230),
+                                     outline=(255, 255, 255, 255), width=4)
+            c = tuple(int(col.lstrip("#")[i:i + 2], 16) for i in (0, 2, 4)) + (255,)
+            dr.text((pad[0] - x0, pad[1] - y0), text, font=f, fill=c, stroke_width=sw, stroke_fill=(10, 10, 10, 255))
+            parts.append(im)
+        gap = 22
+        im = Image.new("RGBA", (max(p.width for p in parts), sum(p.height for p in parts) + gap * (len(parts) - 1)), (0, 0, 0, 0))
+        y = 0
+        for p_ in parts:
+            im.alpha_composite(p_, ((im.width - p_.width) // 2, y))
+            y += p_.height + gap
+        _CARD[key] = im
+    return _CARD[key]
+
+
+# ---------------------------------------------------------------- counter (a persistent "DAY 1 -> DAY 365" ticker)
+
+COUNTER_ROLL = 0.6
+
+
+def counter_ticks(spec, beats):
+    """[(t, value)] from beat "counter" values, else spec counter "values" at beat indices "at"."""
+    c = spec.get("counter")
+    if not c:
+        return []
+    ticks = [(b["t0"], b["counter"]) for b in beats if "counter" in b]
+    if not ticks and c.get("values"):
+        at = c.get("at") or list(range(len(c["values"])))
+        ticks = [(beats[i]["t0"], v) for i, v in zip(at, c["values"]) if i < len(beats)]
+    out = []
+    for t, v in sorted(ticks):
+        if not out or out[-1][1] != v:
+            out.append((t, v))
+    return out
+
+
+def counter_text(ticks, label, T, roll=COUNTER_ROLL):
+    """(text, pop 0..1) at T: the current value, rolling up (geometrically) from the previous one after a tick."""
+    if not ticks:
+        return None, 0.0
+    k = max([i for i, (t, _) in enumerate(ticks) if t <= T + 1e-9] or [0])
+    t, v = ticks[k]
+    u = (T - t) / roll
+    if k and 0 <= u < 1:
+        a = max(ticks[k - 1][1], 1)
+        v = int(round(a * (max(v, 1) / a) ** ease(u)))
+    pop = math.sin(math.pi * min(1.0, max(0.0, (T - t) / (roll + 0.25)))) if k else 0.0
+    return f"{label} {v}".strip(), pop
+
+
+_CNT = {}
+
+
+def counter_img(text, px, color):
+    key = (text, px, color)
+    if key not in _CNT:
+        f = ImageFont.truetype(FONT, px)
+        sw = max(6, px // 9)
+        d = ImageDraw.Draw(Image.new("RGBA", (10, 10)))
+        x0, y0, x1, y1 = d.textbbox((0, 0), text, font=f, stroke_width=sw)
+        im = Image.new("RGBA", (x1 - x0 + 8, y1 - y0 + 8), (0, 0, 0, 0))
+        ImageDraw.Draw(im).text((4 - x0, 4 - y0), text, font=f, fill=color, stroke_width=sw, stroke_fill=(10, 10, 10, 255))
+        _CNT[key] = im
+    return _CNT[key]
+
+
+def paste(arr, im, cx, cy):
+    """Alpha-composite a PIL RGBA image onto a BGRA frame, centred at (cx, cy), clipped to the frame."""
+    a = np.asarray(im).astype(np.float32)
+    x0, y0 = int(cx - im.width / 2), int(cy - im.height / 2)
+    xa, ya, xb, yb = max(0, x0), max(0, y0), min(W, x0 + im.width), min(H, y0 + im.height)
+    if xa >= xb or ya >= yb:
+        return
+    a = a[ya - y0:yb - y0, xa - x0:xb - x0]
+    reg = arr[ya:yb, xa:xb].astype(np.float32)
+    al = a[..., 3:4] / 255
+    reg[..., :3] = reg[..., :3] * (1 - al) + a[..., [2, 1, 0]] * al
+    arr[ya:yb, xa:xb] = reg.astype(np.uint8)
+
+
+def draw_counter(arr, T):
+    c = G.get("counter")
+    if not c:
+        return
+    text, pop = counter_text(G["ticks"], c.get("label", ""), T, c.get("roll", COUNTER_ROLL))
+    if text:
+        px = int(c.get("px", 150) * (1 + 0.12 * pop))
+        col = tuple(c.get("color", [255, 211, 77])) + (255,)
+        paste(arr, counter_img(text, px, col), W // 2, c.get("y", 300))
 
 
 # ---------------------------------------------------------------- the render loop
@@ -764,12 +891,20 @@ def frame_at(f):
         ctx.fill()
     surf.flush()
     base = np.ndarray((H, W, 4), np.uint8, surf.get_data()).copy()
+    card = b.get("card")
+    if card and t >= at_time(b["words"], card.get("at", 0.0)):
+        im = card_img(card["rows"])
+        u = min(1.0, (t - at_time(b["words"], card.get("at", 0.0))) / 0.18)
+        if u < 1:
+            im = im.resize((max(1, int(im.width * (0.6 + 0.4 * u))), max(1, int(im.height * (0.6 + 0.4 * u)))))
+        paste(base, im, W // 2, card.get("y", 760) + im.height // 2)
+    draw_counter(base, T)
     outs = [base]
     if G.get("cap_px"):
         cap = base.copy()
         for s, e, text in G["caps"]:
             if s <= T < e:
-                im = caption_img(text, G["cap_px"])
+                im = caption_img(text, G["cap_px"], G.get("cap_key", ()))
                 arr = np.asarray(im).astype(np.float32)
                 x0 = (W - im.width) // 2
                 y0 = int(G.get("cap_y", 1530)) - im.height // 2
@@ -786,10 +921,10 @@ def frame_at(f):
 SFX_MAX, SFX_GAP, SFX_DUCK_DB = 2, 0.5, -6.0   # Nolan 10/28 "get rid of the loud beeps and make it softer"
 
 
-def sfx_cues(beats):
+def sfx_cues(beats, ticks=(), tick_sfx=None):
     """[(t, name)] of the cues to play: at most SFX_MAX a line and SFX_GAP s between any two. A line's cues are
     kept in its list order (gag cues first, then the macro's), footsteps last; the rest are dropped."""
-    kept = []
+    kept = [(t, tick_sfx) for t, _ in ticks[1:]] if tick_sfx else []   # each counter tick gets its cue first
     for b in beats:
         cand = []
         for k, e in enumerate(b.get("sfx", [])):
@@ -816,7 +951,9 @@ def mix_audio(spec, beats, total, path):
         voice[o:o + len(a)] += a[:max(0, n - o)]
         for s0, e0, _ in b["words"]:
             talk[int((b["t0"] + s0) * SR):int((b["t0"] + e0) * SR)] = 1.0
-    for t, name in sfx_cues(beats):
+    ticks = counter_ticks(spec, beats)
+    tick_sfx = (spec.get("counter") or {}).get("sfx", "whoosh") if ticks else None
+    for t, name in sfx_cues(beats, ticks, tick_sfx):
         kit = os.path.join(ROOT, "sfx", spec.get("sfx_kit", "v2"), name + ".wav")   # v2 nature kit (10/28)
         with wave.open(kit if os.path.exists(kit) else os.path.join(ROOT, "sfx", name + ".wav")) as w:
             raw = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768
@@ -836,8 +973,11 @@ def mix_audio(spec, beats, total, path):
         on = np.abs(sfx) > 1e-4
         print(f"sfx stats: voice peak {db(np.abs(voice).max()):.1f} dBFS rms {db(np.sqrt(np.mean(voice[talk > 0.5] ** 2))):.1f}"
               f" | sfx peak {db(np.abs(sfx).max()):.1f} rms(active) {db(np.sqrt(np.mean(sfx[on] ** 2)) if on.any() else 0):.1f}"
-              f" | cues {len(sfx_cues(beats))}", flush=True)
-    bed = music.render(spec.get("music", "detective"), total)
+              f" | cues {len(sfx_cues(beats, ticks, tick_sfx))}", flush=True)
+    if spec.get("music_reveals") == "counter":   # the bed builds into every new counter value, never drops out
+        bed = music.render(spec.get("music", "detective"), total, [t for t, _ in ticks[1:]], drop=False, hit=False)
+    else:
+        bed = music.render(spec.get("music", "detective"), total)
     bed = bed.mean(1) if bed.ndim == 2 else bed
     g = 10 ** (spec.get("music_db", -21) / 20)
     mus = np.zeros(n, np.float32)
@@ -882,7 +1022,9 @@ def main():
     t_start = time.time()
     beats, total = plan(spec, work)
     G.update(fps=args.fps, beats=beats, rigs=rig_tracks(beats, args.fps), caps=caption_chunks(beats),
-             cap_px=spec.get("captions", 66), cap_y=spec.get("caption_y", 1530))
+             cap_px=spec.get("captions", 66), cap_y=spec.get("caption_y", 1530), counter=spec.get("counter"),
+             cap_key=set(spec.get("cap_key", ())))
+    G["ticks"] = counter_ticks(spec, beats)
     nf = int(total * args.fps)
     print(f"plan: {len(beats)} beats, {total:.2f} s, {nf} frames", flush=True)
     if args.stills:
