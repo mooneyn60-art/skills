@@ -7,6 +7,7 @@ import { makeCentipede, animateCentipede, makeRoach, makeBathroom, makeInterior,
 import * as P from './props.js';
 import { drawCaption, drawFactCard, drawMapCard, drawLease, drawWatermark } from './cards.js';
 import { buildPlan } from './shots.js';
+import { buildPlanYT } from './shots_yt.js';
 
 const TL = await (await fetch('../work/timeline.json')).json();
 const L = TL.lines, T_END = TL.total;
@@ -60,8 +61,11 @@ S.boxes = P.makeBoxes(); S.boxes.position.set(-0.25, 0, 1.0); scene.add(S.boxes)
 S.cal = P.makeCalendar(); scene.add(S.cal);
 S.towel = P.makeTowel(); S.towel.position.set(0.2, 0, 0.62); S.towel.rotation.y = 0.5; scene.add(S.towel);
 const looseLegOf = S.cent.userData.legs.find((l) => l.i === 6 && l.side === 1);   // the leg that drops off
+S.legHip = looseLegOf.yaw.parent;
+const legMats = []; S.legHip.traverse((o) => { if (o.isMesh) { o.material = o.material.clone(); legMats.push([o.material, o.material.color.clone()]); } });
+const FRESH = new THREE.Color(0xfff4dc);   // a regrown leg starts pale (fresh molt), then darkens
 
-const PLAN = buildPlan(L, T_END);
+const PLAN = (TL.key === 'youtube' ? buildPlanYT : buildPlan)(L, T_END);   // timeline key: tiktok (default) | youtube
 const lineIdx = (t) => { let i = 0; while (i + 1 < L.length && PLAN.start(i + 1) <= t) i++; return i; };
 const speaking = (t) => L.find((l) => t >= l.t - 0.02 && t < l.t + l.dur + 0.02);
 const env = (l, t) => { if (!l) return 0; const i = Math.floor((t - l.t) * TL.fps); return l.env[Math.max(0, Math.min(l.env.length - 1, i))] || 0; };
@@ -84,10 +88,15 @@ function stateAt(t) {
   place(S.cent, cp); S.cent.visible = !cfg.hideCent;
   const travel = Math.hypot(cm.p1[0] - cm.p0[0], cm.p1[1] - cm.p0[1]) * u;
   animateCentipede(S.cent, cm.still ? 0.3 : t * 0.25 + travel * 30, 1, cm.still ? 0 : u > 0 && u < 1 ? 1 : 0.25);
-  if (looseLegOf) looseLegOf.yaw.parent.visible = t < PLAN.legDrop;
+  {   // the dropped leg; a plan with legRegrow scales a new one back in at the hip
+    const g = PLAN.legRegrow != null ? clamp01((t - PLAN.legRegrow) / 0.45) : 0, s = t < PLAN.legDrop ? 1 : Math.max(0.001, back(g));
+    S.legHip.visible = t < PLAN.legDrop || g > 0; S.legHip.scale.set(s, s, looseLegOf.side * s);
+    const pale = g > 0 ? 0.7 * (1 - clamp01((t - PLAN.legRegrow - 0.6) / 0.9)) : 0;
+    for (const [m, c0] of legMats) m.color.copy(c0).lerp(FRESH, pale);
+  }
   S.cent.userData.pos = cp;
   // Meatball
-  const mbIn = PLAN.mbIn, k = t < mbIn ? 0 : back((t - mbIn) / 0.3);
+  const mbIn = PLAN.mbIn, k = (t < mbIn ? 0 : back((t - mbIn) / 0.3)) * (PLAN.mbOut != null ? 1 - ease((t - PLAN.mbOut) / 0.25) : 1);
   S.mb.visible = k > 0.001 && !cfg.hideMb; S.mb.scale.setScalar(S.MB * Math.max(0.001, k));
   const mp = cfg.mbAt || PLAN.MBPOS; place(S.mb, mp, (0.85 + 0.95 + 0.08) * S.MB * Math.max(0.001, k));
   P.poseMeatball(S.mb, t, P.MB_POSES[cfg.mbPose || 'idle'], who === 'M' ? e : 0, cfg.mood || 'calm');
@@ -110,7 +119,7 @@ function camAt(t) {
   let c, l;
   if (sh.c0) { c = V(sh.c0).lerp(V(sh.c1 || sh.c0), u); l = V(sh.l0).lerp(V(sh.l1 || sh.l0), u); }
   else {
-    const tg = PLAN.anchor(sh.tgt, S), yaw = (sh.yaw + (sh.dyaw ?? 8) * u) * Math.PI / 180, d = sh.dist * (1 + ((sh.push ?? 0.88) - 1) * u);
+    const tg = PLAN.anchor(sh.tgt, S).add(V(sh.off || [0, 0, 0])), yaw = (sh.yaw + (sh.dyaw ?? 8) * u) * Math.PI / 180, d = sh.dist * (1 + ((sh.push ?? 0.88) - 1) * u);
     l = tg.clone().add(new THREE.Vector3(0, sh.ly || 0, 0));
     c = tg.clone().add(new THREE.Vector3(Math.cos(yaw) * d, sh.h * (d / sh.dist), Math.sin(yaw) * d));
   }
