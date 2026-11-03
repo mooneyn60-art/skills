@@ -82,7 +82,7 @@ def specs(o):
             "photo_credits": [], "voice": o.get("voice", VOICE), "rate": o.get("rate", "+10%"), "pitch": o.get("pitch", "+3Hz"),
             "music": o.get("music", "mystery"), "music_db": o.get("music_db", -20), "captions": 66,
             "caption_y": o.get("caption_y", 1640), "stage": stage,
-            **{k: o[k] for k in ("counter", "music_reveals", "cap_key", "sfx_gain") if k in o},
+            **{k: o[k] for k in ("counter", "music_reveals", "cap_key", "sfx_gain", "cut_whoosh") if k in o},
             "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines."}
     # TikTok says "Follow", not "Subscribe": Creator Rewards needs 10K followers (Nolan's TikTok analytics 10/28)
     tt_tease = dict(tease, say="Follow me. " + o["next"], **tt_room)

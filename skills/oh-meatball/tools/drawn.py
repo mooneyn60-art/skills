@@ -29,6 +29,7 @@ Spec (see scripts/drawn-1027/*.json):
                            {"label": "DAY", "values": [1, 3, 7, 30, 365], "at": [0, 2, 4, 6, 8]} (beat indices
                            where each value starts), or a beat's own "counter": N; it rolls up over "roll" s at the
                            beat start; optional "y" (center, px), "px", "color", "sfx" (cue on each tick, "whoosh")
+  cut_whoosh               true: a soft whoosh on every line change (each line is its own scene)
   cap_key                  words drawn yellow in the captions (the key word of a line: numbers, the animal)
   beat "card"              a text card over the line: {"rows": [[text, "#hex", px, chip], ...], "y", "at", "pop"}
                            (chip true = a rounded dark chip behind the row; rows stack downward from "y")
@@ -921,10 +922,13 @@ def frame_at(f):
 SFX_MAX, SFX_GAP, SFX_DUCK_DB = 2, 0.5, -6.0   # Nolan 10/28 "get rid of the loud beeps and make it softer"
 
 
-def sfx_cues(beats, ticks=(), tick_sfx=None):
+def sfx_cues(beats, ticks=(), tick_sfx=None, cuts=()):
     """[(t, name)] of the cues to play: at most SFX_MAX a line and SFX_GAP s between any two. A line's cues are
     kept in its list order (gag cues first, then the macro's), footsteps last; the rest are dropped."""
     kept = [(t, tick_sfx) for t, _ in ticks[1:]] if tick_sfx else []   # each counter tick gets its cue first
+    for t in cuts:   # spec "cut_whoosh": a soft whoosh on every line's scene change (unless a tick cue is there)
+        if all(abs(t - t2) >= SFX_GAP for t2, _ in kept):
+            kept.append((t, "whoosh"))
     for b in beats:
         cand = []
         for k, e in enumerate(b.get("sfx", [])):
@@ -953,7 +957,8 @@ def mix_audio(spec, beats, total, path):
             talk[int((b["t0"] + s0) * SR):int((b["t0"] + e0) * SR)] = 1.0
     ticks = counter_ticks(spec, beats)
     tick_sfx = (spec.get("counter") or {}).get("sfx", "whoosh") if ticks else None
-    for t, name in sfx_cues(beats, ticks, tick_sfx):
+    cuts = [max(0.0, b["t0"] - 0.08) for b in beats[1:]] if spec.get("cut_whoosh") else []
+    for t, name in sfx_cues(beats, ticks, tick_sfx, cuts):
         kit = os.path.join(ROOT, "sfx", spec.get("sfx_kit", "v2"), name + ".wav")   # v2 nature kit (10/28)
         with wave.open(kit if os.path.exists(kit) else os.path.join(ROOT, "sfx", name + ".wav")) as w:
             raw = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768
@@ -1015,6 +1020,10 @@ def main():
     st = raw.get("stage", {})
     if st.get("creature_cfg") and not st.get("actor"):   # an inline new animal: build it before the fork pool
         ACTORS.setdefault("sp." + st["creature"], build(dict(SPECIES.get(st["creature"], {}), **st["creature_cfg"])))
+    for b in raw.get("beats", []):   # a line's "cast" can bring its own inline animal too
+        c = b.get("cast") or {}
+        if c.get("creature_cfg") and not c.get("actor"):
+            ACTORS.setdefault("sp." + c["creature"], build(dict(SPECIES.get(c["creature"], {}), **c["creature_cfg"])))
     spec = drawn_macros.expand(raw)
     work = args.work or os.path.join(os.path.dirname(os.path.abspath(args.out)), ".work-" +
                                      os.path.splitext(os.path.basename(args.out))[0])

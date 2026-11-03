@@ -114,6 +114,13 @@ def _spider_mark(ctx, cfg, ax, ay, arx, ary):
     elif m == "stripes":   # wolf spider: pale stripes along the back
         for k in (-1, 0, 1):
             flat(ctx, lambda c, k=k: p_ellipse(c, ax + 10, ay - 30 + k * 32, arx * 0.75, 8, -0.08), lighter(hexc(cfg["color"]), 0.4))
+    elif m == "mottle":    # house spider: dark mottled chevrons and spots on a tan abdomen
+        dk = darker(hexc(cfg["color"]), 0.55)
+        for (dx, dy, r) in ((-40, -60, 18), (20, -45, 14), (-70, 0, 15), (0, 5, 20), (50, 20, 12), (-30, 55, 16), (30, 70, 11)):
+            flat(ctx, lambda c, dx=dx, dy=dy, r=r: p_ellipse(c, ax + dx, ay + dy, r, r * 0.8), dk)
+        for k in range(3):
+            stroke(ctx, [(ax - 70 + k * 40, ay - 95 + k * 4), (ax - 50 + k * 40, ay - 75), (ax - 70 + k * 40, ay - 55)], 6,
+                   color=darker(hexc(cfg["color"]), 0.6))
     elif m == "chevrons":
         for k in range(3):
             stroke(ctx, [(ax - 60 + k * 45, ay - 40), (ax - 40 + k * 45, ay - 15), (ax - 60 + k * 45, ay + 10)], 7,
@@ -138,6 +145,13 @@ def wolf_spider(ctx, t, p):
 def jumping_spider(ctx, t, p):
     _spider(ctx, t, p, {"color": "#2b2b2f", "dark": "#18181b", "abd": (120, 100), "mark": "chevrons", "hair": True,
                         "big_eyes": True, "leg": 0.75, "leg_w": 18, "fang": "#3fb6a8"})
+
+
+def house_spider(ctx, t, p):
+    """Common house spider (Parasteatoda tepidariorum, a cobweb spider): small carapace, a tall round mottled
+    brown abdomen, long thin legs (UC IPM Pest Notes: Spiders)."""
+    _spider(ctx, t, p, {"color": "#9a7b55", "dark": "#6c5236", "abd": (150, 150), "mark": "mottle", "leg": 1.3,
+                        "leg_w": 10})
 
 
 def camel_spider(ctx, t, p):
@@ -347,7 +361,7 @@ def cassowary(ctx, t, p):
 
 ANATOMY = {"cassowary": cassowary, "camel_cricket": camel_cricket, "cockroach": cockroach,
            "black_widow": black_widow, "brown_recluse": brown_recluse, "wolf_spider": wolf_spider,
-           "jumping_spider": jumping_spider, "camel_spider": camel_spider, "scabies_mite": scabies_mite,
+           "jumping_spider": jumping_spider, "camel_spider": camel_spider, "house_spider": house_spider, "scabies_mite": scabies_mite,
            "house_centipede": house_centipede}
 
 
