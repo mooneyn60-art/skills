@@ -31,6 +31,7 @@ from drawn_kit import back_out, ease  # noqa: E402
 W, H = 1920, 1080
 FONT = os.path.join(os.path.dirname(HERE), "brand/fonts/Anton-Regular.ttf")
 CAM_K, CAM_DY = 0.72, -30
+ZOOM_MIN = 0.8
 CAST_K = 1.2   # creatures a little bigger than in the Shorts: the animal, not Meatball, carries the frame
 COLS = [("KEEP", "#3fb950"), ("MEH", "#8a94a6"), ("KILL", "#ff9f1c"), ("DANGER", "#e5383b")]
 STAMP = {"KEEP": "KEEP IT", "MEH": "MEH", "KILL": "KILL IT", "DANGER": "DANGER"}
@@ -244,7 +245,8 @@ _orig_expand = drawn_macros.expand
 
 
 def _wide(c):
-    return [c[0], c[1] + CAM_DY, round(c[2] * CAM_K, 4)] if isinstance(c, list) and len(c) == 3 else c
+    # zoom floor: the rooms are drawn ~2600 px wide around the stage, so a wider pull-out shows the canvas edge
+    return [c[0], c[1] + CAM_DY, round(max(c[2] * CAM_K, ZOOM_MIN), 4)] if isinstance(c, list) and len(c) == 3 else c
 
 
 def expand(spec):
@@ -256,11 +258,24 @@ def expand(spec):
                 if k in s:
                     s[k] = _wide(s[k])
         b.pop("kk", None)
-        b.setdefault("actors", []).extend(kk)   # the long-form overlays, after the macro's actors
+        # the HUD meter is the only danger gauge: drop the macros' dial gag (drawn_gags "g.meter")
+        b["actors"] = [a for a in b.get("actors", []) if a.get("type") != "g.meter"] + kk   # the long-form overlays, after the macro's actors
     return out
 
 
 drawn_macros.expand = expand
+_orig_auto_gag = drawn_macros.drawn_acting.auto_gag
+
+
+def auto_gag(say, skip=()):
+    """The macros' word-picked gag, with the dial ("meter") swapped for an alarm mark: the HUD is the gauge here."""
+    g = _orig_auto_gag(say, skip)
+    if isinstance(g, dict) and "meter" in g:
+        return {"mark": "alarm", **({"at": g["at"]} if "at" in g else {})}
+    return g
+
+
+drawn_macros.drawn_acting.auto_gag = auto_gag
 drawn.RECUT_ZOOM = 1.12
 
 

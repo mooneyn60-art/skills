@@ -32,6 +32,35 @@ def backdrop(c0, c1, glow=None, gx=0.62, gy=0.55):
     return Image.fromarray(np.clip(im, 0, 255).astype(np.uint8)).convert("RGBA")
 
 
+def recluse_top(ctx, t, p):
+    """Brown recluse seen from above, the ID view (UC IPM; UCR Vetter): uniformly tan, plain legs with no bands or
+    spines, a dark violin on the carapace with its wide end at the eyes, six eyes in three pairs. Head = -y."""
+    from drawn_kit import INK, OUT, darker, hexc, limb, p_ellipse, p_smooth, shape
+    col, dk = hexc("#c09160"), hexc("#94693f")
+    for side in (-1, 1):   # legs: 4 pairs, femur + tibia, joints, long but not harvestman-long
+        for i, (a0, l1, l2) in enumerate(((-62, 190, 205), (-25, 170, 180), (18, 165, 175), (55, 195, 215))):
+            a = math.radians(a0)
+            bx, by = side * 60, -40 + i * 34
+            kx, ky = bx + side * l1 * math.cos(a), by + l1 * math.sin(a) - 30
+            fx, fy = kx + side * l2 * math.cos(a * 1.6), ky + l2 * math.sin(a * 1.6) + 40
+            limb(ctx, [(bx, by), (kx, ky), (fx, fy)], 26, darker(col, 0.92), smooth=False)
+            shape(ctx, lambda c, kx=kx, ky=ky: p_ellipse(c, kx, ky, 16, 16), dk, OUT * 0.5, None)
+    for side in (-1, 1):   # pedipalps
+        limb(ctx, [(side * 30, -130), (side * 55, -185), (side * 48, -215)], 14, col, smooth=True)
+    shape(ctx, lambda c: p_ellipse(c, 0, 190, 112, 150), col, OUT, (0.0, 0.2), hi=(0.25, 0.2, 0.25))   # abdomen
+    shape(ctx, lambda c: p_ellipse(c, 0, 30, 18, 22), dk, OUT * 0.7, None)                          # waist
+    shape(ctx, lambda c: p_ellipse(c, 0, -60, 118, 112), col, OUT, (0.0, 0.2), hi=(0.25, 0.2, 0.2))   # carapace
+    vc = hexc("#3e2414")   # the violin: body at the eyes, neck pointing back to the abdomen
+    shape(ctx, lambda c: p_smooth(c, [(-46, -150), (46, -150), (54, -112), (30, -88), (12, -78), (10, 0),
+                                      (-10, 0), (-12, -78), (-30, -88), (-54, -112)]), vc, 0, None)
+    for dx, dy in ((-16, -150), (16, -150), (-46, -128), (-38, -110), (46, -128), (38, -110)):   # 3 pairs
+        shape(ctx, lambda c, dx=dx, dy=dy: p_ellipse(c, dx, dy, 11, 11), INK, 0, None)
+        shape(ctx, lambda c, dx=dx, dy=dy: p_ellipse(c, dx - 3, dy - 4, 3.5, 3.5), (1, 1, 1), 0, None)
+
+
+drawn.ACTORS["recluse_top"] = recluse_top
+
+
 def creature(spec, box, rot=0.0, p=None):
     """The drawn creature, alone, fitted to box (w, h) px, as an RGBA image with a soft shadow."""
     surf = cairo.ImageSurface(cairo.FORMAT_ARGB32, box[0], box[1])
@@ -110,8 +139,8 @@ def thumb_b(out):   # KEEP vs KILL split: house centipede vs bed bug
 
 def thumb_c(out):   # brown recluse close-up + "KILL IT?"
     im = backdrop((14, 10, 14), (40, 16, 18), glow=(150, 30, 20), gx=0.5, gy=0.62)
-    im.alpha_composite(creature("brown_recluse", (1100, 600), rot=0, p={"mood": "angry", "lunge": 1.0}), (110, 130))
-    words(im, "KILL IT?", (W // 2, 20), 170, (255, 214, 10, 255), "ma", 15)
+    im.alpha_composite(creature("recluse_top", (1250, 1050), rot=-58), (330, -150))
+    words(im, "KILL IT?", (40, 230), 170, (255, 214, 10, 255), "la", 15)
     save(im, out, "thumb_c")
 
 

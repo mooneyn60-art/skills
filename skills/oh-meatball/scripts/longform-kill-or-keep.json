@@ -175,7 +175,20 @@
      "with": [
       "roach",
       "bed_bug",
-      "silverfish"
+      "silverfish",
+      {
+       "sp": "carpet_beetle",
+       "type": "sp.carpet_beetle",
+       "pop": false,
+       "s": 0.0,
+       "moves": [
+        {
+         "at": "carpet",
+         "dur": 0.3,
+         "s": 0.62
+        }
+       ]
+      }
      ],
      "scene": "basement",
      "scene_p": {

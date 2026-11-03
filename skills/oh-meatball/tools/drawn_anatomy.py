@@ -70,15 +70,16 @@ def _spider(ctx, t, p, cfg):
             if cfg.get("hair"):
                 _bristles(ctx, ax, ay, arx, ary, 22, 14, -175, -5, 3.5)
             shape(ctx, lambda c: p_ellipse(c, cx, cy, 105, 78), col, OUT, (0.0, 0.25), hi=(0.3, 0.2, 0.2))
-            if cfg.get("violin"):  # brown recluse: dark violin on the carapace, neck pointing back
-                shape(ctx, lambda c: p_smooth(c, [(cx + 55, cy - 28), (cx + 10, cy - 34), (cx - 60, cy - 8),
-                                                  (cx - 60, cy + 6), (cx + 10, cy + 10), (cx + 55, cy + 4)]),
-                      hexc("#4a2c18"), 0, None)
+            if cfg.get("violin"):  # brown recluse: dark violin on the carapace, body at the eyes, neck pointing back
+                vc = hexc("#4a2c18")
+                shape(ctx, lambda c: p_ellipse(c, cx + 30, cy - 30, 34, 26), vc, 0, None)
+                shape(ctx, lambda c: p_smooth(c, [(cx + 10, cy - 40), (cx - 70, cy - 20), (cx - 74, cy - 10),
+                                                  (cx + 10, cy - 18)]), vc, 0, None)
         for i in range(4):
             sw = math.sin(t * 9 + i * 1.7 + (0 if side == 1 else 3.1)) * walk
             bx, by = cx + 40 - i * 25, cy + 25
             kx, kh = knees[i]
-            knee = (cx + kx * L + 15 * sw, cy - kh * L * (0.85 if side == -1 else 1.0))
+            knee = (cx + kx * L + 15 * sw, cy - kh * L * cfg.get("knee", 1.0) * (0.85 if side == -1 else 1.0))
             foot = (cx + feet[i] * L + 30 * sw + (15 if side == 1 else -15), (0 if side == 1 else -35) - max(0, sw) * 12)
             c_leg = col if side == 1 else darker(col, shade_k)
             w = cfg.get("leg_w", 15)
@@ -101,8 +102,12 @@ def _spider(ctx, t, p, cfg):
         eyes(ctx, ex + 8, ey + 10, 30, 40, p.get("look", (0.4, 0.1)), p.get("mood", "calm"), 0.0, pupil=0.6)
     else:
         eyes(ctx, ex, ey, 17, 26, p.get("look", (0.3, 0.1)), p.get("mood", "calm"), 0.0)
-    for k in range(4):
-        shape(ctx, lambda c, k=k: p_ellipse(c, ex - 30 - k * 14, ey - 8 - (k % 2) * 6, 5, 5), INK, 0, None)
+    if cfg.get("eye_pairs"):   # recluse: six eyes in three pairs = the cartoon front pair + two side pairs
+        for dx, dy in ((-34, -14), (-24, -22), (30, -26), (40, -16)):
+            shape(ctx, lambda c, dx=dx, dy=dy: p_ellipse(c, ex + dx, ey + dy, 6, 6), INK, 0, None)
+    else:
+        for k in range(4):
+            shape(ctx, lambda c, k=k: p_ellipse(c, ex - 30 - k * 14, ey - 8 - (k % 2) * 6, 5, 5), INK, 0, None)
 
 
 def _spider_mark(ctx, cfg, ax, ay, arx, ary):
@@ -133,8 +138,10 @@ def black_widow(ctx, t, p):
 
 
 def brown_recluse(ctx, t, p):
-    _spider(ctx, t, p, {"color": "#b58a5a", "dark": "#8d6740", "abd": (130, 95), "violin": True, "leg": 1.25,
-                        "leg_w": 11})
+    """Brown recluse (UC IPM; UCR Vetter): uniformly tan, plain legs with no bands or spines, a dark violin on the
+    carapace, six eyes in three pairs. Legs are long but not harvestman-long: same span as the default plan."""
+    _spider(ctx, t, p, {"color": "#c09160", "dark": "#94693f", "abd": (135, 92), "violin": True, "leg": 1.0,
+                        "leg_w": 14, "eye_pairs": True, "knee": 0.62})
 
 
 def wolf_spider(ctx, t, p):
