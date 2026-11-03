@@ -1,46 +1,51 @@
 slug: what-if-bugs-move-in
-title: "What If You Let the Bugs Move In? 🪳😨"
-title_text: What if you let the bugs move in?
-format: whatif_flat (tools/whatif_flat.py), research/63
+title: "What If Bugs Lived in Your House for 60 Years? 🪳🌲"
+title_text: What if bugs lived in your house for 60 years?
+format: whatif_flat (tools/whatif_flat.py), research/63; slow 60-year ramp (Nolan 11/03)
 counter_label: DAYS THE BUGS LIVE HERE
-end_card: {top: WOULD YOU SURVIVE, accent: "DAY 365?", comment: "Comment  YES  or  NO"}
-cap_key: [day, mites, cockroaches, roaches, spiders, centipedes, termites, thousands, bugs, hunters, webs, legs, wood, survive]
+counter_roll: full
+music_ramp: [0.3, 1.0]
+end_card: {top: "WOULD YOU MOVE", accent: "BACK IN?", comment: "Comment  YES  or  NO"}
+cap_key: [day, week, month, year, mites, fly, cockroaches, spiders, centipedes, mold, termites, mice, bats, raccoons, tree, forest, nature, roof, floors, seed, fungi]
 sources:
-  - "University of Kentucky Entomology, House Dust Mites (Ent-646): primary food is skin scales shed by people and pets; thousands of mites in a single gram of house dust are not uncommon; https://entomology.mgcafe.uky.edu/ef646"
-  - "University of Kentucky Entomology, Cockroach Control Manual (Ent-614): German cockroaches favour warm, humid kitchens and bathrooms near food and water; spills, food waste and dirty dishes feed them; they hide in cracks and crevices by day and are active at night; up to 40 nymphs emerge from each egg case; https://entomology.mgcafe.uky.edu/ef614"
-  - "UC IPM Pest Notes: Spiders (Pub. 7442): spiders are mostly beneficial because they feed on pest insects; cobweb spiders (Theridiidae, incl. the common house spider) feed on insects that walk or fly into their webs; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7442.html"
-  - "Connecticut Agricultural Experiment Station, House Centipede fact sheet: 15 pairs of legs (thirty legs); hunts cockroach nymphs, flies, silverfish and spiders; https://portal.ct.gov/-/media/caes/documents/publications/fact_sheets/entomology/house_centipede_scutigera.pdf"
-  - "Penn State Extension, House Centipedes: often come up from damp basements; feed on cockroaches, spiders and other small arthropods; frequent sightings indicate some prey arthropod is abundant; https://extension.psu.edu/house-centipedes"
-  - "UC IPM Pest Notes: Subterranean and Other Termites (Pub. 7415): subterranean termites need moisture and soil contact, attack wood from the inside, and damage is often hidden until it is extensive; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7415.html"
-  - "Timeline framing: the DAY numbers are a what-if story, not a measured invasion schedule; each creature fact is from the sources above."
+  - "University of Kentucky Entomology, House Dust Mites (Ent-646): mites feed on skin scales shed by people and pets and live in house dust; https://entomology.mgcafe.uky.edu/ef646"
+  - "University of Kentucky Entomology, Fruit Flies (Ent-621): fruit flies are attracted to ripened or fermenting fruit and breed on it; https://entomology.mgcafe.uky.edu/ef621"
+  - "University of Kentucky Entomology, Cockroach Control Manual (Ent-614): German cockroaches hide in dark cracks and breed near food and moisture; up to 40 nymphs emerge from each egg case; https://entomology.mgcafe.uky.edu/ef614"
+  - "UC IPM Pest Notes: Spiders (Pub. 7442): spiders feed on the insects in a building; cobweb spiders catch insects that walk or fly into their webs; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7442.html"
+  - "Connecticut Agricultural Experiment Station, House Centipede fact sheet: hunts cockroach nymphs, flies, silverfish and spiders; https://portal.ct.gov/-/media/caes/documents/publications/fact_sheets/entomology/house_centipede_scutigera.pdf"
+  - "US EPA, A Brief Guide to Mold, Moisture and Your Home: water-damaged areas must be dried within 24-48 hours to prevent mold growth; https://www.epa.gov/mold/brief-guide-mold-moisture-and-your-home"
+  - "UC IPM Pest Notes: Subterranean and Other Termites (Pub. 7415): colonies range from a mated pair to hundreds of thousands or even millions; subterranean termites need moisture; damage is inside the wood; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7415.html"
+  - "UC IPM Pest Notes: House Mouse (Pub. 7483): mice can enter through openings as small as 1/4 inch; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7483.html"
+  - "UC IPM Pest Notes: Bats (Pub. 74150): several bat species frequently roost in attics and barns; bats squeeze through 1/4-inch openings; https://ipm.ucanr.edu/PMG/PESTNOTES/pn74150.html"
+  - "UC IPM Pest Notes: Raccoons (Pub. 74116): females seeking nest sites may rip off shingles, fascia boards or roof vents to get into attics; attics and chimneys are used as dens; https://ipm.ucanr.edu/PMG/PESTNOTES/pn74116.html"
+  - "Alan Weisman, The World Without Us (2007), chapter 'Unbuilding Our Home', and History Channel's Life After People (2008): an unmaintained wood-frame house decays from the roof and water leaks; rot weakens floors and walls; trees can take root inside; within decades a wooden house in a wet climate can collapse into the forest floor. These are popular-science projections; real timelines vary widely with climate and construction, so the script says 'can' and 'may'."
+  - "Timeline framing: Day 1 to Year 60 is a what-if; the counter is days (1, 7, 30, 365, 1,826, 3,652, 7,305, 14,610, 21,915)."
 tt:
-  - {say: "What if you let the bugs move in? This is day 365.", counter: 365, stat: "MOVED IN: ALL OF THEM", shots: [nightmare, swarm]}
-  - {say: "Day 1. You stop cleaning. Nothing seems to happen.", counter: 1, stat: "MOVED IN: NOTHING YET", shots: [calendar, you]}
-  - {say: "But dust mites already live in your bed, eating the skin you shed.", stat: "MOVED IN: DUST MITES", shots: [bed, mite_zoom]}
-  - {say: "A single gram of dust can hold thousands of them.", shots: [mites, mite]}
-  - {say: "Day 7. Crumbs, spills and dirty dishes pile up.", counter: 7, shots: [calendar, trash]}
-  - {say: "German cockroaches move in. They love warm, damp kitchens.", stat: "MOVED IN: COCKROACHES", shots: [roach, fridge]}
-  - {say: "One egg case hatches up to 40 babies.", shots: [eggcase, crumbs]}
-  - {say: "They hide in the cracks by day and come out at night.", shots: [kitchen_dark, swarm]}
-  - {say: "Day 30. All those bugs are food. So the hunters arrive.", counter: 30, shots: [calendar, kitchen_dark]}
-  - {say: "House spiders build webs in the corners and catch what wanders in.", stat: "MOVED IN: HOUSE SPIDERS", shots: [spider, web]}
-  - {say: "Day 100. Something faster comes up from the basement.", counter: 100, shots: [stairs, centipede_wall]}
-  - {say: "House centipedes. Thirty legs, and they hunt roaches and spiders.", stat: "MOVED IN: CENTIPEDES", shots: [centipede, chase]}
-  - {say: "Lots of centipedes means lots of bugs for them to eat.", shots: [wall_many, chase]}
-  - {say: "Day 365. Under the floor, termites find damp wood.", counter: 365, stat: "MOVED IN: TERMITES", shots: [house, termite_wood]}
-  - {say: "They eat it from the inside, and the damage hides in your walls.", shots: [termite, termite_wood]}
-  - {say: "Mites, roaches, spiders, centipedes, termites. It's their house now.", shots: [nightmare, wall_many]}
-  - {say: "Would you survive day 365? Comment yes or no.", shots: [end]}
+  - {say: "What if bugs lived in your house for 60 years?", counter: 21915, stat: "YEAR 60", max_shot: 1.0, shots: [forest_ruin, house_ruin]}
+  - {say: "Day 1. Everyone moves out and locks the door. Nobody cleans. Nobody sprays.", counter: 1, stat: "DAY 1", max_shot: 2.4, shots: [house_empty, empty_room]}
+  - {say: "At first, almost nothing. A few dust mites live in the dust you left.", max_shot: 2.4, shots: [bed, mite_zoom]}
+  - {say: "Week 1. One fruit fly finds a forgotten banana.", counter: 7, stat: "WEEK 1", max_shot: 2.2, shots: [sink, banana]}
+  - {say: "Month 1. Cockroaches breed in the dark. One egg case can hatch up to 40 babies.", counter: 30, stat: "MONTH 1", max_shot: 1.9, shots: [kitchen_dark, eggcase, crumbs]}
+  - {say: "Spiders move in to eat them. Then centipedes come for the spiders.", max_shot: 1.8, shots: [web, centipede_wall, chase]}
+  - {say: "Year 1. Water gets in, and mold can start growing in a day or two.", counter: 365, stat: "YEAR 1", max_shot: 1.6, shots: [roof_leak, mold]}
+  - {say: "Termites find the damp wood. A colony can grow to hundreds of thousands.", max_shot: 1.6, shots: [termite, termite_wood]}
+  - {say: "Year 5. Mice squeeze through gaps a quarter inch wide. Bats roost in the attic.", counter: 1826, stat: "YEAR 5", max_shot: 1.4, shots: [mice, attic_bats]}
+  - {say: "Year 10. Raccoons rip their way into the attic. The roof starts to sag.", counter: 3652, stat: "YEAR 10", max_shot: 1.3, shots: [raccoon, roof_leak, mold]}
+  - {say: "Year 20. Rotting floors can give way, and a seed sprouts in the living room.", counter: 7305, stat: "YEAR 20", max_shot: 1.2, shots: [rot_floor, floor_hole, sapling]}
+  - {say: "Year 40. That tree may punch through the roof. The walls start to lean.", counter: 14610, stat: "YEAR 40", max_shot: 1.0, shots: [tree_roof, house_ruin, sapling]}
+  - {say: "Year 60. What's left can sink into the forest floor.", counter: 21915, stat: "YEAR 60", max_shot: 0.9, shots: [house_ruin, forest_ruin, termite_wood]}
+  - {say: "Beetles, ants and fungi finish the last of the wood. Nature takes it all back.", max_shot: 0.9, shots: [forest_ruin, ant, rot_floor, beetle]}
+  - {say: "Would you move back in? Comment yes or no.", shots: [end]}
 yt:
-  - {say: "What if you let the bugs move in? This is day 365.", counter: 365, stat: "MOVED IN: ALL OF THEM", shots: [nightmare, swarm]}
-  - {say: "Day 1. You stop cleaning. Nothing seems to happen.", counter: 1, stat: "MOVED IN: NOTHING YET", shots: [calendar, you]}
-  - {say: "But dust mites already live in your bed, eating the skin you shed.", stat: "MOVED IN: DUST MITES", shots: [bed, mite_zoom]}
-  - {say: "A single gram of dust can hold thousands of them.", shots: [mites, mite]}
-  - {say: "Day 7. Crumbs, spills and dirty dishes pile up.", counter: 7, shots: [calendar, trash]}
-  - {say: "German cockroaches move in. One egg case hatches up to 40 babies.", stat: "MOVED IN: COCKROACHES", shots: [roach, eggcase]}
-  - {say: "Day 30. All those bugs are food. So the hunters arrive.", counter: 30, shots: [calendar, kitchen_dark]}
-  - {say: "House spiders build webs in the corners and catch what wanders in.", stat: "MOVED IN: HOUSE SPIDERS", shots: [spider, web]}
-  - {say: "Day 100. House centipedes. Thirty legs, and they hunt roaches and spiders.", counter: 100, stat: "MOVED IN: CENTIPEDES", shots: [centipede, chase]}
-  - {say: "Lots of centipedes means lots of bugs for them to eat.", shots: [wall_many, chase]}
-  - {say: "Day 365. Termites find damp wood and eat it from the inside.", counter: 365, stat: "MOVED IN: TERMITES", shots: [house, termite_wood]}
-  - {say: "It's their house now. Would you survive day 365?", shots: [nightmare, end]}
+  - {say: "What if bugs lived in your house for 60 years?", counter: 21915, stat: "YEAR 60", max_shot: 1.0, shots: [forest_ruin, house_ruin]}
+  - {say: "Day 1. Everyone moves out. Nobody cleans. Nobody sprays.", counter: 1, stat: "DAY 1", max_shot: 2.4, shots: [house_empty, empty_room]}
+  - {say: "Week 1. One fruit fly finds a forgotten banana.", counter: 7, stat: "WEEK 1", max_shot: 2.2, shots: [sink, banana]}
+  - {say: "Month 1. Cockroaches breed in the dark. Then spiders and centipedes move in to eat them.", counter: 30, stat: "MONTH 1", max_shot: 1.8, shots: [kitchen_dark, eggcase, web, centipede_wall]}
+  - {say: "Year 1. Water gets in, and mold can start growing in a day or two.", counter: 365, stat: "YEAR 1", max_shot: 1.6, shots: [roof_leak, mold]}
+  - {say: "Termites find the damp wood. A colony can grow to hundreds of thousands.", max_shot: 1.6, shots: [termite, termite_wood]}
+  - {say: "Year 5. Mice squeeze in. Bats roost in the attic.", counter: 1826, stat: "YEAR 5", max_shot: 1.4, shots: [mice, attic_bats]}
+  - {say: "Year 10. Raccoons rip their way into the attic. The roof starts to sag.", counter: 3652, stat: "YEAR 10", max_shot: 1.3, shots: [raccoon, roof_leak, mold]}
+  - {say: "Year 20. Rotting floors can give way, and a seed sprouts in the living room.", counter: 7305, stat: "YEAR 20", max_shot: 1.2, shots: [rot_floor, floor_hole, sapling]}
+  - {say: "Year 40. That tree may punch through the roof.", counter: 14610, stat: "YEAR 40", max_shot: 1.0, shots: [tree_roof, house_ruin]}
+  - {say: "Year 60. What's left can sink into the forest floor. Nature takes it all back.", counter: 21915, stat: "YEAR 60", max_shot: 0.9, shots: [house_ruin, forest_ruin, ant, termite_wood]}
+  - {say: "Would you move back in? Comment yes or no.", shots: [end]}

@@ -292,6 +292,25 @@ def bug_img(kind, L, phase=0, ang=0):
         E(0, 0, 42, 19, (228, 142, 70))
         Pg([(-6, -16), (14, -30), (18, -14)], (210, 120, 60))
         E(24, -4, 5, 5, (20, 20, 26))
+    elif kind == "mouse":
+        Ln([(0, 30), (8, 60), (-4, 90), (6, 120)], (190, 150, 150), 2.2)
+        E(0, 6, 20, 32, (128, 124, 130))
+        E(0, -26, 12, 14, (140, 136, 142))
+        E(-12, -34, 9, 9, (214, 160, 168))
+        E(12, -34, 9, 9, (214, 160, 168))
+        E(-5, -30, 2.5, 2.5, (16, 16, 20))
+        E(5, -30, 2.5, 2.5, (16, 16, 20))
+        E(0, -40, 3, 3, (220, 150, 160))
+        for side in (-1, 1):
+            Ln([(side * 16, -8 + 4 * sw), (side * 24, -2 + 4 * sw)], (190, 150, 150), 2)
+            Ln([(side * 16, 22 - 4 * sw), (side * 24, 30 - 4 * sw)], (190, 150, 150), 2)
+    elif kind == "ant":
+        legs([-8, -2, 4], 20, (30, 22, 18), 1.6)
+        Ln([(-3, -34), (-12, -46)], (30, 22, 18), 1.4)
+        Ln([(3, -34), (12, -46)], (30, 22, 18), 1.4)
+        E(0, 22, 11, 16, (44, 30, 24))
+        E(0, -2, 6, 10, (52, 36, 28))
+        E(0, -26, 9, 9, (44, 30, 24))
     elif kind in ("bat", "bird"):
         col = (14, 14, 22) if kind == "bat" else (24, 30, 46)
         f = 18 * phase
@@ -1040,6 +1059,236 @@ SHOTS = {
 
 SHOTS.update(SHOTS_MORE)
 
+# ------------------------------------------------------------------ 60-year house shots
+def trees(p, n, y0, seed, col=(14, 30, 30), big=False):
+    r = np.random.RandomState(seed)
+    for _ in range(n):
+        x = r.uniform(-OX, W + OX)
+        h = r.uniform(500, 1100) * (1.4 if big else 1)
+        w_ = r.uniform(30, 60)
+        p.rect(x - w_ / 2, y0 - h, x + w_ / 2, y0, col)
+        for k in range(3):
+            p.ell(x + r.uniform(-60, 60), y0 - h + k * 90, 170 - k * 20, 130, tuple(min(255, v + 6) for v in col))
+
+
+def ground(p, y, col=(20, 36, 30)):
+    p.rect(-OX, y, W + OX, H + OY, col)
+
+
+def s_forest_ruin(p, c):
+    p.vgrad(-OY, 1400, N0, (18, 40, 44))
+    p.ell(820, 380, 50, 50, (224, 230, 242))
+    trees(p, 9, 1380, 3)
+    ground(p, 1380, (22, 44, 34))
+    p.ell(540, 1420, 470, 160, (40, 70, 44))                     # the moss mound where the house was
+    p.poly([(330, 1400), (350, 1150), (420, 1150), (410, 1400)], (70, 54, 40))   # a door frame leaning
+    p.poly([(600, 1360), (820, 1250), (840, 1290), (630, 1400)], (82, 62, 44))   # roof beam
+    p.rect(660, 1180, 780, 1270, (30, 44, 70), oc=(90, 70, 50), ow=10)          # window frame
+    for i in range(22):
+        x = 120 + (i * 151) % 860
+        p.poly([(x, 1460), (x + 18, 1340 - (i * 31) % 90), (x + 36, 1460)], (30, 70, 46))
+    r = np.random.RandomState(4)
+    for _ in range(14):
+        x, y = r.uniform(150, 930), r.uniform(1300, 1500)
+        p.rect(x - 6, y - 30, x + 6, y, (220, 210, 190))
+        p.ell(x, y - 30, 26, 14, (200, 120, 80))
+    sp = crawlers(6, (120, 1300, 960, 1800), kind="beetle", L=80, seed=2, speed=60)
+    sp += crawlers(10, (120, 1300, 960, 1800), kind="ant", L=50, seed=3, speed=140)
+    sp += crawlers(2, (120, 1300, 960, 1800), kind="centipede", L=200, seed=5, speed=90)
+    return sp + flies(4, (100, 500, 980, 1200), kind="bat", L=100, seed=6)
+
+
+def s_empty_room(p, c):
+    p.full(N2)
+    window(p, 640, 300, 960, 640)
+    p.poly([(700, 640), (900, 640), (1080, 1520), (520, 1520)], (190, 200, 230, 22))
+    p.rect(-OX, 1500, W + OX, H + OY, (14, 22, 42))
+    p.rect(110, 1080, 640, 1420, (52, 74, 120), r=40)
+    p.rect(110, 1000, 640, 1120, (60, 84, 132), r=40)
+    p.rect(80, 1060, 170, 1420, (46, 66, 110), r=30)
+    p.rect(580, 1060, 670, 1420, (46, 66, 110), r=30)
+    p.line([(820, 1500), (820, 1100)], STEEL, 10)
+    p.poly([(740, 1100), (900, 1100), (860, 980), (780, 980)], (200, 180, 120))
+    r = np.random.RandomState(1)
+    for _ in range(60):
+        p.ell(r.uniform(0, 1080), r.uniform(300, 1400), 3, 3, (200, 206, 220, 90))
+    return []
+
+
+def s_roof_leak(p, c):
+    p.full((24, 34, 60))
+    p.poly([(-OX, -OY), (W + OX, -OY), (W + OX, 300), (-OX, 300)], (40, 52, 82))
+    p.ell(560, 300, 260, 90, (80, 70, 50, 170))
+    p.ell(520, 300, 150, 50, (100, 86, 56, 200))
+    for i, y in enumerate((420, 640, 900, 1150)):
+        p.ell(560 + (i % 2) * 12, y, 12, 20, (150, 190, 230))
+    p.rect(-OX, 1450, W + OX, H + OY, (16, 24, 44))
+    p.ell(560, 1470, 300, 50, (60, 90, 130, 200))
+    p.rect(470, 1300, 650, 1470, (120, 130, 150), r=12)
+    for k in range(4):
+        p.ell(150 + k * 260, 340 + (k % 2) * 40, 60, 24, (70, 90, 60, 150))
+    return []
+
+
+def s_mold_wall(p, c):
+    p.full((44, 58, 84))
+    for i in range(12):
+        p.line([(i * 100, -OY), (i * 100, H + OY)], (40, 52, 76), 6)
+    r = np.random.RandomState(c["day"] % 97)
+    for _ in range(26):
+        x, y = r.uniform(0, 1080), r.uniform(200, 1700)
+        for k in range(6):
+            p.ell(x + r.uniform(-60, 60), y + r.uniform(-60, 60), r.uniform(30, 80), r.uniform(20, 60), (40, 80, 50, 150))
+        p.ell(x, y, 20, 16, (20, 30, 24, 200))
+    p.poly([(700, 300), (900, 260), (880, 620), (760, 560)], (140, 150, 170))   # peeling wallpaper
+    p.rect(-OX, 1700, W + OX, H + OY, (30, 60, 40))
+    return []
+
+
+def s_attic_bats(p, c):
+    p.full(N0)
+    p.poly([(-OX, H + OY), (540, 260), (W + OX, H + OY)], (24, 34, 56))
+    for i in range(7):
+        y = 520 + i * 220
+        p.line([(540 - (y - 260) * 0.72, y), (540 + (y - 260) * 0.72, y)], (60, 46, 34), 16)
+    p.line([(540, 260), (540, H + OY)], (60, 46, 34), 20)
+    for k in range(9):                                            # bats hanging from the beams
+        x, y = 300 + k * 60, 750 + (k % 3) * 8
+        p.line([(x, 742), (x, y)], (14, 14, 22), 3)
+        p.poly([(x - 16, y), (x + 16, y), (x + 10, y + 60), (x - 10, y + 60)], (14, 14, 22))
+    sp = flies(4, (150, 900, 930, 1400), kind="bat", L=130, seed=3)
+    return sp + crawlers(3, (100, 1600, 980, 1880), kind="mouse", L=110, seed=4, speed=200)
+
+
+def s_mice(p, c):
+    p.full(N2)
+    p.rect(-OX, 1400, W + OX, H + OY, (14, 22, 42))
+    p.rect(-OX, 1340, W + OX, 1400, (36, 50, 80))
+    p.ell(300, 1380, 70, 60, (6, 8, 16))
+    p.rect(230, 1380, 370, 1400, (6, 8, 16))
+    r = np.random.RandomState(6)
+    for _ in range(40):
+        p.ell(r.uniform(0, 1080), r.uniform(1450, 1880), 5, 3, (30, 24, 20))
+    p.rect(620, 1100, 900, 1400, (180, 150, 100), r=8)
+    p.poly([(680, 1100), (720, 1180), (760, 1100)], (14, 22, 42))
+    return crawlers(5, (80, 1440, 1000, 1860), kind="mouse", L=150, seed=7, speed=260)
+
+
+def s_raccoon(p, c):
+    p.full((30, 40, 66))
+    for i in range(12):
+        p.line([(i * 100, -OY), (i * 100, H + OY)], (26, 34, 58), 6)
+    p.ell(540, 960, 330, 300, (6, 8, 14))
+    p.poly([(240, 900), (300, 640), (420, 760)], (44, 58, 88))
+    p.ell(540, 1080, 230, 180, (110, 110, 118))                   # body
+    p.ell(540, 900, 160, 130, (140, 140, 148))                    # head
+    p.poly([(400, 820), (430, 700), (480, 800)], (140, 140, 148))
+    p.poly([(680, 820), (650, 700), (600, 800)], (140, 140, 148))
+    p.ell(540, 910, 150, 46, (20, 20, 26))                        # mask
+    for x in (480, 600):
+        p.ell(x, 905, 26, 26, YEL)
+        p.ell(x, 905, 10, 14, (10, 10, 14))
+    p.ell(540, 980, 40, 26, (230, 230, 236))
+    p.ell(540, 970, 16, 11, (20, 20, 26))
+    for k in range(5):
+        p.ell(780 + k * 30, 1240 - k * 50, 50, 34, (110, 110, 118) if k % 2 else (40, 40, 46))
+    return []
+
+
+def s_rot_floor(p, c):
+    p.full((70, 52, 36))
+    for i in range(14):
+        y = -OY + i * 160
+        p.rect(-OX, y, W + OX, y + 150, (88 - i % 2 * 8, 64, 42))
+    r = np.random.RandomState(9)
+    for _ in range(9):
+        x, y = r.uniform(80, 1000), r.uniform(300, 1700)
+        p.ell(x, y, r.uniform(60, 140), r.uniform(40, 80), (30, 22, 16))
+    for _ in range(5):
+        x, y = r.uniform(120, 960), r.uniform(300, 1700)
+        p.ell(x, y, 120, 70, (6, 6, 10))
+    for _ in range(12):
+        x, y = r.uniform(100, 980), r.uniform(300, 1700)
+        p.rect(x - 7, y - 40, x + 7, y, (226, 214, 190))
+        p.ell(x, y - 40, 34, 18, (196, 150, 90))
+    return crawlers(10, (60, 300, 1020, 1700), kind="termite", L=80, seed=8, speed=100) + \
+        crawlers(6, (60, 300, 1020, 1700), kind="roach", L=90, seed=9, speed=180)
+
+
+def s_floor_hole(p, c):
+    p.full(N2)
+    window(p, 640, 300, 960, 640)
+    p.rect(-OX, 1300, W + OX, H + OY, (60, 46, 34))
+    p.ell(540, 1560, 420, 260, (4, 6, 10))
+    for (a, b, cc, d) in ((200, 1360, 420, 1600), (640, 1340, 880, 1640), (420, 1700, 520, 1460)):
+        p.poly([(a, b), (cc, d), (cc + 26, d - 18), (a + 26, b - 18)], (96, 72, 50))
+    p.rect(110, 1080, 520, 1330, (52, 74, 120), r=30)
+    p.poly([(110, 1330), (520, 1330), (560, 1480), (150, 1460)], (52, 74, 120))
+    return crawlers(8, (150, 1350, 930, 1800), kind="roach", L=90, seed=10, speed=220) + \
+        flies(4, (200, 700, 900, 1200), kind="bat", L=90, seed=11)
+
+
+def s_sapling(p, c):
+    s_floor_hole(p, c)
+    p.poly([(400, 520), (680, 520), (900, 1600), (180, 1600)], (230, 230, 190, 30))
+    p.line([(540, 1640), (548, 1300), (536, 1000)], (90, 120, 70), 20)
+    for (x, y, a) in ((540, 980, 0), (480, 1100, -1), (600, 1160, 1), (500, 1260, -1)):
+        p.ell(x + a * 50, y, 70, 30, (70, 150, 80))
+    return crawlers(4, (200, 1400, 900, 1800), kind="ant", L=50, seed=12, speed=160)
+
+
+def s_tree_roof(p, c):
+    p.vgrad(-OY, 1450, N0, N2)
+    p.ell(840, 360, 50, 50, (224, 230, 242))
+    ground(p, 1450)
+    p.rect(250, 960, 830, 1460, (34, 46, 70))
+    p.poly([(200, 975), (420, 760), (470, 840), (330, 975)], N1)
+    p.poly([(880, 975), (660, 760), (610, 860), (750, 975)], N1)
+    p.rect(470, 400, 600, 1460, (70, 52, 38))
+    for (x, y, rx, ry) in ((540, 380, 320, 220), (400, 520, 200, 150), (700, 500, 220, 160), (540, 260, 200, 140)):
+        p.ell(x, y, rx, ry, (30, 76, 52))
+    for (x, y) in ((330, 1030), (690, 1230)):
+        p.rect(x, y, x + 120, y + 120, (10, 14, 24))
+    for i in range(30):
+        x = -OX + i * 42
+        p.poly([(x, 1470), (x + 14, 1360 - (i * 37) % 90), (x + 28, 1470)], (24, 52, 38))
+    for k in range(6):
+        p.line([(260 + k * 100, 1460), (250 + k * 100 + (k % 2) * 30, 1100 - k * 20)], (40, 96, 56), 8)
+    return flies(5, (100, 500, 980, 1100), kind="bat", L=90, seed=13) + flies(3, (100, 200, 980, 600), kind="bird", L=100, seed=14)
+
+
+def s_house_ruin(p, c):
+    p.vgrad(-OY, 1450, N0, (20, 40, 50))
+    trees(p, 5, 1450, 8)
+    ground(p, 1450, (24, 46, 34))
+    p.poly([(240, 1460), (300, 1060), (500, 1000), (480, 1460)], (34, 46, 70))
+    p.poly([(560, 1460), (600, 1120), (840, 1200), (820, 1460)], (30, 42, 64))
+    p.poly([(260, 1080), (560, 860), (860, 1180), (820, 1240), (560, 980), (300, 1120)], (60, 44, 34))
+    for k in range(10):
+        p.line([(250 + k * 60, 1460), (240 + k * 62, 1100 + (k % 3) * 40)], (40, 96, 56), 9)
+    return crawlers(6, (240, 1060, 840, 1460), kind="termite", L=60, seed=15, speed=60) + \
+        flies(3, (100, 500, 980, 900), kind="bat", L=90, seed=16)
+
+
+def s_house_empty(p, c):
+    """The house the night everyone moved out: every window dark."""
+    sp = s_house(p, dict(c, mess=0))
+    for (x, y) in ((330, 1030), (590, 1030), (330, 1230), (590, 1230)):
+        p.rect(x, y, x + 160, y + 150, (16, 22, 38), r=4)
+        p.line([(x + 80, y), (x + 80, y + 150)], N2, 10)
+        p.line([(x, y + 75), (x + 160, y + 75)], N2, 10)
+    return sp
+
+
+SHOTS.update({
+    "house_empty": s_house_empty,
+    "forest_ruin": s_forest_ruin, "empty_room": s_empty_room, "roof_leak": s_roof_leak, "mold": s_mold_wall,
+    "attic_bats": s_attic_bats, "mice": s_mice, "raccoon": s_raccoon, "rot_floor": s_rot_floor,
+    "floor_hole": s_floor_hole, "sapling": s_sapling, "tree_roof": s_tree_roof, "house_ruin": s_house_ruin,
+    "ant": lambda p, c: s_portrait(p, c, "ant", "ANT", 360),
+})
+
+
 PLANS = {"what-if-never-clean": {
     "tt": [["house", "you"], ["calendar", "sink"], ["sink_flies", "banana"], ["fly", "eggs"], ["hallway", "feet"],
            ["drainfly", "drain"], ["bath_sink", "drain"], ["calendar", "lifecycle"], ["kitchen_dark", "fridge"],
@@ -1184,7 +1433,8 @@ def plan(o, cut, work):
         end = shots_plan[i] == ["end"]
         D = dur + (1.6 if last and end else (0.5 if last else GAP))
         names = shots_plan[i]
-        n = max(len(names), math.ceil(D / MAX_SHOT))
+        ms = float(items[i].get("max_shot", MAX_SHOT)) if i < len(items) else MAX_SHOT   # per-line cut rate
+        n = max(len(names), math.ceil(D / ms))
         cuts = [0.0]
         for k in range(1, n):   # cut on the word start nearest each even split
             aim = D * k / n
@@ -1263,7 +1513,7 @@ def frame(g):
         val = ticks[0][1]
         for (t0, a), (t1, b) in zip(ticks, ticks[1:]):
             if t0 <= T < t1:   # holds, then rolls up over the last 1.2 s into the next day tick
-                uu = max(0.0, (T - (t1 - 1.2)) / 1.2)
+                uu = (T - t0) / (t1 - t0) if PL.get("roll") == "full" else max(0.0, (T - (t1 - 1.2)) / 1.2)
                 val = int(round(a * (b / a) ** uu)) if b > a > 0 else a
                 break
         else:
@@ -1352,7 +1602,7 @@ def main():
     print(f"plan: {len(beats)} lines, {total:.2f} s, {sum(len(b['shots']) for b in beats)} shots", flush=True)
     ticks = [(b["t"], int(b["tick"])) for b in beats if b["tick"] is not None]
     PL.update(shots=build_shots(beats), ticks=ticks, title=title_img(str(o.get("title_text") or o[a.cut][0].get("say") or o[a.cut][0][next(iter(o[a.cut][0]))])),
-              label=o.get("counter_label", "DAYS WITHOUT CLEANING"),
+              label=o.get("counter_label", "DAYS WITHOUT CLEANING"), roll=o.get("counter_roll"),
               stats=[(b["t"], b["stat"]) for b in beats if b["stat"]],
               title_end=beats[1]["t"] + 1.2)
     total_f = int(round(total * FPS))
@@ -1378,7 +1628,9 @@ def main():
     mus.render(a.music, total, [t for t, _ in ticks[1:]], f"{a.work}/music.wav", drop=False, hit=False)
     keys = {"".join(ch for ch in str(k).lower() if ch.isalnum()) for k in o.get("cap_key", [])}
     captions(beats, keys, f"{a.work}/cap.ass")
-    af = (f"[1:a]loudnorm=I=-16:TP=-2,asplit[vo][key];[3:a]loudnorm=I={a.music_lufs:g}:TP=-6[m];"
+    mr = o.get("music_ramp")   # [start, end] gain: the bed builds over the whole video
+    ramp = f",volume='{mr[0]}+({mr[1] - mr[0]})*pow(t/{total:.2f},1.6)':eval=frame" if mr else ""
+    af = (f"[1:a]loudnorm=I=-16:TP=-2,asplit[vo][key];[3:a]loudnorm=I={a.music_lufs:g}:TP=-6{ramp}[m];"
           "[m][key]sidechaincompress=threshold=0.05:ratio=3:attack=20:release=350[d];"
           "[vo][d][2:a]amix=inputs=3:duration=first:normalize=0,loudnorm=I=-14:TP=-1.5[a]")
     cmd = ["ffmpeg", "-loglevel", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS),
