@@ -398,16 +398,23 @@ def _ground(ctx, style, P, t):
     stroke(ctx, [(-3000, 1500), (5000, 1500)], BG_OUT)
 
 
+def _lens(ctx):
+    """The microscope field: centred on the frame, r 520 on the 1080-wide portrait frame (scaled for 16:9)."""
+    w, h = ctx.get_target().get_width(), ctx.get_target().get_height()
+    return w / 2, h / 2, 520 * min(w, h) / 1080
+
+
 def _lens_mask(ctx):
     ctx.save()
     ctx.identity_matrix()
     ctx.set_fill_rule(1)   # even-odd: everything outside the round field goes black
-    ctx.rectangle(0, 0, 1080, 1920)
-    ctx.arc(540, 960, 520, 0, 2 * math.pi)
+    ctx.rectangle(0, 0, ctx.get_target().get_width(), ctx.get_target().get_height())  # the whole frame, 9:16 or 16:9
+    cx, cy, r = _lens(ctx)
+    ctx.arc(cx, cy, r, 0, 2 * math.pi)
     src(ctx, hexc("#0b0d10"))
     ctx.fill()
     ctx.new_sub_path()
-    ctx.arc(540, 960, 520, 0, 2 * math.pi)
+    ctx.arc(cx, cy, r, 0, 2 * math.pi)
     ink(ctx, 26)
     ctx.stroke()
     ctx.restore()
@@ -418,7 +425,7 @@ def _grade(ctx, time):
     if tint:
         ctx.save()
         ctx.identity_matrix()
-        ctx.rectangle(0, 0, 1080, 1920)
+        ctx.rectangle(0, 0, ctx.get_target().get_width(), ctx.get_target().get_height())  # the whole frame, 9:16 or 16:9
         src(ctx, tint[:3], tint[3])
         ctx.fill()
         ctx.restore()
@@ -479,7 +486,7 @@ def _mess(ctx, kind, level, layer):
         flat(ctx, lambda c: p_ellipse(c, 450, F + 272, 60, 14), hexc("#c0623c"), a=0.8)   # a greasy pizza box
         ctx.save()
         ctx.identity_matrix()
-        ctx.rectangle(0, 0, 1080, 1920)
+        ctx.rectangle(0, 0, ctx.get_target().get_width(), ctx.get_target().get_height())  # the whole frame, 9:16 or 16:9
         src(ctx, hexc("#5a4a1a"), 0.10)
         ctx.fill()
         ctx.restore()

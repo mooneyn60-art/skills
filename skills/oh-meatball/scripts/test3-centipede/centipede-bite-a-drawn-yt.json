@@ -1,0 +1,159 @@
+{
+ "series": "Part",
+ "sources": [
+  "University of Arkansas Arthropod Museum, House centipede (Scutigera coleoptrata): jaws not powerful enough to break human skin easily; will sometimes bite in self-defense; not aggressive; severe swelling and pain can result, but in most cases the bite is no worse than the sting of a bee; captures prey by half pouncing and half lassoing; can capture several prey items at one time, feeding on one while holding the others; well-developed faceted eyes unlike most other centipedes; darts at high speed, stops suddenly and stays motionless, then races off; reached Pennsylvania 1849, New York 1885, Massachusetts about 1890, now westward to the Rocky Mountains and beyond; lab females laid an average of 63 eggs (max 151); indoors in bathrooms, moist closets, cellars, crawl spaces and piles of firewood; eats cockroach nymphs, flies, moths, bedbugs, crickets, silverfish, earwigs; https://arthropod.uark.edu/?p=27355",
+  "Connecticut Agricultural Experiment Station, House Centipede fact sheet (K. Dugas): forcipules (pincer-like modified legs) directly underneath the mouthparts give the venomous sting; can cause temporary localized pain; a sting to a human is very rare and the result of rough handling; reduce humidity by running fans or dehumidifiers; https://portal.ct.gov/-/media/caes/documents/publications/fact_sheets/entomology/house_centipede_scutigera.pdf",
+  "Washington State University PestSense, House centipede: runs very quickly holding its body up on its long legs; found in basements, bathrooms, closets or potted plants; use a vacuum to dispose of centipedes indoors; keep screens in good repair to reduce the insects it eats; https://pestsense.cahnrs.wsu.edu/fact-sheet/house-centipede/",
+  "Penn State Extension, House Centipedes (S. Jacobs): harmless; feeds on silverfish, firebrats, carpet beetle larvae, cockroaches, spiders; https://extension.psu.edu/house-centipedes"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "stage": {
+  "creature": "house_centipede",
+  "scene": "bathroom",
+  "scene_p": {
+   "time": "night"
+  },
+  "s": 0.8,
+  "actor": "house_centipede"
+ },
+ "cap_key": [
+  "bee",
+  "sting",
+  "bathroom",
+  "pounces",
+  "lassoes",
+  "legs",
+  "few",
+  "once",
+  "barely",
+  "skin",
+  "grab",
+  "pincers",
+  "swelling",
+  "eyes",
+  "freezes",
+  "races",
+  "1885",
+  "rockies",
+  "63",
+  "eggs",
+  "firewood",
+  "plants",
+  "vacuum",
+  "dehumidifier",
+  "screens"
+ ],
+ "cut_whoosh": true,
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "It Can Bite You Like a Bee Sting 🐛 (Things Living In Your House)",
+ "tiktok_caption": "house centipede bite: what happens? 🐛 most bites are no worse than a bee sting, and its jaws can barely break your skin. Would you pick one up? 🐛 yes / 🚫 never #housecentipede #bugsinyourhouse #centipede #meatballmyths",
+ "beats": [
+  {
+   "open": "animal",
+   "card": {
+    "rows": [
+     [
+      "BEE STING",
+      "#ffd34d",
+      130
+     ],
+     [
+      "IF IT BITES YOU",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   },
+   "gag": {
+    "mark": "shock"
+   },
+   "m": "hook",
+   "say": "It can bite you like a bee sting. And it lives in your bathroom."
+  },
+  {
+   "scene": "kitchen",
+   "card": {
+    "rows": [
+     [
+      "LASSO",
+      "#ff4b3e",
+      140
+     ],
+     [
+      "WITH ITS LEGS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   },
+   "m": "chase",
+   "say": "It pounces, then lassoes bugs with its legs."
+  },
+  {
+   "scene": "basement",
+   "with": [
+    "moth",
+    "fly",
+    "earwig"
+   ],
+   "m": "count",
+   "say": "It can hold a few bugs at once, while it eats one."
+  },
+  {
+   "scene": "bedroom",
+   "card": {
+    "rows": [
+     [
+      "BARELY",
+      "#ffd34d",
+      130
+     ],
+     [
+      "BREAKS YOUR SKIN",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "m": "scale",
+   "say": "Good news? Its jaws can barely break your skin."
+  },
+  {
+   "gag": {
+    "mark": "alarm"
+   },
+   "m": "punch",
+   "say": "So never grab one. Because",
+   "card": {
+    "rows": [
+     [
+      "WOULD YOU PICK IT UP?",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "loop": true
+}

@@ -86,7 +86,7 @@ def bathroom(ctx, t, layer, p):
         layer(1.0)
         ctx.save()
         ctx.identity_matrix()
-        ctx.rectangle(0, 0, 1080, 1920)
+        ctx.rectangle(0, 0, ctx.get_target().get_width(), ctx.get_target().get_height())  # the whole frame, 9:16 or 16:9
         src(ctx, (0.05, 0.08, 0.2), 0.18)
         ctx.fill()
         ctx.restore()

@@ -99,7 +99,7 @@ def radar_room(ctx, t, layer, p):
     stroke(ctx, [(-3000, 1500), (5000, 1500)], BG_OUT)
     ctx.save()   # red night lighting over everything
     ctx.identity_matrix()
-    ctx.rectangle(0, 0, 1080, 1920)
+    ctx.rectangle(0, 0, ctx.get_target().get_width(), ctx.get_target().get_height())  # the whole frame, 9:16 or 16:9
     src(ctx, (0.35, 0.05, 0.05), 0.12)
     ctx.fill()
     ctx.restore()

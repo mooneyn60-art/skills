@@ -193,7 +193,7 @@ def main():
             continue
         mp4 = os.path.join(out_dir, f'{cut}-{o["slug"]}.mp4')
         tmp = os.path.join(work, f"render-{cut}.mp4")   # rendered and checked outside the repo first
-        subprocess.run([sys.executable, os.path.join(HERE, "drawn.py"), sp, tmp, "--work", work], check=True)
+        subprocess.run([sys.executable, os.path.join(HERE, o.get("renderer", "drawn.py")), sp, tmp, "--work", work], check=True)   # renderer: e.g. drawn_testkit.py
         dur, kinds, mb = probe(tmp)
         if kinds != ["audio", "video"] or mb >= 50 or not (args.force or rng[0] - 0.5 <= dur <= rng[1] + 0.5):
             raise SystemExit(f"drawn_quick: {tmp} failed the check ({dur:.2f} s, {kinds}, {mb:.1f} MB)")
@@ -201,6 +201,7 @@ def main():
         # text in the first frame"). tools/tt_style.py puts it at y 150-340 (400 with "PART N"), under both apps' top UI.
         import tt_style
         title, sub = tt_style.title_for(o)
+        title = o.get("header", title)   # an outline can carry its own title bar (else data/tt_headers.json by slug)
         if title:
             tt_style.header(tmp, tmp + ".hdr.mp4", title, sub)
             shutil.move(tmp + ".hdr.mp4", tmp)

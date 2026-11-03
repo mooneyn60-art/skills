@@ -1,0 +1,140 @@
+# TEST 3 (11/3), version A: DRAWN v6, exactly per research 64. Same script, voice, facts and music as B (mix) and
+# C (POV); only frame 0 and the wow-fact visuals change. Preview only: not in posted.csv, not scheduled.
+slug: centipede-bite-a-drawn
+out: episodes/test3-centipede
+specs: scripts/test3-centipede
+header: HOUSE CENTIPEDE BITE
+title: 'It Can Bite You Like a Bee Sting 🐛 (Things Living In Your House)'
+tiktok_caption: 'house centipede bite: what happens? 🐛 most bites are no worse than a bee sting, and its jaws can barely break your skin. Would you pick one up? 🐛 yes / 🚫 never #housecentipede #bugsinyourhouse #centipede #meatballmyths'
+creature: house_centipede
+actor: house_centipede
+s: 0.8
+scene: bathroom
+scene_p:
+  time: night
+music: mystery
+music_db: -13
+cut_whoosh: true
+next: none (v6 loop)
+cap_key: [bee, sting, bathroom, pounces, lassoes, legs, few, once, barely, skin, grab, pincers, swelling, eyes, freezes, races, '1885', rockies, '63', eggs, firewood, plants, vacuum, dehumidifier, screens]
+sources:
+- 'University of Arkansas Arthropod Museum, House centipede (Scutigera coleoptrata): jaws not powerful enough to break human skin easily; will sometimes bite in self-defense; not aggressive; severe swelling and pain can result, but in most cases the bite is no worse than the sting of a bee; captures prey by half pouncing and half lassoing; can capture several prey items at one time, feeding on one while holding the others; well-developed faceted eyes unlike most other centipedes; darts at high speed, stops suddenly and stays motionless, then races off; reached Pennsylvania 1849, New York 1885, Massachusetts about 1890, now westward to the Rocky Mountains and beyond; lab females laid an average of 63 eggs (max 151); indoors in bathrooms, moist closets, cellars, crawl spaces and piles of firewood; eats cockroach nymphs, flies, moths, bedbugs, crickets, silverfish, earwigs; https://arthropod.uark.edu/?p=27355'
+- 'Connecticut Agricultural Experiment Station, House Centipede fact sheet (K. Dugas): forcipules (pincer-like modified legs) directly underneath the mouthparts give the venomous sting; can cause temporary localized pain; a sting to a human is very rare and the result of rough handling; reduce humidity by running fans or dehumidifiers; https://portal.ct.gov/-/media/caes/documents/publications/fact_sheets/entomology/house_centipede_scutigera.pdf'
+- 'Washington State University PestSense, House centipede: runs very quickly holding its body up on its long legs; found in basements, bathrooms, closets or potted plants; use a vacuum to dispose of centipedes indoors; keep screens in good repair to reduce the insects it eats; https://pestsense.cahnrs.wsu.edu/fact-sheet/house-centipede/'
+- 'Penn State Extension, House Centipedes (S. Jacobs): harmless; feeds on silverfish, firebrats, carpet beetle larvae, cockroaches, spiders; https://extension.psu.edu/house-centipedes'
+yt:
+- hook: It can bite you like a bee sting. And it lives in your bathroom.
+  open: animal
+  card:
+    rows:
+    - [BEE STING, '#ffd34d', 130]
+    - [IF IT BITES YOU, '#ffffff', 56, true]
+    y: 470
+    at: 30%
+  gag:
+    mark: shock
+- chase: It pounces, then lassoes bugs with its legs.
+  scene: kitchen
+  card:
+    rows:
+    - [LASSO, '#ff4b3e', 140]
+    - [WITH ITS LEGS, '#ffffff', 56, true]
+    y: 470
+    at: 45%
+- count: It can hold a few bugs at once, while it eats one.
+  scene: basement
+  with: [moth, fly, earwig]
+- scale: Good news? Its jaws can barely break your skin.
+  scene: bedroom
+  card:
+    rows:
+    - [BARELY, '#ffd34d', 130]
+    - [BREAKS YOUR SKIN, '#ffffff', 56, true]
+    y: 470
+    at: 40%
+- punch: So never grab one. Because
+  gag:
+    mark: alarm
+tt:
+- hook: It can bite you like a bee sting. And it lives in your bathroom.
+  open: animal
+  card:
+    rows:
+    - [BEE STING, '#ffd34d', 130]
+    - [IF IT BITES YOU, '#ffffff', 56, true]
+    y: 470
+    at: 30%
+  gag:
+    mark: shock
+- chase: It pounces, then lassoes bugs with its legs.
+  scene: kitchen
+  card:
+    rows:
+    - [LASSO, '#ff4b3e', 140]
+    - [WITH ITS LEGS, '#ffffff', 56, true]
+    y: 470
+    at: 45%
+- count: It can hold a few bugs at once, while it eats one.
+  scene: basement
+  with: [moth, fly, earwig]
+- fact: It hunts moths, crickets, earwigs and flies.
+  scene: garden
+- xray: Under its mouth are two pincers. That's what bites.
+  scene: study
+- scale: Good news? Its jaws can barely break your skin.
+  scene: bedroom
+  card:
+    rows:
+    - [BARELY, '#ffd34d', 130]
+    - [BREAKS YOUR SKIN, '#ffffff', 56, true]
+    y: 470
+    at: 40%
+- calm: It isn't aggressive. It only bites to defend itself.
+  scene: basement
+- escalate: But the venom can cause bad swelling and pain.
+  scene: kitchen
+  card:
+    rows:
+    - [SWELLING, '#ff4b3e', 130]
+    - [AND PAIN, '#ffffff', 56, true]
+    y: 470
+    at: 45%
+- calm: The pain stays in one spot, and it doesn't last.
+  scene: study
+- fact: It has real eyes. Most centipedes don't.
+  scene: bathroom
+- chase: It darts across the floor, then freezes dead still.
+  scene: kitchen
+- escalate: Then it races off again, running high on its legs.
+  scene: basement
+- fact: It made it to New York by 1885.
+  scene: study
+  card:
+    rows:
+    - ['1885', '#ffd34d', 120]
+    - [NEW YORK, '#ffffff', 56, true]
+    y: 470
+    at: 40%
+- fact: And Massachusetts about five years later.
+  scene: garden
+- escalate: Now it's spread west, past the Rocky Mountains.
+  scene: garden
+- count: In one lab, mothers laid 63 eggs on average.
+  scene: bedroom
+- fact: It hides in damp closets and piles of firewood.
+  scene: basement
+- tiny: It can even hide in your potted plants.
+  scene: garden
+- calm: Want it out, with no spray? Just vacuum it up.
+  scene: bedroom
+- fact: Then run a fan or a dehumidifier in the basement.
+  scene: basement
+- calm: And fix your screens, so the bugs it eats stay out.
+  scene: kitchen
+- punch: So never grab one. Because
+  gag:
+    mark: alarm
+tt_standalone: true
+outro: false
+loop_pill: WOULD YOU PICK IT UP?
+caption_y: 1180
