@@ -227,13 +227,13 @@ export function makeFan() {
   return g;
 }
 export function makePipe() {   // wall pipe with a leaky joint along +x
-  const g = new THREE.Group(), m = mat(0xb9bec4);
+  const g = new THREE.Group(), m = mat(0x6f7a84);
   const run = cyl(0.025, 0.025, 0.6, m, 10); run.rotation.z = Math.PI / 2; run.position.set(0, 0.3, 0); g.add(run);
   const down = cyl(0.025, 0.025, 0.3, m, 10); down.position.set(0.3, 0.15, 0); g.add(down);
   const joint = cyl(0.035, 0.035, 0.06, mat(0x9aa0a6), 10); joint.rotation.z = Math.PI / 2; joint.position.set(-0.05, 0.3, 0); g.add(joint);
   const wrap = cyl(0.04, 0.04, 0.07, mat(0xd7d7d7), 10); wrap.rotation.z = Math.PI / 2; wrap.position.copy(joint.position); wrap.visible = false; g.add(wrap);
   const dm = new THREE.MeshLambertMaterial({ color: 0x8fd0f0, emissive: 0x204050 });
-  const drops = [0, 1, 2].map(() => { const d = mesh(ICO1, dm, false); d.scale.set(0.009, 0.013, 0.009); g.add(d); return d; });
+  const drops = [0, 1, 2].map(() => { const d = mesh(ICO1, dm, false); d.scale.set(0.014, 0.02, 0.014); g.add(d); return d; });
   const pud = new THREE.Mesh(new THREE.CircleGeometry(1, 14), new THREE.MeshLambertMaterial({ color: 0xa9d4e6, transparent: true, opacity: 0.6, emissive: 0x16303a }));
   pud.rotation.x = -Math.PI / 2; pud.scale.set(0.08, 0.05, 1); pud.position.set(-0.05, 0.004, 0.03); g.add(pud);
   g.userData = { joint, wrap, drops };
@@ -262,7 +262,7 @@ export function makeCalendar() {
   return g;
 }
 export function makeTowel() {
-  const tex = canvasTex(128, 128, (c, w) => { for (let i = 0; i < 8; i++) { c.fillStyle = i % 2 ? '#f4f0e6' : '#e0614a'; c.fillRect(0, i * 16, w, 16); } });
+  const tex = canvasTex(128, 128, (c, w) => { for (let i = 0; i < 8; i++) { c.fillStyle = i % 2 ? '#f4f0e6' : '#7cc4e4'; c.fillRect(0, i * 16, w, 16); } });
   const t = new THREE.Mesh(new THREE.PlaneGeometry(0.13, 0.2), new THREE.MeshLambertMaterial({ map: tex })); t.rotation.x = -Math.PI / 2; t.position.y = 0.004; t.receiveShadow = true;
   const g = new THREE.Group(); g.add(t); return g;
 }

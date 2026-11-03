@@ -30,7 +30,7 @@ sun.position.set(2.2, 4, 2.2); sun.target.position.set(0.4, 0, 0);
 Object.assign(sun.shadow.camera, { left: -2, right: 2, top: 2, bottom: -2, near: 0.5, far: 10 }); sun.shadow.bias = -0.0003; sun.shadow.normalBias = 0.002;
 scene.add(sun, sun.target);
 const lamp = new THREE.PointLight(0xffe2b8, 1.4, 4, 1.5); lamp.position.set(0.3, 2.3, 0.2); scene.add(lamp);
-const DAY = { bg: 0xdfe9ef, hemi: [0xe6eeff, 1.2], sun: [0xfff0d8, 2.6], lamp: 1.4 }, NIGHT = { bg: 0x0b1430, hemi: [0x5a6fb0, 0.55], sun: [0x9fb6ff, 1.1], lamp: 0 };
+const DAY = { bg: 0xdfe9ef, hemi: [0xe6eeff, 1.2], sun: [0xfff0d8, 2.6], lamp: 1.4 }, NIGHT = { bg: 0x1a2850, hemi: [0x8fa2dd, 1.0], sun: [0xb0c4ff, 1.9], lamp: 0.35 };
 function setLight(n) { scene.background = new THREE.Color(n.bg); hemi.color.setHex(n.hemi[0]); hemi.intensity = n.hemi[1]; sun.color.setHex(n.sun[0]); sun.intensity = n.sun[1]; lamp.intensity = n.lamp; }
 
 // ---------- set + cast ----------
@@ -51,7 +51,7 @@ S.silver2 = P.makeSilverfish(); S.silver2.scale.setScalar(0.016); scene.add(S.si
 S.ant = P.makeAnt(); S.ant.scale.setScalar(0.011); scene.add(S.ant);
 S.bedbug = P.makeBedBug(); S.bedbug.scale.setScalar(0.011); scene.add(S.bedbug);
 S.bee = P.makeBee(); S.bee.scale.setScalar(0.017); scene.add(S.bee);
-S.leg = P.makeLooseLeg(); S.leg.scale.setScalar(0.04); scene.add(S.leg);
+S.leg = P.makeLooseLeg(); S.leg.scale.setScalar(0.05); scene.add(S.leg);
 S.drain = P.makeDrain(); S.drain.position.set(-0.15, 0, 0.25); scene.add(S.drain);
 S.win = P.makeWindow(); S.win.position.set(-0.4, 1.0, -0.88); scene.add(S.win);
 S.fan = P.makeFan(); S.fan.position.set(1.0, 0, -0.62); S.fan.rotation.y = Math.PI + 0.4; scene.add(S.fan);
@@ -122,7 +122,7 @@ const comp = makeCompositor(canvas);
 function overlay(t) {
   const c = comp.ctx; comp.begin();
   const i = lineIdx(t), cfg = PLAN.cfg[i];
-  if (cfg.night) { c.save(); c.globalCompositeOperation = 'multiply'; c.fillStyle = '#7f95d8'; c.fillRect(0, 0, 1080, 1920); c.restore(); }
+  if (cfg.night) { c.save(); c.globalCompositeOperation = 'multiply'; c.fillStyle = '#9db0ea'; c.fillRect(0, 0, 1080, 1920); c.restore(); }
   const mc = PLAN.mapAt(t); if (mc) drawMapCard(c, mc.age, mc.arrow, mc.fade);
   const lc = PLAN.leaseAt(t); if (lc) drawLease(c, lc.age, lc.sig, lc.fade);
   const fc = PLAN.cardAt(t); if (fc) drawFactCard(c, fc.card, fc.src, fc.age, fc.fade);

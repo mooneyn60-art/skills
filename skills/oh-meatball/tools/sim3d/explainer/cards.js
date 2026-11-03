@@ -28,7 +28,7 @@ export function drawCaption(c, line, rel) {
   if (longest > maxW) size = Math.floor(size * maxW / longest);
   c.font = `900 ${size}px Inter`;
   // lay out the full chunk (stable positions), draw only the words spoken so far
-  const space = c.measureText(' ').width, lines = [[]]; let lw = 0;
+  const space = c.measureText(' ').width + 24, lines = [[]]; let lw = 0;
   full.forEach((w, j) => { const ww = c.measureText(w).width; if (lines[lines.length - 1].length && lw + space + ww > maxW) { lines.push([]); lw = 0; } lines[lines.length - 1].push([w, ww, c0 + j]); lw += (lw ? space : 0) + ww; });
   const lh = size * 1.08, base = 1400 - (lines.length - 1) * lh;
   c.textBaseline = 'alphabetic'; c.lineJoin = 'round'; c.textAlign = 'left';
