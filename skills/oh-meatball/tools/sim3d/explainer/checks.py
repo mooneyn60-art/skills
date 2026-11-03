@@ -58,5 +58,5 @@ eb = subprocess.run(["ffmpeg", "-v", "info", "-nostats", "-i", a.video, "-vn", "
 tp = re.findall(r"Peak:\s+(-?[\d.]+|-inf) dBFS", eb)
 out = {"duration": round(dur, 3), "duration_ok": a.min <= dur <= a.max, "voice_onset_s": round(onset, 3), "onset_ok": onset < 0.1,
        "truncated_lines": trunc, "zap_windows": len(zaps), "zap_windows_int16_scale": len(zaps16), "zap_times": (zaps16 or zaps)[:10], "lufs": round(lufs, 2),
-       "true_peak_dbfs": float(tp[-1]) if tp else None, "sample_peak_dbfs": round(20 * np.log10(np.abs(st).max() + 1e-12), 2)}
+       "true_peak_dbfs": float(tp[-1]) if tp else None, "sample_peak_dbfs": round(float(20 * np.log10(np.abs(st).max() + 1e-12)), 2)}
 print(json.dumps(out))

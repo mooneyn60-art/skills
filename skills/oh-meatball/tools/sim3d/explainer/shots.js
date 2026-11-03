@@ -100,7 +100,7 @@ export function buildPlan(L, T_END) {
     { at: cut(30, 3), tgt: 'pHead', yaw: 185, dist: 0.95, h: -0.15, ly: -0.25, dyaw: -8 }] });
   set(31, { cent: { p0: P31, p1: P31e, t0: start(31) + 0.05, t1: L[31].t + 1.6, lin: 1 }, shots: [
     { tgt: 'cent', yaw: 164.5, dist: 0.12, h: 0.12, dyaw: 0, push: 1 },
-    { at: cut(31, 2), c0: [0.85, 0.09, -0.38], l0: [1.25, 0.05, -0.46], c1: [0.9, 0.085, -0.39], l1: [1.25, 0.05, -0.46] }] });
+    { at: cut(31, 2), c0: [0.88, 0.06, -0.38], l0: [1.25, 0.0, -0.47], c1: [0.93, 0.058, -0.39], l1: [1.25, 0.0, -0.47] }] });
 
   // flatten shots with absolute [s0, s1)
   const shots = [];
