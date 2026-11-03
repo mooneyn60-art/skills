@@ -78,3 +78,9 @@ Source: Studio AI panels pasted by Nolan 11/3 (28 days) + same-day Studio deep-d
   28.0%, Pakistan 6.4%. 9,341 followers, net -58. Rules: the plain search phrase ("house centipede", "spider in
   house", "is it dangerous") leads the caption and shows on screen in the first 2 s; don't stretch weak topics to 61 s
   (Rewards pays ~$0); keep the TikTok queue on-niche (house bugs, spiders, dangerous animals), no random topics.
+
+## Peak-stacking rule (Nolan's reference video, 11/3)
+- The old arc (setup, rising action, climax) loses people before it gets good. Start the story at "70 out of 100": the hook sets up the context in the first 5 s.
+- Spike to "90" within 5-10 s with a contrarian line or a shocking stat.
+- Then re-hook every 20-30 s (peak, release, peak) until the end. No single climax; stack peaks.
+- Applies to TikTok long cuts (61-65 s: at least 3 peaks), long-form (a peak every 20-30 s, not every 60-90 s) and what-if simulations (every doubling is a peak).
