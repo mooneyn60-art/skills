@@ -1,0 +1,87 @@
+# v5 (11/03): the house-spider template (you + sourced number hook, a new room each line, number cards, punch-in, bed -13 dB + cut whooshes, yellow key words, comment end card, Andrew).
+slug: scabies-v5
+series: Things Living In Your House
+part: 19
+title: Something Is Digging a Tunnel in Your Skin Right Now
+creature: scabies
+actor: scabies_mite
+s: 0.8
+wild: skin
+music: mystery
+scene: bedroom
+scene_p:
+  time: night
+next: 'Next: a bug that rolls up.'
+music_db: -13
+cut_whoosh: true
+cap_key:
+- '8'
+- weeks
+- mite
+- mites
+- skin
+- eggs
+- spread
+- touch
+- '2'
+- million
+- you
+end_card:
+  rows:
+  - - WOULD YOU TELL YOUR FRIENDS?
+    - '#ffd34d'
+    - 70
+  - - COMMENT TELL OR SECRET
+    - '#ffffff'
+    - 64
+    - true
+  y: 520
+  at: 30%
+sources:
+- 'CDC, About Scabies: https://www.cdc.gov/scabies/about/index.html'
+yt:
+- hook: 'Up to 8 weeks: a mite tunnels in your skin before you itch.'
+  card:
+    rows:
+    - - UP TO 8 WEEKS
+      - '#ffd34d'
+      - 96
+    - - BEFORE THE ITCH
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 45%
+  gag:
+    mark: shock
+- tiny: Shrink down. It lays eggs as it digs.
+  scene: skin
+- escalate: You can spread it before you feel it.
+  scene: bathroom
+  card:
+    rows:
+    - - SPREADS
+      - '#ff4b3e'
+      - 120
+    - - BEFORE YOU ITCH
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 60%
+- xray: 'Crusted scabies: up to 2 million mites.'
+  scene: microscope
+  card:
+    rows:
+    - - 2,000,000
+      - '#ff4b3e'
+      - 120
+    - - MITES ON ONE PERSON
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 40%
+- punch: It spreads by touch. Who did you touch today?
+  gag:
+    mark: alarm

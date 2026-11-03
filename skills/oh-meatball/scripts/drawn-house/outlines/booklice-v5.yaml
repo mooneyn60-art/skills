@@ -1,0 +1,176 @@
+# v5 (11/03): the house-spider template (you + sourced number hook, a new room each line, number cards, punch-in, bed -13 dB + cut whooshes, yellow key words, comment end card, Andrew).
+slug: booklice-v5
+series: Things Living In Your House
+part: 11
+title: Many Bugs in Your Old Books Are All Female, No Males Needed 📚
+tiktok_caption: the tiny bugs in your old books aren't eating the pages 📚 they're eating mold you can't see, and many kinds don't need males. Would you still read a book that had them? 📖 yes / 🗑️ toss it
+creature: booklouse
+creature_cfg:
+  xray: gut
+music: mystery
+scene: study
+scene_p:
+  time: night
+next: 'Next: the bug with pincers in your bathroom.'
+music_db: -13
+cut_whoosh: true
+cap_key:
+- '25'
+- days
+- mold
+- female
+- males
+- damp
+- '75'
+- '90'
+- '50'
+- percent
+- humidity
+- lice
+- flour
+end_card:
+  rows:
+  - - WOULD YOU KEEP THE BOOK?
+    - '#ffd34d'
+    - 70
+  - - COMMENT KEEP OR TOSS
+    - '#ffffff'
+    - 64
+    - true
+  y: 520
+  at: 30%
+sources:
+- 'Utah State University Extension, Booklice fact sheet (Utah Pests): booklice are flat, pale, soft-bodied, 1-4 mm long; do not feed on bindings or glue but on mold and other fungi present in books; also
+  occur in rugs, stored grains, damp construction materials; many but not all species reproduce parthenogenetically, all females that do not require fertilization by males; life cycle 4 weeks to 2 months,
+  a single generation in as few as 25 days under ideal conditions; do not bite or transmit disease; control by decreasing humidity and increasing airflow; https://extension.usu.edu/pests/uppdl/files/factsheet/booklice.pdf'
+- 'Utah State University Extension IPM, Booklice and Psocids: indoors found in damp books, around leaking or sweating pipes, in voids and cardboard boxes; eat mold spores; indicator of moisture issues;
+  https://extension.usu.edu/planthealth/ipm/notes_nuisance/booklice-psocids'
+- 'Clemson Cooperative Extension HGIC, Booklice: not true lice, related to barklice; do not bite people or pets; feed on mold, and starchy foods like flour, grains and dried fruit; damage damp books by
+  feeding on moldy paper; ideal 75-90% relative humidity; 50-60% is harmful and they can die within weeks if humidity stays low; keep humidity below 50%; large populations build up in newly built structures
+  because fresh plaster and drywall hold moisture that supports mold; https://hgic.clemson.edu/factsheet/booklice/'
+yt:
+- hook: Bugs in your old books can raise a new generation in 25 days.
+  card:
+    rows:
+    - - 25 DAYS
+      - '#ffd34d'
+      - 120
+    - - PER GENERATION
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 45%
+  gag:
+    clock: 2
+    at: 60%
+- tiny: Shrink down. They're not eating your books.
+  scene: basement
+- xray: They eat mold you usually can't see.
+  scene: microscope
+  gag:
+    prop: magnifier
+    at: 60%
+- escalate: And many kinds are all female. No males needed.
+  scene: bathroom
+  gag:
+    pile: egg
+    n: 6
+    r: 26
+    at: 60%
+- punch: If you've got booklice, you've got damp.
+  gag:
+    mark: sweat
+    at: 60%
+tt:
+- name: Booklice. Pale, soft, and 1 to 4 millimeters long.
+  scene: study
+  card:
+    rows:
+    - - 1–4 MM
+      - '#ffd34d'
+      - 120
+    - - LONG
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 60%
+  gag:
+    prop: ruler
+    at: 70%
+- fact: They love humid air. 75 to 90 percent is perfect.
+  scene: bathroom
+  card:
+    rows:
+    - - 75–90%
+      - '#ffd34d'
+      - 120
+    - - HUMIDITY
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 60%
+- calm: Damp cardboard boxes. Sweaty pipes. Wet basements.
+  scene: basement
+- tiny: They'll move into your flour, your grains, and your dried fruit too.
+  scene: kitchen
+  scene_p:
+    time: night
+  gag:
+    thought: cube
+    at: 40%
+- fact: And they're not real lice. They don't bite you.
+  scene: bedroom
+  gag:
+    mark: hearts
+    at: 60%
+- chase: Brand new houses can get swarms. Fresh drywall holds moisture, and mold grows.
+  scene: office
+- calm: But they have one big weakness. They need damp air.
+  scene: bathroom
+- escalate: Keep your humidity under 50 percent, and they can die within weeks.
+  scene: basement
+  card:
+    rows:
+    - - UNDER 50%
+      - '#ff4b3e'
+      - 120
+    - - AND THEY CAN DIE
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 50%
+  gag:
+    prop: skull
+    at: 85%
+- fact: They don't eat the glue or the bindings either.
+  scene: study
+  gag:
+    prop: magnifier
+    at: 50%
+- calm: Their closest cousins are barklice, out on the trees.
+  scene: garden
+- count: From egg to adult takes one to two months.
+  scene: kitchen
+  card:
+    rows:
+    - - 1–2 MONTHS
+      - '#ffd34d'
+      - 120
+    - - EGG TO ADULT
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 60%
+- fact: They don't spread disease either.
+  scene: bedroom
+- chase: They also hide in rugs, stored grain, and damp building materials.
+  scene: basement
+- fact: Would you still read a book that had them?
+  scene: bedroom
+- calm: The real bookworm in your house isn't eating the book. It's eating the mold.
+  scene: study

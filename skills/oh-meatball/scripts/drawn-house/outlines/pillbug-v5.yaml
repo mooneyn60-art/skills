@@ -1,0 +1,94 @@
+# v5 (11/03): the house-spider template (you + sourced number hook, a new room each line, number cards, punch-in, bed -13 dB + cut whooshes, yellow key words, comment end card, Andrew).
+slug: pillbug-v5
+series: Things Living In Your House
+part: 20
+title: Touch This Bug in Your Basement and It Rolls Into a Ball
+tiktok_caption: 'pillbugs (roly polys) in my basement 🐚 they aren''t insects, they''re crustaceans like crabs and shrimp, and they roll into a ball to hold in water. Would you let one crawl on your hand?
+  ✋ yes / 🙅 no #pillbug #rolypoly #bugsinyourhouse #meatballmyths #learnontiktok'
+creature: pillbug
+creature_cfg:
+  plan: centipede
+  label: pillbug
+  color: '#6e7078'
+  dark: '#46484e'
+  legs: 7
+  length: 520
+  height: 200
+  leg_len: 0.4
+  ant: 140
+  long_last: false
+  stripes: 0
+  segments: 8
+  s: 0.8
+  xray: gut
+wild: forest_floor
+music: mystery
+scene: basement
+scene_p:
+  time: day
+next: 'Next: termites eating your house.'
+music_db: -13
+cut_whoosh: true
+cap_key:
+- '14'
+- legs
+- crustacean
+- crabs
+- ball
+- '3'
+- years
+- water
+- land
+end_card:
+  rows:
+  - - WOULD YOU HOLD ONE?
+    - '#ffd34d'
+    - 84
+  - - COMMENT YES OR NO
+    - '#ffffff'
+    - 64
+    - true
+  y: 520
+  at: 30%
+sources:
+- 'University of Kentucky Entomology, ENTFACT-439 Sowbugs & Pillbugs: isopods, crustaceans that live on land; seven pairs of legs; pillbugs roll into a ball, which also retains water, sowbugs cannot and
+  have two tail-like uropods; eat decaying plant matter and fungi, sometimes seedlings; do not bite or sting, harmless; females carry eggs and young in a brood pouch (marsupium); live about 3 years; come
+  indoors for moisture and struggle without high humidity; https://entomology.mgcafe.uky.edu/ef439'
+- 'UF/IFAS EDIS IG093, Pillbugs and sowbugs: the only crustaceans fully adapted to land; beneficial nutrient recyclers; https://edis.ifas.ufl.edu/publication/IG093'
+yt:
+- hook: The roly poly in your basement has 14 legs. It's not an insect.
+  card:
+    rows:
+    - - 14 LEGS
+      - '#ffd34d'
+      - 120
+    - - NOT AN INSECT
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 45%
+  gag:
+    mark: shock
+- xray: It's a crustacean, a cousin of crabs.
+  scene: garden
+  gag:
+    thought: fish
+- escalate: Touch it, and it rolls into an armored ball.
+  scene: bathroom
+- count: Rolling up holds in water. It can live 3 years.
+  scene: forest_floor
+  card:
+    rows:
+    - - 3 YEARS
+      - '#ffd34d'
+      - 120
+    - - LIFESPAN
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 70%
+- punch: The only crustaceans fully living on land.
+  gag:
+    prop: trophy
