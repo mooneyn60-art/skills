@@ -1,0 +1,242 @@
+{
+ "series": "Things Living In Your House, Part 41",
+ "sources": [
+  "CDC, About Bed Bugs: 1-7 mm (about Lincoln's head on a penny); bite marks can take up to 14 days to develop in some people; bed bugs can travel over 100 feet in a night but tend to live within 8 feet of where people sleep; rusty-colored blood spots, a sweet musty odor; not known to spread disease; https://www.cdc.gov/bed-bugs/about/index.html",
+  "Univ. of Kentucky Entomology, Bed Bugs (ENTFACT-636, M. Potter): 1-4 months without feeding in heated buildings, a year or longer at 55 F or less; lifespan about 10 months; eggs hatch in about a week; can mature in a month at 70-80 F; about 30 percent of people do not react even when bitten repeatedly; fit crevices no wider than a toothpick; crawl room to room and floor to floor via cracks; dark spotting and tan shed skins; laundering 120 F minimum or a dryer at medium-high heat 10-20 minutes; freezing takes one to two weeks; https://entomology.mgcafe.uky.edu/ef636",
+  "Kells, S. (Univ. of Minnesota), Heat treatment for bed bugs, EPA-hosted presentation: 118 F lethal to adults (about 20 min), eggs need about 90 min, 122 F for eggs; https://archive.epa.gov/epa/sites/production/files/2014-06/documents/12-kellsheat.pdf"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "stage": {
+  "creature": "bed_bug",
+  "scene": "bedroom",
+  "scene_p": {
+   "time": "night"
+  },
+  "creature_cfg": {
+   "xray": "gut"
+  },
+  "s": 0.72
+ },
+ "cap_key": [
+  "you",
+  "100",
+  "feet",
+  "14",
+  "days",
+  "8",
+  "blood",
+  "toothpick",
+  "30",
+  "percent"
+ ],
+ "cut_whoosh": true,
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "100 Feet a Night to Your Bed 🩸 (Things Living In Your House #41)",
+ "tiktok_caption": "bed bugs in your bed 🩸 they can crawl over 100 feet in a night to reach you, and the bite can take 14 days to show up. Checking your mattress tonight? 🛏️ yes / 🙈 no #bedbugs #bedbugbites #bugsinyourbed #meatballmyths",
+ "beats": [
+  {
+   "card": {
+    "rows": [
+     [
+      "100 FEET",
+      "#ffd34d",
+      140
+     ],
+     [
+      "IN ONE NIGHT",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   },
+   "gag": {
+    "mark": "shock"
+   },
+   "open": "animal",
+   "m": "hook",
+   "say": "Something can crawl 100 feet tonight, just to reach your bed."
+  },
+  {
+   "scene": "study",
+   "m": "escalate",
+   "say": "It finds you. It bites. And it leaves no mark."
+  },
+  {
+   "scene": "bathroom",
+   "card": {
+    "rows": [
+     [
+      "UP TO 14 DAYS",
+      "#ff4b3e",
+      100
+     ],
+     [
+      "BEFORE THE MARK",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "m": "xray",
+   "say": "For some people, the bite takes 14 days to show up."
+  },
+  {
+   "scene": "kitchen",
+   "m": "fact",
+   "say": "And about 3 in 10 people never react at all."
+  },
+  {
+   "scene": "bedroom",
+   "m": "calm",
+   "say": "So you could have them, and never know."
+  },
+  {
+   "scene": "fibers",
+   "m": "tiny",
+   "say": "It fits in a crack no wider than a toothpick."
+  },
+  {
+   "scene": "basement",
+   "m": "chase",
+   "say": "It crawls room to room, and floor to floor, through cracks in your walls."
+  },
+  {
+   "scene": "bedroom",
+   "card": {
+    "rows": [
+     [
+      "8 FEET",
+      "#ffd34d",
+      110
+     ],
+     [
+      "FROM YOUR PILLOW",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   },
+   "m": "fact",
+   "say": "But it likes to live within 8 feet of where you sleep."
+  },
+  {
+   "scene": "bedroom",
+   "m": "count",
+   "say": "Look for rusty blood spots on your mattress."
+  },
+  {
+   "scene": "microscope",
+   "m": "fact",
+   "say": "Dark specks, which are its dried poop. And tan, empty skins."
+  },
+  {
+   "scene": "study",
+   "m": "fact",
+   "say": "Some people smell it, too. Sweet, and musty."
+  },
+  {
+   "scene": "fibers",
+   "m": "escalate",
+   "say": "A female lays eggs every day. They hatch in about a week."
+  },
+  {
+   "scene": "kitchen",
+   "m": "escalate",
+   "say": "In a warm house, a baby can grow up in a month."
+  },
+  {
+   "scene": "study",
+   "m": "calm",
+   "say": "Starve it out? In a heated home, it can wait months."
+  },
+  {
+   "scene": "basement",
+   "m": "xray",
+   "say": "Below about 55 degrees, it can wait a year or longer."
+  },
+  {
+   "scene": "microscope",
+   "m": "fact",
+   "say": "Adults are about the size of Lincoln's head on a penny."
+  },
+  {
+   "scene": "bathroom",
+   "m": "fact",
+   "say": "So what kills it? Heat."
+  },
+  {
+   "scene": "kitchen",
+   "card": {
+    "rows": [
+     [
+      "118°F",
+      "#ffd34d",
+      110
+     ],
+     [
+      "ADULTS DIE",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "m": "count",
+   "say": "At 118 degrees, adults die in about 20 minutes."
+  },
+  {
+   "scene": "bathroom",
+   "m": "fact",
+   "say": "Wash your sheets hot, then dry them on high for 20 minutes."
+  },
+  {
+   "scene": "kitchen",
+   "m": "calm",
+   "say": "Freezing works too. But it takes one to two weeks."
+  },
+  {
+   "scene": "study",
+   "m": "calm",
+   "say": "The good news? It's not known to spread disease."
+  },
+  {
+   "gag": {
+    "mark": "alarm"
+   },
+   "m": "punch",
+   "say": "Just itchy bites. From a bug that, tonight,",
+   "card": {
+    "rows": [
+     [
+      "CHECK TONIGHT? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "loop": true
+}

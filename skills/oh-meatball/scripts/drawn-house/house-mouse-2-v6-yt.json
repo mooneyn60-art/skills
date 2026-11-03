@@ -1,0 +1,122 @@
+{
+ "series": "Things Living In Your House, Part 43",
+ "sources": [
+  "UC IPM Pest Notes: House Mouse (Pub. 7483): excellent climbers, run up any rough vertical surface and horizontally along wire cables or ropes; jump up to 12 inches; squeeze under gaps 1/4 inch tall and through openings 3/8 inch wide; consume food in about 200 small meals each night; eat up to 20% of their body weight daily; nests of finely shredded paper or other fibrous material; life span usually 9-12 months; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7483.html"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "stage": {
+  "creature": "house_mouse",
+  "scene": "kitchen",
+  "scene_p": {
+   "time": "night"
+  },
+  "s": 0.65
+ },
+ "cap_key": [
+  "you",
+  "200",
+  "meals",
+  "night",
+  "wires",
+  "walls",
+  "fifth",
+  "3/8",
+  "inch",
+  "nest",
+  "paper"
+ ],
+ "cut_whoosh": true,
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Your Kitchen: 200 Mouse Meals 🐭 (Things Living In Your House #43)",
+ "tiktok_caption": "mouse in your kitchen 🐭 it can eat about 200 tiny meals in one night, and it runs up your walls and along your wires to get there. Trap or cat? 🪤 trap / 🐈 cat #mouseinhouse #housemouse #pests #meatballmyths",
+ "beats": [
+  {
+   "card": {
+    "rows": [
+     [
+      "200 MEALS",
+      "#ffd34d",
+      130
+     ],
+     [
+      "IN ONE NIGHT",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   },
+   "gag": {
+    "mark": "shock"
+   },
+   "open": "animal",
+   "m": "hook",
+   "say": "A mouse in your kitchen can eat 200 meals. In one night."
+  },
+  {
+   "scene": "basement",
+   "pad": 0.5,
+   "m": "chase",
+   "say": "It runs straight up your walls. And along your wires."
+  },
+  {
+   "scene": "bathroom",
+   "pad": 0.5,
+   "card": {
+    "rows": [
+     [
+      "1/5",
+      "#ffd34d",
+      150
+     ],
+     [
+      "OF ITS WEIGHT, DAILY",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "m": "xray",
+   "say": "Every day? It eats a fifth of its own weight."
+  },
+  {
+   "scene": "bedroom",
+   "pad": 0.5,
+   "m": "tiny",
+   "say": "It slips through a hole. Just 3/8 of an inch wide."
+  },
+  {
+   "gag": {
+    "mark": "alarm"
+   },
+   "m": "punch",
+   "say": "It shreds your paper, into a nest. And",
+   "card": {
+    "rows": [
+     [
+      "TRAP OR CAT? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "loop": true
+}

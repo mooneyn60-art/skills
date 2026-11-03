@@ -1,0 +1,89 @@
+# v6 (Studio 11/3) sequel, 11/3 pass: narration from 0 s, animal close-up first (open: animal), line 2 is
+# action/danger, no outro, the last line loops into the hook in the hook's room, comment pill on the last line.
+slug: honey-badger-2-v6
+series: Would Meatball Survive?
+part: 24
+title: 'It Walks 17 Miles to Your Yard 🦡 (Would Meatball Survive? #24)'
+tiktok_caption: 'would you survive a honey badger? 🦡 it can walk 17 miles a day hunting, and in some seasons more than half its food is snakes. Survive or run? 💪 survive / 🏃 run #honeybadger #wouldyousurvive
+  #dangerousanimals #meatballmyths'
+creature: honey_badger
+actor: creature
+hero_p:
+  cfg:
+    plan: mammal
+    label: honey badger
+    color: '#2a2522'
+    dark: '#171412'
+    belly: '#2a2522'
+    length: 560
+    height: 240
+    leg_len: 90
+    leg_w: 36
+    ears: round
+    tail: thin
+    tail_w: 14
+    whiskers: false
+    back_stripe: '#d9d5cc'
+    back_stripe_w: 70
+    mood: angry
+    s: 0.85
+scene: desert
+scene_p:
+  time: day
+wild: forest_floor
+out: episodes/drawn-tt
+specs: scripts/drawn-tt
+music: mystery
+music_db: -13
+cut_whoosh: true
+next: none (v6 loop)
+cap_key:
+- you
+- '17'
+- miles
+- snakes
+- '58'
+- half
+- adders
+- lions
+- '3'
+- days
+sources:
+- 'Animal Diversity Web (Univ. of Michigan), Mellivora capensis: males may forage as much as 27 km (about 17 miles) per day, females about 10 km; large snakes made up 58% of the diet in the hot-wet season;
+  known to eat a variety of venomous snakes, puff adders among observed prey; mothers move the cub to a new den about every 3 days, carrying it in the mouth; lions and leopards tend to kill only older and
+  weaker honey badgers; https://animaldiversity.org/accounts/Mellivora_capensis/'
+yt:
+- hook: It can walk 17 miles in a day. And it's heading for your yard.
+  card:
+    rows:
+    - - 17 MILES
+      - '#ffd34d'
+      - 140
+    - - IN ONE DAY
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 45%
+  gag:
+    mark: shock
+  open: animal
+- chase: Snakes, run. Over half its food? Can be snakes.
+  scene: garden
+  card:
+    rows:
+    - - 58% SNAKES
+      - '#ff4b3e'
+      - 120
+    y: 470
+    at: 55%
+- scale: It even eats puff adders. Venom, and all.
+  scene: cave
+- calm: Lions? They mostly go for the old, weak ones.
+  scene: forest_floor
+- punch: Mom moves her cub to a new den, every 3 days. So
+  gag:
+    mark: alarm
+outro: false
+loop_pill: SURVIVE OR RUN? COMMENT
+caption_y: 1180

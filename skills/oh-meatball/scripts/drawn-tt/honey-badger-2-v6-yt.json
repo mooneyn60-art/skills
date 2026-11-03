@@ -1,0 +1,134 @@
+{
+ "series": "Would Meatball Survive?, Part 24",
+ "sources": [
+  "Animal Diversity Web (Univ. of Michigan), Mellivora capensis: males may forage as much as 27 km (about 17 miles) per day, females about 10 km; large snakes made up 58% of the diet in the hot-wet season; known to eat a variety of venomous snakes, puff adders among observed prey; mothers move the cub to a new den about every 3 days, carrying it in the mouth; lions and leopards tend to kill only older and weaker honey badgers; https://animaldiversity.org/accounts/Mellivora_capensis/"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "stage": {
+  "creature": "honey_badger",
+  "scene": "desert",
+  "scene_p": {
+   "time": "day"
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "mammal",
+    "label": "honey badger",
+    "color": "#2a2522",
+    "dark": "#171412",
+    "belly": "#2a2522",
+    "length": 560,
+    "height": 240,
+    "leg_len": 90,
+    "leg_w": 36,
+    "ears": "round",
+    "tail": "thin",
+    "tail_w": 14,
+    "whiskers": false,
+    "back_stripe": "#d9d5cc",
+    "back_stripe_w": 70,
+    "mood": "angry",
+    "s": 0.85
+   }
+  },
+  "actor": "creature",
+  "wild": "forest_floor"
+ },
+ "cap_key": [
+  "you",
+  "17",
+  "miles",
+  "snakes",
+  "58",
+  "half",
+  "adders",
+  "lions",
+  "3",
+  "days"
+ ],
+ "cut_whoosh": true,
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "It Walks 17 Miles to Your Yard 🦡 (Would Meatball Survive? #24)",
+ "tiktok_caption": "would you survive a honey badger? 🦡 it can walk 17 miles a day hunting, and in some seasons more than half its food is snakes. Survive or run? 💪 survive / 🏃 run #honeybadger #wouldyousurvive #dangerousanimals #meatballmyths",
+ "beats": [
+  {
+   "card": {
+    "rows": [
+     [
+      "17 MILES",
+      "#ffd34d",
+      140
+     ],
+     [
+      "IN ONE DAY",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   },
+   "gag": {
+    "mark": "shock"
+   },
+   "open": "animal",
+   "m": "hook",
+   "say": "It can walk 17 miles in a day. And it's heading for your yard."
+  },
+  {
+   "scene": "garden",
+   "card": {
+    "rows": [
+     [
+      "58% SNAKES",
+      "#ff4b3e",
+      120
+     ]
+    ],
+    "y": 470,
+    "at": "55%"
+   },
+   "m": "chase",
+   "say": "Snakes, run. Over half its food? Can be snakes."
+  },
+  {
+   "scene": "cave",
+   "m": "scale",
+   "say": "It even eats puff adders. Venom, and all."
+  },
+  {
+   "scene": "forest_floor",
+   "m": "calm",
+   "say": "Lions? They mostly go for the old, weak ones."
+  },
+  {
+   "gag": {
+    "mark": "alarm"
+   },
+   "m": "punch",
+   "say": "Mom moves her cub to a new den, every 3 days. So",
+   "card": {
+    "rows": [
+     [
+      "SURVIVE OR RUN? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "loop": true
+}

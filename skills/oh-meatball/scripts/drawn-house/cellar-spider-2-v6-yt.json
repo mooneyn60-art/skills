@@ -1,0 +1,111 @@
+{
+ "series": "Things Living In Your House, Part 42",
+ "sources": [
+  "Science Friday, The Marvelous, Misunderstood Lives Of Common Spiders (L. J. Young, quoting entomologist Dr. Eleanor Spicer Rice): on another spider's web the cellar spider (Pholcus phalangioides) places its legs on the edges and trembles like a trapped insect (aggressive mimicry); the owner comes out for the meal; the cellar spider tosses silk over it, wraps it up, eats it, then moves into the web and eats what got snagged; it also eats other spiders; https://www.sciencefriday.com/articles/the-marvelous-misunderstood-lives-of-common-spiders/",
+  "British Arachnological Society, Pholcus phalangioides: feeds on other spiders that come in range, including its own kind; long legs let it throw silk at prey from a distance; https://britishspiders.org.uk/node/26507"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "detective",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "stage": {
+  "creature": "cellar_spider",
+  "scene": "basement",
+  "scene_p": {},
+  "creature_cfg": {
+   "floor": false,
+   "label": "cellar spider"
+  },
+  "s": 0.68,
+  "actor": "cellar_spider"
+ },
+ "cap_key": [
+  "you",
+  "8",
+  "legs",
+  "web",
+  "silk",
+  "fake",
+  "dinner",
+  "own"
+ ],
+ "cut_whoosh": true,
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "1 Fake Bug in Your Basement 🕷️ (Things Living In Your House #42)",
+ "tiktok_caption": "cellar spider in your basement 🕷️ it shakes another spider's web like a trapped bug, then eats the owner when it comes out. Keep it or sweep it? 🕷️ keep / 🧹 sweep #cellarspider #daddylonglegs #spiderinhouse #meatballmyths",
+ "beats": [
+  {
+   "card": {
+    "rows": [
+     [
+      "8 LONG LEGS",
+      "#ffd34d",
+      120
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   },
+   "gag": {
+    "mark": "shock"
+   },
+   "open": "animal",
+   "m": "hook",
+   "say": "8 long legs are shaking a web in your basement. Right now."
+  },
+  {
+   "scene": "kitchen",
+   "pad": 0.3,
+   "card": {
+    "rows": [
+     [
+      "FAKE BUG",
+      "#ff4b3e",
+      140
+     ]
+    ],
+    "y": 470,
+    "at": "55%"
+   },
+   "m": "chase",
+   "say": "It's faking a trapped bug. So the web's owner runs out."
+  },
+  {
+   "scene": "bathroom",
+   "pad": 0.3,
+   "m": "xray",
+   "say": "Then it flings silk, from a distance. And wraps it up."
+  },
+  {
+   "scene": "study",
+   "pad": 0.3,
+   "m": "calm",
+   "say": "Then it moves in. And eats everything stuck in the stolen web."
+  },
+  {
+   "gag": {
+    "mark": "alarm"
+   },
+   "m": "punch",
+   "say": "Even its own kind. And next,",
+   "card": {
+    "rows": [
+     [
+      "KEEP OR SWEEP? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "loop": true
+}

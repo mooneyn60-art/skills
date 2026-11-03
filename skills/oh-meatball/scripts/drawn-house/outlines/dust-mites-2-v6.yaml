@@ -1,0 +1,83 @@
+# v6 (Studio 11/3) sequel, 11/3 pass: narration from 0 s, animal close-up first (open: animal), line 2 is
+# action/danger, no outro, the last line loops into the hook in the hook's room, comment pill on the last line.
+slug: dust-mites-2-v6
+series: Things Living In Your House
+part: 40
+title: 'Your Bed Mites Die at 130°F 😬 (Things Living In Your House #40)'
+tiktok_caption: 'dust mites in your bed 😬 a cold wash doesn''t kill them: it takes water at 130°F, or 24 hours in the freezer. How do you wash your sheets? 🔥 hot / ❄️ cold #dustmites #dustmiteallergy #bugsinyourbed
+  #meatballmyths'
+creature: dust_mite
+scene: bedroom
+scene_p:
+  time: night
+music: sleep
+music_db: -13
+cut_whoosh: true
+next: none (v6 loop)
+cap_key:
+- you
+- '130'
+- degrees
+- '24'
+- hours
+- freeze
+- asthma
+- eczema
+- poop
+- skin
+sources:
+- 'Mayo Clinic, Dust mite allergy, diagnosis and treatment: wash sheets, blankets, pillowcases and bedcovers in hot water at least 130 F (54.4 C) to kill dust mites and remove allergens, or dry them at
+  least 20 minutes above 130 F; freezing items for 24 hours kills mites but doesn''t remove allergens; https://www.mayoclinic.org/diseases-conditions/dust-mites/diagnosis-treatment/drc-20352178'
+- 'National Jewish Health, Dust Mite Allergy: wash all bedding weekly in hot (130 F) water; inhaled droppings or skin contact may cause allergy, asthma and/or eczema symptoms; https://www.nationaljewish.org/conditions/allergy/overview/allergens/dust-mite'
+yt:
+- hook: Wash your sheets under 130 degrees, and the mites in your bed live.
+  card:
+    rows:
+    - - UNDER 130°F
+      - '#ffd34d'
+      - 120
+    - - THEY SURVIVE
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 45%
+  gag:
+    mark: shock
+  open: animal
+- escalate: They crawl back into your pillow. And eat your skin.
+  scene: fibers
+  scene_p:
+    flakes: 14
+- xray: Their poop can set off asthma and eczema.
+  scene: microscope
+  card:
+    rows:
+    - - ASTHMA
+      - '#ff4b3e'
+      - 120
+    - - + ECZEMA
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 40%
+- calm: Can't wash it? Freeze it for 24 hours. They die.
+  scene: kitchen
+  card:
+    rows:
+    - - 24 HOURS
+      - '#ffd34d'
+      - 110
+    - - IN THE FREEZER
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 35%
+- punch: But the poop stays behind. So go hot, because
+  gag:
+    mark: alarm
+outro: false
+loop_pill: HOT OR COLD WASH? COMMENT
+caption_y: 1180

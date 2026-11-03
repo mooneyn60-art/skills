@@ -1,0 +1,138 @@
+{
+ "series": "Things Living In Your House, Part 40",
+ "sources": [
+  "Mayo Clinic, Dust mite allergy, diagnosis and treatment: wash sheets, blankets, pillowcases and bedcovers in hot water at least 130 F (54.4 C) to kill dust mites and remove allergens, or dry them at least 20 minutes above 130 F; freezing items for 24 hours kills mites but doesn't remove allergens; https://www.mayoclinic.org/diseases-conditions/dust-mites/diagnosis-treatment/drc-20352178",
+  "National Jewish Health, Dust Mite Allergy: wash all bedding weekly in hot (130 F) water; inhaled droppings or skin contact may cause allergy, asthma and/or eczema symptoms; https://www.nationaljewish.org/conditions/allergy/overview/allergens/dust-mite"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "sleep",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "stage": {
+  "creature": "dust_mite",
+  "scene": "bedroom",
+  "scene_p": {
+   "time": "night"
+  }
+ },
+ "cap_key": [
+  "you",
+  "130",
+  "degrees",
+  "24",
+  "hours",
+  "freeze",
+  "asthma",
+  "eczema",
+  "poop",
+  "skin"
+ ],
+ "cut_whoosh": true,
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Your Bed Mites Die at 130°F 😬 (Things Living In Your House #40)",
+ "tiktok_caption": "dust mites in your bed 😬 a cold wash doesn't kill them: it takes water at 130°F, or 24 hours in the freezer. How do you wash your sheets? 🔥 hot / ❄️ cold #dustmites #dustmiteallergy #bugsinyourbed #meatballmyths",
+ "beats": [
+  {
+   "card": {
+    "rows": [
+     [
+      "UNDER 130°F",
+      "#ffd34d",
+      120
+     ],
+     [
+      "THEY SURVIVE",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   },
+   "gag": {
+    "mark": "shock"
+   },
+   "open": "animal",
+   "m": "hook",
+   "say": "Wash your sheets under 130 degrees, and the mites in your bed live."
+  },
+  {
+   "scene": "fibers",
+   "scene_p": {
+    "flakes": 14
+   },
+   "m": "escalate",
+   "say": "They crawl back into your pillow. And eat your skin."
+  },
+  {
+   "scene": "microscope",
+   "card": {
+    "rows": [
+     [
+      "ASTHMA",
+      "#ff4b3e",
+      120
+     ],
+     [
+      "+ ECZEMA",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "m": "xray",
+   "say": "Their poop can set off asthma and eczema."
+  },
+  {
+   "scene": "kitchen",
+   "card": {
+    "rows": [
+     [
+      "24 HOURS",
+      "#ffd34d",
+      110
+     ],
+     [
+      "IN THE FREEZER",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   },
+   "m": "calm",
+   "say": "Can't wash it? Freeze it for 24 hours. They die."
+  },
+  {
+   "gag": {
+    "mark": "alarm"
+   },
+   "m": "punch",
+   "say": "But the poop stays behind. So go hot, because",
+   "card": {
+    "rows": [
+     [
+      "HOT OR COLD WASH? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "loop": true
+}

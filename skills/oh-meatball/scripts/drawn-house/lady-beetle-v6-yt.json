@@ -1,0 +1,148 @@
+{
+ "series": "Things Living In Your House, Part 44",
+ "sources": [
+  "Penn State Extension, Multicolored Asian Lady Beetle: first established US populations found in Louisiana in 1988; tens of thousands can congregate in attics, ceilings and wall voids; gather on south or southwest-facing sides on sunny afternoons after cold nights; when disturbed they exude a stinky yellow defensive chemical from their leg joints that can spot walls; they occasionally bite people; a black W on the white pronotum; vacuum with a nylon stocking in the hose; https://extension.psu.edu/multicolored-asian-lady-beetle"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "stage": {
+  "creature": "asian_lady_beetle",
+  "scene": "sill",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "insect",
+   "label": "asian lady beetle",
+   "body": "round",
+   "color": "#e0752a",
+   "length": 380,
+   "height": 220,
+   "leg_len": 90,
+   "ant": 90,
+   "wings": "shell",
+   "sheen": true,
+   "s": 0.8
+  },
+  "s": 0.7
+ },
+ "cap_key": [
+  "you",
+  "tens",
+  "thousands",
+  "walls",
+  "bite",
+  "yellow",
+  "stink",
+  "W",
+  "1988",
+  "south"
+ ],
+ "cut_whoosh": true,
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "10,000s of Bugs in Your Walls 🐞 (Things Living In Your House #44)",
+ "tiktok_caption": "asian lady beetles in your house 🐞 tens of thousands can pack into your walls for winter, and they bite and leak stinky yellow goo. Vacuum or out the window? 🧹 vacuum / 🪟 window #asianladybeetle #ladybugs #bugsinyourhouse #meatballmyths",
+ "beats": [
+  {
+   "card": {
+    "rows": [
+     [
+      "10,000s",
+      "#ffd34d",
+      140
+     ],
+     [
+      "IN YOUR WALLS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   },
+   "gag": {
+    "mark": "shock"
+   },
+   "open": "animal",
+   "m": "hook",
+   "say": "Tens of thousands of beetles can be packed inside your walls."
+  },
+  {
+   "scene": "kitchen",
+   "card": {
+    "rows": [
+     [
+      "YELLOW GOO",
+      "#ff4b3e",
+      110
+     ],
+     [
+      "STAINS YOUR WALLS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "55%"
+   },
+   "m": "chase",
+   "say": "Bug one, and it leaks stinky, yellow goo, right from its knees."
+  },
+  {
+   "scene": "study",
+   "card": {
+    "rows": [
+     [
+      "W",
+      "#ffd34d",
+      150
+     ],
+     [
+      "= ASIAN LADY BEETLE",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "m": "scale",
+   "say": "It's not a ladybug. Look for the black W, behind its head."
+  },
+  {
+   "scene": "bedroom",
+   "m": "xray",
+   "say": "And sometimes? It even bites you."
+  },
+  {
+   "gag": {
+    "mark": "alarm"
+   },
+   "m": "punch",
+   "say": "On sunny fall days, they swarm the south wall. Then",
+   "card": {
+    "rows": [
+     [
+      "VACUUM OR WINDOW? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "loop": true
+}

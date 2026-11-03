@@ -1,0 +1,181 @@
+# v6 (Studio 11/3) sequel, 11/3 pass: narration from 0 s, animal close-up first (open: animal), line 2 is
+# action/danger, no outro, the last line loops into the hook in the hook's room, comment pill on the last line.
+slug: house-centipede-4-v6
+series: Things Living In Your House
+part: 37
+title: '150 Babies in Your Bathroom 🐛 (Things Living In Your House #37)'
+tiktok_caption: 'house centipede in your bathroom? 🐛 one female can make up to 150 babies, and if you grab a leg it snaps off and she keeps running. Let it stay or get it out? 🐛 stay / 🚪 out #housecentipede
+  #bugsinyourhouse #centipede #meatballmyths'
+creature: house_centipede
+actor: house_centipede
+s: 0.8
+scene: bathroom
+scene_p:
+  time: night
+music: mystery
+music_db: -13
+cut_whoosh: true
+next: none (v6 loop)
+cap_key:
+- you
+- '150'
+- babies
+- leg
+- drains
+- drain
+- four
+- inches
+- '1849'
+- now
+sources:
+- 'Penn State Extension, House Centipedes (S. Jacobs): females can survive several years and produce up to 150 young; body 1-1.5 in, 3-4 in with legs and antennae; native to the Mediterranean, first recorded
+  in Pennsylvania in 1849; hide in floor drains without water traps, cement block walls, under cardboard boxes, crawl spaces; can''t survive PA winters outdoors but reproduce in heated buildings; eat silverfish,
+  firebrats, carpet beetle larvae, cockroaches, spiders; larvae hatch with 4 pairs of legs, 13 pairs before adolescence; https://extension.psu.edu/house-centipedes'
+- 'Frontiers in Zoology (2024) 21, doi:10.1186/s12983-024-00544-0: Scutigera coleoptrata legs break at a preferred autotomy plane (trochanter) and regenerate over later molts; https://frontiersinzoology.biomedcentral.com/articles/10.1186/s12983-024-00544-0'
+- 'Univ. of Wisconsin Extension, Centipedes: fangs, can possibly bite if handled, rarely happens, not dangerous; https://hort.extension.wisc.edu/files/2014/11/Centipedes.pdf ; Washington State Univ. PestSense:
+  may inflict a painful bite if handled; https://pestsense.cahnrs.wsu.edu/fact-sheet/house-centipede/'
+yt:
+- hook: One centipede in your bathroom can make up to 150 babies.
+  card:
+    rows:
+    - - UP TO 150
+      - '#ffd34d'
+      - 130
+    - - BABIES FROM ONE
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 45%
+  gag:
+    mark: shock
+  open: animal
+- chase: Grab its leg, and the leg snaps off. It keeps running.
+  scene: kitchen
+  card:
+    rows:
+    - - SNAP
+      - '#ff4b3e'
+      - 140
+    - - THE LEG BREAKS OFF
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 55%
+- tiny: It crawls up through your floor drains. The dry ones.
+  scene: basement
+- scale: Legs and feelers, it's up to four inches across.
+  scene: bedroom
+  card:
+    rows:
+    - - 4 INCHES
+      - '#ffd34d'
+      - 110
+    - - LEGS + FEELERS
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 35%
+- punch: First found in Pennsylvania in 1849. Now
+  gag:
+    mark: alarm
+tt:
+- hook: One centipede in your bathroom can make up to 150 babies.
+  card:
+    rows:
+    - - UP TO 150
+      - '#ffd34d'
+      - 130
+    - - BABIES FROM ONE
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 45%
+  gag:
+    mark: shock
+  open: animal
+- chase: Grab its leg, and the leg snaps off. It keeps running.
+  scene: kitchen
+  card:
+    rows:
+    - - SNAP
+      - '#ff4b3e'
+      - 140
+    - - THE LEG BREAKS OFF
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 55%
+- xray: It breaks at a weak spot built into the leg, on purpose.
+  scene: study
+- fact: And the leg can grow back over its next molts.
+  scene: basement
+- calm: Lose it young, and the new leg grows back slower.
+  scene: study
+- calm: It crawls up through floor drains with no water trap.
+  scene: bathroom
+- fact: By day it hides inside cement block walls.
+  scene: basement
+- tiny: Or under the cardboard boxes stacked on your basement floor.
+  scene: basement
+- scale: Legs and feelers, it's up to four inches across.
+  scene: bedroom
+  card:
+    rows:
+    - - 4 INCHES
+      - '#ffd34d'
+      - 110
+    - - LEGS + FEELERS
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 35%
+- fact: The body itself? Only about an inch long.
+  scene: study
+- escalate: It comes from around the Mediterranean Sea.
+  scene: garden
+- fact: It was first found in Pennsylvania in 1849.
+  scene: study
+  card:
+    rows:
+    - - '1849'
+      - '#ffd34d'
+      - 110
+    - - FIRST FOUND IN PA
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 40%
+- fact: In summer, it can hunt outside, right along your walls.
+  scene: garden
+- calm: Up north, it can't survive the winter outside.
+  scene: garden
+- escalate: So it breeds where it's warm. Inside your heated house.
+  scene: bedroom
+- count: It eats firebrats, silverfish, roaches and spiders.
+  scene: kitchen
+- fact: A baby hatches with just a few legs and adds more each molt.
+  scene: bathroom
+- count: Six baby stages, then four more, before it's grown up.
+  scene: bedroom
+- chase: Can it bite you? If you grab it, it might.
+  scene: kitchen
+- calm: Bug experts say it's rare, and not dangerous.
+  scene: study
+- fact: It would much rather run away from you.
+  scene: basement
+- calm: Want fewer? Fix the damp spots, and seal the dry drains.
+  scene: bathroom
+- punch: Because if one female moves in, then
+  gag:
+    mark: alarm
+tt_standalone: true
+outro: false
+loop_pill: LET IT STAY? COMMENT
+caption_y: 1180

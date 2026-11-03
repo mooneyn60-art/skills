@@ -1,0 +1,82 @@
+# v6 (Studio 11/3) sequel, 11/3 pass: narration from 0 s, animal close-up first (open: animal), line 2 is
+# action/danger, no outro, the last line loops into the hook in the hook's room, comment pill on the last line.
+slug: jumping-spider-2-v6
+series: Things Living In Your House
+part: 38
+title: '40x Jumps From Your Window 🕷️ (Things Living In Your House #38)'
+tiktok_caption: 'jumping spider on your window 🕷️ it can leap up to 40 times its own length, and at night its eyes twitch like it''s dreaming. Let it stay or jar it outside? 🕷️ stay / 🫙 jar #jumpingspider
+  #spiderinhouse #isitdangerous #meatballmyths'
+creature: jumping_spider
+creature_cfg:
+  xray: gut
+scene: sill
+scene_p:
+  time: day
+wild: garden
+music: detective
+music_db: -13
+cut_whoosh: true
+next: none (v6 loop)
+cap_key:
+- you
+- '40'
+- times
+- '17'
+- minutes
+- eyes
+- twitch
+- dreams
+- dream
+- fly
+sources:
+- 'Missouri Department of Conservation, Missouri Conservationist (Oct 2024), Life on a Thread: some jumping spiders can leap horizontally up to 40 body lengths, up to 50 from a raised spot; https://mdc.mo.gov/magazines/missouri-conservationist/2024-10/life-thread'
+- 'Rößler, D.C. et al. (2022) Regularly occurring bouts of retinal movements suggest an REM sleep-like state in jumping spiders. PNAS 119(33), doi:10.1073/pnas.2204754119: spiders hang from silk at night;
+  bouts of retinal movement in the big front eyes with leg curling and twitching, about every 17 minutes; whether they dream is unknown'
+yt:
+- hook: The spider on your window can jump 40 times its own length.
+  card:
+    rows:
+    - - 40X
+      - '#ffd34d'
+      - 150
+    - - ITS OWN LENGTH
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 45%
+  gag:
+    mark: shock
+  open: animal
+- chase: It locks onto a fly, and launches.
+  scene: garden
+  with:
+  - fly
+- calm: At night, it hangs from a silk thread. And its eyes twitch.
+  scene: bedroom
+  card:
+    rows:
+    - - EYES TWITCH
+      - '#ff4b3e'
+      - 100
+    - - IN ITS SLEEP
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 40%
+- count: About every 17 minutes, its legs curl and jerk.
+  scene: study
+  card:
+    rows:
+    - - EVERY 17 MIN
+      - '#ffd34d'
+      - 110
+    y: 470
+    at: 35%
+- punch: Scientists can't say yet if it dreams. But when it wakes,
+  gag:
+    mark: alarm
+outro: false
+loop_pill: LET IT STAY? COMMENT
+caption_y: 1180

@@ -1,0 +1,130 @@
+{
+ "series": "Things Living In Your House, Part 39",
+ "sources": [
+  "UC IPM Pest Notes: Cockroaches (Pub. 7467): German cockroach egg case holds about 30 young, the female carries it until 1-2 days before it hatches; a single female and her offspring can produce over 30,000 individuals in a year; adults can hide in a crack 1/16 inch wide; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7467.html",
+  "Wada-Katsumata, A., Silverman, J. & Schal, C. (2013) Changes in taste neurons support the emergence of an adaptive behavior in cockroaches. Science 340: 972-975, doi:10.1126/science.1234854: some German cockroach populations sense glucose as bitter and avoid glucose-baited poison"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "stage": {
+  "creature": "roach",
+  "scene": "kitchen",
+  "scene_p": {
+   "time": "night"
+  },
+  "s": 0.9,
+  "actor": "cockroach"
+ },
+ "cap_key": [
+  "you",
+  "30,000",
+  "30",
+  "year",
+  "crack",
+  "sugar",
+  "bitter",
+  "bait",
+  "babies"
+ ],
+ "cut_whoosh": true,
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "30K Roaches in Your Kitchen 🪳 (Things Living In Your House #39)",
+ "tiktok_caption": "cockroach in your kitchen 🪳 one female and her babies can turn into 30,000 roaches in a year, and some now taste sugar as bitter so they skip the bait. Stomp or run? 👟 stomp / 🏃 run #cockroach #germancockroach #bugsinyourhouse #meatballmyths",
+ "beats": [
+  {
+   "card": {
+    "rows": [
+     [
+      "30,000",
+      "#ffd34d",
+      140
+     ],
+     [
+      "IN ONE YEAR",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   },
+   "gag": {
+    "mark": "shock"
+   },
+   "open": "animal",
+   "m": "hook",
+   "say": "One roach in your kitchen can turn into 30,000 in a year."
+  },
+  {
+   "scene": "bathroom",
+   "card": {
+    "rows": [
+     [
+      "1/16 INCH",
+      "#ff4b3e",
+      120
+     ],
+     [
+      "IS ENOUGH",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "50%"
+   },
+   "m": "chase",
+   "say": "Flip on the light. It squeezes into a crack 1/16 of an inch wide."
+  },
+  {
+   "scene": "basement",
+   "m": "tiny",
+   "say": "Mom drags 30 babies around in a case."
+  },
+  {
+   "scene": "study",
+   "card": {
+    "rows": [
+     [
+      "SUGAR = BITTER",
+      "#ffd34d",
+      100
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   },
+   "m": "xray",
+   "say": "And some roaches now taste sugar as bitter. They skip the bait."
+  },
+  {
+   "gag": {
+    "mark": "alarm"
+   },
+   "m": "punch",
+   "say": "So the poison sits there, and",
+   "card": {
+    "rows": [
+     [
+      "STOMP OR RUN? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "loop": true
+}

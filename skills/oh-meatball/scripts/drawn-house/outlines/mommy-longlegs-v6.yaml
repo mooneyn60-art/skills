@@ -1,0 +1,103 @@
+# v6 (Studio 11/3) sequel, 11/3 pass: narration from 0 s, animal close-up first (open: animal), line 2 is
+# action/danger, no outro, the last line loops into the hook in the hook's room, comment pill on the last line.
+slug: mommy-longlegs-v6
+series: Is This Spider Venomous?
+part: 12
+title: '3 ''Mommy Longlegs'' in Your Home 🕷️ (Is This Spider Venomous? #12)'
+tiktok_caption: 'mommy long legs: can it hurt you? 🕷️ 3 different bugs in your house get called that: the crane fly can''t even bite, the harvestman has no venom, and the cellar spider has never been shown
+  to hurt a person. Which one have you seen? 1️⃣ / 2️⃣ / 3️⃣ #mommylonglegs #daddylonglegs #isthisspidervenomous #meatballmyths'
+creature: cellar_spider
+actor: cellar_spider
+creature_cfg:
+  floor: false
+  label: cellar spider
+s: 0.68
+scene: bathroom
+music: detective
+music_db: -13
+cut_whoosh: true
+next: none (v6 loop)
+cap_key:
+- you
+- '3'
+- three
+- bite
+- venom
+- glands
+- mouth
+- mosquitoes
+- spider
+- proof
+sources:
+- 'Orange County Mosquito and Vector Control District, Crane flies (2019): adult crane flies have no mouthparts; they can neither feed nor bite; https://ocvector.specialdistrict.org/files/9fc3dd108/Crane+flies+2019.pdf
+  ; Texas A&M AgriLife Extension, crane flies: adults do not feed; https://texasinsects.tamu.edu/?p=264 ; Mississippi State Extension, Bug''s Eye View 5(5): the ''mosquito hawk'' name comes from a belief
+  that they eat mosquitoes; https://extension.msstate.edu/newsletters/bugs-eye-view/2019/crane-fly-vol-5-no-5'
+- 'UC Riverside, Spider Research (R. Vetter), the Daddy-Long-Legs myth: harvestmen are not spiders and have no venom glands or fangs; cellar (pholcid) spiders have venom but there is no reference to a bite
+  harming a human; https://spiders.ucr.edu/daddy-long-legs'
+yt:
+- hook: You asked for Mommy Longlegs. 3 bugs in your house share it.
+  card:
+    rows:
+    - - 3 'LONGLEGS'
+      - '#ffd34d'
+      - 110
+    - - IN YOUR HOUSE
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 45%
+  gag:
+    mark: shock
+  open: animal
+- chase: One flies at your porch light. It can't bite you.
+  scene: garden
+  with:
+  - type: fly
+    s: 0.5
+  card:
+    rows:
+    - - CAN'T BITE
+      - '#ff4b3e'
+      - 120
+    y: 470
+    at: 55%
+- xray: No mouthparts. It can't even eat mosquitoes.
+  scene: bedroom
+  with:
+  - type: fly
+    s: 0.5
+- calm: Number two has no venom glands. Not even a spider.
+  scene: basement
+  cast:
+    creature: daddy_long_legs
+    creature_cfg:
+      plan: arachnid
+      label: harvestman
+      color: '#8a6a4a'
+      dark: '#5a4630'
+      abdomen_front: true
+      abdomen: 150
+      ceph:
+      - 70
+      - 50
+      leg_w: 7
+      leg_len: 1.9
+      eyes: pair
+      mood: happy
+      s: 0.7
+      xray: gut
+    s: 0.7
+  card:
+    rows:
+    - - 0 VENOM GLANDS
+      - '#ffd34d'
+      - 100
+    y: 470
+    at: 40%
+- punch: Number three has venom, but no proof it hurts people. So
+  gag:
+    mark: alarm
+outro: false
+loop_pill: SEEN ALL 3? COMMENT
+caption_y: 1180

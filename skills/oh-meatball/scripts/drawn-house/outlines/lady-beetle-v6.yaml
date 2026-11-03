@@ -1,0 +1,94 @@
+# v6 (Studio 11/3) sequel, 11/3 pass: narration from 0 s, animal close-up first (open: animal), line 2 is
+# action/danger, no outro, the last line loops into the hook in the hook's room, comment pill on the last line.
+slug: lady-beetle-v6
+series: Things Living In Your House
+part: 44
+title: '10,000s of Bugs in Your Walls 🐞 (Things Living In Your House #44)'
+tiktok_caption: 'asian lady beetles in your house 🐞 tens of thousands can pack into your walls for winter, and they bite and leak stinky yellow goo. Vacuum or out the window? 🧹 vacuum / 🪟 window #asianladybeetle
+  #ladybugs #bugsinyourhouse #meatballmyths'
+creature: asian_lady_beetle
+creature_cfg:
+  plan: insect
+  label: asian lady beetle
+  body: round
+  color: '#e0752a'
+  length: 380
+  height: 220
+  leg_len: 90
+  ant: 90
+  wings: shell
+  sheen: true
+  s: 0.8
+s: 0.7
+scene: sill
+scene_p:
+  time: day
+music: mystery
+music_db: -13
+cut_whoosh: true
+next: none (v6 loop)
+cap_key:
+- you
+- tens
+- thousands
+- walls
+- bite
+- yellow
+- stink
+- W
+- '1988'
+- south
+sources:
+- 'Penn State Extension, Multicolored Asian Lady Beetle: first established US populations found in Louisiana in 1988; tens of thousands can congregate in attics, ceilings and wall voids; gather on south
+  or southwest-facing sides on sunny afternoons after cold nights; when disturbed they exude a stinky yellow defensive chemical from their leg joints that can spot walls; they occasionally bite people;
+  a black W on the white pronotum; vacuum with a nylon stocking in the hose; https://extension.psu.edu/multicolored-asian-lady-beetle'
+yt:
+- hook: Tens of thousands of beetles can be packed inside your walls.
+  card:
+    rows:
+    - - 10,000s
+      - '#ffd34d'
+      - 140
+    - - IN YOUR WALLS
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 45%
+  gag:
+    mark: shock
+  open: animal
+- chase: Bug one, and it leaks stinky, yellow goo, right from its knees.
+  scene: kitchen
+  card:
+    rows:
+    - - YELLOW GOO
+      - '#ff4b3e'
+      - 110
+    - - STAINS YOUR WALLS
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 55%
+- scale: It's not a ladybug. Look for the black W, behind its head.
+  scene: study
+  card:
+    rows:
+    - - W
+      - '#ffd34d'
+      - 150
+    - - = ASIAN LADY BEETLE
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 40%
+- xray: And sometimes? It even bites you.
+  scene: bedroom
+- punch: On sunny fall days, they swarm the south wall. Then
+  gag:
+    mark: alarm
+outro: false
+loop_pill: VACUUM OR WINDOW? COMMENT
+caption_y: 1180

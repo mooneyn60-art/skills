@@ -1,0 +1,79 @@
+# v6 (Studio 11/3) sequel, 11/3 pass: narration from 0 s, animal close-up first (open: animal), line 2 is
+# action/danger, no outro, the last line loops into the hook in the hook's room, comment pill on the last line.
+slug: cockroach-2-v6
+series: Things Living In Your House
+part: 39
+title: '30K Roaches in Your Kitchen 🪳 (Things Living In Your House #39)'
+tiktok_caption: 'cockroach in your kitchen 🪳 one female and her babies can turn into 30,000 roaches in a year, and some now taste sugar as bitter so they skip the bait. Stomp or run? 👟 stomp / 🏃 run #cockroach
+  #germancockroach #bugsinyourhouse #meatballmyths'
+creature: roach
+actor: cockroach
+s: 0.9
+scene: kitchen
+scene_p:
+  time: night
+music: mystery
+music_db: -13
+cut_whoosh: true
+next: none (v6 loop)
+cap_key:
+- you
+- 30,000
+- '30'
+- year
+- crack
+- sugar
+- bitter
+- bait
+- babies
+sources:
+- 'UC IPM Pest Notes: Cockroaches (Pub. 7467): German cockroach egg case holds about 30 young, the female carries it until 1-2 days before it hatches; a single female and her offspring can produce over
+  30,000 individuals in a year; adults can hide in a crack 1/16 inch wide; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7467.html'
+- 'Wada-Katsumata, A., Silverman, J. & Schal, C. (2013) Changes in taste neurons support the emergence of an adaptive behavior in cockroaches. Science 340: 972-975, doi:10.1126/science.1234854: some German
+  cockroach populations sense glucose as bitter and avoid glucose-baited poison'
+yt:
+- hook: One roach in your kitchen can turn into 30,000 in a year.
+  card:
+    rows:
+    - - 30,000
+      - '#ffd34d'
+      - 140
+    - - IN ONE YEAR
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 45%
+  gag:
+    mark: shock
+  open: animal
+- chase: Flip on the light. It squeezes into a crack 1/16 of an inch wide.
+  scene: bathroom
+  card:
+    rows:
+    - - 1/16 INCH
+      - '#ff4b3e'
+      - 120
+    - - IS ENOUGH
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 50%
+- tiny: Mom drags 30 babies around in a case.
+  scene: basement
+- xray: And some roaches now taste sugar as bitter. They skip the bait.
+  scene: study
+  card:
+    rows:
+    - - SUGAR = BITTER
+      - '#ffd34d'
+      - 100
+    y: 470
+    at: 35%
+- punch: So the poison sits there, and
+  gag:
+    mark: alarm
+outro: false
+loop_pill: STOMP OR RUN? COMMENT
+caption_y: 1180

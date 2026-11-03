@@ -1,0 +1,138 @@
+{
+ "series": "Things Living In Your House, Part 37",
+ "sources": [
+  "Penn State Extension, House Centipedes (S. Jacobs): females can survive several years and produce up to 150 young; body 1-1.5 in, 3-4 in with legs and antennae; native to the Mediterranean, first recorded in Pennsylvania in 1849; hide in floor drains without water traps, cement block walls, under cardboard boxes, crawl spaces; can't survive PA winters outdoors but reproduce in heated buildings; eat silverfish, firebrats, carpet beetle larvae, cockroaches, spiders; larvae hatch with 4 pairs of legs, 13 pairs before adolescence; https://extension.psu.edu/house-centipedes",
+  "Frontiers in Zoology (2024) 21, doi:10.1186/s12983-024-00544-0: Scutigera coleoptrata legs break at a preferred autotomy plane (trochanter) and regenerate over later molts; https://frontiersinzoology.biomedcentral.com/articles/10.1186/s12983-024-00544-0",
+  "Univ. of Wisconsin Extension, Centipedes: fangs, can possibly bite if handled, rarely happens, not dangerous; https://hort.extension.wisc.edu/files/2014/11/Centipedes.pdf ; Washington State Univ. PestSense: may inflict a painful bite if handled; https://pestsense.cahnrs.wsu.edu/fact-sheet/house-centipede/"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "stage": {
+  "creature": "house_centipede",
+  "scene": "bathroom",
+  "scene_p": {
+   "time": "night"
+  },
+  "s": 0.8,
+  "actor": "house_centipede"
+ },
+ "cap_key": [
+  "you",
+  "150",
+  "babies",
+  "leg",
+  "drains",
+  "drain",
+  "four",
+  "inches",
+  "1849",
+  "now"
+ ],
+ "cut_whoosh": true,
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "150 Babies in Your Bathroom 🐛 (Things Living In Your House #37)",
+ "tiktok_caption": "house centipede in your bathroom? 🐛 one female can make up to 150 babies, and if you grab a leg it snaps off and she keeps running. Let it stay or get it out? 🐛 stay / 🚪 out #housecentipede #bugsinyourhouse #centipede #meatballmyths",
+ "beats": [
+  {
+   "card": {
+    "rows": [
+     [
+      "UP TO 150",
+      "#ffd34d",
+      130
+     ],
+     [
+      "BABIES FROM ONE",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   },
+   "gag": {
+    "mark": "shock"
+   },
+   "open": "animal",
+   "m": "hook",
+   "say": "One centipede in your bathroom can make up to 150 babies."
+  },
+  {
+   "scene": "kitchen",
+   "card": {
+    "rows": [
+     [
+      "SNAP",
+      "#ff4b3e",
+      140
+     ],
+     [
+      "THE LEG BREAKS OFF",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "55%"
+   },
+   "m": "chase",
+   "say": "Grab its leg, and the leg snaps off. It keeps running."
+  },
+  {
+   "scene": "basement",
+   "m": "tiny",
+   "say": "It crawls up through your floor drains. The dry ones."
+  },
+  {
+   "scene": "bedroom",
+   "card": {
+    "rows": [
+     [
+      "4 INCHES",
+      "#ffd34d",
+      110
+     ],
+     [
+      "LEGS + FEELERS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   },
+   "m": "scale",
+   "say": "Legs and feelers, it's up to four inches across."
+  },
+  {
+   "gag": {
+    "mark": "alarm"
+   },
+   "m": "punch",
+   "say": "First found in Pennsylvania in 1849. Now",
+   "card": {
+    "rows": [
+     [
+      "LET IT STAY? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "loop": true
+}
