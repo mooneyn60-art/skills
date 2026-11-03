@@ -898,7 +898,10 @@ def frame_at(f):
         u = min(1.0, (t - at_time(b["words"], card.get("at", 0.0))) / 0.18)
         if u < 1:
             im = im.resize((max(1, int(im.width * (0.6 + 0.4 * u))), max(1, int(im.height * (0.6 + 0.4 * u)))))
-        paste(base, im, W // 2, card.get("y", 760) + im.height // 2)
+        cx = card.get("x", W // 2)
+        if cx == "right":   # v6 loop pill: a small top-corner comment prompt during the last line
+            cx = W - im.width // 2 - 40
+        paste(base, im, cx, card.get("y", 760) + im.height // 2)
     draw_counter(base, T)
     outs = [base]
     if G.get("cap_px"):

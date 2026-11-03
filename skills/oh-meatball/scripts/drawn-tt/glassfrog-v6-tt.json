@@ -1,0 +1,308 @@
+{
+ "series": "Meatball's Animal Files, Part 13",
+ "sources": [
+  "Duke University Pratt School of Engineering news (2022), Glassfrogs Hide Red Blood Cells in Their Liver to Become Transparent (Taboada, Delia, Yao et al., Science, Dec 2022): northern glassfrog no more than a few centimeters; rests by day hanging upside down under leaves; while asleep removes nearly 90 percent of circulating red blood cells into a mirror-coated liver; avoids a huge blood clot; cells flow back when active; https://pratt.duke.edu/news/glassfrogs-hide-red-blood-cells-their-liver-become-transparent/",
+  "Sci.News, Study: Glassfrogs Hide Red Blood Cells in Their Liver to Achieve Transparency (reporting the Science paper): resting glassfrogs increase transparency two- to threefold; liver contains reflective guanine crystals; could inform biomedical research on clotting; https://www.sci.news/biology/glassfrog-transparency-11520.html",
+  "National Geographic magazine, These see-through frogs are full of surprises: male sun glass frog's heart beats visibly through its chest; a female's eggs visible through her stomach; some species smaller than a paper clip; 156 known species mainly in the northern Andes and Central America; males of at least 24 species care for eggs, sitting on them to keep them hydrated; the father sucks water up into his urinary bladder through a highly vascularized region of the belly; tadpoles fall into the stream below; https://www.nationalgeographic.com/magazine/article/these-see-through-frogs-are-full-of-surprises-feature"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "stage": {
+  "creature": "glass_frog",
+  "scene": "forest_floor",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "frog",
+   "label": "glass frog",
+   "color": "#a8e486",
+   "dark": "#6fae52",
+   "belly": "#e8f6dc",
+   "toe_pads": true,
+   "length": 420,
+   "height": 260,
+   "eye_r": 46,
+   "mood": "happy",
+   "xray": "heart",
+   "s": 0.9
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "frog",
+    "label": "glass frog",
+    "color": "#a8e486",
+    "dark": "#6fae52",
+    "belly": "#e8f6dc",
+    "toe_pads": true,
+    "length": 420,
+    "height": 260,
+    "eye_r": 46,
+    "mood": "happy",
+    "xray": "heart",
+    "s": 0.9
+   }
+  },
+  "actor": "creature",
+  "wild": "forest_floor",
+  "wild_p": {
+   "time": "night"
+  }
+ },
+ "cap_key": [
+  "90",
+  "percent",
+  "blood",
+  "heart",
+  "window",
+  "liver",
+  "mirrors",
+  "clots",
+  "150",
+  "eggs",
+  "dad",
+  "bladder"
+ ],
+ "cut_whoosh": true,
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "This Frog Is See-Through and You Can Watch Its Heart Beat 🐸",
+ "tiktok_caption": "a frog so see-through you can watch its heart beat 🐸 it hides 90% of its blood in its liver to vanish. Would you hold one? 🐸 yes / 🙅 no #meatballmyths #learnontiktok #glassfrog #animalfacts",
+ "beats": [
+  {
+   "card": {
+    "rows": [
+     [
+      "90%",
+      "#ffd34d",
+      120
+     ],
+     [
+      "OF ITS RED BLOOD, HIDDEN",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   },
+   "gag": {
+    "heart": 2,
+    "at": "30%"
+   },
+   "open": "animal",
+   "m": "hook",
+   "say": "You can see this frog's guts. It hides 90% of its blood."
+  },
+  {
+   "scene": "study",
+   "m": "chase",
+   "say": "Wake it, and the blood floods back out."
+  },
+  {
+   "scene": "garden",
+   "gag": {
+    "mark": "zzz",
+    "at": "30%"
+   },
+   "m": "tiny",
+   "say": "By day it sleeps upside down on a leaf."
+  },
+  {
+   "scene": "swamp",
+   "scene_p": {
+    "time": "night"
+   },
+   "m": "escalate",
+   "say": "Its blood packs into its liver, behind tiny mirrors."
+  },
+  {
+   "gag": {
+    "mark": "shock",
+    "at": "60%"
+   },
+   "m": "punch",
+   "say": "And all that packed blood never clots."
+  },
+  {
+   "scene": "study",
+   "card": {
+    "rows": [
+     [
+      "2–3×",
+      "#ffd34d",
+      120
+     ],
+     [
+      "MORE SEE-THROUGH",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "50%"
+   },
+   "m": "calm",
+   "say": "That makes it two to three times more see-through."
+  },
+  {
+   "scene": "garden",
+   "gag": {
+    "prop": "ruler",
+    "at": "70%"
+   },
+   "m": "name",
+   "say": "The glass frog. Some are smaller than a paper clip."
+  },
+  {
+   "scene": "microscope",
+   "gag": {
+    "prop": "magnifier",
+    "at": "30%"
+   },
+   "m": "fact",
+   "say": "Scientists are studying it to learn about blood clots."
+  },
+  {
+   "scene": "swamp",
+   "card": {
+    "rows": [
+     [
+      "150+ KINDS",
+      "#ffd34d",
+      120
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "m": "count",
+   "say": "There are over 150 kinds, in the Andes and Central America."
+  },
+  {
+   "scene": "forest_floor",
+   "gag": {
+    "pile": "egg",
+    "n": 8,
+    "r": 26,
+    "at": "50%"
+   },
+   "m": "fact",
+   "say": "A mother's eggs even show right through her stomach."
+  },
+  {
+   "scene": "swamp",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "m": "chase",
+   "say": "Its eggs sit on a leaf over a stream. The tadpoles drop into the water."
+  },
+  {
+   "scene": "garden",
+   "gag": {
+    "mark": "hearts",
+    "at": "50%"
+   },
+   "card": {
+    "rows": [
+     [
+      "24+ SPECIES",
+      "#ffd34d",
+      120
+     ],
+     [
+      "OF FROG DADS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "m": "fact",
+   "say": "In at least 24 species, the dad guards the eggs."
+  },
+  {
+   "scene": "swamp",
+   "gag": {
+    "meter": 1.0,
+    "at": "60%"
+   },
+   "m": "escalate",
+   "say": "Here's the weird part. He soaks water into his bladder, through his belly."
+  },
+  {
+   "scene": "study",
+   "m": "calm",
+   "say": "Then he sits on the eggs, to keep them wet."
+  },
+  {
+   "scene": "garden",
+   "gag": {
+    "prop": "ruler",
+    "at": "60%"
+   },
+   "m": "fact",
+   "say": "The northern glass frog is just a few centimeters long."
+  },
+  {
+   "scene": "microscope",
+   "gag": {
+    "heart": 2,
+    "at": "60%"
+   },
+   "m": "xray",
+   "say": "In the male sun glass frog, you can see the heart beat through its chest."
+  },
+  {
+   "scene": "study",
+   "m": "calm",
+   "say": "Those mirrors are crystals made of guanine."
+  },
+  {
+   "scene": "swamp",
+   "scene_p": {
+    "time": "night"
+   },
+   "m": "escalate",
+   "say": "If all that packed blood clumped, it would be a huge clot. It doesn't."
+  },
+  {
+   "scene": "microscope",
+   "gag": {
+    "mark": "alarm",
+    "at": "10%"
+   },
+   "m": "xray",
+   "say": "Its belly is a window. Heart, guts, everything."
+  },
+  {
+   "scene": "forest_floor",
+   "m": "calm",
+   "say": "A belly like a window, and a dad who's a walking water balloon. And",
+   "card": {
+    "rows": [
+     [
+      "HOLD ONE? COMMENT YES OR NO",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "loop": true
+}

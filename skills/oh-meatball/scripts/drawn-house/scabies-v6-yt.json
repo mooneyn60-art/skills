@@ -1,0 +1,138 @@
+{
+ "series": "Things Living In Your House, Part 19",
+ "sources": [
+  "CDC, About Scabies: https://www.cdc.gov/scabies/about/index.html"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "stage": {
+  "creature": "scabies",
+  "scene": "bedroom",
+  "scene_p": {
+   "time": "night"
+  },
+  "s": 0.8,
+  "actor": "scabies_mite",
+  "wild": "skin"
+ },
+ "cap_key": [
+  "8",
+  "weeks",
+  "mite",
+  "mites",
+  "skin",
+  "eggs",
+  "spread",
+  "touch",
+  "2",
+  "million",
+  "you"
+ ],
+ "cut_whoosh": true,
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Something Is Digging a Tunnel in Your Skin Right Now",
+ "tiktok_caption": "",
+ "beats": [
+  {
+   "card": {
+    "rows": [
+     [
+      "UP TO 8 WEEKS",
+      "#ffd34d",
+      96
+     ],
+     [
+      "BEFORE THE ITCH",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   },
+   "gag": {
+    "mark": "shock"
+   },
+   "open": "animal",
+   "m": "hook",
+   "say": "Something can tunnel in your skin for 8 weeks before you itch."
+  },
+  {
+   "scene": "skin",
+   "m": "escalate",
+   "say": "Right now it's digging deeper, laying eggs in the tunnel."
+  },
+  {
+   "scene": "bathroom",
+   "card": {
+    "rows": [
+     [
+      "SPREADS",
+      "#ff4b3e",
+      120
+     ],
+     [
+      "BEFORE YOU ITCH",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "60%"
+   },
+   "m": "chase",
+   "say": "You can spread it before you feel a thing."
+  },
+  {
+   "scene": "microscope",
+   "card": {
+    "rows": [
+     [
+      "2,000,000",
+      "#ff4b3e",
+      120
+     ],
+     [
+      "MITES ON ONE PERSON",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "m": "xray",
+   "say": "Crusted scabies: up to 2 million mites on one person."
+  },
+  {
+   "gag": {
+    "mark": "alarm"
+   },
+   "m": "punch",
+   "say": "It spreads by touch. So who did you touch today? Because",
+   "card": {
+    "rows": [
+     [
+      "TELL OR SECRET? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "loop": true
+}

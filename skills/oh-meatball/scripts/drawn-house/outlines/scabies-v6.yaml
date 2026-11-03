@@ -1,0 +1,84 @@
+# v6 (Studio 11/3): v5 house-spider template + line 2 is action/danger (no name or anatomy at 3-7 s), no spoken or
+# visual outro (no Subscribe/Part/Follow, no end card), the last line flows into the hook in the same room, a
+# top-corner comment pill during the last line (the question also goes in the pinned comment), narration from 0 s.
+# from scabies-v5.yaml
+slug: scabies-v6
+series: Things Living In Your House
+part: 19
+title: Something Is Digging a Tunnel in Your Skin Right Now
+creature: scabies
+actor: scabies_mite
+s: 0.8
+wild: skin
+music: mystery
+scene: bedroom
+scene_p:
+  time: night
+next: 'Next: termites.'
+music_db: -13
+cut_whoosh: true
+cap_key:
+- '8'
+- weeks
+- mite
+- mites
+- skin
+- eggs
+- spread
+- touch
+- '2'
+- million
+- you
+sources:
+- 'CDC, About Scabies: https://www.cdc.gov/scabies/about/index.html'
+yt:
+- hook: Something can tunnel in your skin for 8 weeks before you itch.
+  card:
+    rows:
+    - - UP TO 8 WEEKS
+      - '#ffd34d'
+      - 96
+    - - BEFORE THE ITCH
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 45%
+  gag:
+    mark: shock
+  open: animal
+- escalate: Right now it's digging deeper, laying eggs in the tunnel.
+  scene: skin
+- chase: You can spread it before you feel a thing.
+  scene: bathroom
+  card:
+    rows:
+    - - SPREADS
+      - '#ff4b3e'
+      - 120
+    - - BEFORE YOU ITCH
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 60%
+- xray: 'Crusted scabies: up to 2 million mites on one person.'
+  scene: microscope
+  card:
+    rows:
+    - - 2,000,000
+      - '#ff4b3e'
+      - 120
+    - - MITES ON ONE PERSON
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 40%
+- punch: It spreads by touch. So who did you touch today? Because
+  gag:
+    mark: alarm
+tiktok_caption: ''
+outro: false
+loop_pill: TELL OR SECRET? COMMENT
+caption_y: 1180

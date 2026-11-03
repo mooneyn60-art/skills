@@ -33,7 +33,8 @@ def lint(path):
     o = yaml.safe_load(open(path))
     yt = list(lines(o.get("yt")))
     fails = []
-    words = sum(len(s.split()) for _, s in yt) + 1 + len(str(o.get("next", "")).split())
+    v6 = o.get("outro") is False   # v6 (Studio 11/3): no spoken outro, so only the YouTube act is spoken
+    words = sum(len(s.split()) for _, s in yt) + (0 if v6 else 1 + len(str(o.get("next", "")).split()))
     if words > MAX_WORDS:
         fails.append(f"{words} words (max {MAX_WORDS}, about 20 s): cut the facts that don't push the story")
     acts = [m for m, _ in yt if m in ACTION]
@@ -53,7 +54,7 @@ def lint(path):
         if m == "punch" and re.search(DEFLATE, s, re.I):
             fails.append(f"the punch deflates: '{s}'. End on a twist, not 'harmless' or a bare 'Yes'")
     nxt = str(o.get("next", ""))
-    if not nxt or re.search(r"\bsoon\b|more things", nxt, re.I):
+    if not v6 and (not nxt or re.search(r"\bsoon\b|more things", nxt, re.I)):
         fails.append(f"the tease is vague ('{nxt}'): name the next creature and the scary thing it does")
     if not o.get("series") or not o.get("part"):
         fails.append("no series/part: the show banner and number go on every episode")

@@ -67,6 +67,15 @@ def line(item):
     raise SystemExit(f"drawn_quick: line has no macro key ({', '.join(MACROS)}): {item}")
 
 
+def base_spec(o, stage):
+    return {"series": f'{o.get("series", "")}, Part {o.get("part", "")}'.strip(", "), "sources": o["sources"],
+            "photo_credits": [], "voice": o.get("voice", VOICE), "rate": o.get("rate", "+10%"), "pitch": o.get("pitch", "+3Hz"),
+            "music": o.get("music", "mystery"), "music_db": o.get("music_db", -20), "captions": 66,
+            "caption_y": o.get("caption_y", 1640), "stage": stage,
+            **{k: o[k] for k in ("counter", "music_reveals", "cap_key", "sfx_gain", "cut_whoosh") if k in o},
+            "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines."}
+
+
 def specs(o):
     stage = {"creature": o["creature"], "scene": o["scene"], "scene_p": o.get("scene_p", {})}
     for k in ("creature_cfg", "hero_p", "s", "actor", "wild", "wild_p"):
@@ -78,6 +87,18 @@ def specs(o):
     tt_room = {"scene": o["next_scene"], "scene_p": o.get("next_scene_p", {})} if o.get("next_scene") else {}
     act1 = [line(x) for x in o["yt"]]
     act2 = [line(x) for x in o.get("tt", [])]
+    # v6 (Studio 11/3): "outro: false" = no spoken or visual outro; the last line loops into the hook, and the
+    # comment question sits in a small top-corner pill during the last line ("loop_pill") and in the pinned comment.
+    if o.get("outro") is False:
+        def last(beats):
+            beats = [dict(b) for b in beats]
+            if o.get("loop_pill"):
+                beats[-1]["card"] = {"rows": [[o["loop_pill"], "#ffffff", 40, True]], "x": "right", "y": 400, "at": 0.0}
+            return beats
+        yt = dict(base_spec(o, stage), title=o["title"], tiktok_caption=o.get("tiktok_caption", ""), beats=last(act1), loop=True)
+        tt = dict(base_spec(o, stage), title=o.get("tt_title", o["title"]), tiktok_caption=o.get("tiktok_caption", ""),
+                  beats=last(act2 if o.get("tt_standalone") else act1 + act2), loop=True)
+        return yt, tt
     base = {"series": f'{o.get("series", "")}, Part {o.get("part", "")}'.strip(", "), "sources": o["sources"],
             "photo_credits": [], "voice": o.get("voice", VOICE), "rate": o.get("rate", "+10%"), "pitch": o.get("pitch", "+3Hz"),
             "music": o.get("music", "mystery"), "music_db": o.get("music_db", -20), "captions": 66,
@@ -143,7 +164,7 @@ def main():
         return
     t0 = time.time()
     o = load(args.outline)
-    out_dir = os.path.join(ROOT, o.get("out", "episodes/drawn-house"))
+    out_dir = os.environ.get("DRAWN_OUT") or os.path.join(ROOT, o.get("out", "episodes/drawn-house"))   # DRAWN_OUT: render off the repo disk
     spec_dir = os.path.join(ROOT, o.get("specs", "scripts/drawn-house"))
     os.makedirs(out_dir, exist_ok=True)
     os.makedirs(spec_dir, exist_ok=True)

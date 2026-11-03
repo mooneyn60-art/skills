@@ -1,0 +1,201 @@
+# v6 (Studio 11/3): v5 house-spider template + line 2 is action/danger (no name or anatomy at 3-7 s), no spoken or
+# visual outro (no Subscribe/Part/Follow, no end card), the last line flows into the hook in the same room, a
+# top-corner comment pill during the last line (the question also goes in the pinned comment), narration from 0 s.
+# from leech-v5.yaml
+slug: leech-v6
+series: Meatball's Animal Files
+part: 12
+title: Doctors Still Put Blood-Sucking Leeches on People 🩸
+tiktok_caption: 'doctors still put leeches on people on purpose 🩸 it drinks up to 8x its weight in blood and it''s an official medical device. Would you let one bite you? 🩸 yes / 😱 never #meatballmyths
+  #learnontiktok #leech #animalfacts'
+creature: medicinal_leech
+actor: creature
+creature_cfg: &id001
+  plan: worm
+  label: medicinal leech
+  color: '#4a5a34'
+  dark: '#2e3a20'
+  accent: '#d98a3a'
+  length: 900
+  height: 150
+  stripes: 4
+  segments: 14
+  mood: angry
+  s: 0.6
+hero_p:
+  cfg: *id001
+wild: swamp
+wild_p:
+  time: dusk
+out: episodes/drawn-tt
+specs: scripts/drawn-tt
+variant: B
+music: mystery
+scene: swamp
+scene_p:
+  time: day
+next: 'Next: glass frogs.'
+music_db: -13
+cut_whoosh: true
+cap_key:
+- '8'
+- times
+- blood
+- jaws
+- scar
+- numbs
+- hirudin
+- bleeding
+- doctors
+- '60'
+- million
+- 97,300
+- '100'
+- '2004'
+- finger
+sources:
+- 'U.S. FDA 510(k) K040187, Medicinal Leeches (Ricarimpex), cleared June 2004: Hirudo medicinalis cleared as a medical device, an adjunct to graft healing when venous congestion threatens the tissue; https://www.accessdata.fda.gov/cdrh_docs/pdf4/K040187.pdf'
+- 'Kumar et al. / Journal of Ayurveda and Integrative Medicine (2019 review, PMC7772495), Leech therapy: saliva has more than 100 bioactive substances, is anesthetic so the host does not notice the bite,
+  hirudin inhibits thrombin (anticoagulant); bite scar resembles the Mercedes-Benz emblem; bleeding oozes 10-48 h after the session; in 1830-1840 Europe used 60 million leeches a year; St Bartholomew''s
+  Hospital London used 97,300 leeches in 1832; used for venous congestion in reattached digits, ears, lips; https://pmc.ncbi.nlm.nih.gov/articles/PMC7772495'
+- 'Lent, Fliegner, Freedman & Dickinson (1988), Ingestive behaviour and physiology of the medicinal leech, Journal of Experimental Biology 137: meal size up to 8.15 times body mass for 1 g leeches; https://authors.library.caltech.edu/records/70c1w-4gx12'
+- 'PBS NOVA scienceNOW, Leeches (Mark Siddall, AMNH; Amir Taghinia and Joseph Upton, Beth Israel Deaconess): leeches take six to eight times their unfed weight in blood; in a reattached finger blood flows
+  in but not out, pressure builds; the leech injects hirudin and the finger keeps bleeding after it falls off; https://www.pbs.org/wgbh/nova/body/leeches.html'
+- 'Fields/Whitaker et al., World Journal of Surgery (2000, University of Michigan Deep Blue): the medicinal leech''s small anterior sucker is used for feeding, with three jaws; https://deepblue.lib.umich.edu/bitstream/handle/2027.42/42411/268-24-7-878_00240878.pdf'
+yt:
+- hook: This worm can drink 8 times its weight in your blood.
+  card:
+    rows:
+    - - 8×
+      - '#ff4b3e'
+      - 120
+    - - ITS WEIGHT IN BLOOD
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 45%
+  gag:
+    mark: shock
+    at: 50%
+  open: animal
+- escalate: It bites through your skin with three tiny jaws.
+  scene: microscope
+- calm: Its spit numbs you, so you don't feel it.
+  scene: bedroom
+- tiny: And hirudin keeps you bleeding for hours.
+  scene: skin
+  gag:
+    clock: 3
+    at: 60%
+- punch: Doctors still use them. On purpose.
+  gag:
+    mark: alarm
+tt:
+- calm: In the 1830s, Europe used about 60 million leeches a year.
+  scene: study
+  scene_p:
+    time: night
+  card:
+    rows:
+    - - 60,000,000
+      - '#ffd34d'
+      - 120
+    - - LEECHES A YEAR
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 60%
+- fact: One London hospital used 97,300 in a single year.
+  scene: office
+  card:
+    rows:
+    - - 97,300
+      - '#ffd34d'
+      - 120
+    - - IN ONE HOSPITAL
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 50%
+- chase: Then medicine moved on. Until surgeons brought them back.
+  scene: swamp
+  scene_p:
+    time: dusk
+- fact: When a finger gets sewn back on, blood can flow in, but not out.
+  scene: office
+  gag:
+    heart: 2
+    at: 50%
+- escalate: It swells with trapped blood, and the finger can die.
+  scene: bathroom
+  gag:
+    prop: skull
+    at: 80%
+- calm: So doctors put a leech on it, to drink the extra blood.
+  scene: office
+  gag:
+    mark: hearts
+    at: 60%
+- xray: Its spit has more than 100 different chemicals in it.
+  scene: microscope
+  card:
+    rows:
+    - - 100+
+      - '#ffd34d'
+      - 120
+    - - CHEMICALS IN ITS SPIT
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 50%
+- count: In 2004, the US cleared leeches as a medical device.
+  scene: study
+  card:
+    rows:
+    - - '2004'
+      - '#ffd34d'
+      - 120
+    - - FDA-CLEARED DEVICE
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 30%
+  gag:
+    prop: trophy
+    at: 70%
+- name: The medicinal leech. A slimy worm with a sucker at each end.
+  scene: swamp
+  scene_p:
+    time: night
+- fact: One of those chemicals, hirudin, stops your blood from clotting.
+  scene: microscope
+- calm: So after it drops off, the bite can keep oozing for up to 48 hours.
+  scene: bathroom
+  card:
+    rows:
+    - - UP TO 48 HOURS
+      - '#ff4b3e'
+      - 96
+    - - OF BLEEDING
+      - '#ffffff'
+      - 56
+      - true
+    y: 470
+    at: 60%
+- fact: Its small front sucker does the feeding, with those three jaws.
+  scene: study
+- chase: Doctors use them on sewn-back fingers, ears and even lips.
+  scene: office
+- calm: The worm you'd scream at in a pond is saving fingers in hospitals. Because
+  scene: swamp
+  gag:
+    prop: crown
+    at: 80%
+outro: false
+loop_pill: LET ONE BITE YOU? COMMENT
+caption_y: 1180

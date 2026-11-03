@@ -31,11 +31,22 @@ import statistics as st
 import sys
 
 # --- keep this in sync with OPERATIONS.md (the scanner flags docs that disagree with it) ---------------
-CADENCE = {  # network: list of ET posting times per day (MASTER_ORDERS 10/29: YT 12:00 + 16:00, TikTok in the 12-5 pm window)
-    "youtube-short": ["12:00", "16:00"],
+CADENCE = {  # network: ET posting times per day, or {"weekday": [...], "weekend": [...]}
+    # Studio 11/3: the audience peaks weekdays 10:00-15:00 ET, weekends 08:00-13:00 / 14:00-17:00 ET; 9:00-11:30 uploads
+    # get traction fastest and two Shorts 6-8 h apart don't cannibalize: YT 10:00 + 16:00 weekdays, 08:00 + 14:00
+    # Sat/Sun. TikTok unchanged (12-5 pm window).
+    "youtube-short": {"weekday": ["10:00", "16:00"], "weekend": ["08:00", "14:00"]},
     "tiktok": ["12:00", "14:30", "17:00"],
 }
-LONGFORM_DAY_SKIP = {}  # both Shorts (12:00, 16:00) land before a 17:00 long-form
+
+
+def cadence_times(net, day):
+    """The ET slot times for a network on a date (weekday/weekend split where CADENCE has one)."""
+    t = CADENCE[net]
+    return t if isinstance(t, list) else t["weekend" if day.weekday() >= 5 else "weekday"]
+
+
+LONGFORM_DAY_SKIP = {}  # both Shorts land before a 17:00 long-form
 CURRENT_BRANCH = "claude/youtube-monetization-strategy-m9vz6i"
 RETIRED = {  # phrase found in a routine doc -> why it is stale
     r"Oh Meatball Pt|story part|STORY PART|season1\.md": "the Oh Meatball story format was retired on 10/22",
@@ -170,11 +181,11 @@ def check_queue(root, now):
     # what's left. A single greedy pass let a 12:00 post fill the empty 10:00 slot and then
     # reported 12:00 as the gap.
     horizon = dt.timedelta(days=7)
-    for net, times in CADENCE.items():
+    for net in CADENCE:
         slots = []
         for d in range(0, 8):
             day = (now_et + dt.timedelta(days=d)).date()
-            for t in times:
+            for t in cadence_times(net, day):
                 if LONGFORM_DAY_SKIP.get(net) == t and day in lf_days:
                     continue
                 slot = dt.datetime.combine(day, dt.time.fromisoformat(t), et)

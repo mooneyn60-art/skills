@@ -1,0 +1,260 @@
+{
+ "series": "Things Living In Your House, Part 12",
+ "sources": [
+  "The Scientist, The Earwig's Tale (May Berenbaum, entomologist, University of Illinois): surveying about ten centuries of literature she could find only a single report of an earwig in an ear; https://www.the-scientist.com/the-earwigs-tale-43480",
+  "University of California IPM, Earwigs (Pest Notes): not harmful to people, though they can pinch if trapped in clothing or sat on; feed at night on aphids, insect eggs and plant shoots, can damage seedlings; hide by day in dark, cool, moist places; come indoors when outdoor conditions are too dry, hot or cold; pincers somewhat curved in males, straighter in females; most species have wings under short hard covers but seldom fly; females dig cells in soil, lay masses of 30 or more eggs, and nymphs are protected and fed by their mother until their first molt; rolled newspaper or tubes placed on soil before dark collect earwigs, emptied each morning; https://ipm.ucanr.edu/home-and-landscape/earwigs/",
+  "Science News, Earwigs take origami to extremes to fold their wings (2018, on Faber, Arrieta and Studart, Science): earwigs pack their wings into packages with a surface area more than 10 times smaller than unfurled; ETH Zurich team built folding structures inspired by them for possible use in robotics, biomedical devices and spacecraft; https://www.sciencenews.org/article/earwigs-take-origami-extremes-fold-their-wings"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "stage": {
+  "creature": "earwig",
+  "scene": "bathroom",
+  "scene_p": {
+   "time": "night"
+  },
+  "creature_cfg": {
+   "xray": "gut"
+  },
+  "s": 0.65,
+  "wild": "garden",
+  "wild_p": {
+   "time": "night"
+  }
+ },
+ "cap_key": [
+  "10",
+  "centuries",
+  "1",
+  "one",
+  "ear",
+  "ears",
+  "wings",
+  "tenth",
+  "pincers",
+  "pinch",
+  "30",
+  "eggs",
+  "mom"
+ ],
+ "cut_whoosh": true,
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "The Bug Named After Your Ear Almost Never Goes in One 👂",
+ "tiktok_caption": "the earwig almost never goes in ears 👂 but it hides origami wings and it's a devoted mom. Would you let one crawl on your hand? ✋ sure / 😱 never",
+ "beats": [
+  {
+   "card": {
+    "rows": [
+     [
+      "1 CASE",
+      "#ffd34d",
+      120
+     ],
+     [
+      "IN 10 CENTURIES",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   },
+   "gag": {
+    "prop": "magnifier",
+    "at": "70%"
+   },
+   "open": "animal",
+   "m": "hook",
+   "say": "This bug is named after your ear. 10 centuries, just 1 ear case."
+  },
+  {
+   "scene": "bedroom",
+   "gag": {
+    "mark": "anger",
+    "at": "60%"
+   },
+   "m": "escalate",
+   "say": "Trapped in your clothes, it can pinch."
+  },
+  {
+   "scene": "garden",
+   "m": "xray",
+   "say": "Under tiny wing covers, it hides big folded wings."
+  },
+  {
+   "how": "shrink",
+   "scene": "study",
+   "card": {
+    "rows": [
+     [
+      "1/10",
+      "#ffd34d",
+      120
+     ],
+     [
+      "THE SIZE",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "50%"
+   },
+   "m": "scale",
+   "say": "Folded to a tenth of their open size."
+  },
+  {
+   "m": "punch",
+   "say": "But your ears? Almost never."
+  },
+  {
+   "scene": "kitchen",
+   "gag": {
+    "mark": "sweat",
+    "at": "85%"
+   },
+   "m": "name",
+   "say": "The earwig. It wanders indoors when it's too dry outside."
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "night"
+   },
+   "gag": {
+    "thought": "leaf",
+    "at": "80%"
+   },
+   "m": "calm",
+   "say": "At night, it hunts aphids, insect eggs, and your seedlings."
+  },
+  {
+   "scene": "study",
+   "gag": {
+    "prop": "magnifier",
+    "at": "30%"
+   },
+   "m": "fact",
+   "say": "Male pincers curve. Female pincers are straighter."
+  },
+  {
+   "scene": "bedroom",
+   "m": "fact",
+   "say": "And yet, earwigs hardly ever fly."
+  },
+  {
+   "scene": "forest_floor",
+   "card": {
+    "rows": [
+     [
+      "30+ EGGS",
+      "#ffd34d",
+      120
+     ]
+    ],
+    "y": 470,
+    "at": "70%"
+   },
+   "gag": {
+    "pile": "egg",
+    "n": 8,
+    "r": 26,
+    "at": "70%"
+   },
+   "m": "count",
+   "say": "The mother digs a little room in the soil, and lays thirty or more eggs."
+  },
+  {
+   "scene": "garden",
+   "gag": {
+    "mark": "hearts",
+    "at": "40%"
+   },
+   "m": "calm",
+   "say": "Then she stays. She guards her babies and feeds them, until their first molt."
+  },
+  {
+   "scene": "basement",
+   "m": "fact",
+   "say": "Got them in the house? Lay a rolled up newspaper outside before dark, and check it in the morning."
+  },
+  {
+   "scene": "cave",
+   "m": "calm",
+   "say": "By day, it hides in dark, cool, damp places."
+  },
+  {
+   "scene": "kitchen",
+   "m": "fact",
+   "say": "Heat, cold, or dry weather can drive it indoors."
+  },
+  {
+   "scene": "office",
+   "gag": {
+    "prop": "magnifier",
+    "at": "50%"
+   },
+   "m": "fact",
+   "say": "Entomologist May Berenbaum searched ten centuries of writing, and found just one."
+  },
+  {
+   "scene": "study",
+   "card": {
+    "rows": [
+     [
+      "10× SMALLER",
+      "#ffd34d",
+      120
+     ],
+     [
+      "FOLDED WINGS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "m": "xray",
+   "say": "Engineers studied that wing fold for possible robots and spacecraft."
+  },
+  {
+   "scene": "garden",
+   "m": "fact",
+   "say": "Lots of earwigs can damage the seedlings in your garden."
+  },
+  {
+   "scene": "bedroom",
+   "m": "calm",
+   "say": "And it's not harmful to people."
+  },
+  {
+   "scene": "bathroom",
+   "m": "calm",
+   "say": "The scariest looking bug in your bathroom is a devoted mom with origami wings. And",
+   "card": {
+    "rows": [
+     [
+      "LET ONE CRAWL ON YOU? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "loop": true
+}

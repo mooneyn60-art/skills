@@ -31,6 +31,17 @@ Nolan (10/29): "set the channel up to the point all he has to do is make and pos
 - **Every Short (Nolan 11/1, approved on House Centipede Part 2 v2):** the Andrew voice (+10%, +3Hz), animals that hop and lunge, and **at least 3 locations**. Give each middle line its own `scene:`; the hook and the last line share a room so the loop is seamless.
 - **Anyone proposing a style change must bring numbers to Nolan first.** Never send a sample instead.
 
+## Studio data 11/3 (Nolan's Studio AI paste at 980 subs; detail in `oh-meatball/research/64-studio-ai-1103.md`)
+- **YouTube Shorts are ~80% "Things Living In Your House"**, the rest "Is This Spider Venomous?" and "Would Meatball Survive?". Fill YT by subs per 1k views: household pests (1.8), house spiders (1.4), Would Meatball Survive (1.2), exotic (0.7), history/myths (0.2).
+- **No "TRUE or FALSE" / quiz-style titles or hooks on YouTube** (20-28% stayed vs 55-63% for house creatures). Banned title words: TRUE or FALSE, Myth, Believe, Cartoons, Lied, "Did you know".
+- **Titles say "in your house/kitchen/bed/basement" + a creepy specific fact**, 45-65 characters, a concrete number, one creature emoji and the series tag "(Things Living In Your House #N)" or the show tag.
+- **Loop what's working:** sequels of proven winners before any new topic (house centipede, window spider, cockroach, dust mites, bed bugs, basement spider, mouse, a Would Meatball Survive), with new sourced facts; pinned comment "Part 1 is in the Related video." Then November pests (stink bugs, Asian lady beetles, boxelder bugs, cluster flies, mice, house spiders moving in).
+- **YT times:** weekdays 10:00 + 16:00 ET, weekends 08:00 + 14:00 ET (second slot ≥6 h after the first; replaces 12:00 + 16:00 below). TikTok unchanged.
+- **The v6 template (every render from 11/3):** narration from 0.00 s; frame 0 is the animal close-up already moving (Meatball hops in at ~2.3 s, smaller); a visceral "you" + number hook; line 2 (3-7 s) is action or danger, never the name or anatomy; no spoken or visual outro (no Subscribe, Part X, Follow or end card); the last line flows into the hook in the hook's room; the comment question is a top-corner pill on the last line and the pinned comment; a new fact or visual every second, cuts every 1.5-2.5 s, keyword cards in seconds 1-4, center captions. YT 15-20 s, TT 61-75 s.
+- **Topic queue additions:** "Can 'Mommy Longlegs' Hurt You?" first (a reply to real comments), then "What Happens If You Squish a House Centipede?", "The Bugs Living In Your Bathroom Drain", and the search topics in research 64 (brown recluse bite signs: CDC/university facts, "see a doctor").
+- **TikTok (Metricool 10/23-11/3):** 50/50 short loopers (15-25 s, the YT v6 cut) and 61-65 s Rewards cuts only for proven series (house centipede, house spiders, cockroach, bed bugs); new slots alternate short/long. Captions open with the creepy fact, poll last, no "Follow for Part X" ("Part 1 in my playlist"). No TikTok case-file Shorts except the weekly one. Search is 18% of TikTok views: the plain search phrase leads the caption and is on screen in the first 2 s. Rewards pays ~$0 and followers are net -58/28 days: keep TikTok on-niche, never stretch a weak topic to 61 s.
+- **Next long-form** (week of 11/9 plan): "Every Creature Living In Your House, Ranked by Danger", 16:9, case-file quality, opening straight on creature #1 (26-44% leave in the first 12 s).
+
 ## Day 1 (do these before making anything new)
 1. `git pull` the channel-brain folder from TARS's branch `claude/package-installation-setup-yv4j79`, then run:
    ```
@@ -91,7 +102,7 @@ Pick episodes from `CALENDAR_REALISTIC.md`, top down. Any Short that beats 2x th
 7. **TikTok cut:** the same footage, 60-75 s (add 3-4 more facts), for Creator Rewards.
 
 ## Posting
-- **YouTube:** 2 a day, **12:00 and 16:00 ET** (viewers peak Mon 2-3 pm). Queue ≤7 days ahead.
+- **YouTube:** 2 a day, **weekdays 10:00 + 16:00 ET, weekends 08:00 + 14:00 ET** (Studio 11/3). Queue ≤7 days ahead.
 - **TikTok:** 2-3 a day in the 12-5 pm window.
 - **Title:** one bizarre, specific claim ("This Bird Has a Dagger on Each Foot"). No "Did you know", no TRUE/FALSE.
 - **Description:** line 1 restates the claim with the search words (daddy long legs, venomous spider...), then "Sources:" and the credit lines from `footage/<slug>/credits.json` (required for CC BY / BY-SA).

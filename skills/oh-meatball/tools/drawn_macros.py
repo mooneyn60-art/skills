@@ -266,10 +266,20 @@ def expand(spec):
                                               for mv in line["hero_moves"] if not (mv.get("walk") and not mv.get("at"))])
                 if not line["hero_moves"]:
                     line.pop("hero_moves")
-            mb = _mb(stage, F, "shock", water=water, shake=0.5,
-                     moves=[{"at": "30%", "dur": 0.45, "pos": [MB_X - 30, F], "hop": 220}])
-            b = _beat(stage, line, F, [{"cam": open_cam, "to": C["two"]}, {"at": "55%", "cam": C["two"], "to": C["close"]}],
-                      hero, mb, ["scratch@0", "boing@30%", "pop@55%"])
+            if line.get("open") == "animal":
+                # v6 (Studio 11/3: animal-close-up openings 58% stayed vs 35% for Meatball openings): frame 0 is a tight
+                # close-up of the animal mid-pounce; Meatball hops in smaller from the left at ~2.3 s, as the reactor.
+                lift = int(0.5 * stage.cfg.get("height", 240) * stage.s) if stage.side else 120   # frame the body, not the air above it
+                ac = [hx, hy - lift, 2.0]
+                mb = _mb(stage, F, "shock", x=-320, water=water, shake=0.5, size=820,
+                         moves=[{"at": 2.3, "dur": 0.4, "pos": [MB_X - 30, F], "hop": 200}])
+                b = _beat(stage, line, F, [{"cam": ac, "to": [hx, hy - lift - 20, 2.2]}, {"at": 2.2, "cam": [hx, hy - lift - 20, 2.2], "to": C["two"]}],
+                          hero, mb, ["scratch@0", "boing@2.3", "pop@55%"])
+            else:
+                mb = _mb(stage, F, "shock", water=water, shake=0.5,
+                         moves=[{"at": "30%", "dur": 0.45, "pos": [MB_X - 30, F], "hop": 220}])
+                b = _beat(stage, line, F, [{"cam": open_cam, "to": C["two"]}, {"at": "55%", "cam": C["two"], "to": C["close"]}],
+                          hero, mb, ["scratch@0", "boing@30%", "pop@55%"])
             b["sfx"] = ["sting@0"] + list(b["sfx"])   # the series' signature cue under the first word (sfx/v2/sting.wav)
             b["pad"] = line.get("pad", 0.06)
         elif m == "name":

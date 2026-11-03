@@ -1,0 +1,432 @@
+{
+ "series": "Is This Spider Venomous?, Part 9",
+ "sources": [
+  "Bertone, M.A. et al. (2016) Arthropods of the great indoors: characterizing diversity inside urban and suburban homes. PeerJ 4:e1582 (abstract via Europe PMC): 50 houses around Raleigh NC; 32-211 morphospecies of arthropods per house; 73% of indoor diversity was true flies, spiders, beetles and wasps/ants; https://doi.org/10.7717/peerj.1582",
+  "UC IPM Pest Notes: Spiders (Pub. 7442): most spiders have venom which they use to kill their prey, only those whose venom typically causes a serious reaction in humans are called toxic; the common house spider, Parasteatoda tepidariorum, makes a cobweb in corners of rooms and in windows; cobweb spiders feed on insects that walk or fly into their webs and hang upside down in irregular webs; the jaws of most spiders are too small to bite humans; the cellar spider's fangs are too short to pierce skin in most cases; adult female black widows (shiny black, red hourglass) are the most common spider capable of seriously injuring people in California, and only larger immature and adult females can bite through skin; focus control on removing webs and hiding places, pesticides are not generally needed; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7442.html",
+  "UC Riverside, Spider Research (R. Vetter), the Daddy-Long-Legs myth: harvestmen do not have venom glands, fangs or any other way to chemically subdue food, so they have no injectable toxins; for pholcid daddy-longlegs spiders there is no reference to a bite harming a human; the \"most venomous spider\" tale is a myth; https://spiders.ucr.edu/daddy-long-legs",
+  "UC IPM, Brown Recluse and Other Recluse Spiders: 6 eyes in 3 pairs; https://ipm.ucanr.edu/home-and-landscape/brown-recluse-and-other-recluse-spiders/ and UC Riverside (R. Vetter), How to Identify a Brown Recluse: six eyes, most spiders have eight; https://spiders.ucr.edu/recluseid.html",
+  "Penn State Extension, Cellar Spiders (S. Jacobs): often called daddy longlegs; loose webs in corners of basements; when disturbed they vibrate rapidly in the web; https://extension.psu.edu/cellar-spiders",
+  "Vetter & Barger 2002, Journal of Medical Entomology 39(6): 948-951, An infestation of 2,055 brown recluse spiders and no envenomations in a Kansas home; https://doi.org/10.1603/0022-2585-39.6.948"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "detective",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "stage": {
+  "creature": "house_spider",
+  "scene": "kitchen",
+  "scene_p": {
+   "time": "night"
+  },
+  "creature_cfg": {
+   "label": "house spider"
+  },
+  "s": 0.62,
+  "actor": "house_spider"
+ },
+ "cap_key": [
+  "you",
+  "venom",
+  "venomous",
+  211,
+  "two",
+  2,
+  "widow",
+  "recluse",
+  "busted",
+  "myth",
+  "jaws",
+  "bite",
+  "skin",
+  "glands",
+  2055,
+  2,
+  45,
+  "six",
+  "eyes",
+  "hourglass",
+  "bugs",
+  "webs",
+  "flies"
+ ],
+ "cut_whoosh": true,
+ "_note": "Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Is This Spider Venomous? [House Spider] 🕷️ (#9)",
+ "tiktok_caption": "is the spider in your corner venomous? 🕷️ the common house spider has venom, eats the bugs that fly into its web, and its jaws are usually too small to bite you. Daddy long legs myth: BUSTED. The only 2 to watch in the US. Keep it or squish it? 🕷️ keep / 👟 squish #isthisspidervenomous #housespider #spiders #meatballmyths #learnontiktok",
+ "beats": [
+  {
+   "card": {
+    "rows": [
+     [
+      "UP TO 211 KINDS",
+      "#ffd34d",
+      120
+     ],
+     [
+      "OF BUGS IN ONE HOUSE",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   },
+   "gag": {
+    "mark": "shock"
+   },
+   "open": "animal",
+   "m": "hook",
+   "say": "Up to 211 kinds of bugs are hiding in your house right now."
+  },
+  {
+   "scene": "bathroom",
+   "card": {
+    "rows": [
+     [
+      "VENOM?",
+      "#ffffff",
+      90
+     ],
+     [
+      "YES",
+      "#ff4b3e",
+      150
+     ]
+    ],
+    "y": 470,
+    "at": "75%"
+   },
+   "m": "escalate",
+   "say": "One is hanging upside down in your corner, with venom."
+  },
+  {
+   "scene": "basement",
+   "with": [
+    "fly",
+    "moth",
+    "ant"
+   ],
+   "m": "count",
+   "say": "It devours the insects that blunder into its web."
+  },
+  {
+   "scene": "bedroom",
+   "gag": {
+    "mark": "shock"
+   },
+   "m": "tiny",
+   "say": "Most spiders' jaws are too small to bite you."
+  },
+  {
+   "with": [
+    {
+     "type": "black_widow",
+     "x": 700,
+     "s": 0.42
+    },
+    {
+     "type": "brown_recluse",
+     "x": 900,
+     "s": 0.42
+    }
+   ],
+   "card": {
+    "rows": [
+     [
+      "ONLY 2",
+      "#ff4b3e",
+      150
+     ],
+     [
+      "TO WATCH IN THE US",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   },
+   "gag": {
+    "mark": "alarm"
+   },
+   "m": "punch",
+   "say": "Only two to watch: black widows and brown recluses."
+  },
+  {
+   "scene": "study",
+   "m": "name",
+   "say": "It's a cobweb spider. It hangs upside down in a messy web."
+  },
+  {
+   "scene": "kitchen",
+   "gag": {
+    "prop": "magnifier"
+   },
+   "m": "fact",
+   "say": "Spiders are one of the most common things scientists find indoors."
+  },
+  {
+   "scene": "sill",
+   "m": "calm",
+   "say": "It builds in the corners of your rooms, and in your windows."
+  },
+  {
+   "scene": "kitchen",
+   "m": "xray",
+   "say": "Almost every spider has venom. It's how they kill their prey."
+  },
+  {
+   "scene": "bathroom",
+   "gag": {
+    "meter": 0.25
+   },
+   "m": "fact",
+   "say": "But only a few have venom strong enough to hurt people."
+  },
+  {
+   "scene": "basement",
+   "cast": {
+    "creature": "daddy_long_legs",
+    "creature_cfg": {
+     "plan": "arachnid",
+     "label": "harvestman",
+     "color": "#8a6a4a",
+     "dark": "#5a4630",
+     "abdomen_front": true,
+     "abdomen": 150,
+     "ceph": [
+      70,
+      50
+     ],
+     "leg_w": 7,
+     "leg_len": 1.9,
+     "eyes": "pair",
+     "mood": "happy",
+     "s": 0.7,
+     "xray": "gut"
+    },
+    "s": 0.7
+   },
+   "card": {
+    "rows": [
+     [
+      "MYTH?",
+      "#ffd34d",
+      120
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   },
+   "m": "fact",
+   "say": "Now the myth. Daddy long legs are the deadliest, but can't bite you?"
+  },
+  {
+   "scene": "study",
+   "cast": {
+    "creature": "daddy_long_legs",
+    "creature_cfg": {
+     "plan": "arachnid",
+     "label": "harvestman",
+     "color": "#8a6a4a",
+     "dark": "#5a4630",
+     "abdomen_front": true,
+     "abdomen": 150,
+     "ceph": [
+      70,
+      50
+     ],
+     "leg_w": 7,
+     "leg_len": 1.9,
+     "eyes": "pair",
+     "mood": "happy",
+     "s": 0.7,
+     "xray": "gut"
+    },
+    "s": 0.7
+   },
+   "card": {
+    "rows": [
+     [
+      "BUSTED",
+      "#ff4b3e",
+      160
+     ],
+     [
+      "0 VENOM GLANDS",
+      "#ffffff",
+      60,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "5%"
+   },
+   "m": "xray",
+   "say": "Busted. The harvestman has no venom glands at all."
+  },
+  {
+   "scene": "bedroom",
+   "cast": {
+    "creature": "cellar_spider",
+    "actor": "cellar_spider",
+    "creature_cfg": {
+     "floor": false,
+     "label": "cellar spider"
+    },
+    "s": 0.68
+   },
+   "m": "calm",
+   "say": "The cellar spider's fangs usually can't even pierce your skin."
+  },
+  {
+   "scene": "basement",
+   "cast": {
+    "creature": "cellar_spider",
+    "actor": "cellar_spider",
+    "creature_cfg": {
+     "floor": false,
+     "label": "cellar spider"
+    },
+    "s": 0.68
+   },
+   "m": "chase",
+   "say": "Get close, and it shakes its whole web to scare you off."
+  },
+  {
+   "scene": "garden",
+   "cast": {
+    "creature": "black_widow",
+    "actor": "black_widow",
+    "s": 0.6
+   },
+   "card": {
+    "rows": [
+     [
+      "#1",
+      "#ff4b3e",
+      150
+     ],
+     [
+      "BLACK WIDOW",
+      "#ffffff",
+      64,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "20%"
+   },
+   "m": "escalate",
+   "say": "Number one to watch. The female black widow, with a red hourglass."
+  },
+  {
+   "scene": "kitchen",
+   "cast": {
+    "creature": "black_widow",
+    "actor": "black_widow",
+    "s": 0.6
+   },
+   "m": "fact",
+   "say": "Only the big females can bite through your skin."
+  },
+  {
+   "scene": "bedroom",
+   "cast": {
+    "creature": "brown_recluse",
+    "actor": "brown_recluse",
+    "s": 0.6
+   },
+   "card": {
+    "rows": [
+     [
+      "#2",
+      "#ff4b3e",
+      150
+     ],
+     [
+      "6 EYES, NOT 8",
+      "#ffffff",
+      64,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "20%"
+   },
+   "m": "chase",
+   "say": "Number two. The brown recluse. Count the eyes. Six, not eight."
+  },
+  {
+   "scene": "basement",
+   "cast": {
+    "creature": "brown_recluse",
+    "actor": "brown_recluse",
+    "s": 0.5
+   },
+   "with": [
+    {
+     "type": "brown_recluse",
+     "s": 0.35
+    },
+    {
+     "type": "brown_recluse",
+     "s": 0.35
+    },
+    {
+     "type": "brown_recluse",
+     "s": 0.35
+    }
+   ],
+   "card": {
+    "rows": [
+     [
+      "2,055 RECLUSES",
+      "#ffd34d",
+      110
+     ],
+     [
+      "0 BITES",
+      "#ffffff",
+      90,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "50%"
+   },
+   "m": "count",
+   "say": "One Kansas house had 2,055 of them. Nobody was bitten."
+  },
+  {
+   "scene": "study",
+   "m": "calm",
+   "say": "Want fewer spiders? Clear the webs and the clutter. Sprays usually aren't needed."
+  },
+  {
+   "scene": "kitchen",
+   "m": "fact",
+   "say": "So the spider in your corner is eating your bugs. And",
+   "card": {
+    "rows": [
+     [
+      "KEEP OR SQUISH? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "loop": true
+}
