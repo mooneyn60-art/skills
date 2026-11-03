@@ -21,6 +21,7 @@ import tempfile
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 FONT = os.path.join(ROOT, "brand/fonts/Anton-Regular.ttf")
+WORK_TMP = "/dev/shm" if os.path.isdir("/dev/shm") else "/tmp"   # scratch on tmpfs: the root disk is near full
 
 
 def esc(s):
@@ -68,14 +69,14 @@ def tease_start(spec_path):
     sys.path.insert(0, HERE)
     import drawn
     spec = drawn.drawn_macros.expand(json.load(open(spec_path)))
-    work = tempfile.mkdtemp(prefix="tt-", dir=os.environ.get("DRAWN_WORK", "/tmp"))
+    work = tempfile.mkdtemp(prefix="tt-", dir=os.environ.get("DRAWN_WORK", WORK_TMP))
     beats, _ = drawn.plan(spec, work)
     subprocess.run(["rm", "-rf", work])
     return beats[-1]["t0"]
 
 
 def listify(out, title, items):
-    work = tempfile.mkdtemp(prefix="ttl-", dir=os.environ.get("DRAWN_WORK", "/tmp"))
+    work = tempfile.mkdtemp(prefix="ttl-", dir=os.environ.get("DRAWN_WORK", WORK_TMP))
     parts = []
     for k, it in enumerate(items, 1):
         spec, mp4 = it.split(":", 1)

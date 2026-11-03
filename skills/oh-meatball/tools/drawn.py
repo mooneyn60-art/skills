@@ -86,6 +86,115 @@ SR = 48000
 FONT = os.path.join(ROOT, "brand/fonts/Anton-Regular.ttf")
 
 
+# ---------------------------------------------------------------- caches (speed: shared across cuts and re-renders)
+
+def cache_dir(kind):
+    """MEATBALL_CACHE (default /dev/shm/meatball-cache, tmpfs: never the near-full root disk); "" or "0" = off."""
+    root = os.environ.get("MEATBALL_CACHE", "/dev/shm/meatball-cache" if os.path.isdir("/dev/shm") else "")
+    if root in ("", "0"):
+        return None
+    d = os.path.join(root, kind)
+    try:
+        os.makedirs(d, exist_ok=True)
+    except OSError:
+        return None
+    return d
+
+
+def _cache_name(key):
+    import hashlib
+    return hashlib.sha1(key.encode()).hexdigest()
+
+
+def _sha1_bytes(data):
+    import hashlib
+    return hashlib.sha1(data).hexdigest()
+
+
+def tts_cached(key, mp3):
+    """Copy a cached line (same text, voice, rate, pitch) to the beat's path; True on a hit. The word timings
+    carry the sha1 of the take they came from, so a racing store can never pair one take's audio with another
+    take's timings (edge-tts gives different bytes on every call)."""
+    d = cache_dir("tts")
+    if not d:
+        return False
+    c = os.path.join(d, _cache_name(key))
+    try:
+        with open(c + ".json") as f:
+            meta = json.load(f)
+        with open(c + ".mp3", "rb") as f:
+            audio = f.read()
+    except (OSError, ValueError):
+        return False
+    if not (audio and meta.get("words") and meta.get("key") == key and meta.get("sha1") == _sha1_bytes(audio)):
+        return False
+    with open(mp3, "wb") as f:
+        f.write(audio)
+    with open(mp3 + ".words.json", "w") as f:
+        json.dump(meta["words"], f)
+    with open(mp3 + ".key", "w") as f:
+        f.write(key)
+    return True
+
+
+def tts_store(key, mp3):
+    """Keep a freshly spoken line (each file written atomically). A take without audio or word timings is
+    never cached: every later render of the line would reuse it."""
+    d = cache_dir("tts")
+    if not d:
+        return
+    with open(mp3, "rb") as f:
+        audio = f.read()
+    with open(mp3 + ".words.json") as f:
+        words = json.load(f)
+    if not audio or not words:
+        return
+    c = os.path.join(d, _cache_name(key))
+    meta = json.dumps({"key": key, "sha1": _sha1_bytes(audio), "words": words}).encode()
+    for ext, data in ((".mp3", audio), (".json", meta)):
+        tmp = f"{c}{ext}.{os.getpid()}.tmp"
+        with open(tmp, "wb") as f:
+            f.write(data)
+        os.replace(tmp, c + ext)
+
+
+MUSIC_CACHE_MB = 300
+
+
+def music_bed(kind, total, reveals=(), **kw):
+    """music.render, cached on (kind, length, reveals, flags, music.py source): the bed is deterministic."""
+    d = cache_dir("music")
+    if not d:
+        return music.render(kind, total, reveals, **kw)
+    import hashlib
+    src_hash = hashlib.sha1(open(music.__file__, "rb").read()).hexdigest()[:12]
+    key = json.dumps([kind, repr(float(total)), [repr(float(r)) for r in reveals], sorted(kw.items()), src_hash])
+    c = os.path.join(d, _cache_name(key) + ".npy")
+    if os.path.exists(c):
+        try:
+            bed = np.load(c)
+            os.utime(c)
+            return bed
+        except (OSError, ValueError):
+            pass
+    bed = music.render(kind, total, reveals, **kw)
+    tmp = f"{c}.{os.getpid()}.tmp.npy"
+    np.save(tmp, bed)
+    os.replace(tmp, c)
+    # a bed is ~0.4 MB per second (float32 stereo) and the cache lives in RAM: keep the newest MUSIC_CACHE_MB
+    beds = sorted((e for e in os.scandir(d) if e.name.endswith(".npy") and ".tmp" not in e.name),
+                  key=lambda e: e.stat().st_mtime, reverse=True)
+    used = 0
+    for e in beds:
+        used += e.stat().st_size
+        if used > MUSIC_CACHE_MB * 1e6:
+            try:
+                os.remove(e.path)
+            except OSError:
+                pass
+    return bed
+
+
 # ---------------------------------------------------------------- voice
 
 def line_key(text, voice, rate, pitch):
@@ -113,9 +222,12 @@ def tts(text, voice, rate, pitch, mp3):
         if voice.startswith("kokoro:"):
             kokoro(text, voice, mp3, key)
             return json.load(open(mp3 + ".words.json"))
+        if tts_cached(key, mp3):
+            return json.load(open(mp3 + ".words.json"))
         words = asyncio.run(speak(text, voice, mp3, rate, pitch))
         json.dump(words, open(mp3 + ".words.json", "w"))
         open(mp3 + ".key", "w").write(key)
+        tts_store(key, mp3)
     return json.load(open(mp3 + ".words.json"))
 
 
@@ -131,7 +243,7 @@ def prefetch(spec, work, limit=6):
         if not (os.path.exists(mp3 + ".key") and open(mp3 + ".key").read() == key):
             if voice.startswith("kokoro:"):   # local and cached: no edge batch
                 kokoro(b["say"], voice, mp3, key)
-            else:
+            elif not tts_cached(key, mp3):
                 jobs.append((b["say"], mp3, key))
 
     async def run():
@@ -142,6 +254,7 @@ def prefetch(spec, work, limit=6):
                 words = await speak(text, voice, mp3, rate, pitch)
             json.dump(words, open(mp3 + ".words.json", "w"))
             open(mp3 + ".key", "w").write(key)
+            tts_store(key, mp3)
         await asyncio.gather(*(one(*j) for j in jobs))
     if jobs:
         asyncio.run(run())
@@ -526,10 +639,18 @@ def talk_level(words, t):
 
 
 def pil_to_surface(im):
-    a = np.asarray(im, dtype=np.uint16)
-    al = a[..., 3:4]
-    pre = (a[..., :3] * al // 255).astype(np.uint8)
-    bgra = np.concatenate([pre[..., ::-1], al.astype(np.uint8)], axis=2).copy()
+    a = np.asarray(im)
+    al = a[..., 3].astype(np.uint16)
+    bgra = np.empty(a.shape, np.uint8)   # premultiplied BGRA (floor(c * a / 255), as cairo wants), channel by channel
+    x, q = np.empty(al.shape, np.uint16), np.empty(al.shape, np.uint16)
+    for dst, sc in ((0, 2), (1, 1), (2, 0)):
+        np.multiply(a[..., sc], al, out=x)   # x <= 65025; (x + 1 + (x >> 8)) >> 8 == x // 255 exactly in this range
+        np.right_shift(x, 8, out=q)
+        q += x
+        q += 1
+        q >>= 8
+        bgra[..., dst] = q
+    bgra[..., 3] = a[..., 3]
     surf = cairo.ImageSurface.create_for_data(memoryview(bgra), cairo.FORMAT_ARGB32, im.width, im.height,
                                               im.width * 4)
     return surf, bgra
@@ -891,7 +1012,7 @@ def frame_at(f):
         ctx.set_source_rgba(*tint)
         ctx.fill()
     surf.flush()
-    base = np.ndarray((H, W, 4), np.uint8, surf.get_data()).copy()
+    base = np.ndarray((H, W, 4), np.uint8, surf.get_data())   # a view: overlays draw straight into the surface
     card = b.get("card")
     if card and t >= at_time(b["words"], card.get("at", 0.0)):
         im = card_img(card["rows"])
@@ -903,23 +1024,28 @@ def frame_at(f):
             cx = W - im.width // 2 - 40
         paste(base, im, cx, card.get("y", 760) + im.height // 2)
     draw_counter(base, T)
-    outs = [base]
-    if G.get("cap_px"):
-        cap = base.copy()
-        for s, e, text in G["caps"]:
-            if s <= T < e:
-                im = caption_img(text, G["cap_px"], G.get("cap_key", ()))
-                arr = np.asarray(im).astype(np.float32)
-                x0 = (W - im.width) // 2
-                y0 = int(G.get("cap_y", 1530)) - im.height // 2
-                reg = cap[y0:y0 + im.height, x0:x0 + im.width].astype(np.float32)
-                al = arr[..., 3:4] / 255
-                rgb_bgr = arr[..., [2, 1, 0]]
-                reg[..., :3] = reg[..., :3] * (1 - al) + rgb_bgr * al
-                cap[y0:y0 + im.height, x0:x0 + im.width] = reg.astype(np.uint8)
-                break
-        outs.append(cap)
-    return [o.tobytes() for o in outs]
+    # outs[0] = no captions, outs[-1] = captioned. G["nocap_out"] False (main() without --nocap): only the
+    # captioned frame is returned, drawn in place (saves two full-frame copies per frame).
+    raw = G.get("raw_out")   # main()'s shared-memory transport takes arrays; everything else gets bytes
+    pack = (lambda a: a) if raw else (lambda a: a.tobytes())
+    if not G.get("cap_px"):
+        return [pack(base)]
+    outs = [base.copy() if raw else base.tobytes()] if G.get("nocap_out", True) else []
+    cap = base
+    for s, e, text in G["caps"]:
+        if s <= T < e:
+            im = caption_img(text, G["cap_px"], G.get("cap_key", ()))
+            arr = np.asarray(im).astype(np.float32)
+            x0 = (W - im.width) // 2
+            y0 = int(G.get("cap_y", 1530)) - im.height // 2
+            reg = cap[y0:y0 + im.height, x0:x0 + im.width].astype(np.float32)
+            al = arr[..., 3:4] / 255
+            rgb_bgr = arr[..., [2, 1, 0]]
+            reg[..., :3] = reg[..., :3] * (1 - al) + rgb_bgr * al
+            cap[y0:y0 + im.height, x0:x0 + im.width] = reg.astype(np.uint8)
+            break
+    outs.append(pack(cap))
+    return outs
 
 
 SFX_MAX, SFX_GAP, SFX_DUCK_DB = 2, 0.5, -6.0   # Nolan 10/28 "get rid of the loud beeps and make it softer"
@@ -983,9 +1109,9 @@ def mix_audio(spec, beats, total, path):
               f" | sfx peak {db(np.abs(sfx).max()):.1f} rms(active) {db(np.sqrt(np.mean(sfx[on] ** 2)) if on.any() else 0):.1f}"
               f" | cues {len(sfx_cues(beats, ticks, tick_sfx))}", flush=True)
     if spec.get("music_reveals") == "counter":   # the bed builds into every new counter value, never drops out
-        bed = music.render(spec.get("music", "detective"), total, [t for t, _ in ticks[1:]], drop=False, hit=False)
+        bed = music_bed(spec.get("music", "detective"), total, [t for t, _ in ticks[1:]], drop=False, hit=False)
     else:
-        bed = music.render(spec.get("music", "detective"), total)
+        bed = music_bed(spec.get("music", "detective"), total)
     bed = bed.mean(1) if bed.ndim == 2 else bed
     g = 10 ** (spec.get("music_db", -21) / 20)
     mus = np.zeros(n, np.float32)
@@ -1000,11 +1126,42 @@ def mix_audio(spec, beats, total, path):
         w.writeframes((np.clip(mix, -1, 1) * 32767).astype("<i2").tobytes())
 
 
-def encode_cmd(out, fps, wav):
+def encode_cmd(out, fps, wav, vf=None, contact=None, rows=1):
+    """vf: an ffmpeg filter chain burned in on the yuv420p frames (env DRAWN_VF: tools/drawn_quick.py's title bar, so
+    no second encode); contact: also write the 2 fps contact sheet (10 x rows) from the same pass.
+    env DRAWN_PRESET (default medium) and CRF (default 21) pick the x264 settings."""
+    vin = ["-map", "0:v"]
+    tail = []
+    if vf or contact:
+        chain = "format=yuv420p" + (f",{vf}" if vf else "")
+        if contact:
+            graph = f"[0:v]{chain},split=2[v][c];[c]fps=2,scale=216:384,tile=10x{rows}[t]"
+            tail = ["-map", "[t]", "-frames:v", "1", "-q:v", "4", contact]
+        else:
+            graph = f"[0:v]{chain}[v]"
+        vin = ["-filter_complex", graph, "-map", "[v]"]
     return ["ffmpeg", "-y", "-v", "error", "-f", "rawvideo", "-pix_fmt", "bgra", "-s", f"{W}x{H}", "-r", str(fps),
-            "-i", "-", "-i", wav, "-map", "0:v", "-map", "1:a", "-c:v", "libx264", "-preset", "medium",
+            "-i", "-", "-i", wav] + vin + ["-map", "1:a", "-c:v", "libx264", "-preset",
+            os.environ.get("DRAWN_PRESET", "medium"),
             "-crf", os.environ.get("CRF", "21"), "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "160k",
-            "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-ar", "48000", "-shortest", "-movflags", "+faststart", out]
+            "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-ar", "48000", "-shortest", "-movflags", "+faststart", out] + tail
+
+
+def _frames_into(job):
+    """Pool worker: draw frames f0 .. f0+n-1 (through the module's frame_at, which renderers may wrap) into the
+    shared ring slots slot0 .. slot0+n-1. Consecutive frames in one worker keep its per-process caches warm."""
+    f0, n, slot0 = job
+    fb, nout = G["frame_bytes"], G["nout"]
+    counts = []
+    for i in range(n):
+        outs = frame_at(f0 + i)
+        outs = outs[-nout:]   # a wrapper may still return [no captions, captioned]: the encoders take the last
+        for j, o in enumerate(outs):
+            dst = np.frombuffer(G["shm"], np.uint8, fb, ((slot0 + i) * nout + j) * fb)
+            dst[:] = np.frombuffer(o if isinstance(o, (bytes, bytearray, memoryview)) else np.ascontiguousarray(o),
+                                   np.uint8, fb)
+        counts.append(len(outs))
+    return counts
 
 
 def main():
@@ -1033,6 +1190,7 @@ def main():
     os.makedirs(work, exist_ok=True)
     t_start = time.time()
     beats, total = plan(spec, work)
+    t_plan = time.time() - t_start
     G.update(fps=args.fps, beats=beats, rigs=rig_tracks(beats, args.fps), caps=caption_chunks(beats),
              cap_px=spec.get("captions", 66), cap_y=spec.get("caption_y", 1530), counter=spec.get("counter"),
              cap_key=set(spec.get("cap_key", ())))
@@ -1048,24 +1206,63 @@ def main():
         print("stills in", work)
         return
     wav = f"{work}/mix.wav"
+    t_mix = time.time()
     mix_audio(spec, beats, total, wav)
-    procs = [subprocess.Popen(encode_cmd(args.out, args.fps, wav), stdin=subprocess.PIPE)]
+    t_mix = time.time() - t_mix
+    vf = os.environ.get("DRAWN_VF") or None
+    contact = os.environ.get("DRAWN_CONTACT") or None
+    rows = int(nf / args.fps * 2 / 10) + 1
+    procs = [subprocess.Popen(encode_cmd(args.out, args.fps, wav, vf, contact, rows), stdin=subprocess.PIPE)]
     if args.nocap:
-        procs.append(subprocess.Popen(encode_cmd(args.nocap, args.fps, wav), stdin=subprocess.PIPE))
+        procs.append(subprocess.Popen(encode_cmd(args.nocap, args.fps, wav, vf), stdin=subprocess.PIPE))
     else:
         G["cap_px"] = None if not spec.get("captions", 66) else G["cap_px"]
-    with mp.get_context("fork").Pool(int(os.environ.get("DRAWN_JOBS", "4"))) as pool:
-        for k, outs in enumerate(pool.imap(frame_at, range(nf), chunksize=4)):
-            # outs[0] = no captions, outs[-1] = captioned
-            procs[0].stdin.write(outs[-1])
-            if args.nocap:
-                procs[1].stdin.write(outs[0])
-            if k % 150 == 0:
-                print(f"  frame {k}/{nf}  {time.time() - t_start:.0f}s", flush=True)
+    # Frames travel through a shared-memory ring (workers draw into a slot, the main process hands the slot to
+    # ffmpeg), not pickled through pipes: no 8 MB copies per frame. At most ring * chunk frames are in flight.
+    import collections
+    import mmap
+    jobs = int(os.environ.get("DRAWN_JOBS", "4"))
+    G.update(nocap_out=bool(args.nocap), raw_out=True, frame_bytes=W * H * 4,
+             nout=2 if (args.nocap and G.get("cap_px")) else 1)
+    chunk = 4                       # frames per task (as the old imap chunksize)
+    ring = max(2, 2 * jobs)         # tasks in flight; the ring holds ring * chunk frames
+    G["shm"] = mmap.mmap(-1, ring * chunk * G["nout"] * G["frame_bytes"])   # anonymous MAP_SHARED: shared on fork
+    fb, nout = G["frame_bytes"], G["nout"]
+    starts = list(range(0, nf, chunk))
+    t_draw = time.time()
+    with mp.get_context("fork").Pool(jobs) as pool:
+        pending = collections.deque()
+
+        def submit(c):   # task c reuses ring slot c % ring, freed once task c - ring has gone to ffmpeg
+            f0 = starts[c]
+            pending.append(pool.apply_async(_frames_into, ((f0, min(chunk, nf - f0), (c % ring) * chunk),)))
+        for c in range(min(ring, len(starts))):
+            submit(c)
+        view = memoryview(G["shm"])
+        for c in range(len(starts)):
+            counts = pending.popleft().get()
+            for i, n in enumerate(counts):
+                base = ((c % ring) * chunk + i) * nout
+                outs = [view[(base + j) * fb:(base + j + 1) * fb] for j in range(n)]
+                procs[0].stdin.write(outs[-1])   # outs[0] = no captions, outs[-1] = captioned
+                if args.nocap:
+                    procs[1].stdin.write(outs[0])
+                k = starts[c] + i
+                if k % 150 == 0:
+                    print(f"  frame {k}/{nf}  {time.time() - t_start:.0f}s", flush=True)
+            if c + ring < len(starts):
+                submit(c + ring)
+    t_draw = time.time() - t_draw
+    t_tail = time.time()
     for p in procs:
         p.stdin.close()
-        p.wait()
-    print(f"done {args.out} in {time.time() - t_start:.0f}s", flush=True)
+        if p.wait():
+            raise SystemExit(f"drawn: ffmpeg failed ({p.returncode}) for {args.out}")
+    t_tail = time.time() - t_tail
+    if vf or contact:   # tells tools/drawn_quick.py the title bar / contact sheet came out of this encode
+        json.dump({"vf": vf, "contact": contact}, open(args.out + ".post.json", "w"))
+    print(f"done {args.out} in {time.time() - t_start:.0f}s  (plan+voice {t_plan:.1f}, mix+music {t_mix:.1f}, "
+          f"draw+encode {t_draw:.1f}, encoder tail {t_tail:.1f})", flush=True)
 
 
 if __name__ == "__main__":

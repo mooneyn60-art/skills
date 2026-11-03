@@ -34,6 +34,7 @@ Outline (see scripts/drawn-house/outlines/*.yaml):
 Macros: hook name fact xray scale count escalate chase calm punch tease solo (see drawn_macros.py).
 """
 import argparse
+import errno
 import json
 import os
 import shutil
@@ -129,6 +130,26 @@ def probe(path):
     return float(j["format"]["duration"]), kinds, os.path.getsize(path) / 1e6
 
 
+def install(src, dst):
+    """Move src to dst without ever leaving a partial file at dst. The work dir (tmpfs) and the out dir (repo
+    disk) are different filesystems, where a plain move is copy-then-delete: a full disk would leave half an mp4."""
+    try:
+        os.replace(src, dst)
+        return
+    except OSError as e:
+        if e.errno != errno.EXDEV:
+            raise
+    part = f"{dst}.{os.getpid()}.part"
+    try:
+        shutil.copyfile(src, part)
+        os.replace(part, dst)
+    except BaseException:
+        if os.path.exists(part):
+            os.remove(part)
+        raise
+    os.remove(src)
+
+
 def contact(mp4, jpg):
     dur = probe(mp4)[0]
     rows = int(dur * 2 / 10) + 1
@@ -157,7 +178,8 @@ def main():
     ap.add_argument("--force", action="store_true", help="render even if a cut is outside its length range")
     ap.add_argument("--scaffold")
     ap.add_argument("--facts")
-    ap.add_argument("--work", default=os.environ.get("DRAWN_WORK", "/tmp/drawn-work"))
+    ap.add_argument("--work", default=os.environ.get("DRAWN_WORK", "/dev/shm/drawn-work" if os.path.isdir("/dev/shm")
+                                                     else "/tmp/drawn-work"))   # tmpfs: the root disk is near full
     args = ap.parse_args()
     if args.scaffold:
         print(scaffold(args.scaffold, args.facts))
@@ -168,21 +190,30 @@ def main():
     spec_dir = os.path.join(ROOT, o.get("specs", "scripts/drawn-house"))
     os.makedirs(out_dir, exist_ok=True)
     os.makedirs(spec_dir, exist_ok=True)
-    # YouTube "inauthentic content": a shot skeleton shared by 3+ other outlines reads as a template
-    same = subprocess.run([sys.executable, os.path.join(HERE, "sameness.py"), args.outline])
-    if same.returncode and not args.force:
-        sys.exit("sameness gate failed: vary the beat order (or --force)")
+    # YouTube "inauthentic content": a shot skeleton shared by 3+ other outlines reads as a template.
+    # The gate runs alongside the voice/length check; nothing renders before it passes.
+    same = subprocess.Popen([sys.executable, os.path.join(HERE, "sameness.py"), args.outline])
+
+    def gate():
+        if same.wait() and not args.force:
+            sys.exit("sameness gate failed: vary the beat order (or --force)")
     yt, tt = specs(o)
+    # The topic as a title bar for the whole video, both cuts (TikTok: Nolan 10/28; YouTube: Studio 10/28 "bold
+    # text in the first frame"). tools/tt_style.py puts it at y 150-340 (400 with "PART N"), under both apps' top UI.
+    import tt_style
+    title, sub = tt_style.title_for(o)
+    title = o.get("header", title)   # an outline can carry its own title bar (else data/tt_headers.json by slug)
     ok = True
     report = []
     for cut, spec, rng in (("yt", yt, YT_RANGE), ("tt", tt, TT_RANGE)):
         if args.only and cut != args.only:
             continue
         sp = os.path.join(spec_dir, f'{o["slug"]}-{cut}.json')
-        json.dump(spec, open(sp, "w"), indent=1, ensure_ascii=False)
         work = os.path.join(args.work, f'{o["slug"]}-{cut}')
         os.makedirs(work, exist_ok=True)
         L = spoken_length(spec, work)
+        gate()   # nothing is written or rendered past a failed gate
+        json.dump(spec, open(sp, "w"), indent=1, ensure_ascii=False)
         fits = rng[0] <= L <= rng[1]
         ok &= fits
         report.append(f"{cut}: {L:.1f} s ({'ok' if fits else 'OUT OF RANGE %g-%g s' % rng})  {sp}")
@@ -193,23 +224,36 @@ def main():
             continue
         mp4 = os.path.join(out_dir, f'{cut}-{o["slug"]}.mp4')
         tmp = os.path.join(work, f"render-{cut}.mp4")   # rendered and checked outside the repo first
-        subprocess.run([sys.executable, os.path.join(HERE, o.get("renderer", "drawn.py")), sp, tmp, "--work", work], check=True)   # renderer: e.g. drawn_testkit.py
+        # One encode: drawn.py burns the title bar in and writes the contact sheet from the same pass (env
+        # DRAWN_VF / DRAWN_CONTACT). The bar used to be a second full x264 pass (veryfast, crf 20); that pass's
+        # settings now go to the only encode. A renderer that doesn't take them leaves no .post.json: old path.
+        env = dict(os.environ, DRAWN_CONTACT=tmp + ".contact.jpg")
+        if title:
+            env["DRAWN_VF"] = tt_style.bar(title, sub)
+            if "DRAWN_PRESET" not in os.environ:
+                env.update(DRAWN_PRESET="veryfast", CRF="20")
+        for f in (tmp + ".post.json", tmp + ".contact.jpg"):
+            if os.path.exists(f):
+                os.remove(f)
+        subprocess.run([sys.executable, os.path.join(HERE, o.get("renderer", "drawn.py")), sp, tmp, "--work", work],
+                       check=True, env=env)   # renderer: e.g. drawn_testkit.py
+        post = json.load(open(tmp + ".post.json")) if os.path.exists(tmp + ".post.json") else {}
         dur, kinds, mb = probe(tmp)
         if kinds != ["audio", "video"] or mb >= 50 or not (args.force or rng[0] - 0.5 <= dur <= rng[1] + 0.5):
             raise SystemExit(f"drawn_quick: {tmp} failed the check ({dur:.2f} s, {kinds}, {mb:.1f} MB)")
-        # The topic as a title bar for the whole video, both cuts (TikTok: Nolan 10/28; YouTube: Studio 10/28 "bold
-        # text in the first frame"). tools/tt_style.py puts it at y 150-340 (400 with "PART N"), under both apps' top UI.
-        import tt_style
-        title, sub = tt_style.title_for(o)
-        title = o.get("header", title)   # an outline can carry its own title bar (else data/tt_headers.json by slug)
-        if title:
+        if title and post.get("vf") != env.get("DRAWN_VF"):   # the renderer didn't burn the bar in
             tt_style.header(tmp, tmp + ".hdr.mp4", title, sub)
             shutil.move(tmp + ".hdr.mp4", tmp)
-        shutil.move(tmp, mp4)   # never leave an incomplete mp4 under the real name
+            post["contact"] = None
+        install(tmp, mp4)   # never leave an incomplete mp4 under the real name
         jpg = os.path.join(out_dir, f'{cut}-{o["slug"]}-contact-2fps.jpg')
-        contact(mp4, jpg)
+        if post.get("contact") and os.path.exists(post["contact"]):
+            install(post["contact"], jpg)
+        else:
+            contact(mp4, jpg)
         report.append(f"   {mp4}  {dur:.2f} s  {mb:.1f} MB  contact: {jpg}")
         print(report[-1], flush=True)
+    gate()
     print(f"done in {time.time() - t0:.0f} s" + ("" if ok else "  (a cut is out of range: edit the outline)"))
     sys.exit(0 if ok or args.force else 2)
 

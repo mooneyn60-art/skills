@@ -291,6 +291,49 @@ def _head_layer(k, mouth, brow, look, level, blink, eyes=None):
     return im
 
 
+_POSED = {}   # the last few posed (scaled, rotated, cropped) head layers, by everything that shapes them
+_PAD = 4   # > the bicubic kernel's reach (2 px): the cut-off margin is transparent either way
+
+
+def _crop_drawn(im):
+    """(im cropped to its non-transparent pixels, their offset): compositing the rest is a no-op."""
+    bb = im.getbbox()
+    if bb is None or bb == (0, 0) + im.size:
+        return im, (0, 0)
+    return im.crop(bb), bb[:2]
+
+
+def _rotate_drawn(im, angle, center):
+    """im.rotate(angle, BICUBIC, center=center), resampled only where the result can be non-transparent (the head
+    layer is ~40% empty margin): (the rotated crop, its offset in the full layer). Same matrix as Pillow's rotate,
+    shifted to the crop, so the pixels match."""
+    bb = im.getbbox()
+    w, h = im.size
+    if bb is None:
+        return im, (0, 0)
+    a = -math.radians(angle % 360.0)
+    m = [round(math.cos(a), 15), round(math.sin(a), 15), 0.0, round(-math.sin(a), 15), round(math.cos(a), 15), 0.0]
+    m[2], m[5] = m[0] * -center[0] + m[1] * -center[1] + m[2], m[3] * -center[0] + m[4] * -center[1] + m[5]
+    m[2] += center[0]
+    m[5] += center[1]
+    ix0, iy0 = max(0, bb[0] - _PAD), max(0, bb[1] - _PAD)
+    ix1, iy1 = min(w, bb[2] + _PAD), min(h, bb[3] + _PAD)
+    # output pixels whose source point lands in the drawn box: map its corners forward (inverse of m's 2x2)
+    det = m[0] * m[4] - m[1] * m[3]
+    xs, ys = [], []
+    for x, y in ((ix0, iy0), (ix1, iy0), (ix0, iy1), (ix1, iy1)):
+        u, v = x - m[2], y - m[5]
+        xs.append((m[4] * u - m[1] * v) / det)
+        ys.append((-m[3] * u + m[0] * v) / det)
+    ox0, oy0 = max(0, int(math.floor(min(xs))) - _PAD), max(0, int(math.floor(min(ys))) - _PAD)
+    ox1, oy1 = min(w, int(math.ceil(max(xs))) + _PAD), min(h, int(math.ceil(max(ys))) + _PAD)
+    if ox1 <= ox0 or oy1 <= oy0:
+        return Image.new("RGBA", (1, 1)), (0, 0)
+    crop = im.crop((ix0, iy0, ix1, iy1))
+    mm = [m[0], m[1], m[2] + m[0] * ox0 + m[1] * oy0 - ix0, m[3], m[4], m[5] + m[3] * ox0 + m[4] * oy0 - iy0]
+    return crop.transform((ox1 - ox0, oy1 - oy0), Image.AFFINE, mm, Image.BICUBIC), (ox0, oy0)
+
+
 def render(st, size, ss=2, origin=None, canvas=None):
     """One frame from a rig state. Without canvas: an RGBA image size x size (the 1000-unit drawing).
     With canvas=(W, H): the figure at scale size/1000 with unit (0, 0) at screen point origin, drawn only
@@ -318,17 +361,27 @@ def render(st, size, ss=2, origin=None, canvas=None):
         pen.line(j["hip"], knee)
         pen.line(knee, foot)
     tilt = st.get("lean", 0.0) + st.get("tilt", 0.0)
-    head = _head_layer(round(kk, 4), st["mouth"], st["brow"], st.get("look", (0, 0)), st.get("level", 0),
-                       st.get("blink", 0), st.get("eyes"))
     pivot = (-HEAD_BOX[0] * kk, (-HEAD_BOX[1] + HEAD_UP) * kk)    # the spine top, in layer pixels
     sx, sy = st.get("head_s", (1.0, 1.0))
-    if abs(sx - 1) > 0.01 or abs(sy - 1) > 0.01:  # v3: squash/stretch about the neck (hits, stings)
-        head = head.resize((max(1, int(head.width * sx)), max(1, int(head.height * sy))), Image.BICUBIC)
-        pivot = (pivot[0] * sx, pivot[1] * sy)
-    if abs(tilt) > 0.05:
-        head = head.rotate(-tilt, resample=Image.BICUBIC, center=pivot)
+    hkey = repr((round(kk, 4), st["mouth"], st["brow"], st.get("look", (0, 0)), st.get("level", 0), st.get("blink", 0),
+                 st.get("eyes"), sx, sy, tilt))
+    if hkey in _POSED:   # a held pose: the same posed head as the previous frame (~30% of frames)
+        head, off, pivot = _POSED[hkey]
+    else:
+        head = _head_layer(round(kk, 4), st["mouth"], st["brow"], st.get("look", (0, 0)), st.get("level", 0),
+                           st.get("blink", 0), st.get("eyes"))
+        if abs(sx - 1) > 0.01 or abs(sy - 1) > 0.01:  # v3: squash/stretch about the neck (hits, stings)
+            head = head.resize((max(1, int(head.width * sx)), max(1, int(head.height * sy))), Image.BICUBIC)
+            pivot = (pivot[0] * sx, pivot[1] * sy)
+        if abs(tilt) > 0.05:
+            head, off = _rotate_drawn(head, -tilt, pivot)
+        else:
+            head, off = _crop_drawn(head)
+        if len(_POSED) > 3:
+            _POSED.clear()
+        _POSED[hkey] = (head, off, pivot)
     top = pen.p(*j["top"])
-    im.alpha_composite(head, (int(round(top[0] - pivot[0])), int(round(top[1] - pivot[1]))))
+    im.alpha_composite(head, (int(round(top[0] - pivot[0])) + off[0], int(round(top[1] - pivot[1])) + off[1]))
     # Arms go on top of the head so hand-to-face poses (shock, facepalm, think) stay visible.
     for side, key in ((-1, "l"), (1, "r")):
         elbow, wrist, hand = arm_points(j, side, st[key])
