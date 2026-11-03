@@ -113,6 +113,9 @@ async def main():
     for t0, x in voice:
         a = int(round(t0 * SR))
         vo[a:a + len(x)] += x[:len(vo) - a]
+    with wave.open(f"{WORK}/vo-{key}.wav", "wb") as w:   # voice-only stem for the onset / truncation checks
+        w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR)
+        w.writeframes((np.clip(vo, -1, 1) * 32767).astype("<i2").tobytes())
     bed = music.render("playful", total)
     meter = pyloudnorm.Meter(SR)
     lv, lb = meter.integrated_loudness(np.stack([vo, vo], 1)), meter.integrated_loudness(bed)

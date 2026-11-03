@@ -46,15 +46,15 @@ export function buildPlan(L, T_END) {
     { c0: [0.35, 0.05, 0.55], l0: [-0.15, 0, 0.25], c1: [0.02, 0.06, 0.34], l1: [-0.15, 0, 0.25] },
     { at: cut(6, 5), tgt: [-0.12, 0.004, 0.245], yaw: 40, dist: 0.12, h: 0.12, dyaw: 15, push: 0.85 }] });
   set(7, { person: { pose: 'crouch', from: 'stand' }, shots: [
-    { c0: [0.12, 0.75, 0.25], l0: [1.3, 0.66, -0.42], c1: [0.2, 0.76, 0.2], l1: [1.3, 0.7, -0.42] }] });
+    { c0: [-0.12, 0.8, 0.42], l0: [1.3, 0.62, -0.42], c1: [-0.04, 0.8, 0.37], l1: [1.3, 0.66, -0.42] }] });
   set(8, { shots: [
     { tgt: [0.425, 0.004, -0.155], yaw: 90, dist: 0.17, h: 0.12, dyaw: 8, push: 0.9 },
-    { at: cut(8, 2), tgt: [0.475, 0.004, -0.15], yaw: 70, dist: 0.15, h: 0.1, dyaw: -10, push: 0.9 },
+    { at: cut(8, 2), tgt: [0.49, 0.004, -0.16], yaw: 70, dist: 0.17, h: 0.1, dyaw: -10, push: 0.9 },
     { at: cut(8, 4), tgt: [0.47, 0.004, -0.135], yaw: 20, dist: 0.11, h: 0.06, dyaw: 10, push: 0.85 }] });
   const creep = { p0: HOME, p1: at(HOME, 0.035), t0: start(9), t1: end(10), lin: 1 };
   set(9, { night: 1, cent: creep, shots: [{ c0: [0.25, 0.55, 0.45], l0: [-0.4, 1.4, -0.88], c1: [0.58, 0.1, 0.0], l1: [0.46, 0.0, -0.13], mv: 1.0 }] });
   set(10, { night: 1, cent: creep, person: { pose: 'crouch' }, shots: [
-    { c0: [0.25, 0.7, 0.35], l0: [1.3, 0.68, -0.42], c1: [0.32, 0.72, 0.3], l1: [1.3, 0.7, -0.42] }] });
+    { c0: [-0.05, 0.78, 0.5], l0: [1.3, 0.64, -0.42], c1: [0.02, 0.78, 0.45], l1: [1.3, 0.66, -0.42] }] });
   set(11, { night: 1, mood: 'smug', person: { pose: 'crouch' }, cent: { p0: at(HOME, 0.035), p1: [0.43, -0.2, 1.9], t0: start(11) + 0.45, t1: end(11) },
     shots: [{ tgt: 'mb', yaw: mbYaw, dist: 0.28, h: 0.02, dyaw: -5 }, { at: start(11) + 0.5, tgt: 'cent', yaw: 40, dist: 0.13, h: 0.09, dyaw: 10 }] });
   set(12, { person: { p0: PSEAT, pose: 'seated' }, shots: [{ c0: [0.9, 0.85, 0.6], l0: [-0.35, 1.0, 0.32], c1: [0.84, 0.87, 0.57], l1: [-0.35, 1.04, 0.32] }] });
@@ -100,7 +100,7 @@ export function buildPlan(L, T_END) {
     { at: cut(30, 3), tgt: 'pHead', yaw: 185, dist: 0.95, h: -0.15, ly: -0.25, dyaw: -8 }] });
   set(31, { cent: { p0: P31, p1: P31e, t0: start(31) + 0.05, t1: L[31].t + 1.6, lin: 1 }, shots: [
     { tgt: 'cent', yaw: 164.5, dist: 0.12, h: 0.12, dyaw: 0, push: 1 },
-    { at: cut(31, 2), c0: [0.72, 0.17, -0.37], l0: [1.25, 0.12, -0.45], c1: [0.78, 0.16, -0.38], l1: [1.25, 0.12, -0.45] }] });
+    { at: cut(31, 2), c0: [0.85, 0.09, -0.38], l0: [1.25, 0.05, -0.46], c1: [0.9, 0.085, -0.39], l1: [1.25, 0.05, -0.46] }] });
 
   // flatten shots with absolute [s0, s1)
   const shots = [];
@@ -142,7 +142,7 @@ export function buildPlan(L, T_END) {
       o.r.position.set(-0.42 + o.d * 0.8 + 0.03 * Math.sin(ph * 2), 0, -0.1 + ((o.z + ph * 0.06) % 0.6));
       o.r.rotation.y = -Math.PI / 2 + 0.3 * Math.sin(ph * 3);
     });
-    const prey = [[S.spider, 0, [0.395, -0.175, 2.0], 0.014], [S.silverfish, 1, [0.455, -0.195, -0.6], 0.016], [S.ant, 2, [0.51, -0.172, 2.6], 0.011]];
+    const prey = [[S.spider, 0, [0.395, -0.175, 2.0], 0.014], [S.silverfish, 1, [0.45, -0.172, -0.6], 0.016], [S.ant, 2, [0.51, -0.172, 2.6], 0.011]];
     for (const [o, k, p, s] of prey) if (vis(o, W(8, k) - 0.05, end(8), t)) { place(o, p); o.scale.setScalar(popS(t, W(8, k) - 0.05, s)); o.rotation.y += 0.15 * Math.sin(t * 7 + k); }
     if (vis(S.bedbug, W(8, 4) - 0.05, end(11), t)) {
       if (i === 11 && t > start(11) + 0.45) { const f = fwd(cp[2], 0.026); place(S.bedbug, [cp[0] + f[0], cp[1] + f[1], cp[2]], 0.006); }

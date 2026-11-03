@@ -144,7 +144,7 @@ export function makeSpider() {
   return g;
 }
 export function makeSilverfish() {
-  const g = new THREE.Group(), m = mat(0xaab4bc), d = mat(0x7d8790);
+  const g = new THREE.Group(), m = mat(0x8a96a0), d = mat(0x5e6872);
   for (let i = 0; i < 6; i++) { const s = mesh(ICO1, i % 2 ? m : d); const w = 0.17 * (1 - i / 8); s.scale.set(0.11, 0.05, w); s.position.set(0.3 - i * 0.12, 0.06, 0); g.add(s); }
   for (const a of [-0.35, 0, 0.35]) { const tl = mesh(limbGeo(0.012, 0.004, 0.45, 3), d); tl.position.set(-0.35, 0.06, 0); tl.rotation.y = -Math.PI / 2 + a; g.add(tl); }
   for (const s of [-1, 1]) { const an = mesh(limbGeo(0.012, 0.004, 0.5, 3), d); an.position.set(0.38, 0.07, s * 0.03); an.rotation.y = Math.PI / 2 - s * 0.4; g.add(an); }

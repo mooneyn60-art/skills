@@ -67,7 +67,8 @@ const speaking = (t) => L.find((l) => t >= l.t - 0.02 && t < l.t + l.dur + 0.02)
 const env = (l, t) => { if (!l) return 0; const i = Math.floor((t - l.t) * TL.fps); return l.env[Math.max(0, Math.min(l.env.length - 1, i))] || 0; };
 
 // pos on the floor: [x, z, heading]; heading h faces (cos h, -sin h)
-function place(o, p, y = 0) { o.position.set(p[0], y, p[1]); o.rotation.set(0, p[2] || 0, 0); }
+function place(o, p, y = 0.002) {   // the bathroom tile sits at y = 0.002
+  o.position.set(p[0], y, p[1]); o.rotation.set(0, p[2] || 0, 0); }
 function lerpP(a, b, u) { return [a[0] + (b[0] - a[0]) * u, a[1] + (b[1] - a[1]) * u, a[2] + (b[2] - a[2]) * u]; }
 function blendPose(a, b, w) { const o = {}; for (const k in a) o[k] = Array.isArray(a[k]) ? a[k].map((v, j) => v + (b[k][j] - v) * w) : a[k] + (b[k] - a[k]) * w; return o; }
 const popS = (t, t0, s) => s * back((t - t0) / 0.25) * (t >= t0 ? 1 : 0);
