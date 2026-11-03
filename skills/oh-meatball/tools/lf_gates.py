@@ -39,21 +39,25 @@ def audio(path, sr=16000):
 
 
 def beep_scan(x, sr):
+    """Pure-tone beeps near 2.5 kHz: a spectral peak in 2.3-2.7 kHz that is >= 15 dB above the bins 4-8 either side
+    (narrow, i.e. a tone, not a voice formant) and stays on the same bin (+-1) for >= 80 ms (voice harmonics glide)."""
     n, hop = 1024, 256
     win = np.hanning(n).astype(np.float32)
     frames = np.lib.stride_tricks.sliding_window_view(x, n)[::hop] * win
-    spec = np.abs(np.fft.rfft(frames, axis=1)) + 1e-9
+    spec = 20 * np.log10(np.abs(np.fft.rfft(frames, axis=1)) + 1e-9)
     f = np.fft.rfftfreq(n, 1 / sr)
-    band = (f >= 2300) & (f <= 2700)
-    sh = ((f >= 1600) & (f <= 2100)) | ((f >= 2900) & (f <= 3400))
-    peak = 20 * np.log10(spec[:, band].max(1))
-    floor = 20 * np.log10(np.median(spec[:, sh], 1))
+    lo, hi = np.searchsorted(f, 2300), np.searchsorted(f, 2700)
+    idx = lo + spec[:, lo:hi].argmax(1)
+    rows = np.arange(len(idx))
+    side = np.maximum(spec[rows, idx - 6], spec[rows, idx + 6])
+    side = np.maximum(side, np.maximum(spec[rows, idx - 4], spec[rows, idx + 4]))
     loud = 20 * np.log10(np.sqrt(np.mean(frames ** 2, 1)) + 1e-9) > -50
-    hit = (peak - floor >= 15) & loud
+    hit = (spec[rows, idx] - side >= 15) & loud
+    need = int(0.08 * sr / hop) + 1
     events, run = [], 0
-    for i, h in enumerate(hit):
-        run = run + 1 if h else 0
-        if run == int(0.08 * sr / hop) + 1:
+    for i in range(len(hit)):
+        run = run + 1 if hit[i] and (run == 0 or abs(int(idx[i]) - int(idx[i - 1])) <= 1) else (1 if hit[i] else 0)
+        if run == need:
             events.append(round(i * hop / sr, 2))
     return events
 

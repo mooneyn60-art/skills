@@ -12,3 +12,9 @@ Pinned comment:
 Which one have you found in YOUR house? 👇
 
 Planned publish: Sat 11/7 08:00 ET (NOT scheduled; preview only).
+
+Render: 1920x1080, 5:45, Andrew (edge-tts, +10%, +3Hz), music "mystery" -15 dB with soft cut whooshes.
+The 75 MB mp4 is NOT in the repo (/ has ~150 MB free): /dev/shm/prev-lf/kill-it-or-keep-it.mp4.
+Rebuild: python3 tools/drawn_keepkill.py build scripts/longform-kill-or-keep.json SPEC.json
+         python3 tools/drawn_keepkill.py render SPEC.json OUT.mp4 --work DIR
+Gates:   python3 tools/lf_gates.py OUT.mp4 --work DIR --spec SPEC.json --sheets DIR
