@@ -52,9 +52,24 @@ yt:
   open: animal
 - chase: One flies at your porch light. It can't bite you.
   scene: garden
-  with:
-  - type: fly
-    s: 0.5
+  cast:
+    creature: crane_fly
+    creature_cfg:
+      plan: insect
+      label: crane fly
+      body: carrot
+      color: '#9a8458'
+      dark: '#5e4f32'
+      length: 440
+      height: 95
+      leg_len: 270
+      ant: 60
+      wings: clear
+      eye_r: 22
+      floor: false
+      mood: happy
+      s: 0.8
+    s: 0.8
   card:
     rows:
     - - CAN'T BITE
@@ -64,9 +79,24 @@ yt:
     at: 55%
 - xray: No mouthparts. It can't even eat mosquitoes.
   scene: bedroom
-  with:
-  - type: fly
-    s: 0.5
+  cast:
+    creature: crane_fly
+    creature_cfg:
+      plan: insect
+      label: crane fly
+      body: carrot
+      color: '#9a8458'
+      dark: '#5e4f32'
+      length: 440
+      height: 95
+      leg_len: 270
+      ant: 60
+      wings: clear
+      eye_r: 22
+      floor: false
+      mood: happy
+      s: 0.8
+    s: 0.8
 - calm: Number two has no venom glands. Not even a spider.
   scene: basement
   cast:
