@@ -1,0 +1,31 @@
+sim3d: low-poly 3D "simulation" Shorts (Three.js, rendered frame by frame in headless Chromium)
+Prototype: "What if a house centipede doubled in size every 2 seconds?" + a 3D Meatball dialogue test.
+
+3D MODELS
+  None downloaded. Every model is built from Three.js primitives in lib.js / world.js / meatball.js, written for
+  this project (released CC0 with the rest of this tool): the house centipede (15 segments, 30 legs, walk cycle),
+  roaches, cat, people, bathroom, house, suburb, city, supertall tower, cars, clouds, Earth, Moon, Meatball.
+  Sources checked first: kenney.nl and poly.pizza returned HTTP 403 through the sandbox proxy; the Kenney
+  "Starter Kit" GitHub repos are MIT-licensed (not CC0), so they were not used; quaternius.com reached but its
+  downloads go through third-party hosts, so they were not used either. Result: zero third-party model assets.
+
+LIBRARIES / FONTS
+  three.js 0.160.0 (MIT) from npm.  https://github.com/mrdoob/three.js
+  Lora (SIL Open Font License 1.1), Google Fonts: serif title, counter and captions.  https://fonts.google.com/specimen/Lora
+  Inter (SIL Open Font License 1.1), system font: bold word-by-word captions in the Meatball test.
+
+AUDIO
+  Music: tools/music.py beds ("cold-war" for the centipede Short, "detective" for the Meatball test), procedural,
+  made from oscillators and noise, no samples (CC0).
+  Voices: Microsoft Edge neural TTS via edge-tts (tools/facts.speak): en-US-AndrewMultilingualNeural (narration,
+  Meatball), en-US-BrianNeural (the human).
+
+FACTS (house centipede, Scutigera coleoptrata)
+  15 pairs of legs = 30 legs; adults about 1-1.5 in (2.5-4 cm) long; eats cockroaches, silverfish and other
+  household insects; fast runner (about 0.4 m/s).
+  Penn State Extension, "House Centipede": https://extension.psu.edu/house-centipede
+  Connecticut Agricultural Experiment Station, "House Centipede" fact sheet: https://portal.ct.gov/caes
+  Everything after the first 2 s (doubling, size counter, cities, Earth) is a labelled what-if.
+  Counter reference points: paperclip ~3 cm, house cat ~46 cm, school bus ~12 m, blue whale ~30 m,
+  Eiffel Tower 330 m, Burj Khalifa 828 m, Everest 8,849 m, marathon 42.195 km, Karman line 100 km,
+  ISS ~410 km, Texas ~1,250 km wide.
