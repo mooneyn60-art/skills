@@ -84,3 +84,12 @@ Source: Studio AI panels pasted by Nolan 11/3 (28 days) + same-day Studio deep-d
 - Spike to "90" within 5-10 s with a contrarian line or a shocking stat.
 - Then re-hook every 20-30 s (peak, release, peak) until the end. No single climax; stack peaks.
 - Applies to TikTok long cuts (61-65 s: at least 3 peaks), long-form (a peak every 20-30 s, not every 60-90 s) and what-if simulations (every doubling is a peak).
+
+## Format-first packaging (Nolan's reference, "YouTube automation" strategy video, 11/3)
+- Copy a proven FORMAT, not just a niche. Two videos on the same topic get 500 vs 500,000 views because of packaging (title + thumbnail).
+- Long-form title formula: Number + Adjective + Topic + Enforcement, in second person ("25 Most Incredible Birds You Must See", "9 Most Shocking Fish You Must See"). Enforcement options: "You Must See", "That Will Shock You", "You Should Never Kill".
+- Thumbnail: ONE centered subject that looks real and strange or exotic, plus minimal text.
+- Niche bend: take a format already exploding (e.g. the "backyard bird", "Feline" and wildlife compilation channels) and pivot it sideways to an adjacent audience (bugs in your house), where competition is weak.
+- Find outliers: channels with low subs, high views and a recent start. vidIQ (free extension is enough) shows the multiplier. Search proven formats: "7 levels of", "your life as", "what if".
+- Once a format works, DON'T switch it. The video's example channel died when it left its winning format.
+- Applied: the Kill It or Keep It primary title uses the formula; the house series format stays; 3D what-ifs are a separate test, not a replacement.
