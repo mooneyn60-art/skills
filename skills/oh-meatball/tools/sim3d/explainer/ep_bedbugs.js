@@ -30,7 +30,7 @@ function makeBedroom() {
   for (const y of [0.3, MT]) for (const z of [-0.752, SEAM_Z]) { const p = cyl(0.007, 0.007, 2.0, pipe, 6); p.rotation.z = Math.PI / 2; p.position.set(0, y, z); g.add(p); }
   const sheet = texMat(canvasTex(128, 128, (c, w) => { c.fillStyle = '#eef3f8'; c.fillRect(0, 0, w, w); c.fillStyle = '#dbe6f0'; for (let i = 0; i < 8; i++) c.fillRect(0, i * 16, w, 3); }, [6, 4]));
   const sh = new THREE.Mesh(new THREE.PlaneGeometry(1.98, 1.4), sheet); sh.rotation.x = -Math.PI / 2; sh.position.set(0, MT + 0.002, 0); sh.receiveShadow = true; g.add(sh);
-  const pil = mesh(ICO1, mat(0xf6f6f2)); pil.scale.set(0.22, 0.08, 0.38); pil.position.set(-0.82, MT + 0.07, 0.1); g.add(pil);
+  const pil = mesh(ICO1, mat(0xf6f6f2)); pil.name = 'bedPillow'; pil.scale.set(0.22, 0.08, 0.38); pil.position.set(-0.82, MT + 0.07, 0.1); g.add(pil);
   g.add(box(1.15, 0.2, 1.42, mat(0xc0484a), 0.42, MT, 0.0));
   g.add(box(0.06, 0.004, 1.42, mat(0xe8d0a0), -0.12, MT + 0.2, 0.0, false));
   // nightstand (Meatball's spot) + lamp, rug, window with moon
@@ -56,10 +56,14 @@ export function build(scene, S, K) {
   for (let k = 0; k < 12; k++) { const e = Q.makeBugEgg(); e.scale.setScalar(0.0012); e.position.set(SEAM_X - 0.06 + k * 0.009, MT - 0.008, SEAM_Z + 0.0065); e.rotation.set(Math.PI / 2, 0, 0.4 * k); scene.add(e); S.seam.push(e); }
   for (let k = 0; k < 14; k++) { const d = mesh(ICO1, mat(0x1a0d08), false); d.scale.setScalar(0.0008 + (k % 3) * 0.0004); d.position.set(SEAM_X - 0.07 + k * 0.011, MT - 0.004 - (k % 4) * 0.004, SEAM_Z + 0.006); scene.add(d); }
   S.cal = Q.makeCal('NO MEAL FOR', 'MONTHS'); scene.add(S.cal);
+  S.napkin = box(0.36, 0.02, 0.62, 0xffffff, 0, 0, 0, false); S.napkin.position.set(0, 0, 0); const nk = new THREE.Group(); nk.add(S.napkin); S.armBug.userData.body.add(nk); S.napkin = nk; nk.position.set(0.5, 0.18, 0);
+  S.hugPillow = mesh(ICO1, mat(0xf6f6f2)); S.hugPillow.scale.set(0.09, 0.2, 0.3); S.hugPillow.position.set(0.17, 0.32, 0); pd.chest.add(S.hugPillow);
+  S.bedPillow = scene.getObjectByName('bedPillow');
 
   const POSES = { ...P.PERSON_POSES,
     bed: { py: 0.1, lean: 0.22, hip: [1.5, 1.5], knee: [0, 0], shz: [0.25, 0.55], elz: [0.3, 1.05], shx: [0, 0.15], elx: [0, 0] },
     shrug: { py: 0.1, lean: 0.05, hip: [1.5, 1.5], knee: [0, 0], shz: [0.6, 0.55], elz: [1.4, 1.05], shx: [0.5, 0.15], elx: [0, 0] },
+    hug: { py: 0.1, lean: -0.12, hip: [1.5, 1.5], knee: [0, 0], shz: [1.15, 1.15], elz: [1.1, 1.1], shx: [-0.55, -0.55], elx: [0, 0] },
     fist: { py: 0.1, lean: 0.0, hip: [1.5, 1.5], knee: [0, 0], shz: [0.25, 2.6], elz: [0.3, 0.9], shx: [0, 0], elx: [0, 0] },
   };
   const PPOS = [-0.55, 0.12, 0], MBPOS = [-0.8, 1.02, -0.6];
@@ -72,15 +76,15 @@ export function build(scene, S, K) {
   const cfg = L.map(() => ({ shots: [{}] }));
   const set = (i, o) => Object.assign(cfg[i], o);
 
-  set(0, { shots: [{ ...OPEN }, { at: cut(0, 7), tgt: armAt, yaw: 50, dist: 0.1, h: 0.07, dyaw: 12, push: 0.85 }] });
+  set(0, { shots: [{ ...OPEN }, { at: cut(0, 5), tgt: armAt, yaw: 50, dist: 0.1, h: 0.07, dyaw: 12, push: 0.85 }] });
   set(1, { cardWord: 2, shots: [{ tgt: [BUGP[0], MT, BUGP[1]], yaw: 60, dist: 0.05, h: 0.022, dyaw: 12, push: 0.85 },
     { at: cut(1, 4), tgt: SEAMT, yaw: 82, dist: 0.075, h: 0.012, dyaw: -14, push: 0.85 }] });
   set(2, { person: { pose: 'shrug', from: 'bed' }, shots: [{ tgt: pHead, yaw: 8, dist: 1.9, h: -0.15, ly: -0.3, dyaw: 6, push: 0.92 }] });
-  set(3, { cardWord: 1, shots: [{ tgt: armBugAt, yaw: 90, dist: 0.07, h: 0.035, dyaw: -12, push: 0.85 }] });
-  set(4, { person: { look: (t) => 0.3 * Math.sin((t - start(4)) * 5) }, shots: [{ tgt: pHead, yaw: 14, dist: 1.5, h: -0.1, ly: -0.22, dyaw: -6, push: 0.92 }] });
-  set(5, { cardWord: 2, mbPose: 'hips', shots: [{ tgt: mbAt, yaw: -20, dist: 0.5, h: 0.05, dyaw: 8, push: 0.9 }] });
+  set(3, { cardWord: 1, shots: [{ tgt: armBugAt, yaw: 90, dist: 0.07, h: 0.035, dyaw: -12, push: 0.85 }, { at: cut(3, 8), tgt: armBugAt, yaw: 70, dist: 0.04, h: 0.022, dyaw: 8, push: 0.88 }] });
+  set(4, { person: { pose: 'hug', from: 'bed', look: (t) => 0.35 * Math.sin((t - start(4)) * 6) }, shots: [{ tgt: pHead, yaw: 14, dist: 1.6, h: -0.1, ly: -0.25, dyaw: -6, push: 0.9 }] });
+  set(5, { cardWord: 2, mbPose: 'hips', mood: 'smug', shots: [{ tgt: mbAt, yaw: -20, dist: 0.5, h: 0.05, dyaw: 8, push: 0.9 }] });
   set(6, { person: { pose: 'fist', from: 'bed' }, shots: [{ tgt: pHead, yaw: 4, dist: 2.1, h: -0.1, ly: -0.12, dyaw: 6, push: 0.92 }] });
-  const sweet = W(7, 4) - 0.1, home = T_END - 0.08, out = W(7, 5) + 0.15;
+  const sweet = W(7, 7) - 0.1, home = T_END - 0.08, out = W(7, 8) + 0.15;
   set(7, { cardWord: 3, mood: 'deadpan', shots: [{ tgt: [SEAM_X - 0.02, MT + 0.215, SEAM_Z - 0.1], yaw: 70, dist: 0.3, h: 0.09, dyaw: -8, push: 0.85 },
     { at: sweet, tgt: mbAt, yaw: -15, dist: 0.4, h: 0.04, dyaw: 4, push: 0.95 },
     { at: out, c0: [MBPOS[0] + 0.35, 0.95, MBPOS[1] - 0.05], l0: [MBPOS[0], 0.75, MBPOS[1]], c1: OPEN.c0, l1: OPEN.l0, mv: home - out }] });
@@ -92,8 +96,12 @@ export function build(scene, S, K) {
     if (vis(S.seed, W(1, 2) - 0.06, cut(1, 4) + 0.05, t)) { S.seed.position.set(BUGP[0] - 0.004, MT + 0.0035, BUGP[1] - 0.012); S.seed.rotation.y = 0.5; S.seed.scale.set(0.0035, 0.0018, 0.0022).multiplyScalar(popS(t, W(1, 2) - 0.06, 1) || 0.001); }
     for (const [k, b] of S.seam.entries()) if (b.userData.legs) Q.animateLegs(b, t * 0.8 + k, 0.2);
     // the bug on the forearm drinks: belly balloons up red from "Then" to the end of the line
-    const feed = i === 3, f = feed ? ease(clamp01((t - W(3, 4) + 0.05) / 0.9)) : 0;
-    S.armBug.visible = feed; Q.feedBedBug(S.armBug, f); if (feed) Q.animateLegs(S.armBug, t < W(3, 4) ? t * 3 : 0, t < W(3, 4) ? 0.6 : 0);
+    const feed = i === 3, f = feed ? ease(clamp01((t - W(3, 3) + 0.05) / 0.9)) : 0;
+    S.armBug.visible = feed; Q.feedBedBug(S.armBug, f); if (feed) Q.animateLegs(S.armBug, t < W(3, 3) ? t * 3 : 0, t < W(3, 3) ? 0.6 : 0);
+    // ...with manners: a tiny napkin bib pops on "with" and dabs
+    if (vis(S.napkin, W(3, 9) - 0.08, end(3), t)) { S.napkin.scale.setScalar(popS(t, W(3, 9) - 0.08, 1)); S.napkin.rotation.z = -0.5 + 0.12 * Math.sin(t * 14); }
+    // dramatic pillow hug on "Will I get sick?!"
+    S.hugPillow.visible = i === 4; S.bedPillow.visible = i !== 4;
     if (vis(S.cal, W(7, 3) - 0.06, sweet, t)) { S.cal.position.set(SEAM_X - 0.02, MT + 0.2, SEAM_Z - 0.1); S.cal.scale.setScalar(popS(t, W(7, 3) - 0.06, 0.6)); }
   }
   function faceCam(cam) { if (S.cal.visible) S.cal.lookAt(cam.position.x, S.cal.position.y, cam.position.z); }
