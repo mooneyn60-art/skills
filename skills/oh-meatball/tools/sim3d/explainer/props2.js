@@ -129,3 +129,13 @@ export function makeLamp() {   // bedside lamp, the bulb glows
   const sh = mesh(new THREE.CylinderGeometry(0.08, 0.12, 0.14, 12, 1, true), new THREE.MeshLambertMaterial({ color: 0xf6dfa8, emissive: 0x6a4a18, side: THREE.DoubleSide })); sh.position.y = 0.3; g.add(sh);
   return g;
 }
+
+// Meatball's mug (Meatball units; child of his forearm group, the hand sits at z 0.62)
+export function makeMug() {
+  const g = new THREE.Group();
+  const c = cyl(0.17, 0.15, 0.32, 0xf2efe6, 12); c.position.set(0, 0, 0.0); g.add(c);
+  const coffee = cyl(0.15, 0.15, 0.01, 0x3a2414, 12); coffee.position.y = 0.155; g.add(coffee);
+  const h = mesh(new THREE.TorusGeometry(0.08, 0.025, 4, 10), mat(0xf2efe6)); h.position.set(0, 0, 0.17); h.rotation.y = Math.PI / 2; g.add(h);
+  g.position.set(0, 0.1, 0.66); g.rotation.x = 0.35;   // upright in the hand, tipped toward the mouth
+  return g;
+}

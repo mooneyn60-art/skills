@@ -54,7 +54,7 @@ export const MB_POSES = {
 export function poseMeatball(m, t, pose, talk, mood) {
   const u = m.userData;
   u.arms.forEach((a, k) => {
-    const P = mood === 'whisper' && k === 1 ? { sp: -0.2, sy: 1.5, el: -1.9 } : pose;
+    const P = mood === 'whisper' && k === 1 ? { sp: -0.2, sy: 1.5, el: -1.9 } : mood === 'sip' && k === 1 ? { sp: 0.38, sy: 2.0, el: -0.3 } : pose;
     a.sh.rotation.order = 'YXZ'; a.sh.rotation.y = P.sy; a.sh.rotation.x = P.sp + 0.05 * Math.sin(t * 2 + a.s);
     a.el.rotation.x = P.el;
   });
@@ -62,7 +62,7 @@ export function poseMeatball(m, t, pose, talk, mood) {
   u.body.position.y = 0.03 * Math.sin(t * 3.1) + 0.06 * talk;
   u.body.rotation.z = mood === 'smug' ? -0.12 * Math.abs(Math.sin(t * 5)) : 0.04 * Math.sin(t * 1.7) + (mood === 'deadpan' ? -0.05 : 0.04 * talk);
   u.body.rotation.y = mood === 'whisper' ? -0.25 : 0;
-  const half = mood === 'deadpan' || mood === 'smug' || mood === 'whisper';
+  const half = mood === 'deadpan' || mood === 'smug' || mood === 'whisper' || mood === 'sip';
   const lid = half ? 0.75 : (Math.abs(((t + 0.7) % 3.1) - 0.05) < 0.07 ? 1 : 0);
   for (const l of u.lids) { l.visible = lid > 0; l.scale.y = Math.max(0.01, lid); }
   for (const b of u.brows) {

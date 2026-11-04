@@ -69,6 +69,7 @@ export function build(scene, S, K) {
   S.paper = Q.makeNewspaper(); scene.add(S.paper);
   S.soap = Q.makeSoap(); S.glue = Q.makeGlue(); S.hair = Q.makeHair(); S.crumbs = Q.makeCrumbs();
   S.cal = Q.makeCal('ALIVE FOR', 'WEEKS'); scene.add(S.soap, S.glue, S.hair, S.crumbs, S.cal);
+  S.mug = Q.makeMug(); S.mb.userData.arms[1].el.add(S.mug);
   S.slipper = P.makeSlipper(); S.slipper.position.set(0, -0.06, 0); S.slipper.rotation.z = Math.PI / 2; S.person.userData.hands[1].add(S.slipper);
   const head = S.roach.userData.head, head0 = head.position.clone();
 
@@ -85,43 +86,52 @@ export function build(scene, S, K) {
   const set = (i, o) => Object.assign(cfg[i], o);
   const tSlam = W(1, 0) + 0.22;
 
-  set(0, { cardWord: 7, shots: [{ ...OPEN }, { at: cut(0, 8), tgt: [EGG[0] - 0.012, EGG[1], EGG[2]], yaw: 125, dist: 0.075, h: 0.035, dyaw: 12, push: 0.85 }] });
-  set(1, { shots: [{ tgt: [H3[0] - 0.1, H3[1], H3[2] - 0.12], yaw: 70, dist: 0.62, h: 0.34, dyaw: 6, push: 0.95, shake: { t: tSlam, a: 0.012 } }] });
-  set(2, { cardWord: 2, mood: 'smug', shots: [{ tgt: mbAt, yaw: 70, dist: 0.46, h: 0.05, dyaw: -6, push: 0.9 },
+  // v2 (10 lines): 0 hook | 1 "Get it! / I'm calling my mom." (slam + victory lap) | 2 crack | 3 "What does it eat?" |
+  // 4 "Soap. Glue. Hair." | 5 "My house is a buffet?!" | 6 "All you can eat." | 7 squish | 8 headless + sip | 9 loop
+  const LAPC = [HOME[0] + 0.05, HOME[1] + 0.09], LAPR = 0.04;
+  set(0, { cardWord: 5, shots: [{ ...OPEN }, { at: cut(0, 6), tgt: [EGG[0] - 0.012, EGG[1], EGG[2]], yaw: 125, dist: 0.075, h: 0.035, dyaw: 12, push: 0.85 }] });
+  set(1, { shots: [{ tgt: [H3[0] - 0.02, H3[1], H3[2] + 0.02], yaw: 70, dist: 0.62, h: 0.34, dyaw: 6, push: 0.95, shake: { t: tSlam, a: 0.012 } },
+    { at: cut(1, 2), tgt: [LAPC[0], TOP + 0.01, LAPC[1] - 0.01], yaw: 75, dist: 0.3, h: 0.16, dyaw: 10, push: 0.9 }] });
+  set(2, { cardWord: 2, mood: 'smug', mbPose: 'hips', shots: [{ tgt: mbAt, yaw: 70, dist: 0.46, h: 0.05, dyaw: -6, push: 0.9 },
     { at: cut(2, 2), tgt: [CRX + 0.004, TOP + 0.004, -0.585], yaw: 72, dist: 0.075, h: 0.016, dyaw: 10, push: 0.85 }] });
   set(3, { person: { look: (t) => 0.25 * Math.sin((t - start(3)) * 4) }, shots: [{ c0: [0.2, 1.36, -0.48], l0: [0.36, 1.38, 1.45], c1: [0.22, 1.37, -0.3], l1: [0.36, 1.4, 1.45] }] });
-  set(4, { cardWord: 1, shots: [{ tgt: [SPREAD[0] - 0.02, TOP + 0.01, SPREAD[1] - 0.02], yaw: 78, dist: 0.4, h: 0.16, dyaw: -8, push: 0.85 }] });
-  set(5, { person: { pose: 'slipper', from: 'stand' }, shots: [{ c0: [0.12, 1.46, -0.24], l0: [0.36, 1.72, 1.45], c1: [0.14, 1.47, -0.16], l1: [0.36, 1.74, 1.45] }] });
-  set(6, { cardWord: 4, shots: [{ tgt: roachAt, yaw: 68, dist: 0.1, h: 0.035, dyaw: 10, push: 0.92 },
-    { at: cut(6, 4), tgt: [HEADLESS[0] - 0.01, TOP + 0.012, HEADLESS[1] - 0.01], yaw: 72, dist: 0.2, h: 0.045, dyaw: 6, push: 0.92 }] });
-  const home = T_END - 0.08, out = W(7, 2) + 0.05;
-  const l7a = { tgt: mbAt, yaw: 78, dist: 0.36, h: 0.015, dyaw: 4, push: 0.9 };
-  set(7, { mood: 'deadpan', mbPose: 'hips', shots: [l7a, { at: out, c0: [MBPOS[0] + 0.12, TOP + 0.14, MBPOS[1] + 0.34], l0: [MBPOS[0], TOP + 0.1, MBPOS[1]], c1: OPEN.c0, l1: OPEN.l0, mv: home - out }] });
+  set(4, { cardWord: 0, shots: [{ tgt: [SPREAD[0] - 0.02, TOP + 0.01, SPREAD[1] - 0.02], yaw: 78, dist: 0.4, h: 0.16, dyaw: -8, push: 0.85 }] });
+  set(5, { person: { pose: 'back', from: 'stand', look: (t) => 0.5 * Math.sin((t - start(5)) * 7) }, shots: [{ c0: [0.12, 1.46, -0.24], l0: [0.36, 1.62, 1.45], c1: [0.15, 1.47, -0.12], l1: [0.36, 1.64, 1.45] }] });
+  set(6, { mood: 'smug', mbPose: 'hips', shots: [{ tgt: mbAt, yaw: 74, dist: 0.3, h: 0.02, dyaw: 4, push: 0.85 }] });
+  set(7, { person: { pose: 'slipper', from: 'stand' }, shots: [{ c0: [0.12, 1.46, -0.24], l0: [0.36, 1.72, 1.45], c1: [0.14, 1.47, -0.16], l1: [0.36, 1.74, 1.45] }] });
+  const tSip = cut(8, 5);
+  set(8, { cardWord: 2, shots: [{ tgt: roachAt, yaw: 68, dist: 0.1, h: 0.035, dyaw: 10, push: 0.92 },
+    { at: cut(8, 2), tgt: [HEADLESS[0] - 0.01, TOP + 0.012, HEADLESS[1] - 0.01], yaw: 72, dist: 0.2, h: 0.045, dyaw: 6, push: 0.92 },
+    { at: tSip, tgt: mbAt, yaw: 80, dist: 0.42, h: 0.03, dyaw: 3, push: 0.92 }], moodAt: (t) => (t >= tSip ? 'sip' : 'calm') });
+  const home = T_END - 0.08, out = W(9, 2) + 0.05;
+  const l9a = { tgt: mbAt, yaw: 78, dist: 0.36, h: 0.015, dyaw: 4, push: 0.9 };
+  set(9, { mood: 'deadpan', mbPose: 'hips', shots: [l9a, { at: out, c0: [MBPOS[0] + 0.12, TOP + 0.14, MBPOS[1] + 0.34], l0: [MBPOS[0], TOP + 0.1, MBPOS[1]], c1: OPEN.c0, l1: OPEN.l0, mv: home - out }] });
   for (const i of [0, 1]) cfg[i].hideMb = 1;
 
-  // roach paths
-  const dart0 = W(1, 0) + 0.05;
-  const keys = [[0, ...HOME], [dart0, ...HOME], [dart0 + 0.25, HOME[0] - 0.12, HOME[1] - 0.06, 0.9], [dart0 + 0.6, CRACK[0], CRACK[1], Math.PI / 2],
-    [W(2, 4), CRACK[0], CRACK[1], Math.PI / 2], [W(2, 7) + 0.25, CRACK[0], -0.62, Math.PI / 2]];
+  // roach paths: dart out from under the newspaper, a victory lap around it, then (off camera) to the crack
+  const dart0 = W(1, 0) + 0.05, lap0 = W(1, 2) - 0.05, lap1 = end(1) - 0.05;
+  const lap = []; for (let k = 0; k <= 12; k++) { const a = -Math.PI / 2 + 2 * Math.PI * k / 12; lap.push([lap0 + (lap1 - lap0) * k / 12, LAPC[0] + LAPR * Math.cos(a), LAPC[1] + LAPR * Math.sin(a), -a - Math.PI / 2]); }
+  const keys = [[0, ...HOME], [dart0, ...HOME], [dart0 + 0.3, lap[0][1], lap[0][2], lap[0][3]], [lap0, lap[0][1], lap[0][2], lap[0][3]], ...lap,
+    [start(2) + 0.6, CRACK[0], CRACK[1], Math.PI / 2], [W(2, 2), CRACK[0], CRACK[1], Math.PI / 2], [W(2, 5) + 0.25, CRACK[0], -0.62, Math.PI / 2]];
   const sp = (dx, dz) => [SPREAD[0] + dx, SPREAD[1] + dz];
   const SOAP = sp(-0.07, 0.0), GLUE = sp(0.03, -0.07), HAIR = sp(0.07, 0.03), TOAST = sp(-0.01, 0.06);
-  const k4 = [[start(4), SOAP[0] + 0.05, SOAP[1] + 0.03, 2.6], [W(4, 1), SOAP[0] + 0.035, SOAP[1] + 0.012, 2.8], [W(4, 2) - 0.1, SOAP[0] + 0.035, SOAP[1] + 0.012, 2.8],
-    [W(4, 2) + 0.3, GLUE[0] + 0.02, GLUE[1] + 0.03, 1.8], [W(4, 3) - 0.05, GLUE[0] + 0.02, GLUE[1] + 0.03, 1.2], [W(4, 3) + 0.35, HAIR[0] - 0.03, HAIR[1] - 0.005, 0.2], [end(4), HAIR[0] - 0.035, HAIR[1] - 0.005, 0.2]];
-  const k6 = [[start(6), HEADLESS[0] - 0.03, HEADLESS[1] + 0.01, 0.3], [end(6), HEADLESS[0] + 0.03, HEADLESS[1] - 0.012, 0.6]];
-  const tHead = W(6, 2) - 0.05;
+  const k4 = [[start(4), SOAP[0] + 0.05, SOAP[1] + 0.03, 2.6], [W(4, 0), SOAP[0] + 0.035, SOAP[1] + 0.012, 2.8], [W(4, 1) - 0.1, SOAP[0] + 0.035, SOAP[1] + 0.012, 2.8],
+    [W(4, 1) + 0.3, GLUE[0] + 0.02, GLUE[1] + 0.03, 1.8], [W(4, 2) - 0.05, GLUE[0] + 0.02, GLUE[1] + 0.03, 1.2], [W(4, 2) + 0.35, HAIR[0] - 0.03, HAIR[1] - 0.005, 0.2], [end(4), HAIR[0] - 0.035, HAIR[1] - 0.005, 0.2]];
+  const k6 = [[start(8), HEADLESS[0] - 0.03, HEADLESS[1] + 0.01, 0.3], [tSip, HEADLESS[0] + 0.03, HEADLESS[1] - 0.012, 0.6], [end(8), HEADLESS[0] + 0.09, HEADLESS[1] - 0.04, 0.6]];
+  const tHead = W(8, 1) - 0.05;
 
   function props(t, i) {
     const r = S.roach, egg = r.userData.egg;
     let p = HOME, mv = 0, still = true, flat = 1;
-    if (i === 1 || i === 2) { const q = path(t, keys); p = q; mv = q[3]; still = false; if (t > W(2, 4)) flat = 1 - 0.55 * ease((t - W(2, 4)) / 0.4); }
+    if (i === 1 || i === 2) { const q = path(t, keys); p = q; mv = q[3]; still = false; if (t > W(2, 2)) flat = 1 - 0.55 * ease((t - W(2, 2)) / 0.4); }
     else if (i === 4) { const q = path(t, k4); p = q; mv = q[3]; still = false; }
-    else if (i === 6 || i === 5) { const q = path(t, k6); p = q; mv = 1; still = false; }
-    r.visible = !(i === 2 && t > W(2, 7) + 0.25) && i !== 3;
+    else if (i === 8 || i === 7) { const q = path(t, k6); p = q; mv = 1; still = false; }
+    r.visible = !(i === 2 && t > W(2, 5) + 0.25) && i !== 3;
     place(r, p, TOP); r.scale.set(RS, RS * flat, RS);
     Q.animateLegs(r, still ? 0 : t * (mv ? 7 : 1.2), still ? 0 : mv ? 1 : 0.15);
-    egg.visible = i !== 6 && i !== 5;
-    // the head pops off on "live" (line 6), hops, lands beside the walking body
-    if (i === 6 && t >= tHead) {
+    egg.visible = i !== 8 && i !== 7;
+    // the head pops off on "lives" (line 8), hops, lands beside the walking body
+    if (i === 8 && t >= tHead) {
       if (head.parent !== scene) { scene.add(head); head.scale.setScalar(RS); }
       const u = clamp01((t - tHead) / 0.45), hp = [HEADLESS[0] - 0.005, HEADLESS[1] + 0.03];
       const b0 = path(tHead, k6), f = fwd(b0[2], 0.44 * RS);
@@ -129,7 +139,7 @@ export function build(scene, S, K) {
       head.rotation.set(0, 1.2 + 6 * u, 0);
     } else if (head.parent === scene) { r.userData.body.add(head); head.position.copy(head0); head.scale.setScalar(1); head.rotation.set(0, 0, 0); }
     // 40 babies fan out behind the egg case on "babies"
-    const tb = W(0, 8) - 0.12;
+    const tb = W(0, 6) - 0.12;
     S.nymphs.forEach((n, k) => {
       if (!vis(n, tb + k * 0.012, end(0), t)) return;
       const row = Math.floor(k / 10), col = k % 10, a = Math.PI * (0.62 + 0.76 * col / 9), d = 0.013 + row * 0.0065;
@@ -138,16 +148,18 @@ export function build(scene, S, K) {
     });
     // newspaper slam on "Get it!"
     if (vis(S.paper, W(1, 0) - 0.05, end(1), t)) {
-      const u = clamp01((t - W(1, 0) + 0.05) / (tSlam - W(1, 0) + 0.05)), y = t < tSlam ? TOP + 0.24 * (1 - u * u) + 0.028 : TOP + 0.028 + 0.02 * ease((t - tSlam - 0.25) / 0.3);
+      const u = clamp01((t - W(1, 0) + 0.05) / (tSlam - W(1, 0) + 0.05)), y = t < tSlam ? TOP + 0.24 * (1 - u * u) + 0.028 : TOP + 0.028 + 0.5 * ease((t - tSlam - 0.3) / 0.5);   // lifted away: the lap is the roach's
       S.paper.position.set(HOME[0] + 0.03, y, HOME[1] + 0.02); S.paper.rotation.set(0, -0.2, t < tSlam ? 0.25 * (1 - u) : 0);
     }
-    // soap / glue / hair pop on their words; crumbs + toast on "Everything"
-    if (vis(S.crumbs, W(4, 0) - 0.05, end(4), t)) { place(S.crumbs, TOAST, TOP); S.crumbs.scale.setScalar(popS(t, W(4, 0) - 0.05, 1)); }
-    if (vis(S.soap, W(4, 1) - 0.06, end(4), t)) { place(S.soap, [...SOAP, 0.4], TOP); S.soap.scale.setScalar(popS(t, W(4, 1) - 0.06, 1)); }
-    if (vis(S.glue, W(4, 2) - 0.06, end(4), t)) { place(S.glue, [...GLUE, 0.6], TOP); S.glue.scale.setScalar(popS(t, W(4, 2) - 0.06, 1)); }
-    if (vis(S.hair, W(4, 3) - 0.06, end(4), t)) { place(S.hair, [...HAIR, 0], TOP); S.hair.scale.setScalar(popS(t, W(4, 3) - 0.06, 1)); }
-    if (vis(S.cal, W(6, 4) - 0.06, end(6), t)) { S.cal.position.set(HEADLESS[0] - 0.035, TOP, HEADLESS[1] - 0.05); S.cal.scale.setScalar(popS(t, W(6, 4) - 0.06, 0.22)); }
-    S.slipper.visible = i === 5;
+    // soap / glue / hair pop on their words; crumbs at the line start
+    if (vis(S.crumbs, start(4), end(4), t)) { place(S.crumbs, TOAST, TOP); S.crumbs.scale.setScalar(popS(t, start(4), 1)); }
+    if (vis(S.soap, W(4, 0) - 0.06, end(4), t)) { place(S.soap, [...SOAP, 0.4], TOP); S.soap.scale.setScalar(popS(t, W(4, 0) - 0.06, 1)); }
+    if (vis(S.glue, W(4, 1) - 0.06, end(4), t)) { place(S.glue, [...GLUE, 0.6], TOP); S.glue.scale.setScalar(popS(t, W(4, 1) - 0.06, 1)); }
+    if (vis(S.hair, W(4, 2) - 0.06, end(4), t)) { place(S.hair, [...HAIR, 0], TOP); S.hair.scale.setScalar(popS(t, W(4, 2) - 0.06, 1)); }
+    if (vis(S.cal, W(8, 2) - 0.06, tSip, t)) { S.cal.position.set(HEADLESS[0] - 0.035, TOP, HEADLESS[1] - 0.05); S.cal.scale.setScalar(popS(t, W(8, 2) - 0.06, 0.22)); }
+    S.slipper.visible = i === 7;
+    // Meatball's slow sip on "Like your cousin."
+    const sip = i === 8 && t >= tSip; S.mug.visible = sip;
   }
   function faceCam(cam) { if (S.cal.visible) S.cal.lookAt(cam.position.x, S.cal.position.y, cam.position.z); }
   const POSES = { ...P.PERSON_POSES };

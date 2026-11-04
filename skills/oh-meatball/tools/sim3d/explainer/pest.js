@@ -76,7 +76,7 @@ function stateAt(t) {
   const MB = PLAN.MB * Math.max(0.001, k), mp = cfg.mbAt || PLAN.MBPOS;
   S.mb.visible = k > 0.001 && !cfg.hideMb; S.mb.scale.setScalar(MB);
   place(S.mb, mp, PLAN.mbY + 1.88 * MB);
-  P.poseMeatball(S.mb, t, P.MB_POSES[cfg.mbPose || 'idle'], who === 'M' ? e : 0, cfg.mood || 'calm');
+  P.poseMeatball(S.mb, t, P.MB_POSES[cfg.mbPose || 'idle'], who === 'M' ? e : 0, (cfg.moodAt && cfg.moodAt(t)) || cfg.mood || 'calm');
   // person
   const pc = cfg.person || {}, pp = pc.p0 || PLAN.PPOS;
   place(S.person, pp, PLAN.personY || 0);
