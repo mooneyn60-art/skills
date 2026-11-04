@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Voices + timeline + premaster mix for the 3D Meatball explainer (script JSON driven, restart-safe).
-explainer_audio.py SCRIPT.json KEY  (env: MBX_PERSIST=/home/user/mbx-persist, MBX_WORK=/dev/shm/mbx/work)
+explainer_audio.py SCRIPT.json KEY [TAG]  (TAG names the outputs, default KEY; env: MBX_PERSIST=/home/user/mbx-persist, MBX_WORK=/dev/shm/mbx/work)
 Takes are cached in $MBX_PERSIST/vo/ (mp3 + word json); truncated takes are rejected and re-requested.
-Writes $MBX_PERSIST/timeline-KEY.json and $MBX_WORK/premaster-KEY.wav (voice + playful bed ~7 LU under it)."""
+Writes $MBX_PERSIST/timeline-TAG.json and $MBX_WORK/premaster-TAG.wav (voice + the script's "music" bed, default
+"playful", ~7 LU under it)."""
 import asyncio
 import hashlib
 import json
@@ -85,9 +86,11 @@ def trim(x, thr=0.01):
 
 async def main():
     script, key = sys.argv[1], sys.argv[2]
+    tag = sys.argv[3] if len(sys.argv) > 3 else key
     os.makedirs(f"{PERSIST}/vo", exist_ok=True)
     os.makedirs(WORK, exist_ok=True)
-    rows = json.load(open(script))[key]
+    doc = json.load(open(script))
+    rows, kind = doc[key], doc.get("music", "playful")
     t, lines, voice = 0.0, [], []
     for i, row in enumerate(rows):
         parts = [p.strip() for p in row["t"].split(" / ")]
@@ -109,25 +112,25 @@ async def main():
         print(f"{i:2d} {row['s']} t={t:6.2f} dur={dur:5.2f} {row['t']}", flush=True)
         t += dur + GAP
     total = round(t - GAP + TAILS.get(key, 1.3), 2)
-    json.dump({"key": key, "fps": FPS, "total": total, "lines": lines}, open(f"{PERSIST}/timeline-{key}.json", "w"))
+    json.dump({"key": key, "fps": FPS, "total": total, "lines": lines}, open(f"{PERSIST}/timeline-{tag}.json", "w"))
     vo = np.zeros(int(total * SR), np.float32)
     for t0, x in voice:
         a = int(round(t0 * SR))
         vo[a:a + len(x)] += x[:len(vo) - a]
-    with wave.open(f"{WORK}/vo-{key}.wav", "wb") as w:   # voice-only stem for the onset / truncation checks
+    with wave.open(f"{WORK}/vo-{tag}.wav", "wb") as w:   # voice-only stem for the onset / truncation checks
         w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR)
         w.writeframes((np.clip(vo, -1, 1) * 32767).astype("<i2").tobytes())
-    bed = music.render("playful", total)
+    bed = music.render(kind, total)
     meter = pyloudnorm.Meter(SR)
     lv, lb = meter.integrated_loudness(np.stack([vo, vo], 1)), meter.integrated_loudness(bed)
     bed *= 10 ** ((lv - 7.0 - lb) / 20)     # bed sits ~7 LU under the voices
     n = min(len(bed), len(vo))
     mix = bed[:n] + vo[:n, None]
     mix *= 0.5 / (np.abs(mix).max() + 1e-9)  # headroom; the master gain + limiter come at the mux
-    with wave.open(f"{WORK}/premaster-{key}.wav", "wb") as w:
+    with wave.open(f"{WORK}/premaster-{tag}.wav", "wb") as w:
         w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR)
         w.writeframes((np.clip(mix, -1, 1) * 32767).astype("<i2").tobytes())
-    print("total", total, "voice LUFS", round(lv, 1), "bed LUFS", round(lb, 1), "->", round(lv - 7, 1))
+    print("total", total, "music", kind, "voice LUFS", round(lv, 1), "bed LUFS", round(lb, 1), "->", round(lv - 7, 1))
 
 
 asyncio.run(main())
