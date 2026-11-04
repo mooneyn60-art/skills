@@ -59,13 +59,14 @@ eb = subprocess.run(["ffmpeg", "-v", "info", "-nostats", "-i", a.video, "-vn", "
 tp = re.findall(r"Peak:\s+(-?[\d.]+|-inf) dBFS", eb)
 
 
-def gray(ss):   # one frame as 54x96 grayscale floats
-    raw = subprocess.run(["ffmpeg", "-v", "error"] + ss + ["-i", a.video, "-frames:v", "1", "-vf", "scale=54:96,format=gray", "-f", "rawvideo", "-"],
-                         capture_output=True, check=True).stdout
-    return np.frombuffer(raw, np.uint8).astype(np.float32).reshape(96, 54)
+def gray(ss, last):   # first (or last) decoded frame as 54x96 grayscale floats
+    raw = subprocess.run(["ffmpeg", "-v", "error"] + ss + ["-i", a.video] + ([] if last else ["-frames:v", "1"]) +
+                         ["-vf", "scale=54:96,format=gray", "-f", "rawvideo", "-"], capture_output=True, check=True).stdout
+    fr = np.frombuffer(raw, np.uint8).reshape(-1, 96, 54)
+    return fr[-1 if last else 0].astype(np.float32)
 
 
-f0, f1 = gray([]), gray(["-sseof", "-0.05"])
+f0, f1 = gray([], False), gray(["-sseof", "-0.5"], True)
 keep = np.ones((96, 54), bool); keep[3:30] = False; keep[60:76] = False   # fact card y 170-~540, captions y ~1210-1420
 loop_diff = float(np.abs(f0 - f1)[keep].mean())
 out = {"duration": round(dur, 3), "duration_ok": a.min <= dur <= a.max, "voice_onset_s": round(onset, 3), "onset_ok": onset < 0.1,

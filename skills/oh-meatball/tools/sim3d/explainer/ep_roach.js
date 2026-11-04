@@ -91,12 +91,12 @@ export function build(scene, S, K) {
     { at: cut(2, 2), tgt: [CRX + 0.004, TOP + 0.004, -0.585], yaw: 72, dist: 0.075, h: 0.016, dyaw: 10, push: 0.85 }] });
   set(3, { person: { look: (t) => 0.25 * Math.sin((t - start(3)) * 4) }, shots: [{ c0: [0.2, 1.36, -0.48], l0: [0.36, 1.38, 1.45], c1: [0.22, 1.37, -0.3], l1: [0.36, 1.4, 1.45] }] });
   set(4, { cardWord: 1, shots: [{ tgt: [SPREAD[0] - 0.02, TOP + 0.01, SPREAD[1] - 0.02], yaw: 78, dist: 0.4, h: 0.16, dyaw: -8, push: 0.85 }] });
-  set(5, { person: { pose: 'slipper', from: 'stand' }, shots: [{ c0: [0.08, 1.3, -0.52], l0: [0.36, 1.72, 1.45], c1: [0.11, 1.32, -0.42], l1: [0.36, 1.74, 1.45] }] });
+  set(5, { person: { pose: 'slipper', from: 'stand' }, shots: [{ c0: [0.12, 1.46, -0.24], l0: [0.36, 1.72, 1.45], c1: [0.14, 1.47, -0.16], l1: [0.36, 1.74, 1.45] }] });
   set(6, { cardWord: 4, shots: [{ tgt: roachAt, yaw: 68, dist: 0.1, h: 0.035, dyaw: 10, push: 0.92 },
     { at: cut(6, 4), tgt: [HEADLESS[0] - 0.01, TOP + 0.012, HEADLESS[1] - 0.01], yaw: 72, dist: 0.2, h: 0.045, dyaw: 6, push: 0.92 }] });
   const home = T_END - 0.08, out = W(7, 2) + 0.05;
   const l7a = { tgt: mbAt, yaw: 78, dist: 0.36, h: 0.015, dyaw: 4, push: 0.9 };
-  set(7, { mood: 'deadpan', mbPose: 'hips', shots: [l7a, { at: out, c0: [MBPOS[0] + 0.05, TOP + 0.12, MBPOS[1] + 0.24], l0: [MBPOS[0], TOP + 0.11, MBPOS[1]], c1: OPEN.c0, l1: OPEN.l0, mv: home - out }] });
+  set(7, { mood: 'deadpan', mbPose: 'hips', shots: [l7a, { at: out, c0: [MBPOS[0] + 0.12, TOP + 0.14, MBPOS[1] + 0.34], l0: [MBPOS[0], TOP + 0.1, MBPOS[1]], c1: OPEN.c0, l1: OPEN.l0, mv: home - out }] });
   for (const i of [0, 1]) cfg[i].hideMb = 1;
 
   // roach paths
