@@ -21,6 +21,9 @@ Kinds (tools/themes.py maps each script "theme" to one):
   "playful"    bright, light explainer pop (Q&A explainers): marimba motif + glock, soft kick, claps/snaps,
                off-beat hats + 16th shakers, bouncing bass, pumping pad; D major, 160 bpm; continuous (no
                drop-out: small risers + a bright chime on each reveal)
+  "eerie"      mysterious, intriguing (replaces playful's too-happy mood): chorused e-piano / music-box arpeggio
+               in 16ths with a dotted-8th echo, G# minor i-VI-iv-V, soft sub, dark pad, half-time kick + rim, hats
+               and ticks, 128 bpm; continuous (no drop-out: riser + a semitone slide + a dark bell on each reveal)
 
 Usage from v3.py: spec "music": "gen:mystery" | "gen:detective"; the stamp times come from beat "stamp" fields.
 CLI: music.py KIND SECONDS OUT.wav [reveal_s ...]   (a preview without a video)
@@ -552,11 +555,142 @@ def playful(total, reveals, seed=10):
     return sum(stems[k] * g for k, g in PL_MIX.items()), bar
 
 
+def keys(f, dur=1.3, vel=1.0, seed=0):
+    """Bright plucked key (between an e-piano and a music box): a rich, slowly rolling-off harmonic series up to
+    ~6 kHz, slightly stretched, each partial dying a little faster than the one below, a chorused copy 7 cents up
+    and a short hammer click; rings on past the next note like a held pedal."""
+    n = int(dur * SR)
+    t = np.arange(n) / SR
+    base = 2.2 + f / 500.0
+    s = np.zeros(n)
+    for k in range(1, 15):
+        fk = k * f * math.sqrt(1 + 0.0002 * k * k)
+        if fk > 6000:
+            break
+        amp, dk = vel ** (0.3 * (k - 1)) / k ** 0.6, base * (1 + 0.3 * (k - 1))
+        s += amp * (np.sin(2 * np.pi * fk * t) + 0.5 * np.sin(2 * np.pi * fk * 1.004 * t + k)) * np.exp(-t * dk)
+    k = int(0.005 * SR)
+    s[:k] += np.random.default_rng(seed).standard_normal(k) * np.exp(-np.arange(k) / (SR * 0.0008)) * 0.12 * vel
+    return (s * vel * env_adsr(n, 0.002, 0, 1, 0.08) / 3).astype(np.float32)
+
+
+def spec_eq(x, pts=(), zap=True):
+    """Static zero-phase EQ: gain in dB interpolated over log-frequency through (Hz, dB) points, plus (zap=True) an
+    -18 dB dip over 2.38-2.62 kHz. The dip is for tonal stems: in G# minor the D# notes' 4th harmonic (and G#'s
+    6th, the bells' 2.76x partials of A5/A#5) sit right on the 2.5 kHz alarm band, and a sustained narrow tone
+    there trips the zap gate, so tonal voices never put one there."""
+    f = np.fft.rfftfreq(len(x), 1 / SR)
+    lf = np.log(np.maximum(f, 1.0))
+    g = 10 ** (np.interp(lf, [math.log(p) for p, _ in pts], [d for _, d in pts]) / 20) if pts else np.ones_like(f)
+    if zap:
+        w = np.clip(np.minimum(f - 2300.0, 2700.0 - f) / 80.0, 0, 1)
+        g = g * (1 - (1 - 10 ** (-18 / 20)) * np.sin(0.5 * np.pi * w) ** 2)
+    return np.fft.irfft(np.fft.rfft(x) * g, len(x)).astype(np.float32)
+
+
+# the eerie keys' presence lift: the reference bed puts a third of its energy in 1-2.5 kHz, with light lows
+ER_KEYS_EQ = ((250, -2.0), (500, -4.0), (900, 0.0), (1300, 5.0), (2200, 5.0), (3500, -1.0), (7000, -10.0))
+
+
+# eerie: i - VI - iv - V in G# minor (G#m E C#m D#, the V's F## leading tone never resolves); one chord a bar.
+# Each chord: (bass root, five arpeggio tones G3..D#5 with close voice leading, low pad voicing)
+ER_CHORDS = [(44, (56, 63, 68, 71, 75), (56, 59, 63, 68)), (40, (56, 59, 64, 68, 71), (52, 56, 59, 64)),
+             (37, (56, 61, 64, 68, 73), (49, 56, 61, 64)), (39, (55, 58, 63, 67, 70), (51, 55, 58, 63))]
+ER_ARP = ([0, 2, 4, 2, 3, 1, 2, 4, 0, 2, 4, 2, 3, 4, 2, 1],          # rolling broken chord, 16ths (index, None=rest)
+          [0, 3, 2, 4, None, 2, 3, 1, 0, 2, 4, 3, None, 4, 3, 2])     # answer: lifted top, two held breaths
+ER_MIX = dict(keys=1.0, echo=1.0, glint=0.28, bass=0.115, pad=0.68, kick=0.76, rim=0.48, hat=0.43, tick=0.35,
+              riser=0.52, bend=0.41)   # stem gains, tuned so the bed's band shares + centroid sit on the reference's
+
+
+def eerie(total, reveals, seed=12):
+    """Mysterious, intriguing (Nolan 11/4: playful was too happy): a chorused e-piano / music-box arpeggio rolling
+    in 16ths over i - VI - iv - V in G# minor with a dotted-8th echo, a music-box glint on each bar, a soft round
+    sub bass, a dark detuned pad that opens up into each reveal, a half-time soft kick + rim, off-beat hats and
+    quiet 16th ticks. ~128 bpm (64 half-time feel), nudged so the clip is a whole number of bars and the bars past
+    the end replay the top (seamless loop, as playful). Continuous: no drop-out; into each reveal a noise swell,
+    32nd ticks and a high sine that slides up a semitone (the unresolved leading tone) build the tension."""
+    bars = max(1, round(total / (240.0 / 128.0)))
+    beat, bar, n, t, nbar = _grid(total, bars * 240.0 / total)
+    s16 = beat / 4
+    I = intensity(t, total, reveals)
+    kys, glint, bass, pd, kk = (np.zeros(n, np.float32) for _ in range(5))
+    cache = {}   # one key tone per (note, velocity); the hammer-click seed is the only per-note difference
+    rim_h, hat_h, tick_h = [], [], []
+    for b in range(nbar):
+        t0 = b * bar
+        bb = b % bars
+        root, arp, voicing = ER_CHORDS[bb % 4]
+        pat = ER_ARP[(bb // 4) % 2]
+        for k, ix in enumerate(pat):
+            if ix is None:
+                continue
+            v = (1.0, 0.55, 0.75, 0.55)[k % 4]
+            if (arp[ix], v) not in cache:
+                cache[arp[ix], v] = keys(hz(arp[ix]), 1.3, v, seed=0)
+            add(kys, cache[arp[ix], v], t0 + k * s16, v)
+        add(glint, bell(hz(arp[(2, 4, 3, 3)[bb % 4]] + 24), 1.2), t0, 1.0)   # music-box glint two octaves up
+        for k, iv, d in ((0, 0, 0.75), (6, 0, 0.3), (8, 12, 0.5), (14, 7, 0.22)):   # 16th slots
+            m = int(d * SR)
+            fr = hz(root)
+            sb = sine(fr, m) + 0.35 * sine(2 * fr, m) + 0.1 * sine(3 * fr, m)
+            add(bass, sb * env_adsr(m, 0.008, 0.25, 0.55, 0.06), t0 + k * s16, 1.0 if k == 0 else 0.7)
+        m = int(bar * SR) + int(0.4 * SR)
+        ch = sum(saw(hz(x), m, dt) for x in voicing for dt in (-0.004, 0.0035))
+        add(pd, ch * env_adsr(m, 0.35, 0.0, 1.0, 0.4) / 8, t0)
+        add(kk, soft_kick(), t0)
+        if bb % 2:
+            add(kk, soft_kick() * 0.6, t0 + 6 * s16)
+        rim_h.append((t0 + 8 * s16, 1.0))
+        for k in range(16):
+            if k % 4 == 2:
+                hat_h.append((t0 + k * s16, 1.0))
+            tick_h.append((t0 + k * s16, (0.6, 0.25, 0.4, 0.25)[k % 4]))
+    for r in reveals:                              # 32nd ticks over the 1.5 s into each reveal
+        tt = math.floor(r / (s16 / 2)) * (s16 / 2) - 1.5
+        while tt < r - 1e-6:
+            tick_h.append((tt, 0.35 + 0.5 * (1 - (r - tt) / 1.5)))
+            tt += s16 / 2
+    rng = np.random.default_rng(seed)
+    wn = rng.standard_normal(n).astype(np.float32)
+    wn = wn[np.arange(n) % max(1, int(round(total * SR)))]   # noise repeats each clip: the loop seam blends it
+    hp6 = lp_fast(lp_fast(wn, 8500), 8500) - lp_fast(wn, 5000)   # dark hats: little air over 9 kHz
+    hats = hp6 * env_train(n, hat_h, 0.001, 0.035)
+    ticks = (lp_fast(lp_fast(wn, 6500), 6500) - lp_fast(wn, 3000)) * env_train(n, tick_h, 0.0005, 0.006)
+    rim = ((lp_fast(wn, 4000) - lp_fast(wn, 1200)) * env_train(n, rim_h, 0.0005, 0.03)
+           + env_train(n, rim_h, 0.0005, 0.02) * sine(330.0, n) * 0.5)
+    open_ = np.clip((I - 0.35) / 0.65, 0, 1).astype(np.float32)   # the pad opens up with the build
+    pd = lp_fast(pd, 700) * (1 - open_) + lp_fast(pd, 1800) * open_
+    pump = 1 - 0.25 * env_train(n, [(b * bar, 1.0) for b in range(nbar)], 0.004, 0.18)
+    bass = lp_fast(bass, 400) * pump
+    d = int(3 * s16 * 2 * SR)                      # dotted-8th echo, darker than the dry keys
+    echo = np.zeros(n, np.float32)
+    echo[d:] += kys[:-d] * 0.4
+    echo[2 * d:] += kys[:-2 * d] * 0.18
+    echo = lp_fast(echo, 2500)
+    riser, bend = np.zeros(n, np.float32), np.zeros(n, np.float32)
+    for r in reveals:
+        a, z = int(max(0, r - 2.5) * SR), int(r * SR)
+        if z > a:
+            u = np.linspace(0, 1, z - a, dtype=np.float32)
+            riser[a:z] += (lp_fast(wn[a:z], 1200) * (1 - u) + hp6[a:z] * 1.8 * u) * u ** 2.2
+            fr = hz(79) * 2 ** (np.clip((u - 0.75) / 0.25, 0, 1) / 12)   # G5 (the F## leading tone) slides to G#5
+            ph = 2 * np.pi * np.cumsum(fr) / SR
+            bend[a:z] += (np.sin(ph) * (1 + 0.3 * np.sin(2 * np.pi * 7 * np.arange(z - a) / SR)) * u ** 1.5).astype(
+                np.float32)
+    kys, echo = spec_eq(kys, ER_KEYS_EQ), spec_eq(echo, ER_KEYS_EQ)
+    glint, bend = spec_eq(glint), spec_eq(bend)
+    stems = dict(keys=kys * (0.8 + 0.3 * I), echo=echo, glint=glint, bass=bass, pad=pd, kick=kk, rim=rim,
+                 hat=hats * (0.7 + 0.5 * I), tick=ticks * (0.5 + 0.8 * I), riser=riser, bend=bend)
+    return sum(stems[k] * g for k, g in ER_MIX.items()), bar
+
+
 PLAYFUL_HIT = 86   # D6: the bright reveal chime for the playful bed
 
 
 def hit_sound(kind):
     """The payoff hit on each reveal: low boom + bell (dark beds) or a bright chime + soft kick (playful)."""
+    if kind == "eerie":   # a soft boom under a minor-third bell pair (G#5 + B5): dark, not bright
+        return boom(1.6) * 0.4 + bell(hz(HIT[kind]), 1.6) * 0.2 + bell(hz(HIT[kind] + 3), 1.6) * 0.1
     if kind in CONTINUOUS:
         n = int(1.6 * SR)
         air = np.random.default_rng(11).standard_normal(n).astype(np.float32)
@@ -568,7 +702,7 @@ def hit_sound(kind):
     return boom(1.4) * 0.55 + bell(hz(HIT[kind])) * 0.25
 
 
-CONTINUOUS = {"playful"}   # beds that never drop out before a reveal (continuous explainer bed)
+CONTINUOUS = {"playful", "eerie"}   # beds that never drop out before a reveal (continuous explainer bed)
 PL_CREST = 17.0            # dB peak over RMS a continuous bed is limited to: ~-18 LUFS once normalised to 0.7 peak
 
 
@@ -595,18 +729,18 @@ def limit(x, crest_db=PL_CREST, max_gr_db=4.0, look=0.003, release=0.06):
     return (x * gs).astype(np.float32)
 
 BEDS = {"sleep": sleep, "waltz": waltz, "mystery": mystery, "conspiracy": mystery, "detective": detective, "cold-war": cold_war, "ufo": ufo,
-        "ocean": ocean, "absurd": absurd, "science": science, "playful": playful}
+        "ocean": ocean, "absurd": absurd, "science": science, "playful": playful, "eerie": eerie}
 VERB = {"sleep": (3.5, 0.45), "waltz": (2.0, 0.28), "mystery": (2.4, 0.30), "conspiracy": (2.4, 0.30), "ufo": (3.0, 0.40), "ocean": (3.2, 0.38),
         "cold-war": (1.4, 0.18), "detective": (1.2, 0.18), "absurd": (0.9, 0.12), "science": (1.2, 0.18),
-        "playful": (1.0, 0.14)}
+        "playful": (1.0, 0.14), "eerie": (2.2, 0.26)}
 HIT = {"sleep": 69, "waltz": 81, "mystery": 81, "conspiracy": 81, "detective": 74, "cold-war": 74, "ufo": 85, "ocean": 79, "absurd": 84,
-       "science": 88, "playful": PLAYFUL_HIT}
+       "science": 88, "playful": PLAYFUL_HIT, "eerie": 80}
 
 
 def render(kind, total, reveals=(), out=None, turn=None, turn_kind="mystery", drop=True, hit=True):
     """The bed as stereo float32 (n, 2) at SR, exactly `total` s long, loop-safe; written to `out` if given.
     drop/hit = False: the reveals only raise the build (no drop-out before them, no boom + bell on them).
-    CONTINUOUS kinds ("playful") never drop out, and their hit is a bright chime instead of the boom.
+    CONTINUOUS kinds ("playful", "eerie") never drop out; playful's hit is a bright chime instead of the boom.
     turn = seconds of the story's dark turn: a comic bed ("absurd", "waltz", "detective") crossfades over 1 s into
     the tense `turn_kind` bed there (Voggle shape, research/40: comic until the story turns dark)."""
     reveals = sorted(r for r in reveals if 0.5 < r < total)
