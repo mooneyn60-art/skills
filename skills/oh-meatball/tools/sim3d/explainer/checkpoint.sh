@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
-# Commit the explainer source files to the branch on origin without touching the working index (restart-safe checkpoint).
+# Commit the explainer source files + explainer scripts to the branch on origin without touching the working index (restart-safe checkpoint).
 #   checkpoint.sh "message"
 set -euo pipefail
 BR=claude/youtube-monetization-strategy-m9vz6i
-DIR=skills/oh-meatball/tools/sim3d/explainer
+DIRS="skills/oh-meatball/tools/sim3d/explainer skills/oh-meatball/scripts/explainer"
 cd /home/user/skills
 for attempt in 1 2 3 4; do
   git fetch -q origin "$BR"
   export GIT_INDEX_FILE=/dev/shm/idx.$$
   git read-tree "origin/$BR"
-  for f in "$DIR"/*; do
+  for f in $(for d in $DIRS; do echo "$d"/*; done); do
     [ -f "$f" ] || continue
     sz=$(stat -c %s "$f"); [ "$sz" -lt 400000 ] || continue
     h=$(git hash-object -w "$f")
