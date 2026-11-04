@@ -1,5 +1,5 @@
 {
- "_note": "3D Meatball explainer YouTube Short #2 (German cockroach), same format as the approved house-centipede Short. Kitchen set at night. Voices: PERSON en-US-BrianNeural +6%; MEATBALL en-US-AndrewMultilingualNeural +10% +3Hz. Music: music.py kind 'eerie' ~7 LU under the voices; master -14 LUFS. Loop: 'Don't look behind you.' cranes back to the opening framing (a roach with its egg case on the counter) and cuts straight into line 1.",
+ "_note": "3D Meatball explainer YouTube Short #2 (German cockroach), same format as the approved house-centipede Short. Kitchen set at night. v2 (Nolan: 'a little funnier'): deadpan beats + visual gags (victory lap, Meatball's sip), gap 0.4 s. Voices: PERSON en-US-BrianNeural +6%; MEATBALL en-US-AndrewMultilingualNeural +10% +3Hz. Music: music.py kind 'eerie' ~7 LU under the voices; master -14 LUFS. Loop: 'Don't look behind you.' cranes back to the opening framing (a roach with its egg case on the counter) and cuts straight into line 1.",
  "music": "eerie",
  "title": "Your Roach Has 40 Babies 🪳 (Things Living In Your House #46)",
  "pinned_comment": "Be honest: have you ever seen a roach carrying its egg case? 👀 Where was it?",
@@ -16,13 +16,62 @@
   "sciam": "Headless roaches are capable of living for weeks. (Fact or Fiction?: A Cockroach Can Live without Its Head, Charles Choi, 2007)"
  },
  "youtube": [
-  {"s":"P","t":"Meatball, you see that roach? It's carrying 40 babies!","card":"1 EGG CASE = UP TO 40 BABIES","src":"uky+ucipm","shot":"opening: push-in on a German roach with its egg case on the counter (also the last frame for the loop)"},
-  {"s":"P","t":"Get it!","shot":"rolled newspaper slams the counter; the roach darts away"},
-  {"s":"M","t":"Too slow. It fits in a sixteenth-inch crack.","card":"FITS IN A 1/16-INCH CRACK","src":"ucipm","shot":"roach squeezes into the gap behind the backsplash"},
-  {"s":"P","t":"What does it even eat?"},
-  {"s":"M","t":"Everything. / Soap. Glue. Hair.","card":"EATS SOAP, GLUE, HAIR / + ALL HUMAN FOODS","src":"uky","shot":"soap, glue bottle, hair pop in on their words"},
-  {"s":"P","t":"Fine. I'll squish its head."},
-  {"s":"M","t":"It can live for weeks without one.","card":"CAN LIVE FOR WEEKS WITHOUT ITS HEAD","src":"sciam","shot":"head pops off, the body keeps walking; calendar 'WEEKS'"},
-  {"s":"M","t":"Don't look behind you.","shot":"deadpan Meatball, then crane back to the opening framing; cut straight into line 1"}
- ]
+  {
+   "s": "P",
+   "t": "Meatball, your roach is carrying 40 babies!",
+   "card": "1 EGG CASE = UP TO 40 BABIES",
+   "src": "uky+ucipm",
+   "shot": "opening: push-in on a German roach with its egg case on the counter (also the last frame for the loop)"
+  },
+  {
+   "s": "P",
+   "t": "Get it! / I'm calling my mom.",
+   "shot": "newspaper slams; the roach escapes and runs a tiny victory lap around the newspaper"
+  },
+  {
+   "s": "M",
+   "t": "Too slow. Fits a sixteenth-inch crack.",
+   "card": "FITS IN A 1/16-INCH CRACK",
+   "src": "ucipm",
+   "shot": "smug Meatball, then the roach squeezes into the gap under the backsplash"
+  },
+  {
+   "s": "P",
+   "t": "What does it eat?"
+  },
+  {
+   "s": "M",
+   "t": "Soap. Glue. Hair.",
+   "card": "EATS SOAP, GLUE, HAIR / + ALL HUMAN FOODS",
+   "src": "uky",
+   "shot": "each item pops in on its word"
+  },
+  {
+   "s": "P",
+   "t": "My house is a buffet?!"
+  },
+  {
+   "s": "M",
+   "t": "All you can eat.",
+   "shot": "smug Meatball"
+  },
+  {
+   "s": "P",
+   "t": "I'll squish its head!",
+   "shot": "person raises a slipper"
+  },
+  {
+   "s": "M",
+   "t": "It lives weeks without one. / Like your cousin.",
+   "card": "CAN LIVE FOR WEEKS WITHOUT ITS HEAD",
+   "src": "sciam",
+   "shot": "head pops off, the body walks off ('WEEKS' calendar); Meatball takes a slow sip on 'Like your cousin'"
+  },
+  {
+   "s": "M",
+   "t": "Don't look behind you.",
+   "shot": "deadpan Meatball, then crane back to the opening framing; cut straight into line 1"
+  }
+ ],
+ "gap": 0.36
 }

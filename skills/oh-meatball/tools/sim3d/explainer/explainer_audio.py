@@ -90,7 +90,7 @@ async def main():
     os.makedirs(f"{PERSIST}/vo", exist_ok=True)
     os.makedirs(WORK, exist_ok=True)
     doc = json.load(open(script))
-    rows, kind = doc[key], doc.get("music", "playful")
+    rows, kind, gap = doc[key], doc.get("music", "playful"), doc.get("gap", GAP)   # script may tighten the line gap
     t, lines, voice = 0.0, [], []
     for i, row in enumerate(rows):
         parts = [p.strip() for p in row["t"].split(" / ")]
@@ -110,8 +110,8 @@ async def main():
                       "card": row.get("card"), "src": row.get("src"), "shot": row.get("shot")})
         voice.append((t, x))
         print(f"{i:2d} {row['s']} t={t:6.2f} dur={dur:5.2f} {row['t']}", flush=True)
-        t += dur + GAP
-    total = round(t - GAP + TAILS.get(key, 1.3), 2)
+        t += dur + gap
+    total = round(t - gap + TAILS.get(key, 1.3), 2)
     json.dump({"key": key, "fps": FPS, "total": total, "lines": lines}, open(f"{PERSIST}/timeline-{tag}.json", "w"))
     vo = np.zeros(int(total * SR), np.float32)
     for t0, x in voice:

@@ -1,5 +1,5 @@
 {
- "_note": "3D Meatball explainer YouTube Short #3 (bed bugs), same format as the approved house-centipede Short. Bedroom set at night; the person sits up in Meatball's guest bed. Voices: PERSON en-US-BrianNeural +6%; MEATBALL en-US-AndrewMultilingualNeural +10% +3Hz. Music: music.py kind 'eerie' ~7 LU under the voices; master -14 LUFS. Loop: 'Sweet dreams.' cranes back to the opening framing and cuts straight into line 1.",
+ "_note": "3D Meatball explainer YouTube Short #3 (bed bugs), same format as the approved house-centipede Short. Bedroom set at night. v2 (Nolan: 'a little funnier'): deadpan beats + visual gags (napkin, pillow hug), gap 0.4 s; the person sits up in Meatball's guest bed. Voices: PERSON en-US-BrianNeural +6%; MEATBALL en-US-AndrewMultilingualNeural +10% +3Hz. Music: music.py kind 'eerie' ~7 LU under the voices; master -14 LUFS. Loop: 'Sweet dreams.' cranes back to the opening framing and cuts straight into line 1.",
  "music": "eerie",
  "title": "3 Bites From Your Mattress 🩸 (Things Living In Your House #47)",
  "pinned_comment": "Would you still sleep in that bed tonight? Yes or no 🛏️",
@@ -12,13 +12,52 @@
   "cdc": "Bed bugs bite people and animals at night while they sleep, feeding on their blood. / they inject fluids (anesthetic and anticoagulant) that prevents a person from feeling the bite when it happens / Bed bugs are not known to spread diseases to people. / They can live several months without a blood meal. / The bugs hide during the day in places on or around the bed ... The seams of mattresses"
  },
  "youtube": [
-  {"s":"P","t":"Meatball, something in your bed bit me 3 times!","shot":"opening: person sitting up in bed, push-in to 3 red bites on the forearm (also the last frame for the loop)"},
-  {"s":"M","t":"Bed bugs. Apple-seed size. They hide in the seams.","card":"APPLE-SEED SIZE / HIDE IN MATTRESS SEAMS","src":"epa+cdc","shot":"macro along the mattress seam: bed bugs, eggs, then one crawls out"},
-  {"s":"P","t":"I didn't feel a thing!"},
-  {"s":"M","t":"It numbs you first. Then it drinks.","card":"IT NUMBS THE BITE / SO YOU DON'T FEEL IT","src":"cdc","shot":"bed bug on the forearm swells red like a balloon"},
-  {"s":"P","t":"Will I get sick?"},
-  {"s":"M","t":"Nope. Not known to spread disease.","card":"NOT KNOWN TO SPREAD DISEASE","src":"cdc"},
-  {"s":"P","t":"Then I'll starve them out!"},
-  {"s":"M","t":"They can wait months. / Sweet dreams.","card":"CAN LIVE MONTHS WITHOUT A MEAL","src":"cdc","shot":"calendar 'MONTHS'; deadpan Meatball; crane back to the opening framing; cut straight into line 1"}
- ]
+  {
+   "s": "P",
+   "t": "Meatball, your bed bit me 3 times!",
+   "shot": "opening: person sitting up in bed, push-in to 3 red bites on the forearm (also the last frame for the loop)"
+  },
+  {
+   "s": "M",
+   "t": "Bed bugs. Apple-seed size. In the seams.",
+   "card": "APPLE-SEED SIZE / HIDE IN MATTRESS SEAMS",
+   "src": "epa+cdc",
+   "shot": "a bug on the sheet next to an apple seed, then bugs + eggs in the mattress seam"
+  },
+  {
+   "s": "P",
+   "t": "I felt nothing!"
+  },
+  {
+   "s": "M",
+   "t": "It numbs you. / Then drinks. Like a tiny vampire with manners.",
+   "card": "IT NUMBS THE BITE / SO YOU DON'T FEEL IT",
+   "src": "cdc",
+   "shot": "a bug on the forearm swells red, then dabs with a tiny napkin"
+  },
+  {
+   "s": "P",
+   "t": "Will I get sick?!",
+   "shot": "person dramatically hugs the pillow"
+  },
+  {
+   "s": "M",
+   "t": "Nope, not known to spread disease.",
+   "card": "NOT KNOWN TO SPREAD DISEASE",
+   "src": "cdc",
+   "shot": "dry Meatball on the nightstand"
+  },
+  {
+   "s": "P",
+   "t": "I'll starve them out!"
+  },
+  {
+   "s": "M",
+   "t": "They can wait months. / Patient little guys. / Sweet dreams.",
+   "card": "CAN LIVE MONTHS WITHOUT A MEAL",
+   "src": "cdc",
+   "shot": "'MONTHS' calendar; deadpan Meatball; crane back to the opening framing; cut straight into line 1"
+  }
+ ],
+ "gap": 0.34
 }
