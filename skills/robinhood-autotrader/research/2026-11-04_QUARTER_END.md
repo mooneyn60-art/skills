@@ -1,11 +1,11 @@
 # Quarter-End Window Dressing: Do Winners Get a Push Before the Quarter Closes?
 
-One-line: Wednesday contrarian probe. Do the quarter's winners beat its
-losers in the last 5 trading days of a quarter, and give it back in the first
-5 days of the next? Calendar structure, never tested here.
+One-line: No window dressing in our names. Quarter winners don't pull ahead
+of losers in the final 5 days (+0.19pp, t=0.57) and don't reverse after.
+Ordinary month-ends look the same. Large caps are too big to be dressed.
 
 Last Updated: 2026-11-04
-Status: DESIGN + PREDICTION (committed before the first run). Results below once run.
+Status: DONE. Dead: winners minus losers in the last 5 days +0.19pp, t=+0.57 (n=82 quarters); no reversal (t=+0.48); placebo month-ends no different. Prediction committed first (6a25512); all lines right.
 Audience: Nolan, TARS sessions
 
 ## Mechanism (written before the test)
@@ -42,3 +42,42 @@ and the effect is old and published.
 - B: no reliable reversal, |t| < 1.5.
 - Placebo similar in size to A (whatever shows up isn't about the quarter-end).
 - Nothing usable. These are large caps.
+
+## Results (python3 paper/research_scripts/quarter_end.py)
+
+One observation per quarter (no overlap), winners/losers = top/bottom third
+by quarter-to-date return at the close 5 sessions before quarter-end.
+In-sample, mechanical, price returns.
+
+| Cut | A: last 5 days, winners - losers | t | B: first 5 days after | t |
+|---|---|---|---|---|
+| LONG 14 names, 82 quarters | +0.186pp | +0.57 | +0.184pp | +0.48 |
+| 1st half (41) | +0.462pp | +0.96 | +0.074pp | +0.12 |
+| 2nd half (41) | -0.091pp | -0.20 | +0.293pp | +0.61 |
+| No megacaps | +0.340pp | +1.35 | -0.371pp | -1.00 |
+| PLACEBO: non-quarter month-ends (164) | -0.223pp | -0.61 | +0.360pp | +1.26 |
+| WIDE 41 names (82 quarters*) | +0.320pp | +0.75 | -0.342pp | -0.53 |
+| WIDE no megacaps | +0.337pp | +0.66 | -0.507pp | -0.70 |
+
+\*WIDE spans 2006-2026 too: before 2021 it's the same 14 names; the
+volatile and holdings names join as their data starts.
+
+9 windows (LONG): A positive in 4 of 9, B positive in 5 of 9.
+
+## Reading it
+
+- Nothing at quarter-end. The largest number, no-megacaps A at t=+1.35, has
+  the shape the theory predicts (a push before, a giveback after, -0.37pp, t=-1.00),
+  but neither clears t 2 and the first-half value isn't repeated in the second.
+- The placebo month-ends do no better or worse, so whatever wobble exists
+  is ordinary short-horizon noise, not reporting dates.
+- Fits the literature: window dressing is a small-cap phenomenon (Ng & Wang
+  2004), and the names here are among the largest companies in the world.
+- For Nolan: no reason to time anything around quarter-ends. Next one: 12/31.
+
+## Prediction scorecard
+
+- A = 0 +/- 0.4pp, |t| < 1.5 on LONG: RIGHT (+0.186pp, t=+0.57).
+- B no reliable reversal, |t| < 1.5: RIGHT (t=+0.48).
+- Placebo similar in size: RIGHT (-0.22 / +0.36pp).
+- Nothing usable: RIGHT.
