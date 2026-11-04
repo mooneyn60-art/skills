@@ -72,13 +72,13 @@ export function build(scene, S, K) {
   S.slipper = P.makeSlipper(); S.slipper.position.set(0, -0.06, 0); S.slipper.rotation.z = Math.PI / 2; S.person.userData.hands[1].add(S.slipper);
   const head = S.roach.userData.head, head0 = head.position.clone();
 
-  const MBPOS = [0.42, -0.17, -Math.PI / 2 + 0.35], PPOS = [0.32, 0.46, Math.PI / 2];
+  const MBPOS = [0.42, -0.17, -Math.PI / 2 + 0.35], PPOS = [0.36, 1.45, Math.PI / 2];
   const P3 = (p, y = TOP) => [p[0], y, p[1]];
   const roachAt = (S) => [S.roach.position.x, TOP + 0.004, S.roach.position.z];
   const mbAt = (S) => [S.mb.position.x, S.mb.position.y, S.mb.position.z];
   const pHead = (S) => S.person.userData.head.getWorldPosition(new THREE.Vector3()).toArray();
   const H3 = P3(HOME, TOP + 0.004);
-  const OPEN = { c0: [H3[0] + 0.19, H3[1] + 0.11, H3[2] + 0.31], l0: [H3[0] - 0.02, H3[1], H3[2] - 0.02],
+  const OPEN = { c0: [H3[0] + 0.12, H3[1] + 0.075, H3[2] + 0.2], l0: [H3[0] - 0.02, H3[1], H3[2] - 0.02],
     c1: [H3[0] + 0.03, H3[1] + 0.022, H3[2] + 0.05], l1: [H3[0] - 0.004, H3[1] + 0.001, H3[2]], mv: 1.0 };
   const EGG = [H3[0] - 0.6 * RS, H3[1], H3[2]];
   const cfg = L.map(() => ({ shots: [{}] }));
@@ -86,16 +86,16 @@ export function build(scene, S, K) {
   const tSlam = W(1, 0) + 0.22;
 
   set(0, { cardWord: 7, shots: [{ ...OPEN }, { at: cut(0, 8), tgt: [EGG[0] - 0.012, EGG[1], EGG[2]], yaw: 125, dist: 0.075, h: 0.035, dyaw: 12, push: 0.85 }] });
-  set(1, { shots: [{ tgt: [H3[0] - 0.08, H3[1], H3[2] - 0.08], yaw: 62, dist: 0.36, h: 0.17, dyaw: 6, push: 0.95, shake: { t: tSlam, a: 0.012 } }] });
-  set(2, { cardWord: 2, mood: 'smug', shots: [{ tgt: mbAt, yaw: 70, dist: 0.32, h: 0.03, dyaw: -6, push: 0.88 },
+  set(1, { shots: [{ tgt: [H3[0] - 0.1, H3[1], H3[2] - 0.12], yaw: 70, dist: 0.62, h: 0.34, dyaw: 6, push: 0.95, shake: { t: tSlam, a: 0.012 } }] });
+  set(2, { cardWord: 2, mood: 'smug', shots: [{ tgt: mbAt, yaw: 70, dist: 0.46, h: 0.05, dyaw: -6, push: 0.9 },
     { at: cut(2, 2), tgt: [CRX + 0.004, TOP + 0.004, -0.585], yaw: 72, dist: 0.075, h: 0.016, dyaw: 10, push: 0.85 }] });
-  set(3, { person: { look: (t) => 0.25 * Math.sin((t - start(3)) * 4) }, shots: [{ tgt: pHead, yaw: -72, dist: 0.62, h: -0.12, ly: -0.12, dyaw: 6, push: 0.9 }] });
-  set(4, { cardWord: 1, shots: [{ tgt: [SPREAD[0] + 0.02, TOP + 0.01, SPREAD[1] - 0.02], yaw: 78, dist: 0.28, h: 0.12, dyaw: -8, push: 0.82 }] });
-  set(5, { person: { pose: 'slipper', from: 'stand' }, shots: [{ tgt: pHead, yaw: -68, dist: 0.95, h: -0.3, ly: -0.2, dyaw: 6, push: 0.9 }] });
-  set(6, { cardWord: 4, shots: [{ tgt: [HEADLESS[0], TOP + 0.005, HEADLESS[1]], yaw: 68, dist: 0.09, h: 0.035, dyaw: 10, push: 0.92 },
-    { at: cut(6, 4), tgt: [HEADLESS[0] - 0.012, TOP + 0.012, HEADLESS[1] - 0.012], yaw: 72, dist: 0.16, h: 0.045, dyaw: 6, push: 0.92 }] });
+  set(3, { person: { look: (t) => 0.25 * Math.sin((t - start(3)) * 4) }, shots: [{ c0: [0.2, 1.36, -0.48], l0: [0.36, 1.38, 1.45], c1: [0.22, 1.37, -0.3], l1: [0.36, 1.4, 1.45] }] });
+  set(4, { cardWord: 1, shots: [{ tgt: [SPREAD[0] - 0.02, TOP + 0.01, SPREAD[1] - 0.02], yaw: 78, dist: 0.4, h: 0.16, dyaw: -8, push: 0.85 }] });
+  set(5, { person: { pose: 'slipper', from: 'stand' }, shots: [{ c0: [0.08, 1.3, -0.52], l0: [0.36, 1.72, 1.45], c1: [0.11, 1.32, -0.42], l1: [0.36, 1.74, 1.45] }] });
+  set(6, { cardWord: 4, shots: [{ tgt: roachAt, yaw: 68, dist: 0.1, h: 0.035, dyaw: 10, push: 0.92 },
+    { at: cut(6, 4), tgt: [HEADLESS[0] - 0.01, TOP + 0.012, HEADLESS[1] - 0.01], yaw: 72, dist: 0.2, h: 0.045, dyaw: 6, push: 0.92 }] });
   const home = T_END - 0.08, out = W(7, 2) + 0.05;
-  const l7a = { tgt: mbAt, yaw: 78, dist: 0.24, h: 0.015, dyaw: 4, push: 0.9 };
+  const l7a = { tgt: mbAt, yaw: 78, dist: 0.36, h: 0.015, dyaw: 4, push: 0.9 };
   set(7, { mood: 'deadpan', mbPose: 'hips', shots: [l7a, { at: out, c0: [MBPOS[0] + 0.05, TOP + 0.12, MBPOS[1] + 0.24], l0: [MBPOS[0], TOP + 0.11, MBPOS[1]], c1: OPEN.c0, l1: OPEN.l0, mv: home - out }] });
   for (const i of [0, 1]) cfg[i].hideMb = 1;
 
@@ -138,15 +138,15 @@ export function build(scene, S, K) {
     });
     // newspaper slam on "Get it!"
     if (vis(S.paper, W(1, 0) - 0.05, end(1), t)) {
-      const u = clamp01((t - W(1, 0) + 0.05) / (tSlam - W(1, 0) + 0.05)), y = t < tSlam ? TOP + 0.33 * (1 - u * u) + 0.028 : TOP + 0.028 + 0.02 * ease((t - tSlam - 0.25) / 0.3);
-      S.paper.position.set(HOME[0] + 0.03, y, HOME[1] + 0.02); S.paper.rotation.set(0, 0.5, t < tSlam ? 0.25 * (1 - u) : 0);
+      const u = clamp01((t - W(1, 0) + 0.05) / (tSlam - W(1, 0) + 0.05)), y = t < tSlam ? TOP + 0.24 * (1 - u * u) + 0.028 : TOP + 0.028 + 0.02 * ease((t - tSlam - 0.25) / 0.3);
+      S.paper.position.set(HOME[0] + 0.03, y, HOME[1] + 0.02); S.paper.rotation.set(0, -0.2, t < tSlam ? 0.25 * (1 - u) : 0);
     }
     // soap / glue / hair pop on their words; crumbs + toast on "Everything"
     if (vis(S.crumbs, W(4, 0) - 0.05, end(4), t)) { place(S.crumbs, TOAST, TOP); S.crumbs.scale.setScalar(popS(t, W(4, 0) - 0.05, 1)); }
     if (vis(S.soap, W(4, 1) - 0.06, end(4), t)) { place(S.soap, [...SOAP, 0.4], TOP); S.soap.scale.setScalar(popS(t, W(4, 1) - 0.06, 1)); }
     if (vis(S.glue, W(4, 2) - 0.06, end(4), t)) { place(S.glue, [...GLUE, 0.6], TOP); S.glue.scale.setScalar(popS(t, W(4, 2) - 0.06, 1)); }
     if (vis(S.hair, W(4, 3) - 0.06, end(4), t)) { place(S.hair, [...HAIR, 0], TOP); S.hair.scale.setScalar(popS(t, W(4, 3) - 0.06, 1)); }
-    if (vis(S.cal, W(6, 4) - 0.06, end(6), t)) { S.cal.position.set(HEADLESS[0] - 0.05, TOP, HEADLESS[1] - 0.035); S.cal.scale.setScalar(popS(t, W(6, 4) - 0.06, 0.35)); }
+    if (vis(S.cal, W(6, 4) - 0.06, end(6), t)) { S.cal.position.set(HEADLESS[0] - 0.035, TOP, HEADLESS[1] - 0.05); S.cal.scale.setScalar(popS(t, W(6, 4) - 0.06, 0.22)); }
     S.slipper.visible = i === 5;
   }
   function faceCam(cam) { if (S.cal.visible) S.cal.lookAt(cam.position.x, S.cal.position.y, cam.position.z); }
