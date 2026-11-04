@@ -112,8 +112,9 @@ export function makeCrumbs() { const g = new THREE.Group(); for (let k = 0; k < 
 export function makeCal(head, big) {
   const tex = canvasTex(256, 300, (c, w, h) => {
     c.fillStyle = '#ffffff'; c.fillRect(0, 0, w, h); c.fillStyle = '#c4261e'; c.fillRect(0, 0, w, 70);
-    c.fillStyle = '#fff'; c.font = '900 40px Inter'; c.textAlign = 'center'; c.fillText(head, w / 2, 50);
-    c.fillStyle = '#1a1a1a'; c.font = `900 ${big.length > 4 ? 64 : 120}px Inter`; c.fillText(big, w / 2, 210);
+    const fit = (txt, px, y) => { c.font = `900 ${px}px Inter`; const k = Math.min(1, (w - 24) / c.measureText(txt).width); c.font = `900 ${Math.floor(px * k)}px Inter`; c.fillText(txt, w / 2, y); };
+    c.textAlign = 'center'; c.fillStyle = '#fff'; fit(head, 40, 50);
+    c.fillStyle = '#1a1a1a'; fit(big, 120, 210);
     c.fillStyle = '#555'; for (let i = 0; i < 7; i++) { c.beginPath(); c.arc(24 + i * 35, 14, 6, 0, 7); c.fill(); }
   });
   const g = new THREE.Group();

@@ -99,7 +99,9 @@ function camAt(t) {
   }
   if (sh.shake) { const a = sh.shake.a * Math.exp(-Math.max(0, t - sh.shake.t) / 0.12) * (t >= sh.shake.t ? 1 : 0); c.y += a * Math.sin(t * 90); c.x += a * 0.6 * Math.cos(t * 77); }
   camera.position.copy(c); camera.lookAt(l);
+  if (QP.has('cam')) { const q = QP.get('cam').split(',').map(Number); camera.position.set(q[0], q[1], q[2]); camera.lookAt(q[3], q[4], q[5]); }   // debug view
   if (PLAN.faceCam) PLAN.faceCam(camera);
+  window.DBG = { S, V: (o) => o.getWorldPosition(new THREE.Vector3()).toArray().map((v) => +v.toFixed(3)) };
 }
 
 // ---------- 2D layer ----------
