@@ -2,7 +2,7 @@
 
 The whole operating plan for the channel agent in one page. From here on, the job is: make, check, post, measure.
 
-Last Updated: 2026-10-29
+Last Updated: 2026-11-05
 Status: ACTIVE; replaces every older plan where they disagree (Nolan's words win over this page)
 Audience: Meatball Town (all desks), Nolan
 
@@ -117,20 +117,20 @@ Pick episodes from `CALENDAR_REALISTIC.md`, top down. Any Short that beats 2x th
 - **Sourcing:** every claim is sourced; single-source claims are said as "One account says…".
 
 ## Watch hours (the hard part of YPP)
-- **Nolan, 11/1: long-forms are their OWN videos, full screen (16:9), like the case files.** Never a compilation, stitch or blurred-side vertical Shorts. Every long-form is scripted and rendered as a long-form (the v4 16:9 renderer, as for `scripts/longform-turned-out-true.json`).
-- **Nolan, 10/30 (overrides the compilation below):** the weekly long-form is a **Meatball Investigates case file**, 8-12 min, one real story told properly. Use the style and voice of "Conspiracy Theories That Turned Out To Be TRUE" (10/27; `scripts/longform-turned-out-true.json`, style v4, voice kokoro:eric-michael, music gen:mystery).
-  - Every claim is sourced and labelled proven or debunked; never present a false conspiracy as true.
-  - It needs a cold open, a twist at the end and its own story arc. It is never stitched-together Shorts.
-  - Case files stay long-form only; case Shorts got 1-4 views.
-  - First episode: Sunday 11/8. The 11/1 tier list stays.
-- **Every Sunday:** one 30-60 min compilation of a show ("Every Spider in Your House, Ranked: The Complete Collection").
-  - a new cold open
-  - Meatball linking segments
-  - a countdown spine
-  - chapters in the description
-
-  Never a raw stitch.
-- 4,000 hours ≈ 32-40K compilation views at 6-8 min average watch. Pin the newest compilation as the channel trailer.
+**Nolan, 11/5 (overrides the 10/30 case-file plan and the Sunday compilation; detail in `oh-meatball/research/65-longform-reset.md`):**
+- **One show:** every long-form is a **Things Living In Your House** long edition, about the creatures our Shorts already win with (house centipede, house spiders, cockroach, bed bugs, dust mites, mice). Same locked look, Andrew voice (+10%, +3Hz), 16:9.
+- **A full episode, never Shorts put together.** It is scripted and rendered as its own video (like `scripts/longform-kill-or-keep.json`):
+  - one promise in the title, paid off in the first 5 s, with narration starting on the creature at 0.0 s
+  - no joke, intro or comment ask before 0:25
+  - its own arc, with a new peak every 20-30 s and a payoff at the end that the cold open set up
+  - never a stitch, compilation, recut of posted Shorts, or blurred-side vertical
+  - target 8-12 min once retention holds; 5-7 min is fine until then
+- **One slot:** one long-form a week, **Saturday 08:00 ET**, nothing in between. First: Kill-or-Keep, 11/7.
+- **Case files are paused** after Azorian (11/5). At 7 days, if Azorian beats the house long-forms on views and subs, they return as a once-a-month special.
+- **No Sunday compilation** until a weekly long-form passes 500 views.
+- **The bridge (Nolan, Studio):** every on-topic Short's Related video points at the newest long-form, with the pinned comment "Full list in the Related video 👆". Re-point the links every Saturday.
+- **Packaging:** number + creature + "your house" + enforcement in the title, 3 titles in Test & Compare, and one creature filling the thumbnail (≤3 words, readable at 168 px).
+- **Cadence rule:** stay at one a week until one long-form gets 500+ views or shows real Related-video traffic at 7 days. Then go to two a week (Wed + Sat). More uploads before then only split near-zero impressions.
 
 ## Weekly scorecard (Sunday, 3 numbers only)
 | Number | Now | 4-week target |
