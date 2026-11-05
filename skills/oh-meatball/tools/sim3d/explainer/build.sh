@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Restart-safe build of the 3D Meatball explainer (KEY = tiktok | youtube cut). Every step skips work that already exists.
-#   [EP=centipede|roach|bedbugs] build.sh [KEY=tiktok]   (delete $W/work/chunk-TAG-*.mp4 after a shot change)
-# EP picks the script + page: centipede = explainer.html (bathroom); roach / bedbugs = pest.html?ep=EP (ep_*.js).
+#   [EP=centipede|roach|bedbugs|jumpspider|dustmites] build.sh [KEY=tiktok]   (delete $W/work/chunk-TAG-*.mp4 after a shot change)
+# EP picks the script + page: centipede = explainer.html (bathroom); roach / bedbugs / jumpspider / dustmites = pest.html?ep=EP (ep_*.js).
 # Persistent (survives container restarts): $P/vo (voice takes), $P/timeline-KEY.json, $P/out/*.mp4
 # Scratch (tmpfs): $W (three.js, fonts, chunk videos). Frames are streamed into ffmpeg, never stored.
 set -euo pipefail
@@ -14,6 +14,8 @@ case $EP in
   centipede) SCRIPT=$SD/house-centipede-explainer.json; NAME=meatball-centipede-explainer; TAG=$KEY; TLW=timeline.json; PAGE=src/explainer.html; SHEET=$PRE-contact.jpg;;
   roach) SCRIPT=$SD/cockroach-explainer.json; NAME=roach-explainer; TAG=roach-$KEY; TLW=timeline-$TAG.json; PAGE="src/pest.html?ep=roach&tl=$TLW"; SHEET=$PRE-roach-contact.jpg;;
   bedbugs) SCRIPT=$SD/bed-bugs-explainer.json; NAME=bedbugs-explainer; TAG=bedbugs-$KEY; TLW=timeline-$TAG.json; PAGE="src/pest.html?ep=bedbugs&tl=$TLW"; SHEET=$PRE-bedbugs-contact.jpg;;
+  jumpspider) SCRIPT=$SD/jumping-spider-explainer.json; NAME=jumpspider-explainer; TAG=jumpspider-$KEY; TLW=timeline-$TAG.json; PAGE="src/pest.html?ep=jumpspider&tl=$TLW"; SHEET=$PRE-jumpspider-contact.jpg;;
+  dustmites) SCRIPT=$SD/dust-mites-explainer.json; NAME=dustmites-explainer; TAG=dustmites-$KEY; TLW=timeline-$TAG.json; PAGE="src/pest.html?ep=dustmites&tl=$TLW"; SHEET=$PRE-dustmites-contact.jpg;;
   *) echo "unknown EP $EP"; exit 2;;
 esac
 OUT=$P/out/$PRE-$NAME.mp4

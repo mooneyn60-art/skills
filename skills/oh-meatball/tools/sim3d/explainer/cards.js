@@ -1,7 +1,8 @@
 // 2D layer for the explainer: word-by-word captions, white fact cards, the map card and the lease card.
 // Coordinates are 1080x1920. Captions stay inside x 160-920 with the last line's baseline at ~1400.
 export const SOURCES = { psu: 'Penn State Extension', caes: 'Conn. Ag. Exp. Station', wisc: 'Univ. of Wisconsin', uark: 'Univ. of Arkansas', ucipm: 'UC IPM', frontiers: 'Frontiers in Zoology 2024', wsu: 'Washington State Univ.',
-  uky: 'Univ. of Kentucky', sciam: 'Scientific American', epa: 'U.S. EPA', cdc: 'CDC' };
+  uky: 'Univ. of Kentucky', sciam: 'Scientific American', epa: 'U.S. EPA', cdc: 'CDC',
+  mdc: 'Missouri Dept. of Conservation', usu: 'Utah State Univ.', ala: 'American Lung Association', aafa: 'AAFA', niehs: 'NIEHS' };
 const YEL = '#ffd23f';
 const clamp01 = (x) => Math.max(0, Math.min(1, x));
 const back = (x) => { const c = 1.7; x = clamp01(x); return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };

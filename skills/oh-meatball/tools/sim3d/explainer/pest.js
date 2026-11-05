@@ -1,6 +1,6 @@
-// 3D Meatball explainer, generic episode page (pest.html?ep=roach|bedbugs&tl=timeline-TAG.json).
+// 3D Meatball explainer, generic episode page (pest.html?ep=roach|bedbugs|jumpspider|dustmites&tl=timeline-TAG.json).
 // Same format as the approved house-centipede Short: person asks, Meatball answers, word captions, white fact cards.
-// The episode module (ep_roach.js / ep_bedbugs.js) builds its set + cast and returns per-line shots and a props(t) hook.
+// The episode module (ep_EP.js) builds its set + cast and returns per-line shots and a props(t) hook.
 // Every value is a pure function of t, so any frame renders alone (chunked + restart-safe renders).
 // Shot: {tgt, yaw (deg), dist, h, ly, dyaw, push} orbit-push around tgt ([x,y,z] or fn(S) -> [x,y,z]),
 //       or {c0, c1, l0, l1, mv} explicit camera + look-at moves. Each shot after the first in a line has `at` (s).
@@ -11,7 +11,7 @@ import { drawCaption, drawFactCard, drawWatermark } from './cards.js';
 
 const QP = new URLSearchParams(location.search);
 const TL = await (await fetch('../work/' + (QP.get('tl') || 'timeline.json'))).json();
-const EP = await import(QP.get('ep') === 'bedbugs' ? './ep_bedbugs.js' : './ep_roach.js');
+const EP = await import(`./ep_${/^[a-z]+$/.test(QP.get('ep') || '') ? QP.get('ep') : 'roach'}.js`);
 const L = TL.lines, T_END = TL.total;
 const clamp01 = (x) => Math.max(0, Math.min(1, x));
 const ease = (x) => (x <= 0 ? 0 : x >= 1 ? 1 : x * x * (3 - 2 * x));
@@ -108,6 +108,7 @@ function camAt(t) {
 const comp = makeCompositor(canvas);
 function overlay(t) {
   const c = comp.ctx; comp.begin();
+  if (PLAN.overlay) PLAN.overlay(c, t);   // episode 2D layer (e.g. a microscope iris), under the cards + captions
   const fc = cardAt(t); if (fc) drawFactCard(c, fc.card, fc.src, fc.age, fc.fade);
   const cl = L.find((l) => t >= l.t - 0.05 && t < Math.min(l.t + l.dur + 0.3, (L[l.i + 1] || { t: 1e9 }).t - 0.05));
   if (cl) drawCaption(c, cl, t - cl.t);
