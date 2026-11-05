@@ -106,7 +106,7 @@ Pick episodes from `CALENDAR_REALISTIC.md`, top down. Any Short that beats 2x th
 - **TikTok:** 2-3 a day in the 12-5 pm window.
 - **Title:** one bizarre, specific claim ("This Bird Has a Dagger on Each Foot"). No "Did you know", no TRUE/FALSE.
 - **Description:** line 1 restates the claim with the search words (daddy long legs, venomous spider...), then "Sources:" and the credit lines from `footage/<slug>/credits.json` (required for CC BY / BY-SA).
-- **Pinned comment:** one question that's easy to answer ("Would you keep it in your house? yes / no").
+- **Pinned comment (Studio AI, 11/5):** an open question that pulls a story or a debate ("What's the weirdest bug you've found in your room?", "Did you actually check your mattress after this?"), not yes/no. Yes/no prompts got skipped: most comments were our own. Once real replies come in, pin the funniest viewer reply instead of our prompt.
 - **AI-made shots** (if any): turn on "altered or synthetic content" in YouTube Studio.
 
 ## Case-file Shorts (Nolan 11/2)
