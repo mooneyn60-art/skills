@@ -33,3 +33,8 @@
 - Retitles for Nolan in Studio (vidIQ has 3 credits, a title update costs 5): "Weird Animal Facts You Didn't Know (3 Are Fake...)" →
   "Can You Spot the 3 Fake Animal Facts?"; "6 Creatures Living In Your House Right Now (You Never See Them)" → keep the title, new
   thumbnail (a pillow or toothbrush under a microscope zoom with a "?").
+
+## Applied 11/5, 6:49 PM ET (Nolan: "run it")
+New open-question pinned comments on 11 scheduled YouTube posts (#48, #37, #38, Kill-or-Keep, #39, #40, #41, #42, #43, Mommy
+Longlegs #12, honey badger #24, #44; the honey badger one no longer asks "seen one in your house"). Azorian was already live at 5 PM
+(Nolan edits its pinned comment in Studio). Dust mites #49 kept its pillowcase question. TikTok caption polls not changed yet.
