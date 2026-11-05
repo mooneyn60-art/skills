@@ -5,9 +5,9 @@
   "8 Things Crawling Through Your House While You Sleep",
   "Your House at 3 AM: What's Awake While You Sleep"
  ],
- "thumb_plan": "A: dark bedroom, sleeping Meatball, a house centipede on the pillow edge filling a third of the frame, text '3 AM'. B: same, face-mite magnifier inset, text 'ON YOUR FACE'. Check both at 168 px.",
+ "thumb_plan": "A: dark bedroom, sleeping Meatball, a house centipede on the pillow edge filling a third of the frame, text '3 AM'. B (Studio AI 11/5: an everyday object under extreme zoom beats a stock creature): your pillow under a microscope circle, dust mites inside it, a red '?' and the text 'YOUR PILLOW'. Check both at 168 px.",
  "pinned": "Which one did you NOT want to know about? 👇",
- "_note": "Nolan 11/5: full episode, house lane, funny Meatball built in. Spine = one night, hour by hour (10 PM -> 6 AM), danger and gross-out rising, a release beat at 2 AM, twist at 6 AM. One Meatball gag per hour, inside the story. No subscribe/like/comment asks mid-video; the last line points to Kill-or-Keep for the end screen. Render: tools/drawn_keepkill.py (no tier = no board/HUD), Andrew voice, 16:9.",
+ "_note": "Nolan 11/5: full episode, house lane, funny Meatball built in. Spine = one night, hour by hour (10 PM -> 6 AM), danger and gross-out rising, a release beat at 2 AM, twist at 6 AM. One Meatball gag per hour, inside the story. No subscribe/like/comment asks mid-video; the last line points to Kill-or-Keep for the end screen. Render: tools/drawn_keepkill.py (no tier = no board/HUD), Andrew voice, 16:9. 11/5 (Studio AI): micro-loop tease at the end of every hour (what's coming next) so no chapter just stops; intro tease to 5 AM.",
  "voice": "en-US-AndrewMultilingualNeural",
  "rate": "+10%",
  "pitch": "+3Hz",
@@ -97,6 +97,22 @@
       "actor": "house_centipede",
       "s": 0.8
      }
+    },
+    {
+     "m": "escalate",
+     "say": "And the worst one doesn't show up until five AM.",
+     "scene": "skin",
+     "card": {
+      "rows": [
+       [
+        "5:00 AM",
+        "#ff4b3e",
+        120
+       ]
+      ],
+      "y": 130,
+      "at": "40%"
+     }
     }
    ]
   },
@@ -183,6 +199,14 @@
      },
      "gag": {
       "prop": "skull"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "But silverfish are the easy ones. At eleven, the kitchen gets crowded.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
      }
     }
    ]
@@ -316,6 +340,19 @@
      "gag": {
       "clock": 0.5
      }
+    },
+    {
+     "m": "escalate",
+     "say": "And something with fifteen pairs of legs is already on its way.",
+     "scene": "bathroom",
+     "scene_p": {
+      "time": "night"
+     },
+     "cast": {
+      "creature": "house_centipede",
+      "actor": "house_centipede",
+      "s": 0.8
+     }
     }
    ]
   },
@@ -417,6 +454,18 @@
       "prop": "trophy"
      },
      "pose": "present"
+    },
+    {
+     "m": "escalate",
+     "say": "Then, around one, the walls start scratching.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
+     },
+     "cast": {
+      "creature": "house_mouse",
+      "s": 0.65
+     }
     }
    ]
   },
@@ -500,6 +549,14 @@
      "m": "calm",
      "say": "Found droppings? Don't sweep them dry. The CDC says soak them with disinfectant first, with gloves on.",
      "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "Next comes the calmest creature of the night. After that, it gets a lot worse.",
+     "scene": "sill",
      "scene_p": {
       "time": "night"
      }
@@ -750,6 +807,18 @@
      "scene_p": {
       "time": "night"
      }
+    },
+    {
+     "m": "escalate",
+     "say": "But the grossest one isn't in your bed. It's on your face.",
+     "scene": "skin",
+     "scene_p": {
+      "time": "night"
+     },
+     "cast": {
+      "creature": "demodex",
+      "s": 0.8
+     }
     }
    ]
   },
@@ -820,6 +889,18 @@
      "m": "calm",
      "say": "Good news: they're normal, and usually harmless. They're just very, very close.",
      "scene": "skin"
+    },
+    {
+     "m": "escalate",
+     "say": "And when your alarm goes off, one crew still won't leave.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "day"
+     },
+     "cast": {
+      "creature": "dust_mite",
+      "s": 0.8
+     }
     }
    ]
   },
