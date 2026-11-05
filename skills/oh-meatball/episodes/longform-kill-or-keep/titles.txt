@@ -32,3 +32,5 @@ v2 (11/5, Nolan: "improve it the same as the Shorts"), kill-it-or-keep-it-v2.mp4
   - Narration is the v1 Andrew audio, vocals separated (Demucs) and cut per line (edge-tts can't connect from the cloud box).
   - Description: description-v2.txt (new chapters, MEH sources removed). Thumbnails A/B/C and the 3 titles unchanged.
   Rebuild: python3 tools/drawn_keepkill.py build scripts/longform-kill-or-keep-v2.json SPEC.json, then render as above.
+  Swapped into Metricool 11/5 (Nolan OK): post uuid -3167071338127407611, new id 418020168, Sat 11/7 08:00 ET, v2 video
+  (raw.githubusercontent at 25207e08) + description-v2.txt; title, tags, thumbnail A and pinned comment unchanged.
