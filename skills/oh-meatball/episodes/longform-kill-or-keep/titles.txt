@@ -23,3 +23,12 @@ The mp4 is committed here as kill-it-or-keep-it.mp4 (Metricool pulls it from raw
 Rebuild: python3 tools/drawn_keepkill.py build scripts/longform-kill-or-keep.json SPEC.json
          python3 tools/drawn_keepkill.py render SPEC.json OUT.mp4 --work DIR
 Gates:   python3 tools/lf_gates.py OUT.mp4 --work DIR --spec SPEC.json --sheets DIR
+
+v2 (11/5, Nolan: "improve it the same as the Shorts"), kill-it-or-keep-it-v2.mp4, 4:33. Same look and Andrew takes:
+  - Story starts at 0:04: dropped the two setup lines ("By the end..." / "Twelve bugs. Four piles...") and the empty board.
+  - Cut the MEH pile (pill bug, silverfish, drain fly): it isn't in the title and sagged mid-video. 9 bugs = 3 keep, 4 kill, 2 danger.
+  - No mid-video "Quick favor: subscribe" (Shorts data: a cliff wherever Subscribe is said).
+  - Animals 1.5x (was 1.2x) so the creature carries the frame; the board shows only the 3 piles in use.
+  - Narration is the v1 Andrew audio, vocals separated (Demucs) and cut per line (edge-tts can't connect from the cloud box).
+  - Description: description-v2.txt (new chapters, MEH sources removed). Thumbnails A/B/C and the 3 titles unchanged.
+  Rebuild: python3 tools/drawn_keepkill.py build scripts/longform-kill-or-keep-v2.json SPEC.json, then render as above.

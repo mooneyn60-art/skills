@@ -144,12 +144,15 @@ def kk_board(ctx, t, p):
     ctx.restore()
     if p.get("title", True):
         blit(ctx, text_img("KILL IT OR KEEP IT?", 74, "#ffd34d"), W / 2, 72)
-    cw, gap, x0, top, bot = 400, 30, 115, 140, 905
+    cols = [tuple(c) for c in p.get("cols", COLS)]   # only the piles the episode uses (v2 has no MEH)
+    gap, top, bot = 30, 140, 905
+    cw = (1690 - gap * (len(cols) - 1)) / len(cols)
+    x0 = (W - (cw * len(cols) + gap * (len(cols) - 1))) / 2
     heads = p.get("heads", 1.0)
     icons = p.get("icons", [])
     newest = len(icons) - 1
     nlast = icons[-1]["col"] if icons else None
-    for k, (name, col) in enumerate(COLS):
+    for k, (name, col) in enumerate(cols):
         x = x0 + k * (cw + gap)
         rrect(ctx, x, top, cw, bot - top, 22)
         hl = icons and name == nlast and p.get("drop", 1.0) > 0
@@ -170,7 +173,7 @@ def kk_board(ctx, t, p):
             ctx.restore()
     slots = {}
     for i, it in enumerate(icons):
-        k = [c[0] for c in COLS].index(it["col"])
+        k = [c[0] for c in cols].index(it["col"])
         n = slots.get(it["col"], 0)
         slots[it["col"]] = n + 1
         cx = x0 + k * (cw + gap) + cw / 2
@@ -185,11 +188,11 @@ def kk_board(ctx, t, p):
         draw_icon(ctx, it["ic"], cx, cy + 4 * math.sin(t * 3 + i), s, a)
     st = p.get("stamp", 0.0)
     if icons and st > 0:
-        k = [c[0] for c in COLS].index(nlast)
+        k = [c[0] for c in cols].index(nlast)
         cx = x0 + k * (cw + gap) + cw / 2
         sy = top + 200 + (slots[nlast] - 1) * 178 + 95   # just under the newest icon
         sc = 1.0 if st >= 1 else 1.9 - 0.9 * ease(st)
-        blit(ctx, text_img(STAMP[nlast], 96, COLS[k][1], 8, rot=10), min(max(cx, 260), W - 260), min(sy, 860), sc, min(1.0, st * 3))
+        blit(ctx, text_img(STAMP[nlast], 96, cols[k][1], 8, rot=10), min(max(cx, 260), W - 260), min(sy, 860), sc, min(1.0, st * 3))
 
 
 def kk_hud(ctx, t, p):
@@ -286,6 +289,9 @@ def build(outline, out_spec):
     beats, icons, chapters = [], [], []
     segs = o["segments"]
     nseg = sum(1 for s in segs if s.get("tier"))
+    cast_k = o.get("cast_k", CAST_K)   # outline override: v2 (11/5) runs the animals bigger
+    used = {s.get("tier") for s in segs}
+    cols = [list(c) for c in COLS if c[0] in used] or [list(c) for c in COLS]
     k = 0
     for seg in segs:
         if seg.get("chapter"):
@@ -297,7 +303,7 @@ def build(outline, out_spec):
             if seg.get("cast"):
                 b.setdefault("cast", seg["cast"])
             if b.get("cast") and "s" in b["cast"]:
-                b["cast"] = dict(b["cast"], s=round(b["cast"]["s"] * CAST_K, 3))
+                b["cast"] = dict(b["cast"], s=round(b["cast"]["s"] * cast_k, 3))
             if seg.get("scene") and "scene" not in b:
                 b["scene"] = seg["scene"]
                 b["scene_p"] = seg.get("scene_p", {})
@@ -317,7 +323,7 @@ def build(outline, out_spec):
                 if bd.get("add"):
                     icons.append({"ic": seg["icon"], "col": seg["tier"]})
                 off = bd.get("off", "62%")
-                p = {"on": 0.0, "icons": list(icons) if bd.get("add") else list(icons), "drop": 0.0 if bd.get("add") else 1.0,
+                p = {"cols": cols, "on": 0.0, "icons": list(icons) if bd.get("add") else list(icons), "drop": 0.0 if bd.get("add") else 1.0,
                      "stamp": 0.0, "heads": 0.0 if bd.get("heads") else 1.0}
                 at = bd.get("at", 0.0)
                 sets = [{"at": at, "dur": 0.12, "p": {"on": 1.0}}]

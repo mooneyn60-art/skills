@@ -1,0 +1,1050 @@
+{
+ "title": "3 Bugs in Your House You Should Never Kill (And 4 You Must)",
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -15,
+ "captions": 62,
+ "caption_y": 985,
+ "cut_whoosh": true,
+ "cap_key": [
+  "kill",
+  "keep",
+  "hospital",
+  "verdict",
+  "danger",
+  "meh",
+  "blood",
+  "forty",
+  "40",
+  "nine",
+  "hundred",
+  "ten",
+  "twelve",
+  "four",
+  "cdc",
+  "doctor",
+  "sick",
+  "asthma",
+  "disease",
+  "scar",
+  "venom",
+  "squish",
+  "protecting",
+  "shocker",
+  "subscribe",
+  "five",
+  "thousands"
+ ],
+ "stage": {
+  "creature": "house_centipede",
+  "actor": "house_centipede",
+  "s": 0.8,
+  "scene": "bathroom",
+  "scene_p": {
+   "time": "night"
+  }
+ },
+ "cast_k": 1.5,
+ "segments": [
+  {
+   "chapter": "Kill it or keep it?",
+   "lines": [
+    {
+     "m": "hook",
+     "say": "One bug in your house can put you in the hospital.",
+     "open": "animal",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     },
+     "cast": {
+      "creature": "brown_recluse",
+      "actor": "brown_recluse",
+      "s": 0.8
+     },
+     "card": {
+      "rows": [
+       [
+        "HOSPITAL",
+        "#ff4b3e",
+        130
+       ]
+      ],
+      "y": 120,
+      "at": "70%"
+     }
+    },
+    {
+     "m": "chase",
+     "say": "One protects you, and you squish it anyway.",
+     "scene": "bathroom",
+     "scene_p": {
+      "time": "night"
+     },
+     "cast": {
+      "creature": "house_centipede",
+      "actor": "house_centipede",
+      "s": 0.8
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "Keep: house centipede",
+   "tier": "KEEP",
+   "danger": 2,
+   "cast": {
+    "creature": "house_centipede",
+    "actor": "house_centipede",
+    "s": 0.8
+   },
+   "icon": {
+    "type": "house_centipede"
+   },
+   "scene": "bathroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "lines": [
+    {
+     "m": "name",
+     "say": "First, the shocker. The bug you squish most is the one protecting you. The house centipede.",
+     "card": {
+      "rows": [
+       [
+        "HOUSE CENTIPEDE",
+        "#ffd34d",
+        104
+       ],
+       [
+        "THE ONE YOU SQUISH",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "30%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "It comes out at night, and hunts the bugs you actually hate.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "count",
+     "say": "Cockroach babies. Bed bugs. Silverfish. Carpet beetle larvae.",
+     "with": [
+      "roach",
+      "bed_bug",
+      "silverfish",
+      {
+       "sp": "carpet_beetle",
+       "type": "sp.carpet_beetle",
+       "pop": false,
+       "s": 0.0,
+       "moves": [
+        {
+         "at": "carpet",
+         "dur": 0.3,
+         "s": 0.62
+        }
+       ]
+      }
+     ],
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "It came from around the Mediterranean, and was first found in Pennsylvania in 1849.",
+     "scene": "garden",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
+     "m": "chase",
+     "say": "Grab it by a leg, and the leg pops right off. It's built to break.",
+     "scene": "bathroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "calm",
+     "say": "Can it sting you? Only if you handle it roughly. Experts say that's rare, and not dangerous.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Verdict: keep it. It's free pest control, working the night shift.",
+     "board": {
+      "add": true,
+      "drop_at": "10%",
+      "stamp_at": "26%",
+      "off": "60%"
+     },
+     "gag": false,
+     "pad": 0.12,
+     "scene": "bathroom",
+     "scene_p": {
+      "time": "night"
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "Keep: cellar spider",
+   "tier": "KEEP",
+   "danger": 1,
+   "cast": {
+    "creature": "cellar_spider",
+    "actor": "cellar_spider",
+    "s": 0.68,
+    "creature_cfg": {
+     "floor": false,
+     "label": "cellar spider"
+    }
+   },
+   "icon": {
+    "type": "cellar_spider"
+   },
+   "scene": "basement",
+   "scene_p": {
+    "time": "night"
+   },
+   "lines": [
+    {
+     "m": "name",
+     "say": "Number two. The skinny spider hanging in your basement corner. The cellar spider.",
+     "card": {
+      "rows": [
+       [
+        "CELLAR SPIDER",
+        "#ffd34d",
+        104
+       ]
+      ],
+      "y": 150,
+      "at": "30%"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "Poke its web, and it shakes so fast it turns into a blur."
+    },
+    {
+     "m": "fact",
+     "say": "It builds loose, messy webs in dark, damp corners.",
+     "scene": "bathroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "It's one of the top hunters of other spiders in your house.",
+     "scene": "garden",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "xray",
+     "say": "And a mom carries her eggs in her jaws, everywhere she goes.",
+     "scene": "microscope"
+    },
+    {
+     "m": "calm",
+     "say": "That old story about deadly venom? Spider experts found no evidence it's dangerous to people.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Verdict: keep it. Just sweep the old webs if they bother you.",
+     "board": {
+      "add": true,
+      "drop_at": "10%",
+      "stamp_at": "26%",
+      "off": "60%"
+     },
+     "gag": false,
+     "pad": 0.12,
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "Keep: jumping spider",
+   "tier": "KEEP",
+   "danger": 1,
+   "cast": {
+    "creature": "jumping_spider",
+    "actor": "jumping_spider",
+    "s": 0.75
+   },
+   "icon": {
+    "type": "jumping_spider"
+   },
+   "scene": "sill",
+   "scene_p": {
+    "time": "day"
+   },
+   "lines": [
+    {
+     "m": "name",
+     "say": "The fuzzy jumping spider on your windowsill. Big front eyes, and no web at all.",
+     "card": {
+      "rows": [
+       [
+        "JUMPING SPIDER",
+        "#ffd34d",
+        104
+       ]
+      ],
+      "y": 150,
+      "at": "30%"
+     }
+    },
+    {
+     "m": "chase",
+     "say": "It stalks a bug, then pounces. Some can leap up to forty times their own body length.",
+     "scene": "garden",
+     "scene_p": {
+      "time": "day"
+     },
+     "card": {
+      "rows": [
+       [
+        "40X",
+        "#ffd34d",
+        140
+       ],
+       [
+        "ITS BODY LENGTH",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 120,
+      "at": "55%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "It hunts in the daytime, on your plants and across the floor.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "At night it hangs from a silk thread, and scientists caught its eyes twitching, in a sleep-like state.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "calm",
+     "say": "Bite you? Most spiders can't harm people, and its bite is usually not serious.",
+     "scene": "study",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Verdict: keep it. It eats pest insects, for free.",
+     "board": {
+      "add": true,
+      "drop_at": "10%",
+      "stamp_at": "26%",
+      "off": "60%"
+     },
+     "gag": false,
+     "pad": 0.12,
+     "scene": "sill",
+     "scene_p": {
+      "time": "day"
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "Kill: carpet beetle",
+   "tier": "KILL",
+   "danger": 2,
+   "cast": {
+    "creature": "carpet_beetle",
+    "creature_cfg": {
+     "plan": "insect",
+     "label": "carpet beetle",
+     "body": "round",
+     "color": "#6b4f3a",
+     "dark": "#efe4c8",
+     "head": "#3a2a20",
+     "length": 400,
+     "height": 230,
+     "leg_len": 90,
+     "ant": 120,
+     "stripes": 3,
+     "wings": "shell",
+     "mood": "smug",
+     "s": 0.85
+    },
+    "s": 0.85
+   },
+   "icon": {
+    "type": "sp.carpet_beetle"
+   },
+   "scene": "sill",
+   "scene_p": {
+    "time": "day"
+   },
+   "lines": [
+    {
+     "m": "name",
+     "say": "Now, the kill pile. The carpet beetle. Round, and spotted white, brown and yellow.",
+     "card": {
+      "rows": [
+       [
+        "CARPET BEETLE",
+        "#ffd34d",
+        104
+       ],
+       [
+        "THE KILL PILE",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "30%"
+     },
+     "scene": "sill",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "It's drawn to light, so you find the adults on your windows.",
+     "scene": "sill",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "The real damage is the babies, hiding in your closet. Wool, fur, feathers, silk.",
+     "scene": "fibers"
+    },
+    {
+     "m": "fact",
+     "say": "The giveaway? Their little shed skins, under furniture and along the carpet.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
+     "m": "xray",
+     "say": "Museums use their cousins to clean skeletons, down to the tiniest bones.",
+     "scene": "study",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Verdict: kill it. Vacuum the carpet edges, the closets, and under the couch.",
+     "board": {
+      "add": true,
+      "drop_at": "10%",
+      "stamp_at": "26%",
+      "off": "60%"
+     },
+     "gag": false,
+     "pad": 0.12,
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "day"
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "Kill: bed bugs",
+   "tier": "KILL",
+   "danger": 3,
+   "cast": {
+    "creature": "bed_bug",
+    "creature_cfg": {
+     "xray": "gut"
+    },
+    "s": 0.72
+   },
+   "icon": {
+    "type": "sp.bed_bug"
+   },
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "lines": [
+    {
+     "m": "name",
+     "say": "The next one drinks blood, and hides where you sleep. Bed bugs.",
+     "card": {
+      "rows": [
+       [
+        "BED BUGS",
+        "#ffd34d",
+        104
+       ],
+       [
+        "WHERE YOU SLEEP",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "30%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Their eggs are about the size of a speck of dust.",
+     "scene": "microscope"
+    },
+    {
+     "m": "escalate",
+     "say": "And every baby needs a blood meal before it can grow. Five times.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     },
+     "card": {
+      "rows": [
+       [
+        "5 MEALS",
+        "#ff4b3e",
+        130
+       ],
+       [
+        "OF BLOOD TO GROW UP",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 120,
+      "at": "60%"
+     }
+    },
+    {
+     "m": "chase",
+     "say": "They ride home in your luggage, your bags, and your folded clothes.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "In the cold, they can wait up to a year between meals.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "calm",
+     "say": "The CDC says they're not known to spread disease. But the bites itch.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Verdict: kill it, fast. One female can lay hundreds of eggs in her life.",
+     "board": {
+      "add": true,
+      "drop_at": "10%",
+      "stamp_at": "26%",
+      "off": "60%"
+     },
+     "gag": false,
+     "pad": 0.12,
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "Kill: cockroach",
+   "tier": "KILL",
+   "danger": 6,
+   "cast": {
+    "creature": "roach",
+    "actor": "cockroach",
+    "s": 0.9
+   },
+   "icon": {
+    "type": "cockroach"
+   },
+   "scene": "kitchen",
+   "scene_p": {
+    "time": "night"
+   },
+   "lines": [
+    {
+     "m": "name",
+     "say": "The next three can actually make you sick. The cockroach.",
+     "card": {
+      "rows": [
+       [
+        "COCKROACH",
+        "#ffd34d",
+        104
+       ],
+       [
+        "CAN MAKE YOU SICK",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "30%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "One egg case can hatch up to forty babies.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     },
+     "card": {
+      "rows": [
+       [
+        "40",
+        "#ffd34d",
+        150
+       ],
+       [
+        "BABIES PER EGG CASE",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 120,
+      "at": "55%"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "And one female can turn into thousands of roaches in under a year.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "chase",
+     "say": "Step on it? It can survive nine hundred times its own weight pressing down.",
+     "scene": "bathroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "It can even live for weeks without its head.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "xray",
+     "say": "The real danger is what it leaves behind. Droppings and shed skins can trigger asthma, especially in kids.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Verdict: kill it. Then take away the crumbs and the water it lives on.",
+     "board": {
+      "add": true,
+      "drop_at": "10%",
+      "stamp_at": "26%",
+      "off": "60%"
+     },
+     "gag": false,
+     "pad": 0.12,
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "Kill: house mouse",
+   "tier": "KILL",
+   "danger": 7,
+   "cast": {
+    "creature": "house_mouse",
+    "s": 0.65
+   },
+   "icon": {
+    "type": "sp.house_mouse"
+   },
+   "scene": "kitchen",
+   "scene_p": {
+    "time": "night"
+   },
+   "lines": [
+    {
+     "m": "name",
+     "say": "This one gets more people than you'd think. The house mouse.",
+     "card": {
+      "rows": [
+       [
+        "HOUSE MOUSE",
+        "#ffd34d",
+        104
+       ]
+      ],
+      "y": 150,
+      "at": "30%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "It doesn't even need to drink. It can get its water from your food.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "It chews through wires, gas lines and appliance cords.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "A female can have up to ten litters a year.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     },
+     "card": {
+      "rows": [
+       [
+        "10 LITTERS",
+        "#ffd34d",
+        120
+       ],
+       [
+        "A YEAR",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 120,
+      "at": "55%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "It rarely goes more than thirty feet from its nest. So if you see one, the nest is close.",
+     "scene": "bathroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "xray",
+     "say": "And mice can carry diseases, like salmonella and leptospirosis.",
+     "scene": "microscope"
+    },
+    {
+     "m": "calm",
+     "say": "Found droppings? Don't sweep them dry. The CDC says soak them with disinfectant first, with gloves on.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Verdict: kill it, or trap it. Then seal every gap a quarter inch or wider.",
+     "board": {
+      "add": true,
+      "drop_at": "10%",
+      "stamp_at": "26%",
+      "off": "60%"
+     },
+     "gag": false,
+     "pad": 0.12,
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "Danger: black widow",
+   "tier": "DANGER",
+   "danger": 8,
+   "cast": {
+    "creature": "black_widow",
+    "actor": "black_widow",
+    "s": 0.8
+   },
+   "icon": {
+    "type": "black_widow"
+   },
+   "scene": "basement",
+   "scene_p": {
+    "time": "night"
+   },
+   "lines": [
+    {
+     "m": "name",
+     "say": "The last two can put you in the hospital. The black widow.",
+     "card": {
+      "rows": [
+       [
+        "BLACK WIDOW",
+        "#ffd34d",
+        104
+       ],
+       [
+        "THE DANGER PILE",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "30%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "It hangs upside down in a messy, sticky web, so the red hourglass faces out.",
+     "scene": "garden",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "Its venom hits your nerves. A bad bite can mean cramps that spread through your whole body, and heavy sweating.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "One female can make up to nine egg sacs in a summer.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "xray",
+     "say": "And the famous part? She rarely eats her mate. Only if she's really hungry.",
+     "scene": "microscope"
+    },
+    {
+     "m": "calm",
+     "say": "A death is very unlikely. But if one bites you, see a doctor.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Verdict: danger. Wear gloves around woodpiles and garage clutter.",
+     "board": {
+      "add": true,
+      "drop_at": "10%",
+      "stamp_at": "26%",
+      "off": "60%"
+     },
+     "gag": false,
+     "pad": 0.12,
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "Danger: brown recluse",
+   "tier": "DANGER",
+   "danger": 9,
+   "cast": {
+    "creature": "brown_recluse",
+    "actor": "brown_recluse",
+    "s": 0.8
+   },
+   "icon": {
+    "type": "brown_recluse"
+   },
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "lines": [
+    {
+     "m": "name",
+     "say": "And the one I promised. The brown recluse.",
+     "card": {
+      "rows": [
+       [
+        "BROWN RECLUSE",
+        "#ffd34d",
+        104
+       ]
+      ],
+      "y": 150,
+      "at": "30%"
+     }
+    },
+    {
+     "m": "chase",
+     "say": "It hunts at night. By dawn, it can crawl into your shoes, or the clothes on your floor.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "About one bite in ten causes real skin damage, and a scar.",
+     "scene": "skin",
+     "card": {
+      "rows": [
+       [
+        "1 IN 10",
+        "#ff4b3e",
+        130
+       ],
+       [
+        "BITES SCAR",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 120,
+      "at": "45%"
+     }
+    },
+    {
+     "m": "calm",
+     "say": "Most bites heal well on their own, and deaths are extremely rare. Still, a bad bite needs a doctor.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "xray",
+     "say": "It lives in the south-central U.S. Outside that range, you very likely don't have one.",
+     "scene": "microscope"
+    },
+    {
+     "m": "fact",
+     "say": "Striped legs, or spiny legs? Then it's not a recluse.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Verdict: danger. Shake out your shoes, and pull your bed away from the wall.",
+     "board": {
+      "add": true,
+      "drop_at": "10%",
+      "stamp_at": "26%",
+      "off": "60%"
+     },
+     "gag": false,
+     "pad": 0.12,
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     }
+    }
+   ]
+  },
+  {
+   "chapter": null,
+   "lines": [
+    {
+     "m": "fact",
+     "say": "So, which one is living in your house? Tell me in the comments.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     },
+     "cast": {
+      "creature": "brown_recluse",
+      "actor": "brown_recluse",
+      "s": 0.8
+     },
+     "end": true,
+     "pad": 10.0,
+     "gag": false
+    }
+   ]
+  }
+ ]
+}
