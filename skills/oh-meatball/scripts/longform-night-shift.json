@@ -1,0 +1,946 @@
+{
+ "title": "What Crawls Through Your House While You Sleep",
+ "title_candidates": [
+  "What Crawls Through Your House While You Sleep 🕷️",
+  "8 Things Crawling Through Your House While You Sleep",
+  "Your House at 3 AM: What's Awake While You Sleep"
+ ],
+ "thumb_plan": "A: dark bedroom, sleeping Meatball, a house centipede on the pillow edge filling a third of the frame, text '3 AM'. B: same, face-mite magnifier inset, text 'ON YOUR FACE'. Check both at 168 px.",
+ "pinned": "Which one did you NOT want to know about? 👇",
+ "_note": "Nolan 11/5: full episode, house lane, funny Meatball built in. Spine = one night, hour by hour (10 PM -> 6 AM), danger and gross-out rising, a release beat at 2 AM, twist at 6 AM. One Meatball gag per hour, inside the story. No subscribe/like/comment asks mid-video; the last line points to Kill-or-Keep for the end screen. Render: tools/drawn_keepkill.py (no tier = no board/HUD), Andrew voice, 16:9.",
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -15,
+ "captions": 62,
+ "caption_y": 985,
+ "cut_whoosh": true,
+ "cast_k": 1.5,
+ "cap_key": [
+  "night",
+  "dark",
+  "midnight",
+  "face",
+  "blood",
+  "forty",
+  "fifteen",
+  "nine",
+  "hundred",
+  "weeks",
+  "thirty",
+  "asthma",
+  "cdc",
+  "dreaming",
+  "mouth",
+  "breath",
+  "mate",
+  "pillow",
+  "skin",
+  "trophy",
+  "hunter"
+ ],
+ "stage": {
+  "creature": "house_centipede",
+  "actor": "house_centipede",
+  "s": 0.8,
+  "scene": "bedroom",
+  "scene_p": {
+   "time": "night"
+  }
+ },
+ "segments": [
+  {
+   "chapter": "Lights out",
+   "lines": [
+    {
+     "m": "hook",
+     "say": "Tonight, after you turn off the light, your house gets a whole new crew.",
+     "open": "animal",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     },
+     "cast": {
+      "creature": "house_centipede",
+      "actor": "house_centipede",
+      "s": 0.8
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "One of them hunts the others in the dark. And one will crawl across your face.",
+     "scene": "bathroom",
+     "scene_p": {
+      "time": "night"
+     },
+     "cast": {
+      "creature": "house_centipede",
+      "actor": "house_centipede",
+      "s": 0.8
+     }
+    },
+    {
+     "m": "fact",
+     "say": "So Meatball stayed up all night with a flashlight, to watch the night shift.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     },
+     "prop": "flashlight",
+     "pose": "nervous",
+     "gag": {
+      "clock": 1.0
+     },
+     "cast": {
+      "creature": "house_centipede",
+      "actor": "house_centipede",
+      "s": 0.8
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "10 PM: silverfish",
+   "cast": {
+    "creature": "silverfish",
+    "s": 0.75
+   },
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   },
+   "_sources": [
+    "CT Ag. Experiment Station, Silverfish and Firebrats fact sheet",
+    "Univ. of Maryland, Bug of the Week: Ancient insect in a modern world (2021)"
+   ],
+   "lines": [
+    {
+     "m": "name",
+     "say": "Ten PM. Lights off. First one out: the silverfish.",
+     "card": {
+      "rows": [
+       [
+        "10:00 PM",
+        "#ffd34d",
+        120
+       ],
+       [
+        "SILVERFISH",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 130,
+      "at": "25%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "It hates light, so it spends the day in cracks, and waits for dark.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "chase",
+     "say": "Meatball clicked on his flashlight. Gone. Straight back into the crack.",
+     "prop": "flashlight",
+     "pose": "shock"
+    },
+    {
+     "m": "fact",
+     "say": "It's out for starch. Book glue, paper, cereal, wallpaper paste.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "It can take two years to grow up, and it keeps shedding its skin its whole life.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Its cousin, the firebrat, goes for the warmest spot in the house, right by your furnace.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "xray",
+     "say": "And its family is ancient. Silverfish-like insects were around before the dinosaurs.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     },
+     "gag": {
+      "prop": "skull"
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "11 PM: cockroaches",
+   "cast": {
+    "creature": "roach",
+    "actor": "cockroach",
+    "s": 0.9
+   },
+   "scene": "kitchen",
+   "scene_p": {
+    "time": "night"
+   },
+   "_sources": [
+    "Univ. of Kentucky Entomology, Cockroach Control Manual (ENTFACT-614)",
+    "Jayaram & Full 2016, PNAS (UC Berkeley News)",
+    "Scientific American, Fact or fiction: a cockroach can live without its head"
+   ],
+   "lines": [
+    {
+     "m": "name",
+     "say": "Eleven PM. The kitchen opens for business. Cockroaches.",
+     "card": {
+      "rows": [
+       [
+        "11:00 PM",
+        "#ffd34d",
+        120
+       ],
+       [
+        "COCKROACHES",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 130,
+      "at": "25%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "They hide in cracks all day, and come out at night to eat almost anything you leave out.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "One egg case can hatch up to forty babies.",
+     "card": {
+      "rows": [
+       [
+        "40",
+        "#ffd34d",
+        120
+       ],
+       [
+        "BABIES PER EGG CASE",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 130,
+      "at": "35%"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "And one female can turn into thousands of roaches in under a year.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "chase",
+     "say": "They can squeeze through a crack about as thin as two stacked pennies.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "chase",
+     "say": "Meatball tried to step on one. It can survive nine hundred times its own weight pressing down.",
+     "pose": "shock",
+     "card": {
+      "rows": [
+       [
+        "900X",
+        "#ffd34d",
+        120
+       ],
+       [
+        "ITS OWN WEIGHT",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 130,
+      "at": "60%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Meatball stepped harder. It can even live for weeks without its head.",
+     "pose": "facepalm",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "But the real danger is what it leaves behind. Droppings and shed skins can trigger asthma, especially in kids.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "punch",
+     "say": "Meatball checked the clock. Eleven fifteen. It was going to be a long night.",
+     "pose": "deadpan",
+     "gag": {
+      "clock": 0.5
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "Midnight: the hunter",
+   "cast": {
+    "creature": "house_centipede",
+    "actor": "house_centipede",
+    "s": 0.8
+   },
+   "scene": "bathroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "_sources": [
+    "Penn State Extension, House Centipedes",
+    "CT Ag. Experiment Station, House Centipede fact sheet",
+    "Frontiers in Zoology (2024), leg autotomy",
+    "Penn State Extension, House Centipedes (origin, 1849)"
+   ],
+   "lines": [
+    {
+     "m": "name",
+     "say": "Midnight. The hunter wakes up. The house centipede.",
+     "card": {
+      "rows": [
+       [
+        "12:00 AM",
+        "#ffd34d",
+        120
+       ],
+       [
+        "THE HUNTER",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 130,
+      "at": "25%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Up to fifteen pairs of legs. And it didn't come for you. It came for the cockroaches.",
+     "with": [
+      "roach"
+     ],
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "chase",
+     "say": "It runs them down, and eats them. Silverfish too. Even bed bugs.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "It's not even from here. It came from around the Mediterranean, and was first found in Pennsylvania in 1849.",
+     "scene": "garden",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "So if you see one, it's finding food in your house. Which means you have other bugs.",
+     "pose": "facepalm",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Grab it by a leg, and the leg pops right off. It's built to break.",
+     "scene": "bathroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "calm",
+     "say": "Can it bite you? Only if you grab it, and experts say it isn't dangerous.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "punch",
+     "say": "Meatball gave it a trophy. Employee of the night.",
+     "gag": {
+      "prop": "trophy"
+     },
+     "pose": "present"
+    }
+   ]
+  },
+  {
+   "chapter": "1 AM: something in the walls",
+   "cast": {
+    "creature": "house_mouse",
+    "s": 0.65
+   },
+   "scene": "kitchen",
+   "scene_p": {
+    "time": "night"
+   },
+   "_sources": [
+    "UC IPM Pest Notes: House Mouse (Pub. 7483)",
+    "CDC, How to Clean Up After Rodents"
+   ],
+   "lines": [
+    {
+     "m": "name",
+     "say": "One AM. Scratching, inside the wall. The house mouse.",
+     "card": {
+      "rows": [
+       [
+        "1:00 AM",
+        "#ffd34d",
+        120
+       ],
+       [
+        "HOUSE MOUSE",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 130,
+      "at": "25%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Mice are busiest at night, and they don't even need to drink. They get water from your food.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "So it's eating your snacks, and drinking them too.",
+     "pose": "deadpan",
+     "gag": {
+      "thought": "cube"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "It chews through wires, and it can squeeze through a gap about the width of a pencil.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "It also chews gas lines and appliance cords. And a female can have up to ten litters a year.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "And it rarely goes more than thirty feet from its nest. So if you see one, the nest is close.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "calm",
+     "say": "Found droppings? Don't sweep them dry. The CDC says soak them with disinfectant first, with gloves on.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "2 AM: a spider is asleep",
+   "cast": {
+    "creature": "jumping_spider",
+    "actor": "jumping_spider",
+    "s": 0.75
+   },
+   "scene": "sill",
+   "scene_p": {
+    "time": "night"
+   },
+   "_sources": [
+    "Missouri Dept. of Conservation, Life on a Thread (2024)",
+    "Rößler et al. 2022, PNAS, REM-like sleep in jumping spiders"
+   ],
+   "lines": [
+    {
+     "m": "name",
+     "say": "Two AM. On your window, something is sleeping. A jumping spider.",
+     "card": {
+      "rows": [
+       [
+        "2:00 AM",
+        "#ffd34d",
+        120
+       ],
+       [
+        "JUMPING SPIDER",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 130,
+      "at": "25%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Big front eyes, and no web at all. In the daytime it stalks bugs on your windowsill, then pounces.",
+     "scene": "sill",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
+     "m": "chase",
+     "say": "Some can leap up to forty times their own body length.",
+     "scene": "garden",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "It hangs from a single silk thread, all night.",
+     "scene": "sill",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "xray",
+     "say": "And scientists filmed its eyes twitching, in a sleep-like state. They think it might even be dreaming.",
+     "scene": "microscope"
+    },
+    {
+     "m": "punch",
+     "say": "Meatball tucked it in.",
+     "pose": "psst",
+     "gag": {
+      "prop": "bed"
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "3 AM: the spider myth",
+   "cast": {
+    "creature": "wolf_spider",
+    "actor": "wolf_spider",
+    "s": 0.75
+   },
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "_sources": [
+    "Burke Museum, Spider Myths",
+    "Scientific American (2014), Fact or fiction: we swallow spiders in our sleep",
+    "Penn State Extension, Cellar Spiders",
+    "UC Riverside Spider Research (R. Vetter)"
+   ],
+   "lines": [
+    {
+     "m": "name",
+     "say": "Three AM. The question everybody asks. Do spiders crawl into your mouth while you sleep?",
+     "card": {
+      "rows": [
+       [
+        "3:00 AM",
+        "#ffd34d",
+        120
+       ],
+       [
+        "THE BIG QUESTION",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 130,
+      "at": "25%"
+     }
+    },
+    {
+     "m": "calm",
+     "say": "That eight spiders a year thing? Spider experts say there's no evidence for it. At all.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "To a spider, a sleeping human is a giant, breathing, rumbling mountain. Most stay far away.",
+     "pose": "laugh"
+    },
+    {
+     "m": "fact",
+     "say": "The spider most likely near your bed? A skinny cellar spider in the corner. And it mostly hunts other spiders.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     },
+     "cast": {
+      "creature": "cellar_spider",
+      "actor": "cellar_spider",
+      "s": 0.68,
+      "creature_cfg": {
+       "floor": false,
+       "label": "cellar spider"
+      }
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "But something else really is in your bed tonight. And it wants your blood.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "4 AM: bed bugs",
+   "cast": {
+    "creature": "bed_bug",
+    "creature_cfg": {
+     "xray": "gut"
+    },
+    "s": 0.72
+   },
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "_sources": [
+    "Univ. of Kentucky Entomology, Bed Bugs (ENTFACT-636)",
+    "US EPA, Bed Bugs: Appearance and Life Cycle",
+    "CDC, About Bed Bugs",
+    "Univ. of Kentucky ENTFACT-636 (eggs, starvation, travel)"
+   ],
+   "lines": [
+    {
+     "m": "name",
+     "say": "Four AM. If you have bed bugs, this is feeding time. Usually just before dawn.",
+     "card": {
+      "rows": [
+       [
+        "4:00 AM",
+        "#ff4b3e",
+        120
+       ],
+       [
+        "BED BUGS",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 130,
+      "at": "25%"
+     }
+    },
+    {
+     "m": "chase",
+     "say": "They find you by your breath. The carbon dioxide you breathe out leads them right to you."
+    },
+    {
+     "m": "xray",
+     "say": "A bite takes a few minutes, and you usually don't feel a thing.",
+     "scene": "microscope"
+    },
+    {
+     "m": "fact",
+     "say": "Then they crawl back into the seams of your mattress, and hide.",
+     "scene": "fibers"
+    },
+    {
+     "m": "xray",
+     "say": "Their eggs are about the size of a speck of dust.",
+     "scene": "microscope"
+    },
+    {
+     "m": "escalate",
+     "say": "They hitch a ride home in your luggage, your bags, and your folded clothes.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "And in the cold, they can wait up to a year between meals.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Meatball tried sleeping with the flashlight on. They don't care. They still come out.",
+     "prop": "flashlight",
+     "pose": "facepalm"
+    },
+    {
+     "m": "calm",
+     "say": "The CDC says they're not known to spread disease. But the bites itch, a lot.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "5 AM: on your face",
+   "cast": {
+    "creature": "demodex",
+    "s": 0.8
+   },
+   "scene": "skin",
+   "_sources": [
+    "Smith et al. 2022, Molecular Biology and Evolution (Univ. of Reading release)",
+    "Thoemmes et al. 2014, PLOS ONE"
+   ],
+   "lines": [
+    {
+     "m": "name",
+     "say": "Five AM. The grossest one. It's on your face, right now. Face mites.",
+     "card": {
+      "rows": [
+       [
+        "5:00 AM",
+        "#ff4b3e",
+        120
+       ],
+       [
+        "ON YOUR FACE",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 130,
+      "at": "25%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "They're called Demodex. They live head down in the pores of your face, eating the oil.",
+     "scene": "microscope"
+    },
+    {
+     "m": "xray",
+     "say": "Each one is about a third of a millimeter long. Way too small to see.",
+     "scene": "microscope"
+    },
+    {
+     "m": "xray",
+     "say": "Scientists checked adults, and found them on every single person they tested.",
+     "scene": "skin"
+    },
+    {
+     "m": "escalate",
+     "say": "And at night, they crawl out of your pores, across your face, to find a mate.",
+     "scene": "skin"
+    },
+    {
+     "m": "fact",
+     "say": "Meatball has washed his face eleven times since he found this out.",
+     "prop": "magnifier",
+     "pose": "shock",
+     "scene": "bathroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "calm",
+     "say": "Good news: they're normal, and usually harmless. They're just very, very close.",
+     "scene": "skin"
+    }
+   ]
+  },
+  {
+   "chapter": "6 AM: the ones that never leave",
+   "cast": {
+    "creature": "dust_mite",
+    "s": 0.8
+   },
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "day"
+   },
+   "_sources": [
+    "American Lung Association, Dust Mites",
+    "AAAAI, Dust Mite Allergy",
+    "AAAAI: keep indoor humidity below 50%"
+   ],
+   "lines": [
+    {
+     "m": "name",
+     "say": "Six AM. Alarm. You survived the night shift.",
+     "card": {
+      "rows": [
+       [
+        "6:00 AM",
+        "#ffd34d",
+        120
+       ],
+       [
+        "ALARM",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 130,
+      "at": "25%"
+     },
+     "pose": "laugh",
+     "gag": {
+      "clock": 2.0
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "Except one crew never clocks out. Dust mites. In your pillow, right now.",
+     "scene": "fibers"
+    },
+    {
+     "m": "fact",
+     "say": "They eat the flakes of skin you shed every night.",
+     "scene": "microscope"
+    },
+    {
+     "m": "fact",
+     "say": "They can't drink. They pull water out of the air, so a humid bedroom is their favorite.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "They don't bite. But their droppings are one of the top triggers of allergies and asthma.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "And keep the air in your bedroom below fifty percent humidity.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
+     "m": "calm",
+     "say": "The fix: wash your sheets and pillowcases in hot water every week.",
+     "scene": "bathroom",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
+     "m": "punch",
+     "say": "So tonight, when you turn off the light, now you know who's clocking in.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     },
+     "cast": {
+      "creature": "house_centipede",
+      "actor": "house_centipede",
+      "s": 0.8
+     }
+    }
+   ]
+  },
+  {
+   "chapter": null,
+   "lines": [
+    {
+     "m": "fact",
+     "say": "And if you want to know which of them you should actually kill, that one's next.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     },
+     "cast": {
+      "creature": "house_centipede",
+      "actor": "house_centipede",
+      "s": 0.8
+     },
+     "end": true,
+     "pad": 10.0,
+     "gag": false
+    }
+   ]
+  }
+ ]
+}
