@@ -16,7 +16,7 @@ const BS = 0.006;           // adult bed bug ~6 mm (EPA: 5-7 mm)
 const SEAM_Z = 0.752, SEAM_X = 0.35;
 const BUGP = [0.12, 0.3, 2.4];   // the bug on the sheet (line 1)
 
-function makeBedroom() {
+export function makeBedroom() {   // shared with ep_dustmites.js
   const g = new THREE.Group();
   const wood = texMat(canvasTex(256, 256, (c, w) => { for (let i = 0; i < 8; i++) { c.fillStyle = shade('#8a6040', ((i * 37) % 9) - 4); c.fillRect(0, i * 32, w, 31); c.fillStyle = '#5a3d26'; c.fillRect(0, i * 32 + 31, w, 1); } }, [5, 5]));
   const fl = new THREE.Mesh(new THREE.PlaneGeometry(3.8, 3.6), wood); fl.rotation.x = -Math.PI / 2; fl.position.set(0.8, 0, 0.8); fl.receiveShadow = true; g.add(fl);
