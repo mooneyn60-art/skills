@@ -102,7 +102,7 @@ Pick episodes from `CALENDAR_REALISTIC.md`, top down. Any Short that beats 2x th
 7. **TikTok cut:** the same footage, 60-75 s (add 3-4 more facts), for Creator Rewards.
 
 ## Posting
-- **YouTube:** 2 a day, **weekdays 10:00 + 16:00 ET, weekends 08:00 + 14:00 ET** (Studio 11/3). Queue ≤7 days ahead.
+- **YouTube (Nolan 11/6, from the Metricool read):** **3 Shorts a day**, house shows only: **weekdays 10:00 + 16:00 + 19:00 ET, weekends 08:00 + 14:00 + 19:00 ET**. Each Short gets ~1,000 views from its test batch and none break out yet, so daily views track the upload count (7-8/day = 6-7K views, 1-2/day = 0.7-2.4K). Queue ≤7 days ahead. Never put a Short in the same slot as the long-form.
 - **TikTok:** 2-3 a day in the 12-5 pm window.
 - **Title:** one bizarre, specific claim ("This Bird Has a Dagger on Each Foot"). No "Did you know", no TRUE/FALSE.
 - **Description:** line 1 restates the claim with the search words (daddy long legs, venomous spider...), then "Sources:" and the credit lines from `footage/<slug>/credits.json` (required for CC BY / BY-SA).
