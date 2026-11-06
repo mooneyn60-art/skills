@@ -38,3 +38,11 @@
 New open-question pinned comments on 11 scheduled YouTube posts (#48, #37, #38, Kill-or-Keep, #39, #40, #41, #42, #43, Mommy
 Longlegs #12, honey badger #24, #44; the honey badger one no longer asks "seen one in your house"). Azorian was already live at 5 PM
 (Nolan edits its pinned comment in Studio). Dust mites #49 kept its pillowcase question. TikTok caption polls not changed yet.
+
+## Metricool YouTube read, 11/6 (10/9-11/6; Metricool has no daily data after 11/3 yet)
+- Every Short stalls at ~1,000-1,350 views. Of ~45 Shorts, one passed 2K (daddy longlegs myth, 2,307); next best mattress mites 1,643.
+- Engagement is the weak signal: likes ~0.5-1.5% of views, comments 0-1, shares 0-1 a Short; average view duration 4-10 s.
+- Daily views track how many Shorts went up: 7-8 uploads/day (10/25-10/27) → 6-7K views/day; 1-2/day (10/30-11/3) → 0.7-2.4K/day.
+- Traffic: Shorts feed 40,040 (90%), YouTube search 3,021, channel page 294, Related video 270, subscriber feed 184.
+- Subs 942 (10/19) → 985 (11/6): +43 in 18 days, ~1.4 per 1,000 views.
+- "This Spider Hides in Your Shoes... (Is This Spider Venomous? #2)" (11/3): 14 views where its neighbours got 1K+. Check Studio for a restriction/age-gate or a wrong format.
