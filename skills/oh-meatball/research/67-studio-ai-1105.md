@@ -55,3 +55,11 @@ Longlegs #12, honey badger #24, #44; the honey badger one no longer asks "seen o
 - Still Nolan (Studio only): Related video links; Azorian pinned comment; check "This Spider Hides in Your Shoes" (36 views,
   vertical 17 s, no age limit: likely limited by the "venom can kill skin" claim); render Night Shift.
 - Still off-niche on TikTok 11/11-11/12 afternoons (giraffe, kangaroo, booby, archerfish): captions fixed, topics not swapped.
+
+## Correction 11/6 11:46 ET
+- Two of the 10 "unposted" Shorts were already on YouTube under other titles (house spider v6 = "2 Spiders in Your House to Fear"
+  11/4; scabies v6 = "8 Weeks of Mites in Your Skin" 11/4). Both set back to draft (Sun 11/8 and Tue 11/10 7 PM slots now empty).
+  Dedupe by topic and file stem in posted.csv, not by title words.
+- Flop pattern (public counts 11/6): every recent Short sits at ~1,000-1,600 except two at 36-39 views, both skin/medical-harm
+  topics ("venom can kill skin", "mites in your skin"). Likely limited by YouTube's medical/graphic handling. Avoid skin-damage and
+  burrowing-parasite hooks on YouTube.
