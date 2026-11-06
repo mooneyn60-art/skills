@@ -16,7 +16,7 @@ const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/cs
   const port = server.address().port;
   const scale = parseFloat(arg('scale', '1'));
   const browser = await chromium.launch({ args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
-  const page = await browser.newPage({ viewport: { width: 1080, height: 1920 }, deviceScaleFactor: scale });
+  const page = await browser.newPage({ viewport: { width: +arg('w', '1080'), height: +arg('h', '1920') }, deviceScaleFactor: scale });
   page.on('console', (m) => { if (m.type() === 'error' || m.type() === 'warning') console.error('[page]', m.text()); });
   page.on('pageerror', (e) => console.error('[pageerror]', e.message));
   await page.goto(`http://127.0.0.1:${port}/${arg('page', 'src/index.html')}`);

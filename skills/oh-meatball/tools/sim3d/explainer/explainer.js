@@ -20,11 +20,12 @@ const V = (a) => new THREE.Vector3(...a);
 const canvas = document.getElementById('c');
 const QP = new URLSearchParams(location.search);
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, preserveDrawingBuffer: true });
-renderer.setPixelRatio(QP.has('px') ? +QP.get('px') : 0.5); renderer.setSize(1080, 1920, false);
+renderer.setPixelRatio(QP.has('px') ? +QP.get('px') : 0.5); const WIDE = QP.get('wide') === '1', OW = WIDE ? 1920 : 1080, OH = WIDE ? 1080 : 1920;
+renderer.setSize(OW, OH, false);
 renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFShadowMap;
 renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(42, 1080 / 1920, 0.004, 30);
+const camera = new THREE.PerspectiveCamera(WIDE ? +(QP.get('vfov') || 34) : 42, OW / OH, 0.004, 30);
 const hemi = new THREE.HemisphereLight(0xe6eeff, 0x9a8a72, 1.2); scene.add(hemi);
 const sun = new THREE.DirectionalLight(0xfff0d8, 2.6); sun.castShadow = true; sun.shadow.mapSize.set(1024, 1024);
 sun.position.set(2.2, 4, 2.2); sun.target.position.set(0.4, 0, 0);
@@ -128,7 +129,7 @@ function camAt(t) {
 }
 
 // ---------- 2D layer ----------
-const comp = makeCompositor(canvas);
+const comp = makeCompositor(canvas, OW, OH);
 function overlay(t) {
   const c = comp.ctx; comp.begin();
   const i = lineIdx(t), cfg = PLAN.cfg[i];

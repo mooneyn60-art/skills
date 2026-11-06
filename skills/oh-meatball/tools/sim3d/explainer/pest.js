@@ -21,11 +21,12 @@ const V = (a) => new THREE.Vector3(...a);
 // ---------- renderer + lights ----------
 const canvas = document.getElementById('c');
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, preserveDrawingBuffer: true });
-renderer.setPixelRatio(QP.has('px') ? +QP.get('px') : 0.5); renderer.setSize(1080, 1920, false);
+renderer.setPixelRatio(QP.has('px') ? +QP.get('px') : 0.5); const WIDE = QP.get('wide') === '1', OW = WIDE ? 1920 : 1080, OH = WIDE ? 1080 : 1920;
+renderer.setSize(OW, OH, false);
 renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFShadowMap;
 renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(42, 1080 / 1920, 0.002, 30);
+const camera = new THREE.PerspectiveCamera(WIDE ? +(QP.get('vfov') || 34) : 42, OW / OH, 0.002, 30);
 const LT = EP.LIGHT;
 scene.background = new THREE.Color(LT.bg);
 const hemi = new THREE.HemisphereLight(LT.hemi[0], LT.hemi[1], LT.hemi[2]); scene.add(hemi);
@@ -105,7 +106,7 @@ function camAt(t) {
 }
 
 // ---------- 2D layer ----------
-const comp = makeCompositor(canvas);
+const comp = makeCompositor(canvas, OW, OH);
 function overlay(t) {
   const c = comp.ctx; comp.begin();
   if (PLAN.overlay) PLAN.overlay(c, t);   // episode 2D layer (e.g. a microscope iris), under the cards + captions

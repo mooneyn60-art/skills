@@ -6,10 +6,14 @@ export function makeCompositor(glCanvas, outW = 1080, outH = 1920) {
   out.width = outW; out.height = outH;
   const ctx = out.getContext('2d');
   ctx.imageSmoothingQuality = 'high';
-  const k = out.width / 1080;
+  // portrait: k = width / 1080. Landscape (16:9 long-form): the same 1080x1920 text space, scaled to the frame
+  // height and centred (captions and cards sit in the middle column; WIDE_K enlarges them a little).
+  const wide = outW > outH;
+  const k = wide ? (outH / 1920) * (globalThis.WIDE_K || 1.25) : out.width / 1080;
+  const ox = wide ? (outW - 1080 * k) / 2 : 0, oy = wide ? (outH - 1920 * k) / 2 : 0;
   return {
-    ctx,
-    begin() { ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.drawImage(glCanvas, 0, 0, outW, outH); ctx.setTransform(k, 0, 0, k, 0, 0); },
+    ctx, wide,
+    begin() { ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.drawImage(glCanvas, 0, 0, outW, outH); ctx.setTransform(k, 0, 0, k, ox, oy); },
     jpeg(q = 0.92) { return out.toDataURL('image/jpeg', q); },
   };
 }
