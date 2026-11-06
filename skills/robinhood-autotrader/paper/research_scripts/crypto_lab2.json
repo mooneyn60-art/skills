@@ -1,0 +1,254 @@
+{
+ "tsmom BTC L1 2016-20": {
+  "strategy": {
+   "cagr": 72.8,
+   "sharpe": 1.07,
+   "maxdd": -67
+  },
+  "hold": {
+   "cagr": 134.0,
+   "sharpe": 1.41,
+   "maxdd": -75
+  }
+ },
+ "tsmom BTC L1 2021-26": {
+  "strategy": {
+   "cagr": 22.6,
+   "sharpe": 0.68,
+   "maxdd": -51
+  },
+  "hold": {
+   "cagr": 17.1,
+   "sharpe": 0.56,
+   "maxdd": -73
+  }
+ },
+ "tsmom ETH L1 2016-20": {
+  "strategy": {
+   "cagr": 155.8,
+   "sharpe": 1.1,
+   "maxdd": -55
+  },
+  "hold": {
+   "cagr": 176.2,
+   "sharpe": 1.2,
+   "maxdd": -90
+  }
+ },
+ "tsmom ETH L1 2021-26": {
+  "strategy": {
+   "cagr": 18.2,
+   "sharpe": 0.58,
+   "maxdd": -51
+  },
+  "hold": {
+   "cagr": 11.2,
+   "sharpe": 0.5,
+   "maxdd": -77
+  }
+ },
+ "tsmom BTC L3 2016-20": {
+  "strategy": {
+   "cagr": 120.9,
+   "sharpe": 1.38,
+   "maxdd": -54
+  },
+  "hold": {
+   "cagr": 134.0,
+   "sharpe": 1.41,
+   "maxdd": -75
+  }
+ },
+ "tsmom BTC L3 2021-26": {
+  "strategy": {
+   "cagr": 11.9,
+   "sharpe": 0.46,
+   "maxdd": -50
+  },
+  "hold": {
+   "cagr": 17.1,
+   "sharpe": 0.56,
+   "maxdd": -73
+  }
+ },
+ "tsmom ETH L3 2016-20": {
+  "strategy": {
+   "cagr": 203.5,
+   "sharpe": 1.23,
+   "maxdd": -75
+  },
+  "hold": {
+   "cagr": 191.2,
+   "sharpe": 1.24,
+   "maxdd": -90
+  }
+ },
+ "tsmom ETH L3 2021-26": {
+  "strategy": {
+   "cagr": -2.4,
+   "sharpe": 0.21,
+   "maxdd": -66
+  },
+  "hold": {
+   "cagr": 11.2,
+   "sharpe": 0.5,
+   "maxdd": -77
+  }
+ },
+ "tsmom BTC L6 2016-20": {
+  "strategy": {
+   "cagr": 114.2,
+   "sharpe": 1.38,
+   "maxdd": -56
+  },
+  "hold": {
+   "cagr": 134.0,
+   "sharpe": 1.41,
+   "maxdd": -75
+  }
+ },
+ "tsmom BTC L6 2021-26": {
+  "strategy": {
+   "cagr": 9.0,
+   "sharpe": 0.41,
+   "maxdd": -63
+  },
+  "hold": {
+   "cagr": 17.1,
+   "sharpe": 0.56,
+   "maxdd": -73
+  }
+ },
+ "tsmom ETH L6 2016-20": {
+  "strategy": {
+   "cagr": 164.2,
+   "sharpe": 1.14,
+   "maxdd": -86
+  },
+  "hold": {
+   "cagr": 234.2,
+   "sharpe": 1.33,
+   "maxdd": -90
+  }
+ },
+ "tsmom ETH L6 2021-26": {
+  "strategy": {
+   "cagr": 3.3,
+   "sharpe": 0.31,
+   "maxdd": -72
+  },
+  "hold": {
+   "cagr": 11.2,
+   "sharpe": 0.5,
+   "maxdd": -77
+  }
+ },
+ "tsmom BTC L12 2016-20": {
+  "strategy": {
+   "cagr": 112.8,
+   "sharpe": 1.33,
+   "maxdd": -66
+  },
+  "hold": {
+   "cagr": 141.5,
+   "sharpe": 1.45,
+   "maxdd": -75
+  }
+ },
+ "tsmom BTC L12 2021-26": {
+  "strategy": {
+   "cagr": 25.9,
+   "sharpe": 0.71,
+   "maxdd": -41
+  },
+  "hold": {
+   "cagr": 17.1,
+   "sharpe": 0.56,
+   "maxdd": -73
+  }
+ },
+ "tsmom ETH L12 2016-20": {
+  "strategy": {
+   "cagr": 35.2,
+   "sharpe": 0.75,
+   "maxdd": -85
+  },
+  "hold": {
+   "cagr": 61.0,
+   "sharpe": 0.95,
+   "maxdd": -90
+  }
+ },
+ "tsmom ETH L12 2021-26": {
+  "strategy": {
+   "cagr": 10.0,
+   "sharpe": 0.43,
+   "maxdd": -56
+  },
+  "hold": {
+   "cagr": 11.2,
+   "sharpe": 0.5,
+   "maxdd": -77
+  }
+ },
+ "rotation 2016-20": {
+  "cagr": 170.0,
+  "sharpe": 1.18,
+  "maxdd": -90
+ },
+ "rotation 2021-26": {
+  "cagr": 18.4,
+  "sharpe": 0.57,
+  "maxdd": -82
+ },
+ "weekend 2023-24": {
+  "n": 75,
+  "mean": 0.29,
+  "up": 56,
+  "size": 2.66
+ },
+ "weekend 2025-26": {
+  "n": 81,
+  "mean": 0.38,
+  "up": 62,
+  "size": 1.97
+ },
+ "fomc 2016-20": {
+  "n": 39,
+  "mean": 0.85,
+  "size": 2.73,
+  "other_mean": 0.3,
+  "other_size": 2.6
+ },
+ "fomc 2021-26": {
+  "n": 46,
+  "mean": 0.44,
+  "size": 2.41,
+  "other_mean": 0.086,
+  "other_size": 2.04
+ },
+ "spy-trend 2016-20": {
+  "above": 0.569,
+  "below": -0.178,
+  "n_above": 1066,
+  "n_below": 192
+ },
+ "spy-trend 2021-26": {
+  "above": 0.121,
+  "below": 0.161,
+  "n_above": 1160,
+  "n_below": 293
+ },
+ "both-trends 2016-20": {
+  "both": 0.678,
+  "rest": 0.085,
+  "n_both": 804,
+  "n_rest": 431
+ },
+ "both-trends 2021-26": {
+  "both": 0.085,
+  "rest": 0.179,
+  "n_both": 766,
+  "n_rest": 687
+ }
+}

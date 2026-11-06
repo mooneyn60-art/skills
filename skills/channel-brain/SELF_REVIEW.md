@@ -1,0 +1,13 @@
+# Self-review (seed)
+
+Every mistake, and the check that now catches it. Copy to skills/oh-meatball/SELF_REVIEW.md.
+Seeded by TARS on 2026-10-24 from the first scan of the channel.
+
+- **Format churn.** Story parts, then quiz, then explainer within ~a week, so no format got a fair test.
+  Check: the experiment rule in channel-brain/SKILL.md (full pivot only after a lost test on ≥15 videos, or Nolan says so).
+- **Experiment log unusable.** E3-E6 each used twice; four rows have dates in the id column; six tests running on Shorts at once.
+  Check: scan.py experiment checks; one change per format per week.
+- **Stale routine docs.** routines/DAILY.md, NIGHTLY.md and WEEKLY.md still point at branch claude/off-the-lot and describe the retired
+  Oh Meatball story format ("Never mention cars" is from another project). A run that reads them does the wrong work.
+  Check: scan.py doc-drift check; fix or delete those files.
+- **Nolan had to call things out.** Check: the scan runs first every run, and the top 3 issues get fixed before production.
