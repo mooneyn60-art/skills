@@ -46,3 +46,12 @@ Longlegs #12, honey badger #24, #44; the honey badger one no longer asks "seen o
 - Traffic: Shorts feed 40,040 (90%), YouTube search 3,021, channel page 294, Related video 270, subscriber feed 184.
 - Subs 942 (10/19) → 985 (11/6): +43 in 18 days, ~1.4 per 1,000 views.
 - "This Spider Hides in Your Shoes... (Is This Spider Venomous? #2)" (11/3): 14 views where its neighbours got 1K+. Check Studio for a restriction/age-gate or a wrong format.
+
+## Applied 11/6 (Nolan: "fix all of it")
+- YouTube 3rd daily slot + the empty 11/11-11/12: 10 held house Shorts with the spoken "Subscribe. Part X" outro cut off
+  (episodes/drawn-house/yt-*-cut.mp4; the house-spider v6 cut had no outro). Titles drop the old part numbers burned into the
+  banners (they clash with posted ones). Open-question pinned comments.
+- TikTok: 21 scheduled captions 11/6-11/12 switched from yes/no polls to open questions.
+- Still Nolan (Studio only): Related video links; Azorian pinned comment; check "This Spider Hides in Your Shoes" (36 views,
+  vertical 17 s, no age limit: likely limited by the "venom can kill skin" claim); render Night Shift.
+- Still off-niche on TikTok 11/11-11/12 afternoons (giraffe, kangaroo, booby, archerfish): captions fixed, topics not swapped.
