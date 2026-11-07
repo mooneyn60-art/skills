@@ -1,0 +1,127 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -15,
+ "cut_whoosh": true,
+ "cap_key": [
+  "night",
+  "dark",
+  "midnight",
+  "face",
+  "blood",
+  "forty",
+  "fifteen",
+  "nine",
+  "hundred",
+  "weeks",
+  "thirty",
+  "asthma",
+  "cdc",
+  "dreaming",
+  "mouth",
+  "breath",
+  "mate",
+  "pillow",
+  "skin",
+  "trophy",
+  "hunter"
+ ],
+ "stage": {
+  "creature": "house_centipede",
+  "actor": "house_centipede",
+  "s": 0.8,
+  "scene": "bedroom",
+  "scene_p": {
+   "time": "night"
+  }
+ },
+ "beats": [
+  {
+   "m": "hook",
+   "say": "Tonight, after you turn off the light, your house gets a whole new crew.",
+   "open": "animal",
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "cast": {
+    "creature": "house_centipede",
+    "actor": "house_centipede",
+    "s": 0.8
+   }
+  },
+  {
+   "m": "escalate",
+   "say": "One of them hunts the others in the dark. And one will crawl across your face.",
+   "scene": "bathroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "cast": {
+    "creature": "house_centipede",
+    "actor": "house_centipede",
+    "s": 0.8
+   }
+  },
+  {
+   "m": "fact",
+   "say": "So Meatball stayed up all night with a flashlight, to watch the night shift.",
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "prop": "flashlight",
+   "pose": "nervous",
+   "gag": {
+    "clock": 1.0
+   },
+   "cast": {
+    "creature": "house_centipede",
+    "actor": "house_centipede",
+    "s": 0.8
+   }
+  },
+  {
+   "m": "escalate",
+   "say": "And the worst one doesn't show up until five AM.",
+   "scene": "skin",
+   "card": {
+    "rows": [
+     [
+      "5:00 AM",
+      "#ff4b3e",
+      120
+     ]
+    ],
+    "y": 130,
+    "at": "40%"
+   },
+   "scene_p": {
+    "time": "night"
+   },
+   "cast": {
+    "creature": "house_centipede",
+    "actor": "house_centipede",
+    "s": 0.8
+   }
+  },
+  {
+   "m": "punch",
+   "say": "Hour by hour, the whole night shift is in the video linked above.",
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "cast": {
+    "creature": "house_centipede",
+    "actor": "house_centipede",
+    "s": 0.8
+   }
+  }
+ ],
+ "captions": 72,
+ "caption_y": 1180,
+ "outro": false
+}

@@ -1,0 +1,132 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -15,
+ "cut_whoosh": true,
+ "cap_key": [
+  "kill",
+  "keep",
+  "hospital",
+  "verdict",
+  "danger",
+  "meh",
+  "blood",
+  "forty",
+  "40",
+  "nine",
+  "hundred",
+  "ten",
+  "twelve",
+  "four",
+  "cdc",
+  "doctor",
+  "sick",
+  "asthma",
+  "disease",
+  "scar",
+  "venom",
+  "squish",
+  "protecting",
+  "shocker",
+  "subscribe",
+  "five",
+  "thousands"
+ ],
+ "stage": {
+  "creature": "house_centipede",
+  "actor": "house_centipede",
+  "s": 0.8,
+  "scene": "bathroom",
+  "scene_p": {
+   "time": "night"
+  }
+ },
+ "beats": [
+  {
+   "m": "hook",
+   "say": "One bug in your house can put you in the hospital.",
+   "open": "animal",
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "cast": {
+    "creature": "brown_recluse",
+    "actor": "brown_recluse",
+    "s": 0.8
+   },
+   "card": {
+    "rows": [
+     [
+      "HOSPITAL",
+      "#ff4b3e",
+      130
+     ]
+    ],
+    "y": 120,
+    "at": "70%"
+   }
+  },
+  {
+   "m": "chase",
+   "say": "One protects you, and you squish it anyway.",
+   "scene": "bathroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "cast": {
+    "creature": "house_centipede",
+    "actor": "house_centipede",
+    "s": 0.8
+   }
+  },
+  {
+   "m": "name",
+   "say": "First, the shocker. The bug you squish most is the one protecting you. The house centipede.",
+   "card": {
+    "rows": [
+     [
+      "HOUSE CENTIPEDE",
+      "#ffd34d",
+      104
+     ],
+     [
+      "THE ONE YOU SQUISH",
+      "#ffffff",
+      46,
+      true
+     ]
+    ],
+    "y": 150,
+    "at": "30%"
+   },
+   "scene": "bathroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "cast": {
+    "creature": "house_centipede",
+    "actor": "house_centipede",
+    "s": 0.8
+   }
+  },
+  {
+   "m": "punch",
+   "say": "So which ones should you kill? And which one puts you in the hospital? The full list is in the video linked above.",
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "cast": {
+    "creature": "brown_recluse",
+    "actor": "brown_recluse",
+    "s": 0.8
+   }
+  }
+ ],
+ "captions": 72,
+ "caption_y": 1180,
+ "outro": false
+}
