@@ -27,7 +27,7 @@ export function buildPlanLong(L, T_END, S, scene, rows) {
   const bath = scene.children.find((g) => g.userData.props), tubWater = bath && bath.userData.props[1].children[1];
   const lineup = [4, 5, 7, 9, 11, 13, 15].map((pairs, k) => {
     const c = makeCentipede(); for (const l of c.userData.legs) if (l.i >= pairs) l.yaw.parent.visible = false;
-    c.userData.s0 = 0.012 + k * 0.0042; scene.add(c); return c;
+    c.userData.s0 = 0.017 + k * 0.006; scene.add(c); return c;
   });
   const babies = [0, 1, 2, 3, 4].map(() => { const b = P.makeBabyCentipede(); scene.add(b); return b; });
   const cal150 = makeCal('UP TO', '150'); scene.add(cal150);
@@ -163,7 +163,7 @@ export function buildPlanLong(L, T_END, S, scene, rows) {
       return { hideCent: 1, shots: [{ c0: [sp[0] + 0.03, 0.03, sp[1] + 0.085], l0: [sp[0] - 0.004, 0.05, sp[1]], c1: [sp[0] + 0.035, 0.025, sp[1] + 0.08], l1: [sp[0] - 0.005, 0.008, sp[1]], mv: 0.7 }] };
     },
     whisper: () => ({ mood: 'whisper', shots: [{ tgt: 'mb', yaw: mbYaw, dist: 0.3, h: 0.0, dyaw: 4, push: 0.85 }] }),
-    babies: () => ({ hideCent: 1, hideMb: 1, shots: [{ tgt: [0.3, 0.02, 0.3], yaw: 90, dist: 0.36, h: 0.1, dyaw: 3, push: 0.88 }] }),
+    babies: () => ({ hideCent: 1, hideMb: 1, shots: [{ tgt: [0.37, 0.02, 0.3], yaw: 90, dist: 0.36, h: 0.14, dyaw: 0, push: 0.94 }] }),
     map: () => ({ mbPose: 'point', shots: [{ tgt: 'mb', yaw: mbYaw, dist: 0.42, h: 0.05, ly: -0.03, dyaw: 6 }] }),
     centStill: () => ({ cent: still([0.2, 0.62, 1.2]), shots: [{ tgt: [0.2, 0.004, 0.62], yaw: 50, dist: 0.16, h: 0.15, dyaw: 14, push: 0.8 }] }),
     mapArrow: (i) => ({ mbPose: 'hips', mood: 'deadpan', shots: [{ tgt: 'mb', yaw: mbYaw, dist: 0.23, h: 0.0, dyaw: 3 }, { at: L[i].t + 0.35, tgt: 'mb', yaw: mbYaw + 10, dist: 0.45, h: 0.04, dyaw: -4 }] }),
@@ -272,7 +272,7 @@ export function buildPlanLong(L, T_END, S, scene, rows) {
     const pops = [start(iBabies) + 0.1, Wt(iBabies, 'ten'), Wt(iBabies, 'fourteen'), Wt(iBabies, 'eighteen'), Wt(iBabies, 'all'), Wt(iBabies, 'way'), Wt(iBabies, 'thirty')];
     lineup.forEach((c2, k) => {
       if (i !== iBabies || t < pops[k] - 0.05) { c2.visible = false; return; }
-      c2.visible = true; place(c2, [0.09 + k * 0.07, 0.3, -Math.PI / 2], 0.013);   // on the rug
+      c2.visible = true; place(c2, [0.1 + k * 0.068, 0.3, 0], 0.013);   // on the rug, side-on, smallest on the left
       c2.scale.setScalar(Math.max(0.0001, popS(t, pops[k] - 0.05, c2.userData.s0)));
       animateCentipede(c2, t * 0.4 + k, 1, 0.15);
     });
