@@ -10,7 +10,8 @@ export function makeCompositor(glCanvas, outW = 1080, outH = 1920) {
   // height and centred (captions and cards sit in the middle column; WIDE_K enlarges them a little).
   const wide = outW > outH;
   const k = wide ? (outH / 1920) * (globalThis.WIDE_K || 1.25) : out.width / 1080;
-  const ox = wide ? (outW - 1080 * k) / 2 : 0, oy = wide ? (outH - 1920 * k) / 2 : 0;
+  // the fact card (text y >= 170) sits ~12 px under the frame top; captions land at ~82% of the height
+  const ox = wide ? (outW - 1080 * k) / 2 : 0, oy = wide ? Math.max((outH - 1920 * k) / 2, 12 - 160 * k) : 0;
   return {
     ctx, wide,
     begin() { ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.drawImage(glCanvas, 0, 0, outW, outH); ctx.setTransform(k, 0, 0, k, ox, oy); },

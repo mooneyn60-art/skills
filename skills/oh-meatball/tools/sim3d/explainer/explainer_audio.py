@@ -24,7 +24,7 @@ import music  # noqa: E402
 PERSIST = os.environ.get("MBX_PERSIST", "/home/user/mbx-persist")
 WORK = os.environ.get("MBX_WORK", "/dev/shm/mbx/work")
 FPS, GAP, BEAT = 30, 0.48, 0.32
-TAILS = {"tiktok": 1.3, "youtube": 0.3}   # YouTube Short: short tail so the last line loops into the first
+TAILS = {"tiktok": 1.3, "youtube": 0.3, "long": 4.0}   # YouTube Short: short tail so the last line loops into the first; long-form: room for the end screen
 VOICES = {"P": ("en-US-BrianNeural", "+6%", "+0Hz"), "M": ("en-US-AndrewMultilingualNeural", "+10%", "+3Hz")}
 SR = music.SR
 
@@ -112,7 +112,7 @@ async def main():
         print(f"{i:2d} {row['s']} t={t:6.2f} dur={dur:5.2f} {row['t']}", flush=True)
         t += dur + gap
     total = round(t - gap + TAILS.get(key, 1.3), 2)
-    json.dump({"key": key, "fps": FPS, "total": total, "lines": lines}, open(f"{PERSIST}/timeline-{tag}.json", "w"))
+    json.dump({"key": key, "fps": FPS, "total": total, "lines": lines, "rows": rows}, open(f"{PERSIST}/timeline-{tag}.json", "w"))
     vo = np.zeros(int(total * SR), np.float32)
     for t0, x in voice:
         a = int(round(t0 * SR))

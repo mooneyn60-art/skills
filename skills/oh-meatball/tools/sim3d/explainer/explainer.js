@@ -9,8 +9,6 @@ import { drawCaption, drawFactCard, drawMapCard, drawLease, drawWatermark } from
 import { buildPlan } from './shots.js';
 import { buildPlanYT } from './shots_yt.js';
 
-const TL = await (await fetch('../work/timeline.json')).json();
-const L = TL.lines, T_END = TL.total;
 const clamp01 = (x) => Math.max(0, Math.min(1, x));
 const ease = (x) => (x <= 0 ? 0 : x >= 1 ? 1 : x * x * (3 - 2 * x));
 const back = (x) => { const c = 1.7; x = clamp01(x); return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
@@ -19,6 +17,8 @@ const V = (a) => new THREE.Vector3(...a);
 // ---------- renderer + lights ----------
 const canvas = document.getElementById('c');
 const QP = new URLSearchParams(location.search);
+const TL = await (await fetch('../work/' + (QP.get('tl') || 'timeline.json'))).json();
+const L = TL.lines, T_END = TL.total;
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, preserveDrawingBuffer: true });
 renderer.setPixelRatio(QP.has('px') ? +QP.get('px') : 0.5); const WIDE = QP.get('wide') === '1', OW = WIDE ? 1920 : 1080, OH = WIDE ? 1080 : 1920;
 renderer.setSize(OW, OH, false);
@@ -66,7 +66,9 @@ S.legHip = looseLegOf.yaw.parent;
 const legMats = []; S.legHip.traverse((o) => { if (o.isMesh) { o.material = o.material.clone(); legMats.push([o.material, o.material.color.clone()]); } });
 const FRESH = new THREE.Color(0xfff4dc);   // a regrown leg starts pale (fresh molt), then darkens
 
-const PLAN = (TL.key === 'youtube' ? buildPlanYT : buildPlan)(L, T_END);   // timeline key: tiktok (default) | youtube
+// timeline key: tiktok (default) | youtube | long (16:9 long-form, plan module + its script rows)
+const PLAN = TL.key === 'long' ? (await import('./ep_centipede_long.js')).buildPlanLong(L, T_END, S, scene, TL.rows)
+  : (TL.key === 'youtube' ? buildPlanYT : buildPlan)(L, T_END);
 const lineIdx = (t) => { let i = 0; while (i + 1 < L.length && PLAN.start(i + 1) <= t) i++; return i; };
 const speaking = (t) => L.find((l) => t >= l.t - 0.02 && t < l.t + l.dur + 0.02);
 const env = (l, t) => { if (!l) return 0; const i = Math.floor((t - l.t) * TL.fps); return l.env[Math.max(0, Math.min(l.env.length - 1, i))] || 0; };
@@ -80,15 +82,24 @@ const popS = (t, t0, s) => s * back((t - t0) / 0.25) * (t >= t0 ? 1 : 0);
 
 function stateAt(t) {
   const i = lineIdx(t), cfg = PLAN.cfg[i], spk = speaking(t), e = env(spk, t), who = spk ? spk.who : null;
-  const night = !!cfg.night;
+  const night = !!cfg.night && !(cfg.nightUntil != null && t >= cfg.nightUntil);
   setLight(night ? NIGHT : DAY);
   S.win.userData.glassM.color.setHex(night ? 0x14234a : 0xbfe0f2); S.win.userData.moon.visible = night; S.win.userData.stars.forEach((s) => (s.visible = night));
   // centipede
   const cm = cfg.cent || { p0: PLAN.HOME, p1: PLAN.HOME, t0: 0, t1: 1 };
-  const u = clamp01((t - cm.t0) / Math.max(1e-3, cm.t1 - cm.t0)), cp = lerpP(cm.p0, cm.p1, cm.lin ? u : ease(u));
+  let cp, travel, moving;
+  if (cm.keys) {   // piecewise linear [[t, x, z, heading], ...]: runs, stops dead, runs again
+    const k = cm.keys; let j = 0; while (j + 2 < k.length && t >= k[j + 1][0]) j++;
+    const a = k[j], b = k[j + 1], v = clamp01((t - a[0]) / Math.max(1e-3, b[0] - a[0]));
+    cp = lerpP(a.slice(1), b.slice(1), v); travel = 0;
+    for (let q = 0; q < j; q++) travel += Math.hypot(k[q + 1][1] - k[q][1], k[q + 1][2] - k[q][2]);
+    travel += Math.hypot(b[1] - a[1], b[2] - a[2]) * v; moving = v > 0 && v < 1 && Math.hypot(b[1] - a[1], b[2] - a[2]) > 1e-4;
+  } else {
+    const u = clamp01((t - cm.t0) / Math.max(1e-3, cm.t1 - cm.t0)); cp = lerpP(cm.p0, cm.p1, cm.lin ? u : ease(u));
+    travel = Math.hypot(cm.p1[0] - cm.p0[0], cm.p1[1] - cm.p0[1]) * u; moving = u > 0 && u < 1;
+  }
   place(S.cent, cp); S.cent.visible = !cfg.hideCent;
-  const travel = Math.hypot(cm.p1[0] - cm.p0[0], cm.p1[1] - cm.p0[1]) * u;
-  animateCentipede(S.cent, cm.still ? 0.3 : t * 0.25 + travel * 30, 1, cm.still ? 0 : u > 0 && u < 1 ? 1 : 0.25);
+  animateCentipede(S.cent, cm.still ? 0.3 : t * 0.25 + travel * 30, 1, cm.still ? 0 : moving ? 1 : 0.25);
   {   // the dropped leg; a plan with legRegrow scales a new one back in at the hip
     const g = PLAN.legRegrow != null ? clamp01((t - PLAN.legRegrow) / 0.45) : 0, s = t < PLAN.legDrop ? 1 : Math.max(0.001, back(g));
     S.legHip.visible = t < PLAN.legDrop || g > 0; S.legHip.scale.set(s, s, looseLegOf.side * s);
@@ -125,21 +136,27 @@ function camAt(t) {
     c = tg.clone().add(new THREE.Vector3(Math.cos(yaw) * d, sh.h * (d / sh.dist), Math.sin(yaw) * d));
   }
   camera.position.copy(c); camera.lookAt(l);
+  if (QP.has('cam')) { const q = QP.get('cam').split(',').map(Number); camera.position.set(q[0], q[1], q[2]); camera.lookAt(q[3], q[4], q[5]); }   // stills (thumbnail)
   if (S.cal.visible) { S.cal.lookAt(camera.position.x, S.cal.position.y, camera.position.z); }
+  if (PLAN.faceCam) PLAN.faceCam(camera);
 }
 
 // ---------- 2D layer ----------
 const comp = makeCompositor(canvas, OW, OH);
 function overlay(t) {
   const c = comp.ctx; comp.begin();
+  if (QP.has('clean')) return;   // 3D picture only (thumbnail stills)
   const i = lineIdx(t), cfg = PLAN.cfg[i];
-  if (cfg.night) { c.save(); c.globalCompositeOperation = 'multiply'; c.fillStyle = '#9db0ea'; c.fillRect(0, 0, 1080, 1920); c.restore(); }
+  const full = (fn) => { c.save(); c.setTransform(1, 0, 0, 1, 0, 0); fn(c, OW, OH); c.restore(); };   // full-frame pixel coords
+  if (cfg.night && !(cfg.nightUntil != null && t >= cfg.nightUntil)) full((g, w, h) => { g.globalCompositeOperation = 'multiply'; g.fillStyle = '#9db0ea'; g.fillRect(0, 0, w, h); });
   const mc = PLAN.mapAt(t); if (mc) drawMapCard(c, mc.age, mc.arrow, mc.fade);
   const lc = PLAN.leaseAt(t); if (lc) drawLease(c, lc.age, lc.sig, lc.fade);
   const fc = PLAN.cardAt(t); if (fc) drawFactCard(c, fc.card, fc.src, fc.age, fc.fade);
   const cl = L.find((l) => t >= l.t - 0.05 && t < Math.min(l.t + l.dur + 0.3, (L[l.i + 1] || { t: 1e9 }).t - 0.05));
   if (cl) drawCaption(c, cl, t - cl.t);
-  drawWatermark(c);
+  if (PLAN.overlay) PLAN.overlay(c, t, full);
+  if (WIDE) full((g, w, h) => { const k = h / 1920 * 1.25; g.setTransform(k, 0, 0, k, 24 - 30 * k, h - 26 - 1772 * k); drawWatermark(g); });
+  else drawWatermark(c);
 }
 
 function render(t) { stateAt(t); camAt(t); renderer.render(scene, camera); overlay(t); }

@@ -1,0 +1,729 @@
+{
+ "_note": "First 3D long-form (16:9, Sat 11/21 08:00 ET). One story: a person finds a house centipede in the bathroom and wants to squish it; Meatball argues for it, chapter by chapter, until the person 'lets it stay, but it pays rent'. Bathroom set + cast from the approved house-centipede 3D Short (explainer.html, plan=long -> ep_centipede_long.js). Rules from research 65/66: narration on the creature from 0.0 s; no intro or comment ask before 0:25; a new reveal every 20-30 s; micro-loop teases (line 5 'paying it rent', 44 'best trick', 72 'a warning'). Each row: s = speaker (P person, Brian +6%; M Meatball, Andrew +10% +3Hz), t = line, card/src = fact card, beat = choreography (ep_centipede_long.js), ch = chapter name starting at this line. Only facts in _sources.",
+ "music": "playful",
+ "gap": 0.55,
+ "title_candidates": [
+  "The 30-Legged Bug in Your House You Should Never Kill",
+  "Don't Squish the 30-Legged Bug in Your Bathroom (Here's Why)",
+  "Why a 30-Legged Bug Is Living in Your Bathroom"
+ ],
+ "pinned_comment": "Be honest: the last time a house centipede ran across your floor, what did you actually do? 👇",
+ "thumb": "one house centipede filling the frame, low angle on the tile; text: DON'T SQUISH",
+ "sources": {
+  "psu": "https://extension.psu.edu/house-centipedes",
+  "caes": "https://portal.ct.gov/-/media/caes/documents/publications/fact_sheets/entomology/house_centipede_scutigera.pdf",
+  "uark": "https://arthropod.uark.edu/house-centipede/",
+  "wisc": "https://hort.extension.wisc.edu/files/2014/11/Centipedes.pdf",
+  "wsu": "https://pestsense.cahnrs.wsu.edu/fact-sheet/house-centipede/",
+  "frontiers": "https://frontiersinzoology.biomedcentral.com/articles/10.1186/s12983-024-00544-0"
+ },
+ "_sources": {
+  "The bug in the bathroom": [
+   "psu: 'Adult house centipedes have 15 pairs of legs'",
+   "psu: 'House centipedes feed on silverfish, firebrats, carpet beetle larvae, cockroaches, spiders'"
+  ],
+  "What's on the menu": [
+   "caes: 'actively hunt other arthropods such as cockroach nymphs, bed bugs, flies, ants, silverfish, spiders'",
+   "uark: 'feed readily on cockroach nymphs, flies, moths, bedbugs, crickets, silverfish, earwigs' / 'They can capture several prey items at one time. They feed on one specimen while holding the others'",
+   "psu: firebrats, carpet beetle larvae"
+  ],
+  "Why your bathroom": [
+   "caes: 'prefer cool, humid, dark environments ... basements, cellars, and first-floor bathrooms'",
+   "psu: 'In floor drains without water traps' / 'Under and in cardboard boxes' / 'crawl spaces' / 'do not survive winters outdoors in Pennsylvania, but readily reproduce in heated structures'"
+  ],
+  "The night shift": [
+   "psu: 'come out at night to forage for prey'",
+   "caes: 'nocturnal and incredibly wary. Most that live in houses are never seen' / 'will immediately flee if they are discovered'",
+   "wisc: 'They hunt for prey at night and can become trapped if they fall into a sink or bathtub'"
+  ],
+  "How it hunts": [
+   "caes: 'fast runners that actively chase down prey' / 'forcipules (modified pincer-like legs) located directly underneath their mouthparts'",
+   "uark: 'stopping suddenly and remaining motionless for some time before racing off once more' / 'half pouncing and half lassoing' / 'well-developed, faceted eyes' unlike most other centipedes"
+  ],
+  "Will it bite me?": [
+   "caes: 'a house centipede stinging a human is very rare ... the result of rough handling' / 'do not cause harm to structures or to stored products, fabrics, pets, or humans'",
+   "uark: 'jaws are not powerful enough to break human skin easily' / 'in most cases the bite is no worse than the sting of a bee'"
+  ],
+  "The leg trick": [
+   "frontiers (2024): legs break at a preferred autotomy plane and regenerate over later molts",
+   "caes: 'two antennae in front that are similar in appearance to their legs, making it difficult for potential predators to tell which way it is facing'"
+  ],
+  "Why it looks so scary": [
+   "psu: 'one to one and one-half inches in length ... an overall appearance of being from three to four inches in length (including legs and antennae)' / 'the last pair (on adult females) nearly twice the length of the body'"
+  ],
+  "Baby centipedes": [
+   "psu: 'produce up to 150 young' / 'Newly hatched larvae ... have four pairs of legs. During the next five larval molts ... 5, 7, 9, 11, and 13 pairs' then 15",
+   "caes: 'taking upwards of 3 years to reach sexual maturity'"
+  ],
+  "Where it came from": [
+   "psu: 'native to the Mediterranean region ... first recorded in Pennsylvania in 1849'",
+   "uark: 'It reached Pennsylvania in 1849, New York in 1885, and Massachusetts about 1890, and it now extends westward to the Rocky Mountains and beyond'"
+  ],
+  "How long it lives": [
+   "caes: 'can live as long as 7 years'"
+  ],
+  "Getting rid of them": [
+   "psu: 'If house centipedes are seen frequently, this indicates that some prey arthropod is in abundance' / 'fill or seal cracks' / 'Reduce the humidity by utilizing dehumidifiers'",
+   "caes: 'running fans or dehumidifiers. Address water issues' / 'reduces the number of hunting centipedes' / 'Using pesticides to eradicate house centipedes is not recommended'",
+   "wisc: 'there is no need for control. They are beneficial'",
+   "psu: 'Install window screens in basement floor drains' / sticky insect traps (monitors) show which arthropods are feeding the centipedes; wisc: 'Small sticky board traps can be placed in areas of activity'"
+  ],
+  "The verdict": [
+   "caes: 'beneficial residents that act as biocontrol against building pests'"
+  ]
+ },
+ "long": [
+  {
+   "ch": "The bug in the bathroom",
+   "s": "P",
+   "t": "Meatball, there's a bug with 30 legs in my bathroom.",
+   "card": "30 LEGS (15 PAIRS)",
+   "src": "psu",
+   "beat": "opening"
+  },
+  {
+   "s": "P",
+   "t": "Do I squish it?",
+   "beat": "squish"
+  },
+  {
+   "s": "M",
+   "t": "Don't! It's eating your roaches.",
+   "card": "IT EATS ROACHES",
+   "src": "psu",
+   "beat": "lunge"
+  },
+  {
+   "s": "P",
+   "t": "...How many roaches?",
+   "beat": "pTalk"
+  },
+  {
+   "s": "M",
+   "t": "Oh. / You don't want to know.",
+   "beat": "swarm"
+  },
+  {
+   "s": "M",
+   "t": "Stick around. By the end, you'll be paying it rent.",
+   "beat": "mb",
+   "mood": "smug",
+   "v": 1
+  },
+  {
+   "s": "P",
+   "t": "I am not paying a bug rent.",
+   "beat": "pTalk",
+   "pose": "back",
+   "v": 1
+  },
+  {
+   "s": "M",
+   "t": "We'll see.",
+   "beat": "mb",
+   "mood": "deadpan",
+   "pose": "hips"
+  },
+  {
+   "ch": "What's on the menu",
+   "s": "P",
+   "t": "Okay. What else does it eat?",
+   "beat": "crouch"
+  },
+  {
+   "s": "M",
+   "t": "Spiders. Silverfish. Ants. Even bed bugs.",
+   "card": "EATS BED BUGS TOO + SPIDERS, SILVERFISH, ANTS",
+   "src": "caes",
+   "beat": "menu"
+  },
+  {
+   "s": "M",
+   "t": "Flies, moths, earwigs, crickets.",
+   "card": "FLIES - MOTHS - EARWIGS - CRICKETS",
+   "src": "uark",
+   "beat": "cent",
+   "v": 0
+  },
+  {
+   "s": "M",
+   "t": "Carpet beetle larvae. Firebrats. Baby cockroaches.",
+   "card": "CARPET BEETLE LARVAE - FIREBRATS",
+   "src": "psu",
+   "beat": "cent",
+   "v": 1
+  },
+  {
+   "s": "M",
+   "t": "And here's the wild part. It can catch several bugs at once.",
+   "card": "CAN CATCH SEVERAL BUGS AT ONCE",
+   "src": "uark",
+   "beat": "multi"
+  },
+  {
+   "s": "M",
+   "t": "It eats one, while it holds the others.",
+   "beat": "multi2"
+  },
+  {
+   "s": "P",
+   "t": "It packs a lunch?!",
+   "beat": "pTalk",
+   "pose": "head"
+  },
+  {
+   "s": "M",
+   "t": "In its legs. Yes.",
+   "beat": "mb",
+   "mood": "deadpan",
+   "v": 2
+  },
+  {
+   "ch": "Why your bathroom",
+   "s": "P",
+   "t": "But why my bathroom?",
+   "beat": "pLook"
+  },
+  {
+   "s": "M",
+   "t": "It loves damp, dark spots. Like drains.",
+   "card": "BATHROOMS - BASEMENTS - DRAINS / DAMP, DARK SPOTS",
+   "src": "caes",
+   "beat": "drain"
+  },
+  {
+   "s": "M",
+   "t": "Especially floor drains with no water trap.",
+   "card": "FLOOR DRAINS WITHOUT WATER TRAPS",
+   "src": "psu",
+   "beat": "drainClose"
+  },
+  {
+   "s": "M",
+   "t": "Basements. Crawl spaces. Under cardboard boxes.",
+   "card": "CRAWL SPACES - UNDER CARDBOARD BOXES",
+   "src": "psu",
+   "beat": "boxes"
+  },
+  {
+   "s": "P",
+   "t": "Why doesn't it just live outside?",
+   "beat": "pTalk",
+   "v": 2
+  },
+  {
+   "s": "M",
+   "t": "In places like Pennsylvania, it can't survive the winter outdoors.",
+   "card": "CAN'T SURVIVE PA WINTERS OUTDOORS",
+   "src": "psu",
+   "beat": "window"
+  },
+  {
+   "s": "M",
+   "t": "But in a heated house? It breeds just fine.",
+   "card": "BREEDS IN HEATED BUILDINGS",
+   "src": "psu",
+   "beat": "wide"
+  },
+  {
+   "s": "P",
+   "t": "So I'm running a bug hotel.",
+   "beat": "pTalk",
+   "pose": "sign",
+   "v": 1
+  },
+  {
+   "s": "M",
+   "t": "Five stars. Great drains.",
+   "beat": "mb",
+   "mood": "smug",
+   "pose": "point",
+   "v": 3
+  },
+  {
+   "ch": "The night shift",
+   "s": "M",
+   "t": "And it works the night shift.",
+   "card": "HUNTS AT NIGHT / HIDES IN DAMP, DARK SPOTS BY DAY",
+   "src": "psu+caes",
+   "beat": "night"
+  },
+  {
+   "s": "P",
+   "t": "While I sleep?",
+   "beat": "nightCrouch"
+  },
+  {
+   "s": "M",
+   "t": "You're welcome.",
+   "beat": "welcome"
+  },
+  {
+   "s": "M",
+   "t": "Flip on the light, and it's gone. It flees the second it's seen.",
+   "card": "FLEES THE MOMENT IT'S SEEN",
+   "src": "caes",
+   "beat": "lightsOn"
+  },
+  {
+   "s": "M",
+   "t": "It's so sneaky, most of them are never seen at all.",
+   "card": "MOST ARE NEVER SEEN",
+   "src": "caes",
+   "beat": "wide",
+   "v": 1
+  },
+  {
+   "s": "P",
+   "t": "That's worse. That is so much worse.",
+   "beat": "headHold"
+  },
+  {
+   "s": "M",
+   "t": "Well, except the ones that fall in your tub at night and get trapped.",
+   "card": "CAN GET TRAPPED IN SINKS AND TUBS",
+   "src": "wisc",
+   "beat": "tub"
+  },
+  {
+   "s": "P",
+   "t": "So that's why it's in my tub every morning!",
+   "beat": "pTalk",
+   "pose": "back",
+   "v": 2
+  },
+  {
+   "s": "M",
+   "t": "It's not stalking you. It's stuck.",
+   "beat": "tub",
+   "v": 1,
+   "mood": "deadpan"
+  },
+  {
+   "ch": "How it hunts",
+   "s": "P",
+   "t": "How does it even catch stuff?",
+   "beat": "seated"
+  },
+  {
+   "s": "M",
+   "t": "It's a fast runner. It chases its prey down.",
+   "card": "FAST RUNNER - CHASES PREY DOWN",
+   "src": "caes",
+   "beat": "run"
+  },
+  {
+   "s": "M",
+   "t": "Sometimes it stops dead, freezes, then races off again.",
+   "card": "STOPS, FREEZES, THEN RACES OFF",
+   "src": "uark",
+   "beat": "stopGo"
+  },
+  {
+   "s": "M",
+   "t": "Then it pounces, lassos, and stings.",
+   "card": "POUNCE - LASSO - STING",
+   "src": "uark+caes",
+   "beat": "hunt"
+  },
+  {
+   "s": "P",
+   "t": "Stings? With what?",
+   "beat": "pTalk",
+   "pose": "back",
+   "v": 3
+  },
+  {
+   "s": "M",
+   "t": "A pair of legs, turned into venom pincers, right under its mouth.",
+   "card": "VENOM PINCERS = MODIFIED LEGS",
+   "src": "caes",
+   "beat": "head"
+  },
+  {
+   "s": "M",
+   "t": "And unlike most centipedes, it has real compound eyes.",
+   "card": "WELL-DEVELOPED FACETED EYES",
+   "src": "uark",
+   "beat": "head",
+   "v": 1
+  },
+  {
+   "ch": "Will it bite me?",
+   "s": "P",
+   "t": "Venom?! Will it bite me?",
+   "beat": "backAway"
+  },
+  {
+   "s": "M",
+   "t": "Almost never. Only if you grab it.",
+   "card": "STINGS ARE VERY RARE / ONLY FROM ROUGH HANDLING",
+   "src": "caes",
+   "beat": "mb",
+   "pose": "point",
+   "v": 0
+  },
+  {
+   "s": "M",
+   "t": "Its jaws can barely break human skin.",
+   "card": "JAWS CAN'T EASILY BREAK SKIN",
+   "src": "uark",
+   "beat": "head",
+   "v": 2
+  },
+  {
+   "s": "M",
+   "t": "Usually? No worse than a bee sting.",
+   "card": "USUALLY NO WORSE THAN A BEE STING",
+   "src": "uark",
+   "beat": "bee"
+  },
+  {
+   "s": "M",
+   "t": "And it won't hurt your pets, your clothes, or your house.",
+   "card": "NO HARM TO PETS, FABRICS OR BUILDINGS",
+   "src": "caes",
+   "beat": "wide",
+   "v": 2
+  },
+  {
+   "s": "P",
+   "t": "Okay, but what if I do grab it?",
+   "beat": "pTalk",
+   "pose": "slipper",
+   "v": 2
+  },
+  {
+   "s": "M",
+   "t": "Then you'll see its best trick.",
+   "beat": "mb",
+   "mood": "smug",
+   "v": 1
+  },
+  {
+   "ch": "The leg trick",
+   "s": "P",
+   "t": "Its leg just fell off!",
+   "beat": "legDrop"
+  },
+  {
+   "s": "M",
+   "t": "Normal! It drops legs to escape.",
+   "card": "DROPS A LEG TO ESCAPE",
+   "src": "frontiers",
+   "beat": "shrug"
+  },
+  {
+   "s": "M",
+   "t": "Each leg has a built-in breaking point.",
+   "card": "LEGS BREAK AT A BUILT-IN WEAK SPOT",
+   "src": "frontiers",
+   "beat": "legClose"
+  },
+  {
+   "s": "M",
+   "t": "And over its next molts, it grows the leg back.",
+   "card": "REGROWS IT OVER LATER MOLTS",
+   "src": "frontiers",
+   "beat": "regrow"
+  },
+  {
+   "s": "P",
+   "t": "Can I do that?",
+   "beat": "pTalk",
+   "v": 0
+  },
+  {
+   "s": "M",
+   "t": "No.",
+   "beat": "mb",
+   "mood": "deadpan",
+   "pose": "hips",
+   "v": 2
+  },
+  {
+   "s": "M",
+   "t": "See those long things up front? Antennae. They look just like legs.",
+   "card": "ANTENNAE LOOK LIKE LEGS",
+   "src": "caes",
+   "beat": "antennae"
+  },
+  {
+   "s": "M",
+   "t": "So a predator can't tell which end is the head.",
+   "card": "PREDATORS CAN'T TELL WHICH WAY IT FACES",
+   "src": "caes",
+   "beat": "spin"
+  },
+  {
+   "s": "P",
+   "t": "Honestly? Me neither.",
+   "beat": "pTalk",
+   "pose": "head",
+   "v": 1
+  },
+  {
+   "ch": "Why it looks so scary",
+   "s": "P",
+   "t": "Why does it look so terrifying?",
+   "beat": "pTalk",
+   "pose": "head",
+   "v": 3
+  },
+  {
+   "s": "M",
+   "t": "Its body's only about an inch long.",
+   "card": "BODY: 1 TO 1.5 INCHES",
+   "src": "psu",
+   "beat": "cent",
+   "v": 1
+  },
+  {
+   "s": "M",
+   "t": "But the legs and antennae make it look three or four inches.",
+   "card": "3-4 INCHES WITH LEGS + ANTENNAE",
+   "src": "psu",
+   "beat": "spin",
+   "v": 1
+  },
+  {
+   "s": "M",
+   "t": "And on females, the back legs can be nearly twice as long as the body.",
+   "card": "BACK LEGS: NEARLY 2X THE BODY",
+   "src": "psu",
+   "beat": "rear"
+  },
+  {
+   "s": "P",
+   "t": "I hate that.",
+   "beat": "pTalk",
+   "v": 2
+  },
+  {
+   "ch": "Baby centipedes",
+   "s": "P",
+   "t": "Wait. Does it have babies?",
+   "beat": "seated",
+   "v": 1
+  },
+  {
+   "s": "M",
+   "t": "One female can have up to 150.",
+   "card": "UP TO 150 YOUNG",
+   "src": "psu",
+   "beat": "cal150"
+  },
+  {
+   "s": "M",
+   "t": "Babies hatch with only 8 legs.",
+   "card": "BABIES HATCH WITH 8 LEGS (4 PAIRS)",
+   "src": "psu",
+   "beat": "baby"
+  },
+  {
+   "s": "P",
+   "t": "So they're spiders?",
+   "beat": "spiderDrop"
+  },
+  {
+   "s": "M",
+   "t": "Don't tell them.",
+   "beat": "whisper"
+  },
+  {
+   "s": "M",
+   "t": "Every molt, they add more. Ten legs. Fourteen. Eighteen. All the way to thirty.",
+   "card": "4, 5, 7, 9, 11, 13, THEN 15 PAIRS",
+   "src": "psu",
+   "beat": "babies"
+  },
+  {
+   "s": "M",
+   "t": "It can take three years just to grow up.",
+   "card": "UPWARDS OF 3 YEARS TO MATURE",
+   "src": "caes",
+   "beat": "cal3"
+  },
+  {
+   "s": "P",
+   "t": "Three years? My phone doesn't last that long.",
+   "beat": "pTalk",
+   "v": 3
+  },
+  {
+   "ch": "Where it came from",
+   "s": "P",
+   "t": "Where's it from, anyway?",
+   "beat": "seated",
+   "v": 2
+  },
+  {
+   "s": "M",
+   "t": "The Mediterranean.",
+   "card": "NATIVE TO THE MEDITERRANEAN",
+   "src": "psu+caes",
+   "beat": "map"
+  },
+  {
+   "s": "P",
+   "t": "So it's on vacation?",
+   "beat": "centStill"
+  },
+  {
+   "s": "M",
+   "t": "Permanently.",
+   "card": "FIRST U.S. RECORD 1849 / PENNSYLVANIA",
+   "src": "psu",
+   "beat": "mapArrow"
+  },
+  {
+   "s": "M",
+   "t": "Pennsylvania by eighteen forty-nine. New York by eighteen eighty-five. Then it kept heading west.",
+   "card": "PA 1849 - NY 1885 - THEN WEST",
+   "src": "uark",
+   "beat": "mapHold"
+  },
+  {
+   "s": "P",
+   "t": "So it's been here longer than me.",
+   "beat": "pTalk",
+   "pose": "sign",
+   "v": 0
+  },
+  {
+   "s": "M",
+   "t": "It's got seniority.",
+   "beat": "mb",
+   "mood": "smug",
+   "pose": "hips",
+   "v": 3
+  },
+  {
+   "ch": "How long it lives",
+   "s": "P",
+   "t": "How long do they live?",
+   "beat": "pTalk",
+   "v": 1
+  },
+  {
+   "s": "M",
+   "t": "Up to seven years.",
+   "card": "UP TO 7 YEARS",
+   "src": "caes",
+   "beat": "cal7"
+  },
+  {
+   "s": "P",
+   "t": "Seven?! How do I make it leave?",
+   "beat": "headHold"
+  },
+  {
+   "ch": "Getting rid of them",
+   "s": "M",
+   "t": "First, a warning. If you see a lot of them...",
+   "beat": "mb",
+   "mood": "whisper",
+   "v": 0
+  },
+  {
+   "s": "M",
+   "t": "...you've got a bigger bug problem. They go where the food is.",
+   "card": "SEEING LOTS OF THEM = LOTS OF PREY",
+   "src": "psu",
+   "beat": "swarm2"
+  },
+  {
+   "s": "P",
+   "t": "So the centipede is the smoke detector.",
+   "beat": "pTalk",
+   "pose": "sign",
+   "v": 2
+  },
+  {
+   "s": "M",
+   "t": "Exactly. Don't blame the alarm.",
+   "beat": "mb",
+   "pose": "point",
+   "v": 1
+  },
+  {
+   "s": "M",
+   "t": "Dry the room. Fix leaks. Clear clutter.",
+   "card": "RUN A FAN - FIX LEAKS - LESS CLUTTER",
+   "src": "caes+psu",
+   "beat": "fixes"
+  },
+  {
+   "s": "M",
+   "t": "Run a dehumidifier. Seal up the cracks.",
+   "card": "DEHUMIDIFY - SEAL CRACKS",
+   "src": "psu+caes",
+   "beat": "wide",
+   "v": 3
+  },
+  {
+   "s": "M",
+   "t": "Put screens over basement floor drains.",
+   "card": "SCREEN BASEMENT FLOOR DRAINS",
+   "src": "psu",
+   "beat": "drainClose"
+  },
+  {
+   "s": "M",
+   "t": "And sticky traps will show you what it's been eating.",
+   "card": "STICKY TRAPS SHOW WHAT IT EATS",
+   "src": "psu+wisc",
+   "beat": "wide",
+   "v": 0
+  },
+  {
+   "s": "M",
+   "t": "Fewer bugs to eat means fewer centipedes.",
+   "card": "FEWER BUGS = FEWER CENTIPEDES",
+   "src": "caes",
+   "beat": "cent",
+   "v": 2
+  },
+  {
+   "s": "M",
+   "t": "And skip the bug spray. Experts say there's no need.",
+   "card": "PESTICIDES NOT RECOMMENDED",
+   "src": "caes+wisc",
+   "beat": "mb",
+   "pose": "stop",
+   "v": 2
+  },
+  {
+   "ch": "The verdict",
+   "s": "P",
+   "t": "So. Squish it, or keep it?",
+   "beat": "pTalk",
+   "pose": "slipper",
+   "v": 0
+  },
+  {
+   "s": "M",
+   "t": "Keep it. It's free pest control, working nights.",
+   "card": "VERDICT: KEEP IT / FREE PEST CONTROL",
+   "src": "caes",
+   "beat": "mb",
+   "pose": "hips",
+   "v": 0
+  },
+  {
+   "s": "P",
+   "t": "Fine. It stays. But it pays rent.",
+   "beat": "lease"
+  },
+  {
+   "s": "M",
+   "t": "It does. In roaches.",
+   "beat": "rent"
+  },
+  {
+   "s": "M",
+   "t": "Told you.",
+   "beat": "outro"
+  }
+ ]
+}
