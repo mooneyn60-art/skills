@@ -16,8 +16,10 @@ def text(im,alpha):
     y=TY
     for s,col in ((l1,(255,255,255)),(l2,(255,205,40))):
         if not s: continue
-        w=dr.textlength(s,font=F)
-        dr.text(((W-w)/2,y),s,font=F,fill=col+(alpha,),stroke_width=12,stroke_fill=(0,0,0,alpha))
+        f=F; sz=150
+        while dr.textlength(s,font=f)>960: sz-=6; f=ImageFont.truetype(F.path,sz)
+        w=dr.textlength(s,font=f)
+        dr.text(((W-w)/2,y),s,font=f,fill=col+(alpha,),stroke_width=12,stroke_fill=(0,0,0,alpha))
         y+=175
 frames=sorted(os.listdir(d))
 HS=os.environ.get('HOLDSRC')
