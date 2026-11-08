@@ -159,7 +159,7 @@ export function build(scene, S, K) {
     if (!LOOP) return;
     const ph = cyc(1) * tNow, yaw = 0.75 + 0.5 * Math.sin(ph), d = 0.03 * (1 + 0.1 * Math.sin(2 * ph));
     cam.position.set(HOLE[0] + Math.cos(yaw) * d, HOLE[1] + 0.02 + 0.004 * Math.cos(ph), HOLE[2] + Math.sin(yaw) * d);
-    cam.lookAt(HOLE[0], HOLE[1] + 0.008, HOLE[2]);
+    cam.lookAt(HOLE[0], HOLE[1] + 0.017, HOLE[2]);   // moth (hovering ~1.3 cm up) sits mid-frame, under the hook text
   }
   return { cfg, props, faceCam, POSES, pose0: 'bed', personY: MT - 0.02, MB: 0.07, MBPOS, mbY: MT, PPOS, mbIn: LOOP ? 1e9 : start(1), mbOut: LOOP ? null : home - 0.5 };
 }
