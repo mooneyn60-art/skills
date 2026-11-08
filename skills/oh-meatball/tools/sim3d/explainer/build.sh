@@ -58,8 +58,9 @@ G=$(python3 -c "
 import numpy as np, pyloudnorm, soundfile as sf
 x, sr = sf.read('$W/work/premaster-$TAG.wav'); print(round(-14.0 - pyloudnorm.Meter(sr).integrated_loudness(x) + float('${TRIM:-0}'), 2))")
 TMP=$P/out/.$PRE-$TAG.tmp.mp4
+[ "$KEY" = loop ] && APAD=",apad"   # micro-loop: keep every rendered frame (the loop period is round(total*30) frames), pad the audio instead
 ffmpeg -v error -y -i work/video-$TAG.mp4 -i "work/premaster-$TAG.wav" -map 0:v -map 1:a -c:v copy \
-  -af "volume=${G}dB,alimiter=limit=0.84:attack=3:release=60:level=false" -c:a aac -b:a 192k -ar 48000 -shortest -movflags +faststart "$TMP"
+  -af "volume=${G}dB,alimiter=limit=0.84:attack=3:release=60:level=false${APAD:-}" -c:a aac -b:a 192k -ar 48000 -shortest -movflags +faststart "$TMP"
 mv "$TMP" "$OUT"
 python3 "$HERE/checks.py" "$OUT" "$P/timeline-$TAG.json" "work/vo-$TAG.wav" $RANGE | tee "$P/out/checks-$TAG.json"
 bash "$HERE/../contact.sh" "$OUT" "$P/out/$SHEET" >/dev/null

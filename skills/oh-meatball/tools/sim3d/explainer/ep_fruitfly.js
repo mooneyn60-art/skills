@@ -128,7 +128,8 @@ export function build(scene, S, K) {
   const RNG = (k) => { const x = Math.sin(k * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
   const flap = (f, t, on, sp = 90) => f.userData.wings.forEach((w, k) => { const s = k ? 1 : -1; w.rotation.x = on ? s * (0.3 + 0.8 * Math.sin(t * sp + k * 0.3)) : 0; w.rotation.y = s * (on ? 0.15 : 0.12); });
   // periodic helpers: every motion repeats exactly over T_END so frame T_END == frame 0 (micro-loop)
-  const cyc = (n) => (n * TAU) / T_END;
+  const PER = LOOP ? Math.round(T_END * 30) / 30 : T_END;   // micro-loop period = the exact rendered frame count
+  const cyc = (n) => (n * TAU) / PER;
   let tNow = 0;
 
   function props(t, i) {
@@ -138,7 +139,7 @@ export function build(scene, S, K) {
       const [u0, sd] = SPOTS[k], wob = 0.03 * Math.sin(cyc(1 + (k % 2)) * t + k), st = onBan(Math.min(0.93, Math.max(0.07, u0 + wob)), sd);
       f.visible = !(i === 6 && t > W(6, 2) && k > 0);
       place(f, [st.p[0], st.p[2], st.h + (k % 2 ? Math.PI : 0) + 0.4 * Math.sin(cyc(1) * t + k)], st.p[1]);
-      Q.animateLegs(f, (Math.round(3 * T_END) / T_END) * t + k * 0.3, k === 0 ? 0.5 : 0.35); flap(f, t, false);
+      Q.animateLegs(f, (Math.round(3 * PER) / PER) * t + k * 0.3, k === 0 ? 0.5 : 0.35); flap(f, t, false);
     });
     // drain flies spiral up out of the sink on "drain" (line 3)
     S.dflies.forEach((f, k) => {

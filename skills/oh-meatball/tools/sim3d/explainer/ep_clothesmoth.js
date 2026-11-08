@@ -100,8 +100,8 @@ export function build(scene, S, K) {
   const pHead = (S) => S.person.userData.head.getWorldPosition(new THREE.Vector3()).toArray();
   const mbAt = (S) => [S.mb.position.x, S.mb.position.y, S.mb.position.z];
   const HOV = [HOLE[0], HOLE[1] + 0.013, HOLE[2]];
-  const OPEN = { c0: [HOV[0] + 0.018, HOV[1] + 0.006, HOV[2] + 0.017], l0: [HOV[0], HOV[1] - 0.003, HOV[2]],
-    c1: [HOV[0] + 0.015, HOV[1] + 0.005, HOV[2] + 0.014], l1: [HOV[0], HOV[1] - 0.003, HOV[2]], mv: 1.9 };
+  const OPEN = { c0: [HOV[0] + 0.018, HOV[1] + 0.006, HOV[2] + 0.017], l0: [HOV[0], HOV[1] + 0.005, HOV[2]],
+    c1: [HOV[0] + 0.015, HOV[1] + 0.005, HOV[2] + 0.014], l1: [HOV[0], HOV[1] + 0.005, HOV[2]], mv: 1.9 };
   const SWT = [SW[0], MT + 0.02, SW[1]];
   const cfg = L.map(() => ({ shots: [{}] }));
   const set = (i, o) => Object.assign(cfg[i], o);
@@ -122,13 +122,14 @@ export function build(scene, S, K) {
     cfg[0].hideMb = 1;
   } else set(0, { hideMb: 1, shots: [{ c0: OPEN.c0, l0: OPEN.l0 }] });   // the loop camera is set in faceCam
 
-  const cyc = (n) => (n * TAU) / T_END;
+  const PER = LOOP ? Math.round(T_END * 30) / 30 : T_END;   // micro-loop period = the exact rendered frame count
+  const cyc = (n) => (n * TAU) / PER;
   const LAND = onSw(0.045, 0.0, 0.0);
   let tNow = 0;
   function props(t, i) {
     tNow = t;
     // moth: hovers over the hole (t < tLand), lands beside it, takes off again for the loop
-    const fl = (Math.round(14 * T_END) / T_END) * TAU * t;
+    const fl = (Math.round(14 * PER) / PER) * TAU * t;
     let p, flying = true, h = 2.2 + 0.3 * Math.sin(cyc(1) * t);
     const hover = (tt) => [HOV[0] + 0.004 * Math.cos(cyc(1) * tt), HOV[1] + 0.002 * Math.sin(cyc(2) * tt), HOV[2] + 0.004 * Math.sin(cyc(1) * tt)];
     if (t < tLand) p = hover(t);
@@ -138,7 +139,7 @@ export function build(scene, S, K) {
     S.moth.position.set(p[0], p[1], p[2]); S.moth.rotation.set(0, h, flying ? 0.15 : 0); poseMoth(S.moth, fl, flying);
     // larvae chew at the hole edges: shown in the loop and from line 3 on (hidden on the opening so the hook is the moth)
     const showL = LOOP || i >= 3;
-    S.larvae.forEach((l, k) => { l.visible = showL; wiggleLarva(l, (Math.round(3 * T_END) / T_END) * TAU * t + k * 1.3, 1); });
+    S.larvae.forEach((l, k) => { l.visible = showL; wiggleLarva(l, (Math.round(3 * PER) / PER) * TAU * t + k * 1.3, 1); });
     // eggs pop on "40" (line 3)
     const te = LOOP ? 1e9 : W(3, 5) - 0.1;
     S.eggs.forEach((e, k) => {

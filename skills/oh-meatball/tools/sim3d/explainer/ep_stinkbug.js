@@ -122,13 +122,14 @@ export function build(scene, S, K) {
     cfg[0].hideMb = 1;
   } else set(0, { hideMb: 1, shots: [{ c0: OPEN.c0, l0: OPEN.l0 }] });   // the loop camera is set in faceCam
 
-  const cyc = (n) => (n * TAU) / T_END;
+  const PER = LOOP ? Math.round(T_END * 30) / 30 : T_END;   // micro-loop period = the exact rendered frame count
+  const cyc = (n) => (n * TAU) / PER;
   let tNow = 0;
   function props(t, i) {
     tNow = t;
     const p = bugPos(t), moving = !LOOP && t < tCrawl;
     wallBug(S.bug, p[0], p[1], LOOP ? 0.22 * Math.sin(cyc(1) * t) : 0.12 + 0.08 * Math.sin(t * 2));
-    Q.animateLegs(S.bug, LOOP ? (Math.round(2 * T_END) / T_END) * t : moving ? t * 2.6 : t * 0.4, LOOP ? 0.25 : moving ? 0.7 : 0.12);
+    Q.animateLegs(S.bug, LOOP ? (Math.round(2 * PER) / PER) * t : moving ? t * 2.6 : t * 0.4, LOOP ? 0.25 : moving ? 0.7 : 0.12);
     for (const a of S.bug.userData.ants) a.rotation.x = -0.1 + 0.15 * Math.sin(cyc(3) * t + a.userData.s);
     // the winter pack in the wall cutaway (line 1 "With friends" and line 8)
     const showPack = !LOOP && ((i === 1 && t >= cut(1, 5)) || i === 8);
