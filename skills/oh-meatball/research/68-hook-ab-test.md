@@ -41,3 +41,10 @@ For every Short, note: **Stayed to watch %**, views at 48 h, and average % viewe
 - Also compare v6 against both: if v6 beats NEW, keep v6 (it needs no extra step).
 
 Small sample (5 vs 4), so treat a gap under ~5 points as noise.
+
+## Update 11/8 (Nolan: "start the new stuff as soon as you can")
+The OLD group was converted too: termite, false widow, carpenter ant and house fly now carry NEW openings. The comparison is now **NEW (all 9 banner-style Shorts, 11/9-11/13) vs the 28-day baseline of 45.4% stayed to watch**, plus v6 (mouse, mommy longlegs, lady beetle) as the second style.
+Decision rule: if NEW averages ≥55% stayed (10 points over baseline), it stays the default.
+
+## TikTok 3D test (11/11-11/13)
+Six off-niche TikToks (giraffe, kangaroo, booby, archerfish, dung beetle, armadillo) were replaced by 3D house Shorts at 14:30 and 17:00: roach, jumping spider, bed bugs, centipede, silverfish (hook), house fly. Compare their views and avg watch time against the drawn house TikToks at 12:00 the same days.
