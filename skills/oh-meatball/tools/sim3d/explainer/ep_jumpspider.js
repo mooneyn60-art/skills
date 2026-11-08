@@ -20,7 +20,7 @@ const CHART = [-0.165, -0.5], SEE = [-0.2, -0.5, 0];
 const FLY = [0.125, -0.5], CREEP0 = [0.035, -0.5, 0], CREEP1 = [0.088, -0.5, 0];
 const RUL0 = -0.3, RULZ = -0.49, RN = 40;  // ruler: 40 body lengths along +x from x = RUL0
 
-function makeLivingRoom() {
+export function makeLivingRoom() {   // shared with ep_stinkbug.js
   const g = new THREE.Group();
   const wood = texMat(canvasTex(256, 256, (c, w) => { for (let i = 0; i < 8; i++) { c.fillStyle = shade('#b07a4a', ((i * 37) % 9) - 4); c.fillRect(0, i * 32, w, 31); c.fillStyle = '#7a5030'; c.fillRect(0, i * 32 + 31, w, 1); } }, [5, 5]));
   const fl = new THREE.Mesh(new THREE.PlaneGeometry(4.4, 3.6), wood); fl.rotation.x = -Math.PI / 2; fl.position.set(0.1, 0, 1.1); fl.receiveShadow = true; g.add(fl);

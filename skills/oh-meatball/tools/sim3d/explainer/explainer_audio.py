@@ -24,7 +24,7 @@ import music  # noqa: E402
 PERSIST = os.environ.get("MBX_PERSIST", "/home/user/mbx-persist")
 WORK = os.environ.get("MBX_WORK", "/dev/shm/mbx/work")
 FPS, GAP, BEAT = 30, 0.48, 0.32
-TAILS = {"tiktok": 1.3, "youtube": 0.3, "long": 4.0}   # YouTube Short: short tail so the last line loops into the first; long-form: room for the end screen
+TAILS = {"tiktok": 1.3, "youtube": 0.3, "long": 4.0, "loop": 0.1}   # loop: micro-loop Short, the end runs straight back into the start   # YouTube Short: short tail so the last line loops into the first; long-form: room for the end screen
 VOICES = {"P": ("en-US-BrianNeural", "+6%", "+0Hz"), "M": ("en-US-AndrewMultilingualNeural", "+10%", "+3Hz")}
 SR = music.SR
 
@@ -120,7 +120,12 @@ async def main():
     with wave.open(f"{WORK}/vo-{tag}.wav", "wb") as w:   # voice-only stem for the onset / truncation checks
         w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR)
         w.writeframes((np.clip(vo, -1, 1) * 32767).astype("<i2").tobytes())
-    bed = music.render(kind, total)
+    if key == "loop":   # seamless bed: render past the end and cross-fade the overrun back into the start
+        F = int(0.6 * SR); N = int(total * SR); b2 = music.render(kind, total + 1.0)
+        bed = b2[:N].copy(); w = np.linspace(0, 1, F)[:, None]
+        bed[:F] = bed[:F] * w + b2[N:N + F] * (1 - w)
+    else:
+        bed = music.render(kind, total)
     meter = pyloudnorm.Meter(SR)
     lv, lb = meter.integrated_loudness(np.stack([vo, vo], 1)), meter.integrated_loudness(bed)
     bed *= 10 ** ((lv - 7.0 - lb) / 20)     # bed sits ~7 LU under the voices

@@ -19,7 +19,7 @@ const SW = [0.02, -0.27];     // sandwich on its plate
 const BIN = [0.98, 0.3], BINH = 0.42, BINR = 0.13;
 const FH = -1.0;              // the fly faces the camera side (+x +z)
 
-function makeKitchen() {
+export function makeKitchen() {   // shared with ep_fruitfly.js
   const g = new THREE.Group();
   const wood = texMat(canvasTex(256, 256, (c, w) => { for (let i = 0; i < 8; i++) { c.fillStyle = shade('#9c6b42', ((i * 37) % 9) - 4); c.fillRect(0, i * 32, w, 31); c.fillStyle = '#6a4528'; c.fillRect(0, i * 32 + 31, w, 1); } }, [5, 5]));
   const fl = new THREE.Mesh(new THREE.PlaneGeometry(4.4, 3.4), wood); fl.rotation.x = -Math.PI / 2; fl.position.set(0.1, 0, 1.0); fl.receiveShadow = true; g.add(fl);

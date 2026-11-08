@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Restart-safe build of the 3D Meatball explainer (KEY = tiktok | youtube cut). Every step skips work that already exists.
-#   [EP=centipede|roach|bedbugs|jumpspider|dustmites|housefly] build.sh [KEY=tiktok]   (delete $W/work/chunk-TAG-*.mp4 after a shot change)
+#   [EP=centipede|roach|bedbugs|jumpspider|dustmites|housefly|silverfish|fruitfly|stinkbug|clothesmoth] build.sh [KEY=tiktok|youtube|loop|long]   (delete $W/work/chunk-TAG-*.mp4 after a shot change)
 # EP picks the script + page: centipede = explainer.html (bathroom); roach / bedbugs / jumpspider / dustmites = pest.html?ep=EP (ep_*.js).
 # Persistent (survives container restarts): $P/vo (voice takes), $P/timeline-KEY.json, $P/out/*.mp4
 # Scratch (tmpfs): $W (three.js, fonts, chunk videos). Frames are streamed into ffmpeg, never stored.
@@ -9,7 +9,7 @@ KEY=${1:-tiktok}
 HERE=$(cd "$(dirname "$0")" && pwd)
 P=${MBX_PERSIST:-/home/user/mbx-persist}; W=${MBX_WORK_ROOT:-/dev/shm/mbx}
 SD=/home/user/skills/skills/oh-meatball/scripts/explainer; EP=${EP:-centipede}
-case $KEY in youtube) PRE=yt; RANGE="--min 15 --max 20";; long) PRE=lf; RANGE="--min 240 --max 360";; *) PRE=tt; RANGE="--min 62 --max 65";; esac
+case $KEY in youtube) PRE=yt; RANGE="--min 15 --max 20";; loop) PRE=yt; RANGE="--min 7 --max 9";; long) PRE=lf; RANGE="--min 240 --max 360";; *) PRE=tt; RANGE="--min 62 --max 65";; esac
 VIEW=""; NCH=2
 case $EP in
   centipede) SCRIPT=$SD/house-centipede-explainer.json; NAME=meatball-centipede-explainer; TAG=$KEY; TLW=timeline.json; PAGE=src/explainer.html; SHEET=$PRE-contact.jpg;;
@@ -19,6 +19,10 @@ case $EP in
   dustmites) SCRIPT=$SD/dust-mites-explainer.json; NAME=dustmites-explainer; TAG=dustmites-$KEY; TLW=timeline-$TAG.json; PAGE="src/pest.html?ep=dustmites&tl=$TLW"; SHEET=$PRE-dustmites-contact.jpg;;
   housefly) SCRIPT=$SD/house-fly-explainer.json; NAME=housefly-explainer; TAG=housefly-$KEY; TLW=timeline-$TAG.json; PAGE="src/pest.html?ep=housefly&tl=$TLW"; SHEET=$PRE-housefly-contact.jpg;;
   silverfish) SCRIPT=$SD/silverfish-explainer.json; NAME=silverfish-explainer; TAG=silverfish-$KEY; TLW=timeline-$TAG.json; PAGE="src/pest.html?ep=silverfish&tl=$TLW"; SHEET=$PRE-silverfish-contact.jpg;;
+  fruitfly|stinkbug|clothesmoth)   # NEW-opening Shorts (research 68); KEY=youtube or loop (7-9 s micro-loop)
+    declare -A SN=([fruitfly]=fruit-fly [stinkbug]=stink-bug [clothesmoth]=clothes-moth)
+    SCRIPT=$SD/${SN[$EP]}-explainer.json; NAME=$EP-$([ "$KEY" = loop ] && echo loop || echo explainer); TAG=$EP-$KEY; TLW=timeline-$TAG.json
+    PAGE="src/pest.html?ep=$EP&tl=$TLW"; SHEET=$PRE-$EP-$KEY-contact.jpg;;
   centlong) KEY=long; PRE=lf; RANGE="--min 240 --max 360"; SCRIPT=$SD/house-centipede-longform.json; NAME=house-centipede-longform; TAG=centlong; TLW=timeline-centlong.json
     PAGE="src/explainer.html?tl=$TLW&wide=1&vfov=30"; SHEET=lf-centlong-contact.jpg; VIEW="--w 1920 --h 1080"; NCH=4;;   # 16:9 long-form (ep_centipede_long.js)
   *) echo "unknown EP $EP"; exit 2;;
