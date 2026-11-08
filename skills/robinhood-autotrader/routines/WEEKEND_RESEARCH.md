@@ -123,6 +123,7 @@ The 10/25 repeal was withdrawn: R16 was ON then (R6 drawdown halt active
   3. If it reproduces: mark R15 REPEALED in TARS_RULES.md, update the VIX block
      in HOURLY_TRADING_CHECK.md, log a rule_change row, tell Nolan in one line.
 Then replace this section with a one-line DONE note.
+2026-11-08: SKIPPED, R16 (b) unverifiable: no high-water-mark rebase row after the 10/15 halt; owner stops PLTR 11/2 + NVDA 11/5 may count for the R6 breaker. Desk: log the rebase.
 
 ## UPDATE 2026-10-15: run it as a SWARM
 

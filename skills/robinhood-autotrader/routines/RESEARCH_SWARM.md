@@ -84,7 +84,8 @@ Target: under $25 of model usage per swarm run.
    the best day removed, freeze the winner for the Stage 3 paper book.
 3. DONE 2026-11-01: no exit monetises it (research/2026-11-01_RANGE_EXIT_SWARM.md).
    Range-regime exit rule (the standing open question in WEEKEND_RESEARCH).
-4. Earnings-gap continuation for momentum names (hold through vs exit
+4. DONE 2026-11-08: holding through has not paid, lean to sit out (research/2026-11-08_EARNINGS_HOLD_SWARM.md).
+   Earnings-gap continuation for momentum names (hold through vs exit
    before earnings), using paper/history/earnings_reports.json.
 5. ICT / "smart money" intraday setups (Nolan shared a TikTok 2026-10-15:
    a Claude-built NQ futures "data farm" claiming 68% wins, PF 2.41 on 142

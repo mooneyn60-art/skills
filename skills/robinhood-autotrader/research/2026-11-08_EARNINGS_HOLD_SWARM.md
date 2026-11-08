@@ -1,11 +1,11 @@
 # Hold Through Earnings or Sell Before? (Swarm Queue Item 4)
 
-One-line: For names the momentum screen would hold (above the 200-day,
-positive 12-1 momentum), is the earnings reaction worth sitting through, or
-does selling the day before avoid more harm than it gives up?
+One-line: For names the momentum screen would hold, the earnings reaction
+averaged -0.78% (n=142, 2025-26) and about 1 in 7 went 8%+ against the
+holder. Sitting out earnings gave up nothing on average and removed the gap risk.
 
 Last Updated: 2026-11-08
-Status: DESIGN + PREDICTION (committed before any result). Results below once run.
+Status: DONE. Holding momentum names through earnings has not paid: mean reaction -0.78% (t=-1.13, n=142), with 14.8% of events closing 8%+ down (through a stop). Not significant, so not a rule; but the evidence leans toward selling before. Prediction committed first (8e7b315).
 Audience: Nolan, TARS sessions
 
 ## Why now, and why not items 2 or the R15 task
@@ -54,3 +54,64 @@ Audience: Nolan, TARS sessions
 - Verdict expected: neither rule is clearly better on mean; selling before
   only cuts tail risk. That makes it a sizing question, not an edge, which goes
   to Nolan as information.
+
+## Results (python3 paper/research_scripts/earnings_hold.py)
+
+251 usable events, 41 names, 2025-01 to 2026-08 (40 skipped: no price
+history, or no 20 days after). 2 years only; in-sample; price returns.
+Two data checks: the wide file was hand-transcribed by the worker, and
+PLTR and BAC were spot-checked against Robinhood live: they match. A smoke
+run on the original 8 names was seen after the prediction commit and before
+the full data (n=56; same direction).
+
+| Group | n | Reaction mean (t) | 90% bootstrap (by date) | Close <= -8% | Open <= -8% | 20d drift after (t) |
+|---|---|---|---|---|---|---|
+| All | 251 | -0.64% (-1.16) | -1.60 .. +0.32 | 17.1% | 13.1% | +4.05% (+4.41) |
+| **Momentum names** | 142 | **-0.78% (-1.13)** | -2.06 .. +0.46 | **14.8%** | 8.5% | +2.24% (+2.04) |
+| Other names | 109 | -0.47% (-0.51) | -2.03 .. +1.13 | 20.2% | 19.3% | +6.40% (+4.18) |
+| Momentum, 1st half | 68 | -0.79% | | 17.6% | 8.8% | +3.27% |
+| Momentum, 2nd half | 74 | -0.76% | | 12.2% | 8.1% | +1.29% |
+| Momentum, megacaps | 21 | +0.55% | | 9.5% | 4.8% | +0.61% |
+| Momentum, non-megacaps | 121 | -1.01% (-1.32) | | 15.7% | 9.1% | +2.52% |
+
+Momentum minus other reaction: -0.31pp, Welch t=-0.27.
+Worst momentum events by name (mean over few events, read with care):
+UPST -18.7% (1), RIVN -7.9% (3), MARA -6.7% (1), HOOD -6.3% (3), COIN -6.0%
+(2), NFLX -5.8% (4).
+
+## Reading it
+
+- For a name TARS holds, the earnings day was a slightly NEGATIVE bet:
+  -0.78% on average, the same in both years (-0.79 / -0.76), not
+  significant (t=-1.13, bootstrap interval spans 0).
+- The cost of holding is mostly the tail: about 1 in 7 momentum events
+  closed 8%+ down on the reaction day, and 1 in 12 OPENED there, which is
+  below the stop before it can act (BE 10/22 is one). Megacaps were much tamer
+  (4.8% gapped through), the volatile names much worse.
+- The 20-day drift after the event is positive (+2.2%), but it comes
+  AFTER the reaction, so a seller-before can rebuy and still get it. 2025-26
+  was a rising market, so part of that drift is just the market (not
+  separated here).
+- Practical: there's no evidence that holding through earnings earns
+  anything. There's clear evidence it adds gap risk the 8% stop can't
+  control. The live screen already skips entries with earnings within 3 days.
+  The open question is exits: sell the close before and rebuy after the
+  reaction if still eligible. Untested as a full rule (it needs a backtest
+  with longer earnings history than 8 quarters per name). Goes to Nolan as
+  information, not a rule change.
+
+## Hurdles
+
+Split halves: same sign and size. Megacaps dropped: holds (-1.01%). Walk-
+forward: not meaningful on 2 years of quarterly events (about 18 events per
+window). t >= 2: not met. So: a consistent lean, not a proven edge.
+
+## Prediction scorecard
+
+- Momentum mean reaction between -0.5% and +1.5%, |t| < 2: **WRONG** on
+  the mean (-0.78%, below the band); right on |t|.
+- About 10-15% gap 8%+ against: RIGHT (14.8% at the close; 8.5% at the open).
+  More for volatile than megacaps: RIGHT (15.7% vs 9.5%).
+- No difference momentum vs the rest: RIGHT (t=-0.27).
+- Neither rule clearly better on mean; selling before cuts tail risk: RIGHT,
+  though the mean also leans toward selling.

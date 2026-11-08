@@ -61,3 +61,8 @@ Read this first so no run repeats a dead variant.
 - c. Midpoint: 4.71%; top control degenerate (1-day trips).
 - The 8% stop hits 31-46% of entries (-8.3% each), about the width of a low-ADX range.
 - Options Apprentice Stage 2 blocked: needs owner trips with entry times (trips.json never committed).
+
+## 2026-11-08 — Earnings: hold through or sell before (queen + 1 data worker)
+- 251 events, 41 names, 2025-26. Momentum names: reaction -0.78% (t -1.13), 14.8% close <= -8%, 8.5% open <= -8% (through the stop). Megacaps +0.55%, 4.8% gap-through. Post-event 20d drift +2.2% (rebuy-able).
+- Lean: sit out earnings (no mean given up, tail risk removed). Not significant; needs a longer earnings history for a full sell-before/rebuy-after backtest.
+- R15 task skipped again: R16 (b) unverifiable (no HWM rebase row after the 10/15 halt).
