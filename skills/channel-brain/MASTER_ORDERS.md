@@ -126,7 +126,7 @@ Pick episodes from `CALENDAR_REALISTIC.md`, top down. Any Short that beats 2x th
   - never a stitch, compilation, recut of posted Shorts, or blurred-side vertical
   - target 8-12 min once retention holds; 5-7 min is fine until then
 - **One slot:** one long-form a week, **Saturday 08:00 ET**, nothing in between. First: Kill-or-Keep, 11/7.
-- **Case files are paused** after Azorian (11/5). At 7 days, if Azorian beats the house long-forms on views and subs, they return as a once-a-month special.
+- **Case files are DROPPED** (Nolan 11/9: the Azorian teaser Short did terribly). No case-file Shorts, long-forms or teasers. Don't propose them again unless Nolan asks.
 - **No Sunday compilation** until a weekly long-form passes 500 views.
 - **The bridge (Nolan, Studio):** every on-topic Short's Related video points at the newest long-form, with the pinned comment "Full list in the Related video 👆". Re-point the links every Saturday.
 - **Packaging:** number + creature + "your house" + enforcement in the title, 3 titles in Test & Compare, and one creature filling the thumbnail (≤3 words, readable at 168 px).
