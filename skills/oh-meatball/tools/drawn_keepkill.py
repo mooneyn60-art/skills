@@ -27,7 +27,7 @@ import drawn  # noqa: E402
 
 drawn.W, drawn.H = 1920, 1080
 import drawn_macros  # noqa: E402
-from drawn_kit import back_out, ease  # noqa: E402
+from drawn_kit import back_out, ease, stroke  # noqa: E402
 
 W, H = 1920, 1080
 FONT = os.path.join(os.path.dirname(HERE), "brand/fonts/Anton-Regular.ttf")
@@ -288,7 +288,26 @@ def kk_count(ctx, t, p):
         blit(ctx, text_img("?", 230, "#ffd34d", 12), cx, cy, 1.0, a)
 
 
-drawn.ACTORS.update(kk_board=kk_board, kk_hud=kk_hud, kk_end=kk_end, kk_count=kk_count)
+def kk_silk(ctx, t, p):
+    """Opt-in world-space actor (myth episode, "Spiders can fly"): ballooning silk. A few fine threads rise from the
+    actor's origin and trail off downwind. p: grow 0..1, len (px), lean (degrees from straight up, + = to the right), n."""
+    g = p.get("grow", 1.0)
+    if g <= 0.01:
+        return
+    n, length, lean = int(p.get("n", 3)), p.get("len", 520.0), math.radians(p.get("lean", 35.0))
+    for k in range(n):
+        a = lean + (k - (n - 1) / 2) * 0.17
+        pts = []
+        for j in range(13):
+            u = j / 12 * g
+            d = length * (1 - 0.14 * k) * u
+            wob = 18 * u * math.sin(t * 2.6 + k * 1.9 + j * 0.55)
+            pts.append((d * math.sin(a) + wob * math.cos(a), -d * math.cos(a) + wob * math.sin(a)))
+        stroke(ctx, pts, 7.0, True, (0.30, 0.40, 0.50), 0.45)   # a soft dark edge so the white reads on a pale sky
+        stroke(ctx, pts, 3.4, True, (1, 1, 1), 0.96)
+
+
+drawn.ACTORS.update(kk_board=kk_board, kk_hud=kk_hud, kk_end=kk_end, kk_count=kk_count, kk_silk=kk_silk)
 
 
 # ------------------------------------------------------------------------------------------------ 16:9 cameras
@@ -360,7 +379,7 @@ def build(outline, out_spec):
             k += 1
         for j, ln in enumerate(seg["lines"]):
             b = {key: v for key, v in ln.items() if key not in ("board", "end", "hud", "hud_demo", "lockin", "pause",
-                                                                "loop_on", "loop_off")}
+                                                                "loop_on", "loop_off", "silk")}
             if ln.get("loop_on"):
                 loop_on = True
             if ln.get("loop_off"):
@@ -410,6 +429,11 @@ def build(outline, out_spec):
                 kk.append({"id": "count", "type": "kk_count", "pos": [0, 0], "front": True,
                            "p": {"on": 0.0, "n": 0, "label": pz.get("label", "REALLY?")},
                            "set": [{"at": pz.get("at", "100%"), "dur": 0.15, "p": {"on": 1.0}}]})
+            sk = ln.get("silk")
+            if sk:   # opt-in: ballooning threads that ride on the hero ({dx, dy} = offset from its feet to the spinnerets)
+                kk.append({"id": "silk", "type": "kk_silk", "attach": "hero", "pos": [sk.get("dx", 0), sk.get("dy", 0)],
+                           "p": {"grow": sk.get("grow", 0.0), "len": sk.get("len", 520), "lean": sk.get("lean", 35)},
+                           "set": sk.get("set", [{"at": sk.get("at", "10%"), "dur": sk.get("dur", 0.7), "p": {"grow": 1.0}}])})
             lk = ln.get("lockin")
             if lk:   # {"words": ["three", "two", "one"]} or true
                 ws = lk.get("words", ["three", "two", "one"]) if isinstance(lk, dict) else ["three", "two", "one"]

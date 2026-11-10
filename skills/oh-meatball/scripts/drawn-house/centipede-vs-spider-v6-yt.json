@@ -8,7 +8,7 @@
  ],
  "photo_credits": [],
  "voice": "en-US-AndrewMultilingualNeural",
- "rate": "+4%",
+ "rate": "+0%",
  "pitch": "+3Hz",
  "music": "detective",
  "music_db": -13,
@@ -130,7 +130,7 @@
   },
   {
    "m": "escalate",
-   "scene": "basement",
+   "scene": "cave",
    "cast": {
     "creature": "cellar_spider",
     "actor": "cellar_spider",
@@ -147,7 +147,7 @@
   },
   {
    "m": "tiny",
-   "scene": "basement",
+   "scene": "bathroom",
    "say": "The centipede runs prey down at night.",
    "card": {
     "rows": [
@@ -157,9 +157,10 @@
       130
      ],
      [
-      "VS 8",
+      "RUNS PREY DOWN",
       "#ffffff",
-      80
+      52,
+      true
      ]
     ],
     "y": 470,

@@ -1,0 +1,714 @@
+{
+ "_what": "Narration outline for the first 'Don't squish it' long-form (format in channel-brain/MASTER_ORDERS.md). Every factual line carries src = fact IDs in research/76-cellar-spider-factpack.md. meter = SPARE percent (0 = squish, 100 = spare) AFTER the line. vis = what the picture must show. The build maps these onto drawn_keepkill-style segments and macros.",
+ "titles": [
+  "Never Kill the Spider in Your Corner. It's Hunting Bigger Spiders",
+  "Don't Squish the Skinny Spider in Your Corner (Here's What It Eats)",
+  "The Spider in Your Ceiling Corner Is Hunting Something Bigger"
+ ],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "spider_name": "Carol",
+ "meter_start": 30,
+ "segments": [
+  {
+   "chapter": "Put the shoe down",
+   "chip": null,
+   "lines": [
+    {
+     "say": "That skinny spider in the corner of your ceiling is hunting something in your house.",
+     "vis": "FRAME 0: close on the cellar spider in her corner web, already moving (legs working silk). Night bedroom. Card: IT'S HUNTING",
+     "card": "IT'S HUNTING"
+    },
+    {
+     "say": "Something much bigger than it is.",
+     "src": "F29",
+     "vis": "Cut to floor level: the shadow of a big hairy house spider crossing the floorboards."
+    },
+    {
+     "say": "And you're standing on a chair, holding a shoe.",
+     "vis": "The viewer's shoe sole swings into the top of frame over the corner, casting a shadow on the web. The SQUISH / SPARE meter slides in at 30."
+    },
+    {
+     "say": "Give me three questions before you swing.",
+     "vis": "Meatball hops between shoe and spider, arms out. Card: 3 QUESTIONS",
+     "card": "3 QUESTIONS"
+    },
+    {
+     "say": "What is it hunting? Can it hurt you? And what happens if you leave it up there?",
+     "vis": "Three chips appear one per question: HUNTING? / HURT YOU? / LEAVE IT?"
+    },
+    {
+     "say": "This meter keeps score. If it says squish at the end, I'll hold the chair.",
+     "vis": "Meter pulses. Meatball steadies the chair, deadpan.",
+     "meter": 30
+    }
+   ]
+  },
+  {
+   "chapter": "What is it hunting?",
+   "chip": "QUESTION 1 OF 3",
+   "lines": [
+    {
+     "say": "Question one. What is it hunting?",
+     "vis": "Chapter card, 1.2 s max, over the corner web."
+    },
+    {
+     "say": "Meet the cellar spider. Body about a quarter inch. Front legs about two inches.",
+     "src": "F7 F8",
+     "vis": "Name card CELLAR SPIDER. Ruler gag: tiny body, absurdly long legs measured.",
+     "card": "CELLAR SPIDER"
+    },
+    {
+     "say": "Many cellar spiders have eight eyes, set in three little clusters.",
+     "src": "F58",
+     "vis": "Extreme close-up of the face: eyes in three groups blink out of sync."
+    },
+    {
+     "say": "I call mine Carol.",
+     "vis": "A little name tag on the web: CAROL. Meatball waves; Carol waves one leg."
+    },
+    {
+     "say": "Carol hangs upside down in a messy web and waits.",
+     "src": "F52",
+     "vis": "Carol upside down in the tangle, still."
+    },
+    {
+     "say": "Flying insects. Woodlice. Anything that blunders in.",
+     "src": "F26 F28",
+     "vis": "A fly, then a woodlouse, each snagged and wrapped in a beat."
+    },
+    {
+     "say": "She doesn't need much. In one lab, a single fly every three or four days kept cellar spiders alive and laying eggs.",
+     "src": "F35",
+     "vis": "Lab scene: a calendar flips 3-4 days, one fly delivered on a tiny plate."
+    },
+    {
+     "say": "But flies are not why you should put the shoe down.",
+     "vis": "Back to the corner; shoe twitches."
+    },
+    {
+     "say": "In England, someone emptied the cellar spider webs in one garden shed, over one summer, and counted the leftovers.",
+     "src": "F27",
+     "vis": "Shed interior, many corner webs. Meatball with tweezers and a tray."
+    },
+    {
+     "say": "One hundred and two dead things.",
+     "src": "F27",
+     "vis": "Tally board fills: 102."
+    },
+    {
+     "say": "Sixty-three of them were house spiders.",
+     "src": "F27",
+     "vis": "Card 63 OF 102, the board sorts into a big pile of house spiders.",
+     "card": "63 OF 102",
+     "meter": 42
+    },
+    {
+     "say": "Six more were other spiders.",
+     "src": "F27",
+     "vis": "Six more drop into a second spider pile."
+    },
+    {
+     "say": "So two out of every three leftovers in those webs were spiders.",
+     "src": "F27",
+     "vis": "Pie chart: two thirds labelled SPIDERS.",
+     "meter": 48
+    },
+    {
+     "say": "And she doesn't stop at her own size.",
+     "vis": "The big shadow from the cold open returns on the floor."
+    },
+    {
+     "say": "She has been recorded eating giant house spiders. The big ones.",
+     "src": "F29",
+     "vis": "Reveal the giant house spider, huge next to Carol. Size-compare card.",
+     "card": "MUCH BIGGER"
+    },
+    {
+     "say": "British spider experts say she may even be why the big ones are getting rarer in some places.",
+     "src": "F29",
+     "vis": "A row of big house spiders; one by one they become empty silhouettes with question marks.",
+     "meter": 55
+    },
+    {
+     "say": "Picture it. Two in the morning. The big one comes down your wall, fast.",
+     "vis": "Dramatised hunt, night wall: the giant house spider descends toward the corner. Low camera, long shadow."
+    },
+    {
+     "say": "Carol is a fraction of its size, hanging there like a loose thread.",
+     "vis": "Carol motionless, tiny in frame beside the approaching giant. (Size shown as 'much smaller', no number on screen.)"
+    },
+    {
+     "say": "It walks straight under her.",
+     "vis": "The giant passes beneath the web. Beat of silence, music drops out."
+    },
+    {
+     "say": "So how does a quarter-inch spider with legs like thread beat something that size?",
+     "vis": "Versus card: CAROL vs THE BIG ONE. Pause-and-reveal 1 of 3."
+    },
+    {
+     "say": "She never gets close. That's what the legs are for.",
+     "src": "F39",
+     "vis": "Carol keeps her body back; legs reach across the gap."
+    },
+    {
+     "say": "She stays out of reach and flicks silk over it with her back legs.",
+     "src": "F39 F40",
+     "vis": "Close on the two hind legs flicking silk strands over the big spider."
+    },
+    {
+     "say": "Left, right, left, right. Like wrapping a burrito she's scared of.",
+     "src": "F40",
+     "vis": "Alternating flicks; the big spider becomes a silk bundle."
+    },
+    {
+     "say": "Only when it's tied up does she move in and bite.",
+     "src": "F39",
+     "vis": "Carol steps in to the wrapped bundle.",
+     "meter": 60
+    },
+    {
+     "say": "I watched her do it once. I did not sleep. But I respected it.",
+     "vis": "Meatball in bed, eyes wide open, slow nod."
+    },
+    {
+     "say": "And she doesn't only hunt at home.",
+     "vis": "Carol leaves her corner, walking the ceiling."
+    },
+    {
+     "say": "A cellar spider will walk into another spider's web. On purpose.",
+     "src": "F36",
+     "vis": "Carol steps onto a neat web that belongs to another spider."
+    },
+    {
+     "say": "In there she eats the trapped insects, the eggs, and the spider who built it.",
+     "src": "F36",
+     "vis": "Three quick icons crossed off: insect, egg sac, owner."
+    },
+    {
+     "say": "Scientists call it aggressive mimicry.",
+     "src": "F37",
+     "vis": "Card: AGGRESSIVE MIMICRY",
+     "card": "AGGRESSIVE MIMICRY"
+    },
+    {
+     "say": "Some cellar spiders jiggle the web to lure the owner over. Then they eat the owner.",
+     "src": "F38",
+     "vis": "A leg plucks the web; the owner hurries over; cut to a wrapped bundle."
+    },
+    {
+     "say": "It's ringing the doorbell and eating whoever answers.",
+     "vis": "Doorbell gag on the web.",
+     "meter": 64
+    },
+    {
+     "say": "Now the question everyone asks. Does she eat brown recluses?",
+     "vis": "A brown recluse silhouette with a question mark."
+    },
+    {
+     "say": "In a lab in Brazil, cellar spiders killed recluse spiders up to five times heavier than they were.",
+     "src": "F33",
+     "vis": "Lab arena: Carol vs a much heavier recluse (label: SOUTH AMERICAN RECLUSE). Scale with a 5x weight.",
+     "card": "5x HEAVIER"
+    },
+    {
+     "say": "That was a South American recluse, in a lab. And given a choice, they went for the insects instead.",
+     "src": "F33",
+     "vis": "Carol ignores the recluse and takes the fly. Recluse looks offended."
+    },
+    {
+     "say": "In Kansas, researchers checked fifty houses.",
+     "src": "F32",
+     "vis": "Map pin on Kansas; a row of little houses, count 50."
+    },
+    {
+     "say": "In about two out of three, they found house spiders, cellar spiders included, preying on recluses, or the evidence of it.",
+     "src": "F32",
+     "vis": "Two thirds of the houses light up.",
+     "meter": 68
+    },
+    {
+     "say": "But the same study said don't count on it. As pest control, it's limited.",
+     "src": "F32 F74",
+     "vis": "Stamp over the houses: NOT A CURE.",
+     "card": "NOT A CURE",
+     "meter": 62
+    },
+    {
+     "say": "So Carol is not a recluse cure. She's a bonus.",
+     "vis": "Carol shrugs with four legs."
+    },
+    {
+     "say": "Question one, answered. She's hunting the spiders you're actually afraid of.",
+     "vis": "Chip 1 gets a tick. Meter settles.",
+     "meter": 64
+    },
+    {
+     "say": "But you've heard the other thing about her.",
+     "vis": "The shoe drifts lower. Whisper lines around Carol."
+    }
+   ]
+  },
+  {
+   "chapter": "Can it hurt you?",
+   "chip": "QUESTION 2 OF 3",
+   "lines": [
+    {
+     "say": "Question two. Can it hurt you?",
+     "vis": "Chapter card, 1.2 s max."
+    },
+    {
+     "say": "Here's the rumor. Daddy longlegs have the deadliest venom of any spider, but their fangs are too small to bite you.",
+     "src": "F11",
+     "vis": "Card THE RUMOR; a skull-and-crossbones thought bubble over Carol.",
+     "card": "THE RUMOR"
+    },
+    {
+     "say": "If that's true, I'll hand you the other shoe.",
+     "vis": "Meatball offers a second shoe. Meter drops hard.",
+     "meter": 34
+    },
+    {
+     "say": "Problem one. Three different animals get called daddy longlegs.",
+     "src": "F1",
+     "vis": "Police-lineup wall, three figures in shadow."
+    },
+    {
+     "say": "The harvestman. One round body, two eyes. Not a spider. No fangs, no venom.",
+     "src": "F3 F6",
+     "vis": "Light on suspect 1: harvestman. Label: NOT A SPIDER."
+    },
+    {
+     "say": "The crane fly. Six legs and wings. It's an insect.",
+     "src": "F4",
+     "vis": "Light on suspect 2: crane fly. Label: INSECT."
+    },
+    {
+     "say": "And Carol. Two body parts, eight legs, and a web in your corner. The only real spider of the three.",
+     "src": "F5 F2",
+     "vis": "Light on suspect 3: Carol. Label: THE SPIDER.",
+     "meter": 44
+    },
+    {
+     "say": "So the rumor can't even agree on which animal it means.",
+     "src": "F2",
+     "vis": "All three point at each other."
+    },
+    {
+     "say": "Tell me in the comments which of the three you've been calling daddy longlegs.",
+     "vis": "The three suspects hold up numbers 1, 2, 3. Small comment-bubble icon."
+    },
+    {
+     "say": "Problem two. There was never any science behind it. The Burke Museum's spider curator calls it an urban legend.",
+     "src": "F11",
+     "vis": "Card URBAN LEGEND stamped across THE RUMOR.",
+     "card": "URBAN LEGEND",
+     "meter": 52
+    },
+    {
+     "say": "She does have venom. Almost every spider does. The curator says there's nothing special about hers.",
+     "src": "F12",
+     "vis": "Carol with a tiny labelled venom bottle: REGULAR."
+    },
+    {
+     "say": "So where did the rumor start? The Australian Museum has a guess.",
+     "src": "F30",
+     "vis": "Globe spins to Australia."
+    },
+    {
+     "say": "People saw her kill redbacks, Australia's cousin of the black widow, and figured her venom must be worse.",
+     "src": "F30",
+     "vis": "Carol over a wrapped redback; onlookers gasp and jump to the wrong conclusion (thought bubble: SUPER VENOM?)."
+    },
+    {
+     "say": "It isn't. She just wraps first and bites later.",
+     "src": "F39",
+     "vis": "Replay of the silk flick, small."
+    },
+    {
+     "say": "Then in 2019, scientists finally tested the venom of one kind of cellar spider.",
+     "src": "F15 F19",
+     "vis": "Lab scene, card 2019.",
+     "card": "2019"
+    },
+    {
+     "say": "On crickets, it worked. Paralysis.",
+     "src": "F19",
+     "vis": "A cricket freezes mid-hop."
+    },
+    {
+     "say": "On us? They concluded the venom of one spider is not deadly to humans or other mammals.",
+     "src": "F18",
+     "vis": "Card NOT DEADLY TO HUMANS.",
+     "card": "NOT DEADLY TO HUMANS",
+     "meter": 62
+    },
+    {
+     "say": "And they traced the scary reputation to rumor and anecdote.",
+     "src": "F15",
+     "vis": "The skull thought bubble pops."
+    },
+    {
+     "say": "What about the fangs? In that study, the fangs could get through soft human skin.",
+     "src": "F16",
+     "vis": "Close-up diagram: tiny fangs, skin line. Honest beat: meter dips 2.",
+     "meter": 60
+    },
+    {
+     "say": "A TV show tried it for real. A cellar spider bit a person on camera.",
+     "src": "F17",
+     "vis": "Meatball's arm in a clear box with one spider, TV camera icon. No real footage, no show logo."
+    },
+    {
+     "say": "The result was a mild sting that faded fast.",
+     "src": "F17 F21",
+     "vis": "Meatball: tiny 'ow', then shrug.",
+     "meter": 68
+    },
+    {
+     "say": "So the rumor fails at both ends. No deadly venom. And at least one kind can bite.",
+     "src": "F16 F18",
+     "vis": "Both halves of THE RUMOR card crack and fall."
+    },
+    {
+     "say": "Penn State says cellar spiders aren't known to bite people.",
+     "src": "F22",
+     "vis": "Source chip: PENN STATE EXTENSION."
+    },
+    {
+     "say": "And a spider expert at U.C. Riverside knows of no published case of one harming a person.",
+     "src": "F13",
+     "vis": "Source chip: UC RIVERSIDE.",
+     "meter": 76
+    },
+    {
+     "say": "So can it hurt you? Nobody has ever shown that it can.",
+     "vis": "Chip 2 gets a tick."
+    },
+    {
+     "say": "My roommate still sleeps with the light on. That's between them and the electric bill.",
+     "vis": "Roommate lump under blanket, lamp blazing, meter of an electric bill spinning."
+    }
+   ]
+  },
+  {
+   "chapter": "The case for the shoe",
+   "chip": "QUESTION 3 OF 3",
+   "lines": [
+    {
+     "say": "Meter check. Carol is winning.",
+     "vis": "Meter fills the frame for a beat at 76.",
+     "meter": 76
+    },
+    {
+     "say": "But I promised a fair fight. Here is the case for the shoe. And it's a good one.",
+     "vis": "The shoe gets a spotlight and a little lawyer's tie."
+    },
+    {
+     "say": "Question three. What happens if you leave her up there?",
+     "vis": "Chapter card, 1.2 s max."
+    },
+    {
+     "say": "More Carols.",
+     "vis": "A second, third, fourth name tag appear."
+    },
+    {
+     "say": "She carries her eggs in her jaws. A little bundle, held in her mouth, while she hangs upside down.",
+     "src": "F46",
+     "vis": "Close on Carol holding the egg bundle in her jaws."
+    },
+    {
+     "say": "About fifty eggs in a bundle.",
+     "src": "F48",
+     "vis": "Card ABOUT 50 EGGS.",
+     "card": "ABOUT 50 EGGS",
+     "meter": 68
+    },
+    {
+     "say": "When she's hungry, she parks the eggs in the web, eats, and picks them back up.",
+     "src": "F47",
+     "vis": "She hangs the bundle on a strand like a coat, eats, collects it."
+    },
+    {
+     "say": "In a lab in Tokyo, females made between two and eight bundles each.",
+     "src": "F48",
+     "vis": "Lab shelf: bundles count 2... up to 8.",
+     "meter": 60
+    },
+    {
+     "say": "Two to three weeks later, the eggs hatch.",
+     "src": "F49",
+     "vis": "Calendar pages; bundle bursts into specks."
+    },
+    {
+     "say": "The babies stay on mom's web for a few days. Then they go and find corners of their own.",
+     "src": "F49",
+     "vis": "Tiny spiders fan out along the ceiling."
+    },
+    {
+     "say": "Your corners.",
+     "vis": "Every corner of the room gains a tiny web.",
+     "meter": 52
+    },
+    {
+     "say": "And growing up takes them months, up to about a year.",
+     "src": "F50",
+     "vis": "Growth chart on the wall, baby to adult."
+    },
+    {
+     "say": "She isn't leaving soon either. In that lab, females lived about a year and a half as adults. The oldest passed two years.",
+     "src": "F51",
+     "vis": "Carol with a tiny birthday hat, then a second one.",
+     "meter": 48
+    },
+    {
+     "say": "Then there's the mess.",
+     "vis": "Camera pulls back: dusty webs."
+    },
+    {
+     "say": "Her web is not a neat wheel. It's a tangle.",
+     "src": "F52",
+     "vis": "Side by side: tidy orb web vs Carol's tangle."
+    },
+    {
+     "say": "It builds up, and it collects dust.",
+     "src": "F57",
+     "vis": "Time lapse: web greys with dust."
+    },
+    {
+     "say": "One web was reported covering a square meter of ceiling. That's a bath towel of cobweb.",
+     "src": "F53",
+     "vis": "A bath towel outline on the ceiling filled with web.",
+     "card": "1 SQUARE METER",
+     "meter": 42
+    },
+    {
+     "say": "And the family stays. In Finland, scientists found colonies living in the same buildings for more than ten years.",
+     "src": "F61",
+     "vis": "A building in snow; calendar spins ten years; windows full of little webs.",
+     "card": "10+ YEARS",
+     "meter": 36
+    },
+    {
+     "say": "So the shoe has a point. One Carol can become a ceiling of Carols.",
+     "vis": "Ceiling of name tags. The shoe looms lowest of the whole episode."
+    },
+    {
+     "say": "Look at the meter. First time the shoe is ahead.",
+     "vis": "Meter in the red at 36, alarm blink.",
+     "meter": 36
+    },
+    {
+     "say": "But read the charge sheet out loud.",
+     "vis": "Courtroom gag: a one-line charge sheet unrolls."
+    },
+    {
+     "say": "The University of California says cellar spiders mostly cause trouble one way. Messy cobwebs.",
+     "src": "F67",
+     "vis": "Charge sheet text: 1. COBWEBS. Source chip UC IPM."
+    },
+    {
+     "say": "That's the whole list.",
+     "vis": "The sheet ends immediately. Meatball looks at the back of it."
+    },
+    {
+     "say": "Kentucky's entomologists call her harmless. Utah State lists her as beneficial.",
+     "src": "F68 F69",
+     "vis": "Two source chips stamp: HARMLESS, BENEFICIAL.",
+     "meter": 50
+    },
+    {
+     "say": "The crime is bad housekeeping. There's a tool for that, and we'll get to it.",
+     "vis": "A vacuum peeks in from the edge of frame, then hides."
+    },
+    {
+     "say": "First, something the shoe doesn't know. Carol's corner is not a safe place.",
+     "vis": "Corner at night; another pair of eyes appears."
+    },
+    {
+     "say": "When a jumping spider turns up, she does this.",
+     "src": "F44",
+     "vis": "A jumping spider stalks in. Pause-and-reveal 2 of 3."
+    },
+    {
+     "say": "She whirls. Round and round in her web until she's a blur.",
+     "src": "F42 F45",
+     "vis": "Carol gyrates in a circle, motion-blurred.",
+     "card": "THE WHIRL"
+    },
+    {
+     "say": "You can see it yourself. Touch the web gently and she spins like a ceiling fan.",
+     "src": "F42",
+     "vis": "Meatball's finger taps a strand; blur."
+    },
+    {
+     "say": "In one lab study, jumping spiders were what set off the long whirls. Hunters from eight other spider families barely got a reaction.",
+     "src": "F44",
+     "vis": "A row of eight different spider silhouettes pass: Carol yawns. The jumping spider appears: instant blur."
+    },
+    {
+     "say": "Scientists think the blur makes her hard for a hunter to lock onto.",
+     "src": "F43 F44",
+     "vis": "The jumping spider's eyes spin; it gives up.",
+     "meter": 58
+    },
+    {
+     "say": "And she doesn't always win.",
+     "vis": "Mood drop: darker corner."
+    },
+    {
+     "say": "In a lab, scientists paired ten cellar spiders with ten noble false widows.",
+     "src": "F34",
+     "vis": "Ten small arenas, Carol vs false widow in each."
+    },
+    {
+     "say": "Seven of the ten cellar spiders ended up dead, wrapped in false widow silk.",
+     "src": "F34",
+     "vis": "Seven arenas go grey; card 7 OF 10.",
+     "card": "7 OF 10 LOST",
+     "meter": 64
+    },
+    {
+     "say": "In California, a different cellar spider, the marbled one, has pushed her kind out.",
+     "src": "F66",
+     "vis": "Map pin on California; a marbled cellar spider takes over a corner."
+    },
+    {
+     "say": "So she's no monster. She's a quarter inch of spider in a rough neighborhood.",
+     "vis": "Carol small in a big dark room."
+    },
+    {
+     "say": "And she's only in that neighborhood because of us.",
+     "vis": "Camera pulls out through the wall to the house exterior."
+    },
+    {
+     "say": "In the wild, cellar spiders live in cave mouths and cracks in cliffs.",
+     "src": "F63",
+     "vis": "Cave mouth with tangle webs."
+    },
+    {
+     "say": "Hers is a warm-climate species that people carried around the world.",
+     "src": "F59 F64",
+     "vis": "Globe with little suitcases hopping continent to continent."
+    },
+    {
+     "say": "In cold places she lives almost entirely inside our buildings. That's the cellar in cellar spider.",
+     "src": "F10",
+     "vis": "Snow outside, warm cellar inside, Carol by the boiler.",
+     "meter": 68
+    },
+    {
+     "say": "In Britain she has been spreading north for decades. The likely reason is central heating.",
+     "src": "F60",
+     "vis": "Map of Britain; radiators light up northward."
+    },
+    {
+     "say": "Your furnace is her climate.",
+     "vis": "Carol basking over a radiator like a beach.",
+     "meter": 72
+    },
+    {
+     "say": "Which is why I don't put mine outside in January. Experts say she can't take real cold.",
+     "src": "F59",
+     "vis": "Meatball opens the door to a blizzard, looks at Carol, closes it.",
+     "meter": 76
+    }
+   ]
+  },
+  {
+   "chapter": "The deal",
+   "chip": "THE DEAL",
+   "lines": [
+    {
+     "say": "So here's the deal.",
+     "vis": "Meatball between shoe and spider again, holding up a contract."
+    },
+    {
+     "say": "Keep the spider. Lose the cobwebs.",
+     "vis": "Card KEEP THE SPIDER / LOSE THE WEBS.",
+     "card": "KEEP THE SPIDER, LOSE THE WEBS"
+    },
+    {
+     "say": "A vacuum or a broom takes out old webs, and egg sacs too. That's from the University of Kentucky.",
+     "src": "F70",
+     "vis": "The vacuum finally enters; dusty webs vanish. Source chip."
+    },
+    {
+     "say": "Want fewer Carols? Iowa State says vacuum every few weeks until new webs stop appearing.",
+     "src": "F73",
+     "vis": "Calendar: vacuum icon every few weeks; webs count down.",
+     "meter": 84
+    },
+    {
+     "say": "Skip the spray. Iowa State says insecticides work poorly on her, and California says you generally don't need pesticides for spiders.",
+     "src": "F72 F73",
+     "vis": "Spray can with a red X. Source chips."
+    },
+    {
+     "say": "Seal the gaps around your windows and doors, and clear the clutter. Fewer bugs get in, and there are fewer places to hang a web.",
+     "src": "F72 F70",
+     "vis": "Caulk gun along a window frame; boxes cleared from a corner."
+    },
+    {
+     "say": "And if she's in a bad spot, like right over your pillow, put a jar over her, slide paper underneath, and carry her out.",
+     "src": "F71",
+     "vis": "Jar and card move, step by step."
+    },
+    {
+     "say": "In winter, I carry mine to the basement.",
+     "vis": "Meatball tiptoes downstairs with the jar; Carol waves.",
+     "meter": 90
+    }
+   ]
+  },
+  {
+   "chapter": "The verdict",
+   "chip": "VERDICT",
+   "lines": [
+    {
+     "say": "Final score.",
+     "vis": "Meter centre frame. Pause-and-reveal 3 of 3."
+    },
+    {
+     "say": "What is she hunting? The spiders you're scared of.",
+     "vis": "Chip 1 replays: wrapped big spider."
+    },
+    {
+     "say": "Can she hurt you? Nobody has ever shown it.",
+     "vis": "Chip 2 replays: cracked rumor card."
+    },
+    {
+     "say": "What if you leave her? You'll need a vacuum. And you'll have a bodyguard with a body the size of a grain of rice.",
+     "src": "F7",
+     "vis": "Chip 3: vacuum plus Carol in tiny sunglasses."
+    },
+    {
+     "say": "Verdict. Put the shoe down.",
+     "vis": "Meter slams to SPARE. Stamp: SPARE. The shoe lifts out of frame.",
+     "card": "SPARE",
+     "meter": 96
+    },
+    {
+     "say": "Oh, and that big one from the start? Here it comes.",
+     "vis": "The big house spider walks in under the corner."
+    },
+    {
+     "say": "Carol's got it.",
+     "vis": "Two hind legs start flicking silk. Cut before the bite."
+    },
+    {
+     "say": "Next time, the thirty-legged thing in your bathroom. It's hunting something too.",
+     "vis": "Silhouette of a house centipede on bathroom tile."
+    },
+    {
+     "say": "Subscribe so you're here for it. Until then, here are eight more bugs. Three to keep. Five to kill.",
+     "vis": "END SCREEN: WATCH NEXT slot for Kill-or-Keep Part 2, subscribe slot. Hold 12 s under music."
+    }
+   ]
+  }
+ ],
+ "pinned_comment": "Shoe or spare? 👇 And if you have one in your corner, what's its name?",
+ "end_screen_video": "Kill-or-Keep Part 2 (posts Thu 11/12)",
+ "sources_file": "research/76-cellar-spider-factpack.md"
+}

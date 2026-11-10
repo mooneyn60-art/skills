@@ -1,7 +1,384 @@
 [
-  {"name": "kk2_a", "out": "kk2_a.jpg",
-   "creature": {"kind": "wolf_spider", "box": [60, 150, 700, 600], "rot": -30, "zoom": 1.3, "look": [-0.6, -0.7], "mood": "worried"},
-   "shoe": {"corner": "tl", "size": 560, "at": [210, 60], "rot": 38, "shadow": [150, 240], "shadow_a": 0.34},
-   "headline": "DON'T|*KILL* IT!", "accent": "red", "text_box": [720, 50, 1270, 470],
-   "arrow": {"from": [960, 560], "to": [700, 540], "bend": -0.3}}
+ {
+  "name": "kk2_a",
+  "out": "kk2_a.jpg",
+  "creature": {
+   "kind": "wolf_spider",
+   "box": [
+    90,
+    200,
+    620,
+    560
+   ],
+   "rot": -28,
+   "zoom": 1.38,
+   "look": [
+    -0.6,
+    -0.7
+   ],
+   "mood": "worried"
+  },
+  "shoe": {
+   "corner": "tl",
+   "size": 480,
+   "at": [
+    240,
+    100
+   ],
+   "rot": 22,
+   "shadow": [
+    120,
+    200
+   ],
+   "shadow_a": 0.4
+  },
+  "headline": "DON'T|*KILL*|IT!",
+  "accent": "red",
+  "text_box": [
+   730,
+   16,
+   1245,
+   570
+  ],
+  "arrow": {
+   "from": [
+    1010,
+    640
+   ],
+   "to": [
+    730,
+    590
+   ],
+   "bend": -0.3
+  }
+ },
+ {
+  "name": "kk2_b",
+  "out": "kk2_b.jpg",
+  "creature": {
+   "kind": "wolf_spider",
+   "box": [
+    360,
+    230,
+    500,
+    490
+   ],
+   "rot": -22,
+   "zoom": 1.38,
+   "look": [
+    -0.8,
+    -0.5
+   ],
+   "mood": "worried"
+  },
+  "shoe": {
+   "corner": "tl",
+   "size": 450,
+   "at": [
+    190,
+    70
+   ],
+   "rot": 22,
+   "shadow": [
+    110,
+    190
+   ],
+   "shadow_a": 0.4
+  },
+  "meatball": {
+   "at": [
+    310,
+    560
+   ],
+   "h": 320,
+   "look": [
+    -0.4,
+    -0.9
+   ]
+  },
+  "headline": "DON'T|*KILL*|IT!",
+  "accent": "red",
+  "text_box": [
+   805,
+   16,
+   1250,
+   560
+  ],
+  "arrow": {
+   "from": [
+    1060,
+    640
+   ],
+   "to": [
+    860,
+    610
+   ],
+   "bend": -0.35
+  }
+ },
+ {
+  "name": "kk2_c",
+  "out": "kk2_c.jpg",
+  "creature": {
+   "kind": "wolf_spider",
+   "box": [
+    640,
+    200,
+    620,
+    560
+   ],
+   "rot": 28,
+   "zoom": 1.38,
+   "look": [
+    0.6,
+    -0.7
+   ],
+   "mood": "worried"
+  },
+  "shoe": {
+   "corner": "tr",
+   "size": 480,
+   "at": [
+    1040,
+    100
+   ],
+   "rot": -22,
+   "shadow": [
+    120,
+    200
+   ],
+   "shadow_a": 0.4
+  },
+  "headline": "*NOT*|THIS ONE!",
+  "line_scale": [
+   1.45,
+   1.0
+  ],
+  "accent": "red",
+  "text_box": [
+   10,
+   40,
+   600,
+   480
+  ],
+  "arrow": {
+   "from": [
+    330,
+    560
+   ],
+   "to": [
+    600,
+    560
+   ],
+   "bend": 0.3
+  }
+ },
+ {
+  "name": "centipede_a",
+  "out": "centipede_a.jpg",
+  "creature": {
+   "kind": "house_centipede",
+   "box": [
+    0,
+    250,
+    760,
+    470
+   ],
+   "rot": 2,
+   "zoom": 1.5,
+   "look": [
+    -0.4,
+    -0.8
+   ],
+   "mood": "worried",
+   "ant": 0.7
+  },
+  "shoe": {
+   "corner": "tl",
+   "size": 460,
+   "at": [
+    230,
+    90
+   ],
+   "rot": 22,
+   "shadow": [
+    110,
+    190
+   ],
+   "shadow_a": 0.4
+  },
+  "headline": "DON'T|*SQUISH*|IT!",
+  "accent": "red",
+  "text_box": [
+   790,
+   10,
+   1255,
+   560
+  ],
+  "arrow": {
+   "from": [
+    1050,
+    650
+   ],
+   "to": [
+    800,
+    610
+   ],
+   "bend": -0.3
+  }
+ },
+ {
+  "name": "centipede_b",
+  "out": "centipede_b.jpg",
+  "creature": {
+   "kind": "house_centipede",
+   "box": [
+    0,
+    250,
+    760,
+    470
+   ],
+   "rot": 2,
+   "zoom": 1.5,
+   "look": [
+    0.8,
+    0.1
+   ],
+   "mood": "happy",
+   "ant": 0.7
+  },
+  "shoe": {
+   "corner": "tl",
+   "size": 460,
+   "at": [
+    230,
+    90
+   ],
+   "rot": 22,
+   "shadow": [
+    110,
+    190
+   ],
+   "shadow_a": 0.4
+  },
+  "headline": "IT EATS|*ROACHES*",
+  "accent": "red",
+  "text_box": [
+   780,
+   40,
+   1275,
+   400
+  ],
+  "arrow": {
+   "from": [
+    1000,
+    520
+   ],
+   "to": [
+    800,
+    600
+   ],
+   "bend": -0.3
+  }
+ },
+ {
+  "name": "cellarspider_a",
+  "out": "cellarspider_a.jpg",
+  "creature": {
+   "kind": "cellar_spider",
+   "box": [
+    80,
+    150,
+    600,
+    560
+   ],
+   "rot": 160,
+   "zoom": 1.5,
+   "look": [
+    -0.5,
+    -0.8
+   ],
+   "mood": "worried"
+  },
+  "shoe": {
+   "corner": "tl",
+   "size": 460,
+   "at": [
+    230,
+    90
+   ],
+   "rot": 22,
+   "shadow": [
+    110,
+    190
+   ],
+   "shadow_a": 0.4
+  },
+  "headline": "DON'T|*KILL*|IT!",
+  "accent": "red",
+  "text_box": [
+   730,
+   16,
+   1245,
+   570
+  ],
+  "arrow": {
+   "from": [
+    1000,
+    640
+   ],
+   "to": [
+    560,
+    520
+   ],
+   "bend": -0.25
+  }
+ },
+ {
+  "name": "cellarspider_b",
+  "out": "cellarspider_b.jpg",
+  "web": {
+   "origin": [
+    0,
+    0
+   ],
+   "r": 540
+  },
+  "creature": {
+   "kind": "cellar_spider",
+   "box": [
+    40,
+    60,
+    660,
+    620
+   ],
+   "rot": 135,
+   "zoom": 1.45,
+   "look": [
+    0.7,
+    -0.3
+   ],
+   "mood": "happy"
+  },
+  "shoe": false,
+  "headline": "IT EATS|*SPIDERS*",
+  "accent": "red",
+  "text_box": [
+   700,
+   40,
+   1275,
+   470
+  ],
+  "arrow": {
+   "from": [
+    930,
+    590
+   ],
+   "to": [
+    600,
+    500
+   ],
+   "bend": -0.3
+  }
+ }
 ]

@@ -210,8 +210,6 @@ def cartoon_eye(ctx, x, y, r, look, lw, lid=None, brow=None):
     src(ctx, (1, 1, 1))
     ctx.fill()
     if brow is not None:      # brow = tilt in radians (+ = worried: inner end up)
-        bx0, by0 = x - r * 0.9, y - r * 1.45
-        bx1, by1 = x + r * 0.9, y - r * 1.45
         ctx.save()
         ctx.translate(x, y - r * 1.45)
         ctx.rotate(brow)
@@ -331,15 +329,16 @@ def cellar_spider(ctx, o):
     with dark-and-white knee bands, arched knees. Leg strokes far thicker than life so it reads at phone size."""
     lw = o["lw"]
     look = o.get("look", (0, 0))
-    body, mark = hexf("#e6d8b6"), hexf("#a99372")
-    legc = hexf("#c8b48c")
+    body, mark = hexf("#e0c99a"), hexf("#9a7f58")
+    legc = hexf("#a88f68")
     spec = [  # femur angle (deg, from +x toward +y = forward), bend, lengths
-        (62, 28, (560, 600, 520)),
-        (20, 26, (500, 540, 460)),
-        (-22, -24, (470, 500, 430)),
-        (-60, -26, (560, 600, 520)),
+        (62, 28, (400, 430, 380)),
+        (20, 26, (360, 390, 330)),
+        (-22, -24, (340, 360, 310)),
+        (-60, -26, (400, 430, 380)),
     ]
-    hips = [(44, 120), (58, 92), (58, 58), (44, 30)]
+    B = o.get("body", 2.1)          # body scale: the real body is tiny; the thumbnail needs it to read
+    hips = [(44 * B, 120 * B), (58 * B, 92 * B), (58 * B, 58 * B), (44 * B, 30 * B)]
     for i in (3, 2, 1, 0):
         a0, bend, (l1, l2, l3) = spec[i]
         for s in (-1, 1):
@@ -350,13 +349,16 @@ def cellar_spider(ctx, o):
             p2 = (p1[0] + s * l2 * math.cos(a2), p1[1] + l2 * math.sin(a2))
             a3 = a2 + math.radians(bend * 0.5)
             p3 = (p2[0] + s * l3 * math.cos(a3), p2[1] + l3 * math.sin(a3))
-            leg(ctx, [p0, p1, p2, p3], (34, 28, 22), legc, lw,
+            leg(ctx, [p0, p1, p2, p3], (44, 36, 28), legc, lw,
                 bands=[(0, 0.93, hexf("#3b2e22"), 1.5), (1, 0.04, (1, 1, 1), 1.1), (1, 0.96, hexf("#3b2e22"), 1.1),
                        (2, 0.03, (1, 1, 1), 0.9)])
+    ctx.save()
+    ctx.scale(B, B)
+    lw = lw / B
     for s in (-1, 1):   # palps
         leg(ctx, [(s * 26, 170), (s * 52, 205), (s * 48, 236)], (20, 18), legc, lw)
-    ab = lambda c: smooth(c, [(0, 10), (56, -30), (70, -150), (62, -300), (0, -360), (-62, -300), (-70, -150),
-                              (-56, -30)])
+    ab = lambda c: smooth(c, [(0, 10), (70, -30), (92, -150), (80, -290), (0, -350), (-80, -290), (-92, -150),
+                              (-70, -30)])
     part(ctx, ab, body, lw, shade=(-14, -14), hi=[(-24, -190, 22, 90, 0)], hi_a=0.7)
     ctx.save()
     ab(ctx)
@@ -376,7 +378,8 @@ def cellar_spider(ctx, o):
     ctx.restore()
     brow = {"worried": 0.3, "happy": None, "calm": None}.get(o.get("mood", "happy"))
     for s in (-1, 1):
-        cartoon_eye(ctx, s * 34, 128, 30, look, lw * 0.9, brow=None if brow is None else s * brow)
+        cartoon_eye(ctx, s * 38, 124, 36, look, lw * 0.9, brow=None)
+    ctx.restore()
 
 
 def house_centipede(ctx, o):
@@ -399,7 +402,7 @@ def house_centipede(ctx, o):
         return (x, y), (1 / L, dy / L), (-dy / L, 1 / L)
 
     def width(u):
-        return 70 + 48 * math.sin(math.pi * min(1, u * 1.15)) ** 0.6
+        return 120 + 90 * math.sin(math.pi * min(1, u * 1.15)) ** 0.6
 
     # legs (behind the body). Pair k sits at u_k; each leg: hip -> knee (out, slightly forward) -> foot (back)
     for k in range(n):
@@ -414,22 +417,26 @@ def house_centipede(ctx, o):
                        (hip[0] - 820, hip[1] + s * 150)]
                 wd = (20, 17, 14)
             else:
-                reach = 260 + 180 * (1 - k / (n - 1)) ** 0.8
-                fwd = 0.25 - 0.55 * (1 - k / (n - 1))
-                kx = hip[0] + s * nrm[0] * reach * 0.55 + t[0] * reach * fwd
-                ky = hip[1] + s * nrm[1] * reach * 0.55 + t[1] * reach * fwd
-                fx = kx + s * nrm[0] * reach * 0.75 - t[0] * reach * (0.5 + 0.3 * (1 - k / n))
-                fy = ky + s * nrm[1] * reach * 0.75 - t[1] * reach * (0.5 + 0.3 * (1 - k / n))
+                f = k / (n - 1)                       # 0 = rear .. 1 = front
+                reach = 300 + 200 * (1 - f) ** 0.8 + 30 * (k % 2)
+                th = -1.3 + 2.2 * f                  # rear legs sweep back, front legs reach forward: a fan
+
+                def d(a):
+                    return (s * nrm[0] * math.cos(a) + t[0] * math.sin(a), s * nrm[1] * math.cos(a) + t[1] * math.sin(a))
+                d1, d2 = d(th + 0.3), d(th - 0.35)
+                kx, ky = hip[0] + d1[0] * reach * 0.48, hip[1] + d1[1] * reach * 0.48
+                fx, fy = kx + d2[0] * reach * 0.62, ky + d2[1] * reach * 0.62
                 pts = [hip, (kx, ky), (fx, fy)]
-                wd = (22, 17)
+                wd = (24, 19)
             nb = 3 if not last else 4
             bands = [(si, (j + 0.5) / nb, legd, 1.1) for si in range(len(wd)) for j in range(nb)]
             leg(ctx, pts, wd, legl, lw * 0.85, bands=bands)
     # antennae
     (hx, hy), t, nrm = spine(1.0)
     for s in (-1, 1):
-        pts = [(hx + 60, hy + s * 26), (hx + 260, hy + s * 150), (hx + 520, hy + s * 230 - 40),
-               (hx + 760, hy + s * 220 - 120)]
+        ak = o.get("ant", 1.0)          # antenna length (shorten when they would run into the words)
+        pts = [(hx + 100, hy + s * 40)] + [(hx + 100 + (dx - 100) * ak, hy + s * 40 + (dy - s * 40) * ak)
+                                         for dx, dy in ((300, s * 170), (560, s * 250 - 40), (800, s * 240 - 120))]
         line(ctx, pts, 14 + 2 * lw, INK, curve=True)
         line(ctx, pts, 14, legl, curve=True)
         ctx.save()
@@ -447,7 +454,7 @@ def house_centipede(ctx, o):
         bot.append((px + nrm[0] * w, py + nrm[1] * w))
     (tx, ty), t0, _ = spine(0)
     outline_pts = top + [(spine(1)[0][0] + 20, spine(1)[0][1])] + bot[::-1] + [(tx - 30, ty)]
-    bodyp = lambda c: smooth(c, outline_pts[::2] if False else outline_pts)
+    bodyp = lambda c: smooth(c, outline_pts)
     part(ctx, bodyp, base, lw, shade=(-14, -22), outline=False)
     ctx.save()
     bodyp(ctx)
@@ -478,17 +485,14 @@ def house_centipede(ctx, o):
     ctx.stroke()
     # forcipules + head
     for s in (-1, 1):
-        line(ctx, [(hx + 70, hy + s * 30), (hx + 118, hy + s * 40), (hx + 132, hy + s * 12)], 14 + 2 * lw, INK,
-             curve=True)
-        line(ctx, [(hx + 70, hy + s * 30), (hx + 118, hy + s * 40), (hx + 132, hy + s * 12)], 14,
-             hexf("#9a5a2e"), curve=True)
-    head = lambda c: ellipse(c, hx + 40, hy, 78, 72)
-    part(ctx, head, base, lw, shade=(-8, -12), hi=[(hx + 20, hy - 30, 24, 16, 0)])
-    line(ctx, [(hx - 20, hy), (hx + 50, hy)], 12, stripe)
+        fp = [(hx + 110, hy + s * 50), (hx + 180, hy + s * 64), (hx + 200, hy + s * 18)]
+        line(ctx, fp, 20 + 2 * lw, INK, curve=True)
+        line(ctx, fp, 20, hexf("#9a5a2e"), curve=True)
+    head = lambda c: ellipse(c, hx + 60, hy, 125, 115)
+    part(ctx, head, base, lw, shade=(-12, -16), hi=[(hx + 20, hy - 60, 40, 22, 0)])
     brow = {"worried": 0.3, "happy": None, "calm": None}.get(o.get("mood", "worried"))
     for s in (-1, 1):
-        cartoon_eye(ctx, hx + 52, hy + s * 36, 30, look, lw * 0.9,
-                    brow=None if brow is None else s * brow)
+        cartoon_eye(ctx, hx + 80, hy + s * 52, 46, look, lw * 0.9, brow=None)
 
 
 CREATURES = {"wolf_spider": wolf_spider, "cellar_spider": cellar_spider, "house_centipede": house_centipede}
@@ -517,6 +521,8 @@ def creature_layer(c):
     x, y, bw, bh = c.get("box", [40, 150, 760, 540])
     rot = math.radians(c.get("rot", 0))
     o = dict(c)
+    lx, ly = c.get("look", (0, 0))      # pupils aim in screen space: undo the creature's rotation
+    o["look"] = (lx * math.cos(-rot) - ly * math.sin(-rot), lx * math.sin(-rot) + ly * math.cos(-rot))
     o["lw"] = 10.0
     rec = cairo.RecordingSurface(cairo.CONTENT_COLOR_ALPHA, None)
     fn(cairo.Context(rec), o)
@@ -619,12 +625,12 @@ def shoe_draw(ctx, color_sole, color_tread, color_upper):
 
 def shoe_transform(s):
     corner = s.get("corner", "tl")
-    size = s.get("size", 640)
+    size = s.get("size", 480)
     k = size / 920.0
     if corner == "tl":
-        at, rot, flip = s.get("at", (250, 70)), s.get("rot", 28), 1
+        at, rot, flip = s.get("at", (240, 100)), s.get("rot", 22), 1
     else:
-        at, rot, flip = s.get("at", (W - 250, 70)), s.get("rot", -28), -1
+        at, rot, flip = s.get("at", (W - 240, 100)), s.get("rot", -22), -1
     return at, math.radians(rot), k, flip
 
 
@@ -642,7 +648,7 @@ def shoe_layers(s):
         shoe_draw(ctx, *cols)
 
     def shadow(ctx):
-        sx, sy = s.get("shadow", (60, 150))
+        sx, sy = s.get("shadow", (120, 200))
         ctx.translate(sx * flip, sy)
         place(ctx)
         ctx.scale(0.9, 0.82)
@@ -650,7 +656,7 @@ def shoe_layers(s):
         src(ctx, (0.12, 0.1, 0.1), 1)
         ctx.fill()
     sh = layer(shadow)
-    sh.putalpha(sh.getchannel("A").point(lambda v: int(v * s.get("shadow_a", 0.30))).filter(ImageFilter.GaussianBlur(26)))
+    sh.putalpha(sh.getchannel("A").point(lambda v: int(v * s.get("shadow_a", 0.40))).filter(ImageFilter.GaussianBlur(26)))
     return layer(draw), sh
 
 
@@ -694,7 +700,7 @@ def parse_headline(s):
 def letter_line(words, font, accent, rng, size, wobble=1.0, bold=0.028):
     """One hand-lettered line: each glyph jittered in angle and baseline, a thick white halo behind."""
     asc, desc = font.getmetrics()
-    space = font.getlength(" ") * 0.7
+    space = font.getlength(" ") * 1.25 + size * 0.06
     glyphs = []
     x = 0.0
     for wi, (w, acc) in enumerate(words):
@@ -708,7 +714,6 @@ def letter_line(words, font, accent, rng, size, wobble=1.0, bold=0.028):
     fat = int(round(size * bold))          # faux bold: the marker drawn twice as thick (reads at 168 px)
     halo = int(max(6, size * 0.07)) + fat
     for pass_ in (0, 1):
-        r2 = random.Random(rng.random() if pass_ == 0 else 0)
         for (ch, gx, acc), seed in zip(glyphs, range(len(glyphs))):
             g = random.Random(seed * 7 + int(size))
             ang = g.uniform(-4, 4) * wobble
@@ -741,8 +746,12 @@ def lettering(spec, rng):
     size = spec.get("max_size", 240)
     while size > 30:
         font = ImageFont.truetype(fpath, size)
-        imgs = [letter_line(ln, font, accent, rng, size, spec.get("wobble", 1.0), spec.get("bold", 0.014))
-                for ln in lines]
+        ls = spec.get("line_scale") or [1.0] * len(lines)     # e.g. [1.4, 1]: one line bigger than the rest
+        imgs = []
+        for ln, k in zip(lines, ls):
+            f = font if k == 1 else ImageFont.truetype(fpath, int(size * k))
+            imgs.append(letter_line(ln, f, accent, rng, int(size * k), spec.get("wobble", 1.0),
+                                    spec.get("bold", 0.014)))
         tw = max(i.width for i in imgs)
         th = sum(i.height for i in imgs) + gap * size * (len(imgs) - 1)
         if tw <= bw and th <= bh:
@@ -808,7 +817,6 @@ def arrow_layer(a, rng):
             mid = (ex + math.cos(a2 + s * 0.05) * ln * 0.5, ey + math.sin(a2 + s * 0.05) * ln * 0.5)
             end = (ex + math.cos(a2) * ln, ey + math.sin(a2) * ln)
             line(ctx, [(ex, ey), mid, end], wmax * 1.05, col, curve=True)
-    halo = layer(lambda c: None)
     lay = layer(draw)
     wh = Image.new("RGBA", (W, H), (255, 255, 255, 0))
     wh.putalpha(lay.getchannel("A").filter(ImageFilter.MaxFilter(7)))
@@ -880,6 +888,45 @@ def save(im, out):
     return out, os.path.getsize(out)
 
 
+def _label_font(px):
+    for f in ("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", FONTS["marker"]):
+        if os.path.exists(f):
+            return ImageFont.truetype(f, px)
+    return ImageFont.load_default()
+
+
+def contact(paths, out_dir, compare=()):
+    """contact.jpg: every thumbnail 3-up at 640x360 with its name; contact_168.jpg: every thumbnail at YouTube's
+    smallest size (168x94, 1:1 pixels) on a mid-grey feed-like background, next to the comparison thumbs."""
+    names = [os.path.splitext(os.path.basename(p))[0] for p in paths]
+    cols, tw, th, pad, lab = 3, 640, 360, 16, 34
+    rows = (len(paths) + cols - 1) // cols
+    sheet = Image.new("RGB", (cols * (tw + pad) + pad, rows * (th + lab + pad) + pad), (40, 40, 40))
+    d = ImageDraw.Draw(sheet)
+    f = _label_font(22)
+    for i, (p, n) in enumerate(zip(paths, names)):
+        x, y = pad + (i % cols) * (tw + pad), pad + (i // cols) * (th + lab + pad)
+        sheet.paste(Image.open(p).convert("RGB").resize((tw, th), Image.LANCZOS), (x, y + lab))
+        d.text((x, y + 4), n, font=f, fill=(235, 235, 235))
+    sheet.save(os.path.join(out_dir, "contact.jpg"), quality=90)
+    tiles = [(p, n) for p, n in zip(paths, names)] + [(p, "OLD " + os.path.splitext(os.path.basename(p))[0])
+                                                      for p in compare]
+    cols, tw, th, pad, lab = 5, 168, 94, 18, 16
+    rows = (len(paths) + cols - 1) // cols + (len(compare) + cols - 1) // cols
+    sm = Image.new("RGB", (cols * (tw + pad) + pad, rows * (th + lab + pad) + pad + 22), (113, 113, 113))
+    d = ImageDraw.Draw(sm)
+    f = _label_font(11)
+    d.text((pad, 6), "168x94 (YouTube's smallest size), 1:1 pixels. Last row: current thumbnails.", font=f,
+           fill=(240, 240, 240))
+    for i, (p, n) in enumerate(tiles):
+        r = i // cols if i < len(paths) else (len(paths) + cols - 1) // cols + (i - len(paths)) // cols
+        c = i % cols if i < len(paths) else (i - len(paths)) % cols
+        x, y = pad + c * (tw + pad), 22 + pad + r * (th + lab + pad)
+        sm.paste(Image.open(p).convert("RGB").resize((tw, th), Image.LANCZOS), (x, y))
+        d.text((x, y + th + 3), n, font=f, fill=(245, 245, 245))
+    sm.save(os.path.join(out_dir, "contact_168.jpg"), quality=92)
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--json", help="spec file (one spec or a list)")
@@ -893,10 +940,13 @@ def main():
     ap.add_argument("--shoe", default="tl", choices=["tl", "tr", "off"])
     ap.add_argument("--no-arrow", action="store_true")
     ap.add_argument("--meatball", action="store_true", help="small Meatball, arms out, between shoe and creature")
+    ap.add_argument("--contact", metavar="DIR", help="with --json: also write DIR/contact.jpg + contact_168.jpg")
+    ap.add_argument("--compare", nargs="*", default=[], help="existing thumbs to show in contact_168.jpg")
     a = ap.parse_args()
     if a.json:
         specs = json.load(open(a.json))
         specs = specs if isinstance(specs, list) else [specs]
+        done = []
         for s in specs:
             if a.only and s.get("name") != a.only:
                 continue
@@ -904,6 +954,10 @@ def main():
             if not os.path.isabs(out) and not a.out_dir:
                 out = os.path.join(os.path.dirname(os.path.abspath(a.json)), out)
             print(*save(render(s), out))
+            done.append(out)
+        if a.contact:
+            contact(done, a.contact, a.compare)
+            print(os.path.join(a.contact, "contact.jpg"), os.path.join(a.contact, "contact_168.jpg"))
         return
     spec = {"creature": {"kind": a.creature, "box": [30, 140, 760, 560], "rot": -8, "look": [-0.6, -0.7]},
             "headline": a.headline, "accent": a.accent, "font": a.font,

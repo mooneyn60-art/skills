@@ -234,7 +234,7 @@
      "say": "That's one of eight bug stories. The last one has no head.",
      "board": {
       "at": 0.0,
-      "off": "70%"
+      "off": "56%"
      },
      "gag": false,
      "card": {
@@ -252,7 +252,7 @@
        ]
       ],
       "y": 430,
-      "at": "50%",
+      "at": "58%",
       "x": 1390
      },
      "loop_on": true,
@@ -320,7 +320,8 @@
       ],
       "y": 140,
       "at": "30%"
-     }
+     },
+     "gag": false
     },
     {
      "m": "escalate",
@@ -353,7 +354,16 @@
      "scene": "microscope",
      "scene_p": {
       "time": "night"
-     }
+     },
+     "cast": {
+      "creature": "harvestman",
+      "actor": "harvestman",
+      "s": 0.55,
+      "creature_cfg": {
+       "label": "harvestman"
+      }
+     },
+     "gag": false
     },
     {
      "m": "fact",
@@ -361,7 +371,28 @@
      "scene": "garden",
      "scene_p": {
       "time": "day"
-     }
+     },
+     "cast": {
+      "creature": "crane_fly",
+      "s": 0.65,
+      "creature_cfg": {
+       "plan": "insect",
+       "label": "crane fly",
+       "body": "carrot",
+       "color": "#9a8458",
+       "dark": "#5e4f32",
+       "length": 440,
+       "height": 95,
+       "leg_len": 270,
+       "ant": 60,
+       "wings": "clear",
+       "eye_r": 22,
+       "floor": false,
+       "mood": "happy",
+       "s": 0.65
+      }
+     },
+     "gag": false
     },
     {
      "m": "fact",
@@ -402,7 +433,8 @@
       ],
       "y": 140,
       "at": "45%"
-     }
+     },
+     "gag": false
     },
     {
      "m": "fact",
@@ -660,7 +692,30 @@
      "scene": "kitchen",
      "scene_p": {
       "time": "day"
-     }
+     },
+     "cast": {
+      "creature": "fruit_fly",
+      "s": 0.95,
+      "creature_cfg": {
+       "plan": "insect",
+       "label": "fruit fly",
+       "body": "round",
+       "color": "#c99a5a",
+       "dark": "#7a4a24",
+       "head": "#b8742e",
+       "length": 320,
+       "height": 160,
+       "leg_len": 90,
+       "ant": 70,
+       "stripes": 4,
+       "wings": "clear",
+       "eye_r": 34,
+       "floor": false,
+       "mood": "smug",
+       "s": 0.95
+      }
+     },
+     "gag": false
     },
     {
      "m": "fact",
@@ -669,7 +724,29 @@
      "scene_p": {
       "time": "day"
      },
-     "gag": false
+     "gag": false,
+     "cast": {
+      "creature": "fruit_fly",
+      "s": 0.95,
+      "creature_cfg": {
+       "plan": "insect",
+       "label": "fruit fly",
+       "body": "round",
+       "color": "#c99a5a",
+       "dark": "#7a4a24",
+       "head": "#b8742e",
+       "length": 320,
+       "height": 160,
+       "leg_len": 90,
+       "ant": 70,
+       "stripes": 4,
+       "wings": "clear",
+       "eye_r": 34,
+       "floor": false,
+       "mood": "smug",
+       "s": 0.95
+      }
+     }
     },
     {
      "m": "fact",
@@ -677,6 +754,10 @@
      "scene": "garden",
      "scene_p": {
       "time": "day"
+     },
+     "cast": {
+      "creature": "ant",
+      "s": 0.7
      }
     },
     {
@@ -806,11 +887,123 @@
     },
     {
      "m": "fact",
-     "say": "A baby spider climbs up high. Rear end to the sky."
+     "say": "A baby spider climbs up high. Rear end to the sky.",
+     "cast": {
+      "creature": "wolf_spider",
+      "s": 0.38,
+      "actor": "wolf_spider"
+     },
+     "gag": false,
+     "acting": false,
+     "hero_at": {
+      "x": 850,
+      "y": 1500,
+      "rot": 0
+     },
+     "hero_moves": [
+      {
+       "at": "4%",
+       "dur": 1.3,
+       "pos": [
+        850,
+        900
+       ],
+       "walk": true
+      },
+      {
+       "at": "rear|58%",
+       "dur": 0.45,
+       "rot": 40
+      }
+     ],
+     "kk_shots": [
+      {
+       "cam": [
+        600,
+        1020,
+        0.85
+       ],
+       "to": [
+        640,
+        1010,
+        0.92
+       ]
+      },
+      {
+       "at": "rear|58%",
+       "cam": [
+        680,
+        1010,
+        0.96
+       ],
+       "to": [
+        720,
+        1000,
+        1.04
+       ]
+      }
+     ]
     },
     {
-     "m": "escalate",
-     "say": "Out come the silk threads. And the wind takes it."
+     "m": "count",
+     "say": "Out come the silk threads. And the wind takes it.",
+     "cast": {
+      "creature": "wolf_spider",
+      "s": 0.38,
+      "actor": "wolf_spider"
+     },
+     "gag": false,
+     "acting": false,
+     "hero_at": {
+      "x": 850,
+      "y": 900,
+      "rot": 40
+     },
+     "hero_moves": [
+      {
+       "at": "wind|55%",
+       "dur": 1.3,
+       "pos": [
+        1220,
+        650
+       ]
+      }
+     ],
+     "silk": {
+      "dx": -71,
+      "dy": -182,
+      "at": "4%",
+      "dur": 0.9,
+      "lean": 30,
+      "len": 520
+     },
+     "kk_shots": [
+      {
+       "cam": [
+        720,
+        1000,
+        1.04
+       ],
+       "to": [
+        760,
+        970,
+        1.0
+       ]
+      },
+      {
+       "at": "wind|55%",
+       "cam": [
+        800,
+        960,
+        0.94
+       ],
+       "to": [
+        840,
+        940,
+        0.9
+       ]
+      }
+     ]
     },
     {
      "m": "solo",
@@ -818,7 +1011,53 @@
      "scene": "garden",
      "scene_p": {
       "time": "day"
-     }
+     },
+     "cast": {
+      "creature": "wolf_spider",
+      "s": 0.38,
+      "actor": "wolf_spider"
+     },
+     "zoom": 1.0,
+     "gag": false,
+     "acting": false,
+     "hero_at": {
+      "x": 500,
+      "y": 780,
+      "rot": 40
+     },
+     "hero_moves": [
+      {
+       "at": 0.0,
+       "dur": 1.6,
+       "pos": [
+        960,
+        680
+       ],
+       "linear": true
+      }
+     ],
+     "silk": {
+      "dx": -71,
+      "dy": -182,
+      "grow": 1.0,
+      "lean": 55,
+      "len": 560,
+      "set": []
+     },
+     "kk_shots": [
+      {
+       "cam": [
+        690,
+        700,
+        1.25
+       ],
+       "to": [
+        800,
+        680,
+        1.25
+       ]
+      }
+     ]
     },
     {
      "m": "fact",
@@ -826,7 +1065,52 @@
      "scene": "garden",
      "scene_p": {
       "time": "day"
-     }
+     },
+     "cast": {
+      "creature": "wolf_spider",
+      "s": 0.2,
+      "actor": "wolf_spider"
+     },
+     "gag": false,
+     "acting": false,
+     "hero_at": {
+      "x": 820,
+      "y": 560,
+      "rot": 40
+     },
+     "hero_moves": [
+      {
+       "at": 0.0,
+       "dur": 2.2,
+       "pos": [
+        1080,
+        470
+       ],
+       "linear": true
+      }
+     ],
+     "silk": {
+      "dx": -37,
+      "dy": -96,
+      "grow": 1.0,
+      "lean": 60,
+      "len": 300,
+      "set": []
+     },
+     "kk_shots": [
+      {
+       "cam": [
+        600,
+        900,
+        0.82
+       ],
+       "to": [
+        620,
+        870,
+        0.82
+       ]
+      }
+     ]
     },
     {
      "m": "fact",
@@ -834,7 +1118,73 @@
      "scene": "ship_deck",
      "scene_p": {
       "time": "day"
-     }
+     },
+     "cast": {
+      "creature": "wolf_spider",
+      "s": 0.38,
+      "actor": "wolf_spider"
+     },
+     "gag": false,
+     "acting": false,
+     "hero_at": {
+      "x": 1150,
+      "y": 640,
+      "rot": 40
+     },
+     "hero_moves": [
+      {
+       "at": "land|30%",
+       "dur": 0.9,
+       "pos": [
+        820,
+        1500
+       ],
+       "rot": 0
+      }
+     ],
+     "silk": {
+      "dx": -71,
+      "dy": -182,
+      "grow": 1.0,
+      "lean": 40,
+      "len": 460,
+      "set": [
+       {
+        "at": "land|30%",
+        "dur": 0.35,
+        "p": {
+         "grow": 0.0
+        }
+       }
+      ]
+     },
+     "kk_shots": [
+      {
+       "cam": [
+        620,
+        980,
+        0.85
+       ],
+       "to": [
+        640,
+        1000,
+        0.9
+       ]
+      },
+      {
+       "at": "sixty|55%",
+       "cam": [
+        660,
+        1030,
+        1.0
+       ],
+       "to": [
+        690,
+        1040,
+        1.06
+       ]
+      }
+     ]
     },
     {
      "m": "xray",
@@ -842,7 +1192,67 @@
      "scene": "microscope",
      "scene_p": {
       "time": "night"
-     }
+     },
+     "cast": {
+      "creature": "wolf_spider",
+      "s": 0.38,
+      "actor": "wolf_spider"
+     },
+     "acting": false,
+     "gag": {
+      "zap": true,
+      "at": "electric|22%"
+     },
+     "hero_at": {
+      "x": 820,
+      "y": 1500,
+      "rot": 40
+     },
+     "hero_moves": [
+      {
+       "at": "lifted|45%",
+       "dur": 0.8,
+       "pos": [
+        820,
+        1250
+       ]
+      }
+     ],
+     "silk": {
+      "dx": -71,
+      "dy": -182,
+      "at": "electric|22%",
+      "dur": 0.6,
+      "lean": 10,
+      "len": 380
+     },
+     "kk_shots": [
+      {
+       "cam": [
+        660,
+        1040,
+        0.94
+       ],
+       "to": [
+        650,
+        1040,
+        0.98
+       ]
+      },
+      {
+       "at": "lifted|45%",
+       "cam": [
+        660,
+        1010,
+        1.0
+       ],
+       "to": [
+        650,
+        990,
+        1.04
+       ]
+      }
+     ]
     },
     {
      "m": "fact",
@@ -851,7 +1261,85 @@
      "scene_p": {
       "time": "day"
      },
-     "gag": false
+     "gag": false,
+     "cast": {
+      "creature": "wolf_spider",
+      "s": 0.38,
+      "actor": "wolf_spider"
+     },
+     "acting": false,
+     "hero_at": {
+      "x": 1300,
+      "y": 640,
+      "rot": 40
+     },
+     "hero_moves": [
+      {
+       "at": 0.0,
+       "dur": 2.0,
+       "pos": [
+        1150,
+        600
+       ],
+       "linear": true
+      },
+      {
+       "at": "one|72%",
+       "dur": 0.6,
+       "pos": [
+        480,
+        720
+       ]
+      }
+     ],
+     "silk": {
+      "dx": -71,
+      "dy": -182,
+      "grow": 1.0,
+      "lean": -45,
+      "len": 460,
+      "set": []
+     },
+     "kk_shots": [
+      {
+       "cam": [
+        640,
+        950,
+        0.85
+       ],
+       "to": [
+        630,
+        950,
+        0.88
+       ]
+      },
+      {
+       "at": "windy|25%",
+       "cam": [
+        700,
+        920,
+        0.92
+       ],
+       "to": [
+        680,
+        920,
+        0.95
+       ]
+      },
+      {
+       "at": "one|72%",
+       "cam": [
+        540,
+        900,
+        1.02
+       ],
+       "to": [
+        480,
+        880,
+        1.12
+       ]
+      }
+     ]
     },
     {
      "m": "chase",
@@ -920,7 +1408,8 @@
     },
     {
      "m": "fact",
-     "say": "No chewing. It spits on solid food to turn it to soup."
+     "say": "No chewing. It spits on solid food to turn it to soup.",
+     "gag": false
     },
     {
      "m": "chase",
@@ -928,7 +1417,11 @@
     },
     {
      "m": "fact",
-     "say": "Don't zap one near your food, either. The body can burst."
+     "say": "Don't zap one near your food, either. The body can burst.",
+     "gag": {
+      "zap": true,
+      "at": "10%"
+     }
     },
     {
      "m": "fact",
@@ -950,7 +1443,29 @@
     {
      "m": "escalate",
      "say": "Its tiny cousin on your banana? It's been to space.",
-     "gag": false
+     "gag": false,
+     "cast": {
+      "creature": "fruit_fly",
+      "s": 0.95,
+      "creature_cfg": {
+       "plan": "insect",
+       "label": "fruit fly",
+       "body": "round",
+       "color": "#c99a5a",
+       "dark": "#7a4a24",
+       "head": "#b8742e",
+       "length": 320,
+       "height": 160,
+       "leg_len": 90,
+       "ant": 70,
+       "stripes": 4,
+       "wings": "clear",
+       "eye_r": 34,
+       "floor": false,
+       "mood": "smug",
+       "s": 0.95
+      }
+     }
     }
    ]
   },
@@ -1066,7 +1581,8 @@
      "scene": "microscope",
      "scene_p": {
       "time": "night"
-     }
+     },
+     "gag": false
     },
     {
      "m": "chase",
