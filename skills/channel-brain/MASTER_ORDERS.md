@@ -126,6 +126,8 @@ Pick episodes from `CALENDAR_REALISTIC.md`, top down. Any Short that beats 2x th
   - never a stitch, compilation, recut of posted Shorts, or blurred-side vertical
   - target 8-12 min once retention holds; 5-7 min is fine until then
 - **Two slots (Nolan 11/10: "push more long form"):** **Saturday 08:00 ET** plus a midweek long-form (**Wed or Thu 17:00 ET**). Kill-or-Keep Part 1 broke out: 114 views in 2 days, CTR 5%, 44% avg viewed, 96% from recommendations. First midweek: House Bug Myths, Thu 11/12.
+- **Format plan (Nolan 11/10 delegated the choice to the data; yt-dlp search 11/10):** a ranking/tier list (211K-10M in-niche) > 3D size what-if (154K-7.3M) > a single-question myth (1.5-3.9M) >> lists of bug myths (~1K). Long-form order: Thu 11/12 spider-swallow myth episode, Wed 11/18 "Every Bug in Your House, Ranked From Harmless to Nightmare", then Kill-or-Keep sequels and a 3D what-if.
+- **Expansion (Nolan 11/10):** backyard creatures come first after house bugs (MyWildBackyard is the comparable channel: 200K-860K views). Pets' bugs stay out for now (close to the bite/medical topics that flop).
 - **Case files are DROPPED** (Nolan 11/9: the Azorian teaser Short did terribly). No case-file Shorts, long-forms or teasers. Don't propose them again unless Nolan asks.
 - **No Sunday compilation** until a weekly long-form passes 500 views.
 - **The bridge (Nolan, Studio):** every on-topic Short's Related video points at the newest long-form, with the pinned comment "Full list in the Related video 👆". Re-point the links every Saturday.
