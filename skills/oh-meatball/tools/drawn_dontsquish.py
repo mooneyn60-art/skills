@@ -6,7 +6,7 @@ module only adds a format layer on top of tools/drawn_keepkill.py (16:9, kk_end)
 
   build OUTLINE.json SPEC.json             outline -> buildable spec (every `say` kept; each line gets an "id"
                                            (s<segment>.l<line>) and a "shot" recipe from SHOTS below; re-running
-                                           keeps shots already edited in SPEC.json for ids whose `say` is unchanged)
+                                           keeps a shot edited in SPEC.json when it carries "_keep": true; otherwise SHOTS wins)
   render SPEC.json OUT.mp4 [--lines A-B] [--work DIR]     render (all lines, or a range of spec line indices)
   stills SPEC.json OUT.jpg --at ID@FRAC,ID@FRAC,...       one frame per line (FRAC = share of that line), as a
                                            contact sheet; the plan (voice) covers only the lines needed
@@ -84,8 +84,8 @@ def ds_meter(ctx, t, p):
     big = ease(p.get("big", 0.0))
     v = max(0.0, min(100.0, p.get("v", 30.0)))
     pulse = max(0.0, p.get("pulse", 0.0))
-    sc = 1.0 + 0.75 * big
-    cy = 66 + (500 - 66) * big - 170 * (1 - ease(on))
+    sc = 1.0 + 0.5 * big
+    cy = 66 + (330 - 66) * big - 170 * (1 - ease(on))
     ctx.save()
     ctx.translate(W / 2, cy)
     ctx.scale(sc, sc)
@@ -435,9 +435,11 @@ def _shots_table():
     tipR = leg_tip(CAROL, CS, 0, 1)
     # ----------------------------------------------------------------------------------------- cold open
     T["s0.l0"] = {"r": "corner", "cam": "close", "to": push("close", 1.08), "shoe": False,
-                  "shots": [cam("close", push("close", 1.07)), cam(push("close", 1.07), [710, 470, 1.15], at="hunting|55%", dur=0.9)],
-                  "carol": {"work": 1.0, "look": [0.4, 0.5], "mood": "calm"},
-                  "carol_sets": [{"at": "hunting|55%", "dur": 0.3, "p": {"work": 0.0, "look": [0.5, 0.8], "mood": "smug"}}],
+                  "shots": [cam([735, 575, 2.0], [700, 550, 1.8]), cam([700, 550, 1.8], [710, 470, 1.15], at="hunting|55%", dur=0.9)],
+                  "carol": {"work": 1.0, "look": [0.4, 0.5], "mood": "calm"}, "norecut": True,
+                  "carol_sets": [{"at": "corner|20%", "dur": 0.3, "p": {"look": [-0.7, -0.5]}},
+                                 {"at": "ceiling|35%", "dur": 0.3, "p": {"look": [0.7, 0.4]}},
+                                 {"at": "hunting|55%", "dur": 0.3, "p": {"work": 0.0, "look": [0.5, 0.8], "mood": "smug"}}],
                   "sfx": ["sting@0", "whoosh@hunting|55%"], "card_at": "hunting|55%"}
     T["s0.l1"] = {"r": "scene", "scene": "ds_floor", "cam": [700, 760, 1.0], "to": [760, 780, 1.12],
                   "actors": [actor("shadow", "ds_shadow", [1900, 1000], 1.25, {"a": 0.62}, rot=-8,
@@ -458,10 +460,10 @@ def _shots_table():
                            gest=[["hunting", "point", 0.8], ["hurt", "think", 0.8], ["leave", "shrug", 1.0]]),
                   "three": ["HUNTING?", "HURT YOU?", "LEAVE IT?"], "three_at": ["hunting|20%", "hurt|50%", "leave|80%"],
                   "sfx": ["pop@hunting|20%", "pop@hurt|50%"]}
-    T["s0.l5"] = {"r": "scene", "scene": "bedroom", "scene_p": {"time": "night"}, "cam": [1700, 1100, 0.78], "to": [1760, 1080, 0.86],
-                  "actors": [actor("chair", "chair", [1880, 1500], 1.0), actor("feet", "ds_feet", [1890, 1032], 1.0)],
-                  "mb": mb("lean", (2130, 1500), 900, look="viewer", gest=[["squish|60%", "deadpan", 2.0]],
-                           moves=[{"at": "chair|80%", "dur": 0.3, "pos": [2100, 1500]}]),
+    T["s0.l5"] = {"r": "scene", "scene": "bedroom", "scene_p": {"time": "night"}, "cam": [1160, 1100, 0.86], "to": [1190, 1080, 0.9], "norecut": True,
+                  "actors": [actor("chair", "chair", [1250, 1500], 1.0), actor("feet", "ds_feet", [1260, 1032], 1.0)],
+                  "mb": mb("lean", (1500, 1500), 900, look="viewer", gest=[["squish|60%", "deadpan", 2.0]],
+                           moves=[{"at": "chair|80%", "dur": 0.3, "pos": [1470, 1500]}]),
                   "meter_pulse": "meter|25%", "sfx": ["thud@chair|80%"]}
     # ----------------------------------------------------------------------------------------- question 1
     T["s1.l0"] = {"r": "corner", "cam": "wide", "to": [700, 470, 1.1], "carol": {"work": 0.6}, "chapter": True}
@@ -478,9 +480,9 @@ def _shots_table():
     T["s1.l2"] = {"r": "corner", "cam": [720, 594, 4.0], "to": "face", "shoe": False,
                   "carol": {"eyes8": 1.0, "look": [0, 0], "mood": "calm", "still": True},
                   "extras": [actor("ring%d" % i, "ds_ring", [CAROL[0] + x * CS, CAROL[1] - 30 * CS + y * CS], 1.0,
-                                   {"on": 0.0, "r": r, "lw": 3},
+                                   {"on": 0.0, "r": r * CS, "lw": 2.2},
                                    sets=[{"at": "three|%d%%" % (60 + 8 * i), "dur": 0.3, "p": {"on": 1.0}}])
-                             for i, (x, y, r) in enumerate(((-48, -4, 19), (0, 10, 24), (48, -4, 19)))],
+                             for i, (x, y, r) in enumerate(((-46, -4, 20), (0, 10, 22), (46, -4, 20)))],
                   "sfx": ["tink@eight|35%", "pop@three|65%"]}
     T["s1.l3"] = {"r": "corner", "cam": [860, 500, 1.15], "to": [860, 490, 1.22],
                   "carol": {"mood": "happy", "look": [0.6, 0.2]},
@@ -535,25 +537,25 @@ def _shots_table():
                            gest=[["leftovers|85%", "point", 1.0]]),
                   "sfx": ["step@emptied|35%", "pop@leftovers|85%"]}
     T["s1.l9"] = {"r": "scene", "scene": "ds_board_bg", "cam": [0, 40, 1.0], "to": [0, 40, 1.04], "norecut": True,
-                  "actors": [actor("board", "ds_board", [0, 60], 1.0, {"n": 0, "sort": 0.0, "sort2": 0.0},
+                  "actors": [actor("board", "ds_board", [0, 40], 0.84, {"n": 0, "sort": 0.0, "sort2": 0.0},
                                    sets=[{"at": 0.05, "dur": 1.1, "p": {"n": 102}}])],
                   "sfx": ["pop@0.1", "tink@dead|80%"]}
     T["s1.l10"] = {"r": "scene", "scene": "ds_board_bg", "cam": [0, 40, 1.04], "to": [-80, 60, 1.1], "norecut": True,
-                   "actors": [actor("board", "ds_board", [0, 60], 1.0, {"n": 102, "sort": 0.0, "count": False},
+                   "actors": [actor("board", "ds_board", [0, 40], 0.84, {"n": 102, "sort": 0.0, "count": False},
                                     sets=[{"at": "house|50%", "dur": 1.2, "p": {"sort": 1.0}}])],
                    "card_at": "Sixty|10%", "sfx": ["whoosh@house|50%"]}
     T["s1.l11"] = {"r": "scene", "scene": "ds_board_bg", "cam": [-40, 60, 1.08], "to": [60, 60, 1.1], "norecut": True,
-                   "actors": [actor("board", "ds_board", [0, 60], 1.0, {"n": 102, "sort": 1.0, "sort2": 0.0, "count": False,
+                   "actors": [actor("board", "ds_board", [0, 40], 0.84, {"n": 102, "sort": 1.0, "sort2": 0.0, "count": False,
                                                                          "label2": "CELLAR SPIDERS"},
                                     sets=[{"at": "Six|15%", "dur": 0.8, "p": {"sort2": 1.0}}]),
                               carol({"look": [-1, -0.6], "mood": "smug", "still": True}, [690, -250], 0.26, idn="carolw"),
                               actor("notes", "ds_notes", [760, -300], 0.8, {"on": 0.0}, sets=pop("cellar|60%"))],
                    "sfx": ["pop@Six|25%"]}
     T["s1.l12"] = {"r": "scene", "scene": "ds_board_bg", "cam": [0, 0, 1.0], "to": [0, 0, 1.05], "norecut": True,
-                   "actors": [actor("pie", "ds_pie", [-560, 130], 0.8,
+                   "actors": [actor("pie", "ds_pie", [-420, 130], 0.8,
                                     {"slices": [[63, "#c98a4a", "63 HOUSE SPIDERS"], [6, "#e2d3b0", "6 CELLAR SPIDERS"],
                                                 [33, "#8a94a6", "33 UNIDENTIFIED SPIDER BITS"]], "sweep": 0.0},
-                                    sets=[{"at": 0.05, "dur": 1.2, "p": {"sweep": 1.0}}])],
+                                    sets=[{"at": 0.0, "dur": 0.7, "p": {"sweep": 1.0}}])],
                    "card_at": "Every|55%", "sfx": ["whoosh@0.05", "stamp@Every|60%"]}
     # ----------------------------------------------------------------------------------------- hard visuals (stills check)
     left = [520, 600]
@@ -561,11 +563,11 @@ def _shots_table():
                    "carol": {"look": [1, 0.4], "mood": "smug"},
                    "extras": [actor("giant", "giant_spider", [1250, 1010], 0.66, {"mood": "angry", "look": [-0.6, 0.1]},
                                     flip=True, moves=[{"at": 0, "dur": 1.2, "pos": [1180, 1010], "walk": True}]),
-                              actor("glabel", "ds_label", [1180, 1110], 1.0, {"text": "GIANT HOUSE SPIDER", "px": 50, "on": 0.0},
+                              actor("glabel", "ds_label", [1200, 690], 1.0, {"text": "GIANT HOUSE SPIDER", "px": 50, "on": 0.0},
                                     sets=pop("giant|35%"))],
                    "card_at": "big|70%", "sfx": ["thud@giant|35%", "boing@big|70%"]}
-    tgt = [1060, 960]
-    T["s1.l21"] = {"r": "corner", "cam": [820, 660, 1.2], "to": [840, 690, 1.3], "carol_pos": [560, 600],
+    tgt = [1000, 900]
+    T["s1.l21"] = {"r": "corner", "cam": [800, 700, 1.45], "to": [820, 720, 1.55], "carol_pos": [560, 600], "norecut": True,
                    "carol": {"flick": 0.0, "flick_to": [(tgt[0] - 560) / CS, (tgt[1] - 180 - 600) / CS], "mood": "angry",
                              "look": [1, 0.4]},
                    "carol_sets": [{"at": "flicks|35%", "dur": 0.3, "p": {"flick": 1.0}}],
@@ -587,7 +589,7 @@ def _shots_table():
         acts.append(mask)
         for i, (txt, col, on0, lat) in enumerate(labels):
             x = [140, 700, 1260][i]
-            acts.append(actor(f"lab{i}", "ds_label", [x, 1185], 1.0, {"text": txt, "color": col, "px": 54, "on": on0},
+            acts.append(actor(f"lab{i}", "ds_label", [x, 430], 1.0, {"text": txt, "color": col, "px": 54, "on": on0},
                               sets=pop(lat) if lat else None, front=True))
         return acts
     L1 = ("NOT A SPIDER", "#ffffff")
@@ -615,13 +617,13 @@ def _shots_table():
     T["s3.l27"] = {"r": "corner", "cam": [820, 600, 1.0], "to": [800, 600, 1.08],
                    "carol": {"mood": "shock", "look": [1, 0.5]},
                    "carol_sets": [{"at": "whirls|10%", "dur": 0.3, "p": {"whirl": 1.0}}],
-                   "extras": [actor("js", "jumper", [1260, 1010], 0.5, {"mood": "smug", "look": [-0.6, -0.2]}, flip=True)],
+                   "extras": [actor("js", "jumper", [1250, 900], 0.6, {"mood": "smug", "look": [-0.6, -0.2]}, flip=True)],
                    "card_at": "blur|60%", "sfx": ["whoosh@whirls|10%", "whoosh@blur|60%"]}
     T["s5.l4"] = {"r": "corner", "cam": [720, 470, 1.05], "to": [720, 460, 1.12], "meter_big": 1.0,
                   "carol": {"mood": "happy", "look": [0, 0], "shades": 0.0},
                   "carol_sets": [{"at": "down|70%", "dur": 0.3, "p": {"wave": 1.0}}],
                   "meter_at": "Put|35%", "shoe_lift": "down|70%", "no_card": True,
-                  "stamp": {"text": "SPARE", "color": GREEN, "at": "down|70%", "y": 790, "px": 170},
+                  "stamp": {"text": "SPARE", "color": GREEN, "at": "down|70%", "x": 1480, "y": 760, "px": 150},
                   "sfx": ["stamp@down|70%"]}
     return T
 
@@ -659,7 +661,7 @@ def build(outline, out_spec):
             L["id"] = sid
             L["seg"] = si
             prev = old.get(sid)
-            if prev and prev.get("say") == ln["say"] and prev.get("shot") and not prev["shot"].get("_todo"):
+            if prev and prev.get("shot", {}).get("_keep"):   # a hand-edited shot in the spec: keep it
                 L["shot"] = prev["shot"]
             else:
                 L["shot"] = copy.deepcopy(SHOTS.get(sid) or default_shot(sid, L, seg))
@@ -717,6 +719,8 @@ def expand(spec, lines):
     for L in lines:
         a = L["shot"]
         b = RECIPES[a.get("r", "corner")](L, a)
+        if a.get("norecut"):
+            b["norecut"] = True
         idx = order.index(L["id"])
         seg = segs[L["seg"]]
         v0 = before[L["id"]]

@@ -122,9 +122,9 @@ export function buildPlanLong(L, T_END, S, scene, rows) {
       return { cent: { keys: [[a, 1.15, -0.28, Math.PI], [b, 0.85, -0.28, Math.PI], [c, 0.85, -0.28, Math.PI], [d, 0.4, -0.28, Math.PI]] }, shots: [
         { tgt: 'cent', yaw: 80, dist: 0.2, h: 0.06, dyaw: 0, push: 1 }] };
     },
-    hunt: (i) => ({ cent: { p0: HOME, p1: at(HOME, 0.06), t0: Wt(i, 'pounces') - 0.02, t1: Wt(i, 'pounces') + 0.18, lin: 1 }, shots: [
+    hunt: (i) => ({ cent: { p0: HOME, p1: at(HOME, 0.06), t0: Wt(i, 'pounce') - 0.02, t1: Wt(i, 'pounce') + 0.18, lin: 1 }, shots: [
       { tgt: [0.47, 0.004, -0.137], yaw: 72, dist: 0.16, h: 0.07, dyaw: 8 },
-      { at: cutw(i, 'lassos'), tgt: [0.475, 0.004, -0.137], yaw: 200, dist: 0.07, h: 0.12, dyaw: 20, push: 0.85 }] }),
+      { at: cutw(i, 'lasso'), tgt: [0.475, 0.004, -0.137], yaw: 200, dist: 0.07, h: 0.12, dyaw: 20, push: 0.85 }] }),
     head: (i, r) => ({ cent: still(HOME), shots: [[
       { tgt: chead, yaw: -17, dist: 0.055, h: 0.015, dyaw: 10, push: 0.85 },
       { tgt: chead, yaw: 35, dist: 0.05, h: 0.02, dyaw: -12, push: 0.85 },
@@ -134,7 +134,7 @@ export function buildPlanLong(L, T_END, S, scene, rows) {
       { at: cutw(i, 'will'), c0: [-0.1, 1.15, 0.45], l0: [1.5, 1.42, -0.45], c1: [0.0, 1.15, 0.4], l1: [1.75, 1.45, -0.48] }] }),
     bee: (i) => ({ shots: [
       { tgt: [0.43, 0.008, -0.105], yaw: 30, dist: 0.17, h: 0.06, dyaw: 8 },
-      { at: cutw(i, 'than'), tgt: [0.43, 0.012, -0.095], yaw: 95, dist: 0.12, h: 0.04, dyaw: 10 }] }),
+      { at: cutw(i, 'like'), tgt: [0.43, 0.012, -0.095], yaw: 95, dist: 0.12, h: 0.04, dyaw: 10 }] }),
     legDrop: (i) => { legDrop = W(i, 1); return beat.legDrop(i); },
     shrug: (i) => beat.shrug(i),
     legClose: () => ({ cent: still(C2), shots: [{ tgt: [LEG[0], 0.003, LEG[1]], yaw: 120, dist: 0.05, h: 0.03, dyaw: 15, push: 0.85 }] }),
@@ -243,7 +243,7 @@ export function buildPlanLong(L, T_END, S, scene, rows) {
       o.scale.setScalar(Math.max(0.0001, popS(t, t0, heldS[k]) * eat));
     });
     // the silverfish the centipede pounces on
-    if (vis(S.silver2, start(iHunt), end(iHunt), t) && i === iHunt) place(S.silver2, [BB[0] + 0.013, BB[1] - 0.004, 2.4 + (t < Wt(iHunt, 'stings') ? 0.4 * Math.sin(t * 25) : 0)]);
+    if (vis(S.silver2, start(iHunt), end(iHunt), t) && i === iHunt) place(S.silver2, [BB[0] + 0.013, BB[1] - 0.004, 2.4 + (t < Wt(iHunt, 'sting') ? 0.4 * Math.sin(t * 25) : 0)]);
     else S.silver2.visible = false;
     if (i === iBee && vis(S.bee, Wt(iBee, 'bee') - 0.1, end(iBee), t)) {
       const s = side(HOME[2], 0.035); S.bee.position.set(HOME[0] + s[0] + 0.004 * Math.sin(t * 3), 0.016 + 0.003 * Math.sin(t * 5), HOME[1] + s[1]);
@@ -290,7 +290,7 @@ export function buildPlanLong(L, T_END, S, scene, rows) {
     // fan + leaky pipe + clutter: the fan appears and spins from the fixes line on; the pipe is fixed on "leaks"; boxes go on "clutter"
     if (vis(S.fan, start(iFix), T_END, t)) S.fan.userData.rotor.rotation.x = t * 37;
     fx.pipe(S, t, t >= Wt(iFix, 'leaks'));
-    const clear = Wt(iFix, 'clutter');
+    const clear = Wt(iFix, 'cardboard');
     S.boxes.userData.list.forEach((b, k) => { const u = clamp01((t - clear - k * 0.07) / 0.22); b.visible = u < 1; b.scale.setScalar(b.userData.s0 ?? (b.userData.s0 = b.scale.x)); b.scale.multiplyScalar(1 - ease(u)); b.position.x = b.userData.x0 ?? (b.userData.x0 = b.position.x); b.position.x -= 0.25 * ease(u); });
     fx.rentRoach(S, t, start(iRent), cp, place);
     if (t >= end(iRent)) S.pushRoach.visible = false;

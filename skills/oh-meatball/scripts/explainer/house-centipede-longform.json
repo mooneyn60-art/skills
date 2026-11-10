@@ -3,8 +3,8 @@
  "music": "playful",
  "gap": 0.55,
  "title_candidates": [
-  "The 30-Legged Bug in Your House You Should Never Kill",
   "Don't Squish the 30-Legged Bug in Your Bathroom (Here's Why)",
+  "The 30-Legged Bug in Your House You Shouldn't Squish",
   "Why a 30-Legged Bug Is Living in Your Bathroom"
  ],
  "pinned_comment": "Be honest: the last time a house centipede ran across your floor, what did you actually do? 👇",
@@ -42,10 +42,10 @@
   ],
   "Will it bite me?": [
    "caes: 'a house centipede stinging a human is very rare ... the result of rough handling' / 'do not cause harm to structures or to stored products, fabrics, pets, or humans'",
-   "uark: 'jaws are not powerful enough to break human skin easily' / 'in most cases the bite is no worse than the sting of a bee'"
+   "uark: 'jaws are not powerful enough to break human skin easily' / 'in most cases the bite is no worse than the sting of a bee' (but 'Severe swelling and pain can result')"
   ],
   "The leg trick": [
-   "frontiers (2024): legs break at a preferred autotomy plane and regenerate over later molts",
+   "frontiers (2024): legs break at a preferred autotomy plane and are usually regenerated within one molting cycle (explosive regeneration)",
    "caes: 'two antennae in front that are similar in appearance to their legs, making it difficult for potential predators to tell which way it is facing'"
   ],
   "Why it looks so scary": [
@@ -314,15 +314,15 @@
   },
   {
    "s": "M",
-   "t": "Sometimes it stops dead, freezes, then races off again.",
-   "card": "STOPS, FREEZES, THEN RACES OFF",
+   "t": "When it runs, it sometimes stops dead, freezes, then races off again.",
+   "card": "WHEN IT RUNS: STOPS, FREEZES, RACES OFF",
    "src": "uark",
    "beat": "stopGo"
   },
   {
    "s": "M",
-   "t": "Then it pounces, lassos, and stings.",
-   "card": "POUNCE - LASSO - STING",
+   "t": "Then it can pounce, lasso, and sting.",
+   "card": "CAN POUNCE - LASSO - STING",
    "src": "uark+caes",
    "beat": "hunt"
   },
@@ -356,8 +356,8 @@
   },
   {
    "s": "M",
-   "t": "Almost never. Only if you grab it.",
-   "card": "STINGS ARE VERY RARE / ONLY FROM ROUGH HANDLING",
+   "t": "Almost never. Mostly if you grab it.",
+   "card": "STINGS ARE VERY RARE / MOSTLY FROM ROUGH HANDLING",
    "src": "caes",
    "beat": "mb",
    "pose": "point",
@@ -373,8 +373,8 @@
   },
   {
    "s": "M",
-   "t": "Usually? No worse than a bee sting.",
-   "card": "USUALLY NO WORSE THAN A BEE STING",
+   "t": "Usually? About like a bee sting. It can still swell and hurt.",
+   "card": "USUALLY ABOUT LIKE A BEE STING / CAN SWELL AND HURT",
    "src": "uark",
    "beat": "bee"
   },
@@ -422,8 +422,8 @@
   },
   {
    "s": "M",
-   "t": "And over its next molts, it grows the leg back.",
-   "card": "REGROWS IT OVER LATER MOLTS",
+   "t": "And by its next molt, it usually grows the leg back.",
+   "card": "USUALLY REGROWS IT BY THE NEXT MOLT",
    "src": "frontiers",
    "beat": "regrow"
   },
@@ -450,8 +450,8 @@
   },
   {
    "s": "M",
-   "t": "So a predator can't tell which end is the head.",
-   "card": "PREDATORS CAN'T TELL WHICH WAY IT FACES",
+   "t": "So a predator has a hard time telling which end is the head.",
+   "card": "HARD FOR PREDATORS TO TELL WHICH WAY IT FACES",
    "src": "caes",
    "beat": "spin"
   },
@@ -472,7 +472,7 @@
   },
   {
    "s": "M",
-   "t": "Its body's only about an inch long.",
+   "t": "Its body's about an inch to an inch and a half long.",
    "card": "BODY: 1 TO 1.5 INCHES",
    "src": "psu",
    "beat": "cent",
@@ -532,7 +532,7 @@
   },
   {
    "s": "M",
-   "t": "Every molt, they add more. Ten legs. Fourteen. Eighteen. All the way to thirty.",
+   "t": "With each early molt, they add more. Ten legs. Fourteen. Eighteen. All the way to thirty.",
    "card": "4, 5, 7, 9, 11, 13, THEN 15 PAIRS",
    "src": "psu",
    "beat": "babies"
@@ -572,7 +572,7 @@
   {
    "s": "M",
    "t": "Permanently.",
-   "card": "FIRST U.S. RECORD 1849 / PENNSYLVANIA",
+   "card": "FIRST RECORDED IN PENNSYLVANIA: 1849",
    "src": "psu",
    "beat": "mapArrow"
   },
@@ -627,8 +627,8 @@
   },
   {
    "s": "M",
-   "t": "...you've got a bigger bug problem. They go where the food is.",
-   "card": "SEEING LOTS OF THEM = LOTS OF PREY",
+   "t": "...you may have a bigger bug problem. They go where the food is.",
+   "card": "SEEING LOTS OF THEM = MAYBE LOTS OF PREY",
    "src": "psu",
    "beat": "swarm2"
   },
@@ -648,8 +648,8 @@
   },
   {
    "s": "M",
-   "t": "Dry the room. Fix leaks. Clear clutter.",
-   "card": "RUN A FAN - FIX LEAKS - LESS CLUTTER",
+   "t": "Dry the room. Fix leaks. Move the cardboard.",
+   "card": "RUN A FAN - FIX LEAKS - MOVE CARDBOARD OFF SLABS",
    "src": "caes+psu",
    "beat": "fixes"
   },
@@ -686,9 +686,9 @@
   },
   {
    "s": "M",
-   "t": "And skip the bug spray. Experts say there's no need.",
-   "card": "PESTICIDES NOT RECOMMENDED",
-   "src": "caes+wisc",
+   "t": "And skip the bug spray. One state lab says there's little need.",
+   "card": "LITTLE NEED FOR BUG SPRAY INDOORS (CT LAB)",
+   "src": "caes",
    "beat": "mb",
    "pose": "stop",
    "v": 2

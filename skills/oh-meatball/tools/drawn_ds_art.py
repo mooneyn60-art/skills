@@ -109,7 +109,7 @@ def _carol_body(ctx, t, p, ox=0.0, oy=0.0, alpha=1.0):
             sw = 0.10 * math.sin(q) * walk
             if i == 3:   # the hind legs: spin silk (work) and throw it (flick), alternating left / right
                 ph = t * 7 + (0 if side > 0 else math.pi)
-                sw += 0.22 * work * math.sin(t * 6 + side)
+                sw += 0.42 * work * math.sin(t * 6 + side)
                 sw += 0.55 * flick * max(0.0, math.sin(ph))
             if i < 2 and shrug:
                 sw += 0.35 * shrug * (0.5 + 0.5 * math.sin(t * 5))
@@ -133,18 +133,24 @@ def _carol_body(ctx, t, p, ox=0.0, oy=0.0, alpha=1.0):
             tp = tips[(side, 3)]
             stroke(ctx, [spin, ((spin[0] + tp[0]) / 2, (spin[1] + tp[1]) / 2 + 30), tp], 2.2, smooth=True,
                    color=(1, 1, 1), a=0.85 * max(work, flick))
-    if flick > 0:
+    if flick > 0:   # thrown silk: thick bright strands with a blue edge so they read over the web, in alternating volleys
         tx, ty = p.get("flick_to", (700, 120))
         for side in (-1, 1):
             tp = tips[(side, 3)]
             ph = (t * 7 + (0 if side > 0 else math.pi)) % (2 * math.pi)
-            u = (ph / (2 * math.pi))
-            for k in range(4):
-                uu = min(1.0, u * 1.4 + k * 0.08)
+            u = ph / (2 * math.pi)
+            for k in range(5):
+                uu = min(1.0, u * 1.5 + k * 0.06)
                 ex, ey = tp[0] + (tx - tp[0]) * uu, tp[1] + (ty - tp[1]) * uu
-                mx, my = (tp[0] + ex) / 2, (tp[1] + ey) / 2 - 120 + k * 30
-                stroke(ctx, [tp, (mx, my), (ex + (k - 1.5) * 18, ey + (k - 1.5) * 14)], 3.0, smooth=True,
-                       color=(1, 1, 1), a=0.9 * flick * (1 - 0.5 * u))
+                mx, my = (tp[0] + ex) / 2 + (k - 2) * 20, (tp[1] + ey) / 2 - 140 + k * 26
+                pts = [tp, (mx, my), (ex + (k - 2) * 30, ey + (k - 2) * 22)]
+                a = 0.95 * flick * (1 - 0.6 * u)
+                stroke(ctx, pts, 9.0, smooth=True, color=(0.45, 0.65, 0.95), a=a * 0.6)
+                stroke(ctx, pts, 4.5, smooth=True, color=(1, 1, 1), a=a)
+            for k in range(3):   # motion ticks at the flicking foot
+                ang = 0.6 * k - 0.6
+                stroke(ctx, [(tp[0] + 30 * math.cos(ang), tp[1] - 30 * math.sin(ang)),
+                             (tp[0] + 70 * math.cos(ang), tp[1] - 70 * math.sin(ang))], 5, a=0.8 * flick)
     # abdomen: a long cylinder tilted up and back (hanging upside down), then the small carapace with the face
     shape(ctx, lambda c: p_ellipse(c, bx - 78, by + 52, 112, 38, math.radians(32)), C["cell"], OUT * 0.6, (0.0, 0.18),
           hi=(0.3, 0.3, 0.25))
@@ -890,10 +896,10 @@ def ds_board(ctx, t, p):
         text(ctx, str(int(round(n))), Wb / 2 - 150, -Hb / 2 + 70, 96, "#ffffff")
     if srt > 0.5:
         a = min(1.0, (srt - 0.5) * 3)
-        text(ctx, "HOUSE SPIDERS", -380, 380, 52, "#ffd34d", None, a)
+        text(ctx, "HOUSE SPIDERS", -380, 365, 56, "#ffd34d", None, a)
     if srt2 > 0.5:
         a = min(1.0, (srt2 - 0.5) * 3)
-        text(ctx, p.get("label2", "OTHER SPIDERS"), 340, 380, 52, "#ffffff", None, a)
+        text(ctx, p.get("label2", "OTHER SPIDERS"), 340, 365, 56, "#ffffff", None, a)
 
 
 def ds_pie(ctx, t, p):
@@ -980,8 +986,8 @@ def ds_lineup(ctx, t, p):
         ctx.rectangle(x - 300, -Hl, 600, Hl)
         ctx.fill()
         ctx.restore()
-        shape(ctx, lambda c, x=x: p_rrect(c, x - 60, -150, 120, 90, 12), hexc("#f2f2ea"), OUT * 0.6, None)
-        text(ctx, str(i + 1), x, -104, 70, "#222222", 0)
+        shape(ctx, lambda c, x=x: p_rrect(c, x - 60, -300, 120, 90, 12), hexc("#f2f2ea"), OUT * 0.6, None)
+        text(ctx, str(i + 1), x, -254, 70, "#222222", 0)
     flat(ctx, lambda c: c.rectangle(-Wl / 2, 0, Wl, 300), hexc("#2a2f3a"))
 
 
