@@ -143,7 +143,7 @@ def kk_board(ctx, t, p):
     ctx.stroke()
     ctx.restore()
     if p.get("title", True):
-        blit(ctx, text_img("KILL IT OR KEEP IT?", 74, "#ffd34d"), W / 2, 72)
+        blit(ctx, text_img(p.get("title_text", "KILL IT OR KEEP IT?"), 74, "#ffd34d"), W / 2, 72)
     cols = [tuple(c) for c in p.get("cols", COLS)]   # only the piles the episode uses (v2 has no MEH)
     gap, top, bot = 30, 140, 905
     cw = (1690 - gap * (len(cols) - 1)) / len(cols)
@@ -192,7 +192,7 @@ def kk_board(ctx, t, p):
         cx = x0 + k * (cw + gap) + cw / 2
         sy = top + 200 + (slots[nlast] - 1) * 178 + 95   # just under the newest icon
         sc = 1.0 if st >= 1 else 1.9 - 0.9 * ease(st)
-        blit(ctx, text_img(STAMP[nlast], 96, cols[k][1], 8, rot=10), min(max(cx, 260), W - 260), min(sy, 860), sc, min(1.0, st * 3))
+        blit(ctx, text_img(p.get("stamps", STAMP).get(nlast, nlast), 96, cols[k][1], 8, rot=10), min(max(cx, 260), W - 260), min(sy, 860), sc, min(1.0, st * 3))
 
 
 def kk_hud(ctx, t, p):
@@ -201,6 +201,9 @@ def kk_hud(ctx, t, p):
         return
     ctx.identity_matrix()
     v = p.get("score", 0.0)
+    if p.get("n") and not p.get("meter", True):   # myth episodes: no danger meter, only the "MYTH n OF 8" chip
+        blit(ctx, text_img(f"{p.get('chip', 'BUG')} {p['n']} OF {p['of']}", 40, "#ffffff", 5), 150, 58)
+        return
     x, y, w, h = W - 520, 24, 496, 96
     rrect(ctx, x, y, w, h, 20)
     fill(ctx, (18, 22, 40), 0.86, 4)
@@ -219,7 +222,7 @@ def kk_hud(ctx, t, p):
             fill(ctx, hot, 1.0)
             ctx.translate(0, -jit)
     if p.get("n"):
-        blit(ctx, text_img(f"BUG {p['n']} OF {p['of']}", 40, "#ffffff", 5), 150, 58)
+        blit(ctx, text_img(f"{p.get('chip', 'BUG')} {p['n']} OF {p['of']}", 40, "#ffffff", 5), 150, 58)
 
 
 def kk_end(ctx, t, p):
@@ -291,7 +294,10 @@ def build(outline, out_spec):
     nseg = sum(1 for s in segs if s.get("tier"))
     cast_k = o.get("cast_k", CAST_K)   # outline override: v2 (11/5) runs the animals bigger
     used = {s.get("tier") for s in segs}
-    cols = [list(c) for c in COLS if c[0] in used] or [list(c) for c in COLS]
+    piles = o.get("piles", COLS)   # outline override (myth episodes: MYTH / TRUE); default = the KEEP/KILL board
+    cols = [list(c) for c in piles if c[0] in used] or [list(c) for c in piles]
+    board_x = {k2: o[k2] for k2 in ("title_text", "stamps") if k2 in o}
+    hud_x = {k2: o[k2] for k2 in ("meter", "chip") if k2 in o}
     k = 0
     for seg in segs:
         if seg.get("chapter"):
@@ -313,10 +319,10 @@ def build(outline, out_spec):
                            "set": [{"at": "30%", "dur": 1.6, "p": {"score": 10.0}}]})
             if seg.get("tier"):
                 hud = {"id": "hud", "type": "kk_hud", "pos": [0, 0], "front": True,
-                       "p": {"score": seg["danger"], "n": k, "of": nseg}}
+                       "p": {"score": seg.get("danger", 0), "n": k, "of": nseg, **hud_x}}
                 if j == 0:   # the meter fills on the name line
                     hud["p"]["score"] = 0.0
-                    hud["set"] = [{"at": "45%", "dur": 0.9, "p": {"score": float(seg["danger"])}}]
+                    hud["set"] = [{"at": "45%", "dur": 0.9, "p": {"score": float(seg.get("danger", 0))}}]
                 kk.append(hud)
             bd = ln.get("board")
             if bd:
@@ -324,7 +330,7 @@ def build(outline, out_spec):
                     icons.append({"ic": seg["icon"], "col": seg["tier"]})
                 off = bd.get("off", "62%")
                 p = {"cols": cols, "on": 0.0, "icons": list(icons) if bd.get("add") else list(icons), "drop": 0.0 if bd.get("add") else 1.0,
-                     "stamp": 0.0, "heads": 0.0 if bd.get("heads") else 1.0}
+                     "stamp": 0.0, "heads": 0.0 if bd.get("heads") else 1.0, **board_x}
                 at = bd.get("at", 0.0)
                 sets = [{"at": at, "dur": 0.12, "p": {"on": 1.0}}]
                 if bd.get("heads"):

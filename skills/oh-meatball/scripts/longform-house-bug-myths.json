@@ -1,0 +1,1214 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -15,
+ "captions": 62,
+ "caption_y": 985,
+ "cut_whoosh": true,
+ "title": "5 House Bug Myths You Still Believe (And 3 Crazy Ones That Are True)",
+ "cap_key": [
+  "myth",
+  "true",
+  "never",
+  "one",
+  "week",
+  "head",
+  "thirty",
+  "hundred",
+  "fly",
+  "eight",
+  "spiders",
+  "ten",
+  "case",
+  "thirst",
+  "space",
+  "venom",
+  "three",
+  "zero",
+  "evidence",
+  "forty",
+  "fifty"
+ ],
+ "stage": {
+  "creature": "roach",
+  "actor": "cockroach",
+  "s": 0.9,
+  "scene": "kitchen",
+  "scene_p": {
+   "time": "night"
+  }
+ },
+ "cast_k": 1.5,
+ "piles": [
+  [
+   "MYTH",
+   "#e5383b"
+  ],
+  [
+   "TRUE",
+   "#3fb950"
+  ]
+ ],
+ "title_text": "MYTH OR TRUE?",
+ "stamps": {
+  "MYTH": "MYTH",
+  "TRUE": "TRUE"
+ },
+ "meter": false,
+ "chip": "MYTH",
+ "segments": [
+  {
+   "chapter": "The roach with no head",
+   "lines": [
+    {
+     "m": "hook",
+     "say": "A cockroach can live for a week, without its head.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
+     },
+     "open": "animal",
+     "cast": {
+      "creature": "roach",
+      "actor": "cockroach",
+      "s": 0.9
+     },
+     "card": {
+      "rows": [
+       [
+        "1 WEEK",
+        "#ff4b3e",
+        130
+       ],
+       [
+        "NO HEAD",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 120,
+      "at": "35%"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "That one's true. And by the end, you'll know exactly how.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
+     },
+     "cast": {
+      "creature": "roach",
+      "actor": "cockroach",
+      "s": 0.9
+     }
+    },
+    {
+     "m": "chase",
+     "say": "But first, the one everybody believes. You swallow eight spiders a year, in your sleep.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     },
+     "cast": {
+      "creature": "jumping_spider",
+      "actor": "jumping_spider",
+      "s": 0.75
+     }
+    }
+   ]
+  },
+  {
+   "cast": {
+    "creature": "jumping_spider",
+    "actor": "jumping_spider",
+    "s": 0.75
+   },
+   "icon": {
+    "type": "jumping_spider"
+   },
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "chapter": "Myth: you swallow spiders in your sleep",
+   "tier": "MYTH",
+   "danger": 0,
+   "lines": [
+    {
+     "m": "name",
+     "say": "Eight spiders a year, crawling into your mouth while you sleep.",
+     "card": {
+      "rows": [
+       [
+        "8 SPIDERS A YEAR?",
+        "#ffd34d",
+        104
+       ],
+       [
+        "IN YOUR SLEEP",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "30%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Spider experts say there's no evidence of that. None.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     },
+     "card": {
+      "rows": [
+       [
+        "0",
+        "#ffd34d",
+        130
+       ],
+       [
+        "EVIDENCE",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 120,
+      "at": "40%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "And that eight a year number? Nobody has ever found where it really came from.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "To a spider, a sleeping human is a giant, breathing, snoring earthquake.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Your heartbeat and your breathing send out vibrations. To a spider, that's a warning sign.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Spiders don't go looking for big animals. They go looking for bugs, and quiet corners.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "calm",
+     "say": "Could one ever wander in? Maybe, once in a lifetime. Eight a year? No.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Verdict: myth. You can sleep with your mouth open. Not that you should.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     },
+     "board": {
+      "add": true,
+      "drop_at": "10%",
+      "stamp_at": "26%",
+      "off": "60%"
+     },
+     "gag": false,
+     "pad": 0.12
+    }
+   ]
+  },
+  {
+   "cast": {
+    "creature": "cellar_spider",
+    "actor": "cellar_spider",
+    "s": 0.68,
+    "creature_cfg": {
+     "floor": false,
+     "label": "cellar spider"
+    }
+   },
+   "icon": {
+    "type": "cellar_spider"
+   },
+   "scene": "basement",
+   "scene_p": {
+    "time": "night"
+   },
+   "chapter": "Myth: daddy longlegs have the deadliest venom",
+   "tier": "MYTH",
+   "danger": 0,
+   "lines": [
+    {
+     "m": "name",
+     "say": "Next: daddy longlegs have the deadliest venom, but their fangs are too short to bite you.",
+     "card": {
+      "rows": [
+       [
+        "DEADLIEST VENOM?",
+        "#ffd34d",
+        104
+       ],
+       [
+        "DADDY LONGLEGS",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "30%"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "Problem one. Daddy longlegs is three different animals.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     },
+     "card": {
+      "rows": [
+       [
+        "3",
+        "#ffd34d",
+        130
+       ],
+       [
+        "DIFFERENT ANIMALS",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 120,
+      "at": "40%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "The harvestman, with the round little body, isn't even a spider.",
+     "scene": "garden",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "xray",
+     "say": "And it has no venom glands at all.",
+     "scene": "microscope"
+    },
+    {
+     "m": "fact",
+     "say": "The crane fly, the giant mosquito look-alike? It's a fly. It can't bite you.",
+     "scene": "garden",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "The cellar spider in your basement does have venom. Most spiders do.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Cellar spiders even catch and eat other spiders.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "calm",
+     "say": "But nobody has ever shown it's deadly to people. The story just keeps spreading.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Verdict: myth. The scariest thing about it is the rumor.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     },
+     "board": {
+      "add": true,
+      "drop_at": "10%",
+      "stamp_at": "26%",
+      "off": "60%"
+     },
+     "gag": false,
+     "pad": 0.12
+    }
+   ]
+  },
+  {
+   "cast": {
+    "creature": "earwig",
+    "s": 0.65
+   },
+   "icon": {
+    "type": "sp.earwig"
+   },
+   "scene": "bathroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "chapter": "Myth: earwigs crawl into your ears",
+   "tier": "MYTH",
+   "danger": 0,
+   "lines": [
+    {
+     "m": "name",
+     "say": "This one's right there in the name. Earwigs crawl into your ears at night.",
+     "card": {
+      "rows": [
+       [
+        "EARWIG",
+        "#ffd34d",
+        104
+       ],
+       [
+        "IN YOUR EAR?",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "30%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Pincers on its rear end, and it loves dark, damp hiding spots.",
+     "scene": "garden",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "So one entomologist went looking for proof. She searched ten centuries of writing.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "She found one single case.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     },
+     "card": {
+      "rows": [
+       [
+        "1 CASE",
+        "#ffd34d",
+        130
+       ],
+       [
+        "IN 10 CENTURIES",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 120,
+      "at": "40%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "At night, earwigs hunt in the garden. Aphids, insect eggs, and rotting plants.",
+     "scene": "garden",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "xray",
+     "say": "And the mom guards her eggs, and feeds her babies when they hatch.",
+     "scene": "microscope"
+    },
+    {
+     "m": "fact",
+     "say": "Most earwigs have wings, folded under short hard covers. But they seldom fly.",
+     "scene": "garden",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "calm",
+     "say": "They can pinch you, if you grab one. That's about it.",
+     "scene": "bathroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Verdict: myth. One case in a thousand years. Your ears are safe.",
+     "scene": "bathroom",
+     "scene_p": {
+      "time": "night"
+     },
+     "board": {
+      "add": true,
+      "drop_at": "10%",
+      "stamp_at": "26%",
+      "off": "60%"
+     },
+     "gag": false,
+     "pad": 0.12
+    }
+   ]
+  },
+  {
+   "cast": {
+    "creature": "house_centipede",
+    "actor": "house_centipede",
+    "s": 0.8
+   },
+   "icon": {
+    "type": "house_centipede"
+   },
+   "scene": "bathroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "chapter": "Myth: centipedes have 100 legs",
+   "tier": "MYTH",
+   "danger": 0,
+   "lines": [
+    {
+     "m": "name",
+     "say": "Centipede means hundred feet. So the one in your bathroom has a hundred legs, right?",
+     "card": {
+      "rows": [
+       [
+        "100 LEGS?",
+        "#ffd34d",
+        104
+       ],
+       [
+        "HOUSE CENTIPEDE",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "30%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Count them. A grown house centipede has thirty. Fifteen pairs.",
+     "scene": "bathroom",
+     "scene_p": {
+      "time": "night"
+     },
+     "card": {
+      "rows": [
+       [
+        "30",
+        "#ffd34d",
+        130
+       ],
+       [
+        "LEGS, NOT 100",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 120,
+      "at": "40%"
+     }
+    },
+    {
+     "m": "xray",
+     "say": "Babies hatch with only a few pairs, and add more every time they molt.",
+     "scene": "microscope"
+    },
+    {
+     "m": "escalate",
+     "say": "Grab one by the leg, and it just lets the leg go, and runs.",
+     "scene": "bathroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "All those long legs let it run more than a foot every second.",
+     "scene": "bathroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "And it hunts the bugs you hate. Roaches, silverfish, even bed bugs.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "calm",
+     "say": "It's fast, it's creepy, and it's on your side.",
+     "scene": "bathroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Verdict: myth. Thirty legs, not a hundred. Still way too many.",
+     "scene": "bathroom",
+     "scene_p": {
+      "time": "night"
+     },
+     "board": {
+      "add": true,
+      "drop_at": "10%",
+      "stamp_at": "26%",
+      "off": "60%"
+     },
+     "gag": false,
+     "pad": 0.12
+    }
+   ]
+  },
+  {
+   "cast": {
+    "creature": "moth",
+    "s": 0.8
+   },
+   "icon": {
+    "type": "sp.moth"
+   },
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "chapter": "Myth: moths eat your clothes",
+   "tier": "MYTH",
+   "danger": 0,
+   "lines": [
+    {
+     "m": "name",
+     "say": "Moths eat holes in your sweaters. Everybody knows that.",
+     "card": {
+      "rows": [
+       [
+        "CLOTHES MOTH",
+        "#ffd34d",
+        104
+       ],
+       [
+        "EATS YOUR SWEATER?",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "30%"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "Except the adult clothes moth never eats. Not once.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     },
+     "card": {
+      "rows": [
+       [
+        "NEVER",
+        "#ffd34d",
+        130
+       ],
+       [
+        "EATS",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 120,
+      "at": "40%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "It hates light. That's why you almost never see one.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "The holes are from its babies. Mom lays forty to fifty eggs, right on your wool.",
+     "scene": "fibers",
+     "card": {
+      "rows": [
+       [
+        "40-50",
+        "#ffd34d",
+        130
+       ],
+       [
+        "EGGS ON YOUR WOOL",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 120,
+      "at": "40%"
+     }
+    },
+    {
+     "m": "xray",
+     "say": "The babies digest keratin, the tough protein in wool, fur and silk.",
+     "scene": "microscope"
+    },
+    {
+     "m": "fact",
+     "say": "They love dark closets, and sweaters with stains or sweat on them.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Cotton and synthetics? Rarely touched, unless they're blended with wool.",
+     "scene": "study",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
+     "m": "calm",
+     "say": "The fix? Clean your wool before you store it, and keep it sealed.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Verdict: myth. Well, half. The moth is innocent. Its kids are not.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     },
+     "board": {
+      "add": true,
+      "drop_at": "10%",
+      "stamp_at": "26%",
+      "off": "60%"
+     },
+     "gag": false,
+     "pad": 0.12
+    },
+    {
+     "m": "escalate",
+     "say": "Now the true pile. And it gets way weirder. One of them is the roach with no head.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
+     },
+     "cast": {
+      "creature": "roach",
+      "actor": "cockroach",
+      "s": 0.9
+     },
+     "gag": false
+    }
+   ]
+  },
+  {
+   "cast": {
+    "creature": "wolf_spider",
+    "s": 0.8,
+    "actor": "wolf_spider"
+   },
+   "icon": {
+    "type": "wolf_spider"
+   },
+   "scene": "garden",
+   "scene_p": {
+    "time": "day"
+   },
+   "chapter": "True: spiders can fly",
+   "tier": "TRUE",
+   "danger": 0,
+   "lines": [
+    {
+     "m": "name",
+     "say": "First: spiders can fly. That sounds fake, right?",
+     "card": {
+      "rows": [
+       [
+        "SPIDERS FLY?",
+        "#ffd34d",
+        104
+       ],
+       [
+        "NO WINGS NEEDED",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "30%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Baby spiders climb somewhere high, and point their rear ends at the sky.",
+     "scene": "garden",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "Then they let out silk threads, and let the wind carry them away.",
+     "scene": "garden",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "It's called ballooning.",
+     "scene": "garden",
+     "scene_p": {
+      "time": "day"
+     },
+     "card": {
+      "rows": [
+       [
+        "BALLOONING",
+        "#ffd34d",
+        130
+       ],
+       [
+        "SPIDERS ON SILK",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 120,
+      "at": "40%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Some ride the wind for miles, to places no spider could ever walk to.",
+     "scene": "garden",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "It's how baby spiders spread out, so they're not all fighting over the same bugs.",
+     "scene": "garden",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
+     "m": "xray",
+     "say": "And in a lab, scientists got spiders to take off with an electric field, and no wind at all.",
+     "scene": "microscope"
+    },
+    {
+     "m": "fact",
+     "say": "Verdict: true. Spiders can fly. Sort of.",
+     "scene": "garden",
+     "scene_p": {
+      "time": "day"
+     },
+     "board": {
+      "add": true,
+      "drop_at": "10%",
+      "stamp_at": "26%",
+      "off": "60%"
+     },
+     "gag": false,
+     "pad": 0.12
+    }
+   ]
+  },
+  {
+   "cast": {
+    "creature": "fruit_fly",
+    "s": 0.95,
+    "creature_cfg": {
+     "plan": "insect",
+     "label": "fruit fly",
+     "body": "round",
+     "color": "#c99a5a",
+     "dark": "#7a4a24",
+     "head": "#b8742e",
+     "length": 320,
+     "height": 160,
+     "leg_len": 90,
+     "ant": 70,
+     "stripes": 4,
+     "wings": "clear",
+     "eye_r": 34,
+     "floor": false,
+     "mood": "smug",
+     "s": 0.95
+    }
+   },
+   "icon": {
+    "type": "sp.fruit_fly"
+   },
+   "scene": "kitchen",
+   "scene_p": {
+    "time": "day"
+   },
+   "chapter": "True: fruit flies went to space first",
+   "tier": "TRUE",
+   "danger": 0,
+   "lines": [
+    {
+     "m": "name",
+     "say": "The first animals ever sent into space? Fruit flies.",
+     "card": {
+      "rows": [
+       [
+        "FRUIT FLIES",
+        "#ffd34d",
+        104
+       ],
+       [
+        "FIRST IN SPACE",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "30%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "In nineteen forty seven, on a rocket launched in New Mexico.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     },
+     "card": {
+      "rows": [
+       [
+        "1947",
+        "#ffd34d",
+        130
+       ],
+       [
+        "FIRST ANIMALS IN SPACE",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 120,
+      "at": "40%"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "The rocket climbed more than sixty miles up.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "Before monkeys. Before dogs. Before any human.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Monkeys didn't follow until nineteen forty nine.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Scientists wanted to know what radiation up there does to living things.",
+     "scene": "microscope"
+    },
+    {
+     "m": "fact",
+     "say": "The capsule parachuted back down, and the flies came home alive.",
+     "scene": "garden",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "So the fly on your banana? It comes from a family of astronauts.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Verdict: true. Respect the fruit fly. Then toss the banana.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "day"
+     },
+     "board": {
+      "add": true,
+      "drop_at": "10%",
+      "stamp_at": "26%",
+      "off": "60%"
+     },
+     "gag": false,
+     "pad": 0.12
+    }
+   ]
+  },
+  {
+   "cast": {
+    "creature": "roach",
+    "actor": "cockroach",
+    "s": 0.9
+   },
+   "icon": {
+    "type": "cockroach"
+   },
+   "scene": "kitchen",
+   "scene_p": {
+    "time": "night"
+   },
+   "chapter": "True: a roach can live a week with no head",
+   "tier": "TRUE",
+   "danger": 0,
+   "lines": [
+    {
+     "m": "name",
+     "say": "And the one I promised. A cockroach can live for a week without its head.",
+     "card": {
+      "rows": [
+       [
+        "NO HEAD",
+        "#ffd34d",
+        104
+       ],
+       [
+        "STILL ALIVE",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "30%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Here's how. It doesn't breathe through its head.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "xray",
+     "say": "It breathes through tiny holes along the sides of its body.",
+     "scene": "microscope",
+     "card": {
+      "rows": [
+       [
+        "BREATHES",
+        "#ffd34d",
+        130
+       ],
+       [
+        "THROUGH ITS BODY",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 120,
+      "at": "40%"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "Its blood isn't under high pressure like yours. So the neck seals up, and it doesn't bleed out.",
+     "scene": "microscope"
+    },
+    {
+     "m": "fact",
+     "say": "Its body can keep going for a while, with no brain at all.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "So what finally gets it? It has no mouth. It dies of thirst.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
+     },
+     "card": {
+      "rows": [
+       [
+        "THIRST",
+        "#ffd34d",
+        130
+       ],
+       [
+        "WHAT FINALLY GETS IT",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 120,
+      "at": "40%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Verdict: true. And honestly, that's the creepiest one.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
+     },
+     "board": {
+      "add": true,
+      "drop_at": "10%",
+      "stamp_at": "26%",
+      "off": "60%"
+     },
+     "gag": false,
+     "pad": 0.12
+    }
+   ]
+  },
+  {
+   "chapter": null,
+   "lines": [
+    {
+     "m": "fact",
+     "say": "So, which myth did you believe? Tell me in the comments.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     },
+     "cast": {
+      "creature": "roach",
+      "actor": "cockroach",
+      "s": 0.9
+     },
+     "end": true,
+     "pad": 10.0,
+     "gag": false
+    }
+   ]
+  }
+ ],
+ "_sources": {
+  "swallow_spiders": [
+   "Scientific American (2008), Fact or Fiction?: People Swallow 8 Spiders a Year While They Sleep https://www.scientificamerican.com/article/fact-or-fiction-people-swallow-8-spiders-a-year-while-they-sleep1/",
+   "Burke Museum, Spider Myths https://www.burkemuseum.org/collections-and-research/biology/arachnology-and-entomology/spider-myths",
+   "Snopes, Spiders swallowed in sleep https://www.snopes.com/science/stats/spiders.asp"
+  ],
+  "daddy_longlegs": [
+   "UC Riverside Spider Research (R. Vetter), the daddy-long-legs myth https://spiders.ucr.edu/daddy-long-legs-myth",
+   "Burke Museum, Spider Myths https://www.burkemuseum.org/collections-and-research/biology/arachnology-and-entomology/spider-myths",
+   "Missouri Dept. of Conservation, Field Guide: Cellar Spiders https://mdc.mo.gov/discover-nature/field-guide/cellar-spiders"
+  ],
+  "earwig": [
+   "The Scientist, The Earwig's Tale (May Berenbaum, Univ. of Illinois) https://www.the-scientist.com/the-earwigs-tale-43480",
+   "UC IPM, Earwigs https://ipm.ucanr.edu/home-and-landscape/earwigs/"
+  ],
+  "centipede": [
+   "Penn State Extension, House Centipedes https://extension.psu.edu/house-centipedes",
+   "Connecticut Ag. Experiment Station, House Centipede fact sheet https://portal.ct.gov/-/media/caes/documents/publications/fact_sheets/entomology/house_centipede_scutigera.pdf",
+   "Frontiers in Zoology (2024), leg autotomy https://frontiersinzoology.biomedcentral.com/articles/10.1186/s12983-024-00544-0",
+   "Univ. of Maine Cooperative Extension (via Bangor Daily News, 2024): house centipedes run about 16 inches per second https://www.bangordailynews.com/2024/06/01/homestead/why-centipedes-are-good-for-your-house-joam40zk0w/"
+  ],
+  "clothes_moth": [
+   "Univ. of Kentucky Entomology, Clothes Moths (ENTFACT-609) https://entomology.mgcafe.uky.edu/ef609",
+   "UC IPM Pest Notes: Clothes Moths (Pub. 7435) https://ipm.ucanr.edu/PMG/PESTNOTES/pn7435.html"
+  ],
+  "ballooning": [
+   "Missouri Dept. of Conservation, Life on a Thread (2024) https://mdc.mo.gov/magazines/missouri-conservationist/2024-10/life-thread",
+   "Morley & Robert 2018, Current Biology, Electric Fields Elicit Ballooning in Spiders https://doi.org/10.1016/j.cub.2018.05.057"
+  ],
+  "fruit_fly_space": [
+   "NASA History, A Brief History of Animals in Space https://history.nasa.gov/animals.html"
+  ],
+  "headless_roach": [
+   "Scientific American (2007), Fact or Fiction?: A Cockroach Can Live without Its Head https://www.scientificamerican.com/article/fact-or-fiction-cockroach-can-live-without-head/"
+  ]
+ }
+}
