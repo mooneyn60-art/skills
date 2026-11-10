@@ -563,17 +563,23 @@ def shoe_draw(ctx, color_sole, color_tread, color_upper):
     lw = 10
     sole = lambda c: smooth(c, SOLE)
     # the shoe's upper, seen past the sole's outer edge (we look at the sole from below, tilted)
+    upper = lambda c: smooth(c, [(-450, -60), (-430, -190), (-340, -250), (-180, -236), (-20, -300), (160, -330),
+                                 (330, -290), (440, -200), (480, -60), (300, 0), (-300, 0)])
+    part(ctx, upper, color_upper, lw, shade=(0, 34), hi=[(40, -270, 200, 30, -0.1)], hi_k=0.35)
     ctx.save()
-    ctx.translate(-26, -78)
-    ctx.scale(1.02, 1.0)
-    part(ctx, sole, color_upper, lw, shade=(0, 30), hi=[(60, -120, 220, 40, -0.08)], hi_k=0.35)
+    upper(ctx)
+    ctx.clip()
+    line(ctx, [(-430, -150), (-300, -205), (-140, -196), (20, -258), (200, -290), (380, -240), (470, -150)], 16,
+         (0.97, 0.96, 0.94))      # toe-cap / foxing stripe
     ctx.restore()
-    for k in range(4):          # lace eyelets / stitching on the upper
-        line(ctx, [(-120 + k * 90, -205 + k * 6), (-90 + k * 90, -195 + k * 6)], 8, darker(color_upper, 0.6))
+    for k in range(5):          # laces across the top
+        x = -150 + k * 70
+        line(ctx, [(x, -282 - k * 8), (x + 46, -250 - k * 8)], 14, INK)
+        line(ctx, [(x, -282 - k * 8), (x + 46, -250 - k * 8)], 7, (1, 1, 1))
     # midsole rim
     ctx.save()
-    ctx.translate(-10, -32)
-    part(ctx, sole, (0.97, 0.96, 0.94), lw, shade=(0, 14))
+    ctx.translate(-12, -46)
+    part(ctx, sole, (0.97, 0.96, 0.94), lw, shade=(0, 16))
     ctx.restore()
     # outsole + tread
     part(ctx, sole, color_sole, lw, shade=(10, 18), outline=False)
@@ -735,7 +741,7 @@ def lettering(spec, rng):
     size = spec.get("max_size", 240)
     while size > 30:
         font = ImageFont.truetype(fpath, size)
-        imgs = [letter_line(ln, font, accent, rng, size, spec.get("wobble", 1.0), spec.get("bold", 0.028))
+        imgs = [letter_line(ln, font, accent, rng, size, spec.get("wobble", 1.0), spec.get("bold", 0.014))
                 for ln in lines]
         tw = max(i.width for i in imgs)
         th = sum(i.height for i in imgs) + gap * size * (len(imgs) - 1)
