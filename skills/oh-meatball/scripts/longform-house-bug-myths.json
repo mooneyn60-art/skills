@@ -440,7 +440,7 @@
     {
      "m": "escalate",
      "say": "The next one's named after a body part. Yours.",
-     "scene": "bathroom",
+     "scene": "basement",
      "scene_p": {
       "time": "night"
      },
@@ -542,6 +542,11 @@
     },
     {
      "m": "fact",
+     "say": "My roommate can take the earplugs out now.",
+     "gag": false
+    },
+    {
+     "m": "fact",
      "say": "At night it's out eating aphids and other bugs.",
      "scene": "garden",
      "scene_p": {
@@ -575,7 +580,7 @@
     {
      "m": "escalate",
      "say": "The next one's in your kitchen. They say nothing can kill it.",
-     "scene": "kitchen",
+     "scene": "bathroom",
      "scene_p": {
       "time": "night"
      },
@@ -735,7 +740,12 @@
      "scene_p": {
       "time": "day"
      },
-     "gag": false
+     "gag": false,
+     "cast": {
+      "creature": "wolf_spider",
+      "s": 0.8,
+      "actor": "wolf_spider"
+     }
     }
    ]
   },
@@ -851,7 +861,7 @@
     {
      "m": "escalate",
      "say": "The next one just landed on your sandwich. It's tasting it.",
-     "scene": "kitchen",
+     "scene": "garden",
      "scene_p": {
       "time": "day"
      },
@@ -900,11 +910,13 @@
     },
     {
      "m": "fact",
-     "say": "Its feet can tell sugar water from plain water."
+     "say": "Its feet can tell sugar water from plain water.",
+     "gag": false
     },
     {
      "m": "escalate",
-     "say": "Feet touch something sweet, and out comes the mouth."
+     "say": "Feet touch something sweet, and out comes the mouth.",
+     "gag": false
     },
     {
      "m": "fact",
@@ -1094,7 +1106,7 @@
      "say": "Last story. The one I promised. It has no head.",
      "scene": "kitchen",
      "scene_p": {
-      "time": "night"
+      "time": "day"
      },
      "gag": false
     }
@@ -1227,8 +1239,9 @@
         true
        ]
       ],
-      "y": 140,
-      "at": "55%"
+      "y": 130,
+      "at": "55%",
+      "x": 1400
      },
      "gag": false
     },

@@ -1,0 +1,288 @@
+{
+ "series": "Things Living In Your House",
+ "sources": [
+  "UC Berkeley News, \"Cockroach inspires robot that squeezes through cracks\" (R. Sanders, Feb 8 2016; Jayaram & Full, PNAS 2016): \"Not only can they squish themselves to get into one-tenth-of-an-inch crevices, but once inside they can run at high speed even when flattened in half.\" / \"study of how American cockroaches (Periplaneta americana) penetrate the tightest joints and seams in less than a second\" / \"They're about half an inch tall when they run freely, but can squish their bodies to one-tenth of an inch, the height of two stacked pennies.\" / \"Roaches traversing crevices, Jayaram found, can withstand forces 900 times their body weight without injury.\" / \"Using a high-speed camera, Jayaram filmed roaches...\"; https://news.berkeley.edu/2016/02/08/cockroach-inspires-robot-that-squeezes-through-cracks/ (fetched from a Wayback Machine copy because the live page blocks the proxy). Paper: Jayaram & Full, Proc. Natl. Acad. Sci. 113(8):E950-E957, 2016, doi:10.1073/pnas.1514591113 (lab measurements on American cockroaches)."
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "stage": {
+  "creature": "roach",
+  "scene": "kitchen",
+  "scene_p": {
+   "time": "night"
+  },
+  "s": 0.9,
+  "actor": "cockroach"
+ },
+ "cap_key": [
+  "1/10",
+  "inch",
+  "pennies",
+  "second",
+  "fast",
+  "half",
+  "lab",
+  "900",
+  "weight"
+ ],
+ "cut_whoosh": true,
+ "_note": "Written by hand in the v6 shape (Shorts batch B); beats are drawn_macros lines.",
+ "title": "Roaches Fit Through 2-Penny Cracks in Your Kitchen Walls 🪳 (Things Living In Your House)",
+ "description": "Roaches squeeze through cracks in your kitchen: in a UC Berkeley lab study (Jayaram & Full, 2016), American cockroaches squashed to one-tenth of an inch, two stacked pennies, and still ran fast. #shorts #cockroach #roaches #bugsinyourhouse #meatballmyths\nSources: UC Berkeley News (2016 release on Jayaram & Full, PNAS).",
+ "pinned_comment": "Where in your house have you found a roach that came through a crack that looked way too small?",
+ "tiktok_caption": "roaches in your kitchen 🪳 in a UC Berkeley lab they squashed down to two stacked pennies thick and still ran fast. Where did yours get in? #cockroach #roaches #bugsinyourhouse #meatballmyths",
+ "beats": [
+  {
+   "m": "hook",
+   "open": "animal",
+   "gag": {
+    "mark": "shock"
+   },
+   "say": "Roaches can squeeze through your kitchen's one-tenth-inch cracks.",
+   "card": {
+    "rows": [
+     [
+      "1/10 INCH",
+      "#ffd34d",
+      140
+     ],
+     [
+      "= 2 PENNIES",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "m": "chase",
+   "scene": "bathroom",
+   "say": "They get through in under a second.",
+   "card": {
+    "rows": [
+     [
+      "UNDER 1 SECOND",
+      "#ff4b3e",
+      100
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "m": "xray",
+   "scene": "basement",
+   "say": "Squashed in half, they still run fast.",
+   "card": {
+    "rows": [
+     [
+      "STILL RUNS FAST",
+      "#ffd34d",
+      90
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "m": "scale",
+   "scene": "study",
+   "how": "shrink",
+   "say": "Half-inch roaches flatten to two pennies thick.",
+   "card": {
+    "rows": [
+     [
+      "1/2 INCH",
+      "#ffffff",
+      110
+     ],
+     [
+      "TO 1/10 INCH",
+      "#ffd34d",
+      70,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   }
+  },
+  {
+   "m": "fact",
+   "scene": "kitchen",
+   "say": "Berkeley scientists filmed it in a lab.",
+   "card": {
+    "rows": [
+     [
+      "MEASURED IN A LAB",
+      "#ffffff",
+      60,
+      true
+     ],
+     [
+      "UC BERKELEY 2016",
+      "#ffd34d",
+      60,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "say": "They can withstand 900 times their weight, and",
+   "scene": "kitchen",
+   "scene_p": {
+    "time": "night"
+   },
+   "shots": [
+    {
+     "cam": [
+      600,
+      1050,
+      1.18
+     ],
+     "to": [
+      560,
+      1070,
+      1.1
+     ],
+     "at": 0.0
+    },
+    {
+     "at": "52%",
+     "cam": [
+      560,
+      1070,
+      1.1
+     ],
+     "to": [
+      830,
+      1424,
+      2.0
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "hero",
+     "type": "cockroach",
+     "pos": [
+      820,
+      1500
+     ],
+     "s": 0.9,
+     "flip": true,
+     "front": false,
+     "p": {
+      "look": [
+       1,
+       0
+      ],
+      "chew": 0.0,
+      "pellets": 0,
+      "xray": 0.0,
+      "bite": 0.0,
+      "wave": 0.0,
+      "wrapped": 0.0,
+      "talk": 0.0,
+      "mood": null,
+      "fly": 0.0
+     }
+    },
+    {
+     "id": "L4160-gag0",
+     "type": "g.mark",
+     "s": 1.0,
+     "front": true,
+     "attach": "hero",
+     "pos": [
+      0,
+      -310.0
+     ],
+     "p": {
+      "on": 0.0,
+      "kind": "alarm"
+     },
+     "set": [
+      {
+       "at": "20%",
+       "dur": 0.3,
+       "p": {
+        "on": 1.0
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "deadpan",
+    "pos": [
+     330,
+     1500
+    ],
+    "size": 980,
+    "look": "viewer",
+    "prop": null,
+    "helmet": false,
+    "float": false,
+    "gest": [
+     [
+      "60%",
+      "laugh",
+      1.4
+     ]
+    ],
+    "moves": [
+     {
+      "at": "50%",
+      "dur": 0.45,
+      "pos": [
+       -320,
+       1500
+      ],
+      "hop": 200
+     }
+    ]
+   },
+   "sfx": [
+    "tink@20%",
+    "pop@60%"
+   ],
+   "pad": 0.08,
+   "acting": {
+    "side": true,
+    "subject": [
+     "cockroach"
+    ],
+    "extras": []
+   },
+   "card": {
+    "rows": [
+     [
+      "CRACKS AT HOME? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "loop": true
+}

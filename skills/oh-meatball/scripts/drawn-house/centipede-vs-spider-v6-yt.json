@@ -1,0 +1,314 @@
+{
+ "series": "Things Living In Your House",
+ "sources": [
+  "Connecticut Agricultural Experiment Station, House Centipede fact sheet (K. Dugas): \"They are fast runners that actively chase down prey. Like other centipedes, house centipedes have a pair of forcipules (modified pincer-like legs) located directly underneath their mouthparts which can either administer a venomous sting to prey or be used in self-defense.\" / \"They are solely predators that actively hunt other arthropods such as cockroach nymphs, bed bugs, flies, ants, silverfish, spiders, and all other household pests.\" / \"They have 15 pairs of long striped legs\" / \"In homes they are most likely to frequent basements, cellars, and first-floor bathrooms. They are nocturnal and incredibly wary.\" / \"they will immediately flee if they are discovered\"; https://portal.ct.gov/-/media/caes/documents/publications/fact_sheets/entomology/house_centipede_scutigera.pdf",
+  "Penn State Extension, House Centipedes (S. Jacobs, rev. M. Skvarla 2023): \"House centipedes feed on silverfish, firebrats, carpet beetle larvae, cockroaches, spiders, and other small arthropods.\" / \"During the daytime, the centipedes inhabit dark, damp locations in the home and come out at night to forage for prey.\" / \"Adult house centipedes have 15 pairs of legs\"; https://extension.psu.edu/house-centipedes",
+  "Penn State Extension, Longbodied cellar spider (Pholcus phalangioides): \"This spider is commonly found in cellars, warehouses, garages, caves, and other dark, quiet, protected spots.\" / \"The webs are an irregular mesh of threads.\" / \"An unusual behavior is that the spiders will rapidly vibrate in a circular fashion in the web if threatened, making it difficult to see them.\"; https://extension.psu.edu/longbodied-cellar-spider",
+  "Utah State University Extension, Cellar Spiders: \"common in basements, crawlspaces and behind HVAC units, furniture, pianos and other seldom-moved objects\" / \"make irregular cobwebs near windows, over pipes, or all over the ceiling and walls, especially in corners\" / diet: \"insects and other arachnids\"; https://extension.usu.edu/planthealth/ipm/notes_nuisance/cellar-spiders"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "detective",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "stage": {
+  "creature": "house_centipede",
+  "scene": "basement",
+  "scene_p": {
+   "time": "night"
+  },
+  "s": 0.8,
+  "actor": "house_centipede"
+ },
+ "cap_key": [
+  "two",
+  "hunters",
+  "spiders",
+  "web",
+  "chases",
+  "pipes",
+  "vibrates",
+  "30",
+  "8",
+  "basements"
+ ],
+ "cut_whoosh": true,
+ "_note": "Written by hand in the v6 shape (Shorts batch B); beats are drawn_macros lines.",
+ "title": "House Centipede vs Spider in Your Basement: 2 Hunters 🕷️ (Things Living In Your House)",
+ "description": "House centipede vs spider: in your basement, a house centipede chases prey down at night and a cellar spider waits in an irregular web, and both eat spiders, per Penn State Extension, UConn's CAES and Utah State Extension. #shorts #housecentipede #cellarspider #basement #meatballmyths\nSources: Connecticut Agricultural Experiment Station (House Centipede); Penn State Extension (House Centipedes; Longbodied cellar spider); Utah State University Extension (Cellar Spiders).",
+ "pinned_comment": "What's the weirdest thing you've seen living in your basement, and did you leave it alone?",
+ "tiktok_caption": "house centipede vs spider in your basement 🕷️ one chases prey down at night, the other waits in a messy web, and both eat spiders. What lives in yours? #housecentipede #cellarspider #basement #meatballmyths",
+ "beats": [
+  {
+   "m": "hook",
+   "open": "animal",
+   "gag": {
+    "mark": "shock"
+   },
+   "say": "Two hunters in your basement both eat spiders.",
+   "card": {
+    "rows": [
+     [
+      "TWO HUNTERS",
+      "#ffd34d",
+      120
+     ],
+     [
+      "IN YOUR BASEMENT",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "m": "chase",
+   "scene": "basement",
+   "cast": {
+    "creature": "cellar_spider",
+    "actor": "cellar_spider",
+    "creature_cfg": {
+     "floor": false,
+     "label": "cellar spider"
+    },
+    "s": 0.68
+   },
+   "say": "One waits in a web. One chases.",
+   "card": {
+    "rows": [
+     [
+      "ONE WAITS",
+      "#ffd34d",
+      120
+     ],
+     [
+      "ONE CHASES",
+      "#ff4b3e",
+      120
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   }
+  },
+  {
+   "m": "fact",
+   "scene": "basement",
+   "cast": {
+    "creature": "cellar_spider",
+    "actor": "cellar_spider",
+    "creature_cfg": {
+     "floor": false,
+     "label": "cellar spider"
+    },
+    "s": 0.68
+   },
+   "say": "Its messy web can hang over pipes.",
+   "card": {
+    "rows": [
+     [
+      "MESSY WEB",
+      "#ffd34d",
+      110
+     ],
+     [
+      "OVER YOUR PIPES",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   }
+  },
+  {
+   "m": "escalate",
+   "scene": "basement",
+   "cast": {
+    "creature": "cellar_spider",
+    "actor": "cellar_spider",
+    "creature_cfg": {
+     "floor": false,
+     "label": "cellar spider"
+    },
+    "s": 0.68
+   },
+   "say": "Threatened, it vibrates until it's hard to see.",
+   "gag": {
+    "mark": "shock"
+   }
+  },
+  {
+   "m": "tiny",
+   "scene": "basement",
+   "say": "The centipede runs prey down at night.",
+   "card": {
+    "rows": [
+     [
+      "30 LEGS",
+      "#ffd34d",
+      130
+     ],
+     [
+      "VS 8",
+      "#ffffff",
+      80
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   }
+  },
+  {
+   "say": "Both turn up in basements. So right now,",
+   "scene": "basement",
+   "scene_p": {
+    "time": "night"
+   },
+   "shots": [
+    {
+     "cam": [
+      600,
+      1050,
+      1.18
+     ],
+     "to": [
+      560,
+      1070,
+      1.1
+     ],
+     "at": 0.0
+    },
+    {
+     "at": "52%",
+     "cam": [
+      560,
+      1070,
+      1.1
+     ],
+     "to": [
+      780,
+      1404,
+      2.0
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "hero",
+     "type": "house_centipede",
+     "pos": [
+      820,
+      1500
+     ],
+     "s": 0.8,
+     "flip": true,
+     "front": false,
+     "p": {
+      "look": [
+       1,
+       0
+      ],
+      "chew": 0.0,
+      "pellets": 0,
+      "xray": 0.0,
+      "bite": 0.0,
+      "wave": 0.0,
+      "wrapped": 0.0,
+      "talk": 0.0,
+      "mood": null,
+      "fly": 0.0
+     }
+    },
+    {
+     "id": "L3650-gag0",
+     "type": "g.mark",
+     "s": 1.0,
+     "front": true,
+     "attach": "hero",
+     "pos": [
+      0,
+      -280.0
+     ],
+     "p": {
+      "on": 0.0,
+      "kind": "alarm"
+     },
+     "set": [
+      {
+       "at": "20%",
+       "dur": 0.3,
+       "p": {
+        "on": 1.0
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "deadpan",
+    "pos": [
+     330,
+     1500
+    ],
+    "size": 980,
+    "look": "viewer",
+    "prop": null,
+    "helmet": false,
+    "float": false,
+    "gest": [
+     [
+      "60%",
+      "laugh",
+      1.4
+     ]
+    ],
+    "moves": [
+     {
+      "at": "50%",
+      "dur": 0.45,
+      "pos": [
+       -320,
+       1500
+      ],
+      "hop": 200
+     }
+    ]
+   },
+   "sfx": [
+    "tink@20%",
+    "pop@60%"
+   ],
+   "pad": 0.08,
+   "acting": {
+    "side": true,
+    "subject": [
+     "centipede",
+     "house"
+    ],
+    "extras": []
+   },
+   "card": {
+    "rows": [
+     [
+      "BASEMENT STORY? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "loop": true
+}

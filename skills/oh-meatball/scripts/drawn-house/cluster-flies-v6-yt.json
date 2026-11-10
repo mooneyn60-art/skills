@@ -1,0 +1,184 @@
+{
+ "series": "Things Living In Your House",
+ "sources": [
+  "Penn State Extension, Cluster Flies: \"These flies are not reproducing within the structure, but become active on warm days and crawl out of wall voids and attics in a confused attempt to go back outside.\"; \"the flies will gather in large numbers at windows within the home on warm winter days. The flies are typically sluggish in flight\"; \"Although insecticidal dust treatments to these voids may kill thousands of flies...\"; https://extension.psu.edu/cluster-flies",
+  "Colorado State University Extension, Cluster Flies and Other Winter Flies: \"Cluster flies found in buildings are in a dormant state and cannot reproduce indoors.\"; \"Cluster flies develop by feeding on earthworms.\"; \"cluster flies then find sheltered areas in wall voids or attics where they may aggregate\"; https://extension.colostate.edu/resource/cluster-flies-and-other-winter-flies/"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "stage": {
+  "creature": "cluster_fly",
+  "scene": "basement",
+  "scene_p": {},
+  "creature_cfg": {
+   "plan": "insect",
+   "label": "cluster fly",
+   "body": "round",
+   "color": "#6f6d5e",
+   "dark": "#4b4a40",
+   "length": 400,
+   "height": 180,
+   "leg_len": 100,
+   "wings": "clear",
+   "eye_r": 34,
+   "sheen": true,
+   "floor": false,
+   "mood": "smug",
+   "s": 0.95
+  },
+  "s": 0.95
+ },
+ "cap_key": [
+  "you",
+  "thousands",
+  "walls",
+  "warm",
+  "windows",
+  "breed",
+  "earthworms",
+  "lost",
+  "right",
+  "now"
+ ],
+ "cut_whoosh": true,
+ "title": "Why Thousands of Flies Wake Up in Your House Walls 🪰 (Things Living In Your House)",
+ "tiktok_caption": "why are there so many flies in my house 🪰 cluster flies spend winter in your attic and wall voids, then crawl out on warm days. They can't breed indoors: their babies grow inside earthworms. Ever had a winter fly invasion? #clusterflies #flysinhouse #winterpests #meatballmyths",
+ "beats": [
+  {
+   "open": "animal",
+   "m": "hook",
+   "gag": {
+    "mark": "shock"
+   },
+   "say": "Thousands of flies can sleep inside your walls.",
+   "card": {
+    "rows": [
+     [
+      "1000s",
+      "#ffd34d",
+      150
+     ],
+     [
+      "OF FLIES IN YOUR WALLS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "m": "chase",
+   "say": "One warm day wakes them. They crawl out.",
+   "card": {
+    "rows": [
+     [
+      "1 WARM DAY",
+      "#ff4b3e",
+      100
+     ],
+     [
+      "WAKES THEM UP",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "50%"
+   }
+  },
+  {
+   "scene": "sill",
+   "scene_p": {
+    "time": "day"
+   },
+   "m": "scale",
+   "say": "They crowd your sunny windows, dazed and sluggish."
+  },
+  {
+   "scene": "kitchen",
+   "m": "xray",
+   "say": "They can't breed in your house.",
+   "card": {
+    "rows": [
+     [
+      "0 BABIES",
+      "#ffd34d",
+      120
+     ],
+     [
+      "BORN IN YOUR HOUSE",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "day"
+   },
+   "m": "tiny",
+   "say": "Their babies grow inside earthworms, outdoors.",
+   "card": {
+    "rows": [
+     [
+      "EARTHWORMS",
+      "#ff4b3e",
+      95
+     ],
+     [
+      "THEIR NURSERY",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "basement",
+   "m": "punch",
+   "gag": {
+    "mark": "alarm"
+   },
+   "say": "They're just lost, not nesting. Right now,",
+   "card": {
+    "rows": [
+     [
+      "WINTER FLY STORY? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "loop": true,
+ "description": "",
+ "pinned_comment": "",
+ "_note": "Written for the 11/10 batch (Shorts A) from drawn_macros lines."
+}

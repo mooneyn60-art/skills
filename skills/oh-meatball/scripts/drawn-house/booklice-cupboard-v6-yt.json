@@ -1,0 +1,290 @@
+{
+ "series": "Things Living In Your House",
+ "sources": [
+  "Clemson Cooperative Extension HGIC, Booklice (Oswalt, Benson, Zungoli): \"They feed on molds, and a variety of animal and plant matter and are often found feeding on papers or books with mold, dead insects, animal and plant specimens, flour, grains, cereals, and dried fruits.\" / \"Ideal temperatures and relative humidities for survival range from 75-82°F and 75-90% RH. They are negatively affected by low humidity (50-60%) and can die within weeks if levels remain low.\" / \"Booklice are yellowish to buff colored, wingless, soft-bodied, and about 1/25 inch long.\" / \"Control of booklice is best achieved by reducing humidity in a building to a level below 50%.\"; https://hgic.clemson.edu/factsheet/booklice/ (fetched from a Wayback Machine copy because the live page blocks the proxy)",
+  "Utah State University Extension, Booklice and Psocids: \"prefer warm, humid or damp places\" / \"can be found around damp books, around leaking/sweating pipes, in voids, in cardboard boxes or anywhere where mold growth can be supported\" / \"may feed on fungal spores on stored food products\" / \"indicator of moisture issues\"; https://extension.usu.edu/planthealth/ipm/notes_nuisance/booklice-psocids"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "stage": {
+  "creature": "booklouse",
+  "scene": "kitchen",
+  "scene_p": {
+   "time": "night"
+  },
+  "s": 1.0
+ },
+ "cap_key": [
+  "1",
+  "millimeter",
+  "mold",
+  "flour",
+  "75",
+  "90",
+  "humid",
+  "pipes",
+  "50",
+  "weeks"
+ ],
+ "cut_whoosh": true,
+ "_note": "Written by hand in the v6 shape (Shorts batch B); beats are drawn_macros lines.",
+ "title": "Tiny Bugs in Your Kitchen Cupboards Love 75% Humidity 📚 (Things Living In Your House)",
+ "description": "Tiny bugs in kitchen cupboards: booklice are about 1/25 inch long, feed on mold plus flour, grains, cereal and dried fruit, and do best at 75-90% humidity, per Clemson and Utah State extension. #shorts #booklice #psocids #kitchenbugs #meatballmyths\nSources: Clemson Cooperative Extension (Booklice, HGIC); Utah State University Extension (Booklice and Psocids).",
+ "pinned_comment": "What's the tiniest bug you've ever found in your kitchen cupboards, and where did you find it?",
+ "tiktok_caption": "tiny bugs in your kitchen cupboards 📚 booklice are about a millimeter long, eat mold plus flour and dried fruit, and like humid air. Found any in your pantry? #booklice #tinybugs #pantry #meatballmyths",
+ "beats": [
+  {
+   "m": "hook",
+   "open": "animal",
+   "gag": {
+    "mark": "shock"
+   },
+   "say": "1-millimeter bugs are eating mold in your cupboards.",
+   "card": {
+    "rows": [
+     [
+      "1 MILLIMETER",
+      "#ffd34d",
+      110
+     ],
+     [
+      "IN YOUR CUPBOARDS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "m": "fact",
+   "scene": "study",
+   "say": "And flour, grains, cereal, and dried fruit.",
+   "gag": {
+    "prop": "magnifier",
+    "at": "60%"
+   },
+   "card": {
+    "rows": [
+     [
+      "FLOUR + GRAINS",
+      "#ffd34d",
+      100
+     ],
+     [
+      "+ DRIED FRUIT",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   }
+  },
+  {
+   "m": "tiny",
+   "scene": "bathroom",
+   "say": "They like air 75 to 90 percent humid.",
+   "card": {
+    "rows": [
+     [
+      "75-90%",
+      "#ffd34d",
+      150
+     ],
+     [
+      "HUMIDITY",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "m": "escalate",
+   "scene": "basement",
+   "say": "They gather around leaking, sweating pipes.",
+   "gag": {
+    "mark": "sweat",
+    "at": "50%"
+   }
+  },
+  {
+   "m": "calm",
+   "scene": "kitchen",
+   "say": "Dry air can wipe them out within weeks.",
+   "card": {
+    "rows": [
+     [
+      "UNDER 50%",
+      "#ff4b3e",
+      130
+     ],
+     [
+      "DRY AIR",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "say": "Keep humidity under 50 percent, or",
+   "scene": "kitchen",
+   "scene_p": {
+    "time": "night"
+   },
+   "shots": [
+    {
+     "cam": [
+      600,
+      1050,
+      1.18
+     ],
+     "to": [
+      560,
+      1070,
+      1.1
+     ],
+     "at": 0.0
+    },
+    {
+     "at": "52%",
+     "cam": [
+      560,
+      1070,
+      1.1
+     ],
+     "to": [
+      780,
+      1415,
+      2.0
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "hero",
+     "type": "sp.booklouse",
+     "pos": [
+      820,
+      1500
+     ],
+     "s": 1.0,
+     "flip": true,
+     "front": false,
+     "p": {
+      "look": [
+       1,
+       0
+      ],
+      "chew": 0.0,
+      "pellets": 0,
+      "xray": 0.0,
+      "bite": 0.0,
+      "wave": 0.0,
+      "wrapped": 0.0,
+      "talk": 0.0,
+      "mood": null,
+      "fly": 0.0
+     }
+    },
+    {
+     "id": "L3091-gag0",
+     "type": "g.mark",
+     "s": 1.0,
+     "front": true,
+     "attach": "hero",
+     "pos": [
+      0,
+      -320.0
+     ],
+     "p": {
+      "on": 0.0,
+      "kind": "alarm"
+     },
+     "set": [
+      {
+       "at": "20%",
+       "dur": 0.3,
+       "p": {
+        "on": 1.0
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "deadpan",
+    "pos": [
+     330,
+     1500
+    ],
+    "size": 980,
+    "look": "viewer",
+    "prop": null,
+    "helmet": false,
+    "float": false,
+    "gest": [
+     [
+      "60%",
+      "laugh",
+      1.4
+     ]
+    ],
+    "moves": [
+     {
+      "at": "50%",
+      "dur": 0.45,
+      "pos": [
+       -320,
+       1500
+      ],
+      "hop": 200
+     }
+    ]
+   },
+   "sfx": [
+    "tink@20%",
+    "pop@60%"
+   ],
+   "pad": 0.08,
+   "acting": {
+    "side": true,
+    "subject": [
+     "booklouse"
+    ],
+    "extras": []
+   },
+   "card": {
+    "rows": [
+     [
+      "CUPBOARD BUGS? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "loop": true
+}

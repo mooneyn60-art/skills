@@ -1,0 +1,297 @@
+{
+ "series": "Things Living In Your House",
+ "sources": [
+  "Connecticut Agricultural Experiment Station, House Centipede fact sheet (K. Dugas): \"They are fast runners that actively chase down prey. Like other centipedes, house centipedes have a pair of forcipules (modified pincer-like legs) located directly underneath their mouthparts which can either administer a venomous sting to prey or be used in self-defense.\" / \"They are solely predators that actively hunt other arthropods such as cockroach nymphs, bed bugs, flies, ants, silverfish, spiders, and all other household pests.\" / \"They have 15 pairs of long striped legs\" / \"In homes they are most likely to frequent basements, cellars, and first-floor bathrooms. They are nocturnal and incredibly wary.\" / \"they will immediately flee if they are discovered\"; https://portal.ct.gov/-/media/caes/documents/publications/fact_sheets/entomology/house_centipede_scutigera.pdf",
+  "Penn State Extension, House Centipedes (S. Jacobs, rev. M. Skvarla 2023): \"House centipedes feed on silverfish, firebrats, carpet beetle larvae, cockroaches, spiders, and other small arthropods.\" / \"During the daytime, the centipedes inhabit dark, damp locations in the home and come out at night to forage for prey.\" / \"Adult house centipedes have 15 pairs of legs\"; https://extension.psu.edu/house-centipedes"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "stage": {
+  "creature": "house_centipede",
+  "scene": "kitchen",
+  "scene_p": {
+   "time": "night"
+  },
+  "s": 0.8,
+  "actor": "house_centipede"
+ },
+ "cap_key": [
+  "30",
+  "legs",
+  "roaches",
+  "chase",
+  "venom",
+  "menu",
+  "cockroaches",
+  "ants",
+  "silverfish",
+  "now"
+ ],
+ "cut_whoosh": true,
+ "_note": "Written by hand in the v6 shape (Shorts batch B); beats are drawn_macros lines.",
+ "title": "House Centipede vs Roach: 30 Legs Hunt in Your Kitchen 🐛 (Things Living In Your House)",
+ "description": "House centipede vs roach: a house centipede has 15 pairs of legs (30 legs), chases prey down and stings it with venom, and cockroaches are on its menu, per Penn State Extension and the Connecticut Agricultural Experiment Station. #shorts #housecentipede #cockroach #bugsinyourhouse #meatballmyths\nSources: Connecticut Agricultural Experiment Station (House Centipede fact sheet); Penn State Extension (House Centipedes).",
+ "pinned_comment": "Have you ever seen a house centipede go after something in your kitchen? What happened?",
+ "tiktok_caption": "house centipede vs roach in your kitchen 🐛 it has 15 pairs of legs, chases prey down and stings it with venom, and cockroaches are on its menu. Where did you last see one? #housecentipede #cockroach #bugsinyourhouse #meatballmyths",
+ "beats": [
+  {
+   "m": "hook",
+   "open": "animal",
+   "gag": {
+    "mark": "shock"
+   },
+   "with": [
+    {
+     "sp": "roach",
+     "x": 1010,
+     "s": 0.55
+    }
+   ],
+   "say": "30 legs are chasing roaches through your kitchen.",
+   "card": {
+    "rows": [
+     [
+      "30 LEGS",
+      "#ffd34d",
+      150
+     ],
+     [
+      "HUNTING ROACHES",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "m": "chase",
+   "scene": "basement",
+   "with": [
+    "roach"
+   ],
+   "say": "Fast runners, they chase their prey down.",
+   "card": {
+    "rows": [
+     [
+      "THEY CHASE",
+      "#ff4b3e",
+      130
+     ],
+     [
+      "PREY DOWN",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "50%"
+   }
+  },
+  {
+   "m": "xray",
+   "scene": "bathroom",
+   "say": "Pincer-like legs sting the prey with venom.",
+   "card": {
+    "rows": [
+     [
+      "VENOM",
+      "#ff4b3e",
+      150
+     ],
+     [
+      "IN ITS PINCER LEGS",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   }
+  },
+  {
+   "m": "tiny",
+   "scene": "kitchen",
+   "say": "Cockroaches are on a house centipede's menu.",
+   "card": {
+    "rows": [
+     [
+      "ROACHES",
+      "#ffd34d",
+      130
+     ],
+     [
+      "ON THE MENU",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "m": "fact",
+   "scene": "study",
+   "say": "Also ants, flies, and silverfish.",
+   "gag": {
+    "mark": "hearts"
+   }
+  },
+  {
+   "say": "It hides by day. So right now,",
+   "scene": "kitchen",
+   "scene_p": {
+    "time": "night"
+   },
+   "shots": [
+    {
+     "cam": [
+      600,
+      1050,
+      1.18
+     ],
+     "to": [
+      560,
+      1070,
+      1.1
+     ],
+     "at": 0.0
+    },
+    {
+     "at": "52%",
+     "cam": [
+      560,
+      1070,
+      1.1
+     ],
+     "to": [
+      780,
+      1404,
+      2.0
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "hero",
+     "type": "house_centipede",
+     "pos": [
+      820,
+      1500
+     ],
+     "s": 0.8,
+     "flip": true,
+     "front": false,
+     "p": {
+      "look": [
+       1,
+       0
+      ],
+      "chew": 0.0,
+      "pellets": 0,
+      "xray": 0.0,
+      "bite": 0.0,
+      "wave": 0.0,
+      "wrapped": 0.0,
+      "talk": 0.0,
+      "mood": null,
+      "fly": 0.0
+     }
+    },
+    {
+     "id": "L2609-gag0",
+     "type": "g.mark",
+     "s": 1.0,
+     "front": true,
+     "attach": "hero",
+     "pos": [
+      0,
+      -280.0
+     ],
+     "p": {
+      "on": 0.0,
+      "kind": "alarm"
+     },
+     "set": [
+      {
+       "at": "20%",
+       "dur": 0.3,
+       "p": {
+        "on": 1.0
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "deadpan",
+    "pos": [
+     330,
+     1500
+    ],
+    "size": 980,
+    "look": "viewer",
+    "prop": null,
+    "helmet": false,
+    "float": false,
+    "gest": [
+     [
+      "60%",
+      "laugh",
+      1.4
+     ]
+    ],
+    "moves": [
+     {
+      "at": "50%",
+      "dur": 0.45,
+      "pos": [
+       -320,
+       1500
+      ],
+      "hop": 200
+     }
+    ]
+   },
+   "sfx": [
+    "tink@20%",
+    "pop@60%"
+   ],
+   "pad": 0.08,
+   "acting": {
+    "side": true,
+    "subject": [
+     "centipede",
+     "house"
+    ],
+    "extras": []
+   },
+   "card": {
+    "rows": [
+     [
+      "SEEN ONE? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "loop": true
+}

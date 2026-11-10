@@ -1,0 +1,166 @@
+{
+ "series": "Things Living In Your House",
+ "sources": [
+  "University of Minnesota Extension, Boxelder bugs: \"Adult boxelder bugs can fly several blocks, and may travel as far as two miles.\"; \"Some boxelder bugs end up in sheltered areas in walls, attics and other places inside where they stay until it warms up.\"; \"during mild, sunny days indoors, boxelder bugs become mobile with warmer temperatures... Once there, they move towards windows and other sunny areas.\"; \"They do not reproduce in homes. All the boxelder bugs seen inside during winter and spring entered buildings the previous fall.\"; \"They normally do not cause property damage but they can potentially stain surfaces.\"; https://extension.umn.edu/nuisance-insects/boxelder-bugs"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "stage": {
+  "creature": "boxelder_bug",
+  "scene": "basement",
+  "scene_p": {},
+  "creature_cfg": {
+   "plan": "insect",
+   "label": "boxelder bug",
+   "body": "long",
+   "color": "#26262b",
+   "dark": "#d2382c",
+   "head": "#26262b",
+   "length": 460,
+   "height": 150,
+   "leg_len": 120,
+   "ant": 170,
+   "stripes": 3,
+   "wings": "shell",
+   "mood": "smug",
+   "s": 0.9
+  },
+  "s": 0.9
+ },
+ "cap_key": [
+  "you",
+  "2",
+  "miles",
+  "walls",
+  "sunny",
+  "windows",
+  "breed",
+  "fall",
+  "because"
+ ],
+ "cut_whoosh": true,
+ "title": "Why Boxelder Bugs Fly 2 Miles to Your House Walls 🪲 (Things Living In Your House)",
+ "tiktok_caption": "boxelder bugs in house 🪲 some fly up to 2 miles to winter in your walls, then wake on mild sunny days and crawl toward your windows. They don't breed indoors. Seen one this week? #boxelderbugs #bugsinhouse #winterpests #meatballmyths",
+ "beats": [
+  {
+   "open": "animal",
+   "m": "hook",
+   "gag": {
+    "mark": "shock"
+   },
+   "say": "Some bugs fly 2 miles to your walls.",
+   "card": {
+    "rows": [
+     [
+      "2 MILES",
+      "#ffd34d",
+      150
+     ],
+     [
+      "TO YOUR WALLS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "pad": 0.4,
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "m": "chase",
+   "say": "They sleep inside until a warm, sunny day.",
+   "card": {
+    "rows": [
+     [
+      "WARM DAY",
+      "#ff4b3e",
+      100
+     ],
+     [
+      "WAKES THEM",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "50%"
+   }
+  },
+  {
+   "pad": 0.4,
+   "scene": "sill",
+   "scene_p": {
+    "time": "day"
+   },
+   "m": "scale",
+   "say": "Then they crawl toward your sunny windows."
+  },
+  {
+   "pad": 0.4,
+   "scene": "kitchen",
+   "m": "xray",
+   "say": "They don't breed in your house.",
+   "card": {
+    "rows": [
+     [
+      "0 BABIES",
+      "#ffd34d",
+      120
+     ],
+     [
+      "BORN INDOORS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "pad": 0.4,
+   "scene": "bedroom",
+   "m": "calm",
+   "say": "Come spring, they try to leave. Many can't."
+  },
+  {
+   "scene": "basement",
+   "m": "punch",
+   "gag": {
+    "mark": "alarm"
+   },
+   "say": "They all came in last fall. Because",
+   "card": {
+    "rows": [
+     [
+      "SEEN ONE? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "loop": true,
+ "description": "",
+ "pinned_comment": "",
+ "_note": "Written for the 11/10 batch (Shorts A) from drawn_macros lines."
+}

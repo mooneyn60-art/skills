@@ -1,0 +1,329 @@
+{
+ "series": "Things Living In Your House",
+ "sources": [
+  "University of California IPM, Carpet Beetles (Pest Notes 7436): \"Varied carpet beetles typically lay 40 eggs which take 10 to 20 days to hatch. The larvae live for 220 to 630 days before pupating.\" / \"Adults lay eggs on food sources such as furs, woolen fabric, and carpets. Eggs hatch in about 2 weeks under typical indoor conditions\" / \"Typically the furniture carpet beetle lays 60 eggs\"; black carpet beetle \"usually lays 90 eggs\" / \"carpet beetle larvae leave brown, shell-like, bristly-looking cast skins when they molt\" / \"When carpet beetle adults are found indoors, they are typically seen near windows on sills, drapes, or window panes.\" / \"They are attracted to sunlight.\" / \"Most of the larval feeding activities occur in dark, undisturbed locations.\"; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7436.html"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "stage": {
+  "creature": "carpet_beetle",
+  "scene": "sill",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "insect",
+   "label": "carpet beetle",
+   "body": "round",
+   "color": "#6b4f3a",
+   "dark": "#efe4c8",
+   "head": "#3a2a20",
+   "length": 400,
+   "height": 230,
+   "leg_len": 90,
+   "ant": 120,
+   "stripes": 3,
+   "wings": "shell",
+   "mood": "smug",
+   "s": 0.85
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "insect",
+    "label": "carpet beetle",
+    "body": "round",
+    "color": "#6b4f3a",
+    "dark": "#efe4c8",
+    "head": "#3a2a20",
+    "length": 400,
+    "height": 230,
+    "leg_len": 90,
+    "ant": 120,
+    "stripes": 3,
+    "wings": "shell",
+    "mood": "smug",
+    "s": 0.85
+   }
+  },
+  "s": 0.85,
+  "actor": "creature"
+ },
+ "cap_key": [
+  "40",
+  "eggs",
+  "wool",
+  "2",
+  "weeks",
+  "630",
+  "days",
+  "skins",
+  "light"
+ ],
+ "cut_whoosh": true,
+ "_note": "Written by hand in the v6 shape (Shorts batch B); beats are drawn_macros lines.",
+ "title": "Small Brown Bugs in Your House Can Lay 40 Eggs in Your Wool 🧶 (Things Living In Your House)",
+ "description": "Small brown bugs in my house: carpet beetle adults sit at your windows, and a varied carpet beetle typically lays 40 eggs on wool, fur and carpet; the larvae can live up to 630 days and leave shed skins, per UC IPM. #shorts #carpetbeetle #smallbrownbugs #bugsinyourhouse #meatballmyths\nSources: UC Statewide IPM Program, Pest Notes: Carpet Beetles (7436).",
+ "pinned_comment": "What was the first sign of carpet beetles you found in your house: a bug at the window, or a shed skin somewhere?",
+ "tiktok_caption": "small brown bugs in your house 🧶 the one sitting at your window can lay 40 eggs on wool, fur and carpet, and the babies leave shed skins. What did you find first? #carpetbeetle #smallbrownbugs #bugsinyourhouse #meatballmyths",
+ "beats": [
+  {
+   "m": "hook",
+   "open": "animal",
+   "gag": {
+    "mark": "shock"
+   },
+   "say": "Your window bug can lay 40 eggs.",
+   "card": {
+    "rows": [
+     [
+      "40 EGGS",
+      "#ffd34d",
+      150
+     ],
+     [
+      "FROM ONE WINDOW BUG",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "m": "chase",
+   "scene": "bedroom",
+   "say": "It lays them on wool, fur, and carpet.",
+   "card": {
+    "rows": [
+     [
+      "WOOL + FUR",
+      "#ff4b3e",
+      130
+     ],
+     [
+      "+ CARPET",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "m": "fact",
+   "scene": "basement",
+   "say": "The eggs hatch in about 2 weeks.",
+   "card": {
+    "rows": [
+     [
+      "2 WEEKS",
+      "#ffd34d",
+      140
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   }
+  },
+  {
+   "m": "xray",
+   "scene": "study",
+   "say": "Larvae live up to 630 days, eating wool.",
+   "card": {
+    "rows": [
+     [
+      "UP TO 630 DAYS",
+      "#ffd34d",
+      100
+     ],
+     [
+      "AS LARVAE",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "m": "escalate",
+   "scene": "bedroom",
+   "say": "They leave bristly, shed skins behind.",
+   "gag": {
+    "mark": "shock"
+   }
+  },
+  {
+   "say": "Adults gather at windows, drawn to light. And",
+   "scene": "sill",
+   "scene_p": {
+    "time": "day"
+   },
+   "shots": [
+    {
+     "cam": [
+      600,
+      1050,
+      1.18
+     ],
+     "to": [
+      560,
+      1070,
+      1.1
+     ],
+     "at": 0.0
+    },
+    {
+     "at": "52%",
+     "cam": [
+      560,
+      1070,
+      1.1
+     ],
+     "to": [
+      780,
+      1403,
+      2.0
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "hero",
+     "type": "creature",
+     "pos": [
+      820,
+      1500
+     ],
+     "s": 0.85,
+     "flip": true,
+     "front": false,
+     "p": {
+      "look": [
+       1,
+       0
+      ],
+      "chew": 0.0,
+      "pellets": 0,
+      "xray": 0.0,
+      "bite": 0.0,
+      "wave": 0.0,
+      "wrapped": 0.0,
+      "talk": 0.0,
+      "mood": null,
+      "fly": 0.0,
+      "cfg": {
+       "plan": "insect",
+       "label": "carpet beetle",
+       "body": "round",
+       "color": "#6b4f3a",
+       "dark": "#efe4c8",
+       "head": "#3a2a20",
+       "length": 400,
+       "height": 230,
+       "leg_len": 90,
+       "ant": 120,
+       "stripes": 3,
+       "wings": "shell",
+       "mood": "smug",
+       "s": 0.85
+      }
+     }
+    },
+    {
+     "id": "L4140-gag0",
+     "type": "g.mark",
+     "s": 1.0,
+     "front": true,
+     "attach": "hero",
+     "pos": [
+      0,
+      -312.0
+     ],
+     "p": {
+      "on": 0.0,
+      "kind": "alarm"
+     },
+     "set": [
+      {
+       "at": "20%",
+       "dur": 0.3,
+       "p": {
+        "on": 1.0
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "deadpan",
+    "pos": [
+     330,
+     1500
+    ],
+    "size": 980,
+    "look": "viewer",
+    "prop": null,
+    "helmet": false,
+    "float": false,
+    "gest": [
+     [
+      "60%",
+      "laugh",
+      1.4
+     ]
+    ],
+    "moves": [
+     {
+      "at": "50%",
+      "dur": 0.45,
+      "pos": [
+       -320,
+       1500
+      ],
+      "hop": 200
+     }
+    ]
+   },
+   "sfx": [
+    "tink@20%",
+    "pop@60%"
+   ],
+   "pad": 0.08,
+   "acting": {
+    "side": true,
+    "subject": [
+     "beetle",
+     "carpet"
+    ],
+    "extras": []
+   },
+   "card": {
+    "rows": [
+     [
+      "FOUND ONE? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "loop": true
+}

@@ -178,18 +178,20 @@ def kk_board(ctx, t, p):
             blit(ctx, text_img("?", 260, "#ffd34d", 14), x0 + k * (cw + gap) + cw / 2, 540, 1.0 + 0.06 * math.sin(t * 6))
             blit(ctx, text_img("#1", 70, "#ffffff", 7), x0 + k * (cw + gap) + cw / 2, 760)
     slots = {}
-    step, isc = 178, 1.0
-    if p.get("fit"):   # opt-in (myth episodes): squeeze a column of 5+ icons so the last one stays on the board
+    step, isc, c0 = 178, 1.0, top + 200
+    if p.get("fit"):   # opt-in (myth episodes): squeeze a column of 4+ icons so the last one stays on the board
         most = max([sum(1 for it in icons if it["col"] == c[0]) for c in cols] or [0])
-        if most > 4:
-            step = (bot - top - 260) / (most - 1)
-            isc = step / 178
+        if most > 3:
+            for _ in range(3):   # centres run from just under the header to just above the board's bottom edge
+                c0 = top + 105 + 85 * isc
+                step = ((bot - 22 - 85 * isc) - c0) / (most - 1)
+                isc = min(1.0, step / 178)
     for i, it in enumerate(icons):
         k = [c[0] for c in cols].index(it["col"])
         n = slots.get(it["col"], 0)
         slots[it["col"]] = n + 1
         cx = x0 + k * (cw + gap) + cw / 2
-        cy = top + 200 + n * step
+        cy = c0 + n * step
         a, s = 1.0, isc
         if i == newest:
             d = p.get("drop", 1.0)
@@ -202,7 +204,7 @@ def kk_board(ctx, t, p):
     if icons and st > 0:
         k = [c[0] for c in cols].index(nlast)
         cx = x0 + k * (cw + gap) + cw / 2
-        sy = top + 200 + (slots[nlast] - 1) * step + 95 * isc   # just under the newest icon
+        sy = c0 + (slots[nlast] - 1) * step + 95 * isc   # just under the newest icon
         sc = 1.0 if st >= 1 else 1.9 - 0.9 * ease(st)
         blit(ctx, text_img(p.get("stamps", STAMP).get(nlast, nlast), 96, cols[k][1], 8, rot=10), min(max(cx, 260), W - 260), min(sy, 860), sc, min(1.0, st * 3))
 
@@ -380,8 +382,8 @@ def build(outline, out_spec):
                 if j == 0:   # the meter fills on the name line
                     hud["p"]["score"] = 0.0
                     hud["set"] = [{"at": "45%", "dur": 0.9, "p": {"score": float(seg.get("danger", 0))}}]
-                if loop_txt and loop_on:
-                    hud["p"]["loop"] = loop_txt
+                if loop_txt:   # set on every line: actor params carry over from the line before
+                    hud["p"]["loop"] = loop_txt if loop_on else ""
                 kk.append(hud)
             bd = ln.get("board")
             if bd:

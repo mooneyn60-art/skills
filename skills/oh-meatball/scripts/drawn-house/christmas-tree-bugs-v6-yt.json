@@ -1,0 +1,241 @@
+{
+ "series": "Things Living In Your House",
+ "sources": [
+  "University of Missouri Extension, Dr. Bug Talks Pokemon and Why Your Christmas Tree May Be Bugged: \"Praying mantises lay about 100 eggs in foamy masses (called ootheca in Dr. Bug World) on twigs in the fall. The foam hardens and sticks to the bush or tree until warm weather arrives. If one of the masses hitches a ride indoors for the holidays on a tree, you might receive the gift of tiny mantis nymphs.\"; https://extension.missouri.edu/news/dr-bug-talks-pokemon-and-why-your-christmas-tree-may-be-bugged",
+  "Penn State Extension, Insects on Real Christmas Trees: \"All four species produce brown, frothy-looking egg masses that are attached to plants, including conifer twigs and branches. When brought indoors, these egg masses will hatch after several weeks and produce dozens of baby mantises. Mantises are predatory and cannibalistic, so will eat each other if no other food is present, as is usually the case indoors during the winter.\"; \"Insect egg masses, such as those laid by mantises... can be scraped off the tree trunk or branches.\"; https://extension.psu.edu/insects-on-real-christmas-trees",
+  "Note: University of Illinois Extension (Christmas tree hitchhikers) gives 200 to 400 eggs per female mantis; the Short uses Missouri's \"about 100\" per foamy mass as asked; https://extension.illinois.edu/news-releases/christmas-tree-hitchhikers"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "stage": {
+  "creature": "praying_mantis",
+  "scene": "kitchen",
+  "scene_p": {
+   "time": "night",
+   "props": [
+    [
+     "window",
+     120,
+     900,
+     1.0
+    ],
+    [
+     "tree",
+     800,
+     1500,
+     1.35
+    ]
+   ]
+  },
+  "creature_cfg": {
+   "plan": "insect",
+   "label": "praying mantis",
+   "body": "long",
+   "color": "#7fbf4f",
+   "dark": "#4a8a3a",
+   "head": "#7fbf4f",
+   "length": 500,
+   "height": 80,
+   "leg_len": 230,
+   "ant": 70,
+   "head_r": 0.75,
+   "wings": "clear",
+   "mood": "smug",
+   "s": 0.9
+  },
+  "s": 0.9
+ },
+ "cap_key": [
+  "you",
+  "christmas",
+  "tree",
+  "100",
+  "eggs",
+  "warm",
+  "dozens",
+  "eat",
+  "foamy",
+  "twigs",
+  "mantis"
+ ],
+ "cut_whoosh": true,
+ "title": "Your Christmas Tree Can Hide 100 Mantis Eggs in Your House 🎄 (Things Living In Your House)",
+ "tiktok_caption": "bugs in christmas trees 🎄 a praying-mantis egg case can hold about 100 eggs, and if it rides your tree indoors the warmth can hatch dozens of babies. Check the twigs for a foamy case before you bring it in. Ever found one? #christmastree #prayingmantis #bugsinhouse #meatballmyths",
+ "beats": [
+  {
+   "open": "animal",
+   "with": [
+    {
+     "type": "eggs",
+     "x": 250,
+     "y": 1500,
+     "s": 0.9,
+     "pop": false,
+     "p": {
+      "n": 10
+     }
+    }
+   ],
+   "m": "hook",
+   "gag": {
+    "mark": "shock"
+   },
+   "say": "Your Christmas tree can hide about 100 eggs.",
+   "card": {
+    "rows": [
+     [
+      "100 EGGS",
+      "#ffd34d",
+      150
+     ],
+     [
+      "ON YOUR TREE",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "pad": 0.5,
+   "scene": "bedroom",
+   "m": "chase",
+   "say": "Your warm living room can hatch them.",
+   "card": {
+    "rows": [
+     [
+      "WARM ROOM",
+      "#ff4b3e",
+      105
+     ],
+     [
+      "HATCHES THEM",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "50%"
+   }
+  },
+  {
+   "pad": 0.5,
+   "scene": "kitchen",
+   "m": "scale",
+   "say": "Dozens of baby mantises can crawl out."
+  },
+  {
+   "pad": 0.5,
+   "scene": "basement",
+   "m": "xray",
+   "say": "No food indoors, so they eat each other.",
+   "card": {
+    "rows": [
+     [
+      "NO FOOD",
+      "#ff4b3e",
+      110
+     ],
+     [
+      "THEY EAT EACH OTHER",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "pad": 0.5,
+   "scene": "garden",
+   "scene_p": {
+    "time": "day"
+   },
+   "with": [
+    {
+     "type": "eggs",
+     "x": 250,
+     "y": 1500,
+     "s": 0.9,
+     "pop": false,
+     "p": {
+      "n": 10
+     }
+    }
+   ],
+   "m": "tiny",
+   "say": "Look for a foamy case on the twigs.",
+   "card": {
+    "rows": [
+     [
+      "FOAMY CASE",
+      "#ffd34d",
+      110
+     ],
+     [
+      "ON THE TWIGS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "kitchen",
+   "scene_p": {
+    "time": "night",
+    "props": [
+     [
+      "window",
+      120,
+      900,
+      1.0
+     ],
+     [
+      "tree",
+      800,
+      1500,
+      1.35
+     ]
+    ]
+   },
+   "m": "punch",
+   "gag": {
+    "mark": "alarm"
+   },
+   "say": "Check each twig first, because",
+   "card": {
+    "rows": [
+     [
+      "EVER FIND ONE? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "loop": true,
+ "description": "",
+ "pinned_comment": "",
+ "_note": "Written for the 11/10 batch (Shorts A) from drawn_macros lines."
+}

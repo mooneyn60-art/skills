@@ -1,0 +1,227 @@
+{
+ "series": "Things Living In Your House",
+ "sources": [
+  "University of Kentucky Entomology, ENTFACT-609 Clothes Moths (M. F. Potter): \"Clothes moth adults do not feed so they cause no injury to fabrics. However, the adults lay about 40-50 pinhead-sized eggs on vulnerable substrates, which in turn, hatch into the fabric-eating larvae.\"; \"They feed exclusively on animal fibers, especially wool, fur, silk, feathers, felt, and leather.\"; \"clothes moths are seldom seen because they avoid light. They prefer dark, undisturbed areas such as closets, basements and attics. Similar-looking moths spotted in kitchens and other well-lighted areas are possibly grain moths originating from cereals, dried fruit, nuts, or other stored foods.\"; https://entomology.ca.uky.edu/files/ef609.pdf",
+  "UC IPM Pest Notes: Clothes Moths: \"The larva is the damaging stage of the clothes moth. Both species feed on wool clothing, carpets, and rugs; upholstered furniture; furs; stored woolen items...\"; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7435.html",
+  "UC IPM Pest Notes: Pantry Pests: \"Stored-product pests are usually brought into the home in an infested package of food.\"; Indian meal moth: \"All damage is done by the larvae, which attack a wide range of products including cereal and cereal products, flour, cornmeal, rice, dried fruit, dehydrated vegetables, nuts, chocolate, candies, and other confections.\"; https://ipm.ucanr.edu/home-and-landscape/pantry-pests/"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "stage": {
+  "creature": "clothes_moth",
+  "scene": "bedroom",
+  "scene_p": {
+   "time": "night"
+  },
+  "creature_cfg": {
+   "plan": "insect",
+   "label": "clothes moth",
+   "body": "long",
+   "color": "#d8c08a",
+   "dark": "#b89a5c",
+   "head": "#c9a55a",
+   "length": 340,
+   "height": 120,
+   "leg_len": 80,
+   "ant": 160,
+   "wings": "clear",
+   "floor": false,
+   "mood": "smug",
+   "s": 1.0
+  },
+  "s": 1.0
+ },
+ "cap_key": [
+  "you",
+  "closet",
+  "40",
+  "50",
+  "eggs",
+  "wool",
+  "kitchen",
+  "pantry",
+  "larvae",
+  "eat"
+ ],
+ "cut_whoosh": true,
+ "title": "Pantry Moth vs Clothes Moth: 2 Different Rooms in Your House 🦋 (Things Living In Your House)",
+ "tiktok_caption": "pantry moth vs clothes moth 🦋 two different moths in two different rooms: clothes moths lay about 40 to 50 eggs in your dark closet, pantry moths ride in on food packages, and in both it's the larvae that eat. Which have you found? #pantrymoth #clothesmoth #mothsinhouse #meatballmyths",
+ "beats": [
+  {
+   "open": "animal",
+   "m": "hook",
+   "gag": {
+    "mark": "shock"
+   },
+   "say": "Your closet moths lay 40 to 50 eggs.",
+   "card": {
+    "rows": [
+     [
+      "40-50 EGGS",
+      "#ffd34d",
+      130
+     ],
+     [
+      "IN YOUR CLOSET",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "scene": "study",
+   "m": "chase",
+   "say": "They hatch into caterpillars that eat wool.",
+   "card": {
+    "rows": [
+     [
+      "EATS WOOL",
+      "#ff4b3e",
+      130
+     ]
+    ],
+    "y": 470,
+    "at": "50%"
+   }
+  },
+  {
+   "scene": "basement",
+   "m": "xray",
+   "say": "The adults don't eat. The larvae do.",
+   "card": {
+    "rows": [
+     [
+      "LARVAE EAT",
+      "#ffd34d",
+      105
+     ],
+     [
+      "NOT THE ADULTS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "kitchen",
+   "scene_p": {
+    "time": "night"
+   },
+   "m": "scale",
+   "cast": {
+    "creature": "pantry_moth",
+    "creature_cfg": {
+     "plan": "insect",
+     "label": "pantry moth",
+     "body": "long",
+     "color": "#a8683a",
+     "dark": "#d9cdb4",
+     "head": "#8a5a34",
+     "length": 360,
+     "height": 120,
+     "leg_len": 80,
+     "ant": 170,
+     "stripes": 3,
+     "wings": "clear",
+     "floor": false,
+     "mood": "smug",
+     "s": 1.0
+    },
+    "s": 1.0
+   },
+   "say": "Moths in your kitchen are different ones.",
+   "card": {
+    "rows": [
+     [
+      "KITCHEN",
+      "#ffd34d",
+      125
+     ],
+     [
+      "= PANTRY MOTH",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "scene": "kitchen",
+   "m": "calm",
+   "say": "They usually arrive in a package of food.",
+   "card": {
+    "rows": [
+     [
+      "FOOD PACKAGE",
+      "#ff4b3e",
+      105
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "bedroom",
+   "m": "punch",
+   "gag": {
+    "mark": "alarm"
+   },
+   "cast": {
+    "creature": "clothes_moth",
+    "creature_cfg": {
+     "plan": "insect",
+     "label": "clothes moth",
+     "body": "long",
+     "color": "#d8c08a",
+     "dark": "#b89a5c",
+     "head": "#c9a55a",
+     "length": 340,
+     "height": 120,
+     "leg_len": 80,
+     "ant": 160,
+     "wings": "clear",
+     "floor": false,
+     "mood": "smug",
+     "s": 1.0
+    },
+    "s": 1.0
+   },
+   "say": "In both rooms, larvae do the eating. And",
+   "card": {
+    "rows": [
+     [
+      "WHICH HAVE YOU FOUND? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "loop": true,
+ "description": "",
+ "pinned_comment": "",
+ "_note": "Written for the 11/10 batch (Shorts A) from drawn_macros lines."
+}

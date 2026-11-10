@@ -1,0 +1,159 @@
+{
+ "series": "Things Living In Your House",
+ "sources": [
+  "UC IPM Pest Notes: House Mouse (Pub. 7483): \"Mice can enter through openings as small as 1/4 inch. Seal all small structural cracks and openings using wire screen or coarse steel wool that mice can't chew through.\"; \"Keep mice out of buildings by eliminating all gaps and openings larger than 1/4 inch... Seal cracks in building foundations and around openings for water pipes, vents, and utility cables with metal or concrete. Doors, windows, and screens should fit tightly. It may be necessary to cover the edges of doors and windows with metal to prevent gnawing.\"; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7483.html"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "stage": {
+  "creature": "house_mouse",
+  "scene": "kitchen",
+  "scene_p": {
+   "time": "night"
+  },
+  "s": 0.65
+ },
+ "cap_key": [
+  "you",
+  "quarter",
+  "inch",
+  "pipes",
+  "vents",
+  "cables",
+  "foundation",
+  "gnaw",
+  "steel",
+  "wool",
+  "gap"
+ ],
+ "cut_whoosh": true,
+ "title": "How Mice Get in Your House Through a 1/4-Inch Gap 🐭 (Things Living In Your House)",
+ "tiktok_caption": "how do mice get in your house 🐭 a gap just 1/4 inch wide is enough: they use openings around water pipes, vents and cables, cracks in the foundation, and can gnaw door edges. Where did yours get in? #mouseinhouse #housemouse #mice #meatballmyths",
+ "beats": [
+  {
+   "open": "animal",
+   "m": "hook",
+   "gag": {
+    "mark": "shock"
+   },
+   "say": "A quarter-inch gap lets mice into your house.",
+   "card": {
+    "rows": [
+     [
+      "1/4 INCH",
+      "#ffd34d",
+      140
+     ],
+     [
+      "IS ENOUGH TO GET IN",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "scene": "basement",
+   "pad": 0.6,
+   "m": "chase",
+   "say": "They get in around pipes, vents, and cables.",
+   "card": {
+    "rows": [
+     [
+      "PIPES + VENTS",
+      "#ffd34d",
+      95
+     ],
+     [
+      "+ CABLES",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "50%"
+   }
+  },
+  {
+   "scene": "bathroom",
+   "pad": 0.6,
+   "m": "tiny",
+   "say": "Or through cracks in your foundation."
+  },
+  {
+   "scene": "bedroom",
+   "pad": 0.6,
+   "m": "xray",
+   "say": "They can gnaw the edges of your doors.",
+   "card": {
+    "rows": [
+     [
+      "GNAWED DOORS",
+      "#ff4b3e",
+      100
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "study",
+   "pad": 0.6,
+   "m": "calm",
+   "say": "Steel wool stops them. They can't chew it.",
+   "card": {
+    "rows": [
+     [
+      "STEEL WOOL",
+      "#ffd34d",
+      100
+     ],
+     [
+      "THEY CAN'T CHEW IT",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "kitchen",
+   "m": "punch",
+   "gag": {
+    "mark": "alarm"
+   },
+   "say": "So plug every gap you find, because",
+   "card": {
+    "rows": [
+     [
+      "WHERE DID YOURS GET IN? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "loop": true,
+ "description": "",
+ "pinned_comment": "",
+ "_note": "Written for the 11/10 batch (Shorts A) from drawn_macros lines."
+}

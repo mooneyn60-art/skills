@@ -1,0 +1,208 @@
+{
+ "series": "Things Living In Your House",
+ "sources": [
+  "Colorado State University Extension (PlantTalk), Fungus Gnats: \"Adult females lay 75 to 200 eggs, which hatch in a week, in cracks in the potting mix surface. The larvae, called maggots, feed on soil fungi, organic matter in the potting mix and on plant roots.\"; \"Allowing soils to dry somewhat between waterings will reduce fungus gnat problems, as larvae are very susceptible to drying out.\"; \"Larvae can be captured before maturation by placing a half-inch thick slice of potato on the soil surface.\"; https://planttalk.colostate.edu/?p=1421",
+  "University of Wisconsin Extension (Horticulture), Fungus Gnats on Houseplants: \"Fungus gnat females lay up to 200 eggs (in clusters) in cracks and crevices on the surface of the moist soil of potted plants. The eggs typically hatch within three to six days.\"; https://hort.extension.wisc.edu/articles/fungus-gnats-on-houseplants"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "stage": {
+  "creature": "fungus_gnat",
+  "scene": "kitchen",
+  "scene_p": {
+   "add": [
+    [
+     "plant",
+     780,
+     1500,
+     1.3
+    ]
+   ]
+  },
+  "creature_cfg": {
+   "plan": "insect",
+   "label": "fungus gnat",
+   "body": "long",
+   "color": "#34343a",
+   "dark": "#50505a",
+   "length": 330,
+   "height": 100,
+   "leg_len": 170,
+   "ant": 170,
+   "wings": "clear",
+   "eye_r": 26,
+   "floor": false,
+   "mood": "smug",
+   "s": 1.0
+  },
+  "s": 1.0
+ },
+ "cap_key": [
+  "you",
+  "200",
+  "eggs",
+  "week",
+  "maggots",
+  "roots",
+  "dry",
+  "potato",
+  "plant",
+  "soil"
+ ],
+ "cut_whoosh": true,
+ "title": "Why Tiny Bugs Hatch in Your House Plants: 200 Eggs 🪰 (Things Living In Your House)",
+ "tiktok_caption": "tiny bugs in house plants 🪰 fungus gnats: one female can lay up to 200 eggs in your plant soil, they hatch in about a week, and the maggots eat fungus and roots. Letting the soil dry out hurts them. How many plants do you have? #fungusgnats #houseplants #tinybugs #meatballmyths",
+ "beats": [
+  {
+   "open": "animal",
+   "m": "hook",
+   "gag": {
+    "mark": "shock"
+   },
+   "say": "Your plant soil hides up to 200 eggs.",
+   "card": {
+    "rows": [
+     [
+      "200 EGGS",
+      "#ffd34d",
+      140
+     ],
+     [
+      "IN YOUR PLANT SOIL",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "pad": 0.4,
+   "scene": "microscope",
+   "m": "chase",
+   "say": "They hatch in a week, as hungry maggots.",
+   "card": {
+    "rows": [
+     [
+      "1 WEEK",
+      "#ff4b3e",
+      120
+     ],
+     [
+      "TO HATCH",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "50%"
+   }
+  },
+  {
+   "pad": 0.4,
+   "scene": "garden",
+   "scene_p": {
+    "add": [
+     [
+      "plant",
+      780,
+      1500,
+      1.3
+     ]
+    ]
+   },
+   "m": "xray",
+   "say": "The maggots eat fungus and your plant's roots."
+  },
+  {
+   "pad": 0.4,
+   "scene": "study",
+   "m": "scale",
+   "say": "Let the soil dry. Larvae hate drying out.",
+   "card": {
+    "rows": [
+     [
+      "DRY SOIL",
+      "#ffd34d",
+      110
+     ],
+     [
+      "HURTS THE LARVAE",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "pad": 0.4,
+   "scene": "bedroom",
+   "m": "calm",
+   "say": "Put a potato slice down. Maggots crawl on.",
+   "card": {
+    "rows": [
+     [
+      "POTATO SLICE",
+      "#ffd34d",
+      100
+     ],
+     [
+      "A MAGGOT TRAP",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "kitchen",
+   "scene_p": {
+    "add": [
+     [
+      "plant",
+      780,
+      1500,
+      1.3
+     ]
+    ]
+   },
+   "m": "punch",
+   "gag": {
+    "mark": "alarm"
+   },
+   "say": "So water less, because",
+   "card": {
+    "rows": [
+     [
+      "HOW MANY PLANTS? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "loop": true,
+ "description": "",
+ "pinned_comment": "",
+ "_note": "Written for the 11/10 batch (Shorts A) from drawn_macros lines."
+}
