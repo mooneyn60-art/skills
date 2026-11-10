@@ -125,8 +125,15 @@ Pick episodes from `CALENDAR_REALISTIC.md`, top down. Any Short that beats 2x th
   - its own arc, with a new peak every 20-30 s and a payoff at the end that the cold open set up
   - never a stitch, compilation, recut of posted Shorts, or blurred-side vertical
   - target 8-12 min once retention holds; 5-7 min is fine until then
-- **Two slots (Nolan 11/10: "push more long form"):** **Saturday 08:00 ET** plus a midweek long-form (**Wed or Thu 17:00 ET**). Kill-or-Keep Part 1 broke out: 114 views in 2 days, CTR 5%, 44% avg viewed, 96% from recommendations. First midweek: House Bug Myths, Thu 11/12.
-- **Format plan (Nolan 11/10 delegated the choice to the data; yt-dlp search 11/10):** a ranking/tier list (211K-10M in-niche) > 3D size what-if (154K-7.3M) > a single-question myth (1.5-3.9M) >> lists of bug myths (~1K). Long-form order: Thu 11/12 spider-swallow myth episode, Wed 11/18 "Every Bug in Your House, Ranked From Harmless to Nightmare", then Kill-or-Keep sequels and a 3D what-if.
+- **Two slots (Nolan 11/10: "push more long form"):** **Saturday 08:00 ET** plus a midweek long-form (**Wed or Thu 17:00 ET**). Kill-or-Keep Part 1 is the only long-form YouTube recommends: 177 views at 74 h, CTR 5%, 38-44% average viewed, 1.73 min watched per view, 96% from Browse + Suggested.
+- **Long-form order (set 11/10 from the scoreboard, fact-checks and our own retention curve; research 69, 72-74):**
+  - Thu 11/12 17:00: **Kill-or-Keep Part 2** ("3 More Bugs in Your House You Should Never Kill (And 5 You Must)"). The sequel goes first while Part 1 is still being recommended ("sequels of proven winners before any new topic").
+  - Sat 11/14 08:00: Night Shift (v2, fact-fixed).
+  - Wed 11/18 17:00: bugs ranked, v2: honest hook, black widow at #1, the house-centipede twist as item 1, pause-and-reveal only at the three twists. Caution: our 11/1 "I Ranked Every Creature Living In Your House From Harmless to Deadly" got 5 views at 9.9% viewed, so a ranking title alone doesn't carry; Nolan should unlist that one before v2 posts.
+  - Sat 11/21 08:00: 3D house centipede (fact-fixed; lead title "Don't Squish the 30-Legged Bug in Your Bathroom").
+  - Wed 11/25 17:00: the swallow-spiders episode, with no quiz framing (our earlier myth and quiz long-forms held 5-11% viewed; quiz hooks held 20-28% of Shorts viewers).
+  - Sat 11/28 08:00: open. Kill-or-Keep Part 3 or the first backyard episode, decided from research 70 and 75.
+- **Every long-form script (from research 72's checklist):** every claim in the hook is still true when the video reaches that item; a count and an order in the first 15 s; part of the promise paid before 1:00; the first item is never the dullest one; no more than two items in a row with the same shape; each item ends on the next item's stake; a re-hook at the midpoint; a character beat every 30-40 s; no spoken 3-2-1 countdowns (a short pause-and-reveal at real twists only, three at most); ending = callback + "watch this next".
 - **Expansion (Nolan 11/10):** backyard creatures come first after house bugs (MyWildBackyard is the comparable channel: 200K-860K views). Pets' bugs stay out for now (close to the bite/medical topics that flop).
 - **Case files are DROPPED** (Nolan 11/9: the Azorian teaser Short did terribly). No case-file Shorts, long-forms or teasers. Don't propose them again unless Nolan asks.
 - **No Sunday compilation** until a weekly long-form passes 500 views.
@@ -144,7 +151,7 @@ Pick episodes from `CALENDAR_REALISTIC.md`, top down. Any Short that beats 2x th
 Plus watch hours (12-month) and TikTok rewards. One change per week, picked from the worst number.
 
 ## The work gate (every task)
-"Which post in the next 7 days, or which scorecard number, does this change?" No answer → `later.md`, don't do it. Research once a week max, and it must end in a queue change.
+"Which post in the next 7 days, or which scorecard number, does this change?" No answer → `later.md`, don't do it. Research is continuous (Nolan 11/10: "keep running research like this"; this replaces the once-a-week cap), but every research run must still end in a queue or script change.
 
 ## Nolan's jobs (Studio only)
 1. Make 3 playlists (one per show) and set each Short's **Related video** to its show's playlist or newest compilation.
@@ -164,3 +171,30 @@ Match each background agent to its job: cheap models for chores, the strongest f
 | Review | **a different model than the builder** | fact-check scripts against `_sources`, QA contact sheets before anything is scheduled |
 
 Each Short or long-form gets a second pass by a different model before it's scheduled.
+
+## Research loop (Nolan 11/10: "look at outliers and how they hold their retention… keep running research like this")
+Decisions come from data, retention first. For big format changes Nolan wants the evidence and the options before anything is built.
+- **Before any new format or long-form:** small-channel outliers for the idea (views ÷ that channel's own median, never raw views), our own retention for the nearest thing we've posted, and the search demand for the title (research 75).
+- **Every script:** research 72's checklist before the render; a fact-check by a different model against the cited sources before scheduling (research 73 and 74 found 7-10 overstated lines in every one of five long-forms that had only been checked by their writer).
+- **Daily, 07:37 ET (scheduled check "Daily channel scoreboard"):** refresh research 69's tables; every video at 48 h against its style's median; winners (2x the median) get a sequel within 48 h; fix queue gaps and off-niche posts.
+- **What works for data:** Metricool analytics (YouTube per-video views, watch minutes, average view duration; TikTok views, likes, comments, shares, duration); Windsor.ai (Nolan's YouTube: average % viewed, engaged views and subscribers gained per video, 2-3 days behind); yt-dlp flat listings (public views, channel medians, subscriber counts); web search.
+- **What doesn't:** retention curves for our videos (Windsor has none; vidIQ's `audience_retention` report costs 5 credits a video, so wait for the 2,000-credit reset on 2026-11-24, or use Nolan's Studio screenshots); TikTok retention (Metricool returns nulls); other channels' "Most replayed" graphs and transcripts (YouTube blocks full video-page extraction from the cloud machine with a bot check; don't route around it); Higgsfield (0 credits).
+
+## Scoreboard 11/10 (research 69; YouTube analytics through 11/7)
+- **Shorts land in one band:** 37 of 58 Shorts sit between 850 and 2,000 views, whatever the style. Median views: drawn v6 1,278 (n=8), older banner 1,136 (n=12), 3D explainer 1,119 (n=5, range 355-1,984). The style gaps are inside the noise.
+- **Topic and length are what move retention:** house creatures 77% average viewed (1,143 median views, n=27) vs other animals 62% (942). Shorts of 11-20 s hold 82% vs 61% for 21-35 s. % viewed tracks views (rank correlation 0.54, n=52); seconds watched don't (0.03). So: **YouTube Shorts are 11-20 s and about house creatures**; no more 25-35 s re-cuts once this week's queue has run.
+- **Only two kinds of Short flop outright (under 100 views):** case files, and skin-harm house topics.
+- **Subscribers:** 995; about 1.0 per 1,000 Shorts views.
+- **Long-form:** 503 views and **7.0 watch hours in 28 days** (the only hours that count toward YPP). Earlier long-forms: Wolves 162 views (21% viewed), Extinct 125 (16%), "3 Are Fake" quiz 134 (11%), "12 Animal Myths" 5 (5%), 11/1 house ranking 5 (10%).
+- **TikTok:** 63 of 75 posts are already 60 s or longer; median 218 views; nothing since 11/1 passes 760. Creator Rewards pays only on videos that reach 1,000 qualified views, which is why it pays ~$0. Three posts hold 37% of all views (bombardier beetle 5,972; house centipede parts 1 and 2). House (252) and other animals (222) are level; drawn 252 vs 3D 344 (n=2).
+
+## Verified platform facts (2026-11-10, primary sources; research 71)
+- **YPP:** 1,000 subs + 4,000 qualified long-form hours in 12 months, or 10M qualified Shorts views in 90 days. Shorts-feed watch time doesn't count toward hours; loops don't count as qualified Shorts views. **From 2027-02-01 new applicants need 8,000 hours or 20M Shorts views** (checked on YouTube's help page). The 500-sub tier (fan funding and Shopping, no ads: 3,000 hours or 3M Shorts views) is unchanged.
+- **Shorts ranking, official signals:** chose-to-view vs swiped, average view duration, average % viewed, likes, surveys. **No official stayed-to-watch benchmark exists** (the "70%" figure is folklore: compare our Shorts with each other). Each video is judged on its own; a weak upload doesn't penalize the channel and no posting cadence is required.
+- **Views** count from the first frame since 2026-08-24 on all formats; the old definition is now "engaged views".
+- **Related video on a Short:** set in Studio (needs advanced features); no documented API field.
+- **"A/B test titles & thumbnails"** (was Test & Compare): up to 3 variants, desktop Studio, long-form only, winner by watch-time share.
+- **Hype** needs YPP membership, so we can't use it yet.
+- **Inauthentic-content policy:** the risk is sameness (same situation, same outcome, a template). A recurring-character series is fine when each video has its own concept. The synthetic-content label is required only for realistic content, and YouTube says it doesn't limit reach or earnings.
+- **TikTok Creator Rewards:** 10K followers + 100K views in 30 days to join; pays only on original videos of 1 minute or more that reach 1,000 qualified For You views (a qualified view is a unique For You view watched 5+ s). TikTok says the AI label doesn't affect distribution.
+
