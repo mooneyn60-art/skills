@@ -3,7 +3,7 @@
  "titles": [
   "Never Bring a Christmas Tree Inside Before You Check for This",
   "Check Your Christmas Tree for This Before It Comes in Your House",
-  "9 Things Hiding in Your Christmas Tree (Clip One, Ignore Seven)"
+  "9 Things That Can Ride In on Your Christmas Tree (Clip One, Ignore Six)"
  ],
  "voice": "en-US-AndrewMultilingualNeural",
  "rate": "+10%",
@@ -20,7 +20,7 @@
      "card": "CHECK FOR THIS"
     },
     {
-     "say": "It looks like a toasted marshmallow stuck to a branch.",
+     "say": "It can look like a toasted marshmallow on a branch.",
      "src": "F31",
      "vis": "Side by side for one beat: the blob and a toasted marshmallow. Same shape."
     },
@@ -39,8 +39,8 @@
      "vis": "Pull back: the whole decorated tree; nine little question marks blink in the branches. Chip: 9 STOWAWAYS"
     },
     {
-     "say": "Seven you can ignore. One you clip off. And one matters outside your house, not in it.",
-     "vis": "Three stamps preview: IGNORE x7, CLIP x1, CHECK THE TRUNK x1."
+     "say": "Six you can ignore. One you vacuum. One you clip off. And one matters outside your house, not in it.",
+     "vis": "Four stamps preview: IGNORE x6, VACUUM x1, CLIP x1, CHECK THE TRUNK x1."
     },
     {
      "say": "And the internet says there are twenty-five thousand bugs in there. We'll check that number first.",
@@ -70,9 +70,9 @@
      "vis": "Speech bubble from a lab coat figure: AS MANY AS... IN SOME TREES. The words SOME TREES underline themselves."
     },
     {
-     "say": "Some trees. Norwegian trees. Mostly pine.",
-     "src": "F3",
-     "vis": "A wild Norwegian pine in snow, not a decorated fir."
+     "say": "Some trees. Norwegian trees. Spruce and pine.",
+     "src": "F3 F5",
+     "vis": "Wild Norwegian spruce and pine in snow, not a decorated fir."
     },
     {
      "say": "And tiny means tiny. Springtails, bark lice, mites, a moth, the odd spider.",
@@ -86,7 +86,7 @@
      "panic": 7
     },
     {
-     "say": "A Dutch natural history museum looked, and found no matching study for its own country.",
+     "say": "A Dutch natural history museum says nobody has done that study in the Netherlands yet.",
      "src": "F6",
      "vis": "A second pin on the Netherlands with a shrug emoji-free figure: NO DUTCH NUMBERS."
     },
@@ -103,7 +103,7 @@
      "panic": 6
     },
     {
-     "say": "And North Carolina State guesses that perhaps one tree in a hundred thousand has one of the three main pests.",
+     "say": "And North Carolina State guesses that perhaps one tree in a hundred thousand carries one of these pests.",
      "src": "F10",
      "vis": "A vast lot of trees to the horizon; one lights up.",
      "card": "PERHAPS 1 IN 100,000",
@@ -188,7 +188,7 @@
      "panic": 8
     },
     {
-     "say": "And a tree usually stays up three to four weeks. So it's a photo finish.",
+     "say": "A fresh tree can last three to four weeks indoors. So it's a photo finish.",
      "src": "F81 F35",
      "vis": "Split calendar: TREE DOWN vs EGGS HATCH racing to the same week."
     },
@@ -208,7 +208,7 @@
      "panic": 6
     },
     {
-     "say": "If it happens anyway, Missouri's extension has a suggestion. Feed them small flies or pet-store crickets.",
+     "say": "If it happens anyway, Missouri's extension suggests feeding them small flies or tiny pet-store crickets.",
      "src": "F42",
      "vis": "Meatball with tweezers and a tub labelled CRICKETS, a row of nymphs with napkins."
     },
@@ -264,9 +264,9 @@
      "panic": 7
     },
     {
-     "say": "It's a giant conifer aphid. About an eighth of an inch.",
+     "say": "It's a giant conifer aphid. Up to about an eighth of an inch.",
      "src": "F48",
-     "vis": "Name card. Ruler: 1/8 inch.",
+     "vis": "Name card. Ruler: UP TO 1/8 INCH.",
      "card": "GIANT CONIFER APHID"
     },
     {
@@ -287,9 +287,9 @@
      "panic": 5
     },
     {
-     "say": "N.C. State says they don't bite, don't sting, carry no disease, and feed only on firs.",
-     "src": "F54",
-     "vis": "Four quick icons, each crossed off; a fir twig gets a tick mark."
+     "say": "N.C. State says they don't bite, sting or carry disease. And they won't eat your houseplants.",
+     "src": "F54 (NC State); Penn State and Illinois for houseplants",
+     "vis": "Three quick icons crossed off; a houseplant gets a tick mark (safe)."
     },
     {
      "say": "The warmth wakes them up, and they wander.",
@@ -319,9 +319,9 @@
      "check": "5. VACUUM. NEVER SQUASH."
     },
     {
-     "say": "Leave a living, potted tree in the house for a long time, and Penn State says they may even breed.",
+     "say": "Keep a tree in long enough, especially one with a root ball, and Penn State says they may breed.",
      "src": "F57",
-     "vis": "A potted tree with a root ball; a few winged aphids appear with question marks."
+     "vis": "A balled-and-burlapped tree (root ball, not a pot); a few winged aphids appear with question marks."
     },
     {
      "say": "And real ticks on Christmas trees? A few cases have been recorded. A few.",
@@ -394,7 +394,7 @@
      "vis": "All six silhouettes in a row, each with an IGNORE stamp."
     },
     {
-     "say": "Most of what hatches is about a sixteenth of an inch long.",
+     "say": "Newly hatched aphids and spiderlings are about a sixteenth of an inch.",
      "src": "F22",
      "vis": "A speck beside a grain of rice for scale (no number on screen beyond 1/16 INCH).",
      "card": "1/16 INCH"
@@ -421,14 +421,14 @@
      "vis": "Pause-and-reveal 2 of 3. Camera moves down the trunk."
     },
     {
-     "say": "Spotted lanternfly eggs. Penn State says the egg masses can ride on trees from quarantine zones.",
-     "src": "F74",
+     "say": "Spotted lanternfly eggs. Penn State calls it unlikely, but they can turn up on Christmas trees.",
+     "src": "F74; Penn State Extension, Insects on Real Christmas Trees (updated 2026-01-19); Penn State News 2019-11-18",
      "vis": "A grey patch on the trunk. Name card: SPOTTED LANTERNFLY EGGS.",
      "card": "SPOTTED LANTERNFLY EGGS"
     },
     {
      "say": "On bark, an egg mass can look like a smear of dried mud.",
-     "src": "VERIFY (Penn State Extension spotted lanternfly identification)",
+     "src": "Penn State News 2019-11-18 (\"resemble gray mud splatters\"); Penn State SLF Management Guide (\"mud-like covering\"); USDA APHIS",
      "vis": "Close-up: grey, cracked, mud-like smear about an inch long."
     },
     {
@@ -437,16 +437,31 @@
      "vis": "A few nymphs on a windowsill, then gone."
     },
     {
-     "say": "The worry is the ride. A tree can carry them somewhere they haven't reached yet.",
-     "src": "VERIFY (Penn State / USDA APHIS on spotted lanternfly spread by moved items)",
-     "vis": "A tree on a car roof crossing a county line on a map."
+     "say": "The worry is the ride. Eggs on a tree could reach new ground and hatch outside in spring.",
+     "src": "Virginia Cooperative Extension ENTO-402; Penn State Christmas-tree page",
+     "vis": "A tree on a car roof crossing a county line, then a spring yard with nymphs."
     },
     {
-     "say": "So if you live near a lanternfly zone, check the trunk before the tree travels.",
-     "src": "VERIFY (current quarantine guidance)",
+     "say": "So if you live in or near a lanternfly area, check the trunk before the tree travels.",
+     "src": "Penn State Christmas-tree page; Penn State SLF Management Guide; New Jersey Dept. of Agriculture",
      "vis": "Meatball inspects the trunk with a flashlight at the lot.",
-     "check": "3. SHAKE IT, AND CHECK THE TRUNK",
+     "check": "4. PULL ANY BIRD NEST, CHECK THE TRUNK"
+    },
+    {
+     "say": "Found one? Scrape it into rubbing alcohol or hand sanitizer, or smash it.",
+     "src": "Penn State News 2019-11-18; Penn State SLF Management Guide; USDA APHIS",
+     "vis": "A scraper card pushes the grey patch into a zip bag of sanitizer."
+    },
+    {
+     "say": "Outside the known lanternfly area? Report it to your state agriculture department.",
+     "src": "Penn State SLF Management Guide; USDA APHIS; Penn State Christmas-tree page",
+     "vis": "A phone with a generic STATE AG DEPT screen, no real logo.",
      "panic": 3
+    },
+    {
+     "say": "And in a lanternfly area, send the old tree to a chipping program, not the backyard.",
+     "src": "Penn State Christmas-tree page",
+     "vis": "The tree on a curb with a RECYCLE tag."
     }
    ]
   },
@@ -467,7 +482,8 @@
      "say": "Illinois Extension just says never.",
      "src": "F61",
      "vis": "Card.",
-     "card": "NEVER SPRAY THE TREE"
+     "card": "NEVER SPRAY THE TREE",
+     "check": "5. VACUUM. NEVER SQUASH. NEVER SPRAY."
     },
     {
      "say": "North Carolina State's entomologists put it this way: with the lights on, you could set the tree on fire.",
@@ -482,9 +498,10 @@
      "panic": 2
     },
     {
-     "say": "Should you hose the tree off outside first? North Carolina State says you can. The Norwegian biologist says don't bother, washing is hard on the tree. Shaking is the part everyone agrees on.",
+     "say": "Should you hose the tree off outside first? North Carolina State says you can. The Norwegian biologist says don't, because washing damages the tree. Shaking is the step most advice agrees on.",
      "src": "F80 F9 F76",
-     "vis": "Two advisers with opposite signs (HOSE IT / DON'T), then both nod at a tree being shaken."
+     "vis": "Two advisers with opposite signs (HOSE IT / DON'T), then a tree being shaken and dragged clear of the pile.",
+     "check": "3. SHAKE IT, THEN MOVE IT AWAY"
     },
     {
      "say": "Same idea for firewood. Illinois says bring in a day or two of wood at a time, because things wake up in there too.",
@@ -512,7 +529,7 @@
      "vis": "Replay: snip, tuck."
     },
     {
-     "say": "Three. Shake the tree. Many lots have a shaker. Then move it away from that spot, or the bugs can crawl back.",
+     "say": "Three. Shake the tree. Some lots have a shaker. Then move it away from that spot, or the bugs can crawl back.",
      "src": "F76 F77",
      "vis": "Mechanical shaker rattles the tree; specks fall; Meatball drags the tree clear of the pile."
     },
@@ -542,7 +559,7 @@
      "panic": 1
     },
     {
-     "say": "Your tree is not twenty-five thousand bugs. It's an outdoor tree with a few sleepy passengers that can't survive your living room.",
+     "say": "Your tree is not twenty-five thousand bugs. It's an outdoor tree with a few sleepy passengers that don't last long in your living room.",
      "src": "F13 F20 F21",
      "vis": "The decorated tree, calm; a couple of tiny specks with Z's."
     },
@@ -564,5 +581,13 @@
  ],
  "pinned_comment": "What's the strangest thing that ever came out of your Christmas tree? 👇",
  "end_screen_video": "Don't Kill the Spider in Your Corner (posts Wed 11/18)",
- "sources_file": "research/77-christmas-tree-bugs-factpack.md"
+ "sources_file": "research/77-christmas-tree-bugs-factpack.md",
+ "_factcheck": "research/79-factcheck-christmas-tree-script.md applied 2026-11-10: 18 softened lines, 3 added lanternfly lines, check list renumbered, title 3 fixed.",
+ "tree_check_final": [
+  "1. LOOK FOR THE MARSHMALLOW",
+  "2. CLIP IT, PUT IT IN AN EVERGREEN",
+  "3. SHAKE IT, THEN MOVE IT AWAY",
+  "4. PULL ANY BIRD NEST, CHECK THE TRUNK",
+  "5. VACUUM. NEVER SQUASH. NEVER SPRAY."
+ ]
 }

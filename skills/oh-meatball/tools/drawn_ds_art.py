@@ -200,6 +200,8 @@ def _carol_body(ctx, t, p, ox=0.0, oy=0.0, alpha=1.0):
 
 
 def carol(ctx, t, p):
+    if p.get("thread"):
+        stroke(ctx, [(0, -30), (0, -p["thread"])], 3.0, color=(1, 1, 1), a=0.9)
     wh = p.get("whirl", 0.0)
     if wh <= 0.01:
         _carol_body(ctx, t, p)
@@ -888,10 +890,12 @@ def ds_board(ctx, t, p):
         text(ctx, "HOUSE SPIDERS", -400, 380 + 10, 52, "#ffd34d", None, a)
     if srt2 > 0.5:
         a = min(1.0, (srt2 - 0.5) * 3)
-        text(ctx, "OTHER SPIDERS", 20, 390, 44, "#ffffff", None, a)
+        text(ctx, p.get("label2", "OTHER SPIDERS"), 20, 390, 44, "#ffffff", None, a)
 
 
 def ds_pie(ctx, t, p):
+    if p.get("slices"):
+        return _pie_slices(ctx, t, p)
     fr = p.get("frac", 69 / 102.0) * ease(p.get("sweep", 1.0))
     R = 330
     shape(ctx, lambda c: p_ellipse(c, 0, 0, R, R), hexc("#8a94a6"), OUT, None)
@@ -911,6 +915,45 @@ def ds_pie(ctx, t, p):
         text(ctx, p["label"], 0.55 * R * math.cos(mid), 0.55 * R * math.sin(mid), 84, "#ffffff", None, a)
     if p.get("sub"):
         text(ctx, p["sub"], 0, R + 80, 64, "#ffd34d", None, min(1.0, fr * 2))
+
+
+def _pie_slices(ctx, t, p):
+    """A full circle chart: slices [[value, colour, label], ...] sweep in clockwise; labels sit in a legend at the
+    right with a swatch each (so long labels never sit on a thin slice)."""
+    sl = p["slices"]
+    tot = float(sum(s[0] for s in sl))
+    sw = ease(p.get("sweep", 1.0))
+    R = 330
+    a0 = -math.pi / 2
+    for k, (v, col, lab) in enumerate(sl):
+        a1 = a0 + 2 * math.pi * v / tot
+        e = min(a1, -math.pi / 2 + 2 * math.pi * sw)
+        if e > a0:
+            ctx.save()
+            ctx.move_to(0, 0)
+            ctx.arc(0, 0, R, a0, e)
+            ctx.close_path()
+            src(ctx, hexc(col))
+            ctx.fill_preserve()
+            ink(ctx, OUT)
+            ctx.stroke()
+            ctx.restore()
+        a0 = a1
+    ctx.save()
+    ctx.arc(0, 0, R, 0, 2 * math.pi)
+    ink(ctx, OUT)
+    ctx.stroke()
+    ctx.restore()
+    for k, (v, col, lab) in enumerate(sl):
+        a = max(0.0, min(1.0, sw * 3 - k * 0.6))
+        if a <= 0:
+            continue
+        y = -170 + k * 170
+        shape(ctx, lambda c, y=y: p_rrect(c, 430, y - 40, 80, 80, 14), hexc(col), OUT * 0.7, None, a=a)
+        ctx.save()
+        im_w, im_h = text(ctx, lab, 0, 0, 62, "#ffffff", None, 0.0)
+        ctx.restore()
+        text(ctx, lab, 550 + im_w / 2, y, 62, "#ffffff", None, a)
 
 
 def ds_lineup(ctx, t, p):
@@ -987,6 +1030,15 @@ def ds_houses(ctx, t, p):
         shape(ctx, lambda c, x=x, y=y: c.rectangle(x - 50, y - 70, 100, 70), body, OUT * 0.5, None)
         shape(ctx, lambda c, x=x, y=y: p_poly(c, [(x - 62, y - 66), (x, y - 120), (x + 62, y - 66)]), hexc("#b8352c"),
               OUT * 0.5, None)
+
+
+def ds_lineup_mask(ctx, t, p):
+    """Front layer of the lineup: each suspect stays in shadow until lit (lit [0..1 x3]); spacing 560."""
+    lit = p.get("lit", [0, 0, 0])
+    for i in range(3):
+        a = 0.86 * (1 - (lit[i] if i < len(lit) else 0))
+        if a > 0.01:
+            flat(ctx, lambda c, i=i: c.rectangle((i - 1) * 560 - 280, -1000, 560, 1000), hexc("#0c0e14"), a=a)
 
 
 def ds_chip_src(ctx, t, p):
@@ -1189,6 +1241,6 @@ ACTORS = {"carol": carol, "ds_web": ds_web, "giant_spider": giant_spider, "ds_sh
           "redback": redback, "recluse": recluse, "jumper": jumper, "ds_tag": ds_tag, "ds_dim": ds_dim,
           "ds_label": ds_label, "ds_shoe": ds_shoe, "ds_prop": ds_prop, "ds_board": ds_board, "ds_pie": ds_pie,
           "ds_lineup": ds_lineup, "ds_map": ds_map, "ds_arena": ds_arena, "ds_houses": ds_houses,
-          "ds_chip_src": ds_chip_src, "ds_bubble": ds_bubble}
+          "ds_chip_src": ds_chip_src, "ds_lineup_mask": ds_lineup_mask, "ds_bubble": ds_bubble}
 SCENES = {"ds_corner": ds_corner, "ds_floor": ds_floor, "ds_lab": ds_lab, "ds_shed": ds_shed, "ds_wall": ds_wall,
           "ds_board_bg": ds_board_bg}
