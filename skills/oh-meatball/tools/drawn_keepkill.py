@@ -171,6 +171,11 @@ def kk_board(ctx, t, p):
             fill(ctx, col, 1.0, 5)
             blit(ctx, text_img(name, 62), 0, 0)
             ctx.restore()
+    for name in p.get("locked", []):
+        if name in [c[0] for c in cols]:
+            k = [c[0] for c in cols].index(name)
+            blit(ctx, text_img("?", 260, "#ffd34d", 14), x0 + k * (cw + gap) + cw / 2, 540, 1.0 + 0.06 * math.sin(t * 6))
+            blit(ctx, text_img("#1", 70, "#ffffff", 7), x0 + k * (cw + gap) + cw / 2, 760)
     slots = {}
     for i, it in enumerate(icons):
         k = [c[0] for c in cols].index(it["col"])
@@ -185,7 +190,7 @@ def kk_board(ctx, t, p):
             cy = -200 + (cy + 200) * u
             a = min(1.0, d * 4)
             s = 1.12
-        draw_icon(ctx, it["ic"], cx, cy + 4 * math.sin(t * 3 + i), s, a)
+        draw_icon(ctx, it["ic"], cx, cy + 4 * math.sin(t * 3 + i), s, a, box=(min(340, int(cw - 34)), 170))
     st = p.get("stamp", 0.0)
     if icons and st > 0:
         k = [c[0] for c in cols].index(nlast)
@@ -242,7 +247,32 @@ def kk_end(ctx, t, p):
     ctx.stroke()
 
 
-drawn.ACTORS.update(kk_board=kk_board, kk_hud=kk_hud, kk_end=kk_end)
+def kk_count(ctx, t, p):
+    """p: on (0..1), n (3/2/1, 0 = done), label. The ranked episode's prediction beat: the viewer locks a guess."""
+    on = p.get("on", 0.0)
+    if on <= 0.01:
+        return
+    ctx.identity_matrix()
+    a = min(1.0, on)
+    cx, cy = W - 300, 470
+    ctx.arc(cx, cy, 175, 0, 2 * math.pi)
+    fill(ctx, (18, 22, 40), 0.88 * a, 8)
+    n = int(p.get("n", 0))
+    ring = (n / 3.0) if n else 0.0
+    if ring > 0:
+        ctx.set_source_rgba(1.0, 0.83, 0.3, a)
+        ctx.set_line_width(16)
+        ctx.arc(cx, cy, 160, -math.pi / 2, -math.pi / 2 + 2 * math.pi * ring)
+        ctx.stroke()
+    blit(ctx, text_img(p.get("label", "LOCK IT IN"), 54, "#ffffff", 6), cx, cy - 245, 1.0, a)
+    if n:
+        pulse = 1.0 + 0.08 * math.sin(t * 14)
+        blit(ctx, text_img(str(n), 230, "#ffd34d", 12), cx, cy, pulse, a)
+    else:
+        blit(ctx, text_img("?", 230, "#ffd34d", 12), cx, cy, 1.0, a)
+
+
+drawn.ACTORS.update(kk_board=kk_board, kk_hud=kk_hud, kk_end=kk_end, kk_count=kk_count)
 
 
 # ------------------------------------------------------------------------------------------------ 16:9 cameras
@@ -305,7 +335,7 @@ def build(outline, out_spec):
         if seg.get("tier"):
             k += 1
         for j, ln in enumerate(seg["lines"]):
-            b = {key: v for key, v in ln.items() if key not in ("board", "end", "hud", "hud_demo")}
+            b = {key: v for key, v in ln.items() if key not in ("board", "end", "hud", "hud_demo", "lockin")}
             if seg.get("cast"):
                 b.setdefault("cast", seg["cast"])
             if b.get("cast") and "s" in b["cast"]:
@@ -331,6 +361,8 @@ def build(outline, out_spec):
                 off = bd.get("off", "62%")
                 p = {"cols": cols, "on": 0.0, "icons": list(icons) if bd.get("add") else list(icons), "drop": 0.0 if bd.get("add") else 1.0,
                      "stamp": 0.0, "heads": 0.0 if bd.get("heads") else 1.0, **board_x}
+                if bd.get("locked"):
+                    p["locked"] = bd["locked"]
                 at = bd.get("at", 0.0)
                 sets = [{"at": at, "dur": 0.12, "p": {"on": 1.0}}]
                 if bd.get("heads"):
@@ -341,6 +373,15 @@ def build(outline, out_spec):
                 if off:
                     sets.append({"at": off, "p": {"on": 0.0}})
                 kk.append({"id": "board", "type": "kk_board", "pos": [0, 0], "front": True, "p": p, "set": sets})
+            lk = ln.get("lockin")
+            if lk:   # {"words": ["three", "two", "one"]} or true
+                ws = lk.get("words", ["three", "two", "one"]) if isinstance(lk, dict) else ["three", "two", "one"]
+                pct = ["55%", "70%", "85%"]
+                sets = [{"at": lk.get("at", "8%") if isinstance(lk, dict) else "8%", "dur": 0.25, "p": {"on": 1.0}}]
+                sets += [{"at": f"{w}|{q}", "p": {"n": 3 - i}} for i, (w, q) in enumerate(zip(ws, pct))]
+                kk.append({"id": "count", "type": "kk_count", "pos": [0, 0], "front": True,
+                           "p": {"on": 0.0, "n": 0, "label": lk.get("label", "LOCK IT IN") if isinstance(lk, dict) else "LOCK IT IN"},
+                           "set": sets})
             if ln.get("end"):
                 kk.append({"id": "end", "type": "kk_end", "pos": [0, 0], "front": True, "p": {"on": 0.0},
                            "set": [{"at": "100%", "dur": 0.5, "p": {"on": 1.0}}]})

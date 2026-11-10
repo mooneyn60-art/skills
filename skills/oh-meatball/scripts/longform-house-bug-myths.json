@@ -7,7 +7,7 @@
  "captions": 62,
  "caption_y": 985,
  "cut_whoosh": true,
- "title": "Do You Really Swallow Spiders in Your Sleep? (And 4 More House Bug Lies)",
+ "title": "Do You Really Swallow Spiders in Your Sleep? (And 7 More House Bug Myths, Tested)",
  "cap_key": [
   "case",
   "eight",
@@ -18,9 +18,11 @@
   "head",
   "hundred",
   "lie",
+  "lock",
   "myth",
   "never",
   "one",
+  "promised",
   "sleep",
   "space",
   "spiders",
@@ -30,8 +32,10 @@
   "thirty",
   "three",
   "true",
+  "two",
   "venom",
   "week",
+  "weirder",
   "zero"
  ],
  "stage": {
@@ -81,17 +85,12 @@
    "lines": [
     {
      "m": "hook",
-     "say": "Do you really swallow spiders in your sleep? Eight a year, they say.",
+     "say": "Do you really swallow spiders in your sleep? Eight a year?",
      "scene": "bedroom",
      "scene_p": {
       "time": "night"
      },
      "open": "animal",
-     "cast": {
-      "creature": "jumping_spider",
-      "actor": "jumping_spider",
-      "s": 0.75
-     },
      "card": {
       "rows": [
        [
@@ -112,20 +111,32 @@
     },
     {
      "m": "escalate",
-     "say": "Short answer? No. But the reason why is the best part.",
-     "scene": "bedroom",
-     "scene_p": {
-      "time": "night"
-     },
-     "cast": {
-      "creature": "jumping_spider",
-      "actor": "jumping_spider",
-      "s": 0.75
+     "say": "Short answer? No. And the reason why is way better."
+    },
+    {
+     "m": "fact",
+     "say": "Stay to the end. I'll show you a roach with no head.",
+     "card": {
+      "rows": [
+       [
+        "NO HEAD?",
+        "#ffd34d",
+        104
+       ],
+       [
+        "STAY TO THE END",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "45%"
      }
     },
     {
      "m": "name",
-     "say": "Picture it. Eight spiders a year, crawling into your mouth while you sleep.",
+     "say": "Picture it. Eight spiders a year, crawling into your mouth.",
      "card": {
       "rows": [
        [
@@ -134,7 +145,7 @@
         104
        ],
        [
-        "IN YOUR SLEEP",
+        "INTO YOUR MOUTH",
         "#ffffff",
         46,
         true
@@ -145,12 +156,13 @@
      }
     },
     {
+     "m": "chase",
+     "say": "Nope. I'm taping my mouth shut tonight."
+    },
+    {
      "m": "fact",
-     "say": "Spider experts say there's no evidence of that. None.",
+     "say": "Spider experts say there's no evidence of it. Zero.",
      "scene": "study",
-     "scene_p": {
-      "time": "night"
-     },
      "card": {
       "rows": [
        [
@@ -166,77 +178,120 @@
        ]
       ],
       "y": 120,
-      "at": "40%"
+      "at": "60%"
      }
     },
     {
      "m": "fact",
-     "say": "And that eight a year number? Nobody has ever found where it really came from.",
-     "scene": "study",
-     "scene_p": {
-      "time": "night"
-     }
+     "say": "And that eight a year number? Nobody knows where it started.",
+     "scene": "study"
     },
     {
      "m": "escalate",
-     "say": "To a spider, a sleeping human is a giant, breathing, snoring earthquake.",
-     "scene": "bedroom",
-     "scene_p": {
-      "time": "night"
-     }
+     "say": "To a spider, you're a giant, snoring, breathing earthquake."
     },
     {
      "m": "fact",
-     "say": "Your heartbeat and your breathing send out vibrations. To a spider, that's a warning sign.",
-     "scene": "bedroom",
-     "scene_p": {
-      "time": "night"
-     }
+     "say": "Your heartbeat and breathing send out vibrations. To a spider, that's danger."
     },
     {
-     "m": "fact",
-     "say": "Spiders don't go looking for big animals. They go looking for bugs, and quiet corners.",
-     "scene": "basement",
-     "scene_p": {
-      "time": "night"
-     }
+     "m": "solo",
+     "say": "Spiders want bugs and quiet corners. Not your face.",
+     "scene": "basement"
     },
     {
      "m": "calm",
-     "say": "Could one ever wander in? Maybe, once in a lifetime. Eight a year? No.",
-     "scene": "bedroom",
-     "scene_p": {
-      "time": "night"
-     }
+     "say": "Could one ever wander in? Maybe. Once in your life."
     },
     {
      "m": "fact",
-     "say": "Verdict: myth. You can sleep with your mouth open. Not that you should.",
-     "scene": "bedroom",
-     "scene_p": {
-      "time": "night"
+     "say": "So. Myth or true? Lock it in.",
+     "card": {
+      "rows": [
+       [
+        "MYTH OR TRUE?",
+        "#ffd34d",
+        104
+       ],
+       [
+        "LOCK IT IN",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "5%"
      },
+     "gag": false
+    },
+    {
+     "m": "fact",
+     "say": "Three.",
+     "card": {
+      "rows": [
+       [
+        "3",
+        "#ffd34d",
+        230
+       ]
+      ],
+      "y": 110,
+      "at": "0%"
+     },
+     "gag": false,
+     "pad": 0.05
+    },
+    {
+     "m": "fact",
+     "say": "Two.",
+     "card": {
+      "rows": [
+       [
+        "2",
+        "#ffd34d",
+        230
+       ]
+      ],
+      "y": 110,
+      "at": "0%"
+     },
+     "gag": false,
+     "pad": 0.05
+    },
+    {
+     "m": "fact",
+     "say": "One.",
+     "card": {
+      "rows": [
+       [
+        "1",
+        "#ffd34d",
+        230
+       ]
+      ],
+      "y": 110,
+      "at": "0%"
+     },
+     "gag": false,
+     "pad": 0.05
+    },
+    {
+     "m": "fact",
+     "say": "Myth. No evidence. Sleep easy.",
      "board": {
       "add": true,
       "drop_at": "10%",
       "stamp_at": "26%",
-      "off": "60%"
+      "off": "62%"
      },
      "gag": false,
      "pad": 0.12
     },
     {
      "m": "escalate",
-     "say": "And that's not even the biggest lie about the bugs in your house. Stick around for the roach that lives without its head.",
+     "say": "But that's not the biggest lie in your house. Not even close.",
      "scene": "kitchen",
-     "scene_p": {
-      "time": "night"
-     },
-     "cast": {
-      "creature": "roach",
-      "actor": "cockroach",
-      "s": 0.9
-     },
      "gag": false
     }
    ]
@@ -264,7 +319,7 @@
    "lines": [
     {
      "m": "name",
-     "say": "Next: daddy longlegs have the deadliest venom, but their fangs are too short to bite you.",
+     "say": "Next lie: daddy longlegs have the deadliest venom on Earth.",
      "card": {
       "rows": [
        [
@@ -284,12 +339,13 @@
      }
     },
     {
+     "m": "fact",
+     "say": "Their fangs are just too short to bite you. That's the story."
+    },
+    {
      "m": "escalate",
      "say": "Problem one. Daddy longlegs is three different animals.",
      "scene": "study",
-     "scene_p": {
-      "time": "night"
-     },
      "card": {
       "rows": [
        [
@@ -310,64 +366,125 @@
     },
     {
      "m": "fact",
-     "say": "The harvestman, with the round little body, isn't even a spider.",
-     "scene": "garden",
-     "scene_p": {
-      "time": "night"
-     }
+     "say": "The harvestman, the round little body? Not even a spider.",
+     "scene": "garden"
     },
     {
      "m": "xray",
-     "say": "And it has no venom glands at all.",
+     "say": "And it has zero venom glands.",
      "scene": "microscope"
     },
     {
      "m": "fact",
-     "say": "The crane fly, the giant mosquito look-alike? It's a fly. It can't bite you.",
-     "scene": "garden",
-     "scene_p": {
-      "time": "day"
-     }
+     "say": "The crane fly, the giant mosquito look-alike? A fly. Can't bite.",
+     "scene": "garden"
     },
     {
      "m": "fact",
-     "say": "The cellar spider in your basement does have venom. Most spiders do.",
-     "scene": "basement",
-     "scene_p": {
-      "time": "night"
-     }
+     "say": "The cellar spider does have venom. Most spiders do.",
+     "scene": "basement"
     },
     {
-     "m": "fact",
-     "say": "Cellar spiders even catch and eat other spiders.",
-     "scene": "basement",
-     "scene_p": {
-      "time": "night"
-     }
+     "m": "chase",
+     "say": "It even catches and eats other spiders.",
+     "scene": "basement"
     },
     {
      "m": "calm",
-     "say": "But nobody has ever shown it's deadly to people. The story just keeps spreading.",
-     "scene": "basement",
-     "scene_p": {
-      "time": "night"
-     }
+     "say": "But nobody's ever shown it's deadly to people.",
+     "scene": "basement"
     },
     {
      "m": "fact",
-     "say": "Verdict: myth. The scariest thing about it is the rumor.",
-     "scene": "basement",
-     "scene_p": {
-      "time": "night"
+     "say": "Your call. Myth or true?",
+     "card": {
+      "rows": [
+       [
+        "MYTH OR TRUE?",
+        "#ffd34d",
+        104
+       ],
+       [
+        "LOCK IT IN",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "5%"
      },
+     "gag": false
+    },
+    {
+     "m": "fact",
+     "say": "Three.",
+     "card": {
+      "rows": [
+       [
+        "3",
+        "#ffd34d",
+        230
+       ]
+      ],
+      "y": 110,
+      "at": "0%"
+     },
+     "gag": false,
+     "pad": 0.05
+    },
+    {
+     "m": "fact",
+     "say": "Two.",
+     "card": {
+      "rows": [
+       [
+        "2",
+        "#ffd34d",
+        230
+       ]
+      ],
+      "y": 110,
+      "at": "0%"
+     },
+     "gag": false,
+     "pad": 0.05
+    },
+    {
+     "m": "fact",
+     "say": "One.",
+     "card": {
+      "rows": [
+       [
+        "1",
+        "#ffd34d",
+        230
+       ]
+      ],
+      "y": 110,
+      "at": "0%"
+     },
+     "gag": false,
+     "pad": 0.05
+    },
+    {
+     "m": "fact",
+     "say": "Myth. The scariest thing about it is the rumor.",
      "board": {
       "add": true,
       "drop_at": "10%",
       "stamp_at": "26%",
-      "off": "60%"
+      "off": "62%"
      },
      "gag": false,
-     "pad": 0.12
+     "pad": 0.12,
+     "scene": "basement"
+    },
+    {
+     "m": "escalate",
+     "say": "The next one's named after a body part. Yours.",
+     "scene": "bathroom",
+     "gag": false
     }
    ]
   },
@@ -389,7 +506,7 @@
    "lines": [
     {
      "m": "name",
-     "say": "This one's right there in the name. Earwigs crawl into your ears at night.",
+     "say": "Earwigs. They crawl into your ears at night. Right?",
      "card": {
       "rows": [
        [
@@ -410,27 +527,18 @@
     },
     {
      "m": "fact",
-     "say": "Pincers on its rear end, and it loves dark, damp hiding spots.",
-     "scene": "garden",
-     "scene_p": {
-      "time": "night"
-     }
+     "say": "Pincers on its rear end. Loves dark, damp hiding spots.",
+     "scene": "garden"
     },
     {
      "m": "escalate",
-     "say": "So one entomologist went looking for proof. She searched ten centuries of writing.",
-     "scene": "study",
-     "scene_p": {
-      "time": "night"
-     }
+     "say": "So one entomologist went looking. Ten centuries of writing.",
+     "scene": "study"
     },
     {
      "m": "fact",
      "say": "She found one single case.",
      "scene": "study",
-     "scene_p": {
-      "time": "night"
-     },
      "card": {
       "rows": [
        [
@@ -450,49 +558,113 @@
      }
     },
     {
+     "m": "chase",
+     "say": "One. In a thousand years. That's the whole scandal."
+    },
+    {
      "m": "fact",
-     "say": "At night, earwigs hunt in the garden. Aphids, insect eggs, and rotting plants.",
-     "scene": "garden",
-     "scene_p": {
-      "time": "night"
-     }
+     "say": "At night it hunts the garden. Aphids, eggs, rotting plants.",
+     "scene": "garden"
     },
     {
      "m": "xray",
-     "say": "And the mom guards her eggs, and feeds her babies when they hatch.",
+     "say": "And the mom guards her eggs, and feeds her babies.",
      "scene": "microscope"
     },
     {
-     "m": "fact",
-     "say": "Most earwigs have wings, folded under short hard covers. But they seldom fly.",
-     "scene": "garden",
-     "scene_p": {
-      "time": "night"
-     }
-    },
-    {
      "m": "calm",
-     "say": "They can pinch you, if you grab one. That's about it.",
-     "scene": "bathroom",
-     "scene_p": {
-      "time": "night"
-     }
+     "say": "Grab one, and it might pinch. That's about it."
     },
     {
      "m": "fact",
-     "say": "Verdict: myth. One case in a thousand years. Your ears are safe.",
-     "scene": "bathroom",
-     "scene_p": {
-      "time": "night"
+     "say": "Lock in your answer. Myth or true?",
+     "card": {
+      "rows": [
+       [
+        "MYTH OR TRUE?",
+        "#ffd34d",
+        104
+       ],
+       [
+        "LOCK IT IN",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "5%"
      },
+     "gag": false
+    },
+    {
+     "m": "fact",
+     "say": "Three.",
+     "card": {
+      "rows": [
+       [
+        "3",
+        "#ffd34d",
+        230
+       ]
+      ],
+      "y": 110,
+      "at": "0%"
+     },
+     "gag": false,
+     "pad": 0.05
+    },
+    {
+     "m": "fact",
+     "say": "Two.",
+     "card": {
+      "rows": [
+       [
+        "2",
+        "#ffd34d",
+        230
+       ]
+      ],
+      "y": 110,
+      "at": "0%"
+     },
+     "gag": false,
+     "pad": 0.05
+    },
+    {
+     "m": "fact",
+     "say": "One.",
+     "card": {
+      "rows": [
+       [
+        "1",
+        "#ffd34d",
+        230
+       ]
+      ],
+      "y": 110,
+      "at": "0%"
+     },
+     "gag": false,
+     "pad": 0.05
+    },
+    {
+     "m": "fact",
+     "say": "Myth. Your ears are safe.",
      "board": {
       "add": true,
       "drop_at": "10%",
       "stamp_at": "26%",
-      "off": "60%"
+      "off": "62%"
      },
      "gag": false,
      "pad": 0.12
+    },
+    {
+     "m": "escalate",
+     "say": "Next: the bug in your bathroom. Count its legs.",
+     "scene": "bathroom",
+     "gag": false
     }
    ]
   },
@@ -515,7 +687,7 @@
    "lines": [
     {
      "m": "name",
-     "say": "Centipede means hundred feet. So the one in your bathroom has a hundred legs, right?",
+     "say": "Centipede means hundred feet. So, a hundred legs?",
      "card": {
       "rows": [
        [
@@ -536,11 +708,7 @@
     },
     {
      "m": "fact",
-     "say": "Count them. A grown house centipede has thirty. Fifteen pairs.",
-     "scene": "bathroom",
-     "scene_p": {
-      "time": "night"
-     },
+     "say": "Count them. A grown house centipede has thirty.",
      "card": {
       "rows": [
        [
@@ -561,56 +729,112 @@
     },
     {
      "m": "xray",
-     "say": "Babies hatch with only a few pairs, and add more every time they molt.",
+     "say": "Babies hatch with fewer, and add more every molt.",
      "scene": "microscope"
     },
     {
      "m": "escalate",
-     "say": "Grab one by the leg, and it just lets the leg go, and runs.",
-     "scene": "bathroom",
-     "scene_p": {
-      "time": "night"
-     }
+     "say": "Grab a leg, and it just drops it. And runs."
+    },
+    {
+     "m": "chase",
+     "say": "Over a foot every second."
     },
     {
      "m": "fact",
-     "say": "All those long legs let it run more than a foot every second.",
-     "scene": "bathroom",
-     "scene_p": {
-      "time": "night"
-     }
+     "say": "It hunts the bugs you hate. Roaches, silverfish, bed bugs.",
+     "scene": "kitchen"
     },
     {
      "m": "fact",
-     "say": "And it hunts the bugs you hate. Roaches, silverfish, even bed bugs.",
-     "scene": "kitchen",
-     "scene_p": {
-      "time": "night"
-     }
-    },
-    {
-     "m": "calm",
-     "say": "It's fast, it's creepy, and it's on your side.",
-     "scene": "bathroom",
-     "scene_p": {
-      "time": "night"
-     }
-    },
-    {
-     "m": "fact",
-     "say": "Verdict: myth. Thirty legs, not a hundred. Still way too many.",
-     "scene": "bathroom",
-     "scene_p": {
-      "time": "night"
+     "say": "Okay. Myth or true?",
+     "card": {
+      "rows": [
+       [
+        "MYTH OR TRUE?",
+        "#ffd34d",
+        104
+       ],
+       [
+        "LOCK IT IN",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "5%"
      },
+     "gag": false
+    },
+    {
+     "m": "fact",
+     "say": "Three.",
+     "card": {
+      "rows": [
+       [
+        "3",
+        "#ffd34d",
+        230
+       ]
+      ],
+      "y": 110,
+      "at": "0%"
+     },
+     "gag": false,
+     "pad": 0.05
+    },
+    {
+     "m": "fact",
+     "say": "Two.",
+     "card": {
+      "rows": [
+       [
+        "2",
+        "#ffd34d",
+        230
+       ]
+      ],
+      "y": 110,
+      "at": "0%"
+     },
+     "gag": false,
+     "pad": 0.05
+    },
+    {
+     "m": "fact",
+     "say": "One.",
+     "card": {
+      "rows": [
+       [
+        "1",
+        "#ffd34d",
+        230
+       ]
+      ],
+      "y": 110,
+      "at": "0%"
+     },
+     "gag": false,
+     "pad": 0.05
+    },
+    {
+     "m": "fact",
+     "say": "Myth. Thirty legs. Still way too many.",
      "board": {
       "add": true,
       "drop_at": "10%",
       "stamp_at": "26%",
-      "off": "60%"
+      "off": "62%"
      },
      "gag": false,
      "pad": 0.12
+    },
+    {
+     "m": "escalate",
+     "say": "Next one's in your closet. Right now.",
+     "scene": "bedroom",
+     "gag": false
     }
    ]
   },
@@ -654,10 +878,6 @@
     {
      "m": "escalate",
      "say": "Except the adult clothes moth never eats. Not once.",
-     "scene": "bedroom",
-     "scene_p": {
-      "time": "night"
-     },
      "card": {
       "rows": [
        [
@@ -678,15 +898,11 @@
     },
     {
      "m": "fact",
-     "say": "It hates light. That's why you almost never see one.",
-     "scene": "bedroom",
-     "scene_p": {
-      "time": "night"
-     }
+     "say": "It hates light. That's why you barely ever see one."
     },
     {
      "m": "fact",
-     "say": "The holes are from its babies. Mom lays forty to fifty eggs, right on your wool.",
+     "say": "The holes? Its babies. Forty to fifty eggs, on your wool.",
      "scene": "fibers",
      "card": {
       "rows": [
@@ -708,61 +924,106 @@
     },
     {
      "m": "xray",
-     "say": "The babies digest keratin, the tough protein in wool, fur and silk.",
+     "say": "The babies digest keratin, the tough protein in wool.",
      "scene": "microscope"
     },
     {
-     "m": "fact",
-     "say": "They love dark closets, and sweaters with stains or sweat on them.",
-     "scene": "bedroom",
-     "scene_p": {
-      "time": "night"
-     }
-    },
-    {
-     "m": "fact",
-     "say": "Cotton and synthetics? Rarely touched, unless they're blended with wool.",
-     "scene": "study",
-     "scene_p": {
-      "time": "day"
-     }
+     "m": "chase",
+     "say": "And they love sweaty, stained sweaters most."
     },
     {
      "m": "calm",
-     "say": "The fix? Clean your wool before you store it, and keep it sealed.",
-     "scene": "bedroom",
-     "scene_p": {
-      "time": "day"
-     }
+     "say": "The fix? Clean your wool, then seal it up."
     },
     {
      "m": "fact",
-     "say": "Verdict: myth. Well, half. The moth is innocent. Its kids are not.",
-     "scene": "bedroom",
-     "scene_p": {
-      "time": "night"
+     "say": "Myth or true? Lock it in.",
+     "card": {
+      "rows": [
+       [
+        "MYTH OR TRUE?",
+        "#ffd34d",
+        104
+       ],
+       [
+        "LOCK IT IN",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "5%"
      },
+     "gag": false
+    },
+    {
+     "m": "fact",
+     "say": "Three.",
+     "card": {
+      "rows": [
+       [
+        "3",
+        "#ffd34d",
+        230
+       ]
+      ],
+      "y": 110,
+      "at": "0%"
+     },
+     "gag": false,
+     "pad": 0.05
+    },
+    {
+     "m": "fact",
+     "say": "Two.",
+     "card": {
+      "rows": [
+       [
+        "2",
+        "#ffd34d",
+        230
+       ]
+      ],
+      "y": 110,
+      "at": "0%"
+     },
+     "gag": false,
+     "pad": 0.05
+    },
+    {
+     "m": "fact",
+     "say": "One.",
+     "card": {
+      "rows": [
+       [
+        "1",
+        "#ffd34d",
+        230
+       ]
+      ],
+      "y": 110,
+      "at": "0%"
+     },
+     "gag": false,
+     "pad": 0.05
+    },
+    {
+     "m": "fact",
+     "say": "Myth. The moth's innocent. Its kids are not.",
      "board": {
       "add": true,
       "drop_at": "10%",
       "stamp_at": "26%",
-      "off": "60%"
+      "off": "62%"
      },
      "gag": false,
      "pad": 0.12
     },
     {
      "m": "escalate",
-     "say": "Now the true pile. And it gets way weirder. One of them is the roach with no head.",
+     "say": "And the last three? They get way weirder.",
      "scene": "kitchen",
-     "scene_p": {
-      "time": "night"
-     },
-     "cast": {
-      "creature": "roach",
-      "actor": "cockroach",
-      "s": 0.9
-     },
      "gag": false
     }
    ]
@@ -786,7 +1047,7 @@
    "lines": [
     {
      "m": "name",
-     "say": "First: spiders can fly. That sounds fake, right?",
+     "say": "Next: spiders can fly. No wings. Sounds fake, right?",
      "card": {
       "rows": [
        [
@@ -795,7 +1056,7 @@
         104
        ],
        [
-        "NO WINGS NEEDED",
+        "NO WINGS",
         "#ffffff",
         46,
         true
@@ -807,27 +1068,15 @@
     },
     {
      "m": "fact",
-     "say": "Baby spiders climb somewhere high, and point their rear ends at the sky.",
-     "scene": "garden",
-     "scene_p": {
-      "time": "day"
-     }
+     "say": "Baby spiders climb somewhere high. Rear end to the sky."
     },
     {
      "m": "escalate",
-     "say": "Then they let out silk threads, and let the wind carry them away.",
-     "scene": "garden",
-     "scene_p": {
-      "time": "day"
-     }
+     "say": "They let out silk threads, and the wind lifts them."
     },
     {
      "m": "fact",
      "say": "It's called ballooning.",
-     "scene": "garden",
-     "scene_p": {
-      "time": "day"
-     },
      "card": {
       "rows": [
        [
@@ -843,45 +1092,109 @@
        ]
       ],
       "y": 120,
-      "at": "40%"
+      "at": "30%"
      }
     },
     {
-     "m": "fact",
-     "say": "Some ride the wind for miles, to places no spider could ever walk to.",
-     "scene": "garden",
-     "scene_p": {
-      "time": "day"
-     }
-    },
-    {
-     "m": "fact",
-     "say": "It's how baby spiders spread out, so they're not all fighting over the same bugs.",
-     "scene": "garden",
-     "scene_p": {
-      "time": "day"
-     }
+     "m": "solo",
+     "say": "Some ride the wind for miles.",
+     "scene": "garden"
     },
     {
      "m": "xray",
-     "say": "And in a lab, scientists got spiders to take off with an electric field, and no wind at all.",
+     "say": "In a lab, an electric field lifted them. No wind at all.",
      "scene": "microscope"
     },
     {
      "m": "fact",
-     "say": "Verdict: true. Spiders can fly. Sort of.",
-     "scene": "garden",
-     "scene_p": {
-      "time": "day"
+     "say": "So. Myth or true?",
+     "card": {
+      "rows": [
+       [
+        "MYTH OR TRUE?",
+        "#ffd34d",
+        104
+       ],
+       [
+        "LOCK IT IN",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "5%"
      },
+     "gag": false
+    },
+    {
+     "m": "fact",
+     "say": "Three.",
+     "card": {
+      "rows": [
+       [
+        "3",
+        "#ffd34d",
+        230
+       ]
+      ],
+      "y": 110,
+      "at": "0%"
+     },
+     "gag": false,
+     "pad": 0.05
+    },
+    {
+     "m": "fact",
+     "say": "Two.",
+     "card": {
+      "rows": [
+       [
+        "2",
+        "#ffd34d",
+        230
+       ]
+      ],
+      "y": 110,
+      "at": "0%"
+     },
+     "gag": false,
+     "pad": 0.05
+    },
+    {
+     "m": "fact",
+     "say": "One.",
+     "card": {
+      "rows": [
+       [
+        "1",
+        "#ffd34d",
+        230
+       ]
+      ],
+      "y": 110,
+      "at": "0%"
+     },
+     "gag": false,
+     "pad": 0.05
+    },
+    {
+     "m": "fact",
+     "say": "True. Spiders can fly. Sort of.",
      "board": {
       "add": true,
       "drop_at": "10%",
       "stamp_at": "26%",
-      "off": "60%"
+      "off": "62%"
      },
      "gag": false,
      "pad": 0.12
+    },
+    {
+     "m": "escalate",
+     "say": "Next one beat every astronaut into space.",
+     "scene": "kitchen",
+     "gag": false
     }
    ]
   },
@@ -921,7 +1234,7 @@
    "lines": [
     {
      "m": "name",
-     "say": "The first animals ever sent into space? Fruit flies.",
+     "say": "The first animals ever sent to space? Fruit flies.",
      "card": {
       "rows": [
        [
@@ -930,7 +1243,7 @@
         104
        ],
        [
-        "FIRST IN SPACE",
+        "FIRST IN SPACE?",
         "#ffffff",
         46,
         true
@@ -942,11 +1255,8 @@
     },
     {
      "m": "fact",
-     "say": "In nineteen forty seven, on a rocket launched in New Mexico.",
+     "say": "Nineteen forty seven. A rocket out of New Mexico.",
      "scene": "study",
-     "scene_p": {
-      "time": "night"
-     },
      "card": {
       "rows": [
        [
@@ -955,7 +1265,7 @@
         130
        ],
        [
-        "FIRST ANIMALS IN SPACE",
+        "ROCKET LAUNCH",
         "#ffffff",
         46,
         true
@@ -967,64 +1277,117 @@
     },
     {
      "m": "escalate",
-     "say": "The rocket climbed more than sixty miles up.",
-     "scene": "study",
-     "scene_p": {
-      "time": "night"
-     }
+     "say": "It climbed more than sixty miles up.",
+     "scene": "study"
     },
     {
      "m": "escalate",
      "say": "Before monkeys. Before dogs. Before any human.",
-     "scene": "study",
-     "scene_p": {
-      "time": "night"
-     }
+     "scene": "study"
     },
     {
      "m": "fact",
-     "say": "Monkeys didn't follow until nineteen forty nine.",
-     "scene": "study",
-     "scene_p": {
-      "time": "night"
-     }
-    },
-    {
-     "m": "fact",
-     "say": "Scientists wanted to know what radiation up there does to living things.",
+     "say": "Scientists wanted to see what radiation up there does.",
      "scene": "microscope"
     },
     {
-     "m": "fact",
-     "say": "The capsule parachuted back down, and the flies came home alive.",
-     "scene": "garden",
-     "scene_p": {
-      "time": "day"
-     }
+     "m": "chase",
+     "say": "Then the capsule parachuted down. The flies came home alive."
     },
     {
      "m": "fact",
-     "say": "So the fly on your banana? It comes from a family of astronauts.",
-     "scene": "kitchen",
-     "scene_p": {
-      "time": "day"
-     }
+     "say": "So the fly on your banana? Astronaut family."
     },
     {
      "m": "fact",
-     "say": "Verdict: true. Respect the fruit fly. Then toss the banana.",
-     "scene": "kitchen",
-     "scene_p": {
-      "time": "day"
+     "say": "Myth or true? Lock it in.",
+     "card": {
+      "rows": [
+       [
+        "MYTH OR TRUE?",
+        "#ffd34d",
+        104
+       ],
+       [
+        "LOCK IT IN",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "5%"
      },
+     "gag": false
+    },
+    {
+     "m": "fact",
+     "say": "Three.",
+     "card": {
+      "rows": [
+       [
+        "3",
+        "#ffd34d",
+        230
+       ]
+      ],
+      "y": 110,
+      "at": "0%"
+     },
+     "gag": false,
+     "pad": 0.05
+    },
+    {
+     "m": "fact",
+     "say": "Two.",
+     "card": {
+      "rows": [
+       [
+        "2",
+        "#ffd34d",
+        230
+       ]
+      ],
+      "y": 110,
+      "at": "0%"
+     },
+     "gag": false,
+     "pad": 0.05
+    },
+    {
+     "m": "fact",
+     "say": "One.",
+     "card": {
+      "rows": [
+       [
+        "1",
+        "#ffd34d",
+        230
+       ]
+      ],
+      "y": 110,
+      "at": "0%"
+     },
+     "gag": false,
+     "pad": 0.05
+    },
+    {
+     "m": "fact",
+     "say": "True. Respect the fruit fly. Then toss the banana.",
      "board": {
       "add": true,
       "drop_at": "10%",
       "stamp_at": "26%",
-      "off": "60%"
+      "off": "62%"
      },
      "gag": false,
      "pad": 0.12
+    },
+    {
+     "m": "escalate",
+     "say": "And now, the one I promised. The roach. No head.",
+     "scene": "kitchen",
+     "gag": false
     }
    ]
   },
@@ -1047,7 +1410,7 @@
    "lines": [
     {
      "m": "name",
-     "say": "And the one I promised. A cockroach can live for a week without its head.",
+     "say": "A cockroach can live a week with no head.",
      "card": {
       "rows": [
        [
@@ -1056,7 +1419,7 @@
         104
        ],
        [
-        "STILL ALIVE",
+        "STILL ALIVE?",
         "#ffffff",
         46,
         true
@@ -1067,16 +1430,16 @@
      }
     },
     {
+     "m": "escalate",
+     "say": "Wait. What?"
+    },
+    {
      "m": "fact",
-     "say": "Here's how. It doesn't breathe through its head.",
-     "scene": "kitchen",
-     "scene_p": {
-      "time": "night"
-     }
+     "say": "Here's how. It doesn't breathe through its head."
     },
     {
      "m": "xray",
-     "say": "It breathes through tiny holes along the sides of its body.",
+     "say": "It breathes through tiny holes along its body.",
      "scene": "microscope",
      "card": {
       "rows": [
@@ -1098,24 +1461,16 @@
     },
     {
      "m": "escalate",
-     "say": "Its blood isn't under high pressure like yours. So the neck seals up, and it doesn't bleed out.",
+     "say": "Its blood isn't high pressure like yours. The neck seals up.",
      "scene": "microscope"
     },
     {
      "m": "fact",
-     "say": "Its body can keep going for a while, with no brain at all.",
-     "scene": "kitchen",
-     "scene_p": {
-      "time": "night"
-     }
+     "say": "No brain needed. The body just keeps going."
     },
     {
-     "m": "fact",
-     "say": "So what finally gets it? It has no mouth. It dies of thirst.",
-     "scene": "kitchen",
-     "scene_p": {
-      "time": "night"
-     },
+     "m": "calm",
+     "say": "So what finally gets it? No mouth. It dies of thirst.",
      "card": {
       "rows": [
        [
@@ -1131,21 +1486,90 @@
        ]
       ],
       "y": 120,
-      "at": "40%"
+      "at": "60%"
      }
     },
     {
      "m": "fact",
-     "say": "Verdict: true. And honestly, that's the creepiest one.",
-     "scene": "kitchen",
-     "scene_p": {
-      "time": "night"
+     "say": "Last one. Myth or true?",
+     "card": {
+      "rows": [
+       [
+        "MYTH OR TRUE?",
+        "#ffd34d",
+        104
+       ],
+       [
+        "LOCK IT IN",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "5%"
      },
+     "gag": false
+    },
+    {
+     "m": "fact",
+     "say": "Three.",
+     "card": {
+      "rows": [
+       [
+        "3",
+        "#ffd34d",
+        230
+       ]
+      ],
+      "y": 110,
+      "at": "0%"
+     },
+     "gag": false,
+     "pad": 0.05
+    },
+    {
+     "m": "fact",
+     "say": "Two.",
+     "card": {
+      "rows": [
+       [
+        "2",
+        "#ffd34d",
+        230
+       ]
+      ],
+      "y": 110,
+      "at": "0%"
+     },
+     "gag": false,
+     "pad": 0.05
+    },
+    {
+     "m": "fact",
+     "say": "One.",
+     "card": {
+      "rows": [
+       [
+        "1",
+        "#ffd34d",
+        230
+       ]
+      ],
+      "y": 110,
+      "at": "0%"
+     },
+     "gag": false,
+     "pad": 0.05
+    },
+    {
+     "m": "fact",
+     "say": "True. And honestly? That's the creepiest one.",
      "board": {
       "add": true,
       "drop_at": "10%",
       "stamp_at": "26%",
-      "off": "60%"
+      "off": "62%"
      },
      "gag": false,
      "pad": 0.12
@@ -1157,19 +1581,37 @@
    "lines": [
     {
      "m": "fact",
-     "say": "So, which myth did you believe? Tell me in the comments.",
+     "say": "Quick recap. Five myths. Three true.",
      "scene": "bedroom",
      "scene_p": {
       "time": "night"
      },
+     "board": {
+      "at": 0.0,
+      "off": "100%"
+     },
+     "gag": false,
      "cast": {
       "creature": "roach",
       "actor": "cockroach",
       "s": 0.9
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Which one fooled you? Tell me below.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
      },
      "end": true,
      "pad": 10.0,
-     "gag": false
+     "gag": false,
+     "cast": {
+      "creature": "roach",
+      "actor": "cockroach",
+      "s": 0.9
+     }
     }
    ]
   }
@@ -1209,5 +1651,6 @@
   "headless_roach": [
    "Scientific American (2007), Fact or Fiction?: A Cockroach Can Live without Its Head https://www.scientificamerican.com/article/fact-or-fiction-cockroach-can-live-without-head/"
   ]
- }
+ },
+ "_engagement": "11/10 v2: countdown before every verdict (lead line + 3/2/1 big cards), open loop at every chapter end, 'stay to the end' loop at ~0:08 paid off in the last chapter, chase/solo/calm beats as gag interrupts every 15-20 s, no line over 12 words, board recap before the end ask."
 }
