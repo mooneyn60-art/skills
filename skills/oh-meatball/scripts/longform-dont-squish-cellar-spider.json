@@ -798,14 +798,15 @@
     "r": "corner",
     "cam": [
      720,
-     600,
-     1.7
+     610,
+     2.3
     ],
     "to": [
-     700,
-     470,
-     1.02
+     720,
+     600,
+     2.5
     ],
+    "shoe": false,
     "carol": {
      "still": true,
      "mood": "calm",
@@ -834,22 +835,6 @@
         0.2
        ]
       }
-     }
-    ],
-    "extras": [
-     {
-      "id": "tag",
-      "type": "ds_tag",
-      "pos": [
-       490,
-       650
-      ],
-      "s": 0.8,
-      "p": {
-       "on": 1.0,
-       "text": "CAROL"
-      },
-      "front": false
      }
     ],
     "sfx": [
@@ -1320,6 +1305,34 @@
     "sfx": [
      "step@emptied|35%",
      "pop@leftovers|85%"
+    ],
+    "shots": [
+     {
+      "cam": [
+       250,
+       1000,
+       0.82
+      ],
+      "to": [
+       560,
+       1000,
+       0.86
+      ]
+     },
+     {
+      "cam": [
+       700,
+       1120,
+       1.7
+      ],
+      "to": [
+       760,
+       1130,
+       1.8
+      ],
+      "at": "summer|55%",
+      "dur": 0.4
+     }
     ]
    }
   },
@@ -1387,14 +1400,14 @@
     "r": "scene",
     "scene": "ds_board_bg",
     "cam": [
-     0,
-     40,
-     1.04
+     -330,
+     260,
+     1.45
     ],
     "to": [
-     -80,
-     60,
-     1.1
+     -360,
+     270,
+     1.55
     ],
     "norecut": true,
     "actors": [
@@ -1439,14 +1452,14 @@
     "r": "scene",
     "scene": "ds_board_bg",
     "cam": [
-     -40,
-     60,
-     1.08
+     330,
+     230,
+     1.6
     ],
     "to": [
-     60,
-     60,
-     1.1
+     340,
+     230,
+     1.65
     ],
     "norecut": true,
     "actors": [
@@ -1480,10 +1493,10 @@
       "id": "carolw",
       "type": "carol",
       "pos": [
-       690,
-       -250
+       560,
+       60
       ],
-      "s": 0.26,
+      "s": 0.24,
       "front": false,
       "p": {
        "mood": "smug",
@@ -1501,15 +1514,16 @@
        "eyes8": 0.0,
        "still": true,
        "hat": 0.0,
-       "shades": 0.0
+       "shades": 0.0,
+       "thread": 500
       }
      },
      {
       "id": "notes",
       "type": "ds_notes",
       "pos": [
-       760,
-       -300
+       640,
+       0
       ],
       "s": 0.8,
       "p": {
@@ -1551,18 +1565,17 @@
     "to": [
      0,
      0,
-     1.05
+     1.02
     ],
-    "norecut": true,
     "actors": [
      {
       "id": "pie",
       "type": "ds_pie",
       "pos": [
-       -420,
-       130
+       -470,
+       40
       ],
-      "s": 0.8,
+      "s": 1.0,
       "p": {
        "slices": [
         [
@@ -1581,23 +1594,43 @@
          "33 UNIDENTIFIED SPIDER BITS"
         ]
        ],
-       "sweep": 0.0
+       "R": 360,
+       "lx": 440,
+       "px": 66,
+       "gap": 150,
+       "w0": 1.0,
+       "w1": 0.0,
+       "w2": 0.0
       },
       "front": false,
       "set": [
        {
         "at": 0.0,
-        "dur": 0.7,
+        "dur": 0.4,
         "p": {
-         "sweep": 1.0
+         "w1": 1.0
+        }
+       },
+       {
+        "at": "rest|12%",
+        "dur": 0.9,
+        "p": {
+         "w2": 1.0
         }
        }
       ]
      }
     ],
+    "scene_p": {
+     "color": "#1b1724"
+    },
+    "norecut": true,
     "card_at": "Every|55%",
+    "card_x": 1400,
+    "card_w": 820,
     "sfx": [
-     "whoosh@0.05",
+     "pop@0.05",
+     "whoosh@rest|12%",
      "stamp@Every|60%"
     ]
    }
@@ -1608,18 +1641,49 @@
    "id": "s1.l13",
    "seg": 1,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "ds_floor",
     "cam": [
+     700,
      760,
-     520,
-     1.15
+     1.0
     ],
     "to": [
+     640,
      740,
-     520,
-     1.242
+     1.1
     ],
-    "_todo": true
+    "actors": [
+     {
+      "id": "shadow",
+      "type": "ds_shadow",
+      "pos": [
+       -500,
+       900
+      ],
+      "s": 1.3,
+      "p": {
+       "a": 0.6
+      },
+      "front": false,
+      "rot": 8,
+      "moves": [
+       {
+        "at": 0,
+        "dur": 1.8,
+        "pos": [
+         760,
+         860
+        ],
+        "linear": true
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "thud@0.1",
+     "step@size|60%"
+    ]
    }
   },
   {
@@ -1722,14 +1786,74 @@
    "id": "s1.l15",
    "seg": 1,
    "shot": {
-    "r": "corner",
-    "cam": "mid",
-    "to": [
-     700,
-     500,
-     1.404
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     120,
+     1.0
     ],
-    "_todo": true
+    "to": [
+     0,
+     130,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "row",
+      "type": "ds_fade_row",
+      "pos": [
+       0,
+       360
+      ],
+      "s": 1.0,
+      "p": {
+       "gone": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "why|35%",
+        "dur": 2.4,
+        "p": {
+         "gone": 5.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "brit",
+      "type": "ds_label",
+      "pos": [
+       0,
+       -300
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "BRITAIN",
+       "px": 60,
+       "color": "#ffffff",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "British|8%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "color": "#1b1724"
+    },
+    "norecut": true,
+    "sfx": [
+     "whoosh@why|35%"
+    ]
    }
   },
   {
@@ -1738,25 +1862,101 @@
    "id": "s1.l16",
    "seg": 1,
    "shot": {
-    "r": "corner",
-    "cam": "wide",
-    "to": [
-     720,
-     470,
-     1.08
+    "r": "scene",
+    "scene": "ds_wall",
+    "cam": [
+     820,
+     520,
+     0.85
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "point",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "to": [
+     840,
+     580,
+     0.95
+    ],
+    "actors": [
+     {
+      "id": "gshadow",
+      "type": "ds_shadow",
+      "pos": [
+       1130,
+       -420
+      ],
+      "s": 1.0,
+      "p": {
+       "a": 0.38,
+       "squash": 0.9
+      },
+      "front": false,
+      "rot": 95,
+      "moves": [
+       {
+        "at": 0.05,
+        "dur": 2.2,
+        "pos": [
+         1130,
+         500
+        ]
+       }
+      ]
+     },
+     {
+      "id": "giant",
+      "type": "giant_spider",
+      "pos": [
+       900,
+       -120
+      ],
+      "s": 0.75,
+      "p": {
+       "mood": "angry"
+      },
+      "front": false,
+      "rot": 90,
+      "moves": [
+       {
+        "at": 0.05,
+        "dur": 2.2,
+        "pos": [
+         900,
+         620
+        ],
+        "walk": true
+       }
+      ]
+     },
+     {
+      "id": "clock",
+      "type": "ds_prop",
+      "pos": [
+       300,
+       260
+      ],
+      "s": 0.9,
+      "p": {
+       "kind": "clock",
+       "on": 0.0,
+       "hour": 2.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "Two|20%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "dark": true
+    },
+    "sfx": [
+     "tink@Two|20%",
+     "scratch@fast|80%"
+    ]
    }
   },
   {
@@ -1767,16 +1967,55 @@
    "shot": {
     "r": "corner",
     "cam": [
-     760,
-     520,
-     1.15
+     720,
+     620,
+     1.55
     ],
     "to": [
      740,
-     520,
-     1.242
+     640,
+     1.62
     ],
-    "_todo": true
+    "carol_s": 0.52,
+    "carol": {
+     "still": true,
+     "mood": "worry",
+     "look": [
+      0.6,
+      0.8
+     ]
+    },
+    "extras": [
+     {
+      "id": "giant",
+      "type": "giant_spider",
+      "pos": [
+       1500,
+       1080
+      ],
+      "s": 0.95,
+      "p": {
+       "mood": "angry"
+      },
+      "front": false,
+      "flip": true,
+      "moves": [
+       {
+        "at": 0,
+        "dur": 2.0,
+        "pos": [
+         1300,
+         1060
+        ],
+        "walk": true
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "step@fraction|30%"
+    ],
+    "shoe": false
    }
   },
   {
@@ -1787,27 +2026,64 @@
    "shot": {
     "r": "corner",
     "cam": [
-     680,
-     480,
-     1.1
+     700,
+     620,
+     0.9
     ],
     "to": [
      700,
-     480,
-     1.188
+     640,
+     0.95
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "deadpan",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "carol": {
+     "still": true,
+     "mood": "shock",
+     "look": [
+      0.8,
+      0.9
+     ]
+    },
+    "carol_sets": [
+     {
+      "at": "under|50%",
+      "dur": 0.6,
+      "p": {
+       "look": [
+        -0.8,
+        0.9
+       ]
+      }
+     }
+    ],
+    "extras": [
+     {
+      "id": "giant",
+      "type": "giant_spider",
+      "pos": [
+       1800,
+       1080
+      ],
+      "s": 0.7,
+      "p": {
+       "mood": "angry"
+      },
+      "front": false,
+      "flip": true,
+      "moves": [
+       {
+        "at": 0.1,
+        "dur": 2.2,
+        "pos": [
+         -400,
+         1080
+        ],
+        "walk": true,
+        "linear": true
+       }
+      ]
+     }
+    ],
+    "sfx": []
    }
   },
   {
@@ -1816,14 +2092,89 @@
    "id": "s1.l19",
    "seg": 1,
    "shot": {
-    "r": "corner",
-    "cam": "mid",
-    "to": [
-     700,
-     500,
-     1.404
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     60,
+     1.0
     ],
-    "_todo": true
+    "to": [
+     0,
+     60,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "split",
+      "type": "ds_split",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {},
+      "front": false
+     },
+     {
+      "id": "hero",
+      "type": "carol",
+      "pos": [
+       -480,
+       -60
+      ],
+      "s": 0.45,
+      "front": false,
+      "p": {
+       "mood": "smug",
+       "look": [
+        1,
+        0
+       ],
+       "work": 0.0,
+       "flick": 0.0,
+       "whirl": 0.0,
+       "eggs": 0.0,
+       "wave": 0.0,
+       "reach": 0.0,
+       "shrug": 0.0,
+       "eyes8": 0.0,
+       "still": false,
+       "hat": 0.0,
+       "shades": 0.0,
+       "thread": 500
+      }
+     },
+     {
+      "id": "giant",
+      "type": "giant_spider",
+      "pos": [
+       500,
+       330
+      ],
+      "s": 0.62,
+      "p": {
+       "mood": "angry",
+       "look": [
+        -1,
+        0
+       ]
+      },
+      "front": false,
+      "flip": true
+     }
+    ],
+    "vs": {
+     "left": "CAROL",
+     "right": "THE BIG ONE",
+     "panels": false,
+     "name_y": 900,
+     "at": "beat|60%"
+    },
+    "norecut": true,
+    "sfx": [
+     "thud@beat|60%"
+    ]
    }
   },
   {
@@ -1834,13 +2185,83 @@
    "seg": 1,
    "shot": {
     "r": "corner",
-    "cam": "mid",
-    "to": [
-     700,
-     500,
-     1.404
+    "cam": [
+     800,
+     660,
+     1.15
     ],
-    "_todo": true
+    "to": [
+     800,
+     650,
+     1.22
+    ],
+    "carol_pos": [
+     560,
+     600
+    ],
+    "carol": {
+     "mood": "smug",
+     "look": [
+      1,
+      0.5
+     ],
+     "reach_dir": 1
+    },
+    "carol_sets": [
+     {
+      "at": "distance|25%",
+      "dur": 0.6,
+      "p": {
+       "reach": 1.0
+      }
+     }
+    ],
+    "extras": [
+     {
+      "id": "giant",
+      "type": "giant_spider",
+      "pos": [
+       1080,
+       960
+      ],
+      "s": 0.52,
+      "p": {
+       "mood": "worry"
+      },
+      "front": false,
+      "flip": true
+     },
+     {
+      "id": "gap",
+      "type": "ds_dim",
+      "pos": [
+       640,
+       700
+      ],
+      "s": 1.0,
+      "p": {
+       "to": [
+        330,
+        120
+       ],
+       "grow": 0.0,
+       "text": ""
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "legs|60%",
+        "dur": 0.5,
+        "p": {
+         "grow": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "whoosh@legs|60%"
+    ]
    }
   },
   {
@@ -1928,16 +2349,63 @@
    "shot": {
     "r": "corner",
     "cam": [
-     760,
-     520,
-     1.15
+     620,
+     660,
+     2.0
     ],
     "to": [
-     740,
-     520,
-     1.242
+     640,
+     670,
+     2.1
     ],
-    "_todo": true
+    "carol_pos": [
+     560,
+     600
+    ],
+    "carol": {
+     "flick": 1.0,
+     "flick_to": [
+      733.3333333333334,
+      200.0
+     ],
+     "mood": "angry",
+     "look": [
+      1,
+      0.4
+     ]
+    },
+    "extras": [
+     {
+      "id": "giant",
+      "type": "giant_spider",
+      "pos": [
+       1000,
+       900
+      ],
+      "s": 0.52,
+      "p": {
+       "mood": "shock",
+       "wrapped": 0.45,
+       "walk": 0.8
+      },
+      "front": false,
+      "flip": true,
+      "set": [
+       {
+        "at": 0.1,
+        "dur": 2.6,
+        "p": {
+         "wrapped": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "whoosh@Left|5%",
+     "whoosh@burrito|60%"
+    ],
+    "norecut": true
    }
   },
   {
@@ -1950,27 +2418,74 @@
    "shot": {
     "r": "corner",
     "cam": [
-     680,
-     480,
-     1.1
+     760,
+     780,
+     0.9
     ],
     "to": [
-     700,
-     480,
-     1.188
+     780,
+     760,
+     0.98
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "deadpan",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "carol_pos": [
+     560,
+     600
+    ],
+    "carol": {
+     "mood": "angry",
+     "look": [
+      1,
+      0.5
+     ]
+    },
+    "carol_moves": [
+     {
+      "at": "moves|35%",
+      "dur": 0.8,
+      "pos": [
+       820,
+       700
+      ],
+      "walk": true
+     }
+    ],
+    "carol_sets": [
+     {
+      "at": "bites|75%",
+      "dur": 0.1,
+      "p": {
+       "bite": 1.0
+      }
+     },
+     {
+      "at": "bites+0.4|90%",
+      "dur": 0.3,
+      "p": {
+       "bite": 0.0
+      }
+     }
+    ],
+    "extras": [
+     {
+      "id": "giant",
+      "type": "giant_spider",
+      "pos": [
+       1000,
+       900
+      ],
+      "s": 0.52,
+      "p": {
+       "mood": "shock",
+       "wrapped": 1.0
+      },
+      "front": false,
+      "flip": true
+     }
+    ],
+    "sfx": [
+     "step@moves|35%",
+     "crunch@bites|75%"
+    ]
    }
   },
   {
@@ -1979,14 +2494,90 @@
    "id": "s1.l24",
    "seg": 1,
    "shot": {
-    "r": "corner",
-    "cam": "mid",
-    "to": [
-     700,
-     500,
-     1.404
+    "r": "scene",
+    "scene": "bedroom",
+    "cam": [
+     820,
+     1060,
+     0.92
     ],
-    "_todo": true
+    "to": [
+     820,
+     1040,
+     1.0
+    ],
+    "actors": [
+     {
+      "id": "blanket",
+      "type": "ds_prop",
+      "pos": [
+       860,
+       1430
+      ],
+      "s": 1.3,
+      "p": {
+       "kind": "lump",
+       "on": 1.0
+      },
+      "front": true
+     },
+     {
+      "id": "clock",
+      "type": "ds_prop",
+      "pos": [
+       -20,
+       820
+      ],
+      "s": 0.6,
+      "p": {
+       "kind": "clock",
+       "on": 1.0,
+       "hour": 2.0
+      },
+      "front": false
+     }
+    ],
+    "scene_p": {
+     "time": "night"
+    },
+    "mb": {
+     "pose": "nervous",
+     "pos": [
+      860,
+      1330
+     ],
+     "size": 820,
+     "look": "viewer",
+     "prop": null,
+     "gest": [
+      [
+       "respected|70%",
+       "deadpan",
+       2.0
+      ]
+     ],
+     "moves": [
+      {
+       "at": "respected|75%",
+       "dur": 0.25,
+       "pos": [
+        860,
+        1312
+       ]
+      },
+      {
+       "at": "respected+0.3|85%",
+       "dur": 0.25,
+       "pos": [
+        860,
+        1300
+       ]
+      }
+     ]
+    },
+    "sfx": [
+     "tink@sleep|50%"
+    ]
    }
   },
   {
@@ -1996,24 +2587,38 @@
    "seg": 1,
    "shot": {
     "r": "corner",
-    "cam": "wide",
-    "to": [
+    "cam": [
      720,
-     470,
-     1.08
+     520,
+     1.2
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "point",
-     "pos": [
-      1230,
-      900
+    "to": [
+     1080,
+     470,
+     1.15
+    ],
+    "carol": {
+     "look": [
+      1,
+      0
      ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+     "mood": "smug"
+    },
+    "carol_moves": [
+     {
+      "at": 0.1,
+      "dur": 2.1,
+      "pos": [
+       1380,
+       430
+      ],
+      "walk": true
+     }
+    ],
+    "sfx": [
+     "step@0.2",
+     "step@home|60%"
+    ]
    }
   },
   {
@@ -2023,18 +2628,89 @@
    "id": "s1.l26",
    "seg": 1,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "ds_wall",
     "cam": [
-     760,
-     520,
-     1.15
+     800,
+     450,
+     1.0
     ],
     "to": [
-     740,
-     520,
-     1.242
+     820,
+     450,
+     1.08
     ],
-    "_todo": true
+    "actors": [
+     {
+      "id": "orb",
+      "type": "ds_orb",
+      "pos": [
+       1050,
+       450
+      ],
+      "s": 1.0,
+      "p": {
+       "r": 380
+      },
+      "front": false
+     },
+     {
+      "id": "owner",
+      "type": "house_sp_small",
+      "pos": [
+       1050,
+       560
+      ],
+      "s": 0.32,
+      "p": {
+       "mood": "calm"
+      },
+      "front": false
+     },
+     {
+      "id": "hero",
+      "type": "carol",
+      "pos": [
+       100,
+       250
+      ],
+      "s": 0.48,
+      "front": false,
+      "p": {
+       "mood": "smug",
+       "look": [
+        1,
+        0
+       ],
+       "work": 0.0,
+       "flick": 0.0,
+       "whirl": 0.0,
+       "eggs": 0.0,
+       "wave": 0.0,
+       "reach": 0.0,
+       "shrug": 0.0,
+       "eyes8": 0.0,
+       "still": false,
+       "hat": 0.0,
+       "shades": 0.0
+      },
+      "moves": [
+       {
+        "at": "walk|20%",
+        "dur": 1.4,
+        "pos": [
+         720,
+         330
+        ],
+        "walk": true
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "step@walk|25%",
+     "boing@purpose|80%"
+    ]
    }
   },
   {
@@ -2044,29 +2720,184 @@
    "id": "s1.l27",
    "seg": 1,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "ds_board_bg",
     "cam": [
-     680,
-     480,
-     1.1
+     0,
+     0,
+     1.0
     ],
     "to": [
-     700,
-     480,
-     1.188
+     0,
+     0,
+     1.03
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "deadpan",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "actors": [
+     {
+      "id": "fly",
+      "type": "fly",
+      "pos": [
+       -560,
+       100
+      ],
+      "s": 0.9,
+      "p": {
+       "mood": "worry"
+      },
+      "front": false
+     },
+     {
+      "id": "eggs",
+      "type": "ds_bundle",
+      "pos": [
+       0,
+       -330
+      ],
+      "s": 1.6,
+      "p": {
+       "len": 140
+      },
+      "front": false
+     },
+     {
+      "id": "own",
+      "type": "house_sp_small",
+      "pos": [
+       560,
+       260
+      ],
+      "s": 0.55,
+      "p": {
+       "mood": "worry"
+      },
+      "front": false
+     },
+     {
+      "id": "l1",
+      "type": "ds_label",
+      "pos": [
+       -560,
+       330
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "INSECTS",
+       "px": 52,
+       "color": "#ffffff",
+       "on": 1.0
+      },
+      "front": true
+     },
+     {
+      "id": "l2",
+      "type": "ds_label",
+      "pos": [
+       0,
+       330
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "EGGS",
+       "px": 52,
+       "color": "#ffffff",
+       "on": 1.0
+      },
+      "front": true
+     },
+     {
+      "id": "l3",
+      "type": "ds_label",
+      "pos": [
+       560,
+       330
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "THE OWNER",
+       "px": 52,
+       "color": "#ffffff",
+       "on": 1.0
+      },
+      "front": true
+     },
+     {
+      "id": "x1",
+      "type": "ds_cross",
+      "pos": [
+       -560,
+       60
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 0.0,
+       "r": 150
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "insects|30%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "x2",
+      "type": "ds_cross",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 0.0,
+       "r": 150
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "eggs|55%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "x3",
+      "type": "ds_cross",
+      "pos": [
+       560,
+       100
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 0.0,
+       "r": 150
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "spider|85%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "color": "#1b1724"
+    },
+    "norecut": true,
+    "sfx": [
+     "stamp@insects|30%",
+     "stamp@eggs|55%"
+    ]
    }
   },
   {
@@ -2077,14 +2908,73 @@
    "id": "s1.l28",
    "seg": 1,
    "shot": {
-    "r": "corner",
-    "cam": "mid",
-    "to": [
+    "r": "scene",
+    "scene": "ds_lab",
+    "cam": [
+     900,
      700,
-     500,
-     1.404
+     0.95
     ],
-    "_todo": true
+    "to": [
+     940,
+     700,
+     1.02
+    ],
+    "actors": [
+     {
+      "id": "arena",
+      "type": "ds_arena",
+      "pos": [
+       560,
+       900
+      ],
+      "s": 1.25,
+      "p": {},
+      "front": false
+     },
+     {
+      "id": "hero",
+      "type": "carol",
+      "pos": [
+       560,
+       790
+      ],
+      "s": 0.25,
+      "front": false,
+      "p": {
+       "mood": "smug",
+       "look": [
+        0,
+        0.2
+       ],
+       "work": 0.0,
+       "flick": 0.0,
+       "whirl": 0.0,
+       "eggs": 0.0,
+       "wave": 0.0,
+       "reach": 0.0,
+       "shrug": 0.0,
+       "eyes8": 0.0,
+       "still": false,
+       "hat": 0.0,
+       "shades": 0.0
+      }
+     }
+    ],
+    "mb": {
+     "pose": "present",
+     "pos": [
+      1150,
+      900
+     ],
+     "size": 600,
+     "look": "viewer",
+     "prop": "paper"
+    },
+    "card_at": "aggressive|40%",
+    "sfx": [
+     "tink@aggressive|40%"
+    ]
    }
   },
   {
@@ -2094,25 +2984,125 @@
    "id": "s1.l29",
    "seg": 1,
    "shot": {
-    "r": "corner",
-    "cam": "wide",
-    "to": [
-     720,
-     470,
-     1.08
+    "r": "scene",
+    "scene": "ds_wall",
+    "cam": [
+     850,
+     450,
+     1.1
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "point",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "to": [
+     820,
+     430,
+     1.16
+    ],
+    "actors": [
+     {
+      "id": "orb",
+      "type": "ds_orb",
+      "pos": [
+       1050,
+       450
+      ],
+      "s": 1.0,
+      "p": {
+       "r": 380,
+       "jiggle": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "jiggle|25%",
+        "dur": 0.2,
+        "p": {
+         "jiggle": 1.0
+        }
+       },
+       {
+        "at": "lure|50%",
+        "dur": 0.2,
+        "p": {
+         "jiggle": 0.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "owner",
+      "type": "house_sp_small",
+      "pos": [
+       1050,
+       560
+      ],
+      "s": 0.32,
+      "p": {
+       "mood": "calm",
+       "wrapped": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "eat|78%",
+        "dur": 0.4,
+        "p": {
+         "wrapped": 1.0
+        }
+       }
+      ],
+      "moves": [
+       {
+        "at": "owner|45%",
+        "dur": 0.7,
+        "pos": [
+         800,
+         420
+        ],
+        "walk": true
+       }
+      ]
+     },
+     {
+      "id": "hero",
+      "type": "carol",
+      "pos": [
+       640,
+       300
+      ],
+      "s": 0.45,
+      "front": false,
+      "p": {
+       "mood": "smug",
+       "look": [
+        1,
+        0
+       ],
+       "work": 0.0,
+       "flick": 0.0,
+       "whirl": 0.0,
+       "eggs": 0.0,
+       "wave": 0.0,
+       "reach": 0.0,
+       "shrug": 0.0,
+       "eyes8": 0.0,
+       "still": false,
+       "hat": 0.0,
+       "shades": 0.0
+      },
+      "set": [
+       {
+        "at": "jiggle|25%",
+        "dur": 0.2,
+        "p": {
+         "wave": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "zap@jiggle|25%",
+     "crunch@eat|78%"
+    ]
    }
   },
   {
@@ -2122,25 +3112,125 @@
    "id": "s1.l30",
    "seg": 1,
    "shot": {
-    "r": "corner",
-    "cam": "wide",
-    "to": [
-     720,
-     470,
-     1.08
+    "r": "scene",
+    "scene": "ds_wall",
+    "cam": [
+     880,
+     700,
+     0.95
     ],
-    "_todo": true,
+    "to": [
+     900,
+     700,
+     1.02
+    ],
+    "actors": [
+     {
+      "id": "door",
+      "type": "ds_doorbell",
+      "pos": [
+       900,
+       1000
+      ],
+      "s": 1.0,
+      "p": {
+       "ring": 0.0,
+       "open": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "doorbell|30%",
+        "dur": 0.2,
+        "p": {
+         "ring": 1.0
+        }
+       },
+       {
+        "at": "answers|75%",
+        "dur": 0.4,
+        "p": {
+         "open": 1.0,
+         "ring": 0.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "hero",
+      "type": "carol",
+      "pos": [
+       1220,
+       480
+      ],
+      "s": 0.42,
+      "front": false,
+      "p": {
+       "mood": "smug",
+       "look": [
+        1,
+        0.4
+       ],
+       "work": 0.0,
+       "flick": 0.0,
+       "whirl": 0.0,
+       "eggs": 0.0,
+       "wave": 0.0,
+       "reach": 0.0,
+       "shrug": 0.0,
+       "eyes8": 0.0,
+       "still": false,
+       "hat": 0.0,
+       "shades": 0.0
+      },
+      "set": [
+       {
+        "at": "doorbell|30%",
+        "dur": 0.2,
+        "p": {
+         "wave": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "owner",
+      "type": "house_sp_small",
+      "pos": [
+       880,
+       990
+      ],
+      "s": 0.25,
+      "p": {
+       "mood": "happy",
+       "hidden": true
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "answers|80%",
+        "p": {
+         "hidden": false
+        }
+       }
+      ]
+     }
+    ],
     "mb": {
-     "pose": "point",
+     "pose": "facepalm",
      "pos": [
-      1230,
-      900
+      1600,
+      1250
      ],
-     "size": 460,
-     "look": "hero",
+     "size": 560,
+     "look": "viewer",
      "prop": null,
      "float": true
-    }
+    },
+    "sfx": [
+     "tink@doorbell|30%",
+     "pop@answers|80%"
+    ]
    }
   },
   {
@@ -2149,18 +3239,90 @@
    "id": "s1.l31",
    "seg": 1,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "ds_board_bg",
     "cam": [
-     760,
-     520,
-     1.15
+     0,
+     120,
+     1.0
     ],
     "to": [
-     740,
-     520,
-     1.242
+     0,
+     120,
+     1.05
     ],
-    "_todo": true
+    "actors": [
+     {
+      "id": "rec",
+      "type": "recluse",
+      "pos": [
+       0,
+       420
+      ],
+      "s": 0.9,
+      "p": {
+       "mood": "calm"
+      },
+      "front": false
+     },
+     {
+      "id": "rl",
+      "type": "ds_label",
+      "pos": [
+       0,
+       520
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "BROWN RECLUSE",
+       "px": 64,
+       "color": "#ffffff",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "recluses|60%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "q",
+      "type": "ds_label",
+      "pos": [
+       420,
+       -150
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "?",
+       "px": 200,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "recluses|70%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "color": "#1b1724"
+    },
+    "norecut": true,
+    "sfx": [
+     "boing@recluses|70%"
+    ]
    }
   },
   {
@@ -2171,29 +3333,125 @@
    "id": "s1.l32",
    "seg": 1,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "ds_lab",
     "cam": [
+     800,
      680,
-     480,
-     1.1
+     0.95
     ],
     "to": [
-     700,
-     480,
-     1.188
+     820,
+     680,
+     1.0
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "deadpan",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "actors": [
+     {
+      "id": "arena",
+      "type": "ds_arena",
+      "pos": [
+       560,
+       900
+      ],
+      "s": 1.4,
+      "p": {},
+      "front": false
+     },
+     {
+      "id": "hero",
+      "type": "carol",
+      "pos": [
+       420,
+       760
+      ],
+      "s": 0.24,
+      "front": false,
+      "p": {
+       "mood": "angry",
+       "look": [
+        1,
+        0.3
+       ],
+       "work": 0.0,
+       "flick": 0.0,
+       "whirl": 0.0,
+       "eggs": 0.0,
+       "wave": 0.0,
+       "reach": 0.0,
+       "shrug": 0.0,
+       "eyes8": 0.0,
+       "still": false,
+       "hat": 0.0,
+       "shades": 0.0
+      }
+     },
+     {
+      "id": "rec",
+      "type": "recluse",
+      "pos": [
+       690,
+       900
+      ],
+      "s": 0.32,
+      "p": {
+       "mood": "worry"
+      },
+      "front": false,
+      "flip": true
+     },
+     {
+      "id": "sar",
+      "type": "ds_label",
+      "pos": [
+       560,
+       470
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "SOUTH AMERICAN RECLUSE",
+       "px": 46,
+       "color": "#ffffff",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "Brazil|25%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "scale",
+      "type": "ds_scale",
+      "pos": [
+       1350,
+       900
+      ],
+      "s": 0.7,
+      "p": {
+       "tilt": 0.0,
+       "label": "5x"
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "five|60%",
+        "dur": 0.6,
+        "p": {
+         "tilt": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "card_at": "five|60%",
+    "sfx": [
+     "thud@five|60%"
+    ]
    }
   },
   {
@@ -2203,14 +3461,143 @@
    "id": "s1.l33",
    "seg": 1,
    "shot": {
-    "r": "corner",
-    "cam": "mid",
-    "to": [
-     700,
-     500,
-     1.404
+    "r": "scene",
+    "scene": "ds_lab",
+    "cam": [
+     560,
+     760,
+     1.5
     ],
-    "_todo": true
+    "to": [
+     580,
+     770,
+     1.6
+    ],
+    "actors": [
+     {
+      "id": "arena",
+      "type": "ds_arena",
+      "pos": [
+       560,
+       900
+      ],
+      "s": 1.4,
+      "p": {},
+      "front": false
+     },
+     {
+      "id": "hero",
+      "type": "carol",
+      "pos": [
+       520,
+       760
+      ],
+      "s": 0.24,
+      "front": false,
+      "p": {
+       "mood": "happy",
+       "look": [
+        -1,
+        0.3
+       ],
+       "work": 0.0,
+       "flick": 0.0,
+       "whirl": 0.0,
+       "eggs": 0.0,
+       "wave": 0.0,
+       "reach": 0.0,
+       "shrug": 0.0,
+       "eyes8": 0.0,
+       "still": false,
+       "hat": 0.0,
+       "shades": 0.0
+      },
+      "moves": [
+       {
+        "at": "insects|60%",
+        "dur": 0.6,
+        "pos": [
+         430,
+         780
+        ]
+       }
+      ]
+     },
+     {
+      "id": "rec",
+      "type": "recluse",
+      "pos": [
+       690,
+       900
+      ],
+      "s": 0.32,
+      "p": {
+       "mood": "calm"
+      },
+      "front": false,
+      "flip": true,
+      "set": [
+       {
+        "at": "insects|70%",
+        "dur": 0.2,
+        "p": {
+         "mood": "angry"
+        }
+       }
+      ]
+     },
+     {
+      "id": "fly",
+      "type": "fly",
+      "pos": [
+       350,
+       800
+      ],
+      "s": 0.16,
+      "p": {
+       "wrapped": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "insects|70%",
+        "dur": 0.5,
+        "p": {
+         "wrapped": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "huh",
+      "type": "ds_label",
+      "pos": [
+       700,
+       760
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "!?",
+       "px": 90,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "insects|80%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "pop@insects|80%"
+    ],
+    "norecut": true
    }
   },
   {
@@ -2220,25 +3607,91 @@
    "id": "s1.l34",
    "seg": 1,
    "shot": {
-    "r": "corner",
-    "cam": "wide",
-    "to": [
-     720,
-     470,
-     1.08
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     60,
+     1.0
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "point",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "to": [
+     0,
+     60,
+     1.03
+    ],
+    "actors": [
+     {
+      "id": "map",
+      "type": "ds_map",
+      "pos": [
+       -520,
+       60
+      ],
+      "s": 0.85,
+      "p": {
+       "place": "KANSAS",
+       "pin": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "Kansas|20%",
+        "dur": 0.5,
+        "p": {
+         "pin": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "houses",
+      "type": "ds_houses",
+      "pos": [
+       420,
+       -100
+      ],
+      "s": 0.55,
+      "p": {
+       "n": 50,
+       "cols": 10,
+       "lit": 0.0
+      },
+      "front": false
+     },
+     {
+      "id": "fifty",
+      "type": "ds_label",
+      "pos": [
+       420,
+       380
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "50 HOUSES",
+       "px": 60,
+       "color": "#ffffff",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "fifty|70%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "color": "#1b1724"
+    },
+    "norecut": true,
+    "sfx": [
+     "pop@Kansas|25%",
+     "tink@fifty|70%"
+    ]
    }
   },
   {
@@ -2249,18 +3702,51 @@
    "id": "s1.l35",
    "seg": 1,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "ds_board_bg",
     "cam": [
-     760,
-     520,
-     1.15
+     0,
+     260,
+     1.0
     ],
     "to": [
-     740,
-     520,
-     1.242
+     0,
+     260,
+     1.05
     ],
-    "_todo": true
+    "actors": [
+     {
+      "id": "houses",
+      "type": "ds_houses",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 0.9,
+      "p": {
+       "n": 50,
+       "cols": 10,
+       "lit": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "found|30%",
+        "dur": 2.0,
+        "p": {
+         "lit": 0.68
+        }
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "color": "#1b1724"
+    },
+    "norecut": true,
+    "sfx": [
+     "whoosh@found|30%"
+    ]
    }
   },
   {
@@ -2272,29 +3758,50 @@
    "id": "s1.l36",
    "seg": 1,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "ds_board_bg",
     "cam": [
-     680,
-     480,
-     1.1
+     0,
+     260,
+     0.92
     ],
     "to": [
-     700,
-     480,
-     1.188
+     0,
+     260,
+     0.96
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "deadpan",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "actors": [
+     {
+      "id": "houses",
+      "type": "ds_houses",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 0.9,
+      "p": {
+       "n": 50,
+       "cols": 10,
+       "lit": 0.68
+      },
+      "front": false
+     }
+    ],
+    "scene_p": {
+     "color": "#1b1724"
+    },
+    "norecut": true,
+    "no_card": true,
+    "stamp": {
+     "text": "NOT A CURE",
+     "color": "#e5383b",
+     "at": "limited|70%",
+     "y": 520,
+     "px": 150
+    },
+    "sfx": [
+     "stamp@limited|70%"
+    ]
    }
   },
   {
@@ -2304,13 +3811,36 @@
    "seg": 1,
    "shot": {
     "r": "corner",
-    "cam": "mid",
-    "to": [
-     700,
-     500,
-     1.404
+    "cam": [
+     720,
+     580,
+     1.6
     ],
-    "_todo": true
+    "to": [
+     720,
+     590,
+     1.7
+    ],
+    "carol": {
+     "mood": "smug",
+     "look": [
+      0,
+      0.2
+     ]
+    },
+    "carol_sets": [
+     {
+      "at": "bonus|60%",
+      "dur": 0.3,
+      "p": {
+       "shrug": 1.0
+      }
+     }
+    ],
+    "shoe": false,
+    "sfx": [
+     "boing@bonus|60%"
+    ]
    }
   },
   {
@@ -2320,25 +3850,70 @@
    "id": "s1.l38",
    "seg": 1,
    "shot": {
-    "r": "corner",
-    "cam": "wide",
-    "to": [
-     720,
-     470,
-     1.08
+    "r": "scene",
+    "scene": "ds_wall",
+    "cam": [
+     800,
+     640,
+     1.0
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "point",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "to": [
+     800,
+     640,
+     1.06
+    ],
+    "actors": [
+     {
+      "id": "giant",
+      "type": "giant_spider",
+      "pos": [
+       1000,
+       960
+      ],
+      "s": 0.7,
+      "p": {
+       "mood": "shock",
+       "wrapped": 1.0
+      },
+      "front": false,
+      "flip": true
+     },
+     {
+      "id": "hero",
+      "type": "carol",
+      "pos": [
+       620,
+       440
+      ],
+      "s": 0.5,
+      "front": false,
+      "p": {
+       "mood": "happy",
+       "look": [
+        0.8,
+        0.6
+       ],
+       "work": 0.0,
+       "flick": 0.0,
+       "whirl": 0.0,
+       "eggs": 0.0,
+       "wave": 0.0,
+       "reach": 0.0,
+       "shrug": 0.0,
+       "eyes8": 0.0,
+       "still": false,
+       "hat": 0.0,
+       "shades": 0.0,
+       "thread": 500
+      }
+     }
+    ],
+    "scene_p": {
+     "dark": true
+    },
+    "sfx": [
+     "tink@answered|40%"
+    ]
    }
   },
   {
@@ -2349,16 +3924,58 @@
    "shot": {
     "r": "corner",
     "cam": [
-     760,
-     520,
-     1.15
+     720,
+     470,
+     1.3
     ],
     "to": [
-     740,
-     520,
-     1.242
+     720,
+     450,
+     1.38
     ],
-    "_todo": true
+    "carol": {
+     "mood": "worry",
+     "look": [
+      -0.6,
+      -0.4
+     ]
+    },
+    "shoe_sets": [
+     {
+      "at": "heard|40%",
+      "dur": 1.0,
+      "p": {
+       "nudge": 0.6
+      }
+     }
+    ],
+    "extras": [
+     {
+      "id": "wh",
+      "type": "ds_whisper",
+      "pos": [
+       720,
+       610
+      ],
+      "s": 0.8,
+      "p": {
+       "on": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "other|55%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "whoosh@other|55%"
+    ]
    }
   },
   {
@@ -2367,29 +3984,50 @@
    "id": "s2.l0",
    "seg": 2,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "ds_wall",
     "cam": [
-     680,
-     480,
+     760,
+     560,
      1.1
     ],
     "to": [
-     700,
-     480,
-     1.188
+     760,
+     560,
+     1.15
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "deadpan",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "actors": [
+     {
+      "id": "hero",
+      "type": "carol",
+      "pos": [
+       760,
+       520
+      ],
+      "s": 0.55,
+      "front": false,
+      "p": {
+       "mood": "worry",
+       "look": [
+        0,
+        0.2
+       ],
+       "work": 0.0,
+       "flick": 0.0,
+       "whirl": 0.0,
+       "eggs": 0.0,
+       "wave": 0.0,
+       "reach": 0.0,
+       "shrug": 0.0,
+       "eyes8": 0.0,
+       "still": false,
+       "hat": 0.0,
+       "shades": 0.0,
+       "thread": 600
+      }
+     }
+    ],
+    "chapter": true
    }
   },
   {
@@ -2401,13 +4039,52 @@
    "seg": 2,
    "shot": {
     "r": "corner",
-    "cam": "mid",
-    "to": [
-     700,
-     500,
-     1.404
+    "cam": [
+     720,
+     520,
+     1.45
     ],
-    "_todo": true
+    "to": [
+     720,
+     520,
+     1.55
+    ],
+    "carol": {
+     "mood": "shock",
+     "look": [
+      0.6,
+      -0.6
+     ]
+    },
+    "extras": [
+     {
+      "id": "bub",
+      "type": "ds_bubble",
+      "pos": [
+       800,
+       470
+      ],
+      "s": 0.75,
+      "p": {
+       "on": 0.0,
+       "kind": "skull"
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "deadliest|35%",
+        "dur": 0.4,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "card_at": "rumor|15%",
+    "sfx": [
+     "boing@deadliest|35%"
+    ]
    }
   },
   {
@@ -2417,25 +4094,61 @@
    "id": "s2.l2",
    "seg": 2,
    "shot": {
-    "r": "corner",
-    "cam": "wide",
-    "to": [
-     720,
-     470,
-     1.08
+    "r": "scene",
+    "scene": "bedroom",
+    "cam": [
+     900,
+     1100,
+     1.0
     ],
-    "_todo": true,
+    "to": [
+     920,
+     1090,
+     1.06
+    ],
+    "actors": [
+     {
+      "id": "shoe2",
+      "type": "ds_prop",
+      "pos": [
+       1130,
+       900
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "shoe",
+       "on": 0.0,
+       "k": 0.55,
+       "rot": -0.2
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "shoe|55%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "time": "night"
+    },
     "mb": {
-     "pose": "point",
+     "pose": "present",
      "pos": [
-      1230,
-      900
+      900,
+      1500
      ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+     "size": 900,
+     "look": "viewer",
+     "prop": null
+    },
+    "sfx": [
+     "pop@shoe|55%"
+    ]
    }
   },
   {
@@ -2596,14 +4309,14 @@
      "color": "#20242e"
     },
     "cam": [
-     700,
+     260,
      760,
-     0.98
+     1.35
     ],
     "to": [
-     520,
-     780,
-     1.06
+     240,
+     760,
+     1.42
     ],
     "norecut": true,
     "actors": [
@@ -2767,14 +4480,14 @@
      "color": "#20242e"
     },
     "cam": [
-     560,
-     780,
-     1.04
+     700,
+     760,
+     1.35
     ],
     "to": [
+     720,
      760,
-     780,
-     1.06
+     1.42
     ],
     "norecut": true,
     "actors": [
@@ -2955,9 +4668,9 @@
      "color": "#20242e"
     },
     "cam": [
-     760,
-     780,
-     1.04
+     1180,
+     720,
+     1.3
     ],
     "to": [
      700,
@@ -3152,18 +4865,195 @@
    "id": "s2.l7",
    "seg": 2,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#20242e"
+    },
     "cam": [
+     700,
      760,
-     520,
-     1.15
+     0.98
     ],
     "to": [
-     740,
-     520,
-     1.242
+     700,
+     760,
+     1.03
     ],
-    "_todo": true
+    "norecut": true,
+    "actors": [
+     {
+      "id": "lineup",
+      "type": "ds_lineup",
+      "pos": [
+       700,
+       1250
+      ],
+      "s": 1.0,
+      "p": {
+       "lit": [
+        1,
+        1,
+        1
+       ]
+      },
+      "front": false
+     },
+     {
+      "id": "sus1",
+      "type": "harvestman",
+      "pos": [
+       140,
+       1170
+      ],
+      "s": 0.62,
+      "p": {
+       "mood": "worry"
+      },
+      "front": false
+     },
+     {
+      "id": "sus2",
+      "type": "crane_fly",
+      "pos": [
+       700,
+       1170
+      ],
+      "s": 0.62,
+      "p": {
+       "mood": "worry"
+      },
+      "front": false
+     },
+     {
+      "id": "hero",
+      "type": "carol",
+      "pos": [
+       1260,
+       760
+      ],
+      "s": 0.42,
+      "front": false,
+      "p": {
+       "mood": "smug",
+       "look": [
+        0,
+        0.2
+       ],
+       "work": 0.0,
+       "flick": 0.0,
+       "whirl": 0.0,
+       "eggs": 0.0,
+       "wave": 0.0,
+       "reach": 0.0,
+       "shrug": 0.0,
+       "eyes8": 0.0,
+       "still": false,
+       "hat": 0.0,
+       "shades": 0.0,
+       "thread": 600
+      }
+     },
+     {
+      "id": "mask",
+      "type": "ds_lineup_mask",
+      "pos": [
+       700,
+       1250
+      ],
+      "s": 1.0,
+      "p": {
+       "lit": [
+        1,
+        1,
+        1
+       ]
+      },
+      "front": true
+     },
+     {
+      "id": "ar1",
+      "type": "ds_arrow",
+      "pos": [
+       250,
+       900
+      ],
+      "s": 1.0,
+      "p": {
+       "to": [
+        330,
+        -40
+       ],
+       "grow": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "rumor|25%",
+        "dur": 0.4,
+        "p": {
+         "grow": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "ar2",
+      "type": "ds_arrow",
+      "pos": [
+       820,
+       870
+      ],
+      "s": 1.0,
+      "p": {
+       "to": [
+        330,
+        -120
+       ],
+       "grow": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "agree|50%",
+        "dur": 0.4,
+        "p": {
+         "grow": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "ar3",
+      "type": "ds_arrow",
+      "pos": [
+       1150,
+       980
+      ],
+      "s": 1.0,
+      "p": {
+       "to": [
+        -900,
+        20
+       ],
+       "grow": 0.0,
+       "color": "#ff9f1c"
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "animal|80%",
+        "dur": 0.4,
+        "p": {
+         "grow": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "boing@agree|45%"
+    ]
    }
   },
   {
@@ -3172,28 +5062,148 @@
    "id": "s2.l8",
    "seg": 2,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#20242e"
+    },
     "cam": [
-     680,
-     480,
-     1.1
+     880,
+     760,
+     0.9
     ],
     "to": [
-     700,
-     480,
-     1.188
+     900,
+     760,
+     0.94
     ],
-    "_todo": true,
+    "norecut": true,
+    "actors": [
+     {
+      "id": "lineup",
+      "type": "ds_lineup",
+      "pos": [
+       700,
+       1250
+      ],
+      "s": 1.0,
+      "p": {
+       "lit": [
+        1,
+        1,
+        1
+       ]
+      },
+      "front": false
+     },
+     {
+      "id": "sus1",
+      "type": "harvestman",
+      "pos": [
+       140,
+       1170
+      ],
+      "s": 0.62,
+      "p": {
+       "mood": "worry"
+      },
+      "front": false
+     },
+     {
+      "id": "sus2",
+      "type": "crane_fly",
+      "pos": [
+       700,
+       1170
+      ],
+      "s": 0.62,
+      "p": {
+       "mood": "worry"
+      },
+      "front": false
+     },
+     {
+      "id": "hero",
+      "type": "carol",
+      "pos": [
+       1260,
+       760
+      ],
+      "s": 0.42,
+      "front": false,
+      "p": {
+       "mood": "smug",
+       "look": [
+        0,
+        0.2
+       ],
+       "work": 0.0,
+       "flick": 0.0,
+       "whirl": 0.0,
+       "eggs": 0.0,
+       "wave": 0.0,
+       "reach": 0.0,
+       "shrug": 0.0,
+       "eyes8": 0.0,
+       "still": false,
+       "hat": 0.0,
+       "shades": 0.0,
+       "thread": 600
+      }
+     },
+     {
+      "id": "mask",
+      "type": "ds_lineup_mask",
+      "pos": [
+       700,
+       1250
+      ],
+      "s": 1.0,
+      "p": {
+       "lit": [
+        1,
+        1,
+        1
+       ]
+      },
+      "front": true
+     },
+     {
+      "id": "cm",
+      "type": "ds_prop",
+      "pos": [
+       1620,
+       360
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "comment",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "comments|30%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "pop@comments|30%"
+    ],
     "mb": {
-     "pose": "deadpan",
+     "pose": "subpoint",
      "pos": [
-      1230,
-      900
+      1730,
+      1330
      ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
+     "size": 640,
+     "look": "viewer",
+     "prop": null
     }
    }
   },
@@ -3206,14 +5216,48 @@
    "id": "s2.l9",
    "seg": 2,
    "shot": {
-    "r": "corner",
-    "cam": "mid",
-    "to": [
-     700,
-     500,
-     1.404
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     60,
+     1.0
     ],
-    "_todo": true
+    "to": [
+     0,
+     60,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "rumor",
+      "type": "ds_rumor",
+      "pos": [
+       0,
+       120
+      ],
+      "s": 1.0,
+      "p": {
+       "crack": 0.0
+      },
+      "front": false
+     }
+    ],
+    "scene_p": {
+     "color": "#1b1724"
+    },
+    "norecut": true,
+    "no_card": true,
+    "stamp": {
+     "text": "URBAN LEGEND",
+     "color": "#e5383b",
+     "at": "legend|75%",
+     "y": 560,
+     "px": 150
+    },
+    "sfx": [
+     "stamp@legend|75%"
+    ]
    }
   },
   {
@@ -3224,13 +5268,53 @@
    "seg": 2,
    "shot": {
     "r": "corner",
-    "cam": "mid",
-    "to": [
-     700,
-     500,
-     1.404
+    "cam": [
+     800,
+     620,
+     1.5
     ],
-    "_todo": true
+    "to": [
+     800,
+     620,
+     1.58
+    ],
+    "carol": {
+     "mood": "smug",
+     "look": [
+      1,
+      0.4
+     ]
+    },
+    "shoe": false,
+    "extras": [
+     {
+      "id": "bottle",
+      "type": "ds_prop",
+      "pos": [
+       990,
+       860
+      ],
+      "s": 0.9,
+      "p": {
+       "kind": "bottle",
+       "on": 0.0,
+       "label": "REGULAR"
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "venom|20%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "pop@venom|20%"
+    ]
    }
   },
   {
@@ -3240,25 +5324,59 @@
    "id": "s2.l11",
    "seg": 2,
    "shot": {
-    "r": "corner",
-    "cam": "wide",
-    "to": [
-     720,
-     470,
-     1.08
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     60,
+     1.0
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "point",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "to": [
+     0,
+     60,
+     1.05
+    ],
+    "actors": [
+     {
+      "id": "globe",
+      "type": "ds_globe",
+      "pos": [
+       0,
+       100
+      ],
+      "s": 1.15,
+      "p": {
+       "rot": 0.0,
+       "hi": "AUSTRALIA",
+       "pin": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": 0.1,
+        "dur": 2.0,
+        "p": {
+         "rot": 135.0
+        }
+       },
+       {
+        "at": "Australian|55%",
+        "dur": 0.5,
+        "p": {
+         "pin": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "color": "#1b1724"
+    },
+    "norecut": true,
+    "sfx": [
+     "whoosh@0.1",
+     "pop@Australian|60%"
+    ]
    }
   },
   {
@@ -3268,18 +5386,125 @@
    "id": "s2.l12",
    "seg": 2,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "ds_wall",
     "cam": [
-     760,
-     520,
-     1.15
+     950,
+     640,
+     0.95
     ],
     "to": [
-     740,
-     520,
-     1.242
+     960,
+     640,
+     1.0
     ],
-    "_todo": true
+    "actors": [
+     {
+      "id": "rb",
+      "type": "redback",
+      "pos": [
+       900,
+       950
+      ],
+      "s": 0.45,
+      "p": {
+       "wrapped": 0.6,
+       "mood": "shock"
+      },
+      "front": false
+     },
+     {
+      "id": "rbl",
+      "type": "ds_label",
+      "pos": [
+       1180,
+       860
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "REDBACK",
+       "px": 54,
+       "color": "#ffffff",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "redbacks|20%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "hero",
+      "type": "carol",
+      "pos": [
+       760,
+       520
+      ],
+      "s": 0.45,
+      "front": false,
+      "p": {
+       "mood": "smug",
+       "look": [
+        0.4,
+        0.8
+       ],
+       "work": 0.0,
+       "flick": 0.0,
+       "whirl": 0.0,
+       "eggs": 0.0,
+       "wave": 0.0,
+       "reach": 0.0,
+       "shrug": 0.0,
+       "eyes8": 0.0,
+       "still": false,
+       "hat": 0.0,
+       "shades": 0.0
+      }
+     },
+     {
+      "id": "bub",
+      "type": "ds_bubble",
+      "pos": [
+       1400,
+       680
+      ],
+      "s": 0.85,
+      "p": {
+       "on": 0.0,
+       "text": "SUPER VENOM?",
+       "px": 60
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "worse|65%",
+        "dur": 0.4,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "pose": "shock",
+     "pos": [
+      1450,
+      1250
+     ],
+     "size": 520,
+     "look": "hero",
+     "prop": null,
+     "float": true
+    },
+    "sfx": [
+     "boing@worse|65%"
+    ]
    }
   },
   {
@@ -3291,27 +5516,69 @@
    "shot": {
     "r": "corner",
     "cam": [
-     680,
-     480,
-     1.1
+     860,
+     760,
+     1.45
     ],
     "to": [
-     700,
-     480,
-     1.188
+     880,
+     770,
+     1.55
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "deadpan",
-     "pos": [
-      1230,
-      900
+    "carol_pos": [
+     560,
+     600
+    ],
+    "norecut": true,
+    "carol": {
+     "flick": 0.0,
+     "flick_to": [
+      700.0,
+      266.6666666666667
      ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+     "mood": "smug",
+     "look": [
+      1,
+      0.4
+     ]
+    },
+    "carol_sets": [
+     {
+      "at": "wraps|50%",
+      "dur": 0.2,
+      "p": {
+       "flick": 1.0
+      }
+     }
+    ],
+    "extras": [
+     {
+      "id": "rb",
+      "type": "redback",
+      "pos": [
+       990,
+       900
+      ],
+      "s": 0.4,
+      "p": {
+       "wrapped": 0.5,
+       "mood": "shock"
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "wraps|50%",
+        "dur": 1.0,
+        "p": {
+         "wrapped": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "whoosh@wraps|50%"
+    ]
    }
   },
   {
@@ -3322,14 +5589,88 @@
    "id": "s2.l14",
    "seg": 2,
    "shot": {
-    "r": "corner",
-    "cam": "mid",
-    "to": [
+    "r": "scene",
+    "scene": "ds_lab",
+    "cam": [
+     800,
      700,
-     500,
-     1.404
+     0.95
     ],
-    "_todo": true
+    "to": [
+     820,
+     700,
+     1.02
+    ],
+    "actors": [
+     {
+      "id": "bottle",
+      "type": "ds_prop",
+      "pos": [
+       560,
+       900
+      ],
+      "s": 1.4,
+      "p": {
+       "kind": "bottle",
+       "on": 1.0,
+       "label": "VENOM"
+      },
+      "front": false
+     },
+     {
+      "id": "arena",
+      "type": "ds_arena",
+      "pos": [
+       140,
+       900
+      ],
+      "s": 0.9,
+      "p": {},
+      "front": false
+     },
+     {
+      "id": "hero",
+      "type": "carol",
+      "pos": [
+       140,
+       800
+      ],
+      "s": 0.18,
+      "front": false,
+      "p": {
+       "mood": "worry",
+       "look": [
+        0,
+        0.2
+       ],
+       "work": 0.0,
+       "flick": 0.0,
+       "whirl": 0.0,
+       "eggs": 0.0,
+       "wave": 0.0,
+       "reach": 0.0,
+       "shrug": 0.0,
+       "eyes8": 0.0,
+       "still": false,
+       "hat": 0.0,
+       "shades": 0.0
+      }
+     }
+    ],
+    "mb": {
+     "pose": "think",
+     "pos": [
+      1150,
+      900
+     ],
+     "size": 600,
+     "look": "viewer",
+     "prop": "magnifier"
+    },
+    "card_at": "2019|25%",
+    "sfx": [
+     "tink@2019|25%"
+    ]
    }
   },
   {
@@ -3339,25 +5680,74 @@
    "id": "s2.l15",
    "seg": 2,
    "shot": {
-    "r": "corner",
-    "cam": "wide",
+    "r": "scene",
+    "scene": "ds_lab",
+    "cam": [
+     700,
+     760,
+     1.25
+    ],
     "to": [
      720,
-     470,
-     1.08
+     760,
+     1.3
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "point",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "actors": [
+     {
+      "id": "cricket",
+      "type": "ds_prop",
+      "pos": [
+       560,
+       900
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "cricket",
+       "on": 1.0
+      },
+      "front": false,
+      "moves": [
+       {
+        "at": "crickets|20%",
+        "dur": 0.5,
+        "pos": [
+         760,
+         900
+        ],
+        "hop": 260
+       }
+      ]
+     },
+     {
+      "id": "par",
+      "type": "ds_label",
+      "pos": [
+       760,
+       560
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "PARALYSIS",
+       "px": 70,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "Paralysis|70%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "boing@crickets|20%",
+     "zap@Paralysis|70%"
+    ]
    }
   },
   {
@@ -3369,18 +5759,59 @@
    "id": "s2.l16",
    "seg": 2,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "study",
     "cam": [
-     760,
-     520,
-     1.15
+     700,
+     1050,
+     0.9
     ],
     "to": [
-     740,
-     520,
-     1.242
+     720,
+     1040,
+     0.95
     ],
-    "_todo": true
+    "actors": [
+     {
+      "id": "bottle",
+      "type": "ds_prop",
+      "pos": [
+       1060,
+       1500
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "bottle",
+       "on": 1.0,
+       "label": "VENOM"
+      },
+      "front": false
+     }
+    ],
+    "scene_p": {
+     "time": "night"
+    },
+    "mb": {
+     "pose": "think",
+     "pos": [
+      700,
+      1500
+     ],
+     "size": 900,
+     "look": "viewer",
+     "prop": null,
+     "gest": [
+      [
+       "deadly|60%",
+       "laugh",
+       1.5
+      ]
+     ]
+    },
+    "card_at": "deadly|55%",
+    "sfx": [
+     "pop@deadly|60%"
+    ]
    }
   },
   {
@@ -3392,27 +5823,47 @@
    "shot": {
     "r": "corner",
     "cam": [
-     680,
-     480,
-     1.1
+     720,
+     540,
+     1.45
     ],
     "to": [
-     700,
-     480,
-     1.188
+     720,
+     540,
+     1.5
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "deadpan",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "carol": {
+     "mood": "happy"
+    },
+    "extras": [
+     {
+      "id": "bub",
+      "type": "ds_bubble",
+      "pos": [
+       800,
+       470
+      ],
+      "s": 0.75,
+      "p": {
+       "on": 1.0,
+       "kind": "skull",
+       "pop": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "rumor|60%",
+        "dur": 0.35,
+        "p": {
+         "pop": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "pop@rumor|60%"
+    ]
    }
   },
   {
@@ -3423,14 +5874,75 @@
    "id": "s2.l18",
    "seg": 2,
    "shot": {
-    "r": "corner",
-    "cam": "mid",
-    "to": [
-     700,
-     500,
-     1.404
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     100,
+     1.0
     ],
-    "_todo": true
+    "to": [
+     0,
+     100,
+     1.05
+    ],
+    "actors": [
+     {
+      "id": "fangs",
+      "type": "ds_fangs",
+      "pos": [
+       0,
+       300
+      ],
+      "s": 1.0,
+      "p": {
+       "dip": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "skin|55%",
+        "dur": 0.6,
+        "p": {
+         "dip": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "fl",
+      "type": "ds_label",
+      "pos": [
+       -420,
+       -150
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "FANGS",
+       "px": 64,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "fangs|15%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "color": "#1b1724"
+    },
+    "norecut": true,
+    "sfx": [
+     "tink@fangs|15%",
+     "thud@skin|60%"
+    ]
    }
   },
   {
@@ -3440,25 +5952,128 @@
    "id": "s2.l19",
    "seg": 2,
    "shot": {
-    "r": "corner",
-    "cam": "wide",
-    "to": [
-     720,
-     470,
-     1.08
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     300,
+     100,
+     1.0
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "point",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "to": [
+     320,
+     100,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "box",
+      "type": "ds_arena",
+      "pos": [
+       300,
+       330
+      ],
+      "s": 2.0,
+      "p": {},
+      "front": false
+     },
+     {
+      "id": "arm",
+      "type": "arm",
+      "pos": [
+       380,
+       160
+      ],
+      "s": 0.75,
+      "p": {
+       "burn": 0.0
+      },
+      "front": false
+     },
+     {
+      "id": "hero",
+      "type": "carol",
+      "pos": [
+       430,
+       -60
+      ],
+      "s": 0.17,
+      "front": false,
+      "p": {
+       "mood": "angry",
+       "look": [
+        0,
+        0.2
+       ],
+       "work": 0.0,
+       "flick": 0.0,
+       "whirl": 0.0,
+       "eggs": 0.0,
+       "wave": 0.0,
+       "reach": 0.0,
+       "shrug": 0.0,
+       "eyes8": 0.0,
+       "still": true,
+       "hat": 0.0,
+       "shades": 0.0
+      }
+     },
+     {
+      "id": "tv",
+      "type": "ds_prop",
+      "pos": [
+       1250,
+       160
+      ],
+      "s": 2.2,
+      "p": {
+       "kind": "tv",
+       "on": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "TV|15%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "tvl",
+      "type": "ds_label",
+      "pos": [
+       1250,
+       -230
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "ON CAMERA",
+       "px": 54,
+       "color": "#ffffff",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "camera|80%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "color": "#1b1724"
+    },
+    "norecut": true,
+    "sfx": [
+     "pop@TV|15%",
+     "click@camera|80%"
+    ]
    }
   },
   {
@@ -3469,25 +6084,68 @@
    "id": "s2.l20",
    "seg": 2,
    "shot": {
-    "r": "corner",
-    "cam": "wide",
+    "r": "scene",
+    "scene": "bedroom",
+    "cam": [
+     900,
+     1100,
+     1.0
+    ],
     "to": [
-     720,
-     470,
+     900,
+     1080,
      1.08
     ],
-    "_todo": true,
+    "actors": [
+     {
+      "id": "ow",
+      "type": "ds_label",
+      "pos": [
+       1060,
+       760
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "ow",
+       "px": 70,
+       "color": "#ffffff",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "sting|40%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "time": "night"
+    },
     "mb": {
-     "pose": "point",
+     "pose": "shock",
      "pos": [
-      1230,
-      900
+      900,
+      1500
      ],
-     "size": 460,
-     "look": "hero",
+     "size": 900,
+     "look": "viewer",
      "prop": null,
-     "float": true
-    }
+     "gest": [
+      [
+       "faded|70%",
+       "shrug",
+       1.4
+      ]
+     ]
+    },
+    "sfx": [
+     "pop@sting|40%"
+    ]
    }
   },
   {
@@ -3499,18 +6157,89 @@
    "id": "s2.l21",
    "seg": 2,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "ds_board_bg",
     "cam": [
-     760,
-     520,
-     1.15
+     0,
+     120,
+     1.0
     ],
     "to": [
-     740,
-     520,
-     1.242
+     -60,
+     60,
+     1.35
     ],
-    "_todo": true
+    "actors": [
+     {
+      "id": "fist",
+      "type": "ds_prop",
+      "pos": [
+       0,
+       380
+      ],
+      "s": 1.6,
+      "p": {
+       "kind": "fist",
+       "on": 1.0,
+       "dot": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "sore|45%",
+        "dur": 0.3,
+        "p": {
+         "dot": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "ruler",
+      "type": "ds_prop",
+      "pos": [
+       -40,
+       40
+      ],
+      "s": 0.9,
+      "p": {
+       "kind": "ruler",
+       "on": 1.0
+      },
+      "front": false
+     },
+     {
+      "id": "ring",
+      "type": "ds_ring",
+      "pos": [
+       -104,
+       108
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 0.0,
+       "r": 40
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "sore|50%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "color": "#1b1724"
+    },
+    "norecut": true,
+    "card_at": "millimeter|65%",
+    "sfx": [
+     "tink@sore|50%"
+    ]
    }
   },
   {
@@ -3520,29 +6249,50 @@
    "id": "s2.l22",
    "seg": 2,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "ds_board_bg",
     "cam": [
-     680,
-     480,
-     1.1
+     0,
+     60,
+     1.0
     ],
     "to": [
-     700,
-     480,
-     1.188
+     0,
+     100,
+     0.95
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "deadpan",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "actors": [
+     {
+      "id": "rumor",
+      "type": "ds_rumor",
+      "pos": [
+       0,
+       120
+      ],
+      "s": 1.0,
+      "p": {
+       "crack": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "fails|20%",
+        "dur": 2.4,
+        "p": {
+         "crack": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "color": "#1b1724"
+    },
+    "norecut": true,
+    "sfx": [
+     "crunch@fails|20%",
+     "thud@bite|85%"
+    ]
    }
   },
   {
@@ -3553,13 +6303,47 @@
    "seg": 2,
    "shot": {
     "r": "corner",
-    "cam": "mid",
+    "cam": [
+     700,
+     470,
+     1.0
+    ],
     "to": [
      700,
-     500,
-     1.404
+     480,
+     1.05
     ],
-    "_todo": true
+    "carol": {
+     "mood": "happy"
+    },
+    "extras": [
+     {
+      "id": "ps",
+      "type": "ds_chip_src",
+      "pos": [
+       340,
+       470
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "PENN STATE EXTENSION",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "Penn|10%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "pop@Penn|10%"
+    ]
    }
   },
   {
@@ -3570,25 +6354,59 @@
    "id": "s2.l24",
    "seg": 2,
    "shot": {
-    "r": "corner",
-    "cam": "wide",
+    "r": "scene",
+    "scene": "study",
+    "cam": [
+     700,
+     1050,
+     0.85
+    ],
     "to": [
      720,
-     470,
-     1.08
+     1040,
+     0.9
     ],
-    "_todo": true,
+    "actors": [
+     {
+      "id": "ucr",
+      "type": "ds_chip_src",
+      "pos": [
+       700,
+       560
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "UC RIVERSIDE",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "Riverside|35%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "time": "night"
+    },
     "mb": {
-     "pose": "point",
+     "pose": "think",
      "pos": [
-      1230,
-      900
+      700,
+      1500
      ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+     "size": 900,
+     "look": "viewer",
+     "prop": "paper"
+    },
+    "sfx": [
+     "pop@Riverside|35%"
+    ]
    }
   },
   {
@@ -3599,16 +6417,45 @@
    "shot": {
     "r": "corner",
     "cam": [
-     760,
-     520,
-     1.15
+     780,
+     500,
+     1.1
     ],
     "to": [
-     740,
-     520,
-     1.242
+     780,
+     500,
+     1.16
     ],
-    "_todo": true
+    "carol": {
+     "mood": "happy",
+     "look": [
+      0.6,
+      0.2
+     ]
+    },
+    "carol_sets": [
+     {
+      "at": "mild|70%",
+      "dur": 0.3,
+      "p": {
+       "wave": 1.0
+      }
+     }
+    ],
+    "mb": {
+     "pose": "point",
+     "pos": [
+      1230,
+      900
+     ],
+     "size": 470,
+     "look": "hero",
+     "prop": null,
+     "float": true
+    },
+    "sfx": [
+     "tink@Barely|40%"
+    ]
    }
   },
   {
@@ -3617,29 +6464,77 @@
    "id": "s2.l26",
    "seg": 2,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "bedroom",
     "cam": [
-     680,
-     480,
-     1.1
+     700,
+     1050,
+     0.85
     ],
     "to": [
-     700,
-     480,
-     1.188
+     720,
+     1040,
+     0.9
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "deadpan",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "actors": [
+     {
+      "id": "lump",
+      "type": "ds_prop",
+      "pos": [
+       1050,
+       1200
+      ],
+      "s": 1.1,
+      "p": {
+       "kind": "lump",
+       "on": 1.0
+      },
+      "front": false
+     },
+     {
+      "id": "lamp",
+      "type": "ds_prop",
+      "pos": [
+       -20,
+       1150
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "lamp_blaze",
+       "on": 1.0
+      },
+      "front": false
+     },
+     {
+      "id": "bill",
+      "type": "ds_prop",
+      "pos": [
+       700,
+       560
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "bill",
+       "on": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "electric|60%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "time": "night"
+    },
+    "sfx": [
+     "pop@electric|60%"
+    ]
    }
   },
   {
@@ -3649,14 +6544,70 @@
    "id": "s3.l0",
    "seg": 3,
    "shot": {
-    "r": "corner",
-    "cam": "mid",
-    "to": [
-     700,
-     500,
-     1.404
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     120,
+     1.0
     ],
-    "_todo": true
+    "to": [
+     0,
+     120,
+     1.03
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "carol",
+      "pos": [
+       -520,
+       120
+      ],
+      "s": 0.45,
+      "front": false,
+      "p": {
+       "mood": "happy",
+       "look": [
+        0,
+        0.2
+       ],
+       "work": 0.0,
+       "flick": 0.0,
+       "whirl": 0.0,
+       "eggs": 0.0,
+       "wave": 0.0,
+       "reach": 0.0,
+       "shrug": 0.0,
+       "eyes8": 0.0,
+       "still": false,
+       "hat": 0.0,
+       "shades": 0.0,
+       "thread": 600
+      }
+     }
+    ],
+    "scene_p": {
+     "color": "#1b1724"
+    },
+    "norecut": true,
+    "mb": {
+     "pose": "point",
+     "pos": [
+      420,
+      760
+     ],
+     "size": 600,
+     "look": "viewer",
+     "prop": null,
+     "float": true
+    },
+    "meter_big_to": 1.0,
+    "meter_big_at": "Meter|5%",
+    "meter_big_back": "winning|85%",
+    "sfx": [
+     "tink@Meter|5%"
+    ]
    }
   },
   {
@@ -3666,24 +6617,43 @@
    "seg": 3,
    "shot": {
     "r": "corner",
-    "cam": "wide",
+    "cam": [
+     720,
+     380,
+     1.3
+    ],
     "to": [
      720,
-     470,
-     1.08
+     360,
+     1.38
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "point",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "carol": {
+     "mood": "worry",
+     "look": [
+      0.2,
+      -1
+     ]
+    },
+    "shoe_sets": [
+     {
+      "at": "shoe|50%",
+      "dur": 0.4,
+      "p": {
+       "spot": 1.0
+      }
+     },
+     {
+      "at": "good|80%",
+      "dur": 0.3,
+      "p": {
+       "tie": 1.0
+      }
+     }
+    ],
+    "sfx": [
+     "zap@shoe|50%",
+     "pop@good|80%"
+    ]
    }
   },
   {
@@ -3692,18 +6662,50 @@
    "id": "s3.l2",
    "seg": 3,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "ds_wall",
     "cam": [
      760,
-     520,
-     1.15
+     560,
+     1.1
     ],
     "to": [
-     740,
-     520,
-     1.242
+     760,
+     560,
+     1.15
     ],
-    "_todo": true
+    "actors": [
+     {
+      "id": "hero",
+      "type": "carol",
+      "pos": [
+       760,
+       520
+      ],
+      "s": 0.55,
+      "front": false,
+      "p": {
+       "mood": "calm",
+       "look": [
+        0,
+        0.2
+       ],
+       "work": 0.0,
+       "flick": 0.0,
+       "whirl": 0.0,
+       "eggs": 1.0,
+       "wave": 0.0,
+       "reach": 0.0,
+       "shrug": 0.0,
+       "eyes8": 0.0,
+       "still": false,
+       "hat": 0.0,
+       "shades": 0.0,
+       "thread": 600
+      }
+     }
+    ],
+    "chapter": true
    }
   },
   {
@@ -3714,27 +6716,116 @@
    "shot": {
     "r": "corner",
     "cam": [
-     680,
-     480,
-     1.1
+     700,
+     470,
+     1.0
     ],
     "to": [
      700,
-     480,
-     1.188
+     470,
+     1.06
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "deadpan",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "carol": {
+     "mood": "smug"
+    },
+    "extras": [
+     {
+      "id": "t1",
+      "type": "ds_tag",
+      "pos": [
+       480,
+       650
+      ],
+      "s": 0.8,
+      "p": {
+       "on": 0.0,
+       "text": "CAROL"
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "More|10%",
+        "dur": 0.35,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "type": "ds_tag",
+      "pos": [
+       960,
+       560
+      ],
+      "s": 0.8,
+      "p": {
+       "on": 0.0,
+       "text": "CAROL"
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "Carols|40%",
+        "dur": 0.35,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "t3",
+      "type": "ds_tag",
+      "pos": [
+       300,
+       420
+      ],
+      "s": 0.8,
+      "p": {
+       "on": 0.0,
+       "text": "CAROL"
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "Carols|65%",
+        "dur": 0.35,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "t4",
+      "type": "ds_tag",
+      "pos": [
+       1150,
+       380
+      ],
+      "s": 0.8,
+      "p": {
+       "on": 0.0,
+       "text": "CAROL"
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "Carols|85%",
+        "dur": 0.35,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "pop@More|10%",
+     "pop@Carols|65%"
+    ]
    }
   },
   {
@@ -3777,25 +6868,65 @@
    "id": "s3.l5",
    "seg": 3,
    "shot": {
-    "r": "corner",
-    "cam": "wide",
-    "to": [
-     720,
-     470,
-     1.08
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     60,
+     1.0
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "point",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "to": [
+     0,
+     60,
+     1.06
+    ],
+    "actors": [
+     {
+      "id": "eggs",
+      "type": "ds_bundle",
+      "pos": [
+       0,
+       -400
+      ],
+      "s": 3.2,
+      "p": {
+       "len": 160
+      },
+      "front": false
+     },
+     {
+      "id": "ring",
+      "type": "ds_ring",
+      "pos": [
+       0,
+       130
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 0.0,
+       "r": 210
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "dozen|30%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "color": "#1b1724"
+    },
+    "norecut": true,
+    "card_y": 150,
+    "card_at": "dozen|30%",
+    "sfx": [
+     "tink@dozen|30%"
+    ]
    }
   },
   {
@@ -3807,16 +6938,107 @@
    "shot": {
     "r": "corner",
     "cam": [
-     760,
-     520,
+     800,
+     560,
      1.15
     ],
     "to": [
-     740,
-     520,
-     1.242
+     800,
+     560,
+     1.2
     ],
-    "_todo": true
+    "carol": {
+     "eggs": 1.0,
+     "mood": "calm",
+     "look": [
+      1,
+      0
+     ]
+    },
+    "carol_sets": [
+     {
+      "at": "parks|25%",
+      "dur": 0.3,
+      "p": {
+       "eggs": 0.0
+      }
+     },
+     {
+      "at": "picks|75%",
+      "dur": 0.3,
+      "p": {
+       "eggs": 1.0
+      }
+     }
+    ],
+    "extras": [
+     {
+      "id": "bund",
+      "type": "ds_bundle",
+      "pos": [
+       930,
+       470
+      ],
+      "s": 0.7,
+      "p": {
+       "on": 0.0,
+       "len": 110
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "parks|25%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       },
+       {
+        "at": "picks|75%",
+        "dur": 0.3,
+        "p": {
+         "on": 0.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "fly",
+      "type": "fly",
+      "pos": [
+       1500,
+       300
+      ],
+      "s": 0.28,
+      "p": {
+       "wrapped": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "eats|55%",
+        "dur": 0.4,
+        "p": {
+         "wrapped": 1.0
+        }
+       }
+      ],
+      "moves": [
+       {
+        "at": "eats|45%",
+        "dur": 0.4,
+        "pos": [
+         1050,
+         620
+        ]
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "pop@parks|25%",
+     "crunch@eats|55%"
+    ]
    }
   },
   {
@@ -3827,29 +7049,73 @@
    "id": "s3.l7",
    "seg": 3,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "ds_lab",
     "cam": [
-     680,
-     480,
-     1.1
+     700,
+     640,
+     1.0
     ],
     "to": [
      700,
-     480,
-     1.188
+     640,
+     1.05
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "deadpan",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "actors": [
+     {
+      "id": "shelf",
+      "type": "ds_prop",
+      "pos": [
+       700,
+       640
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "bundles",
+       "on": 1.0,
+       "n": 2.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "two|45%",
+        "dur": 1.6,
+        "p": {
+         "n": 8.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "tok",
+      "type": "ds_label",
+      "pos": [
+       700,
+       300
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TOKYO",
+       "px": 64,
+       "color": "#ffffff",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "Tokyo|15%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "tink@two|45%",
+     "tink@eight|85%"
+    ]
    }
   },
   {
@@ -3859,14 +7125,76 @@
    "id": "s3.l8",
    "seg": 3,
    "shot": {
-    "r": "corner",
-    "cam": "mid",
-    "to": [
-     700,
-     500,
-     1.404
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     60,
+     1.0
     ],
-    "_todo": true
+    "to": [
+     0,
+     60,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "cal",
+      "type": "ds_prop",
+      "pos": [
+       -450,
+       120
+      ],
+      "s": 1.2,
+      "p": {
+       "kind": "calendar",
+       "on": 1.0,
+       "day": 1.0,
+       "unit": "WEEK"
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "Two|10%",
+        "dur": 1.4,
+        "p": {
+         "day": 3.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "eggs",
+      "type": "ds_bundle",
+      "pos": [
+       350,
+       -330
+      ],
+      "s": 2.0,
+      "p": {
+       "len": 150,
+       "burst": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "hatch|70%",
+        "dur": 0.8,
+        "p": {
+         "burst": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "color": "#1b1724"
+    },
+    "norecut": true,
+    "sfx": [
+     "tink@weeks|40%",
+     "pop@hatch|70%"
+    ]
    }
   },
   {
@@ -3877,24 +7205,51 @@
    "seg": 3,
    "shot": {
     "r": "corner",
-    "cam": "wide",
-    "to": [
-     720,
-     470,
-     1.08
+    "cam": [
+     700,
+     380,
+     0.95
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "point",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "to": [
+     700,
+     360,
+     1.0
+    ],
+    "carol": {
+     "mood": "happy",
+     "look": [
+      0,
+      -0.5
+     ]
+    },
+    "extras": [
+     {
+      "id": "babies",
+      "type": "ds_babies",
+      "pos": [
+       700,
+       230
+      ],
+      "s": 1.0,
+      "p": {
+       "u": 0.0,
+       "n": 16
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "go|50%",
+        "dur": 1.8,
+        "p": {
+         "u": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "whoosh@go|50%"
+    ]
    }
   },
   {
@@ -3904,25 +7259,127 @@
    "id": "s3.l10",
    "seg": 3,
    "shot": {
-    "r": "corner",
-    "cam": "wide",
-    "to": [
-     720,
-     470,
-     1.08
+    "r": "scene",
+    "scene": "bedroom",
+    "cam": [
+     800,
+     900,
+     0.62
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "point",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "to": [
+     800,
+     880,
+     0.66
+    ],
+    "actors": [
+     {
+      "id": "w0",
+      "type": "ds_web",
+      "pos": [
+       -480,
+       60
+      ],
+      "s": 0.32,
+      "p": {
+       "w": 600,
+       "h": 700,
+       "seed": 3,
+       "spread": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "20%",
+        "dur": 0.5,
+        "p": {
+         "spread": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "w1",
+      "type": "ds_web",
+      "pos": [
+       300,
+       60
+      ],
+      "s": 0.32,
+      "p": {
+       "w": 600,
+       "h": 700,
+       "seed": 4,
+       "spread": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "38%",
+        "dur": 0.5,
+        "p": {
+         "spread": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "w2",
+      "type": "ds_web",
+      "pos": [
+       1300,
+       60
+      ],
+      "s": 0.32,
+      "p": {
+       "w": 600,
+       "h": 700,
+       "seed": 5,
+       "spread": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "56%",
+        "dur": 0.5,
+        "p": {
+         "spread": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "w3",
+      "type": "ds_web",
+      "pos": [
+       2080,
+       60
+      ],
+      "s": 0.32,
+      "p": {
+       "w": 600,
+       "h": 700,
+       "seed": 6,
+       "spread": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "74%",
+        "dur": 0.5,
+        "p": {
+         "spread": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "time": "night"
+    },
+    "sfx": [
+     "pop@20%",
+     "pop@56%"
+    ]
    }
   },
   {
@@ -3932,18 +7389,86 @@
    "id": "s3.l11",
    "seg": 3,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "ds_wall",
     "cam": [
-     760,
-     520,
-     1.15
+     900,
+     650,
+     1.0
     ],
     "to": [
-     740,
-     520,
-     1.242
+     900,
+     660,
+     1.06
     ],
-    "_todo": true
+    "actors": [
+     {
+      "id": "chart",
+      "type": "ds_prop",
+      "pos": [
+       1150,
+       1100
+      ],
+      "s": 1.1,
+      "p": {
+       "kind": "growth",
+       "on": 1.0,
+       "g": 0.15
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "months|35%",
+        "dur": 1.6,
+        "p": {
+         "g": 0.95
+        }
+       }
+      ]
+     },
+     {
+      "id": "hero",
+      "type": "carol",
+      "pos": [
+       820,
+       800
+      ],
+      "s": 0.12,
+      "front": false,
+      "p": {
+       "mood": "happy",
+       "look": [
+        0,
+        0.2
+       ],
+       "work": 0.0,
+       "flick": 0.0,
+       "whirl": 0.0,
+       "eggs": 0.0,
+       "wave": 0.0,
+       "reach": 0.0,
+       "shrug": 0.0,
+       "eyes8": 0.0,
+       "still": true,
+       "hat": 0.0,
+       "shades": 0.0
+      },
+      "moves": [
+       {
+        "at": "months|35%",
+        "dur": 1.6,
+        "s": 0.4,
+        "pos": [
+         820,
+         560
+        ]
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "boing@year|80%"
+    ]
    }
   },
   {
@@ -3956,27 +7481,42 @@
    "shot": {
     "r": "corner",
     "cam": [
-     680,
-     480,
-     1.1
+     720,
+     560,
+     1.55
     ],
     "to": [
-     700,
-     480,
-     1.188
+     720,
+     560,
+     1.65
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "deadpan",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "carol": {
+     "mood": "happy",
+     "look": [
+      0,
+      0.2
+     ]
+    },
+    "carol_sets": [
+     {
+      "at": "year|30%",
+      "dur": 0.3,
+      "p": {
+       "hat": 1.0
+      }
+     },
+     {
+      "at": "two|85%",
+      "dur": 0.3,
+      "p": {
+       "hat2": 1.0
+      }
+     }
+    ],
+    "sfx": [
+     "pop@year|30%",
+     "pop@two|85%"
+    ]
    }
   },
   {
@@ -3986,13 +7526,69 @@
    "seg": 3,
    "shot": {
     "r": "corner",
-    "cam": "mid",
+    "cam": [
+     700,
+     500,
+     0.62
+    ],
     "to": [
      700,
      500,
-     1.404
+     0.58
     ],
-    "_todo": true
+    "carol": {
+     "mood": "worry"
+    },
+    "web": {
+     "dust": 0.6
+    },
+    "extras": [
+     {
+      "id": "dw0",
+      "type": "ds_web",
+      "pos": [
+       -600,
+       -90
+      ],
+      "s": 0.6,
+      "p": {
+       "dust": 0.8,
+       "seed": 10
+      },
+      "front": false
+     },
+     {
+      "id": "dw1",
+      "type": "ds_web",
+      "pos": [
+       1900,
+       -40
+      ],
+      "s": 0.6,
+      "p": {
+       "dust": 0.8,
+       "seed": 11
+      },
+      "front": false
+     },
+     {
+      "id": "dw2",
+      "type": "ds_web",
+      "pos": [
+       100,
+       900
+      ],
+      "s": 0.6,
+      "p": {
+       "dust": 0.8,
+       "seed": 12
+      },
+      "front": false
+     }
+    ],
+    "sfx": [
+     "whoosh@0.05"
+    ]
    }
   },
   {
@@ -4002,25 +7598,129 @@
    "id": "s3.l14",
    "seg": 3,
    "shot": {
-    "r": "corner",
-    "cam": "wide",
-    "to": [
-     720,
-     470,
-     1.08
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     60,
+     1.0
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "point",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "to": [
+     0,
+     60,
+     1.03
+    ],
+    "actors": [
+     {
+      "id": "orb",
+      "type": "ds_orb",
+      "pos": [
+       -470,
+       120
+      ],
+      "s": 0.85,
+      "p": {
+       "r": 380
+      },
+      "front": false
+     },
+     {
+      "id": "tangle",
+      "type": "ds_web",
+      "pos": [
+       470,
+       -230
+      ],
+      "s": 0.62,
+      "p": {
+       "w": 720,
+       "h": 820,
+       "a": 1.0
+      },
+      "front": false
+     },
+     {
+      "id": "l1",
+      "type": "ds_label",
+      "pos": [
+       -470,
+       -330
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "NEAT WHEEL",
+       "px": 60,
+       "color": "#ffffff",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "neat|25%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "l2",
+      "type": "ds_label",
+      "pos": [
+       470,
+       -330
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TANGLE",
+       "px": 60,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "tangle|75%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "x",
+      "type": "ds_cross",
+      "pos": [
+       -470,
+       120
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 0.0,
+       "r": 120
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "not|15%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "color": "#1b1724"
+    },
+    "norecut": true,
+    "sfx": [
+     "pop@neat|25%",
+     "pop@tangle|75%"
+    ]
    }
   },
   {
@@ -4032,16 +7732,35 @@
    "shot": {
     "r": "corner",
     "cam": [
-     760,
-     520,
-     1.15
+     700,
+     380,
+     1.5
     ],
     "to": [
-     740,
-     520,
-     1.242
+     700,
+     390,
+     1.6
     ],
-    "_todo": true
+    "carol": {
+     "mood": "worry"
+    },
+    "web": {
+     "dust": 0.0
+    },
+    "shots": null,
+    "carol_sets": [],
+    "sfx": [
+     "whoosh@builds|20%"
+    ],
+    "web_sets": [
+     {
+      "at": "builds|15%",
+      "dur": 2.0,
+      "p": {
+       "dust": 1.0
+      }
+     }
+    ]
    }
   },
   {
@@ -4055,27 +7774,50 @@
    "shot": {
     "r": "corner",
     "cam": [
-     680,
-     480,
-     1.1
+     700,
+     470,
+     0.95
     ],
     "to": [
      700,
-     480,
-     1.188
+     470,
+     1.0
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "deadpan",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "carol": {
+     "mood": "worry"
+    },
+    "web": {
+     "w": 900,
+     "h": 700
+    },
+    "extras": [
+     {
+      "id": "towel",
+      "type": "ds_prop",
+      "pos": [
+       720,
+       520
+      ],
+      "s": 1.15,
+      "p": {
+       "kind": "towel",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "towel|65%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "tink@towel|65%"
+    ]
    }
   },
   {
@@ -4087,14 +7829,102 @@
    "id": "s3.l17",
    "seg": 3,
    "shot": {
-    "r": "corner",
-    "cam": "mid",
-    "to": [
-     700,
-     500,
-     1.404
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     120,
+     1.0
     ],
-    "_todo": true
+    "to": [
+     0,
+     120,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "bld",
+      "type": "ds_building",
+      "pos": [
+       -150,
+       520
+      ],
+      "s": 0.72,
+      "p": {
+       "webs": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "colonies|40%",
+        "dur": 2.0,
+        "p": {
+         "webs": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "fin",
+      "type": "ds_label",
+      "pos": [
+       -150,
+       -310
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "FINLAND",
+       "px": 60,
+       "color": "#ffffff",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "Finland|25%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "cal",
+      "type": "ds_prop",
+      "pos": [
+       620,
+       230
+      ],
+      "s": 0.9,
+      "p": {
+       "kind": "calendar",
+       "on": 1.0,
+       "day": 1.0,
+       "unit": "YEAR"
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "ten|70%",
+        "dur": 1.0,
+        "p": {
+         "day": 10.0
+        }
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "color": "#22304a"
+    },
+    "norecut": true,
+    "card_x": 1350,
+    "card_w": 700,
+    "sfx": [
+     "pop@Finland|25%",
+     "whoosh@ten|70%"
+    ]
    }
   },
   {
@@ -4104,24 +7934,123 @@
    "seg": 3,
    "shot": {
     "r": "corner",
-    "cam": "wide",
-    "to": [
-     720,
-     470,
-     1.08
+    "cam": [
+     700,
+     430,
+     0.9
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "point",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "to": [
+     700,
+     420,
+     0.95
+    ],
+    "carol": {
+     "mood": "smug"
+    },
+    "shoe_nudge": 1.0,
+    "extras": [
+     {
+      "id": "babies",
+      "type": "ds_babies",
+      "pos": [
+       700,
+       230
+      ],
+      "s": 1.4,
+      "p": {
+       "u": 1.0,
+       "n": 20
+      },
+      "front": false
+     },
+     {
+      "id": "t0",
+      "type": "ds_tag",
+      "pos": [
+       300,
+       420
+      ],
+      "s": 0.8,
+      "p": {
+       "on": 1.0,
+       "text": "CAROL"
+      },
+      "front": false
+     },
+     {
+      "id": "t1",
+      "type": "ds_tag",
+      "pos": [
+       480,
+       650
+      ],
+      "s": 0.8,
+      "p": {
+       "on": 1.0,
+       "text": "CAROL"
+      },
+      "front": false
+     },
+     {
+      "id": "t2",
+      "type": "ds_tag",
+      "pos": [
+       960,
+       560
+      ],
+      "s": 0.8,
+      "p": {
+       "on": 1.0,
+       "text": "CAROL"
+      },
+      "front": false
+     },
+     {
+      "id": "t3",
+      "type": "ds_tag",
+      "pos": [
+       1150,
+       380
+      ],
+      "s": 0.8,
+      "p": {
+       "on": 1.0,
+       "text": "CAROL"
+      },
+      "front": false
+     },
+     {
+      "id": "t4",
+      "type": "ds_tag",
+      "pos": [
+       1350,
+       620
+      ],
+      "s": 0.8,
+      "p": {
+       "on": 1.0,
+       "text": "CAROL"
+      },
+      "front": false
+     },
+     {
+      "id": "t5",
+      "type": "ds_tag",
+      "pos": [
+       100,
+       600
+      ],
+      "s": 0.8,
+      "p": {
+       "on": 1.0,
+       "text": "CAROL"
+      },
+      "front": false
+     }
+    ],
+    "sfx": [
+     "thud@ceiling|70%"
+    ]
    }
   },
   {
@@ -4133,16 +8062,29 @@
    "shot": {
     "r": "corner",
     "cam": [
-     760,
-     520,
+     720,
+     470,
      1.15
     ],
     "to": [
-     740,
-     520,
-     1.242
+     720,
+     460,
+     1.22
     ],
-    "_todo": true
+    "carol": {
+     "mood": "shock",
+     "look": [
+      0,
+      -1
+     ]
+    },
+    "shoe_nudge": 1.0,
+    "meter_big_to": 0.7,
+    "meter_big_at": "meter|25%",
+    "meter_big_back": "front|90%",
+    "sfx": [
+     "zap@meter|25%"
+    ]
    }
   },
   {
@@ -4151,18 +8093,56 @@
    "id": "s3.l20",
    "seg": 3,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "ds_court",
     "cam": [
-     760,
-     520,
-     1.15
+     600,
+     800,
+     0.8
     ],
     "to": [
-     740,
-     520,
-     1.242
+     620,
+     780,
+     0.86
     ],
-    "_todo": true
+    "actors": [
+     {
+      "id": "sheet",
+      "type": "ds_sheet",
+      "pos": [
+       550,
+       250
+      ],
+      "s": 1.0,
+      "p": {
+       "unroll": 0.0,
+       "line": ""
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "charge|40%",
+        "dur": 1.0,
+        "p": {
+         "unroll": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "pose": "present",
+     "pos": [
+      1350,
+      1500
+     ],
+     "size": 800,
+     "look": "viewer",
+     "prop": null
+    },
+    "sfx": [
+     "whoosh@charge|40%"
+    ]
    }
   },
   {
@@ -4172,29 +8152,68 @@
    "id": "s3.l21",
    "seg": 3,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "ds_court",
     "cam": [
-     680,
-     480,
-     1.1
+     550,
+     450,
+     1.6
     ],
     "to": [
-     700,
-     480,
-     1.188
+     550,
+     450,
+     1.68
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "deadpan",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "actors": [
+     {
+      "id": "sheet",
+      "type": "ds_sheet",
+      "pos": [
+       550,
+       250
+      ],
+      "s": 1.0,
+      "p": {
+       "unroll": 1.0,
+       "line": ""
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "Messy|75%",
+        "p": {
+         "line": "1. COBWEBS"
+        }
+       }
+      ]
+     },
+     {
+      "id": "uc",
+      "type": "ds_chip_src",
+      "pos": [
+       550,
+       1000
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "UC IPM",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "California|15%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "stamp@Messy|75%"
+    ]
    }
   },
   {
@@ -4203,14 +8222,55 @@
    "id": "s3.l22",
    "seg": 3,
    "shot": {
-    "r": "corner",
-    "cam": "mid",
-    "to": [
-     700,
-     500,
-     1.404
+    "r": "scene",
+    "scene": "ds_court",
+    "cam": [
+     800,
+     800,
+     0.95
     ],
-    "_todo": true
+    "to": [
+     820,
+     790,
+     1.0
+    ],
+    "actors": [
+     {
+      "id": "sheet",
+      "type": "ds_sheet",
+      "pos": [
+       550,
+       250
+      ],
+      "s": 1.0,
+      "p": {
+       "unroll": 1.0,
+       "line": "1. COBWEBS",
+       "small": 1.0
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "pose": "think",
+     "pos": [
+      1150,
+      1500
+     ],
+     "size": 760,
+     "look": "hero",
+     "prop": "magnifier",
+     "gest": [
+      [
+       "charge|70%",
+       "shrug",
+       1.4
+      ]
+     ]
+    },
+    "sfx": [
+     "tink@main|40%"
+    ]
    }
   },
   {
@@ -4222,24 +8282,76 @@
    "seg": 3,
    "shot": {
     "r": "corner",
-    "cam": "wide",
-    "to": [
-     720,
-     470,
-     1.08
+    "cam": [
+     760,
+     520,
+     1.15
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "point",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "to": [
+     760,
+     520,
+     1.2
+    ],
+    "carol": {
+     "mood": "happy",
+     "look": [
+      0,
+      0.3
+     ]
+    },
+    "shoe": true,
+    "extras": [
+     {
+      "id": "ky",
+      "type": "ds_chip_src",
+      "pos": [
+       380,
+       380
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "KENTUCKY: HARMLESS",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "harmless|35%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "ut",
+      "type": "ds_chip_src",
+      "pos": [
+       1120,
+       760
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "UTAH STATE: BENEFICIAL",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "beneficial|85%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "stamp@harmless|35%",
+     "stamp@beneficial|85%"
+    ]
    }
   },
   {
@@ -4248,18 +8360,75 @@
    "id": "s3.l24",
    "seg": 3,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "bedroom",
     "cam": [
-     760,
-     520,
-     1.15
+     1100,
+     1050,
+     0.8
     ],
     "to": [
-     740,
-     520,
-     1.242
+     1100,
+     1040,
+     0.84
     ],
-    "_todo": true
+    "actors": [
+     {
+      "id": "vac",
+      "type": "ds_prop",
+      "pos": [
+       2500,
+       1500
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "vacuum",
+       "on": 1.0
+      },
+      "front": false,
+      "moves": [
+       {
+        "at": "tool|50%",
+        "dur": 0.5,
+        "pos": [
+         1800,
+         1500
+        ]
+       },
+       {
+        "at": "get|85%",
+        "dur": 0.4,
+        "pos": [
+         2500,
+         1500
+        ]
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "time": "night"
+    },
+    "mb": {
+     "pose": "deadpan",
+     "pos": [
+      900,
+      1500
+     ],
+     "size": 860,
+     "look": "viewer",
+     "prop": null,
+     "gest": [
+      [
+       "tool|55%",
+       "point",
+       1.0
+      ]
+     ]
+    },
+    "sfx": [
+     "whoosh@tool|50%"
+    ]
    }
   },
   {
@@ -4270,27 +8439,55 @@
    "shot": {
     "r": "corner",
     "cam": [
-     680,
-     480,
+     760,
+     560,
      1.1
     ],
     "to": [
-     700,
-     480,
-     1.188
+     760,
+     560,
+     1.18
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "deadpan",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "carol": {
+     "mood": "worry",
+     "look": [
+      1,
+      0.6
+     ]
+    },
+    "tint": [
+     0.03,
+     0.03,
+     0.1,
+     0.42
+    ],
+    "extras": [
+     {
+      "id": "eyes",
+      "type": "ds_eyes",
+      "pos": [
+       1250,
+       860
+      ],
+      "s": 0.8,
+      "p": {
+       "on": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "safe|60%",
+        "dur": 0.4,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "thud@safe|60%"
+    ]
    }
   },
   {
@@ -4300,14 +8497,108 @@
    "id": "s3.l26",
    "seg": 3,
    "shot": {
-    "r": "corner",
-    "cam": "mid",
-    "to": [
-     700,
-     500,
-     1.404
+    "r": "scene",
+    "scene": "ds_wall",
+    "cam": [
+     760,
+     600,
+     1.0
     ],
-    "_todo": true
+    "to": [
+     760,
+     600,
+     1.06
+    ],
+    "actors": [
+     {
+      "id": "js",
+      "type": "js_front",
+      "pos": [
+       1700,
+       1000
+      ],
+      "s": 0.6,
+      "p": {
+       "mood": "smug",
+       "look": [
+        -1,
+        -0.3
+       ]
+      },
+      "front": false,
+      "moves": [
+       {
+        "at": "jumping|20%",
+        "dur": 0.9,
+        "pos": [
+         1050,
+         980
+        ],
+        "walk": true
+       }
+      ]
+     },
+     {
+      "id": "jsl",
+      "type": "ds_label",
+      "pos": [
+       1050,
+       380
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "JUMPING SPIDER",
+       "px": 60,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "jumping|35%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "hero",
+      "type": "carol",
+      "pos": [
+       420,
+       420
+      ],
+      "s": 0.4,
+      "front": false,
+      "p": {
+       "mood": "shock",
+       "look": [
+        1,
+        0.6
+       ],
+       "work": 0.0,
+       "flick": 0.0,
+       "whirl": 0.0,
+       "eggs": 0.0,
+       "wave": 0.0,
+       "reach": 0.0,
+       "shrug": 0.0,
+       "eyes8": 0.0,
+       "still": false,
+       "hat": 0.0,
+       "shades": 0.0,
+       "thread": 500
+      }
+     }
+    ],
+    "scene_p": {
+     "dark": true
+    },
+    "sfx": [
+     "step@jumping|25%"
+    ]
    }
   },
   {
@@ -4348,21 +8639,21 @@
     "extras": [
      {
       "id": "js",
-      "type": "jumper",
+      "type": "js_front",
       "pos": [
        1250,
-       900
+       990
       ],
-      "s": 0.6,
+      "s": 0.32,
       "p": {
        "mood": "smug",
        "look": [
         -0.6,
         -0.2
-       ]
+       ],
+       "crouch": 0.5
       },
-      "front": false,
-      "flip": true
+      "front": false
      }
     ],
     "card_at": "blur|60%",
@@ -4381,16 +8672,49 @@
    "shot": {
     "r": "corner",
     "cam": [
-     760,
-     520,
-     1.15
+     1020,
+     700,
+     1.7
     ],
     "to": [
-     740,
-     520,
-     1.242
+     1030,
+     700,
+     1.78
     ],
-    "_todo": true
+    "carol": {
+     "mood": "calm"
+    },
+    "carol_sets": [
+     {
+      "at": "whirls|65%",
+      "dur": 0.3,
+      "p": {
+       "whirl": 1.0
+      }
+     }
+    ],
+    "mb": {
+     "pose": "point",
+     "pos": [
+      1180,
+      900
+     ],
+     "size": 480,
+     "look": "hero",
+     "prop": null,
+     "float": true,
+     "gest": [
+      [
+       "Touch|40%",
+       "point",
+       1.0
+      ]
+     ]
+    },
+    "sfx": [
+     "tink@Touch|45%",
+     "whoosh@whirls|65%"
+    ]
    }
   },
   {
@@ -4400,29 +8724,188 @@
    "id": "s3.l29",
    "seg": 3,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "ds_board_bg",
     "cam": [
-     680,
-     480,
-     1.1
+     0,
+     100,
+     1.0
     ],
     "to": [
-     700,
-     480,
-     1.188
+     0,
+     100,
+     1.03
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "deadpan",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "actors": [
+     {
+      "id": "hero",
+      "type": "carol",
+      "pos": [
+       -200,
+       -40
+      ],
+      "s": 0.45,
+      "front": false,
+      "p": {
+       "mood": "calm",
+       "look": [
+        0,
+        0.2
+       ],
+       "work": 0.0,
+       "flick": 0.0,
+       "whirl": 0.0,
+       "eggs": 0.0,
+       "wave": 0.0,
+       "reach": 0.0,
+       "shrug": 0.0,
+       "eyes8": 0.0,
+       "still": false,
+       "hat": 0.0,
+       "shades": 0.0,
+       "thread": 600
+      },
+      "set": [
+       {
+        "at": "jumping|8%",
+        "dur": 0.2,
+        "p": {
+         "whirl": 1.0
+        }
+       },
+       {
+        "at": "Hunters|52%",
+        "dur": 0.2,
+        "p": {
+         "whirl": 0.0
+        }
+       },
+       {
+        "at": "60%",
+        "dur": 0.1,
+        "p": {
+         "whirl": 0.35
+        }
+       },
+       {
+        "at": "63%",
+        "dur": 0.1,
+        "p": {
+         "whirl": 0.0
+        }
+       },
+       {
+        "at": "68%",
+        "dur": 0.1,
+        "p": {
+         "whirl": 0.35
+        }
+       },
+       {
+        "at": "71%",
+        "dur": 0.1,
+        "p": {
+         "whirl": 0.0
+        }
+       },
+       {
+        "at": "76%",
+        "dur": 0.1,
+        "p": {
+         "whirl": 0.35
+        }
+       },
+       {
+        "at": "79%",
+        "dur": 0.1,
+        "p": {
+         "whirl": 0.0
+        }
+       },
+       {
+        "at": "84%",
+        "dur": 0.1,
+        "p": {
+         "whirl": 0.35
+        }
+       },
+       {
+        "at": "87%",
+        "dur": 0.1,
+        "p": {
+         "whirl": 0.0
+        }
+       },
+       {
+        "at": "92%",
+        "dur": 0.1,
+        "p": {
+         "whirl": 0.35
+        }
+       },
+       {
+        "at": "95%",
+        "dur": 0.1,
+        "p": {
+         "whirl": 0.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "js",
+      "type": "js_front",
+      "pos": [
+       650,
+       330
+      ],
+      "s": 0.4,
+      "p": {
+       "mood": "smug"
+      },
+      "front": false,
+      "moves": [
+       {
+        "at": "Hunters|50%",
+        "dur": 0.5,
+        "pos": [
+         1500,
+         330
+        ]
+       }
+      ]
+     },
+     {
+      "id": "par",
+      "type": "ds_parade",
+      "pos": [
+       0,
+       420
+      ],
+      "s": 1.0,
+      "p": {
+       "u": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "Hunters|52%",
+        "dur": 2.6,
+        "p": {
+         "u": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "color": "#1b1724"
+    },
+    "norecut": true,
+    "sfx": [
+     "whoosh@jumping|8%",
+     "step@Hunters|55%"
+    ]
    }
   },
   {
@@ -4433,29 +8916,112 @@
    "id": "s3.l30",
    "seg": 3,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "ds_board_bg",
     "cam": [
-     680,
-     480,
-     1.1
+     0,
+     100,
+     1.0
     ],
     "to": [
-     700,
-     480,
-     1.188
+     0,
+     100,
+     1.06
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "deadpan",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "actors": [
+     {
+      "id": "js",
+      "type": "js_front",
+      "pos": [
+       0,
+       420
+      ],
+      "s": 0.85,
+      "p": {
+       "mood": "worry",
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "15%",
+        "p": {
+         "look": [
+          0,
+          1
+         ]
+        }
+       },
+       {
+        "at": "25%",
+        "p": {
+         "look": [
+          -1,
+          0
+         ]
+        }
+       },
+       {
+        "at": "35%",
+        "p": {
+         "look": [
+          0,
+          -1
+         ]
+        }
+       },
+       {
+        "at": "45%",
+        "p": {
+         "look": [
+          1,
+          0
+         ]
+        }
+       },
+       {
+        "at": "55%",
+        "p": {
+         "look": [
+          0,
+          1
+         ]
+        }
+       },
+       {
+        "at": "65%",
+        "p": {
+         "look": [
+          -1,
+          0
+         ]
+        }
+       }
+      ],
+      "moves": [
+       {
+        "at": "onto|80%",
+        "dur": 0.6,
+        "pos": [
+         1500,
+         420
+        ],
+        "walk": true
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "color": "#1b1724"
+    },
+    "norecut": true,
+    "sfx": [
+     "boing@blur|30%",
+     "step@onto|80%"
+    ]
    }
   },
   {
@@ -4465,13 +9031,29 @@
    "seg": 3,
    "shot": {
     "r": "corner",
-    "cam": "mid",
-    "to": [
-     700,
-     500,
-     1.404
+    "cam": [
+     720,
+     560,
+     1.25
     ],
-    "_todo": true
+    "to": [
+     720,
+     580,
+     1.4
+    ],
+    "carol": {
+     "mood": "worry",
+     "still": true
+    },
+    "tint": [
+     0.02,
+     0.02,
+     0.08,
+     0.5
+    ],
+    "sfx": [
+     "thud@win|70%"
+    ]
    }
   },
   {
@@ -4481,25 +9063,66 @@
    "id": "s3.l32",
    "seg": 3,
    "shot": {
-    "r": "corner",
-    "cam": "wide",
-    "to": [
-     720,
-     470,
-     1.08
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     60,
+     1.0
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "point",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "to": [
+     0,
+     60,
+     1.03
+    ],
+    "actors": [
+     {
+      "id": "ar",
+      "type": "ds_arenas",
+      "pos": [
+       0,
+       30
+      ],
+      "s": 1.0,
+      "p": {
+       "grey": 0.0
+      },
+      "front": false
+     },
+     {
+      "id": "fwl",
+      "type": "ds_label",
+      "pos": [
+       0,
+       -330
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "NOBLE FALSE WIDOW",
+       "px": 60,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "widows|70%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "color": "#1b1724"
+    },
+    "norecut": true,
+    "sfx": [
+     "pop@ten|35%",
+     "pop@widows|75%"
+    ]
    }
   },
   {
@@ -4511,18 +9134,51 @@
    "id": "s3.l33",
    "seg": 3,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "ds_board_bg",
     "cam": [
-     760,
-     520,
-     1.15
+     0,
+     60,
+     0.96
     ],
     "to": [
-     740,
-     520,
-     1.242
+     0,
+     60,
+     0.99
     ],
-    "_todo": true
+    "actors": [
+     {
+      "id": "ar",
+      "type": "ds_arenas",
+      "pos": [
+       0,
+       30
+      ],
+      "s": 1.0,
+      "p": {
+       "grey": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "Seven|5%",
+        "dur": 2.4,
+        "p": {
+         "grey": 7.0
+        }
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "color": "#1b1724"
+    },
+    "norecut": true,
+    "card_at": "dead|50%",
+    "sfx": [
+     "thud@Seven|10%",
+     "thud@dead|50%"
+    ]
    }
   },
   {
@@ -4532,29 +9188,155 @@
    "id": "s3.l34",
    "seg": 3,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "ds_board_bg",
     "cam": [
-     680,
-     480,
-     1.1
+     0,
+     60,
+     1.0
     ],
     "to": [
-     700,
-     480,
-     1.188
+     0,
+     60,
+     1.03
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "deadpan",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "actors": [
+     {
+      "id": "map",
+      "type": "ds_map",
+      "pos": [
+       -560,
+       60
+      ],
+      "s": 0.75,
+      "p": {
+       "place": "CALIFORNIA",
+       "pin": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "California|10%",
+        "dur": 0.5,
+        "p": {
+         "pin": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "hero",
+      "type": "carol",
+      "pos": [
+       620,
+       -60
+      ],
+      "s": 0.32,
+      "front": false,
+      "p": {
+       "mood": "worry",
+       "look": [
+        -1,
+        0
+       ],
+       "work": 0.0,
+       "flick": 0.0,
+       "whirl": 0.0,
+       "eggs": 0.0,
+       "wave": 0.0,
+       "reach": 0.0,
+       "shrug": 0.0,
+       "eyes8": 0.0,
+       "still": false,
+       "hat": 0.0,
+       "shades": 0.0,
+       "thread": 400
+      },
+      "moves": [
+       {
+        "at": "pushed|65%",
+        "dur": 0.7,
+        "pos": [
+         1300,
+         -60
+        ]
+       }
+      ]
+     },
+     {
+      "id": "marbled",
+      "type": "carol",
+      "pos": [
+       150,
+       -60
+      ],
+      "s": 0.36,
+      "front": false,
+      "p": {
+       "mood": "smug",
+       "look": [
+        1,
+        0
+       ],
+       "work": 0.0,
+       "flick": 0.0,
+       "whirl": 0.0,
+       "eggs": 0.0,
+       "wave": 0.0,
+       "reach": 0.0,
+       "shrug": 0.0,
+       "eyes8": 0.0,
+       "still": false,
+       "hat": 0.0,
+       "shades": 0.0,
+       "marbled": 1.0,
+       "thread": 400
+      },
+      "moves": [
+       {
+        "at": "pushed|65%",
+        "dur": 0.7,
+        "pos": [
+         560,
+         -60
+        ]
+       }
+      ]
+     },
+     {
+      "id": "ml",
+      "type": "ds_label",
+      "pos": [
+       300,
+       330
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "MARBLED CELLAR SPIDER",
+       "px": 52,
+       "color": "#ffffff",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "marbled|45%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "color": "#1b1724"
+    },
+    "norecut": true,
+    "sfx": [
+     "pop@California|10%",
+     "whoosh@pushed|65%"
+    ]
    }
   },
   {
@@ -4564,13 +9346,30 @@
    "seg": 3,
    "shot": {
     "r": "corner",
-    "cam": "mid",
+    "cam": [
+     700,
+     700,
+     0.5
+    ],
     "to": [
      700,
-     500,
-     1.404
+     680,
+     0.55
     ],
-    "_todo": true
+    "carol": {
+     "mood": "worry",
+     "still": true
+    },
+    "tint": [
+     0.02,
+     0.02,
+     0.08,
+     0.45
+    ],
+    "shoe": false,
+    "sfx": [
+     "thud@neighborhood|80%"
+    ]
    }
   },
   {
@@ -4579,25 +9378,23 @@
    "id": "s3.l36",
    "seg": 3,
    "shot": {
-    "r": "corner",
-    "cam": "wide",
-    "to": [
-     720,
-     470,
-     1.08
+    "r": "scene",
+    "scene": "ds_house_ext",
+    "cam": [
+     500,
+     900,
+     2.2
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "point",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "to": [
+     550,
+     950,
+     0.62
+    ],
+    "actors": [],
+    "norecut": true,
+    "sfx": [
+     "whoosh@0.1"
+    ]
    }
   },
   {
@@ -4607,18 +9404,80 @@
    "id": "s3.l37",
    "seg": 3,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "cave",
     "cam": [
-     760,
-     520,
-     1.15
+     560,
+     780,
+     0.85
     ],
     "to": [
-     740,
-     520,
-     1.242
+     580,
+     800,
+     0.92
     ],
-    "_todo": true
+    "actors": [
+     {
+      "id": "cw1",
+      "type": "ds_web",
+      "pos": [
+       180,
+       330
+      ],
+      "s": 0.45,
+      "p": {
+       "seed": 4
+      },
+      "front": false
+     },
+     {
+      "id": "cw2",
+      "type": "ds_web",
+      "pos": [
+       880,
+       470
+      ],
+      "s": 0.4,
+      "p": {
+       "seed": 6
+      },
+      "front": false
+     },
+     {
+      "id": "hero",
+      "type": "carol",
+      "pos": [
+       210,
+       620
+      ],
+      "s": 0.3,
+      "front": false,
+      "p": {
+       "mood": "happy",
+       "look": [
+        0,
+        0.2
+       ],
+       "work": 0.0,
+       "flick": 0.0,
+       "whirl": 0.0,
+       "eggs": 0.0,
+       "wave": 0.0,
+       "reach": 0.0,
+       "shrug": 0.0,
+       "eyes8": 0.0,
+       "still": true,
+       "hat": 0.0,
+       "shades": 0.0
+      }
+     }
+    ],
+    "scene_p": {
+     "time": "day"
+    },
+    "sfx": [
+     "whoosh@wild|15%"
+    ]
    }
   },
   {
@@ -4628,29 +9487,132 @@
    "id": "s3.l38",
    "seg": 3,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "ds_board_bg",
     "cam": [
-     680,
-     480,
-     1.1
+     0,
+     60,
+     1.0
     ],
     "to": [
-     700,
-     480,
-     1.188
+     0,
+     60,
+     1.04
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "deadpan",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "actors": [
+     {
+      "id": "globe",
+      "type": "ds_globe",
+      "pos": [
+       0,
+       160
+      ],
+      "s": 1.0,
+      "p": {
+       "rot": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": 0.1,
+        "dur": 3.0,
+        "p": {
+         "rot": 220.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "sc1",
+      "type": "ds_prop",
+      "pos": [
+       -500,
+       -100
+      ],
+      "s": 0.8,
+      "p": {
+       "kind": "suitcase",
+       "on": 1.0
+      },
+      "front": false,
+      "moves": [
+       {
+        "at": "carried|40%",
+        "dur": 0.6,
+        "pos": [
+         0,
+         -260
+        ],
+        "hop": 180
+       },
+       {
+        "at": "around|70%",
+        "dur": 0.6,
+        "pos": [
+         500,
+         -100
+        ],
+        "hop": 180
+       }
+      ]
+     },
+     {
+      "id": "hero",
+      "type": "carol",
+      "pos": [
+       -500,
+       -230
+      ],
+      "s": 0.14,
+      "front": false,
+      "p": {
+       "mood": "happy",
+       "look": [
+        0,
+        0.2
+       ],
+       "work": 0.0,
+       "flick": 0.0,
+       "whirl": 0.0,
+       "eggs": 0.0,
+       "wave": 0.0,
+       "reach": 0.0,
+       "shrug": 0.0,
+       "eyes8": 0.0,
+       "still": true,
+       "hat": 0.0,
+       "shades": 0.0
+      },
+      "moves": [
+       {
+        "at": "carried|40%",
+        "dur": 0.6,
+        "pos": [
+         0,
+         -390
+        ],
+        "hop": 180
+       },
+       {
+        "at": "around|70%",
+        "dur": 0.6,
+        "pos": [
+         500,
+         -230
+        ],
+        "hop": 180
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "color": "#1b1724"
+    },
+    "norecut": true,
+    "sfx": [
+     "boing@carried|40%",
+     "boing@around|70%"
+    ]
    }
   },
   {
@@ -4661,14 +9623,107 @@
    "id": "s3.l39",
    "seg": 3,
    "shot": {
-    "r": "corner",
-    "cam": "mid",
-    "to": [
-     700,
-     500,
-     1.404
+    "r": "scene",
+    "scene": "basement",
+    "cam": [
+     600,
+     1000,
+     0.85
     ],
-    "_todo": true
+    "to": [
+     620,
+     1000,
+     0.9
+    ],
+    "actors": [
+     {
+      "id": "boiler",
+      "type": "ds_prop",
+      "pos": [
+       950,
+       1500
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "boiler",
+       "on": 1.0
+      },
+      "front": false
+     },
+     {
+      "id": "win",
+      "type": "ds_prop",
+      "pos": [
+       250,
+       600
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "snowwin",
+       "on": 1.0
+      },
+      "front": false
+     },
+     {
+      "id": "hero",
+      "type": "carol",
+      "pos": [
+       760,
+       820
+      ],
+      "s": 0.3,
+      "front": false,
+      "p": {
+       "mood": "happy",
+       "look": [
+        0,
+        0.2
+       ],
+       "work": 0.0,
+       "flick": 0.0,
+       "whirl": 0.0,
+       "eggs": 0.0,
+       "wave": 0.0,
+       "reach": 0.0,
+       "shrug": 0.0,
+       "eyes8": 0.0,
+       "still": true,
+       "hat": 0.0,
+       "shades": 0.0
+      }
+     },
+     {
+      "id": "cel",
+      "type": "ds_label",
+      "pos": [
+       600,
+       260
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "CELLAR",
+       "px": 70,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "cellar|80%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "time": "night"
+    },
+    "sfx": [
+     "pop@cellar|80%"
+    ]
    }
   },
   {
@@ -4678,14 +9733,182 @@
    "id": "s3.l40",
    "seg": 3,
    "shot": {
-    "r": "corner",
-    "cam": "mid",
-    "to": [
-     700,
-     500,
-     1.404
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     60,
+     1.0
     ],
-    "_todo": true
+    "to": [
+     0,
+     60,
+     1.03
+    ],
+    "actors": [
+     {
+      "id": "map",
+      "type": "ds_map",
+      "pos": [
+       -300,
+       60
+      ],
+      "s": 0.95,
+      "p": {
+       "place": "BRITAIN",
+       "pin": 0.0
+      },
+      "front": false
+     },
+     {
+      "id": "r0",
+      "type": "ds_prop",
+      "pos": [
+       -300,
+       360
+      ],
+      "s": 0.16,
+      "p": {
+       "kind": "radiator",
+       "on": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "30%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "r1",
+      "type": "ds_prop",
+      "pos": [
+       -280,
+       230
+      ],
+      "s": 0.16,
+      "p": {
+       "kind": "radiator",
+       "on": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "42%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "r2",
+      "type": "ds_prop",
+      "pos": [
+       -330,
+       100
+      ],
+      "s": 0.16,
+      "p": {
+       "kind": "radiator",
+       "on": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "54%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "r3",
+      "type": "ds_prop",
+      "pos": [
+       -300,
+       -30
+      ],
+      "s": 0.16,
+      "p": {
+       "kind": "radiator",
+       "on": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "66%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "r4",
+      "type": "ds_prop",
+      "pos": [
+       -350,
+       -140
+      ],
+      "s": 0.16,
+      "p": {
+       "kind": "radiator",
+       "on": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "78%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "ch",
+      "type": "ds_label",
+      "pos": [
+       520,
+       60
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "CENTRAL HEATING",
+       "px": 64,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "heating|80%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "color": "#1b1724"
+    },
+    "norecut": true,
+    "sfx": [
+     "pop@north|30%",
+     "tink@heating|80%"
+    ]
    }
   },
   {
@@ -4695,25 +9918,65 @@
    "id": "s3.l41",
    "seg": 3,
    "shot": {
-    "r": "corner",
-    "cam": "wide",
-    "to": [
+    "r": "scene",
+    "scene": "ds_wall",
+    "cam": [
+     800,
      720,
-     470,
+     1.0
+    ],
+    "to": [
+     800,
+     720,
      1.08
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "point",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "actors": [
+     {
+      "id": "rad",
+      "type": "ds_prop",
+      "pos": [
+       800,
+       1250
+      ],
+      "s": 1.2,
+      "p": {
+       "kind": "radiator",
+       "on": 1.0
+      },
+      "front": false
+     },
+     {
+      "id": "hero",
+      "type": "carol",
+      "pos": [
+       800,
+       520
+      ],
+      "s": 0.45,
+      "front": false,
+      "p": {
+       "mood": "happy",
+       "look": [
+        0,
+        0.2
+       ],
+       "work": 0.0,
+       "flick": 0.0,
+       "whirl": 0.0,
+       "eggs": 0.0,
+       "wave": 0.0,
+       "reach": 0.0,
+       "shrug": 0.0,
+       "eyes8": 0.0,
+       "still": true,
+       "hat": 0.0,
+       "shades": 1.0
+      }
+     }
+    ],
+    "sfx": [
+     "tink@climate|60%"
+    ]
    }
   },
   {
@@ -4724,18 +9987,142 @@
    "id": "s3.l42",
    "seg": 3,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "kitchen",
     "cam": [
-     760,
-     520,
-     1.15
+     800,
+     1050,
+     0.82
     ],
     "to": [
-     740,
-     520,
-     1.242
+     820,
+     1040,
+     0.88
     ],
-    "_todo": true
+    "actors": [
+     {
+      "id": "door",
+      "type": "ds_prop",
+      "pos": [
+       1250,
+       1500
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "door",
+       "on": 1.0,
+       "open": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "outside|25%",
+        "dur": 0.5,
+        "p": {
+         "open": 1.0
+        }
+       },
+       {
+        "at": "cold|75%",
+        "dur": 0.4,
+        "p": {
+         "open": 0.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "jar",
+      "type": "ds_prop",
+      "pos": [
+       640,
+       1130
+      ],
+      "s": 0.45,
+      "p": {
+       "kind": "jar",
+       "on": 1.0
+      },
+      "front": true
+     },
+     {
+      "id": "hero",
+      "type": "carol",
+      "pos": [
+       640,
+       1030
+      ],
+      "s": 0.08,
+      "front": true,
+      "p": {
+       "mood": "worry",
+       "look": [
+        0,
+        0.2
+       ],
+       "work": 0.0,
+       "flick": 0.0,
+       "whirl": 0.0,
+       "eggs": 0.0,
+       "wave": 0.0,
+       "reach": 0.0,
+       "shrug": 0.0,
+       "eyes8": 0.0,
+       "still": true,
+       "hat": 0.0,
+       "shades": 0.0
+      }
+     },
+     {
+      "id": "jan",
+      "type": "ds_label",
+      "pos": [
+       1250,
+       560
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "JANUARY",
+       "px": 60,
+       "color": "#ffffff",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "January|50%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "time": "night"
+    },
+    "mb": {
+     "pose": "think",
+     "pos": [
+      800,
+      1500
+     ],
+     "size": 860,
+     "look": "viewer",
+     "prop": null,
+     "gest": [
+      [
+       "cold|75%",
+       "shock",
+       1.0
+      ]
+     ]
+    },
+    "sfx": [
+     "whoosh@outside|25%",
+     "thud@cold|78%"
+    ]
    }
   },
   {
@@ -4745,24 +10132,62 @@
    "seg": 4,
    "shot": {
     "r": "corner",
-    "cam": "wide",
-    "to": [
-     720,
-     470,
-     1.08
+    "cam": [
+     860,
+     520,
+     1.05
     ],
-    "_todo": true,
+    "to": [
+     860,
+     520,
+     1.1
+    ],
+    "carol": {
+     "mood": "calm",
+     "look": [
+      1,
+      0
+     ]
+    },
     "mb": {
-     "pose": "point",
+     "pose": "present",
      "pos": [
-      1230,
-      900
+      1220,
+      880
      ],
-     "size": 460,
-     "look": "hero",
+     "size": 480,
+     "look": "viewer",
      "prop": null,
      "float": true
-    }
+    },
+    "extras": [
+     {
+      "id": "con",
+      "type": "ds_prop",
+      "pos": [
+       1360,
+       760
+      ],
+      "s": 0.55,
+      "p": {
+       "kind": "contract",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "deal|40%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "pop@deal|40%"
+    ]
    }
   },
   {
@@ -4772,18 +10197,104 @@
    "id": "s4.l1",
    "seg": 4,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "ds_board_bg",
     "cam": [
-     760,
-     520,
-     1.15
+     0,
+     100,
+     1.0
     ],
     "to": [
-     740,
-     520,
-     1.242
+     0,
+     100,
+     1.04
     ],
-    "_todo": true
+    "actors": [
+     {
+      "id": "hero",
+      "type": "carol",
+      "pos": [
+       -420,
+       40
+      ],
+      "s": 0.5,
+      "front": false,
+      "p": {
+       "mood": "happy",
+       "look": [
+        0,
+        0.2
+       ],
+       "work": 0.0,
+       "flick": 0.0,
+       "whirl": 0.0,
+       "eggs": 0.0,
+       "wave": 0.0,
+       "reach": 0.0,
+       "shrug": 0.0,
+       "eyes8": 0.0,
+       "still": false,
+       "hat": 0.0,
+       "shades": 0.0,
+       "thread": 500
+      },
+      "set": [
+       {
+        "at": "spider|25%",
+        "dur": 0.3,
+        "p": {
+         "wave": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "dusty",
+      "type": "ds_web",
+      "pos": [
+       420,
+       -200
+      ],
+      "s": 0.55,
+      "p": {
+       "dust": 1.0,
+       "seed": 30
+      },
+      "front": false
+     },
+     {
+      "id": "x",
+      "type": "ds_cross",
+      "pos": [
+       420,
+       120
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 0.0,
+       "r": 200
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "Lose|60%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "color": "#1b1724"
+    },
+    "norecut": true,
+    "card_y": 780,
+    "card_at": "Keep|10%",
+    "sfx": [
+     "stamp@Lose|60%"
+    ]
    }
   },
   {
@@ -4795,27 +10306,123 @@
    "shot": {
     "r": "corner",
     "cam": [
-     680,
-     480,
-     1.1
+     760,
+     560,
+     1.0
     ],
     "to": [
-     700,
-     480,
-     1.188
+     760,
+     560,
+     1.05
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "deadpan",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "carol": {
+     "mood": "happy",
+     "look": [
+      1,
+      0.6
+     ]
+    },
+    "extras": [
+     {
+      "id": "dusty",
+      "type": "ds_web",
+      "pos": [
+       1200,
+       520
+      ],
+      "s": 0.5,
+      "p": {
+       "dust": 1.0,
+       "seed": 21,
+       "a": 0.9
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "webs|35%",
+        "dur": 0.8,
+        "p": {
+         "a": 0.0,
+         "spread": 0.2
+        }
+       }
+      ]
+     },
+     {
+      "id": "sac",
+      "type": "ds_bundle",
+      "pos": [
+       1300,
+       460
+      ],
+      "s": 0.8,
+      "p": {
+       "len": 120
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "egg|55%",
+        "dur": 0.4,
+        "p": {
+         "on": 0.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "noz",
+      "type": "ds_prop",
+      "pos": [
+       1250,
+       1300
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "nozzle",
+       "on": 1.0,
+       "suck": 1.0
+      },
+      "front": false,
+      "moves": [
+       {
+        "at": "vacuum|10%",
+        "dur": 0.6,
+        "pos": [
+         1250,
+         780
+        ]
+       }
+      ]
+     },
+     {
+      "id": "uk",
+      "type": "ds_chip_src",
+      "pos": [
+       380,
+       820
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "UNIVERSITY OF KENTUCKY",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "Kentucky|70%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "whoosh@vacuum|10%",
+     "pop@Kentucky|70%"
+    ]
    }
   },
   {
@@ -4826,14 +10433,72 @@
    "id": "s4.l3",
    "seg": 4,
    "shot": {
-    "r": "corner",
-    "cam": "mid",
-    "to": [
-     700,
-     500,
-     1.404
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     60,
+     1.0
     ],
-    "_todo": true
+    "to": [
+     0,
+     60,
+     1.03
+    ],
+    "actors": [
+     {
+      "id": "cg",
+      "type": "ds_calgrid",
+      "pos": [
+       -220,
+       80
+      ],
+      "s": 0.95,
+      "p": {
+       "u": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "vacuum|40%",
+        "dur": 2.0,
+        "p": {
+         "u": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "ia",
+      "type": "ds_chip_src",
+      "pos": [
+       600,
+       -330
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "IOWA STATE",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "Iowa|30%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "color": "#1b1724"
+    },
+    "norecut": true,
+    "sfx": [
+     "pop@Iowa|30%"
+    ]
    }
   },
   {
@@ -4843,25 +10508,98 @@
    "id": "s4.l4",
    "seg": 4,
    "shot": {
-    "r": "corner",
-    "cam": "wide",
-    "to": [
-     720,
-     470,
-     1.08
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     80,
+     1.0
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "point",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "to": [
+     0,
+     80,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "spray",
+      "type": "ds_prop",
+      "pos": [
+       -350,
+       420
+      ],
+      "s": 1.1,
+      "p": {
+       "kind": "spray",
+       "on": 1.0,
+       "x": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "Skip|5%",
+        "dur": 0.4,
+        "p": {
+         "x": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "ia",
+      "type": "ds_chip_src",
+      "pos": [
+       430,
+       -120
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "IOWA STATE: WORKS POORLY",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "Iowa|25%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "uc",
+      "type": "ds_chip_src",
+      "pos": [
+       430,
+       160
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "UC IPM: NOT NEEDED",
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "California|65%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "color": "#1b1724"
+    },
+    "norecut": true,
+    "sfx": [
+     "stamp@Skip|8%",
+     "pop@California|65%"
+    ]
    }
   },
   {
@@ -4871,18 +10609,109 @@
    "id": "s4.l5",
    "seg": 4,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "kitchen",
     "cam": [
-     760,
-     520,
-     1.15
+     700,
+     1000,
+     0.8
     ],
     "to": [
-     740,
-     520,
-     1.242
+     720,
+     1000,
+     0.86
     ],
-    "_todo": true
+    "actors": [
+     {
+      "id": "caulk",
+      "type": "ds_prop",
+      "pos": [
+       560,
+       780
+      ],
+      "s": 0.6,
+      "p": {
+       "kind": "caulk",
+       "on": 1.0
+      },
+      "front": false,
+      "moves": [
+       {
+        "at": "Seal|10%",
+        "dur": 1.6,
+        "pos": [
+         880,
+         780
+        ]
+       }
+      ]
+     },
+     {
+      "id": "box1",
+      "type": "ds_prop",
+      "pos": [
+       -100,
+       1500
+      ],
+      "s": 0.9,
+      "p": {
+       "kind": "box",
+       "on": 1.0
+      },
+      "front": false,
+      "moves": [
+       {
+        "at": "clutter|45%",
+        "dur": 0.6,
+        "pos": [
+         -900,
+         1500
+        ]
+       }
+      ]
+     },
+     {
+      "id": "box2",
+      "type": "ds_prop",
+      "pos": [
+       -80,
+       1300
+      ],
+      "s": 0.7,
+      "p": {
+       "kind": "box",
+       "on": 1.0
+      },
+      "front": false,
+      "moves": [
+       {
+        "at": "clutter|50%",
+        "dur": 0.6,
+        "pos": [
+         -900,
+         1300
+        ]
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "time": "night"
+    },
+    "mb": {
+     "pose": "point",
+     "pos": [
+      300,
+      1500
+     ],
+     "size": 800,
+     "look": "viewer",
+     "prop": null
+    },
+    "sfx": [
+     "scratch@Seal|10%",
+     "whoosh@clutter|45%"
+    ]
    }
   },
   {
@@ -4892,29 +10721,130 @@
    "id": "s4.l6",
    "seg": 4,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "bedroom",
     "cam": [
-     680,
-     480,
-     1.1
+     560,
+     980,
+     1.0
     ],
     "to": [
-     700,
-     480,
-     1.188
+     600,
+     900,
+     0.95
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "deadpan",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "actors": [
+     {
+      "id": "hero",
+      "type": "carol",
+      "pos": [
+       380,
+       930
+      ],
+      "s": 0.22,
+      "front": false,
+      "p": {
+       "mood": "calm",
+       "look": [
+        0,
+        0.2
+       ],
+       "work": 0.0,
+       "flick": 0.0,
+       "whirl": 0.0,
+       "eggs": 0.0,
+       "wave": 0.0,
+       "reach": 0.0,
+       "shrug": 0.0,
+       "eyes8": 0.0,
+       "still": true,
+       "hat": 0.0,
+       "shades": 0.0
+      },
+      "moves": [
+       {
+        "at": "carry|82%",
+        "dur": 0.7,
+        "pos": [
+         1500,
+         200
+        ]
+       }
+      ]
+     },
+     {
+      "id": "jar",
+      "type": "ds_prop",
+      "pos": [
+       380,
+       600
+      ],
+      "s": 0.42,
+      "p": {
+       "kind": "jar",
+       "on": 1.0
+      },
+      "front": true,
+      "rot": 180,
+      "moves": [
+       {
+        "at": "jar|40%",
+        "dur": 0.4,
+        "pos": [
+         380,
+         1010
+        ]
+       },
+       {
+        "at": "carry|82%",
+        "dur": 0.7,
+        "pos": [
+         1500,
+         280
+        ]
+       }
+      ]
+     },
+     {
+      "id": "paper",
+      "type": "ds_prop",
+      "pos": [
+       -200,
+       1010
+      ],
+      "s": 0.5,
+      "p": {
+       "kind": "paper",
+       "on": 1.0
+      },
+      "front": true,
+      "moves": [
+       {
+        "at": "paper|58%",
+        "dur": 0.4,
+        "pos": [
+         380,
+         1010
+        ]
+       },
+       {
+        "at": "carry|82%",
+        "dur": 0.7,
+        "pos": [
+         1500,
+         280
+        ]
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "time": "night"
+    },
+    "sfx": [
+     "thud@jar|42%",
+     "scratch@paper|60%"
+    ]
    }
   },
   {
@@ -4924,14 +10854,112 @@
    "id": "s4.l7",
    "seg": 4,
    "shot": {
-    "r": "corner",
-    "cam": "mid",
-    "to": [
-     700,
+    "r": "scene",
+    "scene": "basement",
+    "cam": [
      500,
-     1.404
+     1050,
+     0.85
     ],
-    "_todo": true
+    "to": [
+     800,
+     1050,
+     0.85
+    ],
+    "actors": [
+     {
+      "id": "jar",
+      "type": "ds_prop",
+      "pos": [
+       350,
+       1140
+      ],
+      "s": 0.35,
+      "p": {
+       "kind": "jar",
+       "on": 1.0
+      },
+      "front": true,
+      "moves": [
+       {
+        "at": 0.1,
+        "dur": 2.0,
+        "pos": [
+         950,
+         1140
+        ],
+        "walk": true
+       }
+      ]
+     },
+     {
+      "id": "hero",
+      "type": "carol",
+      "pos": [
+       350,
+       1065
+      ],
+      "s": 0.07,
+      "front": true,
+      "p": {
+       "mood": "happy",
+       "look": [
+        0,
+        0.2
+       ],
+       "work": 0.0,
+       "flick": 0.0,
+       "whirl": 0.0,
+       "eggs": 0.0,
+       "wave": 1.0,
+       "reach": 0.0,
+       "shrug": 0.0,
+       "eyes8": 0.0,
+       "still": true,
+       "hat": 0.0,
+       "shades": 0.0
+      },
+      "moves": [
+       {
+        "at": 0.1,
+        "dur": 2.0,
+        "pos": [
+         950,
+         1065
+        ],
+        "walk": true
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "time": "night"
+    },
+    "mb": {
+     "pose": "present",
+     "pos": [
+      200,
+      1500
+     ],
+     "size": 760,
+     "look": "viewer",
+     "prop": null,
+     "moves": [
+      {
+       "at": 0.1,
+       "dur": 2.0,
+       "pos": [
+        800,
+        1500
+       ],
+       "walk": true
+      }
+     ]
+    },
+    "sfx": [
+     "step@0.2",
+     "step@basement|60%"
+    ]
    }
   },
   {
@@ -4942,16 +10970,29 @@
    "shot": {
     "r": "corner",
     "cam": [
-     760,
+     720,
      520,
-     1.15
+     1.1
     ],
     "to": [
-     740,
+     720,
      520,
-     1.242
+     1.14
     ],
-    "_todo": true
+    "carol": {
+     "mood": "worry"
+    },
+    "tint": [
+     0.03,
+     0.03,
+     0.1,
+     0.42
+    ],
+    "meter_big_to": 1.0,
+    "meter_big_at": "Final|5%",
+    "sfx": [
+     "thud@Final|5%"
+    ]
    }
   },
   {
@@ -4962,27 +11003,48 @@
    "shot": {
     "r": "corner",
     "cam": [
-     680,
-     480,
-     1.1
+     820,
+     560,
+     1.0
     ],
     "to": [
-     700,
-     480,
-     1.188
+     820,
+     560,
+     1.06
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "deadpan",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "carol": {
+     "mood": "smug",
+     "look": [
+      0.6,
+      0.6
+     ]
+    },
+    "extras": [
+     {
+      "id": "giant",
+      "type": "giant_spider",
+      "pos": [
+       1080,
+       950
+      ],
+      "s": 0.45,
+      "p": {
+       "mood": "shock",
+       "wrapped": 1.0
+      },
+      "front": false,
+      "flip": true
+     }
+    ],
+    "three": [
+     "HUNTING?"
+    ],
+    "three_at": [
+     "hunting|10%"
+    ],
+    "sfx": [
+     "pop@hunting|10%"
+    ]
    }
   },
   {
@@ -4991,14 +11053,48 @@
    "id": "s5.l2",
    "seg": 5,
    "shot": {
-    "r": "corner",
-    "cam": "mid",
-    "to": [
-     700,
-     500,
-     1.404
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     60,
+     1.0
     ],
-    "_todo": true
+    "to": [
+     0,
+     60,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "rumor",
+      "type": "ds_rumor",
+      "pos": [
+       -200,
+       160
+      ],
+      "s": 0.85,
+      "p": {
+       "crack": 0.3
+      },
+      "front": false
+     }
+    ],
+    "scene_p": {
+     "color": "#1b1724"
+    },
+    "norecut": true,
+    "three": [
+     "HUNTING?",
+     "HURT YOU?"
+    ],
+    "three_at": [
+     "0%",
+     "hurt|10%"
+    ],
+    "sfx": [
+     "pop@hurt|10%"
+    ]
    }
   },
   {
@@ -5008,25 +11104,99 @@
    "id": "s5.l3",
    "seg": 5,
    "shot": {
-    "r": "corner",
-    "cam": "wide",
-    "to": [
-     720,
-     470,
-     1.08
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     100,
+     1.0
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "point",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "to": [
+     0,
+     100,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "vac",
+      "type": "ds_prop",
+      "pos": [
+       -450,
+       560
+      ],
+      "s": 0.9,
+      "p": {
+       "kind": "vacuum",
+       "on": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "vacuum|35%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "hero",
+      "type": "carol",
+      "pos": [
+       150,
+       40
+      ],
+      "s": 0.5,
+      "front": false,
+      "p": {
+       "mood": "smug",
+       "look": [
+        0,
+        0.2
+       ],
+       "work": 0.0,
+       "flick": 0.0,
+       "whirl": 0.0,
+       "eggs": 0.0,
+       "wave": 0.0,
+       "reach": 0.0,
+       "shrug": 0.0,
+       "eyes8": 0.0,
+       "still": false,
+       "hat": 0.0,
+       "shades": 0.0,
+       "thread": 500
+      },
+      "set": [
+       {
+        "at": "bodyguard|65%",
+        "dur": 0.3,
+        "p": {
+         "shades": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "color": "#1b1724"
+    },
+    "norecut": true,
+    "three": [
+     "HUNTING?",
+     "HURT YOU?",
+     "LEAVE IT?"
+    ],
+    "three_at": [
+     "0%",
+     "0%",
+     "leave|8%"
+    ],
+    "sfx": [
+     "pop@vacuum|35%",
+     "boing@bodyguard|65%"
+    ]
    }
   },
   {
@@ -5088,29 +11258,49 @@
    "id": "s5.l5",
    "seg": 5,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "ds_floor",
     "cam": [
-     680,
-     480,
-     1.1
+     700,
+     760,
+     1.0
     ],
     "to": [
-     700,
-     480,
-     1.188
+     720,
+     750,
+     1.08
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "deadpan",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "actors": [
+     {
+      "id": "shadow",
+      "type": "ds_shadow",
+      "pos": [
+       1900,
+       1000
+      ],
+      "s": 1.25,
+      "p": {
+       "a": 0.62
+      },
+      "front": false,
+      "rot": -8,
+      "moves": [
+       {
+        "at": "comes|40%",
+        "dur": 1.6,
+        "pos": [
+         500,
+         860
+        ],
+        "linear": true
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "thud@start|40%",
+     "step@comes|60%"
+    ]
    }
   },
   {
@@ -5120,13 +11310,72 @@
    "seg": 5,
    "shot": {
     "r": "corner",
-    "cam": "mid",
-    "to": [
-     700,
-     500,
-     1.404
+    "cam": [
+     860,
+     760,
+     1.4
     ],
-    "_todo": true
+    "to": [
+     880,
+     770,
+     1.5
+    ],
+    "carol_pos": [
+     560,
+     600
+    ],
+    "shoe": false,
+    "norecut": true,
+    "carol": {
+     "flick": 0.0,
+     "flick_to": [
+      733.3333333333334,
+      200.0
+     ],
+     "mood": "angry",
+     "look": [
+      1,
+      0.4
+     ]
+    },
+    "carol_sets": [
+     {
+      "at": "got|30%",
+      "dur": 0.2,
+      "p": {
+       "flick": 1.0
+      }
+     }
+    ],
+    "extras": [
+     {
+      "id": "giant",
+      "type": "giant_spider",
+      "pos": [
+       1000,
+       900
+      ],
+      "s": 0.52,
+      "p": {
+       "mood": "shock",
+       "wrapped": 0.0
+      },
+      "front": false,
+      "flip": true,
+      "set": [
+       {
+        "at": "got|30%",
+        "dur": 1.0,
+        "p": {
+         "wrapped": 0.6
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "whoosh@got|30%"
+    ]
    }
   },
   {
@@ -5135,25 +11384,54 @@
    "id": "s5.l7",
    "seg": 5,
    "shot": {
-    "r": "corner",
-    "cam": "wide",
-    "to": [
-     720,
-     470,
-     1.08
+    "r": "scene",
+    "scene": "bathroom",
+    "cam": [
+     560,
+     1250,
+     1.0
     ],
-    "_todo": true,
-    "mb": {
-     "pose": "point",
-     "pos": [
-      1230,
-      900
-     ],
-     "size": 460,
-     "look": "hero",
-     "prop": null,
-     "float": true
-    }
+    "to": [
+     560,
+     1250,
+     1.06
+    ],
+    "actors": [
+     {
+      "id": "hc",
+      "type": "ds_sil",
+      "pos": [
+       560,
+       1480
+      ],
+      "s": 0.75,
+      "p": {
+       "kind": "house_centipede",
+       "a": 0.88,
+       "kp": {
+        "walk": 0.6
+       }
+      },
+      "front": false,
+      "moves": [
+       {
+        "at": 0.0,
+        "dur": 2.5,
+        "pos": [
+         760,
+         1480
+        ],
+        "walk": true
+       }
+      ]
+     }
+    ],
+    "scene_p": {
+     "time": "night"
+    },
+    "sfx": [
+     "scratch@thirty|25%"
+    ]
    }
   },
   {
@@ -5162,18 +11440,42 @@
    "id": "s5.l8",
    "seg": 5,
    "shot": {
-    "r": "corner",
+    "r": "scene",
+    "scene": "bedroom",
     "cam": [
-     760,
-     520,
-     1.15
+     700,
+     1050,
+     0.85
     ],
     "to": [
-     740,
-     520,
-     1.242
+     720,
+     1040,
+     0.9
     ],
-    "_todo": true
+    "actors": [],
+    "scene_p": {
+     "time": "night"
+    },
+    "mb": {
+     "pose": "subpoint",
+     "pos": [
+      800,
+      1500
+     ],
+     "size": 880,
+     "look": "viewer",
+     "prop": null,
+     "gest": [
+      [
+       "eight|60%",
+       "point",
+       1.0
+      ]
+     ]
+    },
+    "sfx": [
+     "pop@Subscribe|5%"
+    ]
    }
   }
  ]

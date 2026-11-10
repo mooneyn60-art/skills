@@ -20,7 +20,7 @@ Nolan (10/29): "set the channel up to the point all he has to do is make and pos
 - 63.6 of 4,000 watch hours
 - stayed-to-watch 39.5%
 - 2.5% of viewers return
-- TikTok: already monetized
+- TikTok: NOT earning. TikTok Studio, 28 days to 11/10: 76 posts, 33,653 views, 9,323 followers (net -57), For You 80% / Search 18%, like rate 2.23%, comment and share 0.06% each. Creator Rewards needs 10,000 followers and 100K views in 30 days to join, and then pays only on 1-minute videos that reach 1,000 qualified views; the account is under both bars, so the TikTok goal is +677 followers first. (The older note "already monetized" was never confirmed.)
 
 ## STYLE LOCK (Nolan, 11/1): no more style changes
 - **The look is locked:** the drawn style with stick-figure Meatball and TARS's species-accurate animals (`art/drawn_anatomy.py`). Nolan approved it on 10/30 ("way better, continue this style").
@@ -40,6 +40,7 @@ Nolan (10/29): "set the channel up to the point all he has to do is make and pos
 - **No Short under 15 s (Nolan 11/10, on the 7-second stink-bug loop: "a little too short, we need a little more info").** YouTube Shorts run 16-20 s with at least two sourced facts plus a payoff. The 7-9 s micro-loop test is over: the fruit-fly and clothes-moth loops were pulled from 11/16 and 11/17, and the stink-bug loop (posted 11/10 10:00) stays up as one data point.
 - **The v6 template (every render from 11/3):** narration from 0.00 s; frame 0 is the animal close-up already moving (Meatball hops in at ~2.3 s, smaller); a visceral "you" + number hook; line 2 (3-7 s) is action or danger, never the name or anatomy; no spoken or visual outro (no Subscribe, Part X, Follow or end card); the last line flows into the hook in the hook's room; the comment question is a top-corner pill on the last line and the pinned comment; a new fact or visual every second, cuts every 1.5-2.5 s, keyword cards in seconds 1-4, center captions. YT 15-20 s, TT 61-75 s.
 - **Topic queue additions:** "Can 'Mommy Longlegs' Hurt You?" first (a reply to real comments), then "What Happens If You Squish a House Centipede?", "The Bugs Living In Your Bathroom Drain", and the search topics in research 64 (brown recluse bite signs: CDC/university facts, "see a doctor").
+- **TikTok slots from 11/11: 12:00, 19:00 and 21:30 ET** (TikTok Studio says viewers are most active 12:00-14:00 and 19:00-22:00; the old 14:30 and 17:00 slots missed both). Its best performers are weird creature facts with a simple opinion prompt (yes/no, stay/squish), and Search is 18%, so the plain search phrase stays in the caption.
 - **TikTok (Metricool 10/23-11/3):** 50/50 short loopers (15-25 s, the YT v6 cut) and 61-65 s Rewards cuts only for proven series (house centipede, house spiders, cockroach, bed bugs); new slots alternate short/long. Captions open with the creepy fact, poll last, no "Follow for Part X" ("Part 1 in my playlist"). No TikTok case-file Shorts except the weekly one. Search is 18% of TikTok views: the plain search phrase leads the caption and is on screen in the first 2 s. Rewards pays ~$0 and followers are net -58/28 days: keep TikTok on-niche, never stretch a weak topic to 61 s.
 - **Next long-form** (week of 11/9 plan): "Every Creature Living In Your House, Ranked by Danger", 16:9, case-file quality, opening straight on creature #1 (26-44% leave in the first 12 s).
 

@@ -151,12 +151,38 @@ def _carol_body(ctx, t, p, ox=0.0, oy=0.0, alpha=1.0):
                 ang = 0.6 * k - 0.6
                 stroke(ctx, [(tp[0] + 30 * math.cos(ang), tp[1] - 30 * math.sin(ang)),
                              (tp[0] + 70 * math.cos(ang), tp[1] - 70 * math.sin(ang))], 5, a=0.8 * flick)
-    # abdomen: a long cylinder tilted up and back (hanging upside down), then the small carapace with the face
-    shape(ctx, lambda c: p_ellipse(c, bx - 78, by + 52, 112, 38, math.radians(32)), C["cell"], OUT * 0.6, (0.0, 0.18),
-          hi=(0.3, 0.3, 0.25))
-    for k in range(3):
-        flat(ctx, lambda c, k=k: p_ellipse(c, bx - 60 - k * 38, by + 40 + k * 24, 14 - 2 * k, 7, math.radians(32)),
-             C["cell_mark"], a=0.7)
+    # abdomen: a long cylinder tilted down and back, shaded like a tube (dark underside, a light stripe on top,
+    # three faint segment rings) so it never reads as a flat disc
+    mar = p.get("marbled", 0.0)
+    acol = C["cell"] if not mar else hexc("#b8ab93")
+    rot = math.radians(32)
+    ax_, ay_ = bx - 78, by + 52
+    ctx.save()
+    p_ellipse(ctx, ax_, ay_, 112, 38, rot)
+    src(ctx, darker(acol, 0.62))
+    ctx.fill_preserve()
+    ctx.clip()
+    p_ellipse(ctx, ax_ - 6, ay_ - 9, 108, 27, rot)
+    src(ctx, acol)
+    ctx.fill()
+    p_ellipse(ctx, ax_ - 14, ay_ - 20, 80, 8, rot)
+    src(ctx, lighter(acol, 0.55))
+    ctx.fill()
+    for k in (-50, 0, 50):
+        cx_, cy_ = ax_ + k * math.cos(rot), ay_ + k * math.sin(rot)
+        p_ellipse(ctx, cx_, cy_, 7, 38, rot)
+        ink(ctx, 2.2, 0.35)
+        ctx.stroke()
+    if mar:   # marbled cellar spider: dark marbling all over
+        rng = random.Random(7)
+        for k in range(16):
+            u = rng.uniform(-90, 90)
+            flat(ctx, lambda c, u=u, k=k: p_blob(c, ax_ + u * math.cos(rot), ay_ + u * math.sin(rot) + rng.uniform(-22, 22),
+                                                 rng.uniform(8, 16), rng.uniform(5, 10), 0.3, k), hexc("#5a4c3a"), a=0.75)
+    ctx.restore()
+    p_ellipse(ctx, ax_, ay_, 112, 38, rot)
+    ink(ctx, OUT * 0.6)
+    ctx.stroke()
     shape(ctx, lambda c: p_ellipse(c, bx, by, 48, 42), C["cell"], OUT * 0.6, (0.0, 0.15), hi=(0.3, 0.25, 0.25))
     flat(ctx, lambda c: p_ellipse(c, bx, by + 4, 16, 18), C["cell_mark"], a=0.75)   # the dark mark on the carapace
     # eyes: the median pair (cartoon) + two triads of side eyes, the "three little clusters"
@@ -198,6 +224,14 @@ def _carol_body(ctx, t, p, ox=0.0, oy=0.0, alpha=1.0):
         for k in range(3):
             flat(ctx, lambda c, k=k: p_ellipse(c, bx - 10 + k * 9, by - 46 - k * 16, 5, 5), hexc("#ffd34d"))
         flat(ctx, lambda c: p_ellipse(c, bx + 4, by - 116 * h, 9, 9), hexc("#e5383b"))
+    if p.get("hat2", 0.0) > 0:
+        h = p["hat2"]
+        shape(ctx, lambda c: p_poly(c, [(bx + 10, by - 100), (bx + 50 * h, by - 104), (bx + 34, by - 100 - 70 * h)]),
+              hexc("#e5383b"), OUT * 0.4, (0.0, 0.2))
+        flat(ctx, lambda c: p_ellipse(c, bx + 34, by - 100 - 76 * h, 8, 8), hexc("#ffd34d"))
+    if p.get("bite", 0.0) > 0:
+        from drawn_kit import starburst
+        starburst(ctx, bx + 60, by + 40, 40 * p["bite"], 8, (1, 0.86, 0.2), OUT * 0.4, t * 3)
     if p.get("shades", 0.0) > 0:
         for s in (-1, 1):
             shape(ctx, lambda c, s=s: p_rrect(c, bx + s * 14 - 14, by - 30, 28, 18, 6), INK, OUT * 0.3, None)
@@ -257,7 +291,9 @@ def ds_web(ctx, t, p):
     anchors = [(-W * 1.1 * g, -0.42 * W * g), (W * 1.1 * g, -0.42 * W * g), (-W * 0.6 * g, -0.25 * W * g),
                (W * 0.6 * g, -0.25 * W * g), (0, Hh * 1.1 * g), (-W * 0.9 * g, Hh * 0.5 * g), (W * 0.9 * g, Hh * 0.6 * g)]
     lw = 1.6 + 2.2 * dust
-    for k in range(70):
+    import cairo as _c
+    ctx.push_group()
+    for k in range(int(p.get("n", 52))):
         p1 = pts[rng.randrange(len(pts))]
         p2 = pts[rng.randrange(len(pts))] if rng.random() < 0.75 else anchors[rng.randrange(len(anchors))]
         wob = 2.5 * math.sin(t * 1.3 + k)
@@ -268,6 +304,17 @@ def ds_web(ctx, t, p):
             x, y = pts[rng.randrange(len(pts))]
             flat(ctx, lambda c, x=x, y=y: p_blob(c, x, y, 14 + 20 * rng.random(), 8 + 10 * rng.random(), 0.3, k),
                  hexc("#9a958c"), a=0.55 * dust)
+    pat = ctx.pop_group()
+    ctx.set_source(pat)   # the source locks to the current transform here; the mask below is in screen space
+    ctx.save()
+    ctx.identity_matrix()
+    Hs = ctx.get_target().get_height()
+    g = _c.LinearGradient(0, 0, 0, Hs)
+    fc = 0.3 if p.get("fade_card") else 1.0
+    for y, a_ in ((0.0, 1.0), (0.11, 1.0), (0.13, fc), (0.30, fc), (0.33, 1.0), (0.80, 1.0), (0.85, 0.28), (1.0, 0.28)):
+        g.add_color_stop_rgba(y, 0, 0, 0, a_)
+    ctx.mask(g)
+    ctx.restore()
 
 
 # ================================================================================================ other animals
@@ -554,7 +601,7 @@ def ds_shoe(ctx, t, p):
     if enter <= 0.01:
         return
     ks = p.get("k", 1.0) * min(1.1, max(0.45, k * 1.05))
-    gap = (60 + 6.5 * v) * ks + 1600 * p.get("lift", 0.0)
+    gap = (60 + 6.5 * v - 150 * p.get("nudge", 0.0)) * ks + 1600 * p.get("lift", 0.0)
     sole_y = y0 - 330 * k - gap
     sole_y -= (1 - ease(enter)) * 900
     tw = p.get("twitch", 0.0)
@@ -616,7 +663,7 @@ def _calendar(ctx, t, p):
     if lbl:
         text(ctx, lbl, 0, 10, 92, "#222222", 0)
     else:
-        text(ctx, "DAY", 0, -150, 44, "#ffffff", 0)
+        text(ctx, p.get("unit", "DAY"), 0, -150, 44, "#ffffff", 0)
         text(ctx, str(int(math.floor(d))), 0, 30, 150, "#222222", 0)
     if 0 < fl < 0.999 and not lbl:   # a page flipping up
         h = 330 * (1 - fl)
@@ -927,20 +974,21 @@ def ds_pie(ctx, t, p):
 
 
 def _pie_slices(ctx, t, p):
-    """A full circle chart: slices [[value, colour, label], ...] sweep in clockwise; labels sit in a legend at the
-    right with a swatch each (so long labels never sit on a thin slice)."""
+    """A full circle chart: slices [[value, colour, label], ...]; p["w"] = per-wedge progress (0..1 each, drawn one at a
+    time with the narration), else one sweep; legend at the right (p: R, lx, px, gap)."""
     sl = p["slices"]
     tot = float(sum(s[0] for s in sl))
-    sw = ease(p.get("sweep", 1.0))
-    R = 330
+    R = p.get("R", 330)
+    w = [p.get(f"w{k}", 0.0) for k in range(len(sl))] if "w0" in p else [ease(p.get("sweep", 1.0))] * len(sl)
     a0 = -math.pi / 2
     for k, (v, col, lab) in enumerate(sl):
         a1 = a0 + 2 * math.pi * v / tot
-        e = min(a1, -math.pi / 2 + 2 * math.pi * sw)
-        if e > a0:
+        u = ease(max(0.0, min(1.0, w[k])))
+        if u > 0:
+            e = a0 + (a1 - a0) * u
             ctx.save()
             ctx.move_to(0, 0)
-            ctx.arc(0, 0, R, a0, e)
+            ctx.arc(0, 0, R * (0.92 + 0.08 * u), a0, e)
             ctx.close_path()
             src(ctx, hexc(col))
             ctx.fill_preserve()
@@ -950,19 +998,20 @@ def _pie_slices(ctx, t, p):
         a0 = a1
     ctx.save()
     ctx.arc(0, 0, R, 0, 2 * math.pi)
-    ink(ctx, OUT)
+    ink(ctx, OUT, 0.5)
     ctx.stroke()
     ctx.restore()
+    lx, px, gp = p.get("lx", 460), p.get("px", 70), p.get("gap", 150)
     for k, (v, col, lab) in enumerate(sl):
-        a = max(0.0, min(1.0, sw * 3 - k * 0.6))
+        a = max(0.0, min(1.0, w[k] * 3))
         if a <= 0:
             continue
-        y = -170 + k * 170
-        shape(ctx, lambda c, y=y: p_rrect(c, 430, y - 40, 80, 80, 14), hexc(col), OUT * 0.7, None, a=a)
+        y = (k - (len(sl) - 1) / 2) * gp
+        shape(ctx, lambda c, y=y: p_rrect(c, lx, y - 45, 90, 90, 16), hexc(col), OUT * 0.7, None, a=a)
         ctx.save()
-        im_w, im_h = text(ctx, lab, 0, 0, 58, "#ffffff", None, 0.0)
+        im_w, im_h = text(ctx, lab, 0, 0, px, "#ffffff", None, 0.0)
         ctx.restore()
-        text(ctx, lab, 540 + im_w / 2, y, 58, "#ffffff", None, a)
+        text(ctx, lab, lx + 120 + im_w / 2, y, px, "#ffffff", None, a)
 
 
 def ds_lineup(ctx, t, p):
@@ -986,8 +1035,6 @@ def ds_lineup(ctx, t, p):
         ctx.rectangle(x - 300, -Hl, 600, Hl)
         ctx.fill()
         ctx.restore()
-        shape(ctx, lambda c, x=x: p_rrect(c, x - 60, -300, 120, 90, 12), hexc("#f2f2ea"), OUT * 0.6, None)
-        text(ctx, str(i + 1), x, -254, 70, "#222222", 0)
     flat(ctx, lambda c: c.rectangle(-Wl / 2, 0, Wl, 300), hexc("#2a2f3a"))
 
 
@@ -1048,6 +1095,10 @@ def ds_lineup_mask(ctx, t, p):
         a = 0.86 * (1 - (lit[i] if i < len(lit) else 0))
         if a > 0.01:
             flat(ctx, lambda c, i=i: c.rectangle((i - 1) * 560 - 280, -1000, 560, 1000), hexc("#0c0e14"), a=a)
+    for i in range(3):   # the number plates, in front of everything, low and to the left of each suspect
+        x = (i - 1) * 560 - 215
+        shape(ctx, lambda c, x=x: p_rrect(c, x - 55, -130, 110, 90, 12), hexc("#f2f2ea"), OUT * 0.6, None)
+        text(ctx, str(i + 1), x, -84, 70, "#222222", 0)
 
 
 def ds_chip_src(ctx, t, p):
@@ -1253,3 +1304,525 @@ ACTORS = {"carol": carol, "ds_web": ds_web, "giant_spider": giant_spider, "ds_sh
           "ds_chip_src": ds_chip_src, "ds_lineup_mask": ds_lineup_mask, "ds_bubble": ds_bubble}
 SCENES = {"ds_corner": ds_corner, "ds_floor": ds_floor, "ds_lab": ds_lab, "ds_shed": ds_shed, "ds_wall": ds_wall,
           "ds_board_bg": ds_board_bg}
+
+
+# ================================================================================================ phase 2 pictures
+
+import drawn_bugs as _bugs   # noqa: E402
+
+
+def js_front(ctx, t, p):
+    """Jumping spider, front view: compact fuzzy body, two huge forward eyes, short thick legs (drawn_bugs)."""
+    _bugs.jumping_spider(ctx, t, p)
+
+
+def ds_orb(ctx, t, p):
+    """A neat wheel (orb) web: radials + a spiral; origin = hub. p: r, a, jiggle (0..1 the web shakes)."""
+    R = p.get("r", 380)
+    a = p.get("a", 0.9)
+    jg = p.get("jiggle", 0.0) * 14 * math.sin(t * 30)
+    n = 14
+    for k in range(n):
+        ang = 2 * math.pi * k / n
+        stroke(ctx, [(0, 0), (R * math.cos(ang) + jg, R * math.sin(ang))], 2.6, color=(1, 1, 1), a=a)
+    pts = []
+    for j in range(260):
+        ang = j * 2 * math.pi / n * 0.5
+        r = 40 + (R - 50) * j / 260
+        pts.append((r * math.cos(ang) + jg * r / R, r * math.sin(ang)))
+    stroke(ctx, pts, 2.0, color=(1, 1, 1), a=a * 0.85)
+
+
+_CONT = [  # (longitude deg, latitude, rx, ry, name) crude blobs for a cartoon globe
+    (-100, -45, 70, 70, "NA"), (-60, 40, 45, 80, "SA"), (15, -55, 60, 40, "EU"), (20, 20, 60, 80, "AF"),
+    (90, -40, 100, 60, "AS"), (135, 75, 60, 40, "AUSTRALIA")]
+
+
+def ds_globe(ctx, t, p):
+    """A cartoon globe; p: rot (degrees, the spin), hi (name of a blob to highlight in yellow), pin (0..1)."""
+    R = 300
+    shape(ctx, lambda c: p_ellipse(c, 0, 0, R, R), hexc("#4f8fc6"), OUT, (0.1, 0.1), hi=(0.3, 0.25, 0.25))
+    rot = p.get("rot", 0.0)
+    ctx.save()
+    p_ellipse(ctx, 0, 0, R, R)
+    ctx.clip()
+    for lon, lat, rx, ry, name in _CONT:
+        a = math.radians(lon - rot)
+        if math.cos(a) <= 0.05:
+            continue
+        x = R * math.sin(a)
+        col = hexc("#ffd34d") if name == p.get("hi") else hexc("#7cc46a")
+        shape(ctx, lambda c, x=x, lat=lat, rx=rx, ry=ry, a=a, name=name: p_blob(c, x, lat * 2.2, rx * max(0.2, math.cos(a)),
+                                                                              ry, 0.15, len(name)), col, OUT * 0.6, None)
+    ctx.restore()
+    ctx.save()
+    p_ellipse(ctx, 0, 0, R, R)
+    ink(ctx, OUT)
+    ctx.stroke()
+    ctx.restore()
+    if p.get("pin", 0.0) > 0 and p.get("hi"):
+        lon, lat = next((c[0], c[1]) for c in _CONT if c[4] == p["hi"])
+        x = R * math.sin(math.radians(lon - rot))
+        pp = back_out(min(1.0, p["pin"]))
+        y = lat * 2.2
+        shape(ctx, lambda c: (c.move_to(x, y), c.curve_to(x - 40, y - 50, x - 34, y - 90, x, y - 90),
+                              c.curve_to(x + 34, y - 90, x + 40, y - 50, x, y)), C["red"], OUT * 0.7, None, a=min(1.0, pp))
+        text(ctx, p["hi"], x, y + 60, 54, "#ffffff", None, min(1.0, pp))
+
+
+def _bundle(ctx, x, y, r, burst=0.0, t=0.0):
+    if burst < 0.99:
+        shape(ctx, lambda c: p_ellipse(c, x, y, r * (1 - burst), r * 0.9 * (1 - burst)), hexc("#f3ead2"), OUT * 0.45, (0, 0.2))
+        rng = random.Random(4)
+        for k in range(12):
+            a, rr = rng.uniform(0, 6.28), rng.uniform(0, r * 0.65)
+            flat(ctx, lambda c, a=a, rr=rr: p_ellipse(c, x + rr * math.cos(a) * (1 - burst), y + rr * math.sin(a) * (1 - burst),
+                                                      r * 0.18, r * 0.18), hexc("#d9c79f"), OUT * 0.12)
+    if burst > 0:
+        rng = random.Random(8)
+        for k in range(26):
+            a, d = rng.uniform(0, 6.28), rng.uniform(0.4, 1.0)
+            sx, sy = x + math.cos(a) * d * 260 * burst, y + math.sin(a) * d * 200 * burst
+            flat(ctx, lambda c, sx=sx, sy=sy: p_ellipse(c, sx, sy, 6, 6), hexc("#e8dcc0"), OUT * 0.2)
+            for s in (-1, 1):
+                stroke(ctx, [(sx, sy), (sx + s * 10, sy - 8), (sx + s * 16, sy + 2)], 2, a=0.8)
+
+
+def ds_bundle(ctx, t, p):
+    """An egg bundle hanging on a strand (origin = the anchor above); p: len, burst (0..1 hatches), on."""
+    on = p.get("on", 1.0)
+    if on <= 0.01:
+        return
+    ln = p.get("len", 120)
+    sw = 6 * math.sin(t * 2)
+    stroke(ctx, [(0, 0), (sw, ln)], 2.4, color=(1, 1, 1), a=0.9 * (1 - p.get("burst", 0.0)))
+    _bundle(ctx, sw, ln + 40 * on, 44 * on, p.get("burst", 0.0), t)
+
+
+def ds_babies(ctx, t, p):
+    """Spiderlings fanning out from the origin along a ceiling line; p: u (0..1 spread), n, dir (+1/-1 both)."""
+    u = ease(p.get("u", 0.0))
+    n = int(p.get("n", 14))
+    rng = random.Random(5)
+    for k in range(n):
+        ang = rng.uniform(-0.25, 0.25)
+        d = (300 + 1200 * rng.random()) * u
+        sd = -1 if k % 2 else 1
+        x, y = sd * d * math.cos(ang), d * math.sin(ang) * 0.4 + rng.uniform(-30, 30)
+        bob = 4 * math.sin(t * 12 + k)
+        for s in (-1, 1):
+            for j in range(4):
+                stroke(ctx, [(x, y + bob), (x + s * (18 + j * 4), y - 16 + j * 9 + bob), (x + s * (30 + j * 6), y - 2 + j * 12 + bob)],
+                       2.4, color=hexc("#3a3024"))
+        shape(ctx, lambda c, x=x, y=y, bob=bob: p_ellipse(c, x, y + bob, 9, 7), C["cell"], OUT * 0.25, None)
+
+
+def ds_doorbell(ctx, t, p):
+    """A tiny front door built into the web corner with a doorbell; p: ring (0..1), open (0..1)."""
+    o = p.get("open", 0.0)
+    shape(ctx, lambda c: c.rectangle(-110, -300, 220, 300), hexc("#2a2018"), OUT, None)
+    w = 220 * (1 - 0.8 * o)
+    shape(ctx, lambda c: c.rectangle(-110, -300, w, 300), hexc("#b0683a"), OUT, (0.1, 0))
+    flat(ctx, lambda c: p_ellipse(c, -110 + w - 26, -150, 10, 10), hexc("#ffd34d"))
+    shape(ctx, lambda c: c.rectangle(-140, -330, 280, 34), hexc("#6b4626"), OUT, None)
+    shape(ctx, lambda c: p_rrect(c, 130, -200, 50, 70, 10), hexc("#e6e1d3"), OUT * 0.6, None)
+    shape(ctx, lambda c: p_ellipse(c, 155, -165, 14, 14), hexc("#e5383b"), OUT * 0.5, None)
+    r = p.get("ring", 0.0)
+    if r > 0:
+        for k in range(3):
+            rr = 40 + k * 30 + 10 * math.sin(t * 20)
+            ctx.new_sub_path()
+            ctx.arc(155, -165, rr, -1.0, 1.0)
+            ink(ctx, 5, r)
+            ctx.stroke()
+        text(ctx, "DING-DONG", 160, -330, 54, "#ffd34d", None, r)
+
+
+def ds_court(ctx, t, layer, p):
+    """A courtroom: wood-panelled wall, a judge's bench across the back; floor y = 1500."""
+    layer(1.0)
+    flat(ctx, lambda c: c.rectangle(-3000, -2000, 8000, 5000), hexc("#7a5233"))
+    for x in range(-3000, 5000, 220):
+        shape(ctx, lambda c, x=x: c.rectangle(x + 20, 200, 180, 1000), hexc("#8a6040"), BG_OUT * 0.6, None)
+    shape(ctx, lambda c: c.rectangle(-300, 900, 1700, 600), hexc("#5e3d23"), BG_OUT, (0, 0.1))
+    shape(ctx, lambda c: c.rectangle(-340, 860, 1780, 60), hexc("#6b4626"), BG_OUT, None)
+    shape(ctx, lambda c: p_ellipse(c, 550, 500, 150, 150), hexc("#d9b44a"), BG_OUT, (0.1, 0.1))
+    flat(ctx, lambda c: c.rectangle(-3000, 1500, 8000, 3000), hexc("#4a3220"))
+    _grade_night(ctx)
+
+
+def ds_sheet(ctx, t, p):
+    """A charge sheet scroll unrolling downward from its top bar; p: unroll 0..1, line (big text), small (0..1)."""
+    u = ease(p.get("unroll", 1.0))
+    Hs = 620 * u
+    shape(ctx, lambda c: c.rectangle(-300, 0, 600, max(2, Hs)), PAL["paper"], OUT, (0, 0.06))
+    shape(ctx, lambda c: p_rrect(c, -330, -30, 660, 50, 25), PAL["paper_dk"], OUT, None)
+    if u > 0.3:
+        text(ctx, "CHARGES", 0, 60, 60, "#222222", 0, min(1.0, (u - 0.3) * 3))
+    if p.get("line") and u > 0.6:
+        text(ctx, p["line"], 0, 200, 92, "#c0392b", 0, min(1.0, (u - 0.6) * 3))
+    if p.get("small", 0.0) > 0 and u > 0.8:
+        for k in range(6):
+            stroke(ctx, [(-220, 330 + k * 30), (220 - (k == 5) * 200, 330 + k * 30)], 4, color=(0.5, 0.5, 0.5),
+                   a=p["small"])
+
+
+def ds_rumor(ctx, t, p):
+    """THE RUMOR as a paper card; p: crack (0..1: splits in two, the halves fall away), text."""
+    cr = p.get("crack", 0.0)
+    txt = p.get("text", "THE RUMOR")
+    for half in (-1, 1):
+        ctx.save()
+        dx = half * 60 * cr
+        dy = 500 * cr * cr
+        ctx.translate(dx, dy)
+        ctx.rotate(half * 0.5 * cr)
+        ctx.save()
+        if half < 0:
+            ctx.rectangle(-500, -300, 500, 600)
+        else:
+            ctx.rectangle(0, -300, 500, 600)
+        ctx.clip()
+        shape(ctx, lambda c: p_rrect(c, -420, -170, 840, 340, 18), PAL["paper"], OUT, (0, 0.1))
+        text(ctx, txt, 0, -40, 120, "#c0392b", 0)
+        for k in range(3):
+            stroke(ctx, [(-330, 70 + k * 36), (330 - k * 90, 70 + k * 36)], 6, color=(0.6, 0.6, 0.6))
+        ctx.restore()
+        ctx.restore()
+    if 0 < cr < 0.3:
+        stroke(ctx, [(0, -170), (20, -80), (-15, 10), (15, 90), (0, 170)], 8, a=1 - cr * 3)
+
+
+def ds_fangs(ctx, t, p):
+    """Diagram: two small fangs above a cross-section of skin (outer layer, softer layer); p: dip (0..1)."""
+    d = ease(p.get("dip", 0.0))
+    flat(ctx, lambda c: c.rectangle(-700, 0, 1400, 70), hexc("#f1c7a0"))
+    flat(ctx, lambda c: c.rectangle(-700, 70, 1400, 300), hexc("#e7a283"))
+    stroke(ctx, [(-700, 0), (700, 0)], 6)
+    stroke(ctx, [(-700, 70), (700, 70)], 3, a=0.5)
+    for s in (-1, 1):
+        x = s * 70
+        y = -260 + 290 * d
+        shape(ctx, lambda c, x=x, y=y: p_poly(c, [(x - 34, y - 140), (x + 34, y - 140), (x + 6 * s, y), (x - 4 * s, y - 10)]),
+              hexc("#3a2418"), OUT * 0.6, (0.1, 0.1))
+    shape(ctx, lambda c: p_rrect(c, -170, -500 + 290 * d, 340, 130, 40), C["cell"], OUT * 0.7, (0, 0.2))
+    text(ctx, "SKIN", 560, 40, 52, "#ffffff", None)
+
+
+def ds_scale(ctx, t, p):
+    """A balance: the left pan holds a tiny Carol, the right a weight; p: tilt (0..1 the heavy side drops), label."""
+    tl = ease(p.get("tilt", 1.0)) * 0.22
+    shape(ctx, lambda c: p_poly(c, [(-60, 0), (60, 0), (20, -420), (-20, -420)]), PAL["steel_dk"], OUT, None)
+    ctx.save()
+    ctx.translate(0, -420)
+    ctx.rotate(tl)
+    stroke(ctx, [(-380, 0), (380, 0)], 26)
+    stroke(ctx, [(-380, 0), (380, 0)], 14, color=PAL["steel"])
+    ctx.restore()
+    for s in (-1, 1):
+        px, py = s * 380 * math.cos(tl), -420 + s * 380 * math.sin(tl)
+        stroke(ctx, [(px, py), (px - 110, py + 200)], 4)
+        stroke(ctx, [(px, py), (px + 110, py + 200)], 4)
+        shape(ctx, lambda c, px=px, py=py: p_ellipse(c, px, py + 200, 140, 30), PAL["steel"], OUT, (0, 0.3))
+        if s < 0:
+            ctx.save()
+            ctx.translate(px, py + 120)
+            ctx.scale(0.22, 0.22)
+            carol(ctx, t, {"mood": "smug", "still": True})
+            ctx.restore()
+        else:
+            shape(ctx, lambda c, px=px, py=py: p_poly(c, [(px - 90, py + 190), (px + 90, py + 190), (px + 60, py + 50), (px - 60, py + 50)]),
+                  hexc("#45454d"), OUT, (0.1, 0.1))
+            text(ctx, p.get("label", "5x"), px, py + 125, 80, "#ffffff", 0)
+
+
+def ds_fade_row(ctx, t, p):
+    """A row of big house spiders; the first `gone` of them (float) turn into dashed empty outlines with a '?'."""
+    n = int(p.get("n", 5))
+    gone = p.get("gone", 0.0)
+    for k in range(n):
+        x = (k - (n - 1) / 2) * 380
+        g = max(0.0, min(1.0, gone - k))
+        ctx.save()
+        ctx.translate(x, 0)
+        ctx.scale(0.42, 0.42)
+        if g < 1:
+            ctx.push_group()
+            giant_spider(ctx, t + k, {"walk": 0.2, "mood": "worry"})
+            ctx.pop_group_to_source()
+            ctx.paint_with_alpha(1 - g)
+        if g > 0:
+            ctx.set_dash([18, 14])
+            p_ellipse(ctx, -60, -200, 260, 150)
+            ink(ctx, 8, g)
+            ctx.stroke()
+            ctx.set_dash([])
+            text(ctx, "?", -60, -200, 220, "#ffd34d", None, g)
+        ctx.restore()
+
+
+def ds_split(ctx, t, p):
+    """Versus background: green left half, red right half, a jagged divider (world space, wide)."""
+    flat(ctx, lambda c: c.rectangle(-3000, -3000, 3000, 6000), hexc("#2b5f3f"))
+    flat(ctx, lambda c: c.rectangle(0, -3000, 3000, 6000), hexc("#6b2a2a"))
+    pts = [(0, -3000)] + [((-40 if k % 2 else 40), -1000 + k * 120) for k in range(20)] + [(0, 3000)]
+    stroke(ctx, pts, 30, color=(1, 0.83, 0.3))
+
+
+def ds_eyes(ctx, t, p):
+    """A pair of shining eyes in the dark (something else is in the corner); p: on."""
+    on = p.get("on", 1.0)
+    if on <= 0.01:
+        return
+    bl = 0.1 if math.sin(t * 1.7) > 0.96 else 1.0
+    for s in (-1, 1):
+        shape(ctx, lambda c, s=s: p_ellipse(c, s * 60, 0, 44, 44 * bl), hexc("#1a1a1e"), OUT * 0.5, None, a=on)
+        flat(ctx, lambda c, s=s: p_ellipse(c, s * 60 - 12, -14 * bl, 14, 14 * bl), (1, 1, 1), a=on)
+        ctx.save()
+        rg = cairo.RadialGradient(s * 60, 0, 10, s * 60, 0, 120)
+        rg.add_color_stop_rgba(0, 0.7, 1, 0.8, 0.35 * on)
+        rg.add_color_stop_rgba(1, 0.7, 1, 0.8, 0)
+        ctx.set_source(rg)
+        ctx.arc(s * 60, 0, 120, 0, 2 * math.pi)
+        ctx.fill()
+        ctx.restore()
+
+
+def ds_building(ctx, t, p):
+    """A block of flats in the snow, windows lit; p: webs (0..1: little webs fill the windows)."""
+    shape(ctx, lambda c: c.rectangle(-420, -900, 840, 900), hexc("#8a7a6a"), OUT, (0.08, 0))
+    shape(ctx, lambda c: p_poly(c, [(-460, -900), (460, -900), (380, -980), (-380, -980)]), hexc("#f2f4f8"), OUT, None)
+    wb = p.get("webs", 0.0)
+    for r in range(4):
+        for k in range(4):
+            x, y = -330 + k * 190, -820 + r * 200
+            flat(ctx, lambda c, x=x, y=y: c.rectangle(x, y, 120, 130), hexc("#ffd98a"))
+            ctx.rectangle(x, y, 120, 130)
+            ink(ctx, OUT * 0.6)
+            ctx.stroke()
+            if wb > (r * 4 + k) / 16.0:
+                for j in range(4):
+                    a = j * 0.4
+                    stroke(ctx, [(x + 4, y + 4), (x + 4 + 90 * math.cos(a), y + 4 + 90 * math.sin(a))], 2, color=(1, 1, 1))
+                stroke(ctx, [(x + 40, y + 4), (x + 4, y + 40)], 2, color=(1, 1, 1))
+                stroke(ctx, [(x + 70, y + 4), (x + 4, y + 70)], 2, color=(1, 1, 1))
+    flat(ctx, lambda c: c.rectangle(-3000, 0, 6000, 900), hexc("#f2f4f8"))
+    rng = random.Random(3)
+    for k in range(80):
+        x = rng.uniform(-1200, 1200)
+        y = -1200 + ((rng.uniform(0, 1300) + t * 160 * (0.6 + rng.random())) % 1300)
+        flat(ctx, lambda c, x=x, y=y: p_ellipse(c, x + 15 * math.sin(t + k), y, 6, 6), (1, 1, 1))
+
+
+def ds_house_ext(ctx, t, layer, p):
+    """Outside the house at night: dark sky, a moon, the house with warm windows, lawn; house base at y = 1500."""
+    layer(0.7)
+    flat(ctx, lambda c: c.rectangle(-4000, -4000, 9000, 8000), hexc("#1b2440"))
+    flat(ctx, lambda c: p_ellipse(c, 1500, 0, 90, 90), hexc("#f4f1d0"))
+    rng = random.Random(1)
+    for k in range(40):
+        x, y = rng.uniform(-2500, 3500), rng.uniform(-1500, 700)
+        flat(ctx, lambda c, x=x, y=y: p_ellipse(c, x, y, 4, 4), (1, 1, 0.9), a=0.5 + 0.5 * math.sin(t * 2 + k))
+    layer(1.0)
+    flat(ctx, lambda c: c.rectangle(-4000, 1500, 9000, 3000), hexc("#2f5a33"))
+    shape(ctx, lambda c: c.rectangle(-200, 600, 1500, 900), hexc("#c9b89a"), BG_OUT, (0.08, 0))
+    shape(ctx, lambda c: p_poly(c, [(-300, 620), (1400, 620), (550, 60)]), hexc("#8a3a2c"), BG_OUT, (0.05, 0.1))
+    for (x, y) in ((0, 800), (400, 800), (800, 800), (1080, 800), (0, 1150), (800, 1150)):
+        shape(ctx, lambda c, x=x, y=y: c.rectangle(x, y, 200, 200), hexc("#ffd98a"), BG_OUT, None)
+        stroke(ctx, [(x + 100, y), (x + 100, y + 200)], BG_OUT)
+    shape(ctx, lambda c: c.rectangle(420, 1150, 180, 350), hexc("#6b4626"), BG_OUT, None)
+    shape(ctx, lambda c: c.rectangle(1000, 240, 120, 300), hexc("#7a3a2c"), BG_OUT, None)
+    _grade_night(ctx)
+
+
+def ds_parade(ctx, t, p):
+    """Eight spiders from eight other families walk past in a line (dark silhouettes, all different); p: u (0..1)."""
+    u = p.get("u", 0.0)
+    cfgs = [(1.0, 130, 100), (0.8, 160, 140), (1.3, 120, 80), (0.9, 150, 150), (0.75, 110, 120), (1.15, 170, 110),
+            (0.95, 140, 90), (1.05, 120, 130)]
+    for k, (L, ax, ay) in enumerate(cfgs):
+        x = 1500 - (u * 3400) + k * 380
+        if -1400 < x < 1400:
+            ctx.save()
+            ctx.translate(x, 0)
+            ctx.scale(-0.4, 0.4)
+            ctx.push_group()
+            drawn_anatomy._spider(ctx, t + k, {"walk": 1.0}, {"color": "#2a2a30", "abd": (ax, ay), "leg": L,
+                                                               "leg_w": 12 + k % 3 * 3, "hair": k % 2 == 0})
+            pat = ctx.pop_group()
+            ctx.set_source_rgba(0.08, 0.08, 0.12, 0.92)
+            ctx.mask(pat)
+            ctx.restore()
+
+
+def ds_arenas(ctx, t, p):
+    """Ten little lab arenas (5 x 2), each a cellar spider vs a noble false widow; p: grey (0..10 lost so far)."""
+    g = p.get("grey", 0.0)
+    order = [0, 3, 7, 1, 9, 5, 8]   # the seven that are lost, in the order they go grey
+    for k in range(10):
+        col, row = k % 5, k // 5
+        x, y = (col - 2) * 340, row * 300
+        shape(ctx, lambda c, x=x, y=y: p_rrect(c, x - 150, y - 230, 300, 230, 16), (0.85, 0.95, 1.0), OUT * 0.6, None, a=0.35)
+        _remain_icon(ctx, "sp", x - 60, y - 70, 46)
+        shape(ctx, lambda c, x=x, y=y: p_ellipse(c, x + 70, y - 80, 42, 36), C["fw"], OUT * 0.5, (0, 0.2))
+        flat(ctx, lambda c, x=x, y=y: p_ellipse(c, x + 76, y - 92, 22, 9), C["fw_mark"])
+        for s in (-1, 1):
+            for j in range(3):
+                stroke(ctx, [(x + 70, y - 70), (x + 70 + s * (40 + j * 8), y - 40 + j * 10)], 5, color=C["fw_dk"])
+        if k in order:
+            gi = order.index(k)
+            a = max(0.0, min(1.0, g - gi))
+            if a > 0:
+                flat(ctx, lambda c, x=x, y=y: p_rrect(c, x - 150, y - 230, 300, 230, 16), hexc("#2a2a30"), a=0.7 * a)
+                _wrapped(ctx, x - 60, y - 70, 70, 50, a)
+
+
+def ds_whisper(ctx, t, p):
+    """Gossip: wavy whisper lines and 'psst' around the origin; p: on."""
+    on = p.get("on", 1.0)
+    if on <= 0.01:
+        return
+    for k in range(4):
+        a = k * 1.6 + 0.3
+        x, y = 260 * math.cos(a), 200 * math.sin(a)
+        stroke(ctx, [(x + j * 14, y + 10 * math.sin(t * 6 + j)) for j in range(6)], 5, smooth=True, a=on * 0.8)
+    text(ctx, "PSST", 230, -200, 60, "#ffffff", None, on)
+
+
+def ds_arrow(ctx, t, p):
+    """A hand-drawn arrow from the origin to p['to']; p: grow, color."""
+    g = ease(p.get("grow", 1.0))
+    tx, ty = p.get("to", (300, 0))
+    ex, ey = tx * g, ty * g
+    col = hexc(p.get("color", "#ffd34d"))
+    stroke(ctx, [(0, 0), (ex * 0.5, ey * 0.5 - 40), (ex, ey)], 22, smooth=True)
+    stroke(ctx, [(0, 0), (ex * 0.5, ey * 0.5 - 40), (ex, ey)], 12, smooth=True, color=col)
+    if g > 0.9:
+        a = math.atan2(ey - (ey * 0.5 - 40), ex - ex * 0.5)
+        for s in (-1, 1):
+            stroke(ctx, [(ex, ey), (ex - 50 * math.cos(a + s * 0.5), ey - 50 * math.sin(a + s * 0.5))], 22)
+            stroke(ctx, [(ex, ey), (ex - 50 * math.cos(a + s * 0.5), ey - 50 * math.sin(a + s * 0.5))], 12, color=col)
+
+
+def ds_calgrid(ctx, t, p):
+    """A calendar page of four weeks: a vacuum icon on every third week and a web count that drops; p: u (0..1)."""
+    u = p.get("u", 1.0)
+    shape(ctx, lambda c: p_rrect(c, -520, -380, 1040, 760, 24), (0.98, 0.97, 0.94), OUT, (0, 0.05))
+    shape(ctx, lambda c: c.rectangle(-520, -380, 1040, 110), C["red"], OUT, None)
+    text(ctx, "EVERY FEW WEEKS", 0, -325, 64, "#ffffff", 0)
+    for r in range(4):
+        for k in range(7):
+            x, y = -450 + k * 130, -230 + r * 150
+            stroke(ctx, [(x - 60, y - 60), (x + 60, y - 60)], 2, a=0.3)
+            idx = r * 7 + k
+            if idx % 10 == 3 and idx / 28 < u:
+                ctx.save()
+                ctx.translate(x, y + 50)
+                ctx.scale(0.16, 0.16)
+                _vacuum(ctx, t, {})
+                ctx.restore()
+    n = max(0, int(round(6 * (1 - u))))
+    for k in range(n):
+        ctx.save()
+        ctx.translate(560 + (k % 2) * 140, -260 + (k // 2) * 180)
+        ctx.scale(0.12, 0.12)
+        ds_web(ctx, t, {"w": 500, "h": 600, "seed": k, "a": 0.9})
+        ctx.restore()
+
+
+def _clock(ctx, t, p):
+    shape(ctx, lambda c: p_ellipse(c, 0, 0, 120, 120), (0.98, 0.97, 0.94), OUT, (0, 0.1))
+    for k in range(12):
+        a = k * math.pi / 6
+        stroke(ctx, [(100 * math.cos(a), 100 * math.sin(a)), (88 * math.cos(a), 88 * math.sin(a))], 5)
+    h = p.get("hour", 2.0)
+    ah = math.radians(h * 30 - 90)
+    stroke(ctx, [(0, 0), (60 * math.cos(ah), 60 * math.sin(ah))], 12)
+    stroke(ctx, [(0, 0), (0, -92)], 8)
+
+
+def _towel(ctx, t, p):
+    """A bath-towel outline (dashed), for the size of the biggest web."""
+    ctx.set_dash([30, 18])
+    p_rrect(ctx, -380, -260, 760, 520, 20)
+    src(ctx, hexc("#ffd34d"))
+    ctx.set_line_width(12)
+    ctx.stroke()
+    ctx.set_dash([])
+    stroke(ctx, [(-380, 190), (380, 190)], 10, color=hexc("#ffd34d"), a=0.6)
+
+
+def _comment(ctx, t, p):
+    shape(ctx, lambda c: (p_rrect(c, -150, -110, 300, 180, 40)), (1, 1, 1), OUT, None)
+    shape(ctx, lambda c: p_poly(c, [(-60, 68), (-20, 68), (-80, 130)]), (1, 1, 1), OUT * 0.8, None)
+    for k in range(3):
+        flat(ctx, lambda c, k=k: p_ellipse(c, -60 + k * 60, -20, 16, 16), INK)
+
+
+def _shoe_prop(ctx, t, p):
+    ctx.save()
+    ctx.rotate(p.get("rot", -0.3))
+    _shoe(ctx, p.get("k", 0.45))
+    ctx.restore()
+
+
+def _boiler(ctx, t, p):
+    shape(ctx, lambda c: p_rrect(c, -170, -600, 340, 600, 30), hexc("#c9ced8"), OUT, (0.1, 0.1))
+    shape(ctx, lambda c: p_ellipse(c, 0, -420, 70, 70), hexc("#2c3440"), OUT, None)
+    flat(ctx, lambda c: p_ellipse(c, 0, -420, 40, 40), hexc("#ff9f1c"), a=0.7 + 0.3 * math.sin(t * 8))
+    stroke(ctx, [(120, -600), (120, -900)], 26)
+    stroke(ctx, [(120, -600), (120, -900)], 16, color=PAL["pipe"])
+
+
+def _snowwin(ctx, t, p):
+    shape(ctx, lambda c: c.rectangle(-180, -140, 360, 280), hexc("#c8dceb"), OUT, None)
+    rng = random.Random(2)
+    for k in range(30):
+        x = -170 + rng.random() * 340
+        y = -130 + ((rng.random() * 260 + t * 120) % 260)
+        flat(ctx, lambda c, x=x, y=y: p_ellipse(c, x, y, 5, 5), (1, 1, 1))
+    flat(ctx, lambda c: c.rectangle(-180, 90, 360, 50), (1, 1, 1))
+    stroke(ctx, [(0, -140), (0, 140)], BG_OUT)
+
+
+def _nozzle(ctx, t, p):
+    """A vacuum hose and nozzle reaching up from the bottom; origin = the nozzle mouth; p: suck (0..1 lines)."""
+    stroke(ctx, [(0, 0), (60, 300), (20, 700), (120, 1400)], 70)
+    stroke(ctx, [(0, 0), (60, 300), (20, 700), (120, 1400)], 54, color=hexc("#5b6b7a"))
+    shape(ctx, lambda c: p_poly(c, [(-70, -10), (70, -10), (40, 120), (-40, 120)]), hexc("#e5383b"), OUT, (0, 0.2))
+    s = p.get("suck", 0.0)
+    if s > 0:
+        for k in range(5):
+            a = -math.pi / 2 + (k - 2) * 0.35
+            r0 = 120 + ((t * 300 + k * 40) % 160)
+            stroke(ctx, [(r0 * math.cos(a), -20 + r0 * math.sin(a)), ((r0 - 60) * math.cos(a), -20 + (r0 - 60) * math.sin(a))], 6, a=s)
+
+
+def _bundles_shelf(ctx, t, p):
+    """A lab shelf of egg bundles; p: n (2..8)."""
+    shape(ctx, lambda c: c.rectangle(-560, 0, 1120, 30), hexc("#7a5233"), OUT, None)
+    n = p.get("n", 2.0)
+    for k in range(8):
+        a = max(0.0, min(1.0, n - k))
+        if a > 0:
+            _bundle(ctx, -470 + k * 134, -50, 48 * back_out(a))
+    text(ctx, str(int(min(8, max(2, math.floor(n + 0.001))))), 0, 120, 110, "#ffd34d")
+
+
+def _fist(ctx, t, p):
+    """A fist seen from the front with a ruler beside the knuckle and the tiny sore dot; p: dot (0..1)."""
+    shape(ctx, lambda c: p_rrect(c, -260, -160, 520, 320, 90), PAL["skin"], OUT, (0.05, 0.2))
+    for k in range(4):
+        shape(ctx, lambda c, k=k: p_ellipse(c, -195 + k * 130, -150, 66, 50), PAL["skin"], OUT * 0.8, (0, 0.2))
+    d = p.get("dot", 0.0)
+    if d > 0:
+        flat(ctx, lambda c: p_ellipse(c, -65, -170, 7 * d, 7 * d), hexc("#c0392b"))
+
+
+PROPS.update(clock=_clock, towel=_towel, comment=_comment, shoe=_shoe_prop, boiler=_boiler, snowwin=_snowwin,
+             nozzle=_nozzle, bundles=_bundles_shelf, fist=_fist)
+ACTORS.update(js_front=js_front, ds_orb=ds_orb, ds_globe=ds_globe, ds_bundle=ds_bundle, ds_babies=ds_babies,
+              ds_doorbell=ds_doorbell, ds_sheet=ds_sheet, ds_rumor=ds_rumor, ds_fangs=ds_fangs, ds_scale=ds_scale,
+              ds_fade_row=ds_fade_row, ds_split=ds_split, ds_eyes=ds_eyes, ds_building=ds_building, ds_parade=ds_parade,
+              ds_arenas=ds_arenas, ds_whisper=ds_whisper, ds_arrow=ds_arrow, ds_calgrid=ds_calgrid)
+SCENES.update(ds_court=ds_court, ds_house_ext=ds_house_ext)

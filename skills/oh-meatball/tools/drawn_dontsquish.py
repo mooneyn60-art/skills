@@ -244,13 +244,15 @@ def ds_vs(ctx, t, p):
         return
     ctx.identity_matrix()
     u = ease(min(1.0, on))
-    ctx.rectangle(0, 0, W / 2 * u, H)
-    kk.fill(ctx, "#2b5f3f", 0.92)
-    ctx.rectangle(W - W / 2 * u, 0, W / 2 * u, H)
-    kk.fill(ctx, "#6b2a2a", 0.92)
+    if p.get("panels", True):
+        ctx.rectangle(0, 0, W / 2 * u, H)
+        kk.fill(ctx, "#2b5f3f", 0.92)
+        ctx.rectangle(W - W / 2 * u, 0, W / 2 * u, H)
+        kk.fill(ctx, "#6b2a2a", 0.92)
     if u > 0.6:
-        kk.blit(ctx, kk.text_img(p.get("left", "CAROL"), 110, "#ffffff", 9), W / 4, 760)
-        kk.blit(ctx, kk.text_img(p.get("right", "THE BIG ONE"), 110, "#ffffff", 9), 3 * W / 4, 760)
+        ny = p.get("name_y", 760)
+        kk.blit(ctx, kk.text_img(p.get("left", "CAROL"), 100, "#ffffff", 9), W / 4, ny)
+        kk.blit(ctx, kk.text_img(p.get("right", "THE BIG ONE"), 100, "#ffffff", 9), 3 * W / 4, ny)
         s = back_out(min(1.0, (u - 0.6) * 2.5))
         kk.blit(ctx, kk.text_img("VS", 200, YEL, 14), W / 2, 470, s)
 
@@ -305,6 +307,16 @@ def ds_cross(ctx, t, p):
         stroke(ctx, [a, e], 20, color=hexc(RED))
 
 
+def ds_sil(ctx, t, p):
+    """Any actor (p["kind"]) drawn as a dark silhouette (p: a, kp = that actor's own params)."""
+    ctx.push_group()
+    drawn.ACTORS[p["kind"]](ctx, t, dict(p.get("kp", {}), phase=p.get("phase", 0.0), walking=p.get("walking", False)))
+    pat = ctx.pop_group()
+    ctx.set_source_rgba(0.05, 0.05, 0.08, p.get("a", 0.9))
+    ctx.mask(pat)
+
+
+drawn.ACTORS["ds_sil"] = ds_sil
 drawn.ACTORS.update(art.ACTORS)
 drawn.ACTORS.update(OVERLAYS)
 drawn.ACTORS.update(ds_ring=ds_ring, ds_notes=ds_notes, ds_feet=ds_feet, ds_cross=ds_cross)
@@ -407,7 +419,10 @@ def r_corner(L, a):
     (default true), web (p), sfx."""
     c0 = a.get("cam", "mid")
     shots = a.get("shots") or [cam(c0, a.get("to", push(c0, 1.07)))]
-    acts = [web(a.get("web")), carol(a.get("carol"), a.get("carol_pos"), a.get("carol_s", CS), a.get("carol_sets"),
+    wb = web(a.get("web"))
+    if a.get("web_sets"):
+        wb["set"] = copy.deepcopy(a["web_sets"])
+    acts = [wb, carol(a.get("carol"), a.get("carol_pos"), a.get("carol_s", CS), a.get("carol_sets"),
                                       a.get("carol_moves"))]
     acts += [copy.deepcopy(x) for x in a.get("extras", [])]
     return {"scene": "ds_corner", "scene_p": {}, "actors": acts, "shots": shots,
@@ -625,7 +640,8 @@ def _shots_table():
                   "meter_at": "Put|35%", "shoe_lift": "down|70%", "no_card": True,
                   "stamp": {"text": "SPARE", "color": GREEN, "at": "down|70%", "x": 1480, "y": 760, "px": 150},
                   "sfx": ["stamp@down|70%"]}
-    return T
+    import drawn_ds_shots
+    return drawn_ds_shots.extend(T)
 
 
 SHOTS = _shots_table()
@@ -736,11 +752,16 @@ def expand(spec, lines):
                 sets.append({"at": a["meter_in"], "dur": 0.5, "p": {"on": 1.0}})
             if a.get("meter_big_to") is not None:
                 sets.append({"at": a.get("meter_big_at", "5%"), "dur": 0.45, "p": {"big": a["meter_big_to"]}})
+            if a.get("meter_big_back"):
+                sets.append({"at": a["meter_big_back"], "dur": 0.45, "p": {"big": 0.0}})
             if abs(v1 - v0) > 0.01:
                 sets.append({"at": mat, "dur": 0.7, "p": {"v": v1}})
                 b["sfx"] = [f"click@{mat}"] + list(b["sfx"])
                 if abs(v1 - v0) >= 8:
                     sets += [{"at": mat, "p": {"pulse": 1.0}}, {"at": mat, "dur": 0.9, "p": {"pulse": 0.0}}]
+                    if not a.get("meter_big") and a.get("meter_big_to") is None:   # a big move: the meter swells, then back
+                        sets.insert(0, {"at": _before(mat, 0.35), "dur": 0.3, "p": {"big": 0.55}})
+                        sets.append({"at": _after(mat, 1.25), "dur": 0.4, "p": {"big": 0.0}})
             if a.get("meter_pulse"):
                 sets += [{"at": a["meter_pulse"], "p": {"pulse": 1.0}}, {"at": a["meter_pulse"], "dur": 0.9, "p": {"pulse": 0.0}}]
                 b["sfx"] = [f"click@{a['meter_pulse']}"] + list(b["sfx"])
@@ -794,15 +815,24 @@ def expand(spec, lines):
                 sets += [{"at": a["shoe_twitch"], "p": {"twitch": 1.0}}, {"at": a["shoe_twitch"], "dur": 0.8, "p": {"twitch": 0.0}}]
             if a.get("shoe_lift"):
                 sets.append({"at": a["shoe_lift"], "dur": 0.9, "p": {"lift": 1.0}})
-            for k2 in ("tie", "spot"):
+            for k2 in ("tie", "spot", "nudge"):
                 if a.get("shoe_" + k2):
                     sp[k2] = a["shoe_" + k2]
+            sets += copy.deepcopy(a.get("shoe_sets", []))
             if hero is not None:
                 b["actors"].append({"id": "shoe", "type": "ds_shoe", "pos": list(hero["pos"]), "s": hero["s"],
                                     "p": sp, "set": sets, "moves": copy.deepcopy(hero.get("moves", []))})
         # ---- card: always below the meter plate (top 120 px) and above the captions
         if L.get("card") and not a.get("no_card"):
-            b["card"] = {"rows": _card_rows(L["card"]), "y": a.get("card_y", 150), "at": a.get("card_at", "30%")}
+            cy = a.get("card_y", 760 if b.get("scene") == "ds_corner" else 150)   # corner shots: under the shoe
+            b["card"] = {"rows": _card_rows(L["card"], max_w=a.get("card_w", 1500)), "y": cy, "at": a.get("card_at", "30%")}
+            if a.get("card_x"):
+                b["card"]["x"] = a["card_x"]
+            for x in b["actors"]:
+                if x.get("type") == "ds_web" and 120 < cy < 330:
+                    x["p"]["fade_card"] = True
+        if a.get("tint"):
+            b["tint"] = a["tint"]
         # ---- end screen after the last line (kk_end, meter hidden)
         if L["id"] == allL[-1]["id"] and L in lines:
             kks.append({"id": "end", "type": "kk_end", "pos": [0, 0], "front": True,
@@ -820,6 +850,21 @@ def expand(spec, lines):
         b["ds_id"] = L["id"]
         beats.append(b)
     return beats
+
+
+def _before(at, s):
+    return at
+
+
+def _after(at, s):
+    """An "at" s seconds after `at` ("word|40%" -> "word+s|<40+20>%"; "40%" -> "<40+22>%")."""
+    m = re.match(r"^(.*?)\|(\d+)%$", at)
+    if m:
+        return f"{m.group(1)}+{s}|{min(98, int(m.group(2)) + 20)}%"
+    m = re.match(r"^(\d+)%$", at)
+    if m:
+        return f"{min(98, int(m.group(1)) + 22)}%"
+    return f"{at}+{s}"
 
 
 def drawn_spec(spec, lines):
@@ -1007,6 +1052,42 @@ def stills(spec_path, out, at, work):
     print("stills:", out, ids)
 
 
+def linesheet(spec_path, out, frac=0.6, work="/tmp/dontsquish-lines", cols=6, only=None):
+    """One frame per spec line (at `frac` of its speech), labelled with the line id, tiled; also writes part sheets
+    of 36 lines (<out>-1.jpg ...) small enough to look at."""
+    from PIL import Image, ImageDraw
+    spec = json.load(open(spec_path))
+    tiles = []
+    for L in spec["lines"]:
+        if only and L["id"] not in only:
+            continue
+        ds = drawn_spec(spec, [L])
+        w = os.path.join(work, L["id"])
+        os.makedirs(w, exist_ok=True)
+        voice_lines(ds["beats"], ds, w, os.path.join(ROOT, "episodes", "longform-dont-squish-cellar-spider", ".voice-cache"))
+        beats, total = drawn.plan(drawn.drawn_macros.expand(ds), w)
+        drawn.G.update(fps=30, beats=beats, rigs=drawn.rig_tracks(beats, 30), caps=drawn.caption_chunks(beats),
+                       cap_px=ds.get("captions", 62), cap_y=ds.get("caption_y", 985), counter=None,
+                       cap_key=set(ds.get("cap_key", ())), ticks=[], raw_out=False, nocap_out=False)
+        f = int(frac * beats[0]["speech"] * 30)
+        arr = np.frombuffer(drawn.frame_at(f)[-1], np.uint8).reshape(H, W, 4)
+        im = Image.fromarray(arr[..., [2, 1, 0]].copy()).resize((480, 270))
+        ImageDraw.Draw(im).rectangle((0, 246, 120, 270), fill=(0, 0, 0))
+        ImageDraw.Draw(im).text((4, 250), L["id"], fill=(255, 255, 0))
+        tiles.append(im)
+    def sheet(ts, path):
+        rows = (len(ts) + cols - 1) // cols
+        s = Image.new("RGB", (480 * cols, 270 * rows))
+        for i, im in enumerate(ts):
+            s.paste(im, ((i % cols) * 480, (i // cols) * 270))
+        s.save(path, quality=85)
+    sheet(tiles, out)
+    base = os.path.splitext(out)[0]
+    for k in range(0, len(tiles), 36):
+        sheet(tiles[k:k + 36], f"{base}-{k // 36 + 1}.jpg")
+    print("linesheet:", out, len(tiles))
+
+
 if __name__ == "__main__":
     cmd = sys.argv[1]
     if cmd == "build":
@@ -1031,6 +1112,8 @@ if __name__ == "__main__":
         ap.add_argument("--work", default="/tmp/dontsquish-stills")
         x = ap.parse_args()
         stills(x.spec, x.out, x.at.split(","), x.work)
+    elif cmd == "linesheet":
+        linesheet(sys.argv[2], sys.argv[3], only=sys.argv[4].split(",") if len(sys.argv) > 4 else None)
     elif cmd == "voice":
         spec = json.load(open(sys.argv[2]))
         ds = drawn_spec(spec, spec["lines"])
