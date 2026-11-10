@@ -7,35 +7,38 @@
  "captions": 62,
  "caption_y": 985,
  "cut_whoosh": true,
- "title": "5 House Bug Myths You Still Believe (And 3 Crazy Ones That Are True)",
+ "title": "Do You Really Swallow Spiders in Your Sleep? (And 4 More House Bug Lies)",
  "cap_key": [
+  "case",
+  "eight",
+  "evidence",
+  "fifty",
+  "fly",
+  "forty",
+  "head",
+  "hundred",
+  "lie",
   "myth",
-  "true",
   "never",
   "one",
-  "week",
-  "head",
-  "thirty",
-  "hundred",
-  "fly",
-  "eight",
-  "spiders",
-  "ten",
-  "case",
-  "thirst",
+  "sleep",
   "space",
-  "venom",
+  "spiders",
+  "swallow",
+  "ten",
+  "thirst",
+  "thirty",
   "three",
-  "zero",
-  "evidence",
-  "forty",
-  "fifty"
+  "true",
+  "venom",
+  "week",
+  "zero"
  ],
  "stage": {
-  "creature": "roach",
-  "actor": "cockroach",
-  "s": 0.9,
-  "scene": "kitchen",
+  "creature": "jumping_spider",
+  "actor": "jumping_spider",
+  "s": 0.75,
+  "scene": "bedroom",
   "scene_p": {
    "time": "night"
   }
@@ -60,68 +63,6 @@
  "chip": "MYTH",
  "segments": [
   {
-   "chapter": "The roach with no head",
-   "lines": [
-    {
-     "m": "hook",
-     "say": "A cockroach can live for a week, without its head.",
-     "scene": "kitchen",
-     "scene_p": {
-      "time": "night"
-     },
-     "open": "animal",
-     "cast": {
-      "creature": "roach",
-      "actor": "cockroach",
-      "s": 0.9
-     },
-     "card": {
-      "rows": [
-       [
-        "1 WEEK",
-        "#ff4b3e",
-        130
-       ],
-       [
-        "NO HEAD",
-        "#ffffff",
-        46,
-        true
-       ]
-      ],
-      "y": 120,
-      "at": "35%"
-     }
-    },
-    {
-     "m": "escalate",
-     "say": "That one's true. And by the end, you'll know exactly how.",
-     "scene": "kitchen",
-     "scene_p": {
-      "time": "night"
-     },
-     "cast": {
-      "creature": "roach",
-      "actor": "cockroach",
-      "s": 0.9
-     }
-    },
-    {
-     "m": "chase",
-     "say": "But first, the one everybody believes. You swallow eight spiders a year, in your sleep.",
-     "scene": "bedroom",
-     "scene_p": {
-      "time": "night"
-     },
-     "cast": {
-      "creature": "jumping_spider",
-      "actor": "jumping_spider",
-      "s": 0.75
-     }
-    }
-   ]
-  },
-  {
    "cast": {
     "creature": "jumping_spider",
     "actor": "jumping_spider",
@@ -134,13 +75,57 @@
    "scene_p": {
     "time": "night"
    },
-   "chapter": "Myth: you swallow spiders in your sleep",
+   "chapter": "Do you swallow spiders in your sleep?",
    "tier": "MYTH",
    "danger": 0,
    "lines": [
     {
+     "m": "hook",
+     "say": "Do you really swallow spiders in your sleep? Eight a year, they say.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     },
+     "open": "animal",
+     "cast": {
+      "creature": "jumping_spider",
+      "actor": "jumping_spider",
+      "s": 0.75
+     },
+     "card": {
+      "rows": [
+       [
+        "8 A YEAR?",
+        "#ff4b3e",
+        130
+       ],
+       [
+        "IN YOUR SLEEP",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 120,
+      "at": "35%"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "Short answer? No. But the reason why is the best part.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     },
+     "cast": {
+      "creature": "jumping_spider",
+      "actor": "jumping_spider",
+      "s": 0.75
+     }
+    },
+    {
      "m": "name",
-     "say": "Eight spiders a year, crawling into your mouth while you sleep.",
+     "say": "Picture it. Eight spiders a year, crawling into your mouth while you sleep.",
      "card": {
       "rows": [
        [
@@ -239,6 +224,20 @@
      },
      "gag": false,
      "pad": 0.12
+    },
+    {
+     "m": "escalate",
+     "say": "And that's not even the biggest lie about the bugs in your house. Stick around for the roach that lives without its head.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
+     },
+     "cast": {
+      "creature": "roach",
+      "actor": "cockroach",
+      "s": 0.9
+     },
+     "gag": false
     }
    ]
   },

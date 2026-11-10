@@ -1,0 +1,41 @@
+House Bug Myths (long-form, target Thu 11/12 17:00 ET; NOT scheduled)
+
+Packaging (coordinator, 11/10): single-question myth videos get 1.5-3.9M views while list videos get about 1K,
+so the episode is packaged around ONE question: "Do you really swallow spiders in your sleep?"
+
+Test & Compare titles (load all 3):
+1. Do You Really Swallow Spiders in Your Sleep? (And 4 More House Bug Lies)   <- PRIMARY
+   Matches the cut: spiders + 4 more MYTHs (daddy longlegs venom, earwigs in ears, centipede 100 legs,
+   moths eat clothes). The 3 TRUE ones (spiders fly, fruit flies in space, headless roach) are the bonus.
+2. You Don't Swallow Spiders in Your Sleep. Here's What's Really in Your Bed
+3. 5 House Bug Myths You Still Believe (And 3 Crazy Ones That Are True)
+
+Thumbnails (1280x720, 168 px previews alongside), made by tools/thumb_myths.py:
+A. thumb_a.jpg  spider dropping onto a pillow, "8 A YEAR?"   <- primary (cartoon, no mouth/gore)
+B. thumb_b.jpg  cockroach, "NO HEAD?"
+C. thumb_c.jpg  daddy longlegs (cellar spider), "TOTAL LIE?"
+
+Pinned comment:
+Be honest: which of these did you believe until today? 👇
+
+Tags: do you swallow spiders in your sleep, swallow spiders myth, house bug myths, daddy longlegs venom,
+earwig in ear, house centipede legs, clothes moth, can spiders fly, fruit flies in space, cockroach without head,
+meatball myths
+
+Format: Kill-or-Keep pipeline with the piles relabelled MYTH / TRUE (outline keys piles, title_text, stamps,
+meter=false, chip="MYTH"; tools/drawn_keepkill.py defaults unchanged, Part 2's spec builds byte-identical).
+
+Retention rules applied:
+- Cold open is the question itself, with the payoff by about 0:05 ("Short answer? No. But the reason why is the best part").
+- Narration from 0.0, no intro, comment ask only at the end.
+- After the spider verdict: "And that's not even the biggest lie about the bugs in your house. Stick around for
+  the roach that lives without its head." -> the headless roach is the promised payoff in the last chapter.
+- Tease before the MYTH -> TRUE switch: "Now the true pile. And it gets way weirder..."
+- Every chapter opens on a hook line.
+
+Fact checks done 11/10 (cut 2 lines that didn't hold up: "one meal lasts weeks" for the roach, and the
+"earwig wing looks like an ear" name theory). Centipede speed: UMaine Cooperative Extension (16 in/s).
+
+Rebuild: python3 tools/drawn_keepkill.py build scripts/longform-house-bug-myths.json SPEC.json
+         python3 tools/drawn_keepkill.py render SPEC.json OUT.mp4 --work DIR
+Gates:   python3 tools/lf_gates.py OUT.mp4 --work DIR --spec SPEC.json --sheets DIR
