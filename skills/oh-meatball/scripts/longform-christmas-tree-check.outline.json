@@ -1,0 +1,568 @@
+{
+ "_what": "Narration outline for the Christmas-tree long-form (publish by Tue 2026-11-24; search peaks Dec 1-15, research 75). Every factual line carries src = fact IDs in research/77-christmas-tree-bugs-factpack.md. panic = value of the on-screen PANIC METER (0-10) AFTER the line. check = adds that item to the on-screen TREE CHECK list. vis = what the picture must show. Lines marked VERIFY need a source before voicing.",
+ "titles": [
+  "Never Bring a Christmas Tree Inside Before You Check for This",
+  "Check Your Christmas Tree for This Before It Comes in Your House",
+  "9 Things Hiding in Your Christmas Tree (Clip One, Ignore Seven)"
+ ],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "panic_start": 9,
+ "segments": [
+  {
+   "chapter": "Check for this",
+   "chip": null,
+   "lines": [
+    {
+     "say": "Before your Christmas tree comes through the door, check it for one thing.",
+     "vis": "FRAME 0: close on a tan foamy blob glued to a fir twig, already quivering. Ornaments and lights soft behind. Card: CHECK FOR THIS",
+     "card": "CHECK FOR THIS"
+    },
+    {
+     "say": "It looks like a toasted marshmallow stuck to a branch.",
+     "src": "F31",
+     "vis": "Side by side for one beat: the blob and a toasted marshmallow. Same shape."
+    },
+    {
+     "say": "Inside it: a hundred eggs. Maybe several hundred.",
+     "src": "F23 F27 F29",
+     "vis": "X-ray of the case: rows of eggs. Counter spins up past 100."
+    },
+    {
+     "say": "And your warm living room is about to tell them it's spring.",
+     "src": "F17 F47",
+     "vis": "Thermostat glows; a tiny crack appears in the case."
+    },
+    {
+     "say": "That's stowaway number one. Nine things can ride in on that tree.",
+     "vis": "Pull back: the whole decorated tree; nine little question marks blink in the branches. Chip: 9 STOWAWAYS"
+    },
+    {
+     "say": "Seven you can ignore. One you clip off. And one matters outside your house, not in it.",
+     "vis": "Three stamps preview: IGNORE x7, CLIP x1, CHECK THE TRUNK x1."
+    },
+    {
+     "say": "And the internet says there are twenty-five thousand bugs in there. We'll check that number first.",
+     "src": "F1",
+     "vis": "Headline card 25,000 BUGS? slams in. The PANIC METER slides in at 9 of 10.",
+     "card": "25,000 BUGS?",
+     "panic": 9
+    }
+   ]
+  },
+  {
+   "chapter": "The 25,000",
+   "chip": "THE NUMBER",
+   "lines": [
+    {
+     "say": "Twenty-five thousand. Where does that come from?",
+     "vis": "The number on a corkboard with red string leading off screen."
+    },
+    {
+     "say": "One web article from a university in Norway, in December 2012.",
+     "src": "F1 F2",
+     "vis": "String leads to a pin on Norway and a calendar page: DEC 2012."
+    },
+    {
+     "say": "A museum biologist said as many as twenty-five thousand tiny creatures had turned up in some trees.",
+     "src": "F1",
+     "vis": "Speech bubble from a lab coat figure: AS MANY AS... IN SOME TREES. The words SOME TREES underline themselves."
+    },
+    {
+     "say": "Some trees. Norwegian trees. Mostly pine.",
+     "src": "F3",
+     "vis": "A wild Norwegian pine in snow, not a decorated fir."
+    },
+    {
+     "say": "And tiny means tiny. Springtails, bark lice, mites, a moth, the odd spider.",
+     "src": "F4",
+     "vis": "Magnifier over a twig: five specks labelled in turn."
+    },
+    {
+     "say": "The article doesn't say how they were counted, and I couldn't find the study behind it.",
+     "src": "F7",
+     "vis": "Meatball digs through a filing cabinet, comes up empty. Stamp: NO METHOD GIVEN.",
+     "panic": 7
+    },
+    {
+     "say": "A Dutch natural history museum looked, and found no matching study for its own country.",
+     "src": "F6",
+     "vis": "A second pin on the Netherlands with a shrug emoji-free figure: NO DUTCH NUMBERS."
+    },
+    {
+     "say": "The biologist's own home test is easy. Shake your tree over a white sheet and look.",
+     "src": "F8",
+     "vis": "Meatball shakes a small tree over a bedsheet; a few specks fall."
+    },
+    {
+     "say": "In the U.S., Iowa State says a buggy tree carries a few to several hundred.",
+     "src": "F13",
+     "vis": "Counter: A FEW ... SEVERAL HUNDRED, tiny next to the crossed-out 25,000.",
+     "card": "A FEW TO SEVERAL HUNDRED",
+     "panic": 6
+    },
+    {
+     "say": "And North Carolina State guesses that perhaps one tree in a hundred thousand has one of the three main pests.",
+     "src": "F10",
+     "vis": "A vast lot of trees to the horizon; one lights up.",
+     "card": "PERHAPS 1 IN 100,000",
+     "panic": 5
+    },
+    {
+     "say": "Cut your own in the woods? Washington State University says bugs are more likely on forest and field trees than on farm-grown ones.",
+     "src": "F83",
+     "vis": "Split: a wild tree in a forest with a few more specks vs a neat farm row."
+    },
+    {
+     "say": "Why any at all? It's an outdoor tree. Insects settle into conifers for the winter.",
+     "src": "F15",
+     "vis": "Tree farm in snow; bugs asleep under bark and needles with tiny Z's."
+    },
+    {
+     "say": "Bring it inside, and the heat tells them winter is over.",
+     "src": "F17 F18",
+     "vis": "The same tree carried through a door; the Z's pop one by one."
+    },
+    {
+     "say": "So breathe. But still do the check, because of stowaway number one.",
+     "vis": "Back to the foam blob on the twig. Pause-and-reveal 1 of 3."
+    }
+   ]
+  },
+  {
+   "chapter": "1. The mantis egg case",
+   "chip": "STOWAWAY 1 OF 9",
+   "lines": [
+    {
+     "say": "Stowaway one. The praying mantis egg case.",
+     "vis": "Chapter card 1.2 s. Mantis (triangular head, raised spiked forelegs) on a fir branch."
+    },
+    {
+     "say": "In fall, a mantis glues a blob of foam to a twig, and the foam hardens.",
+     "src": "F23 F24",
+     "vis": "The mantis lays the froth; time lapse: it sets hard."
+    },
+    {
+     "say": "It can look like spray foam insulation. Light brown, about an inch and a half wide.",
+     "src": "F30",
+     "vis": "Ruler: 1.5 inches. Spray-foam can beside it for comparison."
+    },
+    {
+     "say": "The big ones, from the Chinese mantis, are the size of a ping-pong ball.",
+     "src": "F31",
+     "vis": "Ping-pong ball rolls in next to it."
+    },
+    {
+     "say": "The native Carolina mantis makes a slim one. Half an inch to an inch, tan, with a ribbed top.",
+     "src": "F32",
+     "vis": "Second, slim case on another twig. Labels: CHINESE / CAROLINA."
+    },
+    {
+     "say": "Penn State lists four mantis species that leave these on conifer twigs.",
+     "src": "F34",
+     "vis": "Four mantis silhouettes line up along a branch, each beside its own case."
+    },
+    {
+     "say": "How many eggs? Missouri's extension says about a hundred. Mississippi State says several hundred for the big kind.",
+     "src": "F23 F27",
+     "vis": "Two source chips with their numbers."
+    },
+    {
+     "say": "So: a hundred to several hundred, depending on the mantis.",
+     "src": "F29",
+     "vis": "Card.",
+     "card": "100 TO SEVERAL HUNDRED",
+     "panic": 7
+    },
+    {
+     "say": "Outside, they would sit there until spring.",
+     "src": "F24",
+     "vis": "Case on a snowy twig, calendar pages drifting."
+    },
+    {
+     "say": "Inside, Penn State says a case hatches after several weeks, into dozens of baby mantises.",
+     "src": "F35",
+     "vis": "The case splits; dozens of pale threadlike nymphs pour down the branch past the ornaments.",
+     "card": "DOZENS OF BABIES",
+     "panic": 8
+    },
+    {
+     "say": "And a tree usually stays up three to four weeks. So it's a photo finish.",
+     "src": "F81 F35",
+     "vis": "Split calendar: TREE DOWN vs EGGS HATCH racing to the same week."
+    },
+    {
+     "say": "Then the sad part. There is nothing for them to eat in your living room.",
+     "vis": "A nymph looks at a candy cane, a gift, a sock. Nothing."
+    },
+    {
+     "say": "So they eat each other.",
+     "src": "F36",
+     "vis": "Two nymphs eye each other. Cut away before anything graphic."
+    },
+    {
+     "say": "And Illinois Extension says the ones that are left will likely starve.",
+     "src": "F37",
+     "vis": "One last nymph on a bauble, tiny sigh.",
+     "panic": 6
+    },
+    {
+     "say": "If it happens anyway, Missouri's extension has a suggestion. Feed them small flies or pet-store crickets.",
+     "src": "F42",
+     "vis": "Meatball with tweezers and a tub labelled CRICKETS, a row of nymphs with napkins."
+    },
+    {
+     "say": "I am not making that up.",
+     "vis": "Source chip pops: UNIVERSITY OF MISSOURI EXTENSION. Meatball points at it."
+    },
+    {
+     "say": "Better plan. Step one of the tree check: look for the marshmallow.",
+     "vis": "TREE CHECK list appears with box 1 ticked.",
+     "check": "1. LOOK FOR THE MARSHMALLOW"
+    },
+    {
+     "say": "Found one? Don't crush it. Clip the twig.",
+     "src": "F39 F40",
+     "vis": "Pruning shears snip the twig with the case on it."
+    },
+    {
+     "say": "Tuck it into an evergreen outside.",
+     "src": "F40",
+     "vis": "Meatball wedges the twig into a garden shrub.",
+     "check": "2. CLIP IT, PUT IT IN AN EVERGREEN"
+    },
+    {
+     "say": "Not on the ground. Illinois says ants will eat the eggs.",
+     "src": "F41",
+     "vis": "A line of ants heading for a case on the ground; Meatball lifts it away.",
+     "panic": 4
+    },
+    {
+     "say": "One more thing about these mantises. The big ones are not from here.",
+     "vis": "Map of the U.S. with two little arriving ships."
+    },
+    {
+     "say": "The Chinese mantis and the European mantis both turned up in the late 1800s. In Illinois, only the Carolina mantis is native.",
+     "src": "F44 F45",
+     "vis": "Timeline: LATE 1800s. Three mantises; one wears a NATIVE badge."
+    }
+   ]
+  },
+  {
+   "chapter": "2. The one people call a tick",
+   "chip": "STOWAWAY 2 OF 9",
+   "lines": [
+    {
+     "say": "Stowaway two is the one that makes people yell tick.",
+     "vis": "Chapter card 1.2 s. A dark round bug with long legs walks across a wrapped present."
+    },
+    {
+     "say": "Dark. Round. Long legs. Walking off the tree and onto your presents.",
+     "src": "F48 F55",
+     "vis": "Several of them drop from a branch onto gift wrap.",
+     "panic": 7
+    },
+    {
+     "say": "It's a giant conifer aphid. About an eighth of an inch.",
+     "src": "F48",
+     "vis": "Name card. Ruler: 1/8 inch.",
+     "card": "GIANT CONIFER APHID"
+    },
+    {
+     "say": "N.C. State calls them among the largest aphids we have.",
+     "src": "F49",
+     "vis": "The aphid flexes next to a normal tiny aphid."
+    },
+    {
+     "say": "North Carolina State says people often mistake them for ticks.",
+     "src": "F50",
+     "vis": "Aphid and tick side by side under a magnifier."
+    },
+    {
+     "say": "So count the legs. An aphid has six. Ticks and spiders have eight.",
+     "src": "F56",
+     "vis": "Legs count off 1 to 6 on the aphid, 1 to 8 on the tick.",
+     "card": "6 LEGS, NOT 8",
+     "panic": 5
+    },
+    {
+     "say": "N.C. State says they don't bite, don't sting, carry no disease, and feed only on firs.",
+     "src": "F54",
+     "vis": "Four quick icons, each crossed off; a fir twig gets a tick mark."
+    },
+    {
+     "say": "The warmth wakes them up, and they wander.",
+     "src": "F55",
+     "vis": "Aphids yawning, then marching along a branch toward the room."
+    },
+    {
+     "say": "As the tree dries out, they move onto the decorations and the furniture.",
+     "src": "F58",
+     "vis": "Aphids abseil from a drying branch onto an armchair."
+    },
+    {
+     "say": "Here is the one rule. Do not squash them.",
+     "vis": "Meatball's raised slipper freezes mid-air."
+    },
+    {
+     "say": "Crushed, they can leave a purple or red stain. Carpet, couch, wrapping paper.",
+     "src": "F52 F53",
+     "vis": "A purple smear on gift wrap, then on a white rug.",
+     "card": "PURPLE STAIN",
+     "panic": 6
+    },
+    {
+     "say": "Vacuum them instead. Use the hose, not the spinning brush.",
+     "src": "F59",
+     "vis": "Vacuum hose lifts them neatly; the brush head sits unused with an X.",
+     "check": "5. VACUUM. NEVER SQUASH."
+    },
+    {
+     "say": "Leave a living, potted tree in the house for a long time, and Penn State says they may even breed.",
+     "src": "F57",
+     "vis": "A potted tree with a root ball; a few winged aphids appear with question marks."
+    },
+    {
+     "say": "And real ticks on Christmas trees? A few cases have been recorded. A few.",
+     "src": "F51",
+     "vis": "One tick on a trunk with a tiny RARE tag.",
+     "panic": 4
+    },
+    {
+     "say": "That's two. The next six take about a minute. Then the one that matters.",
+     "vis": "Progress strip: 2 of 9 ticked; six blur past as silhouettes; the ninth glows."
+    }
+   ]
+  },
+  {
+   "chapter": "3 to 8. The ones you can ignore",
+   "chip": "STOWAWAYS 3 TO 8",
+   "lines": [
+    {
+     "say": "Three. Spiders. Iowa State says aphids and spiders are the two things most often found on cut trees.",
+     "src": "F14",
+     "vis": "A small spider and spiderlings on a branch."
+    },
+    {
+     "say": "Penn State says they aren't dangerous to you or your pets, and they die in a short time indoors.",
+     "src": "F72",
+     "vis": "Stamp: IGNORE. A dog sniffs the tree, unbothered.",
+     "card": "IGNORE"
+    },
+    {
+     "say": "Four. Bark beetles. You might see a little very fine sawdust.",
+     "src": "F66",
+     "vis": "Tiny beetle; a pinch of dust under the trunk."
+    },
+    {
+     "say": "Will they eat your furniture? No. They need damp wood, and your house is too dry.",
+     "src": "F65",
+     "vis": "Beetle taps a table leg, shakes its head, leaves. Stamp: IGNORE.",
+     "card": "IGNORE",
+     "panic": 3
+    },
+    {
+     "say": "Five. White cottony fluff on the bark. Adelgids. They stay put and they're harmless.",
+     "src": "F69",
+     "vis": "Cotton tufts on bark; Meatball pokes one, nothing happens. Stamp: IGNORE."
+    },
+    {
+     "say": "Six. Specks that start walking after a couple of weeks. Scale crawlers. Wipe them up with a damp towel.",
+     "src": "F70",
+     "vis": "Dots creep along a windowsill; a towel swipes. Stamp: IGNORE."
+    },
+    {
+     "say": "Seven. Mites. Penn State says none of the predatory mites on Christmas trees bite.",
+     "src": "F68",
+     "vis": "A mite eating a tinier egg, busy. Stamp: IGNORE."
+    },
+    {
+     "say": "But if there's an old bird nest in the tree, take it out. Nests can carry mites and lice.",
+     "src": "F73",
+     "vis": "Meatball lifts a nest out with tongs.",
+     "check": "4. PULL ANY BIRD NEST"
+    },
+    {
+     "say": "Eight. Bark lice. They can't bite, and dry air kills them quickly.",
+     "src": "F67",
+     "vis": "Tiny pale specks; a radiator; they're gone. Stamp: IGNORE."
+    },
+    {
+     "say": "Iowa State sums up the tiny ones. They can't bite or sting, and they won't live long enough to grow or multiply.",
+     "src": "F20",
+     "vis": "All six silhouettes in a row, each with an IGNORE stamp."
+    },
+    {
+     "say": "Most of what hatches is about a sixteenth of an inch long.",
+     "src": "F22",
+     "vis": "A speck beside a grain of rice for scale (no number on screen beyond 1/16 INCH).",
+     "card": "1/16 INCH"
+    },
+    {
+     "say": "Most of them starve or dry out.",
+     "src": "F21",
+     "vis": "The six fade.",
+     "panic": 2
+    },
+    {
+     "say": "Penn State's rule for anything you find: leave it on the tree until the tree goes out, and vacuum whatever lands on the walls or ceiling.",
+     "src": "F75",
+     "vis": "Meatball, vacuum hose raised to a ceiling speck; the tree untouched."
+    }
+   ]
+  },
+  {
+   "chapter": "9. The one that matters outside",
+   "chip": "STOWAWAY 9 OF 9",
+   "lines": [
+    {
+     "say": "Nine. This one is not a problem in your house. It's a problem for your county.",
+     "vis": "Pause-and-reveal 2 of 3. Camera moves down the trunk."
+    },
+    {
+     "say": "Spotted lanternfly eggs. Penn State says the egg masses can ride on trees from quarantine zones.",
+     "src": "F74",
+     "vis": "A grey patch on the trunk. Name card: SPOTTED LANTERNFLY EGGS.",
+     "card": "SPOTTED LANTERNFLY EGGS"
+    },
+    {
+     "say": "On bark, an egg mass can look like a smear of dried mud.",
+     "src": "VERIFY (Penn State Extension spotted lanternfly identification)",
+     "vis": "Close-up: grey, cracked, mud-like smear about an inch long."
+    },
+    {
+     "say": "If they hatch in your living room, the babies soon die.",
+     "src": "F74",
+     "vis": "A few nymphs on a windowsill, then gone."
+    },
+    {
+     "say": "The worry is the ride. A tree can carry them somewhere they haven't reached yet.",
+     "src": "VERIFY (Penn State / USDA APHIS on spotted lanternfly spread by moved items)",
+     "vis": "A tree on a car roof crossing a county line on a map."
+    },
+    {
+     "say": "So if you live near a lanternfly zone, check the trunk before the tree travels.",
+     "src": "VERIFY (current quarantine guidance)",
+     "vis": "Meatball inspects the trunk with a flashlight at the lot.",
+     "check": "3. SHAKE IT, AND CHECK THE TRUNK",
+     "panic": 3
+    }
+   ]
+  },
+  {
+   "chapter": "The mistake",
+   "chip": "DON'T DO THIS",
+   "lines": [
+    {
+     "say": "Now the one real mistake. Do not hit the tree with bug spray.",
+     "vis": "A hand with an aerosol can aimed at the lit tree. Freeze."
+    },
+    {
+     "say": "Penn State says aerosol insecticides are often flammable and usually not labelled for indoor use.",
+     "src": "F60",
+     "vis": "The can's label flips to a flame symbol."
+    },
+    {
+     "say": "Illinois Extension just says never.",
+     "src": "F61",
+     "vis": "Card.",
+     "card": "NEVER SPRAY THE TREE"
+    },
+    {
+     "say": "North Carolina State's entomologists put it this way: with the lights on, you could set the tree on fire.",
+     "src": "F63",
+     "vis": "Lights glow; Meatball slowly lowers the can and backs away.",
+     "panic": 5
+    },
+    {
+     "say": "And you don't need it. Iowa State says spraying a fresh-cut tree isn't necessary or recommended.",
+     "src": "F62",
+     "vis": "Can goes in a drawer. Panic drops.",
+     "panic": 2
+    },
+    {
+     "say": "Should you hose the tree off outside first? North Carolina State says you can. The Norwegian biologist says don't bother, washing is hard on the tree. Shaking is the part everyone agrees on.",
+     "src": "F80 F9 F76",
+     "vis": "Two advisers with opposite signs (HOSE IT / DON'T), then both nod at a tree being shaken."
+    },
+    {
+     "say": "Same idea for firewood. Illinois says bring in a day or two of wood at a time, because things wake up in there too.",
+     "src": "F84 F86",
+     "vis": "Small armful of logs by the fire; a beetle peeks out of a big indoor pile with an X on it."
+    }
+   ]
+  },
+  {
+   "chapter": "The tree check",
+   "chip": "THE TREE CHECK",
+   "lines": [
+    {
+     "say": "Here is the whole tree check.",
+     "vis": "The TREE CHECK list fills the right half of the frame. Pause-and-reveal 3 of 3."
+    },
+    {
+     "say": "One. Before it comes inside, look up into the tree from the cut end, and scan the branches for the marshmallow.",
+     "src": "F78 F39",
+     "vis": "Tree on its side at the lot; Meatball peers in from the trunk end."
+    },
+    {
+     "say": "Two. Clip any egg case, twig and all, and tuck it into an evergreen outside.",
+     "src": "F40",
+     "vis": "Replay: snip, tuck."
+    },
+    {
+     "say": "Three. Shake the tree. Many lots have a shaker. Then move it away from that spot, or the bugs can crawl back.",
+     "src": "F76 F77",
+     "vis": "Mechanical shaker rattles the tree; specks fall; Meatball drags the tree clear of the pile."
+    },
+    {
+     "say": "Four. Pull out any old bird nest, and check the trunk.",
+     "src": "F73 F74",
+     "vis": "Nest out; flashlight on bark."
+    },
+    {
+     "say": "Five. Once it's inside: vacuum, never squash, never spray.",
+     "src": "F59 F60 F52",
+     "vis": "Vacuum yes; slipper no; spray can no."
+    },
+    {
+     "say": "That's it.",
+     "vis": "All five boxes ticked."
+    }
+   ]
+  },
+  {
+   "chapter": "The verdict",
+   "chip": "VERDICT",
+   "lines": [
+    {
+     "say": "Panic level: one.",
+     "vis": "Meter drops to 1 of 10 and turns green.",
+     "panic": 1
+    },
+    {
+     "say": "Your tree is not twenty-five thousand bugs. It's an outdoor tree with a few sleepy passengers that can't survive your living room.",
+     "src": "F13 F20 F21",
+     "vis": "The decorated tree, calm; a couple of tiny specks with Z's."
+    },
+    {
+     "say": "Check for the marshmallow, and go get the tree.",
+     "vis": "Meatball carries the tree through the door, triumphant."
+    },
+    {
+     "say": "And that egg case you tucked into the bush? In spring, it hatches where there is actually something to eat.",
+     "src": "F24 F40",
+     "vis": "Callback: the garden evergreen in spring; nymphs pour out into green leaves."
+    },
+    {
+     "say": "Next, the skinny spider in the corner of your ceiling. Don't squish that one either.",
+     "vis": "END SCREEN: WATCH NEXT slot (the cellar spider episode), subscribe slot. Hold 12 s under music."
+    }
+   ]
+  }
+ ],
+ "pinned_comment": "What's the strangest thing that ever came out of your Christmas tree? 👇",
+ "end_screen_video": "Don't Kill the Spider in Your Corner (posts Wed 11/18)",
+ "sources_file": "research/77-christmas-tree-bugs-factpack.md"
+}

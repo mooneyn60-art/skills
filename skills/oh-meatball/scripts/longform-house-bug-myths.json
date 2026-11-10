@@ -234,7 +234,7 @@
      "say": "That's one of eight bug stories. The last one has no head.",
      "board": {
       "at": 0.0,
-      "off": "56%"
+      "off": "last-0.1|56%"
      },
      "gag": false,
      "card": {
@@ -252,7 +252,7 @@
        ]
       ],
       "y": 430,
-      "at": "58%",
+      "at": "last|58%",
       "x": 1390
      },
      "loop_on": true,
@@ -346,7 +346,8 @@
       ],
       "y": 120,
       "at": "40%"
-     }
+     },
+     "gag": false
     },
     {
      "m": "xray",
@@ -408,7 +409,22 @@
      "scene": "basement",
      "scene_p": {
       "time": "night"
-     }
+     },
+     "gag": false,
+     "kk_shots": [
+      {
+       "cam": [
+        600,
+        1020,
+        0.85
+       ],
+       "to": [
+        580,
+        1040,
+        0.82
+       ]
+      }
+     ]
     },
     {
      "m": "fact",
@@ -934,12 +950,12 @@
        "at": "rear|58%",
        "cam": [
         680,
-        1010,
+        1020,
         0.96
        ],
        "to": [
         720,
-        1000,
+        1022,
         1.04
        ]
       }
@@ -982,12 +998,12 @@
       {
        "cam": [
         720,
-        1000,
+        1022,
         1.04
        ],
        "to": [
         760,
-        970,
+        1010,
         1.0
        ]
       },
@@ -995,12 +1011,12 @@
        "at": "wind|55%",
        "cam": [
         800,
-        960,
+        970,
         0.94
        ],
        "to": [
         840,
-        940,
+        950,
         0.9
        ]
       }
@@ -1396,7 +1412,8 @@
       "y": 600,
       "at": "30%",
       "x": 1420
-     }
+     },
+     "gag": false
     },
     {
      "m": "fact",
@@ -1551,7 +1568,8 @@
       "y": 600,
       "at": "40%",
       "x": 1420
-     }
+     },
+     "gag": false
     },
     {
      "m": "escalate",
@@ -1592,7 +1610,8 @@
      "scene": "desert",
      "scene_p": {
       "time": "day"
-     }
+     },
+     "gag": false
     },
     {
      "m": "fact",
@@ -1957,10 +1976,11 @@
    "Scientific American (Charles Q. Choi, 2007), Fact or Fiction?: A Cockroach Can Live without Its Head https://www.scientificamerican.com/article/fact-or-fiction-cockroach-can-live-without-head/"
   ]
  },
- "_engagement": "11/10 v4 (coordinator; research 72 + 73): NO quiz framing. Each story opens on the claim as a concrete statement with the animal on screen, gives the reveal early (story 1 by ~0:11), then the why. The MYTH/TRUE board stamp is the reveal. No 'Myth or true?', no spoken countdowns. Two pause-and-reveal beats only (a 1.3 s '?' ring, no numbers): spiders fly and the headless roach. Story 1 is <= 30 s. Count + order + open loop at ~0:16 ('eight bug stories; the last one has no head', kept on screen as a chip until it pays off). Order: 4 busted, a midpoint re-hook ('Four stories down. The next four sound fake, and they're real.'), then 4 real, ending on the headless roach. A second loop (the girl with a spider in her mouth) opens at the midpoint and pays off in story 5. Every item ends on the next item's stake. Character beats every 30-40 s: Meatball's helmet (on at 0:06, off at 0:28, back on when spiders fly, kept at the end) and five roommate lines. Ending: callback to the opening, recap board, then 'watch this next' naming Kill It or Keep It. Narration avoids the channel's banned words.",
+ "_engagement": "11/10 v4 (coordinator; research 72 + 73): NO quiz framing. Each story opens on the claim as a concrete statement with the animal on screen, gives the reveal early (story 1 by ~0:11), then the why. The MYTH/TRUE board stamp is the reveal. No 'Myth or true?', no spoken countdowns. Two pause-and-reveal beats only (a 1.3 s '?' ring, no numbers): spiders fly and the headless roach. Story 1 is <= 30 s. Count + order + open loop at ~0:16 ('eight bug stories; the last one has no head', kept on screen as a chip until it pays off). Order: 4 busted, a midpoint re-hook ('Four stories down. The next four sound fake, and they're real.'), then 4 real, ending on the headless roach. A second loop (the girl with a spider in her mouth) opens at the midpoint and pays off in story 5. Every item ends on the next item's stake. Character beats every 30-40 s: Meatball's helmet (on at 0:06, off at 0:28, back on when spiders fly, kept at the end) and six roommate lines. Ending: callback to the opening, recap board, then 'watch this next' naming Kill It or Keep It. Narration avoids the channel's banned words.",
  "fit": true,
  "end_label": "KILL IT OR KEEP IT?",
  "end_ask": "3 BUGS IN YOUR HOUSE YOU SHOULD NEVER KILL",
  "loop_chip": "LAST ONE: NO HEAD",
- "_changes_v4": "Dropped vs v2/v3: the centipede '100 legs' item (v3) and the clothes-moth item (it is Kill-or-Keep Part 2's cold open on 11/12). Added: roaches and the nuclear bomb (busted), flies taste with their feet (real)."
+ "_changes_v4": "Dropped vs v2/v3: the centipede '100 legs' item (v3) and the clothes-moth item (it is Kill-or-Keep Part 2's cold open on 11/12). Added: roaches and the nuclear bomb (busted), flies taste with their feet (real).",
+ "_visuals_v5": "11/10 v5 (same words, pictures matched to them after a per-line sheet review): the harvestman and the crane fly are drawn for their lines (three animals, three drawings); the ballooning story is hand-staged so the spider is seen climbing, tipping up, letting out silk (line key 'silk') and flying; the roach in the last story is drawn with no head once the board says TRUE (hero params headless / head_at / holes on drawn_anatomy.cockroach: a plain cap, no gore); the fruit fly and the ant appear when story 4 names them; gags that were cut off by the top edge are gone."
 }

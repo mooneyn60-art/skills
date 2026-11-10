@@ -80,10 +80,10 @@ def _leg3(ctx, pts, w, col, lw, knee_k=1.0):
 
 
 # leg fan for the right side, front (I) to back (IV): femur (len, deg above horizontal), tibia (len, deg), tarsus
-LEGS = [((330, 74), (470, 8), (330, -6)),
-        ((300, 62), (400, 2), (260, -14)),
-        ((260, 48), (330, -10), (200, -30)),
-        ((290, 58), (380, -6), (240, -24))]
+LEGS = [((330, 80), (470, 34), (330, 52)),
+        ((290, 60), (420, 10), (290, 22)),
+        ((240, 34), (340, -20), (250, -6)),
+        ((260, 12), (380, -40), (270, -28))]
 
 
 def _carol_body(ctx, t, p, ox=0.0, oy=0.0, alpha=1.0):
@@ -127,7 +127,7 @@ def _carol_body(ctx, t, p, ox=0.0, oy=0.0, alpha=1.0):
             col = C["cell_leg"] if i < 2 else darker(C["cell_leg"], 0.86)
             _leg3(ctx, [(hx, hy), k, a2, tp], w if i < 2 else w * 0.9, col, lw)
     # silk from the spinnerets to the working hind legs
-    spin = (bx - 120, by - 92)
+    spin = (bx - 170, by + 110)
     if work > 0 or flick > 0:
         for side in (-1, 1):
             tp = tips[(side, 3)]
@@ -146,10 +146,10 @@ def _carol_body(ctx, t, p, ox=0.0, oy=0.0, alpha=1.0):
                 stroke(ctx, [tp, (mx, my), (ex + (k - 1.5) * 18, ey + (k - 1.5) * 14)], 3.0, smooth=True,
                        color=(1, 1, 1), a=0.9 * flick * (1 - 0.5 * u))
     # abdomen: a long cylinder tilted up and back (hanging upside down), then the small carapace with the face
-    shape(ctx, lambda c: p_ellipse(c, bx - 70, by - 48, 92, 30, math.radians(-30)), C["cell"], OUT * 0.55, (0.0, 0.18),
+    shape(ctx, lambda c: p_ellipse(c, bx - 78, by + 52, 112, 38, math.radians(32)), C["cell"], OUT * 0.6, (0.0, 0.18),
           hi=(0.3, 0.3, 0.25))
     for k in range(3):
-        flat(ctx, lambda c, k=k: p_ellipse(c, bx - 50 - k * 34, by - 38 - k * 20, 13 - 2 * k, 6, math.radians(-30)),
+        flat(ctx, lambda c, k=k: p_ellipse(c, bx - 60 - k * 38, by + 40 + k * 24, 14 - 2 * k, 7, math.radians(32)),
              C["cell_mark"], a=0.7)
     shape(ctx, lambda c: p_ellipse(c, bx, by, 48, 42), C["cell"], OUT * 0.6, (0.0, 0.15), hi=(0.3, 0.25, 0.25))
     flat(ctx, lambda c: p_ellipse(c, bx, by + 4, 16, 18), C["cell_mark"], a=0.75)   # the dark mark on the carapace
@@ -160,7 +160,7 @@ def _carol_body(ctx, t, p, ox=0.0, oy=0.0, alpha=1.0):
     eyes(ctx, bx, by - 20, 13, 14, p.get("look", (0, 0.2)), mood, blink, OUT * 0.45, lid=C["cell"])
     r3 = 5.5 + 3.5 * e8
     for side in (-1, 1):
-        cx, cy = bx + side * (40 + 6 * e8), by - 34
+        cx, cy = bx + side * (30 + 4 * e8), by - 30
         for j, (dx, dy) in enumerate(((0, 0), (side * 10 * (1 + 0.5 * e8), -9 * (1 + 0.5 * e8)),
                                       (side * 12 * (1 + 0.5 * e8), 8 * (1 + 0.4 * e8)))):
             bl = e8 > 0 and (math.sin(t * 3.1 + j * 2.3 + side * 1.7) > 0.93)
@@ -363,15 +363,49 @@ def jumper(ctx, t, p):
                            "big_eyes": True, "leg": 0.75, "leg_w": 18, "fang": "#3fb6a8"})
 
 
+def _spider_top(ctx, t, walk=1.0, hair=True):
+    """A big hairy spider seen from above (for shadows and silhouettes), facing right; origin = body centre."""
+    col = (0, 0, 0)
+    for side in (-1, 1):
+        for i in range(4):
+            q = t * 10 + i * 1.6 + (side > 0) * 3.1
+            sw = 0.22 * math.sin(q) * walk
+            base = 70 - i * 34
+            ang = math.radians([-30, -70, -110, -150][i]) * -side + sw
+            ang = math.radians([35, 75, 105, 145][i]) * side + sw
+            k1 = (base + 230 * math.cos(ang), side * 0 + 230 * math.sin(ang))
+            ang2 = ang + side * (-0.15 if i < 2 else 0.15)
+            k2 = (k1[0] + 300 * math.cos(ang2 - side * 0.4 * (i < 2)), k1[1] + 300 * math.sin(ang2))
+            stroke(ctx, [(base, 0), k1, k2], 30 - i * 2, color=col)
+            if hair:
+                for j in range(5):
+                    u = 0.2 + j * 0.16
+                    hx, hy = k1[0] + (k2[0] - k1[0]) * u, k1[1] + (k2[1] - k1[1]) * u
+                    stroke(ctx, [(hx, hy), (hx + 14 * math.cos(ang2 + 1.2), hy + 14 * math.sin(ang2 + 1.2))], 6, color=col)
+    flat(ctx, lambda c: p_ellipse(c, 70, 0, 110, 90), col)
+    flat(ctx, lambda c: p_ellipse(c, -150, 0, 175, 120), col)
+    for k in range(30):
+        a = 2 * math.pi * k / 30
+        stroke(ctx, [(-150 + 175 * math.cos(a), 120 * math.sin(a)), (-150 + 200 * math.cos(a), 140 * math.sin(a))], 7,
+               color=col)
+    for s in (-1, 1):   # palps
+        stroke(ctx, [(170, s * 30), (240, s * 60), (270, s * 40)], 22, color=col)
+
+
 def ds_shadow(ctx, t, p):
-    """The giant house spider's long shadow on the floor: the spider drawn as a soft dark silhouette, stretched."""
+    """The giant house spider's long shadow on the floor: a hairy top-down spider silhouette, stretched by a low
+    lamp, soft-edged. p: a (darkness), stretch."""
     ctx.save()
-    ctx.transform(cairo.Matrix(1.0, 0.0, -0.55, 0.5, 0, 0))   # long and flat, leaning back from the lamp
+    ctx.scale(1.0, p.get("squash", 0.55))
     ctx.push_group()
-    giant_spider(ctx, t, {**p, "walking": True})
+    _spider_top(ctx, t, 1.0)
     pat = ctx.pop_group()
-    ctx.set_source_rgba(0.02, 0.02, 0.06, p.get("a", 0.62))
-    ctx.mask(pat)
+    for k, (dx, a) in enumerate(((0, 1.0), (14, 0.35), (-14, 0.35))):
+        ctx.save()
+        ctx.translate(dx, dx * 0.5)
+        ctx.set_source_rgba(0.02, 0.02, 0.06, p.get("a", 0.6) * a)
+        ctx.mask(pat)
+        ctx.restore()
     ctx.restore()
 
 
@@ -511,9 +545,9 @@ def ds_shoe(ctx, t, p):
     enter = p.get("enter", 1.0)
     if enter <= 0.01:
         return
-    ks = p.get("k", 1.0) * min(1.6, max(0.6, k * 2.0))
-    gap = (70 + 7.5 * v) * ks + 1600 * p.get("lift", 0.0)
-    sole_y = y0 - 150 * k - gap
+    ks = p.get("k", 1.0) * min(1.1, max(0.45, k * 1.05))
+    gap = (60 + 6.5 * v) * ks + 1600 * p.get("lift", 0.0)
+    sole_y = y0 - 330 * k - gap
     sole_y -= (1 - ease(enter)) * 900
     tw = p.get("twitch", 0.0)
     sole_y += tw * 26 * math.sin(t * 34)
