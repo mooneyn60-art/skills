@@ -261,6 +261,22 @@
      }
     },
     {
+     "m": "fact",
+     "say": "The Asian one first showed up here in 1898, in a Minnesota greenhouse.",
+     "scene": "garden",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
+     "m": "calm",
+     "say": "My roommate screamed louder than the cricket. And crickets can't even chirp.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
      "m": "calm",
      "say": "Where does it go? Lock it in. Three. Two. One.",
      "scene": "basement",
@@ -378,6 +394,14 @@
      }
     },
     {
+     "m": "fact",
+     "say": "It hunts in the daytime, on your plants and across your floor.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
      "m": "calm",
      "say": "Your guess? Lock it in. Three. Two. One.",
      "scene": "sill",
@@ -475,6 +499,14 @@
      "scene": "study",
      "scene_p": {
       "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "It came from around the Mediterranean. First found in Pennsylvania, in 1849.",
+     "scene": "garden",
+     "scene_p": {
+      "time": "day"
      }
     },
     {
@@ -612,6 +644,14 @@
      }
     },
     {
+     "m": "fact",
+     "say": "It follows the smell of fermenting fruit. Like that banana you forgot.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
      "m": "calm",
      "say": "Where's it go? Lock it in. Three. Two. One.",
      "scene": "kitchen",
@@ -735,6 +775,22 @@
      }
     },
     {
+     "m": "fact",
+     "say": "It came from East Asia. First collected in Allentown, Pennsylvania, in 1998.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "Outside, it's a real pest. Apples, peaches, tomatoes and corn.",
+     "scene": "garden",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
      "m": "calm",
      "say": "Lock in your answer. Three. Two. One.",
      "scene": "bedroom",
@@ -846,6 +902,11 @@
      }
     },
     {
+     "m": "xray",
+     "say": "Their eggs are about the size of a speck of dust.",
+     "scene": "microscope"
+    },
+    {
      "m": "calm",
      "say": "Nightmare tier? Lock it in. Three. Two. One.",
      "scene": "bedroom",
@@ -945,6 +1006,22 @@
      "m": "fact",
      "say": "It can take two years to grow up, and sheds its whole life.",
      "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "It hides in cracks by day, and loves cool, damp basements.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "calm",
+     "say": "Your book club has a silent member. It's eating the glue.",
+     "scene": "study",
      "scene_p": {
       "time": "night"
      }
@@ -1060,6 +1137,11 @@
      "scene_p": {
       "time": "night"
      }
+    },
+    {
+     "m": "calm",
+     "say": "Polka dots. Tiny. Adorable. Eating your favorite sweater.",
+     "scene": "fibers"
     },
     {
      "m": "calm",
@@ -1179,6 +1261,14 @@
      }
     },
     {
+     "m": "escalate",
+     "say": "One female can turn into thousands of roaches in under a year.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
      "m": "calm",
      "say": "How bad? Lock it in. Three. Two. One.",
      "scene": "kitchen",
@@ -1293,6 +1383,14 @@
     },
     {
      "m": "calm",
+     "say": "My roommate tried to name it. Pro tip: don't name the mouse.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "calm",
      "say": "Lock it in. Three. Two. One.",
      "scene": "kitchen",
      "scene_p": {
@@ -1384,6 +1482,14 @@
      "m": "calm",
      "say": "A death is very unlikely. But if one bites you, see a doctor.",
      "scene": "study",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "One female can make up to nine egg sacs in a summer.",
+     "scene": "basement",
      "scene_p": {
       "time": "night"
      }
