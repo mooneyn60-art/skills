@@ -79,6 +79,7 @@
    }
   },
   {
+   "pad": 0.3,
    "scene": "study",
    "m": "chase",
    "say": "They hatch into caterpillars that eat wool.",
@@ -95,6 +96,7 @@
    }
   },
   {
+   "pad": 0.3,
    "scene": "basement",
    "m": "xray",
    "say": "The adults don't eat. The larvae do.",
@@ -117,6 +119,7 @@
    }
   },
   {
+   "pad": 0.3,
    "scene": "kitchen",
    "scene_p": {
     "time": "night"
@@ -143,7 +146,7 @@
     },
     "s": 1.0
    },
-   "say": "Moths in your kitchen are different ones.",
+   "say": "Moths in your kitchen may be different.",
    "card": {
     "rows": [
      [
@@ -152,7 +155,7 @@
       125
      ],
      [
-      "= PANTRY MOTH",
+      "MAYBE PANTRY MOTH",
       "#ffffff",
       56,
       true
@@ -163,6 +166,7 @@
    }
   },
   {
+   "pad": 0.3,
    "scene": "kitchen",
    "m": "calm",
    "say": "They usually arrive in a package of food.",
@@ -221,7 +225,7 @@
   }
  ],
  "loop": true,
- "description": "",
- "pinned_comment": "",
+ "description": "Pantry moth vs clothes moth: two different moths in two different rooms. Clothes moths lay about 40 to 50 eggs in dark closets, pantry moths usually arrive in food packages, and in both it's the larvae that do the eating.\n\n#shorts #pantrymoth #clothesmoth #mothsinhouse #bugsinyourhouse\n\nSources: University of Kentucky Entomology (ENTFACT-609); UC IPM Pest Notes (Clothes Moths, Pantry Pests).",
+ "pinned_comment": "Which moths did you find first, the ones in your closet or the ones in your kitchen? What gave them away?",
  "_note": "Written for the 11/10 batch (Shorts A) from drawn_macros lines."
 }
