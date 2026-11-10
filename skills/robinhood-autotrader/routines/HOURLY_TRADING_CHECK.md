@@ -238,6 +238,7 @@ momentum instead of vs200). It was done on Nolan's direct order while R16 was
 on in the main session, so it is NOT an adopted rule: review it at the weekend
 re-read and score the sleeve vs SPY monthly.
 CASH: ~17% after round 2, floor intact.
+OWNER OPTION 2026-11-10: NVTS 2027-01-15 $17C x5 @0.12 (Nolan, in the app, order 6af237e2). R18 owner trade, no TARS stop. Ledger row owner-1110-nvts-c17-open.
 
 History: AAPL/HOOD were Nolan's owner positions (stops 310.53/108.65) until this
 rebuild. SOFI calls/puts closed 2026-09-30. SOFI 9/25 $17.50 0DTE call expired.
