@@ -2,7 +2,7 @@
  "series": "Things Living In Your House",
  "photo_credits": [],
  "voice": "en-US-AndrewMultilingualNeural",
- "rate": "+0%",
+ "rate": "+10%",
  "pitch": "+3Hz",
  "music": "detective",
  "music_db": -13,
@@ -71,6 +71,7 @@
    "scene": "study",
    "say": "It whirls in circles until it's a blur.",
    "acting": false,
+   "gag": false,
    "mb_x": 150,
    "with": [
     {
@@ -101,6 +102,7 @@
    "scene": "kitchen",
    "say": "Lab study: jumping spiders set off long whirls.",
    "acting": false,
+   "gag": false,
    "mb_x": 150,
    "with": [
     {
@@ -140,6 +142,7 @@
    "scene": "bathroom",
    "say": "Hunters from eight other families hardly ever did.",
    "acting": false,
+   "gag": false,
    "mb_x": 150,
    "with": [
     {
@@ -193,6 +196,9 @@
    "scene": "bedroom",
    "say": "A jumping spider may struggle to lock on.",
    "acting": false,
+   "gag": {
+    "mark": "dizzy"
+   },
    "mb_x": 150,
    "with": [
     {
@@ -213,9 +219,6 @@
    "act": {
     "shiver": 1.0
    },
-   "gag": {
-    "mark": "dizzy"
-   },
    "card": {
     "rows": [
      [
@@ -231,8 +234,9 @@
   {
    "m": "fact",
    "scene": "sill",
-   "say": "Britain's spider experts say it likely confuses predators.",
+   "say": "British experts say it likely confuses predators.",
    "acting": false,
+   "gag": false,
    "mb_x": 150,
    "act": {
     "shiver": 1.0
@@ -273,5 +277,9 @@
    }
   }
  ],
- "title": "Touch the Spider's Web in Your Corner and It Whirls Into a Blur 🕷️ (Things Living In Your House)"
+ "title": "Touch the Web in Your Corner and Its 8 Legs Whirl Into a Blur 🕷️ (Things Living In Your House)",
+ "description": "Why does a cellar spider whirl? Touch its web and it whirls in a circle until it is a blur; in a lab study jumping spiders set off the long whirls, and the blur may make it hard for a jumping spider to lock onto. #shorts #cellarspider #spiderinhouse #thingslivinginyourhouse #meatballmyths\nSources: British Arachnological Society (Daddy-long-legs spider factsheet 3); Heuts et al. 2001, Behavioural Processes.",
+ "pinned_comment": "Have you ever touched the web of the spider in your corner and watched it whirl? Full story: Don't Kill the Spider in Your Corner, on the channel.",
+ "tiktok_caption": "cellar spider whirl 🕷️ touch its web and it whirls until it's a blur. In a lab study jumping spiders set off the long whirls, and the blur may make them struggle to lock on. Ever seen it? #cellarspider #spiderinhouse #thingslivinginyourhouse #meatballmyths",
+ "_note": "Written by hand in the v6 shape (Shorts batch C, companion to the cellar spider long-form); beats are drawn_macros lines."
 }
