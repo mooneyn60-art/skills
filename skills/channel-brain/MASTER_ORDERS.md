@@ -151,3 +151,16 @@ Plus watch hours (12-month) and TikTok rewards. One change per week, picked from
 2. Pin the 11/1 house tier list.
 3. Get free **Pexels and Pixabay API keys** and add them as environment variables for the channel agent.
 4. Optional: Higgsfield credits if AI shots are wanted for actions no real footage shows.
+
+## Agent routing (Nolan 11/10: "pick the cook by the order")
+Match each background agent to its job: cheap models for chores, the strongest for hard or high-stakes work. Forks always run on the main model, so use fresh agents (general-purpose, with a full brief) wherever a cheaper model fits.
+
+| Job | Model | Examples |
+|---|---|---|
+| Chores / prep | **haiku** | WIP commits, posted.csv logging, schedule listings, yt-dlp research pulls, transcriptions, contact sheets, Metricool reads |
+| Routine builds | **sonnet** | Shorts from existing templates (drawn v6, 3D explainer with an existing ep module), hook re-cuts, captions/descriptions, batch scheduling |
+| Hard builds / bugs | **opus** | new long-forms, pipeline code changes (drawn_keepkill, sim3d), render failures nobody can find |
+| Planning / strategy | **fable** | channel strategy, format plans, script structure for engagement |
+| Review | **a different model than the builder** | fact-check scripts against `_sources`, QA contact sheets before anything is scheduled |
+
+Each Short or long-form gets a second pass by a different model before it's scheduled.
