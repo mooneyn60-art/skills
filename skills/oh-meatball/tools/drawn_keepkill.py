@@ -177,25 +177,31 @@ def kk_board(ctx, t, p):
             blit(ctx, text_img("?", 260, "#ffd34d", 14), x0 + k * (cw + gap) + cw / 2, 540, 1.0 + 0.06 * math.sin(t * 6))
             blit(ctx, text_img("#1", 70, "#ffffff", 7), x0 + k * (cw + gap) + cw / 2, 760)
     slots = {}
+    step, isc = 178, 1.0
+    if p.get("fit"):   # opt-in (myth episodes): squeeze a column of 5+ icons so the last one stays on the board
+        most = max([sum(1 for it in icons if it["col"] == c[0]) for c in cols] or [0])
+        if most > 4:
+            step = (bot - top - 260) / (most - 1)
+            isc = step / 178
     for i, it in enumerate(icons):
         k = [c[0] for c in cols].index(it["col"])
         n = slots.get(it["col"], 0)
         slots[it["col"]] = n + 1
         cx = x0 + k * (cw + gap) + cw / 2
-        cy = top + 200 + n * 178
-        a, s = 1.0, 1.0
+        cy = top + 200 + n * step
+        a, s = 1.0, isc
         if i == newest:
             d = p.get("drop", 1.0)
             u = back_out(min(1.0, d * 1.05)) if d > 0 else 0.0
             cy = -200 + (cy + 200) * u
             a = min(1.0, d * 4)
-            s = 1.12
+            s = 1.12 * isc
         draw_icon(ctx, it["ic"], cx, cy + 4 * math.sin(t * 3 + i), s, a, box=(min(340, int(cw - 34)), 170))
     st = p.get("stamp", 0.0)
     if icons and st > 0:
         k = [c[0] for c in cols].index(nlast)
         cx = x0 + k * (cw + gap) + cw / 2
-        sy = top + 200 + (slots[nlast] - 1) * 178 + 95   # just under the newest icon
+        sy = top + 200 + (slots[nlast] - 1) * step + 95 * isc   # just under the newest icon
         sc = 1.0 if st >= 1 else 1.9 - 0.9 * ease(st)
         blit(ctx, text_img(p.get("stamps", STAMP).get(nlast, nlast), 96, cols[k][1], 8, rot=10), min(max(cx, 260), W - 260), min(sy, 860), sc, min(1.0, st * 3))
 
@@ -326,7 +332,7 @@ def build(outline, out_spec):
     used = {s.get("tier") for s in segs}
     piles = o.get("piles", COLS)   # outline override (myth episodes: MYTH / TRUE); default = the KEEP/KILL board
     cols = [list(c) for c in piles if c[0] in used] or [list(c) for c in piles]
-    board_x = {k2: o[k2] for k2 in ("title_text", "stamps") if k2 in o}
+    board_x = {k2: o[k2] for k2 in ("title_text", "stamps", "fit") if k2 in o}
     hud_x = {k2: o[k2] for k2 in ("meter", "chip") if k2 in o}
     k = 0
     for seg in segs:
