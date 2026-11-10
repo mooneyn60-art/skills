@@ -1,0 +1,3402 @@
+{
+ "_note": "Built by tools/drawn_treecheck.py build from longform-christmas-tree-check.outline.json. Each line: id (s<seg>.l<line>), the outline fields (say/vis/card/check/panic/src) and shot (recipe + args, tools/drawn_tc_shots.py). `tts` = a pronunciation respelling (captions use say).",
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -15,
+ "captions": 62,
+ "caption_y": 985,
+ "cut_whoosh": true,
+ "sfx_gain": 0.22,
+ "panic_start": 9,
+ "cap_key": [
+  "tree",
+  "christmas",
+  "marshmallow",
+  "eggs",
+  "hundred",
+  "thousand",
+  "twenty-five",
+  "mantis",
+  "aphid",
+  "aphids",
+  "tick",
+  "ticks",
+  "six",
+  "eight",
+  "spiders",
+  "nine",
+  "one",
+  "two",
+  "three",
+  "four",
+  "five",
+  "seven",
+  "vacuum",
+  "squash",
+  "spray",
+  "shake",
+  "clip",
+  "nest",
+  "trunk",
+  "lanternfly",
+  "fire",
+  "ignore",
+  "never",
+  "purple",
+  "panic",
+  "starve",
+  "evergreen"
+ ],
+ "pause_lines": [
+  "s1.l13",
+  "s5.l0",
+  "s7.l0"
+ ],
+ "music_out": [
+  "s6.l0"
+ ],
+ "end_hold": 12.0,
+ "end_label": "Don't Kill the Spider in Your Corner (posts Wed 11/18)",
+ "segments": [
+  {
+   "chapter": "Check for this",
+   "chip": null
+  },
+  {
+   "chapter": "The 25,000",
+   "chip": "THE NUMBER"
+  },
+  {
+   "chapter": "1. The mantis egg case",
+   "chip": "STOWAWAY 1 OF 9"
+  },
+  {
+   "chapter": "2. The one people call a tick",
+   "chip": "STOWAWAY 2 OF 9"
+  },
+  {
+   "chapter": "3 to 8. The ones you can ignore",
+   "chip": "STOWAWAYS 3 TO 8"
+  },
+  {
+   "chapter": "9. The one that matters outside",
+   "chip": "STOWAWAY 9 OF 9"
+  },
+  {
+   "chapter": "The mistake",
+   "chip": "DON'T DO THIS"
+  },
+  {
+   "chapter": "The tree check",
+   "chip": "THE TREE CHECK"
+  },
+  {
+   "chapter": "The verdict",
+   "chip": "VERDICT"
+  }
+ ],
+ "titles": [
+  "Never Bring a Christmas Tree Inside Before You Check for This",
+  "Check Your Christmas Tree for This Before It Comes in Your House",
+  "9 Things That Can Ride In on Your Christmas Tree (Clip One, Ignore Six)"
+ ],
+ "pinned_comment": "What's the strangest thing that ever came out of your Christmas tree? 👇",
+ "tree_check_final": [
+  "1. LOOK FOR THE MARSHMALLOW",
+  "2. CLIP IT, PUT IT IN AN EVERGREEN",
+  "3. SHAKE IT, THEN MOVE IT AWAY",
+  "4. PULL ANY BIRD NEST, CHECK THE TRUNK",
+  "5. VACUUM. NEVER SQUASH. NEVER SPRAY."
+ ],
+ "lines": [
+  {
+   "say": "Before your Christmas tree comes through the door, check it for one thing.",
+   "vis": "FRAME 0: close on a tan foamy blob glued to a fir twig, already quivering. Ornaments and lights soft behind. Card: CHECK FOR THIS",
+   "card": "CHECK FOR THIS",
+   "id": "s0.l0",
+   "seg": 0,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s0.l0",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "It can look like a toasted marshmallow on a branch.",
+   "src": "F31",
+   "vis": "Side by side for one beat: the blob and a toasted marshmallow. Same shape.",
+   "id": "s0.l1",
+   "seg": 0,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s0.l1",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Inside it: a hundred eggs. Maybe several hundred.",
+   "src": "F23 F27 F29",
+   "vis": "X-ray of the case: rows of eggs. Counter spins up past 100.",
+   "id": "s0.l2",
+   "seg": 0,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s0.l2",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "And your warm living room is about to tell them it's spring.",
+   "src": "F17 F47",
+   "vis": "Thermostat glows; a tiny crack appears in the case.",
+   "id": "s0.l3",
+   "seg": 0,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s0.l3",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "That's stowaway number one. Nine things can ride in on that tree.",
+   "vis": "Pull back: the whole decorated tree; nine little question marks blink in the branches. Chip: 9 STOWAWAYS",
+   "id": "s0.l4",
+   "seg": 0,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s0.l4",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Six you can ignore. One you vacuum. One you clip off. And one matters outside your house, not in it.",
+   "vis": "Four stamps preview: IGNORE x6, VACUUM x1, CLIP x1, CHECK THE TRUNK x1.",
+   "id": "s0.l5",
+   "seg": 0,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s0.l5",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "And the internet says there are twenty-five thousand bugs in there. We'll check that number first.",
+   "src": "F1",
+   "vis": "Headline card 25,000 BUGS? slams in. The PANIC METER slides in at 9 of 10.",
+   "card": "25,000 BUGS?",
+   "panic": 9,
+   "id": "s0.l6",
+   "seg": 0,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s0.l6",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Twenty-five thousand. Where does that come from?",
+   "vis": "The number on a corkboard with red string leading off screen.",
+   "id": "s1.l0",
+   "seg": 1,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s1.l0",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "One web article from a university in Norway, in December 2012.",
+   "src": "F1 F2",
+   "vis": "String leads to a pin on Norway and a calendar page: DEC 2012.",
+   "id": "s1.l1",
+   "seg": 1,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s1.l1",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "A museum biologist said as many as twenty-five thousand tiny creatures had turned up in some trees.",
+   "src": "F1",
+   "vis": "Speech bubble from a lab coat figure: AS MANY AS... IN SOME TREES. The words SOME TREES underline themselves.",
+   "id": "s1.l2",
+   "seg": 1,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s1.l2",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Some trees. Norwegian trees. Spruce and pine.",
+   "src": "F3 F5",
+   "vis": "Wild Norwegian spruce and pine in snow, not a decorated fir.",
+   "id": "s1.l3",
+   "seg": 1,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s1.l3",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "And tiny means tiny. Springtails, bark lice, mites, a moth, the odd spider.",
+   "src": "F4",
+   "vis": "Magnifier over a twig: five specks labelled in turn.",
+   "id": "s1.l4",
+   "seg": 1,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s1.l4",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "The article doesn't say how they were counted, and I couldn't find the study behind it.",
+   "src": "F7",
+   "vis": "Meatball digs through a filing cabinet, comes up empty. Stamp: NO METHOD GIVEN.",
+   "panic": 7,
+   "id": "s1.l5",
+   "seg": 1,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s1.l5",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "A Dutch natural history museum says nobody has done that study in the Netherlands yet.",
+   "src": "F6",
+   "vis": "A second pin on the Netherlands with a shrug emoji-free figure: NO DUTCH NUMBERS.",
+   "id": "s1.l6",
+   "seg": 1,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s1.l6",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "The biologist's own home test is easy. Shake your tree over a white sheet and look.",
+   "src": "F8",
+   "vis": "Meatball shakes a small tree over a bedsheet; a few specks fall.",
+   "id": "s1.l7",
+   "seg": 1,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s1.l7",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "In the U.S., Iowa State says a buggy tree carries a few to several hundred.",
+   "src": "F13",
+   "vis": "Counter: A FEW ... SEVERAL HUNDRED, tiny next to the crossed-out 25,000.",
+   "card": "A FEW TO SEVERAL HUNDRED",
+   "panic": 6,
+   "id": "s1.l8",
+   "seg": 1,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s1.l8",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "And North Carolina State guesses that perhaps one tree in a hundred thousand carries one of these pests.",
+   "src": "F10",
+   "vis": "A vast lot of trees to the horizon; one lights up.",
+   "card": "PERHAPS 1 IN 100,000",
+   "panic": 5,
+   "id": "s1.l9",
+   "seg": 1,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s1.l9",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Cut your own in the woods? Washington State University says bugs are more likely on forest and field trees than on farm-grown ones.",
+   "src": "F83",
+   "vis": "Split: a wild tree in a forest with a few more specks vs a neat farm row.",
+   "id": "s1.l10",
+   "seg": 1,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s1.l10",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Why any at all? It's an outdoor tree. Insects settle into conifers for the winter.",
+   "src": "F15",
+   "vis": "Tree farm in snow; bugs asleep under bark and needles with tiny Z's.",
+   "id": "s1.l11",
+   "seg": 1,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s1.l11",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Bring it inside, and the heat tells them winter is over.",
+   "src": "F17 F18",
+   "vis": "The same tree carried through a door; the Z's pop one by one.",
+   "id": "s1.l12",
+   "seg": 1,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s1.l12",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "So breathe. But still do the check, because of stowaway number one.",
+   "vis": "Back to the foam blob on the twig. Pause-and-reveal 1 of 3.",
+   "id": "s1.l13",
+   "seg": 1,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s1.l13",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Stowaway one. The praying mantis egg case.",
+   "vis": "Chapter card 1.2 s. Mantis (triangular head, raised spiked forelegs) on a fir branch.",
+   "id": "s2.l0",
+   "seg": 2,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s2.l0",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "In fall, a mantis glues a blob of foam to a twig, and the foam hardens.",
+   "src": "F23 F24",
+   "vis": "The mantis lays the froth; time lapse: it sets hard.",
+   "id": "s2.l1",
+   "seg": 2,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s2.l1",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "It can look like spray foam insulation. Light brown, about an inch and a half wide.",
+   "src": "F30",
+   "vis": "Ruler: 1.5 inches. Spray-foam can beside it for comparison.",
+   "id": "s2.l2",
+   "seg": 2,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s2.l2",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "The big ones, from the Chinese mantis, are the size of a ping-pong ball.",
+   "src": "F31",
+   "vis": "Ping-pong ball rolls in next to it.",
+   "id": "s2.l3",
+   "seg": 2,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s2.l3",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "The native Carolina mantis makes a slim one. Half an inch to an inch, tan, with a ribbed top.",
+   "src": "F32",
+   "vis": "Second, slim case on another twig. Labels: CHINESE / CAROLINA.",
+   "id": "s2.l4",
+   "seg": 2,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s2.l4",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Penn State lists four mantis species that leave these on conifer twigs.",
+   "src": "F34",
+   "vis": "Four mantis silhouettes line up along a branch, each beside its own case.",
+   "id": "s2.l5",
+   "seg": 2,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s2.l5",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "How many eggs? Missouri's extension says about a hundred. Mississippi State says several hundred for the big kind.",
+   "src": "F23 F27",
+   "vis": "Two source chips with their numbers.",
+   "id": "s2.l6",
+   "seg": 2,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s2.l6",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "So: a hundred to several hundred, depending on the mantis.",
+   "src": "F29",
+   "vis": "Card.",
+   "card": "100 TO SEVERAL HUNDRED",
+   "panic": 7,
+   "id": "s2.l7",
+   "seg": 2,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s2.l7",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Outside, they would sit there until spring.",
+   "src": "F24",
+   "vis": "Case on a snowy twig, calendar pages drifting.",
+   "id": "s2.l8",
+   "seg": 2,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s2.l8",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Inside, Penn State says a case hatches after several weeks, into dozens of baby mantises.",
+   "src": "F35",
+   "vis": "The case splits; dozens of pale threadlike nymphs pour down the branch past the ornaments.",
+   "card": "DOZENS OF BABIES",
+   "panic": 8,
+   "id": "s2.l9",
+   "seg": 2,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s2.l9",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "A fresh tree can last three to four weeks indoors. So it's a photo finish.",
+   "src": "F81 F35",
+   "vis": "Split calendar: TREE DOWN vs EGGS HATCH racing to the same week.",
+   "id": "s2.l10",
+   "seg": 2,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s2.l10",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Then the sad part. There is nothing for them to eat in your living room.",
+   "vis": "A nymph looks at a candy cane, a gift, a sock. Nothing.",
+   "id": "s2.l11",
+   "seg": 2,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s2.l11",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "So they eat each other.",
+   "src": "F36",
+   "vis": "Two nymphs eye each other. Cut away before anything graphic.",
+   "id": "s2.l12",
+   "seg": 2,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s2.l12",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "And Illinois Extension says the ones that are left will likely starve.",
+   "src": "F37",
+   "vis": "One last nymph on a bauble, tiny sigh.",
+   "panic": 6,
+   "id": "s2.l13",
+   "seg": 2,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s2.l13",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "If it happens anyway, Missouri's extension suggests feeding them small flies or tiny pet-store crickets.",
+   "src": "F42",
+   "vis": "Meatball with tweezers and a tub labelled CRICKETS, a row of nymphs with napkins.",
+   "id": "s2.l14",
+   "seg": 2,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s2.l14",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "I am not making that up.",
+   "vis": "Source chip pops: UNIVERSITY OF MISSOURI EXTENSION. Meatball points at it.",
+   "id": "s2.l15",
+   "seg": 2,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s2.l15",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Better plan. Step one of the tree check: look for the marshmallow.",
+   "vis": "TREE CHECK list appears with box 1 ticked.",
+   "check": "1. LOOK FOR THE MARSHMALLOW",
+   "id": "s2.l16",
+   "seg": 2,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s2.l16",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Found one? Don't crush it. Clip the twig.",
+   "src": "F39 F40",
+   "vis": "Pruning shears snip the twig with the case on it.",
+   "id": "s2.l17",
+   "seg": 2,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s2.l17",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Tuck it into an evergreen outside.",
+   "src": "F40",
+   "vis": "Meatball wedges the twig into a garden shrub.",
+   "check": "2. CLIP IT, PUT IT IN AN EVERGREEN",
+   "id": "s2.l18",
+   "seg": 2,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s2.l18",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Not on the ground. Illinois says ants will eat the eggs.",
+   "src": "F41",
+   "vis": "A line of ants heading for a case on the ground; Meatball lifts it away.",
+   "panic": 4,
+   "id": "s2.l19",
+   "seg": 2,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s2.l19",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "One more thing about these mantises. The big ones are not from here.",
+   "vis": "Map of the U.S. with two little arriving ships.",
+   "id": "s2.l20",
+   "seg": 2,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s2.l20",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "The Chinese mantis and the European mantis both turned up in the late 1800s. In Illinois, only the Carolina mantis is native.",
+   "src": "F44 F45",
+   "vis": "Timeline: LATE 1800s. Three mantises; one wears a NATIVE badge.",
+   "id": "s2.l21",
+   "seg": 2,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s2.l21",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Stowaway two is the one that makes people yell tick.",
+   "vis": "Chapter card 1.2 s. A dark round bug with long legs walks across a wrapped present.",
+   "id": "s3.l0",
+   "seg": 3,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s3.l0",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Dark. Round. Long legs. Walking off the tree and onto your presents.",
+   "src": "F48 F55",
+   "vis": "Several of them drop from a branch onto gift wrap.",
+   "panic": 7,
+   "id": "s3.l1",
+   "seg": 3,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s3.l1",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "It's a giant conifer aphid. Up to about an eighth of an inch.",
+   "src": "F48",
+   "vis": "Name card. Ruler: UP TO 1/8 INCH.",
+   "card": "GIANT CONIFER APHID",
+   "id": "s3.l2",
+   "seg": 3,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s3.l2",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "N.C. State calls them among the largest aphids we have.",
+   "src": "F49",
+   "vis": "The aphid flexes next to a normal tiny aphid.",
+   "id": "s3.l3",
+   "seg": 3,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s3.l3",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "North Carolina State says people often mistake them for ticks.",
+   "src": "F50",
+   "vis": "Aphid and tick side by side under a magnifier.",
+   "id": "s3.l4",
+   "seg": 3,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s3.l4",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "So count the legs. An aphid has six. Ticks and spiders have eight.",
+   "src": "F56",
+   "vis": "Legs count off 1 to 6 on the aphid, 1 to 8 on the tick.",
+   "card": "6 LEGS, NOT 8",
+   "panic": 5,
+   "id": "s3.l5",
+   "seg": 3,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s3.l5",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "N.C. State says they don't bite, sting or carry disease. And they won't eat your houseplants.",
+   "src": "F54 (NC State); Penn State and Illinois for houseplants",
+   "vis": "Three quick icons crossed off; a houseplant gets a tick mark (safe).",
+   "id": "s3.l6",
+   "seg": 3,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s3.l6",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "The warmth wakes them up, and they wander.",
+   "src": "F55",
+   "vis": "Aphids yawning, then marching along a branch toward the room.",
+   "id": "s3.l7",
+   "seg": 3,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s3.l7",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "As the tree dries out, they move onto the decorations and the furniture.",
+   "src": "F58",
+   "vis": "Aphids abseil from a drying branch onto an armchair.",
+   "id": "s3.l8",
+   "seg": 3,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s3.l8",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Here is the one rule. Do not squash them.",
+   "vis": "Meatball's raised slipper freezes mid-air.",
+   "id": "s3.l9",
+   "seg": 3,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s3.l9",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Crushed, they can leave a purple or red stain. Carpet, couch, wrapping paper.",
+   "src": "F52 F53",
+   "vis": "A purple smear on gift wrap, then on a white rug.",
+   "card": "PURPLE STAIN",
+   "panic": 6,
+   "id": "s3.l10",
+   "seg": 3,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s3.l10",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Vacuum them instead. Use the hose, not the spinning brush.",
+   "src": "F59",
+   "vis": "Vacuum hose lifts them neatly; the brush head sits unused with an X.",
+   "check": "5. VACUUM. NEVER SQUASH.",
+   "id": "s3.l11",
+   "seg": 3,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s3.l11",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Keep a tree in long enough, especially one with a root ball, and Penn State says they may breed.",
+   "src": "F57",
+   "vis": "A balled-and-burlapped tree (root ball, not a pot); a few winged aphids appear with question marks.",
+   "id": "s3.l12",
+   "seg": 3,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s3.l12",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "And real ticks on Christmas trees? A few cases have been recorded. A few.",
+   "src": "F51",
+   "vis": "One tick on a trunk with a tiny RARE tag.",
+   "panic": 4,
+   "id": "s3.l13",
+   "seg": 3,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s3.l13",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "That's two. The next six take about a minute. Then the one that matters.",
+   "vis": "Progress strip: 2 of 9 ticked; six blur past as silhouettes; the ninth glows.",
+   "id": "s3.l14",
+   "seg": 3,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s3.l14",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Three. Spiders. Iowa State says aphids and spiders are the two things most often found on cut trees.",
+   "src": "F14",
+   "vis": "A small spider and spiderlings on a branch.",
+   "id": "s4.l0",
+   "seg": 4,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s4.l0",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Penn State says they aren't dangerous to you or your pets, and they die in a short time indoors.",
+   "src": "F72",
+   "vis": "Stamp: IGNORE. A dog sniffs the tree, unbothered.",
+   "card": "IGNORE",
+   "id": "s4.l1",
+   "seg": 4,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s4.l1",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Four. Bark beetles. You might see a little very fine sawdust.",
+   "src": "F66",
+   "vis": "Tiny beetle; a pinch of dust under the trunk.",
+   "id": "s4.l2",
+   "seg": 4,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s4.l2",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Will they eat your furniture? No. They need damp wood, and your house is too dry.",
+   "src": "F65",
+   "vis": "Beetle taps a table leg, shakes its head, leaves. Stamp: IGNORE.",
+   "card": "IGNORE",
+   "panic": 3,
+   "id": "s4.l3",
+   "seg": 4,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s4.l3",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Five. White cottony fluff on the bark. Adelgids. They stay put and they're harmless.",
+   "src": "F69",
+   "vis": "Cotton tufts on bark; Meatball pokes one, nothing happens. Stamp: IGNORE.",
+   "id": "s4.l4",
+   "seg": 4,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s4.l4",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   },
+   "tts": "Five. White cottony fluff on the bark. uh-DELL-jids. They stay put and they're harmless."
+  },
+  {
+   "say": "Six. Specks that start walking after a couple of weeks. Scale crawlers. Wipe them up with a damp towel.",
+   "src": "F70",
+   "vis": "Dots creep along a windowsill; a towel swipes. Stamp: IGNORE.",
+   "id": "s4.l5",
+   "seg": 4,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s4.l5",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Seven. Mites. Penn State says none of the predatory mites on Christmas trees bite.",
+   "src": "F68",
+   "vis": "A mite eating a tinier egg, busy. Stamp: IGNORE.",
+   "id": "s4.l6",
+   "seg": 4,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s4.l6",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "But if there's an old bird nest in the tree, take it out. Nests can carry mites and lice.",
+   "src": "F73",
+   "vis": "Meatball lifts a nest out with tongs.",
+   "check": "4. PULL ANY BIRD NEST",
+   "id": "s4.l7",
+   "seg": 4,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s4.l7",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Eight. Bark lice. They can't bite, and dry air kills them quickly.",
+   "src": "F67",
+   "vis": "Tiny pale specks; a radiator; they're gone. Stamp: IGNORE.",
+   "id": "s4.l8",
+   "seg": 4,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s4.l8",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Iowa State sums up the tiny ones. They can't bite or sting, and they won't live long enough to grow or multiply.",
+   "src": "F20",
+   "vis": "All six silhouettes in a row, each with an IGNORE stamp.",
+   "id": "s4.l9",
+   "seg": 4,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s4.l9",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Newly hatched aphids and spiderlings are about a sixteenth of an inch.",
+   "src": "F22",
+   "vis": "A speck beside a grain of rice for scale (no number on screen beyond 1/16 INCH).",
+   "card": "1/16 INCH",
+   "id": "s4.l10",
+   "seg": 4,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s4.l10",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Most of them starve or dry out.",
+   "src": "F21",
+   "vis": "The six fade.",
+   "panic": 2,
+   "id": "s4.l11",
+   "seg": 4,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s4.l11",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Penn State's rule for anything you find: leave it on the tree until the tree goes out, and vacuum whatever lands on the walls or ceiling.",
+   "src": "F75",
+   "vis": "Meatball, vacuum hose raised to a ceiling speck; the tree untouched.",
+   "id": "s4.l12",
+   "seg": 4,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s4.l12",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Nine. This one is not a problem in your house. It's a problem for your county.",
+   "vis": "Pause-and-reveal 2 of 3. Camera moves down the trunk.",
+   "id": "s5.l0",
+   "seg": 5,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s5.l0",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Spotted lanternfly eggs. Penn State calls it unlikely, but they can turn up on Christmas trees.",
+   "src": "F74; Penn State Extension, Insects on Real Christmas Trees (updated 2026-01-19); Penn State News 2019-11-18",
+   "vis": "A grey patch on the trunk. Name card: SPOTTED LANTERNFLY EGGS.",
+   "card": "SPOTTED LANTERNFLY EGGS",
+   "id": "s5.l1",
+   "seg": 5,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s5.l1",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "On bark, an egg mass can look like a smear of dried mud.",
+   "src": "Penn State News 2019-11-18 (\"resemble gray mud splatters\"); Penn State SLF Management Guide (\"mud-like covering\"); USDA APHIS",
+   "vis": "Close-up: grey, cracked, mud-like smear about an inch long.",
+   "id": "s5.l2",
+   "seg": 5,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s5.l2",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "If they hatch in your living room, the babies soon die.",
+   "src": "F74",
+   "vis": "A few nymphs on a windowsill, then gone.",
+   "id": "s5.l3",
+   "seg": 5,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s5.l3",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "The worry is the ride. Eggs on a tree could reach new ground and hatch outside in spring.",
+   "src": "Virginia Cooperative Extension ENTO-402; Penn State Christmas-tree page",
+   "vis": "A tree on a car roof crossing a county line, then a spring yard with nymphs.",
+   "id": "s5.l4",
+   "seg": 5,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s5.l4",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "So if you live in or near a lanternfly area, check the trunk before the tree travels.",
+   "src": "Penn State Christmas-tree page; Penn State SLF Management Guide; New Jersey Dept. of Agriculture",
+   "vis": "Meatball inspects the trunk with a flashlight at the lot.",
+   "check": "4. PULL ANY BIRD NEST, CHECK THE TRUNK",
+   "id": "s5.l5",
+   "seg": 5,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s5.l5",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Found one? Scrape it into rubbing alcohol or hand sanitizer, or smash it.",
+   "src": "Penn State News 2019-11-18; Penn State SLF Management Guide; USDA APHIS",
+   "vis": "A scraper card pushes the grey patch into a zip bag of sanitizer.",
+   "id": "s5.l6",
+   "seg": 5,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s5.l6",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Outside the known lanternfly area? Report it to your state agriculture department.",
+   "src": "Penn State SLF Management Guide; USDA APHIS; Penn State Christmas-tree page",
+   "vis": "A phone with a generic STATE AG DEPT screen, no real logo.",
+   "panic": 3,
+   "id": "s5.l7",
+   "seg": 5,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s5.l7",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "And in a lanternfly area, send the old tree to a chipping program, not the backyard.",
+   "src": "Penn State Christmas-tree page",
+   "vis": "The tree on a curb with a RECYCLE tag.",
+   "id": "s5.l8",
+   "seg": 5,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s5.l8",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Now the one real mistake. Do not hit the tree with bug spray.",
+   "vis": "A hand with an aerosol can aimed at the lit tree. Freeze.",
+   "id": "s6.l0",
+   "seg": 6,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s6.l0",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Penn State says aerosol insecticides are often flammable and usually not labelled for indoor use.",
+   "src": "F60",
+   "vis": "The can's label flips to a flame symbol.",
+   "id": "s6.l1",
+   "seg": 6,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s6.l1",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Illinois Extension just says never.",
+   "src": "F61",
+   "vis": "Card.",
+   "card": "NEVER SPRAY THE TREE",
+   "check": "5. VACUUM. NEVER SQUASH. NEVER SPRAY.",
+   "id": "s6.l2",
+   "seg": 6,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s6.l2",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "North Carolina State's entomologists put it this way: with the lights on, you could set the tree on fire.",
+   "src": "F63",
+   "vis": "Lights glow; Meatball slowly lowers the can and backs away.",
+   "panic": 5,
+   "id": "s6.l3",
+   "seg": 6,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s6.l3",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "And you don't need it. Iowa State says spraying a fresh-cut tree isn't necessary or recommended.",
+   "src": "F62",
+   "vis": "Can goes in a drawer. Panic drops.",
+   "panic": 2,
+   "id": "s6.l4",
+   "seg": 6,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s6.l4",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Should you hose the tree off outside first? North Carolina State says you can. The Norwegian biologist says don't, because washing damages the tree. Shaking is the step most advice agrees on.",
+   "src": "F80 F9 F76",
+   "vis": "Two advisers with opposite signs (HOSE IT / DON'T), then a tree being shaken and dragged clear of the pile.",
+   "check": "3. SHAKE IT, THEN MOVE IT AWAY",
+   "id": "s6.l5",
+   "seg": 6,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s6.l5",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Same idea for firewood. Illinois says bring in a day or two of wood at a time, because things wake up in there too.",
+   "src": "F84 F86",
+   "vis": "Small armful of logs by the fire; a beetle peeks out of a big indoor pile with an X on it.",
+   "id": "s6.l6",
+   "seg": 6,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s6.l6",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Here is the whole tree check.",
+   "vis": "The TREE CHECK list fills the right half of the frame. Pause-and-reveal 3 of 3.",
+   "id": "s7.l0",
+   "seg": 7,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s7.l0",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "One. Before it comes inside, look up into the tree from the cut end, and scan the branches for the marshmallow.",
+   "src": "F78 F39",
+   "vis": "Tree on its side at the lot; Meatball peers in from the trunk end.",
+   "id": "s7.l1",
+   "seg": 7,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s7.l1",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Two. Clip any egg case, twig and all, and tuck it into an evergreen outside.",
+   "src": "F40",
+   "vis": "Replay: snip, tuck.",
+   "id": "s7.l2",
+   "seg": 7,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s7.l2",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Three. Shake the tree. Some lots have a shaker. Then move it away from that spot, or the bugs can crawl back.",
+   "src": "F76 F77",
+   "vis": "Mechanical shaker rattles the tree; specks fall; Meatball drags the tree clear of the pile.",
+   "id": "s7.l3",
+   "seg": 7,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s7.l3",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Four. Pull out any old bird nest, and check the trunk.",
+   "src": "F73 F74",
+   "vis": "Nest out; flashlight on bark.",
+   "id": "s7.l4",
+   "seg": 7,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s7.l4",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Five. Once it's inside: vacuum, never squash, never spray.",
+   "src": "F59 F60 F52",
+   "vis": "Vacuum yes; slipper no; spray can no.",
+   "id": "s7.l5",
+   "seg": 7,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s7.l5",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "That's it.",
+   "vis": "All five boxes ticked.",
+   "id": "s7.l6",
+   "seg": 7,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s7.l6",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Panic level: one.",
+   "vis": "Meter drops to 1 of 10 and turns green.",
+   "panic": 1,
+   "id": "s8.l0",
+   "seg": 8,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s8.l0",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Your tree is not twenty-five thousand bugs. It's an outdoor tree with a few sleepy passengers that don't last long in your living room.",
+   "src": "F13 F20 F21",
+   "vis": "The decorated tree, calm; a couple of tiny specks with Z's.",
+   "id": "s8.l1",
+   "seg": 8,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s8.l1",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Check for the marshmallow, and go get the tree.",
+   "vis": "Meatball carries the tree through the door, triumphant.",
+   "id": "s8.l2",
+   "seg": 8,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s8.l2",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "And that egg case you tucked into the bush? In spring, it hatches where there is actually something to eat.",
+   "src": "F24 F40",
+   "vis": "Callback: the garden evergreen in spring; nymphs pour out into green leaves.",
+   "id": "s8.l3",
+   "seg": 8,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s8.l3",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  },
+  {
+   "say": "Next, the skinny spider in the corner of your ceiling. Don't squish that one either.",
+   "vis": "END SCREEN: WATCH NEXT slot (the cellar spider episode), subscribe slot. Hold 12 s under music.",
+   "id": "s8.l4",
+   "seg": 8,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "_todo": true,
+    "actors": [
+     {
+      "id": "todo",
+      "type": "ds_label",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODO s8.l4",
+       "px": 80
+      },
+      "front": false
+     }
+    ]
+   }
+  }
+ ]
+}
