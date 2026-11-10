@@ -160,7 +160,7 @@ def _carol_body(ctx, t, p, ox=0.0, oy=0.0, alpha=1.0):
     eyes(ctx, bx, by - 20, 13, 14, p.get("look", (0, 0.2)), mood, blink, OUT * 0.45, lid=C["cell"])
     r3 = 5.5 + 3.5 * e8
     for side in (-1, 1):
-        cx, cy = bx + side * (30 + 4 * e8), by - 30
+        cx, cy = bx + side * (30 + 16 * e8), by - 30 - 4 * e8
         for j, (dx, dy) in enumerate(((0, 0), (side * 10 * (1 + 0.5 * e8), -9 * (1 + 0.5 * e8)),
                                       (side * 12 * (1 + 0.5 * e8), 8 * (1 + 0.4 * e8)))):
             bl = e8 > 0 and (math.sin(t * 3.1 + j * 2.3 + side * 1.7) > 0.93)
@@ -831,12 +831,15 @@ def _remain_icon(ctx, kind, x, y, r, rot=0.0):
                              (s * r * 0.7, -r * 1.4 + k * 4)], max(2.0, r * 0.14), smooth=True, color=hexc("#4e3826"))
         shape(ctx, lambda c: p_ellipse(c, -r * 0.35, 0, r * 0.7, r * 0.5), hexc("#8a6a48"), OUT * 0.3, None)
         shape(ctx, lambda c: p_ellipse(c, r * 0.45, -r * 0.05, r * 0.42, r * 0.36), hexc("#8a6a48"), OUT * 0.3, None)
-    elif kind == "sp":   # another spider: dark grey
+    elif kind == "sp":   # another cellar spider: pale, tiny body, very long legs
         for k in range(4):
             for s in (-1, 1):
-                stroke(ctx, [(0, 0), (s * r * 0.9, -r * 0.6 + k * r * 0.35), (s * r * 1.2, -r * 0.2 + k * r * 0.3)],
-                       max(2.0, r * 0.12), color=hexc("#2e2e34"))
-        shape(ctx, lambda c: p_ellipse(c, 0, 0, r * 0.6, r * 0.5), hexc("#45454d"), OUT * 0.3, None)
+                stroke(ctx, [(0, 0), (s * r * 0.8, -r * 1.0 + k * r * 0.3), (s * r * 1.7, -r * 0.3 + k * r * 0.45)],
+                       max(3.0, r * 0.14))
+                stroke(ctx, [(0, 0), (s * r * 0.8, -r * 1.0 + k * r * 0.3), (s * r * 1.7, -r * 0.3 + k * r * 0.45)],
+                       max(1.5, r * 0.07), color=C["cell_leg"])
+        shape(ctx, lambda c: p_ellipse(c, -r * 0.25, r * 0.15, r * 0.45, r * 0.2, 0.5), C["cell"], OUT * 0.3, None)
+        shape(ctx, lambda c: p_ellipse(c, r * 0.1, 0, r * 0.22, r * 0.2), C["cell"], OUT * 0.3, None)
     elif kind == "fly":
         shape(ctx, lambda c: p_ellipse(c, 0, 0, r * 0.7, r * 0.45), hexc("#4a4f57"), OUT * 0.3, None)
         flat(ctx, lambda c: p_ellipse(c, -r * 0.2, -r * 0.5, r * 0.6, r * 0.25, -0.5), C["wing"], a=0.8)
@@ -859,7 +862,7 @@ def ds_board(ctx, t, p):
     rng.shuffle(kinds)
     grid = [(-Wb / 2 + 110 + (k % 17) * 76, -Hb / 2 + 150 + (k // 17) * 92) for k in range(102)]
     pile1 = [(-560 + (k % 9) * 50 - (k // 9) * 4, 300 - (k // 9) * 38) for k in range(63)]
-    pile2 = [(-60 + (k % 3) * 56, 300 - (k // 3) * 40) for k in range(6)]
+    pile2 = [(260 + (k % 3) * 80, 290 - (k // 3) * 60) for k in range(6)]
     i1 = i2 = 0
     for k, kind in enumerate(kinds):
         if k >= n:
@@ -887,10 +890,10 @@ def ds_board(ctx, t, p):
         text(ctx, str(int(round(n))), Wb / 2 - 150, -Hb / 2 + 70, 96, "#ffffff")
     if srt > 0.5:
         a = min(1.0, (srt - 0.5) * 3)
-        text(ctx, "HOUSE SPIDERS", -400, 380 + 10, 52, "#ffd34d", None, a)
+        text(ctx, "HOUSE SPIDERS", -380, 380, 52, "#ffd34d", None, a)
     if srt2 > 0.5:
         a = min(1.0, (srt2 - 0.5) * 3)
-        text(ctx, p.get("label2", "OTHER SPIDERS"), 20, 390, 44, "#ffffff", None, a)
+        text(ctx, p.get("label2", "OTHER SPIDERS"), 340, 380, 52, "#ffffff", None, a)
 
 
 def ds_pie(ctx, t, p):
@@ -951,9 +954,9 @@ def _pie_slices(ctx, t, p):
         y = -170 + k * 170
         shape(ctx, lambda c, y=y: p_rrect(c, 430, y - 40, 80, 80, 14), hexc(col), OUT * 0.7, None, a=a)
         ctx.save()
-        im_w, im_h = text(ctx, lab, 0, 0, 62, "#ffffff", None, 0.0)
+        im_w, im_h = text(ctx, lab, 0, 0, 58, "#ffffff", None, 0.0)
         ctx.restore()
-        text(ctx, lab, 550 + im_w / 2, y, 62, "#ffffff", None, a)
+        text(ctx, lab, 540 + im_w / 2, y, 58, "#ffffff", None, a)
 
 
 def ds_lineup(ctx, t, p):

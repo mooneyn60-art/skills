@@ -326,7 +326,7 @@ drawn.recut = _recut
 CORNER = (700, 150)
 CAROL = [720, 610]
 CS = 0.6
-CAMS = {"close": [720, 560, 1.9], "mid": [720, 500, 1.3], "wide": [700, 470, 1.0], "face": [720, 588, 4.6],
+CAMS = {"close": [720, 560, 1.9], "mid": [720, 500, 1.3], "wide": [700, 470, 1.0], "face": [720, 590, 6.2],
         "low": [700, 520, 0.92]}
 
 
@@ -458,10 +458,10 @@ def _shots_table():
                            gest=[["hunting", "point", 0.8], ["hurt", "think", 0.8], ["leave", "shrug", 1.0]]),
                   "three": ["HUNTING?", "HURT YOU?", "LEAVE IT?"], "three_at": ["hunting|20%", "hurt|50%", "leave|80%"],
                   "sfx": ["pop@hunting|20%", "pop@hurt|50%"]}
-    T["s0.l5"] = {"r": "scene", "scene": "bedroom", "scene_p": {"time": "night"}, "cam": [760, 1100, 0.78], "to": [800, 1080, 0.86],
-                  "actors": [actor("chair", "chair", [760, 1500], 1.0), actor("feet", "ds_feet", [770, 1032], 1.0)],
-                  "mb": mb("lean", (1010, 1500), 900, look="viewer", gest=[["squish|60%", "deadpan", 2.0]],
-                           moves=[{"at": "chair|80%", "dur": 0.3, "pos": [980, 1500]}]),
+    T["s0.l5"] = {"r": "scene", "scene": "bedroom", "scene_p": {"time": "night"}, "cam": [1700, 1100, 0.78], "to": [1760, 1080, 0.86],
+                  "actors": [actor("chair", "chair", [1880, 1500], 1.0), actor("feet", "ds_feet", [1890, 1032], 1.0)],
+                  "mb": mb("lean", (2130, 1500), 900, look="viewer", gest=[["squish|60%", "deadpan", 2.0]],
+                           moves=[{"at": "chair|80%", "dur": 0.3, "pos": [2100, 1500]}]),
                   "meter_pulse": "meter|25%", "sfx": ["thud@chair|80%"]}
     # ----------------------------------------------------------------------------------------- question 1
     T["s1.l0"] = {"r": "corner", "cam": "wide", "to": [700, 470, 1.1], "carol": {"work": 0.6}, "chapter": True}
@@ -475,12 +475,12 @@ def _shots_table():
                                     "lx": 90, "ly": 30, "px": 64},
                                    sets=[{"at": "two|78%", "dur": 0.6, "p": {"grow": 1.0}}])],
                   "card_at": "cellar|10%", "sfx": ["tink@quarter|45%", "whoosh@two|78%"]}
-    T["s1.l2"] = {"r": "corner", "cam": [720, 594, 3.2], "to": "face", "shoe": False,
+    T["s1.l2"] = {"r": "corner", "cam": [720, 594, 4.0], "to": "face", "shoe": False,
                   "carol": {"eyes8": 1.0, "look": [0, 0], "mood": "calm", "still": True},
                   "extras": [actor("ring%d" % i, "ds_ring", [CAROL[0] + x * CS, CAROL[1] - 30 * CS + y * CS], 1.0,
                                    {"on": 0.0, "r": r, "lw": 3},
                                    sets=[{"at": "three|%d%%" % (60 + 8 * i), "dur": 0.3, "p": {"on": 1.0}}])
-                             for i, (x, y, r) in enumerate(((-38, 0, 15), (0, 10, 21), (38, 0, 15)))],
+                             for i, (x, y, r) in enumerate(((-48, -4, 19), (0, 10, 24), (48, -4, 19)))],
                   "sfx": ["tink@eight|35%", "pop@three|65%"]}
     T["s1.l3"] = {"r": "corner", "cam": [860, 500, 1.15], "to": [860, 490, 1.22],
                   "carol": {"mood": "happy", "look": [0.6, 0.2]},
@@ -510,7 +510,7 @@ def _shots_table():
                   "sfx": ["zap@insects|20%", "thud@Woodlice|40%"]}
     T["s1.l6"] = {"r": "scene", "scene": "ds_lab", "cam": [760, 640, 0.95], "to": [800, 640, 1.03],
                   "actors": [actor("arena", "ds_arena", [560, 900], 1.25),
-                             carol({"look": [0.6, 0.2], "mood": "happy"}, [560, 540], 0.3,
+                             carol({"look": [0.6, 0.2], "mood": "happy"}, [560, 790], 0.25,
                                    sets=[{"at": "eggs|85%", "dur": 0.4, "p": {"eggs": 1.0}}]),
                              actor("cal", "ds_prop", [1260, 400], 0.8, {"kind": "calendar", "day": 1.0},
                                    sets=[{"at": "every|45%", "dur": 1.6, "p": {"day": 4.0}}]),
@@ -536,7 +536,7 @@ def _shots_table():
                   "sfx": ["step@emptied|35%", "pop@leftovers|85%"]}
     T["s1.l9"] = {"r": "scene", "scene": "ds_board_bg", "cam": [0, 40, 1.0], "to": [0, 40, 1.04], "norecut": True,
                   "actors": [actor("board", "ds_board", [0, 60], 1.0, {"n": 0, "sort": 0.0, "sort2": 0.0},
-                                   sets=[{"at": 0.05, "dur": 1.5, "p": {"n": 102}}])],
+                                   sets=[{"at": 0.05, "dur": 1.1, "p": {"n": 102}}])],
                   "sfx": ["pop@0.1", "tink@dead|80%"]}
     T["s1.l10"] = {"r": "scene", "scene": "ds_board_bg", "cam": [0, 40, 1.04], "to": [-80, 60, 1.1], "norecut": True,
                    "actors": [actor("board", "ds_board", [0, 60], 1.0, {"n": 102, "sort": 0.0, "count": False},
@@ -546,11 +546,11 @@ def _shots_table():
                    "actors": [actor("board", "ds_board", [0, 60], 1.0, {"n": 102, "sort": 1.0, "sort2": 0.0, "count": False,
                                                                          "label2": "CELLAR SPIDERS"},
                                     sets=[{"at": "Six|15%", "dur": 0.8, "p": {"sort2": 1.0}}]),
-                              carol({"look": [1, -0.6], "mood": "smug", "still": True}, [840, -330], 0.3, idn="carolw"),
-                              actor("notes", "ds_notes", [940, -400], 1.0, {"on": 0.0}, sets=pop("cellar|60%"))],
+                              carol({"look": [-1, -0.6], "mood": "smug", "still": True}, [690, -250], 0.26, idn="carolw"),
+                              actor("notes", "ds_notes", [760, -300], 0.8, {"on": 0.0}, sets=pop("cellar|60%"))],
                    "sfx": ["pop@Six|25%"]}
     T["s1.l12"] = {"r": "scene", "scene": "ds_board_bg", "cam": [0, 0, 1.0], "to": [0, 0, 1.05], "norecut": True,
-                   "actors": [actor("pie", "ds_pie", [-330, 70], 1.0,
+                   "actors": [actor("pie", "ds_pie", [-560, 130], 0.8,
                                     {"slices": [[63, "#c98a4a", "63 HOUSE SPIDERS"], [6, "#e2d3b0", "6 CELLAR SPIDERS"],
                                                 [33, "#8a94a6", "33 UNIDENTIFIED SPIDER BITS"]], "sweep": 0.0},
                                     sets=[{"at": 0.05, "dur": 1.2, "p": {"sweep": 1.0}}])],
