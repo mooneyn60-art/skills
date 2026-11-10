@@ -1,0 +1,30 @@
+Kill It or Keep It? Part 2 (Sat 11/28 08:00 ET, not scheduled yet)
+
+Test & Compare titles (load all 3):
+1. 3 Bugs in Your House You Should Never Kill (And 5 You Must) | Part 2   <- PRIMARY
+   True to the board: KEEP = 3 (wolf spider, earwig, camel cricket), KILL = 5 (stink bug, carpenter ant,
+   silverfish, fruit fly, clothes moth). No MEH or DANGER piles.
+2. The Moth in Your Closet Never Eats (And 7 More Bugs: Kill or Keep?)
+3. Don't Squish These 3 Bugs in Your House (Kill These 5 Instead)
+
+Thumbnails (1280x720, 168 px previews alongside), made by tools/thumb_keepkill2.py:
+A. thumb_a.jpg  wolf spider close-up, "DON'T SQUISH IT"   <- primary
+B. thumb_b.jpg  KEEP / KILL split, wolf spider vs carpenter ant
+C. thumb_c.jpg  earwig close-up, "IN YOUR EAR?"
+
+Pinned comment:
+Be honest: which of these 8 have you squished in your house? 👇
+
+Tags: house bugs, bugs in your house, wolf spider, earwig, camel cricket, stink bug, carpenter ants, silverfish,
+clothes moth, kill it or keep it, meatball myths
+
+Retention fixes vs Part 1 (lost ~45% in the first minute, second drop at ~2:20 at the KEEP->KILL switch):
+- Cold open on the most surprising fact ("The moth in your closet never eats") with the payoff by 0:06,
+  and the first creature (wolf spider) on screen by 0:10. Narration from 0.0, no intro, comment ask only at the end.
+- A tease right before the switch: "And the next one? Whatever you do, don't squish it." -> the kill pile opens on
+  the stink bug ("don't squish it"), and the moth is the promised payoff at 4:03.
+- Every chapter opens with a hook line ("named after your ear", "already inside your walls", "older than the dinosaurs").
+
+Rebuild: python3 tools/drawn_keepkill.py build scripts/longform-kill-or-keep-2.json SPEC.json
+         python3 tools/drawn_keepkill.py render SPEC.json OUT.mp4 --work DIR
+Gates:   python3 tools/lf_gates.py OUT.mp4 --work DIR --spec SPEC.json --sheets DIR
