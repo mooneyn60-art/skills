@@ -107,7 +107,7 @@
        [
         "8 SPIDERS A YEAR",
         "#ff4b3e",
-        112
+        100
        ],
        [
         "SWALLOWED IN YOUR SLEEP",
@@ -116,10 +116,61 @@
         true
        ]
       ],
-      "y": 96,
+      "y": 18,
       "at": "22%"
      },
-     "gag": false
+     "gag": false,
+     "hero_at": {
+      "x": 430,
+      "y": 1150
+     },
+     "hero_moves": [
+      {
+       "at": 0.01,
+       "dur": 2.7,
+       "pos": [
+        800,
+        1186
+       ],
+       "walk": true
+      },
+      {
+       "at": 2.85,
+       "dur": 0.5,
+       "pos": [
+        820,
+        1500
+       ],
+       "hop": 150
+      }
+     ],
+     "kk_shots": [
+      {
+       "cam": [
+        560,
+        1075,
+        1.5
+       ],
+       "to": [
+        650,
+        1085,
+        1.36
+       ]
+      },
+      {
+       "at": 2.3,
+       "cam": [
+        650,
+        1085,
+        1.36
+       ],
+       "to": [
+        600,
+        1020,
+        0.85
+       ]
+      }
+     ]
     },
     {
      "m": "escalate",
@@ -186,6 +237,24 @@
       "off": "70%"
      },
      "gag": false,
+     "card": {
+      "rows": [
+       [
+        "NO HEAD",
+        "#ffd34d",
+        120
+       ],
+       [
+        "STORY 8 OF 8",
+        "#ffffff",
+        44,
+        true
+       ]
+      ],
+      "y": 430,
+      "at": "50%",
+      "x": 1390
+     },
      "loop_on": true,
      "helmet": true
     },
@@ -201,7 +270,13 @@
     },
     {
      "m": "calm",
-     "say": "Could one wander in? Maybe. Pure random chance. Helmet off."
+     "say": "Could one wander in? Maybe. Pure random chance.",
+     "helmet": true
+    },
+    {
+     "m": "fact",
+     "say": "Helmet off.",
+     "gag": false
     }
    ]
   },
@@ -298,7 +373,7 @@
     },
     {
      "m": "chase",
-     "say": "It shakes another spider's web. Then eats the owner.",
+     "say": "Some shake another spider's web, then eat the owner.",
      "scene": "basement",
      "scene_p": {
       "time": "night"
@@ -421,7 +496,7 @@
     },
     {
      "m": "escalate",
-     "say": "So one bug scientist checked. Ten centuries of writing.",
+     "say": "So one bug scientist checked about ten centuries of writing.",
      "scene": "study",
      "scene_p": {
       "time": "night"
@@ -474,6 +549,14 @@
      }
     },
     {
+     "m": "fact",
+     "say": "Most have wings. They almost never fly.",
+     "scene": "garden",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
      "m": "xray",
      "say": "And the mom guards her eggs. Then feeds her babies.",
      "scene": "microscope",
@@ -519,7 +602,7 @@
    "lines": [
     {
      "m": "name",
-     "say": "The cockroach. After a nuclear bomb, it's the last thing standing.",
+     "say": "They say after a nuclear bomb, the cockroach is the last thing standing.",
      "card": {
       "rows": [
        [
@@ -722,6 +805,14 @@
     {
      "m": "solo",
      "say": "Some ride the wind for miles.",
+     "scene": "garden",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Some have been spotted ten thousand feet up.",
      "scene": "garden",
      "scene_p": {
       "time": "day"

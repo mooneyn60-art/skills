@@ -12,6 +12,7 @@ Overlays (screen-space actors, drawn before the captions so the yellow key-word 
   kk_end     the end-screen area (dims the scene, two empty slots for YouTube's end-screen elements)
 The portrait macro cameras are re-framed for 16:9 (zoom x CAM_K, lifted CAM_DY) so the floor stays in frame.
 """
+import copy
 import json
 import math
 import os
@@ -301,12 +302,15 @@ def _wide(c):
 def expand(spec):
     kks = [b.get("kk", []) for b in spec["beats"]]   # the macros rebuild each line, so carry the overlays by index
     helm = [b.get("helmet") for b in spec["beats"]]   # opt-in line key (myth episode): Meatball's bubble helmet
+    shots = [b.get("kk_shots") for b in spec["beats"]]   # opt-in line key: this line's shots, already in 16:9 camera terms
     out = _orig_expand(spec)
     for b, h in zip(out["beats"], helm):
         if h is not None and isinstance(b.get("mb"), dict):
             b["mb"]["helmet"] = bool(h)
-    for b, kk in zip(out["beats"], kks):
-        for s in b.get("shots", []):
+    for b, kk, sh in zip(out["beats"], kks, shots):
+        if sh:
+            b["shots"] = copy.deepcopy(sh)
+        for s in ([] if sh else b.get("shots", [])):
             for k in ("cam", "to"):
                 if k in s:
                     s[k] = _wide(s[k])
