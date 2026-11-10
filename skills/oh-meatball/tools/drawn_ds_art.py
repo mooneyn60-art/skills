@@ -290,7 +290,7 @@ def ds_web(ctx, t, p):
         pts.append((x, max(-0.4 * abs(x), y)))
     anchors = [(-W * 1.1 * g, -0.42 * W * g), (W * 1.1 * g, -0.42 * W * g), (-W * 0.6 * g, -0.25 * W * g),
                (W * 0.6 * g, -0.25 * W * g), (0, Hh * 1.1 * g), (-W * 0.9 * g, Hh * 0.5 * g), (W * 0.9 * g, Hh * 0.6 * g)]
-    lw = 1.6 + 2.2 * dust
+    lw = (1.6 + 2.2 * dust) * p.get("lw", 1.0)
     import cairo as _c
     ctx.push_group()
     for k in range(int(p.get("n", 52))):
@@ -1474,7 +1474,7 @@ def ds_rumor(ctx, t, p):
     for half in (-1, 1):
         ctx.save()
         dx = half * 60 * cr
-        dy = 500 * cr * cr
+        dy = 240 * cr * cr
         ctx.translate(dx, dy)
         ctx.rotate(half * 0.5 * cr)
         ctx.save()
@@ -1718,7 +1718,7 @@ def ds_calgrid(ctx, t, p):
             if idx % 10 == 3 and idx / 28 < u:
                 ctx.save()
                 ctx.translate(x, y + 50)
-                ctx.scale(0.16, 0.16)
+                ctx.scale(0.24, 0.24)
                 _vacuum(ctx, t, {})
                 ctx.restore()
     n = max(0, int(round(6 * (1 - u))))

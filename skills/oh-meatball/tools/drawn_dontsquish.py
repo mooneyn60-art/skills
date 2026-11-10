@@ -1017,7 +1017,24 @@ def render(spec_path, out, rng=None, work=None):
     sp = os.path.join(work, "drawn_spec.json")
     json.dump(ds, open(sp, "w"), indent=1)
     sys.argv = ["drawn.py", sp, out, "--work", work]
+    os.environ.setdefault("CRF", "27")   # fits a ~8 min episode under 95 MB
     drawn.main()
+    loudness(out)
+
+
+def loudness(path, target=-14.0, tp=-1.5):
+    """Two-pass EBU R128: measure the encoded mix, then re-encode only the audio with the measured values
+    (linear mode) so the episode lands on `target` LUFS with true peak under `tp`; the video stream is copied."""
+    r = subprocess.run(["ffmpeg", "-hide_banner", "-i", path, "-af", f"loudnorm=I={target}:TP={tp}:LRA=11:print_format=json",
+                        "-f", "null", "-"], capture_output=True, text=True).stderr
+    m = json.loads(r[r.rindex("{"):r.rindex("}") + 1])
+    af = (f"loudnorm=I={target}:TP={tp}:LRA=11:measured_I={m['input_i']}:measured_TP={m['input_tp']}:"
+          f"measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true")
+    tmp = path + ".ln.mp4"
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", path, "-map", "0:v", "-map", "0:a", "-c:v", "copy", "-af", af,
+                    "-ar", "48000", "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart", tmp], check=True)
+    os.replace(tmp, path)
+    print(f"loudness: measured {m['input_i']} LUFS / {m['input_tp']} dBTP -> {target} LUFS", flush=True)
 
 
 def stills(spec_path, out, at, work):

@@ -62,15 +62,19 @@ def beep_scan(x, sr):
     return events
 
 
-def shots(spec_path, work):
+def shots(spec_path, work, end_hold=0.0):
     sys.argv = ["x", spec_path, "/dev/null"]
     import drawn_keepkill as kk
     import drawn
     raw = json.load(open(spec_path))
+    if raw.get("ds"):   # a "Don't squish it" spec: register its overlays and music envelope too
+        import drawn_dontsquish  # noqa: F401
     with contextlib.redirect_stdout(io.StringIO()):
         beats, total = drawn.plan(kk.drawn_macros.expand(raw), work)
-    marks = sorted({0.0, total} | {round(b["t0"] + s["at"], 3) for b in beats for s in b["shots"]} |
-                   {round(b["t0"], 3) for b in beats})
+    # opt-in (--end-hold S): the end screen's last S s is a deliberate hold for YouTube's end-screen elements
+    end = total - end_hold if end_hold else total
+    marks = sorted({0.0, end} | {round(b["t0"] + s["at"], 3) for b in beats for s in b["shots"] if b["t0"] + s["at"] < end} |
+                   {round(b["t0"], 3) for b in beats if b["t0"] < end})
     gaps = [(b - a, a) for a, b in zip(marks, marks[1:])]
     first = beats[0]
     on = np.where(np.abs(first["audio"]) > 0.01)[0]
@@ -114,6 +118,9 @@ def main():
     ap.add_argument("--work", required=True)
     ap.add_argument("--spec", required=True)
     ap.add_argument("--sheets")
+    ap.add_argument("--end-hold", type=float, default=0.0, help="opt-in: ignore the end screen's last S s in the shots gate")
+    ap.add_argument("--lufs", type=float, help="opt-in: integrated loudness target (+-1 LU) and true peak < -1 dBFS")
+    ap.add_argument("--max-mb", type=float, help="opt-in: file size limit in MB")
     a = ap.parse_args()
     ok = True
     w, h, dur = probe(a.mp4)
@@ -123,7 +130,20 @@ def main():
     ev = beep_scan(x, sr)
     print(f"beep scan   {len(ev)} at 2.5 kHz  {'PASS' if not ev else 'FAIL ' + str(ev[:10])}")
     ok &= not ev
-    (gap, at), total, fv, _ = shots(a.spec, a.work)
+    if a.lufs is not None:
+        r = subprocess.run(["ffmpeg", "-v", "info", "-i", a.mp4, "-af", "ebur128=peak=true", "-f", "null", "-"],
+                           capture_output=True, text=True).stderr.split("Summary:")[-1]
+        import re
+        li = float(re.search(r"I:\s+(-?[\d.]+) LUFS", r).group(1))
+        tp = float(re.search(r"Peak:\s+(-?[\d.]+) dBFS", r).group(1))
+        good = abs(li - a.lufs) <= 1.0 and tp < -1.0
+        print(f"loudness    {li:.1f} LUFS, true peak {tp:.1f} dBFS  {'PASS' if good else 'FAIL'}")
+        ok &= good
+    if a.max_mb is not None:
+        mb = os.path.getsize(a.mp4) / 1e6
+        print(f"file size   {mb:.1f} MB  {'PASS' if mb < a.max_mb else 'FAIL'}")
+        ok &= mb < a.max_mb
+    (gap, at), total, fv, _ = shots(a.spec, a.work, a.end_hold)
     print(f"first voice {fv:.3f} s  {'PASS' if fv is not None and fv < 0.2 else 'FAIL'}")
     ok &= fv is not None and fv < 0.2
     print(f"shots       longest framing {gap:.2f} s at {int(at // 60)}:{at % 60:05.2f}  {'PASS' if gap <= 4.0 else 'FAIL'}")

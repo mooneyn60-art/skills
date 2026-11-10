@@ -563,4 +563,21 @@ def extend(T):
                    [actor("shadow", "ds_shadow", [1900, 1000], 1.25, {"a": 0.62}, rot=-8,
                           moves=[{"at": "comes|40%", "dur": 1.6, "pos": [500, 860], "linear": True}])],
                    sfx=["thud@start|40%", "step@comes|60%"])
+    # ------------------------------------------------------------------------------------------ fixes (contact sheet 2)
+    for a in T["s3.l10"]["actors"]:
+        a["s"] = 0.6
+        a["p"]["lw"] = 3.0
+    T["s3.l7"]["actors"][0].update(s=1.5, pos=[700, 700])
+    T["s3.l7"].update(cam=[700, 560, 1.0], to=[700, 560, 1.05])
+    for a in T["s3.l38"]["actors"]:
+        if a["id"] == "sc1":
+            a["s"] = 1.3
+        if a["id"] == "hero":
+            a["s"] = 0.24
+            a["pos"] = [-500, -260]
+            a["moves"] = [{"at": "carried|40%", "dur": 0.6, "pos": [0, -420], "hop": 180},
+                          {"at": "around|70%", "dur": 0.6, "pos": [500, -260], "hop": 180}]
+    T["s5.l5"]["actors"][0]["moves"] = [{"at": "big|15%", "dur": 2.0, "pos": [500, 860], "linear": True}]
+    T["s5.l7"]["actors"][0].update(s=1.0, rot=-12)
+    T["s5.l7"]["actors"][0]["p"]["a"] = 0.78
     return T
