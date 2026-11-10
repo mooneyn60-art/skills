@@ -1,9 +1,9 @@
 {
  "_what": "Narration outline for the first 'Don't squish it' long-form (format in channel-brain/MASTER_ORDERS.md). Every factual line carries src = fact IDs in research/76-cellar-spider-factpack.md. meter = SPARE percent (0 = squish, 100 = spare) AFTER the line. vis = what the picture must show. The build maps these onto drawn_keepkill-style segments and macros.",
  "titles": [
+  "Don't Kill the Spider in Your Corner. It Eats Bigger Spiders",
   "Never Kill the Spider in Your Corner. It's Hunting Bigger Spiders",
-  "Don't Squish the Skinny Spider in Your Corner (Here's What It Eats)",
-  "The Spider in Your Ceiling Corner Is Hunting Something Bigger"
+  "The Skinny Spider in Your Corner Is Hunting Something Bigger"
  ],
  "voice": "en-US-AndrewMultilingualNeural",
  "rate": "+10%",
@@ -21,8 +21,8 @@
      "card": "IT'S HUNTING"
     },
     {
-     "say": "Something much bigger than it is.",
-     "src": "F29",
+     "say": "Sometimes, something much bigger.",
+     "src": "F29 F31",
      "vis": "Cut to floor level: the shadow of a big hairy house spider crossing the floorboards."
     },
     {
@@ -79,7 +79,7 @@
      "vis": "A fly, then a woodlouse, each snagged and wrapped in a beat."
     },
     {
-     "say": "She doesn't need much. In one lab, a single fly every three or four days kept cellar spiders alive and laying eggs.",
+     "say": "In one lab, cellar spiders were fed just one fly every three or four days, and still laid eggs.",
      "src": "F35",
      "vis": "Lab scene: a calendar flips 3-4 days, one fly delivered on a tiny plate."
     },
@@ -105,15 +105,16 @@
      "meter": 42
     },
     {
-     "say": "Six more were other spiders.",
+     "say": "Six were other cellar spiders.",
      "src": "F27",
-     "vis": "Six more drop into a second spider pile."
+     "vis": "The six drop into a second pile labelled CELLAR SPIDERS. Carol looks away, whistling."
     },
     {
-     "say": "So two out of every three leftovers in those webs were spiders.",
+     "say": "The rest were spider bits too broken to name. Every single leftover was a spider.",
      "src": "F27",
-     "vis": "Pie chart: two thirds labelled SPIDERS.",
-     "meter": 48
+     "vis": "Full circle chart, no slices of anything else: 63 HOUSE SPIDERS / 6 CELLAR SPIDERS / 33 UNIDENTIFIED SPIDER BITS.",
+     "meter": 48,
+     "card": "ALL 102: SPIDERS"
     },
     {
      "say": "And she doesn't stop at her own size.",
@@ -123,7 +124,7 @@
      "say": "She has been recorded eating giant house spiders. The big ones.",
      "src": "F29",
      "vis": "Reveal the giant house spider, huge next to Carol. Size-compare card.",
-     "card": "MUCH BIGGER"
+     "card": "MUCH HEAVIER"
     },
     {
      "say": "British spider experts say she may even be why the big ones are getting rarer in some places.",
@@ -148,7 +149,7 @@
      "vis": "Versus card: CAROL vs THE BIG ONE. Pause-and-reveal 1 of 3."
     },
     {
-     "say": "She never gets close. That's what the legs are for.",
+     "say": "She keeps her distance. That's what the legs are for.",
      "src": "F39",
      "vis": "Carol keeps her body back; legs reach across the gap."
     },
@@ -163,7 +164,7 @@
      "vis": "Alternating flicks; the big spider becomes a silk bundle."
     },
     {
-     "say": "Only when it's tied up does she move in and bite.",
+     "say": "Once it's tied up, she moves in and bites.",
      "src": "F39",
      "vis": "Carol steps in to the wrapped bundle.",
      "meter": 60
@@ -210,7 +211,7 @@
      "say": "In a lab in Brazil, cellar spiders killed recluse spiders up to five times heavier than they were.",
      "src": "F33",
      "vis": "Lab arena: Carol vs a much heavier recluse (label: SOUTH AMERICAN RECLUSE). Scale with a 5x weight.",
-     "card": "5x HEAVIER"
+     "card": "UP TO 5x HEAVIER"
     },
     {
      "say": "That was a South American recluse, in a lab. And given a choice, they went for the insects instead.",
@@ -236,11 +237,11 @@
      "meter": 62
     },
     {
-     "say": "So Carol is not a recluse cure. She's a bonus.",
+     "say": "Carol is not a recluse cure. At best, a bonus.",
      "vis": "Carol shrugs with four legs."
     },
     {
-     "say": "Question one, answered. She's hunting the spiders you're actually afraid of.",
+     "say": "Question one, answered. She hunts other spiders, even big ones.",
      "vis": "Chip 1 gets a tick. Meter settles.",
      "meter": 64
     },
@@ -300,14 +301,14 @@
      "vis": "The three suspects hold up numbers 1, 2, 3. Small comment-bubble icon."
     },
     {
-     "say": "Problem two. There was never any science behind it. The Burke Museum's spider curator calls it an urban legend.",
+     "say": "Problem two. There was never any science behind it. The Burke Museum's spider expert calls it an urban legend.",
      "src": "F11",
      "vis": "Card URBAN LEGEND stamped across THE RUMOR.",
      "card": "URBAN LEGEND",
      "meter": 52
     },
     {
-     "say": "She does have venom. Almost every spider does. The curator says there's nothing special about hers.",
+     "say": "She does have venom. Almost every spider does. The same expert says there's nothing special about hers.",
      "src": "F12",
      "vis": "Carol with a tiny labelled venom bottle: REGULAR."
     },
@@ -350,7 +351,7 @@
      "vis": "The skull thought bubble pops."
     },
     {
-     "say": "What about the fangs? In that study, the fangs could get through soft human skin.",
+     "say": "What about the fangs? That paper says this spider's fangs can get through soft human skin.",
      "src": "F16",
      "vis": "Close-up diagram: tiny fangs, skin line. Honest beat: meter dips 2.",
      "meter": 60
@@ -367,6 +368,13 @@
      "meter": 68
     },
     {
+     "say": "The worst bite in that paper left a sore about one millimeter wide.",
+     "src": "F16 (Zobel-Thropp 2019, bite reports)",
+     "vis": "A ruler against Meatball's knuckle: a dot, labelled 1 MM. Meter dips a little.",
+     "card": "1 MM",
+     "meter": 64
+    },
+    {
      "say": "So the rumor fails at both ends. No deadly venom. And at least one kind can bite.",
      "src": "F16 F18",
      "vis": "Both halves of THE RUMOR card crack and fall."
@@ -377,13 +385,13 @@
      "vis": "Source chip: PENN STATE EXTENSION."
     },
     {
-     "say": "And a spider expert at U.C. Riverside knows of no published case of one harming a person.",
+     "say": "And a spider expert at U.C. Riverside knows of no published case of its venom poisoning a person.",
      "src": "F13",
      "vis": "Source chip: UC RIVERSIDE.",
      "meter": 76
     },
     {
-     "say": "So can it hurt you? Nobody has ever shown that it can.",
+     "say": "So can it hurt you? Barely. Recorded bites were mild.",
      "vis": "Chip 2 gets a tick."
     },
     {
@@ -419,10 +427,10 @@
      "vis": "Close on Carol holding the egg bundle in her jaws."
     },
     {
-     "say": "About fifty eggs in a bundle.",
+     "say": "A few dozen eggs in a bundle.",
      "src": "F48",
      "vis": "Card ABOUT 50 EGGS.",
-     "card": "ABOUT 50 EGGS",
+     "card": "A FEW DOZEN EGGS",
      "meter": 68
     },
     {
@@ -480,11 +488,11 @@
      "say": "One web was reported covering a square meter of ceiling. That's a bath towel of cobweb.",
      "src": "F53",
      "vis": "A bath towel outline on the ceiling filled with web.",
-     "card": "1 SQUARE METER",
+     "card": "ONE WEB: 1 SQUARE METER",
      "meter": 42
     },
     {
-     "say": "And the family stays. In Finland, scientists found colonies living in the same buildings for more than ten years.",
+     "say": "And the family stays. In Finland, scientists report colonies in some buildings for more than ten years.",
      "src": "F61",
      "vis": "A building in snow; calendar spins ten years; windows full of little webs.",
      "card": "10+ YEARS",
@@ -495,7 +503,7 @@
      "vis": "Ceiling of name tags. The shoe looms lowest of the whole episode."
     },
     {
-     "say": "Look at the meter. First time the shoe is ahead.",
+     "say": "Look at the meter. The shoe is back in front.",
      "vis": "Meter in the red at 36, alarm blink.",
      "meter": 36
     },
@@ -509,8 +517,8 @@
      "vis": "Charge sheet text: 1. COBWEBS. Source chip UC IPM."
     },
     {
-     "say": "That's the whole list.",
-     "vis": "The sheet ends immediately. Meatball looks at the back of it."
+     "say": "That's the main charge.",
+     "vis": "The sheet has one big line and some very small print. Meatball squints at the small print, shrugs."
     },
     {
      "say": "Kentucky's entomologists call her harmless. Utah State lists her as beneficial.",
@@ -538,17 +546,17 @@
      "card": "THE WHIRL"
     },
     {
-     "say": "You can see it yourself. Touch the web gently and she spins like a ceiling fan.",
+     "say": "You can see it yourself. Touch the web gently and she whirls into a blur.",
      "src": "F42",
      "vis": "Meatball's finger taps a strand; blur."
     },
     {
-     "say": "In one lab study, jumping spiders were what set off the long whirls. Hunters from eight other spider families barely got a reaction.",
+     "say": "In one lab study, jumping spiders set off the long whirls. Hunters from eight other spider families hardly ever did.",
      "src": "F44",
-     "vis": "A row of eight different spider silhouettes pass: Carol yawns. The jumping spider appears: instant blur."
+     "vis": "Eight different spider silhouettes pass: Carol gives each a quick short shimmy. The jumping spider appears: the long blur."
     },
     {
-     "say": "Scientists think the blur makes her hard for a hunter to lock onto.",
+     "say": "The blur may make her hard for a jumping spider to lock onto.",
      "src": "F43 F44",
      "vis": "The jumping spider's eyes spin; it gives up.",
      "meter": 58
@@ -671,11 +679,11 @@
      "vis": "Meter centre frame. Pause-and-reveal 3 of 3."
     },
     {
-     "say": "What is she hunting? The spiders you're scared of.",
+     "say": "What is she hunting? Other spiders, even big ones.",
      "vis": "Chip 1 replays: wrapped big spider."
     },
     {
-     "say": "Can she hurt you? Nobody has ever shown it.",
+     "say": "Can she hurt you? Barely. Recorded bites were mild.",
      "vis": "Chip 2 replays: cracked rumor card."
     },
     {
@@ -710,5 +718,6 @@
  ],
  "pinned_comment": "Shoe or spare? 👇 And if you have one in your corner, what's its name?",
  "end_screen_video": "Kill-or-Keep Part 2 (posts Thu 11/12)",
- "sources_file": "research/76-cellar-spider-factpack.md"
+ "sources_file": "research/76-cellar-spider-factpack.md",
+ "_factcheck": "research/78-factcheck-cellar-spider-script.md applied 2026-11-10: 25 softened lines, 1 added line (1 mm sore), titles re-ordered."
 }
