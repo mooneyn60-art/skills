@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Thumbnails for "Do You Really Swallow Spiders in Your Sleep?" (house bug myths long-form). Same rules as the
+"""Thumbnails for "Do You Really Swallow 8 Spiders a Year in Your Sleep?" (house bug stories long-form). Same rules as the
 Kill-or-Keep thumbs: the creature drives clicks, clean background, at most 3 words, cartoon not gross.
 thumb_myths.py OUT_DIR -> thumb_a/b/c.jpg + *_168.jpg"""
 import os
@@ -45,10 +45,11 @@ def thumb_b(out):   # the headless roach + "NO HEAD?"
     save(im, out, "thumb_b")
 
 
-def thumb_c(out):   # daddy longlegs + "TOTAL LIE?"
-    im = backdrop((18, 20, 26), (56, 60, 74), glow=(120, 110, 80), gx=0.5, gy=0.6)
-    im.alpha_composite(creature("cellar_spider", (1150, 560), rot=0, p={"mood": "smug"}), (65, 170))
-    words(im, "TOTAL LIE?", (W // 2, 22), 160, (255, 214, 10, 255), "ma", 14)
+def thumb_c(out):   # the spider crawling over the pillow, close + "IN YOUR MOUTH?" (matches the alternate title)
+    im = backdrop((16, 14, 40), (52, 40, 104), glow=(120, 90, 170), gx=0.55, gy=0.6)
+    pillow_scene(im)
+    im.alpha_composite(creature("jumping_spider", (760, 520), rot=-8, p={"mood": "smug"}), (330, 190))
+    words(im, "IN YOUR MOUTH?", (W // 2, 18), 150, (255, 214, 10, 255), "ma", 14)
     save(im, out, "thumb_c")
 
 

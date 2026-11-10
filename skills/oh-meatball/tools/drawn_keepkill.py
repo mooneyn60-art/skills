@@ -214,6 +214,9 @@ def kk_hud(ctx, t, p):
     v = p.get("score", 0.0)
     if p.get("n") and not p.get("meter", True):   # myth episodes: no danger meter, only the "MYTH n OF 8" chip
         blit(ctx, text_img(f"{p.get('chip', 'BUG')} {p['n']} OF {p['of']}", 40, "#ffffff", 5), 150, 58)
+        if p.get("loop"):   # opt-in: the open loop's reminder, top right, until it is paid off
+            im = text_img(p["loop"], 36, "#ffd34d", 5)
+            blit(ctx, im, W - 30 - im[0].get_width() / 2, 58)
         return
     x, y, w, h = W - 520, 24, 496, 96
     rrect(ctx, x, y, w, h, 20)
@@ -343,13 +346,19 @@ def build(outline, out_spec):
     board_x = {k2: o[k2] for k2 in ("title_text", "stamps", "fit") if k2 in o}
     hud_x = {k2: o[k2] for k2 in ("meter", "chip") if k2 in o}
     k = 0
+    loop_txt, loop_on = o.get("loop_chip"), False   # opt-in: a line's "loop_on"/"loop_off" shows/hides the reminder chip
     for seg in segs:
         if seg.get("chapter"):
             chapters.append((len(beats), seg["chapter"]))
         if seg.get("tier"):
             k += 1
         for j, ln in enumerate(seg["lines"]):
-            b = {key: v for key, v in ln.items() if key not in ("board", "end", "hud", "hud_demo", "lockin")}
+            b = {key: v for key, v in ln.items() if key not in ("board", "end", "hud", "hud_demo", "lockin", "pause",
+                                                                "loop_on", "loop_off")}
+            if ln.get("loop_on"):
+                loop_on = True
+            if ln.get("loop_off"):
+                loop_on = False
             if seg.get("cast"):
                 b.setdefault("cast", seg["cast"])
             if b.get("cast") and "s" in b["cast"]:
@@ -367,6 +376,8 @@ def build(outline, out_spec):
                 if j == 0:   # the meter fills on the name line
                     hud["p"]["score"] = 0.0
                     hud["set"] = [{"at": "45%", "dur": 0.9, "p": {"score": float(seg.get("danger", 0))}}]
+                if loop_txt and loop_on:
+                    hud["p"]["loop"] = loop_txt
                 kk.append(hud)
             bd = ln.get("board")
             if bd:
@@ -387,6 +398,12 @@ def build(outline, out_spec):
                 if off:
                     sets.append({"at": off, "p": {"on": 0.0}})
                 kk.append({"id": "board", "type": "kk_board", "pos": [0, 0], "front": True, "p": p, "set": sets})
+            pz = ln.get("pause")
+            if pz:   # a pause-and-reveal beat: the "?" ring hangs in the line's closing silence (its pad); no countdown
+                pz = pz if isinstance(pz, dict) else {}
+                kk.append({"id": "count", "type": "kk_count", "pos": [0, 0], "front": True,
+                           "p": {"on": 0.0, "n": 0, "label": pz.get("label", "REALLY?")},
+                           "set": [{"at": pz.get("at", "100%"), "dur": 0.15, "p": {"on": 1.0}}]})
             lk = ln.get("lockin")
             if lk:   # {"words": ["three", "two", "one"]} or true
                 ws = lk.get("words", ["three", "two", "one"]) if isinstance(lk, dict) else ["three", "two", "one"]
