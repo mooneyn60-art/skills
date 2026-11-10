@@ -125,12 +125,12 @@ Pick episodes from `CALENDAR_REALISTIC.md`, top down. Any Short that beats 2x th
   - its own arc, with a new peak every 20-30 s and a payoff at the end that the cold open set up
   - never a stitch, compilation, recut of posted Shorts, or blurred-side vertical
   - target 8-12 min once retention holds; 5-7 min is fine until then
-- **One slot:** one long-form a week, **Saturday 08:00 ET**, nothing in between. First: Kill-or-Keep, 11/7.
+- **Two slots (Nolan 11/10: "push more long form"):** **Saturday 08:00 ET** plus a midweek long-form (**Wed or Thu 17:00 ET**). Kill-or-Keep Part 1 broke out: 114 views in 2 days, CTR 5%, 44% avg viewed, 96% from recommendations. First midweek: House Bug Myths, Thu 11/12.
 - **Case files are DROPPED** (Nolan 11/9: the Azorian teaser Short did terribly). No case-file Shorts, long-forms or teasers. Don't propose them again unless Nolan asks.
 - **No Sunday compilation** until a weekly long-form passes 500 views.
 - **The bridge (Nolan, Studio):** every on-topic Short's Related video points at the newest long-form, with the pinned comment "Full list in the Related video 👆". Re-point the links every Saturday.
 - **Packaging:** number + creature + "your house" + enforcement in the title, 3 titles in Test & Compare, and one creature filling the thumbnail (≤3 words, readable at 168 px).
-- **Cadence rule:** stay at one a week until one long-form gets 500+ views or shows real Related-video traffic at 7 days. Then go to two a week (Wed + Sat). More uploads before then only split near-zero impressions.
+- **Cadence rule (updated 11/10):** two a week now (Nolan's call). If midweek long-forms average under 50 views at 7 days for 3 weeks running, drop back to Saturday only.
 
 ## Weekly scorecard (Sunday, 3 numbers only)
 | Number | Now | 4-week target |
