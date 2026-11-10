@@ -7,7 +7,7 @@ This repo runs the "Meatball Myths" channel (YouTube + TikTok) for Nolan.
 3. `skills/oh-meatball/data/posted.csv` logs everything scheduled or posted. Update it with every scheduling change.
 
 ## How Nolan wants to work
-- Succinct replies (Nolan 11/10: "speak in succinct, concise answers"): 2-5 short lines, no tables or headers unless he asks, lead with what changed or what he needs to do.
+- Very short replies (Nolan 11/10: "I can't read that much that quick"): 1-2 short lines, plain words, no lists, tables or headers unless he asks. Say only what changed or the one thing he must do. Details go in the repo, not the chat.
 - Decide from the data yourself. For a big format change, show the options and the evidence first.
 - Research before acting, and end every research run in a queue or script change.
 - Give the source of every number, and say what could not be measured.
