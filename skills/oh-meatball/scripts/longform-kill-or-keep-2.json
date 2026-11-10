@@ -161,6 +161,14 @@
      }
     },
     {
+     "m": "fact",
+     "say": "Before they hatch, mom drags her egg sac around, stuck to the tip of her body.",
+     "scene": "forest_floor",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
      "m": "escalate",
      "say": "And that lumpy back? It's covered in babies. Mom carries them everywhere.",
      "scene": "forest_floor",
@@ -172,6 +180,14 @@
      "m": "fact",
      "say": "It hunts at night, and hides under things during the day.",
      "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Depending on the kind, it's a quarter inch to a full inch long.",
+     "scene": "study",
      "scene_p": {
       "time": "night"
      }
@@ -256,6 +272,14 @@
      }
     },
     {
+     "m": "fact",
+     "say": "By day, it hides in dark, cool, damp places.",
+     "scene": "garden",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
      "m": "escalate",
      "say": "So, does it crawl into ears? One entomologist searched ten centuries of writing.",
      "scene": "study",
@@ -299,6 +323,11 @@
     {
      "m": "xray",
      "say": "And the mom guards her eggs, and feeds her babies when they hatch.",
+     "scene": "microscope"
+    },
+    {
+     "m": "fact",
+     "say": "Most earwigs have wings, folded under short hard covers. But they seldom fly.",
      "scene": "microscope"
     },
     {
@@ -428,6 +457,22 @@
      }
     },
     {
+     "m": "fact",
+     "say": "The Asian one first showed up here in eighteen ninety eight, in a Minnesota greenhouse.",
+     "scene": "garden",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "It eats rotting plants, dead bits, and tiny bugs. Basically, your basement's cleanup crew.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
      "m": "calm",
      "say": "And for all that jumping? It's completely harmless to you.",
      "scene": "basement",
@@ -437,7 +482,7 @@
     },
     {
      "m": "fact",
-     "say": "Verdict: keep it. Now, the kill pile. And the first one? Whatever you do, don't squish it.",
+     "say": "Verdict: keep it. And the next one? Whatever you do, don't squish it.",
      "board": {
       "add": true,
       "drop_at": "10%",
@@ -514,6 +559,14 @@
      }
     },
     {
+     "m": "fact",
+     "say": "It came from East Asia, and was first collected in Allentown, Pennsylvania, in nineteen ninety eight.",
+     "scene": "study",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
      "m": "escalate",
      "say": "One man in Maryland caught over twenty six thousand inside his house, in six months.",
      "scene": "study",
@@ -544,6 +597,14 @@
      "scene": "bedroom",
      "scene_p": {
       "time": "dusk"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "Outside, it's a real pest. It ruins apples, peaches, tomatoes and corn.",
+     "scene": "garden",
+     "scene_p": {
+      "time": "day"
      }
     },
     {
@@ -665,6 +726,14 @@
     },
     {
      "m": "fact",
+     "say": "They eat other insects, sweet honeydew, and the meat and sugar in your kitchen.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
      "say": "They come out to hunt at night, from sunset to about midnight.",
      "scene": "kitchen",
      "scene_p": {
@@ -677,6 +746,14 @@
      "scene": "garden",
      "scene_p": {
       "time": "night"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "See lots of winged ants inside in late winter or spring? The nest may be in your house.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "day"
      }
     },
     {
@@ -740,6 +817,11 @@
      "scene": "microscope"
     },
     {
+     "m": "xray",
+     "say": "Two long antennae up front, and three long bristles out the back.",
+     "scene": "microscope"
+    },
+    {
      "m": "escalate",
      "say": "It eats starch. Glue, paste, and paper.",
      "scene": "study",
@@ -759,6 +841,14 @@
      "m": "fact",
      "say": "It hides in cracks by day, and loves cool, damp basements.",
      "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "It can take up to two years to grow up, and it keeps shedding its skin its whole life.",
+     "scene": "study",
      "scene_p": {
       "time": "night"
      }
@@ -871,6 +961,14 @@
     },
     {
      "m": "fact",
+     "say": "It follows the smell of fermenting fruit. Like the banana you forgot about.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
+     "m": "fact",
      "say": "Egg to adult? About a week. Your fruit bowl is a fly nursery.",
      "scene": "kitchen",
      "scene_p": {
@@ -883,6 +981,14 @@
      "scene": "study",
      "scene_p": {
       "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Keep your ripe fruit in the fridge, and there's nothing to lay eggs on.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "day"
      }
     },
     {
@@ -941,6 +1047,14 @@
      }
     },
     {
+     "m": "fact",
+     "say": "The adults hate light. That's why you almost never see them.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
      "m": "escalate",
      "say": "The mom lays about forty to fifty eggs, right on your wool.",
      "scene": "fibers",
@@ -977,11 +1091,24 @@
     },
     {
      "m": "fact",
+     "say": "The babies also eat lint and pet hair, hiding in your vents and ducts.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
      "say": "Cotton and synthetics? Rarely touched, unless they're blended with wool.",
      "scene": "study",
      "scene_p": {
       "time": "day"
      }
+    },
+    {
+     "m": "xray",
+     "say": "Some carry a little silk case that turns the color of whatever they're eating.",
+     "scene": "fibers"
     },
     {
      "m": "fact",
@@ -1044,11 +1171,13 @@
    "Univ. of Minnesota Extension, Carpenter ants https://extension.umn.edu/insects-infest-homes/carpenter-ants"
   ],
   "silverfish": [
-   "Connecticut Agricultural Experiment Station, Silverfish and Firebrats https://portal.ct.gov/-/media/caes/documents/publications/fact_sheets/entomology/silverfish_firebrats_zygentoma.pdf"
+   "Connecticut Agricultural Experiment Station, Silverfish and Firebrats https://portal.ct.gov/-/media/caes/documents/publications/fact_sheets/entomology/silverfish_firebrats_zygentoma.pdf",
+   "Univ. of Maryland, Bug of the Week (M. Raupp), Ancient insect in a modern world: silverfish https://bugoftheweek.com/blog/2021/2/12/ancient-insect-in-a-modern-world-silverfish-lepismatidae"
   ],
   "fruit fly": [
    "Penn State Extension, Fruit Flies https://extension.psu.edu/fruit-flies",
-   "NASA History, A Brief History of Animals in Space https://history.nasa.gov/animals.html"
+   "NASA History, A Brief History of Animals in Space https://history.nasa.gov/animals.html",
+   "Univ. of Kentucky Entomology, Fruit Flies (ENTFACT-621) https://entomology.ca.uky.edu/ef621"
   ],
   "clothes moth": [
    "Univ. of Kentucky Entomology, Clothes Moths (ENTFACT-609) https://entomology.mgcafe.uky.edu/ef609",
