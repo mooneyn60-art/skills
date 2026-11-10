@@ -123,7 +123,7 @@ def extend(T):
                            moves=[{"at": "owner|45%", "dur": 0.7, "pos": [800, 420], "walk": True}],
                            sets=[{"at": "eat|78%", "dur": 0.4, "p": {"wrapped": 1.0}}]),
                      carol({"mood": "smug", "look": [1, 0]}, [640, 300], 0.45, sets=[{"at": "jiggle|25%", "dur": 0.2, "p": {"wave": 1.0}}])],
-                    sfx=["zap@jiggle|25%", "crunch@eat|78%"])
+                    sfx=["tink@jiggle|25%", "crunch@eat|78%"])
     T["s1.l30"] = S("ds_wall", [880, 700, 0.95], [900, 700, 1.02],
                     [actor("door", "ds_doorbell", [900, 1000], 1.0, {"ring": 0.0, "open": 0.0},
                            sets=[{"at": "doorbell|30%", "dur": 0.2, "p": {"ring": 1.0}}, {"at": "answers|75%", "dur": 0.4, "p": {"open": 1.0, "ring": 0.0}}]),
@@ -132,7 +132,7 @@ def extend(T):
                            sets=[{"at": "answers|80%", "p": {"hidden": False}}])],
                     mb=mb("facepalm", (1600, 1250), 560, float=True, look="viewer"), sfx=["tink@doorbell|30%", "pop@answers|80%"])
     T["s1.l31"] = B([0, 120, 1.0], [0, 120, 1.05], [actor("rec", "recluse", [0, 420], 0.9, {"mood": "calm"}),
-                                                    lab("rl", "BROWN RECLUSE", [0, 520], "recluses|60%", 64),
+                                                    lab("rl", "BROWN RECLUSE", [-560, 260], "recluses|60%", 64),
                                                     lab("q", "?", [420, -150], "recluses|70%", 200, YEL)],
                     sfx=["boing@recluses|70%"])
     T["s1.l32"] = S("ds_lab", [800, 680, 0.95], [820, 680, 1.0],
@@ -219,7 +219,7 @@ def extend(T):
     T["s2.l15"] = S("ds_lab", [700, 760, 1.25], [720, 760, 1.3],
                     [prop("cricket", "cricket", [560, 900], 1.0, moves=[{"at": "crickets|20%", "dur": 0.5, "pos": [760, 900], "hop": 260}]),
                      lab("par", "PARALYSIS", [760, 560], "Paralysis|70%", 70, YEL)],
-                    sfx=["boing@crickets|20%", "zap@Paralysis|70%"])
+                    sfx=["boing@crickets|20%", "tink@Paralysis|70%"])
     T["s2.l16"] = S("ds_lab", [900, 740, 1.05], [900, 720, 1.1], [prop("bottle", "bottle", [600, 900], 1.0, {"label": "VENOM"})],
                     mb=mb("think", (1150, 900), 640, look="viewer", gest=[["deadly|60%", "laugh", 1.5]]), card_at="deadly|55%",
                     sfx=["pop@deadly|60%"])
@@ -235,7 +235,7 @@ def extend(T):
         carol({"mood": "angry", "still": True}, [430, -60], 0.17, idn="hero"),
         prop("tv", "tv", [1250, 160], 2.2, at="TV|15%"), lab("tvl", "ON CAMERA", [1250, -230], "camera|80%", 54)],
         sfx=["pop@TV|15%", "click@camera|80%"])
-    T["s2.l20"] = S("bedroom", [900, 1100, 1.0], [900, 1080, 1.08], [lab("ow", "ow", [1060, 760], "sting|40%", 70, "#ffffff")],
+    T["s2.l20"] = S("bedroom", [900, 1100, 1.0], [900, 1080, 1.08], [lab("ow", "ow", [1080, 880], "sting|40%", 70, "#ffffff")],
                     scene_p={"time": "night"},
                     mb=mb("shock", (900, 1500), 900, look="viewer", gest=[["faded|70%", "shrug", 1.4]]), sfx=["pop@sting|40%"])
     T["s2.l21"] = B([0, 120, 1.0], [-60, 60, 1.35], [prop("fist", "fist", [0, 380], 1.6, {"dot": 0.0}, sets=[{"at": "sore|45%", "dur": 0.3, "p": {"dot": 1.0}}]),
@@ -261,7 +261,7 @@ def extend(T):
                    meter_big_back="winning|85%", sfx=["tink@Meter|5%"])
     T["s3.l1"] = C([720, 380, 1.3], [720, 360, 1.38], carol={"mood": "worry", "look": [0.2, -1]},
                    shoe_sets=[{"at": "shoe|50%", "dur": 0.4, "p": {"spot": 1.0}}, {"at": "good|80%", "dur": 0.3, "p": {"tie": 1.0}}],
-                   sfx=["zap@shoe|50%", "pop@good|80%"])
+                   sfx=["tink@shoe|50%", "pop@good|80%"])
     T["s3.l2"] = C([720, 600, 1.6], [720, 600, 1.7], chapter=True, carol={"mood": "calm", "work": 0.5})
     T["s3.l3"] = C([700, 470, 1.0], [700, 470, 1.06], carol={"mood": "smug"},
                    extras=[tagc("t1", [480, 650], "More|10%"), tagc("t2", [960, 560], "Carols|40%"), tagc("t3", [300, 420], "Carols|65%"),
@@ -325,7 +325,7 @@ def extend(T):
                     [tagc(f"t{k}", [x, y]) for k, (x, y) in enumerate(((300, 420), (480, 650), (960, 560), (1150, 380), (1350, 620), (100, 600)))],
                     sfx=["thud@ceiling|70%"])
     T["s3.l19"] = C([720, 470, 1.15], [720, 460, 1.22], carol={"mood": "shock", "look": [0, -1]}, shoe_nudge=1.0,
-                    meter_big_to=0.7, meter_big_at="meter|25%", meter_big_back="front|90%", sfx=["zap@meter|25%"])
+                    meter_swell="meter|25%", meter_pulse="meter|25%", sfx=["tink@meter|25%"])
     T["s3.l20"] = S("ds_court", [600, 800, 0.8], [620, 780, 0.86],
                     [actor("sheet", "ds_sheet", [550, 250], 1.0, {"unroll": 0.0, "line": ""},
                            sets=[{"at": "charge|40%", "dur": 1.0, "p": {"unroll": 1.0}}])],

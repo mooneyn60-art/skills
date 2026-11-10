@@ -84,8 +84,8 @@ def ds_meter(ctx, t, p):
     big = ease(p.get("big", 0.0))
     v = max(0.0, min(100.0, p.get("v", 30.0)))
     pulse = max(0.0, p.get("pulse", 0.0))
-    sc = 1.0 + 0.5 * big
-    cy = 66 + (330 - 66) * big - 170 * (1 - ease(on))
+    sc = (1.0 + 0.5 * big) * (1.0 + 0.13 * max(0.0, p.get("swell", 0.0)))   # swell: bigger in place, at the top
+    cy = 66 + (330 - 66) * big - 170 * (1 - ease(on)) + 6 * max(0.0, p.get("swell", 0.0))
     ctx.save()
     ctx.translate(W / 2, cy)
     ctx.scale(sc, sc)
@@ -485,13 +485,13 @@ def _shots_table():
     T["s1.l1"] = {"r": "corner", "cam": [760, 400, 1.12], "to": [760, 400, 1.18],
                   "carol": {"mood": "happy", "look": [0, 0]},
                   "extras": [actor("dim1", "ds_dim", [CAROL[0] - 175 * CS * 1.0, CAROL[1] + 150 * CS], 1.0,
-                                   {"to": [215 * CS, -150 * CS], "grow": 0.0, "text": "1/4 INCH", "lx": -150, "ly": 40, "px": 60},
+                                   {"to": [215 * CS, -150 * CS], "grow": 0.0, "text": "1/4 INCH", "lx": -230, "ly": -10, "px": 60},
                                    sets=[{"at": "quarter|45%", "dur": 0.45, "p": {"grow": 1.0}}]),
                              actor("dim2", "ds_dim", [CAROL[0] + 10, CAROL[1] + 5], 1.0,
                                    {"to": [tipR[0] - CAROL[0] - 10, tipR[1] - CAROL[1] - 5], "grow": 0.0, "text": "2 INCHES",
                                     "lx": 90, "ly": 30, "px": 64},
                                    sets=[{"at": "two|78%", "dur": 0.6, "p": {"grow": 1.0}}])],
-                  "card_at": "cellar|10%", "sfx": ["tink@quarter|45%", "whoosh@two|78%"]}
+                  "card_at": "cellar|10%", "card_y": 150, "card_x": 430, "card_w": 700, "sfx": ["tink@quarter|45%", "whoosh@two|78%"]}
     T["s1.l2"] = {"r": "corner", "cam": [720, 594, 4.0], "to": "face", "shoe": False,
                   "carol": {"eyes8": 1.0, "look": [0, 0], "mood": "calm", "still": True},
                   "extras": [actor("ring%d" % i, "ds_ring", [CAROL[0] + x * CS, CAROL[1] - 30 * CS + y * CS], 1.0,
@@ -524,7 +524,7 @@ def _shots_table():
                              actor("louse", "woodlouse", [lpos[0], -300], 0.42, {"wrapped": 0.0}, flip=True,
                                    sets=[{"at": "Woodlice+0.3", "dur": 0.6, "p": {"wrapped": 1.0}}],
                                    moves=[{"at": "Woodlice|40%", "dur": 0.45, "pos": lpos}])],
-                  "sfx": ["zap@insects|20%", "thud@Woodlice|40%"]}
+                  "sfx": ["tink@insects|20%", "thud@Woodlice|40%"]}
     T["s1.l6"] = {"r": "scene", "scene": "ds_lab", "cam": [760, 640, 0.95], "to": [800, 640, 1.03],
                   "actors": [actor("arena", "ds_arena", [560, 900], 1.25),
                              carol({"look": [0.6, 0.2], "mood": "happy"}, [560, 790], 0.25,
@@ -745,7 +745,7 @@ def expand(spec, lines):
         kks = []
         # ---- meter
         if idx >= on_idx:
-            mp = {"v": v0, "on": 1.0, "pulse": 0.0, "big": a.get("meter_big", 0.0)}
+            mp = {"v": v0, "on": 1.0, "pulse": 0.0, "big": a.get("meter_big", 0.0), "swell": 0.0}
             sets = []
             if L["id"] == meter_on_from:
                 mp["on"] = 0.0
@@ -760,8 +760,11 @@ def expand(spec, lines):
                 if abs(v1 - v0) >= 8:
                     sets += [{"at": mat, "p": {"pulse": 1.0}}, {"at": mat, "dur": 0.9, "p": {"pulse": 0.0}}]
                     if not a.get("meter_big") and a.get("meter_big_to") is None:   # a big move: the meter swells, then back
-                        sets.insert(0, {"at": _before(mat, 0.35), "dur": 0.3, "p": {"big": 0.55}})
-                        sets.append({"at": _after(mat, 1.25), "dur": 0.4, "p": {"big": 0.0}})
+                        sets.insert(0, {"at": _before(mat, 0.35), "dur": 0.3, "p": {"swell": 1.0}})
+                        sets.append({"at": _after(mat, 1.25), "dur": 0.4, "p": {"swell": 0.0}})
+            if a.get("meter_swell"):   # an in-place swell on a line where the meter itself is the point
+                sets += [{"at": a["meter_swell"], "dur": 0.3, "p": {"swell": 1.0}},
+                         {"at": _after(a["meter_swell"], 2.0), "dur": 0.4, "p": {"swell": 0.0}}]
             if a.get("meter_pulse"):
                 sets += [{"at": a["meter_pulse"], "p": {"pulse": 1.0}}, {"at": a["meter_pulse"], "dur": 0.9, "p": {"pulse": 0.0}}]
                 b["sfx"] = [f"click@{a['meter_pulse']}"] + list(b["sfx"])

@@ -546,8 +546,8 @@
        ],
        "grow": 0.0,
        "text": "1/4 INCH",
-       "lx": -150,
-       "ly": 40,
+       "lx": -230,
+       "ly": -10,
        "px": 60
       },
       "front": false,
@@ -593,6 +593,9 @@
      }
     ],
     "card_at": "cellar|10%",
+    "card_y": 150,
+    "card_x": 430,
+    "card_w": 700,
     "sfx": [
      "tink@quarter|45%",
      "whoosh@two|78%"
@@ -977,7 +980,7 @@
      }
     ],
     "sfx": [
-     "zap@insects|20%",
+     "tink@insects|20%",
      "thud@Woodlice|40%"
     ]
    }
@@ -3100,7 +3103,7 @@
      }
     ],
     "sfx": [
-     "zap@jiggle|25%",
+     "tink@jiggle|25%",
      "crunch@eat|78%"
     ]
    }
@@ -3269,8 +3272,8 @@
       "id": "rl",
       "type": "ds_label",
       "pos": [
-       0,
-       520
+       -560,
+       260
       ],
       "s": 1.0,
       "p": {
@@ -5746,7 +5749,7 @@
     ],
     "sfx": [
      "boing@crickets|20%",
-     "zap@Paralysis|70%"
+     "tink@Paralysis|70%"
     ]
    }
   },
@@ -6101,8 +6104,8 @@
       "id": "ow",
       "type": "ds_label",
       "pos": [
-       1060,
-       760
+       1080,
+       880
       ],
       "s": 1.0,
       "p": {
@@ -6651,7 +6654,7 @@
      }
     ],
     "sfx": [
-     "zap@shoe|50%",
+     "tink@shoe|50%",
      "pop@good|80%"
     ]
    }
@@ -8083,11 +8086,10 @@
      ]
     },
     "shoe_nudge": 1.0,
-    "meter_big_to": 0.7,
-    "meter_big_at": "meter|25%",
-    "meter_big_back": "front|90%",
+    "meter_swell": "meter|25%",
+    "meter_pulse": "meter|25%",
     "sfx": [
-     "zap@meter|25%"
+     "tink@meter|25%"
     ]
    }
   },
