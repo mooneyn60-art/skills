@@ -1,7 +1,7 @@
 {
  "series": "Things Living In Your House",
  "sources": [
-  "Penn State Extension, Cluster Flies: \"These flies are not reproducing within the structure, but become active on warm days and crawl out of wall voids and attics in a confused attempt to go back outside.\"; \"the flies will gather in large numbers at windows within the home on warm winter days. The flies are typically sluggish in flight\"; \"Although insecticidal dust treatments to these voids may kill thousands of flies...\"; https://extension.psu.edu/cluster-flies",
+  "Penn State Extension, Cluster Flies: \"These flies are not reproducing within the structure, but become active on warm days and crawl out of wall voids and attics in a confused attempt to go back outside.\"; \"the flies will gather in large numbers at windows within the home on warm winter days. The flies are typically sluggish in flight\"; \"Adult cluster flies are slightly larger than the common house fly... They are dull gray with black markings and have golden-yellow hairs on the thorax, which can give the appearance of a golden sheen.\"; \"Although insecticidal dust treatments to these voids may kill thousands of flies...\"; https://extension.psu.edu/cluster-flies",
   "Colorado State University Extension, Cluster Flies and Other Winter Flies: \"Cluster flies found in buildings are in a dormant state and cannot reproduce indoors.\"; \"Cluster flies develop by feeding on earthworms.\"; \"cluster flies then find sheltered areas in wall voids or attics where they may aggregate\"; https://extension.colostate.edu/resource/cluster-flies-and-other-winter-flies/"
  ],
  "photo_credits": [],
@@ -109,8 +109,32 @@
    "say": "They crowd your sunny windows, dazed and sluggish."
   },
   {
+   "pad": 0.3,
+   "scene": "study",
+   "m": "fact",
+   "gag": false,
+   "say": "Slightly bigger than house flies, with golden hairs.",
+   "card": {
+    "rows": [
+     [
+      "GOLDEN HAIRS",
+      "#ffd34d",
+      100
+     ],
+     [
+      "BIGGER THAN HOUSE FLIES",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
    "scene": "kitchen",
-   "m": "xray",
+   "m": "fact",
    "say": "They can't breed in your house.",
    "card": {
     "rows": [

@@ -99,6 +99,7 @@
    "pad": 0.3,
    "scene": "basement",
    "m": "xray",
+   "gag": false,
    "say": "The adults don't eat. The larvae do.",
    "card": {
     "rows": [
@@ -109,6 +110,30 @@
      ],
      [
       "NOT THE ADULTS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "pad": 0.3,
+   "scene": "fibers",
+   "m": "fact",
+   "gag": false,
+   "say": "Clothes moths avoid light, so they're rarely seen.",
+   "card": {
+    "rows": [
+     [
+      "AVOID LIGHT",
+      "#ffd34d",
+      105
+     ],
+     [
+      "SO YOU RARELY SEE THEM",
       "#ffffff",
       56,
       true

@@ -1,0 +1,915 @@
+#!/usr/bin/env python3
+""""Don't Kill It" thumbnails: the white-background look small channels in the house-creature niche break out with
+(research/70-niche-outliers-1110.md section 4): ONE huge illustrated creature on plain white, a shoe sole coming in
+from a top corner about to squish it, 2 to 4 hand-lettered words in black with one accent word in red or blue, and a
+hand-drawn arrow at the creature. Nothing else.
+
+    thumb_dontkill.py --creature wolf_spider --headline "DON'T|*KILL* IT!" --shoe tl -o out.jpg
+    thumb_dontkill.py --json episodes/thumbs-dontkill/specs.json            (one spec or a list of specs)
+    thumb_dontkill.py --json specs.json --only kk2_a                         (render one spec by name)
+
+Every render writes OUT.jpg (1280x720, < 2 MB) and OUT_168.jpg (YouTube's smallest size): LOOK at the _168.
+
+Headline: lines split by "|", the accent word wrapped in *stars* ("DON'T|*KILL* IT!"). Accent colour: red (#e5383b),
+blue (#1f6fd1) or any #hex.
+
+Spec keys (JSON; CLI flags map onto the same keys):
+  name        output basename (with --out-dir) / label
+  out         output path (.jpg)
+  creature    {"kind": wolf_spider | cellar_spider | house_centipede, "box": [x, y, w, h], "rot": deg,
+               "zoom": 1.0 (>1 lets legs run off the box/frame), "look": [dx, dy] pupils, "mood": worried | happy}
+  headline    "LINE|LINE" with *accent*;  accent: red | blue | #hex;  font: marker | gochi
+  text_box    [x0, y0, x1, y1] where the words go (default: right 40% of the frame); text_rot: deg
+  shoe        false | {"corner": tl | tr, "size": px sole length, "at": [x, y] toe-in centre, "rot": deg}
+  arrow       false | {"from": [x, y], "to": [x, y], "bend": -1..1, "color": "#hex"}
+  meatball    false | {"at": [x, y] feet, "h": px tall, "look": [dx, dy]}   (the brand host, arms out)
+  web         false | true (a few cobweb strands in the top-left corner: cellar spider)
+"""
+import argparse
+import json
+import math
+import os
+import random
+import sys
+
+import cairo
+import numpy as np
+from PIL import Image, ImageDraw, ImageFilter, ImageFont
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(HERE)
+sys.path.insert(0, HERE)
+
+W, H = 1280, 720
+FONTS = {"marker": os.path.join(ROOT, "brand/fonts/PermanentMarker-Regular.ttf"),
+         "gochi": os.path.join(ROOT, "brand/fonts/GochiHand-Regular.ttf")}
+ACCENTS = {"red": "#e5383b", "blue": "#1f6fd1"}
+INK = (0.08, 0.06, 0.05)
+PX_LW = 6.5          # creature outline width in final pixels
+
+
+# ================================================================= colour + cairo helpers
+
+def hexf(h):
+    h = h.lstrip("#")
+    return tuple(int(h[i:i + 2], 16) / 255 for i in (0, 2, 4))
+
+
+def hexi(h):
+    return tuple(int(round(v * 255)) for v in hexf(h))
+
+
+def mix(c, d, k):
+    return tuple(a + (b - a) * k for a, b in zip(c, d))
+
+
+def darker(c, k=0.7):
+    return tuple(v * k for v in c)
+
+
+def lighter(c, k=0.45):
+    return mix(c, (1, 1, 1), k)
+
+
+def src(ctx, c, a=1.0):
+    ctx.set_source_rgba(c[0], c[1], c[2], a)
+
+
+def smooth(ctx, pts, close=True):
+    """Catmull-Rom through pts as cubic beziers."""
+    n = len(pts)
+    ctx.move_to(*pts[0])
+    rng = range(n) if close else range(n - 1)
+    for i in rng:
+        p0 = pts[(i - 1) % n] if (close or i > 0) else pts[i]
+        p1, p2 = pts[i], pts[(i + 1) % n]
+        p3 = pts[(i + 2) % n] if (close or i + 2 < n) else p2
+        ctx.curve_to(p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6,
+                     p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6, p2[0], p2[1])
+    if close:
+        ctx.close_path()
+
+
+def ellipse(ctx, cx, cy, rx, ry, rot=0.0):
+    ctx.save()
+    ctx.translate(cx, cy)
+    ctx.rotate(rot)
+    ctx.scale(rx, ry)
+    ctx.new_sub_path()
+    ctx.arc(0, 0, 1, 0, 2 * math.pi)
+    ctx.restore()
+
+
+def part(ctx, path, base, lw, shade=(0.0, 0.0), hi=(), shade_k=0.72, hi_k=0.5, hi_a=0.85, outline=True):
+    """The illustrated cel look: flat base, a crescent of shadow on the far side (the body shape shifted by -shade,
+    knocked out of a darker fill), soft lighter highlight blobs, then a bold ink outline."""
+    ctx.new_path()
+    path(ctx)
+    src(ctx, base)
+    ctx.fill()
+    ctx.save()
+    ctx.new_path()
+    path(ctx)
+    ctx.clip()
+    if shade != (0.0, 0.0):
+        ctx.new_path()
+        path(ctx)
+        src(ctx, darker(base, shade_k))
+        ctx.fill()
+        ctx.save()
+        ctx.translate(-shade[0], -shade[1])
+        ctx.new_path()
+        path(ctx)
+        src(ctx, base)
+        ctx.fill()
+        ctx.restore()
+    for h in hi:
+        ctx.new_path()
+        ellipse(ctx, *h)
+        src(ctx, lighter(base, hi_k), hi_a)
+        ctx.fill()
+    ctx.restore()
+    if outline:
+        ctx.new_path()
+        path(ctx)
+        src(ctx, INK)
+        ctx.set_line_width(lw)
+        ctx.set_line_join(cairo.LINE_JOIN_ROUND)
+        ctx.stroke()
+
+
+def line(ctx, pts, w, color, a=1.0, cap=cairo.LINE_CAP_ROUND, curve=False):
+    ctx.new_path()
+    if curve and len(pts) > 2:
+        smooth(ctx, pts, close=False)
+    else:
+        ctx.move_to(*pts[0])
+        for p in pts[1:]:
+            ctx.line_to(*p)
+    src(ctx, color, a)
+    ctx.set_line_width(w)
+    ctx.set_line_cap(cap)
+    ctx.set_line_join(cairo.LINE_JOIN_ROUND)
+    ctx.stroke()
+
+
+def leg(ctx, pts, widths, base, lw, bands=(), light=(-0.6, -0.8), hairs=0, rng=None):
+    """A jointed limb: ink under-stroke, flat fill, a shadow strip on the side away from the light and a thin
+    highlight on the lit side (per segment), optional joint bands [(segment index, t, colour, length k)] and hairs."""
+    segs = list(zip(pts[:-1], pts[1:], widths))
+    for a, b, w in segs:
+        line(ctx, [a, b], w + 2 * lw, INK)
+    for a, b, w in segs:
+        line(ctx, [a, b], w, base)
+    lx, ly = light
+    for a, b, w in segs:
+        dx, dy = b[0] - a[0], b[1] - a[1]
+        L = math.hypot(dx, dy) or 1
+        nx, ny = -dy / L, dx / L
+        if nx * lx + ny * ly > 0:
+            nx, ny = -nx, -ny          # n points away from the light
+        sh = [(a[0] + nx * w * 0.24, a[1] + ny * w * 0.24), (b[0] + nx * w * 0.24, b[1] + ny * w * 0.24)]
+        line(ctx, sh, w * 0.46, darker(base, 0.7), cap=cairo.LINE_CAP_BUTT)
+        h0 = (a[0] + dx * 0.12 - nx * w * 0.2, a[1] + dy * 0.12 - ny * w * 0.2)
+        h1 = (a[0] + dx * 0.8 - nx * w * 0.2, a[1] + dy * 0.8 - ny * w * 0.2)
+        line(ctx, [h0, h1], w * 0.18, lighter(base, 0.55), a=0.9)
+    for si, t, col, k in bands:
+        a, b, w = segs[si]
+        dx, dy = b[0] - a[0], b[1] - a[1]
+        L = math.hypot(dx, dy) or 1
+        c0 = (a[0] + dx * t - dx / L * w * k / 2, a[1] + dy * t - dy / L * w * k / 2)
+        c1 = (a[0] + dx * t + dx / L * w * k / 2, a[1] + dy * t + dy / L * w * k / 2)
+        line(ctx, [c0, c1], w * 0.98, col, cap=cairo.LINE_CAP_BUTT)
+    if hairs and rng:
+        for a, b, w in segs[:2]:
+            dx, dy = b[0] - a[0], b[1] - a[1]
+            L = math.hypot(dx, dy) or 1
+            for _ in range(hairs):
+                t = rng.uniform(0.15, 0.9)
+                s = rng.choice((-1, 1))
+                px, py = a[0] + dx * t, a[1] + dy * t
+                nx, ny = -dy / L * s, dx / L * s
+                r = w / 2 + lw * 0.5
+                line(ctx, [(px + nx * r, py + ny * r),
+                           (px + nx * (r + w * 0.38) + dx / L * w * 0.3, py + ny * (r + w * 0.38) + dy / L * w * 0.3)],
+                     lw * 0.55, INK)
+
+
+def cartoon_eye(ctx, x, y, r, look, lw, lid=None, brow=None):
+    ellipse(ctx, x, y, r, r * 1.08)
+    src(ctx, (1, 1, 1))
+    ctx.fill_preserve()
+    src(ctx, INK)
+    ctx.set_line_width(lw)
+    ctx.stroke()
+    px, py = x + look[0] * r * 0.38, y + look[1] * r * 0.38
+    ellipse(ctx, px, py, r * 0.56, r * 0.6)
+    src(ctx, INK)
+    ctx.fill()
+    ellipse(ctx, px - r * 0.2, py - r * 0.24, r * 0.2, r * 0.2)
+    src(ctx, (1, 1, 1))
+    ctx.fill()
+    if brow is not None:      # brow = tilt in radians (+ = worried: inner end up)
+        bx0, by0 = x - r * 0.9, y - r * 1.45
+        bx1, by1 = x + r * 0.9, y - r * 1.45
+        ctx.save()
+        ctx.translate(x, y - r * 1.45)
+        ctx.rotate(brow)
+        line(ctx, [(-r * 0.85, r * 0.12), (0, -r * 0.08), (r * 0.85, r * 0.08)], lw * 1.6, INK, curve=True)
+        ctx.restore()
+
+
+def fuzz(ctx, cx, cy, rx, ry, n, length, lw, rng, start=0, end=2 * math.pi):
+    for k in range(n):
+        a = start + (end - start) * (k + rng.uniform(-0.3, 0.3)) / n
+        x, y = cx + rx * math.cos(a), cy + ry * math.sin(a)
+        L = length * rng.uniform(0.6, 1.2)
+        tilt = rng.uniform(-0.35, 0.35)
+        line(ctx, [(x, y), (x + L * math.cos(a + tilt), y + L * math.sin(a + tilt))], lw * 0.6, INK)
+
+
+# ================================================================= creatures (local units, light from the top left)
+
+def wolf_spider(ctx, o):
+    """Top-down, head toward the viewer (down): hairy brown, striped carapace, lance mark on the abdomen, 8 banded
+    legs (front pairs reach forward, back pairs back), two big front eyes over a row of four, chelicerae, palps."""
+    lw = o["lw"]
+    rng = random.Random(7)
+    base, dark, pale = hexf("#8d6a43"), hexf("#46301d"), hexf("#d2b07a")
+    legc = hexf("#86643f")
+    look = o.get("look", (0, 0))
+    # legs: hips around the carapace, femur / patella+tibia / metatarsus
+    spec = [  # hip (x, y), femur angle, bends, lengths
+        ((92, 252), 50, (36, 20), (190, 185, 140)),
+        ((118, 190), 10, (34, 16), (185, 175, 130)),
+        ((120, 118), -24, (-32, -16), (180, 170, 125)),
+        ((96, 52), -60, (-28, -12), (215, 205, 150)),
+    ]
+    for i in (3, 2, 1, 0):
+        (hx, hy), a0, (b1, b2), (l1, l2, l3) = spec[i]
+        for s in (-1, 1):
+            a = math.radians(a0)
+            p0 = (s * hx, hy)
+            p1 = (p0[0] + s * l1 * math.cos(a), p0[1] + l1 * math.sin(a))
+            a2 = a + math.radians(b1)
+            p2 = (p1[0] + s * l2 * math.cos(a2), p1[1] + l2 * math.sin(a2))
+            a3 = a2 + math.radians(b2)
+            p3 = (p2[0] + s * l3 * math.cos(a3), p2[1] + l3 * math.sin(a3))
+            leg(ctx, [p0, p1, p2, p3], (56, 46, 34), legc, lw,
+                bands=[(0, 0.55, darker(legc, 0.55), 0.7), (1, 0.45, darker(legc, 0.55), 0.8),
+                       (2, 0.5, darker(legc, 0.55), 0.8)], hairs=5, rng=rng)
+    # palps
+    for s in (-1, 1):
+        leg(ctx, [(s * 48, 318), (s * 96, 372), (s * 92, 420)], (30, 26), legc, lw,
+            bands=[(1, 0.6, darker(legc, 0.55), 0.8)])
+    # abdomen
+    ab = lambda c: ellipse(c, 0, -205, 178, 228)
+    fuzz(ctx, 0, -205, 178, 228, 70, 22, lw, rng)
+    part(ctx, ab, base, lw, shade=(-26, -26), hi=[(-60, -300, 70, 95, -0.4)], hi_a=0.5)
+    ctx.save()
+    ab(ctx)
+    ctx.clip()
+    for k in range(26):          # mottling
+        ellipse(ctx, rng.uniform(-160, 160), rng.uniform(-420, -10), rng.uniform(10, 26), rng.uniform(8, 18))
+        src(ctx, dark, 0.35)
+        ctx.fill()
+    ctx.new_path()
+    smooth(ctx, [(0, -20), (58, -110), (52, -220), (0, -360), (-52, -220), (-58, -110)])
+    src(ctx, pale)
+    ctx.fill()
+    ctx.new_path()
+    smooth(ctx, [(0, -30), (40, -110), (34, -215), (0, -330), (-34, -215), (-40, -110)])
+    src(ctx, dark)
+    ctx.fill()
+    for k in range(3):           # chevrons toward the back
+        y = -340 - k * 30
+        line(ctx, [(-70 + k * 12, y + 22), (0, y - 4), (70 - k * 12, y + 22)], 16, dark)
+    ctx.restore()
+    # carapace
+    car = lambda c: smooth(c, [(0, 330), (78, 312), (138, 232), (156, 128), (132, 36), (64, -6), (0, -12),
+                               (-64, -6), (-132, 36), (-156, 128), (-138, 232), (-78, 312)])
+    part(ctx, car, base, lw, shade=(-18, -22), hi=[], outline=False)
+    ctx.save()
+    car(ctx)
+    ctx.clip()
+    for s in (-1, 1):            # two dark bands either side of a pale mid stripe, pale margins
+        ctx.new_path()
+        smooth(ctx, [(s * 30, 0), (s * 105, 40), (s * 116, 140), (s * 92, 250), (s * 40, 300), (s * 26, 160)])
+        src(ctx, dark)
+        ctx.fill()
+    for (x, y, rx, ry, r) in [(-50, 70, 40, 80, -0.3)]:
+        ellipse(ctx, x, y, rx, ry, r)
+        src(ctx, lighter(base, 0.5), 0.35)
+        ctx.fill()
+    ctx.restore()
+    ctx.new_path()
+    car(ctx)
+    src(ctx, INK)
+    ctx.set_line_width(lw)
+    ctx.stroke()
+    fuzz(ctx, 0, 150, 150, 170, 40, 16, lw, rng, start=-0.2, end=math.pi + 0.2)
+    # chelicerae
+    for s in (-1, 1):
+        part(ctx, lambda c, s=s: ellipse(c, s * 34, 338, 36, 46), darker(base, 0.62), lw, shade=(-6, -8),
+             hi=[(s * 34 - 10, 324, 10, 16, 0)], hi_k=0.4)
+    # eyes: the two big ones (cartoon), the row of four below, the side pair
+    for s in (-1, 1):
+        ellipse(ctx, s * 96, 196, 12, 12)
+        src(ctx, INK)
+        ctx.fill()
+    for k in range(4):
+        ellipse(ctx, -51 + k * 34, 296, 11, 11)
+        src(ctx, INK)
+        ctx.fill()
+    brow = {"worried": 0.32, "happy": None, "calm": None}.get(o.get("mood", "worried"))
+    for s in (-1, 1):
+        cartoon_eye(ctx, s * 58, 232, 60, look, lw, brow=None)
+
+
+def cellar_spider(ctx, o):
+    """Pholcus seen from above: small pale peanut body (round carapace + long abdomen), 8 extremely long thin legs
+    with dark-and-white knee bands, arched knees. Leg strokes far thicker than life so it reads at phone size."""
+    lw = o["lw"]
+    look = o.get("look", (0, 0))
+    body, mark = hexf("#e6d8b6"), hexf("#a99372")
+    legc = hexf("#c8b48c")
+    spec = [  # femur angle (deg, from +x toward +y = forward), bend, lengths
+        (62, 28, (560, 600, 520)),
+        (20, 26, (500, 540, 460)),
+        (-22, -24, (470, 500, 430)),
+        (-60, -26, (560, 600, 520)),
+    ]
+    hips = [(44, 120), (58, 92), (58, 58), (44, 30)]
+    for i in (3, 2, 1, 0):
+        a0, bend, (l1, l2, l3) = spec[i]
+        for s in (-1, 1):
+            a = math.radians(a0)
+            p0 = (s * hips[i][0], hips[i][1])
+            p1 = (p0[0] + s * l1 * math.cos(a), p0[1] + l1 * math.sin(a))
+            a2 = a + math.radians(bend)
+            p2 = (p1[0] + s * l2 * math.cos(a2), p1[1] + l2 * math.sin(a2))
+            a3 = a2 + math.radians(bend * 0.5)
+            p3 = (p2[0] + s * l3 * math.cos(a3), p2[1] + l3 * math.sin(a3))
+            leg(ctx, [p0, p1, p2, p3], (34, 28, 22), legc, lw,
+                bands=[(0, 0.93, hexf("#3b2e22"), 1.5), (1, 0.04, (1, 1, 1), 1.1), (1, 0.96, hexf("#3b2e22"), 1.1),
+                       (2, 0.03, (1, 1, 1), 0.9)])
+    for s in (-1, 1):   # palps
+        leg(ctx, [(s * 26, 170), (s * 52, 205), (s * 48, 236)], (20, 18), legc, lw)
+    ab = lambda c: smooth(c, [(0, 10), (56, -30), (70, -150), (62, -300), (0, -360), (-62, -300), (-70, -150),
+                              (-56, -30)])
+    part(ctx, ab, body, lw, shade=(-14, -14), hi=[(-24, -190, 22, 90, 0)], hi_a=0.7)
+    ctx.save()
+    ab(ctx)
+    ctx.clip()
+    for k, y in enumerate((-60, -120, -180, -240, -290)):
+        w = 38 - k * 3
+        line(ctx, [(-w, y + 16), (0, y - 6), (w, y + 16)], 10, mark, a=0.75)
+    ctx.restore()
+    car = lambda c: ellipse(c, 0, 92, 82, 88)
+    part(ctx, car, body, lw, shade=(-10, -12), hi=[(-26, 70, 22, 26, 0)])
+    ctx.save()
+    car(ctx)
+    ctx.clip()
+    ellipse(ctx, 0, 60, 30, 46)
+    src(ctx, mark, 0.6)
+    ctx.fill()
+    ctx.restore()
+    brow = {"worried": 0.3, "happy": None, "calm": None}.get(o.get("mood", "happy"))
+    for s in (-1, 1):
+        cartoon_eye(ctx, s * 34, 128, 30, look, lw * 0.9, brow=None if brow is None else s * brow)
+
+
+def house_centipede(ctx, o):
+    """Top-down Scutigera: yellowish-grey body with three dark stripes along it, 15 pairs of very long striped legs
+    (longer toward the back, the last pair trailing like a second set of antennae), very long antennae, a cartoon
+    face. Head toward +x."""
+    lw = o["lw"]
+    look = o.get("look", (0, 0))
+    rng = random.Random(3)
+    base, stripe = hexf("#d4b97f"), hexf("#4f4766")
+    legl, legd = hexf("#efe4c8"), hexf("#5d5474")
+    n = 15
+    x0, x1 = -520, 470
+
+    def spine(u):
+        x = x0 + (x1 - x0) * u
+        y = 46 * math.sin(math.pi * 1.6 * u + 0.4)
+        dy = 46 * math.pi * 1.6 * math.cos(math.pi * 1.6 * u + 0.4) / (x1 - x0)
+        L = math.hypot(1, dy)
+        return (x, y), (1 / L, dy / L), (-dy / L, 1 / L)
+
+    def width(u):
+        return 70 + 48 * math.sin(math.pi * min(1, u * 1.15)) ** 0.6
+
+    # legs (behind the body). Pair k sits at u_k; each leg: hip -> knee (out, slightly forward) -> foot (back)
+    for k in range(n):
+        u = 0.07 + 0.86 * k / (n - 1)
+        (px, py), t, nrm = spine(u)
+        w = width(u)
+        last = k == 0
+        for s in (-1, 1):
+            hip = (px + s * nrm[0] * w * 0.45, py + s * nrm[1] * w * 0.45)
+            if last:   # the long trailing last pair
+                pts = [hip, (hip[0] - 190, hip[1] + s * 120), (hip[0] - 520, hip[1] + s * 190),
+                       (hip[0] - 820, hip[1] + s * 150)]
+                wd = (20, 17, 14)
+            else:
+                reach = 260 + 180 * (1 - k / (n - 1)) ** 0.8
+                fwd = 0.25 - 0.55 * (1 - k / (n - 1))
+                kx = hip[0] + s * nrm[0] * reach * 0.55 + t[0] * reach * fwd
+                ky = hip[1] + s * nrm[1] * reach * 0.55 + t[1] * reach * fwd
+                fx = kx + s * nrm[0] * reach * 0.75 - t[0] * reach * (0.5 + 0.3 * (1 - k / n))
+                fy = ky + s * nrm[1] * reach * 0.75 - t[1] * reach * (0.5 + 0.3 * (1 - k / n))
+                pts = [hip, (kx, ky), (fx, fy)]
+                wd = (22, 17)
+            nb = 3 if not last else 4
+            bands = [(si, (j + 0.5) / nb, legd, 1.1) for si in range(len(wd)) for j in range(nb)]
+            leg(ctx, pts, wd, legl, lw * 0.85, bands=bands)
+    # antennae
+    (hx, hy), t, nrm = spine(1.0)
+    for s in (-1, 1):
+        pts = [(hx + 60, hy + s * 26), (hx + 260, hy + s * 150), (hx + 520, hy + s * 230 - 40),
+               (hx + 760, hy + s * 220 - 120)]
+        line(ctx, pts, 14 + 2 * lw, INK, curve=True)
+        line(ctx, pts, 14, legl, curve=True)
+        ctx.save()
+        ctx.set_dash([20, 26])
+        line(ctx, pts, 14, legd, cap=cairo.LINE_CAP_BUTT, curve=True)
+        ctx.restore()
+    # body outline from the spine
+    us = [i / 40 for i in range(41)]
+    top = []
+    bot = []
+    for u in us:
+        (px, py), t, nrm = spine(u)
+        w = width(u) * (0.75 if u < 0.04 else 1) / 2
+        top.append((px - nrm[0] * w, py - nrm[1] * w))
+        bot.append((px + nrm[0] * w, py + nrm[1] * w))
+    (tx, ty), t0, _ = spine(0)
+    outline_pts = top + [(spine(1)[0][0] + 20, spine(1)[0][1])] + bot[::-1] + [(tx - 30, ty)]
+    bodyp = lambda c: smooth(c, outline_pts[::2] if False else outline_pts)
+    part(ctx, bodyp, base, lw, shade=(-14, -22), outline=False)
+    ctx.save()
+    bodyp(ctx)
+    ctx.clip()
+    for off in (-0.3, 0.0, 0.3):
+        pts = []
+        for u in us:
+            (px, py), t, nrm = spine(u)
+            w = width(u)
+            pts.append((px + nrm[0] * w * off, py + nrm[1] * w * off))
+        line(ctx, pts, 17 if off == 0 else 15, stripe, curve=True)
+    for j in range(1, 8):           # 7-8 back plates
+        u = j / 8
+        (px, py), t, nrm = spine(u)
+        w = width(u)
+        line(ctx, [(px - nrm[0] * w, py - nrm[1] * w), (px - t[0] * 12, py - t[1] * 12),
+                   (px + nrm[0] * w, py + nrm[1] * w)], 6, darker(base, 0.55), curve=True)
+    for u in (0.2, 0.45, 0.7):
+        (px, py), t, nrm = spine(u)
+        ellipse(ctx, px - nrm[0] * 24, py - nrm[1] * 24, 46, 12, math.atan2(t[1], t[0]))
+        src(ctx, lighter(base, 0.6), 0.6)
+        ctx.fill()
+    ctx.restore()
+    ctx.new_path()
+    bodyp(ctx)
+    src(ctx, INK)
+    ctx.set_line_width(lw)
+    ctx.stroke()
+    # forcipules + head
+    for s in (-1, 1):
+        line(ctx, [(hx + 70, hy + s * 30), (hx + 118, hy + s * 40), (hx + 132, hy + s * 12)], 14 + 2 * lw, INK,
+             curve=True)
+        line(ctx, [(hx + 70, hy + s * 30), (hx + 118, hy + s * 40), (hx + 132, hy + s * 12)], 14,
+             hexf("#9a5a2e"), curve=True)
+    head = lambda c: ellipse(c, hx + 40, hy, 78, 72)
+    part(ctx, head, base, lw, shade=(-8, -12), hi=[(hx + 20, hy - 30, 24, 16, 0)])
+    line(ctx, [(hx - 20, hy), (hx + 50, hy)], 12, stripe)
+    brow = {"worried": 0.3, "happy": None, "calm": None}.get(o.get("mood", "worried"))
+    for s in (-1, 1):
+        cartoon_eye(ctx, hx + 52, hy + s * 36, 30, look, lw * 0.9,
+                    brow=None if brow is None else s * brow)
+
+
+CREATURES = {"wolf_spider": wolf_spider, "cellar_spider": cellar_spider, "house_centipede": house_centipede}
+
+
+# ================================================================= layers
+
+def to_pil(surf):
+    surf.flush()
+    a = np.ndarray((surf.get_height(), surf.get_width(), 4), np.uint8, surf.get_data()).copy()
+    al = a[..., 3:4].astype(np.float32)
+    rgb = np.where(al > 0, a[..., [2, 1, 0]] * 255.0 / np.maximum(al, 1), 0)
+    return Image.fromarray(np.concatenate([np.clip(rgb, 0, 255), al], 2).astype(np.uint8), "RGBA")
+
+
+def layer(draw):
+    surf = cairo.ImageSurface(cairo.FORMAT_ARGB32, W, H)
+    ctx = cairo.Context(surf)
+    ctx.set_antialias(cairo.ANTIALIAS_BEST)
+    draw(ctx)
+    return to_pil(surf)
+
+
+def creature_layer(c):
+    fn = CREATURES[c["kind"]]
+    x, y, bw, bh = c.get("box", [40, 150, 760, 540])
+    rot = math.radians(c.get("rot", 0))
+    o = dict(c)
+    o["lw"] = 10.0
+    rec = cairo.RecordingSurface(cairo.CONTENT_COLOR_ALPHA, None)
+    fn(cairo.Context(rec), o)
+    ex, ey, ew, eh = rec.ink_extents()
+    cw = abs(ew * math.cos(rot)) + abs(eh * math.sin(rot))
+    ch = abs(ew * math.sin(rot)) + abs(eh * math.cos(rot))
+    k = min(bw / cw, bh / ch) * c.get("zoom", 1.0)
+    o["lw"] = PX_LW / k
+    cx, cy = c.get("anchor", (ex + ew / 2, ey + eh / 2))
+
+    def draw(ctx):
+        ctx.translate(x + bw / 2, y + bh / 2)
+        ctx.rotate(rot)
+        ctx.scale(k, k * c.get("squash", 1.0))
+        ctx.translate(-cx, -cy)
+        fn(ctx, o)
+    return layer(draw)
+
+
+def ground_shadow(im_layer, off=(16, 26), blur=14, a=0.32):
+    al = im_layer.getchannel("A").point(lambda v: int(v * a))
+    sh = Image.new("RGBA", (W, H), (40, 34, 30, 0))
+    sh.putalpha(al.filter(ImageFilter.GaussianBlur(blur)))
+    out = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    out.alpha_composite(sh, (off[0], off[1]))
+    return out
+
+
+def contact_shadow(box, a=0.22):
+    """A soft oval on the floor under the creature's middle (it sits on a surface)."""
+    x, y, w, h = box
+    sh = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    ImageDraw.Draw(sh).ellipse((x + w * 0.22, y + h * 0.42, x + w * 0.82, y + h * 0.9), fill=(40, 34, 30, int(255 * a)))
+    return sh.filter(ImageFilter.GaussianBlur(40))
+
+
+# ---------------------------------------------------------------- shoe
+
+SOLE = [(-450, 0), (-432, -96), (-350, -132), (-210, -122), (-60, -132), (120, -168), (300, -176), (420, -128),
+        (472, -30), (462, 70), (380, 148), (240, 176), (90, 150), (-60, 104), (-190, 112), (-330, 128), (-428, 92)]
+
+
+def shoe_draw(ctx, color_sole, color_tread, color_upper):
+    lw = 10
+    sole = lambda c: smooth(c, SOLE)
+    # the shoe's upper, seen past the sole's outer edge (we look at the sole from below, tilted)
+    ctx.save()
+    ctx.translate(-26, -78)
+    ctx.scale(1.02, 1.0)
+    part(ctx, sole, color_upper, lw, shade=(0, 30), hi=[(60, -120, 220, 40, -0.08)], hi_k=0.35)
+    ctx.restore()
+    for k in range(4):          # lace eyelets / stitching on the upper
+        line(ctx, [(-120 + k * 90, -205 + k * 6), (-90 + k * 90, -195 + k * 6)], 8, darker(color_upper, 0.6))
+    # midsole rim
+    ctx.save()
+    ctx.translate(-10, -32)
+    part(ctx, sole, (0.97, 0.96, 0.94), lw, shade=(0, 14))
+    ctx.restore()
+    # outsole + tread
+    part(ctx, sole, color_sole, lw, shade=(10, 18), outline=False)
+    ctx.save()
+    sole(ctx)
+    ctx.clip()
+    for i in range(-2, 15):     # forefoot: chevron lugs
+        x = -40 + i * 38
+        if x > 500:
+            break
+        line(ctx, [(x, -190), (x + 26, -60), (x, 0), (x + 26, 60), (x, 190)], 16, color_tread,
+             cap=cairo.LINE_CAP_SQUARE)
+    for r in range(4):          # heel: block lugs
+        for q in range(4):
+            ctx.new_path()
+            ctx.rectangle(-440 + q * 66, -120 + r * 62, 44, 42)
+            src(ctx, color_tread)
+            ctx.fill()
+    ctx.new_path()
+    ellipse(ctx, -150, 0, 70, 64)       # arch: smooth logo pad
+    src(ctx, color_sole)
+    ctx.fill()
+    ctx.new_path()
+    ellipse(ctx, -150, 0, 46, 40)
+    src(ctx, lighter(color_sole, 0.25))
+    ctx.fill()
+    ellipse(ctx, 120, -110, 260, 34, -0.12)   # sheen
+    src(ctx, (1, 1, 1), 0.18)
+    ctx.fill()
+    ctx.restore()
+    ctx.new_path()
+    sole(ctx)
+    src(ctx, INK)
+    ctx.set_line_width(lw)
+    ctx.stroke()
+
+
+def shoe_transform(s):
+    corner = s.get("corner", "tl")
+    size = s.get("size", 640)
+    k = size / 920.0
+    if corner == "tl":
+        at, rot, flip = s.get("at", (250, 70)), s.get("rot", 28), 1
+    else:
+        at, rot, flip = s.get("at", (W - 250, 70)), s.get("rot", -28), -1
+    return at, math.radians(rot), k, flip
+
+
+def shoe_layers(s):
+    at, rot, k, flip = shoe_transform(s)
+    cols = (hexf(s.get("sole", "#5b7fbd")), hexf(s.get("tread", "#33507f")), hexf(s.get("upper", "#e0603a")))
+
+    def place(ctx):
+        ctx.translate(*at)
+        ctx.rotate(rot)
+        ctx.scale(k * flip, k)
+
+    def draw(ctx):
+        place(ctx)
+        shoe_draw(ctx, *cols)
+
+    def shadow(ctx):
+        sx, sy = s.get("shadow", (60, 150))
+        ctx.translate(sx * flip, sy)
+        place(ctx)
+        ctx.scale(0.9, 0.82)
+        smooth(ctx, SOLE)
+        src(ctx, (0.12, 0.1, 0.1), 1)
+        ctx.fill()
+    sh = layer(shadow)
+    sh.putalpha(sh.getchannel("A").point(lambda v: int(v * s.get("shadow_a", 0.30))).filter(ImageFilter.GaussianBlur(26)))
+    return layer(draw), sh
+
+
+# ---------------------------------------------------------------- Meatball
+
+def meatball_layer(m):
+    import mascot
+    st = mascot.pose_state("shock")
+    st["l"], st["r"] = (112, 4, 0), (112, 4, 0)     # arms straight out: "stop!"
+    st["mouth"], st["brow"] = m.get("mouth", "o"), m.get("brow", "up")
+    st["look"] = tuple(m.get("look", (0, -0.6)))
+    st["blink"] = 0
+    h = m.get("h", 260)
+    size = int(h / 0.86)
+    img = mascot.render(st, size)
+    bb = img.getbbox()
+    img = img.crop(bb)
+    out = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    fx, fy = m.get("at", (520, 640))
+    out.alpha_composite(img, (int(fx - img.width / 2), int(fy - img.height)))
+    halo = out.getchannel("A").filter(ImageFilter.MaxFilter(9))     # white sticker edge so he separates
+    wh = Image.new("RGBA", (W, H), (255, 255, 255, 0))
+    wh.putalpha(halo)
+    wh.alpha_composite(out)
+    return wh
+
+
+# ---------------------------------------------------------------- lettering
+
+def parse_headline(s):
+    lines = []
+    for ln in s.split("|"):
+        words = []
+        for w in ln.split():
+            acc = w.startswith("*") or w.endswith("*")
+            words.append((w.strip("*"), acc))
+        lines.append(words)
+    return lines
+
+
+def letter_line(words, font, accent, rng, size, wobble=1.0, bold=0.028):
+    """One hand-lettered line: each glyph jittered in angle and baseline, a thick white halo behind."""
+    asc, desc = font.getmetrics()
+    space = font.getlength(" ") * 0.7
+    glyphs = []
+    x = 0.0
+    for wi, (w, acc) in enumerate(words):
+        for ch in w:
+            glyphs.append((ch, x, acc))
+            x += font.getlength(ch) * 0.97
+        x += space
+    width = int(x - space + size * 0.4)
+    hgt = int((asc + desc) * 1.25)
+    im = Image.new("RGBA", (width + 40, hgt + 40), (0, 0, 0, 0))
+    fat = int(round(size * bold))          # faux bold: the marker drawn twice as thick (reads at 168 px)
+    halo = int(max(6, size * 0.07)) + fat
+    for pass_ in (0, 1):
+        r2 = random.Random(rng.random() if pass_ == 0 else 0)
+        for (ch, gx, acc), seed in zip(glyphs, range(len(glyphs))):
+            g = random.Random(seed * 7 + int(size))
+            ang = g.uniform(-4, 4) * wobble
+            dy = g.uniform(-0.035, 0.035) * size * wobble
+            sc = 1 + g.uniform(-0.03, 0.05) * wobble
+            f = font.font_variant(size=int(size * sc))
+            gw = int(f.getlength(ch)) + 2 * halo + 20
+            gi = Image.new("RGBA", (gw, hgt + 2 * halo), (0, 0, 0, 0))
+            d = ImageDraw.Draw(gi)
+            col = hexi(accent) if acc else (17, 17, 17)
+            if pass_ == 0:
+                d.text((halo + 10, halo), ch, font=f, fill=(255, 255, 255, 255), stroke_width=halo,
+                       stroke_fill=(255, 255, 255, 255))
+            else:
+                d.text((halo + 10, halo), ch, font=f, fill=col + (255,), stroke_width=fat, stroke_fill=col + (255,))
+            gi = gi.rotate(ang, resample=Image.BICUBIC, expand=False)
+            im.alpha_composite(gi, (int(20 + gx - halo - 10), int(20 + dy - halo + (size - f.size) * 0.6)))
+    return im.crop(im.getbbox())
+
+
+def lettering(spec, rng):
+    lines = parse_headline(spec["headline"])
+    accent = ACCENTS.get(spec.get("accent", "red"), spec.get("accent", "red"))
+    if not str(accent).startswith("#"):
+        accent = "#" + accent
+    x0, y0, x1, y1 = spec.get("text_box", [770, 60, 1250, 520])
+    bw, bh = x1 - x0, y1 - y0
+    fpath = FONTS.get(spec.get("font", "marker"), spec.get("font"))
+    gap = spec.get("line_gap", -0.12)
+    size = spec.get("max_size", 240)
+    while size > 30:
+        font = ImageFont.truetype(fpath, size)
+        imgs = [letter_line(ln, font, accent, rng, size, spec.get("wobble", 1.0), spec.get("bold", 0.028))
+                for ln in lines]
+        tw = max(i.width for i in imgs)
+        th = sum(i.height for i in imgs) + gap * size * (len(imgs) - 1)
+        if tw <= bw and th <= bh:
+            break
+        size = int(size * min(0.97, max(0.8, min(bw / tw, bh / th) ** 0.5)))
+    out = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    y = y0 + (bh - th) / 2 if spec.get("valign", "middle") == "middle" else y0
+    align = spec.get("align", "center")
+    for i, im in enumerate(imgs):
+        if align == "center":
+            x = x0 + (bw - im.width) / 2
+        elif align == "left":
+            x = x0
+        else:
+            x = x1 - im.width
+        off = spec.get("line_offsets", [0] * len(imgs))[i] if spec.get("line_offsets") else 0
+        out.alpha_composite(im, (int(x + off), int(y)))
+        y += im.height + gap * size
+    rot = spec.get("text_rot", -3)
+    if rot:
+        cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
+        out = out.rotate(rot, resample=Image.BICUBIC, center=(cx, cy))
+    return out
+
+
+# ---------------------------------------------------------------- arrow
+
+def arrow_layer(a, rng):
+    (sx, sy), (tx, ty) = a["from"], a["to"]
+    bend = a.get("bend", 0.35)
+    col = hexf(a.get("color", "#111111"))
+    wmax = a.get("width", 13)
+    dx, dy = tx - sx, ty - sy
+    L = math.hypot(dx, dy)
+    nx, ny = -dy / L, dx / L
+    c1 = (sx + dx * 0.3 + nx * L * bend, sy + dy * 0.3 + ny * L * bend)
+    c2 = (sx + dx * 0.75 + nx * L * bend * 0.6, sy + dy * 0.75 + ny * L * bend * 0.6)
+    ph = rng.uniform(0, 6)
+
+    def bez(t):
+        mt = 1 - t
+        return (mt ** 3 * sx + 3 * mt * mt * t * c1[0] + 3 * mt * t * t * c2[0] + t ** 3 * tx,
+                mt ** 3 * sy + 3 * mt * mt * t * c1[1] + 3 * mt * t * t * c2[1] + t ** 3 * ty)
+    pts = []
+    N = 60
+    for i in range(N + 1):
+        t = i / N
+        x, y = bez(t)
+        wob = 2.2 * math.sin(t * 9 + ph) + 1.2 * math.sin(t * 23 + ph * 2)
+        pts.append((x + nx * wob, y + ny * wob))
+
+    def draw(ctx):
+        for i in range(N):
+            t = i / N
+            w = wmax * (0.55 + 0.45 * math.sin(math.pi * min(1, t * 1.25)) ** 0.7) * (0.95 + 0.1 * math.sin(t * 17))
+            line(ctx, [pts[i], pts[i + 1]], w, col)
+        # two-stroke arrowhead
+        ex, ey = pts[-1]
+        bx, by = pts[-6]
+        ang = math.atan2(ey - by, ex - bx)
+        for s, ln, da in ((1, 70, 0.52), (-1, 60, 0.46)):
+            a2 = ang + math.pi + s * da
+            mid = (ex + math.cos(a2 + s * 0.05) * ln * 0.5, ey + math.sin(a2 + s * 0.05) * ln * 0.5)
+            end = (ex + math.cos(a2) * ln, ey + math.sin(a2) * ln)
+            line(ctx, [(ex, ey), mid, end], wmax * 1.05, col, curve=True)
+    halo = layer(lambda c: None)
+    lay = layer(draw)
+    wh = Image.new("RGBA", (W, H), (255, 255, 255, 0))
+    wh.putalpha(lay.getchannel("A").filter(ImageFilter.MaxFilter(7)))
+    wh.alpha_composite(lay)
+    return wh
+
+
+# ---------------------------------------------------------------- cobweb
+
+def web_layer(w):
+    def draw(ctx):
+        ox, oy = w.get("origin", (0, 0))
+        rng = random.Random(5)
+        angs = [math.radians(a) for a in (8, 26, 45, 64, 82)]
+        R = w.get("r", 420)
+        for a in angs:
+            line(ctx, [(ox, oy), (ox + R * math.cos(a), oy + R * math.sin(a))], 2.5, (0.62, 0.62, 0.66), a=0.8)
+        for r in range(60, R, 62):
+            pts = [(ox + r * math.cos(a) * rng.uniform(0.95, 1.03), oy + r * math.sin(a) * rng.uniform(0.95, 1.03))
+                   for a in angs]
+            for p, q in zip(pts[:-1], pts[1:]):
+                m = ((p[0] + q[0]) / 2 - 8 * math.cos((angs[0] + angs[-1]) / 2),
+                     (p[1] + q[1]) / 2 - 8 * math.sin((angs[0] + angs[-1]) / 2))
+                line(ctx, [p, m, q], 2.2, (0.62, 0.62, 0.66), a=0.75, curve=True)
+    return layer(draw)
+
+
+# ================================================================= compose + save
+
+def render(spec):
+    rng = random.Random(spec.get("seed", 1))
+    bg = spec.get("bg", "#ffffff")
+    im = Image.new("RGBA", (W, H), hexi(bg) + (255,))
+    if spec.get("web"):
+        im.alpha_composite(web_layer(spec["web"] if isinstance(spec["web"], dict) else {}))
+    c = spec["creature"]
+    cl = creature_layer(c)
+    im.alpha_composite(contact_shadow(c.get("box", [40, 150, 760, 540]), c.get("contact", 0.18)))
+    im.alpha_composite(ground_shadow(cl, tuple(c.get("shadow_off", (14, 22))), 12, c.get("shadow_a", 0.30)))
+    im.alpha_composite(cl)
+    m = spec.get("meatball")
+    shoe = spec.get("shoe")
+    if shoe:
+        sl, ssh = shoe_layers(shoe)
+        im.alpha_composite(ssh)
+    if m:
+        ml = meatball_layer(m)
+        im.alpha_composite(ground_shadow(ml, (10, 14), 8, 0.25))
+        im.alpha_composite(ml)
+    if shoe:
+        im.alpha_composite(sl)
+    if spec.get("arrow"):
+        im.alpha_composite(arrow_layer(spec["arrow"], rng))
+    im.alpha_composite(lettering(spec, rng))
+    return im.convert("RGB")
+
+
+def save(im, out):
+    os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True)
+    q = 92
+    while True:
+        im.save(out, quality=q, optimize=True)
+        if os.path.getsize(out) < 2_000_000 or q < 60:
+            break
+        q -= 6
+    stem = out[:-4] if out.lower().endswith(".jpg") else out
+    small = im.resize((168, 94), Image.LANCZOS)
+    small.save(stem + "_168.jpg", quality=92)
+    return out, os.path.getsize(out)
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--json", help="spec file (one spec or a list)")
+    ap.add_argument("--only", help="render only the spec with this name")
+    ap.add_argument("--out-dir", help="with --json: write NAME.jpg here (overrides spec 'out')")
+    ap.add_argument("-o", "--out", default="thumb.jpg")
+    ap.add_argument("--creature", default="wolf_spider", choices=sorted(CREATURES))
+    ap.add_argument("--headline", default="DON'T|*KILL* IT!")
+    ap.add_argument("--accent", default="red")
+    ap.add_argument("--font", default="marker", choices=sorted(FONTS))
+    ap.add_argument("--shoe", default="tl", choices=["tl", "tr", "off"])
+    ap.add_argument("--no-arrow", action="store_true")
+    ap.add_argument("--meatball", action="store_true", help="small Meatball, arms out, between shoe and creature")
+    a = ap.parse_args()
+    if a.json:
+        specs = json.load(open(a.json))
+        specs = specs if isinstance(specs, list) else [specs]
+        for s in specs:
+            if a.only and s.get("name") != a.only:
+                continue
+            out = os.path.join(a.out_dir, s["name"] + ".jpg") if a.out_dir else s["out"]
+            if not os.path.isabs(out) and not a.out_dir:
+                out = os.path.join(os.path.dirname(os.path.abspath(a.json)), out)
+            print(*save(render(s), out))
+        return
+    spec = {"creature": {"kind": a.creature, "box": [30, 140, 760, 560], "rot": -8, "look": [-0.6, -0.7]},
+            "headline": a.headline, "accent": a.accent, "font": a.font,
+            "shoe": False if a.shoe == "off" else {"corner": a.shoe},
+            "arrow": False if a.no_arrow else {"from": [880, 560], "to": [640, 520], "bend": -0.35},
+            "meatball": {"at": [260, 600], "h": 220} if a.meatball else False}
+    if a.shoe == "tr":
+        spec["creature"]["box"] = [480, 150, 780, 560]
+        spec["text_box"] = [30, 60, 520, 520]
+        spec["arrow"] = False if a.no_arrow else {"from": [380, 560], "to": [620, 540], "bend": 0.35}
+    print(*save(render(spec), a.out))
+
+
+if __name__ == "__main__":
+    main()

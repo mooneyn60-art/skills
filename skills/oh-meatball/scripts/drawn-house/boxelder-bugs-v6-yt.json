@@ -1,7 +1,7 @@
 {
  "series": "Things Living In Your House",
  "sources": [
-  "University of Minnesota Extension, Boxelder bugs: \"Adult boxelder bugs can fly several blocks, and may travel as far as two miles.\"; \"Some boxelder bugs end up in sheltered areas in walls, attics and other places inside where they stay until it warms up.\"; \"during mild, sunny days indoors, boxelder bugs become mobile with warmer temperatures... Once there, they move towards windows and other sunny areas.\"; \"They try to move outdoors but many remain trapped inside. They do not reproduce in homes. All the boxelder bugs seen inside during winter and spring entered buildings the previous fall.\"; \"They normally do not cause property damage but they can potentially stain surfaces.\"; https://extension.umn.edu/nuisance-insects/boxelder-bugs"
+  "University of Minnesota Extension, Boxelder bugs: \"Adult boxelder bugs can fly several blocks, and may travel as far as two miles.\"; \"Some boxelder bugs end up in sheltered areas in walls, attics and other places inside where they stay until it warms up.\"; \"during mild, sunny days indoors, boxelder bugs become mobile with warmer temperatures... Once there, they move towards windows and other sunny areas.\"; \"They try to move outdoors but many remain trapped inside. They do not reproduce in homes. All the boxelder bugs seen inside during winter and spring entered buildings the previous fall.\"; \"Adults feed on plants and seeds on the ground during spring and early summer.\"; \"They normally do not cause property damage but they can potentially stain surfaces.\"; https://extension.umn.edu/nuisance-insects/boxelder-bugs"
  ],
  "photo_credits": [],
  "voice": "en-US-AndrewMultilingualNeural",
@@ -45,7 +45,7 @@
   "because"
  ],
  "cut_whoosh": true,
- "title": "Boxelder Bugs Can Fly 2 Miles to Your House Walls 🪲 (Things Living In Your House)",
+ "title": "Boxelder Bugs Can Fly Up to 2 Miles to Your House Walls 🪲 (Things Living In Your House)",
  "tiktok_caption": "boxelder bugs in house 🪲 some fly up to 2 miles to winter in your walls, then wake on mild sunny days and crawl toward your windows. They don't breed indoors. Seen one this week? #boxelderbugs #bugsinhouse #winterpests #meatballmyths",
  "beats": [
   {
@@ -54,13 +54,13 @@
    "gag": {
     "mark": "shock"
    },
-   "say": "Some bugs fly 2 miles to your walls.",
+   "say": "Your wall bugs fly up to 2 miles.",
    "card": {
     "rows": [
      [
-      "2 MILES",
+      "UP TO 2 MILES",
       "#ffd34d",
-      150
+      110
      ],
      [
       "TO YOUR WALLS",
@@ -111,7 +111,7 @@
   {
    "pad": 0.4,
    "scene": "kitchen",
-   "m": "xray",
+   "m": "fact",
    "say": "They don't breed in your house.",
    "card": {
     "rows": [
@@ -122,6 +122,33 @@
      ],
      [
       "BORN INDOORS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "pad": 0.4,
+   "scene": "garden",
+   "scene_p": {
+    "time": "day"
+   },
+   "m": "fact",
+   "gag": false,
+   "say": "They feed outside, on plants and seeds.",
+   "card": {
+    "rows": [
+     [
+      "PLANTS + SEEDS",
+      "#ffd34d",
+      100
+     ],
+     [
+      "THEIR OUTDOOR FOOD",
       "#ffffff",
       56,
       true

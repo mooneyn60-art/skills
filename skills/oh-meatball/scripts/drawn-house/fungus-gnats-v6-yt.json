@@ -1,7 +1,7 @@
 {
  "series": "Things Living In Your House",
  "sources": [
-  "Colorado State University Extension (PlantTalk), Fungus Gnats: \"Adult females lay 75 to 200 eggs, which hatch in a week, in cracks in the potting mix surface. The larvae, called maggots, feed on soil fungi, organic matter in the potting mix and on plant roots.\"; \"Allowing soils to dry somewhat between waterings will reduce fungus gnat problems, as larvae are very susceptible to drying out.\"; \"Larvae can be captured before maturation by placing a half-inch thick slice of potato on the soil surface.\"; https://planttalk.colostate.edu/?p=1421",
+  "Colorado State University Extension (PlantTalk), Fungus Gnats: \"Adult females lay 75 to 200 eggs, which hatch in a week, in cracks in the potting mix surface. The larvae, called maggots, feed on soil fungi, organic matter in the potting mix and on plant roots.\"; \"Allowing soils to dry somewhat between waterings will reduce fungus gnat problems, as larvae are very susceptible to drying out.\"; \"Yellow sticky traps suspended above houseplants may capture several adults\"; \"Larvae can be captured before maturation by placing a half-inch thick slice of potato on the soil surface.\"; https://planttalk.colostate.edu/?p=1421",
   "University of Wisconsin Extension (Horticulture), Fungus Gnats on Houseplants: \"Fungus gnat females lay up to 200 eggs (in clusters) in cracks and crevices on the surface of the moist soil of potted plants. The eggs typically hatch within three to six days.\"; https://hort.extension.wisc.edu/articles/fungus-gnats-on-houseplants"
  ],
  "photo_credits": [],
@@ -88,16 +88,16 @@
    "pad": 0.4,
    "scene": "microscope",
    "m": "chase",
-   "say": "They hatch in a week, as hungry maggots.",
+   "say": "They hatch within a week, as hungry maggots.",
    "card": {
     "rows": [
      [
-      "1 WEEK",
+      "WITHIN 1 WEEK",
       "#ff4b3e",
-      120
+      100
      ],
      [
-      "TO HATCH",
+      "THEY HATCH",
       "#ffffff",
       56,
       true
@@ -127,6 +127,7 @@
    "pad": 0.4,
    "scene": "study",
    "m": "scale",
+   "gag": false,
    "say": "Let the soil dry. Larvae hate drying out.",
    "card": {
     "rows": [
@@ -150,6 +151,7 @@
    "pad": 0.4,
    "scene": "bedroom",
    "m": "calm",
+   "gag": false,
    "say": "Put a potato slice down. Maggots crawl on.",
    "card": {
     "rows": [
@@ -160,6 +162,33 @@
      ],
      [
       "A MAGGOT TRAP",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "pad": 0.4,
+   "scene": "bathroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "m": "fact",
+   "gag": false,
+   "say": "Yellow sticky traps can catch the adults.",
+   "card": {
+    "rows": [
+     [
+      "STICKY TRAPS",
+      "#ffd34d",
+      100
+     ],
+     [
+      "CATCH THE ADULTS",
       "#ffffff",
       56,
       true

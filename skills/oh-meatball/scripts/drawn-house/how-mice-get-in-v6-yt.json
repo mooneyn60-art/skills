@@ -1,7 +1,7 @@
 {
  "series": "Things Living In Your House",
  "sources": [
-  "UC IPM Pest Notes: House Mouse (Pub. 7483): \"Mice can enter through openings as small as 1/4 inch. Seal all small structural cracks and openings using wire screen or coarse steel wool that mice can't chew through.\"; \"Keep mice out of buildings by eliminating all gaps and openings larger than 1/4 inch... Seal cracks in building foundations and around openings for water pipes, vents, and utility cables with metal or concrete. Doors, windows, and screens should fit tightly. It may be necessary to cover the edges of doors and windows with metal to prevent gnawing.\"; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7483.html"
+  "UC IPM Pest Notes: House Mouse (Pub. 7483): \"Mice can enter through openings as small as 1/4 inch. Seal all small structural cracks and openings using wire screen or coarse steel wool that mice can't chew through.\"; \"Keep mice out of buildings by eliminating all gaps and openings larger than 1/4 inch... In a single year, a female may have 5 to 10 litters of about 5 or 6 pups each\" (when resources are plentiful and stable); \"Seal cracks in building foundations and around openings for water pipes, vents, and utility cables with metal or concrete. Doors, windows, and screens should fit tightly. It may be necessary to cover the edges of doors and windows with metal to prevent gnawing.\"; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7483.html"
  ],
  "photo_credits": [],
  "voice": "en-US-AndrewMultilingualNeural",
@@ -93,7 +93,7 @@
   {
    "scene": "bedroom",
    "pad": 0.6,
-   "m": "xray",
+   "m": "fact",
    "say": "They can gnaw the edges of your doors.",
    "card": {
     "rows": [
@@ -101,6 +101,33 @@
       "GNAWED DOORS",
       "#ff4b3e",
       100
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "pad": 0.5,
+   "scene": "sill",
+   "scene_p": {
+    "time": "night"
+   },
+   "m": "escalate",
+   "gag": false,
+   "say": "A female may have 5 to 10 litters yearly.",
+   "card": {
+    "rows": [
+     [
+      "5-10 LITTERS",
+      "#ff4b3e",
+      110
+     ],
+     [
+      "A YEAR, ONE FEMALE",
+      "#ffffff",
+      56,
+      true
      ]
     ],
     "y": 470,
