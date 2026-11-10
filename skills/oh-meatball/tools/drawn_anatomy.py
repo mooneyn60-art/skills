@@ -237,10 +237,23 @@ def camel_cricket(ctx, t, p):
     ctx.restore()
 
 
+def _roach_head(ctx, t, p, dk, dx=0, dy=0, wave=25, rate=4):
+    shape(ctx, lambda c: p_ellipse(c, 205 + dx, -75 + dy, 30, 28), dk, OUT, None)
+    eyes(ctx, 212 + dx, -84 + dy, 9, 0.1, p.get("look", (0.5, 0.0)), p.get("mood", "calm"), 0.0)
+    sw = math.sin(t * rate) * wave
+    for off in (0, 25):
+        stroke(ctx, [(228 + dx, -90 + dy), (360 + dx, -180 - off + dy), (520 + dx, -170 - off + sw + dy),
+                     (640 + dx, -120 - off + sw + dy)], 3.5, smooth=True)
+
+
 def cockroach(ctx, t, p):
     """American cockroach: flat glossy oval, reddish-brown wings over the body, a pale-rimmed shield behind the
-    head, spiny legs, long whip antennae. Gloss highlight is the signature."""
+    head, spiny legs, long whip antennae. Gloss highlight is the signature.
+    Opt-in params (the "no head" story, 11/10; absent = the drawing is unchanged): headless >= 0.5 leaves the head off
+    (a plain dark cap where the neck was, nothing else); head_at (dx, dy) then draws the head on its own, that far from
+    its usual place, antennae waving wide; holes 0..1 shows the row of breathing holes (spiracles) along its side."""
     col, dk = hexc("#7a3b1c"), hexc("#55260f")
+    headless = p.get("headless", 0.0) >= 0.5
     _insect_legs(ctx, t, p, col, -70, hind=1.0, near=False, w=9, spiky=True)
     shape(ctx, lambda c: p_smooth(c, [(170, -95), (60, -140), (-120, -138), (-250, -105), (-260, -70), (-120, -55),
                                       (60, -55), (170, -65)]), col, OUT, (0.0, 0.3), hi=(0.3, 0.2, 0.35))
@@ -248,12 +261,18 @@ def cockroach(ctx, t, p):
     flat(ctx, lambda c: p_ellipse(c, -40, -122, 120, 10, -0.08), lighter(col, 0.55), a=0.8)   # gloss
     shape(ctx, lambda c: p_ellipse(c, 150, -95, 55, 40), hexc("#c99a62"), OUT, (0.0, 0.2))   # pronotum shield
     flat(ctx, lambda c: p_ellipse(c, 150, -95, 30, 20), dk)
-    shape(ctx, lambda c: p_ellipse(c, 205, -75, 30, 28), dk, OUT, None)
-    eyes(ctx, 212, -84, 9, 0.1, p.get("look", (0.5, 0.0)), p.get("mood", "calm"), 0.0)
-    sw = math.sin(t * 4) * 25
-    for off in (0, 25):
-        stroke(ctx, [(228, -90), (360, -180 - off), (520, -170 - off + sw), (640, -120 - off + sw)], 3.5, smooth=True)
+    if headless:
+        shape(ctx, lambda c: p_ellipse(c, 203, -90, 9, 20), dk, OUT * 0.8, None)   # the neck, closed over
+    else:
+        _roach_head(ctx, t, p, dk)
     _insect_legs(ctx, t, p, col, -70, hind=1.0, near=True, w=10, spiky=True)
+    holes = p.get("holes", 0.0)
+    if holes > 0.01:   # spiracles: a row of small openings along the side, each breathing in turn
+        for k in range(8):
+            r = (6.5 + 2.5 * math.sin(t * 5 - k * 0.8)) * min(1.0, holes)
+            shape(ctx, lambda c, k=k, r=r: p_ellipse(c, 105 - k * 44, -96 + 1.5 * k, r, r), hexc("#8fd8ff"), OUT * 0.5, None)
+    if headless and p.get("head_at"):
+        _roach_head(ctx, t, p, dk, p["head_at"][0], p["head_at"][1], wave=70, rate=7)
 
 
 def house_centipede(ctx, t, p):

@@ -303,8 +303,8 @@ def kk_silk(ctx, t, p):
             d = length * (1 - 0.14 * k) * u
             wob = 18 * u * math.sin(t * 2.6 + k * 1.9 + j * 0.55)
             pts.append((d * math.sin(a) + wob * math.cos(a), -d * math.cos(a) + wob * math.sin(a)))
-        stroke(ctx, pts, 7.0, True, (0.30, 0.40, 0.50), 0.45)   # a soft dark edge so the white reads on a pale sky
-        stroke(ctx, pts, 3.4, True, (1, 1, 1), 0.96)
+        stroke(ctx, pts, 8.0, True, (0.30, 0.40, 0.50), 0.45)   # a soft dark edge so the white reads on a pale sky
+        stroke(ctx, pts, 4.2, True, (1, 1, 1), 0.96)
 
 
 drawn.ACTORS.update(kk_board=kk_board, kk_hud=kk_hud, kk_end=kk_end, kk_count=kk_count, kk_silk=kk_silk)

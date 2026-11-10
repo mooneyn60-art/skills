@@ -895,8 +895,9 @@
      },
      "gag": false,
      "acting": false,
+     "mb_x": 250,
      "hero_at": {
-      "x": 850,
+      "x": 740,
       "y": 1500,
       "rot": 0
      },
@@ -905,7 +906,7 @@
        "at": "4%",
        "dur": 1.3,
        "pos": [
-        850,
+        740,
         900
        ],
        "walk": true
@@ -955,7 +956,7 @@
      "gag": false,
      "acting": false,
      "hero_at": {
-      "x": 850,
+      "x": 740,
       "y": 900,
       "rot": 40
      },
@@ -964,7 +965,7 @@
        "at": "wind|55%",
        "dur": 1.3,
        "pos": [
-        1220,
+        1150,
         650
        ]
       }
@@ -1075,7 +1076,7 @@
      "acting": false,
      "hero_at": {
       "x": 820,
-      "y": 560,
+      "y": 610,
       "rot": 40
      },
      "hero_moves": [
@@ -1084,7 +1085,7 @@
        "dur": 2.2,
        "pos": [
         1080,
-        470
+        530
        ],
        "linear": true
       }
@@ -1101,12 +1102,12 @@
       {
        "cam": [
         600,
-        900,
+        938,
         0.82
        ],
        "to": [
         620,
-        870,
+        930,
         0.82
        ]
       }
@@ -1127,8 +1128,8 @@
      "gag": false,
      "acting": false,
      "hero_at": {
-      "x": 1150,
-      "y": 640,
+      "x": 900,
+      "y": 620,
       "rot": 40
      },
      "hero_moves": [
@@ -1136,7 +1137,7 @@
        "at": "land|30%",
        "dur": 0.9,
        "pos": [
-        820,
+        690,
         1500
        ],
        "rot": 0
@@ -1204,8 +1205,8 @@
       "at": "electric|22%"
      },
      "hero_at": {
-      "x": 820,
-      "y": 1500,
+      "x": 720,
+      "y": 1400,
       "rot": 40
      },
      "hero_moves": [
@@ -1213,8 +1214,8 @@
        "at": "lifted|45%",
        "dur": 0.8,
        "pos": [
-        820,
-        1250
+        720,
+        1170
        ]
       }
      ],
@@ -1269,34 +1270,35 @@
      },
      "acting": false,
      "hero_at": {
-      "x": 1300,
-      "y": 640,
-      "rot": 40
+      "x": 1350,
+      "y": 700,
+      "rot": -40
      },
      "hero_moves": [
       {
        "at": 0.0,
-       "dur": 2.0,
+       "dur": 2.2,
        "pos": [
-        1150,
-        600
+        1180,
+        660
        ],
-       "linear": true
+       "linear": true,
+       "face": -1
       },
       {
        "at": "one|72%",
        "dur": 0.6,
        "pos": [
-        480,
-        720
+        610,
+        975
        ]
       }
      ],
      "silk": {
-      "dx": -71,
+      "dx": 71,
       "dy": -182,
       "grow": 1.0,
-      "lean": -45,
+      "lean": -25,
       "len": 460,
       "set": []
      },
@@ -1670,7 +1672,11 @@
      },
      "pad": 1.3,
      "gag": false,
-     "loop_off": true
+     "loop_off": true,
+     "hero": {
+      "headless": 0.0,
+      "holes": 0.0
+     }
     },
     {
      "m": "fact",
@@ -1682,11 +1688,19 @@
       "off": "62%"
      },
      "gag": false,
-     "pad": 0.12
+     "pad": 0.12,
+     "hero": {
+      "headless": 1.0,
+      "holes": 0.0
+     }
     },
     {
      "m": "fact",
-     "say": "It doesn't breathe through its head."
+     "say": "It doesn't breathe through its head.",
+     "hero": {
+      "headless": 1.0,
+      "holes": 0.0
+     }
     },
     {
      "m": "xray",
@@ -1712,7 +1726,14 @@
       "y": 120,
       "at": "40%"
      },
-     "gag": false
+     "gag": false,
+     "hero": {
+      "headless": 1.0,
+      "holes": 0.0
+     },
+     "act": {
+      "holes": 1.0
+     }
     },
     {
      "m": "escalate",
@@ -1720,6 +1741,10 @@
      "scene": "microscope",
      "scene_p": {
       "time": "night"
+     },
+     "hero": {
+      "headless": 1.0,
+      "holes": 0.0
      }
     },
     {
@@ -1728,19 +1753,77 @@
      "scene": "kitchen",
      "scene_p": {
       "time": "night"
-     }
+     },
+     "hero": {
+      "headless": 1.0,
+      "holes": 0.0
+     },
+     "hero_moves": [
+      {
+       "at": "stands|42%",
+       "dur": 0.35,
+       "pos": [
+        820,
+        1500
+       ],
+       "hop": 80
+      },
+      {
+       "at": "moves|74%",
+       "dur": 0.8,
+       "pos": [
+        710,
+        1500
+       ],
+       "walk": true,
+       "linear": true
+      }
+     ]
     },
     {
      "m": "fact",
-     "say": "It can go weeks on its last meal."
+     "say": "It can go weeks on its last meal.",
+     "hero": {
+      "headless": 1.0,
+      "holes": 0.0
+     }
     },
     {
      "m": "chase",
-     "say": "And the head? It keeps waving its antennae. For hours."
+     "say": "And the head? It keeps waving its antennae. For hours.",
+     "hero": {
+      "headless": 1.0,
+      "holes": 0.0,
+      "head_at": [
+       150,
+       45
+      ],
+      "mood": "happy"
+     },
+     "hero_at": {
+      "x": 1000,
+      "y": 1500
+     },
+     "acting": false,
+     "gag": false
     },
     {
      "m": "calm",
      "say": "So what finally gets it? No mouth. Thirst, or infection.",
+     "hero": {
+      "headless": 1.0,
+      "holes": 0.0,
+      "head_at": [
+       150,
+       45
+      ],
+      "mood": "happy"
+     },
+     "hero_at": {
+      "x": 1000,
+      "y": 1500
+     },
+     "acting": false,
      "card": {
       "rows": [
        [
@@ -1764,7 +1847,21 @@
     {
      "m": "fact",
      "say": "My roommate just left the room.",
-     "gag": false
+     "gag": false,
+     "hero": {
+      "headless": 1.0,
+      "holes": 0.0,
+      "head_at": [
+       150,
+       45
+      ],
+      "mood": "happy"
+     },
+     "hero_at": {
+      "x": 1000,
+      "y": 1500
+     },
+     "acting": false
     }
    ]
   },

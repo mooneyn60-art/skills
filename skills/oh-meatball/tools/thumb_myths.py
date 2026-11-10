@@ -38,9 +38,9 @@ def thumb_a(out):   # spider dropping onto a pillow + "8 A YEAR?"
     save(im, out, "thumb_a")
 
 
-def thumb_b(out):   # the headless roach + "NO HEAD?"
+def thumb_b(out):   # the roach drawn with no head (drawn_anatomy.cockroach "headless": a plain cap, no gore) + "NO HEAD?"
     im = backdrop((40, 14, 10), (120, 40, 24), glow=(170, 90, 40), gx=0.5, gy=0.65)
-    im.alpha_composite(creature("cockroach", (1150, 520), rot=-6, p={"mood": "smug"}), (60, 200))
+    im.alpha_composite(creature("cockroach", (1150, 520), rot=-6, p={"mood": "smug", "headless": 1.0}), (60, 200))
     words(im, "NO HEAD?", (W // 2, 22), 160, (255, 214, 10, 255), "ma", 14)
     save(im, out, "thumb_b")
 
