@@ -20,7 +20,7 @@ Nolan (10/29): "set the channel up to the point all he has to do is make and pos
 - 63.6 of 4,000 watch hours
 - stayed-to-watch 39.5%
 - 2.5% of viewers return
-- **TikTok Creator Rewards: account DISQUALIFIED, reason "Security issue"** (Nolan's screenshot, 11/10; the notice lists fake engagement, manipulation of the reward or recommendation system, harassment, false statements). This is why TikTok has paid nothing. TikTok's support page says a disqualification can be appealed within 30 days of the notice: TikTok Studio -> Creator Rewards Program -> Appeal, or from the inbox notice; review takes about 3 days. Next: Nolan answers whether the account ever used bought followers/views or a growth tool, then the appeal is written truthfully. Do not change how we post while it is pending, and never use follow-for-follow, giveaways for follows, or any engagement tool.
+- **TikTok Creator Rewards is closed for this account** (notice seen 11/10). No appeal (Nolan 11/10). Treat this TikTok account as reach only: keep the queue running at low effort, spend no build time on TikTok-only cuts, and never use follow-for-follow or any engagement tool. TikTok pay would need a fresh account built from zero; that is Nolan's call.
 - TikTok numbers: TikTok Studio, 28 days to 11/10: 76 posts, 33,653 views, 9,323 followers (net -57), For You 80% / Search 18%, like rate 2.23%, comment and share 0.06% each. Creator Rewards needs 10,000 followers and 100K views in 30 days to join, and then pays only on 1-minute videos that reach 1,000 qualified views; the account is under both bars, so the TikTok goal is +677 followers first. (The older note "already monetized" was never confirmed.)
 
 ## STYLE LOCK (Nolan, 11/1): no more style changes
