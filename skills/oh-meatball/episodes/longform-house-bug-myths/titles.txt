@@ -1,16 +1,18 @@
-House bug stories long-form ("swallow 8 spiders"), v4. Target: Wed 11/25 17:00 ET. NOT scheduled.
-Render: 4:14 (254.1 s), 1920x1080. Script: scripts/longform-house-bug-myths.json (folder name kept; nothing viewer-facing says "myths").
+House bug stories long-form ("swallow 8 spiders"), v5 (v4's words; pictures matched to them). Target: Wed 11/25 17:00 ET. NOT scheduled.
+Video: swallow-8-spiders.mp4, 4:16 (256.2 s), 1920x1080. Script: scripts/longform-house-bug-myths.json (folder name kept; nothing viewer-facing says "myths").
 
-Test & Compare titles (no banned words: Myth, Believe, TRUE or FALSE, Lied, Cartoons, "Did you know"):
+A/B test titles (Studio's "A/B test titles & thumbnails", was Test & Compare; no banned words: Myth, Believe, TRUE or FALSE, Lied, Cartoons, "Did you know"):
 1. Do You Really Swallow 8 Spiders a Year in Your Sleep?   <- PRIMARY (53 characters)
-2. Do Spiders Crawl Into Your Mouth While You Sleep? 8 Bug Stories Checked   (71 characters: over the 45-65 target, coordinator's wording)
+2. Do Spiders Crawl Into Your Mouth While You Sleep? 8 Bug Stories Checked   (71 characters: over the 45-65 target, coordinator's wording;
+   drop the last word, "...While You Sleep? 8 Bug Stories", and it is 63)
 3. The Roach in Your Kitchen Can Live for Weeks Without Its Head   (61 characters: the wildest real story, in the channel's "in your kitchen + creepy fact" formula)
 Dropped: "You Don't Swallow Spiders in Your Sleep. Here's What's Really in Your Bed" (the video doesn't cover what's in your bed).
 
 Thumbnails (1280x720, 168 px previews alongside), made by tools/thumb_myths.py:
 A. thumb_a.jpg  spider on a pillow, "8 A YEAR?"        <- primary, matches title 1
-B. thumb_b.jpg  cockroach, "NO HEAD?"                  matches title 3
+B. thumb_b.jpg  the roach drawn with no head, "NO HEAD?"   matches title 3 (redone 11/10: it used to have its head)
 C. thumb_c.jpg  spider crawling over the pillow, "IN YOUR MOUTH?"   matches title 2 (replaces "TOTAL LIE?")
+These are the dark Kill-or-Keep style, not the white-background shoe recipe MASTER_ORDERS now gives the "Don't squish it" series.
 
 Pinned comment:
 Which of these 8 did you grow up hearing: spiders in your sleep, earwigs in your ears, or roaches surviving a nuke? 👇
@@ -22,16 +24,16 @@ Chapters (claims, not questions; from the render's timing plan):
 0:00 You swallow 8 spiders a year in your sleep
 0:28 Daddy longlegs have the deadliest venom on Earth
 1:02 Earwigs crawl into your ears while you sleep
-1:30 Cockroaches would survive a nuclear bomb
-2:05 Spiders can fly
-2:35 A fly tastes your food with its feet
-2:58 Fruit flies went to space before any human
-3:27 A cockroach can live for weeks without its head
-(the ending starts at 3:53)
+1:32 Cockroaches would survive a nuclear bomb
+2:07 Spiders can fly
+2:37 A fly tastes your food with its feet
+3:00 Fruit flies went to space before any human
+3:29 A cockroach can live for weeks without its head
+(the ending starts at 3:55)
 
 Format (coordinator 11/10, research 72 + 73): NO quiz framing.
 - Frame 0: the spider is already crawling over the pillow. Line 1 states the claim ("Eight spiders a year. That's how many you
-  supposedly swallow in your sleep."). The reveal lands by ~0:11 ("no solid evidence" at 0:08, "Somebody made it up" + MYTH stamp at 0:11).
+  supposedly swallow in your sleep."). The reveal lands by ~0:11 ("no solid evidence" at 0:08, "Somebody made it up" at 0:11, MYTH stamp at 0:12).
 - Story 1 runs 28 s. Count + order + the long open loop at ~0:14 ("one of eight bug stories; the last one has no head"),
   kept on screen as a chip ("LAST ONE: NO HEAD") until story 8.
 - No "Myth or true?", no "Lock it in", no spoken countdowns. The MYTH / TRUE board stamp is the reveal.
@@ -40,11 +42,21 @@ Format (coordinator 11/10, research 72 + 73): NO quiz framing.
   "Four stories down. The next four sound fake, and they're real.", then 4 real (spiders fly, flies taste with their feet,
   fruit flies in space, the headless roach). A second loop opens at the midpoint (the girl with a spider in her mouth) and pays off in story 5.
 - Every story ends on the next story's stake ("named after a body part. Yours.", "just landed on your sandwich").
-- Character beats every 30-40 s: Meatball's helmet (on 0:06, off 0:28, back on when spiders fly, kept at the end) and five roommate lines.
+- Character beats every 30-40 s: Meatball's helmet (on 0:06, off 0:28, back on at 2:32 when spiders fly, kept at the end) and six roommate lines.
 - Ending: callback ("Eight spiders a year, in your sleep? Still zero."), recap board, then "Watch this next. Kill It or Keep It."
   The end screen names it; add the end-screen video element (Kill-or-Keep Part 1) in Studio over the drawn slot.
 - Item changes: the clothes-moth story is out (it is Kill-or-Keep Part 2's cold open on 11/12) and the centipede "100 legs" story is out;
   in: roaches and the nuclear bomb, and flies tasting with their feet. That gives the 4 + 4 the midpoint line promises.
+
+Pictures match the words (v5 pass, after the per-line sheet review):
+- "Daddy longlegs is three different animals" now shows three: the harvestman (with the "no venom glands" x-ray), a crane fly, then the cellar spider.
+- "Spiders can fly" shows it: a baby spider climbs the fence, tips its rear end up, lets out silk, lifts off, rides the wind
+  across the sky, shrinks to a dot "ten thousand feet up", lands on Darwin's ship, rises in the lab's electric field, and
+  blows straight at Meatball's face (cue the helmet).
+- The headless roach is drawn headless from the moment the board says TRUE: a plain dark cap where the neck was, no gore.
+  The breathing holes light up along its side; on "And the head?" the head sits on the floor waving its antennae.
+- The fruit fly and the ant are on screen when story 4 names them; the fruit fly is on screen for "its tiny cousin".
+- Gags that sat half off the top of the frame are gone or swapped (the bug zapper line now zaps).
 
 Fact fixes applied (research 73, Script 1):
 - M1 "And that eight a year number? Somebody made it up." (Snopes added to sources.)
@@ -63,10 +75,25 @@ Fact fixes applied (research 73, Script 1):
   (Northern Illinois University 2025: tarsi tell sucrose from water and trigger the mouthparts; UC IPM: saliva, regurgitation, bug zappers).
 
 QA:
-(QA notes pending)
+- lf_gates: PASS. 1920x1080, 4:16.2 (256.2 s), no beep, first voice at 0.010 s, longest camera framing 2.35 s,
+  longest pixel hold 1.50 s (the end screen). Loudness -15.3 LUFS integrated, true peak -1.3 dBFS. 55 MB.
+- Looked at: first60-every2s.jpg, every20s.jpg (both in this folder), plus one frame from each of the 87 lines checked
+  against the words being said, and a scan of every frame edge for the scene's canvas showing (clean; an earlier render
+  showed the basement's left edge at 0:47, fixed with a held camera).
+- Not a problem, but know it: the roommate is only ever spoken about (there is no drawn roommate); the helmet is the visual gag.
+- The "no head" story shows the roach without its head and, for one line, the head on the floor waving its antennae.
+  It is a flat cartoon with a plain cap at the neck: no blood, nothing wet. Say so if you would rather it stayed whole.
+- 4:16 is short next to the 8-12 minute target MASTER_ORDERS now sets for long-forms. It is 8 stories at about 30 s each.
+- The two story sets added in v4 (roaches and the bomb; flies tasting with their feet) were checked by me against the
+  sources listed, not by the separate fact-check pass (research 73 read the v2 script, which did not have them).
+- Nolan, in Studio: add the end-screen video element (Kill-or-Keep Part 1) over the drawn slot, and the three titles and
+  three thumbnails in A/B test.
 
 Rebuild: python3 tools/drawn_keepkill.py build scripts/longform-house-bug-myths.json SPEC.json
          python3 tools/drawn_keepkill.py render SPEC.json OUT.mp4 --work DIR
 Gates:   python3 tools/lf_gates.py OUT.mp4 --work DIR --spec SPEC.json --sheets DIR
-Tool changes (tools/drawn_keepkill.py, all opt-in; Kill-or-Keep v2, Part 2 and Ranked build byte-identical specs):
-  outline keys fit, end_label, end_ask, loop_chip; line keys helmet, pause, kk_shots, loop_on, loop_off.
+Tool changes (all opt-in; Kill-or-Keep v2, Part 2, Ranked and Night Shift build byte-identical specs):
+  tools/drawn_keepkill.py  outline keys fit, end_label, end_ask, loop_chip; line keys helmet, pause, kk_shots, loop_on, loop_off,
+                           silk (ballooning threads that ride on the hero; actor kk_silk).
+  tools/drawn_anatomy.py   cockroach params headless, head_at, holes. Without them the drawing is pixel-identical to before
+                           (checked against the old module at several times and poses, with every other anatomy actor).
