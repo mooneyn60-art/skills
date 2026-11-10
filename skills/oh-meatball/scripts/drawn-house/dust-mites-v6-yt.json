@@ -1,0 +1,300 @@
+{
+ "series": "Things Living In Your House",
+ "sources": [
+  "University of Kentucky Entomology, House Dust Mites (ENTFACT-646): \"When temperature and humidity are optimum, development from egg to adult takes about one month. Adults live approximately 1-2 months, and the females lay about 50 eggs.\" / \"the mites tend to be most numerous in beds, overstuffed sofas and chairs, and adjacent carpeted areas.\" / \"House dust mites have a difficult time surviving when the relative humidity is below 50 percent.\" / \"Dust mites cannot survive well at relative humidities below 50 percent.\"; https://entomology.mgcafe.uky.edu/ef646"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+0%",
+ "pitch": "+3Hz",
+ "music": "sleep",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "stage": {
+  "creature": "dust_mite",
+  "scene": "bedroom",
+  "scene_p": {
+   "time": "night"
+  }
+ },
+ "cap_key": [
+  "50",
+  "eggs",
+  "month",
+  "1",
+  "2",
+  "sofas",
+  "carpet",
+  "50",
+  "humidity"
+ ],
+ "cut_whoosh": true,
+ "_note": "Written by hand in the v6 shape (Shorts batch B); beats are drawn_macros lines.",
+ "title": "Female Dust Mites in Your Bed Lay About 50 Eggs 😬 (Things Living In Your House)",
+ "description": "Dust mites in your bed: a female lays about 50 eggs, under ideal conditions they grow from egg to adult in about a month, adults live 1-2 months, and humidity below 50 percent makes survival difficult, per University of Kentucky Entomology. #shorts #dustmites #bedroom #bugsinyourhouse #meatballmyths\nSources: University of Kentucky Entomology (House Dust Mites, ENTFACT-646).",
+ "pinned_comment": "What's one thing in your bedroom routine you'd change if you knew how many dust mites could be in your bed?",
+ "tiktok_caption": "dust mites in your bed 😬 a female lays about 50 eggs, they can be adults in a month, and dry air makes life hard for them. What's your bedtime habit? #dustmites #bedroom #bugsinyourhouse #meatballmyths",
+ "beats": [
+  {
+   "m": "hook",
+   "open": "animal",
+   "gag": {
+    "mark": "shock"
+   },
+   "say": "Your bed's female mites lay about 50 eggs.",
+   "card": {
+    "rows": [
+     [
+      "50 EGGS",
+      "#ffd34d",
+      150
+     ],
+     [
+      "FROM ONE FEMALE",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "m": "xray",
+   "scene": "microscope",
+   "say": "In ideal conditions, they're adults in a month.",
+   "card": {
+    "rows": [
+     [
+      "1 MONTH",
+      "#ffd34d",
+      150
+     ],
+     [
+      "EGG TO ADULT",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   }
+  },
+  {
+   "m": "tiny",
+   "scene": "fibers",
+   "scene_p": {
+    "flakes": 14
+   },
+   "say": "Adults live about one to two months.",
+   "card": {
+    "rows": [
+     [
+      "1-2 MONTHS",
+      "#ffd34d",
+      120
+     ],
+     [
+      "AS ADULTS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "m": "fact",
+   "scene": "study",
+   "say": "They're most numerous in beds, sofas, and carpet.",
+   "card": {
+    "rows": [
+     [
+      "BEDS + SOFAS",
+      "#ffd34d",
+      110
+     ],
+     [
+      "+ CARPET",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   }
+  },
+  {
+   "m": "calm",
+   "scene": "basement",
+   "say": "Keep humidity under 50 percent, and they struggle.",
+   "card": {
+    "rows": [
+     [
+      "UNDER 50%",
+      "#ff4b3e",
+      130
+     ],
+     [
+      "HUMIDITY",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "say": "Dry air matters, because",
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "shots": [
+    {
+     "cam": [
+      600,
+      1050,
+      1.18
+     ],
+     "to": [
+      560,
+      1070,
+      1.1
+     ],
+     "at": 0.0
+    },
+    {
+     "at": "52%",
+     "cam": [
+      560,
+      1070,
+      1.1
+     ],
+     "to": [
+      820,
+      1380,
+      2.0
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "hero",
+     "type": "sp.dust_mite",
+     "pos": [
+      820,
+      1500
+     ],
+     "s": 0.95,
+     "flip": false,
+     "front": false,
+     "p": {
+      "look": [
+       -1,
+       0
+      ],
+      "chew": 0.0,
+      "pellets": 0,
+      "xray": 0.0,
+      "bite": 0.0,
+      "wave": 0.0,
+      "wrapped": 0.0,
+      "talk": 0.0,
+      "mood": null,
+      "fly": 0.0
+     }
+    },
+    {
+     "id": "L2255-gag0",
+     "type": "g.mark",
+     "s": 1.0,
+     "front": true,
+     "attach": "hero",
+     "pos": [
+      0,
+      -325.0
+     ],
+     "p": {
+      "on": 0.0,
+      "kind": "alarm"
+     },
+     "set": [
+      {
+       "at": "20%",
+       "dur": 0.3,
+       "p": {
+        "on": 1.0
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "deadpan",
+    "pos": [
+     330,
+     1500
+    ],
+    "size": 980,
+    "look": "viewer",
+    "prop": null,
+    "helmet": false,
+    "float": false,
+    "gest": [
+     [
+      "60%",
+      "laugh",
+      1.4
+     ]
+    ],
+    "moves": [
+     {
+      "at": "50%",
+      "dur": 0.45,
+      "pos": [
+       -320,
+       1500
+      ],
+      "hop": 200
+     }
+    ]
+   },
+   "sfx": [
+    "tink@20%",
+    "pop@60%"
+   ],
+   "pad": 0.08,
+   "acting": {
+    "side": false,
+    "subject": [
+     "dust",
+     "mite"
+    ],
+    "extras": []
+   },
+   "card": {
+    "rows": [
+     [
+      "BEDTIME HABIT? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "loop": true
+}
