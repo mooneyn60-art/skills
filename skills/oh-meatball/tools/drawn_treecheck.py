@@ -295,6 +295,65 @@ def tc_stamps(ctx, t, p):
             kk.blit(ctx, kk.text_img(cnt, 80, "#ffffff", 8), xs[i], p.get("y", 560) + 120)
 
 
+# ------------------------------------------------------------------ Meatball's hand props for this episode
+# drawn.draw_prop draws mb["prop"] at Meatball's right hand; these extra kinds draw tools/drawn_tc_art.py props there.
+# name -> (actor or prop kind, scale in rig units, rotation, dx, dy, params)
+MB_PROPS = {
+    "shears": ("prop:shears", 0.9, -0.5, 60, -10, {}),
+    "slipper": ("prop:slipper", 0.85, -0.35, 20, -60, {}),
+    "aerosol": ("prop:aerosol", 0.7, 0.25, 0, 120, {}),
+    "aerosol_down": ("prop:aerosol", 0.7, 1.2, 0, 60, {}),
+    "tongs": ("prop:tongs", 0.9, -0.2, 0, 0, {}),
+    "tongs_nest": ("prop:tongs", 0.9, -0.2, 0, 0, {"nest": True}),
+    "scraper": ("prop:scraper", 0.8, 0.5, 0, 0, {}),
+    "phone": ("prop:phone", 0.55, 0.12, -30, 200, {}),
+    "tweezers": ("tweezers", 1.0, -0.3, 0, 0, {}),
+    "twig": ("prop:shrubtwig", 0.9, -0.2, 120, -20, {}),
+    "torch": ("prop:flashlight", 0.8, 0.1, 140, 0, {}),
+    "hose": ("prop:hosewand", 1.0, -0.6, 0, 0, {}),
+    "smalltree": ("smalltree", 0.55, 0.0, 0, 0, {}),
+    "carrytree": ("carrytree", 0.55, 0.0, 0, 0, {}),
+}
+_orig_draw_prop = drawn.draw_prop
+
+
+def _draw_prop(ctx, prop, hx, hy, k, t):
+    if prop not in MB_PROPS:
+        return _orig_draw_prop(ctx, prop, hx, hy, k, t)
+    kind, sc, rot, dx, dy, pp = MB_PROPS[prop]
+    ctx.save()
+    ctx.translate(hx + dx * k, hy + dy * k)
+    if kind == "smalltree":   # held by the trunk, upside down-ish, shaking
+        ctx.rotate(2.6 + 0.12 * math.sin(t * 38))
+        ctx.scale(k * sc, k * sc)
+        tca.tc_xtree(ctx, t, {"deco": 0.0, "lit": 0.0, "stand": False, "gifts": False})
+    elif kind == "carrytree":   # a cut tree carried under the arm, tip forward
+        ctx.rotate(-0.12)
+        ctx.scale(k * sc, k * sc)
+        ctx.translate(-260, 0)
+        tca._tree_side(ctx, 900)
+    elif kind == "tweezers":
+        ctx.rotate(rot)
+        ctx.scale(k * sc, k * sc)
+        import drawn_ds_art
+        drawn_ds_art._tweezers(ctx, t, {})
+    else:
+        name = kind.split(":")[1]
+        ctx.rotate(rot)
+        ctx.scale(k * sc, k * sc)
+        q = dict(pp, kind=name)
+        if name == "shears":
+            q["snip"] = 0.5 + 0.5 * math.sin(t * 6)
+        tca.tc_prop(ctx, t, q)
+        if pp.get("nest"):
+            ctx.translate(420, 80)
+            ctx.scale(0.8, 0.8)
+            tca.tc_nest(ctx, t, {})
+    ctx.restore()
+
+
+drawn.draw_prop = _draw_prop
+
 OVERLAYS = {"tc_panic": tc_panic, "tc_list": tc_list, "tc_stamps": tc_stamps}
 drawn.ACTORS.update(OVERLAYS)
 drawn.ACTORS.update(tca.ACTORS)
