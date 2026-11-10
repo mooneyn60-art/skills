@@ -175,6 +175,7 @@ Plus watch hours (12-month) and TikTok rewards. One change per week, picked from
 4. Optional: Higgsfield credits if AI shots are wanted for actions no real footage shows.
 
 ## Agent routing (Nolan 11/10: "pick the cook by the order")
+- **Usage limit (11/10):** five agents in one afternoon (two opus builds, an opus fact-check, sonnet builders) used up Nolan's 5-hour plan limit and stopped a build mid-way. Run one opus build at a time, give sonnet the fix passes and research, and do reviews in the main session. A stopped agent keeps its work: resume it with a message after the limit resets, don't start over.
 Match each background agent to its job: cheap models for chores, the strongest for hard or high-stakes work. Forks always run on the main model, so use fresh agents (general-purpose, with a full brief) wherever a cheaper model fits.
 
 | Job | Model | Examples |
