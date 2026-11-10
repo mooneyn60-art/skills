@@ -1,0 +1,17 @@
+Don't squish it, episode 1: the cellar spider (spider in your corner)
+Slot: Wed 11/18 17:00 ET (per channel-brain MASTER_ORDERS). Not scheduled or posted by the build.
+
+Test & Compare titles (load all 3, in this order, as they stand in the outline after the fact-check):
+1. Don't Kill the Spider in Your Corner. It Eats Bigger Spiders   <- PRIMARY
+2. Never Kill the Spider in Your Corner. It's Hunting Bigger Spiders
+3. The Skinny Spider in Your Corner Is Hunting Something Bigger
+
+Pinned comment:
+Shoe or spare? 👇 And if you have one in your corner, what's its name?
+
+End screen: WATCH NEXT slot -> Kill-or-Keep Part 2 (posts Thu 11/12); subscribe slot. The video's last 12 s are the end screen
+(two empty slots drawn by kk_end).
+
+Rebuild: python3 tools/drawn_dontsquish.py build scripts/longform-dont-squish-cellar-spider.outline.json scripts/longform-dont-squish-cellar-spider.json
+         python3 tools/drawn_dontsquish.py render scripts/longform-dont-squish-cellar-spider.json OUT.mp4 --work DIR
+Gates:   python3 tools/lf_gates.py OUT.mp4 --work DIR --spec DIR/drawn_spec.json --sheets DIR --end-hold 12 --lufs -14 --max-mb 95
