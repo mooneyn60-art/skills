@@ -846,6 +846,12 @@ def expand(spec, lines):
         b.setdefault("pad", 0.1)
         if L["id"] in spec.get("pause_lines", []):
             b["pad"] = max(b["pad"], 0.55)
+        if b.get("norecut") and len(b["shots"]) == 1:   # no auto re-cut here (text must stay in frame): two gentle
+            s0 = b["shots"][0]                            # eased reframes instead, so no framing holds past ~3 s
+            c1 = list(s0.get("to", s0["cam"]))
+            b["shots"] = [dict(s0, to=c1),
+                          {"at": "33%", "cam": c1, "to": [c1[0] + 18, c1[1] + 6, round(c1[2] * 1.035, 4)], "dur": 0.6},
+                          {"at": "66%", "cam": [c1[0] + 18, c1[1] + 6, round(c1[2] * 1.035, 4)], "to": [c1[0] - 6, c1[1], round(c1[2] * 1.06, 4)], "dur": 0.6}]
         b["kk_shots"] = b.pop("shots")
         b["ds_id"] = L["id"]
         beats.append(b)
