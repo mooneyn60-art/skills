@@ -1,0 +1,369 @@
+{
+ "series": "Things Living In Your House",
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+0%",
+ "pitch": "+3Hz",
+ "music": "detective",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "stage": {
+  "creature": "cellar_spider",
+  "scene": "basement",
+  "scene_p": {},
+  "creature_cfg": {
+   "floor": false,
+   "label": "cellar spider"
+  },
+  "s": 0.68,
+  "actor": "cellar_spider"
+ },
+ "cut_whoosh": true,
+ "loop": true,
+ "sources": [
+  "British Arachnological Society, Daddy-long-legs spider factsheet 3: \"using their very long legs to throw silk over the victim while keeping out of range.\" / \"recorded eating the much sturdier and considerably heavier large house spiders\"; https://britishspiders.org.uk/sites/default/files/2020-08/Daddy_long-legs_spider_preview_rev18.pdf",
+  "Japyassu & Macagnan 2004, Revista de Etologia 6(2): \"the spider throws dry silk onto it, with alternate or simultaneous movements of legs IV\"; https://www.etologiabrasil.org.br/media/upload/publicacoes_revista/vol_6_2_079.pdf"
+ ],
+ "cap_key": [
+  "corner",
+  "heavier",
+  "range",
+  "silk",
+  "back",
+  "wrapped",
+  "bites",
+  "giant",
+  "heavier"
+ ],
+ "beats": [
+  {
+   "m": "hook",
+   "open": "animal",
+   "gag": {
+    "mark": "shock"
+   },
+   "say": "Your corner's skinny spider ties up heavier spiders.",
+   "card": {
+    "rows": [
+     [
+      "TIES UP",
+      "#ffd34d",
+      130
+     ],
+     [
+      "HEAVIER SPIDERS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "m": "fact",
+   "scene": "kitchen",
+   "say": "It stays out of range and flicks silk.",
+   "acting": false,
+   "mb_x": 150,
+   "with": [
+    {
+     "type": "creature",
+     "x": 560,
+     "y": 1500,
+     "s": 0.6,
+     "pop": false,
+     "front": false,
+     "flip": false,
+     "p": {
+      "cfg": {
+       "plan": "arachnid",
+       "label": "giant house spider",
+       "color": "#7a5636",
+       "dark": "#4e3420",
+       "accent": "#c9a274",
+       "eyes": "pair",
+       "pattern": "stripe",
+       "bands": true,
+       "fuzz": true,
+       "leg_len": 1.45,
+       "leg_w": 16,
+       "mood": "angry",
+       "s": 0.7
+      },
+      "mood": "angry",
+      "wrapped": 0.0
+     }
+    },
+    {
+     "type": "silk_throw",
+     "x": 790,
+     "y": 1090,
+     "s": 1.0,
+     "pop": false,
+     "front": true,
+     "p": {
+      "to": [
+       -230,
+       400
+      ],
+      "u": 0.0
+     },
+     "set": [
+      {
+       "at": "25%",
+       "dur": 0.5,
+       "p": {
+        "u": 1.0
+       }
+      }
+     ]
+    }
+   ],
+   "card": {
+    "rows": [
+     [
+      "OUT OF RANGE",
+      "#ffd34d",
+      110
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "m": "fact",
+   "scene": "study",
+   "say": "Back legs flick silk while the others hold.",
+   "acting": false,
+   "mb_x": 150,
+   "with": [
+    {
+     "type": "creature",
+     "x": 560,
+     "y": 1500,
+     "s": 0.6,
+     "pop": false,
+     "front": false,
+     "flip": false,
+     "p": {
+      "cfg": {
+       "plan": "arachnid",
+       "label": "giant house spider",
+       "color": "#7a5636",
+       "dark": "#4e3420",
+       "accent": "#c9a274",
+       "eyes": "pair",
+       "pattern": "stripe",
+       "bands": true,
+       "fuzz": true,
+       "leg_len": 1.45,
+       "leg_w": 16,
+       "mood": "angry",
+       "s": 0.7
+      },
+      "mood": "angry",
+      "wrapped": 0.2
+     },
+     "set": [
+      {
+       "at": "20%",
+       "dur": 1.5,
+       "p": {
+        "wrapped": 0.8
+       }
+      }
+     ]
+    },
+    {
+     "type": "silk_throw",
+     "x": 790,
+     "y": 1090,
+     "s": 1.0,
+     "pop": false,
+     "front": true,
+     "p": {
+      "to": [
+       -230,
+       400
+      ],
+      "u": 0.0
+     },
+     "set": [
+      {
+       "at": "10%",
+       "dur": 0.5,
+       "p": {
+        "u": 1.0
+       }
+      }
+     ]
+    }
+   ],
+   "card": {
+    "rows": [
+     [
+      "BACK LEGS FLICK",
+      "#ffd34d",
+      100
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "m": "fact",
+   "scene": "bedroom",
+   "say": "Once it's wrapped, it moves in and bites.",
+   "acting": false,
+   "mb_x": 150,
+   "with": [
+    {
+     "type": "creature",
+     "x": 560,
+     "y": 1500,
+     "s": 0.6,
+     "pop": false,
+     "front": false,
+     "flip": false,
+     "p": {
+      "cfg": {
+       "plan": "arachnid",
+       "label": "giant house spider",
+       "color": "#7a5636",
+       "dark": "#4e3420",
+       "accent": "#c9a274",
+       "eyes": "pair",
+       "pattern": "stripe",
+       "bands": true,
+       "fuzz": true,
+       "leg_len": 1.45,
+       "leg_w": 16,
+       "mood": "angry",
+       "s": 0.7
+      },
+      "mood": "angry",
+      "wrapped": 1.0
+     }
+    }
+   ],
+   "hero_moves": [
+    {
+     "at": "20%",
+     "dur": 0.9,
+     "pos": [
+      640,
+      1210
+     ]
+    }
+   ],
+   "act": {
+    "fangs": 1.0
+   },
+   "card": {
+    "rows": [
+     [
+      "WRAPPED = BITE",
+      "#ff4b3e",
+      100
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   }
+  },
+  {
+   "m": "tiny",
+   "scene": "bathroom",
+   "say": "It's been recorded eating giant house spiders.",
+   "acting": false,
+   "with": [
+    {
+     "type": "creature",
+     "x": 600,
+     "y": 1500,
+     "s": 0.9,
+     "pop": false,
+     "front": false,
+     "flip": false,
+     "p": {
+      "cfg": {
+       "plan": "arachnid",
+       "label": "giant house spider",
+       "color": "#7a5636",
+       "dark": "#4e3420",
+       "accent": "#c9a274",
+       "eyes": "pair",
+       "pattern": "stripe",
+       "bands": true,
+       "fuzz": true,
+       "leg_len": 1.45,
+       "leg_w": 16,
+       "mood": "angry",
+       "s": 0.7
+      },
+      "mood": "angry",
+      "wrapped": 0.0
+     }
+    }
+   ],
+   "card": {
+    "rows": [
+     [
+      "RECORDED EATING",
+      "#ffd34d",
+      90
+     ],
+     [
+      "GIANT HOUSE SPIDERS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "m": "scale",
+   "how": "grow",
+   "scene": "basement",
+   "say": "Those are much heavier than it is.",
+   "acting": false,
+   "card": {
+    "rows": [
+     [
+      "MUCH HEAVIER",
+      "#ff4b3e",
+      120
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "m": "punch",
+   "say": "So don't underestimate the skinny one. Because",
+   "card": {
+    "rows": [
+     [
+      "CORNER SPIDER STORY? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "title": "8 Skinny Legs in Your Corner Tie Up Heavier Spiders 🕷️ (Things Living In Your House)"
+}

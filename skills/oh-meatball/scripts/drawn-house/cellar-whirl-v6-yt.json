@@ -1,0 +1,277 @@
+{
+ "series": "Things Living In Your House",
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+0%",
+ "pitch": "+3Hz",
+ "music": "detective",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "stage": {
+  "creature": "cellar_spider",
+  "scene": "basement",
+  "scene_p": {},
+  "creature_cfg": {
+   "floor": false,
+   "label": "cellar spider"
+  },
+  "s": 0.68,
+  "actor": "cellar_spider"
+ },
+ "cut_whoosh": true,
+ "loop": true,
+ "sources": [
+  "British Arachnological Society, Daddy-long-legs spider factsheet 3: \"they vibrate so rapidly in their web that they become a blur.\" / \"This behaviour is likely to help protect the spider by confusing its predators.\"; https://britishspiders.org.uk/sites/default/files/2020-08/Daddy_long-legs_spider_preview_rev18.pdf",
+  "Heuts et al. 2001, Behavioural Processes 55:27-34 (abstract via Europe PMC): long whirling was shown \"to salticid spiders and hardly ever to predatory spiders from eight other families\"; the blur \"may have the anti-predatory function of disturbing continual visual fixation of prey in attacking salticids\"; https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22Long-duration%20whirling%22&resultType=core&format=json&pageSize=2"
+ ],
+ "cap_key": [
+  "touch",
+  "blur",
+  "circles",
+  "jumping",
+  "long",
+  "eight",
+  "hardly",
+  "lock",
+  "predators",
+  "shield"
+ ],
+ "beats": [
+  {
+   "m": "hook",
+   "open": "animal",
+   "act": {
+    "shiver": 1.0
+   },
+   "gag": {
+    "mark": "shock"
+   },
+   "say": "Touch your corner spider's web. It whirls.",
+   "card": {
+    "rows": [
+     [
+      "IT WHIRLS",
+      "#ffd34d",
+      130
+     ],
+     [
+      "WHEN YOU TOUCH THE WEB",
+      "#ffffff",
+      48,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "m": "fact",
+   "scene": "study",
+   "say": "It whirls in circles until it's a blur.",
+   "acting": false,
+   "mb_x": 150,
+   "with": [
+    {
+     "type": "web",
+     "x": 820,
+     "y": 940,
+     "s": 1.0,
+     "pop": false
+    }
+   ],
+   "act": {
+    "shiver": 1.0
+   },
+   "card": {
+    "rows": [
+     [
+      "A BLUR",
+      "#ff4b3e",
+      140
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   }
+  },
+  {
+   "m": "fact",
+   "scene": "kitchen",
+   "say": "Lab study: jumping spiders set off long whirls.",
+   "acting": false,
+   "mb_x": 150,
+   "with": [
+    {
+     "type": "jumping_spider",
+     "x": 540,
+     "y": 1500,
+     "s": 0.55,
+     "pop": false,
+     "p": {
+      "mood": "angry"
+     }
+    }
+   ],
+   "act": {
+    "shiver": 1.0
+   },
+   "card": {
+    "rows": [
+     [
+      "JUMPING SPIDERS",
+      "#ffd34d",
+      90
+     ],
+     [
+      "SET OFF LONG WHIRLS",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   }
+  },
+  {
+   "m": "fact",
+   "scene": "bathroom",
+   "say": "Hunters from eight other families hardly ever did.",
+   "acting": false,
+   "mb_x": 150,
+   "with": [
+    {
+     "type": "wolf_spider",
+     "x": 470,
+     "y": 1500,
+     "s": 0.4,
+     "pop": false,
+     "p": {}
+    },
+    {
+     "type": "widow",
+     "x": 640,
+     "y": 1500,
+     "s": 0.4,
+     "pop": false,
+     "p": {}
+    },
+    {
+     "type": "house_spider",
+     "x": 780,
+     "y": 1500,
+     "s": 0.3,
+     "pop": false,
+     "p": {}
+    }
+   ],
+   "act": {
+    "shiver": 0.1
+   },
+   "card": {
+    "rows": [
+     [
+      "8 OTHER FAMILIES",
+      "#ffd34d",
+      90
+     ],
+     [
+      "HARDLY EVER",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   }
+  },
+  {
+   "m": "fact",
+   "scene": "bedroom",
+   "say": "A jumping spider may struggle to lock on.",
+   "acting": false,
+   "mb_x": 150,
+   "with": [
+    {
+     "type": "jumping_spider",
+     "x": 540,
+     "y": 1500,
+     "s": 0.55,
+     "pop": false,
+     "p": {
+      "mood": "angry",
+      "look": [
+       1,
+       0
+      ]
+     }
+    }
+   ],
+   "act": {
+    "shiver": 1.0
+   },
+   "gag": {
+    "mark": "dizzy"
+   },
+   "card": {
+    "rows": [
+     [
+      "HARD TO LOCK ONTO",
+      "#ff4b3e",
+      90
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   }
+  },
+  {
+   "m": "fact",
+   "scene": "sill",
+   "say": "Britain's spider experts say it likely confuses predators.",
+   "acting": false,
+   "mb_x": 150,
+   "act": {
+    "shiver": 1.0
+   },
+   "card": {
+    "rows": [
+     [
+      "CONFUSES PREDATORS",
+      "#ffd34d",
+      80
+     ],
+     [
+      "LIKELY, SAY EXPERTS",
+      "#ffffff",
+      48,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   }
+  },
+  {
+   "m": "punch",
+   "say": "That blur is its likely shield. So",
+   "card": {
+    "rows": [
+     [
+      "CORNER SPIDER STORY? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "title": "Touch the Spider's Web in Your Corner and It Whirls Into a Blur 🕷️ (Things Living In Your House)"
+}

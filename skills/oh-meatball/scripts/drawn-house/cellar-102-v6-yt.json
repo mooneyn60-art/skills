@@ -1,0 +1,400 @@
+{
+ "series": "Things Living In Your House",
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+0%",
+ "pitch": "+3Hz",
+ "music": "detective",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "stage": {
+  "creature": "cellar_spider",
+  "scene": "basement",
+  "scene_p": {},
+  "creature_cfg": {
+   "floor": false,
+   "label": "cellar spider"
+  },
+  "s": 0.68,
+  "actor": "cellar_spider"
+ },
+ "cut_whoosh": true,
+ "loop": true,
+ "sources": [
+  "British Arachnological Society, Daddy-long-legs spider factsheet 3 (Hampshire garden shed, one summer): \"of the remains of 102 prey items removed from the webs, 63 were of the Common House spider (Tegenaria domestica)\" / \"six were other Daddy-longlegs spiders, and the rest were unidentifiable spider remains.\" (full wording per research/78); https://britishspiders.org.uk/sites/default/files/2020-08/Daddy_long-legs_spider_preview_rev18.pdf"
+ ],
+ "cap_key": [
+  "102",
+  "shed",
+  "english",
+  "63",
+  "six",
+  "6",
+  "rest",
+  "every",
+  "spider",
+  "leftovers"
+ ],
+ "beats": [
+  {
+   "m": "hook",
+   "open": "animal",
+   "gag": {
+    "mark": "shock"
+   },
+   "say": "Your corner spider's leftovers? One shed had 102.",
+   "card": {
+    "rows": [
+     [
+      "102",
+      "#ffd34d",
+      160
+     ],
+     [
+      "LEFTOVERS IN ONE SHED",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "m": "fact",
+   "scene": "garden",
+   "say": "Someone emptied their webs in an English shed.",
+   "acting": false,
+   "mb_x": 150,
+   "with": [
+    {
+     "type": "web",
+     "x": 820,
+     "y": 940,
+     "s": 1.0,
+     "pop": false
+    }
+   ],
+   "card": {
+    "rows": [
+     [
+      "ONE ENGLISH SHED",
+      "#ffd34d",
+      100
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   }
+  },
+  {
+   "m": "fact",
+   "scene": "study",
+   "say": "Over one summer, they found 102 prey remains.",
+   "acting": false,
+   "mb_x": 150,
+   "with": [
+    {
+     "type": "house_spider",
+     "x": 430,
+     "y": 1500,
+     "s": 0.22,
+     "pop": false,
+     "p": {
+      "mood": "worry",
+      "dead": 1.0
+     }
+    },
+    {
+     "type": "house_spider",
+     "x": 520,
+     "y": 1500,
+     "s": 0.22,
+     "pop": false,
+     "p": {
+      "mood": "worry",
+      "dead": 1.0
+     }
+    },
+    {
+     "type": "house_spider",
+     "x": 610,
+     "y": 1500,
+     "s": 0.22,
+     "pop": false,
+     "p": {
+      "mood": "worry",
+      "dead": 1.0
+     }
+    },
+    {
+     "type": "house_spider",
+     "x": 700,
+     "y": 1500,
+     "s": 0.22,
+     "pop": false,
+     "p": {
+      "mood": "worry",
+      "dead": 1.0
+     }
+    },
+    {
+     "type": "house_spider",
+     "x": 790,
+     "y": 1500,
+     "s": 0.22,
+     "pop": false,
+     "p": {
+      "mood": "worry",
+      "dead": 1.0
+     }
+    },
+    {
+     "type": "house_spider",
+     "x": 470,
+     "y": 1440,
+     "s": 0.22,
+     "pop": false,
+     "p": {
+      "mood": "worry"
+     }
+    },
+    {
+     "type": "house_spider",
+     "x": 560,
+     "y": 1440,
+     "s": 0.22,
+     "pop": false,
+     "p": {
+      "mood": "worry"
+     }
+    },
+    {
+     "type": "house_spider",
+     "x": 650,
+     "y": 1440,
+     "s": 0.22,
+     "pop": false,
+     "p": {
+      "mood": "worry"
+     }
+    },
+    {
+     "type": "house_spider",
+     "x": 740,
+     "y": 1440,
+     "s": 0.22,
+     "pop": false,
+     "p": {
+      "mood": "worry"
+     }
+    }
+   ],
+   "card": {
+    "rows": [
+     [
+      "102 PREY REMAINS",
+      "#ff4b3e",
+      100
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   }
+  },
+  {
+   "m": "fact",
+   "scene": "kitchen",
+   "say": "63 were common house spiders.",
+   "acting": false,
+   "mb_x": 150,
+   "with": [
+    {
+     "type": "house_spider",
+     "x": 600,
+     "y": 1500,
+     "s": 0.62,
+     "pop": false,
+     "p": {
+      "mood": "shock"
+     }
+    }
+   ],
+   "card": {
+    "rows": [
+     [
+      "63",
+      "#ffd34d",
+      170
+     ],
+     [
+      "COMMON HOUSE SPIDERS",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "m": "fact",
+   "scene": "bathroom",
+   "say": "Six were other cellar spiders.",
+   "acting": false,
+   "mb_x": 150,
+   "with": [
+    {
+     "type": "cellar_spider",
+     "x": 520,
+     "y": 1050,
+     "s": 0.4,
+     "pop": false,
+     "p": {
+      "mood": "worry"
+     }
+    },
+    {
+     "type": "cellar_spider",
+     "x": 680,
+     "y": 1000,
+     "s": 0.4,
+     "pop": false,
+     "p": {
+      "mood": "worry"
+     }
+    }
+   ],
+   "card": {
+    "rows": [
+     [
+      "6",
+      "#ffd34d",
+      170
+     ],
+     [
+      "OTHER CELLAR SPIDERS",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "m": "fact",
+   "scene": "cave",
+   "say": "The rest: spider bits, too broken to name.",
+   "acting": false,
+   "mb_x": 150,
+   "with": [
+    {
+     "type": "house_spider",
+     "x": 430,
+     "y": 1500,
+     "s": 0.18,
+     "pop": false,
+     "p": {
+      "mood": "worry",
+      "dead": 1.0
+     }
+    },
+    {
+     "type": "house_spider",
+     "x": 510,
+     "y": 1500,
+     "s": 0.18,
+     "pop": false,
+     "p": {
+      "mood": "worry",
+      "dead": 1.0
+     }
+    },
+    {
+     "type": "house_spider",
+     "x": 590,
+     "y": 1500,
+     "s": 0.18,
+     "pop": false,
+     "p": {
+      "mood": "worry",
+      "dead": 1.0
+     }
+    },
+    {
+     "type": "house_spider",
+     "x": 670,
+     "y": 1500,
+     "s": 0.18,
+     "pop": false,
+     "p": {
+      "mood": "worry",
+      "dead": 1.0
+     }
+    },
+    {
+     "type": "house_spider",
+     "x": 750,
+     "y": 1500,
+     "s": 0.18,
+     "pop": false,
+     "p": {
+      "mood": "worry",
+      "dead": 1.0
+     }
+    },
+    {
+     "type": "house_spider",
+     "x": 830,
+     "y": 1500,
+     "s": 0.18,
+     "pop": false,
+     "p": {
+      "mood": "worry",
+      "dead": 1.0
+     }
+    }
+   ],
+   "card": {
+    "rows": [
+     [
+      "BROKEN BITS",
+      "#ffd34d",
+      110
+     ],
+     [
+      "TOO BROKEN TO NAME",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   }
+  },
+  {
+   "m": "punch",
+   "say": "Every single leftover was a spider. And",
+   "card": {
+    "rows": [
+     [
+      "SHED STORY? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "title": "102 Leftovers in One Shed's Cellar Spider Webs Were All Spiders 🕷️ (Things Living In Your House)"
+}
