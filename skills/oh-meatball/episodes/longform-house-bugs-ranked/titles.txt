@@ -1,0 +1,31 @@
+TITLES (Test & Compare all three)
+A) Every Bug in Your House, Ranked From Harmless to Nightmare   <- primary
+B) I Ranked Every Bug in Your House (#1 Is Probably in Your Basement)
+C) 12 House Bugs Ranked by How Bad They Really Are
+
+THUMBNAILS
+thumb_a.jpg (primary): 5-tier board, brown recluse bursting out of NIGHTMARE, "#1 IS WORST"
+thumb_b.jpg: brown recluse close-up, "NUMBER ONE?"
+thumb_c.jpg: house centipede close-up, "HARMLESS?!" (the twist)
+
+PINNED COMMENT
+Which bug would you move to a different tier? Tell me where 👇
+
+TAGS
+house bugs, bugs in your house, house bug tier list, bugs ranked, house centipede, bed bugs, brown recluse, black widow, cockroach, carpet beetle, silverfish, meatball myths
+
+STRUCTURE / ENGAGEMENT
+- Cold open on the brown recluse ("Number one on this list is probably in your basement right now"), then the board with NIGHTMARE locked as "?" and "#1". Voice from 0.01 s, no intro, comment ask only at the end.
+- Counts up from harmless to nightmare: 12 creatures, 5 tiers (HARMLESS / ANNOYING / DAMAGING / RISKY / NIGHTMARE).
+- Every creature gets a "LOCK IT IN" 3-2-1 prediction beat (kk_count overlay, timed to the spoken words) before its board drop.
+- Three called-out twists: house centipede -> HARMLESS, bed bugs -> ANNOYING (CDC: not known to spread disease), carpet beetle -> DAMAGING.
+- "This next one surprised even me" at the midpoint (silverfish, 3:14 of 6:23).
+- Open loop into each next creature on every verdict line; roommate joke beats in most segments.
+- End: full board recap + "where would you move one?" + WATCH NEXT end screen (Kill-or-Keep Part 1).
+- Chapter names hide the tiers on purpose, so the description doesn't spoil the guesses.
+
+REBUILD
+python3 tools/drawn_keepkill.py build scripts/longform-house-bugs-ranked.json SPEC.json
+python3 tools/drawn_keepkill.py render SPEC.json OUT.mp4 --work DIR
+python3 tools/lf_gates.py OUT.mp4 --work DIR --spec SPEC.json --sheets DIR
+python3 tools/thumb_ranked.py episodes/longform-house-bugs-ranked
