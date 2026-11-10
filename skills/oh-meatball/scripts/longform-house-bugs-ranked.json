@@ -1,0 +1,1628 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -15,
+ "captions": 62,
+ "caption_y": 985,
+ "cut_whoosh": true,
+ "title": "Every Bug in Your House, Ranked From Harmless to Nightmare",
+ "cap_key": [
+  "harmless",
+  "nightmare",
+  "annoying",
+  "damaging",
+  "risky",
+  "twist",
+  "one",
+  "two",
+  "three",
+  "forty",
+  "hundred",
+  "thousand",
+  "week",
+  "year",
+  "dinosaurs",
+  "blood",
+  "space",
+  "lock"
+ ],
+ "stage": {
+  "creature": "brown_recluse",
+  "actor": "brown_recluse",
+  "s": 0.8,
+  "scene": "basement",
+  "scene_p": {
+   "time": "night"
+  }
+ },
+ "cast_k": 1.5,
+ "piles": [
+  [
+   "HARMLESS",
+   "#3fb950"
+  ],
+  [
+   "ANNOYING",
+   "#a7c957"
+  ],
+  [
+   "DAMAGING",
+   "#ff9f1c"
+  ],
+  [
+   "RISKY",
+   "#f4511e"
+  ],
+  [
+   "NIGHTMARE",
+   "#e5383b"
+  ]
+ ],
+ "title_text": "HARMLESS TO NIGHTMARE",
+ "stamps": {
+  "HARMLESS": "HARMLESS",
+  "ANNOYING": "ANNOYING",
+  "DAMAGING": "DAMAGING",
+  "RISKY": "RISKY",
+  "NIGHTMARE": "NIGHTMARE"
+ },
+ "segments": [
+  {
+   "chapter": "Every bug in your house, ranked",
+   "lines": [
+    {
+     "m": "hook",
+     "say": "Number one on this list is probably in your basement right now.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     },
+     "cast": {
+      "creature": "brown_recluse",
+      "actor": "brown_recluse",
+      "s": 0.8
+     },
+     "open": "animal",
+     "card": {
+      "rows": [
+       [
+        "#1 ???",
+        "#ff4b3e",
+        130
+       ]
+      ],
+      "y": 120,
+      "at": "55%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Every bug in your house, ranked. Harmless, all the way to nightmare.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     },
+     "cast": {
+      "creature": "house_centipede",
+      "actor": "house_centipede",
+      "s": 0.8
+     },
+     "board": {
+      "heads": true,
+      "at": 0.0,
+      "off": "100%",
+      "locked": [
+       "NIGHTMARE"
+      ]
+     },
+     "gag": false
+    },
+    {
+     "m": "escalate",
+     "say": "And three of them land where you'd never guess.",
+     "scene": "bathroom",
+     "scene_p": {
+      "time": "night"
+     },
+     "cast": {
+      "creature": "house_centipede",
+      "actor": "house_centipede",
+      "s": 0.8
+     }
+    },
+    {
+     "m": "chase",
+     "say": "Guess along with me. We start at the bottom.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     },
+     "cast": {
+      "creature": "camel_cricket",
+      "s": 0.75,
+      "creature_cfg": {
+       "plan": "insect",
+       "label": "camel cricket",
+       "body": "round",
+       "color": "#a8784a",
+       "dark": "#6e4a2a",
+       "length": 460,
+       "height": 260,
+       "leg_len": 220,
+       "ant": 420,
+       "stripes": 5,
+       "mood": "worry",
+       "s": 0.75
+      }
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "Harmless: camel cricket",
+   "tier": "HARMLESS",
+   "danger": 0,
+   "cast": {
+    "creature": "camel_cricket",
+    "s": 0.75,
+    "creature_cfg": {
+     "plan": "insect",
+     "label": "camel cricket",
+     "body": "round",
+     "color": "#a8784a",
+     "dark": "#6e4a2a",
+     "length": 460,
+     "height": 260,
+     "leg_len": 220,
+     "ant": 420,
+     "stripes": 5,
+     "mood": "worry",
+     "s": 0.75
+    }
+   },
+   "icon": {
+    "type": "sp.camel_cricket"
+   },
+   "scene": "basement",
+   "scene_p": {
+    "time": "night"
+   },
+   "lines": [
+    {
+     "m": "name",
+     "say": "You flip on the basement light. Something jumps at your face.",
+     "card": {
+      "rows": [
+       [
+        "CAMEL CRICKET",
+        "#ffd34d",
+        104
+       ],
+       [
+        "THE BASEMENT JUMPER",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "30%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "The camel cricket. Humped back, giant legs, crazy long antennae.",
+     "scene": "cave",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "No wings. Can't chirp. Jumps anyway, just to scare you.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "In one study, nine in ten houses with them had an Asian species.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     },
+     "card": {
+      "rows": [
+       [
+        "9 IN 10",
+        "#ffd34d",
+        130
+       ],
+       [
+        "HOUSES: AN ASIAN SPECIES",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 120,
+      "at": "45%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "It eats dead bits and rotting plants. Your basement's cleanup crew.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "calm",
+     "say": "Where does it go? Lock it in. Three. Two. One.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     },
+     "lockin": {
+      "label": "LOCK IT IN"
+     },
+     "gag": false
+    },
+    {
+     "m": "fact",
+     "say": "Harmless. Totally harmless to you. Next: a spider with eight eyes on you.",
+     "board": {
+      "add": true,
+      "drop_at": "10%",
+      "stamp_at": "26%",
+      "off": "62%"
+     },
+     "gag": false,
+     "pad": 0.12,
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "Harmless: jumping spider",
+   "tier": "HARMLESS",
+   "danger": 1,
+   "cast": {
+    "creature": "jumping_spider",
+    "actor": "jumping_spider",
+    "s": 0.75
+   },
+   "icon": {
+    "type": "jumping_spider"
+   },
+   "scene": "sill",
+   "scene_p": {
+    "time": "day"
+   },
+   "lines": [
+    {
+     "m": "name",
+     "say": "The fuzzy spider on your windowsill is watching you. Right now.",
+     "card": {
+      "rows": [
+       [
+        "JUMPING SPIDER",
+        "#ffd34d",
+        104
+       ],
+       [
+        "8 EYES ON YOU",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "30%"
+     }
+    },
+    {
+     "m": "chase",
+     "say": "No web. It stalks, then pounces. Up to forty times its body length.",
+     "scene": "garden",
+     "scene_p": {
+      "time": "day"
+     },
+     "card": {
+      "rows": [
+       [
+        "40X",
+        "#ffd34d",
+        140
+       ],
+       [
+        "ITS BODY LENGTH",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 120,
+      "at": "55%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "At night it hangs from a silk thread. Scientists caught its eyes twitching.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "A sleep-like state. It might be dreaming about you. Probably not.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "calm",
+     "say": "Its bite is usually not serious. It would rather eat your flies.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "calm",
+     "say": "Your guess? Lock it in. Three. Two. One.",
+     "scene": "sill",
+     "scene_p": {
+      "time": "day"
+     },
+     "lockin": {
+      "label": "LOCK IT IN"
+     },
+     "gag": false
+    },
+    {
+     "m": "fact",
+     "say": "Harmless. And the next one? It looks like pure nightmare fuel.",
+     "board": {
+      "add": true,
+      "drop_at": "10%",
+      "stamp_at": "26%",
+      "off": "62%"
+     },
+     "gag": false,
+     "pad": 0.12,
+     "scene": "sill",
+     "scene_p": {
+      "time": "day"
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "Twist #1: house centipede",
+   "tier": "HARMLESS",
+   "danger": 1,
+   "cast": {
+    "creature": "house_centipede",
+    "actor": "house_centipede",
+    "s": 0.8
+   },
+   "icon": {
+    "type": "house_centipede"
+   },
+   "scene": "bathroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "lines": [
+    {
+     "m": "name",
+     "say": "Up to thirty legs, sprinting across your bathroom floor. The house centipede.",
+     "card": {
+      "rows": [
+       [
+        "HOUSE CENTIPEDE",
+        "#ffd34d",
+        104
+       ],
+       [
+        "30 LEGS",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "30%"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "Everyone screams. Everyone squishes. Here's why that's a mistake.",
+     "scene": "bathroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "count",
+     "say": "It hunts roaches, bed bugs, silverfish and carpet beetle larvae.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "chase",
+     "say": "Grab a leg, and the leg pops right off. It's built to break.",
+     "scene": "bathroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "calm",
+     "say": "Can it sting you? Only if handled roughly. Experts say that's rare.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "calm",
+     "say": "Scariest-looking bug here. Lock it in. Three. Two. One.",
+     "scene": "bathroom",
+     "scene_p": {
+      "time": "night"
+     },
+     "lockin": {
+      "label": "LOCK IT IN"
+     },
+     "gag": false
+    },
+    {
+     "m": "fact",
+     "say": "Twist number one. Harmless. It's free pest control, working nights.",
+     "board": {
+      "add": true,
+      "drop_at": "10%",
+      "stamp_at": "26%",
+      "off": "62%"
+     },
+     "gag": false,
+     "pad": 0.12,
+     "scene": "bathroom",
+     "scene_p": {
+      "time": "night"
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "Annoying: fruit fly",
+   "tier": "ANNOYING",
+   "danger": 1,
+   "cast": {
+    "creature": "fruit_fly",
+    "s": 0.95,
+    "creature_cfg": {
+     "plan": "insect",
+     "label": "fruit fly",
+     "body": "round",
+     "color": "#c99a5a",
+     "dark": "#7a4a24",
+     "head": "#b8742e",
+     "length": 320,
+     "height": 160,
+     "leg_len": 90,
+     "ant": 70,
+     "stripes": 4,
+     "wings": "clear",
+     "eye_r": 34,
+     "floor": false,
+     "mood": "smug",
+     "s": 0.95
+    }
+   },
+   "icon": {
+    "type": "sp.fruit_fly"
+   },
+   "scene": "kitchen",
+   "scene_p": {
+    "time": "day"
+   },
+   "lines": [
+    {
+     "m": "name",
+     "say": "That fly on your banana? It probably rode home on it.",
+     "card": {
+      "rows": [
+       [
+        "FRUIT FLY",
+        "#ffd34d",
+        104
+       ],
+       [
+        "FREE WITH YOUR BANANAS",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "30%"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "One female can lay about five hundred eggs.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "day"
+     },
+     "card": {
+      "rows": [
+       [
+        "500",
+        "#ffd34d",
+        130
+       ],
+       [
+        "EGGS, ONE FEMALE",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 120,
+      "at": "45%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Egg to adult? About a week. Your fruit bowl is a nursery.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Fun fact. Fruit flies were the first animals sent to space, in 1947.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "calm",
+     "say": "Astronaut bugs. Living in your trash. Respect, honestly.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
+     "m": "calm",
+     "say": "Where's it go? Lock it in. Three. Two. One.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "day"
+     },
+     "lockin": {
+      "label": "LOCK IT IN"
+     },
+     "gag": false
+    },
+    {
+     "m": "fact",
+     "say": "Annoying. Toss the old fruit. Next one moves into your walls.",
+     "board": {
+      "add": true,
+      "drop_at": "10%",
+      "stamp_at": "26%",
+      "off": "62%"
+     },
+     "gag": false,
+     "pad": 0.12,
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "day"
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "Annoying: stink bug",
+   "tier": "ANNOYING",
+   "danger": 1,
+   "cast": {
+    "creature": "stink_bug",
+    "s": 0.75,
+    "creature_cfg": {
+     "plan": "insect",
+     "label": "brown marmorated stink bug",
+     "body": "round",
+     "color": "#7a5a3c",
+     "dark": "#4e3a26",
+     "length": 460,
+     "height": 200,
+     "leg_len": 100,
+     "ant": 170,
+     "wings": "shell",
+     "stripes": 4,
+     "mood": "smug",
+     "s": 0.75
+    }
+   },
+   "icon": {
+    "type": "sp.stink_bug"
+   },
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "lines": [
+    {
+     "m": "name",
+     "say": "Every fall, this one moves in for the winter. The stink bug.",
+     "card": {
+      "rows": [
+       [
+        "STINK BUG",
+        "#ffd34d",
+        104
+       ],
+       [
+        "YOUR WINTER ROOMMATE",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "30%"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "One man in Maryland caught over twenty six thousand. In one house.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     },
+     "card": {
+      "rows": [
+       [
+        "26,205",
+        "#ffd34d",
+        130
+       ],
+       [
+        "IN ONE HOUSE",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 120,
+      "at": "45%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Squeeze one, and it sprays a stink. So don't squeeze it.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "calm",
+     "say": "Good news. They don't breed in your house, or damage it.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "calm",
+     "say": "Lock in your answer. Three. Two. One.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "dusk"
+     },
+     "lockin": {
+      "label": "LOCK IT IN"
+     },
+     "gag": false
+    },
+    {
+     "m": "fact",
+     "say": "Annoying. Vacuum it, don't crush it. Next: the one you think is worst.",
+     "board": {
+      "add": true,
+      "drop_at": "10%",
+      "stamp_at": "26%",
+      "off": "62%"
+     },
+     "gag": false,
+     "pad": 0.12,
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "dusk"
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "Twist #2: bed bugs",
+   "tier": "ANNOYING",
+   "danger": 3,
+   "cast": {
+    "creature": "bed_bug",
+    "creature_cfg": {
+     "xray": "gut"
+    },
+    "s": 0.72
+   },
+   "icon": {
+    "type": "sp.bed_bug"
+   },
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "lines": [
+    {
+     "m": "name",
+     "say": "They drink your blood, and hide where you sleep. Bed bugs.",
+     "card": {
+      "rows": [
+       [
+        "BED BUGS",
+        "#ffd34d",
+        104
+       ],
+       [
+        "WHERE YOU SLEEP",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "30%"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "Every baby needs a blood meal before it can grow. Five times.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     },
+     "card": {
+      "rows": [
+       [
+        "5 MEALS",
+        "#ff4b3e",
+        130
+       ],
+       [
+        "OF BLOOD TO GROW UP",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 120,
+      "at": "60%"
+     }
+    },
+    {
+     "m": "chase",
+     "say": "They ride home in your luggage, bags and folded clothes.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "In the cold, they can wait up to a year between meals.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "calm",
+     "say": "Nightmare tier? Lock it in. Three. Two. One.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     },
+     "lockin": {
+      "label": "LOCK IT IN"
+     },
+     "gag": false
+    },
+    {
+     "m": "calm",
+     "say": "Here's the twist. The CDC says they're not known to spread disease.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Twist number two. Annoying. Very, very annoying. But not dangerous.",
+     "board": {
+      "add": true,
+      "drop_at": "10%",
+      "stamp_at": "26%",
+      "off": "62%"
+     },
+     "gag": false,
+     "pad": 0.12,
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "Damaging: silverfish",
+   "tier": "DAMAGING",
+   "danger": 2,
+   "cast": {
+    "creature": "silverfish",
+    "s": 0.8
+   },
+   "icon": {
+    "type": "sp.silverfish"
+   },
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   },
+   "lines": [
+    {
+     "m": "name",
+     "say": "This next one surprised even me. It's older than the dinosaurs.",
+     "card": {
+      "rows": [
+       [
+        "SILVERFISH",
+        "#ffd34d",
+        104
+       ],
+       [
+        "OLDER THAN DINOSAURS",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "30%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Silverfish. No wings, silver scales, three bristles out the back.",
+     "scene": "microscope"
+    },
+    {
+     "m": "escalate",
+     "say": "It eats starch. Glue, paste and paper. Your books are a buffet.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "It scrapes one thin layer at a time, till pages turn to tissue.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "It can take two years to grow up, and sheds its whole life.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "calm",
+     "say": "Your call. Lock it in. Three. Two. One.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     },
+     "lockin": {
+      "label": "LOCK IT IN"
+     },
+     "gag": false
+    },
+    {
+     "m": "fact",
+     "say": "Damaging. Dry the air, box up old paper. Next: the cutest bug here.",
+     "board": {
+      "add": true,
+      "drop_at": "10%",
+      "stamp_at": "26%",
+      "off": "62%"
+     },
+     "gag": false,
+     "pad": 0.12,
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "Twist #3: carpet beetle",
+   "tier": "DAMAGING",
+   "danger": 2,
+   "cast": {
+    "creature": "carpet_beetle",
+    "creature_cfg": {
+     "plan": "insect",
+     "label": "carpet beetle",
+     "body": "round",
+     "color": "#6b4f3a",
+     "dark": "#efe4c8",
+     "head": "#3a2a20",
+     "length": 400,
+     "height": 230,
+     "leg_len": 90,
+     "ant": 120,
+     "stripes": 3,
+     "wings": "shell",
+     "mood": "smug",
+     "s": 0.85
+    },
+    "s": 0.85
+   },
+   "icon": {
+    "type": "sp.carpet_beetle"
+   },
+   "scene": "sill",
+   "scene_p": {
+    "time": "day"
+   },
+   "lines": [
+    {
+     "m": "name",
+     "say": "Tiny, round, polka dots. Looks harmless. The carpet beetle.",
+     "card": {
+      "rows": [
+       [
+        "CARPET BEETLE",
+        "#ffd34d",
+        104
+       ],
+       [
+        "TOO CUTE TO WORRY?",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "30%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "The adults love light, so you find them on your windows.",
+     "scene": "sill",
+     "scene_p": {
+      "time": "day"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "But the babies are in your closet. Eating wool, fur, feathers and silk.",
+     "scene": "fibers"
+    },
+    {
+     "m": "fact",
+     "say": "The giveaway? Little shed skins under furniture and along the carpet.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "xray",
+     "say": "Museums use their cousins to clean skeletons, down to the tiniest bone.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "calm",
+     "say": "Cute or criminal? Lock it in. Three. Two. One.",
+     "scene": "sill",
+     "scene_p": {
+      "time": "day"
+     },
+     "lockin": {
+      "label": "LOCK IT IN"
+     },
+     "gag": false
+    },
+    {
+     "m": "fact",
+     "say": "Twist number three. Damaging. Cuter than the bed bug, worse for your sweater.",
+     "board": {
+      "add": true,
+      "drop_at": "10%",
+      "stamp_at": "26%",
+      "off": "62%"
+     },
+     "gag": false,
+     "pad": 0.12,
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "Risky: cockroach",
+   "tier": "RISKY",
+   "danger": 6,
+   "cast": {
+    "creature": "roach",
+    "actor": "cockroach",
+    "s": 0.9
+   },
+   "icon": {
+    "type": "cockroach"
+   },
+   "scene": "kitchen",
+   "scene_p": {
+    "time": "night"
+   },
+   "lines": [
+    {
+     "m": "name",
+     "say": "Now the ones that can actually make you sick. The cockroach.",
+     "card": {
+      "rows": [
+       [
+        "COCKROACH",
+        "#ffd34d",
+        104
+       ],
+       [
+        "CAN MAKE YOU SICK",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "30%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "One egg case can hatch up to forty babies.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     },
+     "card": {
+      "rows": [
+       [
+        "40",
+        "#ffd34d",
+        150
+       ],
+       [
+        "BABIES PER EGG CASE",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 120,
+      "at": "55%"
+     }
+    },
+    {
+     "m": "chase",
+     "say": "Step on it? It can survive nine hundred times its weight pressing down.",
+     "scene": "bathroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "It can even live for weeks without its head.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "xray",
+     "say": "The real danger: droppings and shed skins can trigger asthma, especially in kids.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "calm",
+     "say": "How bad? Lock it in. Three. Two. One.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
+     },
+     "lockin": {
+      "label": "LOCK IT IN"
+     },
+     "gag": false
+    },
+    {
+     "m": "fact",
+     "say": "Risky. Kill it, then take away its crumbs and water. Next one chews your wires.",
+     "board": {
+      "add": true,
+      "drop_at": "10%",
+      "stamp_at": "26%",
+      "off": "62%"
+     },
+     "gag": false,
+     "pad": 0.12,
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "Risky: house mouse",
+   "tier": "RISKY",
+   "danger": 7,
+   "cast": {
+    "creature": "house_mouse",
+    "s": 0.65
+   },
+   "icon": {
+    "type": "sp.house_mouse"
+   },
+   "scene": "kitchen",
+   "scene_p": {
+    "time": "night"
+   },
+   "lines": [
+    {
+     "m": "name",
+     "say": "It doesn't even need to drink. It gets water from your food.",
+     "card": {
+      "rows": [
+       [
+        "HOUSE MOUSE",
+        "#ffd34d",
+        104
+       ],
+       [
+        "NO WATER NEEDED",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "30%"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "It chews through wires, gas lines and appliance cords.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "A female can have up to ten litters a year.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     },
+     "card": {
+      "rows": [
+       [
+        "10 LITTERS",
+        "#ffd34d",
+        120
+       ],
+       [
+        "A YEAR",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 120,
+      "at": "55%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "It rarely goes thirty feet from its nest. See one? The nest is close.",
+     "scene": "bathroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "xray",
+     "say": "Mice can carry diseases, like salmonella. So don't sweep droppings dry.",
+     "scene": "microscope"
+    },
+    {
+     "m": "calm",
+     "say": "Lock it in. Three. Two. One.",
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
+     },
+     "lockin": {
+      "label": "LOCK IT IN"
+     },
+     "gag": false
+    },
+    {
+     "m": "fact",
+     "say": "Risky. Trap it, then seal every gap a quarter inch or wider.",
+     "board": {
+      "add": true,
+      "drop_at": "10%",
+      "stamp_at": "26%",
+      "off": "62%"
+     },
+     "gag": false,
+     "pad": 0.12,
+     "scene": "kitchen",
+     "scene_p": {
+      "time": "night"
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "Nightmare: black widow",
+   "tier": "NIGHTMARE",
+   "danger": 8,
+   "cast": {
+    "creature": "black_widow",
+    "actor": "black_widow",
+    "s": 0.8
+   },
+   "icon": {
+    "type": "black_widow"
+   },
+   "scene": "basement",
+   "scene_p": {
+    "time": "night"
+   },
+   "lines": [
+    {
+     "m": "name",
+     "say": "The last two can put you in the hospital. The black widow.",
+     "card": {
+      "rows": [
+       [
+        "BLACK WIDOW",
+        "#ffd34d",
+        104
+       ],
+       [
+        "THE NIGHTMARE TIER",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "30%"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "It hangs upside down in a messy web, red hourglass facing out.",
+     "scene": "garden",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "Its venom hits your nerves. Cramps can spread through your body.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "xray",
+     "say": "The famous part? She rarely eats her mate. Only if she's really hungry.",
+     "scene": "microscope"
+    },
+    {
+     "m": "calm",
+     "say": "A death is very unlikely. But if one bites you, see a doctor.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "calm",
+     "say": "Number two or number one? Three. Two. One.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     },
+     "lockin": {
+      "label": "#1 OR #2?"
+     },
+     "gag": false
+    },
+    {
+     "m": "fact",
+     "say": "Nightmare tier. Number two. Gloves on around woodpiles and garage clutter.",
+     "board": {
+      "add": true,
+      "drop_at": "10%",
+      "stamp_at": "26%",
+      "off": "62%"
+     },
+     "gag": false,
+     "pad": 0.12,
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "#1: brown recluse",
+   "tier": "NIGHTMARE",
+   "danger": 9,
+   "cast": {
+    "creature": "brown_recluse",
+    "actor": "brown_recluse",
+    "s": 0.8
+   },
+   "icon": {
+    "type": "brown_recluse"
+   },
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "lines": [
+    {
+     "m": "name",
+     "say": "And number one. The one hiding in your basement. The brown recluse.",
+     "card": {
+      "rows": [
+       [
+        "BROWN RECLUSE",
+        "#ffd34d",
+        104
+       ],
+       [
+        "NUMBER ONE",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 150,
+      "at": "30%"
+     }
+    },
+    {
+     "m": "chase",
+     "say": "It hunts at night. By dawn, it can be in your shoes.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "escalate",
+     "say": "About one bite in ten causes real skin damage, and a scar.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     },
+     "card": {
+      "rows": [
+       [
+        "1 IN 10",
+        "#ff4b3e",
+        130
+       ],
+       [
+        "BITES SCAR",
+        "#ffffff",
+        46,
+        true
+       ]
+      ],
+      "y": 120,
+      "at": "45%"
+     }
+    },
+    {
+     "m": "calm",
+     "say": "Most bites heal on their own. Deaths are extremely rare.",
+     "scene": "study",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "xray",
+     "say": "It lives in the south-central U.S. Outside that, you very likely don't have one.",
+     "scene": "microscope"
+    },
+    {
+     "m": "fact",
+     "say": "Striped legs, or spiny legs? Then it's not a recluse.",
+     "scene": "basement",
+     "scene_p": {
+      "time": "night"
+     }
+    },
+    {
+     "m": "fact",
+     "say": "Number one. Nightmare. Shake out your shoes, and pull your bed off the wall.",
+     "board": {
+      "add": true,
+      "drop_at": "10%",
+      "stamp_at": "26%",
+      "off": "62%"
+     },
+     "gag": false,
+     "pad": 0.12,
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     }
+    }
+   ]
+  },
+  {
+   "chapter": null,
+   "lines": [
+    {
+     "m": "fact",
+     "say": "So that's the board. Where would you move one? Tell me in the comments.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     },
+     "cast": {
+      "creature": "house_centipede",
+      "actor": "house_centipede",
+      "s": 0.8
+     },
+     "board": {
+      "at": 0.0,
+      "off": null
+     },
+     "gag": false
+    },
+    {
+     "m": "fact",
+     "say": "And if you want the bugs you should never kill, watch this next.",
+     "scene": "bedroom",
+     "scene_p": {
+      "time": "night"
+     },
+     "cast": {
+      "creature": "house_centipede",
+      "actor": "house_centipede",
+      "s": 0.8
+     },
+     "end": true,
+     "pad": 10.0,
+     "gag": false
+    }
+   ]
+  }
+ ],
+ "_sources": {
+  "camel cricket": [
+   "Missouri Dept. of Conservation, Camel crickets https://mdc.mo.gov/discover-nature/field-guide/camel-crickets-cave-crickets",
+   "Epps, Menninger, LaSala & Dunn 2014, PeerJ 2:e523 https://peerj.com/articles/523/"
+  ],
+  "jumping spider": [
+   "UC IPM Pest Notes: Spiders https://ipm.ucanr.edu/PMG/PESTNOTES/pn7442.html",
+   "Missouri Dept. of Conservation, \"Life on a Thread\" (2024) https://mdc.mo.gov/magazines/missouri-conservationist/2024-10/life-thread",
+   "Rößler et al. 2022, PNAS, sleep-like state in jumping spiders https://doi.org/10.1073/pnas.2204754119"
+  ],
+  "house centipede": [
+   "Connecticut Ag. Experiment Station, House Centipede fact sheet https://portal.ct.gov/-/media/caes/documents/publications/fact_sheets/entomology/house_centipede_scutigera.pdf",
+   "Penn State Extension, House Centipedes https://extension.psu.edu/house-centipedes",
+   "Frontiers in Zoology (2024), leg autotomy https://frontiersinzoology.biomedcentral.com/articles/10.1186/s12983-024-00544-0"
+  ],
+  "fruit fly": [
+   "Penn State Extension, Fruit Flies https://extension.psu.edu/fruit-flies",
+   "Univ. of Kentucky Entomology, Fruit Flies (ENTFACT-621) https://entomology.ca.uky.edu/ef621",
+   "NASA History, A Brief History of Animals in Space https://history.nasa.gov/animals.html"
+  ],
+  "stink bug": [
+   "Penn State Extension, Brown Marmorated Stink Bug https://extension.psu.edu/brown-marmorated-stink-bug",
+   "Inkley 2012, Journal of Entomological Science 47(2):125-130"
+  ],
+  "bed bugs": [
+   "Univ. of Kentucky Entomology, Bed Bugs (ENTFACT-636) https://entomology.mgcafe.uky.edu/ef636",
+   "US EPA, Bed Bugs: Appearance and Life Cycle https://www.epa.gov/bedbugs/bed-bugs-appearance-and-life-cycle",
+   "CDC, About Bed Bugs https://www.cdc.gov/bed-bugs/about/index.html"
+  ],
+  "silverfish": [
+   "Connecticut Agricultural Experiment Station, Silverfish and Firebrats https://portal.ct.gov/-/media/caes/documents/publications/fact_sheets/entomology/silverfish_firebrats_zygentoma.pdf",
+   "Univ. of Maryland, Bug of the Week (M. Raupp), Silverfish https://bugoftheweek.com/blog/2021/2/12/ancient-insect-in-a-modern-world-silverfish-lepismatidae"
+  ],
+  "carpet beetle": [
+   "UC IPM Pest Notes: Carpet beetles https://ipm.ucanr.edu/PMG/PESTNOTES/pn7436.html",
+   "Univ. of Minnesota Extension, Carpet beetles https://extension.umn.edu/product-and-food-pests/carpet-beetles",
+   "Smithsonian NMNH, Vertebrate Zoology (dermestid beetle colonies) https://naturalhistory.si.edu/research/vertebrate-zoology"
+  ],
+  "cockroach": [
+   "Univ. of Kentucky Entomology, Cockroach Control Manual (ENTFACT-614) https://entomology.mgcafe.uky.edu/ef614",
+   "UC Berkeley News (Jayaram & Full 2016, PNAS) https://news.berkeley.edu/2016/02/08/cockroach-inspires-robot-that-squeezes-through-cracks/",
+   "Scientific American, cockroach without its head https://www.scientificamerican.com/article/fact-or-fiction-cockroach-can-live-without-head/"
+  ],
+  "house mouse": [
+   "UC IPM Pest Notes: House Mouse https://ipm.ucanr.edu/PMG/PESTNOTES/pn7483.html",
+   "CDC, How to Clean Up After Rodents https://www.cdc.gov/healthy-pets/rodent-control/clean-up.html"
+  ],
+  "black widow": [
+   "UC IPM Pest Notes 7442 (widow spiders section) https://ipm.ucanr.edu/PMG/PESTNOTES/pn7442.html",
+   "UW-Milwaukee Field Station: Black Widows https://uwm.edu/field-station/bug-of-the-week/speed-dating-the-spiders-black-widows/",
+   "MedlinePlus, Black widow spider bite https://medlineplus.gov/ency/article/002858.htm"
+  ],
+  "brown recluse": [
+   "UC IPM, Brown Recluse and Other Recluse Spiders https://ipm.ucanr.edu/home-and-landscape/brown-recluse-and-other-recluse-spiders/",
+   "UC Riverside (R. Vetter), identifying a brown recluse https://spiders.ucr.edu/recluseid.html"
+  ]
+ }
+}
