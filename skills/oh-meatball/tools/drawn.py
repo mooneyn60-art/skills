@@ -80,6 +80,8 @@ ACTORS.update({"sp." + k: build(v) for k, v in SPECIES.items()})
 import drawn_tier  # noqa: E402  (the ranked-video tier board draws the same creatures as icons)
 drawn_tier.ACT = ACTORS
 ACTORS.update(drawn_tier.ACTORS)
+import drawn_tc_art  # noqa: E402  (11/10 Christmas-tree pictures: tree, mantis, egg case; also for the Shorts)
+ACTORS.update(drawn_tc_art.ACTORS)
 ROOT = os.path.dirname(HERE)
 W, H = 1080, 1920
 SR = 48000

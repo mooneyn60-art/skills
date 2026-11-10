@@ -3,7 +3,8 @@
  "sources": [
   "University of Missouri Extension, Dr. Bug Talks Pokemon and Why Your Christmas Tree May Be Bugged: \"Praying mantises lay about 100 eggs in foamy masses (called ootheca in Dr. Bug World) on twigs in the fall. The foam hardens and sticks to the bush or tree until warm weather arrives. If one of the masses hitches a ride indoors for the holidays on a tree, you might receive the gift of tiny mantis nymphs.\"; https://extension.missouri.edu/news/dr-bug-talks-pokemon-and-why-your-christmas-tree-may-be-bugged",
   "Penn State Extension, Insects on Real Christmas Trees: \"All four species produce brown, frothy-looking egg masses that are attached to plants, including conifer twigs and branches. When brought indoors, these egg masses will hatch after several weeks and produce dozens of baby mantises. Mantises are predatory and cannibalistic, so will eat each other if no other food is present, as is usually the case indoors during the winter.\"; \"Insect egg masses, such as those laid by mantises... can be scraped off the tree trunk or branches.\"; https://extension.psu.edu/insects-on-real-christmas-trees",
-  "Note: University of Illinois Extension (Christmas tree hitchhikers) gives 200 to 400 eggs per female mantis; the Short uses Missouri's \"about 100\" per foamy mass as asked; https://extension.illinois.edu/news-releases/christmas-tree-hitchhikers"
+  "Note: University of Illinois Extension (Christmas tree hitchhikers) gives 200 to 400 eggs per female mantis; the Short uses Missouri's \"about 100\" per foamy mass as asked; https://extension.illinois.edu/news-releases/christmas-tree-hitchhikers",
+  "Penn State Extension, Insects on Real Christmas Trees (\"leaving it in a shrub or other plant outdoors\"), https://extension.psu.edu/insects-on-real-christmas-trees ; Illinois Extension, Christmas tree hitchhikers (\"cut off the branch ... place it in an evergreen outside\"), https://extension.illinois.edu/news-releases/christmas-tree-hitchhikers"
  ],
  "photo_credits": [],
  "voice": "en-US-AndrewMultilingualNeural",
@@ -24,12 +25,6 @@
      120,
      900,
      1.0
-    ],
-    [
-     "tree",
-     800,
-     1500,
-     1.35
     ]
    ]
   },
@@ -40,16 +35,17 @@
    "color": "#7fbf4f",
    "dark": "#4a8a3a",
    "head": "#7fbf4f",
-   "length": 500,
-   "height": 80,
-   "leg_len": 230,
+   "length": 760,
+   "height": 430,
+   "leg_len": 0,
    "ant": 70,
    "head_r": 0.75,
    "wings": "clear",
    "mood": "smug",
-   "s": 0.9
+   "s": 0.62
   },
-  "s": 0.9
+  "s": 0.62,
+  "actor": "tc_mantis"
  },
  "cap_key": [
   "you",
@@ -72,13 +68,35 @@
    "open": "animal",
    "with": [
     {
-     "type": "eggs",
-     "x": 250,
+     "type": "tc_xtree",
+     "x": 930,
      "y": 1500,
-     "s": 0.9,
+     "s": 0.5,
      "pop": false,
+     "front": false,
      "p": {
-      "n": 10
+      "deco": 1.0,
+      "lit": 1.0,
+      "gifts": true
+     }
+    },
+    {
+     "type": "tc_twig",
+     "x": 330,
+     "y": 1400,
+     "s": 0.5,
+     "pop": false,
+     "front": true
+    },
+    {
+     "type": "tc_ooth",
+     "x": 330,
+     "y": 1400,
+     "s": 1.0,
+     "pop": false,
+     "front": true,
+     "p": {
+      "quiver": 1.0
      }
     }
    ],
@@ -165,13 +183,22 @@
    },
    "with": [
     {
-     "type": "eggs",
-     "x": 250,
-     "y": 1500,
-     "s": 0.9,
+     "type": "tc_twig",
+     "x": 300,
+     "y": 1430,
+     "s": 0.45,
      "pop": false,
+     "front": true
+    },
+    {
+     "type": "tc_ooth",
+     "x": 300,
+     "y": 1430,
+     "s": 0.8,
+     "pop": false,
+     "front": true,
      "p": {
-      "n": 10
+      "quiver": 1.0
      }
     }
    ],
@@ -196,6 +223,54 @@
    }
   },
   {
+   "pad": 0.4,
+   "scene": "garden",
+   "scene_p": {
+    "time": "day"
+   },
+   "m": "fact",
+   "gag": false,
+   "with": [
+    {
+     "type": "tc_shrub",
+     "x": 780,
+     "y": 1500,
+     "s": 0.7,
+     "pop": false,
+     "front": false,
+     "p": {
+      "snow": 0.0
+     }
+    },
+    {
+     "type": "tc_ooth",
+     "x": 760,
+     "y": 1260,
+     "s": 0.6,
+     "pop": false,
+     "front": true
+    }
+   ],
+   "say": "Clip the twig and put it in an evergreen outside.",
+   "card": {
+    "rows": [
+     [
+      "CLIP IT",
+      "#ffd34d",
+      110
+     ],
+     [
+      "INTO AN EVERGREEN OUTSIDE",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
    "scene": "kitchen",
    "scene_p": {
     "time": "night",
@@ -205,12 +280,6 @@
       120,
       900,
       1.0
-     ],
-     [
-      "tree",
-      800,
-      1500,
-      1.35
      ]
     ]
    },
@@ -231,11 +300,26 @@
     "x": "right",
     "y": 400,
     "at": 0.0
-   }
+   },
+   "with": [
+    {
+     "type": "tc_xtree",
+     "x": 930,
+     "y": 1500,
+     "s": 0.5,
+     "pop": false,
+     "front": false,
+     "p": {
+      "deco": 1.0,
+      "lit": 1.0,
+      "gifts": true
+     }
+    }
+   ]
   }
  ],
  "loop": true,
  "description": "Bugs in Christmas trees? A praying-mantis egg case on a tree can hold about 100 eggs, and indoor warmth can hatch them. Check the twigs for a foamy case before you bring it in.\n\n#shorts #christmastree #prayingmantis #bugsinhouse #bugsinyourhouse\n\nSources: University of Missouri Extension; Penn State Extension.",
  "pinned_comment": "What's the strangest thing that ever crawled out of your Christmas tree?",
- "_note": "Written for the 11/10 batch (Shorts A) from drawn_macros lines."
+ "_note": "Written for the 11/10 batch (Shorts A) from drawn_macros lines. 11/10 redo: hero = tools/drawn_tc_art.py tc_mantis (triangular head, raised spiked forelegs), the drawn egg case (tc_ooth) and a decorated tree (tc_xtree); added the clip-and-tuck line (Penn State, Illinois, research 77)."
 }

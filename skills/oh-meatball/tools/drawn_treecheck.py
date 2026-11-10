@@ -44,7 +44,7 @@ ROOT = os.path.dirname(HERE)
 EP = os.path.join(ROOT, "episodes", "longform-christmas-tree-check")
 CACHE = os.path.join(EP, ".voice-cache")
 RED, GREEN, YEL = ds.RED, ds.GREEN, ds.YEL
-TTS = {r"\bAdelgids\b": "uh-DELL-jids"}   # pronunciation respellings (captions always use `say`)
+TTS = {r"\bAdelgids\b": "Adeljids"}   # pronunciation respellings (captions always use `say`)
 
 
 # ================================================================================================ PANIC METER
@@ -194,7 +194,7 @@ def _ltext(ctx, s, x, y, px, color, a=1.0):
     return h - 12
 
 
-CMP = {"x": 1476, "y": 126, "w": 426, "hpx": 34, "px": 25, "box": 28, "tx": 60, "lh": 31, "gap": 10, "pad": 16}
+CMP = {"x": 1466, "y": 126, "w": 436, "hpx": 36, "px": 27, "box": 28, "tx": 60, "lh": 31, "gap": 10, "pad": 16}
 BIG = {"x": 976, "y": 128, "w": 912, "hpx": 72, "px": 50, "box": 52, "tx": 96, "lh": 60, "gap": 28, "pad": 30}
 
 
@@ -541,6 +541,11 @@ def expand(spec, lines):
                     sets += [{"at": "15%", "dur": 0.35, "p": {"t5": 1.0}}]
             if was_big:
                 sets += [{"at": "4%", "dur": 0.6, "p": {"big": 0.0}}]
+            if a.get("list_hide"):
+                sets += [{"at": "2%", "dur": 0.3, "p": {"on": 0.0}}]
+            if a.get("list_in"):
+                lp["on"] = 0.0
+                sets += [{"at": "5%", "dur": 0.45, "p": {"on": 1.0}}]
             if last:
                 sets.append({"at": "100%", "dur": 0.3, "p": {"on": 0.0}})
             kks.append({"id": "list", "type": "tc_list", "pos": [0, 0], "front": True, "p": dict(lp, items=items),
@@ -637,7 +642,24 @@ def render(spec_path, out, rng=None, work=None):
     sys.argv = ["drawn.py", sp, out, "--work", work]
     os.environ.setdefault("CRF", "27")
     drawn.main()
-    ds.loudness(out)
+    loudness(out)
+
+
+def loudness(path, target=-14.0, tp=-2.0):
+    """ds.loudness with a peak limiter first (the bed and the stings can overshoot after the AAC encode):
+    alimiter to -4 dBFS, then two-pass linear loudnorm to `target` LUFS; the video stream is copied."""
+    import subprocess
+    pre = "alimiter=limit=0.63:level=false:attack=2:release=60"
+    r = subprocess.run(["ffmpeg", "-hide_banner", "-i", path, "-af", f"{pre},loudnorm=I={target}:TP={tp}:LRA=11:print_format=json",
+                        "-f", "null", "-"], capture_output=True, text=True).stderr
+    m = json.loads(r[r.rindex("{"):r.rindex("}") + 1])
+    af = (f"{pre},loudnorm=I={target}:TP={tp}:LRA=11:measured_I={m['input_i']}:measured_TP={m['input_tp']}:"
+          f"measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true")
+    tmp = path + ".ln.mp4"
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", path, "-map", "0:v", "-map", "0:a", "-c:v", "copy", "-af", af,
+                    "-ar", "48000", "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart", tmp], check=True)
+    os.replace(tmp, path)
+    print(f"loudness: measured {m['input_i']} LUFS / {m['input_tp']} dBTP (after the limiter) -> {target} LUFS", flush=True)
 
 
 def _frame(spec, L, frac, work):

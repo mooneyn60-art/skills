@@ -1,0 +1,17 @@
+Christmas-tree bugs long-form (the tree check). Publish by Tue 11/24 (search peaks Dec 1-15, research 75). Not scheduled or posted by the build.
+
+Test & Compare titles (load all 3, in this order, as they stand in the outline after the fact-check, research 79):
+1. Never Bring a Christmas Tree Inside Before You Check for This   <- PRIMARY
+2. Check Your Christmas Tree for This Before It Comes in Your House
+3. 9 Things That Can Ride In on Your Christmas Tree (Clip One, Ignore Six)
+
+Pinned comment:
+What's the strangest thing that ever came out of your Christmas tree? 👇
+
+End screen: WATCH NEXT slot -> Don't Kill the Spider in Your Corner (posts Wed 11/18); subscribe slot. The last 12 s are the end screen
+(two empty slots drawn by kk_end; meter and TREE CHECK list hidden).
+
+Rebuild: python3 tools/drawn_treecheck.py build scripts/longform-christmas-tree-check.outline.json scripts/longform-christmas-tree-check.json
+         python3 tools/drawn_treecheck.py render scripts/longform-christmas-tree-check.json OUT.mp4 --work DIR
+Sheets:  python3 tools/drawn_treecheck.py linesheet scripts/longform-christmas-tree-check.json episodes/longform-christmas-tree-check/lines-contact.jpg --work DIR
+Gates:   python3 tools/lf_gates.py OUT.mp4 --end-hold 12 --lufs -14 --max-mb 95 (see lf_gates.py --help)

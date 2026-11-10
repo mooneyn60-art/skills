@@ -919,14 +919,13 @@ def tc_ooth(ctx, t, p):
 
 def tc_marsh(ctx, t, p):
     """A toasted marshmallow on a stick (the stick goes off to the left); origin = marshmallow centre."""
-    stroke(ctx, [(-600, 40), (-30, 0)], 22)
-    stroke(ctx, [(-600, 40), (-30, 0)], 13, color=hexc("#a8754a"))
+    stroke(ctx, [(600, 40), (30, 0)], 22)
+    stroke(ctx, [(600, 40), (30, 0)], 13, color=hexc("#a8754a"))
     shape(ctx, lambda c: p_rrect(c, -100, -90, 200, 170, 60), hexc("#f2e6cc"), OUT, (0.08, 0.12), hi=(0.3, 0.25, 0.3))
     for (x, y, rx, ry) in ((-30, -60, 60, 26), (40, -40, 48, 30), (-50, 30, 40, 22), (50, 40, 42, 20)):
         flat(ctx, lambda c, x=x, y=y, rx=rx, ry=ry: p_blob(c, x, y, rx, ry, 0.2, int(x)), hexc("#c08a48"), a=0.7)
     flat(ctx, lambda c: p_blob(c, 10, -30, 50, 22, 0.2, 3), hexc("#8a5a2a"), a=0.5)
-    stroke(ctx, [(-100, -30), (-100, 30)], OUT)
-
+    
 
 def _legs_top(ctx, n_side, cx, cy, L, w, col, t, spread=(40, 140), body=60, **_):
     """Top-view legs, head UP: n_side per side, fanned from `spread` degrees (0 = straight ahead) and spaced along

@@ -75,7 +75,7 @@ def table():
                    card_at="check|55%", sfx=["sting@0.02", "thud@check|55%"], sheet_at=0.0)
     T["s0.l1"] = S("tc_bokeh", [960, 560, 1.0], [960, 560, 1.04],
                    [twig([700, 700], 0.9), ooth([620, 700], 1.45, quiver=0.4),
-                    A("marsh", "tc_marsh", [2400, 560], 1.25, moves=[mv(0.05, 0.45, [1330, 560])])],
+                    A("marsh", "tc_marsh", [2600, 560], 1.25, moves=[mv(0.05, 0.45, [1500, 560])])],
                    sfx=["whoosh@0.05", "pop@marshmallow|60%"])
     T["s0.l2"] = S("ds_board_bg", [0, 60, 1.0], [0, 60, 1.05],
                    [ooth([-330, 330], 2.2, xray=0.0, quiver=0.3, sets=[set_("Inside|5%", 0.5, xray=1.0)]),
@@ -180,8 +180,8 @@ def table():
                      A("farm3", "tc_farmtree", [4000 + 820, 900], 0.75),
                      lab("lf", "FOREST", [-300, 230], "forest|60%", 60), lab("lr", "FARM", [4560, 230], "farm|85%", 60)],
                     scene_p={"a": "tc_snowwood", "pa": {}, "b": "tc_farm", "pb": {"snow": 1.0}, "bx": 200, "dx": 3800, "seam": True},
-                    shots=[cam([-200, 560, 0.9], [-260, 560, 0.95]), cam([-260, 560, 0.95], [2180, 560, 0.42], at="bugs|30%", dur=0.8),
-                           cam([2180, 560, 0.42], [2200, 560, 0.44], at="forest|60%")],
+                    shots=[cam([-200, 560, 0.9], [-260, 560, 0.95]), cam([-260, 560, 0.95], [2180, 560, 0.5], at="bugs|30%", dur=0.8),
+                           cam([2180, 560, 0.5], [2200, 560, 0.52], at="forest|60%")],
                     mbx=M("present", (60, 920), 560, look="viewer", gest=[["Cut", "point", 1.2]]),
                     sfx=["whoosh@bugs|30%", "pop@farm|85%"], norecut=True)
     T["s1.l11"] = S("tc_farm", [960, 600, 1.0], [960, 640, 1.25],
@@ -202,7 +202,7 @@ def table():
                     mbx=M("neutral", (400, 980), 560, float=True, look="viewer", gest=[["breathe|10%", "deadpan", 1.0], ["check|45%", "point", 2.0]]),
                     sfx=["sting@one|75%"], norecut=True)
     # =========================================================================================== 2. the mantis egg case
-    T["s2.l0"] = S("tc_bokeh", [960, 560, 1.0], [960, 560, 1.06],
+    T["s2.l0"] = S("tc_snowwood", [900, 600, 1.15], [900, 600, 1.22],
                    [twig([960, 760], 1.0), A("mantis", "tc_mantis", [780, 742], 0.62, {"look": [0.4, 0.3]}),
                     ooth([1360, 760], 1.1)],
                    chapter=True, sfx=["pop@mantis|55%"])
@@ -214,8 +214,8 @@ def table():
                       moves=[mv("hardens|60%", 1.0, (1800, 742), walk=True)]),
                     A("pages", "tc_pages", [960, 300], 0.8, {"on": 0.0, "n": 3}, at="hardens|55%")],
                    sfx=["splash@glues|25%", "whoosh@hardens|60%"])
-    T["s2.l2"] = S("tc_bokeh", [960, 560, 1.0], [960, 560, 1.04],
-                   [twig([860, 500], 0.9), ooth([860, 500], 1.6),
+    T["s2.l2"] = S("ds_lab", [960, 560, 1.0], [960, 560, 1.04],
+                   [twig([860, 500], 0.5), ooth([860, 500], 1.6),
                     prop("can", "foamcan", [1450, 820], 0.85, at="spray|15%"),
                     prop("ruler", "ruler", [860, 800], 1.0, {"w": 900, "ppi": 266}, at="inch|45%"),
                     A("dim", "ds_dim", [660, 690], 1.0, {"to": [400, 0], "grow": 0.0, "text": "1.5 INCHES", "ly": -70, "px": 60},
@@ -226,7 +226,7 @@ def table():
                     prop("ball", "pingpong", [2300, 660], 1.6, moves=[mv("ping|30%", 0.8, (1260, 660), rot=-360)]),
                     lab("cm", "CHINESE MANTIS", [680, 250], "Chinese|20%", 56, YEL)],
                    sfx=["pop@Chinese|20%", "boing@ping|45%"])
-    T["s2.l4"] = S("tc_bokeh", [900, 520, 0.85], None,
+    T["s2.l4"] = S("ds_board_bg", [900, 520, 0.85], None,
                    [twig([600, 330], 0.75, idn="t1"), ooth([560, 330], 1.0, idn="c1"),
                     twig([1250, 760], 0.85, idn="t2"), ooth([1250, 760], 1.2, idn="c2", kind="carolina"),
                     lab("l1", "CHINESE", [560, 120], None, 54), lab("l2", "CAROLINA", [1250, 560], "Carolina|10%", 60, YEL)],
@@ -270,17 +270,17 @@ def table():
     T["s2.l10"] = S("ds_board_bg", [100, 60, 1.0], [100, 60, 1.03],
                     [A("race", "tc_race", [-380, -60], 1.0, {"a": 0.0, "b": 0.0, "w": 1050},
                        sets=[set_("fresh|10%", 2.4, a=0.97), set_("three|30%", 2.0, b=0.97), set_("photo|60%", 0.4, a=1.0, b=1.0)])],
-                    scene_p={"color": "#1b1724"}, flash=["finish|80%"], sfx=["whoosh@fresh|10%", "zap@finish|80%"], norecut=True)
-    T["s2.l11"] = S("tc_living", [1050, 820, 1.55], [1060, 820, 1.6],
-                    [A("ny", "tc_nymph", [700, 905], 0.5, {"mood": "worry", "look": [1, 0]},
+                    scene_p={"color": "#1b1724"}, flash=["finish|80%"], sfx=["whoosh@fresh|10%", "tink@finish|80%"], norecut=True)
+    T["s2.l11"] = S("tc_living", [1080, 800, 2.0], [1090, 800, 2.08],
+                    [A("ny", "tc_nymph", [800, 905], 0.16, {"mood": "worry", "look": [1, 0]},
                        sets=[set_("sad|20%", 0.2, look=[1, 0.2]), set_("nothing|45%", 0.2, look=[1, -0.4]), set_("eat|70%", 0.2, look=[-1, 0.1], mood="sleepy")]),
-                     prop("cane", "candycane", [960, 905], 0.6), prop("gift", "gift", [1210, 905], 0.6, {"col": "#2c6fbf", "rib": "#f4f4f4"}),
-                     prop("sock", "sock", [1440, 905], 0.55)],
+                     prop("cane", "candycane", [980, 905], 0.45), prop("gift", "gift", [1170, 905], 0.45, {"col": "#2c6fbf", "rib": "#f4f4f4"}),
+                     prop("sock", "sock", [1350, 905], 0.4)],
                     scene_p={"fireplace": False}, sfx=["tink@nothing|45%"])
-    T["s2.l12"] = S("tc_living", [760, 760, 1.6], None,
-                    [A("n1", "tc_nymph", [600, 905], 0.45, {"mood": "angry", "look": [1, 0]}),
-                     A("n2", "tc_nymph", [940, 905], 0.45, {"mood": "angry", "look": [1, 0]}, flip=True)],
-                    shots=[cam([760, 760, 1.6], [760, 760, 1.7]), cam([760, 760, 1.7], [220, 300, 1.6], at="other|35%", dur=0.35)],
+    T["s2.l12"] = S("tc_living", [760, 820, 2.4], None,
+                    [A("n1", "tc_nymph", [640, 905], 0.2, {"mood": "angry", "look": [1, 0]}),
+                     A("n2", "tc_nymph", [880, 905], 0.2, {"mood": "angry", "look": [1, 0]}, flip=True)],
+                    shots=[cam([760, 830, 2.4], [760, 830, 2.5]), cam([760, 830, 2.5], [220, 300, 1.6], at="other|35%", dur=0.35)],
                     scene_p={"fireplace": False}, sfx=["whoosh@other|35%"], pad=0.25, norecut=True)
     T["s2.l13"] = S("tc_bokeh", [960, 600, 1.0], [960, 600, 1.06],
                     [A("baub", "tc_bauble", [960, 300], 1.2, {"col": "#c0392b"}),
@@ -288,8 +288,8 @@ def table():
                        sets=[set_("starve|60%", 0.6, mood="sleepy")]),
                      chip("src", "ILLINOIS EXTENSION", [960, 920], "Illinois|15%")],
                     sfx=["pop@Illinois|15%"])
-    row = [A(f"ny{i}", "tc_nymph", [520 + i * 120, 905], 0.24, {"napkin": 1.0, "mood": "happy", "look": [1, -0.2]}) for i in range(5)]
-    T["s2.l14"] = S("tc_living", [1020, 700, 1.2], [1040, 700, 1.26],
+    row = [A(f"ny{i}", "tc_nymph", [640 + i * 95, 905], 0.14, {"napkin": 1.0, "mood": "happy", "look": [1, -0.2]}) for i in range(5)]
+    T["s2.l14"] = S("tc_living", [1080, 740, 1.4], [1090, 740, 1.46],
                     row + [prop("tub", "tub", [1240, 905], 0.75, at="crickets|60%"),
                            A("fly", "sp.fly", [1150, 640], 0.22, {}, at="flies|45%", moves=[mv("flies|45%", 1.2, (900, 700))])],
                     mbx=M("present", (1530, 905), 620, look="viewer", prop="tweezers", gest=[["crickets|65%", "present", 2.0]],
@@ -332,7 +332,8 @@ def table():
              A("badge", "ds_stamp", [0, 0], 1.0, {"on": 0.0, "text": "NATIVE", "color": GREEN, "x": 1040, "y": 620, "px": 70, "rot": 8},
                sets=[set_("native|65%", 0.25, on=1.0)], front=True)]
     T["s2.l21"] = S("ds_board_bg", [-60, 60, 1.0], None, acts,
-                    shots=[cam([-60, 60, 1.0], [-60, 60, 1.03]), cam([-60, 60, 1.03], [180, 120, 1.15], at="Illinois|55%", dur=0.6)],
+                    shots=[cam([-60, 60, 1.0], [-60, 60, 1.03]), cam([-60, 60, 1.03], [-300, 100, 1.12], at="late|28%", dur=0.6),
+                           cam([-300, 100, 1.12], [180, 120, 1.15], at="Illinois|55%", dur=0.6)],
                     scene_p={"color": "#1b2440"}, sfx=["pop@late|30%", "stamp@native|65%"], norecut=True)
     # =========================================================================================== 3. the one people call a tick
     T["s3.l0"] = S("tc_living", [1000, 720, 1.3], [1000, 720, 1.36],
@@ -353,11 +354,11 @@ def table():
                     A("dim", "ds_dim", [780, 880], 1.0, {"to": [420, 0], "grow": 0.0, "text": "UP TO 1/8 INCH", "ly": 60, "px": 60},
                       sets=[set_("eighth|60%", 0.5, grow=1.0)], front=True)],
                    card_at="giant|20%", sfx=["pop@giant|20%", "whoosh@eighth|60%"])
-    T["s3.l3"] = S("tc_bokeh", [960, 600, 1.0], [960, 600, 1.06],
+    T["s3.l3"] = S("tc_farm", [960, 600, 1.0], [960, 600, 1.06],
                    [twig([960, 760], 1.0), A("aph", "tc_aphid", [800, 742], 0.75, {"flex": 0.0, "mood": "smug"}, sets=[set_("largest|40%", 0.4, flex=1.0)]),
                     A("small", "tc_aphid", [1280, 742], 0.16, {"col": "#8fcf5a", "mood": "worry", "look": [-1, -0.5]}),
                     chip("src", "N.C. STATE", [960, 300], "State|10%")],
-                   sfx=["boing@largest|40%"])
+                   scene_p={"snow": 0.0}, sfx=["boing@largest|40%"])
     T["s3.l4"] = S("tc_bokeh", [960, 600, 1.0], [960, 600, 1.05],
                    [A("aph", "tc_aphid", [700, 800], 0.65, {"look": [1, 0]}), A("tick", "sp.tick", [1260, 800], 0.55, {}),
                     lab("q", "?", [960, 420], "mistake|55%", 120, YEL), lab("tl", "TICK", [1260, 280], "ticks|80%", 56),
@@ -407,10 +408,10 @@ def table():
                     scene_p={"fireplace": False}, stamps=[stamp("VACUUM", "Vacuum|10%", 560, 330, YEL, 120)], check_at="hose|40%",
                     sfx=["whoosh@hose|40%"])
     winged = [A(f"w{i}", "tc_aphid", [800 + i * 160, 520 - (i % 2) * 120], 0.18, {"winged": True}, at=f"breed|{55 + 8 * i}%") for i in range(3)]
-    T["s3.l12"] = S("tc_living", [960, 600, 1.0], [960, 600, 1.06],
-                    [A("rb", "tc_rootball", [960, 905], 1.15)] + winged +
+    T["s3.l12"] = S("tc_living", [960, 560, 0.9], [960, 560, 0.95],
+                    [A("rb", "tc_rootball", [960, 905], 1.0)] + winged +
                     [A(f"q{i}", "tc_qm", [880 + i * 160, 440 - (i % 2) * 120], 1.0, {"on": 0.0, "px": 70, "ph": i}, sets=[set_(f"breed|{60 + 8 * i}%", 0.3, on=1.0)],
-                       front=True) for i in range(3)] + [chip("src", "PENN STATE", [960, 970], "Penn|60%")],
+                       front=True) for i in range(3)] + [chip("src", "PENN STATE", [560, 290], "Penn|60%")],
                     scene_p={"fireplace": False}, sfx=["pop@root|40%", "pop@breed|60%"])
     T["s3.l13"] = S("tc_trunk", [960, 560, 1.0], [960, 560, 1.08],
                     [A("tick", "sp.tick", [880, 680], 0.32, {}),
@@ -427,7 +428,8 @@ def table():
                     A("sl", "tc_spiderlings", [1160, 720], 0.9, {"n": 12}),
                     A("aph", "tc_aphid", [520, 742], 0.3, {}),
                     lab("la", "APHIDS", [520, 470], "aphids|50%", 54), lab("ls", "SPIDERS", [960, 470], "spiders#2|60%", 54)],
-                   shots=[cam([1000, 640, 1.5], [1020, 640, 1.56]), cam([1020, 640, 1.56], [860, 600, 1.0], at="Iowa|35%", dur=0.6)],
+                   shots=[cam([1000, 640, 1.5], [1020, 640, 1.56]), cam([1020, 640, 1.56], [860, 600, 1.0], at="Iowa|35%", dur=0.6),
+                          cam([860, 600, 1.0], [1080, 680, 1.45], at="most|65%", dur=0.6)],
                    chapter=True, sfx=["pop@aphids|50%", "pop@spiders#2|60%"], norecut=True)
     T["s4.l1"] = S("tc_living", [960, 600, 0.95], [960, 610, 1.0],
                    [tree(LR_TREE, 0.7), A("sp", "house_sp_small", [860, 780], 0.13, {}),
@@ -454,7 +456,7 @@ def table():
                       sets=[set_("walking|20%", 2.4, u=1.0), set_("Wipe|70%", 0.6, gone=1.0)]),
                     prop("cloth", "cloth", [-200, 520], 0.6, moves=[mv("Wipe|70%", 0.6, (480, 520))], front=True),
                     lab("l", "SCALE CRAWLERS", [220, 380], "Scale|45%", 30, YEL)],
-                   scene_p={"fireplace": False}, no_card=True, stamps=[IGN("towel|85%", 560, 360)], sfx=["scratch@Wipe|70%"])
+                   scene_p={"fireplace": False}, no_card=True, stamps=[IGN("towel|85%", 1250, 760)], sfx=["scratch@Wipe|70%"])
     T["s4.l6"] = S("tc_bokeh", [960, 600, 1.0], [960, 600, 1.06],
                    [twig([960, 780], 1.0), A("mite", "tc_mite", [880, 560], 1.1, {"eat": 0.0}, sets=[set_("Penn|20%", 3.0, eat=0.9)]),
                     lab("l", "MITE", [880, 300], "Mites|10%", 60, YEL)],
@@ -468,9 +470,9 @@ def table():
                    check_at="take|55%", sfx=["scratch@take|50%"])
     T["s4.l8"] = S("tc_living", [940, 620, 1.2], [940, 620, 1.26],
                    [prop("rad", "radiator", [940, 905], 1.0) if False else A("rad", "ds_prop", [940, 905], 1.0, {"kind": "radiator"}),
-                    A("bl1", "tc_barklouse", [820, 380], 0.22, {}, sets=[set_("kills|55%", 0.5, hidden=True)]),
-                    A("bl2", "tc_barklouse", [1020, 330], 0.2, {}, flip=True, sets=[set_("kills+0.15|60%", 0.5, hidden=True)]),
-                    A("bl3", "tc_barklouse", [1120, 420], 0.18, {}, sets=[set_("kills+0.3|65%", 0.5, hidden=True)]),
+                    A("bl1", "tc_barklouse", [820, 380], 0.36, {}, sets=[set_("kills|55%", 0.5, hidden=True)]),
+                    A("bl2", "tc_barklouse", [1040, 320], 0.34, {}, flip=True, sets=[set_("kills+0.15|60%", 0.5, hidden=True)]),
+                    A("bl3", "tc_barklouse", [1180, 430], 0.32, {}, sets=[set_("kills+0.3|65%", 0.5, hidden=True)]),
                     lab("l", "BARK LICE", [960, 220], "Bark|10%", 56, YEL)],
                    scene_p={"fireplace": False}, no_card=True, stamps=[IGN("quickly|70%", 560, 360)], sfx=["pop@kills|55%"])
     six = [("house_sp_small", {}, 0.36, 0), ("tc_barkbeetle", {}, 0.42, 0), ("tc_adelgid", {"n": 5}, 0.42, -40),
@@ -486,19 +488,20 @@ def table():
             acts[-1]["s"] = sc if typ != "tc_crawlers" else 1.0
         return acts
     T["s4.l9"] = S("ds_board_bg", [-120, 120, 1.0], [-120, 120, 1.03], six_row(),
-                   scene_p={"color": "#20242e"}, chip_done=None,
-                   stamps=[stamp("IGNORE", f"multiply|{10 + 14 * i}%" if False else f"{20 + 12 * i}%", 240 + i * 245, 760, GREEN, 46, -6 + 3 * i)
+                   scene_p={"color": "#d8dee6"},
+                   stamps=[stamp("IGNORE", f"{20 + 12 * i}%", 240 + i * 245, 700, GREEN, 54, -6 + 3 * i)
                            for i in range(6)],
                    sfx=["whoosh@0.1"], norecut=True)
-    T["s4.l10"] = S("tc_bokeh", [960, 600, 1.0], [960, 600, 1.06],
+    T["s4.l10"] = S("ds_lab", [960, 640, 1.8], [960, 640, 1.9],
                     [prop("rice", "grain", [760, 620], 1.2), A("speck", "tc_aphid", [1080, 650], 0.15, {}),
                      A("sl", "tc_spiderlings", [1240, 640], 0.45, {"n": 2, "w": 30, "h": 10})],
                     card_at="sixteenth|60%", sfx=["tink@sixteenth|60%"])
     T["s4.l11"] = S("ds_board_bg", [-120, 120, 1.0], [-120, 120, 1.04], six_row("starve|20%"),
-                    scene_p={"color": "#20242e"}, sfx=["whoosh@starve|20%"], norecut=True)
+                    scene_p={"color": "#d8dee6"}, sfx=["whoosh@starve|20%"], norecut=True)
     T["s4.l12"] = S("tc_living", [800, 560, 0.95], None,
                     [tree([700, 905], 0.7), A("sp", "tc_specks", [1420, 300], 1.0, {"n": 1, "r": 12})],
-                    shots=[cam([760, 540, 1.0], [760, 540, 1.04]), cam([760, 540, 1.04], [1150, 520, 1.0], at="vacuum|55%", dur=0.6)],
+                    shots=[cam([760, 540, 1.0], [760, 540, 1.04]), cam([760, 540, 1.04], [700, 600, 1.25], at="until|28%", dur=0.6),
+                           cam([700, 600, 1.25], [1150, 520, 1.0], at="vacuum|55%", dur=0.6)],
                     mbx=M("neutral", (1180, 905), 620, look="viewer", prop="hose", gest=[["vacuum|55%", "wave", 4.0]]),
                     chip_done="tree#2|40%", sfx=["whoosh@vacuum|55%"], norecut=True)
     # =========================================================================================== 5. the lanternfly
@@ -506,10 +509,12 @@ def table():
                    [A("eggs", "tc_slf_eggs", [960, 1040], 1.0)],
                    shots=[cam([960, -200, 1.0], [960, 760, 1.15], at=0.3, dur=3.2)],
                    chapter=True, sfx=["sting@county|80%"], norecut=True, sheet_at=0.95)
-    T["s5.l1"] = S("tc_trunk", [960, 600, 1.4], None,
-                   [A("eggs", "tc_slf_eggs", [960, 640], 1.0), chip("src", "PENN STATE", [1250, 860], "Penn|30%"),
-                    lab("u", "UNLIKELY", [1250, 760], "unlikely|45%", 56, YEL)],
-                   shots=[cam([960, 600, 1.4], [960, 600, 1.45]), cam([960, 600, 1.45], [1060, 640, 1.0], at="Penn|30%", dur=0.6)],
+    T["s5.l1"] = S("ds_board_bg", [0, 60, 1.3], None,
+                   [A("eggs", "tc_slf_eggs", [-380, 120], 1.3),
+                    A("lt", "tc_xtree", [420, 500], 0.5, {"deco": 0.0, "lit": 0.0, "gifts": False}, at="Christmas|80%"),
+                    chip("src", "PENN STATE", [0, 380], "Penn|30%"), lab("u", "UNLIKELY", [0, 300], "unlikely|45%", 56, YEL)],
+                   shots=[cam([-380, 120, 1.6], [-380, 120, 1.65]), cam([-380, 120, 1.65], [0, 160, 1.0], at="Penn|30%", dur=0.6)],
+                   scene_p={"color": "#1b1724"},
                    card_at="Spotted|10%", sfx=["pop@unlikely|45%"], norecut=True)
     T["s5.l2"] = S("tc_trunk", [960, 580, 1.8], [960, 580, 1.9],
                    [A("eggs", "tc_slf_eggs", [960, 600], 1.0)], sfx=["tink@mud|80%"])
@@ -549,14 +554,14 @@ def table():
                    chapter=True, flash=["spray|75%"], sfx=["stamp@spray|75%"])
     T["s6.l1"] = S("ds_board_bg", [0, 100, 1.0], [0, 100, 1.04],
                    [prop("can", "aerosol", [-180, 560], 1.3, {"flame": 0.0}, sets=[set_("flammable|40%", 0.6, flame=1.0)]),
-                    chip("src", "PENN STATE", [-180, -280], "Penn|5%")],
-                   mbx=M("shock", (560, 1180), 620, float=True, look="can", gest=[["flammable|45%", "shock", 2.0]]),
+                    chip("src", "PENN STATE", [-180, -170], "Penn|5%")],
+                   mbx=M("shock", (560, 560), 600, float=True, look="can", gest=[["flammable|45%", "shock", 2.0]]),
                    scene_p={"color": "#1b1724"}, sfx=["whoosh@flammable|40%"])
     T["s6.l2"] = S("ds_board_bg", [0, 140, 1.0], [0, 140, 1.04],
                    [prop("can", "aerosol", [-200, 640], 1.1, {"flame": 1.0}),
                     A("x", "ds_cross", [-200, 400], 1.0, {"on": 0.0, "r": 200}, sets=[set_("never|60%", 0.3, on=1.0)], front=True),
                     chip("src", "ILLINOIS EXTENSION", [-200, 820], "Illinois|5%")],
-                   mbx=M("deadpan", (380, 1180), 600, float=True, look="viewer"),
+                   mbx=M("deadpan", (420, 600), 560, float=True, look="viewer"),
                    scene_p={"color": "#1b1724"}, card_at="never|50%", card_y=150, check_at="never|60%", sfx=["stamp@never|60%"])
     T["s6.l3"] = S("tc_living", [980, 560, 1.0], [960, 560, 1.06],
                    [tree(lit=1.0, sets=[set_("lights|45%", 0.4, lit=1.0)]),
@@ -571,17 +576,19 @@ def table():
     T["s6.l5"] = S("tc_combo", [900, 560, 0.95], None,
                    [A("p1", "person", [560, 905], 0.6, {"body": "#2f7a4a", "arm": "up", "mood": "happy", "hair": "#3a2a1e"}),
                     prop("sg1", "sign", [560 + 138, 905 - 468], 0.6, {"text": "HOSE IT", "col": "#e8f6ff", "tcol": "#2c6fbf"}),
-                    chip("c1", "N.C. STATE", [560, 980], "North|8%", 40),
+                    chip("c1", "N.C. STATE", [560, 870], "North|8%", 40),
                     A("p2", "person", [1260, 905], 0.6, {"body": "#7a2f2f", "arm": "up", "mood": "angry", "hair": "#d9b44a"}, at="Norwegian|35%"),
                     prop("sg2", "sign", [1260 + 138, 905 - 468], 0.6, {"text": "DON'T", "col": "#ffe0e0", "tcol": "#c0392b"}, at="Norwegian|35%"),
-                    chip("c2", "THE NORWEGIAN BIOLOGIST", [1260, 980], "Norwegian|35%", 40),
+                    chip("c2", "THE NORWEGIAN BIOLOGIST", [1260, 870], "Norwegian|35%", 40),
                     A("shk", "tc_shaker", [4600 + 700, 905], 0.95, {"shake": 0.0, "fall": 0.0},
                       sets=[set_("Shaking|70%", 0.3, shake=1.0, fall=1.0)]),
                     A("pile", "tc_specks", [4600 + 700, 880], 1.0, {"n": 16, "w": 160, "h": 10, "r": 8, "col": "#2a1f1a"}, at="advice|85%"),
                     A("lying", "tc_tree_lying", [4600 + 1060, 860], 0.5, {}, at="agrees|88%", moves=[mv("agrees|88%", 0.8, (4600 + 1500, 860))])],
                    scene_p={"a": "tc_yard", "pa": {"house_w": 200}, "b": "tc_lot", "pb": {}, "bx": 3000, "dx": 4600},
-                   shots=[cam([700, 560, 1.0], [760, 560, 1.02]), cam([760, 560, 1.02], [960, 560, 0.95], at="Norwegian|35%", dur=0.6),
-                          cam([960, 560, 0.95], [5560, 560, 0.95], at="Shaking|68%", dur=0.45)],
+                   shots=[cam([700, 560, 1.0], [760, 560, 1.02]), cam([760, 560, 1.02], [600, 520, 1.3], at="can|22%", dur=0.5),
+                          cam([600, 520, 1.3], [960, 560, 0.95], at="Norwegian|35%", dur=0.6),
+                          cam([960, 560, 0.95], [1260, 520, 1.3], at="washing|52%", dur=0.5),
+                          cam([1260, 520, 1.3], [5560, 560, 0.95], at="Shaking|68%", dur=0.45)],
                    mbx=M("think", (900, 905), 520, look="viewer", gest=[["Shaking|68%", "point", 1.0]]),
                    check_at="Shaking|72%", sfx=["whoosh@Shaking|68%", "scratch@agrees|88%"], norecut=True)
     T["s6.l6"] = S("tc_living", [1180, 640, 0.95], None,
@@ -589,7 +596,8 @@ def table():
                     A("bb", "tc_barkbeetle", [600, 600], 0.22, {"look": [1, 0]}, at="wake|65%"),
                     A("x", "ds_cross", [560, 700], 1.0, {"on": 0.0, "r": 200}, sets=[set_("wake|75%", 0.3, on=1.0)], front=True),
                     prop("arm", "logs", [1300, 905], 0.9, {"n": 2}, at="day|30%")],
-                   shots=[cam([1300, 660, 1.0], [1360, 660, 1.04]), cam([1360, 660, 1.04], [900, 660, 0.95], at="because|60%", dur=0.6)],
+                   shots=[cam([1300, 660, 1.0], [1360, 660, 1.04]), cam([1360, 660, 1.04], [1300, 760, 1.4], at="Illinois|22%", dur=0.5),
+                           cam([1300, 760, 1.4], [900, 660, 0.95], at="because|60%", dur=0.6)],
                    scene_p={"fireplace": True, "fx": 1700}, sfx=["thud@day|30%", "pop@wake|65%"], norecut=True)
     # =========================================================================================== 7. the tree check (list = right half)
     T["s7.l0"] = S("tc_living", [960, 560, 0.95], [940, 560, 1.0],
@@ -598,7 +606,8 @@ def table():
     T["s7.l1"] = S("tc_lot", [700, 600, 1.0], None,
                    [A("end", "tc_tree_end", [420, 620], 0.7, {"peek": 0.0}, sets=[set_("scan|55%", 0.5, peek=1.0)]),
                     ooth([470, 560], 0.3, front=True)],
-                   shots=[cam([720, 600, 1.0], [720, 600, 1.03]), cam([720, 600, 1.03], [600, 560, 1.7], at="scan|55%", dur=0.7)],
+                   shots=[cam([720, 600, 1.0], [720, 600, 1.03]), cam([720, 600, 1.03], [600, 640, 1.25], at="look|30%", dur=0.5),
+                           cam([600, 640, 1.25], [600, 560, 1.7], at="scan|55%", dur=0.7)],
                    mbx=M("think", (860, 905), 560, look="end", prop="magnifier", gest=[["look|40%", "point", 2.0]]),
                    list_step=1, tick_at="marshmallow|85%", sfx=["whoosh@scan|55%"], norecut=True)
     T["s7.l2"] = S("tc_combo", [520, 600, 1.0], None,
@@ -632,14 +641,15 @@ def table():
                    mbx=M("laugh", (760, 905), 580, look="viewer", moves=[mv(0.05, 0.4, (760, 905), hop=90)]),
                    list_all=True, pad=1.35, sfx=["boing@0.05"])
     # =========================================================================================== 8. the verdict
-    T["s8.l0"] = S("tc_living", [960, 600, 0.95], [960, 600, 1.0],
+    T["s8.l0"] = S("tc_living", [1380, 600, 1.25], [1380, 600, 1.3],
                    [tree(lit=1.0)],
                    mbx=M("neutral", (1460, 905), 600, look="viewer", gest=[["one|50%", "laugh", 1.5]]),
-                   meter_big_to=1.0, meter_big_at="0%", meter_at="one|40%", meter_big_back="100%", pad=0.7, sfx=["tink@one|40%"])
+                   meter_big_to=1.0, meter_big_at="0%", meter_at="one|40%", meter_big_back="100%", pad=0.7, sfx=["tink@one|40%"], list_hide=True)
     T["s8.l1"] = S("tc_living", [960, 560, 0.95], None,
                    [tree(lit=1.0, zs=1.0), A("sp", "tc_specks", [900, 560], 1.0, {"n": 3, "w": 120, "h": 120, "r": 9})],
-                   shots=[cam(WIDE, [960, 560, 1.0]), cam([960, 560, 1.0], [880, 520, 2.0], at="sleepy|50%", dur=0.7)],
-                   sfx=["tink@sleepy|50%"], norecut=True)
+                   shots=[cam(WIDE, [960, 560, 1.0]), cam([960, 560, 1.0], [1000, 600, 1.3], at="outdoor|28%", dur=0.5),
+                           cam([1000, 600, 1.3], [880, 520, 2.0], at="sleepy|50%", dur=0.7)],
+                   sfx=["tink@sleepy|50%"], norecut=True, list_in=True)
     T["s8.l2"] = S("tc_yard", [700, 560, 0.95], [620, 560, 1.0],
                    [], mbx=M("laugh", (1400, 905), 600, look="viewer", prop="carrytree", moves=[mv(0.0, 1.8, (520, 905), walk=True)]),
                    sfx=["step@go|50%"])
@@ -657,4 +667,11 @@ def table():
                              actor("hero", "carol", [720, 610], 0.6, {"mood": "happy", "look": [0, 0.3], "wave": 0.0},
                                    [{"at": "squish|60%", "dur": 0.3, "p": {"wave": 1.0}}])],
                   "mb": HID, "sfx": ["pop@spider|30%"]}
+    for sh in T.values():   # drawn_cast.person takes colour tuples
+        for a in sh.get("actors", []):
+            if a.get("type") == "person":
+                for k in ("body", "hair"):
+                    if isinstance(a["p"].get(k), str):
+                        h = a["p"][k].lstrip("#")
+                        a["p"][k] = [int(h[i:i + 2], 16) / 255 for i in (0, 2, 4)]
     return T
