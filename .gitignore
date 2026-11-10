@@ -1,3 +1,7 @@
 
 # per-line TTS caches made by the long-form builders (regenerable)
 **/.voice-cache/
+
+# Python bytecode
+__pycache__/
+*.pyc
