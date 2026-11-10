@@ -245,6 +245,10 @@ def kk_end(ctx, t, p):
     fill(ctx, "#120f18", 0.78 * on)
     a = min(1.0, on * 1.5)
     blit(ctx, text_img("WATCH NEXT", 92, "#ffd34d"), W / 2, 130, 1.0, a)
+    if p.get("label"):   # opt-in (myth episode): name the video the end screen points at
+        blit(ctx, text_img(p["label"], 46, "#ffffff", 5), W / 2, 214, 1.0, a)
+    if p.get("ask"):   # opt-in: the comment question stays up under the end-screen slots
+        blit(ctx, text_img(p["ask"], 66, "#ffd34d", 7), W / 2, 940, 1.0, a)
     rrect(ctx, 150, 260, 1000, 562, 26)   # video slot (YouTube end-screen element goes here)
     ctx.set_source_rgba(1, 1, 1, 0.9 * a)
     ctx.set_line_width(8)
@@ -293,7 +297,11 @@ def _wide(c):
 
 def expand(spec):
     kks = [b.get("kk", []) for b in spec["beats"]]   # the macros rebuild each line, so carry the overlays by index
+    helm = [b.get("helmet") for b in spec["beats"]]   # opt-in line key (myth episode): Meatball's bubble helmet
     out = _orig_expand(spec)
+    for b, h in zip(out["beats"], helm):
+        if h is not None and isinstance(b.get("mb"), dict):
+            b["mb"]["helmet"] = bool(h)
     for b, kk in zip(out["beats"], kks):
         for s in b.get("shots", []):
             for k in ("cam", "to"):
@@ -389,7 +397,9 @@ def build(outline, out_spec):
                            "p": {"on": 0.0, "n": 0, "label": lk.get("label", "LOCK IT IN") if isinstance(lk, dict) else "LOCK IT IN"},
                            "set": sets})
             if ln.get("end"):
-                kk.append({"id": "end", "type": "kk_end", "pos": [0, 0], "front": True, "p": {"on": 0.0},
+                kk.append({"id": "end", "type": "kk_end", "pos": [0, 0], "front": True,
+                           "p": {"on": 0.0, **({"label": o["end_label"]} if o.get("end_label") else {}),
+                                 **({"ask": o["end_ask"]} if o.get("end_ask") else {})},
                            "set": [{"at": "100%", "dur": 0.5, "p": {"on": 1.0}}]})
             if kk:
                 b["kk"] = kk

@@ -69,7 +69,7 @@
     },
     {
      "m": "escalate",
-     "say": "One of them hunts the others in the dark. And one will crawl across your face.",
+     "say": "One of them hunts the others in the dark. And one is on your face right now.",
      "scene": "bathroom",
      "scene_p": {
       "time": "night"
@@ -100,7 +100,7 @@
     },
     {
      "m": "escalate",
-     "say": "And the worst one doesn't show up until five AM.",
+     "say": "And we'll get to the worst one at five AM.",
      "scene": "skin",
      "card": {
       "rows": [
@@ -259,16 +259,16 @@
     },
     {
      "m": "fact",
-     "say": "One egg case can hatch up to forty babies.",
+     "say": "A German cockroach egg case can hatch up to forty babies.",
      "card": {
       "rows": [
        [
-        "40",
+        "UP TO 40",
         "#ffd34d",
         120
        ],
        [
-        "BABIES PER EGG CASE",
+        "GERMAN COCKROACH EGG CASE",
         "#ffffff",
         46,
         true
@@ -280,7 +280,7 @@
     },
     {
      "m": "escalate",
-     "say": "And one female can turn into thousands of roaches in under a year.",
+     "say": "And one German roach can turn into thousands in under a year.",
      "scene": "kitchen",
      "scene_p": {
       "time": "night"
@@ -416,7 +416,7 @@
     },
     {
      "m": "fact",
-     "say": "It's not even from here. It came from around the Mediterranean, and was first found in Pennsylvania in 1849.",
+     "say": "It's not even from here. It came from around the Mediterranean, and was seen in Pennsylvania as early as 1849.",
      "scene": "garden",
      "scene_p": {
       "time": "night"
@@ -424,7 +424,7 @@
     },
     {
      "m": "fact",
-     "say": "So if you see one, it's finding food in your house. Which means you have other bugs.",
+     "say": "So if you keep seeing them, they've found food. You may have other bugs.",
      "pose": "facepalm",
      "scene": "kitchen",
      "scene_p": {
@@ -441,7 +441,7 @@
     },
     {
      "m": "calm",
-     "say": "Can it bite you? Only if you grab it, and experts say it isn't dangerous.",
+     "say": "Can it bite? Rarely, mostly if you grab it. It can hurt, but it isn't considered dangerous.",
      "scene": "study",
      "scene_p": {
       "time": "night"
@@ -618,7 +618,7 @@
     },
     {
      "m": "fact",
-     "say": "It hangs from a single silk thread, all night.",
+     "say": "Some jumping spiders hang from a single silk thread, all night.",
      "scene": "sill",
      "scene_p": {
       "time": "night"
@@ -626,7 +626,7 @@
     },
     {
      "m": "xray",
-     "say": "And scientists filmed its eyes twitching, in a sleep-like state. They think it might even be dreaming.",
+     "say": "And scientists filmed its eyes twitching, in a sleep-like state. And scientists wonder if it might even be dreaming.",
      "scene": "microscope"
     },
     {
@@ -653,7 +653,7 @@
    "_sources": [
     "Burke Museum, Spider Myths",
     "Scientific American (2014), Fact or fiction: we swallow spiders in our sleep",
-    "Penn State Extension, Cellar Spiders",
+    "Missouri Dept. of Conservation, Cellar Spiders",
     "UC Riverside Spider Research (R. Vetter)"
    ],
    "lines": [
@@ -693,7 +693,7 @@
     },
     {
      "m": "fact",
-     "say": "The spider most likely near your bed? A skinny cellar spider in the corner. And it mostly hunts other spiders.",
+     "say": "Ever see a skinny spider in a ceiling corner? A cellar spider. It eats bugs, and other spiders too.",
      "scene": "basement",
      "scene_p": {
       "time": "night"
@@ -740,7 +740,7 @@
    "lines": [
     {
      "m": "name",
-     "say": "Four AM. If you have bed bugs, this is feeding time. Usually just before dawn.",
+     "say": "Four AM. If you have bed bugs, this is feeding time. They bite while you sleep.",
      "card": {
       "rows": [
        [
@@ -761,7 +761,7 @@
     },
     {
      "m": "chase",
-     "say": "They find you by your breath. The carbon dioxide you breathe out leads them right to you."
+     "say": "They find you by your breath. The carbon dioxide you breathe out helps guide them to you."
     },
     {
      "m": "xray",
@@ -802,7 +802,7 @@
     },
     {
      "m": "calm",
-     "say": "The CDC says they're not known to spread disease. But the bites itch, a lot.",
+     "say": "The CDC says they're not known to spread disease. Bites may itch, or you may feel nothing.",
      "scene": "study",
      "scene_p": {
       "time": "night"
@@ -857,7 +857,7 @@
     },
     {
      "m": "fact",
-     "say": "They're called Demodex. They live head down in the pores of your face, eating the oil.",
+     "say": "They're called Demodex. They live in the pores of your face, eating the oil.",
      "scene": "microscope"
     },
     {
@@ -867,12 +867,12 @@
     },
     {
      "m": "xray",
-     "say": "Scientists checked adults, and found them on every single person they tested.",
+     "say": "Scientists tested adults, and found mite DNA on every single person they tested.",
      "scene": "skin"
     },
     {
      "m": "escalate",
-     "say": "And at night, they crawl out of your pores, across your face, to find a mate.",
+     "say": "And at night, they move between your pores, on your face, to find a mate.",
      "scene": "skin"
     },
     {

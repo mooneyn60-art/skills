@@ -61,7 +61,7 @@
      "card": {
       "rows": [
        [
-        "NEVER EATS",
+        "ADULT MOTHS NEVER EAT",
         "#ff4b3e",
         130
        ]
@@ -81,6 +81,10 @@
        "xray": "gut"
       }
      }
+    },
+    {
+     "m": "escalate",
+     "say": "Eight bugs. Three to keep, five to kill."
     },
     {
      "m": "chase",
@@ -161,14 +165,6 @@
      }
     },
     {
-     "m": "fact",
-     "say": "Before they hatch, mom drags her egg sac around, stuck to the tip of her body.",
-     "scene": "forest_floor",
-     "scene_p": {
-      "time": "night"
-     }
-    },
-    {
      "m": "escalate",
      "say": "And that lumpy back? It's covered in babies. Mom carries them everywhere.",
      "scene": "forest_floor",
@@ -177,24 +173,8 @@
      }
     },
     {
-     "m": "fact",
-     "say": "It hunts at night, and hides under things during the day.",
-     "scene": "basement",
-     "scene_p": {
-      "time": "night"
-     }
-    },
-    {
-     "m": "fact",
-     "say": "Depending on the kind, it's a quarter inch to a full inch long.",
-     "scene": "study",
-     "scene_p": {
-      "time": "night"
-     }
-    },
-    {
      "m": "calm",
-     "say": "Venom? Yes, like most spiders. But it only bites if you grab it or trap it against your skin.",
+     "say": "Venom? Yes, like most spiders. It only bites if you grab it or trap it.",
      "scene": "study",
      "scene_p": {
       "time": "night"
@@ -202,7 +182,7 @@
     },
     {
      "m": "fact",
-     "say": "Even then, the redness usually fades within a day. And the bug on your floor? That's dinner.",
+     "say": "Even then, the redness usually fades in a day. And the bugs on your floor? That's its dinner.",
      "scene": "kitchen",
      "scene_p": {
       "time": "night"
@@ -210,7 +190,11 @@
     },
     {
      "m": "fact",
-     "say": "Verdict: keep it. Scary to look at, harmless to you, and a really good mom.",
+     "say": "Not sure what spider it is? Don't touch it."
+    },
+    {
+     "m": "fact",
+     "say": "Verdict: keep it. Scary to look at, and a really good mom.",
      "board": {
       "add": true,
       "drop_at": "10%",
@@ -272,14 +256,6 @@
      }
     },
     {
-     "m": "fact",
-     "say": "By day, it hides in dark, cool, damp places.",
-     "scene": "garden",
-     "scene_p": {
-      "time": "day"
-     }
-    },
-    {
      "m": "escalate",
      "say": "So, does it crawl into ears? One entomologist searched ten centuries of writing.",
      "scene": "study",
@@ -314,6 +290,10 @@
     },
     {
      "m": "fact",
+     "say": "My roommate wore earmuffs to bed for a week anyway."
+    },
+    {
+     "m": "fact",
      "say": "At night it hunts in the garden. Aphids, and insect eggs.",
      "scene": "garden",
      "scene_p": {
@@ -326,11 +306,6 @@
      "scene": "microscope"
     },
     {
-     "m": "fact",
-     "say": "Most earwigs have wings, folded under short hard covers. But they seldom fly.",
-     "scene": "microscope"
-    },
-    {
      "m": "calm",
      "say": "It can pinch you, if one gets trapped in your clothes. That's about it.",
      "scene": "bedroom",
@@ -340,7 +315,7 @@
     },
     {
      "m": "fact",
-     "say": "Verdict: keep it. Toss it back outside, your ears are safe.",
+     "say": "Verdict: keep it. Toss it back outside. Your ears? Almost certainly safe.",
      "board": {
       "add": true,
       "drop_at": "10%",
@@ -425,7 +400,7 @@
     },
     {
      "m": "fact",
-     "say": "Most camel crickets in American homes aren't even from here.",
+     "say": "In the eastern U.S., most camel crickets in homes aren't even from here.",
      "scene": "garden",
      "scene_p": {
       "time": "night"
@@ -454,14 +429,6 @@
       ],
       "y": 120,
       "at": "40%"
-     }
-    },
-    {
-     "m": "fact",
-     "say": "The Asian one first showed up here in eighteen ninety eight, in a Minnesota greenhouse.",
-     "scene": "garden",
-     "scene_p": {
-      "time": "day"
      }
     },
     {
@@ -531,7 +498,7 @@
    "lines": [
     {
      "m": "name",
-     "say": "Now, the kill pile. But this first one? Don't squish it. The stink bug.",
+     "say": "Now, the kill pile. Five bugs. And the first one? Don't squish it. The stink bug.",
      "card": {
       "rows": [
        [
@@ -556,14 +523,6 @@
      "scene": "garden",
      "scene_p": {
       "time": "dusk"
-     }
-    },
-    {
-     "m": "fact",
-     "say": "It came from East Asia, and was first collected in Allentown, Pennsylvania, in nineteen ninety eight.",
-     "scene": "study",
-     "scene_p": {
-      "time": "day"
      }
     },
     {
@@ -664,7 +623,7 @@
    "lines": [
     {
      "m": "name",
-     "say": "The next one is already inside your walls. Carpenter ants.",
+     "say": "The next one may already be inside your walls. Carpenter ants.",
      "card": {
       "rows": [
        [
@@ -681,31 +640,6 @@
       ],
       "y": 150,
       "at": "30%"
-     }
-    },
-    {
-     "m": "fact",
-     "say": "The queen can be an inch long.",
-     "scene": "forest_floor",
-     "scene_p": {
-      "time": "night"
-     },
-     "card": {
-      "rows": [
-       [
-        "1 INCH",
-        "#ffd34d",
-        130
-       ],
-       [
-        "THE QUEEN",
-        "#ffffff",
-        46,
-        true
-       ]
-      ],
-      "y": 120,
-      "at": "35%"
      }
     },
     {
@@ -792,7 +726,7 @@
    "lines": [
     {
      "m": "name",
-     "say": "The next one is older than the dinosaurs, and it's eating your books. Silverfish.",
+     "say": "The next one's family is older than the dinosaurs, and it's eating your books. Silverfish.",
      "card": {
       "rows": [
        [
@@ -817,11 +751,6 @@
      "scene": "microscope"
     },
     {
-     "m": "xray",
-     "say": "Two long antennae up front, and three long bristles out the back.",
-     "scene": "microscope"
-    },
-    {
      "m": "escalate",
      "say": "It eats starch. Glue, paste, and paper.",
      "scene": "study",
@@ -836,6 +765,10 @@
      "scene_p": {
       "time": "night"
      }
+    },
+    {
+     "m": "fact",
+     "say": "It ate my roommate's diary. Honestly, it did us a favor."
     },
     {
      "m": "fact",
@@ -977,7 +910,7 @@
     },
     {
      "m": "fact",
-     "say": "Fun fact. Fruit flies were the first animals ever sent to space, in 1947.",
+     "say": "Fun fact. In 1947, fruit flies became the first animals brought back alive from space.",
      "scene": "study",
      "scene_p": {
       "time": "night"
@@ -1036,7 +969,7 @@
         104
        ],
        [
-        "NEVER EATS",
+        "ADULTS NEVER EAT",
         "#ffffff",
         46,
         true
@@ -1098,14 +1031,6 @@
      }
     },
     {
-     "m": "fact",
-     "say": "Cotton and synthetics? Rarely touched, unless they're blended with wool.",
-     "scene": "study",
-     "scene_p": {
-      "time": "day"
-     }
-    },
-    {
      "m": "xray",
      "say": "Some carry a little silk case that turns the color of whatever they're eating.",
      "scene": "fibers"
@@ -1133,7 +1058,7 @@
    "lines": [
     {
      "m": "fact",
-     "say": "So, which one is in your house right now? Tell me in the comments.",
+     "say": "So, which one is in your house right now? Tell me in the comments. And for seven more, watch this next.",
      "scene": "bedroom",
      "scene_p": {
       "time": "night"
