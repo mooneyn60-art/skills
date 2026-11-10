@@ -16,13 +16,15 @@ blue (#1f6fd1) or any #hex.
 Spec keys (JSON; CLI flags map onto the same keys):
   name        output basename (with --out-dir) / label
   out         output path (.jpg)
-  creature    {"kind": wolf_spider | cellar_spider | house_centipede, "box": [x, y, w, h], "rot": deg,
+  creature    {"kind": wolf_spider | cellar_spider | house_centipede | egg_case_twig (mantis egg case on a fir twig;
+               "ornament": true adds a hanging red glass ball), "box": [x, y, w, h], "rot": deg,
                "zoom": 1.0 (>1 lets legs run off the box/frame), "look": [dx, dy] pupils, "mood": worried | happy}
   headline    "LINE|LINE" with *accent*;  accent: red | blue | #hex;  font: marker | gochi
   text_box    [x0, y0, x1, y1] where the words go (default: right 40% of the frame); text_rot: deg
   shoe        false | {"corner": tl | tr, "size": px sole length, "at": [x, y] toe-in centre, "rot": deg}
   arrow       false | {"from": [x, y], "to": [x, y], "bend": -1..1, "color": "#hex"}
   meatball    false | {"at": [x, y] feet, "h": px tall, "look": [dx, dy]}   (the brand host, arms out)
+  shears      false | {"at": [x, y] pivot, "rot": deg (blades point along +x), "size": px, "open": deg}   (pruning shears)
   web         false | true (a few cobweb strands in the top-left corner: cellar spider)
 """
 import argparse
@@ -495,7 +497,148 @@ def house_centipede(ctx, o):
         cartoon_eye(ctx, hx + 80, hy + s * 52, 46, look, lw * 0.9, brow=None)
 
 
-CREATURES = {"wolf_spider": wolf_spider, "cellar_spider": cellar_spider, "house_centipede": house_centipede}
+def egg_case_twig(ctx, o):
+    """A mantis egg case (ootheca) glued to a short fir twig, drawn horizontal (rotate it with "rot"): dark stem with
+    two rows of green needles, a lumpy tan foam case with horizontal ridges, bubbles, highlight and shadow, optional
+    red glass ornament hanging from the twig (o["ornament"]). Light from the top left."""
+    lw = o["lw"]
+    rng = random.Random(11)
+    green, wood = hexf("#2f8a4e"), hexf("#5a3a22")
+    foam, foam_d, foam_l = hexf("#dcb978"), hexf("#a67c3c"), hexf("#f6e6b8")
+    L0, L1 = -470, 470
+    stem = [(L0, 60), (L0 / 2, 34), (0, 18), (L1 / 2, 2), (L1, -22)]
+
+    def at(u):          # point and tangent along the stem
+        i = min(int(u * 4), 3)
+        f = u * 4 - i
+        a, b = stem[i], stem[i + 1]
+        return (a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f), math.atan2(b[1] - a[1], b[0] - a[0])
+
+    def needles(row):
+        n = 14
+        for k in range(n):
+            u = 0.04 + 0.92 * (k + 0.5 * row) / (n - 0.5)
+            (x, y), ang = at(u)
+            length = 215 - 70 * u + 25 * math.sin(k * 1.7)
+            if row == 0:        # far row: up and forward, darker
+                a2 = ang - 0.95 + rng.uniform(-0.08, 0.08)
+                col = darker(green, 0.7)
+            else:               # near row: down and forward, lighter
+                a2 = ang + 0.95 + rng.uniform(-0.08, 0.08)
+                col = green
+            e = (x + length * math.cos(a2), y + length * math.sin(a2))
+            nx, ny = -math.sin(a2), math.cos(a2)
+            nd = lambda c: smooth(c, [(x + nx * 24, y + ny * 24), (x + (e[0] - x) * 0.55 + nx * 22, y + (e[1] - y) * 0.55 + ny * 22),
+                                      e, (x + (e[0] - x) * 0.55 - nx * 22, y + (e[1] - y) * 0.55 - ny * 22),
+                                      (x - nx * 24, y - ny * 24)], close=False)
+            ctx.new_path()
+            nd(ctx)
+            ctx.close_path()
+            src(ctx, col)
+            ctx.fill_preserve()
+            src(ctx, INK)
+            ctx.set_line_width(lw)
+            ctx.set_line_join(cairo.LINE_JOIN_ROUND)
+            ctx.stroke()
+            line(ctx, [(x + 5, y + 5), (x + (e[0] - x) * 0.75, y + (e[1] - y) * 0.75)], 7, lighter(col, 0.4), a=0.85)
+    needles(0)
+    # the stem
+    line(ctx, stem, 50 + 2 * lw, INK, curve=True)
+    line(ctx, stem, 50, wood, curve=True)
+    line(ctx, [(x, y + 11) for x, y in stem], 20, darker(wood, 0.6), curve=True, cap=cairo.LINE_CAP_BUTT)
+    line(ctx, [(x + 10, y - 13) for x, y in stem[1:4]], 7, lighter(wood, 0.5), a=0.8, curve=True)
+    needles(1)
+    # ornament: a string hung from the twig's left end, silver cap, red glass ball with a window highlight
+    orn = o.get("ornament")
+    if orn:
+        ox, oy = -330, 400
+        sx, sy = at(0.12)[0]
+        line(ctx, [(sx, sy + 20), (ox, oy - 120)], 12 + 2 * lw * 0.5, INK)
+        line(ctx, [(sx, sy + 20), (ox, oy - 120)], 7, (0.85, 0.8, 0.6))
+        part(ctx, lambda c: c.rectangle(ox - 28, oy - 146, 56, 40), hexf("#d9d9d4"), lw, shade=(-6, -8), shade_k=0.75)
+        ball = lambda c: ellipse(c, ox, oy, 135, 135)
+        part(ctx, ball, hexf("#d8262c"), lw, shade=(-28, -34), shade_k=0.62,
+             hi=[(ox - 48, oy - 50, 30, 44, 0.6)], hi_k=0.6, hi_a=0.95)
+        ctx.save()
+        ball(ctx)
+        ctx.clip()
+        ellipse(ctx, ox + 60, oy + 64, 50, 22, -0.8)
+        src(ctx, (1, 0.7, 0.6), 0.35)
+        ctx.fill()
+        ctx.restore()
+    # the egg case: a lumpy oval, tilted a little, standing on the twig
+    cx, cy, rx, ry, tilt = 20, -205, 335, 235, -0.06
+    pts = []
+    for k in range(30):
+        a = 2 * math.pi * k / 30
+        r = 1 + 0.05 * math.sin(2 * a + 1) + 0.04 * math.sin(5 * a + 2) + rng.uniform(-0.03, 0.035)
+        pts.append((cx + rx * r * math.cos(a), cy + ry * r * math.sin(a)))
+    # glue: foam flowing down onto the stem
+    glue = lambda c: smooth(c, [(cx - 210, cy + 190), (cx - 130, 8), (cx + 10, 14), (cx + 150, 2), (cx + 230, cy + 190)])
+    part(ctx, glue, foam_d, lw, shade=(0, 0))
+    body = lambda c: smooth(c, pts)
+    part(ctx, body, foam, lw, shade=(-50, -56), shade_k=0.74, outline=False)
+    ctx.save()
+    body(ctx)
+    ctx.clip()
+    ctx.translate(cx, cy)
+    ctx.rotate(tilt)
+    # horizontal ridges: sagging wavy grooves (read as bands round a barrel) with a light lip under each
+    n = 8
+    for k in range(n):
+        y = -ry * 0.86 + (2 * ry * 0.86) * k / (n - 1)
+        sag = 30 * (1 - (abs(y) / ry) ** 2) ** 0.5 + 14
+        wv = [(x, y + sag * (1 - (x / (rx + 30)) ** 2) + 7 * math.sin(x / 45 + k * 1.9))
+              for x in range(-int(rx) - 30, int(rx) + 31, 30)]
+        line(ctx, [(x, yy + 12) for x, yy in wv], 12, foam_l, a=0.8, curve=True)
+        line(ctx, wv, 17, foam_d, a=0.95, curve=True)
+    # bubbles in the foam
+    for k in range(22):
+        bx, by = rng.uniform(-rx * 0.9, rx * 0.9), rng.uniform(-ry * 0.85, ry * 0.85)
+        br = rng.uniform(12, 24)
+        ellipse(ctx, bx, by, br, br * 0.85)
+        src(ctx, foam_l, 0.9)
+        ctx.fill_preserve()
+        src(ctx, foam_d, 0.9)
+        ctx.set_line_width(5)
+        ctx.stroke()
+        ellipse(ctx, bx - br * 0.3, by - br * 0.3, br * 0.28, br * 0.22)
+        src(ctx, (1, 1, 1), 0.9)
+        ctx.fill()
+    ctx.restore()
+    # big soft highlight top left, rim shadow bottom right
+    ctx.save()
+    body(ctx)
+    ctx.clip()
+    ctx.new_path()
+    body(ctx)
+    ctx.set_source_rgba(0.45, 0.28, 0.1, 0.4)
+    ctx.set_line_width(70)
+    ctx.save()
+    ctx.translate(-34, -40)
+    ctx.new_path()
+    ctx.rectangle(-2000, -2000, 4000, 4000)
+    body(ctx)
+    ctx.set_fill_rule(cairo.FILL_RULE_EVEN_ODD)
+    ctx.fill()
+    ctx.restore()
+    ellipse(ctx, cx - 140, cy - 120, 80, 40, -0.6)
+    src(ctx, (1, 1, 0.92), 0.5)
+    ctx.fill()
+    ellipse(ctx, cx - 190, cy - 20, 22, 40, -0.3)
+    src(ctx, (1, 1, 0.92), 0.5)
+    ctx.fill()
+    ctx.restore()
+    ctx.new_path()
+    body(ctx)
+    src(ctx, INK)
+    ctx.set_line_width(lw * 1.1)
+    ctx.set_line_join(cairo.LINE_JOIN_ROUND)
+    ctx.stroke()
+
+
+CREATURES = {"wolf_spider": wolf_spider, "cellar_spider": cellar_spider, "house_centipede": house_centipede,
+             "egg_case_twig": egg_case_twig}
 
 
 # ================================================================= layers
@@ -657,6 +800,65 @@ def shoe_layers(s):
         ctx.fill()
     sh = layer(shadow)
     sh.putalpha(sh.getchannel("A").point(lambda v: int(v * s.get("shadow_a", 0.40))).filter(ImageFilter.GaussianBlur(26)))
+    return layer(draw), sh
+
+
+# ---------------------------------------------------------------- pruning shears
+
+def shears_draw(ctx, open_deg=14):
+    """Bypass pruning shears, pivot at the origin, blades toward +x (about 640 long), handles toward -x (about 520)."""
+    lw = 10
+    o = math.radians(open_deg)
+    steel, steel_d = hexf("#c9d3dc"), hexf("#7d8a96")
+    red, red_d = hexf("#d8262c"), hexf("#8f1519")
+    for sgn, hcol in ((-1, red), (1, hexf("#e9892b"))):       # handles (behind the blades)
+        ctx.save()
+        ctx.rotate(sgn * (o + 0.06) + math.pi)
+        hp = lambda c: smooth(c, [(0, -34), (200, -46), (500, -40), (540, 0), (500, 40), (200, 46), (0, 34)])
+        part(ctx, hp, hcol, lw, shade=(0, 14), hi=[(250, -20, 170, 10, 0)], hi_k=0.5)
+        ctx.restore()
+    for sgn in (-1, 1):                                            # blades
+        ctx.save()
+        ctx.rotate(sgn * o)
+        if sgn < 0:
+            bp = lambda c: smooth(c, [(-30, -34), (200, -52), (470, -44), (650, 0), (460, 8), (200, 22), (-30, 34)])
+        else:
+            bp = lambda c: smooth(c, [(-30, -34), (200, -22), (470, -8), (650, 0), (470, 44), (200, 52), (-30, 34)])
+        part(ctx, bp, steel, lw, shade=(0, 12 * -sgn), hi=[(300, -16 * sgn, 190, 7, 0)], hi_k=0.6, shade_k=0.8)
+        ctx.restore()
+    ellipse(ctx, 0, 0, 34, 34)
+    src(ctx, steel_d)
+    ctx.fill_preserve()
+    src(ctx, INK)
+    ctx.set_line_width(lw)
+    ctx.stroke()
+    ellipse(ctx, -8, -8, 10, 10)
+    src(ctx, (1, 1, 1), 0.7)
+    ctx.fill()
+
+
+def shears_layers(s):
+    at, rot, k = s.get("at", (330, 120)), math.radians(s.get("rot", 30)), s.get("size", 1000) / 1170.0
+
+    def place(ctx):
+        ctx.translate(*at)
+        ctx.rotate(rot)
+        ctx.scale(k, k)
+
+    def draw(ctx):
+        place(ctx)
+        shears_draw(ctx, s.get("open", 14))
+
+    def shadow(ctx):
+        sx, sy = s.get("shadow", (40, 70))
+        ctx.translate(sx, sy)
+        place(ctx)
+        ctx.new_path()
+        ctx.rectangle(-540, -48, 1190, 96)
+        src(ctx, (0.12, 0.1, 0.1), 1)
+        ctx.fill()
+    sh = layer(shadow)
+    sh.putalpha(sh.getchannel("A").point(lambda v: int(v * s.get("shadow_a", 0.35))).filter(ImageFilter.GaussianBlur(22)))
     return layer(draw), sh
 
 
@@ -868,6 +1070,10 @@ def render(spec):
         im.alpha_composite(ml)
     if shoe:
         im.alpha_composite(sl)
+    if spec.get("shears"):
+        shl, shsh = shears_layers(spec["shears"])
+        im.alpha_composite(shsh)
+        im.alpha_composite(shl)
     if spec.get("arrow"):
         im.alpha_composite(arrow_layer(spec["arrow"], rng))
     im.alpha_composite(lettering(spec, rng))
@@ -895,7 +1101,7 @@ def _label_font(px):
     return ImageFont.load_default()
 
 
-def contact(paths, out_dir, compare=()):
+def contact(paths, out_dir, compare=(), prefix=""):
     """contact.jpg: every thumbnail 3-up at 640x360 with its name; contact_168.jpg: every thumbnail at YouTube's
     smallest size (168x94, 1:1 pixels) on a mid-grey feed-like background, next to the comparison thumbs."""
     names = [os.path.splitext(os.path.basename(p))[0] for p in paths]
@@ -908,7 +1114,7 @@ def contact(paths, out_dir, compare=()):
         x, y = pad + (i % cols) * (tw + pad), pad + (i // cols) * (th + lab + pad)
         sheet.paste(Image.open(p).convert("RGB").resize((tw, th), Image.LANCZOS), (x, y + lab))
         d.text((x, y + 4), n, font=f, fill=(235, 235, 235))
-    sheet.save(os.path.join(out_dir, "contact.jpg"), quality=90)
+    sheet.save(os.path.join(out_dir, prefix + "contact.jpg"), quality=90)
     tiles = [(p, n) for p, n in zip(paths, names)] + [(p, "OLD " + os.path.splitext(os.path.basename(p))[0])
                                                       for p in compare]
     cols, tw, th, pad, lab = 5, 168, 94, 18, 16
@@ -924,7 +1130,7 @@ def contact(paths, out_dir, compare=()):
         x, y = pad + c * (tw + pad), 22 + pad + r * (th + lab + pad)
         sm.paste(Image.open(p).convert("RGB").resize((tw, th), Image.LANCZOS), (x, y))
         d.text((x, y + th + 3), n, font=f, fill=(245, 245, 245))
-    sm.save(os.path.join(out_dir, "contact_168.jpg"), quality=92)
+    sm.save(os.path.join(out_dir, prefix + "contact_168.jpg"), quality=92)
 
 
 def main():
@@ -941,6 +1147,7 @@ def main():
     ap.add_argument("--no-arrow", action="store_true")
     ap.add_argument("--meatball", action="store_true", help="small Meatball, arms out, between shoe and creature")
     ap.add_argument("--contact", metavar="DIR", help="with --json: also write DIR/contact.jpg + contact_168.jpg")
+    ap.add_argument("--contact-prefix", default="", help="with --contact: file prefix, e.g. xmas_ -> xmas_contact.jpg")
     ap.add_argument("--compare", nargs="*", default=[], help="existing thumbs to show in contact_168.jpg")
     a = ap.parse_args()
     if a.json:
@@ -956,8 +1163,9 @@ def main():
             print(*save(render(s), out))
             done.append(out)
         if a.contact:
-            contact(done, a.contact, a.compare)
-            print(os.path.join(a.contact, "contact.jpg"), os.path.join(a.contact, "contact_168.jpg"))
+            contact(done, a.contact, a.compare, a.contact_prefix)
+            print(os.path.join(a.contact, a.contact_prefix + "contact.jpg"),
+                  os.path.join(a.contact, a.contact_prefix + "contact_168.jpg"))
         return
     spec = {"creature": {"kind": a.creature, "box": [30, 140, 760, 560], "rot": -8, "look": [-0.6, -0.7]},
             "headline": a.headline, "accent": a.accent, "font": a.font,

@@ -47,3 +47,6 @@ The lettering font is Permanent Marker (Apache 2.0), in brand/fonts/ (see LICENS
 7. **kk2_b** (kk2_a plus Meatball, arms out): this is the brand twist. Weak: Meatball is only 320 px tall, with a brown head next to a brown spider, so at 168 he is a small brown dot on a stick. He also shrinks the spider and the words, which hurts the two things that drive the click.
 
 Ship first: kk2_a for Kill-or-Keep 2, centipede_a for the centipede episode, and cellarspider_a for the cellar spider episode. Use the B/C variants as the "Test & compare" challengers.
+
+Christmas-tree egg-case set (subject `egg_case_twig`, optional `"ornament": true`, `shears` spec key): render with `python3 tools/thumb_dontkill.py --json episodes/thumbs-dontkill/specs.json --only xmas_a` (same for xmas_b, xmas_c); the contact sheets xmas_contact.jpg / xmas_contact_168.jpg come from `thumb_dontkill.contact([...], dir, [], "xmas_")`.
+Ship xmas_a first: "CHECK FOR THIS" has the biggest words at 168 px, the red ornament says Christmas tree at a glance, and it keeps the curiosity gap the title opens; xmas_b gives away the payoff and xmas_c has smaller words plus the shears covering the corner (use them as the test challengers).
