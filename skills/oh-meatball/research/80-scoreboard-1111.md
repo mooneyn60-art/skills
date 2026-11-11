@@ -29,3 +29,9 @@ Subscribers: 1,000 (Windsor `subscriber_count`, rounded by YouTube; last data 11
 
 ## Could not measure
 Average % viewed for any Short posted 11/9 or later; stayed-to-watch for any video; exact views above 1K (rounded) and any hourly growth; TikTok watch time and reach; today's posts; the 118% Studio figure; views since 11/8 in channel totals.
+
+## 6 PM read (11/11, about 18:05 ET)
+- **Published today on YouTube:** long-form "3 More Bugs in Your House You Should Never Kill (And 5 You Must)" (v3, light spice) at 17:00, https://www.youtube.com/watch?v=xeAsg5ECpgw ; spiced joke Shorts #53 roach at 12:30 (https://www.youtube.com/shorts/IvskPD8cY8I) and #51 boxelder at 14:30 (https://www.youtube.com/shorts/sPrA70BWGtg). Source: Metricool post status. No view counts yet (YouTube pages cannot be read from this machine; Metricool lags).
+- **Sweary-joke TikTok (posted 11:32 ET):** 19 views, 1 like, 0 comments, 0 shares at 6.5 hours. Source: the video's public TikTok page; Metricool had no row yet. Yesterday's three posts stand at 140, 256 and 618 after 25 to 30 hours. Slow, not a verdict; no flag on the page.
+- **New lead, research 82:** TikTok labels our drawn videos "Comics & Cartoon, Anime" (median 340 views, n=20) and our old real-photo ones "Animals" or "Education" (median 615, n=10). Options are with Nolan.
+

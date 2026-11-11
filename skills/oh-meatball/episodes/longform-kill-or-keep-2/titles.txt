@@ -28,3 +28,5 @@ Retention fixes vs Part 1 (lost ~45% in the first minute, second drop at ~2:20 a
 Rebuild: python3 tools/drawn_keepkill.py build scripts/longform-kill-or-keep-2.json SPEC.json
          python3 tools/drawn_keepkill.py render SPEC.json OUT.mp4 --work DIR
 Gates:   python3 tools/lf_gates.py OUT.mp4 --work DIR --spec SPEC.json --sheets DIR
+
+Published Wed 2026-11-11 17:00 ET: https://www.youtube.com/watch?v=xeAsg5ECpgw (v3). A/B test still to add in Studio: thumbs-dontkill/kk2_c.jpg and the old thumb_a.jpg.
