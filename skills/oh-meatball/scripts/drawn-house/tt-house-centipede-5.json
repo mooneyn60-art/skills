@@ -1,0 +1,609 @@
+{
+ "series": "Things Living In Your House",
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "stage": {
+  "creature": "house_centipede",
+  "scene": "bathroom",
+  "scene_p": {
+   "time": "night"
+  },
+  "s": 1.25,
+  "actor": "house_centipede"
+ },
+ "cap_key": [
+  "you",
+  "your",
+  "leg",
+  "back",
+  "molt",
+  "antennae",
+  "inch",
+  "inches",
+  "spiders",
+  "bed",
+  "bugs",
+  "night",
+  "hides",
+  "never",
+  "drains",
+  "bigger",
+  "stay",
+  "squish",
+  "swell",
+  "three",
+  "four",
+  "twice"
+ ],
+ "cut_whoosh": true,
+ "sources": [
+  "Frontiers in Zoology 2024 (Barutia & Sombke), via research/74: \"The trochanter exhibits a preferred breakage point.\"; \"In the latter, the appendage is fully regenerated after one molt. This term was used for house centipedes.\"; this \"allows these animals to easily lose legs in order to escape predators.\"; https://frontiersinzoology.biomedcentral.com/articles/10.1186/s12983-024-00544-0",
+  "Connecticut Agricultural Experiment Station fact sheet: antennae \"similar in appearance to their legs, making it difficult for potential predators to tell which way it is facing\"; \"nocturnal and incredibly wary. Most that live in houses are never seen\"; \"will immediately flee if they are discovered\"; \"actively hunt other arthropods such as cockroach nymphs, bed bugs, flies, ants, silverfish, spiders\"; \"prefer cool, humid, dark environments\"; https://portal.ct.gov/-/media/caes/documents/publications/fact_sheets/entomology/house_centipede_scutigera.pdf",
+  "Penn State Extension, House Centipedes: \"one to one and one-half inches in length ... an overall appearance of being from three to four inches in length (including legs and antennae)\"; \"the last pair (on adult females) nearly twice the length of the body\"; \"In floor drains without water traps\", \"Under and in cardboard boxes\", \"crawl spaces\"; \"come out at night to forage for prey\"; \"may signify a greater problem than the presence of the centipedes\"; sticky traps show which arthropods feed them; \"Reduce the humidity\"; https://extension.psu.edu/house-centipedes",
+  "University of Arkansas Arthropod Museum, House centipede: \"They can capture several prey items at one time. They feed on one specimen while holding the others\"; \"jaws are not powerful enough to break human skin easily\"; \"Severe swelling and pain can result from the venom injected, but in most cases the bite is no worse than the sting of a bee\"; https://arthropod.uark.edu/house-centipede/",
+  "CAES: a sting on a human is \"very rare ... the result of rough handling\" (research/74 fix C3: \"Almost never. Mostly if you grab it.\")"
+ ],
+ "title": "Weird Facts About the 30-Legged Bug in Your Bathroom ()",
+ "tiktok_title": "House Centipede: The Leg It Drops and Where It Hides",
+ "tiktok_caption": "house centipede in your bathroom 🐛 it can drop a leg to escape and usually regrows it by its next molt. Seeing lots of them may mean you have lots of other bugs. Stay or squish? 🐛✅ or 👟💥 #housecentipede #bugsinhouse #learnontiktok #thingslivinginyourhouse #meatballmyths",
+ "beats": [
+  {
+   "m": "hook",
+   "say": "Your bathroom bug can drop a leg to escape you.",
+   "card": {
+    "rows": [
+     [
+      "DROPS A LEG",
+      "#ff4b3e",
+      130
+     ],
+     [
+      "TO ESCAPE",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   },
+   "open": "animal",
+   "gag": {
+    "mark": "shock"
+   }
+  },
+  {
+   "m": "chase",
+   "say": "Each leg has a built-in breaking point.",
+   "scene": "kitchen",
+   "card": {
+    "rows": [
+     [
+      "BREAKING POINT",
+      "#ffd34d",
+      100
+     ],
+     [
+      "IN EVERY LEG",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "fact",
+   "say": "By its next molt, it usually grows the leg back.",
+   "scene": "bedroom",
+   "card": {
+    "rows": [
+     [
+      "REGROWN",
+      "#7bd88f",
+      130
+     ],
+     [
+      "BY THE NEXT MOLT",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "tiny",
+   "say": "Those long things up front? Antennae that look like legs.",
+   "scene": "study",
+   "card": {
+    "rows": [
+     [
+      "ANTENNAE",
+      "#ffd34d",
+      120
+     ],
+     [
+      "LOOK LIKE LEGS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "fact",
+   "say": "Predators struggle to tell which end is the head.",
+   "scene": "basement",
+   "card": {
+    "rows": [
+     [
+      "WHICH END?",
+      "#ffd34d",
+      130
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "scale",
+   "say": "Its body is only an inch or so long.",
+   "scene": "bathroom",
+   "card": {
+    "rows": [
+     [
+      "1 TO 1.5 INCHES",
+      "#ffd34d",
+      100
+     ],
+     [
+      "THE BODY",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false,
+   "how": "shrink"
+  },
+  {
+   "m": "scale",
+   "say": "Legs and antennae make it look three to four inches.",
+   "scene": "kitchen",
+   "card": {
+    "rows": [
+     [
+      "3 TO 4 INCHES",
+      "#ff4b3e",
+      110
+     ],
+     [
+      "WITH LEGS + ANTENNAE",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false,
+   "how": "grow"
+  },
+  {
+   "m": "fact",
+   "say": "On females, back legs reach nearly twice the body length.",
+   "scene": "bedroom",
+   "card": {
+    "rows": [
+     [
+      "BACK LEGS: 2X",
+      "#ffd34d",
+      110
+     ],
+     [
+      "ON FEMALES",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "tiny",
+   "say": "Babies hatch with just eight legs.",
+   "scene": "bathroom",
+   "card": {
+    "rows": [
+     [
+      "8 LEGS",
+      "#ffd34d",
+      150
+     ],
+     [
+      "AT BIRTH",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "fact",
+   "say": "Growing up can take three years or more.",
+   "scene": "kitchen",
+   "card": {
+    "rows": [
+     [
+      "3+ YEARS",
+      "#ffd34d",
+      140
+     ],
+     [
+      "TO GROW UP",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "xray",
+   "say": "It hunts spiders, silverfish, cockroaches, even bed bugs.",
+   "scene": "study",
+   "card": {
+    "rows": [
+     [
+      "ON THE MENU",
+      "#ffd34d",
+      110
+     ],
+     [
+      "SPIDERS - SILVERFISH - BED BUGS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "escalate",
+   "say": "It can catch several bugs at once.",
+   "scene": "basement",
+   "card": {
+    "rows": [
+     [
+      "SEVERAL AT ONCE",
+      "#ff4b3e",
+      100
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "fact",
+   "say": "It eats one while it holds the others.",
+   "scene": "kitchen",
+   "gag": false
+  },
+  {
+   "m": "escalate",
+   "say": "But here's where it hides while you're not looking.",
+   "scene": "bathroom",
+   "card": {
+    "rows": [
+     [
+      "WHERE IT HIDES",
+      "#ff4b3e",
+      100
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": {
+    "mark": "alarm"
+   }
+  },
+  {
+   "m": "tiny",
+   "say": "Dry floor drains. Under cardboard boxes. Crawl spaces.",
+   "scene": "basement",
+   "card": {
+    "rows": [
+     [
+      "DRY DRAINS",
+      "#ffd34d",
+      110
+     ],
+     [
+      "CARDBOARD - CRAWL SPACES",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "fact",
+   "say": "It comes out at night to hunt.",
+   "scene": "bedroom",
+   "card": {
+    "rows": [
+     [
+      "NIGHT SHIFT",
+      "#ffd34d",
+      120
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "chase",
+   "say": "Turn on the light, and it flees.",
+   "scene": "bathroom",
+   "card": {
+    "rows": [
+     [
+      "GONE",
+      "#ff4b3e",
+      150
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "fact",
+   "say": "Most house centipedes are never seen at all.",
+   "scene": "study",
+   "card": {
+    "rows": [
+     [
+      "NEVER SEEN",
+      "#ffd34d",
+      120
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "fact",
+   "say": "Some fall into your tub at night and get trapped.",
+   "scene": "bathroom",
+   "card": {
+    "rows": [
+     [
+      "STUCK IN THE TUB",
+      "#ffd34d",
+      100
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "xray",
+   "say": "Seeing lots? You may have a bigger bug problem.",
+   "scene": "kitchen",
+   "card": {
+    "rows": [
+     [
+      "MANY CENTIPEDES",
+      "#ff4b3e",
+      100
+     ],
+     [
+      "= MAYBE MANY BUGS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "fact",
+   "say": "They go where the food is.",
+   "scene": "basement",
+   "card": {
+    "rows": [
+     [
+      "FOOD = THEM",
+      "#ffd34d",
+      110
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "fact",
+   "say": "Sticky traps show what it's been eating.",
+   "scene": "study",
+   "card": {
+    "rows": [
+     [
+      "STICKY TRAPS",
+      "#ffd34d",
+      110
+     ],
+     [
+      "SHOW THE MENU",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "fact",
+   "say": "Dry the room. Fix leaks. Move the cardboard.",
+   "scene": "bathroom",
+   "card": {
+    "rows": [
+     [
+      "DRY IT OUT",
+      "#7bd88f",
+      110
+     ],
+     [
+      "FIX LEAKS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "fact",
+   "say": "It won't harm your pets, clothes, or house.",
+   "scene": "study",
+   "card": {
+    "rows": [
+     [
+      "HARMLESS",
+      "#7bd88f",
+      120
+     ],
+     [
+      "TO PETS + HOUSE",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "fact",
+   "say": "It almost never bites. Mostly if you grab it.",
+   "scene": "bedroom",
+   "card": {
+    "rows": [
+     [
+      "ALMOST NEVER",
+      "#7bd88f",
+      110
+     ],
+     [
+      "BITES",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "fact",
+   "say": "Usually it's like a bee sting. It can still swell.",
+   "scene": "kitchen",
+   "card": {
+    "rows": [
+     [
+      "CAN SWELL + HURT",
+      "#ffd34d",
+      90
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "punch",
+   "say": "Stay or squish?",
+   "scene": "bathroom",
+   "card": {
+    "rows": [
+     [
+      "STAY OR SQUISH?",
+      "#ffd34d",
+      96
+     ]
+    ],
+    "y": 470,
+    "at": 0.0
+   },
+   "pad": 1.6
+  }
+ ],
+ "loop": false,
+ "_note": "TikTok 1-min cut, Part 3 (new facts only vs Parts 1, 2, 4 and the 3A.M. cut). Lines from scripts/explainer/house-centipede-longform.json (fact-fixed) and research/74 'Script 2'."
+}

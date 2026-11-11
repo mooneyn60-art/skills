@@ -1,0 +1,1174 @@
+{
+ "series": "Things Living In Your House",
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "stage": {
+  "creature": "praying_mantis",
+  "scene": "kitchen",
+  "scene_p": {
+   "time": "night",
+   "props": [
+    [
+     "window",
+     120,
+     900,
+     1.0
+    ]
+   ]
+  },
+  "creature_cfg": {
+   "plan": "insect",
+   "label": "praying mantis",
+   "body": "long",
+   "color": "#7fbf4f",
+   "dark": "#4a8a3a",
+   "head": "#7fbf4f",
+   "length": 760,
+   "height": 430,
+   "leg_len": 0,
+   "ant": 70,
+   "head_r": 0.75,
+   "wings": "clear",
+   "mood": "smug",
+   "s": 0.62
+  },
+  "s": 0.62,
+  "actor": "tc_mantis"
+ },
+ "cap_key": [
+  "you",
+  "your",
+  "christmas",
+  "tree",
+  "hundred",
+  "eggs",
+  "warm",
+  "dozens",
+  "eat",
+  "foamy",
+  "twig",
+  "clip",
+  "marshmallow",
+  "ticks",
+  "six",
+  "eight",
+  "vacuum",
+  "squash",
+  "spray",
+  "check"
+ ],
+ "cut_whoosh": true,
+ "sources": [
+  "University of Missouri Extension, Dr. Bug Talks Pokemon and Why Your Christmas Tree May Be Bugged: \"Praying mantises lay about 100 eggs in foamy masses (called ootheca in Dr. Bug World) on twigs in the fall.\"; https://extension.missouri.edu/news/dr-bug-talks-pokemon-and-why-your-christmas-tree-may-be-bugged",
+  "Mississippi State Extension, Bug's Eye View: a Chinese mantid case \"can contain several hundred eggs\"; https://extension.msstate.edu/newsletters/bugs-eye-view/2016/chinese-mantid-ootheca-vol-2-no-34",
+  "University of Illinois Extension, ID guide: Chinese mantis cases \"resemble a toasted marshmallow\" and are \"about the size of a ping-pong ball\"; https://extension.illinois.edu/blogs/good-growing/2022-10-28-what-praying-mantid-have-i-found-identifying-praying-mantids-illinois",
+  "Iowa State Extension, Insects on Christmas trees: eggs \"hatch when they become sufficiently warmed by heat within the house\"; https://yardandgarden.extension.iastate.edu/encyclopedia/insects-christmas-trees",
+  "Penn State Extension, Insects on Real Christmas Trees: \"will hatch after several weeks and produce dozens of baby mantises\"; \"Mantises are predatory and cannibalistic\"; Cinara aphids \"can reach a length of 1/8 inch\"; \"Aerosol insect sprays are often flammable, usually not labeled for indoor use\"; https://extension.psu.edu/insects-on-real-christmas-trees",
+  "University of Illinois Extension, Christmas tree hitchhikers: \"cut off the branch it is attached to and place it in an evergreen outside\"; aphids \"have only six legs, as opposed to the arachnids' eight\"; https://extension.illinois.edu/news-releases/christmas-tree-hitchhikers",
+  "University of Illinois Extension, Fall finds: praying mantis egg cases: \"Never put an egg case on the ground; the eggs inside will be consumed by ants.\"; https://extension.illinois.edu/blogs/flowers-fruits-and-frass/2020-10-23-fall-finds-praying-mantis-egg-cases",
+  "NC State Extension (relayed paraphrase in research/77 F50, F52, F54, F59): people often mistake Cinara for ticks; they do not bite, sting or carry disease; crushed they can leave a purple or red stain; vacuum with an attachment that has no beater bar; https://christmastrees.ces.ncsu.edu/christmastrees-cinara-aphids-on-christmas-trees-in-north-carolina/ ; https://christmastrees.ces.ncsu.edu/badbugs/",
+  "Iowa State Extension (research/77 F20): the tiny hitchhikers cannot bite or sting and will not live long enough to grow or multiply; fact checks research/79"
+ ],
+ "title": "Check Your Christmas Tree for This Before It Comes Inside",
+ "tiktok_title": "Bugs in Your Christmas Tree: Mantis Egg Case and Fake Ticks",
+ "tiktok_caption": "bugs in your christmas tree 🎄 check for a toasted-marshmallow blob: a praying mantis egg case with about 100 to several hundred eggs. Clip the twig and tuck it into an evergreen outside, never spray the tree. Will you check yours? ✅ or ❌ #christmastree #prayingmantis #bugsinhouse #learnontiktok #meatballmyths",
+ "beats": [
+  {
+   "m": "hook",
+   "say": "Check your Christmas tree for a toasted marshmallow.",
+   "card": {
+    "rows": [
+     [
+      "CHECK THE TREE",
+      "#ffd34d",
+      120
+     ],
+     [
+      "FOR A MARSHMALLOW",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   },
+   "open": "animal",
+   "gag": {
+    "mark": "shock"
+   },
+   "with": [
+    {
+     "type": "tc_xtree",
+     "x": 930,
+     "y": 1500,
+     "s": 0.5,
+     "pop": false,
+     "front": false,
+     "p": {
+      "deco": 1.0,
+      "lit": 1.0,
+      "gifts": true
+     }
+    },
+    {
+     "type": "tc_twig",
+     "x": 330,
+     "y": 1400,
+     "s": 0.5,
+     "pop": false,
+     "front": true
+    },
+    {
+     "type": "tc_ooth",
+     "x": 330,
+     "y": 1400,
+     "s": 1.0,
+     "pop": false,
+     "front": true,
+     "p": {
+      "quiver": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "m": "fact",
+   "say": "It's a mantis egg case, glued to a twig.",
+   "scene": "garden",
+   "card": {
+    "rows": [
+     [
+      "EGG CASE",
+      "#ffd34d",
+      130
+     ],
+     [
+      "ON A TWIG",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false,
+   "scene_p": {
+    "time": "day"
+   },
+   "with": [
+    {
+     "type": "tc_twig",
+     "x": 300,
+     "y": 1430,
+     "s": 0.5,
+     "pop": false,
+     "front": true
+    },
+    {
+     "type": "tc_ooth",
+     "x": 300,
+     "y": 1430,
+     "s": 0.8,
+     "pop": false,
+     "front": true,
+     "p": {
+      "quiver": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "m": "fact",
+   "say": "It can look like light-brown spray foam insulation.",
+   "scene": "basement",
+   "card": {
+    "rows": [
+     [
+      "LOOKS LIKE FOAM",
+      "#ffd34d",
+      110
+     ],
+     [
+      "LIGHT BROWN",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false,
+   "scene_p": {
+    "time": "night",
+    "props": [
+     [
+      "window",
+      120,
+      900,
+      1.0
+     ]
+    ]
+   },
+   "with": [
+    {
+     "type": "tc_twig",
+     "x": 560,
+     "y": 1450,
+     "s": 0.5,
+     "pop": false,
+     "front": true
+    },
+    {
+     "type": "tc_ooth",
+     "x": 560,
+     "y": 1450,
+     "s": 1.1,
+     "pop": false,
+     "front": true,
+     "p": {
+      "quiver": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "m": "fact",
+   "say": "Inside: about a hundred eggs. Maybe several hundred.",
+   "scene": "kitchen",
+   "card": {
+    "rows": [
+     [
+      "100+ EGGS",
+      "#ffd34d",
+      140
+     ],
+     [
+      "MAYBE SEVERAL HUNDRED",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false,
+   "scene_p": {
+    "time": "night",
+    "props": [
+     [
+      "window",
+      120,
+      900,
+      1.0
+     ]
+    ]
+   },
+   "with": [
+    {
+     "type": "tc_twig",
+     "x": 560,
+     "y": 1450,
+     "s": 0.5,
+     "pop": false,
+     "front": true
+    },
+    {
+     "type": "tc_ooth",
+     "x": 560,
+     "y": 1450,
+     "s": 1.1,
+     "pop": false,
+     "front": true,
+     "p": {
+      "quiver": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "m": "fact",
+   "say": "Outside, it would sit there until spring.",
+   "scene": "garden",
+   "card": {
+    "rows": [
+     [
+      "WAITS FOR SPRING",
+      "#ffd34d",
+      100
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false,
+   "scene_p": {
+    "time": "day"
+   },
+   "with": [
+    {
+     "type": "tc_xtree",
+     "x": 0,
+     "y": 0,
+     "s": 0.1,
+     "pop": false,
+     "front": false,
+     "p": {
+      "deco": 1.0,
+      "lit": 1.0,
+      "gifts": true
+     }
+    },
+    {
+     "type": "tc_shrub",
+     "x": 780,
+     "y": 1500,
+     "s": 0.7,
+     "pop": false,
+     "front": false,
+     "p": {
+      "snow": 0.0
+     }
+    },
+    {
+     "type": "tc_ooth",
+     "x": 760,
+     "y": 1260,
+     "s": 0.6,
+     "pop": false,
+     "front": true,
+     "p": {
+      "quiver": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "m": "chase",
+   "say": "Your warm living room is about to wake them.",
+   "scene": "bedroom",
+   "card": {
+    "rows": [
+     [
+      "WARM ROOM",
+      "#ff4b3e",
+      110
+     ],
+     [
+      "WAKES THEM",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false,
+   "scene_p": {
+    "time": "night"
+   }
+  },
+  {
+   "m": "scale",
+   "say": "Indoors, a case hatches after several weeks.",
+   "scene": "kitchen",
+   "card": {
+    "rows": [
+     [
+      "SEVERAL WEEKS",
+      "#ffd34d",
+      100
+     ],
+     [
+      "INDOORS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false,
+   "scene_p": {
+    "time": "night",
+    "props": [
+     [
+      "window",
+      120,
+      900,
+      1.0
+     ]
+    ]
+   },
+   "how": "grow"
+  },
+  {
+   "m": "fact",
+   "say": "A fresh tree can last three to four weeks indoors.",
+   "scene": "study",
+   "card": {
+    "rows": [
+     [
+      "3 TO 4 WEEKS",
+      "#ffd34d",
+      110
+     ],
+     [
+      "A FRESH TREE LASTS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false,
+   "scene_p": {
+    "time": "night",
+    "props": [
+     [
+      "window",
+      120,
+      900,
+      1.0
+     ]
+    ]
+   },
+   "with": [
+    {
+     "type": "tc_xtree",
+     "x": 930,
+     "y": 1500,
+     "s": 0.5,
+     "pop": false,
+     "front": false,
+     "p": {
+      "deco": 1.0,
+      "lit": 1.0,
+      "gifts": true
+     }
+    }
+   ]
+  },
+  {
+   "m": "fact",
+   "say": "Dozens of baby mantises crawl out.",
+   "scene": "bedroom",
+   "card": {
+    "rows": [
+     [
+      "DOZENS",
+      "#ff4b3e",
+      150
+     ],
+     [
+      "OF BABY MANTISES",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false,
+   "scene_p": {
+    "time": "night"
+   }
+  },
+  {
+   "m": "xray",
+   "say": "No food indoors, so they eat each other.",
+   "scene": "basement",
+   "card": {
+    "rows": [
+     [
+      "NO FOOD",
+      "#ff4b3e",
+      110
+     ],
+     [
+      "THEY EAT EACH OTHER",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "tiny",
+   "say": "Step one: look for the marshmallow on the twigs.",
+   "scene": "garden",
+   "card": {
+    "rows": [
+     [
+      "LOOK FIRST",
+      "#ffd34d",
+      120
+     ],
+     [
+      "ON THE TWIGS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false,
+   "scene_p": {
+    "time": "day"
+   },
+   "with": [
+    {
+     "type": "tc_twig",
+     "x": 300,
+     "y": 1430,
+     "s": 0.5,
+     "pop": false,
+     "front": true
+    },
+    {
+     "type": "tc_ooth",
+     "x": 300,
+     "y": 1430,
+     "s": 0.8,
+     "pop": false,
+     "front": true,
+     "p": {
+      "quiver": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "m": "fact",
+   "say": "Found one? Don't crush it. Clip the twig.",
+   "scene": "garden",
+   "card": {
+    "rows": [
+     [
+      "CLIP THE TWIG",
+      "#ffd34d",
+      110
+     ],
+     [
+      "DON'T CRUSH IT",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false,
+   "scene_p": {
+    "time": "day"
+   },
+   "with": [
+    {
+     "type": "tc_twig",
+     "x": 300,
+     "y": 1430,
+     "s": 0.5,
+     "pop": false,
+     "front": true
+    },
+    {
+     "type": "tc_ooth",
+     "x": 300,
+     "y": 1430,
+     "s": 0.8,
+     "pop": false,
+     "front": true,
+     "p": {
+      "quiver": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "m": "fact",
+   "say": "Tuck it into an evergreen outside.",
+   "scene": "garden",
+   "card": {
+    "rows": [
+     [
+      "EVERGREEN",
+      "#7bd88f",
+      120
+     ],
+     [
+      "OUTSIDE",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false,
+   "scene_p": {
+    "time": "day"
+   },
+   "with": [
+    {
+     "type": "tc_shrub",
+     "x": 780,
+     "y": 1500,
+     "s": 0.7,
+     "pop": false,
+     "front": false,
+     "p": {
+      "snow": 0.0
+     }
+    },
+    {
+     "type": "tc_ooth",
+     "x": 760,
+     "y": 1260,
+     "s": 0.6,
+     "pop": false,
+     "front": true,
+     "p": {
+      "quiver": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "m": "fact",
+   "say": "Not on the ground. Ants will eat the eggs.",
+   "scene": "garden",
+   "card": {
+    "rows": [
+     [
+      "NOT ON THE GROUND",
+      "#ff4b3e",
+      90
+     ],
+     [
+      "ANTS EAT THE EGGS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false,
+   "scene_p": {
+    "time": "day"
+   },
+   "with": [
+    {
+     "type": "sp.ant",
+     "x": 600,
+     "y": 1500,
+     "s": 0.5,
+     "pop": false,
+     "front": true,
+     "p": {}
+    },
+    {
+     "type": "tc_ooth",
+     "x": 300,
+     "y": 1480,
+     "s": 0.6,
+     "pop": false,
+     "front": true,
+     "p": {
+      "quiver": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "m": "escalate",
+   "say": "But here's the stowaway people mistake for ticks.",
+   "scene": "study",
+   "card": {
+    "rows": [
+     [
+      "NOT A TICK",
+      "#ff4b3e",
+      110
+     ],
+     [
+      "COUNT THE LEGS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": {
+    "mark": "alarm"
+   },
+   "with": [
+    {
+     "type": "tc_aphid",
+     "x": 620,
+     "y": 1500,
+     "s": 0.5,
+     "pop": false,
+     "front": true,
+     "p": {}
+    }
+   ],
+   "hero": false
+  },
+  {
+   "m": "tiny",
+   "say": "Giant conifer aphids. Up to an eighth of an inch.",
+   "scene": "garden",
+   "card": {
+    "rows": [
+     [
+      "1/8 INCH",
+      "#ffd34d",
+      140
+     ],
+     [
+      "GIANT CONIFER APHID",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false,
+   "scene_p": {
+    "time": "day"
+   },
+   "with": [
+    {
+     "type": "tc_aphid",
+     "x": 700,
+     "y": 1480,
+     "s": 0.9,
+     "pop": false,
+     "front": true,
+     "p": {}
+    }
+   ],
+   "hero": false
+  },
+  {
+   "m": "fact",
+   "say": "Count the legs. Aphids have six. Ticks have eight.",
+   "scene": "kitchen",
+   "card": {
+    "rows": [
+     [
+      "6 LEGS = APHID",
+      "#7bd88f",
+      100
+     ],
+     [
+      "8 LEGS = TICK",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false,
+   "scene_p": {
+    "time": "night",
+    "props": [
+     [
+      "window",
+      120,
+      900,
+      1.0
+     ]
+    ]
+   },
+   "with": [
+    {
+     "type": "tc_aphid",
+     "x": 420,
+     "y": 1500,
+     "s": 0.6,
+     "pop": false,
+     "front": true,
+     "p": {}
+    },
+    {
+     "type": "sp.tick",
+     "x": 900,
+     "y": 1500,
+     "s": 0.55,
+     "pop": false,
+     "front": true,
+     "p": {}
+    }
+   ],
+   "hero": false
+  },
+  {
+   "m": "fact",
+   "say": "The warmth wakes them up, and they wander.",
+   "scene": "basement",
+   "card": {
+    "rows": [
+     [
+      "WARMTH WAKES",
+      "#ff4b3e",
+      110
+     ],
+     [
+      "THEM UP",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false,
+   "scene_p": {
+    "time": "night"
+   },
+   "with": [
+    {
+     "type": "tc_aphid",
+     "x": 700,
+     "y": 1500,
+     "s": 0.7,
+     "pop": false,
+     "front": true,
+     "p": {}
+    }
+   ],
+   "hero": false
+  },
+  {
+   "m": "fact",
+   "say": "N.C. State says they don't bite, sting, or spread disease.",
+   "scene": "bedroom",
+   "card": {
+    "rows": [
+     [
+      "NO BITE",
+      "#7bd88f",
+      130
+     ],
+     [
+      "NO STING, NO DISEASE",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false,
+   "scene_p": {
+    "time": "night"
+   },
+   "with": [
+    {
+     "type": "tc_aphid",
+     "x": 700,
+     "y": 1500,
+     "s": 0.7,
+     "pop": false,
+     "front": true,
+     "p": {}
+    }
+   ],
+   "hero": false
+  },
+  {
+   "m": "fact",
+   "say": "Don't squash them. They can leave a purple stain.",
+   "scene": "kitchen",
+   "card": {
+    "rows": [
+     [
+      "DON'T SQUASH",
+      "#ff4b3e",
+      110
+     ],
+     [
+      "PURPLE STAIN",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false,
+   "scene_p": {
+    "time": "night",
+    "props": [
+     [
+      "window",
+      120,
+      900,
+      1.0
+     ]
+    ]
+   },
+   "with": [
+    {
+     "type": "tc_stain",
+     "x": 600,
+     "y": 1500,
+     "s": 0.6,
+     "pop": false,
+     "front": true,
+     "p": {
+      "rug": true,
+      "grow": 1.0
+     }
+    }
+   ],
+   "hero": false
+  },
+  {
+   "m": "fact",
+   "say": "Vacuum them instead. Use the hose, not the brush.",
+   "scene": "kitchen",
+   "card": {
+    "rows": [
+     [
+      "VACUUM THEM",
+      "#7bd88f",
+      120
+     ],
+     [
+      "HOSE, NOT THE BRUSH",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false,
+   "scene_p": {
+    "time": "night",
+    "props": [
+     [
+      "window",
+      120,
+      900,
+      1.0
+     ]
+    ]
+   },
+   "hero": false
+  },
+  {
+   "m": "fact",
+   "say": "The biologist's test: shake it over a white sheet.",
+   "scene": "basement",
+   "card": {
+    "rows": [
+     [
+      "SHAKE IT",
+      "#ffd34d",
+      130
+     ],
+     [
+      "OVER A WHITE SHEET",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false,
+   "hero": false
+  },
+  {
+   "m": "escalate",
+   "say": "And never spray the tree with bug spray.",
+   "scene": "basement",
+   "card": {
+    "rows": [
+     [
+      "NEVER SPRAY",
+      "#ff4b3e",
+      140
+     ],
+     [
+      "THE TREE",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": {
+    "mark": "alarm"
+   },
+   "with": [
+    {
+     "type": "tc_xtree",
+     "x": 900,
+     "y": 1500,
+     "s": 0.5,
+     "pop": false,
+     "front": false,
+     "p": {
+      "deco": 1.0,
+      "lit": 1.0,
+      "gifts": true
+     }
+    }
+   ],
+   "hero": false
+  },
+  {
+   "m": "fact",
+   "say": "Penn State says those sprays are often flammable.",
+   "scene": "bathroom",
+   "card": {
+    "rows": [
+     [
+      "OFTEN FLAMMABLE",
+      "#ff4b3e",
+      110
+     ],
+     [
+      "PENN STATE",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false,
+   "with": [
+    {
+     "type": "tc_xtree",
+     "x": 900,
+     "y": 1500,
+     "s": 0.5,
+     "pop": false,
+     "front": false,
+     "p": {
+      "deco": 1.0,
+      "lit": 1.0,
+      "gifts": true
+     }
+    }
+   ],
+   "hero": false
+  },
+  {
+   "m": "fact",
+   "say": "Most tiny hitchhikers can't bite, and won't live long.",
+   "scene": "bedroom",
+   "card": {
+    "rows": [
+     [
+      "TINY + HARMLESS",
+      "#7bd88f",
+      110
+     ],
+     [
+      "IOWA STATE",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false,
+   "scene_p": {
+    "time": "night"
+   },
+   "hero": false
+  },
+  {
+   "m": "punch",
+   "say": "Have you checked your tree yet?",
+   "scene": "kitchen",
+   "card": {
+    "rows": [
+     [
+      "CHECK YOURS?",
+      "#ffd34d",
+      120
+     ]
+    ],
+    "y": 470,
+    "at": 0.0
+   },
+   "gag": false,
+   "scene_p": {
+    "time": "night",
+    "props": [
+     [
+      "window",
+      120,
+      900,
+      1.0
+     ]
+    ]
+   },
+   "pad": 1.2,
+   "with": [
+    {
+     "type": "tc_xtree",
+     "x": 930,
+     "y": 1500,
+     "s": 0.5,
+     "pop": false,
+     "front": false,
+     "p": {
+      "deco": 1.0,
+      "lit": 1.0,
+      "gifts": true
+     }
+    }
+   ]
+  }
+ ],
+ "loop": false,
+ "_note": "TikTok 1-min cut. Lines from scripts/longform-christmas-tree-check.outline.json (corrected by research/79) and research/77."
+}

@@ -1,0 +1,821 @@
+{
+ "series": "Things Living In Your House",
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "detective",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "stage": {
+  "creature": "cellar_spider",
+  "scene": "basement",
+  "scene_p": {},
+  "creature_cfg": {
+   "floor": false,
+   "label": "cellar spider"
+  },
+  "s": 0.68,
+  "actor": "cellar_spider"
+ },
+ "cap_key": [
+  "you",
+  "corner",
+  "102",
+  "spiders",
+  "heavier",
+  "giant",
+  "silk",
+  "back",
+  "legs",
+  "bites",
+  "rumor",
+  "whirl",
+  "stay",
+  "squish",
+  "nobody",
+  "mild",
+  "deadly"
+ ],
+ "cut_whoosh": true,
+ "sources": [
+  "British Arachnological Society, Daddy-long-legs spider factsheet 3: \"of the remains of 102 prey items removed from the webs, 63 were of the Common House spider (Tegenaria domestica)\"; six were other cellar spiders and the rest unidentifiable spider remains (so all 102 were spiders; one shed, one summer, UK); \"recorded eating the much sturdier and considerably heavier large house spiders\", may be responsible for their decline in some places; \"using their very long legs to throw silk over the victim while keeping out of range\"; \"they vibrate so rapidly in their web that they become a blur\"; https://britishspiders.org.uk/sites/default/files/2020-08/Daddy_long-legs_spider_preview_rev18.pdf",
+  "Japyassu & Macagnan 2004, Etologia: \"the spider throws dry silk onto it, with alternate or simultaneous movements of legs IV\"; https://www.etologiabrasil.org.br/media/upload/publicacoes_revista/vol_6_2_079.pdf",
+  "Burke Museum Spider Myths (R. Crawford): \"a full-fledged Urban Legend, with no basis in fact whatever.\"; https://burkemuseum.org/static/spidermyth/myths/daddyvenom.html",
+  "Zobel-Thropp et al. 2019, Frontiers in Ecology and Evolution (one cellar-spider species, Physocyclus mexicanus): \"venom from a single P. mexicanus is not lethal to humans or other mammals\"; \"Reports of high mammalian potency emerge from rumor and non-scientific anecdote.\"; crickets: \"flaccid paralysis and regions of darkening\"; fangs \"able to pierce uncalloused human skin\"; bite \"resulting in a brief mild sting\"; https://pmc.ncbi.nlm.nih.gov/articles/PMC7682650",
+  "Heuts et al. 2001, Behavioural Processes 55:27-34: long whirling \"hardly ever\" shown to predatory spiders from eight other families; may disturb visual fixation by jumping spiders; via Europe PMC; fact pack research/76 F44; research/78 wording fix"
+ ],
+ "title": "Skinny Spider in Your Corner Hunts Heavier Spiders (Cellar Spider)",
+ "tiktok_title": "Cellar Spider in Your Corner: What It Eats, and Is It Venomous?",
+ "tiktok_caption": "cellar spider in the corner of your ceiling 🕷️ In one English shed, all 102 leftovers in its webs were spiders, and it has been recorded eating giant house spiders. Stay or squish? 🕷️✅ or 👟💥 #cellarspider #spiderinhouse #learnontiktok #thingslivinginyourhouse #meatballmyths",
+ "beats": [
+  {
+   "m": "hook",
+   "say": "Your corner's skinny spider hunts much heavier spiders.",
+   "card": {
+    "rows": [
+     [
+      "HUNTS HEAVIER",
+      "#ffd34d",
+      130
+     ],
+     [
+      "SPIDERS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   },
+   "open": "animal",
+   "gag": {
+    "mark": "shock"
+   }
+  },
+  {
+   "m": "tiny",
+   "say": "Its body is a quarter inch. Legs reach two inches.",
+   "scene": "basement",
+   "card": {
+    "rows": [
+     [
+      "LEGS: 2 INCHES",
+      "#ffd34d",
+      100
+     ],
+     [
+      "BODY: ¼ INCH",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false,
+   "acting": false
+  },
+  {
+   "m": "fact",
+   "say": "It hangs upside down in a messy web, waiting.",
+   "scene": "kitchen",
+   "gag": false,
+   "acting": false
+  },
+  {
+   "m": "fact",
+   "say": "Someone emptied its webs in one English shed.",
+   "scene": "study",
+   "card": {
+    "rows": [
+     [
+      "ONE SHED",
+      "#ffd34d",
+      120
+     ],
+     [
+      "IN ENGLAND",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "scale",
+   "say": "One hundred and two leftovers. All of them spiders.",
+   "scene": "kitchen",
+   "card": {
+    "rows": [
+     [
+      "102",
+      "#ffd34d",
+      190
+     ],
+     [
+      "ALL SPIDERS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false,
+   "how": "grow"
+  },
+  {
+   "m": "fact",
+   "say": "Flying insects and woodlice get snagged too.",
+   "scene": "study",
+   "card": {
+    "rows": [
+     [
+      "FLIES, WOODLICE",
+      "#ffd34d",
+      100
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "fact",
+   "say": "Sixty-three were common house spiders.",
+   "scene": "bedroom",
+   "card": {
+    "rows": [
+     [
+      "63 OF 102",
+      "#ff4b3e",
+      120
+     ],
+     [
+      "HOUSE SPIDERS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false,
+   "with": [
+    {
+     "type": "creature",
+     "x": 600,
+     "y": 1500,
+     "s": 0.9,
+     "pop": false,
+     "front": false,
+     "flip": false,
+     "p": {
+      "cfg": {
+       "plan": "arachnid",
+       "label": "giant house spider",
+       "color": "#7a5636",
+       "dark": "#4e3420",
+       "accent": "#c9a274",
+       "eyes": "pair",
+       "pattern": "stripe",
+       "bands": true,
+       "fuzz": true,
+       "leg_len": 1.45,
+       "leg_w": 16,
+       "mood": "angry",
+       "s": 0.7
+      },
+      "mood": "angry",
+      "wrapped": 0.0
+     }
+    }
+   ]
+  },
+  {
+   "m": "fact",
+   "say": "It's been recorded eating giant house spiders.",
+   "scene": "bathroom",
+   "card": {
+    "rows": [
+     [
+      "GIANT HOUSE",
+      "#ff4b3e",
+      110
+     ],
+     [
+      "SPIDERS EATEN",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false,
+   "acting": false,
+   "with": [
+    {
+     "type": "creature",
+     "x": 600,
+     "y": 1500,
+     "s": 0.9,
+     "pop": false,
+     "front": false,
+     "flip": false,
+     "p": {
+      "cfg": {
+       "plan": "arachnid",
+       "label": "giant house spider",
+       "color": "#7a5636",
+       "dark": "#4e3420",
+       "accent": "#c9a274",
+       "eyes": "pair",
+       "pattern": "stripe",
+       "bands": true,
+       "fuzz": true,
+       "leg_len": 1.45,
+       "leg_w": 16,
+       "mood": "angry",
+       "s": 0.7
+      },
+      "mood": "angry",
+      "wrapped": 0.0
+     }
+    }
+   ]
+  },
+  {
+   "m": "scale",
+   "say": "Much heavier. It may be why they're rarer.",
+   "scene": "basement",
+   "card": {
+    "rows": [
+     [
+      "MUCH HEAVIER",
+      "#ff4b3e",
+      120
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false,
+   "how": "grow",
+   "acting": false,
+   "with": [
+    {
+     "type": "creature",
+     "x": 650,
+     "y": 1500,
+     "s": 0.9,
+     "pop": false,
+     "front": false,
+     "flip": false,
+     "p": {
+      "cfg": {
+       "plan": "arachnid",
+       "label": "giant house spider",
+       "color": "#7a5636",
+       "dark": "#4e3420",
+       "accent": "#c9a274",
+       "eyes": "pair",
+       "pattern": "stripe",
+       "bands": true,
+       "fuzz": true,
+       "leg_len": 1.45,
+       "leg_w": 16,
+       "mood": "angry",
+       "s": 0.7
+      },
+      "mood": "angry",
+      "wrapped": 0.0
+     }
+    }
+   ]
+  },
+  {
+   "m": "tiny",
+   "say": "So how does skinny beat heavy?",
+   "scene": "kitchen",
+   "card": {
+    "rows": [
+     [
+      "HOW?",
+      "#ffd34d",
+      150
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "fact",
+   "say": "It keeps its distance. That's what the legs are for.",
+   "scene": "study",
+   "card": {
+    "rows": [
+     [
+      "OUT OF RANGE",
+      "#ffd34d",
+      110
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false,
+   "acting": false,
+   "mb_x": 150,
+   "with": [
+    {
+     "type": "creature",
+     "x": 560,
+     "y": 1500,
+     "s": 0.6,
+     "pop": false,
+     "front": false,
+     "flip": false,
+     "p": {
+      "cfg": {
+       "plan": "arachnid",
+       "label": "giant house spider",
+       "color": "#7a5636",
+       "dark": "#4e3420",
+       "accent": "#c9a274",
+       "eyes": "pair",
+       "pattern": "stripe",
+       "bands": true,
+       "fuzz": true,
+       "leg_len": 1.45,
+       "leg_w": 16,
+       "mood": "angry",
+       "s": 0.7
+      },
+      "mood": "angry",
+      "wrapped": 0.0
+     }
+    },
+    {
+     "type": "silk_throw",
+     "x": 790,
+     "y": 1090,
+     "s": 1.0,
+     "pop": false,
+     "front": true,
+     "p": {
+      "to": [
+       -230,
+       400
+      ],
+      "u": 0.0
+     },
+     "set": [
+      {
+       "at": "25%",
+       "dur": 0.5,
+       "p": {
+        "u": 1.0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "m": "fact",
+   "say": "Back legs flick silk while the others hold.",
+   "scene": "bedroom",
+   "card": {
+    "rows": [
+     [
+      "BACK LEGS FLICK",
+      "#ffd34d",
+      100
+     ],
+     [
+      "SILK",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false,
+   "acting": false,
+   "mb_x": 150,
+   "with": [
+    {
+     "type": "creature",
+     "x": 560,
+     "y": 1500,
+     "s": 0.6,
+     "pop": false,
+     "front": false,
+     "flip": false,
+     "p": {
+      "cfg": {
+       "plan": "arachnid",
+       "label": "giant house spider",
+       "color": "#7a5636",
+       "dark": "#4e3420",
+       "accent": "#c9a274",
+       "eyes": "pair",
+       "pattern": "stripe",
+       "bands": true,
+       "fuzz": true,
+       "leg_len": 1.45,
+       "leg_w": 16,
+       "mood": "angry",
+       "s": 0.7
+      },
+      "mood": "angry",
+      "wrapped": 0.2
+     },
+     "set": [
+      {
+       "at": "20%",
+       "dur": 1.5,
+       "p": {
+        "wrapped": 0.8
+       }
+      }
+     ]
+    },
+    {
+     "type": "silk_throw",
+     "x": 790,
+     "y": 1090,
+     "s": 1.0,
+     "pop": false,
+     "front": true,
+     "p": {
+      "to": [
+       -230,
+       400
+      ],
+      "u": 0.0
+     },
+     "set": [
+      {
+       "at": "10%",
+       "dur": 0.5,
+       "p": {
+        "u": 1.0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "m": "fact",
+   "say": "Once it's tied up, it moves in and bites.",
+   "scene": "bathroom",
+   "card": {
+    "rows": [
+     [
+      "TIED UP = BITE",
+      "#ff4b3e",
+      100
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false,
+   "acting": false,
+   "mb_x": 150,
+   "hero_moves": [
+    {
+     "at": "20%",
+     "dur": 0.9,
+     "pos": [
+      640,
+      1210
+     ]
+    }
+   ],
+   "act": {
+    "fangs": 1.0
+   },
+   "with": [
+    {
+     "type": "creature",
+     "x": 560,
+     "y": 1500,
+     "s": 0.6,
+     "pop": false,
+     "front": false,
+     "flip": false,
+     "p": {
+      "cfg": {
+       "plan": "arachnid",
+       "label": "giant house spider",
+       "color": "#7a5636",
+       "dark": "#4e3420",
+       "accent": "#c9a274",
+       "eyes": "pair",
+       "pattern": "stripe",
+       "bands": true,
+       "fuzz": true,
+       "leg_len": 1.45,
+       "leg_w": 16,
+       "mood": "angry",
+       "s": 0.7
+      },
+      "mood": "angry",
+      "wrapped": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "m": "escalate",
+   "say": "But here's the part nobody tells you.",
+   "scene": "basement",
+   "card": {
+    "rows": [
+     [
+      "NOBODY TELLS YOU",
+      "#ff4b3e",
+      90
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": {
+    "mark": "alarm"
+   }
+  },
+  {
+   "m": "fact",
+   "say": "The rumor: deadliest venom, but fangs too small to bite.",
+   "scene": "study",
+   "card": {
+    "rows": [
+     [
+      "THE RUMOR",
+      "#ff4b3e",
+      130
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "xray",
+   "say": "A Burke Museum spider expert calls that an urban legend.",
+   "scene": "kitchen",
+   "card": {
+    "rows": [
+     [
+      "URBAN LEGEND",
+      "#ffd34d",
+      110
+     ],
+     [
+      "NO BASIS IN FACT",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "fact",
+   "say": "In 2019, scientists finally tested one kind's venom.",
+   "scene": "bedroom",
+   "card": {
+    "rows": [
+     [
+      "2019 PAPER",
+      "#ffd34d",
+      120
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "tiny",
+   "say": "On crickets, it caused paralysis.",
+   "scene": "bathroom",
+   "card": {
+    "rows": [
+     [
+      "CRICKETS: PARALYZED",
+      "#ffd34d",
+      80
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "scale",
+   "say": "For us? Not deadly to humans or other mammals.",
+   "scene": "basement",
+   "card": {
+    "rows": [
+     [
+      "NOT DEADLY",
+      "#7bd88f",
+      130
+     ],
+     [
+      "TO HUMANS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false,
+   "how": "shrink"
+  },
+  {
+   "m": "fact",
+   "say": "They traced the scary reputation to rumor and anecdote.",
+   "scene": "study",
+   "card": {
+    "rows": [
+     [
+      "RUMOR",
+      "#ffd34d",
+      140
+     ],
+     [
+      "NOT SCIENCE",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "fact",
+   "say": "Its fangs can pierce skin. Recorded bites were mild.",
+   "scene": "kitchen",
+   "card": {
+    "rows": [
+     [
+      "BITES: MILD",
+      "#ffd34d",
+      120
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "fact",
+   "say": "Penn State says it isn't known to bite people.",
+   "scene": "study",
+   "card": {
+    "rows": [
+     [
+      "NOT KNOWN TO BITE",
+      "#7bd88f",
+      100
+     ],
+     [
+      "PENN STATE",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "chase",
+   "say": "Touch its web, and it whirls into a blur.",
+   "scene": "bedroom",
+   "card": {
+    "rows": [
+     [
+      "WHIRL",
+      "#ffd34d",
+      150
+     ],
+     [
+      "INTO A BLUR",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "xray",
+   "say": "The blur may confuse a jumping spider.",
+   "scene": "bathroom",
+   "gag": false
+  },
+  {
+   "m": "fact",
+   "say": "UC says its main crime is messy cobwebs.",
+   "scene": "study",
+   "card": {
+    "rows": [
+     [
+      "MESSY COBWEBS",
+      "#ffd34d",
+      100
+     ],
+     [
+      "MAIN CHARGE",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "m": "punch",
+   "say": "So: stay or squish?",
+   "scene": "basement",
+   "card": {
+    "rows": [
+     [
+      "STAY OR SQUISH?",
+      "#ffd34d",
+      96
+     ]
+    ],
+    "y": 470,
+    "at": 0.0
+   },
+   "pad": 0.9
+  }
+ ],
+ "loop": false,
+ "_note": "TikTok 1-min cut (Creator Rewards). Lines from longform-dont-squish-cellar-spider.outline.json (corrected by research/78) and research/76."
+}

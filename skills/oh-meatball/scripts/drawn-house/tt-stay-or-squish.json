@@ -1,0 +1,931 @@
+{
+ "series": "Things Living In Your House",
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "stage": {
+  "creature": "wolf_spider",
+  "actor": "wolf_spider",
+  "s": 0.8,
+  "scene": "bedroom",
+  "scene_p": {
+   "time": "night"
+  }
+ },
+ "cap_key": [
+  "you",
+  "your",
+  "stay",
+  "squish",
+  "out",
+  "wolf",
+  "babies",
+  "stink",
+  "26,000",
+  "ear",
+  "earwig",
+  "ant",
+  "sawdust",
+  "cricket",
+  "harmless",
+  "verdict",
+  "nobody"
+ ],
+ "cut_whoosh": true,
+ "sources": [
+  "Missouri Dept. of Conservation, Field Guide: Wolf Spiders (from scripts/drawn-house/wolf-spider-yt.json, longform-kill-or-keep-2.json): no webs, \"they run prey down\"; eyes shine back \"like a cat's\" in a flashlight beam; the female carries her babies on her back; https://mdc.mo.gov/discover-nature/field-guide/wolf-spiders",
+  "Penn State Extension, Wolf Spiders: bites if mishandled or trapped next to the skin; redness subsides within 24 hours; https://extension.psu.edu/wolf-spiders",
+  "Inkley 2012, J. Entomological Science 47(2):125-130: 26,205 adults collected inside one home in Washington County, Maryland over 181 days; https://doi.org/10.18474/0749-8004-47.2.125",
+  "Penn State Extension, Brown Marmorated Stink Bug: scent glands release defensive chemicals; \"does not reproduce in or damage structures\"; https://extension.psu.edu/brown-marmorated-stink-bug",
+  "The Scientist, The Earwig's Tale (May Berenbaum): in about ten centuries of literature, a single report of an earwig in an ear; https://www.the-scientist.com/the-earwigs-tale-43480",
+  "UC IPM, Earwigs: feed at night on aphids and insect eggs; can pinch if trapped in clothing; https://ipm.ucanr.edu/home-and-landscape/earwigs/",
+  "Univ. of Minnesota Extension, Carpenter ants: they remove wood for galleries, do not eat it; coarse sawdust is a sign; many winged ants indoors in late winter-spring suggest a nest inside; https://extension.umn.edu/insects-infest-homes/carpenter-ants",
+  "Missouri Dept. of Conservation, Camel crickets: wingless, cannot chirp, jump a surprising distance; completely harmless; eat decaying plant matter and small arthropods; https://mdc.mo.gov/discover-nature/field-guide/camel-crickets-cave-crickets",
+  "Epps et al. 2014, PeerJ 2:e523: about 88% of houses with identifiable camel crickets had the Asian greenhouse camel cricket; https://peerj.com/articles/523/",
+  "Verdicts and lines follow scripts/longform-kill-or-keep-2.json (fact-fixed v2); \"kill\" there is spoken here as \"out\". Quotes above are the fact notes in the source files, not verbatim page text."
+ ],
+ "title": "Stay or Squish? 5 House Bugs in One Minute",
+ "tiktok_title": "Wolf Spider, Stink Bug, Earwig: Stay or Squish? 5 House Bugs",
+ "tiktok_caption": "wolf spider, stink bug, earwig, carpenter ant, camel cricket 🪲 which house bugs should stay and which should go? Wolf spider, earwig and camel cricket: stay. Stink bug and carpenter ant: out. Which one is in YOUR house? 🕷️ stay or 👟 squish? #bugsinhouse #wolfspider #stinkbug #learnontiktok #meatballmyths",
+ "beats": [
+  {
+   "m": "hook",
+   "say": "Your floor's wolf spider carries its babies. Stay or squish?",
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "cast": {
+    "creature": "wolf_spider",
+    "s": 0.8,
+    "actor": "wolf_spider"
+   },
+   "gag": {
+    "mark": "shock"
+   },
+   "card": {
+    "rows": [
+     [
+      "STAY or SQUISH?",
+      "#ffd34d",
+      92
+     ],
+     [
+      "1: WOLF SPIDER",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "open": "animal"
+  },
+  {
+   "m": "chase",
+   "say": "It runs its prey down. No web at all.",
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   },
+   "cast": {
+    "creature": "wolf_spider",
+    "s": 0.8,
+    "actor": "wolf_spider"
+   },
+   "gag": false
+  },
+  {
+   "m": "fact",
+   "say": "Shine a flashlight, and its eyes glow back.",
+   "scene": "basement",
+   "scene_p": {
+    "time": "night"
+   },
+   "cast": {
+    "creature": "wolf_spider",
+    "s": 0.8,
+    "actor": "wolf_spider"
+   },
+   "gag": false,
+   "card": {
+    "rows": [
+     [
+      "EYES GLOW",
+      "#ffd34d",
+      120
+     ],
+     [
+      "LIKE A CAT'S",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "m": "fact",
+   "say": "The bugs on your floor are its dinner.",
+   "scene": "kitchen",
+   "scene_p": {
+    "time": "night"
+   },
+   "cast": {
+    "creature": "wolf_spider",
+    "s": 0.8,
+    "actor": "wolf_spider"
+   },
+   "gag": false
+  },
+  {
+   "m": "punch",
+   "say": "It bites only if trapped. Verdict: stay.",
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "cast": {
+    "creature": "wolf_spider",
+    "s": 0.8,
+    "actor": "wolf_spider"
+   },
+   "gag": false,
+   "card": {
+    "rows": [
+     [
+      "STAY",
+      "#7bd88f",
+      230
+     ],
+     [
+      "WOLF SPIDER",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "verdict"
+   },
+   "pad": 0.1
+  },
+  {
+   "m": "fact",
+   "say": "Number two: the stink bug. Stay or squish?",
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "cast": {
+    "creature": "stink_bug",
+    "s": 0.75,
+    "creature_cfg": {
+     "plan": "insect",
+     "label": "brown marmorated stink bug",
+     "body": "round",
+     "color": "#7a5a3c",
+     "dark": "#4e3a26",
+     "length": 460,
+     "height": 200,
+     "leg_len": 100,
+     "ant": 170,
+     "wings": "shell",
+     "stripes": 4,
+     "mood": "smug",
+     "s": 0.75
+    }
+   },
+   "gag": false,
+   "card": {
+    "rows": [
+     [
+      "STAY or SQUISH?",
+      "#ffd34d",
+      92
+     ],
+     [
+      "2: STINK BUG",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": 0.0
+   }
+  },
+  {
+   "m": "scale",
+   "say": "Over twenty-six thousand were caught inside one Maryland house.",
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "cast": {
+    "creature": "stink_bug",
+    "s": 0.75,
+    "creature_cfg": {
+     "plan": "insect",
+     "label": "brown marmorated stink bug",
+     "body": "round",
+     "color": "#7a5a3c",
+     "dark": "#4e3a26",
+     "length": 460,
+     "height": 200,
+     "leg_len": 100,
+     "ant": 170,
+     "wings": "shell",
+     "stripes": 4,
+     "mood": "smug",
+     "s": 0.75
+    }
+   },
+   "gag": false,
+   "card": {
+    "rows": [
+     [
+      "26,000+",
+      "#ffd34d",
+      190
+     ],
+     [
+      "IN ONE HOUSE",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "how": "grow"
+  },
+  {
+   "m": "escalate",
+   "say": "Squeeze one, and it lets out a stinking spray.",
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   },
+   "cast": {
+    "creature": "stink_bug",
+    "s": 0.75,
+    "creature_cfg": {
+     "plan": "insect",
+     "label": "brown marmorated stink bug",
+     "body": "round",
+     "color": "#7a5a3c",
+     "dark": "#4e3a26",
+     "length": 460,
+     "height": 200,
+     "leg_len": 100,
+     "ant": 170,
+     "wings": "shell",
+     "stripes": 4,
+     "mood": "smug",
+     "s": 0.75
+    }
+   },
+   "gag": false,
+   "card": {
+    "rows": [
+     [
+      "STINK SPRAY",
+      "#ff4b3e",
+      110
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "m": "fact",
+   "say": "They don't breed in your house, or damage it.",
+   "scene": "bathroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "cast": {
+    "creature": "stink_bug",
+    "s": 0.75,
+    "creature_cfg": {
+     "plan": "insect",
+     "label": "brown marmorated stink bug",
+     "body": "round",
+     "color": "#7a5a3c",
+     "dark": "#4e3a26",
+     "length": 460,
+     "height": 200,
+     "leg_len": 100,
+     "ant": 170,
+     "wings": "shell",
+     "stripes": 4,
+     "mood": "smug",
+     "s": 0.75
+    }
+   },
+   "gag": false
+  },
+  {
+   "m": "punch",
+   "say": "Verdict: out. Vacuum it, don't crush it.",
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "cast": {
+    "creature": "stink_bug",
+    "s": 0.75,
+    "creature_cfg": {
+     "plan": "insect",
+     "label": "brown marmorated stink bug",
+     "body": "round",
+     "color": "#7a5a3c",
+     "dark": "#4e3a26",
+     "length": 460,
+     "height": 200,
+     "leg_len": 100,
+     "ant": 170,
+     "wings": "shell",
+     "stripes": 4,
+     "mood": "smug",
+     "s": 0.75
+    }
+   },
+   "gag": false,
+   "card": {
+    "rows": [
+     [
+      "OUT",
+      "#ff4b3e",
+      230
+     ],
+     [
+      "VACUUM IT",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "verdict"
+   },
+   "pad": 0.1
+  },
+  {
+   "m": "escalate",
+   "say": "Here's what nobody tells you about the earwig.",
+   "scene": "kitchen",
+   "scene_p": {
+    "time": "night"
+   },
+   "cast": {
+    "creature": "earwig",
+    "s": 0.65
+   },
+   "gag": {
+    "mark": "alarm"
+   },
+   "card": {
+    "rows": [
+     [
+      "NOBODY TELLS YOU",
+      "#ff4b3e",
+      90
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "m": "fact",
+   "say": "It's named for your ear. Stay or squish?",
+   "scene": "bathroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "cast": {
+    "creature": "earwig",
+    "s": 0.65
+   },
+   "gag": false,
+   "card": {
+    "rows": [
+     [
+      "STAY or SQUISH?",
+      "#ffd34d",
+      92
+     ],
+     [
+      "3: EARWIG",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": 0.0
+   }
+  },
+  {
+   "m": "tiny",
+   "say": "An entomologist searched ten centuries and found one single case.",
+   "scene": "basement",
+   "scene_p": {
+    "time": "night"
+   },
+   "cast": {
+    "creature": "earwig",
+    "s": 0.65
+   },
+   "gag": false,
+   "card": {
+    "rows": [
+     [
+      "1 CASE",
+      "#ffd34d",
+      190
+     ],
+     [
+      "IN 10 CENTURIES",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "m": "fact",
+   "say": "At night it hunts aphids and insect eggs.",
+   "scene": "garden",
+   "scene_p": {
+    "time": "night"
+   },
+   "cast": {
+    "creature": "earwig",
+    "s": 0.65
+   },
+   "gag": false
+  },
+  {
+   "m": "punch",
+   "say": "It pinches if trapped. Verdict: stay.",
+   "scene": "bathroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "cast": {
+    "creature": "earwig",
+    "s": 0.65
+   },
+   "gag": false,
+   "card": {
+    "rows": [
+     [
+      "STAY",
+      "#7bd88f",
+      230
+     ],
+     [
+      "EARWIG",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "verdict"
+   },
+   "pad": 0.1
+  },
+  {
+   "m": "fact",
+   "say": "Number four: carpenter ants. Stay or squish?",
+   "scene": "kitchen",
+   "scene_p": {
+    "time": "night"
+   },
+   "cast": {
+    "creature": "carpenter_ant",
+    "s": 0.75,
+    "creature_cfg": {
+     "plan": "insect",
+     "label": "carpenter ant",
+     "body": "round",
+     "color": "#1e1a1a",
+     "dark": "#3a3434",
+     "length": 520,
+     "height": 190,
+     "leg_len": 140,
+     "ant": 220,
+     "mood": "angry",
+     "s": 0.75
+    }
+   },
+   "gag": false,
+   "card": {
+    "rows": [
+     [
+      "STAY or SQUISH?",
+      "#ffd34d",
+      92
+     ],
+     [
+      "4: CARPENTER ANT",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": 0.0
+   }
+  },
+  {
+   "m": "tiny",
+   "say": "They don't eat the wood. They chew it out.",
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   },
+   "cast": {
+    "creature": "carpenter_ant",
+    "s": 0.75,
+    "creature_cfg": {
+     "plan": "insect",
+     "label": "carpenter ant",
+     "body": "round",
+     "color": "#1e1a1a",
+     "dark": "#3a3434",
+     "length": 520,
+     "height": 190,
+     "leg_len": 140,
+     "ant": 220,
+     "mood": "angry",
+     "s": 0.75
+    }
+   },
+   "gag": false,
+   "card": {
+    "rows": [
+     [
+      "CHEWS WOOD OUT",
+      "#ffd34d",
+      100
+     ],
+     [
+      "NOT EATEN",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "m": "fact",
+   "say": "The clue? Little piles of coarse sawdust.",
+   "scene": "kitchen",
+   "scene_p": {
+    "time": "night"
+   },
+   "cast": {
+    "creature": "carpenter_ant",
+    "s": 0.75,
+    "creature_cfg": {
+     "plan": "insect",
+     "label": "carpenter ant",
+     "body": "round",
+     "color": "#1e1a1a",
+     "dark": "#3a3434",
+     "length": 520,
+     "height": 190,
+     "leg_len": 140,
+     "ant": 220,
+     "mood": "angry",
+     "s": 0.75
+    }
+   },
+   "gag": false,
+   "card": {
+    "rows": [
+     [
+      "SAWDUST",
+      "#ffd34d",
+      130
+     ],
+     [
+      "COARSE PILES",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "m": "fact",
+   "say": "Winged ants indoors in spring? The nest may be inside.",
+   "scene": "basement",
+   "scene_p": {
+    "time": "night"
+   },
+   "cast": {
+    "creature": "carpenter_ant",
+    "s": 0.75,
+    "creature_cfg": {
+     "plan": "insect",
+     "label": "carpenter ant",
+     "body": "round",
+     "color": "#1e1a1a",
+     "dark": "#3a3434",
+     "length": 520,
+     "height": 190,
+     "leg_len": 140,
+     "ant": 220,
+     "mood": "angry",
+     "s": 0.75
+    }
+   },
+   "gag": false
+  },
+  {
+   "m": "punch",
+   "say": "Verdict: out. Find the nest, fix wet wood.",
+   "scene": "kitchen",
+   "scene_p": {
+    "time": "night"
+   },
+   "cast": {
+    "creature": "carpenter_ant",
+    "s": 0.75,
+    "creature_cfg": {
+     "plan": "insect",
+     "label": "carpenter ant",
+     "body": "round",
+     "color": "#1e1a1a",
+     "dark": "#3a3434",
+     "length": 520,
+     "height": 190,
+     "leg_len": 140,
+     "ant": 220,
+     "mood": "angry",
+     "s": 0.75
+    }
+   },
+   "gag": false,
+   "card": {
+    "rows": [
+     [
+      "OUT",
+      "#ff4b3e",
+      230
+     ],
+     [
+      "FIND THE NEST",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "verdict"
+   },
+   "pad": 0.1
+  },
+  {
+   "m": "fact",
+   "say": "Camel cricket in your basement. Stay or squish?",
+   "scene": "basement",
+   "scene_p": {
+    "time": "night"
+   },
+   "cast": {
+    "creature": "camel_cricket",
+    "s": 0.75,
+    "creature_cfg": {
+     "plan": "insect",
+     "label": "camel cricket",
+     "body": "round",
+     "color": "#a8784a",
+     "dark": "#6e4a2a",
+     "length": 460,
+     "height": 260,
+     "leg_len": 220,
+     "ant": 420,
+     "stripes": 5,
+     "mood": "worry",
+     "s": 0.75
+    }
+   },
+   "gag": false,
+   "card": {
+    "rows": [
+     [
+      "STAY or SQUISH?",
+      "#ffd34d",
+      92
+     ],
+     [
+      "5: CAMEL CRICKET",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": 0.0
+   }
+  },
+  {
+   "m": "chase",
+   "say": "No wings, can't chirp, but it jumps far.",
+   "scene": "basement",
+   "scene_p": {
+    "time": "night"
+   },
+   "cast": {
+    "creature": "camel_cricket",
+    "s": 0.75,
+    "creature_cfg": {
+     "plan": "insect",
+     "label": "camel cricket",
+     "body": "round",
+     "color": "#a8784a",
+     "dark": "#6e4a2a",
+     "length": 460,
+     "height": 260,
+     "leg_len": 220,
+     "ant": 420,
+     "stripes": 5,
+     "mood": "worry",
+     "s": 0.75
+    }
+   },
+   "gag": false
+  },
+  {
+   "m": "scale",
+   "say": "Almost nine in ten houses with them had Asian ones.",
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   },
+   "cast": {
+    "creature": "camel_cricket",
+    "s": 0.75,
+    "creature_cfg": {
+     "plan": "insect",
+     "label": "camel cricket",
+     "body": "round",
+     "color": "#a8784a",
+     "dark": "#6e4a2a",
+     "length": 460,
+     "height": 260,
+     "leg_len": 220,
+     "ant": 420,
+     "stripes": 5,
+     "mood": "worry",
+     "s": 0.75
+    }
+   },
+   "gag": false,
+   "card": {
+    "rows": [
+     [
+      "9 IN 10",
+      "#ffd34d",
+      190
+     ],
+     [
+      "ASIAN SPECIES",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "how": "grow"
+  },
+  {
+   "m": "fact",
+   "say": "It eats rotting plants and tiny bugs.",
+   "scene": "bathroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "cast": {
+    "creature": "camel_cricket",
+    "s": 0.75,
+    "creature_cfg": {
+     "plan": "insect",
+     "label": "camel cricket",
+     "body": "round",
+     "color": "#a8784a",
+     "dark": "#6e4a2a",
+     "length": 460,
+     "height": 260,
+     "leg_len": 220,
+     "ant": 420,
+     "stripes": 5,
+     "mood": "worry",
+     "s": 0.75
+    }
+   },
+   "gag": false
+  },
+  {
+   "m": "fact",
+   "say": "Completely harmless to you. Verdict: stay.",
+   "scene": "basement",
+   "scene_p": {
+    "time": "night"
+   },
+   "cast": {
+    "creature": "camel_cricket",
+    "s": 0.75,
+    "creature_cfg": {
+     "plan": "insect",
+     "label": "camel cricket",
+     "body": "round",
+     "color": "#a8784a",
+     "dark": "#6e4a2a",
+     "length": 460,
+     "height": 260,
+     "leg_len": 220,
+     "ant": 420,
+     "stripes": 5,
+     "mood": "worry",
+     "s": 0.75
+    }
+   },
+   "gag": false,
+   "card": {
+    "rows": [
+     [
+      "STAY",
+      "#7bd88f",
+      230
+     ],
+     [
+      "CAMEL CRICKET",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "verdict"
+   },
+   "pad": 0.1
+  },
+  {
+   "m": "punch",
+   "say": "Which one is in your house right now?",
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "cast": {
+    "creature": "wolf_spider",
+    "s": 0.8,
+    "actor": "wolf_spider"
+   },
+   "gag": false,
+   "card": {
+    "rows": [
+     [
+      "STAY OR SQUISH?",
+      "#ffd34d",
+      96
+     ]
+    ],
+    "y": 470,
+    "at": 0.0
+   },
+   "pad": 1.2
+  }
+ ],
+ "loop": false,
+ "_note": "TikTok 1-min cut from longform-kill-or-keep-2.json."
+}
