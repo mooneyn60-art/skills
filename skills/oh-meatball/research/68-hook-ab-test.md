@@ -48,3 +48,16 @@ Decision rule: if NEW averages ≥55% stayed (10 points over baseline), it stays
 
 ## TikTok 3D test (11/11-11/13)
 Six off-niche TikToks (giraffe, kangaroo, booby, archerfish, dung beetle, armadillo) were replaced by 3D house Shorts at 14:30 and 17:00: roach, jumping spider, bed bugs, centipede, silverfish (hook), house fly. Compare their views and avg watch time against the drawn house TikToks at 12:00 the same days.
+
+## Read 11/11 (07:48 ET, before today's 10:00 post)
+Sources: yt-dlp flat view counts (rounded to 2 digits above 1K), Windsor.ai (average % viewed ends 11/8), posted.csv. Row data: `data/80-youtube.csv`; full report: `80-scoreboard-1111.md`.
+
+| Short | Group | Posted ET | Age h | Views | Avg % viewed | Stayed % |
+|---|---|---|---|---|---|---|
+| Giant house spider (4-inch spider) | NEW | 11/9 19:00 | 36.8 | ~1,100 | not available (after Windsor lag) | not available |
+| House mouse | v6 | 11/9 10:00 | 45.8 | ~1,100 | not available | not available |
+| Mommy longlegs | v6 | 11/9 16:00 | 39.8 | ~1,300 | not available | not available |
+| Lady beetle | v6 | 11/10 16:00 | 15.8 | 132 | not available | not available |
+| v6 older, 48 h or more (roaches, bed mites, bed bugs, cellar spider) | v6 | 11/7-11/8 | 66-94 | median ~1,550 | median 104 (82.6, 147.0, 87.9, 120.3; partial windows) | not available |
+
+Read: **no NEW-opening Short has reached 48 h**, so there is no verdict. The only NEW Short so far (giant house spider, 36.8 h) sits at about 1,100 views, the same range as v6 Shorts at a similar age (mouse 1,094 at 24 h, mommy longlegs 1,193 at 18 h), so no visible lift or drop yet. n = 1 for NEW. Stayed-to-watch and the 45.4% baseline cannot be pulled by any tool here (Studio only); average % viewed is a different measure and must not be compared with 45.4%. Next read: Thu 11/12 for giant spider, Sat 11/13 for the wolf spider and camel cricket.
