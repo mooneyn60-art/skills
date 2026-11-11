@@ -187,62 +187,7 @@
   },
   {
    "m": "fact",
-   "say": "It can look like light-brown spray foam insulation. Weird shit.",
-   "scene": "basement",
-   "card": {
-    "rows": [
-     [
-      "LOOKS LIKE FOAM",
-      "#ffd34d",
-      110
-     ],
-     [
-      "LIGHT BROWN",
-      "#ffffff",
-      56,
-      true
-     ]
-    ],
-    "y": 470,
-    "at": "40%"
-   },
-   "gag": false,
-   "scene_p": {
-    "time": "night",
-    "props": [
-     [
-      "window",
-      120,
-      900,
-      1.0
-     ]
-    ]
-   },
-   "with": [
-    {
-     "type": "tc_twig",
-     "x": 560,
-     "y": 1450,
-     "s": 0.5,
-     "pop": false,
-     "front": true
-    },
-    {
-     "type": "tc_ooth",
-     "x": 560,
-     "y": 1450,
-     "s": 1.1,
-     "pop": false,
-     "front": true,
-     "p": {
-      "quiver": 1.0
-     }
-    }
-   ]
-  },
-  {
-   "m": "fact",
-   "say": "Inside: about a hundred fucking eggs. Maybe several hundred. Holy shit.",
+   "say": "Inside: about a hundred eggs. Maybe several hundred. A fucking daycare on a twig.",
    "scene": "kitchen",
    "card": {
     "rows": [
@@ -464,7 +409,7 @@
   },
   {
    "m": "fact",
-   "say": "Dozens of baby mantises crawl out. In your fucking living room.",
+   "say": "Dozens of baby mantises crawl out. Merry fucking Christmas.",
    "scene": "bedroom",
    "card": {
     "rows": [
@@ -490,7 +435,7 @@
   },
   {
    "m": "xray",
-   "say": "No food indoors, so they eat each other. Brutal as fuck.",
+   "say": "No food indoors, so they eat each other. Worst fucking family dinner ever.",
    "scene": "basement",
    "card": {
     "rows": [
@@ -742,7 +687,7 @@
   },
   {
    "m": "tiny",
-   "say": "Giant conifer aphids. Up to an eighth of a fucking inch.",
+   "say": "Giant conifer aphids. Up to an eighth of an inch. Giant, my ass.",
    "scene": "garden",
    "card": {
     "rows": [
@@ -873,7 +818,7 @@
   },
   {
    "m": "fact",
-   "say": "N.C. State says they don't bite, sting, or spread disease. Thank fuck.",
+   "say": "N.C. State says they don't bite, sting, or spread disease. Just shitty houseguests.",
    "scene": "bedroom",
    "card": {
     "rows": [
@@ -1060,7 +1005,7 @@
   },
   {
    "m": "fact",
-   "say": "Penn State says those sprays are often flammable. Fuck that.",
+   "say": "Penn State says those sprays are often flammable. Flammable, in your fucking living room.",
    "scene": "bathroom",
    "card": {
     "rows": [
@@ -1174,11 +1119,12 @@
  "cap_swap": {
   "shit": "sh*t",
   "shits": "sh*ts",
+  "shitty": "sh*tty",
   "bullshit": "bullsh*t",
   "fuck": "f**k",
   "fucking": "f**king",
   "fucker": "f**ker",
   "fuckers": "f**kers"
  },
- "_curse": "TikTok cut with heavy swearing (Nolan 11/11: 'I want like one a sentence'). Facts unchanged from the clean version; swears are the narrator's reactions only, never inside an attributed claim."
+ "_curse": "TikTok cut with heavy swearing and sweary jokes (Nolan 11/11: 'one a sentence', then 'make them joke more using the cursing, like this thing has enough venom to fucking kill a small village'). Facts unchanged from the clean version; jokes are similes, roasts or looks-like lines that are answered by the real fact, never a new claim. Beats cut for length (0-indexed in the previous version): [2]."
 }

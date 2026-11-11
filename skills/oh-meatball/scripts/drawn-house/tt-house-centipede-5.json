@@ -103,7 +103,7 @@
   },
   {
    "m": "fact",
-   "say": "By its next molt, it usually grows that shit back.",
+   "say": "By its next molt, it usually grows that shit back. No fucking warranty needed.",
    "scene": "bedroom",
    "card": {
     "rows": [
@@ -149,7 +149,7 @@
   },
   {
    "m": "fact",
-   "say": "Predators struggle to tell which end is the damn head.",
+   "say": "Predators struggle to tell which end is the fucking head. Same, honestly.",
    "scene": "basement",
    "card": {
     "rows": [
@@ -190,7 +190,7 @@
   },
   {
    "m": "scale",
-   "say": "Legs and antennae make it look three to four inches. Fuck no.",
+   "say": "Legs and antennae make it look three to four inches. Like a fucking eyelash that learned to run.",
    "scene": "kitchen",
    "card": {
     "rows": [
@@ -211,29 +211,6 @@
    },
    "gag": false,
    "how": "grow"
-  },
-  {
-   "m": "fact",
-   "say": "On females, back legs reach nearly twice the body length. What the fuck.",
-   "scene": "bedroom",
-   "card": {
-    "rows": [
-     [
-      "BACK LEGS: 2X",
-      "#ffd34d",
-      110
-     ],
-     [
-      "ON FEMALES",
-      "#ffffff",
-      56,
-      true
-     ]
-    ],
-    "y": 470,
-    "at": "40%"
-   },
-   "gag": false
   },
   {
    "m": "tiny",
@@ -260,7 +237,7 @@
   },
   {
    "m": "fact",
-   "say": "Growing up can take three fucking years or more.",
+   "say": "Growing up can take three years or more. Fucking late bloomer.",
    "scene": "kitchen",
    "card": {
     "rows": [
@@ -283,7 +260,7 @@
   },
   {
    "m": "xray",
-   "say": "It hunts spiders, silverfish, cockroaches, even fucking bed bugs. Badass.",
+   "say": "It hunts spiders, silverfish, cockroaches, even bed bugs. That's not a diet, that's a fucking hit list.",
    "scene": "study",
    "card": {
     "rows": [
@@ -323,7 +300,7 @@
   },
   {
    "m": "fact",
-   "say": "It eats one while it holds the others. Holy shit.",
+   "say": "It eats one while it holds the others. Fucking meal prep.",
    "scene": "kitchen",
    "gag": false
   },
@@ -388,7 +365,7 @@
   },
   {
    "m": "chase",
-   "say": "Turn on the light, and it hauls fucking ass.",
+   "say": "Turn on the light, and it hauls ass like it owes you fucking money.",
    "scene": "bathroom",
    "card": {
     "rows": [
@@ -422,7 +399,7 @@
   },
   {
    "m": "fact",
-   "say": "Some fall into your tub at night and get fucking trapped. Poor fuckers.",
+   "say": "Some fall into your tub at night and get trapped. All those legs, and some still get stuck in a fucking tub.",
    "scene": "bathroom",
    "card": {
     "rows": [
@@ -479,29 +456,6 @@
   },
   {
    "m": "fact",
-   "say": "Sticky traps show what the fuck it's been eating.",
-   "scene": "study",
-   "card": {
-    "rows": [
-     [
-      "STICKY TRAPS",
-      "#ffd34d",
-      110
-     ],
-     [
-      "SHOW THE MENU",
-      "#ffffff",
-      56,
-      true
-     ]
-    ],
-    "y": 470,
-    "at": "40%"
-   },
-   "gag": false
-  },
-  {
-   "m": "fact",
    "say": "Dry the room. Fix leaks. Move the fucking cardboard.",
    "scene": "bathroom",
    "card": {
@@ -548,7 +502,7 @@
   },
   {
    "m": "fact",
-   "say": "It almost never bites. Mostly if you grab the fucking thing.",
+   "say": "It almost never bites. Mostly if you grab it. So don't grab the fucking thing.",
    "scene": "bedroom",
    "card": {
     "rows": [
@@ -609,11 +563,12 @@
  "cap_swap": {
   "shit": "sh*t",
   "shits": "sh*ts",
+  "shitty": "sh*tty",
   "bullshit": "bullsh*t",
   "fuck": "f**k",
   "fucking": "f**king",
   "fucker": "f**ker",
   "fuckers": "f**kers"
  },
- "_curse": "TikTok cut with heavy swearing (Nolan 11/11: 'I want like one a sentence'). Facts unchanged from the clean version; swears are the narrator's reactions only, never inside an attributed claim."
+ "_curse": "TikTok cut with heavy swearing and sweary jokes (Nolan 11/11: 'one a sentence', then 'make them joke more using the cursing, like this thing has enough venom to fucking kill a small village'). Facts unchanged from the clean version; jokes are similes, roasts or looks-like lines that are answered by the real fact, never a new claim. Beats cut for length (0-indexed in the previous version): [7, 21]."
 }

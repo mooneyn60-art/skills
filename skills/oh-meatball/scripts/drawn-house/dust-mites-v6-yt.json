@@ -30,7 +30,7 @@
   "humidity"
  ],
  "cut_whoosh": true,
- "_note": "Written by hand in the v6 shape (Shorts batch B); beats are drawn_macros lines.",
+ "_note": "Written by hand in the v6 shape (Shorts batch B); beats are drawn_macros lines. 11/11: the \"where\" line moved up to second place (YouTube Studio 11/11: viewers drop 15-24% at 0:04-0:06 when the narration turns to textbook biology); same facts, new order.",
  "title": "Female Dust Mites in Your Bed Lay About 50 Eggs 😬 (Things Living In Your House)",
  "description": "Dust mites in your bed: a female lays about 50 eggs, under ideal conditions they grow from egg to adult in about a month, adults live 1-2 months, and humidity below 50 percent makes survival difficult, per University of Kentucky Entomology. #shorts #dustmites #bedroom #bugsinyourhouse #meatballmyths\nSources: University of Kentucky Entomology (House Dust Mites, ENTFACT-646).",
  "pinned_comment": "What's one thing in your bedroom routine you'd change if you knew how many dust mites could be in your bed?",
@@ -59,6 +59,28 @@
     ],
     "y": 470,
     "at": "45%"
+   }
+  },
+  {
+   "m": "fact",
+   "scene": "study",
+   "say": "They're most numerous in beds, sofas, and carpet.",
+   "card": {
+    "rows": [
+     [
+      "BEDS + SOFAS",
+      "#ffd34d",
+      110
+     ],
+     [
+      "+ CARPET",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
    }
   },
   {
@@ -106,28 +128,6 @@
     ],
     "y": 470,
     "at": "40%"
-   }
-  },
-  {
-   "m": "fact",
-   "scene": "study",
-   "say": "They're most numerous in beds, sofas, and carpet.",
-   "card": {
-    "rows": [
-     [
-      "BEDS + SOFAS",
-      "#ffd34d",
-      110
-     ],
-     [
-      "+ CARPET",
-      "#ffffff",
-      56,
-      true
-     ]
-    ],
-    "y": 470,
-    "at": "35%"
    }
   },
   {
