@@ -131,6 +131,8 @@ def tts_cached(key, mp3):
         return False
     if not (audio and meta.get("words") and meta.get("key") == key and meta.get("sha1") == _sha1_bytes(audio)):
         return False
+    if not take_ok(key, meta["words"]):   # a take that stopped mid-line (cached before 11/11): speak it again
+        return False
     with open(mp3, "wb") as f:
         f.write(audio)
     with open(mp3 + ".words.json", "w") as f:
@@ -138,6 +140,29 @@ def tts_cached(key, mp3):
     with open(mp3 + ".key", "w") as f:
         f.write(key)
     return True
+
+
+def take_ok(key, words):
+    """A stored edge-tts take is reusable only if it reaches its line's last word (facts.take_complete).
+    Kokoro takes are local and never cut short."""
+    from facts import take_complete
+    try:
+        k = json.loads(key)
+        if len(k) < 4:   # [text, kokoro blend]
+            return True
+        return take_complete(k[0], words)
+    except (ValueError, IndexError, TypeError, KeyError):
+        return False
+
+
+def take_fresh(key, mp3):
+    """The beat's own take in the work folder: same line, voice and tuning, files there, and not cut short."""
+    try:
+        if not (os.path.exists(mp3) and open(mp3 + ".key").read() == key):
+            return False
+        return take_ok(key, json.load(open(mp3 + ".words.json")))
+    except (OSError, ValueError):
+        return False
 
 
 def tts_store(key, mp3):
@@ -220,8 +245,7 @@ def kokoro(text, voice, mp3, key):
 def tts(text, voice, rate, pitch, mp3):
     from facts import speak
     key = line_key(text, voice, rate, pitch)   # the cache is per beat index: re-speak when the line changes
-    fresh = os.path.exists(mp3 + ".key") and open(mp3 + ".key").read() == key
-    if not (fresh and os.path.exists(mp3) and os.path.exists(mp3 + ".words.json")):
+    if not take_fresh(key, mp3):
         if voice.startswith("kokoro:"):
             kokoro(text, voice, mp3, key)
             return json.load(open(mp3 + ".words.json"))
@@ -243,7 +267,7 @@ def prefetch(spec, work, limit=6):
     for i, b in enumerate(spec["beats"]):
         mp3 = f"{work}/v{i:02d}.mp3"
         key = line_key(b["say"], voice, rate, pitch)
-        if not (os.path.exists(mp3 + ".key") and open(mp3 + ".key").read() == key):
+        if not take_fresh(key, mp3):
             if voice.startswith("kokoro:"):   # local and cached: no edge batch
                 kokoro(b["say"], voice, mp3, key)
             elif not tts_cached(key, mp3):

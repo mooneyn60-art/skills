@@ -29,14 +29,51 @@ W, H = 1080, 1920
 FONT = "DejaVu Sans"
 
 
-async def speak(text, voice, mp3, rate="+8%", pitch="+0Hz"):
-    # The TTS endpoint intermittently returns no audio; retry before failing the build.
-    for attempt in range(4):
+def _alnum(w):
+    return "".join(ch for ch in w.lower() if ch.isalnum())
+
+
+def take_complete(text, words, mp3=None):
+    """True when a spoken take reaches the end of its line. The TTS endpoint sometimes closes the stream early
+    and returns a shorter take with no error (11/11: 2 of 105 lines lost their last sentence, "Stay or squish?"
+    and "Holy shit."). So the last spoken word must be the line's last word, most of the words must be there,
+    and (when the file is given) the audio must run to the end of the last word."""
+    toks = [t for t in (_alnum(t) for t in text.split()) if t]
+    said = [w for w in words if _alnum(w[2])]
+    if not toks:
+        return True
+    if not said or len(said) < 0.6 * len(toks):
+        return False
+    a, b = toks[-1], _alnum(said[-1][2])
+    # a number or symbol at the end is spelled differently in the word list: the count check has to do
+    if not any(ch.isdigit() for ch in a) and not (a[:3] == b[:3] or a.endswith(b) or b.endswith(a)):
+        return False
+    if mp3:
         try:
-            return await _speak(text, voice, mp3, rate, pitch)
-        except edge_tts.exceptions.NoAudioReceived:
+            if duration(mp3) < said[-1][1] - 0.35:
+                return False
+        except (subprocess.CalledProcessError, ValueError, OSError):
+            return False
+    return True
+
+
+async def speak(text, voice, mp3, rate="+8%", pitch="+0Hz"):
+    # The TTS endpoint intermittently returns no audio, or a take that stops mid-line with no error
+    # (see take_complete); retry both before failing the build. MEATBALL_TTS_STRICT=0 skips the second check.
+    strict = os.environ.get("MEATBALL_TTS_STRICT", "1") != "0"
+    tries, err = 6, None
+    for attempt in range(tries):
+        try:
+            words = await _speak(text, voice, mp3, rate, pitch)
+        except edge_tts.exceptions.NoAudioReceived as e:
+            err = e
+        else:
+            if not strict or take_complete(text, words, mp3):
+                return words
+            err = RuntimeError(f"TTS take stopped before the end of the line after {tries} tries: {text!r}")
+        if attempt < tries - 1:
             await asyncio.sleep(2 * (attempt + 1))
-    return await _speak(text, voice, mp3, rate, pitch)
+    raise err
 
 
 async def _speak(text, voice, mp3, rate="+8%", pitch="+0Hz"):
