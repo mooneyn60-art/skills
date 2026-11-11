@@ -81,7 +81,7 @@
  "beats": [
   {
    "m": "hook",
-   "say": "Check your Christmas tree for a toasted marshmallow.",
+   "say": "Check your damn Christmas tree for a toasted marshmallow.",
    "card": {
     "rows": [
      [
@@ -242,7 +242,7 @@
   },
   {
    "m": "fact",
-   "say": "Inside: about a hundred eggs. Maybe several hundred.",
+   "say": "Inside: about a hundred eggs. Maybe several hundred. Holy shit.",
    "scene": "kitchen",
    "card": {
     "rows": [
@@ -464,7 +464,7 @@
   },
   {
    "m": "fact",
-   "say": "Dozens of baby mantises crawl out.",
+   "say": "Dozens of baby mantises crawl out. In your damn living room.",
    "scene": "bedroom",
    "card": {
     "rows": [
@@ -490,7 +490,7 @@
   },
   {
    "m": "xray",
-   "say": "No food indoors, so they eat each other.",
+   "say": "No food indoors, so they eat each other. Brutal as hell.",
    "scene": "basement",
    "card": {
     "rows": [
@@ -560,7 +560,7 @@
   },
   {
    "m": "fact",
-   "say": "Found one? Don't crush it. Clip the twig.",
+   "say": "Found one? Don't crush it. Clip the damn twig.",
    "scene": "garden",
    "card": {
     "rows": [
@@ -835,7 +835,7 @@
   },
   {
    "m": "fact",
-   "say": "The warmth wakes them up, and they wander.",
+   "say": "The warmth wakes them up, and the little bastards wander.",
    "scene": "basement",
    "card": {
     "rows": [
@@ -911,7 +911,7 @@
   },
   {
    "m": "fact",
-   "say": "Don't squash them. They can leave a purple stain.",
+   "say": "Don't squash them. They can leave a purple-ass stain.",
    "scene": "kitchen",
    "card": {
     "rows": [
@@ -1019,7 +1019,7 @@
   },
   {
    "m": "escalate",
-   "say": "And never spray the tree with bug spray.",
+   "say": "And never spray the tree with bug spray. Hell no.",
    "scene": "basement",
    "card": {
     "rows": [
@@ -1126,7 +1126,7 @@
   },
   {
    "m": "punch",
-   "say": "Have you checked your tree yet?",
+   "say": "Have you checked your damn tree yet?",
    "scene": "kitchen",
    "card": {
     "rows": [
@@ -1170,5 +1170,10 @@
   }
  ],
  "loop": false,
- "_note": "TikTok 1-min cut. Lines from scripts/longform-christmas-tree-check.outline.json (corrected by research/79) and research/77."
+ "_note": "TikTok 1-min cut. Lines from scripts/longform-christmas-tree-check.outline.json (corrected by research/79) and research/77.",
+ "cap_swap": {
+  "shit": "sh*t",
+  "bullshit": "bullsh*t"
+ },
+ "_curse": "TikTok cut with swearing (Nolan 11/11). Facts unchanged from the clean version; swears are reactions only."
 }

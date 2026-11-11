@@ -55,7 +55,7 @@
  "beats": [
   {
    "m": "hook",
-   "say": "Your bathroom bug can drop a leg to escape you.",
+   "say": "Your bathroom bug can drop a damn leg to escape you.",
    "card": {
     "rows": [
      [
@@ -190,7 +190,7 @@
   },
   {
    "m": "scale",
-   "say": "Legs and antennae make it look three to four inches.",
+   "say": "Legs and antennae make it look three to four inches. Hell no.",
    "scene": "kitchen",
    "card": {
     "rows": [
@@ -237,7 +237,7 @@
   },
   {
    "m": "tiny",
-   "say": "Babies hatch with just eight legs.",
+   "say": "Babies hatch with just eight legs. Cute little bastards.",
    "scene": "bathroom",
    "card": {
     "rows": [
@@ -283,7 +283,7 @@
   },
   {
    "m": "xray",
-   "say": "It hunts spiders, silverfish, cockroaches, even bed bugs.",
+   "say": "It hunts spiders, silverfish, cockroaches, even bed bugs. Badass.",
    "scene": "study",
    "card": {
     "rows": [
@@ -323,13 +323,13 @@
   },
   {
    "m": "fact",
-   "say": "It eats one while it holds the others.",
+   "say": "It eats one while it holds the others. Holy shit.",
    "scene": "kitchen",
    "gag": false
   },
   {
    "m": "escalate",
-   "say": "But here's where it hides while you're not looking.",
+   "say": "But here's where the hell it hides.",
    "scene": "bathroom",
    "card": {
     "rows": [
@@ -388,7 +388,7 @@
   },
   {
    "m": "chase",
-   "say": "Turn on the light, and it flees.",
+   "say": "Turn on the light, and it hauls ass.",
    "scene": "bathroom",
    "card": {
     "rows": [
@@ -422,7 +422,7 @@
   },
   {
    "m": "fact",
-   "say": "Some fall into your tub at night and get trapped.",
+   "say": "Some fall into your tub at night and get trapped. Dumbass.",
    "scene": "bathroom",
    "card": {
     "rows": [
@@ -439,7 +439,7 @@
   },
   {
    "m": "xray",
-   "say": "Seeing lots? You may have a bigger bug problem.",
+   "say": "Seeing lots? Shit. You may have a bigger bug problem.",
    "scene": "kitchen",
    "card": {
     "rows": [
@@ -548,7 +548,7 @@
   },
   {
    "m": "fact",
-   "say": "It almost never bites. Mostly if you grab it.",
+   "say": "It almost never bites. Mostly if you grab the damn thing.",
    "scene": "bedroom",
    "card": {
     "rows": [
@@ -588,7 +588,7 @@
   },
   {
    "m": "punch",
-   "say": "Stay or squish?",
+   "say": "So. Stay or squish? Don't lie.",
    "scene": "bathroom",
    "card": {
     "rows": [
@@ -605,5 +605,10 @@
   }
  ],
  "loop": false,
- "_note": "TikTok 1-min cut, Part 3 (new facts only vs Parts 1, 2, 4 and the 3A.M. cut). Lines from scripts/explainer/house-centipede-longform.json (fact-fixed) and research/74 'Script 2'."
+ "_note": "TikTok 1-min cut, Part 3 (new facts only vs Parts 1, 2, 4 and the 3A.M. cut). Lines from scripts/explainer/house-centipede-longform.json (fact-fixed) and research/74 'Script 2'.",
+ "cap_swap": {
+  "shit": "sh*t",
+  "bullshit": "bullsh*t"
+ },
+ "_curse": "TikTok cut with swearing (Nolan 11/11). Facts unchanged from the clean version; swears are reactions only."
 }

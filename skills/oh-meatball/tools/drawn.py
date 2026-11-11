@@ -43,6 +43,7 @@ Spec (see scripts/drawn-1027/*.json):
   Short form: beats with "m" (a macro name) are expanded by drawn_macros (hook, name, fact, xray, scale, count,
   escalate, chase, calm, punch, tease); see tools/drawn_quick.py for the outline that writes them.
 """
+import re
 import asyncio
 import json
 import math
@@ -810,7 +811,8 @@ def draw_prop(ctx, prop, hx, hy, k, t):
 
 # ---------------------------------------------------------------- captions (spoken-word, 1-3 words)
 
-def caption_chunks(beats):
+def caption_chunks(beats, swap=None):
+    """swap: optional {WORD: SHOWN} map for on-screen spellings only (spec "cap_swap"); the voice still says WORD."""
     out = []
     for b in beats:
         toks = b["say"].split()
@@ -831,7 +833,10 @@ def caption_chunks(beats):
                 group.append(ws[i + len(group)])
             s = b["t0"] + group[0][0]
             e = b["t0"] + (ws[i + len(group)][0] if i + len(group) < len(ws) else group[-1][1] + 0.15)
-            out.append((s, e, " ".join(g[2] for g in group).upper().rstrip(",.")))
+            txt = " ".join(g[2] for g in group).upper().rstrip(",.")
+            for k_, v_ in (swap or {}).items():
+                txt = re.sub(r"\b%s\b" % re.escape(k_.upper()), v_.upper(), txt)
+            out.append((s, e, txt))
             i += len(group)
     return out
 
@@ -1193,7 +1198,7 @@ def main():
     t_start = time.time()
     beats, total = plan(spec, work)
     t_plan = time.time() - t_start
-    G.update(fps=args.fps, beats=beats, rigs=rig_tracks(beats, args.fps), caps=caption_chunks(beats),
+    G.update(fps=args.fps, beats=beats, rigs=rig_tracks(beats, args.fps), caps=caption_chunks(beats, spec.get("cap_swap")),
              cap_px=spec.get("captions", 66), cap_y=spec.get("caption_y", 1530), counter=spec.get("counter"),
              cap_key=set(spec.get("cap_key", ())))
     G["ticks"] = counter_ticks(spec, beats)

@@ -55,7 +55,7 @@
  "beats": [
   {
    "m": "hook",
-   "say": "Your floor's wolf spider carries its babies. Stay or squish?",
+   "say": "Holy shit, your wolf spider carries its babies. Stay or squish?",
    "scene": "bedroom",
    "scene_p": {
     "time": "night"
@@ -89,7 +89,7 @@
   },
   {
    "m": "chase",
-   "say": "It runs its prey down. No web at all.",
+   "say": "It runs its prey down. No damn web at all.",
    "scene": "study",
    "scene_p": {
     "time": "night"
@@ -103,7 +103,7 @@
   },
   {
    "m": "fact",
-   "say": "Shine a flashlight, and its eyes glow back.",
+   "say": "Shine a flashlight, and its eyes glow back. Creepy as hell.",
    "scene": "basement",
    "scene_p": {
     "time": "night"
@@ -148,7 +148,7 @@
   },
   {
    "m": "punch",
-   "say": "It bites only if trapped. Verdict: stay.",
+   "say": "It bites only if trapped. Verdict: stay, you little badass.",
    "scene": "bedroom",
    "scene_p": {
     "time": "night"
@@ -271,7 +271,7 @@
   },
   {
    "m": "escalate",
-   "say": "Squeeze one, and it lets out a stinking spray.",
+   "say": "Squeeze one, and it sprays stink. Smells like shit.",
    "scene": "study",
    "scene_p": {
     "time": "night"
@@ -338,7 +338,7 @@
   },
   {
    "m": "punch",
-   "say": "Verdict: out. Vacuum it, don't crush it.",
+   "say": "Verdict: out. Vacuum the little bastard, don't crush it.",
    "scene": "bedroom",
    "scene_p": {
     "time": "dusk"
@@ -384,7 +384,7 @@
   },
   {
    "m": "escalate",
-   "say": "Here's what nobody tells you about the earwig.",
+   "say": "Here's what nobody tells you about the damn earwig.",
    "scene": "kitchen",
    "scene_p": {
     "time": "night"
@@ -440,7 +440,7 @@
   },
   {
    "m": "tiny",
-   "say": "An entomologist searched ten centuries and found one single case.",
+   "say": "An entomologist searched ten centuries and found one case. One.",
    "scene": "basement",
    "scene_p": {
     "time": "night"
@@ -483,7 +483,7 @@
   },
   {
    "m": "punch",
-   "say": "It pinches if trapped. Verdict: stay.",
+   "say": "It pinches if trapped. Verdict: stay, you weird little shit.",
    "scene": "bathroom",
    "scene_p": {
     "time": "night"
@@ -557,7 +557,7 @@
   },
   {
    "m": "tiny",
-   "say": "They don't eat the wood. They chew it out.",
+   "say": "They don't eat the wood. They chew that shit out.",
    "scene": "study",
    "scene_p": {
     "time": "night"
@@ -643,7 +643,7 @@
   },
   {
    "m": "fact",
-   "say": "Winged ants indoors in spring? The nest may be inside.",
+   "say": "Winged ants indoors in spring? Damn. The nest may be inside.",
    "scene": "basement",
    "scene_p": {
     "time": "night"
@@ -713,7 +713,7 @@
   },
   {
    "m": "fact",
-   "say": "Camel cricket in your basement. Stay or squish?",
+   "say": "Camel cricket in your basement. Ugly as hell. Stay or squish?",
    "scene": "basement",
    "scene_p": {
     "time": "night"
@@ -757,7 +757,7 @@
   },
   {
    "m": "chase",
-   "say": "No wings, can't chirp, but it jumps far.",
+   "say": "No wings, can't chirp, but holy shit it jumps far.",
    "scene": "basement",
    "scene_p": {
     "time": "night"
@@ -856,7 +856,7 @@
   },
   {
    "m": "fact",
-   "say": "Completely harmless to you. Verdict: stay.",
+   "say": "Completely harmless to you. Verdict: stay, you ugly bastard.",
    "scene": "basement",
    "scene_p": {
     "time": "night"
@@ -901,7 +901,7 @@
   },
   {
    "m": "punch",
-   "say": "Which one is in your house right now?",
+   "say": "Which one is in your damn house right now?",
    "scene": "bedroom",
    "scene_p": {
     "time": "night"
@@ -927,5 +927,9 @@
   }
  ],
  "loop": false,
- "_note": "TikTok 1-min cut from longform-kill-or-keep-2.json."
+ "_note": "TikTok 1-min cut from longform-kill-or-keep-2.json.",
+ "cap_swap": {
+  "shit": "sh*t"
+ },
+ "_curse": "TikTok cut with swearing (Nolan 11/11). Facts unchanged from the clean version; swears are reactions only."
 }
