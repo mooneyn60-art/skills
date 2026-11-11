@@ -120,6 +120,7 @@ Pick episodes from `CALENDAR_REALISTIC.md`, top down. Any Short that beats 2x th
 - **Sourcing:** every claim is sourced; single-source claims are said as "One account says…".
 
 ## Watch hours (the hard part of YPP)
+**11/11: the subscriber half is done (1,000).** What is left is 4,000 long-form watch hours (8,000 for anyone applying from 2027-02-01). Every decision now is judged on long-form hours.
 **Nolan, 11/5 (overrides the 10/30 case-file plan and the Sunday compilation; detail in `oh-meatball/research/65-longform-reset.md`):**
 - **One show:** every long-form is a **Things Living In Your House** long edition, about the creatures our Shorts already win with (house centipede, house spiders, cockroach, bed bugs, dust mites, mice). Same locked look, Andrew voice (+10%, +3Hz), 16:9.
 - **A full episode, never Shorts put together.** It is scripted and rendered as its own video (like `scripts/longform-kill-or-keep.json`):
