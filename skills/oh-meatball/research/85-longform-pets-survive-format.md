@@ -426,3 +426,21 @@ A title needs an animal or pet word (bear, grizzly, polar, lion, tiger, shark, c
 - Trends: pytrends, US, 5 years, web and `gprop=youtube`, 2026-11-12.
 - Own history: MASTER_ORDERS "Scoreboard 11/10", "Watch hours", "Direction change". Method and channels: research 70, 75, 83.
 - Scripts and raw pulls (not in the repo): `/tmp/claude-0/-home-user-skills/3d99d9ba-2ee2-5f03-bfdc-24a033361343/scratchpad/r85/`.
+
+## Addendum 11/12: title family and thumbnails for the "born as" shape (done before the house cat video was scheduled)
+
+Same data file (`data/85-longform-shapes.csv`, shape S6, channels under 100K subscribers, each video counted once: 148 videos, 27 channels).
+
+| Title family | Videos | Channels | Median views | Over 10,000 | Over 100,000 |
+|---|---|---|---|---|---|
+| "Why It Sucks to Be (Born as) X" | 106 | 21 | 4,150 | 43 (41%) | 19 (18%) |
+| "Your Life as X" | 29 | 5 | 29,000 | 17 (59%) | 6 (21%) |
+| anything else | 13 | 5 | 660 | 0 | 0 |
+
+- 19 of the 25 most-viewed videos say "Sucks"; the other 6 say "Your Life as". No other title is in the top 25.
+- "Your Life as" leans on one channel: 13 of its 29 videos are WHY YOU (69,800 subscribers, mostly movie monsters). The real-animal ones: The Animal Person 335K and 68K, Reaperology (6,940 subscribers) 158K for "Your Life as a Black Cat in the Middle Ages" and 71K for a hunting dog; The Wildlife Draft's seven have a median of 235. So: no worse than "Sucks", not proven better.
+- Cats in this shape: "Why It Sucks To Be Born As a Cat" 365K (Zoozle, 35,400 subscribers) and 218K (Dodo Diaries, 25,400); "Your Life as a Black Cat in the Middle Ages" 158K.
+- **Thumbnails** (public thumbnail images of the 24 most-viewed videos and the four least-viewed of each of the six winning channels, 44 in all, read by eye): white or plain background; one big drawn animal with a crying or screaming face; 2 to 4 hand-written words naming one specific curse ("Cursed Birth", "Its Mom HUNTS IT", "Born blind", "Brain Attacks at 3am Daily", "Born to Rule"); often one word in red; a small hand-drawn arrow. The same channels' weakest videos use the same recipe, so the recipe is the entry ticket and does not explain the winners.
+- Not measured: click-through or retention for any of these (public view counts only); whether the word "sucks" changes ad suitability.
+
+**What changed:** the house cat video is scheduled as "Your Life as a House Cat: 8 Ways It Goes Wrong" (in a proven family, no word that needs Nolan's yes); "Why It Sucks to Be Born as a House Cat" joins the title test if he says yes; the listicle title is third. Thumbnails follow the recipe with our own cat: `episodes/thumbs-bornas/` (sad cat with a tear and "RAW DEAL?" on the post; "LILIES CAN KILL IT" and "BORN A CAT?" as challengers).
