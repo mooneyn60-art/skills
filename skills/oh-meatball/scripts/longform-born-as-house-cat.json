@@ -1,0 +1,10415 @@
+{
+ "_note": "Built by tools/drawn_catlife.py build from longform-born-as-house-cat.outline.json. Each line: id (s<seg>.l<line>), the outline fields (say/vis/card/meter/src) and shot (recipe + args, tools/drawn_cl_shots.py). `tts` = a pronunciation respelling (captions use say).",
+ "builder": "drawn_catlife",
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -15,
+ "captions": 62,
+ "caption_y": 985,
+ "cut_whoosh": true,
+ "sfx_gain": 0.22,
+ "meter_start": 50,
+ "meter_labels": [
+  "RAW DEAL",
+  "SWEET DEAL"
+ ],
+ "cap_key": [
+  "cat",
+  "cats",
+  "kitten",
+  "kittens",
+  "deal",
+  "raw",
+  "sweet",
+  "eight",
+  "five",
+  "taurine",
+  "lilies",
+  "daylilies",
+  "vet",
+  "milk",
+  "window",
+  "carrier",
+  "purr",
+  "x-ray",
+  "kidney",
+  "dental",
+  "never",
+  "verdict",
+  "wildcat",
+  "mice",
+  "sugar",
+  "six",
+  "four",
+  "three",
+  "half",
+  "badass"
+ ],
+ "pause_lines": [
+  "s4.l5",
+  "s5.l13",
+  "s8.l2"
+ ],
+ "music_out": [],
+ "end_hold": 12.0,
+ "end_label": "best for viewer (the next 'born as' episode when it exists)",
+ "segments": [
+  {
+   "chapter": "Day one",
+   "chip": null
+  },
+  {
+   "chapter": "The deal you never signed",
+   "chip": "1 OF 8"
+  },
+  {
+   "chapter": "The five-week window",
+   "chip": "2 OF 8"
+  },
+  {
+   "chapter": "Your senses",
+   "chip": "3 OF 8"
+  },
+  {
+   "chapter": "Your dinner",
+   "chip": "4 OF 8"
+  },
+  {
+   "chapter": "Your house",
+   "chip": "5 OF 8"
+  },
+  {
+   "chapter": "The carrier",
+   "chip": "6 OF 8"
+  },
+  {
+   "chapter": "Your human",
+   "chip": "7 OF 8"
+  },
+  {
+   "chapter": "Your own body",
+   "chip": "8 OF 8"
+  },
+  {
+   "chapter": "The other deal",
+   "chip": "THE OTHER DEAL"
+  },
+  {
+   "chapter": "The verdict",
+   "chip": "THE VERDICT"
+  }
+ ],
+ "titles": [
+  "Why It Sucks to Be Born as a House Cat",
+  "8 Ways Being a House Cat Is a Raw Deal (And Why It's Still Worth It)",
+  "Your Life as a House Cat: 8 Ways It Goes Wrong"
+ ],
+ "pinned_comment": "Raw deal or sweet deal? And what's the weirdest thing your cat does that this didn't explain?",
+ "lines": [
+  {
+   "say": "You were just born as a house cat.",
+   "vis": "FRAME 0: close on a newborn kitten, eyes shut, wriggling on a blanket; narration starts on it at 0.0 s. Card: BORN A HOUSE CAT",
+   "card": "BORN A HOUSE CAT",
+   "id": "s0.l0",
+   "seg": 0,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_blanket",
+    "scene_p": {},
+    "cam": [
+     1127.8400000000001,
+     384.08,
+     1.55
+    ],
+    "to": [
+     1047.8400000000001,
+     404.08,
+     1.4
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       900,
+       860
+      ],
+      "s": 1.6,
+      "p": {
+       "age": "kitten",
+       "shut": true,
+       "wiggle": 1.0,
+       "mood": "calm",
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "sting@0.02"
+    ],
+    "shots": [
+     {
+      "cam": [
+       1127.8400000000001,
+       384.08,
+       1.55
+      ],
+      "to": [
+       1087.8400000000001,
+       399.08,
+       1.47
+      ]
+     },
+     {
+      "cam": [
+       1087.8400000000001,
+       399.08,
+       1.47
+      ],
+      "to": [
+       1027.8400000000001,
+       414.08,
+       1.38
+      ],
+      "at": "house|50%",
+      "dur": 0.9
+     }
+    ],
+    "card_at": "cat|60%",
+    "sheet_at": 0.75,
+    "recut": false
+   }
+  },
+  {
+   "say": "Your eyes are shut. They open in about a week to ten days.",
+   "src": "HC-A9",
+   "vis": "Extreme close-up: sealed eyelids; a tiny calendar flips 7, 8, 9, 10.",
+   "id": "s0.l1",
+   "seg": 0,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_blanket",
+    "scene_p": {},
+    "cam": [
+     1217.8400000000001,
+     494.08,
+     3.0
+    ],
+    "to": [
+     1217.8400000000001,
+     504.08,
+     3.25
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       900,
+       860
+      ],
+      "s": 1.6,
+      "p": {
+       "age": "kitten",
+       "shut": true,
+       "wiggle": 0.5,
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false
+     },
+     {
+      "id": "cal",
+      "type": "cl_cal",
+      "pos": [
+       977.8400000000001,
+       524.0799999999999
+      ],
+      "s": 0.32,
+      "p": {
+       "day": 7.0,
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "open|30%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       },
+       {
+        "at": "week|45%",
+        "dur": 2.2,
+        "p": {
+         "day": 10.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "whoosh@0.02",
+     "tink@ten|85%"
+    ]
+   }
+  },
+  {
+   "say": "You probably have a few siblings. Litters average about four.",
+   "src": "HC-A10",
+   "vis": "Pull back: four kittens in a pile; a small counter ticks 1, 2, 3, 4.",
+   "card": "LITTER: ABOUT 4",
+   "id": "s0.l2",
+   "seg": 0,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_blanket",
+    "scene_p": {},
+    "cam": [
+     960,
+     640,
+     1.5
+    ],
+    "to": [
+     960,
+     640,
+     1.59
+    ],
+    "actors": [
+     {
+      "id": "k1",
+      "type": "cl_cat",
+      "pos": [
+       520,
+       880
+      ],
+      "s": 0.95,
+      "p": {
+       "age": "kitten",
+       "shut": true,
+       "wiggle": 1.0,
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false
+     },
+     {
+      "id": "k2",
+      "type": "cl_cat",
+      "pos": [
+       830,
+       900
+      ],
+      "s": 1.0,
+      "p": {
+       "age": "kitten",
+       "shut": true,
+       "wiggle": 0.8,
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false,
+      "flip": true
+     },
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       1130,
+       870
+      ],
+      "s": 0.95,
+      "p": {
+       "age": "kitten",
+       "shut": true,
+       "wiggle": 1.0,
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false
+     },
+     {
+      "id": "k4",
+      "type": "cl_cat",
+      "pos": [
+       1430,
+       900
+      ],
+      "s": 0.9,
+      "p": {
+       "age": "kitten",
+       "shut": true,
+       "wiggle": 0.7,
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false,
+      "flip": true
+     },
+     {
+      "id": "cnt",
+      "type": "cl_count",
+      "pos": [
+       960,
+       540
+      ],
+      "s": 0.85,
+      "p": {
+       "v": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "siblings|25%",
+        "dur": 1.6,
+        "p": {
+         "v": 4.4
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "pop@average|40%",
+     "pop@four|85%"
+    ],
+    "shots": [
+     {
+      "cam": [
+       1000,
+       680,
+       1.55
+      ],
+      "to": [
+       960,
+       640,
+       1.0
+      ],
+      "dur": 1.4
+     }
+    ],
+    "card_at": "Litters|45%",
+    "norecut": true
+   }
+  },
+  {
+   "say": "And the deal for your whole life was made thousands of years before you got here.",
+   "src": "HC-A1 HC-A3",
+   "vis": "The blanket dissolves into an old parchment 'THE DEAL' with a paw print already on it.",
+   "id": "s0.l3",
+   "seg": 0,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_blanket",
+    "scene_p": {},
+    "cam": [
+     960,
+     600,
+     1.0
+    ],
+    "to": [
+     960,
+     580,
+     1.05
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       960,
+       1010
+      ],
+      "s": 0.9,
+      "p": {
+       "age": "kitten",
+       "shut": true,
+       "wiggle": 0.6,
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false
+     },
+     {
+      "id": "deal",
+      "type": "cl_parch",
+      "pos": [
+       960,
+       540
+      ],
+      "s": 0.82,
+      "p": {
+       "mode": "deal",
+       "paw": 0.0,
+       "unroll": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "deal|15%",
+        "dur": 0.9,
+        "p": {
+         "unroll": 1.0
+        }
+       },
+       {
+        "at": "thousands|60%",
+        "dur": 0.35,
+        "p": {
+         "paw": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "whoosh@deal|15%",
+     "stamp@thousands|60%"
+    ],
+    "norecut": true
+   }
+  },
+  {
+   "say": "Eight things come with that deal. Here they are, in the order they hit you.",
+   "vis": "Eight blank chips line up left to right, birth to old age. Card: 8 THINGS",
+   "card": "8 THINGS",
+   "id": "s0.l4",
+   "seg": 0,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_blanket",
+    "scene_p": {},
+    "cam": [
+     960,
+     560,
+     1.0
+    ],
+    "to": [
+     960,
+     560,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       960,
+       1000
+      ],
+      "s": 1.1,
+      "p": {
+       "age": "kitten",
+       "shut": true,
+       "wiggle": 0.5,
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "pop@Eight|10%",
+     "tink@order|70%"
+    ],
+    "chips8": {
+     "n0": 0.0,
+     "y": 470,
+     "sets": [
+      {
+       "at": "Eight|5%",
+       "dur": 1.6,
+       "p": {
+        "n": 8.0
+       }
+      }
+     ]
+    },
+    "card_at": "Eight|10%",
+    "card_y": 150,
+    "norecut": true
+   }
+  },
+  {
+   "say": "Then we add it up. Raw deal, or sweet deal?",
+   "vis": "The RAW DEAL / SWEET DEAL meter slides in at 50.",
+   "meter": 50,
+   "id": "s0.l5",
+   "seg": 0,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_blanket",
+    "scene_p": {},
+    "cam": [
+     1060,
+     640,
+     1.25
+    ],
+    "to": [
+     1100,
+     650,
+     1.32
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       900,
+       900
+      ],
+      "s": 1.3,
+      "p": {
+       "age": "kitten",
+       "shut": true,
+       "wiggle": 0.8,
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "boing@sweet|80%"
+    ],
+    "meter_in": "Raw|30%"
+   }
+  },
+  {
+   "say": "Number one. The deal itself.",
+   "vis": "Chapter card, 1.2 s max.",
+   "id": "s1.l0",
+   "seg": 1,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_village",
+    "scene_p": {},
+    "cam": [
+     960,
+     540,
+     1.0
+    ],
+    "to": [
+     960,
+     560,
+     1.05
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       2100,
+       900
+      ],
+      "s": 0.55,
+      "p": {
+       "age": "wild",
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false,
+      "flip": true,
+      "moves": [
+       {
+        "at": 0.1,
+        "dur": 2.0,
+        "pos": [
+         1250,
+         900
+        ],
+        "walk": true
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "step@deal|40%"
+    ]
+   }
+  },
+  {
+   "say": "A 2007 genetic study of 979 cats and their wild cousins traced house cats to the Near East.",
+   "src": "HC-A1",
+   "vis": "A simple map; a dot pulses on the Near East. Card: 979 CATS, 2007",
+   "card": "979 CATS",
+   "id": "s1.l1",
+   "seg": 1,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     0,
+     20,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "map",
+      "type": "cl_map",
+      "pos": [
+       0,
+       130
+      ],
+      "s": 0.95,
+      "p": {
+       "near": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "Near|50%",
+        "dur": 0.4,
+        "p": {
+         "near": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "pop@Near|50%"
+    ],
+    "card_at": "979|35%",
+    "norecut": true
+   }
+  },
+  {
+   "say": "Probably around the time the first farming villages appeared.",
+   "src": "HC-A1",
+   "vis": "A mud-brick farming village with grain jars (the village scene).",
+   "id": "s1.l2",
+   "seg": 1,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_village",
+    "scene_p": {},
+    "cam": [
+     900,
+     560,
+     1.15
+    ],
+    "to": [
+     1000,
+     580,
+     1.0
+    ],
+    "actors": [
+     {
+      "id": "j1",
+      "type": "cl_jar",
+      "pos": [
+       470,
+       900
+      ],
+      "s": 0.75,
+      "p": {},
+      "front": false
+     },
+     {
+      "id": "j2",
+      "type": "cl_jar",
+      "pos": [
+       640,
+       905
+      ],
+      "s": 0.6,
+      "p": {
+       "col": "#c98a5a"
+      },
+      "front": false
+     },
+     {
+      "id": "j3",
+      "type": "cl_jar",
+      "pos": [
+       1280,
+       900
+      ],
+      "s": 0.8,
+      "p": {
+       "grain": 1.0
+      },
+      "front": false
+     },
+     {
+      "id": "j4",
+      "type": "cl_jar",
+      "pos": [
+       1500,
+       905
+      ],
+      "s": 0.65,
+      "p": {
+       "col": "#a8603e"
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "whoosh@0.05"
+    ]
+   }
+  },
+  {
+   "say": "Scientists think your ancestors showed up for the mice in the grain stores.",
+   "src": "HC-A4",
+   "vis": "A wildcat slinks between grain jars; a mouse freezes.",
+   "card": "CAME FOR THE MICE",
+   "id": "s1.l3",
+   "seg": 1,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_village",
+    "scene_p": {},
+    "cam": [
+     900,
+     640,
+     1.2
+    ],
+    "to": [
+     960,
+     640,
+     1.26
+    ],
+    "actors": [
+     {
+      "id": "j1",
+      "type": "cl_jar",
+      "pos": [
+       470,
+       900
+      ],
+      "s": 0.75,
+      "p": {},
+      "front": false
+     },
+     {
+      "id": "j2",
+      "type": "cl_jar",
+      "pos": [
+       640,
+       905
+      ],
+      "s": 0.6,
+      "p": {
+       "col": "#c98a5a"
+      },
+      "front": false
+     },
+     {
+      "id": "j3",
+      "type": "cl_jar",
+      "pos": [
+       1280,
+       900
+      ],
+      "s": 0.8,
+      "p": {
+       "grain": 1.0
+      },
+      "front": false
+     },
+     {
+      "id": "j4",
+      "type": "cl_jar",
+      "pos": [
+       1500,
+       905
+      ],
+      "s": 0.65,
+      "p": {
+       "col": "#a8603e"
+      },
+      "front": false
+     },
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       150,
+       900
+      ],
+      "s": 0.5,
+      "p": {
+       "age": "wild",
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false,
+      "moves": [
+       {
+        "at": 0.05,
+        "dur": 2.4,
+        "pos": [
+         820,
+         900
+        ],
+        "walk": true
+       }
+      ]
+     },
+     {
+      "id": "mouse",
+      "type": "cl_mouse",
+      "pos": [
+       1120,
+       900
+      ],
+      "s": 0.55,
+      "p": {
+       "freeze": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "mice|50%",
+        "dur": 0.2,
+        "p": {
+         "freeze": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "step@ancestors|25%",
+     "pop@mice|55%"
+    ],
+    "card_at": "mice|45%"
+   }
+  },
+  {
+   "say": "And they probably just moved themselves in.",
+   "src": "HC-A4",
+   "vis": "The wildcat sits down in the doorway like it owns the place.",
+   "id": "s1.l4",
+   "seg": 1,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_village",
+    "scene_p": {},
+    "cam": [
+     990,
+     720,
+     1.6
+    ],
+    "to": [
+     990,
+     730,
+     1.68
+    ],
+    "actors": [
+     {
+      "id": "j1",
+      "type": "cl_jar",
+      "pos": [
+       470,
+       900
+      ],
+      "s": 0.75,
+      "p": {},
+      "front": false
+     },
+     {
+      "id": "j2",
+      "type": "cl_jar",
+      "pos": [
+       640,
+       905
+      ],
+      "s": 0.6,
+      "p": {
+       "col": "#c98a5a"
+      },
+      "front": false
+     },
+     {
+      "id": "j3",
+      "type": "cl_jar",
+      "pos": [
+       1280,
+       900
+      ],
+      "s": 0.8,
+      "p": {
+       "grain": 1.0
+      },
+      "front": false
+     },
+     {
+      "id": "j4",
+      "type": "cl_jar",
+      "pos": [
+       1500,
+       905
+      ],
+      "s": 0.65,
+      "p": {
+       "col": "#a8603e"
+      },
+      "front": false
+     },
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       760,
+       905
+      ],
+      "s": 0.55,
+      "p": {
+       "age": "wild",
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "moved|45%",
+        "dur": 0.6,
+        "p": {
+         "sit": 0.75,
+         "mood": "smug"
+        }
+       }
+      ],
+      "moves": [
+       {
+        "at": 0.05,
+        "dur": 0.9,
+        "pos": [
+         930,
+         905
+        ],
+        "walk": true
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "thud@moved|50%"
+    ]
+   }
+  },
+  {
+   "say": "A 2007 paper cites cat and human remains found together on Cyprus, about 9,500 years old.",
+   "src": "HC-A3",
+   "vis": "Map dot on Cyprus; card: ABOUT 9,500 YEARS",
+   "card": "ABOUT 9,500 YEARS",
+   "id": "s1.l5",
+   "seg": 1,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     -40,
+     20,
+     1.05
+    ],
+    "actors": [
+     {
+      "id": "map",
+      "type": "cl_map",
+      "pos": [
+       0,
+       130
+      ],
+      "s": 0.95,
+      "p": {
+       "near": 1.0,
+       "cyprus": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "Cyprus|40%",
+        "dur": 0.4,
+        "p": {
+         "cyprus": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "pop@Cyprus|40%"
+    ],
+    "card_at": "9,500|60%",
+    "norecut": true
+   }
+  },
+  {
+   "say": "And you still look a lot like them. A feral cat with the wild tabby pattern is hard to tell from a wildcat.",
+   "src": "HC-A7",
+   "vis": "Split screen: a feral cat with the wild tabby pattern (labelled so) and a wildcat, nearly identical. Meatball squints from one to the other.",
+   "id": "s1.l6",
+   "seg": 1,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_village",
+    "scene_p": {},
+    "cam": [
+     960,
+     620,
+     1.05
+    ],
+    "to": [
+     960,
+     640,
+     1.1
+    ],
+    "actors": [
+     {
+      "id": "feral",
+      "type": "cl_cat",
+      "pos": [
+       360,
+       905
+      ],
+      "s": 0.5,
+      "p": {
+       "age": "wild",
+       "stripes": true,
+       "look": [
+        1,
+        0.1
+       ]
+      },
+      "front": false
+     },
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       1380,
+       905
+      ],
+      "s": 0.5,
+      "p": {
+       "age": "wild",
+       "look": [
+        -1,
+        0.1
+       ]
+      },
+      "front": false,
+      "flip": true
+     }
+    ],
+    "mb": {
+     "pose": "think",
+     "pos": [
+      960,
+      905
+     ],
+     "size": 560,
+     "look": "feral",
+     "prop": null,
+     "gest": [
+      [
+       "tabby|45%",
+       "deadpan",
+       1.0
+      ],
+      [
+       "wildcat|80%",
+       "think",
+       1.0
+      ]
+     ]
+    },
+    "sfx": [
+     "tink@tabby|45%"
+    ]
+   }
+  },
+  {
+   "say": "So you're basically a wildcat. With a litter box. And a clock that is already running.",
+   "vis": "Back in the present: the kitten in a litter box, looking wild. First joke of the video (after 0:25).",
+   "meter": 46,
+   "id": "s1.l7",
+   "seg": 1,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     900,
+     720,
+     1.55
+    ],
+    "to": [
+     920,
+     730,
+     1.62
+    ],
+    "actors": [
+     {
+      "id": "box",
+      "type": "cl_litter",
+      "pos": [
+       920,
+       905
+      ],
+      "s": 1.1,
+      "p": {
+       "col": "#6aa0c8"
+      },
+      "front": false
+     },
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       840,
+       870
+      ],
+      "s": 0.62,
+      "p": {
+       "age": "kitten",
+       "mood": "angry",
+       "look": [
+        1,
+        0
+       ],
+       "stripes": true
+      },
+      "front": false
+     },
+     {
+      "id": "clk",
+      "type": "cl_clock",
+      "pos": [
+       1330,
+       450
+      ],
+      "s": 0.45,
+      "p": {
+       "mode": "wall",
+       "hr": 2.0,
+       "mn": 50.0,
+       "on": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "clock|70%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "boing@litter|45%",
+     "tink@clock|70%"
+    ],
+    "meter_at": "clock|70%"
+   }
+  },
+  {
+   "say": "Number two. You get about five weeks to learn humans.",
+   "vis": "Chapter card.",
+   "id": "s2.l0",
+   "seg": 2,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     960,
+     540,
+     1.0
+    ],
+    "to": [
+     960,
+     560,
+     1.05
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       1400,
+       900
+      ],
+      "s": 0.55,
+      "p": {
+       "age": "kitten",
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false,
+      "flip": true,
+      "moves": [
+       {
+        "at": 0.1,
+        "dur": 1.6,
+        "pos": [
+         900,
+         900
+        ],
+        "walk": true
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "step@five|50%"
+    ]
+   }
+  },
+  {
+   "say": "Merck's vet manual calls it the socialization period: about two to seven weeks old.",
+   "src": "HC-A12",
+   "vis": "A timeline bar with weeks 2 to 7 lit. Card: WEEKS 2 TO 7",
+   "card": "WEEKS 2 TO 7",
+   "id": "s2.l1",
+   "seg": 2,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     0,
+     10,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "tl",
+      "type": "cl_timeline",
+      "pos": [
+       0,
+       120
+      ],
+      "s": 1.0,
+      "p": {
+       "lit": 0.0,
+       "run": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "socialization|40%",
+        "dur": 1.4,
+        "p": {
+         "lit": 1.0,
+         "run": 7.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "whoosh@socialization|40%"
+    ],
+    "card_at": "two|65%",
+    "norecut": true
+   }
+  },
+  {
+   "say": "Kittens handled daily by people in their first month have been found to be more outgoing and more social with humans.",
+   "src": "HC-A12",
+   "vis": "Meatball, your human, picks the kitten up gently; a small heart.",
+   "id": "s2.l2",
+   "seg": 2,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     1050,
+     560,
+     1.15
+    ],
+    "to": [
+     1060,
+     570,
+     1.2
+    ],
+    "actors": [
+     {
+      "id": "hrt",
+      "type": "cl_heart",
+      "pos": [
+       1180,
+       330
+      ],
+      "s": 0.5,
+      "p": {
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "outgoing|55%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "pose": "present",
+     "pos": [
+      1180,
+      905
+     ],
+     "size": 640,
+     "look": "viewer",
+     "prop": "kitten",
+     "gest": [
+      [
+       "outgoing|55%",
+       "laugh",
+       1.5
+      ]
+     ]
+    },
+    "sfx": [
+     "pop@outgoing|55%"
+    ]
+   }
+  },
+  {
+   "say": "Nobody tells you the clock is running. You're three weeks old.",
+   "vis": "The kitten ignores a huge ticking clock and chases its own tail.",
+   "id": "s2.l3",
+   "seg": 2,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     960,
+     560,
+     1.0
+    ],
+    "to": [
+     960,
+     580,
+     1.06
+    ],
+    "actors": [
+     {
+      "id": "clk",
+      "type": "cl_clock",
+      "pos": [
+       1250,
+       400
+      ],
+      "s": 0.75,
+      "p": {
+       "mode": "wall",
+       "hr": 3.0,
+       "mn": 0.0
+      },
+      "front": false
+     },
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       700,
+       900
+      ],
+      "s": 0.5,
+      "p": {
+       "age": "kitten",
+       "mood": "happy",
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false,
+      "moves": [
+       {
+        "at": 0.2,
+        "dur": 0.45,
+        "pos": [
+         760,
+         900
+        ],
+        "face": -1
+       },
+       {
+        "at": 0.7,
+        "dur": 0.45,
+        "pos": [
+         700,
+         900
+        ],
+        "face": 1
+       },
+       {
+        "at": 1.2,
+        "dur": 0.45,
+        "pos": [
+         760,
+         900
+        ],
+        "face": -1
+       },
+       {
+        "at": 1.7,
+        "dur": 0.45,
+        "pos": [
+         700,
+         900
+        ],
+        "face": 1
+       },
+       {
+        "at": 2.2,
+        "dur": 0.45,
+        "pos": [
+         760,
+         900
+        ],
+        "face": -1
+       },
+       {
+        "at": 2.7,
+        "dur": 0.45,
+        "pos": [
+         700,
+         900
+        ],
+        "face": 1
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "tink@running|45%",
+     "boing@three|80%"
+    ]
+   }
+  },
+  {
+   "say": "Your opinion of humans may be shaped by a guy who holds you like a damn sandwich.",
+   "vis": "Meatball holding the kitten awkwardly in both hands like a sub. Character beat.",
+   "meter": 44,
+   "id": "s2.l4",
+   "seg": 2,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     960,
+     560,
+     1.3
+    ],
+    "to": [
+     980,
+     570,
+     1.36
+    ],
+    "actors": [],
+    "mb": {
+     "pose": "present",
+     "pos": [
+      900,
+      905
+     ],
+     "size": 660,
+     "look": "viewer",
+     "prop": "kitten_sub",
+     "gest": [
+      [
+       "sandwich|80%",
+       "deadpan",
+       1.5
+      ]
+     ]
+    },
+    "sfx": [
+     "boing@sandwich|80%"
+    ],
+    "meter_at": "sandwich|75%"
+   }
+  },
+  {
+   "say": "Number three. Your senses were built for a different job.",
+   "vis": "Chapter card.",
+   "id": "s3.l0",
+   "seg": 3,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     960,
+     540,
+     1.0
+    ],
+    "to": [
+     960,
+     560,
+     1.05
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       800,
+       900
+      ],
+      "s": 0.55,
+      "p": {
+       "sit": 0.6,
+       "look": [
+        1,
+        -0.3
+       ]
+      },
+      "front": false
+     },
+     {
+      "id": "rug",
+      "type": "cl_rug",
+      "pos": [
+       800,
+       920
+      ],
+      "s": 0.6,
+      "p": {},
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "whoosh@senses|50%"
+    ]
+   }
+  },
+  {
+   "say": "You most likely can't taste sugar. One of the two genes for the sweet receptor is broken.",
+   "src": "HC-B2",
+   "vis": "A tongue diagram: two puzzle pieces, one cracked. Card: SWEET GENE: BROKEN",
+   "card": "SWEET GENE: BROKEN",
+   "meter": 40,
+   "id": "s3.l1",
+   "seg": 3,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     0,
+     20,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "pz",
+      "type": "cl_puzzle",
+      "pos": [
+       0,
+       150
+      ],
+      "s": 0.8,
+      "p": {
+       "crack": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "broken|70%",
+        "dur": 0.5,
+        "p": {
+         "crack": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "crunch@broken|70%"
+    ],
+    "card_at": "broken|70%",
+    "meter_at": "broken|75%",
+    "norecut": true
+   }
+  },
+  {
+   "say": "Birthday cake? Probably wasted on you. Hell of a start.",
+   "vis": "Meatball holds a slice of cake with a candle up out of reach (the cat never eats it); the cat stares, unimpressed.",
+   "id": "s3.l2",
+   "seg": 3,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     960,
+     600,
+     1.1
+    ],
+    "to": [
+     980,
+     600,
+     1.16
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       660,
+       905
+      ],
+      "s": 0.55,
+      "p": {
+       "mood": "smug",
+       "look": [
+        0.8,
+        -0.7
+       ]
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "pose": "present",
+     "pos": [
+      1200,
+      905
+     ],
+     "size": 640,
+     "look": "hero",
+     "prop": "cake",
+     "gest": [
+      [
+       "wasted|45%",
+       "shrug",
+       1.4
+      ]
+     ]
+    },
+    "sfx": [
+     "pop@cake|15%"
+    ]
+   }
+  },
+  {
+   "say": "You see fewer colours than your human. Scientists still argue about how many.",
+   "src": "HC-B4 HC-B5",
+   "vis": "The room loses some of its colours as we go into cat-view.",
+   "id": "s3.l3",
+   "seg": 3,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     960,
+     540,
+     1.0
+    ],
+    "to": [
+     980,
+     560,
+     1.06
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       960,
+       900
+      ],
+      "s": 0.55,
+      "p": {
+       "look": [
+        1,
+        -0.2
+       ]
+      },
+      "front": false
+     },
+     {
+      "id": "grey",
+      "type": "cl_tint",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "mode": "grey",
+       "a": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "fewer|30%",
+        "dur": 1.2,
+        "p": {
+         "a": 0.6
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "whoosh@fewer|30%"
+    ]
+   }
+  },
+  {
+   "say": "And your lens seems to change shape only a little, so focusing up close is limited.",
+   "src": "HC-B6",
+   "vis": "A toy near the cat's nose goes a little soft; no distance is shown.",
+   "id": "s3.l4",
+   "seg": 3,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     1069.68,
+     594.0,
+     2.0
+    ],
+    "to": [
+     1089.68,
+     604.0,
+     2.08
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       700,
+       900
+      ],
+      "s": 0.8,
+      "p": {
+       "look": [
+        1,
+        0.2
+       ]
+      },
+      "front": false
+     },
+     {
+      "id": "toy",
+      "type": "cl_toy",
+      "pos": [
+       1179.68,
+       754.0
+      ],
+      "s": 0.7,
+      "p": {
+       "kind": "ball",
+       "blur": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "limited|55%",
+        "dur": 0.8,
+        "p": {
+         "blur": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "whoosh@limited|55%"
+    ]
+   }
+  },
+  {
+   "say": "But here's what you got instead.",
+   "vis": "Lights go down.",
+   "id": "s3.l5",
+   "seg": 3,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     960,
+     540,
+     1.0
+    ],
+    "to": [
+     960,
+     560,
+     1.06
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       960,
+       900
+      ],
+      "s": 0.55,
+      "p": {
+       "look": [
+        1,
+        -0.2
+       ]
+      },
+      "front": false
+     },
+     {
+      "id": "tint",
+      "type": "cl_tint",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "mode": "dark",
+       "a": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "here's|20%",
+        "dur": 1.0,
+        "p": {
+         "a": 0.6
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "click@here's|20%"
+    ]
+   }
+  },
+  {
+   "say": "In dim light, you see about six times better than a person.",
+   "src": "HC-B7",
+   "vis": "Dim room: Meatball stumbles into a chair; the cat walks through cleanly. Card: 6 TIMES BETTER IN DIM LIGHT",
+   "card": "6X IN DIM LIGHT",
+   "meter": 44,
+   "id": "s3.l6",
+   "seg": 3,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {},
+    "cam": [
+     960,
+     540,
+     1.0
+    ],
+    "to": [
+     960,
+     560,
+     1.05
+    ],
+    "actors": [
+     {
+      "id": "chair",
+      "type": "cl_chair",
+      "pos": [
+       760,
+       900
+      ],
+      "s": 1.0,
+      "p": {},
+      "front": false
+     },
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       1800,
+       900
+      ],
+      "s": 0.5,
+      "p": {
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false,
+      "flip": true,
+      "moves": [
+       {
+        "at": 0.1,
+        "dur": 2.6,
+        "pos": [
+         300,
+         900
+        ],
+        "walk": true
+       }
+      ]
+     },
+     {
+      "id": "tint",
+      "type": "cl_tint",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "mode": "dark",
+       "a": 0.6
+      },
+      "front": true
+     }
+    ],
+    "mb": {
+     "pose": "neutral",
+     "pos": [
+      250,
+      905
+     ],
+     "size": 600,
+     "look": "viewer",
+     "prop": null,
+     "moves": [
+      {
+       "at": 0.1,
+       "dur": 1.0,
+       "pos": [
+        640,
+        905
+       ],
+       "walk": true
+      }
+     ],
+     "gest": [
+      [
+       "six|50%",
+       "shock",
+       1.5
+      ]
+     ]
+    },
+    "sfx": [
+     "thud@six|50%"
+    ],
+    "shake": [
+     "six|50%"
+    ],
+    "card_at": "dim|20%",
+    "meter_at": "six|60%"
+   }
+  },
+  {
+   "say": "Not in the dark. That part is a myth. You still need a little light.",
+   "src": "HC-B7",
+   "vis": "Lights fully out: two cat eyes blink, then bump into the same chair.",
+   "id": "s3.l7",
+   "seg": 3,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {},
+    "cam": [
+     960,
+     540,
+     1.0
+    ],
+    "to": [
+     960,
+     560,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "chair",
+      "type": "cl_chair",
+      "pos": [
+       760,
+       900
+      ],
+      "s": 1.0,
+      "p": {},
+      "front": false
+     },
+     {
+      "id": "tint",
+      "type": "cl_tint",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "mode": "dark",
+       "a": 0.6
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "dark|10%",
+        "dur": 0.5,
+        "p": {
+         "a": 0.94
+        }
+       }
+      ]
+     },
+     {
+      "id": "eyes",
+      "type": "cl_eyes",
+      "pos": [
+       1500,
+       760
+      ],
+      "s": 0.7,
+      "p": {
+       "blink": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "myth|35%",
+        "dur": 0.12,
+        "p": {
+         "blink": 1.0
+        }
+       },
+       {
+        "at": "myth|45%",
+        "dur": 0.12,
+        "p": {
+         "blink": 0.0
+        }
+       }
+      ],
+      "moves": [
+       {
+        "at": "still|55%",
+        "dur": 0.8,
+        "pos": [
+         870,
+         760
+        ]
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "thud@light|90%"
+    ],
+    "shake": [
+     "light|90%"
+    ]
+   }
+  },
+  {
+   "say": "And in a classic test with two cats, hearing ran from 48 hertz all the way up to 85 kilohertz.",
+   "src": "HC-B1",
+   "vis": "A hearing bar stretches and stretches. Card: 48 Hz TO 85 kHz (2 CATS)",
+   "card": "48 Hz TO 85 kHz (2 CATS)",
+   "id": "s3.l8",
+   "seg": 3,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     0,
+     20,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "hb",
+      "type": "cl_hearing",
+      "pos": [
+       0,
+       160
+      ],
+      "s": 1.0,
+      "p": {
+       "grow": 0.08
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "hertz|40%",
+        "dur": 2.0,
+        "p": {
+         "grow": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "whoosh@hertz|40%"
+    ],
+    "card_at": "hertz|45%",
+    "card_w": 1600,
+    "norecut": true
+   }
+  },
+  {
+   "say": "One of the widest ranges of any mammal.",
+   "src": "HC-B1",
+   "vis": "The cat's ears swivel separately like radar dishes.",
+   "meter": 46,
+   "id": "s3.l9",
+   "seg": 3,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     889.6800000000001,
+     564.0,
+     1.7
+    ],
+    "to": [
+     889.6800000000001,
+     574.0,
+     1.78
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       700,
+       900
+      ],
+      "s": 0.8,
+      "p": {
+       "look": [
+        1,
+        -0.3
+       ],
+       "radar": 1.0
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "tink@widest|40%"
+    ]
+   }
+  },
+  {
+   "say": "Badass. Shame about the menu.",
+   "vis": "The cat looks down at its empty bowl.",
+   "id": "s3.l10",
+   "seg": 3,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     950,
+     760,
+     1.6
+    ],
+    "to": [
+     960,
+     770,
+     1.68
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       760,
+       905
+      ],
+      "s": 0.55,
+      "p": {
+       "look": [
+        1,
+        0.8
+       ],
+       "mood": "worry"
+      },
+      "front": false
+     },
+     {
+      "id": "bowl",
+      "type": "cl_bowl",
+      "pos": [
+       1180,
+       905
+      ],
+      "s": 0.75,
+      "p": {},
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "boing@menu|70%"
+    ]
+   }
+  },
+  {
+   "say": "Number four. Your menu.",
+   "vis": "Chapter card.",
+   "id": "s4.l0",
+   "seg": 4,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "kitchen"
+    },
+    "cam": [
+     960,
+     540,
+     1.0
+    ],
+    "to": [
+     960,
+     560,
+     1.05
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       700,
+       900
+      ],
+      "s": 0.55,
+      "p": {
+       "look": [
+        1,
+        0.6
+       ]
+      },
+      "front": false
+     },
+     {
+      "id": "bowl",
+      "type": "cl_bowl",
+      "pos": [
+       1050,
+       900
+      ],
+      "s": 0.75,
+      "p": {},
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "tink@menu|60%"
+    ]
+   }
+  },
+  {
+   "say": "Your wild ancestors were obligate carnivores. Their prey had almost no carbs in it.",
+   "src": "HC-C5",
+   "vis": "The wildcat with a mouse; a nutrition label on the mouse: CARBS: ALMOST NONE.",
+   "card": "OBLIGATE CARNIVORE",
+   "id": "s4.l1",
+   "seg": 4,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_village",
+    "scene_p": {},
+    "cam": [
+     960,
+     680,
+     1.25
+    ],
+    "to": [
+     980,
+     690,
+     1.3
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       620,
+       905
+      ],
+      "s": 0.55,
+      "p": {
+       "age": "wild",
+       "look": [
+        1,
+        0.3
+       ]
+      },
+      "front": false
+     },
+     {
+      "id": "mouse",
+      "type": "cl_mouse",
+      "pos": [
+       1200,
+       905
+      ],
+      "s": 0.7,
+      "p": {
+       "freeze": 1.0,
+       "label": 0.0
+      },
+      "front": false,
+      "flip": true,
+      "set": [
+       {
+        "at": "carbs|50%",
+        "dur": 0.4,
+        "p": {
+         "label": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "pop@carbs|50%"
+    ],
+    "card_at": "obligate|25%"
+   }
+  },
+  {
+   "say": "And your body makes very little taurine by itself. It has to come from your food.",
+   "src": "HC-C4",
+   "vis": "A tiny factory inside the cat with a CLOSED sign labelled TAURINE.",
+   "card": "TAURINE: FROM FOOD",
+   "id": "s4.l2",
+   "seg": 4,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#3a4660"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     0,
+     20,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       -60,
+       500
+      ],
+      "s": 1.0,
+      "p": {
+       "look": [
+        1,
+        0
+       ],
+       "xray": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "taurine|30%",
+        "dur": 0.6,
+        "p": {
+         "xray": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "fac",
+      "type": "cl_factory",
+      "pos": [
+       -70,
+       290
+      ],
+      "s": 0.36,
+      "p": {
+       "closed": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "little|45%",
+        "dur": 0.5,
+        "p": {
+         "closed": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "whoosh@taurine|30%",
+     "thud@little|50%"
+    ],
+    "card_at": "food|70%",
+    "norecut": true
+   }
+  },
+  {
+   "say": "In 1987, vets wrote that thousands of pet cats were dying every year of a heart disease, and nobody knew the cause.",
+   "src": "HC-C1",
+   "vis": "A vet's desk, 1987 calendar, a stack of heart scans. Card: 1987",
+   "card": "1987",
+   "id": "s4.l3",
+   "seg": 4,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "clinic"
+    },
+    "cam": [
+     900,
+     560,
+     1.0
+    ],
+    "to": [
+     940,
+     570,
+     1.06
+    ],
+    "actors": [
+     {
+      "id": "desk",
+      "type": "cl_desk",
+      "pos": [
+       760,
+       905
+      ],
+      "s": 0.95,
+      "p": {},
+      "front": false
+     },
+     {
+      "id": "cal",
+      "type": "cl_cal",
+      "pos": [
+       1500,
+       470
+      ],
+      "s": 0.65,
+      "p": {
+       "mode": "label",
+       "label": "1987"
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "pop@1987|10%"
+    ],
+    "card_at": "1987|10%",
+    "card_x": 700
+   }
+  },
+  {
+   "say": "They found low taurine in 21 cats with failing hearts. Cats fed commercial cat food.",
+   "src": "HC-C1",
+   "vis": "A row of ordinary cat food cans; one rotates to show a question mark.",
+   "card": "21 CATS",
+   "id": "s4.l4",
+   "seg": 4,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     0,
+     20,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "c0",
+      "type": "cl_can",
+      "pos": [
+       -480,
+       330
+      ],
+      "s": 0.95,
+      "p": {
+       "col": "#3b7dd8"
+      },
+      "front": false
+     },
+     {
+      "id": "c1",
+      "type": "cl_can",
+      "pos": [
+       -160,
+       330
+      ],
+      "s": 0.95,
+      "p": {
+       "col": "#c0392b"
+      },
+      "front": false
+     },
+     {
+      "id": "c2",
+      "type": "cl_can",
+      "pos": [
+       160,
+       330
+      ],
+      "s": 0.95,
+      "p": {
+       "col": "#2f8f8a",
+       "spin": 0.0,
+       "label": "?"
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "commercial|60%",
+        "dur": 0.8,
+        "p": {
+         "spin": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "c3",
+      "type": "cl_can",
+      "pos": [
+       480,
+       330
+      ],
+      "s": 0.95,
+      "p": {
+       "col": "#d98a2a"
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "whoosh@commercial|60%"
+    ],
+    "card_at": "21|35%",
+    "norecut": true
+   }
+  },
+  {
+   "say": "They gave the cats taurine.",
+   "src": "HC-C2",
+   "vis": "A dropper; pause-and-reveal 1 of 3.",
+   "id": "s4.l5",
+   "seg": 4,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     40,
+     1.0
+    ],
+    "to": [
+     0,
+     40,
+     1.08
+    ],
+    "actors": [
+     {
+      "id": "drop",
+      "type": "cl_dropper",
+      "pos": [
+       0,
+       200
+      ],
+      "s": 1.1,
+      "p": {
+       "drip": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "taurine|50%",
+        "dur": 0.7,
+        "p": {
+         "drip": 0.99
+        }
+       }
+      ]
+     },
+     {
+      "id": "bowl",
+      "type": "cl_bowl",
+      "pos": [
+       0,
+       520
+      ],
+      "s": 1.0,
+      "p": {
+       "full": 1.0,
+       "col": "#c0392b"
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "tink@taurine|70%"
+    ],
+    "norecut": true
+   },
+   "tts": "They gave the cats tawreen."
+  },
+  {
+   "say": "After that, their heart function went back to normal.",
+   "src": "HC-C2",
+   "vis": "A weak heartbeat line becomes a strong one. Card: REVERSIBLE",
+   "card": "REVERSIBLE",
+   "meter": 38,
+   "id": "s4.l6",
+   "seg": 4,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     0,
+     20,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "ekg",
+      "type": "cl_heartline",
+      "pos": [
+       0,
+       160
+      ],
+      "s": 1.0,
+      "p": {
+       "strong": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "heart|25%",
+        "dur": 1.4,
+        "p": {
+         "strong": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "tink@normal|75%"
+    ],
+    "card_at": "normal|70%",
+    "meter_at": "normal|70%",
+    "norecut": true
+   }
+  },
+  {
+   "say": "So some food back then was probably breaking hearts. Actual hearts. Damn.",
+   "src": "HC-C1",
+   "vis": "Meatball stares at a can with a 1987 label.",
+   "id": "s4.l7",
+   "seg": 4,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "kitchen"
+    },
+    "cam": [
+     960,
+     560,
+     1.15
+    ],
+    "to": [
+     990,
+     570,
+     1.2
+    ],
+    "actors": [
+     {
+      "id": "can",
+      "type": "cl_can",
+      "pos": [
+       1280,
+       545
+      ],
+      "s": 0.75,
+      "p": {
+       "label": "1987",
+       "col": "#c0392b"
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "pose": "think",
+     "pos": [
+      900,
+      905
+     ],
+     "size": 640,
+     "look": "can",
+     "prop": null,
+     "gest": [
+      [
+       "Actual|55%",
+       "shock",
+       1.2
+      ],
+      [
+       "Damn|85%",
+       "deadpan",
+       1.0
+      ]
+     ]
+    },
+    "sfx": [
+     "boing@Actual|55%"
+    ]
+   },
+   "tts": "So some food back then was probably breaking hearts. Ackchual hearts. Damn."
+  },
+  {
+   "say": "Earlier, in a 1975 lab study, cats on a diet with casein as the protein had the light-sensing cells in their eyes break down.",
+   "src": "HC-C3",
+   "vis": "A lab bowl labelled CASEIN DIET; an eye diagram dims.",
+   "id": "s4.l8",
+   "seg": 4,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     0,
+     20,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "bowl",
+      "type": "cl_bowl",
+      "pos": [
+       -480,
+       300
+      ],
+      "s": 1.1,
+      "p": {
+       "full": 1.0,
+       "label": "CASEIN DIET",
+       "col": "#b7c0c9"
+      },
+      "front": false
+     },
+     {
+      "id": "eye",
+      "type": "cl_eye",
+      "pos": [
+       380,
+       120
+      ],
+      "s": 0.8,
+      "p": {
+       "dim": 0.0,
+       "on": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "light|55%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       },
+       {
+        "at": "down|80%",
+        "dur": 1.0,
+        "p": {
+         "dim": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "pop@light|55%",
+     "whoosh@down|80%"
+    ],
+    "norecut": true
+   }
+  },
+  {
+   "say": "Low taurine was the suspect there too.",
+   "src": "HC-C3",
+   "vis": "The TAURINE factory sign again, underlined.",
+   "meter": 42,
+   "id": "s4.l9",
+   "seg": 4,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     0,
+     20,
+     1.05
+    ],
+    "actors": [
+     {
+      "id": "fac",
+      "type": "cl_factory",
+      "pos": [
+       0,
+       170
+      ],
+      "s": 0.95,
+      "p": {
+       "closed": 1.0,
+       "under": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "suspect|50%",
+        "dur": 0.5,
+        "p": {
+         "under": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "scratch@suspect|50%"
+    ],
+    "meter_at": "suspect|55%",
+    "norecut": true
+   }
+  },
+  {
+   "say": "And that saucer of milk from every cartoon? The ASPCA says milk can give pets diarrhea.",
+   "src": "HC-C10",
+   "vis": "Meatball proudly sets down a saucer of milk.",
+   "card": "MILK: CAN CAUSE DIARRHEA",
+   "id": "s4.l10",
+   "seg": 4,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     960,
+     600,
+     1.05
+    ],
+    "to": [
+     980,
+     600,
+     1.1
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       480,
+       905
+      ],
+      "s": 0.5,
+      "p": {
+       "look": [
+        1,
+        0.4
+       ]
+      },
+      "front": false
+     },
+     {
+      "id": "sau",
+      "type": "cl_saucer",
+      "pos": [
+       840,
+       905
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "saucer|20%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ],
+      "moves": [
+       {
+        "at": "saucer|20%",
+        "dur": 0.5,
+        "pos": [
+         840,
+         905
+        ]
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "pose": "present",
+     "pos": [
+      1150,
+      905
+     ],
+     "size": 640,
+     "look": "sau",
+     "prop": null,
+     "gest": [
+      [
+       "ASPCA|50%",
+       "shock",
+       1.4
+      ]
+     ]
+    },
+    "sfx": [
+     "tink@saucer|25%"
+    ],
+    "card_at": "diarrhea|80%"
+   }
+  },
+  {
+   "say": "Meatball brought milk. Meatball may regret it. And that saucer is the least of your problems.",
+   "vis": "Meatball eyes a mop in the corner, just in case; nothing is shown happening. Character beat.",
+   "meter": 40,
+   "id": "s4.l11",
+   "seg": 4,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     1150,
+     600,
+     1.1
+    ],
+    "to": [
+     1170,
+     600,
+     1.16
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       520,
+       905
+      ],
+      "s": 0.5,
+      "p": {
+       "look": [
+        1,
+        0.4
+       ],
+       "sit": 0.5
+      },
+      "front": false
+     },
+     {
+      "id": "sau",
+      "type": "cl_saucer",
+      "pos": [
+       840,
+       905
+      ],
+      "s": 1.0,
+      "p": {},
+      "front": false
+     },
+     {
+      "id": "mop",
+      "type": "cl_mop",
+      "pos": [
+       1780,
+       905
+      ],
+      "s": 1.0,
+      "p": {},
+      "front": false
+     }
+    ],
+    "mb": {
+     "pose": "nervous",
+     "pos": [
+      1250,
+      905
+     ],
+     "size": 640,
+     "look": "mop",
+     "prop": null,
+     "gest": [
+      [
+       "regret|40%",
+       "nervous",
+       2.0
+      ]
+     ]
+    },
+    "sfx": [
+     "tink@regret|40%"
+    ],
+    "meter_at": "least|70%"
+   }
+  },
+  {
+   "say": "Number five. The house itself.",
+   "vis": "Chapter card over a cosy living room.",
+   "id": "s5.l0",
+   "seg": 5,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     960,
+     540,
+     1.0
+    ],
+    "to": [
+     980,
+     560,
+     1.06
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       1400,
+       735
+      ],
+      "s": 0.45,
+      "p": {
+       "sit": 0.85,
+       "look": [
+        -1,
+        0
+       ]
+      },
+      "front": false,
+      "flip": true
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "whoosh@house|50%"
+    ]
+   }
+  },
+  {
+   "say": "Start with the flowers.",
+   "vis": "A vase of lilies on the table, lit like a horror film.",
+   "id": "s5.l1",
+   "seg": 5,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     960,
+     640,
+     1.2
+    ],
+    "to": [
+     960,
+     620,
+     1.35
+    ],
+    "actors": [
+     {
+      "id": "lily",
+      "type": "cl_lily",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.75,
+      "p": {
+       "horror": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "flowers|30%",
+        "dur": 0.6,
+        "p": {
+         "horror": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "tint",
+      "type": "cl_tint",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "mode": "dark",
+       "a": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "flowers|30%",
+        "dur": 0.6,
+        "p": {
+         "a": 0.35
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "sting@flowers|35%"
+    ]
+   }
+  },
+  {
+   "say": "The FDA says true lilies and daylilies can cause fatal kidney failure in cats.",
+   "src": "HC-E1 HC-E4",
+   "vis": "Card: TRUE LILIES AND DAYLILIES. No joke in this block.",
+   "card": "TRUE LILIES + DAYLILIES",
+   "id": "s5.l2",
+   "seg": 5,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     960,
+     620,
+     1.1
+    ],
+    "to": [
+     980,
+     620,
+     1.15
+    ],
+    "actors": [
+     {
+      "id": "lily",
+      "type": "cl_lily",
+      "pos": [
+       560,
+       905
+      ],
+      "s": 0.7,
+      "p": {
+       "horror": 0.6
+      },
+      "front": false
+     },
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       1300,
+       905
+      ],
+      "s": 0.5,
+      "p": {
+       "look": [
+        -1,
+        -0.2
+       ]
+      },
+      "front": false,
+      "flip": true
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "thud@fatal|65%"
+    ],
+    "card_at": "lilies|35%",
+    "card_x": 1150,
+    "card_w": 1250
+   }
+  },
+  {
+   "say": "A bite of leaf or petal, a few pollen grains licked off fur, or water from the vase can do it.",
+   "src": "HC-E1",
+   "vis": "Three quick close-ups: a petal, yellow pollen on fur, the vase water.",
+   "id": "s5.l3",
+   "seg": 5,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     -2000,
+     540,
+     1.0
+    ],
+    "to": [
+     -2000,
+     540,
+     1.06
+    ],
+    "actors": [
+     {
+      "id": "pet",
+      "type": "cl_petal",
+      "pos": [
+       -2000,
+       540
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "petal"
+      },
+      "front": false,
+      "rot": 10
+     },
+     {
+      "id": "pol",
+      "type": "cl_petal",
+      "pos": [
+       0,
+       540
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "pollen"
+      },
+      "front": false
+     },
+     {
+      "id": "wat",
+      "type": "cl_petal",
+      "pos": [
+       2000,
+       560
+      ],
+      "s": 0.85,
+      "p": {
+       "kind": "water"
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "whoosh@pollen|30%",
+     "whoosh@water|75%"
+    ],
+    "shots": [
+     {
+      "cam": [
+       -2000,
+       540,
+       1.0
+      ],
+      "to": [
+       -2000,
+       540,
+       1.06
+      ]
+     },
+     {
+      "cam": [
+       0,
+       540,
+       1.05
+      ],
+      "to": [
+       0,
+       540,
+       1.12
+      ],
+      "at": "pollen|30%",
+      "dur": 0.05
+     },
+     {
+      "cam": [
+       2000,
+       560,
+       1.0
+      ],
+      "to": [
+       2000,
+       560,
+       1.07
+      ],
+      "at": "water|75%",
+      "dur": 0.05
+     }
+    ],
+    "norecut": true
+   }
+  },
+  {
+   "say": "Fatal kidney failure, in under three days.",
+   "src": "HC-E1",
+   "vis": "Calendar: three pages. Card: CAN KILL IN UNDER 3 DAYS",
+   "card": "CAN KILL IN UNDER 3 DAYS",
+   "meter": 32,
+   "id": "s5.l4",
+   "seg": 5,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     0,
+     20,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "cal",
+      "type": "cl_cal",
+      "pos": [
+       0,
+       230
+      ],
+      "s": 1.1,
+      "p": {
+       "mode": "three",
+       "n": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "kidney|20%",
+        "dur": 1.4,
+        "p": {
+         "n": 3.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "pop@kidney|25%",
+     "pop@three|70%"
+    ],
+    "card_at": "three|70%",
+    "meter_at": "three|75%",
+    "norecut": true
+   }
+  },
+  {
+   "say": "The FDA says this toxin only affects cats, and nobody has identified it.",
+   "src": "HC-E2",
+   "vis": "A dog next to the same lily with a mild tummy ache (FDA: minor stomach upset); a big question mark over the flower.",
+   "id": "s5.l5",
+   "seg": 5,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     960,
+     620,
+     1.1
+    ],
+    "to": [
+     980,
+     630,
+     1.15
+    ],
+    "actors": [
+     {
+      "id": "lily",
+      "type": "cl_lily",
+      "pos": [
+       720,
+       905
+      ],
+      "s": 0.7,
+      "p": {},
+      "front": false
+     },
+     {
+      "id": "dog",
+      "type": "cl_dog",
+      "pos": [
+       1300,
+       905
+      ],
+      "s": 0.5,
+      "p": {
+       "queasy": 0.0,
+       "look": [
+        -1,
+        0
+       ]
+      },
+      "front": false,
+      "flip": true,
+      "set": [
+       {
+        "at": "only|35%",
+        "dur": 0.8,
+        "p": {
+         "queasy": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "qm",
+      "type": "cl_qm",
+      "pos": [
+       720,
+       280
+      ],
+      "s": 1.0,
+      "p": {
+       "px": 200,
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "nobody|65%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "pop@nobody|65%"
+    ]
+   }
+  },
+  {
+   "say": "If treatment waits eighteen hours or more, the kidney damage is generally permanent. So if you might have touched one, your human calls a vet, right away.",
+   "src": "HC-E3",
+   "vis": "A clock runs toward 18; Meatball already on the phone, carrier in hand. Card: THINK IT TOUCHED ONE? CALL A VET NOW",
+   "card": "THINK IT TOUCHED ONE? CALL A VET NOW",
+   "id": "s5.l6",
+   "seg": 5,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living",
+     "nowin": true
+    },
+    "cam": [
+     960,
+     540,
+     1.0
+    ],
+    "to": [
+     970,
+     560,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "clk",
+      "type": "cl_clock",
+      "pos": [
+       520,
+       650
+      ],
+      "s": 0.62,
+      "p": {
+       "h": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "treatment|10%",
+        "dur": 2.8,
+        "p": {
+         "h": 18.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "car",
+      "type": "cl_carrier",
+      "pos": [
+       1720,
+       905
+      ],
+      "s": 0.42,
+      "p": {},
+      "front": false
+     }
+    ],
+    "mb": {
+     "pose": "neutral",
+     "pos": [
+      1420,
+      905
+     ],
+     "size": 580,
+     "look": "viewer",
+     "prop": "phone",
+     "gest": [
+      [
+       "vet|80%",
+       "point",
+       1.4
+      ]
+     ]
+    },
+    "sfx": [
+     "tink@eighteen|30%",
+     "click@vet|80%"
+    ],
+    "card_at": "vet|78%",
+    "card_x": 600,
+    "card_w": 900,
+    "card_px": 96
+   }
+  },
+  {
+   "say": "Peace lilies and calla lilies are a different, milder problem.",
+   "src": "HC-E4",
+   "vis": "Two other plants with a smaller caution sign.",
+   "id": "s5.l7",
+   "seg": 5,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     960,
+     620,
+     1.1
+    ],
+    "to": [
+     980,
+     620,
+     1.15
+    ],
+    "actors": [
+     {
+      "id": "pl1",
+      "type": "cl_lily",
+      "pos": [
+       700,
+       905
+      ],
+      "s": 0.75,
+      "p": {
+       "kind": "peace",
+       "caution": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "different|55%",
+        "dur": 0.4,
+        "p": {
+         "caution": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "pl2",
+      "type": "cl_lily",
+      "pos": [
+       1250,
+       905
+      ],
+      "s": 0.75,
+      "p": {
+       "kind": "calla",
+       "caution": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "milder|75%",
+        "dur": 0.4,
+        "p": {
+         "caution": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "pop@different|55%",
+     "pop@milder|75%"
+    ]
+   }
+  },
+  {
+   "say": "Next, the medicine cabinet.",
+   "vis": "Bathroom cabinet door swings open.",
+   "id": "s5.l8",
+   "seg": 5,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "bath",
+     "nocab": true
+    },
+    "cam": [
+     1020,
+     380,
+     1.4
+    ],
+    "to": [
+     1020,
+     390,
+     1.5
+    ],
+    "actors": [
+     {
+      "id": "cab",
+      "type": "cl_cabinet",
+      "pos": [
+       860,
+       90
+      ],
+      "s": 1.0,
+      "p": {
+       "open": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "medicine|30%",
+        "dur": 0.8,
+        "p": {
+         "open": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "scratch@medicine|30%"
+    ]
+   }
+  },
+  {
+   "say": "The ASPCA's poison experts say one extra-strength dose of acetaminophen can kill a cat if treatment doesn't start soon.",
+   "src": "HC-E9",
+   "vis": "A pill bottle marked EXTRA STRENGTH next to the cat (a dose, no pill count shown). Card: NEVER HUMAN PAIN PILLS",
+   "card": "NEVER HUMAN PAIN PILLS",
+   "meter": 28,
+   "id": "s5.l9",
+   "seg": 5,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "bath",
+     "nocab": true
+    },
+    "cam": [
+     1000,
+     640,
+     1.2
+    ],
+    "to": [
+     1020,
+     650,
+     1.26
+    ],
+    "actors": [
+     {
+      "id": "cab",
+      "type": "cl_cabinet",
+      "pos": [
+       860,
+       90
+      ],
+      "s": 1.0,
+      "p": {
+       "open": 1.0
+      },
+      "front": false
+     },
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       700,
+       905
+      ],
+      "s": 0.5,
+      "p": {
+       "sit": 0.6,
+       "look": [
+        1,
+        -0.3
+       ]
+      },
+      "front": false
+     },
+     {
+      "id": "bot",
+      "type": "cl_bottle",
+      "pos": [
+       1230,
+       905
+      ],
+      "s": 0.7,
+      "p": {},
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "thud@kill|75%"
+    ],
+    "card_at": "acetaminophen|55%",
+    "meter_at": "kill|75%"
+   }
+  },
+  {
+   "say": "If you get into any, your human calls a vet or a poison line right away.",
+   "src": "HC-E9",
+   "vis": "Meatball on the phone again, bottle in hand.",
+   "id": "s5.l10",
+   "seg": 5,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "bath",
+     "nocab": true
+    },
+    "cam": [
+     1000,
+     600,
+     1.15
+    ],
+    "to": [
+     1010,
+     610,
+     1.2
+    ],
+    "actors": [
+     {
+      "id": "cab",
+      "type": "cl_cabinet",
+      "pos": [
+       860,
+       90
+      ],
+      "s": 1.0,
+      "p": {
+       "open": 1.0
+      },
+      "front": false
+     },
+     {
+      "id": "bot",
+      "type": "cl_bottle",
+      "pos": [
+       880,
+       520
+      ],
+      "s": 0.4,
+      "p": {},
+      "front": false
+     }
+    ],
+    "mb": {
+     "pose": "neutral",
+     "pos": [
+      1300,
+      905
+     ],
+     "size": 640,
+     "look": "viewer",
+     "prop": "phone",
+     "gest": [
+      [
+       "vet|50%",
+       "point",
+       1.5
+      ]
+     ]
+    },
+    "sfx": [
+     "click@vet|50%"
+    ]
+   }
+  },
+  {
+   "say": "String and thread can block your gut and may need surgery.",
+   "src": "HC-E12",
+   "vis": "The cat happily pulling a piece of string; an X-ray outline of a gut with a red tangle.",
+   "id": "s5.l11",
+   "seg": 5,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     960,
+     540,
+     1.0
+    ],
+    "to": [
+     960,
+     560,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       420,
+       905
+      ],
+      "s": 0.5,
+      "p": {
+       "mood": "happy",
+       "look": [
+        1,
+        0.4
+       ]
+      },
+      "front": false
+     },
+     {
+      "id": "str",
+      "type": "cl_string",
+      "pos": [
+       760,
+       905
+      ],
+      "s": 1.0,
+      "p": {
+       "pull": 1.0
+      },
+      "front": false
+     },
+     {
+      "id": "gut",
+      "type": "cl_gut",
+      "pos": [
+       1380,
+       470
+      ],
+      "s": 0.62,
+      "p": {
+       "tangle": 0.0,
+       "on": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "block|30%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       },
+       {
+        "at": "gut|50%",
+        "dur": 1.0,
+        "p": {
+         "tangle": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "pop@block|30%"
+    ]
+   }
+  },
+  {
+   "say": "And then there's the window.",
+   "vis": "An open window, curtain moving.",
+   "id": "s5.l12",
+   "seg": 5,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living",
+     "nowin": true
+    },
+    "cam": [
+     700,
+     400,
+     1.35
+    ],
+    "to": [
+     700,
+     420,
+     1.45
+    ],
+    "actors": [
+     {
+      "id": "win",
+      "type": "cl_window",
+      "pos": [
+       700,
+       600
+      ],
+      "s": 1.0,
+      "p": {
+       "open": 1.0,
+       "curtain": 1.0
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "whoosh@window|60%"
+    ]
+   }
+  },
+  {
+   "say": "One vet school counted 119 cats brought in after falling from buildings.",
+   "src": "HC-E6",
+   "vis": "Card: 119 CATS",
+   "card": "119 CATS",
+   "id": "s5.l13",
+   "seg": 5,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     0,
+     20,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "row",
+      "type": "cl_row",
+      "pos": [
+       0,
+       330
+      ],
+      "s": 0.85,
+      "p": {
+       "n": 14,
+       "w": 125,
+       "col": "#efe6d2"
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "pop@119|50%"
+    ],
+    "card_at": "119|50%",
+    "norecut": true
+   }
+  },
+  {
+   "say": "109 of them lived.",
+   "src": "HC-E6",
+   "vis": "Pause-and-reveal 2 of 3; a relieved tick. Card: 119 CATS: 109 LIVED",
+   "card": "119 CATS: 109 LIVED",
+   "id": "s5.l14",
+   "seg": 5,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     0,
+     10,
+     1.03
+    ],
+    "actors": [
+     {
+      "id": "row",
+      "type": "cl_row",
+      "pos": [
+       0,
+       420
+      ],
+      "s": 0.75,
+      "p": {
+       "n": 14,
+       "w": 125
+      },
+      "front": false
+     },
+     {
+      "id": "tick",
+      "type": "cl_tick",
+      "pos": [
+       0,
+       80
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "lived|30%",
+        "dur": 0.35,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "tink@lived|30%"
+    ],
+    "card_at": "lived|30%",
+    "norecut": true
+   }
+  },
+  {
+   "say": "Four died. Six were put down, four of those because of the cost of treatment.",
+   "src": "HC-E6",
+   "vis": "The tick gets an asterisk; a vet bill on the counter.",
+   "id": "s5.l15",
+   "seg": 5,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     40,
+     20,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "tick",
+      "type": "cl_tick",
+      "pos": [
+       -250,
+       80
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 1.0,
+       "star": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "Four|10%",
+        "dur": 0.4,
+        "p": {
+         "star": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "bill",
+      "type": "cl_paper",
+      "pos": [
+       520,
+       160
+      ],
+      "s": 0.8,
+      "p": {
+       "kind": "bill",
+       "on": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "cost|65%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "pop@Four|10%",
+     "pop@cost|65%"
+    ],
+    "norecut": true
+   }
+  },
+  {
+   "say": "Nearly half had broken limbs. And that only counts the cats that made it to the vet.",
+   "src": "HC-E6",
+   "vis": "A cat in a tiny cast. Card: 46% BROKEN LIMBS",
+   "card": "46% BROKEN LIMBS",
+   "id": "s5.l16",
+   "seg": 5,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "clinic"
+    },
+    "cam": [
+     960,
+     680,
+     1.4
+    ],
+    "to": [
+     970,
+     690,
+     1.46
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       830,
+       905
+      ],
+      "s": 0.6,
+      "p": {
+       "cast": true,
+       "sit": 0.25,
+       "mood": "worry",
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "tink@limbs|35%"
+    ],
+    "card_at": "half|20%"
+   }
+  },
+  {
+   "say": "So always lands on its feet needs an asterisk.",
+   "src": "HC-E6",
+   "vis": "The words ALWAYS LANDS ON ITS FEET with a big hand-drawn asterisk.",
+   "id": "s5.l17",
+   "seg": 5,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     0,
+     10,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "w",
+      "type": "cl_words",
+      "pos": [
+       -80,
+       120
+      ],
+      "s": 1.0,
+      "p": {
+       "star": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "asterisk|50%",
+        "dur": 0.4,
+        "p": {
+         "star": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "stamp@asterisk|55%"
+    ],
+    "norecut": true
+   }
+  },
+  {
+   "say": "Vets who studied 1,125 falls in Berlin say window barriers can help.",
+   "src": "HC-E7",
+   "vis": "Meatball clicks a barrier into the window; the cat presses its face against it.",
+   "meter": 26,
+   "id": "s5.l18",
+   "seg": 5,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living",
+     "nowin": true
+    },
+    "cam": [
+     900,
+     560,
+     1.05
+    ],
+    "to": [
+     920,
+     560,
+     1.1
+    ],
+    "actors": [
+     {
+      "id": "win",
+      "type": "cl_window",
+      "pos": [
+       700,
+       600
+      ],
+      "s": 1.0,
+      "p": {
+       "open": 1.0,
+       "curtain": 1.0,
+       "barrier": 0.0,
+       "sets": null
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "barriers|60%",
+        "dur": 0.5,
+        "p": {
+         "barrier": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       560,
+       600
+      ],
+      "s": 0.36,
+      "p": {
+       "look": [
+        1,
+        0
+       ],
+       "mood": "worry"
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "pose": "present",
+     "pos": [
+      1180,
+      905
+     ],
+     "size": 640,
+     "look": "win",
+     "prop": null,
+     "gest": [
+      [
+       "barriers|60%",
+       "present",
+       1.5
+      ]
+     ]
+    },
+    "sfx": [
+     "click@barriers|65%"
+    ],
+    "meter_at": "help|80%"
+   }
+  },
+  {
+   "say": "That's five. So far, the damn furniture is winning.",
+   "vis": "MIDPOINT RE-HOOK. The meter blinks at 26. The five filled chips pulse.",
+   "id": "s5.l19",
+   "seg": 5,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     960,
+     540,
+     1.0
+    ],
+    "to": [
+     960,
+     570,
+     1.06
+    ],
+    "actors": [
+     {
+      "id": "lily",
+      "type": "cl_lily",
+      "pos": [
+       330,
+       905
+      ],
+      "s": 0.6,
+      "p": {},
+      "front": false
+     },
+     {
+      "id": "bot",
+      "type": "cl_bottle",
+      "pos": [
+       1650,
+       905
+      ],
+      "s": 0.5,
+      "p": {},
+      "front": false
+     },
+     {
+      "id": "str",
+      "type": "cl_string",
+      "pos": [
+       1350,
+       905
+      ],
+      "s": 0.9,
+      "p": {},
+      "front": false
+     },
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       950,
+       905
+      ],
+      "s": 0.55,
+      "p": {
+       "sit": 0.5,
+       "mood": "worry",
+       "look": [
+        -1,
+        0
+       ]
+      },
+      "front": false,
+      "flip": true
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "tink@five|10%",
+     "boing@winning|80%"
+    ],
+    "meter_blink": "five|5%",
+    "chips8": {
+     "n0": 8.0,
+     "filled0": 5.0,
+     "y": 220,
+     "sets": [
+      {
+       "at": "five|5%",
+       "dur": 0.3,
+       "p": {
+        "pulse": 1.0
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "say": "And we haven't met the people with good intentions yet.",
+   "vis": "A shadow of the cat carrier falls across the floor.",
+   "id": "s5.l20",
+   "seg": 5,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     960,
+     540,
+     1.0
+    ],
+    "to": [
+     960,
+     560,
+     1.05
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       640,
+       905
+      ],
+      "s": 0.55,
+      "p": {
+       "mood": "shock",
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false
+     },
+     {
+      "id": "shd",
+      "type": "cl_carrier",
+      "pos": [
+       2400,
+       935
+      ],
+      "s": 1.6,
+      "p": {
+       "shadow": true,
+       "a": 0.55
+      },
+      "front": false,
+      "moves": [
+       {
+        "at": 0.2,
+        "dur": 2.2,
+        "pos": [
+         1350,
+         935
+        ]
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "sting@intentions|60%"
+    ]
+   }
+  },
+  {
+   "say": "Number six. The carrier.",
+   "vis": "Chapter card; the carrier door creaks open.",
+   "id": "s6.l0",
+   "seg": 6,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "hall"
+    },
+    "cam": [
+     960,
+     640,
+     1.2
+    ],
+    "to": [
+     960,
+     650,
+     1.28
+    ],
+    "actors": [
+     {
+      "id": "car",
+      "type": "cl_carrier",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.9,
+      "p": {
+       "open": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "carrier|30%",
+        "dur": 1.0,
+        "p": {
+         "open": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "scratch@carrier|35%"
+    ]
+   }
+  },
+  {
+   "say": "Vet guidelines say you should be examined at least once a year, and at least every six months once you're a senior.",
+   "src": "HC-F4",
+   "vis": "A calendar with one paw-stamp per year, then two.",
+   "card": "VET: AT LEAST YEARLY",
+   "id": "s6.l1",
+   "seg": 6,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     0,
+     20,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "cal",
+      "type": "cl_cal",
+      "pos": [
+       0,
+       230
+      ],
+      "s": 1.0,
+      "p": {
+       "mode": "years",
+       "boxes": 10,
+       "two_from": 7,
+       "stamps": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "examined|20%",
+        "dur": 1.8,
+        "p": {
+         "stamps": 7.0
+        }
+       },
+       {
+        "at": "six|70%",
+        "dur": 1.2,
+        "p": {
+         "stamps": 13.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "stamp@examined|25%",
+     "stamp@six|70%"
+    ],
+    "card_at": "year|35%",
+    "norecut": true
+   }
+  },
+  {
+   "say": "But owners say the carrier, the drive, and a scared cat at the clinic are reasons they go less.",
+   "src": "HC-F3",
+   "vis": "Meatball versus the carrier: the cat braced in the doorway, all four legs out. Character beat.",
+   "id": "s6.l2",
+   "seg": 6,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "hall"
+    },
+    "cam": [
+     960,
+     640,
+     1.15
+    ],
+    "to": [
+     960,
+     650,
+     1.2
+    ],
+    "actors": [
+     {
+      "id": "car",
+      "type": "cl_carrier",
+      "pos": [
+       1380,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "open": 1.0
+      },
+      "front": false
+     },
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       1060,
+       905
+      ],
+      "s": 0.55,
+      "p": {
+       "mood": "angry",
+       "ears_flat": true,
+       "look": [
+        -1,
+        0
+       ]
+      },
+      "front": false,
+      "flip": true
+     }
+    ],
+    "mb": {
+     "pose": "present",
+     "pos": [
+      620,
+      905
+     ],
+     "size": 640,
+     "look": "hero",
+     "prop": null,
+     "gest": [
+      [
+       "drive|45%",
+       "nervous",
+       1.0
+      ],
+      [
+       "clinic|80%",
+       "shock",
+       1.0
+      ]
+     ]
+    },
+    "sfx": [
+     "thud@drive|45%"
+    ],
+    "shake": [
+     "drive|45%"
+    ]
+   }
+  },
+  {
+   "say": "Fair. Have you seen the carrier? A dungeon with a handle. Go anyway.",
+   "vis": "The carrier, lit from below like a dungeon; Meatball picks it up anyway.",
+   "id": "s6.l3",
+   "seg": 6,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "hall"
+    },
+    "cam": [
+     900,
+     620,
+     1.1
+    ],
+    "to": [
+     920,
+     620,
+     1.16
+    ],
+    "actors": [
+     {
+      "id": "tint",
+      "type": "cl_tint",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "mode": "dark",
+       "a": 0.55
+      },
+      "front": true
+     },
+     {
+      "id": "car",
+      "type": "cl_carrier",
+      "pos": [
+       760,
+       905
+      ],
+      "s": 0.95,
+      "p": {
+       "dungeon": 1.0,
+       "open": 0.0
+      },
+      "front": true,
+      "moves": [
+       {
+        "at": "anyway|70%",
+        "dur": 0.5,
+        "pos": [
+         1180,
+         760
+        ]
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "pose": "neutral",
+     "pos": [
+      1320,
+      905
+     ],
+     "size": 640,
+     "look": "car",
+     "prop": null,
+     "gest": [
+      [
+       "Go|70%",
+       "present",
+       1.5
+      ]
+     ]
+    },
+    "sfx": [
+     "sting@dungeon|45%",
+     "thud@Go|75%"
+    ]
+   }
+  },
+  {
+   "say": "In one British study, about one in five cats hadn't seen a vet in the year before their eighth birthday.",
+   "src": "HC-F2",
+   "vis": "Five cats; one fades to an outline. Card: 1 IN 5",
+   "card": "1 IN 5",
+   "meter": 24,
+   "id": "s6.l4",
+   "seg": 6,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     0,
+     20,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "row",
+      "type": "cl_row",
+      "pos": [
+       0,
+       400
+      ],
+      "s": 1.5,
+      "p": {
+       "n": 5,
+       "w": 220,
+       "fade": [
+        3
+       ],
+       "f": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "hadn't|45%",
+        "dur": 0.8,
+        "p": {
+         "f": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "whoosh@hadn't|45%"
+    ],
+    "card_at": "five|40%",
+    "meter_at": "hadn't|50%",
+    "norecut": true
+   }
+  },
+  {
+   "say": "Then there's the surgery. Getting fixed is one of the most common vet operations in the United States.",
+   "src": "HC-F6",
+   "vis": "A vet clinic door; a cone of shame waits on a hook.",
+   "id": "s6.l5",
+   "seg": 6,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "clinic"
+    },
+    "cam": [
+     900,
+     560,
+     1.05
+    ],
+    "to": [
+     920,
+     570,
+     1.1
+    ],
+    "actors": [
+     {
+      "id": "door",
+      "type": "cl_clinicdoor",
+      "pos": [
+       700,
+       905
+      ],
+      "s": 1.0,
+      "p": {
+       "cone": true
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "tink@surgery|25%"
+    ]
+   }
+  },
+  {
+   "say": "In a small 1997 study, six neutered males gained about 30 percent in weight. Five intact males gained about 12.",
+   "src": "HC-C9",
+   "vis": "Two cats on scales; one dial swings further. Card: +30% vs +12%",
+   "card": "+30% vs +12%",
+   "id": "s6.l6",
+   "seg": 6,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     0,
+     20,
+     1.03
+    ],
+    "actors": [
+     {
+      "id": "sc1",
+      "type": "cl_scale",
+      "pos": [
+       -500,
+       470
+      ],
+      "s": 0.9,
+      "p": {
+       "v": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "thirty|40%",
+        "dur": 1.0,
+        "p": {
+         "v": 0.85
+        }
+       }
+      ]
+     },
+     {
+      "id": "c1",
+      "type": "cl_cat",
+      "pos": [
+       -640,
+       418
+      ],
+      "s": 0.42,
+      "p": {
+       "sit": 0.5,
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false
+     },
+     {
+      "id": "sc2",
+      "type": "cl_scale",
+      "pos": [
+       420,
+       470
+      ],
+      "s": 0.9,
+      "p": {
+       "v": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "twelve|80%",
+        "dur": 0.8,
+        "p": {
+         "v": 0.4
+        }
+       }
+      ]
+     },
+     {
+      "id": "c2",
+      "type": "cl_cat",
+      "pos": [
+       280,
+       418
+      ],
+      "s": 0.42,
+      "p": {
+       "sit": 0.5,
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "boing@thirty|40%",
+     "tink@twelve|80%"
+    ],
+    "card_at": "intact|60%",
+    "norecut": true
+   }
+  },
+  {
+   "say": "But in British vet records, being neutered went with a longer life.",
+   "src": "HC-F5",
+   "vis": "A timeline bar grows longer for the neutered cat.",
+   "card": "LINKED TO LONGER LIFE",
+   "meter": 30,
+   "id": "s6.l7",
+   "seg": 6,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     0,
+     20,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "tl",
+      "type": "cl_timeline",
+      "pos": [
+       80,
+       200
+      ],
+      "s": 1.0,
+      "p": {
+       "mode": "life",
+       "g1": 0.0,
+       "g2": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "British|20%",
+        "dur": 0.8,
+        "p": {
+         "g1": 1.0
+        }
+       },
+       {
+        "at": "longer|60%",
+        "dur": 1.0,
+        "p": {
+         "g2": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "c1",
+      "type": "cl_cat",
+      "pos": [
+       -720,
+       140
+      ],
+      "s": 0.25,
+      "p": {
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false
+     },
+     {
+      "id": "c2",
+      "type": "cl_cat",
+      "pos": [
+       -720,
+       360
+      ],
+      "s": 0.25,
+      "p": {
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "whoosh@longer|60%"
+    ],
+    "card_at": "longer|60%",
+    "meter_at": "longer|70%",
+    "norecut": true
+   }
+  },
+  {
+   "say": "That's a link, not proof. Still: neutering can mean weight gain, and maybe more years. Hell of a trade.",
+   "src": "HC-F5 HC-C9",
+   "vis": "The cat in a cone, wide, staring into the distance.",
+   "id": "s6.l8",
+   "seg": 6,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     960,
+     560,
+     0.95
+    ],
+    "to": [
+     960,
+     600,
+     1.15
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       900,
+       905
+      ],
+      "s": 0.6,
+      "p": {
+       "cone": true,
+       "mood": "sleepy",
+       "look": [
+        1,
+        -0.1
+       ],
+       "sit": 0.5
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "boing@trade|85%"
+    ]
+   }
+  },
+  {
+   "say": "And declawing. It's surgery, not a nail trim.",
+   "src": "HC-F7",
+   "vis": "A nail clipper is pushed aside; a surgical tray slides in.",
+   "id": "s6.l9",
+   "seg": 6,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     0,
+     20,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "clip",
+      "type": "cl_clipper",
+      "pos": [
+       -150,
+       240
+      ],
+      "s": 2.0,
+      "p": {},
+      "front": false,
+      "moves": [
+       {
+        "at": "surgery|30%",
+        "dur": 0.5,
+        "pos": [
+         -1300,
+         240
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tray",
+      "type": "cl_clipper",
+      "pos": [
+       1500,
+       300
+      ],
+      "s": 2.0,
+      "p": {
+       "kind": "tray"
+      },
+      "front": false,
+      "moves": [
+       {
+        "at": "surgery|40%",
+        "dur": 0.6,
+        "pos": [
+         0,
+         300
+        ]
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "whoosh@surgery|35%"
+    ],
+    "norecut": true
+   },
+   "tts": "And dee-clah-wing. It's surgery, not a nail trim."
+  },
+  {
+   "say": "New York banned it in 2019, except for medical reasons.",
+   "src": "HC-F7",
+   "vis": "Card: NEW YORK, 2019: BANNED",
+   "card": "NEW YORK 2019: BANNED",
+   "id": "s6.l10",
+   "seg": 6,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     0,
+     20,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "tray",
+      "type": "cl_clipper",
+      "pos": [
+       0,
+       330
+      ],
+      "s": 2.0,
+      "p": {
+       "kind": "tray"
+      },
+      "front": false
+     },
+     {
+      "id": "x",
+      "type": "ds_cross",
+      "pos": [
+       0,
+       290
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 0.0,
+       "r": 160
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "banned|25%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "stamp@banned|30%"
+    ],
+    "card_at": "banned|25%",
+    "norecut": true
+   }
+  },
+  {
+   "say": "The law names three surgeries: declawing, phalangectomy and tendonectomy.",
+   "src": "HC-F7",
+   "vis": "The bill text on a page with three terms underlined, spelled as the bill spells them: ONYCHECTOMY (DECLAWING), PHLANGECTOMY, TENDONECTOMY. No anatomy drawing.",
+   "id": "s6.l11",
+   "seg": 6,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     40,
+     1.0
+    ],
+    "to": [
+     0,
+     40,
+     1.03
+    ],
+    "actors": [
+     {
+      "id": "bill",
+      "type": "cl_bill",
+      "pos": [
+       0,
+       90
+      ],
+      "s": 0.8,
+      "p": {
+       "under": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "declawing|35%",
+        "dur": 0.5,
+        "p": {
+         "under": 1.0
+        }
+       },
+       {
+        "at": "phalangectomy|55%",
+        "dur": 0.5,
+        "p": {
+         "under": 2.0
+        }
+       },
+       {
+        "at": "tendonectomy|80%",
+        "dur": 0.5,
+        "p": {
+         "under": 3.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "scratch@declawing|35%",
+     "scratch@tendonectomy|80%"
+    ],
+    "norecut": true
+   },
+   "tts": "The law names three surgeries: dee-clah-wing, phalangectomy and tendonectomy."
+  },
+  {
+   "say": "And studies are mixed on whether the pain lasts.",
+   "src": "HC-F8 HC-F9",
+   "vis": "Two papers side by side with different verdict stamps.",
+   "meter": 26,
+   "id": "s6.l12",
+   "seg": 6,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     0,
+     20,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "p1",
+      "type": "cl_paper",
+      "pos": [
+       -330,
+       200
+      ],
+      "s": 0.9,
+      "p": {
+       "verdict": "tick",
+       "stamp": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "mixed|40%",
+        "dur": 0.3,
+        "p": {
+         "stamp": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "p2",
+      "type": "cl_paper",
+      "pos": [
+       330,
+       200
+      ],
+      "s": 0.9,
+      "p": {
+       "verdict": "cross",
+       "stamp": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "pain|65%",
+        "dur": 0.3,
+        "p": {
+         "stamp": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "stamp@mixed|40%",
+     "stamp@pain|65%"
+    ],
+    "meter_at": "lasts|80%",
+    "norecut": true
+   }
+  },
+  {
+   "say": "And all of that comes from the people who love you.",
+   "vis": "Meatball appears in the doorway with open arms.",
+   "id": "s6.l13",
+   "seg": 6,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "hall"
+    },
+    "cam": [
+     1000,
+     560,
+     1.05
+    ],
+    "to": [
+     1020,
+     570,
+     1.1
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       500,
+       905
+      ],
+      "s": 0.55,
+      "p": {
+       "mood": "worry",
+       "look": [
+        1,
+        -0.2
+       ]
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "pose": "wave",
+     "pos": [
+      1300,
+      905
+     ],
+     "size": 660,
+     "look": "viewer",
+     "prop": null,
+     "gest": [
+      [
+       "love|60%",
+       "present",
+       2.0
+      ]
+     ]
+    },
+    "sfx": [
+     "boing@love|65%"
+    ]
+   }
+  },
+  {
+   "say": "Number seven. Your human. He means well.",
+   "vis": "Chapter card; Meatball waves, far too close.",
+   "id": "s7.l0",
+   "seg": 7,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     960,
+     420,
+     1.7
+    ],
+    "to": [
+     960,
+     430,
+     1.85
+    ],
+    "actors": [],
+    "mb": {
+     "pose": "wave",
+     "pos": [
+      960,
+      905
+     ],
+     "size": 720,
+     "look": "viewer",
+     "prop": null,
+     "gest": [
+      [
+       "means|60%",
+       "laugh",
+       1.4
+      ]
+     ]
+    },
+    "sfx": [
+     "boing@well|80%"
+    ]
+   }
+  },
+  {
+   "say": "He pets you. In two studies, cats reacted worst to being stroked near the tail.",
+   "src": "HC-H1 HC-H2",
+   "vis": "A petting map of the cat: the tail end glows red. Card: TAIL END: WORST",
+   "card": "TAIL END: WORST",
+   "id": "s7.l1",
+   "seg": 7,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#3a4660"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     0,
+     20,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "map",
+      "type": "cl_petmap",
+      "pos": [
+       80,
+       460
+      ],
+      "s": 1.25,
+      "p": {
+       "red": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "tail|55%",
+        "dur": 0.6,
+        "p": {
+         "red": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "pop@tail|60%"
+    ],
+    "card_at": "tail|60%",
+    "norecut": true
+   }
+  },
+  {
+   "say": "In one of them, the best-rated spot was between the eyes and the ears.",
+   "src": "HC-H1",
+   "vis": "The same map: between eyes and ears glows green.",
+   "id": "s7.l2",
+   "seg": 7,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#3a4660"
+    },
+    "cam": [
+     0,
+     20,
+     1.04
+    ],
+    "to": [
+     60,
+     0,
+     1.12
+    ],
+    "actors": [
+     {
+      "id": "map",
+      "type": "cl_petmap",
+      "pos": [
+       80,
+       460
+      ],
+      "s": 1.25,
+      "p": {
+       "red": 1.0,
+       "green": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "between|45%",
+        "dur": 0.6,
+        "p": {
+         "green": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "tink@between|50%"
+    ],
+    "norecut": true
+   }
+  },
+  {
+   "say": "He goes straight for the tail end. Every damn time.",
+   "vis": "Meatball's hand goes to the red zone; the cat's ears flatten. Character beat.",
+   "id": "s7.l3",
+   "seg": 7,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     800,
+     620,
+     1.2
+    ],
+    "to": [
+     820,
+     630,
+     1.26
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       880,
+       905
+      ],
+      "s": 0.6,
+      "p": {
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "tail|40%",
+        "dur": 0.2,
+        "p": {
+         "ears_flat": true,
+         "mood": "angry"
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "pose": "point",
+     "pos": [
+      420,
+      905
+     ],
+     "size": 640,
+     "look": "hero",
+     "prop": null,
+     "moves": [
+      {
+       "at": 0.05,
+       "dur": 0.5,
+       "pos": [
+        470,
+        905
+       ],
+       "walk": true
+      }
+     ],
+     "gest": [
+      [
+       "Every|70%",
+       "deadpan",
+       1.4
+      ]
+     ]
+    },
+    "sfx": [
+     "scratch@tail|45%"
+    ]
+   }
+  },
+  {
+   "say": "Here's the rude part. In the 2015 study, cats showed more negative behaviour with a person they knew than with a stranger.",
+   "src": "HC-H3",
+   "vis": "Two score bars under the heading NEGATIVE-BEHAVIOUR SCORE: FAMILIAR 8.5, STRANGER 5.0.",
+   "card": "NEGATIVE-BEHAVIOUR SCORE: FAMILIAR 8.5 / STRANGER 5.0",
+   "meter": 22,
+   "id": "s7.l4",
+   "seg": 7,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     0,
+     15,
+     1.03
+    ],
+    "actors": [
+     {
+      "id": "bars",
+      "type": "cl_bars",
+      "pos": [
+       0,
+       330
+      ],
+      "s": 0.65,
+      "p": {
+       "g": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "negative|45%",
+        "dur": 1.2,
+        "p": {
+         "g": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "boing@stranger|85%"
+    ],
+    "card_at": "rude|15%",
+    "card_px": 92,
+    "meter_at": "stranger|85%",
+    "norecut": true
+   }
+  },
+  {
+   "say": "The authors say it needs more research.",
+   "src": "HC-H3",
+   "vis": "Meatball, wounded, hand on chest.",
+   "id": "s7.l5",
+   "seg": 7,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     900,
+     560,
+     1.15
+    ],
+    "to": [
+     920,
+     570,
+     1.2
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       1500,
+       905
+      ],
+      "s": 0.5,
+      "p": {
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false,
+      "moves": [
+       {
+        "at": 0.2,
+        "dur": 2.0,
+        "pos": [
+         2100,
+         905
+        ],
+        "walk": true
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "pose": "nervous",
+     "pos": [
+      800,
+      905
+     ],
+     "size": 640,
+     "look": "viewer",
+     "prop": null,
+     "gest": [
+      [
+       "research|50%",
+       "facepalm",
+       1.6
+      ]
+     ]
+    },
+    "sfx": [
+     "tink@research|60%"
+    ]
+   }
+  },
+  {
+   "say": "He calls your name. You can probably tell it from other words.",
+   "src": "CN-F1",
+   "vis": "Speech bubbles with random words; the cat's name bubble glows.",
+   "id": "s7.l6",
+   "seg": 7,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     0,
+     20,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "bub",
+      "type": "cl_bubbles",
+      "pos": [
+       0,
+       140
+      ],
+      "s": 0.85,
+      "p": {
+       "n": 0.0,
+       "glow": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "calls|10%",
+        "dur": 1.2,
+        "p": {
+         "n": 6.0
+        }
+       },
+       {
+        "at": "tell|55%",
+        "dur": 0.4,
+        "p": {
+         "glow": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       -90,
+       520
+      ],
+      "s": 0.4,
+      "p": {
+       "sit": 0.5,
+       "look": [
+        0.4,
+        -0.8
+       ]
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "pop@calls|15%",
+     "tink@tell|55%"
+    ],
+    "norecut": true
+   }
+  },
+  {
+   "say": "In that test, over half of the cats just moved their ears or heads, name or not. Fewer than one in ten let out a meow.",
+   "src": "CN-F3",
+   "vis": "One ear rotates toward the sound.",
+   "card": "UNDER 1 IN 10 MEOWED",
+   "id": "s7.l7",
+   "seg": 7,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     1025.95,
+     630.625,
+     1.5
+    ],
+    "to": [
+     1025.95,
+     640.625,
+     1.58
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       760,
+       900
+      ],
+      "s": 0.75,
+      "p": {
+       "look": [
+        1,
+        -0.2
+       ],
+       "radar": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "ears|25%",
+        "dur": 0.4,
+        "p": {
+         "radar": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "tink@ears|25%"
+    ],
+    "card_at": "meow|75%"
+   }
+  },
+  {
+   "say": "But you get one win. The purr.",
+   "vis": "Close on the cat, eyes half shut.",
+   "id": "s7.l8",
+   "seg": 7,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     1005.95,
+     610.625,
+     2.0
+    ],
+    "to": [
+     1005.95,
+     620.625,
+     2.1
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       760,
+       900
+      ],
+      "s": 0.75,
+      "p": {
+       "mood": "sleepy",
+       "look": [
+        1,
+        0
+       ],
+       "sit": 0.4
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "tink@purr|70%"
+    ]
+   }
+  },
+  {
+   "say": "A 2009 study found that some cats, when they want food, add a high, cry-like sound to the purr.",
+   "src": "HC-H4 HC-H6",
+   "vis": "A purr waveform; inside it, a smaller sharp wave is highlighted.",
+   "card": "A CRY INSIDE THE PURR",
+   "id": "s7.l9",
+   "seg": 7,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     0,
+     20,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "wave",
+      "type": "cl_wave",
+      "pos": [
+       0,
+       180
+      ],
+      "s": 0.85,
+      "p": {
+       "hi": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "cry|60%",
+        "dur": 0.5,
+        "p": {
+         "hi": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "tink@cry|60%"
+    ],
+    "card_at": "cry|60%",
+    "norecut": true
+   }
+  },
+  {
+   "say": "People rated those purrs as more urgent and less pleasant. Even people who had never owned a cat.",
+   "src": "HC-H4",
+   "vis": "Listeners with headphones wince and mark rating cards.",
+   "id": "s7.l10",
+   "seg": 7,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#3a4660"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     0,
+     20,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "l0",
+      "type": "cl_listener",
+      "pos": [
+       -560,
+       360
+      ],
+      "s": 1.0,
+      "p": {
+       "col": "#5d7fa8",
+       "skin": "#f0c8a0",
+       "box": 2,
+       "wince": 0.0,
+       "mark": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "urgent|35%",
+        "dur": 0.4,
+        "p": {
+         "wince": 1.0
+        }
+       },
+       {
+        "at": "pleasant|60%",
+        "dur": 0.4,
+        "p": {
+         "mark": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "l1",
+      "type": "cl_listener",
+      "pos": [
+       0,
+       360
+      ],
+      "s": 1.0,
+      "p": {
+       "col": "#c8574a",
+       "skin": "#c08a60",
+       "box": 2,
+       "wince": 0.0,
+       "mark": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "urgent|35%",
+        "dur": 0.4,
+        "p": {
+         "wince": 1.0
+        }
+       },
+       {
+        "at": "pleasant|60%",
+        "dur": 0.4,
+        "p": {
+         "mark": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "l2",
+      "type": "cl_listener",
+      "pos": [
+       560,
+       360
+      ],
+      "s": 1.0,
+      "p": {
+       "col": "#4f8f3a",
+       "skin": "#e8b890",
+       "box": 1,
+       "wince": 0.0,
+       "mark": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "urgent|35%",
+        "dur": 0.4,
+        "p": {
+         "wince": 1.0
+        }
+       },
+       {
+        "at": "pleasant|60%",
+        "dur": 0.4,
+        "p": {
+         "mark": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "tink@pleasant|60%"
+    ],
+    "norecut": true
+   }
+  },
+  {
+   "say": "Take the cry out, and the urgency ratings dropped.",
+   "src": "HC-H5",
+   "vis": "The sharp wave is erased; the listeners relax.",
+   "id": "s7.l11",
+   "seg": 7,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#3a4660"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     0,
+     20,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "wave",
+      "type": "cl_wave",
+      "pos": [
+       0,
+       -60
+      ],
+      "s": 0.6,
+      "p": {
+       "hi": 1.0,
+       "cry": 1.0,
+       "erase": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "Take|5%",
+        "dur": 1.0,
+        "p": {
+         "erase": 1.0
+        }
+       },
+       {
+        "at": "out|30%",
+        "dur": 0.3,
+        "p": {
+         "cry": 0.0,
+         "hi": 0.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "l0",
+      "type": "cl_listener",
+      "pos": [
+       -560,
+       420
+      ],
+      "s": 0.7,
+      "p": {
+       "col": "#5d7fa8",
+       "skin": "#f0c8a0",
+       "wince": 1.0,
+       "mark": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "dropped|60%",
+        "dur": 0.4,
+        "p": {
+         "wince": 0.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "l1",
+      "type": "cl_listener",
+      "pos": [
+       0,
+       420
+      ],
+      "s": 0.7,
+      "p": {
+       "col": "#c8574a",
+       "skin": "#c08a60",
+       "wince": 1.0,
+       "mark": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "dropped|60%",
+        "dur": 0.4,
+        "p": {
+         "wince": 0.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "l2",
+      "type": "cl_listener",
+      "pos": [
+       560,
+       420
+      ],
+      "s": 0.7,
+      "p": {
+       "col": "#4f8f3a",
+       "skin": "#e8b890",
+       "wince": 1.0,
+       "mark": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "dropped|60%",
+        "dur": 0.4,
+        "p": {
+         "wince": 0.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "scratch@Take|10%",
+     "tink@dropped|65%"
+    ],
+    "norecut": true
+   }
+  },
+  {
+   "say": "The university's news release says cats appear to be exploiting the human instinct to care for babies.",
+   "src": "HC-H4",
+   "vis": "A baby-shaped silhouette fades over the cat.",
+   "id": "s7.l12",
+   "seg": 7,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     960,
+     620,
+     1.15
+    ],
+    "to": [
+     960,
+     620,
+     1.22
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       820,
+       905
+      ],
+      "s": 0.65,
+      "p": {
+       "sit": 0.4,
+       "mood": "happy",
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false
+     },
+     {
+      "id": "baby",
+      "type": "cl_baby",
+      "pos": [
+       1000,
+       700
+      ],
+      "s": 1.0,
+      "p": {
+       "a": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "exploiting|40%",
+        "dur": 1.0,
+        "p": {
+         "a": 0.55
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "whoosh@exploiting|40%"
+    ]
+   }
+  },
+  {
+   "say": "You may have hacked your damn human. Before breakfast. Enjoy it, because your body has plans.",
+   "vis": "Meatball fills the bowl at 5 AM in his pyjamas, hypnotised. Character beat.",
+   "meter": 36,
+   "id": "s7.l13",
+   "seg": 7,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "kitchen",
+     "time": "night"
+    },
+    "cam": [
+     1000,
+     600,
+     1.1
+    ],
+    "to": [
+     1010,
+     610,
+     1.16
+    ],
+    "actors": [
+     {
+      "id": "clk",
+      "type": "cl_clock",
+      "pos": [
+       1150,
+       300
+      ],
+      "s": 0.42,
+      "p": {
+       "mode": "wall",
+       "hr": 5.0,
+       "mn": 0.0
+      },
+      "front": false
+     },
+     {
+      "id": "bowl",
+      "type": "cl_bowl",
+      "pos": [
+       1100,
+       905
+      ],
+      "s": 0.7,
+      "p": {
+       "full": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "breakfast|35%",
+        "dur": 0.8,
+        "p": {
+         "full": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       1450,
+       905
+      ],
+      "s": 0.55,
+      "p": {
+       "mood": "happy",
+       "look": [
+        -1,
+        0.4
+       ]
+      },
+      "front": false,
+      "flip": true
+     }
+    ],
+    "mb": {
+     "pose": "present",
+     "pos": [
+      800,
+      905
+     ],
+     "size": 640,
+     "look": "bowl",
+     "prop": null,
+     "gest": [
+      [
+       "hacked|20%",
+       "deadpan",
+       3.0
+      ]
+     ]
+    },
+    "sfx": [
+     "tink@breakfast|40%"
+    ],
+    "meter_at": "Enjoy|60%"
+   }
+  },
+  {
+   "say": "Number eight. Your own body.",
+   "vis": "Chapter card; the cat, older now, a little grey at the muzzle.",
+   "id": "s8.l0",
+   "seg": 8,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     960,
+     540,
+     1.0
+    ],
+    "to": [
+     980,
+     580,
+     1.08
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       900,
+       905
+      ],
+      "s": 0.6,
+      "p": {
+       "sit": 0.5,
+       "age": "senior",
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "whoosh@body|60%"
+    ]
+   }
+  },
+  {
+   "say": "The vets who write the pain guidelines say pain in cats has traditionally been under-recognised. The signs can be subtle.",
+   "src": "HC-D3",
+   "vis": "The old cat sits very still; Meatball walks past without noticing.",
+   "card": "SIGNS CAN BE SUBTLE",
+   "id": "s8.l1",
+   "seg": 8,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     960,
+     540,
+     1.0
+    ],
+    "to": [
+     960,
+     560,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       760,
+       905
+      ],
+      "s": 0.6,
+      "p": {
+       "sit": 0.6,
+       "look": [
+        1,
+        0.2
+       ],
+       "age": "senior"
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "pose": "neutral",
+     "pos": [
+      1900,
+      905
+     ],
+     "size": 600,
+     "look": "viewer",
+     "prop": null,
+     "moves": [
+      {
+       "at": 0.3,
+       "dur": 3.4,
+       "pos": [
+        -200,
+        905
+       ],
+       "walk": true
+      }
+     ]
+    },
+    "sfx": [
+     "step@guidelines|30%"
+    ],
+    "card_at": "subtle|75%",
+    "pad": 0.3
+   }
+  },
+  {
+   "say": "Here's what X-rays found. Researchers X-rayed 100 cats of all ages from one practice.",
+   "src": "HC-D5",
+   "vis": "A light box; X-ray films slide in. Card: 100 CATS",
+   "card": "100 CATS",
+   "id": "s8.l2",
+   "seg": 8,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     0,
+     20,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "lb",
+      "type": "cl_lightbox",
+      "pos": [
+       0,
+       170
+      ],
+      "s": 0.7,
+      "p": {
+       "n": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "Researchers|40%",
+        "dur": 1.4,
+        "p": {
+         "n": 3.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "whoosh@Researchers|45%"
+    ],
+    "card_at": "100|60%",
+    "norecut": true
+   }
+  },
+  {
+   "say": "On X-ray, 92 of them had signs of joint disease.",
+   "src": "HC-D5",
+   "vis": "Pause-and-reveal 3 of 3. Card: 92 OF 100: X-RAY SIGNS",
+   "card": "92 OF 100: X-RAY SIGNS",
+   "meter": 30,
+   "id": "s8.l3",
+   "seg": 8,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     20,
+     1.04
+    ],
+    "to": [
+     0,
+     40,
+     1.1
+    ],
+    "actors": [
+     {
+      "id": "lb",
+      "type": "cl_lightbox",
+      "pos": [
+       0,
+       170
+      ],
+      "s": 0.7,
+      "p": {
+       "n": 3.0,
+       "spots": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "92|30%",
+        "dur": 0.5,
+        "p": {
+         "spots": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "sting@92|30%"
+    ],
+    "card_at": "92|30%",
+    "meter_at": "joint|60%",
+    "norecut": true
+   }
+  },
+  {
+   "say": "That's X-ray signs. It doesn't tell us how many were hurting.",
+   "src": "HC-D5",
+   "vis": "The X-ray stays up; a small question mark next to a paw.",
+   "id": "s8.l4",
+   "seg": 8,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     40,
+     1.08
+    ],
+    "to": [
+     40,
+     40,
+     1.12
+    ],
+    "actors": [
+     {
+      "id": "lb",
+      "type": "cl_lightbox",
+      "pos": [
+       0,
+       170
+      ],
+      "s": 0.7,
+      "p": {
+       "n": 3.0,
+       "spots": 1.0,
+       "q": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "hurting|60%",
+        "dur": 0.4,
+        "p": {
+         "q": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "pop@hurting|60%"
+    ],
+    "norecut": true
+   }
+  },
+  {
+   "say": "Kidneys. The number depends on who you test and how.",
+   "src": "HC-D7",
+   "vis": "Two clipboards.",
+   "id": "s8.l5",
+   "seg": 8,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     0,
+     20,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "c1",
+      "type": "cl_clip",
+      "pos": [
+       -450,
+       220
+      ],
+      "s": 0.8,
+      "p": {
+       "text": "11%",
+       "on": 0.0
+      },
+      "front": false
+     },
+     {
+      "id": "c2",
+      "type": "cl_clip",
+      "pos": [
+       450,
+       220
+      ],
+      "s": 0.8,
+      "p": {
+       "text": "77%",
+       "sub": "EARLY STAGES COUNTED",
+       "on": 0.0
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "pop@Kidneys|10%"
+    ],
+    "norecut": true
+   }
+  },
+  {
+   "say": "About 11 percent of older cats screened at two British clinics. About 77 percent of the senior cats staged at one American vet school, early stages counted.",
+   "src": "HC-D7",
+   "vis": "Clipboard one: 11%. Clipboard two: 77% (EARLY STAGES COUNTED). Card: 11% OR 77%: DEPENDS HOW YOU COUNT",
+   "card": "11% OR 77%",
+   "id": "s8.l6",
+   "seg": 8,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     0,
+     20,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "c1",
+      "type": "cl_clip",
+      "pos": [
+       -450,
+       220
+      ],
+      "s": 0.8,
+      "p": {
+       "text": "11%",
+       "on": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "11|10%",
+        "dur": 0.4,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "c2",
+      "type": "cl_clip",
+      "pos": [
+       450,
+       220
+      ],
+      "s": 0.8,
+      "p": {
+       "text": "77%",
+       "sub": "EARLY STAGES COUNTED",
+       "on": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "77|55%",
+        "dur": 0.4,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "pop@11|12%",
+     "pop@77|55%"
+    ],
+    "card_at": "77|60%",
+    "norecut": true
+   }
+  },
+  {
+   "say": "And in that American study, the owners thought their cats were healthy.",
+   "src": "HC-D9",
+   "vis": "Meatball gives a thumbs up next to the old cat.",
+   "id": "s8.l7",
+   "seg": 8,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     960,
+     600,
+     1.1
+    ],
+    "to": [
+     970,
+     610,
+     1.16
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       700,
+       905
+      ],
+      "s": 0.6,
+      "p": {
+       "sit": 0.6,
+       "age": "senior",
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "pose": "laugh",
+     "pos": [
+      1200,
+      905
+     ],
+     "size": 640,
+     "look": "viewer",
+     "prop": null,
+     "gest": [
+      [
+       "healthy|70%",
+       "present",
+       1.5
+      ]
+     ]
+    },
+    "sfx": [
+     "boing@healthy|75%"
+    ]
+   }
+  },
+  {
+   "say": "Of the cats with kidney disease, three in four owners had seen no change in their peeing.",
+   "src": "HC-D9",
+   "vis": "Four litter boxes; at three of them Meatball shrugs: looks normal.",
+   "card": "3 IN 4: NO PEEING CHANGE SEEN",
+   "meter": 26,
+   "id": "s8.l8",
+   "seg": 8,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     960,
+     540,
+     1.0
+    ],
+    "to": [
+     980,
+     570,
+     1.05
+    ],
+    "actors": [
+     {
+      "id": "b0",
+      "type": "cl_litter",
+      "pos": [
+       330,
+       905
+      ],
+      "s": 0.75,
+      "p": {
+       "col": "#6aa0c8"
+      },
+      "front": false
+     },
+     {
+      "id": "b1",
+      "type": "cl_litter",
+      "pos": [
+       680,
+       905
+      ],
+      "s": 0.75,
+      "p": {
+       "col": "#c8a06a"
+      },
+      "front": false
+     },
+     {
+      "id": "b2",
+      "type": "cl_litter",
+      "pos": [
+       1030,
+       905
+      ],
+      "s": 0.75,
+      "p": {
+       "col": "#6ac88a"
+      },
+      "front": false
+     },
+     {
+      "id": "b3",
+      "type": "cl_litter",
+      "pos": [
+       1380,
+       905
+      ],
+      "s": 0.75,
+      "p": {
+       "col": "#c86a8a"
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "pose": "shrug",
+     "pos": [
+      1720,
+      905
+     ],
+     "size": 600,
+     "look": "viewer",
+     "prop": null,
+     "gest": [
+      [
+       "three|30%",
+       "shrug",
+       3.0
+      ]
+     ]
+    },
+    "sfx": [
+     "tink@three|35%"
+    ],
+    "card_at": "four|35%",
+    "card_px": 96,
+    "meter_at": "peeing|80%"
+   }
+  },
+  {
+   "say": "And all 129 senior cats in the study had a dental problem. Every damn one.",
+   "src": "HC-D8",
+   "vis": "The cat yawns: a dentist's mirror. Card: 129 OF 129: DENTAL",
+   "card": "129 OF 129: DENTAL",
+   "id": "s8.l9",
+   "seg": 8,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     979.6800000000001,
+     519.0,
+     1.8
+    ],
+    "to": [
+     979.6800000000001,
+     529.0,
+     1.88
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       700,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "mood": "sleepy",
+       "mouth": "o",
+       "age": "senior",
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false
+     },
+     {
+      "id": "mir",
+      "type": "cl_mirror",
+      "pos": [
+       1149.68,
+       759.0
+      ],
+      "s": 0.6,
+      "p": {
+       "on": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "dental|50%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ],
+      "moves": [
+       {
+        "at": "dental|50%",
+        "dur": 0.4,
+        "pos": [
+         1079.68,
+         729.0
+        ]
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "tink@dental|50%"
+    ],
+    "card_at": "129|35%"
+   }
+  },
+  {
+   "say": "Hairballs, at least, are honest. A Cornell vet says one every week or two is nothing to worry about.",
+   "src": "HC-D1",
+   "vis": "A hairball lands on the rug with a tiny flag in it.",
+   "id": "s8.l10",
+   "seg": 8,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     960,
+     760,
+     1.6
+    ],
+    "to": [
+     970,
+     770,
+     1.66
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       600,
+       905
+      ],
+      "s": 0.6,
+      "p": {
+       "sit": 0.5,
+       "look": [
+        1,
+        0.6
+       ],
+       "age": "senior"
+      },
+      "front": false
+     },
+     {
+      "id": "rug",
+      "type": "cl_rug",
+      "pos": [
+       1000,
+       925
+      ],
+      "s": 0.8,
+      "p": {},
+      "front": false
+     },
+     {
+      "id": "hb",
+      "type": "cl_hairball",
+      "pos": [
+       1000,
+       500
+      ],
+      "s": 1.0,
+      "p": {
+       "flag": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "honest|45%",
+        "dur": 0.4,
+        "p": {
+         "flag": 1.0
+        }
+       }
+      ],
+      "moves": [
+       {
+        "at": "Hairballs|10%",
+        "dur": 0.35,
+        "pos": [
+         1000,
+         925
+        ]
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "thud@Hairballs|20%",
+     "pop@honest|45%"
+    ]
+   }
+  },
+  {
+   "say": "Unless you get tired, stop eating for a day or two, or keep retching with nothing coming up. Then it's a vet, without delay.",
+   "src": "HC-D2",
+   "vis": "The old cat lies flat by a full bowl; the carrier's shadow again. Card: TIRED, NOT EATING, RETCHING: VET",
+   "card": "TIRED, NOT EATING, RETCHING: VET",
+   "meter": 24,
+   "id": "s8.l11",
+   "seg": 8,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     960,
+     620,
+     1.1
+    ],
+    "to": [
+     960,
+     630,
+     1.16
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       760,
+       905
+      ],
+      "s": 0.6,
+      "p": {
+       "sit": 1.0,
+       "mood": "sleepy",
+       "look": [
+        1,
+        0.3
+       ],
+       "age": "senior"
+      },
+      "front": false
+     },
+     {
+      "id": "bowl",
+      "type": "cl_bowl",
+      "pos": [
+       1150,
+       905
+      ],
+      "s": 0.7,
+      "p": {
+       "full": 1.0
+      },
+      "front": false
+     },
+     {
+      "id": "shd",
+      "type": "cl_carrier",
+      "pos": [
+       2400,
+       935
+      ],
+      "s": 1.6,
+      "p": {
+       "shadow": true,
+       "a": 0.5
+      },
+      "front": false,
+      "moves": [
+       {
+        "at": "vet|60%",
+        "dur": 1.4,
+        "pos": [
+         1500,
+         935
+        ]
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "sting@vet|65%"
+    ],
+    "card_at": "vet|65%",
+    "card_px": 96,
+    "meter_at": "vet|70%"
+   }
+  },
+  {
+   "say": "So. Eight for eight. Raw as hell?",
+   "vis": "All eight chips filled; the meter sits at 24, blinking.",
+   "id": "s9.l0",
+   "seg": 9,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living",
+     "time": "dusk"
+    },
+    "cam": [
+     960,
+     540,
+     1.0
+    ],
+    "to": [
+     960,
+     570,
+     1.06
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.6,
+      "p": {
+       "sit": 0.6,
+       "mood": "worry",
+       "age": "senior",
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "tink@Eight|10%",
+     "boing@Raw|75%"
+    ],
+    "meter_blink": "Eight|10%",
+    "chips8": {
+     "n0": 8.0,
+     "filled0": 5.0,
+     "y": 220,
+     "sets": [
+      {
+       "at": "Eight|10%",
+       "dur": 0.9,
+       "p": {
+        "filled": 8.0
+       }
+      },
+      {
+       "at": "Eight|20%",
+       "dur": 0.3,
+       "p": {
+        "pulse": 1.0
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "say": "Before you answer, look at what's waiting on the other side of the door.",
+   "vis": "The front door opens onto a street at dusk.",
+   "id": "s9.l1",
+   "seg": 9,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "door",
+     "door_open": 1.0
+    },
+    "cam": [
+     900,
+     560,
+     1.0
+    ],
+    "to": [
+     1250,
+     560,
+     1.4
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       560,
+       905
+      ],
+      "s": 0.6,
+      "p": {
+       "look": [
+        1,
+        -0.1
+       ],
+       "age": "senior"
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "whoosh@door|70%"
+    ]
+   }
+  },
+  {
+   "say": "Researchers followed more than 2,400 British pet cats for eight years. The study didn't record which ones went outside.",
+   "src": "HC-G4",
+   "vis": "A long row of cat silhouettes. Card: 2,444 CATS, 8 YEARS",
+   "card": "2,444 CATS",
+   "id": "s9.l2",
+   "seg": 9,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     0,
+     20,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "row",
+      "type": "cl_row",
+      "pos": [
+       0,
+       380
+      ],
+      "s": 0.8,
+      "p": {
+       "n": 15,
+       "w": 118
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "pop@followed|20%"
+    ],
+    "card_at": "2,400|25%",
+    "norecut": true
+   }
+  },
+  {
+   "say": "Of the 362 cats that died, 165 died in road accidents. Almost half.",
+   "src": "HC-G4",
+   "vis": "Headlights on a wet road; no impact shown. Card: ROADS: 165 OF 362 DEATHS",
+   "card": "ROADS: 165 OF 362 DEATHS",
+   "meter": 34,
+   "id": "s9.l3",
+   "seg": 9,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_street",
+    "scene_p": {
+     "lights": 1.0
+    },
+    "cam": [
+     960,
+     600,
+     1.0
+    ],
+    "to": [
+     960,
+     610,
+     1.06
+    ],
+    "actors": [],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "whoosh@road|50%"
+    ],
+    "card_at": "165|40%",
+    "card_px": 96,
+    "meter_at": "half|80%"
+   }
+  },
+  {
+   "say": "For kittens under one, it was 41 of 67 deaths. 61 percent.",
+   "src": "HC-G4",
+   "vis": "A kitten at the kerb; card: 41 OF 67 KITTEN DEATHS",
+   "card": "41 OF 67 KITTEN DEATHS",
+   "id": "s9.l4",
+   "seg": 9,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_street",
+    "scene_p": {
+     "lights": 0.0
+    },
+    "cam": [
+     960,
+     640,
+     1.3
+    ],
+    "to": [
+     970,
+     640,
+     1.36
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       820,
+       792
+      ],
+      "s": 0.42,
+      "p": {
+       "age": "kitten",
+       "sit": 0.5,
+       "look": [
+        1,
+        0.3
+       ]
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "tink@61|80%"
+    ],
+    "card_at": "41|20%"
+   }
+  },
+  {
+   "say": "In one study of managed feral colonies, three in four kittens died or vanished before six months. Those are not pet-cat odds.",
+   "src": "HC-A11",
+   "vis": "A colony behind a fence; four kitten outlines, three fade.",
+   "card": "FERAL COLONIES: 3 IN 4 GONE BY 6 MONTHS",
+   "meter": 42,
+   "id": "s9.l5",
+   "seg": 9,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_lot",
+    "scene_p": {},
+    "cam": [
+     960,
+     600,
+     1.0
+    ],
+    "to": [
+     960,
+     620,
+     1.06
+    ],
+    "actors": [
+     {
+      "id": "kits",
+      "type": "cl_kitout",
+      "pos": [
+       960,
+       880
+      ],
+      "s": 1.2,
+      "p": {
+       "f": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "three|35%",
+        "dur": 1.6,
+        "p": {
+         "f": 3.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "fence",
+      "type": "cl_fence",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 1.0,
+      "p": {
+       "w": 2600,
+       "h": 520
+      },
+      "front": true
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "whoosh@vanished|55%"
+    ],
+    "card_at": "colonies|20%",
+    "card_px": 96,
+    "meter_at": "odds|80%"
+   }
+  },
+  {
+   "say": "And the ASPCA estimates that about three million cats entered US shelters and rescues in 2025. About 277,000 were euthanized.",
+   "src": "HC-G1",
+   "vis": "A shelter corridor; card: 2025: ABOUT 3 MILLION IN, 277,000 EUTHANIZED (ASPCA)",
+   "card": "2025: 3 MILLION IN",
+   "id": "s9.l6",
+   "seg": 9,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_shelter",
+    "scene_p": {},
+    "cam": [
+     960,
+     540,
+     1.0
+    ],
+    "to": [
+     960,
+     520,
+     1.25
+    ],
+    "actors": [],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "tink@euthanized|70%"
+    ],
+    "card_at": "million|30%"
+   }
+  },
+  {
+   "say": "The British researchers put it plainly. Keeping cats indoors can cut the road risk. But it may make a cat's behavioural needs harder to meet.",
+   "src": "HC-G5",
+   "vis": "The door closes again; the cat watches the street through the screen.",
+   "meter": 46,
+   "id": "s9.l7",
+   "seg": 9,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "door",
+     "door_open": 0.0,
+     "screen": true
+    },
+    "cam": [
+     1000,
+     600,
+     1.05
+    ],
+    "to": [
+     1040,
+     610,
+     1.12
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       780,
+       905
+      ],
+      "s": 0.6,
+      "p": {
+       "look": [
+        1,
+        -0.1
+       ],
+       "age": "senior"
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "thud@indoors|35%"
+    ],
+    "meter_at": "behavioural|70%"
+   }
+  },
+  {
+   "say": "So here's the ledger.",
+   "vis": "The parchment from the cold open comes back, two columns.",
+   "id": "s10.l0",
+   "seg": 10,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     0,
+     20,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "led",
+      "type": "cl_parch",
+      "pos": [
+       0,
+       150
+      ],
+      "s": 0.62,
+      "p": {
+       "mode": "ledger",
+       "left": 0.0,
+       "right": 0.0,
+       "unroll": 0.0,
+       "sets": null
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "ledger|20%",
+        "dur": 0.9,
+        "p": {
+         "unroll": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "whoosh@ledger|30%"
+    ],
+    "norecut": true
+   }
+  },
+  {
+   "say": "In British vet records, a newborn kitten can expect about eleven and three quarter years.",
+   "src": "HC-G6",
+   "vis": "Card: 11.74 YEARS AT BIRTH (UK, 2019)",
+   "card": "11.74 YEARS",
+   "id": "s10.l1",
+   "seg": 10,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     -40,
+     20,
+     1.05
+    ],
+    "actors": [
+     {
+      "id": "led",
+      "type": "cl_parch",
+      "pos": [
+       0,
+       150
+      ],
+      "s": 0.62,
+      "p": {
+       "mode": "ledger",
+       "left": 0.2,
+       "right": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "eleven|45%",
+        "dur": 1.0,
+        "p": {
+         "left": 0.45
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "tink@eleven|45%"
+    ],
+    "card_at": "eleven|45%",
+    "norecut": true
+   }
+  },
+  {
+   "say": "In a second study of English cats that died, half made it past fourteen.",
+   "src": "HC-G7",
+   "vis": "Card: HALF PASSED 14 (ENGLAND, 2009-12)",
+   "card": "HALF PASSED 14 (ENGLAND, 2009-12)",
+   "meter": 54,
+   "id": "s10.l2",
+   "seg": 10,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     -40,
+     20,
+     1.05
+    ],
+    "to": [
+     0,
+     20,
+     1.08
+    ],
+    "actors": [
+     {
+      "id": "led",
+      "type": "cl_parch",
+      "pos": [
+       0,
+       150
+      ],
+      "s": 0.62,
+      "p": {
+       "mode": "ledger",
+       "left": 0.45,
+       "right": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "half|35%",
+        "dur": 1.0,
+        "p": {
+         "left": 0.7
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "tink@fourteen|75%"
+    ],
+    "card_at": "half|35%",
+    "meter_at": "fourteen|75%",
+    "norecut": true
+   }
+  },
+  {
+   "say": "That first table misses cats that died before a vet visit, which flatters it. Most deaths in it were euthanasia, which drags it down. Read it as a sketch.",
+   "src": "HC-G8",
+   "vis": "A small-print footnote unrolls from the parchment.",
+   "id": "s10.l3",
+   "seg": 10,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     120,
+     0.82
+    ],
+    "to": [
+     0,
+     130,
+     0.86
+    ],
+    "actors": [
+     {
+      "id": "led",
+      "type": "cl_parch",
+      "pos": [
+       0,
+       150
+      ],
+      "s": 0.62,
+      "p": {
+       "mode": "ledger",
+       "left": 0.7,
+       "right": 0.0,
+       "foot": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "first|10%",
+        "dur": 1.2,
+        "p": {
+         "foot": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "whoosh@first|10%"
+    ],
+    "norecut": true
+   }
+  },
+  {
+   "say": "Guinness says the oldest cat ever lived 38 years and 3 days.",
+   "src": "HC-I1",
+   "vis": "A very old cat with a party hat. Card: 38 YEARS (GUINNESS)",
+   "card": "38 YEARS",
+   "id": "s10.l4",
+   "seg": 10,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     960,
+     640,
+     1.25
+    ],
+    "to": [
+     970,
+     650,
+     1.32
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       860,
+       905
+      ],
+      "s": 0.65,
+      "p": {
+       "sit": 0.5,
+       "hat": true,
+       "mood": "happy",
+       "age": "senior",
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "boing@38|50%"
+    ],
+    "card_at": "38|50%"
+   }
+  },
+  {
+   "say": "Tough old badass.",
+   "vis": "The old cat blows out the candles in one go.",
+   "id": "s10.l5",
+   "seg": 10,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     1000,
+     700,
+     1.4
+    ],
+    "to": [
+     1010,
+     700,
+     1.46
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       760,
+       905
+      ],
+      "s": 0.6,
+      "p": {
+       "sit": 0.5,
+       "hat": true,
+       "mood": "happy",
+       "age": "senior",
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false
+     },
+     {
+      "id": "cake",
+      "type": "cl_cake",
+      "pos": [
+       1220,
+       905
+      ],
+      "s": 0.6,
+      "p": {
+       "mode": "big",
+       "out": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "old|30%",
+        "dur": 0.8,
+        "p": {
+         "out": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "whoosh@old|30%"
+    ]
+   }
+  },
+  {
+   "say": "And in that eight-year study of 2,400 British pet cats, the recorded chance of dying in any one year, up to age eight, was under four percent.",
+   "src": "HC-I7",
+   "vis": "A small flat line labelled UNDER 4% A YEAR (AGES 0-8, MINIMUM).",
+   "card": "UNDER 4% A YEAR (AGES 0-8, MINIMUM)",
+   "meter": 60,
+   "id": "s10.l6",
+   "seg": 10,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     0,
+     20,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "chart",
+      "type": "cl_paper",
+      "pos": [
+       0,
+       170
+      ],
+      "s": 0.75,
+      "p": {
+       "kind": "under4"
+      },
+      "front": false
+     },
+     {
+      "id": "c1",
+      "type": "cl_cat",
+      "pos": [
+       -420,
+       430
+      ],
+      "s": 0.3,
+      "p": {
+       "sit": 0.4,
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "tink@four|80%"
+    ],
+    "card_at": "chance|45%",
+    "card_px": 96,
+    "meter_at": "four|80%",
+    "norecut": true
+   }
+  },
+  {
+   "say": "So a safe house could win on years. What it owes you is everything else.",
+   "src": "HC-G5",
+   "vis": "The right column of the ledger is still empty.",
+   "id": "s10.l7",
+   "seg": 10,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     0,
+     0,
+     1.0
+    ],
+    "to": [
+     80,
+     20,
+     1.12
+    ],
+    "actors": [
+     {
+      "id": "led",
+      "type": "cl_parch",
+      "pos": [
+       0,
+       150
+      ],
+      "s": 0.62,
+      "p": {
+       "mode": "ledger",
+       "left": 0.8,
+       "right": 0.0
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "tink@owes|60%"
+    ],
+    "norecut": true
+   }
+  },
+  {
+   "say": "The cat vets' own guidelines call meeting your environmental needs essential, not optional.",
+   "src": "HC-I4",
+   "vis": "Card: ESSENTIAL (NOT OPTIONAL)",
+   "card": "ESSENTIAL (NOT OPTIONAL)",
+   "id": "s10.l8",
+   "seg": 10,
+   "shot": {
+    "r": "scene",
+    "scene": "ds_board_bg",
+    "scene_p": {
+     "color": "#1f1b2e"
+    },
+    "cam": [
+     80,
+     20,
+     1.08
+    ],
+    "to": [
+     0,
+     20,
+     1.05
+    ],
+    "actors": [
+     {
+      "id": "led",
+      "type": "cl_parch",
+      "pos": [
+       0,
+       150
+      ],
+      "s": 0.62,
+      "p": {
+       "mode": "ledger",
+       "left": 0.8,
+       "right": 0.0
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "essential|55%",
+        "dur": 0.6,
+        "p": {
+         "right": 0.13
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "stamp@essential|55%"
+    ],
+    "card_at": "essential|55%",
+    "norecut": true
+   }
+  },
+  {
+   "say": "A safe place.",
+   "src": "HC-I5",
+   "vis": "Pillar 1: the cat in a box on a high shelf.",
+   "id": "s10.l9",
+   "seg": 10,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     960,
+     380,
+     1.4
+    ],
+    "to": [
+     960,
+     400,
+     1.48
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       960,
+       300
+      ],
+      "s": 0.42,
+      "p": {
+       "sit": 1.0,
+       "mood": "happy",
+       "look": [
+        1,
+        0.3
+       ],
+       "age": "senior"
+      },
+      "front": false
+     },
+     {
+      "id": "box",
+      "type": "cl_box",
+      "pos": [
+       960,
+       420
+      ],
+      "s": 0.8,
+      "p": {},
+      "front": true
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "pop@safe|30%"
+    ]
+   }
+  },
+  {
+   "say": "Your food, water, litter and scratching spots, kept apart.",
+   "src": "HC-I5",
+   "vis": "Pillar 2: four stations around the room.",
+   "id": "s10.l10",
+   "seg": 10,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     960,
+     540,
+     1.0
+    ],
+    "to": [
+     980,
+     570,
+     1.05
+    ],
+    "actors": [
+     {
+      "id": "s1",
+      "type": "cl_station",
+      "pos": [
+       330,
+       905
+      ],
+      "s": 0.6,
+      "p": {
+       "kind": "food"
+      },
+      "front": false
+     },
+     {
+      "id": "s2",
+      "type": "cl_station",
+      "pos": [
+       760,
+       905
+      ],
+      "s": 0.6,
+      "p": {
+       "kind": "water"
+      },
+      "front": false
+     },
+     {
+      "id": "s3",
+      "type": "cl_station",
+      "pos": [
+       1200,
+       905
+      ],
+      "s": 0.7,
+      "p": {
+       "kind": "litter"
+      },
+      "front": false
+     },
+     {
+      "id": "s4",
+      "type": "cl_station",
+      "pos": [
+       1640,
+       905
+      ],
+      "s": 0.7,
+      "p": {
+       "kind": "scratch"
+      },
+      "front": false
+     },
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       200,
+       905
+      ],
+      "s": 0.45,
+      "p": {
+       "age": "senior",
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false,
+      "moves": [
+       {
+        "at": 0.1,
+        "dur": 3.0,
+        "pos": [
+         1450,
+         905
+        ],
+        "walk": true
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "pop@water|30%",
+     "pop@scratching|65%"
+    ]
+   }
+  },
+  {
+   "say": "Play that lets you hunt.",
+   "src": "HC-I5",
+   "vis": "Pillar 3: Meatball drags a toy mouse; the cat pounces.",
+   "id": "s10.l11",
+   "seg": 10,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     960,
+     620,
+     1.1
+    ],
+    "to": [
+     960,
+     620,
+     1.16
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       1400,
+       905
+      ],
+      "s": 0.55,
+      "p": {
+       "look": [
+        1,
+        0.3
+       ],
+       "mood": "happy",
+       "age": "senior"
+      },
+      "front": false,
+      "flip": true,
+      "moves": [
+       {
+        "at": "hunt|30%",
+        "dur": 0.45,
+        "pos": [
+         830,
+         905
+        ],
+        "hop": 140
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "pose": "present",
+     "pos": [
+      420,
+      905
+     ],
+     "size": 620,
+     "look": "hero",
+     "prop": "toymouse",
+     "moves": [
+      {
+       "at": 0.05,
+       "dur": 1.0,
+       "pos": [
+        330,
+        905
+       ],
+       "walk": true
+      }
+     ]
+    },
+    "sfx": [
+     "boing@hunt|35%"
+    ]
+   }
+  },
+  {
+   "say": "Humans who are friendly and predictable.",
+   "src": "HC-I5",
+   "vis": "Pillar 4: Meatball finally pets between the eyes and ears. Callback to the petting map.",
+   "id": "s10.l12",
+   "seg": 10,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     1000,
+     620,
+     1.2
+    ],
+    "to": [
+     1010,
+     630,
+     1.26
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_petmap",
+      "pos": [
+       800,
+       905
+      ],
+      "s": 0.6,
+      "p": {
+       "green": 0.0,
+       "mood": "happy"
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "friendly|40%",
+        "dur": 0.6,
+        "p": {
+         "green": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "pose": "point",
+     "pos": [
+      1300,
+      905
+     ],
+     "size": 640,
+     "look": "hero",
+     "prop": null,
+     "gest": [
+      [
+       "predictable|60%",
+       "laugh",
+       1.4
+      ]
+     ]
+    },
+    "sfx": [
+     "tink@friendly|45%"
+    ]
+   }
+  },
+  {
+   "say": "And a home that respects your nose.",
+   "src": "HC-I5",
+   "vis": "Pillar 5: the cat rubs its cheek on the sofa corner.",
+   "card": "THE 5 PILLARS",
+   "meter": 66,
+   "id": "s10.l13",
+   "seg": 10,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     1150,
+     700,
+     1.4
+    ],
+    "to": [
+     1160,
+     700,
+     1.46
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       930,
+       905
+      ],
+      "s": 0.55,
+      "p": {
+       "mood": "happy",
+       "look": [
+        1,
+        0
+       ],
+       "age": "senior"
+      },
+      "front": false,
+      "moves": [
+       {
+        "at": "home|25%",
+        "dur": 0.5,
+        "pos": [
+         960,
+         905
+        ]
+       },
+       {
+        "at": "respects|50%",
+        "dur": 0.5,
+        "pos": [
+         930,
+         905
+        ]
+       },
+       {
+        "at": "nose|80%",
+        "dur": 0.4,
+        "pos": [
+         960,
+         905
+        ]
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "tink@nose|70%"
+    ],
+    "card_at": "nose|60%",
+    "meter_at": "nose|70%"
+   }
+  },
+  {
+   "say": "Get those, plus a safe house and vet visits, and the deal looks pretty damn sweet.",
+   "vis": "The meter climbs.",
+   "id": "s10.l14",
+   "seg": 10,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living",
+     "nowin": true
+    },
+    "cam": [
+     960,
+     540,
+     1.0
+    ],
+    "to": [
+     960,
+     560,
+     1.06
+    ],
+    "actors": [
+     {
+      "id": "s1",
+      "type": "cl_station",
+      "pos": [
+       330,
+       905
+      ],
+      "s": 0.6,
+      "p": {
+       "kind": "food"
+      },
+      "front": false
+     },
+     {
+      "id": "s2",
+      "type": "cl_station",
+      "pos": [
+       760,
+       905
+      ],
+      "s": 0.6,
+      "p": {
+       "kind": "water"
+      },
+      "front": false
+     },
+     {
+      "id": "box",
+      "type": "cl_box",
+      "pos": [
+       1150,
+       420
+      ],
+      "s": 0.6,
+      "p": {},
+      "front": true
+     },
+     {
+      "id": "c2",
+      "type": "cl_cat",
+      "pos": [
+       1150,
+       330
+      ],
+      "s": 0.32,
+      "p": {
+       "sit": 1.0,
+       "mood": "happy",
+       "age": "senior",
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false
+     },
+     {
+      "id": "win",
+      "type": "cl_window",
+      "pos": [
+       500,
+       600
+      ],
+      "s": 1.0,
+      "p": {
+       "open": 1.0,
+       "barrier": 1.0
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "pose": "present",
+     "pos": [
+      1600,
+      905
+     ],
+     "size": 600,
+     "look": "viewer",
+     "prop": null,
+     "gest": [
+      [
+       "sweet|80%",
+       "laugh",
+       1.4
+      ]
+     ]
+    },
+    "sfx": [
+     "tink@sweet|85%"
+    ],
+    "meter_climb": [
+     82,
+     "plus|30%",
+     "damn|85%"
+    ]
+   }
+  },
+  {
+   "say": "Miss them, and it's a lot rawer. Free rent, though.",
+   "vis": "The meter dips, then steadies at 66.",
+   "id": "s10.l15",
+   "seg": 10,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     960,
+     540,
+     1.0
+    ],
+    "to": [
+     960,
+     560,
+     1.05
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.55,
+      "p": {
+       "sit": 0.6,
+       "mood": "worry",
+       "age": "senior",
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "boing@rent|75%"
+    ],
+    "meter_swing": [
+     44,
+     "rawer|25%",
+     "rent|70%"
+    ]
+   }
+  },
+  {
+   "say": "Thousands of years ago, a wildcat probably walked into a grain store for the mice.",
+   "src": "HC-A4",
+   "vis": "CALLBACK: the wildcat in the doorway of the grain store, same framing as chapter 1.",
+   "id": "s10.l16",
+   "seg": 10,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_village",
+    "scene_p": {},
+    "cam": [
+     990,
+     720,
+     1.6
+    ],
+    "to": [
+     990,
+     730,
+     1.68
+    ],
+    "actors": [
+     {
+      "id": "j1",
+      "type": "cl_jar",
+      "pos": [
+       470,
+       900
+      ],
+      "s": 0.75,
+      "p": {},
+      "front": false
+     },
+     {
+      "id": "j2",
+      "type": "cl_jar",
+      "pos": [
+       640,
+       905
+      ],
+      "s": 0.6,
+      "p": {
+       "col": "#c98a5a"
+      },
+      "front": false
+     },
+     {
+      "id": "j3",
+      "type": "cl_jar",
+      "pos": [
+       1280,
+       900
+      ],
+      "s": 0.8,
+      "p": {
+       "grain": 1.0
+      },
+      "front": false
+     },
+     {
+      "id": "j4",
+      "type": "cl_jar",
+      "pos": [
+       1500,
+       905
+      ],
+      "s": 0.65,
+      "p": {
+       "col": "#a8603e"
+      },
+      "front": false
+     },
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       930,
+       905
+      ],
+      "s": 0.55,
+      "p": {
+       "age": "wild",
+       "sit": 0.75,
+       "mood": "smug",
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "whoosh@0.05"
+    ]
+   }
+  },
+  {
+   "say": "Cats have never left. Lucky bastards.",
+   "vis": "The wildcat lies down in the doorway; cross-fade to the house cat on the sofa in the same pose.",
+   "id": "s10.l17",
+   "seg": 10,
+   "shot": {
+    "r": "scene",
+    "scene": "tc_combo",
+    "scene_p": {
+     "a": "cl_village",
+     "pa": {},
+     "b": "cl_room",
+     "pb": {
+      "kind": "living"
+     },
+     "bx": 2400,
+     "dx": 3000
+    },
+    "cam": [
+     990,
+     730,
+     1.6
+    ],
+    "to": [
+     990,
+     730,
+     1.696
+    ],
+    "actors": [
+     {
+      "id": "j1",
+      "type": "cl_jar",
+      "pos": [
+       470,
+       900
+      ],
+      "s": 0.75,
+      "p": {},
+      "front": false
+     },
+     {
+      "id": "j2",
+      "type": "cl_jar",
+      "pos": [
+       640,
+       905
+      ],
+      "s": 0.6,
+      "p": {
+       "col": "#c98a5a"
+      },
+      "front": false
+     },
+     {
+      "id": "j3",
+      "type": "cl_jar",
+      "pos": [
+       1280,
+       900
+      ],
+      "s": 0.8,
+      "p": {
+       "grain": 1.0
+      },
+      "front": false
+     },
+     {
+      "id": "j4",
+      "type": "cl_jar",
+      "pos": [
+       1500,
+       905
+      ],
+      "s": 0.65,
+      "p": {
+       "col": "#a8603e"
+      },
+      "front": false
+     },
+     {
+      "id": "wild",
+      "type": "cl_cat",
+      "pos": [
+       930,
+       905
+      ],
+      "s": 0.55,
+      "p": {
+       "age": "wild",
+       "sit": 0.75,
+       "mood": "smug",
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false,
+      "set": [
+       {
+        "at": "never|20%",
+        "dur": 0.8,
+        "p": {
+         "sit": 0.97,
+         "mood": "sleepy"
+        }
+       }
+      ]
+     },
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       4330,
+       740
+      ],
+      "s": 0.55,
+      "p": {
+       "sit": 0.97,
+       "mood": "sleepy",
+       "age": "senior",
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "whoosh@Lucky|50%"
+    ],
+    "shots": [
+     {
+      "cam": [
+       990,
+       730,
+       1.6
+      ],
+      "to": [
+       990,
+       735,
+       1.66
+      ]
+     },
+     {
+      "cam": [
+       4390,
+       600,
+       1.5
+      ],
+      "to": [
+       4390,
+       610,
+       1.56
+      ],
+      "at": "Lucky|50%",
+      "dur": 0.05
+     }
+    ],
+    "norecut": true
+   }
+  },
+  {
+   "say": "Verdict: a sweet deal, if your human keeps the house safe and reads the damn manual.",
+   "vis": "Stamp: SWEET DEAL (IF...). Meatball holds a book titled THE MANUAL, upside down.",
+   "card": "SWEET DEAL (IF...)",
+   "meter": 68,
+   "id": "s10.l18",
+   "seg": 10,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     1000,
+     580,
+     1.05
+    ],
+    "to": [
+     1020,
+     590,
+     1.1
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       620,
+       905
+      ],
+      "s": 0.55,
+      "p": {
+       "sit": 0.5,
+       "mood": "happy",
+       "age": "senior",
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "pose": "present",
+     "pos": [
+      1330,
+      905
+     ],
+     "size": 640,
+     "look": "viewer",
+     "prop": "book",
+     "gest": [
+      [
+       "manual|85%",
+       "shrug",
+       1.4
+      ]
+     ]
+    },
+    "sfx": [],
+    "no_card": true,
+    "stamps": [
+     {
+      "text": "SWEET DEAL (IF...)",
+      "at": "sweet|20%",
+      "x": 640,
+      "y": 300,
+      "color": "#3fb950",
+      "px": 104,
+      "rot": -7
+     }
+    ],
+    "meter_at": "sweet|30%"
+   }
+  },
+  {
+   "say": "Next time, you're born as something much bigger. This one's worth your time while you wait.",
+   "vis": "End screen: the next video tile; the cat's tail flicks over the tile.",
+   "id": "s10.l19",
+   "seg": 10,
+   "shot": {
+    "r": "scene",
+    "scene": "cl_room",
+    "scene_p": {
+     "kind": "living"
+    },
+    "cam": [
+     960,
+     560,
+     1.0
+    ],
+    "to": [
+     980,
+     570,
+     1.04
+    ],
+    "actors": [
+     {
+      "id": "hero",
+      "type": "cl_cat",
+      "pos": [
+       620,
+       905
+      ],
+      "s": 0.55,
+      "p": {
+       "sit": 0.5,
+       "mood": "happy",
+       "age": "senior",
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": false
+     }
+    ],
+    "mb": {
+     "hidden": true,
+     "pose": "neutral",
+     "pos": [
+      -3000,
+      1500
+     ],
+     "size": 600
+    },
+    "sfx": [
+     "whoosh@bigger|40%"
+    ],
+    "top_actors": [
+     {
+      "id": "endcat",
+      "type": "cl_cat",
+      "pos": [
+       1250,
+       1130
+      ],
+      "s": 0.62,
+      "p": {
+       "sit": 0.4,
+       "mood": "happy",
+       "age": "senior",
+       "look": [
+        1,
+        0
+       ]
+      },
+      "front": true
+     }
+    ]
+   }
+  }
+ ]
+}

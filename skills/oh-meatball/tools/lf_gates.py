@@ -67,6 +67,9 @@ def shots(spec_path, work, end_hold=0.0):
     import drawn_keepkill as kk
     import drawn
     raw = json.load(open(spec_path))
+    if raw.get("builder") and raw.get("lines") and not raw.get("beats"):   # opt-in: a built line spec (e.g. drawn_catlife):
+        import importlib                                                     # its own module turns it into drawn beats
+        raw = importlib.import_module(raw["builder"]).drawn_spec(raw, raw["lines"])
     if raw.get("ds"):   # a "Don't squish it" spec: register its overlays and music envelope too
         import drawn_dontsquish  # noqa: F401
     with contextlib.redirect_stdout(io.StringIO()):

@@ -1,0 +1,33 @@
+House-cat long-form ("born as" shape, research 85). Slot: Sat 11/28 08:00 ET.
+
+Titles for the A/B test, in the outline's order (fact-checked, research 88):
+1. Why It Sucks to Be Born as a House Cat   <- contains "sucks": used only with Nolan's yes (asked 11/11 night)
+2. 8 Ways Being a House Cat Is a Raw Deal (And Why It's Still Worth It)   <- on the scheduled post until he answers
+3. Your Life as a House Cat: 8 Ways It Goes Wrong
+
+Why title 1 matters (research 85 data, read again 11/12): every one of the 25 best small-channel videos in this shape
+has "Sucks" in the title, and the two cat ones are titled exactly "Why It Sucks To Be Born As a Cat" (365K and 218K
+views). With his yes: title 1 goes on the post, the description's first sentence becomes "Why it sucks to be born as a
+house cat: you live a house cat's whole life...", the tag "why it sucks to be born as a cat" is added and thumbnail
+cat_s joins the test.
+
+Thumbnails (episodes/thumbs-bornas/, specs.json there): cat_a "RAW DEAL?" (on the post), cat_b "LILIES CAN KILL IT",
+cat_c "BORN A CAT?", cat_s "BEING A CAT SUCKS" (only with his yes). Recipe read from the 44 best and worst thumbnails
+of the six winning channels (11/12): white or plain background, one big drawn animal with a crying or screaming face,
+2 to 4 hand-written words naming one specific curse, one word in red, a small arrow. The same channels' flops use the
+same recipe, so the thumbnail is needed but does not decide it.
+
+Pinned comment:
+Raw deal or sweet deal? And what's the weirdest thing your cat does that this didn't explain?
+
+End screen: the last 12 s (two empty slots: WATCH NEXT video slot left, subscribe circle right). Video slot -> "best
+for viewer" until the next "born as" episode exists.
+
+Rebuild: python3 tools/drawn_catlife.py build scripts/longform-born-as-house-cat.outline.json scripts/longform-born-as-house-cat.json
+         python3 tools/drawn_catlife.py render scripts/longform-born-as-house-cat.json OUT.mp4 --work DIR
+Sheets:  python3 tools/drawn_catlife.py linesheet scripts/longform-born-as-house-cat.json episodes/longform-born-as-house-cat/lines-contact.jpg --work DIR
+Gates:   python3 tools/lf_gates.py OUT.mp4 --work DIR --spec scripts/longform-born-as-house-cat.json --sheets episodes/longform-born-as-house-cat --lufs -14 --max-mb 95
+
+11/12 review: gates pass (9:16.0, -14.1 LUFS, 47.7 MB). Full transcript against the script (small.en, then base.en on
+the re-render): every line present. One wording changed because two speech models heard "meowed" as "me out" in six
+wordings: s7.l7 now ends "Fewer than one in ten let out a meow." (same meaning; the card still says MEOWED).

@@ -17,6 +17,7 @@ Spec keys (JSON; CLI flags map onto the same keys):
   name        output basename (with --out-dir) / label
   out         output path (.jpg)
   creature    {"kind": kit (any animal of the video drawing kit: "cfg" = the episode's stage creature_cfg, "mood") |
+               actor (any actor of an episode's art module: "module", "fn", "p" = its own params, "mood") |
                wolf_spider | cellar_spider | house_centipede | egg_case_twig (mantis egg case on a fir twig;
                "ornament": true adds a hanging red glass ball), "box": [x, y, w, h], "rot": deg,
                "zoom": 1.0 (>1 lets legs run off the box/frame), "look": [dx, dy] pupils, "mood": worried | happy}
@@ -27,6 +28,9 @@ Spec keys (JSON; CLI flags map onto the same keys):
   meatball    false | {"at": [x, y] feet, "h": px tall, "look": [dx, dy]}   (the brand host, arms out)
   shears      false | {"at": [x, y] pivot, "rot": deg (blades point along +x), "size": px, "open": deg}   (pruning shears)
   web         false | true (a few cobweb strands in the top-left corner: cellar spider)
+  drops       [] | teardrops at frame positions: [[x, y, size], ...]
+  props       [] | more things drawn like the creature (same keys: kind, box, rot, ...); "behind": true draws one
+              under the creature
 """
 import argparse
 import json
@@ -652,8 +656,21 @@ def kit_animal(ctx, o):
     drawn_creatures.build(cfg)(ctx, o.get("t", 0.3), p)
 
 
+def kit_actor(ctx, o):
+    """Any actor of an episode's own art module (fn(ctx, t, p)), so a thumbnail can show the episode's own cast and
+    props: the house-cat episode's cat in its cone, the lily vase. o: module ("drawn_cl_art"), fn ("cl_cat"),
+    p (the actor's own params), mood, look [dx, dy], t (pose time)."""
+    import importlib
+    fn = getattr(importlib.import_module(o["module"]), o["fn"])
+    p = dict(o.get("p", {}))
+    p.setdefault("look", list(o.get("look", (0, 0))))
+    if o.get("mood"):
+        p["mood"] = o["mood"]
+    fn(ctx, o.get("t", 0.3), p)
+
+
 CREATURES = {"wolf_spider": wolf_spider, "cellar_spider": cellar_spider, "house_centipede": house_centipede,
-             "egg_case_twig": egg_case_twig, "kit": kit_animal}
+             "egg_case_twig": egg_case_twig, "kit": kit_animal, "actor": kit_actor}
 
 
 # ================================================================= layers
@@ -1043,6 +1060,26 @@ def arrow_layer(a, rng):
 
 # ---------------------------------------------------------------- cobweb
 
+def drops_layer(drops):
+    """Blue teardrops at given frame positions: [[x, y, size], ...] (size = drop height in px)."""
+    def draw(ctx):
+        for x, y, sz in drops:
+            ctx.move_to(x, y - sz * 0.62)
+            ctx.curve_to(x + sz * 0.42, y - sz * 0.05, x + sz * 0.4, y + sz * 0.38, x, y + sz * 0.38)
+            ctx.curve_to(x - sz * 0.4, y + sz * 0.38, x - sz * 0.42, y - sz * 0.05, x, y - sz * 0.62)
+            ctx.close_path()
+            src(ctx, hexf("#6fb8f0"))
+            ctx.fill_preserve()
+            src(ctx, INK)
+            ctx.set_line_width(max(3.0, PX_LW * 0.7))
+            ctx.set_line_join(cairo.LINE_JOIN_ROUND)
+            ctx.stroke()
+            ctx.arc(x - sz * 0.12, y + sz * 0.08, sz * 0.09, 0, 2 * math.pi)
+            src(ctx, (1, 1, 1), 0.85)
+            ctx.fill()
+    return layer(draw)
+
+
 def web_layer(w):
     def draw(ctx):
         ox, oy = w.get("origin", (0, 0))
@@ -1071,9 +1108,18 @@ def render(spec):
         im.alpha_composite(web_layer(spec["web"] if isinstance(spec["web"], dict) else {}))
     c = spec["creature"]
     cl = creature_layer(c)
+    props = [(q, creature_layer(q)) for q in spec.get("props", [])]
+    for q, ql in props:          # props behind the creature
+        if q.get("behind"):
+            im.alpha_composite(ground_shadow(ql, tuple(q.get("shadow_off", (10, 16))), 10, q.get("shadow_a", 0.25)))
+            im.alpha_composite(ql)
     im.alpha_composite(contact_shadow(c.get("box", [40, 150, 760, 540]), c.get("contact", 0.18)))
     im.alpha_composite(ground_shadow(cl, tuple(c.get("shadow_off", (14, 22))), 12, c.get("shadow_a", 0.30)))
     im.alpha_composite(cl)
+    for q, ql in props:          # props in front of it
+        if not q.get("behind"):
+            im.alpha_composite(ground_shadow(ql, tuple(q.get("shadow_off", (10, 16))), 10, q.get("shadow_a", 0.25)))
+            im.alpha_composite(ql)
     m = spec.get("meatball")
     shoe = spec.get("shoe")
     if shoe:
@@ -1089,6 +1135,8 @@ def render(spec):
         shl, shsh = shears_layers(spec["shears"])
         im.alpha_composite(shsh)
         im.alpha_composite(shl)
+    if spec.get("drops"):
+        im.alpha_composite(drops_layer(spec["drops"]))
     if spec.get("arrow"):
         im.alpha_composite(arrow_layer(spec["arrow"], rng))
     im.alpha_composite(lettering(spec, rng))

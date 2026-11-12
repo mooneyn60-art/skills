@@ -1,0 +1,18 @@
+[
+ {"name": "cat_a", "_what": "default: pairs with the Raw Deal title; sad cat with a tear (the winners in this shape show a crying or screaming animal, research 85 thumbnail read 11/12)",
+  "creature": {"kind": "actor", "module": "drawn_cl_art", "fn": "cl_cat", "p": {"age": "adult", "mouth": "frown"}, "mood": "angry", "box": [-560, 40, 1400, 720], "look": [0.5, -0.5]},
+  "drops": [[463, 352, 74]],
+  "headline": "RAW|*DEAL?*", "accent": "red", "text_box": [840, 30, 1268, 440],
+  "arrow": {"from": [1090, 650], "to": [890, 545], "bend": -0.3}},
+ {"name": "cat_b", "_what": "one specific fact (script line s5.l2: the FDA says true lilies and daylilies can cause fatal kidney failure in cats)",
+  "creature": {"kind": "actor", "module": "drawn_cl_art", "fn": "cl_cat", "p": {"age": "adult", "mouth": "o"}, "mood": "shock", "box": [-560, 40, 1400, 720], "look": [0.9, 0.2]},
+  "props": [{"kind": "actor", "module": "drawn_cl_art", "fn": "cl_lily", "p": {}, "box": [800, 250, 300, 470]}],
+  "headline": "LILIES CAN|*KILL IT*", "accent": "red", "text_box": [690, 15, 1270, 250], "text_rot": -2},
+ {"name": "cat_c", "_what": "plain question; deadpan cat",
+  "creature": {"kind": "actor", "module": "drawn_cl_art", "fn": "cl_cat", "p": {"age": "adult", "mouth": "frown"}, "mood": "sleepy", "box": [-560, 40, 1400, 720], "look": [0.7, 0.0]},
+  "headline": "BORN A|*CAT?*", "accent": "red", "text_box": [840, 30, 1268, 440],
+  "arrow": {"from": [1090, 650], "to": [890, 545], "bend": -0.3}},
+ {"name": "cat_s", "_what": "ONLY with Nolan's yes to the word 'sucks' (asked 11/11 night): goes with title 1",
+  "creature": {"kind": "actor", "module": "drawn_cl_art", "fn": "cl_cat", "p": {"age": "adult", "mouth": "frown"}, "mood": "sleepy", "box": [-560, 40, 1400, 720], "look": [0.7, 0.0]},
+  "headline": "BEING|A CAT|*SUCKS*", "accent": "red", "text_box": [830, 20, 1268, 700]}
+]
