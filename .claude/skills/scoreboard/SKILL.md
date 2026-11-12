@@ -41,3 +41,16 @@ Pull SHORTS views by date and by video (Windsor, one call per video), put them n
 - Say what would settle an open question and who can get it.
 - Then the queue check: gaps, a creature twice in a day, anything off the current direction. Fix what a standing order covers; put anything bigger to Nolan as options with the numbers.
 - Commit and push; update MASTER_ORDERS when a read changes a rule.
+
+## The one-screen page (Nolan's pick, 11/12)
+
+Nolan has a private scoreboard page for his phone. Its link is in the daily scheduled task's prompt and in chat, never in this repo. The page reads one file, `board.json`; refresh it at the end of every scoreboard run:
+
+1. Update `skills/oh-meatball/data/board/notes.json` by hand if something changed: the long-video hours (value, window, as_of, source), the read dates (same list as MASTER_ORDERS "Read dates and live tests", in plain words), the one open ask (an empty `asks` list hides that card).
+2. From `skills/oh-meatball`: `python3 tools/postkit.py ttpage URL ... --csv data/tiktok-stats.csv` for the last 7 days of TikToks (the page's TikTok counts are the newest row per video), then `python3 tools/board.py`. It prints the medians and how many titles it could not match to `data/posted.csv`.
+3. Upload the file to the page: `Artifact` publish with `url` = the page link, `file_path` = `skills/oh-meatball/data/board/board.json`, `asset: true`. The result gives a new `/_blob/<id>`.
+4. Point the page at it: `ArtifactData` `list` on collection `datasets` (note each `version` and the old blob id in `source.url`), then one `batch` of six `update` writes (doc ids `kpis`, `recent`, `queue`, `dates`, `asks`, `stamp`), each with `if_version` and data `{"source": {"url": "/_blob/<new id>"}, "updated": {"at": "<UTC now>", "by": "Claude"}, "edit": {"via": "claude", "at": "<UTC now>"}}`.
+5. Delete the old file: `Artifact` delete with the page `url` and `path` = the old blob id.
+6. Commit `data/board/` and `data/tiktok-stats.csv`.
+
+The page itself (`tools/board_page.html`, stored in the page as `files/index.html`) changes only when its layout does: read the Dashboard type's own guide first (`Artifact` read, path `SKILL.md`), test with a stand-in `dash` object at 400 px wide, then `ArtifactData` set `files/index.html` to `{"text": <the file>}`. Every number on the page is a cell of `board.json`, so new arithmetic goes in `tools/board.py`, not in the page.

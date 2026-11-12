@@ -156,7 +156,7 @@ def main():
     ]
 
     # ---- the next 7 days from the log
-    end = now + datetime.timedelta(days=7)
+    end = (now + datetime.timedelta(days=7)).replace(hour=23, minute=59)      # whole days, so the last one is not cut short
     queue = []
     for r in sorted((r for r in posted if now < r["t"] <= end), key=lambda r: r["t"]):
         kind = "TikTok" if r["network"] == "tiktok" else ("Long video" if r["long"] else "Short")
