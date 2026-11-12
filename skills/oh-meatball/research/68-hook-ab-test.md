@@ -61,3 +61,19 @@ Sources: yt-dlp flat view counts (rounded to 2 digits above 1K), Windsor.ai (ave
 | v6 older, 48 h or more (roaches, bed mites, bed bugs, cellar spider) | v6 | 11/7-11/8 | 66-94 | median ~1,550 | median 104 (82.6, 147.0, 87.9, 120.3; partial windows) | not available |
 
 Read: **no NEW-opening Short has reached 48 h**, so there is no verdict. The only NEW Short so far (giant house spider, 36.8 h) sits at about 1,100 views, the same range as v6 Shorts at a similar age (mouse 1,094 at 24 h, mommy longlegs 1,193 at 18 h), so no visible lift or drop yet. n = 1 for NEW. Stayed-to-watch and the 45.4% baseline cannot be pulled by any tool here (Studio only); average % viewed is a different measure and must not be compared with 45.4%. Next read: Thu 11/12 for giant spider, Sat 11/13 for the wolf spider and camel cricket.
+
+## Read 11/12 (07:45 ET, before today's 10:00 post)
+Sources: yt-dlp flat view counts (rounded to 2 digits above 1K), Windsor.ai (average % viewed, window 11/7-11/9, last data day 11/9), posted.csv. Row data: `data/89-youtube.csv`; full report: `89-scoreboard-1112.md`.
+
+| Short | Group | Posted ET | Age h | Views | Avg % viewed | Stayed % |
+|---|---|---|---|---|---|---|
+| Giant house spider | NEW | 11/9 19:00 | 60.8 | 1.2K | 73.5 (partial window) | not available |
+| Wolf spider | NEW | 11/11 10:00 | 21.8 | 1.0K | not available | not available |
+| Camel cricket | NEW | 11/11 16:00 | 15.8 | 50 | not available | not available |
+| Termite | NEW | 11/11 19:00 | 12.8 | 31 | not available | not available |
+| House mouse | v6 | 11/9 10:00 | 69.8 | 1.2K | 75.6 (partial window) | not available |
+| Mommy longlegs | v6 | 11/9 16:00 | 63.8 | 1.8K | 108.4 | not available |
+| Lady beetle | v6 | 11/10 16:00 | 39.8 | 257 | not available | not available |
+| v6 older, 48 h or more (6 Shorts incl. mouse and mommy longlegs) | v6 | 11/7-11/9 | 64-118 | median 1,550 | median 99 | not available |
+
+Read: **no verdict.** Only one NEW Short (giant house spider, 1.2K at 60.8 h) is past 48 h, and that is below three. It sits at 0.8x the v6 median of about 1,550, level with the mouse (1.2K) and below mommy longlegs (1.8K); its 73.5% average viewed is under the v6 median of 99 but covers only the first hours of 11/9. The three younger NEW Shorts are split: wolf spider is healthy at 1.0K in 21.8 h, but camel cricket (50) and termite (31) are far under, the same pattern as the lady beetle (v6, 257 at 39.8 h). Two weak Shorts in the same batch point to topic or slot more than opening style, but n is too small to say. Stayed-to-watch is Studio-only and cannot be compared with the 45.4% baseline. Next read: Fri 11/13 (wolf spider passes 48 h Fri 10:00).
