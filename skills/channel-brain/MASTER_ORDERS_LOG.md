@@ -293,3 +293,37 @@ Pick episodes from `CALENDAR_REALISTIC.md`, top down. Any Short that beats 2x th
 - (TikTok orders) First read: Nolan asked for one joke cut "posted asap to see how it does", so it went out Wed 11/11 11:32. Its numbers and the other first reads: the log under "Overview".
 - (Direction change) **The seven Shorts built on it** (`oh-meatball/research/84`, `86`, `92`; slots under "Views are stuck on both platforms"): the first read is Wed 11/18, when six are 48 hours old: the share over 5,000 views against the bug median of about 1,550.
 - (The YouTube play) **Not taken (reasons in the log):** the "Every Bug Ranked" compilation of Shorts, and live-action or macro footage in the first 3 seconds. The one piece that fits the locked look is keeping Meatball out of the first 3 seconds (animal only); that is the next hook test, after the current one reads out.
+
+## Moved from the page on 11/12 (evening trim)
+Each line is as it stood on the page; the heading in brackets is the section it came from.
+
+[Develop yourself]
+- **Built 11/12:** the list is in CLAUDE.md ("Tools and skills") and the log: `postkit.py` (render with voice check, lint, payload, log, kw, ttpage, trends, teardown, selftest), three skills, the saved `shorts-batch` workflow, three agent roles, a git guard and a session-start hook, two daily data files. Details: `oh-meatball/research/94-capability-audit.md` and `95-next-topics.md`.
+
+[Make them funnier]
+- **"Ok try these today" (Nolan, 11/12 about 11:45 ET, after the two samples: the funnier dog TikTok and the YouTube cat Short).** My reading: post those two today. Both were set for Thu 11/12 (slot moves in the log). Nothing else was moved up: three Shorts a day stays the limit on YouTube.
+
+[Views are stuck on both platforms]
+- **YouTube is back to three Shorts a day, at least three hours apart** (slots in "Posting"): Nolan's 3-a-day order of 11/6, which every good day in November had. Pets and Would Meatball Survive now sit at Thu 16:00 cat and 19:00 moose, Fri 16:00 dog and 19:00 grizzly, Sat 19:00 cat name, Sun 14:00 shark, Mon 10:00 tail wag; a bug Short leads the other weekdays at 10:00. The bug Shorts that were pushed out run Tue 11/17 to Fri 11/20. **Do not go above three a day again without numbers that say it is safe.**
+
+[Watch hours, long-form queue]
+- Wed 11/11 17:00, posted (Nolan 11/11: "I want a long form yt to go out today on top of the shorts so push that"): **Kill-or-Keep Part 2** ("3 More Bugs in Your House You Should Never Kill (And 5 You Must)").
+
+[Direction change]
+- **TikTok on the new direction:** two one-minute sweary-joke cuts from the same facts, checked twice by the second model (`research/86`, second part): the grizzly cut Fri 11/13 20:15 and the dog guilty-look cut Mon 11/16 20:15. **One more swearing rule from this check: a safety instruction is said clean, like an attribution, and the swear is the reaction after it** ("...stop and hold your ground. Scary as fuck.", never "hold your fucking ground"). That is why a safety-heavy cut carries fewer f-words than the 20 to 25 ordered; do not pad it. "Be fucking honest." as the closing prompt is fine (a prompt, not an insult). Every bear cut must say when to use bear spray ("only on a charging or attacking bear") if it mentions spray at all.
+
+[Tags and everything, from every angle]
+- **What it means (my reading):** every piece of text around a video (title, description, tags, hashtags, TikTok caption, first comment, category, cover) is checked against evidence and set to the best version, starting with the funnier cuts that go out today, and it becomes the standard for every post after.
+
+[Tags and everything, from every angle]
+- **Not changed:** the bug Shorts and the other TikToks in the queue. They get the standard when they are next touched.
+
+[TikTok orders]
+- **TikTok category label (research 82; a lead, not a test):** TikTok files our drawn videos under "Comics & Cartoon, Anime" (numbers in the log). Nolan said no to a real-photo test ("Views are stuck on both platforms"). The label is readable on a video's public page within an hour of posting, so any test reads fast.
+
+[What he picked to build next]
+- **One-screen scoreboard for his phone (his pick):** a private page with today's numbers, the next 7 days of posts and the tests. The 07:37 run updates it every morning. The link goes in chat, not in this repo.
+
+[What he picked to build next]
+- **Polar bear long video (his pick, the recommended one):** the next long video in the "born as" shape, for December (searches peak in December and January, research 95). Same pipeline as the house cat: fact pack, script from the pack, second-model check, one opus build, three titles for the A/B test. He no longer has to wait for the cat video's result.
+
