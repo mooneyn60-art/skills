@@ -1,0 +1,219 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "cut_whoosh": true,
+ "loop": true,
+ "photo_credits": [],
+ "series": "Things Living In Your House",
+ "sources": [
+  "Saito, Shinozuka, Ito & Hasegawa 2019, Scientific Reports, \"Domestic cats (Felis catus) discriminate their names from other words\": \"These results indicate that cats are able to discriminate their own names from other words.\"; a hidden speaker played four words and then the cat's name; \"more than half of the cats responded to voice stimuli by moving their ears and heads\"; \"fewer than 10% of the cats demonstrated vocalisation, tail movement, and displacement\" (displacement: more than one step of both hind paws); \"cafe cats did not discriminate their own names from other cohabiting cats' names\"; only cats that first got used to the four words were analysed; https://pmc.ncbi.nlm.nih.gov/articles/PMC6449508/"
+ ],
+ "stage": {
+  "creature": "cat",
+  "scene": "bedroom",
+  "scene_p": {},
+  "s": 0.62,
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "cat",
+   "color": "#8f9299",
+   "dark": "#5c5f66",
+   "belly": "#dfe1e4",
+   "tail_color": "#8f9299",
+   "length": 520,
+   "height": 250,
+   "leg_len": 150,
+   "leg_w": 30,
+   "ears": "pointed",
+   "tail": "thin",
+   "tail_w": 22,
+   "whiskers": true,
+   "mood": "smug"
+  }
+ },
+ "cap_key": [
+  "you",
+  "your",
+  "cat",
+  "cats",
+  "name",
+  "names",
+  "words",
+  "speaker",
+  "half",
+  "ears",
+  "heads",
+  "meowed",
+  "step",
+  "cafe",
+  "heard"
+ ],
+ "title": "Your Cat Can Likely Tell Its Name: Under 1 in 10 Even Meowed 🐱 (Things Living In Your House #66)",
+ "description": "Does your cat know its name? In a 2019 study, a hidden speaker played four ordinary words and then the cat's own name. Cats that had settled down during the other words reacted more to their own name. More than half answered by moving their ears and heads; fewer than 10% meowed, moved their tail or took more than a step. Cats living in a cat cafe could not tell their own name from the names of the other cats there. The study did not test whether cats come when called.\n\n#shorts #cats #catfacts #thingslivinginyourhouse #meatballmyths\n\nSource: Saito, Shinozuka, Ito & Hasegawa 2019, Scientific Reports.",
+ "pinned_comment": "What does your cat do when you say its name: come over, flick an ear, or nothing at all?",
+ "_note": "Fact pack research/84. Checked 11/12 by a second model against the live sources (it opened the pages or the journal abstracts itself); its wording fixes are applied: \"probably\" and \"likely\" (only cats that settled down were analysed); \"More than half of the cats moved their ears or heads\" in place of \"Most cats answered\"; the card says \"more than a step\" (the paper counts more than one step). The cat-cafe line was added for length (15 s was under the 16 s floor); the checker had passed the same claim in the description.",
+ "beats": [
+  {
+   "open": "animal",
+   "m": "hook",
+   "gag": {
+    "mark": "shock"
+   },
+   "_f": [
+    "CN-F1"
+   ],
+   "say": "Your cat can probably tell its name from other words.",
+   "card": {
+    "rows": [
+     [
+      "ITS OWN NAME",
+      "#ffd34d",
+      104
+     ],
+     [
+      "CATS CAN TELL IT FROM OTHER WORDS",
+      "#ffffff",
+      46,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "scene": "study",
+   "pad": 0.3,
+   "m": "fact",
+   "_f": [
+    "CN-F2"
+   ],
+   "say": "A hidden speaker played four other words, and then the cat's name.",
+   "card": {
+    "rows": [
+     [
+      "4 WORDS",
+      "#ffd34d",
+      120
+     ],
+     [
+      "THEN ITS NAME",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "bathroom",
+   "pad": 0.3,
+   "m": "tiny",
+   "_f": [
+    "CN-F3"
+   ],
+   "say": "More than half of the cats moved their ears or heads.",
+   "card": {
+    "rows": [
+     [
+      "EARS. HEADS.",
+      "#7bd88f",
+      110
+     ],
+     [
+      "MORE THAN HALF MOVED THEM",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "basement",
+   "pad": 0.3,
+   "m": "escalate",
+   "gag": false,
+   "_f": [
+    "CN-F3"
+   ],
+   "say": "Fewer than one in ten meowed or took more than a step. Tough damn crowd.",
+   "card": {
+    "rows": [
+     [
+      "UNDER 1 IN 10",
+      "#ff4b3e",
+      104
+     ],
+     [
+      "MEOWED OR TOOK MORE THAN A STEP",
+      "#ffffff",
+      44,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "kitchen",
+   "pad": 0.3,
+   "m": "fact",
+   "_f": [
+    "CN-F8"
+   ],
+   "say": "Cat cafe cats couldn't tell their name from the other cats' names.",
+   "card": {
+    "rows": [
+     [
+      "CAT CAFE",
+      "#ffd34d",
+      110
+     ],
+     [
+      "MIXED UP WITH THE OTHER CATS' NAMES",
+      "#ffffff",
+      44,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "bedroom",
+   "m": "punch",
+   "gag": {
+    "mark": "alarm"
+   },
+   "_f": [
+    "CN-F1"
+   ],
+   "say": "Still, yours probably heard its name, because",
+   "card": {
+    "rows": [
+     [
+      "DOES YOURS ANSWER? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ]
+}

@@ -500,7 +500,7 @@ def plan(spec, work):
             c, _ = cam_at(dict(b, shots=sh2, dur=dur), ts)
             sh2.append({"at": ts, "cam": c, "to": list(beats[0]["shots"][0]["cam"]), "dur": LOOP_LAND - 0.15, "k": 1.0})
             cam = sh2[-1]["to"]
-        if spec.get("recut", True) and dur > RECUT:
+        if spec.get("recut", True) and b.get("recut", True) and dur > RECUT:
             sh2 = recut(b, sh2, dur, hero_a, tempo["cam"] if tempo else 1.0, until=dur - LOOP_LAND if seam else dur)
         if b.get("acting") and spec.get("acting", True):   # the hero acts through the line (drawn_acting)
             hero = next((a for a in b.get("actors", []) if a.get("id") == "hero"), None)

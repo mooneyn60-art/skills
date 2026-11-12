@@ -27,7 +27,10 @@ Per-line overrides: cast (a new hero animal for this line: {creature, actor, cre
 "What If" episode where a new creature moves in each day), counter (drawn.py's on-screen counter value from this
 line on), card (a drawn.py text card over this line), scene, scene_p, with (list of species names, or {"sp" | "type", "x", "y", "s", "p", "front",
 "pop": false = there from frame 0, "set", "moves"} for any actor), hero (false = not on
-stage, or a dict of creature params), act (creature params set at 30 %), hero_at {x, y, rot}, hero_moves, mb_x (Meatball's mark), pose, prop, mood, sfx, pad,
+stage, or a dict of creature params), act (creature params set at 30 %), hero_at {x, y, rot}, hero_moves, mb_x (Meatball's mark), pose, prop,
+mb (a dict merged over the macro's Meatball: moves, size, look; {"moves": [{"at": "40%", "rot": 90}]} lays him down), mood, sfx, pad,
+open_zoom / open_dx (the `open: animal` close-up: zoom, default 2.0, and a sideways slide, for an animal too long for it), recut (false = keep
+the macro's camera on a long line),
 gag (false = none), acting (false = no automatic acting).
 Every hero line is marked "acting": drawn.plan() then has the animal act through it (drawn_acting.act: verbs in the
 line -> lunge, dash, dig, slump, chomp, hop, shake, spin; idle bobs, shuffles and glances in between; hand-set and macro
@@ -166,9 +169,11 @@ def _beat(stage, line, F, shots, hero, mb, sfx, extra=None, **kw):
         mb["pose"] = line["pose"]
     if line.get("prop"):
         mb["prop"] = line["prop"]
+    if isinstance(line.get("mb"), dict):   # hand-set Meatball for this line, e.g. lying down: {"moves": [{"rot": 90}]}
+        mb.update(line["mb"])
     if line.get("mood") and b["actors"] and b["actors"][0]["id"] == "hero":
         b["actors"][0]["p"]["mood"] = line["mood"]
-    for k in ("counter", "card"):   # drawn.py overlays: the counter value, a text card
+    for k in ("counter", "card", "recut"):   # drawn.py: the counter value, a text card, recut false = no punch-in on a long line
         if k in line:
             b[k] = line[k]
     b.update(kw)
@@ -270,10 +275,12 @@ def expand(spec):
                 # v6 (Studio 11/3: animal-close-up openings 58% stayed vs 35% for Meatball openings): frame 0 is a tight
                 # close-up of the animal mid-pounce; Meatball hops in smaller from the left at ~2.3 s, as the reactor.
                 lift = int(0.5 * stage.cfg.get("height", 240) * stage.s) if stage.side else 120   # frame the body, not the air above it
-                ac = [hx, hy - lift, 2.0]
+                z0, odx = line.get("open_zoom", 2.0), line.get("open_dx", 0)   # a long animal: pull out and slide to its head
+                ac = [hx + odx, hy - lift, z0]
                 mb = _mb(stage, F, "shock", x=-320, water=water, shake=0.5, size=820,
                          moves=[{"at": 2.3, "dur": 0.4, "pos": [MB_X - 30, F], "hop": 200}])
-                b = _beat(stage, line, F, [{"cam": ac, "to": [hx, hy - lift - 20, 2.2]}, {"at": 2.2, "cam": [hx, hy - lift - 20, 2.2], "to": C["two"]}],
+                b = _beat(stage, line, F, [{"cam": ac, "to": [hx + odx, hy - lift - 20, z0 * 1.1]},
+                                           {"at": 2.2, "cam": [hx + odx, hy - lift - 20, z0 * 1.1], "to": C["two"]}],
                           hero, mb, ["scratch@0", "boing@2.3", "pop@55%"])
             else:
                 mb = _mb(stage, F, "shock", water=water, shake=0.5,

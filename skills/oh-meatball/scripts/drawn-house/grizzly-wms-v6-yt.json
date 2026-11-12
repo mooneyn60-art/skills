@@ -1,0 +1,228 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "cut_whoosh": true,
+ "loop": true,
+ "photo_credits": [],
+ "series": "Would Meatball Survive?",
+ "sources": [
+  "U.S. National Park Service, Staying Safe Around Bears: \"Bears can run as fast as a racehorse both uphill and down.\"; \"Do NOT run\"; \"Like dogs, they will chase fleeing animals.\"; \"If you are attacked by a brown/grizzly bear, leave your pack on and PLAY DEAD. Lay flat on your stomach with your hands clasped behind your neck.\"; \"Fighting back usually increases the intensity of such attacks. However, if the attack persists, fight back vigorously.\"; \"If you are attacked by a black bear, DO NOT PLAY DEAD.\"; \"If any bear attacks you in your tent, or stalks you and then attacks, do NOT play dead; fight back!\"; \"there is no single strategy that will work in all situations and that guarantees safety\"; https://www.nps.gov/subjects/bears/safety.htm",
+  "Alaska Department of Fish and Game and partners, A Framework for Bear Safety Messages in Alaska (2017): \"If a defensive bear makes contact with you and knocks you to the ground, protect your neck, stomach and face. Lie face down, with hands clasped behind your neck\"; \"Laying down is a last resort when a defensive bear makes physical contact with you. It is rarely necessary.\"; do not play dead with a non-defensive bear; https://www.adfg.alaska.gov/static/species/livingwithwildlife/bears/pdfs/framework_bear_safety_messages_alaska.pdf",
+  "Glacier National Park, Bear Safety: \"Do not run! Back away slowly.\"; \"If the attack is prolonged, FIGHT BACK!\"; https://www.nps.gov/glac/planyourvisit/bears.htm"
+ ],
+ "stage": {
+  "creature": "grizzly",
+  "scene": "forest_floor",
+  "scene_p": {},
+  "s": 0.85,
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "grizzly bear",
+   "color": "#7a5236",
+   "dark": "#523623",
+   "belly": "#9a7250",
+   "length": 720,
+   "height": 400,
+   "leg_len": 160,
+   "leg_w": 70,
+   "ears": "round",
+   "tail": "thin",
+   "tail_w": 0.1,
+   "whiskers": false,
+   "mood": "angry",
+   "hump": 0.55
+  }
+ },
+ "cap_key": [
+  "you",
+  "your",
+  "grizzly",
+  "bears",
+  "racehorse",
+  "meatball",
+  "chase",
+  "dead",
+  "knocks",
+  "neck",
+  "fight",
+  "hell",
+  "lived",
+  "guaranteed"
+ ],
+ "title": "Never Run From a Grizzly: It's as Fast as a Racehorse 🐻 (Would Meatball Survive? #3)",
+ "description": "Would you survive a grizzly bear? The U.S. National Park Service says bears can run as fast as a racehorse, uphill and down, and that they will chase fleeing animals like dogs do, so do not run. If a grizzly attacks, the Park Service says to play dead: flat on your stomach, hands clasped behind your neck, pack on. Alaska's bear-safety guide narrows that to a defensive bear that has knocked you down, and calls it rarely necessary. If the attack keeps going, or the bear stalked you then attacked or attacked in your tent, fight back. Per the Park Service, a black bear attack is different: do not play dead. The Park Service also says no single strategy works in every situation.\n\n#shorts #grizzly #bears #wouldmeatballsurvive #meatballmyths\n\nSources: U.S. National Park Service (Staying Safe Around Bears); Glacier National Park (Bear Safety); Alaska Department of Fish and Game (Framework for Bear Safety Messages). General information, not safety training.",
+ "pinned_comment": "Ever met a bear on a trail? What did you do, and what did the bear do?",
+ "_note": "Fact pack research/84. Checked 11/12 by a second model against the live sources (it opened the pages or the journal abstracts itself); its wording fixes are applied: \"will chase\"; play dead only once a surprised grizzly has knocked you down (the Park Service line narrowed by Alaska's guide), with that condition on the card; the last line no longer says lying still saved him (\"Nothing's guaranteed\"); the black-bear rule is credited to the Park Service on the card and in the description.",
+ "beats": [
+  {
+   "open": "animal",
+   "open_zoom": 1.55,
+   "open_dx": -90,
+   "m": "hook",
+   "gag": {
+    "mark": "shock"
+   },
+   "_f": [
+    "BR-F2",
+    "BR-F4"
+   ],
+   "say": "You can't outrun a grizzly. Bears can run as fast as a racehorse.",
+   "card": {
+    "rows": [
+     [
+      "FAST AS A RACEHORSE",
+      "#ff4b3e",
+      84
+     ],
+     [
+      "UPHILL AND DOWN: U.S. PARK SERVICE",
+      "#ffffff",
+      44,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "scene": "swamp",
+   "pad": 0.5,
+   "m": "chase",
+   "_f": [
+    "BR-F4"
+   ],
+   "hero_moves": [
+    {
+     "at": "15%",
+     "dur": 0.7,
+     "pos": [
+      720,
+      1500
+     ],
+     "walk": true,
+     "linear": true
+    }
+   ],
+   "say": "Meatball ran anyway. Bears will chase what runs, like dogs."
+  },
+  {
+   "scene": "tundra",
+   "pad": 0.5,
+   "m": "fact",
+   "gag": false,
+   "recut": false,
+   "_f": [
+    "BR-F7",
+    "BR-F11"
+   ],
+   "hero_at": {
+    "x": 900,
+    "y": 1500
+   },
+   "mb": {
+    "moves": [
+     {
+      "at": "45%",
+      "dur": 0.35,
+      "rot": 90,
+      "s": 480,
+      "pos": [
+       175,
+       1445
+      ]
+     }
+    ],
+    "gest": []
+   },
+   "say": "If a surprised grizzly knocks you down, play dead, hands behind your neck.",
+   "card": {
+    "rows": [
+     [
+      "PLAY DEAD",
+      "#7bd88f",
+      110
+     ],
+     [
+      "ONLY IF IT KNOCKS YOU DOWN",
+      "#ffffff",
+      48,
+      true
+     ],
+     [
+      "STOMACH DOWN, HANDS BEHIND YOUR NECK",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "scene": "cave",
+   "pad": 0.5,
+   "m": "escalate",
+   "gag": false,
+   "_f": [
+    "BR-F8",
+    "BR-F9",
+    "BR-F10"
+   ],
+   "say": "If it keeps going, or it stalked you, fight like hell.",
+   "card": {
+    "rows": [
+     [
+      "FIGHT BACK",
+      "#ff4b3e",
+      120
+     ],
+     [
+      "IF IT KEEPS GOING OR STALKED YOU",
+      "#ffffff",
+      48,
+      true
+     ],
+     [
+      "BLACK BEAR: DON'T PLAY DEAD (PARK SERVICE)",
+      "#ffffff",
+      36,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "forest_floor",
+   "m": "punch",
+   "gag": {
+    "mark": "alarm"
+   },
+   "_f": [
+    "BR-F1"
+   ],
+   "say": "Meatball lived. Nothing's guaranteed, because",
+   "card": {
+    "rows": [
+     [
+      "EVER MET A BEAR? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ]
+}

@@ -1,0 +1,171 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "cut_whoosh": true,
+ "loop": true,
+ "photo_credits": [],
+ "series": "Would Meatball Survive?",
+ "sources": [
+  "Florida Museum of Natural History, International Shark Attack File, yearly worldwide summary for 2025: \"ISAF confirmed 65 unprovoked shark bites on humans and 29 provoked bites.\"; \"There were 12 confirmed shark-related fatalities this year, nine of which are assigned as unprovoked.\"; https://www.floridamuseum.ufl.edu/shark-attacks/yearly-worldwide-summary/",
+  "International Shark Attack File, Quick Tips: \"Swim with a buddy\"; \"Don't swim at dawn or dusk\"; \"Maintain eye contact with the shark\"; \"Slowly move away, and if possible, exit the water\"; \"Hit shark in the eyes and gills\"; https://www.floridamuseum.ufl.edu/shark-attacks/reduce-risk/quick-tips/",
+  "International Shark Attack File, Advice to Swimmers: \"You should not act passively if under attack as sharks respect size and power.\"; https://www.floridamuseum.ufl.edu/shark-attacks/reduce-risk/swimmers/",
+  "Florida Museum news release, 2026-02-18: \"The chances of being bitten by a shark remain extremely low.\"; https://www.floridamuseum.ufl.edu/science/global-shark-bites-return-to-average-in-2025-with-smaller-proportion-in-the-united-states/"
+ ],
+ "stage": {
+  "creature": "shark",
+  "scene": "reef",
+  "scene_p": {},
+  "s": 0.55
+ },
+ "cap_key": [
+  "you",
+  "your",
+  "world",
+  "65",
+  "confirmed",
+  "shark",
+  "bites",
+  "2025",
+  "meatball",
+  "alone",
+  "dusk",
+  "two",
+  "tips",
+  "eyes",
+  "gills",
+  "passive",
+  "shore"
+ ],
+ "title": "The Whole World Had 65 Confirmed Unprovoked Shark Bites in 2025 🦈 (Would Meatball Survive? #4)",
+ "description": "Would you survive a shark? The International Shark Attack File confirmed 65 unprovoked shark bites on people worldwide in 2025, nine of them fatal, and says the chances of being bitten remain extremely low. Its tips: swim with a buddy and not at dawn or dusk. If a shark comes close, keep eye contact, move away slowly and leave the water if you can. If it bites, hit the eyes and gills, and do not act passively.\n\n#shorts #sharks #sharkattack #wouldmeatballsurvive #meatballmyths\n\nSource: International Shark Attack File, Florida Museum of Natural History (2025 yearly summary; Quick Tips; Advice to Swimmers). General information, not safety training.",
+ "pinned_comment": "Would you still swim at dusk after this? What's the closest you've been to a shark?",
+ "_note": "Fact pack research/84. Checked 11/12 by a second model against the live sources (it opened the pages or the journal abstracts itself); its wording fixes are applied: the title keeps \"confirmed\"; \"Don't play dead\" became \"Don't act passive\" (the File's own word); \"the don't list\" became \"two safety tips\" (swim with a buddy is a do, not a don't); the swimmers page is credited.",
+ "beats": [
+  {
+   "open": "animal",
+   "m": "hook",
+   "gag": {
+    "mark": "shock"
+   },
+   "_f": [
+    "SH-F1"
+   ],
+   "say": "The whole world had 65 confirmed unprovoked shark bites in 2025.",
+   "card": {
+    "rows": [
+     [
+      "65 BITES",
+      "#ffd34d",
+      120
+     ],
+     [
+      "UNPROVOKED, WORLDWIDE, 2025",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "scene": "ocean",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "pad": 0.5,
+   "m": "chase",
+   "_f": [
+    "SH-F14"
+   ],
+   "say": "Meatball swam alone at dusk. That breaks two damn safety tips."
+  },
+  {
+   "scene": "deep",
+   "pad": 0.5,
+   "m": "calm",
+   "_f": [
+    "SH-F12"
+   ],
+   "say": "If one comes close, keep your eyes on it and back away slowly.",
+   "card": {
+    "rows": [
+     [
+      "EYES ON IT",
+      "#7bd88f",
+      120
+     ],
+     [
+      "MOVE AWAY SLOWLY, LEAVE THE WATER",
+      "#ffffff",
+      46,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "ocean",
+   "scene_p": {
+    "time": "night"
+   },
+   "pad": 0.5,
+   "m": "escalate",
+   "gag": false,
+   "_f": [
+    "SH-F13"
+   ],
+   "say": "If it bites, hit the eyes and gills. Don't act passive.",
+   "card": {
+    "rows": [
+     [
+      "EYES AND GILLS",
+      "#ff4b3e",
+      104
+     ],
+     [
+      "IF IT BITES, HIT BACK",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "reef",
+   "m": "punch",
+   "gag": {
+    "mark": "alarm"
+   },
+   "_f": [
+    "SH-F1",
+    "SH-F19"
+   ],
+   "say": "Meatball made it to shore, because",
+   "card": {
+    "rows": [
+     [
+      "STILL SWIMMING AT DUSK? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ]
+}

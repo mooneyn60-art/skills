@@ -16,6 +16,9 @@ Outline usage (one dict or a list per line):
   gag: {prop: trophy}                a prop pops in over the animal: trophy, magnifier, ruler, rock, skull, moon,
                                      snowflake, rocket, crown, bed
   gag: {thought: fish}               a thought bubble over the animal holding one of the pile objects
+  gag: {wag: 1.0}                    a dog seen from behind, tail wagging with a lean: -1 = to the dog's own left,
+                                     1 = to its own right (from behind, the dog's right is the viewer's right);
+                                     color / dark recolour it to match the dog on stage
   any gag: at (default "20%"), dur, x/y nudges.
 """
 import math
@@ -325,13 +328,50 @@ def thought(ctx, t, p):
     ctx.restore()
 
 
+def wag(ctx, t, p):
+    """A dog seen from behind on a pale disc, its tail wagging with a lean. lean: -1 (the dog's own left) .. 1 (its own
+    right). Seen from behind, the dog's right is the viewer's right. A soft fan marks where the tail spends its time."""
+    on = p.get("on", 1.0)
+    if on <= 0:
+        return
+    lean = max(-1.0, min(1.0, p.get("lean", 0.0)))
+    col, dk = hexc(p.get("color") or "#d9a85c"), hexc(p.get("dark") or "#a87a36")
+    ctx.save()
+    sc = back_out(min(1.0, on))
+    ctx.scale(sc, sc)
+    shape(ctx, lambda c: p_ellipse(c, 0, -20, 215, 215), hexc("#f6f1e4"), OUT, None)
+    root = (0, 20)
+    mid = math.radians(36 * lean)            # centre of the sweep, measured from straight up
+    amp = math.radians(22)
+    ctx.save()                               # the fan: where the wag lives
+    ctx.move_to(*root)
+    ctx.arc(root[0], root[1], 205, -math.pi / 2 + mid - amp, -math.pi / 2 + mid + amp)
+    ctx.close_path()
+    src(ctx, hexc("#f2c94c"), 0.6)
+    ctx.fill()
+    ctx.restore()
+    stroke(ctx, [(0, -205), (0, -150)], 7, color=hexc("#8d8f94"))   # the straight-back mark at the top
+    for sx in (-1, 1):                       # ears past the head, hind legs under the rump
+        shape(ctx, lambda c, sx=sx: p_ellipse(c, sx * 78, -10, 24, 50, sx * 0.3), dk, OUT * 0.7, None)
+        shape(ctx, lambda c, sx=sx: p_rrect(c, sx * 62 - 24, 96, 48, 78, 18), dk, OUT * 0.7, None)
+    shape(ctx, lambda c: p_ellipse(c, 0, -12, 62, 54), col, OUT * 0.8, None)        # back of the head
+    shape(ctx, lambda c: p_ellipse(c, 0, 72, 112, 88), col, OUT, (0.1, 0.12))       # rump
+    a = -math.pi / 2 + mid + amp * math.sin(t * 12.0)
+    L = 190
+    pts = [root, (root[0] + 0.5 * L * math.cos(a) , root[1] + 0.5 * L * math.sin(a)),
+           (root[0] + L * math.cos(a), root[1] + L * math.sin(a))]
+    stroke(ctx, pts, 40, color=(0.1, 0.09, 0.08))
+    stroke(ctx, pts, 27, color=col)
+    ctx.restore()
+
+
 ACTORS = {"g.pile": pile, "g.bolt": bolt, "g.heart": big_heart, "g.mark": mark, "g.meter": meter, "g.clock": clock,
-          "g.prop": prop, "g.thought": thought}
+          "g.prop": prop, "g.thought": thought, "g.wag": wag}
 
 # Soft cues only (Nolan 10/28 "get rid of the loud beeps"): no zap crackle, one click per clock.
 SFX = {"pile": ["pop@{a}", "pop@{b}", "tink@{c}"], "zap": ["thud@{a}"], "heart": ["thud@{a}", "thud@{b}"],
        "mark": ["tink@{a}"], "meter": ["whoosh@{a}", "thud@{c}"], "clock": ["click@{a}"],
-       "prop": ["tink@{a}"], "thought": ["pop@{a}"]}
+       "prop": ["tink@{a}"], "thought": ["pop@{a}"], "wag": ["whoosh@{a}"]}
 
 
 def _pct(at, off):
@@ -358,7 +398,7 @@ def build(gags, hero, top_dy, face_left=True, tag="g"):
         dur = g.get("dur", 1.4)
         gid = f"{tag}-gag{k}"   # unique per line, so a later line never inherits this gag's state
         cues = {"a": at, "b": _pct(at, 15), "c": _pct(at, 30)}
-        kind = next(x for x in ("pile", "zap", "heart", "mark", "meter", "clock", "prop", "thought") if x in g)
+        kind = next(x for x in ("pile", "zap", "heart", "mark", "meter", "clock", "prop", "thought", "wag") if x in g)
         sfx += [c.format(**cues) for c in SFX[kind]]
         a = {"id": gid, "type": "g." + ("bolt" if kind == "zap" else kind), "s": g.get("s", 1.0), "front": True}
         if kind == "pile":
@@ -388,5 +428,10 @@ def build(gags, hero, top_dy, face_left=True, tag="g"):
         elif kind == "thought":
             a.update(attach="hero", pos=[g.get("x", -back * 60), top_dy + g.get("y", 0)], p={"on": 0.0, "kind": g["thought"]},
                      set=[{"at": at, "dur": 0.35, "p": {"on": 1.0}}])
+        elif kind == "wag":
+            a.update(pos=[g.get("x", 820), hy + top_dy - 190 + g.get("y", 0)],
+                     p={"on": 0.0, "lean": float(g.get("from", 0.0)), "color": g.get("color"), "dark": g.get("dark")},
+                     set=[{"at": at, "dur": 0.3, "p": {"on": 1.0}},
+                          {"at": _pct(at, 10), "dur": g.get("dur", 0.6), "p": {"lean": float(g["wag"])}}])
         actors.append(a)
     return actors, sfx

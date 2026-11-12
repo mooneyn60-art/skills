@@ -1,0 +1,230 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "cut_whoosh": true,
+ "loop": true,
+ "photo_credits": [],
+ "series": "Things Living In Your House",
+ "sources": [
+  "Leonetti, Cimarelli, Hersh & Ravignani 2024, Biology Letters, \"Why do dogs wag their tails?\" (review): \"Wagging is an asymmetric behaviour, with dogs showing side biases depending on the stimuli they encounter.\"; \"Dogs exhibit a right-side wagging bias ... for stimuli that have a positive emotional valence (e.g. when shown their owner or a familiar person)\"; \"they show left-biased wagging ... for stimuli that elicit withdrawal (e.g. when shown an unfamiliar, dominant dog or when in aggressive situations)\"; \"Tail wagging is frequently associated with both positive and negative arousal\"; https://pmc.ncbi.nlm.nih.gov/articles/PMC10792393/",
+  "A 2022 iScience tail-tracking study (PMC9356099), for whose left and right is meant: angles are \"relative to the body axis\", and the wag leaned \"toward the right side of the dog's body axis when facing the dog's owner\"; https://pmc.ncbi.nlm.nih.gov/articles/PMC9356099/",
+  "Siniscalchi, Lusito, Vallortigara & Quaranta 2013, Current Biology (abstract): dogs watching video images of dogs \"showed higher cardiac activity and higher scores of anxious behavior when observing left- rather than right-biased tail wagging\"; https://pubmed.ncbi.nlm.nih.gov/24184108/",
+  "Artelle, Dumoulin & Reimchen 2011, Laterality (abstract): with a robot dog, responses \"are not readily integrated into the predicted behaviour based on hemispheric dominance\"; https://pubmed.ncbi.nlm.nih.gov/20087813/"
+ ],
+ "stage": {
+  "creature": "dog",
+  "scene": "bedroom",
+  "scene_p": {},
+  "s": 0.62,
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "dog",
+   "color": "#8a5a3a",
+   "dark": "#5e3a22",
+   "belly": "#e9d2b0",
+   "tail_color": "#8a5a3a",
+   "length": 600,
+   "height": 290,
+   "leg_len": 200,
+   "leg_w": 36,
+   "ears": "floppy",
+   "tail": "thin",
+   "tail_w": 20,
+   "whiskers": false,
+   "mood": "happy"
+  }
+ },
+ "cap_key": [
+  "you",
+  "your",
+  "yours",
+  "dog",
+  "dogs",
+  "tail",
+  "wags",
+  "wag",
+  "side",
+  "owner",
+  "right",
+  "left",
+  "strange",
+  "anxious",
+  "lean",
+  "leans",
+  "rule"
+ ],
+ "title": "Your Dog's Tail May Wag More to Its Right When It Sees You 🐕 (Things Living In Your House #67)",
+ "description": "Which way does your dog's tail wag? A 2024 review in Biology Letters says wagging is lopsided: dogs lean the wag to their own right for things they like, such as their owner, and to their own left for things that make them pull back, such as an unfamiliar, dominant dog. In a 2013 study, dogs watching videos of a left-leaning wag had higher heart activity and acted more anxious than with a right-leaning wag. It is a lean, not a rule: wagging goes with good and bad excitement, and a robot-dog study did not fit the simple story. A wagging tail does not always mean a dog is friendly.\n\n#shorts #dogs #dogfacts #thingslivinginyourhouse #meatballmyths\n\nSources: Leonetti et al. 2024, Biology Letters; Siniscalchi et al. 2013, Current Biology; Artelle et al. 2011, Laterality.",
+ "pinned_comment": "Which way does your dog's tail lean when you walk in? Go look (the dog's right, not yours).",
+ "_note": "Fact pack research/84. Checked 11/12 by a second model against the live sources (it opened the pages or the journal abstracts itself); its wording fixes are applied: \"leans more\" on both direction lines and cards (a bias, not every wag); \"acted more anxious\" in place of \"faster heartbeats\" (the abstract says higher cardiac activity and higher scores of anxious behaviour); the title has \"may\" and \"its right\"; the last line points at the viewer's own dog; the description says \"not always\". The two 2007 and 2013 originals are paywalled: directions come from the open 2024 review, the body-frame from the 2022 iScience paper. The round picture is the new `wag` gag (a dog seen from behind).",
+ "beats": [
+  {
+   "open": "animal",
+   "m": "hook",
+   "gag": [
+    {
+     "mark": "shock"
+    },
+    {
+     "color": "#8a5a3a",
+     "dark": "#5e3a22",
+     "y": 130,
+     "x": 850,
+     "wag": 0.9,
+     "from": -0.9,
+     "at": 2.5,
+     "dur": 1.0
+    }
+   ],
+   "_f": [
+    "DT-F1"
+   ],
+   "say": "Your dog's tail wags more to one side, depending on what it sees.",
+   "card": {
+    "rows": [
+     [
+      "LEFT OR RIGHT",
+      "#ffd34d",
+      104
+     ],
+     [
+      "THE WAG LEANS TO ONE SIDE",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 300,
+    "at": "45%"
+   }
+  },
+  {
+   "scene": "kitchen",
+   "pad": 0.5,
+   "m": "fact",
+   "gag": {
+    "color": "#8a5a3a",
+    "dark": "#5e3a22",
+    "y": 130,
+    "x": 850,
+    "wag": 1.0,
+    "at": "30%"
+   },
+   "_f": [
+    "DT-F2"
+   ],
+   "say": "For its owner, the wag leans more to its right.",
+   "card": {
+    "rows": [
+     [
+      "ITS OWNER",
+      "#7bd88f",
+      120
+     ],
+     [
+      "LEANS MORE TO ITS RIGHT",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 300,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "garden",
+   "pad": 0.5,
+   "m": "escalate",
+   "gag": {
+    "color": "#8a5a3a",
+    "dark": "#5e3a22",
+    "y": 130,
+    "x": 850,
+    "wag": -1.0,
+    "at": "40%"
+   },
+   "_f": [
+    "DT-F3"
+   ],
+   "say": "For a strange, dominant dog, it leans more to its left.",
+   "card": {
+    "rows": [
+     [
+      "STRANGE DOG",
+      "#ff4b3e",
+      110
+     ],
+     [
+      "LEANS MORE TO ITS LEFT",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 300,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "study",
+   "pad": 0.5,
+   "m": "tiny",
+   "gag": {
+    "mark": "sweat"
+   },
+   "_f": [
+    "DT-F5"
+   ],
+   "say": "Dogs watching a left wag on video acted more anxious.",
+   "card": {
+    "rows": [
+     [
+      "MORE ANXIOUS",
+      "#ff4b3e",
+      104
+     ],
+     [
+      "DOGS WATCHING A LEFT WAG ON VIDEO",
+      "#ffffff",
+      44,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "bedroom",
+   "m": "punch",
+   "gag": {
+    "mark": "alarm"
+   },
+   "_f": [
+    "DT-F4",
+    "DT-F8",
+    "DT-F9"
+   ],
+   "say": "It's a lean, not a damn rule. So watch which way yours leans, because",
+   "card": {
+    "rows": [
+     [
+      "WHICH WAY DOES YOURS LEAN? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ]
+}
