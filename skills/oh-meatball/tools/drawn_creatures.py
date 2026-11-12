@@ -13,7 +13,7 @@ Body plans (all in the drawn_kit house style: thick ink outline, flat colour + o
              stubby legs up front)
   fish       side view: body, tail fin, dorsal fin, stripes, teeth, lure (deep-sea angler)
   bird       side view: body, head, beak (short | long | hook), flapping wing, legs, tail, crest
-  mammal     side view small mammal: body, head + snout, ears (round | pointed | long), tail (thin | fluffy),
+  mammal     side view small mammal: body, head + snout, ears (round | pointed | long | floppy), tail (thin | fluffy),
              4 legs, whiskers
   reptile    side view lizard: long body, tapering tail, 4 sprawled legs, spikes, or a turtle shell
   frog       side view frog: squat body, folded hind legs, big eyes on top, wide mouth (spots, toe_pads)
@@ -590,6 +590,8 @@ def mammal(ctx, t, cfg, p):
                   (0.1, 0))
         elif ears == "tiny":
             shape(ctx, lambda c, ex=ex: p_ellipse(c, ex, hy - hr * 0.8, hr * 0.16, hr * 0.14), col, OUT * 0.7, None)
+        elif ears == "floppy":   # dog: the ear hangs down, drawn over the head just below
+            pass
         elif ears == "pointed":
             shape(ctx, lambda c, ex=ex: p_poly(c, [(ex - hr * 0.35, hy - hr * 0.5), (ex, hy - hr * 1.4),
                                                    (ex + hr * 0.35, hy - hr * 0.5)]), col, OUT, None)
@@ -597,6 +599,9 @@ def mammal(ctx, t, cfg, p):
             shape(ctx, lambda c, ex=ex: p_ellipse(c, ex, hy - hr * 0.85, hr * 0.42, hr * 0.42), col, OUT, None)
             flat(ctx, lambda c, ex=ex: p_ellipse(c, ex, hy - hr * 0.85, hr * 0.24, hr * 0.24), hexc("#f2b5b5"))
     shape(ctx, lambda c: p_ellipse(c, hx, hy, hr, hr * 0.9), col, OUT, (0.08, 0.15))
+    if ears == "floppy":   # one hanging ear on the near side, behind the eye
+        shape(ctx, lambda c: p_ellipse(c, hx - hr * 0.55, hy + hr * 0.05, hr * 0.3, hr * 0.78, 0.22),
+              _c(cfg, "ear_color", None) or dk, OUT, (0.1, 0))
     if cfg.get("horns"):   # short curved horns (bison)
         for k, ex in enumerate((hx - hr * 0.55, hx + hr * 0.25)):
             stroke(ctx, [(ex, hy - hr * 0.55), (ex - hr * 0.25, hy - hr * 1.0), (ex + hr * 0.05, hy - hr * 1.25)], 16,
