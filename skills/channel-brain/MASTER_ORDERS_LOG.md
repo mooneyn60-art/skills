@@ -73,6 +73,14 @@ Nolan (10/29): "set the channel up to the point all he has to do is make and pos
 - **Could not measure:** search volumes; TikTok hashtag sizes and search results (not public); whether tags, hashtags or the category affect our views (never varied); whether this metadata helps, since these seven changed topic and jokes at the same time.
 
 ## Develop yourself (Nolan, 11/12 about 12:58 ET)
+- **The built list as the page had it on 11/12 16:30 ET:**
+  - **Built 11/12 (details: `oh-meatball/research/94-capability-audit.md`, `95-next-topics.md`, and the log):**
+    - `oh-meatball/tools/postkit.py` (render with voice check, lint, payload, log, kw, ttpage, selftest) and `tools/setup_env.sh`.
+    - `postkit.py trends`: Google Trends. Relative YouTube search demand, rising searches and seasons. The first real demand numbers we have; values compare terms inside one call, they are not counts.
+    - `postkit.py teardown`: how a video opens (first word, words and cuts in the first 3 seconds, a sheet of those seconds), for public TikToks and our own files. Nolan 11/10: "look at outliers and how they hold their retention".
+    - Skills `make-short`, `post-metadata`, `scoreboard`; the saved workflow `shorts-batch` (`.claude/workflows/`: fact pack, script pair, second-model check, render, lint for a list of topics); agent roles `researcher`, `fact-checker`, `short-builder` (`.claude/agents/`).
+    - Hooks (`.claude/settings.json`): a git guard that blocks whole-tree checkout, `reset --hard`, stash, clean, `add -A`, and any git write by an agent; a session-start check that installs the render tools on a fresh machine.
+    - Daily files: `oh-meatball/data/tiktok-stats.csv` (`ttpage --csv`) and `data/longform-hours.csv`.
 - **The page's wording until 11/12 16:00 ET, kept here when the section was tightened** (the Windsor TikTok ask was then replaced by the screenshot ask):
   - **His words:** "And Delvin yourself and skills mcps or repositories you want to help us grow whatever you need".
   - **What it means (my reading):** develop yourself. Build or connect whatever tools, skills, connectors and repositories the channel needs to grow, without asking first. The work gate still holds: each thing has to change a post in the next seven days or a scorecard number. Anything that needs his login or his approval is still his to do, and he gets asked for one thing at a time.
