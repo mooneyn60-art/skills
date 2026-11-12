@@ -1,0 +1,307 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "detective",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "cut_whoosh": true,
+ "loop": true,
+ "photo_credits": [],
+ "series": "Things Living In Your House",
+ "sources": [
+  "Herbst, Prigge, Garcia, Hampala, Hofer, Weissengruber, Svec & Fitch 2023, Current Biology 33:4727-4732.e4, \"Domestic cat larynges can produce purring frequencies without neural input\" (abstract): \"all eight excised larynges produced self-sustained oscillations at typical cat purring rates\"; \"sounds in the purr regime with fundamental frequencies of 25 to 30 Hz without neural input or muscular contraction\"; \"connective tissue masses, up to 4 mm in diameter, embedded in the vocal fold\" which \"appears to allow\" the low sound; \"our data do not fully reject\" the older muscle idea; https://pubmed.ncbi.nlm.nih.gov/37794583/",
+  "NC State College of Veterinary Medicine, Dr. Barbara Sherman, Q&A dated 2012-07-30: \"purring may occur just prior to sleep or, surprisingly, when in pain.\"; https://cvm.ncsu.edu/news/why-do-cats-purr-nc-state-university-college-of-veterinary-medicine-behavior-expert-explains/",
+  "Washington State University, Ask Dr. Universe, 2023-09-21: \"cats purr when they're content and when they're stressed out.\"; on why cats purr: \"But experts don't agree on the answer yet.\"; https://askdruniverse.wsu.edu/2023/09/21/7364/"
+ ],
+ "stage": {
+  "creature": "cat",
+  "scene": "bedroom",
+  "scene_p": {},
+  "s": 0.62,
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "cat",
+   "color": "#5b5d66",
+   "dark": "#3a3c44",
+   "belly": "#f3f1ea",
+   "tail_color": "#5b5d66",
+   "length": 520,
+   "height": 250,
+   "leg_len": 150,
+   "leg_w": 30,
+   "ears": "pointed",
+   "tail": "thin",
+   "tail_w": 22,
+   "whiskers": true,
+   "mood": "smug"
+  }
+ },
+ "cap_key": [
+  "you",
+  "your",
+  "cat",
+  "cats",
+  "purr",
+  "purred",
+  "purrlike",
+  "happy",
+  "vets",
+  "hurt",
+  "stressed",
+  "lab",
+  "eight",
+  "voice",
+  "boxes",
+  "brain",
+  "experts",
+  "lawn",
+  "mower",
+  "whines"
+ ],
+ "title": "Why Cats Purr: 8 Voice Boxes Made the Sound Alone in a Lab 🐱 (Things Living In Your House #68)",
+ "description": "Why do cats purr? It is not only a happy sound: two vet school pages (NC State, 2012; Washington State University, 2023) say cats may also purr when in pain or stressed. How the sound is made: in a 2023 lab study, voice boxes taken from 8 cats all made purr-range sound, about 25 to 30 vibrations a second, when air was passed through them, with no signal from a brain. The authors think pads of tissue in the vocal folds allow such a low sound, and they say their data do not fully rule out the older idea that brain-driven muscle twitches play a part. Experts do not yet agree on why cats purr.\n\n#cats #catfacts #meatballmyths #shorts\n\nSources: Herbst et al. 2023, Current Biology; NC State College of Veterinary Medicine (2012); Washington State University, Ask Dr. Universe (2023).",
+ "pinned_comment": "When does your cat purr the loudest, and what is the strangest moment it ever started?",
+ "_note": "Draft 11/12 from the fact pack research/facts/cat-purr.md. NOT yet checked by a second model: the vet school and university pages are [relay] in the pack and need a live re-read before this is scheduled. Searched phrase 'why do cats purr' (rank 1 in the YouTube and the web suggestions, postkit kw 11/12; TikTok suggests 'why do cats purr' on 2 of 5 public purr videos, postkit ttpage 11/12) is the first spoken sentence. Line 2 is the Meatball gag (card, Meatball shakes, the cat walks out); it adds no fact. Jokes are on Meatball ('just whines', 'same as Meatball'). Left out and why: McComb 2009 (the cry inside a food-asking purr): the paper was not opened and no cat or listener count is confirmed; the Library of Congress page: not opened (403); the healing idea: a hypothesis, never shown; the 2012 line that a brain signal triggers purring: it disagrees in part with the 2023 paper; the pads in the vocal folds (up to 4 mm) and how the cats died (not stated): not spoken, the pads are in the description; 25 to 30 a second is on a card, not spoken, for length. 'No brain attached' describes the lab setup only (the abstract says 'without neural input'); the description carries the authors' limit (the muscle idea is not fully ruled out). 'Eight cat voice boxes' is short for voice boxes taken from 8 cats (8 of 8). 'Vets say' stands for the two vet school pages; 'hurt' is their 'in pain'. Title: 'Why Cats Purr' leads (post-metadata: a statement title drops the question words) instead of 'Your Cat', because 'your cat' plus a lab result needs a hedge. No lint WARN. TikTok search-led cut: the same facts as the YouTube cut with about one swear a line as a reaction or inside a Meatball joke; the vets line and the lab result are said clean and the swear comes after; one extra gag beat (the cat leaves the house; no fact). search_top shows the searched phrase for the first 2.5 s at y 150. Hashtags from TikTok's suggested searches on those videos (Cats Purring, cat facts, Cats Of TikTok, cat tok). Not rendered or voice-checked here.",
+ "beats": [
+  {
+   "open": "animal",
+   "m": "hook",
+   "gag": {
+    "mark": "shock"
+   },
+   "_f": [
+    "CATP8",
+    "CATP9"
+   ],
+   "say": "Why do cats purr? It's not only a happy fucking sound.",
+   "card": {
+    "rows": [
+     [
+      "A PURR",
+      "#ffd34d",
+      110
+     ],
+     [
+      "NOT ONLY A HAPPY SOUND",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "scene": "kitchen",
+   "pad": 0.2,
+   "m": "fact",
+   "mood": "sleepy",
+   "gag": false,
+   "mb": {
+    "shake": 1.0,
+    "gest": [
+     [
+      "mower",
+      "shock",
+      1.2
+     ]
+    ]
+   },
+   "hero_moves": [
+    {
+     "at": "mower",
+     "dur": 0.9,
+     "pos": [
+      1500,
+      1500
+     ],
+     "walk": true,
+     "face": 1
+    }
+   ],
+   "card": {
+    "rows": [
+     [
+      "MEATBALL PURRS",
+      "#ffd34d",
+      100
+     ],
+     [
+      "LIKE A BROKEN LAWN MOWER",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   },
+   "say": "Meatball purred back at his cat. Broken fucking lawn mower.",
+   "pose": "laugh"
+  },
+  {
+   "scene": "garden",
+   "pad": 0.2,
+   "m": "solo",
+   "mood": "smug",
+   "gag": false,
+   "hero_moves": [
+    {
+     "at": 0.0,
+     "dur": 2.6,
+     "pos": [
+      1300,
+      1500
+     ],
+     "walk": true,
+     "linear": true,
+     "face": 1
+    }
+   ],
+   "say": "His cat left the room. Then the fucking house.",
+   "card": {
+    "rows": [
+     [
+      "HIS CAT LEFT",
+      "#ffd34d",
+      104
+     ],
+     [
+      "THE ROOM. THEN THE HOUSE.",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "bathroom",
+   "pad": 0.2,
+   "m": "fact",
+   "gag": false,
+   "_f": [
+    "CATP8",
+    "CATP9"
+   ],
+   "say": "Vets say cats may purr when hurt or stressed, too. Shit. Meatball just whines.",
+   "card": {
+    "rows": [
+     [
+      "HURT OR STRESSED",
+      "#ff4b3e",
+      104
+     ],
+     [
+      "VETS: CATS MAY PURR THEN TOO",
+      "#ffffff",
+      50,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "study",
+   "pad": 0.2,
+   "m": "tiny",
+   "gag": false,
+   "_f": [
+    "CATP1",
+    "CATP2"
+   ],
+   "say": "Eight cat voice boxes all made a purr-like sound in a lab. No brain attached, same as fucking Meatball.",
+   "card": {
+    "rows": [
+     [
+      "8 OF 8 VOICE BOXES",
+      "#ffd34d",
+      96
+     ],
+     [
+      "LAB TEST: 25 TO 30 VIBRATIONS A SECOND",
+      "#ffffff",
+      44,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "bedroom",
+   "m": "punch",
+   "gag": {
+    "mark": "alarm"
+   },
+   "_f": [
+    "CATP11"
+   ],
+   "say": "Experts still don't agree on the big one. So for fuck's sake:",
+   "card": {
+    "rows": [
+     [
+      "WHEN DOES YOURS PURR? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "search_top": {
+  "rows": [
+   [
+    "WHY DO CATS",
+    "#ffffff",
+    86
+   ],
+   [
+    "PURR?",
+    "#ffd34d",
+    86
+   ]
+  ],
+  "y": 150,
+  "until": 2.5
+ },
+ "tiktok_title": "Why Do Cats Purr? Not Only a Happy Sound",
+ "tiktok_caption": "why do cats purr 🐱 It's not only a happy sound: vets say cats may purr when hurt or stressed, too. In a 2023 lab study, voice boxes taken from 8 cats all made a purr-like sound with no brain attached. Meatball purred back at his cat. Broken lawn mower. His cat left the room. Then the house. When does your cat purr? #catpurring #catfacts #catsoftiktok #cattok #cats",
+ "cap_swap": {
+  "shit": "sh*t",
+  "shits": "sh*ts",
+  "shitty": "sh*tty",
+  "bullshit": "bullsh*t",
+  "fuck": "f**k",
+  "fuck's": "f**k's",
+  "fucking": "f**king",
+  "fucker": "f**ker",
+  "fuckers": "f**kers"
+ },
+ "tags": [
+  "why do cats purr",
+  "why does my cat purr",
+  "how do cats purr",
+  "how do cats purr and why",
+  "how do cats purr anatomy",
+  "why do cats purr when happy",
+  "do cats purr when stressed",
+  "cat purring frequency",
+  "cat purring meaning",
+  "cat facts",
+  "things living in your house",
+  "Meatball Myths"
+ ]
+}
