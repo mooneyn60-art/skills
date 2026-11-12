@@ -1,0 +1,618 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "detective",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "cut_whoosh": true,
+ "loop": false,
+ "photo_credits": [],
+ "cap_swap": {
+  "shit": "sh*t",
+  "shits": "sh*ts",
+  "shitty": "sh*tty",
+  "bullshit": "bullsh*t",
+  "fuck": "f**k",
+  "fucking": "f**king",
+  "fucker": "f**ker",
+  "fuckers": "f**kers"
+ },
+ "series": "Would Meatball Survive?",
+ "sources": [
+  "U.S. National Park Service, Staying Safe Around Bears: \"Bears can run as fast as a racehorse both uphill and down.\"; \"Do NOT run, but if the bear follows, stop and hold your ground.\"; \"Like dogs, they will chase fleeing animals.\"; \"Do NOT climb a tree. Both grizzlies and black bears can climb trees.\"; \"If you are attacked by a brown/grizzly bear, leave your pack on and PLAY DEAD. Lay flat on your stomach with your hands clasped behind your neck.\"; \"Remain still until the bear leaves the area.\"; \"Fighting back usually increases the intensity of such attacks. However, if the attack persists, fight back vigorously.\"; \"If you are attacked by a black bear, DO NOT PLAY DEAD.\"; \"Try to escape to a secure place such as a car or building.\"; \"Concentrate your kicks and blows on the bear's face and muzzle.\"; \"If any bear attacks you in your tent, or stalks you and then attacks, do NOT play dead; fight back!\"; \"there is no single strategy that will work in all situations and that guarantees safety\"; https://www.nps.gov/subjects/bears/safety.htm",
+  "Glacier National Park, Bear Safety: \"Do not run! Back away slowly.\"; https://www.nps.gov/glac/planyourvisit/bears.htm",
+  "U.S. National Park Service, Bear Spray and Firearms: \"Keep your bear spray on a belt holster or on a chest holster at all times. Never keep it in your backpack while hiking\"; \"Only use your bear spray when the bear is charging or attacking you.\"; https://www.nps.gov/articles/bearsprayfirearms.htm",
+  "Alaska Department of Fish and Game, What you should know about Bear Spray (2025): \"Remember, you have only about 7-9 seconds worth of spray in a can.\"; https://www.adfg.alaska.gov/static/species/livingwithwildlife/bears/pdfs/bear_spray_what_you_should_know.pdf",
+  "Alaska Department of Fish and Game and partners, A Framework for Bear Safety Messages in Alaska (2017): \"If a defensive bear makes contact with you and knocks you to the ground ... Lie face down, with hands clasped behind your neck\"; https://www.adfg.alaska.gov/static/species/livingwithwildlife/bears/pdfs/framework_bear_safety_messages_alaska.pdf",
+  "Yellowstone National Park, Bear Management: \"Since 1979, Yellowstone has hosted over 148 million visits. During this time, 45 people were injured by grizzly bears in the park.\"; \"approximately 1 in 3.3 million visits\"; \"The risk is significantly lower for people who don't leave developed areas or roadsides and higher for anyone hiking in the backcountry.\"; \"Remain in developed areas, roadsides, and boardwalks: 1 in 69.7 million visits\"; \"Hike in the backcountry: 1 in 275,000 person travel days\"; https://www.nps.gov/yell/learn/management/bear.htm",
+  "Yellowstone National Park, Safety: since 1970, \"91% of the people injured by bears in Yellowstone were hiking alone or with only one hiking partner.\"; \"Hike in groups of 3 or more people\"; \"After the bear leaves, wait several minutes before moving.\"; https://www.nps.gov/yell/planyourvisit/safety.htm"
+ ],
+ "stage": {
+  "creature": "grizzly",
+  "scene": "forest_floor",
+  "scene_p": {},
+  "s": 0.85,
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "grizzly bear",
+   "color": "#7a5236",
+   "dark": "#523623",
+   "belly": "#9a7250",
+   "length": 720,
+   "height": 400,
+   "leg_len": 160,
+   "leg_w": 70,
+   "ears": "round",
+   "tail": "thin",
+   "tail_w": 0.1,
+   "whiskers": false,
+   "mood": "angry",
+   "hump": 0.55
+  }
+ },
+ "cap_key": [
+  "you",
+  "your",
+  "grizzly",
+  "bears",
+  "bear",
+  "racehorse",
+  "meatball",
+  "run",
+  "tree",
+  "spray",
+  "seconds",
+  "dead",
+  "stomach",
+  "neck",
+  "fight",
+  "tent",
+  "black",
+  "yellowstone",
+  "45",
+  "91",
+  "alone",
+  "survive",
+  "honest"
+ ],
+ "title": "Would You Survive a Grizzly Bear? What the Agencies Say",
+ "tiktok_title": "Would You Survive a Grizzly Bear? What the Agencies Say",
+ "tiktok_caption": "what to do if you see a grizzly bear 🐻 The Park Service says bears can run as fast as a racehorse, so never run. General info, not safety training. Would you survive? 🐻✅ or ❌ #grizzly #bearsafety #wouldyousurvive #learnontiktok #meatballmyths",
+ "_note": "TikTok 1-min cut (Creator Rewards) on the new direction (Would Meatball Survive?). Facts only from research/84 (BR-F1 to F24). General information, not safety training.",
+ "_curse": "TikTok cut with heavy swearing and sweary jokes (Nolan 11/11: 'one a sentence', 'make them joke more using the cursing'). Every sourced attribution and every safety instruction is said clean; the swear is the reaction after it. Jokes are similes, roasts or reactions that add no claim. Checked 11/12 by a second model against the live sources (research/86, second part); its fixes are applied.",
+ "beats": [
+  {
+   "open": "animal",
+   "open_zoom": 1.55,
+   "open_dx": -90,
+   "m": "hook",
+   "gag": {
+    "mark": "shock"
+   },
+   "_f": [
+    "BR-F2"
+   ],
+   "say": "You can't outrun a fucking grizzly.",
+   "card": {
+    "rows": [
+     [
+      "CAN'T OUTRUN IT",
+      "#ff4b3e",
+      100
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   }
+  },
+  {
+   "scene": "forest_floor",
+   "m": "fact",
+   "gag": false,
+   "_f": [
+    "BR-F2"
+   ],
+   "say": "The Park Service says bears can run as fast as a racehorse, uphill and down. Fuck that.",
+   "card": {
+    "rows": [
+     [
+      "FAST AS A RACEHORSE",
+      "#ff4b3e",
+      84
+     ],
+     [
+      "UPHILL AND DOWN: U.S. PARK SERVICE",
+      "#ffffff",
+      44,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "hero_at": {
+    "x": 900,
+    "y": 1500
+   }
+  },
+  {
+   "scene": "swamp",
+   "m": "chase",
+   "_f": [
+    "BR-F4"
+   ],
+   "hero_moves": [
+    {
+     "at": "15%",
+     "dur": 0.7,
+     "pos": [
+      720,
+      1500
+     ],
+     "walk": true,
+     "linear": true
+    }
+   ],
+   "say": "Meatball ran anyway. Bears will chase what runs, like dogs do. Meatball is now the fucking tennis ball.",
+   "card": {
+    "rows": [
+     [
+      "THEY CHASE",
+      "#ff4b3e",
+      120
+     ],
+     [
+      "WHAT RUNS, LIKE DOGS",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "50%"
+   }
+  },
+  {
+   "scene": "tundra",
+   "m": "fact",
+   "gag": false,
+   "_f": [
+    "BR-F4"
+   ],
+   "say": "So don't run or climb. Back away slowly. If it follows, stop and hold your ground. Scary as fuck.",
+   "card": {
+    "rows": [
+     [
+      "DON'T RUN OR CLIMB",
+      "#7bd88f",
+      96
+     ],
+     [
+      "BACK AWAY SLOWLY. IF IT FOLLOWS, HOLD YOUR GROUND",
+      "#ffffff",
+      36,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "hero_at": {
+    "x": 900,
+    "y": 1500
+   }
+  },
+  {
+   "scene": "cave",
+   "m": "fact",
+   "gag": false,
+   "_f": [
+    "BR-F19"
+   ],
+   "say": "Bear spray rides on your belt or chest, never in your backpack. Dead fucking weight in there.",
+   "card": {
+    "rows": [
+     [
+      "BEAR SPRAY",
+      "#ffd34d",
+      110
+     ],
+     [
+      "BELT OR CHEST, NEVER THE BACKPACK",
+      "#ffffff",
+      44,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "hero_at": {
+    "x": 900,
+    "y": 1500
+   }
+  },
+  {
+   "scene": "swamp",
+   "m": "scale",
+   "how": "grow",
+   "gag": false,
+   "_f": [
+    "BR-F16",
+    "BR-F18"
+   ],
+   "say": "Alaska's wildlife agency says a can holds about 7 to 9 seconds of spray. Use it only on a charging or attacking bear. Fuck.",
+   "card": {
+    "rows": [
+     [
+      "7 TO 9 SECONDS",
+      "#ffd34d",
+      100
+     ],
+     [
+      "OF SPRAY IN A CAN: ALASKA FISH & GAME",
+      "#ffffff",
+      42,
+      true
+     ],
+     [
+      "ONLY ON A CHARGING OR ATTACKING BEAR",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "hero_at": {
+    "x": 900,
+    "y": 1500
+   }
+  },
+  {
+   "scene": "cave",
+   "m": "escalate",
+   "gag": {
+    "mark": "alarm"
+   },
+   "_f": [
+    "BR-F7",
+    "BR-F11"
+   ],
+   "say": "Now the worst case. A grizzly you surprised knocks you down. Fuck.",
+   "card": {
+    "rows": [
+     [
+      "WORST CASE",
+      "#ff4b3e",
+      110
+     ],
+     [
+      "IT KNOCKS YOU DOWN",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "hero_at": {
+    "x": 900,
+    "y": 1500
+   }
+  },
+  {
+   "scene": "tundra",
+   "m": "fact",
+   "gag": false,
+   "recut": false,
+   "_f": [
+    "BR-F7",
+    "BR-F11"
+   ],
+   "hero_at": {
+    "x": 900,
+    "y": 1500
+   },
+   "mb": {
+    "moves": [
+     {
+      "at": "20%",
+      "dur": 0.35,
+      "rot": 90,
+      "s": 480,
+      "pos": [
+       175,
+       1445
+      ]
+     }
+    ],
+    "gest": []
+   },
+   "say": "Play dead. Flat on your stomach, hands clasped behind your neck, pack on.",
+   "card": {
+    "rows": [
+     [
+      "PLAY DEAD",
+      "#7bd88f",
+      110
+     ],
+     [
+      "ONLY IF IT KNOCKS YOU DOWN",
+      "#ffffff",
+      48,
+      true
+     ],
+     [
+      "STOMACH DOWN, HANDS BEHIND YOUR NECK",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "20%"
+   }
+  },
+  {
+   "scene": "tundra",
+   "m": "fact",
+   "gag": false,
+   "recut": false,
+   "_f": [
+    "BR-F7"
+   ],
+   "hero_at": {
+    "x": 900,
+    "y": 1500
+   },
+   "mb": {
+    "pos": [
+     175,
+     1445
+    ],
+    "size": 480,
+    "moves": [
+     {
+      "at": 0.0,
+      "dur": 0.01,
+      "rot": 90
+     }
+    ],
+    "gest": []
+   },
+   "say": "Lie still until it's gone, then wait a few minutes more. Longest fucking wait of your life.",
+   "card": {
+    "rows": [
+     [
+      "STAY STILL",
+      "#7bd88f",
+      110
+     ],
+     [
+      "UNTIL IT'S GONE, THEN A FEW MINUTES MORE",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "cave",
+   "m": "escalate",
+   "gag": false,
+   "_f": [
+    "BR-F8"
+   ],
+   "say": "If the attack keeps going, fight back hard. Fucking hell.",
+   "card": {
+    "rows": [
+     [
+      "FIGHT BACK",
+      "#ff4b3e",
+      120
+     ],
+     [
+      "IF THE ATTACK KEEPS GOING",
+      "#ffffff",
+      50,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "hero_at": {
+    "x": 900,
+    "y": 1500
+   }
+  },
+  {
+   "scene": "forest_floor",
+   "m": "fact",
+   "gag": false,
+   "_f": [
+    "BR-F10"
+   ],
+   "say": "If a bear stalks you and then attacks, or attacks you in your tent, don't play dead. Fight that fucker.",
+   "card": {
+    "rows": [
+     [
+      "STALKED? IN YOUR TENT?",
+      "#ff4b3e",
+      76
+     ],
+     [
+      "DON'T PLAY DEAD. FIGHT.",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "hero_at": {
+    "x": 900,
+    "y": 1500
+   }
+  },
+  {
+   "scene": "swamp",
+   "m": "fact",
+   "gag": false,
+   "_f": [
+    "BR-F9"
+   ],
+   "say": "A black bear attack is different. The Park Service says don't play dead. Reach a car or building if you can; if not, hit its face and muzzle. Fucking bears.",
+   "card": {
+    "rows": [
+     [
+      "BLACK BEAR",
+      "#ffd34d",
+      110
+     ],
+     [
+      "ESCAPE OR FIGHT: PARK SERVICE",
+      "#ffffff",
+      46,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "hero_at": {
+    "x": 900,
+    "y": 1500
+   }
+  },
+  {
+   "scene": "tundra",
+   "m": "calm",
+   "gag": false,
+   "_f": [
+    "BR-F21"
+   ],
+   "say": "In Yellowstone, grizzlies hurt 45 people since 1979. About 1 in 3.3 million visits, higher in the backcountry. Fucking rare.",
+   "card": {
+    "rows": [
+     [
+      "1 IN 3.3 MILLION",
+      "#7bd88f",
+      96
+     ],
+     [
+      "VISITS WITH A GRIZZLY INJURY: YELLOWSTONE, SINCE 1979",
+      "#ffffff",
+      36,
+      true
+     ],
+     [
+      "THE RISK IS HIGHER IN THE BACKCOUNTRY",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "hero_at": {
+    "x": 900,
+    "y": 1500
+   }
+  },
+  {
+   "scene": "cave",
+   "m": "fact",
+   "gag": false,
+   "_f": [
+    "BR-F24"
+   ],
+   "say": "And 91 percent of the people bears injured there since 1970 hiked alone or with one partner. Holy fucking shit. Hike in groups of three or more.",
+   "card": {
+    "rows": [
+     [
+      "91%",
+      "#ff4b3e",
+      170
+     ],
+     [
+      "OF PEOPLE BEARS INJURED SINCE 1970: ALONE OR WITH 1 PARTNER",
+      "#ffffff",
+      34,
+      true
+     ],
+     [
+      "HIKE IN GROUPS OF 3 OR MORE",
+      "#ffffff",
+      44,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "hero_at": {
+    "x": 900,
+    "y": 1500
+   }
+  },
+  {
+   "scene": "swamp",
+   "m": "fact",
+   "gag": false,
+   "_f": [
+    "BR-F1"
+   ],
+   "say": "The Park Service's own fine print: no single strategy works every time. Well, fuck.",
+   "card": {
+    "rows": [
+     [
+      "NO GUARANTEE",
+      "#ffd34d",
+      104
+     ],
+     [
+      "NO SINGLE STRATEGY WORKS EVERY TIME",
+      "#ffffff",
+      42,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "hero_at": {
+    "x": 900,
+    "y": 1500
+   }
+  },
+  {
+   "scene": "forest_floor",
+   "m": "punch",
+   "pad": 0.9,
+   "_f": [],
+   "say": "Meatball fucking lived. So: would you survive a grizzly? Be fucking honest.",
+   "card": {
+    "rows": [
+     [
+      "WOULD YOU SURVIVE?",
+      "#ffd34d",
+      90
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  }
+ ]
+}

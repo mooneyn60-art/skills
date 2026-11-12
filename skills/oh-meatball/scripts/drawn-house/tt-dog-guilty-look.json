@@ -1,0 +1,522 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "detective",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "cut_whoosh": true,
+ "loop": false,
+ "photo_credits": [],
+ "cap_swap": {
+  "shit": "sh*t",
+  "shits": "sh*ts",
+  "shitty": "sh*tty",
+  "bullshit": "bullsh*t",
+  "fuck": "f**k",
+  "fucking": "f**king",
+  "fucker": "f**ker",
+  "fuckers": "f**kers"
+ },
+ "series": "Things Living In Your House",
+ "sources": [
+  "Horowitz 2009, Behavioural Processes (abstract): 14 dogs videotaped; owners gave a command not to eat a treat and left the room; trials \"varied the owners' knowledge of what their dogs did in their absence\"; \"no difference in behaviours associated with the guilty look\"; \"more such behaviours were seen in trials when owners scolded their dogs\"; \"The effect of scolding was more pronounced when the dogs were obedient, not disobedient\"; the look \"is a response to owner cues, rather than that it shows an appreciation of a misdeed\"; https://pubmed.ncbi.nlm.nih.gov/19520245/",
+  "Ostojic, Tkalcic & Clayton 2015, Behavioural Processes: \"Ninety-six owners and their dogs were tested in Croatia\"; \"owners stated that their dog had eaten the food no more than expected by chance\"; \"dogs' greeting behaviours were not affected by their own action or the presence or absence of the food\"; https://pmc.ncbi.nlm.nih.gov/articles/PMC4310318/",
+  "Hare, Brown, Williamson & Tomasello 2002, Science (abstract): \"domestic dog puppies only a few weeks old, even those that have had little human contact, do show these skills\" (following human pointing to find food); https://pubmed.ncbi.nlm.nih.gov/12446914/",
+  "Scheider, Kaminski, Call & Tomasello 2013, Animal Cognition (abstract): \"Dogs ignored the human's gesture if they had better information\"; https://pubmed.ncbi.nlm.nih.gov/23138936/",
+  "Muller, Schmitt, Barber & Huber 2015, Current Biology (abstract): \"dogs for which the happy faces were rewarded learned the discrimination more quickly than dogs for which the angry faces were rewarded\"; https://pubmed.ncbi.nlm.nih.gov/25683806/",
+  "Andics et al. 2016, Science (abstract): \"increased activity in primary reward regions only when both lexical and intonational information were consistent with praise\"; https://pubmed.ncbi.nlm.nih.gov/27576923/"
+ ],
+ "stage": {
+  "creature": "dog",
+  "scene": "kitchen",
+  "scene_p": {},
+  "s": 0.62,
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "dog",
+   "color": "#d9a85c",
+   "dark": "#a87a36",
+   "belly": "#f3e2bf",
+   "tail_color": "#d9a85c",
+   "length": 600,
+   "height": 290,
+   "leg_len": 200,
+   "leg_w": 36,
+   "ears": "floppy",
+   "tail": "thin",
+   "tail_w": 20,
+   "whiskers": false,
+   "mood": "worry"
+  }
+ },
+ "cap_key": [
+  "you",
+  "your",
+  "dog",
+  "dogs",
+  "guilty",
+  "look",
+  "confession",
+  "14",
+  "96",
+  "treat",
+  "scolded",
+  "obeyed",
+  "cues",
+  "chance",
+  "finger",
+  "food",
+  "happy",
+  "praise",
+  "face",
+  "honest"
+ ],
+ "title": "Your Dog's Guilty Look: What a 14-Dog Test Found",
+ "tiktok_title": "Your Dog's Guilty Look: What a 14-Dog Test Found",
+ "tiktok_caption": "why does my dog look guilty 🐶 In a test of 14 dogs, the guilty look showed up more when owners scolded, whether or not the dog had eaten the treat. Does yours do the face? 🐶✅ or ❌ #dogsoftiktok #dogfacts #guiltydog #learnontiktok #meatballmyths",
+ "_note": "TikTok 1-min cut (Creator Rewards) on the new direction (pets). Facts only from research/84 (DG-F1 to F18).",
+ "_curse": "TikTok cut with heavy swearing and sweary jokes (Nolan 11/11: 'one a sentence', 'make them joke more using the cursing'). Every sourced attribution and every safety instruction is said clean; the swear is the reaction after it. Jokes are similes, roasts or reactions that add no claim. Checked 11/12 by a second model against the live sources (research/86, second part); its fixes are applied.",
+ "beats": [
+  {
+   "open": "animal",
+   "m": "hook",
+   "gag": {
+    "mark": "shock"
+   },
+   "_f": [
+    "DG-F6"
+   ],
+   "say": "That guilty fucking look on your dog may not be a confession.",
+   "card": {
+    "rows": [
+     [
+      "GUILTY LOOK",
+      "#ffd34d",
+      110
+     ],
+     [
+      "MAY NOT BE A CONFESSION",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "scene": "bedroom",
+   "m": "fact",
+   "gag": false,
+   "_f": [],
+   "say": "You know the face. Like it just robbed a fucking bank."
+  },
+  {
+   "scene": "study",
+   "m": "fact",
+   "_f": [
+    "DG-F1"
+   ],
+   "say": "In 2009, a researcher videotaped 14 dogs to test it. For science, and for fucking treats.",
+   "card": {
+    "rows": [
+     [
+      "14 DOGS",
+      "#ffd34d",
+      120
+     ],
+     [
+      "ON VIDEO, 2009",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "kitchen",
+   "m": "tiny",
+   "gag": {
+    "thought": "bone"
+   },
+   "_f": [
+    "DG-F2"
+   ],
+   "say": "The setup: the owner says don't eat the treat, then leaves the room. Fucking classic.",
+   "card": {
+    "rows": [
+     [
+      "DON'T EAT IT",
+      "#ff4b3e",
+      100
+     ],
+     [
+      "THEN THE OWNER LEAVES",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "bedroom",
+   "m": "scale",
+   "how": "grow",
+   "gag": false,
+   "_f": [
+    "DG-F3"
+   ],
+   "say": "Result one. Whether they ate it or not, the guilty look was no different. What the fuck.",
+   "card": {
+    "rows": [
+     [
+      "NO DIFFERENCE",
+      "#ff4b3e",
+      104
+     ],
+     [
+      "ATE IT OR NOT",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "study",
+   "m": "fact",
+   "gag": false,
+   "_f": [
+    "DG-F4"
+   ],
+   "say": "Result two. The look showed up more when owners scolded. Well, fuck.",
+   "card": {
+    "rows": [
+     [
+      "SCOLDING",
+      "#ff4b3e",
+      120
+     ],
+     [
+      "MORE OF THE LOOK",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "kitchen",
+   "m": "escalate",
+   "gag": false,
+   "_f": [
+    "DG-F5"
+   ],
+   "say": "And the effect was bigger in dogs that obeyed. Unfair as fuck.",
+   "card": {
+    "rows": [
+     [
+      "BIGGER",
+      "#ff4b3e",
+      130
+     ],
+     [
+      "IN DOGS THAT OBEYED",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "basement",
+   "m": "fact",
+   "gag": false,
+   "_f": [
+    "DG-F6"
+   ],
+   "say": "The researcher's read: it's better described as a response to owner cues, not proof of guilt. Plot fucking twist.",
+   "card": {
+    "rows": [
+     [
+      "OWNER CUES",
+      "#ffd34d",
+      110
+     ],
+     [
+      "NOT PROOF OF GUILT",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "bedroom",
+   "m": "calm",
+   "gag": false,
+   "_f": [
+    "DG-F6"
+   ],
+   "say": "That doesn't mean dogs feel nothing. The test was about the look, not the fucking feelings."
+  },
+  {
+   "scene": "study",
+   "m": "fact",
+   "_f": [
+    "DG-F7"
+   ],
+   "say": "In 2015, another team tested 96 dogs. Bigger fucking sample.",
+   "card": {
+    "rows": [
+     [
+      "96 DOGS",
+      "#ffd34d",
+      130
+     ],
+     [
+      "2015",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "kitchen",
+   "m": "fact",
+   "gag": false,
+   "_f": [
+    "DG-F8"
+   ],
+   "say": "Owners guessed from the greeting whether their dog ate the food. No better than chance. A fucking coin flip.",
+   "card": {
+    "rows": [
+     [
+      "COIN FLIP",
+      "#ff4b3e",
+      120
+     ],
+     [
+      "OWNERS: NO BETTER THAN CHANCE",
+      "#ffffff",
+      46,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "basement",
+   "m": "tiny",
+   "gag": false,
+   "_f": [
+    "DG-F9"
+   ],
+   "say": "The dogs' greeting didn't change either. No fucking tells found.",
+   "card": {
+    "rows": [
+     [
+      "SAME GREETING",
+      "#ffd34d",
+      100
+     ],
+     [
+      "ATE IT OR NOT",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "garden",
+   "m": "escalate",
+   "gag": {
+    "mark": "alarm"
+   },
+   "_f": [],
+   "say": "Here's the shit dogs can fucking read in tests.",
+   "card": {
+    "rows": [
+     [
+      "WHAT DOGS CAN READ",
+      "#7bd88f",
+      84
+     ],
+     [
+      "IN TESTS",
+      "#ffffff",
+      48,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "kitchen",
+   "m": "fact",
+   "gag": false,
+   "_f": [
+    "DG-F13"
+   ],
+   "say": "Your signals. Puppies a few weeks old read them to find hidden food. Tiny fucking geniuses.",
+   "card": {
+    "rows": [
+     [
+      "HUMAN SIGNALS",
+      "#7bd88f",
+      104
+     ],
+     [
+      "PUPPIES A FEW WEEKS OLD READ THEM",
+      "#ffffff",
+      44,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "study",
+   "m": "fact",
+   "gag": {
+    "thought": "bone"
+   },
+   "_f": [
+    "DG-F14"
+   ],
+   "say": "But no blind following. In one test, dogs that knew better ignored the fucking finger.",
+   "card": {
+    "rows": [
+     [
+      "KNEW BETTER?",
+      "#ffd34d",
+      100
+     ],
+     [
+      "THEY IGNORED THE POINTING",
+      "#ffffff",
+      50,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "bedroom",
+   "m": "fact",
+   "gag": false,
+   "_f": [
+    "DG-F16"
+   ],
+   "say": "Faces, too. Dogs rewarded for the happy face learned faster than for the angry one. Fair as fuck.",
+   "card": {
+    "rows": [
+     [
+      "HAPPY FACE REWARDED",
+      "#7bd88f",
+      84
+     ],
+     [
+      "LEARNED FASTER THAN ANGRY",
+      "#ffffff",
+      48,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "basement",
+   "m": "scale",
+   "how": "grow",
+   "gag": false,
+   "_f": [
+    "DG-F18"
+   ],
+   "say": "In a brain scanner, reward areas lit up only when the word and the tone both meant praise. Praise in a flat voice didn't fucking light them up.",
+   "card": {
+    "rows": [
+     [
+      "WORD + TONE",
+      "#7bd88f",
+      104
+     ],
+     [
+      "BOTH HAD TO MEAN PRAISE",
+      "#ffffff",
+      48,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "garden",
+   "m": "calm",
+   "gag": false,
+   "_f": [
+    "DG-F6"
+   ],
+   "say": "So that face over the chewed shoe? It may be answering you, not confessing. Fuck knows."
+  },
+  {
+   "scene": "kitchen",
+   "m": "punch",
+   "pad": 0.9,
+   "_f": [],
+   "say": "So: does your dog do the face? Be fucking honest.",
+   "card": {
+    "rows": [
+     [
+      "DOES YOURS DO THE FACE?",
+      "#ffd34d",
+      76
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  }
+ ]
+}

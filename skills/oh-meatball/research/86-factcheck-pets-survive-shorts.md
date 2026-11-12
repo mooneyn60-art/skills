@@ -42,3 +42,22 @@ Also changed by the writer after the check, same claims in clearer words (the tr
 2. A reaction word must not carry a feeling or a motive ("Poor bastards", "lazy").
 3. Safety cards carry their condition on the card itself.
 4. After the render, transcribe: three lines were clear on paper and unclear by ear.
+
+## Second part: the two one-minute TikTok cuts (same day, same checker)
+
+Scripts: `scripts/drawn-house/tt-dog-guilty-look.json` (19 lines, 92.6 s, 19 f-words) and `tt-grizzly-wms.json` (16 lines, 92.3 s, 16 f-words). Two rounds: a full check, then a confirmation of the rewritten lines. Extra pages the checker opened: the Hare 2002, Scheider 2013, Muller 2015 and Andics 2016 abstracts (Europe PMC), the Park Service's Bear Spray and Firearms page, Alaska's bear-spray sheet, Yellowstone's Bear Management and Safety pages.
+
+What it found and what changed:
+- **A swear inside a safety instruction is not allowed.** "hold your fucking ground", "fight back like fucking hell", "Punch that fucker in the snout" and "So don't fucking waste that shit" became clean instructions with the reaction after them ("...stop and hold your ground. Scary as fuck."). The play-dead line was already clean.
+- **A gap, not a wrong line: no spoken line said when to use bear spray.** Added: "Use it only on a charging or attacking bear" (the Park Service's sentence), with the 7 to 9 seconds credited to Alaska's wildlife agency. Spray "rides on your belt or chest, never in your backpack" (the old line only said where not to keep it).
+- "Lie still until it leaves" became "Lie still until it's gone, then wait a few minutes more" (Yellowstone: "After the bear leaves, wait several minutes before moving").
+- The black-bear line keeps the Park Service's order: reach a car or building if you can; if not, hit its face and muzzle. The card says "ESCAPE OR FIGHT: PARK SERVICE".
+- "1 in 3.3 million visits" now carries "higher in the backcountry" (that figure is all visitors, most of them near roads), and the "now breathe" order before it was cut. The roads-versus-backcountry numbers were cut for length; their units differ (visits against person travel days) and "different planet" invited a comparison the units do not allow.
+- The 91% card now says what it is 91% of: people bears injured since 1970. The tip after it is the park's own: hike in groups of three or more.
+- Title "What to Do, Step by Step" became "What the Agencies Say" (the agencies differ on parts), and the caption carries "General info, not safety training."
+- "You are now the fucking tennis ball" became "Meatball is now the fucking tennis ball" (the viewer is not the one who gets caught).
+- Dog cut: "ran it with 96 dogs. Big fucking upgrade" became "tested 96 dogs. Bigger fucking sample" (a different design, no scolding); "Zero fucking tells" became "No fucking tells found"; "really can read" became "can read in tests"; the researcher's read keeps "better described as"; "trained on the happy face" became "rewarded for"; the Hare 2002 abstract says "human communicative signals", not pointing, so that line says "your signals" (the pointing line rests on Scheider 2013, which is about pointing); "So say good boy like you fucking mean it" (advice beyond a brain-scan study) became "Praise in a flat voice didn't fucking light them up".
+- Kept on purpose: "Be fucking honest." at the end. The rule is no insult or swear aimed at the viewer; a comment prompt is allowed, and the checker agreed.
+- After the render the transcription heard three lines wrong; they were re-worded for the ear with the same meaning ("in dogs that obeyed", "Praise in a flat voice", "A black bear attack is different.").
+
+Why the grizzly cut has 16 f-words against the ordered 20 to 25: its safety instructions are said clean, and there are a lot of them.
