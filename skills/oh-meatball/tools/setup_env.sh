@@ -15,7 +15,7 @@ need=$(python3 - <<'PY'
 import importlib.util
 mods = {"faster_whisper": "faster-whisper", "soundfile": "soundfile", "edge_tts": "edge-tts", "PIL": "pillow",
         "numpy": "numpy", "scipy": "scipy", "yaml": "pyyaml", "cairo": "pycairo", "pyloudnorm": "pyloudnorm",
-        "pandas": "pandas", "yt_dlp": "yt-dlp"}
+        "pandas": "pandas", "yt_dlp": "yt-dlp", "pytrends": "pytrends"}
 print(" ".join(pkg for mod, pkg in mods.items() if importlib.util.find_spec(mod) is None))
 PY
 )

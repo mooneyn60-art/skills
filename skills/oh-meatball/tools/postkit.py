@@ -14,6 +14,10 @@
   postkit.py rehost URL FILE                      the scheduler's copy has the same size as the local file
   postkit.py kw "seed" ["seed" ...] [--search "query" ...] [--out FILE] [--n 25]
   postkit.py ttpage URL [URL ...] [--json OUT] [--csv FILE]
+  postkit.py trends compare TERM [TERM ...] [--web] [--months 12] [--out FILE]   relative search interest, up to 5 terms
+  postkit.py trends related SEED [SEED ...] [--web] [--months 3] [--out FILE]    top and rising searches for a seed
+  postkit.py trends season TERM [TERM ...] [--yt] [--years 5] [--out FILE]       mean interest by month of the year
+  postkit.py teardown URL_OR_MP4 [...] [--out DIR] [--csv FILE] [--keep]         how a video opens: first words, cuts, sheet
 
 What each prints:
   payload     default: the Metricool post object (the "info" of a create or update call).
@@ -37,6 +41,15 @@ Why each exists (all from 2026-11-12, research 92 to 94):
   kw, ttpage  what people type (YouTube and Google suggestions, top results) and what TikTok shows for a video
               (plays, category label, its own suggested searches), from public pages only. Both read formats
               nobody promised to keep: suggestqueries JSON and TikTok's page JSON, both last seen working 2026-11-12.
+  trends      Google Trends through pytrends (added 2026-11-12, Nolan: "download whatever you need"). YouTube search
+              by default, the US, values 0 to 100 RELATIVE to the biggest term in the same call, never counts.
+              Compare a new phrase with a known one in the same call. Long question phrases often read 0 (too
+              small to show). Google answers 429 when asked too fast: the command waits and tries three times.
+  teardown    Nolan 11/10: "look at outliers and how they hold their retention". For a public TikTok link or a
+              local mp4 it measures the opening: when the first word is spoken, the words in the first 3 seconds,
+              words per second, when the first cut comes, cuts in the first 3 seconds, and it writes a sheet of
+              the first 3 seconds (12 frames) to look at. A downloaded video is deleted after measuring unless
+              --keep; it is studied, never re-posted. YouTube links are refused (no watch pages from this machine).
 Nothing here schedules, posts or spends credits. Exit code 1 means a FAIL line was printed.
 """
 import argparse
@@ -1052,6 +1065,221 @@ def ttpage(urls, out=None, csv_out=None):
     return 1 if any("error" in r for r in rows) or len(rows) < len(urls) else 0
 
 
+# ---------------------------------------------------------------- Google Trends
+def _trends_client():
+    try:
+        import warnings
+        warnings.filterwarnings("ignore")
+        from pytrends.request import TrendReq
+    except Exception as e:
+        print("FAIL pytrends is not installed (%s): python3 -m pip install pytrends, or bash tools/setup_env.sh" % e)
+        return None
+    return TrendReq(hl="en-US", tz=300, timeout=(10, 30))
+
+
+def _trends_call(fn, what):
+    """Google Trends answers 429 when asked too fast: wait and try three times, then give up with a FAIL."""
+    for wait in (0, 25, 60):
+        if wait:
+            print("  (Google said slow down; waiting %d s)" % wait, file=sys.stderr)
+            time.sleep(wait)
+        try:
+            return fn()
+        except Exception as e:
+            err = "%s: %s" % (type(e).__name__, str(e)[:120])
+            if "429" not in err and "TooManyRequests" not in err:
+                break
+    print("FAIL trends %s: %s" % (what, err), file=sys.stderr)
+    return None
+
+
+def trends(mode, terms, web=False, yt=False, months=12, years=5, out=None):
+    cl = _trends_client()
+    if cl is None:
+        return 1
+    rows, bad = [], 0
+    today = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")
+    if mode == "season":
+        prop, frame = ("youtube" if yt else ""), "today 5-y" if years >= 5 else "today %d-m" % max(12, 12 * years)
+    else:
+        prop = "" if web else "youtube"
+        frame = "today %d-m" % months if months in (1, 3, 12) else "today 12-m"
+    where = "YouTube search" if prop == "youtube" else "Google web search"
+    if mode in ("compare", "season"):
+        if len(terms) > 5:
+            print("FAIL at most 5 terms in one call (values are relative to the biggest term of the call)")
+            return 1
+
+        def pull():
+            cl.build_payload(terms, timeframe=frame, geo="US", gprop=prop)
+            return cl.interest_over_time()
+        df = _trends_call(pull, mode)
+        if df is None or df.empty:
+            print("FAIL no data for %s (%s, %s)" % (terms, where, frame))
+            return 1
+        df = df.drop(columns=["isPartial"], errors="ignore")
+        if mode == "compare":
+            print("%s, US, %s, 0-100 relative to the biggest term here (not counts):" % (where, frame))
+            for t in terms:
+                mean, last4, peak = df[t].mean(), df[t].tail(4).mean(), df[t].idxmax()
+                print("  %-34s mean %5.1f   last 4 weeks %5.1f   peak week %s" % (t, mean, last4, str(peak)[:10]))
+                rows.append([today, "compare", where, frame, t, "%.1f" % mean, "%.1f" % last4, str(peak)[:10]])
+        else:
+            m = df.groupby(df.index.month).mean()
+            print("%s, US, %s, mean interest by month (1 = January), relative within this call:" % (where, frame))
+            print("  %-28s %s" % ("", " ".join("%4d" % k for k in range(1, 13))))
+            for t in terms:
+                vals = [float(m[t].get(k, 0.0)) for k in range(1, 13)]
+                print("  %-28s %s" % (t[:28], " ".join("%4.0f" % v for v in vals)))
+                rows.append([today, "season", where, frame, t] + ["%.1f" % v for v in vals])
+    else:
+        for seed in terms:
+            def pull(seed=seed):
+                cl.build_payload([seed], timeframe=frame, geo="US", gprop=prop)
+                return cl.related_queries().get(seed) or {}
+            rq = _trends_call(pull, "related '%s'" % seed)
+            if rq is None:
+                bad += 1
+                continue
+            print("%s, US, %s, searches related to '%s':" % (where, frame, seed))
+            for kind in ("top", "rising"):
+                d = rq.get(kind)
+                if d is None or d.empty:
+                    print("  %s: none shown" % kind)
+                    continue
+                for _, r in d.head(15).iterrows():
+                    print("  %-7s %-52s %s" % (kind, str(r["query"])[:52], r["value"]))
+                    rows.append([today, "related-" + kind, where, frame, seed, r["query"], r["value"]])
+            time.sleep(2)
+    if out and rows:
+        new = not os.path.exists(out)
+        with open(out, "a", encoding="utf-8", newline="") as f:
+            w = csv.writer(f, lineterminator="\n")
+            if new:
+                w.writerow(["pulled", "kind", "where", "timeframe", "term_or_seed", "v1", "v2", "v3_or_months..."])
+            w.writerows(rows)
+        print("wrote %d rows to %s" % (len(rows), out))
+    return 1 if bad or not rows else 0
+
+
+# ---------------------------------------------------------------- teardown: how a video opens
+def _cuts(mp4, thresh=0.30):
+    p = subprocess.run(["ffmpeg", "-hide_banner", "-i", mp4, "-vf", "select='gt(scene,%.2f)',showinfo" % thresh,
+                        "-an", "-f", "null", "-"], capture_output=True, text=True)
+    return [float(x) for x in re.findall(r"pts_time:([0-9.]+)", p.stderr)]
+
+
+def _words_timed(mp4, model="small.en"):
+    import soundfile as sf
+    from faster_whisper import WhisperModel
+    fd, wav = tempfile.mkstemp(prefix="postkit-", suffix=".wav")
+    os.close(fd)
+    try:
+        p = subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", mp4, "-vn", "-ac", "1", "-ar", "16000", wav],
+                           capture_output=True, text=True)
+        if p.returncode != 0:
+            return []
+        audio, _ = sf.read(wav, dtype="float32")
+    finally:
+        if os.path.exists(wav):
+            os.remove(wav)
+    if len(audio) == 0:
+        return []
+    m = WhisperModel(model, device="cpu", compute_type="int8")
+    segs, _ = m.transcribe(audio, language="en", beam_size=5, condition_on_previous_text=False, word_timestamps=True)
+    return [(w.start, w.end, w.word.strip()) for s in segs for w in (s.words or [])]
+
+
+def _open_sheet(mp4, out, seconds=3.0, n=12, w=180):
+    from PIL import Image
+    h = int(w * 16 / 9)
+    img = Image.new("RGB", (w * n, h), "black")
+    with tempfile.TemporaryDirectory(prefix="postkit-open-") as tmpd:
+        for i in range(n):
+            tmp = os.path.join(tmpd, "%02d.png" % i)
+            if _frame(mp4, i * seconds / n, w, h, tmp):
+                with Image.open(tmp) as fr:
+                    img.paste(fr.convert("RGB"), (i * w, 0))
+    img.save(out, quality=85)
+
+
+def teardown(items, out_dir="/dev/shm/teardown", csv_out=None, keep=False):
+    err = speech_libs()
+    if err:
+        print("FAIL teardown needs the speech tools (%s)" % err)
+        return 1
+    os.makedirs(out_dir, exist_ok=True)
+    rows, bad = [], 0
+    for it in items:
+        meta, fetched = {}, False
+        if re.match(r"https?://", it):
+            if re.search(r"youtube\.com|youtu\.be", it):
+                print("FAIL %s: YouTube watch pages are not fetched from this machine" % it)
+                bad += 1
+                continue
+            if not TT_URL.fullmatch(it.split("?")[0]):
+                print("FAIL %s: not a TikTok video link" % it)
+                bad += 1
+                continue
+            p = subprocess.run(["yt-dlp", "-J", "--skip-download", it], capture_output=True, text=True, timeout=120)
+            try:
+                meta = json.loads(p.stdout)
+            except ValueError:
+                print("FAIL %s: yt-dlp gave no data (%s)" % (it, (p.stderr.strip().splitlines() or ["no output"])[-1][:140]))
+                bad += 1
+                continue
+            vid = str(meta.get("id") or "video")
+            mp4 = os.path.join(out_dir, vid + ".mp4")
+            subprocess.run(["yt-dlp", "-q", "-f", "b[height<=720]/b", "-o", mp4, it], capture_output=True, text=True, timeout=300)
+            if not os.path.exists(mp4):
+                print("FAIL %s: could not fetch the video file" % it)
+                bad += 1
+                continue
+            fetched = True
+            time.sleep(1.0)
+        else:
+            mp4, vid = it, os.path.splitext(os.path.basename(it))[0]
+            if not os.path.exists(mp4):
+                print("FAIL %s: no such file" % it)
+                bad += 1
+                continue
+        dur = duration(mp4)
+        ws = _words_timed(mp4)
+        cuts = _cuts(mp4)
+        first_word = ws[0][0] if ws else None
+        w3 = [w for a, b, w in ws if a < 3.0]
+        wps = (len(ws) / (ws[-1][1] - ws[0][0])) if len(ws) > 1 and ws[-1][1] > ws[0][0] else 0.0
+        first_cut = cuts[0] if cuts else None
+        c3 = len([c for c in cuts if c < 3.0])
+        sent = " ".join(w for a, b, w in ws)
+        sent = re.split(r"(?<=[.!?])\s", sent)[0][:140] if sent else ""
+        sheet_path = os.path.join(out_dir, vid + "-open.jpg")
+        _open_sheet(mp4, sheet_path)
+        plays, likes = meta.get("view_count"), meta.get("like_count")
+        print("%s  %s%.1f s | first word at %s | %d words in the first 3 s | %.1f words/s | first cut at %s | %d cuts in the first 3 s, %.2f cuts/s | opens: \"%s\" | sheet %s" % (
+            vid, ("%s plays, " % plays) if plays is not None else "", dur,
+            "none" if first_word is None else "%.2f s" % first_word, len(w3), wps,
+            "none" if first_cut is None else "%.2f s" % first_cut, c3, (len(cuts) / dur) if dur else 0.0, sent, sheet_path))
+        rows.append([datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d"), vid, it if fetched else os.path.basename(it),
+                     (meta.get("uploader") or meta.get("channel") or ""), plays if plays is not None else "",
+                     likes if likes is not None else "", "%.1f" % dur, "" if first_word is None else "%.2f" % first_word,
+                     len(w3), "%.2f" % wps, "" if first_cut is None else "%.2f" % first_cut, c3,
+                     "%.3f" % ((len(cuts) / dur) if dur else 0.0), " ".join(w3), sent])
+        if fetched and not keep:
+            os.remove(mp4)
+    if csv_out and rows:
+        new = not os.path.exists(csv_out)
+        with open(csv_out, "a", encoding="utf-8", newline="") as f:
+            w = csv.writer(f, lineterminator="\n")
+            if new:
+                w.writerow(["pulled", "video_id", "source", "account", "plays", "likes", "seconds", "first_word_s",
+                            "words_first_3s", "words_per_s", "first_cut_s", "cuts_first_3s", "cuts_per_s",
+                            "text_first_3s", "first_sentence"])
+            w.writerows(rows)
+        print("wrote %d rows to %s" % (len(rows), csv_out))
+    return 1 if bad or not rows else 0
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -1077,6 +1305,13 @@ def main():
     p = sub.add_parser("kw"); p.add_argument("seeds", nargs="*"); p.add_argument("--search", action="append", default=[])
     p.add_argument("--out", metavar="FILE", help="CSV file to write"); p.add_argument("--n", type=int, default=25)
     p = sub.add_parser("ttpage"); p.add_argument("urls", nargs="+"); p.add_argument("--json"); p.add_argument("--csv", metavar="FILE")
+    p = sub.add_parser("trends"); p.add_argument("mode", choices=["compare", "related", "season"]); p.add_argument("terms", nargs="+")
+    p.add_argument("--web", action="store_true", help="Google web search (compare and related default to YouTube search)")
+    p.add_argument("--yt", action="store_true", help="YouTube search (season defaults to web search)")
+    p.add_argument("--months", type=int, default=None, choices=[1, 3, 12]); p.add_argument("--years", type=int, default=5)
+    p.add_argument("--out", metavar="FILE", help="CSV file to append to")
+    p = sub.add_parser("teardown"); p.add_argument("items", nargs="+", help="TikTok video links or local mp4 files")
+    p.add_argument("--out", default="/dev/shm/teardown", metavar="DIR"); p.add_argument("--csv", metavar="FILE"); p.add_argument("--keep", action="store_true")
     a = ap.parse_args()
     if a.cmd == "render":
         rc = render(a.spec, a.out, a.work)
@@ -1110,6 +1345,10 @@ def main():
         rc = rehost(a.url, a.file)
     elif a.cmd == "kw":
         rc = kw(a.seeds, a.search, a.out, a.n)
+    elif a.cmd == "trends":
+        rc = trends(a.mode, a.terms, a.web, a.yt, a.months or (3 if a.mode == "related" else 12), a.years, a.out)
+    elif a.cmd == "teardown":
+        rc = teardown(a.items, a.out, a.csv, a.keep)
     else:
         rc = ttpage(a.urls, a.json, a.csv)
     sys.exit(1 if rc else 0)

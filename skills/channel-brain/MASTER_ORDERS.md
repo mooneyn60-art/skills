@@ -7,7 +7,7 @@ Status: ACTIVE; replaces every older plan where they disagree (Nolan's words win
 Audience: Meatball Town (all desks), Nolan
 
 ## How to use this page
-- One Read covers the whole page. Keep it under 50,000 bytes (`wc -c` after every edit; a Read stops at about 64,000). If a Read says it was cut off, read the rest before acting.
+- One Read covers the whole page. Keep it under 52,000 bytes (`wc -c` after every edit; a Read stops at about 64,000). At the limit, move a finished story to the log before adding anything. If a Read says it was cut off, read the rest before acting.
 - Every rule in force is here. `MASTER_ORDERS_LOG.md` (same folder) holds the history under the same headings: research findings, what was done when, old plans, retired sections. Read it when a rule's reason matters. If the two disagree, this page wins.
 - Nolan (10/29): "set the channel up to the point all he has to do is make and post." This page is that setup.
 - A new order from Nolan goes in the same day: his words, my reading, the rule. When its work is done, the story moves to the log and the rule stays here.
@@ -20,7 +20,7 @@ Audience: Meatball Town (all desks), Nolan
 - The 10/28 numbers are in the log under "Overview".
 
 ## Open asks of Nolan (one at a time, in this order)
-1. **Tap the Windsor TikTok link sent in chat 11/12 and approve.** The account stays Personal, never Business (TikTok says Business accounts are not eligible for Creator Rewards). The link is signed: never write it into this repo. **Do not ask for anything else until he has answered this.**
+1. **One screenshot from the TikTok app:** Profile, TikTok Studio, Analytics, Content, tap the newest video, and screenshot the part with average watch time, watched full video and where the views came from. It is the only way to see those numbers on a Personal account (research 95), and the account stays Personal (TikTok says Business accounts are not eligible for Creator Rewards). The Windsor TikTok link did not work for him on 11/12: do not send it again. **Do not ask for anything else until he has answered this.**
 
 Then, only if still needed:
 
@@ -41,14 +41,19 @@ Read each test on its date, not before.
 - **Live tests with no date above:** the TikTok 20:15 sweary cuts against the clean ones after a week; the YouTube joke test and hook test (new openings); the TikTok label of each new-direction cut an hour after it posts.
 
 ## Develop yourself (Nolan, 11/12 about 12:58 ET)
-- **His words:** "And Delvin yourself and skills mcps or repositories you want to help us grow whatever you need".
-- **What it means (my reading):** develop yourself. Build or connect whatever tools, skills, connectors and repositories the channel needs to grow, without asking first. The work gate still holds: each thing has to change a post in the next seven days or a scorecard number. Anything that needs his login or his approval is still his to do, and he gets asked for one thing at a time.
+- **His words (three asks the same day):** "And Delvin yourself and skills mcps or repositories you want to help us grow whatever you need" (12:58). "Not working is there anything you can build or make to help us out or any updates to repos or skills or anything else grow yourself" (about 15:45, after the Windsor TikTok link failed). "Ok keep going and what did you do to yourself you have full control download whatever you neex" (about 16:00).
+- **What it means (my reading):** develop yourself, with full control over your own tools: install packages, add tools, skills, hooks, agent roles and workflows, without asking first. The work gate still holds: each thing has to change a post in the next seven days or a scorecard number. Logins, approvals and money stay his (10/24: payments stay zero beyond what is already paid), and he gets asked for one thing at a time. When he asks what changed, answer in two short lines.
 - **From 11/12:** the gate in "The production line" holds for every video; post bodies come from `postkit.py payload`, not from typing.
-- **Built 11/12:** `oh-meatball/tools/postkit.py` (with `selftest`), `tools/setup_env.sh` and three skills in `.claude/skills/`; the rules stay on this page. Two rounds of review by other models; this page was split from its log the same day so one Read covers it. New daily files: `oh-meatball/data/tiktok-stats.csv` (`postkit.py ttpage --csv`) and `data/longform-hours.csv`.
-- **The Windsor TikTok ask (open ask 1):** Its field list has per-video watch time, finish rate, the For You and search split, and retention by second; whether it accepts a personal account is untested, and the tap is the test.
+- **Built 11/12 (details: `oh-meatball/research/94-capability-audit.md`, `95-next-topics.md`, and the log):**
+  - `oh-meatball/tools/postkit.py` (render with voice check, lint, payload, log, kw, ttpage, selftest) and `tools/setup_env.sh`.
+  - `postkit.py trends`: Google Trends. Relative YouTube search demand, rising searches and seasons. The first real demand numbers we have; values compare terms inside one call, they are not counts.
+  - `postkit.py teardown`: how a video opens (first word, words and cuts in the first 3 seconds, a sheet of those seconds), for public TikToks and our own files. Nolan 11/10: "look at outliers and how they hold their retention".
+  - Skills `make-short`, `post-metadata`, `scoreboard`; the saved workflow `shorts-batch` (`.claude/workflows/`: fact pack, script pair, second-model check, render, lint for a list of topics); agent roles `researcher`, `fact-checker`, `short-builder` (`.claude/agents/`).
+  - Hooks (`.claude/settings.json`): a git guard that blocks whole-tree checkout, `reset --hard`, stash, clean, `add -A`, and any git write by an agent; a session-start check that installs the render tools on a fresh machine.
+  - Daily files: `oh-meatball/data/tiktok-stats.csv` (`ttpage --csv`) and `data/longform-hours.csv`.
+- **TikTok watch time (research 95):** no service reads it for a Personal account. Windsor, Metricool and the others get it only for Business or Creator accounts, and the account stays Personal. The only route is the app's own analytics screen (open ask 1). Do not send the Windsor link again.
 - **On Tue 11/24 (vidIQ credits return; reminder set):** read "stayed to watch" and feed impressions for the last 50 Shorts and retention curves for about a dozen videos through vidIQ. It reads through Nolan's Chrome with the vidIQ extension signed in (open ask 3).
-- **Decided against (reasons in the log):** a setup script on the cloud environment; the Google Cloud route to YouTube retention (only if the vidIQ read fails); Supermetrics for TikTok (only if Windsor refuses the personal account).
-- What the audit found: `oh-meatball/research/94-capability-audit.md` and the log, same heading.
+- **Decided against (reasons in the log):** a setup script on the cloud environment; the Google Cloud route to YouTube retention (only if the vidIQ read fails); Supermetrics for TikTok (its docs say a Personal account with 100 followers works, but the price is unknown and money is his call).
 
 ## Tags and everything, from every angle (Nolan, 11/12 about 12:25 ET)
 - **His words:** "And make sure your tags and everything are also updated to be the best look at All angles".
