@@ -16,7 +16,8 @@ blue (#1f6fd1) or any #hex.
 Spec keys (JSON; CLI flags map onto the same keys):
   name        output basename (with --out-dir) / label
   out         output path (.jpg)
-  creature    {"kind": wolf_spider | cellar_spider | house_centipede | egg_case_twig (mantis egg case on a fir twig;
+  creature    {"kind": kit (any animal of the video drawing kit: "cfg" = the episode's stage creature_cfg, "mood") |
+               wolf_spider | cellar_spider | house_centipede | egg_case_twig (mantis egg case on a fir twig;
                "ornament": true adds a hanging red glass ball), "box": [x, y, w, h], "rot": deg,
                "zoom": 1.0 (>1 lets legs run off the box/frame), "look": [dx, dy] pupils, "mood": worried | happy}
   headline    "LINE|LINE" with *accent*;  accent: red | blue | #hex;  font: marker | gochi
@@ -637,8 +638,22 @@ def egg_case_twig(ctx, o):
     ctx.stroke()
 
 
+def kit_animal(ctx, o):
+    """Any animal from the video drawing kit (tools/drawn_creatures.py), so a thumbnail can show the episode's own
+    cat, dog or bear. o: cfg (the episode's stage creature_cfg), mood (calm, happy, shock, worry, angry, smug,
+    sleepy), look [dx, dy], t (pose time)."""
+    import drawn_creatures
+    cfg = dict(o["cfg"])
+    if o.get("mood"):
+        cfg["mood"] = o["mood"]
+    p = {"look": list(o.get("look", (0, 0)))}
+    if o.get("mood"):
+        p["mood"] = o["mood"]
+    drawn_creatures.build(cfg)(ctx, o.get("t", 0.3), p)
+
+
 CREATURES = {"wolf_spider": wolf_spider, "cellar_spider": cellar_spider, "house_centipede": house_centipede,
-             "egg_case_twig": egg_case_twig}
+             "egg_case_twig": egg_case_twig, "kit": kit_animal}
 
 
 # ================================================================= layers
