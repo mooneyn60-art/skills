@@ -57,7 +57,7 @@
  "title": "Your Dog's Guilty Look Tracked Scolding in a 14-Dog Test 🐶 (Things Living In Your House #65)",
  "description": "Why does your dog look guilty? In a 2009 test of 14 dogs, owners told the dog not to eat a treat and left the room. The \"guilty look\" was no different whether or not the dog had eaten it. It showed up more when owners scolded, and the effect of scolding was stronger in dogs that had obeyed. In a 2015 study of 96 dogs, owners did no better than chance at telling from the greeting whether their dog had eaten the food. These studies test the look, not what dogs feel.\n\n#shorts #dogs #dogfacts #thingslivinginyourhouse #meatballmyths\n\nSources: Horowitz 2009, Behavioural Processes; Ostojic, Tkalcic & Clayton 2015, Behavioural Processes.",
  "pinned_comment": "What did your dog \"confess\" to with that face, and had it even done it?",
- "_note": "Fact pack research/84. Checked 11/12 by a second model against the live sources (it opened the pages or the journal abstracts itself); its wording fixes are applied: \"scolding hit harder\" became \"the effect was bigger\"; \"Poor bastards\" (a feeling claim) became \"Unfair as hell\"; the card says \"more of the look\"; the last line says \"your cues\"; the description says \"no better than chance\". | TikTok search-led short cut (11/12): same spoken lines and cards as the checked YouTube Short; adds search_top (the search phrase on screen for the first 2 to 2.5 s), detective music, TikTok title and caption (caption facts copied from the checked description). Loop kept on: TikTok replays videos, and the last line runs into the first.",
+ "_note": "Fact pack research/84. Checked 11/12 by a second model against the live sources (it opened the pages or the journal abstracts itself); its wording fixes are applied: \"scolding hit harder\" became \"the effect was bigger\"; \"Poor bastards\" (a feeling claim) became \"Unfair as hell\"; the card says \"more of the look\"; the last line says \"your cues\"; the description says \"no better than chance\". | TikTok search-led short cut, funnier rewrite 11/12 (heavy swearing per Nolan's TikTok order; safety lines and attributions said clean, the swear is the reaction after); search_top = the search phrase on screen for the first 2 to 2.5 s; jokes checked in research/92.",
  "beats": [
   {
    "open": "animal",
@@ -68,7 +68,7 @@
    "_f": [
     "DG-F6"
    ],
-   "say": "Your dog's guilty look may not be a confession.",
+   "say": "That guilty fucking look on your dog may not be a confession.",
    "card": {
     "rows": [
      [
@@ -88,14 +88,49 @@
    }
   },
   {
+   "scene": "garden",
+   "pad": 0.25,
+   "m": "escalate",
+   "mood": "worry",
+   "gag": false,
+   "say": "You know the face. Like it just robbed a fucking bank."
+  },
+  {
+   "scene": "bathroom",
+   "pad": 0.2,
+   "m": "fact",
+   "mood": "worry",
+   "gag": {
+    "mark": "sweat"
+   },
+   "card": {
+    "rows": [
+     [
+      "WHO ATE IT?",
+      "#ffd34d",
+      104
+     ],
+     [
+      "MEATBALL",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "55%"
+   },
+   "say": "Meatball scolded his dog for an hour. Meatball ate the fucking treat."
+  },
+  {
    "scene": "study",
-   "pad": 0.5,
+   "pad": 0.25,
    "m": "fact",
    "_f": [
     "DG-F1",
     "DG-F2"
    ],
-   "say": "In a test of 14 dogs, owners banned a treat and left.",
+   "say": "In a test of 14 dogs, owners banned a treat and left. Fucking classic.",
    "card": {
     "rows": [
      [
@@ -116,12 +151,12 @@
   },
   {
    "scene": "bedroom",
-   "pad": 0.5,
+   "pad": 0.25,
    "m": "tiny",
    "_f": [
     "DG-F3"
    ],
-   "say": "Whether they ate it or not, the guilty look was no different.",
+   "say": "Whether they ate it or not, the guilty look was no different. What the fuck.",
    "card": {
     "rows": [
      [
@@ -142,14 +177,13 @@
   },
   {
    "scene": "basement",
-   "pad": 0.5,
+   "pad": 0.25,
    "m": "escalate",
    "gag": false,
    "_f": [
-    "DG-F4",
-    "DG-F5"
+    "DG-F4"
    ],
-   "say": "It showed up more when owners scolded. The effect was bigger in dogs that obeyed. Unfair as hell.",
+   "say": "It showed up more when owners scolded. Unfair as fuck.",
    "card": {
     "rows": [
      [
@@ -177,7 +211,7 @@
    "_f": [
     "DG-F6"
    ],
-   "say": "So that face reacts to your cues, because",
+   "say": "So that fucking face reacts to your cues, because",
    "card": {
     "rows": [
      [
@@ -210,5 +244,15 @@
   "until": 2.5
  },
  "tiktok_title": "Why Does My Dog Look Guilty? A 14-Dog Test",
- "tiktok_caption": "why does my dog look guilty 🐶 In a 2009 test of 14 dogs, owners told the dog not to eat a treat and left the room. The \"guilty look\" was no different whether or not the dog had eaten it. Does yours do the face? #dogs #dogsoftiktok #dogfacts #learnontiktok #meatballmyths"
+ "tiktok_caption": "why does my dog look guilty 🐶 In a 2009 test of 14 dogs, owners told the dog not to eat a treat and left the room. The \"guilty look\" was no different whether or not the dog had eaten it. Does yours do the face? #dogs #dogsoftiktok #dogfacts #learnontiktok #meatballmyths",
+ "cap_swap": {
+  "shit": "sh*t",
+  "shits": "sh*ts",
+  "shitty": "sh*tty",
+  "bullshit": "bullsh*t",
+  "fuck": "f**k",
+  "fucking": "f**king",
+  "fucker": "f**ker",
+  "fuckers": "f**kers"
+ }
 }

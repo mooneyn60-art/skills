@@ -51,6 +51,10 @@ Nolan (10/29): "set the channel up to the point all he has to do is make and pos
 - **Asked of Nolan 11/12 (only he can):** (1) TikTok app: Profile, menu, TikTok Studio, More tools, Account check, plus a screenshot of one low video's analytics (average watch time, watched full video, traffic sources); (2) YouTube Studio: the Reach tab of the termite Short; (3) yes or no to a real photo of the animal in the first two seconds of six TikToks. **His answer (11/12 about 10:05 ET, with the 615-against-340 numbers in front of him): "No, keep it all drawn".** So no real photos or footage on TikTok either; the look stays fully drawn. Do not propose it again unless he raises it; the cartoon label stays a noted lead, not a test.
 - **Read dates:** tonight 21:25 (today's three Shorts against Wednesday's); Sat 11/14 (Windsor will have the engaged share for the 11/10-11/11 Shorts: under 0.39 means viewers swiped, 0.40 or more with tiny views means YouTube did not show them); Wed 11/18 (first read of the pet and survival Shorts); Fri 11/20 (the TikTok search-led test).
 
+## Make them funnier (Nolan, 11/12 about 10:20 ET, after watching the short dog cut)
+- **His words:** "Ok make them funnier we hold no retention".
+- **What it means (my reading):** the videos read like a study summary and people leave. Every Short and TikTok cut must be funny first: the fact-check hedges stay true but they may not be the whole script. Starts with the seven pet and survival cuts on both platforms; then it is the rule for every new script.
+
 ## STYLE LOCK (Nolan, 11/1): no more style changes
 - **The look is locked:** the drawn style with stick-figure Meatball and TARS's species-accurate animals (`art/drawn_anatomy.py`). Nolan approved it on 10/30 ("way better, continue this style").
 - **The voice is locked:** kokoro:fenrir, unless Nolan picks another from the 10/30 samples.

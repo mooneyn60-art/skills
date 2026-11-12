@@ -56,7 +56,7 @@
  "title": "Your Cat Can Likely Tell Its Name: Under 1 in 10 Even Meowed 🐱 (Things Living In Your House #66)",
  "description": "Does your cat know its name? In a 2019 study, a hidden speaker played four ordinary words and then the cat's own name. Cats that had settled down during the other words reacted more to their own name. More than half answered by moving their ears and heads; fewer than 10% meowed, moved their tail or took more than a step. Cats living in a cat cafe could not tell their own name from the names of the other cats there. The study did not test whether cats come when called.\n\n#shorts #cats #catfacts #thingslivinginyourhouse #meatballmyths\n\nSource: Saito, Shinozuka, Ito & Hasegawa 2019, Scientific Reports.",
  "pinned_comment": "What does your cat do when you say its name: come over, flick an ear, or nothing at all?",
- "_note": "Fact pack research/84. Checked 11/12 by a second model against the live sources (it opened the pages or the journal abstracts itself); its wording fixes are applied: \"probably\" and \"likely\" (only cats that settled down were analysed); \"More than half of the cats moved their ears or heads\" in place of \"Most cats answered\"; the card says \"more than a step\" (the paper counts more than one step). The cat-cafe line was added for length (15 s was under the 16 s floor); the checker had passed the same claim in the description. | TikTok search-led short cut (11/12): same spoken lines and cards as the checked YouTube Short; adds search_top (the search phrase on screen for the first 2 to 2.5 s), detective music, TikTok title and caption (caption facts copied from the checked description). Loop kept on: TikTok replays videos, and the last line runs into the first.",
+ "_note": "Fact pack research/84. Checked 11/12 by a second model against the live sources (it opened the pages or the journal abstracts itself); its wording fixes are applied: \"probably\" and \"likely\" (only cats that settled down were analysed); \"More than half of the cats moved their ears or heads\" in place of \"Most cats answered\"; the card says \"more than a step\" (the paper counts more than one step). The cat-cafe line was added for length (15 s was under the 16 s floor); the checker had passed the same claim in the description. | TikTok search-led short cut, funnier rewrite 11/12 (heavy swearing per Nolan's TikTok order; safety lines and attributions said clean, the swear is the reaction after); search_top = the search phrase on screen for the first 2 to 2.5 s; jokes checked in research/92.",
  "beats": [
   {
    "open": "animal",
@@ -67,7 +67,7 @@
    "_f": [
     "CN-F1"
    ],
-   "say": "Your cat can probably tell its name from other words.",
+   "say": "Your cat can probably tell its fucking name from other words.",
    "card": {
     "rows": [
      [
@@ -87,13 +87,37 @@
    }
   },
   {
+   "scene": "garden",
+   "pad": 0.25,
+   "m": "fact",
+   "mood": "sleepy",
+   "card": {
+    "rows": [
+     [
+      "9 YEARS",
+      "#ffd34d",
+      110
+     ],
+     [
+      "ONE EAR. ONCE.",
+      "#ffffff",
+      54,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   },
+   "say": "Meatball has called his cat for nine fucking years. One ear moved. Once."
+  },
+  {
    "scene": "study",
-   "pad": 0.3,
+   "pad": 0.25,
    "m": "fact",
    "_f": [
     "CN-F2"
    ],
-   "say": "A hidden speaker played four other words, and then the cat's name.",
+   "say": "A hidden speaker played four other words, and then the cat's name. For fucking science.",
    "card": {
     "rows": [
      [
@@ -114,12 +138,12 @@
   },
   {
    "scene": "bathroom",
-   "pad": 0.3,
+   "pad": 0.25,
    "m": "tiny",
    "_f": [
     "CN-F3"
    ],
-   "say": "More than half of the cats moved their ears or heads.",
+   "say": "More than half of the cats moved their ears or heads. Holy shit, an ear.",
    "card": {
     "rows": [
      [
@@ -140,13 +164,13 @@
   },
   {
    "scene": "basement",
-   "pad": 0.3,
+   "pad": 0.25,
    "m": "escalate",
    "gag": false,
    "_f": [
     "CN-F3"
    ],
-   "say": "Fewer than one in ten meowed or took more than a step. Tough damn crowd.",
+   "say": "Fewer than one in ten let out a meow. Tough fucking crowd.",
    "card": {
     "rows": [
      [
@@ -155,35 +179,9 @@
       104
      ],
      [
-      "MEOWED OR TOOK MORE THAN A STEP",
+      "EVEN MEOWED",
       "#ffffff",
-      44,
-      true
-     ]
-    ],
-    "y": 470,
-    "at": "40%"
-   }
-  },
-  {
-   "scene": "kitchen",
-   "pad": 0.3,
-   "m": "fact",
-   "_f": [
-    "CN-F8"
-   ],
-   "say": "Cat cafe cats couldn't tell their name from the other cats' names.",
-   "card": {
-    "rows": [
-     [
-      "CAT CAFE",
-      "#ffd34d",
-      110
-     ],
-     [
-      "MIXED UP WITH THE OTHER CATS' NAMES",
-      "#ffffff",
-      44,
+      56,
       true
      ]
     ],
@@ -200,7 +198,7 @@
    "_f": [
     "CN-F1"
    ],
-   "say": "Still, yours probably heard its name, because",
+   "say": "Still, yours probably heard its fucking name, because",
    "card": {
     "rows": [
      [
@@ -233,5 +231,15 @@
   "until": 2.5
  },
  "tiktok_title": "Do Cats Know Their Names? A 2019 Study",
- "tiktok_caption": "do cats know their names 🐱 In a 2019 study, a hidden speaker played four ordinary words and then the cat's own name. Cats that had settled down during the other words reacted more to their own name. Does your cat answer to its name? #cats #catsoftiktok #catfacts #learnontiktok #meatballmyths"
+ "tiktok_caption": "do cats know their names 🐱 In a 2019 study, a hidden speaker played four ordinary words and then the cat's own name. Cats that had settled down during the other words reacted more to their own name. Does your cat answer to its name? #cats #catsoftiktok #catfacts #learnontiktok #meatballmyths",
+ "cap_swap": {
+  "shit": "sh*t",
+  "shits": "sh*ts",
+  "shitty": "sh*tty",
+  "bullshit": "bullsh*t",
+  "fuck": "f**k",
+  "fucking": "f**king",
+  "fucker": "f**ker",
+  "fuckers": "f**kers"
+ }
 }

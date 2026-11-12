@@ -284,6 +284,21 @@ def prop(ctx, t, p):
         shape(ctx, lambda c: p_rrect(c, -200, -40, 400, 60, 6), hexc("#f2d36b"), OUT, None)
         for k in range(17):
             stroke(ctx, [(-190 + k * 23.75, -40), (-190 + k * 23.75, -40 + (28 if k % 4 == 0 else 16))], 5)
+    elif kind == "cake":   # a small round birthday cake, three lit candles
+        shape(ctx, lambda c: p_rrect(c, -130, -110, 260, 110, 16), hexc("#f2d0a0"), OUT, (0.05, 0.2))
+        shape(ctx, lambda c: p_rrect(c, -130, -132, 260, 50, 16), hexc("#f7b8c8"), OUT, None)
+        for k in range(3):
+            x = -66 + k * 66
+            shape(ctx, lambda c, x=x: p_rrect(c, x - 9, -196, 18, 66, 4), hexc(("#3b7dd8", "#ffd34d", "#e5383b")[k]), OUT * 0.6, None)
+            shape(ctx, lambda c, x=x, k=k: p_ellipse(c, x + 4 * math.sin(t * 12 + k), -214, 11, 18), hexc("#ffb030"), 0, None)
+    elif kind == "donut":   # a pink-iced donut with sprinkles
+        shape(ctx, lambda c: p_ellipse(c, 0, -80, 110, 92), hexc("#d9a05a"), OUT, (0.1, 0.15))
+        shape(ctx, lambda c: p_ellipse(c, 0, -92, 100, 72), hexc("#f48fb1"), OUT * 0.7, None)
+        shape(ctx, lambda c: p_ellipse(c, 0, -86, 30, 22), (0.2, 0.14, 0.1), OUT * 0.6, None)
+        for k, (dx, dy, a) in enumerate(((-58, -118, 0.5), (40, -128, -0.4), (66, -78, 0.9), (-66, -70, -0.8), (4, -140, 0.1),
+                                         (-20, -52, 0.7))):
+            stroke(ctx, [(dx - 11 * math.cos(a), dy - 11 * math.sin(a)), (dx + 11 * math.cos(a), dy + 11 * math.sin(a))], 8,
+                   color=hexc(("#ffffff", "#3b7dd8", "#ffd34d")[k % 3]))
     elif kind in ("rock", "skull", "snowflake", "rocket", "crown", "moon", "bed"):
         if kind == "rock":
             obj(ctx, "rock", 0, -60, 80)

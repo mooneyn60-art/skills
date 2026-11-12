@@ -44,7 +44,7 @@
  "title": "The Whole World Had 65 Confirmed Unprovoked Shark Bites in 2025 🦈 (Would Meatball Survive? #4)",
  "description": "Would you survive a shark? The International Shark Attack File confirmed 65 unprovoked shark bites on people worldwide in 2025, nine of them fatal, and says the chances of being bitten remain extremely low. Its tips: swim with a buddy and not at dawn or dusk. If a shark comes close, keep eye contact, move away slowly and leave the water if you can. If it bites, hit the eyes and gills, and do not act passively.\n\n#shorts #sharks #sharkattack #wouldmeatballsurvive #meatballmyths\n\nSource: International Shark Attack File, Florida Museum of Natural History (2025 yearly summary; Quick Tips; Advice to Swimmers). General information, not safety training.",
  "pinned_comment": "Would you still swim at dusk after this? What's the closest you've been to a shark?",
- "_note": "Fact pack research/84. Checked 11/12 by a second model against the live sources (it opened the pages or the journal abstracts itself); its wording fixes are applied: the title keeps \"confirmed\"; \"Don't play dead\" became \"Don't act passive\" (the File's own word); \"the don't list\" became \"two safety tips\" (swim with a buddy is a do, not a don't); the swimmers page is credited.",
+ "_note": "Fact pack research/84. Checked 11/12 by a second model against the live sources (it opened the pages or the journal abstracts itself); its wording fixes are applied: the title keeps \"confirmed\"; \"Don't play dead\" became \"Don't act passive\" (the File's own word); \"the don't list\" became \"two safety tips\" (swim with a buddy is a do, not a don't); the swimmers page is credited. | 11/12: funnier rewrite (Nolan: 'make them funnier we hold no retention'): a Meatball gag in line 2, joke reactions; fact sentences kept as checked; jokes checked in research/92.",
  "beats": [
   {
    "open": "animal",
@@ -84,11 +84,28 @@
    "_f": [
     "SH-F14"
    ],
-   "say": "Meatball swam alone at dusk. That breaks two damn safety tips."
+   "say": "Meatball wanted to be number 66. He swam alone at dusk, breaking two damn safety tips.",
+   "card": {
+    "rows": [
+     [
+      "NUMBER 66?",
+      "#ffd34d",
+      104
+     ],
+     [
+      "MEATBALL",
+      "#ffffff",
+      54,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "18%"
+   }
   },
   {
    "scene": "deep",
-   "pad": 0.5,
+   "pad": 0.35,
    "m": "calm",
    "_f": [
     "SH-F12"
@@ -117,7 +134,7 @@
    "scene_p": {
     "time": "night"
    },
-   "pad": 0.5,
+   "pad": 0.35,
    "m": "escalate",
    "gag": false,
    "_f": [

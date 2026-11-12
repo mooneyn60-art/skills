@@ -57,7 +57,7 @@
  "title": "Your Dog's Guilty Look Tracked Scolding in a 14-Dog Test 🐶 (Things Living In Your House #65)",
  "description": "Why does your dog look guilty? In a 2009 test of 14 dogs, owners told the dog not to eat a treat and left the room. The \"guilty look\" was no different whether or not the dog had eaten it. It showed up more when owners scolded, and the effect of scolding was stronger in dogs that had obeyed. In a 2015 study of 96 dogs, owners did no better than chance at telling from the greeting whether their dog had eaten the food. These studies test the look, not what dogs feel.\n\n#shorts #dogs #dogfacts #thingslivinginyourhouse #meatballmyths\n\nSources: Horowitz 2009, Behavioural Processes; Ostojic, Tkalcic & Clayton 2015, Behavioural Processes.",
  "pinned_comment": "What did your dog \"confess\" to with that face, and had it even done it?",
- "_note": "Fact pack research/84. Checked 11/12 by a second model against the live sources (it opened the pages or the journal abstracts itself); its wording fixes are applied: \"scolding hit harder\" became \"the effect was bigger\"; \"Poor bastards\" (a feeling claim) became \"Unfair as hell\"; the card says \"more of the look\"; the last line says \"your cues\"; the description says \"no better than chance\".",
+ "_note": "Fact pack research/84. Checked 11/12 by a second model against the live sources (it opened the pages or the journal abstracts itself); its wording fixes are applied: \"scolding hit harder\" became \"the effect was bigger\"; \"Poor bastards\" (a feeling claim) became \"Unfair as hell\"; the card says \"more of the look\"; the last line says \"your cues\"; the description says \"no better than chance\". | 11/12: funnier rewrite (Nolan: 'make them funnier we hold no retention'): a Meatball gag in line 2, joke reactions; fact sentences kept as checked; jokes checked in research/92.",
  "beats": [
   {
    "open": "animal",
@@ -88,8 +88,35 @@
    }
   },
   {
+   "scene": "bathroom",
+   "pad": 0.2,
+   "m": "fact",
+   "mood": "worry",
+   "gag": {
+    "mark": "sweat"
+   },
+   "card": {
+    "rows": [
+     [
+      "WHO ATE IT?",
+      "#ffd34d",
+      104
+     ],
+     [
+      "MEATBALL",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "55%"
+   },
+   "say": "Meatball scolded his dog for an hour. Meatball ate the treat."
+  },
+  {
    "scene": "study",
-   "pad": 0.5,
+   "pad": 0.35,
    "m": "fact",
    "_f": [
     "DG-F1",
@@ -116,7 +143,7 @@
   },
   {
    "scene": "bedroom",
-   "pad": 0.5,
+   "pad": 0.35,
    "m": "tiny",
    "_f": [
     "DG-F3"
@@ -142,14 +169,14 @@
   },
   {
    "scene": "basement",
-   "pad": 0.5,
+   "pad": 0.3,
    "m": "escalate",
    "gag": false,
    "_f": [
     "DG-F4",
     "DG-F5"
    ],
-   "say": "It showed up more when owners scolded. The effect was bigger in dogs that obeyed. Unfair as hell.",
+   "say": "It showed up more when owners scolded. Unfair as hell.",
    "card": {
     "rows": [
      [

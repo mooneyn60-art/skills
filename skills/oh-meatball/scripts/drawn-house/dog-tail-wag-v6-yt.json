@@ -61,7 +61,7 @@
  "title": "Your Dog's Tail May Wag More to Its Right When It Sees You 🐕 (Things Living In Your House #67)",
  "description": "Which way does your dog's tail wag? A 2024 review in Biology Letters says wagging is lopsided: dogs lean the wag to their own right for things they like, such as their owner, and to their own left for things that make them pull back, such as an unfamiliar, dominant dog. In a 2013 study, dogs watching videos of a left-leaning wag had higher heart activity and acted more anxious than with a right-leaning wag. It is a lean, not a rule: wagging goes with good and bad excitement, and a robot-dog study did not fit the simple story. A wagging tail does not always mean a dog is friendly.\n\n#shorts #dogs #dogfacts #thingslivinginyourhouse #meatballmyths\n\nSources: Leonetti et al. 2024, Biology Letters; Siniscalchi et al. 2013, Current Biology; Artelle et al. 2011, Laterality.",
  "pinned_comment": "Which way does your dog's tail lean when you walk in? Go look (the dog's right, not yours).",
- "_note": "Fact pack research/84. Checked 11/12 by a second model against the live sources (it opened the pages or the journal abstracts itself); its wording fixes are applied: \"leans more\" on both direction lines and cards (a bias, not every wag); \"acted more anxious\" in place of \"faster heartbeats\" (the abstract says higher cardiac activity and higher scores of anxious behaviour); the title has \"may\" and \"its right\"; the last line points at the viewer's own dog; the description says \"not always\". The two 2007 and 2013 originals are paywalled: directions come from the open 2024 review, the body-frame from the 2022 iScience paper. The round picture is the new `wag` gag (a dog seen from behind).",
+ "_note": "Fact pack research/84. Checked 11/12 by a second model against the live sources (it opened the pages or the journal abstracts itself); its wording fixes are applied: \"leans more\" on both direction lines and cards (a bias, not every wag); \"acted more anxious\" in place of \"faster heartbeats\" (the abstract says higher cardiac activity and higher scores of anxious behaviour); the title has \"may\" and \"its right\"; the last line points at the viewer's own dog; the description says \"not always\". The two 2007 and 2013 originals are paywalled: directions come from the open 2024 review, the body-frame from the 2022 iScience paper. The round picture is the new `wag` gag (a dog seen from behind). | 11/12: funnier rewrite (Nolan: 'make them funnier we hold no retention'): a Meatball gag in line 2, joke reactions; fact sentences kept as checked; jokes checked in research/92.",
  "beats": [
   {
    "open": "animal",
@@ -172,33 +172,36 @@
    }
   },
   {
-   "scene": "study",
-   "pad": 0.5,
-   "m": "tiny",
+   "scene": "basement",
+   "pad": 0.4,
+   "m": "fact",
+   "mood": "worry",
    "gag": {
-    "mark": "sweat"
+    "color": "#8a5a3a",
+    "dark": "#5e3a22",
+    "y": 130,
+    "x": 850,
+    "wag": -1.0,
+    "at": "30%"
    },
-   "_f": [
-    "DT-F5"
-   ],
-   "say": "Dogs watching a left wag on video acted more anxious.",
    "card": {
     "rows": [
      [
-      "MORE ANXIOUS",
-      "#ff4b3e",
+      "LEFT WAG",
+      "#ff5a4d",
       104
      ],
      [
-      "DOGS WATCHING A LEFT WAG ON VIDEO",
+      "AWKWARD",
       "#ffffff",
-      44,
+      54,
       true
      ]
     ],
-    "y": 470,
-    "at": "40%"
-   }
+    "y": 300,
+    "at": "45%"
+   },
+   "say": "Meatball came home to a left wag. Awkward as hell."
   },
   {
    "scene": "bedroom",

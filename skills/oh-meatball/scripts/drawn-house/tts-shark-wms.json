@@ -44,7 +44,7 @@
  "title": "The Whole World Had 65 Confirmed Unprovoked Shark Bites in 2025 🦈 (Would Meatball Survive? #4)",
  "description": "Would you survive a shark? The International Shark Attack File confirmed 65 unprovoked shark bites on people worldwide in 2025, nine of them fatal, and says the chances of being bitten remain extremely low. Its tips: swim with a buddy and not at dawn or dusk. If a shark comes close, keep eye contact, move away slowly and leave the water if you can. If it bites, hit the eyes and gills, and do not act passively.\n\n#shorts #sharks #sharkattack #wouldmeatballsurvive #meatballmyths\n\nSource: International Shark Attack File, Florida Museum of Natural History (2025 yearly summary; Quick Tips; Advice to Swimmers). General information, not safety training.",
  "pinned_comment": "Would you still swim at dusk after this? What's the closest you've been to a shark?",
- "_note": "Fact pack research/84. Checked 11/12 by a second model against the live sources (it opened the pages or the journal abstracts itself); its wording fixes are applied: the title keeps \"confirmed\"; \"Don't play dead\" became \"Don't act passive\" (the File's own word); \"the don't list\" became \"two safety tips\" (swim with a buddy is a do, not a don't); the swimmers page is credited. | TikTok search-led short cut (11/12): same spoken lines and cards as the checked YouTube Short; adds search_top (the search phrase on screen for the first 2 to 2.5 s), detective music, TikTok title and caption (caption facts copied from the checked description). Loop kept on: TikTok replays videos, and the last line runs into the first.",
+ "_note": "Fact pack research/84. Checked 11/12 by a second model against the live sources (it opened the pages or the journal abstracts itself); its wording fixes are applied: the title keeps \"confirmed\"; \"Don't play dead\" became \"Don't act passive\" (the File's own word); \"the don't list\" became \"two safety tips\" (swim with a buddy is a do, not a don't); the swimmers page is credited. | TikTok search-led short cut, funnier rewrite 11/12 (heavy swearing per Nolan's TikTok order; safety lines and attributions said clean, the swear is the reaction after); search_top = the search phrase on screen for the first 2 to 2.5 s; jokes checked in research/92.",
  "beats": [
   {
    "open": "animal",
@@ -55,7 +55,7 @@
    "_f": [
     "SH-F1"
    ],
-   "say": "The whole world had 65 confirmed unprovoked shark bites in 2025.",
+   "say": "The whole world had 65 confirmed unprovoked shark bites in 2025. That's fucking it.",
    "card": {
     "rows": [
      [
@@ -79,21 +79,38 @@
    "scene_p": {
     "time": "dusk"
    },
-   "pad": 0.5,
+   "pad": 0.25,
    "m": "chase",
    "_f": [
     "SH-F14"
    ],
-   "say": "Meatball swam alone at dusk. That breaks two damn safety tips."
+   "say": "Meatball wanted to be number 66. He swam alone at dusk, breaking two safety tips. Dumbass.",
+   "card": {
+    "rows": [
+     [
+      "NUMBER 66?",
+      "#ffd34d",
+      104
+     ],
+     [
+      "MEATBALL",
+      "#ffffff",
+      54,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "18%"
+   }
   },
   {
    "scene": "deep",
-   "pad": 0.5,
+   "pad": 0.25,
    "m": "calm",
    "_f": [
     "SH-F12"
    ],
-   "say": "If one comes close, keep your eyes on it and back away slowly.",
+   "say": "If one comes close, keep your eyes on it and back away slowly. Scary as fuck.",
    "card": {
     "rows": [
      [
@@ -117,13 +134,13 @@
    "scene_p": {
     "time": "night"
    },
-   "pad": 0.5,
+   "pad": 0.25,
    "m": "escalate",
    "gag": false,
    "_f": [
     "SH-F13"
    ],
-   "say": "If it bites, hit the eyes and gills. Don't act passive.",
+   "say": "If it bites, hit the eyes and gills. Don't act passive. Fucking hell.",
    "card": {
     "rows": [
      [
@@ -152,7 +169,7 @@
     "SH-F1",
     "SH-F19"
    ],
-   "say": "Meatball made it to shore, because",
+   "say": "Meatball made it to fucking shore, because",
    "card": {
     "rows": [
      [
@@ -185,5 +202,15 @@
   "until": 2.5
  },
  "tiktok_title": "What to Do If a Shark Comes Close",
- "tiktok_caption": "what to do if a shark comes close 🦈 The International Shark Attack File confirmed 65 unprovoked shark bites on people worldwide in 2025, nine of them fatal, and says the chances of being bitten remain extremely low. General info, not safety training. Would you still swim? #sharks #sharkattack #wouldyousurvive #learnontiktok #meatballmyths"
+ "tiktok_caption": "what to do if a shark comes close 🦈 The International Shark Attack File confirmed 65 unprovoked shark bites on people worldwide in 2025, nine of them fatal, and says the chances of being bitten remain extremely low. General info, not safety training. Would you still swim? #sharks #sharkattack #wouldyousurvive #learnontiktok #meatballmyths",
+ "cap_swap": {
+  "shit": "sh*t",
+  "shits": "sh*ts",
+  "shitty": "sh*tty",
+  "bullshit": "bullsh*t",
+  "fuck": "f**k",
+  "fucking": "f**king",
+  "fucker": "f**ker",
+  "fuckers": "f**kers"
+ }
 }

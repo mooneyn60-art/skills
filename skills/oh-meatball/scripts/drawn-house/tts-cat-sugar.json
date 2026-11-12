@@ -57,7 +57,7 @@
  "title": "Your Cat Most Likely Can't Taste Sugar 🐱 (Things Living In Your House #64)",
  "description": "Why doesn't your cat care about sweets? In cats, one gene of the sweet taste receptor (Tas1r2) is broken, so cats most likely can't taste sugar; the one tiger and one cheetah the researchers tested had the same broken gene. In a small 2020 study, cats were more likely to approach an unfamiliar person who slow blinked at them.\n\n#shorts #cats #catfacts #thingslivinginyourhouse #meatballmyths\n\nSources: Li et al. 2005, PLoS Genetics; Humphrey et al. 2020, Scientific Reports.",
  "pinned_comment": "Does your cat blink back when you slow blink at it? What happened when you tried?",
- "_note": "11/11: first non-bug v6 Short after Nolan's direction change (\"people don't really like bugs, we need to speak to the majority\"). Mild spice for YouTube. Checked 11/11 by a second model against both papers (it opened them): two lines softened (one tiger and one cheetah were tested; the approach result is experiment 2, 18 cats, an unfamiliar experimenter). | TikTok search-led short cut (11/12): same spoken lines and cards as the checked YouTube Short; adds search_top (the search phrase on screen for the first 2 to 2.5 s), detective music, TikTok title and caption (caption facts copied from the checked description). Loop kept on: TikTok replays videos, and the last line runs into the first.",
+ "_note": "11/11: first non-bug v6 Short after Nolan's direction change (\"people don't really like bugs, we need to speak to the majority\"). Mild spice for YouTube. Checked 11/11 by a second model against both papers (it opened them): two lines softened (one tiger and one cheetah were tested; the approach result is experiment 2, 18 cats, an unfamiliar experimenter). | TikTok search-led short cut, funnier rewrite 11/12 (heavy swearing per Nolan's TikTok order; safety lines and attributions said clean, the swear is the reaction after); search_top = the search phrase on screen for the first 2 to 2.5 s; jokes checked in research/92.",
  "beats": [
   {
    "open": "animal",
@@ -65,7 +65,7 @@
    "gag": {
     "mark": "shock"
    },
-   "say": "Your cat most likely can't taste sugar.",
+   "say": "Your cat most likely can't taste fucking sugar.",
    "card": {
     "rows": [
      [
@@ -85,10 +85,38 @@
    }
   },
   {
-   "scene": "study",
-   "pad": 0.6,
+   "scene": "basement",
+   "pad": 0.2,
    "m": "fact",
-   "say": "One gene for tasting sweet is broken.",
+   "mood": "sleepy",
+   "gag": {
+    "prop": "cake",
+    "at": "8%"
+   },
+   "card": {
+    "rows": [
+     [
+      "BIRTHDAY CAKE",
+      "#ffd34d",
+      100
+     ],
+     [
+      "PROBABLY WASTED",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "36%"
+   },
+   "say": "Meatball baked his cat a birthday cake. Probably wasted. Happy fucking birthday."
+  },
+  {
+   "scene": "study",
+   "pad": 0.25,
+   "m": "fact",
+   "say": "One gene for tasting sweet is broken. Holy shit.",
    "card": {
     "rows": [
      [
@@ -108,40 +136,20 @@
    }
   },
   {
-   "scene": "basement",
-   "pad": 0.6,
-   "m": "tiny",
-   "say": "A tiger and a cheetah they tested had the same broken gene.",
-   "card": {
-    "rows": [
-     [
-      "TIGER + CHEETAH",
-      "#ffd34d",
-      96
-     ],
-     [
-      "SAME BROKEN GENE FOUND",
-      "#ffffff",
-      56,
-      true
-     ]
-    ],
-    "y": 470,
-    "at": "40%"
-   }
-  },
-  {
    "scene": "kitchen",
-   "pad": 0.5,
+   "pad": 0.25,
    "m": "escalate",
-   "gag": false,
-   "say": "It'll still stare at your damn donut."
+   "gag": {
+    "prop": "donut",
+    "at": "12%"
+   },
+   "say": "It'll still stare at your donut like you owe it fucking money."
   },
   {
    "scene": "bedroom",
-   "pad": 0.6,
+   "pad": 0.25,
    "m": "calm",
-   "say": "Blink slowly at it instead. In one small study, cats were more likely to approach a stranger who did.",
+   "say": "Blink slowly at it instead. In one small study, cats were more likely to approach a stranger who did. Weird as fuck.",
    "card": {
     "rows": [
      [
@@ -166,7 +174,7 @@
    "gag": {
     "mark": "alarm"
    },
-   "say": "So blink, don't bribe it with candy, because",
+   "say": "So blink, don't fucking bake, because",
    "card": {
     "rows": [
      [
@@ -199,5 +207,15 @@
   "until": 2.5
  },
  "tiktok_title": "Can Cats Taste Sugar? Most Likely Not",
- "tiktok_caption": "can cats taste sugar 🐱 In cats, one gene of the sweet taste receptor (Tas1r2) is broken, so cats most likely can't taste sugar. Does your cat care about sweets? #cats #catsoftiktok #catfacts #learnontiktok #meatballmyths"
+ "tiktok_caption": "can cats taste sugar 🐱 In cats, one gene of the sweet taste receptor (Tas1r2) is broken, so cats most likely can't taste sugar. Does your cat care about sweets? #cats #catsoftiktok #catfacts #learnontiktok #meatballmyths",
+ "cap_swap": {
+  "shit": "sh*t",
+  "shits": "sh*ts",
+  "shitty": "sh*tty",
+  "bullshit": "bullsh*t",
+  "fuck": "f**k",
+  "fucking": "f**king",
+  "fucker": "f**ker",
+  "fuckers": "f**kers"
+ }
 }
