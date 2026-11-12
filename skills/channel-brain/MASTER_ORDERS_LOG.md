@@ -288,3 +288,8 @@ Pick episodes from `CALENDAR_REALISTIC.md`, top down. Any Short that beats 2x th
 
 3. Get free **Pexels and Pixabay API keys** and add them as environment variables for the channel agent.
 4. Optional: Higgsfield credits if AI shots are wanted for actions no real footage shows.
+
+## Moved from the page on 11/12 16:45 ET to make room (still true)
+- (TikTok orders) First read: Nolan asked for one joke cut "posted asap to see how it does", so it went out Wed 11/11 11:32. Its numbers and the other first reads: the log under "Overview".
+- (Direction change) **The seven Shorts built on it** (`oh-meatball/research/84`, `86`, `92`; slots under "Views are stuck on both platforms"): the first read is Wed 11/18, when six are 48 hours old: the share over 5,000 views against the bug median of about 1,550.
+- (The YouTube play) **Not taken (reasons in the log):** the "Every Bug Ranked" compilation of Shorts, and live-action or macro footage in the first 3 seconds. The one piece that fits the locked look is keeping Meatball out of the first 3 seconds (animal only); that is the next hook test, after the current one reads out.

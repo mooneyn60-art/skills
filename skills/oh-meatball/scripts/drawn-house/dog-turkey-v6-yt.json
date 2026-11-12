@@ -58,8 +58,8 @@
  ],
  "title": "If Dogs Eat Turkey: Boneless and Fully Cooked, Says the ASPCA 🦃 (Things Living In Your House #70)",
  "description": "Can dogs eat turkey? The ASPCA recommends sticking to your pet's normal diet on Thanksgiving. If you do decide to share a small bite of turkey, it says to make sure it's boneless and fully cooked: raw or undercooked turkey may contain salmonella, and poultry bones can be a major choking hazard. The FDA says dogs are notorious for helping themselves to the turkey carcass in the trash, and the bones can get stuck. Its advice: securely wrap up the table scraps and bones and put them in a trash bin your pets can't get into. The AVMA says cooked turkey bones can splinter and damage a pet's mouth or digestive system. General information, not advice for your dog: ask your vet.\n\n#dogs #thanksgiving #meatballmyths #shorts\n\nSources: ASPCA, Thanksgiving Safety Tips; FDA, Keep Your Dogs and Cats Safe From Holiday Hazards; AVMA, Household hazards.",
- "pinned_comment": "What is the worst thing your dog ever got out of the trash, and how did it get in?",
- "_note": "DRAFT, timing test",
+ "pinned_comment": "What is the worst thing your dog ever got out of the trash?",
+ "_note": "11/12: new pet Short for Thanksgiving week (11/26). Searched words 'can dogs eat turkey': rank 1 in the YouTube and the web suggestions (postkit kw, 2026-11-12). Written only from research/facts/dog-turkey.md. Not yet checked by a second model. | Facts: DOGT1 in line 1 (ASPCA: if you share, boneless and fully cooked), DOGT4 in lines 3 and 4 (FDA: dogs are notorious for helping themselves to the turkey carcass; bones can get stuck; wrap up the scraps and bones, a trash bin your pets can't get into). Line 2 is the Meatball gag and adds no fact; 'that' in line 3 points at it. | Left out of the spoken lines and why: 'a small bite' and 'ask your vet' (both on the hook card; the YouTube cut sits at 19.5 s, so there was no room; each safety line ends with the agency's own action); salmonella in raw turkey (DOGT2) and the AVMA cooked-bone line (DOGT7) are in the description only; DOGT3, DOGT5, DOGT6, DOGT8, DOGT9 and DOGT10 are not used. No string, no gravy, no amount, no count, no bone pile drawn (the pile gag pops objects out of the animal's rear, which would look like a health claim). | Sources opened again by the writer on 2026-11-12: the ASPCA and FDA pages, and the quotes match word for word. The AVMA page answered with a bot check, so DOGT7 rests on the fact pack's saved copy of the same day. | Engagement rules of 11/12: the hook is the searched question; the last line is the comment question (the same as the corner pill and the pinned comment) and runs into the hook. | Title: 'If Dogs Eat Turkey' keeps the searched words in a statement (lint fails a question title, and a bare 'dogs can eat turkey' is on the do-not-say list); it does not lead with 'Your dog'. | Mild words: one (damn, in the gag). The joke after the FDA instruction is drawn on its card (MEATBALL CAN'T OPEN IT EITHER) because a spoken one did not fit. | Writer's scratch render 2026-11-12 (not the file to post): 19.53 s, voice check passed. The speech model writes ASPCA as 'asbca' and does not hear the last 'And' (the take holds it at 2.64 s). Pads are already 0.2 s: a longer wording needs a cut somewhere else. | Lint: pass, 0 warn.",
  "beats": [
   {
    "open": "animal",
@@ -82,6 +82,12 @@
       "ASPCA: IF YOU SHARE A SMALL BITE",
       "#ffffff",
       48,
+      true
+     ],
+     [
+      "NOT SURE? ASK YOUR VET",
+      "#ffffff",
+      46,
       true
      ]
     ],
@@ -120,11 +126,11 @@
     "y": 470,
     "at": "55%"
    },
-   "say": "Meatball guarded the turkey all day. His dog got the carcass out of the trash."
+   "say": "Meatball guarded the turkey all day. His dog got the damn carcass out of the trash."
   },
   {
    "scene": "study",
-   "pad": 0.25,
+   "pad": 0.2,
    "m": "tiny",
    "_f": [
     "DOGT4"
@@ -154,13 +160,13 @@
   },
   {
    "scene": "garden",
-   "pad": 0.25,
+   "pad": 0.2,
    "m": "fact",
    "_f": [
     "DOGT4"
    ],
    "gag": false,
-   "say": "It says bones can get stuck. So wrap them, and use a bin your dog can't get into.",
+   "say": "Bones can get stuck. So wrap them up, and use a trash bin your dog can't get into.",
    "card": {
     "rows": [
      [
@@ -173,10 +179,16 @@
       "#ffffff",
       46,
       true
+     ],
+     [
+      "MEATBALL CAN'T OPEN IT EITHER",
+      "#ffd34d",
+      46,
+      true
      ]
     ],
     "y": 470,
-    "at": "30%"
+    "at": "35%"
    }
   },
   {
@@ -185,13 +197,13 @@
    "gag": {
     "mark": "alarm"
    },
-   "say": "Meatball can't open the damn thing either. Ask your vet:",
+   "say": "What's the worst thing your dog got out of the trash? And",
    "card": {
     "rows": [
      [
-      "WHAT DID YOUR DOG GET INTO? COMMENT",
+      "WORST THING YOUR DOG GOT OUT OF THE TRASH? COMMENT",
       "#ffffff",
-      40,
+      38,
       true
      ]
     ],
@@ -208,7 +220,8 @@
   "can dogs have turkey",
   "can dogs eat turkey meat",
   "can dogs have turkey bones",
-  "thanksgiving dog safety",
+  "turkey bones bad for dogs",
+  "thanksgiving pet safety tips",
   "things living in your house",
   "Meatball Myths"
  ]
