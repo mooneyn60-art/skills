@@ -1,56 +1,62 @@
 ---
 name: make-short
-description: Make, check and schedule a Meatball Myths YouTube Short and its TikTok cut, from topic to a logged post. Use this whenever a new Short or TikTok is to be written, rewritten, made funnier, re-rendered, swapped into a scheduled post or moved, even if Nolan only says "make one about X", "fix that one" or "try these today". It holds the order of the steps and the commands that replace hand work, so nothing is scheduled unchecked.
+description: Make, rewrite, re-render, reschedule or move a Meatball Myths YouTube Short or TikTok cut, from topic to a logged post. Use for "make one about X", "new short", "do a TikTok on X", "try these today", "post this today", "make them funnier", "make it funnier", "too short", "redo it", "swap it in", "move it to 4pm". It holds the order of the steps and the commands, so nothing is scheduled unchecked.
 ---
 
 # Make a Short (and its TikTok cut)
 
-Rules live in `skills/channel-brain/MASTER_ORDERS.md` and Nolan's words there win over this page. This page is the order of work and the commands. Run commands from `skills/oh-meatball`. If `python3 tools/postkit.py --help` fails on a fresh machine, run `bash tools/setup_env.sh` first.
+Rules live in `skills/channel-brain/MASTER_ORDERS.md`; Nolan's words there win over this page. This page is the order of work and the commands. Run commands from `skills/oh-meatball`. If `python3 tools/postkit.py --help` fails on a fresh machine, run `bash tools/setup_env.sh` first.
 
-Why the order matters: every step below exists because skipping it once put a wrong or stale video in the queue (a render that silently kept the old file, a title that claimed more than the study, a caption that lost a safety condition).
+Why the order matters: every step exists because skipping it once put a wrong or stale video in the queue (a render that silently kept the old file, a title that claimed more than the study, a caption that lost a safety condition).
 
 ## 1. Research before anything is built
-Nolan's standing order is research first, every time. For a new topic that means numbers, not a guess:
-- What people type: `python3 tools/postkit.py kw "seed phrase" "another seed" --search "main query" --out research/data/NN-kw.csv`. Take the strongest suggestion as the search phrase.
-- What TikTok itself calls it: find three to five public TikToks on the topic (web search limited to tiktok.com), then `python3 tools/postkit.py ttpage URL ...` and read "TikTok suggests". It is often not the question you assumed ("guilty dogs", not "why does my dog look guilty").
+Nolan's standing order: research first, every time. For a new topic that means numbers, not a guess:
+- What people type: `python3 tools/postkit.py kw "seed phrase" "another seed" --search "main query" --out research/data/NN-kw.csv`. The searched words are defined in the `post-metadata` skill.
+- What TikTok calls it: find three to five public TikToks on the topic (web search limited to tiktok.com), then `python3 tools/postkit.py ttpage URL ...` and read "TikTok suggests".
 - Facts: a fact pack with a source for every number (pattern: `research/84-pets-and-survive-factpack.md`, with a do-not-say list). A different model checks the pack against the live sources.
-- A new direction or format (not just a new topic) goes to Nolan as options with the evidence before anything is built.
+- A new direction or format (not just a new topic) goes to Nolan as options with the evidence first.
+- New videos are pets or Would Meatball Survive. No new bug episodes, no case files.
 
 ## 2. Write the spec
-One JSON file per cut in `scripts/drawn-house/`: `<slug>-v6-yt.json` for YouTube and `tts-<slug>.json` for the TikTok cut. Copy the newest pair as a template and read `references/spec.md` for the keys.
-The script rules that hold today (check MASTER_ORDERS "Make them funnier" and "The v6 template" for changes):
-- Funny first. Line 1 is the fact, with the searched phrase in the first spoken sentence. Line 2 is a Meatball gag that is drawn, not only said (a prop, a card, him acting it out). After that every fact line is the joke or is followed by one; a line that is only a study detail is cut. Keep at least two sourced facts.
-- Jokes are on Meatball. A joke never adds a number, a danger or health claim, an animal's feeling or motive, or a safety instruction. Hedges stay ("probably", "may", "in one small study"). Attributions and safety instructions are said clean, with the reaction after.
-- YouTube: 15 to 20 s, one or two mild words, statement title. TikTok: about one swear a line, `cap_swap` softens every spelling used, `search_top` shows the search phrase for the first 2 to 2.5 s, 20 to 26 s for a short cut or 61 s and more for a Rewards cut.
-- Write "his cat" and "his dog" in full and "let out a meow", not "meowed": the voice swallows the short forms.
+One JSON file per cut in `scripts/drawn-house/`: `<slug>-v6-yt.json` for YouTube and `tts-<slug>.json` for the TikTok cut. Copy the newest pair. The renderer's docstring (`tools/drawn.py`) is the source of truth for the keys; `references/spec.md` is a short guide.
+The script rules are in MASTER_ORDERS, "Make them funnier", rules 1-5. Read them there; do not copy them here. Two things this page adds: write "his cat" and "his dog" in full and "let out a meow", not "meowed" (the voice swallows the short forms); the searched words go in the first spoken sentence.
+Voice is fixed: edge-tts `en-US-AndrewMultilingualNeural`, +10%, +3Hz. Fully drawn, no real photos or footage.
 
 ## 3. A different model checks the script
-Before any render that will be scheduled, a reviewer on another model reads every changed line against the fact pack, the do-not-say list and the rules above (pattern: `research/92-factcheck-funnier-cuts.md`). Apply its fixes. Unchanged, already-cleared lines need no second look.
+Before any render that will be scheduled, a reviewer on another model reads every changed line against the fact pack, the do-not-say list and the rules (pattern: `research/92-factcheck-funnier-cuts.md`). Apply its fixes. Lines already cleared and unchanged need no second look.
 
 ## 4. Render and listen
 `python3 tools/postkit.py render scripts/drawn-house/<spec>.json episodes/drawn-house/<out>.mp4 --work /dev/shm/<slug>`
-This runs `drawn.py`, fails loudly if the renderer exited with an error or left the old file in place, then transcribes the result and compares it with the script line by line. Do not schedule on anything but a pass. `postkit.py voicecheck SPEC MP4` re-checks an existing file.
+It runs `drawn.py`, fails if the renderer errored or left the old file in place, then transcribes the result and compares it with the script line by line.
+- **Pass** = exit 0 and the line `ok every line heard to its end`. Schedule on nothing else.
+- **FAIL**: render once more (the voice service drops words at random). If the same line fails again, reword the line the check names, then send the new wording through the second-model check (step 3) before rendering again.
+- `postkit.py voicecheck SPEC MP4` re-checks an existing file.
 
 ## 5. Look
-`python3 tools/postkit.py sheet episodes/drawn-house/<out>.mp4 /tmp/<slug>.jpg` and read the image. Check: frame 0 is the animal already moving; the gag in line 2 is visible; cards are readable and not under the TikTok search phrase; captions show softened spellings on TikTok; the last line returns to the first room for the loop.
+`render` already wrote `<work>/sheet.jpg` (the path is printed). Open that one. `postkit.py sheet MP4 OUT.jpg` is only for an mp4 that already exists. A still cannot show motion: compare frame 0 and frame 1 for "the animal is already moving". Check: the gag in line 2 is visible; cards are readable and not under the TikTok search phrase; TikTok captions show the softened spellings; the last frame is back in the first room (the loop).
 
 ## 6. Titles, tags and captions
-Follow the `post-metadata` skill, then gate it:
+Follow the `post-metadata` skill, then gate it. Lint each network's spec on its own (a YouTube spec checks the YouTube fields, a `tts-` spec checks the TikTok fields):
 `python3 tools/postkit.py lint scripts/drawn-house/<spec>.json --mp4 episodes/drawn-house/<out>.mp4`
-A FAIL blocks scheduling. A WARN is a deviation from the standard that needs a reason.
+- **FAIL** blocks scheduling. Fix it and lint again.
+- **WARN** needs a reason. Write the reason in the spec's `_note`; lint reads exit codes only, so the note is for the next reader.
+- Lint does not check facts, whether the tags fit the video, or whether the searched words sit in the first 40 characters of the title. Read those yourself.
+- `python3 tools/postkit.py selftest` runs lint on built-in good and bad specs. Run it after any change to postkit.
 
 ## 7. Commit, push, link
 Add paths with `git add --sparse <paths>` (never `git add -A`), commit, push, then:
 `python3 tools/postkit.py rawurl episodes/drawn-house/<out>.mp4`
-It prints the raw link at the pushed commit and refuses if the file on disk is not the one in that commit.
+It fails unless the file on disk is the file in the pushed commit, resolves the commit to a full sha, and checks the raw link answers HTTP 200 before it prints it.
 
 ## 8. Schedule
-- Build the exact post body: `python3 tools/postkit.py payload SPEC --net youtube|tiktok --when 2026-11-13T16:00:00 --media <raw link or existing static.metricool.com link>`.
-- Load the Metricool tools with ToolSearch (`select:mcp__Metricool_Social_Media_Management__createScheduledPost,...updateScheduledPost,...getScheduledPosts`), brand `7521392`, timezone `America/New_York`. An update needs the whole body again; the post's id changes on every update and its uuid stays. Read the schedule one or two days per call.
-- Slots and limits are in MASTER_ORDERS ("Posting", "Views are stuck on both platforms"): three Shorts a day at least three hours apart, never in the long-form's slot; the AI label stays on.
+- `python3 tools/postkit.py payload SPEC --net youtube|tiktok --when 2026-11-13T16:00:00 --media <raw link or existing static.metricool.com link>` prints the `info` object. It exits non-zero and prints nothing if the spec does not match `--net`, `--when` is not `YYYY-MM-DDTHH:MM:SS`, or `--media` is not an https link.
+- New post: add `--call`. It prints the three arguments of Metricool `createScheduledPost`: `blogId` ("7521392"), `date` (the `--when` time with the New York offset, for example `2026-11-13T16:00:00-05:00`) and `info` (a JSON string).
+- Change a post: add `--update ID UUID`. It prints the four arguments of `updateScheduledPost`: `blogId`, `id`, `uuid` and `info`. An update replaces the whole post. The id changes on every update; the uuid does not, so log the uuid.
+- Load the Metricool tools with ToolSearch (`select:mcp__Metricool_Social_Media_Management__createScheduledPost,...updateScheduledPost,...getScheduledPosts`), timezone `America/New_York`. Read the schedule one day per call.
+- Slots: YouTube three Shorts a day at least 3 hours apart, weekdays 10:00, 16:00, 19:00; weekends 08:00 or 11:00 after a long-form, 14:00 or 15:00, 19:00 ET. TikTok 12:00, 19:00, 21:30 ET. Never in a long-form's slot. The AI label stays on. See MASTER_ORDERS, "Posting".
 - After the call: `python3 tools/postkit.py rehost <static.metricool.com link from the response> <local file>` proves Metricool holds the same file.
 
 ## 9. Log and tell
-- `data/posted.csv`: one row per post (`date,network,episode,file,title`), changed with every scheduling change.
+- `python3 tools/postkit.py log ...` writes `data/posted.csv` (`date,network,episode,file,title`) and the post's uuid in `data/post-ids.csv`. Run it with every scheduling change. With no `--episode`, a row is matched on network and file name; if two rows match it FAILs and asks for `--episode`.
 - If Nolan's words caused the work, they go into MASTER_ORDERS the same day with your reading of them; a finding goes into `skills/channel-brain/KNOWLEDGE.md` with its source.
 - Commit and push. Then tell Nolan in one or two short lines: what changed, and the one thing he must do if there is one.

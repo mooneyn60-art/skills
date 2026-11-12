@@ -1,6 +1,6 @@
 ---
 name: oh-meatball
-description: Run "Meatball Myths" (YouTube UCw98RQD81t_339LX5EJqcrg, TikTok @meatballmyths). The channel is a stick-figure meatball who explains weird true things: two story long-forms a week (17:00 ET), 3 Shorts and 3 TikToks a day. Use it to script, render (tools/episode.py), package (tools/thumbnail.py), schedule (Metricool) and review the channel.
+description: Run "Meatball Myths" (YouTube UCw98RQD81t_339LX5EJqcrg, TikTok @meatballmyths). The channel is a stick-figure meatball who explains weird true things, fully drawn: a long-form Saturday 08:00 plus one Wednesday or Thursday 17:00, three YouTube Shorts a day, TikTok 12:00, 19:00 and 21:30 ET. Use it to make (.claude/skills/make-short), write text (post-metadata), schedule (Metricool) and read the numbers (scoreboard).
 ---
 
 # Meatball Myths
@@ -10,36 +10,23 @@ description: Run "Meatball Myths" (YouTube UCw98RQD81t_339LX5EJqcrg, TikTok @mea
 The old cat soap opera (numbered serial episodes, Veo shots, OpusClip) was retired on 10/22. Its leftovers live in `story/`, `caught-on-camera/` and `new-format/` and are never used.
 
 ## Read these, in this order
-1. `brain/SKILL.md`: scan first, fix the top 3 issues, and act without asking. Run `python3 brain/tools/scan.py .`.
-2. `OPERATIONS.md`: Nolan's standing orders, cadence, voice, the "Meatball is the star" rule, the asks, and the long-form reset.
-3. `TOWN.md`: the 10 desks, the daily rhythm, and the square on the town artifact.
-4. `research/42-growth-reset.md` (niche, thumbnails, repeat audience), `research/39-meatball-show-bible.md` (persona) and `research/41-stickman-reference.md` (animation).
-5. `KNOWLEDGE.md` (tested findings) and `SELF_REVIEW.md` (mistakes and the checks that catch them).
-6. `research/60-growth-research-1029.md` (sourced 2026 platform research: Shorts→long-form tap, auto dubbing, Test & Compare, TikTok frequency/search). Its rules live in PLAYBOOK.md and OPERATIONS.md.
+1. `skills/channel-brain/MASTER_ORDERS.md`: the standing orders and the rules in force. Read it first, every session. Then `skills/channel-brain/KNOWLEDGE.md` and the newest files in `research/` (highest number).
+2. `python3 skills/channel-brain/tools/scan.py skills/oh-meatball` (read-only): the queue, cadence and stale-file check. It writes nothing unless you pass `--json FILE`.
+3. `OPERATIONS.md`: the team, the numbers we steer by and the older standing orders. Its Cadence and Gate sections are current; the long blocks below them are history and say so.
+4. `TOWN.md`, `KNOWLEDGE.md` (tested findings) and `SELF_REVIEW.md` (mistakes and the checks that catch them).
 
-## Gate: YouTube Shorts (Nolan, 10/29; permanent)
-Every YouTube Short is a show episode (series + part) of 20 s or less.
-- **Before render:** `python3 skills/channel-brain/tools/outline_lint.py <outline>` must PASS.
-- **Render:** `python3 skills/oh-meatball/tools/drawn_quick.py <outline> --only yt` (YouTube gate 14-20 s).
-- **Before queue:** `python3 skills/channel-brain/tools/vidcheck.py <mp4>` must PASS (≤20 s), and the 2 fps contact sheet must show the creature at frame 0 and Meatball acting.
-- **Models:** `scripts/drawn-house/outlines/scabies-v2.yaml` and `scripts/drawn-tt/outlines/cassowary-v2.yaml`.
+## What is true today (2026-11-12)
+- Fully drawn, no real photos or footage. Voice: edge-tts `en-US-AndrewMultilingualNeural`, +10%, +3Hz.
+- YouTube: three Shorts a day at least 3 hours apart (weekdays 10:00, 16:00, 19:00 ET; weekends 08:00 or 11:00 after a long-form, 14:00 or 15:00, 19:00). Long-form Saturday 08:00 plus Wednesday or Thursday 17:00.
+- TikTok: 12:00, 19:00, 21:30 ET. The 19:00 slot carries the 20 to 26 second search-led cuts through 11/19; one-minute sweary cuts go at 20:15.
+- New videos are pets or Would Meatball Survive. No new bug episodes, no case files. Research is continuous and every run ends in a queue or script change.
+- The bottleneck is views on both platforms, then 4,000 long-form hours.
+
+## Gate (permanent)
+No Short is scheduled unless `postkit.py render` (or `voicecheck`) passed on its mp4 and `postkit.py lint` passed on its spec. Post bodies come from `postkit.py payload`, not from typing.
 
 ## Pipeline
-- **Script:** `scripts/<slug>.json`.
-  - Long-form: one story, 6-8 min.
-  - Shorts: claim-first with a photo at frame 0.
-  - Photos come from iNaturalist and must be CC0 or CC BY.
-- **Voice:**
-  - Shorts use Bill via `tools/premium_voice.py`.
-  - Long-form uses edge-tts Andrew until a free replacement passes (research/39-voice-tests).
-- **Render:** `cd tools && python3 episode.py ../scripts/<slug>.json <slug> --work <scratchpad>/rel [--skip-long|--skip-shorts|--skip-existing]`.
-  - The Meatball 2.0 rig (`mascot.py`) and the shot grammar (`explainer.py`) are built in.
-  - Check the frames before scheduling.
-- **Thumbnail:** `tools/thumbnail.py`. Make 3 variants and score them with `vidiq_score_thumbnail`.
-- **Ship:**
-  - Commit and push, then use raw GitHub URLs pinned to the commit SHA (check each returns 200).
-  - Schedule with Metricool `createScheduledPost` (brand 7521392, America/New_York) and log it in `data/posted.csv`.
-- **Measure:**
-  - vidIQ `channel_analytics`: retention, traffic and subscribers.
-  - `brain/tools/abtest.py` scores experiments.
-  - Each change gets an `E<n>` row in `data/experiments.csv`.
+Spec JSON -> second-model check -> `postkit.py render` -> contact sheet -> `lint` -> push and `rawurl` -> `payload` -> Metricool -> `rehost` -> `log`. The steps and commands are in `.claude/skills/make-short`; text is in `.claude/skills/post-metadata`.
+- **Thumbnails (long-form):** `tools/thumb_dontkill.py`.
+- **Measure:** `.claude/skills/scoreboard` (Windsor, Metricool, `postkit.py ttpage`). vidIQ only after its credits return on 11/24.
+- Each test gets an `E<n>` row in `data/experiments.csv`.

@@ -4,23 +4,25 @@ Claude runs the channel; Nolan owns the accounts, gives direction, and does the 
 taps. This file is the team, the daily routine, the numbers we steer by, and the rules for change.
 
 
-## Cadence (source of truth, 2026-10-29; OVERRIDES every older time or count in this file, TOWN.md and the routines)
+## Cadence (current as of 2026-11-12; also in MASTER_ORDERS, "Posting", and in the CADENCE table of scan.py)
 
-- **YouTube Shorts: 09:30, 14:00 and 18:00 ET.** On a long-form day there is no 18:00 Short (2 that day).
-- **TikToks: 3 a day at 12:00, 14:30 and 17:00 ET**, every one 61 s+ for Creator Rewards.
-- **Long-forms: 17:00 ET, at least 3 days apart, at most 2 a week.** Already scheduled: 10/29, 11/1, 11/5.
-- `brain/tools/scan.py` CADENCE matches this (it skips the 18:00 Short on long-form days).
-- Animals only. The TRUE-OR-FALSE quiz format and the "Meatball Investigates" case files are on hold as drafts; ignore drafts. Every case/verdict slot table further down is historical.
+- **YouTube Shorts: three a day, at least 3 hours apart.** Weekdays 10:00, 16:00, 19:00 ET. Weekends 08:00 or 11:00 (11:00 after a long-form), 14:00 or 15:00, 19:00. Do not go above three a day without numbers that say it is safe.
+- **TikTok: 12:00, 19:00 and 21:30 ET.** The 19:00 slot carries the 20 to 26 second search-led cuts (spec key `search_top`) through 11/19. One-minute sweary cuts go at 20:15.
+- **Long-forms: Saturday 08:00 plus one Wednesday or Thursday 17:00.**
+- New videos are pets or Would Meatball Survive. No new bug episodes, no case files. Fully drawn. Research is continuous.
+- The bottleneck is views on both platforms, then 4,000 long-form hours.
+- Every older time or count further down (09:30/14:00/18:00 Shorts, 12:00/14:30/17:00 TikToks, "2 Shorts" on a long-form day, 61 s+ only) is history.
 
-## Gate: every YouTube Short is a show episode of 20 s or less (Nolan, 10/29; permanent)
+## Gate: every Short (Nolan 11/12; permanent)
 
-- **Before render:** `python3 skills/channel-brain/tools/outline_lint.py <outline>` must PASS (5 lines, ≤52 words, ≥2 action macros, ≤1 fact, a twist punch, a tease that names the next creature, series + part).
-- **Render:** `python3 skills/oh-meatball/tools/drawn_quick.py <outline> --only yt` (its YouTube gate is 14-20 s; never `--force`).
-- **Before queue:** `python3 skills/channel-brain/tools/vidcheck.py <mp4>` must PASS (≤20 s). Then look at the 2 fps contact sheet: frame 0 shows the creature, and Meatball acts.
-- **Models:** `scripts/drawn-house/outlines/scabies-v2.yaml` (House #19) and `scripts/drawn-tt/outlines/cassowary-v2.yaml` (Survive #1).
-- One-offs (no show and number) don't go on YouTube.
+- No Short or TikTok is scheduled unless `postkit.py render` (or `voicecheck`) passed on its mp4 and `postkit.py lint` passed on its spec.
+- Steps: spec JSON, second-model check, `render`, contact sheet, `lint`, push and `rawurl`, `payload`, Metricool, `rehost`, `log`. Commands are in `.claude/skills/make-short`.
+- The old gate (outline_lint, drawn_quick, vidcheck) is retired.
+
 
 ## vidIQ ration (OVERRIDES every routine's budget line, set 2026-10-26)
+
+UPDATE 11/12: 3 credits are left until the 11/24 reset. Spend 0. The 11/24 read is planned in MASTER_ORDERS ("Develop yourself"). The numbers come from the scoreboard skill (Windsor, Metricool, ttpage).
 
 UPDATE 10/27 12:30: balance is 68 (Lab used ~300). Below 100 = Sunday summit only; every other routine spends 0.
 UPDATE 10/28 12:25: balance 13 before the midday desk, 8 after its one TikTok outlier search (5). Lead-approved cap for 10/28: 6. No score_title or keyword research until the 11/24 reset unless Nolan asks.
@@ -42,13 +44,15 @@ Until the reset:
 
 
 ## Drawn look (Nolan, 2026-10-27): the house style for new videos
-- Everything is drawn (tools/drawn.py): animals with faces in a drawn version of their habitat; for cases, drawn people, ships and rooms (generic figures, no photo likenesses). Use at most one real "proof" photo.
+- Everything is drawn (tools/drawn.py): animals with faces in a drawn version of their habitat. No real photos or footage, on YouTube or TikTok (Nolan 11/12: "No, keep it all drawn").
 - Meatball is BIG, 35-50% of frame height: the main character, acting in every scene.
-- NO pop-up text: no label cards, banners, polls, pills or keyword cards.
+- Cards are allowed: keyword cards in seconds 1 to 4, and `search_top` (the searched phrase on screen) on TikTok.
 - CAPTIONS ON: small 1-3 word spoken-word captions (Nolan's pick).
-- The only ask is one spoken subscribe line at the end, tied to the series.
+- No spoken or visual outro and no spoken subscribe line (the v6 template).
 
 ## NO QUIZZES: just tell the story (Nolan, 2026-10-26; overrides any older rule)
+
+Partly retired on 2026-11-12: lines here about photos, footage, Bill, Kokoro, episode.py, cases and quizzes are history. See MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 "Get rid of all quizzes and just tell the story, make it engaging and make sure you ask for subs."
 - Banned in every new script:
   - "Guess" lines, "Guess one / Guess two" decoys
@@ -66,6 +70,8 @@ Until the reset:
 - Queue: re-render queued quiz-style videos nearest-first as capacity allows; never post a TRUE-or-FALSE Short after 10/27.
 
 ## House opening: the "What if I told you" challenge (Nolan, 2026-10-26)
+
+Retired on 2026-11-12: see MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 Nolan picked opening C ("What if I told you Howard Hughes helped the CIA steal a Soviet submarine, nuclear
 missiles and all?") "by far" over a scene open (A) and a proof open (B). TARS also bet on C (45%).
 - Default for Story Cuts and case TikToks: line 1 is "What if I told you [famous name or everyday thing] + [true
@@ -89,18 +95,20 @@ missiles and all?") "by far" over a scene open (A) and a proof open (B). TARS al
 | Analyst | tools/stats.py, Metricool + vidIQ analytics, HQ "Daily report", experiment scoring | evening run |
 | Scout | tools/rivals.py, competitor outliers, research/19-topic-backlog.md | evening run |
 | Writer | next episode script (cold open, 12 myths, jokes, ~1,600-1,700 words) | morning run, 2 days ahead |
-| Photo editor | iNaturalist candidate sheets, live/unharmed/right-species picks | morning run |
-| Producer | episode.py (long + Shorts), tiktok.py, thumb3 + thumb2 | morning run |
-| Scheduler | Metricool queue per the Cadence section (3 Shorts, 3 TikToks a day, 2 long-forms a week), first comments; re-check best times weekly | morning run |
+| Photo editor | retired (fully drawn, no photos) | n/a |
+| Producer | `postkit.py render` and the make-short skill; long-form thumbnails with tools/thumb_dontkill.py | morning run |
+| Scheduler | Metricool queue per the Cadence section (3 Shorts and 3 TikToks a day, a long-form Saturday 08:00 plus Wednesday or Thursday 17:00), first comments | morning run |
 | Inbox | Nolan's chat messages + comments on the HQ page; acts on them first | every run |
 
 ## Daily routine (scheduled tasks fire into this session; all ET)
+
+Retired on 2026-11-12: see MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 | When | Run | Output |
 |---|---|---|
 | 08:13 | Production: inbox, build the episode for 2 days out, fill the queue | the Cadence section's slots queued 2 days ahead |
 | 18:41 | Review: stats, analytics, rivals, HQ report, next topics | HQ Daily report + rivals, backlog updated |
 
-Times: see the Cadence section at the top (the old 2 PM / 9:30-20:00 slot lists are retired). Put the week's strongest Short at the Thursday 14:00 slot: vidIQ's busiest subscriber window is Thursday 3-6 PM.
+Times: see the Cadence section at the top (the old 2 PM / 9:30-20:00 slot lists are retired). 
 
 ## Numbers we steer by
 Episodes: impressions CTR, 30 s retention, average view duration, views in 48 h.
@@ -123,7 +131,7 @@ qualified views. Channel: subs, weekly long-form watch hours vs the 4,000 h pace
 - **Platforms (Nolan, 10/24): YouTube and TikTok only.** Don't connect or ask about Instagram, Facebook, Pinterest or Threads again. Their crossposting steps are retired.
 - Full authority (Nolan, 10/24): the Mayor decides and acts on anything that helps the channel, without asking.
   Nolan's own actions are the exception: logins, connecting accounts, and payments, which stay zero beyond what's already paid.
-- Only Meatball stick-figure info/quiz videos (long-form and Shorts). No door-cam, trail-cam or other
+- Only drawn Meatball videos: animal-fact Shorts and Meatball long-forms; no quiz formats. No door-cam, trail-cam or other
   fake camera clips, ever; the old ones stay as drafts in Metricool.
 - Long-form explainers run ~10 minutes (12 myths, or a history story with 3-4 checkpoints), never 2-3 minute pilots.
   Each episode is cut into one vertical Short per myth (`explainer.py --vertical`).
@@ -132,17 +140,21 @@ qualified views. Channel: subs, weekly long-form watch hours vs the 4,000 h pace
   like this video" (new uploads), and Content > select all > Edit (existing ones).
 
 ## Shorts v4 is the format (Nolan approved 10/25: "Wayyy better in the new ones do that")
+
+Retired on 2026-11-12: see MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 - Every new Short and TikTok uses `"style": "v4"`: all of v3 below, plus moving animal cut-outs (research/45).
   - Give each acting beat an `"animal": "<move>@<word>"` (lunge, kick, charge, strike, sting, shake, turn, drift).
   - Set `"contact": true` only when Meatball should touch the animal.
 - **Whole animal or nothing (Nolan: outlines, "some of the animal is missing"):**
-  - Photos must show the WHOLE animal, uncropped (CC0/CC BY).
+  - Photos must show the WHOLE animal, uncropped (CC0/CC BY). (Retired: new videos are fully drawn.)
   - A failed cut-out falls back to the v3 still; the render fails if a cut-out breaks the rules.
   - The factdesk eyeballs every new cut-out: the automatic check can't catch a matte that stops short.
 - **Bigger animals (Nolan approved 10/25, "Better"):** tools-v4-bigger.diff is merged. Animals are fitted by their real outline, Meatball tucks left at size 760 (down to 547 when it lets the animal grow 8%+), and the opening shot is animal-only until Meatball peeks in.
 - Already-scheduled v3 posts stay up. Don't re-render them.
 
 ## Weird pivot: "Meatball investigates the weird" (Nolan 10/25; Sunday Summit decisions)
+
+Retired on 2026-11-12: see MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 Nolan turned the channel toward conspiracy theories (debunked or proven), strange history, strange facts and myths, with animals as one pillar, and mysterious music. Pilot: research/48 and episodes/weird-pilot/ (6 Shorts + 1 long-form). Character layer: research/39 "Weird pivot" (scared investigator, "Opening the file.", verdict stamp, case-file structure).
 - **Rollout is an experiment, not a switch (E19).** From the first pilot post (target 10/27): the 9:30 AM YouTube Short and its TikTok 2 h later are a numbered "Case of the Day". The 1 PM and 4 PM Shorts stay v4 animal jeopardy. Widen to 2 slots only if 6 cases land at or above the v4 animal median on 48 h views; kill if all 6 land under half of it. Long-form: one weird case (proven-true Cold War secret first; research/27 §7) in a Tue/Sat slot once it passes tools/retention.py.
 - **Every case ends on a verdict stamp:** PROVEN, DEBUNKED or UNSOLVED, shown on screen, with the primary source named on screen. The verdict is spoken over a moving picture, never a bare card.
@@ -152,6 +164,8 @@ Nolan turned the channel toward conspiracy theories (debunked or proven), strang
 - Everything else holds: v4 style, bigger animals, the early ask kit ("Real or fake?" guess card), 14-20 s YouTube (see Gate) / 61-75 s open-loop TikTok, AI label on, YouTube and TikTok only.
 
 ## Shorts endings (Sunday Summit 10/25, research/38 problem 1)
+
+Retired on 2026-11-12: see MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 The goldfish curve loses half its remaining viewers between 47% and 75% of the video, where we park a text-only punchline card and an ask. From 10/26 renders:
 - The punchline is spoken over a moving cut-out or a new picture, never a bare text card.
 - Any CTA ("Part 2 tomorrow", "follow") overlays picture; it never gets its own seconds after the punchline.
@@ -159,12 +173,16 @@ The goldfish curve loses half its remaining viewers between 47% and 75% of the v
 - 60 s+ deep dives are saved as `tt-*.mp4`, never `short-*.mp4` (two 65-67 s renders reached 11/10 YouTube Shorts slots; scan.py check 7 now covers the whole ledger).
 
 ## TikTok deep dives: open loop (night shift proposal 10/25, research/40; Mayor to adopt or reject)
+
+Retired on 2026-11-12: see MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 - A 61-75 s deep dive promises one withheld answer in lines 1-3 ("...but it has exactly one weakness"), walks through 2+
   wrong guesses (`"decoy": true`), and pays off (`"payoff": true`) at 50-80% of the words. Shorts keep claim-first.
 - `python3 tools/openloop.py SCRIPT.json` checks it; `research/40-openloop-gate.diff` makes episode.py enforce it.
 - Template: `scripts/v4-one-weakness-pangolin.json`. Rival evidence: 62 s T. rex cartoon explainer, 1.6M (10.3x), answer at 69%.
 
 ## Story Cut + hook lab (research/52; TikTok 80-110 s)
+
+Retired on 2026-11-12: see MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 - A **Story Cut** is a TikTok story, not a quiz: a myth group with `"_len": "story"`. Someone wants something, every answer opens the next question, the stakes climb in steps, a false calm sits at 70-90%, and it ends on a kicker or a cliffhanger. The spec and the outlier evidence are in `research/52-story-engine.md`.
 - Beat flags: `"want"` (in the first 3 lines, names who), `"resolves"` / `"opens"`, `"step": 1..n` (3+), `"calm"` then `"drop"`, `"kicker"` or `"cliffhanger"`, and a `"host"` beat at least every 20 s.
 - Gates: `python3 tools/story.py SCRIPT.json` (S1-S6; `--self-test` runs its fixture), plus `openloop.py` and `coldopen.py`. Give a Story Cut 25+ beats so openloop checks it. B/C openings set `"cold_open": "claim"`. Budget about 250-265 spoken words on the cold-war voice for 100-110 s.
@@ -172,6 +190,8 @@ The goldfish curve loses half its remaining viewers between 47% and 75% of the v
 - First case: `scripts/story-01.json` (Project Azorian), rendered to `episodes/story-01/story-azorian-{A,B,C}.mp4`. The lead schedules them.
 
 ## Screen rules (TARS 10/27 review; renderer defaults from 10/27, tools/v3.py + tools/framing.py)
+
+Retired on 2026-11-12: see MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 - No picture on screen over 2.5 s; frame 0 = the sharpest photo with the subject filling 50%+; Meatball
   never covers the subject (he shrinks first); hard cuts only (no blur whip); no photo under 900 px when a
   bigger one exists, nothing blown up past 1.5x.
@@ -183,6 +203,8 @@ The goldfish curve loses half its remaining viewers between 47% and 75% of the v
 - Samples: `episodes/samples-1027/`.
 
 ## Shorts v3 (the base v4 builds on; approved 10/24)
+
+Retired on 2026-11-12: see MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 - `"style": "v3"` (tools/v3.py, research/44).
 - **Meatball in jeopardy:** something happens to him, he doesn't narrate it.
 - **Pacing:**
@@ -200,6 +222,8 @@ The goldfish curve loses half its remaining viewers between 47% and 75% of the v
 - **Every v3 Short posts twice:** to YouTube, then to TikTok 1-2 h later. TikTok-only deep dives (61-75 s, Kokoro voice) fill the 60 s+ Creator Rewards slots.
 
 ## Meatball is the star (Nolan, 10/24)
+
+Retired on 2026-11-12: see MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 - Meatball is the biggest thing on screen in every shot that isn't a full-bleed animal photo.
   - **Long-form:** about 85% of the frame height, head high, beside a narrower photo panel.
   - **Shorts:** about half the frame on text cards; on photo shots he stands in the scene, cut at the waist.
@@ -213,6 +237,8 @@ The goldfish curve loses half its remaining viewers between 47% and 75% of the v
 - The Red Team rejects any render or thumbnail that breaks these rules.
 
 ## Long-form rules (learned 2026-10-23)
+
+Partly retired on 2026-11-12: lines here about photos, footage, Bill, Kokoro, episode.py, cases and quizzes are history. See MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 - Cold open every episode: the first line is the hook for a stranger (the myths, the twist, the
   stakes), then straight into myth 1. Never open with "Last time..." since nearly every viewer is new.
 - Post the episode first, then its Shorts, so every Short can carry a Related video link to it
@@ -234,6 +260,8 @@ The goldfish curve loses half its remaining viewers between 47% and 75% of the v
 - Never post the same video twice to one platform (check opusclip_list_scheduled_posts first).
 
 ## Opening rules (Contrarian review, research/38; Mayor 10/24)
+
+Retired on 2026-11-12: see MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 - **Long-form:** every beat in the first 30 s shows an animal photo, and each animal appears as it is named. Text-only cards come no earlier than 15 s. Myth #1 starts by 25 s.
 - **Shorts and TikToks (Shorts v2):**
   - Frame 0 is a full-screen, moving photo of the animal doing the thing the line describes.
@@ -242,6 +270,8 @@ The goldfish curve loses half its remaining viewers between 47% and 75% of the v
 - **Captions:** unique per post and built from the searched question (tools/tiktok.py `title()`/`caption()`). Never use file-nickname hashtags.
 
 ## Niche, thumbnails, repeat audience (Nolan, 10/24; research/42)
+
+Partly retired on 2026-11-12: lines here about photos, footage, Bill, Kokoro, episode.py, cases and quizzes are history. See MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 - **Quiz format retired for new long-form.** Meatball explains weird true things.
 - **Topic pillars:**
   - Animals (70% of videos)
@@ -263,6 +293,8 @@ The goldfish curve loses half its remaining viewers between 47% and 75% of the v
   - Community polls (drafted by the Host desk, posted by Nolan)
 
 ## Always ask: likes, comments, subscribes (Nolan, 10/24)
+
+Partly retired on 2026-11-12: lines here about photos, footage, Bill, Kokoro, episode.py, cases and quizzes are history. See MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 Never assume viewers will engage. Every video asks, in Meatball's voice and with a joke, never as a generic "smash that like button".
 
 **Long-form: v3/v4 style + early asks (Nolan 10/25: "keep that up, and for long form also"; "more v3 in long form, too dry")**
@@ -299,6 +331,8 @@ Never assume viewers will engage. Every video asks, in Meatball's voice and with
 - **Read-outs quote only real comments** (vidiq_video_comments). With no comments yet, use an ask, never invented answers or names.
 
 ## Long-form reset (Nolan + Mayor, 10/24 evening)
+
+Partly retired on 2026-11-12: lines here about photos, footage, Bill, Kokoro, episode.py, cases and quizzes are history. See MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 Data, last 30 days:
 - Long-form got 5 views, averaging 28 seconds watched.
 - Shorts got 6,002 views.
@@ -329,6 +363,8 @@ Rules from 10/30:
 - **Judge by retention:** keep a format only if average view duration is above 2:00 and retention at 30 seconds is above 60%. Check after each episode with vidIQ audience_retention.
 
 ## Narrator voice (Nolan, 10/24): Bill
+
+Retired on 2026-11-12: see MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 - **Shorts:** every new Short uses `"voice": "vidiq:pqHfZKP75CvOlQylNhV4"` (vidIQ premium voice "Bill - Wise, Mature, Balanced").
 - **Generating Bill's audio:**
   1. Run `tools/premium_voice.py prep SCRIPT OUTDIR`.
@@ -344,6 +380,8 @@ Rules from 10/30:
 - **No paid voices beyond the vidIQ credits we already have (Nolan, 10/24).** Bill runs until those credits are gone; no extra credits and no ElevenLabs. The free replacement is being tested: Chatterbox (open source, runs locally) with our own Meatball voice made from a Kokoro blend. Samples are in `research/39-voice-tests/`. One character, one voice is still the goal.
 
 ## Long-form retention (Retention desk, 10/25; research/47)
+
+Partly retired on 2026-11-12: lines here about photos, footage, Bill, Kokoro, episode.py, cases and quizzes are history. See MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 Autopsy: our one long-form with a curve (gFhrONKK0rI, 2:15 quiz pilot, 11 viewers, 53 s AVD) lost people at 0:02 (the opening question card), 0:04 (it answered its own question), 0:14 (agenda line "Today we're fixing..."), 0:18 (re-stated answer), and wherever one item ran 25-45 s with no tease (0:28, 0:46, 1:12). Small-channel breakouts open on the animal, never introduce themselves, and change animal every 75-100 s under a countable structure.
 
 **`tools/retention.py` gates every 16:9 story long-form; episode.py refuses to build one that fails** (`--no-retention` only for old episodes). It estimates times from words (3.35 words/s, Kokoro +0%) or reads a render's timeline.json (`--timeline`).
@@ -357,6 +395,8 @@ Autopsy: our one long-form with a curve (gFhrONKK0rI, 2:15 quiz pilot, 11 viewer
 - **Every evening (Intel):** pull audience_retention for each long-form older than 48 h, log the drops in data/retention.csv, and send the top drop cause to the Showrunner.
 
 ## Daily mix from 10/28: cases scale up (Nolan 10/26: "I want some of those going out today, we will need to scale")
+
+Retired on 2026-11-12: see MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 **HISTORICAL: case files are on hold (10/28); slot times are in the Cadence section.** Supersedes the E19 one-slot rollout above. All times ET.
 | Slot | YouTube Short | TikTok |
 |---|---|---|
@@ -378,11 +418,15 @@ Autopsy: our one long-form with a curve (gFhrONKK0rI, 2:15 quiz pilot, 11 viewer
 - **Score it like E19:** after 7 days compare case vs animal Shorts on 48 h views, engaged views and subs/1K; deep cuts vs 23 s reposts on TikTok watch time and views past 60 s.
 
 ## Meatball Investigates: the tools (Showrunner 10/26, research/48 §6)
+
+Retired on 2026-11-12: see MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 - Script fields: spec `"series": {"text": "MEATBALL INVESTIGATES"}` + hook `"case": "CASE #3"` (case-file tag on every frame, card + sting on the hook); beat `"stamp": {"text": "BUSTED", "at": "word"}` (TRUE/PROVEN green, FALSE/BUSTED/CLASSIFIED red; `"reveal": false` = no music drop); shot `"board": {"notes": [...], "stamp": "CLASSIFIED"}` (evidence board); spec `"captions": "bold"`.
 - Music: `"music": "gen:mystery"` (main) or `"gen:detective"` (alternate), per Short via the hook's `"music"`; tools/music.py renders it to the timeline (rises into each stamp, drops out 0.42 s before it, hits on it, loop-safe) and v3.py mixes voice -16 / music -20 LUFS, ducked, master -14.
 - Photos: `"obs": "wm:File name.jpg"` (Commons PD/CC0/CC BY; licence cache data/wm-licenses.json for 429 storms). Never a time anchor that is a bare number (`"at": "1994"` is read as seconds): anchor on a word.
 
 ## Themes: every topic gets its own voice and music (Nolan 10/26; tools/themes.py)
+
+Retired on 2026-11-12: see MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 Every new script picks ONE theme: spec `"theme"` (whole script) or hook beat `"theme"` (one Short in a pack). The theme sets the narrator voice and the music bed and overrides the spec's own voice/rate/pitch/music. All lines are still Meatball's (same persona, same jokes); the theme only changes how he sounds. Music sits at -27 LUFS under a -16 LUFS voice with heavy ducking (`"music_lufs"`), keeps the build, the 0.42 s silence before each verdict stamp and the hit on it.
 | Theme | Use for | Voice (edge-tts, then atempo 1.12) | Music (tools/music.py) |
 |---|---|---|---|
@@ -399,6 +443,8 @@ Every new script picks ONE theme: spec `"theme"` (whole script) or hook beat `"t
 - **Shorts v2 shape (research/40 + 48):** scene-first past-tense open with a 3-5 word `"headline"` on frame 0; "See, in 19xx..." rewind; a "Wait, it gets worse" twist and a Meatball jeopardy beat; one plain verdict sentence + stamp; an ironic `"kicker"` as the last line over a moving picture (no end CTA; the ask kit stays early); `"max_shot": 1.8`; 14-20 s (see Gate). `tools/coldopen.py` checks the open.
 
 ## Weekly cadence: Verdict Wednesday + Viewer Case Friday (Nolan approved research/50, 10/26)
+
+Retired on 2026-11-12: see MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 **ON HOLD with the case files (10/28); the 11:00 / 19:30 slots below are not live.**
 Extra slots on top of the daily mix: they never move the scaling agent's 09:30/16:00 YouTube cases or its two TikTok cases a day. All times ET. **YouTube Shorts stay 14-20 s** (Nolan 10/29 Gate; 10/26: longer YouTube Shorts underperformed; the 60-120 s YouTube test is OFF). 60-75 s versions are TikTok only.
 | Day | Slot | What |
@@ -430,6 +476,8 @@ Extra slots on top of the daily mix: they never move the scaling agent's 09:30/1
 **Case board arc (season gag; research/50 idea 4).** Every case and verdict script sets `"caseboard": true`: host shots pin the last 4 past cases (polaroid + "#N VERDICT") on the board behind Meatball, so the board grows on screen. After a case posts, `python3 tools/caseboard.py add scripts/<pack>.json` pins it (data/caseboard.json). **The Fork thread:** run `python3 tools/caseboard.py fork-due` before writing; when it says "due" (4+ cases since the last), that case gets ONE host beat with `"host": {"fork": true, ...}` asking "Who keeps leaving this fork at my crime scenes?" (or a new variation). Never a real suspect; the payoff is the season-finale long-form.
 
 ## Growth levers (Growth desk 10/26, research/51; Nolan: "make all of those")
+
+Partly retired on 2026-11-12: lines here about photos, footage, Bill, Kokoro, episode.py, cases and quizzes are history. See MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 Beyond making more videos, these run every day. The ranked list, tests and metrics are in research/51-growth-levers.md.
 - **Funnel first.** A Short's Related video points at its best long-form (data/related-video-map.csv; Nolan sets it in Studio). The case long-form `Conspiracy Theories That Turned Out To Be TRUE` is rendered: it goes live before any more case Shorts pile up. **Every new long-form or Short adds a row to the map** (postmaster, when it's queued). A Short's Related video can be changed later, so map it to a scheduled long-form and set it on the day that one goes public.
 - **Search-first long-forms.** Long-form titles start with a searched phrase that has vidIQ volume (research/51-search-slate.md). The next two are `scripts/longform-bermuda-triangle.json` and `scripts/longform-roanoke.json` (both pass retention.py). Publish the long-form first, then cut its Shorts.
@@ -441,6 +489,8 @@ Beyond making more videos, these run every day. The ranked list, tests and metri
 - **Not doing:** YouTube Promote before YPP (Promote subscribers and watch time don't count toward YPP; Help 72851 and Google's Promote playbook), re-uploading flops (reused-content risk), sub4sub, comment spam elsewhere, clickbait that the video doesn't pay off.
 
 ## Weird-news fast lane (Growth desk 10/26, research/51 §5)
+
+Retired on 2026-11-12: see MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 A same-day "Meatball Investigates" Short on a strange discovery, a newly declassified file or an odd science result. It's an **extra** post: it never moves a queued post.
 - **Sources (12:19 marketing desk; 08:13 if time):** Smithsonian "Smart News", Live Science, Science/Nature news, EurekAlert!, NASA/NOAA newsrooms, NARA and the CIA FOIA Reading Room "recently released", the FBI Vault, Atlas Obscura, museum press pages. vidIQ `trending_videos` or `keyword_research mode=rising` (5 credits each) only within the week's cap.
 - **Turnaround: source → posted in ≤ 8 h.** Intel flags it (30 min) → factdesk confirms with 2 independent reputable sources (30 min) → showrunner writes `scripts/news-NN.json` from the verdict-01 template, a 14-20 s v2 case (45 min) → studio renders and QAs the 2 fps sheet (2 h) → postmaster adds an extra YouTube post and an extra TikTok in the next free gap between Cadence slots (on hold with the case files). Log both in data/posted.csv and a row in data/related-video-map.csv.
@@ -448,6 +498,8 @@ A same-day "Meatball Investigates" Short on a strange discovery, a newly declass
 - **Score:** 48 h views vs the case median and search as a traffic source. Keep the lane if 2 news Shorts in a week land at 1.5x or more; kill it after 3 land under half the median.
 
 ## TikTok is the money now (Nolan, 10/26)
+
+Retired on 2026-11-12: see MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 TikTok is monetized through Creator Rewards; YouTube is not yet. Creator Rewards pays only for videos of **60 s or longer**, so:
 - **Every TikTok is a 61-75 s deep version**: open mid-action, rewind, verdict at 45-70%, ironic kicker, a host beat about every 15 s, a theme, the early ask kit, and the open-loop gate. Never post a 20-24 s cut to TikTok.
 - **YouTube Shorts stay 14-20 s (see Gate).** Longer YouTube Shorts underperformed. YouTube's job is growth to monetization: the Shorts-to-long-form funnel, search long-forms, and subscribers.
@@ -456,10 +508,14 @@ TikTok is monetized through Creator Rewards; YouTube is not yet. Creator Rewards
 - **Weekly earnings log:** Nolan reads the Creator Rewards dashboard (estimated rewards, qualified views, RPM) and drops the numbers on the town square; the Accountant logs them in data/tiktok-rewards.csv. Topics with the best RPM get more slots.
 
 ## Scene changes (Nolan, 10/27)
+
+Retired on 2026-11-12: see MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 Every drawn video has 2-3 `solo` lines: a complete scene change to the creature ALONE in its real habitat, big and
 centred, no Meatball (outline `wild:` + `solo:` lines; tools/drawn_macros.py). The room with Meatball is the home base.
 
 ## Drawn only (Nolan, 10/27: "Wayyy better, I want only those going out, same style for long form")
+
+Retired on 2026-11-12: see MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 - Only drawn-style videos publish (tools/drawn_quick.py). Every queued photo-style post from 10/27 on was set to draft
   (logged in data/held.csv). Don't un-draft them; replace slots with drawn cuts.
 - YouTube Shorts = the drawn yt cut (14-20 s, never --force; see Gate). TikTok = the
@@ -468,6 +524,8 @@ centred, no Meatball (outline `wild:` + `solo:` lines; tools/drawn_macros.py). T
   the segment titles, ordered so each "Next, ..." tease points at the next segment. No new 5-7 min photo long-forms.
 
 ## Growth sprint: week of 10/29-11/4 (Wednesday marketing desk, 10/28)
+
+Retired on 2026-11-12: see MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 **Checkpoint read (research/31, day 7 = 10/31):**
 | Metric | Checkpoint | Now (10/28) | Read |
 |---|---|---|---|

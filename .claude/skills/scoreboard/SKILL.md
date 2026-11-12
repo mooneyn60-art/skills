@@ -1,6 +1,6 @@
 ---
 name: scoreboard
-description: Read how Meatball Myths videos are doing on YouTube and TikTok and turn it into a decision, with the source of every number. Use this for the daily scoreboard, any "how did it do", "check the numbers", "why did views drop", "did that work" question, a scheduled read of a test, or before changing the queue because of performance. It lists which data source answers which question, including the ones that are easy to forget.
+description: Read how Meatball Myths videos are doing on YouTube and TikTok and turn it into a decision, with the source of every number. Use for "how did it do", "how are we doing", "what are the numbers", "check the numbers", "why did views drop", "did that work", "is it working", "did it go out", "did it post", "view jail", "any winners", the daily scoreboard, a scheduled test read, or before changing the queue because of performance. It lists which data source answers which question.
 ---
 
 # Scoreboard: which number comes from where
@@ -12,23 +12,28 @@ Nolan wants the result in one or two short lines with the source, and what could
 ## YouTube
 | Question | Source | How |
 |---|---|---|
-| Public views now, age | yt-dlp flat listing | `yt-dlp --flat-playlist -J https://www.youtube.com/channel/UCw98RQD81t_339LX5EJqcrg/shorts` (and `/videos`). Views are rounded to two digits above 1,000. Never open watch pages from this machine. |
-| Did it post, its video id | Metricool | `getScheduledPosts`, brand `7521392`, one or two days per call; published posts carry `publicUrl`. |
-| Views, engaged views, average % viewed, likes, shares, subscribers gained, per video per day | Windsor.ai, connector `youtube` | fields `video`, `video_title`, `date`, `views`, `engaged_views`, `average_view_percentage`, `shares`, `subscribers_gained`, `creator_content_type`. Two to three days behind. |
-| Where the views came from (Shorts feed, search, suggested, subscribers) | Windsor.ai, field `traffic_source` | combine with `video`, `views`, `engaged_views`. Search share shows which titles earn search; the engaged share inside `SHORTS` shows whether feed viewers stayed. First used 11/12. |
+| Public views now | yt-dlp flat listing | `yt-dlp --flat-playlist -J https://www.youtube.com/channel/UCw98RQD81t_339LX5EJqcrg/shorts` (and `/videos`). Entries are newest first and have no upload date, so no age. Views are rounded to two digits above 1,000. Never open watch pages from this machine. |
+| Age of a video | Metricool or Windsor | Metricool `publicationDate` for the id, or Windsor `published_at` (UTC) once the video has data. |
+| Did it post, its video id | Metricool | `getScheduledPosts`, brand `7521392`, one day per call, dates with the offset: `fromDate 2026-11-11T00:00:00-05:00`, `toDate 2026-11-11T23:59:59-05:00`, `timezone America/New_York`. Real posts have `draft:false`; published ones carry `publicUrl`. Rows with `draft:true` are old leftover drafts (status PENDING in a past slot): ignore them, they are not failed slots. |
+| Views, engaged views, average % viewed, likes, comments, shares, subscribers gained, per video per day | Windsor.ai, connector `youtube` | fields `video`, `video_title`, `date`, `views`, `engaged_views`, `average_view_percentage`, `likes`, `comments`, `shares`, `subscribers_gained`, `creator_content_type`, `published_at`. Two to three days behind: the last day with data is `max(date)`. No rows for a video younger than 3 days is normal, not an error; use the public count and the Metricool publish time until it appears. Windsor `views` for a day is not the public lifetime count. |
+| Where the views came from (Shorts feed, search, suggested, subscribers) | Windsor.ai, field `traffic_source` | One call per video: fields `traffic_source`, `views`, `engaged_views` (add `date` for per-day), filter `[["video","eq","<id>"]]`. Never put `video` in the fields with `traffic_source`: it comes back null. The id is not echoed back, so write it down yourself. Without the filter you get the channel total. Engaged share = `engaged_views` / `views` per source. Search share shows which titles earn search; the engaged share inside `SHORTS` shows whether feed viewers stayed. |
 | Who watches | Windsor.ai | `viewer_age_group`, `viewer_gender` with `viewer_percentage`; `country` with `views`. |
-| Retention curve, impressions, click-through, "shown in feed", swipe-away | not available here | Studio only (a screenshot from Nolan), or vidIQ's retention report at 5 credits a video once credits reset. |
+| Long-form watch hours (the 4,000 h goal) | Metricool analytics (`getAnalyticsDataByMetrics`) | Watch minutes for each long-form. Keep them in `data/longform-hours.csv` (date, video id, minutes, hours to date) and add the running total in hours against 4,000. Say in the write-up that the source is Metricool analytics. |
+| Retention curve, impressions, click-through, "shown in feed", swipe-away | not available here | Studio only (a screenshot from Nolan), or vidIQ once credits return on 11/24. |
 
-Reading rules that hold (research 90): a Short gets about 90% of its views on day 0, so judge it at 12 to 15 hours against about 1,000 views; an engaged share under 0.39 in the first days means viewers swiped; tiny views with a normal share means it was not shown. Compare a Short with its own style and topic group, never with all videos, and never read a gap of 100 to 200 views: public counts are rounded.
+Reading rules that hold (research 90): a Short gets about 90% of its views on day 0, so judge it at 12 to 15 hours against about 1,000 views (from the public count and the Metricool publish time, because Windsor is days behind); an engaged share under 0.39 in the first days means viewers swiped; tiny views with a normal share means it was not shown. Compare a Short with its own style and topic group, never with all videos, and never read a gap of 100 to 200 views: public counts are rounded.
 
 ## TikTok
 | Question | Source | How |
 |---|---|---|
-| Views, likes, comments, shares per post | Metricool analytics, or the public page | `python3 tools/postkit.py ttpage URL ...` |
-| TikTok's category label, its suggested searches, review or penalty flags, the AI label | public page | same command (`labels`, `suggested_words`, `is_reviewing`, `penalty`, `aigc_label_type`). One request per video, no loops. |
-| Watch time, finish rate, For You against Search | not available here | TikTok Studio only (ask Nolan for one screenshot when a test depends on it). |
+| Views, likes, comments, shares, saves per post | public page | `python3 tools/postkit.py ttpage URL... --csv data/tiktok-stats.csv`. Run it on every scoreboard run, so a time series builds up. Take the URLs from Metricool `publicUrl`. One request per video; it stops at the first "no page data" (do not retry in a loop). `plays` means views. Age = now minus `created` (epoch seconds, UTC, in `--json`). |
+| TikTok's category label, its suggested searches, review or penalty flags, the AI label | public page | same command. `labels` (first label is the category, for example "Comics & Cartoon, Anime"), `suggested_words`, `is_reviewing` (true = under review), `penalty` (a set of numeric codes; `display_penalty_type` "0" and `is_reviewing` false means no flag seen; what each code means is unverified), `aigc_label_type` ("1" is what our 11/11 test post showed while `is_aigc` read false, so read `aigc_label_type`, not `is_aigc`; a change from "1" is the thing to report). |
+| Watch time, finish rate, For You against Search | not available here | TikTok Studio only (ask Nolan for one screenshot when a test depends on it), or Windsor `tiktok_organic` if Nolan approves the link. |
 
 Baselines (research 91, 81 posts): median 229 views, middle half 196 to 316, likes 2.2%, comments 0.05%, shares 0.06%.
+
+## Why did views drop
+Pull SHORTS views by date and by video (Windsor, one call per video), put them next to the posting days and times from Metricool, and compare feed against search and the engaged share (under 0.39 means viewers swiped; 0.40 or more with tiny views means YouTube did not show it). Say which part Windsor cannot show yet (the last 3 days).
 
 ## Writing it up
 - A dated file `research/NN-scoreboard-MMDD.md`: answer first, then tables, then "Could not measure". Rows as CSV in `research/data/`.

@@ -18,7 +18,8 @@ Checks (each one is cheap, local, and uses only files already in the repo):
   4. metrics.csv: zero subscribers gained in the last 7 days
   5. doc drift: routine docs that mention a retired format, an old branch, or contradict CADENCE
   6. expert playbooks over the 300-line cap
-  7. render length vs slot (added 10/25): a YouTube Short over 40 s (drawn Shorts run 18-40 s, 10/27), or a day with no 60 s+ TikTok
+  7. render length vs slot (added 10/25): a yt-*.mp4 Short over 40 s (long-form files are skipped), a TikTok under 60 s
+     (not flagged when its spec has search_top: those 20-26 s cuts are the 11/12 search-led test)
   8. focus (10/29 audit): share of the next 7 days of YouTube posts that are the shows, queue longer than 7 days,
      commits that never reach the queue, TikTok rewards and retention tracking gone stale
 """
@@ -30,13 +31,13 @@ import re
 import statistics as st
 import sys
 
-# --- keep this in sync with OPERATIONS.md (the scanner flags docs that disagree with it) ---------------
+# --- keep this in sync with OPERATIONS.md and MASTER_ORDERS "Posting" (the scanner flags docs that disagree) ------
 CADENCE = {  # network: ET posting times per day, or {"weekday": [...], "weekend": [...]}
-    # Studio 11/3: the audience peaks weekdays 10:00-15:00 ET, weekends 08:00-13:00 / 14:00-17:00 ET; 9:00-11:30 uploads
-    # get traction fastest and two Shorts 6-8 h apart don't cannibalize: YT 10:00 + 16:00 weekdays, 08:00 + 14:00
-    # Sat/Sun. TikTok unchanged (12-5 pm window).
-    "youtube-short": {"weekday": ["10:00", "16:00"], "weekend": ["08:00", "14:00"]},
-    "tiktok": ["12:00", "14:30", "17:00"],
+    # A slot "08:00|11:00" is one slot that either time fills (weekends: 08:00 or 11:00 after a long-form, 14:00 or 15:00).
+    # YouTube (Nolan 11/12): three Shorts a day, at least 3 h apart. TikTok (11/11 Studio): 12:00, 19:00, 21:30 ET;
+    # the 19:00 slot carries the 20-26 s search-led cuts through 11/19, and one-minute sweary cuts go at 20:15 (extra posts).
+    "youtube-short": {"weekday": ["10:00", "16:00", "19:00"], "weekend": ["08:00|11:00", "14:00|15:00", "19:00"]},
+    "tiktok": ["12:00", "19:00", "21:30"],
 }
 
 
@@ -93,7 +94,7 @@ def check_views(root, now):
     age = (now - last).total_seconds() / 3600
     if age > STALE_SNAPSHOT_H:
         add("CRITICAL", "intel", f"The last view snapshot is {age:.0f} h old ({snaps[-1]}). Every decision since then is blind.",
-            "Run tools/stats.py now, then re-run this scan.")
+            "Run tools/stats.py now (free, yt-dlp), then re-run this scan; for the real numbers use the scoreboard skill (Windsor, Metricool, ttpage).")
     by = {}
     for r in vs:
         by.setdefault(r["id"], []).append((parse_ts(r["ts"]), int(r["views"] or 0), r["kind"], r["title"]))
@@ -134,7 +135,8 @@ def check_views(root, now):
 
 def is_longform(r):
     # 10/28: drawn compilations (episode longform-drawn, house-all.mp4) were flagged as 383-405 s "Shorts".
-    return r.get("file", "").startswith("ep") or r.get("episode", "").startswith("longform")
+    f = r.get("file", "")
+    return f.startswith("ep") or f.startswith("longform") or r.get("episode", "").startswith("longform")
 
 
 def check_queue(root, now):
@@ -170,8 +172,10 @@ def check_queue(root, now):
     used = set()
 
     def filled(net, slot, tol):
-        near = [(abs(p - slot), n, i) for n in net_alias[net] for i, p in enumerate(posts.get(n, []))
-                if (n, i) not in used and abs(p - slot) <= tol]
+        # slot is one datetime or a tuple of alternative datetimes (a "08:00|11:00" slot)
+        alts = slot if isinstance(slot, tuple) else (slot,)
+        near = [(abs(p - a), n, i) for a in alts for n in net_alias[net] for i, p in enumerate(posts.get(n, []))
+                if (n, i) not in used and abs(p - a) <= tol]
         if not near:
             return False
         used.add(min(near)[1:])
@@ -188,15 +192,22 @@ def check_queue(root, now):
             for t in cadence_times(net, day):
                 if LONGFORM_DAY_SKIP.get(net) == t and day in lf_days:
                     continue
-                slot = dt.datetime.combine(day, dt.time.fromisoformat(t), et)
-                if now_et < slot <= now_et + horizon:
-                    slots.append(slot)
+                alts = tuple(dt.datetime.combine(day, dt.time.fromisoformat(x), et) for x in t.split("|"))
+                if now_et < alts[-1] and alts[0] <= now_et + horizon:
+                    slots.append(alts if len(alts) > 1 else alts[0])
         open_slots = [s for s in slots if not filled(net, s, dt.timedelta(minutes=5))]
         missing = [s for s in open_slots if not filled(net, s, dt.timedelta(hours=2))]
-        soon = [s.strftime("%Y-%m-%d %H:%M") for s in missing if s - now_et <= dt.timedelta(hours=48)]
-        later = [s.strftime("%m-%d %H:%M") for s in missing if s - now_et > dt.timedelta(hours=48)]
+        def first(s):
+            return s[0] if isinstance(s, tuple) else s
+
+        def label(s, day_fmt):
+            alts = s if isinstance(s, tuple) else (s,)
+            return alts[0].strftime(day_fmt) + "".join("/" + a.strftime("%H:%M") for a in alts[1:])
+        soon_slots = [s for s in missing if first(s) - now_et <= dt.timedelta(hours=48)]
+        soon = [label(s, "%Y-%m-%d %H:%M") for s in soon_slots]
+        later = [label(s, "%m-%d %H:%M") for s in missing if first(s) - now_et > dt.timedelta(hours=48)]
         if soon:
-            sev = "CRITICAL" if any(parse_ts(m) - now_et < dt.timedelta(hours=12) for m in soon) else "WARN"
+            sev = "CRITICAL" if any(first(m) - now_et < dt.timedelta(hours=12) for m in soon_slots) else "WARN"
             add(sev, "postmaster", f"{len(soon)} {net} slot(s) in the next 48 h have nothing in posted.csv: {', '.join(soon[:6])}.",
                 "Fill them from finished renders now (or log them if they are already in Metricool but not in posted.csv).")
         if later:
@@ -255,10 +266,6 @@ def check_experiments(root, now):
     if paid:
         add("WARN", "intel", f"Paid promotion is live ({', '.join(paid)}) while organic tests are scored on views/subs. Paid followers and views contaminate those numbers.",
             "Score organic tests on organic traffic only (exclude promoted posts and their follower spike), or pause the paid test until the organic ones are read.")
-    for fmt, rs in running.items():
-        if len(rs) > 1:
-            add("WARN", "mayor", f"{len(rs)} experiments are running on {fmt} videos at once ({', '.join(rs)}). Their effects mix and none can be read.",
-                "Keep one, pause the rest (one change per format per week).")
 
 
 SERIES = r"Living In Your House|Would Meatball Survive|Spider Venomous|Meatball vs Spiders"  # the shows (AUDIT_2026-10-29)
@@ -277,8 +284,8 @@ def check_subs(root, now):
         subs = sum(int(r["subs_gained"]) for r in tracked)
         views = sum(int(r.get("views") or 0) for r in recent if (r.get("views") or "").strip().isdigit())
         if subs == 0 and views > 500:
-            add("CRITICAL", "showrunner", f"0 subscribers from {views} views logged in the last 7 days. Nothing is giving viewers a reason to subscribe.",
-                "Ship the recurring numbered series and a spoken subscribe reason in the last 3 s of every Short; log it as one experiment.")
+            add("WARN", "business", f"0 subscribers from {views} views logged in the last 7 days.",
+                "The bottleneck is views on both platforms (Nolan 11/12), then 4,000 long-form hours; read it in the scoreboard skill, do not add a spoken subscribe line (v6 template).")
 
 
 def check_docs(root):
@@ -296,7 +303,7 @@ def check_docs(root):
                 if m:
                     add("WARN", "mayor", f"{rel} still says '{m.group(0)}': {why}. A run that follows it does the wrong work.",
                         f"Rewrite or delete the stale part of {rel}.")
-            for b in set(re.findall(r"claude/[a-z0-9-]+", text)):
+            for b in set(re.findall(r"(?<![\w.])claude/[a-z0-9-]+", text)):  # not ".claude/skills"
                 if b != CURRENT_BRANCH:
                     add("WARN", "mayor", f"{rel} points at branch {b}, not {CURRENT_BRANCH}.", f"Fix the branch name in {rel}.")
             m = re.search(r"(\d+|one|two|three|four|five)\s+TikToks?\s+a day", text, re.I)
@@ -320,9 +327,6 @@ def check_playbooks(root):
                         "Fold proven lessons into its Rules section and delete the rest.")
 
 
-SERIES = r"Living In Your House|Would Meatball Survive|Spider Venomous|Meatball vs Spiders"  # the shows (AUDIT_2026-10-29)
-QUEUE_MAX_DAYS = 7
-SHIP_WORDS = r"posted\.csv|queue|schedul|" + SERIES
 
 
 def check_focus(root, now):
@@ -334,8 +338,8 @@ def check_focus(root, now):
         series = sum(bool(re.search(SERIES, r.get("title", ""))) for r in week)
         share = series / len(week)
         if share < 0.8:
-            add("CRITICAL", "postmaster", f"Only {series} of {len(week)} YouTube posts in the next {QUEUE_MAX_DAYS} days ({share:.0%}) are the shows; the rest are one-off facts that bring no one back (2.5% returning).",
-                "Move one-off facts off YouTube (held.csv or TikTok) and fill with finished show episodes, newest first.")
+            add("WARN", "postmaster", f"Only {series} of {len(week)} YouTube posts in the next {QUEUE_MAX_DAYS} days ({share:.0%}) are the shows; the rest are one-off facts that bring no one back (2.5% returning).",
+                "Pets and Would Meatball Survive count as shows too (no new bug episodes, Nolan 11/12). Move one-off facts off YouTube (held.csv or TikTok) and fill with finished show episodes, newest first.")
     far = [r for r in ps if parse_ts(r.get("date", "")) and parse_ts(r["date"]) > now + dt.timedelta(days=QUEUE_MAX_DAYS)]
     if far:
         last = max(parse_ts(r["date"]) for r in far)
@@ -353,14 +357,19 @@ def check_focus(root, now):
         if ship / len(out) < 0.5:
             add("WARN", "mayor", f"Only {ship} of {len(out)} commits in the last 48 h touched the queue or a show. The rest (re-renders, research, docs) never reach a viewer this week.",
                 "Before any task, answer: which post in the next 7 days, or which scorecard number, does this change? No answer = don't do it.")
-    for f, owner, what, days in (("tiktok-rewards.csv", "business", "TikTok Creator Rewards (the account that already pays)", 8),
-                                 ("retention.csv", "intel", "Shorts retention curves (where viewers leave)", 7)):
+    # Rewards is not joined (needs 10,000 followers, Nolan 11/12), so tiktok-rewards.csv is no longer checked.
+    # TikTok views per post build up in data/tiktok-stats.csv: scoreboard skill, postkit.py ttpage URL... --csv.
+    # Retention is Studio or vidIQ only (vidIQ credits return 11/24), so a stale retention.csv is only a note.
+    for f, sev, owner, what, days, fix in (
+            ("tiktok-stats.csv", "WARN", "intel", "TikTok views per post (a time series for the search-led test)", 3,
+             "Run python3 tools/postkit.py ttpage URL... --csv data/tiktok-stats.csv in every scoreboard run."),
+            ("retention.csv", "INFO", "intel", "Shorts retention curves (where viewers leave; Studio or vidIQ only)", 7,
+             "Record it when Nolan sends a Studio screenshot or after the 11/24 vidIQ read.")):
         rs = rows(os.path.join(root, "data", f))
         stamps = [parse_ts(next(iter(r.values())) or "") for r in rs]
         stamps = [s for s in stamps if s]
         if not stamps or (now - max(stamps)).days > days:
-            add("WARN", owner, f"data/{f} is {'empty' if not stamps else f'stale ({(now - max(stamps)).days} days)'}: {what} isn't being tracked.",
-                f"Record it at least every {days} days; it is how you learn what actually works.")
+            add(sev, owner, f"data/{f} is {'empty or missing' if not stamps else f'stale ({(now - max(stamps)).days} days)'}: {what} isn't being tracked.", fix)
 
 
 def check_predictions(root, now):
@@ -389,11 +398,21 @@ def video_seconds(path):
         return None
 
 
+def has_search_top(root, mp4):
+    """True when scripts/drawn-house/tts-<slug>.json (the spec of tts-<slug>.mp4) has a search_top key."""
+    base = os.path.splitext(os.path.basename(mp4))[0]
+    spec = os.path.join(root, "scripts", "drawn-house", base + ".json")
+    try:
+        return "search_top" in json.load(open(spec, encoding="utf-8"))
+    except (OSError, ValueError):
+        return False
+
+
 def check_durations(root, now):
     # 10/25: a 73 s bolas render sat in a YouTube Shorts slot (rule: 20-25 s; 43 s+ Shorts got 98-239 views
     # vs a ~620 median) and nothing caught it. TikTok needs one 60 s+ deep dive a day for Creator Rewards.
     et = dt.timezone(dt.timedelta(hours=-4))
-    now_et, long_yt, deep_days, tt_days, short_tt = now.astimezone(et), [], set(), set(), []
+    now_et, long_yt, deep_days, tt_days, short_tt, search_led = now.astimezone(et), [], set(), set(), [], []
     for r in rows(os.path.join(root, "data", "posted.csv")):
         t = parse_ts((r.get("date") or "")[:16])
         f = r.get("file", "")
@@ -406,24 +425,28 @@ def check_durations(root, now):
         secs = video_seconds(os.path.join(root, "episodes", r.get("episode", ""), f))
         if secs is None:
             continue
-        if r.get("network") == "youtube" and secs > 40:
+        if r.get("network") == "youtube" and f.startswith("yt-") and secs > 40:  # long-form files are not Shorts
             long_yt.append(f"{r['date']} {f} ({secs:.0f} s)")
         if r.get("network") == "tiktok":
             tt_days.add(t.date())
             if secs >= 60:
                 deep_days.add(t.date())
-            else:  # Nolan, 10/26: every TikTok is 60 s+; it was always the rule and the queue drifted.
+            elif has_search_top(root, f):  # 11/12 test: 20-26 s search-led cuts at 19:00 are on purpose
+                search_led.append(f)
+            else:
                 short_tt.append(f"{r['date']} {f} ({secs:.0f} s)")
     if long_yt:
         add("WARN", "postmaster", f"{len(long_yt)} queued YouTube Short(s) run over 40 s: {', '.join(long_yt[:4])}.",
-            "Swap in a 20-25 s render or set the post to draft; the long cut belongs on TikTok.")
+            "Swap in a 20 s render or set the post to draft; a long cut belongs on TikTok.")
     if short_tt:
-        add("CRITICAL", "postmaster", f"{len(short_tt)} queued TikTok(s) under 60 s earn $0: {', '.join(short_tt[:4])}.",
-            "Swap each for its 61-75 s deep version (render one if missing); never queue a sub-60 s TikTok.")
+        # Nolan 11/12: views before Rewards (it needs 10,000 followers and 100K views first), so under 60 s earns nothing
+        # extra but is not "$0 wasted"; a WARN to check the cut is meant, not a stop.
+        add("WARN", "postmaster", f"{len(short_tt)} queued TikTok(s) under 60 s without a search_top spec: {', '.join(short_tt[:4])}.",
+            "Check each is meant: the 19:00 search-led cuts have a tts-<slug>.json with search_top; other TikToks are 61 s+ only for proven topics (MASTER_ORDERS, Posting).")
     missing = sorted(d.isoformat() for d in tt_days - deep_days)
     if missing:
-        add("WARN", "postmaster", f"No 60 s+ TikTok on {', '.join(missing)} (Creator Rewards pays only 60 s+).",
-            "Move or queue one deep dive (61-75 s) into that day.")
+        add("INFO", "postmaster", f"No 60 s+ TikTok on {', '.join(missing)}. Rewards needs 10,000 followers first (Nolan 11/12: views before Rewards), so this is only a note.",
+            "Queue a 61 s+ cut on a proven topic only if the day has room; do not move the 19:00 search-led test.")
 
 
 def main():

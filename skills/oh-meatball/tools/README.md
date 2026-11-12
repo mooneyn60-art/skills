@@ -5,17 +5,19 @@ The Shorts and TikTok cuts are plain JSON specs in `scripts/drawn-house/`, rende
 
 | Tool | Usage |
 |---|---|
-| `setup_env.sh` | `bash tools/setup_env.sh` on a fresh machine: installs what is missing, downloads the speech model, ends with "ready" |
+| `setup_env.sh` | `bash tools/setup_env.sh` on a fresh machine: installs what is missing (pycairo last, after its system packages), downloads the speech model, runs the selftest. Ends "ready" (exit 0) or "NOT READY: n problems" (exit 1) |
 | `drawn.py` | `python3 tools/drawn.py SPEC.json OUT.mp4 --work DIR` (the renderer; its docstring lists the spec keys) |
-| `postkit.py render` | `python3 tools/postkit.py render SPEC OUT.mp4 --work DIR`: renders to `OUT.new.mp4` and replaces OUT only after the renderer succeeded and the transcript matches the script |
-| `postkit.py voicecheck` | `... voicecheck SPEC MP4`: every line heard, in order, to its last words |
-| `postkit.py sheet` | `... sheet MP4 OUT.jpg`: a contact sheet of an existing video |
-| `postkit.py lint` | `... lint SPEC [SPEC ...] [--mp4 FILE]`: title, description, tags, hashtags, caption, swear words, lengths. FAIL blocks scheduling |
-| `postkit.py payload` | `... payload SPEC --net youtube\|tiktok --when 2026-11-13T16:00:00 --media URL [--update ID UUID]`: the Metricool post body; runs lint first |
-| `postkit.py log` | `... log --net tiktok --when "2026-11-13 19:00" --file OUT.mp4 --spec SPEC [--uuid U --id I]`: `data/posted.csv` and `data/post-ids.csv` |
-| `postkit.py rawurl`, `rehost` | the raw link of a pushed file; proof that the scheduler's copy is the same size |
-| `postkit.py kw` | `... kw "seed" --search "query" --out FILE.csv`: YouTube and Google suggestions, top search results |
-| `postkit.py ttpage` | `... ttpage URL ...`: a public TikTok page (plays, label, TikTok's suggested searches, AI label) |
+| `postkit.py render` | `python3 tools/postkit.py render SPEC OUT.mp4 --work DIR`: checks the speech model loads, renders to `OUT.new.mp4`, replaces OUT only after the renderer succeeded and the transcript matches the script, prints the contact sheet path (`DIR/sheet.jpg`) |
+| `postkit.py voicecheck` | `... voicecheck SPEC MP4 [--model small.en]`: every line heard, in order, to its last words. No spoken lines or unreadable audio is a FAIL |
+| `postkit.py sheet` | `... sheet MP4 OUT.jpg [--step 1.5] [--cols 9]`: a contact sheet of an existing video; the last frame is always on it |
+| `postkit.py lint` | `... lint SPEC [SPEC ...] [--mp4 FILE]`: title, description, tags, hashtags, caption, swear words (by stem, and what the TikTok captions will show after cap_swap), placeholder text, lengths. FAIL blocks scheduling |
+| `postkit.py selftest` | `... selftest`: lint on built-in good and bad specs; exit 1 if any rule stopped working |
+| `postkit.py payload` | `... payload SPEC --net youtube\|tiktok --when 2026-11-13T16:00:00 --media https://URL [--call \| --update ID UUID] [--cover-ms MS]`: runs lint first. Prints the Metricool post (`info`); `--call` prints the createScheduledPost arguments (blogId, date with the New York offset, info); `--update` prints the updateScheduledPost arguments. Prints nothing when the spec is for the other network. `--cover-ms` is YouTube only |
+| `postkit.py log` | `... log --net tiktok --when "2026-11-13 19:00" --file OUT.mp4 (--title T \| --spec SPEC) [--episode E] [--uuid U --id I --media URL]`: `data/posted.csv` and `data/post-ids.csv`. Give `--episode` when the file name is used by more than one episode (it stops and asks) |
+| `postkit.py rawurl` | `... rawurl FILE [--sha SHA]`: the raw link of a pushed file, only when the file on disk is the same bytes as that commit and the link answers HTTP 200 |
+| `postkit.py rehost` | `... rehost URL FILE`: proof that the scheduler's copy is the same size as the local file |
+| `postkit.py kw` | `... kw "seed" [--search "query"] [--out FILE.csv] [--n 25]`: YouTube and Google suggestions, top search results. A failed call is a FAIL and exit 1, never a data row |
+| `postkit.py ttpage` | `... ttpage URL ... [--json OUT] [--csv FILE]`: a public TikTok page (plays, label, TikTok's suggested searches, AI label, age). `--csv` appends one row per video. Stops at the first "no page data"; do not retry in a loop |
 | `lf_gates.py`, `drawn_catlife.py`, `thumb_dontkill.py` | long-form gates, the house-cat long-form builder, the white thumbnails |
 
 Older flow, kept but not used since 11/03: `ship.py`, `drawn_quick.py`, `sameness.py` and `outline_lint.py` work on outline YAML, which the current specs do not have.

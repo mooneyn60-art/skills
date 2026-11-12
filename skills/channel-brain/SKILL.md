@@ -29,10 +29,11 @@ log it in SELF_REVIEW.md with how you will catch it yourself next time.
 
 ## Act, don't ask
 You may do these without asking, every time:
-- fill queue gaps from finished renders; re-post a failed upload; fix a title, tag, description or pinned comment
+- fill queue gaps from finished renders; re-post a failed upload
+- fix a title, tag, description or pinned comment, but any change of wording goes through the second-model check first (MASTER_ORDERS, "Tags and everything")
 - fix stale docs and routine files so they match OPERATIONS.md (wrong branch, retired format, contradicting cadence)
 - renumber, score, close or pause experiments; stop a test that is clearly losing
-- cut a format that has lost for 2 weeks on the numbers, and say so with the numbers
+- cut a format that has lost for 2 weeks on the numbers, and say so with the numbers (new videos are pets or Would Meatball Survive; no new bug episodes)
 - re-render a video that fails its own quality gate before it posts
 
 Ask Nolan only for: things only he can do (YouTube Studio settings, approvals, logins), spending beyond the
@@ -77,9 +78,7 @@ Added after Nolan: "he's better but not near you at all." These are the gaps bet
 
 ### 1. Work the bottleneck, not the to-do list
 Find the ONE metric furthest behind its target and point most of the effort at it until it moves.
-Right now (goal/current v7, 10/25): Shorts views 77% of pace, **subscribers 4% of pace** (+1 of +25), stayed-to-watch 35% vs 55%.
-Views are not the problem; turning viewers into subscribers is. Every new idea gets one question first: "does this raise subs per 1,000 views?"
-If not, it waits. A pivot that doubles views at 0.2 subs per 1k still loses.
+Bottleneck now: views on both platforms (Nolan 11/12), then 4,000 long-form hours. Subscribers passed 1,000 and are no longer the bottleneck. Research is continuous, but each run ends in a queue or script change. Every new idea gets one question first: "does this raise views, or long-form hours?" If not, it waits. (The 10/25 line that put subscribers first is retired: see MASTER_ORDERS.)
 
 ### 2. The veto: four answers before anything launches
 Before a new format, series, pivot or paid push goes live, write these four answers into the experiment row.
@@ -90,9 +89,8 @@ A missing answer means it does not launch yet.
 4. **Confidence:** a probability it beats the control, logged with `tools/predict.py add`.
 
 ### 3. A variable budget
-At most **one** live Shorts-format test plus **one** channel-wide test at a time. Anything else waits in a queue.
+Experiments: the live ones are listed in MASTER_ORDERS; read each on its date, and do not start a new one that changes the same format at the same time. Title, tag, description or pinned-comment edits go through the second-model check first.
 - Paid promotion counts as a test, and it contaminates organic numbers. Score organic tests on organic traffic only.
-- The 10/26 scan found 4+ changes live in the same week (E15, E17, E18, E19, plus a paid Promote push). None of them can be credited.
 - A pivot that Nolan widens before its test is read is still allowed; note it in the row and push the other tests back a week.
 
 ### 4. Calibration: is the town's judgement any good?
@@ -113,20 +111,20 @@ Added after the 10/29 audit (AUDIT_2026-10-29.md): in 22 hours the town made ~90
 
 ### Before any task, one question
 **"Which post in the next 7 days, or which scorecard number, does this change?"**
-- The scorecard has three numbers: returning viewers (7 days), subs per 1,000 views, and stayed-to-watch on the show Shorts.
+- The scorecard is the one in MASTER_ORDERS ("Weekly scorecard"), read first for views per post on both platforms and long-form hours against 4,000.
 - If you can't name one, don't do the task. Write it as one line in a `later.md` list and move on.
 - Research, new tools, new docs and re-rendering old videos are all "later" unless they change one of those.
 
 ### Daily order (nothing below starts until everything above is done)
-1. The next 7 days of YouTube are 100% shows (Things Living In Your House, Would Meatball Survive?, Is This Spider Venomous?). Nothing is queued past 7 days.
-2. Last night's numbers are logged: views, stayed-to-watch, returning viewers, subs per 1k, TikTok rewards.
+1. The next 7 days of YouTube are pets and Would Meatball Survive (plus the long-forms). No new bug episodes, no case files. Nothing is queued past 7 days unless MASTER_ORDERS says so.
+2. Last night's numbers are read with the scoreboard skill (`.claude/skills/scoreboard`: Windsor, Metricool, `postkit.py ttpage --csv`), not from vidIQ (3 credits until 11/24).
 3. Any Short over 3,000 views (YouTube) or 2x the median (TikTok) has its next episode in production.
-4. Only then: make new show episodes.
+4. Only then: make new videos (`.claude/skills/make-short`).
 5. Only then: anything else.
 
 ### Budgets
-- **At most 2 live experiments.** Today there are 12; none can be read. Close or pause 10 of them.
-- **Research: one session a week**, and it ends in a change to the queue or it didn't count.
+- **Experiments:** only the live ones in MASTER_ORDERS, each read on its date. Close or pause the rest.
+- **Research is continuous (Nolan 11/10)** and every run ends in a queue or script change, or it did not count.
 - **No paid promotion** while organic tests are being read. Paid views don't count toward YouTube monetization anyway.
 
-`scan.py` check 7 (`check_focus`) flags each of these automatically.
+`scan.py` (check 8, `check_focus`) flags the queue length, shows share and stale tracking automatically.
