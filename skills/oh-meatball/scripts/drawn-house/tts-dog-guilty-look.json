@@ -1,0 +1,214 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "detective",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "cut_whoosh": true,
+ "loop": false,
+ "photo_credits": [],
+ "series": "Things Living In Your House",
+ "sources": [
+  "Horowitz 2009, Behavioural Processes, \"Disambiguating the 'guilty look': salient prompts to a familiar dog behaviour\" (abstract): 14 dogs were videotaped; owners gave a command not to eat a treat and left the room; \"The results revealed no difference in behaviours associated with the guilty look\"; \"more such behaviours were seen in trials when owners scolded their dogs\"; \"The effect of scolding was more pronounced when the dogs were obedient, not disobedient\"; the look \"is a response to owner cues, rather than that it shows an appreciation of a misdeed\"; https://pubmed.ncbi.nlm.nih.gov/19520245/",
+  "Ostojic, Tkalcic & Clayton 2015, Behavioural Processes, \"Are owners' reports of their dogs' 'guilty look' influenced by the dogs' action and evidence of the misdeed?\": 96 owners and dogs; \"owners stated that their dog had eaten the food no more than expected by chance\"; https://pmc.ncbi.nlm.nih.gov/articles/PMC4310318/"
+ ],
+ "stage": {
+  "creature": "dog",
+  "scene": "kitchen",
+  "scene_p": {},
+  "s": 0.62,
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "dog",
+   "color": "#d9a85c",
+   "dark": "#a87a36",
+   "belly": "#f3e2bf",
+   "tail_color": "#d9a85c",
+   "length": 600,
+   "height": 290,
+   "leg_len": 200,
+   "leg_w": 36,
+   "ears": "floppy",
+   "tail": "thin",
+   "tail_w": 20,
+   "whiskers": false,
+   "mood": "worry"
+  }
+ },
+ "cap_key": [
+  "you",
+  "your",
+  "dog",
+  "dogs",
+  "guilty",
+  "look",
+  "confession",
+  "14",
+  "treat",
+  "scolded",
+  "effect",
+  "bigger",
+  "obeyed",
+  "unfair",
+  "cues"
+ ],
+ "title": "Your Dog's Guilty Look Tracked Scolding in a 14-Dog Test 🐶 (Things Living In Your House #65)",
+ "description": "Why does your dog look guilty? In a 2009 test of 14 dogs, owners told the dog not to eat a treat and left the room. The \"guilty look\" was no different whether or not the dog had eaten it. It showed up more when owners scolded, and the effect of scolding was stronger in dogs that had obeyed. In a 2015 study of 96 dogs, owners did no better than chance at telling from the greeting whether their dog had eaten the food. These studies test the look, not what dogs feel.\n\n#shorts #dogs #dogfacts #thingslivinginyourhouse #meatballmyths\n\nSources: Horowitz 2009, Behavioural Processes; Ostojic, Tkalcic & Clayton 2015, Behavioural Processes.",
+ "pinned_comment": "What did your dog \"confess\" to with that face, and had it even done it?",
+ "_note": "Fact pack research/84. Checked 11/12 by a second model against the live sources (it opened the pages or the journal abstracts itself); its wording fixes are applied: \"scolding hit harder\" became \"the effect was bigger\"; \"Poor bastards\" (a feeling claim) became \"Unfair as hell\"; the card says \"more of the look\"; the last line says \"your cues\"; the description says \"no better than chance\".",
+ "beats": [
+  {
+   "open": "animal",
+   "m": "hook",
+   "gag": {
+    "mark": "shock"
+   },
+   "_f": [
+    "DG-F6"
+   ],
+   "say": "Your dog's guilty look may not be a confession.",
+   "card": {
+    "rows": [
+     [
+      "GUILTY LOOK",
+      "#ffd34d",
+      110
+     ],
+     [
+      "MAY NOT BE A CONFESSION",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "scene": "study",
+   "pad": 0.5,
+   "m": "fact",
+   "_f": [
+    "DG-F1",
+    "DG-F2"
+   ],
+   "say": "In a test of 14 dogs, owners banned a treat and left.",
+   "card": {
+    "rows": [
+     [
+      "14 DOGS",
+      "#ffd34d",
+      120
+     ],
+     [
+      "1 FORBIDDEN TREAT",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "bedroom",
+   "pad": 0.5,
+   "m": "tiny",
+   "_f": [
+    "DG-F3"
+   ],
+   "say": "Whether they ate it or not, the guilty look was no different.",
+   "card": {
+    "rows": [
+     [
+      "NO DIFFERENCE",
+      "#ff4b3e",
+      104
+     ],
+     [
+      "ATE IT OR NOT",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "basement",
+   "pad": 0.5,
+   "m": "escalate",
+   "gag": false,
+   "_f": [
+    "DG-F4",
+    "DG-F5"
+   ],
+   "say": "It showed up more when owners scolded. The effect was bigger in dogs that obeyed. Unfair as hell.",
+   "card": {
+    "rows": [
+     [
+      "SCOLDING",
+      "#ff4b3e",
+      120
+     ],
+     [
+      "MORE OF THE LOOK",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "kitchen",
+   "m": "punch",
+   "gag": {
+    "mark": "alarm"
+   },
+   "_f": [
+    "DG-F6"
+   ],
+   "say": "So that face reacts to your cues, because",
+   "card": {
+    "rows": [
+     [
+      "DOES YOURS DO THE FACE? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "search_top": {
+  "rows": [
+   [
+    "WHY DOES MY DOG",
+    "#ffffff",
+    86
+   ],
+   [
+    "LOOK GUILTY?",
+    "#ffd34d",
+    86
+   ]
+  ],
+  "y": 30,
+  "until": 2.5
+ },
+ "tiktok_title": "A 14-Dog Test Found the Guilty Look Was No Different",
+ "tiktok_caption": "why does my dog look guilty 🐶 In a 2009 test of 14 dogs, owners told the dog not to eat a treat and left the room. The \"guilty look\" was no different whether or not the dog had eaten it. Does yours do the face? #dogs #dogfacts #guiltydog #meatballmyths"
+}

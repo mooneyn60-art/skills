@@ -1,0 +1,175 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "detective",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "cut_whoosh": true,
+ "loop": false,
+ "photo_credits": [],
+ "series": "Would Meatball Survive?",
+ "sources": [
+  "Alaska Department of Fish and Game, Aggressive Moose: \"more people in Alaska are injured by moose than by bears each year\"; a charging moose often kicks forward with its front hooves; unlike with bears, running from a moose is usually a good idea because it will not chase very far; if knocked down, do not move until the moose moves a safe distance away; https://www.adfg.alaska.gov/index.cfm?adfg=livewith.aggressivemoose",
+  "U.S. National Park Service, Moose Safety (Kenai Fjords): if a moose knocks you down, curl up in a ball, protect your head with your arms and keep still; https://www.nps.gov/kefj/planyourvisit/moose-safety.htm"
+ ],
+ "stage": {
+  "creature": "moose",
+  "scene": "forest_floor",
+  "scene_p": {},
+  "s": 0.6,
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "moose",
+   "color": "#5c3f2b",
+   "dark": "#3e2a1c",
+   "belly": "#8a6a50",
+   "length": 700,
+   "height": 300,
+   "leg_len": 380,
+   "leg_w": 34,
+   "ears": "pointed",
+   "tail": "thin",
+   "tail_w": 8,
+   "whiskers": false,
+   "mood": "calm",
+   "antlers": true,
+   "beard": true
+  }
+ },
+ "cap_key": [
+  "moose",
+  "bears",
+  "alaska",
+  "injure",
+  "meatball",
+  "kicks",
+  "hooves",
+  "run",
+  "survived"
+ ],
+ "title": "Moose Injure More People Than Bears in Alaska 🫎 (Would Meatball Survive? #2)",
+ "description": "Would you survive a moose? Alaska's Department of Fish and Game says more people in Alaska are injured by moose than by bears each year. A charging moose often kicks forward with its front hooves. Unlike with bears, running is usually a good idea because a moose won't chase you very far, and if one knocks you down, curl up, protect your head and hold still until it moves away.\n\n#shorts #moose #alaska #wouldmeatballsurvive #meatballmyths\n\nSources: Alaska Department of Fish and Game (Aggressive Moose); U.S. National Park Service (Moose Safety). General information, not safety training.",
+ "pinned_comment": "Ever been closer to a moose than you meant to be? What did it do?",
+ "_note": "11/11: first non-bug v6 Short in the Would Meatball Survive? show after Nolan's direction change. Mild spice for YouTube. Checked 11/11 by a second model against the ADF&G and NPS pages (it opened them): the run line now carries \"usually\" and \"very far\", the knocked-down line adds \"until it leaves\", and the RUN card says it is for moose, not bears. The knocked-down line was cut for length (it stays in the description); the Short runs 5 lines.",
+ "beats": [
+  {
+   "open": "animal",
+   "m": "hook",
+   "gag": {
+    "mark": "shock"
+   },
+   "say": "In Alaska, moose injure more people than bears do.",
+   "card": {
+    "rows": [
+     [
+      "MORE INJURIES",
+      "#ff4b3e",
+      110
+     ],
+     [
+      "THAN BEARS, IN ALASKA",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "scene": "tundra",
+   "pad": 0.6,
+   "m": "chase",
+   "say": "Meatball walked up to pet one. Dumbass."
+  },
+  {
+   "scene": "swamp",
+   "pad": 0.6,
+   "m": "escalate",
+   "gag": false,
+   "say": "A charging moose often kicks forward with its front hooves.",
+   "card": {
+    "rows": [
+     [
+      "FRONT HOOVES",
+      "#ff4b3e",
+      110
+     ],
+     [
+      "IT KICKS FORWARD",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "tundra",
+   "pad": 0.6,
+   "m": "fact",
+   "say": "Unlike with bears, running is usually a good idea. A moose won't chase you very far.",
+   "card": {
+    "rows": [
+     [
+      "RUN FROM A MOOSE",
+      "#7bd88f",
+      96
+     ],
+     [
+      "USUALLY. NOT FROM A BEAR.",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "forest_floor",
+   "m": "punch",
+   "gag": {
+    "mark": "alarm"
+   },
+   "say": "Meatball survived, and ran like hell, because",
+   "card": {
+    "rows": [
+     [
+      "EVER MET A MOOSE? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "search_top": {
+  "rows": [
+   [
+    "WHAT TO DO IF",
+    "#ffffff",
+    86
+   ],
+   [
+    "A MOOSE CHARGES",
+    "#ffd34d",
+    86
+   ]
+  ],
+  "y": 30,
+  "until": 2.5
+ },
+ "tiktok_title": "Alaska Says Moose Injure More People Than Bears Each Year",
+ "tiktok_caption": "what to do if a moose charges 🫎 Alaska's Department of Fish and Game says more people in Alaska are injured by moose than by bears each year. General info, not safety training. Did you know that? #moose #alaska #wouldmeatballsurvive #meatballmyths"
+}

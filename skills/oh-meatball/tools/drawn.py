@@ -35,6 +35,8 @@ Spec (see scripts/drawn-1027/*.json):
                            (chip true = a rounded dark chip behind the row; rows stack downward from "y")
   music_reveals            "counter": every counter tick is a music.render reveal (the bed rises into each new
                            value, no drop-out, no hit)
+  search_top               TikTok search-led cut: {"rows": [[text, "#hex", px], ...], "y": 150, "until": 2.5} a card
+                           drawn over the whole video from 0.0 s until "until" (absent = nothing drawn)
   loop                     true: the last line ends on the first frame's framing, marks and poses (YouTube loop)
   recut                    false = no automatic camera change every <= 2.5 s inside a long line
   tempo                    dead-air trim (default on): {"lead", "tail", "thr", "cam"}; false = the old timing
@@ -1055,6 +1057,9 @@ def frame_at(f):
             cx = W - im.width // 2 - 40
         paste(base, im, cx, card.get("y", 760) + im.height // 2)
     draw_counter(base, T)
+    st = G.get("search_top")
+    if st and T < st.get("until", 2.5):
+        paste(base, card_img(st["rows"]), W // 2, st.get("y", 150) + card_img(st["rows"]).height // 2)
     # outs[0] = no captions, outs[-1] = captioned. G["nocap_out"] False (main() without --nocap): only the
     # captioned frame is returned, drawn in place (saves two full-frame copies per frame).
     raw = G.get("raw_out")   # main()'s shared-memory transport takes arrays; everything else gets bytes
@@ -1223,7 +1228,7 @@ def main():
     beats, total = plan(spec, work)
     t_plan = time.time() - t_start
     G.update(fps=args.fps, beats=beats, rigs=rig_tracks(beats, args.fps), caps=caption_chunks(beats, spec.get("cap_swap")),
-             cap_px=spec.get("captions", 66), cap_y=spec.get("caption_y", 1530), counter=spec.get("counter"),
+             cap_px=spec.get("captions", 66), cap_y=spec.get("caption_y", 1530), counter=spec.get("counter"), search_top=spec.get("search_top"),
              cap_key=set(spec.get("cap_key", ())))
     G["ticks"] = counter_ticks(spec, beats)
     nf = int(total * args.fps)

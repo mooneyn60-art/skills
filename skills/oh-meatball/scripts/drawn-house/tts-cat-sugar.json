@@ -1,0 +1,203 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "detective",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "cut_whoosh": true,
+ "loop": false,
+ "photo_credits": [],
+ "series": "Things Living In Your House",
+ "sources": [
+  "Li et al. 2005, PLoS Genetics 1(1): e3, \"Pseudogenization of a Sweet-Receptor Gene Accounts for Cats' Indifference toward Sugar\": the cat Tas1r2 gene has a 247-base pair microdeletion and stop codons and no detectable expression, so cats most likely cannot detect sweet-tasting compounds; the same defect was found in tiger and cheetah; https://pmc.ncbi.nlm.nih.gov/articles/PMC1183522",
+  "Humphrey, Proops, Forman, Spooner & McComb 2020, Scientific Reports 10:16503, \"The role of cat eye narrowing movements in cat-human communication\": cats were more likely to approach an unfamiliar experimenter after a slow blink than after a neutral expression; https://pmc.ncbi.nlm.nih.gov/articles/PMC7536207/"
+ ],
+ "stage": {
+  "creature": "cat",
+  "scene": "kitchen",
+  "scene_p": {
+   "time": "night"
+  },
+  "s": 0.62,
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "cat",
+   "color": "#e39a4a",
+   "dark": "#b06f2a",
+   "belly": "#f6e3c8",
+   "tail_color": "#e39a4a",
+   "length": 520,
+   "height": 250,
+   "leg_len": 150,
+   "leg_w": 30,
+   "ears": "pointed",
+   "tail": "thin",
+   "tail_w": 22,
+   "whiskers": true,
+   "mood": "smug"
+  }
+ },
+ "cap_key": [
+  "you",
+  "your",
+  "cat",
+  "sugar",
+  "gene",
+  "broken",
+  "tiger",
+  "cheetah",
+  "blink",
+  "slowly",
+  "candy",
+  "donut",
+  "stranger"
+ ],
+ "title": "Your Cat Most Likely Can't Taste Sugar 🐱 (Things Living In Your House #64)",
+ "description": "Why doesn't your cat care about sweets? In cats, one gene of the sweet taste receptor (Tas1r2) is broken, so cats most likely can't taste sugar; the one tiger and one cheetah the researchers tested had the same broken gene. In a small 2020 study, cats were more likely to approach an unfamiliar person who slow blinked at them.\n\n#shorts #cats #catfacts #thingslivinginyourhouse #meatballmyths\n\nSources: Li et al. 2005, PLoS Genetics; Humphrey et al. 2020, Scientific Reports.",
+ "pinned_comment": "Does your cat blink back when you slow blink at it? What happened when you tried?",
+ "_note": "11/11: first non-bug v6 Short after Nolan's direction change (\"people don't really like bugs, we need to speak to the majority\"). Mild spice for YouTube. Checked 11/11 by a second model against both papers (it opened them): two lines softened (one tiger and one cheetah were tested; the approach result is experiment 2, 18 cats, an unfamiliar experimenter).",
+ "beats": [
+  {
+   "open": "animal",
+   "m": "hook",
+   "gag": {
+    "mark": "shock"
+   },
+   "say": "Your cat most likely can't taste sugar.",
+   "card": {
+    "rows": [
+     [
+      "CAN'T TASTE SUGAR",
+      "#ffd34d",
+      96
+     ],
+     [
+      "MOST LIKELY",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "scene": "study",
+   "pad": 0.6,
+   "m": "fact",
+   "say": "One gene for tasting sweet is broken.",
+   "card": {
+    "rows": [
+     [
+      "BROKEN GENE",
+      "#ff4b3e",
+      120
+     ],
+     [
+      "FOR TASTING SWEET",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "basement",
+   "pad": 0.6,
+   "m": "tiny",
+   "say": "A tiger and a cheetah they tested had the same broken gene.",
+   "card": {
+    "rows": [
+     [
+      "TIGER + CHEETAH",
+      "#ffd34d",
+      96
+     ],
+     [
+      "SAME BROKEN GENE FOUND",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "kitchen",
+   "pad": 0.5,
+   "m": "escalate",
+   "gag": false,
+   "say": "It'll still stare at your damn donut."
+  },
+  {
+   "scene": "bedroom",
+   "pad": 0.6,
+   "m": "calm",
+   "say": "Blink slowly at it instead. In one small study, cats were more likely to approach a stranger who did.",
+   "card": {
+    "rows": [
+     [
+      "SLOW BLINK",
+      "#7bd88f",
+      120
+     ],
+     [
+      "CATS MORE LIKELY TO APPROACH",
+      "#ffffff",
+      50,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "kitchen",
+   "m": "punch",
+   "gag": {
+    "mark": "alarm"
+   },
+   "say": "So blink, don't bribe it with candy, because",
+   "card": {
+    "rows": [
+     [
+      "DOES YOURS BLINK BACK? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "search_top": {
+  "rows": [
+   [
+    "CAN CATS",
+    "#ffffff",
+    86
+   ],
+   [
+    "TASTE SUGAR?",
+    "#ffd34d",
+    86
+   ]
+  ],
+  "y": 30,
+  "until": 2.5
+ },
+ "tiktok_title": "Your Cat Most Likely Can't Taste Sugar",
+ "tiktok_caption": "can cats taste sugar 🐱 In cats, one gene of the sweet taste receptor (Tas1r2) is broken, so cats most likely can't taste sugar. Does your cat care about sweets? #cats #catfacts #thingslivinginyourhouse #meatballmyths"
+}
