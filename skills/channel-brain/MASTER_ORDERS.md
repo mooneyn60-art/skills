@@ -55,6 +55,17 @@ Read each test on its date, not before.
 - **On Tue 11/24 (vidIQ credits return; reminder set):** read "stayed to watch" and feed impressions for the last 50 Shorts and retention curves for about a dozen videos through vidIQ. It reads through Nolan's Chrome with the vidIQ extension signed in (open ask 3).
 - **Decided against (reasons in the log):** a setup script on the cloud environment; the Google Cloud route to YouTube retention (only if the vidIQ read fails); Supermetrics for TikTok (its docs say a Personal account with 100 followers works, but the price is unknown and money is his call).
 
+## Previews and engagement (Nolan, 11/12 about 16:25 ET)
+- **His words:** "Send me all new previews focus heavy on engagement". Just before: "What else can we really do or what can you build".
+- **What it means (my reading):** two standing rules. (1) Every new video is sent to him as a preview when it is rendered and checked, both cuts, before it posts. A preview is not a request for approval: it posts on schedule unless he says otherwise, and his one-line reactions are orders. (2) Every new video is built to be answered, shared and watched again, not only to state a fact.
+- **Engagement rules for every new cut (they add no claim; any wording goes through the second-model check):**
+  1. The hook is the searched question, aimed at the viewer's own pet or put to the viewer.
+  2. The last line hands the viewer a question and runs into the hook (the loop). The same question is the corner pill and the pinned comment: open and personal on YouTube ("What is the worst thing your dog ever got out of the trash?"), a quick pick in the TikTok caption.
+  3. One share line in the caption when a real person comes to mind ("Send this to whoever feeds the dog under the table."). Never a spoken outro.
+  4. "Meatball explains the best comment next" only when the next batch will really do it; then do it, and name the comment.
+- **How it is judged:** TikTok likes, comments and shares per view against 2.2%, 0.05% and 0.06% (research 91); YouTube engaged share against 0.50 and comments per Short; his own reaction to the previews.
+- **What the numbers say so far (`oh-meatball/research/96-openings.md`):** our openings already match the fact-style winners on first word, words, cuts and movement, so the opening mechanics are not the gap.
+
 ## Tags and everything, from every angle (Nolan, 11/12 about 12:25 ET)
 - **His words:** "And make sure your tags and everything are also updated to be the best look at All angles".
 - **What it means (my reading):** every piece of text around a video (title, description, tags, hashtags, TikTok caption, first comment, category, cover) is checked against evidence and set to the best version, starting with the funnier cuts that go out today, and it becomes the standard for every post after.
