@@ -47,14 +47,12 @@
   "kicks",
   "hooves",
   "run",
-  "curl",
-  "head",
   "survived"
  ],
  "title": "Moose Injure More People Than Bears in Alaska 🫎 (Would Meatball Survive? #2)",
- "description": "Would you survive a moose? Alaska's Department of Fish and Game says more people in Alaska are injured by moose than by bears each year. A charging moose often kicks forward with its front hooves; running is usually the right move because moose won't chase you far, and if one knocks you down, curl up, protect your head and stay still.\n\n#shorts #moose #alaska #wouldmeatballsurvive #meatballmyths\n\nSources: Alaska Department of Fish and Game (Aggressive Moose); U.S. National Park Service (Moose Safety). General information, not safety training.",
+ "description": "Would you survive a moose? Alaska's Department of Fish and Game says more people in Alaska are injured by moose than by bears each year. A charging moose often kicks forward with its front hooves. Unlike with bears, running is usually a good idea because a moose won't chase you very far, and if one knocks you down, curl up, protect your head and hold still until it moves away.\n\n#shorts #moose #alaska #wouldmeatballsurvive #meatballmyths\n\nSources: Alaska Department of Fish and Game (Aggressive Moose); U.S. National Park Service (Moose Safety). General information, not safety training.",
  "pinned_comment": "Ever been closer to a moose than you meant to be? What did it do?",
- "_note": "11/11: first non-bug v6 Short in the Would Meatball Survive? show after Nolan's direction change. Mild spice for YouTube. Facts from search summaries of the ADF&G and NPS pages; a different model must open both pages before this is scheduled.",
+ "_note": "11/11: first non-bug v6 Short in the Would Meatball Survive? show after Nolan's direction change. Mild spice for YouTube. Checked 11/11 by a second model against the ADF&G and NPS pages (it opened them): the run line now carries \"usually\" and \"very far\", the knocked-down line adds \"until it leaves\", and the RUN card says it is for moose, not bears. The knocked-down line was cut for length (it stays in the description); the Short runs 5 lines.",
  "beats": [
   {
    "open": "animal",
@@ -66,12 +64,12 @@
    "card": {
     "rows": [
      [
-      "MOOSE > BEARS",
+      "MORE INJURIES",
       "#ff4b3e",
       110
      ],
      [
-      "INJURIES IN ALASKA",
+      "THAN BEARS, IN ALASKA",
       "#ffffff",
       56,
       true
@@ -115,41 +113,18 @@
    "scene": "tundra",
    "pad": 0.6,
    "m": "fact",
-   "say": "Unlike with bears, you usually run. A moose won't chase you far.",
+   "say": "Unlike with bears, running is usually a good idea. A moose won't chase you very far.",
    "card": {
     "rows": [
      [
-      "RUN",
+      "RUN FROM A MOOSE",
       "#7bd88f",
-      170
+      96
      ],
      [
-      "IT WON'T CHASE YOU FAR",
+      "USUALLY. NOT FROM A BEAR.",
       "#ffffff",
-      56,
-      true
-     ]
-    ],
-    "y": 470,
-    "at": "40%"
-   }
-  },
-  {
-   "scene": "swamp",
-   "pad": 0.6,
-   "m": "calm",
-   "say": "Knocked down? Curl up, cover your head, and stay still.",
-   "card": {
-    "rows": [
-     [
-      "CURL UP",
-      "#ffd34d",
-      130
-     ],
-     [
-      "COVER YOUR HEAD",
-      "#ffffff",
-      56,
+      52,
       true
      ]
     ],

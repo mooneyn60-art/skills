@@ -46,17 +46,18 @@
   "sugar",
   "gene",
   "broken",
-  "tigers",
-  "cheetahs",
+  "tiger",
+  "cheetah",
   "blink",
   "slowly",
   "candy",
-  "donut"
+  "donut",
+  "stranger"
  ],
  "title": "Your Cat Most Likely Can't Taste Sugar 🐱 (Things Living In Your House #64)",
- "description": "Why doesn't your cat care about sweets? In cats, one gene of the sweet taste receptor (Tas1r2) is broken, so cats most likely can't taste sugar, and tigers and cheetahs carry the same broken gene. In a 2020 study, cats were more likely to approach a person who slow blinked at them.\n\n#shorts #cats #catfacts #thingslivinginyourhouse #meatballmyths\n\nSources: Li et al. 2005, PLoS Genetics; Humphrey et al. 2020, Scientific Reports.",
+ "description": "Why doesn't your cat care about sweets? In cats, one gene of the sweet taste receptor (Tas1r2) is broken, so cats most likely can't taste sugar; the one tiger and one cheetah the researchers tested had the same broken gene. In a small 2020 study, cats were more likely to approach an unfamiliar person who slow blinked at them.\n\n#shorts #cats #catfacts #thingslivinginyourhouse #meatballmyths\n\nSources: Li et al. 2005, PLoS Genetics; Humphrey et al. 2020, Scientific Reports.",
  "pinned_comment": "Does your cat blink back when you slow blink at it? What happened when you tried?",
- "_note": "11/11: first non-bug v6 Short after Nolan's direction change (\"people don't really like bugs, we need to speak to the majority\"). Mild spice for YouTube. Facts from search summaries of the two papers; a different model must open both papers before this is scheduled.",
+ "_note": "11/11: first non-bug v6 Short after Nolan's direction change (\"people don't really like bugs, we need to speak to the majority\"). Mild spice for YouTube. Checked 11/11 by a second model against both papers (it opened them): two lines softened (one tiger and one cheetah were tested; the approach result is experiment 2, 18 cats, an unfamiliar experimenter).",
  "beats": [
   {
    "open": "animal",
@@ -110,16 +111,16 @@
    "scene": "basement",
    "pad": 0.6,
    "m": "tiny",
-   "say": "Tigers and cheetahs have the same broken gene.",
+   "say": "A tiger and a cheetah they tested had the same broken gene.",
    "card": {
     "rows": [
      [
-      "TIGERS + CHEETAHS",
+      "TIGER + CHEETAH",
       "#ffd34d",
-      88
+      96
      ],
      [
-      "SAME BROKEN GENE",
+      "SAME BROKEN GENE FOUND",
       "#ffffff",
       56,
       true
@@ -140,7 +141,7 @@
    "scene": "bedroom",
    "pad": 0.6,
    "m": "calm",
-   "say": "Blink slowly at it instead. In one study, cats were more likely to come over.",
+   "say": "Blink slowly at it instead. In one small study, cats were more likely to approach a stranger who did.",
    "card": {
     "rows": [
      [
@@ -149,9 +150,9 @@
       120
      ],
      [
-      "CATS CAME CLOSER",
+      "CATS MORE LIKELY TO APPROACH",
       "#ffffff",
-      56,
+      50,
       true
      ]
     ],
