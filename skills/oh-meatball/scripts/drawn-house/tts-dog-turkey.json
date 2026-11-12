@@ -1,0 +1,243 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "detective",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "cut_whoosh": true,
+ "loop": true,
+ "photo_credits": [],
+ "series": "Things Living In Your House",
+ "sources": [
+  "ASPCA, Thanksgiving Safety Tips (ASPCA Poison Control experts), opened 2026-11-12: \"While we recommend sticking to your pet's normal diet on Thanksgiving\"; \"If you do decide to feed your pet a small bite of turkey or other meat, make sure it's boneless and fully cooked. Raw or undercooked turkey may contain salmonella bacteria and poultry bones can be a major choking hazard.\"; https://www.aspca.org/pet-care/general-pet-care/thanksgiving-safety-tips",
+  "FDA Center for Veterinary Medicine, Keep Your Dogs and Cats Safe From Holiday Hazards (content current as of 12/17/2025), opened 2026-11-12: \"And be careful what you put in the trash can. Dogs, especially, are notorious for helping themselves to the turkey carcass or steak bones, which can get stuck in your dog's esophagus, stomach, or trachea.\"; \"Once your holiday meal is done, securely wrap up the table scraps and bones and dispose of them in a trash bin that your pets can't get into.\"; https://www.fda.gov/consumers/consumer-updates/keep-your-dogs-and-cats-safe-holiday-hazards",
+  "AVMA, Household hazards (Holiday hazards), copy saved 2026-11-12 by the fact pack: \"Cooked chicken, turkey, and other soft bones can splinter and damage your pet's mouth or digestive system.\" (used in the description only); https://www.avma.org/resources-tools/pet-owners/petcare/household-hazards"
+ ],
+ "stage": {
+  "creature": "dog",
+  "scene": "kitchen",
+  "scene_p": {},
+  "s": 0.62,
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "dog",
+   "color": "#c8743c",
+   "dark": "#8f4f24",
+   "belly": "#f1dcc0",
+   "tail_color": "#c8743c",
+   "length": 600,
+   "height": 290,
+   "leg_len": 200,
+   "leg_w": 36,
+   "ears": "floppy",
+   "tail": "thin",
+   "tail_w": 20,
+   "whiskers": false,
+   "mood": "happy"
+  }
+ },
+ "cap_key": [
+  "you",
+  "your",
+  "dog",
+  "dogs",
+  "turkey",
+  "aspca",
+  "fda",
+  "boneless",
+  "cooked",
+  "carcass",
+  "trash",
+  "notorious",
+  "bones",
+  "stuck",
+  "bin",
+  "vet"
+ ],
+ "title": "If Dogs Eat Turkey: Boneless and Fully Cooked, Says the ASPCA 🦃 (Things Living In Your House #70)",
+ "description": "Can dogs eat turkey? The ASPCA recommends sticking to your pet's normal diet on Thanksgiving. If you do decide to share a small bite of turkey, it says to make sure it's boneless and fully cooked: raw or undercooked turkey may contain salmonella, and poultry bones can be a major choking hazard. The FDA says dogs are notorious for helping themselves to the turkey carcass in the trash, and the bones can get stuck. Its advice: securely wrap up the table scraps and bones and put them in a trash bin your pets can't get into. The AVMA says cooked turkey bones can splinter and damage a pet's mouth or digestive system. General information, not advice for your dog: ask your vet.\n\n#dogs #thanksgiving #meatballmyths #shorts\n\nSources: ASPCA, Thanksgiving Safety Tips; FDA, Keep Your Dogs and Cats Safe From Holiday Hazards; AVMA, Household hazards.",
+ "pinned_comment": "What is the worst thing your dog ever got out of the trash, and how did it get in?",
+ "_note": "DRAFT, timing test",
+ "beats": [
+  {
+   "open": "animal",
+   "m": "hook",
+   "gag": {
+    "mark": "shock"
+   },
+   "_f": [
+    "DOGT1"
+   ],
+   "say": "Can dogs eat turkey? The ASPCA says if you share a small bite, make it boneless and fully cooked. Fancy as fuck.",
+   "card": {
+    "rows": [
+     [
+      "BONELESS + FULLY COOKED",
+      "#ffd34d",
+      88
+     ],
+     [
+      "ASPCA: IF YOU SHARE A SMALL BITE",
+      "#ffffff",
+      48,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   }
+  },
+  {
+   "scene": "basement",
+   "scene_p": {
+    "time": "night",
+    "mess": 3
+   },
+   "pad": 0.2,
+   "m": "fact",
+   "mood": "happy",
+   "prop": "flashlight",
+   "gag": {
+    "prop": "moon",
+    "at": "50%"
+   },
+   "card": {
+    "rows": [
+     [
+      "GUARDED THE TURKEY",
+      "#ffd34d",
+      96
+     ],
+     [
+      "FORGOT THE TRASH",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "55%"
+   },
+   "say": "Meatball guarded the turkey all fucking day. His dog got the carcass out of the trash."
+  },
+  {
+   "scene": "study",
+   "pad": 0.25,
+   "m": "tiny",
+   "_f": [
+    "DOGT4"
+   ],
+   "gag": {
+    "prop": "trophy",
+    "at": "45%"
+   },
+   "say": "The FDA says dogs are notorious for that. Fucking notorious.",
+   "card": {
+    "rows": [
+     [
+      "NOTORIOUS",
+      "#ff4b3e",
+      124
+     ],
+     [
+      "THE FDA'S OWN WORD",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "garden",
+   "pad": 0.25,
+   "m": "fact",
+   "_f": [
+    "DOGT4"
+   ],
+   "gag": false,
+   "say": "It says bones can get stuck. So wrap them, and use a bin your dog can't get into. Meatball can't open the fucking thing either.",
+   "card": {
+    "rows": [
+     [
+      "WRAP THE BONES",
+      "#7bd88f",
+      104
+     ],
+     [
+      "FDA: A BIN YOUR DOG CAN'T GET INTO",
+      "#ffffff",
+      46,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "kitchen",
+   "m": "punch",
+   "gag": {
+    "mark": "alarm"
+   },
+   "say": "Still not fucking sure? Ask your vet:",
+   "card": {
+    "rows": [
+     [
+      "WHAT DID YOUR DOG GET INTO? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "search_top": {
+  "rows": [
+   [
+    "CAN DOGS",
+    "#ffffff",
+    86
+   ],
+   [
+    "EAT TURKEY?",
+    "#ffd34d",
+    86
+   ]
+  ],
+  "y": 150,
+  "until": 2.5
+ },
+ "tiktok_title": "Can Dogs Eat Turkey? What the ASPCA and the FDA Say",
+ "tiktok_caption": "can dogs eat turkey? 🦃 The ASPCA says if you do decide to share a small bite of turkey, make sure it's boneless and fully cooked. The FDA says dogs are notorious for helping themselves to the turkey carcass in the trash, and the bones can get stuck: wrap up the scraps and bones and use a trash bin your pets can't get into. Not sure? Ask your vet. Meatball guarded the turkey all day. His dog got the carcass out of the trash. What is the worst thing your dog ever got out of the trash? #dogs #dogsoftiktok #dogowners #thanksgiving #turkey",
+ "cap_swap": {
+  "shit": "sh*t",
+  "shits": "sh*ts",
+  "shitty": "sh*tty",
+  "bullshit": "bullsh*t",
+  "fuck": "f**k",
+  "fucking": "f**king",
+  "fucker": "f**ker",
+  "fuckers": "f**kers"
+ },
+ "tags": [
+  "can dogs eat turkey",
+  "can dogs eat turkey bones",
+  "can dogs eat raw turkey",
+  "can dogs have turkey",
+  "can dogs eat turkey meat",
+  "can dogs have turkey bones",
+  "thanksgiving dog safety",
+  "things living in your house",
+  "Meatball Myths"
+ ]
+}
