@@ -47,7 +47,7 @@ def cadence_times(net, day):
     return t if isinstance(t, list) else t["weekend" if day.weekday() >= 5 else "weekday"]
 
 
-LONGFORM_DAY_SKIP = {}  # both Shorts land before a 17:00 long-form
+LONGFORM_DAY_SKIP = {"youtube-short": "16:00"}  # a weekday with a 17:00 long-form holds two Shorts, 10:00 and 19:00 (MASTER_ORDERS, Posting)
 CURRENT_BRANCH = "claude/youtube-monetization-strategy-m9vz6i"
 RETIRED = {  # phrase found in a routine doc -> why it is stale
     r"Oh Meatball Pt|story part|STORY PART|season1\.md": "the Oh Meatball story format was retired on 10/22",
@@ -214,7 +214,7 @@ def check_queue(root, now):
         if later:
             # Days 3-7 (added 10/25): the 48 h window hid 2-3 empty YouTube Shorts slots a day from 10/28 on.
             add("WARN", "postmaster", f"{len(later)} {net} slot(s) in days 3-7 are empty: {', '.join(later[:8])}{' ...' if len(later) > 8 else ''}.",
-                "Fill them from finished renders when they come inside 3 days. A weekday with a 17:00 long-form holds two Shorts (10:00 and 19:00), so its 16:00 gap is meant (MASTER_ORDERS, Posting). An empty slot beats an old-style post.")
+                "Fill them from finished renders when they come inside 3 days. An empty slot beats an old-style post.")
 
 
 def check_experiments(root, now):
@@ -414,6 +414,7 @@ def check_durations(root, now):
     # vs a ~620 median) and nothing caught it. TikTok needs one 60 s+ deep dive a day for Creator Rewards.
     et = dt.timezone(dt.timedelta(hours=-4))
     now_et, long_yt, deep_days, tt_days, short_tt, search_led = now.astimezone(et), [], set(), set(), [], []
+    unknown_days = set()
     for r in rows(os.path.join(root, "data", "posted.csv")):
         t = parse_ts((r.get("date") or "")[:16])
         f = r.get("file", "")
@@ -424,7 +425,9 @@ def check_durations(root, now):
         if r.get("network") != "youtube" and r.get("network") != "tiktok" and not soon:
             continue
         secs = video_seconds(os.path.join(root, "episodes", r.get("episode", ""), f))
-        if secs is None:
+        if secs is None:   # file not on disk (sparse checkout): that day cannot be judged
+            if r.get("network") == "tiktok":
+                unknown_days.add(t.date())
             continue
         if r.get("network") == "youtube" and f.startswith("yt-") and secs > 40:  # long-form files are not Shorts
             long_yt.append(f"{r['date']} {f} ({secs:.0f} s)")
@@ -443,8 +446,8 @@ def check_durations(root, now):
         # Nolan 11/12: views before Rewards (it needs 10,000 followers and 100K views first), so under 60 s earns nothing
         # extra but is not "$0 wasted"; a WARN to check the cut is meant, not a stop.
         add("WARN", "postmaster", f"{len(short_tt)} queued TikTok(s) under 60 s without a search_top spec: {', '.join(short_tt[:4])}.",
-            "Check each is meant: the 19:00 search-led cuts have a tts-<slug>.json with search_top; other TikToks are 61 s+ only for proven topics (MASTER_ORDERS, Posting).")
-    missing = sorted(d.isoformat() for d in tt_days - deep_days)
+            "Posts queued before 11/11 keep their slots (MASTER_ORDERS, Posting), so do not pull these. For a NEW build: the 19:00 search-led cuts have a tts-<slug>.json with search_top; other new TikToks are one-minute cuts on proven topics.")
+    missing = sorted(d.isoformat() for d in tt_days - deep_days - unknown_days)
     if missing:
         add("INFO", "postmaster", f"No 60 s+ TikTok on {', '.join(missing)}. Rewards needs 10,000 followers first (Nolan 11/12: views before Rewards), so this is only a note.",
             "Queue a 61 s+ cut on a proven topic only if the day has room; do not move the 19:00 search-led test.")

@@ -20,7 +20,7 @@ The Shorts and TikTok cuts are plain JSON specs in `scripts/drawn-house/`, rende
 | `postkit.py ttpage` | `... ttpage URL ... [--json OUT] [--csv FILE]`: a public TikTok page (plays, label, TikTok's suggested searches, AI label, age). `--csv` appends one row per video. Stops at the first "no page data"; do not retry in a loop |
 | `lf_gates.py`, `drawn_catlife.py`, `thumb_dontkill.py` | long-form gates, the house-cat long-form builder, the white thumbnails |
 
-Older flow, kept but not used since 11/03: `ship.py`, `drawn_quick.py`, `sameness.py` and `outline_lint.py` work on outline YAML, which the current specs do not have.
+Older flow, kept but not used since 11/03: `ship.py`, `drawn_quick.py`, `sameness.py` (here) and `skills/channel-brain/tools/outline_lint.py` work on outline YAML, which the current specs do not have.
 
 ## Older tools (cat-cam era, October)
 Needs `ffmpeg`/`ffprobe`, `python3` and Pillow (`pip install Pillow`). All videos come out as H.264 + AAC 48 kHz with `+faststart`, normalized to -14 LUFS (two-pass loudnorm, `lib.sh`). Set `CRF=30` for small previews (the default is 20).

@@ -7,8 +7,8 @@ description: Operating system for Nolan's YouTube channel agent (Meatball Town).
 
 Built by TARS (Nolan's trading agent) for the Meatball Town agent, at Nolan's request on 2026-10-24:
 "he doesn't act on his own or find issues I have to call out everything." This is the fix. It is the same
-discipline TARS uses for trading, translated to a YouTube channel. It does not replace TOWN.md or OPERATIONS.md;
-it runs on top of them.
+discipline TARS uses for trading, translated to a YouTube channel. It runs under `skills/channel-brain/MASTER_ORDERS.md`, which wins;
+TOWN.md and most of OPERATIONS.md are history.
 
 ## The standard
 **Nolan should never be the first to notice a problem.** If he has to point something out, that is a miss:
@@ -31,7 +31,7 @@ log it in SELF_REVIEW.md with how you will catch it yourself next time.
 You may do these without asking, every time:
 - fill queue gaps from finished renders; re-post a failed upload
 - fix a title, tag, description or pinned comment, but any change of wording goes through the second-model check first (MASTER_ORDERS, "Tags and everything")
-- fix stale docs and routine files so they match OPERATIONS.md (wrong branch, retired format, contradicting cadence)
+- fix stale docs and routine files so they match MASTER_ORDERS.md (wrong branch, retired format, contradicting cadence)
 - renumber, score, close or pause experiments; stop a test that is clearly losing
 - cut a format that has lost for 2 weeks on the numbers, and say so with the numbers (new videos are pets or Would Meatball Survive; no new bug episodes)
 - re-render a video that fails its own quality gate before it posts
@@ -118,7 +118,7 @@ Added after the 10/29 audit (AUDIT_2026-10-29.md): in 22 hours the town made ~90
 ### Daily order (nothing below starts until everything above is done)
 1. The next 7 days of YouTube are pets and Would Meatball Survive (plus the long-forms). No new bug episodes, no case files. Nothing is queued past 7 days unless MASTER_ORDERS says so.
 2. Last night's numbers are read with the scoreboard skill (`.claude/skills/scoreboard`: Windsor, Metricool, `postkit.py ttpage --csv`), not from vidIQ (3 credits until 11/24).
-3. Any Short over 3,000 views (YouTube) or 2x the median (TikTok) has its next episode in production.
+3. Any pet or survival Short at 2x its group's median (YouTube or TikTok) has its Part 2 in production within 48 h; a bug winner gets none (MASTER_ORDERS, "The shows").
 4. Only then: make new videos (`.claude/skills/make-short`).
 5. Only then: anything else.
 

@@ -36,6 +36,15 @@ Also found: about 29% of YouTube views in the last 7 days came from the US, then
 ## 5. Asked of Nolan
 One thing: open the Windsor TikTok link (sent in chat, not stored here because it is a signed link) and approve. Later, on 11/24: have Chrome open with the vidIQ extension signed in to the channel, so the stayed-to-watch read can run.
 
+## 6. Reviews and what they changed (11/12 afternoon)
+Three rounds, each by models other than the builder.
+- Round 1 (three reviewers): 46 defects. Four were major and all in `postkit.py` or the setup script: swears written with an apostrophe ("shit's", "fuckin'") got past the check and would have shown uncensored in TikTok captions; a TikTok spec could be turned into a YouTube post with none of the YouTube checks; `log` could overwrite another episode's row in posted.csv; `setup_env.sh` said "ready" after every step had failed. Also found: the orders page was 74,048 bytes and a Read stops near 64,000, so a fresh session never saw its last quarter (work gate, agent routing, research loop, platform facts), and three older instruction pages still described the October flow.
+- Round 2 (three fixers, three checkers): all of the above fixed. The orders page was split into the page (rules in force) and `MASTER_ORDERS_LOG.md` (history); a script found 0 sentences lost and every quote of Nolan still on the page. The checkers then found 5 small tool defects and about 25 clashing or stale statements; all settled.
+- Round 3 (two checkers): no major defect. 4 small tool or doc items and 12 doc points fixed.
+- End state: `postkit.py selftest` 28 of 28, the 14 live specs lint with 0 fail and 0 warn, the dog TikTok for tonight passes the voice check (83 of 83 words), `scan.py` reports 0 critical.
+- Incident: a round-1 reviewer's failed `cd` ran a commit and `git checkout -- .` inside the real repo and wiped four uncommitted files (MASTER_ORDERS, KNOWLEDGE, CLAUDE.md, tools/README). They were rebuilt from the session log and matched the reviewer's saved diff line for line (44 changed lines). Rule added (MASTER_ORDERS, "Agent routing"): agents never change the repo with git, and the main session commits before it starts any agent. The same accident showed that a sparse checkout drops `.claude/skills/` unless `/.claude/` is in its patterns (now in CLAUDE.md).
+- Not done, with reasons: `skills/channel-brain/later.md`.
+
 ## Could not measure or check
 - Whether Windsor accepts the personal TikTok account; whether the YouTube retention API returns curves for Shorts; whether the reach report includes feed exposures.
 - Anything after 11/09 in Windsor; which day boundary Windsor uses.

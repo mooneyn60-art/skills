@@ -8,12 +8,12 @@ taps. This file is the team, the daily routine, the numbers we steer by, and the
 
 ## Cadence (current as of 2026-11-12; also in MASTER_ORDERS, "Posting", and in the CADENCE table of scan.py)
 
-- **YouTube Shorts: three a day, at least 3 hours apart.** Weekdays 10:00, 16:00, 19:00 ET. Weekends 08:00 or 11:00 (11:00 after a long-form), 14:00 or 15:00, 19:00. Do not go above three a day without numbers that say it is safe.
+- **YouTube Shorts: three a day, at least 3 hours apart.** Weekdays 10:00, 16:00, 19:00 ET. On a weekday with a 17:00 long-form, two Shorts only: 10:00 and 19:00. Weekends 08:00 or 11:00 (11:00 after a long-form), 14:00 or 15:00, 19:00. Do not go above three a day without numbers that say it is safe.
 - **TikTok: 12:00, 19:00 and 21:30 ET.** The 19:00 slot carries the 20 to 26 second search-led cuts (spec key `search_top`) through 11/19. One-minute sweary cuts go at 20:15.
 - **Long-forms: Saturday 08:00 plus one Wednesday or Thursday 17:00.**
 - New videos are pets or Would Meatball Survive. No new bug episodes, no case files. Fully drawn. Research is continuous.
 - The bottleneck is views on both platforms, then 4,000 long-form hours.
-- Every older time or count further down (09:30/14:00/18:00 Shorts, 12:00/14:30/17:00 TikToks, "2 Shorts" on a long-form day, 61 s+ only) is history.
+- Every older time or count further down (09:30/14:00/18:00 Shorts, 12:00/14:30/17:00 TikToks, 61 s+ only) is history.
 
 ## Gate: every Short (Nolan 11/12; permanent)
 
@@ -25,6 +25,8 @@ taps. This file is the team, the daily routine, the numbers we steer by, and the
 ## vidIQ ration (OVERRIDES every routine's budget line, set 2026-10-26)
 
 UPDATE 11/12: 3 credits are left until the 11/24 reset. Spend 0. The 11/24 read is planned in MASTER_ORDERS ("Develop yourself"). The numbers come from the scoreboard skill (Windsor, Metricool, ttpage).
+
+History (10/26 to 10/28; the 11/12 line above wins until the 11/24 reset):
 
 UPDATE 10/27 12:30: balance is 68 (Lab used ~300). Below 100 = Sunday summit only; every other routine spends 0.
 UPDATE 10/28 12:25: balance 13 before the midday desk, 8 after its one TikTok outlier search (5). Lead-approved cap for 10/28: 6. No score_title or keyword research until the 11/24 reset unless Nolan asks.
@@ -94,9 +96,9 @@ missiles and all?") "by far" over a scene open (A) and a proof open (B). TARS al
 | Role | Owns | When |
 |---|---|---|
 | Showrunner (Claude) | priorities, final QA of scripts/frames/thumbs, posting, Nolan updates | every run |
-| Analyst | tools/stats.py, Metricool + vidIQ analytics, HQ "Daily report", experiment scoring | evening run |
+| Analyst | the scoreboard skill (Windsor, Metricool, `postkit.py ttpage`), experiment scoring; vidIQ only from 11/24 | evening run |
 | Scout | tools/rivals.py, competitor outliers, research/19-topic-backlog.md | evening run |
-| Writer | next episode script (cold open, 12 myths, jokes, ~1,600-1,700 words) | morning run, 2 days ahead |
+| Writer | next long-form script, written only from its fact pack (MASTER_ORDERS, "Watch hours": one creature or the "born as" shape, 8-12 min, no joke before 0:25) | 2 days ahead |
 | Photo editor | retired (fully drawn, no photos) | n/a |
 | Producer | `postkit.py render` and the make-short skill; long-form thumbnails with tools/thumb_dontkill.py | morning run |
 | Scheduler | Metricool queue per the Cadence section (3 Shorts and 3 TikToks a day, a long-form Saturday 08:00 plus Wednesday or Thursday 17:00), first comments | morning run |

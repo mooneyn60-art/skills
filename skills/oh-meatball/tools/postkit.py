@@ -84,8 +84,9 @@ WHEN_FMT = "%Y-%m-%dT%H:%M:%S"
 
 MILD = {"damn", "hell", "ass", "dumbass", "badass", "bastard", "bastards"}          # allowed in YouTube speech
 STRONG = {"fuck", "fucks", "fucking", "fucked", "fucker", "fuckers", "motherfucker", "shit", "shits", "shitty",
-          "bullshit", "bitch", "bitches", "asshole", "assholes", "crap", "piss", "pissed", "dick", "cock", "pussy"}
-STRONG_STEM = re.compile(r"fuck|shit|bitch|asshole|pussy")   # also catches shitballs, motherfucking, dipshit
+          "bullshit", "bitch", "bitches", "asshole", "assholes", "crap", "piss", "pissed", "dick", "dicks", "cock", "cocks", "pussy"}
+STRONG_STEM = re.compile(r"fuck|shit|bitch|asshole|pussy|dickhead|cocksuck")   # also catches shitballs, motherfucking, dipshit
+# dick and cock stay exact words, so cockatoo, peacock, cockroach, cocker spaniel and Dickcissel are clean
 CLEAN_WORDS = {"shiitake", "shiitakes", "shitake", "shitakes", "pussycat", "pussycats"}   # hold a stem, are not swears
 ZERO_WIDTH = re.compile("[\u200b-\u200d\u2060\ufeff]")
 BANNED_TITLE = ["true or false", "myth", "believe", "cartoons", "lied", "did you know"]   # MASTER_ORDERS, banned title words
@@ -640,6 +641,9 @@ def _fixtures():
         ("clean words that hold a stem (shiitake, shitake, pussycat)", "yt",
          ch(yt, beats=say(1, "One gene is broken. No shiitake, no shitake, no pussycat jokes.")), True, None),
         ("keycap emoji counts as the one emoji", "yt", ch(yt, title=lambda t: t.replace("\U0001F431", "1\uFE0F\u20E3")), True, None),
+        ("animal names that hold a swear (cockatoo, peacock, cockroach, Dickcissel, crappie)", "yt",
+         ch(yt, beats=say(1, "One gene is broken. A cockatoo, a peacock, a cockroach, a Dickcissel and a crappie agree.")), True, None),
+        ("compound swear on YouTube (dickhead)", "yt", ch(yt, beats=say(1, "What a dickhead.")), False, 'strong words in a YouTube script'),
         ("strong word in full-width letters", "yt", ch(yt, beats=say(1, "\uFF33\uFF48\uFF49\uFF54. Wild.")), False, 'strong words in a YouTube script'),
         ("strong word split by a zero-width space", "yt", ch(yt, beats=say(1, "Holy sh\u200bit.")), False, 'strong words in a YouTube script'),
         ("strong word on YouTube", "yt", ch(yt, beats=say(1, "That shit's wild.")), False, 'strong words in a YouTube script'),
@@ -1096,6 +1100,9 @@ def main():
             title = sp.get("title") if a.net == "youtube" else sp.get("tiktok_title")
         if not title:
             sys.exit("give --title or --spec")
+        if not re.fullmatch(r"\d{4}-\d\d-\d\d[ T]\d\d:\d\d(:\d\d)?", a.when):   # no zone suffix: the log is Eastern time
+            print("FAIL --when must look like 2026-11-13 16:00 (Eastern time); got %r" % a.when)
+            sys.exit(1)
         rc = log_post(a.net, a.when.replace("T", " ")[:16], a.file, title, a.episode, a.uuid, a.id, a.media)
     elif a.cmd == "rawurl":
         rc = rawurl(a.file, a.sha)
