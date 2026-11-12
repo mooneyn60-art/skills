@@ -3,6 +3,8 @@
 Claude runs the channel; Nolan owns the accounts, gives direction, and does the few Studio-only
 taps. This file is the team, the daily routine, the numbers we steer by, and the rules for change.
 
+**Read this first (2026-11-12).** Only four sections of this page are current: Cadence, Gate, vidIQ ration and Team. Everything else is history from October and early November, kept for the reasons behind old choices. Where it differs from `skills/channel-brain/MASTER_ORDERS.md`, MASTER_ORDERS wins. Do not act on a rule found only here (subscribe pills and guess cards, yes/no first comments, a +15% voice, every TikTok over 60 s, two long-forms at 17:00, 5 to 7 minute long-forms, Shorts cut out of a long-form, vidIQ scoring, food and history topics, the name Meatball Investigates).
+
 
 ## Cadence (current as of 2026-11-12; also in MASTER_ORDERS, "Posting", and in the CADENCE table of scan.py)
 
@@ -52,7 +54,7 @@ Until the reset:
 
 ## NO QUIZZES: just tell the story (Nolan, 2026-10-26; overrides any older rule)
 
-Partly retired on 2026-11-12: lines here about photos, footage, Bill, Kokoro, episode.py, cases and quizzes are history. See MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
+History since 2026-11-12: anything in this block that differs from MASTER_ORDERS or the Cadence section at the top is not in force. See MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 "Get rid of all quizzes and just tell the story, make it engaging and make sure you ask for subs."
 - Banned in every new script:
   - "Guess" lines, "Guess one / Guess two" decoys
@@ -61,7 +63,7 @@ Partly retired on 2026-11-12: lines here about photos, footage, Bill, Kokoro, ep
   - the "decoy" beat key
 - Questions INSIDE the story are fine and wanted ("Did they get it?", "So where did ten people go?"). They are
   open loops, not quizzes, and the next beats answer them.
-- Asks stay:
+- Asks (history: the v6 template has no spoken subscribe or follow line and no outro, and the pinned comment is an open question; case files are dropped):
   - subscribe or follow early (6-10 s) and again after the payoff, tied to the series ("New case every day")
   - a one-tap OPINION poll card (no right answer: "Would you have signed it?", "Could it happen today?")
   - a comment prompt asking for the viewer's theory or opinion
@@ -114,13 +116,13 @@ Times: see the Cadence section at the top (the old 2 PM / 9:30-20:00 slot lists 
 Episodes: impressions CTR, 30 s retention, average view duration, views in 48 h.
 Shorts: engaged views / views, average view %, subs gained. TikTok: views, average watch time,
 qualified views. Channel: subs, weekly long-form watch hours vs the 4,000 h pace.
-- Double down: any video at 3x our median in 48 h gets a Part 2 within a week.
+- Double down: a pet or survival Short at 2x its group's median gets a sequel within 48 h (MASTER_ORDERS). A bug winner gets none.
 - Kill: a topic or title style whose 3 videos all land under half our median.
 
 ## How we change things (no guessing)
 1. Every change is an experiment row in data/experiments.csv: hypothesis, change, metric, start date.
 2. Change one variable at a time (hook, title pattern, thumbnail style, voice pace, length).
-3. Score after 3 videos or 7 days against the median of the 3 before: keep, kill, or extend.
+3. Score against the group's median with 5 or more videos a side (`channel-brain/tools/abtest.py` calls fewer TOO FEW): keep, kill, or extend.
 
 ## What needs Nolan
 - Studio-only: Related video on each Short, end screens, Test & Compare thumbnails, hiding likes,
@@ -133,8 +135,8 @@ qualified views. Channel: subs, weekly long-form watch hours vs the 4,000 h pace
   Nolan's own actions are the exception: logins, connecting accounts, and payments, which stay zero beyond what's already paid.
 - Only drawn Meatball videos: animal-fact Shorts and Meatball long-forms; no quiz formats. No door-cam, trail-cam or other
   fake camera clips, ever; the old ones stay as drafts in Metricool.
-- Long-form explainers run ~10 minutes (12 myths, or a history story with 3-4 checkpoints), never 2-3 minute pilots.
-  Each episode is cut into one vertical Short per myth (`explainer.py --vertical`).
+- Long-forms run 8 to 12 minutes, one creature or one life, each with its own script (MASTER_ORDERS, "Watch hours"), never 2-3 minute pilots.
+  No Shorts are cut out of a long-form: its two or three companion Shorts are made on their own.
 - Like counts hidden on every video. The YouTube API and Metricool can't set this, so it lives in
   YouTube Studio: Settings > Upload defaults > Advanced settings > untick "Show how many viewers
   like this video" (new uploads), and Content > select all > Edit (existing ones).
@@ -238,7 +240,7 @@ Retired on 2026-11-12: see MASTER_ORDERS (the rules) and .claude/skills/make-sho
 
 ## Long-form rules (learned 2026-10-23)
 
-Partly retired on 2026-11-12: lines here about photos, footage, Bill, Kokoro, episode.py, cases and quizzes are history. See MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
+History since 2026-11-12: anything in this block that differs from MASTER_ORDERS or the Cadence section at the top is not in force. See MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 - Cold open every episode: the first line is the hook for a stranger (the myths, the twist, the
   stakes), then straight into myth 1. Never open with "Last time..." since nearly every viewer is new.
 - Post the episode first, then its Shorts, so every Short can carry a Related video link to it
@@ -249,15 +251,15 @@ Partly retired on 2026-11-12: lines here about photos, footage, Bill, Kokoro, ep
   then a rotating loop line that runs into the opening (research/23, research/30). Long-form: strongest
   myth teased in the cold open, myth #1 by ~15 s, re-hooks near 1, 3 and 6 minutes ("the last one fooled
   scientists"), MYTH n/12 badge, best myth saved for last.
-- Narration: en-US-AndrewMultilingualNeural at +15% everywhere (Nolan picked it 2026-10-23) with the light music bed
+- Narration: en-US-AndrewMultilingualNeural at +10% and +3Hz (MASTER_ORDERS, STYLE LOCK; the +15% of 10/23 is history) with the light music bed
   (`brand/music/quiz-bed.m4a`, original vidIQ track, ducked under the voice). Set per script:
   `"rate"`, `"short_rate"`, `"music"`.
-- Posting times: the Cadence section at the top. Every TikTok is over 60 s (Creator Rewards floor) with the AI-content label on.
+- Posting times: the Cadence section at the top. TikTok lengths are in the Cadence section too; the AI-content label stays on.
 
 ## Guardrails
 - Original characters and stories only; label AI content where the platform asks.
-- Keep >= 400 vidIQ credits in reserve. No paid tools without Nolan's yes.
-- Never post the same video twice to one platform (check opusclip_list_scheduled_posts first).
+- vidIQ: follow the vidIQ ration section (3 credits left until 2026-11-24, so spend none). No paid tools without Nolan's yes.
+- Never post the same video twice to one platform (check Metricool `getScheduledPosts` and `data/posted.csv` first).
 
 ## Opening rules (Contrarian review, research/38; Mayor 10/24)
 
@@ -271,9 +273,9 @@ Retired on 2026-11-12: see MASTER_ORDERS (the rules) and .claude/skills/make-sho
 
 ## Niche, thumbnails, repeat audience (Nolan, 10/24; research/42)
 
-Partly retired on 2026-11-12: lines here about photos, footage, Bill, Kokoro, episode.py, cases and quizzes are history. See MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
+History since 2026-11-12: anything in this block that differs from MASTER_ORDERS or the Cadence section at the top is not in force. See MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 - **Quiz format retired for new long-form.** Meatball explains weird true things.
-- **Topic pillars:**
+- **Topic pillars (history: new videos are pets or Would Meatball Survive):**
   - Animals (70% of videos)
   - Food (Meatball *is* food)
   - Weird history and the human body
@@ -283,9 +285,9 @@ Partly retired on 2026-11-12: lines here about photos, footage, Bill, Kokoro, ep
   - one subject
   - at most 3 words
   - brand colors
-  - 3 variants, each scored with vidIQ
+  - 3 variants (no vidIQ scoring while credits are at 3)
 - **Repeat audience:**
-  - a fixed rhythm: 2 long-forms a week at 17:00, at least 3 days apart
+  - a fixed rhythm: the long-form slots in the Cadence section (Saturday 08:00 plus Wednesday or Thursday 17:00)
   - named series with their own playlists
   - running gags
   - read commenters' answers on screen
@@ -294,8 +296,10 @@ Partly retired on 2026-11-12: lines here about photos, footage, Bill, Kokoro, ep
 
 ## Always ask: likes, comments, subscribes (Nolan, 10/24)
 
-Partly retired on 2026-11-12: lines here about photos, footage, Bill, Kokoro, episode.py, cases and quizzes are history. See MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
+History since 2026-11-12: anything in this block that differs from MASTER_ORDERS or the Cadence section at the top is not in force. See MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 Never assume viewers will engage. Every video asks, in Meatball's voice and with a joke, never as a generic "smash that like button".
+
+Retired on 2026-11-12 (this block, the Shorts ask kit and the first-comment paragraph below it): no subscribe pill, no guess card, no spoken ask; long-forms have no ask before 0:25 (MASTER_ORDERS, "Watch hours"); the pinned comment is an open question (MASTER_ORDERS, "Posting").
 
 **Long-form: v3/v4 style + early asks (Nolan 10/25: "keep that up, and for long form also"; "more v3 in long form, too dry")**
 - **Style:** story long-forms render with `"style": "v4", "aspect": "16:9"` (tools/v3.py `landscape()`, 1920x1080): Meatball in jeopardy (an action move at least once a minute, a gag or escalation every 15-20 s), punch-ins on key words, a whip or new picture every 3-4 s at most, SFX under the voice, moving cut-outs where the photo shows the whole animal (v3 stills otherwise). Text cards become `"label"`s over a blurred photo; `"aside"` footnotes still work. Still 6-8 min and one story; facts unchanged, jokes in the research/39 voice only. Samples: `scripts/explains-0{2,3}-*.json`.
@@ -307,7 +311,7 @@ Never assume viewers will engage. Every video asks, in Meatball's voice and with
 - **First comment / pinned:** the same emoji guess question. The description's first question line matches it.
 - The v3 gate warns (long-form): any ask before 15 s, a guess card outside 15-40 s, a pill outside 28-55 s or more than one pill, the reminder earlier than the last 90 s, a picture held over 3.5 s, nothing new for over 4 s.
 
-**Shorts: the ask kit is standard on every new Short (Nolan 10/25: "do it in the beginning so people will actually be watching"; research/46)**
+**Shorts: the ask kit (retired, see the line above; it was standard on every new Short from Nolan 10/25: "do it in the beginning so people will actually be watching"; research/46)**
 - **0-3 s: hook only.** Never an ask in the first 3 seconds.
 - **~3-6 s: guess-first comment card** (beat `"ask": {"q", "choices", "at"}`): one short voiced line ("Guess before I tell you. Comment.") and 2-3 emoji choices on screen ("🦈 or 🐊", "👍 / 👎"). One word or one emoji to answer. The Short must answer it later, and the question must be true to the video: never a wrong fact to bait corrections.
 - **~6-10 s: subscribe pill** (beat `"sub"`): one quick line with a concrete, true reason ("Subscribe. I face a new animal every day."). No "sub4sub", no "smash that button".
@@ -315,7 +319,7 @@ Never assume viewers will engage. Every video asks, in Meatball's voice and with
 - `tools/v3.py` gate warns when an ask lands before 3 s, the guess card after 7 s, or the pill outside 5.5-10.5 s. Sample: `episodes/ask-kit/`.
 - **Series:** number them in the title ("Meatball vs Spiders #1 of 3"). "Follow for Part 2" only when Part 2 is already made or queued; "Part 2 at N comments" only if we will really make it.
 
-**First comment (YouTube) and caption (TikTok):** lead with ONE binary or pick-one question with 2-3 emoji choices, tied to that video's animal and accurate to it ("Would you pick it up? 👍 yes / 👎 no / 💀 only with gloves"). On ask-kit Shorts use the same guess question as the card. YouTube first comment ends with "Follow Meatball for more 🍝"; TikTok caption = question first, then the fact and hashtags, then "Follow Meatball for more 🍝" (or the real "Follow for Part N").
+**First comment (YouTube) and caption (TikTok), retired (now an open question, and the caption standard in MASTER_ORDERS "Tags and everything"):** lead with ONE binary or pick-one question with 2-3 emoji choices, tied to that video's animal and accurate to it ("Would you pick it up? 👍 yes / 👎 no / 💀 only with gloves"). On ask-kit Shorts use the same guess question as the card. YouTube first comment ends with "Follow Meatball for more 🍝"; TikTok caption = question first, then the fact and hashtags, then "Follow Meatball for more 🍝" (or the real "Follow for Part N").
 
 **Description:** the first line is the same question when it fits. The subscribe line gives the concrete reason: "Subscribe: Meatball faces a new animal every day 🍝" (long-forms say "two new Meatball stories every week").
 
@@ -332,7 +336,7 @@ Never assume viewers will engage. Every video asks, in Meatball's voice and with
 
 ## Long-form reset (Nolan + Mayor, 10/24 evening)
 
-Partly retired on 2026-11-12: lines here about photos, footage, Bill, Kokoro, episode.py, cases and quizzes are history. See MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
+History since 2026-11-12: anything in this block that differs from MASTER_ORDERS or the Cadence section at the top is not in force. See MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 Data, last 30 days:
 - Long-form got 5 views, averaging 28 seconds watched.
 - Shorts got 6,002 views.
@@ -340,7 +344,7 @@ Data, last 30 days:
 - Diagnosis: YouTube isn't showing our long-form to anyone. The few people who click leave within half a minute, because the 12-card quiz with countdowns repeats the same pattern. Shorts carry discovery; long-form carries watch hours and RPM. Both need to work.
 
 Rules from 10/30:
-- **Cadence:** two long-forms a week at 17:00 ET, at least 3 days apart (Cadence section; the 10/24 Tue/Sat 2 PM rule is retired).
+- **Cadence:** the long-form slots in the Cadence section at the top (Saturday 08:00 plus Wednesday or Thursday 17:00; the 17:00-twice and Tue/Sat 2 PM rules are retired).
   - A third weekly long-form needs Nolan's yes and one episode clearing the retention gate below (Metricool finds 2-4/week is the long-form sweet spot; research/60).
   - Long-form pays a much higher RPM than Shorts, and the 3,000/4,000 watch-hour path needs it.
 - **Format: one story, not 12 cards.**
@@ -349,10 +353,10 @@ Rules from 10/30:
   - At most 3 quiz checkpoints, and no countdown cards.
   - Something new (a reveal, a photo, a joke) at least every 20 seconds.
   - Payoffs are promised in the first 15 seconds and delivered at the end.
-- **Title equals the search phrase:** the title must match a keyword vidIQ shows with search volume. No "12 Myths" listicle titles.
+- **Title equals the search phrase:** the title leads with the searched words (`postkit.py kw`; vidIQ volume only after 11/24). No "12 Myths" listicle titles.
 - **Thumbnail:** one animal, Meatball's face, and at most 3 words. Test two in Studio "Test & Compare" (Nolan).
 - **Bridge from Shorts:**
-  - Each long-form is cut into 6-12 Shorts.
+  - Each long-form gets two or three companion Shorts made on their own (MASTER_ORDERS, "Watch hours"); none are cut from it.
   - Every one of those Shorts gets the long-form as its YouTube "Related video" (Nolan, in Studio; the API can't set it).
   - Pinned comment: "Full story: <title>".
   - **Ask for the tap (research/60 R60-1, E29):** once its long-form is public, a linked Short's last 3-5 s are Meatball pointing down and saying "the full story's in the link below". On those Shorts this replaces the subscribe pill. Shorts views give 0 watch hours unless the viewer taps.
@@ -360,7 +364,7 @@ Rules from 10/30:
 - **Test & Compare on every long-form (R60-4):** 3 titles (or 3 title+thumb pairs), set by Nolan at publish. YouTube picks by watch time per impression; read that, not CTR.
 - **Auto dubbing (R60-3):** on, with "Publish manually"; review the Hindi, Spanish and Portuguese dubs. If Studio flags the speech as too fast, long-form narration drops from +15% to +5%.
 - **Freed render time goes to Shorts:** the Cadence section's 3 YouTube Shorts and 3 TikToks a day; "Would Meatball Survive?" gets a regular Short slot.
-- **Judge by retention:** keep a format only if average view duration is above 2:00 and retention at 30 seconds is above 60%. Check after each episode with vidIQ audience_retention.
+- **Judge by retention:** keep a format only if average view duration is above 2:00 and retention at 30 seconds is above 60%. Check after each episode with Windsor average % viewed (scoreboard skill); vidIQ audience_retention only after 11/24.
 
 ## Narrator voice (Nolan, 10/24): Bill
 
@@ -381,7 +385,7 @@ Retired on 2026-11-12: see MASTER_ORDERS (the rules) and .claude/skills/make-sho
 
 ## Long-form retention (Retention desk, 10/25; research/47)
 
-Partly retired on 2026-11-12: lines here about photos, footage, Bill, Kokoro, episode.py, cases and quizzes are history. See MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
+History since 2026-11-12: anything in this block that differs from MASTER_ORDERS or the Cadence section at the top is not in force. See MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 Autopsy: our one long-form with a curve (gFhrONKK0rI, 2:15 quiz pilot, 11 viewers, 53 s AVD) lost people at 0:02 (the opening question card), 0:04 (it answered its own question), 0:14 (agenda line "Today we're fixing..."), 0:18 (re-stated answer), and wherever one item ran 25-45 s with no tease (0:28, 0:46, 1:12). Small-channel breakouts open on the animal, never introduce themselves, and change animal every 75-100 s under a countable structure.
 
 **`tools/retention.py` gates every 16:9 story long-form; episode.py refuses to build one that fails** (`--no-retention` only for old episodes). It estimates times from words (3.35 words/s, Kokoro +0%) or reads a render's timeline.json (`--timeline`).
@@ -391,7 +395,7 @@ Autopsy: our one long-form with a curve (gFhrONKK0rI, 2:15 quiz pilot, 11 viewer
 - **R4 Segments:** never more than 75 s without a new animal, a twist (`"twist": true`) or Meatball jeopardy (`"jeopardy": true`).
 - **R5 Best story last:** one `"payoff": true` chapter, the last counted one, starting in the back 35%, teased in the cold open and again mid-video (`"tease": true`). The outro after it runs 60 s at most.
 - **R6 Expectation match:** at least half the title/thumbnail words (`"thumb_text"`) are said or shown in the first 60 s, and chapter 1 starts by 0:60.
-- **R7 Length 5:00-7:00** (supersedes the ~10 min and 6-8 min lengths above) until long-form AVD clears 2:00. We give up mid-rolls (8:00+) on purpose: we aren't monetized, and watch hours grow faster from a held 6 min than from an abandoned 10. Test one 8:30 with a chapter-break mid-roll after 3 straight episodes over 2:00 AVD and 50% at 0:30.
+- **R7 Length (history: now 8 to 12 minutes, MASTER_ORDERS "Watch hours", from 11/10):** 5:00-7:00 (superseded the ~10 min and 6-8 min lengths above) until long-form AVD clears 2:00. We give up mid-rolls (8:00+) on purpose: we aren't monetized, and watch hours grow faster from a held 6 min than from an abandoned 10. Test one 8:30 with a chapter-break mid-roll after 3 straight episodes over 2:00 AVD and 50% at 0:30.
 - **Every evening (Intel):** pull audience_retention for each long-form older than 48 h, log the drops in data/retention.csv, and send the top drop cause to the Showrunner.
 
 ## Daily mix from 10/28: cases scale up (Nolan 10/26: "I want some of those going out today, we will need to scale")
@@ -477,11 +481,11 @@ Extra slots on top of the daily mix: they never move the scaling agent's 09:30/1
 
 ## Growth levers (Growth desk 10/26, research/51; Nolan: "make all of those")
 
-Partly retired on 2026-11-12: lines here about photos, footage, Bill, Kokoro, episode.py, cases and quizzes are history. See MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
+History since 2026-11-12: anything in this block that differs from MASTER_ORDERS or the Cadence section at the top is not in force. See MASTER_ORDERS (the rules) and .claude/skills/make-short (the flow).
 Beyond making more videos, these run every day. The ranked list, tests and metrics are in research/51-growth-levers.md.
 - **Funnel first.** A Short's Related video points at its best long-form (data/related-video-map.csv; Nolan sets it in Studio). The case long-form `Conspiracy Theories That Turned Out To Be TRUE` is rendered: it goes live before any more case Shorts pile up. **Every new long-form or Short adds a row to the map** (postmaster, when it's queued). A Short's Related video can be changed later, so map it to a scheduled long-form and set it on the day that one goes public.
 - **Search-first long-forms.** Long-form titles start with a searched phrase that has vidIQ volume (research/51-search-slate.md). The next two are `scripts/longform-bermuda-triangle.json` and `scripts/longform-roanoke.json` (both pass retention.py). Publish the long-form first, then cut its Shorts.
-- **Channel identity.** Display name `Meatball Investigates` (handles stay `@meatballmyths`). The banner, avatar and trailer are in episodes/branding/. The 4 playlists (Cases, Verdict on the Viral One, Viewer Case Friday, Meatball vs Animals) get every new post: the postmaster lists the day's additions for Nolan in `plan/today`.
+- **Channel identity (history: the name is Meatball Myths).** Display name `Meatball Investigates` (handles stay `@meatballmyths`). The banner, avatar and trailer are in episodes/branding/. The 4 playlists (Cases, Verdict on the Viral One, Viewer Case Friday, Meatball vs Animals) get every new post: the postmaster lists the day's additions for Nolan in `plan/today`.
 - **Long-form extras on every upload:** an end screen (Best for viewer + Cases playlist + Subscribe), one playlist card, the watermark, and 3 thumbnails for Test & Compare (research/51-growth-levers.md §3).
 - **TikTok (research/51-tiktok-playbook.md):** caption line 1 on case posts is the searched phrase; 3-5 hashtags incl. `#meatballinvestigates`; auto-captions on; 3 case posts pinned (refreshed every Monday by the best full-watch rate); a Stitch of the week's viral claim as an extra Verdict post (Nolan, in-app; $0 Rewards, so never in a Rewards slot). Nolan's Promote: experiment E-promote. Promote a case deep cut with series identity, keep fresh cases daily, pause on cost per follower.
 - **Community:** the Host drafts the week's Posts (3 polls among them, plus the Monday "submit a case" repost). Nolan posts them. A poll result is quoted only with 30+ votes. The fast-reply bank (research/51-community-posts.md) is **off until Nolan approves its 8 exact texts**.

@@ -2,7 +2,7 @@
 
 This repo runs the "Meatball Myths" channel (YouTube + TikTok) for Nolan.
 
-1. Read `skills/channel-brain/MASTER_ORDERS.md` before doing or proposing anything. It holds the standing orders, the banned title words, the long-form format, the agent routing table and the verified platform facts. The page now fits in one Read (it is kept under 46,000 bytes). If a Read says the page was cut off, read the rest before acting. `skills/channel-brain/MASTER_ORDERS_LOG.md` holds the history and the reasons: read it when a rule's reason matters. If the chat gets summarized, read MASTER_ORDERS again: rules have been forgotten that way before.
+1. Read `skills/channel-brain/MASTER_ORDERS.md` before doing or proposing anything. It holds the standing orders, the banned title words, the long-form format, the agent routing table and the verified platform facts. The page fits in one Read (it is kept under 50,000 bytes). If a Read says the page was cut off, read the rest before acting. `skills/channel-brain/MASTER_ORDERS_LOG.md` holds the history and the reasons: read it when a rule's reason matters. If the chat gets summarized, read MASTER_ORDERS again: rules have been forgotten that way before.
 2. Then read `skills/channel-brain/KNOWLEDGE.md` and the newest files in `skills/oh-meatball/research/` (highest number = newest).
 3. `skills/oh-meatball/data/posted.csv` logs everything scheduled or posted. Update it with every scheduling change.
 
@@ -17,6 +17,7 @@ This repo runs the "Meatball Myths" channel (YouTube + TikTok) for Nolan.
 
 ## Tools and skills (added 11/12, on Nolan's "develop yourself")
 - Fresh machine: `bash skills/oh-meatball/tools/setup_env.sh` (packages and the speech model; ends with "ready").
-- `skills/oh-meatball/tools/postkit.py` does the checks between a spec and a scheduled post: `render` and `voicecheck` (never schedule a file that has not passed), `lint` (titles, tags, captions), `payload` (the Metricool post body), `log`, `rawurl`, `rehost`, `kw`, `ttpage`. Run it from `skills/oh-meatball`.
+- `skills/oh-meatball/tools/postkit.py` does the checks between a spec and a scheduled post: `render` and `voicecheck` (never schedule a file that has not passed), `lint` (titles, tags, captions), `payload` (the Metricool post body; `--call` and `--update` print the exact tool arguments), `log`, `rawurl`, `rehost`, `kw`, `ttpage` (`--csv data/tiktok-stats.csv` keeps a daily record), `selftest`. Run it from `skills/oh-meatball`.
 - Skills in `.claude/skills/`: `make-short` (topic to logged post), `post-metadata` (titles, tags, captions), `scoreboard` (which number comes from where). MASTER_ORDERS still wins over them.
-- The three skills live in `.claude/skills/`, and a sparse checkout must include `/.claude/` or they vanish from disk (`git sparse-checkout add /.claude/`). This file is outside the sparse patterns too: add `/CLAUDE.md` the same way.
+- If a file named here or in a skill is not on disk, the checkout is sparse: `git sparse-checkout list` must include `/.claude/`, `/CLAUDE.md` and `/skills/oh-meatball/scripts/drawn-house/` (add with `git sparse-checkout add <path>`; one old video: `git show HEAD:<path> > /dev/shm/x.mp4`). Never run `git sparse-checkout reapply` or `git checkout -- .` with uncommitted work.
+- Agents never run a git command that changes the repo; the main session commits, and commits before starting agents (MASTER_ORDERS, "Agent routing").

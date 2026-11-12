@@ -93,8 +93,9 @@ def check_views(root, now):
     last = parse_ts(snaps[-1])
     age = (now - last).total_seconds() / 3600
     if age > STALE_SNAPSHOT_H:
-        add("CRITICAL", "intel", f"The last view snapshot is {age:.0f} h old ({snaps[-1]}). Every decision since then is blind.",
-            "Run tools/stats.py now (free, yt-dlp), then re-run this scan; for the real numbers use the scoreboard skill (Windsor, Metricool, ttpage).")
+        add("WARN", "intel", f"data/views.csv (public counts from tools/stats.py) is {age:.0f} h old ({snaps[-1]}), so this scan's view checks are skipped.",
+            "Real numbers: the scoreboard skill (Windsor, Metricool, postkit.py ttpage). Run tools/stats.py if you want this scan's view checks back.")
+        return   # weak-Short and momentum checks on a stale snapshot would read as today's news
     by = {}
     for r in vs:
         by.setdefault(r["id"], []).append((parse_ts(r["ts"]), int(r["views"] or 0), r["kind"], r["title"]))
@@ -213,7 +214,7 @@ def check_queue(root, now):
         if later:
             # Days 3-7 (added 10/25): the 48 h window hid 2-3 empty YouTube Shorts slots a day from 10/28 on.
             add("WARN", "postmaster", f"{len(later)} {net} slot(s) in days 3-7 are empty: {', '.join(later[:8])}{' ...' if len(later) > 8 else ''}.",
-                "Render a pack for them in the next morning run; an empty slot beats an old-style post.")
+                "Fill them from finished renders when they come inside 3 days. A weekday with a 17:00 long-form holds two Shorts (10:00 and 19:00), so its 16:00 gap is meant (MASTER_ORDERS, Posting). An empty slot beats an old-style post.")
 
 
 def check_experiments(root, now):
@@ -343,8 +344,8 @@ def check_focus(root, now):
     far = [r for r in ps if parse_ts(r.get("date", "")) and parse_ts(r["date"]) > now + dt.timedelta(days=QUEUE_MAX_DAYS)]
     if far:
         last = max(parse_ts(r["date"]) for r in far)
-        add("WARN", "postmaster", f"{len(far)} posts are queued more than {QUEUE_MAX_DAYS} days out (to {last:%m/%d}). Anything learned this week reaches viewers weeks late.",
-            "Unschedule them into held.csv; keep the queue at 7 days so new rules reach the screen next week.")
+        add("INFO", "postmaster", f"{len(far)} posts are queued more than {QUEUE_MAX_DAYS} days out (to {last:%m/%d}). Anything learned this week reaches those late.",
+            "Long-forms and dated tests sit further out on purpose (MASTER_ORDERS, long-form queue and read dates): do not unschedule them. When a rule changes, update the queued posts it touches.")
     # busywork: commits in the last 48 h that never touch the queue or a show
     try:
         import subprocess

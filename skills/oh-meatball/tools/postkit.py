@@ -53,6 +53,7 @@ import subprocess
 import sys
 import tempfile
 import time
+import unicodedata
 import urllib.parse
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -85,6 +86,8 @@ MILD = {"damn", "hell", "ass", "dumbass", "badass", "bastard", "bastards"}      
 STRONG = {"fuck", "fucks", "fucking", "fucked", "fucker", "fuckers", "motherfucker", "shit", "shits", "shitty",
           "bullshit", "bitch", "bitches", "asshole", "assholes", "crap", "piss", "pissed", "dick", "cock", "pussy"}
 STRONG_STEM = re.compile(r"fuck|shit|bitch|asshole|pussy")   # also catches shitballs, motherfucking, dipshit
+CLEAN_WORDS = {"shiitake", "shiitakes", "shitake", "shitakes", "pussycat", "pussycats"}   # hold a stem, are not swears
+ZERO_WIDTH = re.compile("[\u200b-\u200d\u2060\ufeff]")
 BANNED_TITLE = ["true or false", "myth", "believe", "cartoons", "lied", "did you know"]   # MASTER_ORDERS, banned title words
 PLACEHOLDER = re.compile(r"\b(UNCHECKED|TODO|PLACEHOLDER|FIXME|TBD)\b", re.I)
 TT_DEAD_TAGS = {"fyp", "foryou", "foryoupage", "viral", "fypシ", "xyzbca"}
@@ -92,7 +95,7 @@ BARE_DOMAIN = re.compile(r"\b[\w-]+\.(com|net|org|io|ly|gg|tv|co|us|me|app|link)
 TT_URL = re.compile(r"https://(www\.)?tiktok\.com/@[^/?#\s]+/video/\d+")
 _EMO = "\U0001F000-\U0001FAFF\u2600-\u27BF\u2B00-\u2BFF\u2300-\u23FF\u203C\u2049"
 # one visible emoji = a flag pair, or a base with an optional skin tone or U+FE0F, joined by U+200D to more of them
-EMOJI = re.compile("(?:[\U0001F1E6-\U0001F1FF]{2}|[%s](?:[\U0001F3FB-\U0001F3FF]|\uFE0F)?"
+EMOJI = re.compile("(?:[\U0001F1E6-\U0001F1FF]{2}|[0-9#*]\uFE0F?\u20E3|[%s](?:[\U0001F3FB-\U0001F3FF]|\uFE0F)?"
                    "(?:\u200D[%s](?:[\U0001F3FB-\U0001F3FF]|\uFE0F)?)*)" % (_EMO, _EMO))
 
 
@@ -102,6 +105,8 @@ def u16(s):
 
 
 def words(s):
+    # full-width letters and zero-width characters are folded first, so a disguised swear is still read
+    s = ZERO_WIDTH.sub("", unicodedata.normalize("NFKC", s))
     s = s.lower().replace("\u2019", "'").replace("\u2018", "'")
     return re.sub(r"[^a-z0-9' ]", " ", s).split()
 
@@ -120,7 +125,7 @@ def swear_tokens(text):
 
 
 def is_strong(w):
-    return w in STRONG or bool(STRONG_STEM.search(w))
+    return w not in CLEAN_WORDS and (w in STRONG or bool(STRONG_STEM.search(w)))
 
 
 def load(path):
@@ -632,6 +637,11 @@ def _fixtures():
         ("YouTube spec that follows every rule", "yt", yt, True, None),
         ("TikTok spec, every swear softened (shit's shown as SH*T'S)", "tt", tt, True, None),
         ("TikTok spec with captions off", "tt", ch(tt, cap_swap={}, captions=0), True, None),
+        ("clean words that hold a stem (shiitake, shitake, pussycat)", "yt",
+         ch(yt, beats=say(1, "One gene is broken. No shiitake, no shitake, no pussycat jokes.")), True, None),
+        ("keycap emoji counts as the one emoji", "yt", ch(yt, title=lambda t: t.replace("\U0001F431", "1\uFE0F\u20E3")), True, None),
+        ("strong word in full-width letters", "yt", ch(yt, beats=say(1, "\uFF33\uFF48\uFF49\uFF54. Wild.")), False, 'strong words in a YouTube script'),
+        ("strong word split by a zero-width space", "yt", ch(yt, beats=say(1, "Holy sh\u200bit.")), False, 'strong words in a YouTube script'),
         ("strong word on YouTube", "yt", ch(yt, beats=say(1, "That shit's wild.")), False, 'strong words in a YouTube script'),
         ("strong word on YouTube, curly apostrophe fuckin\u2019", "yt", ch(yt, beats=say(1, "It's fuckin\u2019 wild.")), False, 'strong words in a YouTube script'),
         ("compound swear on YouTube (shitballs)", "yt", ch(yt, beats=say(1, "Holy shitballs.")), False, 'strong words in a YouTube script'),
@@ -718,7 +728,7 @@ def payload(spec_path, net, when, media, cover_ms=None, first_comment=None, kind
     except (OSError, ValueError) as e:
         stop("cannot read the spec %s (%s)" % (spec_path, e))
     k = spec_kind(spec_path, spec)
-    if k != net and not (net == "youtube" and kind == "video"):
+    if k != net:                                     # also with --kind video: a long-form uses a YouTube spec
         stop("this is a %s spec; --net %s would skip its %s checks (use the %s spec)" % (k, net, net, net))
     if not no_lint:                                  # a post body is only printed for a spec that passes the gate
         real, sys.stdout = sys.stdout, sys.stderr
@@ -770,14 +780,20 @@ def payload(spec_path, net, when, media, cover_ms=None, first_comment=None, kind
 def log_post(net, when, file, title, episode=None, uuid=None, post_id=None, media=None):
     """Update or add the row for (network, file name[, episode]) in data/posted.csv; keep the scheduler's ids in
     data/post-ids.csv."""
+    try:
+        datetime.datetime.strptime(when, "%Y-%m-%d %H:%M")
+    except ValueError:
+        print("FAIL --when must look like 2026-11-13 16:00 (Eastern time); got %r" % when)
+        return 1
     path = os.path.join(ROOT, "data", "posted.csv")
     with open(path, encoding="utf-8", newline="") as f:
         rows = list(csv.reader(f))
     base = os.path.basename(file)
     hit = [r for r in rows[1:] if len(r) >= 5 and r[1] == net and r[3] == base and (episode is None or r[2] == episode)]
     if len(hit) > 1:
-        print("FAIL %d rows in posted.csv for %s %s (episodes: %s); give --episode" % (
-            len(hit), net, base, ", ".join(r[2] for r in hit)))
+        print("FAIL %d rows in posted.csv for %s %s (episodes: %s); %s" % (
+            len(hit), net, base, ", ".join(r[2] for r in hit),
+            "these rows are the same post twice: fix posted.csv by hand" if episode else "give --episode"))
         return 1
     if hit:
         old = list(hit[0])

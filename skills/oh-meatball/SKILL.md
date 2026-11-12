@@ -5,15 +5,15 @@ description: Run "Meatball Myths" (YouTube UCw98RQD81t_339LX5EJqcrg, TikTok @mea
 
 # Meatball Myths
 
-**The show:** Meatball, a meatball who's scared of being eaten, explains the weirdest true things about animals, food, history and the human body. Meatball himself never changes (look, voice, persona). Everything else gets tested.
+**The show:** Meatball, a meatball who's scared of being eaten, explains weird true things about pets in your house and big dangerous animals (Would Meatball Survive?). Meatball himself never changes (look, voice, persona). Everything else gets tested.
 
 The old cat soap opera (numbered serial episodes, Veo shots, OpusClip) was retired on 10/22. Its leftovers live in `story/`, `caught-on-camera/` and `new-format/` and are never used.
 
 ## Read these, in this order
 1. `skills/channel-brain/MASTER_ORDERS.md`: the standing orders and the rules in force. Read it first, every session. Then `skills/channel-brain/KNOWLEDGE.md` and the newest files in `research/` (highest number).
 2. `python3 skills/channel-brain/tools/scan.py skills/oh-meatball` (read-only): the queue, cadence and stale-file check. It writes nothing unless you pass `--json FILE`.
-3. `OPERATIONS.md`: the team, the numbers we steer by and the older standing orders. Its Cadence and Gate sections are current; the long blocks below them are history and say so.
-4. `TOWN.md`, `KNOWLEDGE.md` (tested findings) and `SELF_REVIEW.md` (mistakes and the checks that catch them).
+3. `OPERATIONS.md`: its Cadence, Gate, Team and vidIQ ration sections are current. Anything else in it that differs from MASTER_ORDERS is history: do not act on a rule found only there.
+4. `KNOWLEDGE.md` (tested findings) and `SELF_REVIEW.md` (mistakes and the checks that catch them). `TOWN.md` is the old team page (history).
 
 ## What is true today (2026-11-12)
 - Fully drawn, no real photos or footage. Voice: edge-tts `en-US-AndrewMultilingualNeural`, +10%, +3Hz.

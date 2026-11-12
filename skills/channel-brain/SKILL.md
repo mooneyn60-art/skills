@@ -52,10 +52,10 @@ and money. When you ask, give a recommendation and say what you'll do if he does
 - Views are lumpy: one lucky video can make a loser look like a winner. Use medians and check without the best one.
 
 ## Find problems yourself: what to look at every evening
-- **First second:** stayed-to-watch (viewed vs swiped). Under 50% = the opening is broken, top priority.
-- **Subscribers per 1,000 views.** Zero for a week = no reason to subscribe. That's a CRITICAL, not an observation.
+- **First seconds:** the engaged share of each new Short from Windsor (`.claude/skills/scoreboard`): under 0.39 means viewers swiped, so the opening is broken. Stayed-to-watch itself is Studio only (vidIQ after 11/24).
+- **Views per post on each platform**, against the medians in MASTER_ORDERS ("Weekly scorecard"). Subscribers are no longer the bottleneck (1,000 reached 11/11); note them, do not chase them.
 - **Search traffic** (it's the 2nd source): do titles match the question people type?
-- **Long-form:** impressions and suggested traffic. Zero means stop making it daily and fix the on-ramp first.
+- **Long-form:** hours against 4,000 and where its views come from (Windsor `traffic_source`; related and subscriber traffic should show). Impressions and click-through are Studio only.
 - **The queue:** every slot in the next 48 h filled, nothing posted twice.
 - **Your own docs:** does any routine file tell a run to do something retired? (The scan checks this.)
 - **What changed yesterday,** and did the numbers move? If something dropped 30%+, find the cause before
@@ -111,8 +111,8 @@ Added after the 10/29 audit (AUDIT_2026-10-29.md): in 22 hours the town made ~90
 
 ### Before any task, one question
 **"Which post in the next 7 days, or which scorecard number, does this change?"**
-- The scorecard is the one in MASTER_ORDERS ("Weekly scorecard"), read first for views per post on both platforms and long-form hours against 4,000.
-- If you can't name one, don't do the task. Write it as one line in a `later.md` list and move on.
+- The scorecard is the one in MASTER_ORDERS ("Weekly scorecard"): views per post on both platforms, long-form hours against 4,000 and the engaged share of new Shorts are read first; its three older numbers need Studio.
+- If you can't name one, don't do the task. Write it as one line in `skills/channel-brain/later.md` and move on.
 - Research, new tools, new docs and re-rendering old videos are all "later" unless they change one of those.
 
 ### Daily order (nothing below starts until everything above is done)

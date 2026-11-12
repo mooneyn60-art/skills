@@ -18,7 +18,7 @@ Nolan's standing order: research first, every time. For a new topic that means n
 - New videos are pets or Would Meatball Survive. No new bug episodes, no case files.
 
 ## 2. Write the spec
-One JSON file per cut in `scripts/drawn-house/`: `<slug>-v6-yt.json` for YouTube and `tts-<slug>.json` for the TikTok cut. Copy the newest pair. The renderer's docstring (`tools/drawn.py`) is the source of truth for the keys; `references/spec.md` is a short guide.
+One JSON file per cut in `scripts/drawn-house/`: `<slug>-v6-yt.json` for YouTube and `tts-<slug>.json` for the TikTok cut. Copy the newest pair (`cat-sugar-v6-yt.json` and `tts-cat-sugar.json`). If a spec or mp4 named here is not on disk, the checkout is sparse: `git sparse-checkout add /skills/oh-meatball/scripts/drawn-house/`, or for one old file `git show HEAD:skills/oh-meatball/<path> > /dev/shm/<name>`. Write new files at their normal paths; `git add --sparse` adds them. The renderer's docstring (`tools/drawn.py`) is the source of truth for the keys; `references/spec.md` is a short guide.
 The script rules are in MASTER_ORDERS, "Make them funnier", rules 1-5. Read them there; do not copy them here. Two things this page adds: write "his cat" and "his dog" in full and "let out a meow", not "meowed" (the voice swallows the short forms); the searched words go in the first spoken sentence.
 Voice is fixed: edge-tts `en-US-AndrewMultilingualNeural`, +10%, +3Hz. Fully drawn, no real photos or footage.
 
@@ -52,11 +52,11 @@ It fails unless the file on disk is the file in the pushed commit, resolves the 
 - `python3 tools/postkit.py payload SPEC --net youtube|tiktok --when 2026-11-13T16:00:00 --media <raw link or existing static.metricool.com link>` prints the `info` object. It exits non-zero and prints nothing if the spec does not match `--net`, `--when` is not `YYYY-MM-DDTHH:MM:SS`, or `--media` is not an https link.
 - New post: add `--call`. It prints the three arguments of Metricool `createScheduledPost`: `blogId` ("7521392"), `date` (the `--when` time with the New York offset, for example `2026-11-13T16:00:00-05:00`) and `info` (a JSON string).
 - Change a post: add `--update ID UUID`. It prints the four arguments of `updateScheduledPost`: `blogId`, `id`, `uuid` and `info`. An update replaces the whole post. The id changes on every update; the uuid does not, so log the uuid.
-- Load the Metricool tools with ToolSearch (`select:mcp__Metricool_Social_Media_Management__createScheduledPost,...updateScheduledPost,...getScheduledPosts`), timezone `America/New_York`. Read the schedule one day per call.
+- Load the Metricool tools with ToolSearch (`select:mcp__Metricool_Social_Media_Management__createScheduledPost,mcp__Metricool_Social_Media_Management__updateScheduledPost,mcp__Metricool_Social_Media_Management__getScheduledPosts`), timezone `America/New_York`. Read the schedule one day per call.
 - Slots: YouTube three Shorts a day at least 3 hours apart, weekdays 10:00, 16:00, 19:00; weekends 08:00 or 11:00 after a long-form, 14:00 or 15:00, 19:00 ET. TikTok 12:00, 19:00, 21:30 ET. Never in a long-form's slot. The AI label stays on. See MASTER_ORDERS, "Posting".
 - After the call: `python3 tools/postkit.py rehost <static.metricool.com link from the response> <local file>` proves Metricool holds the same file.
 
 ## 9. Log and tell
-- `python3 tools/postkit.py log ...` writes `data/posted.csv` (`date,network,episode,file,title`) and the post's uuid in `data/post-ids.csv`. Run it with every scheduling change. With no `--episode`, a row is matched on network and file name; if two rows match it FAILs and asks for `--episode`.
+- `python3 tools/postkit.py log --net youtube --when "2026-11-13 16:00" --file episodes/drawn-house/<out>.mp4 --spec SPEC --uuid UUID --id ID --media URL [--episode E]` (the time has a space here, not the `T` that `payload` takes) writes `data/posted.csv` (`date,network,episode,file,title`) and the post's uuid in `data/post-ids.csv`. Run it with every scheduling change. With no `--episode`, a row is matched on network and file name; if two rows match it FAILs and asks for `--episode`.
 - If Nolan's words caused the work, they go into MASTER_ORDERS the same day with your reading of them; a finding goes into `skills/channel-brain/KNOWLEDGE.md` with its source.
 - Commit and push. Then tell Nolan in one or two short lines: what changed, and the one thing he must do if there is one.
