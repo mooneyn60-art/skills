@@ -14,3 +14,8 @@ This repo runs the "Meatball Myths" channel (YouTube + TikTok) for Nolan.
 - A different model fact-checks every script before it is scheduled.
 - His one-line reactions to videos ("too short", "needs more info") are orders: write them into MASTER_ORDERS the same day.
 - Commit and push all work. Never `git add -A`; add paths with `git add --sparse <paths>`.
+
+## Tools and skills (added 11/12, on Nolan's "develop yourself")
+- Fresh machine: `bash skills/oh-meatball/tools/setup_env.sh` (packages and the speech model; ends with "ready").
+- `skills/oh-meatball/tools/postkit.py` does the checks between a spec and a scheduled post: `render` and `voicecheck` (never schedule a file that has not passed), `lint` (titles, tags, captions), `payload` (the Metricool post body), `log`, `rawurl`, `rehost`, `kw`, `ttpage`. Run it from `skills/oh-meatball`.
+- Skills in `.claude/skills/`: `make-short` (topic to logged post), `post-metadata` (titles, tags, captions), `scoreboard` (which number comes from where). MASTER_ORDERS still wins over them.

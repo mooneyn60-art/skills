@@ -1,5 +1,26 @@
 # oh-meatball production tools
 
+## Current tools (2026-11-12)
+The Shorts and TikTok cuts are plain JSON specs in `scripts/drawn-house/`, rendered by `drawn.py`. Use these; the rest of this page is the history of older formats.
+
+| Tool | Usage |
+|---|---|
+| `setup_env.sh` | `bash tools/setup_env.sh` on a fresh machine: installs what is missing, downloads the speech model, ends with "ready" |
+| `drawn.py` | `python3 tools/drawn.py SPEC.json OUT.mp4 --work DIR` (the renderer; its docstring lists the spec keys) |
+| `postkit.py render` | `python3 tools/postkit.py render SPEC OUT.mp4 --work DIR`: renders to `OUT.new.mp4` and replaces OUT only after the renderer succeeded and the transcript matches the script |
+| `postkit.py voicecheck` | `... voicecheck SPEC MP4`: every line heard, in order, to its last words |
+| `postkit.py sheet` | `... sheet MP4 OUT.jpg`: a contact sheet of an existing video |
+| `postkit.py lint` | `... lint SPEC [SPEC ...] [--mp4 FILE]`: title, description, tags, hashtags, caption, swear words, lengths. FAIL blocks scheduling |
+| `postkit.py payload` | `... payload SPEC --net youtube\|tiktok --when 2026-11-13T16:00:00 --media URL [--update ID UUID]`: the Metricool post body; runs lint first |
+| `postkit.py log` | `... log --net tiktok --when "2026-11-13 19:00" --file OUT.mp4 --spec SPEC [--uuid U --id I]`: `data/posted.csv` and `data/post-ids.csv` |
+| `postkit.py rawurl`, `rehost` | the raw link of a pushed file; proof that the scheduler's copy is the same size |
+| `postkit.py kw` | `... kw "seed" --search "query" --out FILE.csv`: YouTube and Google suggestions, top search results |
+| `postkit.py ttpage` | `... ttpage URL ...`: a public TikTok page (plays, label, TikTok's suggested searches, AI label) |
+| `lf_gates.py`, `drawn_catlife.py`, `thumb_dontkill.py` | long-form gates, the house-cat long-form builder, the white thumbnails |
+
+Older flow, kept but not used since 11/03: `ship.py`, `drawn_quick.py`, `sameness.py` and `outline_lint.py` work on outline YAML, which the current specs do not have.
+
+## Older tools (cat-cam era, October)
 Needs `ffmpeg`/`ffprobe`, `python3` and Pillow (`pip install Pillow`). All videos come out as H.264 + AAC 48 kHz with `+faststart`, normalized to -14 LUFS (two-pass loudnorm, `lib.sh`). Set `CRF=30` for small previews (the default is 20).
 
 | Tool | Usage |
