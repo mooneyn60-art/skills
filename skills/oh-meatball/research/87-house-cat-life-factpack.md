@@ -11,6 +11,17 @@ How each source was opened (the notes column repeats the tag):
 - Quotes keep the source's own spelling. Dates are the year of the paper or page.
 - No paywall was bypassed. No mirror copy of a paywalled paper was used. One site (Nature) answered with a cookie redirect; I did not follow it (see section 10).
 
+## Corrections after the second-model check (2026-11-12, research 88). Read before using any row below.
+
+- **HC-D7 and HC-D9 are wrong as written.** Herrera 2026: kidney disease in 80 of 104 staged cats (77%), early stages counted. The 61.3% (49 of 80) is the share of those whose disease was newly found. The 75.6% (34 of 45) is owners reporting no change in urination habits, not no change at all.
+- **HC-E6 is misleading as written.** Vnuk 2004: 119 cats; 4 died within 36 hours; 6 were euthanized (2 for prognosis, 4 for cost); 109 lived. The paper's 96.5% counts the euthanized cats as survivors.
+- **HC-A12:** the quoted Merck sentence is not on the live page. The page says kittens "handled daily by people during the first month of life have been found to develop more rapidly, be more outgoing, be more social to humans, and have fewer problems with aggression"; the 2 to 7 week sensitive period is on the page.
+- **HC-H4:** "cats appear to be exploiting innate tendencies..." is the university news release's own sentence, not a quote from the lead researcher.
+- **HC-E12:** the paper does not mention ribbon. Say string and thread.
+- **HC-E7:** the call for window barriers is from this Berlin study (1,125 cats), not from the Zagreb series in HC-E6.
+- **HC-C9:** six neutered and five intact males; the abstract does not say the 30% is at three months.
+- **HC-F7:** the sponsor's memo ("last bone of each toe") was not opened by the checker; use the bill's own words (onychectomy, phalangectomy, tendonectomy).
+
 ## 0. Read this first
 
 - SOLID (full text or agency page read raw): Driscoll 2007 (domestication), Teng 2024 (UK life tables), O'Neill 2015 (UK longevity, PMC page), Taylor 2025 (Bristol Cats, deaths up to age 8), Vnuk 2004 and Candela 2025 (window falls), Veronesi 2022 (kitten development), AAFP/ISFM environmental needs 2013, AAHA/AAFP life stages 2021, FDA lily page (current as of 2021-09-16), ASPCA shelter statistics page (2025 data), Cornell hairball and poison pages, ASPCA people-foods page, the New York 2019 bill text, Merck Vet Manual (eye page, social behavior page).

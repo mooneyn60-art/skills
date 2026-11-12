@@ -2,8 +2,8 @@
  "_what": "Narration outline for the first long-form on the new direction (Nolan's pick 11/11: 'Born as a house cat'; shape from research 85: the viewer lives the animal's life). Every factual line carries src = fact IDs in research/87-house-cat-life-factpack.md (HC-...) or research/84 (CN-...). meter = SWEET percent (0 = raw deal, 100 = sweet deal) AFTER the line. vis = what the picture must show. Meatball plays 'your human'. No joke before 0:25; mild words only (damn, hell, ass, badass, bastards), never inside a sourced attribution or a safety line.",
  "titles": [
   "Why It Sucks to Be Born as a House Cat",
-  "Why Being Born a House Cat Is a Raw Deal",
-  "Your Life as a House Cat: 8 Ways the Deal Is Rigged"
+  "8 Ways Being a House Cat Is a Raw Deal (And Why It's Still Worth It)",
+  "Your Life as a House Cat: 8 Ways It Goes Wrong"
  ],
  "voice": "en-US-AndrewMultilingualNeural",
  "rate": "+10%",
@@ -29,7 +29,7 @@
      "vis": "Extreme close-up: sealed eyelids; a tiny calendar flips 7, 8, 9, 10."
     },
     {
-     "say": "You have about three siblings. The average litter is four kittens.",
+     "say": "You probably have a few siblings. Litters average about four.",
      "src": "HC-A10",
      "vis": "Pull back: four kittens in a pile; a small counter ticks 1, 2, 3, 4.",
      "card": "LITTER: ABOUT 4"
@@ -82,18 +82,18 @@
      "vis": "The wildcat sits down in the doorway like it owns the place."
     },
     {
-     "say": "The oldest sign of a cat and a person together is about 9,500 years old, on Cyprus.",
+     "say": "A 2007 paper cites cat and human remains found together on Cyprus, about 9,500 years old.",
      "src": "HC-A3",
      "vis": "Map dot on Cyprus; card: ABOUT 9,500 YEARS",
      "card": "ABOUT 9,500 YEARS"
     },
     {
-     "say": "And you barely changed. A stray tabby is hard to tell from a real wildcat by eye.",
+     "say": "And you still look a lot like them. A feral cat with the wild tabby pattern is hard to tell from a wildcat.",
      "src": "HC-A7",
-     "vis": "Split screen: a tabby and a wildcat, nearly identical. Meatball squints from one to the other."
+     "vis": "Split screen: a feral cat with the wild tabby pattern (labelled so) and a wildcat, nearly identical. Meatball squints from one to the other."
     },
     {
-     "say": "So you're a wildcat. With a litter box. And a clock that is already running.",
+     "say": "So you're basically a wildcat. With a litter box. And a clock that is already running.",
      "vis": "Back in the present: the kitten in a litter box, looking wild. First joke of the video (after 0:25).",
      "meter": 46
     }
@@ -108,13 +108,13 @@
      "vis": "Chapter card."
     },
     {
-     "say": "Vets call it the socialization period: roughly two to seven weeks old.",
+     "say": "Merck's vet manual calls it the socialization period: about two to seven weeks old.",
      "src": "HC-A12",
      "vis": "A timeline bar with weeks 2 to 7 lit. Card: WEEKS 2 TO 7",
      "card": "WEEKS 2 TO 7"
     },
     {
-     "say": "Kittens that people handle in those weeks grow up friendlier toward people.",
+     "say": "Kittens handled daily by people in their first month have been found to be more outgoing and more social with humans.",
      "src": "HC-A12",
      "vis": "Meatball, your human, picks the kitten up gently; a small heart."
     },
@@ -123,7 +123,7 @@
      "vis": "The kitten ignores a huge ticking clock and chases its own tail."
     },
     {
-     "say": "Your whole opinion of humans is being decided by a guy who holds you like a damn sandwich.",
+     "say": "Your opinion of humans may be shaped by a guy who holds you like a damn sandwich.",
      "vis": "Meatball holding the kitten awkwardly in both hands like a sub. Character beat.",
      "meter": 44
     }
@@ -145,8 +145,8 @@
      "meter": 40
     },
     {
-     "say": "Birthday cake? Wasted on you. Hell of a start.",
-     "vis": "Meatball offers a slice of cake with a candle; the cat stares at it, unimpressed."
+     "say": "Birthday cake? Probably wasted on you. Hell of a start.",
+     "vis": "Meatball holds a slice of cake with a candle up out of reach (the cat never eats it); the cat stares, unimpressed."
     },
     {
      "say": "You see fewer colours than your human. Scientists still argue about how many.",
@@ -156,7 +156,7 @@
     {
      "say": "And your lens seems to change shape only a little, so focusing up close is limited.",
      "src": "HC-B6",
-     "vis": "A toy held right at the cat's nose goes soft and blurry."
+     "vis": "A toy near the cat's nose goes a little soft; no distance is shown."
     },
     {
      "say": "But here's what you got instead.",
@@ -175,16 +175,20 @@
      "vis": "Lights fully out: two cat eyes blink, then bump into the same chair."
     },
     {
-     "say": "And in a classic hearing test, cats heard from 48 hertz all the way up to 85 kilohertz.",
+     "say": "And in a classic test with two cats, hearing ran from 48 hertz all the way up to 85 kilohertz.",
      "src": "HC-B1",
-     "vis": "A hearing bar stretches and stretches. Card: 48 Hz TO 85 kHz",
-     "card": "48 Hz TO 85 kHz"
+     "vis": "A hearing bar stretches and stretches. Card: 48 Hz TO 85 kHz (2 CATS)",
+     "card": "48 Hz TO 85 kHz (2 CATS)"
     },
     {
-     "say": "One of the widest ranges of any mammal. Badass. Shame about the menu.",
+     "say": "One of the widest ranges of any mammal.",
      "src": "HC-B1",
      "vis": "The cat's ears swivel separately like radar dishes.",
      "meter": 46
+    },
+    {
+     "say": "Badass. Shame about the menu.",
+     "vis": "The cat looks down at its empty bowl."
     }
    ]
   },
@@ -215,7 +219,7 @@
      "card": "1987"
     },
     {
-     "say": "They found low taurine in 21 sick cats. Cats that were eating normal commercial cat food.",
+     "say": "They found low taurine in 21 cats with failing hearts. Cats fed commercial cat food.",
      "src": "HC-C1",
      "vis": "A row of ordinary cat food cans; one rotates to show a question mark.",
      "card": "21 CATS"
@@ -226,16 +230,16 @@
      "vis": "A dropper; pause-and-reveal 1 of 3."
     },
     {
-     "say": "Their heart function went back to normal.",
+     "say": "After that, their heart function went back to normal.",
      "src": "HC-C2",
      "vis": "A weak heartbeat line becomes a strong one. Card: REVERSIBLE",
      "card": "REVERSIBLE",
      "meter": 38
     },
     {
-     "say": "So the food was probably breaking hearts. Actual hearts. Damn.",
+     "say": "So some food back then was probably breaking hearts. Actual hearts. Damn.",
      "src": "HC-C1",
-     "vis": "Meatball stares at the can in his hand."
+     "vis": "Meatball stares at a can with a 1987 label."
     },
     {
      "say": "Earlier, in a 1975 lab study, cats on a diet with casein as the protein had the light-sensing cells in their eyes break down.",
@@ -255,8 +259,8 @@
      "card": "MILK: CAN CAUSE DIARRHEA"
     },
     {
-     "say": "Meatball brought milk. Meatball regrets it. And that saucer is the least of your problems.",
-     "vis": "Cut to Meatball holding a mop, the cat looking away. Character beat.",
+     "say": "Meatball brought milk. Meatball may regret it. And that saucer is the least of your problems.",
+     "vis": "Meatball eyes a mop in the corner, just in case; nothing is shown happening. Character beat.",
      "meter": 40
     }
    ]
@@ -280,27 +284,27 @@
      "card": "TRUE LILIES + DAYLILIES"
     },
     {
-     "say": "A small piece of leaf or petal. A few pollen grains licked off your fur. Even the water in the vase.",
+     "say": "A bite of leaf or petal, a few pollen grains licked off fur, or water from the vase can do it.",
      "src": "HC-E1",
      "vis": "Three quick close-ups: a petal, yellow pollen on fur, the vase water."
     },
     {
-     "say": "In less than three days.",
+     "say": "Fatal kidney failure, in under three days.",
      "src": "HC-E1",
-     "vis": "Calendar: three pages. Card: UNDER 3 DAYS",
-     "card": "UNDER 3 DAYS",
+     "vis": "Calendar: three pages. Card: CAN KILL IN UNDER 3 DAYS",
+     "card": "CAN KILL IN UNDER 3 DAYS",
      "meter": 32
     },
     {
-     "say": "It only affects cats, and nobody has identified the toxin.",
+     "say": "The FDA says this toxin only affects cats, and nobody has identified it.",
      "src": "HC-E2",
-     "vis": "A dog sniffs the same lily and shrugs; a big question mark over the flower."
+     "vis": "A dog next to the same lily with a mild tummy ache (FDA: minor stomach upset); a big question mark over the flower."
     },
     {
-     "say": "If treatment waits eighteen hours or more, the kidney damage is generally permanent. So it's a vet, right away.",
+     "say": "If treatment waits eighteen hours or more, the kidney damage is generally permanent. So if you might have touched one, your human calls a vet, right away.",
      "src": "HC-E3",
-     "vis": "A clock runs to 18; Meatball already running out the door with the carrier. Card: VET, RIGHT AWAY",
-     "card": "VET, RIGHT AWAY"
+     "vis": "A clock runs toward 18; Meatball already on the phone, carrier in hand. Card: THINK IT TOUCHED ONE? CALL A VET NOW",
+     "card": "THINK IT TOUCHED ONE? CALL A VET NOW"
     },
     {
      "say": "Peace lilies and calla lilies are a different, milder problem.",
@@ -314,14 +318,19 @@
     {
      "say": "The ASPCA's poison experts say one extra-strength dose of acetaminophen can kill a cat if treatment doesn't start soon.",
      "src": "HC-E9",
-     "vis": "One pill, huge next to the cat. Card: NEVER HUMAN PAIN PILLS",
+     "vis": "A pill bottle marked EXTRA STRENGTH next to the cat (a dose, no pill count shown). Card: NEVER HUMAN PAIN PILLS",
      "card": "NEVER HUMAN PAIN PILLS",
      "meter": 28
     },
     {
-     "say": "String, thread and ribbon can block your gut and may need surgery.",
+     "say": "If you get into any, your human calls a vet or a poison line right away.",
+     "src": "HC-E9",
+     "vis": "Meatball on the phone again, bottle in hand."
+    },
+    {
+     "say": "String and thread can block your gut and may need surgery.",
      "src": "HC-E12",
-     "vis": "The cat happily pulling a ribbon; an X-ray outline of a gut with a red tangle."
+     "vis": "The cat happily pulling a piece of string; an X-ray outline of a gut with a red tangle."
     },
     {
      "say": "And then there's the window.",
@@ -334,25 +343,31 @@
      "card": "119 CATS"
     },
     {
-     "say": "96 and a half percent of them lived.",
+     "say": "109 of them lived.",
      "src": "HC-E6",
-     "vis": "Pause-and-reveal 2 of 3; a relieved tick."
+     "vis": "Pause-and-reveal 2 of 3; a relieved tick. Card: 119 CATS: 109 LIVED",
+     "card": "119 CATS: 109 LIVED"
+    },
+    {
+     "say": "Four died. Six were put down, four of those because of the cost of treatment.",
+     "src": "HC-E6",
+     "vis": "The tick gets an asterisk; a vet bill on the counter."
     },
     {
      "say": "Nearly half had broken limbs. And that only counts the cats that made it to the vet.",
      "src": "HC-E6",
-     "vis": "The tick gets an asterisk; a cat in a tiny cast. Card: 46% BROKEN LIMBS",
+     "vis": "A cat in a tiny cast. Card: 46% BROKEN LIMBS",
      "card": "46% BROKEN LIMBS"
     },
     {
-     "say": "So always lands on its feet needs a damn asterisk.",
+     "say": "So always lands on its feet needs an asterisk.",
      "src": "HC-E6",
      "vis": "The words ALWAYS LANDS ON ITS FEET with a big hand-drawn asterisk."
     },
     {
-     "say": "The vets who studied those falls call for window barriers.",
+     "say": "Vets who studied 1,125 falls in Berlin say window barriers can help.",
      "src": "HC-E7",
-     "vis": "Meatball clicks a screen into the window; the cat presses its face against it.",
+     "vis": "Meatball clicks a barrier into the window; the cat presses its face against it.",
      "meter": 26
     },
     {
@@ -385,8 +400,8 @@
      "vis": "Meatball versus the carrier: the cat braced in the doorway, all four legs out. Character beat."
     },
     {
-     "say": "Fair. Have you seen the carrier? It's hell with a handle.",
-     "vis": "The carrier, lit from below like a dungeon."
+     "say": "Fair. Have you seen the carrier? A dungeon with a handle. Go anyway.",
+     "vis": "The carrier, lit from below like a dungeon; Meatball picks it up anyway."
     },
     {
      "say": "In one British study, about one in five cats hadn't seen a vet in the year before their eighth birthday.",
@@ -401,7 +416,7 @@
      "vis": "A vet clinic door; a cone of shame waits on a hook."
     },
     {
-     "say": "In a small 1997 study, neutered males gained about 30 percent of their body weight in three months. Males left intact gained about 12.",
+     "say": "In a small 1997 study, six neutered males gained about 30 percent in weight. Five intact males gained about 12.",
      "src": "HC-C9",
      "vis": "Two cats on scales; one dial swings further. Card: +30% vs +12%",
      "card": "+30% vs +12%"
@@ -414,14 +429,14 @@
      "meter": 30
     },
     {
-     "say": "That's a link, not proof. Still, the trade seems to be: lose the parts, gain the weight, maybe gain the time. Hell of a trade.",
+     "say": "That's a link, not proof. Still: neutering can mean weight gain, and maybe more years. Hell of a trade.",
      "src": "HC-F5 HC-C9",
      "vis": "The cat in a cone, wide, staring into the distance."
     },
     {
-     "say": "And declawing. It isn't a nail trim.",
+     "say": "And declawing. It's surgery, not a nail trim.",
      "src": "HC-F7",
-     "vis": "A nail clipper is pushed aside."
+     "vis": "A nail clipper is pushed aside; a surgical tray slides in."
     },
     {
      "say": "New York banned it in 2019, except for medical reasons.",
@@ -430,12 +445,12 @@
      "card": "NEW YORK 2019: BANNED"
     },
     {
-     "say": "The bill's sponsors describe it as removing all or most of the last bone of each front toe.",
+     "say": "The law lists it right next to removing toe bones and cutting tendons.",
      "src": "HC-F7",
-     "vis": "A simple paw diagram; the last bone of each toe outlined in red."
+     "vis": "The bill text on a page with three terms underlined: ONYCHECTOMY (DECLAWING), PHALANGECTOMY, TENDONECTOMY. No anatomy drawing."
     },
     {
-     "say": "And studies disagree on how long the pain lasts.",
+     "say": "And studies are mixed on whether the pain lasts.",
      "src": "HC-F8 HC-F9",
      "vis": "Two papers side by side with different verdict stamps.",
      "meter": 26
@@ -470,14 +485,14 @@
      "vis": "Meatball's hand goes to the red zone; the cat's ears flatten. Character beat."
     },
     {
-     "say": "Here's the rude part. In the 2015 study, cats showed more negative behaviour when their own familiar person stroked them than with a stranger.",
+     "say": "Here's the rude part. In the 2015 study, cats showed more negative behaviour with a person they knew than with a stranger.",
      "src": "HC-H3",
-     "vis": "Two score bars: FAMILIAR 8.5, STRANGER 5.0.",
-     "card": "FAMILIAR 8.5 / STRANGER 5.0",
+     "vis": "Two score bars under the heading NEGATIVE-BEHAVIOUR SCORE: FAMILIAR 8.5, STRANGER 5.0.",
+     "card": "NEGATIVE-BEHAVIOUR SCORE: FAMILIAR 8.5 / STRANGER 5.0",
      "meter": 22
     },
     {
-     "say": "Nobody knows why. The authors asked for more research.",
+     "say": "The authors say it needs more research.",
      "src": "HC-H3",
      "vis": "Meatball, wounded, hand on chest."
     },
@@ -487,9 +502,9 @@
      "vis": "Speech bubbles with random words; the cat's name bubble glows."
     },
     {
-     "say": "In that test, more than half of the cats just moved their ears or heads. Fewer than one in ten meowed.",
+     "say": "In that test, over half of the cats just moved their ears or heads, name or not. Fewer than one in ten meowed.",
      "src": "CN-F3",
-     "vis": "One ear rotates toward the sound. That's the whole reaction.",
+     "vis": "One ear rotates toward the sound.",
      "card": "UNDER 1 IN 10 MEOWED"
     },
     {
@@ -497,7 +512,7 @@
      "vis": "Close on the cat, eyes half shut."
     },
     {
-     "say": "A 2009 study found that some cats, when they want food, hide a high, cry-like sound inside a purr.",
+     "say": "A 2009 study found that some cats, when they want food, add a high, cry-like sound to the purr.",
      "src": "HC-H4 HC-H6",
      "vis": "A purr waveform; inside it, a smaller sharp wave is highlighted.",
      "card": "A CRY INSIDE THE PURR"
@@ -505,7 +520,7 @@
     {
      "say": "People rated those purrs as more urgent and less pleasant. Even people who had never owned a cat.",
      "src": "HC-H4",
-     "vis": "Listeners with headphones wince and reach for the cat food."
+     "vis": "Listeners with headphones wince and mark rating cards."
     },
     {
      "say": "Take the cry out, and the urgency ratings dropped.",
@@ -513,12 +528,12 @@
      "vis": "The sharp wave is erased; the listeners relax."
     },
     {
-     "say": "The lead researcher said cats appear to be exploiting the human instinct to care for babies.",
+     "say": "The university's news release says cats appear to be exploiting the human instinct to care for babies.",
      "src": "HC-H4",
      "vis": "A baby-shaped silhouette fades over the cat."
     },
     {
-     "say": "You hacked your damn human. Before breakfast. Enjoy it, because your body has plans.",
+     "say": "You may have hacked your damn human. Before breakfast. Enjoy it, because your body has plans.",
      "vis": "Meatball fills the bowl at 5 AM in his pyjamas, hypnotised. Character beat.",
      "meter": 36
     }
@@ -539,16 +554,16 @@
      "card": "SIGNS CAN BE SUBTLE"
     },
     {
-     "say": "Here's how subtle. Researchers X-rayed 100 cats of all ages from one practice.",
+     "say": "Here's what X-rays found. Researchers X-rayed 100 cats of all ages from one practice.",
      "src": "HC-D5",
      "vis": "A light box; X-ray films slide in. Card: 100 CATS",
      "card": "100 CATS"
     },
     {
-     "say": "92 of them had signs of joint disease.",
+     "say": "On X-ray, 92 of them had signs of joint disease.",
      "src": "HC-D5",
-     "vis": "Pause-and-reveal 3 of 3. Card: 92 OF 100",
-     "card": "92 OF 100",
+     "vis": "Pause-and-reveal 3 of 3. Card: 92 OF 100: X-RAY SIGNS",
+     "card": "92 OF 100: X-RAY SIGNS",
      "meter": 30
     },
     {
@@ -562,10 +577,10 @@
      "vis": "Two clipboards."
     },
     {
-     "say": "About 11 percent of older cats screened at two British clinics. 61 percent of the senior cats tested at one American vet school.",
+     "say": "About 11 percent of older cats screened at two British clinics. About 77 percent of the senior cats staged at one American vet school, early stages counted.",
      "src": "HC-D7",
-     "vis": "Clipboard one: 11%. Clipboard two: 61%. Card: 11% OR 61%: DEPENDS HOW YOU COUNT",
-     "card": "11% OR 61%"
+     "vis": "Clipboard one: 11%. Clipboard two: 77% (EARLY STAGES COUNTED). Card: 11% OR 77%: DEPENDS HOW YOU COUNT",
+     "card": "11% OR 77%"
     },
     {
      "say": "And in that American study, the owners thought their cats were healthy.",
@@ -573,10 +588,10 @@
      "vis": "Meatball gives a thumbs up next to the old cat."
     },
     {
-     "say": "Of the cats with kidney disease, three in four had no change their owner had noticed.",
+     "say": "Of the cats with kidney disease, three in four owners had seen no change in their peeing.",
      "src": "HC-D9",
-     "vis": "Four cats; three have an invisible-ink warning label that Meatball can't see.",
-     "card": "3 IN 4: NOTHING NOTICED",
+     "vis": "Four litter boxes; at three of them Meatball shrugs: looks normal.",
+     "card": "3 IN 4: NO PEEING CHANGE SEEN",
      "meter": 26
     },
     {
@@ -586,14 +601,15 @@
      "card": "129 OF 129"
     },
     {
-     "say": "Hairballs, at least, are honest. Cornell's vets say one every week or two is nothing to worry about.",
+     "say": "Hairballs, at least, are honest. A Cornell vet says one every week or two is nothing to worry about.",
      "src": "HC-D1",
      "vis": "A hairball lands on the rug with a tiny flag in it."
     },
     {
-     "say": "Unless one gets too big to pass. Then it's a vet visit.",
+     "say": "Unless you get tired, skip food for a day or two, or keep retching with nothing coming up. Then it's a vet, without delay.",
      "src": "HC-D2",
-     "vis": "The hairball gets a red outline; the carrier's shadow again.",
+     "vis": "The old cat lies flat by a full bowl; the carrier's shadow again. Card: TIRED, NOT EATING, RETCHING: VET",
+     "card": "TIRED, NOT EATING, RETCHING: VET",
      "meter": 24
     }
    ]
@@ -607,43 +623,43 @@
      "vis": "All eight chips filled; the meter sits at 24, blinking."
     },
     {
-     "say": "Before you answer, look at the other deal. The one outside.",
+     "say": "Before you answer, look at what's waiting on the other side of the door.",
      "vis": "The front door opens onto a street at dusk."
     },
     {
-     "say": "Researchers followed more than 2,400 British cats for eight years.",
+     "say": "Researchers followed more than 2,400 British pet cats for eight years. The study didn't record which ones went outside.",
      "src": "HC-G4",
      "vis": "A long row of cat silhouettes. Card: 2,444 CATS, 8 YEARS",
      "card": "2,444 CATS"
     },
     {
-     "say": "Of the cats that died, almost half were hit by cars.",
+     "say": "Of the 362 cats that died, 165 died in road accidents. Almost half.",
      "src": "HC-G4",
-     "vis": "Headlights on a wet road; no impact shown. Card: ROAD ACCIDENTS: 46% OF DEATHS",
-     "card": "ROADS: 46% OF DEATHS",
+     "vis": "Headlights on a wet road; no impact shown. Card: ROADS: 165 OF 362 DEATHS",
+     "card": "ROADS: 165 OF 362 DEATHS",
      "meter": 34
     },
     {
-     "say": "For kittens under a year old, it was 61 percent.",
+     "say": "For kittens under one, it was 41 of 67 deaths. 61 percent.",
      "src": "HC-G4",
-     "vis": "A kitten at the kerb; card: KITTENS: 61%",
-     "card": "KITTENS: 61%"
+     "vis": "A kitten at the kerb; card: 41 OF 67 KITTEN DEATHS",
+     "card": "41 OF 67 KITTEN DEATHS"
     },
     {
-     "say": "In one study of feral cat colonies, three out of four kittens died or disappeared before six months.",
+     "say": "In one study of managed feral colonies, three in four kittens died or vanished before six months. Those are not pet-cat odds.",
      "src": "HC-A11",
      "vis": "A colony behind a fence; four kitten outlines, three fade.",
-     "card": "3 IN 4 GONE BY 6 MONTHS",
+     "card": "FERAL COLONIES: 3 IN 4 GONE BY 6 MONTHS",
      "meter": 42
     },
     {
-     "say": "And in the United States, the ASPCA counts about three million cats entering shelters and rescues in 2025. About 277,000 were euthanized.",
+     "say": "And the ASPCA estimates that about three million cats entered US shelters and rescues in 2025. About 277,000 were euthanized.",
      "src": "HC-G1",
      "vis": "A shelter corridor; card: 2025: ABOUT 3 MILLION IN, 277,000 EUTHANIZED (ASPCA)",
      "card": "2025: 3 MILLION IN"
     },
     {
-     "say": "The British researchers put it plainly. Keeping cats indoors can cut the road risk. But it can leave a cat's needs unmet.",
+     "say": "The British researchers put it plainly. Keeping cats indoors can cut the road risk. But it may make a cat's behavioural needs harder to meet.",
      "src": "HC-G5",
      "vis": "The door closes again; the cat watches the street through the screen.",
      "meter": 46
@@ -665,14 +681,14 @@
      "card": "11.74 YEARS"
     },
     {
-     "say": "Among the cats that died, half made it past fourteen.",
+     "say": "In a second study of English cats that died, half made it past fourteen.",
      "src": "HC-G7",
-     "vis": "Card: HALF PASSED 14",
-     "card": "HALF PASSED 14",
+     "vis": "Card: HALF PASSED 14 (ENGLAND, 2009-12)",
+     "card": "HALF PASSED 14 (ENGLAND, 2009-12)",
      "meter": 54
     },
     {
-     "say": "Those records miss cats that never saw a vet, and most of the deaths in them were euthanasia. So read them as a sketch.",
+     "say": "Those records miss cats that died before a vet visit, which flatters the numbers. Most deaths in them were euthanasia, which drags them down. Read it as a sketch.",
      "src": "HC-G8",
      "vis": "A small-print footnote unrolls from the parchment."
     },
@@ -687,19 +703,19 @@
      "vis": "The old cat blows out the candles in one go."
     },
     {
-     "say": "And in that eight-year British study, the chance of dying in any one year stayed under four percent.",
+     "say": "And in that eight-year British study, the recorded chance of dying in any one year, up to age eight, was under four percent.",
      "src": "HC-I7",
-     "vis": "A small flat line labelled UNDER 4% A YEAR.",
-     "card": "UNDER 4% A YEAR",
+     "vis": "A small flat line labelled UNDER 4% A YEAR (AGES 0-8, MINIMUM).",
+     "card": "UNDER 4% A YEAR (AGES 0-8, MINIMUM)",
      "meter": 60
     },
     {
-     "say": "So the house probably wins on years. What it owes you is everything else.",
+     "say": "So a safe house could win on years. What it owes you is everything else.",
      "src": "HC-G5",
      "vis": "The right column of the ledger is still empty."
     },
     {
-     "say": "The cat vets' own guidelines call your environment essential, not optional.",
+     "say": "The cat vets' own guidelines call meeting your environmental needs essential, not optional.",
      "src": "HC-I4",
      "vis": "Card: ESSENTIAL (NOT OPTIONAL)",
      "card": "ESSENTIAL (NOT OPTIONAL)"
@@ -732,11 +748,11 @@
      "meter": 66
     },
     {
-     "say": "Get those, and the deal is pretty damn sweet.",
+     "say": "Get those, plus a safe house and vet visits, and the deal looks pretty damn sweet.",
      "vis": "The meter climbs."
     },
     {
-     "say": "Miss them, and it's a raw deal with free rent.",
+     "say": "Miss them, and it's a lot rawer. Free rent, though.",
      "vis": "The meter dips, then steadies at 66."
     },
     {
@@ -745,13 +761,13 @@
      "vis": "CALLBACK: the wildcat in the doorway of the grain store, same framing as chapter 1."
     },
     {
-     "say": "Nobody has managed to get rid of you since. Smart bastards.",
+     "say": "Cats have never left. Lucky bastards.",
      "vis": "The wildcat lies down in the doorway; cross-fade to the house cat on the sofa in the same pose."
     },
     {
-     "say": "Verdict: sweet deal. If your human reads the damn manual.",
-     "vis": "Stamp: SWEET DEAL*. Meatball holds a book titled THE MANUAL, upside down.",
-     "card": "SWEET DEAL*",
+     "say": "Verdict: a sweet deal, if your human keeps the house safe and reads the damn manual.",
+     "vis": "Stamp: SWEET DEAL (IF...). Meatball holds a book titled THE MANUAL, upside down.",
+     "card": "SWEET DEAL (IF...)",
      "meter": 68
     },
     {
@@ -763,5 +779,6 @@
  ],
  "pinned_comment": "Raw deal or sweet deal? And what's the weirdest thing your cat does that this didn't explain?",
  "end_screen_video": "best for viewer (the next 'born as' episode when it exists)",
- "sources_file": "research/87-house-cat-life-factpack.md"
+ "sources_file": "research/87-house-cat-life-factpack.md",
+ "_factcheck": "research/88-factcheck-house-cat-script.md applied 2026-11-12: about 45 lines softened or re-attributed; two fact-pack misreads fixed (kidney share is 77% of staged cats, not 61%; 109 of 119 fallen cats lived, not 96.5%); the declaw sponsor-memo line replaced by the bill's own wording. Title 1 has 'sucks': needs Nolan's yes before it is used."
 }
