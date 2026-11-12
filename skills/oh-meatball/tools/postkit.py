@@ -1265,17 +1265,18 @@ def teardown(items, out_dir="/dev/shm/teardown", csv_out=None, keep=False):
                      likes if likes is not None else "", "%.1f" % dur, "" if first_word is None else "%.2f" % first_word,
                      len(w3), "%.2f" % wps, "" if first_cut is None else "%.2f" % first_cut, c3,
                      "%.3f" % ((len(cuts) / dur) if dur else 0.0), " ".join(w3), sent])
+        if csv_out:                                  # one row at a time, so a stopped run keeps what it measured
+            new = not os.path.exists(csv_out)
+            with open(csv_out, "a", encoding="utf-8", newline="") as f:
+                w = csv.writer(f, lineterminator="\n")
+                if new:
+                    w.writerow(["pulled", "video_id", "source", "account", "plays", "likes", "seconds", "first_word_s",
+                                "words_first_3s", "words_per_s", "first_cut_s", "cuts_first_3s", "cuts_per_s",
+                                "text_first_3s", "first_sentence"])
+                w.writerow(rows[-1])
         if fetched and not keep:
             os.remove(mp4)
     if csv_out and rows:
-        new = not os.path.exists(csv_out)
-        with open(csv_out, "a", encoding="utf-8", newline="") as f:
-            w = csv.writer(f, lineterminator="\n")
-            if new:
-                w.writerow(["pulled", "video_id", "source", "account", "plays", "likes", "seconds", "first_word_s",
-                            "words_first_3s", "words_per_s", "first_cut_s", "cuts_first_3s", "cuts_per_s",
-                            "text_first_3s", "first_sentence"])
-            w.writerows(rows)
         print("wrote %d rows to %s" % (len(rows), csv_out))
     return 1 if bad or not rows else 0
 

@@ -70,3 +70,35 @@ Rows for the build: `research/data/95-topic-queue.csv` (status=open). Seasonal n
 - Most outliers are real-footage clips. No drawn small channel has a proven outlier on any of these 12.
 - FDA, NPS, CPW, ASPCA and PLoS quotes came through a fetch tool; PubMed and PMC text came word for word.
 - Whether any of these beats our own pet baseline: not measurable until they post.
+
+## Added by the main session: search demand from Google Trends (new tool, 11/12)
+Nolan 11/12, about 16:00 ET: "you have full control download whatever you neex". `pytrends` was installed and wrapped as `postkit.py trends`. Rows: `data/95-trends.csv` (262 rows). YouTube search, US, 3 months to 2026-11-12. A value is relative to the top search for the same seed (100), not a count, and seeds cannot be compared with each other.
+- "why do cats": purr 100, hate water 64, bite 61, like catnip 54, meow 51, knead 44 (and "do biscuits" 40), hiss 33, chatter at birds 32. Rising: chatter at birds, land on their feet, have 9 lives, knock things over, trill.
+- "why does my cat": bite me 100, keep throwing up 54, sleep on me 48, follow me to the bathroom 36, watch me sleep 33, hate me 27, knead me 25.
+- "why do dogs": lick you 100, hump 42, howl 42, bark 34, pant 34, sleep with you 25, wag their tails 23, get zoomies 21. Rising: pant, sleep with you, zoomies, tilt their heads.
+- "why does my dog": lick me 100, eat poop 95, stare at me 74, chatter his teeth 46, lick his paws 38.
+- "can dogs eat": what can dogs eat 100, bananas 26, cheese 20, eggs 17, strawberries 17, chocolate 17, apples 16.
+- "can you outrun", "what to do if a [animal]", "would you survive [animal]": nothing shown. Survival phrases have no measurable YouTube search volume, so those Shorts live on the feed (93.7% of our Shorts views come from the feed anyway, research 94).
+- Seasons (Google web search, US, 5 years, mean by month): "can dogs eat turkey" 13 in November against 2 in every other month; "dog chocolate" 34 in December and 32 in April against 17 to 26; "polar bear" 73 in December and 71 in January against 43 in summer; "poinsettia cats" shows only in November and December; "are lilies toxic to cats" is flat.
+- What this changes: the checked list above was ranked without volumes. Two of the biggest searches were not on it (purr, the dog stare), and two it ranked low are rising (land on their feet, head tilt). The turkey topic, dropped for having no number, has the clearest season of all.
+
+## The first batch (started 11/12 about 16:15 ET) and why
+The YouTube Shorts queue is empty from Sat 11/21 (`data/posted.csv`), so the next Shorts are due then. Four topics went into the saved `shorts-batch` workflow (fact pack, script pair, second-model check, render with voice check, lint):
+1. cat-purr (#68): the top cat search. Facts to confirm at the source: Herbst 2023 and McComb 2009, both Current Biology.
+2. dog-stare (#69): the third biggest "why does my dog" search. Fact to confirm: Nagasawa 2015, Science.
+3. dog-turkey (#70): the November spike; ASPCA and FDA pages, already opened by the checker. Post before Thanksgiving (11/26).
+4. bison-wms (Would Meatball Survive? #5): the top survival topic on the checked list; two NPS numbers.
+Next, in this order unless the first reads change it: cat-falls, dog-head-tilt, croc-bite, mountain-lion, catnip (not yet checked), dog-chocolate (for December), cat-lilies.
+TikTok cuts of the same four are built too but not scheduled before the Fri 11/20 verdict on the search-led test.
+
+## TikTok watch time: what works for a Personal account (asked because the Windsor link failed for Nolan on 11/12)
+- Windsor's own guide asks for "A TikTok Business or Creator account you manage" (https://windsor.ai/how-to-connect-tiktok-organic-to-claude/). Its field list has an `is_business_account` field. Not confirmed as the cause of the failure, but the likely one.
+- Metricool lists the metrics (full video watched rate, average time watched, For You, Search) and returned null for all of them on 21 posts from 11/05 to 11/12. Its help page says: "The metrics available for personal TikTok accounts are limited compared to business accounts." (https://help.metricool.com/en/article/tiktok-metrics-1hnbc9r)
+- Other connector vendors (Adriel, 2MinuteReports, Fivetran, Adverity) say the same API serves Business and Creator accounts only. TikTok's own reference page did not load, so the rule is quoted from vendors.
+- Supermetrics says a Personal account with 100 or more followers works and gives average watch time per video (https://docs.supermetrics.com/docs/tiktok-organic-connection-guide.md). Price not found; not tried, because spending is Nolan's call.
+- So: the only free route is the app. Profile, TikTok Studio, Analytics, Content, tap a video: average watch time, watched full video, where views came from (taps per Buffer and TikTok's newsroom tutorial, not confirmed on a Personal account). One screenshot per test video. This is now open ask 1 in MASTER_ORDERS. The account stays Personal.
+
+## Could not measure (added)
+- Real search counts: Trends gives relative values only, and long phrases often read 0.
+- Whether a Personal account sees the analytics screen described above.
+- Whether the four topics beat the bug baseline: not until they post.
