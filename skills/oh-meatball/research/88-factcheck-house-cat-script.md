@@ -30,3 +30,6 @@ Also wrong in the pack: the Merck quote under HC-A12 is no longer on the live pa
 2. A percentage needs its denominator in the sentence (of deaths, of cats staged, of cats brought to the clinic).
 3. A survival figure needs the count of animals put down.
 4. A safety line needs the trigger a viewer can act on, not only the consequence.
+
+## Second round (same day)
+The checker re-read the regenerated script and cleared it ("safe to build: yes") after five small edits, all applied: the declaw line now only names the three surgeries the bill names (the bill does not define them); the life-table caveat points at "that first table" (the 83.7% euthanasia share is Teng's); the yearly-risk line names its study; the dental card says what it counts ("129 OF 129: DENTAL"); "stop eating for a day or two" matches Cornell. It confirmed the window arithmetic (4 died, 6 put down, 109 lived; 46.2% broken limbs is 55 of 119), the FDA "only affects cats" wording, and the 2019 New York ban from the final bill text and a Senate press-release listing (the press page itself stayed behind a wall). Title 1 ("Sucks") is "the bait of the three" against a verdict of "sweet deal, if..."; it stays Nolan's call.
