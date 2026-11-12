@@ -30,3 +30,14 @@ Asked by Nolan: 11/10 "look at outliers and how they hold their retention"; 11/1
 - Why a video was shown: plays depend on the account and on TikTok's own choices, and losers were not sampled.
 - Watch time and finish rate of any of these videos.
 - Speech in non-English or music-only videos (two of the 32 gave junk words).
+
+## Part 2. Our own 50 Shorts: does the opening go with how long people watched? (added 11/12, 16:45 ET)
+Rows: `data/96-openings-our-shorts.csv` (the measures), `data/96-hold-joined.csv` (joined to watch numbers). Watch numbers: Windsor per video per day (research 90's pull, 10/22 to 11/09), summed per video: average % viewed and engaged share (engaged views divided by views). 50 Shorts had both numbers and a file. Test: Spearman rank correlation, then the same with video length held fixed.
+- Length is the one clear thing: longer Shorts have a lower average % viewed (rho -0.61, p under 0.001). This was known (research 69) and is partly arithmetic: a short loop is easy to watch twice.
+- Words in the first 3 seconds, with length held fixed: rho +0.28 with engaged share (p 0.049) and +0.30 with the engaged share of days 0 and 1 (p 0.034). Among the 27 Shorts of 11 to 21 seconds: +0.39 with average % viewed (p 0.043). A weak lead only: 28 tests were run, so one or two at this level are expected by chance.
+- Nothing else holds once length is fixed: time of the first cut (-0.03), cuts in the first 3 seconds (-0.04), cuts per second (+0.25, p 0.086), words per second (0.00). The first word is at 0.00 s in every one of the 50.
+- So for our own videos too, the opening mechanics explain little. Keep Shorts short (16 to 20 s), start talking at once and say a full, dense first sentence. The seven funnier cuts already have 8 to 14 words in the first 3 seconds.
+
+## Could not measure (part 2)
+- Where inside a video viewers leave (no retention curve until vidIQ on 11/24).
+- Topic and style are not held fixed here; with 50 videos there is not enough data to do it.
