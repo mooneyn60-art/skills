@@ -5,13 +5,18 @@ description: Make, rewrite, re-render, reschedule or move a Meatball Myths YouTu
 
 # Make a Short (and its TikTok cut)
 
+More than one video at a time: run the saved workflow `shorts-batch` (`.claude/workflows/shorts-batch.js`) with a list of topics. It does steps 1 to 6 below for each topic with the right model at each step and stops a topic whose main fact does not hold. Steps 7 to 9 stay with the main session. Commit before you start it.
+
 Rules live in `skills/channel-brain/MASTER_ORDERS.md`; Nolan's words there win over this page. This page is the order of work and the commands. Run commands from `skills/oh-meatball`. If `python3 tools/postkit.py --help` fails on a fresh machine, run `bash tools/setup_env.sh` first.
 
 Why the order matters: every step exists because skipping it once put a wrong or stale video in the queue (a render that silently kept the old file, a title that claimed more than the study, a caption that lost a safety condition).
 
 ## 1. Research before anything is built
 Nolan's standing order: research first, every time. For a new topic that means numbers, not a guess:
-- What people type: `python3 tools/postkit.py kw "seed phrase" "another seed" --search "main query" --out research/data/NN-kw.csv`. The searched words are defined in the `post-metadata` skill.
+- Which topic: the newest topic queue in `research/data/` (now `95-topic-queue.csv`, with the reasons in `research/95-next-topics.md`). Take the next open rows; mark a row `built` when its video is scheduled.
+- How big a search is: `python3 tools/postkit.py trends related "why do cats" "why does my dog" --out research/data/NN-trends.csv` lists the top and rising YouTube searches for a seed (values are relative inside one seed, not counts); `trends season "can dogs eat turkey"` shows the months a search peaks; `trends compare` puts up to five terms side by side. Google answers slowly when asked too often: the command waits by itself.
+- What people type, word for word: `python3 tools/postkit.py kw "seed phrase" "another seed" --search "main query" --out research/data/NN-kw.csv`. The searched words are defined in the `post-metadata` skill.
+- How winners open: `python3 tools/postkit.py teardown <TikTok link or mp4> ... --csv research/data/NN-openings.csv` measures the first word, the words and cuts in the first 3 seconds, and writes a sheet of those seconds to look at. Run it on the top TikToks of the topic and on our own cut.
 - What TikTok calls it: find three to five public TikToks on the topic (web search limited to tiktok.com), then `python3 tools/postkit.py ttpage URL ...` and read "TikTok suggests".
 - Facts: a fact pack with a source for every number (pattern: `research/84-pets-and-survive-factpack.md`, with a do-not-say list). A different model checks the pack against the live sources.
 - A new direction or format (not just a new topic) goes to Nolan as options with the evidence first.

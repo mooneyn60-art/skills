@@ -17,6 +17,8 @@ The Shorts and TikTok cuts are plain JSON specs in `scripts/drawn-house/`, rende
 | `postkit.py rawurl` | `... rawurl FILE [--sha SHA]`: the raw link of a pushed file, only when the file on disk is the same bytes as that commit and the link answers HTTP 200 |
 | `postkit.py rehost` | `... rehost URL FILE`: proof that the scheduler's copy is the same size as the local file |
 | `postkit.py kw` | `... kw "seed" [--search "query"] [--out FILE.csv] [--n 25]`: YouTube and Google suggestions, top search results. A failed call is a FAIL and exit 1, never a data row |
+| `postkit.py trends` | `... trends related "why do cats" [--web] [--months 3] [--out FILE]`, `trends compare T1 T2 ... (5 at most)`, `trends season "can dogs eat turkey" [--yt]`: Google Trends. Top and rising searches for a seed, terms side by side, months a search peaks. Values are relative, not counts |
+| `postkit.py teardown` | `... teardown LINK_OR_MP4 ... [--out DIR] [--csv FILE] [--keep]`: how a video opens (first word, words and cuts in the first 3 seconds, a 12-frame sheet). Public TikTok links or our own files; never YouTube links |
 | `postkit.py ttpage` | `... ttpage URL ... [--json OUT] [--csv FILE]`: a public TikTok page (plays, label, TikTok's suggested searches, AI label, age). `--csv` appends one row per video. Stops at the first "no page data"; do not retry in a loop |
 | `lf_gates.py`, `drawn_catlife.py`, `thumb_dontkill.py` | long-form gates, the house-cat long-form builder, the white thumbnails |
 
