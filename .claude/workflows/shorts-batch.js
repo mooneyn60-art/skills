@@ -92,6 +92,9 @@ RULES OF THE SCRIPT (all in MASTER_ORDERS; these are the ones writers break):
 - YouTube cut: 16 to 20 seconds when rendered (about 42 to 52 spoken words; the cat-sugar cut is the yardstick), one or two mild words only (damn, hell, ass, dumbass, badass, bastards), no strong word anywhere. At least three rooms; the first and last line share a room so it loops; no outro.
 - TikTok cut: 20 to 26 seconds, the same facts, about one swear a line as a reaction (fuck, fucking, shit lead), attributions and safety instructions said clean with the reaction after, never "you" in an insult, cap_swap has an entry for every strong spelling used, search_top shows the searched phrase for the first 2 to 2.5 seconds at y 150.
 - Each beat that states a fact carries "_f" with the fact ids from the pack. "sources" lists the URLs. "_note" says what was left out and why.
+- Pets have names (MASTER_ORDERS "What he picked to build next"): Meatball's dog is Noodle, his cat is Sauce. Say "his dog Noodle" or "his cat Sauce" the first time, then the name. Running gag, always an action on screen: Sauce does the opposite of what Meatball wants and walks off; Noodle ends up with Meatball's food.
+- Built to be answered (MASTER_ORDERS "Previews and engagement", rules 1-4): the last spoken line hands the viewer one open, personal question and runs into the hook ("What's the worst thing your dog got out of the trash? And"); the same question is the corner pill and the pinned comment; the TikTok caption ends on a quick pick and may carry one share line ("Send this to whoever feeds the dog under the table."). Survival endings keep "Meatball lived. Nothing's guaranteed." before the question.
+${t.use_pack ? `- PACK LIMITS set by the main session: ${t.use_pack.note}` : ''}
 TEXT (follow /home/user/skills/.claude/skills/post-metadata/SKILL.md): run python3 tools/postkit.py kw with two seeds from ${OM} for the searched words. YouTube title: searched words in the first 40 characters, hedge kept, one odd fact, one emoji, series tag last: "(Things Living In Your House #${t.series_no})" for pets or "(Would Meatball Survive? #${t.series_no})" for survival, 100 UTF-16 units at most, statement form, no banned word (TRUE or FALSE, Myth, Believe, Cartoons, Lied, Did you know). Description: first sentence is the searched question, then the checked facts, four hashtags (two topic, #meatballmyths, #shorts last), a Sources line (survival adds "General information, not safety training."). Tags: 8 to 12 suggestion phrases, each 30 characters or fewer, each answered by the video. pinned_comment: one open question. TikTok caption: the on-screen phrase, the fact with its condition, the gag in the video's words without swearing, a question, five topic hashtags (no #fyp, no #learnontiktok, no brand tag; survival adds "General info, not safety training.").
 THEN run from ${OM}: python3 tools/postkit.py lint scripts/drawn-house/${t.slug}-v6-yt.json and the same for tts-${t.slug}.json. Fix until both print "=> pass" with 0 fail; give a reason for any WARN in the spec's _note. Return the spoken lines of both cuts, the title, the last lint lines, and notes (anything you were unsure of).`
 
@@ -99,7 +102,8 @@ const checkPrompt = (t, f, s) => `You are the second model. You check one script
 ${RULES}
 ${brief(t)}
 FACT PACK: ${f.pack_path}. SPECS: ${s.yt_spec} and ${s.tt_spec}. Pattern of a good check: ${OM}/research/92-factcheck-funnier-cuts.md.
-YOUR FILES: the two specs (wording fixes only) and ${OM}/research/facts/${t.slug}-check.md (new).
+YOUR FILES: the two specs (wording fixes only) and ${OM}/research/facts/${t.slug}-check.md (new; on a second pass add a section "Second pass" at the end and keep what is there).${t.recheck ? `
+SECOND PASS: these specs were checked once already (read the check file). The main session then changed this: ${t.recheck.changed} Judge the changed wording hardest (does a name, a question or a cut line add or lose a claim, a condition or a credit?), then read the rest once more as in step 2. If the cut gets too long for its limit (YouTube 20.05 s, TikTok 26 s) that is the builder's report, not yours.` : ''}
 DO:
 1. Open the primary sources yourself. The checker opens the paper, not the pack. Confirm every number, what it is a share of, and every condition.
 2. Read every spoken line of both cuts, every card and search_top row, the title, the description, every tag, the pinned comment and the TikTok caption. For each: is it carried by a source as worded? Does a joke add a number, a danger or health claim, an animal's feeling or motive, or a safety instruction? Is a hedge missing? Does a tag or title promise something the video does not give? Does a safety line keep its condition? Is an insult aimed at the viewer? Are attributions and safety instructions clean on TikTok? Does the first spoken sentence hold the searched words?
@@ -108,7 +112,7 @@ DO:
 5. Write the check file: verdict first, then the table of changes, then what you could not verify.
 cleared is true only if, after your changes, you would stake the channel's name on every claim. If the main fact itself does not hold, set cleared false and say why in blocked_reason; change nothing else.`
 
-const buildPrompt = (t, s) => `You are building one Short and its TikTok cut from checked specs. Your label: build-${t.slug}. You do not change wording: if a line must change, stop and report it.
+const buildPrompt = (t, s) => `You are building one Short and its TikTok cut from checked specs. Your label: build-${t.slug}. You do not change wording: if a line must change, stop and report it.${t.recheck ? ' This is a re-render after a wording change: the old mp4s and sheets are replaced. If a cut runs over its limit (YouTube 20.05 s, TikTok 26 s), try shorter pads first (spec key pad, layout only), then report the seconds; never cut a word.' : ''}
 ${RULES}
 SPECS: ${s.yt_spec} and ${s.tt_spec}.
 YOUR FILES: ${OM}/episodes/drawn-house/yt-${t.slug}-v6.mp4 and ${OM}/episodes/drawn-house/tts-${t.slug}.mp4 (new), and layout-only keys in the two specs (pad, _note, card position, scene or stage numbers) when a cut runs long or a card is covered.
@@ -123,9 +127,16 @@ Return the paths, the seconds, the voice-check result line and the lint result l
 
 const results = await pipeline(
   topics,
-  t => agent(factsPrompt(t), { label: `facts:${t.slug}`, phase: 'Facts', model: 'sonnet', schema: FACTS }),
+  t => {
+    // recheck: the main session edited checked specs (names, a new last line); go straight to Check and Build.
+    if (t.recheck) return { slug: t.slug, ok: true, pack_path: t.recheck.pack_path, hook_facts: [], do_not_say: [], sources: [], problems: [] }
+    // use_pack: the main session read a partly confirmed pack and accepts it within the limits it names.
+    if (t.use_pack) return { slug: t.slug, ok: true, pack_path: t.use_pack.pack_path, hook_facts: t.use_pack.hook_facts || [], do_not_say: t.use_pack.do_not_say || [], sources: [], problems: [t.use_pack.note || ''] }
+    return agent(factsPrompt(t), { label: `facts:${t.slug}`, phase: 'Facts', model: 'sonnet', schema: FACTS })
+  },
   (f, t) => {
     if (!f || !f.ok) { log(`${t.slug}: fact pack did not confirm the main fact; stopped`); return null }
+    if (t.recheck) return { f, s: { slug: t.slug, ok: true, yt_spec: t.recheck.yt_spec, tt_spec: t.recheck.tt_spec } }
     return agent(scriptPrompt(t, f), { label: `script:${t.slug}`, phase: 'Script', schema: SCRIPT }).then(s => (s && s.ok ? { f, s } : null))
   },
   (fs, t) => {

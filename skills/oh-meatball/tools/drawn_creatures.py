@@ -17,7 +17,7 @@ Body plans (all in the drawn_kit house style: thick ink outline, flat colour + o
              4 legs, whiskers
   reptile    side view lizard: long body, tapering tail, 4 sprawled legs, spikes, or a turtle shell
   frog       side view frog: squat body, folded hind legs, big eyes on top, wide mouth (spots, toe_pads)
-Mammal extras: neck (px, giraffe) + ossicones, spots + spot_color, hump (0..1) + mane, horns, beard, bands (armadillo),
+Mammal extras: neck (px, giraffe) + ossicones, spots + spot_color, hump (0..1) + mane, horns (+ horn_w, horn_color), beard, bands (armadillo),
 back_stripe (colour, skunk). Bird extras: foot_color, beak_color, beak: shoe, face_disc + disc_color, ear_tufts (owl).
 Mammal bat_wings (+ wing_color; flaps with p fly). Mammal antlers, ears tiny, snout big (hippo). Reptile snout long (croc). Fish sucker (lamprey).
 Bird face_color (puffin). Plan octopus (size). Worm snake_head (hawkmoth caterpillar's fake viper head).
@@ -604,8 +604,11 @@ def mammal(ctx, t, cfg, p):
               _c(cfg, "ear_color", None) or dk, OUT, (0.1, 0))
     if cfg.get("horns"):   # short curved horns (bison)
         for k, ex in enumerate((hx - hr * 0.55, hx + hr * 0.25)):
-            stroke(ctx, [(ex, hy - hr * 0.55), (ex - hr * 0.25, hy - hr * 1.0), (ex + hr * 0.05, hy - hr * 1.25)], 16,
-                   smooth=True, color=_c(cfg, "horn_color", "#e8e0cc"))
+            hpts = [(ex, hy - hr * 0.55), (ex - hr * 0.25, hy - hr * 1.0), (ex + hr * 0.05, hy - hr * 1.25)]
+            hw = cfg.get("horn_w", 16)   # spec key: a thicker horn gets an ink outline under it (bison); 16 = the old thin one
+            if hw > 16:
+                stroke(ctx, hpts, hw + 12, smooth=True, color="#1d1410")
+            stroke(ctx, hpts, hw, smooth=True, color=_c(cfg, "horn_color", "#e8e0cc"))
     if cfg.get("antlers"):   # moose: broad palmate antlers
         for k in (-1, 1):
             ax, ay = hx - hr * 0.2 + k * hr * 0.35, hy - hr * 0.75
