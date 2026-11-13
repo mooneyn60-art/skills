@@ -532,7 +532,7 @@ def jh_paper(ctx, t, p):
     flat(ctx, lambda c: c.rectangle(-360, -460, 720, 90), hexc("#1b1b1b"))
     stroke(ctx, [(-360, -350), (360, -350)], 5)
     stroke(ctx, [(-360, -340), (360, -340)], 2)
-    for k, w in enumerate((680, 520)):
+    for k, w in enumerate((680, 520) if p.get("headline", True) else ()):   # headline False: a clear band
         flat(ctx, lambda c, k=k, w=w: c.rectangle(-340, -300 + k * 80, w, 54), hexc("#2a2a2a"))
     shape(ctx, lambda c: c.rectangle(-340, -120, 330, 260), C["paper_dk"], OUT * 0.5, None)
     shape(ctx, lambda c: p_ellipse(c, -175, -10, 60, 64), hexc("#bdb59c"), 0, None)
@@ -839,7 +839,73 @@ def jh_dust(ctx, t, p):
                a=1 - on)
 
 
-ACTORS = {"jensen": jensen, "jh_gpu": jh_gpu, "jh_screen": jh_screen, "jh_podium": jh_podium,
+def jh_tumbleweed(ctx, t, p):
+    """A tumbleweed (rolls with the actor's rot), origin = its centre."""
+    rg = _rng(11)
+    shape(ctx, lambda c: p_ellipse(c, 0, 0, 110, 100), hexc("#c9a466"), OUT * 0.7, None, a=0.35)
+    for k in range(16):
+        pts = [(rg.uniform(-100, 100), rg.uniform(-90, 90)) for _ in range(4)]
+        stroke(ctx, pts, 6, smooth=True, color=hexc("#8a6a3a"))
+    stroke(ctx, [(-110, 0), (-40, -95), (60, -80), (110, 10), (40, 95), (-60, 80), (-110, 0)], 5, smooth=True,
+           color=hexc("#6e522c"))
+
+
+def jh_tabs(ctx, t, p):
+    """A row of blank little browser tabs popping open one after another; p n 0..1 (of 7)."""
+    n = p.get("n", 0.0) * 7
+    for k in range(7):
+        u = n - k
+        if u <= 0:
+            continue
+        sc = back_out(min(1.0, u * 2))
+        x = -330 + k * 110
+        ctx.save()
+        ctx.translate(x, -20 * (k % 2))
+        ctx.scale(sc, sc)
+        shape(ctx, lambda c: p_poly(c, [(-50, 0), (-38, -60), (38, -60), (50, 0)]),
+              hexc(["#f4f7fb", "#dfe8f4"][k % 2]), OUT * 0.6, None)
+        flat(ctx, lambda c: c.rectangle(-26, -38, 34, 8), hexc("#9aa3ab"))
+        stroke(ctx, [(20, -42), (30, -32)], 4)
+        stroke(ctx, [(30, -42), (20, -32)], 4)
+        ctx.restore()
+
+
+def jh_microwave(ctx, t, p):
+    """A tiny microwave (feet y 0); p ding 0..1: the light, a bell burst and green stink lines."""
+    shape(ctx, lambda c: p_rrect(c, -150, -190, 300, 190, 16), hexc("#e8eef4"), OUT, (0.03, 0.1))
+    shape(ctx, lambda c: p_rrect(c, -130, -170, 190, 150, 10), hexc("#2c3e5c"), OUT * 0.7, None)
+    for k in range(3):
+        flat(ctx, lambda c, k=k: p_ellipse(c, 105, -150 + k * 45, 12, 12), hexc("#6f7882"))
+    d = p.get("ding", 0.0)
+    if d > 0.01:
+        flat(ctx, lambda c: p_rrect(c, -125, -165, 180, 140, 8), hexc("#ffd34d"), a=0.5)
+        if d < 1.5:
+            starburst(ctx, 150, -230, 40 * back_out(min(1.0, d * 3)), 8, C["yellow"], OUT * 0.5)
+        for k in range(3):
+            x = -90 + k * 60
+            ph = t * 4 + k
+            stroke(ctx, [(x + 12 * math.sin(ph + j), -200 - j * 40) for j in range(5)], 9, smooth=True,
+                   color=hexc("#7cc061"), a=min(1.0, d))
+
+
+def jh_thumb(ctx, t, p):
+    """A big proud thumbs-up hand (Meatball's), origin = the fist."""
+    on = p.get("on", 0.0)
+    if on <= 0.01:
+        return
+    sc = back_out(min(1.0, on))
+    ctx.save()
+    ctx.scale(sc, sc)
+    ctx.rotate(0.1 * math.sin(t * 6))
+    shape(ctx, lambda c: p_rrect(c, -45, -20, 90, 80, 22), INK, 0, None)
+    shape(ctx, lambda c: p_rrect(c, -16, -90, 36, 85, 16), INK, 0, None)
+    ctx.restore()
+    if on > 0.6:
+        _twinkle(ctx, 60, -100, 30, t)
+
+
+ACTORS = {"jh_tumbleweed": jh_tumbleweed, "jh_tabs": jh_tabs, "jh_microwave": jh_microwave, "jh_thumb": jh_thumb,
+          "jensen": jensen, "jh_gpu": jh_gpu, "jh_screen": jh_screen, "jh_podium": jh_podium,
           "jh_micstand": jh_micstand, "jh_desk": jh_desk, "jh_mail": jh_mail, "jh_paper": jh_paper,
           "jh_stamps": jh_stamps, "jh_line": jh_line, "jh_pile": jh_pile, "jh_cpu": jh_cpu, "jh_phone": jh_phone,
           "jh_popcorn": jh_popcorn, "jh_door": jh_door, "jh_resume": jh_resume, "jh_doors": jh_doors,

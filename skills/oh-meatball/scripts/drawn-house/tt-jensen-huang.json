@@ -89,7 +89,7 @@
   "meatball myths"
  ],
  "pinned_comment": "Which part broke your brain: the email, the $190 billion day or the closed-door briefing?",
- "_note": "Jensen Huang allegations TikTok + Short (Nolan 11/13). Script: jensen-huang.script.json (checked, research/107); every say, card row and sign copied by code. Hand-made beats; pictures in tools/drawn_jensen_art.py. Metadata from scripts/drawn-house/jensen-huang.meta.json (search suggestions and the story's hashtag feeds, 11/13).",
+ "_note": "Jensen Huang allegations TikTok + Short (Nolan 11/13). Script: jensen-huang.script.json (checked, research/107); every say, card row and sign copied by code. Hand-made beats; pictures in tools/drawn_jensen_art.py.",
  "beats": [
   {
    "say": "The Jensen Huang allegations, explained. Buckle up, it's a mess.",
@@ -463,7 +463,7 @@
    "pad": 0.08
   },
   {
-   "say": "November eighth, he emailed Nvidia employees: I was unfaithful to my wife... I am deeply sorry.",
+   "say": "November eighth, he emailed Nvidia employees: I was unfaithful to my wife... I am deeply sorry. Worst all-staff email since whoever microwaved the fish.",
    "scene": "jh_office",
    "scene_p": {},
    "shots": [
@@ -517,6 +517,19 @@
       360,
       880,
       1.36
+     ]
+    },
+    {
+     "at": "Worst",
+     "cam": [
+      880,
+      1160,
+      1.35
+     ],
+     "to": [
+      900,
+      1180,
+      1.45
      ]
     }
    ],
@@ -605,6 +618,30 @@
      ]
     },
     {
+     "id": "micro",
+     "type": "jh_microwave",
+     "pos": [
+      905,
+      1104
+     ],
+     "s": 0.5,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "ding": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "microwaved",
+       "p": {
+        "ding": 1.0
+       },
+       "dur": 0.3
+      }
+     ]
+    },
+    {
      "id": "mail",
      "type": "jh_mail",
      "pos": [
@@ -641,24 +678,29 @@
    "mb": {
     "pose": "nervous",
     "pos": [
-     990,
+     1000,
      1500
     ],
     "size": 380,
     "prop": "mic",
     "gest": [
      [
-      "sorry|90%",
+      "sorry",
       "facepalm",
-      1.0
+      0.8
+     ],
+     [
+      "fish-0.3",
+      "psst",
+      2.0
      ]
     ],
     "moves": [],
-    "look": "viewer"
+    "look": "micro"
    },
    "sfx": [
     "click@emailed",
-    "whoosh@emailed+0.6"
+    "tink@microwaved"
    ],
    "card": {
     "rows": [
@@ -811,7 +853,7 @@
    "pad": 0.08
   },
   {
-   "say": "Meatball read the email to his cat, Sauce. Sauce left the damn room.",
+   "say": "Meatball read the email to his cat, Sauce. Sauce left the room. Tough damn crowd.",
    "scene": "jh_living",
    "scene_p": {},
    "shots": [
@@ -1214,7 +1256,8 @@
      "front": false,
      "rot": 0.0,
      "p": {
-      "tilt": -2
+      "tilt": -2,
+      "headline": false
      },
      "moves": [],
      "set": []
@@ -1244,7 +1287,7 @@
       "pos": [
        [
         0,
-        -333
+        -245
        ],
        [
         -20,
@@ -1377,6 +1420,105 @@
     "y": 470,
     "at": 0.1
    },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "Meatball can't relate. He can't even get a text back.",
+   "scene": "jh_living",
+   "scene_p": {},
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      480,
+      960,
+      1.15
+     ],
+     "to": [
+      460,
+      960,
+      1.22
+     ]
+    },
+    {
+     "at": "text-0.6",
+     "cam": [
+      540,
+      900,
+      1.0
+     ],
+     "to": [
+      560,
+      900,
+      1.04
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "phone",
+     "type": "jh_phone",
+     "pos": [
+      205,
+      1010
+     ],
+     "s": 0.9,
+     "front": true,
+     "rot": 0.0,
+     "p": {
+      "rot": -12
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "weed",
+     "type": "jh_tumbleweed",
+     "pos": [
+      -300,
+      1420
+     ],
+     "s": 0.8,
+     "front": false,
+     "rot": 0.0,
+     "p": {},
+     "moves": [
+      {
+       "at": "text-0.6",
+       "dur": 1.8,
+       "pos": [
+        1400,
+        1420
+       ],
+       "rot": 720,
+       "linear": true
+      }
+     ],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "deadpan",
+    "pos": [
+     400,
+     1500
+    ],
+    "size": 880,
+    "prop": "mic",
+    "gest": [
+     [
+      "text",
+      "shrug",
+      1.2
+     ]
+    ],
+    "moves": [],
+    "look": "phone"
+   },
+   "sfx": [
+    "whoosh@text|-0.5"
+   ],
    "recut": false,
    "pad": 0.08
   },
@@ -1621,7 +1763,7 @@
    "pad": 0.08
   },
   {
-   "say": "Then the Times and Reuters reported more affairs, not confirmed. If true, that's serious fucking multithreading.",
+   "say": "Then the Times and Reuters reported more affairs, not confirmed. If true, that's serious fucking multithreading, more tabs open than Chrome.",
    "scene": "jh_office",
    "scene_p": {
     "plant": false
@@ -1676,7 +1818,20 @@
      "to": [
       680,
       960,
-      1.22
+      1.18
+     ]
+    },
+    {
+     "at": "tabs-0.3",
+     "cam": [
+      560,
+      900,
+      1.05
+     ],
+     "to": [
+      560,
+      900,
+      1.1
      ]
     }
    ],
@@ -1785,6 +1940,30 @@
         "on": 1.0
        },
        "dur": 0.4
+      }
+     ]
+    },
+    {
+     "id": "tabs",
+     "type": "jh_tabs",
+     "pos": [
+      520,
+      800
+     ],
+     "s": 0.8,
+     "front": true,
+     "rot": 0.0,
+     "p": {
+      "n": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "tabs-0.3",
+       "p": {
+        "n": 1.0
+       },
+       "dur": 1.3
       }
      ]
     }
@@ -2252,7 +2431,7 @@
    "pad": 0.08
   },
   {
-   "say": "Interim CEO: finance chief Colette Kress. Meatball sent in his resume anyway.",
+   "say": "Interim CEO: finance chief Colette Kress. Meatball sent in his resume anyway. Skills: keeps it in his pants.",
    "scene": "jh_hall",
    "scene_p": {},
    "shots": [
@@ -2293,6 +2472,19 @@
       800,
       980,
       1.25
+     ]
+    },
+    {
+     "at": "Skills",
+     "cam": [
+      820,
+      1150,
+      1.3
+     ],
+     "to": [
+      830,
+      1160,
+      1.38
      ]
     }
    ],
@@ -2364,6 +2556,30 @@
        "dur": 0.6
       }
      ]
+    },
+    {
+     "id": "thumb",
+     "type": "jh_thumb",
+     "pos": [
+      790,
+      1250
+     ],
+     "s": 0.9,
+     "front": true,
+     "rot": 0.0,
+     "p": {
+      "on": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "Skills",
+       "p": {
+        "on": 1.0
+       },
+       "dur": 0.3
+      }
+     ]
     }
    ],
    "mb": {
@@ -2378,7 +2594,12 @@
      [
       "anyway",
       "shock",
-      1.0
+      0.8
+     ],
+     [
+      "Skills",
+      "laugh",
+      2.0
      ]
     ],
     "moves": [
