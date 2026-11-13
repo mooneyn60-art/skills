@@ -351,3 +351,17 @@ Each line is as it stood on the page; the heading in brackets is the section it 
 [Develop yourself (it repeats open ask 1)]
 - **TikTok watch time (research 95):** no service reads it for a Personal account. Windsor, Metricool and the others get it only for Business or Creator accounts, and the account stays Personal. The only route is the app's own analytics screen (open ask 1). Do not send the Windsor link again.
 
+## Moved from the page on 11/12 (after research 97)
+
+[Views are stuck on both platforms]
+- **TikTok search-led test (built, reviewed and scheduled 11/12):** seven short cuts (17 to 19 s, files `oh-meatball/episodes/drawn-house/tts-<slug>.mp4`, specs `scripts/drawn-house/tts-<slug>.json`) of the new pet and survival Shorts, with the phrase people type on screen for the first 2 to 2.5 seconds (spec key `search_top`, new and opt-in in `tools/drawn.py`; kept 150 px down so TikTok's top bar does not cover it) and leading the title and caption ("why does my dog look guilty"). The 19:00 slot, after Nolan's "try these today": Thu 11/12 dog guilty look, Fri 11/13 cat sugar, Sat moose, Sun cat name, Mon shark, Tue tail wag, Thu 11/19 grizzly. Wed 11/18 19:00 is the bed-bug post.
+
+[Views are stuck on both platforms]
+- **Pass mark, read Fri 11/20:** the test cuts' median is 400 or more, or three of six reach 500 (by chance alone the median passes 370 one time in twenty, research 91). The 20:15 sweary cuts stay as their own comparison. **Later on 11/12 the seven were replaced by the funnier sweary versions (20.7 to 25.8 s; same slots, titles and captions; see "Make them funnier"), so their spoken lines are no longer the YouTube ones and the test reads short + search phrase + sweary jokes together.**
+
+[Watch hours]
+- **Long-form format from 11/10 (research 70), the "Don't squish it" bug episodes already made:** one creature, one story, a shoe meter (SQUISH to SPARE) on screen, the verdict at the end. Full format, title shape and data: the log. Still used:
+
+[Watch hours]
+- **Thumbnail recipe (`tools/thumb_dontkill.py`):** white background, one huge illustrated creature, a shoe sole about to squish it, 2-4 hand-lettered words with one in red, a hand-drawn arrow. Nothing else.
+
