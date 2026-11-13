@@ -444,3 +444,26 @@ Each line is as it stood on the page; the heading in brackets is the section it 
 - **The test and how it is read:** every new YouTube Short is the funny-first kind ("Make them funnier" rules). Read at 48 hours against the plain bug Shorts posted the same days (views), and on Sun 11/15 and after with Windsor (average % viewed, engaged share). If the funny ones keep about twice the pace, the queued bug Shorts get the funnier pass early and long videos get more jokes (still mild words, nothing before 0:25).
 
 - **Not measurable yet:** whether five Shorts in one day hurt again (Wed 11/11 had five and four fell under 350, research 90). Watch Thursday's five for that.
+
+## Moved from the page on 11/13 (early-morning trim, after the polar bear build)
+The page was at 51,439 bytes. These bullets left it; the rules they carried stay on the page in shorter form.
+
+### From "More comedy on YouTube: post some today to test (Nolan, 11/12 about 17:15 ET)"
+- **Done 11/12, four hours late (the session was down 17:15 to 21:25, usage limit):** the turkey Short (#70) at 21:47 and the cat purr Short (#68, with Sauce) at 22:20. Five Shorts that day.
+- **First numbers (YouTube public counts, 11/12 23:20 ET):** the funnier cat Short (16:00) 1,000 views at 7.4 hours; the funnier moose (19:00) 470 at 4.4; the plain false widow (10:00) 519 at 13.4. Wednesday's two joke Shorts 806 and 493, the two plain hook-test Shorts 60 and 70. Different topics, so a lead, not proof.
+
+### From "Develop yourself (Nolan, 11/12 about 12:58 ET)"
+- **Decided against (reasons in the log):** a setup script on the cloud environment; the Google Cloud route to YouTube retention (only if the vidIQ read fails); Supermetrics for TikTok (its docs say a Personal account with 100 followers works, but the price is unknown and money is his call).
+
+### From "What he picked to build next (Nolan, 11/12 about 16:40 ET)"
+- **Polar bear long video (his pick, the recommended one):** the next long video in the "born as" shape, for December (searches peak in December and January, research 95). Done 11/12: the fact pack (`oh-meatball/research/98-polar-bear-life-factpack.md`, 106 rows), the script (`scripts/longform-born-as-polar-bear.outline.json`, 1,850 words, eight chapters, Meatball as a tourist leaving one-star reviews) and the second-model check (`research/99`, 13 lines fixed, cleared). The opus build runs in the night window (first start Fri 11/13 about 02:00 ET; its notes: `episodes/longform-born-as-polar-bear/BUILD_NOTES.md`). Left: look at its sheets, the description's searched words (`postkit.py kw`), a slot in December, and his yes or no on the "Sucks" title. He no longer has to wait for the cat video's result.
+
+### From "What he picked to build next (Nolan, 11/12 about 16:40 ET)"
+- **One-screen scoreboard for his phone (his pick): built 11/12.** A private page: the headline numbers, the newest posts, the next 7 days, the read dates and the one open ask. `oh-meatball/tools/board.py` makes its data; the 07:37 run refreshes it (steps in the `scoreboard` skill). The link is in chat and in the scheduled task, not in this repo.
+
+### From "Views are stuck on both platforms (Nolan, 11/12 about 09:35 ET)"
+- **What changed from it:** honey badger moved to Thu 11/19 21:30 and woodpecker to Fri 11/20 21:30 to free two weekend slots; the rest is in "TikToks over one minute".
+
+### From "TikToks over one minute; one sweary cut on YouTube as a test (Nolan, 11/12 about 23:15 ET)"
+- **Minute cuts:** the funny search-led cut he liked, grown to 65 to 90 seconds (searched question first, phrase on screen, sweary jokes, Noodle and Sauce, a question at the end). Built by the saved workflow `tiktok-minute` (`.claude/workflows/tiktok-minute.js`), two topics a night in the night window: cat sugar and cat name first, then moose, cat purr, bison, shark, tail wag, dog stare, turkey (before 11/21). Grizzly and dog guilty look already have minute cuts (Fri 11/13 and Mon 11/16 20:15). Each is sent to him as a preview and takes its topic's old slot.
+
