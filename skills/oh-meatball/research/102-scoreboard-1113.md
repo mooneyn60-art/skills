@@ -42,3 +42,12 @@ Same sources (YouTube public counts, TikTok public pages). Metricool and Windsor
 - YouTube, 43 minutes after the first read: cat purr 924 (10.1 h), turkey 786 (10.6 h), moose 896 (13.4 h), cat sugar 1,000 (16.4 h), plain false widow 972 (22.4 h). The public listing had not moved for the two newest. Shorts median 942 (the 12 before: 1,150). Part 2 long video 87 views (39.4 h). Subscribers 1,010.
 - TikTok: dog guilty look 281 plays (13.3 h), centipede explainer 448 (10.9 h), pantry moth 242 (20.4 h). Median 333 (the 12 before: 296). Followers 9,314.
 - Nothing changed enough to act on. Next reads: the sweary dog-stare Short after 10:00 today, the comedy test at 48 hours on Sat evening.
+
+## Jensen Huang videos and today's schedule changes (10:44 to 10:55 ET)
+Source: Metricool reads and update responses in the main session (the connector loaded again at 10:43 ET).
+- Both Jensen Huang posts went out at 10:52 ET. YouTube Short: https://www.youtube.com/shorts/Ms8INW6RLlw (Metricool status PUBLISHED). TikTok: https://www.tiktok.com/@meatballmyths/video/7707684299419486238 (Metricool "Published", waiting for TikTok's confirmation; the public page still answered 10204, not visible yet, one minute after posting).
+- The Short's hashtag line was changed to #jensenhuang #nvidia #nvidiaceo #meatballmyths #shorts at 10:44 ET, before it posted (the three topic tags are the story's own hashtag feeds on YouTube, `research/106` and the search pull of this morning).
+- Moved: the house cat long video to today 17:00 with the re-rendered file (upload compared with the local file by size: 47,657,747 bytes); the dog guilty look Short to 13:00; the cat purr minute TikTok to tonight 21:30 (Sat 11/14 21:30 is now open for the next built minute cut).
+- Swapped in: the nine funny bug Shorts (Sat 11/14 11:00 and 15:00, Sun 19:00, Mon 16:00, Tue 16:00, Wed 19:00, Thu 16:00 and 19:00, Fri 11/20 16:00), each upload compared with the local file by size. Their hashtags were put in the standard order; tags and first sentences are still the old ones (owed: two posts a day, with the second-model check).
+- YouTube public counts at 10:52 ET (flat listing): cat purr 928, turkey 786, moose 896, cat sugar 1,000, false widow 974; the sweary dog-stare Short (10:00) is listed with no count yet.
+- Not measured: TikTok hashtag sizes for the story (tag pages show no counts without JavaScript); anything about the Jensen videos' retention (Windsor has it from Sun 11/15 for YouTube; TikTok Studio only for TikTok).
