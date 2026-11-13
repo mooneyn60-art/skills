@@ -1,0 +1,188 @@
+{
+ "_what": "Script for the Jensen Huang allegations video (Nolan 11/13: funny, raunchy, all animated, Jensen drawn and named; one cut for TikTok and a YouTube Short, about 80 s). Facts only from research/106-jensen-huang-story-factpack.md. NOT yet checked by a second model. The builder draws each line's `vis`; the only on-screen words are `card` and `signs` (and the captions of `say`).",
+ "_rules": "Jokes aim at Jensen Huang's own admitted conduct and at Meatball. No woman is named or joked about; nothing about his family. Unproven claims stay attributed. The line that names a country is clean. Captions soften swear spelling (cap_swap). Title, description and caption are clean.",
+ "lines": [
+  {
+   "id": "j1",
+   "kind": "hook",
+   "facts": [
+    "JH"
+   ],
+   "say": "The Jensen Huang allegations, explained. Buckle up, it's a mess.",
+   "card": [
+    "JENSEN HUANG",
+    "THE ALLEGATIONS, EXPLAINED",
+    "AS OF NOV 13, 2026"
+   ],
+   "vis": "Frame 0: cartoon Jensen (black leather jacket, silver hair, glasses) on a keynote stage in a spotlight, holding a graphics card up like a trophy, already moving. Meatball hops in small at the side with a news mic."
+  },
+  {
+   "id": "j2",
+   "kind": "joke",
+   "facts": [],
+   "say": "He ran Nvidia. Never took off that leather jacket. Everything else? Different fucking story.",
+   "card": [
+    "NVIDIA'S CEO",
+    "UNTIL THIS WEEK"
+   ],
+   "vis": "Jensen struts across the stage; the jacket gets its own little sparkle. On 'Everything else' he freezes, sweat drop, tugs his collar."
+  },
+  {
+   "id": "j3",
+   "kind": "fact",
+   "facts": [
+    "JH1",
+    "JH2"
+   ],
+   "say": "November eighth, he emailed the whole company: I was unfaithful to my wife. I am deeply sorry.",
+   "card": [
+    "\"I WAS UNFAITHFUL TO MY WIFE.\"",
+    "HIS EMAIL TO STAFF, NOV 8 (NVIDIA NEWSROOM)"
+   ],
+   "vis": "Office. Jensen at a laptop presses a huge SEND key; an envelope flies out and multiplies across the screen."
+  },
+  {
+   "id": "j4",
+   "kind": "joke",
+   "facts": [],
+   "say": "He built a chip empire and still couldn't manage his own hardware.",
+   "card": [],
+   "vis": "Jensen holds the graphics card; its fans spin up, it smokes and droops; he looks down at it, mortified."
+  },
+  {
+   "id": "j5",
+   "kind": "joke",
+   "facts": [],
+   "say": "Meatball read the email to his cat, Sauce. Sauce left the damn room.",
+   "card": [
+    "SAUCE LEFT THE ROOM"
+   ],
+   "vis": "Meatball's living room. Meatball reads a phone aloud with the news mic; the orange cat, Sauce, turns and walks out of frame."
+  },
+  {
+   "id": "j6",
+   "kind": "fact_reported",
+   "facts": [
+    "JH spy rows"
+   ],
+   "say": "It started October twenty-ninth: the New York Times reported U.S. officials believe a woman he was involved with was spying for China.",
+   "card": [
+    "THE NEW YORK TIMES, OCT 29",
+    "\"U.S. OFFICIALS BELIEVE...\"",
+    "A REPORT. NO CHARGES."
+   ],
+   "vis": "A newspaper front page slides in (blank lines for text, the card carries the words). Jensen reads it and the graphics card slips out of his hand. No woman is drawn."
+  },
+  {
+   "id": "j7",
+   "kind": "fact_reported",
+   "facts": [
+    "JH spy rows",
+    "JH China denial"
+   ],
+   "say": "The same report said officials don't think he knew. Nobody's been charged. China calls it groundless speculation.",
+   "card": [
+    "NOBODY CHARGED",
+    "CHINA: \"GROUNDLESS SPECULATION\""
+   ],
+   "vis": "Three stamps land one after another on the newspaper: HE DIDN'T KNOW (REPORTED), NO CHARGES, DENIED. Jensen wipes his forehead.",
+   "signs": [
+    "HE DIDN'T KNOW (REPORTED)",
+    "NO CHARGES",
+    "DENIED"
+   ]
+  },
+  {
+   "id": "j8",
+   "kind": "fact_reported+joke",
+   "facts": [
+    "JH stock rows"
+   ],
+   "say": "Monday, Nvidia lost about 190 billion dollars in market value, Reuters reported. Most expensive side quest in fucking history.",
+   "card": [
+    "ABOUT $190 BILLION",
+    "GONE IN ONE DAY (REUTERS, NOV 9)"
+   ],
+   "vis": "A giant stock chart; the line falls off a cliff and Jensen rides it down like a slide, jacket flapping. Meatball watches with popcorn."
+  },
+  {
+   "id": "j9",
+   "kind": "fact_reported+joke",
+   "facts": [
+    "JH more-affairs rows"
+   ],
+   "say": "Then the Times and Reuters reported more affairs, not confirmed by him or Nvidia. If true, that's serious fucking multithreading.",
+   "card": [
+    "MORE AFFAIRS REPORTED",
+    "NOT CONFIRMED (NYT, REUTERS)"
+   ],
+   "vis": "More newspapers pile up on Jensen until only the jacket collar and glasses show. A little CPU with many glowing threads spins on 'multithreading'."
+  },
+  {
+   "id": "j10",
+   "kind": "fact",
+   "facts": [
+    "JH resignation rows"
+   ],
+   "say": "A November twelfth filing: he resigned as president, CEO and board member, effective immediately.",
+   "card": [
+    "RESIGNED",
+    "PRESIDENT, CEO, BOARD SEAT",
+    "EFFECTIVE IMMEDIATELY (SEC FILING, NOV 12)"
+   ],
+   "vis": "Back on the stage: Jensen sets the graphics card on the podium, hangs his badge on the mic stand and walks off; the spotlight stays on the empty stage."
+  },
+  {
+   "id": "j11",
+   "kind": "joke",
+   "facts": [
+    "quote"
+   ],
+   "say": "He used to say: the more you buy, the more you save. Now it's: the more you stray, the more you pay.",
+   "card": [
+    "\"THE MORE YOU BUY, THE MORE YOU SAVE\"",
+    "THE MORE YOU STRAY, THE MORE YOU PAY"
+   ],
+   "vis": "A keynote slide with the first line; it flips over to the second with a cash-register ding. Jensen facepalms."
+  },
+  {
+   "id": "j12",
+   "kind": "fact+joke",
+   "facts": [
+    "JH interim rows"
+   ],
+   "say": "Interim CEO: finance chief Colette Kress. First job, the most awkward all-hands meeting ever.",
+   "card": [
+    "INTERIM CEO",
+    "CFO COLETTE KRESS (NVIDIA, NOV 12)"
+   ],
+   "vis": "An office door with a fresh INTERIM CEO sign being hung. Nobody else real is drawn: an empty podium facing rows of empty chairs.",
+   "signs": [
+    "INTERIM CEO"
+   ]
+  },
+  {
+   "id": "j13",
+   "kind": "fact_reported+joke",
+   "facts": [
+    "JH Congress rows"
+   ],
+   "say": "Three House committee chairs reportedly asked for a closed-door briefing. Closed doors. That's how this shit started.",
+   "card": [
+    "CONGRESS",
+    "CLOSED-DOOR BRIEFING REQUESTED (REPORTED)"
+   ],
+   "vis": "Huge double doors slam shut; Jensen stands outside them, sweating. On 'Closed doors' Meatball gives the camera a slow look."
+  },
+  {
+   "id": "j14",
+   "kind": "punch",
+   "facts": [],
+   "say": "So which part broke your brain? Because",
+   "card": [
+    "WHICH PART BROKE YOUR BRAIN? COMMENT"
+   ],
+   "vis": "Back to the frame-0 stage and pose so the loop into j1 is seamless; the question sits in a top-corner pill."
+  }
+ ]
+}
