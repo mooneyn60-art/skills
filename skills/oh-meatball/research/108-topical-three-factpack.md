@@ -1,7 +1,7 @@
 # 108: fact pack for three topical videos (GTA 6, Microsoft outage, Jensen Huang part 2)
 
 Date: Fri 2026-11-13, about 13:30 ET. Written by the main session from web-search results (search summaries, not yet the pages themselves).
-**Status: UNCHECKED.** The second model must open the live pages; a row it cannot confirm on a primary source or a major outlet is cut or reworded.
+**Status: checked 11/13 by a second model, `research/109-factcheck-topical-three.md` (its corrections win over the rows below: outage start about 1 pm ET and about 130,000 US reports; the $7 billion is Anderson Economic Group's "could reach"; "more than 1,600" is the union's figure; Dec 1 interview per CBS News).**
 Why these three: Nolan 11/13 "Wanna do another today to see", then "Do all" when shown the three with search demand (Google Trends, YouTube search, US, last month, relative: GTA 6 94, Jensen Huang 15, Microsoft outage 5; `postkit.py trends compare`). Google's US daily trending feed at 13:20 ET had "rockstar gta vi" and "gta 6 online".
 
 ## GTA 6

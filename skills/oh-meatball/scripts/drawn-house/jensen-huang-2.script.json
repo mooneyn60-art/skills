@@ -1,5 +1,5 @@
 {
- "_what": "TikTok script (65 to 90 s): Jensen Huang, part 2, what happened since the first video (Nolan 11/13: 'Do all'). Facts from research/106 (already checked in 107) and the new rows J2-* in research/108-topical-three-factpack.md. NOT yet checked by a second model. Uses the drawn Jensen of tools/drawn_jensen_art.py.",
+ "_what": "TikTok script (65 to 90 s): Jensen Huang, part 2, what happened since the first video (Nolan 11/13: 'Do all'). Facts from research/106 (already checked in 107) and the new rows J2-* in research/108-topical-three-factpack.md. Checked by a second model 11/13 (research/109): cleared with fixes, all applied here. Uses the drawn Jensen of tools/drawn_jensen_art.py.",
  "_rules": "Jokes aim at the company's or the public figure's own reported conduct and at Meatball; never at the viewer, a group, the workers, the women in the reports or anyone's family. No woman from the reports is named. Unproven claims stay attributed (reported, alleged, not confirmed). A line that names a country is said clean. No joke adds a number, a cause, a danger or a claim the fact line does not carry. All drawn: no logos, no game footage, no game characters or art. Captions soften swear spelling (cap_swap). Title, description and caption are clean.",
  "lines": [
   {
@@ -23,10 +23,10 @@
     "JH1",
     "JH resignation rows"
    ],
-   "say": "Quick recap: he told Nvidia employees he was unfaithful to his wife, then resigned as CEO on November twelfth.",
+   "say": "Quick recap: he told Nvidia employees he was unfaithful to his wife, then his resignation as CEO was announced November twelfth.",
    "card": [
     "NOV 8: \"I WAS UNFAITHFUL TO MY WIFE.\"",
-    "NOV 12: RESIGNED (SEC FILING)"
+    "NOV 12: RESIGNATION ANNOUNCED (SEC FILING)"
    ],
    "vis": "Two cards flip in fast; Jensen sets the graphics card on the podium."
   },
@@ -36,7 +36,7 @@
    "facts": [
     "JH spy rows"
    ],
-   "say": "The New York Times reported U.S. officials believe an executive he was close to was spying for China. Neither of them has been charged.",
+   "say": "The New York Times reported U.S. officials believe an executive he was close to was spying for China, and didn't believe he knew. Neither of them has been charged.",
    "card": [
     "THE NEW YORK TIMES, OCT 29",
     "A REPORT. NO CHARGES."
@@ -49,10 +49,10 @@
    "facts": [
     "J2-1"
    ],
-   "say": "Now three House committees want him in a closed-door interview on December first, CNN reports. Jensen and closed doors. What could go fucking wrong.",
+   "say": "Now three House committees want him in a closed-door interview on December first, CBS News reports. Jensen and closed doors. What could go fucking wrong.",
    "card": [
     "CLOSED-DOOR INTERVIEW",
-    "DEC 1 (CNN)"
+    "DEC 1 (CBS NEWS)"
    ],
    "vis": "The big Capitol double doors; Jensen outside them tugging his collar, sweat drop."
   },
@@ -62,10 +62,10 @@
    "facts": [
     "J2-2"
    ],
-   "say": "Nvidia's stock fell about four percent more on Friday and dipped under four trillion dollars, CNBC reported. Meatball's portfolio fell too. It's a jar of fucking coins.",
+   "say": "Nvidia's stock fell about four percent more on Friday, and its market value dipped under four trillion dollars at midday, CNBC reported. Meatball's portfolio fell too. It's a jar of fucking coins.",
    "card": [
     "ABOUT 4% MORE (CNBC, NOV 13)",
-    "UNDER $4 TRILLION MIDDAY"
+    "MARKET VALUE UNDER $4 TRILLION, MIDDAY"
    ],
    "vis": "The stock chart steps down again; cut to Meatball's coin jar tipping off a shelf."
   },
@@ -75,12 +75,12 @@
    "facts": [
     "J2-3"
    ],
-   "say": "Nvidia named its first-ever board chair, Harvey Jones. First one ever. Turns out the place needed a fucking chaperone.",
+   "say": "Nvidia named its first-ever board chair, Harvey Jones. First one ever. Meatball's been chair of his own fucking couch for years.",
    "card": [
     "FIRST-EVER BOARD CHAIR",
     "HARVEY C. JONES (NVIDIA, NOV 12)"
    ],
-   "vis": "An office door gets a BOARD CHAIR sign; no drawing of the real person."
+   "vis": "An office door gets a BOARD CHAIR sign (no drawing of the real person); cut to Meatball sunk into his couch with a paper CHAIR badge."
   },
   {
    "id": "k7",
@@ -90,7 +90,7 @@
    ],
    "say": "The Times and Reuters reported more affairs. Still not confirmed. Meatball can't get a first fucking date.",
    "card": [
-    "MORE AFFAIRS REPORTED",
+    "MORE AFFAIRS REPORTED (NYT NOV 11, REUTERS NOV 12)",
     "NOT CONFIRMED"
    ],
    "vis": "Newspapers pile up with NOT CONFIRMED stamps; Meatball alone at a table for two, candle, tumbleweed."
@@ -131,5 +131,5 @@
   }
  ],
  "tiktok_title": "Jensen Huang, Part 2: It Got Worse",
- "tiktok_caption": "jensen huang part 2 💀 As of Nov 13: three House committees want him in a closed-door interview on Dec 1, CNN reports. Nvidia stock fell about 4% more on Friday and dipped under $4 trillion, CNBC reported. Nvidia named its first-ever board chair, and CFO Colette Kress is interim CEO. The reports of more affairs are not confirmed, and nobody has been charged over the spying claim. Meatball asked his cat, Sauce, for comment. Sauce knocked his phone off the table. Does he show up Dec 1? #jensenhuang #nvidia #nvidiaceo #technews #news"
+ "tiktok_caption": "jensen huang part 2 💀 As of Nov 13: three House committees want him in a closed-door interview on Dec 1, CBS News reports. Nvidia stock fell about 4% more on Friday and its market value dipped under $4 trillion at midday, CNBC reported. Nvidia named its first-ever board chair, and CFO Colette Kress is interim CEO. The reports of more affairs are not confirmed. The spying claim is a New York Times report; it said officials did not believe he knew, and no charges have been reported. Meatball asked his cat, Sauce, for comment. Sauce knocked his phone off the table. Does he show up Dec 1? #jensenhuang #nvidia #nvidiaceo #technews #news"
 }

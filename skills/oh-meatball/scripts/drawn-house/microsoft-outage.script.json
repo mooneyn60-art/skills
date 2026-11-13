@@ -1,5 +1,5 @@
 {
- "_what": "TikTok script (65 to 90 s) for a topical video: the Microsoft 365 outage of Nov 12, 2026 (Nolan 11/13: 'Do all'). Facts only from research/108-topical-three-factpack.md. NOT yet checked by a second model.",
+ "_what": "TikTok script (65 to 90 s) for a topical video: the Microsoft 365 outage of Nov 12, 2026 (Nolan 11/13: 'Do all'). Facts only from research/108-topical-three-factpack.md. Checked by a second model 11/13 (research/109): cleared with fixes, all applied here.",
  "_rules": "Jokes aim at the company's or the public figure's own reported conduct and at Meatball; never at the viewer, a group, the workers, the women in the reports or anyone's family. No woman from the reports is named. Unproven claims stay attributed (reported, alleged, not confirmed). A line that names a country is said clean. No joke adds a number, a cause, a danger or a claim the fact line does not carry. All drawn: no logos, no game footage, no game characters or art. Captions soften swear spelling (cap_swap). Title, description and caption are clean.",
  "lines": [
   {
@@ -33,10 +33,10 @@
     "M1",
     "M2"
    ],
-   "say": "Thursday, around twelve thirty Eastern, Outlook and Teams started failing. Downdetector showed about a hundred and twenty thousand reports in the U.S. That's a lot of people suddenly free for lunch.",
+   "say": "Thursday, just before one Eastern, Outlook and Teams started failing. Downdetector showed about a hundred and thirty thousand reports in the U.S. That's a lot of people suddenly free for lunch.",
    "card": [
-    "THU NOV 12, ABOUT 12:30 PM ET",
-    "ABOUT 120,000 REPORTS (DOWNDETECTOR, U.S.)"
+    "THU NOV 12, ABOUT 1 PM ET",
+    "ABOUT 130,000 U.S. REPORTS (DOWNDETECTOR)"
    ],
    "vis": "A report chart spiking straight up; office workers (stick figures) walking out with sandwiches."
   },
@@ -59,10 +59,10 @@
    "facts": [
     "M4"
    ],
-   "say": "Microsoft's explanation: part of its infrastructure was under elevated load. Meatball gets it. He's under elevated load every Monday.",
+   "say": "Microsoft first blamed elevated load. Then it said servers went unexpectedly unavailable. Meatball gets it. He's unexpectedly unavailable every fucking Monday.",
    "card": [
-    "\"ELEVATED LOAD\"",
-    "MICROSOFT'S EXPLANATION"
+    "FIRST: \"ELEVATED LOAD\"",
+    "THEN: SERVERS \"UNEXPECTEDLY UNAVAILABLE\" (MICROSOFT)"
    ],
    "vis": "A server rack sweating and wobbling; Meatball next to it under a pile of paper."
   },
@@ -72,7 +72,7 @@
    "facts": [
     "M5"
    ],
-   "say": "Microsoft says there's no indication of a cyberattack. Nobody broke in. Meatball checked his own password anyway. It's still password.",
+   "say": "Microsoft says there's no indication of a cyberattack. Meatball checked his own password anyway. It's still password.",
    "card": [
     "NO INDICATION OF A CYBERATTACK",
     "(MICROSOFT)"
@@ -97,10 +97,10 @@
    "facts": [
     "M7"
    ],
-   "say": "One estimate cited by CNN says the cost could top seven billion dollars. Meatball's share: zero. He wasn't working anyway.",
+   "say": "One estimate, for CNN, says lost work could reach seven billion dollars. Meatball's share: zero. He wasn't working anyway.",
    "card": [
-    "COULD TOP $7 BILLION",
-    "ONE ESTIMATE (CNN)"
+    "COULD REACH $7 BILLION",
+    "ANDERSON ECONOMIC GROUP (CNN)"
    ],
    "vis": "A stack of money with a question mark; Meatball napping at his desk."
   },
@@ -110,12 +110,12 @@
    "facts": [
     "M8"
    ],
-   "say": "Microsoft apologized and says email is approaching normal levels. Meatball's inbox is back. All four hundred fucking emails.",
+   "say": "Microsoft apologized and says email queues are approaching normal levels. Meatball's inbox is back. Every single fucking email.",
    "card": [
     "MICROSOFT APOLOGIZED",
-    "EMAIL \"APPROACHING NORMAL LEVELS\""
+    "EMAIL QUEUES \"APPROACHING NORMAL LEVELS\""
    ],
-   "vis": "The inbox counter rolls from 0 up to 400; Meatball's face drops."
+   "vis": "The inbox counter rolls up and up; Meatball's face drops."
   },
   {
    "id": "m10",
@@ -139,5 +139,5 @@
   }
  ],
  "tiktok_title": "The Microsoft Outage, Explained",
- "tiktok_caption": "microsoft outage explained 💀 As of Nov 13: Outlook and Teams started failing Thursday around 12:30 pm ET, with about 120,000 Downdetector reports in the U.S. and reports from 74 countries and territories. Microsoft blamed elevated load on part of its infrastructure and says there is no indication of a cyberattack. It ran for more than 12 hours. Meatball's inbox is back. All 400 emails. What did you do with your free Thursday? #microsoftoutage #outlookdown #microsoft #technews #worklife"
+ "tiktok_caption": "microsoft outage explained 💀 As of Nov 13: Outlook and Teams started failing Thursday just before 1 pm ET, with about 130,000 Downdetector reports in the U.S. and reports from 74 countries and territories. Microsoft first blamed elevated load, then said servers went unexpectedly unavailable, and says there is no indication of a cyberattack. It ran for more than 12 hours. Meatball's inbox is back. Every single email. What did you do with your free Thursday? #microsoftoutage #outlookdown #microsoft #technews #worklife"
 }
