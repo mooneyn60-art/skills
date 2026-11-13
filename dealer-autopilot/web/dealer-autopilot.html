@@ -184,10 +184,10 @@ const DEFAULT_TEMPLATES = {
       T(1, 'email', "Hi {first_name},\n\nThank you again for choosing {dealership}. I hope the first day with your {vehicle} has been great.\n\nSave this email so you always have my direct contact. Anything you need, from a question about a feature to a service visit or a friend who's shopping, just reply here or call me at {dealer_phone}." + SIG, 'Thank you, {first_name}'),
       T(3, 'sms', "Hi {first_name}, it's {salesperson}. How are you enjoying the {vehicle}? Do you have any questions about the Bluetooth, keys or features?"),
       T(7, 'sms', "Hi {first_name}, I hope you're enjoying the {vehicle}! If you had a good experience, would you mind leaving a quick review? {review_link}"),
-      T(14, 'email', "Hi {first_name},\n\nNow that you've had the {vehicle} for a couple of weeks, here are a few things owners tell me they wish they'd set up sooner:\n\n- Pair your phone and set your favorite contacts and music sources.\n- Set up the vehicle's app, if it has one, for remote start, location and service alerts.\n- Adjust the driver seat and mirror memory so they're right every time.\n\nIf you'd like a quick walkthrough of any feature, I'm happy to set up a time." + SIG, 'Getting the most out of your {vehicle}'),
+      T(14, 'email', "Hi {first_name},\n\nNow that you've had the {vehicle} for a couple of weeks, here are a few things owners tell me they wish they'd set up sooner:\n\n- Pair your phone and set your favorite contacts and music sources.\n- Set up the MyHyundai app with Bluelink, if your vehicle has it, for remote start, vehicle location and service alerts.\n- Adjust the driver seat and mirror memory so they're right every time.\n\nIf you'd like a quick walkthrough of any feature, I'm happy to set up a time." + SIG, 'Getting the most out of your {vehicle}'),
       T(30, 'sms', "Hi {first_name}, it's {salesperson}. I hope the {vehicle} is treating you well! If you know anyone who's looking for a vehicle, I'd really appreciate it if you sent them my way."),
       T(90, 'email', "Hi {first_name},\n\nIt's been about three months with your {vehicle}. I wanted to check in and make sure everything is going well.\n\nIf a friend or family member is shopping, I'd be grateful for the introduction, and I'll take great care of them." + SIG, 'Three months with your {vehicle}'),
-      T(180, 'email', "Hi {first_name},\n\nIt's been about six months with your {vehicle}, so it may be getting close to time for service. Our service team will take great care of you, and I'm happy to help you get scheduled." + SIG, 'Time for service on your {vehicle}?'),
+      T(180, 'email', "Hi {first_name},\n\nIt's been about six months with your {vehicle}, so it may be getting close to time for service. Many new Hyundais come with complimentary scheduled maintenance for the first few years, and I'm happy to check what yours includes and help you get scheduled." + SIG, 'Time for service on your {vehicle}?'),
       T(365, 'email', "Hi {first_name},\n\nHappy one year with your {vehicle}! Thank you again for being a customer.\n\nIt's also a good time for a service check. If you'd like help scheduling, just reply to this email." + SIG, 'Happy one year with your {vehicle}'),
       T(365, 'sms', "Happy one year with your {vehicle}, {first_name}! Thank you again for being a customer. If there's ever anything I can do for you, just let me know. - {salesperson}"),
       T(545, 'email', "Hi {first_name},\n\nJust checking in from {dealership}. How is the {vehicle} doing? If anything needs attention, or you have questions about service or warranty, I'm here to help." + SIG, 'Checking in on your {vehicle}'),
@@ -220,7 +220,7 @@ const DEFAULT_TEMPLATES = {
   },
 };
 const APPT_TYPES = { test_drive: 'Test drive', appraisal: 'Trade appraisal', visit: 'Visit', delivery: 'Delivery', phone_call: 'Phone call' };
-const DEFAULT_SETTINGS = { salesperson: '', dealership: '', dealer_phone: '', dealer_address: '', review_link: '', text_start: 8, text_end: 21, call_target: 5, auto_email: false, import_leads: false, lead_senders: '', daily_summary: true };
+const DEFAULT_SETTINGS = { salesperson: '', dealership: '', dealer_phone: '', dealer_address: '', review_link: '', text_start: 8, text_end: 21, call_target: 5, auto_email: false, import_leads: false, lead_senders: '', daily_summary: true, monthly_goal: 12 };
 
 /* ============ state ============ */
 const S = { db: null, customers: new Map(), appts: new Map(), inv: new Map(), settings: { ...DEFAULT_SETTINGS }, tpl: DEFAULT_TEMPLATES,
@@ -471,6 +471,28 @@ function renderView() {
   if (fid) { const el = document.getElementById(fid); if (el && el.closest('#view')) { el.focus(); try { el.setSelectionRange(sel, sel); } catch {} } }
   bindView(L);
 }
+function goalsBar() {
+  const now = new Date(); const monthStart = todayKey(new Date(now.getFullYear(), now.getMonth(), 1));
+  const weekStart = new Date(now); weekStart.setHours(0, 0, 0, 0); weekStart.setDate(weekStart.getDate() - ((weekStart.getDay() + 6) % 7));
+  const cs = [...S.customers.values()].filter((c) => !c.example);
+  const sold = cs.filter((c) => c.sold_date && c.sold_date >= monthStart).length;
+  const goal = Math.max(1, +S.settings.monthly_goal || 12);
+  const dayOfMonth = now.getDate(); const daysInMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+  const pace = Math.round((sold / dayOfMonth) * daysInMonth);
+  const today = todayKey();
+  let calls = 0, sent = 0;
+  for (const c of cs) for (const h of c.history || []) {
+    if (h.dir === 'out' && todayKey(new Date(h.at)) === today) { if (h.ch === 'call') calls++; else if (!h.auto) sent++; }
+  }
+  const appts = [...S.appts.values()].filter((a) => a.created_at && new Date(a.created_at) >= weekStart).length;
+  const target = +S.settings.call_target || 5;
+  const cell = (big, small, ok) => `<div class="stat"><b style="${ok === undefined ? '' : `color:var(--${ok ? 'good' : 'warn'})`}">${big}</b><span>${small}</span></div>`;
+  return `<div class="card" style="display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(130px,1fr))">
+    ${cell(`${sold}<small style="font-size:16px;color:var(--muted)">/${goal}</small>`, `Sold this month · on pace for ${pace}`, pace >= goal)}
+    ${cell(`${calls}<small style="font-size:16px;color:var(--muted)">/${target}</small>`, 'Calls today', calls >= target)}
+    ${cell(sent, 'Texts and emails you sent today')}
+    ${cell(appts, 'Appointments set this week')}</div>`;
+}
 function autoStatus() {
   if (!S.settings.auto_email) return '';
   const a = S.auto;
@@ -494,8 +516,8 @@ VIEWS.today = (L) => {
   const ex = [...S.customers.values()].some((c) => c.example) ? `<div class="note row spread"><span>Showing example customers.</span><button class="btn sm" type="button" data-act="clear-examples">Remove examples</button></div>` : '';
   return `<div class="stack">${loadingNote()}${setupNote()}${ex}
     <div class="row spread"><div><h1>Today</h1><div class="muted">${new Date().toLocaleDateString([], { weekday: 'long', month: 'long', day: 'numeric' })}</div></div>
-      <div class="row"><button class="btn" type="button" data-act="add">+ Customer</button><button class="btn" type="button" data-act="appt-new">+ Appointment</button></div></div>
-    ${intro}${win}${autoStatus()}
+      <div class="row"><button class="btn pri" type="button" data-act="walkin">Log a walk-in</button><button class="btn" type="button" data-act="add">+ Customer</button><button class="btn" type="button" data-act="appt-new">+ Appointment</button></div></div>
+    ${intro}${S.customers.size ? goalsBar() : ''}${win}${autoStatus()}
     <div class="grid2">
       <section class="stack"><h2>Call these<span class="count">${L.calls.length}</span></h2>
         <p class="muted small" style="margin:-6px 0 0">Replies first. Aim for ${S.settings.call_target || 5}+ calls a day.</p>
@@ -514,7 +536,7 @@ function callCard(it, i) {
   let acts;
   if (it.src === 'outcome') acts = `<div class="row"><button class="btn sm pri" type="button" data-out="sold" data-k="${key}">Showed + bought</button><button class="btn sm" type="button" data-out="unsold" data-k="${key}">Showed, not yet</button><button class="btn sm danger" type="button" data-out="no_show" data-k="${key}">No-show</button></div>`;
   else if (it.src === 'consent') acts = `<div class="row"><button class="btn sm pri" type="button" data-consent="${key}">They said yes</button><button class="btn sm" type="button" data-skip="${key}">They said no / skip</button></div>`;
-  else acts = `<input id="note-${i}" data-keep placeholder="Call notes (optional)" aria-label="Call notes"><div class="row"><button class="btn sm pri" type="button" data-called="${key}" data-note="note-${i}">Called</button><button class="btn sm" type="button" data-skip="${key}">Skip</button>${it.src === 'reply' ? `<button class="btn sm" type="button" data-appt-for="${esc(c.id)}">Book appointment</button>` : ''}</div>`;
+  else acts = `<input id="note-${i}" data-keep placeholder="Call notes (optional)" aria-label="Call notes"><div class="row"><button class="btn sm pri" type="button" data-called="${key}" data-note="note-${i}">Called</button><button class="btn sm" type="button" data-skip="${key}">Skip</button>${it.src === 'reply' ? `<button class="btn sm" type="button" data-appt-for="${esc(c.id)}">Book appointment</button><button class="btn sm" type="button" data-suggest="${esc(c.id)}">What do I say?</button>` : ''}</div>`;
   return `<div class="item ${['reply', 'outcome'].includes(it.src) ? 'hot' : ''}"><div class="row spread"><span class="who" data-open="${esc(c.id)}">${esc(nm(c))}</span></div><div>${esc(it.title)}</div>${meta}${phone}${acts}</div>`;
 }
 function sendCard(it, i) {
@@ -679,7 +701,8 @@ VIEWS.setup = () => { const s = S.settings; const f = (k, l, ph = '') => `<label
     <div class="card stack"><h2>Hours &amp; rules</h2>
       <div class="row"><label class="f">Texts from<select id="set-text_start">${[8, 9, 10, 11, 12].map((h) => `<option ${+s.text_start === h ? 'selected' : ''} value="${h}">${h < 12 ? h + ' am' : '12 pm'}</option>`).join('')}</select></label>
       <label class="f">Texts until<select id="set-text_end">${[17, 18, 19, 20, 21].map((h) => `<option ${+s.text_end === h ? 'selected' : ''} value="${h}">${h - 12} pm</option>`).join('')}</select></label>
-      <label class="f">Calls a day<input id="set-call_target" type="number" min="1" value="${esc(s.call_target)}" style="width:90px"></label></div>
+      <label class="f">Calls a day<input id="set-call_target" type="number" min="1" value="${esc(s.call_target)}" style="width:90px"></label>
+      <label class="f">Cars a month (goal)<input id="set-monthly_goal" type="number" min="1" value="${esc(s.monthly_goal)}" style="width:90px"></label></div>
       <p class="muted small">The law allows texts from 8 am to 9 pm. You can narrow the window but not widen it.</p>
       <h3>Built-in rules</h3><ul class="small muted" style="margin:0;padding-left:18px;display:grid;gap:4px">
         <li>No text or email without recorded permission. You'll get a "call and ask" task instead.</li>
@@ -716,6 +739,7 @@ function bindView(L) {
     if (d.called) { const it = findItem(L, d.called); if (!it) return; const note = $('#' + d.note)?.value; logHist(it.c, 'out', 'call', note ? 'Call: ' + note : 'Called'); await finishItem(it, false); return toast('Call logged'); }
     if (d.replied) return repliedSheet(S.customers.get(d.replied));
     if (d.apptFor) return openAppt(null, d.apptFor);
+    if (d.suggest) return suggestReply(S.customers.get(d.suggest));
     if (d.consent) { const it = findItem(L, d.consent); if (!it) return; Object.assign(it.c, { consent: true, consent_source: 'Said yes when I called', consent_date: nowIso() }); logHist(it.c, 'out', 'call', 'Asked permission to text/email: yes'); await saveCustomer(it.c); return toast('Permission recorded. The message is ready under Send these.'); }
     if (d.out) { const it = findItem(L, d.out === 'sold' || d.out === 'unsold' || d.out === 'no_show' ? t.dataset.k : ''); if (it) return outcome(it, d.out); return; }
     if (d.g) { S.filter.group = d.g; S.filter.stage = ''; return renderView(); }
@@ -729,6 +753,7 @@ function bindView(L) {
     if (d.resettpl !== undefined) return confirmSheet('Restore the original templates?', 'Your edits to templates are replaced with the originals.', 'Restore', async () => { S.tpl = DEFAULT_TEMPLATES; await saveTemplates(); toast('Templates restored'); });
     switch (d.act) {
       case 'add': return customerSheet();
+      case 'walkin': return walkinSheet();
       case 'appt-new': return openAppt(null);
       case 'vehicle-new': return vehicleSheet({});
       case 'examples': return addExamples();
@@ -831,12 +856,61 @@ function openCustomer(id) {
     $('#cs-rep').onclick = () => repliedSheet(c);
     $('#cs-appt').onclick = () => openAppt(null, c.id);
     $('#cs-draft').onclick = () => draftSheet(c);
-    $('#cs-sold') && ($('#cs-sold').onclick = () => upd((x) => setStage(x, 'sold')));
+    $('#cs-sold') && ($('#cs-sold').onclick = () => deliverySheet(c));
     $('#cs-pause') && ($('#cs-pause').onclick = () => upd((x) => (x.status = 'paused')));
     $('#cs-resume') && ($('#cs-resume').onclick = () => upd(resume));
     $('#cs-dnc') && ($('#cs-dnc').onclick = () => confirmSheet(`Mark ${nm(c)} as do not contact?`, 'Nothing will ever go to them again from this page.', 'Do not contact', () => upd((x) => setStage(x, 'dnc'))));
     $('#cs-stage').onchange = (e) => upd((x) => setStage(x, e.target.value));
     $$('[data-goto]').forEach((a) => (a.onclick = (e) => { e.preventDefault(); openCustomer(a.dataset.goto); }));
+  });
+}
+/* 20-second capture right after a customer leaves the floor */
+function walkinSheet() {
+  sheet('Log a walk-in', `<p class="muted small">Takes 20 seconds. Their follow-up starts tonight with a thank-you text in your voice.</p>
+    <div class="grid2" style="grid-template-columns:1fr 1fr"><label class="f">First name<input id="wi-first"></label><label class="f">Last name<input id="wi-last"></label></div>
+    <label class="f">Mobile<input id="wi-phone" inputmode="tel"></label><label class="f">Email (optional)<input id="wi-email" type="email"></label>
+    <label class="f">Car they looked at (stock # or model)<input id="wi-car" placeholder="H24518 or Tucson SEL"></label>
+    <label class="f">The one thing holding them back<input id="wi-obj" placeholder="payment, trade value, color, spouse…"></label>
+    <label class="f">Result<select id="wi-res"><option value="be_back">Didn't buy yet (follow up)</option><option value="appointment">Set an appointment</option><option value="sold">Bought today</option></select></label>
+    <label class="row" style="gap:8px"><input type="checkbox" id="wi-ok" style="width:auto"> They said it's OK to text and email them</label>
+    <p class="flag" id="wi-e"></p><div class="row"><button class="btn pri" type="button" id="wi-s">Save</button></div>`, (close) => {
+    $('#wi-s').onclick = async () => {
+      const v = (id) => $('#' + id).value.trim();
+      if (!v('wi-phone') && !v('wi-email')) return ($('#wi-e').textContent = 'Add a mobile number or email.');
+      const car = v('wi-car'); const isStock = /\d/.test(car) && !/\s/.test(car);
+      const res = v('wi-res');
+      const { c } = upsert({ first_name: v('wi-first'), last_name: v('wi-last'), phone: v('wi-phone'), email: v('wi-email'), stage: res === 'sold' ? 'sold' : 'be_back',
+        stocks: isStock ? car : '', vehicle: isStock ? '' : car, objection: v('wi-obj'), source: 'Showroom walk-in',
+        consent: $('#wi-ok').checked, consent_source: 'Said yes in person on the floor' });
+      if (res === 'sold' && c.stage !== 'sold') setStage(c, 'sold');
+      await saveCustomer(c); close();
+      if (res === 'appointment') return openAppt(null, c.id);
+      if (res === 'sold') return deliverySheet(c);
+      toast('Saved. Their thank-you text is on Today.');
+    };
+  });
+}
+/* when a car is delivered: the details that drive referrals and repeat business */
+function deliverySheet(c) {
+  sheet(`Delivered: ${nm(c)}`, `<p class="muted small">Congrats! Two minutes here sets up years of follow-up.</p>
+    <label class="f">Stock # of the car they bought<input id="dv-stock" class="mono" value="${esc((c.stocks || [])[0] || '')}"></label>
+    <label class="f">Birthday (MM-DD, optional)<input id="dv-bday" value="${esc(c.birthday)}" placeholder="03-15"></label>
+    <label class="f">Email (for owner follow-up)<input id="dv-email" type="email" value="${esc(c.email)}"></label>
+    <label class="row" style="gap:8px"><input type="checkbox" id="dv-ok" style="width:auto" ${c.consent ? 'checked' : ''}> They said it's OK to text and email them</label>
+    <div class="card small stack" style="padding:12px"><b>Before they drive off</b>
+      <span>Pair their phone and show them the MyHyundai app.</span><span>Take the delivery photo with them and the car.</span>
+      <span>Ask: "Who do you know who's shopping?" and get one name.</span><span>Ask them to look out for your text about a quick review.</span></div>
+    <div class="row"><button class="btn pri" type="button" id="dv-s">Save</button></div>`, (close) => {
+    $('#dv-s').onclick = async () => {
+      const st = normStock($('#dv-stock').value); if (st && !(c.stocks || []).includes(st)) c.stocks = [st, ...(c.stocks || [])];
+      if (st) c.stocks = [st, ...(c.stocks || []).filter((x) => x !== st)];
+      c.birthday = parseBirthday($('#dv-bday').value) || c.birthday || '';
+      const em = $('#dv-email').value.trim().toLowerCase(); if (em) c.email = em;
+      if ($('#dv-ok').checked && !c.consent) Object.assign(c, { consent: true, consent_source: 'Said yes at delivery', consent_date: nowIso() });
+      if (c.stage !== 'sold') setStage(c, 'sold');
+      if (st && S.inv.get(st) && S.inv.get(st).status !== 'sold') await saveVehicle({ ...S.inv.get(st), status: 'sold' }, S.inv.get(st));
+      await saveCustomer(c); close(); toast('Delivered. Owner follow-up is set for the next 4 years.');
+    };
   });
 }
 function repliedSheet(c) {
@@ -856,7 +930,7 @@ function draftSheet(c) {
 function outcome(it, kind) {
   const a = { ...it.appt }; const c = it.c;
   if (kind === 'no_show') { a.status = 'no_show'; saveAppt(a); if (c.stage === 'appointment') { setStage(c, c.prev_stage && c.prev_stage !== 'appointment' ? c.prev_stage : 'be_back'); saveCustomer(c); } return toast('No-show logged. A "sorry we missed you" text is ready.'); }
-  if (kind === 'sold') { a.status = 'showed'; saveAppt(a); setStage(c, 'sold'); saveCustomer(c); return toast('Congrats! Moved to Sold.'); }
+  if (kind === 'sold') { a.status = 'showed'; saveAppt(a); return deliverySheet(c); }
   sheet('Not yet', `<label class="f">What held them back? (one thing)<input id="ob-t" placeholder="payment, trade value, color, spouse…"></label><div class="row"><button class="btn pri" type="button" id="ob-s">Save</button></div>`, (close) => {
     $('#ob-s').onclick = async () => { a.status = 'showed'; saveAppt(a); c.objection = $('#ob-t').value.trim(); setStage(c, 'be_back'); await saveCustomer(c); close(); toast('Moved to Unsold showroom with a follow-up plan'); };
   });
@@ -1016,6 +1090,28 @@ function saveStep(i) {
   arr[i] = { day: Math.max(0, +$('#td-' + i).value || 0), ch: $('#tc-' + i).value, body: $('#tb-' + i).value, subject: $('#ts-' + i)?.value || arr[i].subject || '' };
   arr.sort((a, b) => a.day - b.day); S.tpl = { ...S.tpl, cadence: { ...(S.tpl.cadence || DEFAULT_TEMPLATES.cadence), [st]: arr } };
   return saveTemplates().then(() => toast('Saved'));
+}
+
+/* ============ reply coach ============ */
+async function suggestReply(c) {
+  const sample = await claude.use('sample').catch(() => null);
+  if (!sample) return toast('TARS is not available in this view');
+  const last = [...(c.history || [])].reverse().find((h) => h.dir === 'in');
+  sheet(`What to say to ${nm(c)}`, `<div class="small muted">They said: "${esc(c.reply_text || last?.body || '')}"</div><div id="sg-out" class="msg b">Thinking…</div>
+    <div class="row"><button class="btn sm" type="button" id="sg-copy">Copy text</button><button class="btn sm pri" type="button" id="sg-draft">Put it on Today</button></div>`, async (close) => {
+    const out = $('#sg-out'); let text = '';
+    const s = S.settings; const v = vehicleOf(c);
+    const prompt = `You coach a car salesperson (${s.salesperson || 'the salesperson'} at ${s.dealership || 'a Hyundai dealership'}). A customer just replied. Write the ONE best text message to send back, in the salesperson's voice: friendly-professional, under 300 characters, one question or one appointment offer (never both), no emojis, no fake urgency, never quote a price, payment, rate or approval. If they raised an objection, acknowledge it and move toward a phone call or visit. Output only the message text.
+
+Customer: ${nm(c)}. Stage: ${STAGES[c.stage]?.label}. Vehicle: ${v.label || c.vehicle || 'unknown'}${v.stock ? ' (stock #' + v.stock + ')' : ''}. What held them back: ${c.objection || 'unknown'}.
+Recent history (oldest first):
+${(c.history || []).slice(-8).map((h) => `${h.dir === 'in' ? 'Customer' : 'Salesperson'} (${h.ch}): ${String(h.body).slice(0, 300)}`).join('\n')}
+Their latest message: ${c.reply_text || last?.body || ''}`;
+    try { const r = await sample(prompt, { cache: false, onText: ({ text: t }) => { out.textContent = t; } }); text = r.text.trim(); out.textContent = text; }
+    catch (e) { out.textContent = e?.code === 'not_granted' ? 'Allow TARS from this page\'s Permissions menu to use this.' : 'Could not get a suggestion right now.'; }
+    $('#sg-copy').onclick = () => copy(text);
+    $('#sg-draft').onclick = async () => { if (!text) return; const b = blockReason(c, 'sms'); if (b) return toast("Can't text them: " + b); c.draft = { ch: 'sms', body: text, subject: '' }; await saveCustomer(c); close(); toast('On Today under Send these'); };
+  });
 }
 
 /* ============ TARS (Ask Claude) ============ */
