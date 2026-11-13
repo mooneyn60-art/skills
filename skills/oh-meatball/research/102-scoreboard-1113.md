@@ -71,3 +71,8 @@ Pack `research/108`, second-model check `research/109` (15 fixes across the thre
 - GTA 6 TikTok: 39 plays at 0.8 h, label "Video Games". Too early to judge (the Jensen one had no count at this age).
 - Jensen Huang YouTube Short: 151 at 4.1 h. Sweary dog-stare Short (10:00): 248 at 4.9 h. Dog guilty look (13:00): listed, no count yet.
 - Older Shorts: cat sugar 1,100, false widow 992, cat purr 931, moose 918, turkey 914.
+
+## 15:32 ET read (TikTok public pages)
+- Microsoft outage (15:05, https://www.tiktok.com/@meatballmyths/video/7707749755279002911): 202 plays at 0.4 h, 2 likes, 1 save.
+- GTA 6 (14:07): 226 plays at 1.4 h, no likes yet, label "Video Games".
+- Jensen Huang (10:52): 2,818 at 4.7 h (flat since 14:56).
