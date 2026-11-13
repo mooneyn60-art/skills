@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dealer Autopilot</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="login" class="login hidden">
+    <form id="loginForm" class="card login-card">
+      <h1>Dealer Autopilot</h1>
+      <p class="muted">Enter your password</p>
+      <input type="password" id="loginPassword" placeholder="Password" autofocus>
+      <button class="btn primary" type="submit">Sign in</button>
+      <p id="loginError" class="error"></p>
+    </form>
+  </div>
+
+  <div id="app" class="hidden">
+    <header class="topbar">
+      <div class="brand">Dealer Autopilot</div>
+      <nav id="nav">
+        <button data-view="today" class="active">Today</button>
+        <button data-view="customers">Customers</button>
+        <button data-view="calendar">Calendar</button>
+        <button data-view="stock">Stock #s</button>
+        <button data-view="templates">Templates</button>
+        <button data-view="scoreboard">Scoreboard</button>
+        <button data-view="import">Import</button>
+        <button data-view="settings">Settings</button>
+      </nav>
+      <button id="tarsToggle" class="btn tars-btn">Ask TARS</button>
+    </header>
+    <div id="banner" class="banner hidden"></div>
+    <main id="view"></main>
+  </div>
+
+  <!-- customer drawer -->
+  <aside id="drawer" class="drawer hidden" aria-label="Customer details">
+    <div class="drawer-head"><h2 id="drawerTitle">Customer</h2><button class="icon-btn" data-close="drawer" aria-label="Close">&times;</button></div>
+    <div id="drawerBody" class="drawer-body"></div>
+  </aside>
+
+  <!-- TARS -->
+  <aside id="tars" class="tars hidden" aria-label="TARS assistant">
+    <div class="drawer-head"><h2>TARS</h2><button class="icon-btn" data-close="tars" aria-label="Close">&times;</button></div>
+    <div id="tarsLog" class="tars-log">
+      <div class="msg bot">Hey, I'm TARS. Ask me things like:<br>
+        <em>"Who's interested in stock 24518?"</em><br>
+        <em>"What's on my list today?"</em><br>
+        <em>"Book Mike Jones for a test drive Saturday at 11"</em><br>
+        <em>"Sara Lee bought the Tahoe, move her to sold"</em><br>
+        <em>"How was my show rate this week?"</em></div>
+    </div>
+    <form id="tarsForm" class="tars-form">
+      <textarea id="tarsInput" rows="2" placeholder="Ask TARS anything..."></textarea>
+      <button class="btn primary" type="submit">Send</button>
+    </form>
+  </aside>
+
+  <div id="modal" class="modal hidden"><div class="modal-card card" id="modalCard"></div></div>
+  <div id="toast" class="toast hidden"></div>
+  <script src="app.js"></script>
+</body>
+</html>
