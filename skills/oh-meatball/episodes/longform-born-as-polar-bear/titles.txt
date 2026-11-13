@@ -1,0 +1,21 @@
+Polar bear long-form ("born as" shape, research 85; Nolan's pick 11/12). Slot: not set yet (December, research 95).
+
+Titles for the A/B test (from the outline; checked by a second model, research 99):
+1. Why It Sucks to Be Born as a Polar Bear (For the First Few Years)   <- contains "Sucks": used only with Nolan's yes (MASTER_ORDERS, Watch hours)
+2. Why Being Born a Polar Bear Is a Terrible Deal (Until You Grow Up)
+3. Your Life as a Polar Bear: 8 Things You Have to Get Through   <- for the post (the "Your Life as" family, as the house-cat video)
+
+Thumbnails (episodes/thumbs-bornas/, specs.json there; tool: tools/thumb_dontkill.py --json):
+pb_a "RAW START" (one huge polar bear with a tear; goes with title 3), pb_b "687 KM ONE SWIM" (the swimming bear;
+the checked line s4.l6-s4.l7 and its card 687 KM. 9 DAYS. ONE SWIM.), pb_c "BORN A POLAR BEAR?" (plain question).
+No word "sucks", no banned title word. Each was looked at at 168 px: the bear still reads.
+
+Pinned comment:
+Meatball's review: 1 star. "No legroom. The menu is seal. Kitchen closed for months. Would not be born again." Leave yours under this: how many stars for the polar bear life, and which of the 8 gets you first?
+
+End screen: the last 12 s (WATCH NEXT, labelled YOUR LIFE AS A HOUSE CAT, video slot left, subscribe circle right).
+Video slot -> "Your Life as a House Cat: 8 Ways It Goes Wrong" once that video is up (Sat 11/28).
+
+Rebuild: python3 tools/drawn_polarlife.py build scripts/longform-born-as-polar-bear.outline.json scripts/longform-born-as-polar-bear.json
+         python3 tools/drawn_polarlife.py render scripts/longform-born-as-polar-bear.json OUT.mp4 --work DIR
+Sheets:  python3 tools/drawn_polarlife.py linesheet scripts/longform-born-as-polar-bear.json OUT.jpg --work DIR
