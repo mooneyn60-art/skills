@@ -518,3 +518,10 @@ Nolan's order of 11/13 about 08:30 ET replaced these: the queued bug Shorts no l
   - Still to do: on 11/24 compare its structure with three winners' transcripts and re-cut the first 30 seconds if they open very differently; judge it at 72 hours by the thresholds in "The YouTube play".
   - The cat video's verdict is a sweet deal with conditions, so no title may promise only misery. A title with "sucks" needs his yes (the mild-word rule keeps such words out of titles). The polar bear is next in this shape ("What he picked to build next").
 
+## Moved from the page on 11/13 (the section as it stood; its order is carried out and "Do all three" made every Short funny)
+
+### More comedy on YouTube: post some today to test (Nolan, 11/12 about 17:15 ET)
+- **His words:** "Do we want mkre comedy in yr videos" and "Post some of those today to test" (sent just after the turkey preview).
+- **What it means (my reading):** he is asking whether YouTube should get more comedy, and ordering a test now: put some of the new funny videos out on YouTube today, not in their later slots. His order wins over the three-a-day line for that day.
+- **How it is read:** Thursday's funny Shorts at 48 hours against the plain one of that day (views), then with Windsor (average % viewed, engaged share). If they keep about twice the pace, long videos get more jokes too (mild words, nothing before 0:25).
+

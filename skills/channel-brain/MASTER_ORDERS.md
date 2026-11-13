@@ -30,7 +30,7 @@ Then, only if still needed:
 
 ## Read dates and live tests
 Read each test on its date, not before.
-- **Sat 11/14 evening:** the comedy test ("More comedy on YouTube") at 48 hours. At 10 hours the funny Shorts ran about 1.7 times the plain one at the same age (`oh-meatball/research/102`).
+- **Sat 11/14 evening:** the comedy test (Nolan 11/12: "Do we want mkre comedy in yr videos", "Post some of those today to test"; the log has the section) at 48 hours: Thursday's funny Shorts against the plain one of that day, then Windsor. At 10 hours the funny Shorts ran about 1.7 times the plain one at the same age (`oh-meatball/research/102`).
 - **Fri 11/13 evening and Sat 11/14:** the sweary dog-stare cut on YouTube (10:00) against Friday's mild funny Shorts ("TikToks over one minute; one sweary cut on YouTube").
 - **Sat 11/14:** Windsor will have the engaged share for the 11/10-11/11 Shorts: under 0.39 means viewers swiped, 0.40 or more with tiny views means YouTube did not show them. Read the Fri 11/13 dog Short's public thumbnail (cover test, "Tags and everything").
 - **Sat 11/14 to Sun 11/15:** Windsor youtube, one call per video with the filter [["video","eq",ID]], fields date, traffic_source, views, engaged_views, for the five 11/10-11/11 Shorts and the 11/12 cat and moose Shorts; compare with 11/07-11/09 (feed 4,338 / 3,650 / 3,536 views a day; search 161 / 150 / 132).
@@ -75,11 +75,6 @@ Read each test on its date, not before.
 - **Minute cuts:** the funny search-led cut he liked, grown to 65 to 90 seconds (searched question first, phrase on screen, sweary jokes, Noodle and Sauce, a question at the end). Built by the saved workflow `tiktok-minute`, two topics a night in the night window. Order, status and slots: `oh-meatball/research/data/tiktok-minute-queue.json` (cat sugar and cat purr scheduled 11/13; moose and cat name are built in the night of 11/13; all nine before 11/21). Grizzly and dog guilty look already have minute cuts (Fri 11/13 and Mon 11/16 20:15). Each is sent to him as a preview and takes its topic's slot.
 - **YouTube test:** the sweary dog-stare cut (25 s, four strong words, softened captions, clean title and description) posts Fri 11/13 10:00 in the plain silverfish Short's slot (silverfish moved to Sat 11/21 14:00). The mild dog-stare Short is held back: never post both. Read at 24 and 48 hours against Friday's mild funny Shorts (dog guilty look 16:00, grizzly 19:00), then with Windsor. "Mild words only" stays the YouTube rule until he has seen the numbers. Known cost: YouTube can limit ads on videos with strong words at the start or throughout (matters once the channel earns); titles, descriptions and pinned comments stay clean either way.
 - **Not asked again:** the six 3-minute TikToks. "Over 1 min" is his answer for now; raise 3 minutes only after a week of minute-cut numbers.
-
-## More comedy on YouTube: post some today to test (Nolan, 11/12 about 17:15 ET)
-- **His words:** "Do we want mkre comedy in yr videos" and "Post some of those today to test" (sent just after the turkey preview).
-- **What it means (my reading):** he is asking whether YouTube should get more comedy, and ordering a test now: put some of the new funny videos out on YouTube today, not in their later slots. His order wins over the three-a-day line for that day.
-- **How it is read:** Thursday's funny Shorts at 48 hours against the plain one of that day (views), then with Windsor (average % viewed, engaged share). If they keep about twice the pace, long videos get more jokes too (mild words, nothing before 0:25).
 
 ## What he picked to build next (Nolan, 11/12 about 16:40 ET)
 - **His words:** asked "What else can we develop", he picked three of four options and wrote: "Keep digging like this it's good focus on TikTok also not just yt we're still in a TikTok view jail".
