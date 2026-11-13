@@ -36,3 +36,9 @@ Sources: YouTube public counts from yt-dlp flat listings (no watch pages); TikTo
 - Average % viewed and engaged share for Thursday's Shorts (Windsor has them from Sat or Sun).
 - Why the two plain hook-test Shorts stayed near 100 views (swiped or not shown): the Sat 11/14 Windsor read.
 - TikTok watch time and where views came from (TikTok Studio only).
+
+## Second read, 08:24 ET (Nolan: "Ok run the checks agin")
+Same sources (YouTube public counts, TikTok public pages). Metricool and Windsor did not connect in this session (connection timeouts), so the queue status and Windsor numbers were not re-read; the 07:50 Metricool read stands.
+- YouTube, 43 minutes after the first read: cat purr 924 (10.1 h), turkey 786 (10.6 h), moose 896 (13.4 h), cat sugar 1,000 (16.4 h), plain false widow 972 (22.4 h). The public listing had not moved for the two newest. Shorts median 942 (the 12 before: 1,150). Part 2 long video 87 views (39.4 h). Subscribers 1,010.
+- TikTok: dog guilty look 281 plays (13.3 h), centipede explainer 448 (10.9 h), pantry moth 242 (20.4 h). Median 333 (the 12 before: 296). Followers 9,314.
+- Nothing changed enough to act on. Next reads: the sweary dog-stare Short after 10:00 today, the comedy test at 48 hours on Sat evening.
