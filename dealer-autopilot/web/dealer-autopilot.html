@@ -215,6 +215,7 @@ const DEFAULT_TEMPLATES = {
     stock_sold: "Hi {first_name}, it's {salesperson}. Just a heads up, the {match_vehicle} you were looking at has sold. What matters most to you in the next one? I'll find you some similar options.",
     equity: "Hi {first_name}, it's {salesperson} at {dealership}. Vehicles like your {vehicle} are holding their value well, and yours may be worth more than you owe. Would you like me to run the numbers for you?",
     reactivation: "Hi {first_name}, it's {salesperson} at {dealership}. Just checking in. Are you still in the market for a vehicle, or are you all set? Either way, I'm here if you ever need anything.",
+    checkin: "Hi {first_name}, it's {salesperson} at {dealership}. Just checking in to make sure everything is going great with your {vehicle}. If anything comes up, a question, a setting, anything at all, just reply here or call me at {dealer_phone}.",
     birthday: "Happy birthday, {first_name}! I hope you have a great day. - {salesperson} at {dealership}",
     referral_thanks: "Hi {first_name}, it's {salesperson}. {referral_name} just picked up their new vehicle, and they told me you sent them my way. Thank you, I really appreciate it!",
   },
@@ -405,9 +406,9 @@ function buildList() {
     if (c.ref_thanks) msg(c, 'referral', 'sms', render(extraTpl('referral_thanks'), c, { referral_name: c.ref_thanks.name }));
     if (c.campaign && new Date(c.campaign.due).getTime() <= now) {
       const ckey = c.campaign.key === 'oldlist' ? 'reactivation' : c.campaign.key;
-      if (S.settings.auto_email && !blockReason(c, 'email')) auto.push({ c, src: 'campaign', ch: 'email', subject: ckey === 'equity' ? 'What is your vehicle worth today?' : `Still looking, ${c.first_name || 'there'}?`, body: render(extraTpl(ckey), c) });
+      if (S.settings.auto_email && !blockReason(c, 'email')) auto.push({ c, src: 'campaign', ch: 'email', subject: ckey === 'equity' ? 'What is your vehicle worth today?' : ckey === 'checkin' ? `How's the ${vehicleOf(c).label || 'new vehicle'}, ${c.first_name || 'there'}?` : `Still looking, ${c.first_name || 'there'}?`, body: render(extraTpl(ckey), c) });
       else if (!blockReason(c, 'sms')) send.push({ c, src: 'campaign', ch: 'sms', body: render(extraTpl(ckey), c) });
-      else if (!blockReason(c, 'call')) calls.push({ c, src: 'campaign', title: c.campaign.key === 'equity' ? `Call ${nm(c)}: bought ${c.sold_date}. Their car may be worth more than they owe.` : `Call ${nm(c)}${c.source ? ` (${c.source})` : ''}: old customer. Still in the market? If they're interested, move them to New lead or book an appointment.` });
+      else if (!blockReason(c, 'call')) calls.push({ c, src: 'campaign', title: c.campaign.key === 'checkin' ? `Call ${nm(c)}: check in on their ${vehicleOf(c).label || 'new vehicle'}. Make sure everything is great.` : c.campaign.key === 'equity' ? `Call ${nm(c)}: bought ${c.sold_date}. Their car may be worth more than they owe.` : `Call ${nm(c)}${c.source ? ` (${c.source})` : ''}: old customer. Still in the market? If they're interested, move them to New lead or book an appointment.` });
     }
     if (c.birthday === mmdd && c.bday_year !== yr && !blockReason(c, 'sms')) send.push({ c, src: 'birthday', ch: 'sms', body: render(extraTpl('birthday'), c) });
     if (c.status === 'active') {
@@ -676,7 +677,7 @@ VIEWS.templates = () => {
   const tabs = [...Object.keys(STAGES).filter((s) => !['dnc', 'appointment'].includes(s)), 'appt', 'extras'];
   const cur = S.tplTab || 'new_lead';
   const label = (t) => (t === 'appt' ? 'Appointment' : t === 'extras' ? 'Grow' : STAGES[t].label);
-  const KEYS = { confirm: 'When booked', reminder_day: 'Day before', reminder_2h: '2 hours before', no_show: 'After a no-show', new_arrival: 'A matching car came in', stock_sold: 'The car they liked sold', equity: 'Upgrade list', reactivation: 'Reactivate old lead', birthday: 'Birthday', referral_thanks: 'Thank a referrer' };
+  const KEYS = { confirm: 'When booked', reminder_day: 'Day before', reminder_2h: '2 hours before', no_show: 'After a no-show', new_arrival: 'A matching car came in', stock_sold: 'The car they liked sold', equity: 'Upgrade list', reactivation: 'Reactivate old lead', birthday: 'Birthday', referral_thanks: 'Thank a referrer', checkin: 'Check-in with a recent buyer' };
   let body;
   if (cur === 'appt' || cur === 'extras') {
     const set = cur === 'appt' ? { ...DEFAULT_TEMPLATES.appt, ...(S.tpl.appt || {}) } : { ...DEFAULT_TEMPLATES.extras, ...(S.tpl.extras || {}) };
