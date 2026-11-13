@@ -187,7 +187,8 @@ function handleInboundSms(from, body) {
 function dailyList() {
   const settings = store.getSettings();
   const rows = db.prepare(`SELECT t.id FROM tasks t WHERE t.status = 'pending' AND t.due_at <= ? ORDER BY
-      CASE t.source WHEN 'reply' THEN 0 WHEN 'outcome' THEN 1 WHEN 'appointment' THEN 2 WHEN 'reminder' THEN 2 WHEN 'no_show' THEN 3 ELSE 5 END, t.due_at`)
+      CASE t.source WHEN 'new_lead' THEN 0 WHEN 'reply' THEN 1 WHEN 'outcome' THEN 2 WHEN 'appointment' THEN 3 WHEN 'reminder' THEN 3
+        WHEN 'no_show' THEN 4 WHEN 'referral' THEN 5 WHEN 'match' THEN 6 ELSE 8 END, t.due_at`)
     .all(new Date(Date.now() + 2 * 3600000).toISOString()).map((r) => getTask(r.id));
   const calls = rows.filter((t) => t.kind === 'call' || t.kind === 'check');
   const messages = rows.filter((t) => t.kind === 'sms' || t.kind === 'email');

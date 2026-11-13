@@ -82,4 +82,12 @@ async function sendEmail(c, subject, body) {
   return { status: 'sent' };
 }
 
-module.exports = { render, smsLink, sendTwilio, sendEmail };
+/** Email yourself (e.g. new lead alert). Does nothing if email isn't set up. */
+async function notifyOwner(subject, text) {
+  const t = mailer();
+  if (!t) return { status: 'simulated' };
+  await t.sendMail({ from: `"Dealer Autopilot" <${config.smtp.user}>`, to: config.smtp.user, subject, text });
+  return { status: 'sent' };
+}
+
+module.exports = { render, smsLink, sendTwilio, sendEmail, notifyOwner };

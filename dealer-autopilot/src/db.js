@@ -6,7 +6,7 @@ const path = require('node:path');
 const crypto = require('node:crypto');
 const { DatabaseSync } = require('node:sqlite');
 const config = require('./config');
-const { STAGES, GROUPS, DEFAULT_STEPS, APPT_TEMPLATES } = require('./sequences');
+const { STAGES, GROUPS, DEFAULT_STEPS, APPT_TEMPLATES, EXTRA_TEMPLATES } = require('./sequences');
 
 fs.mkdirSync(path.dirname(config.dbPath), { recursive: true });
 const db = new DatabaseSync(config.dbPath);
@@ -111,7 +111,33 @@ CREATE INDEX IF NOT EXISTS idx_msg_customer ON messages(customer_id, created_at)
 CREATE TABLE IF NOT EXISTS settings (key TEXT PRIMARY KEY, value TEXT);
 `);
 
+// Columns added after the first version (safe to run on an existing database).
+for (const col of ['referred_by_id INTEGER', "referred_by_name TEXT DEFAULT ''", 'birthday TEXT']) {
+  try { db.exec(`ALTER TABLE customers ADD COLUMN ${col}`); } catch { /* already there */ }
+}
+
 const nowIso = () => new Date().toISOString();
+/** Accepts 2024-03-15, 3/15/2024, "Mar 15 2024"... Returns YYYY-MM-DD or ''. */
+function parseDate(v) {
+  if (!v) return '';
+  const s = String(v).trim();
+  if (/^\d{4}-\d{2}-\d{2}/.test(s)) return s.slice(0, 10);
+  const m = s.match(/^(\d{1,2})[/.-](\d{1,2})[/.-](\d{2,4})/);
+  if (m) { const y = m[3].length === 2 ? '20' + m[3] : m[3]; return `${y}-${m[1].padStart(2, '0')}-${m[2].padStart(2, '0')}`; }
+  const d = new Date(s);
+  return isNaN(d) ? '' : d.toISOString().slice(0, 10);
+}
+/** Birthday as MM-DD from "03/15", "1985-03-15", "March 15"... */
+function parseBirthday(v) {
+  if (!v) return '';
+  const s = String(v).trim();
+  let m = s.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (m) return `${m[2]}-${m[3]}`;
+  m = s.match(/^(\d{1,2})[/.-](\d{1,2})/);
+  if (m) return `${m[1].padStart(2, '0')}-${m[2].padStart(2, '0')}`;
+  const d = new Date(s + (/\d{4}/.test(s) ? '' : ' 2000'));
+  return isNaN(d) ? '' : `${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
 
 // ---------- settings ----------
 const DEFAULT_SETTINGS = {
@@ -163,14 +189,20 @@ function saveSettings(obj) {
 if (db.prepare('SELECT COUNT(*) AS n FROM steps').get().n === 0) {
   const ins = db.prepare('INSERT INTO steps (stage, day, channel, subject, body) VALUES (?, ?, ?, ?, ?)');
   for (const [stage, steps] of Object.entries(DEFAULT_STEPS)) for (const s of steps) ins.run(stage, s.day, s.channel, s.subject || '', s.body);
-  const insKey = db.prepare("INSERT INTO steps (stage, key, day, channel, subject, body) VALUES ('appointment', ?, 0, ?, '', ?)");
-  for (const [key, t] of Object.entries(APPT_TEMPLATES)) insKey.run(key, t.channel, t.body);
+}
+{
+  const has = db.prepare('SELECT 1 FROM steps WHERE stage = ? AND key = ?');
+  const insKey = db.prepare("INSERT INTO steps (stage, key, day, channel, subject, body) VALUES (?, ?, 0, ?, '', ?)");
+  for (const [stage, set] of [['appointment', APPT_TEMPLATES], ['extras', EXTRA_TEMPLATES]]) {
+    for (const [key, t] of Object.entries(set)) if (!has.get(stage, key)) insKey.run(stage, key, t.channel, t.body);
+  }
 }
 /** The day-by-day cadence for a stage. */
 function getSteps(stage) { return db.prepare('SELECT * FROM steps WHERE stage = ? AND key IS NULL ORDER BY day, id').all(stage); }
 /** Every template (cadence + appointment messages), for the Templates screen. */
 function allTemplates() { return db.prepare('SELECT * FROM steps ORDER BY stage, key IS NOT NULL, day, id').all(); }
 function apptTemplate(key) { return db.prepare("SELECT * FROM steps WHERE stage = 'appointment' AND key = ?").get(key); }
+function extraTemplate(key) { return db.prepare("SELECT * FROM steps WHERE stage = 'extras' AND key = ?").get(key); }
 function getStep(id) { return db.prepare('SELECT * FROM steps WHERE id = ?').get(id); }
 function updateStep(id, data) {
   const s = getStep(id);
@@ -183,7 +215,7 @@ function updateStep(id, data) {
   const changed = body !== s.body || subject !== s.subject || channel !== s.channel;
   const approved = data.approved !== undefined ? (data.approved ? 1 : 0) : changed ? 0 : s.approved;
   let auto = data.auto !== undefined ? (data.auto ? 1 : 0) : s.auto;
-  if (!STAGES[s.stage].auto_ok || channel === 'call' || !approved) auto = 0;
+  if (!STAGES[s.stage]?.auto_ok || channel === 'call' || !approved) auto = 0;
   db.prepare('UPDATE steps SET day = ?, channel = ?, subject = ?, body = ?, approved = ?, auto = ? WHERE id = ?').run(day, channel, subject, body, approved, auto, id);
   return getStep(id);
 }
@@ -291,12 +323,19 @@ function upsertCustomer(data) {
     if (data.on_dnc_registry !== undefined && bool(data.on_dnc_registry)) db.prepare('UPDATE customers SET on_dnc_registry = 1 WHERE id = ?').run(existing.id);
     if (data.do_not_contact && bool(data.do_not_contact)) setStage(existing.id, 'dnc');
     addInterests(existing.id, stocks);
-    if (data.stage && data.stage !== existing.stage && existing.stage !== 'dnc') setStage(existing.id, stage, { soldDate: data.sold_date });
+    setExtras(existing.id, data);
+    if (data.stage && data.stage !== existing.stage && existing.stage !== 'dnc') setStage(existing.id, stage, { soldDate: parseDate(data.sold_date) });
     return { customer: getCustomer(existing.id), created: false };
   }
 
   const dnc = data.do_not_contact && bool(data.do_not_contact);
   const consent = dnc ? 0 : bool(data.consent);
+  const soldDate = parseDate(data.sold_date);
+  const leadAt = data.lead_at && !isNaN(new Date(data.lead_at)) ? new Date(data.lead_at).toISOString() : (parseDate(data.lead_at) ? new Date(parseDate(data.lead_at) + 'T12:00:00Z').toISOString() : '');
+  // Old leads and past buyers pick up their schedule where it would be today, not at day 0.
+  let entered = now;
+  if (stage === 'sold' && soldDate && soldDate < now.slice(0, 10)) entered = new Date(soldDate + 'T15:00:00Z').toISOString();
+  if (['new_lead', 'phone_up', 'be_back'].includes(stage) && leadAt && leadAt < now) entered = leadAt;
   const r = db.prepare(`INSERT INTO customers (first_name, last_name, phone, email, stage, status, vehicle_interest, objection, notes, source,
       consent, consent_date, consent_source, on_dnc_registry, customer_initiated, email_opt_out, stage_entered_at, lead_at, sold_date, created_at, updated_at)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`).run(
@@ -304,18 +343,47 @@ function upsertCustomer(data) {
     data.vehicle_interest || '', data.objection || '', data.notes || '', data.source || '',
     consent, consent ? (data.consent_date ? new Date(data.consent_date).toISOString() : now) : null, consent ? (data.consent_source || 'Recorded on entry') : '',
     bool(data.on_dnc_registry), data.customer_initiated === undefined ? (stage === 'lost' ? 0 : 1) : bool(data.customer_initiated), dnc ? 1 : 0,
-    now, ['new_lead', 'phone_up', 'be_back'].includes(stage) ? (data.lead_at && !isNaN(new Date(data.lead_at)) ? new Date(data.lead_at).toISOString() : now) : null,
-    stage === 'sold' ? (data.sold_date || now.slice(0, 10)) : null, now, now);
+    entered, ['new_lead', 'phone_up', 'be_back'].includes(stage) ? (leadAt || now) : null,
+    stage === 'sold' ? (soldDate || now.slice(0, 10)) : null, now, now);
   const id = Number(r.lastInsertRowid);
   addInterests(id, stocks);
+  if (entered !== now) {
+    // Skip steps that were due more than 3 days ago (keep a recent one so old leads still get a touch).
+    const steps = getSteps(stage);
+    const cutoff = Date.now() - 3 * 86400000;
+    let idx = 0;
+    while (idx < steps.length && new Date(entered).getTime() + steps[idx].day * 86400000 < cutoff) idx++;
+    db.prepare('UPDATE customers SET step_index = ? WHERE id = ?').run(idx, id);
+  }
+  setExtras(id, data);
   reschedule(id);
   return { customer: getCustomer(id), created: true };
+}
+
+/** Birthday and "referred by" (a name or phone of an existing customer). */
+function setExtras(id, data) {
+  if (data.birthday !== undefined) db.prepare('UPDATE customers SET birthday = ? WHERE id = ?').run(parseBirthday(data.birthday) || null, id);
+  if (data.referred_by !== undefined) {
+    const ref = String(data.referred_by || '').trim();
+    let match = null;
+    if (ref) {
+      const digits = ref.replace(/\D/g, '');
+      if (digits.length >= 7) match = db.prepare('SELECT id FROM customers WHERE phone LIKE ? AND id != ?').get('%' + digits.slice(-10), id);
+      if (!match) {
+        const rows = db.prepare("SELECT id FROM customers WHERE lower(trim(first_name || ' ' || last_name)) = ? AND id != ?").all(ref.toLowerCase(), id);
+        if (rows.length === 1) match = rows[0];
+      }
+    }
+    db.prepare('UPDATE customers SET referred_by_name = ?, referred_by_id = ? WHERE id = ?').run(ref, match ? match.id : null, id);
+  }
 }
 
 function setConsent(id, yes, source = '', date) {
   db.prepare('UPDATE customers SET consent = ?, consent_date = ?, consent_source = ?, updated_at = ? WHERE id = ?')
     .run(yes ? 1 : 0, yes ? (date ? new Date(date).toISOString() : nowIso()) : null, yes ? source || 'Verbal / in person' : '', nowIso(), id);
 }
+
+const stageHooks = []; // called as hook(customerId, newStage, oldStage)
 
 /** Move to a stage and start that stage's cadence from the beginning. */
 function setStage(id, stage, { soldDate } = {}) {
@@ -331,6 +399,7 @@ function setStage(id, stage, { soldDate } = {}) {
     db.prepare('UPDATE customers SET consent = 0, email_opt_out = 1 WHERE id = ?').run(id);
   }
   reschedule(id);
+  for (const h of stageHooks) { try { h(id, stage, c.stage); } catch (e) { console.error('[stage hook]', e.message); } }
 }
 
 /** active | paused. ('replied' is set by markReplied in queue.js.) */
@@ -361,11 +430,12 @@ function updateCustomer(id, data) {
   if ('on_dnc_registry' in data) db.prepare('UPDATE customers SET on_dnc_registry = ? WHERE id = ?').run(bool(data.on_dnc_registry), id);
   if ('customer_initiated' in data) db.prepare('UPDATE customers SET customer_initiated = ? WHERE id = ?').run(bool(data.customer_initiated), id);
   if ('consent' in data && c.stage !== 'dnc') setConsent(id, bool(data.consent), data.consent_source, data.consent_date);
+  setExtras(id, data);
   if ('stock_numbers' in data) {
     db.prepare('DELETE FROM interests WHERE customer_id = ?').run(id);
     addInterests(id, Array.isArray(data.stock_numbers) ? data.stock_numbers.flatMap(splitStocks) : splitStocks(data.stock_numbers));
   }
-  if (data.stage && data.stage !== c.stage) setStage(id, data.stage, { soldDate: data.sold_date });
+  if (data.stage && data.stage !== c.stage) setStage(id, data.stage, { soldDate: parseDate(data.sold_date) });
   if (data.status && ['active', 'paused'].includes(data.status) && data.status !== getCustomerRow(id).status) setStatus(id, data.status);
   db.prepare('UPDATE customers SET updated_at = ? WHERE id = ?').run(nowIso(), id);
   return getCustomer(id);
@@ -445,9 +515,9 @@ function verifyUnsubToken(token) {
 }
 
 module.exports = {
-  db, nowIso, STAGES, GROUPS,
+  db, nowIso, STAGES, GROUPS, stageHooks, setExtras,
   getSettings, publicSettings, saveSettings,
-  getSteps, getStep, updateStep, addStep, deleteStep, allTemplates, apptTemplate,
+  getSteps, getStep, updateStep, addStep, deleteStep, allTemplates, apptTemplate, extraTemplate, parseDate, parseBirthday,
   normalizePhone, normalizeEmail, normalizeStock, splitStocks, localParts, blockReason, inTextWindow, bool,
   upsertCustomer, updateCustomer, getCustomer, getCustomerRow, listCustomers, deleteCustomer,
   setStage, setStatus, setConsent, reschedule, addInterests, removeInterest, vehicleLabel,

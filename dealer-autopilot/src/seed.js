@@ -19,6 +19,8 @@ const people = [
   { first_name: 'Dev', last_name: 'Patel', phone: '555-201-7777', email: 'dev.demo@example.com', stage: 'phone_up', stock_numbers: 'P3391' },
   { first_name: 'Ana', last_name: 'Ruiz', phone: '555-201-5555', email: 'ana.demo@example.com', stage: 'sold', stock_numbers: 'P3391', consent: true, consent_source: 'Signed at delivery' },
   { first_name: 'Tom', last_name: 'Baker', phone: '555-201-1212', stage: 'lost', on_dnc_registry: true, customer_initiated: false },
+  { first_name: 'Rita', last_name: 'Gomez', phone: '555-201-3030', stage: 'sold', sold_date: '2023-09-02', vehicle_interest: 'Honda CR-V', consent: true, consent_source: 'Signed at delivery' },
+  { first_name: 'Ben', last_name: 'Cho', phone: '555-201-4040', stage: 'new_lead', vehicle_interest: 'Toyota RAV4', consent: true, consent_source: 'Lead form opt-in', referred_by: 'Ana Ruiz' },
 ];
 const ids = people.map((p) => store.upsertCustomer(p).customer.id);
 // Make one lead look like it came in 2 days ago and was answered in 3 minutes, for the scoreboard.

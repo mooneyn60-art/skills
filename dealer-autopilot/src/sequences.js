@@ -88,4 +88,15 @@ const APPT_TEMPLATES = {
   no_show: { channel: 'sms', body: "Hi {first_name}, it's {salesperson}. Sorry we missed you today! Would [day/time 1] or [day/time 2] work better to come by?" },
 };
 
-module.exports = { STAGES, GROUPS, DEFAULT_STEPS, APPT_TEMPLATES };
+// Extra messages used by the Grow features (new-arrival matches, campaigns, birthdays, referrals).
+// They go on your approval list like everything else and never send automatically.
+const EXTRA_TEMPLATES = {
+  new_arrival: { channel: 'sms', body: "Hi {first_name}, it's {salesperson} at {dealership}. A {match_vehicle} (stock #{match_stock}) just came in that fits what you were looking for. Would you like me to send you some photos?" },
+  stock_sold: { channel: 'sms', body: "Hi {first_name}, it's {salesperson}. Just a heads up, the {match_vehicle} you were looking at has sold. What matters most to you in the next one? I'll find you some similar options." },
+  equity: { channel: 'sms', body: "Hi {first_name}, it's {salesperson} at {dealership}. Vehicles like your {vehicle} are holding their value well, and yours may be worth more than you owe. Would you like me to run the numbers for you?" },
+  reactivation: { channel: 'sms', body: "Hi {first_name}, it's {salesperson} at {dealership}. It's been a while since we talked about the {vehicle}. Are you still in the market, or did you find something?" },
+  birthday: { channel: 'sms', body: "Happy birthday, {first_name}! I hope you have a great day. - {salesperson} at {dealership}" },
+  referral_thanks: { channel: 'sms', body: "Hi {first_name}, it's {salesperson}. {referral_name} just picked up their new vehicle, and they told me you sent them my way. Thank you, I really appreciate it!" },
+};
+
+module.exports = { STAGES, GROUPS, DEFAULT_STEPS, APPT_TEMPLATES, EXTRA_TEMPLATES };

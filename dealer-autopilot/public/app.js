@@ -105,7 +105,8 @@ async function viewToday() {
 }
 function startOfDay(offset) { const d = new Date(); d.setHours(0, 0, 0, 0); d.setDate(d.getDate() + offset); return d.toISOString(); }
 
-const SOURCE_LABEL = { sequence: 'Follow-up schedule', reply: 'Customer replied', appointment: 'Appointment confirmation', reminder: 'Appointment reminder', no_show: 'No-show', outcome: 'Appointment check', consent: 'Needs consent', manual: 'Drafted' };
+const SOURCE_LABEL = { sequence: 'Follow-up schedule', reply: 'Customer replied', appointment: 'Appointment confirmation', reminder: 'Appointment reminder', no_show: 'No-show', outcome: 'Appointment check', consent: 'Needs consent', manual: 'Drafted',
+  new_lead: 'NEW LEAD: respond within 5 min', match: 'Inventory match', campaign: 'Campaign', birthday: 'Birthday', referral: 'Referral thank-you' };
 function taskCard(t) {
   const who = `<span class="who" data-customer="${t.customer_id}">${esc(fullName(t))}</span>`;
   const meta = `<div class="src">${esc(SOURCE_LABEL[t.source] || t.source)} &middot; ${stageLabel(t.stage)}${t.stocks ? ' &middot; #' + esc(t.stocks) : ''}${t.phone ? ' &middot; ' + esc(fmtPhone(t.phone)) : ''}</div>`;
@@ -115,7 +116,7 @@ function taskCard(t) {
       <button class="btn small danger" data-outcome="no_show">No-show</button></div></div>`;
   }
   if (t.kind === 'call') {
-    return `<div class="task ${t.source === 'reply' ? 'reply' : ''}" data-task="${t.id}">
+    return `<div class="task ${t.source === 'reply' || t.source === 'new_lead' ? 'reply' : ''}" data-task="${t.id}">
       <div class="row" style="justify-content:space-between">${who}${t.phone ? `<a class="btn small" href="tel:${esc(t.phone)}">Call ${esc(fmtPhone(t.phone))}</a>` : ''}</div>
       <div>${esc(t.title)}</div>${meta}
       <input placeholder="Call notes (optional)" data-note>
@@ -216,6 +217,8 @@ function customerForm(c = null) {
       <div><label>Stock #(s)</label><input id="f_stock" value="${esc((v.interests || []).map((i) => i.stock_number).join(', '))}" placeholder="24518, T1122"></div></div>
     <label>Vehicle of interest (if no stock #)</label><input id="f_vehicle" value="${esc(v.vehicle_interest)}">
     <label>The one thing holding them back</label><input id="f_objection" value="${esc(v.objection)}" placeholder="payment, trade value, colour, spouse...">
+    <div class="grid two"><div><label>Referred by (name or phone)</label><input id="f_ref" value="${esc(v.referred_by_name)}"></div>
+      <div><label>Birthday (MM-DD)</label><input id="f_bday" value="${esc(v.birthday)}" placeholder="03-15"></div></div>
     <label>Notes</label><textarea id="f_notes" rows="2">${esc(v.notes)}</textarea>
     <div class="card" style="margin-top:12px;padding:10px">
       <label class="switch"><input type="checkbox" id="f_consent" ${v.consent ? 'checked' : ''}> They agreed to get texts / emails from me</label>
@@ -231,6 +234,7 @@ function customerForm(c = null) {
       stage: $('#f_stage').value, stock_numbers: $('#f_stock').value, vehicle_interest: $('#f_vehicle').value, objection: $('#f_objection').value,
       notes: $('#f_notes').value, consent: $('#f_consent').checked, consent_source: $('#f_consent_src').value,
       on_dnc_registry: $('#f_dnc').checked, customer_initiated: $('#f_init').checked,
+      referred_by: $('#f_ref').value, birthday: $('#f_bday').value,
     };
     if (!body.phone && !body.email) return toast('Add a phone or email');
     if (body.consent && !body.consent_source) return toast('Note how they agreed to be contacted');
@@ -258,6 +262,9 @@ async function openCustomer(id) {
       <div>DNC registry</div><div>${c.on_dnc_registry ? `<span class="flag">On registry</span>${c.customer_initiated ? ' (they contacted us first)' : ''}` : 'No'}</div>
       <div>Holding back</div><div>${esc(c.objection || '-')}</div>
       <div>Source</div><div>${esc(c.source || '-')}</div>
+      ${c.referred_by_name ? `<div>Referred by</div><div>${c.referred_by_id ? `<a href="#" data-open="${c.referred_by_id}">${esc(c.referred_by_name)}</a>` : esc(c.referred_by_name) + ' <span class="muted">(not matched to a customer)</span>'}</div>` : ''}
+      ${c.birthday ? `<div>Birthday</div><div>${esc(c.birthday)}</div>` : ''}
+      ${c.sold_date ? `<div>Sold</div><div>${esc(c.sold_date)}</div>` : ''}
       <div>Stock #s</div><div class="chips">${stockChips}</div>
       ${c.notes ? `<div>Notes</div><div style="white-space:pre-wrap">${esc(c.notes)}</div>` : ''}
     </div>
@@ -280,6 +287,7 @@ async function openCustomer(id) {
   const refresh = async () => { await loadStatus(); openCustomer(id); VIEWS[state.view]().catch(() => {}); };
   const put = (body) => api('/customers/' + id, { method: 'PUT', body }).then(refresh).catch(fail);
   $('#d_edit').onclick = () => customerForm(c);
+  $$('#drawerBody [data-open]').forEach((a) => a.onclick = (e) => { e.preventDefault(); openCustomer(Number(a.dataset.open)); });
   $('#d_replied').onclick = () => repliedPrompt(id, refresh);
   $('#d_appt').onclick = () => apptForm({ customer: c });
   $('#d_draft').onclick = () => draftForm(c, refresh);
@@ -389,7 +397,7 @@ function stockForm(v) {
   $('#v_save').onclick = async () => {
     const stock = $('#v_stock').value.trim(); if (!stock) return toast('Stock # required');
     const body = Object.fromEntries(['year', 'make', 'model', 'trim', 'color', 'miles', 'status'].map((k) => [k, $('#v_' + k).value]));
-    try { await api('/stock/' + encodeURIComponent(stock), { method: 'PUT', body }); closeModal(); toast('Saved'); viewStock(); } catch (e) { fail(e); }
+    try { const r = await api('/stock/' + encodeURIComponent(stock), { method: 'PUT', body }); closeModal(); toast(r.drafted ? `Saved. ${r.drafted} text(s) drafted for interested customers (see Today).` : 'Saved'); viewStock(); } catch (e) { fail(e); }
   };
 }
 async function openStock(stock) {
@@ -407,10 +415,12 @@ async function openStock(stock) {
 async function viewTemplates() {
   const all = await api('/templates');
   const s = await api('/settings');
-  const KEYS = { confirm: 'When booked', reminder_day: 'Day before', reminder_2h: '2 hours before', no_show: 'After a no-show' };
-  const stages = Object.keys(state.status.stages).filter((k) => k !== 'dnc');
+  const KEYS = { confirm: 'When booked', reminder_day: 'Day before', reminder_2h: '2 hours before', no_show: 'After a no-show',
+    new_arrival: 'New arrival matches what they wanted', stock_sold: 'The car they liked sold', equity: 'Upgrade campaign (past buyers)', reactivation: 'Reactivate old leads',
+    birthday: 'Birthday', referral_thanks: 'Thank a referrer' };
+  const stages = [...Object.keys(state.status.stages).filter((k) => k !== 'dnc'), 'extras'];
   const card = (t) => {
-    const autoOk = state.status.stages[t.stage].auto_ok && t.channel !== 'call';
+    const autoOk = state.status.stages[t.stage]?.auto_ok && t.channel !== 'call';
     return `<div class="step" data-tpl="${t.id}">
       <div class="row">${t.key ? `<b>${KEYS[t.key]}</b>` : `<label style="margin:0">Day</label><input type="number" min="0" data-f="day" value="${t.day}" style="width:80px">
         <select data-f="channel" style="width:110px">${['sms', 'email', 'call'].map((c) => `<option value="${c}" ${c === t.channel ? 'selected' : ''}>${c === 'sms' ? 'Text' : c === 'email' ? 'Email' : 'Call'}</option>`).join('')}</select>`}
@@ -426,18 +436,18 @@ async function viewTemplates() {
       </div></div>`;
   };
   view().innerHTML = `<h1>Templates</h1>
-    <p class="muted">Written in your voice: friendly-professional, one ask per message. Placeholders: {first_name} {vehicle} {stock} {objection} {salesperson} {dealership} {dealer_phone} {review_link}.
+    <p class="muted">Written in your voice: friendly-professional, one ask per message. Placeholders: {first_name} {vehicle} {stock} {objection} {salesperson} {dealership} {dealer_phone} {review_link} (Grow messages also use {match_vehicle} {match_stock} {referral_name}).
       Text in <code>[[ ]]</code> is left out when its placeholder is empty. Anything in <code>[brackets]</code> is for you to fill in before sending.<br>
       <b>Approve each template once.</b> Only Sold-stage messages and appointment messages can ever send automatically, and only after you approve them and turn on automation:
       <label class="switch"><input type="checkbox" id="autoMaster" ${s.automation_enabled === '1' ? 'checked' : ''}> Automation on</label></p>
-    <div class="tabs" id="tplTabs">${stages.map((st, i) => `<button data-st="${st}" class="${i === 0 ? 'active' : ''}">${esc(stageLabel(st))}</button>`).join('')}</div>
+    <div class="tabs" id="tplTabs">${stages.map((st, i) => `<button data-st="${st}" class="${i === 0 ? 'active' : ''}">${esc(st === 'extras' ? 'Grow messages' : stageLabel(st))}</button>`).join('')}</div>
     <div class="steps" id="tplList"></div>
     <button class="btn" id="tplAdd">+ Add step</button>`;
   let cur = stages[0];
   const draw = () => {
     const list = all.filter((t) => t.stage === cur);
     $('#tplList').innerHTML = list.map(card).join('') || '<p class="muted">No templates for this stage.</p>';
-    $('#tplAdd').classList.toggle('hidden', cur === 'appointment');
+    $('#tplAdd').classList.toggle('hidden', cur === 'appointment' || cur === 'extras');
     $$('#tplList [data-tpl]').forEach((el) => {
       const id = Number(el.dataset.tpl);
       const val = (f) => el.querySelector(`[data-f="${f}"]`)?.value;
@@ -459,6 +469,39 @@ async function viewTemplates() {
   $('#tplAdd').onclick = async () => { const t = await api('/templates', { method: 'POST', body: { stage: cur, day: 1, channel: 'sms', body: "Hi {first_name}, it's {salesperson}. " } }); all.push(t); draw(); };
   $('#autoMaster').onchange = async (e) => { await api('/settings', { method: 'PUT', body: { automation_enabled: e.target.checked ? '1' : '0' } }); toast(e.target.checked ? 'Automation on for approved Sold + appointment messages' : 'Automation off. Everything waits for you.'); };
   draw();
+}
+
+// ---------------- GROW ----------------
+async function viewGrow() {
+  const g = await api('/grow');
+  view().innerHTML = `<h1>Grow</h1><p class="muted">More customers, more sales. Everything here lands on your Today list for approval. Nothing sends on its own.</p>
+    <div class="grid two">
+      <div class="card"><h2>Your lead page</h2>
+        <p class="muted">Share this link on Facebook, Instagram, Marketplace, and in your email and text signatures. Print the QR code on your business cards.
+          Shoppers send you their info, tick a proper consent box, and can save your contact. The lead lands at the top of Today with a 5-minute clock (plus an email alert once email is set up).</p>
+        <div class="row" style="align-items:flex-start;gap:16px"><img src="${g.qr}" alt="QR code for your lead page" width="140" height="140" style="border-radius:8px;background:#fff;padding:6px">
+          <div class="grow"><code class="url">${esc(g.lead_page_url)}</code>
+          <div class="row" style="margin-top:8px"><button class="btn small" id="g_copy">Copy link</button><a class="btn small" href="/me" target="_blank" rel="noopener">Open page</a><a class="btn small" href="${g.qr}" download="my-lead-page-qr.png">Download QR</a></div>
+          <p class="muted" style="font-size:12px">Leads from this page in the last 30 days: <b>${g.leads_from_page_30d}</b>. Shoppers can only reach it once the app is online at a public address (see the README).</p></div></div>
+      </div>
+      <div class="card"><h2>Inventory matches</h2>
+        <p class="muted">When you add a vehicle (on the Stock #s page, by importing inventory, or by telling TARS "we just got a 2022 RAV4 in"), everyone who asked about that model gets a "just came in" text drafted for you.
+          When a car someone liked is marked sold, they get a "that one sold, want me to find something similar?" text drafted. This only applies to customers who agreed to texts.</p>
+        <h2 style="margin-top:14px">Referrals &amp; birthdays</h2>
+        <p class="muted">Fill in "Referred by" on a customer. When they buy, you get a task to thank whoever sent them. Add birthdays (MM-DD) and a birthday text is drafted on the day.
+          Referral sales so far: <b>${g.referral_sales}</b> &middot; Birthdays on file: <b>${g.birthdays_on_file}</b>.</p></div>
+    </div>
+    <h2 style="margin-top:18px">Campaigns</h2>
+    <div class="grid two">${g.campaigns.map((c) => `<div class="card"><h2>${esc(c.label)}</h2><p class="muted">${esc(c.why)}</p>
+      <p><b>${c.total}</b> customers &middot; ${c.will_text} get a drafted text &middot; ${c.will_call} go on your call list (no consent to text)${c.skipped ? ` &middot; ${c.skipped} can't be contacted` : ''}</p>
+      <div class="row"><label style="margin:0">Per day</label><input type="number" min="1" max="50" value="10" style="width:80px" data-per="${c.key}">
+      <button class="btn primary" data-camp="${c.key}" ${c.total ? '' : 'disabled'}>Add to my list</button></div></div>`).join('')}</div>`;
+  $('#g_copy').onclick = () => navigator.clipboard.writeText(g.lead_page_url).then(() => toast('Link copied'));
+  $$('[data-camp]').forEach((b) => b.onclick = async () => {
+    const per = $(`[data-per="${b.dataset.camp}"]`).value;
+    if (!confirm(`Put this campaign on your list, ${per} per day?`)) return;
+    try { const r = await api('/grow/campaign/' + b.dataset.camp, { method: 'POST', body: { per_day: per } }); toast(`${r.queued} customers queued over ${r.days} day(s)`); viewGrow(); } catch (e) { fail(e); }
+  });
 }
 
 // ---------------- SCOREBOARD ----------------
@@ -521,7 +564,7 @@ async function viewImport() {
     } catch (e) { fail(e); }
   };
   $('#v_go').onclick = async () => {
-    try { const r = await api('/import/inventory', { method: 'POST', body: { csv: $('#v_csv').value } }); $('#v_out').innerHTML = `<p class="ok">${r.imported} vehicles imported.</p>`; } catch (e) { fail(e); }
+    try { const r = await api('/import/inventory', { method: 'POST', body: { csv: $('#v_csv').value } }); $('#v_out').innerHTML = `<p class="ok">${r.imported} vehicles imported.${r.match_texts_drafted ? ` ${r.match_texts_drafted} "just came in" texts drafted for matching customers.` : ''}</p>`; } catch (e) { fail(e); }
   };
 }
 
@@ -602,5 +645,5 @@ $('#tarsForm').addEventListener('submit', async (e) => {
   log.scrollTop = log.scrollHeight;
 });
 
-const VIEWS = { today: viewToday, customers: viewCustomers, calendar: viewCalendar, stock: () => viewStock(), templates: viewTemplates, scoreboard: viewScoreboard, import: viewImport, settings: viewSettings };
+const VIEWS = { today: viewToday, customers: viewCustomers, calendar: viewCalendar, stock: () => viewStock(), templates: viewTemplates, grow: viewGrow, scoreboard: viewScoreboard, import: viewImport, settings: viewSettings };
 boot();

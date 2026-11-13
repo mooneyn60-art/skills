@@ -8,6 +8,7 @@ const appts = require('./appointments');
 const { scoreboard } = require('./scoreboard');
 const { render } = require('./messaging');
 const { customersFromCsv } = require('./csv');
+const grow = require('./grow');
 
 const MODEL = 'claude-opus-5-5';
 const STAGE_ENUM = Object.keys(store.STAGES);
@@ -32,6 +33,7 @@ How to work:
 - Be brief, like a sharp sales manager. Short lists. Mention customer ids like (#12).
 - When asked to write a message, use draft_message so it lands on the approval list. Only use complete_task with action "send" when the salesperson explicitly says to send it.
 - Write messages friendly-professional, from the salesperson, under 300 characters for texts, one ask per message (a question OR a time, not both), no fake urgency, no emojis.
+- Help the salesperson sell more: point out replies waiting, hot leads, past buyers due for an upgrade, and new arrivals that match someone. Suggest a campaign when it fits, but ask before running one.
 - If a date, time or customer is ambiguous, ask before booking or changing anything.`;
 
 const tools = [
@@ -60,6 +62,8 @@ const tools = [
         stage: { type: 'string', enum: STAGE_ENUM }, stock_numbers: { type: 'array', items: { type: 'string' } },
         vehicle_interest: { type: 'string' }, objection: { type: 'string', description: 'The one thing holding them back' },
         consent: { type: 'boolean' }, consent_source: { type: 'string' }, source: { type: 'string' }, notes: { type: 'string' },
+        referred_by: { type: 'string', description: 'Name or phone of the existing customer who referred them' },
+        birthday: { type: 'string', description: 'MM-DD' }, sold_date: { type: 'string', description: 'YYYY-MM-DD, for past buyers' },
       },
       required: ['stage'],
       additionalProperties: false,
@@ -79,7 +83,7 @@ const tools = [
         id: { type: 'integer' }, stage: { type: 'string', enum: STAGE_ENUM }, status: { type: 'string', enum: ['active', 'paused'] },
         objection: { type: 'string' }, add_note: { type: 'string' },
         consent: { type: 'boolean' }, consent_source: { type: 'string', description: 'How they agreed, e.g. "said yes on the phone 11/13"' },
-        on_dnc_registry: { type: 'boolean' },
+        on_dnc_registry: { type: 'boolean' }, referred_by: { type: 'string' }, birthday: { type: 'string', description: 'MM-DD' },
         add_stock_numbers: { type: 'array', items: { type: 'string' } }, remove_stock_numbers: { type: 'array', items: { type: 'string' } },
       },
       required: ['id'],
@@ -114,7 +118,7 @@ const tools = [
   },
   {
     name: 'update_stock',
-    description: 'Add or update a vehicle (e.g. mark a stock number sold).',
+    description: 'Add or update a vehicle (e.g. mark a stock number sold). A new vehicle drafts "just came in" texts to matching customers; marking one sold drafts "that one sold" texts to everyone interested.',
     input_schema: {
       type: 'object',
       properties: {
@@ -124,6 +128,16 @@ const tools = [
       required: ['stock_number'],
       additionalProperties: false,
     },
+  },
+  {
+    name: 'campaign',
+    description: 'Campaigns that create sales: "equity" = past buyers 2-4 years out who may owe less than their car is worth; "reactivation" = leads with no contact in 60+ days. Without run it previews the counts. With run true it puts them on the daily list, per_day at a time (texts for consented customers, calls for the rest). Ask the salesperson before running.',
+    input_schema: { type: 'object', properties: { key: { type: 'string', enum: ['equity', 'reactivation'] }, run: { type: 'boolean' }, per_day: { type: 'integer' } }, required: ['key'], additionalProperties: false },
+  },
+  {
+    name: 'find_matches',
+    description: 'Customers who might want a given vehicle in inventory (same model as what they asked about).',
+    input_schema: { type: 'object', properties: { stock_number: { type: 'string' } }, required: ['stock_number'], additionalProperties: false },
   },
   {
     name: 'list_appointments',
@@ -211,7 +225,7 @@ async function runTool(name, input, actions = []) {
       const c = store.getCustomerRow(input.id);
       if (!c) return { error: 'No customer with that id' };
       const patch = {};
-      for (const k of ['stage', 'status', 'objection', 'on_dnc_registry']) if (input[k] !== undefined) patch[k] = input[k];
+      for (const k of ['stage', 'status', 'objection', 'on_dnc_registry', 'referred_by', 'birthday']) if (input[k] !== undefined) patch[k] = input[k];
       if (input.consent !== undefined) { patch.consent = input.consent; patch.consent_source = input.consent_source || 'Told TARS'; }
       if (input.add_note) patch.notes = [c.notes, `[${new Date().toLocaleDateString('en-US', { timeZone: tz })}] ${input.add_note}`].filter(Boolean).join('\n');
       store.updateCustomer(c.id, patch);
@@ -250,9 +264,22 @@ async function runTool(name, input, actions = []) {
       return store.listStock(input.query).slice(0, 100);
     }
     case 'update_stock': {
-      const v = store.upsertInventory(input);
-      actions.push(`Updated stock #${v.stock_number}`);
-      return v;
+      const { vehicle, drafted } = grow.saveVehicle(input);
+      actions.push(`Updated stock #${vehicle.stock_number}${drafted ? `, drafted ${drafted} texts to matching customers` : ''}`);
+      return { ...vehicle, match_texts_drafted: drafted };
+    }
+    case 'campaign': {
+      if (input.run) {
+        const r = grow.runCampaign(input.key, input.per_day);
+        actions.push(`Campaign ${input.key}: ${r.queued} customers queued over ${r.days} day(s)`);
+        return r;
+      }
+      return grow.campaignPreview(input.key);
+    }
+    case 'find_matches': {
+      const v = store.listStock().find((x) => x.stock_number === store.normalizeStock(input.stock_number));
+      if (!v) return { error: 'Stock number not found in inventory' };
+      return grow.findMatches(v).map(slim);
     }
     case 'list_appointments': {
       const today = store.localParts(new Date(), tz).date;

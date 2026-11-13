@@ -10,6 +10,8 @@ const tars = require('./tars');
 const { scoreboard } = require('./scoreboard');
 const { render } = require('./messaging');
 const { customersFromCsv, inventoryFromCsv } = require('./csv');
+const grow = require('./grow');
+const QRCode = require('qrcode');
 const { StreamableHTTPServerTransport } = require('@modelcontextprotocol/sdk/server/streamableHttp.js');
 const { createMcpServer } = require('./mcp');
 
@@ -65,6 +67,46 @@ app.all('/mcp/:token', async (req, res) => {
     if (!res.headersSent) res.status(500).json({ error: 'MCP error' });
   }
 });
+
+// ---------------- your public lead page ----------------
+function leadPage(msg = '', ok = false) {
+  const st = store.getSettings();
+  const name = esc(st.salesperson || 'your salesperson');
+  const dealer = esc(st.dealership || 'the dealership');
+  const field = (n, label, type = 'text', req = false) => `<label>${label}${req ? ' *' : ''}<input name="${n}" type="${type}" ${req ? 'required' : ''} maxlength="120"></label>`;
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>${name} | ${dealer}</title><style>
+:root{--bg:#f4f5f7;--card:#fff;--text:#1c2230;--muted:#6b7385;--brand:#1f4fd8;--line:#e3e6ec}
+@media (prefers-color-scheme:dark){:root{--bg:#11141a;--card:#1a1e27;--text:#e8ebf2;--muted:#9aa3b5;--brand:#5b8cff;--line:#2b3140}}
+*{box-sizing:border-box}body{margin:0;font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--text)}
+main{max-width:480px;margin:0 auto;padding:24px 16px}.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:14px}
+h1{margin:0;font-size:24px}p{color:var(--muted)}label{display:block;font-size:14px;color:var(--muted);margin-top:12px}
+input,textarea{display:block;width:100%;margin-top:4px;font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--text)}
+.btn{display:block;width:100%;text-align:center;background:var(--brand);color:#fff;border:0;border-radius:10px;padding:13px;font:inherit;font-weight:600;margin-top:16px;text-decoration:none;cursor:pointer}
+.btn.alt{background:transparent;color:var(--brand);border:1px solid var(--brand)}.row{display:flex;gap:10px}.row .btn{margin-top:8px}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.4}.consent input{width:auto;margin-top:3px}
+.msg{padding:12px;border-radius:10px;background:${ok ? '#e5f6ee' : '#fdecea'};color:${ok ? '#12825a' : '#c0362c'}}.hp{position:absolute;left:-5000px}
+</style></head><body><main>
+<div class="card"><h1>${name}</h1><p style="margin:4px 0 0">${dealer}${st.dealer_address ? '<br>' + esc(st.dealer_address) : ''}</p>
+<div class="row">${st.dealer_phone ? `<a class="btn" href="tel:${esc(st.dealer_phone)}">Call</a><a class="btn alt" href="sms:${esc(st.dealer_phone)}">Text</a>` : ''}</div>
+<a class="btn alt" href="/me/contact.vcf">Save my contact</a></div>
+${msg ? `<div class="card msg">${esc(msg)}</div>` : ''}
+${ok ? '' : `<form class="card" method="post" action="/me"><h2 style="margin:0 0 4px;font-size:19px">Looking for a vehicle?</h2><p style="margin:0">Tell me what you need and I'll get right back to you.</p>
+${field('first_name', 'First name', 'text', true)}${field('last_name', 'Last name')}${field('phone', 'Mobile number', 'tel')}${field('email', 'Email', 'email')}
+${field('vehicle', 'What are you looking for?')}<label>Anything else? (trade-in, timing, questions)<textarea name="message" rows="3" maxlength="500"></textarea></label>
+${field('referred_by', 'Who referred you? (optional)')}<input class="hp" name="website" tabindex="-1" autocomplete="off">
+<label class="consent"><input type="checkbox" name="consent" value="yes"><span>I agree to receive calls and text messages, including automated ones, from ${name} at ${dealer} at the number I provided, and emails about vehicles and my inquiry. Consent is not a condition of purchase. Message and data rates may apply. Reply STOP to opt out at any time.</span></label>
+<button class="btn" type="submit">Send</button></form>`}
+</main></body></html>`;
+}
+app.get('/me', (req, res) => res.send(leadPage()));
+app.post('/me', async (req, res) => {
+  try {
+    await grow.leadFromPage(req.body || {}, req.ip);
+    res.send(leadPage(`Thanks! ${store.getSettings().salesperson || 'I'} will be in touch shortly.`, true));
+  } catch (e) { res.status(400).send(leadPage(e.message)); }
+});
+app.get('/me/contact.vcf', (req, res) => res.type('text/vcard').set('Content-Disposition', 'attachment; filename="contact.vcf"').send(grow.vcard()));
 
 // ---------------- login ----------------
 const sessionToken = () => crypto.createHmac('sha256', store.getSettings().secret).update('session:' + config.appPassword).digest('hex');
@@ -159,8 +201,14 @@ app.post('/api/import/customers', wrap((req, res) => {
 }));
 app.post('/api/import/inventory', wrap((req, res) => {
   const rows = inventoryFromCsv(req.body?.csv);
-  for (const v of rows) store.upsertInventory(v);
-  res.json({ imported: rows.length });
+  // The first inventory import just loads the lot. After that, new arrivals are matched to your leads (capped so your list doesn't flood).
+  const firstLoad = store.db.prepare('SELECT COUNT(*) AS n FROM inventory').get().n === 0;
+  let drafted = 0;
+  for (const v of rows) {
+    if (firstLoad || drafted >= 40) store.upsertInventory(v);
+    else drafted += grow.saveVehicle(v).drafted;
+  }
+  res.json({ imported: rows.length, match_texts_drafted: drafted, first_load: firstLoad });
 }));
 
 // stock
@@ -169,7 +217,7 @@ app.get('/api/stock/:stock', (req, res) => {
   const stock = store.normalizeStock(req.params.stock);
   res.json({ vehicle: store.listStock().find((s) => s.stock_number === stock) || { stock_number: stock }, customers: store.customersForStock(stock) });
 });
-app.put('/api/stock/:stock', wrap((req, res) => res.json(store.upsertInventory({ ...req.body, stock_number: req.params.stock }))));
+app.put('/api/stock/:stock', wrap((req, res) => res.json(grow.saveVehicle({ ...req.body, stock_number: req.params.stock }))));
 app.delete('/api/stock/:stock', (req, res) => { store.deleteStock(req.params.stock); res.json({ ok: true }); });
 
 // templates
@@ -183,6 +231,22 @@ app.get('/api/appointments', (req, res) => res.json(appts.list({ from: req.query
 app.post('/api/appointments', wrap((req, res) => res.json(appts.create(req.body || {}))));
 app.put('/api/appointments/:id', wrap((req, res) => res.json(appts.update(Number(req.params.id), req.body || {}))));
 app.delete('/api/appointments/:id', (req, res) => { appts.remove(Number(req.params.id)); res.json({ ok: true }); });
+
+// grow
+app.get('/api/grow', wrap(async (req, res) => {
+  const st = store.getSettings();
+  const url = `${config.publicUrl}/me`;
+  res.json({
+    lead_page_url: url,
+    qr: await QRCode.toDataURL(url, { margin: 1, width: 320 }),
+    campaigns: Object.keys(grow.CAMPAIGNS).map((k) => grow.campaignPreview(k)),
+    leads_from_page_30d: store.db.prepare("SELECT COUNT(*) AS n FROM customers WHERE source = 'My lead page' AND created_at >= ?").get(new Date(Date.now() - 30 * 86400000).toISOString()).n,
+    referral_sales: store.db.prepare("SELECT COUNT(*) AS n FROM customers WHERE stage = 'sold' AND (referred_by_id IS NOT NULL OR coalesce(referred_by_name,'') != '')").get().n,
+    birthdays_on_file: store.db.prepare('SELECT COUNT(*) AS n FROM customers WHERE birthday IS NOT NULL').get().n,
+    salesperson: st.salesperson,
+  });
+}));
+app.post('/api/grow/campaign/:key', wrap((req, res) => res.json(grow.runCampaign(req.params.key, req.body?.per_day))));
 
 app.get('/api/scoreboard', (req, res) => res.json(scoreboard()));
 app.get('/api/messages', (req, res) => res.json(store.recentMessages(Number(req.query.limit) || 150)));

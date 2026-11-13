@@ -10,8 +10,9 @@ async function tick() {
   try {
     const queued = queue.generateDue();
     const appt = appointments.tick();
+    const birthdays = require('./grow').birthdayTick();
     const auto_sent = await queue.autoSend();
-    return { queued, appointment_tasks: appt, auto_sent };
+    return { queued, appointment_tasks: appt, birthdays, auto_sent };
   } finally {
     running = false;
   }

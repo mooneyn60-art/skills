@@ -16,9 +16,26 @@ and this runs your daily follow-up list on top.
 | **Calendar** | Appointments. Booking drafts a confirmation text and queues reminders for the day before and 2 hours before. 30 minutes after the start time it asks you "did they show?". A no-show gets a "sorry we missed you" text drafted. |
 | **Stock #s** | Every stock number, and who's interested in each one. |
 | **Templates** | Every message for every stage, written friendly-professional. You approve each one once. |
+| **Grow** | Your lead page and QR code, upgrade and reactivation campaigns, new-arrival matches, referrals and birthdays (see below). |
 | **Scoreboard** | Weekly: response time to new leads (target under 5 min), appointment rate, show rate, close rate, and which messages get replies. |
 | **Import** | Paste or upload a DealerSocket export (customers) or your inventory list. |
 | **Ask TARS** | Ask anything: "who wants stock 24518?", "book Mike for Saturday at 11", "how's my show rate?" |
+
+## Getting more customers (Grow tab)
+
+- **Your lead page** (`/me`) with a **QR code** for business cards and social posts. Shoppers enter their info and tick a proper
+  consent box, and they can save your contact card. The lead lands at the **top of Today with a 5-minute clock**, and you get an email alert once email is set up.
+- **New-arrival matching.** Add a vehicle and everyone who asked about that model gets a "just came in, want photos?" text drafted.
+  Mark a car sold and everyone who liked it gets a "that one sold, want me to find something similar?" text.
+- **Upgrade campaign.** Past buyers at the 2–4 year mark get the "your car may be worth more than you owe" message. This is where repeat sales come from.
+- **Reactivation campaign.** Leads with no contact in 60+ days get one friendly check-in.
+  Campaigns are spread across days (10 a day by default), so your list never floods.
+- **Referrals.** Fill in "Referred by"; when that customer buys, you get a task to thank the person who sent them.
+- **Birthdays.** Add one (MM-DD) and a birthday text is drafted on the day.
+- **Imported history is handled.** Old leads and past buyers pick up their schedule where it would be today, so nobody gets a
+  "thanks for reaching out!" weeks late.
+
+All of these follow the same rules: only consented customers get texts, everyone else becomes a call task, and nothing sends without you.
 
 ## Compliance is built in (Rule 0)
 
