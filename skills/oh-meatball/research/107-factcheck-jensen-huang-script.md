@@ -67,3 +67,20 @@ Checked: `scripts/drawn-house/jensen-huang.script.json` (j1 to j14) against the 
 
 ## Verdict
 Cleared with the changes above (j3, j4 vis, j6, j7, j9, j12).
+
+## Post text (title, description, tags, caption)
+Checked 2026-11-13: `scripts/drawn-house/jensen-huang.meta.json`, against the pages listed above (no new sources). The file was not edited.
+
+- **title CHANGE.** "About $190 Billion Gone in a Day" does not say whose money it was. It reads as Jensen's own money, but the figure is Nvidia's market value (Reuters, per Wealth Professional citing CNN). The hedge "About" stays. 97 characters.
+  - Old: "Jensen Huang Allegations Explained: About $190 Billion Gone in a Day 💀 (Meatball Explains)"
+  - New: "Jensen Huang Allegations Explained: Nvidia Lost About $190 Billion in a Day 💀 (Meatball Explains)"
+- **description CHANGE (one sentence and the Sources line).**
+  - OK as written: "in an email the company published" (the newsroom: "sent the following email to NVIDIA employees", posted as a press release Nov 8). "A filing dated Nov 12 says he resigned as president, CEO and board member, effective immediately" (8-K: signed November 12, 2026; "accepted the resignation ... as NVIDIA's President, Chief Executive Officer and member of the Board, effective immediately"). Kress as interim CEO (8-K). "nothing but smears against China" (AP, Nov 9, spokesperson Guo Jiakun: "It is nothing but smears against China."). "The Times (Nov 11) and Reuters (Nov 12) reported more affairs, which are not confirmed" (TechCrunch). "$190 billion ... on Nov 9, Reuters reported" (Wealth Professional). "Three House committee chairs reportedly asked..." (TechCrunch, The Next Web, ABC). The only family mention is his own sentence. No woman is named except Kress, as the filing names her. Four hashtags, #shorts last.
+  - The "not charged" fact comes from The Next Web, not from "the same report". Old: "; the same report said officials did not believe he knew, and neither of them has been charged." New: "; the same report said officials did not believe he knew. Neither of them has been charged, The Next Web reported."
+  - Sources line. Reuters was not opened; both Reuters facts came through other outlets. The House chairs' request had no source listed. Old: "Reuters (Nov 9, Nov 12);" New: "Reuters (Nov 9, as relayed by Wealth Professional citing CNN; Nov 12, as relayed by TechCrunch); TechCrunch, The Next Web and ABC News (House chairs' request);". The rest of the Sources line is OK: the Times "as relayed by TechCrunch and The Next Web" is right (Oct 29 in both; Nov 11 in TechCrunch). The AP item is right (AP text read on adn.com). The newsroom items exist as named.
+- **tags OK.** 11 tags, each 30 characters or fewer, each answered by the video. "nvidia ceo affair" is answered by his own admission ("I was unfaithful to my wife"); no count of affairs is in any tag.
+- **pinned_comment OK.** An open question; adds no claim.
+- **tiktok_title OK.**
+- **tiktok_caption CHANGE (date only).** "China calls it a smear" is OK (AP, Nov 9). The $190 billion needs its date like everywhere else. Old: "Nvidia lost about $190 billion in market value in one day, Reuters reported." New: "Nvidia lost about $190 billion in market value on Nov 9, Reuters reported." Five hashtags; no #fyp; clean.
+
+**Verdict, post text:** cleared with the three changes above (title, description, TikTok caption).
