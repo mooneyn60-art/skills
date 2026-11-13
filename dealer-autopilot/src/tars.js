@@ -173,6 +173,9 @@ async function runTool(name, input, actions = []) {
   const tz = store.getSettings().timezone;
   switch (name) {
     case 'daily_list': {
+      // Bring the list up to date first, so this works from Claude Desktop even when the dashboard isn't running.
+      queue.generateDue();
+      appts.tick();
       const l = queue.dailyList();
       return { calls: l.calls.map(slimTask), approve: l.approve.map(slimTask), automatic: l.automatic.map(slimTask), in_text_window: l.in_text_window, call_target: l.call_target };
     }
