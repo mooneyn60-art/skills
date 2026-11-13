@@ -1,0 +1,798 @@
+{
+ "_what": "Narration outline for the second long-form in the 'born as' shape (Nolan's pick 11/12: the polar bear, for December; shape from research 85: the viewer lives the animal's life). Written only from research/98-polar-bear-life-factpack.md: every factual line carries src = the pack's row IDs (PB1 to PB106), worded no stronger than the row's quote. meter = SWEET percent (0 = raw deal, 100 = sweet deal) AFTER the line. vis = what the picture must show. Meatball plays the tourist in an orange parka who booked 'the full polar bear package': the eight things are his eight activities. In every chapter he tries the thing himself in a gag acted out on screen and fails (Nolan 11/12: more comedy on YouTube). The running bit is his one-star review card; it starts at s1.l6, is counted at the midpoint (s4.l12) and pays off in the final review (s10.l9), the pinned comment and the hand-off to the house-cat video (s10.l11). He never walks up to, touches or feeds a bear; his gags happen at his own snow hole, his own ice hole, the motel or the tour truck. Jokes are on Meatball: none adds a fact, a danger or health claim, a bear's feeling or motive, or a safety instruction. No joke before 0:25; mild words only (damn, hell, ass, badass; 15 in all, about one every 40 seconds, with a joke about every 25), never inside a sourced attribution or the safety line (s7.l4). Lines marked 'No joke' in vis stay clean (cub survival, the long swim, the 2004 cases, the attack count). The verdict is the script's own opinion on cited facts (the pack: no source compares a polar bear's life with any other animal's), so it is said as a verdict, never as a finding. No forecast anywhere; every sea-ice or population line names its place and years. Manitoba's advice (s7.l4) is for polar bears only and shares no line with any other animal's advice. Left out on purpose: left-handed and covers-its-nose (no source), any single speed, any one weight for 'a polar bear'. Unit conversions (pound, pounds, miles) are the script's arithmetic. Not yet checked by a second model: see _factcheck.",
+ "titles": [
+  "Why It Sucks to Be Born as a Polar Bear (For the First Few Years)",
+  "Why Being Born a Polar Bear Is a Terrible Deal (Until You Grow Up)",
+  "Your Life as a Polar Bear: 8 Things You Have to Get Through"
+ ],
+ "_titles_note": "Title 1 has the word 'Sucks': NEEDS NOLAN'S YES before it is used anywhere (MASTER_ORDERS, Watch hours). Title 2 is its milder twin. Title 3 is the 'Your Life as' form and is the one to put on the post, like the house-cat video. All three name a hard start, not only misery, because the verdict is mixed. No banned word, all under 100 characters, statement form, 'Polar Bear' inside the first 40 characters.",
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "meter_start": 50,
+ "meter_labels": [
+  "RAW DEAL",
+  "SWEET DEAL"
+ ],
+ "segments": [
+  {
+   "chapter": "Day one",
+   "chip": null,
+   "lines": [
+    {
+     "say": "You were just born as a polar bear.",
+     "vis": "FRAME 0: close on a newborn polar bear cub, eyes shut, wriggling against its mother's side in blue den light; narration starts on it at 0.0 s. Card: BORN A POLAR BEAR",
+     "card": "BORN A POLAR BEAR"
+    },
+    {
+     "say": "It's December or January. You're in a den, probably dug into snow, with your eyes shut.",
+     "src": "PB1 PB3 PB6",
+     "vis": "Pull back: the snow chamber around mother and cub; a calendar leaf flips DEC, JAN. Then an extreme close-up of the sealed eyelids."
+    },
+    {
+     "say": "You weigh about 600 grams. A little over a pound.",
+     "src": "PB5",
+     "vis": "The cub on a small scale, needle at about 0.6 kg. Card: ABOUT 0.6 KG AT BIRTH",
+     "card": "ABOUT 0.6 KG AT BIRTH"
+    },
+    {
+     "say": "Eight things come with this life. Here they are, in the order they hit you.",
+     "vis": "Eight blank chips line up left to right, den to old age. Card: 8 THINGS",
+     "card": "8 THINGS"
+    },
+    {
+     "say": "Your mother isn't eating. Her fast can run up to eight months.",
+     "src": "PB11 PB12",
+     "vis": "The mother curled around the cub; a calendar strip of eight months with an empty bowl on each. Card: UP TO 8 MONTHS WITHOUT FOOD",
+     "card": "UP TO 8 MONTHS WITHOUT FOOD"
+    },
+    {
+     "say": "One of the eight is a swim that lasted nine days.",
+     "src": "PB36",
+     "vis": "A one-second tease: dark water, a small white head, calendar pages flipping 1 to 9. No distance yet."
+    },
+    {
+     "say": "Keep your own score as we go. Then we weigh it. Raw deal, or sweet deal?",
+     "vis": "The RAW DEAL / SWEET DEAL meter slides in at 50. A small corner pill: YOUR SCORE?",
+     "meter": 50
+    }
+   ]
+  },
+  {
+   "chapter": "The den",
+   "chip": "1 OF 8",
+   "lines": [
+    {
+     "say": "Number one. The den.",
+     "vis": "Chapter card, 1.2 s max."
+    },
+    {
+     "say": "Environment Canada describes the room. On average, about a metre and a half across and about a metre high in the middle.",
+     "src": "PB4",
+     "vis": "Cutaway of the den: an entrance tunnel rising to a round chamber, mother and cub inside; dimension arrows 1.5 M and 90 TO 100 CM. Card: ABOUT 1.5 M ACROSS, ABOUT 1 M HIGH",
+     "card": "ABOUT 1.5 M ACROSS, ABOUT 1 M HIGH"
+    },
+    {
+     "say": "The guy in the orange parka is Meatball. He booked the full polar bear package. Eight activities. He'll try each one and leave a review. At the end, so will you.",
+     "vis": "Meatball waves from beside a tour truck, far from the den: orange parka, camera on a strap, a ticket with eight tear-off stubs in his hand. A blank review card (five empty stars) flashes up. Sets up the running bit and the comment question."
+    },
+    {
+     "say": "He dug his own den. He's stuck in the tunnel. Hell of a start.",
+     "vis": "GAG, acted out: Meatball's own snow hole beside the tour truck, nowhere near the bears. He crawls in head first and jams at the hips; his legs kick in the air. The tour guide pulls on his boots; both boots come off in the guide's hands. First joke of the video (after 0:25)."
+    },
+    {
+     "say": "Yours stays only a few degrees below freezing all winter, however cold it gets outside.",
+     "src": "PB4",
+     "vis": "Split thermometer: the outside half deep in the blue (no number), the den half just under 0 C. Card: A FEW DEGREES BELOW 0 C, ALL WINTER",
+     "card": "A FEW DEGREES BELOW 0 C, ALL WINTER",
+     "meter": 54
+    },
+    {
+     "say": "Your mother nurses you while she fasts. Canada's 2008 status report says a pregnant bear may lose as much as 43 percent of her body mass.",
+     "src": "PB11 PB13",
+     "vis": "Two outlines of the mother on a scale: at den entry, and thinner now. Card: MAY LOSE UP TO 43% OF HER BODY MASS (CANADA, 2008)",
+     "card": "MAY LOSE UP TO 43% OF HER BODY MASS (CANADA, 2008)",
+     "meter": 48
+    },
+    {
+     "say": "Meatball's review of the den: one star. No legroom. No damn room service.",
+     "vis": "RUNNING BIT, first card: Meatball, in his socks, fills in the review card on a clipboard and slaps it onto the screen: 1 STAR OF 5. NO LEGROOM. NO ROOM SERVICE. The same card design comes back in every chapter."
+    },
+    {
+     "say": "And the all-winter den? For polar bears, the Fish and Wildlife Service says only pregnant females do that.",
+     "src": "PB2",
+     "vis": "A thought bubble of a bear snoring in a cave gets a stamp. Card: ONLY PREGNANT FEMALES DEN ALL WINTER",
+     "card": "ONLY PREGNANT FEMALES DEN ALL WINTER"
+    },
+    {
+     "say": "You leave at ten to twelve kilograms. Your mother breaks out through the snow, and your odds start counting.",
+     "src": "PB13 PB15",
+     "vis": "The scale needle swings from 0.6 to between 10 and 12 kg; the cub is fluffy now, eyes open. Then a paw breaks the snow roof and light pours in. Card: OUT AT 10 TO 12 KG",
+     "card": "OUT AT 10 TO 12 KG"
+    }
+   ]
+  },
+  {
+   "chapter": "The odds",
+   "chip": "2 OF 8",
+   "lines": [
+    {
+     "say": "Number two. The odds.",
+     "vis": "Chapter card over the den hole in a white slope."
+    },
+    {
+     "say": "It's late winter. On Alaska's North Slope, researchers watched eight adults and fourteen cubs outside their dens. The adults were inactive about half the time. The cubs, about 13 percent.",
+     "src": "PB15",
+     "vis": "The den hole in a snow slope; a cub tumbles down the slope again and again while the mother stays put. Two bars under the heading SHARE OF TIME OUTSIDE THE DEN SPENT INACTIVE: ADULTS 49.5%, CUBS 13.4%; small print 8 ADULTS, 14 CUBS, ALASKA, MARCH 2002 AND 2003. Card: INACTIVE OUTSIDE THE DEN: ADULTS 49.5%, CUBS 13.4%",
+     "card": "INACTIVE OUTSIDE THE DEN: ADULTS 49.5%, CUBS 13.4%"
+    },
+    {
+     "say": "Meatball tried the cub schedule. One lap around the truck. Then he lay down for the rest of the day. One star. To hell with cardio.",
+     "vis": "GAG, acted out: Meatball jogs one lap around the tour truck, arms pumping, then falls flat on his back in the snow with his arms out; a snowflake lands on his nose. On the bar chart a small Meatball icon slides over to the ADULTS bar. Review card: 1 STAR. TOO MUCH CARDIO."
+    },
+    {
+     "say": "Now the odds. One study, one place.",
+     "vis": "The board goes dark; a map dot pulses on the north coast of Alaska: ALASKAN BEAUFORT SEA. No joke from here to the end of the chapter."
+    },
+    {
+     "say": "Researchers followed collared mothers in the Alaskan Beaufort Sea for twelve years. In 1995 they put a cub's chance of surviving its first year at about 65 percent.",
+     "src": "PB18",
+     "vis": "A survival dial swings to about 65%; a collared mother and cub beside it. Small print: ALASKAN BEAUFORT SEA, 12-YEAR STUDY. Card: FIRST YEAR: ABOUT 65% (ALASKA, 1995 STUDY)",
+     "card": "FIRST YEAR: ABOUT 65% (ALASKA, 1995 STUDY)",
+     "meter": 38
+    },
+    {
+     "say": "The second year was better. About 86 percent. Other places and other years give other numbers.",
+     "src": "PB18 PB19",
+     "vis": "The dial moves to about 86%. A footnote: OTHER POPULATIONS AND YEARS DIFFER. Card: SECOND YEAR: ABOUT 86% (SAME STUDY)",
+     "card": "SECOND YEAR: ABOUT 86% (SAME STUDY)",
+     "meter": 42
+    },
+    {
+     "say": "And one tracking study found mothers with new cubs spent less time in the water than other females. The authors say that fits small cubs being vulnerable to hypothermia and drowning.",
+     "src": "PB37",
+     "vis": "The family reaches a lead of dark water in the ice and walks around it; the cubs stay well back from the edge. Small print: 57 TRACKED FEMALES.",
+     "meter": 40
+    },
+    {
+     "say": "Get through all that, and you still can't feed yourself. You get about two years with her to learn.",
+     "src": "PB22",
+     "vis": "The cub looks up at its mother; a two-year timeline bar appears with SOMETIMES LONGER in small print."
+    }
+   ]
+  },
+  {
+   "chapter": "Seal school",
+   "chip": "3 OF 8",
+   "lines": [
+    {
+     "say": "Number three. Seal school.",
+     "vis": "Chapter card; a seal's head pops up in a hole behind the words."
+    },
+    {
+     "say": "The U.S. Geological Survey says polar bears eat seals almost exclusively, and prefer the blubber.",
+     "src": "PB26",
+     "vis": "A menu board: SEAL, and under it in small letters ALMOST ALWAYS. The cub reads it. Card: ON THE MENU: SEALS",
+     "card": "ON THE MENU: SEALS"
+    },
+    {
+     "say": "Meatball asked to see the menu. It's short.",
+     "vis": "GAG, acted out: the tour guide hands Meatball a huge leather menu with both hands. He opens it wide: one line, SEAL. He turns it upside down, looks on the back, shakes it. Nothing falls out. Character beat."
+    },
+    {
+     "say": "The lesson is the breathing hole. When a seal comes up for air, Environment Canada says the bear kills it and flips it out of the water with a single blow of its paw.",
+     "src": "PB27",
+     "vis": "The mother stands at a breathing hole in the ice, the cub behind her. A seal's nose breaks the water; one paw arc; a big splash hides the hit; the seal slides onto the ice. Card: ONE BLOW OF THE PAW",
+     "card": "ONE BLOW OF THE PAW",
+     "meter": 46
+    },
+    {
+     "say": "None of our sources say how often that works. Meatball tried it with a fishing rod. He caught a boot. His own damn boot. One star.",
+     "src": "PB27",
+     "vis": "GAG, acted out: Meatball sits on a bucket at his own small hole in the ice with a fishing rod. The rod bends; he reels hard, leaning back; an old boot comes up on the hook. He looks down: one of his feet is in a sock. Review card: 1 STAR. THE MENU IS SEAL. COULD NOT CATCH ONE."
+    },
+    {
+     "say": "Your main tool is your nose. You may have heard a polar bear can smell a seal from twenty miles away. We found no source for that number.",
+     "src": "PB43 (myths table: smell distance)",
+     "vis": "Close on the bear's nose, sniffing. A sticky note 20 MILES? gets the stamp NO SOURCE FOUND. Card: 20 MILES? NO SOURCE FOUND",
+     "card": "20 MILES? NO SOURCE FOUND"
+    },
+    {
+     "say": "The one agency figure we found is Environment Canada's, from 2002. A bear can detect a seal's breathing hole under 90 centimetres or more of ice and snow, up to a kilometre away.",
+     "src": "PB43",
+     "vis": "Cutaway: a breathing hole under a thick layer of snow and ice marked 90 CM OR MORE; a dotted scent line runs to a bear marked UP TO 1 KM. Card: BREATHING HOLE: UP TO 1 KM (ENV. CANADA, 2002)",
+     "card": "BREATHING HOLE: UP TO 1 KM (ENV. CANADA, 2002)",
+     "meter": 50
+    },
+    {
+     "say": "That's a hole, not a seal. Still a hell of a nose.",
+     "src": "PB43",
+     "vis": "On the sticky note the word SEAL is crossed out and HOLE written above it. Small print: 1 KM = ABOUT 0.6 MILE."
+    },
+    {
+     "say": "Meatball can't find his gloves. They're on his hands.",
+     "vis": "GAG, acted out: Meatball pats every pocket, empties his camera bag onto the snow, looks under the truck. The gloves are on his hands the whole time. Character beat."
+    },
+    {
+     "say": "After about two years, sometimes longer, school's out. You're on your own. And your floor is frozen sea.",
+     "src": "PB22",
+     "vis": "The mother walks one way, the young bear the other. The camera drops to the ice under its paws: dark water shows through a crack."
+    }
+   ]
+  },
+  {
+   "chapter": "The ice",
+   "chip": "4 OF 8",
+   "lines": [
+    {
+     "say": "Number four. The ice.",
+     "vis": "Chapter card over a wide sheet of pack ice."
+    },
+    {
+     "say": "The Fish and Wildlife Service classes you as a marine mammal. So you swim.",
+     "src": "PB90 PB39",
+     "vis": "The young bear at the ice edge slides into the water; under the surface its front paws pull and its back legs trail. Card: CLASSED AS A MARINE MAMMAL",
+     "card": "CLASSED AS A MARINE MAMMAL"
+    },
+    {
+     "say": "In one tracking study, three in four of the bears swam every day from May to July.",
+     "src": "PB37",
+     "vis": "Four bear icons, three of them in the water. Small print: 57 TRACKED FEMALES. Card: 3 IN 4 TRACKED BEARS SWAM DAILY, MAY TO JULY",
+     "card": "3 IN 4 TRACKED BEARS SWAM DAILY, MAY TO JULY",
+     "meter": 52
+    },
+    {
+     "say": "Meatball did his swim too. Motel pool. Shallow end. Floaties. Still counts, damn it.",
+     "vis": "GAG, acted out: the motel pool. Meatball in floaties and goggles stands in knee-deep water, takes a huge breath, dips his face in, and comes up with both arms raised like a champion. A child's swim ring drifts past him. Review card: 1 STAR. TOO MUCH WATER."
+    },
+    {
+     "say": "And some swims get long. From 2004 to 2009, researchers tracked 52 collared adult females in the southern Beaufort and Chukchi Seas. Twenty of them made swims of more than 50 kilometres.",
+     "src": "PB35",
+     "vis": "Arctic map from above the Pole; dots off northern Alaska; a female with a GPS collar; 52 small bear icons, of which 20 light up. No joke from here until the bear is out of the water. Card: 52 COLLARED FEMALES: 20 MADE SWIMS OVER 50 KM",
+     "card": "52 COLLARED FEMALES: 20 MADE SWIMS OVER 50 KM"
+    },
+    {
+     "say": "One female's swim, in 2008, got a paper of its own.",
+     "src": "PB36",
+     "vis": "One icon zooms up into a full bear with a collar at the ice edge. A journal cover dated 2011."
+    },
+    {
+     "say": "She swam 687 kilometres.",
+     "src": "PB36",
+     "vis": "Pause-and-reveal 1 of 3. Black water to the horizon, one small white head. Card: 687 KM",
+     "card": "687 KM"
+    },
+    {
+     "say": "One continuous swim. Nine days. More than four hundred miles.",
+     "src": "PB36",
+     "vis": "Nine calendar pages fall into the water one by one. Card: 687 KM. 9 DAYS. ONE SWIM.",
+     "card": "687 KM. 9 DAYS. ONE SWIM.",
+     "meter": 46
+    },
+    {
+     "say": "Then she swam and walked across the sea ice for another 1,800 kilometres.",
+     "src": "PB36",
+     "vis": "A schematic route line keeps going across broken ice (not the real track). Card: THEN 1,800 KM MORE",
+     "card": "THEN 1,800 KM MORE"
+    },
+    {
+     "say": "Two months later, researchers caught her again. Between those two captures she had lost 22 percent of her body mass, and her yearling cub.",
+     "src": "PB36",
+     "vis": "Two outlines of the same bear, LATE AUGUST 2008 and LATE OCTOBER 2008, the second thinner; beside the first a yearling outline, beside the second an empty dotted outline. Small print: BETWEEN TWO CAPTURES. Card: LOST: 22% OF HER BODY MASS, AND HER YEARLING CUB",
+     "card": "LOST: 22% OF HER BODY MASS, AND HER YEARLING CUB",
+     "meter": 36
+    },
+    {
+     "say": "When you do climb out, Environment Canada says you can shake yourself like a dog.",
+     "src": "PB41",
+     "vis": "The bear hauls out onto the ice and shakes; spray flies in a wide ring."
+    },
+    {
+     "say": "Meatball tried the shake. His hood dropped over his eyes, and he walked his ass straight into the truck.",
+     "vis": "GAG, acted out: Meatball climbs out of the motel pool, plants his feet and shakes like a dog. His parka hood flops down over his face. He walks blind, arms out, straight into the side of the tour truck, and sits down in the snow. Character beat."
+    },
+    {
+     "say": "That's four. Meatball's reviews so far: one star, one star, one star, one star. What's yours so far?",
+     "vis": "MIDPOINT RE-HOOK. Four chips filled and pulsing; four review cards fan out, one star on each; the meter blinks at 36. Corner pill: YOUR REVIEW SO FAR?"
+    },
+    {
+     "say": "And here's the odd part. Canada's status report says polar bears have no natural predators. Number five is the catch.",
+     "src": "PB63",
+     "vis": "Card: NO NATURAL PREDATORS (CANADA, 2008). A much bigger shadow falls across the young bear from off screen.",
+     "card": "NO NATURAL PREDATORS (CANADA, 2008)"
+    }
+   ]
+  },
+  {
+   "chapter": "Bigger bears",
+   "chip": "5 OF 8",
+   "lines": [
+    {
+     "say": "Number five. Bigger bears.",
+     "vis": "Chapter card; the shadow from the last shot fills it."
+    },
+    {
+     "say": "Environment Canada says the most difficult time in a polar bear's life is probably its first year alone.",
+     "src": "PB24",
+     "vis": "The young bear alone on a wide sheet of ice. Card: PROBABLY THE HARDEST YEAR: THE FIRST ONE ALONE",
+     "card": "PROBABLY THE HARDEST YEAR: THE FIRST ONE ALONE"
+    },
+    {
+     "say": "You're still learning to hunt. And when you do catch a seal, a larger bear is likely to take it.",
+     "src": "PB24",
+     "vis": "The young bear with a seal on the ice; a much larger bear walks in; the young bear backs away. No fight shown.",
+     "meter": 30
+    },
+    {
+     "say": "Meatball finally sat down with a sandwich. A bigger tourist took it. Meatball let him. One star. Rude-ass guests.",
+     "vis": "GAG, acted out: Meatball on a bench outside the motel unwraps a sandwich with great care and opens his mouth. A tourist twice his size in the same orange parka lifts it out of his hands and walks on. Meatball's hands stay in the shape of the sandwich. Review card: 1 STAR. RUDE GUESTS."
+    },
+    {
+     "say": "It can go further. In early 2004, researchers in the Beaufort Sea confirmed three cases of a polar bear killing and eating another polar bear.",
+     "src": "PB61",
+     "vis": "A dark board; a map dot on the Beaufort Sea; three case cards dated JANUARY TO APRIL 2004. Silhouettes only, no gore, no joke in the next three lines. Card: 3 CONFIRMED CASES, EARLY 2004 (BEAUFORT SEA)",
+     "card": "3 CONFIRMED CASES, EARLY 2004 (BEAUFORT SEA)"
+    },
+    {
+     "say": "One was a mother bear, killed at her den. The bear that did it apparently found the den by scent.",
+     "src": "PB61",
+     "vis": "The den slope from chapter 1 at dusk, seen from outside; a large silhouette with its nose to the snow above it. Nothing more is shown. Callback to the nose.",
+     "meter": 24
+    },
+    {
+     "say": "In 24 years of work in that sea, the authors had not seen other cases.",
+     "src": "PB61",
+     "vis": "A field notebook: 24 YEARS, and one new entry circled. Card: 24 YEARS: NO OTHER CASES SEEN",
+     "card": "24 YEARS: NO OTHER CASES SEEN"
+    },
+    {
+     "say": "Canada's status report is blunter. In the bear family, polar bears included, killing cubs, or cubs and adults for food, is not uncommon.",
+     "src": "PB63",
+     "vis": "The report page with the words NOT UNCOMMON underlined. Card: NOT UNCOMMON (CANADA, 2008)",
+     "card": "NOT UNCOMMON (CANADA, 2008)"
+    },
+    {
+     "say": "So. No natural predators. Just relatives. Hell of a family.",
+     "src": "PB63",
+     "vis": "The NO NATURAL PREDATORS card from the midpoint comes back; an asterisk is drawn on it: JUST RELATIVES. In the tour truck, Meatball pulls the curtain shut, then opens it a crack and looks out. Character beat.",
+     "meter": 22
+    },
+    {
+     "say": "And in some places, the next one hits the whole population at once.",
+     "src": "PB50",
+     "vis": "The ice under the bear's paws cracks into pieces; open water spreads."
+    }
+   ]
+  },
+  {
+   "chapter": "The summer with no food",
+   "chip": "6 OF 8",
+   "lines": [
+    {
+     "say": "Number six. The summer with no food.",
+     "vis": "Chapter card over a brown and green shore."
+    },
+    {
+     "say": "Manitoba's government says the Hudson Bay ice breaks up every July, and the bears come onto land.",
+     "src": "PB49",
+     "vis": "Map dot on Hudson Bay; the white ice sheet breaks up; bear icons step onto the shore. Card: HUDSON BAY: ASHORE EVERY JULY",
+     "card": "HUDSON BAY: ASHORE EVERY JULY"
+    },
+    {
+     "say": "Environment Canada says that where the ice melts completely, the whole population is forced ashore for two to four months. They live mainly on their fat, and stay inactive over 80 percent of the time.",
+     "src": "PB50",
+     "vis": "A bear lies on the tundra among rocks; a calendar strip with two to four months shaded; a clock face with more than four fifths shaded. Small print: HUDSON BAY AND EASTERN BAFFIN ISLAND. Card: ASHORE 2 TO 4 MONTHS. INACTIVE OVER 80% OF THAT TIME",
+     "card": "ASHORE 2 TO 4 MONTHS. INACTIVE OVER 80% OF THAT TIME",
+     "meter": 18
+    },
+    {
+     "say": "What does that cost? From 2009 to 2014, researchers measured 142 bears held in Manitoba with water but no food.",
+     "src": "PB51",
+     "vis": "A clipboard: 142 BEARS, 2009 TO 2014, WATER, NO FOOD, MEDIAN 17 DAYS. Small print: HELD NEAR CHURCHILL. Card: 142 HELD BEARS, 2009 TO 2014",
+     "card": "142 HELD BEARS, 2009 TO 2014"
+    },
+    {
+     "say": "The median loss was one kilogram a day. About two pounds, every day.",
+     "src": "PB51",
+     "vis": "A scale needle ticks down one notch per calendar page. Card: MEDIAN LOSS: 1 KG A DAY (HELD BEARS)",
+     "card": "MEDIAN LOSS: 1 KG A DAY (HELD BEARS)",
+     "meter": 14
+    },
+    {
+     "say": "Meatball tried it. Water only. He sat down by the motel breakfast bar at sunrise. By mid-morning he was face down in the damn waffles. One star. Kitchen closed for months.",
+     "vis": "GAG, acted out as a time-lapse: Meatball sits at a table beside the motel breakfast bar with a glass of water and his arms crossed. The wall clock spins. His eyes follow a plate of waffles going past. One hand creeps out. Cut to mid-morning: face down in the waffles, syrup on his hood. Review card: 1 STAR. KITCHEN CLOSED FOR MONTHS."
+    },
+    {
+     "say": "Bears on land have been seen eating grass and berries, diving for seaweed, and trying to catch seabirds from underneath. Trying is Environment Canada's word.",
+     "src": "PB58",
+     "vis": "Three quick shots: a bear nosing berries; a bear surfacing with seaweed on its head; a bear's shape rising under a seabird on the water; the shot cuts before we see how it ends. The word TRYING is underlined on a page."
+    },
+    {
+     "say": "Then autumn. The bears gather along the Hudson Bay shore and wait for the ice. And on that shore, there's a town.",
+     "src": "PB49",
+     "vis": "Autumn shore, several bears waiting by grey water; the camera pans to a few low buildings and a sign: CHURCHILL."
+    }
+   ]
+  },
+  {
+   "chapter": "The town",
+   "chip": "7 OF 8",
+   "lines": [
+    {
+     "say": "Number seven. The town.",
+     "vis": "Chapter card over the town sign."
+    },
+    {
+     "say": "Churchill, Manitoba. The province's Polar Bear Alert Program chases off bears that come near town. Parks Canada says staff use loud noisemakers, and occasionally paint balls or rubber bullets.",
+     "src": "PB67 PB69",
+     "vis": "A bear at the edge of town; a staff pickup; a puff and a bang in the air; the bear turns and trots away. Card: CHURCHILL, MANITOBA",
+     "card": "CHURCHILL, MANITOBA",
+     "meter": 16
+    },
+    {
+     "say": "Bears that won't stay away are caught and held until the ice forms. Manitoba's brochure lists five air-conditioned cells for summer, and a heated one for orphaned cubs.",
+     "src": "PB67 PB68",
+     "vis": "The holding facility: a row of five cells with air-conditioning units, one more with a heater and a small cub. Small print: BROCHURE PDF DATED 2010. Card: 5 AIR-CONDITIONED CELLS. 1 HEATED, FOR ORPHANED CUBS",
+     "card": "5 AIR-CONDITIONED CELLS. 1 HEATED, FOR ORPHANED CUBS",
+     "meter": 22
+    },
+    {
+     "say": "Air conditioning. For a polar bear. Meatball's motel room has a damn fan. He took his suitcase over and asked for a cell. They said no. One star.",
+     "vis": "GAG, acted out: Meatball's motel room, one small desk fan, Meatball sweating in the orange parka with the brochure in his hand. Cut: he stands at the holding facility's front door with his suitcase and points hopefully inside. A staff member shakes her head and points back at the motel. No bear is in the frame. Review card: 1 STAR. THE BEARS GOT THE AIR CONDITIONING."
+    },
+    {
+     "say": "Manitoba's brochure also tells visitors what to do. If you meet a polar bear: stay calm. Stay with your group. Back away, facing the bear at all times. Do not turn and run. Do not play dead. Get into a vehicle or a building as fast as you can.",
+     "src": "PB71",
+     "vis": "The brochure page with all six points; each gets a tick as it is said. No joke, no swear and no other animal in this line. Card: MEET A POLAR BEAR? DO NOT RUN. DO NOT PLAY DEAD. (MANITOBA)",
+     "card": "MEET A POLAR BEAR? DO NOT RUN. DO NOT PLAY DEAD. (MANITOBA)"
+    },
+    {
+     "say": "That list is Manitoba's, and it is for polar bears. Meatball wrote it on his hand.",
+     "src": "PB71",
+     "vis": "GAG, acted out: Meatball's palm covered in tiny writing; he turns the hand over, more writing; it carries on up his wrist. He reads it through again, lips moving. The joke is his handwriting, never the advice. Character beat."
+    },
+    {
+     "say": "How often does it go wrong? A 2017 study counted the recorded attacks by wild polar bears in all five polar bear countries, from 1870 to 2014.",
+     "src": "PB72",
+     "vis": "The Arctic map with five countries outlined: CANADA, GREENLAND, NORWAY, RUSSIA, UNITED STATES. A timeline from 1870 to 2014. No joke in the next three lines."
+    },
+    {
+     "say": "73 attacks. 20 people killed. 63 injured. In 144 years.",
+     "src": "PB72",
+     "vis": "Pause-and-reveal 2 of 3. Three plain counters on a dark board. Small print: RECORDED ATTACKS, FIVE COUNTRIES. Card: 1870 TO 2014: 73 ATTACKS, 20 DEATHS, 63 INJURIES",
+     "card": "1870 TO 2014: 73 ATTACKS, 20 DEATHS, 63 INJURIES"
+    },
+    {
+     "say": "The authors found underfed adult males were the most likely to be a threat to people. So: rare on the record, and not harmless.",
+     "src": "PB73 PB72",
+     "vis": "A thin adult male silhouette at the edge of town at dusk, far off. Card: RARE ON THE RECORD. NOT HARMLESS.",
+     "card": "RARE ON THE RECORD. NOT HARMLESS."
+    },
+    {
+     "say": "Get past the town, and one thing is left on the list. Time.",
+     "vis": "The bay freezes; the bear walks out onto the new ice, past a calendar whose pages start flying off."
+    }
+   ]
+  },
+  {
+   "chapter": "Time",
+   "chip": "8 OF 8",
+   "lines": [
+    {
+     "say": "Number eight. Time.",
+     "vis": "Chapter card; calendar pages blow across the ice."
+    },
+    {
+     "say": "Canada's status report says few polar bears live longer than 25 years.",
+     "src": "PB85",
+     "vis": "A row of candles stops at 25. Card: FEW LIVE PAST 25 (CANADA, 2008)",
+     "card": "FEW LIVE PAST 25 (CANADA, 2008)"
+    },
+    {
+     "say": "That's decades out on the ice. Meatball tried one afternoon. The tour guide wheeled him back on a luggage cart. His weak-ass knees gave it one star.",
+     "src": "PB85",
+     "vis": "GAG, acted out: Meatball sets off across the snow with a walking stick, chin up. Three steps. Both knees wobble like jelly. Cut: the tour guide wheels him back on a motel luggage cart, Meatball lying across it with one arm dragging. Review card signed THE KNEES: 1 STAR."
+    },
+    {
+     "say": "The good years are good. In that twelve-year Alaskan study, an adult female's chance of surviving each year was about 97 percent.",
+     "src": "PB88",
+     "vis": "The survival dial from chapter 2 swings to about 97%. No joke from here to the end of the chapter. Card: ADULT FEMALES: ABOUT 97% A YEAR (ALASKA, 1995 STUDY)",
+     "card": "ADULT FEMALES: ABOUT 97% A YEAR (ALASKA, 1995 STUDY)",
+     "meter": 32
+    },
+    {
+     "say": "Shooting by local hunters accounted for 85 percent of the adult female deaths the study documented.",
+     "src": "PB88",
+     "vis": "A short list of documented deaths with most of the lines marked the same way. Small print: LOCAL HUNTERS, THAT STUDY ONLY. Card: DOCUMENTED ADULT FEMALE DEATHS: 85% SHOT BY HUNTERS",
+     "card": "DOCUMENTED ADULT FEMALE DEATHS: 85% SHOT BY HUNTERS",
+     "meter": 30
+    },
+    {
+     "say": "Then it turns. In the northern Beaufort Sea, from 1971 to 2006, yearly survival for bears in the old-age class was 37 to 62 percent, hunting included. For younger adults, 77 to 92.",
+     "src": "PB87",
+     "vis": "Two bands on a chart: YOUNGER ADULTS 77 TO 92% A YEAR, OLD-AGE CLASS 37 TO 62% A YEAR; small print NORTHERN BEAUFORT SEA, 1971 TO 2006, HUNTING DEATHS INCLUDED. The bear, grey at the muzzle now, walks slower. Card: OLD-AGE CLASS: 37 TO 62% A YEAR (1971 TO 2006)",
+     "card": "OLD-AGE CLASS: 37 TO 62% A YEAR (1971 TO 2006)",
+     "meter": 24
+    }
+   ]
+  },
+  {
+   "chapter": "What you got",
+   "chip": "WHAT YOU GOT",
+   "lines": [
+    {
+     "say": "So. Eight for eight. Raw as hell?",
+     "vis": "All eight chips filled; the meter sits at 24, blinking."
+    },
+    {
+     "say": "Before you answer, look at what you were handed on day one.",
+     "vis": "The newborn cub from frame 0 again, with a gift tag tied to it."
+    },
+    {
+     "say": "The Fish and Wildlife Service calls you the largest living bear species, and a top predator of the Arctic's marine ecosystem.",
+     "src": "PB90",
+     "vis": "The grown bear, full frame, standing on the ice. Card: LARGEST LIVING BEAR SPECIES. TOP PREDATOR.",
+     "card": "LARGEST LIVING BEAR SPECIES. TOP PREDATOR.",
+     "meter": 34
+    },
+    {
+     "say": "A thick winter coat, dense underfur, and a thick layer of fat. Environment Canada says those protect you against the cold.",
+     "src": "PB92",
+     "vis": "Cross-section of the coat with four labels: GUARD HAIRS, UNDERFUR, SKIN, FAT.",
+     "meter": 40
+    },
+    {
+     "say": "That coat looks white. Environment Canada calls the hair translucent, and says the skin under it is black.",
+     "src": "PB93",
+     "vis": "Close on the coat; a few hairs are parted to show dark skin. No light rays drawn inside the hairs. Card: LOOKS WHITE. SKIN: BLACK (ENVIRONMENT CANADA, 2002)",
+     "card": "LOOKS WHITE. SKIN: BLACK (ENVIRONMENT CANADA, 2002)",
+     "meter": 42
+    },
+    {
+     "say": "Meatball is wearing every coat he owns. He can't put his arms down. You were born in yours. Badass.",
+     "vis": "GAG, acted out, split screen: on the left the grown bear stands easy on the ice. On the right Meatball, round as a ball in six layers, tries to scratch his nose; his arms stop halfway. He takes a run-up, tips over and rolls slowly down a snow bank. Character beat."
+    },
+    {
+     "say": "His review: one star. Coat not included.",
+     "vis": "Meatball, upside down at the bottom of the snow bank, holds up the card: 1 STAR. COAT NOT INCLUDED."
+    },
+    {
+     "say": "And the Fish and Wildlife Service estimates 26,000 polar bears worldwide, as of 2023.",
+     "src": "PB100",
+     "vis": "Small bear icons spread around the Arctic map. Card: ESTIMATED 26,000 WORLDWIDE (2023)",
+     "card": "ESTIMATED 26,000 WORLDWIDE (2023)",
+     "meter": 46
+    }
+   ]
+  },
+  {
+   "chapter": "The verdict",
+   "chip": "THE VERDICT",
+   "lines": [
+    {
+     "say": "So here's the ledger. First line: which ice?",
+     "vis": "A ledger page with two columns, RAW and SWEET; above it the Arctic map with question marks on two places."
+    },
+    {
+     "say": "In the southern Beaufort Sea, low survival from 2004 to 2006 led to a 25 to 50 percent drop in bear numbers.",
+     "src": "PB102",
+     "vis": "Map dot: SOUTHERN BEAUFORT SEA. A bar drops. Card: S. BEAUFORT SEA, 2004 TO 2006: DOWN 25 TO 50%",
+     "card": "S. BEAUFORT SEA, 2004 TO 2006: DOWN 25 TO 50%",
+     "meter": 40
+    },
+    {
+     "say": "In Svalbard, a study of 770 adult bears found body condition fell until 2000.",
+     "src": "PB104",
+     "vis": "Map dot: SVALBARD. A schematic line with no scale starts in 1995 and falls to 2000."
+    },
+    {
+     "say": "Then it rose, through 2019, during rapid sea-ice loss. The authors warn against applying that to other populations.",
+     "src": "PB104",
+     "vis": "Pause-and-reveal 3 of 3. The line turns upward to 2019. Small print: 770 ADULTS, 1995 TO 2019. Card: SVALBARD: BODY CONDITION ROSE AFTER 2000",
+     "card": "SVALBARD: BODY CONDITION ROSE AFTER 2000",
+     "meter": 48
+    },
+    {
+     "say": "And the ice? NOAA's 2025 Arctic Report Card says the 19 lowest September minimums in the satellite record all came in the last 19 years.",
+     "src": "PB98 PB97",
+     "vis": "A row of 47 year boxes for the satellite record; the last 19 are marked LOWEST 19. No bar heights, no trend line, nothing past 2025. Card: NOAA 2025: THE 19 LOWEST SEPTEMBERS WERE THE LAST 19",
+     "card": "NOAA 2025: THE 19 LOWEST SEPTEMBERS WERE THE LAST 19",
+     "meter": 44
+    },
+    {
+     "say": "No forecast from us. Same life, different deal, depending on where you're born.",
+     "vis": "The two map dots pulse side by side under the words DEPENDS WHERE."
+    },
+    {
+     "say": "Now go back to the cub from the start. About 600 grams. Eyes shut.",
+     "src": "PB5 PB6",
+     "vis": "CALLBACK: frame 0 again, the newborn against its mother in the den."
+    },
+    {
+     "say": "It can grow into the largest kind of bear alive, with no natural predators. Tough little badass.",
+     "src": "PB90 PB63",
+     "vis": "Cross-fade from the newborn to the grown bear in the same pose, out on the ice.",
+     "meter": 54
+    },
+    {
+     "say": "Our verdict, and it's an opinion, not a finding: a raw start, then a sweet deal if you get through it. The fine print is your ice.",
+     "vis": "Stamp: RAW START. SWEET IF YOU GET THROUGH. Small print under it: DEPENDS ON YOUR ICE. The meter needle wobbles, then settles a little on the sweet side. Card: RAW START. SWEET IF YOU GET THROUGH.",
+     "card": "RAW START. SWEET IF YOU GET THROUGH.",
+     "meter": 56
+    },
+    {
+     "say": "Meatball's final review: one star. Would not be born again.",
+     "vis": "PAYOFF of the running bit: every review card from the video stacks up, one star on each; Meatball stamps the last one on top: 1 STAR. WOULD NOT BE BORN AGAIN. He hands the stack to the tour guide, who hands him back his boots."
+    },
+    {
+     "say": "It's pinned in the comments. Leave yours under it: how many stars, and which of the eight gets you first?",
+     "vis": "The review card turns into a comment box with five empty stars and a blinking cursor; the eight chips line up above it with their names. Corner pill: YOUR REVIEW?"
+    },
+    {
+     "say": "He's already booked his next package. Indoors. With a litter box. Your Life as a House Cat is right here.",
+     "vis": "Meatball at the tour desk slaps down a new ticket; the brochure in the rack shows a cat on a sofa. End screen: the house-cat episode tile sits where the brochure was. No subscribe line."
+    }
+   ]
+  }
+ ],
+ "pinned_comment": "Meatball's review: 1 star. \"No legroom. The menu is seal. Kitchen closed for months. Would not be born again.\" Leave yours under this: how many stars for the polar bear life, and which of the 8 gets you first?",
+ "end_screen_video": "Your Life as a House Cat: 8 Ways It Goes Wrong (the house-cat episode, Sat 11/28)",
+ "sources_file": "research/98-polar-bear-life-factpack.md",
+ "description": "What is life really like for a polar bear? This is your whole life as one, from a snow den in December to old age on the sea ice: 8 things you have to get through, then the verdict. Meatball booked the full polar bear package, tried all eight and left a review.\n\nChecked facts in this video:\n- Cubs are born in December or January at about 0.6 kg with their eyes closed, and leave the den at 10 to 12 kg (USGS; Canada's 2008 status report; Environment Canada 2002).\n- A pregnant bear may fast for up to 8 months and may lose as much as 43% of her body mass (Canada's 2008 status report).\n- In one 12-year study in the Alaskan Beaufort Sea (published 1995), a cub's chance of surviving its first year was about 65%, and an adult female's chance of surviving each year was about 97%.\n- One collared female swam 687 km in 9 days in 2008 (Durner and others 2011).\n- Environment Canada (2002) says a bear can detect a seal's breathing hole from up to a kilometre away. We found no source for '20 miles'.\n- From 1870 to 2014 there were 73 recorded attacks by wild polar bears on people, with 20 deaths (Wilder and others 2017).\n- Manitoba's advice if you meet a polar bear: stay calm, stay with your group, back away facing the bear, do not run, do not play dead, get into a vehicle or a building.\n- An estimated 26,000 polar bears worldwide as of 2023 (U.S. Fish and Wildlife Service). How they are doing depends on the place: numbers fell 25 to 50% in the southern Beaufort Sea after 2004 to 2006, while body condition in Svalbard rose after 2000.\n- The verdict at the end is our opinion, not a study's finding. No source we read compares a polar bear's life with any other animal's.\n\nSources: U.S. Geological Survey, Alaska Science Center; U.S. Fish and Wildlife Service; Environment and Climate Change Canada (COSEWIC status report 2008); Hinterland Who's Who polar bear profile (Environment Canada, 2002); Government of Manitoba, Polar Bear Alert brochure; Parks Canada; NOAA Arctic Report Card 2025; Amstrup and Durner 1995; Amstrup and others 2006; a USGS den study on Alaska's North Slope (Arctic, 2007); Stirling and others 2011; Durner and others 2011; Pagano and others 2012; Bromaghin and others 2015; Pilfold and others 2016; Wilder and others 2017; Lone and others 2018; the 2026 Svalbard body-condition paper (PMID 41611752). Full list with links: research/98-polar-bear-life-factpack.md.\n\n#polarbear #arctic #meatballmyths",
+ "art_needed": [
+  "Polar bear cub, newborn: tiny, eyes shut, very fine pale hair (the kit's side-view mammal with a white config, round ears and a short tail; nose colour is not in the pack, so draw it dark like the kit's other mammals and put no label on it). Lines: s0.l0, s0.l1, s0.l2, s0.l4, s1.l1, s9.l1, s10.l6, s10.l7.",
+  "Cub at den exit (10 to 12 kg): fluffy, eyes open; poses: tumble down a slope, sit, nurse, walk behind the mother, watch; a small cub for the heated cell. Lines: s1.l8, s2.l1, s2.l4, s2.l6, s2.l7, s3.l1, s3.l3, s7.l2.",
+  "Adult female (the mother; also the collared female of the long swim): lying curled, nursing, staying put, walking, standing at a breathing hole, one paw swipe; a heavy den-entry outline and a thinner outline. Lines: s0.l0, s0.l1, s0.l4, s1.l1, s1.l5, s1.l7, s1.l8, s2.l1, s2.l6, s2.l7, s3.l3, s3.l9, s4.l5, s4.l9, s8.l3, s10.l6.",
+  "Young bear on its own, smaller than the adults: nose close-up, walking, eating fast, backing away from a kill; a yearling outline and an empty dotted outline. Lines: s3.l5, s3.l6, s3.l9, s4.l9, s4.l13, s5.l1, s5.l2, s5.l9.",
+  "Big adult male, about twice the female's size (also the grown bear of the last two segments): walking in, a shadow, a silhouette with its nose to the snow, lying on the tundra, a thin far-off silhouette, standing full frame. Lines: s4.l13, s5.l0, s5.l2, s5.l5, s6.l2, s6.l6, s6.l7, s7.l1, s7.l2, s7.l8, s7.l9, s9.l2, s9.l5, s10.l7.",
+  "Swimming bear: head above water, front paws pulling, back legs trailing, hauling out, the dog shake with a ring of spray, surfacing with seaweed on its head, a shape rising under a seabird. Lines: s0.l5, s4.l1, s4.l2, s4.l6, s4.l7, s4.l10, s6.l6.",
+  "Old bear: grey at the muzzle, slower walk. Lines: s8.l1, s8.l5.",
+  "Ringed seal: nose and head in a breathing hole, sliding onto the ice, a small seal icon for the menu board. Lines: s3.l0, s3.l1, s3.l3, s3.l6, s5.l2.",
+  "Snow den: cutaway with an entrance tunnel and a round chamber (dimension arrows), blue inside light, the den hole in a snow slope from outside, the roof breaking open, the slope at dusk. Lines: s0.l0, s0.l1, s0.l4, s1.l1, s1.l4, s1.l8, s2.l0, s2.l1, s5.l5, s9.l1, s10.l6.",
+  "Sea-ice scenes: flat pack ice with ridges and a horizon; a breathing hole; a cutaway of ice and snow over a hole; the ice edge with a lead of dark water; open black water to the horizon; ice cracking into floes; new ice forming on the bay; a view under the surface. Lines: s0.l5, s2.l6, s3.l0, s3.l3, s3.l4, s3.l6, s3.l9, s4.l0, s4.l1, s4.l5, s4.l6, s4.l8, s4.l10, s5.l1, s5.l2, s5.l9, s7.l9, s8.l0, s9.l2, s10.l7.",
+  "Hudson Bay shore: summer tundra with rocks, grass, berries and a kelp line; the autumn version with grey water and bears waiting; a seabird on the water. Lines: s6.l0, s6.l1, s6.l2, s6.l6, s6.l7.",
+  "Churchill: a few low buildings and a town sign; a staff pickup and a noisemaker puff; the holding facility (front door, five air-conditioned cells, one heated cub cell); the motel (room with a desk fan, breakfast bar with waffles and a wall clock, small pool, bench outside). Lines: s4.l3, s4.l11, s5.l3, s6.l3, s6.l5, s6.l7, s7.l0, s7.l1, s7.l2, s7.l3, s7.l4, s7.l8.",
+  "Tour truck for Meatball: big wheels, high windows, a door, a curtain; he jogs round it and walks into its side. Lines: s1.l2, s1.l3, s2.l2, s3.l8, s4.l11, s5.l8.",
+  "Meatball as the tourist: orange parka with a hood that can drop over his face, camera on a strap, an eight-stub ticket (same stick figure); poses: wave, stuck legs kicking, flat on his back, jog, sit on a bucket, pat pockets, champion arms, shake like a dog, walk blind, hands in sandwich shape, arms crossed, face down on a table, point with a suitcase, read his own hand, wobbling knees, lying across a cart, round in six coats and rolling, upside down, stamping a card. Lines: s1.l2, s1.l3, s1.l6, s2.l2, s3.l2, s3.l4, s3.l8, s4.l3, s4.l11, s5.l3, s5.l8, s6.l5, s7.l3, s7.l5, s8.l2, s9.l5, s9.l6, s10.l9, s10.l11.",
+  "Meatball's props: his own snow hole, two boots that come off, bucket, a huge leather menu, fishing rod and old boot, floaties and goggles, a child's swim ring, sandwich, glass of water, plate of waffles, suitcase, brochure, walking stick, motel luggage cart, six coats. Lines: s1.l3, s3.l2, s3.l4, s4.l3, s5.l3, s6.l5, s7.l3, s8.l2, s9.l5.",
+  "Other stick figures: the tour guide (cap and lanyard), a tourist twice Meatball's size in the same orange parka, a staff member at the holding facility door, the tour desk. Lines: s1.l3, s3.l2, s5.l3, s7.l3, s8.l2, s10.l9, s10.l11.",
+  "The running bit's review card: five stars with one filled, a short line of text, Meatball's scrawl; versions for each chapter, a fan of four, a full stack, a blank one, and one that turns into a comment box. Lines: s1.l2, s1.l6, s2.l2, s3.l4, s4.l3, s4.l12, s5.l3, s6.l5, s7.l3, s8.l2, s9.l6, s10.l9, s10.l10.",
+  "Arctic map seen from above the Pole with dots and labels: Alaska's North Slope, Alaskan Beaufort Sea, southern Beaufort Sea, northern Beaufort Sea, Chukchi Sea, Hudson Bay, Svalbard; five country outlines; a schematic swim line (not the real track); small bear icons. Lines: s2.l1, s2.l3, s4.l4, s4.l8, s5.l4, s6.l1, s7.l6, s8.l5, s9.l7, s10.l0, s10.l1, s10.l2, s10.l5.",
+  "GPS collar on an adult female; a row of 52 small bear icons of which 20 light up; a journal cover. Lines: s2.l4, s4.l4, s4.l5.",
+  "Coat cross-section (guard hairs, underfur, skin, fat) and dark skin under parted hair, with no light rays. Lines: s9.l3, s9.l4.",
+  "Boards and small graphics beyond the cat builder's (which already has calendar, scale, bars, counter, timeline, clipboard, paper, words, tick, parchment): split thermometer, survival dial, clock face with a shaded share, row of candles, row of 47 year boxes with the last 19 marked, schematic body-condition line that falls then rises, brochure page with six tick lines, field notebook, sticky note with a stamp, two-column ledger, menu board, list of documented deaths. Lines: s1.l4, s2.l1, s2.l2, s2.l4, s2.l5, s2.l7, s3.l1, s3.l5, s3.l7, s4.l2, s4.l7, s4.l9, s5.l4, s5.l6, s5.l7, s6.l2, s6.l3, s6.l4, s7.l4, s7.l6, s7.l7, s7.l9, s8.l1, s8.l3, s8.l4, s8.l5, s10.l0, s10.l1, s10.l2, s10.l3, s10.l4, s10.l8."
+ ],
+ "_open_questions": [
+  {
+   "line": "titles[0]",
+   "question": "The word 'Sucks' in a title NEEDS NOLAN'S YES (MASTER_ORDERS, Watch hours). The bracket '(For the First Few Years)' is there because the verdict is mixed.",
+   "fallback": "Leave title 1 out of the A/B test and run titles 2 and 3 with a third from the 'Your Life as' family."
+  },
+  {
+   "line": "all Meatball review lines (first s1.l6, last s10.l9)",
+   "question": "The running bit says 'one star' about ten times. The joke rule says a joke never adds a number; this is Meatball's rating of his own try, not a fact about bears. Is that fine with the checker?",
+   "fallback": "Say 'thumbs down' in place of 'one star' and draw the card with a thumb."
+  },
+  {
+   "line": "s1.l2",
+   "question": "Meatball's role is a tourist who 'booked the full polar bear package' (the eight things as activities). It is a frame for jokes, not a claim that such a tour exists. Churchill tours are not in the pack, so no line says where the tour runs.",
+   "fallback": "'The guy in the orange parka is Meatball. He's a tourist. He's going to try your life himself and leave a review. At the end, so will you.'"
+  },
+  {
+   "line": "s0.l2, s4.l7, s6.l4, and the small print on s3.l7",
+   "question": "Pounds and miles are my arithmetic from the rows' metric numbers (0.6 kg is about 1.3 lb; 687 km is about 427 miles; 1 kg is about 2.2 lb; 1 km is about 0.62 mile). '600 grams' is the row's 'approximately 0.6 kg' said with 'about'.",
+   "fallback": "Drop the second sentence of each line and keep the metric number."
+  },
+  {
+   "line": "s0.l4 and s1.l5",
+   "question": "The 8 months and the 43% are COSEWIC 2008 citing Atkinson and Ramsay 1995, which the pack did not open (PB11); PB12 (USGS 2024, abstract) backs 'can exceed 8 months'. Both are ceilings and are said with 'can' and 'may'.",
+   "fallback": "Keep the wording; credit 'Canada's 2008 status report' on both."
+  },
+  {
+   "line": "s1.l7",
+   "question": "USFWS says only pregnant females 'overwinter in dens' (PB2). COSEWIC adds that other bears may use snow shelters for half a month to four months (PB60), so I did not say the rest are out hunting all winter, and I did not use the word hibernate.",
+   "fallback": "'For polar bears, the Fish and Wildlife Service says only pregnant females spend the whole winter in a den.'"
+  },
+  {
+   "line": "s2.l1",
+   "question": "PB15 is an abstract: 8 adults and 14 cubs watched for 37.5 hours outside dens in March 2002 and 2003. The shares are of the time they were outside. The sample size is in the line and on the card.",
+   "fallback": "Add 'for about 37 hours' after 'outside their dens'."
+  },
+  {
+   "line": "s2.l4 and s2.l5",
+   "question": "0.651 and 0.860 are survival probabilities from one 12-year study of radio-collared females and their young (PB18, abstract; the years are not in the abstract, the paper is 1995). I say 'chance' and name the place, the length and the year of the paper, not a head count. The pack's D14 says to name one study, so the northern Beaufort range (PB19) is only 'other places and other years give other numbers'.",
+   "fallback": "The pack's own wording: 'In that study, about 65 in 100 got through the first year.'"
+  },
+  {
+   "line": "s3.l4",
+   "question": "'None of our sources say how often that works' reports the pack's own gap (no success rate found). It does not say no study exists.",
+   "fallback": "Cut the first sentence and start at 'Meatball tried it with a fishing rod.'"
+  },
+  {
+   "line": "s3.l5 and s3.l6",
+   "question": "Smell distance: the pack's verdict is UNSETTLED, leaning false as stated. I say only that we found no source for 20 miles, and give the one agency figure (a breathing hole, up to a kilometre, Environment Canada 2002, no method named).",
+   "fallback": "Keep as written; do not shorten 'breathing hole' to 'seal'."
+  },
+  {
+   "line": "s4.l5 to s4.l9",
+   "question": "I did not call the 687 km swim a record or link it to the 52-female study, because the pack has them as two papers (PB35, PB36). The cub: the abstract says she 'lost 22% of her body mass and her yearling cub'; I say both losses fell 'between those two captures' and give no cause.",
+   "fallback": "'When researchers caught her again two months later, she had lost 22 percent of her body mass, and she no longer had her yearling cub.'"
+  },
+  {
+   "line": "s5.l6",
+   "question": "The '24 years' sentence is quoted in PB61's 'Do not say' column (the authors 'have not seen other incidents' in 24 years in the southern Beaufort Sea and 34 in northwestern Canada), not in its exact-quote column. The checker should find it in the abstract.",
+   "fallback": "Cut the line; the count (three cases, early 2004) and 'apparently' stay."
+  },
+  {
+   "line": "s5.l7",
+   "question": "PB63 is COSEWIC 2008 citing older papers that were not opened. The line keeps 'not uncommon' and 'in the bear family, polar bears included'. The authors' ice hypothesis for the 2004 cases (PB62) is left out, so no cause is given.",
+   "fallback": "Keep as written."
+  },
+  {
+   "line": "s6.l2",
+   "question": "PB50's scope is eastern Baffin Island and Hudson Bay (the 2002 profile). The line says 'where the ice melts completely'; the places are on the picture. The 80% is a share of their time on land.",
+   "fallback": "Start the line 'In places like Hudson Bay, where the ice melts completely,'."
+  },
+  {
+   "line": "s7.l2 and s7.l3",
+   "question": "The cell count is from a brochure PDF dated 2010 and may have changed (PB68); the picture says so. The gag has Meatball ask for a cell at the front door with no bear in the frame.",
+   "fallback": "Cut 'He took his suitcase over and asked for a cell. They said no.' and keep the fan joke."
+  },
+  {
+   "line": "s7.l4 and s7.l5",
+   "question": "The safety line is Manitoba's six points almost word for word, with the trigger 'If you meet a polar bear', no joke and no other animal. The phone number is left out (Churchill only). The gag after it is Meatball's handwriting, not the advice.",
+   "fallback": "Cut 'Meatball wrote it on his hand.' if the checker wants no gag next to the advice."
+  },
+  {
+   "line": "s7.l7 and s7.l8",
+   "question": "'In 144 years' is 2014 minus 1870. 'Underfed' stands for the paper's 'nutritionally stressed'. 'Rare on the record' is my wording (the pack's myth table quotes the paper as 'extremely rare', but that phrase is not in PB72's quote). Following D9, I left out any motive, including the authors' judgement that bears 'acted as a predator in most attacks'.",
+   "fallback": "'The authors found nutritionally stressed adult males were the most likely to pose a threat to people.' and drop 'rare on the record'."
+  },
+  {
+   "line": "s8.l3, s8.l4 and s8.l5",
+   "question": "PB88 and PB87 are abstracts: yearly survival probabilities, one population each, harvest included in PB87. 'Old-age class' is the authors' 'senescent adults'. The 85% is a share of the documented adult female deaths in a study from the 1980s and 1990s; the line says 'the study documented' so it does not read as today's figure.",
+   "fallback": "Add 'published in 1995' to the hunters line."
+  },
+  {
+   "line": "s9.l4",
+   "question": "Fur and skin: the pack's verdict is UNSETTLED for the fur and TRUE on one agency page for the skin. The line says 'looks white', credits 'translucent' and 'black skin' to Environment Canada, and gives no mechanism. The picture must not draw light running down the hairs.",
+   "fallback": "'That coat looks white. Environment Canada says the skin under it is black.'"
+  },
+  {
+   "line": "s9.l7",
+   "question": "26,000 is the USFWS estimate dated 2023 with no range on the page (PB100). The IUCN numbers could not be opened, so the line names USFWS only.",
+   "fallback": "Keep as written."
+  },
+  {
+   "line": "s10.l1, s10.l2 and the line after it",
+   "question": "PB102 and PB104 are abstracts. The Svalbard record did not name the journal (PMID 41611752, 2026). 'Then it rose, through 2019' takes the study's last year from the scope column (1995 to 2019).",
+   "fallback": "'Then it rose, during a period of rapid sea-ice loss.' with the years on the card only."
+  },
+  {
+   "line": "s10.l4",
+   "question": "PB98 is about ice, not bears, and the line says nothing about bears. 'Satellite record' is from PB97 (47 years). No trend is drawn past 2025.",
+   "fallback": "Keep as written."
+  },
+  {
+   "line": "s10.l8",
+   "question": "The verdict (raw start, sweet if you get through, depends on your ice) and every meter value are my judgement on the rows, said as an opinion. The good-news rows used: second-year survival, adult female survival, the coat and fat, no natural predators, the Svalbard condition row, the 26,000 estimate.",
+   "fallback": "If the checker finds 'sweet deal' too strong: 'a raw start, then a fair deal if you get through it'."
+  },
+  {
+   "line": "whole script",
+   "question": "Left out for length, all still in the pack for Shorts or a later cut: pollution (PB77 to PB83), the energy-deficit study (PB30), seal-pup lairs (PB28), a seal every four to five days and eating the fat fast (PB29), the land diet from scats (PB57), the summer-is-not-hibernation study (PB54), the metabolism slowdown (PB59), paw soles (PB94), the 88 degrees north record (PB48), home ranges (PB46), the Churchill-only-settlement boast (PB66).",
+   "fallback": "None needed."
+  },
+  {
+   "line": "description",
+   "question": "The first sentence should be the question people type. I did not run postkit.py kw (no web for the writer), so the sentence is a guess. The hashtags are a draft too.",
+   "fallback": "Run postkit.py kw 'polar bear' and the post-metadata skill before the post is made."
+  },
+  {
+   "line": "voice",
+   "question": "Words to check in the voice takes: Beaufort, Chukchi, Svalbard, Manitoba, 'kilometres', '1,800', 'weak-ass', 'Rude-ass', 'badass', 'his ass'. COSEWIC is never spoken ('Canada's 2008 status report').",
+   "fallback": "Add respellings in the builder's TTS table, as the cat build did."
+  }
+ ],
+ "_factcheck": "NOT DONE YET. Written 2026-11-13 from the pack only; the writer opened no web page. Before any build a different model must check every spoken line, card and picture note against the live pages and abstracts, not against the pack (research 88 rules: a percentage needs what it is a share of; a survival figure needs its population and years; a safety line needs its trigger; 'your' plus a study result needs a hedge). It must also check the jokes (research 92 pattern). Title 1 has 'sucks': needs Nolan's yes before it is used."
+}
