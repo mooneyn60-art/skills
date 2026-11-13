@@ -1,0 +1,1878 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "detective",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "cut_whoosh": true,
+ "loop": true,
+ "recut": false,
+ "photo_credits": [],
+ "cap_swap": {
+  "fuck": "f**k",
+  "fucking": "f**king",
+  "damn": "d*mn",
+  "rule'd": "ruled"
+ },
+ "cap_key": [
+  "gta",
+  "6",
+  "november",
+  "nineteenth",
+  "confirmed",
+  "sick",
+  "month",
+  "delays",
+  "rent",
+  "seventy-nine",
+  "ninety-nine",
+  "couch",
+  "sauce",
+  "gigabytes",
+  "wi-fi",
+  "complaint",
+  "box",
+  "code",
+  "disc",
+  "air",
+  "ps5",
+  "xbox",
+  "pc",
+  "lamp",
+  "union",
+  "sixteen",
+  "hundred",
+  "vote",
+  "bloomberg",
+  "misconduct",
+  "tribunal",
+  "jason",
+  "lucia",
+  "vice",
+  "leonida",
+  "banned",
+  "reviews",
+  "day"
+ ],
+ "stage": {
+  "creature": "cat",
+  "scene": "jh_living",
+  "s": 0.55,
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "cat",
+   "color": "#e39a4a",
+   "dark": "#b06f2a",
+   "belly": "#f6e3c8",
+   "tail_color": "#e39a4a",
+   "length": 520,
+   "height": 250,
+   "leg_len": 150,
+   "leg_w": 30,
+   "ears": "pointed",
+   "tail": "thin",
+   "tail_w": 22,
+   "whiskers": true,
+   "mood": "smug"
+  }
+ },
+ "title": "GTA 6: What's Actually Confirmed",
+ "tiktok_title": "GTA 6: What's Actually Confirmed",
+ "tiktok_caption": "gta 6 release date and price 💀 As of Nov 13: it launches Nov 19, 2026 on PS5 and Xbox Series X|S after two delays. Standard edition $79.99, Ultimate $99.99. The download is reported at up to 212 GB, and no PC version has been announced. More than 1,600 UK Rockstar workers can vote on union recognition from Nov 12 to 26, the union says. Meatball is selling his couch. His cat, Sauce, still lives in it. Day one or waiting for reviews? #gta6 #gtavi #rockstargames #gaming #gamingnews",
+ "_note": "GTA 6 confirmed-facts TikTok (Nolan 11/13). Script: gta6-confirmed.script.json; facts in research/108-topical-three-factpack.md, checked in research/109-factcheck-topical-three.md; every say and card row copied by code (the g9 quote row wraps over two card rows, same words). Hand-made beats; pictures in tools/drawn_topical_art.py (tp_) plus jh_ props. All drawn: no logos, no game art, no real people; price tags and the couch sign show only \"$\"; the bubbles say UNION SAYS / TAKE-TWO SAYS. Voice-only respelling: g9 ends \"hasn't rule'd.\" (the plain \"hasn't ruled.\" is mumbled at the end of that line in every take, heard 'assentee roule'; 10 wordings tried, this one is heard 'hasn't ruled'); cap_swap shows RULED in the captions.",
+ "beats": [
+  {
+   "say": "GTA 6 comes out November nineteenth. Here's what's actually fucking confirmed.",
+   "scene": "tp_living",
+   "scene_p": {
+    "sofa": true,
+    "picture": false
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      900,
+      1.0
+     ],
+     "to": [
+      560,
+      920,
+      1.06
+     ]
+    },
+    {
+     "at": "Here's|30%",
+     "cam": [
+      500,
+      960,
+      1.08
+     ],
+     "to": [
+      480,
+      960,
+      1.12
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "cal",
+     "type": "tp_calendar",
+     "pos": [
+      250,
+      1000
+     ],
+     "s": 0.7,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "circle": 1.0,
+      "cell": 18,
+      "tilt": -2
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "con",
+     "type": "tp_console",
+     "pos": [
+      560,
+      1500
+     ],
+     "s": 0.55,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "glow": 1.0,
+      "col": "#3c4656",
+      "gcol": "#5ee0ff"
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "pad",
+     "type": "tp_pad",
+     "pos": [
+      390,
+      1470
+     ],
+     "s": 0.38,
+     "front": false,
+     "rot": -8,
+     "p": {
+      "col": "#2f3644"
+     },
+     "moves": [],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "present",
+    "pos": [
+     860,
+     1500
+    ],
+    "size": 400,
+    "prop": "mic",
+    "gest": [
+     [
+      "fucking",
+      "shock",
+      1.0
+     ]
+    ],
+    "moves": [
+     {
+      "at": "Here's|10%",
+      "dur": 0.45,
+      "pos": [
+       700,
+       1500
+      ],
+      "hop": 160
+     }
+    ],
+    "look": "cal"
+   },
+   "sfx": [
+    "boing@Here's|10%",
+    "pop@fucking"
+   ],
+   "card": {
+    "rows": [
+     [
+      "GTA 6",
+      "#ffd34d",
+      130
+     ],
+     [
+      "WHAT'S CONFIRMED",
+      "#ffffff",
+      56,
+      true
+     ],
+     [
+      "AS OF NOV 13, 2026",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": 0.0
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "Meatball already called in sick. For the whole damn month.",
+   "scene": "tp_living",
+   "scene_p": {
+    "sofa": true,
+    "picture": true
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      520,
+      960,
+      1.05
+     ]
+    },
+    {
+     "at": "whole",
+     "cam": [
+      460,
+      1020,
+      1.18
+     ],
+     "to": [
+      460,
+      1020,
+      1.22
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "pad",
+     "type": "tp_pad",
+     "pos": [
+      700,
+      1250
+     ],
+     "s": 0.55,
+     "front": false,
+     "rot": -25,
+     "p": {
+      "col": "#2f3644"
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "blanket",
+     "type": "tp_blanket",
+     "pos": [
+      400,
+      1500
+     ],
+     "s": 1.0,
+     "front": true,
+     "rot": 0.0,
+     "p": {
+      "w": 470,
+      "h": 400
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "phone",
+     "type": "jh_phone",
+     "pos": [
+      205,
+      1010
+     ],
+     "s": 0.9,
+     "front": true,
+     "rot": 0.0,
+     "p": {
+      "rot": -12
+     },
+     "moves": [],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "psst",
+    "pos": [
+     400,
+     1500
+    ],
+    "size": 880,
+    "prop": null,
+    "gest": [
+     [
+      "damn",
+      "deadpan",
+      1.6
+     ]
+    ],
+    "moves": [],
+    "look": "viewer"
+   },
+   "sfx": [
+    "hit@sick",
+    "scratch@damn"
+   ],
+   "card": {
+    "rows": [
+     [
+      "OUT SICK",
+      "#ffd34d",
+      104
+     ],
+     [
+      "NOV 19 TO ???",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "sick"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "It slipped from fall 2025 to May 2026, then to November. Two delays. Meatball's been late on rent more than that.",
+   "scene": "tp_set",
+   "scene_p": {
+    "wall": "#2a3358",
+    "wall2": "#323d6a",
+    "floor": "#1d2340"
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      950,
+      1.03
+     ]
+    },
+    {
+     "at": "Meatball's",
+     "cam": [
+      1640,
+      960,
+      1.0
+     ],
+     "to": [
+      1660,
+      980,
+      1.06
+     ],
+     "dur": 0.6
+    }
+   ],
+   "actors": [
+    {
+     "id": "c1",
+     "type": "tp_calendar",
+     "pos": [
+      200,
+      1010
+     ],
+     "s": 0.62,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "col": "#8a5a36",
+      "cross": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "May",
+       "p": {
+        "cross": 1.0
+       },
+       "dur": 0.4
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "type": "tp_calendar",
+     "pos": [
+      540,
+      1010
+     ],
+     "s": 0.62,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "col": "#3b7dd8",
+      "cross": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "November",
+       "p": {
+        "cross": 1.0
+       },
+       "dur": 0.4
+      }
+     ]
+    },
+    {
+     "id": "c3",
+     "type": "tp_calendar",
+     "pos": [
+      880,
+      1010
+     ],
+     "s": 0.62,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "col": "#d8322a",
+      "circle": 0.0,
+      "cell": 18
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "November|40%",
+       "p": {
+        "circle": 1.0
+       },
+       "dur": 0.5
+      }
+     ]
+    },
+    {
+     "id": "door",
+     "type": "jh_door",
+     "pos": [
+      1760,
+      1500
+     ],
+     "s": 0.95,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "sign": 0.0
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "note",
+     "type": "tp_note",
+     "pos": [
+      1740,
+      1000
+     ],
+     "s": 1.0,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "on": 0.0,
+      "tilt": 6
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "rent",
+       "p": {
+        "on": 1.0
+       },
+       "dur": 0.25
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     960,
+     1500
+    ],
+    "size": 360,
+    "prop": "mic",
+    "gest": [
+     [
+      "delays",
+      "shrug",
+      1.2
+     ],
+     [
+      "rent",
+      "nervous",
+      2.5
+     ]
+    ],
+    "moves": [
+     {
+      "at": "Meatball's",
+      "dur": 0.9,
+      "pos": [
+       1440,
+       1500
+      ],
+      "walk": true
+     }
+    ],
+    "look": "viewer"
+   },
+   "sfx": [
+    "stamp@May",
+    "thud@rent"
+   ],
+   "card": {
+    "rows": [
+     [
+      "FALL 2025",
+      "#ffffff",
+      56,
+      true
+     ],
+     [
+      "MAY 26, 2026",
+      "#ffffff",
+      56,
+      true
+     ],
+     [
+      "NOV 19, 2026",
+      "#ffd34d",
+      104
+     ]
+    ],
+    "y": 470,
+    "at": 0.0
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "The price: seventy-nine ninety-nine. Ultimate edition, ninety-nine ninety-nine. Meatball's selling his couch. Sauce lives in that fucking couch.",
+   "scene": "tp_living",
+   "scene_p": {
+    "sofa": false,
+    "picture": true
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      950,
+      1.03
+     ]
+    },
+    {
+     "at": "Meatball's",
+     "cam": [
+      700,
+      1080,
+      1.1
+     ],
+     "to": [
+      760,
+      1080,
+      1.12
+     ]
+    },
+    {
+     "at": "Sauce",
+     "cam": [
+      780,
+      1180,
+      1.25
+     ],
+     "to": [
+      780,
+      1180,
+      1.28
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "tag1",
+     "type": "tp_tag",
+     "pos": [
+      300,
+      -500
+     ],
+     "s": 0.62,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "text": "$",
+      "col": "#f6d27a",
+      "len": 120
+     },
+     "moves": [
+      {
+       "at": "price|0",
+       "dur": 0.5,
+       "pos": [
+        300,
+        760
+       ]
+      },
+      {
+       "at": "Meatball's",
+       "dur": 0.4,
+       "pos": [
+        300,
+        -500
+       ]
+      }
+     ],
+     "set": []
+    },
+    {
+     "id": "tag2",
+     "type": "tp_tag",
+     "pos": [
+      780,
+      -500
+     ],
+     "s": 0.62,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "text": "$",
+      "col": "#ff9f6a",
+      "len": 120,
+      "ph": 1.3
+     },
+     "moves": [
+      {
+       "at": "Ultimate|0",
+       "dur": 0.5,
+       "pos": [
+        780,
+        760
+       ]
+      },
+      {
+       "at": "Meatball's",
+       "dur": 0.4,
+       "pos": [
+        780,
+        -500
+       ]
+      }
+     ],
+     "set": []
+    },
+    {
+     "id": "couch",
+     "type": "tp_couch",
+     "pos": [
+      560,
+      1500
+     ],
+     "s": 0.9,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "sign": 0.0,
+      "text": "$",
+      "px": 130
+     },
+     "moves": [
+      {
+       "at": "selling",
+       "dur": 1.6,
+       "pos": [
+        720,
+        1500
+       ]
+      }
+     ],
+     "set": [
+      {
+       "at": "selling",
+       "p": {
+        "sign": 1.0
+       },
+       "dur": 0.35
+      }
+     ]
+    },
+    {
+     "id": "cat",
+     "type": "sp.cat",
+     "pos": [
+      520,
+      1347
+     ],
+     "s": 0.5,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "mood": "smug"
+     },
+     "moves": [
+      {
+       "at": "selling",
+       "dur": 1.6,
+       "pos": [
+        680,
+        1347
+       ]
+      }
+     ],
+     "set": [],
+     "flip": false
+    }
+   ],
+   "mb": {
+    "pose": "present",
+    "pos": [
+     960,
+     1500
+    ],
+    "size": 380,
+    "prop": "mic",
+    "gest": [
+     [
+      "Sauce",
+      "shock",
+      1.0
+     ],
+     [
+      "fucking",
+      "facepalm",
+      1.4
+     ]
+    ],
+    "moves": [
+     {
+      "at": "selling",
+      "dur": 1.6,
+      "pos": [
+       1120,
+       1500
+      ],
+      "walk": true
+     }
+    ],
+    "look": "cat"
+   },
+   "sfx": [
+    "pop@price",
+    "scratch@selling"
+   ],
+   "card": {
+    "rows": [
+     [
+      "$79.99 STANDARD",
+      "#ffd34d",
+      90
+     ],
+     [
+      "$99.99 ULTIMATE",
+      "#ffffff",
+      90
+     ]
+    ],
+    "y": 470,
+    "at": "price"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "The download is reported at up to two hundred twelve gigabytes. Meatball's Wi-Fi just filed a fucking complaint.",
+   "scene": "tp_living",
+   "scene_p": {
+    "sofa": true,
+    "picture": true
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      950,
+      1.04
+     ]
+    },
+    {
+     "at": "Wi",
+     "cam": [
+      380,
+      1380,
+      1.3
+     ],
+     "to": [
+      380,
+      1380,
+      1.34
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "bar",
+     "type": "tp_bar",
+     "pos": [
+      540,
+      820
+     ],
+     "s": 0.95,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "v": 0.01
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "gigabytes",
+       "p": {
+        "v": 0.03
+       },
+       "dur": 2.0
+      }
+     ]
+    },
+    {
+     "id": "router",
+     "type": "tp_router",
+     "pos": [
+      330,
+      1500
+     ],
+     "s": 0.9,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "smoke": 0.0,
+      "slip": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "Wi",
+       "p": {
+        "smoke": 1.0
+       },
+       "dur": 0.4
+      },
+      {
+       "at": "complaint|0",
+       "p": {
+        "slip": 1.0
+       },
+       "dur": 0.5
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     800,
+     1500
+    ],
+    "size": 380,
+    "prop": "mic",
+    "gest": [
+     [
+      "complaint",
+      "shock",
+      1.2
+     ]
+    ],
+    "moves": [],
+    "look": "router"
+   },
+   "sfx": [
+    "zap@Wi",
+    "pop@complaint"
+   ],
+   "card": {
+    "rows": [
+     [
+      "UP TO 212 GB (REPORTED)",
+      "#ffd34d",
+      88
+     ]
+    ],
+    "y": 470,
+    "at": "download"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "And the box in stores? Rockstar says it's a download code, not a disc. Basically a box of fucking air.",
+   "scene": "tp_set",
+   "scene_p": {
+    "wall": "#1f4a5a",
+    "wall2": "#24576a",
+    "floor": "#163640"
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      960,
+      1.04
+     ]
+    },
+    {
+     "at": "code",
+     "cam": [
+      600,
+      1080,
+      1.1
+     ],
+     "to": [
+      600,
+      1060,
+      1.13
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "box",
+     "type": "tp_box",
+     "pos": [
+      560,
+      1500
+     ],
+     "s": 0.9,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "open": 0.0,
+      "slip": 0.0,
+      "air": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "Rockstar",
+       "p": {
+        "open": 1.0
+       },
+       "dur": 0.5
+      },
+      {
+       "at": "code",
+       "p": {
+        "slip": 1.0
+       },
+       "dur": 1.4
+      },
+      {
+       "at": "air|0",
+       "p": {
+        "air": 1.0
+       },
+       "dur": 0.4
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "present",
+    "pos": [
+     900,
+     1500
+    ],
+    "size": 380,
+    "prop": "mic",
+    "gest": [
+     [
+      "disc",
+      "shrug",
+      1.2
+     ],
+     [
+      "air",
+      "deadpan",
+      1.4
+     ]
+    ],
+    "moves": [],
+    "look": "box"
+   },
+   "sfx": [
+    "click@Rockstar",
+    "whoosh@air"
+   ],
+   "card": {
+    "rows": [
+     [
+      "BOXED COPY = DOWNLOAD CODE",
+      "#ffd34d",
+      74
+     ],
+     [
+      "NO DISC (ROCKSTAR)",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "box"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "It launches on PS5 and Xbox Series consoles. No PC version announced. Meatball's gaming PC is now a very expensive fucking lamp.",
+   "scene": "tp_set",
+   "scene_p": {
+    "wall": "#151a2e",
+    "wall2": "#1b2140",
+    "floor": "#0f1222"
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      960,
+      1.04
+     ]
+    },
+    {
+     "at": "lamp-0.6",
+     "cam": [
+      800,
+      1060,
+      1.15
+     ],
+     "to": [
+      820,
+      1060,
+      1.2
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "con1",
+     "type": "tp_console",
+     "pos": [
+      180,
+      1500
+     ],
+     "s": 0.55,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "glow": 0.0,
+      "col": "#d9dee6",
+      "gcol": "#5ee0ff"
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "launches",
+       "p": {
+        "glow": 1.0
+       },
+       "dur": 0.4
+      }
+     ]
+    },
+    {
+     "id": "con2",
+     "type": "tp_console",
+     "pos": [
+      440,
+      1500
+     ],
+     "s": 0.55,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "glow": 0.0,
+      "col": "#3c4656",
+      "gcol": "#ff4fd8"
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "Xbox",
+       "p": {
+        "glow": 1.0
+       },
+       "dur": 0.4
+      }
+     ]
+    },
+    {
+     "id": "pc",
+     "type": "tp_pc",
+     "pos": [
+      880,
+      1500
+     ],
+     "s": 0.8,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "shade": 0.0,
+      "lamp": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "lamp-0.6",
+       "p": {
+        "shade": 1.0
+       },
+       "dur": 0.5
+      },
+      {
+       "at": "lamp",
+       "p": {
+        "lamp": 1.0
+       },
+       "dur": 0.3
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     660,
+     1500
+    ],
+    "size": 360,
+    "prop": "mic",
+    "gest": [
+     [
+      "announced",
+      "shrug",
+      1.2
+     ],
+     [
+      "lamp",
+      "laugh",
+      1.4
+     ]
+    ],
+    "moves": [],
+    "look": "pc"
+   },
+   "sfx": [
+    "tink@launches",
+    "boing@lamp-0.3"
+   ],
+   "card": {
+    "rows": [
+     [
+      "PS5 + XBOX SERIES X|S",
+      "#ffd34d",
+      80
+     ],
+     [
+      "NO PC VERSION ANNOUNCED",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "launches"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "Meanwhile, more than sixteen hundred Rockstar workers in the UK can vote on union recognition, the union says. November twelfth to twenty-sixth. Right through launch week.",
+   "scene": "tp_set",
+   "scene_p": {
+    "wall": "#1e2a4a",
+    "wall2": "#24325a",
+    "floor": "#141c33"
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      960,
+      1.03
+     ]
+    },
+    {
+     "at": "November",
+     "cam": [
+      540,
+      940,
+      1.02
+     ],
+     "to": [
+      540,
+      940,
+      1.04
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "strip",
+     "type": "tp_strip",
+     "pos": [
+      540,
+      905
+     ],
+     "s": 0.95,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "n": 15,
+      "span": 0.0,
+      "mark": 7,
+      "markon": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "November",
+       "p": {
+        "span": 1.0
+       },
+       "dur": 1.6
+      },
+      {
+       "at": "launch",
+       "p": {
+        "markon": 1.0
+       },
+       "dur": 0.4
+      }
+     ]
+    },
+    {
+     "id": "ballot",
+     "type": "tp_ballot",
+     "pos": [
+      480,
+      1500
+     ],
+     "s": 0.72,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "drop": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "vote",
+       "p": {
+        "drop": 1.0
+       },
+       "dur": 0.5
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     860,
+     1500
+    ],
+    "size": 360,
+    "prop": "mic",
+    "gest": [],
+    "moves": [],
+    "look": "ballot"
+   },
+   "sfx": [
+    "click@vote",
+    "tink@launch"
+   ],
+   "card": {
+    "rows": [
+     [
+      "UNION VOTE",
+      "#ffd34d",
+      104
+     ],
+     [
+      "1,600+ UK STAFF (IWGB)",
+      "#ffffff",
+      52,
+      true
+     ],
+     [
+      "NOV 12 TO 26",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": 0.1
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "Rockstar's head of publishing told Bloomberg: if they want a union, they will have a union. The union says staff fired last year were targeted for organizing. Take-Two says it was gross misconduct. A tribunal hasn't rule'd.",
+   "scene": "tp_set",
+   "scene_p": {
+    "wall": "#2a2a3a",
+    "wall2": "#323246",
+    "floor": "#1b1b28"
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      960,
+      1.03
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "b1",
+     "type": "tp_bubble",
+     "pos": [
+      290,
+      975
+     ],
+     "s": 0.95,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "label": "UNION SAYS",
+      "on": 0.0,
+      "tail": 1,
+      "w": 460,
+      "h": 200,
+      "tcol": "#1f5fbf"
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "says#1-0.3",
+       "p": {
+        "on": 1.0
+       },
+       "dur": 0.35
+      }
+     ]
+    },
+    {
+     "id": "b2",
+     "type": "tp_bubble",
+     "pos": [
+      790,
+      975
+     ],
+     "s": 0.95,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "label": "TAKE-TWO SAYS",
+      "on": 0.0,
+      "tail": -1,
+      "w": 460,
+      "h": 200,
+      "tcol": "#d8322a"
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "says#2-0.4",
+       "p": {
+        "on": 1.0
+       },
+       "dur": 0.35
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     540,
+     1500
+    ],
+    "size": 340,
+    "prop": "mic",
+    "gest": [],
+    "moves": [],
+    "look": "viewer"
+   },
+   "sfx": [
+    "pop@says#1-0.3",
+    "pop@says#2-0.4"
+   ],
+   "card": {
+    "rows": [
+     [
+      "\"IF THEY WANT A UNION,",
+      "#ffd34d",
+      70
+     ],
+     [
+      "THEY WILL HAVE A UNION\"",
+      "#ffd34d",
+      70
+     ],
+     [
+      "ROCKSTAR HEAD OF PUBLISHING TO BLOOMBERG",
+      "#ffffff",
+      42,
+      true
+     ],
+     [
+      "FIRINGS: DISPUTED, NO RULING YET",
+      "#ffffff",
+      46,
+      true
+     ]
+    ],
+    "y": 400,
+    "at": 0.0
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "Meatball tried to unionize his cat, Sauce. Sauce walked out. Immediately.",
+   "scene": "tp_living",
+   "scene_p": {
+    "sofa": true,
+    "picture": true
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      900,
+      1.0
+     ],
+     "to": [
+      520,
+      900,
+      1.05
+     ]
+    },
+    {
+     "at": "Sauce#1",
+     "cam": [
+      700,
+      1060,
+      1.25
+     ],
+     "to": [
+      700,
+      1060,
+      1.28
+     ]
+    },
+    {
+     "at": "walked",
+     "cam": [
+      600,
+      920,
+      1.0
+     ],
+     "to": [
+      600,
+      920,
+      1.04
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "cat",
+     "type": "sp.cat",
+     "pos": [
+      800,
+      1500
+     ],
+     "s": 0.75,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "mood": "smug"
+     },
+     "moves": [
+      {
+       "at": "walked|0",
+       "dur": 1.5,
+       "pos": [
+        1600,
+        1500
+       ],
+       "walk": true,
+       "face": 1
+      }
+     ],
+     "set": [],
+     "flip": true
+    },
+    {
+     "id": "picket",
+     "type": "tp_picket",
+     "pos": [
+      560,
+      1330
+     ],
+     "s": 0.55,
+     "front": true,
+     "rot": 0.0,
+     "p": {
+      "wave": 1.0
+     },
+     "moves": [],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "present",
+    "pos": [
+     400,
+     1500
+    ],
+    "size": 880,
+    "prop": null,
+    "gest": [
+     [
+      "Immediately",
+      "shock",
+      1.2
+     ]
+    ],
+    "moves": [],
+    "look": "cat"
+   },
+   "sfx": [
+    "pop@walked",
+    "scratch@Immediately"
+   ],
+   "card": {
+    "rows": [
+     [
+      "SAUCE WALKED OUT",
+      "#ffd34d",
+      104
+     ]
+    ],
+    "y": 470,
+    "at": "walked"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "You play Jason and Lucia in Vice City, in the state of Leonida, basically Florida, outlets say. Meatball's banned from the real one.",
+   "scene": "tp_neon",
+   "scene_p": {},
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      580,
+      960,
+      1.04
+     ]
+    },
+    {
+     "at": "Meatball's",
+     "cam": [
+      1860,
+      960,
+      1.0
+     ],
+     "to": [
+      1880,
+      980,
+      1.06
+     ],
+     "dur": 0.6
+    }
+   ],
+   "actors": [
+    {
+     "id": "sign",
+     "type": "tp_stateline",
+     "pos": [
+      2000,
+      1500
+     ],
+     "s": 0.9,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "photo": 0.0,
+      "stamp": 0.0,
+      "text": "BANNED",
+      "px": 92
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "Meatball's",
+       "p": {
+        "photo": 1.0
+       },
+       "dur": 0.4
+      },
+      {
+       "at": "banned",
+       "p": {
+        "stamp": 1.0
+       },
+       "dur": 0.4
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "present",
+    "pos": [
+     300,
+     1500
+    ],
+    "size": 380,
+    "prop": "mic",
+    "gest": [
+     [
+      "real",
+      "facepalm",
+      1.6
+     ]
+    ],
+    "moves": [
+     {
+      "at": "Meatball's",
+      "dur": 0.9,
+      "pos": [
+       1620,
+       1500
+      ],
+      "walk": true
+     }
+    ],
+    "look": "viewer"
+   },
+   "sfx": [
+    "whoosh@Meatball's",
+    "stamp@banned"
+   ],
+   "card": {
+    "rows": [
+     [
+      "JASON + LUCIA",
+      "#ffd34d",
+      104
+     ],
+     [
+      "VICE CITY, LEONIDA",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "Jason"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "So are you playing day one, or waiting for reviews like a damn adult? Because",
+   "scene": "tp_living",
+   "scene_p": {
+    "sofa": true,
+    "picture": false
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      500,
+      960,
+      1.08
+     ],
+     "to": [
+      540,
+      920,
+      1.03
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "cal",
+     "type": "tp_calendar",
+     "pos": [
+      250,
+      1000
+     ],
+     "s": 0.7,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "circle": 1.0,
+      "cell": 18,
+      "tilt": -2
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "con",
+     "type": "tp_console",
+     "pos": [
+      560,
+      1500
+     ],
+     "s": 0.55,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "glow": 1.0,
+      "col": "#3c4656",
+      "gcol": "#5ee0ff"
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "pad",
+     "type": "tp_pad",
+     "pos": [
+      390,
+      1470
+     ],
+     "s": 0.38,
+     "front": false,
+     "rot": -8,
+     "p": {
+      "col": "#2f3644"
+     },
+     "moves": [],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "present",
+    "pos": [
+     700,
+     1500
+    ],
+    "size": 400,
+    "prop": "mic",
+    "gest": [],
+    "moves": [
+     {
+      "at": "Because|20%",
+      "dur": 0.45,
+      "pos": [
+       860,
+       1500
+      ],
+      "hop": 160
+     }
+    ],
+    "look": "viewer"
+   },
+   "sfx": [
+    "pop@reviews"
+   ],
+   "card": {
+    "rows": [
+     [
+      "DAY ONE OR WAIT? COMMENT",
+      "#ffffff",
+      44,
+      true
+     ]
+    ],
+    "y": 400,
+    "at": 0.0,
+    "x": "right"
+   },
+   "recut": false,
+   "pad": 0.08
+  }
+ ]
+}

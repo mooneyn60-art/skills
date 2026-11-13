@@ -88,6 +88,9 @@ ACTORS.update(drawn_tc_art.ACTORS)
 import drawn_jensen_art  # noqa: E402  (11/13 Jensen Huang TikTok / Short: Jensen, stage, office, chart, doors)
 ACTORS.update(drawn_jensen_art.ACTORS)
 SCENES.update(drawn_jensen_art.SCENES)
+import drawn_topical_art  # noqa: E402  (11/13 topical news TikToks: calendar, console, router, neon city, ...)
+ACTORS.update(drawn_topical_art.ACTORS)
+SCENES.update(drawn_topical_art.SCENES)
 ROOT = os.path.dirname(HERE)
 W, H = 1080, 1920
 SR = 48000
