@@ -96,9 +96,10 @@ Read each test on its date, not before.
 
 ## Tags and everything, from every angle (Nolan, 11/12 about 12:25 ET)
 - **His words:** "And make sure your tags and everything are also updated to be the best look at All angles".
+- **Again 11/13 (on the Jensen videos): "Make sure our descriptions and hashtags are as good as the video that's half the battle".** Every post's text gets the same pass as its video: search suggestions (`postkit.py kw`), the topic's hashtag feeds, a second-model check.
 - **The standard for every new post from 11/12:**
   1. YouTube title: the searched words in the first 40 characters, the hedge kept, one specific odd fact, one emoji, the series tag last, 100 characters at most, statement form.
-  2. YouTube description: the first sentence is the question people type (from the search suggestions), then the checked facts, then four hashtags (two for the topic, #meatballmyths, #shorts last), then Sources.
+  2. YouTube description: the first sentence is the question people type (from the search suggestions), then the checked facts, then the hashtags, then Sources. Hashtags: the first three are the topic's own, taken from its hashtag feeds on YouTube (they are the ones shown above the title), then #meatballmyths, #shorts last.
   3. YouTube tags: 8 to 12 phrases taken from the search suggestions, each 30 characters or fewer, each one answered by the video. No tag that promises advice the video does not give.
   4. TikTok caption: the search phrase that is on screen, the checked fact with its condition, the Meatball gag in the video's own words without the swearing, a question, five topic hashtags. No #fyp, no #learnontiktok, no brand tag. The TikTok "title" field can hold anything; nobody sees it.
   5. Unchanged on purpose: the category (no stated effect), the AI label (stays on), first comments (open questions).
