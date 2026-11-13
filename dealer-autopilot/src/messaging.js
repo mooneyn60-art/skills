@@ -2,19 +2,9 @@
 // Texts: text_mode "phone" (default) = you send from your own phone with one tap (sms: link opens your Messages app).
 //        text_mode "twilio" = sent by a registered Twilio number (requires A2P 10DLC registration).
 // Emails: sent through your SMTP account (e.g. Gmail app password). Without SMTP settings they are SIMULATED.
-const nodemailer = require('nodemailer');
 const config = require('./config');
 const store = require('./db');
-
-let transporter = null;
-function mailer() {
-  if (!config.emailLive) return null;
-  transporter ||= nodemailer.createTransport({
-    host: config.smtp.host, port: config.smtp.port, secure: config.smtp.port === 465,
-    auth: { user: config.smtp.user, pass: config.smtp.pass },
-  });
-  return transporter;
-}
+const email = require('./email');
 
 /** Fill {placeholders}. [[ ... ]] sections are dropped if any placeholder inside them is empty. */
 function render(template, customer, extra = {}, settings = store.getSettings()) {
@@ -75,19 +65,14 @@ async function sendEmail(c, subject, body) {
   const text = `${body}\n\n--\n${footer}\nUnsubscribe: ${unsub}`;
   const html = `<div style="font-family:Arial,sans-serif;font-size:15px;line-height:1.5;color:#222">${esc(body).replace(/\n/g, '<br>')}</div>
     <p style="font-family:Arial,sans-serif;font-size:12px;color:#888;margin-top:24px">${esc(footer)}<br><a href="${unsub}">Unsubscribe</a></p>`;
-  const t = mailer();
-  if (!t) return { status: 'simulated' };
-  const fromName = (config.smtp.fromName || [s.salesperson, s.dealership].filter(Boolean).join(' - ') || config.smtp.user).replace(/"/g, '');
-  await t.sendMail({ from: `"${fromName}" <${config.smtp.user}>`, to: c.email, subject, text, html, headers: { 'List-Unsubscribe': `<${unsub}>` } });
-  return { status: 'sent' };
+  return email.send({ to: c.email, subject, text, html, headers: { 'List-Unsubscribe': `<${unsub}>` } });
 }
 
 /** Email yourself (e.g. new lead alert). Does nothing if email isn't set up. */
 async function notifyOwner(subject, text) {
-  const t = mailer();
-  if (!t) return { status: 'simulated' };
-  await t.sendMail({ from: `"Dealer Autopilot" <${config.smtp.user}>`, to: config.smtp.user, subject, text });
-  return { status: 'sent' };
+  const a = email.account();
+  if (!a) return { status: 'simulated' };
+  return email.send({ to: a.user, subject, text });
 }
 
 module.exports = { render, smsLink, sendTwilio, sendEmail, notifyOwner };

@@ -45,7 +45,7 @@ async function loadStatus() {
   const b = $('#banner');
   const notes = [];
   if (state.status.setup_missing.length) notes.push(`<b>Finish setup:</b> add your ${state.status.setup_missing.map((k) => k.replace('dealer_', 'dealership ').replace('_', ' ')).join(', ')} in <a href="#" data-goto="settings">Settings</a> (your address is required in emails).`);
-  if (!state.status.email_live) notes.push('Email is in <b>simulation</b> mode until you add your email settings to <code>.env</code>.');
+  if (!state.status.email_live) notes.push('Emails are practice only until you <a href="#" data-goto="settings">connect your email</a>.');
   b.innerHTML = notes.join(' &nbsp; ');
   b.classList.toggle('hidden', !notes.length);
 }
@@ -147,7 +147,7 @@ function bindTasks(root, after) {
         if (r.sms_link) {
           if (isMobile()) location.href = r.sms_link;
           else { await navigator.clipboard?.writeText(body).catch(() => {}); toast('Copied. Paste it into a text to the customer from your phone.'); }
-        } else toast(action === 'skip' ? 'Skipped' : action === 'done' ? 'Logged' : r.status === 'simulated' ? 'Simulated (email not set up yet)' : 'Sent');
+        } else toast(action === 'skip' ? 'Skipped' : action === 'done' ? 'Logged' : r.status === 'simulated' ? 'Logged, but not sent: connect your email in Settings' : 'Sent');
         after();
       } catch (e) { fail(e); }
     });
@@ -597,6 +597,29 @@ async function viewSettings() {
       </div>
     </div>
     <div class="row" style="margin:14px 0"><button class="btn primary" id="saveSettings">Save settings</button></div>
+    <div class="card" style="margin-bottom:14px"><h2>Your email</h2>
+      <p class="muted">Follow-up emails go out from your own email address, and replies land in your inbox. Every few minutes the app checks your inbox:
+        a customer's reply stops their follow-ups and puts them on your call list, and "unsubscribe" stops emails to them.</p>
+      <p>${st.email_live && st.email_verified ? `<span class="ok">Connected: <b>${esc(st.email_account)}</b></span>` : st.email_live ? `<span class="flag">Saved for ${esc(st.email_account)} but not confirmed yet. Click <b>Connect &amp; send test</b>.</span>` : '<span class="flag">Not connected yet. Emails are only practice until you connect.</span>'}
+        ${st.email_last_check ? `<br><span class="muted" style="font-size:13px">Inbox last checked ${fmtDate(st.email_last_check)}${st.email_last_error ? ` &middot; <span class="flag">${esc(st.email_last_error)}</span>` : ''}</span>` : ''}</p>
+      <div class="grid two">
+        <div><label>Email provider</label><select id="em_provider">${Object.entries(st.email_providers).map(([k, v]) => `<option value="${k}" ${k === (s.email_provider || 'gmail') ? 'selected' : ''}>${esc(v)}</option>`).join('')}</select></div>
+        <div><label>Your email address</label><input id="em_address" type="email" value="${esc(s.email_address)}" placeholder="you@gmail.com"></div>
+        <div><label>App password ${s.email_password_set ? '(saved; leave blank to keep it)' : ''}</label><input id="em_pass" type="password" autocomplete="new-password" placeholder="${s.email_password_set ? '••••••••••••••••' : '16 letters from Google'}"></div>
+        <div><label>Name people see (optional)</label><input id="em_name" value="${esc(s.email_from_name)}" placeholder="${esc([s.salesperson, s.dealership].filter(Boolean).join(' - ') || 'Your name - Dealership')}"></div>
+      </div>
+      <details style="margin-top:10px"><summary>How to get a Gmail app password (2 minutes)</summary>
+        <ol class="muted" style="margin:8px 0 0;padding-left:20px;line-height:1.7">
+          <li>Go to <b>myaccount.google.com</b> and open <b>Security</b>.</li>
+          <li>Turn on <b>2-Step Verification</b> if it isn't on already.</li>
+          <li>Search the account settings for <b>App passwords</b>, create one named "Dealer Autopilot", and copy the 16 letters.</li>
+          <li>Paste them above and click <b>Connect &amp; send test</b>. Your normal Gmail password won't work here.</li>
+        </ol>
+        <p class="muted" style="font-size:13px">The app password is stored only in this app on your computer. Remove it anytime with Disconnect, or delete it in your Google account.</p></details>
+      <div class="row" style="margin-top:12px"><button class="btn primary" id="em_save">Connect &amp; send test</button>
+        ${st.email_live ? '<button class="btn" id="em_check">Check inbox now</button><button class="btn danger" id="em_disc">Disconnect</button>' : ''}</div>
+      <p id="em_out" style="margin-bottom:0"></p>
+    </div>
     <div class="grid two">
       <div class="card"><h2>Use with Claude (MCP)</h2>
         <p class="muted">Run everything by talking to Claude: "what's on my list", "book Mike for Saturday at 11", "import this list".</p>
@@ -612,6 +635,19 @@ async function viewSettings() {
         Texts: ${s.text_mode === 'phone' ? '<span class="ok">your phone</span>' : st.twilio_live ? '<span class="ok">Twilio connected</span>' : '<span class="flag">Twilio not set up</span>'}<br>
         TARS: ${st.tars_ready ? '<span class="ok">ready</span>' : '<span class="flag">add ANTHROPIC_API_KEY to .env</span>'}</p></div>
     </div>`;
+  $('#em_save').onclick = async () => {
+    const out = $('#em_out'); out.innerHTML = 'Connecting...';
+    try {
+      await api('/settings', { method: 'PUT', body: { email_provider: $('#em_provider').value, email_address: $('#em_address').value, email_app_password: $('#em_pass').value, email_from_name: $('#em_name').value } });
+      const r = await api('/email/test', { method: 'POST' });
+      out.innerHTML = `<span class="ok">Connected. A test email went to ${esc(r.sent_to)}.${r.inbox === 'ok' ? ' Inbox checking is on.' : r.inbox !== 'not checked' ? ' Inbox check failed: ' + esc(r.inbox) : ''}</span>`;
+      await loadStatus(); setTimeout(() => viewSettings(), 2500);
+    } catch (e) { out.innerHTML = `<span class="flag">${esc(e.message)}</span>`; }
+  };
+  $('#em_check') && ($('#em_check').onclick = async () => {
+    try { const r = await api('/email/check', { method: 'POST' }); await loadStatus(); toast(r.replies || r.unsubscribes ? `${r.replies} repl${r.replies === 1 ? 'y' : 'ies'}, ${r.unsubscribes} unsubscribe(s) found` : 'No new customer replies'); viewSettings(); } catch (e) { fail(e); }
+  });
+  $('#em_disc') && ($('#em_disc').onclick = async () => { await api('/email/disconnect', { method: 'POST' }); await loadStatus(); toast('Email disconnected'); viewSettings(); });
   $('#saveSettings').onclick = async () => {
     const body = {};
     $$('[data-k]').forEach((el) => { body[el.dataset.k] = el.type === 'checkbox' ? (el.checked ? '1' : '0') : el.value; });

@@ -11,6 +11,7 @@ const { scoreboard } = require('./scoreboard');
 const { render } = require('./messaging');
 const { customersFromCsv, inventoryFromCsv } = require('./csv');
 const grow = require('./grow');
+const email = require('./email');
 const QRCode = require('qrcode');
 const { StreamableHTTPServerTransport } = require('@modelcontextprotocol/sdk/server/streamableHttp.js');
 const { createMcpServer } = require('./mcp');
@@ -135,7 +136,8 @@ app.get('/api/status', (req, res) => {
   for (const r of store.db.prepare('SELECT stage, COUNT(*) AS n FROM customers GROUP BY stage').all()) counts[r.stage] = r.n;
   res.json({
     stages: store.STAGES, groups: store.GROUPS, counts, appointment_types: appts.TYPES,
-    email_live: config.emailLive, twilio_live: config.smsLive, tars_ready: !!config.anthropicKey,
+    email_live: email.isLive(), email_account: email.account()?.user || '', email_verified: store.getSettings().email_verified === '1' || email.account()?.source === 'env', email_providers: Object.fromEntries(Object.entries(email.PROVIDERS).map(([k, v]) => [k, v.label])),
+    email_last_check: store.getSettings().email_last_check || '', email_last_error: store.getSettings().email_last_error || '', twilio_live: config.smsLive, tars_ready: !!config.anthropicKey,
     in_text_window: store.inTextWindow(s),
     setup_missing: ['salesperson', 'dealership', 'dealer_address'].filter((k) => !s[k]),
     mcp_url: `${config.publicUrl}/mcp/${s.mcp_token}`,
@@ -248,6 +250,11 @@ app.get('/api/grow', wrap(async (req, res) => {
 }));
 app.post('/api/grow/campaign/:key', wrap((req, res) => res.json(grow.runCampaign(req.params.key, req.body?.per_day))));
 
+// email
+app.post('/api/email/test', wrap(async (req, res) => res.json(await email.test())));
+app.post('/api/email/check', wrap(async (req, res) => res.json(await email.checkReplies())));
+app.post('/api/email/disconnect', wrap((req, res) => { store.setInternal({ email_app_password: '', email_address: '', email_last_uid: '', email_uid_validity: '', email_last_error: '', email_verified: '' }); res.json({ ok: true }); }));
+
 app.get('/api/scoreboard', (req, res) => res.json(scoreboard()));
 app.get('/api/messages', (req, res) => res.json(store.recentMessages(Number(req.query.limit) || 150)));
 
@@ -264,10 +271,13 @@ if (require.main === module) {
     const s = store.getSettings();
     console.log(`\n  Dealer Autopilot: http://localhost:${config.port}`);
     console.log(`  Texts:  ${s.text_mode === 'twilio' ? (config.smsLive ? 'Twilio (live)' : 'Twilio (SIMULATED: add keys to .env)') : 'from your own phone (one tap per text)'}`);
-    console.log(`  Email:  ${config.emailLive ? 'live via SMTP' : 'SIMULATED: add SMTP settings to .env'}`);
+    console.log(`  Email:  ${email.isLive() ? 'connected: ' + email.account().user : 'not connected yet (Setup screen)'}`);
     console.log(`  TARS:   ${config.anthropicKey ? 'ready' : 'off: add ANTHROPIC_API_KEY to .env'}`);
     console.log(`  MCP:    ${config.publicUrl}/mcp/${s.mcp_token}\n`);
     scheduler.start();
+    // Check your inbox for customer replies every 3 minutes.
+    const watch = () => email.checkReplies().then((r) => r.replies && console.log(`[email] ${r.replies} customer repl${r.replies === 1 ? 'y' : 'ies'}`)).catch(() => {});
+    setTimeout(watch, 5000); setInterval(watch, 3 * 60 * 1000);
   });
 }
 

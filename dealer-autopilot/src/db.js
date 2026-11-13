@@ -156,8 +156,13 @@ const DEFAULT_SETTINGS = {
   daily_call_target: '5',
   crm: 'DealerSocket',
   appt_reminders: '1',
+  email_provider: 'gmail',
+  email_address: '',
+  email_from_name: '',
 };
-const EDITABLE = Object.keys(DEFAULT_SETTINGS);
+// Saved separately: never sent to the browser.
+const SECRET_SETTINGS = ['email_app_password'];
+const EDITABLE = [...Object.keys(DEFAULT_SETTINGS), ...SECRET_SETTINGS];
 for (const [k, v] of Object.entries(DEFAULT_SETTINGS)) db.prepare('INSERT OR IGNORE INTO settings (key, value) VALUES (?, ?)').run(k, v);
 for (const k of ['secret', 'mcp_token', 'calendar_token']) {
   db.prepare('INSERT OR IGNORE INTO settings (key, value) VALUES (?, ?)').run(k, crypto.randomBytes(18).toString('hex'));
@@ -168,8 +173,14 @@ function getSettings() {
   return out;
 }
 function publicSettings() {
-  const { secret, mcp_token, calendar_token, ...s } = getSettings();
+  const { secret, mcp_token, calendar_token, email_app_password, email_uid_validity, email_last_uid, ...s } = getSettings();
+  s.email_password_set = !!email_app_password;
   return s;
+}
+/** Internal bookkeeping values (not editable from the browser). */
+function setInternal(obj) {
+  const stmt = db.prepare('INSERT INTO settings (key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value');
+  for (const [k, v] of Object.entries(obj)) stmt.run(k, String(v ?? ''));
 }
 function saveSettings(obj) {
   const stmt = db.prepare('INSERT INTO settings (key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value');
@@ -180,6 +191,9 @@ function saveSettings(obj) {
     if (k === 'text_start_hour') val = String(Math.max(8, Math.min(21, Number(val) || 8)));
     if (k === 'text_end_hour') val = String(Math.min(21, Math.max(8, Number(val) || 21)));
     if (k === 'text_mode' && !['phone', 'twilio'].includes(val)) continue;
+    if (k === 'email_app_password') { val = val.replace(/\s+/g, ''); if (!val) continue; setInternal({ email_verified: '' }); } // blank = keep the saved one
+    if (k === 'email_address') val = val.trim().toLowerCase();
+    if (k === 'email_address' && val !== getSettings().email_address) setInternal({ email_last_uid: '', email_uid_validity: '', email_verified: '' });
     stmt.run(k, val);
   }
   return publicSettings();
@@ -516,7 +530,7 @@ function verifyUnsubToken(token) {
 
 module.exports = {
   db, nowIso, STAGES, GROUPS, stageHooks, setExtras,
-  getSettings, publicSettings, saveSettings,
+  getSettings, publicSettings, saveSettings, setInternal,
   getSteps, getStep, updateStep, addStep, deleteStep, allTemplates, apptTemplate, extraTemplate, parseDate, parseBirthday,
   normalizePhone, normalizeEmail, normalizeStock, splitStocks, localParts, blockReason, inTextWindow, bool,
   upsertCustomer, updateCustomer, getCustomer, getCustomerRow, listCustomers, deleteCustomer,

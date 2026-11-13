@@ -68,7 +68,7 @@ npm install
 cp .env.example .env
 ```
 
-Edit `.env`: set `APP_PASSWORD`, plus your Gmail address and a Gmail App Password for email.
+Optional: edit `.env` to set `APP_PASSWORD`. You connect your email inside the app (**Settings → Your email**).
 
 ```bash
 npm start
@@ -84,6 +84,14 @@ To try it with demo data first, run `npm run seed`, then `DB_PATH=data/demo.db n
 Run it somewhere your phone can reach: a small always-on computer at home, or a host such as Render or Railway.
 Set `PUBLIC_URL` to that address and always set `APP_PASSWORD`. On your phone, open the address and use
 *Add to Home Screen*.
+
+## Your email
+
+Connect it in **Settings → Your email**: your address plus an *app password*. For Gmail that's
+myaccount.google.com → Security → turn on 2-Step Verification → App passwords. Then click **Connect & send test**.
+Follow-up emails go out from your own address. Every 3 minutes the app checks your inbox. When a customer replies,
+their follow-ups stop and they go on your call list. If they reply "unsubscribe", emails to them stop.
+Gmail, Outlook/Microsoft 365, Yahoo and iCloud are supported.
 
 ## Run it from Claude (MCP)
 
