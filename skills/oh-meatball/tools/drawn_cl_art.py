@@ -1157,7 +1157,7 @@ def cl_bill(ctx, t, p):
     """A page of bill text: lines of print with the three terms spelled as the bill spells them and underlined in
     turn (p under 0..3)."""
     shape(ctx, lambda c: p_rrect(c, -520, -420, 1040, 840, 14), C["paper"], OUT, (0.03, 0.12))
-    terms = ["ONYCHECTOMY (DECLAWING)", "PHLANGECTOMY", "TENDONECTOMY"]
+    terms = ["ONYCHECTOMY (DECLAWING)", "PHALANGECTOMY", "TENDONECTOMY"]
     rows = [None, None, 0, None, 1, None, 2, None]
     un = p.get("under", 0.0)
     for k, r in enumerate(rows):
@@ -1169,7 +1169,7 @@ def cl_bill(ctx, t, p):
             text(ctx, terms[r], 0, y, 64, "#222222", 0)
             u = max(0.0, min(1.0, un - r))
             if u > 0:
-                wpx = [760, 470, 460][r]
+                wpx = [760, 500, 460][r]
                 stroke(ctx, [(-wpx / 2, y + 40), (-wpx / 2 + wpx * ease(u), y + 40)], 10, color=C["red"])
 
 
