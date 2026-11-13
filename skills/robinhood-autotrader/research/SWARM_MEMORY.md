@@ -66,3 +66,9 @@ Read this first so no run repeats a dead variant.
 - 251 events, 41 names, 2025-26. Momentum names: reaction -0.78% (t -1.13), 14.8% close <= -8%, 8.5% open <= -8% (through the stop). Megacaps +0.55%, 4.8% gap-through. Post-event 20d drift +2.2% (rebuy-able).
 - Lean: sit out earnings (no mean given up, tail risk removed). Not significant; needs a longer earnings history for a full sell-before/rebuy-after backtest.
 - R15 task skipped again: R16 (b) unverifiable (no HWM rebase row after the 10/15 halt).
+
+## 2026-11-13 — Friday desk study refresh (52 days, 9/02-11/13)
+- No kills. 1m RSI<30 dip-buy recovered: 15m t +2.1, 30m t +2.3 (was 30m t 1.9).
+- 1m bullish FVG follow stays negative: 15m t -2.1, 30m t -1.9 (fade candidate only).
+- New |t|>=2 (candidates only, ~45 tests per run, expect ~2 by chance): 1m close crosses VWAP follow 15m t +2.1; 5m EMA 9/21 cross follow 15m t +2.0; 5m RSI>70 fade 30m t +2.0 (n=35).
+- Intraday deep dig: in-sample window is fixed (9/02-10/15), so GAPFILL / RANGE_DONE unchanged.
