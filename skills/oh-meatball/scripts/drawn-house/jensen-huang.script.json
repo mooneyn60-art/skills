@@ -1,5 +1,5 @@
 {
- "_what": "Script for the Jensen Huang allegations video (Nolan 11/13: funny, raunchy, all animated, Jensen drawn and named; one cut for TikTok and a YouTube Short, about 80 s). Facts only from research/106-jensen-huang-story-factpack.md. NOT yet checked by a second model. The builder draws each line's `vis`; the only on-screen words are `card` and `signs` (and the captions of `say`).",
+ "_what": "Script for the Jensen Huang allegations video (Nolan 11/13: funny, raunchy, all animated, Jensen drawn and named; one cut for TikTok and a YouTube Short, about 80 s). Facts only from research/106-jensen-huang-story-factpack.md. Checked by a second model 11/13 (research/107): cleared with six changes, all applied here. The builder draws each line's `vis`; the only on-screen words are `card` and `signs` (and the captions of `say`).",
  "_rules": "Jokes aim at Jensen Huang's own admitted conduct and at Meatball. No woman is named or joked about; nothing about his family. Unproven claims stay attributed. The line that names a country is clean. Captions soften swear spelling (cap_swap). Title, description and caption are clean.",
  "lines": [
   {
@@ -34,7 +34,7 @@
     "JH1",
     "JH2"
    ],
-   "say": "November eighth, he emailed the whole company: I was unfaithful to my wife. I am deeply sorry.",
+   "say": "November eighth, he emailed Nvidia employees: I was unfaithful to my wife... I am deeply sorry.",
    "card": [
     "\"I WAS UNFAITHFUL TO MY WIFE.\"",
     "HIS EMAIL TO STAFF, NOV 8 (NVIDIA NEWSROOM)"
@@ -47,7 +47,7 @@
    "facts": [],
    "say": "He built a chip empire and still couldn't manage his own hardware.",
    "card": [],
-   "vis": "Jensen holds the graphics card; its fans spin up, it smokes and droops; he looks down at it, mortified."
+   "vis": "Jensen holds the graphics card; its fans spin up, it smokes and sparks; he looks down at it, mortified."
   },
   {
    "id": "j5",
@@ -65,10 +65,10 @@
    "facts": [
     "JH spy rows"
    ],
-   "say": "It started October twenty-ninth: the New York Times reported U.S. officials believe a woman he was involved with was spying for China.",
+   "say": "It broke October twenty-ninth: the New York Times reported U.S. officials believe an executive he was close to was spying for China.",
    "card": [
     "THE NEW YORK TIMES, OCT 29",
-    "\"U.S. OFFICIALS BELIEVE...\"",
+    "U.S. OFFICIALS BELIEVE...",
     "A REPORT. NO CHARGES."
    ],
    "vis": "A newspaper front page slides in (blank lines for text, the card carries the words). Jensen reads it and the graphics card slips out of his hand. No woman is drawn."
@@ -80,16 +80,16 @@
     "JH spy rows",
     "JH China denial"
    ],
-   "say": "The same report said officials don't think he knew. Nobody's been charged. China calls it groundless speculation.",
+   "say": "The same report said officials didn't believe he knew. Neither of them has been charged. China calls it a smear.",
    "card": [
-    "NOBODY CHARGED",
-    "CHINA: \"GROUNDLESS SPECULATION\""
+    "NEITHER CHARGED (REPORTED)",
+    "CHINA: \"NOTHING BUT SMEARS\""
    ],
-   "vis": "Three stamps land one after another on the newspaper: HE DIDN'T KNOW (REPORTED), NO CHARGES, DENIED. Jensen wipes his forehead.",
+   "vis": "Three stamps land one after another on the newspaper: OFFICIALS: HE DIDN'T KNOW (NYT), NO CHARGES, CHINA DENIES. Jensen wipes his forehead.",
    "signs": [
-    "HE DIDN'T KNOW (REPORTED)",
+    "OFFICIALS: HE DIDN'T KNOW (NYT)",
     "NO CHARGES",
-    "DENIED"
+    "CHINA DENIES"
    ]
   },
   {
@@ -111,10 +111,10 @@
    "facts": [
     "JH more-affairs rows"
    ],
-   "say": "Then the Times and Reuters reported more affairs, not confirmed by him or Nvidia. If true, that's serious fucking multithreading.",
+   "say": "Then the Times and Reuters reported more affairs, not confirmed. If true, that's serious fucking multithreading.",
    "card": [
-    "MORE AFFAIRS REPORTED",
-    "NOT CONFIRMED (NYT, REUTERS)"
+    "MORE AFFAIRS REPORTED (NYT NOV 11, REUTERS NOV 12)",
+    "NOT CONFIRMED"
    ],
    "vis": "More newspapers pile up on Jensen until only the jacket collar and glasses show. A little CPU with many glowing threads spins on 'multithreading'."
   },
@@ -151,12 +151,12 @@
    "facts": [
     "JH interim rows"
    ],
-   "say": "Interim CEO: finance chief Colette Kress. First job, the most awkward all-hands meeting ever.",
+   "say": "Interim CEO: finance chief Colette Kress. Meatball sent in his resume anyway.",
    "card": [
     "INTERIM CEO",
     "CFO COLETTE KRESS (NVIDIA, NOV 12)"
    ],
-   "vis": "An office door with a fresh INTERIM CEO sign being hung. Nobody else real is drawn: an empty podium facing rows of empty chairs.",
+   "vis": "An office door with a fresh INTERIM CEO sign being hung. Nobody else real is drawn. Meatball tiptoes up and slides a crayon resume under the door; it slides straight back out.",
    "signs": [
     "INTERIM CEO"
    ]
