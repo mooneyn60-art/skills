@@ -1,0 +1,355 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "detective",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "cut_whoosh": true,
+ "loop": true,
+ "tempo": {
+  "lead": 0.08
+ },
+ "photo_credits": [],
+ "series": "Things Living In Your House",
+ "sources": [
+  "Nagasawa, Mitsui, En, Ohtani, Ohta, Sakuma, Onaka, Mogi & Kikusui 2015, Science 348(6232):333-336, \"Oxytocin-gaze positive loop and the coevolution of human-dog bonds\" (abstract on PubMed, opened 2026-11-13; the paper itself did not open): \"We show that gazing behavior from dogs, but not wolves, increased urinary oxytocin concentrations in owners, which consequently facilitated owners' affiliation and increased oxytocin concentration in dogs.\"; the loop \"may have supported the coevolution of human-dog bonding\"; https://pubmed.ncbi.nlm.nih.gov/25883356/",
+  "Fiset & Plourde 2015, Frontiers in Psychology, commentary on Nagasawa et al. 2015 (open full text, opened 2026-11-13): \"domestic dogs and tamed wolves were reunited for 30 min with their owners\"; \"Dogs and owners who exchanged long gazes had an increase in oxytocin, whereas oxytocin concentrations remained stable in dogs and owners that shared shorter gazes.\"; the coevolution conclusion \"is premature and that further work is necessary\"; https://pmc.ncbi.nlm.nih.gov/articles/PMC4663257/",
+  "American Kennel Club, Why Does My Dog Stare At Me? by Stephanie Gibeault, MSc, CPDT (updated Mar 27, 2026; opened 2026-11-13): \"Essentially, they are waiting for us to do something that will impact them. For example, dogs quickly learn that their owners pick up the leash before taking them on a walk.\"; \"The same is true for mealtimes, play sessions, car rides, and so much more.\"; \"That's why you should never stare down strange dogs or hold dogs still to stare into their eyes. If a dog gives you a hard stare, with unblinking eyes and a stiff posture, back away and don't make eye contact.\"; https://www.akc.org/expert-advice/advice/why-does-my-dog-stare-at-me/",
+  "Cornell University College of Veterinary Medicine, Riney Canine Health Center, Muzzle choices: a hard stare is in its list of signs that a dog is uncomfortable and may escalate to biting (fact pack row DOGS9; not opened again by the writer); https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-information/muzzle-choices",
+  "Texas A&M College of Veterinary Medicine, Pet Talk, Preventing attacks (Dr. Bonnie Beaver): staring with teeth showing and a stiff upright tail are the cues to recognize, and \"it is best to freeze and avoid direct eye contact\" (fact pack row DOGS10; not opened again by the writer); https://vetmed.tamu.edu/news/pet-talk/preventing-attacks/"
+ ],
+ "stage": {
+  "creature": "dog",
+  "scene": "kitchen",
+  "scene_p": {},
+  "s": 0.62,
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "dog",
+   "color": "#c8743c",
+   "dark": "#8f4f24",
+   "belly": "#f1dcc0",
+   "tail_color": "#c8743c",
+   "length": 600,
+   "height": 290,
+   "leg_len": 200,
+   "leg_w": 36,
+   "ears": "floppy",
+   "tail": "thin",
+   "tail_w": 20,
+   "whiskers": false,
+   "mood": "happy"
+  }
+ },
+ "cap_key": [
+  "you",
+  "your",
+  "my",
+  "dog",
+  "dogs",
+  "stare",
+  "staring",
+  "akc",
+  "waiting",
+  "noodle",
+  "donut",
+  "contest",
+  "cried",
+  "study",
+  "gazes",
+  "oxytocin",
+  "owners",
+  "missing",
+  "hard",
+  "unblinking",
+  "stiff",
+  "back",
+  "away",
+  "eye",
+  "contact"
+ ],
+ "title": "Why My Dog Stares at Me: Often Waiting, Plus 1 Oxytocin Study 👀 (Things Living In Your House #69)",
+ "description": "Why does my dog stare at me? The American Kennel Club (AKC) says dogs stare at us a lot: essentially, they are waiting for us to do something that affects them. Dogs learn that owners pick up the leash before a walk and watch for it, and the AKC says the same is true for mealtimes. In one 2015 study, owners were reunited with their dogs for 30 minutes. Long gazes went with a rise in oxytocin: dogs and owners who shared long gazes had the rise (in owners it was measured in urine), and in pairs that shared shorter gazes it stayed stable. The authors say this gaze and oxytocin loop may have supported the co-evolution of the human-dog bond; two other scientists called that conclusion premature. Not every stare is the same: the AKC says if a dog gives you a hard stare, with unblinking eyes and a stiff posture, back away and don't make eye contact, and never stare down a strange dog. General information, not safety training.\n\n#dogs #dogbehavior #meatballmyths #shorts\n\nSources: American Kennel Club, Why Does My Dog Stare At Me? (updated Mar 27, 2026); Nagasawa et al. 2015, Science (abstract on PubMed); Fiset & Plourde 2015, Frontiers in Psychology (commentary).",
+ "pinned_comment": "What does your dog stare at you for, and what is the strangest moment it ever picked?",
+ "_note": "11/13: new pet Short, series #69, written only from research/facts/dog-stare.md. Checked by a second model 2026-11-13 (research/facts/dog-stare-check.md): title and one description phrase changed, every spoken line and card cleared as written. The title notes below are about the old title ('1 Study Tied Long Gazes to Oxytocin'), which could read as oxytocin being the reason a dog stares. Searched words 'why does my dog stare at me': rank 1 in the YouTube and the web suggestions (postkit kw, 2026-11-13). They are the first spoken sentence, word for word. | PACK LIMITS (main session): the Science paper did not open (403), so the study lines rest on the paper's abstract on PubMed (DOGS1, DOGS5) and the open Frontiers commentary on PMC (DOGS2, DOGS3, DOGS4, DOGS6). The writer opened the PubMed record, the PMC page and the AKC page again on 2026-11-13; the quotes in 'sources' match word for word. The checker must open the PubMed abstract and the PMC commentary itself, not the science.org page. | Facts: DOGS7 in line 1 (AKC: 'they are waiting for us to do something that will impact them'; said as 'often waiting for something'; 'often' stands for the AKC's 'they stare at us a lot'; the card adds 'for you to do something'). DOGS1, DOGS2 and DOGS3 in the study line: 'in one study', 'long gazes', 'went with', 'a rise in oxytocin in dogs and owners'; the card adds the year and the 30-minute reunion. | Line 2 is the Meatball gag and adds no fact: Meatball wins a staring contest with his dog, Noodle; Noodle was watching the donut (a donut pops in between them). Pay-off, the running gag as an action on screen: Noodle walks out with the donut over its head, and 'Meatball's went with a missing donut' reuses the hedge words 'went with'. The brief said sandwich; it is a donut because the tools draw a donut prop and no sandwich (tools/drawn_gags.py). Noodle gets no feeling and no motive: 'was watching the donut' and the walk-off are actions. 'Meatball cried' is on Meatball. First naming is 'his dog, Noodle' with the comma (voice trap from the cat purr cut). Nothing tells the viewer to stare at a dog. | Left out of the spoken lines and why: urine and the 30-minute reunion (the reunion is on the study card; urine is in the description for owners only, because the abstract says 'urinary' for owners and not for dogs); 'pairs with shorter gazes stayed stable' (description and TikTok caption); wolves (DOGS4: not needed, and 'wolves did not' is a shortened-claim trap; never 'hand-raised'); any pair or wolf count (not confirmed); the authors' co-evolution idea and the commentary's 'premature' (DOGS5, DOGS6: description only); 'love hormone' (not used); the AKC's 'expression of love' and 'releases oxytocin' lines (do-not-say list). The AKC page also says to consult a trainer or behaviorist if your own dog gives a hard stare; that sentence is not in the fact pack, so it is not used. | Layout: the opening close-up is slid to the dog's head (open_dx, open_zoom) so the eyes are in frame 0; the hook card comes at 2.6 s, after the camera pulls out, so it does not cover the eyes; in the last line Meatball hops out so the last frame matches frame 0 (the loop). The captions (caption_y 1180, as in every pet cut) cross the dog's head in the two-shots; a builder may move caption_y if the sheet looks crowded. | Voice: spec key tempo lead 0.08 (default 0.01) keeps 0.08 s of air before each line. With the default trim the soft start of the first word was cut: the raw take reads 'Why does my dog stare at me', the mixed YouTube cut read 'What does my dog stare at me' (faster-whisper small.en, 2026-11-13). With 0.08 both full cuts read 'Why'. It matters because the searched words are that sentence. It adds about 0.36 s to a cut. Lower music or more ducking of the sound effects did not fix it. | TikTok search-led cut: the two facts of the YouTube cut plus the warning stare (DOGS8), which did not fit the YouTube length. DOGS8 keeps its trigger (hard stare, unblinking, stiff body) and the AKC's instruction word for word ('back away and don't make eye contact'), said clean. The reaction 'Fuck the contest' comes after it and is on Meatball's own staring contest. The card credits the AKC and carries the whole trigger. The dog in that line is a dark grey dog, not Noodle (spec key cast); it stands still (acting false) and Meatball backs away on screen. Cornell and Texas A&M (DOGS9, DOGS10) agree on the warning stare and are in 'sources' only. | Swears: four lines of five carry one strong word, inside a Meatball joke, as the reaction after a clean line, or in the comment question (not aimed at the viewer). Line 1 is the searched question and the AKC attribution, said clean: a reaction after it ('Fair as fuck') and a spoken 'Meatball cried' were both cut to keep the cut near 25 s (with them it planned at 26.1 to 27.6 s). 'Meatball cried' stays on the gag card. search_top shows the searched phrase until 2.5 s at y 150; the opening is a little wider than on YouTube (open_zoom 1.5) so the phrase does not sit on the dog's eyes. | Caption: the on-screen phrase first, the three facts with their conditions, the gag in the video's words, one share line, a quick pick. TikTok's own suggested searches: none shown on the four public videos opened with postkit ttpage on 2026-11-13, so the hashtags are topic words, not measured ones (#dogbehavior and #dogbodylanguage are on a public hard-stare video with 377,200 plays, postkit ttpage 2026-11-13). | Writer's scratch render 2026-11-13 (not the file to post): 25.20 s, voice check passed. The speech model writes 'meatballs' for 'Meatball's' and does not hear the last 'And' (the take holds it). A clip of only its first 5 s still read 'What'; tempo lead 0.12 fixed that too, at 25.40 s, and was not used to keep the cut shorter. | Lint: pass, 0 warn. The title, description, tags and pinned_comment here are the YouTube copies; they are checked on the YouTube spec.",
+ "beats": [
+  {
+   "open": "animal",
+   "open_zoom": 1.5,
+   "open_dx": -150,
+   "m": "hook",
+   "mood": "calm",
+   "gag": {
+    "mark": "shock"
+   },
+   "_f": [
+    "DOGS7"
+   ],
+   "say": "Why does my dog stare at me? The AKC says dogs are often waiting for something.",
+   "card": {
+    "rows": [
+     [
+      "WHY DOGS STARE",
+      "#ffd34d",
+      104
+     ],
+     [
+      "AKC: OFTEN WAITING FOR YOU TO DO SOMETHING",
+      "#ffffff",
+      42,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": 2.6
+   }
+  },
+  {
+   "scene": "bedroom",
+   "pad": 0.2,
+   "m": "fact",
+   "mood": "calm",
+   "pose": "laugh",
+   "gag": {
+    "prop": "donut",
+    "at": "donut|85%",
+    "x": -330,
+    "y": 150
+   },
+   "mb": {
+    "gest": [
+     [
+      "donut|85%",
+      "shock",
+      1.2
+     ]
+    ]
+   },
+   "say": "Meatball won a fucking staring contest with his dog, Noodle. Noodle was watching the donut.",
+   "card": {
+    "rows": [
+     [
+      "STARING CONTEST",
+      "#ffd34d",
+      104
+     ],
+     [
+      "MEATBALL WON. MEATBALL CRIED.",
+      "#ffffff",
+      50,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "study",
+   "pad": 0.2,
+   "m": "fact",
+   "mood": "calm",
+   "_f": [
+    "DOGS1",
+    "DOGS2",
+    "DOGS3"
+   ],
+   "gag": {
+    "prop": "donut",
+    "at": "meatball's|62%"
+   },
+   "hero_moves": [
+    {
+     "at": "missing|85%",
+     "dur": 0.9,
+     "pos": [
+      1500,
+      1500
+     ],
+     "walk": true,
+     "face": 1
+    }
+   ],
+   "mb": {
+    "gest": [
+     [
+      "missing|85%",
+      "shock",
+      1.2
+     ]
+    ]
+   },
+   "say": "In one study, long gazes went with a rise in oxytocin in dogs and owners. Meatball's went with a missing fucking donut.",
+   "card": {
+    "rows": [
+     [
+      "LONG GAZES",
+      "#ffd34d",
+      116
+     ],
+     [
+      "WENT WITH A RISE IN OXYTOCIN",
+      "#ffffff",
+      50,
+      true
+     ],
+     [
+      "ONE 2015 STUDY, A 30-MINUTE REUNION",
+      "#ffffff",
+      42,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "20%"
+   }
+  },
+  {
+   "scene": "garden",
+   "pad": 0.2,
+   "m": "escalate",
+   "gag": false,
+   "acting": false,
+   "_f": [
+    "DOGS8"
+   ],
+   "cast": {
+    "creature": "strange_dog",
+    "creature_cfg": {
+     "plan": "mammal",
+     "label": "dog",
+     "color": "#4a4f5a",
+     "dark": "#2c3038",
+     "belly": "#b9bdc6",
+     "tail_color": "#4a4f5a",
+     "length": 600,
+     "height": 290,
+     "leg_len": 200,
+     "leg_w": 36,
+     "ears": "floppy",
+     "tail": "thin",
+     "tail_w": 20,
+     "whiskers": false,
+     "mood": "angry"
+    },
+    "s": 0.62
+   },
+   "mb": {
+    "look": "viewer",
+    "moves": [
+     {
+      "at": "back|50%",
+      "dur": 0.8,
+      "pos": [
+       130,
+       1500
+      ],
+      "walk": true
+     }
+    ]
+   },
+   "say": "A hard stare, unblinking, with a stiff body? Back away and don't make eye contact. Fuck the contest.",
+   "card": {
+    "rows": [
+     [
+      "HARD STARE",
+      "#ff4b3e",
+      116
+     ],
+     [
+      "UNBLINKING EYES + A STIFF BODY",
+      "#ffffff",
+      48,
+      true
+     ],
+     [
+      "AKC: BACK AWAY, DON'T MAKE EYE CONTACT",
+      "#ffffff",
+      44,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "15%"
+   }
+  },
+  {
+   "scene": "kitchen",
+   "m": "punch",
+   "gag": {
+    "mark": "alarm"
+   },
+   "mb": {
+    "moves": [
+     {
+      "at": "60%",
+      "dur": 0.45,
+      "pos": [
+       -320,
+       1500
+      ],
+      "hop": 200
+     }
+    ]
+   },
+   "say": "What the fuck does your dog stare at you for? And",
+   "card": {
+    "rows": [
+     [
+      "WHAT DOES YOUR DOG STARE AT YOU FOR? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "search_top": {
+  "rows": [
+   [
+    "WHY DOES MY DOG",
+    "#ffffff",
+    86
+   ],
+   [
+    "STARE AT ME?",
+    "#ffd34d",
+    86
+   ]
+  ],
+  "y": 150,
+  "until": 2.5
+ },
+ "tiktok_title": "Why Does My Dog Stare at Me? Often It Is Waiting",
+ "tiktok_caption": "why does my dog stare at me? 👀 The AKC says dogs are often waiting for you to do something, like pick up the leash. In one 2015 study, long gazes went with a rise in oxytocin in dogs and owners; in pairs that shared shorter gazes it stayed stable. A different stare: if a dog gives you a hard stare, with unblinking eyes and a stiff posture, the AKC says back away and don't make eye contact. General info, not safety training. Meatball won a staring contest with his dog, Noodle. Noodle was watching the donut. Send this to someone whose dog watches every bite. What does your dog stare at you for: food or walks? #dogs #dogsoftiktok #dogbehavior #dogbodylanguage #dogowners",
+ "cap_swap": {
+  "shit": "sh*t",
+  "shits": "sh*ts",
+  "shitty": "sh*tty",
+  "bullshit": "bullsh*t",
+  "fuck": "f**k",
+  "fucking": "f**king",
+  "fucker": "f**ker",
+  "fuckers": "f**kers"
+ },
+ "tags": [
+  "why does my dog stare at me",
+  "why do dogs stare at you",
+  "why do dogs stare at me",
+  "why my dog stare at me",
+  "why do dogs stare",
+  "dog staring at owner",
+  "dog eye contact with owner",
+  "dog eye contact oxytocin",
+  "oxytocin dogs and humans",
+  "dog stare meaning",
+  "things living in your house",
+  "Meatball Myths"
+ ]
+}
