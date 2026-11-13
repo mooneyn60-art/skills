@@ -138,7 +138,7 @@ Read each test on its date, not before.
 - Captions soften the spelling with the spec key `cap_swap` (every spelling used needs its own entry); the voice says the word. Titles, captions under the post and hashtags stay clean.
 - TikTok's rules (effective 2026-09-24) do not mention profanity, so the risk is unmeasured: compare the swearing cuts' views with the clean ones after a week. If TikTok views drop, cut beats, not swears.
 - **For You vs Search (research 81, 11/11):** captions and hashtags are not the lever; what puts a video on For You is people finishing it. The caption standard is in "Tags and everything, from every angle". Not measurable from here: the For You/Search split and retention per video (only TikTok Studio shows them).
-- **TikTok category label (research 82; a lead, not a test):** TikTok files most of our drawn videos under "Comics & Cartoon, Anime". Nolan said no to a real-photo test. The label shows on a video's public page within an hour (`postkit.py ttpage`).
+- **TikTok category label (research 82; a lead, not a test):** TikTok files most of our drawn videos under "Comics & Cartoon, Anime". Nolan said no to a real-photo test. The label shows on a video's public page within an hour (`postkit.py ttpage`). 11/12: the drawn dog cut got the same label, but started fast (115 plays at 2.4 hours) and TikTok suggests "guilty dogs" on it (`research/82`).
 
 ## STYLE LOCK (Nolan, 11/1): no more style changes
 - **The look is locked:** the drawn style with stick-figure Meatball and TARS's species-accurate animals (`oh-meatball/tools/drawn_anatomy.py`). Nolan approved it on 10/30 ("way better, continue this style"). Fully drawn, on YouTube and TikTok: no real photos or footage (Nolan 11/12: "No, keep it all drawn").
