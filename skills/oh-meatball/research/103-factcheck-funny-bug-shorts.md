@@ -46,3 +46,79 @@ Not re-opened: Penn State, UConn CAES, Utah State and Japyassu & Macagnan 2004 (
 - The rendered length after the two changes (needs a render; I did not render).
 - How the voice says "the spider" and "in one summer" (needs the transcript after the render).
 - Whether viewers hear "it" in centipede line 3 as the centipede: a judgment, not measured.
+
+## Second group (six Shorts), 11/13
+Checked: the funny pass in commit 3581e99 (`git diff 3581e99~1 3581e99 -- scripts/drawn-house/`), same rules as above. Each Short read top to bottom for pronouns.
+Opened live 11/13: University of Kentucky ENTFACT-646 (House Dust Mites); UC IPM Pest Notes: Carpet Beetles (now at ipm.ucanr.edu/home-and-landscape/carpet-beetles/; the old pn7436 address returns an empty page); Penn State Extension, Insects on Real Christmas Trees.
+Not re-opened: UKY ENTFACT-609, UC IPM Clothes Moths and Pantry Pests, Penn State and Colorado State cluster-fly pages, Clemson and Utah State booklice pages. No changed line rests on a new reading of them; the spec `sources` quotes cover what is still spoken.
+
+### dust-mites (17.9 s)
+- Line 2 "Meatball hasn't washed his damn sheets since March." with card MEATBALL'S SHEETS / LAST WASHED: MARCH: OK. Joke on Meatball. It gives no order to the viewer and no health claim. The link it hints at (unwashed bedding, more mites) is one the source makes itself: "Bedding is an extremely important source for dust mite development" and "launder bedding weekly in hot water" (UKY ENTFACT-646). "March" is a fact about Meatball, not a number about mites.
+- Cut "They're most numerous in beds, sofas, and carpet.": OK. The hook still says "Your bed's", and the title and description ("in your bed") stay true (UKY: "most numerous in beds").
+- Line 3, CHANGE: "In ideal conditions, they're adults in a month." -> "In ideal conditions, eggs are adults in about a month." Why: (1) "they" now follows the sheets gag, and the nearest plural is "sheets"; the line it pointed back to was cut. "Eggs" also says where the month starts (UKY: "development from egg to adult", the card's EGG TO ADULT). (2) UKY says "takes about one month"; the hedge "about" was missing. The description already says "about a month". Adds about 0.3 s to 17.9 s.
+- Line 4 "Adults live about one to two months. Longer than Meatball's diets.": OK. Joke on Meatball; "about" kept (UKY: "approximately 1-2 months").
+- Line 5, CHANGE: "Keep humidity under 50 percent, and they struggle." -> "Keep humidity under 50 percent, and mites struggle." Why: "they" now follows "Meatball's diets", so the nearest plural is the diets. Same length.
+- Title, description, pinned comment: still true.
+- Mild words: 1 (damn).
+- Sourced facts spoken: 4 (about 50 eggs; egg to adult in about a month; adults about 1 to 2 months; struggle under 50% humidity).
+- Verdict: cleared with the two changes above.
+
+### carpet-beetle-window (18.2 s)
+- Line 2 "It lays them on wool, fur, and carpet. Meatball's whole closet is wool." and card row MEATBALL'S CLOSET: ALL WOOL: OK. "It" and "them" still point at the window bug and its eggs (line 1 is right before). Joke on Meatball.
+- Cut "The eggs hatch in about 2 weeks.": OK. Title, description and pinned comment never said it.
+- Line 3 "Larvae live up to 630 days, eating wool. Meatball's sweater is now a damn vest.": OK. It does not overstate: UC IPM says the larvae feed on wool, "often causing serious damage", and that carpet beetles "are more likely to damage a large area on one portion of a garment". Lost sleeves is a cartoon of that damage on Meatball's own sweater, with no number or rate. "Up to" kept (UC IPM: "220 to 630 days").
+- Line 4 "They leave bristly, shed skins behind.": OK. No plural noun comes between "Larvae" and "They" (the gag has only "sweater" and "vest"). UC IPM: larvae "leave brown, shell-like, bristly-looking cast skins". This keeps the pinned comment's "shed skin" true.
+- Title, description, pinned comment: still true.
+- Mild words: 1 (damn).
+- Sourced facts spoken: 5 (40 eggs; laid on wool, fur, carpet; larvae up to 630 days eating wool; shed skins; adults at windows, drawn to light).
+- Verdict: cleared.
+
+### christmas-tree-bugs (19.9 s)
+- Line 2 "Your warm living room can hatch them. Meatball screamed.": OK. "Them" is the eggs of line 1. The scream is Meatball's reaction, not a danger claim about mantises (same call as "Meatball just screams" above).
+- Line 4, CHANGE: "No food indoors, so they eat each other. Merry damn Christmas." -> "With no food, they eat each other. Merry damn Christmas." Why: Penn State says they "will eat each other if no other food is present, as is usually the case indoors during the winter". "No food indoors" drops "usually" and says every house has none. The new wording keeps the source's condition and is shorter (helps at 19.9 s, lint limit 20.05 s). The card NO FOOD / THEY EAT EACH OTHER already reads as the condition. "Merry damn Christmas" is OK: an exclamation, with no feeling or motive given to the mantises. "They" is the baby mantises of line 3.
+- Title, description, pinned comment: still true.
+- Mild words: 1 (damn).
+- Sourced facts spoken: 6 (about 100 eggs; warmth can hatch them; dozens of babies; eat each other with no food; foamy case on twigs; clip the twig and put it in an evergreen outside).
+- Verdict: cleared with the change above.
+
+### pantry-vs-clothes-moth (18.2 s)
+- Line 2 "They hatch into caterpillars that eat wool. Meatball blamed the damn dryer." and card row MEATBALL BLAMED THE DRYER: OK. "They" is the eggs of line 1. Joke on Meatball; it adds no number or damage beyond "eat wool" (UKY: "fabric-eating larvae").
+- Line 3 "The adults don't eat. The larvae do. Meatball eats for both.": OK. Joke on Meatball (UKY: "Clothes moth adults do not feed").
+- Cut "Clothes moths avoid light, so they're rarely seen.": OK. Line 4 "Moths in your kitchen may be different." keeps "may" and is still true on its own (UKY: kitchen moths "are possibly grain moths"). "They usually arrive in a package of food" still points at the kitchen moths. The description's "dark closets" is still true (UKY: "dark, undisturbed areas such as closets"); a description may say more than the video.
+- Title, description, pinned comment: still true.
+- Mild words: 1 (damn).
+- Sourced facts spoken: 5 (40 to 50 eggs; larvae eat wool; adults don't eat; kitchen moths may be different and usually arrive in food packages; larvae do the eating in both).
+- Verdict: cleared.
+
+### cluster-flies (19.8 s)
+- Line 2 "One warm day wakes them. They crawl out. Meatball needs three alarms." and card row MEATBALL: THREE ALARMS: OK. "Three" counts Meatball's alarms, not flies, so it adds no number about the animal. Joke on Meatball.
+- Line 3, CHANGE: "They crowd your sunny windows, dazed and sluggish. Meatball, every Monday." -> "Flies crowd your sunny windows, dazed and sluggish. Meatball, every Monday." Why: "They" now comes right after "three alarms", the nearest plural. "Flies" is one syllable like "They", so the length does not change (19.8 s against the 20.05 s limit). The joke is OK: it says Meatball is sluggish, not how the flies feel. "Sluggish" is Penn State's word.
+- Cut "Slightly bigger than house flies, with golden hairs.": OK. Title, description and pinned comment never said it.
+- Lines 4 to 6 ("They can't breed in your house", "Their babies...", "They're just lost..."): OK. No plural noun comes between them and the flies.
+- Title, description, pinned comment: still true.
+- Mild words: 0. Allowed under "at most two", but under MASTER_ORDERS "Make them funnier" rule 4 ("YouTube: mild words, one or two"). Not a truth problem. If the main session wants one: "Meatball needs three damn alarms." (on Meatball, adds no claim).
+- Sourced facts spoken: 5 (thousands in walls; a warm day wakes them and they crawl out; crowd windows, sluggish; can't breed indoors; young grow in earthworms outdoors).
+- Verdict: cleared with the change above.
+
+### booklice-cupboard (19.8 s)
+- Line 2 "And flour, cereal, and dried fruit. Meatball's cereal expired years ago." and card row MEATBALL'S CEREAL: EXPIRED YEARS AGO: OK. Joke on Meatball. It gives no storage instruction and no health claim. "Years" is about Meatball's box, not the bugs.
+- Line 3 "They like 75 to 90 percent humidity.": OK. "They" already followed a food list before the gag; the gag adds only singular nouns.
+- Line 4 "They gather around leaking, sweating pipes. Meatball calls it a water feature.": OK. An opinion said by Meatball; it does not say leaks are harmless or harmful (Utah State: "around leaking/sweating pipes").
+- Not changed, noted: line 5 "Dry air can wipe them out within weeks." comes after "pipes", as it did before this pass. The gag between them has only "it". Left as cleared.
+- Title, description, pinned comment: unchanged and not touched by the cut (there was no cut here).
+- Mild words: 0. Same note as cluster flies. If wanted: "Meatball calls it a damn water feature."
+- Sourced facts spoken: 6 (about 1 mm, eating mold; flour, cereal, dried fruit; 75 to 90% humidity; leaking, sweating pipes; dry air kills within weeks; under 50%).
+- Verdict: cleared.
+
+### Rules checked on all six
+- Every joke is on Meatball. None aims at the viewer or a group.
+- No joke adds a number about an animal, a danger or health claim, an animal's feeling or motive, or a safety instruction. "March", "three alarms" and "years ago" are about Meatball.
+- Hedges kept ("about", "up to", "can", "may", "usually"). The Christmas-tree change puts back Penn State's condition that the old wording had dropped.
+- Mild words: 1, 1, 1, 1, 0, 0. None strong, none in a title, description or pinned comment.
+- At least two sourced facts spoken in every Short (4 to 6).
+- `python3 tools/postkit.py lint SPEC` on the six specs as committed (11/13): pass, 0 fail each. Warnings (2 or 3 each) are from before the pass: the description does not open with the searched question (four of the six), 5 hashtags, no `tags` list. The four changes are wording only. Run lint again after they go in.
+
+### Could not measure
+- The rendered lengths after the changes. Dust mites gains about 0.3 s (17.9 s, room to spare). Christmas tree gets shorter. Cluster flies should not change. I did not render.
+- How the voice says "eggs are adults", "mites struggle" and "Flies crowd". Also whether "washed his damn sheets" comes out with "his" heard as "is" (the voice trap in "Make them funnier"). Needs the transcript after the render.
+- Whether viewers hear "They" as the alarms or the sheets: a judgment, not measured.
