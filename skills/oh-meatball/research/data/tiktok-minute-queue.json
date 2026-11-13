@@ -1,0 +1,141 @@
+{
+ "_what": "Topics to rebuild as TikTok cuts over one minute (Nolan 11/12: 'make sure Tik toks are over 1 min long'). The night check-in runs the saved workflow tiktok-minute on the first two with status todo, then sets them to built. The morning run looks at the sheets, sends Nolan the previews, schedules each into its slot and sets it to scheduled. Two a night (careful on credits).",
+ "topics": [
+  {
+   "slug": "cat-sugar",
+   "status": "todo",
+   "slot": "TikTok Fri 11/13 19:00",
+   "family": "pets in your house (cat)",
+   "topic": "Can cats taste sugar or sweet things: the broken sweet gene, what cats taste instead, and why your cat still begs for cake",
+   "searched_phrase": "can cats taste sugar",
+   "short_spec": "/home/user/skills/skills/oh-meatball/scripts/drawn-house/tts-cat-sugar.json",
+   "template": "tt-dog-guilty-look.json",
+   "do_not_say": "Never 'cats cannot taste anything sweet' as a flat fact: say most likely, the gene is broken. No feeling or motive for the cat. No feeding advice beyond what a vet school or agency page says.",
+   "gag_idea": "Meatball baked his cat, Sauce, a birthday cake. Sauce walks off; the cake is probably wasted."
+  },
+  {
+   "slug": "cat-purr",
+   "status": "todo",
+   "slot": "TikTok Sat 11/14 21:30",
+   "family": "pets in your house (cat)",
+   "topic": "Why do cats purr: how the sound is made, and that it is not only a happy sound",
+   "searched_phrase": "why do cats purr",
+   "packs": [
+    "/home/user/skills/skills/oh-meatball/research/facts/cat-purr.md",
+    "/home/user/skills/skills/oh-meatball/research/facts/cat-purr-check.md"
+   ],
+   "short_spec": "/home/user/skills/skills/oh-meatball/scripts/drawn-house/tts-cat-purr.json",
+   "template": "tt-dog-guilty-look.json",
+   "do_not_say": "Do not say cats purr only when happy. Nothing about healing. No feeling or motive for the cat. 'No brain attached' only about the lab voice boxes.",
+   "gag_idea": "Meatball purrs back at his cat, Sauce, like a broken lawn mower; Sauce leaves the room, then the house."
+  },
+  {
+   "slug": "moose-wms",
+   "status": "todo",
+   "slot": "TikTok Sat 11/14 19:00",
+   "family": "Would Meatball Survive? (big dangerous animal)",
+   "topic": "What to do if a moose charges you",
+   "searched_phrase": "what to do if a moose charges you",
+   "short_spec": "/home/user/skills/skills/oh-meatball/scripts/drawn-house/tts-moose-wms.json",
+   "template": "tt-grizzly-wms.json",
+   "do_not_say": "No ending says a tactic saved Meatball. Every safety line is credited to its agency and keeps its trigger. Moose advice never shares a line with bear advice.",
+   "gag_idea": "(keep the short cut's gag)"
+  },
+  {
+   "slug": "cat-name",
+   "status": "todo",
+   "slot": "TikTok Sun 11/15 19:00",
+   "family": "pets in your house (cat)",
+   "topic": "Do cats know their names: the 2019 study",
+   "searched_phrase": "do cats know their names",
+   "packs": [
+    "/home/user/skills/skills/oh-meatball/research/84-pets-and-survive-factpack.md (section 1, CN)",
+    "/home/user/skills/skills/oh-meatball/research/86-factcheck-pets-survive-shorts.md"
+   ],
+   "short_spec": "/home/user/skills/skills/oh-meatball/scripts/drawn-house/tts-cat-name.json",
+   "template": "tt-dog-guilty-look.json",
+   "do_not_say": "See the CN do-not-say list in research 84.",
+   "gag_idea": "(keep the short cut's gag; the cat is Sauce)"
+  },
+  {
+   "slug": "bison-wms",
+   "status": "todo",
+   "slot": "TikTok Sun 11/15 21:30",
+   "family": "Would Meatball Survive? (big dangerous animal)",
+   "topic": "What to do if a bison charges you: Yellowstone's 25-yard rule",
+   "searched_phrase": "what to do if a bison charges you",
+   "packs": [
+    "/home/user/skills/skills/oh-meatball/research/facts/bison-wms.md",
+    "/home/user/skills/skills/oh-meatball/research/facts/bison-wms-check.md"
+   ],
+   "short_spec": "/home/user/skills/skills/oh-meatball/scripts/drawn-house/tts-bison-wms.json",
+   "template": "tt-grizzly-wms.json",
+   "do_not_say": "Do not convert 3x faster into mph. Credit the Park Service. The question at the end asks how far away, never how close.",
+   "gag_idea": "Meatball walks up for a selfie with a tiny selfie stick; the tail goes up; he waves back."
+  },
+  {
+   "slug": "shark-wms",
+   "status": "todo",
+   "slot": "TikTok Mon 11/16 19:00",
+   "family": "Would Meatball Survive? (big dangerous animal)",
+   "topic": "What to do if a shark comes close",
+   "searched_phrase": "what to do if a shark comes close",
+   "packs": [
+    "/home/user/skills/skills/oh-meatball/research/84-pets-and-survive-factpack.md (section 5, SH)",
+    "/home/user/skills/skills/oh-meatball/research/86-factcheck-pets-survive-shorts.md"
+   ],
+   "short_spec": "/home/user/skills/skills/oh-meatball/scripts/drawn-house/tts-shark-wms.json",
+   "template": "tt-grizzly-wms.json",
+   "do_not_say": "Shark counts say 'confirmed' and the year. Shark advice never shares a line with bear advice.",
+   "gag_idea": "(keep the short cut's gag)"
+  },
+  {
+   "slug": "dog-tail-wag",
+   "status": "todo",
+   "slot": "TikTok Tue 11/17 19:00",
+   "family": "pets in your house (dog)",
+   "topic": "What a dog's tail wag means: left or right",
+   "searched_phrase": "what does a dog's tail wag mean",
+   "packs": [
+    "/home/user/skills/skills/oh-meatball/research/84-pets-and-survive-factpack.md (section 3, DT)",
+    "/home/user/skills/skills/oh-meatball/research/86-factcheck-pets-survive-shorts.md"
+   ],
+   "short_spec": "/home/user/skills/skills/oh-meatball/scripts/drawn-house/tts-dog-tail-wag.json",
+   "template": "tt-dog-guilty-look.json",
+   "do_not_say": "A wag direction is a lean, not a rule.",
+   "gag_idea": "(keep the short cut's gag; the dog is Noodle)"
+  },
+  {
+   "slug": "dog-stare",
+   "status": "todo",
+   "slot": "TikTok Thu 11/19 12:00",
+   "family": "pets in your house (dog)",
+   "topic": "Why does my dog stare at me",
+   "searched_phrase": "why does my dog stare at me",
+   "packs": [
+    "/home/user/skills/skills/oh-meatball/research/facts/dog-stare.md",
+    "/home/user/skills/skills/oh-meatball/research/facts/dog-stare-check.md"
+   ],
+   "short_spec": "/home/user/skills/skills/oh-meatball/scripts/drawn-house/tts-dog-stare.json",
+   "template": "tt-dog-guilty-look.json",
+   "do_not_say": "See the pack: no love claim, no pair count, never stare down a dog.",
+   "gag_idea": "Meatball wins a staring contest with his dog, Noodle; Noodle was watching the donut and walks off with it."
+  },
+  {
+   "slug": "dog-turkey",
+   "status": "todo",
+   "slot": "TikTok Sat 11/21 12:00",
+   "family": "pets in your house (dog), seasonal",
+   "topic": "Can dogs eat turkey: what the ASPCA and the FDA say",
+   "searched_phrase": "can dogs eat turkey",
+   "packs": [
+    "/home/user/skills/skills/oh-meatball/research/facts/dog-turkey.md",
+    "/home/user/skills/skills/oh-meatball/research/facts/dog-turkey-check.md"
+   ],
+   "short_spec": "/home/user/skills/skills/oh-meatball/scripts/drawn-house/tts-dog-turkey.json",
+   "template": "tt-dog-guilty-look.json",
+   "do_not_say": "Never an amount as safe; never cooked bones are fine; every safety line keeps its trigger and ends with the agency's action or 'ask your vet'.",
+   "gag_idea": "Meatball guards the turkey all day; his dog, Noodle, takes the carcass out of the trash."
+  }
+ ]
+}

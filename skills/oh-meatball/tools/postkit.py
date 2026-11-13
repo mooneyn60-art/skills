@@ -594,10 +594,9 @@ def lint(path, mp4=None):
             r.fail("cannot read %s" % mp4)
         elif kind == "youtube" and not (lo <= d <= hi):
             r.fail("YouTube Short is %.2f s (15 to 20)" % d)
-        elif kind == "tiktok" and d < tlo:
-            r.warn("TikTok cut is %.2f s, under 20 s (the search-led cuts run 20 to 26): wrong or cut-off file?" % d)
-        elif kind == "tiktok" and thi < d < CFG["tt_rewards_s"]:
-            r.warn("TikTok short cut is %.2f s (the search-led cuts run 20 to 26; a Rewards cut runs 61 or more)" % d)
+        elif kind == "tiktok" and d < CFG["tt_rewards_s"]:
+            # Nolan 11/12: "make sure Tik toks are over 1 min long". The 20 to 26 s cuts are YouTube material now.
+            r.fail("TikTok cut is %.2f s: every TikTok runs over 1 minute (%.0f s or more)" % (d, CFG["tt_rewards_s"]))
         else:
             r.ok("length %.2f s" % d)
     print("  => %s (%d fail, %d warn)" % ("FAIL" if r.fails else "pass", r.fails, r.warns))

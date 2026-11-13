@@ -387,3 +387,39 @@ Each line is as it stood on the page; the heading in brackets is the section it 
 
 [Agent routing, replaced 11/12 night by 'Be careful on credits']
 - **Usage limit (11/10):** five agents in one afternoon (two opus builds, an opus fact-check, sonnet builders) used up Nolan's 5-hour plan limit and stopped a build mid-way. Run one opus build at a time, give sonnet the fix passes and research, and do reviews in the main session. A stopped agent keeps its work: resume it with a message after the limit resets, don't start over.
+
+## Moved from the page on 11/12 (about 23:30, after 'TikToks over one minute')
+
+[Views are stuck on both platforms]
+- **TikTok search-led test (scheduled 11/12):** seven short funny cuts of the new pet and survival Shorts (files `oh-meatball/episodes/drawn-house/tts-<slug>.mp4`, specs `scripts/drawn-house/tts-<slug>.json`), with the phrase people type on screen for the first 2 to 2.5 seconds (spec key `search_top`, 150 px down) and leading the title and caption. They hold the 19:00 slot: Thu 11/12 dog guilty look, Fri cat sugar, Sat moose, Sun cat name, Mon shark, Tue tail wag, Thu 11/19 grizzly (Wed 11/18 19:00 is the bed-bug post). **Change nothing in the 19:00 slot until the verdict.**
+
+[Views are stuck on both platforms]
+- **Pass mark, read Fri 11/20:** the test cuts' median is 400 or more, or three of six reach 500 (by chance alone the median passes 370 one time in twenty, research 91). The test reads short + search phrase + sweary jokes together; it cannot tell them apart.
+
+[Views are stuck on both platforms]
+- **What changed from it (11/12 night):** the new funny search-led cuts took two 21:30 slots: cat purr Sat 11/14 and bison Sun 11/15 (honey badger moved to Thu 11/19 21:30, woodpecker to Fri 11/20 21:30); the turkey cut posts Sat 11/21 12:00. **Asked Nolan 11/12 night, waiting: yes or no to six drawn TikToks of 2.5 to 3.5 minutes** (one a day at 12:00, funny first with Noodle and Sauce, each its own script from a checked fact pack; pass mark: median 370 or more at 48 hours or two of six at 1,000, with likes at 3.5%). It is a format change, so nothing is built before his yes.
+
+[Posting]
+- **TikTok:** 12:00, 19:00, 21:30 ET, plus the 20:15 one-minute sweary cuts already scheduled. The 19:00 slot carries the 20 to 26 second search-led cut through Thu 11/19 (verdict Fri 11/20). One-minute cuts only on proven topics, except the grizzly and dog 20:15 cuts already scheduled ("Direction change"). Sweary one-minute cuts run 85-92 s; 61-75 s is for clean cuts.
+
+[Posting]
+- **Cuts under a minute** are still for YouTube, except in that one TikTok 19:00 test slot, where views come first because Rewards pays nothing until the account can join. These rules are for new builds. TikToks queued before 11/11 keep their slots: the 62-71 s clean animal cuts at 12:00 and 21:30, the 18-20 s explainers Thu 11/12 and Fri 11/13 21:30, the bed-bug post Wed 11/18 19:00 and the silverfish Short Fri 11/20 19:00.
+
+[More comedy on YouTube]
+- **Done 11/12:** the session was down from about 17:15 to 21:25 ET (usage limit, restarts), so they went out late: the turkey Short (#70) at 21:47 and the cat purr Short (#68, with Sauce) at 22:20. That made five Shorts on Thu 11/12 (three were queued). Their TikTok cuts are not posted yet.
+
+[More comedy on YouTube]
+- **First number (YouTube public counts, 11/12 21:28 ET):** the funnier cat Short (16:00) had 1,000 views at 5.5 hours; the plain false-widow Short (10:00) had 508 at 11.5 hours; the funnier moose Short (19:00) had 281 at 2.5 hours. Wednesday's two joke Shorts are at 806 and 441, the two plain hook-test Shorts at 60 and 70. Different topics, so a lead, not proof.
+
+[Previews and engagement]
+- **What the numbers say so far (`oh-meatball/research/96-openings.md`):** our openings already match the fact-style winners on first word, words, cuts and movement, so the opening mechanics are not the gap.
+
+[Develop yourself]
+- **What it means (my reading):** develop yourself, with full control over your own tools: install packages, add tools, skills, hooks, agent roles and workflows, without asking first. The work gate still holds: each thing has to change a post in the next seven days or a scorecard number. Logins, approvals and money stay his (10/24: payments stay zero beyond what is already paid), and he gets asked for one thing at a time. When he asks what changed, answer in two short lines.
+
+[What he picked to build next]
+- **Keep digging, TikTok too:** research keeps running, and every round covers TikTok as well as YouTube until TikTok leaves the 200-to-300 band. Round now running: `oh-meatball/research/97` (small TikTok accounts like ours that break out, a full audit of our own posts, what TikTok search and its trend pages show).
+
+[Views are stuck on both platforms]
+- **TikTok round 2 (research 97, `oh-meatball/research/97-tiktok-view-jail-round-2.md`, checked by a second model 11/12):** no public page shows a block. Ranked causes: (1) the first viewers do not like, comment on or probably finish our videos (likes 2.2% against 4.1 to 9.9% on drawn accounts like ours, comments 0.05%, the lowest read); (2) our videos are short for this niche: the closest account (lianna_anima, drawn stick-figure pets, 10.3K followers) has a median of 2,232 with videos of about 195 seconds, animatales5 5,353 at about 165 seconds; (3) captions that open with the searched phrase do about 1.7 times better (median 321 against 224, p 0.006, tied up with bug topics). The label, the look, posting through Metricool and posting 3 to 4 a day have no evidence against them.
+
