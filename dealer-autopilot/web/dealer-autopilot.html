@@ -1048,7 +1048,8 @@ const ALIASES = {
   full_name: ['name', 'full name', 'customer', 'customer name'], phone: ['phone', 'cell', 'mobile', 'mobile number', 'cell phone', 'cellphone', 'cell number', 'phone number', 'mobile phone', 'home phone', 'day phone', 'primary phone'],
   email: ['email', 'e mail', 'email address', 'customer email'], stocks: ['stock', 'stock #', 'stock number', 'stock no', 'stock#', 'stk', 'stk#', 'vehicle stock number', 'sought stock number'],
   vehicle: ['vehicle', 'vehicle of interest', 'interest', 'car', 'model', 'year make model', 'vehicle sought', 'sought vehicle'], objection: ['objection', 'concern', 'held back'],
-  notes: ['notes', 'note', 'comments', 'comment'], source: ['source', 'lead source', 'sales source', 'lead provider'], ext_id: ['entity id', 'customer id', 'contact id'], stage: ['stage', 'sales step', 'sales status', 'lead type', 'lead status', 'status', 'type', 'bucket'],
+  notes: ['notes', 'note', 'comments', 'comment'], source: ['source', 'lead source', 'sales source', 'lead provider'], ext_id: ['entity id', 'customer id', 'contact id'],
+  assigned: ['assigned to', 'assigned', 'sales rep', 'salesperson', 'sales person', 'primary salesperson', 'primary sales rep', 'sales associate', 'owner', 'sales 1', 'salesperson 1'], stage: ['stage', 'sales step', 'sales status', 'lead type', 'lead status', 'status', 'type', 'bucket'],
   sold_date: ['sold date', 'date sold', 'delivery date', 'delivered date', 'purchase date'], lead_at: ['lead date', 'created', 'date created', 'created date', 'date received', 'received'],
   consent: ['consent', 'opt in', 'optin', 'sms opt in', 'text opt in', 'ok to text', 'okay to text', 'tcpa consent'], do_not_contact: ['do not contact', 'opted out', 'opt out', 'do not solicit'],
   dnc_registry: ['do not call', 'national dnc', 'dnc', 'dnc registry'], birthday: ['birthday', 'birth date', 'dob', 'date of birth'], referred_by: ['referred by', 'referral'],
@@ -1067,15 +1068,30 @@ function customersFromCsv(text, defStage) {
     if (!first && !last && g(r, 'full_name')) { const full = g(r, 'full_name'); if (full.includes(',')) [last, first] = full.split(',').map((s) => s.trim()); else { const p = full.split(/\s+/); first = p.shift(); last = p.join(' '); } }
     const tc = (x) => (x && x === x.toUpperCase() ? x.toLowerCase().replace(/(^|[\s'-])([a-z])/g, (m, a, b) => a + b.toUpperCase()) : x);
     first = tc(first); last = tc(last);
-    return { first_name: first, last_name: last, phone: g(r, 'phone'), email: g(r, 'email').split(/[;,\s]+/)[0], ext_id: g(r, 'ext_id'), stocks: g(r, 'stocks'), vehicle: g(r, 'vehicle'), objection: g(r, 'objection'), notes: g(r, 'notes'),
+    return { assigned: g(r, 'assigned'), first_name: first, last_name: last, phone: g(r, 'phone'), email: g(r, 'email').split(/[;,\s]+/)[0], ext_id: g(r, 'ext_id'), stocks: g(r, 'stocks'), vehicle: g(r, 'vehicle'), objection: g(r, 'objection'), notes: g(r, 'notes'),
       source: g(r, 'source') || 'Import', stage: stageFrom(g(r, 'stage')) || defStage, sold_date: g(r, 'sold_date'), lead_at: g(r, 'lead_at'),
       consent: m.consent !== undefined ? g(r, 'consent') : undefined, consent_source: 'Opt-in on the imported list', do_not_contact: g(r, 'do_not_contact'), dnc_registry: g(r, 'dnc_registry'),
       birthday: g(r, 'birthday'), referred_by: g(r, 'referred_by') }; }).filter((c) => c.phone || c.email);
   return { list, mapped: Object.fromEntries(Object.entries(m).map(([f, i]) => [f, h[i]])), skipped: rows.length - 1 - list.length };
 }
+/* Only my customers: rows assigned to someone else are dropped. Without an assigned column, you must confirm. */
+function mineOnly(r) {
+  const me = String(S.settings.salesperson || '').toLowerCase().replace(/[^a-z ]/g, '').trim();
+  const hasCol = r.mapped.assigned !== undefined;
+  if (!hasCol) return { ...r, hasCol, others: 0 };
+  const parts = me.split(/\s+/).filter(Boolean);
+  const isMe = (v) => { const x = String(v || '').toLowerCase().replace(/[^a-z ]/g, ' '); return parts.length && parts.every((p) => x.includes(p)); };
+  const list = r.list.filter((c) => isMe(c.assigned));
+  return { ...r, list, hasCol, others: r.list.length - list.length };
+}
 async function importCustomers(preview) {
-  const r = customersFromCsv($('#impText').value, $('#impStage').value); const out = $('#impOut');
-  if (preview) { out.innerHTML = `<p><b>${r.list.length}</b> customers found${r.skipped ? `, ${r.skipped} rows without a phone or email skipped` : ''}.</p><p class="muted small">Columns used: ${Object.entries(r.mapped).map(([f, h]) => `${esc(h)} → ${f.replace('_', ' ')}`).join(', ') || 'none recognized'}</p>
+  const r = mineOnly(customersFromCsv($('#impText').value, $('#impStage').value)); const out = $('#impOut');
+  const mineNote = r.hasCol ? `<p class="ok small">Only your customers: ${r.list.length} assigned to ${esc(S.settings.salesperson)}${r.others ? `, ${r.others} assigned to other salespeople left out` : ''}.</p>`
+    : `<p class="flag small">This file has no "Assigned To" or salesperson column, so it can't be checked that everyone on it is your customer. Best: export it from DealerSocket filtered to Assigned To: ${esc(S.settings.salesperson || 'you')} with the Assigned To column included.</p>
+       <label class="row small" style="gap:8px"><input type="checkbox" id="impMine" style="width:auto"> I checked: everyone on this list is my customer</label>`;
+  if (!r.hasCol && !preview && !$('#impMine')?.checked) { out.innerHTML = mineNote; return; }
+  if (!S.settings.salesperson && r.hasCol) { out.innerHTML = '<p class="flag">Add your name in Setup first, so the list can be matched to you.</p>'; return; }
+  if (preview) { out.innerHTML = mineNote + `<p><b>${r.list.length}</b> customers found${r.skipped ? `, ${r.skipped} rows without a phone or email skipped` : ''}.</p><p class="muted small">Columns used: ${Object.entries(r.mapped).map(([f, h]) => `${esc(h)} → ${f.replace('_', ' ')}`).join(', ') || 'none recognized'}</p>
     <div class="tbl"><table><tr><th>Name</th><th>Phone</th><th>Email</th><th>Stock</th><th>Stage</th><th>Permission</th></tr>${r.list.slice(0, 8).map((c) => `<tr><td>${esc(c.first_name + ' ' + c.last_name)}</td><td>${esc(c.phone)}</td><td>${esc(c.email)}</td><td>${esc(c.stocks)}</td><td>${esc(STAGES[c.stage].label)}</td><td>${bool(c.consent) ? 'Yes' : '—'}</td></tr>`).join('')}</table></div>`; return; }
   let made = 0, merged = 0, n = 0; out.textContent = 'Importing…';
   const quiet = $('#impMode')?.value === 'old';
