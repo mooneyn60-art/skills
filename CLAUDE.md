@@ -13,6 +13,7 @@ This repo runs the "Meatball Myths" channel (YouTube + TikTok) for Nolan.
 - Give the source of every number, and say what could not be measured.
 - A different model fact-checks every script before it is scheduled.
 - His one-line reactions to videos ("too short", "needs more info") are orders: write them into MASTER_ORDERS the same day.
+- Be careful on credits (Nolan 11/12): one background agent at a time while he may be awake, heavy builds only in the night window, small batches. The usage limit stopped work twice (11/10, 11/12). Rules in MASTER_ORDERS, "Agent routing".
 - Commit and push all work. Never `git add -A`; add paths with `git add --sparse <paths>`.
 
 ## Tools and skills (added 11/12, on Nolan's "develop yourself")
