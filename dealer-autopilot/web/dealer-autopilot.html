@@ -181,17 +181,27 @@ const DEFAULT_TEMPLATES = {
     appointment: [],
     sold: [
       T(0, 'sms', "Congratulations on your new {vehicle}, {first_name}! Thank you for choosing {dealership}. It was a pleasure working with you. - {salesperson}"),
+      T(1, 'email', "Hi {first_name},\n\nThank you again for choosing {dealership}. I hope the first day with your {vehicle} has been great.\n\nSave this email so you always have my direct contact. Anything you need, from a question about a feature to a service visit or a friend who's shopping, just reply here or call me at {dealer_phone}." + SIG, 'Thank you, {first_name}'),
       T(3, 'sms', "Hi {first_name}, it's {salesperson}. How are you enjoying the {vehicle}? Do you have any questions about the Bluetooth, keys or features?"),
       T(7, 'sms', "Hi {first_name}, I hope you're enjoying the {vehicle}! If you had a good experience, would you mind leaving a quick review? {review_link}"),
+      T(14, 'email', "Hi {first_name},\n\nNow that you've had the {vehicle} for a couple of weeks, here are a few things owners tell me they wish they'd set up sooner:\n\n- Pair your phone and set your favorite contacts and music sources.\n- Set up the vehicle's app, if it has one, for remote start, location and service alerts.\n- Adjust the driver seat and mirror memory so they're right every time.\n\nIf you'd like a quick walkthrough of any feature, I'm happy to set up a time." + SIG, 'Getting the most out of your {vehicle}'),
       T(30, 'sms', "Hi {first_name}, it's {salesperson}. I hope the {vehicle} is treating you well! If you know anyone who's looking for a vehicle, I'd really appreciate it if you sent them my way."),
+      T(90, 'email', "Hi {first_name},\n\nIt's been about three months with your {vehicle}. I wanted to check in and make sure everything is going well.\n\nIf a friend or family member is shopping, I'd be grateful for the introduction, and I'll take great care of them." + SIG, 'Three months with your {vehicle}'),
       T(180, 'email', "Hi {first_name},\n\nIt's been about six months with your {vehicle}, so it may be getting close to time for service. Our service team will take great care of you, and I'm happy to help you get scheduled." + SIG, 'Time for service on your {vehicle}?'),
+      T(365, 'email', "Hi {first_name},\n\nHappy one year with your {vehicle}! Thank you again for being a customer.\n\nIt's also a good time for a service check. If you'd like help scheduling, just reply to this email." + SIG, 'Happy one year with your {vehicle}'),
       T(365, 'sms', "Happy one year with your {vehicle}, {first_name}! Thank you again for being a customer. If there's ever anything I can do for you, just let me know. - {salesperson}"),
+      T(545, 'email', "Hi {first_name},\n\nJust checking in from {dealership}. How is the {vehicle} doing? If anything needs attention, or you have questions about service or warranty, I'm here to help." + SIG, 'Checking in on your {vehicle}'),
+      T(730, 'email', "Hi {first_name},\n\nIt's been two years with your {vehicle}. Values on vehicles like yours are strong right now, and many of my customers at this point find they owe less than the vehicle is worth.\n\nWould you like me to put together a no-pressure look at what your {vehicle} is worth today?" + SIG, 'What is your {vehicle} worth today?'),
       T(730, 'sms', "Hi {first_name}, it's {salesperson} at {dealership}. Vehicles like your {vehicle} are holding their value well, and yours may be worth more than you owe. Would you like me to run the numbers for you?"),
+      T(910, 'email', "Hi {first_name},\n\nA quick check-in from {dealership}. If your plans are changing, like a growing family, a new commute or just wanting something newer, I'd be glad to show you a few options that fit." + SIG, 'Thinking about what is next?'),
+      T(1095, 'email', "Hi {first_name},\n\nThree years with your {vehicle}! Thank you for being a loyal customer. If you're curious what it's worth or what an upgrade would look like, reply and I'll put the numbers together for you." + SIG, 'Three years with your {vehicle}'),
+      T(1460, 'email', "Hi {first_name},\n\nFour years with your {vehicle}. This is often when an upgrade makes the most sense, while your vehicle still has strong value. Would you like me to run the numbers?" + SIG, 'Four years with your {vehicle}'),
     ],
     lost: [
       T(0, 'sms', "Hi {first_name}, it's {salesperson}. Congratulations on your new vehicle! Would you like me to send you occasional updates, like trade values or new arrivals? No problem at all if not."),
-      T(90, 'email', "Hi {first_name},\n\nI hope you're enjoying your vehicle. Here's a quick update from {dealership}: [trade values / new arrivals]." + SIG, 'A quick update from {dealership}'),
+      T(90, 'email', "Hi {first_name},\n\nI hope you're enjoying your vehicle. Here's a quick update from {dealership}: we've had great new arrivals and strong trade values lately.\n\nIf you or someone you know is shopping, I'm always happy to help." + SIG, 'A quick update from {dealership}'),
       T(180, 'email', "Hi {first_name},\n\nJust a quick check-in from {dealership}. If you or someone you know is shopping, I'm always happy to help." + SIG, 'Checking in from {dealership}'),
+      T(365, 'email', "Hi {first_name},\n\nIt's been about a year since we talked. If you're thinking about your next vehicle or want to know what yours is worth, I'd be glad to help." + SIG, 'Thinking about your next vehicle?'),
     ],
   },
   appt: {
@@ -210,7 +220,7 @@ const DEFAULT_TEMPLATES = {
   },
 };
 const APPT_TYPES = { test_drive: 'Test drive', appraisal: 'Trade appraisal', visit: 'Visit', delivery: 'Delivery', phone_call: 'Phone call' };
-const DEFAULT_SETTINGS = { salesperson: '', dealership: '', dealer_phone: '', dealer_address: '', review_link: '', text_start: 8, text_end: 21, call_target: 5, auto_email: false };
+const DEFAULT_SETTINGS = { salesperson: '', dealership: '', dealer_phone: '', dealer_address: '', review_link: '', text_start: 8, text_end: 21, call_target: 5, auto_email: false, import_leads: false, lead_senders: '', daily_summary: true };
 
 /* ============ state ============ */
 const S = { db: null, customers: new Map(), appts: new Map(), inv: new Map(), settings: { ...DEFAULT_SETTINGS }, tpl: DEFAULT_TEMPLATES,
@@ -278,7 +288,7 @@ function blockReason(c, ch) {
     if (c.dnc_registry && !c.initiated) return 'On the Do Not Call registry and did not contact you first';
   }
   if (ch === 'sms' && !c.consent) return 'No recorded consent to text';
-  if (ch === 'email') { if (!c.email) return 'No email address'; if (c.email_opt_out) return 'Unsubscribed from email'; if (!c.consent) return 'No recorded consent'; }
+  if (ch === 'email') { if (!c.email) return 'No email address'; if (c.email_opt_out) return 'Unsubscribed from email'; if (!c.consent && !c.email_ok) return 'No recorded consent'; }
   return null;
 }
 function inTextWindow(d = new Date()) { const h = d.getHours(); return h >= Math.max(8, +S.settings.text_start || 8) && h < Math.min(21, +S.settings.text_end || 21); }
@@ -493,7 +503,7 @@ VIEWS.today = (L) => {
       <section class="stack"><h2>Send these<span class="count">${L.send.length}</span></h2>
         <p class="muted small" style="margin:-6px 0 0">Edit if you like, tap <b>Copy</b>, send it from your phone or email, then tap <b>Sent</b>.</p>
         ${L.send.map(sendCard).join('') || '<div class="card empty">Nothing to send right now.</div>'}
-        ${L.auto.length ? `<h2>Emailing automatically<span class="count">${L.auto.length}</span></h2><p class="muted small" style="margin:-6px 0 0">These go out from your Gmail within the hour, between 9 am and 7 pm. Nothing to do.</p>
+        ${L.auto.length ? `<h2>Emailing automatically<span class="count">${L.auto.length}</span></h2><p class="muted small" style="margin:-6px 0 0">These go out from your Gmail within 2 hours, between 9 am and 7 pm. Nothing to do.</p>
           ${L.auto.map((it) => `<div class="item"><div class="row spread"><span class="who" data-open="${esc(it.c.id)}">${esc(nm(it.c))}</span><span class="pill p-sold">Auto email</span></div><div class="small">${esc(it.subject)}</div></div>`).join('')}` : ''}</section>
     </div></div>`;
 };
@@ -578,13 +588,25 @@ VIEWS.grow = () => {
       <div class="row"><label class="f" style="display:flex;align-items:center;gap:8px">Per day <input id="per-${key}" type="number" min="1" max="50" value="10" style="width:80px"></label>
       <button class="btn pri" type="button" data-camp="${key}" ${a.length ? '' : 'disabled'}>Add to my list</button></div></div>`; };
   const refSales = [...S.customers.values()].filter((c) => c.stage === 'sold' && c.referred_by).length;
+  const owners = [...S.customers.values()].filter((c) => c.stage === 'sold' && c.sold_date).map((c) => {
+    const months = Math.max(0, Math.floor((Date.now() - new Date(c.sold_date + 'T12:00:00').getTime()) / (30.44 * DAY)));
+    const steps = cadence('sold'); const nx = steps[c.step || 0];
+    const nextAt = nx && c.status === 'active' ? new Date(new Date(c.stage_at).getTime() + nx.day * DAY) : null;
+    return { c, months, nx, nextAt, upgrade: months >= 24 && months <= 48 };
+  }).sort((a, b) => (b.upgrade - a.upgrade) || ((a.nextAt?.getTime() ?? 9e15) - (b.nextAt?.getTime() ?? 9e15)));
   const bdays = [...S.customers.values()].filter((c) => c.birthday).length;
   return `<div class="stack"><h1>Grow</h1><p class="muted">More customers and more sales. Everything here lands on Today for you to send.</p>
     <div class="grid2">${camp('equity', 'Upgrade list', 'Past buyers 2 to 4 years out often owe less than the car is worth. This is where repeat sales come from.')}
       ${camp('reactivation', 'Reactivate old leads', 'Leads with no contact in 60+ days. One friendly check-in brings some back.')}</div>
     <div class="grid2"><div class="card stack"><h2>Inventory matches</h2><p class="muted">Add a vehicle on Stock #s and everyone who asked about that model gets a "just came in" text drafted. Mark a car sold and anyone who liked it gets a "that one sold, want me to find something similar?" text.</p></div>
       <div class="card stack"><h2>Referrals &amp; birthdays</h2><p class="muted">Fill in "Referred by" on a customer. When they buy, a thank-you to whoever sent them shows up on Today. Add a birthday and a birthday text shows up on the day.</p>
-      <p>Referral sales: <b>${refSales}</b> · Birthdays on file: <b>${bdays}</b></p></div></div></div>`;
+      <p>Referral sales: <b>${refSales}</b> · Birthdays on file: <b>${bdays}</b></p></div></div>
+    <h2>Owner care</h2><p class="muted" style="margin-top:-6px">Everyone who bought from you, how long they've had their vehicle, and what's next. Owners in the 2 to 4 year window are your best upgrade calls.</p>
+    <div class="tbl"><table><thead><tr><th>Owner</th><th>Vehicle</th><th class="num">Months</th><th>Next touch</th><th></th></tr></thead><tbody>
+    ${owners.map((o) => `<tr class="click" data-open="${esc(o.c.id)}"><td><b>${esc(nm(o.c))}</b><div class="muted small mono">${esc(fmtPhone(o.c.phone))}</div></td><td>${esc(vehicleOf(o.c).label || '—')}</td><td class="num">${o.months}</td>
+      <td class="small">${o.nx && o.nextAt ? `${o.nx.ch === 'email' ? 'Email' : o.nx.ch === 'sms' ? 'Text' : 'Call'} · ${esc(fmtDay(o.nextAt.toISOString()))}` : '<span class="muted">Nothing scheduled</span>'}</td>
+      <td>${o.upgrade ? '<span class="pill p-sold">Upgrade window</span>' : ''}</td></tr>`).join('') || '<tr><td colspan="5" class="empty">No sold customers yet. Mark customers sold, or import your past buyers with their sold dates.</td></tr>'}
+    </tbody></table></div></div>`;
 };
 
 function weekStats(from, to) {
@@ -667,8 +689,13 @@ VIEWS.setup = () => { const s = S.settings; const f = (k, l, ph = '') => `<label
         <li>Never store credit, SSN, license or income info here.</li></ul></div></div>
     <div class="card stack"><h2>Automatic email</h2>
       <label class="row" style="gap:8px"><input type="checkbox" id="set-auto_email" style="width:auto" ${s.auto_email ? 'checked' : ''}> Send my scheduled follow-up emails automatically from my Gmail</label>
-      <p class="muted small">Every hour from 9 am to 7 pm, a scheduled task in your Claude account emails customers whose next step is an email. It only emails people with recorded permission, skips anything with [brackets] to fill in, and never emails anyone marked Do not contact or unsubscribed.
+      <p class="muted small">Every 2 hours from 9 am to 7 pm, a scheduled task in your Claude account emails customers whose next step is an email. It only emails people with recorded permission, skips anything with [brackets] to fill in, and never emails anyone marked Do not contact or unsubscribed.
         It also checks your Gmail: when a customer replies, their follow-ups stop and they go to the top of your call list, and "unsubscribe" stops emails to them. Booked appointments go on your Google Calendar, and the customer gets an email confirmation and a reminder the day before. Texts stay on your Today list, because nothing can send a text from your personal phone.</p>
+      <label class="row" style="gap:8px"><input type="checkbox" id="set-daily_summary" style="width:auto" ${s.daily_summary !== false ? 'checked' : ''}> Email me a summary every morning: calls, texts to send, replies and appointments</label>
+      <h3>New leads from your Gmail</h3>
+      <label class="row" style="gap:8px"><input type="checkbox" id="set-import_leads" style="width:auto" ${s.import_leads ? 'checked' : ''}> Add new internet leads from my inbox automatically</label>
+      <label class="f">Lead emails come from (comma separated, part of the address is enough)<input id="set-lead_senders" value="${esc(s.lead_senders)}" placeholder="cars.com, autotrader.com, dealersocket, cargurus.com"></label>
+      <p class="muted small">Every 2 hours the task looks for lead emails from these senders, adds the shopper as a New internet lead, and starts their follow-up. Shoppers who asked about a car can be emailed back. Texting still needs their permission, so you'll get a "call and ask" task for that.</p>
       <button class="btn pri" type="button" data-act="save-settings" style="justify-self:start">Save</button></div>
     <div class="card stack"><h2>About this version</h2><p class="muted">This page saves your data to your claude.ai account and opens on your phone or computer. Texts go from your own phone. Emails go from your own email, either with one tap or automatically if you turn on automatic email above. In this chat, Claude can also read and add customers here, so you can paste leads to Claude.</p></div></div>`; };
 
@@ -784,7 +811,7 @@ function openCustomer(id) {
   sheet(nm(c), `
     <div class="row">${stagePill(c.stage)} ${statusPill(c.status)}${c.example ? ' <span class="muted small">(example)</span>' : ''}</div>
     <div class="kv"><span>Mobile</span><span class="mono">${esc(fmtPhone(c.phone) || '—')}</span><span>Email</span><span>${esc(c.email || '—')}${c.email_opt_out ? ' <span class="flag">unsubscribed</span>' : ''}</span>
-      <span>Permission</span><span>${c.consent ? `<span class="ok">Yes</span> · ${esc(c.consent_source)} · ${esc(fmtDay(c.consent_date))}` : c.stage === 'dnc' ? '<span class="flag">Do not contact</span>' : '<span class="flag">Not recorded</span>'}</span>
+      <span>Permission</span><span>${c.consent ? `<span class="ok">Yes</span> · ${esc(c.consent_source)} · ${esc(fmtDay(c.consent_date))}` : c.stage === 'dnc' ? '<span class="flag">Do not contact</span>' : c.email_ok ? '<span class="ok">Email only</span> (they sent an inquiry) · <span class="flag">no texts yet</span>' : '<span class="flag">Not recorded</span>'}</span>
       <span>DNC list</span><span>${c.dnc_registry ? `<span class="flag">On the list</span>${c.initiated ? ' (they contacted us first)' : ''}` : 'No'}</span>
       <span>Stock #s</span><span>${(c.stocks || []).map((s) => `<span class="stock">#${esc(s)}</span>${S.inv.get(s) ? ' ' + esc(vName(S.inv.get(s))) : ''}`).join('<br>') || esc(c.vehicle || '—')}</span>
       <span>Holding back</span><span>${esc(c.objection || '—')}</span><span>Source</span><span>${esc(c.source || '—')}</span>
