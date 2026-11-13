@@ -48,3 +48,22 @@ Average % viewed for Shorts posted 11/10 or later; stayed-to-watch; click-throug
 - Not explained by posting five in a day: 10/25 had six Shorts 1.5 to 2 hours apart (1,254, 1,267, 1,024, 1,216, 1,223, 515), 10/27 six (432 to 1,646), 10/28 four (936 to 1,099). Not explained by jokes or the hook test alone: two of the four are joke Shorts, two are hook-test NEW Shorts. Not explained by "no creature in the title": roach and boxelder name theirs, and the strong teaser does not.
 - Cannot be told apart from here: YouTube showing them to few people, or people swiping away. Studio's Reach tab has both numbers ("Shown in feed", "Viewed vs swiped away"); asked Nolan for a screenshot of the termite Short.
 - Decision: no cadence or title change on one day of data. Today's five Shorts run as scheduled, which gives a same-day comparison: the cat (12:30) and moose (14:30) against yesterday's Shorts in the same slots (299 and 188) and against today's three bug Shorts. Re-pull tonight with the 21:25 TikTok read. Until this clears, Wednesday's Shorts cannot be used for the joke test or the hook test by raw views.
+
+## Evening pull, Thu 11/12 21:28 ET (YouTube public counts, yt-dlp flat listings; no watch pages)
+
+| Short | Posted (ET) | Views | Age | Kind |
+|---|---|---|---|---|
+| Cat can't taste sweet (#64) | Thu 16:00 | 1,000 | 5.5 h | funnier |
+| Moose (Would Meatball Survive? #2) | Thu 19:00 | 281 | 2.5 h | funnier |
+| False widow vs black widow | Thu 10:00 | 508 | 11.5 h | plain |
+| Wolf spider | Wed 10:00 | 1,000 | 35.5 h | plain |
+| Roaches (#53) | Wed 12:30 | 806 | 33.0 h | jokes |
+| Boxelder (#51) | Wed 14:30 | 441 | 31.0 h | jokes |
+| Camel cricket | Wed 16:00 | 70 | 29.5 h | plain, hook test |
+| Termite | Wed 19:00 | 60 | 26.5 h | plain, hook test |
+
+- Long video "3 More Bugs in Your House You Should Never Kill" (Wed 17:00): 59 views at 28.5 h.
+- The cat Short went out with the new title ("Your Cat Likely Can't Taste Sweet or Sugar: 1 Broken Gene").
+- The cat Short is ahead of normal pace (normal is about 1,000 by 12 to 15 hours, research 69). The false widow is at about half of normal pace. YouTube rounds public counts at 1,000 and above, so "1,000" may be up to about 1,049.
+- Two more funnier Shorts went out late on Nolan's order ("Post some of those today to test"): turkey #70 at 21:47 and cat purr #68 at 22:20. That makes five Shorts on Thursday.
+- Could not measure: average % viewed and engaged share (Windsor has them from Sat 11/14), and whether five in a day costs views.

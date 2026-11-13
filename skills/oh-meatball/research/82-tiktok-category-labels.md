@@ -36,3 +36,13 @@ My pick: 1 and 2 together on two cuts, because the label is readable within an h
 - How TikTok assigns the label, and how much weight it has in For You.
 - For You against Search views per video (TikTok Studio only).
 - Whether the swearing changes anything: the joke cut has the same label and the same status fields as the clean posts.
+
+## Thu 11/12 evening: the first search-led funnier cut (dog guilty look, posted 19:02 ET)
+
+Source: the video's public page read with `tools/postkit.py ttpage` at 21:27 and 21:31 ET, and the account listing through yt-dlp.
+
+- Label: still "Comics & Cartoon, Anime", not Pets or Animals. A drawn dog is filed as a cartoon.
+- Plays 115, likes 5 (4.35%), comments 0, shares 0 at 2.4 hours. The first sweary cut had 19 views at 6.5 hours and 48 at 8.6 hours, so this one started about ten times faster. The account's median is about 229 at a day old (research 91).
+- TikTok's own suggested searches on it include "guilty dogs" and "dog body language". So TikTok has matched it to the phrase people type.
+- Odd: the noon pantry-moth TikTok shows the same counts (115 plays, 5 likes) on two reads and in the listing. It had 11 plays at 5 hours. Either a coincidence or a stale public counter; read both again in the morning.
+- Windsor still has only the YouTube account (get_connectors, 11/12 21:32 ET), so no TikTok watch time.
