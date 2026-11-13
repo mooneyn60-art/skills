@@ -46,7 +46,7 @@ h1{{position:relative;font-family:var(--display);font-weight:900;font-size:46pt;
 <div class="brand"><b>Centereach Hyundai</b><span>SBU Appreciation</span></div>
 <div class="eyebrow">Stony Brook University &amp; Stony Brook Medicine</div>
 <h1>Car shopping,<br>on your schedule.</h1>
-<p class="lede">Working 12s or juggling classes? I'll work around your shift. Free appraisals, no pressure. Ask me about Hyundai's College Grad program.</p>
+<p class="lede">Stony Brook employee pricing on the vehicle of your choice, new or pre-owned, plus 2 free oil changes, priority service and a delivery gift. Appointments around your shift. Ask about the College Grad and First Responder programs.</p>
 </div>
 <div class="card"><div class="qr">{Q}<span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span></div><div class="scan">Scan me</div></div>
 <div class="steps"><div class="step"><i>1</i>Open your camera</div><div class="step"><i>2</i>Point at the code</div><div class="step"><i>3</i>Save my contact</div></div>
