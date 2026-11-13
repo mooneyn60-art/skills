@@ -624,3 +624,341 @@ ACTORS = {"tp_calendar": tp_calendar, "tp_strip": tp_strip, "tp_tag": tp_tag, "t
           "tp_ballot": tp_ballot, "tp_bubble": tp_bubble, "tp_picket": tp_picket, "tp_couch": tp_couch,
           "tp_stateline": tp_stateline, "tp_blanket": tp_blanket, "tp_note": tp_note}
 SCENES = {"tp_living": tp_living, "tp_set": tp_set, "tp_neon": tp_neon}
+
+
+# ================================================================================================ office / outage props
+# (11/13 Microsoft outage TikTok: all generic; no brand icons, colours or window shapes; a plain laptop, a plain
+#  envelope icon, a plain chart with no numbers)
+
+def tp_desk(ctx, t, p):
+    """A plain wooden desk (feet y 0, top surface at y -420, x -380..380), one drawer block on the left."""
+    shape(ctx, lambda c: p_rrect(c, -390, -440, 780, 44, 10), C["wood"], OUT, (0.02, 0.2))
+    for x in (-360, 330):
+        shape(ctx, lambda c, x=x: c.rectangle(x, -400, 30, 400), C["wood_dk"], OUT * 0.8, None)
+    shape(ctx, lambda c: c.rectangle(-330, -400, 220, 250), C["wood_dk"], OUT * 0.8, None)
+    for y in (-330, -230):
+        stroke(ctx, [(-250, y), (-190, y)], 8, color=C["gold"])
+
+
+def _env_icon(ctx, x, y, s):
+    ctx.save()
+    ctx.translate(x, y)
+    ctx.scale(s, s)
+    shape(ctx, lambda c: c.rectangle(-60, -40, 120, 80), hexc("#f4ecd6"), OUT * 0.6, None)
+    stroke(ctx, [(-60, -40), (0, 8), (60, -40)], OUT * 0.6)
+    ctx.restore()
+
+
+def tp_laptop(ctx, t, p):
+    """A plain grey laptop (base centre at the origin, feet y 0; screen 420 x 270 above). p mode:
+    "spin" (a spinning loading wheel and a sad face), "inbox" (one empty tray icon, a check mark), "flood" (rows of
+    plain envelope lines scroll in, a red badge swells with p n 0..1; no numbers), "garble" (rows of random blocky
+    glyph marks, no letters), "off" (dark). p glow 0..1 a screen glow."""
+    mode = p.get("mode", "spin")
+    shape(ctx, lambda c: p_poly(c, [(-250, -30), (250, -30), (290, 0), (-290, 0)]), hexc("#b8c0c8"), OUT, (0.02, 0.2))
+    shape(ctx, lambda c: p_rrect(c, -230, -330, 460, 300, 18), hexc("#9aa3ab"), OUT, None)
+    scr = hexc("#16203a") if mode == "off" else hexc("#eef3f8")
+    flat(ctx, lambda c: c.rectangle(-210, -312, 420, 264), scr)
+    cx, cy = 0, -180
+    if mode == "spin":
+        for k in range(10):
+            a = t * 6 + k * 2 * math.pi / 10
+            flat(ctx, lambda c, a=a, k=k: p_ellipse(c, cx - 90 + 30 * math.cos(a), cy - 20 + 30 * math.sin(a), 7, 7),
+                 hexc("#5b677a"), a=0.15 + 0.85 * k / 9)
+        for ex in (40, 100):
+            flat(ctx, lambda c, ex=ex: p_ellipse(c, ex, cy - 40, 10, 12), INK)
+        stroke(ctx, [(30, cy + 30), (70, cy + 10), (110, cy + 30)], 9, smooth=True)
+        flat(ctx, lambda c: p_ellipse(c, 118, cy - 10, 7, 11), hexc("#5ee0ff"), a=0.9)   # a tear
+    elif mode == "inbox":
+        shape(ctx, lambda c: p_poly(c, [(-110, cy - 10), (-70, cy - 80), (70, cy - 80), (110, cy - 10), (110, cy + 60),
+                                        (-110, cy + 60)]), hexc("#dfe8f4"), OUT * 0.7, None)
+        stroke(ctx, [(-110, cy - 10), (-40, cy - 10), (-25, cy + 15), (25, cy + 15), (40, cy - 10), (110, cy - 10)],
+               OUT * 0.6)
+        stroke(ctx, [(130, cy - 60), (160, cy - 30), (200, cy - 100)], 14, color=C["green"])
+    elif mode == "flood":
+        n = p.get("n", 0.0)
+        rows = 8
+        off = (t * 6 * min(1.0, n * 2)) % 1.0
+        ctx.save()
+        ctx.rectangle(-210, -312, 420, 264)
+        ctx.clip()
+        for k in range(-1, rows):
+            y = -300 + (k + off) * 34
+            _env_icon(ctx, -175, y + 12, 0.22)
+            flat(ctx, lambda c, y=y, k=k: c.rectangle(-140, y + 4, 230 if k % 2 else 300, 10), hexc("#7a8a9c"))
+            flat(ctx, lambda c, y=y: c.rectangle(-140, y + 20, 160, 7), hexc("#b7c1cc"))
+        ctx.restore()
+        r = 20 + 60 * min(1.0, n)
+        shape(ctx, lambda c: p_ellipse(c, 190, -310, r, r), C["pen"], OUT * 0.6, None)
+        stroke(ctx, [(190, -310 - r * 0.45), (190, -310 + r * 0.15)], max(4, r * 0.18), color=(1, 1, 1))
+        flat(ctx, lambda c: p_ellipse(c, 190, -310 + r * 0.42, r * 0.1, r * 0.1), (1, 1, 1))
+    elif mode == "garble":
+        rg = _rng(int(t * 8))
+        for row in range(7):
+            x = -190
+            while x < 180:
+                w = rg.choice((14, 18, 24))
+                flat(ctx, lambda c, x=x, row=row, w=w: c.rectangle(x, -296 + row * 34, w, 20), hexc("#3a3f48"))
+                x += w + rg.choice((4, 6, 14))
+    g = p.get("glow", 0.0)
+    if g > 0.01:
+        glow(ctx, 0, -180, 360, hexc("#cfe8ff"), 0.35 * g)
+
+
+def tp_confetti(ctx, t, p):
+    """Confetti falling over a 1000 x 1400 area above the origin (origin = the bottom centre); p on 0..1."""
+    on = p.get("on", 0.0)
+    if on <= 0.01:
+        return
+    rg = _rng(21)
+    cols = [C["q1"], C["q2"], C["q3"], C["q4"], hexc("#ff4fd8")]
+    for k in range(60):
+        x0 = rg.uniform(-500, 500)
+        sp = rg.uniform(0.25, 0.5)
+        u = (t * sp + rg.random()) % 1.0
+        x = x0 + 30 * math.sin(t * 3 + k)
+        y = -1400 + 1400 * u
+        ctx.save()
+        ctx.translate(x, y)
+        ctx.rotate(t * 4 + k)
+        flat(ctx, lambda c: c.rectangle(-10, -5, 20, 10), cols[k % 5], a=min(1.0, on))
+        ctx.restore()
+
+
+def tp_chart(ctx, t, p):
+    """A plain report chart board centred at its origin (760 x 480): axes, a flat line that spikes straight up as
+    p v goes 0..1, a red glow at the tip. No numbers, no brand."""
+    shape(ctx, lambda c: p_rrect(c, -380, -240, 760, 480, 24), hexc("#f4f7fb"), OUT, None)
+    stroke(ctx, [(-320, -190), (-320, 190), (330, 190)], 8)
+    for y in (-110, -30, 50, 130):
+        stroke(ctx, [(-310, y), (320, y)], 3, color=hexc("#d0d8e2"))
+    v = max(0.0, min(1.0, p.get("v", 0.0)))
+    pts = [(-310, 170), (-220, 166), (-130, 172), (-40, 168), (40, 170)]
+    tip = (90, 170 - 360 * ease(v))
+    pts += [(70, 165), tip]
+    stroke(ctx, pts, 12, color=C["pen"])
+    if v > 0.05:
+        glow(ctx, tip[0], tip[1], 70, C["pen"], 0.5 * v)
+        shape(ctx, lambda c: p_ellipse(c, tip[0], tip[1], 14, 14), C["pen"], OUT * 0.5, None)
+
+
+def tp_worker(ctx, t, p):
+    """A generic stick-figure office worker (feet y 0, about 420 tall, facing right): round head with dot eyes and a
+    smile, a shirt and tie torso, stick limbs; p walk 0..1 swings the legs; p sandwich True holds a sandwich up;
+    p shirt colour, p skin colour."""
+    sk = hexc(p.get("skin", "#e8b48a"))
+    sh = hexc(p.get("shirt", "#7aa7d8"))
+    w = p.get("walk", 0.0)
+    ph = t * 9 + p.get("ph", 0)
+    sw = 28 * w * math.sin(ph)
+    for s_ in (1, -1):
+        stroke(ctx, [(0, -170), (s_ * sw, -80), (s_ * sw * 1.4 + 10, 0)], 12)
+    shape(ctx, lambda c: p_rrect(c, -40, -320, 80, 160, 24), sh, OUT * 0.8, (0.04, 0.1))
+    shape(ctx, lambda c: p_poly(c, [(-10, -312), (10, -312), (14, -230), (0, -210), (-14, -230)]), C["red"],
+          OUT * 0.4, None)
+    stroke(ctx, [(-30, -300), (-60 - sw * 0.5, -230), (-50, -170)], 11)
+    if p.get("sandwich", True):
+        stroke(ctx, [(30, -300), (80, -280), (90, -330)], 11)
+        ctx.save()
+        ctx.translate(95, -345)
+        ctx.rotate(-0.2)
+        shape(ctx, lambda c: p_rrect(c, -46, -20, 92, 40, 12), hexc("#e8c46a"), OUT * 0.5, None)
+        flat(ctx, lambda c: c.rectangle(-48, -4, 96, 8), C["green"])
+        flat(ctx, lambda c: c.rectangle(-44, 4, 88, 6), C["red"])
+        ctx.restore()
+    else:
+        stroke(ctx, [(30, -300), (60 + sw * 0.5, -230), (50, -170)], 11)
+    shape(ctx, lambda c: p_ellipse(c, 0, -385, 62, 66), sk, OUT * 0.8, (0.06, 0.1))
+    for ex in (-18, 22):
+        flat(ctx, lambda c, ex=ex: p_ellipse(c, ex, -395, 7, 9), INK)
+    stroke(ctx, [(-18, -360), (4, -348), (26, -362)], 6, smooth=True)
+
+
+def tp_globe(ctx, t, p):
+    """A plain drawn globe centred at its origin (r 300): blue sea, blobby green land that drifts round, p n 0..1
+    red dots pop up, p snow 0..1 snow falls over it and caps the top."""
+    r = 300
+    shape(ctx, lambda c: p_ellipse(c, 0, 0, r, r), hexc("#2f7fc0"), OUT, (0.05, 0.08), (0.3, 0.25, 0.25))
+    ctx.save()
+    p_ellipse(ctx, 0, 0, r - 4, r - 4)
+    ctx.clip()
+    off = (t * 30) % 800
+    rg = _rng(3)
+    for k in range(7):
+        bx = rg.uniform(-400, 400)
+        by = rg.uniform(-220, 220)
+        rx, ry = rg.uniform(60, 130), rg.uniform(40, 100)
+        for dx in (-800, 0, 800):
+            x = (bx + off + 400) % 800 - 400 + dx
+            shape(ctx, lambda c, x=x, by=by, rx=rx, ry=ry: p_ellipse(c, x, by, rx, ry, 0.3), C["green"],
+                  BG_OUT * 0.6, None)
+    n = p.get("n", 0.0)
+    rg = _rng(8)
+    for k in range(int(40 * min(1.0, n))):
+        x, y = rg.uniform(-250, 250), rg.uniform(-230, 230)
+        if x * x + y * y > (r - 30) ** 2:
+            continue
+        pr = 12 + 3 * math.sin(t * 6 + k)
+        shape(ctx, lambda c, x=x, y=y, pr=pr: p_ellipse(c, x, y, pr, pr), C["pen"], OUT * 0.4, None)
+    sn = p.get("snow", 0.0)
+    if sn > 0.01:
+        flat(ctx, lambda c: p_ellipse(c, 0, -r, r * 0.8, 90 * min(1.0, sn)), (1, 1, 1), a=0.95)
+    ctx.restore()
+    if sn > 0.01:
+        rg = _rng(13)
+        for k in range(40):
+            x0 = rg.uniform(-480, 480)
+            u = (t * rg.uniform(0.15, 0.3) + rg.random()) % 1.0
+            flat(ctx, lambda c, x0=x0, u=u, k=k: p_ellipse(c, x0 + 20 * math.sin(t * 2 + k), -520 + 1040 * u, 9, 9),
+                 (1, 1, 1), a=min(1.0, sn) * 0.9)
+
+
+def tp_rack(ctx, t, p):
+    """A server rack (feet y 0, 300 wide, 640 tall): stacked units with blinking lights; p sweat 0..1 sweat drops
+    fly off and the lights go red; p wobble 0..1 it rocks."""
+    wb = p.get("wobble", 0.0)
+    ctx.save()
+    ctx.rotate(math.radians(4 * wb * math.sin(t * 11)))
+    shape(ctx, lambda c: p_rrect(c, -150, -640, 300, 640, 14), hexc("#2b2f38"), OUT, (0.03, 0.06))
+    sw = p.get("sweat", 0.0)
+    for k in range(7):
+        y = -610 + k * 84
+        shape(ctx, lambda c, y=y: p_rrect(c, -125, y, 250, 66, 8), hexc("#3a3f48"), OUT * 0.5, None)
+        for j in range(4):
+            on = math.sin(t * 9 + k * 1.3 + j * 2) > -0.2
+            col = C["pen"] if sw > 0.3 else hexc("#3fb950")
+            flat(ctx, lambda c, y=y, j=j: p_ellipse(c, 70 + j * -26, y + 33, 7, 7), col if on else hexc("#555b66"))
+        flat(ctx, lambda c, y=y: c.rectangle(-105, y + 26, 90, 14), hexc("#1d2128"))
+    ctx.restore()
+    if sw > 0.01:
+        for k in range(6):
+            u = (t * 1.2 + k / 6) % 1.0
+            side = 1 if k % 2 else -1
+            x = side * (150 + 160 * u)
+            y = -560 + k * 40 - 200 * math.sin(u * math.pi)
+            shape(ctx, lambda c, x=x, y=y: p_poly(c, [(x, y - 26), (x + 14, y), (x, y + 12), (x - 14, y)]),
+                  hexc("#8fd3f4"), OUT * 0.4, None, a=min(1.0, sw) * (1 - u))
+
+
+def tp_padlock(ctx, t, p):
+    """A big closed padlock (centre at the origin, body 260 x 220, shackle above): intact; p shine 0..1 a sparkle
+    sweep, p check 0..1 a green check badge."""
+    ctx.save()
+    p_smooth(ctx, [(-90, -60), (-90, -170), (0, -240), (90, -170), (90, -60)], close=False)
+    ctx.set_source_rgb(*INK)
+    ctx.set_line_width(56)
+    ctx.stroke()
+    p_smooth(ctx, [(-90, -60), (-90, -170), (0, -240), (90, -170), (90, -60)], close=False)
+    ctx.set_source_rgb(*hexc("#9aa3ab"))
+    ctx.set_line_width(38)
+    ctx.stroke()
+    ctx.restore()
+    shape(ctx, lambda c: p_rrect(c, -130, -80, 260, 220, 30), C["gold"], OUT, (0.04, 0.1), (0.25, 0.2, 0.25))
+    flat(ctx, lambda c: p_ellipse(c, 0, 10, 24, 24), INK)
+    flat(ctx, lambda c: p_poly(c, [(-12, 20), (12, 20), (18, 80), (-18, 80)]), INK)
+    sh = p.get("shine", 0.0)
+    if sh > 0.01:
+        x = -130 + 260 * ((t * 0.8) % 1.0)
+        ctx.save()
+        p_rrect(ctx, -130, -80, 260, 220, 30)
+        ctx.clip()
+        flat(ctx, lambda c: p_poly(c, [(x, -90), (x + 40, -90), (x - 40, 150), (x - 80, 150)]), (1, 1, 1), a=0.5 * sh)
+        ctx.restore()
+    ck = p.get("check", 0.0)
+    if ck > 0.01:
+        u = back_out(min(1.0, ck))
+        ctx.save()
+        ctx.translate(150, 110)
+        ctx.scale(u, u)
+        shape(ctx, lambda c: p_ellipse(c, 0, 0, 60, 60), C["green"], OUT * 0.7, None)
+        stroke(ctx, [(-26, 0), (-6, 22), (30, -24)], 14, color=(1, 1, 1))
+        ctx.restore()
+
+
+def tp_login(ctx, t, p):
+    """A plain login box centred at its origin (600 x 300): a user row and a password row; p n 0..1 types p text
+    into the password row letter by letter (the spec's word, shown in the clear) with a blinking cursor."""
+    shape(ctx, lambda c: p_rrect(c, -300, -150, 600, 300, 26), hexc("#f4f7fb"), OUT, None)
+    flat(ctx, lambda c: p_rrect(c, -300, -150, 600, 54, 26), hexc("#5b677a"))
+    flat(ctx, lambda c: c.rectangle(-300, -120, 600, 24), hexc("#5b677a"))
+    for k, y in enumerate((-50, 60)):
+        shape(ctx, lambda c, y=y: p_rrect(c, -250, y - 36, 500, 72, 14), (1, 1, 1), OUT * 0.6, None)
+        shape(ctx, lambda c, y=y, k=k: p_ellipse(c, -215, y, 16, 16), hexc("#9aa3ab"), 0, None)
+    flat(ctx, lambda c: c.rectangle(-180, -58, 140, 14), hexc("#b7c1cc"))
+    txt = p.get("text", "")
+    n = int(round(len(txt) * max(0.0, min(1.0, p.get("n", 0.0)))))
+    shown = txt[:n]
+    w = 0
+    if shown:
+        import drawn_keepkill as kk
+        w = kk.text_img(shown, int(p.get("px", 60)), "#1b1b1b", 0, 0.0)[0].get_width()
+        text(ctx, shown, -180 + w / 2, 62, p.get("px", 60), "#1b1b1b", 0)
+    if math.sin(t * 8) > 0:
+        x = -180 + (w if shown else 0) + 8
+        flat(ctx, lambda c: c.rectangle(x, 32, 6, 60), INK)
+
+
+def tp_clock(ctx, t, p):
+    """A round wall clock centred at its origin (r 200); p speed (turns a second of the minute hand) spins the hands;
+    p wobble 0..1 it shakes."""
+    sp = p.get("speed", 1.0)
+    ctx.save()
+    ctx.rotate(math.radians(3 * p.get("wobble", 0.0) * math.sin(t * 20)))
+    shape(ctx, lambda c: p_ellipse(c, 0, 0, 200, 200), (1, 1, 1), OUT * 1.2, (0.04, 0.06))
+    for k in range(12):
+        a = k * math.pi / 6
+        stroke(ctx, [(170 * math.cos(a), 170 * math.sin(a)), (148 * math.cos(a), 148 * math.sin(a))], 8)
+    am = t * sp * 2 * math.pi - math.pi / 2
+    ah = am / 12 - math.pi / 3
+    stroke(ctx, [(0, 0), (90 * math.cos(ah), 90 * math.sin(ah))], 16)
+    stroke(ctx, [(0, 0), (140 * math.cos(am), 140 * math.sin(am))], 10, color=C["pen"])
+    flat(ctx, lambda c: p_ellipse(c, 0, 0, 14, 14), INK)
+    ctx.restore()
+
+
+def tp_keyboard(ctx, t, p):
+    """A big plain keyboard seen from the front (centre at the origin, 640 x 220) with blank keys; p q 0..1 three
+    question marks float up off it."""
+    shape(ctx, lambda c: p_rrect(c, -320, -110, 640, 220, 24), hexc("#d9dee6"), OUT, (0.02, 0.1))
+    for r in range(4):
+        for k in range(11):
+            x = -290 + k * 53 + (r % 2) * 12
+            if x > 250:
+                continue
+            shape(ctx, lambda c, x=x, r=r: p_rrect(c, x, -88 + r * 46, 44, 38, 8), (1, 1, 1), OUT * 0.35, None)
+    q = p.get("q", 0.0)
+    if q > 0.01:
+        for k in range(3):
+            u = (t * 0.6 + k / 3) % 1.0
+            text(ctx, "?", -160 + k * 160, -150 - 220 * u, 90, "#ffd34d", 6, a=min(1.0, q) * (1 - u * 0.8))
+
+
+def tp_money(ctx, t, p):
+    """A stack of plain green bills (feet y 0, 360 wide) with a big question mark bobbing over it; p q 0..1."""
+    for k in range(8):
+        y = -k * 34
+        x = 6 * math.sin(k * 1.7)
+        shape(ctx, lambda c, x=x, y=y: p_rrect(c, x - 180, y - 34, 360, 34, 6), hexc("#7cc061"), OUT * 0.6, None)
+        flat(ctx, lambda c, x=x, y=y: p_ellipse(c, x, y - 17, 24, 11), hexc("#4f9a3a"))
+    q = p.get("q", 1.0)
+    if q > 0.01:
+        sc = back_out(min(1.0, q))
+        text(ctx, "?", 0, -380 + 12 * math.sin(t * 3), int(220 * sc), "#ffd34d", 10)
+
+
+def tp_zzz(ctx, t, p):
+    """A sleep bubble (no letters): three growing rings drift up from the origin; p on 0..1."""
+    on = p.get("on", 0.0)
+    if on <= 0.01:
+        return
+    for k in range(3):
+        u = (t * 0.5 + k / 3) % 1.0
+        r = 14 + 30 * u
+        shape(ctx, lambda c, u=u, r=r: p_ellipse(c, 60 * u, -200 * u, r, r), hexc("#dff2ff"), OUT * 0.4, None,
+              a=min(1.0, on) * (1 - u))
+
+
+ACTORS.update({"tp_desk": tp_desk, "tp_laptop": tp_laptop, "tp_confetti": tp_confetti, "tp_chart": tp_chart,
+               "tp_worker": tp_worker, "tp_globe": tp_globe, "tp_rack": tp_rack, "tp_padlock": tp_padlock,
+               "tp_login": tp_login, "tp_clock": tp_clock, "tp_keyboard": tp_keyboard, "tp_money": tp_money,
+               "tp_zzz": tp_zzz})

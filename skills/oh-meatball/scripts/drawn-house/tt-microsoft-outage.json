@@ -1,0 +1,1594 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "detective",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "cut_whoosh": true,
+ "loop": true,
+ "recut": false,
+ "photo_credits": [],
+ "cap_swap": {
+  "fuck": "f**k",
+  "fucking": "f**king",
+  "damn": "d*mn"
+ },
+ "cap_key": [
+  "microsoft",
+  "outage",
+  "workday",
+  "boss",
+  "email",
+  "thursday",
+  "outlook",
+  "teams",
+  "downdetector",
+  "hundred",
+  "thirty",
+  "thousand",
+  "lunch",
+  "seventy-four",
+  "countries",
+  "hour",
+  "snow",
+  "load",
+  "unavailable",
+  "monday",
+  "cyberattack",
+  "password",
+  "twelve",
+  "hours",
+  "job",
+  "seven",
+  "billion",
+  "zero",
+  "apologized",
+  "inbox",
+  "sauce",
+  "keyboard"
+ ],
+ "stage": {
+  "creature": "cat",
+  "scene": "jh_living",
+  "s": 0.55,
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "cat",
+   "color": "#e39a4a",
+   "dark": "#b06f2a",
+   "belly": "#f6e3c8",
+   "tail_color": "#e39a4a",
+   "length": 520,
+   "height": 250,
+   "leg_len": 150,
+   "leg_w": 30,
+   "ears": "pointed",
+   "tail": "thin",
+   "tail_w": 22,
+   "whiskers": true,
+   "mood": "smug"
+  }
+ },
+ "title": "The Microsoft Outage, Explained",
+ "tiktok_title": "The Microsoft Outage, Explained",
+ "tiktok_caption": "microsoft outage explained 💀 As of Nov 13: Outlook and Teams started failing Thursday just before 1 pm ET, with about 130,000 Downdetector reports in the U.S. and reports from 74 countries and territories. Microsoft first blamed elevated load, then said servers went unexpectedly unavailable, and says there is no indication of a cyberattack. It ran for more than 12 hours. Meatball's inbox is back. Every single email. What did you do with your free Thursday? #microsoftoutage #outlookdown #microsoft #technews #worklife",
+ "_note": "Microsoft outage TikTok (Nolan 11/13). Script: microsoft-outage.script.json; facts in research/108-topical-three-factpack.md, checked in research/109-factcheck-topical-three.md; every say and card row copied by code (long card rows wrap over two rows, same words). Hand-made beats; pictures in tools/drawn_topical_art.py (tp_). All drawn: no Microsoft, Windows, Outlook, Teams or Downdetector logos, icons or brand colours; a plain laptop and envelope. The only extra on-screen word is PASSWORD typed in the m6 login box (the line says it). Inbox flood and screen garble show no numbers or letters.",
+ "beats": [
+  {
+   "say": "Microsoft went down and took your whole damn workday with it. Here's what happened.",
+   "scene": "tp_living",
+   "scene_p": {
+    "sofa": true,
+    "picture": true
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      900,
+      1.0
+     ],
+     "to": [
+      560,
+      920,
+      1.06
+     ]
+    },
+    {
+     "at": "Here's|30%",
+     "cam": [
+      520,
+      960,
+      1.08
+     ],
+     "to": [
+      500,
+      960,
+      1.12
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "desk",
+     "type": "tp_desk",
+     "pos": [
+      430,
+      1500
+     ],
+     "s": 0.85,
+     "front": false,
+     "rot": 0.0,
+     "p": {},
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "lap",
+     "type": "tp_laptop",
+     "pos": [
+      400,
+      1143
+     ],
+     "s": 0.85,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "mode": "spin",
+      "glow": 0.6
+     },
+     "moves": [],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "present",
+    "pos": [
+     880,
+     1500
+    ],
+    "size": 400,
+    "prop": "mic",
+    "gest": [
+     [
+      "damn",
+      "shock",
+      1.0
+     ]
+    ],
+    "moves": [
+     {
+      "at": "Here's|10%",
+      "dur": 0.45,
+      "pos": [
+       800,
+       1500
+      ],
+      "hop": 160
+     }
+    ],
+    "look": "lap"
+   },
+   "sfx": [
+    "boing@Here's|10%",
+    "pop@damn"
+   ],
+   "card": {
+    "rows": [
+     [
+      "MICROSOFT OUTAGE",
+      "#ffd34d",
+      104
+     ],
+     [
+      "WHAT HAPPENED",
+      "#ffffff",
+      56,
+      true
+     ],
+     [
+      "AS OF NOV 13, 2026",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": 0.0
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "Meatball's boss couldn't email him. Best fucking Thursday of his life.",
+   "scene": "tp_living",
+   "scene_p": {
+    "sofa": true,
+    "picture": true
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      950,
+      1.04
+     ]
+    },
+    {
+     "at": "Best",
+     "cam": [
+      620,
+      1100,
+      1.15
+     ],
+     "to": [
+      640,
+      1100,
+      1.2
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "desk",
+     "type": "tp_desk",
+     "pos": [
+      430,
+      1500
+     ],
+     "s": 0.85,
+     "front": false,
+     "rot": 0.0,
+     "p": {},
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "lap",
+     "type": "tp_laptop",
+     "pos": [
+      400,
+      1143
+     ],
+     "s": 0.85,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "mode": "inbox",
+      "glow": 0.6
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "conf",
+     "type": "tp_confetti",
+     "pos": [
+      540,
+      1500
+     ],
+     "s": 1.0,
+     "front": true,
+     "rot": 0.0,
+     "p": {
+      "on": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "Best",
+       "p": {
+        "on": 1.0
+       },
+       "dur": 0.3
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "present",
+    "pos": [
+     860,
+     1500
+    ],
+    "size": 400,
+    "prop": "mic",
+    "gest": [
+     [
+      "Best",
+      "laugh",
+      2.0
+     ]
+    ],
+    "moves": [],
+    "look": "lap"
+   },
+   "sfx": [
+    "pop@email",
+    "boing@Best"
+   ],
+   "card": {
+    "rows": [
+     [
+      "NO NEW EMAIL",
+      "#ffd34d",
+      104
+     ]
+    ],
+    "y": 470,
+    "at": "email"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "Thursday, just before one Eastern, Outlook and Teams started failing. Downdetector showed about a hundred and thirty thousand reports in the U.S. That's a lot of people suddenly free for lunch.",
+   "scene": "tp_set",
+   "scene_p": {
+    "wall": "#2a3358",
+    "wall2": "#323d6a",
+    "floor": "#1d2340"
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      950,
+      1.04
+     ]
+    },
+    {
+     "at": "Downdetector",
+     "cam": [
+      540,
+      900,
+      1.1
+     ],
+     "to": [
+      540,
+      890,
+      1.14
+     ]
+    },
+    {
+     "at": "lot",
+     "cam": [
+      540,
+      1000,
+      1.0
+     ],
+     "to": [
+      560,
+      1000,
+      1.03
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "chart",
+     "type": "tp_chart",
+     "pos": [
+      540,
+      930
+     ],
+     "s": 0.85,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "v": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "Downdetector",
+       "p": {
+        "v": 1.0
+       },
+       "dur": 1.2
+      }
+     ]
+    },
+    {
+     "id": "w0",
+     "type": "tp_worker",
+     "pos": [
+      -180,
+      1500
+     ],
+     "s": 0.62,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "walk": 1.0,
+      "shirt": "#7aa7d8",
+      "skin": "#e8b48a",
+      "ph": 0.0,
+      "sandwich": true
+     },
+     "moves": [
+      {
+       "at": "lot|0",
+       "dur": 2.6,
+       "pos": [
+        1350,
+        1500
+       ],
+       "walk": true
+      }
+     ],
+     "set": []
+    },
+    {
+     "id": "w1",
+     "type": "tp_worker",
+     "pos": [
+      -410,
+      1500
+     ],
+     "s": 0.62,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "walk": 1.0,
+      "shirt": "#e39a4a",
+      "skin": "#a8754e",
+      "ph": 1.3,
+      "sandwich": true
+     },
+     "moves": [
+      {
+       "at": "lot|0",
+       "dur": 2.6,
+       "pos": [
+        1120,
+        1500
+       ],
+       "walk": true
+      }
+     ],
+     "set": []
+    },
+    {
+     "id": "w2",
+     "type": "tp_worker",
+     "pos": [
+      -640,
+      1500
+     ],
+     "s": 0.62,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "walk": 1.0,
+      "shirt": "#7cc061",
+      "skin": "#f1c7a0",
+      "ph": 2.6,
+      "sandwich": true
+     },
+     "moves": [
+      {
+       "at": "lot|0",
+       "dur": 2.6,
+       "pos": [
+        890,
+        1500
+       ],
+       "walk": true
+      }
+     ],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     930,
+     1500
+    ],
+    "size": 360,
+    "prop": "mic",
+    "gest": [
+     [
+      "lunch",
+      "laugh",
+      1.4
+     ]
+    ],
+    "moves": [],
+    "look": "chart"
+   },
+   "sfx": [
+    "zap@Downdetector",
+    "whoosh@lot"
+   ],
+   "card": {
+    "rows": [
+     [
+      "THU NOV 12, ABOUT 1 PM ET",
+      "#ffd34d",
+      80
+     ],
+     [
+      "ABOUT 130,000 U.S. REPORTS (DOWNDETECTOR)",
+      "#ffffff",
+      42,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": 0.0
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "Downdetector says reports came in from seventy-four countries and territories in about an hour. A global fucking snow day.",
+   "scene": "tp_set",
+   "scene_p": {
+    "wall": "#14324a",
+    "wall2": "#183a56",
+    "floor": "#0e2233"
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      960,
+      1.05
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "globe",
+     "type": "tp_globe",
+     "pos": [
+      540,
+      1010
+     ],
+     "s": 0.8,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "n": 0.0,
+      "snow": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "reports",
+       "p": {
+        "n": 1.0
+       },
+       "dur": 2.5
+      },
+      {
+       "at": "snow|0",
+       "p": {
+        "snow": 1.0
+       },
+       "dur": 0.6
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     930,
+     1500
+    ],
+    "size": 340,
+    "prop": "mic",
+    "gest": [
+     [
+      "snow",
+      "laugh",
+      1.4
+     ]
+    ],
+    "moves": [],
+    "look": "globe"
+   },
+   "sfx": [
+    "pop@reports",
+    "whoosh@snow"
+   ],
+   "card": {
+    "rows": [
+     [
+      "74 COUNTRIES AND TERRITORIES",
+      "#ffd34d",
+      70
+     ],
+     [
+      "IN ABOUT AN HOUR (DOWNDETECTOR)",
+      "#ffffff",
+      48,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "seventy"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "Microsoft first blamed elevated load. Then it said servers went unexpectedly unavailable. Meatball gets it. He's unexpectedly unavailable every fucking Monday.",
+   "scene": "tp_set",
+   "scene_p": {
+    "wall": "#2a2a3a",
+    "wall2": "#323246",
+    "floor": "#1b1b28"
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      960,
+      1.04
+     ]
+    },
+    {
+     "at": "Meatball",
+     "cam": [
+      640,
+      1120,
+      1.12
+     ],
+     "to": [
+      660,
+      1120,
+      1.16
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "rack",
+     "type": "tp_rack",
+     "pos": [
+      360,
+      1500
+     ],
+     "s": 0.85,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "sweat": 0.0,
+      "wobble": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "load",
+       "p": {
+        "sweat": 1.0
+       },
+       "dur": 0.4
+      },
+      {
+       "at": "servers",
+       "p": {
+        "wobble": 1.0
+       },
+       "dur": 0.3
+      }
+     ]
+    },
+    {
+     "id": "pile",
+     "type": "jh_pile",
+     "pos": [
+      800,
+      1500
+     ],
+     "s": 0.6,
+     "front": true,
+     "rot": 0.0,
+     "p": {
+      "h": 0.0,
+      "falling": 0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "Meatball",
+       "p": {
+        "h": 0.32,
+        "falling": 1
+       },
+       "dur": 1.6
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     800,
+     1500
+    ],
+    "size": 380,
+    "prop": "mic",
+    "gest": [
+     [
+      "Monday",
+      "deadpan",
+      1.6
+     ]
+    ],
+    "moves": [],
+    "look": "rack"
+   },
+   "sfx": [
+    "zap@servers",
+    "thud@Monday"
+   ],
+   "card": {
+    "rows": [
+     [
+      "FIRST: \"ELEVATED LOAD\"",
+      "#ffd34d",
+      80
+     ],
+     [
+      "THEN: SERVERS \"UNEXPECTEDLY",
+      "#ffffff",
+      48,
+      true
+     ],
+     [
+      "UNAVAILABLE\" (MICROSOFT)",
+      "#ffffff",
+      48,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "blamed"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "Microsoft says there's no indication of a cyberattack. Meatball checked his own password anyway. It's still password.",
+   "scene": "tp_set",
+   "scene_p": {
+    "wall": "#1f4a5a",
+    "wall2": "#24576a",
+    "floor": "#163640"
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      960,
+      1.03
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "lock",
+     "type": "tp_padlock",
+     "pos": [
+      540,
+      980
+     ],
+     "s": 0.8,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "shine": 1.0,
+      "check": 0.0
+     },
+     "moves": [
+      {
+       "at": "Meatball",
+       "dur": 0.4,
+       "pos": [
+        -500,
+        980
+       ]
+      }
+     ],
+     "set": [
+      {
+       "at": "cyberattack",
+       "p": {
+        "check": 1.0
+       },
+       "dur": 0.35
+      }
+     ]
+    },
+    {
+     "id": "login",
+     "type": "tp_login",
+     "pos": [
+      1600,
+      960
+     ],
+     "s": 0.95,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "text": "PASSWORD",
+      "n": 0.0
+     },
+     "moves": [
+      {
+       "at": "Meatball",
+       "dur": 0.4,
+       "pos": [
+        540,
+        960
+       ]
+      }
+     ],
+     "set": [
+      {
+       "at": "password#1",
+       "p": {
+        "n": 1.0
+       },
+       "dur": 1.2
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "present",
+    "pos": [
+     880,
+     1500
+    ],
+    "size": 380,
+    "prop": "mic",
+    "gest": [
+     [
+      "still",
+      "deadpan",
+      1.6
+     ]
+    ],
+    "moves": [],
+    "look": "login"
+   },
+   "sfx": [
+    "tink@cyberattack",
+    "click@password#1"
+   ],
+   "card": {
+    "rows": [
+     [
+      "NO INDICATION OF A CYBERATTACK",
+      "#ffd34d",
+      68
+     ],
+     [
+      "(MICROSOFT)",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "indication"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "It dragged on for more than twelve hours. Long enough for Meatball to forget how to do his fucking job.",
+   "scene": "tp_set",
+   "scene_p": {
+    "wall": "#3a2a58",
+    "wall2": "#433266",
+    "floor": "#241a38"
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      960,
+      1.04
+     ]
+    },
+    {
+     "at": "forget",
+     "cam": [
+      560,
+      1000,
+      1.04
+     ],
+     "to": [
+      570,
+      1000,
+      1.06
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "clock",
+     "type": "tp_clock",
+     "pos": [
+      540,
+      920
+     ],
+     "s": 0.85,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "speed": 3.0,
+      "wobble": 1.0
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "kb",
+     "type": "tp_keyboard",
+     "pos": [
+      420,
+      1390
+     ],
+     "s": 0.6,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "q": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "forget",
+       "p": {
+        "q": 1.0
+       },
+       "dur": 0.4
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "think",
+    "pos": [
+     860,
+     1500
+    ],
+    "size": 380,
+    "prop": "mic",
+    "gest": [],
+    "moves": [],
+    "look": "kb"
+   },
+   "sfx": [
+    "tink@twelve",
+    "boing@job"
+   ],
+   "card": {
+    "rows": [
+     [
+      "MORE THAN 12 HOURS",
+      "#ffd34d",
+      104
+     ]
+    ],
+    "y": 470,
+    "at": "twelve"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "One estimate, for CNN, says lost work could reach seven billion dollars. Meatball's share: zero. He wasn't working anyway.",
+   "scene": "tp_living",
+   "scene_p": {
+    "sofa": true,
+    "picture": true
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      950,
+      1.04
+     ]
+    },
+    {
+     "at": "wasn't",
+     "cam": [
+      600,
+      1000,
+      1.0
+     ],
+     "to": [
+      610,
+      1010,
+      1.03
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "desk",
+     "type": "tp_desk",
+     "pos": [
+      430,
+      1500
+     ],
+     "s": 0.85,
+     "front": false,
+     "rot": 0.0,
+     "p": {},
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "lap",
+     "type": "tp_laptop",
+     "pos": [
+      400,
+      1143
+     ],
+     "s": 0.85,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "mode": "off",
+      "glow": 0.0
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "money",
+     "type": "tp_money",
+     "pos": [
+      640,
+      1143
+     ],
+     "s": 0.55,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "q": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "seven",
+       "p": {
+        "q": 1.0
+       },
+       "dur": 0.4
+      }
+     ]
+    },
+    {
+     "id": "zzz",
+     "type": "tp_zzz",
+     "pos": [
+      990,
+      1400
+     ],
+     "s": 1.0,
+     "front": true,
+     "rot": 0.0,
+     "p": {
+      "on": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "anyway",
+       "p": {
+        "on": 1.0
+       },
+       "dur": 0.4
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "deadpan",
+    "pos": [
+     880,
+     1500
+    ],
+    "size": 380,
+    "prop": "mic",
+    "gest": [],
+    "moves": [
+     {
+      "at": "wasn't",
+      "dur": 0.5,
+      "rot": 90,
+      "pos": [
+       760,
+       1470
+      ]
+     }
+    ],
+    "look": "viewer"
+   },
+   "sfx": [
+    "pop@seven",
+    "thud@wasn't"
+   ],
+   "card": {
+    "rows": [
+     [
+      "COULD REACH $7 BILLION",
+      "#ffd34d",
+      90
+     ],
+     [
+      "ANDERSON ECONOMIC GROUP (CNN)",
+      "#ffffff",
+      48,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "seven"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "Microsoft apologized and says email queues are approaching normal levels. Meatball's inbox is back. Every single fucking email.",
+   "scene": "tp_living",
+   "scene_p": {
+    "sofa": true,
+    "picture": true
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      950,
+      1.04
+     ]
+    },
+    {
+     "at": "Every",
+     "cam": [
+      520,
+      1080,
+      1.2
+     ],
+     "to": [
+      520,
+      1080,
+      1.28
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "desk",
+     "type": "tp_desk",
+     "pos": [
+      430,
+      1500
+     ],
+     "s": 0.85,
+     "front": false,
+     "rot": 0.0,
+     "p": {},
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "lap",
+     "type": "tp_laptop",
+     "pos": [
+      400,
+      1143
+     ],
+     "s": 0.85,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "mode": "inbox",
+      "glow": 0.6
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "lap2",
+     "type": "tp_laptop",
+     "pos": [
+      400,
+      1143
+     ],
+     "s": 0.85,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "mode": "flood",
+      "n": 0.0,
+      "glow": 0.8
+     },
+     "moves": [
+      {
+       "at": 0.0,
+       "dur": 0.01,
+       "pos": [
+        400,
+        3000
+       ]
+      },
+      {
+       "at": "Meatball's",
+       "dur": 0.01,
+       "pos": [
+        400,
+        1143
+       ]
+      }
+     ],
+     "set": [
+      {
+       "at": "back",
+       "p": {
+        "n": 1.0
+       },
+       "dur": 2.4
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "present",
+    "pos": [
+     860,
+     1500
+    ],
+    "size": 380,
+    "prop": "mic",
+    "gest": [
+     [
+      "Every",
+      "shock",
+      1.6
+     ]
+    ],
+    "moves": [],
+    "look": "lap"
+   },
+   "sfx": [
+    "click@Meatball's",
+    "crunch@Every"
+   ],
+   "card": {
+    "rows": [
+     [
+      "MICROSOFT APOLOGIZED",
+      "#ffd34d",
+      90
+     ],
+     [
+      "EMAIL QUEUES \"APPROACHING NORMAL LEVELS\"",
+      "#ffffff",
+      44,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "apologized"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "He told his cat, Sauce, he had to work again. Sauce sat on the keyboard. Sauce is the outage now.",
+   "scene": "tp_living",
+   "scene_p": {
+    "sofa": true,
+    "picture": true
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      950,
+      1.03
+     ]
+    },
+    {
+     "at": "sat",
+     "cam": [
+      520,
+      1080,
+      1.16
+     ],
+     "to": [
+      520,
+      1080,
+      1.2
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "desk",
+     "type": "tp_desk",
+     "pos": [
+      430,
+      1500
+     ],
+     "s": 0.85,
+     "front": false,
+     "rot": 0.0,
+     "p": {},
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "lap",
+     "type": "tp_laptop",
+     "pos": [
+      400,
+      1143
+     ],
+     "s": 0.85,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "mode": "flood",
+      "glow": 0.6,
+      "n": 1.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "keyboard",
+       "p": {
+        "mode": "garble"
+       }
+      }
+     ]
+    },
+    {
+     "id": "cat",
+     "type": "sp.cat",
+     "pos": [
+      -300,
+      1500
+     ],
+     "s": 0.5,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "mood": "smug"
+     },
+     "moves": [
+      {
+       "at": "Sauce#1",
+       "dur": 1.4,
+       "pos": [
+        160,
+        1500
+       ],
+       "walk": true,
+       "face": 1
+      },
+      {
+       "at": "Sauce#2",
+       "dur": 0.5,
+       "pos": [
+        400,
+        1150
+       ],
+       "hop": 160
+      }
+     ],
+     "set": [],
+     "flip": false
+    }
+   ],
+   "mb": {
+    "pose": "present",
+    "pos": [
+     880,
+     1500
+    ],
+    "size": 380,
+    "prop": "mic",
+    "gest": [
+     [
+      "outage",
+      "facepalm",
+      1.6
+     ]
+    ],
+    "moves": [],
+    "look": "cat"
+   },
+   "sfx": [
+    "boing@Sauce#2",
+    "pop@outage"
+   ],
+   "card": {
+    "rows": [
+     [
+      "SAUCE IS THE OUTAGE NOW",
+      "#ffd34d",
+      84
+     ]
+    ],
+    "y": 470,
+    "at": "outage"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "So what did you do with your free Thursday? Because",
+   "scene": "tp_living",
+   "scene_p": {
+    "sofa": true,
+    "picture": true
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      520,
+      960,
+      1.08
+     ],
+     "to": [
+      540,
+      920,
+      1.03
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "desk",
+     "type": "tp_desk",
+     "pos": [
+      430,
+      1500
+     ],
+     "s": 0.85,
+     "front": false,
+     "rot": 0.0,
+     "p": {},
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "lap",
+     "type": "tp_laptop",
+     "pos": [
+      400,
+      1143
+     ],
+     "s": 0.85,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "mode": "spin",
+      "glow": 0.6
+     },
+     "moves": [],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "present",
+    "pos": [
+     800,
+     1500
+    ],
+    "size": 400,
+    "prop": "mic",
+    "gest": [],
+    "moves": [
+     {
+      "at": "Because|20%",
+      "dur": 0.45,
+      "pos": [
+       880,
+       1500
+      ],
+      "hop": 160
+     }
+    ],
+    "look": "viewer"
+   },
+   "sfx": [
+    "pop@Thursday"
+   ],
+   "card": {
+    "rows": [
+     [
+      "WHAT DID YOU DO WITH YOUR",
+      "#ffffff",
+      40,
+      true
+     ],
+     [
+      "FREE THURSDAY? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "y": 400,
+    "at": 0.0,
+    "x": "right"
+   },
+   "recut": false,
+   "pad": 0.08
+  }
+ ]
+}
