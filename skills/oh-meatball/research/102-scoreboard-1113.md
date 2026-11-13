@@ -51,3 +51,10 @@ Source: Metricool reads and update responses in the main session (the connector 
 - Swapped in: the nine funny bug Shorts (Sat 11/14 11:00 and 15:00, Sun 19:00, Mon 16:00, Tue 16:00, Wed 19:00, Thu 16:00 and 19:00, Fri 11/20 16:00), each upload compared with the local file by size. Their hashtags were put in the standard order; tags and first sentences are still the old ones (owed: two posts a day, with the second-model check).
 - YouTube public counts at 10:52 ET (flat listing): cat purr 928, turkey 786, moose 896, cat sugar 1,000, false widow 974; the sweary dog-stare Short (10:00) is listed with no count yet.
 - Not measured: TikTok hashtag sizes for the story (tag pages show no counts without JavaScript); anything about the Jensen videos' retention (Windsor has it from Sun 11/15 for YouTube; TikTok Studio only for TikTok).
+
+## 12:50 ET read (public counts: YouTube flat listing, TikTok public page)
+- Jensen Huang TikTok: 2,622 plays at 2.0 h, likes 1.07% (28), 2 comments, 4 shares, 3 saves, label "Comics & Cartoon, Anime". That is 7.9 times the account median (333) already, and only three posts ever passed 1,000 before it. Likes per view are under the account's usual 2.2%: reach is wide, the like rate is low.
+- Jensen Huang YouTube Short: 44 views at 2.0 h. The sweary dog-stare Short (10:00): 156 at 2.8 h. Both are early; Shorts counts lag in the listing.
+- Other Shorts: cat purr 931, turkey 910, moose 908, cat sugar 1,000, false widow 992.
+- By the rule in MASTER_ORDERS ("A funny Jensen Huang allegations video", how it is judged) 2 times the median on either platform earns one more topical video as a test. TikTok has passed it before the 48-hour mark; the 48-hour read (Sun 11/15 about 11:00) still stands for the record. Next step is research on the next topic (options to Nolan before anything is built), in tomorrow's morning run: no agents today (credits).
+- Not measured: where the TikTok plays came from and how long people watched (TikTok Studio only).
