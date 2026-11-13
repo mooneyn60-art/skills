@@ -1,0 +1,194 @@
+{
+ "_what": "TikTok script (65 to 90 s) plus a shorter YouTube cut: the FAA nationwide ground stop of Fri Nov 13, 2026 (Nolan 11/13 about 18:50 ET: 'Make a TikTok and short on the airline outage now and post immidentaly'). Facts from research/110-faa-ground-stop-factpack.md. NOT yet checked by a second model. A DEVELOPING story: the date-and-time card must be right at posting time.",
+ "_rules": "Jokes aim at Meatball only; never at passengers, controllers, crews or the agencies' people, and no joke says or hints that flying is unsafe. Unconfirmed causes stay attributed (reports, not confirmed). No joke adds a number, a cause or a claim. All drawn: no airline or agency logos, no real aircraft liveries, no likeness of real people. Captions soften swear spelling (cap_swap). YouTube cut: mild words only. Title, description and caption are clean.",
+ "lines": [
+  {
+   "id": "a1",
+   "kind": "hook",
+   "say": "Every flight in America just got grounded. Here's what the hell happened.",
+   "card": [
+    "NATIONWIDE GROUND STOP",
+    "WHAT HAPPENED",
+    "AS OF FRI NOV 13, 7 PM ET"
+   ],
+   "vis": "Frame 0: an airport gate window with a row of parked generic planes; a departures board flips every row to DELAYED. Meatball in front with a carry-on."
+  },
+  {
+   "id": "a2",
+   "kind": "joke",
+   "say": "Meatball's at gate B twelve with a nine dollar pretzel and nowhere to fucking go.",
+   "card": [
+    "GATE B12",
+    "DELAYED"
+   ],
+   "vis": "Meatball on a gate seat holding a giant pretzel, suitcase beside him."
+  },
+  {
+   "id": "a3",
+   "kind": "fact",
+   "say": "Friday afternoon, the FAA ordered a nationwide ground stop. Every U.S. airport. Planes already in the air kept flying to where they were going.",
+   "card": [
+    "FAA: NATIONWIDE GROUND STOP",
+    "ALL U.S. AIRPORTS (FRI NOV 13)",
+    "FLIGHTS IN THE AIR CONTINUED"
+   ],
+   "vis": "A drawn map outline of the US with little parked plane icons; a few planes in the air finish their arcs and land."
+  },
+  {
+   "id": "a4",
+   "kind": "fact+joke",
+   "say": "The Transportation Secretary said a communication issue hit all the air route traffic control centers. Those are the people who talk to the planes. Kind of fucking important.",
+   "card": [
+    "\"COMMUNICATION ISSUE\"",
+    "ALL AIR ROUTE TRAFFIC CONTROL CENTERS",
+    "(TRANSPORTATION SECRETARY)"
+   ],
+   "vis": "A generic control tower and a radar room with headsets on a desk; the speech lines between tower and plane go to static."
+  },
+  {
+   "id": "a5",
+   "kind": "fact+joke",
+   "say": "The FAA's wording: extraordinary circumstances, and for reasons of safety. Meatball uses that exact excuse to skip the gym.",
+   "card": [
+    "\"EXTRAORDINARY CIRCUMSTANCES\"",
+    "\"FOR REASONS OF SAFETY\" (FAA)"
+   ],
+   "vis": "Quote card; cut to Meatball on his couch next to an unused gym bag."
+  },
+  {
+   "id": "a6",
+   "kind": "fact_reported+joke",
+   "say": "CBS News, citing sources, reports a network update made the system reboot and crash. Not confirmed. If true, the worst update and restart in fucking history.",
+   "card": [
+    "REPORT: A NETWORK UPDATE, THEN A CRASH",
+    "CBS NEWS, CITING SOURCES",
+    "NOT CONFIRMED"
+   ],
+   "vis": "A server rack with an UPDATING progress wheel; the lights go dark; a NOT CONFIRMED stamp."
+  },
+  {
+   "id": "a7",
+   "kind": "fact+joke",
+   "say": "The White House says there's no indication of a nefarious act, and officials say it's not related to Thursday's Microsoft outage. Meatball unplugged his toaster anyway.",
+   "card": [
+    "NO INDICATION OF A NEFARIOUS ACT",
+    "(WHITE HOUSE)",
+    "NOT RELATED TO THE MICROSOFT OUTAGE (OFFICIALS)"
+   ],
+   "vis": "A padlock, intact; then Meatball at home pulling a toaster plug out of the wall."
+  },
+  {
+   "id": "a8",
+   "kind": "fact+joke",
+   "say": "As of this video, there's no timeline for when flights take off again. Meatball's pretzel is gone. Morale is low.",
+   "card": [
+    "NO TIMELINE YET",
+    "AS OF FRI NOV 13, 7 PM ET"
+   ],
+   "vis": "The departures board still all DELAYED; Meatball stares at an empty pretzel wrapper."
+  },
+  {
+   "id": "a9",
+   "kind": "joke",
+   "say": "He called his cat, Sauce, to say he'd be late. Sauce had already taken his side of the bed.",
+   "card": [
+    "SAUCE TOOK HIS SIDE OF THE BED"
+   ],
+   "vis": "Split: Meatball on the phone at the gate; at home the orange cat, Sauce, lies stretched across Meatball's pillow."
+  },
+  {
+   "id": "a10",
+   "kind": "punch",
+   "say": "So where are you stuck right now? Drop your gate. Because",
+   "card": [
+    "WHERE ARE YOU STUCK? COMMENT"
+   ],
+   "vis": "Back to the frame-0 gate window, board and pose so the loop into a1 is seamless; question in a top-corner pill."
+  }
+ ],
+ "yt_lines": [
+  {
+   "id": "y1",
+   "from": "a1",
+   "say": "Every flight in America just got grounded. Here's why.",
+   "card": [
+    "NATIONWIDE GROUND STOP",
+    "WHAT HAPPENED",
+    "AS OF FRI NOV 13, 7 PM ET"
+   ]
+  },
+  {
+   "id": "y2",
+   "from": "a2",
+   "say": "Meatball's at the gate with a nine dollar pretzel and nowhere to go.",
+   "card": [
+    "GATE B12",
+    "DELAYED"
+   ]
+  },
+  {
+   "id": "y3",
+   "from": "a3",
+   "say": "Friday afternoon, the FAA ordered a nationwide ground stop. Every U.S. airport. Planes already in the air kept flying.",
+   "card": [
+    "FAA: NATIONWIDE GROUND STOP",
+    "ALL U.S. AIRPORTS (FRI NOV 13)",
+    "FLIGHTS IN THE AIR CONTINUED"
+   ]
+  },
+  {
+   "id": "y4",
+   "from": "a4",
+   "say": "The Transportation Secretary said a communication issue hit all the air route traffic control centers.",
+   "card": [
+    "\"COMMUNICATION ISSUE\"",
+    "ALL AIR ROUTE TRAFFIC CONTROL CENTERS",
+    "(TRANSPORTATION SECRETARY)"
+   ]
+  },
+  {
+   "id": "y5",
+   "from": "a6",
+   "say": "CBS News reports a network update made the system reboot and crash. Not confirmed. Worst damn update and restart ever.",
+   "card": [
+    "REPORT: A NETWORK UPDATE, THEN A CRASH",
+    "CBS NEWS, CITING SOURCES",
+    "NOT CONFIRMED"
+   ]
+  },
+  {
+   "id": "y6",
+   "from": "a7",
+   "say": "The White House says there's no indication of a nefarious act.",
+   "card": [
+    "NO INDICATION OF A NEFARIOUS ACT",
+    "(WHITE HOUSE)"
+   ]
+  },
+  {
+   "id": "y7",
+   "from": "a9+a10",
+   "say": "Meatball called his cat, Sauce. Sauce took his side of the bed. So where are you stuck? Because",
+   "card": [
+    "WHERE ARE YOU STUCK? COMMENT"
+   ]
+  }
+ ],
+ "tiktok_title": "Why Every Flight in America Got Grounded",
+ "tiktok_caption": "flights grounded today ✈️ As of Fri Nov 13, 7 pm ET: the FAA ordered a nationwide ground stop for all U.S. airports. The Transportation Secretary says a communication issue hit all the air route traffic control centers; planes already in the air kept flying. CBS News reports a network update made the system crash (not confirmed). The White House says there is no indication of a nefarious act. Meatball is at gate B12 with a pretzel. Where are you stuck? #flightsgrounded #faa #groundstop #airport #travel",
+ "youtube_title": "Why Every Flight in America Got Grounded: FAA Ground Stop Explained ✈️ (Meatball Explains)",
+ "youtube_description": "Why are all flights grounded today? The FAA ground stop explained, as of Fri Nov 13, 2026, 7 pm ET. The FAA ordered a nationwide ground stop for all U.S. airports on Friday afternoon, citing \"extraordinary circumstances\" and \"reasons of safety.\" The Transportation Secretary said a communication issue hit all the Air Route Traffic Control Centers. Planes already in the air continued to their destinations. CBS News, citing sources, reports that a network update made the system reboot and crash; that is not confirmed. The White House says there is no indication of a nefarious act. This is a developing story: check your airline and the FAA for the latest. The jokes are ours; the facts are sourced below.\n\n#flightsgrounded #faa #groundstop #meatballmyths #shorts\n\nSources: FAA and U.S. Department of Transportation statements (Nov 13, 2026); NBC News, CNN, CBS News, ABC News and Scripps News live coverage (Nov 13, 2026).",
+ "youtube_tags": [
+  "flights grounded today",
+  "flights grounded",
+  "faa ground stop",
+  "nationwide ground stop",
+  "why are flights grounded",
+  "faa outage",
+  "airline outage",
+  "flights cancelled today",
+  "faa news",
+  "meatball myths"
+ ],
+ "youtube_pinned": "Where are you stuck right now, and how long has it been? 👇"
+}
