@@ -1049,7 +1049,8 @@ const ALIASES = {
   email: ['email', 'e mail', 'email address', 'customer email'], stocks: ['stock', 'stock #', 'stock number', 'stock no', 'stock#', 'stk', 'stk#', 'vehicle stock number', 'sought stock number'],
   vehicle: ['vehicle', 'vehicle of interest', 'interest', 'car', 'model', 'year make model', 'vehicle sought', 'sought vehicle'], objection: ['objection', 'concern', 'held back'],
   notes: ['notes', 'note', 'comments', 'comment'], source: ['source', 'lead source', 'sales source', 'lead provider'], ext_id: ['entity id', 'customer id', 'contact id'],
-  assigned: ['assigned to', 'assigned', 'sales rep', 'salesperson', 'sales person', 'primary salesperson', 'primary sales rep', 'sales associate', 'owner', 'sales 1', 'salesperson 1'], stage: ['stage', 'sales step', 'sales status', 'lead type', 'lead status', 'status', 'type', 'bucket'],
+  // Primary salesperson only. BDC columns (BDC Rep, BDC Assign To) are never used.
+  assigned: ['assigned to', 'assigned', 'primary sales', 'primary salesperson', 'primary sales person', 'primary sales rep', 'primary', 'sales rep', 'salesperson', 'sales person', 'sales associate', 'sales 1', 'salesperson 1', 'sales person 1', 'owner'], stage: ['stage', 'sales step', 'sales status', 'lead type', 'lead status', 'status', 'type', 'bucket'],
   sold_date: ['sold date', 'date sold', 'delivery date', 'delivered date', 'purchase date'], lead_at: ['lead date', 'created', 'date created', 'created date', 'date received', 'received'],
   consent: ['consent', 'opt in', 'optin', 'sms opt in', 'text opt in', 'ok to text', 'okay to text', 'tcpa consent'], do_not_contact: ['do not contact', 'opted out', 'opt out', 'do not solicit'],
   dnc_registry: ['do not call', 'national dnc', 'dnc', 'dnc registry'], birthday: ['birthday', 'birth date', 'dob', 'date of birth'], referred_by: ['referred by', 'referral'],
