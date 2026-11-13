@@ -214,7 +214,7 @@ const DEFAULT_TEMPLATES = {
     new_arrival: "Hi {first_name}, it's {salesperson} at {dealership}. A {match_vehicle} (stock #{match_stock}) just came in that fits what you were looking for. Would you like me to send you some photos?",
     stock_sold: "Hi {first_name}, it's {salesperson}. Just a heads up, the {match_vehicle} you were looking at has sold. What matters most to you in the next one? I'll find you some similar options.",
     equity: "Hi {first_name}, it's {salesperson} at {dealership}. Vehicles like your {vehicle} are holding their value well, and yours may be worth more than you owe. Would you like me to run the numbers for you?",
-    reactivation: "Hi {first_name}, it's {salesperson} at {dealership}. It's been a while since we talked about the {vehicle}. Are you still in the market, or did you find something?",
+    reactivation: "Hi {first_name}, it's {salesperson} at {dealership}. Just checking in. Are you still in the market for a vehicle, or are you all set? Either way, I'm here if you ever need anything.",
     birthday: "Happy birthday, {first_name}! I hope you have a great day. - {salesperson} at {dealership}",
     referral_thanks: "Hi {first_name}, it's {salesperson}. {referral_name} just picked up their new vehicle, and they told me you sent them my way. Thank you, I really appreciate it!",
   },
@@ -404,8 +404,10 @@ function buildList() {
     if (c.match) msg(c, 'match', 'sms', render(extraTpl(c.match.kind === 'sold' ? 'stock_sold' : 'new_arrival'), c, { match_vehicle: c.match.vehicle, match_stock: c.match.stock }));
     if (c.ref_thanks) msg(c, 'referral', 'sms', render(extraTpl('referral_thanks'), c, { referral_name: c.ref_thanks.name }));
     if (c.campaign && new Date(c.campaign.due).getTime() <= now) {
-      if (!blockReason(c, 'sms')) send.push({ c, src: 'campaign', ch: 'sms', body: render(extraTpl(c.campaign.key), c) });
-      else if (!blockReason(c, 'call')) calls.push({ c, src: 'campaign', title: c.campaign.key === 'equity' ? `Call ${nm(c)}: bought ${c.sold_date}. Their car may be worth more than they owe.` : `Call ${nm(c)}: old lead. Still in the market?` });
+      const ckey = c.campaign.key === 'oldlist' ? 'reactivation' : c.campaign.key;
+      if (S.settings.auto_email && !blockReason(c, 'email')) auto.push({ c, src: 'campaign', ch: 'email', subject: ckey === 'equity' ? 'What is your vehicle worth today?' : `Still looking, ${c.first_name || 'there'}?`, body: render(extraTpl(ckey), c) });
+      else if (!blockReason(c, 'sms')) send.push({ c, src: 'campaign', ch: 'sms', body: render(extraTpl(ckey), c) });
+      else if (!blockReason(c, 'call')) calls.push({ c, src: 'campaign', title: c.campaign.key === 'equity' ? `Call ${nm(c)}: bought ${c.sold_date}. Their car may be worth more than they owe.` : `Call ${nm(c)}${c.source ? ` (${c.source})` : ''}: old customer. Still in the market? If they're interested, move them to New lead or book an appointment.` });
     }
     if (c.birthday === mmdd && c.bday_year !== yr && !blockReason(c, 'sms')) send.push({ c, src: 'birthday', ch: 'sms', body: render(extraTpl('birthday'), c) });
     if (c.status === 'active') {
@@ -446,7 +448,7 @@ function finishItem(it, sent, body) {
     case 'draft': delete c.draft; break;
     case 'match': delete c.match; break;
     case 'referral': delete c.ref_thanks; break;
-    case 'campaign': delete c.campaign; break;
+    case 'campaign': delete c.campaign; c.campaign_done = (c.campaign_done || 0) + 1; break;
     case 'birthday': c.bday_year = new Date().getFullYear(); break;
     case 'reply': c.status = 'paused'; delete c.reply_text; break;
     case 'appt': case 'noshow': { const a = { ...it.appt, [it.flag]: true }; saveAppt(a); break; }
@@ -457,7 +459,9 @@ function itemKey(it) { return [it.c.id, it.src, it.flag || '', it.appt?.id || ''
 
 /* ============ rendering ============ */
 let renderQueued = false;
-function scheduleRender() { if (!renderQueued) { renderQueued = true; requestAnimationFrame(() => { renderQueued = false; renderView(); }); } }
+// Screens you type into (Import, Setup, Templates) are not redrawn when data changes underneath them.
+const STATIC_VIEWS = new Set(['import', 'setup', 'templates']);
+function scheduleRender() { if (!renderQueued) { renderQueued = true; requestAnimationFrame(() => { renderQueued = false; if (STATIC_VIEWS.has(S.view)) { $('#ctToday').textContent = ''; return; } renderView(); }); } }
 const VIEWS = {};
 function go() {
   const v = location.hash.slice(1); S.view = VIEWS[v] ? v : 'today';
@@ -564,6 +568,7 @@ VIEWS.customers = () => {
   let rows = [...S.customers.values()].filter((c) => gstages.includes(c.stage) && (!f.stage || c.stage === f.stage));
   if (q) rows = rows.filter((c) => [nm(c), c.email, c.vehicle, c.notes, ...(c.stocks || [])].join(' ').toLowerCase().includes(q) || (qd.length >= 3 && (c.phone || '').includes(qd)));
   rows.sort((a, b) => (b.status === 'replied') - (a.status === 'replied') || String(b.updated_at).localeCompare(String(a.updated_at)));
+  const total = rows.length; rows = rows.slice(0, 300);
   const count = (stages) => [...S.customers.values()].filter((c) => stages.includes(c.stage)).length;
   return `<div class="stack">${loadingNote()}
     <div class="row spread"><h1>Customers</h1><div class="row"><input id="q" data-keep placeholder="Search name, phone, stock #" value="${esc(f.q)}" style="width:220px" aria-label="Search"><button class="btn pri" type="button" data-act="add">+ Add</button></div></div>
@@ -574,7 +579,7 @@ VIEWS.customers = () => {
       <td>${stagePill(c.stage)}</td><td>${statusPill(c.status)}</td><td>${(c.stocks || []).map((s) => `<span class="stock">#${esc(s)}</span>`).join(' ') || esc(c.vehicle)}</td>
       <td>${c.stage === 'dnc' ? '<span class="flag">Do not contact</span>' : c.consent ? '<span class="ok">Yes</span>' : '<span class="muted">Not yet</span>'}${c.dnc_registry ? ' <span class="flag">DNC list</span>' : ''}</td>
       <td class="small">${esc(fmtDay(c.last_contact_at))}</td></tr>`).join('') || `<tr><td colspan="6" class="empty">Nobody in ${esc(glabel)} yet.</td></tr>`}
-    </tbody></table></div></div>`;
+    </tbody></table></div>${total > rows.length ? `<p class="muted small">Showing ${rows.length} of ${total}. Search to find anyone else.</p>` : ''}</div>`;
 };
 
 VIEWS.calendar = () => {
@@ -602,11 +607,17 @@ function campaignAudience(key) {
   const all = [...S.customers.values()].filter((c) => c.stage !== 'dnc' && !c.campaign);
   if (key === 'equity') { const d = (m) => { const x = new Date(); x.setMonth(x.getMonth() - m); return todayKey(x); }; return all.filter((c) => c.stage === 'sold' && c.sold_date && c.sold_date <= d(24) && c.sold_date >= d(48)); }
   const cut = Date.now() - 60 * DAY;
-  return all.filter((c) => ['new_lead', 'phone_up', 'be_back', 'lost'].includes(c.stage) && c.status !== 'replied' && new Date(c.last_contact_at || c.created_at).getTime() <= cut && new Date(c.created_at).getTime() <= cut);
+  const quiet = (c) => !c.last_contact_at || new Date(c.last_contact_at).getTime() <= cut;
+  if (key === 'oldlist') return all.filter((c) => c.old_list && c.stage === 'lost' && c.status !== 'replied' && quiet(c))
+    .sort((a, b) => (!!b.email_ok - !!a.email_ok) || (!!b.initiated - !!a.initiated));
+  return all.filter((c) => ['new_lead', 'phone_up', 'be_back', 'lost'].includes(c.stage) && !c.old_list && c.status !== 'replied' && quiet(c) && new Date(c.created_at).getTime() <= cut);
 }
 VIEWS.grow = () => {
-  const camp = (key, title, why) => { const a = campaignAudience(key); const t = a.filter((c) => !blockReason(c, 'sms')).length; const cl = a.filter((c) => blockReason(c, 'sms') && !blockReason(c, 'call')).length;
-    return `<div class="card stack"><h2>${title}</h2><p class="muted">${why}</p><p><b>${a.length}</b> customers · ${t} get a drafted text · ${cl} go on your call list</p>
+  const camp = (key, title, why) => { const a = campaignAudience(key); const auto = S.settings.auto_email;
+    const em = auto ? a.filter((c) => !blockReason(c, 'email')).length : 0;
+    const t = a.filter((c) => !(auto && !blockReason(c, 'email')) && !blockReason(c, 'sms')).length;
+    const cl = a.filter((c) => !(auto && !blockReason(c, 'email')) && blockReason(c, 'sms') && !blockReason(c, 'call')).length;
+    return `<div class="card stack"><h2>${title}</h2><p class="muted">${why}</p><p><b>${a.length}</b> customers · ${em ? `${em} get an automatic email · ` : ''}${t} get a drafted text · ${cl} go on your call list</p>
       <div class="row"><label class="f" style="display:flex;align-items:center;gap:8px">Per day <input id="per-${key}" type="number" min="1" max="50" value="10" style="width:80px"></label>
       <button class="btn pri" type="button" data-camp="${key}" ${a.length ? '' : 'disabled'}>Add to my list</button></div></div>`; };
   const refSales = [...S.customers.values()].filter((c) => c.stage === 'sold' && c.referred_by).length;
@@ -618,6 +629,7 @@ VIEWS.grow = () => {
   }).sort((a, b) => (b.upgrade - a.upgrade) || ((a.nextAt?.getTime() ?? 9e15) - (b.nextAt?.getTime() ?? 9e15)));
   const bdays = [...S.customers.values()].filter((c) => c.birthday).length;
   return `<div class="stack"><h1>Grow</h1><p class="muted">More customers and more sales. Everything here lands on Today for you to send.</p>
+    ${[...S.customers.values()].some((c) => c.old_list) ? `<div class="grid2">${camp('oldlist', 'Work your old database', 'Your imported DealerSocket list. Each day a set number of people get a friendly "are you still in the market?" check-in: automatically by email for people who contacted the dealership themselves, and on your call list for the rest. Anyone who answers jumps to the top of Today.')}</div>` : ''}
     <div class="grid2">${camp('equity', 'Upgrade list', 'Past buyers 2 to 4 years out often owe less than the car is worth. This is where repeat sales come from.')}
       ${camp('reactivation', 'Reactivate old leads', 'Leads with no contact in 60+ days. One friendly check-in brings some back.')}</div>
     <div class="grid2"><div class="card stack"><h2>Inventory matches</h2><p class="muted">Add a vehicle on Stock #s and everyone who asked about that model gets a "just came in" text drafted. Mark a car sold and anyone who liked it gets a "that one sold, want me to find something similar?" text.</p></div>
@@ -685,7 +697,8 @@ VIEWS.import = () => `<div class="stack"><h1>Import</h1>
   <div class="grid2"><div class="card stack"><h2>Customers</h2>
     <p class="muted">From DealerSocket, export your customers or leads to Excel or CSV. Then open the file, select all, copy, and paste here (include the header row). Columns are matched automatically: name, cell phone, email, stock #, sales step, lead source, sold date, opt-in and do-not-call flags.</p>
     <p class="muted small"><b>Permission to text and email only comes from an opt-in column</b> (like "OK to Text"). Without one, you'll get a "call and ask" task first.</p>
-    <label class="f">Stage for rows without one<select id="impStage">${Object.entries(STAGES).map(([k, v]) => `<option value="${k}">${v.label}</option>`).join('')}</select></label>
+    <label class="f">What is this list?<select id="impMode"><option value="old">Old database: load quietly, work it with campaigns (nothing is sent)</option><option value="new">Current customers: start their follow-up now</option></select></label>
+    <label class="f">Stage for rows without one (current customers only)<select id="impStage">${Object.entries(STAGES).map(([k, v]) => `<option value="${k}">${v.label}</option>`).join('')}</select></label>
     <label class="f">File<input type="file" id="impFile" accept=".csv,.txt,.tsv"></label>
     <label class="f">Or paste<textarea id="impText" rows="7" placeholder="First Name,Last Name,Cell Phone,Email,Stock Number,OK to Text"></textarea></label>
     <div class="row"><button class="btn" type="button" data-act="imp-preview">Preview</button><button class="btn pri" type="button" data-act="imp-go">Import</button></div><div id="impOut"></div></div>
@@ -1030,10 +1043,10 @@ function parseCsv(text) {
 }
 const ALIASES = {
   first_name: ['first name', 'first', 'firstname', 'fname', 'customer first name'], last_name: ['last name', 'last', 'lastname', 'lname', 'surname', 'customer last name'],
-  full_name: ['name', 'full name', 'customer', 'customer name'], phone: ['phone', 'cell', 'mobile', 'cell phone', 'cellphone', 'phone number', 'mobile phone', 'home phone', 'day phone', 'primary phone'],
+  full_name: ['name', 'full name', 'customer', 'customer name'], phone: ['phone', 'cell', 'mobile', 'mobile number', 'cell phone', 'cellphone', 'cell number', 'phone number', 'mobile phone', 'home phone', 'day phone', 'primary phone'],
   email: ['email', 'e mail', 'email address', 'customer email'], stocks: ['stock', 'stock #', 'stock number', 'stock no', 'stock#', 'stk', 'stk#', 'vehicle stock number', 'sought stock number'],
   vehicle: ['vehicle', 'vehicle of interest', 'interest', 'car', 'model', 'year make model', 'vehicle sought', 'sought vehicle'], objection: ['objection', 'concern', 'held back'],
-  notes: ['notes', 'note', 'comments', 'comment'], source: ['source', 'lead source', 'lead provider'], stage: ['stage', 'sales step', 'sales status', 'lead type', 'lead status', 'status', 'type', 'bucket'],
+  notes: ['notes', 'note', 'comments', 'comment'], source: ['source', 'lead source', 'sales source', 'lead provider'], ext_id: ['entity id', 'customer id', 'contact id'], stage: ['stage', 'sales step', 'sales status', 'lead type', 'lead status', 'status', 'type', 'bucket'],
   sold_date: ['sold date', 'date sold', 'delivery date', 'delivered date', 'purchase date'], lead_at: ['lead date', 'created', 'date created', 'created date', 'date received', 'received'],
   consent: ['consent', 'opt in', 'optin', 'sms opt in', 'text opt in', 'ok to text', 'okay to text', 'tcpa consent'], do_not_contact: ['do not contact', 'opted out', 'opt out', 'do not solicit'],
   dnc_registry: ['do not call', 'national dnc', 'dnc', 'dnc registry'], birthday: ['birthday', 'birth date', 'dob', 'date of birth'], referred_by: ['referred by', 'referral'],
@@ -1050,7 +1063,9 @@ function customersFromCsv(text, defStage) {
   const g = (r, f) => (m[f] !== undefined ? String(r[m[f]] ?? '').trim() : '');
   const list = rows.slice(1).map((r) => { let first = g(r, 'first_name'), last = g(r, 'last_name');
     if (!first && !last && g(r, 'full_name')) { const full = g(r, 'full_name'); if (full.includes(',')) [last, first] = full.split(',').map((s) => s.trim()); else { const p = full.split(/\s+/); first = p.shift(); last = p.join(' '); } }
-    return { first_name: first, last_name: last, phone: g(r, 'phone'), email: g(r, 'email'), stocks: g(r, 'stocks'), vehicle: g(r, 'vehicle'), objection: g(r, 'objection'), notes: g(r, 'notes'),
+    const tc = (x) => (x && x === x.toUpperCase() ? x.toLowerCase().replace(/(^|[\s'-])([a-z])/g, (m, a, b) => a + b.toUpperCase()) : x);
+    first = tc(first); last = tc(last);
+    return { first_name: first, last_name: last, phone: g(r, 'phone'), email: g(r, 'email').split(/[;,\s]+/)[0], ext_id: g(r, 'ext_id'), stocks: g(r, 'stocks'), vehicle: g(r, 'vehicle'), objection: g(r, 'objection'), notes: g(r, 'notes'),
       source: g(r, 'source') || 'Import', stage: stageFrom(g(r, 'stage')) || defStage, sold_date: g(r, 'sold_date'), lead_at: g(r, 'lead_at'),
       consent: m.consent !== undefined ? g(r, 'consent') : undefined, consent_source: 'Opt-in on the imported list', do_not_contact: g(r, 'do_not_contact'), dnc_registry: g(r, 'dnc_registry'),
       birthday: g(r, 'birthday'), referred_by: g(r, 'referred_by') }; }).filter((c) => c.phone || c.email);
@@ -1060,9 +1075,21 @@ async function importCustomers(preview) {
   const r = customersFromCsv($('#impText').value, $('#impStage').value); const out = $('#impOut');
   if (preview) { out.innerHTML = `<p><b>${r.list.length}</b> customers found${r.skipped ? `, ${r.skipped} rows without a phone or email skipped` : ''}.</p><p class="muted small">Columns used: ${Object.entries(r.mapped).map(([f, h]) => `${esc(h)} → ${f.replace('_', ' ')}`).join(', ') || 'none recognized'}</p>
     <div class="tbl"><table><tr><th>Name</th><th>Phone</th><th>Email</th><th>Stock</th><th>Stage</th><th>Permission</th></tr>${r.list.slice(0, 8).map((c) => `<tr><td>${esc(c.first_name + ' ' + c.last_name)}</td><td>${esc(c.phone)}</td><td>${esc(c.email)}</td><td>${esc(c.stocks)}</td><td>${esc(STAGES[c.stage].label)}</td><td>${bool(c.consent) ? 'Yes' : '—'}</td></tr>`).join('')}</table></div>`; return; }
-  let made = 0, merged = 0; out.textContent = 'Importing…';
-  for (const d of r.list) { const { c, created } = upsert(d); created ? made++ : merged++; await saveCustomer(c); }
-  out.innerHTML = `<p class="ok"><b>${made}</b> added, <b>${merged}</b> updated. <a href="#today">See today's list</a></p>`;
+  let made = 0, merged = 0, n = 0; out.textContent = 'Importing…';
+  const quiet = $('#impMode')?.value === 'old';
+  for (const d of r.list) {
+    const { c, created } = upsert(quiet ? { ...d, stage: 'lost' } : d);
+    if (d.ext_id && !c.ext_id) c.ext_id = d.ext_id;
+    if (quiet && created) {
+      // Who reached out to the dealership themselves (an inquiry, a call, a visit) vs. a bought or marketing list.
+      const own = /^(internet|phone up|fresh up|\*?scratch|lease return|history import|dealer mgmt sys|kbb ico|walk.?in|showroom)/i.test(d.source || '');
+      Object.assign(c, { stage: 'lost', status: 'paused', old_list: true, initiated: own, email_ok: own, step: 0 });
+    }
+    created ? made++ : merged++; await saveCustomer(c);
+    if (++n % 50 === 0) out.textContent = `Importing… ${n} of ${r.list.length}`;
+  }
+  out.innerHTML = quiet ? `<p class="ok"><b>${made}</b> added quietly to Outreach, <b>${merged}</b> updated. Nothing was sent. Work them from <a href="#grow">Grow → Work your old database</a>.</p>`
+    : `<p class="ok"><b>${made}</b> added, <b>${merged}</b> updated. <a href="#today">See today's list</a></p>`;
 }
 async function importInventory() {
   const rows = parseCsv($('#invText').value); if (rows.length < 2) return ($('#invOut').textContent = 'Paste a list with a header row.');
@@ -1185,7 +1212,12 @@ setInterval(() => { if (!document.activeElement?.closest?.('#view [data-keep]'))
   S.db = db;
   const timer = setTimeout(() => { S.offline = true; scheduleRender(); }, 10000);
   const sub = (col, map, keyField, flag) => db.collection(col).onSnapshot((snap) => {
-    map.clear(); for (const d of snap.docs) { const x = d.data(); if (x) map.set(keyField ? x[keyField] || d.id : d.id, { ...x, id: x.id || d.id }); }
+    const first = !map.__seen; map.__seen = true;
+    if (first) { map.clear(); for (const d of snap.docs) { const x = d.data(); if (x) map.set(keyField ? x[keyField] || d.id : d.id, { ...x, id: x.id || d.id }); } }
+    else for (const ch of snap.docChanges()) {
+      const x = ch.doc.data(); const k = keyField ? (x && x[keyField]) || ch.doc.id : ch.doc.id;
+      if (ch.type === 'removed') map.delete(k); else if (x) map.set(k, { ...x, id: x.id || ch.doc.id });
+    }
     if (!snap.metadata.fromCache) { S.loaded[flag] = true; if (flag === 'customers') { clearTimeout(timer); S.offline = false; } }
     else if (map.size) S.loaded[flag] = true;
     scheduleRender();
