@@ -423,3 +423,24 @@ Each line is as it stood on the page; the heading in brackets is the section it 
 [Views are stuck on both platforms]
 - **TikTok round 2 (research 97, `oh-meatball/research/97-tiktok-view-jail-round-2.md`, checked by a second model 11/12):** no public page shows a block. Ranked causes: (1) the first viewers do not like, comment on or probably finish our videos (likes 2.2% against 4.1 to 9.9% on drawn accounts like ours, comments 0.05%, the lowest read); (2) our videos are short for this niche: the closest account (lianna_anima, drawn stick-figure pets, 10.3K followers) has a median of 2,232 with videos of about 195 seconds, animatales5 5,353 at about 165 seconds; (3) captions that open with the searched phrase do about 1.7 times better (median 321 against 224, p 0.006, tied up with bug topics). The label, the look, posting through Metricool and posting 3 to 4 a day have no evidence against them.
 
+## Moved from the page on 11/13 (after research 100)
+
+[TikTok orders]
+- **Jokes (Nolan 11/11: "make them joke more using the cursing, like this thing has enough venom to fucking kill a small village or something like that").** Six to nine sweary jokes per cut, in place of the bare reactions ("Fuck yes.", "Thank fuck."). A joke is a simile ("like a tiny fucking cowboy"), a roast ("Giant, my ass"), an order ("Just hand them the fucking keys") or a looks-like line that the real fact answers in the next breath ("It looks like it could fucking kill a small village. It can't."). My guardrail, checked by a second model on every cut: a joke never adds a number, a venom, danger or health claim, a behavior, or a "free pest control" claim that the fact-checked line does not support, because on a channel that corrects myths a made-up venom line said straight would be a new myth. To make room, each cut loses its one or two slowest facts and runs 85-92 s. Never aimed at a person or group, no slurs, never inside a sourced attribution ("Penn State says..." and "scientists tested..." stay clean; the reaction comes after), and the facts do not change.
+
+[Direction change]
+- **His pick (11/11 20:00, from four options with the numbers in front of him): "Pets + Would You Survive".** All new videos: about half are cats and dogs in your house (best odds for a Short: about 1 in 3 small-channel pet Shorts pass 10,000 views), half are "Would Meatball Survive?" with big dangerous animals (about 1 in 3 long videos and 1 in 8 Shorts pass 10,000; the viewer or Meatball is put in the scene). Judge by the share of new Shorts over 5,000 views and by long-form hours, not by the median alone (the bug median is already good). Every new one still goes fact pack, script, live-source check by a second model, then build.
+
+[Develop yourself]
+- **On Tue 11/24 (vidIQ credits return; reminder set):** read "stayed to watch" and feed impressions for the last 50 Shorts and retention curves for about a dozen videos through vidIQ. It reads through Nolan's Chrome with the vidIQ extension signed in (open ask 3).
+
+[The YouTube play]
+- **Where it stands:** numbers in "Where we are". At that pace the 4,000 hours never arrive, so the plan needs one long-form to break out, not a slow climb: 40,000 views at 6 minutes each is the whole 4,000.
+
+[The YouTube play]
+- **How each long-form is judged at 72 hours (my thresholds, not Studio's):** click-through 4% or more (now 2.5%), 100 views or more (Part 1 had 177 at 74 h), average viewed 35% or more. Under 3% click-through: new thumbnail and title the same day (the same video can do 3,500 or 679,000 on packaging alone, research 70). Good click-through but under 25% viewed: rebuild the first 30 seconds.
+
+[More comedy on YouTube, shortened 11/13]
+- **The test and how it is read:** every new YouTube Short is the funny-first kind ("Make them funnier" rules). Read at 48 hours against the plain bug Shorts posted the same days (views), and on Sun 11/15 and after with Windsor (average % viewed, engaged share). If the funny ones keep about twice the pace, the queued bug Shorts get the funnier pass early and long videos get more jokes (still mild words, nothing before 0:25).
+
+- **Not measurable yet:** whether five Shorts in one day hurt again (Wed 11/11 had five and four fell under 350, research 90). Watch Thursday's five for that.
