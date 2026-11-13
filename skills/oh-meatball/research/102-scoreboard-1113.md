@@ -58,3 +58,10 @@ Source: Metricool reads and update responses in the main session (the connector 
 - Other Shorts: cat purr 931, turkey 910, moose 908, cat sugar 1,000, false widow 992.
 - By the rule in MASTER_ORDERS ("A funny Jensen Huang allegations video", how it is judged) 2 times the median on either platform earns one more topical video as a test. TikTok has passed it before the 48-hour mark; the 48-hour read (Sun 11/15 about 11:00) still stands for the record. Next step is research on the next topic (options to Nolan before anything is built), in tomorrow's morning run: no agents today (credits).
 - Not measured: where the TikTok plays came from and how long people watched (TikTok Studio only).
+
+## Three more topical videos ("Do all", 13:20 to 14:20 ET)
+Pack `research/108`, second-model check `research/109` (15 fixes across the three, all applied before the build). TikTok only for now; YouTube cuts wait for the Jensen Short's 24-hour number against 942.
+- GTA 6: What's Actually Confirmed (85.4 s): posted 14:07 ET, https://www.tiktok.com/@meatballmyths/video/7707734724675898654 (Metricool uuid 8855195023778594847).
+- The Microsoft Outage, Explained (71.3 s): scheduled 15:05 ET (uuid -5541063913702537511).
+- Jensen Huang, Part 2: It Got Worse (68.6 s): scheduled 16:10 ET (uuid -7336640465923193038). At 14:15 ET his answer to the Dec 1 interview request was still pending (deadline 8 pm ET today, per CNN as relayed in search results): if he accepts or is subpoenaed, the caption's last question may need a word.
+- Read all four topical TikToks at the 17:20 check and tonight; 48-hour reads Sun 11/15 afternoon against the median 333.
