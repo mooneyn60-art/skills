@@ -65,3 +65,9 @@ Pack `research/108`, second-model check `research/109` (15 fixes across the thre
 - The Microsoft Outage, Explained (71.3 s): scheduled 15:05 ET (uuid -5541063913702537511).
 - Jensen Huang, Part 2: It Got Worse (68.6 s): scheduled 16:10 ET (uuid -7336640465923193038). At 14:15 ET his answer to the Dec 1 interview request was still pending (deadline 8 pm ET today, per CNN as relayed in search results): if he accepts or is subpoenaed, the caption's last question may need a word.
 - Read all four topical TikToks at the 17:20 check and tonight; 48-hour reads Sun 11/15 afternoon against the median 333.
+
+## 14:56 ET read (Nolan: "Ok check how the videos are doing"; YouTube flat listing, TikTok public pages)
+- Jensen Huang TikTok: 2,800 plays at 4.1 h (2,622 at 2.0 h, so the first push is mostly over), likes 1.14%, 2 comments, 5 shares. TikTok's suggested searches on it are all about the story ("Huang Resigns as Nvidia CEO", "Jensen Huang Second Affair Allegations").
+- GTA 6 TikTok: 39 plays at 0.8 h, label "Video Games". Too early to judge (the Jensen one had no count at this age).
+- Jensen Huang YouTube Short: 151 at 4.1 h. Sweary dog-stare Short (10:00): 248 at 4.9 h. Dog guilty look (13:00): listed, no count yet.
+- Older Shorts: cat sugar 1,100, false widow 992, cat purr 931, moose 918, turkey 914.
