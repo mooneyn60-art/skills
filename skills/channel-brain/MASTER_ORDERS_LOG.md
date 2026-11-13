@@ -327,3 +327,27 @@ Each line is as it stood on the page; the heading in brackets is the section it 
 [What he picked to build next]
 - **Polar bear long video (his pick, the recommended one):** the next long video in the "born as" shape, for December (searches peak in December and January, research 95). Same pipeline as the house cat: fact pack, script from the pack, second-model check, one opus build, three titles for the A/B test. He no longer has to wait for the cat video's result.
 
+## Moved from the page on 11/12 (night trim)
+Each line is as it stood on the page; the heading in brackets is the section it came from.
+
+[Direction change]
+- **Research first (Nolan 11/11, about 19:30, after I built and scheduled a cat Short and a moose Short on my own guess of what "the majority" likes): "No wait do research don't jump to conclusions you need to do this every time. Stop and look at my message and continue."** The rule: nothing new is built or scheduled on a new direction until the research is in and he has seen the options. Research 83 (`oh-meatball/research/83-majority-topics.md`) answered this one; its numbers are in the log.
+
+[Direction change]
+- **What I told him the data says, so the next session knows it was said:** our house-bug videos beat our other animals so far (numbers in the log). He heard that and chose the wider audience anyway. Do not argue it again; measure the new topics against the bug baseline and report the numbers.
+
+[TikTok orders]
+- TikTok's Community Guidelines and For You standards (effective 2026-09-24) do not mention profanity, only "content that may not be suitable for a broad audience", so the risk is unmeasured: compare the swearing cuts' views with the clean ones after a week. If TikTok views drop, cut beats, not swears.
+
+[TikTok orders]
+- **For You vs Search (research 81, 11/11; Nolan: "a lot of views on TikTok from search but not fyp so maybe the descriptions or hashtags need a little change").** Captions and hashtags are not the lever. What puts a video on For You is people finishing it. The caption standard is now in "Tags and everything, from every angle". Not measurable from here: the For You/Search split and retention per video (Metricool returns nulls; only TikTok Studio shows them).
+
+[Watch hours]
+- **A/B challengers for Nolan (`oh-meatball/episodes/thumbs-dontkill/`):** Part 2 `kk2_c.jpg` and the old `thumb_a.jpg`; centipede `centipede_b.jpg`; cellar spider `cellarspider_a.jpg`. Skip the Meatball-in-thumbnail variant: he is a brown dot at 168 px.
+
+[Develop yourself]
+- **His words (three asks the same day):** "And Delvin yourself and skills mcps or repositories you want to help us grow whatever you need" (12:58). "Not working is there anything you can build or make to help us out or any updates to repos or skills or anything else grow yourself" (about 15:45, after the Windsor TikTok link failed). "Ok keep going and what did you do to yourself you have full control download whatever you neex" (about 16:00).
+
+[Develop yourself (it repeats open ask 1)]
+- **TikTok watch time (research 95):** no service reads it for a Personal account. Windsor, Metricool and the others get it only for Business or Creator accounts, and the account stays Personal. The only route is the app's own analytics screen (open ask 1). Do not send the Windsor link again.
+
