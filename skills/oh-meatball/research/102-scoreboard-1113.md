@@ -76,3 +76,10 @@ Pack `research/108`, second-model check `research/109` (15 fixes across the thre
 - Microsoft outage (15:05, https://www.tiktok.com/@meatballmyths/video/7707749755279002911): 202 plays at 0.4 h, 2 likes, 1 save.
 - GTA 6 (14:07): 226 plays at 1.4 h, no likes yet, label "Video Games".
 - Jensen Huang (10:52): 2,818 at 4.7 h (flat since 14:56).
+
+## 17:04 ET read (Nolan: "Check videos"; TikTok public pages, YouTube flat listing, Metricool status)
+- House cat long video: PUBLISHED 17:00 ET, https://www.youtube.com/watch?v=viD-nbPdaxk (Metricool). Not yet in the public listing 4 minutes later. 72-hour read Mon 11/16 17:00.
+- TikTok, topical: Microsoft outage 2,260 plays at 2.0 h (likes 1.15%, 2 shares, 4 saves); Jensen Huang 2,894 at 6.2 h (likes 1.24%); GTA 6 641 at 3.0 h (likes 0.47%, label "Video Games"); Jensen part 2 (16:10, https://www.tiktok.com/@meatballmyths/video/7707766536479509790): see the line below.
+- Account median 333: Microsoft 6.8x, Jensen 8.7x, GTA 6 1.9x so far. The two that TikTok labels "Comics & Cartoon, Anime" took off; the one labelled "Video Games" did not (one case each way: not a finding yet).
+- YouTube Shorts: Jensen 169 at 6.2 h; sweary dog stare 325 at 7.1 h; dog guilty look (13:00) listed with no count.
+- Jensen part 2: 36 plays at 0.9 h, 1 like, and TikTok labels it "Video Games" (the first Jensen video is "Comics & Cartoon, Anime"; the label may have carried over from the GTA 6 post an hour before it). Too early to judge.
