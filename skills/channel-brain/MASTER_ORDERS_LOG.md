@@ -365,3 +365,23 @@ Each line is as it stood on the page; the heading in brackets is the section it 
 [Watch hours]
 - **Thumbnail recipe (`tools/thumb_dontkill.py`):** white background, one huge illustrated creature, a shoe sole about to squish it, 2-4 hand-lettered words with one in red, a hand-drawn arrow. Nothing else.
 
+## Moved from the page on 11/12 (late-night trim)
+
+[Research loop]
+- **What works for data:** Metricool analytics (YouTube per-video views, watch minutes, average view duration; TikTok views, likes, comments, shares, duration); Windsor.ai (Nolan's YouTube: average % viewed, engaged views and subscribers gained per video, 2-3 days behind); yt-dlp flat listings (public views, channel medians, subscriber counts); web search. From 11/12 also: Windsor `traffic_source` per video (one call per video with the filter `[["video","eq",ID]]`), `shares` and `country`; public TikTok pages with `tools/postkit.py ttpage` (plays, label, TikTok's suggested searches); YouTube and Google search suggestions with `tools/postkit.py kw`. The `scoreboard` skill has the table.
+
+[Research loop]
+- **What doesn't:** retention curves for our videos (Windsor has none; vidIQ's `audience_retention` report costs 5 credits a video, so wait for the 2,000-credit reset on 2026-11-24, or Nolan's Studio screenshots if he offers them, open ask 4); TikTok retention (Metricool returns nulls); other channels' "Most replayed" graphs and transcripts (YouTube blocks full video-page extraction from the cloud machine with a bot check; don't route around it); Higgsfield (0 credits).
+
+[Make them funnier]
+- **How it will be judged, and what cannot be:** YouTube: average % viewed and engaged share of these seven from Windsor (2 to 3 days behind, so today's two read on Sun 11/15) against the Shorts that reached 1,000 to 2,000 views (engaged share 0.50, average viewed 81%, research 90). TikTok: likes, comments and shares per view on the seven 19:00 cuts against the account's 2.2%, 0.05% and 0.06% (research 91). TikTok watch time and finish rate are in Studio only. Not separable: none of the seven posts in its plain version, so the jokes and the new topics move together, and the TikTok 19:00 test now changes three things at once (short, search phrase on screen, sweary jokes).
+
+[Develop yourself (the gate is in 'The production line')]
+- **From 11/12:** the gate in "The production line" holds for every video; post bodies come from `postkit.py payload`, not from typing.
+
+[Watch hours]
+- The verdict of the video is a sweet deal with conditions, so no title may promise only misery. The polar bear is the next one in this shape (Nolan picked it 11/12, see "What he picked to build next"). Whatever he picks: fact pack, script from the pack, second-model check, one opus build, three titles in the A/B test. A title with "sucks" needs his yes (the mild-word rule keeps such words out of titles); the milder twin is "Why Being Born a Polar Bear Is a Terrible Deal".
+
+[TikTok orders]
+- **TikTok Creator Rewards: RESTORED 11/11** (Nolan appealed; TikTok's notice is in the log). Rewards pays only on original videos of 1 minute or more that reach 1,000 qualified For You views, and our median TikTok gets about 220. So a new one-minute cut (sweary, 85-92 s; see "Posting") is built only on a topic that has already passed 1,000 there (house centipede 3,728 and 1,686; bombardier beetle 5,972) or a close cousin, with a stay/squish or yes/no prompt in the caption. Shorter cuts, the two exceptions and the sweary-cut length: see "Posting". Keep the AI-generated label ON (the voice and scripts are AI; TikTok asked Nolan to confirm it 11/10-11/11): never remove it to chase reach. Never use follow-for-follow or any engagement tool: the account has already been disqualified once.
+
