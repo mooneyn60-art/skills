@@ -210,11 +210,11 @@ const DEFAULT_TEMPLATES = {
   },
 };
 const APPT_TYPES = { test_drive: 'Test drive', appraisal: 'Trade appraisal', visit: 'Visit', delivery: 'Delivery', phone_call: 'Phone call' };
-const DEFAULT_SETTINGS = { salesperson: '', dealership: '', dealer_phone: '', dealer_address: '', review_link: '', text_start: 8, text_end: 21, call_target: 5 };
+const DEFAULT_SETTINGS = { salesperson: '', dealership: '', dealer_phone: '', dealer_address: '', review_link: '', text_start: 8, text_end: 21, call_target: 5, auto_email: false };
 
 /* ============ state ============ */
 const S = { db: null, customers: new Map(), appts: new Map(), inv: new Map(), settings: { ...DEFAULT_SETTINGS }, tpl: DEFAULT_TEMPLATES,
-  loaded: { customers: false, appts: false, inv: false }, offline: false, view: 'today', filter: { group: 'follow', stage: '', q: '' }, tars: [] };
+  loaded: { customers: false, appts: false, inv: false }, offline: false, auto: null, view: 'today', filter: { group: 'follow', stage: '', q: '' }, tars: [] };
 
 /* ============ helpers ============ */
 const $ = (s, el = document) => el.querySelector(s);
@@ -380,7 +380,7 @@ function resume(c) {
 
 /* ============ the daily list (derived from your data) ============ */
 function buildList() {
-  const calls = [], send = []; const now = Date.now(); const mmdd = todayKey().slice(5); const yr = new Date().getFullYear();
+  const calls = [], send = [], auto = []; const now = Date.now(); const mmdd = todayKey().slice(5); const yr = new Date().getFullYear();
   const msg = (c, src, ch, body, extra = {}) => {
     const blocked = blockReason(c, ch);
     if (!blocked) send.push({ c, src, ch, body, ...extra });
@@ -402,6 +402,8 @@ function buildList() {
       const step = cadence(c.stage)[c.step || 0];
       if (step && new Date(c.stage_at).getTime() + step.day * DAY <= now) {
         if (step.ch === 'call') { if (!blockReason(c, 'call')) calls.push({ c, src: 'sequence', title: render(step.body, c) }); else send.push({ c, src: 'sequence', ch: 'call', body: render(step.body, c), blocked: blockReason(c, 'call') }); }
+        else if (step.ch === 'email' && S.settings.auto_email && !blockReason(c, 'email') && !/\[[^\]]+\]/.test(step.body + (step.subject || '')))
+          auto.push({ c, src: 'sequence', ch: 'email', subject: step.subject ? render(step.subject, c) : '', body: render(step.body, c) });
         else msg(c, 'sequence', step.ch, render(step.body, c), { subject: step.subject ? render(step.subject, c) : '' });
       }
     }
@@ -420,7 +422,7 @@ function buildList() {
   }
   const order = { reply: 0, outcome: 1, consent: 3, sequence: 4, campaign: 5 };
   calls.sort((a, b) => (order[a.src] ?? 2) - (order[b.src] ?? 2));
-  return { calls, send };
+  return { calls, send, auto };
 }
 const SRC = { sequence: 'Follow-up schedule', reply: 'Customer replied', consent: 'Needs permission', outcome: 'Appointment check', appt: 'Appointment', noshow: 'No-show',
   draft: 'Your draft', match: 'Inventory match', campaign: 'Campaign', birthday: 'Birthday', referral: 'Referral thank-you' };
@@ -459,6 +461,14 @@ function renderView() {
   if (fid) { const el = document.getElementById(fid); if (el && el.closest('#view')) { el.focus(); try { el.setSelectionRange(sel, sel); } catch {} } }
   bindView(L);
 }
+function autoStatus() {
+  if (!S.settings.auto_email) return '';
+  const a = S.auto;
+  if (!a || !a.last_run) return '<div class="note">Automatic email is on. The first run happens within the hour (9 am to 7 pm).</div>';
+  const mins = Math.round((Date.now() - new Date(a.last_run).getTime()) / 60000);
+  const stale = mins > 26 * 60;
+  return `<div class="${stale || a.error ? 'note' : 'card'} small">Automatic email: last run ${esc(fmtWhen(a.last_run))}${a.summary ? ' · ' + esc(a.summary) : ''}${a.error ? ` · <span class="flag">${esc(a.error)}</span>` : ''}${stale ? ' · <span class="flag">It hasn\'t run in over a day. Ask Claude to check the scheduled task.</span>' : ''}</div>`;
+}
 const loadingNote = () => (!S.loaded.customers ? `<div class="note">${S.offline ? 'Can\'t reach your saved data right now. What you see may be out of date.' : 'Loading your customers…'}</div>` : '');
 const setupNote = () => {
   const miss = ['salesperson', 'dealership', 'dealer_address'].filter((k) => !S.settings[k]);
@@ -475,14 +485,16 @@ VIEWS.today = (L) => {
   return `<div class="stack">${loadingNote()}${setupNote()}${ex}
     <div class="row spread"><div><h1>Today</h1><div class="muted">${new Date().toLocaleDateString([], { weekday: 'long', month: 'long', day: 'numeric' })}</div></div>
       <div class="row"><button class="btn" type="button" data-act="add">+ Customer</button><button class="btn" type="button" data-act="appt-new">+ Appointment</button></div></div>
-    ${intro}${win}
+    ${intro}${win}${autoStatus()}
     <div class="grid2">
       <section class="stack"><h2>Call these<span class="count">${L.calls.length}</span></h2>
         <p class="muted small" style="margin:-6px 0 0">Replies first. Aim for ${S.settings.call_target || 5}+ calls a day.</p>
         ${L.calls.map(callCard).join('') || '<div class="card empty">No calls due right now.</div>'}</section>
       <section class="stack"><h2>Send these<span class="count">${L.send.length}</span></h2>
         <p class="muted small" style="margin:-6px 0 0">Edit if you like, tap <b>Copy</b>, send it from your phone or email, then tap <b>Sent</b>.</p>
-        ${L.send.map(sendCard).join('') || '<div class="card empty">Nothing to send right now.</div>'}</section>
+        ${L.send.map(sendCard).join('') || '<div class="card empty">Nothing to send right now.</div>'}
+        ${L.auto.length ? `<h2>Emailing automatically<span class="count">${L.auto.length}</span></h2><p class="muted small" style="margin:-6px 0 0">These go out from your Gmail within the hour, between 9 am and 7 pm. Nothing to do.</p>
+          ${L.auto.map((it) => `<div class="item"><div class="row spread"><span class="who" data-open="${esc(it.c.id)}">${esc(nm(it.c))}</span><span class="pill p-sold">Auto email</span></div><div class="small">${esc(it.subject)}</div></div>`).join('')}` : ''}</section>
     </div></div>`;
 };
 function callCard(it, i) {
@@ -653,7 +665,12 @@ VIEWS.setup = () => { const s = S.settings; const f = (k, l, ph = '') => `<label
         <li>Numbers on the Do Not Call list are blocked unless the customer contacted you first.</li>
         <li>Any reply stops the follow-up schedule and puts them on your call list.</li>
         <li>Never store credit, SSN, license or income info here.</li></ul></div></div>
-    <div class="card stack"><h2>About this version</h2><p class="muted">This page saves your data to your claude.ai account and opens on your phone or computer. Texts go from your own phone and emails from your own email. Nothing sends by itself, so you stay in control of every message. In this chat, Claude can also read and add customers here, so you can paste leads to Claude.</p></div></div>`; };
+    <div class="card stack"><h2>Automatic email</h2>
+      <label class="row" style="gap:8px"><input type="checkbox" id="set-auto_email" style="width:auto" ${s.auto_email ? 'checked' : ''}> Send my scheduled follow-up emails automatically from my Gmail</label>
+      <p class="muted small">Every hour from 9 am to 7 pm, a scheduled task in your Claude account emails customers whose next step is an email. It only emails people with recorded permission, skips anything with [brackets] to fill in, and never emails anyone marked Do not contact or unsubscribed.
+        It also checks your Gmail: when a customer replies, their follow-ups stop and they go to the top of your call list, and "unsubscribe" stops emails to them. Booked appointments go on your Google Calendar, and the customer gets an email confirmation and a reminder the day before. Texts stay on your Today list, because nothing can send a text from your personal phone.</p>
+      <button class="btn pri" type="button" data-act="save-settings" style="justify-self:start">Save</button></div>
+    <div class="card stack"><h2>About this version</h2><p class="muted">This page saves your data to your claude.ai account and opens on your phone or computer. Texts go from your own phone. Emails go from your own email, either with one tap or automatically if you turn on automatic email above. In this chat, Claude can also read and add customers here, so you can paste leads to Claude.</p></div></div>`; };
 
 /* ============ binding ============ */
 function findItem(L, key) { return [...L.calls, ...L.send].find((it) => itemKey(it) === key); }
@@ -689,7 +706,7 @@ function bindView(L) {
       case 'vehicle-new': return vehicleSheet({});
       case 'examples': return addExamples();
       case 'clear-examples': return confirmSheet('Remove the example customers?', 'Only the 3 example customers are removed.', 'Remove', async () => { for (const c of [...S.customers.values()].filter((x) => x.example)) { S.customers.delete(c.id); await delDoc('customers', c.id); } for (const a of [...S.appts.values()].filter((a) => !S.customers.has(a.customer_id))) { S.appts.delete(a.id); await delDoc('appointments', a.id); } renderView(); });
-      case 'save-settings': { for (const k of Object.keys(DEFAULT_SETTINGS)) { const el = $('#set-' + k); if (el) S.settings[k] = el.value; } S.settings.text_start = Math.max(8, +S.settings.text_start); S.settings.text_end = Math.min(21, +S.settings.text_end); await saveSettings(); return toast('Saved'); }
+      case 'save-settings': { for (const k of Object.keys(DEFAULT_SETTINGS)) { const el = $('#set-' + k); if (el) S.settings[k] = el.type === 'checkbox' ? el.checked : el.value; } S.settings.text_start = Math.max(8, +S.settings.text_start); S.settings.text_end = Math.min(21, +S.settings.text_end); await saveSettings(); return toast('Saved'); }
       case 'imp-preview': return importCustomers(true);
       case 'imp-go': return importCustomers(false);
       case 'inv-go': return importInventory();
@@ -763,7 +780,7 @@ function openCustomer(id) {
   const appts = [...S.appts.values()].filter((a) => a.customer_id === id).sort((a, b) => b.at.localeCompare(a.at));
   const ref = c.referred_by_id && S.customers.get(c.referred_by_id);
   const hist = (c.history || []).map((h) => h.ch === 'call' ? `<div class="bub call">${esc(h.body)} · ${esc(fmtWhen(h.at))}</div>`
-    : `<div class="bub ${h.dir}">${esc(h.body)}<div class="meta">${h.ch === 'email' ? 'email' : 'text'} · ${esc(fmtWhen(h.at))}</div></div>`).join('');
+    : `<div class="bub ${h.dir}">${h.subject ? `<b>${esc(h.subject)}</b>\n` : ''}${esc(h.body)}<div class="meta">${h.ch === 'email' ? 'email' : 'text'}${h.auto ? ' · sent automatically' : ''} · ${esc(fmtWhen(h.at))}</div></div>`).join('');
   sheet(nm(c), `
     <div class="row">${stagePill(c.stage)} ${statusPill(c.status)}${c.example ? ' <span class="muted small">(example)</span>' : ''}</div>
     <div class="kv"><span>Mobile</span><span class="mono">${esc(fmtPhone(c.phone) || '—')}</span><span>Email</span><span>${esc(c.email || '—')}${c.email_opt_out ? ' <span class="flag">unsubscribed</span>' : ''}</span>
@@ -999,7 +1016,7 @@ function tarsPrompt(q) {
   const s = S.settings; const L = buildList();
   return `You are TARS, the assistant inside a car salesperson's follow-up page. Salesperson: ${s.salesperson || 'not set'} at ${s.dealership || 'not set'}. Now: ${new Date().toString()}.
 Stages: new_lead, phone_up, be_back (unsold showroom), appointment, sold, lost, dnc (do not contact). Buckets: Follow Up, Sold, Outreach (lost).
-Today's list has ${L.calls.length} calls and ${L.send.length} messages to send.
+Today's list has ${L.calls.length} calls and ${L.send.length} messages to send${L.auto.length ? `, and ${L.auto.length} emails going out automatically` : ''}.
 Rules: use the tools to look things up; never invent customers, numbers or prices. Never text or email someone without recorded permission, never contact dnc customers, no price or payment promises. When asked to write a message, use draft_message so it lands on Today. Be brief like a sharp sales manager, short lists, mention names. Messages: friendly-professional, from the salesperson, under 300 characters for texts, one question per message. If a date, time or customer is unclear, ask first.
 
 Question: ${q}`;
@@ -1052,6 +1069,7 @@ setInterval(() => { if (!document.activeElement?.closest?.('#view [data-keep]'))
   }, () => { S.loaded[flag] = true; S.offline = true; clearTimeout(timer); scheduleRender(); });
   sub('customers', S.customers, null, 'customers'); sub('appointments', S.appts, null, 'appts'); sub('inventory', S.inv, 'stock_number', 'inv');
   db.doc('config/settings').onSnapshot((d) => { if (d.exists) S.settings = { ...DEFAULT_SETTINGS, ...d.data() }; scheduleRender(); }, () => {});
+  db.doc('config/automation').onSnapshot((d) => { S.auto = d.exists ? d.data() : null; scheduleRender(); }, () => {});
   db.doc('config/templates').onSnapshot((d) => { if (d.exists) S.tpl = { ...DEFAULT_TEMPLATES, ...d.data() }; scheduleRender(); }, () => {});
 })();
 </script>
