@@ -83,25 +83,32 @@
    "scene": "study",
    "m": "chase",
    "gag": false,
-   "say": "They hatch into caterpillars that eat wool.",
+   "say": "They hatch into caterpillars that eat wool. Meatball blamed the damn dryer.",
    "card": {
     "rows": [
      [
       "EATS WOOL",
-      "#ff4b3e",
+      "#ffd34d",
       130
+     ],
+     [
+      "MEATBALL BLAMED THE DRYER",
+      "#ffffff",
+      46,
+      true
      ]
     ],
     "y": 470,
     "at": "50%"
-   }
+   },
+   "pose": "think"
   },
   {
    "pad": 0.3,
    "scene": "basement",
    "m": "xray",
    "gag": false,
-   "say": "The adults don't eat. The larvae do.",
+   "say": "The adults don't eat. The larvae do. Meatball eats for both.",
    "card": {
     "rows": [
      [
@@ -111,30 +118,6 @@
      ],
      [
       "NOT THE ADULTS",
-      "#ffffff",
-      56,
-      true
-     ]
-    ],
-    "y": 470,
-    "at": "40%"
-   }
-  },
-  {
-   "pad": 0.3,
-   "scene": "cave",
-   "m": "fact",
-   "gag": false,
-   "say": "Clothes moths avoid light, so they're rarely seen.",
-   "card": {
-    "rows": [
-     [
-      "AVOID LIGHT",
-      "#ffd34d",
-      105
-     ],
-     [
-      "SO YOU RARELY SEE THEM",
       "#ffffff",
       56,
       true
@@ -254,5 +237,5 @@
  "loop": true,
  "description": "Pantry moth vs clothes moth: two different moths in two different rooms. Clothes moths lay about 40 to 50 eggs in dark closets, pantry moths usually arrive in food packages, and in both it's the larvae that do the eating.\n\n#shorts #pantrymoth #clothesmoth #mothsinhouse #bugsinyourhouse\n\nSources: University of Kentucky Entomology (ENTFACT-609); UC IPM Pest Notes (Clothes Moths, Pantry Pests).",
  "pinned_comment": "Which moths did you find first, the ones in your closet or the ones in your kitchen? What gave them away?",
- "_note": "Written for the 11/10 batch (Shorts A) from drawn_macros lines."
+ "_note": "Written for the 11/10 batch (Shorts A) from drawn_macros lines. Funny pass 11/13 (Nolan: every Short funny): Meatball gags on lines 2 and 3; the avoid-light line was cut for length."
 }

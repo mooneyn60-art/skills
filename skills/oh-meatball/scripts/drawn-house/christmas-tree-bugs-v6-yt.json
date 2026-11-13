@@ -127,7 +127,7 @@
    "pad": 0.5,
    "scene": "bedroom",
    "m": "chase",
-   "say": "Your warm living room can hatch them.",
+   "say": "Your warm living room can hatch them. Meatball screamed.",
    "card": {
     "rows": [
      [
@@ -144,7 +144,8 @@
     ],
     "y": 470,
     "at": "50%"
-   }
+   },
+   "pose": "shock"
   },
   {
    "pad": 0.5,
@@ -156,7 +157,7 @@
    "pad": 0.5,
    "scene": "basement",
    "m": "xray",
-   "say": "No food indoors, so they eat each other.",
+   "say": "No food indoors, so they eat each other. Merry damn Christmas.",
    "card": {
     "rows": [
      [
@@ -321,6 +322,6 @@
  "loop": true,
  "description": "Bugs in Christmas trees? A praying-mantis egg case on a tree can hold about 100 eggs, and indoor warmth can hatch them. Check the twigs for a foamy case before you bring it in.\n\n#shorts #christmastree #prayingmantis #bugsinhouse #bugsinyourhouse\n\nSources: University of Missouri Extension; Penn State Extension.",
  "pinned_comment": "What's the strangest thing that ever crawled out of your Christmas tree?",
- "_note": "Written for the 11/10 batch (Shorts A) from drawn_macros lines. 11/10 redo: hero = tools/drawn_tc_art.py tc_mantis (triangular head, raised spiked forelegs), the drawn egg case (tc_ooth) and a decorated tree (tc_xtree); added the clip-and-tuck line (Penn State, Illinois, research 77).",
+ "_note": "Written for the 11/10 batch (Shorts A) from drawn_macros lines. 11/10 redo: hero = tools/drawn_tc_art.py tc_mantis (triangular head, raised spiked forelegs), the drawn egg case (tc_ooth) and a decorated tree (tc_xtree); added the clip-and-tuck line (Penn State, Illinois, research 77). Funny pass 11/13 (Nolan: every Short funny): a Meatball gag on line 2 and a reaction after the eat-each-other line.",
  "_scheduled": "YouTube Short, Wed 2026-11-18 19:00 ET, two hours after the Christmas-tree long-form; sources line adds University of Illinois Extension (the clip-and-tuck step)."
 }

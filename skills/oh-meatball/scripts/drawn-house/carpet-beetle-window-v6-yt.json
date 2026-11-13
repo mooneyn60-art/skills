@@ -66,7 +66,7 @@
   "light"
  ],
  "cut_whoosh": true,
- "_note": "Written by hand in the v6 shape (Shorts batch B); beats are drawn_macros lines.",
+ "_note": "Written by hand in the v6 shape (Shorts batch B); beats are drawn_macros lines. Funny pass 11/13 (Nolan: every Short funny): Meatball gags on lines 2 and 3; the eggs-hatch-in-2-weeks line was cut for length.",
  "title": "Small Brown Bugs in Your House Can Lay 40 Eggs in Your Wool 🧶 (Things Living In Your House)",
  "description": "Small brown bugs in my house: carpet beetle adults sit at your windows, and a varied carpet beetle typically lays 40 eggs on wool, fur and carpet; the larvae can live up to 630 days and leave shed skins, per UC IPM. #shorts #carpetbeetle #smallbrownbugs #bugsinyourhouse #meatballmyths\nSources: UC Statewide IPM Program, Pest Notes: Carpet Beetles (7436).",
  "pinned_comment": "What was the first sign of carpet beetles you found in your house: a bug at the window, or a shed skin somewhere?",
@@ -100,12 +100,12 @@
   {
    "m": "chase",
    "scene": "bedroom",
-   "say": "It lays them on wool, fur, and carpet.",
+   "say": "It lays them on wool, fur, and carpet. Meatball's whole closet is wool.",
    "card": {
     "rows": [
      [
       "WOOL + FUR",
-      "#ff4b3e",
+      "#ffd34d",
       130
      ],
      [
@@ -113,32 +113,23 @@
       "#ffffff",
       56,
       true
+     ],
+     [
+      "MEATBALL'S CLOSET: ALL WOOL",
+      "#ffffff",
+      44,
+      true
      ]
     ],
     "y": 470,
     "at": "45%"
-   }
-  },
-  {
-   "m": "fact",
-   "scene": "basement",
-   "say": "The eggs hatch in about 2 weeks.",
-   "card": {
-    "rows": [
-     [
-      "2 WEEKS",
-      "#ffd34d",
-      140
-     ]
-    ],
-    "y": 470,
-    "at": "35%"
-   }
+   },
+   "pose": "shock"
   },
   {
    "m": "xray",
    "scene": "study",
-   "say": "Larvae live up to 630 days, eating wool.",
+   "say": "Larvae live up to 630 days, eating wool. Meatball's sweater is now a damn vest.",
    "card": {
     "rows": [
      [

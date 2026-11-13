@@ -81,12 +81,12 @@
     "time": "night"
    },
    "m": "chase",
-   "say": "One warm day wakes them. They crawl out.",
+   "say": "One warm day wakes them. They crawl out. Meatball needs three alarms.",
    "card": {
     "rows": [
      [
       "1 WARM DAY",
-      "#ff4b3e",
+      "#ffd34d",
       100
      ],
      [
@@ -94,11 +94,18 @@
       "#ffffff",
       56,
       true
+     ],
+     [
+      "MEATBALL: THREE ALARMS",
+      "#ffffff",
+      46,
+      true
      ]
     ],
     "y": 470,
     "at": "50%"
-   }
+   },
+   "pose": "deadpan"
   },
   {
    "scene": "sill",
@@ -106,31 +113,7 @@
     "time": "day"
    },
    "m": "scale",
-   "say": "They crowd your sunny windows, dazed and sluggish."
-  },
-  {
-   "pad": 0.3,
-   "scene": "study",
-   "m": "fact",
-   "gag": false,
-   "say": "Slightly bigger than house flies, with golden hairs.",
-   "card": {
-    "rows": [
-     [
-      "GOLDEN HAIRS",
-      "#ffd34d",
-      100
-     ],
-     [
-      "BIGGER THAN HOUSE FLIES",
-      "#ffffff",
-      56,
-      true
-     ]
-    ],
-    "y": 470,
-    "at": "40%"
-   }
+   "say": "They crowd your sunny windows, dazed and sluggish. Meatball, every Monday."
   },
   {
    "scene": "kitchen",
@@ -206,5 +189,5 @@
  "loop": true,
  "description": "Why are there so many flies in my house? Cluster flies spend the winter in attics and wall voids, then crawl out on warm days. They can't breed indoors.\n\n#shorts #clusterflies #flysinhouse #winterpests #bugsinyourhouse\n\nSources: Penn State Extension (Cluster Flies); Colorado State University Extension (Cluster Flies and Other Winter Flies).",
  "pinned_comment": "What's the strangest place you've ever found a pile of winter flies?",
- "_note": "Written for the 11/10 batch (Shorts A) from drawn_macros lines."
+ "_note": "Written for the 11/10 batch (Shorts A) from drawn_macros lines. Funny pass 11/13 (Nolan: every Short funny): Meatball gags on lines 2 and 3; the golden-hairs line was cut for length."
 }
