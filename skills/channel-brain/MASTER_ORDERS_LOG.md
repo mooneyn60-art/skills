@@ -501,3 +501,20 @@ Nolan's order of 11/13 about 08:30 ET replaced these: the queued bug Shorts no l
 ### From "Views are stuck on both platforms (Nolan, 11/12 about 09:35 ET)"
 - **TikTok round 2 (research 97, `oh-meatball/research/97-tiktok-view-jail-round-2.md`, checked by a second model 11/12):** no public page shows a block. Ranked causes: (1) the first viewers do not like, comment on or probably finish our videos (likes 2.2% against 4.1 to 9.9% on drawn accounts like ours; comments 0.05%, the lowest read); (2) our videos are short for this niche (lianna_anima, drawn stick-figure pets, 10.3K followers: median 2,232 at about 195 seconds); (3) captions that open with the searched phrase do about 1.7 times better (321 against 224, p 0.006). No evidence against the label, the look, Metricool or posting 3 to 4 a day.
 
+### From "Watch hours (the hard part of YPP)" (moved 11/13 to make room: the dated queue list and the house-cat block as they stood)
+- **Long-form queue (order set 11/10 from the scoreboard, fact-checks and our own retention curve; research 69, 72-74):**
+  - Sat 11/14 08:00: **"Don't squish it" episode 1, the spider in your corner** ("Don't Kill the Spider in Your Corner. It Eats Bigger Spiders", 8:17, thumbnail `cellarspider_b.jpg`).
+  - Wed 11/18 17:00: **Christmas-tree episode** ("Never Bring a Christmas Tree Inside Before You Check for This", 7:13, thumbnail `xmas_a.jpg`; challengers `xmas_b.jpg`, `xmas_c.jpg`).
+  - Sat 11/21 08:00: 3D house centipede v2 (fact-fixed; "Don't Squish the 30-Legged Bug in Your Bathroom (Here's Why)", thumbnail `centipede_a.jpg`). Episode 1 ends by pointing at it.
+  - Wed 11/25 17:00: Night Shift (v2, fact-fixed), moved twice to make room for the two new-format episodes. The swallow-spiders episode (rendered, 4:16) waits as a spare; it still needs a different-model check of its two new stories.
+  - Sat 11/28 08:00: **"Your Life as a House Cat: 8 Ways It Goes Wrong"** (9:16, thumbnail `cat_a.jpg`), the first long-form on the new direction, in the "born as" shape Nolan picked from the options and numbers (next bullet).
+  - **December (his order 11/13, "Do all three"):** a "born as" video every Saturday: polar bear 12/5 (scheduled), lion 12/12, dog 12/19, wolf 12/26.
+- **The house cat long-form (research 85, `oh-meatball/research/85-longform-pets-survive-format.md`; its numbers and the build story are in the log):**
+  - **His pick (11/11 about 21:10, with the numbers in front of him; I had recommended the polar bear): "Born as a house cat".** The shape is "Why It Sucks to Be Born as a [animal]": the viewer lives the animal's life.
+  - Checker rules from its second-model check (`research/88`): **the checker must open the paper, not the pack; a percentage needs what it is a share of; a survival figure needs the count put down; a safety line needs the trigger a viewer can act on.**
+  - **Title:** the post carries "Your Life as a House Cat: 8 Ways It Goes Wrong". "Why It Sucks to Be Born as a House Cat" joins the A/B test only with Nolan's yes to the word (open ask 2; with it the description's first sentence, one tag and thumbnail `cat_s` change too).
+  - **Thumbnails** (`oh-meatball/episodes/thumbs-bornas/`): `cat_a` is on the post; `cat_b` and `cat_c` are the challengers for Nolan's A/B test after it posts; `cat_s` waits for his yes.
+  - Files: `oh-meatball/episodes/longform-born-as-house-cat/`.
+  - Still to do: on 11/24 compare its structure with three winners' transcripts and re-cut the first 30 seconds if they open very differently; judge it at 72 hours by the thresholds in "The YouTube play".
+  - The cat video's verdict is a sweet deal with conditions, so no title may promise only misery. A title with "sucks" needs his yes (the mild-word rule keeps such words out of titles). The polar bear is next in this shape ("What he picked to build next").
+
