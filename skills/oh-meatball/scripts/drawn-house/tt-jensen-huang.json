@@ -1,0 +1,2700 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "detective",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "cut_whoosh": true,
+ "loop": true,
+ "recut": false,
+ "photo_credits": [],
+ "cap_swap": {
+  "shit": "sh*t",
+  "shits": "sh*ts",
+  "fuck": "f**k",
+  "fucking": "f**king"
+ },
+ "cap_key": [
+  "jensen",
+  "huang",
+  "allegations",
+  "nvidia",
+  "jacket",
+  "unfaithful",
+  "sorry",
+  "hardware",
+  "sauce",
+  "spying",
+  "china",
+  "charged",
+  "smear",
+  "190",
+  "billion",
+  "affairs",
+  "multithreading",
+  "resigned",
+  "ceo",
+  "immediately",
+  "buy",
+  "save",
+  "stray",
+  "pay",
+  "colette",
+  "kress",
+  "resume",
+  "closed-door",
+  "closed",
+  "doors",
+  "brain"
+ ],
+ "stage": {
+  "creature": "cat",
+  "scene": "jh_living",
+  "s": 0.55,
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "cat",
+   "color": "#e39a4a",
+   "dark": "#b06f2a",
+   "belly": "#f6e3c8",
+   "tail_color": "#e39a4a",
+   "length": 520,
+   "height": 250,
+   "leg_len": 150,
+   "leg_w": 30,
+   "ears": "pointed",
+   "tail": "thin",
+   "tail_w": 22,
+   "whiskers": true,
+   "mood": "smug"
+  }
+ },
+ "title": "Jensen Huang Allegations Explained: About $190 Billion Gone in a Day 💀 (Meatball Explains)",
+ "tiktok_title": "The Jensen Huang Allegations, Explained",
+ "description": "TODO main session",
+ "tiktok_caption": "TODO main session",
+ "tags": [],
+ "pinned_comment": "Which part broke your brain: the email, the $190 billion day or the closed-door briefing?",
+ "_note": "Jensen Huang allegations TikTok + Short (Nolan 11/13). Script: jensen-huang.script.json (checked, research/107); every say, card row and sign copied by code. Hand-made beats; pictures in tools/drawn_jensen_art.py.",
+ "beats": [
+  {
+   "say": "The Jensen Huang allegations, explained. Buckle up, it's a mess.",
+   "scene": "jh_stage",
+   "scene_p": {
+    "spot": 1.0,
+    "sx": 540
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      800,
+      1.0
+     ],
+     "to": [
+      560,
+      820,
+      1.08
+     ]
+    },
+    {
+     "at": "Buckle|50%",
+     "cam": [
+      600,
+      860,
+      1.12
+     ],
+     "to": [
+      640,
+      880,
+      1.18
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "screen",
+     "type": "jh_screen",
+     "pos": [
+      540,
+      640
+     ],
+     "s": 0.8,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "a": "gpu",
+      "b": "heart",
+      "flip": 0.0
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "hero",
+     "type": "jensen",
+     "pos": [
+      440,
+      1500
+     ],
+     "s": 0.72,
+     "flip": false,
+     "front": false,
+     "talks": false,
+     "p": {
+      "arm": "hold",
+      "gpu": true,
+      "mood": "proud",
+      "sweat": 0.0,
+      "look": [
+       0.4,
+       0
+      ],
+      "sparkle": 0.0,
+      "flap": 0.0,
+      "badge": false,
+      "spin": 0.4,
+      "smoke": 0.0,
+      "spark": 0.0,
+      "idle": true
+     },
+     "moves": [
+      {
+       "at": 0.0,
+       "dur": 1.6,
+       "pos": [
+        560,
+        1500
+       ],
+       "walk": true
+      }
+     ],
+     "set": [
+      {
+       "at": "mess|80%",
+       "p": {
+        "mood": "sweat"
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "present",
+    "pos": [
+     1260,
+     1500
+    ],
+    "size": 400,
+    "prop": "mic",
+    "gest": [
+     [
+      "mess|80%",
+      "shock",
+      1.0
+     ]
+    ],
+    "moves": [
+     {
+      "at": "Buckle|52%",
+      "dur": 0.45,
+      "pos": [
+       900,
+       1500
+      ],
+      "hop": 160
+     }
+    ],
+    "look": "hero"
+   },
+   "sfx": [
+    "boing@Buckle|52%",
+    "pop@mess|80%"
+   ],
+   "card": {
+    "rows": [
+     [
+      "JENSEN HUANG",
+      "#ffd34d",
+      104
+     ],
+     [
+      "THE ALLEGATIONS, EXPLAINED",
+      "#ffffff",
+      52,
+      true
+     ],
+     [
+      "AS OF NOV 13, 2026",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "Jensen|5%"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "He ran Nvidia. Never took off that leather jacket. Everything else? Different fucking story.",
+   "scene": "jh_stage",
+   "scene_p": {
+    "spot": 1.0,
+    "sx": 540
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      560,
+      820,
+      1.05
+     ],
+     "to": [
+      620,
+      830,
+      1.1
+     ]
+    },
+    {
+     "at": "leather|0",
+     "cam": [
+      640,
+      860,
+      1.2
+     ],
+     "to": [
+      660,
+      860,
+      1.25
+     ]
+    },
+    {
+     "at": "Everything",
+     "cam": [
+      560,
+      860,
+      1.4
+     ],
+     "to": [
+      560,
+      860,
+      1.4
+     ]
+    },
+    {
+     "at": "Different",
+     "cam": [
+      560,
+      860,
+      1.25
+     ],
+     "to": [
+      560,
+      840,
+      1.15
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "screen",
+     "type": "jh_screen",
+     "pos": [
+      540,
+      640
+     ],
+     "s": 0.8,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "a": "gpu",
+      "b": "heart",
+      "flip": 0.0
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "hero",
+     "type": "jensen",
+     "pos": [
+      560,
+      1500
+     ],
+     "s": 0.72,
+     "flip": false,
+     "front": false,
+     "talks": false,
+     "p": {
+      "arm": "walk",
+      "gpu": false,
+      "mood": "proud",
+      "sweat": 0.0,
+      "look": [
+       0.4,
+       0
+      ],
+      "sparkle": 0.0,
+      "flap": 0.0,
+      "badge": false,
+      "spin": 0.2,
+      "smoke": 0.0,
+      "spark": 0.0,
+      "idle": true
+     },
+     "moves": [
+      {
+       "at": 0.0,
+       "dur": 1.6,
+       "pos": [
+        760,
+        1500
+       ],
+       "walk": true
+      },
+      {
+       "at": "jacket|0",
+       "dur": 1.2,
+       "pos": [
+        560,
+        1500
+       ],
+       "walk": true,
+       "face": -1
+      },
+      {
+       "at": "Everything",
+       "dur": 0.1,
+       "pos": [
+        560,
+        1500
+       ],
+       "face": 1
+      }
+     ],
+     "set": [
+      {
+       "at": "leather",
+       "p": {
+        "sparkle": 1.0
+       },
+       "dur": 0.3
+      },
+      {
+       "at": "Everything",
+       "p": {
+        "sparkle": 0.0,
+        "mood": "sweat",
+        "sweat": 1.0,
+        "arm": "tug",
+        "look": [
+         1,
+         0
+        ]
+       }
+      },
+      {
+       "at": "Different",
+       "p": {
+        "mood": "mortified"
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "deadpan",
+    "pos": [
+     960,
+     1500
+    ],
+    "size": 380,
+    "prop": "mic",
+    "gest": [
+     [
+      "Different",
+      "laugh",
+      1.4
+     ]
+    ],
+    "moves": [],
+    "look": "hero"
+   },
+   "sfx": [
+    "tink@leather",
+    "scratch@Everything"
+   ],
+   "card": {
+    "rows": [
+     [
+      "NVIDIA'S CEO",
+      "#ffd34d",
+      104
+     ],
+     [
+      "UNTIL THIS WEEK",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "ran"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "November eighth, he emailed Nvidia employees: I was unfaithful to my wife... I am deeply sorry.",
+   "scene": "jh_office",
+   "scene_p": {},
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      820,
+      1.0
+     ],
+     "to": [
+      560,
+      830,
+      1.06
+     ]
+    },
+    {
+     "at": "emailed",
+     "cam": [
+      720,
+      920,
+      1.3
+     ],
+     "to": [
+      720,
+      920,
+      1.3
+     ]
+    },
+    {
+     "at": "unfaithful",
+     "cam": [
+      540,
+      800,
+      1.0
+     ],
+     "to": [
+      540,
+      790,
+      0.97
+     ]
+    },
+    {
+     "at": "deeply",
+     "cam": [
+      360,
+      880,
+      1.3
+     ],
+     "to": [
+      360,
+      880,
+      1.36
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "hero",
+     "type": "jensen",
+     "pos": [
+      330,
+      1500
+     ],
+     "s": 0.72,
+     "flip": false,
+     "front": false,
+     "talks": false,
+     "p": {
+      "arm": "down",
+      "gpu": false,
+      "mood": "calm",
+      "sweat": 0.0,
+      "look": [
+       1,
+       0.3
+      ],
+      "sparkle": 0.0,
+      "flap": 0.0,
+      "badge": false,
+      "spin": 0.2,
+      "smoke": 0.0,
+      "spark": 0.0,
+      "idle": true
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "emailed-0.25",
+       "p": {
+        "arm": "press"
+       }
+      },
+      {
+       "at": "unfaithful",
+       "p": {
+        "arm": "down",
+        "mood": "sweat"
+       }
+      },
+      {
+       "at": "deeply",
+       "p": {
+        "mood": "mortified",
+        "arm": "tug"
+       }
+      }
+     ]
+    },
+    {
+     "id": "desk",
+     "type": "jh_desk",
+     "pos": [
+      640,
+      1500
+     ],
+     "s": 0.9,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "press": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "emailed",
+       "p": {
+        "press": 1.0
+       },
+       "dur": 0.12
+      },
+      {
+       "at": "emailed+0.45",
+       "p": {
+        "press": 0.0
+       },
+       "dur": 0.2
+      }
+     ]
+    },
+    {
+     "id": "mail",
+     "type": "jh_mail",
+     "pos": [
+      795,
+      990
+     ],
+     "s": 1.0,
+     "front": true,
+     "rot": 0.0,
+     "p": {
+      "n": 0.0,
+      "go": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "emailed+0.1",
+       "p": {
+        "n": 0.001,
+        "go": 1.0
+       },
+       "dur": 0.6
+      },
+      {
+       "at": "unfaithful",
+       "p": {
+        "n": 1.0
+       },
+       "dur": 2.6
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "nervous",
+    "pos": [
+     990,
+     1500
+    ],
+    "size": 380,
+    "prop": "mic",
+    "gest": [
+     [
+      "sorry|90%",
+      "facepalm",
+      1.0
+     ]
+    ],
+    "moves": [],
+    "look": "viewer"
+   },
+   "sfx": [
+    "click@emailed",
+    "whoosh@emailed+0.6"
+   ],
+   "card": {
+    "rows": [
+     [
+      "\"I WAS UNFAITHFUL TO MY WIFE.\"",
+      "#ffd34d",
+      80
+     ],
+     [
+      "HIS EMAIL TO STAFF, NOV 8 (NVIDIA NEWSROOM)",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "unfaithful|50%"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "He built a chip empire and still couldn't manage his own hardware.",
+   "scene": "jh_stage",
+   "scene_p": {
+    "spot": 1.0,
+    "sx": 540
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.3
+     ],
+     "to": [
+      540,
+      950,
+      1.42
+     ]
+    },
+    {
+     "at": "manage",
+     "cam": [
+      540,
+      1010,
+      1.55
+     ],
+     "to": [
+      540,
+      1010,
+      1.62
+     ]
+    }
+   ],
+   "shake": [
+    "hardware"
+   ],
+   "actors": [
+    {
+     "id": "screen",
+     "type": "jh_screen",
+     "pos": [
+      540,
+      640
+     ],
+     "s": 0.8,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "a": "gpu",
+      "b": "heart",
+      "flip": 0.0
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "hero",
+     "type": "jensen",
+     "pos": [
+      540,
+      1500
+     ],
+     "s": 0.72,
+     "flip": false,
+     "front": false,
+     "talks": false,
+     "p": {
+      "arm": "low",
+      "gpu": true,
+      "mood": "calm",
+      "sweat": 0.0,
+      "look": [
+       0.2,
+       1
+      ],
+      "sparkle": 0.0,
+      "flap": 0.0,
+      "badge": false,
+      "spin": 0.2,
+      "smoke": 0.0,
+      "spark": 0.0,
+      "idle": true
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "chip",
+       "p": {
+        "spin": 1.0
+       }
+      },
+      {
+       "at": "manage",
+       "p": {
+        "smoke": 1.0,
+        "mood": "sweat"
+       },
+       "dur": 0.4
+      },
+      {
+       "at": "hardware",
+       "p": {
+        "spark": 1.0,
+        "mood": "mortified"
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     1260,
+     1500
+    ],
+    "size": 380,
+    "prop": "mic",
+    "gest": [],
+    "moves": [],
+    "hidden": true
+   },
+   "sfx": [
+    "zap@hardware",
+    "crunch@hardware+0.5"
+   ],
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "Meatball read the email to his cat, Sauce. Sauce left the damn room.",
+   "scene": "jh_living",
+   "scene_p": {},
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      900,
+      1.0
+     ],
+     "to": [
+      520,
+      900,
+      1.06
+     ]
+    },
+    {
+     "at": "Sauce#1",
+     "cam": [
+      700,
+      1060,
+      1.3
+     ],
+     "to": [
+      700,
+      1060,
+      1.3
+     ]
+    },
+    {
+     "at": "left",
+     "cam": [
+      600,
+      920,
+      1.0
+     ],
+     "to": [
+      600,
+      920,
+      1.04
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "cat",
+     "type": "sp.cat",
+     "pos": [
+      820,
+      1500
+     ],
+     "s": 0.55,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "mood": "smug"
+     },
+     "moves": [
+      {
+       "at": "Sauce#2|55%",
+       "dur": 1.5,
+       "pos": [
+        1600,
+        1500
+       ],
+       "walk": true,
+       "face": 1
+      }
+     ],
+     "set": [],
+     "flip": true
+    },
+    {
+     "id": "phone",
+     "type": "jh_phone",
+     "pos": [
+      205,
+      1010
+     ],
+     "s": 0.9,
+     "front": true,
+     "rot": 0.0,
+     "p": {
+      "rot": -12
+     },
+     "moves": [],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "present",
+    "pos": [
+     400,
+     1500
+    ],
+    "size": 880,
+    "prop": "mic",
+    "gest": [
+     [
+      "damn",
+      "shock",
+      1.2
+     ]
+    ],
+    "moves": [],
+    "look": "cat"
+   },
+   "sfx": [
+    "pop@left",
+    "step@room"
+   ],
+   "card": {
+    "rows": [
+     [
+      "SAUCE LEFT THE ROOM",
+      "#ffd34d",
+      104
+     ]
+    ],
+    "y": 470,
+    "at": "left"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "It broke October twenty-ninth: the New York Times reported U.S. officials believe an executive he was close to was spying for China.",
+   "scene": "jh_office",
+   "scene_p": {},
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      840,
+      1.0
+     ],
+     "to": [
+      560,
+      850,
+      1.05
+     ]
+    },
+    {
+     "at": "Times",
+     "cam": [
+      660,
+      960,
+      1.12
+     ],
+     "to": [
+      660,
+      960,
+      1.16
+     ]
+    },
+    {
+     "at": "officials",
+     "cam": [
+      380,
+      930,
+      1.25
+     ],
+     "to": [
+      380,
+      930,
+      1.25
+     ]
+    },
+    {
+     "at": "spying",
+     "cam": [
+      340,
+      1060,
+      1.2
+     ],
+     "to": [
+      340,
+      1080,
+      1.28
+     ]
+    }
+   ],
+   "shake": [
+    "China"
+   ],
+   "actors": [
+    {
+     "id": "paper",
+     "type": "jh_paper",
+     "pos": [
+      1700,
+      1150
+     ],
+     "s": 0.6,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "tilt": -3
+     },
+     "moves": [
+      {
+       "at": 0.0,
+       "dur": 0.5,
+       "pos": [
+        690,
+        1150
+       ]
+      }
+     ],
+     "set": []
+    },
+    {
+     "id": "hero",
+     "type": "jensen",
+     "pos": [
+      270,
+      1500
+     ],
+     "s": 0.72,
+     "flip": false,
+     "front": false,
+     "talks": false,
+     "p": {
+      "arm": "low",
+      "gpu": true,
+      "mood": "calm",
+      "sweat": 0.0,
+      "look": [
+       1,
+       0.2
+      ],
+      "sparkle": 0.0,
+      "flap": 0.0,
+      "badge": false,
+      "spin": 0.2,
+      "smoke": 0.0,
+      "spark": 0.0,
+      "idle": true
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "believe",
+       "p": {
+        "mood": "sweat"
+       }
+      },
+      {
+       "at": "spying",
+       "p": {
+        "gpu": false,
+        "mood": "shock",
+        "arm": "up"
+       }
+      }
+     ]
+    },
+    {
+     "id": "drop",
+     "type": "jh_drop",
+     "pos": [
+      345,
+      1060
+     ],
+     "s": 0.72,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "hidden": true
+     },
+     "moves": [
+      {
+       "at": "spying",
+       "dur": 0.55,
+       "pos": [
+        380,
+        1480
+       ],
+       "rot": 190
+      }
+     ],
+     "set": [
+      {
+       "at": "spying",
+       "p": {
+        "hidden": false
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     990,
+     1500
+    ],
+    "size": 360,
+    "prop": "mic",
+    "gest": [
+     [
+      "China",
+      "shock",
+      1.0
+     ]
+    ],
+    "moves": [],
+    "look": "paper"
+   },
+   "sfx": [
+    "whoosh@0.05",
+    "thud@China"
+   ],
+   "card": {
+    "rows": [
+     [
+      "THE NEW YORK TIMES, OCT 29",
+      "#ffd34d",
+      90
+     ],
+     [
+      "U.S. OFFICIALS BELIEVE...",
+      "#ffffff",
+      52,
+      true
+     ],
+     [
+      "A REPORT. NO CHARGES.",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "Times"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "The same report said officials didn't believe he knew. Neither of them has been charged. China calls it a smear.",
+   "scene": "jh_office",
+   "scene_p": {},
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      900,
+      1.0
+     ],
+     "to": [
+      540,
+      900,
+      1.04
+     ]
+    },
+    {
+     "at": "Neither",
+     "cam": [
+      540,
+      900,
+      1.04
+     ],
+     "to": [
+      560,
+      900,
+      1.0
+     ]
+    },
+    {
+     "at": "China",
+     "cam": [
+      560,
+      900,
+      1.0
+     ],
+     "to": [
+      540,
+      900,
+      1.05
+     ]
+    }
+   ],
+   "shake": [
+    "officials|15%",
+    "Neither",
+    "China"
+   ],
+   "actors": [
+    {
+     "id": "paper",
+     "type": "jh_paper",
+     "pos": [
+      540,
+      1130
+     ],
+     "s": 0.9,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "tilt": -2
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "stamps",
+     "type": "jh_stamps",
+     "pos": [
+      540,
+      1130
+     ],
+     "s": 0.9,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "n": 0.0,
+      "texts": [
+       "OFFICIALS: HE DIDN'T KNOW (NYT)",
+       "NO CHARGES",
+       "CHINA DENIES"
+      ],
+      "cols": [
+       "#1f5fbf",
+       "#d8322a",
+       "#d8322a"
+      ],
+      "pos": [
+       [
+        0,
+        -333
+       ],
+       [
+        -20,
+        160
+       ],
+       [
+        20,
+        340
+       ]
+      ],
+      "w": [
+       860,
+       520,
+       620
+      ],
+      "px": [
+       58,
+       88,
+       88
+      ]
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "officials|15%",
+       "p": {
+        "n": 1.0
+       },
+       "dur": 0.3
+      },
+      {
+       "at": "Neither",
+       "p": {
+        "n": 2.0
+       },
+       "dur": 0.3
+      },
+      {
+       "at": "China",
+       "p": {
+        "n": 3.0
+       },
+       "dur": 0.3
+      }
+     ]
+    },
+    {
+     "id": "hero",
+     "type": "jensen",
+     "pos": [
+      150,
+      1560
+     ],
+     "s": 0.5,
+     "flip": false,
+     "front": true,
+     "talks": false,
+     "p": {
+      "arm": "down",
+      "gpu": false,
+      "mood": "sweat",
+      "sweat": 0.0,
+      "look": [
+       1,
+       -0.3
+      ],
+      "sparkle": 0.0,
+      "flap": 0.0,
+      "badge": false,
+      "spin": 0.2,
+      "smoke": 0.0,
+      "spark": 0.0,
+      "idle": true
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "charged",
+       "p": {
+        "arm": "wipe",
+        "sweat": 1.0
+       }
+      },
+      {
+       "at": "smear",
+       "p": {
+        "arm": "down",
+        "mood": "calm"
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     960,
+     1570
+    ],
+    "size": 360,
+    "prop": "mic",
+    "gest": [
+     [
+      "smear",
+      "shrug",
+      1.2
+     ]
+    ],
+    "moves": [],
+    "look": "viewer"
+   },
+   "sfx": [
+    "stamp@officials|15%",
+    "stamp@China"
+   ],
+   "card": {
+    "rows": [
+     [
+      "NEITHER CHARGED (REPORTED)",
+      "#ffd34d",
+      90
+     ],
+     [
+      "CHINA: \"NOTHING BUT SMEARS\"",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": 0.1
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "Monday, Nvidia lost about 190 billion dollars in market value, Reuters reported. Most expensive side quest in fucking history.",
+   "scene": "jh_chart",
+   "scene_p": {},
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      800,
+      1.0
+     ],
+     "to": [
+      600,
+      820,
+      1.08
+     ]
+    },
+    {
+     "at": "lost",
+     "cam": [
+      640,
+      860,
+      1.05
+     ],
+     "to": [
+      760,
+      960,
+      1.15
+     ]
+    },
+    {
+     "at": "Reuters",
+     "cam": [
+      640,
+      900,
+      1.0
+     ],
+     "to": [
+      600,
+      880,
+      1.04
+     ]
+    },
+    {
+     "at": "fucking",
+     "cam": [
+      380,
+      1020,
+      1.25
+     ],
+     "to": [
+      380,
+      1020,
+      1.3
+     ]
+    }
+   ],
+   "shake": [
+    "Reuters"
+   ],
+   "actors": [
+    {
+     "id": "line",
+     "type": "jh_line",
+     "pos": [
+      0,
+      0
+     ],
+     "s": 1.0,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "fall": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "lost",
+       "p": {
+        "fall": 1.0
+       },
+       "dur": 1.2
+      }
+     ]
+    },
+    {
+     "id": "hero",
+     "type": "jensen",
+     "pos": [
+      620,
+      1000
+     ],
+     "s": 0.5,
+     "flip": false,
+     "front": false,
+     "talks": false,
+     "p": {
+      "arm": "hold2",
+      "gpu": false,
+      "mood": "proud",
+      "sweat": 0.0,
+      "look": [
+       0.4,
+       0
+      ],
+      "sparkle": 0.0,
+      "flap": 0.0,
+      "badge": false,
+      "spin": 0.2,
+      "smoke": 0.0,
+      "spark": 0.0,
+      "idle": true
+     },
+     "moves": [
+      {
+       "at": "lost",
+       "dur": 1.2,
+       "pos": [
+        990,
+        1455
+       ],
+       "rot": 22,
+       "linear": true
+      },
+      {
+       "at": "Reuters",
+       "dur": 0.3,
+       "rot": 0,
+       "pos": [
+        960,
+        1490
+       ]
+      }
+     ],
+     "set": [
+      {
+       "at": "lost",
+       "p": {
+        "mood": "shock",
+        "arm": "up",
+        "flap": 1.0
+       }
+      },
+      {
+       "at": "Reuters",
+       "p": {
+        "flap": 0.0,
+        "mood": "mortified",
+        "arm": "down"
+       }
+      }
+     ]
+    },
+    {
+     "id": "dust",
+     "type": "jh_dust",
+     "pos": [
+      990,
+      1480
+     ],
+     "s": 0.8,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "on": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "Reuters",
+       "p": {
+        "on": 1.0
+       },
+       "dur": 0.5
+      }
+     ]
+    },
+    {
+     "id": "popcorn",
+     "type": "jh_popcorn",
+     "pos": [
+      300,
+      1500
+     ],
+     "s": 0.6,
+     "front": true,
+     "rot": 0.0,
+     "p": {},
+     "moves": [],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     180,
+     1500
+    ],
+    "size": 400,
+    "prop": null,
+    "gest": [
+     [
+      "lost",
+      "shock",
+      1.0
+     ],
+     [
+      "fucking",
+      "laugh",
+      1.4
+     ]
+    ],
+    "moves": [],
+    "look": "hero"
+   },
+   "sfx": [
+    "whoosh@lost",
+    "thud@Reuters"
+   ],
+   "card": {
+    "rows": [
+     [
+      "ABOUT $190 BILLION",
+      "#ffd34d",
+      104
+     ],
+     [
+      "GONE IN ONE DAY (REUTERS, NOV 9)",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "billion"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "Then the Times and Reuters reported more affairs, not confirmed. If true, that's serious fucking multithreading.",
+   "scene": "jh_office",
+   "scene_p": {
+    "plant": false
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      900,
+      1.0
+     ],
+     "to": [
+      540,
+      880,
+      1.05
+     ]
+    },
+    {
+     "at": "affairs",
+     "cam": [
+      540,
+      960,
+      1.15
+     ],
+     "to": [
+      540,
+      960,
+      1.2
+     ]
+    },
+    {
+     "at": "confirmed",
+     "cam": [
+      540,
+      900,
+      1.0
+     ],
+     "to": [
+      540,
+      900,
+      1.0
+     ]
+    },
+    {
+     "at": "multithreading",
+     "cam": [
+      680,
+      960,
+      1.12
+     ],
+     "to": [
+      680,
+      960,
+      1.22
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "hero",
+     "type": "jensen",
+     "pos": [
+      520,
+      1500
+     ],
+     "s": 0.72,
+     "flip": false,
+     "front": false,
+     "talks": false,
+     "p": {
+      "arm": "up",
+      "gpu": false,
+      "mood": "shock",
+      "sweat": 0.0,
+      "look": [
+       0,
+       -0.5
+      ],
+      "sparkle": 0.0,
+      "flap": 0.0,
+      "badge": false,
+      "spin": 0.2,
+      "smoke": 0.0,
+      "spark": 0.0,
+      "idle": true
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "confirmed",
+       "p": {
+        "arm": "down",
+        "mood": "mortified"
+       }
+      }
+     ]
+    },
+    {
+     "id": "pile",
+     "type": "jh_pile",
+     "pos": [
+      520,
+      1500
+     ],
+     "s": 1.0,
+     "front": true,
+     "rot": 0.0,
+     "p": {
+      "h": 0.05
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "Then",
+       "p": {
+        "h": 0.3
+       },
+       "dur": 1.0
+      },
+      {
+       "at": "affairs",
+       "p": {
+        "h": 0.5
+       },
+       "dur": 1.2
+      },
+      {
+       "at": "confirmed",
+       "p": {
+        "h": 0.66
+       },
+       "dur": 0.8
+      },
+      {
+       "at": "serious",
+       "p": {
+        "falling": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "cpu",
+     "type": "jh_cpu",
+     "pos": [
+      840,
+      1020
+     ],
+     "s": 0.75,
+     "front": true,
+     "rot": 0.0,
+     "p": {
+      "on": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "multithreading",
+       "p": {
+        "on": 1.0
+       },
+       "dur": 0.4
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     980,
+     1500
+    ],
+    "size": 360,
+    "prop": "mic",
+    "gest": [
+     [
+      "multithreading",
+      "laugh",
+      1.4
+     ]
+    ],
+    "moves": [],
+    "look": "hero"
+   },
+   "sfx": [
+    "thud@Then|10%",
+    "zap@multithreading"
+   ],
+   "card": {
+    "rows": [
+     [
+      "MORE AFFAIRS REPORTED (NYT NOV 11, REUTERS NOV 12)",
+      "#ffd34d",
+      48
+     ],
+     [
+      "NOT CONFIRMED",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "affairs"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "A November twelfth filing: he resigned as president, CEO and board member, effective immediately.",
+   "scene": "jh_stage",
+   "scene_p": {
+    "spot": 1.0,
+    "sx": 540
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      820,
+      1.0
+     ],
+     "to": [
+      580,
+      830,
+      1.06
+     ]
+    },
+    {
+     "at": "resigned",
+     "cam": [
+      680,
+      880,
+      1.15
+     ],
+     "to": [
+      700,
+      880,
+      1.2
+     ]
+    },
+    {
+     "at": "board",
+     "cam": [
+      360,
+      860,
+      1.12
+     ],
+     "to": [
+      340,
+      860,
+      1.16
+     ]
+    },
+    {
+     "at": "effective",
+     "cam": [
+      540,
+      800,
+      1.0
+     ],
+     "to": [
+      540,
+      790,
+      0.97
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "podium",
+     "type": "jh_podium",
+     "pos": [
+      770,
+      1500
+     ],
+     "s": 0.9,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "gpu": false
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "resigned",
+       "p": {
+        "gpu": true
+       }
+      }
+     ]
+    },
+    {
+     "id": "mic",
+     "type": "jh_micstand",
+     "pos": [
+      270,
+      1500
+     ],
+     "s": 0.8,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "badge": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "board",
+       "p": {
+        "badge": 1.0
+       },
+       "dur": 0.6
+      }
+     ]
+    },
+    {
+     "id": "hero",
+     "type": "jensen",
+     "pos": [
+      560,
+      1500
+     ],
+     "s": 0.72,
+     "flip": false,
+     "front": false,
+     "talks": false,
+     "p": {
+      "arm": "hold",
+      "gpu": true,
+      "mood": "calm",
+      "sweat": 0.0,
+      "look": [
+       1,
+       0.4
+      ],
+      "sparkle": 0.0,
+      "flap": 0.0,
+      "badge": true,
+      "spin": 0.2,
+      "smoke": 0.0,
+      "spark": 0.0,
+      "idle": true
+     },
+     "moves": [
+      {
+       "at": "president",
+       "dur": 0.7,
+       "pos": [
+        430,
+        1500
+       ],
+       "walk": true,
+       "face": -1
+      },
+      {
+       "at": "effective",
+       "dur": 1.6,
+       "pos": [
+        -450,
+        1500
+       ],
+       "walk": true,
+       "face": -1
+      }
+     ],
+     "set": [
+      {
+       "at": "resigned|25%",
+       "p": {
+        "arm": "reach",
+        "gpu": false
+       }
+      },
+      {
+       "at": "president",
+       "p": {
+        "arm": "walk"
+       }
+      },
+      {
+       "at": "board-0.2",
+       "p": {
+        "arm": "reach"
+       }
+      },
+      {
+       "at": "board+0.3",
+       "p": {
+        "badge": false
+       }
+      },
+      {
+       "at": "effective",
+       "p": {
+        "arm": "walk",
+        "mood": "sweat"
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     990,
+     1500
+    ],
+    "size": 380,
+    "prop": "mic",
+    "gest": [
+     [
+      "immediately",
+      "shock",
+      1.0
+     ]
+    ],
+    "moves": [],
+    "look": "hero"
+   },
+   "sfx": [
+    "plate@resigned",
+    "tink@board+0.3"
+   ],
+   "card": {
+    "rows": [
+     [
+      "RESIGNED",
+      "#ffd34d",
+      104
+     ],
+     [
+      "PRESIDENT, CEO, BOARD SEAT",
+      "#ffffff",
+      52,
+      true
+     ],
+     [
+      "EFFECTIVE IMMEDIATELY (SEC FILING, NOV 12)",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "resigned"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "He used to say: the more you buy, the more you save. Now it's: the more you stray, the more you pay.",
+   "scene": "jh_stage",
+   "scene_p": {
+    "spot": 0.6,
+    "sx": 260
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      800,
+      1.0
+     ],
+     "to": [
+      540,
+      790,
+      1.05
+     ]
+    },
+    {
+     "at": "save",
+     "cam": [
+      540,
+      760,
+      1.1
+     ],
+     "to": [
+      540,
+      760,
+      1.12
+     ]
+    },
+    {
+     "at": "Now",
+     "cam": [
+      540,
+      800,
+      1.0
+     ],
+     "to": [
+      540,
+      800,
+      1.03
+     ]
+    },
+    {
+     "at": "stray",
+     "cam": [
+      330,
+      900,
+      1.2
+     ],
+     "to": [
+      330,
+      900,
+      1.26
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "screen",
+     "type": "jh_screen",
+     "pos": [
+      540,
+      700
+     ],
+     "s": 0.78,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "a": "coins",
+      "b": "heart",
+      "flip": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "Now",
+       "p": {
+        "flip": 1.0
+       },
+       "dur": 0.5
+      }
+     ]
+    },
+    {
+     "id": "hero",
+     "type": "jensen",
+     "pos": [
+      240,
+      1500
+     ],
+     "s": 0.72,
+     "flip": false,
+     "front": false,
+     "talks": false,
+     "p": {
+      "arm": "point",
+      "gpu": false,
+      "mood": "proud",
+      "sweat": 0.0,
+      "look": [
+       1,
+       -0.6
+      ],
+      "sparkle": 0.0,
+      "flap": 0.0,
+      "badge": false,
+      "spin": 0.2,
+      "smoke": 0.0,
+      "spark": 0.0,
+      "idle": true
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "Now",
+       "p": {
+        "mood": "shock",
+        "arm": "down"
+       }
+      },
+      {
+       "at": "stray",
+       "p": {
+        "arm": "facepalm",
+        "mood": "mortified"
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     960,
+     1500
+    ],
+    "size": 380,
+    "prop": "mic",
+    "gest": [
+     [
+      "pay",
+      "laugh",
+      1.2
+     ]
+    ],
+    "moves": [],
+    "look": "viewer"
+   },
+   "sfx": [
+    "whoosh@Now",
+    "tink@Now+0.5"
+   ],
+   "card": {
+    "rows": [
+     [
+      "\"THE MORE YOU BUY, THE MORE YOU SAVE\"",
+      "#ffd34d",
+      62
+     ],
+     [
+      "THE MORE YOU STRAY, THE MORE YOU PAY",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "buy"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "Interim CEO: finance chief Colette Kress. Meatball sent in his resume anyway.",
+   "scene": "jh_hall",
+   "scene_p": {},
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      820,
+      1.0
+     ],
+     "to": [
+      600,
+      820,
+      1.08
+     ]
+    },
+    {
+     "at": "Colette|30%",
+     "cam": [
+      620,
+      800,
+      1.12
+     ],
+     "to": [
+      620,
+      800,
+      1.16
+     ]
+    },
+    {
+     "at": "Meatball",
+     "cam": [
+      760,
+      960,
+      1.15
+     ],
+     "to": [
+      800,
+      980,
+      1.25
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "resume",
+     "type": "jh_resume",
+     "pos": [
+      860,
+      1440
+     ],
+     "s": 0.45,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "hidden": true,
+      "rot": -8
+     },
+     "moves": [
+      {
+       "at": "resume-0.2",
+       "dur": 0.35,
+       "pos": [
+        640,
+        1470
+       ],
+       "s": 0.3
+      },
+      {
+       "at": "anyway",
+       "dur": 0.4,
+       "pos": [
+        1000,
+        1470
+       ],
+       "s": 0.45
+      }
+     ],
+     "set": [
+      {
+       "at": "resume-0.2",
+       "p": {
+        "hidden": false
+       }
+      }
+     ]
+    },
+    {
+     "id": "door",
+     "type": "jh_door",
+     "pos": [
+      640,
+      1500
+     ],
+     "s": 0.95,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "sign": 0.0,
+      "text": "INTERIM CEO"
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "Interim|0",
+       "p": {
+        "sign": 1.0
+       },
+       "dur": 0.6
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "psst",
+    "pos": [
+     1200,
+     1500
+    ],
+    "size": 430,
+    "prop": null,
+    "gest": [
+     [
+      "anyway",
+      "shock",
+      1.0
+     ]
+    ],
+    "moves": [
+     {
+      "at": "Meatball",
+      "dur": 1.0,
+      "pos": [
+       880,
+       1500
+      ],
+      "walk": true
+     }
+    ],
+    "look": "door"
+   },
+   "sfx": [
+    "thud@Interim|10%",
+    "scratch@anyway"
+   ],
+   "card": {
+    "rows": [
+     [
+      "INTERIM CEO",
+      "#ffd34d",
+      104
+     ],
+     [
+      "CFO COLETTE KRESS (NVIDIA, NOV 12)",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "Interim|5%"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "Three House committee chairs reportedly asked for a closed-door briefing. Closed doors. That's how this shit started.",
+   "scene": "jh_capitol",
+   "scene_p": {},
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      820,
+      1.0
+     ],
+     "to": [
+      540,
+      830,
+      1.05
+     ]
+    },
+    {
+     "at": "closed#1",
+     "cam": [
+      540,
+      820,
+      1.0
+     ],
+     "to": [
+      540,
+      820,
+      1.0
+     ]
+    },
+    {
+     "at": "Closed#2",
+     "cam": [
+      860,
+      1180,
+      1.45
+     ],
+     "to": [
+      880,
+      1220,
+      1.55
+     ]
+    },
+    {
+     "at": "That's",
+     "cam": [
+      540,
+      820,
+      1.0
+     ],
+     "to": [
+      540,
+      820,
+      1.06
+     ]
+    }
+   ],
+   "shake": [
+    "closed#1+0.2",
+    "shit"
+   ],
+   "actors": [
+    {
+     "id": "doors",
+     "type": "jh_doors",
+     "pos": [
+      540,
+      1500
+     ],
+     "s": 0.72,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "shut": 0.12
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "closed#1",
+       "p": {
+        "shut": 1.0
+       },
+       "dur": 0.22
+      }
+     ]
+    },
+    {
+     "id": "hero",
+     "type": "jensen",
+     "pos": [
+      330,
+      1500
+     ],
+     "s": 0.64,
+     "flip": false,
+     "front": false,
+     "talks": false,
+     "p": {
+      "arm": "down",
+      "gpu": false,
+      "mood": "calm",
+      "sweat": 0.0,
+      "look": [
+       1,
+       -0.2
+      ],
+      "sparkle": 0.0,
+      "flap": 0.0,
+      "badge": false,
+      "spin": 0.2,
+      "smoke": 0.0,
+      "spark": 0.0,
+      "idle": true
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "closed#1+0.2",
+       "p": {
+        "mood": "sweat",
+        "sweat": 1.0,
+        "arm": "tug"
+       }
+      },
+      {
+       "at": "That's",
+       "p": {
+        "mood": "mortified"
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     880,
+     1500
+    ],
+    "size": 400,
+    "prop": "mic",
+    "gest": [
+     [
+      "Closed#2",
+      "deadpan",
+      2.0
+     ]
+    ],
+    "moves": [],
+    "look": "doors"
+   },
+   "sfx": [
+    "hit@closed#1+0.2",
+    "boing@That's"
+   ],
+   "card": {
+    "rows": [
+     [
+      "CONGRESS",
+      "#ffd34d",
+      104
+     ],
+     [
+      "CLOSED-DOOR BRIEFING REQUESTED (REPORTED)",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "Three"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "So which part broke your brain? Because",
+   "scene": "jh_stage",
+   "scene_p": {
+    "spot": 1.0,
+    "sx": 540
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      600,
+      860,
+      1.12
+     ],
+     "to": [
+      580,
+      840,
+      1.08
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "screen",
+     "type": "jh_screen",
+     "pos": [
+      540,
+      640
+     ],
+     "s": 0.8,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "a": "gpu",
+      "b": "heart",
+      "flip": 0.0
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "hero",
+     "type": "jensen",
+     "pos": [
+      520,
+      1500
+     ],
+     "s": 0.72,
+     "flip": false,
+     "front": false,
+     "talks": false,
+     "p": {
+      "arm": "hold",
+      "gpu": true,
+      "mood": "proud",
+      "sweat": 0.0,
+      "look": [
+       0.4,
+       0
+      ],
+      "sparkle": 0.0,
+      "flap": 0.0,
+      "badge": false,
+      "spin": 0.4,
+      "smoke": 0.0,
+      "spark": 0.0,
+      "idle": true
+     },
+     "moves": [],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "present",
+    "pos": [
+     900,
+     1500
+    ],
+    "size": 400,
+    "prop": "mic",
+    "gest": [],
+    "moves": [
+     {
+      "at": "Because|20%",
+      "dur": 0.45,
+      "pos": [
+       1260,
+       1500
+      ],
+      "hop": 160
+     }
+    ],
+    "look": "viewer"
+   },
+   "sfx": [
+    "pop@brain"
+   ],
+   "card": {
+    "rows": [
+     [
+      "WHICH PART BROKE YOUR BRAIN? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   },
+   "recut": false,
+   "pad": 0.08
+  }
+ ]
+}

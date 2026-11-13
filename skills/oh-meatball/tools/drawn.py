@@ -85,6 +85,9 @@ drawn_tier.ACT = ACTORS
 ACTORS.update(drawn_tier.ACTORS)
 import drawn_tc_art  # noqa: E402  (11/10 Christmas-tree pictures: tree, mantis, egg case; also for the Shorts)
 ACTORS.update(drawn_tc_art.ACTORS)
+import drawn_jensen_art  # noqa: E402  (11/13 Jensen Huang TikTok / Short: Jensen, stage, office, chart, doors)
+ACTORS.update(drawn_jensen_art.ACTORS)
+SCENES.update(drawn_jensen_art.SCENES)
 ROOT = os.path.dirname(HERE)
 W, H = 1080, 1920
 SR = 48000
