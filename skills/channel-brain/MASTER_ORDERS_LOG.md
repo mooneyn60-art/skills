@@ -479,3 +479,6 @@ Nolan's order of 11/13 about 08:30 ET replaced these: the queued bug Shorts no l
 ### From "Read dates and live tests"
 - **Sun 11/15:** the funnier seven's average % viewed and engaged share; decide whether the queued bug Shorts get the funnier pass ("Make them funnier").
 
+### From "TikTok orders (Nolan, 11/11)" (moved 11/13 to make room; still true, a noted lead)
+- **TikTok category label (research 82; a lead, not a test):** TikTok files most of our drawn videos under "Comics & Cartoon, Anime". Nolan said no to a real-photo test. The label shows on a video's public page within an hour (`postkit.py ttpage`). 11/12: the drawn dog cut got the same label, but started fast (115 plays at 2.4 hours) and TikTok suggests "guilty dogs" on it (`research/82`).
+
