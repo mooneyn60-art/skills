@@ -41,3 +41,36 @@ CLEARED, with one change (the YouTube title, used in both specs). The main fact 
 - Library of Congress "Everyday Mysteries": HTTP 403 (bot check); the Wayback copy reset the connection. Not used in either cut; the two vet school pages carry the second fact.
 - EurekAlert release: HTTP 403 this time. Not used in either cut.
 - No share of cats that purr in pain or stress exists on either page. The cuts give none.
+
+## Second pass (11/12, check-cat-purr)
+
+### Verdict
+CLEARED, no changes. The main session's new wording (the cat's name, the closing question, the corner pill, the TikTok share line and quick pick) adds no claim, drops no hedge, condition or credit, and puts no feeling or motive on Sauce. The sourced lines are unchanged and still carried by the pages re-read in the first pass. Lint after this pass: YT pass (0 fail, 0 warn; 1 mild word, title 97 of 100 units, 12 tags), TT pass (0 fail, 0 warn; 6 strong words, none shown in full in the captions; caption 462 of 2,200 units, 5 hashtags).
+
+### What I re-opened
+- WSU Ask Dr. Universe, 2023-09-21, raw HTML again (https://askdruniverse.wsu.edu/2023/09/21/7364/). Context of the "experts" line: "Scientists have two ideas about why cats purr. ... But experts don't agree on the answer yet." So the answer they do not agree on is why cats purr. Byline still Dr. Sarah Guess, "a veterinarian at Washington State University".
+- `tools/drawn.py` `at_time`: "word#2|75%" means the second spoken word that starts with "sauce", else 75% of the line.
+
+### Changed wording, line by line
+| Where | Verdict | Why |
+|---|---|---|
+| YT line 2 "Meatball purred back at his cat Sauce. Broken damn lawn mower. Sauce left." | OK | "his cat Sauce" names the cat the first time, as MASTER_ORDERS asks. The joke is on Meatball. "Sauce left" is an action, no motive, no fact. One mild word (damn). |
+| YT beat 2 anchors "sauce#2\|75%" (gest and hero_moves) | OK | "Sauce" is spoken twice ("his cat Sauce." and "Sauce left."), so #2 lands on "Sauce left", where the cat walks out. No other word in the line starts with "sauce". The 75% fallback stays. |
+| TT line 2 "Meatball purred back at his cat Sauce. Broken lawn mower. Fucking tragic." | OK | Same as YT. "Fucking tragic" is a reaction to Meatball, not a claim. Anchors "tragic" and "fucking" are both in the line. |
+| TT line 3 "Sauce left the room. Then the fucking house." and card "SAUCE LEFT / THE ROOM. THEN THE HOUSE." | OK | An action acted out on screen, no feeling or motive, no fact. |
+| YT last line "So when does your cat purr the loudest? And" | OK | A question to the viewer, no claim. It runs into the hook ("And / Why do cats purr?"). Cutting "Experts still don't agree on the big one" loses no hedge the cut needs: no YT line says why cats purr, and the description still says "Experts do not yet agree on why cats purr." The cut keeps two sourced facts (vets line, lab line). |
+| TT last line "Experts still don't agree on why. So when does your cat purr the fucking loudest? And" | OK | WSU: "experts don't agree on the answer yet" to why cats purr; "still ... on why" says the same. The attribution is said clean and the swear is in the next sentence, on a question, not on the viewer. "_f" CATP11 is the right pack row. |
+| Corner pill (both) "WHEN DOES YOUR CAT PURR LOUDEST? COMMENT" and the YT pinned comment | OK | Open questions, no claim; match MASTER_ORDERS "Previews and engagement" rule 2. |
+| TT caption gag "Meatball purred back at his cat Sauce. Broken lawn mower. Sauce left the room. Then the house." | OK | The video's own words without the swearing. |
+| TT caption share line "Send this to someone whose cat purrs like a motorbike." | OK | A simile about someone's cat, no number, sound level, health claim or motive. Not a spoken outro. |
+| TT caption quick pick "When does your cat purr the loudest: dinner time or bedtime?" | OK | A question about the viewer's own cat; it asserts nothing. It does not say cats purr for food or to ask for food (McComb 2009 stays out). Bedtime sits next to NC State's "just prior to sleep". |
+
+### Rest of both cuts, read once more
+Hook, vets line, lab line, cards, search_top, title, description, tags and hashtags are as cleared in the first pass and unchanged. Searched words "why do cats purr" are still the first spoken sentence on both cuts. "May" kept on the vets line and card. No healing line anywhere. No insult aimed at the viewer.
+
+### Changes
+None.
+
+### Could not verify (this pass)
+- Nothing new. The first pass's list stands (Herbst full text and McComb 2009 behind a bot check; neither changes a spoken line).
+- Whether the speech model hears "Sauce" (and not "sauce" as a common word or "source") on the render: that is for the render's voice check, not this check.
