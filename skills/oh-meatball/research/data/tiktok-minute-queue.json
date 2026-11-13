@@ -3,7 +3,7 @@
  "topics": [
   {
    "slug": "cat-sugar",
-   "status": "todo",
+   "status": "built",
    "slot": "TikTok Fri 11/13 19:00",
    "family": "pets in your house (cat)",
    "topic": "Can cats taste sugar or sweet things: the broken sweet gene, what cats taste instead, and why your cat still begs for cake",
@@ -11,11 +11,24 @@
    "short_spec": "/home/user/skills/skills/oh-meatball/scripts/drawn-house/tts-cat-sugar.json",
    "template": "tt-dog-guilty-look.json",
    "do_not_say": "Never 'cats cannot taste anything sweet' as a flat fact: say most likely, the gene is broken. No feeling or motive for the cat. No feeding advice beyond what a vet school or agency page says.",
-   "gag_idea": "Meatball baked his cat, Sauce, a birthday cake. Sauce walks off; the cake is probably wasted."
+   "gag_idea": "Meatball baked his cat, Sauce, a birthday cake. Sauce walks off; the cake is probably wasted.",
+   "built": {
+    "mp4": "episodes/drawn-house/tt-cat-sugar.mp4",
+    "seconds": 84.83,
+    "spec": "scripts/drawn-house/tt-cat-sugar.json",
+    "sheet": "episodes/drawn-house/sheets/cat-sugar-min-tt.jpg",
+    "when": "2026-11-13 night",
+    "problems": [
+     "Voice check WARN on line 15 (chocolate/xylitol/ASPCA line, 75% heard); it passed overall and no wording was changed.",
+     "Speech model also heard 'thanks for watching' at the very end where the script has 'and'; likely a transcription artifact, but worth a listen since there must be no spoken outro.",
+     "Frame 0 shows a bare wall with a cabinet and the last frame the same style of room, but I could not confirm they are exactly the same room from the sheet.",
+     "Listen to the very end once: the speech model wrote 'thanks for watching' where the script has 'And' (most likely the model's own habit on a trailing word; there must be no spoken outro)."
+    ]
+   }
   },
   {
    "slug": "cat-purr",
-   "status": "todo",
+   "status": "built",
    "slot": "TikTok Sat 11/14 21:30",
    "family": "pets in your house (cat)",
    "topic": "Why do cats purr: how the sound is made, and that it is not only a happy sound",
@@ -27,7 +40,19 @@
    "short_spec": "/home/user/skills/skills/oh-meatball/scripts/drawn-house/tts-cat-purr.json",
    "template": "tt-dog-guilty-look.json",
    "do_not_say": "Do not say cats purr only when happy. Nothing about healing. No feeling or motive for the cat. 'No brain attached' only about the lab voice boxes.",
-   "gag_idea": "Meatball purrs back at his cat, Sauce, like a broken lawn mower; Sauce leaves the room, then the house."
+   "gag_idea": "Meatball purrs back at his cat, Sauce, like a broken lawn mower; Sauce leaves the room, then the house.",
+   "built": {
+    "mp4": "episodes/drawn-house/tt-cat-purr.mp4",
+    "seconds": 86.7,
+    "spec": "scripts/drawn-house/tt-cat-purr.json",
+    "sheet": "episodes/drawn-house/sheets/cat-purr-min-tt.jpg",
+    "when": "2026-11-13 night",
+    "problems": [
+     "Line 10's last phrase was garbled by the voice on two renders; the main session joined it to its sentence with a comma (punctuation only, no word changed) and the third render passed the voice check.",
+     "Listen to the last line once: the speech model wrote 'one is' for 'So when does' (a note, not a fail).",
+     "Look at the sheet: is the last frame back in the first room?"
+    ]
+   }
   },
   {
    "slug": "moose-wms",

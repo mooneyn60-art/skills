@@ -1,0 +1,610 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "detective",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "cut_whoosh": true,
+ "loop": true,
+ "photo_credits": [],
+ "cap_swap": {
+  "shit": "sh*t",
+  "shits": "sh*ts",
+  "shitty": "sh*tty",
+  "bullshit": "bullsh*t",
+  "fuck": "f**k",
+  "fucking": "f**king",
+  "fucker": "f**ker",
+  "fuckers": "f**kers"
+ },
+ "series": "Things Living In Your House",
+ "sources": [
+  "Li, Li, Wang, Cao, Maehashi, Huang, Bachmanov, Reed, Legrand-Defretin, Beauchamp & Brand 2005, PLoS Genetics 1(1):e3, \"Pseudogenization of a sweet-receptor gene accounts for cats' indifference toward sugar\" (full text): \"the mammalian sweet-taste receptor is formed by the dimerization of two proteins (T1R2 and T1R3; gene symbols Tas1r2 and Tas1r3)\"; \"the cat Tas1r2 gene shows a 247-base pair microdeletion in exon 3 and stop codons in exons 4 and 6\"; \"Tas1r3 is expressed, as expected, in taste buds.\"; \"A functional sweet-taste receptor heteromer cannot form, and thus the cat lacks the receptor likely necessary for detection of sweet stimuli.\"; \"We found that Tas1r2 in all six cats, the tiger, and the cheetah show the identical 247-bp deletion in exon 3\"; \"do not show a preference for and, most likely, cannot detect sweet-tasting compounds. Other than this sweet blindness, the cat's sense of taste is normal.\"; \"generally avoid stimuli that to humans taste either bitter or very sour\"; https://pmc.ncbi.nlm.nih.gov/articles/PMC1183522/",
+  "McGrane et al. 2023, Chemical Senses 48:bjad026 (abstract; the authors worked for Mars Petcare, stated in the record): \"Here, we propose that umami (mediated by Tas1r1-Tas1r3) is the main appetitive taste modality for the domestic cat\"; \"We postulate that the renowned palatability of tuna for cats may be due, at least in part, to its specific combination of high levels of inosine monophosphate and free l-Histidine that produces a strong synergistic umami taste enhancement.\"; https://pubmed.ncbi.nlm.nih.gov/37551788/",
+  "ASPCA, People Foods to Avoid Feeding Your Pets (page; chocolate and xylitol are on the list): \"if you suspect your pet has eaten any of the following foods, please note the amount ingested and contact your veterinarian or poison control at (888) 426-4435.\"; https://www.aspca.org/pet-care/aspca-poison-control/people-foods-avoid-feeding-your-pets"
+ ],
+ "stage": {
+  "creature": "cat",
+  "scene": "kitchen",
+  "scene_p": {
+   "time": "night"
+  },
+  "s": 0.62,
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "cat",
+   "color": "#e39a4a",
+   "dark": "#b06f2a",
+   "belly": "#f6e3c8",
+   "tail_color": "#e39a4a",
+   "length": 520,
+   "height": 250,
+   "leg_len": 150,
+   "leg_w": 30,
+   "ears": "pointed",
+   "tail": "thin",
+   "tail_w": 22,
+   "whiskers": true,
+   "mood": "smug"
+  }
+ },
+ "cap_key": [
+  "you",
+  "your",
+  "cat",
+  "cats",
+  "sugar",
+  "sweet",
+  "gene",
+  "broken",
+  "247",
+  "missing",
+  "six",
+  "tiger",
+  "cheetah",
+  "bitter",
+  "sour",
+  "umami",
+  "meaty",
+  "tuna",
+  "donut",
+  "chocolate",
+  "xylitol",
+  "vet"
+ ],
+ "title": "Your Cat Most Likely Can't Taste Sugar: 1 Broken Gene",
+ "description": "Can cats taste sugar? Most likely not. In mammals the sweet taste receptor is two proteins paired up, and in cats the gene for one of them (Tas1r2) is broken: a 2005 study found a 247-base pair piece of it missing. The other half works. The authors say cats most likely cannot detect sweet-tasting compounds and that the rest of a cat's sense of taste is normal. The same piece was missing in all six domestic cats tested and in the one tiger and the one cheetah tested. A 2023 paper by scientists at a pet food company (Mars Petcare) proposes that umami, the meaty taste, is a cat's main appetizing taste, and its authors guess this is part of why tuna is so palatable to cats. None of these papers says why a cat stares at dessert. Chocolate and the sweetener xylitol are on the ASPCA's list of people foods to avoid feeding pets: if you suspect your pet ate some, note the amount and contact your veterinarian or poison control.\n\n#cats #catfacts #meatballmyths #shorts\n\nSources: Li et al. 2005, PLoS Genetics; McGrane et al. 2023, Chemical Senses; ASPCA, People Foods to Avoid Feeding Your Pets.",
+ "tiktok_title": "Can Cats Taste Sugar? Most Likely Not",
+ "tiktok_caption": "can cats taste sugar 🐱 Most likely not: in cats, the gene for one half of the sweet sensor is broken, and the authors of a 2005 study say cats most likely can't detect sweet. The same piece of DNA was missing in all six house cats they tested, plus one tiger and one cheetah. A 2023 paper by pet food company scientists proposes a cat's main appetizing taste is umami, the meaty one. Chocolate and the sweetener xylitol are on the ASPCA's list of foods to avoid feeding pets: if you think your pet ate some, note how much and call your vet or poison control. Meatball baked his cat, Sauce, a birthday cake. Probably wasted. Sauce walked off. Send this to someone whose cat stares at every dessert. Does your cat beg for sweets: yes or no? #catfacts #catsoftiktok #cattok #cats #cat",
+ "_note": "TikTok minute cut (Nolan 11/12: every TikTok over 1 minute) of the checked short cut tts-cat-sugar.json. Facts only from research/facts/cat-sugar.md (CS-1 to CS-15); every beat lists its ids in _f. NOT yet checked by a second model and not rendered. First spoken sentence = the searched phrase 'can cats taste sugar' (word for word from a search suggestion); search_top shows it for the first 2.5 s at y 150. Line 2 is the Meatball gag (cake prop, card), line 3 is the running gag as an action (Sauce walks off). Kept from the checked short cut: the cake line (with 'his cat, Sauce,' added), 'Holy shit' on the broken gene, the donut simile (now 'Your cat may still stare', hedged). Dropped from the short cut: the slow blink lines (CS-17), to stay on the searched question and under 90 s. Not used and why: CS-5 (no message, no protein: a study detail with no joke), CS-12 and CS-13 (the two later papers: the 2010 list also names the horse, which would need its own check), CS-14 (the pack limits it to one narrow use), CS-16 (the pack says do not say chocolate kills cats; the ASPCA line covers it). Noodle is not in this cut on purpose: a dog ending up with cake sits badly next to the chocolate and xylitol line. '247 letters of DNA' stands for the paper's 247-base pair microdeletion. The umami line is said without the authors' employer so it can carry a reaction; the employer is on the card, in the caption and in the description. The begging line gives no reason: the pack found no source for one. The safety line is said clean (ASPCA wording, 'pets', with its condition on the card); the reaction comes after the instruction. No feeling or motive is given to the cat anywhere. The tiger on the six-cats line is a cast animal drawn with the mammal kit (pointed ears, bands as stripes); if it does not read as a tiger on the sheet, delete that beat's 'cast' and Sauce stays on stage under the same card. Auto acting is off on the two ASPCA beats so the cat does not chomp while the foods to avoid are named. Planned length 83.5 s, 17 beats, 255 spoken words (drawn.py plan with stills, 11/13). postkit lint 11/13: pass, 0 fail, 0 warn.",
+ "_curse": "TikTok cut with heavy swearing and sweary jokes (Nolan 11/11: 'one a sentence', 'make them joke more using the cursing'). Every sourced credit and the safety instruction are said clean; the swear is the reaction after it. Jokes are similes or roasts of Meatball and add no claim, number, danger, feeling or motive. No 'you' in an insult. The ASPCA line (beat 15) is clean on purpose.",
+ "beats": [
+  {
+   "open": "animal",
+   "m": "hook",
+   "gag": {
+    "mark": "shock"
+   },
+   "_f": [
+    "CS-1",
+    "CS-8"
+   ],
+   "say": "Can cats taste sugar? Most likely fucking not.",
+   "card": {
+    "rows": [
+     [
+      "CAN'T TASTE SUGAR",
+      "#ffd34d",
+      96
+     ],
+     [
+      "MOST LIKELY",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "scene": "basement",
+   "m": "fact",
+   "mood": "sleepy",
+   "gag": {
+    "prop": "cake",
+    "at": "8%"
+   },
+   "_f": [],
+   "say": "Meatball baked his cat, Sauce, a birthday cake. Probably wasted. Happy fucking birthday.",
+   "card": {
+    "rows": [
+     [
+      "BIRTHDAY CAKE",
+      "#ffd34d",
+      100
+     ],
+     [
+      "PROBABLY WASTED",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "36%"
+   }
+  },
+  {
+   "scene": "bedroom",
+   "m": "fact",
+   "gag": false,
+   "_f": [],
+   "say": "Sauce walked off. Meatball sang the whole fucking song alone.",
+   "hero_moves": [
+    {
+     "at": "walked|8%",
+     "dur": 0.9,
+     "pos": [
+      1500,
+      1500
+     ],
+     "walk": true,
+     "face": 1
+    }
+   ],
+   "mb": {
+    "gest": [
+     [
+      "sang|45%",
+      "laugh",
+      1.4
+     ]
+    ]
+   },
+   "card": {
+    "rows": [
+     [
+      "SAUCE WALKED OFF",
+      "#ffd34d",
+      100
+     ],
+     [
+      "MEATBALL SANG ALONE",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "study",
+   "m": "fact",
+   "gag": false,
+   "_f": [
+    "CS-2"
+   ],
+   "say": "In mammals, the sweet sensor is two proteins, paired up. Like a fucking buddy cop movie.",
+   "card": {
+    "rows": [
+     [
+      "2 PROTEINS",
+      "#ffd34d",
+      120
+     ],
+     [
+      "THE SWEET SENSOR IS A PAIR",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "bathroom",
+   "m": "escalate",
+   "gag": false,
+   "_f": [
+    "CS-3"
+   ],
+   "say": "In cats, the gene for one of them is broken. Holy shit.",
+   "card": {
+    "rows": [
+     [
+      "BROKEN GENE",
+      "#ff4b3e",
+      120
+     ],
+     [
+      "ONE OF THE TWO, IN CATS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "basement",
+   "m": "tiny",
+   "gag": {
+    "prop": "magnifier",
+    "at": "20%"
+   },
+   "_f": [
+    "CS-3"
+   ],
+   "say": "A 2005 study found 247 letters of its DNA missing. Gone, like Meatball's fucking eyebrows after the candles.",
+   "card": {
+    "rows": [
+     [
+      "247 DNA LETTERS",
+      "#ffd34d",
+      104
+     ],
+     [
+      "MISSING FROM THE GENE: 2005 STUDY",
+      "#ffffff",
+      46,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "25%"
+   }
+  },
+  {
+   "scene": "study",
+   "m": "fact",
+   "gag": false,
+   "_f": [
+    "CS-4"
+   ],
+   "say": "The other half still works, with no sweet partner. Like Meatball at fucking prom.",
+   "card": {
+    "rows": [
+     [
+      "THE OTHER HALF WORKS",
+      "#7bd88f",
+      84
+     ],
+     [
+      "BUT IT HAS NO SWEET PARTNER",
+      "#ffffff",
+      50,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "kitchen",
+   "m": "scale",
+   "how": "grow",
+   "gag": false,
+   "_f": [
+    "CS-7",
+    "CS-8"
+   ],
+   "say": "So the sweet sensor can't form. Fucking hell.",
+   "card": {
+    "rows": [
+     [
+      "NO SWEET SENSOR",
+      "#ff4b3e",
+      104
+     ],
+     [
+      "AUTHORS: CATS MOST LIKELY CAN'T DETECT SWEET",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "garden",
+   "m": "escalate",
+   "gag": {
+    "mark": "alarm"
+   },
+   "_f": [],
+   "say": "And it gets fucking weirder.",
+   "card": {
+    "rows": [
+     [
+      "IT GETS WEIRDER",
+      "#ffd34d",
+      104
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "forest_floor",
+   "m": "tiny",
+   "pose": "nervous",
+   "mood": "smug",
+   "gag": false,
+   "cast": {
+    "creature": "tiger",
+    "creature_cfg": {
+     "plan": "mammal",
+     "label": "tiger",
+     "color": "#e8892b",
+     "dark": "#2a1c12",
+     "tail_color": "#e8892b",
+     "bands": 7,
+     "length": 760,
+     "height": 330,
+     "leg_len": 200,
+     "leg_w": 46,
+     "ears": "pointed",
+     "tail": "thin",
+     "tail_w": 28,
+     "whiskers": true,
+     "mood": "smug"
+    },
+    "s": 0.62
+   },
+   "_f": [
+    "CS-6"
+   ],
+   "say": "The same piece was missing in all six house cats they tested, plus one tiger and one cheetah. Meatball is not baking for the fucking tiger.",
+   "card": {
+    "rows": [
+     [
+      "SAME MISSING PIECE",
+      "#ffd34d",
+      96
+     ],
+     [
+      "6 HOUSE CATS + 1 TIGER + 1 CHEETAH TESTED",
+      "#ffffff",
+      42,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "20%"
+   }
+  },
+  {
+   "scene": "bedroom",
+   "m": "fact",
+   "gag": false,
+   "_f": [
+    "CS-8",
+    "CS-9"
+   ],
+   "say": "The rest of a cat's taste is normal. Cats mostly avoid bitter and very sour. Meatball avoids nothing. Gas station fucking sushi.",
+   "card": {
+    "rows": [
+     [
+      "BITTER + VERY SOUR",
+      "#ffd34d",
+      96
+     ],
+     [
+      "CATS MOSTLY AVOID THEM",
+      "#ffffff",
+      52,
+      true
+     ],
+     [
+      "THE REST OF THEIR TASTE: NORMAL (2005 STUDY)",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "25%"
+   }
+  },
+  {
+   "scene": "study",
+   "m": "fact",
+   "gag": false,
+   "_f": [
+    "CS-10"
+   ],
+   "say": "A 2023 paper proposes a cat's main appetizing taste is umami. Fancy fucking word for meaty.",
+   "card": {
+    "rows": [
+     [
+      "UMAMI",
+      "#ffd34d",
+      150
+     ],
+     [
+      "THE MEATY TASTE",
+      "#ffffff",
+      56,
+      true
+     ],
+     [
+      "PROPOSED IN 2023 BY PET FOOD COMPANY SCIENTISTS",
+      "#ffffff",
+      38,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "bathroom",
+   "m": "tiny",
+   "gag": {
+    "thought": "fish",
+    "at": "tuna|40%"
+   },
+   "_f": [
+    "CS-11"
+   ],
+   "say": "They guess that's partly why tuna is such a hit with cats. More science than that fucking cake got.",
+   "card": {
+    "rows": [
+     [
+      "TUNA",
+      "#ffd34d",
+      150
+     ],
+     [
+      "THE AUTHORS' GUESS, NOT A RESULT",
+      "#ffffff",
+      48,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "kitchen",
+   "m": "escalate",
+   "gag": {
+    "prop": "donut",
+    "at": "12%"
+   },
+   "_f": [],
+   "say": "Your cat may still stare at your donut like you owe it fucking money. Why? None of these papers says.",
+   "card": {
+    "rows": [
+     [
+      "WHY THE STARE?",
+      "#ffd34d",
+      110
+     ],
+     [
+      "NONE OF THESE PAPERS SAYS",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "why|62%"
+   }
+  },
+  {
+   "scene": "basement",
+   "m": "fact",
+   "gag": false,
+   "acting": false,
+   "_f": [
+    "CS-15"
+   ],
+   "say": "Chocolate and the sweetener xylitol are on the ASPCA's list of foods to avoid feeding pets.",
+   "card": {
+    "rows": [
+     [
+      "CHOCOLATE + XYLITOL",
+      "#ff4b3e",
+      88
+     ],
+     [
+      "ON THE ASPCA'S LIST OF FOODS TO AVOID FEEDING PETS",
+      "#ffffff",
+      38,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "15%"
+   }
+  },
+  {
+   "scene": "bedroom",
+   "m": "fact",
+   "gag": false,
+   "acting": false,
+   "_f": [
+    "CS-15"
+   ],
+   "say": "The ASPCA says if you think your pet ate some, note how much and call your vet or poison control. Serious as fuck.",
+   "card": {
+    "rows": [
+     [
+      "CALL YOUR VET",
+      "#7bd88f",
+      110
+     ],
+     [
+      "OR POISON CONTROL, IF YOU THINK YOUR PET ATE SOME",
+      "#ffffff",
+      38,
+      true
+     ],
+     [
+      "NOTE HOW MUCH IT ATE (ASPCA)",
+      "#ffffff",
+      48,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "15%"
+   }
+  },
+  {
+   "scene": "kitchen",
+   "m": "punch",
+   "gag": {
+    "mark": "alarm"
+   },
+   "_f": [],
+   "say": "So what's the weirdest fucking thing your cat ever begged for? And",
+   "card": {
+    "rows": [
+     [
+      "WEIRDEST THING YOUR CAT EVER BEGGED FOR? COMMENT",
+      "#ffffff",
+      38,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "search_top": {
+  "rows": [
+   [
+    "CAN CATS",
+    "#ffffff",
+    86
+   ],
+   [
+    "TASTE SUGAR?",
+    "#ffd34d",
+    86
+   ]
+  ],
+  "y": 150,
+  "until": 2.5
+ }
+}
