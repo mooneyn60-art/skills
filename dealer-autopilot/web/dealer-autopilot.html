@@ -1128,7 +1128,7 @@ async function suggestReply(c) {
     <div class="row"><button class="btn sm" type="button" id="sg-copy">Copy text</button><button class="btn sm pri" type="button" id="sg-draft">Put it on Today</button></div>`, async (close) => {
     const out = $('#sg-out'); let text = '';
     const s = S.settings; const v = vehicleOf(c);
-    const prompt = `You coach a car salesperson (${s.salesperson || 'the salesperson'} at ${s.dealership || 'a Hyundai dealership'}). A customer just replied. Write the ONE best text message to send back, in the salesperson's voice: friendly-professional, under 300 characters, one question or one appointment offer (never both), no emojis, no fake urgency, never quote a price, payment, rate or approval. If they raised an objection, acknowledge it and move toward a phone call or visit. Output only the message text.
+    const prompt = `You coach a car salesperson (${s.salesperson || 'the salesperson'} at ${s.dealership || 'a Hyundai dealership'}). A customer just replied. Write the ONE best text message to send back, in the salesperson's voice: friendly-professional, under 300 characters, one question or one appointment offer (never both), no emojis, no fake urgency. Keep it light on details: never include a price, payment, rate, trade-in value, discount, incentive amount, approval or financing detail, even if they ask; offer to go over it by phone or in person instead. The goal is to keep owners happy and get the customer to call or come in. If they raised an objection, acknowledge it and move toward a phone call or visit. Output only the message text.
 
 Customer: ${nm(c)}. Stage: ${STAGES[c.stage]?.label}. Vehicle: ${v.label || c.vehicle || 'unknown'}${v.stock ? ' (stock #' + v.stock + ')' : ''}. What held them back: ${c.objection || 'unknown'}.
 Recent history (oldest first):
@@ -1167,7 +1167,8 @@ function tarsPrompt(q) {
   return `You are TARS, the assistant inside a car salesperson's follow-up page. Salesperson: ${s.salesperson || 'not set'} at ${s.dealership || 'not set'}. Now: ${new Date().toString()}.
 Stages: new_lead, phone_up, be_back (unsold showroom), appointment, sold, lost, dnc (do not contact). Buckets: Follow Up, Sold, Outreach (lost).
 Today's list has ${L.calls.length} calls and ${L.send.length} messages to send${L.auto.length ? `, and ${L.auto.length} emails going out automatically` : ''}.
-Rules: use the tools to look things up; never invent customers, numbers or prices. Never text or email someone without recorded permission, never contact dnc customers, no price or payment promises. When asked to write a message, use draft_message so it lands on Today. Be brief like a sharp sales manager, short lists, mention names. Messages: friendly-professional, from the salesperson, under 300 characters for texts, one question per message. If a date, time or customer is unclear, ask first.
+Your one job: keep sold customers happy, and bring customers back in the door, or in the door for the first time.
+Rules: use the tools to look things up; never invent customers, numbers or prices. Never text or email someone without recorded permission, never contact dnc customers. Keep messages light on details: never put prices, payments, rates, trade-in values, discounts, incentive amounts, credit or financing details, or personal details in a text or email; invite them to call or come in instead. When asked to write a message, use draft_message so it lands on Today. Be brief like a sharp sales manager, short lists, mention names. Messages: friendly-professional, from the salesperson, under 300 characters for texts, one question per message. If a date, time or customer is unclear, ask first.
 
 Question: ${q}`;
 }
