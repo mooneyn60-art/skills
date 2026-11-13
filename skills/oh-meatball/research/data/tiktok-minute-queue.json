@@ -3,7 +3,7 @@
  "topics": [
   {
    "slug": "cat-sugar",
-   "status": "built",
+   "status": "scheduled",
    "slot": "TikTok Fri 11/13 19:00",
    "family": "pets in your house (cat)",
    "topic": "Can cats taste sugar or sweet things: the broken sweet gene, what cats taste instead, and why your cat still begs for cake",
@@ -24,11 +24,15 @@
      "Frame 0 shows a bare wall with a cabinet and the last frame the same style of room, but I could not confirm they are exactly the same room from the sheet.",
      "Listen to the very end once: the speech model wrote 'thanks for watching' where the script has 'And' (most likely the model's own habit on a trailing word; there must be no spoken outro)."
     ]
+   },
+   "scheduled": {
+    "when_et": "2026-11-13 19:00",
+    "uuid": "7383423731539133920"
    }
   },
   {
    "slug": "cat-purr",
-   "status": "built",
+   "status": "scheduled",
    "slot": "TikTok Sat 11/14 21:30",
    "family": "pets in your house (cat)",
    "topic": "Why do cats purr: how the sound is made, and that it is not only a happy sound",
@@ -52,6 +56,10 @@
      "Listen to the last line once: the speech model wrote 'one is' for 'So when does' (a note, not a fail).",
      "Look at the sheet: is the last frame back in the first room?"
     ]
+   },
+   "scheduled": {
+    "when_et": "2026-11-14 21:30",
+    "uuid": "9204928416314642133"
    }
   },
   {
@@ -64,7 +72,8 @@
    "short_spec": "/home/user/skills/skills/oh-meatball/scripts/drawn-house/tts-moose-wms.json",
    "template": "tt-grizzly-wms.json",
    "do_not_say": "No ending says a tactic saved Meatball. Every safety line is credited to its agency and keeps its trigger. Moose advice never shares a line with bear advice.",
-   "gag_idea": "(keep the short cut's gag)"
+   "gag_idea": "(keep the short cut's gag)",
+   "note": "The 21 s cut in this slot was set to draft 11/13 (held.csv); the minute cut takes Sat 11/14 19:00 if built in the night of 11/13, else the next free 19:00."
   },
   {
    "slug": "cat-name",
