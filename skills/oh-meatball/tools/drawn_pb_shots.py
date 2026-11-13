@@ -384,10 +384,11 @@ def table():
                    card_at="24|30%", sfx=["scratch@other|50%"], norecut=True)
     T["s5.l7"] = S(B, [0, 0, 1.0], [0, 15, 1.04],
                    [A("rep", "pb_sheet", [0, 110], 0.9, {"kind": "report", "title": "STATUS REPORT (CANADA, 2008)", "title_px": 44,
-                                                        "rows": ["IN THE BEAR FAMILY,", "POLAR BEARS INCLUDED,", "KILLING CUBS, OR CUBS",
-                                                                 "AND ADULTS, FOR FOOD,", "IS NOT UNCOMMON"],
+                                                        "rows": ["IN THE BEAR FAMILY,", "POLAR BEARS INCLUDED,", "KILLING CUBS TO BRING",
+                                                                 "FEMALES INTO ESTRUS, OR", "CUBS AND ADULTS FOR FOOD,",
+                                                                 "IS NOT UNCOMMON"],
                                                         "px": 46, "under": None},
-                      sets=[st("uncommon|80%", 0.2, under=4)])],
+                      sets=[st("uncommon|80%", 0.2, under=5)])],
                    card_at="uncommon|85%", sfx=["scratch@uncommon|85%"], norecut=True)
     T["s5.l8"] = S("pb_ice", [960, 560, 1.15], [960, 560, 1.2],
                    [A("truck", "pb_truck", [960, 960], 0.9, {"curtain": 0.0, "peek": 0.0, "glass": True},
@@ -476,7 +477,7 @@ def table():
     T["s7.l4"] = S(B, [0, 0, 1.0], [0, 15, 1.03],
                    [A("br", "pb_sheet", [0, 170], 0.8, {"kind": "brochure", "title": "IF YOU MEET A POLAR BEAR (MANITOBA)",
                                                         "title_px": 42, "left": True, "px": 44, "w": 980, "h": 620, "ticks": 0.0,
-                                                        "rows": ["STAY CALM", "STAY WITH YOUR GROUP", "BACK AWAY, FACING THE BEAR",
+                                                        "rows": ["STAY CALM", "STAY WITH YOUR GROUP", "BACK AWAY, FACING THE BEAR AT ALL TIMES",
                                                                  "DO NOT TURN AND RUN", "DO NOT PLAY DEAD",
                                                                  "GET INTO A VEHICLE OR A BUILDING"]},
                       sets=[st("calm|25%", 0.2, ticks=1.0), st("group|35%", 0.2, ticks=2.0), st("facing|50%", 0.2, ticks=3.0),

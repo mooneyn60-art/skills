@@ -51,3 +51,14 @@ Everything in the brief is built: mp4 10:30.1, gates pass (lf_gates: size, beep 
 48.4 MB, first voice 0.01 s, longest framing 3.74 s). Nothing committed (agents make no git writes).
 Known small things left, none blocking: s0.l3 the eight chips sit over the den roof; s0.l4 the bowls strip sits
 just under the card; s2.l7 the two-year bar is small; the Arctic map is a schematic ring of land round the sea.
+
+## After the second-model check of the on-screen text (11/13, about 05:00 ET, main session)
+`research/101-factcheck-polar-bear-screen-text.md`: 85 rows, every number right, 3 fixes and 1 cut, all applied:
+the Manitoba checklist row is now BACK AWAY, FACING THE BEAR AT ALL TIMES (s7.l4); the status-report board (s5.l7)
+carries the report's own sentence in six rows (KILLING CUBS TO BRING / FEMALES INTO ESTRUS, OR / CUBS AND ADULTS FOR
+FOOD,); the description's advice sentence matches the brochure and no longer points at a repo file.
+Re-rendered: same sound as the checked render (the audio stream is byte-identical, so the voice check stands),
+gates pass again (10:30.1, beep 0, -14.0 LUFS / -1.7 dBTP, 48.5 MB, first voice 0.01 s, longest framing 3.74 s).
+`drawn_polarlife.drawn_spec` now exists (an alias of the cat layer's): `tools/lf_gates.py` calls it by name.
+Sheets in this folder are from the fixed render. `postkit.py lint` is for Shorts specs; a long video's gate is lf_gates
+plus the checks above.

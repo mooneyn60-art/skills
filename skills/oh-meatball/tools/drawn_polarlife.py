@@ -182,6 +182,7 @@ def expand(spec, lines):
 
 
 cl.expand = expand   # cl.drawn_spec (render, line sheets) looks the name up at call time
+drawn_spec = cl.drawn_spec   # tools/lf_gates.py loads the spec's `builder` module and calls its drawn_spec
 
 
 # ================================================================================================ build
