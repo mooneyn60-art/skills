@@ -57,8 +57,8 @@ Read each test on its date, not before.
 
 ## The best content today, and maybe a long video today (Nolan, 11/13 about 08:55 ET)
 - **His words:** "I want the best content posted today and maybe a long form today". My reading: today's posts are the strongest videos we have on both platforms, and a long video goes out today; his order wins over the usual slots for the day.
-- **Decided from the data (research 100, 85, 102):** the house cat ("born as", the best odds) moves from Sat 11/28 to today 17:00 after a check of its on-screen labels (`research/104`); its 72-hour read comes Mon 11/16, before the lion is built. Shorts today are the funny kind (dog stare 10:00, dog guilty look 13:00, grizzly 19:00); the one-minute cat purr TikTok moves to tonight 21:30. Sat 11/28 08:00 is open for the lion if it is ready by Thu 11/26.
-- **Metricool's connector did not load in the main session all morning.** A fresh helper session reached it at 10:30 ET and makes the changes listed in `oh-meatball/data/pending-swaps.csv`; use a helper session again when the tools do not load here.
+- **Done (in Metricool by 10:50 ET; the reasoning is in the log):** the house cat long video today 17:00 (72-hour read Mon 11/16, before the lion is built), funny Shorts at 10:00, 13:00 and 19:00, the cat purr minute TikTok tonight 21:30, and the nine funny bug Shorts swapped into their slots (`oh-meatball/data/pending-swaps.csv`, every row done). Sat 11/28 08:00 is open for the lion if it is ready by Thu 11/26.
+- **When Metricool does not load here:** a fresh helper session can reach it, but it does only what its first brief lists (on 11/13 it refused every change sent later as a message): put all the changes in the brief.
 
 ## Do all three; the lion is next (Nolan, 11/13 about 08:30 ET)
 - **His words:** asked "what recommendations do u have", he got three (a "your life as an animal" long video every Saturday in December, every Short funny, TikTok left alone for a week) and answered: "Ok do all three go with the lion".
@@ -95,6 +95,7 @@ Read each test on its date, not before.
 ## Tags and everything, from every angle (Nolan, 11/12 about 12:25 ET)
 - **His words:** "And make sure your tags and everything are also updated to be the best look at All angles".
 - **Again 11/13 (on the Jensen videos): "Make sure our descriptions and hashtags are as good as the video that's half the battle".** Every post's text gets the same pass as its video: search suggestions (`postkit.py kw`), the topic's hashtag feeds, a second-model check.
+- **Still owed:** the nine queued bug Shorts (11/14 to 11/20) got the funny video and the hashtag order on 11/13, but keep 6 tags and the old first sentence. The morning run brings two a day to the standard, soonest first, with the second-model check.
 - **The standard for every new post from 11/12:**
   1. YouTube title: the searched words in the first 40 characters, the hedge kept, one specific odd fact, one emoji, the series tag last, 100 characters at most, statement form.
   2. YouTube description: the first sentence is the question people type (from the search suggestions), then the checked facts, then the hashtags, then Sources. Hashtags: the first three are the topic's own, taken from its hashtag feeds on YouTube (they are the ones shown above the title), then #meatballmyths, #shorts last.
