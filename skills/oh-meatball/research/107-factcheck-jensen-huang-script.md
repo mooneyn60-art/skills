@@ -84,3 +84,32 @@ Checked 2026-11-13: `scripts/drawn-house/jensen-huang.meta.json`, against the pa
 - **tiktok_caption CHANGE (date only).** "China calls it a smear" is OK (AP, Nov 9). The $190 billion needs its date like everywhere else. Old: "Nvidia lost about $190 billion in market value in one day, Reuters reported." New: "Nvidia lost about $190 billion in market value on Nov 9, Reuters reported." Five hashtags; no #fyp; clean.
 
 **Verdict, post text:** cleared with the three changes above (title, description, TikTok caption).
+
+## v2 (more jokes, YouTube cut)
+Checked 2026-11-13. Only the new v2 wording was checked, against the pages listed above (no new sources). The file was not edited.
+
+### A. TikTok cut (`lines`)
+- **j3 OK.** "Worst all-staff email since who microwaved fish." The email went to employees (newsroom), so "all-staff" is true. The joke adds no claim. Optional, for grammar only: "...since whoever microwaved the fish."
+- **j5 CHANGE.** "Even the cat has standards." gives Sauce a motive (standards) as the reason he left. The rule: Sauce acts, and no feeling or motive is said as fact (MASTER_ORDERS, "The pets have names" and "Direction change" rule 2).
+  - Old: "Even the cat has standards."
+  - New: "Tough damn crowd." (MASTER_ORDERS names this reaction as allowed.)
+- **j7b OK.** A separate beat after the clean China line. The joke is on Meatball and adds no claim. The China line stays clean.
+- **j9 CHANGE.** Said as its own sentence, "More tabs open than Chrome." is heard as a fresh statement that the affairs happened, outside "If true". Join it to the conditional.
+  - Old: "If true, that's serious fucking multithreading. More tabs open than Chrome."
+  - New: "If true, that's serious fucking multithreading, more tabs open than Chrome."
+- **j12 OK.** "Skills: keeps it in his pants." comes right after "Meatball sent in his resume anyway." "His" is Meatball. The joke is on Meatball, with a contrast to Jensen's own admission, and nothing is aimed at Kress. Keep the beat order: Kress, then the resume, then the skills line.
+
+### B. YouTube cut (`yt_lines`)
+- **y1 OK.**
+- **y2 OK.** The quote is exact. The date is on the card (NOV 8, newsroom).
+- **y3 OK.** Innuendo on his admitted conduct. Draw it without the "droops" picture (see j4).
+- **y4 CHANGE.** (1) The fact pack (JH12) requires that any line with the spying claim also says officials did not believe he knew (The Next Web, relaying the NYT). y4 drops it. (2) "No charges" comes from The Next Web ("Neither of them has been charged"), so it keeps "reported". The line stays clean (it names a country).
+  - Old: "The Times reported U.S. officials believe an executive he was close to was spying for China. No charges."
+  - New: "The Times reported U.S. officials believe an executive he was close to was spying for China, and didn't believe he knew. No charges reported."
+  - Card OK (THE NEW YORK TIMES, OCT 29 / U.S. OFFICIALS BELIEVE... / A REPORT. NO CHARGES.).
+- **y5 OK.** On Meatball, a separate beat after the clean line.
+- **y6 OK.** "In a day" matches Reuters' one-session figure for Monday (Wealth Professional). The card has NOV 9. "Priciest side quest ever." is plain hyperbole.
+- **y7 OK.** The order is right: the $190 billion day was Nov 9; the board accepted the resignation Nov 11 and the filing is dated Nov 12 (8-K). "Then" states order only, not a cause. "The more you stray, the more you pay" is figurative. Card OK.
+- **y8 OK.** "The job" is unnamed and no woman is named in the YouTube cut. The joke is on Meatball. It loops into y1. No swear words, so the mild-word rule is met (0 used).
+
+**Verdict, v2:** cleared with the three changes above (j5, j9, y4).
