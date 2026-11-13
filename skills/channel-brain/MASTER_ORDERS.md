@@ -46,6 +46,13 @@ Read each test on its date, not before.
 - **What it means (my reading):** full control over my own tools (packages, tools, skills, hooks, agent roles, workflows) without asking first. The work gate still holds. Logins, approvals and money stay his (10/24: payments stay zero beyond what is already paid). When he asks what changed, answer in two short lines.
 - **On Tue 11/24 (vidIQ credits return; it reads through Nolan's Chrome with the extension signed in, open ask 3), in this order (research 100):** retention curves of the long videos (3 Bugs, Part 2, spider, Christmas tree, centipede), then the house cat's first 30 seconds against three winners, then "stayed to watch" for Shorts with what is left.
 
+## The best content today, and maybe a long video today (Nolan, 11/13 about 08:55 ET)
+- **His words:** "I want the best content posted today and maybe a long form today".
+- **What it means (my reading):** today's posts should be the strongest videos we have, on both platforms, and a long video should go out today if one is ready. His order wins over the usual slots for the day.
+- **Decided from the data (research 100, 85, 102):** the long video with the best odds is the house cat ("born as" shape), so it moves from Sat 11/28 to today 17:00, after a second-model check of its on-screen labels (the new rule). Posting it now also gives its 72-hour read on Mon 11/16, two weeks early, before the lion is built. Today's three Shorts are already the funny kind (dog stare 10:00, dog guilty look moved to 13:00, grizzly 19:00). TikTok: the one-minute cat purr cut moves into tonight's empty 21:30 slot beside cat sugar 19:00 and grizzly 20:15.
+- **After it:** the spider long video stays Sat 11/14 08:00. Sat 11/28 08:00 is open for the lion if it is checked and built by Thu 11/26; then polar bear 12/5, dog 12/12, wolf 12/19, the next animal 12/26.
+- **Blocked 11/13 morning:** Metricool did not connect to the session, so no post could be moved; every change above waits in `oh-meatball/data/pending-swaps.csv` until it does.
+
 ## Do all three; the lion is next (Nolan, 11/13 about 08:30 ET)
 - **His words:** asked "what recommendations do u have", he got three (a "your life as an animal" long video every Saturday in December, every Short funny, TikTok left alone for a week) and answered: "Ok do all three go with the lion".
 - **What it means (my reading):** all three are orders now, and the animal after the polar bear is the lion.
@@ -64,7 +71,6 @@ Read each test on its date, not before.
 ## More comedy on YouTube: post some today to test (Nolan, 11/12 about 17:15 ET)
 - **His words:** "Do we want mkre comedy in yr videos" and "Post some of those today to test" (sent just after the turkey preview).
 - **What it means (my reading):** he is asking whether YouTube should get more comedy, and ordering a test now: put some of the new funny videos out on YouTube today, not in their later slots. His order wins over the three-a-day line for that day.
-- Done 11/12 late evening (turkey #70 at 21:47, cat purr #68 at 22:20; five Shorts that day). First numbers: the log and KNOWLEDGE.
 - **How it is read:** Thursday's funny Shorts at 48 hours against the plain one of that day (views), then with Windsor (average % viewed, engaged share). If they keep about twice the pace, long videos get more jokes too (mild words, nothing before 0:25).
 
 ## What he picked to build next (Nolan, 11/12 about 16:40 ET)
@@ -116,7 +122,6 @@ Read each test on its date, not before.
 - **What it means (my reading):** two jobs, both about reach. (1) Find out why Wednesday's YouTube Shorts fell (four of five under 350 views, research 89) and stop it happening again. (2) Get TikTok out of the 200-to-300-view band it has sat in since the first post (median 226 over 78 posts; only three posts ever passed 1,000).
 - **What the research found:** `oh-meatball/research/90-shorts-drop-1111.md` for YouTube, `91-tiktok-view-jail.md` for TikTok; summary in the log, same heading.
 - **YouTube is back to three Shorts a day, at least three hours apart** (slots in "Posting"; Nolan's 3-a-day order of 11/6, which every good day in November had). **Do not go above three a day again without numbers that say it is safe.**
-- **The 19:00 search-led test with short cuts ended 11/12 night** (his order: TikToks over one minute). Its one post (dog guilty look, 25 s) had 189 plays at 4.3 hours. Minute cuts take those slots as they are built; read them on Fri 11/20 against the account's median (about 230) and the 400 mark.
 - **TikTok round 2 (research 97, `oh-meatball/research/97-tiktok-view-jail-round-2.md`, checked by a second model 11/12):** no public page shows a block. Ranked causes: (1) the first viewers do not like, comment on or probably finish our videos (likes 2.2% against 4.1 to 9.9% on drawn accounts like ours; comments 0.05%, the lowest read); (2) our videos are short for this niche (lianna_anima, drawn stick-figure pets, 10.3K followers: median 2,232 at about 195 seconds); (3) captions that open with the searched phrase do about 1.7 times better (321 against 224, p 0.006). No evidence against the label, the look, Metricool or posting 3 to 4 a day.
 - **His answer (11/12 about 10:05 ET, with the 615-against-340 numbers in front of him): "No, keep it all drawn".** So no real photos or footage on TikTok either; the look stays fully drawn. Do not propose it again unless he raises it; the cartoon label stays a noted lead, not a test.
 

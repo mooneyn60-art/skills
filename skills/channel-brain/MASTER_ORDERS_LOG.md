@@ -482,3 +482,11 @@ Nolan's order of 11/13 about 08:30 ET replaced these: the queued bug Shorts no l
 ### From "TikTok orders (Nolan, 11/11)" (moved 11/13 to make room; still true, a noted lead)
 - **TikTok category label (research 82; a lead, not a test):** TikTok files most of our drawn videos under "Comics & Cartoon, Anime". Nolan said no to a real-photo test. The label shows on a video's public page within an hour (`postkit.py ttpage`). 11/12: the drawn dog cut got the same label, but started fast (115 plays at 2.4 hours) and TikTok suggests "guilty dogs" on it (`research/82`).
 
+## Moved from the page on 11/13 (after "The best content today")
+
+### From "Views are stuck on both platforms (Nolan, 11/12 about 09:35 ET)"
+- **The 19:00 search-led test with short cuts ended 11/12 night** (his order: TikToks over one minute). Its one post (dog guilty look, 25 s) had 189 plays at 4.3 hours. Minute cuts take those slots as they are built; read them on Fri 11/20 against the account's median (about 230) and the 400 mark.
+
+### From "More comedy on YouTube: post some today to test (Nolan, 11/12 about 17:15 ET)"
+- Done 11/12 late evening (turkey #70 at 21:47, cat purr #68 at 22:20; five Shorts that day). First numbers: the log and KNOWLEDGE.
+
