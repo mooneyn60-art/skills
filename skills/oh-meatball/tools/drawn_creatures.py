@@ -607,7 +607,7 @@ def mammal(ctx, t, cfg, p):
             hpts = [(ex, hy - hr * 0.55), (ex - hr * 0.25, hy - hr * 1.0), (ex + hr * 0.05, hy - hr * 1.25)]
             hw = cfg.get("horn_w", 16)   # spec key: a thicker horn gets an ink outline under it (bison); 16 = the old thin one
             if hw > 16:
-                stroke(ctx, hpts, hw + 12, smooth=True, color="#1d1410")
+                stroke(ctx, hpts, hw + 12, smooth=True, color=hexc("#1d1410"))
             stroke(ctx, hpts, hw, smooth=True, color=_c(cfg, "horn_color", "#e8e0cc"))
     if cfg.get("antlers"):   # moose: broad palmate antlers
         for k in (-1, 1):

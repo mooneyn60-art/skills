@@ -30,7 +30,7 @@ Then, only if still needed:
 
 ## Read dates and live tests
 Read each test on its date, not before.
-- **Thu 11/12 21:25:** today's three Shorts against Wednesday's; the funnier dog TikTok's label and early views; then the 07:37 scoreboard.
+- **Fri 11/13 07:37 and Sat 11/14 evening:** the comedy test ("More comedy on YouTube"): Thursday's five Shorts at about 10 hours and at 48 hours, funny against plain.
 - **Sat 11/14:** Windsor will have the engaged share for the 11/10-11/11 Shorts: under 0.39 means viewers swiped, 0.40 or more with tiny views means YouTube did not show them. Read the Fri 11/13 dog Short's public thumbnail (cover test, "Tags and everything").
 - **Sat 11/14 to Sun 11/15:** Windsor youtube, one call per video with the filter [["video","eq",ID]], fields date, traffic_source, views, engaged_views, for the five 11/10-11/11 Shorts and the 11/12 cat and moose Shorts; compare with 11/07-11/09 (feed 4,338 / 3,650 / 3,536 views a day; search 161 / 150 / 132).
 - **Sun 11/15:** the funnier seven's average % viewed and engaged share; decide whether the queued bug Shorts get the funnier pass ("Make them funnier").
@@ -47,6 +47,14 @@ Read each test on its date, not before.
 - **TikTok watch time (research 95):** no service reads it for a Personal account. Windsor, Metricool and the others get it only for Business or Creator accounts, and the account stays Personal. The only route is the app's own analytics screen (open ask 1). Do not send the Windsor link again.
 - **On Tue 11/24 (vidIQ credits return; reminder set):** read "stayed to watch" and feed impressions for the last 50 Shorts and retention curves for about a dozen videos through vidIQ. It reads through Nolan's Chrome with the vidIQ extension signed in (open ask 3).
 - **Decided against (reasons in the log):** a setup script on the cloud environment; the Google Cloud route to YouTube retention (only if the vidIQ read fails); Supermetrics for TikTok (its docs say a Personal account with 100 followers works, but the price is unknown and money is his call).
+
+## More comedy on YouTube: post some today to test (Nolan, 11/12 about 17:15 ET)
+- **His words:** "Do we want mkre comedy in yr videos" and "Post some of those today to test" (sent just after the turkey preview).
+- **What it means (my reading):** he is asking whether YouTube should get more comedy, and ordering a test now: put some of the new funny videos out on YouTube today, not in their later slots. His order wins over the three-a-day line for that day.
+- **Done 11/12:** the session was down from about 17:15 to 21:25 ET (usage limit, restarts), so they went out late: the turkey Short (#70) at 21:47 and the cat purr Short (#68, with Sauce) at 22:20. That made five Shorts on Thu 11/12 (three were queued). Their TikTok cuts are not posted yet.
+- **First number (YouTube public counts, 11/12 21:28 ET):** the funnier cat Short (16:00) had 1,000 views at 5.5 hours; the plain false-widow Short (10:00) had 508 at 11.5 hours; the funnier moose Short (19:00) had 281 at 2.5 hours. Wednesday's two joke Shorts are at 806 and 441, the two plain hook-test Shorts at 60 and 70. Different topics, so a lead, not proof.
+- **The test and how it is read:** every new YouTube Short is the funny-first kind ("Make them funnier" rules). Read at 48 hours against the plain bug Shorts posted the same days (views), and on Sun 11/15 and after with Windsor (average % viewed, engaged share). If the funny ones keep about twice the pace, the queued bug Shorts get the funnier pass early and long videos get more jokes (still mild words, nothing before 0:25).
+- **Not measurable yet:** whether five Shorts in one day hurt again (Wed 11/11 had five and four fell under 350, research 90). Watch Thursday's five for that.
 
 ## What he picked to build next (Nolan, 11/12 about 16:40 ET)
 - **His words:** asked "What else can we develop", he picked three of four options and wrote: "Keep digging like this it's good focus on TikTok also not just yt we're still in a TikTok view jail".
