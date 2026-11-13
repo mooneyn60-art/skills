@@ -727,15 +727,21 @@ def tp_confetti(ctx, t, p):
 
 def tp_chart(ctx, t, p):
     """A plain report chart board centred at its origin (760 x 480): axes, a flat line that spikes straight up as
-    p v goes 0..1, a red glow at the tip. No numbers, no brand."""
+    p v goes 0..1, a red glow at the tip; p dir -1: a line that was high steps down again instead. No numbers."""
     shape(ctx, lambda c: p_rrect(c, -380, -240, 760, 480, 24), hexc("#f4f7fb"), OUT, None)
     stroke(ctx, [(-320, -190), (-320, 190), (330, 190)], 8)
     for y in (-110, -30, 50, 130):
         stroke(ctx, [(-310, y), (320, y)], 3, color=hexc("#d0d8e2"))
     v = max(0.0, min(1.0, p.get("v", 0.0)))
-    pts = [(-310, 170), (-220, 166), (-130, 172), (-40, 168), (40, 170)]
-    tip = (90, 170 - 360 * ease(v))
-    pts += [(70, 165), tip]
+    if p.get("dir", 1) < 0:   # a line that was high and steps down again as v goes 0..1
+        pts = [(-310, -60), (-230, -110), (-150, -40), (-70, 40), (10, 70)]
+        u = ease(v)
+        tip = (10 + 300 * u, 70 + 110 * u)
+        pts += [(10 + 100 * u, 70 + 20 * u), (10 + 180 * u, 70 + 80 * u), tip]
+    else:
+        pts = [(-310, 170), (-220, 166), (-130, 172), (-40, 168), (40, 170)]
+        tip = (90, 170 - 360 * ease(v))
+        pts += [(70, 165), tip]
     stroke(ctx, pts, 12, color=C["pen"])
     if v > 0.05:
         glow(ctx, tip[0], tip[1], 70, C["pen"], 0.5 * v)
@@ -962,3 +968,112 @@ ACTORS.update({"tp_desk": tp_desk, "tp_laptop": tp_laptop, "tp_confetti": tp_con
                "tp_worker": tp_worker, "tp_globe": tp_globe, "tp_rack": tp_rack, "tp_padlock": tp_padlock,
                "tp_login": tp_login, "tp_clock": tp_clock, "tp_keyboard": tp_keyboard, "tp_money": tp_money,
                "tp_zzz": tp_zzz})
+
+
+# ================================================================================================ Jensen part 2 props
+# (11/13: generic household props; the only words are those a spec passes in)
+
+def tp_jar(ctx, t, p):
+    """A glass coin jar (feet y 0, 170 wide, 230 tall) holding a few coins; tip it with the actor's rot; p spill
+    0..1 coins fly out of the mouth."""
+    shape(ctx, lambda c: p_rrect(c, -85, -200, 170, 200, 30), hexc("#cfe8f4"), OUT, None, a=0.75)
+    for k in range(9):
+        x = -55 + (k % 4) * 36 + (k // 4) * 12
+        y = -22 - (k // 4) * 18
+        shape(ctx, lambda c, x=x, y=y: p_ellipse(c, x, y, 18, 9), C["gold"], OUT * 0.4, None)
+    shape(ctx, lambda c: p_rrect(c, -70, -232, 140, 40, 10), hexc("#8d969c"), OUT * 0.8, None)
+    sp = p.get("spill", 0.0)
+    if sp > 0.01:
+        for k in range(6):
+            u = min(1.0, sp * 1.4 - k * 0.07)
+            if u <= 0:
+                continue
+            x = -40 + k * 18 + 140 * u
+            y = -240 - 160 * math.sin(u * math.pi) + 260 * u * u
+            shape(ctx, lambda c, x=x, y=y: p_ellipse(c, x, y, 16, 16), C["gold"], OUT * 0.4, None)
+
+
+def tp_shelf(ctx, t, p):
+    """A wall shelf plank on two brackets, top surface at the origin, p w wide (default 360)."""
+    w = p.get("w", 360)
+    shape(ctx, lambda c: c.rectangle(-w / 2, 0, w, 26), C["wood"], OUT * 0.8, None)
+    for x in (-w / 3, w / 3):
+        shape(ctx, lambda c, x=x: p_poly(c, [(x - 8, 26), (x + 8, 26), (x + 8, 90), (x - 8, 70)]), C["wood_dk"],
+              OUT * 0.6, None)
+
+
+def tp_table(ctx, t, p):
+    """A small restaurant table for two (feet y 0, 420 wide, top at y -300) with a white cloth, two plates, a
+    lit candle that flickers and an empty chair on the far side."""
+    shape(ctx, lambda c: p_rrect(c, 230, -520, 30, 520, 10), C["wood_dk"], OUT * 0.8, None)
+    shape(ctx, lambda c: p_rrect(c, 150, -300, 160, 30, 8), C["wood_dk"], OUT * 0.8, None)
+    shape(ctx, lambda c: c.rectangle(160, -270, 18, 270), C["wood_dk"], OUT * 0.6, None)
+    stroke(ctx, [(-10, -300), (-10, 0)], 18)
+    stroke(ctx, [(-90, 0), (70, 0)], 14)
+    shape(ctx, lambda c: p_poly(c, [(-220, -310), (200, -310), (230, -200), (-250, -200)]), (1, 1, 1), OUT, None)
+    for x in (-130, 90):
+        shape(ctx, lambda c, x=x: p_ellipse(c, x, -318, 60, 14), hexc("#e8eef4"), OUT * 0.5, None)
+    shape(ctx, lambda c: c.rectangle(-26, -420, 22, 100), hexc("#f4ecd6"), OUT * 0.6, None)
+    fl = 1 + 0.12 * math.sin(t * 17) + 0.06 * math.sin(t * 29)
+    glow(ctx, -15, -450, 140, C["light"], 0.5)
+    shape(ctx, lambda c: p_smooth(c, [(-15, -480 * fl + 0 * fl), (0, -440), (-15, -425), (-30, -440)]),
+          hexc("#ffb02e"), OUT * 0.4, None)
+
+
+def tp_badge(ctx, t, p):
+    """A paper name badge on a safety pin, centred at its origin (240 x 130), with p text in crayon colour;
+    p on 0..1 pops it on."""
+    on = p.get("on", 1.0)
+    if on <= 0.01:
+        return
+    sc = back_out(min(1.0, on))
+    ctx.save()
+    ctx.scale(sc, sc)
+    ctx.rotate(math.radians(p.get("tilt", -8)))
+    shape(ctx, lambda c: p_rrect(c, -120, -65, 240, 130, 10), (1, 1, 1), OUT * 0.8, None)
+    stroke(ctx, [(-60, -75), (60, -75)], 6, color=C["steel"])
+    if p.get("text"):
+        text(ctx, p["text"], 0, 6, p.get("px", 70), p.get("tcol", "#d8322a"), 0)
+    ctx.restore()
+
+
+def tp_tray(ctx, t, p):
+    """An office in-tray (feet y 0, 420 wide, 120 deep) on a stand, a label plate with p text (a spec word, e.g.
+    PENDING), a sheet lying in it (p paper), a dusty cobweb across one corner (p web 0..1)."""
+    shape(ctx, lambda c: p_poly(c, [(-210, -130), (210, -130), (190, -10), (-190, -10)]), hexc("#8d969c"), OUT, None)
+    if p.get("paper", True):
+        ctx.save()
+        ctx.translate(0, -140)
+        ctx.rotate(-0.06)
+        shape(ctx, lambda c: c.rectangle(-150, -40, 300, 40), C["paper"], OUT * 0.6, None)
+        for k in range(3):
+            stroke(ctx, [(-120 + k * 90, -24), (-60 + k * 90, -18)], 6, smooth=True, color=C["crayon"])
+        ctx.restore()
+    shape(ctx, lambda c: p_poly(c, [(-210, -130), (210, -130), (230, -100), (-230, -100)]), hexc("#b7c1cc"), OUT,
+          None)
+    shape(ctx, lambda c: p_rrect(c, -130, -95, 260, 70, 10), hexc("#f4ecd6"), OUT * 0.6, None)
+    if p.get("text"):
+        text(ctx, p["text"], 0, -60, p.get("px", 54), "#1b1b1b", 0)
+    w = p.get("web", 1.0)
+    if w > 0.01:
+        cx, cy = 200, -130
+        for k in range(5):
+            a = math.pi + k * (math.pi / 2) / 4
+            stroke(ctx, [(cx, cy), (cx + 170 * math.cos(a), cy - 170 * math.sin(a) * -1)], 3, color=(1, 1, 1),
+                   a=0.85 * w)
+        for r in (50, 95, 140):
+            pts = [(cx + r * math.cos(math.pi + k * (math.pi / 2) / 4), cy + r * math.sin(math.pi + k * (math.pi / 2) / 4))
+                   for k in range(5)]
+            stroke(ctx, pts, 3, color=(1, 1, 1), a=0.85 * w)
+
+
+def tp_sidetable(ctx, t, p):
+    """A small round side table (feet y 0, top at y -330, 260 wide)."""
+    shape(ctx, lambda c: p_ellipse(c, 0, -330, 130, 26), C["wood"], OUT, None)
+    stroke(ctx, [(0, -310), (0, -20)], 20)
+    stroke(ctx, [(0, -310), (0, -20)], 10, color=C["wood_dk"])
+    shape(ctx, lambda c: p_ellipse(c, 0, -10, 80, 14), C["wood_dk"], OUT * 0.7, None)
+
+
+ACTORS.update({"tp_jar": tp_jar, "tp_shelf": tp_shelf, "tp_table": tp_table, "tp_badge": tp_badge, "tp_tray": tp_tray,
+               "tp_sidetable": tp_sidetable})

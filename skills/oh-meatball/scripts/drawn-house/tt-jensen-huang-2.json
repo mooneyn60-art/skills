@@ -1,0 +1,1588 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "detective",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "cut_whoosh": true,
+ "loop": true,
+ "recut": false,
+ "photo_credits": [],
+ "cap_swap": {
+  "fuck": "f**k",
+  "fucking": "f**king"
+ },
+ "cap_key": [
+  "jensen",
+  "huang",
+  "nvidia",
+  "worse",
+  "unfaithful",
+  "resignation",
+  "twelfth",
+  "times",
+  "officials",
+  "china",
+  "charged",
+  "closed-door",
+  "december",
+  "cbs",
+  "four",
+  "percent",
+  "trillion",
+  "cnbc",
+  "coins",
+  "chair",
+  "harvey",
+  "jones",
+  "couch",
+  "affairs",
+  "confirmed",
+  "date",
+  "colette",
+  "kress",
+  "interim",
+  "resume",
+  "pending",
+  "sauce",
+  "phone",
+  "comments"
+ ],
+ "stage": {
+  "creature": "cat",
+  "scene": "jh_living",
+  "s": 0.55,
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "cat",
+   "color": "#e39a4a",
+   "dark": "#b06f2a",
+   "belly": "#f6e3c8",
+   "tail_color": "#e39a4a",
+   "length": 520,
+   "height": 250,
+   "leg_len": 150,
+   "leg_w": 30,
+   "ears": "pointed",
+   "tail": "thin",
+   "tail_w": 22,
+   "whiskers": true,
+   "mood": "smug"
+  }
+ },
+ "title": "Jensen Huang, Part 2: It Got Worse",
+ "tiktok_title": "Jensen Huang, Part 2: It Got Worse",
+ "tiktok_caption": "jensen huang part 2 💀 As of Nov 13: three House committees want him in a closed-door interview on Dec 1, CBS News reports. Nvidia stock fell about 4% more on Friday and its market value dipped under $4 trillion at midday, CNBC reported. Nvidia named its first-ever board chair, and CFO Colette Kress is interim CEO. The reports of more affairs are not confirmed. The spying claim is a New York Times report; it said officials did not believe he knew, and no charges have been reported. Meatball asked his cat, Sauce, for comment. Sauce knocked his phone off the table. Does he show up Dec 1? #jensenhuang #nvidia #nvidiaceo #technews #news",
+ "_note": "Jensen Huang part 2 TikTok (Nolan 11/13). Script: jensen-huang-2.script.json; facts in research/106 and the J2 rows of research/108-topical-three-factpack.md, checked in research/107 and research/109; every say and card row copied by code (the k7 row wraps over two rows, same words). Hand-made beats; the cartoon Jensen and scenes of tools/drawn_jensen_art.py, new props in tools/drawn_topical_art.py. Harvey Jones and Colette Kress are never drawn (door signs BOARD CHAIR / INTERIM CEO only); no woman is drawn or named. k3 is played straight: newspaper and stamps (A REPORT. / NO CHARGES.) only. Extra words: the door signs, the CHAIR badge, the PENDING tray, the NOT CONFIRMED stamp.",
+ "beats": [
+  {
+   "say": "The Jensen Huang mess, part two. It got fucking worse.",
+   "scene": "jh_stage",
+   "scene_p": {
+    "spot": 1.0,
+    "sx": 540
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      800,
+      1.0
+     ],
+     "to": [
+      560,
+      820,
+      1.08
+     ]
+    },
+    {
+     "at": "worse|0",
+     "cam": [
+      600,
+      860,
+      1.12
+     ],
+     "to": [
+      640,
+      880,
+      1.18
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "hero",
+     "type": "jensen",
+     "pos": [
+      440,
+      1500
+     ],
+     "s": 0.72,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "arm": "hold",
+      "gpu": true,
+      "mood": "proud",
+      "sweat": 0.0,
+      "look": [
+       0.4,
+       0
+      ],
+      "sparkle": 0.0,
+      "flap": 0.0,
+      "badge": false,
+      "spin": 0.4,
+      "smoke": 0.0,
+      "spark": 0.0,
+      "idle": true
+     },
+     "moves": [
+      {
+       "at": 0.0,
+       "dur": 1.6,
+       "pos": [
+        560,
+        1500
+       ],
+       "walk": true
+      }
+     ],
+     "set": [
+      {
+       "at": "worse",
+       "p": {
+        "mood": "sweat"
+       }
+      }
+     ],
+     "flip": false,
+     "talks": false
+    }
+   ],
+   "mb": {
+    "pose": "present",
+    "pos": [
+     1260,
+     1500
+    ],
+    "size": 400,
+    "prop": "mic",
+    "gest": [
+     [
+      "worse",
+      "shock",
+      1.0
+     ]
+    ],
+    "moves": [
+     {
+      "at": "part|0",
+      "dur": 0.45,
+      "pos": [
+       900,
+       1500
+      ],
+      "hop": 160
+     }
+    ],
+    "look": "hero"
+   },
+   "sfx": [
+    "boing@part|0",
+    "pop@worse"
+   ],
+   "card": {
+    "rows": [
+     [
+      "JENSEN HUANG",
+      "#ffd34d",
+      104
+     ],
+     [
+      "PART 2",
+      "#ffffff",
+      52,
+      true
+     ],
+     [
+      "AS OF NOV 13, 2026",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": 0.0
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "Quick recap: he told Nvidia employees he was unfaithful to his wife, then his resignation as CEO was announced November twelfth.",
+   "scene": "jh_stage",
+   "scene_p": {
+    "spot": 1.0,
+    "sx": 540
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      820,
+      1.0
+     ],
+     "to": [
+      580,
+      830,
+      1.06
+     ]
+    },
+    {
+     "at": "resignation",
+     "cam": [
+      680,
+      880,
+      1.15
+     ],
+     "to": [
+      700,
+      880,
+      1.2
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "podium",
+     "type": "jh_podium",
+     "pos": [
+      770,
+      1500
+     ],
+     "s": 0.9,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "gpu": false
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "resignation+0.5",
+       "p": {
+        "gpu": true
+       }
+      }
+     ]
+    },
+    {
+     "id": "hero",
+     "type": "jensen",
+     "pos": [
+      560,
+      1500
+     ],
+     "s": 0.72,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "arm": "hold",
+      "gpu": true,
+      "mood": "calm",
+      "sweat": 0.0,
+      "look": [
+       1,
+       0.4
+      ],
+      "sparkle": 0.0,
+      "flap": 0.0,
+      "badge": false,
+      "spin": 0.2,
+      "smoke": 0.0,
+      "spark": 0.0,
+      "idle": true
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "unfaithful",
+       "p": {
+        "mood": "sweat"
+       }
+      },
+      {
+       "at": "resignation",
+       "p": {
+        "arm": "reach"
+       }
+      },
+      {
+       "at": "resignation+0.5",
+       "p": {
+        "gpu": false,
+        "arm": "down",
+        "mood": "mortified"
+       }
+      }
+     ],
+     "flip": false,
+     "talks": false
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     990,
+     1500
+    ],
+    "size": 380,
+    "prop": "mic",
+    "gest": [],
+    "moves": [],
+    "look": "hero"
+   },
+   "sfx": [
+    "plate@resignation+0.5",
+    "tink@twelfth"
+   ],
+   "card": {
+    "rows": [
+     [
+      "NOV 8: \"I WAS UNFAITHFUL TO MY WIFE.\"",
+      "#ffd34d",
+      56
+     ],
+     [
+      "NOV 12: RESIGNATION ANNOUNCED (SEC FILING)",
+      "#ffffff",
+      44,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "recap"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "The New York Times reported U.S. officials believe an executive he was close to was spying for China, and didn't believe he knew. Neither of them has been charged.",
+   "scene": "jh_office",
+   "scene_p": {},
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      900,
+      1.0
+     ],
+     "to": [
+      540,
+      900,
+      1.04
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "paper",
+     "type": "jh_paper",
+     "pos": [
+      540,
+      1130
+     ],
+     "s": 0.9,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "tilt": -2,
+      "headline": false
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "stamps",
+     "type": "jh_stamps",
+     "pos": [
+      540,
+      1130
+     ],
+     "s": 0.9,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "n": 0.0,
+      "texts": [
+       "A REPORT.",
+       "NO CHARGES.",
+       ""
+      ],
+      "cols": [
+       "#1f5fbf",
+       "#d8322a",
+       "#d8322a"
+      ],
+      "pos": [
+       [
+        0,
+        -230
+       ],
+       [
+        0,
+        170
+       ],
+       [
+        0,
+        0
+       ]
+      ],
+      "w": [
+       600,
+       640,
+       10
+      ],
+      "px": [
+       84,
+       88,
+       10
+      ]
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "reported",
+       "p": {
+        "n": 1.0
+       },
+       "dur": 0.3
+      },
+      {
+       "at": "charged",
+       "p": {
+        "n": 2.0
+       },
+       "dur": 0.3
+      }
+     ]
+    },
+    {
+     "id": "hero",
+     "type": "jensen",
+     "pos": [
+      150,
+      1560
+     ],
+     "s": 0.5,
+     "front": true,
+     "rot": 0.0,
+     "p": {
+      "arm": "down",
+      "gpu": false,
+      "mood": "calm",
+      "sweat": 0.0,
+      "look": [
+       1,
+       -0.3
+      ],
+      "sparkle": 0.0,
+      "flap": 0.0,
+      "badge": false,
+      "spin": 0.2,
+      "smoke": 0.0,
+      "spark": 0.0,
+      "idle": true
+     },
+     "moves": [],
+     "set": [],
+     "flip": false,
+     "talks": false
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     960,
+     1570
+    ],
+    "size": 360,
+    "prop": "mic",
+    "gest": [],
+    "moves": [],
+    "look": "paper"
+   },
+   "sfx": [
+    "stamp@reported",
+    "stamp@charged"
+   ],
+   "card": {
+    "rows": [
+     [
+      "THE NEW YORK TIMES, OCT 29",
+      "#ffd34d",
+      76
+     ],
+     [
+      "A REPORT. NO CHARGES.",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": 0.1
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "Now three House committees want him in a closed-door interview on December first, CBS News reports. Jensen and closed doors. What could go fucking wrong.",
+   "scene": "jh_capitol",
+   "scene_p": {},
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      820,
+      1.0
+     ],
+     "to": [
+      540,
+      830,
+      1.05
+     ]
+    },
+    {
+     "at": "Jensen",
+     "cam": [
+      400,
+      1160,
+      1.3
+     ],
+     "to": [
+      400,
+      1160,
+      1.36
+     ]
+    },
+    {
+     "at": "What",
+     "cam": [
+      540,
+      820,
+      1.0
+     ],
+     "to": [
+      540,
+      820,
+      1.04
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "doors",
+     "type": "jh_doors",
+     "pos": [
+      540,
+      1500
+     ],
+     "s": 0.72,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "shut": 0.12
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "closed#2",
+       "p": {
+        "shut": 1.0
+       },
+       "dur": 0.22
+      }
+     ]
+    },
+    {
+     "id": "hero",
+     "type": "jensen",
+     "pos": [
+      330,
+      1500
+     ],
+     "s": 0.64,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "arm": "down",
+      "gpu": false,
+      "mood": "calm",
+      "sweat": 0.0,
+      "look": [
+       1,
+       -0.2
+      ],
+      "sparkle": 0.0,
+      "flap": 0.0,
+      "badge": false,
+      "spin": 0.2,
+      "smoke": 0.0,
+      "spark": 0.0,
+      "idle": true
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "Jensen",
+       "p": {
+        "mood": "sweat",
+        "sweat": 1.0,
+        "arm": "tug"
+       }
+      },
+      {
+       "at": "wrong",
+       "p": {
+        "mood": "mortified"
+       }
+      }
+     ],
+     "flip": false,
+     "talks": false
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     880,
+     1500
+    ],
+    "size": 400,
+    "prop": "mic",
+    "gest": [
+     [
+      "wrong",
+      "deadpan",
+      2.0
+     ]
+    ],
+    "moves": [],
+    "look": "doors"
+   },
+   "sfx": [
+    "hit@closed#2+0.2",
+    "boing@wrong"
+   ],
+   "card": {
+    "rows": [
+     [
+      "CLOSED-DOOR INTERVIEW",
+      "#ffd34d",
+      90
+     ],
+     [
+      "DEC 1 (CBS NEWS)",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "closed"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "Nvidia's stock fell about four percent more on Friday, and its market value dipped under four trillion dollars at midday, CNBC reported. Meatball's portfolio fell too. It's a jar of fucking coins.",
+   "scene": "tp_living",
+   "scene_p": {
+    "sofa": true,
+    "picture": false
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      950,
+      1.04
+     ]
+    },
+    {
+     "at": "Meatball's",
+     "cam": [
+      480,
+      1000,
+      1.04
+     ],
+     "to": [
+      470,
+      1000,
+      1.06
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "chart",
+     "type": "tp_chart",
+     "pos": [
+      620,
+      960
+     ],
+     "s": 0.85,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "v": 0.0,
+      "dir": -1
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "fell",
+       "p": {
+        "v": 1.0
+       },
+       "dur": 2.0
+      }
+     ]
+    },
+    {
+     "id": "shelf",
+     "type": "tp_shelf",
+     "pos": [
+      150,
+      1110
+     ],
+     "s": 1.0,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "w": 280
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "jar",
+     "type": "tp_jar",
+     "pos": [
+      140,
+      1110
+     ],
+     "s": 0.8,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "spill": 0.0
+     },
+     "moves": [
+      {
+       "at": "too",
+       "dur": 0.5,
+       "pos": [
+        300,
+        1500
+       ],
+       "rot": 100
+      }
+     ],
+     "set": [
+      {
+       "at": "too",
+       "p": {
+        "spill": 1.0
+       },
+       "dur": 0.8
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     820,
+     1500
+    ],
+    "size": 380,
+    "prop": "mic",
+    "gest": [
+     [
+      "too",
+      "shock",
+      1.0
+     ],
+     [
+      "coins",
+      "deadpan",
+      1.4
+     ]
+    ],
+    "moves": [],
+    "look": "jar"
+   },
+   "sfx": [
+    "whoosh@fell",
+    "crunch@too+0.4"
+   ],
+   "card": {
+    "rows": [
+     [
+      "ABOUT 4% MORE (CNBC, NOV 13)",
+      "#ffd34d",
+      68
+     ],
+     [
+      "MARKET VALUE UNDER $4 TRILLION, MIDDAY",
+      "#ffffff",
+      46,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "fell"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "Nvidia named its first-ever board chair, Harvey Jones. First one ever. Meatball's been chair of his own fucking couch for years.",
+   "scene": "jh_hall",
+   "scene_p": {},
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      900,
+      1.0
+     ],
+     "to": [
+      560,
+      900,
+      1.05
+     ]
+    },
+    {
+     "at": "Meatball's",
+     "cam": [
+      1700,
+      980,
+      1.12
+     ],
+     "to": [
+      1710,
+      980,
+      1.15
+     ],
+     "dur": 0.5
+    }
+   ],
+   "actors": [
+    {
+     "id": "door",
+     "type": "jh_door",
+     "pos": [
+      540,
+      1500
+     ],
+     "s": 0.95,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "sign": 0.0,
+      "text": "BOARD CHAIR"
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "chair#1",
+       "p": {
+        "sign": 1.0
+       },
+       "dur": 0.6
+      }
+     ]
+    },
+    {
+     "id": "couch",
+     "type": "tp_couch",
+     "pos": [
+      1700,
+      1500
+     ],
+     "s": 0.9,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "sign": 0.0
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "badge",
+     "type": "tp_badge",
+     "pos": [
+      1650,
+      1300
+     ],
+     "s": 0.5,
+     "front": true,
+     "rot": 0.0,
+     "p": {
+      "on": 0.0,
+      "text": "CHAIR"
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "chair#2",
+       "p": {
+        "on": 1.0
+       },
+       "dur": 0.3
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "deadpan",
+    "pos": [
+     1560,
+     1340
+    ],
+    "size": 400,
+    "prop": "mic",
+    "gest": [],
+    "moves": [
+     {
+      "at": 0.0,
+      "dur": 0.01,
+      "rot": 80,
+      "pos": [
+       1560,
+       1345
+      ]
+     }
+    ],
+    "look": "viewer"
+   },
+   "sfx": [
+    "thud@chair#1",
+    "pop@chair#2"
+   ],
+   "card": {
+    "rows": [
+     [
+      "FIRST-EVER BOARD CHAIR",
+      "#ffd34d",
+      90
+     ],
+     [
+      "HARVEY C. JONES (NVIDIA, NOV 12)",
+      "#ffffff",
+      48,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "named"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "The Times and Reuters reported more affairs. Still not confirmed. Meatball can't get a first fucking date.",
+   "scene": "jh_office",
+   "scene_p": {
+    "plant": false
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      900,
+      1.0
+     ],
+     "to": [
+      540,
+      890,
+      1.04
+     ]
+    },
+    {
+     "at": "Meatball",
+     "cam": [
+      1640,
+      1000,
+      1.0
+     ],
+     "to": [
+      1660,
+      1010,
+      1.05
+     ],
+     "dur": 0.5
+    }
+   ],
+   "actors": [
+    {
+     "id": "pile",
+     "type": "jh_pile",
+     "pos": [
+      520,
+      1500
+     ],
+     "s": 1.0,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "h": 0.05
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "Times",
+       "p": {
+        "h": 0.45
+       },
+       "dur": 1.5
+      },
+      {
+       "at": "Still",
+       "p": {
+        "h": 0.55,
+        "falling": 0
+       },
+       "dur": 0.4
+      }
+     ]
+    },
+    {
+     "id": "stamps",
+     "type": "jh_stamps",
+     "pos": [
+      520,
+      880
+     ],
+     "s": 0.9,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "n": 0.0,
+      "texts": [
+       "NOT CONFIRMED",
+       "",
+       ""
+      ],
+      "cols": [
+       "#d8322a",
+       "#d8322a",
+       "#d8322a"
+      ],
+      "pos": [
+       [
+        0,
+        0
+       ],
+       [
+        0,
+        0
+       ],
+       [
+        0,
+        0
+       ]
+      ],
+      "w": [
+       640,
+       10,
+       10
+      ],
+      "px": [
+       84,
+       10,
+       10
+      ]
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "Still",
+       "p": {
+        "n": 1.0
+       },
+       "dur": 0.3
+      }
+     ]
+    },
+    {
+     "id": "table",
+     "type": "tp_table",
+     "pos": [
+      1780,
+      1500
+     ],
+     "s": 1.0,
+     "front": false,
+     "rot": 0.0,
+     "p": {},
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "weed",
+     "type": "jh_tumbleweed",
+     "pos": [
+      1100,
+      1400
+     ],
+     "s": 1.0,
+     "front": false,
+     "rot": 0.0,
+     "p": {},
+     "moves": [
+      {
+       "at": "date|0",
+       "dur": 1.6,
+       "pos": [
+        2400,
+        1400
+       ],
+       "rot": 720,
+       "linear": true
+      }
+     ],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "deadpan",
+    "pos": [
+     1500,
+     1500
+    ],
+    "size": 400,
+    "prop": "mic",
+    "gest": [],
+    "moves": [],
+    "look": "viewer"
+   },
+   "sfx": [
+    "stamp@Still",
+    "whoosh@date"
+   ],
+   "card": {
+    "rows": [
+     [
+      "MORE AFFAIRS REPORTED",
+      "#ffd34d",
+      56
+     ],
+     [
+      "(NYT NOV 11, REUTERS NOV 12)",
+      "#ffd34d",
+      56
+     ],
+     [
+      "NOT CONFIRMED",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "affairs"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "Finance chief Colette Kress is interim CEO while the board looks for a permanent one. Meatball's resume is still pending. Day two.",
+   "scene": "jh_hall",
+   "scene_p": {},
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      900,
+      1.0
+     ],
+     "to": [
+      560,
+      900,
+      1.05
+     ]
+    },
+    {
+     "at": "pending",
+     "cam": [
+      760,
+      1250,
+      1.15
+     ],
+     "to": [
+      770,
+      1250,
+      1.18
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "door",
+     "type": "jh_door",
+     "pos": [
+      500,
+      1500
+     ],
+     "s": 0.95,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "sign": 0.0,
+      "text": "INTERIM CEO"
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "interim",
+       "p": {
+        "sign": 1.0
+       },
+       "dur": 0.6
+      }
+     ]
+    },
+    {
+     "id": "stand",
+     "type": "tp_sidetable",
+     "pos": [
+      860,
+      1500
+     ],
+     "s": 0.8,
+     "front": false,
+     "rot": 0.0,
+     "p": {},
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "tray",
+     "type": "tp_tray",
+     "pos": [
+      860,
+      1236
+     ],
+     "s": 0.75,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "text": "PENDING",
+      "web": 1.0
+     },
+     "moves": [],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     1060,
+     1500
+    ],
+    "size": 380,
+    "prop": "mic",
+    "gest": [
+     [
+      "Day",
+      "deadpan",
+      1.6
+     ]
+    ],
+    "moves": [],
+    "look": "tray"
+   },
+   "sfx": [
+    "thud@interim",
+    "tink@Day"
+   ],
+   "card": {
+    "rows": [
+     [
+      "INTERIM CEO: COLETTE KRESS",
+      "#ffd34d",
+      80
+     ],
+     [
+      "SEARCH FOR A PERMANENT CEO",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "interim"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "Meatball asked his cat, Sauce, for comment. Sauce knocked his phone off the table.",
+   "scene": "tp_living",
+   "scene_p": {
+    "sofa": true,
+    "picture": true
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      900,
+      1.0
+     ],
+     "to": [
+      520,
+      900,
+      1.05
+     ]
+    },
+    {
+     "at": "knocked",
+     "cam": [
+      700,
+      1180,
+      1.2
+     ],
+     "to": [
+      700,
+      1180,
+      1.24
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "stand",
+     "type": "tp_sidetable",
+     "pos": [
+      720,
+      1500
+     ],
+     "s": 0.6,
+     "front": false,
+     "rot": 0.0,
+     "p": {},
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "phone",
+     "type": "jh_phone",
+     "pos": [
+      720,
+      1290
+     ],
+     "s": 0.55,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "rot": 90
+     },
+     "moves": [
+      {
+       "at": "knocked|30%",
+       "dur": 0.45,
+       "pos": [
+        600,
+        1488
+       ],
+       "rot": 200
+      }
+     ],
+     "set": []
+    },
+    {
+     "id": "cat",
+     "type": "sp.cat",
+     "pos": [
+      930,
+      1500
+     ],
+     "s": 0.6,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "mood": "smug"
+     },
+     "moves": [
+      {
+       "at": "table",
+       "dur": 1.6,
+       "pos": [
+        1700,
+        1500
+       ],
+       "walk": true,
+       "face": 1
+      }
+     ],
+     "set": [],
+     "flip": true
+    }
+   ],
+   "mb": {
+    "pose": "present",
+    "pos": [
+     330,
+     1500
+    ],
+    "size": 880,
+    "prop": "mic",
+    "gest": [
+     [
+      "table",
+      "shock",
+      1.2
+     ]
+    ],
+    "moves": [],
+    "look": "cat"
+   },
+   "sfx": [
+    "crunch@table",
+    "pop@knocked"
+   ],
+   "card": {
+    "rows": [
+     [
+      "SAUCE: NO COMMENT",
+      "#ffd34d",
+      104
+     ]
+    ],
+    "y": 470,
+    "at": "knocked"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "So does he show up December first? Bets in the comments. Because",
+   "scene": "jh_stage",
+   "scene_p": {
+    "spot": 1.0,
+    "sx": 540
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      600,
+      860,
+      1.12
+     ],
+     "to": [
+      580,
+      840,
+      1.08
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "hero",
+     "type": "jensen",
+     "pos": [
+      560,
+      1500
+     ],
+     "s": 0.72,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "arm": "hold",
+      "gpu": true,
+      "mood": "proud",
+      "sweat": 0.0,
+      "look": [
+       0.4,
+       0
+      ],
+      "sparkle": 0.0,
+      "flap": 0.0,
+      "badge": false,
+      "spin": 0.4,
+      "smoke": 0.0,
+      "spark": 0.0,
+      "idle": true
+     },
+     "moves": [],
+     "set": [],
+     "flip": false,
+     "talks": false
+    }
+   ],
+   "mb": {
+    "pose": "present",
+    "pos": [
+     900,
+     1500
+    ],
+    "size": 400,
+    "prop": "mic",
+    "gest": [],
+    "moves": [
+     {
+      "at": "Because|20%",
+      "dur": 0.45,
+      "pos": [
+       1260,
+       1500
+      ],
+      "hop": 160
+     }
+    ],
+    "look": "viewer"
+   },
+   "sfx": [
+    "pop@comments"
+   ],
+   "card": {
+    "rows": [
+     [
+      "DOES HE SHOW UP DEC 1? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "y": 400,
+    "at": 0.0,
+    "x": "right"
+   },
+   "recut": false,
+   "pad": 0.08
+  }
+ ]
+}
