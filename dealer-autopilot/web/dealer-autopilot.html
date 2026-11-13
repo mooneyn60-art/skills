@@ -350,7 +350,7 @@ function upsert(data) {
     if (bool(data.consent) && !ex.consent && ex.stage !== 'dnc') Object.assign(ex, { consent: true, consent_source: data.consent_source || 'Import', consent_date: nowIso() });
     if (bool(data.dnc_registry)) ex.dnc_registry = true;
     if (data.do_not_contact && bool(data.do_not_contact)) setStage(ex, 'dnc');
-    else if (data.stage && data.stage !== ex.stage && ex.stage !== 'dnc') setStage(ex, stage);
+    else if (data.stage && data.stage !== ex.stage && ex.stage !== 'dnc' && !data.keep_stage) setStage(ex, stage);
     return { c: ex, created: false };
   }
   const now = nowIso(); const dnc = data.do_not_contact && bool(data.do_not_contact);
@@ -1078,7 +1078,7 @@ async function importCustomers(preview) {
   let made = 0, merged = 0, n = 0; out.textContent = 'Importing…';
   const quiet = $('#impMode')?.value === 'old';
   for (const d of r.list) {
-    const { c, created } = upsert(quiet ? { ...d, stage: 'lost' } : d);
+    const { c, created } = upsert(quiet ? { ...d, stage: 'lost', keep_stage: true } : d);
     if (d.ext_id && !c.ext_id) c.ext_id = d.ext_id;
     if (quiet && created) {
       // Who reached out to the dealership themselves (an inquiry, a call, a visit) vs. a bought or marketing list.
