@@ -610,7 +610,8 @@ function campaignAudience(key) {
   const cut = Date.now() - 60 * DAY;
   const quiet = (c) => !c.last_contact_at || new Date(c.last_contact_at).getTime() <= cut;
   if (key === 'oldlist') return all.filter((c) => c.old_list && c.stage === 'lost' && c.status !== 'replied' && quiet(c))
-    .sort((a, b) => (!!b.email_ok - !!a.email_ok) || (!!b.initiated - !!a.initiated));
+    // Newest contacts first: DealerSocket ids go up over time, so a higher id means a more recent customer.
+    .sort((a, b) => (Number(b.ext_id) || 0) - (Number(a.ext_id) || 0) || (!!b.email_ok - !!a.email_ok));
   return all.filter((c) => ['new_lead', 'phone_up', 'be_back', 'lost'].includes(c.stage) && !c.old_list && c.status !== 'replied' && quiet(c) && new Date(c.created_at).getTime() <= cut);
 }
 VIEWS.grow = () => {
@@ -630,7 +631,7 @@ VIEWS.grow = () => {
   }).sort((a, b) => (b.upgrade - a.upgrade) || ((a.nextAt?.getTime() ?? 9e15) - (b.nextAt?.getTime() ?? 9e15)));
   const bdays = [...S.customers.values()].filter((c) => c.birthday).length;
   return `<div class="stack"><h1>Grow</h1><p class="muted">More customers and more sales. Everything here lands on Today for you to send.</p>
-    ${[...S.customers.values()].some((c) => c.old_list) ? `<div class="grid2">${camp('oldlist', 'Work your old database', 'Your imported DealerSocket list. Each day a set number of people get a friendly "are you still in the market?" check-in: automatically by email for people who contacted the dealership themselves, and on your call list for the rest. Anyone who answers jumps to the top of Today.')}</div>` : ''}
+    ${[...S.customers.values()].some((c) => c.old_list) ? `<div class="grid2">${camp('oldlist', 'Work your old database', 'Your imported DealerSocket list, newest contacts first. Each day a set number of people get a friendly "are you still in the market, or all set?" check-in: automatically by email for people who contacted the dealership themselves, and on your call list for the rest. Anyone who answers jumps to the top of Today.')}</div>` : ''}
     <div class="grid2">${camp('equity', 'Upgrade list', 'Past buyers 2 to 4 years out often owe less than the car is worth. This is where repeat sales come from.')}
       ${camp('reactivation', 'Reactivate old leads', 'Leads with no contact in 60+ days. One friendly check-in brings some back.')}</div>
     <div class="grid2"><div class="card stack"><h2>Inventory matches</h2><p class="muted">Add a vehicle on Stock #s and everyone who asked about that model gets a "just came in" text drafted. Mark a car sold and anyone who liked it gets a "that one sold, want me to find something similar?" text.</p></div>
