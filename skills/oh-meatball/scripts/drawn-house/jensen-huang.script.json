@@ -1,5 +1,5 @@
 {
- "_what": "Script for the Jensen Huang allegations video (Nolan 11/13: funny, raunchy, all animated, Jensen drawn and named; one cut for TikTok and a YouTube Short, about 80 s). Facts only from research/106-jensen-huang-story-factpack.md. Checked by a second model 11/13 (research/107): cleared with six changes, all applied here. The builder draws each line's `vis`; the only on-screen words are `card` and `signs` (and the captions of `say`).",
+ "_what": "Script for the Jensen Huang allegations video (Nolan 11/13: funny, raunchy, all animated, Jensen drawn and named; one cut for TikTok and a YouTube Short, about 80 s). Facts only from research/106-jensen-huang-story-factpack.md. Checked by a second model 11/13 (research/107): cleared with six changes, all applied here. The builder draws each line's `vis`; the only on-screen words are `card` and `signs` (and the captions of `say`). v2 (Nolan 11/13 after the preview: 'yt should be shorter... I would like more jokes'): five joke additions to the TikTok cut (j3, j5, j7b new, j9, j12) and a shorter YouTube cut `yt_lines` (about 33 s, mild words). The v2 wording is NOT yet checked.",
  "_rules": "Jokes aim at Jensen Huang's own admitted conduct and at Meatball. No woman is named or joked about; nothing about his family. Unproven claims stay attributed. The line that names a country is clean. Captions soften swear spelling (cap_swap). Title, description and caption are clean.",
  "lines": [
   {
@@ -34,12 +34,12 @@
     "JH1",
     "JH2"
    ],
-   "say": "November eighth, he emailed Nvidia employees: I was unfaithful to my wife... I am deeply sorry.",
+   "say": "November eighth, he emailed Nvidia employees: I was unfaithful to my wife... I am deeply sorry. Worst all-staff email since who microwaved fish.",
    "card": [
     "\"I WAS UNFAITHFUL TO MY WIFE.\"",
     "HIS EMAIL TO STAFF, NOV 8 (NVIDIA NEWSROOM)"
    ],
-   "vis": "Office. Jensen at a laptop presses a huge SEND key; an envelope flies out and multiplies across the screen."
+   "vis": "Office. Jensen at a laptop presses a huge SEND key; an envelope flies out and multiplies across the screen. On the fish joke a tiny microwave dings beside Meatball and he pinches his nose."
   },
   {
    "id": "j4",
@@ -53,7 +53,7 @@
    "id": "j5",
    "kind": "joke",
    "facts": [],
-   "say": "Meatball read the email to his cat, Sauce. Sauce left the damn room.",
+   "say": "Meatball read the email to his cat, Sauce. Sauce left the damn room. Even the cat has standards.",
    "card": [
     "SAUCE LEFT THE ROOM"
    ],
@@ -93,6 +93,14 @@
    ]
   },
   {
+   "id": "j7b",
+   "kind": "joke",
+   "facts": [],
+   "say": "Meatball can't relate. He can't even get a text back.",
+   "card": [],
+   "vis": "Meatball's living room: Meatball stares at his phone, nothing arrives; a tumbleweed rolls past. Sauce is not in this one."
+  },
+  {
    "id": "j8",
    "kind": "fact_reported+joke",
    "facts": [
@@ -111,12 +119,12 @@
    "facts": [
     "JH more-affairs rows"
    ],
-   "say": "Then the Times and Reuters reported more affairs, not confirmed. If true, that's serious fucking multithreading.",
+   "say": "Then the Times and Reuters reported more affairs, not confirmed. If true, that's serious fucking multithreading. More tabs open than Chrome.",
    "card": [
     "MORE AFFAIRS REPORTED (NYT NOV 11, REUTERS NOV 12)",
     "NOT CONFIRMED"
    ],
-   "vis": "More newspapers pile up on Jensen until only the jacket collar and glasses show. A little CPU with many glowing threads spins on 'multithreading'."
+   "vis": "More newspapers pile up on Jensen until only the jacket collar and glasses show. A little CPU with many glowing threads spins on 'multithreading'. On the tabs joke a row of little browser tabs pops open over his head, one after another (blank tabs, no words)."
   },
   {
    "id": "j10",
@@ -151,12 +159,12 @@
    "facts": [
     "JH interim rows"
    ],
-   "say": "Interim CEO: finance chief Colette Kress. Meatball sent in his resume anyway.",
+   "say": "Interim CEO: finance chief Colette Kress. Meatball sent in his resume anyway. Skills: keeps it in his pants.",
    "card": [
     "INTERIM CEO",
     "CFO COLETTE KRESS (NVIDIA, NOV 12)"
    ],
-   "vis": "An office door with a fresh INTERIM CEO sign being hung. Nobody else real is drawn. Meatball tiptoes up and slides a crayon resume under the door; it slides straight back out.",
+   "vis": "An office door with a fresh INTERIM CEO sign being hung. Nobody else real is drawn. Meatball tiptoes up and slides a crayon resume under the door; it slides straight back out. On 'Skills' Meatball gives a proud thumbs-up; the resume still slides back out.",
    "signs": [
     "INTERIM CEO"
    ]
@@ -183,6 +191,75 @@
     "WHICH PART BROKE YOUR BRAIN? COMMENT"
    ],
    "vis": "Back to the frame-0 stage and pose so the loop into j1 is seamless; the question sits in a top-corner pill."
+  }
+ ],
+ "yt_lines": [
+  {
+   "id": "y1",
+   "from": "j1",
+   "say": "The Jensen Huang allegations, explained fast.",
+   "card": [
+    "JENSEN HUANG",
+    "THE ALLEGATIONS, EXPLAINED",
+    "AS OF NOV 13, 2026"
+   ]
+  },
+  {
+   "id": "y2",
+   "from": "j3",
+   "say": "He emailed Nvidia employees: I was unfaithful to my wife.",
+   "card": [
+    "\"I WAS UNFAITHFUL TO MY WIFE.\"",
+    "HIS EMAIL TO STAFF, NOV 8 (NVIDIA NEWSROOM)"
+   ]
+  },
+  {
+   "id": "y3",
+   "from": "j4",
+   "say": "He built a chip empire and couldn't manage his own hardware.",
+   "card": []
+  },
+  {
+   "id": "y4",
+   "from": "j6",
+   "say": "The Times reported U.S. officials believe an executive he was close to was spying for China. No charges.",
+   "card": [
+    "THE NEW YORK TIMES, OCT 29",
+    "U.S. OFFICIALS BELIEVE...",
+    "A REPORT. NO CHARGES."
+   ]
+  },
+  {
+   "id": "y5",
+   "from": "j7b",
+   "say": "Meatball can't even get a text back.",
+   "card": []
+  },
+  {
+   "id": "y6",
+   "from": "j8",
+   "say": "Nvidia lost about 190 billion dollars in a day, Reuters reported. Priciest side quest ever.",
+   "card": [
+    "ABOUT $190 BILLION",
+    "GONE IN ONE DAY (REUTERS, NOV 9)"
+   ]
+  },
+  {
+   "id": "y7",
+   "from": "j10+j11",
+   "say": "Then he resigned. The more you stray, the more you pay.",
+   "card": [
+    "RESIGNED",
+    "EFFECTIVE IMMEDIATELY (SEC FILING, NOV 12)"
+   ]
+  },
+  {
+   "id": "y8",
+   "from": "j12+j14",
+   "say": "Meatball applied for the job. Skills: keeps it in his pants. So,",
+   "card": [
+    "WHICH PART BROKE YOUR BRAIN? COMMENT"
+   ]
   }
  ]
 }
