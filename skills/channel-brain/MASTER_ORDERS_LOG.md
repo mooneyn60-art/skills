@@ -490,3 +490,14 @@ Nolan's order of 11/13 about 08:30 ET replaced these: the queued bug Shorts no l
 ### From "More comedy on YouTube: post some today to test (Nolan, 11/12 about 17:15 ET)"
 - Done 11/12 late evening (turkey #70 at 21:47, cat purr #68 at 22:20; five Shorts that day). First numbers: the log and KNOWLEDGE.
 
+## Moved from the page on 11/13 (after the Jensen Huang order)
+
+### From "What he picked to build next (Nolan, 11/12 about 16:40 ET)"
+- **Polar bear long video (his pick, the recommended one): built and scheduled 11/13 for Sat 12/5 08:00** (searches peak in December and January, research 95). "Your Life as a Polar Bear: 8 Things You Have to Get Through", 10:30, thumbnail `pb_a`; files in `oh-meatball/episodes/longform-born-as-polar-bear/` (gates pass, every line heard; facts `research/98`, script check `99`, on-screen text and description check `101`, all fixes applied). Preview sent 11/13. Left: his yes or no on the "Sucks" title, challengers `pb_b` and `pb_c` in the A/B test after it posts.
+
+### From "Direction change (Nolan, 11/11 evening): speak to the majority, steer away from bugs"
+- Our house-bug videos beat our other animals so far, and he was told so (numbers in the log). He chose the wider audience anyway. Do not argue it again; measure the new topics against the bug baseline and report the numbers.
+
+### From "Views are stuck on both platforms (Nolan, 11/12 about 09:35 ET)"
+- **TikTok round 2 (research 97, `oh-meatball/research/97-tiktok-view-jail-round-2.md`, checked by a second model 11/12):** no public page shows a block. Ranked causes: (1) the first viewers do not like, comment on or probably finish our videos (likes 2.2% against 4.1 to 9.9% on drawn accounts like ours; comments 0.05%, the lowest read); (2) our videos are short for this niche (lianna_anima, drawn stick-figure pets, 10.3K followers: median 2,232 at about 195 seconds); (3) captions that open with the searched phrase do about 1.7 times better (321 against 224, p 0.006). No evidence against the label, the look, Metricool or posting 3 to 4 a day.
+
