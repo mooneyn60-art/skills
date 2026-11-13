@@ -65,7 +65,7 @@
   {
    "m": "fact",
    "scene": "kitchen",
-   "say": "It stays out of range and flicks silk.",
+   "say": "It stays out of range and flicks silk. Meatball can't even wrap a damn gift.",
    "acting": false,
    "mb_x": 150,
    "with": [
@@ -128,87 +128,12 @@
       "OUT OF RANGE",
       "#ffd34d",
       110
-     ]
-    ],
-    "y": 470,
-    "at": "30%"
-   }
-  },
-  {
-   "m": "fact",
-   "scene": "study",
-   "say": "Back legs flick silk while the others hold.",
-   "acting": false,
-   "mb_x": 150,
-   "with": [
-    {
-     "type": "creature",
-     "x": 560,
-     "y": 1500,
-     "s": 0.6,
-     "pop": false,
-     "front": false,
-     "flip": false,
-     "p": {
-      "cfg": {
-       "plan": "arachnid",
-       "label": "giant house spider",
-       "color": "#7a5636",
-       "dark": "#4e3420",
-       "accent": "#c9a274",
-       "eyes": "pair",
-       "pattern": "stripe",
-       "bands": true,
-       "fuzz": true,
-       "leg_len": 1.45,
-       "leg_w": 16,
-       "mood": "angry",
-       "s": 0.7
-      },
-      "mood": "angry",
-      "wrapped": 0.2
-     },
-     "set": [
-      {
-       "at": "20%",
-       "dur": 1.5,
-       "p": {
-        "wrapped": 0.8
-       }
-      }
-     ]
-    },
-    {
-     "type": "silk_throw",
-     "x": 790,
-     "y": 1090,
-     "s": 1.0,
-     "pop": false,
-     "front": true,
-     "p": {
-      "to": [
-       -230,
-       400
-      ],
-      "u": 0.0
-     },
-     "set": [
-      {
-       "at": "10%",
-       "dur": 0.5,
-       "p": {
-        "u": 1.0
-       }
-      }
-     ]
-    }
-   ],
-   "card": {
-    "rows": [
+     ],
      [
-      "BACK LEGS FLICK",
-      "#ffd34d",
-      100
+      "MEATBALL CAN'T WRAP A GIFT",
+      "#ffffff",
+      48,
+      true
      ]
     ],
     "y": 470,
@@ -279,7 +204,7 @@
   {
    "m": "tiny",
    "scene": "bathroom",
-   "say": "It's been recorded eating giant house spiders.",
+   "say": "It's been recorded eating giant house spiders. Meatball lost a fight to a moth.",
    "acting": false,
    "gag": false,
    "with": [
@@ -331,25 +256,6 @@
    }
   },
   {
-   "m": "scale",
-   "how": "grow",
-   "scene": "basement",
-   "say": "Those are much heavier than it is.",
-   "acting": false,
-   "gag": false,
-   "card": {
-    "rows": [
-     [
-      "MUCH HEAVIER",
-      "#ff4b3e",
-      120
-     ]
-    ],
-    "y": 470,
-    "at": "40%"
-   }
-  },
-  {
    "m": "punch",
    "say": "So don't underestimate the skinny one. Because",
    "card": {
@@ -371,5 +277,5 @@
  "description": "Cellar spider silk flick: the skinny spider in your corner keeps its distance, flicks silk over prey with its back legs, then bites once the prey is tied up, and British experts recorded it eating giant house spiders. #shorts #cellarspider #spiderinhouse #thingslivinginyourhouse #meatballmyths\nSources: British Arachnological Society (Daddy-long-legs spider factsheet 3); Japyassu & Macagnan 2004, Revista de Etologia.",
  "pinned_comment": "Would you let the skinny spider in your corner live now that you know it ties up heavier spiders? Full story: Don't Kill the Spider in Your Corner, on the channel.",
  "tiktok_caption": "cellar spider in your corner 🕷️ it keeps its distance, flicks silk over prey with its back legs, then bites once it's tied up, and it's been recorded eating giant house spiders. Keep it or sweep it? #cellarspider #spiderinhouse #thingslivinginyourhouse #meatballmyths",
- "_note": "Written by hand in the v6 shape (Shorts batch C, companion to the cellar spider long-form); beats are drawn_macros lines."
+ "_note": "Written by hand in the v6 shape (Shorts batch C, companion to the cellar spider long-form); beats are drawn_macros lines. Funny pass 11/13: Meatball gags on lines 2 and 4; the back-legs line and the much-heavier line were cut for length."
 }

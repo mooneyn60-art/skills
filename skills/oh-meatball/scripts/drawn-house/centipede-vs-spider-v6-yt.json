@@ -36,7 +36,7 @@
   "basements"
  ],
  "cut_whoosh": true,
- "_note": "Written by hand in the v6 shape (Shorts batch B); beats are drawn_macros lines.",
+ "_note": "Written by hand in the v6 shape (Shorts batch B); beats are drawn_macros lines. Funny pass 11/13 (Nolan: do all three): Meatball gags on lines 2, 3 and 4; the web-over-pipes line was cut for length.",
  "title": "House Centipede vs Spider in Your Basement: 2 Hunters 🕷️ (Things Living In Your House)",
  "description": "House centipede vs spider: in your basement, a house centipede chases prey down at night and a cellar spider waits in an irregular web, and both eat spiders, per Penn State Extension, UConn's CAES and Utah State Extension. #shorts #housecentipede #cellarspider #basement #meatballmyths\nSources: Connecticut Agricultural Experiment Station (House Centipede); Penn State Extension (House Centipedes; Longbodied cellar spider); Utah State University Extension (Cellar Spiders).",
  "pinned_comment": "What's the weirdest thing you've seen living in your basement, and did you leave it alone?",
@@ -79,7 +79,7 @@
     },
     "s": 0.68
    },
-   "say": "One waits in a web. One chases.",
+   "say": "One waits in a web. One chases. Meatball just screams.",
    "card": {
     "rows": [
      [
@@ -91,34 +91,9 @@
       "ONE CHASES",
       "#ff4b3e",
       120
-     ]
-    ],
-    "y": 470,
-    "at": "35%"
-   }
-  },
-  {
-   "m": "fact",
-   "scene": "basement",
-   "cast": {
-    "creature": "cellar_spider",
-    "actor": "cellar_spider",
-    "creature_cfg": {
-     "floor": false,
-     "label": "cellar spider"
-    },
-    "s": 0.68
-   },
-   "say": "Its messy web can hang over pipes.",
-   "card": {
-    "rows": [
-     [
-      "MESSY WEB",
-      "#ffd34d",
-      110
      ],
      [
-      "OVER YOUR PIPES",
+      "MEATBALL SCREAMS",
       "#ffffff",
       56,
       true
@@ -126,7 +101,8 @@
     ],
     "y": 470,
     "at": "35%"
-   }
+   },
+   "pose": "shock"
   },
   {
    "m": "escalate",
@@ -140,7 +116,7 @@
     },
     "s": 0.68
    },
-   "say": "Threatened, it vibrates until it's hard to see.",
+   "say": "Threatened, it vibrates until it's hard to see. Meatball tried that at work.",
    "gag": {
     "mark": "shock"
    }
@@ -148,7 +124,7 @@
   {
    "m": "tiny",
    "scene": "bathroom",
-   "say": "The centipede runs prey down at night.",
+   "say": "The centipede runs prey down at night. Meatball can't catch a damn bus.",
    "card": {
     "rows": [
      [
