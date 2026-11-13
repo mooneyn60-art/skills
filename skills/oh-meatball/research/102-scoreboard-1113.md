@@ -83,3 +83,6 @@ Pack `research/108`, second-model check `research/109` (15 fixes across the thre
 - Account median 333: Microsoft 6.8x, Jensen 8.7x, GTA 6 1.9x so far. The two that TikTok labels "Comics & Cartoon, Anime" took off; the one labelled "Video Games" did not (one case each way: not a finding yet).
 - YouTube Shorts: Jensen 169 at 6.2 h; sweary dog stare 325 at 7.1 h; dog guilty look (13:00) listed with no count.
 - Jensen part 2: 36 plays at 0.9 h, 1 like, and TikTok labels it "Video Games" (the first Jensen video is "Comics & Cartoon, Anime"; the label may have carried over from the GTA 6 post an hour before it). Too early to judge.
+
+## 17:10 ET read (six minutes after the last one; same sources)
+- TikTok: Microsoft outage 2,322 (2.1 h), Jensen 2,897 (6.3 h), GTA 6 648 (3.1 h), Jensen part 2 37 (1.0 h). YouTube: house cat long video listed, 0 views at 10 minutes; Jensen Short 169; dog stare 327.
