@@ -525,3 +525,12 @@ Nolan's order of 11/13 about 08:30 ET replaced these: the queued bug Shorts no l
 - **What it means (my reading):** he is asking whether YouTube should get more comedy, and ordering a test now: put some of the new funny videos out on YouTube today, not in their later slots. His order wins over the three-a-day line for that day.
 - **How it is read:** Thursday's funny Shorts at 48 hours against the plain one of that day (views), then with Windsor (average % viewed, engaged share). If they keep about twice the pace, long videos get more jokes too (mild words, nothing before 0:25).
 
+## Moved from the page on 11/13 (the "best content today" section as first written)
+
+### The best content today, and maybe a long video today (Nolan, 11/13 about 08:55 ET)
+- **His words:** "I want the best content posted today and maybe a long form today".
+- **What it means (my reading):** today's posts should be the strongest videos we have, on both platforms, and a long video should go out today if one is ready. His order wins over the usual slots for the day.
+- **Decided from the data (research 100, 85, 102):** the long video with the best odds is the house cat ("born as" shape), so it moves from Sat 11/28 to today 17:00, after a second-model check of its on-screen labels (the new rule). Posting it now also gives its 72-hour read on Mon 11/16, two weeks early, before the lion is built. Today's three Shorts are already the funny kind (dog stare 10:00, dog guilty look moved to 13:00, grizzly 19:00). TikTok: the one-minute cat purr cut moves into tonight's empty 21:30 slot beside cat sugar 19:00 and grizzly 20:15.
+- **After it:** the spider long video stays Sat 11/14 08:00. Sat 11/28 08:00 is open for the lion if it is checked and built by Thu 11/26; then polar bear 12/5, dog 12/12, wolf 12/19, the next animal 12/26.
+- **Blocked 11/13:** Metricool's connector did not load (here or in a fresh helper session), so nothing could be moved or posted; every change waits in `oh-meatball/data/pending-swaps.csv`. Retries 10:30, 12:45, 15:15 ET; after that Nolan can post or drag by hand.
+
