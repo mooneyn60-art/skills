@@ -24,10 +24,9 @@ Audience: Meatball Town (all desks), Nolan
 
 Then, only if still needed:
 
-2. Which animal after the polar bear: lion (the data's pick), dog, wolf or crocodile (asked 11/13 just after midnight; research 100).
-3. Yes or no on the word "sucks" in the house-cat long-form title (see "Watch hours").
-4. On 11/23: Chrome open with the vidIQ extension signed in to the channel, for the 11/24 read.
-5. The Studio screenshots (TikTok Account check, the termite Short's Reach tab, a retention screenshot of the cat Short, Creator Search Insights) are no longer asked for one by one. Take them if he offers.
+2. Yes or no on the word "sucks" in the house-cat long-form title (see "Watch hours").
+3. On 11/23: Chrome open with the vidIQ extension signed in to the channel, for the 11/24 read.
+4. The Studio screenshots (TikTok Account check, the termite Short's Reach tab, a retention screenshot of the cat Short, Creator Search Insights) are no longer asked for one by one. Take them if he offers.
 
 ## Read dates and live tests
 Read each test on its date, not before.
@@ -35,17 +34,24 @@ Read each test on its date, not before.
 - **Fri 11/13 evening and Sat 11/14:** the sweary dog-stare cut on YouTube (10:00) against Friday's mild funny Shorts ("TikToks over one minute; one sweary cut on YouTube").
 - **Sat 11/14:** Windsor will have the engaged share for the 11/10-11/11 Shorts: under 0.39 means viewers swiped, 0.40 or more with tiny views means YouTube did not show them. Read the Fri 11/13 dog Short's public thumbnail (cover test, "Tags and everything").
 - **Sat 11/14 to Sun 11/15:** Windsor youtube, one call per video with the filter [["video","eq",ID]], fields date, traffic_source, views, engaged_views, for the five 11/10-11/11 Shorts and the 11/12 cat and moose Shorts; compare with 11/07-11/09 (feed 4,338 / 3,650 / 3,536 views a day; search 161 / 150 / 132).
-- **Sun 11/15:** the funnier seven's average % viewed and engaged share; decide whether the queued bug Shorts get the funnier pass ("Make them funnier").
+- **Sun 11/15:** the funnier seven's average % viewed and engaged share (Windsor), against 81% and 0.50.
 - **Wed 11/18:** first read of the pet and survival Shorts, against the bug Shorts posted the same days at the same age (not the old 1,155 median). **Tue 11/17 to Sat 11/21:** one Windsor `traffic_source` call a day for the spider long video (does anything arrive from Shorts or Related?).
 - **Fri 11/20:** the minute TikTok cuts against the account's median ("TikToks over one minute").
 - **Tue 11/24:** vidIQ credits return ("Develop yourself"); the house-cat structure check ("Watch hours").
 - **Every long-form at 72 hours:** the thresholds in "The YouTube play". Part 2 posted Wed 11/11 17:00; the spider posts Sat 11/14 08:00.
-- **Live tests with no date above:** the TikTok 20:15 sweary cuts against the clean ones after a week; the YouTube joke test and hook test (new openings); the TikTok label of each new-direction cut an hour after it posts.
+- **Live tests with no date above:** the TikTok 20:15 sweary cuts against the clean ones after a week; the YouTube hook test (new openings); the TikTok label of each new-direction cut an hour after it posts.
 
 ## Develop yourself (Nolan, 11/12 about 12:58 ET)
 - **His words (three asks the same day; in full in the log):** "develop yourself", "grow yourself", and "you have full control download whatever you neex".
 - **What it means (my reading):** full control over my own tools (packages, tools, skills, hooks, agent roles, workflows) without asking first. The work gate still holds. Logins, approvals and money stay his (10/24: payments stay zero beyond what is already paid). When he asks what changed, answer in two short lines.
-- **On Tue 11/24 (vidIQ credits return; it reads through Nolan's Chrome with the extension signed in, open ask 4), in this order (research 100):** retention curves of the long videos (3 Bugs, Part 2, spider, Christmas tree, centipede), then the house cat's first 30 seconds against three winners, then "stayed to watch" for Shorts with what is left.
+- **On Tue 11/24 (vidIQ credits return; it reads through Nolan's Chrome with the extension signed in, open ask 3), in this order (research 100):** retention curves of the long videos (3 Bugs, Part 2, spider, Christmas tree, centipede), then the house cat's first 30 seconds against three winners, then "stayed to watch" for Shorts with what is left.
+
+## Do all three; the lion is next (Nolan, 11/13 about 08:30 ET)
+- **His words:** asked "what recommendations do u have", he got three (a "your life as an animal" long video every Saturday in December, every Short funny, TikTok left alone for a week) and answered: "Ok do all three go with the lion".
+- **What it means (my reading):** all three are orders now, and the animal after the polar bear is the lion.
+- **1. Long videos:** one "born as" video every Saturday in December, no longer waiting on the house cat's 72-hour read: polar bear 12/5 (scheduled), lion 12/12, then dog and wolf by the data's rank (`oh-meatball/research/data/100-longform-topic-candidates.csv`) on 12/19 and 12/26. Each: fact pack, script, second-model check, opus build in a night window, on-screen text check, preview, schedule; one agent at a time. The cat's read on 12/1 decides what to fix in the later ones (first 30 seconds, title, thumbnail), not whether they run.
+- **2. Shorts:** every Short still to post gets the funny pass, the queued bug Shorts too, soonest first: Meatball gag in line 2, mild words, a second model checks the jokes, re-render, swap in the same slot. The joke test and the plain comparison end with it; from then the comparison is funny pets and survival against funny bugs.
+- **3. TikTok:** no new plan or test until the Fri 11/20 read: the minute cuts take their slots, two built a night.
 
 ## TikToks over one minute; one sweary cut on YouTube as a test (Nolan, 11/12 about 23:15 ET)
 - **His words:** "Ok check how videos are doing make sure Tik toks are over 1 min long and I lowkey like the TikTok previews you just sent now for yt should we try one to see how it does".
@@ -59,7 +65,7 @@ Read each test on its date, not before.
 - **His words:** "Do we want mkre comedy in yr videos" and "Post some of those today to test" (sent just after the turkey preview).
 - **What it means (my reading):** he is asking whether YouTube should get more comedy, and ordering a test now: put some of the new funny videos out on YouTube today, not in their later slots. His order wins over the three-a-day line for that day.
 - Done 11/12 late evening (turkey #70 at 21:47, cat purr #68 at 22:20; five Shorts that day). First numbers: the log and KNOWLEDGE.
-- **How it is read:** every new YouTube Short is the funny-first kind. At 48 hours against the plain bug Shorts of the same days (views), then with Windsor (average % viewed, engaged share). If the funny ones keep about twice the pace, the queued bug Shorts get the funnier pass early and long videos get more jokes (mild words, nothing before 0:25).
+- **How it is read:** Thursday's funny Shorts at 48 hours against the plain one of that day (views), then with Windsor (average % viewed, engaged share). If they keep about twice the pace, long videos get more jokes too (mild words, nothing before 0:25).
 
 ## What he picked to build next (Nolan, 11/12 about 16:40 ET)
 - **His words:** asked "What else can we develop", he picked three of four options and wrote: "Keep digging like this it's good focus on TikTok also not just yt we're still in a TikTok view jail".
@@ -102,7 +108,7 @@ Read each test on its date, not before.
   5. A second model checks the jokes (`oh-meatball/research/92-factcheck-funnier-cuts.md` is the pattern). Then every render is transcribed and compared with its script.
 - **Traps found doing it:** write "his cat" and "his dog" in full (the voice swallows a bare "his" and a speech model hears "is"); "let out a meow", never "meowed"; `tools/drawn.py` exits with an error and leaves the old mp4 in place when the voice service returns no audio, so check the exit code and trust only the transcript.
 - **How it is judged:** YouTube: average % viewed and engaged share from Windsor (2 to 3 days behind) against the Shorts that reached 1,000 to 2,000 views (engaged share 0.50, average viewed 81%, research 90). TikTok: likes, comments and shares per view against 2.2%, 0.05% and 0.06% (research 91). Not separable: the jokes and the new topics move together, and the TikTok 19:00 test changes three things at once.
-- **The bug Shorts already in the queue (Fri 11/13 to Fri 11/20) stay as they are for now:** they are the plain comparison, and four of them are the YouTube joke test. Decide at the Sun 11/15 read: if the funnier seven hold better (average % viewed and engaged share), the bug Shorts not yet posted get the same pass (gag in line 2, joke check, re-render, swap); if not, look at the hook and the first two seconds next, not at more jokes.
+- **The bug Shorts already in the queue get the funnier pass now** ("Do all three", 11/13).
 - What was done 11/12 and what changed in each cut: the log, same heading.
 
 ## Views are stuck on both platforms (Nolan, 11/12 about 09:35 ET)
@@ -132,7 +138,6 @@ Read each test on its date, not before.
 - **How each long-form is judged at 72 hours (my thresholds, not Studio's):** click-through 4% or more (now 2.5%), 100 views or more, average viewed 35% or more, and minutes a view against our best (1.21). Under 3% click-through: new thumbnail and title the same day. Good click-through but under 25% viewed: rebuild the first 30 seconds.
 - **Taken from Studio's AI:** the 0:04-0:06 drop. The second line of every Short is about the viewer's house or an action, never a life-cycle or anatomy line. From 11/12 that line is the Meatball gag ("Make them funnier", rule 1).
 - **Jokes on YouTube, with a little spice (Nolan 11/11, after the TikTok joke cuts: "that's really good, what about yt, what should we do there"; then, on the clean sample: "Ok maybe for yt spice it up a little bit as much as TikTok though"; my reading: a little, not as much as TikTok).** Same joke style as TikTok with mild words only: damn, hell, ass, badass, bastards. One or two per Short; in a long-form about one every 25 s, and nothing before 0:25. No f-word, nothing stronger, and never in a title, description, thumbnail or pinned comment. Why not TikTok's level: YouTube's ad rules on profanity (the log), and ads are what the 4,000 hours are for.
-- **Joke test:** jokes plus mild words in four Shorts (#53 roach and #51 boxelder, both posted Wed 11/11; #54 mice, Sun 11/15 08:00; #57 fungus gnats, Tue 11/17 10:00) against the four plain ones (#52 cluster flies, #55 booklice, #56 dust mites, #58 carpet beetle). Read views at 48 h and average % viewed when Windsor has it; if the joke four are level or better, every Short and every long-form script gets them. Still true: do not read the joke test or the hook test from Wednesday's raw views.
 
 ## TikTok orders (Nolan, 11/11)
 - **TikTok Creator Rewards: RESTORED 11/11** (Nolan appealed; TikTok's notice is in the log). Rewards pays only on original videos of 1 minute or more that reach 1,000 qualified For You views, and our median is about 230. Until research 97's long-video test is decided, a new one-minute cut (sweary, 85-92 s) is built only on a topic that has already passed 1,000 there (house centipede, bombardier beetle) or a close cousin. Keep the AI-generated label ON: never remove it to chase reach. Never use follow-for-follow or any engagement tool: the account has already been disqualified once.
@@ -210,11 +215,11 @@ Commands and details: `.claude/skills/make-short`. Run them from `skills/oh-meat
   - Sat 11/21 08:00: 3D house centipede v2 (fact-fixed; "Don't Squish the 30-Legged Bug in Your Bathroom (Here's Why)", thumbnail `centipede_a.jpg`). Episode 1 ends by pointing at it.
   - Wed 11/25 17:00: Night Shift (v2, fact-fixed), moved twice to make room for the two new-format episodes. The swallow-spiders episode (rendered, 4:16) waits as a spare; it still needs a different-model check of its two new stories.
   - Sat 11/28 08:00: **"Your Life as a House Cat: 8 Ways It Goes Wrong"** (9:16, thumbnail `cat_a.jpg`), the first long-form on the new direction, in the "born as" shape Nolan picked from the options and numbers (next bullet).
-  - **December (research 100):** the polar bear Sat 12/5 08:00 (scheduled); then one "born as" video every Saturday if the house cat passes its 72-hour marks on 12/1. The next animal is the lion (the data's pick) unless Nolan picks dog, wolf or crocodile: its fact pack and script are written the week of 11/16 (one agent at a time), the build only after 12/1.
+  - **December (his order 11/13, "Do all three"):** a "born as" video every Saturday: polar bear 12/5 (scheduled), lion 12/12, dog 12/19, wolf 12/26.
 - **The house cat long-form (research 85, `oh-meatball/research/85-longform-pets-survive-format.md`; its numbers and the build story are in the log):**
   - **His pick (11/11 about 21:10, with the numbers in front of him; I had recommended the polar bear): "Born as a house cat".** The shape is "Why It Sucks to Be Born as a [animal]": the viewer lives the animal's life.
   - Checker rules from its second-model check (`research/88`): **the checker must open the paper, not the pack; a percentage needs what it is a share of; a survival figure needs the count put down; a safety line needs the trigger a viewer can act on.**
-  - **Title:** the post carries "Your Life as a House Cat: 8 Ways It Goes Wrong". "Why It Sucks to Be Born as a House Cat" joins the A/B test only with Nolan's yes to the word (open ask 3; with it the description's first sentence, one tag and thumbnail `cat_s` change too).
+  - **Title:** the post carries "Your Life as a House Cat: 8 Ways It Goes Wrong". "Why It Sucks to Be Born as a House Cat" joins the A/B test only with Nolan's yes to the word (open ask 2; with it the description's first sentence, one tag and thumbnail `cat_s` change too).
   - **Thumbnails** (`oh-meatball/episodes/thumbs-bornas/`): `cat_a` is on the post; `cat_b` and `cat_c` are the challengers for Nolan's A/B test after it posts; `cat_s` waits for his yes.
   - Files: `oh-meatball/episodes/longform-born-as-house-cat/`.
   - Still to do: on 11/24 compare its structure with three winners' transcripts and re-cut the first 30 seconds if they open very differently; judge it at 72 hours by the thresholds in "The YouTube play".

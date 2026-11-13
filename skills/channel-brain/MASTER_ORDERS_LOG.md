@@ -467,3 +467,15 @@ The page was at 51,439 bytes. These bullets left it; the rules they carried stay
 ### From "TikToks over one minute; one sweary cut on YouTube as a test (Nolan, 11/12 about 23:15 ET)"
 - **Minute cuts:** the funny search-led cut he liked, grown to 65 to 90 seconds (searched question first, phrase on screen, sweary jokes, Noodle and Sauce, a question at the end). Built by the saved workflow `tiktok-minute` (`.claude/workflows/tiktok-minute.js`), two topics a night in the night window: cat sugar and cat name first, then moose, cat purr, bison, shark, tail wag, dog stare, turkey (before 11/21). Grizzly and dog guilty look already have minute cuts (Fri 11/13 and Mon 11/16 20:15). Each is sent to him as a preview and takes its topic's old slot.
 
+## Moved from the page on 11/13 (after "Do all three; the lion is next")
+Nolan's order of 11/13 about 08:30 ET replaced these: the queued bug Shorts no longer wait for the Sun 11/15 read, and the joke test of four against four ends with the funny pass on the plain four.
+
+### From "Make them funnier (Nolan, 11/12 about 10:20 ET, after watching the short dog cut)"
+- **The bug Shorts already in the queue (Fri 11/13 to Fri 11/20) stay as they are for now:** they are the plain comparison, and four of them are the YouTube joke test. Decide at the Sun 11/15 read: if the funnier seven hold better (average % viewed and engaged share), the bug Shorts not yet posted get the same pass (gag in line 2, joke check, re-render, swap); if not, look at the hook and the first two seconds next, not at more jokes.
+
+### From "The YouTube play (11/11, from Nolan's Studio paste; numbers in KNOWLEDGE)"
+- **Joke test:** jokes plus mild words in four Shorts (#53 roach and #51 boxelder, both posted Wed 11/11; #54 mice, Sun 11/15 08:00; #57 fungus gnats, Tue 11/17 10:00) against the four plain ones (#52 cluster flies, #55 booklice, #56 dust mites, #58 carpet beetle). Read views at 48 h and average % viewed when Windsor has it; if the joke four are level or better, every Short and every long-form script gets them. Still true: do not read the joke test or the hook test from Wednesday's raw views.
+
+### From "Read dates and live tests"
+- **Sun 11/15:** the funnier seven's average % viewed and engaged share; decide whether the queued bug Shorts get the funnier pass ("Make them funnier").
+
