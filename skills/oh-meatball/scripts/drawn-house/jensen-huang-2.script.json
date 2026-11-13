@@ -1,0 +1,133 @@
+{
+ "_what": "TikTok script (65 to 90 s): Jensen Huang, part 2, what happened since the first video (Nolan 11/13: 'Do all'). Facts from research/106 (already checked in 107) and the new rows J2-* in research/108-topical-three-factpack.md. NOT yet checked by a second model. Uses the drawn Jensen of tools/drawn_jensen_art.py.",
+ "_rules": "Jokes aim at the company's or the public figure's own reported conduct and at Meatball; never at the viewer, a group, the workers, the women in the reports or anyone's family. No woman from the reports is named. Unproven claims stay attributed (reported, alleged, not confirmed). A line that names a country is said clean. No joke adds a number, a cause, a danger or a claim the fact line does not carry. All drawn: no logos, no game footage, no game characters or art. Captions soften swear spelling (cap_swap). Title, description and caption are clean.",
+ "lines": [
+  {
+   "id": "k1",
+   "kind": "hook",
+   "facts": [
+    "JH"
+   ],
+   "say": "The Jensen Huang mess, part two. It got fucking worse.",
+   "card": [
+    "JENSEN HUANG",
+    "PART 2",
+    "AS OF NOV 13, 2026"
+   ],
+   "vis": "Frame 0: cartoon Jensen alone on the dark keynote stage, spotlight flickering."
+  },
+  {
+   "id": "k2",
+   "kind": "fact",
+   "facts": [
+    "JH1",
+    "JH resignation rows"
+   ],
+   "say": "Quick recap: he told Nvidia employees he was unfaithful to his wife, then resigned as CEO on November twelfth.",
+   "card": [
+    "NOV 8: \"I WAS UNFAITHFUL TO MY WIFE.\"",
+    "NOV 12: RESIGNED (SEC FILING)"
+   ],
+   "vis": "Two cards flip in fast; Jensen sets the graphics card on the podium."
+  },
+  {
+   "id": "k3",
+   "kind": "fact_reported",
+   "facts": [
+    "JH spy rows"
+   ],
+   "say": "The New York Times reported U.S. officials believe an executive he was close to was spying for China. Neither of them has been charged.",
+   "card": [
+    "THE NEW YORK TIMES, OCT 29",
+    "A REPORT. NO CHARGES."
+   ],
+   "vis": "The newspaper prop with the stamps from video one."
+  },
+  {
+   "id": "k4",
+   "kind": "fact_reported+joke",
+   "facts": [
+    "J2-1"
+   ],
+   "say": "Now three House committees want him in a closed-door interview on December first, CNN reports. Jensen and closed doors. What could go fucking wrong.",
+   "card": [
+    "CLOSED-DOOR INTERVIEW",
+    "DEC 1 (CNN)"
+   ],
+   "vis": "The big Capitol double doors; Jensen outside them tugging his collar, sweat drop."
+  },
+  {
+   "id": "k5",
+   "kind": "fact_reported+joke",
+   "facts": [
+    "J2-2"
+   ],
+   "say": "Nvidia's stock fell about four percent more on Friday and dipped under four trillion dollars, CNBC reported. Meatball's portfolio fell too. It's a jar of fucking coins.",
+   "card": [
+    "ABOUT 4% MORE (CNBC, NOV 13)",
+    "UNDER $4 TRILLION MIDDAY"
+   ],
+   "vis": "The stock chart steps down again; cut to Meatball's coin jar tipping off a shelf."
+  },
+  {
+   "id": "k6",
+   "kind": "fact+joke",
+   "facts": [
+    "J2-3"
+   ],
+   "say": "Nvidia named its first-ever board chair, Harvey Jones. First one ever. Turns out the place needed a fucking chaperone.",
+   "card": [
+    "FIRST-EVER BOARD CHAIR",
+    "HARVEY C. JONES (NVIDIA, NOV 12)"
+   ],
+   "vis": "An office door gets a BOARD CHAIR sign; no drawing of the real person."
+  },
+  {
+   "id": "k7",
+   "kind": "fact_reported+joke",
+   "facts": [
+    "JH more-affairs rows"
+   ],
+   "say": "The Times and Reuters reported more affairs. Still not confirmed. Meatball can't get a first fucking date.",
+   "card": [
+    "MORE AFFAIRS REPORTED",
+    "NOT CONFIRMED"
+   ],
+   "vis": "Newspapers pile up with NOT CONFIRMED stamps; Meatball alone at a table for two, candle, tumbleweed."
+  },
+  {
+   "id": "k8",
+   "kind": "fact+joke",
+   "facts": [
+    "JH interim rows",
+    "J2-4"
+   ],
+   "say": "Finance chief Colette Kress is interim CEO while the board looks for a permanent one. Meatball's resume is still pending. Day two.",
+   "card": [
+    "INTERIM CEO: COLETTE KRESS",
+    "SEARCH FOR A PERMANENT CEO"
+   ],
+   "vis": "The INTERIM CEO door from video one; Meatball's resume in a tray marked PENDING with a cobweb."
+  },
+  {
+   "id": "k9",
+   "kind": "joke",
+   "facts": [],
+   "say": "Meatball asked his cat, Sauce, for comment. Sauce knocked his phone off the table.",
+   "card": [
+    "SAUCE: NO COMMENT"
+   ],
+   "vis": "Living room: Meatball holds the news mic to Sauce; Sauce pushes the phone off the table and walks off."
+  },
+  {
+   "id": "k10",
+   "kind": "punch",
+   "facts": [],
+   "say": "So does he show up December first? Bets in the comments. Because",
+   "card": [
+    "DOES HE SHOW UP DEC 1? COMMENT"
+   ],
+   "vis": "Back to the frame-0 stage and pose so the loop into k1 is seamless; question in a top-corner pill."
+  }
+ ]
+}

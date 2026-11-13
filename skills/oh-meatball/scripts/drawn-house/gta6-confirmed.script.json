@@ -1,0 +1,159 @@
+{
+ "_what": "TikTok script (65 to 90 s) for a topical video: GTA 6, what is confirmed before launch (Nolan 11/13: 'Wanna do another today to see' / 'Do all'). Facts only from research/108-topical-three-factpack.md. NOT yet checked by a second model.",
+ "_rules": "Jokes aim at the company's or the public figure's own reported conduct and at Meatball; never at the viewer, a group, the workers, the women in the reports or anyone's family. No woman from the reports is named. Unproven claims stay attributed (reported, alleged, not confirmed). A line that names a country is said clean. No joke adds a number, a cause, a danger or a claim the fact line does not carry. All drawn: no logos, no game footage, no game characters or art. Captions soften swear spelling (cap_swap). Title, description and caption are clean.",
+ "lines": [
+  {
+   "id": "g1",
+   "kind": "hook",
+   "facts": [
+    "G1"
+   ],
+   "say": "GTA 6 comes out November nineteenth. Here's what's actually fucking confirmed.",
+   "card": [
+    "GTA 6",
+    "WHAT'S CONFIRMED",
+    "AS OF NOV 13, 2026"
+   ],
+   "vis": "Frame 0: Meatball in front of a big wall calendar, NOV 19 circled in red, a drawn generic game console at his feet. No logos."
+  },
+  {
+   "id": "g2",
+   "kind": "joke",
+   "facts": [],
+   "say": "Meatball already called in sick. For the whole damn month.",
+   "card": [
+    "OUT SICK",
+    "NOV 19 TO ???"
+   ],
+   "vis": "Meatball on the phone faking a cough, blanket on, controller hidden behind his back."
+  },
+  {
+   "id": "g3",
+   "kind": "fact+joke",
+   "facts": [
+    "G2"
+   ],
+   "say": "It slipped from fall 2025 to May 2026, then to November. Two delays. Meatball's been late on rent more than that.",
+   "card": [
+    "FALL 2025",
+    "MAY 26, 2026",
+    "NOV 19, 2026"
+   ],
+   "vis": "Three calendar pages; the first two get crossed out. Then a landlord note on Meatball's door."
+  },
+  {
+   "id": "g4",
+   "kind": "fact+joke",
+   "facts": [
+    "G3"
+   ],
+   "say": "The price: seventy-nine ninety-nine. Ultimate edition, ninety-nine ninety-nine. Meatball's selling his couch. Sauce lives in that fucking couch.",
+   "card": [
+    "$79.99 STANDARD",
+    "$99.99 ULTIMATE"
+   ],
+   "vis": "Two price tags. Meatball drags a couch with a FOR SALE sign; the orange cat, Sauce, sits on it unmoved."
+  },
+  {
+   "id": "g5",
+   "kind": "fact+joke",
+   "facts": [
+    "G4"
+   ],
+   "say": "The download is reported at up to two hundred twelve gigabytes. Meatball's Wi-Fi just filed a fucking complaint.",
+   "card": [
+    "UP TO 212 GB (REPORTED)"
+   ],
+   "vis": "A download bar crawling at 1 percent; the router smokes."
+  },
+  {
+   "id": "g6",
+   "kind": "fact+joke",
+   "facts": [
+    "G5"
+   ],
+   "say": "And the box in stores? Rockstar says it's a download code, not a disc. A box of fucking air.",
+   "card": [
+    "BOXED COPY = DOWNLOAD CODE",
+    "NO DISC (ROCKSTAR)"
+   ],
+   "vis": "Meatball opens a game box: a small slip of paper floats out, nothing else."
+  },
+  {
+   "id": "g7",
+   "kind": "fact+joke",
+   "facts": [
+    "G1",
+    "G6"
+   ],
+   "say": "It launches on PS5 and Xbox Series consoles. No PC version announced. Meatball's gaming PC is now a very expensive fucking lamp.",
+   "card": [
+    "PS5 + XBOX SERIES X|S",
+    "NO PC VERSION ANNOUNCED"
+   ],
+   "vis": "Two generic consoles glow; a PC tower with a lampshade on it."
+  },
+  {
+   "id": "g8",
+   "kind": "fact",
+   "facts": [
+    "G7"
+   ],
+   "say": "Meanwhile, about sixteen hundred Rockstar workers in the UK are voting on union recognition, November twelfth to twenty-sixth. Right through launch week.",
+   "card": [
+    "UNION VOTE",
+    "ABOUT 1,600 UK STAFF",
+    "NOV 12 TO 26 (REPORTED)"
+   ],
+   "vis": "A ballot box with a calendar strip NOV 12-26; NOV 19 marked in the middle."
+  },
+  {
+   "id": "g9",
+   "kind": "fact",
+   "facts": [
+    "G8",
+    "G9"
+   ],
+   "say": "A Rockstar executive told Bloomberg: if they want a union, they will have a union. The union says staff fired last year were targeted for organizing. Take-Two says it was gross misconduct.",
+   "card": [
+    "\"IF THEY WANT A UNION, THEY WILL HAVE A UNION\"",
+    "ROCKSTAR EXEC TO BLOOMBERG",
+    "FIRINGS: DISPUTED, AT TRIBUNAL"
+   ],
+   "vis": "Quote card; then two speech bubbles facing each other, UNION SAYS / TAKE-TWO SAYS. No faces of real people."
+  },
+  {
+   "id": "g10",
+   "kind": "joke",
+   "facts": [],
+   "say": "Meatball tried to unionize his cat, Sauce. Sauce walked out. Immediately.",
+   "card": [
+    "SAUCE WALKED OUT"
+   ],
+   "vis": "Meatball holds a tiny picket sign up to Sauce; Sauce turns and leaves the frame."
+  },
+  {
+   "id": "g11",
+   "kind": "fact+joke",
+   "facts": [
+    "G10"
+   ],
+   "say": "You play Jason and Lucia in Vice City, in the state of Leonida, Rockstar's take on Florida. Meatball's banned from the real one.",
+   "card": [
+    "JASON + LUCIA",
+    "VICE CITY, LEONIDA"
+   ],
+   "vis": "A generic drawn neon skyline with palm trees at sunset (our own drawing, no game art, no characters); a BANNED stamp on Meatball's photo at a state-line sign."
+  },
+  {
+   "id": "g12",
+   "kind": "punch",
+   "facts": [],
+   "say": "So are you playing day one, or waiting for reviews like a damn adult? Because",
+   "card": [
+    "DAY ONE OR WAIT? COMMENT"
+   ],
+   "vis": "Back to the frame-0 calendar and pose so the loop into g1 is seamless; question in a top-corner pill."
+  }
+ ]
+}

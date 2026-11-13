@@ -1,0 +1,141 @@
+{
+ "_what": "TikTok script (65 to 90 s) for a topical video: the Microsoft 365 outage of Nov 12, 2026 (Nolan 11/13: 'Do all'). Facts only from research/108-topical-three-factpack.md. NOT yet checked by a second model.",
+ "_rules": "Jokes aim at the company's or the public figure's own reported conduct and at Meatball; never at the viewer, a group, the workers, the women in the reports or anyone's family. No woman from the reports is named. Unproven claims stay attributed (reported, alleged, not confirmed). A line that names a country is said clean. No joke adds a number, a cause, a danger or a claim the fact line does not carry. All drawn: no logos, no game footage, no game characters or art. Captions soften swear spelling (cap_swap). Title, description and caption are clean.",
+ "lines": [
+  {
+   "id": "m1",
+   "kind": "hook",
+   "facts": [
+    "M1"
+   ],
+   "say": "Microsoft went down and took your whole damn workday with it. Here's what happened.",
+   "card": [
+    "MICROSOFT OUTAGE",
+    "WHAT HAPPENED",
+    "AS OF NOV 13, 2026"
+   ],
+   "vis": "Frame 0: Meatball at a desk; his laptop shows a spinning wheel and a sad face. No logos."
+  },
+  {
+   "id": "m2",
+   "kind": "joke",
+   "facts": [],
+   "say": "Meatball's boss couldn't email him. Best fucking Thursday of his life.",
+   "card": [
+    "NO NEW EMAIL"
+   ],
+   "vis": "Meatball leans back, feet on the desk, an empty inbox on screen, confetti."
+  },
+  {
+   "id": "m3",
+   "kind": "fact+joke",
+   "facts": [
+    "M1",
+    "M2"
+   ],
+   "say": "Thursday, around twelve thirty Eastern, Outlook and Teams started failing. Downdetector showed about a hundred and twenty thousand reports in the U.S. That's a lot of people suddenly free for lunch.",
+   "card": [
+    "THU NOV 12, ABOUT 12:30 PM ET",
+    "ABOUT 120,000 REPORTS (DOWNDETECTOR, U.S.)"
+   ],
+   "vis": "A report chart spiking straight up; office workers (stick figures) walking out with sandwiches."
+  },
+  {
+   "id": "m4",
+   "kind": "fact+joke",
+   "facts": [
+    "M3"
+   ],
+   "say": "Downdetector says reports came in from seventy-four countries and territories in about an hour. A global fucking snow day.",
+   "card": [
+    "74 COUNTRIES AND TERRITORIES",
+    "IN ABOUT AN HOUR (DOWNDETECTOR)"
+   ],
+   "vis": "A drawn globe with little red dots popping up; snow falls on it."
+  },
+  {
+   "id": "m5",
+   "kind": "fact+joke",
+   "facts": [
+    "M4"
+   ],
+   "say": "Microsoft's explanation: part of its infrastructure was under elevated load. Meatball gets it. He's under elevated load every Monday.",
+   "card": [
+    "\"ELEVATED LOAD\"",
+    "MICROSOFT'S EXPLANATION"
+   ],
+   "vis": "A server rack sweating and wobbling; Meatball next to it under a pile of paper."
+  },
+  {
+   "id": "m6",
+   "kind": "fact+joke",
+   "facts": [
+    "M5"
+   ],
+   "say": "Microsoft says there's no indication of a cyberattack. Nobody broke in. Meatball checked his own password anyway. It's still password.",
+   "card": [
+    "NO INDICATION OF A CYBERATTACK",
+    "(MICROSOFT)"
+   ],
+   "vis": "A padlock, intact; Meatball types PASSWORD on a login box."
+  },
+  {
+   "id": "m7",
+   "kind": "fact+joke",
+   "facts": [
+    "M6"
+   ],
+   "say": "It dragged on for more than twelve hours. Long enough for Meatball to forget how to do his fucking job.",
+   "card": [
+    "MORE THAN 12 HOURS"
+   ],
+   "vis": "A clock spinning; Meatball stares at a keyboard like it is an alien object."
+  },
+  {
+   "id": "m8",
+   "kind": "fact+joke",
+   "facts": [
+    "M7"
+   ],
+   "say": "One estimate cited by CNN says the cost could top seven billion dollars. Meatball's share: zero. He wasn't working anyway.",
+   "card": [
+    "COULD TOP $7 BILLION",
+    "ONE ESTIMATE (CNN)"
+   ],
+   "vis": "A stack of money with a question mark; Meatball napping at his desk."
+  },
+  {
+   "id": "m9",
+   "kind": "fact+joke",
+   "facts": [
+    "M8"
+   ],
+   "say": "Microsoft apologized and says email is approaching normal levels. Meatball's inbox is back. All four hundred fucking emails.",
+   "card": [
+    "MICROSOFT APOLOGIZED",
+    "EMAIL \"APPROACHING NORMAL LEVELS\""
+   ],
+   "vis": "The inbox counter rolls from 0 up to 400; Meatball's face drops."
+  },
+  {
+   "id": "m10",
+   "kind": "joke",
+   "facts": [],
+   "say": "He told his cat, Sauce, he had to work again. Sauce sat on the keyboard. Sauce is the outage now.",
+   "card": [
+    "SAUCE IS THE OUTAGE NOW"
+   ],
+   "vis": "Sauce walks onto the laptop keyboard and sits; the screen fills with random letters."
+  },
+  {
+   "id": "m11",
+   "kind": "punch",
+   "facts": [],
+   "say": "So what did you do with your free Thursday? Because",
+   "card": [
+    "WHAT DID YOU DO WITH YOUR FREE THURSDAY? COMMENT"
+   ],
+   "vis": "Back to the frame-0 desk and pose so the loop into m1 is seamless; question in a top-corner pill."
+  }
+ ]
+}
