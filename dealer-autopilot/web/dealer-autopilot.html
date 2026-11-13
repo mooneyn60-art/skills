@@ -1,0 +1,1057 @@
+<title>Dealer Autopilot</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: a sticky top bar with tabs; one working column of cards; the Today view splits into Call / Send columns on wide screens. */
+:root {
+  --bg: #eef1f4; --panel: #ffffff; --ink: #14202b; --muted: #5d6b78; --line: #d8dee5;
+  --accent: #0d5f7d; --accent-ink: #ffffff; --accent-soft: #e2f0f5;
+  --good: #11764f; --warn: #a35f00; --bad: #b3261e; --warn-soft: #fff4e0;
+  --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --radius: 10px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0f151b; --panel: #172029; --ink: #e6edf3; --muted: #9aa8b5; --line: #2a3640;
+  --accent: #4fb3d6; --accent-ink: #062330; --accent-soft: #15313d;
+  --good: #46c08d; --warn: #f0a640; --bad: #f2867d; --warn-soft: #3a2c12; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0f151b; --panel: #172029; --ink: #e6edf3; --muted: #9aa8b5; --line: #2a3640;
+  --accent: #4fb3d6; --accent-ink: #062330; --accent-soft: #15313d;
+  --good: #46c08d; --warn: #f0a640; --bad: #f2867d; --warn-soft: #3a2c12; color-scheme: dark }
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--ink); font: 15px/1.45 var(--f-body); }
+h1, h2, h3 { font-family: var(--f-display); margin: 0; text-wrap: balance; }
+h1 { font-size: 24px; font-weight: 800; letter-spacing: -.01em }
+h2 { font-size: 17px; font-weight: 700 }
+h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); font-weight: 700 }
+.muted { color: var(--muted) } .small { font-size: 13px }
+.mono { font-family: var(--f-mono); font-size: .92em; letter-spacing: .02em }
+a { color: var(--accent) }
+input, select, textarea { font: inherit; color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 9px 11px; width: 100%; min-width: 0 }
+textarea { resize: vertical }
+input:focus-visible, select:focus-visible, textarea:focus-visible, button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+label.f { display: grid; gap: 4px; font-size: 13px; color: var(--muted) }
+.btn { font: 600 14px var(--f-body); border: 1px solid var(--line); background: var(--panel); color: var(--ink); padding: 8px 13px; border-radius: 8px; cursor: pointer; white-space: nowrap; text-decoration: none; display: inline-flex; align-items: center; gap: 6px }
+.btn:hover { border-color: var(--accent) }
+.btn.pri { background: var(--accent); color: var(--accent-ink); border-color: var(--accent) }
+.btn.danger { color: var(--bad) }
+.btn.sm { padding: 5px 10px; font-size: 13px }
+.btn[disabled] { opacity: .5; cursor: not-allowed }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center }
+.spread { justify-content: space-between }
+.stack { display: grid; gap: 12px }
+.grid2 { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); align-items: start }
+.grid2 > * { min-width: 0 }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px }
+
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--panel) }
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--panel); border-bottom: 1px solid var(--line);
+  padding-block: 10px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+.top-inner { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; max-width: 1200px; margin: 0 auto }
+.brand { font: 800 17px var(--f-display); letter-spacing: -.01em; display: flex; align-items: center; gap: 8px }
+.brand .plate { font: 500 11px var(--f-mono); border: 1.5px solid var(--ink); border-radius: 4px; padding: 1px 5px; letter-spacing: .08em }
+nav.tabs { display: flex; gap: 2px; overflow-x: auto; flex: 1 1 auto; order: 3; flex-basis: 100%; scrollbar-width: none }
+nav.tabs a { text-decoration: none; color: var(--muted); padding: 7px 10px; border-radius: 8px; font-weight: 600; font-size: 14px; white-space: nowrap }
+nav.tabs a.on { color: var(--ink); background: var(--bg) }
+nav.tabs a .ct { font: 500 11px var(--f-mono); margin-left: 4px; color: var(--accent) }
+@media (min-width: 900px) { nav.tabs { order: 0; flex-basis: auto } }
+.ask { margin-left: auto }
+main { max-width: 1200px; margin: 0 auto; padding-block: 18px 60px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+.note { background: var(--warn-soft); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 14px }
+
+.pill { display: inline-block; font: 600 11.5px var(--f-body); padding: 1px 8px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap }
+.p-follow { color: var(--accent) } .p-sold { color: var(--good) } .p-out { color: #7b4fc2 } .p-dnc { color: var(--bad) }
+.p-active { color: var(--good) } .p-replied { color: var(--warn) } .p-paused, .p-done { color: var(--muted) }
+.stock { font: 500 12.5px var(--f-mono); background: var(--bg); border: 1px solid var(--line); border-radius: 4px; padding: 1px 6px; white-space: nowrap }
+
+.item { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 14px; display: grid; gap: 8px }
+.item.hot { border-left: 4px solid var(--warn) }
+.item .who { font-weight: 700; cursor: pointer }
+.item .src { font-size: 12.5px; color: var(--muted) }
+.item textarea { min-height: 84px }
+.flag { color: var(--bad); font-size: 13px } .ok { color: var(--good); font-size: 13px }
+.count { font: 500 12px var(--f-mono); color: var(--muted); margin-left: 6px }
+.empty { text-align: center; color: var(--muted); padding: 22px 12px }
+.chipbar { display: flex; gap: 6px; flex-wrap: wrap }
+.chipbar button { font: 600 13px var(--f-body); border: 1px solid var(--line); background: var(--panel); color: var(--ink); border-radius: 999px; padding: 5px 12px; cursor: pointer }
+.chipbar button.on { background: var(--ink); color: var(--panel); border-color: var(--ink) }
+
+.tbl { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel) }
+table { border-collapse: collapse; width: 100%; font-size: 14px }
+th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top }
+th { font: 700 11.5px var(--f-display); text-transform: uppercase; letter-spacing: .06em; color: var(--muted) }
+tr.click { cursor: pointer } tr.click:hover td { background: var(--bg) }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums }
+
+.sheet { position: fixed; inset: 0; z-index: 20; background: rgba(8, 14, 20, .45); display: flex; justify-content: flex-end }
+.sheet-card { background: var(--panel); width: min(560px, 100%); height: 100%; overflow-y: auto; display: flex; flex-direction: column;
+  padding-bottom: env(safe-area-inset-bottom, 0px); padding-right: env(safe-area-inset-right, 0px); border-left: 1px solid var(--line) }
+.sheet-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 14px 16px; padding-top: calc(14px + env(safe-area-inset-top, 0px)); border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--panel) }
+.sheet-body { padding: 16px; display: grid; gap: 16px }
+.x { border: 0; background: none; font-size: 26px; line-height: 1; color: var(--muted); cursor: pointer }
+.kv { display: grid; grid-template-columns: 112px 1fr; gap: 5px 10px; font-size: 14px }
+.kv > :nth-child(odd) { color: var(--muted) }
+.thread { display: grid; gap: 6px }
+.bub { max-width: 90%; padding: 8px 11px; border-radius: 12px; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 14px }
+.bub.out { justify-self: end; background: var(--accent); color: var(--accent-ink); border-bottom-right-radius: 3px }
+.bub.in { justify-self: start; background: var(--bg); border: 1px solid var(--line); border-bottom-left-radius: 3px }
+.bub.call { justify-self: center; background: transparent; color: var(--muted); font-size: 13px }
+.bub .meta { font-size: 11px; opacity: .8; margin-top: 3px }
+.toast { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(18px + env(safe-area-inset-bottom, 0px)); background: var(--ink); color: var(--panel); padding: 10px 16px; border-radius: 8px; z-index: 40; font-weight: 600; max-width: calc(100% - 32px) }
+.stat { display: grid; gap: 2px } .stat b { font: 800 30px var(--f-display); font-variant-numeric: tabular-nums } .stat span { font-size: 13px; color: var(--muted) }
+.tars-log { display: grid; gap: 10px; padding: 16px; flex: 1; align-content: start }
+.msg { padding: 10px 12px; border-radius: 12px; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 14px }
+.msg.u { justify-self: end; background: var(--accent); color: var(--accent-ink); max-width: 90% }
+.msg.b { justify-self: start; background: var(--bg); border: 1px solid var(--line); max-width: 95% }
+.msg .acts { color: var(--good); font-size: 12.5px; margin-top: 6px }
+.tars-form { display: flex; gap: 8px; padding: 12px 16px; border-top: 1px solid var(--line); position: sticky; bottom: 0; background: var(--panel) }
+@media (prefers-reduced-motion: no-preference) { .item, .card { transition: border-color .15s } }
+</style>
+
+<header class="top"><div class="top-inner">
+  <div class="brand"><span class="plate">DA</span> Dealer Autopilot</div>
+  <nav class="tabs" id="tabs">
+    <a href="#today" data-v="today">Today <span class="ct" id="ctToday"></span></a>
+    <a href="#customers" data-v="customers">Customers</a>
+    <a href="#calendar" data-v="calendar">Calendar</a>
+    <a href="#stock" data-v="stock">Stock #s</a>
+    <a href="#grow" data-v="grow">Grow</a>
+    <a href="#score" data-v="score">Scoreboard</a>
+    <a href="#templates" data-v="templates">Templates</a>
+    <a href="#import" data-v="import">Import</a>
+    <a href="#setup" data-v="setup">Setup</a>
+  </nav>
+  <button class="btn ask" id="askBtn" type="button">Ask TARS</button>
+</div></header>
+<main id="view"><div class="card empty">Loading your customers…</div></main>
+<div id="sheet" hidden></div>
+<div id="toast" class="toast" hidden></div>
+
+<script>
+"use strict";
+/* ============ defaults (page configuration, editable in Templates/Setup) ============ */
+const STAGES = {
+  new_lead: { label: 'New internet lead', group: 'follow' }, phone_up: { label: 'Phone-up', group: 'follow' },
+  be_back: { label: 'Unsold showroom', group: 'follow' }, appointment: { label: 'Appointment set', group: 'follow' },
+  sold: { label: 'Sold', group: 'sold' }, lost: { label: 'Lost / bought elsewhere', group: 'out' }, dnc: { label: 'Do not contact', group: 'dnc' },
+};
+const GROUPS = { follow: ['Follow Up', ['new_lead', 'phone_up', 'be_back', 'appointment']], sold: ['Sold', ['sold']], out: ['Outreach', ['lost']], dnc: ['Do not contact', ['dnc']] };
+const T = (day, ch, body, subject = '') => ({ day, ch, body, subject });
+const SIG = '\n\n{salesperson}\n{dealership}\n{dealer_phone}';
+const EMAIL_FOOT = '\n\n--\n{dealership}, {dealer_address}\nDon\'t want these emails? Just reply "unsubscribe".';
+const DEFAULT_TEMPLATES = {
+  cadence: {
+    new_lead: [
+      T(0, 'sms', "Hi {first_name}, it's {salesperson} at {dealership}. Thanks for your interest in the {vehicle}[[ (stock #{stock})]]. It's here and available to see. Are you planning on trading anything in? Reply STOP to opt out."),
+      T(0, 'email', "Hi {first_name},\n\nThanks for reaching out about the {vehicle}[[ (stock #{stock})]]. It's here on the lot and available, and I'm happy to answer any questions about it.\n\nAre you planning on trading anything in?" + SIG, 'The {vehicle} you asked about'),
+      T(0, 'call', 'Call {first_name} about the {vehicle}. Confirm it fits, ask about trade and timeframe, offer two appointment times.'),
+      T(1, 'sms', "Hi {first_name}, it's {salesperson}. I put together a quick walkaround video of the {vehicle} for you: [paste video link]. Would you like to see it in person?"),
+      T(2, 'call', 'Call {first_name}. Follow up on the walkaround video and offer an appointment.'),
+      T(3, 'email', "Hi {first_name},\n\nI wanted to give you a second option alongside the {vehicle}: [similar vehicle or trim, stock #]. Both are worth a look.\n\nWould [day/time 1] or [day/time 2] work for you to come see them?" + SIG, 'Another option for you, {first_name}'),
+      T(5, 'sms', "Hi {first_name}, it's {salesperson} at {dealership}. Are you still looking, or should I close your file for now? Either answer is completely fine."),
+      T(7, 'sms', "Hi {first_name}, it's {salesperson}. [One new thing: new arrival / incentive / trade value]. Would you like me to send you the details?"),
+      T(10, 'email', "Hi {first_name},\n\nI wanted to share something new that might help with your search: [new arrival / incentive / trade value].\n\nWould you like me to put a few options together for you?" + SIG, 'Something new for you, {first_name}'),
+      T(14, 'call', 'Call {first_name}. One new reason to talk (new arrival, incentive or trade value).'),
+      T(21, 'email', "Hi {first_name},\n\nJust checking in. If you're still shopping, let me know what matters most to you (budget, size, features) and I'll send over the best matches." + SIG, 'Still shopping, {first_name}?'),
+      T(30, 'sms', "Hi {first_name}, it's {salesperson} at {dealership}. Checking in to see if you're still in the market. Is there anything I can help with?"),
+      T(60, 'email', "Hi {first_name},\n\nWe've had some new vehicles come in since we last talked. If you're still looking, I'd be glad to help whenever the timing is right." + SIG, 'New arrivals at {dealership}'),
+      T(90, 'sms', "Hi {first_name}, it's {salesperson}. Just checking in. Are you still looking for a vehicle, or have you found one?"),
+    ],
+    phone_up: [
+      T(0, 'sms', "Hi {first_name}, it's {salesperson} at {dealership}. Thanks for calling about the {vehicle}. This is my cell, so feel free to text me any questions. When would be a good time for you to come see it? Reply STOP to opt out."),
+      T(1, 'call', 'Call {first_name} about the {vehicle}. Offer two appointment times.'),
+      T(3, 'sms', "Hi {first_name}, it's {salesperson}. [One new thing: second option / incentive / trade value]. Would you like me to send you the details?"),
+      T(7, 'call', 'Call {first_name}. Check in and offer an appointment.'),
+      T(14, 'email', "Hi {first_name},\n\nI wanted to follow up on the {vehicle}. If anything has changed in what you're looking for, let me know and I'll find the right options for you." + SIG, 'Following up on the {vehicle}'),
+      T(30, 'sms', "Hi {first_name}, it's {salesperson} at {dealership}. Are you still looking, or should I close your file for now? Either answer is completely fine."),
+      T(60, 'sms', "Hi {first_name}, it's {salesperson}. Just checking in. Is there anything I can help you with?"),
+    ],
+    be_back: [
+      T(0, 'sms', "Hi {first_name}, it's {salesperson}. Thanks for taking the time to look at the {vehicle} today.[[ I know {objection} was the main concern, so I'm going to work on some options for you.]] Would tomorrow afternoon be a good time to talk?"),
+      T(1, 'call', 'Call {first_name} about the one thing that held them back[[: {objection}]].'),
+      T(3, 'sms', "Hi {first_name}, it's {salesperson}. I have an update for you: [another unit / program / updated trade number]. Would you like me to send over the details?"),
+      T(7, 'call', 'Call {first_name}. Check in on the {vehicle} decision.'),
+      T(14, 'sms', "Hi {first_name}, it's {salesperson} at {dealership}. Are you still thinking about the {vehicle}, or would you like me to look at other options for you?"),
+      T(30, 'email', "Hi {first_name},\n\nI wanted to check in since your visit. If you're still looking, I'd be glad to help, whether that's the {vehicle} or something else that fits better." + SIG, 'Checking in, {first_name}'),
+      T(60, 'sms', "Hi {first_name}, it's {salesperson}. Just checking in. Are you still in the market for a vehicle?"),
+    ],
+    appointment: [],
+    sold: [
+      T(0, 'sms', "Congratulations on your new {vehicle}, {first_name}! Thank you for choosing {dealership}. It was a pleasure working with you. - {salesperson}"),
+      T(3, 'sms', "Hi {first_name}, it's {salesperson}. How are you enjoying the {vehicle}? Do you have any questions about the Bluetooth, keys or features?"),
+      T(7, 'sms', "Hi {first_name}, I hope you're enjoying the {vehicle}! If you had a good experience, would you mind leaving a quick review? {review_link}"),
+      T(30, 'sms', "Hi {first_name}, it's {salesperson}. I hope the {vehicle} is treating you well! If you know anyone who's looking for a vehicle, I'd really appreciate it if you sent them my way."),
+      T(180, 'email', "Hi {first_name},\n\nIt's been about six months with your {vehicle}, so it may be getting close to time for service. Our service team will take great care of you, and I'm happy to help you get scheduled." + SIG, 'Time for service on your {vehicle}?'),
+      T(365, 'sms', "Happy one year with your {vehicle}, {first_name}! Thank you again for being a customer. If there's ever anything I can do for you, just let me know. - {salesperson}"),
+      T(730, 'sms', "Hi {first_name}, it's {salesperson} at {dealership}. Vehicles like your {vehicle} are holding their value well, and yours may be worth more than you owe. Would you like me to run the numbers for you?"),
+    ],
+    lost: [
+      T(0, 'sms', "Hi {first_name}, it's {salesperson}. Congratulations on your new vehicle! Would you like me to send you occasional updates, like trade values or new arrivals? No problem at all if not."),
+      T(90, 'email', "Hi {first_name},\n\nI hope you're enjoying your vehicle. Here's a quick update from {dealership}: [trade values / new arrivals]." + SIG, 'A quick update from {dealership}'),
+      T(180, 'email', "Hi {first_name},\n\nJust a quick check-in from {dealership}. If you or someone you know is shopping, I'm always happy to help." + SIG, 'Checking in from {dealership}'),
+    ],
+  },
+  appt: {
+    confirm: "Hi {first_name}, you're all set for your {appt_type} on {appt_time}. Our address is {dealer_address}. Just ask for {salesperson} when you arrive. See you then!",
+    reminder_day: "Hi {first_name}, it's {salesperson} at {dealership}. Just a reminder about your {appt_type} tomorrow, {appt_time}. We're at {dealer_address}, and you can ask for me when you arrive. Does that time still work for you?",
+    reminder_2h: "Hi {first_name}, looking forward to seeing you at {appt_clock} today[[ for the {vehicle}]]. We're at {dealer_address}. Just ask for {salesperson}.",
+    no_show: "Hi {first_name}, it's {salesperson}. Sorry we missed you today! Would [day/time 1] or [day/time 2] work better to come by?",
+  },
+  extras: {
+    new_arrival: "Hi {first_name}, it's {salesperson} at {dealership}. A {match_vehicle} (stock #{match_stock}) just came in that fits what you were looking for. Would you like me to send you some photos?",
+    stock_sold: "Hi {first_name}, it's {salesperson}. Just a heads up, the {match_vehicle} you were looking at has sold. What matters most to you in the next one? I'll find you some similar options.",
+    equity: "Hi {first_name}, it's {salesperson} at {dealership}. Vehicles like your {vehicle} are holding their value well, and yours may be worth more than you owe. Would you like me to run the numbers for you?",
+    reactivation: "Hi {first_name}, it's {salesperson} at {dealership}. It's been a while since we talked about the {vehicle}. Are you still in the market, or did you find something?",
+    birthday: "Happy birthday, {first_name}! I hope you have a great day. - {salesperson} at {dealership}",
+    referral_thanks: "Hi {first_name}, it's {salesperson}. {referral_name} just picked up their new vehicle, and they told me you sent them my way. Thank you, I really appreciate it!",
+  },
+};
+const APPT_TYPES = { test_drive: 'Test drive', appraisal: 'Trade appraisal', visit: 'Visit', delivery: 'Delivery', phone_call: 'Phone call' };
+const DEFAULT_SETTINGS = { salesperson: '', dealership: '', dealer_phone: '', dealer_address: '', review_link: '', text_start: 8, text_end: 21, call_target: 5 };
+
+/* ============ state ============ */
+const S = { db: null, customers: new Map(), appts: new Map(), inv: new Map(), settings: { ...DEFAULT_SETTINGS }, tpl: DEFAULT_TEMPLATES,
+  loaded: { customers: false, appts: false, inv: false }, offline: false, view: 'today', filter: { group: 'follow', stage: '', q: '' }, tars: [] };
+
+/* ============ helpers ============ */
+const $ = (s, el = document) => el.querySelector(s);
+const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const DAY = 86400000;
+const nowIso = () => new Date().toISOString();
+const todayKey = (d = new Date()) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+const fmtWhen = (iso) => iso ? new Date(iso).toLocaleString([], { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }) : '';
+const fmtDay = (iso) => iso ? new Date(iso).toLocaleDateString([], { month: 'short', day: 'numeric', year: 'numeric' }) : '';
+const fmtClock = (iso) => new Date(iso).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+const nm = (c) => `${c.first_name || ''} ${c.last_name || ''}`.trim() || c.phone || c.email || 'Customer';
+const normPhone = (p) => { const r = String(p || '').trim(); const d = r.replace(/\D/g, ''); if (!d) return ''; if (r.startsWith('+')) return '+' + d; if (d.length === 10) return '+1' + d; if (d.length === 11 && d[0] === '1') return '+' + d; return '+' + d; };
+const fmtPhone = (p) => { const d = String(p || '').replace(/\D/g, ''); return d.length === 11 && d[0] === '1' ? `(${d.slice(1, 4)}) ${d.slice(4, 7)}-${d.slice(7)}` : (p || ''); };
+const normStock = (s) => String(s || '').trim().toUpperCase();
+const splitStocks = (s) => (Array.isArray(s) ? s : String(s || '').split(/[,;|/\s]+/)).map(normStock).filter(Boolean);
+const bool = (v) => v === true || /^(1|y|yes|true|x|opt.?in|opted in)$/i.test(String(v ?? '').trim());
+function parseDate(v) {
+  if (!v) return ''; const s = String(v).trim();
+  if (/^\d{4}-\d{2}-\d{2}/.test(s)) return s.slice(0, 10);
+  const m = s.match(/^(\d{1,2})[/.-](\d{1,2})[/.-](\d{2,4})/);
+  if (m) return `${m[3].length === 2 ? '20' + m[3] : m[3]}-${m[1].padStart(2, '0')}-${m[2].padStart(2, '0')}`;
+  const d = new Date(s); return isNaN(d) ? '' : todayKey(d);
+}
+function parseBirthday(v) {
+  if (!v) return ''; const s = String(v).trim(); let m = s.match(/^\d{4}-(\d{2})-(\d{2})/); if (m) return `${m[1]}-${m[2]}`;
+  m = s.match(/^(\d{1,2})[/.-](\d{1,2})/); return m ? `${m[1].padStart(2, '0')}-${m[2].padStart(2, '0')}` : '';
+}
+function toast(msg) { const t = $('#toast'); t.textContent = msg; t.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => (t.hidden = true), 3200); }
+function copy(text) {
+  try { const p = navigator.clipboard?.writeText(text); if (p) return p.then(() => toast('Copied'), () => toast('Select the text and copy it')); } catch {}
+  toast('Select the text and copy it'); return Promise.resolve();
+}
+const stagePill = (st) => `<span class="pill p-${STAGES[st]?.group || 'follow'}">${esc(STAGES[st]?.label || st)}</span>`;
+const statusPill = (s) => `<span class="pill p-${esc(s)}">${esc(s === 'done' ? 'finished' : s)}</span>`;
+const vehicleOf = (c) => {
+  const st = (c.stocks || [])[0]; const v = st && S.inv.get(st);
+  return { stock: st || '', label: (v && [v.year, v.make, v.model, v.trim].filter(Boolean).join(' ')) || c.vehicle || '' };
+};
+const vName = (v) => [v.year, v.make, v.model, v.trim].filter(Boolean).join(' ');
+
+/* render a template: {placeholders}; [[ ... ]] dropped when a placeholder inside it is empty */
+function render(tpl, c, extra = {}) {
+  const s = S.settings; const v = vehicleOf(c);
+  const vars = { first_name: c.first_name || 'there', last_name: c.last_name || '', vehicle: v.label || (v.stock ? `vehicle (stock #${v.stock})` : 'vehicle'), _veh: v.label,
+    stock: v.stock, objection: c.objection || '', salesperson: s.salesperson || '[your name]', dealership: s.dealership || 'the dealership',
+    dealer_phone: s.dealer_phone || '', dealer_address: s.dealer_address || '[dealership address]', review_link: s.review_link || '[review link]', ...extra };
+  const fill = (x) => x.replace(/\{(\w+)\}/g, (m, k) => (k in vars ? vars[k] : m));
+  const out = String(tpl || '').replace(/\[\[([\s\S]*?)\]\]/g, (m, inner) => {
+    const empty = [...inner.matchAll(/\{(\w+)\}/g)].some((x) => !(x[1] === 'vehicle' ? vars._veh : vars[x[1]]));
+    return empty ? '' : fill(inner);
+  });
+  return fill(out).replace(/[ \t]{2,}/g, ' ').replace(/ +([.,!?])/g, '$1').trim();
+}
+
+/* compliance gate: null = allowed, else the reason */
+function blockReason(c, ch) {
+  if (c.stage === 'dnc') return 'Do not contact';
+  if (ch === 'sms' || ch === 'call') {
+    if (!c.phone) return 'No phone number';
+    if (c.dnc_registry && !c.initiated) return 'On the Do Not Call registry and did not contact you first';
+  }
+  if (ch === 'sms' && !c.consent) return 'No recorded consent to text';
+  if (ch === 'email') { if (!c.email) return 'No email address'; if (c.email_opt_out) return 'Unsubscribed from email'; if (!c.consent) return 'No recorded consent'; }
+  return null;
+}
+function inTextWindow(d = new Date()) { const h = d.getHours(); return h >= Math.max(8, +S.settings.text_start || 8) && h < Math.min(21, +S.settings.text_end || 21); }
+const cadence = (stage) => S.tpl.cadence?.[stage] || DEFAULT_TEMPLATES.cadence[stage] || [];
+const apptTpl = (k) => S.tpl.appt?.[k] ?? DEFAULT_TEMPLATES.appt[k];
+const extraTpl = (k) => S.tpl.extras?.[k] ?? DEFAULT_TEMPLATES.extras[k];
+
+/* ============ storage (db capability) ============ */
+const writing = new Map();
+function saveDoc(col, id, data) {
+  if (!S.db) { toast('Not connected: changes can\'t be saved right now'); return Promise.resolve(); }
+  const key = col + '/' + id;
+  const prev = writing.get(key) || Promise.resolve();
+  const next = prev.then(() => S.db.collection(col).doc(id).set(JSON.parse(JSON.stringify(data)))).catch((e) => toast(e?.code === 'quota_exceeded' ? 'Storage is full. Delete old customers to make room.' : 'Could not save: ' + (e?.message || 'try again')));
+  writing.set(key, next); return next;
+}
+function delDoc(col, id) { return S.db ? S.db.collection(col).doc(id).delete().catch(() => toast('Could not delete')) : Promise.resolve(); }
+function saveCustomer(c) { c.updated_at = nowIso(); S.customers.set(c.id, c); scheduleRender(); return saveDoc('customers', c.id, c); }
+function saveAppt(a) { S.appts.set(a.id, a); scheduleRender(); return saveDoc('appointments', a.id, a); }
+function saveVehicleDoc(v) { S.inv.set(v.stock_number, v); scheduleRender(); return saveDoc('inventory', v.stock_number, v); }
+function saveSettings() { scheduleRender(); return saveDoc('config', 'settings', S.settings); }
+function saveTemplates() { scheduleRender(); return saveDoc('config', 'templates', S.tpl); }
+const newId = () => (S.db ? S.db.collection('customers').doc().id : 'local' + Math.random().toString(36).slice(2));
+function logHist(c, dir, ch, body, extra = {}) {
+  c.history = [...(c.history || []), { at: nowIso(), dir, ch, body: String(body).slice(0, 1500), ...extra }].slice(-60);
+  if (dir === 'out') { c.last_contact_at = nowIso(); c.first_contact_at = c.first_contact_at || nowIso(); }
+}
+
+/* ============ customer lifecycle ============ */
+function startPoint(stage, enteredIso) {
+  const steps = cadence(stage); const cutoff = Date.now() - 3 * DAY; let i = 0;
+  while (i < steps.length && new Date(enteredIso).getTime() + steps[i].day * DAY < cutoff) i++;
+  return i;
+}
+function findExisting(phone, email) {
+  for (const c of S.customers.values()) { if ((phone && c.phone === phone) || (email && c.email === email)) return c; }
+  return null;
+}
+function resolveReferrer(text, selfId) {
+  const r = String(text || '').trim(); if (!r) return null; const d = r.replace(/\D/g, '');
+  for (const c of S.customers.values()) {
+    if (c.id === selfId) continue;
+    if (d.length >= 7 && c.phone && c.phone.endsWith(d.slice(-10))) return c.id;
+  }
+  const hits = [...S.customers.values()].filter((c) => c.id !== selfId && nm(c).toLowerCase() === r.toLowerCase());
+  return hits.length === 1 ? hits[0].id : null;
+}
+/** Create or merge a customer. Returns {c, created}. Does not save; caller saves. */
+function upsert(data) {
+  const phone = normPhone(data.phone); const email = String(data.email || '').trim().toLowerCase();
+  const stage = STAGES[data.stage] ? data.stage : 'new_lead';
+  const stocks = splitStocks(data.stocks ?? data.stock_numbers);
+  const ex = findExisting(phone, email);
+  if (ex) {
+    for (const k of ['first_name', 'last_name', 'vehicle', 'objection', 'source']) if (data[k]) ex[k] = data[k];
+    if (phone) ex.phone = phone; if (email) ex.email = email;
+    if (data.notes && !String(ex.notes || '').includes(data.notes)) ex.notes = [ex.notes, data.notes].filter(Boolean).join('\n');
+    ex.stocks = [...new Set([...(ex.stocks || []), ...stocks])];
+    if (bool(data.consent) && !ex.consent && ex.stage !== 'dnc') Object.assign(ex, { consent: true, consent_source: data.consent_source || 'Import', consent_date: nowIso() });
+    if (bool(data.dnc_registry)) ex.dnc_registry = true;
+    if (data.do_not_contact && bool(data.do_not_contact)) setStage(ex, 'dnc');
+    else if (data.stage && data.stage !== ex.stage && ex.stage !== 'dnc') setStage(ex, stage);
+    return { c: ex, created: false };
+  }
+  const now = nowIso(); const dnc = data.do_not_contact && bool(data.do_not_contact);
+  const sold = parseDate(data.sold_date); const leadD = parseDate(data.lead_at);
+  let entered = now;
+  if (stage === 'sold' && sold && sold < todayKey()) entered = new Date(sold + 'T15:00:00').toISOString();
+  if (['new_lead', 'phone_up', 'be_back'].includes(stage) && leadD && leadD < todayKey()) entered = new Date(leadD + 'T12:00:00').toISOString();
+  const c = {
+    id: newId(), first_name: String(data.first_name || '').trim(), last_name: String(data.last_name || '').trim(), phone: phone || '', email: email || '',
+    stage: dnc ? 'dnc' : stage, status: dnc ? 'done' : 'active', vehicle: data.vehicle || '', objection: data.objection || '', notes: data.notes || '',
+    source: data.source || '', stocks, consent: !dnc && bool(data.consent), consent_source: !dnc && bool(data.consent) ? (data.consent_source || 'Recorded on entry') : '',
+    consent_date: !dnc && bool(data.consent) ? now : '', dnc_registry: bool(data.dnc_registry), initiated: data.initiated === undefined ? stage !== 'lost' : bool(data.initiated),
+    email_opt_out: !!dnc, step: entered !== now ? startPoint(stage, entered) : 0, stage_at: entered,
+    lead_at: ['new_lead', 'phone_up', 'be_back'].includes(stage) ? (entered !== now ? entered : now) : '', sold_date: stage === 'sold' ? (sold || todayKey()) : '',
+    birthday: parseBirthday(data.birthday), referred_by: String(data.referred_by || ''), referred_by_id: null, history: [], created_at: now, updated_at: now,
+    example: !!data.example,
+  };
+  c.referred_by_id = resolveReferrer(c.referred_by, c.id);
+  return { c, created: true };
+}
+function setStage(c, stage) {
+  const old = c.stage; c.prev_stage = old; c.stage = stage; c.step = 0; c.stage_at = nowIso();
+  c.status = stage === 'dnc' ? 'done' : 'active';
+  delete c.campaign; delete c.draft;
+  if (stage === 'sold') {
+    c.sold_date = todayKey();
+    const ref = c.referred_by_id && S.customers.get(c.referred_by_id);
+    if (ref && ref.stage !== 'dnc' && old !== 'sold') { ref.ref_thanks = { name: nm(c) }; saveCustomer(ref); }
+  }
+  if (stage === 'dnc') { c.consent = false; c.email_opt_out = true; delete c.match; delete c.ref_thanks; }
+}
+function resume(c) {
+  const steps = cadence(c.stage); const el = (Date.now() - new Date(c.stage_at).getTime()) / DAY;
+  let i = c.step || 0; while (i < steps.length - 1 && steps[i + 1].day <= el) i++;
+  c.step = i; c.status = 'active';
+}
+
+/* ============ the daily list (derived from your data) ============ */
+function buildList() {
+  const calls = [], send = []; const now = Date.now(); const mmdd = todayKey().slice(5); const yr = new Date().getFullYear();
+  const msg = (c, src, ch, body, extra = {}) => {
+    const blocked = blockReason(c, ch);
+    if (!blocked) send.push({ c, src, ch, body, ...extra });
+    else if (blocked.startsWith('No recorded consent') && !blockReason(c, 'call')) calls.push({ c, src: 'consent', from: src, ch, title: `Ask ${nm(c)} if it's OK to text and email them. A ${ch === 'sms' ? 'text' : 'email'} is waiting.`, ...extra });
+    else send.push({ c, src, ch, body, blocked, ...extra });
+  };
+  for (const c of S.customers.values()) {
+    if (c.stage === 'dnc') continue;
+    if (c.status === 'replied') calls.push({ c, src: 'reply', title: `${nm(c)} replied${c.reply_text ? `: "${c.reply_text}"` : ''}. Get back to them now.` });
+    if (c.draft) send.push({ c, src: 'draft', ch: c.draft.ch, body: c.draft.body, subject: c.draft.subject });
+    if (c.match) msg(c, 'match', 'sms', render(extraTpl(c.match.kind === 'sold' ? 'stock_sold' : 'new_arrival'), c, { match_vehicle: c.match.vehicle, match_stock: c.match.stock }));
+    if (c.ref_thanks) msg(c, 'referral', 'sms', render(extraTpl('referral_thanks'), c, { referral_name: c.ref_thanks.name }));
+    if (c.campaign && new Date(c.campaign.due).getTime() <= now) {
+      if (!blockReason(c, 'sms')) send.push({ c, src: 'campaign', ch: 'sms', body: render(extraTpl(c.campaign.key), c) });
+      else if (!blockReason(c, 'call')) calls.push({ c, src: 'campaign', title: c.campaign.key === 'equity' ? `Call ${nm(c)}: bought ${c.sold_date}. Their car may be worth more than they owe.` : `Call ${nm(c)}: old lead. Still in the market?` });
+    }
+    if (c.birthday === mmdd && c.bday_year !== yr && !blockReason(c, 'sms')) send.push({ c, src: 'birthday', ch: 'sms', body: render(extraTpl('birthday'), c) });
+    if (c.status === 'active') {
+      const step = cadence(c.stage)[c.step || 0];
+      if (step && new Date(c.stage_at).getTime() + step.day * DAY <= now) {
+        if (step.ch === 'call') { if (!blockReason(c, 'call')) calls.push({ c, src: 'sequence', title: render(step.body, c) }); else send.push({ c, src: 'sequence', ch: 'call', body: render(step.body, c), blocked: blockReason(c, 'call') }); }
+        else msg(c, 'sequence', step.ch, render(step.body, c), { subject: step.subject ? render(step.subject, c) : '' });
+      }
+    }
+  }
+  for (const a of S.appts.values()) {
+    const c = S.customers.get(a.customer_id); if (!c || c.stage === 'dnc' || !['scheduled', 'confirmed'].includes(a.status)) continue;
+    const t = new Date(a.at).getTime(); const ex = { appt_type: (APPT_TYPES[a.type] || 'visit').toLowerCase(), appt_time: fmtWhen(a.at), appt_clock: fmtClock(a.at) };
+    if (!a.confirm_done && t > now) msg(c, 'appt', 'sms', render(apptTpl('confirm'), c, ex), { appt: a, flag: 'confirm_done' });
+    else if (!a.rem_day_done && t > now && todayKey(new Date(t)) === todayKey(new Date(now + DAY))) msg(c, 'appt', 'sms', render(apptTpl('reminder_day'), c, ex), { appt: a, flag: 'rem_day_done' });
+    else if (!a.rem_2h_done && t > now && t - now <= 2 * 3600000) msg(c, 'appt', 'sms', render(apptTpl('reminder_2h'), c, ex), { appt: a, flag: 'rem_2h_done' });
+    if (now >= t + 30 * 60000) calls.unshift({ c, src: 'outcome', appt: a, title: `Did ${nm(c)} show for the ${ex.appt_type} at ${fmtClock(a.at)} ${todayKey(new Date(t)) === todayKey() ? 'today' : 'on ' + fmtDay(a.at)}?` });
+  }
+  for (const a of S.appts.values()) {
+    const c = S.customers.get(a.customer_id);
+    if (c && a.status === 'no_show' && !a.noshow_done && c.stage !== 'dnc') msg(c, 'noshow', 'sms', render(apptTpl('no_show'), c), { appt: a, flag: 'noshow_done' });
+  }
+  const order = { reply: 0, outcome: 1, consent: 3, sequence: 4, campaign: 5 };
+  calls.sort((a, b) => (order[a.src] ?? 2) - (order[b.src] ?? 2));
+  return { calls, send };
+}
+const SRC = { sequence: 'Follow-up schedule', reply: 'Customer replied', consent: 'Needs permission', outcome: 'Appointment check', appt: 'Appointment', noshow: 'No-show',
+  draft: 'Your draft', match: 'Inventory match', campaign: 'Campaign', birthday: 'Birthday', referral: 'Referral thank-you' };
+
+/* actions on list items */
+function finishItem(it, sent, body) {
+  const c = it.c;
+  if (sent) logHist(c, 'out', it.ch === 'call' ? 'call' : it.ch, body ?? it.body);
+  switch (it.src) {
+    case 'sequence': c.step = (c.step || 0) + 1; if (c.step >= cadence(c.stage).length && c.stage !== 'appointment') c.status = 'done'; break;
+    case 'draft': delete c.draft; break;
+    case 'match': delete c.match; break;
+    case 'referral': delete c.ref_thanks; break;
+    case 'campaign': delete c.campaign; break;
+    case 'birthday': c.bday_year = new Date().getFullYear(); break;
+    case 'reply': c.status = 'paused'; delete c.reply_text; break;
+    case 'appt': case 'noshow': { const a = { ...it.appt, [it.flag]: true }; saveAppt(a); break; }
+  }
+  return saveCustomer(c);
+}
+function itemKey(it) { return [it.c.id, it.src, it.flag || '', it.appt?.id || ''].join(':'); }
+
+/* ============ rendering ============ */
+let renderQueued = false;
+function scheduleRender() { if (!renderQueued) { renderQueued = true; requestAnimationFrame(() => { renderQueued = false; renderView(); }); } }
+const VIEWS = {};
+function go() {
+  const v = location.hash.slice(1); S.view = VIEWS[v] ? v : 'today';
+  $$('#tabs a').forEach((a) => a.classList.toggle('on', a.dataset.v === S.view)); renderView();
+}
+function renderView() {
+  const L = buildList(); $('#ctToday').textContent = L.calls.length + L.send.length || '';
+  const focus = document.activeElement; const fid = focus && focus.id; const sel = fid && focus.selectionStart;
+  if (fid && ['INPUT', 'TEXTAREA'].includes(focus.tagName) && focus.closest('#view') && focus.dataset.keep !== undefined) return; // don't clobber typing
+  $('#view').innerHTML = VIEWS[S.view](L);
+  if (fid) { const el = document.getElementById(fid); if (el && el.closest('#view')) { el.focus(); try { el.setSelectionRange(sel, sel); } catch {} } }
+  bindView(L);
+}
+const loadingNote = () => (!S.loaded.customers ? `<div class="note">${S.offline ? 'Can\'t reach your saved data right now. What you see may be out of date.' : 'Loading your customers…'}</div>` : '');
+const setupNote = () => {
+  const miss = ['salesperson', 'dealership', 'dealer_address'].filter((k) => !S.settings[k]);
+  return miss.length && S.loaded.customers ? `<div class="note">Finish <a href="#setup">Setup</a>: add your ${miss.map((k) => ({ salesperson: 'name', dealership: 'dealership', dealer_address: 'dealership address' }[k])).join(', ')}. They go into every message.</div>` : '';
+};
+
+VIEWS.today = (L) => {
+  const n = S.customers.size;
+  const intro = n ? '' : `<div class="card stack"><h2>Start here</h2><p class="muted">Add your customers and this page builds your list every day: who to call, and texts and emails ready to send in your voice.</p>
+    <div class="row"><a class="btn pri" href="#import">Import a list</a><button class="btn" type="button" data-act="add">Add a customer</button><button class="btn" type="button" data-act="examples">Show me with 3 examples</button></div>
+    <p class="muted small">Or paste your leads to Claude in the chat and Claude adds them here.</p></div>`;
+  const win = inTextWindow() ? '' : `<div class="note">It's outside texting hours (${S.settings.text_start || 8}:00 to ${S.settings.text_end || 21}:00). Texts wait until then.</div>`;
+  const ex = [...S.customers.values()].some((c) => c.example) ? `<div class="note row spread"><span>Showing example customers.</span><button class="btn sm" type="button" data-act="clear-examples">Remove examples</button></div>` : '';
+  return `<div class="stack">${loadingNote()}${setupNote()}${ex}
+    <div class="row spread"><div><h1>Today</h1><div class="muted">${new Date().toLocaleDateString([], { weekday: 'long', month: 'long', day: 'numeric' })}</div></div>
+      <div class="row"><button class="btn" type="button" data-act="add">+ Customer</button><button class="btn" type="button" data-act="appt-new">+ Appointment</button></div></div>
+    ${intro}${win}
+    <div class="grid2">
+      <section class="stack"><h2>Call these<span class="count">${L.calls.length}</span></h2>
+        <p class="muted small" style="margin:-6px 0 0">Replies first. Aim for ${S.settings.call_target || 5}+ calls a day.</p>
+        ${L.calls.map(callCard).join('') || '<div class="card empty">No calls due right now.</div>'}</section>
+      <section class="stack"><h2>Send these<span class="count">${L.send.length}</span></h2>
+        <p class="muted small" style="margin:-6px 0 0">Edit if you like, tap <b>Copy</b>, send it from your phone or email, then tap <b>Sent</b>.</p>
+        ${L.send.map(sendCard).join('') || '<div class="card empty">Nothing to send right now.</div>'}</section>
+    </div></div>`;
+};
+function callCard(it, i) {
+  const c = it.c; const key = esc(itemKey(it));
+  const meta = `<div class="src">${esc(SRC[it.src] || it.src)} · ${esc(STAGES[c.stage]?.label)}${c.stocks?.length ? ' · ' + c.stocks.map((s) => `<span class="stock">#${esc(s)}</span>`).join(' ') : ''}</div>`;
+  const phone = c.phone ? `<div class="row"><span class="mono">${esc(fmtPhone(c.phone))}</span><a class="btn sm" href="tel:${esc(c.phone)}">Call</a><button class="btn sm" type="button" data-copy="${esc(c.phone)}">Copy number</button></div>` : '';
+  let acts;
+  if (it.src === 'outcome') acts = `<div class="row"><button class="btn sm pri" type="button" data-out="sold" data-k="${key}">Showed + bought</button><button class="btn sm" type="button" data-out="unsold" data-k="${key}">Showed, not yet</button><button class="btn sm danger" type="button" data-out="no_show" data-k="${key}">No-show</button></div>`;
+  else if (it.src === 'consent') acts = `<div class="row"><button class="btn sm pri" type="button" data-consent="${key}">They said yes</button><button class="btn sm" type="button" data-skip="${key}">They said no / skip</button></div>`;
+  else acts = `<input id="note-${i}" data-keep placeholder="Call notes (optional)" aria-label="Call notes"><div class="row"><button class="btn sm pri" type="button" data-called="${key}" data-note="note-${i}">Called</button><button class="btn sm" type="button" data-skip="${key}">Skip</button>${it.src === 'reply' ? `<button class="btn sm" type="button" data-appt-for="${esc(c.id)}">Book appointment</button>` : ''}</div>`;
+  return `<div class="item ${['reply', 'outcome'].includes(it.src) ? 'hot' : ''}"><div class="row spread"><span class="who" data-open="${esc(c.id)}">${esc(nm(c))}</span></div><div>${esc(it.title)}</div>${meta}${phone}${acts}</div>`;
+}
+function sendCard(it, i) {
+  const c = it.c; const key = esc(itemKey(it));
+  const to = it.ch === 'email' ? c.email : c.phone;
+  const meta = `<div class="src">${esc(SRC[it.src] || it.src)} · ${esc(STAGES[c.stage]?.label)}${c.stocks?.length ? ' · ' + c.stocks.map((s) => `<span class="stock">#${esc(s)}</span>`).join(' ') : ''}</div>`;
+  if (it.blocked) return `<div class="item"><div class="row spread"><span class="who" data-open="${esc(c.id)}">${esc(nm(c))}</span><span class="pill p-paused">${it.ch === 'email' ? 'Email' : it.ch === 'call' ? 'Call' : 'Text'}</span></div>${meta}<div class="flag">Can't send: ${esc(it.blocked)}</div><div class="row"><button class="btn sm" type="button" data-skip="${key}">Skip this step</button><button class="btn sm" type="button" data-open="${esc(c.id)}">Fix contact info</button></div></div>`;
+  const brackets = /\[[^\]]+\]/.test(it.body + (it.subject || ''));
+  const link = it.ch === 'email' ? `mailto:${encodeURIComponent(c.email)}?subject=${encodeURIComponent(it.subject || '')}&body=${encodeURIComponent(it.body + render(EMAIL_FOOT, c))}` : `sms:${c.phone}?&body=${encodeURIComponent(it.body)}`;
+  return `<div class="item"><div class="row spread"><span class="who" data-open="${esc(c.id)}">${esc(nm(c))}</span><span class="pill ${it.ch === 'email' ? 'p-out' : 'p-follow'}">${it.ch === 'email' ? 'Email' : 'Text'}</span></div>${meta}
+    <div class="small"><span class="muted">To:</span> <span class="mono">${esc(it.ch === 'email' ? to : fmtPhone(to))}</span></div>
+    ${it.ch === 'email' ? `<input id="subj-${i}" data-keep value="${esc(it.subject || '')}" aria-label="Subject">` : ''}
+    <textarea id="body-${i}" data-keep rows="${it.ch === 'email' ? 7 : 4}" aria-label="Message">${esc(it.body)}</textarea>
+    ${brackets ? '<div class="flag">Fill in the [bracketed] parts before sending.</div>' : ''}
+    ${it.ch === 'sms' && !inTextWindow() ? '<div class="flag">Outside texting hours. Send it later.</div>' : ''}
+    <div class="row"><button class="btn sm" type="button" data-copymsg="body-${i}" data-subj="subj-${i}" data-ch="${it.ch}">Copy</button>
+      <a class="btn sm" href="${esc(link)}" data-open-app>Open ${it.ch === 'email' ? 'email' : 'Messages'}</a>
+      <button class="btn sm pri" type="button" data-sent="${key}" data-body="body-${i}" ${it.ch === 'sms' && !inTextWindow() ? 'disabled' : ''}>Sent</button>
+      <button class="btn sm" type="button" data-skip="${key}">Skip</button><button class="btn sm" type="button" data-replied="${esc(c.id)}">They replied</button></div></div>`;
+}
+
+VIEWS.customers = () => {
+  const f = S.filter; const [glabel, gstages] = GROUPS[f.group];
+  const q = f.q.trim().toLowerCase(); const qd = q.replace(/\D/g, '');
+  let rows = [...S.customers.values()].filter((c) => gstages.includes(c.stage) && (!f.stage || c.stage === f.stage));
+  if (q) rows = rows.filter((c) => [nm(c), c.email, c.vehicle, c.notes, ...(c.stocks || [])].join(' ').toLowerCase().includes(q) || (qd.length >= 3 && (c.phone || '').includes(qd)));
+  rows.sort((a, b) => (b.status === 'replied') - (a.status === 'replied') || String(b.updated_at).localeCompare(String(a.updated_at)));
+  const count = (stages) => [...S.customers.values()].filter((c) => stages.includes(c.stage)).length;
+  return `<div class="stack">${loadingNote()}
+    <div class="row spread"><h1>Customers</h1><div class="row"><input id="q" data-keep placeholder="Search name, phone, stock #" value="${esc(f.q)}" style="width:220px" aria-label="Search"><button class="btn pri" type="button" data-act="add">+ Add</button></div></div>
+    <div class="chipbar" id="groups">${Object.entries(GROUPS).map(([k, [l, st]]) => `<button type="button" data-g="${k}" class="${k === f.group ? 'on' : ''}">${l} <span class="mono">${count(st)}</span></button>`).join('')}</div>
+    ${gstages.length > 1 ? `<div class="chipbar" id="stages"><button type="button" data-s="" class="${!f.stage ? 'on' : ''}">All</button>${gstages.map((s) => `<button type="button" data-s="${s}" class="${s === f.stage ? 'on' : ''}">${STAGES[s].label} <span class="mono">${count([s])}</span></button>`).join('')}</div>` : ''}
+    <div class="tbl"><table><thead><tr><th>Name</th><th>Stage</th><th>Status</th><th>Stock # / vehicle</th><th>Permission</th><th>Last contact</th></tr></thead><tbody>
+    ${rows.map((c) => `<tr class="click" data-open="${esc(c.id)}"><td><b>${esc(nm(c))}</b>${c.example ? ' <span class="muted small">(example)</span>' : ''}<div class="muted small mono">${esc(fmtPhone(c.phone))}</div></td>
+      <td>${stagePill(c.stage)}</td><td>${statusPill(c.status)}</td><td>${(c.stocks || []).map((s) => `<span class="stock">#${esc(s)}</span>`).join(' ') || esc(c.vehicle)}</td>
+      <td>${c.stage === 'dnc' ? '<span class="flag">Do not contact</span>' : c.consent ? '<span class="ok">Yes</span>' : '<span class="muted">Not yet</span>'}${c.dnc_registry ? ' <span class="flag">DNC list</span>' : ''}</td>
+      <td class="small">${esc(fmtDay(c.last_contact_at))}</td></tr>`).join('') || `<tr><td colspan="6" class="empty">Nobody in ${esc(glabel)} yet.</td></tr>`}
+    </tbody></table></div></div>`;
+};
+
+VIEWS.calendar = () => {
+  const list = [...S.appts.values()].filter((a) => new Date(a.at).getTime() > Date.now() - 2 * DAY).sort((a, b) => a.at.localeCompare(b.at));
+  const byDay = {}; for (const a of list) (byDay[todayKey(new Date(a.at))] ||= []).push(a);
+  return `<div class="stack">${loadingNote()}<div class="row spread"><h1>Appointments</h1><button class="btn pri" type="button" data-act="appt-new">+ Appointment</button></div>
+    <p class="muted">Booking puts a confirmation text on Today. A reminder shows up the day before and 2 hours before, and 30 minutes after the start time you're asked if they showed.</p>
+    ${Object.entries(byDay).map(([d, as]) => `<section class="stack"><h3>${esc(new Date(d + 'T12:00').toLocaleDateString([], { weekday: 'long', month: 'short', day: 'numeric' }))}${d === todayKey() ? ' · Today' : ''}</h3>
+      ${as.map((a) => { const c = S.customers.get(a.customer_id) || {}; return `<div class="item" data-appt="${esc(a.id)}" style="cursor:pointer"><div class="row spread"><b>${esc(fmtClock(a.at))} · ${esc(nm(c))}</b><span class="pill p-${a.status === 'no_show' || a.status === 'cancelled' ? 'dnc' : a.status === 'showed' || a.status === 'confirmed' ? 'sold' : 'follow'}">${esc(a.status.replace('_', '-'))}</span></div>
+        <div class="src">${esc(APPT_TYPES[a.type] || a.type)}${a.stock ? ` · <span class="stock">#${esc(a.stock)}</span>` : ''}${a.notes ? ' · ' + esc(a.notes) : ''}</div></div>`; }).join('')}</section>`).join('') || '<div class="card empty">No upcoming appointments.</div>'}</div>`;
+};
+
+VIEWS.stock = () => {
+  const interest = {}; for (const c of S.customers.values()) for (const s of c.stocks || []) (interest[s] ||= []).push(c);
+  const all = [...new Set([...S.inv.keys(), ...Object.keys(interest)])].sort((a, b) => (interest[b]?.length || 0) - (interest[a]?.length || 0) || a.localeCompare(b));
+  return `<div class="stack">${loadingNote()}<div class="row spread"><h1>Stock numbers</h1><button class="btn pri" type="button" data-act="vehicle-new">+ Vehicle</button></div>
+    <p class="muted">Every stock number in your inventory or on a customer. Adding a vehicle drafts a "just came in" text for everyone who asked about that model. Marking one sold drafts a "that one sold" text for everyone who liked it.</p>
+    <div class="tbl"><table><thead><tr><th>Stock #</th><th>Vehicle</th><th>Status</th><th class="num">Interested</th></tr></thead><tbody>
+    ${all.map((s) => { const v = S.inv.get(s) || {}; return `<tr class="click" data-stock="${esc(s)}"><td><span class="stock">#${esc(s)}</span></td><td>${esc(vName(v) || '—')}${v.color ? ' · ' + esc(v.color) : ''}</td>
+      <td>${v.status ? `<span class="pill ${v.status === 'sold' ? 'p-dnc' : v.status === 'pending' ? 'p-paused' : 'p-active'}">${esc(v.status)}</span>` : '<span class="muted small">not in inventory</span>'}</td><td class="num"><b>${interest[s]?.length || 0}</b></td></tr>`; }).join('') || '<tr><td colspan="4" class="empty">No stock yet. Add vehicles here or import your inventory.</td></tr>'}
+    </tbody></table></div></div>`;
+};
+
+function campaignAudience(key) {
+  const all = [...S.customers.values()].filter((c) => c.stage !== 'dnc' && !c.campaign);
+  if (key === 'equity') { const d = (m) => { const x = new Date(); x.setMonth(x.getMonth() - m); return todayKey(x); }; return all.filter((c) => c.stage === 'sold' && c.sold_date && c.sold_date <= d(24) && c.sold_date >= d(48)); }
+  const cut = Date.now() - 60 * DAY;
+  return all.filter((c) => ['new_lead', 'phone_up', 'be_back', 'lost'].includes(c.stage) && c.status !== 'replied' && new Date(c.last_contact_at || c.created_at).getTime() <= cut && new Date(c.created_at).getTime() <= cut);
+}
+VIEWS.grow = () => {
+  const camp = (key, title, why) => { const a = campaignAudience(key); const t = a.filter((c) => !blockReason(c, 'sms')).length; const cl = a.filter((c) => blockReason(c, 'sms') && !blockReason(c, 'call')).length;
+    return `<div class="card stack"><h2>${title}</h2><p class="muted">${why}</p><p><b>${a.length}</b> customers · ${t} get a drafted text · ${cl} go on your call list</p>
+      <div class="row"><label class="f" style="display:flex;align-items:center;gap:8px">Per day <input id="per-${key}" type="number" min="1" max="50" value="10" style="width:80px"></label>
+      <button class="btn pri" type="button" data-camp="${key}" ${a.length ? '' : 'disabled'}>Add to my list</button></div></div>`; };
+  const refSales = [...S.customers.values()].filter((c) => c.stage === 'sold' && c.referred_by).length;
+  const bdays = [...S.customers.values()].filter((c) => c.birthday).length;
+  return `<div class="stack"><h1>Grow</h1><p class="muted">More customers and more sales. Everything here lands on Today for you to send.</p>
+    <div class="grid2">${camp('equity', 'Upgrade list', 'Past buyers 2 to 4 years out often owe less than the car is worth. This is where repeat sales come from.')}
+      ${camp('reactivation', 'Reactivate old leads', 'Leads with no contact in 60+ days. One friendly check-in brings some back.')}</div>
+    <div class="grid2"><div class="card stack"><h2>Inventory matches</h2><p class="muted">Add a vehicle on Stock #s and everyone who asked about that model gets a "just came in" text drafted. Mark a car sold and anyone who liked it gets a "that one sold, want me to find something similar?" text.</p></div>
+      <div class="card stack"><h2>Referrals &amp; birthdays</h2><p class="muted">Fill in "Referred by" on a customer. When they buy, a thank-you to whoever sent them shows up on Today. Add a birthday and a birthday text shows up on the day.</p>
+      <p>Referral sales: <b>${refSales}</b> · Birthdays on file: <b>${bdays}</b></p></div></div></div>`;
+};
+
+function weekStats(from, to) {
+  const inR = (iso) => iso && iso >= from && iso < to;
+  const cs = [...S.customers.values()];
+  const leads = cs.filter((c) => inR(c.lead_at));
+  const resp = leads.filter((c) => c.first_contact_at).map((c) => (new Date(c.first_contact_at) - new Date(c.lead_at)) / 60000).filter((m) => m >= 0).sort((a, b) => a - b);
+  const med = resp.length ? (resp.length % 2 ? resp[(resp.length - 1) / 2] : (resp[resp.length / 2 - 1] + resp[resp.length / 2]) / 2) : null;
+  const ap = [...S.appts.values()]; const set = ap.filter((a) => inR(a.created_at)).length;
+  const held = ap.filter((a) => inR(a.at) && ['showed', 'no_show'].includes(a.status)); const shows = held.filter((a) => a.status === 'showed').length;
+  const sold = cs.filter((c) => c.sold_date && c.sold_date >= from.slice(0, 10) && c.sold_date < to.slice(0, 10)).length;
+  const pct = (a, b) => (b ? Math.round((a / b) * 100) : null);
+  return { from, leads: leads.length, med: med === null ? null : Math.round(med * 10) / 10, under5: pct(resp.filter((m) => m <= 5).length, leads.length), notc: leads.filter((c) => !c.first_contact_at).length,
+    set, apptRate: pct(set, leads.length), shows, noShows: held.length - shows, showRate: pct(shows, held.length), sold, closeRate: pct(sold, shows) };
+}
+VIEWS.score = () => {
+  const mon = new Date(); mon.setHours(0, 0, 0, 0); mon.setDate(mon.getDate() - ((mon.getDay() + 6) % 7));
+  const weeks = [...Array(6)].map((_, i) => { const f = new Date(mon.getTime() - i * 7 * DAY); return weekStats(f.toISOString(), new Date(f.getTime() + 7 * DAY).toISOString()); });
+  const w = weeks[0]; const v = (x, s = '') => (x === null ? '—' : x + s);
+  const td = (x, s = '', good) => `<td class="num" style="${good === undefined || x === null ? '' : `color:var(--${good ? 'good' : 'bad'});font-weight:600`}">${v(x, s)}</td>`;
+  return `<div class="stack"><h1>Scoreboard</h1><p class="muted">This week (Monday to Sunday). The four numbers that matter.</p>
+    <div class="grid2" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr))">
+      <div class="card stat"><b>${v(w.med, ' min')}</b><span>Response time to new leads (aim for under 5)</span></div>
+      <div class="card stat"><b>${v(w.apptRate, '%')}</b><span>Appointment rate · ${w.set} of ${w.leads} leads</span></div>
+      <div class="card stat"><b>${v(w.showRate, '%')}</b><span>Show rate · ${w.shows} showed, ${w.noShows} no-show</span></div>
+      <div class="card stat"><b>${v(w.closeRate, '%')}</b><span>Close rate · ${w.sold} sold</span></div></div>
+    <div class="tbl"><table><thead><tr><th>Week of</th><th class="num">Leads</th><th class="num">Median response</th><th class="num">Under 5 min</th><th class="num">Not contacted</th><th class="num">Appts</th><th class="num">Appt rate</th><th class="num">Show rate</th><th class="num">Sold</th><th class="num">Close rate</th></tr></thead><tbody>
+    ${weeks.map((x) => `<tr><td>${esc(new Date(x.from).toLocaleDateString([], { month: 'short', day: 'numeric' }))}</td>${td(x.leads)}${td(x.med, ' min', x.med === null ? undefined : x.med <= 5)}${td(x.under5, '%')}${td(x.notc, '', x.notc === 0)}${td(x.set)}${td(x.apptRate, '%')}${td(x.showRate, '%')}${td(x.sold)}${td(x.closeRate, '%')}</tr>`).join('')}
+    </tbody></table></div><p class="muted small">Response time counts from when the lead came in to the first text, email or call you mark as done.</p></div>`;
+};
+
+VIEWS.templates = () => {
+  const tabs = [...Object.keys(STAGES).filter((s) => !['dnc', 'appointment'].includes(s)), 'appt', 'extras'];
+  const cur = S.tplTab || 'new_lead';
+  const label = (t) => (t === 'appt' ? 'Appointment' : t === 'extras' ? 'Grow' : STAGES[t].label);
+  const KEYS = { confirm: 'When booked', reminder_day: 'Day before', reminder_2h: '2 hours before', no_show: 'After a no-show', new_arrival: 'A matching car came in', stock_sold: 'The car they liked sold', equity: 'Upgrade list', reactivation: 'Reactivate old lead', birthday: 'Birthday', referral_thanks: 'Thank a referrer' };
+  let body;
+  if (cur === 'appt' || cur === 'extras') {
+    const set = cur === 'appt' ? { ...DEFAULT_TEMPLATES.appt, ...(S.tpl.appt || {}) } : { ...DEFAULT_TEMPLATES.extras, ...(S.tpl.extras || {}) };
+    body = Object.entries(set).map(([k, b]) => `<div class="card stack"><h3>${esc(KEYS[k] || k)}</h3><textarea id="tk-${k}" rows="3" aria-label="${esc(KEYS[k])}">${esc(b)}</textarea><div class="row"><button class="btn sm" type="button" data-savekey="${k}" data-set="${cur}">Save</button><span class="muted small">${b.length} characters</span></div></div>`).join('');
+  } else {
+    body = cadence(cur).map((s, i) => `<div class="card stack"><div class="row"><label class="f" style="display:flex;gap:6px;align-items:center">Day <input id="td-${i}" type="number" min="0" value="${s.day}" style="width:76px"></label>
+      <select id="tc-${i}" style="width:110px" aria-label="Type">${['sms', 'email', 'call'].map((x) => `<option value="${x}" ${x === s.ch ? 'selected' : ''}>${x === 'sms' ? 'Text' : x === 'email' ? 'Email' : 'Call'}</option>`).join('')}</select></div>
+      ${s.ch === 'email' ? `<input id="ts-${i}" value="${esc(s.subject)}" aria-label="Subject">` : ''}
+      <textarea id="tb-${i}" rows="${s.ch === 'email' ? 6 : 3}" aria-label="Message">${esc(s.body)}</textarea>
+      <div class="row"><button class="btn sm" type="button" data-savestep="${i}">Save</button><button class="btn sm danger" type="button" data-delstep="${i}">Delete</button><span class="muted small">${s.body.length} characters${s.ch === 'sms' && s.body.length > 300 ? ' · keep texts under 300' : ''}</span></div></div>`).join('') + `<button class="btn" type="button" data-addstep>+ Add a step</button>`;
+  }
+  return `<div class="stack"><h1>Templates</h1><p class="muted">Written friendly-professional, one question per message. Placeholders: {first_name} {vehicle} {stock} {objection} {salesperson} {dealership} {dealer_phone} {review_link}. Text inside [[ ]] is left out when its placeholder is empty. Anything in [brackets] is for you to fill in before sending.</p>
+    <div class="chipbar" id="tplTabs">${tabs.map((t) => `<button type="button" data-t="${t}" class="${t === cur ? 'on' : ''}">${esc(label(t))}</button>`).join('')}</div>${body}
+    <button class="btn sm" type="button" data-resettpl style="justify-self:start">Restore the original templates</button></div>`;
+};
+
+VIEWS.import = () => `<div class="stack"><h1>Import</h1>
+  <div class="grid2"><div class="card stack"><h2>Customers</h2>
+    <p class="muted">From DealerSocket, export your customers or leads to Excel or CSV. Then open the file, select all, copy, and paste here (include the header row). Columns are matched automatically: name, cell phone, email, stock #, sales step, lead source, sold date, opt-in and do-not-call flags.</p>
+    <p class="muted small"><b>Permission to text and email only comes from an opt-in column</b> (like "OK to Text"). Without one, you'll get a "call and ask" task first.</p>
+    <label class="f">Stage for rows without one<select id="impStage">${Object.entries(STAGES).map(([k, v]) => `<option value="${k}">${v.label}</option>`).join('')}</select></label>
+    <label class="f">File<input type="file" id="impFile" accept=".csv,.txt,.tsv"></label>
+    <label class="f">Or paste<textarea id="impText" rows="7" placeholder="First Name,Last Name,Cell Phone,Email,Stock Number,OK to Text"></textarea></label>
+    <div class="row"><button class="btn" type="button" data-act="imp-preview">Preview</button><button class="btn pri" type="button" data-act="imp-go">Import</button></div><div id="impOut"></div></div>
+  <div class="card stack"><h2>Inventory</h2><p class="muted">Paste your inventory (stock #, year, make, model, trim, color, miles, status) so messages can name the vehicle.</p>
+    <label class="f">File<input type="file" id="invFile" accept=".csv,.txt,.tsv"></label>
+    <label class="f">Or paste<textarea id="invText" rows="7" placeholder="Stock,Year,Make,Model,Trim,Color,Miles"></textarea></label>
+    <div class="row"><button class="btn pri" type="button" data-act="inv-go">Import inventory</button></div><div id="invOut"></div></div></div></div>`;
+
+VIEWS.setup = () => { const s = S.settings; const f = (k, l, ph = '') => `<label class="f">${l}<input id="set-${k}" value="${esc(s[k])}" placeholder="${esc(ph)}"></label>`;
+  return `<div class="stack"><h1>Setup</h1><div class="grid2"><div class="card stack"><h2>You</h2>
+    ${f('salesperson', 'Your name (signs every message)')}${f('dealership', 'Dealership')}${f('dealer_address', 'Dealership address (goes in emails and appointment texts)')}${f('dealer_phone', 'Your phone number')}${f('review_link', 'Review link (Google or DealerRater)', 'https://')}
+    <button class="btn pri" type="button" data-act="save-settings" style="justify-self:start">Save</button></div>
+    <div class="card stack"><h2>Hours &amp; rules</h2>
+      <div class="row"><label class="f">Texts from<select id="set-text_start">${[8, 9, 10, 11, 12].map((h) => `<option ${+s.text_start === h ? 'selected' : ''} value="${h}">${h < 12 ? h + ' am' : '12 pm'}</option>`).join('')}</select></label>
+      <label class="f">Texts until<select id="set-text_end">${[17, 18, 19, 20, 21].map((h) => `<option ${+s.text_end === h ? 'selected' : ''} value="${h}">${h - 12} pm</option>`).join('')}</select></label>
+      <label class="f">Calls a day<input id="set-call_target" type="number" min="1" value="${esc(s.call_target)}" style="width:90px"></label></div>
+      <p class="muted small">The law allows texts from 8 am to 9 pm. You can narrow the window but not widen it.</p>
+      <h3>Built-in rules</h3><ul class="small muted" style="margin:0;padding-left:18px;display:grid;gap:4px">
+        <li>No text or email without recorded permission. You'll get a "call and ask" task instead.</li>
+        <li>"Do not contact" stops everything for that person, for good.</li>
+        <li>Numbers on the Do Not Call list are blocked unless the customer contacted you first.</li>
+        <li>Any reply stops the follow-up schedule and puts them on your call list.</li>
+        <li>Never store credit, SSN, license or income info here.</li></ul></div></div>
+    <div class="card stack"><h2>About this version</h2><p class="muted">This page saves your data to your claude.ai account and opens on your phone or computer. Texts go from your own phone and emails from your own email. Nothing sends by itself, so you stay in control of every message. In this chat, Claude can also read and add customers here, so you can paste leads to Claude.</p></div></div>`; };
+
+/* ============ binding ============ */
+function findItem(L, key) { return [...L.calls, ...L.send].find((it) => itemKey(it) === key); }
+function bindView(L) {
+  const v = $('#view');
+  v.onclick = async (e) => {
+    const t = e.target.closest('button, [data-open], [data-stock], [data-appt], a[data-open-app]'); if (!t) return;
+    const d = t.dataset;
+    if (d.open && !t.matches('button.btn') || (t.matches('button') && d.open)) return openCustomer(d.open);
+    if (d.stock) return openVehicle(d.stock);
+    if (d.appt) return openAppt(S.appts.get(d.appt));
+    if (d.copy) return copy(d.copy);
+    if (d.copymsg) { const b = $('#' + d.copymsg)?.value || ''; const sj = $('#' + d.subj)?.value; return copy(d.ch === 'email' && sj ? `Subject: ${sj}\n\n${b}` : b); }
+    if (d.sent) { const it = findItem(L, d.sent); if (!it) return; const b = $('#' + d.body)?.value ?? it.body; if (/\[[^\]]+\]/.test(b)) return toast('Fill in the [bracketed] parts first'); await finishItem(it, true, b); return toast('Logged as sent'); }
+    if (d.skip) { const it = findItem(L, d.skip); if (it) { await finishItem(it, false); toast('Skipped'); } return; }
+    if (d.called) { const it = findItem(L, d.called); if (!it) return; const note = $('#' + d.note)?.value; logHist(it.c, 'out', 'call', note ? 'Call: ' + note : 'Called'); await finishItem(it, false); return toast('Call logged'); }
+    if (d.replied) return repliedSheet(S.customers.get(d.replied));
+    if (d.apptFor) return openAppt(null, d.apptFor);
+    if (d.consent) { const it = findItem(L, d.consent); if (!it) return; Object.assign(it.c, { consent: true, consent_source: 'Said yes when I called', consent_date: nowIso() }); logHist(it.c, 'out', 'call', 'Asked permission to text/email: yes'); await saveCustomer(it.c); return toast('Permission recorded. The message is ready under Send these.'); }
+    if (d.out) { const it = findItem(L, d.out === 'sold' || d.out === 'unsold' || d.out === 'no_show' ? t.dataset.k : ''); if (it) return outcome(it, d.out); return; }
+    if (d.g) { S.filter.group = d.g; S.filter.stage = ''; return renderView(); }
+    if (d.s !== undefined && t.closest('#stages')) { S.filter.stage = d.s; return renderView(); }
+    if (d.t) { S.tplTab = d.t; return renderView(); }
+    if (d.camp) return runCampaign(d.camp, +($('#per-' + d.camp)?.value || 10));
+    if (d.savestep !== undefined) return saveStep(+d.savestep);
+    if (d.delstep !== undefined) { const st = S.tplTab || 'new_lead'; const arr = [...cadence(st)]; arr.splice(+d.delstep, 1); S.tpl = { ...S.tpl, cadence: { ...S.tpl.cadence, [st]: arr } }; await saveTemplates(); return toast('Step deleted'); }
+    if (d.addstep !== undefined) { const st = S.tplTab || 'new_lead'; const arr = [...cadence(st), T((cadence(st).at(-1)?.day || 0) + 7, 'sms', "Hi {first_name}, it's {salesperson}. ")]; S.tpl = { ...S.tpl, cadence: { ...S.tpl.cadence, [st]: arr } }; await saveTemplates(); return; }
+    if (d.savekey) { const val = $('#tk-' + d.savekey).value; S.tpl = { ...S.tpl, [d.set]: { ...(S.tpl[d.set] || {}), [d.savekey]: val } }; await saveTemplates(); return toast('Saved'); }
+    if (d.resettpl !== undefined) return confirmSheet('Restore the original templates?', 'Your edits to templates are replaced with the originals.', 'Restore', async () => { S.tpl = DEFAULT_TEMPLATES; await saveTemplates(); toast('Templates restored'); });
+    switch (d.act) {
+      case 'add': return customerSheet();
+      case 'appt-new': return openAppt(null);
+      case 'vehicle-new': return vehicleSheet({});
+      case 'examples': return addExamples();
+      case 'clear-examples': return confirmSheet('Remove the example customers?', 'Only the 3 example customers are removed.', 'Remove', async () => { for (const c of [...S.customers.values()].filter((x) => x.example)) { S.customers.delete(c.id); await delDoc('customers', c.id); } for (const a of [...S.appts.values()].filter((a) => !S.customers.has(a.customer_id))) { S.appts.delete(a.id); await delDoc('appointments', a.id); } renderView(); });
+      case 'save-settings': { for (const k of Object.keys(DEFAULT_SETTINGS)) { const el = $('#set-' + k); if (el) S.settings[k] = el.value; } S.settings.text_start = Math.max(8, +S.settings.text_start); S.settings.text_end = Math.min(21, +S.settings.text_end); await saveSettings(); return toast('Saved'); }
+      case 'imp-preview': return importCustomers(true);
+      case 'imp-go': return importCustomers(false);
+      case 'inv-go': return importInventory();
+    }
+  };
+  const q = $('#q'); if (q) q.oninput = () => { S.filter.q = q.value; clearTimeout(q.t); q.t = setTimeout(() => { delete q.dataset.keep; renderView(); }, 250); };
+  const rf = (inp, ta) => { const i = $(inp); if (i) i.onchange = () => i.files[0]?.text().then((x) => ($(ta).value = x)); };
+  rf('#impFile', '#impText'); rf('#invFile', '#invText');
+}
+
+/* ============ sheets (side panels) ============ */
+function sheet(title, html, onBind) {
+  const el = $('#sheet'); el.hidden = false;
+  el.innerHTML = `<div class="sheet" id="sheetBg"><div class="sheet-card" role="dialog" aria-label="${esc(title)}"><div class="sheet-head"><h2>${esc(title)}</h2><button class="x" type="button" id="sheetX" aria-label="Close">&times;</button></div><div class="sheet-body">${html}</div></div></div>`;
+  const close = () => { el.hidden = true; el.innerHTML = ''; };
+  $('#sheetX').onclick = close; $('#sheetBg').onclick = (e) => { if (e.target.id === 'sheetBg') close(); };
+  onBind?.(close); return close;
+}
+function confirmSheet(title, text, label, fn) {
+  sheet(title, `<p>${esc(text)}</p><div class="row"><button class="btn pri" type="button" id="cfYes">${esc(label)}</button><button class="btn" type="button" id="cfNo">Cancel</button></div>`, (close) => {
+    $('#cfNo').onclick = close; $('#cfYes').onclick = async () => { close(); await fn(); };
+  });
+}
+function stageOpts(sel) { return Object.entries(STAGES).map(([k, v]) => `<option value="${k}" ${k === sel ? 'selected' : ''}>${v.label}</option>`).join(''); }
+
+function customerSheet(c) {
+  const v = c || { stage: 'new_lead', initiated: true };
+  sheet(c ? 'Edit customer' : 'Add customer', `
+    <div class="grid2" style="grid-template-columns:1fr 1fr"><label class="f">First name<input id="cf-first" value="${esc(v.first_name)}"></label><label class="f">Last name<input id="cf-last" value="${esc(v.last_name)}"></label></div>
+    <label class="f">Mobile<input id="cf-phone" inputmode="tel" value="${esc(v.phone)}"></label>
+    <label class="f">Email<input id="cf-email" type="email" value="${esc(v.email)}"></label>
+    <label class="f">Stage<select id="cf-stage">${stageOpts(v.stage)}</select></label>
+    <label class="f">Stock #s they want (comma separated)<input id="cf-stocks" class="mono" value="${esc((v.stocks || []).join(', '))}"></label>
+    <label class="f">Vehicle they want (if no stock #)<input id="cf-veh" value="${esc(v.vehicle)}"></label>
+    <label class="f">The one thing holding them back<input id="cf-obj" value="${esc(v.objection)}" placeholder="payment, trade value, color, spouse…"></label>
+    <div class="grid2" style="grid-template-columns:1fr 1fr"><label class="f">Referred by (name or phone)<input id="cf-ref" value="${esc(v.referred_by)}"></label><label class="f">Birthday (MM-DD)<input id="cf-bday" value="${esc(v.birthday)}" placeholder="03-15"></label></div>
+    <label class="f">Source<input id="cf-src" value="${esc(v.source)}" placeholder="Cars.com, walk-in, referral…"></label>
+    <label class="f">Notes<textarea id="cf-notes" rows="2">${esc(v.notes)}</textarea></label>
+    <div class="card stack" style="padding:12px">
+      <label class="row" style="gap:8px"><input type="checkbox" id="cf-consent" style="width:auto" ${v.consent ? 'checked' : ''}> They agreed to get texts and emails from me</label>
+      <label class="f">How they agreed<input id="cf-csrc" value="${esc(v.consent_source)}" placeholder="Lead form opt-in, said yes in person…"></label>
+      <label class="row" style="gap:8px"><input type="checkbox" id="cf-dncr" style="width:auto" ${v.dnc_registry ? 'checked' : ''}> Number is on the Do Not Call list</label>
+      <label class="row" style="gap:8px"><input type="checkbox" id="cf-init" style="width:auto" ${v.initiated === false ? '' : 'checked'}> They contacted the dealership first</label></div>
+    <p class="muted small">Never store credit, SSN, license or income info here.</p><p class="flag" id="cf-err"></p>
+    <div class="row"><button class="btn pri" type="button" id="cf-save">Save</button>${c ? '<button class="btn danger" type="button" id="cf-del">Delete customer</button>' : ''}</div>`, (close) => {
+    $('#cf-save').onclick = async () => {
+      const val = (id) => $('#' + id).value.trim();
+      const data = { first_name: val('cf-first'), last_name: val('cf-last'), phone: val('cf-phone'), email: val('cf-email'), stage: val('cf-stage'), stocks: val('cf-stocks'), vehicle: val('cf-veh'),
+        objection: val('cf-obj'), referred_by: val('cf-ref'), birthday: val('cf-bday'), source: val('cf-src'), notes: $('#cf-notes').value };
+      const consent = $('#cf-consent').checked;
+      if (!data.phone && !data.email) return ($('#cf-err').textContent = 'Add a mobile number or an email.');
+      if (consent && !val('cf-csrc')) return ($('#cf-err').textContent = 'Write down how they agreed to be contacted.');
+      let x;
+      if (c) {
+        x = c; Object.assign(x, { first_name: data.first_name, last_name: data.last_name, phone: normPhone(data.phone), email: data.email.toLowerCase(), vehicle: data.vehicle, objection: data.objection,
+          source: data.source, notes: data.notes, stocks: splitStocks(data.stocks), birthday: parseBirthday(data.birthday), referred_by: data.referred_by });
+        x.referred_by_id = resolveReferrer(x.referred_by, x.id);
+        if (data.stage !== x.stage) setStage(x, data.stage);
+      } else x = upsert({ ...data, consent, consent_source: val('cf-csrc') }).c;
+      if (x.stage !== 'dnc') { if (consent && !x.consent) Object.assign(x, { consent: true, consent_date: nowIso() }); x.consent = consent; x.consent_source = consent ? val('cf-csrc') : ''; }
+      x.dnc_registry = $('#cf-dncr').checked; x.initiated = $('#cf-init').checked;
+      await saveCustomer(x); close(); toast('Saved'); openCustomer(x.id);
+    };
+    if (c) $('#cf-del').onclick = () => confirmSheet(`Delete ${nm(c)}?`, 'Their history is deleted too. This can\'t be undone.', 'Delete', async () => { S.customers.delete(c.id); await delDoc('customers', c.id); renderView(); toast('Deleted'); });
+  });
+}
+
+function openCustomer(id) {
+  const c = S.customers.get(id); if (!c) return;
+  const steps = cadence(c.stage); const step = steps[c.step || 0];
+  const appts = [...S.appts.values()].filter((a) => a.customer_id === id).sort((a, b) => b.at.localeCompare(a.at));
+  const ref = c.referred_by_id && S.customers.get(c.referred_by_id);
+  const hist = (c.history || []).map((h) => h.ch === 'call' ? `<div class="bub call">${esc(h.body)} · ${esc(fmtWhen(h.at))}</div>`
+    : `<div class="bub ${h.dir}">${esc(h.body)}<div class="meta">${h.ch === 'email' ? 'email' : 'text'} · ${esc(fmtWhen(h.at))}</div></div>`).join('');
+  sheet(nm(c), `
+    <div class="row">${stagePill(c.stage)} ${statusPill(c.status)}${c.example ? ' <span class="muted small">(example)</span>' : ''}</div>
+    <div class="kv"><span>Mobile</span><span class="mono">${esc(fmtPhone(c.phone) || '—')}</span><span>Email</span><span>${esc(c.email || '—')}${c.email_opt_out ? ' <span class="flag">unsubscribed</span>' : ''}</span>
+      <span>Permission</span><span>${c.consent ? `<span class="ok">Yes</span> · ${esc(c.consent_source)} · ${esc(fmtDay(c.consent_date))}` : c.stage === 'dnc' ? '<span class="flag">Do not contact</span>' : '<span class="flag">Not recorded</span>'}</span>
+      <span>DNC list</span><span>${c.dnc_registry ? `<span class="flag">On the list</span>${c.initiated ? ' (they contacted us first)' : ''}` : 'No'}</span>
+      <span>Stock #s</span><span>${(c.stocks || []).map((s) => `<span class="stock">#${esc(s)}</span>${S.inv.get(s) ? ' ' + esc(vName(S.inv.get(s))) : ''}`).join('<br>') || esc(c.vehicle || '—')}</span>
+      <span>Holding back</span><span>${esc(c.objection || '—')}</span><span>Source</span><span>${esc(c.source || '—')}</span>
+      ${c.referred_by ? `<span>Referred by</span><span>${ref ? `<a href="#" data-goto="${esc(ref.id)}">${esc(nm(ref))}</a>` : esc(c.referred_by) + ' <span class="muted small">(not matched)</span>'}</span>` : ''}
+      ${c.birthday ? `<span>Birthday</span><span>${esc(c.birthday)}</span>` : ''}${c.sold_date ? `<span>Sold</span><span>${esc(c.sold_date)}</span>` : ''}
+      ${c.notes ? `<span>Notes</span><span style="white-space:pre-wrap">${esc(c.notes)}</span>` : ''}</div>
+    <div class="row"><button class="btn sm" type="button" id="cs-edit">Edit</button><button class="btn sm" type="button" id="cs-rep">They replied</button><button class="btn sm" type="button" id="cs-appt">Book appointment</button><button class="btn sm" type="button" id="cs-draft">Write a message</button>
+      ${c.stage !== 'sold' && c.stage !== 'dnc' ? '<button class="btn sm" type="button" id="cs-sold">Mark sold</button>' : ''}
+      ${c.status === 'active' ? '<button class="btn sm" type="button" id="cs-pause">Pause follow-up</button>' : c.stage !== 'dnc' ? '<button class="btn sm" type="button" id="cs-resume">Resume follow-up</button>' : ''}
+      ${c.stage !== 'dnc' ? '<button class="btn sm danger" type="button" id="cs-dnc">Do not contact</button>' : ''}</div>
+    <label class="f">Move to stage<select id="cs-stage">${stageOpts(c.stage)}</select></label>
+    ${step && c.status === 'active' ? `<div class="card stack" style="padding:12px"><h3>Next (${step.ch === 'sms' ? 'text' : step.ch}, ${esc(fmtDay(new Date(new Date(c.stage_at).getTime() + step.day * DAY).toISOString()))})</h3><div class="small" style="white-space:pre-wrap">${esc(render(step.body, c))}</div></div>` : ''}
+    ${appts.length ? `<div class="stack"><h3>Appointments</h3>${appts.map((a) => `<div class="row small">${esc(fmtWhen(a.at))} · ${esc(APPT_TYPES[a.type])} · ${esc(a.status.replace('_', '-'))}</div>`).join('')}</div>` : ''}
+    <div class="stack"><h3>History</h3><div class="thread">${hist || '<span class="muted small">Nothing yet.</span>'}</div></div>`, (close) => {
+    const upd = async (fn) => { fn(c); await saveCustomer(c); openCustomer(c.id); };
+    $('#cs-edit').onclick = () => customerSheet(c);
+    $('#cs-rep').onclick = () => repliedSheet(c);
+    $('#cs-appt').onclick = () => openAppt(null, c.id);
+    $('#cs-draft').onclick = () => draftSheet(c);
+    $('#cs-sold') && ($('#cs-sold').onclick = () => upd((x) => setStage(x, 'sold')));
+    $('#cs-pause') && ($('#cs-pause').onclick = () => upd((x) => (x.status = 'paused')));
+    $('#cs-resume') && ($('#cs-resume').onclick = () => upd(resume));
+    $('#cs-dnc') && ($('#cs-dnc').onclick = () => confirmSheet(`Mark ${nm(c)} as do not contact?`, 'Nothing will ever go to them again from this page.', 'Do not contact', () => upd((x) => setStage(x, 'dnc'))));
+    $('#cs-stage').onchange = (e) => upd((x) => setStage(x, e.target.value));
+    $$('[data-goto]').forEach((a) => (a.onclick = (e) => { e.preventDefault(); openCustomer(a.dataset.goto); }));
+  });
+}
+function repliedSheet(c) {
+  sheet('They replied', `<p class="muted">Their follow-up schedule stops and they go to the top of your call list.</p><label class="f">What did they say? (optional)<textarea id="rp-t" rows="3"></textarea></label><div class="row"><button class="btn pri" type="button" id="rp-s">Save</button></div>`, (close) => {
+    $('#rp-s').onclick = async () => { const t = $('#rp-t').value.trim(); logHist(c, 'in', 'sms', t || '(replied)'); if (c.stage !== 'dnc') { c.status = 'replied'; c.reply_text = t.slice(0, 160); } await saveCustomer(c); close(); toast('On your call list'); };
+  });
+}
+function draftSheet(c) {
+  sheet(`Message ${nm(c)}`, `<label class="f">Type<select id="dr-ch"><option value="sms">Text</option><option value="email">Email</option></select></label><label class="f" id="dr-sw" hidden>Subject<input id="dr-sj"></label>
+    <label class="f">Message<textarea id="dr-b" rows="5">Hi {first_name}, it's {salesperson}. </textarea></label><p class="muted small">One question per message, no price promises. It goes onto Today under "Send these".</p><p class="flag" id="dr-e"></p>
+    <div class="row"><button class="btn pri" type="button" id="dr-s">Add to Today</button></div>`, (close) => {
+    $('#dr-ch').onchange = (e) => ($('#dr-sw').hidden = e.target.value !== 'email');
+    $('#dr-s').onclick = async () => { const ch = $('#dr-ch').value; const b = blockReason(c, ch); if (b) return ($('#dr-e').textContent = "Can't message them: " + b);
+      c.draft = { ch, body: render($('#dr-b').value, c), subject: render($('#dr-sj').value, c) }; await saveCustomer(c); close(); toast('Added to Today'); };
+  });
+}
+function outcome(it, kind) {
+  const a = { ...it.appt }; const c = it.c;
+  if (kind === 'no_show') { a.status = 'no_show'; saveAppt(a); if (c.stage === 'appointment') { setStage(c, c.prev_stage && c.prev_stage !== 'appointment' ? c.prev_stage : 'be_back'); saveCustomer(c); } return toast('No-show logged. A "sorry we missed you" text is ready.'); }
+  if (kind === 'sold') { a.status = 'showed'; saveAppt(a); setStage(c, 'sold'); saveCustomer(c); return toast('Congrats! Moved to Sold.'); }
+  sheet('Not yet', `<label class="f">What held them back? (one thing)<input id="ob-t" placeholder="payment, trade value, color, spouse…"></label><div class="row"><button class="btn pri" type="button" id="ob-s">Save</button></div>`, (close) => {
+    $('#ob-s').onclick = async () => { a.status = 'showed'; saveAppt(a); c.objection = $('#ob-t').value.trim(); setStage(c, 'be_back'); await saveCustomer(c); close(); toast('Moved to Unsold showroom with a follow-up plan'); };
+  });
+}
+function openAppt(a, custId) {
+  const isNew = !a; a = a || { id: S.db ? S.db.collection('appointments').doc().id : 'a' + Date.now(), customer_id: custId || '', type: 'test_drive', status: 'scheduled', at: new Date(Date.now() + DAY).toISOString() };
+  const local = new Date(new Date(a.at).getTime() - new Date(a.at).getTimezoneOffset() * 60000).toISOString().slice(0, 16);
+  const c = S.customers.get(a.customer_id);
+  sheet(isNew ? 'Book appointment' : 'Appointment', `
+    ${c ? `<p><b>${esc(nm(c))}</b></p>` : `<label class="f">Customer<input id="ap-q" placeholder="Type a name or phone"></label><div id="ap-r" class="row"></div>`}
+    <label class="f">When<input id="ap-at" type="datetime-local" value="${local}"></label>
+    <label class="f">Type<select id="ap-type">${Object.entries(APPT_TYPES).map(([k, l]) => `<option value="${k}" ${k === a.type ? 'selected' : ''}>${l}</option>`).join('')}</select></label>
+    <label class="f">Stock #<input id="ap-stock" class="mono" value="${esc(a.stock || c?.stocks?.[0] || '')}"></label>
+    <label class="f">Notes<input id="ap-notes" value="${esc(a.notes)}"></label>
+    ${isNew ? '<p class="muted small">A confirmation text goes on Today, and reminders show up the day before and 2 hours before.</p>' : `<label class="f">Status<select id="ap-status">${['scheduled', 'confirmed', 'showed', 'no_show', 'cancelled'].map((s) => `<option value="${s}" ${s === a.status ? 'selected' : ''}>${s.replace('_', '-')}</option>`).join('')}</select></label>`}
+    <p class="flag" id="ap-e"></p><div class="row"><button class="btn pri" type="button" id="ap-s">Save</button>${isNew ? '' : '<button class="btn danger" type="button" id="ap-d">Delete</button>'}</div>`, (close) => {
+    let pick = a.customer_id;
+    const q = $('#ap-q'); if (q) q.oninput = () => { const s = q.value.trim().toLowerCase(); const hits = s.length < 2 ? [] : [...S.customers.values()].filter((x) => (nm(x) + ' ' + (x.phone || '')).toLowerCase().includes(s)).slice(0, 6);
+      $('#ap-r').innerHTML = hits.map((x) => `<button class="btn sm" type="button" data-pk="${esc(x.id)}">${esc(nm(x))}</button>`).join(''); $$('#ap-r [data-pk]').forEach((b) => (b.onclick = () => { pick = b.dataset.pk; q.value = b.textContent; $('#ap-r').innerHTML = ''; })); };
+    $('#ap-s').onclick = async () => {
+      const cust = S.customers.get(pick); if (!cust) return ($('#ap-e').textContent = 'Pick a customer.');
+      if (cust.stage === 'dnc') return ($('#ap-e').textContent = 'This customer is Do not contact.');
+      const at = new Date($('#ap-at').value); if (isNaN(at)) return ($('#ap-e').textContent = 'Pick a date and time.');
+      const moved = !isNew && at.toISOString() !== a.at;
+      const na = { ...a, customer_id: pick, at: at.toISOString(), type: $('#ap-type').value, stock: normStock($('#ap-stock').value), notes: $('#ap-notes').value.trim(), created_at: a.created_at || nowIso() };
+      if (!isNew) na.status = $('#ap-status').value;
+      if (moved) Object.assign(na, { confirm_done: false, rem_day_done: false, rem_2h_done: false, status: ['no_show', 'cancelled'].includes(na.status) ? 'scheduled' : na.status });
+      await saveAppt(na);
+      if (na.stock && !(cust.stocks || []).includes(na.stock)) cust.stocks = [...(cust.stocks || []), na.stock];
+      if (isNew && !['appointment', 'sold'].includes(cust.stage)) setStage(cust, 'appointment');
+      if (isNew && cust.status === 'replied') { cust.status = 'active'; delete cust.reply_text; }
+      if (!isNew && na.status === 'cancelled' && cust.stage === 'appointment') setStage(cust, cust.prev_stage && cust.prev_stage !== 'appointment' ? cust.prev_stage : 'be_back');
+      await saveCustomer(cust); close(); toast(isNew ? 'Booked. The confirmation text is on Today.' : 'Saved');
+    };
+    $('#ap-d') && ($('#ap-d').onclick = () => confirmSheet('Delete this appointment?', '', 'Delete', async () => { S.appts.delete(a.id); await delDoc('appointments', a.id); renderView(); }));
+  });
+}
+function vehicleSheet(v) {
+  const isNew = !v.stock_number; const f = (k, l, cls = '') => `<label class="f">${l}<input id="vh-${k}" class="${cls}" value="${esc(v[k])}" ${k === 'stock_number' && !isNew ? 'disabled' : ''}></label>`;
+  sheet(isNew ? 'Add vehicle' : `#${v.stock_number}`, `${f('stock_number', 'Stock #', 'mono')}<div class="grid2" style="grid-template-columns:1fr 1fr">${f('year', 'Year')}${f('make', 'Make')}${f('model', 'Model')}${f('trim', 'Trim')}${f('color', 'Color')}${f('miles', 'Miles')}</div>
+    <label class="f">Status<select id="vh-status">${['available', 'pending', 'sold'].map((s) => `<option ${s === (v.status || 'available') ? 'selected' : ''}>${s}</option>`).join('')}</select></label><p class="flag" id="vh-e"></p>
+    <div class="row"><button class="btn pri" type="button" id="vh-s">Save</button></div>`, (close) => {
+    $('#vh-s').onclick = async () => {
+      const nv = { ...v }; for (const k of ['stock_number', 'year', 'make', 'model', 'trim', 'color', 'miles', 'status']) nv[k] = $('#vh-' + k).value.trim();
+      nv.stock_number = normStock(nv.stock_number); if (!nv.stock_number) return ($('#vh-e').textContent = 'Add the stock #.');
+      const n = await saveVehicle(nv, S.inv.get(nv.stock_number)); close(); toast(n ? `Saved. ${n} text(s) drafted for interested customers on Today.` : 'Saved');
+    };
+  });
+}
+function openVehicle(stock) {
+  const v = S.inv.get(stock) || { stock_number: stock }; const cs = [...S.customers.values()].filter((c) => (c.stocks || []).includes(stock));
+  sheet(`#${stock}`, `<p><b>${esc(vName(v) || 'Not in inventory yet')}</b>${v.status ? ' · ' + esc(v.status) : ''}</p><h3>${cs.length} interested</h3>
+    ${cs.map((c) => `<div class="item"><div class="row spread"><span class="who" data-c="${esc(c.id)}">${esc(nm(c))}</span>${stagePill(c.stage)}</div><div class="src mono">${esc(fmtPhone(c.phone))}</div></div>`).join('') || '<p class="muted">Nobody yet.</p>'}
+    <div class="row"><button class="btn" type="button" id="vo-e">${S.inv.get(stock) ? 'Edit vehicle' : 'Add to inventory'}</button></div>`, () => {
+    $('#vo-e').onclick = () => vehicleSheet(v); $$('[data-c]').forEach((el) => (el.onclick = () => openCustomer(el.dataset.c)));
+  });
+}
+/* matching on new / sold vehicles */
+async function saveVehicle(nv, before) {
+  await saveVehicleDoc(nv); let n = 0;
+  const open = ['new_lead', 'phone_up', 'be_back', 'lost'];
+  if (!before && nv.status !== 'sold' && nv.model) {
+    const model = nv.model.toLowerCase();
+    for (const c of S.customers.values()) {
+      if (n >= 15 || !open.includes(c.stage) || c.match || (c.stocks || []).includes(nv.stock_number) || blockReason(c, 'sms')) continue;
+      const likes = (c.vehicle || '').toLowerCase().includes(model) || (c.stocks || []).some((s) => (S.inv.get(s)?.model || '').toLowerCase() === model);
+      if (likes) { c.match = { kind: 'new', stock: nv.stock_number, vehicle: vName(nv) }; await saveCustomer(c); n++; }
+    }
+  } else if (before && before.status !== 'sold' && nv.status === 'sold') {
+    for (const c of S.customers.values()) {
+      if (!open.includes(c.stage) || !(c.stocks || []).includes(nv.stock_number) || blockReason(c, 'sms')) continue;
+      c.match = { kind: 'sold', stock: nv.stock_number, vehicle: vName(nv) || `vehicle #${nv.stock_number}` }; await saveCustomer(c); n++;
+    }
+  }
+  return n;
+}
+async function runCampaign(key, perDay) {
+  perDay = Math.max(1, Math.min(50, perDay || 10)); let i = 0;
+  for (const c of campaignAudience(key)) {
+    if (blockReason(c, 'sms') && blockReason(c, 'call')) continue;
+    c.campaign = { key, due: new Date(Date.now() + Math.floor(i / perDay) * DAY).toISOString() }; await saveCustomer(c); i++;
+  }
+  toast(`${i} customers added to your list over ${Math.ceil(i / perDay) || 0} day(s)`);
+}
+
+/* ============ CSV import ============ */
+function parseCsv(text) {
+  text = String(text || '').replace(/^﻿/, ''); const first = text.split(/\r?\n/)[0] || '';
+  const delim = (first.match(/\t/g) || []).length > (first.match(/,/g) || []).length ? '\t' : ',';
+  const rows = []; let row = [], f = '', q = false;
+  for (let i = 0; i < text.length; i++) { const ch = text[i];
+    if (q) { if (ch === '"' && text[i + 1] === '"') { f += '"'; i++; } else if (ch === '"') q = false; else f += ch; }
+    else if (ch === '"') q = true; else if (ch === delim) { row.push(f); f = ''; }
+    else if (ch === '\n' || ch === '\r') { if (ch === '\r' && text[i + 1] === '\n') i++; row.push(f); rows.push(row); row = []; f = ''; } else f += ch; }
+  if (f !== '' || row.length) { row.push(f); rows.push(row); }
+  return rows.filter((r) => r.some((x) => String(x).trim()));
+}
+const ALIASES = {
+  first_name: ['first name', 'first', 'firstname', 'fname', 'customer first name'], last_name: ['last name', 'last', 'lastname', 'lname', 'surname', 'customer last name'],
+  full_name: ['name', 'full name', 'customer', 'customer name'], phone: ['phone', 'cell', 'mobile', 'cell phone', 'cellphone', 'phone number', 'mobile phone', 'home phone', 'day phone', 'primary phone'],
+  email: ['email', 'e mail', 'email address', 'customer email'], stocks: ['stock', 'stock #', 'stock number', 'stock no', 'stock#', 'stk', 'stk#', 'vehicle stock number', 'sought stock number'],
+  vehicle: ['vehicle', 'vehicle of interest', 'interest', 'car', 'model', 'year make model', 'vehicle sought', 'sought vehicle'], objection: ['objection', 'concern', 'held back'],
+  notes: ['notes', 'note', 'comments', 'comment'], source: ['source', 'lead source', 'lead provider'], stage: ['stage', 'sales step', 'sales status', 'lead type', 'lead status', 'status', 'type', 'bucket'],
+  sold_date: ['sold date', 'date sold', 'delivery date', 'delivered date', 'purchase date'], lead_at: ['lead date', 'created', 'date created', 'created date', 'date received', 'received'],
+  consent: ['consent', 'opt in', 'optin', 'sms opt in', 'text opt in', 'ok to text', 'okay to text', 'tcpa consent'], do_not_contact: ['do not contact', 'opted out', 'opt out', 'do not solicit'],
+  dnc_registry: ['do not call', 'national dnc', 'dnc', 'dnc registry'], birthday: ['birthday', 'birth date', 'dob', 'date of birth'], referred_by: ['referred by', 'referral'],
+};
+const key = (s) => String(s || '').trim().toLowerCase().replace(/[_\-.]+/g, ' ').replace(/\s+/g, ' ');
+function stageFrom(v) { const k = key(v); if (!k) return '';
+  if (/(sold|deliver|purchas|won)/.test(k)) return 'sold'; if (/(do not|opt.?out)/.test(k)) return 'dnc'; if (/(lost|dead|bought elsewhere|inactive|orphan|cold)/.test(k)) return 'lost';
+  if (/(appointment|appt)/.test(k)) return 'appointment'; if (/(be.?back|showroom|walk.?in|visit|demo|unsold)/.test(k)) return 'be_back'; if (/(phone|call.?in)/.test(k)) return 'phone_up';
+  if (/(internet|web|online|lead|new|prospect)/.test(k)) return 'new_lead'; return ''; }
+function customersFromCsv(text, defStage) {
+  const rows = parseCsv(text); if (rows.length < 2) return { list: [], mapped: {}, skipped: 0 };
+  const h = rows[0]; const m = {};
+  h.forEach((x, i) => { const k = key(x); for (const [f, names] of Object.entries(ALIASES)) if (m[f] === undefined && (k === f.replace(/_/g, ' ') || names.includes(k))) { m[f] = i; break; } });
+  const g = (r, f) => (m[f] !== undefined ? String(r[m[f]] ?? '').trim() : '');
+  const list = rows.slice(1).map((r) => { let first = g(r, 'first_name'), last = g(r, 'last_name');
+    if (!first && !last && g(r, 'full_name')) { const full = g(r, 'full_name'); if (full.includes(',')) [last, first] = full.split(',').map((s) => s.trim()); else { const p = full.split(/\s+/); first = p.shift(); last = p.join(' '); } }
+    return { first_name: first, last_name: last, phone: g(r, 'phone'), email: g(r, 'email'), stocks: g(r, 'stocks'), vehicle: g(r, 'vehicle'), objection: g(r, 'objection'), notes: g(r, 'notes'),
+      source: g(r, 'source') || 'Import', stage: stageFrom(g(r, 'stage')) || defStage, sold_date: g(r, 'sold_date'), lead_at: g(r, 'lead_at'),
+      consent: m.consent !== undefined ? g(r, 'consent') : undefined, consent_source: 'Opt-in on the imported list', do_not_contact: g(r, 'do_not_contact'), dnc_registry: g(r, 'dnc_registry'),
+      birthday: g(r, 'birthday'), referred_by: g(r, 'referred_by') }; }).filter((c) => c.phone || c.email);
+  return { list, mapped: Object.fromEntries(Object.entries(m).map(([f, i]) => [f, h[i]])), skipped: rows.length - 1 - list.length };
+}
+async function importCustomers(preview) {
+  const r = customersFromCsv($('#impText').value, $('#impStage').value); const out = $('#impOut');
+  if (preview) { out.innerHTML = `<p><b>${r.list.length}</b> customers found${r.skipped ? `, ${r.skipped} rows without a phone or email skipped` : ''}.</p><p class="muted small">Columns used: ${Object.entries(r.mapped).map(([f, h]) => `${esc(h)} → ${f.replace('_', ' ')}`).join(', ') || 'none recognized'}</p>
+    <div class="tbl"><table><tr><th>Name</th><th>Phone</th><th>Email</th><th>Stock</th><th>Stage</th><th>Permission</th></tr>${r.list.slice(0, 8).map((c) => `<tr><td>${esc(c.first_name + ' ' + c.last_name)}</td><td>${esc(c.phone)}</td><td>${esc(c.email)}</td><td>${esc(c.stocks)}</td><td>${esc(STAGES[c.stage].label)}</td><td>${bool(c.consent) ? 'Yes' : '—'}</td></tr>`).join('')}</table></div>`; return; }
+  let made = 0, merged = 0; out.textContent = 'Importing…';
+  for (const d of r.list) { const { c, created } = upsert(d); created ? made++ : merged++; await saveCustomer(c); }
+  out.innerHTML = `<p class="ok"><b>${made}</b> added, <b>${merged}</b> updated. <a href="#today">See today's list</a></p>`;
+}
+async function importInventory() {
+  const rows = parseCsv($('#invText').value); if (rows.length < 2) return ($('#invOut').textContent = 'Paste a list with a header row.');
+  const A = { stock_number: ALIASES.stocks, year: ['year', 'yr'], make: ['make'], model: ['model'], trim: ['trim', 'series'], color: ['color', 'exterior color', 'ext color'], miles: ['miles', 'mileage', 'odometer'], status: ['status'] };
+  const m = {}; rows[0].forEach((x, i) => { const k = key(x); for (const [f, n] of Object.entries(A)) if (m[f] === undefined && (k === f.replace('_', ' ') || n.includes(k))) { m[f] = i; break; } });
+  const firstLoad = S.inv.size === 0; let n = 0, drafted = 0;
+  for (const r of rows.slice(1)) { const v = {}; for (const f of Object.keys(A)) v[f] = m[f] !== undefined ? String(r[m[f]] ?? '').trim() : '';
+    v.stock_number = normStock(v.stock_number); if (!v.stock_number) continue; v.status = ['available', 'pending', 'sold'].includes(v.status.toLowerCase()) ? v.status.toLowerCase() : 'available';
+    const before = S.inv.get(v.stock_number); if (firstLoad || drafted >= 40) await saveVehicleDoc({ ...(before || {}), ...v }); else drafted += await saveVehicle({ ...(before || {}), ...v }, before); n++; }
+  $('#invOut').innerHTML = `<p class="ok">${n} vehicles imported.${drafted ? ` ${drafted} "just came in" texts drafted.` : ''}</p>`;
+}
+async function addExamples() {
+  const ago = (d) => new Date(Date.now() - d * DAY).toISOString();
+  const ex = [
+    { first_name: 'Mike', last_name: 'Example', phone: '5552013344', email: 'mike@example.com', stage: 'new_lead', stocks: '24518', vehicle: 'Chevrolet Tahoe', consent: true, consent_source: 'Lead form opt-in', source: 'Cars.com' },
+    { first_name: 'Sara', last_name: 'Example', phone: '5552019999', stage: 'be_back', vehicle: 'Toyota RAV4', objection: 'the monthly payment', consent: true, consent_source: 'Said yes in person' },
+    { first_name: 'Dev', last_name: 'Example', phone: '5552017777', stage: 'phone_up', vehicle: 'Ford F-150' },
+  ];
+  await saveVehicleDoc({ stock_number: '24518', year: '2024', make: 'Chevrolet', model: 'Tahoe', trim: 'LT', color: 'Black', miles: '12,400', status: 'available', example: true });
+  for (const d of ex) { const { c } = upsert({ ...d, example: true }); c.example = true; await saveCustomer(c); }
+  toast('Examples added. Remove them anytime from Today.');
+}
+function saveStep(i) {
+  const st = S.tplTab || 'new_lead'; const arr = cadence(st).map((x) => ({ ...x }));
+  arr[i] = { day: Math.max(0, +$('#td-' + i).value || 0), ch: $('#tc-' + i).value, body: $('#tb-' + i).value, subject: $('#ts-' + i)?.value || arr[i].subject || '' };
+  arr.sort((a, b) => a.day - b.day); S.tpl = { ...S.tpl, cadence: { ...(S.tpl.cadence || DEFAULT_TEMPLATES.cadence), [st]: arr } };
+  return saveTemplates().then(() => toast('Saved'));
+}
+
+/* ============ TARS (Ask Claude) ============ */
+async function openTars() {
+  const sample = await claude.use('sample').catch(() => null);
+  sheet('Ask TARS', `<div class="tars-log" id="tl">${S.tars.map((m) => `<div class="msg ${m.role === 'user' ? 'u' : 'b'}">${esc(m.content)}</div>`).join('') || `<div class="msg b">Ask me about your customers and stock. For example:\n"Who's interested in stock 24518?"\n"What should I do first today?"\n"Book Mike for a test drive Saturday at 11."\n"Sara bought the RAV4."</div>`}</div>
+    ${sample ? `<form class="tars-form" id="tf"><textarea id="ti" rows="2" placeholder="Ask anything…" aria-label="Ask TARS"></textarea><button class="btn pri" type="submit">Ask</button></form>` : '<p class="muted" style="padding:0 16px 16px">TARS isn\'t available in this view. You can ask Claude in the chat instead.</p>'}`, () => {
+    if (!sample) return; const log = $('#tl'); const ti = $('#ti');
+    ti.onkeydown = (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); $('#tf').requestSubmit(); } };
+    $('#tf').onsubmit = async (e) => { e.preventDefault(); const q = ti.value.trim(); if (!q) return; ti.value = '';
+      log.insertAdjacentHTML('beforeend', `<div class="msg u">${esc(q)}</div>`); const out = document.createElement('div'); out.className = 'msg b muted'; out.textContent = 'Thinking…'; log.append(out);
+      const acts = [];
+      try {
+        const r = await sample([...S.tars.slice(-10), { role: 'user', content: q }].map((m, i, arr) => i === arr.length - 1 ? { role: 'user', content: tarsPrompt(q) } : m), {
+          tools: tarsTools(acts), cache: false, onText: ({ text }) => { out.className = 'msg b'; out.textContent = text; },
+        });
+        out.className = 'msg b'; out.textContent = r.text; if (acts.length) out.insertAdjacentHTML('beforeend', `<div class="acts">${acts.map(esc).join('<br>')}</div>`);
+        S.tars.push({ role: 'user', content: q }, { role: 'assistant', content: r.text });
+      } catch (err) { out.className = 'msg b'; out.textContent = err?.code === 'not_granted' ? 'TARS needs your permission to ask Claude. Allow it from this page\'s Permissions menu.' : err?.code === 'rate_limited' ? 'Too many questions at once. Try again in a minute.' : 'Something went wrong: ' + (err?.message || 'try again'); }
+    };
+    ti.focus();
+  });
+}
+function tarsPrompt(q) {
+  const s = S.settings; const L = buildList();
+  return `You are TARS, the assistant inside a car salesperson's follow-up page. Salesperson: ${s.salesperson || 'not set'} at ${s.dealership || 'not set'}. Now: ${new Date().toString()}.
+Stages: new_lead, phone_up, be_back (unsold showroom), appointment, sold, lost, dnc (do not contact). Buckets: Follow Up, Sold, Outreach (lost).
+Today's list has ${L.calls.length} calls and ${L.send.length} messages to send.
+Rules: use the tools to look things up; never invent customers, numbers or prices. Never text or email someone without recorded permission, never contact dnc customers, no price or payment promises. When asked to write a message, use draft_message so it lands on Today. Be brief like a sharp sales manager, short lists, mention names. Messages: friendly-professional, from the salesperson, under 300 characters for texts, one question per message. If a date, time or customer is unclear, ask first.
+
+Question: ${q}`;
+}
+function tarsTools(acts) {
+  const find = (id) => S.customers.get(id);
+  const slim = (c) => ({ id: c.id, name: nm(c), phone: c.phone, email: c.email, stage: c.stage, status: c.status, permission: !!c.consent, stocks: c.stocks, vehicle: c.vehicle, objection: c.objection, last_contact: c.last_contact_at, sold_date: c.sold_date || undefined });
+  return [
+    { name: 'todays_list', description: "Today's calls and messages to send.", inputSchema: { type: 'object', properties: {} },
+      execute: () => { const L = buildList(); return { calls: L.calls.map((i) => ({ customer: nm(i.c), id: i.c.id, why: i.title, type: i.src })), send: L.send.map((i) => ({ customer: nm(i.c), id: i.c.id, channel: i.ch, type: i.src, blocked: i.blocked, message: i.body })) }; } },
+    { name: 'search_customers', description: 'Search customers by name, phone, email, stock number, vehicle or notes; optional stage filter.', inputSchema: { type: 'object', properties: { query: { type: 'string' }, stage: { type: 'string' } } },
+      execute: ({ query = '', stage } = {}) => { const q = query.toLowerCase(); return [...S.customers.values()].filter((c) => (!stage || c.stage === stage) && (!q || [nm(c), c.phone, c.email, c.vehicle, c.notes, ...(c.stocks || [])].join(' ').toLowerCase().includes(q))).slice(0, 40).map(slim); } },
+    { name: 'get_customer', description: 'Full record and recent history for one customer id.', inputSchema: { type: 'object', properties: { id: { type: 'string' } }, required: ['id'] },
+      execute: ({ id }) => { const c = find(id); if (!c) throw new Error('No customer with that id'); return { ...slim(c), notes: c.notes, history: (c.history || []).slice(-15), appointments: [...S.appts.values()].filter((a) => a.customer_id === id) }; } },
+    { name: 'stock_lookup', description: 'A stock number: the vehicle and everyone interested in it.', inputSchema: { type: 'object', properties: { stock_number: { type: 'string' } }, required: ['stock_number'] },
+      execute: ({ stock_number }) => { const s = normStock(stock_number); return { vehicle: S.inv.get(s) || null, interested: [...S.customers.values()].filter((c) => (c.stocks || []).includes(s)).map(slim) }; } },
+    { name: 'list_appointments', description: 'Upcoming appointments.', inputSchema: { type: 'object', properties: {} },
+      execute: () => [...S.appts.values()].filter((a) => new Date(a.at) > Date.now() - DAY).map((a) => ({ id: a.id, when: fmtWhen(a.at), type: a.type, status: a.status, customer: nm(find(a.customer_id) || {}), customer_id: a.customer_id })) },
+    { name: 'set_stage', description: 'Move a customer to a stage (new_lead, phone_up, be_back, appointment, sold, lost, dnc). Restarts that stage\'s follow-up.', inputSchema: { type: 'object', properties: { id: { type: 'string' }, stage: { type: 'string' }, objection: { type: 'string' } }, required: ['id', 'stage'] },
+      execute: async ({ id, stage, objection }) => { const c = find(id); if (!c || !STAGES[stage]) throw new Error('Unknown customer or stage'); if (objection) c.objection = objection; setStage(c, stage); await saveCustomer(c); acts.push(`${nm(c)} moved to ${STAGES[stage].label}`); return 'done'; } },
+    { name: 'add_note', description: 'Add a note to a customer.', inputSchema: { type: 'object', properties: { id: { type: 'string' }, note: { type: 'string' } }, required: ['id', 'note'] },
+      execute: async ({ id, note }) => { const c = find(id); if (!c) throw new Error('No customer'); c.notes = [c.notes, `[${new Date().toLocaleDateString()}] ${note}`].filter(Boolean).join('\n'); await saveCustomer(c); acts.push(`Note added to ${nm(c)}`); return 'done'; } },
+    { name: 'draft_message', description: 'Put a text (sms) or email on Today for the salesperson to send. Placeholders like {first_name} work.', inputSchema: { type: 'object', properties: { id: { type: 'string' }, channel: { type: 'string', enum: ['sms', 'email'] }, body: { type: 'string' }, subject: { type: 'string' } }, required: ['id', 'channel', 'body'] },
+      execute: async ({ id, channel, body, subject }) => { const c = find(id); if (!c) throw new Error('No customer'); const b = blockReason(c, channel); if (b) throw new Error("Can't message them: " + b); c.draft = { ch: channel, body: render(body, c), subject: render(subject || '', c) }; await saveCustomer(c); acts.push(`Drafted a ${channel === 'sms' ? 'text' : 'email'} for ${nm(c)} on Today`); return 'drafted'; } },
+    { name: 'book_appointment', description: 'Book an appointment. when is local date and time like 2026-11-14T11:00. type: test_drive, appraisal, visit, delivery, phone_call.', inputSchema: { type: 'object', properties: { id: { type: 'string' }, when: { type: 'string' }, type: { type: 'string' }, stock_number: { type: 'string' } }, required: ['id', 'when', 'type'] },
+      execute: async ({ id, when, type, stock_number }) => { const c = find(id); if (!c) throw new Error('No customer'); if (c.stage === 'dnc') throw new Error('Do not contact'); const at = new Date(when); if (isNaN(at)) throw new Error('Bad date');
+        const a = { id: S.db ? S.db.collection('appointments').doc().id : 'a' + Date.now(), customer_id: id, at: at.toISOString(), type: APPT_TYPES[type] ? type : 'visit', stock: normStock(stock_number), status: 'scheduled', notes: '', created_at: nowIso() };
+        await saveAppt(a); if (!['appointment', 'sold'].includes(c.stage)) setStage(c, 'appointment'); if (c.status === 'replied') { c.status = 'active'; delete c.reply_text; } await saveCustomer(c); acts.push(`Booked ${nm(c)}: ${fmtWhen(a.at)}`); return { booked: fmtWhen(a.at) }; } },
+  ];
+}
+
+/* ============ boot ============ */
+document.getElementById('tabs').addEventListener('click', (e) => { const a = e.target.closest('a[data-v]'); if (a && location.hash === '#' + a.dataset.v) { e.preventDefault(); go(); } });
+window.addEventListener('hashchange', go);
+$('#askBtn').onclick = () => openTars();
+document.addEventListener('focusout', (e) => { if (e.target.dataset && e.target.dataset.keep !== undefined && e.target.closest('#view')) setTimeout(() => { if (!document.activeElement?.closest?.('#view [data-keep]')) scheduleRender(); }, 150); });
+go();
+setInterval(() => { if (!document.activeElement?.closest?.('#view [data-keep]')) scheduleRender(); }, 60000);
+
+(async () => {
+  const db = window.claude ? await claude.use('db').catch(() => null) : null;
+  if (!db) { S.offline = true; S.loaded.customers = true; renderView(); $('#view').insertAdjacentHTML('afterbegin', '<div class="note">Sign in to claude.ai to save your customers. Nothing you enter here can be saved right now.</div>'); return; }
+  S.db = db;
+  const timer = setTimeout(() => { S.offline = true; scheduleRender(); }, 10000);
+  const sub = (col, map, keyField, flag) => db.collection(col).onSnapshot((snap) => {
+    map.clear(); for (const d of snap.docs) { const x = d.data(); if (x) map.set(keyField ? x[keyField] || d.id : d.id, { ...x, id: x.id || d.id }); }
+    if (!snap.metadata.fromCache) { S.loaded[flag] = true; if (flag === 'customers') { clearTimeout(timer); S.offline = false; } }
+    else if (map.size) S.loaded[flag] = true;
+    scheduleRender();
+  }, () => { S.loaded[flag] = true; S.offline = true; clearTimeout(timer); scheduleRender(); });
+  sub('customers', S.customers, null, 'customers'); sub('appointments', S.appts, null, 'appts'); sub('inventory', S.inv, 'stock_number', 'inv');
+  db.doc('config/settings').onSnapshot((d) => { if (d.exists) S.settings = { ...DEFAULT_SETTINGS, ...d.data() }; scheduleRender(); }, () => {});
+  db.doc('config/templates').onSnapshot((d) => { if (d.exists) S.tpl = { ...DEFAULT_TEMPLATES, ...d.data() }; scheduleRender(); }, () => {});
+})();
+</script>
