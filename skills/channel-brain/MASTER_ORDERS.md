@@ -31,8 +31,8 @@ Then, only if still needed:
 ## Read dates and live tests
 Read each test on its date, not before.
 - **Sat 11/14 evening:** the comedy test (Nolan 11/12: "Do we want mkre comedy in yr videos", "Post some of those today to test"; the log has the section) at 48 hours: Thursday's funny Shorts against the plain one of that day, then Windsor. At 10 hours the funny Shorts ran about 1.7 times the plain one at the same age (`oh-meatball/research/102`).
-- **Fri 11/13 evening and Sat 11/14:** the sweary dog-stare cut on YouTube (10:00) against Friday's mild funny Shorts ("TikToks over one minute; one sweary cut on YouTube").
-- **Sat 11/14:** Windsor will have the engaged share for the 11/10-11/11 Shorts: under 0.39 means viewers swiped, 0.40 or more with tiny views means YouTube did not show them. Read the Fri 11/13 dog Short's public thumbnail (cover test, "Tags and everything").
+- **Sun 11/15 10:00:** the sweary dog-stare Short at 48 hours (852 views at 21 hours, level with the mild funny Shorts; `oh-meatball/research/115`).
+- **Read 11/14:** Wednesday's weak Shorts had engaged shares of 0.30 to 0.39: viewers swiped, YouTube did not hold them back (`oh-meatball/research/115`). The cover-frame test is void: Friday's dog Short has 1 view (open question for Studio); set no cover frames.
 - **Sat 11/14 to Sun 11/15:** Windsor youtube, one call per video with the filter [["video","eq",ID]], fields date, traffic_source, views, engaged_views, for the five 11/10-11/11 Shorts and the 11/12 cat and moose Shorts; compare with 11/07-11/09 (feed 4,338 / 3,650 / 3,536 views a day; search 161 / 150 / 132).
 - **Sun 11/15:** the funnier seven's average % viewed and engaged share (Windsor), against 81% and 0.50.
 - **Wed 11/18:** first read of the pet and survival Shorts, against the bug Shorts posted the same days at the same age (not the old 1,155 median). **Tue 11/17 to Sat 11/21:** one Windsor `traffic_source` call a day for the spider long video (does anything arrive from Shorts or Related?).
@@ -57,11 +57,6 @@ Read each test on its date, not before.
 - **For a game:** all drawn, no game footage, logos, characters or art from the game; only what the publisher or major outlets report, with dates.
 - **Airline outage (11/13 about 18:50 ET):** "Make a TikTok and short on the airline outage now and post immidentaly" (the FAA ground stop): both platforms at once; a developing story carries its date and time on screen, re-checked at posting (`oh-meatball/research/110`, `111`). Its TikTok had 2,845 plays in 40 minutes. Asked "Do we make a part 2" and shown the new facts, he said (about 19:55): "Go make it and post now". Lesson (research 102): news posted within hours passed 2,500 three times; the planned topic made 935, and no-news follow-ups made 81 (Jensen part 2) and 143 at 40 minutes (the airline update, stale minutes after posting: the stop was lifted). Offered a third ("why it stopped"), he said about 20:58: "Fuck Tibet not can't hurt" (my reading: fuck it, why not). It made 9,631 plays in 1.4 hours: my advice was wrong. Rule now: a follow-up needs a new event that answers a new question (lifted, and why); "still going" and recaps fail.
 - **Which news (11/13 about 22:39 ET):** "what other news can we do this with that draws lots of search views cause all the big videos we have are search view traffic" (the search share is his reading of Studio; not visible from here). Answer and watchlist: `oh-meatball/research/114`: sudden things that break many people's day (outages, travel stops, launch-day failures, recalls, a sudden exit), first hours and then the cause; no war, deaths, courts, sport or gossip. Offered a news watch, he said "Yes": a scheduled task four times a day (fresh session, no builds, no posts) alerts the main session on a hit; he says go; log in `oh-meatball/data/news-watch-log.csv`.
-
-## The best content today, and maybe a long video today (Nolan, 11/13 about 08:55 ET)
-- **His words:** "I want the best content posted today and maybe a long form today". My reading: today's posts are the strongest videos we have on both platforms, and a long video goes out today; his order wins over the usual slots for the day.
-- **Done (in Metricool by 10:50 ET; the reasoning is in the log):** the house cat long video today 17:00 (72-hour read Mon 11/16, before the lion is built), funny Shorts at 10:00, 13:00 and 19:00, the cat purr minute TikTok tonight 21:30, and the nine funny bug Shorts swapped into their slots (`oh-meatball/data/pending-swaps.csv`, every row done). Sat 11/28 08:00 is open for the lion if it is ready by Thu 11/26.
-- **When Metricool does not load here:** a fresh helper session can reach it, but it does only what its first brief lists (on 11/13 it refused every change sent later as a message): put all the changes in the brief.
 
 ## Do all three; the lion is next (Nolan, 11/13 about 08:30 ET)
 - **His words:** asked "what recommendations do u have", he got three (a "your life as an animal" long video every Saturday in December, every Short funny, TikTok left alone for a week) and answered: "Ok do all three go with the lion".
@@ -254,6 +249,8 @@ Match each background agent to its job: cheap models for chores, the strongest f
 | Review | **a different model than the builder** | fact-check scripts against `_sources`, QA contact sheets before anything is scheduled |
 
 Each Short or long-form gets a second pass by a different model before it's scheduled.
+
+**When Metricool does not load here**, a fresh helper session can reach it, but it does only what its first brief lists: put every change in the brief (11/13).
 
 **Agents never change the repo with git** (11/12: a reviewer's failed `cd` ran a commit and a checkout in the real repo and wiped four uncommitted files; they were rebuilt from the session log). Every brief says: no add, commit, checkout, restore, reset, stash, clean or sparse-checkout; the main session commits, and commits before it starts any agent.
 

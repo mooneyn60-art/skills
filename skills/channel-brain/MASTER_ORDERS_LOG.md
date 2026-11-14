@@ -562,3 +562,11 @@ Lines moved from MASTER_ORDERS on 11/13 13:25 ET when the next order came in:
 ## Moved out of MASTER_ORDERS 11/13 23:05 (size; the drawn-only rule stays in STYLE LOCK)
 - **His answer (11/12 about 10:05 ET, with the 615-against-340 numbers in front of him): "No, keep it all drawn".** So no real photos or footage on TikTok either; the look stays fully drawn. Do not propose it again unless he raises it; the cartoon label stays a noted lead, not a test.
 - **For You vs Search (research 81, 11/11):** captions and hashtags are not the lever; what puts a video on For You is people finishing it. The caption standard is in "Tags and everything, from every angle". Not measurable from here: the For You/Search split and retention per video (only TikTok Studio shows them).
+
+## Moved out of MASTER_ORDERS on 11/14 (finished)
+## The best content today, and maybe a long video today (Nolan, 11/13 about 08:55 ET)
+- **His words:** "I want the best content posted today and maybe a long form today". My reading: today's posts are the strongest videos we have on both platforms, and a long video goes out today; his order wins over the usual slots for the day.
+- **Done (in Metricool by 10:50 ET; the reasoning is in the log):** the house cat long video today 17:00 (72-hour read Mon 11/16, before the lion is built), funny Shorts at 10:00, 13:00 and 19:00, the cat purr minute TikTok tonight 21:30, and the nine funny bug Shorts swapped into their slots (`oh-meatball/data/pending-swaps.csv`, every row done). Sat 11/28 08:00 is open for the lion if it is ready by Thu 11/26.
+- **When Metricool does not load here:** a fresh helper session can reach it, but it does only what its first brief lists (on 11/13 it refused every change sent later as a message): put all the changes in the brief.
+- **Fri 11/13 evening and Sat 11/14:** the sweary dog-stare cut on YouTube (10:00) against Friday's mild funny Shorts ("TikToks over one minute; one sweary cut on YouTube").
+- **Sat 11/14:** Windsor will have the engaged share for the 11/10-11/11 Shorts: under 0.39 means viewers swiped, 0.40 or more with tiny views means YouTube did not show them. Read the Fri 11/13 dog Short's public thumbnail (cover test, "Tags and everything").
