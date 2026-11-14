@@ -96,3 +96,6 @@ The FAA nationwide ground stop on departures. Pack `research/110`, second-model 
 - Against the median 333: FAA 8.5x in 40 minutes, Jensen 9.1x, Microsoft 8.1x, GTA 6 2.8x, Jensen part 2 0.24x.
 - Pattern so far (five posts, not a finding yet): the three breaking-news explainers posted within hours of the event passed 2,500; the planned topic (GTA 6) is at 935; the sequel flopped.
 - YouTube Shorts: FAA 7 views at 0.7 h; grizzly (19:00) 3; Jensen 225 (9.0 h); sweary dog stare 466 (9.8 h); house cat long video 0 in the public listing at 2.8 h (the listing lags for new long videos).
+
+## Ground stop update video (Nolan about 19:55 ET: "Go make it and post now")
+Second-model check `research/112` (about 19:57 ET: stop still on; cancellations 4,238 per FlightAware at 19:30, not 2,000; the Saturday figure and the "airlines warn" line had no source and were cut). Status looked at again at 20:03 ET (web search): still in effect. Both cuts scheduled 20:09 ET: TikTok 65.7 s (uuid -3299661081009369728), YouTube Short 30.7 s (uuid -1523963130350517870).
