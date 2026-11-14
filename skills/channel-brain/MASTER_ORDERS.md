@@ -15,7 +15,7 @@ Audience: Meatball Town (all desks), Nolan
 
 ## Where we are (11/12)
 - **YouTube:** 1,000 subscribers reached 11/11. Long-form: 683 views and 10.6 hours in 28 days, against 4,000 hours needed (Nolan's Studio paste, 11/11).
-- **TikTok:** 9,323 followers (TikTok Studio, 28 days to 11/10). Median about 226 views a post (78 posts, 10/23-11/10, Metricool). **He is in Creator Rewards** (Nolan 11/14: "I'm in the creator fund remember that"): never say again that it cannot be joined.
+- **TikTok:** 9,323 followers (TikTok Studio, 28 days to 11/10). Median about 226 views a post (78 posts, 10/23-11/10, Metricool). **He is in Creator Rewards** (Nolan 11/14: "I'm in the creator fund remember that").
 - **The two jobs:** get views unstuck on both platforms (Nolan 11/12) and earn the 4,000 long-form hours.
 - The 10/28 numbers are in the log under "Overview".
 
