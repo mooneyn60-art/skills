@@ -1,0 +1,199 @@
+{
+ "_what": "Third airline video: the ground stop is lifted, and why it happened (Nolan 11/13 about 20:58 ET, told the two sequels got 81 and 143 plays and offered this one: 'Fuck Tibet not can't hurt', read as 'fuck it, why not, can't hurt'). TikTok lines c1 to c11, YouTube lines w1 to w7. Facts from web-search summaries at 20:53 ET: NOT yet checked by a second model.",
+ "_rules": "Jokes aim at Meatball only; never at passengers, controllers, crews or officials, and no joke says or hints that flying is unsafe. A cause is only what a named official or outlet said, attributed; the CBS report stays 'not confirmed'. No joke adds a number, a cause or a claim. All drawn: no airline or agency logos, no real people. Captions soften swear spelling (cap_swap). YouTube cut: mild words only. Title, description and caption are clean.",
+ "lines": [
+  {
+   "id": "c1",
+   "kind": "hook",
+   "say": "The ground stop is over. Here's why the hell departures across America stopped.",
+   "card": [
+    "GROUND STOP LIFTED",
+    "WHY IT HAPPENED",
+    "AS OF FRI NOV 13, 9 PM ET"
+   ],
+   "vis": "Frame 0: the night gate; the departures board flips from DELAYED to BOARDING; a plane's lights start to move outside."
+  },
+  {
+   "id": "c2",
+   "kind": "joke",
+   "say": "Meatball finally boarded. Middle seat. Next to the bathroom. He's thrilled.",
+   "card": [
+    "MIDDLE SEAT",
+    "NEXT TO THE BATHROOM"
+   ],
+   "vis": "Inside a generic plane cabin: Meatball wedged in a middle seat, a bathroom door right beside him."
+  },
+  {
+   "id": "c3",
+   "kind": "fact",
+   "say": "The FAA lifted it shortly after eight Eastern, about four hours after it started.",
+   "card": [
+    "LIFTED SHORTLY AFTER 8 PM ET",
+    "ABOUT 4 HOURS (FAA)"
+   ],
+   "vis": "The clock from the update video stops just past 8; the board rows turn to BOARDING one by one."
+  },
+  {
+   "id": "c4",
+   "kind": "fact+joke",
+   "say": "Nearly five thousand flights were cancelled. Meatball's pretzel budget did not survive.",
+   "card": [
+    "NEARLY 5,000 FLIGHTS CANCELLED",
+    "(REPORTED)"
+   ],
+   "vis": "The board with CANCELLED rows; Meatball turns out an empty pocket, a pretzel wrapper falls."
+  },
+  {
+   "id": "c5",
+   "kind": "fact+joke",
+   "say": "So why? The Transportation Secretary pointed to inconsistency in data from routers in the air traffic control system. Meatball's whole tech support plan is unplugging things and waiting.",
+   "card": [
+    "\"INCONSISTENCY\" IN ROUTER DATA",
+    "(TRANSPORTATION SECRETARY)"
+   ],
+   "vis": "A rack of generic network routers with blinking lights out of sync; cut to Meatball at home holding a pulled plug, counting on his fingers."
+  },
+  {
+   "id": "c6",
+   "kind": "fact+joke",
+   "say": "He also called it an incredibly old air traffic control system. Meatball's flip phone felt that one.",
+   "card": [
+    "\"INCREDIBLY OLD AIR TRAFFIC CONTROL SYSTEM\"",
+    "(TRANSPORTATION SECRETARY)"
+   ],
+   "vis": "Quote card over the tower and radar desk; Meatball looks at his old flip phone."
+  },
+  {
+   "id": "c7",
+   "kind": "fact_reported",
+   "say": "CBS News, citing sources, reported a network update made the system reboot and crash. That part isn't confirmed.",
+   "card": [
+    "REPORT: A NETWORK UPDATE, THEN A CRASH",
+    "CBS NEWS, CITING SOURCES",
+    "NOT CONFIRMED"
+   ],
+   "vis": "The server rack with the UPDATING wheel going dark; NOT CONFIRMED stamp. Played straight."
+  },
+  {
+   "id": "c8",
+   "kind": "fact+joke",
+   "say": "Homeland Security's secretary said there was no indication of a nefarious act. No villain. Meatball's a little disappointed.",
+   "card": [
+    "NO INDICATION OF A NEFARIOUS ACT",
+    "(HOMELAND SECURITY SECRETARY)"
+   ],
+   "vis": "The intact padlock; Meatball lowers a magnifying glass."
+  },
+  {
+   "id": "c9",
+   "kind": "fact",
+   "say": "Flights are moving again, but with thousands cancelled, expect delays. Check your airline's app before you leave the house.",
+   "card": [
+    "FLIGHTS MOVING AGAIN",
+    "EXPECT DELAYS",
+    "CHECK YOUR AIRLINE'S APP"
+   ],
+   "vis": "Planes taking off normally past the gate window, one after another; the phone with the generic flight-status screen."
+  },
+  {
+   "id": "c10",
+   "kind": "joke",
+   "say": "Meatball texted his cat, Sauce: coming home. Sauce sat on the phone.",
+   "card": [
+    "SAUCE SAT ON THE PHONE"
+   ],
+   "vis": "At home: the phone lights up on the nightstand; the orange cat, Sauce, steps onto it and sits."
+  },
+  {
+   "id": "c11",
+   "kind": "punch",
+   "say": "So did you make it out tonight, or are you still stuck? Tell me. Because",
+   "card": [
+    "MADE IT OUT OR STILL STUCK? COMMENT"
+   ],
+   "vis": "Back to the frame-0 night gate and pose so the loop into c1 is seamless; question in a top-corner pill."
+  }
+ ],
+ "yt_lines": [
+  {
+   "id": "w1",
+   "from": "c1",
+   "say": "The ground stop is over. Here's why it happened.",
+   "card": [
+    "GROUND STOP LIFTED",
+    "WHY IT HAPPENED",
+    "AS OF FRI NOV 13, 9 PM ET"
+   ]
+  },
+  {
+   "id": "w2",
+   "from": "c2",
+   "say": "Meatball finally boarded. Middle seat. Next to the bathroom.",
+   "card": [
+    "MIDDLE SEAT",
+    "NEXT TO THE BATHROOM"
+   ]
+  },
+  {
+   "id": "w3",
+   "from": "c3",
+   "say": "The FAA lifted it shortly after eight Eastern. Nearly five thousand flights were cancelled.",
+   "card": [
+    "LIFTED SHORTLY AFTER 8 PM ET",
+    "NEARLY 5,000 FLIGHTS CANCELLED (REPORTED)"
+   ]
+  },
+  {
+   "id": "w4",
+   "from": "c5",
+   "say": "The Transportation Secretary pointed to inconsistent data from routers, in what he called an incredibly old air traffic control system.",
+   "card": [
+    "\"INCONSISTENCY\" IN ROUTER DATA",
+    "\"INCREDIBLY OLD\" SYSTEM (TRANSPORTATION SECRETARY)"
+   ]
+  },
+  {
+   "id": "w5",
+   "from": "c7",
+   "say": "CBS News reported a network update made the system crash. Not confirmed.",
+   "card": [
+    "REPORT: A NETWORK UPDATE, THEN A CRASH",
+    "CBS NEWS. NOT CONFIRMED"
+   ]
+  },
+  {
+   "id": "w6",
+   "from": "c8",
+   "say": "Homeland Security's secretary said there was no indication of a nefarious act.",
+   "card": [
+    "NO INDICATION OF A NEFARIOUS ACT",
+    "(HOMELAND SECURITY SECRETARY)"
+   ]
+  },
+  {
+   "id": "w7",
+   "from": "c10+c11",
+   "say": "Meatball texted his cat, Sauce. Sauce sat on the damn phone. So did you make it out, or are you still stuck? Because",
+   "card": [
+    "MADE IT OUT OR STILL STUCK? COMMENT"
+   ]
+  }
+ ],
+ "tiktok_title": "Why the Ground Stop Happened",
+ "tiktok_caption": "why did the faa ground stop happen ✈️ As of Fri Nov 13, 9 pm ET: the FAA lifted the nationwide stop on departures shortly after 8 pm ET, about four hours after it began. Nearly 5,000 flights were cancelled. The Transportation Secretary pointed to inconsistency in data from routers in what he called an incredibly old air traffic control system. CBS News reported a network update made the system crash (not confirmed). Homeland Security's secretary said there was no indication of a nefarious act. Expect delays; check your airline's app. Meatball got a middle seat. Did you make it out or are you still stuck? #groundstop #faa #flightsgrounded #flightdelay #travel",
+ "youtube_title": "Why the FAA Ground Stop Happened: Lifted After About 4 Hours ✈️ (Meatball Explains)",
+ "youtube_description": "Why did the FAA ground stop happen, and is it over? As of Fri Nov 13, 2026, 9 pm ET: the FAA lifted the nationwide stop on departures shortly after 8 pm ET, about four hours after it began. Nearly 5,000 flights were cancelled. The Transportation Secretary pointed to inconsistency in data from routers in what he called an incredibly old air traffic control system. CBS News, citing sources, reported that a network update made the system reboot and crash; that is not confirmed. Homeland Security Secretary Markwayne Mullin said there was no indication of a nefarious act. Flights are moving again; expect delays and check your airline before you leave. The jokes are ours; the facts are sourced below.\n\n#groundstop #faa #flightsgrounded #meatballmyths #shorts\n\nSources: FAA and U.S. Department of Transportation statements (Nov 13, 2026); Scripps News, CNN, ABC News and CBS News coverage (Nov 13, 2026).",
+ "youtube_tags": [
+  "why did the faa ground stop happen",
+  "faa ground stop lifted",
+  "faa ground stop",
+  "ground stop lifted",
+  "flights grounded today",
+  "nationwide ground stop",
+  "faa outage cause",
+  "flights resume",
+  "faa news",
+  "meatball myths"
+ ],
+ "youtube_pinned": "Did you make it out tonight, or are you still stuck? Tell us where 👇"
+}
