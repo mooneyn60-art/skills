@@ -15,7 +15,7 @@ Audience: Meatball Town (all desks), Nolan
 
 ## Where we are (11/12)
 - **YouTube:** 1,000 subscribers reached 11/11. Long-form: 683 views and 10.6 hours in 28 days, against 4,000 hours needed (Nolan's Studio paste, 11/11).
-- **TikTok:** 9,323 followers (TikTok Studio, 28 days to 11/10). Median about 226 views a post (78 posts, 10/23-11/10, Metricool). Creator Rewards was restored 11/11 but cannot be joined yet: it needs 10,000 followers and 100,000 views in 30 days.
+- **TikTok:** 9,323 followers (TikTok Studio, 28 days to 11/10). Median about 226 views a post (78 posts, 10/23-11/10, Metricool). **He is in Creator Rewards** (Nolan 11/14: "I'm in the creator fund remember that"): never say again that it cannot be joined.
 - **The two jobs:** get views unstuck on both platforms (Nolan 11/12) and earn the 4,000 long-form hours.
 - The 10/28 numbers are in the log under "Overview".
 
@@ -284,4 +284,4 @@ Read first from 11/12, because they can be pulled every day (`scoreboard` skill)
 The full list moved to `KNOWLEDGE.md` ("Verified platform facts", moved 11/13). The ones used most:
 - **YPP:** 1,000 subscribers plus 4,000 long-video hours in 12 months, or 10M Shorts views in 90 days. Shorts-feed watch time does not count. **From 2027-02-01 new applicants need 8,000 hours or 20M Shorts views.**
 - **Shorts:** each video is judged on its own; a weak upload does not penalize the channel and no cadence is required. No official stayed-to-watch benchmark exists.
-- **TikTok Creator Rewards:** 10K followers plus 100K views in 30 days to join; pays only on original videos of 1 minute or more that reach 1,000 qualified For You views.
+- **TikTok Creator Rewards (he is in it):** pays on original videos of 1 minute or more once they reach 1,000 qualified For You views. Whether search views count is disputed between TikTok's own pages (KNOWLEDGE); his Rewards dashboard decides.
