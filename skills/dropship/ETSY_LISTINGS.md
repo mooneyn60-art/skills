@@ -330,3 +330,87 @@ Tee and mug listings for eight more designs. Print files are `PRINT-<name>.png` 
 - **Price:** $18.00
 - **Tags:** doodle mug, dog mom mug, dog coffee mug, dog birthday, birthday dog shirt, party dog, goldendoodle gift, doodle mom gift, labradoodle gift, bernedoodle gift, doodle lover, cute dog cartoon, dog owner gift
 - **Description:** A cute cartoon of a doodle in a party hat, with the words "Party Animal" and "Birthday mode: on". Made for goldendoodle, labradoodle and bernedoodle people. Ceramic mug, 11 oz or 15 oz, dishwasher and microwave safe. Printed to order in the USA. Artwork created with AI tools.
+
+# Third batch: doodle mom and dad
+
+Tee and mug listings for five mom, dad and parents designs. Print files are `PRINT-<name>.png` in `fureverfaces/print/`, using the name in brackets. List these first: they are what doodle owners search for.
+
+## Doodle Mom (mom)
+
+### Doodle Mom: Tee
+
+- **Title:** Goldendoodle T-Shirt, Doodle Mom Doodle Shirt, Doodle Mom Dad Gift, Cute Cartoon Dog Lover Tee, Unisex
+- **Price:** $26.00
+- **Tags:** doodle shirt, dog mom shirt, dog lover tee, doodle mom shirt, dog mom gift, mothers day dog, goldendoodle gift, doodle mom gift, labradoodle gift, bernedoodle gift, doodle lover, cute dog cartoon, dog owner gift
+- **Description:** A cute cartoon of a doodle in a pink bandana, with the words "Doodle Mom" and "Curls, cuddles & chaos". Made for goldendoodle, labradoodle and bernedoodle people. Unisex cotton tee (Bella + Canvas), sizes S to 2XL. Printed to order in the USA. Artwork created with AI tools.
+
+### Doodle Mom: Mug
+
+- **Title:** Goldendoodle Mug, Doodle Mom Doodle Coffee Mug, Doodle Mom Dad Gift, Cute Cartoon Dog Lover Cup
+- **Price:** $18.00
+- **Tags:** doodle mug, dog mom mug, dog coffee mug, doodle mom shirt, dog mom gift, mothers day dog, goldendoodle gift, doodle mom gift, labradoodle gift, bernedoodle gift, doodle lover, cute dog cartoon, dog owner gift
+- **Description:** A cute cartoon of a doodle in a pink bandana, with the words "Doodle Mom" and "Curls, cuddles & chaos". Made for goldendoodle, labradoodle and bernedoodle people. Ceramic mug, 11 oz or 15 oz, dishwasher and microwave safe. Printed to order in the USA. Artwork created with AI tools.
+
+## Doodle Dad (dad)
+
+### Doodle Dad: Tee
+
+- **Title:** Goldendoodle T-Shirt, Doodle Dad Doodle Shirt, Doodle Mom Dad Gift, Cute Cartoon Dog Lover Tee, Unisex
+- **Price:** $26.00
+- **Tags:** doodle shirt, dog mom shirt, dog lover tee, doodle dad shirt, dog dad gift, fathers day dog, goldendoodle gift, doodle mom gift, labradoodle gift, bernedoodle gift, doodle lover, cute dog cartoon, dog owner gift
+- **Description:** A cute cartoon of a doodle in a baseball cap, with the words "Doodle Dad" and "Chief treat officer". Made for goldendoodle, labradoodle and bernedoodle people. Unisex cotton tee (Bella + Canvas), sizes S to 2XL. Printed to order in the USA. Artwork created with AI tools.
+
+### Doodle Dad: Mug
+
+- **Title:** Goldendoodle Mug, Doodle Dad Doodle Coffee Mug, Doodle Mom Dad Gift, Cute Cartoon Dog Lover Cup
+- **Price:** $18.00
+- **Tags:** doodle mug, dog mom mug, dog coffee mug, doodle dad shirt, dog dad gift, fathers day dog, goldendoodle gift, doodle mom gift, labradoodle gift, bernedoodle gift, doodle lover, cute dog cartoon, dog owner gift
+- **Description:** A cute cartoon of a doodle in a baseball cap, with the words "Doodle Dad" and "Chief treat officer". Made for goldendoodle, labradoodle and bernedoodle people. Ceramic mug, 11 oz or 15 oz, dishwasher and microwave safe. Printed to order in the USA. Artwork created with AI tools.
+
+## Doodle Mom Era (era)
+
+### Doodle Mom Era: Tee
+
+- **Title:** Goldendoodle T-Shirt, Doodle Mom Era Doodle Shirt, Doodle Mom Dad Gift, Cute Cartoon Dog Lover Tee, Unisex
+- **Price:** $26.00
+- **Tags:** doodle shirt, dog mom shirt, dog lover tee, doodle mom era, dog mom era, dog mom gift, goldendoodle gift, doodle mom gift, labradoodle gift, bernedoodle gift, doodle lover, cute dog cartoon, dog owner gift
+- **Description:** A cute cartoon of a sitting doodle puppy, with the words "Doodle Mom Era" and "This one is permanent". Made for goldendoodle, labradoodle and bernedoodle people. Unisex cotton tee (Bella + Canvas), sizes S to 2XL. Printed to order in the USA. Artwork created with AI tools.
+
+### Doodle Mom Era: Mug
+
+- **Title:** Goldendoodle Mug, Doodle Mom Era Doodle Coffee Mug, Doodle Mom Dad Gift, Cute Cartoon Dog Lover Cup
+- **Price:** $18.00
+- **Tags:** doodle mug, dog mom mug, dog coffee mug, doodle mom era, dog mom era, dog mom gift, goldendoodle gift, doodle mom gift, labradoodle gift, bernedoodle gift, doodle lover, cute dog cartoon, dog owner gift
+- **Description:** A cute cartoon of a sitting doodle puppy, with the words "Doodle Mom Era" and "This one is permanent". Made for goldendoodle, labradoodle and bernedoodle people. Ceramic mug, 11 oz or 15 oz, dishwasher and microwave safe. Printed to order in the USA. Artwork created with AI tools.
+
+## Best Doodle Dad (best)
+
+### Best Doodle Dad: Tee
+
+- **Title:** Goldendoodle T-Shirt, Best Doodle Dad Doodle Shirt, Doodle Mom Dad Gift, Cute Cartoon Dog Lover Tee, Unisex
+- **Price:** $26.00
+- **Tags:** doodle shirt, dog mom shirt, dog lover tee, best dog dad, doodle dad gift, dog dad gift, goldendoodle gift, doodle mom gift, labradoodle gift, bernedoodle gift, doodle lover, cute dog cartoon, dog owner gift
+- **Description:** A cute cartoon of a sitting cream doodle puppy, with the words "Best Doodle Dad" and "According to the dog". Made for goldendoodle, labradoodle and bernedoodle people. Unisex cotton tee (Bella + Canvas), sizes S to 2XL. Printed to order in the USA. Artwork created with AI tools.
+
+### Best Doodle Dad: Mug
+
+- **Title:** Goldendoodle Mug, Best Doodle Dad Doodle Coffee Mug, Doodle Mom Dad Gift, Cute Cartoon Dog Lover Cup
+- **Price:** $18.00
+- **Tags:** doodle mug, dog mom mug, dog coffee mug, best dog dad, doodle dad gift, dog dad gift, goldendoodle gift, doodle mom gift, labradoodle gift, bernedoodle gift, doodle lover, cute dog cartoon, dog owner gift
+- **Description:** A cute cartoon of a sitting cream doodle puppy, with the words "Best Doodle Dad" and "According to the dog". Made for goldendoodle, labradoodle and bernedoodle people. Ceramic mug, 11 oz or 15 oz, dishwasher and microwave safe. Printed to order in the USA. Artwork created with AI tools.
+
+## Doodle Parents (fam)
+
+### Doodle Parents: Tee
+
+- **Title:** Goldendoodle T-Shirt, Doodle Parents Doodle Shirt, Doodle Mom Dad Gift, Cute Cartoon Dog Lover Tee, Unisex
+- **Price:** $26.00
+- **Tags:** doodle shirt, dog mom shirt, dog lover tee, dog parents gift, couple dog gift, doodle family, goldendoodle gift, doodle mom gift, labradoodle gift, bernedoodle gift, doodle lover, cute dog cartoon, dog owner gift
+- **Description:** A cute cartoon of two doodles riding in a vintage car, with the words "Doodle Parents" and "Yes, these are our kids". Made for goldendoodle, labradoodle and bernedoodle people. Unisex cotton tee (Bella + Canvas), sizes S to 2XL. Printed to order in the USA. Artwork created with AI tools.
+
+### Doodle Parents: Mug
+
+- **Title:** Goldendoodle Mug, Doodle Parents Doodle Coffee Mug, Doodle Mom Dad Gift, Cute Cartoon Dog Lover Cup
+- **Price:** $18.00
+- **Tags:** doodle mug, dog mom mug, dog coffee mug, dog parents gift, couple dog gift, doodle family, goldendoodle gift, doodle mom gift, labradoodle gift, bernedoodle gift, doodle lover, cute dog cartoon, dog owner gift
+- **Description:** A cute cartoon of two doodles riding in a vintage car, with the words "Doodle Parents" and "Yes, these are our kids". Made for goldendoodle, labradoodle and bernedoodle people. Ceramic mug, 11 oz or 15 oz, dishwasher and microwave safe. Printed to order in the USA. Artwork created with AI tools.
