@@ -86,3 +86,6 @@ Pack `research/108`, second-model check `research/109` (15 fixes across the thre
 
 ## 17:10 ET read (six minutes after the last one; same sources)
 - TikTok: Microsoft outage 2,322 (2.1 h), Jensen 2,897 (6.3 h), GTA 6 648 (3.1 h), Jensen part 2 37 (1.0 h). YouTube: house cat long video listed, 0 views at 10 minutes; Jensen Short 169; dog stare 327.
+
+## Airline outage video (Nolan about 18:50 ET: "Make a TikTok and short on the airline outage now and post immidentaly")
+The FAA nationwide ground stop on departures. Pack `research/110`, second-model check `research/111` (status checked about 19:00 ET: departures still held; 10 line fixes applied). Status looked at again at 19:02 ET (web search): no report of a lift. Both cuts scheduled 19:08 ET: TikTok 74.1 s (uuid 6397541576319387096), YouTube Short 38.7 s (uuid -76632493276904415). If the stop is lifted, the "as of 7 pm ET" wording stays true; add a pinned comment or caption word only if a claim in it turns out wrong.
