@@ -63,3 +63,29 @@ Mug print: three copies at x 0.17/0.5/0.83, scale 0.31. Ornament scale 0.6. Tee 
 - orn-snow: 6af8cbe0ca5d307abc011785
 - orn-mom: 6af8cbe79e4469c0080fad9f
 - orn-dad: 6af8cbeda62de2d61c0bf283
+
+## Added later on 2026-11-14
+
+Funny tees (toon5) and matching dog sets. Dog items: Pet Bandana (blueprint 562, Printed Mint 70, $18.99, print scale 0.29 at y 0.34) and Pet Tank Top (571, Printed Mint 70, $27.99, scale 0.9 at y 0.35). Each dog listing links to its human tee and back.
+Daily report scheduled task: 'Doodle shop daily report' (22:17 UTC), read-only.
+
+- band-mom: 6af8d0c59e4469c0080fb1ab
+- tank-mom: 6af8d0cc948a470d52069301
+- band-dad: 6af8d0d36d67bf35520c7be4
+- tank-dad: 6af8d0d9383728621d00d9aa
+- band-santa: 6af8d0df2ffca93f7e0c73e8
+- tank-santa: 6af8d0e4383728621d00d9bc
+- band-fam: 6af8d0eac745d035040e5136
+- tank-fam: 6af8d0f06d67bf35520c7c05
+- band-velcro: 6af8d0f69e4469c0080fb1de
+- tank-velcro: 6af8d0fcca5d307abc011bc4
+- band-sock: 6af8d102948a470d5206934f
+- tank-sock: 6af8d109ca5d307abc011bd6
+- band-bed: 6af8d10f383728621d00d9f6
+- tank-bed: 6af8d1156d67bf35520c7c30
+- band-surf2: 6af8d11bc745d035040e5180
+- tank-surf2: 6af8d121f249409bb005c1ef
+- band-zoom: 6af8d126b2e1366dcb0369ad
+- tank-zoom: 6af8d12c948a470d52069393
+- band-glow: 6af8d132383728621d00da28
+- tank-glow: 6af8d138383728621d00da35
