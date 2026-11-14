@@ -49,3 +49,13 @@ Sources: Windsor YouTube 34639 (last data day **11/9**; Shorts split by `creator
 ## Could not measure
 - Impressions, click-through, Shown in feed, swipe-away, traffic source per Short; Windsor after 11/9 (no 11/10-11/11 engaged share, no Wednesday daily total); exact public views above 1K (rounded to 2 digits).
 - Deleted Shorts (upload counts miss them; 10/22-10/27 per-video rows keep only 30+ views a day, sums are 37 to 293 under channel totals); the Windsor day boundary (Pacific assumed; the 11/4 21:03 bed bug Short shows 88 on 11/4 and 993 on 11/5).
+
+## Read of Sat 2026-11-14: swiped, not hidden (Windsor youtube, one call per video, traffic_source, 11/11 to 11/14; Windsor holds the first day only so far)
+| Short (Wed 11/11) | Shorts-feed views | engaged in the feed | share | search views | public views now (flat listing, 11/14 07:52 ET) |
+|---|---|---|---|---|---|
+| The Hairy Spider on Your Floor | 1,014 | 431 | 0.43 | 30 | 1,000 |
+| Roaches Fit Through 2-Penny Cracks | 278 | 105 | 0.38 | 24 | 951 |
+| Boxelder Bugs Can Fly Up to 2 Miles | 188 | 74 | 0.39 | 6 | 882 |
+| The Hunchback Cricket in Your Basement | 42 | 14 | 0.33 | 4 | 125 |
+| Several Colonies Eating Your House | 27 | 7 | 0.26 | 3 | 161 |
+By the rule of this file (under 0.39 in the feed: viewers swiped; 0.40 or more with tiny feed views: not shown): four of the five were swiped on their first day, and the one at 0.43 is the one that passed 1,000 at once. Nothing points to YouTube holding the channel back. Two things the first read could not know: the roaches and boxelder Shorts kept being shown after day one and are now near 900 (a slow start, not a flop), while the two hook-test cuts (cricket, colonies) stayed near 100 to 160. Search brought 3 to 30 views a Short, about as before. So the fix stands: openings that are not swiped (the funny pass), and no more hook-test cuts. Not measured: days two and three in Windsor (not in yet).

@@ -50,3 +50,6 @@ Applied in Metricool 11/12 12:55 to 12:56 ET to all 14 posts (the cat Short for 
 - Any effect of tags, hashtags, category or description on our own views: we have never varied them.
 - How much of a title shows in the Shorts feed; whether #shorts does anything.
 - Whether the new metadata helps: these seven also changed topic and jokes at the same time.
+
+## Cover-frame test, read Sat 2026-11-14
+The dog Short "14 Dogs Tested" (youtube.com/shorts/xIbnhX10r7k, posted Fri 11/13 13:00 ET after its slot moved) had Metricool's `videoCoverMilliseconds` set to 1900. Its public thumbnail (i.ytimg.com `oar2.jpg` and `hq720.jpg`, fetched 07:52 ET, set beside frames of the mp4) is a frame from the middle of the video (the bedroom scene with the thought bubble), not the card frame at 1.9 s and not frame 0. So the setting does not choose a Short's thumbnail here: YouTube picked its own frame. Dropped: no cover frame on any other Short. Separately, this Short shows 1 public view after 19 hours while Metricool says PUBLISHED and public; whether the cover setting has anything to do with that cannot be told from outside (Studio shows restrictions and impressions).

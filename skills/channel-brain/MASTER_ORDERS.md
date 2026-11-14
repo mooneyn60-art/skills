@@ -32,7 +32,7 @@ Then, only if still needed:
 Read each test on its date, not before.
 - **Sat 11/14 evening:** the comedy test (Nolan 11/12: "Do we want mkre comedy in yr videos", "Post some of those today to test"; the log has the section) at 48 hours: Thursday's funny Shorts against the plain one of that day, then Windsor. At 10 hours the funny Shorts ran about 1.7 times the plain one at the same age (`oh-meatball/research/102`).
 - **Sun 11/15 10:00:** the sweary dog-stare Short at 48 hours (852 views at 21 hours, level with the mild funny Shorts; `oh-meatball/research/115`).
-- **Read 11/14:** Wednesday's weak Shorts had engaged shares of 0.30 to 0.39: viewers swiped, YouTube did not hold them back (`oh-meatball/research/115`). The cover-frame test is void: Friday's dog Short has 1 view (open question for Studio); set no cover frames.
+- **Read 11/14:** Wednesday's Shorts were swiped, not hidden: four of five had 0.26 to 0.39 engaged in the feed; two recovered to about 900 later, the two hook-test cuts did not (`oh-meatball/research/90`, `115`). Friday's dog Short has 1 view (open question for Studio).
 - **Sat 11/14 to Sun 11/15:** Windsor youtube, one call per video with the filter [["video","eq",ID]], fields date, traffic_source, views, engaged_views, for the five 11/10-11/11 Shorts and the 11/12 cat and moose Shorts; compare with 11/07-11/09 (feed 4,338 / 3,650 / 3,536 views a day; search 161 / 150 / 132).
 - **Sun 11/15:** the funnier seven's average % viewed and engaged share (Windsor), against 81% and 0.50.
 - **Wed 11/18:** first read of the pet and survival Shorts, against the bug Shorts posted the same days at the same age (not the old 1,155 median). **Tue 11/17 to Sat 11/21:** one Windsor `traffic_source` call a day for the spider long video (does anything arrive from Shorts or Related?).
@@ -98,7 +98,7 @@ Read each test on its date, not before.
   4. TikTok caption: the search phrase that is on screen, the checked fact with its condition, the Meatball gag in the video's own words without the swearing, a question, five topic hashtags. No #fyp, no #learnontiktok, no brand tag. The TikTok "title" field can hold anything; nobody sees it.
   5. Unchanged on purpose: the category (no stated effect), the AI label (stays on), first comments (open questions).
   6. Any change of wording goes through the second-model check like a script.
-- **One test:** the Fri 11/13 dog Short has a cover frame set (the card GUILTY LOOK / MAY NOT BE A CONFESSION at 1.9 s; Metricool key `videoCoverMilliseconds`). Read the public thumbnail on Sat 11/14: if it shows that frame, set a card frame as the cover on every Short.
+- **Cover frames are dropped (read 11/14, `oh-meatball/research/93`):** the dog Short's public thumbnail is a mid-video frame, not the 1.9 s card that `videoCoverMilliseconds` named. Do not set it on Shorts.
 - **For the next scripts:** say the searched phrase in the first spoken sentence (YouTube matches search against "video content"; the cat cut says "sugar" where people type "sweet"), and read TikTok's `suggestedWords` on a few top videos of the topic before fixing the on-screen phrase.
 - What the research found, what was changed on the 14 posts and what could not be measured: `oh-meatball/research/93-metadata-all-angles.md` and the log, same heading.
 
