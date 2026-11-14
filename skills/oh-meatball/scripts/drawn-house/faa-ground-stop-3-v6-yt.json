@@ -1,0 +1,1092 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "detective",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "cut_whoosh": true,
+ "loop": true,
+ "recut": false,
+ "photo_credits": [],
+ "stage": {
+  "creature": "cat",
+  "scene": "jh_living",
+  "s": 0.55,
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "cat",
+   "color": "#e39a4a",
+   "dark": "#b06f2a",
+   "belly": "#f6e3c8",
+   "tail_color": "#e39a4a",
+   "length": 520,
+   "height": 250,
+   "leg_len": 150,
+   "leg_w": 30,
+   "ears": "pointed",
+   "tail": "thin",
+   "tail_w": 22,
+   "whiskers": true,
+   "mood": "smug"
+  }
+ },
+ "cap_swap": {
+  "fuck": "f**k",
+  "fucking": "f**king",
+  "damn": "d*mn",
+  "hell": "h*ll"
+ },
+ "cap_key": [
+  "ground",
+  "stop",
+  "over",
+  "lifted",
+  "boarded",
+  "middle",
+  "bathroom",
+  "faa",
+  "eight",
+  "four",
+  "hours",
+  "thousand",
+  "cancelled",
+  "pretzel",
+  "routers",
+  "data",
+  "old",
+  "flip",
+  "update",
+  "crash",
+  "confirmed",
+  "nefarious",
+  "villain",
+  "moving",
+  "delays",
+  "app",
+  "sauce",
+  "phone",
+  "stuck"
+ ],
+ "title": "Why the FAA Ground Stop Happened: Lifted After About 4 Hours ✈️ (Meatball Explains)",
+ "description": "Why did the FAA ground stop happen, and is it over? As of Fri Nov 13, 2026, 9 pm ET: the FAA lifted the nationwide stop on departures shortly after 8 pm ET, about four hours after it began. Nearly 5,000 flights were cancelled. The Transportation Secretary pointed to inconsistency in data from routers in what he called an incredibly old air traffic control system. CBS News, citing sources, reported that a network update made the system reboot and crash; that is not confirmed. Homeland Security Secretary Markwayne Mullin said there was no indication of a nefarious act. Flights are moving again; expect delays and check your airline before you leave. The jokes are ours; the facts are sourced below.\n\n#groundstop #faa #flightsgrounded #meatballmyths #shorts\n\nSources: FAA and U.S. Department of Transportation statements (Nov 13, 2026); Scripps News, CNN, ABC News and CBS News coverage (Nov 13, 2026).",
+ "tags": [
+  "why did the faa ground stop happen",
+  "faa ground stop lifted",
+  "faa ground stop",
+  "ground stop lifted",
+  "flights grounded today",
+  "nationwide ground stop",
+  "faa outage cause",
+  "flights resume",
+  "faa news",
+  "meatball myths"
+ ],
+ "pinned_comment": "Did you make it out tonight, or are you still stuck? Tell us where 👇",
+ "_note": "FAA ground stop LIFTED (Nolan 11/13 about 21:00 ET). Script: faa-ground-stop-3.script.json; built by code from it (every say and card row copied; long rows wrap, same words). Pictures in tools/drawn_topical_art.py (night gate with the board flipping to BOARDING and a plane with its lights rolling, plain cabin, routers, flip phone, server rack, padlock, planes taking off normally). All drawn: plain white planes, no logos, seals, airline names or real people; nothing shows danger in the air; c7 is played straight. YouTube Short cut: yt_lines w1-w7; w7 is split in two beats (the words from 'So' play on the frame-0 gate for the loop); joined, the says equal the script. Length over 20 s is the accepted lint fail, as with jensen-huang-v6-yt.json.",
+ "beats": [
+  {
+   "say": "The ground stop is over. Here's why it happened.",
+   "scene": "tp_gate",
+   "scene_p": {
+    "night": 1
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      560,
+      970,
+      1.05
+     ]
+    },
+    {
+     "at": "Here's|35%",
+     "cam": [
+      520,
+      1000,
+      1.08
+     ],
+     "to": [
+      500,
+      1000,
+      1.12
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "taxi",
+     "type": "tp_plane",
+     "pos": [
+      640,
+      1040
+     ],
+     "s": 0.5,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "lights": 1
+     },
+     "moves": [
+      {
+       "at": 0.0,
+       "dur": 6.0,
+       "pos": [
+        1500,
+        1040
+       ],
+       "linear": true
+      }
+     ],
+     "set": []
+    },
+    {
+     "id": "board",
+     "type": "tp_board",
+     "pos": [
+      250,
+      1010
+     ],
+     "s": 0.95,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "text": "DELAYED",
+      "text2": "BOARDING",
+      "col2": "#3fdc6a",
+      "rows": 5,
+      "flip": 1.0,
+      "flip2": 0.0,
+      "order": [
+       0,
+       2,
+       4,
+       1,
+       3
+      ]
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": 0.0,
+       "p": {
+        "flip2": 1.0
+       },
+       "dur": 2.4
+      }
+     ]
+    },
+    {
+     "id": "seats",
+     "type": "tp_seats",
+     "pos": [
+      820,
+      1500
+     ],
+     "s": 0.75,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "n": 2
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "bag",
+     "type": "tp_suitcase",
+     "pos": [
+      420,
+      1500
+     ],
+     "s": 0.6,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "col": "#d8322a"
+     },
+     "moves": [],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "present",
+    "pos": [
+     700,
+     1500
+    ],
+    "size": 400,
+    "prop": "mic",
+    "gest": [
+     [
+      "over|20%",
+      "laugh",
+      1.2
+     ]
+    ],
+    "moves": [
+     {
+      "at": "Here's|35%",
+      "dur": 0.45,
+      "pos": [
+       570,
+       1500
+      ],
+      "hop": 160
+     }
+    ],
+    "look": "board"
+   },
+   "sfx": [
+    "boing@Here's|35%",
+    "click@0.3"
+   ],
+   "card": {
+    "rows": [
+     [
+      "GROUND STOP LIFTED",
+      "#ffd34d",
+      104
+     ],
+     [
+      "WHY IT HAPPENED",
+      "#ffffff",
+      52,
+      true
+     ],
+     [
+      "AS OF FRI NOV 13, 9 PM ET",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": 0.0
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "Meatball finally boarded. Middle seat. Next to the bathroom.",
+   "scene": "tp_cabin",
+   "scene_p": {},
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      600,
+      1060,
+      1.1
+     ],
+     "to": [
+      620,
+      1070,
+      1.15
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "row",
+     "type": "tp_cabinrow",
+     "pos": [
+      520,
+      1500
+     ],
+     "s": 1.0,
+     "front": true,
+     "rot": 0.0,
+     "p": {
+      "n": 3
+     },
+     "moves": [],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "deadpan",
+    "pos": [
+     520,
+     1380
+    ],
+    "size": 420,
+    "prop": "mic",
+    "gest": [
+     [
+      "thrilled|85%",
+      "nervous",
+      1.6
+     ]
+    ],
+    "moves": [],
+    "look": "viewer"
+   },
+   "sfx": [
+    "tink@boarded|20%",
+    "pop@bathroom|70%"
+   ],
+   "card": {
+    "rows": [
+     [
+      "MIDDLE SEAT",
+      "#ffd34d",
+      104
+     ],
+     [
+      "NEXT TO THE BATHROOM",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "Middle|25%"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "The FAA lifted it shortly after eight Eastern. Nearly five thousand flights were cancelled.",
+   "scene": "tp_set",
+   "scene_p": {
+    "wall": "#141c33",
+    "wall2": "#1a2340",
+    "floor": "#0e1426"
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      960,
+      1.04
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "board",
+     "type": "tp_board",
+     "pos": [
+      230,
+      1150
+     ],
+     "s": 0.7,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "text": "DELAYED",
+      "text2": "BOARDING",
+      "col2": "#3fdc6a",
+      "rows": 5,
+      "flip": 1.0,
+      "flip2": 0.0,
+      "order": [
+       0,
+       2,
+       4,
+       1,
+       3
+      ]
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "lifted|30%",
+       "p": {
+        "flip2": 1.0
+       },
+       "dur": 1.8
+      }
+     ]
+    },
+    {
+     "id": "clock",
+     "type": "tp_clock",
+     "pos": [
+      640,
+      1040
+     ],
+     "s": 0.75,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "h0": 4.0,
+      "h1": 8.15,
+      "u": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "5%",
+       "p": {
+        "u": 1.0
+       },
+       "dur": 2.6
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     930,
+     1500
+    ],
+    "size": 360,
+    "prop": "mic",
+    "gest": [],
+    "moves": [],
+    "look": "clock"
+   },
+   "sfx": [
+    "tink@eight|50%"
+   ],
+   "card": {
+    "rows": [
+     [
+      "LIFTED SHORTLY AFTER 8 PM ET",
+      "#ffd34d",
+      82
+     ],
+     [
+      "NEARLY 5,000 FLIGHTS CANCELLED (REPORTED)",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": 0.1
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "The Transportation Secretary pointed to inconsistent data from routers, in what he called an incredibly old air traffic control system.",
+   "scene": "tp_set",
+   "scene_p": {
+    "wall": "#2a2a3a",
+    "wall2": "#323246",
+    "floor": "#1b1b28"
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      960,
+      1.04
+     ]
+    },
+    {
+     "at": "Meatball's|65%",
+     "cam": [
+      700,
+      1200,
+      1.2
+     ],
+     "to": [
+      710,
+      1200,
+      1.24
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "routers",
+     "type": "tp_routers",
+     "pos": [
+      400,
+      1360
+     ],
+     "s": 0.8,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "sync": 0.0
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "plug",
+     "type": "tp_plug",
+     "pos": [
+      880,
+      1250
+     ],
+     "s": 0.8,
+     "front": true,
+     "rot": 0.0,
+     "p": {
+      "len": 300
+     },
+     "moves": [
+      {
+       "at": 0.0,
+       "dur": 0.01,
+       "pos": [
+        880,
+        2400
+       ]
+      },
+      {
+       "at": "unplugging|80%",
+       "dur": 0.3,
+       "pos": [
+        880,
+        1250
+       ]
+      }
+     ],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     800,
+     1500
+    ],
+    "size": 380,
+    "prop": "mic",
+    "gest": [
+     [
+      "waiting|95%",
+      "deadpan",
+      1.4
+     ]
+    ],
+    "moves": [],
+    "look": "routers"
+   },
+   "sfx": [
+    "zap@routers|40%",
+    "pop@unplugging|80%"
+   ],
+   "card": {
+    "rows": [
+     [
+      "\"INCONSISTENCY\" IN ROUTER DATA",
+      "#ffd34d",
+      74
+     ],
+     [
+      "\"INCREDIBLY OLD\" SYSTEM (TRANSPORTATION SECRETARY)",
+      "#ffffff",
+      42,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "Transportation|15%"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "CBS News reported a network update made the system crash. Not confirmed.",
+   "scene": "tp_set",
+   "scene_p": {
+    "wall": "#2a2a3a",
+    "wall2": "#323246",
+    "floor": "#1b1b28"
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      960,
+      1.04
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "rack",
+     "type": "tp_rack",
+     "pos": [
+      400,
+      1500
+     ],
+     "s": 0.85,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "spin": 1.0,
+      "dark": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "crash|45%",
+       "p": {
+        "dark": 1.0
+       },
+       "dur": 0.2
+      }
+     ]
+    },
+    {
+     "id": "stamps",
+     "type": "jh_stamps",
+     "pos": [
+      540,
+      1060
+     ],
+     "s": 0.8,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "n": 0.0,
+      "texts": [
+       "NOT CONFIRMED",
+       "",
+       ""
+      ],
+      "cols": [
+       "#d8322a",
+       "#d8322a",
+       "#d8322a"
+      ],
+      "pos": [
+       [
+        0,
+        0
+       ],
+       [
+        0,
+        0
+       ],
+       [
+        0,
+        0
+       ]
+      ],
+      "w": [
+       640,
+       10,
+       10
+      ],
+      "px": [
+       84,
+       10,
+       10
+      ]
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "confirmed|85%",
+       "p": {
+        "n": 1.0
+       },
+       "dur": 0.3
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     840,
+     1500
+    ],
+    "size": 380,
+    "prop": "mic",
+    "gest": [],
+    "moves": [],
+    "look": "rack"
+   },
+   "sfx": [
+    "stamp@confirmed|85%"
+   ],
+   "card": {
+    "rows": [
+     [
+      "REPORT: A NETWORK",
+      "#ffd34d",
+      60
+     ],
+     [
+      "UPDATE, THEN A CRASH",
+      "#ffd34d",
+      60
+     ],
+     [
+      "CBS NEWS. NOT CONFIRMED",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": 0.1
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "Homeland Security's secretary said there was no indication of a nefarious act.",
+   "scene": "tp_living",
+   "scene_p": {
+    "sofa": true,
+    "picture": true
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      960,
+      1.03
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "lock",
+     "type": "tp_padlock",
+     "pos": [
+      560,
+      1100
+     ],
+     "s": 0.7,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "shine": 1.0,
+      "check": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "nefarious|35%",
+       "p": {
+        "check": 1.0
+       },
+       "dur": 0.35
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "think",
+    "pos": [
+     860,
+     1500
+    ],
+    "size": 380,
+    "prop": "magnifier",
+    "gest": [
+     [
+      "disappointed|85%",
+      "deadpan",
+      1.6
+     ]
+    ],
+    "moves": [],
+    "look": "lock"
+   },
+   "sfx": [
+    "tink@nefarious|35%",
+    "boing@disappointed|85%"
+   ],
+   "card": {
+    "rows": [
+     [
+      "NO INDICATION OF A NEFARIOUS ACT",
+      "#ffd34d",
+      72
+     ],
+     [
+      "(HOMELAND SECURITY SECRETARY)",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "indication|20%"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "Meatball texted his cat, Sauce. Sauce sat on the damn phone.",
+   "scene": "tp_living",
+   "scene_p": {
+    "sofa": true,
+    "picture": true
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      600,
+      1060,
+      1.05
+     ],
+     "to": [
+      620,
+      1100,
+      1.12
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "phone",
+     "type": "jh_phone",
+     "pos": [
+      660,
+      1488
+     ],
+     "s": 0.7,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "rot": 90
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "cat",
+     "type": "sp.cat",
+     "pos": [
+      1500,
+      1500
+     ],
+     "s": 0.55,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "mood": "smug"
+     },
+     "moves": [
+      {
+       "at": "Sauce#1|40%",
+       "dur": 1.6,
+       "pos": [
+        660,
+        1500
+       ],
+       "walk": true,
+       "face": -1
+      }
+     ],
+     "set": [],
+     "flip": true
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     1300,
+     1500
+    ],
+    "size": 380,
+    "prop": "mic",
+    "gest": [],
+    "moves": [],
+    "look": "viewer",
+    "hidden": true
+   },
+   "sfx": [
+    "tink@texted|15%",
+    "pop@sat|85%"
+   ],
+   "card": {
+    "rows": [
+     [
+      "MADE IT OUT OR STILL",
+      "#ffffff",
+      40,
+      true
+     ],
+     [
+      "STUCK? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "y": 400,
+    "at": 0.0,
+    "x": "right"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "So did you make it out, or are you still stuck? Because",
+   "scene": "tp_gate",
+   "scene_p": {
+    "night": 1
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      520,
+      1000,
+      1.08
+     ],
+     "to": [
+      540,
+      970,
+      1.03
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "board",
+     "type": "tp_board",
+     "pos": [
+      250,
+      1010
+     ],
+     "s": 0.95,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "text": "DELAYED",
+      "text2": "BOARDING",
+      "col2": "#3fdc6a",
+      "rows": 5,
+      "flip": 1.0,
+      "flip2": 1.0,
+      "order": [
+       0,
+       2,
+       4,
+       1,
+       3
+      ]
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "Because|80%",
+       "p": {
+        "flip2": 0.0
+       },
+       "dur": 0.25
+      }
+     ]
+    },
+    {
+     "id": "seats",
+     "type": "tp_seats",
+     "pos": [
+      820,
+      1500
+     ],
+     "s": 0.75,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "n": 2
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "bag",
+     "type": "tp_suitcase",
+     "pos": [
+      420,
+      1500
+     ],
+     "s": 0.6,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "col": "#d8322a"
+     },
+     "moves": [],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "present",
+    "pos": [
+     570,
+     1500
+    ],
+    "size": 400,
+    "prop": "mic",
+    "gest": [],
+    "moves": [
+     {
+      "at": "Because|80%",
+      "dur": 0.45,
+      "pos": [
+       700,
+       1500
+      ],
+      "hop": 160
+     }
+    ],
+    "look": "viewer"
+   },
+   "sfx": [
+    "pop@Tell|70%"
+   ],
+   "card": {
+    "rows": [
+     [
+      "MADE IT OUT OR STILL",
+      "#ffffff",
+      40,
+      true
+     ],
+     [
+      "STUCK? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "y": 400,
+    "at": 0.0,
+    "x": "right"
+   },
+   "recut": false,
+   "pad": 0.08
+  }
+ ]
+}
