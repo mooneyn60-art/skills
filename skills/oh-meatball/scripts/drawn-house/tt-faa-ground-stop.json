@@ -1,0 +1,1452 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "detective",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "cut_whoosh": true,
+ "loop": true,
+ "recut": false,
+ "photo_credits": [],
+ "stage": {
+  "creature": "cat",
+  "scene": "jh_living",
+  "s": 0.55,
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "cat",
+   "color": "#e39a4a",
+   "dark": "#b06f2a",
+   "belly": "#f6e3c8",
+   "tail_color": "#e39a4a",
+   "length": 520,
+   "height": 250,
+   "leg_len": 150,
+   "leg_w": 30,
+   "ears": "pointed",
+   "tail": "thin",
+   "tail_w": 22,
+   "whiskers": true,
+   "mood": "smug"
+  }
+ },
+ "cap_swap": {
+  "fuck": "f**k",
+  "fucking": "f**king",
+  "damn": "d*mn",
+  "hell": "h*ll"
+ },
+ "cap_key": [
+  "flights",
+  "america",
+  "grounded",
+  "gate",
+  "pretzel",
+  "faa",
+  "nationwide",
+  "ground",
+  "stop",
+  "departures",
+  "airport",
+  "air",
+  "communication",
+  "issue",
+  "control",
+  "centers",
+  "safety",
+  "gym",
+  "network",
+  "update",
+  "crash",
+  "confirmed",
+  "nefarious",
+  "microsoft",
+  "toaster",
+  "eastern",
+  "notice",
+  "morale",
+  "sauce",
+  "bed",
+  "stuck",
+  "homeland",
+  "security"
+ ],
+ "title": "Why Flights Across America Got Grounded",
+ "tiktok_title": "Why Flights Across America Got Grounded",
+ "tiktok_caption": "flights grounded today ✈️ As of Fri Nov 13, 7 pm ET: the FAA's nationwide ground stop on departures from all U.S. airports was still in place until further notice; the FAA says departures will resume as systems recover. The Transportation Secretary says a communication issue hit all the air route traffic control centers; planes already in the air kept flying, some to other airports. CBS News reports a network update made the system crash (not confirmed). Homeland Security's secretary says there is no indication yet of a nefarious act. Meatball is at gate B12 with a pretzel. Where are you stuck? #flightsgrounded #faa #groundstop #airport #travel",
+ "_note": "FAA ground stop (Nolan 11/13 evening). Script: faa-ground-stop.script.json (facts research/110, checked by a second model); built by code from it (every say and card row copied; long rows wrap over two rows, same words). Pictures in tools/drawn_topical_art.py (tp_gate, tp_board, tp_usmap, tp_tower, tp_radar, ...). All drawn: plain white planes, no airline, agency or government logos or seals, no real people. The board rows read DELAYED only. Nothing shows danger in the air: airborne planes land normally, one lands at another airport; the a6 crash is a server rack going dark. TikTok cut: lines a1-a10.",
+ "beats": [
+  {
+   "say": "Flights across America just got grounded. Here's what the hell happened.",
+   "scene": "tp_gate",
+   "scene_p": {},
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      560,
+      970,
+      1.05
+     ]
+    },
+    {
+     "at": "Here's|55%",
+     "cam": [
+      520,
+      1000,
+      1.08
+     ],
+     "to": [
+      500,
+      1000,
+      1.12
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "board",
+     "type": "tp_board",
+     "pos": [
+      250,
+      1010
+     ],
+     "s": 0.95,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "text": "DELAYED",
+      "rows": 5,
+      "flip": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": 0.0,
+       "p": {
+        "flip": 1.0
+       },
+       "dur": 2.4
+      }
+     ]
+    },
+    {
+     "id": "seats",
+     "type": "tp_seats",
+     "pos": [
+      820,
+      1500
+     ],
+     "s": 0.75,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "n": 2
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "bag",
+     "type": "tp_suitcase",
+     "pos": [
+      420,
+      1500
+     ],
+     "s": 0.6,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "col": "#d8322a"
+     },
+     "moves": [],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "present",
+    "pos": [
+     700,
+     1500
+    ],
+    "size": 400,
+    "prop": "mic",
+    "gest": [
+     [
+      "hell|85%",
+      "shock",
+      1.0
+     ]
+    ],
+    "moves": [
+     {
+      "at": "Here's|55%",
+      "dur": 0.45,
+      "pos": [
+       570,
+       1500
+      ],
+      "hop": 160
+     }
+    ],
+    "look": "board"
+   },
+   "sfx": [
+    "boing@Here's|55%",
+    "click@0.3"
+   ],
+   "card": {
+    "rows": [
+     [
+      "NATIONWIDE GROUND STOP",
+      "#ffd34d",
+      96
+     ],
+     [
+      "WHAT HAPPENED",
+      "#ffffff",
+      52,
+      true
+     ],
+     [
+      "AS OF FRI NOV 13, 7 PM ET",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": 0.0
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "Meatball's at gate B twelve with a giant pretzel and nowhere to fucking go.",
+   "scene": "tp_gate",
+   "scene_p": {},
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      600,
+      1180,
+      1.25
+     ],
+     "to": [
+      620,
+      1190,
+      1.3
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "board",
+     "type": "tp_board",
+     "pos": [
+      250,
+      1010
+     ],
+     "s": 0.95,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "text": "DELAYED",
+      "rows": 5,
+      "flip": 1.0
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "seats",
+     "type": "tp_seats",
+     "pos": [
+      820,
+      1500
+     ],
+     "s": 0.75,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "n": 2
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "bag",
+     "type": "tp_suitcase",
+     "pos": [
+      420,
+      1500
+     ],
+     "s": 0.6,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "col": "#d8322a"
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "pretzel",
+     "type": "tp_pretzel",
+     "pos": [
+      690,
+      1270
+     ],
+     "s": 0.42,
+     "front": true,
+     "rot": 0.0,
+     "p": {
+      "gone": 0.0
+     },
+     "moves": [],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     580,
+     1500
+    ],
+    "size": 400,
+    "prop": "mic",
+    "gest": [
+     [
+      "nowhere|75%",
+      "shrug",
+      1.4
+     ]
+    ],
+    "moves": [],
+    "look": "viewer"
+   },
+   "sfx": [
+    "pop@pretzel|45%",
+    "scratch@nowhere|75%"
+   ],
+   "card": {
+    "rows": [
+     [
+      "GATE B12",
+      "#ffd34d",
+      104
+     ],
+     [
+      "DELAYED",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "gate|15%"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "Friday afternoon, the FAA ordered a nationwide ground stop on departures. Every U.S. airport. Planes already in the air kept flying, some to other airports.",
+   "scene": "tp_set",
+   "scene_p": {
+    "wall": "#1e2a4a",
+    "wall2": "#24325a",
+    "floor": "#141c33"
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      960,
+      1.04
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "map",
+     "type": "tp_usmap",
+     "pos": [
+      540,
+      1110
+     ],
+     "s": 0.95,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "park": 0.0,
+      "land": 0.0,
+      "divert": 1
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "ground|25%",
+       "p": {
+        "park": 1.0
+       },
+       "dur": 1.6
+      },
+      {
+       "at": "air|65%",
+       "p": {
+        "land": 1.0
+       },
+       "dur": 3.0
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     960,
+     1500
+    ],
+    "size": 300,
+    "prop": "mic",
+    "gest": [],
+    "moves": [],
+    "look": "map"
+   },
+   "sfx": [
+    "pop@ground|25%",
+    "whoosh@air|65%"
+   ],
+   "card": {
+    "rows": [
+     [
+      "FAA: NATIONWIDE GROUND STOP",
+      "#ffd34d",
+      80
+     ],
+     [
+      "DEPARTURES, ALL U.S. AIRPORTS (FRI NOV 13)",
+      "#ffffff",
+      52,
+      true
+     ],
+     [
+      "IN THE AIR: CONTINUED, SOME DIVERTED",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": 0.1
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "The Transportation Secretary said a communication issue hit all the air route traffic control centers. Those are the people who talk to the planes. Kind of fucking important.",
+   "scene": "tp_set",
+   "scene_p": {
+    "wall": "#2a3358",
+    "wall2": "#323d6a",
+    "floor": "#1d2340"
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      960,
+      1.04
+     ]
+    },
+    {
+     "at": "issue|30%",
+     "cam": [
+      560,
+      1020,
+      1.06
+     ],
+     "to": [
+      560,
+      1020,
+      1.08
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "tower",
+     "type": "tp_tower",
+     "pos": [
+      200,
+      1500
+     ],
+     "s": 0.8,
+     "front": false,
+     "rot": 0.0,
+     "p": {},
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "link",
+     "type": "tp_static",
+     "pos": [
+      290,
+      1000
+     ],
+     "s": 1.0,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "dx": 470,
+      "dy": -90,
+      "bad": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "issue|30%",
+       "p": {
+        "bad": 1.0
+       }
+      }
+     ]
+    },
+    {
+     "id": "plane",
+     "type": "tp_plane",
+     "pos": [
+      880,
+      910
+     ],
+     "s": 0.42,
+     "front": false,
+     "rot": 0.0,
+     "p": {},
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "radar",
+     "type": "tp_radar",
+     "pos": [
+      690,
+      1500
+     ],
+     "s": 0.62,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "dim": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "issue|30%",
+       "p": {
+        "dim": 1.0
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     990,
+     1500
+    ],
+    "size": 320,
+    "prop": "mic",
+    "gest": [
+     [
+      "important|92%",
+      "deadpan",
+      1.6
+     ]
+    ],
+    "moves": [],
+    "look": "radar"
+   },
+   "sfx": [
+    "zap@issue|30%",
+    "scratch@important|92%"
+   ],
+   "card": {
+    "rows": [
+     [
+      "\"COMMUNICATION ISSUE\"",
+      "#ffd34d",
+      98
+     ],
+     [
+      "ALL AIR ROUTE TRAFFIC CONTROL CENTERS",
+      "#ffffff",
+      52,
+      true
+     ],
+     [
+      "(TRANSPORTATION SECRETARY)",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "communication|15%"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "The FAA's wording: extraordinary circumstances, and for reasons of safety. Meatball uses that exact excuse to skip the gym.",
+   "scene": "tp_living",
+   "scene_p": {
+    "sofa": false,
+    "picture": true
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      960,
+      1.04
+     ]
+    },
+    {
+     "at": "Meatball|55%",
+     "cam": [
+      600,
+      1180,
+      1.15
+     ],
+     "to": [
+      610,
+      1180,
+      1.18
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "couch",
+     "type": "tp_couch",
+     "pos": [
+      560,
+      1500
+     ],
+     "s": 0.9,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "sign": 0.0
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "gym",
+     "type": "tp_gymbag",
+     "pos": [
+      930,
+      1500
+     ],
+     "s": 0.6,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "dust": 1.0
+     },
+     "moves": [],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "deadpan",
+    "pos": [
+     420,
+     1345
+    ],
+    "size": 400,
+    "prop": "mic",
+    "gest": [],
+    "moves": [
+     {
+      "at": 0.0,
+      "dur": 0.01,
+      "rot": 80,
+      "pos": [
+       420,
+       1345
+      ]
+     }
+    ],
+    "look": "viewer"
+   },
+   "sfx": [
+    "tink@safety|40%",
+    "pop@gym|95%"
+   ],
+   "card": {
+    "rows": [
+     [
+      "\"EXTRAORDINARY CIRCUMSTANCES\"",
+      "#ffd34d",
+      70
+     ],
+     [
+      "\"FOR REASONS OF SAFETY\" (FAA)",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "extraordinary|10%"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "CBS News, citing sources, reports a network update made the system reboot and crash. Not confirmed. If true, the worst update and restart in fucking history.",
+   "scene": "tp_set",
+   "scene_p": {
+    "wall": "#2a2a3a",
+    "wall2": "#323246",
+    "floor": "#1b1b28"
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      960,
+      1.04
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "rack",
+     "type": "tp_rack",
+     "pos": [
+      400,
+      1500
+     ],
+     "s": 0.85,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "spin": 1.0,
+      "dark": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "crash|35%",
+       "p": {
+        "dark": 1.0
+       },
+       "dur": 0.2
+      }
+     ]
+    },
+    {
+     "id": "stamps",
+     "type": "jh_stamps",
+     "pos": [
+      540,
+      1060
+     ],
+     "s": 0.8,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "n": 0.0,
+      "texts": [
+       "NOT CONFIRMED",
+       "",
+       ""
+      ],
+      "cols": [
+       "#d8322a",
+       "#d8322a",
+       "#d8322a"
+      ],
+      "pos": [
+       [
+        0,
+        0
+       ],
+       [
+        0,
+        0
+       ],
+       [
+        0,
+        0
+       ]
+      ],
+      "w": [
+       640,
+       10,
+       10
+      ],
+      "px": [
+       84,
+       10,
+       10
+      ]
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "Not|50%",
+       "p": {
+        "n": 1.0
+       },
+       "dur": 0.3
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     840,
+     1500
+    ],
+    "size": 380,
+    "prop": "mic",
+    "gest": [
+     [
+      "crash|35%",
+      "shock",
+      1.0
+     ],
+     [
+      "worst|80%",
+      "deadpan",
+      1.6
+     ]
+    ],
+    "moves": [],
+    "look": "rack"
+   },
+   "sfx": [
+    "zap@crash|35%",
+    "stamp@Not|50%"
+   ],
+   "card": {
+    "rows": [
+     [
+      "REPORT: A NETWORK",
+      "#ffd34d",
+      60
+     ],
+     [
+      "UPDATE, THEN A CRASH",
+      "#ffd34d",
+      60
+     ],
+     [
+      "CBS NEWS, CITING SOURCES",
+      "#ffffff",
+      52,
+      true
+     ],
+     [
+      "NOT CONFIRMED",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": 0.1
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "Homeland Security's secretary says there's no indication yet of a nefarious act, and officials told NBC nothing links it to Thursday's Microsoft outage. Meatball unplugged his toaster anyway.",
+   "scene": "tp_living",
+   "scene_p": {
+    "sofa": true,
+    "picture": true
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      960,
+      1.03
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "lock",
+     "type": "tp_padlock",
+     "pos": [
+      540,
+      1120
+     ],
+     "s": 0.7,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "shine": 1.0,
+      "check": 0.0
+     },
+     "moves": [
+      {
+       "at": "Meatball|75%",
+       "dur": 0.4,
+       "pos": [
+        -500,
+        1120
+       ]
+      }
+     ],
+     "set": [
+      {
+       "at": "nefarious|30%",
+       "p": {
+        "check": 1.0
+       },
+       "dur": 0.35
+      }
+     ]
+    },
+    {
+     "id": "stand",
+     "type": "tp_sidetable",
+     "pos": [
+      780,
+      1500
+     ],
+     "s": 0.8,
+     "front": false,
+     "rot": 0.0,
+     "p": {},
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "toast",
+     "type": "tp_toaster",
+     "pos": [
+      800,
+      1236
+     ],
+     "s": 0.6,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "cord": 320,
+      "pull": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "unplugged|85%",
+       "p": {
+        "pull": 1.0
+       },
+       "dur": 0.4
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "present",
+    "pos": [
+     330,
+     1500
+    ],
+    "size": 380,
+    "prop": "mic",
+    "gest": [
+     [
+      "anyway|97%",
+      "deadpan",
+      1.4
+     ]
+    ],
+    "moves": [
+     {
+      "at": "Meatball|75%",
+      "dur": 0.6,
+      "pos": [
+       560,
+       1500
+      ],
+      "walk": true
+     }
+    ],
+    "look": "lock"
+   },
+   "sfx": [
+    "tink@nefarious|30%",
+    "pop@unplugged|85%"
+   ],
+   "card": {
+    "rows": [
+     [
+      "NO INDICATION YET OF A NEFARIOUS ACT",
+      "#ffd34d",
+      64
+     ],
+     [
+      "(HOMELAND SECURITY SECRETARY)",
+      "#ffffff",
+      52,
+      true
+     ],
+     [
+      "NO SIGN OF A MICROSOFT LINK (OFFICIALS TO NBC)",
+      "#ffffff",
+      48,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "indication|15%"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "As of seven Eastern Friday, departures were still held until further notice. The FAA says they'll resume as systems recover. Meatball's pretzel is gone. Morale is low.",
+   "scene": "tp_gate",
+   "scene_p": {},
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      960,
+      1.04
+     ]
+    },
+    {
+     "at": "pretzel|65%",
+     "cam": [
+      620,
+      1200,
+      1.25
+     ],
+     "to": [
+      630,
+      1200,
+      1.28
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "board",
+     "type": "tp_board",
+     "pos": [
+      250,
+      1010
+     ],
+     "s": 0.95,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "text": "DELAYED",
+      "rows": 5,
+      "flip": 1.0
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "seats",
+     "type": "tp_seats",
+     "pos": [
+      820,
+      1500
+     ],
+     "s": 0.75,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "n": 2
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "bag",
+     "type": "tp_suitcase",
+     "pos": [
+      420,
+      1500
+     ],
+     "s": 0.6,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "col": "#d8322a"
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "pretzel",
+     "type": "tp_pretzel",
+     "pos": [
+      690,
+      1270
+     ],
+     "s": 0.42,
+     "front": true,
+     "rot": 0.0,
+     "p": {
+      "gone": 1.0
+     },
+     "moves": [],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "deadpan",
+    "pos": [
+     580,
+     1500
+    ],
+    "size": 400,
+    "prop": "mic",
+    "gest": [
+     [
+      "Morale|88%",
+      "nervous",
+      2.0
+     ]
+    ],
+    "moves": [],
+    "look": "pretzel"
+   },
+   "sfx": [
+    "tink@held|20%",
+    "scratch@Morale|88%"
+   ],
+   "card": {
+    "rows": [
+     [
+      "DEPARTURES HELD UNTIL FURTHER NOTICE",
+      "#ffd34d",
+      62
+     ],
+     [
+      "AS OF FRI NOV 13, 7 PM ET",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": 0.1
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "He called his cat, Sauce, to say he'd be late. Sauce had already taken his side of the bed.",
+   "scene": "tp_living",
+   "scene_p": {
+    "sofa": false,
+    "picture": true
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      520,
+      980,
+      1.06
+     ]
+    },
+    {
+     "at": "bed|85%",
+     "cam": [
+      420,
+      1200,
+      1.2
+     ],
+     "to": [
+      420,
+      1200,
+      1.24
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "bed",
+     "type": "tp_bed",
+     "pos": [
+      520,
+      1500
+     ],
+     "s": 1.0,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "col": "#3b7dd8"
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "cat",
+     "type": "sp.cat",
+     "pos": [
+      300,
+      1250
+     ],
+     "s": 0.5,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "mood": "smug"
+     },
+     "moves": [],
+     "set": [],
+     "flip": false
+    },
+    {
+     "id": "stand",
+     "type": "tp_sidetable",
+     "pos": [
+      960,
+      1500
+     ],
+     "s": 0.8,
+     "front": false,
+     "rot": 0.0,
+     "p": {},
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "phone",
+     "type": "jh_phone",
+     "pos": [
+      960,
+      1210
+     ],
+     "s": 0.55,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "rot": 90
+     },
+     "moves": [],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     1300,
+     1500
+    ],
+    "size": 380,
+    "prop": "mic",
+    "gest": [],
+    "moves": [],
+    "look": "viewer",
+    "hidden": true
+   },
+   "sfx": [
+    "tink@called|10%",
+    "pop@bed|85%"
+   ],
+   "card": {
+    "rows": [
+     [
+      "SAUCE TOOK HIS SIDE OF THE BED",
+      "#ffd34d",
+      78
+     ]
+    ],
+    "y": 470,
+    "at": "Sauce#2|45%"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "So where are you stuck right now? Drop your gate. Because",
+   "scene": "tp_gate",
+   "scene_p": {},
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      520,
+      1000,
+      1.08
+     ],
+     "to": [
+      540,
+      970,
+      1.03
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "board",
+     "type": "tp_board",
+     "pos": [
+      250,
+      1010
+     ],
+     "s": 0.95,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "text": "DELAYED",
+      "rows": 5,
+      "flip": 1.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "Because|80%",
+       "p": {
+        "flip": 0.0
+       },
+       "dur": 0.25
+      }
+     ]
+    },
+    {
+     "id": "seats",
+     "type": "tp_seats",
+     "pos": [
+      820,
+      1500
+     ],
+     "s": 0.75,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "n": 2
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "bag",
+     "type": "tp_suitcase",
+     "pos": [
+      420,
+      1500
+     ],
+     "s": 0.6,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "col": "#d8322a"
+     },
+     "moves": [],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "present",
+    "pos": [
+     570,
+     1500
+    ],
+    "size": 400,
+    "prop": "mic",
+    "gest": [],
+    "moves": [
+     {
+      "at": "Because|80%",
+      "dur": 0.45,
+      "pos": [
+       700,
+       1500
+      ],
+      "hop": 160
+     }
+    ],
+    "look": "viewer"
+   },
+   "sfx": [
+    "pop@gate|70%"
+   ],
+   "card": {
+    "rows": [
+     [
+      "WHERE ARE YOU STUCK? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "y": 400,
+    "at": 0.0,
+    "x": "right"
+   },
+   "recut": false,
+   "pad": 0.08
+  }
+ ]
+}

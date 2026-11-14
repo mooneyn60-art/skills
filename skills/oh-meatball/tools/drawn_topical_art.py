@@ -1177,6 +1177,7 @@ def tp_seats(ctx, t, p):
     for k in range(n):
         x = x0 + k * w
         shape(ctx, lambda c, x=x: p_rrect(c, x + 10, -440, w - 20, 210, 30), hexc("#3b7dd8"), OUT * 0.8, (0.03, 0.1))
+        stroke(ctx, [(x + w / 2, -200), (x + w / 2, -90)], 12)
         shape(ctx, lambda c, x=x: p_rrect(c, x + 6, -250, w - 12, 60, 20), hexc("#2f6bbf"), OUT * 0.8, None)
 
 
@@ -1222,10 +1223,11 @@ def tp_pretzel(ctx, t, p):
 def tp_usmap(ctx, t, p):
     """A plain outline map of the contiguous United States centred at its origin (about 940 x 600; no labels, no
     state lines), small parked plane icons on it; p land 0..1 three planes in the air finish their arcs and come
-    down to land normally at their dots; p park 0..1 the parked planes pop in."""
+    down to land normally at their dots; p park 0..1 the parked planes pop in; p divert 1: one of them lands at a
+    different airport instead (calm, no drama)."""
     pts = [(40, 40), (430, 60), (520, 110), (560, 90), (600, 130), (650, 120), (820, 60), (880, 20), (930, 50),
-           (900, 110), (860, 170), (840, 230), (800, 280), (790, 340), (760, 400), (720, 440), (760, 520), (790, 590),
-           (760, 600), (720, 520), (690, 470), (620, 470), (560, 480), (520, 500), (470, 540), (430, 560), (400, 520),
+           (900, 110), (860, 170), (840, 230), (800, 280), (790, 340), (760, 400), (730, 440), (755, 500), (770, 545),
+           (750, 560), (720, 510), (690, 470), (620, 470), (560, 480), (520, 500), (470, 540), (430, 560), (400, 520),
            (360, 470), (310, 480), (280, 440), (250, 450), (200, 430), (120, 410), (80, 380), (50, 330), (20, 250),
            (10, 180), (30, 100)]
     pts = [(x - 470, y - 300) for x, y in pts]
@@ -1238,8 +1240,13 @@ def tp_usmap(ctx, t, p):
         if u > 0.01:
             _plane(ctx, x, y, 0.13 * u, 0.0, flip=k % 2 == 0)
     ld = p.get("land", 0.0)
-    for k, ((x0, y0), (x1, y1)) in enumerate((((-420, -200), (-240, 60)), ((420, -220), (180, -110)),
-                                               ((-60, -260), (60, 40)))):
+    legs = [((-420, -200), (-240, 60)), ((420, -220), (180, -110)), ((-60, -260), (60, 40))]
+    if p.get("divert", 0):   # the last plane calmly lands at another airport instead (its planned arc stays faint)
+        (x0, y0), (x1, y1) = legs[2]
+        stroke(ctx, [(x0, y0), (x0 + (x1 - x0) * 0.5, y0 + (y1 - y0) * 0.5 - 120), (x1, y1)], 4, smooth=True,
+               color=hexc("#9aa3ab"), a=0.25)
+        legs[2] = ((-60, -260), (230, 120))
+    for k, ((x0, y0), (x1, y1)) in enumerate(legs):
         u = ease(min(1.0, max(0.0, ld)))
         x = x0 + (x1 - x0) * u
         y = y0 + (y1 - y0) * u - 120 * math.sin(u * math.pi)
@@ -1382,3 +1389,12 @@ ACTORS.update({"tp_board": tp_board, "tp_seats": tp_seats, "tp_suitcase": tp_sui
                "tp_usmap": tp_usmap, "tp_tower": tp_tower, "tp_static": tp_static, "tp_radar": tp_radar,
                "tp_gymbag": tp_gymbag, "tp_toaster": tp_toaster, "tp_bed": tp_bed})
 SCENES.update({"tp_gate": tp_gate})
+
+
+def tp_plane(ctx, t, p):
+    """One plain white airliner in level flight, centred at its origin (about 480 wide); p flip faces it left; it
+    bobs gently. No livery, no names."""
+    _plane(ctx, 0, 6 * math.sin(t * 2), 1.0, 0.0, flip=bool(p.get("flip")))
+
+
+ACTORS.update({"tp_plane": tp_plane})
