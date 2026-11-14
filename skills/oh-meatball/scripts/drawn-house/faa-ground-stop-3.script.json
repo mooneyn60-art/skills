@@ -1,5 +1,5 @@
 {
- "_what": "Third airline video: the ground stop is lifted, and why it happened (Nolan 11/13 about 20:58 ET, told the two sequels got 81 and 143 plays and offered this one: 'Fuck Tibet not can't hurt', read as 'fuck it, why not, can't hurt'). TikTok lines c1 to c11, YouTube lines w1 to w7. Facts from web-search summaries at 20:53 ET: NOT yet checked by a second model.",
+ "_what": "Third airline video: the ground stop is lifted, and why it happened (Nolan 11/13 about 20:58 ET, told the two sequels got 81 and 143 plays and offered this one: 'Fuck Tibet not can't hurt', read as 'fuck it, why not, can't hurt'). TikTok lines c1 to c11, YouTube lines w1 to w7. Facts from web-search summaries at 20:53 ET: Checked by a second model about 20:56 ET (research/113): 6 line fixes, all applied here.",
  "_rules": "Jokes aim at Meatball only; never at passengers, controllers, crews or officials, and no joke says or hints that flying is unsafe. A cause is only what a named official or outlet said, attributed; the CBS report stays 'not confirmed'. No joke adds a number, a cause or a claim. All drawn: no airline or agency logos, no real people. Captions soften swear spelling (cap_swap). YouTube cut: mild words only. Title, description and caption are clean.",
  "lines": [
   {
@@ -26,20 +26,20 @@
   {
    "id": "c3",
    "kind": "fact",
-   "say": "The FAA lifted it shortly after eight Eastern, about four hours after it started.",
+   "say": "The FAA lifted it around eight fifteen Eastern, Duffy said. More than four hours after it started.",
    "card": [
-    "LIFTED SHORTLY AFTER 8 PM ET",
-    "ABOUT 4 HOURS (FAA)"
+    "LIFTED ABOUT 8:15 PM ET (DUFFY)",
+    "AFTER MORE THAN 4 HOURS"
    ],
-   "vis": "The clock from the update video stops just past 8; the board rows turn to BOARDING one by one."
+   "vis": "The clock stops at about a quarter past 8; the board rows turn to BOARDING one by one."
   },
   {
    "id": "c4",
    "kind": "fact+joke",
-   "say": "Nearly five thousand flights were cancelled. Meatball's pretzel budget did not survive.",
+   "say": "Nearly five thousand flights were cancelled, ABC News says. Meatball's pretzel budget did not survive.",
    "card": [
     "NEARLY 5,000 FLIGHTS CANCELLED",
-    "(REPORTED)"
+    "(ABC NEWS)"
    ],
    "vis": "The board with CANCELLED rows; Meatball turns out an empty pocket, a pretzel wrapper falls."
   },
@@ -77,9 +77,9 @@
   {
    "id": "c8",
    "kind": "fact+joke",
-   "say": "Homeland Security's secretary said there was no indication of a nefarious act. No villain. Meatball's a little disappointed.",
+   "say": "Homeland Security's secretary said there's no indication yet of a nefarious act. No villain so far. Meatball's a little disappointed.",
    "card": [
-    "NO INDICATION OF A NEFARIOUS ACT",
+    "NO INDICATION YET OF A NEFARIOUS ACT",
     "(HOMELAND SECURITY SECRETARY)"
    ],
    "vis": "The intact padlock; Meatball lowers a magnifying glass."
@@ -87,10 +87,10 @@
   {
    "id": "c9",
    "kind": "fact",
-   "say": "Flights are moving again, but with thousands cancelled, expect delays. Check your airline's app before you leave the house.",
+   "say": "Flights are taking off again, but officials warn getting back to normal will take time. Check your airline's app before you leave the house.",
    "card": [
-    "FLIGHTS MOVING AGAIN",
-    "EXPECT DELAYS",
+    "FLIGHTS TAKING OFF AGAIN",
+    "BACK TO NORMAL WILL TAKE TIME (OFFICIALS)",
     "CHECK YOUR AIRLINE'S APP"
    ],
    "vis": "Planes taking off normally past the gate window, one after another; the phone with the generic flight-status screen."
@@ -137,10 +137,10 @@
   {
    "id": "w3",
    "from": "c3",
-   "say": "The FAA lifted it shortly after eight Eastern. Nearly five thousand flights were cancelled.",
+   "say": "The FAA lifted it around eight fifteen Eastern. Nearly five thousand flights were cancelled, ABC News says.",
    "card": [
-    "LIFTED SHORTLY AFTER 8 PM ET",
-    "NEARLY 5,000 FLIGHTS CANCELLED (REPORTED)"
+    "LIFTED ABOUT 8:15 PM ET",
+    "NEARLY 5,000 CANCELLED (ABC NEWS)"
    ]
   },
   {
@@ -164,9 +164,9 @@
   {
    "id": "w6",
    "from": "c8",
-   "say": "Homeland Security's secretary said there was no indication of a nefarious act.",
+   "say": "Homeland Security's secretary said there's no indication yet of a nefarious act.",
    "card": [
-    "NO INDICATION OF A NEFARIOUS ACT",
+    "NO INDICATION YET OF A NEFARIOUS ACT",
     "(HOMELAND SECURITY SECRETARY)"
    ]
   },
@@ -180,9 +180,9 @@
   }
  ],
  "tiktok_title": "Why the Ground Stop Happened",
- "tiktok_caption": "why did the faa ground stop happen ✈️ As of Fri Nov 13, 9 pm ET: the FAA lifted the nationwide stop on departures shortly after 8 pm ET, about four hours after it began. Nearly 5,000 flights were cancelled. The Transportation Secretary pointed to inconsistency in data from routers in what he called an incredibly old air traffic control system. CBS News reported a network update made the system crash (not confirmed). Homeland Security's secretary said there was no indication of a nefarious act. Expect delays; check your airline's app. Meatball got a middle seat. Did you make it out or are you still stuck? #groundstop #faa #flightsgrounded #flightdelay #travel",
- "youtube_title": "Why the FAA Ground Stop Happened: Lifted After About 4 Hours ✈️ (Meatball Explains)",
- "youtube_description": "Why did the FAA ground stop happen, and is it over? As of Fri Nov 13, 2026, 9 pm ET: the FAA lifted the nationwide stop on departures shortly after 8 pm ET, about four hours after it began. Nearly 5,000 flights were cancelled. The Transportation Secretary pointed to inconsistency in data from routers in what he called an incredibly old air traffic control system. CBS News, citing sources, reported that a network update made the system reboot and crash; that is not confirmed. Homeland Security Secretary Markwayne Mullin said there was no indication of a nefarious act. Flights are moving again; expect delays and check your airline before you leave. The jokes are ours; the facts are sourced below.\n\n#groundstop #faa #flightsgrounded #meatballmyths #shorts\n\nSources: FAA and U.S. Department of Transportation statements (Nov 13, 2026); Scripps News, CNN, ABC News and CBS News coverage (Nov 13, 2026).",
+ "tiktok_caption": "why did the faa ground stop happen ✈️ As of Fri Nov 13, 9 pm ET: the nationwide stop on departures was lifted around 8:15 pm ET, Transportation Secretary Sean Duffy said, more than four hours after it began. Nearly 5,000 flights were cancelled, ABC News says. Duffy pointed to inconsistency in data from routers in what he called an incredibly old air traffic control system. CBS News reported a network update made the system crash (not confirmed). Homeland Security's secretary said there is no indication yet of a nefarious act. Officials warn getting back to normal will take time; check your airline's app. Meatball got a middle seat. Did you make it out or are you still stuck? #groundstop #faa #flightsgrounded #flightdelay #travel",
+ "youtube_title": "Why the FAA Ground Stop Happened: Lifted After 4+ Hours ✈️ (Meatball Explains)",
+ "youtube_description": "Why did the FAA ground stop happen, and is it over? As of Fri Nov 13, 2026, 9 pm ET: the nationwide stop on departures was lifted around 8:15 pm ET, Transportation Secretary Sean Duffy said, more than four hours after it began. Nearly 5,000 flights were cancelled, ABC News reports. Duffy pointed to inconsistency in data from routers in what he called an incredibly old air traffic control system; the FAA has described a temporary telecommunications outage. CBS News, citing sources, reported that a network update made the system reboot and crash; that is not confirmed. Homeland Security Secretary Markwayne Mullin said there was no indication yet of a nefarious act. Flights are taking off again; officials warn getting back to normal will take time, so check your airline before you leave. The jokes are ours; the facts are sourced below.\n\n#groundstop #faa #flightsgrounded #meatballmyths #shorts\n\nSources: FAA and U.S. Department of Transportation statements (Nov 13, 2026); NBC News, ABC News, CBS News and KOMO News coverage (Nov 13, 2026).",
  "youtube_tags": [
   "why did the faa ground stop happen",
   "faa ground stop lifted",

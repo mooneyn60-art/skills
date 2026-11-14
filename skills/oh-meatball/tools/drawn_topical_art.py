@@ -1443,7 +1443,14 @@ SCENES.update({"tp_gate": tp_gate})
 def tp_plane(ctx, t, p):
     """One plain white airliner in level flight, centred at its origin (about 480 wide); p flip faces it left; it
     bobs gently. No livery, no names."""
-    _plane(ctx, 0, 6 * math.sin(t * 2), 1.0, 0.0, flip=bool(p.get("flip")))
+    y = 6 * math.sin(t * 2)
+    _plane(ctx, 0, y, 1.0, 0.0, flip=bool(p.get("flip")))
+    if p.get("lights"):   # navigation and beacon lights blink
+        on = math.sin(t * 5) > 0
+        sx = -1 if p.get("flip") else 1
+        flat(ctx, lambda c: p_ellipse(c, -60 * sx, y + 70, 10, 10), C["red"], a=1.0 if on else 0.4)
+        flat(ctx, lambda c: p_ellipse(c, 20 * sx, y + 70, 10, 10), C["green"], a=0.4 if on else 1.0)
+        flat(ctx, lambda c: p_ellipse(c, -210 * sx, y - 120, 9, 9), (1, 1, 1), a=1.0 if on else 0.3)
 
 
 ACTORS.update({"tp_plane": tp_plane})
@@ -1565,3 +1572,89 @@ def tp_buzz(ctx, t, p):
 
 ACTORS.update({"tp_mailbox": tp_mailbox, "tp_quilt": tp_quilt, "tp_vending": tp_vending, "tp_status": tp_status,
                "tp_buzz": tp_buzz})
+
+
+# ================================================================================================ ground stop lifted
+
+def tp_cabin(ctx, t, layer, p):
+    """A plain airliner cabin seen side-on: curved pale wall with a row of oval windows (night sky outside), an
+    overhead bin band, a bathroom door at x 860..1060 with a small round person icon (no words), carpet aisle at
+    y 1500."""
+    layer(0.9)
+    flat(ctx, lambda c: c.rectangle(-3000, -3000, 8000, 8000), hexc("#e8eef4"))
+    flat(ctx, lambda c: c.rectangle(-3000, 380, 8000, 160), hexc("#cfd6de"))
+    stroke(ctx, [(-3000, 540), (5000, 540)], BG_OUT)
+    for k in range(-6, 12):
+        x = k * 200
+        shape(ctx, lambda c, x=x: p_ellipse(c, x, 860, 50, 70), hexc("#141c33"), BG_OUT, None)
+        flat(ctx, lambda c, x=x: p_ellipse(c, x + 12, 840, 6, 6), (1, 1, 1), a=0.7)
+    layer(1.0)
+    shape(ctx, lambda c: c.rectangle(860, 640, 200, 860), hexc("#c8ccd4"), OUT, (0.03, 0.06))
+    shape(ctx, lambda c: p_ellipse(c, 960, 760, 34, 34), hexc("#3b7dd8"), OUT * 0.5, None)
+    flat(ctx, lambda c: p_ellipse(c, 960, 748, 8, 8), (1, 1, 1))
+    flat(ctx, lambda c: p_rrect(c, 952, 758, 16, 22, 5), (1, 1, 1))
+    shape(ctx, lambda c: p_rrect(c, 880, 1060, 28, 60, 8), hexc("#9aa3ab"), OUT * 0.5, None)
+    flat(ctx, lambda c: c.rectangle(-3000, 1500, 8000, 3000), hexc("#3b4a6b"))
+    stroke(ctx, [(-3000, 1500), (5000, 1500)], BG_OUT)
+
+
+def tp_cabinrow(ctx, t, p):
+    """A row of p n plain airline seats seen from behind-side (feet y 0, each 220 wide, backs 520 tall); put it in
+    front of someone sitting so only the head shows."""
+    n = int(p.get("n", 3))
+    w = 220
+    x0 = -n * w / 2
+    for k in range(n):
+        x = x0 + k * w
+        shape(ctx, lambda c, x=x: p_rrect(c, x + 12, -520, w - 24, 400, 40), hexc(p.get("col", "#3b4a6b")), OUT,
+              (0.03, 0.08))
+        shape(ctx, lambda c, x=x: p_rrect(c, x + 40, -560, w - 80, 70, 24), hexc("#e8eef4"), OUT * 0.7, None)
+        shape(ctx, lambda c, x=x: c.rectangle(x + 20, -130, w - 40, 30), hexc("#2a3550"), OUT * 0.7, None)
+        stroke(ctx, [(x + w / 2, -100), (x + w / 2, 0)], 12)
+
+
+def tp_routers(ctx, t, p):
+    """A wall rack of p n (default 6) plain routers on two shelves (feet y 0, 600 wide), lights blinking out of
+    sync; p sync 0..1 brings them back in step."""
+    sy = p.get("sync", 0.0)
+    for r in range(2):
+        y = -60 - r * 260
+        shape(ctx, lambda c, y=y: c.rectangle(-300, y, 600, 22), C["steel_dk"], OUT * 0.7, None)
+        for k in range(3):
+            x = -200 + k * 200
+            for sx_ in (-50, 50):
+                stroke(ctx, [(x + sx_, y - 100), (x + sx_ * 1.3, y - 200)], 10, color=hexc("#3a3f48"))
+            shape(ctx, lambda c, x=x, y=y: p_rrect(c, x - 85, y - 100, 170, 100, 16), C["router"], OUT * 0.8, None)
+            for j in range(4):
+                ph = (1 - sy) * (k * 1.9 + r * 2.7 + j * 0.8)
+                on = math.sin(t * (6 + (1 - sy) * (k + r)) + ph) > 0
+                flat(ctx, lambda c, x=x, y=y, j=j: p_ellipse(c, x - 50 + j * 33, y - 50, 9, 9),
+                     hexc("#3fb950") if on else hexc("#9aa3ab"))
+
+
+def tp_plug(ctx, t, p):
+    """A pulled plug held up at its origin, its cord hanging down to the floor p len px below."""
+    ln = p.get("len", 200)
+    stroke(ctx, [(0, 20), (-30, ln * 0.5), (10, ln)], 8, smooth=True)
+    shape(ctx, lambda c: p_rrect(c, -22, -30, 44, 56, 8), hexc("#3a3f48"), OUT * 0.6, None)
+    for dx in (-10, 10):
+        stroke(ctx, [(dx, -30), (dx, -58)], 6, color=hexc("#c8ccd4"))
+
+
+def tp_flipphone(ctx, t, p):
+    """An old flip phone, open, centred at its origin (110 x 260): a tiny screen, number keys as dots, a stubby
+    antenna."""
+    ctx.save()
+    ctx.rotate(math.radians(p.get("rot", -10)))
+    stroke(ctx, [(35, -130), (35, -175)], 10)
+    shape(ctx, lambda c: p_rrect(c, -55, -130, 110, 125, 16), hexc("#8d969c"), OUT * 0.7, None)
+    flat(ctx, lambda c: p_rrect(c, -38, -112, 76, 70, 6), hexc("#9fd3a0"))
+    shape(ctx, lambda c: p_rrect(c, -55, 0, 110, 130, 16), hexc("#8d969c"), OUT * 0.7, None)
+    for r in range(4):
+        for k in range(3):
+            flat(ctx, lambda c, r=r, k=k: p_ellipse(c, -28 + k * 28, 24 + r * 26, 8, 6), hexc("#3a3f48"))
+    ctx.restore()
+
+
+ACTORS.update({"tp_cabinrow": tp_cabinrow, "tp_routers": tp_routers, "tp_plug": tp_plug, "tp_flipphone": tp_flipphone})
+SCENES.update({"tp_cabin": tp_cabin})
