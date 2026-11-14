@@ -1,14 +1,14 @@
 {
- "_what": "UPDATE video on the FAA nationwide ground stop (Nolan 11/13 about 19:55 ET, shown the new facts: 'Go make it and post now'). TikTok lines b1 to b9, YouTube lines z1 to z7. Facts from web-search summaries at 19:54 ET (they conflict on the extension time): NOT yet checked by a second model. DEVELOPING: the checker sets the exact time rows.",
+ "_what": "UPDATE video on the FAA nationwide ground stop (Nolan 11/13 about 19:55 ET, shown the new facts: 'Go make it and post now'). TikTok lines b1 to b9, YouTube lines z1 to z7. Facts from web-search summaries at 19:54 ET (they conflict on the extension time): Checked by a second model about 19:57 ET (research/112): 10 line fixes, all applied here. DEVELOPING: the checker sets the exact time rows.",
  "_rules": "Jokes aim at Meatball only; never at passengers, controllers, crews or officials, and no joke says or hints that flying is unsafe. Unconfirmed things stay attributed. No joke adds a number, a cause or a claim. All drawn: no airline or agency logos, no real people. Captions soften swear spelling (cap_swap). YouTube cut: mild words only. Title, description and caption are clean.",
  "lines": [
   {
    "id": "b1",
    "kind": "hook",
-   "say": "Ground stop update: it got extended. Here's what the hell is going on now.",
+   "say": "Ground stop update: it's still on, into tonight. Here's what the hell is going on now.",
    "card": [
     "GROUND STOP UPDATE",
-    "EXTENDED",
+    "STILL ON FOR DEPARTURES",
     "AS OF FRI NOV 13, 8 PM ET"
    ],
    "vis": "Frame 0: the same airport gate as the first video, now at night (dark window, parked planes with lights); the board flips to DELAYED again. Meatball slumped on the seats."
@@ -26,28 +26,28 @@
   {
    "id": "b3",
    "kind": "fact",
-   "say": "The FAA's stop on departures started just before four Eastern. Tonight its advisory was extended to late Friday night.",
+   "say": "The FAA's stop on departures started just before four Eastern. NBC News reports it runs until at least late tonight.",
    "card": [
-    "STARTED ABOUT 3:54 PM ET",
-    "EXTENDED TO LATE FRIDAY NIGHT",
-    "(FAA ADVISORY)"
+    "STARTED ABOUT 3:54 PM ET (FAA ADVISORY)",
+    "RUNS TO AT LEAST LATE FRIDAY",
+    "(NBC NEWS)"
    ],
    "vis": "A clock sweeping from 4 toward 11; the board rows stay DELAYED."
   },
   {
    "id": "b3b",
    "kind": "joke",
-   "say": "Meatball got extended too. Across four fucking seats.",
+   "say": "Meatball's staying late too. Across four fucking seats.",
    "card": [],
    "vis": "Meatball lying across four gate seats under his blanket."
   },
   {
    "id": "b4",
    "kind": "fact+joke",
-   "say": "More than two thousand flights have been cancelled. Meatball's is one of them. He found out from a fucking vending machine.",
+   "say": "More than four thousand flights have been cancelled, FlightAware says. Meatball's is one of them. He found out from a fucking vending machine.",
    "card": [
-    "2,000+ FLIGHTS CANCELLED",
-    "(REPORTED)"
+    "4,000+ FLIGHTS CANCELLED",
+    "(FLIGHTAWARE, 7:30 PM ET)"
    ],
    "vis": "The board rows flip from DELAYED to CANCELLED; Meatball stares at a vending machine."
   },
@@ -65,10 +65,10 @@
   {
    "id": "b6",
    "kind": "fact",
-   "say": "Still no official cause. The FAA says it's a communication problem at the centers that guide planes between airports.",
+   "say": "Still no root cause. The FAA calls it a temporary telecommunications outage, hitting the centers that guide planes between airports.",
    "card": [
-    "NO OFFICIAL CAUSE YET",
-    "COMMUNICATION PROBLEM (FAA)"
+    "NO ROOT CAUSE YET",
+    "\"TEMPORARY TELECOMMUNICATIONS OUTAGE\" (FAA)"
    ],
    "vis": "The control tower and radar desk from the first video, link still static. Played straight."
   },
@@ -82,10 +82,9 @@
   {
    "id": "b7",
    "kind": "fact",
-   "say": "And tomorrow: more than seven hundred Saturday flights are already cancelled, and airlines warn it will take time to recover. Check your airline's app before you leave the house.",
+   "say": "And if you're flying tomorrow, check your airline's app before you leave the house. Seriously.",
    "card": [
-    "700+ SATURDAY FLIGHTS CANCELLED",
-    "RECOVERY WILL TAKE TIME (AIRLINES)",
+    "FLYING SATURDAY?",
     "CHECK YOUR AIRLINE'S APP"
    ],
    "vis": "A wall calendar page SAT with the board behind it; a phone showing a generic flight-status screen (no airline name)."
@@ -113,10 +112,10 @@
   {
    "id": "z1",
    "from": "b1",
-   "say": "Ground stop update: it got extended. Here's what's going on.",
+   "say": "Ground stop update: it's still on, into tonight. Here's what's going on.",
    "card": [
     "GROUND STOP UPDATE",
-    "EXTENDED",
+    "STILL ON FOR DEPARTURES",
     "AS OF FRI NOV 13, 8 PM ET"
    ]
   },
@@ -132,28 +131,28 @@
   {
    "id": "z3",
    "from": "b3",
-   "say": "The FAA's stop on departures was extended to late Friday night.",
+   "say": "NBC News reports the FAA's stop on departures runs until at least late tonight.",
    "card": [
-    "EXTENDED TO LATE FRIDAY NIGHT",
-    "(FAA ADVISORY)"
+    "RUNS TO AT LEAST LATE FRIDAY",
+    "(NBC NEWS)"
    ]
   },
   {
    "id": "z4",
    "from": "b4+b5",
-   "say": "More than two thousand flights are cancelled. Some flights over the oceans got cleared.",
+   "say": "More than four thousand flights are cancelled, FlightAware says. Some flights over the oceans got cleared.",
    "card": [
-    "2,000+ FLIGHTS CANCELLED (REPORTED)",
+    "4,000+ CANCELLED (FLIGHTAWARE)",
     "SOME OCEAN FLIGHTS CLEARED (ABC NEWS)"
    ]
   },
   {
    "id": "z5",
    "from": "b6+b7",
-   "say": "Still no official cause. And more than seven hundred Saturday flights are already cancelled.",
+   "say": "Still no root cause. The FAA calls it a temporary telecommunications outage.",
    "card": [
-    "NO OFFICIAL CAUSE YET",
-    "700+ SATURDAY FLIGHTS CANCELLED"
+    "NO ROOT CAUSE YET",
+    "TELECOM OUTAGE (FAA)"
    ]
   },
   {
@@ -173,10 +172,10 @@
    ]
   }
  ],
- "tiktok_title": "Ground Stop Update: It Got Extended",
- "tiktok_caption": "ground stop update ✈️ As of Fri Nov 13, 8 pm ET: the FAA's stop on departures was extended to late Friday night. More than 2,000 flights have been cancelled and more than 700 Saturday flights are already cancelled. Some flights over the Pacific and some transatlantic flights were cleared, ABC News reports. No official cause yet. Check your airline's app before you leave the house. Meatball is still at gate B12. Is your flight cancelled, delayed or fine? #flightsgrounded #faa #groundstop #flightcancelled #travel",
- "youtube_title": "FAA Ground Stop Update: Extended, 2,000+ Flights Cancelled ✈️ (Meatball Explains)",
- "youtube_description": "Is the FAA ground stop still on, and is my flight cancelled? An update as of Fri Nov 13, 2026, 8 pm ET. The FAA's nationwide stop on departures, which began just before 4 pm ET, was extended to late Friday night. More than 2,000 flights have been cancelled, and more than 700 Saturday flights are already cancelled. Some flights over the Pacific from the West Coast and some transatlantic flights were cleared to leave, ABC News reports. There is no official cause yet; the FAA describes a communication problem at the centers that guide planes between airports. Airlines warn recovery will take time. This is a developing story: check your airline and the FAA for the latest. The jokes are ours; the facts are sourced below.\n\n#flightsgrounded #faa #groundstop #meatballmyths #shorts\n\nSources: FAA advisories and statements (Nov 13, 2026); ABC News, CNN, CNBC and TheStreet coverage (Nov 13, 2026).",
+ "tiktok_title": "Ground Stop Update: Still On Into Tonight",
+ "tiktok_caption": "ground stop update ✈️ As of Fri Nov 13, 8 pm ET: the FAA's stop on departures was still on, and NBC News reports it runs until at least late tonight. More than 4,000 flights have been cancelled, FlightAware says. Some flights over the Pacific and some transatlantic flights were cleared, ABC News reports. The FAA calls it a temporary telecommunications outage; no root cause yet. Flying Saturday? Check your airline's app before you leave the house. Meatball is still at gate B12. Is your flight cancelled, delayed or fine? #flightsgrounded #faa #groundstop #flightcancelled #travel",
+ "youtube_title": "FAA Ground Stop Update: Still On, 4,000+ Flights Cancelled ✈️ (Meatball Explains)",
+ "youtube_description": "Is the FAA ground stop still on, and is my flight cancelled? An update as of Fri Nov 13, 2026, 8 pm ET. The FAA's nationwide stop on departures, which began just before 4 pm ET, was still in effect, and NBC News reports it runs until at least late tonight. More than 4,000 flights have been cancelled, according to FlightAware. Some flights over the Pacific from the West Coast and some transatlantic flights were cleared to leave, ABC News reports. The FAA calls it a temporary telecommunications outage; no root cause has been given. If you are flying Saturday, check your airline before you leave. This is a developing story: check your airline and the FAA for the latest. The jokes are ours; the facts are sourced below.\n\n#flightsgrounded #faa #groundstop #meatballmyths #shorts\n\nSources: FAA statements and status feed (Nov 13, 2026); NBC News, ABC News, CBS News and FlightAware (Nov 13, 2026).",
  "youtube_tags": [
   "faa ground stop update",
   "flights grounded today",
@@ -184,7 +183,7 @@
   "flights cancelled today",
   "faa ground stop",
   "nationwide ground stop",
-  "flights cancelled saturday",
+  "faa ground stop today",
   "faa outage",
   "flight cancelled",
   "meatball myths"
