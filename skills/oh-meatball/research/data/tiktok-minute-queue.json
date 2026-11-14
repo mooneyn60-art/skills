@@ -64,7 +64,7 @@
   },
   {
    "slug": "moose-wms",
-   "status": "todo",
+   "status": "built",
    "slot": "TikTok Sat 11/14 19:00",
    "family": "Would Meatball Survive? (big dangerous animal)",
    "topic": "What to do if a moose charges you",
@@ -73,11 +73,24 @@
    "template": "tt-grizzly-wms.json",
    "do_not_say": "No ending says a tactic saved Meatball. Every safety line is credited to its agency and keeps its trigger. Moose advice never shares a line with bear advice.",
    "gag_idea": "(keep the short cut's gag)",
-   "note": "The 21 s cut in this slot was set to draft 11/13 (held.csv); the minute cut takes Sat 11/14 19:00 if built in the night of 11/13, else the next free 19:00."
+   "note": "The 21 s cut in this slot was set to draft 11/13 (held.csv); the minute cut takes Sat 11/14 19:00 if built in the night of 11/13, else the next free 19:00.",
+   "built": {
+    "mp4": "episodes/drawn-house/tt-moose-wms.mp4",
+    "seconds": 89.13,
+    "spec": "scripts/drawn-house/tt-moose-wms.json",
+    "sheet": "episodes/drawn-house/sheets/moose-wms-min-tt.jpg",
+    "when": "2026-11-14 night",
+    "check": "research/facts/moose-wms-min-check.md (cleared, 7 changes applied)",
+    "problems": [
+     "Voice check ok (288 of 290 words). Lint pass.",
+     "The snow scene (CURL UP into STAY DOWN) holds one room for about 8 to 10 s; not changed.",
+     "New fact pack research/facts/moose-wms.md."
+    ]
+   }
   },
   {
    "slug": "cat-name",
-   "status": "todo",
+   "status": "built",
    "slot": "TikTok Sun 11/15 19:00",
    "family": "pets in your house (cat)",
    "topic": "Do cats know their names: the 2019 study",
@@ -89,7 +102,19 @@
    "short_spec": "/home/user/skills/skills/oh-meatball/scripts/drawn-house/tts-cat-name.json",
    "template": "tt-dog-guilty-look.json",
    "do_not_say": "See the CN do-not-say list in research 84.",
-   "gag_idea": "(keep the short cut's gag; the cat is Sauce)"
+   "gag_idea": "(keep the short cut's gag; the cat is Sauce)",
+   "built": {
+    "mp4": "episodes/drawn-house/tt-cat-name.mp4",
+    "seconds": 82.2,
+    "spec": "scripts/drawn-house/tt-cat-name.json",
+    "sheet": "episodes/drawn-house/sheets/cat-name-min-tt.jpg",
+    "when": "2026-11-14 night",
+    "check": "research/facts/cat-name-min-check.md (cleared, 4 changes applied)",
+    "problems": [
+     "Voice check ok (273 of 273 words). Lint pass.",
+     "Library and bathroom scenes each run close to 8 s."
+    ]
+   }
   },
   {
    "slug": "bison-wms",

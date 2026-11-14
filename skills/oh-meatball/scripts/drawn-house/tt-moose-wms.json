@@ -1,0 +1,632 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "detective",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "cut_whoosh": true,
+ "loop": true,
+ "photo_credits": [],
+ "cap_swap": {
+  "shit": "sh*t",
+  "shits": "sh*ts",
+  "shitty": "sh*tty",
+  "bullshit": "bullsh*t",
+  "fuck": "f**k",
+  "fucking": "f**king",
+  "fucker": "f**ker",
+  "fuckers": "f**kers"
+ },
+ "series": "Would Meatball Survive?",
+ "sources": [
+  "Alaska Department of Fish and Game, What to Do About Aggressive Moose (opened 2026-11-14; the page shows no last-updated date): \"While moose are generally perceived to be less dangerous than bears, more people in Alaska are injured by moose than by bears each year.\"; \"Fortunately most moose charges are bluffs\"; \"But if a moose does charge, don't wait to find out if it's bluffing. Run and get behind something solid, like a tree, or retreat to a safe place, like inside a building or car.\"; \"When a moose charges it often kicks forward with its front hooves.\"; \"Unlike with bears or even dogs, it is usually a good idea to run from a moose because they won't chase you very far.\"; \"Get behind something solid; you can run around a tree faster than a moose.\"; \"If it knocks you down, a moose may continue running or start stomping and kicking with all four feet.\"; \"Curl up in a ball, protect your head with your hands, and hold still. Don't move or try to get up until the moose moves a safe distance away or it may renew its attack.\"; https://www.adfg.alaska.gov/index.cfm?adfg=livewith.aggressivemoose",
+  "U.S. National Park Service, Kenai Fjords, Moose Safety (last updated June 18, 2026): \"Stay at least 25 yards (25 m) away from moose.\"; \"Visitors are often concerned about encountering bears; yet in Alaska more people each year are injured by moose than by bears.\"; \"Unlike with bears, it is okay to run from a moose. They usually won't chase you and if they do, it's unlikely that they'll chase you very far.\"; \"If a moose knocks you down, curl up in a ball and protect your head with your arms and keep still. Fighting back will only convince the moose that you may still be a threat. Only move once the moose has backed off to a safe distance or it may renew its attack.\"; https://www.nps.gov/kefj/planyourvisit/moose-safety.htm",
+  "U.S. National Park Service, Denali, Wildlife Safety (last updated August 13, 2026): \"Stay at least two bus-lengths (25 yards, 23 m) away from moose.\"; https://www.nps.gov/dena/planyourvisit/wildlife-safety.htm",
+  "U.S. National Park Service, Denali, Moose (last updated May 30, 2019): \"Adult males can weigh 900-1400 pounds and females can weigh 700-1100 pounds.\"; https://www.nps.gov/dena/learn/nature/moose.htm"
+ ],
+ "stage": {
+  "creature": "moose",
+  "scene": "forest_floor",
+  "scene_p": {},
+  "s": 0.6,
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "moose",
+   "color": "#5c3f2b",
+   "dark": "#3e2a1c",
+   "belly": "#8a6a50",
+   "length": 700,
+   "height": 300,
+   "leg_len": 380,
+   "leg_w": 34,
+   "ears": "pointed",
+   "tail": "thin",
+   "tail_w": 8,
+   "whiskers": false,
+   "mood": "calm",
+   "antlers": true,
+   "beard": true
+  }
+ },
+ "cap_key": [
+  "moose",
+  "bears",
+  "alaska",
+  "meatball",
+  "run",
+  "solid",
+  "900",
+  "pounds",
+  "25",
+  "yards",
+  "injured",
+  "kicks",
+  "hooves",
+  "bluffs",
+  "tree",
+  "building",
+  "car",
+  "weirder",
+  "running",
+  "charging",
+  "far",
+  "down",
+  "stomping",
+  "kicking",
+  "curl",
+  "head",
+  "still",
+  "fighting",
+  "threat",
+  "lived",
+  "guaranteed",
+  "closest"
+ ],
+ "title": "Moose Injure More People Than Bears in Alaska 🫎 (Would Meatball Survive? #2)",
+ "tiktok_title": "What to Do If a Moose Charges You",
+ "tiktok_caption": "what to do if a moose charges you 🫎 Alaska's Department of Fish and Game says if a moose charges, run and get behind something solid, like a tree. Unlike with bears, running is usually a good idea because a moose won't chase you very far. Meatball walked up to pet one. Send this to the friend who would try to pet it. General info, not safety training. Closest you've ever been to a moose: zoo, roadside or way too close? #moose #wildlife #alaska #animals #nature",
+ "description": "What should you do if a moose charges? Alaska's Department of Fish and Game says more people in Alaska are injured by moose than by bears each year. A charging moose often kicks forward with its front hooves. Unlike with bears, running is usually a good idea because a moose won't chase you very far, and if one knocks you down, curl up, protect your head and hold still until it moves a safe distance away.\n\n#moose #alaska #meatballmyths #shorts\n\nSources: Alaska Department of Fish and Game (Aggressive Moose); U.S. National Park Service (Moose Safety). General information, not safety training.",
+ "search_top": {
+  "rows": [
+   [
+    "WHAT TO DO IF A",
+    "#ffffff",
+    80
+   ],
+   [
+    "MOOSE CHARGES YOU",
+    "#ffd34d",
+    80
+   ]
+  ],
+  "y": 150,
+  "until": 2.5
+ },
+ "_note": "TikTok minute cut of the checked short cut tts-moose-wms.json (Nolan 11/12: every TikTok runs over one minute). Draft 11/14 by script-moose-wms, written only from research/facts/moose-wms.md (MO-F1 to MO-F16). Not yet checked by a second model and not rendered. 15 lines, 286 spoken words (counted by script). Kept from the short cut: line 2 (the gag, 'Meatball walked up to pet one. Dumbass.'), line 6 (front hooves, word for word), the wording of line 10 with the agency credit and 'from a charging moose' added, the stage and the moose drawing, the title, description and hashtags. Changed on purpose: the hook is now the searched question and the agency's answer (MO-F4); the injury line says 'more people are injured by moose than by bears each year' (the pack's safe wording; the short cut's line had no 'each year'); the ending is 'Meatball fucking lived. Nothing's guaranteed.' (the short cut's 'survived, and ran like hell' tied the outcome to running); the run card no longer says 'NOT FROM A BEAR'; the on-screen search phrase now has the 'YOU' of the searched phrase. New wording for the checker: lines 1, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15 and every card. Line 10 keeps the agency's own contrast 'Unlike with bears' (MO-F6, MO-F7; the pack allows that contrast and nothing more); it says nothing about what to do with a bear. The caption carries the same contrast. Line 2 has gag false: the automatic gag drew hearts over the moose, which reads as the animal's feeling; the card and the reach carry the gag. Left out and why: pepper spray (ADF&G only, 'last resort'), zigzag (Denali only), the warning signs, the seasons, the calf weight and 'usually flee' (length), any injury count, speed or 1,600 pounds (not in the pack or in conflict). No pet line: this is a survival cut and no pack fact supports Noodle or Sauce here. Jokes are on Meatball (dumbass, wanted to pet that, hugging range, caught both, dizzy, longest nap, both fists); none adds a number, a danger claim, a feeling or an instruction. Hashtags are the short cut's checked five; no new hashtag research was run (brief: no side research). The description is the short cut's checked YouTube text; a TikTok post publishes tiktok_caption alone. Planned length 87.83 s (drawn.py plan with the lines voiced, 11/14; work files in /dev/shm/moose-wms-min/plan). 286 words is over the 'about 180 to 260' guide: if the cut must be shorter, drop line 8 (the tree line, 19 words) or line 4 (the 25-yard line, 19 words): a first plan without line 4 and without three later credit words ran 81.65 s; a cut without line 8 was not planned. Stills of the 15 lines were looked at: the search phrase fits on two rows, cards sit under it, Meatball shows lying down in lines 12 and 13 (line 13 uses the count macro for its wide camera), the last frame is back in the forest. The full render and its voice check are still to do.",
+ "_curse": "TikTok cut with about one swear a line, as a reaction or inside a Meatball joke (Nolan 11/11: 'one a sentence', 'make them joke more using the cursing'). Every agency credit and every safety instruction is said clean and the swear comes after it, so this safety-heavy cut carries fewer f-words (MASTER_ORDERS: do not pad it). 9 f-words and 4 'shit' in 15 lines (counted by script), plus 'Dumbass' and 'hell'. Line 12 (curl up) is fully clean; its reaction is in line 13. No insult uses 'you'. cap_swap covers every strong spelling used (fuck, fucking, shit).",
+ "beats": [
+  {
+   "open": "animal",
+   "open_zoom": 1.6,
+   "open_dx": -110,
+   "m": "hook",
+   "gag": {
+    "mark": "shock"
+   },
+   "_f": [
+    "MO-F4"
+   ],
+   "say": "What to do if a moose charges you? Alaska Fish and Game says run and get behind something solid. Holy shit.",
+   "card": {
+    "rows": [
+     [
+      "RUN",
+      "#7bd88f",
+      130
+     ],
+     [
+      "GET BEHIND SOMETHING SOLID",
+      "#ffffff",
+      52,
+      true
+     ],
+     [
+      "IF A MOOSE CHARGES: ALASKA FISH & GAME",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "scene": "tundra",
+   "pad": 0.2,
+   "m": "chase",
+   "gag": false,
+   "_f": [],
+   "say": "Meatball walked up to pet one. Dumbass.",
+   "card": {
+    "rows": [
+     [
+      "MEATBALL WENT TO PET IT",
+      "#ffd34d",
+      80
+     ],
+     [
+      "BAD IDEA",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "swamp",
+   "pad": 0.1,
+   "m": "scale",
+   "how": "grow",
+   "gag": false,
+   "_f": [
+    "MO-F16"
+   ],
+   "say": "An adult bull moose can weigh 900 to 1,400 pounds, the Park Service says. Meatball wanted to pet that. Fucking hell.",
+   "card": {
+    "rows": [
+     [
+      "900 TO 1,400 LB",
+      "#ffd34d",
+      100
+     ],
+     [
+      "AN ADULT BULL MOOSE: U.S. PARK SERVICE, DENALI",
+      "#ffffff",
+      38,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "garden",
+   "pad": 0.1,
+   "m": "fact",
+   "gag": false,
+   "_f": [
+    "MO-F13"
+   ],
+   "hero_at": {
+    "x": 900,
+    "y": 1500
+   },
+   "say": "The Park Service also says stay at least 25 yards from a moose. Meatball was in fucking hugging range.",
+   "card": {
+    "rows": [
+     [
+      "25 YARDS",
+      "#ffd34d",
+      130
+     ],
+     [
+      "STAY AT LEAST THAT FAR FROM A MOOSE",
+      "#ffffff",
+      44,
+      true
+     ],
+     [
+      "U.S. PARK SERVICE",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "cave",
+   "pad": 0.1,
+   "m": "fact",
+   "gag": false,
+   "_f": [
+    "MO-F1",
+    "MO-F2"
+   ],
+   "hero_at": {
+    "x": 900,
+    "y": 1500
+   },
+   "say": "In Alaska, more people are injured by moose than by bears each year. Fucking moose.",
+   "card": {
+    "rows": [
+     [
+      "MORE INJURIES",
+      "#ff4b3e",
+      110
+     ],
+     [
+      "THAN BEARS, EACH YEAR IN ALASKA",
+      "#ffffff",
+      50,
+      true
+     ],
+     [
+      "ALASKA FISH & GAME AND THE U.S. PARK SERVICE",
+      "#ffffff",
+      38,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "tundra",
+   "pad": 0.1,
+   "m": "escalate",
+   "gag": false,
+   "_f": [
+    "MO-F5"
+   ],
+   "say": "A charging moose often kicks forward with its front hooves. Meatball caught both. Holy shit.",
+   "card": {
+    "rows": [
+     [
+      "FRONT HOOVES",
+      "#ff4b3e",
+      110
+     ],
+     [
+      "IT OFTEN KICKS FORWARD",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "forest_floor",
+   "pad": 0.1,
+   "m": "fact",
+   "gag": false,
+   "_f": [
+    "MO-F4"
+   ],
+   "hero_at": {
+    "x": 900,
+    "y": 1500
+   },
+   "say": "Most charges are bluffs, Alaska Fish and Game says, but don't wait to find out. Get behind a tree, or inside a building or car. Scary as fuck.",
+   "card": {
+    "rows": [
+     [
+      "DON'T WAIT",
+      "#7bd88f",
+      110
+     ],
+     [
+      "MOST CHARGES ARE BLUFFS, BUT DON'T WAIT TO FIND OUT",
+      "#ffffff",
+      36,
+      true
+     ],
+     [
+      "A TREE, A BUILDING OR A CAR: ALASKA FISH & GAME",
+      "#ffffff",
+      38,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "swamp",
+   "pad": 0.1,
+   "m": "fact",
+   "gag": false,
+   "_f": [
+    "MO-F8"
+   ],
+   "hero_at": {
+    "x": 900,
+    "y": 1500
+   },
+   "say": "You can run around a tree faster than a moose can, the agency says. Meatball got dizzy as shit.",
+   "card": {
+    "rows": [
+     [
+      "AROUND A TREE",
+      "#ffd34d",
+      104
+     ],
+     [
+      "YOU GET AROUND IT FASTER THAN A MOOSE",
+      "#ffffff",
+      44,
+      true
+     ],
+     [
+      "ALASKA FISH & GAME",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "cave",
+   "pad": 0.1,
+   "m": "scale",
+   "how": "grow",
+   "gag": {
+    "mark": "alarm"
+   },
+   "_f": [],
+   "say": "And it gets fucking weirder.",
+   "card": {
+    "rows": [
+     [
+      "IT GETS WEIRDER",
+      "#ffd34d",
+      100
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "garden",
+   "pad": 0.1,
+   "m": "chase",
+   "gag": false,
+   "_f": [
+    "MO-F6",
+    "MO-F7"
+   ],
+   "say": "Unlike with bears, the agency says, running from a charging moose is usually a good idea. It usually won't chase you very far. Thank fuck.",
+   "card": {
+    "rows": [
+     [
+      "RUN FROM A CHARGING MOOSE",
+      "#7bd88f",
+      74
+     ],
+     [
+      "USUALLY A GOOD IDEA: ALASKA FISH & GAME",
+      "#ffffff",
+      42,
+      true
+     ],
+     [
+      "IT USUALLY WON'T CHASE YOU VERY FAR",
+      "#ffffff",
+      46,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "forest_floor",
+   "pad": 0.1,
+   "m": "escalate",
+   "gag": {
+    "mark": "alarm"
+   },
+   "_f": [
+    "MO-F9"
+   ],
+   "say": "Worst case, it knocks you down. Then it may keep running, or start stomping and kicking with all four feet. Fuck.",
+   "card": {
+    "rows": [
+     [
+      "WORST CASE",
+      "#ff4b3e",
+      110
+     ],
+     [
+      "IT KNOCKS YOU DOWN",
+      "#ffffff",
+      52,
+      true
+     ],
+     [
+      "IT MAY STOMP AND KICK WITH ALL FOUR FEET: ALASKA FISH & GAME",
+      "#ffffff",
+      34,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "tundra",
+   "pad": 0.1,
+   "m": "fact",
+   "gag": false,
+   "recut": false,
+   "_f": [
+    "MO-F10"
+   ],
+   "hero_at": {
+    "x": 900,
+    "y": 1500
+   },
+   "mb": {
+    "moves": [
+     {
+      "at": "20%",
+      "dur": 0.35,
+      "rot": 90,
+      "s": 480,
+      "pos": [
+       175,
+       1445
+      ]
+     }
+    ],
+    "gest": []
+   },
+   "say": "If a moose knocks you down, Alaska Fish and Game says curl up in a ball, protect your head with your hands, and hold still.",
+   "card": {
+    "rows": [
+     [
+      "CURL UP",
+      "#7bd88f",
+      120
+     ],
+     [
+      "ONLY IF A MOOSE KNOCKS YOU DOWN",
+      "#ffffff",
+      48,
+      true
+     ],
+     [
+      "COVER YOUR HEAD, HOLD STILL: ALASKA FISH & GAME",
+      "#ffffff",
+      38,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "20%"
+   }
+  },
+  {
+   "scene": "tundra",
+   "pad": 0.1,
+   "m": "count",
+   "gag": false,
+   "recut": false,
+   "_f": [
+    "MO-F10"
+   ],
+   "hero_at": {
+    "x": 900,
+    "y": 1500
+   },
+   "mb": {
+    "pos": [
+     175,
+     1445
+    ],
+    "size": 480,
+    "moves": [
+     {
+      "at": 0.0,
+      "dur": 0.01,
+      "rot": 90
+     }
+    ],
+    "gest": []
+   },
+   "say": "Don't get up until it moves a safe distance away, the agency says, or it may renew its attack. Longest fucking nap of Meatball's life.",
+   "card": {
+    "rows": [
+     [
+      "STAY DOWN",
+      "#7bd88f",
+      110
+     ],
+     [
+      "UNTIL THE MOOSE MOVES A SAFE DISTANCE AWAY",
+      "#ffffff",
+      40,
+      true
+     ],
+     [
+      "IF IT KNOCKED YOU DOWN: ALASKA FISH & GAME",
+      "#ffffff",
+      38,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "cave",
+   "pad": 0.1,
+   "m": "fact",
+   "gag": false,
+   "_f": [
+    "MO-F11"
+   ],
+   "hero_at": {
+    "x": 900,
+    "y": 1500
+   },
+   "say": "The Park Service adds: once you're down, fighting back will only convince the moose you may still be a threat. Meatball almost put up both fists. Shit.",
+   "card": {
+    "rows": [
+     [
+      "FIGHTING BACK",
+      "#ff4b3e",
+      100
+     ],
+     [
+      "ONLY CONVINCES IT YOU MAY STILL BE A THREAT",
+      "#ffffff",
+      40,
+      true
+     ],
+     [
+      "IF A MOOSE KNOCKS YOU DOWN: U.S. PARK SERVICE",
+      "#ffffff",
+      38,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "forest_floor",
+   "m": "punch",
+   "gag": {
+    "mark": "alarm"
+   },
+   "_f": [],
+   "say": "Meatball fucking lived. Nothing's guaranteed. So what's the closest you've ever been to a moose? And",
+   "card": {
+    "rows": [
+     [
+      "CLOSEST YOU'VE BEEN TO A MOOSE? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ]
+}

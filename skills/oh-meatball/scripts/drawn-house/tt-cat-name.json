@@ -1,0 +1,659 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "detective",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "cut_whoosh": true,
+ "loop": true,
+ "photo_credits": [],
+ "cap_swap": {
+  "shit": "sh*t",
+  "shits": "sh*ts",
+  "shitty": "sh*tty",
+  "bullshit": "bullsh*t",
+  "fuck": "f**k",
+  "fuck's": "f**k's",
+  "fucking": "f**king",
+  "fucker": "f**ker",
+  "fuckers": "f**kers"
+ },
+ "series": "Things Living In Your House",
+ "sources": [
+  "Saito, Shinozuka, Ito & Hasegawa 2019, Scientific Reports, \"Domestic cats (Felis catus) discriminate their names from other words\": \"These results indicate that cats are able to discriminate their own names from other words.\"; a hidden speaker played four words and then the cat's name (\"a speaker (Sony SRS-Z100), which was hidden from the test cat\"); Experiment 1 used 16 household cats, and \"nine out of the eleven habituated cats increased their response magnitude from noun 4 to their own name\"; \"more than half of the cats responded to voice stimuli by moving their ears and heads\"; \"fewer than 10% of the cats demonstrated vocalisation, tail movement, and displacement\" (displacement: more than one step of both hind paws); with strangers' voices, \"13 out of the 20 habituated cats increased their response magnitude from noun 4 to their own name\"; \"cafe cats did not discriminate their own names from other cohabiting cats' names\"; the authors' guess: \"the association between hearing their names and receiving rewards or punishments might affect the behaviour of cats\"; \"such discrimination is acquired without explicit discrimination training\"; only cats that first got used to the four words were analysed; the study did not test coming when called; https://pmc.ncbi.nlm.nih.gov/articles/PMC6449508/"
+ ],
+ "stage": {
+  "creature": "cat",
+  "scene": "bedroom",
+  "scene_p": {},
+  "s": 0.62,
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "cat",
+   "color": "#8f9299",
+   "dark": "#5c5f66",
+   "belly": "#dfe1e4",
+   "tail_color": "#8f9299",
+   "length": 520,
+   "height": 250,
+   "leg_len": 150,
+   "leg_w": 30,
+   "ears": "pointed",
+   "tail": "thin",
+   "tail_w": 22,
+   "whiskers": true,
+   "mood": "smug"
+  }
+ },
+ "cap_key": [
+  "you",
+  "your",
+  "cat",
+  "cats",
+  "name",
+  "names",
+  "words",
+  "sauce",
+  "noodle",
+  "nine",
+  "ear",
+  "ears",
+  "heads",
+  "2019",
+  "speaker",
+  "four",
+  "11",
+  "16",
+  "eleven",
+  "half",
+  "meow",
+  "step",
+  "weirder",
+  "cafe",
+  "strangers",
+  "13",
+  "20",
+  "food",
+  "petting",
+  "vet",
+  "dinner",
+  "training",
+  "flashcards",
+  "heard"
+ ],
+ "title": "Your Cat Can Likely Tell Its Name: Under 1 in 10 Even Meowed 🐱 (Things Living In Your House #66)",
+ "tiktok_title": "Do Cats Know Their Names? A 2019 Study",
+ "tiktok_caption": "do cats know their names 🐱 In a 2019 study, a hidden speaker played four ordinary words and then the cat's own name. Most cats that had settled down during the other words reacted more to their own name. More than half of the cats moved their ears or heads; fewer than 10% meowed. The study did not test whether cats come when called. Meatball has called his cat, Sauce, for nine years. One ear moved. Once. Send this to someone who keeps calling their cat anyway. What does your cat do when you say its name: come over, flick an ear, or nothing? #catfacts #catname #cats #catsoftiktok #cattok",
+ "description": "Do cats know their names? In a 2019 study, a hidden speaker played four ordinary words and then the cat's own name. Cats that had settled down during the other words reacted more to their own name. More than half answered by moving their ears and heads; fewer than 10% meowed, moved their tail or took more than a step. Cats from one cat cafe failed to tell their own name from the names of the other cats there. The study did not test whether cats come when called.\n\n#cats #catfacts #meatballmyths #shorts\n\nSource: Saito, Shinozuka, Ito & Hasegawa 2019, Scientific Reports.",
+ "pinned_comment": "What does your cat do when you say its name: come over, flick an ear, or nothing at all?",
+ "tags": [
+  "do cats know their name",
+  "do cats understand their name",
+  "do cats recognize their name",
+  "does my cat know its name",
+  "do cats respond to their name",
+  "cat facts",
+  "things living in your house",
+  "Meatball Myths"
+ ],
+ "search_top": {
+  "rows": [
+   [
+    "DO CATS KNOW",
+    "#ffffff",
+    86
+   ],
+   [
+    "THEIR NAMES?",
+    "#ffd34d",
+    86
+   ]
+  ],
+  "y": 150,
+  "until": 2.5
+ },
+ "_note": "TikTok minute cut of the checked short cut tts-cat-name.json (Nolan 11/12: every TikTok runs over one minute). Draft 11/14 by script-cat-name, written only from research/84 (section 1, CN) and research/86. NOT yet checked by a second model and not rendered. Planned length 82.32 s (drawn.py plan with the lines voiced, 11/14; work files in /dev/shm/cat-name-min); 274 spoken words, 14 f-words and 2 'shit' in 16 lines (counted by script, 11/14). Stills of all 16 lines were looked at (sheet in /dev/shm/cat-name-min): cards sit under the search phrase, the mic, the two dials, the two extra cafe cats, the fish thought, Noodle with a bone thought and the paper show, Sauce is off screen by the end of line 3, the last frame is back in the bedroom. The full render and its voice check are still to do. Unchanged and already cleared (research/86, research/92): the hook's second sentence and its card, the nine-years gag and its card (now with 'his cat, Sauce,'), the hidden-speaker sentence and its card, 'More than half of the cats moved their ears or heads. Holy shit, an ear.', 'Fewer than one in ten let out a meow. Tough fucking crowd.', 'yours probably heard its fucking name', search_top, tiktok_title, title, description, tags, pinned_comment, the five hashtags. New wording for the checker: line 1 opens with the searched question; line 3 (Sauce walks off, a gag, no fact); line 4 ('A 2019 study tested it.' in front of the cleared speaker sentence); line 5 (CN-F6: 16 household cats in Experiment 1, 11 got used to the four words); line 6 (CN-F6: 9 of those 11); line 9 (CN-F3: displacement under 10% said as 'only a few took more than a step', and the study did not test coming when called, as in the cleared description); line 10 (the re-hook, no fact); line 11 (CN-F8, the description's cleared sentence with 'In the same study' in front and 'Awkward as fuck', which research/92 passed as an opinion); line 12 (CN-F7: strangers' voices, 13 of the 20 cats that settled down; the pack calls the result borderline, P = 0.049, and no line says more than 'still reacted more'); line 13 (CN-F9: the authors' guess, 'might' in the paper); line 14 (Noodle gag, no fact); line 15 (CN-F10: 'acquired without explicit discrimination training', said as 'with no training', the pack's safe wording); the last line's question; the caption's share line and quick-pick question. Left out and why: the 15 seconds, 3 metres and 65 dB (study detail only); CN-F4 and CN-F5 (CN-F5 invites 'cats do come when it matters', which is on the do-not-say list); the authors' guess about cafe visitors (a pack note with no quote); 10 cafe cats and 3 of 9 (too many counts in a row); CN-F11 to CN-F18 (other studies; the topic is the 2019 study). No line says cats ignore anyone on purpose, come or never come when called, understand that the name means them, or that every cat can do it. Jokes are on Meatball (nine years, shouting, can't get one cat to look up, every meeting, put the mic down, can't get that from his own cat, flashcards) or are actions of Sauce and Noodle on screen (walks off, eats the dinner). The nine years is the cleared gag; no other joke adds a number. The description is the short cut's checked text (a TikTok post publishes tiktok_caption alone). Sauce is drawn grey here as in the short cut of this topic; the cat purr cut drew Sauce dark grey and the cat sugar cut orange.",
+ "_curse": "TikTok cut with about one swear a line, as a reaction or inside a Meatball joke (Nolan 11/11: 'one a sentence', 'make them joke more using the cursing'). Every sourced credit ('A 2019 study', 'In the first test', 'In the same study', 'The authors' guess', 'the paper says') is said clean and the swear comes after it. 14 f-words and 2 'shit' in 16 lines (counted by script, 11/14). No insult uses 'you'. cap_swap covers every strong spelling used (fuck, fucking, shit).",
+ "beats": [
+  {
+   "open": "animal",
+   "m": "hook",
+   "gag": {
+    "mark": "shock"
+   },
+   "_f": [
+    "CN-F1"
+   ],
+   "say": "Do cats know their names? Your cat can probably tell its fucking name from other words.",
+   "card": {
+    "rows": [
+     [
+      "ITS OWN NAME",
+      "#ffd34d",
+      104
+     ],
+     [
+      "CATS CAN TELL IT FROM OTHER WORDS",
+      "#ffffff",
+      46,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "55%"
+   }
+  },
+  {
+   "scene": "garden",
+   "pad": 0.2,
+   "m": "fact",
+   "mood": "sleepy",
+   "gag": false,
+   "prop": "mic",
+   "_f": [],
+   "card": {
+    "rows": [
+     [
+      "9 YEARS",
+      "#ffd34d",
+      110
+     ],
+     [
+      "ONE EAR. ONCE.",
+      "#ffffff",
+      54,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   },
+   "say": "Meatball has called his cat, Sauce, for nine fucking years. One ear moved. Once."
+  },
+  {
+   "scene": "kitchen",
+   "pad": 0.2,
+   "m": "fact",
+   "mood": "smug",
+   "gag": false,
+   "prop": "mic",
+   "_f": [],
+   "mb": {
+    "shake": 0.8,
+    "gest": [
+     [
+      "walked|45%",
+      "shock",
+      1.2
+     ]
+    ]
+   },
+   "hero_moves": [
+    {
+     "at": "walked|45%",
+     "dur": 1.0,
+     "pos": [
+      1500,
+      1500
+     ],
+     "walk": true,
+     "face": 1
+    }
+   ],
+   "say": "So he tried shouting it. Sauce walked the fuck off.",
+   "card": {
+    "rows": [
+     [
+      "MEATBALL SHOUTED",
+      "#ffd34d",
+      92
+     ],
+     [
+      "SAUCE WALKED OFF",
+      "#ffffff",
+      54,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "study",
+   "pad": 0.1,
+   "m": "fact",
+   "_f": [
+    "CN-F1",
+    "CN-F2"
+   ],
+   "say": "A 2019 study tested it. A hidden speaker played four other words, and then the cat's name. For fucking science.",
+   "card": {
+    "rows": [
+     [
+      "4 WORDS",
+      "#ffd34d",
+      120
+     ],
+     [
+      "THEN ITS NAME",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "gag": false
+  },
+  {
+   "scene": "bathroom",
+   "pad": 0.1,
+   "m": "tiny",
+   "mood": "sleepy",
+   "gag": {
+    "meter": 0.12,
+    "at": "40%"
+   },
+   "_f": [
+    "CN-F6"
+   ],
+   "say": "In the first test, 11 of 16 house cats got used to the words, and their reaction faded. Meatball, in every fucking meeting.",
+   "card": {
+    "rows": [
+     [
+      "11 OF 16 CATS",
+      "#ffd34d",
+      104
+     ],
+     [
+      "GOT USED TO THE FOUR WORDS",
+      "#ffffff",
+      50,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "basement",
+   "pad": 0.1,
+   "m": "fact",
+   "mood": "shock",
+   "gag": {
+    "meter": 0.9,
+    "at": "30%"
+   },
+   "_f": [
+    "CN-F6"
+   ],
+   "say": "Then came the name, and nine of those eleven perked up again. Fucking wild.",
+   "card": {
+    "rows": [
+     [
+      "9 OF THOSE 11",
+      "#7bd88f",
+      104
+     ],
+     [
+      "PERKED UP AGAIN AT THEIR OWN NAME",
+      "#ffffff",
+      46,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "garden",
+   "pad": 0.1,
+   "m": "tiny",
+   "_f": [
+    "CN-F3"
+   ],
+   "say": "More than half of the cats moved their ears or heads. Holy shit, an ear.",
+   "card": {
+    "rows": [
+     [
+      "EARS. HEADS.",
+      "#7bd88f",
+      110
+     ],
+     [
+      "MORE THAN HALF MOVED THEM",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "kitchen",
+   "pad": 0.1,
+   "m": "escalate",
+   "gag": false,
+   "_f": [
+    "CN-F3"
+   ],
+   "say": "Fewer than one in ten let out a meow. Tough fucking crowd.",
+   "card": {
+    "rows": [
+     [
+      "UNDER 1 IN 10",
+      "#ff4b3e",
+      104
+     ],
+     [
+      "EVEN MEOWED",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "study",
+   "pad": 0.1,
+   "m": "fact",
+   "gag": false,
+   "prop": "mic",
+   "_f": [
+    "CN-F3"
+   ],
+   "mb": {
+    "gest": [
+     [
+      "mic|80%",
+      "facepalm",
+      1.3
+     ]
+    ]
+   },
+   "say": "Only a few took more than a step. The study never tested coming when called, so put the fucking mic down, Meatball.",
+   "card": {
+    "rows": [
+     [
+      "COMING WHEN CALLED",
+      "#ffd34d",
+      84
+     ],
+     [
+      "THE STUDY NEVER TESTED IT",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   }
+  },
+  {
+   "scene": "basement",
+   "pad": 0.1,
+   "m": "scale",
+   "how": "grow",
+   "gag": {
+    "mark": "alarm"
+   },
+   "_f": [],
+   "say": "And it gets fucking weirder.",
+   "card": {
+    "rows": [
+     [
+      "CAT CAFE CATS",
+      "#7bd88f",
+      100
+     ],
+     [
+      "IT GETS WEIRDER",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "20%"
+   }
+  },
+  {
+   "scene": "kitchen",
+   "pad": 0.1,
+   "m": "fact",
+   "mood": "worry",
+   "gag": {
+    "mark": "dizzy"
+   },
+   "with": [
+    {
+     "sp": "cat",
+     "pop": false,
+     "s": 0.42,
+     "mood": "smug",
+     "x": 575,
+     "y": 1570,
+     "front": true
+    },
+    {
+     "sp": "cat",
+     "pop": false,
+     "s": 0.4,
+     "mood": "smug",
+     "x": 1035,
+     "y": 1500
+    }
+   ],
+   "_f": [
+    "CN-F8"
+   ],
+   "say": "In the same study, cats from one cat cafe failed to tell their own name from the names of the other cats there. Awkward as fuck.",
+   "card": {
+    "rows": [
+     [
+      "CAT CAFE CATS",
+      "#ff4b3e",
+      100
+     ],
+     [
+      "OWN NAME OR A HOUSEMATE'S? FAILED TO TELL",
+      "#ffffff",
+      42,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   }
+  },
+  {
+   "scene": "garden",
+   "pad": 0.1,
+   "m": "fact",
+   "gag": false,
+   "_f": [
+    "CN-F7"
+   ],
+   "say": "When strangers said the name, 13 of the 20 cats that settled down still reacted more. Meatball can't get that from his own fucking cat.",
+   "card": {
+    "rows": [
+     [
+      "A STRANGER'S VOICE",
+      "#ffd34d",
+      88
+     ],
+     [
+      "13 OF 20 SETTLED CATS STILL REACTED MORE",
+      "#ffffff",
+      44,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "study",
+   "pad": 0.1,
+   "m": "tiny",
+   "mood": "smug",
+   "gag": {
+    "thought": "fish",
+    "at": "food"
+   },
+   "_f": [
+    "CN-F9"
+   ],
+   "say": "The authors' guess at why: a name comes with food, petting, or a trip to the vet. Shit. The vet.",
+   "card": {
+    "rows": [
+     [
+      "FOOD. PETTING. THE VET.",
+      "#ffd34d",
+      80
+     ],
+     [
+      "THE AUTHORS' GUESS AT WHY",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   }
+  },
+  {
+   "scene": "kitchen",
+   "pad": 0.1,
+   "m": "fact",
+   "gag": {
+    "thought": "bone",
+    "at": "25%"
+   },
+   "cast": {
+    "creature": "dog",
+    "creature_cfg": {
+     "plan": "mammal",
+     "label": "dog",
+     "color": "#d9a85c",
+     "dark": "#a87a36",
+     "belly": "#f3e2bf",
+     "tail_color": "#d9a85c",
+     "length": 600,
+     "height": 290,
+     "leg_len": 200,
+     "leg_w": 36,
+     "ears": "floppy",
+     "tail": "thin",
+     "tail_w": 20,
+     "whiskers": false,
+     "mood": "happy"
+    },
+    "s": 0.62
+   },
+   "_f": [],
+   "mb": {
+    "gest": [
+     [
+      "ate|60%",
+      "shock",
+      1.3
+     ]
+    ]
+   },
+   "say": "So Meatball waved his dinner and called Sauce. His dog, Noodle, ate it. Fuck.",
+   "card": {
+    "rows": [
+     [
+      "MEATBALL'S DINNER",
+      "#ffd34d",
+      90
+     ],
+     [
+      "NOODLE ATE IT",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "55%"
+   }
+  },
+  {
+   "scene": "basement",
+   "pad": 0.1,
+   "m": "fact",
+   "gag": false,
+   "prop": "paper",
+   "_f": [
+    "CN-F10"
+   ],
+   "mb": {
+    "gest": [
+     [
+      "flashcards|75%",
+      "facepalm",
+      1.3
+     ]
+    ]
+   },
+   "say": "And the paper says cats pick this up with no training. Meatball needed fucking flashcards for his own name.",
+   "card": {
+    "rows": [
+     [
+      "NO TRAINING",
+      "#7bd88f",
+      110
+     ],
+     [
+      "HOW THE PAPER SAYS CATS PICK IT UP",
+      "#ffffff",
+      46,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "bedroom",
+   "m": "punch",
+   "gag": {
+    "mark": "alarm"
+   },
+   "_f": [
+    "CN-F1"
+   ],
+   "say": "Still, yours probably heard its fucking name. So what does your cat do when you say it? And",
+   "card": {
+    "rows": [
+     [
+      "WHAT DOES YOUR CAT DO AT ITS NAME? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ]
+}
