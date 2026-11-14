@@ -38,3 +38,13 @@ Stay away from: war, attacks, deaths, elections and court cases (not comedy, and
 A. News watch: a scheduled check a few times a day (trending feed, "outage" searches, Downdetector's front page) that messages him a one-line alert with the numbers; he says go, and the video is out in about an hour. Cost: small checks; a build only on his go.
 B. On call only: he names the story, as today.
 C. Auto-post: the watch builds and posts on its own. Not recommended: a wrong fact on a breaking story is the one mistake that costs the account, and credits would run without a ceiling.
+
+## Nolan's TikTok Studio screenshots (11/13, 23:02 and 23:03 ET) and his answer
+Two of today's videos (he did not say which two), Traffic sources:
+- Video A: Search 95.3%, For You 4.1%, Other 0.5%, Personal profile 0.1%, Direct messages / Following / Sound 0.0%.
+- Video B: Search 99.7%, Other 0.3%, For You 0.0%, everything else 0.0%.
+- "Search queries" on both: "Each search query has low traffic at the moment" (no list yet).
+So his reading is right, and measured for the first time: these videos are found by search, almost not at all on For You. That reverses research 81 for news videos (it said captions and hashtags are not the lever): here the words people type are the whole audience. What follows for every topical video: the caption opens with the exact phrase people type (TikTok's suggested searches and `postkit.py kw`), the same phrase is said in the first sentence and stands on the first card, and speed matters because the searching stops when the event does. It also explains the two flops: nobody searches "ground stop update still on" or "jensen huang part 2".
+Still not seen: the queries themselves (Studio shows them once one has enough traffic), watch time, and the same screen for an animal video (is the 333 median mostly For You?).
+
+Asked "Want me to set up a news watch ... so you just say go?", he answered: "Yes". Set up 11/13: a scheduled task four times a day (08:47, 12:47, 16:47, 20:47 ET) in a fresh session each time; it reads this file and `data/news-watch-log.csv`, checks the trending feed and searches, and on a hit messages the main session, which tells him in one line. It builds and posts nothing on its own.

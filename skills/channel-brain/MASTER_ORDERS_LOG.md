@@ -558,3 +558,7 @@ Lines moved from MASTER_ORDERS on 11/13 13:25 ET when the next order came in:
 
 ## Moved out of MASTER_ORDERS 11/13 night (size)
 - **Keep digging, TikTok too:** every research round covers TikTok as well as YouTube until TikTok leaves the 200-to-300 band. Round 2 is done (`oh-meatball/research/97`). **Then, 11/12 about 23:35: "What else can we do to help us grow lock in and do deep research look at all analytics we have to make the best possible suggestions leading to our success".** My reading: one deep pass over every number we can reach (all Shorts and long videos per video, where views and hours come from, who watches, the next long-video topics, plus research 91 and 97), ending in a ranked list of changes with the evidence. It is `oh-meatball/research/100-growth-deep-dive.md`; he gets the list in two lines, the rest stays in the file.
+
+## Moved out of MASTER_ORDERS 11/13 23:05 (size; the drawn-only rule stays in STYLE LOCK)
+- **His answer (11/12 about 10:05 ET, with the 615-against-340 numbers in front of him): "No, keep it all drawn".** So no real photos or footage on TikTok either; the look stays fully drawn. Do not propose it again unless he raises it; the cartoon label stays a noted lead, not a test.
+- **For You vs Search (research 81, 11/11):** captions and hashtags are not the lever; what puts a video on For You is people finishing it. The caption standard is in "Tags and everything, from every angle". Not measurable from here: the For You/Search split and retention per video (only TikTok Studio shows them).
