@@ -89,3 +89,4 @@ Pack `research/108`, second-model check `research/109` (15 fixes across the thre
 
 ## Airline outage video (Nolan about 18:50 ET: "Make a TikTok and short on the airline outage now and post immidentaly")
 The FAA nationwide ground stop on departures. Pack `research/110`, second-model check `research/111` (status checked about 19:00 ET: departures still held; 10 line fixes applied). Status looked at again at 19:02 ET (web search): no report of a lift. Both cuts scheduled 19:08 ET: TikTok 74.1 s (uuid 6397541576319387096), YouTube Short 38.7 s (uuid -76632493276904415). If the stop is lifted, the "as of 7 pm ET" wording stays true; add a pinned comment or caption word only if a claim in it turns out wrong.
+- Both live at 19:08 ET (Metricool PUBLISHED): TikTok https://www.tiktok.com/@meatballmyths/video/7707812310450031886 ; YouTube Short https://www.youtube.com/shorts/BBYLDlukQ94 (listed on the channel at 19:10).
