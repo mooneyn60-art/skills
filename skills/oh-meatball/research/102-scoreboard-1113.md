@@ -100,3 +100,9 @@ The FAA nationwide ground stop on departures. Pack `research/110`, second-model 
 ## Ground stop update video (Nolan about 19:55 ET: "Go make it and post now")
 Second-model check `research/112` (about 19:57 ET: stop still on; cancellations 4,238 per FlightAware at 19:30, not 2,000; the Saturday figure and the "airlines warn" line had no source and were cut). Status looked at again at 20:03 ET (web search): still in effect. Both cuts scheduled 20:09 ET: TikTok 65.7 s (uuid -3299661081009369728), YouTube Short 30.7 s (uuid -1523963130350517870).
 - Both live at 20:09 ET (Metricool PUBLISHED): TikTok https://www.tiktok.com/@meatballmyths/video/7707827998107421966 ; YouTube Short https://www.youtube.com/shorts/Ivj7qRFLXKk
+
+## 20:53 ET read (Nolan: "Just finished do we make one more why it stoppex")
+- News (web search, 20:53 ET; Scripps, CNN and ABC live pages as summarised, not opened): the FAA lifted the stop shortly after 8 pm ET; nearly 5,000 flights cancelled; Transportation Secretary Duffy pointed to "inconsistency" in data from routers and an "incredibly old air traffic control system". Not yet checked by a second model.
+- So the update video (posted 20:09, "still on as of 8 pm ET") went stale within minutes of posting. Its wording is dated and was true at 8 pm, but viewers now see "still on" after the lift. Fix within reach: a pinned comment by Nolan on both ("Update: the FAA lifted the stop shortly after 8 pm ET"); captions cannot be edited from here after posting.
+- TikTok: first airline video 6,668 plays at 1.7 h (likes 2.13%, 11 shares, 13 saves); the update 143 at 0.7 h (the first one had 2,845 at the same age). YouTube: airline Short 7, update Short 1, grizzly (19:00) 76.
+- Sequels today: Jensen part 2 81 plays, airline update 143 at 0.7 h. First videos on an event: 2,696 to 6,668. Two cases, but both say the second video on the same story does not get the push.
