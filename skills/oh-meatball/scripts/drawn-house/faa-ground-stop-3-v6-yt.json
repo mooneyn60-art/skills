@@ -69,10 +69,10 @@
   "phone",
   "stuck"
  ],
- "title": "Why the FAA Ground Stop Happened: Lifted After About 4 Hours ✈️ (Meatball Explains)",
- "description": "Why did the FAA ground stop happen, and is it over? As of Fri Nov 13, 2026, 9 pm ET: the FAA lifted the nationwide stop on departures shortly after 8 pm ET, about four hours after it began. Nearly 5,000 flights were cancelled. The Transportation Secretary pointed to inconsistency in data from routers in what he called an incredibly old air traffic control system. CBS News, citing sources, reported that a network update made the system reboot and crash; that is not confirmed. Homeland Security Secretary Markwayne Mullin said there was no indication of a nefarious act. Flights are moving again; expect delays and check your airline before you leave. The jokes are ours; the facts are sourced below.\n\n#groundstop #faa #flightsgrounded #meatballmyths #shorts\n\nSources: FAA and U.S. Department of Transportation statements (Nov 13, 2026); Scripps News, CNN, ABC News and CBS News coverage (Nov 13, 2026).",
+ "title": "Why the FAA Ground Stop Happened: Lifted After 4+ Hours ✈️ (Meatball Explains)",
+ "description": "Why did the FAA ground stop happen, and is it over? As of Fri Nov 13, 2026, 9 pm ET: the nationwide stop on departures was lifted around 8:15 pm ET, Transportation Secretary Sean Duffy said, more than four hours after it began. Nearly 5,000 flights were cancelled, ABC News reports. Duffy pointed to inconsistency in data from routers in what he called an incredibly old air traffic control system; the FAA has described a temporary telecommunications outage. CBS News, citing sources, reported that a network update made the system reboot and crash; that is not confirmed. Homeland Security Secretary Markwayne Mullin said there was no indication yet of a nefarious act. Flights are taking off again; officials warn getting back to normal will take time, so check your airline before you leave. The jokes are ours; the facts are sourced below.\n\n#groundstop #faa #flightsgrounded #meatballmyths #shorts\n\nSources: FAA and U.S. Department of Transportation statements (Nov 13, 2026); NBC News, ABC News, CBS News and KOMO News coverage (Nov 13, 2026).",
  "tags": [
-  "why did the faa ground stop happen",
+  "why faa ground stop happened",
   "faa ground stop lifted",
   "faa ground stop",
   "ground stop lifted",
@@ -283,13 +283,13 @@
      "at": 0.0,
      "cam": [
       600,
-      1060,
-      1.1
+      880,
+      1.08
      ],
      "to": [
-      620,
-      1070,
-      1.15
+      610,
+      890,
+      1.12
      ]
     }
    ],
@@ -315,7 +315,7 @@
     "pose": "deadpan",
     "pos": [
      520,
-     1380
+     1120
     ],
     "size": 420,
     "prop": "mic",
@@ -354,7 +354,7 @@
    "pad": 0.08
   },
   {
-   "say": "The FAA lifted it shortly after eight Eastern. Nearly five thousand flights were cancelled.",
+   "say": "The FAA lifted it around eight fifteen Eastern. Nearly five thousand flights were cancelled, ABC News says.",
    "scene": "tp_set",
    "scene_p": {
     "wall": "#141c33",
@@ -425,7 +425,7 @@
      "rot": 0.0,
      "p": {
       "h0": 4.0,
-      "h1": 8.15,
+      "h1": 8.25,
       "u": 0.0
      },
      "moves": [],
@@ -458,12 +458,12 @@
    "card": {
     "rows": [
      [
-      "LIFTED SHORTLY AFTER 8 PM ET",
+      "LIFTED ABOUT 8:15 PM ET",
       "#ffd34d",
-      82
+      100
      ],
      [
-      "NEARLY 5,000 FLIGHTS CANCELLED (REPORTED)",
+      "NEARLY 5,000 CANCELLED (ABC NEWS)",
       "#ffffff",
       52,
       true
@@ -753,7 +753,7 @@
    "pad": 0.08
   },
   {
-   "say": "Homeland Security's secretary said there was no indication of a nefarious act.",
+   "say": "Homeland Security's secretary said there's no indication yet of a nefarious act.",
    "scene": "tp_living",
    "scene_p": {
     "sofa": true,
@@ -826,9 +826,9 @@
    "card": {
     "rows": [
      [
-      "NO INDICATION OF A NEFARIOUS ACT",
+      "NO INDICATION YET OF A NEFARIOUS ACT",
       "#ffd34d",
-      72
+      64
      ],
      [
       "(HOMELAND SECURITY SECRETARY)",

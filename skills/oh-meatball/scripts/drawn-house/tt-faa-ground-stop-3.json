@@ -71,7 +71,7 @@
  ],
  "title": "Why the Ground Stop Happened",
  "tiktok_title": "Why the Ground Stop Happened",
- "tiktok_caption": "why did the faa ground stop happen ✈️ As of Fri Nov 13, 9 pm ET: the FAA lifted the nationwide stop on departures shortly after 8 pm ET, about four hours after it began. Nearly 5,000 flights were cancelled. The Transportation Secretary pointed to inconsistency in data from routers in what he called an incredibly old air traffic control system. CBS News reported a network update made the system crash (not confirmed). Homeland Security's secretary said there was no indication of a nefarious act. Expect delays; check your airline's app. Meatball got a middle seat. Did you make it out or are you still stuck? #groundstop #faa #flightsgrounded #flightdelay #travel",
+ "tiktok_caption": "why did the faa ground stop happen ✈️ As of Fri Nov 13, 9 pm ET: the nationwide stop on departures was lifted around 8:15 pm ET, Transportation Secretary Sean Duffy said, more than four hours after it began. Nearly 5,000 flights were cancelled, ABC News says. Duffy pointed to inconsistency in data from routers in what he called an incredibly old air traffic control system. CBS News reported a network update made the system crash (not confirmed). Homeland Security's secretary said there is no indication yet of a nefarious act. Officials warn getting back to normal will take time; check your airline's app. Meatball got a middle seat. Did you make it out or are you still stuck? #groundstop #faa #flightsgrounded #flightdelay #travel",
  "_note": "FAA ground stop LIFTED (Nolan 11/13 about 21:00 ET). Script: faa-ground-stop-3.script.json; built by code from it (every say and card row copied; long rows wrap, same words). Pictures in tools/drawn_topical_art.py (night gate with the board flipping to BOARDING and a plane with its lights rolling, plain cabin, routers, flip phone, server rack, padlock, planes taking off normally). All drawn: plain white planes, no logos, seals, airline names or real people; nothing shows danger in the air; c7 is played straight. TikTok cut: lines c1-c11.",
  "beats": [
   {
@@ -271,13 +271,13 @@
      "at": 0.0,
      "cam": [
       600,
-      1060,
-      1.1
+      880,
+      1.08
      ],
      "to": [
-      620,
-      1070,
-      1.15
+      610,
+      890,
+      1.12
      ]
     }
    ],
@@ -303,7 +303,7 @@
     "pose": "deadpan",
     "pos": [
      520,
-     1380
+     1120
     ],
     "size": 420,
     "prop": "mic",
@@ -342,7 +342,7 @@
    "pad": 0.08
   },
   {
-   "say": "The FAA lifted it shortly after eight Eastern, about four hours after it started.",
+   "say": "The FAA lifted it around eight fifteen Eastern, Duffy said. More than four hours after it started.",
    "scene": "tp_set",
    "scene_p": {
     "wall": "#141c33",
@@ -413,7 +413,7 @@
      "rot": 0.0,
      "p": {
       "h0": 4.0,
-      "h1": 8.15,
+      "h1": 8.25,
       "u": 0.0
      },
      "moves": [],
@@ -446,12 +446,12 @@
    "card": {
     "rows": [
      [
-      "LIFTED SHORTLY AFTER 8 PM ET",
+      "LIFTED ABOUT 8:15 PM ET (DUFFY)",
       "#ffd34d",
-      82
+      76
      ],
      [
-      "ABOUT 4 HOURS (FAA)",
+      "AFTER MORE THAN 4 HOURS",
       "#ffffff",
       52,
       true
@@ -464,7 +464,7 @@
    "pad": 0.08
   },
   {
-   "say": "Nearly five thousand flights were cancelled. Meatball's pretzel budget did not survive.",
+   "say": "Nearly five thousand flights were cancelled, ABC News says. Meatball's pretzel budget did not survive.",
    "scene": "tp_gate",
    "scene_p": {
     "night": 1
@@ -605,7 +605,7 @@
       74
      ],
      [
-      "(REPORTED)",
+      "(ABC NEWS)",
       "#ffffff",
       52,
       true
@@ -1067,7 +1067,7 @@
    "pad": 0.08
   },
   {
-   "say": "Homeland Security's secretary said there was no indication of a nefarious act. No villain. Meatball's a little disappointed.",
+   "say": "Homeland Security's secretary said there's no indication yet of a nefarious act. No villain so far. Meatball's a little disappointed.",
    "scene": "tp_living",
    "scene_p": {
     "sofa": true,
@@ -1140,9 +1140,9 @@
    "card": {
     "rows": [
      [
-      "NO INDICATION OF A NEFARIOUS ACT",
+      "NO INDICATION YET OF A NEFARIOUS ACT",
       "#ffd34d",
-      72
+      64
      ],
      [
       "(HOMELAND SECURITY SECRETARY)",
@@ -1158,7 +1158,7 @@
    "pad": 0.08
   },
   {
-   "say": "Flights are moving again, but with thousands cancelled, expect delays. Check your airline's app before you leave the house.",
+   "say": "Flights are taking off again, but officials warn getting back to normal will take time. Check your airline's app before you leave the house.",
    "scene": "tp_gate",
    "scene_p": {
     "night": 1
@@ -1371,18 +1371,18 @@
     "look": "status"
    },
    "sfx": [
-    "whoosh@moving|15%",
+    "whoosh@taking|15%",
     "tink@app|70%"
    ],
    "card": {
     "rows": [
      [
-      "FLIGHTS MOVING AGAIN",
+      "FLIGHTS TAKING OFF AGAIN",
       "#ffd34d",
-      104
+      96
      ],
      [
-      "EXPECT DELAYS",
+      "BACK TO NORMAL WILL TAKE TIME (OFFICIALS)",
       "#ffffff",
       52,
       true
