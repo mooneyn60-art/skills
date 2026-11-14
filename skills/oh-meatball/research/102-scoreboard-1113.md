@@ -90,3 +90,9 @@ Pack `research/108`, second-model check `research/109` (15 fixes across the thre
 ## Airline outage video (Nolan about 18:50 ET: "Make a TikTok and short on the airline outage now and post immidentaly")
 The FAA nationwide ground stop on departures. Pack `research/110`, second-model check `research/111` (status checked about 19:00 ET: departures still held; 10 line fixes applied). Status looked at again at 19:02 ET (web search): no report of a lift. Both cuts scheduled 19:08 ET: TikTok 74.1 s (uuid 6397541576319387096), YouTube Short 38.7 s (uuid -76632493276904415). If the stop is lifted, the "as of 7 pm ET" wording stays true; add a pinned comment or caption word only if a claim in it turns out wrong.
 - Both live at 19:08 ET (Metricool PUBLISHED): TikTok https://www.tiktok.com/@meatballmyths/video/7707812310450031886 ; YouTube Short https://www.youtube.com/shorts/BBYLDlukQ94 (listed on the channel at 19:10).
+
+## 19:49 ET read (Nolan: "Check videos"; TikTok public pages, YouTube flat listing)
+- TikTok: FAA ground stop 2,845 plays at 0.7 h (likes 2.43%, 1 comment, 4 shares, 8 saves): the fastest start of any post on the account. Jensen 3,021 (9.0 h); Microsoft outage 2,696 (4.7 h); GTA 6 935 (5.7 h); Jensen part 2 81 (3.6 h, label "Video Games").
+- Against the median 333: FAA 8.5x in 40 minutes, Jensen 9.1x, Microsoft 8.1x, GTA 6 2.8x, Jensen part 2 0.24x.
+- Pattern so far (five posts, not a finding yet): the three breaking-news explainers posted within hours of the event passed 2,500; the planned topic (GTA 6) is at 935; the sequel flopped.
+- YouTube Shorts: FAA 7 views at 0.7 h; grizzly (19:00) 3; Jensen 225 (9.0 h); sweary dog stare 466 (9.8 h); house cat long video 0 in the public listing at 2.8 h (the listing lags for new long videos).
