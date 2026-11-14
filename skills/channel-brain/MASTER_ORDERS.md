@@ -3,7 +3,7 @@
 The whole operating plan for the channel agent in one page. From here on, the job is: make, check, post, measure.
 
 Last Updated: 2026-11-13
-Status: ACTIVE; replaces every older plan where they disagree (Nolan's words win over this page)
+Status: ACTIVE; replaces older plans where they disagree (Nolan's words win)
 Audience: Meatball Town (all desks), Nolan
 
 ## How to use this page
