@@ -927,6 +927,10 @@ def tp_clock(ctx, t, p):
         stroke(ctx, [(170 * math.cos(a), 170 * math.sin(a)), (148 * math.cos(a), 148 * math.sin(a))], 8)
     am = t * sp * 2 * math.pi - math.pi / 2
     ah = am / 12 - math.pi / 3
+    if "h0" in p:   # sweep the hour hand from p h0 to p h1 o'clock as p u goes 0..1 (minute hand races)
+        hh = p["h0"] + (p.get("h1", p["h0"]) - p["h0"]) * ease(min(1.0, max(0.0, p.get("u", 0.0))))
+        ah = hh / 12 * 2 * math.pi - math.pi / 2
+        am = (hh % 1.0) * 2 * math.pi - math.pi / 2
     stroke(ctx, [(0, 0), (90 * math.cos(ah), 90 * math.sin(ah))], 16)
     stroke(ctx, [(0, 0), (140 * math.cos(am), 140 * math.sin(am))], 10, color=C["pen"])
     flat(ctx, lambda c: p_ellipse(c, 0, 0, 14, 14), INK)
@@ -1113,24 +1117,41 @@ def _plane(ctx, x, y, s, rot=0.0, flip=False):
 def tp_gate(ctx, t, layer, p):
     """An airport gate hall: grey-blue wall, a big window at x 500..1060, y 560..1200 with sky, tarmac and a row of
     parked plain white planes, a ceiling band, carpet floor at y 1500. p board_wall False leaves the left wall plain.
-    The window and planes run on to the right to x 2400."""
+    The window and planes run on to the right to x 2400. p night 1: dark sky with stars and a moon, darker hall,
+    small blinking lights on the parked planes."""
+    night = p.get("night", 0)
     layer(0.9)
-    flat(ctx, lambda c: c.rectangle(-3000, -3000, 8000, 8000), hexc("#8fa3b8"))
-    flat(ctx, lambda c: c.rectangle(-3000, -3000, 8000, 3300), hexc("#6f8399"))
+    flat(ctx, lambda c: c.rectangle(-3000, -3000, 8000, 8000), hexc("#4a5670" if night else "#8fa3b8"))
+    flat(ctx, lambda c: c.rectangle(-3000, -3000, 8000, 3300), hexc("#3a4458" if night else "#6f8399"))
     for x0, x1 in ((500, 1060), (1160, 2400)):
-        shape(ctx, lambda c, x0=x0, x1=x1: c.rectangle(x0, 560, x1 - x0, 640), hexc("#bfe6f8"), BG_OUT, None)
-        flat(ctx, lambda c, x0=x0, x1=x1: c.rectangle(x0, 1040, x1 - x0, 160), hexc("#7d8790"))
+        shape(ctx, lambda c, x0=x0, x1=x1: c.rectangle(x0, 560, x1 - x0, 640), hexc("#141c33" if night else "#bfe6f8"),
+              BG_OUT, None)
+        flat(ctx, lambda c, x0=x0, x1=x1: c.rectangle(x0, 1040, x1 - x0, 160), hexc("#3a3f48" if night else "#7d8790"))
         flat(ctx, lambda c, x0=x0, x1=x1: c.rectangle(x0, 1110, x1 - x0, 8), hexc("#f2c14e"))
-    flat(ctx, lambda c: p_ellipse(c, 900, 680, 46, 46), hexc("#ffd84a"))
+    if night:
+        rg = _rng(31)
+        for k in range(40):
+            x, y = rg.uniform(500, 2400), rg.uniform(570, 1000)
+            flat(ctx, lambda c, x=x, y=y, k=k: p_ellipse(c, x, y, 3, 3), (1, 1, 1), a=0.5 + 0.5 * math.sin(t * 2 + k))
+        flat(ctx, lambda c: p_ellipse(c, 900, 680, 40, 40), hexc("#f4ecd6"))
+        flat(ctx, lambda c: p_ellipse(c, 918, 668, 34, 34), hexc("#141c33"))
+    else:
+        flat(ctx, lambda c: p_ellipse(c, 900, 680, 46, 46), hexc("#ffd84a"))
     for k, px_ in enumerate((640, 930, 1300, 1620, 1940, 2260)):
         _plane(ctx, px_, 1050, 0.55, 0.0, flip=k % 2 == 1)
+        if night:
+            on = math.sin(t * 4 + k * 1.7) > 0
+            for dx, col in ((-120, "#e5383b"), (120, "#3fb950")):
+                flat(ctx, lambda c, dx=dx, px_=px_: p_ellipse(c, px_ + dx * (-1 if k % 2 else 1), 1080, 7, 7),
+                     hexc(col), a=1.0 if on else 0.35)
+            flat(ctx, lambda c, px_=px_: p_ellipse(c, px_, 1035, 6, 6), (1, 1, 1), a=1.0 if not on else 0.3)
     for x0, x1 in ((500, 1060), (1160, 2400)):
         for x in range(x0, x1 + 1, 140):
             stroke(ctx, [(x, 560), (x, 1200)], BG_OUT * 1.4, color=hexc("#5b677a"))
         stroke(ctx, [(x0, 880), (x1, 880)], BG_OUT, color=hexc("#5b677a"))
         shape(ctx, lambda c, x0=x0, x1=x1: c.rectangle(x0, 560, x1 - x0, 640), (1, 1, 1), BG_OUT * 1.4, None, a=0.0)
     layer(1.0)
-    flat(ctx, lambda c: c.rectangle(-3000, 1500, 8000, 3000), hexc("#3b4a6b"))
+    flat(ctx, lambda c: c.rectangle(-3000, 1500, 8000, 3000), hexc("#2a3550" if night else "#3b4a6b"))
     for k in range(-20, 40):
         flat(ctx, lambda c, k=k: c.rectangle(k * 120, 1560, 60, 10), hexc("#334260"))
     stroke(ctx, [(-3000, 1500), (5000, 1500)], BG_OUT)
@@ -1138,8 +1159,9 @@ def tp_gate(ctx, t, layer, p):
 
 def tp_board(ctx, t, p):
     """A departures board centred at its origin (420 x 360): dark panel, p rows rows; p flip 0..1 flips them one
-    by one (split-flap squash) from blank dots to p text (a spec word, e.g. DELAYED) in amber. No numbers, cities
-    or airline names."""
+    by one (split-flap squash) from blank dots to p text (a spec word, e.g. DELAYED) in amber; p text2 with p flip2
+    0..1 flips rows on to a second word (e.g. CANCELLED) in red, in p order (row ranks). No numbers, cities or
+    airline names."""
     rows = int(p.get("rows", 5))
     shape(ctx, lambda c: p_rrect(c, -210, -180, 420, 360, 18), hexc("#1b1f2a"), OUT, None)
     stroke(ctx, [(0, -180), (0, -260)], 8)
@@ -1149,7 +1171,18 @@ def tp_board(ctx, t, p):
         y = -150 + k * rh + rh / 2
         flat(ctx, lambda c, y=y: p_rrect(c, -185, y - rh * 0.4, 370, rh * 0.8, 6), hexc("#2a3040"))
         u = fl - k
-        if u >= 1 or (u > 0 and u >= 0.5):
+        u2 = p.get("flip2", 0.0) * rows - p.get("order", [k for k in range(rows)])[k] if p.get("text2") else 0.0
+        if u2 > 0:   # the row flips on to the second word (e.g. CANCELLED), in red
+            sq = 1.0 if u2 >= 1 else abs(u2 - 0.5) * 2
+            ctx.save()
+            ctx.translate(0, y)
+            ctx.scale(1, max(0.05, sq))
+            if u2 >= 0.5:
+                text(ctx, p["text2"], 0, 0, p.get("px", 46), p.get("col2", "#ff5a4e"), 0)
+            else:
+                text(ctx, p.get("text", ""), 0, 0, p.get("px", 46), p.get("col", "#ffb02e"), 0)
+            ctx.restore()
+        elif u >= 1 or (u > 0 and u >= 0.5):
             sq = 1.0 if u >= 1 else (u - 0.5) * 2
             ctx.save()
             ctx.translate(0, y)
@@ -1239,6 +1272,22 @@ def tp_usmap(ctx, t, p):
         u = back_out(min(1.0, max(0.0, pk * 10 - k)))
         if u > 0.01:
             _plane(ctx, x, y, 0.13 * u, 0.0, flip=k % 2 == 0)
+    oc = p.get("ocean", 0.0)
+    if p.get("home"):   # a red ring round one dot (Meatball's airport)
+        hx, hy = p["home"]
+        ctx.save()
+        ctx.new_path()
+        ctx.arc(hx, hy, 34 + 3 * math.sin(t * 5), 0, 2 * math.pi)
+        ctx.set_source_rgb(*C["pen"])
+        ctx.set_line_width(8)
+        ctx.stroke()
+        ctx.restore()
+    if p.get("mode") == "ocean":   # a plane leaves the west coast out over the ocean, one leaves the east coast
+        u = ease(min(1.0, max(0.0, oc)))
+        for (x0, y0), (x1, y1), fl in (((-420, -40), (-760, -120), True), ((400, -150), (760, -260), False)):
+            stroke(ctx, [(x0, y0), (x0 + (x1 - x0) * u, y0 + (y1 - y0) * u)], 4, color=hexc("#9aa3ab"), a=0.6)
+            _plane(ctx, x0 + (x1 - x0) * u, y0 + (y1 - y0) * u, 0.15, 0.0, flip=fl)
+        return
     ld = p.get("land", 0.0)
     legs = [((-420, -200), (-240, 60)), ((420, -220), (180, -110)), ((-60, -260), (60, 40))]
     if p.get("divert", 0):   # the last plane calmly lands at another airport instead (its planned arc stays faint)
@@ -1398,3 +1447,121 @@ def tp_plane(ctx, t, p):
 
 
 ACTORS.update({"tp_plane": tp_plane})
+
+
+# ================================================================================================ ground stop update
+
+def tp_mailbox(ctx, t, p):
+    """A tiny mailbox on a short post (feet y 0, about 200 tall) with a red flag; p drop 0..1 an envelope drops in
+    and the flag pops up."""
+    stroke(ctx, [(0, 0), (0, -90)], 14, color=C["wood_dk"])
+    shape(ctx, lambda c: p_smooth(c, [(-70, -90), (-70, -170), (0, -200), (70, -170), (70, -90)]), hexc("#3b7dd8"),
+          OUT, (0.03, 0.1))
+    dr = p.get("drop", 0.0)
+    fl = 0.0 if dr < 0.8 else 1.0
+    ctx.save()
+    ctx.translate(70, -130)
+    ctx.rotate(-math.pi / 2 * fl)
+    shape(ctx, lambda c: c.rectangle(0, -6, 60, 12), C["pen"], OUT * 0.5, None)
+    shape(ctx, lambda c: c.rectangle(44, -26, 22, 26), C["pen"], OUT * 0.5, None)
+    ctx.restore()
+    if 0.01 < dr < 0.8:
+        u = dr / 0.8
+        y = -420 + 260 * ease(u)
+        ctx.save()
+        ctx.translate(0, y)
+        ctx.rotate(0.3 * math.sin(t * 6))
+        shape(ctx, lambda c: c.rectangle(-50, -32, 100, 64), hexc("#f4ecd6"), OUT * 0.6, None)
+        stroke(ctx, [(-50, -32), (0, 4), (50, -32)], OUT * 0.5)
+        ctx.restore()
+
+
+def tp_quilt(ctx, t, p):
+    """A patchwork blanket lying flat over someone, origin = its bottom centre, p w x p h (default 640 x 110)."""
+    w, h = p.get("w", 640), p.get("h", 110)
+    wob = 4 * math.sin(t * 2)
+
+    def path(c):
+        p_smooth(c, [(-w / 2, 0), (-w / 2 + 20, -h + wob), (0, -h - 20 + wob), (w / 2 - 20, -h + wob), (w / 2, 0)])
+    shape(ctx, path, C["q2"], OUT, None)
+    ctx.save()
+    path(ctx)
+    ctx.clip()
+    cols = [C["q1"], C["q3"], C["q4"], C["q2"]]
+    for i in range(-8, 9):
+        for j in range(0, 3):
+            if (i + j) % 2:
+                flat(ctx, lambda c, i=i, j=j: c.rectangle(i * 60 - 30, -h - 20 + j * 60, 60, 60), cols[(i * 3 + j) % 4])
+    ctx.restore()
+    ctx.save()
+    path(ctx)
+    ctx.set_source_rgb(*INK)
+    ctx.set_line_width(OUT)
+    ctx.stroke()
+    ctx.restore()
+
+
+def tp_vending(ctx, t, p):
+    """A plain vending machine (feet y 0, 340 wide, 720 tall): glass front with rows of plain snacks, a slot, a
+    small lit panel; no brand."""
+    shape(ctx, lambda c: p_rrect(c, -170, -720, 340, 720, 20), hexc("#3b4a6b"), OUT, (0.03, 0.06))
+    flat(ctx, lambda c: p_rrect(c, -140, -690, 210, 520, 12), hexc("#bfe6f8"))
+    cols = [C["q1"], C["q3"], C["q4"], hexc("#ff9f6a")]
+    for r in range(5):
+        stroke(ctx, [(-135, -600 + r * 100), (65, -600 + r * 100)], 5, color=hexc("#8d969c"))
+        for k in range(4):
+            shape(ctx, lambda c, r=r, k=k: p_rrect(c, -125 + k * 48, -660 + r * 100, 36, 56, 6), cols[(r + k) % 4],
+                  OUT * 0.4, None)
+    flat(ctx, lambda c: p_rrect(c, 85, -660, 60, 90, 8), hexc("#16203a"))
+    flat(ctx, lambda c: p_rrect(c, 95, -650, 40, 30, 4), hexc("#3fb950"), a=0.6 + 0.4 * math.sin(t * 3))
+    for k in range(3):
+        for j in range(3):
+            flat(ctx, lambda c, k=k, j=j: p_ellipse(c, 100 + j * 15, -540 + k * 18, 5, 5), hexc("#c8ccd4"))
+    flat(ctx, lambda c: p_rrect(c, -130, -130, 190, 60, 10), hexc("#16203a"))
+
+
+def tp_status(ctx, t, p):
+    """A phone held up showing a generic flight-status screen (no airline name): a plane icon, three status rows
+    with bars, the first with a red X badge; p on 0..1 pops it in."""
+    on = p.get("on", 1.0)
+    if on <= 0.01:
+        return
+    sc = back_out(min(1.0, on))
+    ctx.save()
+    ctx.scale(sc, sc)
+    ctx.rotate(math.radians(p.get("rot", -6)))
+    shape(ctx, lambda c: p_rrect(c, -130, -240, 260, 480, 36), hexc("#1d1d24"), OUT, None)
+    flat(ctx, lambda c: p_rrect(c, -110, -210, 220, 420, 20), hexc("#eef3f8"))
+    _plane(ctx, 0, -150, 0.3)
+    for k in range(3):
+        y = -60 + k * 80
+        flat(ctx, lambda c, y=y: p_rrect(c, -95, y - 28, 190, 56, 10), (1, 1, 1))
+        flat(ctx, lambda c, y=y: c.rectangle(-80, y - 10, 100, 10), hexc("#7a8a9c"))
+        flat(ctx, lambda c, y=y: c.rectangle(-80, y + 6, 60, 8), hexc("#b7c1cc"))
+        col = C["pen"] if k == 0 else hexc("#ffb02e")
+        shape(ctx, lambda c, y=y, col=col: p_ellipse(c, 65, y, 18, 18), col, OUT * 0.4, None)
+        if k == 0:
+            stroke(ctx, [(57, y - 8), (73, y + 8)], 5, color=(1, 1, 1))
+            stroke(ctx, [(73, y - 8), (57, y + 8)], 5, color=(1, 1, 1))
+    ctx.restore()
+
+
+def tp_buzz(ctx, t, p):
+    """Vibration marks round the origin (a buzzing phone): two arcs each side that pulse; p on 0..1."""
+    on = p.get("on", 1.0)
+    if on <= 0.01 or math.sin(t * 9) < -0.3:
+        return
+    for sd in (-1, 1):
+        for r in (60, 90):
+            ctx.save()
+            ctx.new_path()
+            a0 = 0 if sd > 0 else math.pi
+            ctx.arc(0, 0, r, a0 - 0.5, a0 + 0.5)
+            ctx.set_source_rgba(*INK, 0.8 * on)
+            ctx.set_line_width(7)
+            ctx.stroke()
+            ctx.restore()
+
+
+ACTORS.update({"tp_mailbox": tp_mailbox, "tp_quilt": tp_quilt, "tp_vending": tp_vending, "tp_status": tp_status,
+               "tp_buzz": tp_buzz})

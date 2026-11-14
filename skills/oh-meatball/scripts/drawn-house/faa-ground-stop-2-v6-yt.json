@@ -1,0 +1,1182 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "detective",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "cut_whoosh": true,
+ "loop": true,
+ "recut": false,
+ "photo_credits": [],
+ "stage": {
+  "creature": "cat",
+  "scene": "jh_living",
+  "s": 0.55,
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "cat",
+   "color": "#e39a4a",
+   "dark": "#b06f2a",
+   "belly": "#f6e3c8",
+   "tail_color": "#e39a4a",
+   "length": 520,
+   "height": 250,
+   "leg_len": 150,
+   "leg_w": 30,
+   "ears": "pointed",
+   "tail": "thin",
+   "tail_w": 22,
+   "whiskers": true,
+   "mood": "smug"
+  }
+ },
+ "cap_swap": {
+  "fuck": "f**k",
+  "fucking": "f**king",
+  "damn": "d*mn",
+  "hell": "h*ll"
+ },
+ "cap_key": [
+  "ground",
+  "stop",
+  "extended",
+  "gate",
+  "mail",
+  "faa",
+  "departures",
+  "four",
+  "friday",
+  "night",
+  "seats",
+  "thousand",
+  "cancelled",
+  "vending",
+  "pacific",
+  "atlantic",
+  "ohio",
+  "ocean",
+  "cause",
+  "communication",
+  "delayed",
+  "saturday",
+  "seven",
+  "hundred",
+  "app",
+  "sauce",
+  "ring",
+  "fine"
+ ],
+ "title": "FAA Ground Stop Update: Extended, 2,000+ Flights Cancelled ✈️ (Meatball Explains)",
+ "description": "Is the FAA ground stop still on, and is my flight cancelled? An update as of Fri Nov 13, 2026, 8 pm ET. The FAA's nationwide stop on departures, which began just before 4 pm ET, was extended to late Friday night. More than 2,000 flights have been cancelled, and more than 700 Saturday flights are already cancelled. Some flights over the Pacific from the West Coast and some transatlantic flights were cleared to leave, ABC News reports. There is no official cause yet; the FAA describes a communication problem at the centers that guide planes between airports. Airlines warn recovery will take time. This is a developing story: check your airline and the FAA for the latest. The jokes are ours; the facts are sourced below.\n\n#flightsgrounded #faa #groundstop #meatballmyths #shorts\n\nSources: FAA advisories and statements (Nov 13, 2026); ABC News, CNN, CNBC and TheStreet coverage (Nov 13, 2026).",
+ "tags": [
+  "faa ground stop update",
+  "flights grounded today",
+  "is the ground stop lifted",
+  "flights cancelled today",
+  "faa ground stop",
+  "nationwide ground stop",
+  "flights cancelled saturday",
+  "faa outage",
+  "flight cancelled",
+  "meatball myths"
+ ],
+ "pinned_comment": "Is your flight cancelled, delayed, or somehow fine? Tell us where you are 👇",
+ "_note": "FAA ground stop UPDATE (Nolan 11/13 about 19:55 ET). Script: faa-ground-stop-2.script.json; built by code from it (every say and card row copied; long rows wrap, same words). Pictures in tools/drawn_topical_art.py (night gate, board DELAYED / CANCELLED, mailbox, quilt, vending machine, ocean map, SAT calendar, flight-status phone). All drawn: plain white planes, no logos, seals, airline names or real people; nothing shows danger in the air; the tower line is played straight. YouTube Short cut: yt_lines z1-z7; z7 is split in two beats (the words from 'So' play on the frame-0 gate for the loop); joined, the says equal the script. Length over 20 s is the accepted lint fail, as with jensen-huang-v6-yt.json.",
+ "beats": [
+  {
+   "say": "Ground stop update: it got extended. Here's what's going on.",
+   "scene": "tp_gate",
+   "scene_p": {
+    "night": 1
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      560,
+      970,
+      1.05
+     ]
+    },
+    {
+     "at": "Here's|50%",
+     "cam": [
+      520,
+      1000,
+      1.08
+     ],
+     "to": [
+      500,
+      1000,
+      1.12
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "board",
+     "type": "tp_board",
+     "pos": [
+      250,
+      1010
+     ],
+     "s": 0.95,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "text": "DELAYED",
+      "text2": "CANCELLED",
+      "rows": 5,
+      "flip": 0.0,
+      "flip2": 0.0,
+      "order": [
+       0,
+       2,
+       4,
+       1,
+       3
+      ]
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": 0.0,
+       "p": {
+        "flip": 1.0
+       },
+       "dur": 2.4
+      }
+     ]
+    },
+    {
+     "id": "seats",
+     "type": "tp_seats",
+     "pos": [
+      820,
+      1500
+     ],
+     "s": 0.75,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "n": 2
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "bag",
+     "type": "tp_suitcase",
+     "pos": [
+      420,
+      1500
+     ],
+     "s": 0.6,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "col": "#d8322a"
+     },
+     "moves": [],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "present",
+    "pos": [
+     700,
+     1500
+    ],
+    "size": 400,
+    "prop": "mic",
+    "gest": [
+     [
+      "extended|30%",
+      "shock",
+      1.0
+     ]
+    ],
+    "moves": [
+     {
+      "at": "Here's|50%",
+      "dur": 0.45,
+      "pos": [
+       570,
+       1500
+      ],
+      "hop": 160
+     }
+    ],
+    "look": "board"
+   },
+   "sfx": [
+    "boing@Here's|50%",
+    "click@0.3"
+   ],
+   "card": {
+    "rows": [
+     [
+      "GROUND STOP UPDATE",
+      "#ffd34d",
+      104
+     ],
+     [
+      "EXTENDED",
+      "#ffffff",
+      52,
+      true
+     ],
+     [
+      "AS OF FRI NOV 13, 8 PM ET",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": 0.0
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "Meatball is still at the gate. He gets mail here now.",
+   "scene": "tp_gate",
+   "scene_p": {
+    "night": 1
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      660,
+      1180,
+      1.22
+     ],
+     "to": [
+      680,
+      1190,
+      1.27
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "board",
+     "type": "tp_board",
+     "pos": [
+      250,
+      1010
+     ],
+     "s": 0.95,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "text": "DELAYED",
+      "text2": "CANCELLED",
+      "rows": 5,
+      "flip": 1.0,
+      "flip2": 0.0,
+      "order": [
+       0,
+       2,
+       4,
+       1,
+       3
+      ]
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "seats",
+     "type": "tp_seats",
+     "pos": [
+      820,
+      1500
+     ],
+     "s": 0.75,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "n": 2
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "bag",
+     "type": "tp_suitcase",
+     "pos": [
+      420,
+      1500
+     ],
+     "s": 0.6,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "col": "#d8322a"
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "mail",
+     "type": "tp_mailbox",
+     "pos": [
+      884,
+      1312
+     ],
+     "s": 0.6,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "drop": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "mail|85%",
+       "p": {
+        "drop": 1.0
+       },
+       "dur": 0.7
+      }
+     ]
+    },
+    {
+     "id": "blanket",
+     "type": "tp_blanket",
+     "pos": [
+      600,
+      1500
+     ],
+     "s": 1.0,
+     "front": true,
+     "rot": 0.0,
+     "p": {
+      "w": 215,
+      "h": 185
+     },
+     "moves": [],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     600,
+     1500
+    ],
+    "size": 400,
+    "prop": "mic",
+    "gest": [
+     [
+      "lives|45%",
+      "deadpan",
+      1.6
+     ]
+    ],
+    "moves": [],
+    "look": "viewer"
+   },
+   "sfx": [
+    "tink@mail|85%",
+    "pop@lives|45%"
+   ],
+   "card": {
+    "rows": [
+     [
+      "GATE B12",
+      "#ffd34d",
+      104
+     ],
+     [
+      "STILL DELAYED",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "gate|20%"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "The FAA's stop on departures was extended to late Friday night.",
+   "scene": "tp_set",
+   "scene_p": {
+    "wall": "#141c33",
+    "wall2": "#1a2340",
+    "floor": "#0e1426"
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      960,
+      1.04
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "board",
+     "type": "tp_board",
+     "pos": [
+      230,
+      1150
+     ],
+     "s": 0.7,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "text": "DELAYED",
+      "text2": "CANCELLED",
+      "rows": 5,
+      "flip": 1.0,
+      "flip2": 0.0,
+      "order": [
+       0,
+       2,
+       4,
+       1,
+       3
+      ]
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "clock",
+     "type": "tp_clock",
+     "pos": [
+      640,
+      1040
+     ],
+     "s": 0.75,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "h0": 4.0,
+      "h1": 11.0,
+      "u": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "15%",
+       "p": {
+        "u": 1.0
+       },
+       "dur": 4.5
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     930,
+     1500
+    ],
+    "size": 360,
+    "prop": "mic",
+    "gest": [],
+    "moves": [],
+    "look": "clock"
+   },
+   "sfx": [
+    "tink@extended|60%"
+   ],
+   "card": {
+    "rows": [
+     [
+      "EXTENDED TO LATE FRIDAY NIGHT",
+      "#ffd34d",
+      78
+     ],
+     [
+      "(FAA ADVISORY)",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": 0.1
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "More than two thousand flights are cancelled. Some flights over the oceans got cleared.",
+   "scene": "tp_gate",
+   "scene_p": {
+    "night": 1
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      960,
+      1.04
+     ]
+    },
+    {
+     "at": "vending|80%",
+     "cam": [
+      760,
+      1180,
+      1.18
+     ],
+     "to": [
+      770,
+      1180,
+      1.22
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "board",
+     "type": "tp_board",
+     "pos": [
+      250,
+      1010
+     ],
+     "s": 0.95,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "text": "DELAYED",
+      "text2": "CANCELLED",
+      "rows": 5,
+      "flip": 1.0,
+      "flip2": 0.0,
+      "order": [
+       0,
+       2,
+       4,
+       1,
+       3
+      ]
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "cancelled|25%",
+       "p": {
+        "flip2": 1.0
+       },
+       "dur": 1.5
+      }
+     ]
+    },
+    {
+     "id": "vend",
+     "type": "tp_vending",
+     "pos": [
+      910,
+      1500
+     ],
+     "s": 0.6,
+     "front": false,
+     "rot": 0.0,
+     "p": {},
+     "moves": [],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     640,
+     1500
+    ],
+    "size": 400,
+    "prop": "mic",
+    "gest": [
+     [
+      "Meatball's|45%",
+      "shock",
+      1.0
+     ],
+     [
+      "vending|80%",
+      "deadpan",
+      1.6
+     ]
+    ],
+    "moves": [],
+    "look": "board"
+   },
+   "sfx": [
+    "click@cancelled|25%",
+    "thud@vending|80%"
+   ],
+   "card": {
+    "rows": [
+     [
+      "2,000+ FLIGHTS CANCELLED (REPORTED)",
+      "#ffd34d",
+      64
+     ],
+     [
+      "SOME OCEAN FLIGHTS CLEARED (ABC NEWS)",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "two|10%"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "Still no official cause. And more than seven hundred Saturday flights are already cancelled.",
+   "scene": "tp_set",
+   "scene_p": {
+    "wall": "#2a3358",
+    "wall2": "#323d6a",
+    "floor": "#1d2340"
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      960,
+      1.04
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "tower",
+     "type": "tp_tower",
+     "pos": [
+      200,
+      1500
+     ],
+     "s": 0.8,
+     "front": false,
+     "rot": 0.0,
+     "p": {},
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "link",
+     "type": "tp_static",
+     "pos": [
+      290,
+      1000
+     ],
+     "s": 1.0,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "dx": 470,
+      "dy": -90,
+      "bad": 1.0
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "plane",
+     "type": "tp_plane",
+     "pos": [
+      880,
+      910
+     ],
+     "s": 0.42,
+     "front": false,
+     "rot": 0.0,
+     "p": {},
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "radar",
+     "type": "tp_radar",
+     "pos": [
+      690,
+      1500
+     ],
+     "s": 0.62,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "dim": 1.0
+     },
+     "moves": [],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     990,
+     1500
+    ],
+    "size": 320,
+    "prop": "mic",
+    "gest": [],
+    "moves": [],
+    "look": "radar"
+   },
+   "sfx": [
+    "zap@communication|50%"
+   ],
+   "card": {
+    "rows": [
+     [
+      "NO OFFICIAL CAUSE YET",
+      "#ffd34d",
+      104
+     ],
+     [
+      "700+ SATURDAY FLIGHTS CANCELLED",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": 0.1
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "Check your airline's app before you leave the damn house.",
+   "scene": "tp_gate",
+   "scene_p": {
+    "night": 1
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      960,
+      1.04
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "board",
+     "type": "tp_board",
+     "pos": [
+      220,
+      1000
+     ],
+     "s": 0.7,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "text": "DELAYED",
+      "text2": "CANCELLED",
+      "rows": 5,
+      "flip": 1.0,
+      "flip2": 0.6,
+      "order": [
+       0,
+       2,
+       4,
+       1,
+       3
+      ]
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "cal",
+     "type": "tp_calendar",
+     "pos": [
+      430,
+      1080
+     ],
+     "s": 0.6,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "head": "SAT",
+      "col": "#d8322a"
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "status",
+     "type": "tp_status",
+     "pos": [
+      790,
+      1150
+     ],
+     "s": 0.7,
+     "front": true,
+     "rot": 0.0,
+     "p": {
+      "on": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "app|85%",
+       "p": {
+        "on": 1.0
+       },
+       "dur": 0.35
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "present",
+    "pos": [
+     990,
+     1500
+    ],
+    "size": 360,
+    "prop": "mic",
+    "gest": [],
+    "moves": [],
+    "look": "status"
+   },
+   "sfx": [
+    "pop@Saturday|20%",
+    "tink@app|85%"
+   ],
+   "card": {
+    "rows": [
+     [
+      "CHECK YOUR AIRLINE'S APP",
+      "#ffd34d",
+      94
+     ]
+    ],
+    "y": 470,
+    "at": 0.1
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "Meatball called his cat, Sauce. Sauce let it ring.",
+   "scene": "tp_living",
+   "scene_p": {
+    "sofa": false,
+    "picture": true
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      600,
+      1000,
+      1.0
+     ],
+     "to": [
+      640,
+      1060,
+      1.1
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "bed",
+     "type": "tp_bed",
+     "pos": [
+      420,
+      1500
+     ],
+     "s": 1.0,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "col": "#3b7dd8"
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "cat",
+     "type": "sp.cat",
+     "pos": [
+      640,
+      1250
+     ],
+     "s": 0.5,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "mood": "smug"
+     },
+     "moves": [],
+     "set": [],
+     "flip": false
+    },
+    {
+     "id": "stand",
+     "type": "tp_sidetable",
+     "pos": [
+      900,
+      1500
+     ],
+     "s": 0.8,
+     "front": false,
+     "rot": 0.0,
+     "p": {},
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "phone",
+     "type": "jh_phone",
+     "pos": [
+      900,
+      1215
+     ],
+     "s": 0.55,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "rot": 90
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "buzz",
+     "type": "tp_buzz",
+     "pos": [
+      900,
+      1200
+     ],
+     "s": 0.8,
+     "front": true,
+     "rot": 0.0,
+     "p": {
+      "on": 1.0
+     },
+     "moves": [],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "neutral",
+    "pos": [
+     1300,
+     1500
+    ],
+    "size": 380,
+    "prop": "mic",
+    "gest": [],
+    "moves": [],
+    "look": "viewer",
+    "hidden": true
+   },
+   "sfx": [
+    "tink@called|15%",
+    "pop@ring|90%"
+   ],
+   "card": {
+    "rows": [
+     [
+      "CANCELLED, DELAYED",
+      "#ffffff",
+      40,
+      true
+     ],
+     [
+      "OR FINE? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "y": 400,
+    "at": 0.0,
+    "x": "right"
+   },
+   "recut": false,
+   "pad": 0.08
+  },
+  {
+   "say": "So is your flight cancelled, delayed or fine? Because",
+   "scene": "tp_gate",
+   "scene_p": {
+    "night": 1
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      520,
+      1000,
+      1.08
+     ],
+     "to": [
+      540,
+      970,
+      1.03
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "board",
+     "type": "tp_board",
+     "pos": [
+      250,
+      1010
+     ],
+     "s": 0.95,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "text": "DELAYED",
+      "text2": "CANCELLED",
+      "rows": 5,
+      "flip": 1.0,
+      "flip2": 0.0,
+      "order": [
+       0,
+       2,
+       4,
+       1,
+       3
+      ]
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "Because|80%",
+       "p": {
+        "flip": 0.0
+       },
+       "dur": 0.25
+      }
+     ]
+    },
+    {
+     "id": "seats",
+     "type": "tp_seats",
+     "pos": [
+      820,
+      1500
+     ],
+     "s": 0.75,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "n": 2
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "bag",
+     "type": "tp_suitcase",
+     "pos": [
+      420,
+      1500
+     ],
+     "s": 0.6,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "col": "#d8322a"
+     },
+     "moves": [],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "present",
+    "pos": [
+     570,
+     1500
+    ],
+    "size": 400,
+    "prop": "mic",
+    "gest": [],
+    "moves": [
+     {
+      "at": "Because|80%",
+      "dur": 0.45,
+      "pos": [
+       700,
+       1500
+      ],
+      "hop": 160
+     }
+    ],
+    "look": "viewer"
+   },
+   "sfx": [
+    "pop@Tell|70%"
+   ],
+   "card": {
+    "rows": [
+     [
+      "CANCELLED, DELAYED",
+      "#ffffff",
+      40,
+      true
+     ],
+     [
+      "OR FINE? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "y": 400,
+    "at": 0.0,
+    "x": "right"
+   },
+   "recut": false,
+   "pad": 0.08
+  }
+ ]
+}
