@@ -123,3 +123,8 @@ Second-model check `research/112` (about 19:57 ET: stop still on; cancellations 
 - Topical YouTube Shorts: Jensen 303 (15.2 h), airline 120 / 36 / 7. House cat long video: 4 views at 9.1 h (public listing).
 - TikTok: why-it-happened 15,600 plays at 4.9 h (likes 1.69%, 18 saves); first airline 9,157 (7.0 h); Jensen 3,118 (15.2 h); Microsoft 2,950 (11.0 h); GTA 6 1,298 (12.0 h); airline update 237 (label "Social Issues"); Jensen part 2 95. Seven topical TikToks: 32,455 plays in under 16 hours.
 - Dog guilty look Short at 1 view after 13 hours needs a look in the morning run (Metricool status and the public page): if it is stuck, say so to Nolan.
+
+## Sat 11/14 06:42 ET read (Nolan: "Check"; YouTube flat listing, TikTok public pages, one Metricool status)
+- TikTok (overnight growth is small: search has moved on): why-it-happened 16,100 plays (9.5 h); first airline 9,208 (11.6 h); Jensen 3,175 (19.8 h); Microsoft 2,979 (15.6 h); GTA 6 1,321 (16.6 h); airline update 238; Jensen part 2 102. Total 33,123.
+- YouTube Shorts: sweary dog stare 852 (20.7 h); grizzly (Fri 19:00) 516 (11.7 h); Jensen 349 (19.8 h); airline 207 / 46 / 44. House cat long video 23 views (13.7 h).
+- Dog guilty look Short (Fri 13:00): Metricool says PUBLISHED and public (youtube.com/shorts/xIbnhX10r7k), but the listing shows 1 view after 17.7 h. It is the only Short with a cover frame set (`videoCoverMilliseconds` 1900) and it was the fourth of seven Shorts that day. Either YouTube never pushed it or something is restricting it: Studio is the only place that shows which (visibility, restrictions, impressions). Until that is known, do not set a cover frame on any other Short.
