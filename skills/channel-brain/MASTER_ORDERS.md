@@ -31,7 +31,7 @@ Then, only if still needed:
 ## Read dates and live tests
 Read each test on its date, not before.
 - **Sat 11/14 evening:** the comedy test (Nolan 11/12: "Do we want mkre comedy in yr videos", "Post some of those today to test"; the log has the section) at 48 hours: Thursday's funny Shorts against the plain one of that day, then Windsor. At 10 hours the funny Shorts ran about 1.7 times the plain one at the same age (`oh-meatball/research/102`).
-- **Sun 11/15 10:00:** the sweary dog-stare Short at 48 hours (852 views at 21 hours, level with the mild funny Shorts; `oh-meatball/research/115`).
+- **Read 11/15 (`oh-meatball/research/117`):** sweary dog-stare Short 873 at 51 h, level with the mild grizzly (925): not a win, mild words stay. Five of seven news TikToks passed 2x the median (why it happened 17,600); the Jensen Short 486 against 942, so no more YouTube news cuts.
 - **Read 11/14:** Wednesday's Shorts were swiped, not hidden: four of five had 0.26 to 0.39 engaged in the feed; two recovered to about 900 later, the two hook-test cuts did not (`oh-meatball/research/90`, `115`). Friday's dog Short has 1 view (open question for Studio).
 - **Sat 11/14 to Sun 11/15:** Windsor youtube, one call per video with the filter [["video","eq",ID]], fields date, traffic_source, views, engaged_views, for the five 11/10-11/11 Shorts and the 11/12 cat and moose Shorts; compare with 11/07-11/09 (feed 4,338 / 3,650 / 3,536 views a day; search 161 / 150 / 132).
 - **Sun 11/15:** the funnier seven's average % viewed and engaged share (Windsor), against 81% and 0.50.

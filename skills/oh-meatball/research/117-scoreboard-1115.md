@@ -1,0 +1,19 @@
+# 117: Scoreboard Sun 11/15 (run at 13:35 ET; the 02:05 night build and the 07:37 run did not run: the session's worker restarted)
+
+## 48-hour reads
+Sources: TikTok public pages (`postkit.py ttpage`, 18:34 UTC, rows in data/tiktok-stats.csv); YouTube flat listing (yt-dlp, same minute).
+
+**News TikToks (median before: 333; 2x = 666), at 40 to 51 hours:**
+why it happened 17,600 · airline first 9,340 · Jensen 3,457 · Microsoft 3,034 · GTA 6 1,426 · airline update 360 · Jensen part 2 107. Five of seven pass 2x. Growth since Sat 06:42: +1,500, +132, +282, +55, +105, +122, +5 (search traffic fades in a day). Likes 0.6 to 2.0% (account usual 2.2%).
+
+**YouTube:** Jensen Short 486 at 51 h against 942: fails, so no YouTube cuts of GTA 6, Microsoft or Jensen part 2 (rule in MASTER_ORDERS). Airline Shorts 271 / 99 / 100. YouTube does not carry news; TikTok does.
+
+**Sweary YouTube test:** dog stare (strong words) 873 at about 51 h; same day's mild funny grizzly 925; the dog guilty-look Short shows 3 views (still broken, open question for Studio). Verdict: level, not a win. "Mild words only" stays until Nolan decides.
+
+**Long videos:** house cat 42 views at 45 h (72-hour read Mon 17:00 against 100); spider 116 at 30 h.
+
+## Queue (Metricool, next 48 h)
+TikTok shark short cut (23.6 s) Mon 19:00 pulled to draft (held.csv); every other live TikTok runs over a minute (83.5, 64.3, 92.6, 65.0, 82.2 s by ffprobe). Sun 21:30 and Mon 19:00 TikTok slots are open until the bison and shark minute cuts are built (night window).
+
+## Not measured
+TikTok watch time and Search share for these (Studio only); Windsor not pulled this run.
