@@ -140,6 +140,20 @@ L["budget-planner"] = dict(
 • 30-day no-spend challenge
 """)
 
+L["2027-wall-calendar"] = dict(
+    title="2027 Wall Calendar Printable, Minimalist Botanical Monthly Calendar, Landscape Calendar 2027, Instant Download PDF Letter & A4",
+    price="3.99", publish="yes", footer=PFOOTER,
+    imgs=["calendar-01-thumbnail", "calendar-02-pages", "calendar-03-detail", "calendar-04-included"],
+    tags="2027 calendar,wall calendar,printable calendar,2027 wall calendar,monthly calendar,botanical calendar,calendar printable,minimalist calendar,2027 printable,desk calendar,family calendar,calendar 2027 pdf,boho calendar",
+    intro="""2027 Printable Wall Calendar. A calm, minimalist botanical calendar with a different soft color for every month. Print it at home, hang it on the fridge or clip it to a board, and start the new year organized.
+
+🌿 WHAT'S INCLUDED (13 pages, landscape, US Letter AND A4 PDF)
+• Cover page
+• 12 monthly calendars, January to December 2027 (Sunday start)
+• Notes section on every month
+• Large date boxes for appointments, birthdays & plans
+""")
+
 def send(slug):
     d = L[slug]
     if slug == "bundle":

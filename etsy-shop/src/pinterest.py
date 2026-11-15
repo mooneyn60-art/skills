@@ -7,6 +7,7 @@ BOARDS = {
   "santa": ("Letter to Santa Ideas", "Printable letters to Santa, replies from Santa and North Pole mail ideas for kids."),
   "kids": ("Christmas Printables for Kids", "Christmas printables, wish lists and activities for kids. Instant downloads."),
   "elf": ("Elf Arrival Ideas", "Christmas elf arrival letters, elf rules and elf welcome ideas."),
+  "planner": ("2027 Planner & Budget Printables", "Minimalist printable planners, budget trackers and organization ideas for 2027."),
   "evebox": ("Christmas Eve Box Ideas", "Christmas Eve box fillers: Nice List certificates, letters from Santa and more."),
 }
 E = "https://www.etsy.com/listing/"
@@ -19,18 +20,25 @@ PINS = [
   ("bundle", "kids", "4617961573", "Santa Mail Kit Printable Bundle – Letter to Santa, Reply, Nice List & Elf", "5 matching Christmas printables in one instant download: Dear Santa letter, reply from Santa, wish list, Nice List certificate and elf arrival letter. #santamail #christmasprintables #christmastraditions"),
 ]
 
+PINS += [
+  ("planner", "planner", "4617986184", "2027 Planner Printable – Minimalist Monthly, Weekly & Daily Planner", "Get organized for 2027! A calm, minimalist printable planner: year at a glance, goals, 12 dated monthly calendars, weekly & daily pages and a habit tracker. US Letter + A4, instant download. #2027planner #printableplanner #minimalistplanner #newyeargoals"),
+  ("budget", "planner", "4617978275", "Budget Planner Printable – Monthly Budget, Bill & Debt Payoff Tracker", "Take control of your money in 2027 with this printable budget planner: monthly budget, expense & bill trackers, savings goals, sinking funds, debt payoff and a no-spend challenge. #budgetplanner #budgettracker #debtpayoff #savingmoney"),
+]
+
 def post(key, url, method, meta, img=None):
     a = ["curl", "-sS", "-w", " %{http_code}", HOOK, "-F", f"key={key}", "-F", f"url={url}", "-F", f"method={method}", "-F", f"meta={json.dumps(meta)}"]
     if img: a += ["-F", f"img=@{img};type=image/jpeg"]
     print(key, subprocess.run(a, capture_output=True, text=True).stdout)
 
 if sys.argv[1] == "boards":
-    for k, (n, d) in BOARDS.items():
+    only = sys.argv[2:] or list(BOARDS)
+    for k, (n, d) in [(k, BOARDS[k]) for k in only]:
         post(f"board-{k}", "/v5/boards", "POST", {"name": n, "description": d, "privacy": "PUBLIC"})
 elif sys.argv[1] == "pins":
     ids = json.load(open(f"{ROOT}/pins/board_ids.json"))
     which = sys.argv[2] if len(sys.argv) > 2 else "AB"
-    for slug, board, lid, title, desc in PINS:
+    slugs = sys.argv[3:]
+    for slug, board, lid, title, desc in [x for x in PINS if not slugs or x[0] in slugs]:
         for v in which:
             post(f"pin-{slug}-{v}", "/v5/pins", "POST", {
                 "board_id": ids[board], "title": title, "description": desc, "link": E + lid,
