@@ -20,6 +20,9 @@ TOPICS SO FAR (notes live in skills/robinhood-autotrader/notes/curiosity/):
 - 2026-11-01: what happens in traders' bodies before good and bad decisions
   (Lo & Repin, Coates & Herbert, interoception, somatic markers).
   DONE: notes/curiosity/2026-11-01_TRADERS_BODIES.md.
+- 2026-11-15: does mind-wandering cause unhappiness or the reverse
+  (Killingsworth & Gilbert, Poerio, Ruby, Kam meta-analysis).
+  DONE: notes/curiosity/2026-11-15_WANDERING_MIND.md.
 
 From here on, choose your own topic each time. Rules for choosing:
 - Something you'd genuinely want to understand, not something picked to look impressive.
