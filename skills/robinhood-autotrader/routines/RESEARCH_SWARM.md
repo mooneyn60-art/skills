@@ -87,7 +87,10 @@ Target: under $25 of model usage per swarm run.
 4. DONE 2026-11-08: holding through has not paid, lean to sit out (research/2026-11-08_EARNINGS_HOLD_SWARM.md).
    Earnings-gap continuation for momentum names (hold through vs exit
    before earnings), using paper/history/earnings_reports.json.
-5. ICT / "smart money" intraday setups (Nolan shared a TikTok 2026-10-15:
+4b. DONE 2026-11-15: 20y large caps, holding through earnings pays; sell-before/rebuy -3.8pp (research/2026-11-15_EARNINGS_EXIT_BACKTEST.md).
+   NEXT candidate: extend the 8-K dates to the volatile names and test a per-name gap-risk rule.
+5. COVERED 2026-11-15 by earlier tests (desk study 133-day OOS; godmode_test 10/16: sweep and FVG no edge). Not re-run.
+   ICT / "smart money" intraday setups (Nolan shared a TikTok 2026-10-15:
    a Claude-built NQ futures "data farm" claiming 68% wins, PF 2.41 on 142
    trades). Test the two cleanest rules on SPY minute bars (pull 60+ days):
    a. Liquidity-sweep reversal: price pierces the prior-day high/low or the

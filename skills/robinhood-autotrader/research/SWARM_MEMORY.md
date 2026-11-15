@@ -72,3 +72,8 @@ Read this first so no run repeats a dead variant.
 - 1m bullish FVG follow stays negative: 15m t -2.1, 30m t -1.9 (fade candidate only).
 - New |t|>=2 (candidates only, ~45 tests per run, expect ~2 by chance): 1m close crosses VWAP follow 15m t +2.1; 5m EMA 9/21 cross follow 15m t +2.0; 5m RSI>70 fade 30m t +2.0 (n=35).
 - Intraday deep dig: in-sample window is fixed (9/02-10/15), so GAPFILL / RANGE_DONE unchanged.
+
+## 2026-11-15 — Earnings exit, 20 years (queen only)
+- SEC 8-K item 2.02 dates (fetch_earnings_8k.py), validity checked (reaction day |ret| 4.09% vs 1.5%).
+- 14 large names: reaction +0.38%, 4.4% <= -8%. Sell-before/rebuy-after -3.78pp CAGR (t -3.26); neutralise-only -1.95pp. Holding through pays for large caps; the 11/8 lean was universe-specific.
+- Queue item 5 (ICT sweeps/FVG) marked covered by earlier tests; item 2 still blocked; R15 task skipped a 3rd week (no HWM rebase row).
