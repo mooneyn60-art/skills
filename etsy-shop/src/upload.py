@@ -122,7 +122,7 @@ L["2027-planner"] = dict(
 • Notes page
 """)
 L["budget-planner"] = dict(
-    title="Budget Planner Printable, Monthly Budget Tracker, Expense & Bill Tracker, Savings & Debt Payoff Tracker, Finance Planner PDF",
+    title="Budget Planner Printable, Monthly Budget Tracker, Expense and Bill Tracker, Savings & Debt Payoff Tracker, Finance Planner PDF",
     price="4.99", publish="yes", footer=PFOOTER,
     imgs=["budget-01-thumbnail", "budget-02-pages", "budget-03-included", "budget-04-detail"],
     tags="budget planner,budget tracker,expense tracker,bill tracker,savings tracker,debt payoff tracker,finance planner,budget printable,monthly budget,sinking funds,no spend challenge,budget template,money planner",
