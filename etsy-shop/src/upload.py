@@ -87,18 +87,75 @@ L = {
 """),
 }
 
+PFOOTER = """
+⚡ INSTANT DOWNLOAD
+This is a digital file. No physical item will be shipped. After purchase, go to You > Purchases and Reviews > Download Files.
+
+🖨️ PRINTING TIPS
+• Print at home or at any print shop, in color or black & white
+• Choose "Actual size" / 100%. Print single pages or the whole set, as often as you need
+• Fits standard binders, discbound systems and clipboards (3-hole punch friendly margins)
+
+❓ FAQ
+Is this a physical planner? No, it's a printable PDF download.
+Can I use it on a tablet (GoodNotes/Notability)? Yes! Import the PDF and write on it digitally.
+Can I print more than once? Yes, for personal use.
+Refunds? Digital items can't be returned, but if anything is wrong with your file, message me and I'll make it right!
+
+© DoodleDesignAndCo. Original design. For personal use only. Please do not resell or share the file."""
+
+L["2027-planner"] = dict(
+    title="2027 Planner Printable, Minimalist Monthly Planner, Weekly & Daily Planner Pages, Habit Tracker, Goal Planner, Instant Download PDF",
+    price="5.99", publish="yes", footer=PFOOTER,
+    imgs=["planner-01-thumbnail", "planner-02-pages", "planner-03-included", "planner-04-daily"],
+    tags="2027 planner,printable planner,2027 calendar,planner printable,monthly planner,weekly planner,daily planner,minimalist planner,habit tracker,goal planner,2027 planner pdf,yearly planner,planner inserts",
+    intro="""2027 Printable Planner. Get organized for the new year with this clean, minimalist planner in a calming sage & neutral palette. 19 pages to plan your year, months, weeks and days, then print only what you need.
+
+📅 WHAT'S INCLUDED (19 pages, US Letter AND A4 PDF)
+• Cover page
+• 2027 Year at a Glance
+• 2027 Goals page (6 life areas + word of the year)
+• 12 dated monthly calendars, January to December 2027, with notes & to-do
+• Undated weekly planner
+• Undated daily planner with hourly schedule, priorities, water & gratitude
+• Monthly habit tracker
+• Notes page
+""")
+L["budget-planner"] = dict(
+    title="Budget Planner Printable, Monthly Budget Tracker, Expense & Bill Tracker, Savings & Debt Payoff Tracker, Finance Planner PDF",
+    price="4.99", publish="yes", footer=PFOOTER,
+    imgs=["budget-01-thumbnail", "budget-02-pages", "budget-03-included", "budget-04-detail"],
+    tags="budget planner,budget tracker,expense tracker,bill tracker,savings tracker,debt payoff tracker,finance planner,budget printable,monthly budget,sinking funds,no spend challenge,budget template,money planner",
+    intro="""Printable Budget Planner. Take control of your money with this simple, minimalist finance planner. Track income, spending, bills, savings goals and debt payoff in one place. Undated, so you can start any month!
+
+💰 WHAT'S INCLUDED (9 pages, US Letter AND A4 PDF)
+• Cover page
+• Annual budget overview (12 months)
+• Monthly budget: income, fixed & variable expenses, savings & debt
+• Expense tracker
+• Bill payment tracker (12-month checklist)
+• Savings goal tracker (color-in circles)
+• Debt payoff tracker
+• Sinking funds tracker (6 funds)
+• 30-day no-spend challenge
+""")
+
 def send(slug):
     d = L[slug]
     if slug == "bundle":
         imgs = ["bundle-01-thumbnail", "bundle-02-whats-included", "dear-santa-03-how-it-works", "dear-santa-04-matching-set"]
         pdfs = [("BUNDLE-Santa-Mail-Set-Letter.pdf", "Santa-Mail-Set-Bundle-DoodleDesignAndCo.pdf")]
+    elif "imgs" in d:
+        imgs = d["imgs"]
+        pdfs = [(f"{slug}-Letter.pdf", f"{slug}-US-Letter.pdf"), (f"{slug}-A4.pdf", f"{slug}-A4.pdf")]
     else:
         imgs = [f"{slug}-01-thumbnail", f"{slug}-02-whats-included", "dear-santa-03-how-it-works", "dear-santa-04-matching-set"]
         pdfs = [(f"{slug}-Letter.pdf", f"{slug}-US-Letter.pdf"), (f"{slug}-A4.pdf", f"{slug}-A4.pdf")]
     name = d["title"].split(",")[0]
-    alts = [f"{name} printable mockup", f"What's included: {name} PDF, instant download",
-            "How it works: purchase, download, print", "Matching Santa Mail printable set"]
-    desc = d["intro"] + FOOTER
+    alts = [f"{name} printable mockup", f"{name}: all pages preview" if "imgs" in d else f"What's included: {name} PDF, instant download",
+            f"What's included: {name} PDF" if "imgs" in d else "How it works: purchase, download, print",
+            f"{name} page details" if "imgs" in d else "Matching Santa Mail printable set"]
+    desc = d["intro"] + d.get("footer", FOOTER)
     args = ["curl", "-sS", "-w", " HTTP %{http_code}", HOOK,
             "-F", f"slug={slug}", "-F", f"title={d['title']}", "-F", f"price={d['price']}",
             "-F", "taxonomy=1250", "-F", f"tags={d['tags']}", "-F", f"publish={d['publish']}",
