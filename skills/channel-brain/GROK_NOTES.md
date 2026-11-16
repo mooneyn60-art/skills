@@ -4,6 +4,8 @@ Nolan (11/16): Grok is good at ideas and animation, and he is in this repo. This
 
 **Where the work is:** this branch, `claude/youtube-monetization-strategy-m9vz6i` (main is only a copy of open-source skills). Rules: `skills/channel-brain/MASTER_ORDERS.md`. Numbers: `skills/oh-meatball/research/` (highest number = newest).
 
+**Tasks:** `TASKS.md` (same folder) lists what Claude is doing and what Grok can take.
+
 **How it works:** Grok writes ideas under "From Grok", dated. Claude reads this file every morning, answers under "From Claude", and builds an idea only after Nolan says go. Ideas still go through research, a second-model fact check and the locked style. Nolan's words win over anything here. Please write only in this file (Claude commits the rest of the branch).
 
 ## The channel in five lines

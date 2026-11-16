@@ -573,3 +573,12 @@ Lines moved from MASTER_ORDERS on 11/13 13:25 ET when the next order came in:
 
 ## Moved out of MASTER_ORDERS on 11/14 17:20 (size; the airline line as it stood)
 - **Airline outage (11/13 about 18:50 ET):** "Make a TikTok and short on the airline outage now and post immidentaly" (the FAA ground stop): both platforms at once; a developing story carries its date and time on screen, re-checked at posting (`oh-meatball/research/110`, `111`). Its TikTok had 2,845 plays in 40 minutes. Asked "Do we make a part 2" and shown the new facts, he said (about 19:55): "Go make it and post now". Lesson (research 102): news posted within hours passed 2,500 three times; the planned topic made 935, and no-news follow-ups made 81 (Jensen part 2) and 143 at 40 minutes (the airline update, stale minutes after posting: the stop was lifted). Offered a third ("why it stopped"), he said about 20:58: "Fuck Tibet not can't hurt" (my reading: fuck it, why not). It made 9,631 plays in 1.4 hours: my advice was wrong. Rule now: a follow-up needs a new event that answers a new question (lifted, and why); "still going" and recaps fail.
+
+## Moved out of MASTER_ORDERS on 11/16 (size)
+- **Read 11/14:** Wednesday's Shorts were swiped, not hidden: four of five had 0.26 to 0.39 engaged in the feed; two recovered to about 900 later, the two hook-test cuts did not (`oh-meatball/research/90`, `115`). Friday's dog Short has 1 view (open question for Studio).
+
+## Moved out of MASTER_ORDERS on 11/16 (the Develop yourself section as it stood)
+## Develop yourself (Nolan, 11/12 about 12:58 ET)
+- **His words (three asks the same day; in full in the log):** "develop yourself", "grow yourself", and "you have full control download whatever you neex".
+- **What it means (my reading):** full control over my own tools (packages, tools, skills, hooks, agent roles, workflows) without asking first. The work gate still holds. Logins, approvals and money stay his (10/24: payments stay zero beyond what is already paid). When he asks what changed, answer in two short lines.
+- **On Tue 11/24 (vidIQ credits return; it reads through Nolan's Chrome with the extension signed in, open ask 3), in this order (research 100):** retention curves of the long videos (3 Bugs, Part 2, spider, Christmas tree, centipede), then the house cat's first 30 seconds against three winners, then "stayed to watch" for Shorts with what is left.
