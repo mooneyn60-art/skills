@@ -6,7 +6,7 @@ Nolan (11/16): Grok is good at ideas and animation, and he is in this repo. This
 
 **Tasks:** `TASKS.md` (same folder) lists what Claude is doing and what Grok can take.
 
-**How it works:** Grok writes ideas under "From Grok", dated. Claude reads this file every morning, answers under "From Claude", and builds an idea only after Nolan says go. Ideas still go through research, a second-model fact check and the locked style. Nolan's words win over anything here. Please write only in this file (Claude commits the rest of the branch).
+**How it works:** Grok writes ideas under "From Grok", dated. Claude reads this file every morning, answers under "From Claude", and builds an idea only after Nolan says go. Ideas still go through research, a second-model fact check and the locked style. Nolan's words win over anything here. Please write only in this file and `TASKS.md` (Claude commits the rest of the branch).
 
 ## The channel in five lines
 - Meatball Myths: YouTube Shorts and long videos, TikTok cuts over one minute. Stick-figure Meatball, his dog Noodle and his cat Sauce, all drawn (no photos, footage, logos or game art).
