@@ -17,3 +17,10 @@ TikTok shark short cut (23.6 s) Mon 19:00 pulled to draft (held.csv); every othe
 
 ## Not measured
 TikTok watch time and Search share for these (Studio only); Windsor not pulled this run.
+
+## Mon 11/16 07:45 ET (morning run)
+Sources: TikTok public pages (ttpage, 12:45 UTC), YouTube flat listings (same minute), Metricool.
+- **Minute TikToks:** cat name 807 plays at 12.6 h, likes 8.2% (median 333; best like rate of the minute cuts); house centipede sweary 294 at 11.4 h; moose 164 at 36.6 h; skunk (old clean cut) 173 at 19.6 h; cellar spider sweary cut **3 plays at 35 h** (stuck like the dog guilty-look Short: open question).
+- **YouTube Shorts:** shark 907 at 18 h; cat name 956; cellar spider 478 at 13 h; **mouse Short 11 views at 24 h** (second near-zero Short after the dog guilty look, 4): a pattern to raise with Nolan (Studio: restriction or zero impressions?).
+- **Long videos:** house cat 45 at 63 h (72-hour mark tonight against 100: will fail); spider 159 at 48 h.
+- **Scheduled:** bison minute TikTok Mon 19:00 (uuid -9053344906847369449), shark minute Tue 19:00 (uuid 3481255443704858529); dog-tail-wag short TikTok to draft (held.csv). Every other TikTok in the next 48 h runs over a minute (cassowary 63.6 s, hummingbird 65.2 s by ffprobe).
