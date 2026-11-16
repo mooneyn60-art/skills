@@ -1,0 +1,570 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "detective",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "cut_whoosh": true,
+ "loop": true,
+ "photo_credits": [],
+ "cap_swap": {
+  "shit": "sh*t",
+  "shits": "sh*ts",
+  "shitty": "sh*tty",
+  "bullshit": "bullsh*t",
+  "fuck": "f**k",
+  "fucking": "f**king",
+  "fucker": "f**ker",
+  "fuckers": "f**kers"
+ },
+ "series": "Would Meatball Survive?",
+ "sources": [
+  "Florida Museum of Natural History, International Shark Attack File, yearly worldwide summary for 2025: \"ISAF confirmed 65 unprovoked shark bites on humans and 29 provoked bites.\"; \"There were 12 confirmed shark-related fatalities this year, nine of which are assigned as unprovoked.\"; https://www.floridamuseum.ufl.edu/shark-attacks/yearly-worldwide-summary/",
+  "International Shark Attack File, Quick Tips: \"Swim with a buddy\"; \"Don't swim at dawn or dusk\"; \"Maintain eye contact with the shark\"; \"Slowly move away, and if possible, exit the water\"; \"Hit shark in the eyes and gills\"; https://www.floridamuseum.ufl.edu/shark-attacks/reduce-risk/quick-tips/",
+  "International Shark Attack File, Advice to Swimmers: \"You should not act passively if under attack as sharks respect size and power.\"; https://www.floridamuseum.ufl.edu/shark-attacks/reduce-risk/swimmers/",
+  "Florida Museum news release, 2026-02-18: \"The chances of being bitten by a shark remain extremely low.\"; https://www.floridamuseum.ufl.edu/science/global-shark-bites-return-to-average-in-2025-with-smaller-proportion-in-the-united-states/",
+  "International Shark Attack File, How to Avoid a Shark Attack: \"a shark may mistake the movements of humans, usually at the surface, for those of their normal food, fish\"; \"Legs or feet are often bitten; injuries usually are minor and deaths rarely occur.\"; \"The victim doesn't see the shark before the interaction. The result can be serious injury or death.\"; \"Always stay with a buddy, since sharks are more likely to approach a solitary individual.\"; https://www.floridamuseum.ufl.edu/shark-attacks/reduce-risk/how-to-avoid-a-shark-attack/",
+  "International Shark Attack File, Species Implicated in Attacks: \"the white, tiger and bull sharks are the 'Big Three' in the shark attack world\"; \"almost any shark in the right size range, roughly six feet (1.8 meters) or greater, is a potential threat to humans\"; https://www.floridamuseum.ufl.edu/shark-attacks/factors/species-implicated/",
+  "International Shark Attack File, Sharks vs. Lightning Fatalities, coastal United States 1959-2010: totals 1,970 lightning deaths, 974 shark attacks, 26 shark deaths; https://www.floridamuseum.ufl.edu/shark-attacks/odds/compare-risk/lightning-strikes/",
+  "Florida Museum news release, 2026-02-18: \"Drowning and being struck by lightning are far more common.\"; https://www.floridamuseum.ufl.edu/science/global-shark-bites-return-to-average-in-2025-with-smaller-proportion-in-the-united-states/"
+ ],
+ "stage": {
+  "creature": "shark",
+  "scene": "reef",
+  "scene_p": {},
+  "s": 0.55
+ },
+ "cap_key": [
+  "shark",
+  "sharks",
+  "meatball",
+  "eyes",
+  "slowly",
+  "water",
+  "66",
+  "65",
+  "confirmed",
+  "2025",
+  "buddy",
+  "dawn",
+  "dusk",
+  "alone",
+  "noodle",
+  "donut",
+  "shore",
+  "jewelry",
+  "splashing",
+  "weirder",
+  "hit-and-run",
+  "fish",
+  "minor",
+  "sneak",
+  "bump-and-bite",
+  "gills",
+  "passive",
+  "six",
+  "big",
+  "three",
+  "low",
+  "lightning",
+  "1,970",
+  "26",
+  "closest"
+ ],
+ "title": "What to Do If a Shark Comes Close: 65 Confirmed Unprovoked Bites in 2025 🦈 (Would Meatball Survive?)",
+ "description": "What to do if a shark comes close? The International Shark Attack File's tips: keep eye contact with the shark, slowly move away, and if possible, get out of the water. If a shark bites, hit the eyes and gills, and do not act passively. It advises swimming with a buddy, staying close to shore, and not swimming at dawn or dusk. It confirmed 65 unprovoked shark bites on people worldwide in 2025, and the Florida Museum says the chances of being bitten remain extremely low.\n\n#sharks #sharkattack #meatballmyths #shorts\n\nSource: International Shark Attack File, Florida Museum of Natural History (2025 yearly summary; Quick Tips; How to Avoid a Shark Attack; Species Implicated; Sharks vs. Lightning). General information, not safety training.",
+ "tiktok_title": "What to Do If a Shark Comes Close",
+ "tiktok_caption": "what to do if a shark comes close 🦈 The International Shark Attack File says keep eye contact with the shark, slowly move away, and if possible, get out of the water. It confirmed 65 unprovoked shark bites on people worldwide in 2025, and the Florida Museum says the chances of being bitten remain extremely low. Meatball wanted to be number 66. Then his dog, Noodle, ate his donut. Send this to the friend who swims alone at dusk. General info, not safety training. Closest you've been to a shark: in the water, on a boat, or only at the aquarium? #shark #sharks #sharkattack #ocean #wildlife",
+ "search_top": {
+  "rows": [
+   [
+    "WHAT TO DO IF",
+    "#ffffff",
+    86
+   ],
+   [
+    "A SHARK COMES CLOSE",
+    "#ffd34d",
+    86
+   ]
+  ],
+  "y": 150,
+  "until": 2.5
+ },
+ "_note": "TikTok minute cut (Nolan 11/12: every TikTok runs over one minute) of the checked short cut tts-shark-wms.json. Draft 11/16 by script-shark-wms, written only from research/84 section 5 (SH-F1 to SH-F21) and research/86; every beat lists its ids in _f. Checked 11/16 by a second model (check-shark-wms; research/facts/shark-wms-min-check.md, 9 wording fixes, 14 spoken words added, so about 265 words); not rendered in full. First spoken sentence = the searched phrase 'what to do if a shark comes close' (word for word); search_top shows it for the first 2.5 s at y 150. Frame 0 is the shark close up (open: animal), already moving. Kept from the checked short cut: the gag line 'Meatball wanted to be number 66. He swam alone at dusk, breaking two safety tips. Dumbass.' (now line 2, with 'Why 66?' and the cleared 65 line right after it), 'keep your eyes on it and back away slowly' and 'Scary as fuck' (now in line 1, with the File's 'if possible, exit the water' added as 'get out of the water if you can'), the eyes-and-gills line word for word, and 'Meatball made it to fucking shore' in the last line with 'Nothing's guaranteed' added (rule 7). New lines for the checker: line 4 (SH-F14 buddy and dawn or dusk, credited to the File), line 5 (SH-F15, 'approach', not 'attack'), line 6 (Noodle gag, no fact), line 7 (SH-F14 jewelry and splashing; no reason is given for either), line 8 (re-hook), line 9 (SH-F10, 'may mistake ... for fish', never seals), line 10 (SH-F11), line 12 (SH-F9), line 13 (SH-F19, the Florida Museum release of 2026-02-18). Shark counts say 'confirmed' and the year (line 3 and its card). No bear advice anywhere in the cut. Rule 7: the ending does not say a tactic saved Meatball. Cut for length (a 18-line draft planned at 115 s): 'stay close to shore' and 'away from schools of fish and people fishing' (SH-F14; shore stays in the description), 'legs or feet are often bitten, injuries usually are minor' (SH-F10), the Big Three (SH-F7), the 1959 to 2010 lightning table (SH-F17). Not used: SH-F2 deaths, SH-F3 places, SH-F4 averages, SH-F6 activity shares, SH-F8, SH-F16 (do-not-say), SH-F18, SH-F20, SH-F21, the snout advice (SH-F13 second half: the pack says do not merge it with eyes and gills). Sauce is not in this cut: a cat at sea has no action that fits; Noodle has the running gag (eats Meatball's donut on the boat, a cast dog with the donut prop). The crown in line 7 is a g.prop actor set on Meatball's head (still checked); the ruler in line 12 sits on the shark; the fish thought bubble in line 9 sits over the shark; the lightning in line 13 is the zap gag. Planned length 83.36 s, 14 beats, 251 spoken words (drawn.py --stills plan, 11/16; work files in /dev/shm/shark-wms-min). Stills looked at: search phrase on top, cards under it, the dog and donut on the deck, crown, ruler, fish bubble, lightning, last frame back on the reef. postkit lint 11/16: pass, 0 fail, 0 warn.",
+ "_curse": "TikTok cut with about one swear a line, as a reaction or inside a Meatball joke (Nolan 11/11: 'one a sentence', 'make them joke more using the cursing'). Every File credit and every safety instruction is said clean and the swear comes after it, so this safety-heavy cut carries fewer f-words (MASTER_ORDERS: do not pad it). 12 f-words, 1 'shit' and 'Dumbass' in 14 lines (counted by script). Sweary jokes, all on Meatball: number 66 / Dumbass, oh for fucking two, alone as fuck, Noodle and the donut (Of fucking course), crown and splashed like a fucking blender, swims like a fucking fish stick, brought a fucking ruler. None adds a number, a danger or health claim, an animal's feeling or motive, or a safety instruction. No 'you' in an insult; the last line's question is a comment prompt.",
+ "beats": [
+  {
+   "open": "animal",
+   "m": "hook",
+   "gag": {
+    "mark": "shock"
+   },
+   "_f": [
+    "SH-F12"
+   ],
+   "say": "What to do if a shark comes close? The Shark Attack File says keep your eyes on it, back away slowly, and get out of the water if you can. Scary as fuck.",
+   "card": {
+    "rows": [
+     [
+      "EYES ON IT",
+      "#7bd88f",
+      120
+     ],
+     [
+      "BACK AWAY SLOWLY, LEAVE THE WATER IF YOU CAN",
+      "#ffffff",
+      40,
+      true
+     ],
+     [
+      "INTERNATIONAL SHARK ATTACK FILE",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "scene": "ocean",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "pad": 0.2,
+   "m": "chase",
+   "_f": [
+    "SH-F14"
+   ],
+   "say": "Meatball wanted to be number 66. He swam alone at dusk, breaking two safety tips. Dumbass.",
+   "card": {
+    "rows": [
+     [
+      "NUMBER 66?",
+      "#ffd34d",
+      104
+     ],
+     [
+      "MEATBALL, ALONE AT DUSK",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "18%"
+   }
+  },
+  {
+   "scene": "deep",
+   "pad": 0.1,
+   "m": "fact",
+   "gag": false,
+   "_f": [
+    "SH-F1"
+   ],
+   "say": "Why 66? The whole world had 65 confirmed unprovoked shark bites in 2025. That's fucking it.",
+   "card": {
+    "rows": [
+     [
+      "65 BITES",
+      "#ffd34d",
+      120
+     ],
+     [
+      "CONFIRMED, UNPROVOKED, WORLDWIDE, 2025",
+      "#ffffff",
+      44,
+      true
+     ],
+     [
+      "INTERNATIONAL SHARK ATTACK FILE",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "reef",
+   "pad": 0.1,
+   "m": "fact",
+   "gag": false,
+   "_f": [
+    "SH-F14"
+   ],
+   "say": "The Shark Attack File's tips: swim with a buddy, and don't swim at dawn or dusk. Meatball went oh for fucking two.",
+   "card": {
+    "rows": [
+     [
+      "SWIM WITH A BUDDY",
+      "#7bd88f",
+      92
+     ],
+     [
+      "NOT AT DAWN OR DUSK",
+      "#ffffff",
+      52,
+      true
+     ],
+     [
+      "MEATBALL: 0 FOR 2",
+      "#ffd34d",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "ocean",
+   "pad": 0.1,
+   "m": "scale",
+   "how": "shrink",
+   "gag": false,
+   "_f": [
+    "SH-F15"
+   ],
+   "say": "Why a buddy? The File says sharks are more likely to approach a person who's alone. Meatball, alone as fuck.",
+   "card": {
+    "rows": [
+     [
+      "MORE LIKELY TO APPROACH",
+      "#ff4b3e",
+      76
+     ],
+     [
+      "A PERSON WHO'S ALONE: SHARK ATTACK FILE",
+      "#ffffff",
+      42,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   }
+  },
+  {
+   "scene": "ship_deck",
+   "pad": 0.1,
+   "m": "fact",
+   "cast": {
+    "creature": "dog",
+    "s": 0.62,
+    "creature_cfg": {
+     "plan": "mammal",
+     "label": "dog",
+     "color": "#d9a85c",
+     "dark": "#a87a36",
+     "belly": "#f3e2bf",
+     "tail_color": "#d9a85c",
+     "length": 600,
+     "height": 290,
+     "leg_len": 200,
+     "leg_w": 36,
+     "ears": "floppy",
+     "tail": "thin",
+     "tail_w": 20,
+     "whiskers": false,
+     "mood": "happy"
+    }
+   },
+   "gag": {
+    "prop": "donut",
+    "at": "40%"
+   },
+   "_f": [],
+   "say": "Back on the boat, his dog, Noodle, ate Meatball's donut. Of fucking course.",
+   "card": {
+    "rows": [
+     [
+      "NOODLE GOT THE DONUT",
+      "#ffd34d",
+      84
+     ],
+     [
+      "AGAIN",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "scene": "deep",
+   "pad": 0.1,
+   "m": "fact",
+   "gag": false,
+   "_f": [
+    "SH-F14"
+   ],
+   "with": [
+    {
+     "type": "g.prop",
+     "x": 330,
+     "y": 905,
+     "p": {
+      "on": 1.0,
+      "kind": "crown"
+     },
+     "pop": false,
+     "s": 0.55,
+     "front": true
+    }
+   ],
+   "say": "More File tips: skip the jewelry, and avoid excess splashing. Meatball wore a crown and splashed like a fucking blender.",
+   "card": {
+    "rows": [
+     [
+      "NO JEWELRY",
+      "#7bd88f",
+      104
+     ],
+     [
+      "AVOID EXCESS SPLASHING",
+      "#ffffff",
+      50,
+      true
+     ],
+     [
+      "SHARK ATTACK FILE TIPS",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "ocean",
+   "scene_p": {
+    "time": "night"
+   },
+   "pad": 0.1,
+   "m": "scale",
+   "how": "grow",
+   "gag": {
+    "mark": "alarm"
+   },
+   "_f": [],
+   "say": "And it gets fucking weirder.",
+   "card": {
+    "rows": [
+     [
+      "IT GETS WEIRDER",
+      "#ffd34d",
+      100
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "reef",
+   "pad": 0.1,
+   "m": "fact",
+   "gag": {
+    "thought": "fish",
+    "at": "55%"
+   },
+   "_f": [
+    "SH-F10"
+   ],
+   "say": "In murky surf near beaches, the File says, a shark may mistake a swimmer's movements for fish. Meatball swims like a fucking fish stick.",
+   "card": {
+    "rows": [
+     [
+      "HIT-AND-RUN BITES",
+      "#ff4b3e",
+      92
+     ],
+     [
+      "A SHARK MAY MISTAKE A SWIMMER'S MOVES FOR FISH",
+      "#ffffff",
+      38,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "deep",
+   "scene_p": {},
+   "pad": 0.1,
+   "m": "escalate",
+   "gag": false,
+   "_f": [
+    "SH-F11"
+   ],
+   "say": "Worse are sneak bites in deeper water, or a bump-and-bite, where it circles and bumps first. Fuck that.",
+   "card": {
+    "rows": [
+     [
+      "SNEAK BITE",
+      "#ff4b3e",
+      110
+     ],
+     [
+      "IN DEEPER WATER, OR A BUMP-AND-BITE",
+      "#ffffff",
+      44,
+      true
+     ],
+     [
+      "CAN BE SERIOUS: SHARK ATTACK FILE",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "ocean",
+   "scene_p": {
+    "time": "night"
+   },
+   "pad": 0.1,
+   "m": "escalate",
+   "gag": false,
+   "_f": [
+    "SH-F13"
+   ],
+   "say": "If it bites, the File says, hit the eyes and gills. Don't act passive. Fucking hell.",
+   "card": {
+    "rows": [
+     [
+      "EYES AND GILLS",
+      "#ff4b3e",
+      104
+     ],
+     [
+      "IF IT BITES, HIT BACK",
+      "#ffffff",
+      52,
+      true
+     ],
+     [
+      "SHARK ATTACK FILE",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "reef",
+   "pad": 0.1,
+   "m": "fact",
+   "gag": {
+    "prop": "ruler",
+    "at": "75%",
+    "y": 160
+   },
+   "_f": [
+    "SH-F9"
+   ],
+   "say": "Almost any shark about six feet or longer can be a threat, the File says. Meatball brought a fucking ruler.",
+   "card": {
+    "rows": [
+     [
+      "ABOUT 6 FEET OR LONGER",
+      "#ffd34d",
+      76
+     ],
+     [
+      "ALMOST ANY SHARK THAT SIZE CAN BE A THREAT",
+      "#ffffff",
+      38,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "ocean",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "pad": 0.1,
+   "m": "calm",
+   "gag": {
+    "zap": true,
+    "at": "60%"
+   },
+   "_f": [
+    "SH-F19"
+   ],
+   "say": "Still, the Florida Museum says the chances of a shark bite remain extremely low. Drowning and lightning are far more common. Holy shit.",
+   "card": {
+    "rows": [
+     [
+      "EXTREMELY LOW",
+      "#7bd88f",
+      104
+     ],
+     [
+      "DROWNING AND LIGHTNING ARE FAR MORE COMMON",
+      "#ffffff",
+      40,
+      true
+     ],
+     [
+      "FLORIDA MUSEUM, 2026",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "reef",
+   "m": "punch",
+   "gag": {
+    "mark": "alarm"
+   },
+   "_f": [],
+   "say": "Meatball made it to fucking shore. Nothing's guaranteed. So what's the closest you've ever been to a shark? And",
+   "card": {
+    "rows": [
+     [
+      "CLOSEST YOU'VE BEEN TO A SHARK? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ]
+}

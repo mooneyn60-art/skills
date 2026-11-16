@@ -118,8 +118,8 @@
   },
   {
    "slug": "bison-wms",
-   "status": "todo",
-   "slot": "TikTok Sun 11/15 21:30",
+   "status": "built",
+   "slot": "TikTok Mon 11/16 19:00 (open: the shark short there was pulled 11/15)",
    "family": "Would Meatball Survive? (big dangerous animal)",
    "topic": "What to do if a bison charges you: Yellowstone's 25-yard rule",
    "searched_phrase": "what to do if a bison charges you",
@@ -131,12 +131,15 @@
    "template": "tt-grizzly-wms.json",
    "do_not_say": "Do not convert 3x faster into mph. Credit the Park Service. The question at the end asks how far away, never how close.",
    "gag_idea": "Meatball walks up for a selfie with a tiny selfie stick; the tail goes up; he waves back.",
-   "note": "The 20 s cut in the Sun 11/15 21:30 slot was set to draft 11/14 morning (held.csv); the minute cut takes that slot if built in the night of 11/14."
+   "note": "The 20 s cut in the Sun 11/15 21:30 slot was set to draft 11/14 morning (held.csv); the minute cut takes that slot if built in the night of 11/14.",
+   "seconds": 88.83,
+   "sheet": "episodes/drawn-house/sheets/bison-wms-min-tt.jpg",
+   "problems": "voice check WARN line 16 (79% heard), passed; checked research/facts/bison-wms-min-check.md; built night of 11/16"
   },
   {
    "slug": "shark-wms",
-   "status": "todo",
-   "slot": "TikTok Mon 11/16 19:00",
+   "status": "built",
+   "slot": "TikTok Tue 11/17 19:00 (Tue 21:30 is taken by hummingbird; the dog-tail-wag short cut in 19:00 is under a minute with no minute cut: pull it)",
    "family": "Would Meatball Survive? (big dangerous animal)",
    "topic": "What to do if a shark comes close",
    "searched_phrase": "what to do if a shark comes close",
@@ -147,12 +150,15 @@
    "short_spec": "/home/user/skills/skills/oh-meatball/scripts/drawn-house/tts-shark-wms.json",
    "template": "tt-grizzly-wms.json",
    "do_not_say": "Shark counts say 'confirmed' and the year. Shark advice never shares a line with bear advice.",
-   "gag_idea": "(keep the short cut's gag)"
+   "gag_idea": "(keep the short cut's gag)",
+   "seconds": 86.87,
+   "sheet": "episodes/drawn-house/sheets/shark-wms-min-tt.jpg",
+   "problems": "none; checked research/facts/shark-wms-min-check.md; built night of 11/16"
   },
   {
    "slug": "dog-tail-wag",
    "status": "todo",
-   "slot": "TikTok Tue 11/17 19:00",
+   "slot": "next open TikTok slot after it is built (its Tue 11/17 19:00 slot goes to the shark minute cut)",
    "family": "pets in your house (dog)",
    "topic": "What a dog's tail wag means: left or right",
    "searched_phrase": "what does a dog's tail wag mean",
