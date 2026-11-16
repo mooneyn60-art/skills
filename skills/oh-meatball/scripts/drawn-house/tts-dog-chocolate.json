@@ -1,0 +1,249 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "detective",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "cut_whoosh": true,
+ "loop": true,
+ "photo_credits": [],
+ "series": "Things Living In Your House",
+ "sources": [
+  "U.S. FDA, Animal Health Literacy, chocolate and dogs (content current as of 04/29/2024), opened 2026-11-16 for the fact pack: \"Theobromine can cause mild signs in dogs with doses as low as 9 mg per pound of body weight, and severe signs starting around 18 mg per pound of body weight.\"; table \"Approximate amount of theobromine in 1 ounce (mg)\": milk chocolate 57, dark chocolate with 70-85% cacao 227; \"If your pet is sick or has a veterinary emergency, call your veterinarian.\"; https://www.fda.gov/animal-veterinary/animal-health-literacy/leave-chocolate-out-rovers-celebrations",
+  "ASPCA Animal Poison Control, People Foods to Avoid Feeding Your Pets, opened 2026-11-16 by the second-model check: \"if you suspect your pet has eaten any of the following foods, please note the amount ingested and contact your veterinarian or poison control\" (carries the trigger 'dog ate some' of the call-your-vet line); https://www.aspca.org/pet-care/animal-poison-control/people-foods-avoid-feeding-your-pets"
+ ],
+ "stage": {
+  "creature": "dog",
+  "scene": "kitchen",
+  "scene_p": {},
+  "s": 0.62,
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "dog",
+   "color": "#c8743c",
+   "dark": "#8f4f24",
+   "belly": "#f1dcc0",
+   "tail_color": "#c8743c",
+   "length": 600,
+   "height": 290,
+   "leg_len": 200,
+   "leg_w": 36,
+   "ears": "floppy",
+   "tail": "thin",
+   "tail_w": 20,
+   "whiskers": false,
+   "mood": "happy"
+  }
+ },
+ "cap_key": [
+  "dogs",
+  "dog",
+  "chocolate",
+  "dark",
+  "milk",
+  "four",
+  "theobromine",
+  "fda",
+  "nine",
+  "milligrams",
+  "pound",
+  "cake",
+  "shelf",
+  "ladder",
+  "noodle",
+  "vet",
+  "counter"
+ ],
+ "title": "If Dogs Eat Chocolate: 9 mg/lb Theobromine Can Cause Mild Signs 🍫 (Things Living In Your House #72)",
+ "description": "Can dogs eat chocolate? No: the FDA says chocolate is toxic to dogs. The FDA says theobromine can cause mild signs in dogs with doses as low as 9 mg per pound of body weight, and severe signs starting around 18 mg per pound. It is per pound of the dog, so a small dog needs less chocolate to get there. In the FDA's table, dark chocolate with 70-85% cacao has about 227 mg of theobromine per ounce and milk chocolate about 57 mg, so about 4 times as much. If your dog ate chocolate or seems sick, call your veterinarian; if your vet is unavailable, the FDA says to call an emergency animal hospital or an animal poison control center. General information, not advice for your dog.\n\n#dogs #chocolate #meatballmyths #shorts\n\nSources: U.S. FDA, Animal Health Literacy page on chocolate and dogs (fda.gov); ASPCA Animal Poison Control, people foods to avoid feeding your pets (aspca.org).",
+ "pinned_comment": "What's the worst thing your dog ever stole off the counter?",
+ "_note": "11/16: TikTok search-led cut of the dog-chocolate Short (#72), the same facts as the YouTube cut. Written only from research/facts/dog-chocolate.md; Second-model check 11/16 (research/facts/dog-chocolate-check.md): theobromine added to line 3, its card, the title and the caption (9 mg is theobromine, not chocolate). | Facts: DOGC3 line 1 (FDA table, per ounce; 70-85% cacao and 'per ounce' on the card), DOGC1 line 3 (per pound of dog; card adds the pack's condition: a small dog needs less chocolate to get there), DOGC11 line 4 (said clean with its trigger 'ate some, or seems sick', the reaction after). Line 2 is the Meatball gag, no fact. | One strong word a line as a reaction; the FDA attribution and the vet instruction are said clean, the swear comes after in a joke on Meatball. In the last line the strong word sits in the comment question, not aimed at the viewer. Only 'fucking' is used; cap_swap carries every spelling of the house map. | Jokes on Meatball only (ladder, fingers, the vet knows his voice); Noodle only stares up, no feeling or motive; Noodle's food gag left out (it would show a dog getting chocolate); the top shelf is a gag, not storage advice. | Left out and why: DOGC2, DOGC5 (Lab and Chihuahua), DOGC10 (clinic record) did not fit in 20 to 26 s; no safe amount, no lethal dose, no white chocolate, no home treatment, no Merck numbers. | Length: 80 spoken words; template TikTok renders ran 75 words = 23.6 s and 83 words = 25.8 s, so about 24 to 25.5 s. Not rendered by the writer (edge-tts WebSocket blocked by this machine's proxy). If over 26 s, drop 'chocolate' from line 2 first. | search_top = the searched phrase until 2.5 s at y 150. Caption: share line and a yes or no quick pick (11/12 engagement rules). TikTok suggested searches not read (no ttpage run in this step), so the hashtags are topic words, not measured ones. | The title, description, tags and pinned_comment here are the YouTube copies; they are checked on the YouTube spec.",
+ "beats": [
+  {
+   "open": "animal",
+   "m": "hook",
+   "gag": {
+    "mark": "shock"
+   },
+   "_f": [
+    "DOGC3"
+   ],
+   "say": "Can dogs eat chocolate? No. Dark chocolate can have about four times the fucking theobromine of milk.",
+   "card": {
+    "rows": [
+     [
+      "DARK: ABOUT 4X",
+      "#ffd34d",
+      100
+     ],
+     [
+      "THE THEOBROMINE OF MILK CHOCOLATE, PER OUNCE",
+      "#ffffff",
+      44,
+      true
+     ],
+     [
+      "FDA TABLE: DARK = 70-85% CACAO",
+      "#ffffff",
+      44,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "scene": "study",
+   "pad": 0.2,
+   "m": "fact",
+   "gag": {
+    "prop": "cake",
+    "at": "8%"
+   },
+   "card": {
+    "rows": [
+     [
+      "TOP SHELF",
+      "#ffd34d",
+      110
+     ],
+     [
+      "MEATBALL ASKS FOR A LADDER",
+      "#ffffff",
+      50,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "say": "Meatball's chocolate cake: top shelf. His dog, Noodle, stares up. Meatball asks for a fucking ladder."
+  },
+  {
+   "scene": "bedroom",
+   "pad": 0.2,
+   "m": "fact",
+   "_f": [
+    "DOGC1"
+   ],
+   "gag": {
+    "prop": "magnifier",
+    "at": "30%"
+   },
+   "say": "The FDA says mild signs can start at nine milligrams of theobromine per pound of dog. Meatball counts on his fucking fingers.",
+   "card": {
+    "rows": [
+     [
+      "9 MG PER POUND OF DOG",
+      "#ff4b3e",
+      88
+     ],
+     [
+      "OF THEOBROMINE: MILD SIGNS CAN START (FDA)",
+      "#ffffff",
+      46,
+      true
+     ],
+     [
+      "SMALL DOG: LESS CHOCOLATE GETS THERE",
+      "#ffffff",
+      44,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   }
+  },
+  {
+   "scene": "garden",
+   "pad": 0.2,
+   "m": "calm",
+   "_f": [
+    "DOGC11"
+   ],
+   "gag": false,
+   "say": "Dog ate some, or seems sick? Call your vet. Meatball's vet knows his fucking voice.",
+   "card": {
+    "rows": [
+     [
+      "CALL YOUR VET",
+      "#7bd88f",
+      110
+     ],
+     [
+      "FDA: IF YOUR PET IS SICK",
+      "#ffffff",
+      48,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "kitchen",
+   "m": "punch",
+   "gag": {
+    "mark": "alarm"
+   },
+   "say": "What's the worst fucking thing your dog stole off the counter? And",
+   "card": {
+    "rows": [
+     [
+      "WORST THING YOUR DOG STOLE OFF THE COUNTER? COMMENT",
+      "#ffffff",
+      38,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "search_top": {
+  "rows": [
+   [
+    "CAN DOGS",
+    "#ffffff",
+    86
+   ],
+   [
+    "EAT CHOCOLATE?",
+    "#ffd34d",
+    86
+   ]
+  ],
+  "y": 150,
+  "until": 2.5
+ },
+ "tiktok_title": "Can Dogs Eat Chocolate? What the FDA Says",
+ "tiktok_caption": "can dogs eat chocolate? 🍫 No: the FDA says chocolate is toxic to dogs. In its table, dark chocolate with 70-85% cacao has about 4 times the theobromine of milk chocolate per ounce, and mild signs can start at 9 mg of theobromine per pound of the dog, so a small dog needs less chocolate. If your dog ate chocolate or seems sick, call your vet. Meatball's chocolate cake goes on the top shelf. His dog, Noodle, stares up. Meatball asks for a ladder. Send this to whoever feeds the dog under the table. Has your dog ever stolen food off the counter: yes or no? #dogs #dogsoftiktok #dogowners #chocolate #petsafety",
+ "cap_swap": {
+  "shit": "sh*t",
+  "shits": "sh*ts",
+  "shitty": "sh*tty",
+  "bullshit": "bullsh*t",
+  "fuck": "f**k",
+  "fucking": "f**king",
+  "fucker": "f**ker",
+  "fuckers": "f**kers"
+ },
+ "tags": [
+  "can dogs eat chocolate",
+  "can dogs eat dark chocolate",
+  "can dogs eat chocolate cake",
+  "is chocolate toxic to dogs",
+  "chocolate toxic to dogs",
+  "chocolate poisonous to dogs",
+  "dog ate chocolate",
+  "things living in your house",
+  "Meatball Myths"
+ ]
+}

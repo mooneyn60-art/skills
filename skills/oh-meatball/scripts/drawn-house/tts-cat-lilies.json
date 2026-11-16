@@ -1,0 +1,366 @@
+{
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "detective",
+ "music_db": -13,
+ "captions": 66,
+ "caption_y": 1180,
+ "cut_whoosh": true,
+ "loop": true,
+ "photo_credits": [],
+ "series": "Things Living In Your House",
+ "sources": [
+  "FDA, \"Lovely Lilies and Curious Cats: A Dangerous Combination\" (content current as of 09/16/2021): \"The entire lily plant is toxic: the stem, leaves, flowers, pollen, and even the water in a vase.\"; \"Eating just a small amount of a leaf or flower petal, licking a few pollen grains off its fur while grooming, or drinking the water from the vase can cause your cat to develop fatal kidney failure in less than 3 days.\"; \"if treatment is delayed by 18 hours or more after ingestion, the cat will generally have irreversible kidney failure.\"; \"immediately call your veterinarian or a pet poison control center\"; applies to lilies in the 'true lily' and 'daylily' families; \"Dogs that eat lilies may have minor stomach upset but they don't develop kidney failure.\"; https://www.fda.gov/animal-veterinary/animal-health-literacy/lovely-lilies-and-curious-cats-dangerous-combination",
+  "ASPCA Animal Poison Control, Lily (Lilium species): \"Toxicity: Toxic to Cats. Non-Toxicity: Non-Toxic to Dogs, Non-Toxic to Horses.\"; https://www.aspca.org/pet-care/animal-poison-control/toxic-and-non-toxic-plants/lily",
+  "ASPCA Animal Poison Control, Plants Toxic to Cats list: \"Day Lilies (many varieties) ... Hemerocallis spp.\"; https://www.aspca.org/pet-care/animal-poison-control/cats-plant-list"
+ ],
+ "stage": {
+  "creature": "cat",
+  "scene": "kitchen",
+  "scene_p": {},
+  "s": 0.62,
+  "creature_cfg": {
+   "plan": "mammal",
+   "label": "cat",
+   "color": "#5b5d66",
+   "dark": "#3a3c44",
+   "belly": "#f3f1ea",
+   "tail_color": "#5b5d66",
+   "length": 520,
+   "height": 250,
+   "leg_len": 150,
+   "leg_w": 30,
+   "ears": "pointed",
+   "tail": "thin",
+   "tail_w": 22,
+   "whiskers": true,
+   "mood": "smug"
+  }
+ },
+ "cap_key": [
+  "you",
+  "your",
+  "cat",
+  "cats",
+  "lilies",
+  "lily",
+  "daylilies",
+  "vase",
+  "water",
+  "pollen",
+  "kidney",
+  "failure",
+  "three",
+  "days",
+  "18",
+  "hours",
+  "permanent",
+  "vet",
+  "sauce",
+  "twice"
+ ],
+ "title": "True Lilies Are Poisonous to Cats, Even the Vase Water 💐 (Things Living In Your House #71)",
+ "description": "Are lilies poisonous to cats? True lilies and daylilies are: the FDA says the entire lily plant is toxic to cats, the stem, leaves, flowers, pollen and even the water in a vase. Eating a small amount of a leaf or petal, licking a few pollen grains off its fur, or drinking the vase water can cause a cat to develop fatal kidney failure in less than 3 days. If treatment is delayed by 18 hours or more, the kidney failure is generally irreversible, so if you think your cat ate any part of a lily, licked its pollen or drank the vase water, call your veterinarian or a pet poison control center right away. The kinds the FDA names include Easter, Stargazer, Tiger and Asiatic lilies, plus daylilies. Plants like peace lilies and calla lilies are not true lilies and are a different, milder problem. The ASPCA lists true lilies as non-toxic to dogs.\n\n#cats #catfacts #meatballmyths #shorts\n\nSources: FDA, Lovely Lilies and Curious Cats: A Dangerous Combination (content current as of 09/16/2021); ASPCA Animal Poison Control, Lily page and Plants Toxic to Cats list.",
+ "pinned_comment": "What's the worst thing your cat ever chewed, and how did you find out?",
+ "_note": "Draft 11/16 from the fact pack research/facts/cat-lilies.md (FDA and ASPCA pages read raw 11/16). Checked by a second model 11/16 (research/facts/cat-lilies-check.md): line 3 now names the lily and the cat. Searched phrase 'are lilies poisonous to cats' (YouTube suggestion rank 1 for seed 'are lilies toxic to', and rank 1 echo for itself; web rank 1 for 'are lilies poisonous to cats'; postkit kw 11/16, /dev/shm/cat-lilies/kw.csv and kw2.csv; the YouTube results search was refused with HTTP 403, so top results were not read) is the first spoken sentence. Condition kept in the hook: 'true lilies and daylilies' (FDA). Every 'can' and 'generally' is the FDA's own hedge. Line 2 is the Meatball gag from the brief (Meatball carries lilies in, sees his cat, Sauce, carries them back out; card 'Meatball read the label'); it adds no fact and does not say it saved Sauce. DRAWING LIMIT: there is no lily or bouquet actor registered in tools/drawn.py. The vase of true lilies exists as drawn_cl_art.cl_lily (the house-cat long-form) but drawn.py does not import drawn_cl_art, so it cannot be used here without a tools change. The gag uses tc_prop kind 'plant' (a leafy potted plant) moved with Meatball through the macro 'with' key, with the card 'LILIES?' naming it. If the main session registers cl_lily in drawn.py, swap the 'with' type to cl_lily (p {}) and drop 'kind'. Hand placement of the plant (y 1300, s 0.5, x Meatball+130) is a guess: look at the contact sheet. Safety line said clean: 'Call the vet now' (FDA: immediately call your veterinarian or a pet poison control center); its card carries the trigger ('ANY BITE, LICK OR SIP?' = ate any part, licked pollen, drank vase water). The 18-hour fact is said as 'Untreated 18 hours? Generally permanent damage.' with the FDA's 'generally'; the card says '18+ HOURS' for 'or more'. The clock gag on that line shows time passing only. Line 3 is the FDA sentence cut down: 'licking a few pollen grains off its fur ... or drinking the water from the vase can cause your cat to develop fatal kidney failure in less than 3 days' (the 'a few' and 'small amount' are on the description, not spoken, for length). The hook card keeps 'EVEN VASE WATER' (FDA: the entire plant and the vase water are toxic). Left out and why: any death rate (no source gives one for all exposed cats); the outcome studies (Slater 2011: 87% of 57 reported cats no or brief signs; Bennett 2013: 25 of 25 treated cats survived to discharge), abstract-only and long, so the spoken lines keep 'can' and 'generally' instead; the toxin (unknown); Fitzgerald's '2 leaves or part of a single flower' (abstract only, a backup number); peace lily, calla and lily-of-the-valley (description only, as 'a different, milder problem', never 'safe'); dogs (ASPCA Non-Toxic to Dogs) are in the description only, to keep the cut under 20 s and the same facts on both cuts; no dose, home remedy or 'poison control is free'. Hashtags #cats #catfacts are the pet family's pair; the topic's YouTube hashtag feeds could not be read here (no watch or search pages), so they are not measured. TikTok search-led cut (20 to 26 s): the same facts as the YouTube cut, about one swear a line as a reaction or inside a Meatball joke; the attribution-free fact lines keep the FDA hedges, and the safety instruction 'Call the vet right away' is said clean with the joke after it. One extra gag beat with no fact (Meatball wanted a hug, Sauce walked off: the running gag, an action on screen, no feeling or motive said for the cat; the want is Meatball's). That beat has 'acting': false: with the automatic acting on, Sauce walked back into frame after the walk-off (stills 11/16). 68 spoken words, six strong words; drawn.py plan with stills 11/16: 24.86 s. If a render runs over 26 s, cut 'Fuck.' after the safety line first. search_top shows the searched phrase for the first 2.5 s at y 150. Caption hashtags (#catsoftiktok #cattok #cats #catfacts #lilies) follow the pet family's earlier captions; TikTok's suggested searches for this topic were not read here (no ttpage run), so they are not measured.",
+ "beats": [
+  {
+   "open": "animal",
+   "m": "hook",
+   "gag": {
+    "mark": "shock"
+   },
+   "_f": [
+    "CATL1",
+    "CATL7"
+   ],
+   "say": "Are lilies poisonous to cats? True lilies and daylilies fucking are.",
+   "card": {
+    "rows": [
+     [
+      "TOXIC TO CATS",
+      "#ff4b3e",
+      104
+     ],
+     [
+      "TRUE LILIES + DAYLILIES. EVEN VASE WATER",
+      "#ffffff",
+      44,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   }
+  },
+  {
+   "scene": "tp_living",
+   "pad": 0.2,
+   "m": "fact",
+   "mood": "smug",
+   "gag": false,
+   "mb": {
+    "pos": [
+     -260,
+     1500
+    ],
+    "look": "hero",
+    "shake": 0.0,
+    "moves": [
+     {
+      "at": 0.0,
+      "dur": 0.7,
+      "pos": [
+       250,
+       1500
+      ],
+      "walk": true
+     },
+     {
+      "at": "walked|60%",
+      "dur": 0.7,
+      "pos": [
+       -430,
+       1500
+      ],
+      "walk": true
+     }
+    ],
+    "gest": [
+     [
+      "saw|30%",
+      "shock",
+      0.9
+     ]
+    ]
+   },
+   "with": [
+    {
+     "type": "tc_prop",
+     "x": -130,
+     "y": 1300,
+     "s": 0.5,
+     "pop": false,
+     "front": true,
+     "p": {
+      "kind": "plant",
+      "on": 1.0
+     },
+     "moves": [
+      {
+       "at": 0.0,
+       "dur": 0.7,
+       "pos": [
+        380,
+        1300
+       ]
+      },
+      {
+       "at": "walked|60%",
+       "dur": 0.7,
+       "pos": [
+        -300,
+        1300
+       ]
+      }
+     ]
+    }
+   ],
+   "pose": "nervous",
+   "say": "Meatball bought lilies, saw his cat, Sauce, and walked them the fuck out.",
+   "card": {
+    "rows": [
+     [
+      "LILIES?",
+      "#ffd34d",
+      110
+     ],
+     [
+      "MEATBALL READ THE LABEL",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "bedroom",
+   "pad": 0.2,
+   "m": "fact",
+   "gag": false,
+   "pose": "nervous",
+   "acting": false,
+   "mb": {
+    "gest": [
+     [
+      "walked|55%",
+      "shock",
+      1.0
+     ]
+    ]
+   },
+   "hero_moves": [
+    {
+     "at": "walked|55%",
+     "dur": 0.9,
+     "pos": [
+      1500,
+      1500
+     ],
+     "walk": true,
+     "face": 1
+    }
+   ],
+   "say": "Meatball wanted a hug. Sauce walked off. Fucking typical.",
+   "card": {
+    "rows": [
+     [
+      "NO HUG",
+      "#ffd34d",
+      110
+     ],
+     [
+      "SAUCE WALKED OFF",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "study",
+   "pad": 0.2,
+   "m": "tiny",
+   "gag": false,
+   "_f": [
+    "CATL1",
+    "CATL2"
+   ],
+   "say": "Lily pollen or vase water can give a cat fatal kidney failure in under three days. Holy shit.",
+   "card": {
+    "rows": [
+     [
+      "POLLEN OR VASE WATER",
+      "#ffd34d",
+      88
+     ],
+     [
+      "CAN CAUSE KIDNEY FAILURE IN UNDER 3 DAYS",
+      "#ffffff",
+      44,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   }
+  },
+  {
+   "scene": "bathroom",
+   "pad": 0.2,
+   "m": "fact",
+   "gag": {
+    "clock": 3,
+    "at": "15%"
+   },
+   "_f": [
+    "CATL4"
+   ],
+   "say": "Untreated 18 hours? Generally permanent damage. Call the vet now. Fuck.",
+   "card": {
+    "rows": [
+     [
+      "18+ HOURS UNTREATED",
+      "#ff4b3e",
+      92
+     ],
+     [
+      "DAMAGE GENERALLY PERMANENT",
+      "#ffffff",
+      48,
+      true
+     ],
+     [
+      "ANY BITE, LICK OR SIP? CALL THE VET",
+      "#ffffff",
+      44,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "kitchen",
+   "m": "punch",
+   "gag": {
+    "mark": "alarm"
+   },
+   "say": "Worst fucking thing your cat chewed? And",
+   "card": {
+    "rows": [
+     [
+      "WORST THING YOUR CAT CHEWED? COMMENT",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "x": "right",
+    "y": 400,
+    "at": 0.0
+   }
+  }
+ ],
+ "tags": [
+  "are lilies poisonous to cats",
+  "are lilies toxic to cats",
+  "lilies toxic to cats",
+  "are lilies dangerous to cats",
+  "are lilies deadly to cats",
+  "lilies and cats",
+  "cat lily poisoning",
+  "cat lily pollen",
+  "lilies cats pollen",
+  "cat facts",
+  "things living in your house",
+  "Meatball Myths"
+ ],
+ "search_top": {
+  "rows": [
+   [
+    "ARE LILIES POISONOUS",
+    "#ffffff",
+    80
+   ],
+   [
+    "TO CATS?",
+    "#ffd34d",
+    86
+   ]
+  ],
+  "y": 150,
+  "until": 2.5
+ },
+ "tiktok_title": "Are Lilies Poisonous to Cats? True Lilies Are",
+ "tiktok_caption": "are lilies poisonous to cats? 💐 True lilies and daylilies are: the FDA says the whole plant is toxic to cats, even the pollen and the vase water, and licking pollen or drinking vase water can cause fatal kidney failure in under 3 days. If your cat may have eaten any, licked the pollen or drunk the vase water, call your vet or a pet poison control center right away. Meatball bought lilies, saw his cat, Sauce, and walked them out. Send this to whoever buys the flowers. Worst thing your cat ever chewed: a plant, a cord or a sock? #lilies #catfacts #catsoftiktok #cattok #cats",
+ "cap_swap": {
+  "shit": "sh*t",
+  "shits": "sh*ts",
+  "shitty": "sh*tty",
+  "bullshit": "bullsh*t",
+  "fuck": "f**k",
+  "fuck's": "f**k's",
+  "fucking": "f**king",
+  "fucker": "f**ker",
+  "fuckers": "f**kers"
+ }
+}
