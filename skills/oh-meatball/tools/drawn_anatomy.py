@@ -288,9 +288,12 @@ def house_centipede(ctx, t, p):
             x = 150 - u * 320
             foot_x = 330 - u * 700                # feet spread far wider than the body: the fringe
             c = col if side == 1 else darker(col, 0.75)
-            sw = math.sin(t * 14 + i * 0.7 + (0 if side == 1 else 3.1)) * walk * 18
-            knee = ((x + foot_x) / 2 + sw, -200 - 40 * math.sin(math.pi * u) - (0 if side == 1 else 25))
-            foot = (foot_x + sw, 0 if side == 1 else -30)
+            # Studio 11/17: the legs ripple in EVERY frame (a metachronal wave front to back), faster when it walks
+            ph = math.sin(t * (14 + 8 * walk) + i * 0.7 + (0 if side == 1 else 3.1))
+            sw = ph * max(walk, 0.8) * 20
+            lift = max(0.0, ph) * 14
+            knee = ((x + foot_x) / 2 + sw, -200 - 40 * math.sin(math.pi * u) - (0 if side == 1 else 25) - lift)
+            foot = (foot_x + sw, (0 if side == 1 else -30) - lift)
             limb(ctx, [(x, -95), knee, foot], 6, c, smooth=False)
             stroke(ctx, [knee, ((knee[0] + foot[0]) / 2, (knee[1] + foot[1]) / 2)], 6, color=stripe)
     shape(ctx, lambda c: p_smooth(c, [(170, -110), (-170, -115), (-180, -80), (170, -75)]), col, OUT, (0.0, 0.25))

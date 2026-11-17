@@ -74,6 +74,7 @@ from drawn_creatures import build, creature  # noqa: E402
 from drawn_species import SPECIES  # noqa: E402
 import drawn_macros  # noqa: E402
 import drawn_acting  # noqa: E402
+import drawn_cine  # noqa: E402  (Studio 11/17 "not AI slop": camera, light, shot library, acting, sound hits)
 
 import drawn_cases2  # noqa: E402  (history-case scenes and cast: "Meatball Investigates" outlines use them)
 
@@ -626,6 +627,12 @@ def blinker(seed, t):
 
 
 def draw_actor(ctx, cam, a, b, t, words):
+    if drawn_cine.CFG and drawn_cine.actor_extras(ctx, cam, a, b, t, _draw_actor_core):
+        return
+    _draw_actor_core(ctx, cam, a, b, t, words)
+
+
+def _draw_actor_core(ctx, cam, a, b, t, words):
     x, y, s, rot, land, walking = track(a.get("pos", (0, 0)), a.get("moves", []), words, t, a.get("s", 1.0),
                                         a.get("rot", 0.0))
     if a.get("attach"):   # gags ride on another actor (pos is then an offset from its feet)
@@ -739,6 +746,7 @@ def draw_meatball(ctx, cam, b, st, t):
     surf, keep = pil_to_surface(im)
     ctx.save()
     ctx.identity_matrix()
+    drawn_cine.mb_transform(ctx, b, t, fx, fy, k)   # breathing, anticipation crouch, stretch (cine only)
     ctx.translate(fx, fy)
     if land is not None and land < 0.3:
         q = 1 - land / 0.3
@@ -754,7 +762,8 @@ def draw_meatball(ctx, cam, b, st, t):
     if prop:
         _, _, hand = mascot.arm_points(j, 1, st["r"])
         hx, hy = U(hand)
-        draw_prop(ctx, prop, hx, hy, k, b["t0"] + t)
+        G["_hand"] = ctx.user_to_device(hx, hy)
+        draw_prop(ctx, prop, hx, hy, k, b["t0"] + t, beam=not (drawn_cine.CFG and b.get("_light", "off") != "off"))
     if mb.get("helmet"):
         hx, hy = U(j["head"])
         p_ellipse(ctx, hx, hy + 10 * k, 235 * k, 235 * k)
@@ -772,18 +781,20 @@ def draw_meatball(ctx, cam, b, st, t):
         ctx.fill_preserve()
         ink(ctx, OUT * k)
         ctx.stroke()
+    drawn_cine.mb_overlay(ctx, b, t, U(j["head"]), k)   # eye-pop burst, sweat drop (cine only)
     ctx.restore()
 
 
-def draw_prop(ctx, prop, hx, hy, k, t):
+def draw_prop(ctx, prop, hx, hy, k, t, beam=True):
     if prop == "flashlight":
         ctx.save()
-        ctx.move_to(hx + 30 * k, hy - 30 * k)
-        ctx.line_to(hx + 900 * k, hy - 330 * k)
-        ctx.line_to(hx + 900 * k, hy + 230 * k)
-        ctx.close_path()
-        src(ctx, PAL["light"], 0.22 + 0.03 * math.sin(t * 9))
-        ctx.fill()
+        if beam:   # the cine light pass draws the real beam into the dark room instead
+            ctx.move_to(hx + 30 * k, hy - 30 * k)
+            ctx.line_to(hx + 900 * k, hy - 330 * k)
+            ctx.line_to(hx + 900 * k, hy + 230 * k)
+            ctx.close_path()
+            src(ctx, PAL["light"], 0.22 + 0.03 * math.sin(t * 9))
+            ctx.fill()
         ctx.translate(hx, hy)
         ctx.rotate(-0.12)
         ctx.rectangle(-50 * k, -22 * k, 100 * k, 44 * k)
@@ -1021,22 +1032,9 @@ def draw_counter(arr, T):
 G = {}
 
 
-def frame_at(f):
-    fps, beats, rigs = G["fps"], G["beats"], G["rigs"]
-    T = f / fps
-    bi = max(i for i, b in enumerate(beats) if b["t0"] <= T + 1e-9)
-    b = beats[bi]
-    t = T - b["t0"]
-    rf = min(int(round(t * fps)), len(rigs[bi]) - 1)
-    cam, shot = cam_at(b, t)
-    cam = list(cam)
-    for hit in b.get("shake", []):
-        u = t - at_time(b["words"], hit)
-        if 0 <= u < 0.35:
-            cam[0] += 22 * math.sin(u * 70) * (1 - u / 0.35)
-            cam[1] += 14 * math.cos(u * 61) * (1 - u / 0.35)
-    surf = cairo.ImageSurface(cairo.FORMAT_ARGB32, W, H)
-    ctx = cairo.Context(surf)
+def draw_world(ctx, cam, b, t, T, bi, rf, ins=None):
+    """The scene, the actors behind Meatball, Meatball, the actors in front, then the cine light."""
+    rigs = G["rigs"]
     SCENES[b["scene"]](ctx, T, lambda d: set_layer(ctx, cam, d), b["scene_p"])
     behind = [a for a in b["actors"].values() if not a.get("front")]
     front = [a for a in b["actors"].values() if a.get("front")]
@@ -1050,6 +1048,36 @@ def frame_at(f):
         ctx.save()
         draw_actor(ctx, cam, a, b, t, b["words"])
         ctx.restore()
+    if drawn_cine.CFG and not (ins is not None and ins["type"] == "seccam"):
+        h = G.get("_hand")
+        drawn_cine.light(ctx, b, t, T, cam, h if h and 0 <= h[0] <= W and 0 <= h[1] <= H else None)
+
+
+def frame_at(f):
+    fps, beats, rigs = G["fps"], G["beats"], G["rigs"]
+    T = f / fps
+    bi = max(i for i, b in enumerate(beats) if b["t0"] <= T + 1e-9)
+    b = beats[bi]
+    t = T - b["t0"]
+    rf = min(int(round(t * fps)), len(rigs[bi]) - 1)
+    cam, shot = cam_at(b, t)
+    cam = list(cam)
+    ins, whip = None, 0.0
+    if drawn_cine.CFG:
+        ins = drawn_cine.insert_at(b, t)
+        cam, whip = drawn_cine.camera(b, t, T, cam, ins)
+    G["_hand"] = None
+    for hit in b.get("shake", []):
+        u = t - at_time(b["words"], hit)
+        if 0 <= u < 0.35:
+            cam[0] += 22 * math.sin(u * 70) * (1 - u / 0.35)
+            cam[1] += 14 * math.cos(u * 61) * (1 - u / 0.35)
+    surf = cairo.ImageSurface(cairo.FORMAT_ARGB32, W, H)
+    ctx = cairo.Context(surf)
+    if ins is not None and ins["type"] == "sizecheck":
+        drawn_cine.draw_sizecheck(ctx, b, t, T)
+    else:
+        draw_world(ctx, cam, b, t, T, bi, rf, ins)
     ctx.identity_matrix()
     for fl in b.get("flash", []):
         u = t - at_time(b["words"], fl)
@@ -1064,6 +1092,8 @@ def frame_at(f):
         ctx.fill()
     surf.flush()
     base = np.ndarray((H, W, 4), np.uint8, surf.get_data())   # a view: overlays draw straight into the surface
+    if drawn_cine.CFG:
+        drawn_cine.post(base, ctx, surf, b, t, T, ins, whip)
     card = b.get("card")
     if card and t >= at_time(b["words"], card.get("at", 0.0)):
         im = card_img(card["rows"])
@@ -1105,12 +1135,17 @@ def frame_at(f):
 SFX_MAX, SFX_GAP, SFX_DUCK_DB = 2, 0.5, -6.0   # Nolan 10/28 "get rid of the loud beeps and make it softer"
 
 
-def sfx_cues(beats, ticks=(), tick_sfx=None, cuts=()):
+def sfx_cues(beats, ticks=(), tick_sfx=None, cuts=(), extra=()):
     """[(t, name)] of the cues to play: at most SFX_MAX a line and SFX_GAP s between any two. A line's cues are
     kept in its list order (gag cues first, then the macro's), footsteps last; the rest are dropped."""
     kept = [(t, tick_sfx) for t, _ in ticks[1:]] if tick_sfx else []   # each counter tick gets its cue first
+    cmax, gap = (4, 0.3) if extra else (SFX_MAX, SFX_GAP)   # cine: a hit on every cut, so more room
+    prio = {"sting": 0, "hit": 1, "whoosh": 2, "thud": 3}
+    for t, name in sorted(extra, key=lambda c: (prio.get(c[1], 4), c[0])):   # cine cues: scares, cuts, punch-ins, skitters
+        if all(abs(t - t2) >= gap for t2, _ in kept):
+            kept.append((t, name))
     for t in cuts:   # spec "cut_whoosh": a soft whoosh on every line's scene change (unless a tick cue is there)
-        if all(abs(t - t2) >= SFX_GAP for t2, _ in kept):
+        if all(abs(t - t2) >= gap for t2, _ in kept):
             kept.append((t, "whoosh"))
     for b in beats:
         cand = []
@@ -1121,7 +1156,7 @@ def sfx_cues(beats, ticks=(), tick_sfx=None, cuts=()):
             cand.append((name == "step", k, t, name))
         n = 0
         for _, _, t, name in sorted(cand):
-            if n < SFX_MAX and all(abs(t - t2) >= SFX_GAP for t2, _ in kept):
+            if n < cmax and all(abs(t - t2) >= gap for t2, _ in kept):
                 kept.append((t, name))
                 n += 1
     return sorted(kept)
@@ -1140,8 +1175,8 @@ def mix_audio(spec, beats, total, path):
             talk[int((b["t0"] + s0) * SR):int((b["t0"] + e0) * SR)] = 1.0
     ticks = counter_ticks(spec, beats)
     tick_sfx = (spec.get("counter") or {}).get("sfx", "whoosh") if ticks else None
-    cuts = [max(0.0, b["t0"] - 0.08) for b in beats[1:]] if spec.get("cut_whoosh") else []
-    for t, name in sfx_cues(beats, ticks, tick_sfx, cuts):
+    cuts = [max(0.0, b["t0"] - 0.08) for b in beats[1:]] if spec.get("cut_whoosh") and not drawn_cine.CFG else []
+    for t, name in sfx_cues(beats, ticks, tick_sfx, cuts, spec.get("_cine_cues", ())):
         kit = os.path.join(ROOT, "sfx", spec.get("sfx_kit", "v2"), name + ".wav")   # v2 nature kit (10/28)
         with wave.open(kit if os.path.exists(kit) else os.path.join(ROOT, "sfx", name + ".wav")) as w:
             raw = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768
@@ -1170,6 +1205,7 @@ def mix_audio(spec, beats, total, path):
     g = 10 ** (spec.get("music_db", -21) / 20)
     mus = np.zeros(n, np.float32)
     mus[:len(bed)] = bed[:n] * g / (np.sqrt(np.mean(bed ** 2)) + 1e-9) * 0.1
+    mus *= drawn_cine.music_env(spec, n, SR)   # cine: the bed drops out right before each scare
     mix = voice + sfx + mus
     mix = mix[:int(total * SR)]
     mix /= max(1.0, np.abs(mix).max() / 0.95)
@@ -1239,11 +1275,13 @@ def main():
         if c.get("creature_cfg") and not c.get("actor"):
             ACTORS.setdefault("sp." + c["creature"], build(dict(SPECIES.get(c["creature"], {}), **c["creature_cfg"])))
     spec = drawn_macros.expand(raw)
+    drawn_cine.setup(sys.modules[__name__], spec)
     work = args.work or os.path.join(os.path.dirname(os.path.abspath(args.out)), ".work-" +
                                      os.path.splitext(os.path.basename(args.out))[0])
     os.makedirs(work, exist_ok=True)
     t_start = time.time()
     beats, total = plan(spec, work)
+    drawn_cine.plan_pass(spec, beats)
     t_plan = time.time() - t_start
     G.update(fps=args.fps, beats=beats, rigs=rig_tracks(beats, args.fps), caps=caption_chunks(beats, spec.get("cap_swap")),
              cap_px=spec.get("captions", 66), cap_y=spec.get("caption_y", 1530), counter=spec.get("counter"), search_top=spec.get("search_top"),

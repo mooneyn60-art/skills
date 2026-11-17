@@ -173,7 +173,7 @@ def _beat(stage, line, F, shots, hero, mb, sfx, extra=None, **kw):
         mb.update(line["mb"])
     if line.get("mood") and b["actors"] and b["actors"][0]["id"] == "hero":
         b["actors"][0]["p"]["mood"] = line["mood"]
-    for k in ("counter", "card", "recut"):   # drawn.py: the counter value, a text card, recut false = no punch-in on a long line
+    for k in ("counter", "card", "recut", "insert", "punch", "scare", "light", "enter", "transition"):   # drawn.py: the counter value, a text card, recut false = no punch-in on a long line; the rest are drawn_cine keys
         if k in line:
             b[k] = line[k]
     b.update(kw)
@@ -429,6 +429,9 @@ def expand(spec):
             b["pad"] = line.get("pad", 0.35)
         else:
             raise SystemExit(f"drawn_macros: unknown macro {m!r}")
+        b["_m"] = m   # drawn_cine reads the macro (hook light, scare marks)
+        if m in ("calm", "escalate") and "scare" not in b:
+            b["scare"] = "65%" if m == "calm" else "55%"
         out.append(b)
     for x in out:
         x.pop("_tiny", None)
