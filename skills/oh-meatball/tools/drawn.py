@@ -863,6 +863,15 @@ def caption_chunks(beats, swap=None):
                    and not group[-1][2].endswith((",", ".", "?", "!"))
                    and len(" ".join(g[2] for g in group + [ws[i + len(group)]])) <= 15):
                 group.append(ws[i + len(group)])
+            # Studio 11/17: never end a chunk on a glue word ("BUGS AND BABY", "MOTHS AND"): pull the next word in
+            # (up to 4 words), or end the chunk one word earlier
+            def _glue(w):
+                return "".join(ch for ch in w.lower() if ch.isalnum() or ch == "'") in CAP_GLUE
+            if (i + len(group) < len(ws) and _glue(group[-1][2]) and not group[-1][2].endswith((",", ".", "?", "!"))):
+                if len(group) < 4 and len(" ".join(g[2] for g in group + [ws[i + len(group)]])) <= 20:
+                    group.append(ws[i + len(group)])
+                elif len(group) > 1:
+                    group.pop()
             s = b["t0"] + group[0][0]
             e = b["t0"] + (ws[i + len(group)][0] if i + len(group) < len(ws) else group[-1][1] + 0.15)
             txt = " ".join(g[2] for g in group).upper().rstrip(",.")
@@ -874,6 +883,8 @@ def caption_chunks(beats, swap=None):
 
 
 _CAP = {}
+CAP_GLUE = {"and", "or", "the", "a", "an", "of", "to", "in", "on", "at", "your", "my", "his", "her", "its",
+            "their", "with", "for", "from", "than", "like", "baby", "bed", "carpet", "is", "it's", "if"}
 
 
 def caption_img(text, px, keys=()):
