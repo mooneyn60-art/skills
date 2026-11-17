@@ -1,0 +1,549 @@
+{
+ "series": "Things Living In Your House",
+ "sources": [
+  "P4-F1 speed. Acosta, C. A. (2003), 'The House Centipede (Scutigera coleoptrata; Chilopoda): Controversy and Contradiction', J. Ky. Acad. Sci. 64(1):1-5, Dept. of Biological Sciences, Northern Kentucky University (scanned PDF on NKU's site; OCR slips fixed in the quote): \"They have been clocked at 420 mm./sec with a 33 mm stride, which was impressive enough to be listed as among the fastest arthropods in the 1973 Guinness Book of World Records.\" (420 mm/s = about 16.5 inches a second); https://websites.nku.edu/~acostac/AcostaJKAS2000.PDF ; Mississippi State University Extension, Bug's Eye View, House Centipede (No. 29, 2015): \"They are also able to run much faster than most other ground-dwelling arthropods, reaching speeds approaching one MPH.\"; https://www.accessibility.extension.msstate.edu/newsletters/bugs-eye-view/2015/house-centipede-no-29",
+  "P4-F2 run, stop, freeze; up walls. University of Arkansas Arthropod Museum, House centipede: \"The house centipede is often seen darting across floors at high speed, occasionally stopping suddenly and remaining motionless for some time before racing off once more.\"; https://arthropod.uark.edu/house-centipede/ ; University of Kentucky Entomology, fact sheet ef645, Centipedes and Millipedes in and Around the Home (Gordon, Larson, DeVries): \"To aid in hunting, house centipedes can run very quickly across floors and up walls.\"; https://entomology.mgcafe.uky.edu/ef645",
+  "P4-F3 pounce and lasso. University of Arkansas Arthropod Museum, House centipede: \"They capture prey by half pouncing and half lassoing them.\"; https://arthropod.uark.edu/house-centipede/ ; Acosta 2003 (above): \"The long legs of S. coleoptrata function primarily for chasing and catching mobile prey.\"",
+  "P4-F4 eyes. University of Arkansas Arthropod Museum, House centipede: \"Unlike most other centipedes, house centipedes and their close relatives have well-developed, faceted eyes.\"; https://arthropod.uark.edu/house-centipede/ ; Acosta 2003 (above): \"House centipedes have large heads, prominent compound eyes, long annulated antennae, and very long legs.\" and \"Behind the antennae is a pair of modified compound eyes, in contrast to other chilopods which have simple ocelli.\"",
+  "P4-F5 grooming. Acosta 2003 (above), citing Le Moli and Parmigiani 1976 and Verhoeff 1938: \"House centipedes meticulously groom themselves on a strict schedule (Le Moli and Parmigiani 1976). The antennae and legs are gripped by the forcipules and passed through the cleaning setae on the first maxillae (Verhoeff 1938b).\"; \"If an individual is interrupted for any reason during grooming, cleaning commences where the individual left off prior to being disturbed.\"; \"Grooming behavior appears to be genetically hard-wired because house centipedes will still attempt to clean legs that have been amputated.\"; https://websites.nku.edu/~acostac/AcostaJKAS2000.PDF",
+  "P4-F6 breathing holes on the back. Acosta 2003 (above): \"The seven tergites each bear a median dorsal spiracle for gas exchange, unlike the lateral paired spiracles of other myriapods.\" (tergites = the back plates; dorsal = on the back; median = down the middle); https://websites.nku.edu/~acostac/AcostaJKAS2000.PDF",
+  "P4-F7 eggs. Acosta 2003 (above), citing Lewis 1981: \"Females [lay] relatively few eggs (average four eggs per day; Lewis 1981), singly in soil. Laying and hatching occurs from late spring through early summer.\" (the verb is lost in the scan); University of Arkansas Arthropod Museum: \"Eggs are laid in spring and early summer.\"; https://arthropod.uark.edu/house-centipede/",
+  "P4-F8 newly molted males. Acosta 2003 (above): \"Newly molted male house centipedes are especially susceptible to predation by females.\"; https://websites.nku.edu/~acostac/AcostaJKAS2000.PDF"
+ ],
+ "photo_credits": [],
+ "voice": "en-US-AndrewMultilingualNeural",
+ "rate": "+15%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -20,
+ "captions": 66,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "house_centipede",
+  "scene": "bathroom",
+  "scene_p": {
+   "time": "night"
+  },
+  "s": 0.8,
+  "actor": "house_centipede"
+ },
+ "cut_whoosh": true,
+ "cap_key": [
+  "guinness",
+  "sixteen",
+  "mile",
+  "freeze",
+  "lasso",
+  "lassoing",
+  "walls",
+  "eyes",
+  "schedule",
+  "floss",
+  "legs",
+  "back",
+  "soil",
+  "molted",
+  "eaten",
+  "single",
+  "digits",
+  "hundreds",
+  "squished",
+  "5",
+  "follow"
+ ],
+ "loop": false,
+ "title": "House Centipede Part 4 🐛",
+ "tiktok_title": "House Centipede Part 4: Guinness Speed, Leg Floss and Back Holes",
+ "tiktok_caption": "house centipede part 4 🐛 the 1973 Guinness Book of World Records listed it among the fastest arthropods. It has been clocked at about 16 inches a second, close to one mile an hour. It can stop dead and freeze, catches its food by half pouncing, half lassoing, and has big faceted eyes, which most centipedes do not. On a strict schedule it pulls each leg through its mouthparts, and it even tries to clean legs it no longer has. It breathes through holes down the middle of its back. Meatball tried a lasso once and caught his own foot. Missed Part 2? It is on our page: the 30-legged bug that hunts the roaches in your house. Creepiest one: 🦵 leg floss or 🕳️ back holes? #housecentipede #bugsinhouse #thingslivinginyourhouse #centipede #meatballmyths",
+ "_note": "NOT yet checked by a second model. TikTok Part 4 of the house centipede series (Social Studio note 11/17 7:00 AM, approved by Nolan): the Part 2 v2 look (stick-figure Meatball, tiled bathroom at night, 'You just saw' sequel framing), new facts only (research/facts/house-centipede-p4.md, P4-F1 to P4-F11; none was a main fact of Parts 1 to 5). A beat or Meatball joke every 3 to 4 s, no swear in the first 7 s, three mild words after (damn, hell, damn), clean title, caption and cards. Planned 64.29 s (tools/drawn.py --stills plan with the lines voiced, 11/17; work files in /dev/shm/p4-plan, stills looked at: cards clear of Meatball, Noodle in the garden line only, last line back in the bathroom). 17 lines, 212 spoken words. Not rendered.",
+ "beats": [
+  {
+   "m": "hook",
+   "open": "animal",
+   "gag": {
+    "mark": "shock"
+   },
+   "_f": [
+    "P4-F1"
+   ],
+   "say": "You just saw a bug that made the Guinness Book of World Records.",
+   "card": {
+    "rows": [
+     [
+      "GUINNESS BOOK, 1973",
+      "#ffd34d",
+      100
+     ],
+     [
+      "AMONG THE FASTEST ARTHROPODS",
+      "#ffffff",
+      46,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   }
+  },
+  {
+   "scene": "kitchen",
+   "pad": 0.15,
+   "m": "fact",
+   "mood": "smug",
+   "gag": {
+    "prop": "trophy",
+    "at": "45%"
+   },
+   "_f": [],
+   "say": "Meatball has a trophy too. He bought it online.",
+   "card": {
+    "rows": [
+     [
+      "MEATBALL'S TROPHY",
+      "#ffd34d",
+      88
+     ],
+     [
+      "HE BOUGHT IT ONLINE",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   }
+  },
+  {
+   "scene": "study",
+   "pad": 0.1,
+   "m": "chase",
+   "gag": false,
+   "_f": [
+    "P4-F1"
+   ],
+   "say": "Clocked at about sixteen inches a second. Close to one mile an hour.",
+   "card": {
+    "rows": [
+     [
+      "16 INCHES A SECOND",
+      "#ff4b3e",
+      92
+     ],
+     [
+      "CLOSE TO 1 MPH",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "kitchen",
+   "pad": 0.1,
+   "m": "fact",
+   "mood": "sleepy",
+   "gag": {
+    "clock": 3,
+    "at": "30%"
+   },
+   "_f": [],
+   "say": "Meatball's top speed is the walk to the fridge.",
+   "card": {
+    "rows": [
+     [
+      "MEATBALL'S TOP SPEED",
+      "#ffd34d",
+      84
+     ],
+     [
+      "TO THE FRIDGE",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "bathroom",
+   "pad": 0.1,
+   "m": "calm",
+   "gag": false,
+   "_f": [
+    "P4-F2"
+   ],
+   "say": "It darts, stops dead, and can freeze for a while. Meatball froze too. Longer.",
+   "card": {
+    "rows": [
+     [
+      "RUN. STOP. FREEZE.",
+      "#ffd34d",
+      96
+     ],
+     [
+      "THEN IT'S GONE",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "25%"
+   }
+  },
+  {
+   "scene": "basement",
+   "pad": 0.1,
+   "m": "escalate",
+   "gag": {
+    "mark": "alarm"
+   },
+   "_f": [
+    "P4-F3"
+   ],
+   "say": "It catches its food by half pouncing, half lassoing.",
+   "card": {
+    "rows": [
+     [
+      "HALF POUNCE",
+      "#ff4b3e",
+      110
+     ],
+     [
+      "HALF LASSO",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   }
+  },
+  {
+   "scene": "garden",
+   "pad": 0.1,
+   "m": "fact",
+   "mood": "worry",
+   "gag": {
+    "mark": "dizzy"
+   },
+   "hero": false,
+   "_f": [],
+   "say": "Meatball tried a lasso once. He caught his own damn foot.",
+   "card": {
+    "rows": [
+     [
+      "MEATBALL'S LASSO",
+      "#ffd34d",
+      92
+     ],
+     [
+      "CAUGHT HIS OWN FOOT",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "bedroom",
+   "pad": 0.1,
+   "m": "fact",
+   "prop": "flashlight",
+   "gag": false,
+   "_f": [
+    "P4-F2"
+   ],
+   "say": "It can run up your walls to hunt. Meatball checked his ceiling. Hell no.",
+   "card": {
+    "rows": [
+     [
+      "UP YOUR WALLS",
+      "#ff4b3e",
+      110
+     ],
+     [
+      "TO HUNT",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "study",
+   "pad": 0.1,
+   "m": "xray",
+   "gag": {
+    "prop": "magnifier",
+    "at": "40%"
+   },
+   "_f": [
+    "P4-F4"
+   ],
+   "say": "Unlike most centipedes, it has big faceted eyes. Meatball's eyes need coffee.",
+   "card": {
+    "rows": [
+     [
+      "BIG FACETED EYES",
+      "#ffd34d",
+      96
+     ],
+     [
+      "RARE FOR A CENTIPEDE",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   }
+  },
+  {
+   "scene": "bathroom",
+   "pad": 0.1,
+   "m": "scale",
+   "how": "grow",
+   "gag": {
+    "mark": "alarm"
+   },
+   "_f": [],
+   "say": "But the weirdest part? How it cleans itself.",
+   "card": {
+    "rows": [
+     [
+      "THE WEIRDEST PART",
+      "#ff4b3e",
+      100
+     ]
+    ],
+    "y": 470,
+    "at": "25%"
+   }
+  },
+  {
+   "scene": "bedroom",
+   "pad": 0.1,
+   "m": "fact",
+   "gag": false,
+   "_f": [
+    "P4-F5"
+   ],
+   "say": "On a strict schedule, it pulls each leg through its mouthparts. Like floss.",
+   "card": {
+    "rows": [
+     [
+      "LEG FLOSS",
+      "#ffd34d",
+      120
+     ],
+     [
+      "ON A STRICT SCHEDULE",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   }
+  },
+  {
+   "scene": "study",
+   "pad": 0.1,
+   "m": "escalate",
+   "gag": {
+    "mark": "shock"
+   },
+   "_f": [
+    "P4-F5"
+   ],
+   "say": "It even tries to clean legs it doesn't have anymore. Damn. Meatball skips the legs he has.",
+   "card": {
+    "rows": [
+     [
+      "CLEANS MISSING LEGS",
+      "#ff4b3e",
+      88
+     ],
+     [
+      "IT STILL TRIES",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "25%"
+   }
+  },
+  {
+   "scene": "kitchen",
+   "pad": 0.1,
+   "m": "xray",
+   "gag": false,
+   "_f": [
+    "P4-F6"
+   ],
+   "say": "It breathes through holes down the middle of its back. Meatball breathes through his mouth. Loudly.",
+   "card": {
+    "rows": [
+     [
+      "BREATHES THROUGH",
+      "#ffd34d",
+      96
+     ],
+     [
+      "HOLES IN ITS BACK",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   }
+  },
+  {
+   "scene": "garden",
+   "pad": 0.1,
+   "m": "fact",
+   "cast": {
+    "creature": "dog",
+    "s": 0.62,
+    "creature_cfg": {
+     "plan": "mammal",
+     "label": "dog",
+     "color": "#d9a85c",
+     "dark": "#a87a36",
+     "belly": "#f3e2bf",
+     "tail_color": "#d9a85c",
+     "length": 600,
+     "height": 290,
+     "leg_len": 200,
+     "leg_w": 36,
+     "ears": "floppy",
+     "tail": "thin",
+     "tail_w": 20,
+     "whiskers": false,
+     "mood": "happy"
+    }
+   },
+   "gag": {
+    "pile": "rock",
+    "n": 4,
+    "at": "55%"
+   },
+   "_f": [
+    "P4-F7"
+   ],
+   "say": "Moms lay eggs one at a time, in soil. His dog, Noodle, heard soil and started digging.",
+   "card": {
+    "rows": [
+     [
+      "EGGS IN SOIL",
+      "#ffd34d",
+      110
+     ],
+     [
+      "ONE AT A TIME",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "25%"
+   }
+  },
+  {
+   "scene": "basement",
+   "pad": 0.1,
+   "m": "escalate",
+   "gag": {
+    "mark": "alarm"
+   },
+   "_f": [
+    "P4-F8"
+   ],
+   "say": "A male that just molted is especially likely to get eaten by a female. Meatball cancelled his date.",
+   "card": {
+    "rows": [
+     [
+      "JUST MOLTED?",
+      "#ff4b3e",
+      104
+     ],
+     [
+      "FEMALES MAY EAT HIM",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "25%"
+   }
+  },
+  {
+   "scene": "bathroom",
+   "pad": 0.1,
+   "m": "punch",
+   "gag": {
+    "mark": "alarm"
+   },
+   "_f": [],
+   "say": "So, does the speedy roommate stay, or get squished?",
+   "card": {
+    "rows": [
+     [
+      "STAY OR SQUISH?",
+      "#ffd34d",
+      110
+     ]
+    ],
+    "y": 470,
+    "at": 0.0
+   }
+  },
+  {
+   "scene": "bathroom",
+   "pad": 0.7,
+   "m": "tease",
+   "gag": false,
+   "_f": [],
+   "say": "Part 5 drops tomorrow. Follow so you don't miss it.",
+   "card": {
+    "rows": [
+     [
+      "PART 5 DROPS TOMORROW.",
+      "#ffd34d",
+      80
+     ],
+     [
+      "FOLLOW SO YOU DON'T MISS IT.",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 380,
+    "at": 0.0
+   }
+  }
+ ]
+}
