@@ -39,6 +39,7 @@ Daily and tactical notes stay in the shared notebook under **[MEATBALL]**. The r
 
 - House centipede Part 2 broke out on TikTok. Keep the winning stick-figure style, tiled bathroom set, and "you just saw" sequel framing for this series; do not switch this series to the new cartoon kit unless Moondog88 says so. Tweak for engagement only.
 - Frame 1 is the bug, big, with the spoken line already going. Search phrase on screen and first in the caption. Payoff by about 3 s. Target 61–65 s for TikTok.
+- **Hit rule (Social Studio, 11/17):** any TikTok or Short that reaches 5x or more of our median views gets a Part 2 (a sequel in the same style and framing). Median TikTok views are 233 as of 11/17, so the TikTok hit line is 1,165+ and the Shorts hit line is 5,038+ (from `channels/research/viral-centipede-1117.md` in the shared notebook).
 - Build sequels in order (Part 4, Part 5, and so on) and link them. A "Part N drops tomorrow — follow so you don't miss it" hook is in use on this series.
 
 ## 1K-jail fixes (every new video, ordered 11/16)
