@@ -274,17 +274,18 @@ def prefetch(spec, work, limit=6):
     jobs = []
     for i, b in enumerate(spec["beats"]):
         mp3 = f"{work}/v{i:02d}.mp3"
-        key = line_key(b["say"], voice, rate, pitch)
+        bv, br, bp = b.get("voice", voice), b.get("rate", rate), b.get("pitch", pitch)
+        key = line_key(b["say"], bv, br, bp)
         if not take_fresh(key, mp3):
-            if voice.startswith("kokoro:"):   # local and cached: no edge batch
-                kokoro(b["say"], voice, mp3, key)
+            if bv.startswith("kokoro:"):   # local and cached: no edge batch
+                kokoro(b["say"], bv, mp3, key)
             elif not tts_cached(key, mp3):
-                jobs.append((b["say"], mp3, key))
+                jobs.append((b["say"], mp3, key, bv, br, bp))
 
     async def run():
         sem = asyncio.Semaphore(limit)
 
-        async def one(text, mp3, key):
+        async def one(text, mp3, key, voice, rate, pitch):
             async with sem:
                 words = await speak(text, voice, mp3, rate, pitch)
             json.dump(words, open(mp3 + ".words.json", "w"))
@@ -469,7 +470,7 @@ def plan(spec, work):
     prev_mb = {}
     for i, b in enumerate(spec["beats"]):
         mp3 = f"{work}/v{i:02d}.mp3"
-        words = [tuple(w) for w in tts(b["say"], voice, rate, pitch, mp3)]
+        words = [tuple(w) for w in tts(b["say"], b.get("voice", voice), b.get("rate", rate), b.get("pitch", pitch), mp3)]   # per-line prosody (Studio 11/17)
         audio = decode(mp3)
         tempo = dict(TEMPO, **spec["tempo"]) if isinstance(spec.get("tempo"), dict) else \
             (TEMPO if spec.get("tempo", True) else None)

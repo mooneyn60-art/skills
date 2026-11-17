@@ -22,11 +22,14 @@ BLENDS = {  # name -> [(kokoro voice, weight)]; C is Nolan's pick (research/39-v
     "eric-michael": [("am_eric", 0.5), ("am_michael", 0.5)],
     "onyx": [("am_onyx", 1.0)],        # deep male candidates for Meatball Investigates (10/26 voice sampler)
     "fenrir": [("am_fenrir", 1.0)],
+    "adam": [("am_adam", 1.0)],        # Studio voice test 11/17 (B)
+    "michael": [("am_michael", 1.0)],
 }
 SPEED = 1.05
 # Per-blend overrides: speed, and "pause" = the longest silence kept inside a line (s). The drawn animal
 # Shorts' narrator is fenrir at 0.86 with comma pauses capped at 0.22 s (outlier-matching voice test, 10/28).
-TUNING = {"fenrir": {"speed": 0.86, "pause": 0.22}}
+TUNING = {"fenrir": {"speed": 0.86, "pause": 0.22}, "adam": {"speed": 1.18, "pause": 0.25},
+          "michael": {"speed": 1.18, "pause": 0.25}}
 # Warmth, presence, de-harsh, gentle compression, a touch of room, broadcast loudness.
 CHAIN = ("highpass=f=70,equalizer=f=180:t=q:w=1:g=3,equalizer=f=3200:t=q:w=1.2:g=2.5,"
          "equalizer=f=7500:t=q:w=2:g=-2,acompressor=threshold=-20dB:ratio=3:attack=8:release=120:makeup=3,"
