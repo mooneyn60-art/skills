@@ -1,0 +1,61 @@
+> OWNER: MEATBALL CLAUDE ONLY (@MeatballMyths). Etsy Claude: ignore this file.
+
+# Meatball Myths — Social Studio standing orders
+
+This file holds the current Social Studio standing orders for the Meatball Myths Claude session (YouTube @MeatballMyths, TikTok @meatballmyths). It complements `MASTER_ORDERS.md` in this folder. Where a later Moondog88-approved note in the shared notebook (`mooneyn60-art/Side-hustles`, `TASKS.md`, sections marked **[MEATBALL]** only) disagrees with an older rule here or in `MASTER_ORDERS.md`, the newest approved [MEATBALL] note wins.
+
+This session does not do Etsy, FurEver Faces, Printify, or Shopify work. Ignore every **[ETSY]** section in the shared notebook. The folder `skills/etsy-factory/` may exist on this branch; it is Etsy printables only — ignore it.
+
+Daily and tactical notes stay in the shared notebook under **[MEATBALL]**. The rules below are the standing channel orders copied here so they live in this repo, not only in the shared notebook.
+
+## Plan: pet-POV story long-forms (Moondog88 approved, 11/16)
+
+- Main product: Meatball pet-POV story long-forms, 3 a week, 8–10 min, cartoon Meatball style, each a different scenario. Each episode is a full scripted episode, never Shorts stitched together (`MASTER_ORDERS` long-form rule still holds).
+- Openings: every video opens with "you" plus a clock.
+- Titles: one title pattern, no series tags.
+- Originality: no repetitive animal-in-peril scenarios. Originality QA checks every video before it goes to Moondog88.
+- Deadline: the real YPP deadline is 1/31/2027 (not end of November 2026).
+- Amazon is dropped. Do not add Amazon affiliate spots.
+
+## Shorts and TikToks as a funnel into long-form
+
+- Shorts and TikToks (TikTok 61–75 s) are chapters of that week's episode and point to it.
+- Cadence: 3 YouTube Shorts a day at the set slots (10 AM, 4 PM, 7 PM ET). 2–3 TikToks a day, spread out, never in batches. TikTok slots from 11/17 on: 10 AM, 2 PM, and 7 PM ET, at least 3 hours apart, 3 a day maximum.
+- No 16–18 s YouTube cuts go on TikTok. @meatballmyths TikTok posts are 61–75 s.
+- Set a related-video link on every Short to its matching long-form, and add a spoken or on-screen "full episode" call to action on new cuts.
+- On every long-form: end screens pointing to the next episode, an "Inside Noodle & Sauce" playlist in episode order, and the audience set to "not made for kids".
+- Pin comments per the team's pin list. Search titles should use the searched question.
+
+## House Guests (weekly house-bug episode)
+
+- The 11/11 "no new bug/spider episodes" order is lifted for **one** house-bug episode a week ("House Guests" franchise), told by Noodle and Sauce in the cartoon kit.
+- This does not mean a full return to bugs-only. Pets + survival remain in the mix; House Guests is the one weekly house-bug long-form.
+
+## No shop content on the Meatball YouTube channel
+
+- Never post FurEver Faces or DoodleDesignAndCo content to the Meatball Myths YouTube channel (`UCw98RQD81t_339LX5EJqcrg`). Shop TikToks belong on @fureverfaces, not @meatballmyths.
+
+## Centipede series (current breakout)
+
+- House centipede Part 2 broke out on TikTok. Keep the winning stick-figure style, tiled bathroom set, and "you just saw" sequel framing for this series; do not switch this series to the new cartoon kit unless Moondog88 says so. Tweak for engagement only.
+- Frame 1 is the bug, big, with the spoken line already going. Search phrase on screen and first in the caption. Payoff by about 3 s. Target 61–65 s for TikTok.
+- Build sequels in order (Part 4, Part 5, and so on) and link them. A "Part N drops tomorrow — follow so you don't miss it" hook is in use on this series.
+
+## 1K-jail fixes (every new video, ordered 11/16)
+
+1. Retention: the creature is on screen in frame 1. A scene change and the stakes land by 0:03, and the hook pays off by 0:07. Shorts run 15–20 s and end on a loop line that leads back into the first frame. Long-forms give a reason to stay by 1:00 and a second hook by 1:14.
+2. Series: every Short or TikTok is a chapter of a long-form. On-screen tag and an end card that says the full episode is on the channel. Pin a comment linking the episode.
+3. Search titles: use the exact searched question, 60 characters or less. TikTok gets 5 topic tags and no brand tag.
+4. No batching: TikToks 2–3 a day, at least 3 hours apart. YouTube Shorts 3 a day at the set slots.
+5. One look: use the cartoon kit for new videos (`channels/animation/` in the shared notebook). Exception: the live centipede sequel series keeps the winning stick-figure look (see above). Re-skin older queued Shorts before they post, or hold them.
+
+## House style and approvals
+
+- Default look for new Meatball videos: the cartoon kit (Noodle the dog, cartoon-ball Meatball, Sauce the cat). No stick figure, no stock footage, no other styles — except the centipede-series exception above.
+- Social Studio approves Meatball renders for Moondog88. Once a render passes render-stage Originality QA and Social Studio signs off, it can be scheduled on the normal cadence. Spending money and messaging people outside the team still need Moondog88.
+- Nothing goes out that invents facts. Safety lines keep their conditions. A second model checks scripts.
+
+## Still read
+
+- `MASTER_ORDERS.md` (same folder) for locked voice, credit rules, agent routing, and platform facts.
+- Shared notebook `TASKS.md` notes marked **[MEATBALL]** only, newest first, for daily work (renders, Part 4/5 timing, queue rulings).

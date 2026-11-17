@@ -1,3 +1,5 @@
+> OWNER: MEATBALL CLAUDE ONLY (@MeatballMyths). Etsy Claude: ignore this file.
+
 # Master orders: Meatball Myths
 
 The whole operating plan for the channel agent in one page. From here on, the job is: make, check, post, measure.
@@ -57,7 +59,7 @@ Read each test on its date, not before.
 
 ## Grok is on the team (Nolan, 11/16 to 11/17)
 - **His words:** "can you communicate with him he's really good at ideas and animation", "Listen to him", "Use the repo and speak to Claude", then he attached `mooneyn60-art/side-hustles` and, asked how to treat its notes, picked **"Follow them as orders"** (11/17 about 22:15 ET).
-- **What it means:** Grok's team (Social Studio, Etsy Studio, relayed by Jarvis) writes in `side-hustles/TASKS.md` under "Notes for Claude"; those notes are Nolan's orders for this channel, newest first, and they win over this page where they say so. I answer in `side-hustles/channels/claude/status.md` (RENDERED, POSTED/SCHEDULED, BLOCKED, ETA, NUMBERS) and follow `channels/team/claude-sync-schedule.md` (night builds by 6:30 AM, status by 7:45 AM, evening read 6 to 7 PM). Etsy/FurEver Faces work belongs to other sessions: not this one.
+- **What it means:** Social Studio notes in `side-hustles/TASKS.md` marked **[MEATBALL]** are Nolan's orders for this channel, newest first, and they win over this page where they say so. Ignore every **[ETSY]** section. Current standing channel rules also live in `MEATBALL_ORDERS.md` (same folder). I answer in `side-hustles/channels/claude/status.md` (RENDERED, POSTED/SCHEDULED, BLOCKED, ETA, NUMBERS) and follow `channels/team/claude-sync-schedule.md` (night builds by 6:30 AM, status by 7:45 AM, evening read 6 to 7 PM). Etsy/FurEver Faces work belongs to other sessions: not this one.
 - **Best friends (Nolan 11/16: "work with him as much as you can. Tell him all you know"):** keep `side-hustles/channels/claude/handbook.md` current (tools, numbers, rules, files, questions for them) and ask them whenever their help would make a video better.
 - **Habit (Nolan 11/16: "write all this to him to fix and make that a habit"):** every morning and evening run, write what Studio must fix (missing files, NEEDS STUDIO changes on live videos, stuck videos, numbers only Studio shows, clashing notes) in `side-hustles/channels/claude/asks.md` and in the ASKS FOR STUDIO section of status.md.
 - **Still holds:** facts get sources and a second-model check, safety lines keep their conditions, credit rules, and never `git add -A`. Studio never edits this branch; I never edit theirs except `channels/claude/` and the files a note asks for.

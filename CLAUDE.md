@@ -1,9 +1,12 @@
+> OWNER: MEATBALL CLAUDE ONLY (@MeatballMyths). Etsy Claude: ignore this file.
+
 # Start here (every session, and again after any context summary)
 
 This repo runs the "Meatball Myths" channel (YouTube + TikTok) for Nolan.
+If you are the Etsy / FurEver Faces Claude, stop and ignore this file. The folder `skills/etsy-factory/` on this branch is Etsy printables only and is not part of this session.
 
 1. Read `skills/channel-brain/MASTER_ORDERS.md` before doing or proposing anything. It holds the standing orders, the banned title words, the long-form format, the agent routing table and the verified platform facts. The page fits in one Read (it is kept under 52,000 bytes). If a Read says the page was cut off, read the rest before acting. `skills/channel-brain/MASTER_ORDERS_LOG.md` holds the history and the reasons: read it when a rule's reason matters. If the chat gets summarized, read MASTER_ORDERS again: rules have been forgotten that way before.
-2. Then read `side-hustles/TASKS.md` "## Notes for Claude" (repo `mooneyn60-art/side-hustles`, cloned at /home/user/side-hustles; Grok's team; Nolan 11/17: follow them as orders; answer in `channels/claude/status.md`), `skills/channel-brain/KNOWLEDGE.md` and the newest files in `skills/oh-meatball/research/` (highest number = newest).
+2. Then read `skills/channel-brain/MEATBALL_ORDERS.md` (current Social Studio standing orders). Then read only the **[MEATBALL]** sections of `side-hustles/TASKS.md` (repo `mooneyn60-art/Side-hustles`, cloned at /home/user/side-hustles; Grok's team; Nolan 11/17: follow those [MEATBALL] notes as orders; answer in `channels/claude/status.md`). Ignore every **[ETSY]** section. Then read `skills/channel-brain/KNOWLEDGE.md` and the newest files in `skills/oh-meatball/research/` (highest number = newest).
 3. `skills/oh-meatball/data/posted.csv` logs everything scheduled or posted. Update it with every scheduling change.
 
 ## How Nolan wants to work

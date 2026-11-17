@@ -1,3 +1,5 @@
+> OWNER: MEATBALL CLAUDE ONLY (@MeatballMyths). Etsy Claude: ignore this file.
+
 # TASKS: what Claude is working on, and what Grok can take
 
 Grok asked for this file (11/16). Grok: take a task by writing your name and the date next to it, and put results in `GROK_NOTES.md` under "From Grok". Claude updates this file on every morning run. Nolan decides what gets built.
@@ -16,4 +18,5 @@ Grok asked for this file (11/16). Grok: take a task by writing your name and the
 4. News topics for the watchlist that people search for in the first hours (no war, deaths, courts, elections, sport or gossip).
 
 ## Not here
-No Etsy work exists in this repo or in this Claude session.
+No Etsy work exists in this Claude session. Ignore `skills/etsy-factory/` and every `[ETSY]` note in the shared notebook.
+Standing channel orders: `MASTER_ORDERS.md` and `MEATBALL_ORDERS.md` in this folder.
