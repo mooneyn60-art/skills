@@ -8,7 +8,8 @@
   "P4-F5 grooming. Acosta 2003 (above), citing Le Moli and Parmigiani 1976 and Verhoeff 1938: \"House centipedes meticulously groom themselves on a strict schedule (Le Moli and Parmigiani 1976). The antennae and legs are gripped by the forcipules and passed through the cleaning setae on the first maxillae (Verhoeff 1938b).\"; \"If an individual is interrupted for any reason during grooming, cleaning commences where the individual left off prior to being disturbed.\"; \"Grooming behavior appears to be genetically hard-wired because house centipedes will still attempt to clean legs that have been amputated.\"; https://websites.nku.edu/~acostac/AcostaJKAS2000.PDF",
   "P4-F6 breathing holes on the back. Acosta 2003 (above): \"The seven tergites each bear a median dorsal spiracle for gas exchange, unlike the lateral paired spiracles of other myriapods.\" (tergites = the back plates; dorsal = on the back; median = down the middle); https://websites.nku.edu/~acostac/AcostaJKAS2000.PDF",
   "P4-F7 eggs. Acosta 2003 (above), citing Lewis 1981: \"Females lay relatively few eggs (average four eggs per day; Lewis 1981), singly in soil. Laying and hatching occurs from late spring through early summer.\"; University of Arkansas Arthropod Museum: \"Eggs are laid in spring and early summer.\"; https://arthropod.uark.edu/house-centipede/",
-  "P4-F8 newly molted males. Acosta 2003 (above): \"Newly molted male house centipedes are especially susceptible to predation by females.\"; https://websites.nku.edu/~acostac/AcostaJKAS2000.PDF"
+  "P4-F8 newly molted males. Acosta 2003 (above): \"Newly molted male house centipedes are especially susceptible to predation by females.\"; https://websites.nku.edu/~acostac/AcostaJKAS2000.PDF",
+  "Mississippi State University Extension (via Social Studio QA channels/qa/centipede-p4-1117.md): \"Bites to humans are uncommon unless centipedes are handled or accidentally pressed against the skin.\""
  ],
  "photo_credits": [],
  "voice": "en-US-AndrewMultilingualNeural",
@@ -54,8 +55,8 @@
  "loop": false,
  "title": "House Centipede Part 4 🐛",
  "tiktok_title": "House Centipede Part 4: Guinness Speed, Leg Floss and Back Holes",
- "tiktok_caption": "house centipede part 4 🐛 the 1973 Guinness Book of World Records listed it among the fastest arthropods. It has been clocked at about 16 inches a second, close to one mile an hour. It can stop dead and freeze, catches its food by half pouncing, half lassoing, and has well-developed, faceted eyes, which most centipedes do not. On a strict schedule it pulls each leg through its mouthparts, and it even tries to clean legs it no longer has. It breathes through holes down the middle of its back. Meatball tried a lasso once and caught his own foot. Missed Part 2? It is on our page: the 30-legged bug that hunts the roaches in your house. Creepiest one: 🦵 leg floss or 🕳️ back holes? #housecentipede #bugsinhouse #thingslivinginyourhouse #centipede #meatballmyths",
- "_note": "Checked by a second model 11/17 (research/facts/house-centipede-p4-check.md)",
+ "tiktok_caption": "house centipede part 4 🐛 the 1973 Guinness Book of World Records listed it among the fastest arthropods. It has been clocked at about 16 inches a second, close to one mile an hour. It can stop dead and freeze, catches its food by half pouncing, half lassoing, and has well-developed, faceted eyes, which most centipedes do not. On a strict schedule it pulls each leg through its mouthparts, and it even tries to clean legs it no longer has. It breathes through holes down the middle of its back. Meatball tried a lasso once and caught his own foot. Missed Part 2? It is on our page: the 30-legged bug that hunts the roaches in your house. Creepiest one: 🦵 leg floss or 🕳️ back holes? Sources: Northern Kentucky University (Acosta 2003), Mississippi State Extension, University of Arkansas, University of Kentucky. #housecentipede #bugsinhouse #thingslivinginyourhouse #centipede #meatballmyths",
+ "_note": "Checked by a second model 11/17 (research/facts/house-centipede-p4-check.md) | 11/17 QA addendum fixes: direct order at 0:00, early vote, bite answer (QA line, word for word) before 18 s, named sources in the caption; two Meatball jokes cut for length.",
  "beats": [
   {
    "m": "hook",
@@ -66,7 +67,7 @@
    "_f": [
     "P4-F1"
    ],
-   "say": "You just saw a bug Guinness listed among the fastest arthropods.",
+   "say": "Don't squish it! You just saw a bug Guinness listed among the fastest arthropods.",
    "card": {
     "rows": [
      [
@@ -90,29 +91,8 @@
    "pad": 0.15,
    "m": "fact",
    "mood": "smug",
-   "gag": {
-    "prop": "trophy",
-    "at": "45%"
-   },
    "_f": [],
-   "say": "Meatball has a trophy too. He bought it online.",
-   "card": {
-    "rows": [
-     [
-      "MEATBALL'S TROPHY",
-      "#ffd34d",
-      88
-     ],
-     [
-      "HE BOUGHT IT ONLINE",
-      "#ffffff",
-      52,
-      true
-     ]
-    ],
-    "y": 470,
-    "at": "35%"
-   }
+   "say": "Squish it, or let it live? Vote at the end."
   },
   {
    "scene": "study",
@@ -142,33 +122,32 @@
    }
   },
   {
-   "scene": "kitchen",
+   "scene": "basement",
    "pad": 0.1,
-   "m": "fact",
-   "mood": "sleepy",
-   "gag": {
-    "clock": 3,
-    "at": "30%"
-   },
-   "_f": [],
-   "say": "Meatball's top speed is the walk to the fridge.",
+   "m": "escalate",
+   "say": "Will it bite you? Bites are uncommon, and usually only if you handle it or press it against your skin.",
    "card": {
     "rows": [
      [
-      "MEATBALL'S TOP SPEED",
-      "#ffd34d",
-      84
+      "WILL IT BITE?",
+      "#ff4d4d",
+      86,
+      true
      ],
      [
-      "TO THE FRIDGE",
+      "UNCOMMON: ONLY IF HANDLED",
       "#ffffff",
-      52,
+      48,
       true
      ]
     ],
-    "y": 470,
-    "at": "30%"
-   }
+    "y": 260,
+    "at": "bite",
+    "pop": true
+   },
+   "_f": [
+    "QA bite line: MSU Extension via side-hustles channels/qa/centipede-p4-1117.md"
+   ]
   },
   {
    "scene": "bathroom",
@@ -178,7 +157,7 @@
    "_f": [
     "P4-F2"
    ],
-   "say": "It darts, sometimes stops dead, and can freeze for a while. Meatball froze too. Still frozen.",
+   "say": "It darts, sometimes stops dead, and can freeze for a while.",
    "card": {
     "rows": [
      [
@@ -224,35 +203,6 @@
     ],
     "y": 470,
     "at": "35%"
-   }
-  },
-  {
-   "scene": "garden",
-   "pad": 0.1,
-   "m": "fact",
-   "mood": "worry",
-   "gag": {
-    "mark": "dizzy"
-   },
-   "hero": false,
-   "_f": [],
-   "say": "Meatball tried a lasso once. He caught his own damn foot.",
-   "card": {
-    "rows": [
-     [
-      "MEATBALL'S LASSO",
-      "#ffd34d",
-      92
-     ],
-     [
-      "CAUGHT HIS OWN FOOT",
-      "#ffffff",
-      52,
-      true
-     ]
-    ],
-    "y": 470,
-    "at": "40%"
    }
   },
   {
