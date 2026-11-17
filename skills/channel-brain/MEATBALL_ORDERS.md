@@ -8,6 +8,33 @@ This session does not do Etsy, FurEver Faces, Printify, or Shopify work. Ignore 
 
 Daily and tactical notes stay in the shared notebook under **[MEATBALL]**. The rules below are the standing channel orders copied here so they live in this repo, not only in the shared notebook.
 
+## QUALITY FIRST: overrides everything below (Moondog88, 11/17 4:45 PM)
+
+Moondog88: "switch to quality, don't just fuck around and hope we have another big TikTok... take control of this channel." Social Studio is in control. Volume is cut, and quality is the job.
+
+**Cadence:**
+- **TikTok:** 1 a day at 7 PM. The house-bug series only (centipede first, then silverfish and on).
+- **YouTube Shorts:** 1 a day, the 15-18 s cut of that day's episode with the bug name in the title. Old-style filler Shorts stop.
+- **Long-form:** 1 flagship a week, 6-8 min, Wed 5 PM. A second (Sat 8 AM) only if it passes the gate. The first flagship is "Ranking every house bug from harmless to get out."
+- The pet-POV long-form plan below is retired. House bugs only (lane lock, 11/17).
+
+**Quality gate.** A video posts only if every line is a yes; if any is a no, it doesn't post and you fix it:
+1. The bug is big on screen at 0:00, and the question is asked by 3 s.
+2. A new shot or camera move every 2-3 s, with nothing frozen longer than 1 s.
+3. No background repeats within a video.
+4. One big Meatball freak-out beat.
+5. The BUG ID card shows (text from sourced facts only).
+6. Voice C (Guy +32%), plus sound hits on the cuts.
+7. Every fact is sourced (QA file); no swears in the first 7 s, the title, the caption or on-screen text.
+8. It ends with a next step (the next Part, or "Full episode on YouTube").
+9. It's one Moondog88 would actually watch to the end: no filler, no stock-looking frames.
+
+**Process:**
+- Log every render in status.md with its frame sheet.
+- Social Studio checks the frames against the gate before posting and writes PASS or FIX.
+- Anything already queued in the old (pre-v3) look gets pulled from Metricool unless it passes the gate.
+- **Hits:** a post at 5x the median or more gets a sequel within 7 days, a long-form version and a pinned comment pointing to it.
+
 ## Plan: pet-POV story long-forms (Moondog88 approved, 11/16)
 
 - Main product: Meatball pet-POV story long-forms, 3 a week, 8–10 min, cartoon Meatball style, each a different scenario. Each episode is a full scripted episode, never Shorts stitched together (`MASTER_ORDERS` long-form rule still holds).
