@@ -96,6 +96,7 @@ def plan_pass(spec, beats):
     cues = []
     prev_pose = None
     last_ins = None
+    last_close = 0.0
     for i, b in enumerate(beats):
         m = b.get("_m")
         # light
@@ -109,6 +110,23 @@ def plan_pass(spec, beats):
                 night = (b.get("scene_p") or {}).get("time") == "night" or b["scene"] in ("bathroom", "basement")
                 lt = "lamp" if night else "off"
         b["_light"] = lt
+        # the one big Meatball freak-out (Studio 11/17): jump, hair up, shake, sting
+        fo = b.get("freakout")
+        if fo:
+            fa = _t(b, fo if fo is not True else "35%")
+            b["_freak"] = fa
+            if b.get("scare") is None:
+                b["scare"] = fa
+            mb = b["mb"]
+            mb["pose"] = "shock"
+            mb["shake"] = max(mb.get("shake") or 0.0, 0.7)
+            mv = [dict(m, at=_t(b, m.get("at"))) for m in mb.get("moves", [])]
+            pos = list(mb["pos"])
+            for m in mv:
+                if m["at"] <= fa and "pos" in m:
+                    pos = list(m["pos"])
+            mv.append({"at": fa, "dur": 0.6, "hop": 330, "pos": pos})
+            mb["moves"] = sorted(mv, key=lambda m: m["at"])
         # scare
         b["_scare"] = [_t(b, b["scare"])] if b.get("scare") is not None else []
         # punch-ins
@@ -143,6 +161,17 @@ def plan_pass(spec, beats):
             rot = ["bugcam", "seccam"]   # Studio 11/17: no SIZE CHECK coin in the auto rotation
             kind = rot[(rot.index(last_ins) + 1) % len(rot)] if last_ins in rot else "bugcam"
             ins = {"type": kind, "at": "40%", "dur": 1.1}
+        # Studio 11/17: a bug close-up about every 10 s (a BUG CAM, or a punch-in while the bug is on screen)
+        lst = [ins] if isinstance(ins, dict) else list(ins or [])
+        card = CFG.get("id_card") or {}
+        if _hero(b) is not None and card.get("beat") != i:
+            has = any(x.get("type") == "bugcam" for x in lst)
+            if not has and b["t0"] + 0.4 * b["dur"] - last_close > 10.0 and b["dur"] > 1.2:
+                lst.append({"type": "bugcam", "at": "40%", "dur": min(1.0, 0.5 * b["dur"])})
+                has = True
+            if has or b["_punch"]:
+                last_close = b["t0"] + 0.4 * b["dur"]
+        ins = lst
         b["_ins"] = []
         for x in ([ins] if isinstance(ins, dict) else (ins or [])):
             a = _t(b, x.get("at", "40%"))
@@ -374,6 +403,24 @@ def mb_overlay(ctx, b, t, head, k):
                 ctx.line_to(hx + r1 * math.cos(ang), hy + r1 * math.sin(ang))
             ctx.stroke()
             ctx.restore()
+    fa = b.get("_freak")
+    if fa is not None and 0 <= t - fa < 1.6:   # hair standing straight up
+        v = t - fa
+        q = ease(min(1.0, v / 0.1)) * (1.0 if v < 1.3 else 1 - (v - 1.3) / 0.3)
+        ctx.save()
+        ink(ctx, 12 * k)
+        for j in range(7):
+            ang = math.radians(-90 + (j - 3) * 16)
+            wob = 10 * k * math.sin((b["t0"] + t) * 60 + j)
+            r0, r1 = 250 * k, 250 * k + 150 * k * q
+            x0, y0 = hx + r0 * math.cos(ang), hy + r0 * math.sin(ang)
+            x1, y1 = hx + r1 * math.cos(ang) + wob, hy + r1 * math.sin(ang)
+            xm, ym = (x0 + x1) / 2 + 18 * k, (y0 + y1) / 2
+            ctx.move_to(x0, y0)
+            ctx.line_to(xm, ym)
+            ctx.line_to(x1, y1)
+        ctx.stroke()
+        ctx.restore()
     if b["mb"].get("pose") in ("nervous", "scared") or b.get("_scare"):
         v = ((b["t0"] + t) * 0.9) % 1.0
         dx, dy = hx + 230 * k, hy - 120 * k + 160 * k * v

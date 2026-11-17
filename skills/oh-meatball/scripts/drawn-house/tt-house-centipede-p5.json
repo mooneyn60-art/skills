@@ -1,0 +1,360 @@
+{
+ "series": "Things Living In Your House",
+ "photo_credits": [],
+ "voice": "en-US-GuyNeural",
+ "rate": "+32%",
+ "pitch": "+2Hz",
+ "music": "eerie",
+ "music_db": -17,
+ "captions": 104,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "silverfish",
+  "scene": "bathroom",
+  "scene_p": {
+   "time": "night"
+  },
+  "s": 1.0,
+  "actor": "silverfish"
+ },
+ "loop": false,
+ "title": "Silverfish 🐛 House Centipede Series Part 5",
+ "tiktok_title": "Silverfish: 400 Million Years, Weak Jaws and a Mating Dance",
+ "tiktok_caption": "silverfish 🐛 part 5 of our house centipede series. Will it bite you? It has very weak jaws, so it scrapes the surface of paper instead of biting it, and silverfish do not transmit disease. Its fossils date to 400 million years ago, about twice as long ago as the dinosaurs. It moves fast, even sideways, does a mating dance with antennae and head wagging, and can pass through 45 to 60 stages in its life. The house centipede you just met eats these. Full episode on YouTube, Meatball Myths. Sources: Missouri Department of Conservation, UC IPM (University of California), Penn State Extension, University of Maryland Extension, NC State. Squish it or let it live? #silverfish #bugsinhouse #thingslivinginyourhouse #insects #housebugs",
+ "cine": true,
+ "id_card": {
+  "name": "SILVERFISH",
+  "rows": [
+   "FOSSILS: ABOUT 400 MILLION YEARS AGO",
+   "JAWS: VERY WEAK, SCRAPES PAPER",
+   "DOES NOT TRANSMIT DISEASE"
+  ],
+  "beat": 3,
+  "at": "3%",
+  "dur": 2.6,
+  "type": "silverfish"
+ },
+ "cap_key": [
+  "silverfish",
+  "bite",
+  "jaws",
+  "disease",
+  "400",
+  "dinosaurs",
+  "sideways",
+  "dance",
+  "capsule",
+  "scales",
+  "60",
+  "8",
+  "lumber",
+  "centipede",
+  "youtube"
+ ],
+ "_note": "Part 5 (11/17 evening, Nolan: 'get cranking'). Facts from side-hustles channels/qa/silverfish-p5-1118.md (P5-F1..F10, QA's script-safe wording). TikTok-native render. v3 look, voice C, no repeated rooms, one freak-out (line 2), ID card on line 4. Second-model check: research/facts/silverfish-p5-check.md.",
+ "sources": [
+  "P5-F1 MDC Silverfish (Firebrat) https://mdc.mo.gov/discover-nature/field-guide/silverfish-firebrat : 'Their fossils date to 400 million years ago — about twice as long ago as the dinosaurs.'",
+  "P5-F2 MDC (same): 'They do not transmit disease, however.'",
+  "P5-F3 UC IPM Silverfish and Firebrats https://ipm.ucanr.edu/home-and-landscape/silverfish-and-firebrats/ : 'males attract females with a mating dance that includes antennae contact and head wagging, after which the male deposits a protected capsule containing sperm for the female to pick up.'",
+  "P5-F4 MDC: 'The hatchlings look like the adults, only whitish and much smaller.' UC IPM: 'Newly hatched nymphs are ... white, and have no scales.'",
+  "P5-F5 UC IPM: 'molt continuously throughout their life, passing through 45 to 60 instars or development stages.'",
+  "P5-F6 UC IPM: 'silverfish about 3 years.' MDC: 'In some species, individuals can live for 8 years'",
+  "P5-F7 Penn State Extension https://extension.psu.edu/bristletails-silverfish-and-firebrats : 'Both species move rapidly (including sideways), and their flat bodies let them hide in narrow crevices.'",
+  "P5-F8 UC IPM: 'Firebrats and silverfish have very weak jaws which causes them to scrape, instead of bite, the surface of paper.'",
+  "P5-F10 UC IPM: 'Large numbers of these insects can invade new homes from surrounding wild areas, especially as these areas dry out during the summer. They also can come in on lumber, wallboard, and similar products.'",
+  "Series link: MDC 'Silverfish are eaten by house centipedes' (via channels/research/viral-centipede-1117.md)"
+ ],
+ "beats": [
+  {
+   "m": "hook",
+   "scene": "bathroom",
+   "open": "animal",
+   "open_zoom": 2.4,
+   "say": "Don't squish that silverfish! Squish it, or let it live? Vote at the end.",
+   "sfx": [
+    "scratch@0.1"
+   ],
+   "card": {
+    "rows": [
+     [
+      "SQUISH IT OR LET IT LIVE?",
+      "#ffd34d",
+      78
+     ]
+    ],
+    "y": 470,
+    "at": "squish#2"
+   },
+   "_f": []
+  },
+  {
+   "m": "escalate",
+   "scene": "basement",
+   "say": "Will it bite you?",
+   "freakout": "bite",
+   "sfx": [
+    "sting@bite"
+   ],
+   "rate": "+34%",
+   "pitch": "+12Hz",
+   "pad": 0.1,
+   "card": {
+    "rows": [
+     [
+      "WILL IT BITE?",
+      "#ff4d4d",
+      96,
+      true
+     ]
+    ],
+    "y": 260,
+    "at": "bite",
+    "pop": true
+   },
+   "_f": [
+    "P5-F8"
+   ]
+  },
+  {
+   "m": "fact",
+   "scene": "kitchen",
+   "pad": 0.35,
+   "rate": "+20%",
+   "say": "It has very weak jaws, so it scrapes the surface of paper instead of biting it. And they do not transmit disease.",
+   "card": {
+    "rows": [
+     [
+      "VERY WEAK JAWS",
+      "#ffd34d",
+      104
+     ],
+     [
+      "IT SCRAPES PAPER",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   },
+   "_f": [
+    "P5-F8",
+    "P5-F2"
+   ]
+  },
+  {
+   "m": "fact",
+   "scene": "classroom",
+   "pad": 0.2,
+   "rate": "+20%",
+   "say": "Its fossils date to 400 million years ago. That's about twice as long ago as the dinosaurs. Meatball's lunch is not that old. Probably.",
+   "_f": [
+    "P5-F1"
+   ]
+  },
+  {
+   "m": "chase",
+   "scene": "study",
+   "pad": 0.2,
+   "say": "They move rapidly, including sideways, and their flat bodies let them hide in narrow crevices. Meatball can't even walk sideways.",
+   "card": {
+    "rows": [
+     [
+      "FAST. EVEN SIDEWAYS.",
+      "#ff4b3e",
+      92
+     ],
+     [
+      "FLAT ENOUGH FOR CRACKS",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "20%"
+   },
+   "_f": [
+    "P5-F7"
+   ]
+  },
+  {
+   "m": "fact",
+   "scene": "bedroom",
+   "pad": 0.2,
+   "rate": "+20%",
+   "say": "Males attract females with a mating dance, antennae contact and head wagging, then leave a sperm capsule for her to pick up. Meatball's last date just got a breadstick.",
+   "card": {
+    "rows": [
+     [
+      "A MATING DANCE",
+      "#ffd34d",
+      100
+     ],
+     [
+      "ANTENNAE + HEAD WAGGING",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "20%"
+   },
+   "_f": [
+    "P5-F3"
+   ]
+  },
+  {
+   "m": "xray",
+   "scene": "office",
+   "pad": 0.2,
+   "rate": "+20%",
+   "say": "The babies look like the adults, only whitish and much smaller, and they have no scales at first.",
+   "card": {
+    "rows": [
+     [
+      "BABIES: NO SCALES",
+      "#ffd34d",
+      96
+     ],
+     [
+      "WHITISH AND MUCH SMALLER",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   },
+   "_f": [
+    "P5-F4"
+   ]
+  },
+  {
+   "m": "fact",
+   "scene": "keeper_room",
+   "pad": 0.2,
+   "rate": "+20%",
+   "say": "It can pass through 45 to 60 stages, or instars, in its life. Meatball has had three: baby, kid, and snack.",
+   "card": {
+    "rows": [
+     [
+      "45 TO 60 STAGES",
+      "#ff4b3e",
+      104
+     ],
+     [
+      "IN ONE LIFE",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "25%"
+   },
+   "_f": [
+    "P5-F5"
+   ]
+  },
+  {
+   "m": "fact",
+   "scene": "sill",
+   "pad": 0.2,
+   "rate": "+20%",
+   "say": "Silverfish live about 3 years. In some species, individuals can live for 8 years. That's longer than Meatball's houseplant.",
+   "card": {
+    "rows": [
+     [
+      "ABOUT 3 YEARS",
+      "#ffd34d",
+      104
+     ],
+     [
+      "SOME SPECIES: UP TO 8",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "25%"
+   },
+   "_f": [
+    "P5-F6"
+   ]
+  },
+  {
+   "m": "fact",
+   "scene": "garden",
+   "pad": 0.2,
+   "rate": "+20%",
+   "say": "They can invade new homes from wild areas nearby, especially as those areas dry out in summer. They can also come in on lumber and wallboard.",
+   "card": {
+    "rows": [
+     [
+      "THEY MOVE IN",
+      "#ff4b3e",
+      104
+     ],
+     [
+      "ON LUMBER + WALLBOARD",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   },
+   "_f": [
+    "P5-F10"
+   ]
+  },
+  {
+   "m": "punch",
+   "scene": "jh_living",
+   "pad": 0.2,
+   "say": "And the house centipede you just met eats these. So, squish it, or let it live?",
+   "card": {
+    "rows": [
+     [
+      "SQUISH OR LET IT LIVE?",
+      "#ffd34d",
+      84
+     ]
+    ],
+    "y": 470,
+    "at": "squish"
+   },
+   "_f": []
+  },
+  {
+   "m": "tease",
+   "scene": "jh_office",
+   "pad": 1.1,
+   "say": "Full episode on YouTube, Meatball Myths.",
+   "card": {
+    "rows": [
+     [
+      "FULL EPISODE ON YOUTUBE",
+      "#ffd34d",
+      76
+     ],
+     [
+      "MEATBALL MYTHS",
+      "#ffffff",
+      60,
+      true
+     ]
+    ],
+    "y": 380,
+    "at": 0.0
+   },
+   "_f": []
+  }
+ ]
+}

@@ -599,6 +599,18 @@ def lint(path, mp4=None):
             r.fail("TikTok cut is %.2f s: every TikTok runs over 1 minute (%.0f s or more)" % (d, CFG["tt_rewards_s"]))
         else:
             r.ok("length %.2f s" % d)
+    # --- quality gate 3 (Studio 11/17): no background repeats inside a cine video
+    if spec.get("cine") and beats:
+        stage_scene = (spec.get("stage") or {}).get("scene")
+        seen = {}
+        for i, b in enumerate(beats):
+            sc = b.get("scene") or stage_scene
+            if sc in seen:
+                r.fail("room '%s' repeats (lines %d and %d): every line gets its own room" % (sc, seen[sc] + 1, i + 1))
+            else:
+                seen[sc] = i
+        if not any(b.get("freakout") for b in beats):
+            r.warn("no Meatball freak-out line (gate 4: one per episode)")
     print("  => %s (%d fail, %d warn)" % ("FAIL" if r.fails else "pass", r.fails, r.warns))
     return r.fails
 
