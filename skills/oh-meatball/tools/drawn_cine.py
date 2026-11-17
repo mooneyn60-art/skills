@@ -140,8 +140,8 @@ def plan_pass(spec, beats):
         ins = b.get("insert")
         if ins is None and CFG["shots"] == "auto" and _hero(b) is not None and b["dur"] > 2.6 and not b.get("card") \
                 and m not in ("hook", "calm", "escalate"):
-            rot = ["bugcam", "seccam", "sizecheck"]
-            kind = rot[(rot.index(last_ins) + 1) % 3] if last_ins in rot else "bugcam"
+            rot = ["bugcam", "seccam"]   # Studio 11/17: no SIZE CHECK coin in the auto rotation
+            kind = rot[(rot.index(last_ins) + 1) % len(rot)] if last_ins in rot else "bugcam"
             ins = {"type": kind, "at": "40%", "dur": 1.1}
         b["_ins"] = []
         for x in ([ins] if isinstance(ins, dict) else (ins or [])):
@@ -178,6 +178,10 @@ def plan_pass(spec, beats):
             if mb.get("pose") == prev_pose:
                 mb["pose"] = next(p for p in POSE_ROT[i % len(POSE_ROT):] + POSE_ROT if p != prev_pose)
             prev_pose = mb.get("pose")
+    card = CFG.get("id_card")
+    if card and card.get("beat") is not None and card["beat"] < len(beats):
+        cb = beats[card["beat"]]
+        cues.append((cb["t0"] + _t(cb, card.get("at", "10%")), "pop"))   # Studio 11/17: a pop when the card lands
     spec["_cine_cues"] = cues
     spec["_cine_scares"] = [b["t0"] + s for b in beats for s in b["_scare"]]
 
@@ -224,6 +228,17 @@ def camera(b, t, T, cam, ins):
         sx, sy = D.world_to_screen([x, y, z], h[0], h[1] - 110 * h[2])
         dx = min(0.0, 930 - sx) + max(0.0, 150 - sx)
         dy = min(0.0, 1330 - sy) + max(0.0, 520 - sy)
+        x, y = x - dx / z, y - dy / z
+    m = mb_at(b, t) if ins is None else None              # Studio 11/17: Meatball stays fully in frame
+    if m is not None:
+        mx, my, ms = m
+        hw = 340 * ms / 1000                                # half body width, world px
+        ht = 930 * ms / 1000                                # feet to top of head, world px
+        if 2 * hw * z > W - 40:                             # too wide at this zoom: pull back
+            z = (W - 40) / (2 * hw)
+        sx, sy = D.world_to_screen([x, y, z], mx, my)
+        dx = min(0.0, (W - 20) - (sx + hw * z)) + max(0.0, 20 - (sx - hw * z))
+        dy = max(0.0, 30 - (sy - ht * z))
         x, y = x - dx / z, y - dy / z
     dr = CFG["drift"]                                       # handheld drift: nothing is ever still
     x += dr * (7 * math.sin(T * 1.3) + 3 * math.sin(T * 3.1)) / max(z, 0.5)
@@ -613,28 +628,28 @@ def id_card_img(card):
     key = repr(card)
     if key in _IDC:
         return _IDC[key]
-    Wc = 940
-    fN = ImageFont.truetype(D.FONT, 92)
-    fR = ImageFont.truetype(D.FONT, 50)
-    fH = ImageFont.truetype(D.FONT, 44)
+    Wc = 1020   # Studio 11/17: about 2x the area of the v3 test card
+    fN = ImageFont.truetype(D.FONT, 112)
+    fR = ImageFont.truetype(D.FONT, 66)
+    fH = ImageFont.truetype(D.FONT, 50)
     rows = card.get("rows", [])
-    hh, nh, rh = 78, 120, 74
+    hh, nh, rh = 90, 150, 100
     Hc = hh + nh + rh * len(rows) + 40
     im = Image.new("RGBA", (Wc, Hc), (0, 0, 0, 0))
     dr = ImageDraw.Draw(im)
     dr.rounded_rectangle((0, 0, Wc - 1, Hc - 1), radius=34, fill=(20, 24, 38, 240), outline=(255, 255, 255, 255), width=6)
     dr.rounded_rectangle((6, 6, Wc - 7, hh), radius=28, fill=(255, 211, 77, 255))
     dr.rectangle((6, hh - 26, Wc - 7, hh), fill=(255, 211, 77, 255))
-    dr.text((34, 14), "BUG ID", font=fH, fill=(20, 20, 20, 255))
-    dr.text((Wc - 300, 14), "MEATBALL MYTHS", font=fH, fill=(20, 20, 20, 255))
+    dr.text((34, 18), "BUG ID", font=fH, fill=(20, 20, 20, 255))
+    dr.text((Wc - 360, 18), "MEATBALL MYTHS", font=fH, fill=(20, 20, 20, 255))
     icon = _icon(card.get("type") or CFG.get("stage_type"), 300, 150)
     if icon is not None:
         im.alpha_composite(icon, (Wc - 330, hh + 6))
     dr.text((34, hh + 14), card.get("name", ""), font=fN, fill=(255, 255, 255, 255))
     y = hh + nh
     for r in rows:
-        dr.rounded_rectangle((34, y + 16, 60, y + 42), radius=6, fill=(255, 211, 77, 255))
-        dr.text((80, y + 2), r, font=fR, fill=(255, 255, 255, 255))
+        dr.rounded_rectangle((34, y + 26, 66, y + 58), radius=7, fill=(255, 211, 77, 255))
+        dr.text((88, y + 6), r, font=fR, fill=(255, 255, 255, 255))
         y += rh
     _IDC[key] = im
     return im
@@ -666,17 +681,19 @@ def id_card(arr, b, t):
         return
     a = _t(b, card.get("at", "10%"))
     v = t - a
-    dur = card.get("dur", 2.4)
+    dur = max(2.0, card.get("dur", 2.6))   # Studio 11/17: on screen at least 2 s
     if not 0 <= v < dur:
         return
+    fade = min(1.0, v / 0.15, max(0.0, (dur - v) / 0.2))
+    arr[..., :3] = (arr[..., :3].astype(np.float32) * (1 - 0.45 * fade)).astype(np.uint8)   # dim behind the card
     im = id_card_img(card)
-    sc = card.get("scale", 0.88)
+    sc = card.get("scale", 1.0)
     im = im.resize((int(im.width * sc), int(im.height * sc)), Image.LANCZOS)
     if v < 0.25:   # pop with an overshoot
         u = v / 0.25
         k = 0.55 + 0.55 * math.sin(u * math.pi * 0.75) if u < 0.8 else 1.0 + 0.1 * (1 - u) / 0.2
         im = im.resize((max(1, int(im.width * k)), max(1, int(im.height * k))))
-    y = card.get("y", 200)
+    y = card.get("y", (H - im.height) // 2)   # centered
     if v > dur - 0.2:
         y -= int(900 * ((v - (dur - 0.2)) / 0.2) ** 2)
     D.paste(arr, im, W // 2, y + im.height // 2)

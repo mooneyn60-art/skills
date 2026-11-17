@@ -1140,7 +1140,7 @@ def sfx_cues(beats, ticks=(), tick_sfx=None, cuts=(), extra=()):
     kept in its list order (gag cues first, then the macro's), footsteps last; the rest are dropped."""
     kept = [(t, tick_sfx) for t, _ in ticks[1:]] if tick_sfx else []   # each counter tick gets its cue first
     cmax, gap = (4, 0.3) if extra else (SFX_MAX, SFX_GAP)   # cine: a hit on every cut, so more room
-    prio = {"sting": 0, "hit": 1, "whoosh": 2, "thud": 3}
+    prio = {"pop": -1, "sting": 0, "hit": 1, "whoosh": 2, "thud": 3}
     for t, name in sorted(extra, key=lambda c: (prio.get(c[1], 4), c[0])):   # cine cues: scares, cuts, punch-ins, skitters
         if all(abs(t - t2) >= gap for t2, _ in kept):
             kept.append((t, name))
