@@ -12,15 +12,15 @@
   "creature": "silverfish",
   "scene": "bathroom",
   "scene_p": {
-   "time": "night"
+   "time": "day"
   },
   "s": 1.0,
   "actor": "silverfish"
  },
  "loop": false,
  "title": "Silverfish 🐛 House Centipede Series Part 5",
- "tiktok_title": "Silverfish: 400 Million Years, Weak Jaws and a Mating Dance",
- "tiktok_caption": "silverfish 🐛 part 5 of our house centipede series. Will it bite you? It has very weak jaws, so it scrapes the surface of paper instead of biting it, and silverfish do not transmit disease. Its fossils date to 400 million years ago, about twice as long ago as the dinosaurs. It moves fast, even sideways, does a mating dance with antennae and head wagging, and can pass through 45 to 60 stages in its life. The house centipede you just met eats these. Full episode on YouTube, Meatball Myths. Sources: Missouri Department of Conservation, UC IPM (University of California), Penn State Extension, University of Maryland Extension, NC State. Squish it or let it live? #silverfish #bugsinhouse #thingslivinginyourhouse #insects #housebugs",
+ "tiktok_title": "Silverfish: Fossils From 400 Million Years Ago, Weak Jaws and a Mating Dance",
+ "tiktok_caption": "silverfish 🐛 part 5 of our house centipede series. Will it bite you? It has very weak jaws, so it scrapes the surface of paper instead of biting it, and silverfish do not transmit disease. Its fossils date to 400 million years ago, about twice as long ago as the dinosaurs. It moves fast, even sideways. Males do a mating dance with antennae and head wagging, and a silverfish can pass through 45 to 60 stages in its life. The house centipede you just met eats these. More on YouTube, Meatball Myths. Sources: Missouri Department of Conservation, UC IPM (University of California), Penn State Extension, University of Maryland Extension. Squish it or let it live? #silverfish #bugsinhouse #thingslivinginyourhouse #insects #housebugs",
  "cine": true,
  "id_card": {
   "name": "SILVERFISH",
@@ -51,7 +51,7 @@
   "centipede",
   "youtube"
  ],
- "_note": "Part 5 (11/17 evening, Nolan: 'get cranking'). Facts from side-hustles channels/qa/silverfish-p5-1118.md (P5-F1..F10, QA's script-safe wording). TikTok-native render. v3 look, voice C, no repeated rooms, one freak-out (line 2), ID card on line 4. Second-model check: research/facts/silverfish-p5-check.md.",
+ "_note": "Part 5 (11/17 evening, Nolan: 'get cranking'). Facts from side-hustles channels/qa/silverfish-p5-1118.md (P5-F1..F10, QA's script-safe wording). TikTok-native render. v3 look, voice C, no repeated rooms, one freak-out (line 2), ID card on line 4. Second-model check: research/facts/silverfish-p5-check.md. | Second-model check 11/17 evening: 7 fixes applied (research/facts/silverfish-p5-check.md).",
  "sources": [
   "P5-F1 MDC Silverfish (Firebrat) https://mdc.mo.gov/discover-nature/field-guide/silverfish-firebrat : 'Their fossils date to 400 million years ago — about twice as long ago as the dinosaurs.'",
   "P5-F2 MDC (same): 'They do not transmit disease, however.'",
@@ -85,7 +85,8 @@
     "y": 470,
     "at": "squish#2"
    },
-   "_f": []
+   "_f": [],
+   "light": "off"
   },
   {
    "m": "escalate",
@@ -238,7 +239,7 @@
    "scene": "keeper_room",
    "pad": 0.2,
    "rate": "+20%",
-   "say": "It can pass through 45 to 60 stages, or instars, in its life. Meatball has had three: baby, kid, and snack.",
+   "say": "It can pass through 45 to 60 stages, or instars, in its life. Meatball's list goes baby, kid, snack.",
    "card": {
     "rows": [
      [
@@ -247,7 +248,7 @@
       104
      ],
      [
-      "IN ONE LIFE",
+      "CAN HAPPEN IN ONE LIFE",
       "#ffffff",
       52,
       true
@@ -274,7 +275,7 @@
       104
      ],
      [
-      "SOME SPECIES: UP TO 8",
+      "SOME SPECIES: CAN LIVE 8 YEARS",
       "#ffffff",
       52,
       true
@@ -296,7 +297,7 @@
    "card": {
     "rows": [
      [
-      "THEY MOVE IN",
+      "THEY CAN MOVE IN",
       "#ff4b3e",
       104
      ],
@@ -336,11 +337,11 @@
    "m": "tease",
    "scene": "jh_office",
    "pad": 1.1,
-   "say": "Full episode on YouTube, Meatball Myths.",
+   "say": "More on YouTube, Meatball Myths.",
    "card": {
     "rows": [
      [
-      "FULL EPISODE ON YOUTUBE",
+      "MORE ON YOUTUBE",
       "#ffd34d",
       76
      ],
