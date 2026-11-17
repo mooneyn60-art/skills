@@ -45,10 +45,47 @@ def _kokoro():
     return _model
 
 
+def parse(name):
+    """"kokoro:adam@speed=1.3,pitch=2,gain=3" -> ("kokoro", "adam", {"speed": 1.3, "pitch": 2.0, "gain": 3.0}).
+    Per-line acting (voice test v2, 11/17): speed (Kokoro), ex/cfg (Chatterbox exaggeration and cfg weight),
+    pitch (semitones, after the take), gain (dB, after loudness), pause (longest kept inner silence, s)."""
+    eng, rest = name.split(":", 1)
+    blend, _, ps = rest.partition("@")
+    params = {}
+    for kv in filter(None, ps.split(",")):
+        k, _, v = kv.partition("=")
+        params[k.strip()] = float(v)
+    return eng, blend, params
+
+
 def cache_name(name):
     """The shared-cache name: the voice name, plus its tuning when a blend has one (so a retune re-voices)."""
-    t = TUNING.get(name.split(":", 1)[1])
+    t = TUNING.get(parse(name)[1])
     return name if not t else name + "|" + ",".join(f"{k}={v}" for k, v in sorted(t.items()))
+
+
+_cb = None
+CB_REF = os.path.expanduser("~/.cache/chatterbox-ref")
+
+
+def _chatterbox():
+    global _cb
+    if _cb is None:
+        from chatterbox.tts import ChatterboxTTS
+        _cb = ChatterboxTTS.from_pretrained(device="cpu")
+    return _cb
+
+
+def post_chain(params):
+    """The voice chain, then the line's acting: a pitch shift in semitones and a loudness offset in dB."""
+    chain = CHAIN
+    st = params.get("pitch", 0.0)
+    if st:
+        chain = f"rubberband=pitch={2 ** (st / 12):.5f}:formant=preserved," + chain
+    g = params.get("gain", 0.0)
+    if g:
+        chain += f",volume={g}dB"
+    return chain
 
 
 def cap_pauses(audio, sr, cap, floor=0.01, frame=0.01):
@@ -89,17 +126,25 @@ def make(name, say):
     if out:
         return out
     import soundfile as sf
-    blend_name = name.split(":", 1)[1]
-    blend, tune = BLENDS[blend_name], TUNING.get(blend_name, {})
-    k = _kokoro()
-    style = sum(w * k.get_voice_style(v) for v, w in blend)
-    audio, sr = k.create(say, voice=style, speed=tune.get("speed", SPEED), lang="en-us")
+    eng, blend_name, params = parse(name)
+    tune = dict(TUNING.get(blend_name, {}), **params)
+    if eng == "chatterbox":
+        m = _chatterbox()
+        ref = f"{CB_REF}/{blend_name}.wav"
+        wav = m.generate(say, audio_prompt_path=ref if os.path.exists(ref) else None,
+                         exaggeration=tune.get("ex", 0.7), cfg_weight=tune.get("cfg", 0.3))
+        audio, sr = wav.squeeze(0).numpy(), m.sr
+    else:
+        blend = BLENDS[blend_name]
+        k = _kokoro()
+        style = sum(w * k.get_voice_style(v) for v, w in blend)
+        audio, sr = k.create(say, voice=style, speed=tune.get("speed", SPEED), lang="en-us")
     audio = cap_pauses(audio, sr, tune.get("pause"))
     os.makedirs(pv.CACHE, exist_ok=True)
     base = f"{pv.CACHE}/{pv.key(cname, say)}"
     sf.write(base + ".wav", audio, sr)
-    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", base + ".wav", "-af", CHAIN, "-q:a", "2", base + ".mp3"],
-                   check=True)
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", base + ".wav", "-af", post_chain(params), "-q:a", "2",
+                    base + ".mp3"], check=True)
     os.remove(base + ".wav")
     json.dump(_words(base + ".mp3", say), open(base + ".mp3.words.json", "w"))
     return base + ".mp3"

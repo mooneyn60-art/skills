@@ -1,0 +1,988 @@
+{
+ "_what": "Narration outline for flagship long-form #1 'House Bugs Ranked' (TASKS: FLAGSHIP LONG-FORM #1, FLAGSHIP NEEDS A STORY, LONG-FORM ANIMATION FIXES; MEATBALL_ORDERS QUALITY FIRST). 2 AM mystery: six suspects, one per room; centipede twist and comment prompt near 3:30; bed bug climax in Meatball's bed. Every factual line carries src = fact IDs (P5 silverfish QA, P4/P4Q centipede, DM/HS/CR/BB packs; see sources). vis = what the picture must show. card = on-screen card text. Lines without rate/pitch use the top-level voice settings. Readable script with timestamps: side-hustles/channels/scripts/longform-house-bugs-ranked.md.",
+ "titles": [
+  "House Bugs Ranked From Harmless to Get Out",
+  "Every Bug in Your House, Ranked by How Worried You Should Be",
+  "House Bugs Ranked: What Bit Me at 2 AM?"
+ ],
+ "voice": "en-US-GuyNeural",
+ "rate": "+32%",
+ "pitch": "+2Hz",
+ "aspect": "16:9",
+ "tiers": [
+  "HARMLESS",
+  "ANNOYING",
+  "GROSS",
+  "GET OUT"
+ ],
+ "est_words": 1116,
+ "est_runtime": "7:46",
+ "end_screen_seconds": 20,
+ "segments": [
+  {
+   "chapter": "Cold open: 2 AM",
+   "chip": null,
+   "room": "Upstairs hallway",
+   "est_start": "0:00",
+   "lines": [
+    {
+     "say": "It's 2 AM, and something in this house bit me.",
+     "vis": "FRAME 0: flashlight snaps on, a house centipede FILLS the frame on the hallway wall (tease). Hard cut at 0:02 to Meatball BIG (half the frame), rubbing his arm, lamp-pool light.",
+     "card": null,
+     "src": "story",
+     "rate": "+34%",
+     "pitch": "+12Hz"
+    },
+    {
+     "say": "Tonight, I find out exactly what it was.",
+     "vis": "Camera move by 0:04: fast push-in on Meatball's eyes narrowing. Flashlight click SFX.",
+     "card": "MISSION: FIND THE BITER",
+     "src": "story"
+    },
+    {
+     "say": "Six suspects live in this house with me.",
+     "vis": "Cut: the tier board slams in (HARMLESS / ANNOYING / GROSS / GET OUT) with 6 dark silhouettes lined up under it.",
+     "card": null,
+     "src": "story"
+    },
+    {
+     "say": "I'm ranking every one, from harmless to get out.",
+     "vis": "Whip-pan along the silhouettes; each one twitches as the camera passes.",
+     "card": "HARMLESS → GET OUT",
+     "src": "opinion"
+    },
+    {
+     "say": "One of them might be in your house right now.",
+     "vis": "Cut: the camera turns to face the viewer, flashlight beam into the lens.",
+     "card": null,
+     "src": "hook (no fact)"
+    },
+    {
+     "say": "And number one is not the one you think.",
+     "vis": "Snap back to the centipede on the wall; it bolts out of frame. Sound hit. Meatball grabs the flashlight and heads for the bathroom (camera tracks low).",
+     "card": null,
+     "src": "story (open loop)"
+    }
+   ]
+  },
+  {
+   "chapter": "Suspect 1: Silverfish",
+   "chip": "SUSPECT 1 OF 6",
+   "room": "Bathroom",
+   "est_start": "0:22",
+   "lines": [
+    {
+     "say": "Suspect one is sitting in my bathtub.",
+     "vis": "RE-HOOK CARD 'SUSPECT 1 OF 6' + sound hit. Flashlight sweeps the dry tub; a silverfish in the beam.",
+     "card": "SUSPECT 1 OF 6",
+     "src": "story"
+    },
+    {
+     "say": "Silverfish: its fossils date to 400 million years ago.",
+     "vis": "BUG CAM (interrupt): low fish-eye shot from the tub floor, silverfish huge. BUG ID card row 1 slides in.",
+     "card": "BUG ID: SILVERFISH · FOSSILS: 400 MILLION YEARS AGO",
+     "src": "P5-F1",
+     "rate": "+20%"
+    },
+    {
+     "say": "That's about twice as long ago as the dinosaurs.",
+     "vis": "Act it out: Meatball stacks a tiny dinosaur toy on a timeline rope, then walks twice as far to put the silverfish down.",
+     "card": null,
+     "src": "P5-F1",
+     "rate": "+20%"
+    },
+    {
+     "say": "They move rapidly, including sideways, and their flat bodies let them hide in narrow crevices.",
+     "vis": "Cut: silverfish zips sideways along the tub rim (Meatball's head whips left-right), then camera follows it flat into the grout line.",
+     "card": "ID ROW 2: FAST, EVEN SIDEWAYS · ID ROW 3: FLAT, HIDES IN CREVICES",
+     "src": "P5-F7",
+     "rate": "+20%"
+    },
+    {
+     "say": "So, suspect one: did you bite me?",
+     "vis": "Interrogation: desk lamp swings over the tub, Meatball leans in close.",
+     "card": "WILL IT BITE YOU?",
+     "src": "story"
+    },
+    {
+     "say": "Its very weak jaws scrape the surface of paper instead of biting it.",
+     "vis": "Cut: close on a book page being scraped thin; slow push-in for the long line.",
+     "card": null,
+     "src": "P5-F8",
+     "rate": "+20%"
+    },
+    {
+     "say": "That's about paper, not dogs, so it stays on my list.",
+     "vis": "CASE BOARD overlay (graphic, not a room): Meatball pins a SILVERFISH photo to a corkboard.",
+     "card": null,
+     "src": "P5-F8 hedge (source is about paper)"
+    },
+    {
+     "say": "Also, silverfish do not transmit disease.",
+     "vis": "Quick cut: a green check stamp on the corkboard photo.",
+     "card": null,
+     "src": "P5-F2",
+     "rate": "+20%"
+    },
+    {
+     "say": "Why is it here? They can invade new homes from wild areas nearby.",
+     "vis": "Card WHY IS IT IN MY HOUSE?, then cut to the bathroom window: a little silverfish parade crossing the sill from a dry field outside.",
+     "card": null,
+     "src": "P5-F10",
+     "rate": "+20%"
+    },
+    {
+     "say": "Especially as those areas dry out in summer.",
+     "vis": "Act it out: a sun dial over the field spins to SUMMER; the grass browns.",
+     "card": null,
+     "src": "P5-F10",
+     "rate": "+20%"
+    },
+    {
+     "say": "If they fall in a bathtub or sink, they can't climb up the slippery sides.",
+     "vis": "Back in the tub: the silverfish slides back down the wall twice. Camera tilts up the tub wall.",
+     "card": null,
+     "src": "P5-F9",
+     "rate": "+20%"
+    },
+    {
+     "say": "They can't crawl up through the drain, either.",
+     "vis": "Cut: Meatball peers into the drain with the flashlight. Nothing there.",
+     "card": null,
+     "src": "P5-F9",
+     "rate": "+20%"
+    },
+    {
+     "say": "What should I do? Look for dustlike scales around damaged books.",
+     "vis": "Card. Meatball holds a chewed book under the flashlight; glitter-like scales on the shelf.",
+     "card": "WHAT SHOULD YOU DO?",
+     "src": "P5-S4",
+     "rate": "+20%"
+    },
+    {
+     "say": "All that history, and it loses to a bathtub.",
+     "vis": "Meatball salutes the silverfish in the tub; it salutes back with a feeler.",
+     "card": null,
+     "src": "joke (no new fact)"
+    },
+    {
+     "say": "It damages paper, books and wallpaper, so: annoying.",
+     "vis": "Whoosh to the full-screen TIER BOARD graphic (no room behind it); the silverfish card drops into ANNOYING. Sound hit.",
+     "card": "TIER: ANNOYING",
+     "src": "P5-F2 (MDC damage list) + opinion"
+    },
+    {
+     "say": "Then I spot a trail of dust leading to the couch.",
+     "vis": "Flashlight follows a dust trail down the stairs to the living-room couch.",
+     "card": "CLUE → LIVING ROOM",
+     "src": "story (clue)"
+    }
+   ]
+  },
+  {
+   "chapter": "Suspect 2: Dust mites",
+   "chip": "SUSPECT 2 OF 6",
+   "room": "Living room couch",
+   "est_start": "1:26",
+   "lines": [
+    {
+     "say": "Suspect two lives in my couch, and I can't even see it.",
+     "vis": "RE-HOOK CARD 'SUSPECT 2 OF 6' + sound hit. Meatball squints at a couch cushion.",
+     "card": "SUSPECT 2 OF 6",
+     "src": "story / DM1"
+    },
+    {
+     "say": "Dust mites: adults are about half a millimeter long.",
+     "vis": "Act it out: Meatball drags in a huge toy microscope and a ruler to the cushion; a counter zooms 1x...10x...100x into a single mite.",
+     "card": "BUG ID: DUST MITE · ABOUT 0.5 MM",
+     "src": "DM1",
+     "rate": "+20%"
+    },
+    {
+     "say": "Their primary food is skin flakes in house dust.",
+     "vis": "Act it out: Meatball scratches his ear; flakes float down into the cushion like snow; mites cheer.",
+     "card": "ID ROW 2: EATS SHED SKIN FLAKES",
+     "src": "DM3 / DM6",
+     "rate": "+20%"
+    },
+    {
+     "say": "They tend to be most numerous in beds, overstuffed sofas and chairs.",
+     "vis": "Camera pulls back across the living room: bed, sofa, armchair each glow briefly.",
+     "card": "ID ROW 3: MOST IN BEDS, SOFAS, CHAIRS",
+     "src": "DM3",
+     "rate": "+20%"
+    },
+    {
+     "say": "So, did a dust mite bite me?",
+     "vis": "Interrogation lamp over the cushion.",
+     "card": "WILL IT BITE YOU?",
+     "src": "story"
+    },
+    {
+     "say": "House dust mites are not capable of biting or stinging humans.",
+     "vis": "Cut: the mite under the microscope shrugs; a red CLEARED stamp hits its card on the corkboard.",
+     "card": "CLEARED OF THE BITE",
+     "src": "DM8",
+     "rate": "+20%"
+    },
+    {
+     "say": "Why is it here? Every home has dust mites.",
+     "vis": "Card. Quick montage: three different houses, each with a microscope-view mite waving.",
+     "card": "WHY IS IT IN MY HOUSE?",
+     "src": "DM6 (EPA wording; do not blend with ALA)",
+     "rate": "+20%"
+    },
+    {
+     "say": "The trouble is allergens in the mites, their cast skins and droppings.",
+     "vis": "Act it out: a tiny shed skin and a speck labelled POOP float up past Meatball's nose.",
+     "card": null,
+     "src": "DM8",
+     "rate": "+20%"
+    },
+    {
+     "say": "What should I do? Wash bedding in water at least 130 degrees Fahrenheit.",
+     "vis": "Card. Cut to a washing machine; the dial clicks to AT LEAST 130°F.",
+     "card": "WHAT SHOULD YOU DO? · AT LEAST 130°F WASH",
+     "src": "DM20",
+     "rate": "+20%"
+    },
+    {
+     "say": "And keep the humidity in your home below 50 percent.",
+     "vis": "Cut: hygrometer needle drops under 50.",
+     "card": null,
+     "src": "DM14",
+     "rate": "+20%"
+    },
+    {
+     "say": "I have been napping on a skin-flake buffet.",
+     "vis": "Meatball stares at the couch, horrified; slow zoom.",
+     "card": null,
+     "src": "joke"
+    },
+    {
+     "say": "Dust mites go on the board: annoying, if you're allergic.",
+     "vis": "Whoosh to the full-screen TIER BOARD graphic; dust-mite card drops into ANNOYING.",
+     "card": "TIER: ANNOYING",
+     "src": "opinion (DM28-DM32 hedge: allergic people)"
+    },
+    {
+     "say": "But something spun a web across the garage window.",
+     "vis": "Flashlight beam lands on a web glinting in the garage door window.",
+     "card": "CLUE → GARAGE",
+     "src": "story (clue)"
+    }
+   ]
+  },
+  {
+   "chapter": "Suspect 3: House spiders",
+   "chip": "SUSPECT 3 OF 6",
+   "room": "Garage",
+   "est_start": "2:18",
+   "lines": [
+    {
+     "say": "Suspect three hangs belly-up in a messy web.",
+     "vis": "RE-HOOK CARD 'SUSPECT 3 OF 6' + sound hit. Garage, cellar spider upside down in a tangled corner web; then SPIDER CAM (interrupt): spider's-eye view of Meatball's giant face.",
+     "card": "SUSPECT 3 OF 6 · BUG ID: HOUSE SPIDER · ROW 1: HANGS BELLY-UP",
+     "src": "HS7"
+    },
+    {
+     "say": "But the jaws of most spiders are too small to bite humans.",
+     "vis": "Act it out: Meatball holds a tiny cartoon spider jaw next to his giant paw; the jaw can't reach around.",
+     "card": "ID ROW 2: MOST JAWS TOO SMALL FOR HUMANS",
+     "src": "HS2",
+     "rate": "+20%"
+    },
+    {
+     "say": "So, did a spider bite me last night?",
+     "vis": "Interrogation lamp swings up to the corner web.",
+     "card": "WILL IT BITE YOU?",
+     "src": "story"
+    },
+    {
+     "say": "Generally, a spider only tries to bite if squeezed, lain on, or similarly provoked.",
+     "vis": "Three quick cuts: a hand squeezing (stops short), a pillow lowering (stops short), a finger poking (stops short).",
+     "card": null,
+     "src": "HS4",
+     "rate": "+20%"
+    },
+    {
+     "say": "Some spiders might bite when trapped in clothing or bedding.",
+     "vis": "Cut: Meatball's own blanket; he slowly lifts it, eyes huge.",
+     "card": null,
+     "src": "HS4",
+     "rate": "+20%"
+    },
+    {
+     "say": "The effect is usually no more severe than itching or a bee sting.",
+     "vis": "Push-in on Meatball scratching, then shrugging; spider photo pinned to the corkboard with a question mark.",
+     "card": null,
+     "src": "HS4",
+     "rate": "+20%"
+    },
+    {
+     "say": "Why here? It's commonly found in garages and other dark, quiet, protected spots.",
+     "vis": "Card. Slow pan across the dark garage shelves; the spider's web in a quiet corner.",
+     "card": "WHY IS IT IN MY HOUSE?",
+     "src": "HS7",
+     "rate": "+20%"
+    },
+    {
+     "say": "This longbodied cellar spider is not known to be in any way harmful.",
+     "vis": "Slow tilt down the spider's long legs; label CELLAR SPIDER.",
+     "card": "ID ROW 3: CELLAR SPIDER · NOT KNOWN TO BE HARMFUL",
+     "src": "HS7",
+     "rate": "+20%"
+    },
+    {
+     "say": "A few, like black widows and brown recluses, have venom very toxic to humans.",
+     "vis": "Card. Two WANTED posters slam onto the garage wall (black widow, brown recluse), drawn clearly.",
+     "card": "WHAT SHOULD YOU DO?",
+     "src": "HS5",
+     "rate": "+20%"
+    },
+    {
+     "say": "Don't guess those from a blurry photo; get it identified.",
+     "vis": "Cut: a blurry phone photo; a big red NO; then a sharp photo going to an EXPERT ID box.",
+     "card": "GET IT IDENTIFIED",
+     "src": "HS62",
+     "rate": "+20%"
+    },
+    {
+     "say": "Most house spiders go on the board: annoying, mostly the webs.",
+     "vis": "Meatball peels web off his face, then whoosh to the full-screen TIER BOARD graphic; spider card drops into ANNOYING.",
+     "card": "TIER: ANNOYING",
+     "src": "opinion"
+    },
+    {
+     "say": "Then something with way too many legs runs for the basement.",
+     "vis": "Flashlight catches a flicker of many legs vanishing down the basement stairs.",
+     "card": "CLUE → BASEMENT",
+     "src": "story (clue)",
+     "rate": "+34%",
+     "pitch": "+12Hz"
+    }
+   ]
+  },
+  {
+   "chapter": "Suspect 4: House centipede",
+   "chip": "SUSPECT 4 OF 6",
+   "room": "Basement",
+   "est_start": "3:13",
+   "lines": [
+    {
+     "say": "Suspect four: basement security cam, 2:14 AM.",
+     "vis": "RE-HOOK CARD 'SUSPECT 4 OF 6' + sound hit. SECURITY CAM (interrupt): grainy timestamped view, a house centipede streaks across the floor.",
+     "card": "SUSPECT 4 OF 6",
+     "src": "story"
+    },
+    {
+     "say": "House centipede: clocked at about sixteen inches a second.",
+     "vis": "Cut to full colour. Act it out: a speed counter ticks up to ~16 IN/SEC as it runs past a ruler on the floor.",
+     "card": "BUG ID: HOUSE CENTIPEDE · ABOUT 16 IN/SEC",
+     "src": "P4-F1",
+     "rate": "+20%"
+    },
+    {
+     "say": "It can run up your walls to hunt.",
+     "vis": "Cut: centipede runs up the basement wall (walls only, not the ceiling).",
+     "card": "ID ROW 2: RUNS UP WALLS TO HUNT",
+     "src": "P4-F2",
+     "rate": "+20%"
+    },
+    {
+     "say": "Unlike most centipedes, it has well-developed, faceted eyes.",
+     "vis": "Extreme close-up on its faceted eyes; Meatball's reflection in them.",
+     "card": "ID ROW 3: FACETED EYES",
+     "src": "P4-F4",
+     "rate": "+20%"
+    },
+    {
+     "say": "Fast, leggy, and it hunts: that's my biter!",
+     "vis": "Meatball grabs a giant GET OUT stamp, wind-up, freeze-frame on the stamp mid-air.",
+     "card": null,
+     "src": "story",
+     "rate": "+34%",
+     "pitch": "+12Hz"
+    },
+    {
+     "say": "Will it bite you? Here's the twist.",
+     "vis": "Record-scratch. Card spins in.",
+     "card": "WILL IT BITE YOU?",
+     "src": "story"
+    },
+    {
+     "say": "Which one is in YOUR house? Comment it.",
+     "vis": "BIG COMMENT CARD with the six silhouettes while the GET OUT stamp hangs frozen mid-air (cliffhanger); Meatball points at the viewer. Sound hit.",
+     "card": "WHICH ONE IS IN YOUR HOUSE? COMMENT IT",
+     "src": "comment prompt"
+    },
+    {
+     "say": "Bites to humans are uncommon, unless it's handled or accidentally pressed against skin.",
+     "vis": "Slow push-in on the centipede sitting calmly; Meatball's stamp lowers.",
+     "card": null,
+     "src": "P4Q-MSU",
+     "rate": "+20%"
+    },
+    {
+     "say": "Its fangs are so small that piercing human skin is difficult.",
+     "vis": "Act it out: tiny fangs vs a giant skin wall; they barely tap it.",
+     "card": null,
+     "src": "P4Q-UKY-bite",
+     "rate": "+20%"
+    },
+    {
+     "say": "I never touched it, so it's not my biter.",
+     "vis": "Meatball drops the GET OUT stamp; the centipede's card slides DOWN past GROSS.",
+     "card": "TWIST: NOT THE BITER",
+     "src": "story (keeps the MSU condition)"
+    },
+    {
+     "say": "Why is it in my house? It feeds on bugs in the home.",
+     "vis": "Card. Cut: centipede facing a lineup of tiny bugs.",
+     "card": "WHY IS IT IN MY HOUSE?",
+     "src": "P4Q-UKY-prey",
+     "rate": "+20%"
+    },
+    {
+     "say": "That includes cockroaches and, yes, silverfish.",
+     "vis": "Quick flash-back cut: the silverfish from the tub, looking nervous.",
+     "card": null,
+     "src": "P4Q-UKY-prey",
+     "rate": "+20%"
+    },
+    {
+     "say": "It catches them by half pouncing, half lassoing.",
+     "vis": "Act it out: centipede pounces, legs loop around a cardboard bug like a lasso.",
+     "card": null,
+     "src": "P4-F3",
+     "rate": "+20%"
+    },
+    {
+     "say": "What should you do? Don't grab it.",
+     "vis": "Card. Meatball's paw reaches, then yanks back.",
+     "card": "WHAT SHOULD YOU DO?",
+     "src": "P4Q-MSU condition"
+    },
+    {
+     "say": "Most house centipede infestations can be counted in single digits.",
+     "vis": "Act it out: Meatball counts on his paw: 1, 2, 3... a counter stops in single digits.",
+     "card": null,
+     "src": "P4-S2 (MSU)",
+     "rate": "+20%"
+    },
+    {
+     "say": "I almost arrested the one that eats roaches.",
+     "vis": "Meatball sheepishly hands the centipede back its photo.",
+     "card": null,
+     "src": "joke (P4Q-UKY-prey)"
+    },
+    {
+     "say": "House centipede drops to annoying: creepy, but not my case.",
+     "vis": "Whoosh to the full-screen TIER BOARD graphic; centipede card lands in ANNOYING.",
+     "card": "TIER: ANNOYING",
+     "src": "opinion"
+    },
+    {
+     "say": "It eats roaches, so I'm checking the kitchen.",
+     "vis": "Flashlight swings up the basement stairs toward the kitchen door.",
+     "card": "CLUE → KITCHEN",
+     "src": "story (clue, P4Q-UKY-prey)"
+    }
+   ]
+  },
+  {
+   "chapter": "Suspect 5: Cockroach",
+   "chip": "SUSPECT 5 OF 6",
+   "room": "Kitchen",
+   "est_start": "4:16",
+   "lines": [
+    {
+     "say": "Suspect five scatters the second I flip the kitchen light.",
+     "vis": "RE-HOOK CARD 'SUSPECT 5 OF 6' + sound hit. Light flicks on; roaches scatter from the counter.",
+     "card": "SUSPECT 5 OF 6",
+     "src": "CR18"
+    },
+    {
+     "say": "German cockroach: light brown, about half an inch, two dark stripes.",
+     "vis": "BUG CAM (interrupt): eye-level behind the toaster, one roach freezes. BUG ID card.",
+     "card": "BUG ID: GERMAN COCKROACH · ABOUT 1/2 INCH",
+     "src": "CR8",
+     "rate": "+20%"
+    },
+    {
+     "say": "Adult German cockroaches can hide in a crack 1/16 inch wide.",
+     "vis": "Act it out: Meatball slides a credit-card-thin gap gauge into a counter crack; the roach slips in.",
+     "card": "ID ROW 2: HIDES IN A 1/16-INCH CRACK",
+     "src": "CR10",
+     "rate": "+20%"
+    },
+    {
+     "say": "Each egg case contains about 30 young.",
+     "vis": "Act it out: tiny roaches pour from an egg case into a jar; a counter ticks to about 30.",
+     "card": "ID ROW 3: ABOUT 30 YOUNG PER EGG CASE",
+     "src": "CR6",
+     "rate": "+20%"
+    },
+    {
+     "say": "So, did a roach bite me?",
+     "vis": "Interrogation lamp over the sink.",
+     "card": "WILL IT BITE YOU?",
+     "src": "story"
+    },
+    {
+     "say": "In extremely heavy infestations, German cockroaches have been reported to bite humans.",
+     "vis": "Slow push-in on a crowded drawing of a filthy pantry, labelled EXTREMELY HEAVY.",
+     "card": null,
+     "src": "CR39 (keep 'extremely heavy' and 'have been reported')",
+     "rate": "+20%"
+    },
+    {
+     "say": "I saw one roach, which is not extremely heavy.",
+     "vis": "Smash cut back to Meatball's tidy kitchen with ONE roach.",
+     "card": null,
+     "src": "story (keeps CR39 condition)"
+    },
+    {
+     "say": "Their droppings or body parts can trigger asthma.",
+     "vis": "Cut: an inhaler on the counter; a speck labelled DROPPINGS drifts by.",
+     "card": null,
+     "src": "CR37",
+     "rate": "+20%"
+    },
+    {
+     "say": "Why is it here? They're often brought in with infested grocery bags.",
+     "vis": "Card. Cut: a grocery bag set on the counter; a roach climbs out of a carton.",
+     "card": "WHY IS IT IN MY HOUSE?",
+     "src": "CR11",
+     "rate": "+20%"
+    },
+    {
+     "say": "Even clean homes can become infested.",
+     "vis": "Cut: a sparkling kitchen, then one roach strolls through.",
+     "card": null,
+     "src": "CR11",
+     "rate": "+20%"
+    },
+    {
+     "say": "What should you do? Pesticides alone will not solve cockroach problems.",
+     "vis": "Card. Meatball drops a spray can; it rolls away.",
+     "card": "WHAT SHOULD YOU DO?",
+     "src": "CR26",
+     "rate": "+20%"
+    },
+    {
+     "say": "Good sanitation and exclusion are important.",
+     "vis": "Two quick cuts: Meatball wipes the counter; caulks a crack by the sink.",
+     "card": null,
+     "src": "CR26",
+     "rate": "+20%"
+    },
+    {
+     "say": "If using insecticides, baits provide better control than sprays.",
+     "vis": "Cut: a bait station placed near the crack vs a spray can with a big X.",
+     "card": null,
+     "src": "CR26",
+     "rate": "+20%"
+    },
+    {
+     "say": "Avoid foggers, bombs, or aerosol sprays; they can be hazardous.",
+     "vis": "Cut: a bug bomb with a red NO stamp (never shown going off).",
+     "card": null,
+     "src": "CR27",
+     "rate": "+20%"
+    },
+    {
+     "say": "Always read and follow the label.",
+     "vis": "Close on a label with READ ME highlighted.",
+     "card": null,
+     "src": "CR29",
+     "rate": "+20%"
+    },
+    {
+     "say": "Thirty babies per case? I need a shower.",
+     "vis": "Meatball shudders head to tail.",
+     "card": null,
+     "src": "joke (CR6 repeated)"
+    },
+    {
+     "say": "The cockroach goes on the board: gross.",
+     "vis": "Whoosh to the full-screen TIER BOARD graphic; roach card drops into GROSS with a splat SFX.",
+     "card": "TIER: GROSS",
+     "src": "opinion"
+    },
+    {
+     "say": "But roaches feed on filth, and my biter feeds solely on blood.",
+     "vis": "Close on Meatball's arm, the bite mark glows.",
+     "card": null,
+     "src": "BB13",
+     "rate": "+20%"
+    },
+    {
+     "say": "There's one room I haven't searched: mine.",
+     "vis": "Kitchen doorway: Meatball's shadow stretches long toward the stairs; creak SFX, slow push-in.",
+     "card": "CLUE → MY BEDROOM",
+     "src": "story (clue)",
+     "rate": "+34%",
+     "pitch": "+12Hz"
+    }
+   ]
+  },
+  {
+   "chapter": "Suspect 6: Bed bugs",
+   "chip": "SUSPECT 6 OF 6",
+   "room": "Meatball's bedroom",
+   "est_start": "5:24",
+   "lines": [
+    {
+     "say": "Suspect six: last room, my own bed.",
+     "vis": "RE-HOOK CARD 'SUSPECT 6 OF 6' + heartbeat SFX. Bedroom, lamp pool on the bed.",
+     "card": "SUSPECT 6 OF 6",
+     "src": "story"
+    },
+    {
+     "say": "I lift the sheet, check the mattress seam, and...",
+     "vis": "Slow push-in, flashlight along the mattress seam (camera move, no hold over 5 s).",
+     "card": null,
+     "src": "story"
+    },
+    {
+     "say": "Bed bug! Bed bug! There's a bed bug in my bed!",
+     "vis": "FREAK-OUT (interrupt): Meatball launches straight up, clings to the ceiling fan, fan spins him round. Fast cuts.",
+     "card": null,
+     "src": "story",
+     "rate": "+34%",
+     "pitch": "+12Hz"
+    },
+    {
+     "say": "Get out, get out, get out!",
+     "vis": "He drops onto the dresser, then hides behind the curtain, one eye peeking.",
+     "card": "GET OUT!",
+     "src": "story",
+     "rate": "+34%",
+     "pitch": "+12Hz"
+    },
+    {
+     "say": "Adult bed bugs are about 3/16 of an inch, reddish-brown, oval and flat.",
+     "vis": "Close on the bed bug next to an apple seed for colour only (no size claim from the seed).",
+     "card": "BUG ID: BED BUG · ABOUT 3/16 INCH",
+     "src": "BB4",
+     "rate": "+20%"
+    },
+    {
+     "say": "They can fit into crevices no wider than a toothpick.",
+     "vis": "Act it out: a toothpick laid along the headboard crack; the bug slides in beside it.",
+     "card": "ID ROW 2: FITS A TOOTHPICK-WIDE CRACK",
+     "src": "BB7",
+     "rate": "+20%"
+    },
+    {
+     "say": "They hide in mattress seams, box springs, bed frames and headboards.",
+     "vis": "Four quick cuts: seam, box spring, frame, headboard, each with a hidden bug.",
+     "card": "ID ROW 3: SEAMS · BOX SPRINGS · FRAMES",
+     "src": "BB8",
+     "rate": "+20%"
+    },
+    {
+     "say": "Will it bite you? Yes, and here's how.",
+     "vis": "Card. Meatball nods slowly, eyes wide.",
+     "card": "WILL IT BITE YOU? YES",
+     "src": "story (BB17 follows)"
+    },
+    {
+     "say": "Bed bugs bite people and animals at night while they sleep.",
+     "vis": "Cut: a sleeping-Meatball flashback, a bug crawling toward his arm (no bite shown).",
+     "card": null,
+     "src": "BB17",
+     "rate": "+20%"
+    },
+    {
+     "say": "The bite is painless, so people seldom realize they're being bitten.",
+     "vis": "Flashback Meatball keeps snoring peacefully.",
+     "card": null,
+     "src": "BB19",
+     "rate": "+20%"
+    },
+    {
+     "say": "Bite marks may take as long as 14 days to develop in some people.",
+     "vis": "Act it out: calendar pages flip; a counter ticks up to 14 days; the mark appears.",
+     "card": null,
+     "src": "BB18",
+     "rate": "+20%"
+    },
+    {
+     "say": "Bites can cause itching, loss of sleep and, rarely, allergic reactions.",
+     "vis": "Meatball scratching, then wide awake at 3 AM (two quick cuts).",
+     "card": null,
+     "src": "BB20",
+     "rate": "+20%"
+    },
+    {
+     "say": "Bed bugs are not known to spread diseases to people.",
+     "vis": "Small relief beat: Meatball exhales.",
+     "card": null,
+     "src": "BB20 / BB33",
+     "rate": "+20%"
+    },
+    {
+     "say": "Case closed: I found my biter.",
+     "vis": "CASE CLOSED stamp slams onto the bed-bug photo on the corkboard. Sound hit.",
+     "card": "CASE CLOSED",
+     "src": "story"
+    },
+    {
+     "say": "Why is it here? Bed bugs hitchhike in on luggage, clothing and furniture.",
+     "vis": "Card. Cut: a suitcase opens on the bed; a bug rides out on a sock.",
+     "card": "WHY IS IT IN MY HOUSE?",
+     "src": "BB11",
+     "rate": "+20%"
+    },
+    {
+     "say": "What should you do? Dry bedding and clothes on high heat for 30 minutes.",
+     "vis": "Card. Cut: dryer dial on HIGH, timer 30 MIN.",
+     "card": "WHAT SHOULD YOU DO? · DRYER, HIGH HEAT, 30 MIN",
+     "src": "BB21",
+     "rate": "+20%"
+    },
+    {
+     "say": "Just washing will generally not kill bed bugs.",
+     "vis": "Cut: a bug surfing happily in a washing machine.",
+     "card": null,
+     "src": "BB21",
+     "rate": "+20%"
+    },
+    {
+     "say": "Don't raise your home's temperature with a thermostat, propane space heater or fireplace.",
+     "vis": "Card. Thermostat, space heater and fireplace each get a big red X (none shown running hot).",
+     "card": "NEVER HEAT YOUR HOUSE YOURSELF",
+     "src": "BB23",
+     "rate": "+20%"
+    },
+    {
+     "say": "That does not work, and it is dangerous.",
+     "vis": "Hold on the three X's; camera push-in.",
+     "card": null,
+     "src": "BB23",
+     "rate": "+20%"
+    },
+    {
+     "say": "Never use a pesticide indoors that's meant for outdoor use.",
+     "vis": "Cut: an outdoor spray can stopped at the front door by a NO sign.",
+     "card": null,
+     "src": "BB29",
+     "rate": "+20%"
+    },
+    {
+     "say": "Removal from a home can be expensive and inconvenient.",
+     "vis": "Act it out: Meatball's piggy bank empties coin by coin.",
+     "card": "HARD TO GET RID OF",
+     "src": "BB33",
+     "rate": "+20%"
+    },
+    {
+     "say": "If needed, hire a pest management professional.",
+     "vis": "Cut: a pro in a uniform knocks; Meatball opens the door, relieved.",
+     "card": "CALL A PRO",
+     "src": "BB30",
+     "rate": "+20%"
+    },
+    {
+     "say": "Professionals have more intensive, proven methods, and can even heat whole houses.",
+     "vis": "Cut: the pro rolls in a big professional heat unit (drawn, generic, no brand).",
+     "card": null,
+     "src": "BB23",
+     "rate": "+20%"
+    },
+    {
+     "say": "I'm sleeping on the roof tonight.",
+     "vis": "Meatball on the roof in a sleeping bag, clutching a teddy.",
+     "card": null,
+     "src": "joke"
+    },
+    {
+     "say": "Bed bug goes on the board: get out, number one.",
+     "vis": "Whoosh to the full-screen TIER BOARD graphic; the bed bug card slams into GET OUT with the biggest sound hit of the video.",
+     "card": "TIER: GET OUT · #1",
+     "src": "opinion"
+    }
+   ]
+  },
+  {
+   "chapter": "Case closed + the final ranking",
+   "chip": "FINAL BOARD",
+   "room": "Roof at dawn",
+   "est_start": "7:03",
+   "lines": [
+    {
+     "say": "Case closed, so here's the final board.",
+     "vis": "Roof at dawn, Meatball in his sleeping bag; the full tier board floats in the sky, camera trucks along it.",
+     "card": "FINAL RANKING",
+     "src": "story"
+    },
+    {
+     "say": "Silverfish, dust mites, spiders and the centipede: annoying.",
+     "vis": "Each card pulses as named.",
+     "card": null,
+     "src": "opinion (recap)"
+    },
+    {
+     "say": "The cockroach is gross, and the bed bug is get out.",
+     "vis": "GROSS and GET OUT pulse; the bed-bug card shakes.",
+     "card": null,
+     "src": "opinion (recap)"
+    },
+    {
+     "say": "Harmless has one spot left, and it's mine.",
+     "vis": "Meatball climbs into the empty HARMLESS slot and curls up, tail wag.",
+     "card": "HARMLESS: MEATBALL",
+     "src": "joke"
+    },
+    {
+     "say": "Next Wednesday, I crack a brand-new case.",
+     "vis": "Cut: a new case file stamped CASE #2 slides under the door; a mystery silhouette on it.",
+     "card": "NEW CASE EVERY WEDNESDAY",
+     "src": "story (next week's case hook)"
+    },
+    {
+     "say": "You pick the suspect: comment the bug I should rank next.",
+     "vis": "Meatball points at the viewer; comment-bubble icon.",
+     "card": "WHICH BUG SHOULD I RANK NEXT?",
+     "src": "comment prompt"
+    },
+    {
+     "say": "Subscribe, and check your mattress seams tonight.",
+     "vis": "Meatball holds the flashlight to his own mattress seam, side-eye to camera.",
+     "card": null,
+     "src": "BB8 / BB33 (regularly look for signs)"
+    },
+    {
+     "say": "",
+     "vis": "END SCREEN, 20 s, nothing important in the corners: House Centipede playlist + House Guests playlist (never a Short), subscribe button. Music only.",
+     "card": "END SCREEN",
+     "src": null,
+     "hold_s": 20
+    }
+   ]
+  }
+ ],
+ "pinned_comment": "Which bug should Meatball rank next? And which one is in YOUR house?",
+ "end_screen_video": "House Centipede playlist + House Guests playlist (never a Short)",
+ "sources_file": "side-hustles/channels/scripts/longform-house-bugs-ranked.md (Source tags)",
+ "sources": [
+  {
+   "tags": "P5-F1",
+   "source": "Missouri Department of Conservation, Silverfish (Firebrat) field guide: https://mdc.mo.gov/discover-nature/field-guide/silverfish-firebrat ; University of Maryland Extension, Silverfish and Firebrats: https://extension.umd.edu/resource/silverfish-and-firebrats"
+  },
+  {
+   "tags": "P5-F2",
+   "source": "Missouri Department of Conservation (as above)"
+  },
+  {
+   "tags": "P5-F7",
+   "source": "Penn State Extension, Bristletails (Silverfish and Firebrats): https://extension.psu.edu/bristletails-silverfish-and-firebrats"
+  },
+  {
+   "tags": "P5-F8 / P5-F9 / P5-F10 / P5-S4",
+   "source": "UC IPM Pest Notes, Silverfish and Firebrats: https://ipm.ucanr.edu/home-and-landscape/silverfish-and-firebrats/"
+  },
+  {
+   "tags": "DM1 / DM3 / DM8",
+   "source": "University of Kentucky ENTFACT-646, House Dust Mites: https://entomology.mgcafe.uky.edu/ef646"
+  },
+  {
+   "tags": "DM6",
+   "source": "EPA, Asthma Triggers: Gain Control: https://www.epa.gov/asthma/asthma-triggers-gain-control"
+  },
+  {
+   "tags": "DM14 / DM20",
+   "source": "Mayo Clinic, Dust mite allergy: diagnosis and treatment: https://www.mayoclinic.org/diseases-conditions/dust-mites/diagnosis-treatment/drc-20352178"
+  },
+  {
+   "tags": "HS2 / HS4",
+   "source": "UC IPM Pest Notes, Spiders: https://ipm.ucanr.edu/home-and-landscape/spiders/"
+  },
+  {
+   "tags": "HS5",
+   "source": "University of Kentucky ENTFACT-622, Common Spiders Found Around Homes & Buildings: https://entomology.mgcafe.uky.edu/ef622"
+  },
+  {
+   "tags": "HS7",
+   "source": "Penn State Extension, Longbodied Cellar Spider: https://extension.psu.edu/longbodied-cellar-spider"
+  },
+  {
+   "tags": "HS62",
+   "source": "UC Riverside (Vetter), How to Identify and Misidentify a Brown Recluse: https://spiders.ucr.edu/recluseid.html ; University of Kentucky Entomology (ID path, HS60): https://entomology.mgcafe.uky.edu/ef001"
+  },
+  {
+   "tags": "P4-F1",
+   "source": "Acosta 2003, J. Ky. Acad. Sci. 64(1), Northern Kentucky University: https://websites.nku.edu/~acostac/AcostaJKAS2000.PDF ; Mississippi State Extension, Bug's Eye View No. 29: https://www.accessibility.extension.msstate.edu/newsletters/bugs-eye-view/2015/house-centipede-no-29"
+  },
+  {
+   "tags": "P4-F2 / P4Q-UKY-bite / P4Q-UKY-prey",
+   "source": "University of Kentucky ENTFACT ef645, Centipedes and Millipedes in and Around the Home: https://entomology.mgcafe.uky.edu/ef645"
+  },
+  {
+   "tags": "P4-F3 / P4-F4",
+   "source": "University of Arkansas Arthropod Museum, House centipede: https://arthropod.uark.edu/house-centipede/"
+  },
+  {
+   "tags": "P4Q-MSU / P4-S2",
+   "source": "Mississippi State University Extension, Bug's Eye View No. 29 (as above)"
+  },
+  {
+   "tags": "CR6 / CR10 / CR18 / CR26 / CR27",
+   "source": "UC IPM Pest Notes, Cockroaches: https://ipm.ucanr.edu/home-and-landscape/cockroaches/"
+  },
+  {
+   "tags": "CR8 / CR11 / CR29",
+   "source": "University of Kentucky ENTFACT-614, Cockroach Elimination in Homes & Apartments: https://entomology.mgcafe.uky.edu/ef614"
+  },
+  {
+   "tags": "CR37",
+   "source": "EPA, Asthma Triggers: Gain Control (as above)"
+  },
+  {
+   "tags": "CR39",
+   "source": "UF/IFAS EENY-002 / IN128, German Cockroach: https://ask.ifas.ufl.edu/publication/IN128/pdf"
+  },
+  {
+   "tags": "BB4 / BB7 / BB11 / BB13 / BB19",
+   "source": "University of Kentucky ENTFACT-636, Bed Bugs: https://entomology.mgcafe.uky.edu/ef636"
+  },
+  {
+   "tags": "BB8 / BB17 / BB18 / BB20 / BB33",
+   "source": "CDC, About Bed Bugs: https://www.cdc.gov/bed-bugs/about/index.html"
+  },
+  {
+   "tags": "BB21",
+   "source": "EPA, Controlling Bed Bugs Using IPM: https://www.epa.gov/bedbugs/controlling-bed-bugs-using-integrated-pest-management-ipm"
+  },
+  {
+   "tags": "BB23 / BB30",
+   "source": "EPA, Do It Yourself Bed Bug Control: https://www.epa.gov/bedbugs/do-it-yourself-bed-bug-control"
+  },
+  {
+   "tags": "BB29",
+   "source": "EPA, Safety Issues in Controlling Bed Bugs: https://www.epa.gov/bedbugs/safety-issues-controlling-bed-bugs"
+  }
+ ],
+ "_factcheck": "NOT yet checked by a second model. Research & QA checks it Wed 11/18 morning before render/schedule.",
+ "fact_files": [
+  "side-hustles/channels/qa/silverfish-p5-1118.md (P5-F#, P5-S#)",
+  "side-hustles/channels/qa/centipede-p4-1117.md (P4Q-*: the MSU and UKY lines quoted in the 8:10 AM addendum table)",
+  "skills/oh-meatball/research/facts/house-centipede-p4.md (P4-F#, P4-S2 = the MSU 'single digits' spare)",
+  "side-hustles/channels/scripts/facts/dust-mite-bornas.md (DM#)",
+  "side-hustles/channels/scripts/facts/house-spiders-id.md (HS#)",
+  "side-hustles/channels/scripts/facts/cockroach-bornas.md (CR#)",
+  "side-hustles/channels/scripts/facts/bed-bugs.md (BB#)"
+ ],
+ "unsourced_cut": [
+  "\"Never bite\" / \"can't bite you\" / \"harmless to people\" for any bug",
+  "Centipede \"turns out harmless to people\" (TASKS twist wording)",
+  "Centipede: 15 pairs of legs, hides in basements/cellars/bathrooms, \"dry out the damp\", \"harmless to pets and the house\", \"a bite like a bee sting\"",
+  "Silverfish: dry the air, airtight boxes, toss cardboard",
+  "\"You've found every one of these in your house\" (TASKS cold-open line)",
+  "\"The next one is in your bed right now\" (TASKS re-hook example)",
+  "Bed bugs: \"EPA: hard to get rid of\" as an EPA phrase",
+  "House spiders: \"why it is in my house\" for spiders in general"
+ ]
+}

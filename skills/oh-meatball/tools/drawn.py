@@ -235,7 +235,7 @@ def music_bed(kind, total, reveals=(), **kw):
 # ---------------------------------------------------------------- voice
 
 def line_key(text, voice, rate, pitch):
-    if voice.startswith("kokoro:"):   # Kokoro ignores rate/pitch; its blend tuning is part of the voice
+    if voice.startswith(("kokoro:", "chatterbox:")):   # Kokoro ignores rate/pitch; its blend tuning is part of the voice
         import free_voice
         return json.dumps([text, free_voice.cache_name(voice)])
     return json.dumps([text, voice, rate, pitch])
@@ -255,7 +255,7 @@ def tts(text, voice, rate, pitch, mp3):
     from facts import speak
     key = line_key(text, voice, rate, pitch)   # the cache is per beat index: re-speak when the line changes
     if not take_fresh(key, mp3):
-        if voice.startswith("kokoro:"):
+        if voice.startswith(("kokoro:", "chatterbox:")):
             kokoro(text, voice, mp3, key)
             return json.load(open(mp3 + ".words.json"))
         if tts_cached(key, mp3):
@@ -278,7 +278,7 @@ def prefetch(spec, work, limit=6):
         bv, br, bp = b.get("voice", voice), b.get("rate", rate), b.get("pitch", pitch)
         key = line_key(b["say"], bv, br, bp)
         if not take_fresh(key, mp3):
-            if bv.startswith("kokoro:"):   # local and cached: no edge batch
+            if bv.startswith(("kokoro:", "chatterbox:")):   # local and cached: no edge batch
                 kokoro(b["say"], bv, mp3, key)
             elif not tts_cached(key, mp3):
                 jobs.append((b["say"], mp3, key, bv, br, bp))
