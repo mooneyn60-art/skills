@@ -643,7 +643,7 @@ def id_card_img(card):
     dr.text((34, 18), "BUG ID", font=fH, fill=(20, 20, 20, 255))
     dr.text((Wc - 360, 18), "MEATBALL MYTHS", font=fH, fill=(20, 20, 20, 255))
     icon = _icon(card.get("type") or CFG.get("stage_type"), 300, 150)
-    if icon is not None:
+    if icon is not None and 34 + dr.textlength(card.get("name", ""), font=fN) < Wc - 340:   # no icon over a long name
         im.alpha_composite(icon, (Wc - 330, hh + 6))
     dr.text((34, hh + 14), card.get("name", ""), font=fN, fill=(255, 255, 255, 255))
     y = hh + nh
