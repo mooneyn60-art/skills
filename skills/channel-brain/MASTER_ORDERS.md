@@ -166,12 +166,12 @@ Read each test on its date, not before.
 - **Anyone proposing a style change must bring numbers to Nolan first.** Never send a sample instead.
 
 ## The shows (nothing else on YouTube)
-**From 11/11 (Nolan's pick, see "Direction change" near the top):** every NEW video is either a pet in your house (cats and dogs; they run as Things Living In Your House #N with "Your cat" or "Your dog" leading the title) or a Would Meatball Survive? #N with a big dangerous animal. No new bug or spider episodes are built; the ones already made keep their slots.
+**From 11/11 (Nolan's pick, see "Direction change" near the top):** every NEW video is either a pet in your house (cats and dogs; they run as Things Living In Your House #N with "Your cat" or "Your dog" leading the title) or a Would Meatball Survive? #N with a big dangerous animal. SUPERSEDED 11/17 (Nolan via Studio, QUALITY FIRST in MEATBALL_ORDERS.md): house bugs only, lane lock.
 1. **Things Living In Your House #N**: house bugs and mites (the best first-second hold: 58.6%).
 2. **Is This Spider Venomous? #N**: spiders (the top search terms: daddy long legs, venomous spider).
 3. **Would Meatball Survive? #N**: big dangerous animals (the best at bringing viewers back).
 
-Any pet or survival Short that beats 2x the median gets a Part 2 within 48 h. A bug winner gets none ("Direction change": no new bug videos).
+Any pet or survival Short that beats 2x the median gets a Part 2 within 48 h. Superseded 11/17: hits (5x median) get a sequel within 7 days (MEATBALL_ORDERS.md).
 
 ## The Short template and title rules (from "Studio data 11/3" and "Scoreboard 11/10")
 - **No "TRUE or FALSE" / quiz-style titles or hooks on YouTube** (20-28% stayed vs 55-63% for house creatures). Banned title words: TRUE or FALSE, Myth, Believe, Cartoons, Lied, "Did you know".
