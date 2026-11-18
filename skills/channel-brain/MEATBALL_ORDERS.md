@@ -20,6 +20,7 @@ Daily and tactical notes stay in the shared notebook under **[MEATBALL]**. The r
 - **Format:** the Wednesday flagship runs 8-12 min from 11/25. The Saturday video may pass 4 min when the topic holds. Shorts keep coming from our own long-forms, each with its own hook.
 - **Slate 11/23-11/29 (by search demand; Research & QA sources each before rendering):** Christmas-tree bugs within 7 days (no spraying the tree); bed bug bites; "Is this a brown recluse?"; German vs American roach; stink bugs in winter; mice (signs, mouse vs rat); yard test ticks (moles backup, no wasps till summer); a house-bug tier list; "What happens if..." titles.
 - **Swear cap on TikTok too (Moondog88 11/18, replaces Nolan 11/11 "one a sentence"):** 1-2 light or bleeped swears per video on both platforms, none in the first 7 s or the first caption line, no f-word in text.
+- **Numbers read aloud (QA 11/18):** fractions as words ("one-sixteenth of an inch"), never "slash"; drawn_ranked TTS map does it, and the gap/voice check must hear no "slash".
 - **Order of posts (11/18):** the long-form publishes before any Short cut from it; at least 1 hour between posts on the same platform.
 - **Keep:** 3 Shorts (1, 4, 7 PM) and 3 TikToks (12, 4, 7 PM) a day; voice E2 plain; TikToks 61-90 s.
 

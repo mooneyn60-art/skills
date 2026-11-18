@@ -56,7 +56,10 @@ FONT = drawn.FONT
 YEL, RED, GREEN = "#ffd34d", "#e5383b", "#3fb950"
 TIERS = ["HARMLESS", "ANNOYING", "GROSS", "GET OUT"]
 TCOL = {"HARMLESS": "#3fb950", "ANNOYING": "#ffd34d", "GROSS": "#ff9f43", "GET OUT": "#e5383b"}
-TTS = {}   # pronunciation respellings (captions always use say)
+TTS = {   # pronunciation respellings (captions always use say). QA 11/18: fractions are read as words, never "slash".
+    r"\b1/16\b(?: inch| of an inch)?": "one-sixteenth of an inch", r"\b3/16\b(?: inch| of an inch)?": "three-sixteenths of an inch",
+    r"\b1/8\b(?: inch| of an inch)?": "one-eighth of an inch", r"\b1/4\b(?: inch| of an inch)?": "a quarter of an inch",
+    r"\b1/2\b(?: inch| of an inch)?": "half an inch"}
 drawn.SFX_MAX, drawn.SFX_GAP = 4, 0.3   # the re-hook card needs its sting and its hit
 
 # ================================================================================================ bugs
