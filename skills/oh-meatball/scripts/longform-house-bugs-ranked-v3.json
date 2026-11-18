@@ -1,19 +1,29 @@
 {
  "_note": "Built by tools/drawn_ranked.py build from longform-house-bugs-ranked-v3.outline.json. Each line: id (s<seg>.l<line>), the outline fields (say/vis/card/rate/pitch/src) and shot (the SHOTS recipe in tools/drawn_ranked.py; \"_keep\": true keeps a hand edit across rebuilds).",
- "voice": "en-US-GuyNeural",
+ "voice": "kokoro:adam",
  "rate": "+32%",
  "pitch": "+2Hz",
  "music": "mystery",
  "music_db": -16,
  "tempo": {
-  "lead": 0.06,
-  "tail": 0.22,
+  "lead": 0.0,
+  "tail": 0.02,
   "thr": 0.01,
   "cam": 0.7
  },
- "pad": 0.86,
- "captions": 60,
- "caption_y": 990,
+ "pad": 0.08,
+ "speed_k": 0.7,
+ "beat_lines": [
+  "s0.l4",
+  "s1.l12",
+  "s2.l8",
+  "s3.l10",
+  "s4.l8",
+  "s6.l1",
+  "s7.l2"
+ ],
+ "captions": 122,
+ "caption_y": 870,
  "cut_whoosh": true,
  "sfx_gain": 0.24,
  "cap_key": [
@@ -197,6 +207,7 @@
    "id": "s0.l2",
    "seg": 0,
    "shot": {
+    "cap_y": 1000,
     "f": "k",
     "room": "board",
     "cams": [
@@ -247,6 +258,7 @@
    "id": "s0.l3",
    "seg": 0,
    "shot": {
+    "cap_y": 1000,
     "f": "k",
     "room": "board",
     "cams": [
@@ -2533,7 +2545,7 @@
       "type": "ds_label",
       "pos": [
        960,
-       1080
+       420
       ],
       "s": 1.0,
       "p": {
@@ -6106,20 +6118,10 @@
    "id": "s6.l21",
    "seg": 6,
    "shot": {
-    "f": "wk",
+    "f": "mM",
     "room": "house",
-    "cams": [
-     [
-      1150,
-      1300,
-      1.2,
-      1.3
-     ]
-    ],
-    "cuts": [
-     "professional|50%"
-    ],
-    "pose": "laugh",
+    "pose": "point",
+    "look": "viewer",
     "bug": null,
     "mb": {
      "pos": [
@@ -6129,53 +6131,18 @@
     },
     "x": [
      {
-      "id": "pro",
-      "type": "tp_worker",
+      "id": "ph",
+      "type": "cl_phone",
       "pos": [
-       1700,
-       1600
+       1120,
+       1240
       ],
-      "s": 1.6,
-      "p": {
-       "sandwich": false
-      },
-      "flip": true,
-      "moves": [
-       {
-        "at": "hire|20%",
-        "dur": 1.2,
-        "pos": [
-         1350,
-         1600
-        ],
-        "walk": true
-       }
-      ]
-     },
-     {
-      "id": "pl",
-      "type": "ds_label",
-      "pos": [
-       1450,
-       820
-      ],
-      "s": 1.0,
-      "p": {
-       "text": "PRO",
-       "px": 90,
-       "color": "#ffd34d",
-       "on": 0.0
-      },
-      "set": [
-       {
-        "at": "pest|30%",
-        "dur": 0.3,
-        "p": {
-         "on": 1.0
-        }
-       }
-      ]
+      "s": 1.3,
+      "p": {}
      }
+    ],
+    "sfx": [
+     "tink@hire|30%"
     ]
    }
   },
@@ -6188,11 +6155,11 @@
    "id": "s6.l22",
    "seg": 6,
    "shot": {
-    "f": "wk",
+    "f": "mk",
     "room": "house",
     "cams": [
      [
-      1300,
+      1250,
       1300,
       1.0,
       1.1
@@ -6202,41 +6169,33 @@
      "heat|55%"
     ],
     "pose": "present",
+    "look": [
+     1500,
+     1300
+    ],
     "bug": null,
     "mb": {
      "pos": [
-      500,
+      700,
       1600
      ]
     },
     "x": [
      {
-      "id": "pro",
-      "type": "tp_worker",
-      "pos": [
-       1100,
-       1600
-      ],
-      "s": 1.6,
-      "p": {
-       "sandwich": false
-      }
-     },
-     {
       "id": "unit",
       "type": "cl_box",
       "pos": [
-       1500,
+       2400,
        1600
       ],
-      "s": 2.2,
+      "s": 1.4,
       "p": {},
       "moves": [
        {
-        "at": "methods|30%",
+        "at": "methods|20%",
         "dur": 1.5,
         "pos": [
-         1400,
+         1500,
          1600
         ]
        }
@@ -6246,8 +6205,8 @@
       "id": "hu",
       "type": "ds_label",
       "pos": [
-       1450,
-       1050
+       1500,
+       1150
       ],
       "s": 1.0,
       "p": {
@@ -6355,32 +6314,8 @@
      {
       "type": "tier",
       "in": "board|65%",
-      "placed": [
-       [
-        "silverfish",
-        "ANNOYING"
-       ],
-       [
-        "mite",
-        "ANNOYING"
-       ],
-       [
-        "spider",
-        "ANNOYING"
-       ],
-       [
-        "centipede",
-        "ANNOYING"
-       ],
-       [
-        "roach",
-        "GROSS"
-       ],
-       [
-        "bedbug",
-        "GET OUT"
-       ]
-      ]
+      "placed": [],
+      "mb": "point"
      }
     ],
     "sfx": [
@@ -6411,34 +6346,32 @@
      "hidden": true
     },
     "card": false,
+    "cap_y": 980,
     "ov": [
      {
       "type": "tier",
-      "slide": false,
-      "placed": [
+      "placed": [],
+      "mb": "shrug",
+      "drops": [
        [
         "silverfish",
-        "ANNOYING"
+        "ANNOYING",
+        "Silverfish|5%"
        ],
        [
         "mite",
-        "ANNOYING"
+        "ANNOYING",
+        "dust|20%"
        ],
        [
         "spider",
-        "ANNOYING"
+        "ANNOYING",
+        "spiders|45%"
        ],
        [
         "centipede",
-        "ANNOYING"
-       ],
-       [
-        "roach",
-        "GROSS"
-       ],
-       [
-        "bedbug",
-        "GET OUT"
+        "ANNOYING",
+        "centipede|65%"
        ]
       ],
       "pulse": [
@@ -6446,46 +6379,29 @@
         "ANNOYING",
         "annoying|80%"
        ]
-      ],
-      "shake": [
-       [
-        "silverfish",
-        "Silverfish|5%"
-       ],
-       [
-        "mite",
-        "dust|20%"
-       ],
-       [
-        "spider",
-        "spiders|45%"
-       ],
-       [
-        "centipede",
-        "centipede|65%"
-       ]
       ]
      },
      {
       "type": "zoom",
       "from": [
-       500,
-       380,
-       1.6
+       700,
+       335,
+       1.3
       ],
       "to": [
-       1400,
-       380,
-       1.6
+       1250,
+       335,
+       1.3
       ],
       "at": 0.0,
       "linear": true
      }
     ],
     "sfx": [
-     "tink@Silverfish|5%",
-     "tink@dust|20%",
-     "tink@spiders|45%"
+     "stamp@Silverfish|5%",
+     "stamp@dust|20%",
+     "stamp@spiders|45%",
+     "stamp@centipede|65%"
     ]
    }
   },
@@ -6512,10 +6428,10 @@
      "hidden": true
     },
     "card": false,
+    "cap_y": 980,
     "ov": [
      {
       "type": "tier",
-      "slide": false,
       "placed": [
        [
         "silverfish",
@@ -6532,55 +6448,50 @@
        [
         "centipede",
         "ANNOYING"
-       ],
+       ]
+      ],
+      "drops": [
        [
         "roach",
-        "GROSS"
+        "GROSS",
+        "cockroach|15%"
        ],
        [
         "bedbug",
-        "GET OUT"
+        "GET OUT",
+        "bed|60%"
        ]
       ],
       "pulse": [
        [
         "GROSS",
-        "gross|20%"
+        "gross|30%"
        ],
        [
         "GET OUT",
-        "get|70%"
-       ]
-      ],
-      "shake": [
-       [
-        "roach",
-        "cockroach|10%"
-       ],
-       [
-        "bedbug",
-        "bed|55%"
+        "get|75%"
        ]
       ]
      },
      {
       "type": "zoom",
       "from": [
-       700,
-       580,
-       1.5
+       900,
+       560,
+       1.15
       ],
       "to": [
-       700,
-       790,
-       1.7
+       900,
+       760,
+       1.3
       ],
       "at": 0.0
      }
     ],
     "sfx": [
-     "tink@gross|20%",
-     "hit@get|70%"
+     "stamp@cockroach|15%",
+     "hit@bed|60%",
+     "sting@get|75%"
     ]
    }
   },
@@ -6607,10 +6518,10 @@
      "hidden": true
     },
     "card": false,
+    "cap_y": 980,
     "ov": [
      {
       "type": "tier",
-      "slide": false,
       "placed": [
        [
         "silverfish",
@@ -6638,13 +6549,13 @@
        ]
       ],
       "mb_slot": "mine|50%",
+      "mb": "laugh",
       "pulse": [
        [
         "HARMLESS",
         "Harmless|10%"
        ]
-      ],
-      "off": null
+      ]
      },
      {
       "type": "big",
@@ -6667,9 +6578,9 @@
        1.0
       ],
       "to": [
-       700,
-       250,
-       1.45
+       760,
+       230,
+       1.4
       ],
       "at": 0.0
      }

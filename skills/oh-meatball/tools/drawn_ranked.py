@@ -57,7 +57,7 @@ YEL, RED, GREEN = "#ffd34d", "#e5383b", "#3fb950"
 TIERS = ["HARMLESS", "ANNOYING", "GROSS", "GET OUT"]
 TCOL = {"HARMLESS": "#3fb950", "ANNOYING": "#ffd34d", "GROSS": "#ff9f43", "GET OUT": "#e5383b"}
 TTS = {}   # pronunciation respellings (captions always use say)
-drawn.SFX_MAX, drawn.SFX_GAP = 3, 0.35   # the re-hook card needs its sting and its hit
+drawn.SFX_MAX, drawn.SFX_GAP = 4, 0.3   # the re-hook card needs its sting and its hit
 
 # ================================================================================================ bugs
 
@@ -256,105 +256,154 @@ def ov_idcard(arr, b, t, o):
 
 
 def _tier_layout(sil=False):
-    return (40, 160, 440) if sil else (70, 205, 440)
+    return (40, 160, 440) if sil else (14, 214, 380)
 
 
 def ov_tier(arr, b, t, o):
-    """The full-screen tier board. o: placed [[bug, tier], ...] already there, drop [bug, tier] (lands at `at`),
-    sil (six silhouettes waiting under the board), pulse [tier, ...] (rows that pulse), mb_slot (Meatball in HARMLESS)."""
-    top, rh, lw = _tier_layout(bool(o.get("sil")))
+    """The full-screen tier board (Studio 11/17: big icons, one bug lands per beat with a hit, Meatball on screen).
+    o: placed [[bug, tier], ...] already there; drops [[bug, tier, at], ...] each falls in at its own time (the old
+    drop + at is one drop); sil (the cold open's six silhouettes); pulse [[tier, at]]; shake [[bug, at]]; mb_slot
+    (Meatball lands in HARMLESS); mb (pose for the reaction bubble, default by the newest drop; False = none);
+    in / off (the board pops on / off at these times)."""
+    sil = bool(o.get("sil"))
+    top, rh, lw = _tier_layout(sil)
     ton = drawn.at_time(b["words"], o.get("in", 0.0))
     if t < ton:
         return
-    u_in = min(1.0, (t - ton) / 0.25) if o.get("slide", True) else 1.0
-    toff = drawn.at_time(b["words"], o["off"]) if o.get("off") is not None else None
-    if toff is not None and t > toff:
-        u_in = max(0.0, 1 - (t - toff) / 0.25)
-        if u_in <= 0:
-            return
-    dy = int((1 - ease(u_in)) * -1100)
+    if o.get("off") is not None and t > drawn.at_time(b["words"], o["off"]):
+        return
     if o.get("full", True):
-        bg = np.array([40, 26, 20], np.uint8)   # BGR (dark navy)
-        yb = max(0, dy + 0)
-        arr[yb:, :, :3] = (arr[yb:, :, :3] * (1 - ease(u_in)) * 0.15 + bg * (1 - (1 - ease(u_in)) * 0.15)).astype(np.uint8) \
-            if u_in < 1 else bg
-    sil = o.get("sil")
-    for i, tname in enumerate(TIERS if not o.get("only_sil") else []):
-        y0 = top + i * rh + dy
+        arr[..., :3] = np.array([40, 26, 20], np.uint8)   # BGR: dark navy
+    rows = TIERS if not o.get("only_sil") else []
+    for i, tname in enumerate(rows):
+        y0 = top + i * rh
         col = hexc(TCOL[tname])
-        lab = Image.new("RGBA", (lw, rh - 14), tuple(int(c * 255) for c in col) + (255,))
-        ImageDraw.Draw(lab).rounded_rectangle((0, 0, lw - 1, rh - 15), radius=24, outline=(15, 15, 15, 255), width=6)
         pul = 0.0
         for pt in o.get("pulse", []):
-            tt, at = pt if isinstance(pt, list) else (pt, "0%")
-            if tt == tname:
-                v = t - drawn.at_time(b["words"], at)
-                if 0 <= v < 1.2:
-                    pul = math.sin(v / 1.2 * math.pi)
-        tim = txt(tname, 92 if len(tname) > 6 else 104, "#1a1a1a", 0)
-        lab.alpha_composite(tim, ((lw - tim.width) // 2, (rh - 14 - tim.height) // 2))
-        lab = _scaled(lab, 1 + 0.08 * pul)
-        drawn.paste(arr, lab, 40 + lw // 2, y0 + rh // 2)
-        row = Image.new("RGBA", (W - lw - 100, rh - 14), (255, 255, 255, int(40 + 60 * pul)))
-        ImageDraw.Draw(row).rounded_rectangle((0, 0, row.width - 1, rh - 15), radius=24, outline=(255, 255, 255, 140), width=4)
-        drawn.paste(arr, row, 60 + lw + row.width // 2, y0 + rh // 2)
+            v = t - drawn.at_time(b["words"], pt[1])
+            if pt[0] == tname and 0 <= v < 1.2:
+                pul = math.sin(v / 1.2 * math.pi)
+        lab = _tier_label(tname, lw, rh - 14, col)
+        drawn.paste(arr, _scaled(lab, 1 + 0.08 * pul), 30 + lw // 2, y0 + rh // 2)
+        drawn.paste(arr, _tier_row(W - lw - 70, rh - 14, int(40 + 70 * pul)), 50 + lw + (W - lw - 70) // 2, y0 + rh // 2)
+    drops = [list(d) for d in o.get("drops", [])]
+    if o.get("drop"):
+        drops.append(list(o["drop"]) + [o.get("at", "90%")])
     slots = {k: 0 for k in TIERS}
-    placed = [list(x) for x in o.get("placed", [])]
-    items = placed + ([list(o["drop"])] if o.get("drop") else [])
-    for j, (bug, tname) in enumerate(items):
+    iw, ih, step = 340, rh - 46, 350
+    items = [(bug, tn, None) for bug, tn in o.get("placed", [])] + [(d[0], d[1], d[2]) for d in drops]
+    newest = None
+    for bug, tname, at in items:
         i = TIERS.index(tname)
         k = slots[tname]
         slots[tname] += 1
-        cx = 60 + lw + 190 + k * 330
-        cy = top + i * rh + rh // 2 + dy
-        im = icon(bug, 300, rh - 40)
+        cx = 50 + lw + 30 + iw // 2 + k * step
+        cy = top + i * rh + rh // 2 - 14
+        im = icon(bug, iw, ih)
         shake = 0
-        if o.get("drop") and j == len(items) - 1:
-            a = drawn.at_time(b["words"], o.get("at", "55%"))
-            v = t - a
-            if v < -0.35:
+        if at is not None:
+            v = t - drawn.at_time(b["words"], at)
+            if v < -0.3:
                 continue
-            if v < 0:   # falling in from above, growing
-                q = (v + 0.35) / 0.35
-                cy = int(-200 + (cy + 200) * q * q)
-                im = _scaled(im, 1.6 - 0.6 * q)
+            newest = (bug, tname)
+            if v < 0:   # falling in from above, big, then shrinking into its slot
+                q = (v + 0.3) / 0.3
+                cy = int(-260 + (cy + 260) * q * q)
+                im = _scaled(im, 1.7 - 0.7 * q)
             elif v < 0.5:
                 q = v / 0.5
-                im = _scaled(im, 1 + 0.25 * math.sin(q * math.pi) * (1 - q))
-                shake = int(16 * (1 - q) * math.sin(v * 80))
-            name = txt(BUGS[bug][4], 44, "#ffffff")
-            if v > 0.15:
-                drawn.paste(arr, name, cx, cy + rh // 2 - 34)
-        else:
-            drawn.paste(arr, txt(BUGS[bug][4], 40, "#ffffff"), cx, cy + rh // 2 - 34)
+                im = _scaled(im, 1 + 0.3 * math.sin(q * math.pi) * (1 - q))
+                shake = int(18 * (1 - q) * math.sin(v * 80))
         for pt in o.get("shake", []):
             if pt[0] == bug:
                 v = t - drawn.at_time(b["words"], pt[1])
                 if 0 <= v < 1.0:
-                    shake = int(14 * math.sin(v * 60) * (1 - v))
-        drawn.paste(arr, im, cx + shake, cy - 18)
+                    shake = int(16 * math.sin(v * 60) * (1 - v))
+        drawn.paste(arr, im, cx + shake, cy)
+        drawn.paste(arr, txt(BUGS[bug][4], 38, "#ffffff"), cx, top + i * rh + rh - 34)
     if o.get("mb_slot"):
         a = drawn.at_time(b["words"], o["mb_slot"])
         if t >= a:
             q = min(1.0, (t - a) / 0.4)
-            mbim = _mb_icon()
-            drawn.paste(arr, _scaled(mbim, 0.6 + 0.4 * back_out(q)), 60 + lw + 190, top + rh // 2 + dy - 6)
-    if sil:   # cold open: six suspects in silhouette, under the board, twitching as the camera passes
-        n_on = o.get("sil_n", 6)
-        for j, bug in enumerate(ORDER[:n_on]):
+            drawn.paste(arr, _scaled(_mb_pose("laugh", 300), 0.6 + 0.4 * back_out(q)), 50 + lw + 30 + iw // 2, top + rh // 2)
+    pose = o.get("mb")
+    if pose is None:
+        pose = {"GET OUT": "shock", "GROSS": "nervous", "ANNOYING": "shrug", "HARMLESS": "laugh"}[newest[1]] if newest else "think"
+    if pose and not sil:   # Meatball's reaction bubble, bottom right (GROSS / GET OUT rows hold one bug at most)
+        cx, cy, r = W - 250, H - 330, 225
+        bub = Image.new("RGBA", (2 * r + 16, 2 * r + 16), (0, 0, 0, 0))
+        d = ImageDraw.Draw(bub)
+        d.ellipse((8, 8, 2 * r + 8, 2 * r + 8), fill=(255, 226, 150, 255), outline=(15, 15, 15, 255), width=10)
+        mbim = _mb_bust(pose, 2 * r)
+        bob = int(8 * math.sin(t * 7))
+        m = Image.new("L", bub.size, 0)
+        ImageDraw.Draw(m).ellipse((14, 14, 2 * r + 2, 2 * r + 2), fill=255)
+        layer = Image.new("RGBA", bub.size, (0, 0, 0, 0))
+        layer.alpha_composite(mbim, (max(0, (bub.width - mbim.width) // 2), 30 + bob))
+        layer.putalpha(Image.fromarray(np.minimum(np.asarray(layer.getchannel("A")), np.asarray(m))))
+        bub.alpha_composite(layer)
+        drawn.paste(arr, bub, cx, cy)
+    if sil:   # cold open: six suspects in silhouette under the board, twitching as they appear
+        for j, bug in enumerate(ORDER):
             cx = 230 + j * 292
-            cy = (830 if not o.get("only_sil") else 760) + dy
-            ph = drawn.at_time(b["words"], o.get("sil_at", "0%")) + j * 0.25
-            v = t - ph
+            cy = 830 if not o.get("only_sil") else 760
+            v = t - (drawn.at_time(b["words"], o.get("sil_at", "0%")) + j * 0.25)
             if v < 0:
                 continue
             tw = 8 * math.sin(t * 30 + j) * max(0.0, 1 - abs(v - 0.3) / 0.3) if v < 0.6 else 0
-            im = icon(bug, 260, 160, sil=True)
             plate = Image.new("RGBA", (280, 190), (230, 220, 200, 255))
             ImageDraw.Draw(plate).rounded_rectangle((0, 0, 279, 189), radius=18, outline=(15, 15, 15, 255), width=5)
             drawn.paste(arr, plate, cx, cy)
-            drawn.paste(arr, im, cx + int(tw), cy + 6)
+            drawn.paste(arr, icon(bug, 260, 160, sil=True), cx + int(tw), cy + 6)
             drawn.paste(arr, txt("?", 70, RED), cx + 110, cy - 70)
+
+
+_TL = {}
+
+
+def _tier_label(tname, w, h, col):
+    key = (tname, w, h)
+    if key not in _TL:
+        lab = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+        ImageDraw.Draw(lab).rounded_rectangle((0, 0, w - 1, h - 1), radius=24, fill=tuple(int(c * 255) for c in col) + (255,),
+                                              outline=(15, 15, 15, 255), width=6)
+        tim = txt(tname, 88 if len(tname) > 6 else 100, "#1a1a1a", 0)
+        lab.alpha_composite(tim, ((w - tim.width) // 2, (h - tim.height) // 2))
+        _TL[key] = lab
+    return _TL[key]
+
+
+def _tier_row(w, h, a):
+    key = ("row", w, h, a)
+    if key not in _TL:
+        row = Image.new("RGBA", (w, h), (255, 255, 255, a))
+        ImageDraw.Draw(row).rounded_rectangle((0, 0, w - 1, h - 1), radius=24, outline=(255, 255, 255, 140), width=4)
+        _TL[key] = row
+    return _TL[key]
+
+
+_MBP = {}
+
+
+def _mb_bust(pose, size):
+    """Meatball's head and shoulders, about `size` px tall, for the reaction bubble."""
+    if ("bust", pose, size) not in _MBP:
+        im = _mb_pose(pose, 900)
+        im = im.crop((0, 0, im.width, int(im.height * 0.5)))
+        k = size * 0.92 / im.height
+        _MBP[("bust", pose, size)] = im.resize((max(1, int(im.width * k)), max(1, int(im.height * k))), Image.LANCZOS)
+    return _MBP[("bust", pose, size)]
+
+
+def _mb_pose(pose, px):
+    if (pose, px) not in _MBP:
+        import mascot
+        st = mascot.states(pose, [(0.0, 0.3, "x")], 1.0, 30, seed=3, enter=False, size=px)[20]
+        got = mascot.render(st, px, 2, (0, 0), (px * 2, px * 2))
+        im = got[0] if got else Image.new("RGBA", (10, 10))
+        bb = im.getbbox()
+        _MBP[(pose, px)] = im.crop(bb) if bb else im
+    return _MBP[(pose, px)]
 
 
 _MBI = {}
@@ -479,6 +528,10 @@ def screen_layer(arr, T):
 def ov_zoom(arr, b, t, o):
     """A camera move on the finished screen (boards are screen graphics): from [cx, cy, z] to [cx, cy, z]."""
     a = drawn.at_time(b["words"], o.get("at", 0.0))
+    if o.get("until") is not None and t >= drawn.at_time(b["words"], o["until"]):
+        return
+    if t < a and o.get("wait"):
+        return
     d = o.get("dur") or max(0.3, b["dur"] - a)
     u = min(1.0, max(0.0, (t - a) / d))
     u = u if o.get("linear") else ease(u)
@@ -503,6 +556,22 @@ def _draw_counter(arr, T):
 
 
 drawn.draw_counter = _draw_counter
+_orig_frame_at = drawn.frame_at
+
+
+def _frame_at(f):
+    """Captions sit in the lower third (Studio 11/17: 2x size, bold, black outline); a beat may move them (cap_y)."""
+    G = drawn.G
+    beats = G.get("beats") or []
+    if beats and G.get("cap_px"):
+        T = f / G["fps"]
+        b = beats[max(i for i, bb in enumerate(beats) if bb["t0"] <= T + 1e-9)]
+        G.setdefault("cap_y0", G["cap_y"])
+        G["cap_y"] = b.get("cap_y", G["cap_y0"])
+    return _orig_frame_at(f)
+
+
+drawn.frame_at = _frame_at
 
 # ================================================================================================ world layer: light + hair
 
@@ -529,7 +598,7 @@ def light_pass(ctx, cam, b, t, T):
     kind = lt["kind"]
     if lt.get("off_at") is not None and t >= drawn.at_time(b["words"], lt["off_at"]):
         return
-    dark = lt.get("dark", 0.55 if kind == "lamp" else 0.72)
+    dark = lt.get("dark", 0.42 if kind == "lamp" else 0.6)
     pools = []
     hb = _act_pos(b, "hero", t)
     if hb and hb[3].get("p", {}).get("hidden"):
@@ -930,9 +999,9 @@ def _table():
                       sfx=["click@0", "sting@0.05", "thud@something|45%"], zb=1.65)
     T["s0.l1"] = dict(f="kk", pose="deadpan", cams=[[640, 1060, 1.6, 1.75], [575, 1020, 2.4, 2.6]], cuts=["exactly|40%"],
                       bug=None, light="lamp", sfx=["click@exactly|40%"], mb={"prop": "flashlight"})
-    T["s0.l2"] = dict(f="k", room="board", cams=[[960, 540, 1.0, 1.0]], bug=None, mb={"hidden": True},
+    T["s0.l2"] = dict(cap_y=1000, f="k", room="board", cams=[[960, 540, 1.0, 1.0]], bug=None, mb={"hidden": True},
                       ov=[{"type": "tier", "sil": True, "sil_at": "Six|30%", "in": 0.0}, {"type": "zoom", "from": [960, 540, 1.0], "to": [960, 700, 1.15], "at": 0.4}], sfx=["hit@0", "pop@Six|30%"])
-    T["s0.l3"] = dict(f="k", room="board", cams=[[960, 540, 1.0, 1.0]], bug=None, mb={"hidden": True}, card=False,
+    T["s0.l3"] = dict(cap_y=1000, f="k", room="board", cams=[[960, 540, 1.0, 1.0]], bug=None, mb={"hidden": True}, card=False,
                       ov=[{"type": "tier", "sil": True, "slide": False, "sil_at": "0%", "pulse": [["HARMLESS", "harmless|30%"], ["GET OUT", "get|60%"]]},
                           {"type": "zoom", "from": [300, 760, 1.7], "to": [1650, 760, 1.7], "at": 0.0, "linear": True}],
                       sfx=["whoosh@0.05", "tink@harmless|30%", "hit@get|60%"])
@@ -1045,7 +1114,7 @@ def _table():
     T["s3.l8"] = dict(f="kk", room="garage", cams=[[960, 700, 0.9, 0.95], [700, 700, 1.4, 1.5]], cuts=["toxic|60%"], bug=None, mb={"hidden": True},
                       x=[A("w1", "rk_photo", [650, 700], 1.1, {"bug": "widow", "on": 0.0, "tilt": -6}, set=popset("widows|20%")),
                          A("w2", "rk_photo", [1300, 700], 1.1, {"bug": "recluse", "on": 0.0, "tilt": 5}, set=popset("recluses|40%")),
-                         lab("wa", "VERY TOXIC VENOM", [960, 1080], "venom|60%", px=90, color=RED)],
+                         lab("wa", "VERY TOXIC VENOM", [960, 420], "venom|60%", px=90, color=RED)],
                       sfx=["thud@widows|20%", "thud@recluses|40%"], light="lamp")
     T["s3.l9"] = dict(f="wk", room="board", roomscene="office", cams=[[1300, 1100, 1.3, 1.4]], cuts=["county|50%"], pose="present", bug=None,
                       mb={"pos": [400, 1500], "moves": [{"at": "Save|25%", "dur": 1.6, "pos": [900, 1500], "walk": True}], "prop": None},
@@ -1200,34 +1269,36 @@ def _table():
     T["s6.l20"] = dict(f="wM", room="board", roomscene="jh_office", pose="shock", bug=None, mb={"pos": [600, 1500]}, look=[1200, 1300],
                        x=[A("cash", "tp_money", [1250, 1500], 1.6, {"q": 1.0}, set=[{"at": "expensive|40%", "dur": 1.5, "p": {"s": 0.3}}])],
                        sfx=["tink@expensive|40%"])
-    T["s6.l21"] = dict(f="wk", room="house", cams=[[1150, 1300, 1.2, 1.3]], cuts=["professional|50%"], pose="laugh", bug=None, mb={"pos": [900, 1600]},
-                       x=[A("pro", "tp_worker", [1700, 1600], 1.6, {"sandwich": False}, flip=True, moves=[{"at": "hire|20%", "dur": 1.2, "pos": [1350, 1600], "walk": True}]),
-                          lab("pl", "PRO", [1450, 820], "pest|30%", px=90, color=YEL)])
-    T["s6.l22"] = dict(f="wk", room="house", cams=[[1300, 1300, 1.0, 1.1]], cuts=["heat|55%"], pose="present", bug=None, mb={"pos": [500, 1600]},
-                       x=[A("pro", "tp_worker", [1100, 1600], 1.6, {"sandwich": False}), A("unit", "cl_box", [1500, 1600], 2.2, {}, moves=[{"at": "methods|30%", "dur": 1.5, "pos": [1400, 1600]}]),
-                          lab("hu", "HEAT", [1450, 1050], "heat|55%", px=100, color="#ff7a30")])
+    T["s6.l21"] = dict(f="mM", room="house", pose="point", look="viewer", bug=None, mb={"pos": [900, 1600]},
+                       x=[A("ph", "cl_phone", [1120, 1240], 1.3, {})], sfx=["tink@hire|30%"])
+    T["s6.l22"] = dict(f="mk", room="house", cams=[[1250, 1300, 1.0, 1.1]], cuts=["heat|55%"], pose="present", look=[1500, 1300], bug=None,
+                       mb={"pos": [700, 1600]},
+                       x=[A("unit", "cl_box", [2400, 1600], 1.4, {}, moves=[{"at": "methods|20%", "dur": 1.5, "pos": [1500, 1600]}]),
+                          lab("hu", "HEAT", [1500, 1150], "heat|55%", px=100, color="#ff7a30")])
     T["s6.l23"] = dict(f="wM", room="roof", pose="deadpan", look="viewer", bug=None, tint=[0.05, 0.08, 0.3, 0.45],
                        mb={"pos": [960, 1500]}, x=[A("bagz", "tp_zzz", [1150, 900], 1.2, {"on": 1.0})])
     T["s6.l24"] = dict(tier="bedbug", big=True)
     # ------------------------------------------------------------------ the final board: the roof at dawn
     T["s7.l0"] = dict(f="wk", room="roof", cams=[[960, 1000, 1.3, 1.35]], cuts=["final|50%"], pose="laugh", bug=None, mb={"pos": [960, 1500]},
-                      ov=[{"type": "tier", "in": "board|65%", "placed": [[b, RANK[b]] for b in ORDER]}], sfx=["whoosh@board|65%"])
-    T["s7.l1"] = dict(f="k", room="board", cams=[[960, 540, 1, 1]], bug=None, mb={"hidden": True}, card=False,
-                      ov=[{"type": "tier", "slide": False, "placed": [[b, RANK[b]] for b in ORDER],
-                           "pulse": [["ANNOYING", "annoying|80%"]],
-                           "shake": [["silverfish", "Silverfish|5%"], ["mite", "dust|20%"], ["spider", "spiders|45%"], ["centipede", "centipede|65%"]]},
-                          {"type": "zoom", "from": [500, 380, 1.6], "to": [1400, 380, 1.6], "at": 0.0, "linear": True}],
-                      sfx=["tink@Silverfish|5%", "tink@dust|20%", "tink@spiders|45%"])
-    T["s7.l2"] = dict(f="k", room="board", cams=[[960, 540, 1, 1]], bug=None, mb={"hidden": True}, card=False,
-                      ov=[{"type": "tier", "slide": False, "placed": [[b, RANK[b]] for b in ORDER],
-                           "pulse": [["GROSS", "gross|20%"], ["GET OUT", "get|70%"]], "shake": [["roach", "cockroach|10%"], ["bedbug", "bed|55%"]]},
-                          {"type": "zoom", "from": [700, 580, 1.5], "to": [700, 790, 1.7], "at": 0.0}],
-                      sfx=["tink@gross|20%", "hit@get|70%"])
-    T["s7.l3"] = dict(f="k", room="board", cams=[[960, 540, 1, 1]], bug=None, mb={"hidden": True}, card=False,
-                      ov=[{"type": "tier", "slide": False, "placed": [[b, RANK[b]] for b in ORDER], "mb_slot": "mine|50%",
-                           "pulse": [["HARMLESS", "Harmless|10%"]], "off": None},
+                      ov=[{"type": "tier", "in": "board|65%", "placed": [], "mb": "point"}], sfx=["whoosh@board|65%"])
+    T["s7.l1"] = dict(f="k", room="board", cams=[[960, 540, 1, 1]], bug=None, mb={"hidden": True}, card=False, cap_y=980,
+                      ov=[{"type": "tier", "placed": [], "mb": "shrug",
+                           "drops": [["silverfish", "ANNOYING", "Silverfish|5%"], ["mite", "ANNOYING", "dust|20%"],
+                                     ["spider", "ANNOYING", "spiders|45%"], ["centipede", "ANNOYING", "centipede|65%"]],
+                           "pulse": [["ANNOYING", "annoying|80%"]]},
+                          {"type": "zoom", "from": [700, 335, 1.3], "to": [1250, 335, 1.3], "at": 0.0, "linear": True}],
+                      sfx=["stamp@Silverfish|5%", "stamp@dust|20%", "stamp@spiders|45%", "stamp@centipede|65%"])
+    T["s7.l2"] = dict(f="k", room="board", cams=[[960, 540, 1, 1]], bug=None, mb={"hidden": True}, card=False, cap_y=980,
+                      ov=[{"type": "tier", "placed": [[b, RANK[b]] for b in ORDER[:4]],
+                           "drops": [["roach", "GROSS", "cockroach|15%"], ["bedbug", "GET OUT", "bed|60%"]],
+                           "pulse": [["GROSS", "gross|30%"], ["GET OUT", "get|75%"]]},
+                          {"type": "zoom", "from": [900, 560, 1.15], "to": [900, 760, 1.3], "at": 0.0}],
+                      sfx=["stamp@cockroach|15%", "hit@bed|60%", "sting@get|75%"])
+    T["s7.l3"] = dict(f="k", room="board", cams=[[960, 540, 1, 1]], bug=None, mb={"hidden": True}, card=False, cap_y=980,
+                      ov=[{"type": "tier", "placed": [[b, RANK[b]] for b in ORDER], "mb_slot": "mine|50%", "mb": "laugh",
+                           "pulse": [["HARMLESS", "Harmless|10%"]]},
                           {"type": "big", "at": "mine|55%", "rows": [["HARMLESS: MEATBALL", 90, YEL]], "x": 1300, "y": 120},
-                          {"type": "zoom", "from": [960, 540, 1.0], "to": [700, 250, 1.45], "at": 0.0}],
+                          {"type": "zoom", "from": [960, 540, 1.0], "to": [760, 230, 1.4], "at": 0.0}],
                       sfx=["pop@mine|55%"])
     T["s7.l4"] = dict(f="wk", room="hall", cams=[[1100, 1350, 1.6, 1.7]], cuts=["case|55%"], pose="point", bug=None, light="off",
                       x=[A("file", "rk_file", [-300, 1440], 0.6, {}, moves=[{"at": "Wednesday|20%", "dur": 0.8, "pos": [1050, 1420]}])],
@@ -1274,8 +1345,9 @@ def build(outline, out_spec):
     spec = {"_note": "Built by tools/drawn_ranked.py build from " + os.path.basename(outline) +
                      ". Each line: id (s<seg>.l<line>), the outline fields (say/vis/card/rate/pitch/src) and shot (the "
                      "SHOTS recipe in tools/drawn_ranked.py; \"_keep\": true keeps a hand edit across rebuilds).",
-            "voice": o.get("voice", "en-US-GuyNeural"), "rate": o.get("rate", "+32%"), "pitch": o.get("pitch", "+2Hz"),
-            "music": "mystery", "music_db": -16, "tempo": {"lead": 0.06, "tail": 0.22, "thr": 0.01, "cam": 0.7}, "pad": 0.86, "captions": 60, "caption_y": 990, "cut_whoosh": True, "sfx_gain": 0.24,
+            "voice": "kokoro:adam", "rate": o.get("rate", "+32%"), "pitch": o.get("pitch", "+2Hz"),
+            "music": "mystery", "music_db": -16, "tempo": {"lead": 0.0, "tail": 0.02, "thr": 0.01, "cam": 0.7}, "pad": 0.08, "speed_k": 0.70,
+            "beat_lines": BEATS, "captions": 122, "caption_y": 870, "cut_whoosh": True, "sfx_gain": 0.24,
             "cap_key": ["bite", "bit", "biter", "harmless", "annoying", "gross", "get", "out", "suspect", "bed", "bug",
                         "silverfish", "mites", "spider", "centipede", "cockroach", "roach", "400", "million", "sixteen",
                         "30", "14", "blood", "disease", "doctor", "never", "twist", "closed", "dinosaurs"],
@@ -1297,9 +1369,66 @@ def _lv(spec, L):
     return spec["voice"], L.get("rate", spec["rate"]), L.get("pitch", spec["pitch"])
 
 
+# ---- voice E (Studio 11/17 "VOICE PICK: E"): Kokoro am_adam, every line acted. Directions -> per-line params
+# (free_voice: speed = Kokoro speed, pitch = semitones, gain = dB, pause = longest inner silence kept, s).
+ACT = {"fact": dict(speed=1.22, pitch=0.0, gain=0.0), "story": dict(speed=1.16, pitch=0.5, gain=0.0),
+       "curious": dict(speed=1.14, pitch=1.5, gain=0.0), "scared": dict(speed=1.32, pitch=3.0, gain=1.5),
+       "smug": dict(speed=1.02, pitch=-1.0, gain=0.0), "shocked": dict(speed=1.24, pitch=2.5, gain=2.0),
+       "shout": dict(speed=1.3, pitch=4.0, gain=4.0)}
+DIRECT = {  # line -> direction; the rest: outline +20 % lines = fact, +34 % = scared, others = story
+    "s0.l1": "curious", "s0.l5": "smug", "s1.l0": "curious", "s1.l4": "curious", "s1.l6": "smug", "s1.l13": "smug",
+    "s2.l0": "curious", "s2.l4": "curious", "s2.l9": "smug", "s2.l10": "shocked", "s3.l0": "curious", "s3.l2": "curious",
+    "s4.l0": "curious", "s4.l4": "shout", "s4.l5": "shocked", "s4.l6": "curious", "s4.l9": "smug", "s4.l15": "smug",
+    "s5.l0": "shocked", "s5.l4": "curious", "s5.l6": "smug", "s5.l15": "shocked", "s6.l0": "scared", "s6.l1": "scared",
+    "s6.l2": "shout", "s6.l3": "shout", "s6.l7": "shocked", "s6.l13": "smug", "s6.l23": "smug", "s7.l3": "smug",
+    "s7.l5": "curious"}
+PAUSE_IN = 0.2
+
+
+def direction(L):
+    if L["id"] in DIRECT:
+        return DIRECT[L["id"]]
+    r = L.get("rate")
+    return "fact" if r == "+20%" else ("scared" if r == "+34%" else "story")
+
+
+def _kvoice(spec, L):
+    """The line's Kokoro voice string, e.g. kokoro:adam@speed=1.22,pitch=0,gain=0,pause=0.2."""
+    a = dict(ACT[L["shot"].get("act") or direction(L)])
+    a["speed"] = round(a["speed"] * spec.get("speed_k", 1.0), 3)
+    return "%s@speed=%s,pitch=%s,gain=%s,pause=%s" % (spec["voice"].split("@")[0], a["speed"], a["pitch"], a["gain"], PAUSE_IN)
+
+
+def _kok(spec):
+    return spec["voice"].startswith("kokoro:")
+
+
+def _kmake(job):
+    import free_voice
+    v, text = job
+    return free_voice.make(v, text)
+
+
+def _kpath(spec, L):
+    import free_voice
+    import premium_voice as pv
+    v = _kvoice(spec, L)
+    return pv.cached(free_voice.cache_name(v), L["say"]), v
+
+
 def voice_cache(spec, lines):
     """Make sure every line's take is in the cache (5 tries each, empty/silent takes refused)."""
     import asyncio
+    if _kok(spec):
+        jobs = [(_kvoice(spec, L), L["say"]) for L in lines if not _kpath(spec, L)[0]]
+        if jobs:
+            print(f"voice E: {len(jobs)} new line(s)", flush=True)
+            import multiprocessing as mp
+            with mp.get_context("spawn").Pool(int(os.environ.get("KOKORO_JOBS", "3"))) as pool:
+                for k, _ in enumerate(pool.imap_unordered(_kmake, jobs)):
+                    if k % 10 == 0:
+                        print(f"  voiced {k + 1}/{len(jobs)}", flush=True)
+        return
     from facts import speak
     os.makedirs(CACHE, exist_ok=True)
     todo = {}
@@ -1335,14 +1464,20 @@ def voice_cache(spec, lines):
         asyncio.run(run())
 
 
+def _cpath(spec, L):
+    if _kok(spec):
+        return _kpath(spec, L)[0]
+    v, r, p = _lv(spec, L)
+    return os.path.join(CACHE, _vkey(L.get("tts", L["say"]), v, r, p) + ".mp3")
+
+
 def durations(spec, lines):
     out = {}
     for L in lines:
-        v, r, p = _lv(spec, L)
-        c = os.path.join(CACHE, _vkey(L.get("tts", L["say"]), v, r, p) + ".mp3")
+        c = _cpath(spec, L)
         try:
             w = json.load(open(c + ".words.json"))
-            out[L["id"]] = max(0.5, w[-1][1] - w[0][0] + 0.28)
+            out[L["id"]] = max(0.5, w[-1][1] - w[0][0] + 0.05)
         except (OSError, ValueError, IndexError):
             out[L["id"]] = max(1.0, len(L["say"].split()) / 3.4)
     return out
@@ -1353,7 +1488,9 @@ def voice_into(spec, beats, lines, work):
     os.makedirs(work, exist_ok=True)
     for i, (b, L) in enumerate(zip(beats, lines)):
         v, r, p = _lv(spec, L)
-        c = os.path.join(CACHE, _vkey(L.get("tts", L["say"]), v, r, p) + ".mp3")
+        if _kok(spec):
+            v = b["voice"]
+        c = _cpath(spec, L)
         mp3 = f"{work}/v{i:02d}.mp3"
         shutil.copy(c, mp3)
         shutil.copy(c + ".words.json", mp3 + ".words.json")
@@ -1429,6 +1566,7 @@ def states(spec):
 def _cams(kind, kit, hero, mbx, a, i):
     """A framing -> [cam, to]."""
     msize = MB_SIZE
+    fy = a.get("_mby", 1500)   # Meatball's feet (1500 in the rooms, 1600 outside the house)
     bpos = hero["pos"] if hero else kit.get("bpos") or [960, 1300]
     bug = kit.get("bug_key")
     bw, bh = (BUGS[bug][2], BUGS[bug][3]) if bug else (500, 300)
@@ -1442,14 +1580,14 @@ def _cams(kind, kit, hero, mbx, a, i):
             cx = (mbx + bpos[0]) / 2
             span = abs(bpos[0] - mbx) + 1000
             z = max(0.78, min(1.1, 1750 / span))
-        cy = 1500 - 420 / z
-        top = min(bpos[1] - bh * s, 1500 - 0.85 * msize)
+        cy = fy - 420 / z
+        top = min(bpos[1] - bh * s, fy - 0.85 * msize)
         cy = min(cy, top + (540 - 120) / z)
         c = [cx, cy, z]
         return [c, [cx + (18 if i % 2 else -18) / z, cy - 6 / z, z * 1.07]]
     if kind in ("m", "M"):
         z = 1.5 if kind == "m" else 2.3
-        hy = 1500 - 0.72 * msize
+        hy = fy - 0.72 * msize
         cy = hy + (540 - (330 if kind == "m" else 470)) / z
         cx = mbx + (90 if kind == "m" else 0) * (1 if i % 2 else -1)
         c = [cx, cy, z]
@@ -1477,6 +1615,8 @@ def expand(spec, lines, durs):
         D0 = durs[L["id"]]
         D = D0 + pad
         b = {"say": L["say"], "rate": _lv(spec, L)[1], "pitch": _lv(spec, L)[2], "norecut": True, "recut": False}
+        if _kok(spec):
+            b["voice"] = _kvoice(spec, L)
         if L.get("tts"):
             b["tts"] = L["tts"]
         rk = []
@@ -1486,13 +1626,16 @@ def expand(spec, lines, durs):
             t_ = st["tier"]
             b.update(scene="rk_board_bg", scene_p={}, actors=[], mb=dict(ds.HIDDEN))
             b["shots"] = [{"cam": [960, 540, 1.0], "to": [960, 540, 1.0]}]
-            rk.append({"type": "tier", "placed": t_["placed"], "drop": t_["drop"], "at": a.get("drop_at", "96%")})
-            ry = 70 + TIERS.index(t_["drop"][1]) * 205 + 100
-            rk.append({"type": "zoom", "from": [900, 540, 1.0], "to": [800, ry, 1.18], "at": 0.3, "dur": 2.6})
-            rk.append({"type": "big", "at": "100%", "rows": [[t_["drop"][1], 130, TCOL[t_["drop"][1]]]], "x": 1350, "y": 1000 - 70})
-            sfx = ["whoosh@0.02", "stamp@96%" if not a.get("big") else "sting@93%", "hit@99%"]
+            word = a.get("drop_at") or {"ANNOYING": "annoying", "GROSS": "gross", "GET OUT": "get"}[t_["drop"][1]] + "|85%"
+            rk.append({"type": "tier", "placed": t_["placed"], "drops": [t_["drop"] + [word]]})
+            ry = 14 + TIERS.index(t_["drop"][1]) * 214 + 107
+            rk.append({"type": "zoom", "from": [960, 540, 1.0], "to": [960, 500, 1.06], "at": 0.0, "until": "45%"})
+            rk.append({"type": "zoom", "from": [1150, ry - 40, 1.4], "to": [1150, ry, 1.48], "at": "45%", "wait": True})
+            rk.append({"type": "big", "at": word, "rows": [[t_["drop"][1], 130, TCOL[t_["drop"][1]]]], "x": 1000, "y": 560})
+            sfx = ["whoosh@0.02", ("stamp@" if not a.get("big") else "sting@") + word, "hit@" + word.split("|")[0] + "+0.12|95%"]
+            b["cap_y"] = 980
             if a.get("big"):
-                b["flash"] = ["98%"]
+                b["flash"] = [word]
                 rk[-1]["rows"] = [["GET OUT  #1", 150, RED]]
         else:
             room = a.get("room", CH_ROOM[seg])
@@ -1538,39 +1681,80 @@ def expand(spec, lines, durs):
             cuts = list(a.get("cuts", []))[:max(0, len(f) - 1)]
             if cuts and len(cuts) == len(f) - 1:
                 ats = [0.0] + cuts
-                m_ = math.ceil(D / 3.6)
-                if m_ > len(f):   # long line: extra cuts between the named ones
-                    extra = [round(D * k / m_, 2) for k in range(1, m_)]
-                    ats += [e for e in extra if all(abs(e - _pct(c) / 100 * D0) > 0.9 for c in cuts)]
-                    ats = sorted(ats, key=lambda x: _pct(x) / 100 * D0 if isinstance(x, str) else x)
             else:
-                n_ = max(len(f), math.ceil(D / 3.6))
+                n_ = max(len(f), math.ceil(D / 2.6))
                 ats = [0.0] + [round(D * k / n_, 2) for k in range(1, n_)]
+            kinds = [f[j % len(f)] for j in range(len(ats))]
+            # Studio 11/17 (scene detect): no framing longer than MAXSEG s. Resolve the word anchors on the cached take,
+            # then split any long stretch with a hard contrast cut (bug close-up <-> Meatball face, or a big punch-in).
+            wds = _words_of(spec, L)
+            tt = [0.0] + [_at_s(wds, x, D0) for x in ats[1:]]
+            order = sorted(range(len(ats)), key=lambda q: tt[q])
+            ats, kinds, tt = [ats[q] for q in order], [kinds[q] for q in order], [tt[q] for q in order]
+            bug_on = hero is not None and not hero["p"].get("hidden")
+            mb_on = not mbd.get("hidden")
+            k2, a2, t2 = [], [], []
+            for q in range(len(ats)):
+                end = tt[q + 1] if q + 1 < len(ats) else D
+                pieces = max(1, math.ceil((end - tt[q]) / MAXSEG))
+                for r_ in range(pieces):
+                    st_ = tt[q] + (end - tt[q]) * r_ / pieces
+                    if r_ == 0:
+                        k2.append(kinds[q])
+                        a2.append(ats[q])
+                    else:
+                        prevk = k2[-1]
+                        if prevk in "mMw" and bug_on:
+                            k2.append("b")
+                        elif prevk in "bi" and mb_on:
+                            k2.append("M")
+                        elif prevk == "m" or prevk == "w":
+                            k2.append("M" if mb_on else "P")
+                        else:
+                            k2.append("P")   # a hard punch-in on the previous framing
+                        a2.append(round(st_, 2))
+                    t2.append(st_)
+            kinds, ats = k2, a2
             n = len(ats)
             shots = []
             ki = 0
             for j in range(n):
-                kind = f[j % len(f)]
-                if kind == "k":
+                kind = kinds[j]
+                if kind == "P":
+                    pc = shots[-1]["to"] if shots else [960, 1000, 1.0]
+                    c0 = [pc[0], pc[1] - 40 / pc[2], round(min(4.0, pc[2] * 1.7), 3)]
+                    c1 = [c0[0], c0[1], round(c0[2] * 1.05, 3)]
+                elif kind == "k":
                     cc = cams[ki % len(cams)] if cams else [960, 1000, 1.0, 1.05]
                     ki += 1
                     c0, c1 = [cc[0], cc[1], cc[2]], [cc[0] + (12 if j % 2 else -12) / cc[2], cc[1], cc[3]]
                     if a.get("pans") and j == 0:
                         c0, c1 = a["pans"][0], a["pans"][1]
                 else:
-                    c0, c1 = _cams(kind, kit, hero, mbx if mbx is not None else (kit.get("mx") or 960), a, j)
-                if j and shots and abs(shots[-1]["to"][2] - c0[2]) < 0.02 and abs(shots[-1]["to"][0] - c0[0]) < 30:
-                    c0 = [c0[0] + 60 / c0[2], c0[1], c0[2] * 1.12]   # same framing twice: still a visible cut
-                    c1 = [c1[0] + 60 / c1[2], c1[1], c1[2] * 1.12]
+                    c0, c1 = _cams(kind, kit, hero, mbx if mbx is not None else (kit.get("mx") or 960),
+                                   dict(a, _mby=mbd["pos"][1] if not mbd.get("hidden") else 1500), j)
+                if j and shots and abs(shots[-1]["to"][2] - c0[2]) / c0[2] < 0.25 and abs(shots[-1]["to"][0] - c0[0]) * c0[2] < 400:
+                    # Studio 11/17 (scene detect missed the soft re-frames): the same framing twice becomes a hard
+                    # punch-in (x1.55) on the subject or a pull-back, so every cut reads as a cut
+                    kz = 1.55 if j % 2 else 0.68
+                    c0 = [c0[0], c0[1] - (0 if kz < 1 else 60 / c0[2]), round(max(0.6, c0[2] * kz), 3)]
+                    c1 = [c0[0], c0[1], round(c0[2] * 1.05, 3)]
                 sh = {"cam": [round(x, 3) for x in c0], "to": [round(x, 3) for x in c1]}
                 if j:
                     sh["at"] = ats[j]
                 shots.append(sh)
             b["shots"] = shots
+            if not mbd.get("hidden"):
+                mx_ = mbd["pos"][0]
+                zs = [sh[k][2] for sh in shots for k in ("cam", "to") if abs((mx_ - sh[k][0]) * sh[k][2]) < 1100]
+                if zs:
+                    need = 600 / min(zs)   # 0.785 * size * z >= 0.44 * 1080
+                    if need > mbd["size"]:
+                        mbd["size"] = round(min(1150, need))
             lt = a.get("light", kit.get("light", "off"))
             if lt != "off":
                 b["light"] = lt if isinstance(lt, dict) else {"kind": lt}
-            for k in ("tint", "flash", "shake", "freak"):
+            for k in ("tint", "flash", "shake", "freak", "cap_y"):
                 if a.get(k):
                     b[k] = a[k]
             if a.get("stamp"):
@@ -1593,6 +1777,11 @@ def expand(spec, lines, durs):
                        "x": a.get("idx", 1430)})
             sfx = sfx + [f"pop@{rk[-1]['at']}"]
         rk += copy.deepcopy(a.get("ov", []))
+        prev = allL[allL.index(L) - 1] if allL.index(L) else None
+        if prev is not None and prev["shot"].get("tier") and not a.get("tier"):   # the drop lands: hold it through the cut
+            pt = ST[prev["id"]]["tier"]
+            rk.append({"type": "tier", "placed": pt["placed"] + [pt["drop"]], "off": 0.45,
+                       "mb": "shock" if pt["drop"][1] == "GET OUT" else "point"})
         b["rk"] = rk
         # ---- the outline card (other rows) at the top
         rows = c["rows"] if a.get("card") is None else ([x.strip() for x in a["card"].split("·")] if a.get("card") else [])
@@ -1623,22 +1812,40 @@ def expand(spec, lines, durs):
     return beats
 
 
-GAGS = {"s1.l2": 1.0, "s1.l13": 1.3, "s2.l9": 1.3, "s2.l10": 1.3, "s4.l4": 1.0, "s4.l6": 2.2, "s4.l9": 1.1, "s4.l15": 1.2,
-        "s5.l6": 1.1, "s5.l15": 1.3, "s6.l2": 1.0, "s6.l3": 1.2, "s6.l12": 1.0, "s6.l13": 1.2, "s6.l23": 1.4, "s7.l3": 1.4,
-        "s0.l5": 1.0, "s3.l5": 1.0, "s5.l17": 1.0}   # punchlines and reveals: room to land
+# Voice fix (Studio 11/17 "KILL THE PAUSES"): lines butt together (gap <= 0.12 s, spec "pad" + the TTS trim);
+# a 0.3 s beat only on the gap BEFORE a punchline or reveal, at most one per 30 s (the gap lint checks it).
+BEATS = ["s0.l4", "s1.l12", "s2.l8", "s3.l10", "s4.l8", "s6.l1", "s7.l2"]
+BEAT_PAD = 0.3
+
+
+MAXSEG = 2.8   # longest framing (s); with a hard contrast cut at each split
+
+
+def _words_of(spec, L):
+    try:
+        w = json.load(open(_cpath(spec, L) + ".words.json"))
+        s0 = w[0][0]
+        return [(a - s0, b - s0, x) for a, b, x in w]
+    except (OSError, ValueError, IndexError, TypeError):
+        return []
+
+
+def _at_s(words, at, D0):
+    if isinstance(at, (int, float)):
+        return float(at)
+    try:
+        return drawn.at_time(words, at) if words else _pct(at) / 100 * D0
+    except SystemExit:
+        return _pct(at) / 100 * D0
 
 
 def _pad(spec, L):
     a = L["shot"]
     if "pad" in a:
         return a["pad"]
-    if a.get("tier"):
-        return 1.7
-    if L["id"] in GAGS:
-        return GAGS[L["id"]]
-    if L["id"].endswith(".l0") or (L.get("card") or "").startswith("CLUE"):
-        return 0.7
-    return spec.get("pad", 0.4)
+    if L["id"] in spec.get("beat_lines", BEATS):
+        return BEAT_PAD
+    return spec.get("pad", 0.08)
 
 
 def _pct(x):
@@ -1742,7 +1949,7 @@ def linesheet(spec_path, out, only=None, frac=0.6, work="/dev/shm/ranked-lines",
     print("linesheet:", out, len(tiles))
 
 
-def check(spec_path):
+def check(spec_path, quiet=False):
     """Plan the whole episode (voice from the cache): runtime, the longest hold between camera events, MB sizes."""
     spec = json.load(open(spec_path))
     voice_cache(spec, spec["lines"])
@@ -1757,6 +1964,8 @@ def check(spec_path):
         for s in b["shots"][1:]:
             ev.append((b["t0"] + s["at"], b["ds_id"]))
     ev.sort()
+    if quiet:
+        return beats, total
     gaps = sorted(((ev[i + 1][0] - ev[i][0], ev[i][1], ev[i][0]) for i in range(len(ev) - 1)), reverse=True)[:8]
     print(f"runtime {total:.1f} s ({int(total // 60)}:{total % 60:04.1f}), {len(beats)} lines, {len(ev)} cuts")
     for g, i, t in gaps:
@@ -1765,6 +1974,68 @@ def check(spec_path):
         if b["ds_id"].endswith(".l0"):
             print(f"  {b['ds_id']} starts {int(b['t0'] // 60)}:{b['t0'] % 60:04.1f}")
     return beats, total
+
+
+def gap_lint(spec_path, wav, report):
+    """Voice-only stem on the render's timeline + ffmpeg silencedetect (-40 dB, 0.25 s). FAIL on any gap over 0.3 s
+    that is not a marked beat (the gap after a line in spec "beat_lines") or the end screen. Writes the report."""
+    import wave
+    spec = json.load(open(spec_path))
+    beats, total = check(spec_path, quiet=True)
+    SR = drawn.SR
+    n = int(total * SR) + SR
+    v = np.zeros(n, np.float32)
+    for b in beats:
+        o = int(b["t0"] * SR)
+        v[o:o + len(b["audio"])] += b["audio"][:max(0, n - o)]
+    v = v[:int(total * SR)]
+    with wave.open(wav, "wb") as w:
+        w.setnchannels(1)
+        w.setsampwidth(2)
+        w.setframerate(SR)
+        w.writeframes((np.clip(v, -1, 1) * 32767).astype("<i2").tobytes())
+    r = subprocess.run(["ffmpeg", "-hide_banner", "-i", wav, "-af", "silencedetect=noise=-40dB:d=0.25", "-f", "null", "-"],
+                       capture_output=True, text=True).stderr
+    starts = [float(x) for x in re.findall(r"silence_start: ([\d.]+)", r)]
+    ends = [float(x) for x in re.findall(r"silence_end: ([\d.]+)", r)] + [total]
+    beat_ids = set(spec.get("beat_lines", BEATS))
+    last_speech = beats[-1]["t0"] + beats[-1]["speech"]
+    words = sum(len(b["say"].split()) for b in beats)
+    lines, fails, beat_times = [], 0, []
+    for a, z in zip(starts, ends):
+        g = z - a
+        nxt = [i for i, b in enumerate(beats) if abs(b["t0"] - z) < 0.12]   # the silence runs into a line's start
+        if nxt and nxt[0] > 0:
+            bi, inside = nxt[0] - 1, False
+        else:
+            bi = max(i for i, b in enumerate(beats) if b["t0"] <= a + 1e-6)
+            inside = True
+        b = beats[bi]
+        where = f"{b['ds_id']} {'inside the line' if inside else 'after the line'}"
+        if a >= last_speech - 0.1:
+            verdict = "ok (end screen: music only)"
+        elif g <= 0.3:
+            verdict = "ok (<= 0.3 s)"
+        elif not inside and b["ds_id"] in beat_ids and g <= 0.45:
+            verdict = "ok (marked beat before a punchline/reveal)"
+            beat_times.append(a)
+        else:
+            verdict = "FAIL"
+            fails += 1
+        lines.append(f"{int(a // 60)}:{a % 60:05.2f}  gap {g:.2f} s  {where}  {verdict}")
+    close = [(x, y) for x, y in zip(beat_times, beat_times[1:]) if y - x < 30]
+    gaps = [beats[i + 1]["t0"] - (beats[i]["t0"] + beats[i]["speech"]) for i in range(len(beats) - 1)]
+    head = [f"GAP LINT {'PASS' if not fails and not close else 'FAIL'}: {os.path.basename(wav)}",
+            f"rule: silencedetect -40 dB, d=0.25 s; fail any gap > 0.3 s that is not a marked beat (max 1 per 30 s)",
+            f"runtime {total:.1f} s ({int(total // 60)}:{total % 60:04.1f}) incl. the {spec.get('end_hold', 20):.0f} s end screen; "
+            f"speech ends {int(last_speech // 60)}:{last_speech % 60:04.1f}",
+            f"words {words}; pace {words / (last_speech / 60):.0f} wpm over the spoken part",
+            f"line-to-line gaps (end of one take to the start of the next, after the trim): median {sorted(gaps)[len(gaps) // 2]:.3f} s, "
+            f"max {max(gaps):.3f} s; marked beats: {', '.join(sorted(beat_ids))} (0.3 s)",
+            f"silences >= 0.25 s found: {len(lines)}; fails: {fails}; beats closer than 30 s: {len(close)}", ""]
+    open(report, "w").write("\n".join(head + lines) + "\n")
+    print("\n".join(head[:6]))
+    return not fails and not close
 
 
 if __name__ == "__main__":
@@ -1789,6 +2060,9 @@ if __name__ == "__main__":
                   fracs=[float(v) for v in x.fracs.split(",")] if x.fracs else None)
     elif x.cmd == "check":
         check(x.spec)
+    elif x.cmd == "lint":
+        ok = gap_lint(x.spec, x.out, os.path.splitext(x.out)[0] + "-gaps.txt" if not x.work else x.work)
+        sys.exit(0 if ok else 1)
     elif x.cmd == "voice":
         spec = json.load(open(x.spec))
         voice_cache(spec, spec["lines"])
