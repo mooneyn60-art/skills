@@ -383,6 +383,8 @@ if __name__ == "__main__":
     elif x.cmd == "check":
         R.check(x.spec)
     elif x.cmd == "lint":
+        if x.out and x.out.lower().endswith((".mp4", ".mov", ".mkv")):   # 11/18: never write the stem over a video
+            sys.exit("lint: OUT is the voice-stem .wav to write, not the video (%s)" % x.out)
         sys.exit(0 if R.gap_lint(x.spec, x.out, x.work or os.path.splitext(x.out)[0] + "-gaps.txt") else 1)
     elif x.cmd == "voice":
         R.voice_cache(json.load(open(x.spec)), json.load(open(x.spec))["lines"])

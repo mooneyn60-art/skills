@@ -2119,6 +2119,8 @@ if __name__ == "__main__":
     elif x.cmd == "check":
         check(x.spec)
     elif x.cmd == "lint":
+        if x.out and x.out.lower().endswith((".mp4", ".mov", ".mkv")):   # 11/18: lint once wrote its wav over the render
+            sys.exit("lint: OUT is the voice-stem .wav to write, not the video (%s)" % x.out)
         ok = gap_lint(x.spec, x.out, os.path.splitext(x.out)[0] + "-gaps.txt" if not x.work else x.work)
         sys.exit(0 if ok else 1)
     elif x.cmd == "voice":

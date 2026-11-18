@@ -107,14 +107,14 @@
     },
     {
      "say": "Most centipedes that wander into a house die shortly after, from the lack of moisture.",
-     "vis": "Act it out: a little parade of OTHER centipedes (stubby, different body shape) marches in under the front door and wilts one by one on a dry carpet (simple tip-over, no gore).",
+     "vis": "The stubby other centipedes stay as grey silhouettes on the card with a DRY AIR stamp. Nobody wilts or tips over on screen.",
      "card": "MOST CENTIPEDES INDOORS DRY OUT",
      "src": "CB4",
      "rate": "+20%"
     },
     {
      "say": "But the house centipede is the only one known to stay inside buildings all year.",
-     "vis": "Cut back to the bathroom: the house centipede strolls past the wilted ones' silhouettes on the card, unbothered. Spotlight on it.",
+     "vis": "The stubby other centipedes stay as grey silhouettes on the card with a DRY AIR stamp. Nobody wilts or tips over on screen.",
      "card": "ONLY ONE KNOWN TO STAY INDOORS ALL YEAR",
      "src": "CB2",
      "rate": "+20%"
@@ -212,9 +212,9 @@
      "act": "smug"
     },
     {
-     "say": "On the menu: flies, crickets, moths and earwigs.",
+     "say": "On the menu: crickets, earwigs, even pillbugs.",
      "vis": "Four quick cuts, one per bug, each one framed like a menu card in the night-vision shot.",
-     "card": "FLIES · CRICKETS · MOTHS · EARWIGS",
+     "card": "CRICKETS · EARWIGS · PILLBUGS",
      "src": "CB8",
      "rate": "+20%"
     },
@@ -233,11 +233,12 @@
      "act": "smug"
     },
     {
-     "say": "Hunting at night, centipedes can get trapped if they fall into a sink or bathtub.",
-     "vis": "Night-vision: the centipede runs along the sink rim, one foot slips, it slides into the white basin. Slow push-in.",
-     "card": "CAN GET TRAPPED IN A SINK OR TUB",
+     "say": "Then the bug cam loses it. Where did it go?",
+     "vis": "Night-vision bug cam pans an empty floor. Card: WHERE DID IT GO? No slip-into-the-basin shot.",
+     "card": "WHERE DID IT GO?",
      "src": "CB9",
-     "rate": "+20%"
+     "rate": "+20%",
+     "act": "story"
     },
     {
      "say": "Three AM. I need the bathroom.",
@@ -272,14 +273,14 @@
      "act": "curious"
     },
     {
-     "say": "Mississippi State says bites to humans are uncommon unless the centipede is handled or accidentally pressed against the skin.",
+     "say": "Colorado State says house centipedes will bite only if physically confined.",
      "vis": "Slow push-in on the centipede sitting still in the basin; Meatball lowers the toothbrush a little.",
-     "card": "BITES UNCOMMON · UNLESS HANDLED OR PRESSED ON SKIN",
+     "card": "BITES ONLY IF PHYSICALLY CONFINED",
      "src": "CB11",
      "rate": "+20%"
     },
     {
-     "say": "So I don't grab it. I build it a towel ramp. I'm a host now.",
+     "say": "So, paws off. I build it a towel ramp. I'm a host now.",
      "vis": "Meatball drapes a towel from the sink rim to the floor, then backs away fast.",
      "card": null,
      "src": "story + joke (keeps the CB11 condition; Meatball's action, not advice)",
@@ -364,13 +365,6 @@
      "act": "smug"
     },
     {
-     "say": "And if you see them often, Penn State says that points to plenty of the bugs they eat.",
-     "vis": "Act it out: one centipede on the card, then a crowd of tiny generic bugs fills in behind it like a buffet line.",
-     "card": "SEEN OFTEN? PLENTY OF PREY BUGS",
-     "src": "CB13",
-     "rate": "+20%"
-    },
-    {
      "say": "So what does it mean for your house? And what do you do?",
      "vis": "The calendar flips to day 7. Sound hit.",
      "card": "WHAT DOES IT MEAN?",
@@ -407,17 +401,10 @@
      "act": "smug"
     },
     {
-     "say": "Mississippi State says to focus on the bugs they eat, and cutting indoor moisture also helps.",
+     "say": "Mississippi State says control should focus on the bugs they eat.",
      "vis": "Split screen: a small bug crossed out on the left, a water drop crossed out on the right.",
-     "card": "CONTROL THE BUGS IT EATS · CUT THE MOISTURE",
+     "card": "CONTROL THE BUGS IT EATS",
      "src": "CB18",
-     "rate": "+20%"
-    },
-    {
-     "say": "Utah State says dry out damp areas, like the laundry room and the bathroom.",
-     "vis": "Cut to the laundry room: Meatball mops a puddle under the washer, then wipes the bathroom floor.",
-     "card": "DRY OUT DAMP AREAS",
-     "src": "CB15",
      "rate": "+20%"
     },
     {
@@ -435,9 +422,9 @@
      "act": "smug"
     },
     {
-     "say": "And skip the bug bomb. Ohio State says those are ineffective against centipedes.",
-     "vis": "A bug bomb can on the floor gets a big red NO stamp (never shown going off).",
-     "card": "BUG BOMBS: INEFFECTIVE ON CENTIPEDES",
+     "say": "And skip the bug bomb. Ohio State says it rarely reaches the cracks where centipedes hide.",
+     "vis": "Drawn mist stops at the cabinet edge while the antennae wave safely from the crack. The can is never shown going off.",
+     "card": "BUG BOMBS DON'T REACH THE CRACKS",
      "src": "CB16",
      "rate": "+20%"
     },
@@ -585,7 +572,7 @@
    "source": "Mississippi State Bug's Eye View No. 29 (as above)"
   }
  ],
- "_factcheck": "Sonnet 11/18: research/facts/centipede-bathroom-check.md; all 17 FIXes applied.",
+ "_factcheck": "Sonnet 11/18: research/facts/centipede-bathroom-check.md; all 17 FIXes applied. | Research & QA 11/18 (80865d3): 8 originality/visual FIXes applied word for word.",
  "fact_files": [
   "skills/oh-meatball/research/facts/centipede-bathroom-sat.md (CB#)",
   "side-hustles/channels/qa/centipede-p4-1117.md (MSU / UKY bite lines, re-quoted as CB11)",
