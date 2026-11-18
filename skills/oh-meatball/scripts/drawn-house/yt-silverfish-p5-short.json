@@ -1,0 +1,209 @@
+{
+ "series": "Things Living In Your House",
+ "photo_credits": [],
+ "voice": "kokoro:adam-puck",
+ "rate": "+32%",
+ "pitch": "+2Hz",
+ "music": "eerie",
+ "music_db": -17,
+ "captions": 104,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "silverfish",
+  "scene": "bathroom",
+  "scene_p": {
+   "time": "day"
+  },
+  "s": 1.0,
+  "actor": "silverfish"
+ },
+ "loop": true,
+ "title": "Silverfish Have Very Weak Jaws: They Scrape Paper Instead of Biting 🐛 (Things Living In Your House)",
+ "cine": true,
+ "id_card": {
+  "name": "SILVERFISH",
+  "rows": [
+   "JAWS: VERY WEAK, SCRAPES PAPER",
+   "DOES NOT TRANSMIT DISEASE"
+  ],
+  "beat": 3,
+  "at": "3%",
+  "dur": 2.2,
+  "type": "silverfish"
+ },
+ "cap_key": [
+  "silverfish",
+  "bite",
+  "jaws",
+  "disease",
+  "400",
+  "dinosaurs",
+  "sideways",
+  "dance",
+  "capsule",
+  "scales",
+  "60",
+  "8",
+  "lumber",
+  "centipede",
+  "youtube"
+ ],
+ "sources": [
+  "P5-F1 MDC Silverfish (Firebrat) https://mdc.mo.gov/discover-nature/field-guide/silverfish-firebrat : 'Their fossils date to 400 million years ago — about twice as long ago as the dinosaurs.'",
+  "P5-F2 MDC (same): 'They do not transmit disease, however.'",
+  "P5-F3 UC IPM Silverfish and Firebrats https://ipm.ucanr.edu/home-and-landscape/silverfish-and-firebrats/ : 'males attract females with a mating dance that includes antennae contact and head wagging, after which the male deposits a protected capsule containing sperm for the female to pick up.'",
+  "P5-F4 MDC: 'The hatchlings look like the adults, only whitish and much smaller.' UC IPM: 'Newly hatched nymphs are ... white, and have no scales.'",
+  "P5-F5 UC IPM: 'molt continuously throughout their life, passing through 45 to 60 instars or development stages.'",
+  "P5-F6 UC IPM: 'silverfish about 3 years.' MDC: 'In some species, individuals can live for 8 years'",
+  "P5-F7 Penn State Extension https://extension.psu.edu/bristletails-silverfish-and-firebrats : 'Both species move rapidly (including sideways), and their flat bodies let them hide in narrow crevices.'",
+  "P5-F8 UC IPM: 'Firebrats and silverfish have very weak jaws which causes them to scrape, instead of bite, the surface of paper.'",
+  "P5-F10 UC IPM: 'Large numbers of these insects can invade new homes from surrounding wild areas, especially as these areas dry out during the summer. They also can come in on lumber, wallboard, and similar products.'",
+  "Series link: MDC 'Silverfish are eaten by house centipedes' (via channels/research/viral-centipede-1117.md)"
+ ],
+ "beats": [
+  {
+   "m": "hook",
+   "open": "animal",
+   "open_zoom": 2.4,
+   "say": "Don't squish that silverfish! Squish it, or let it live?",
+   "sfx": [
+    "scratch@0.1"
+   ],
+   "card": {
+    "rows": [
+     [
+      "SQUISH IT OR LET IT LIVE?",
+      "#ffd34d",
+      78
+     ]
+    ],
+    "y": 470,
+    "at": "squish#2"
+   },
+   "_f": [],
+   "scene": "bathroom",
+   "voice": "kokoro:adam-puck@speed=1.05,pitch=1.5,gain=3,formant=1.05",
+   "pad": 0.12,
+   "insert": {
+    "type": "bugcam",
+    "at": 0.0,
+    "dur": 1.4
+   },
+   "light": "off"
+  },
+  {
+   "m": "escalate",
+   "say": "Will it bite you?",
+   "sfx": [
+    "sting@bite"
+   ],
+   "card": {
+    "rows": [
+     [
+      "WILL IT BITE?",
+      "#ff4d4d",
+      96,
+      true
+     ]
+    ],
+    "y": 260,
+    "at": "bite",
+    "pop": true
+   },
+   "_f": [
+    "P5-F8"
+   ],
+   "scene": "basement",
+   "voice": "kokoro:adam-puck@speed=1.3,pitch=3,formant=1.05",
+   "pad": 0.12,
+   "freakout": "bite"
+  },
+  {
+   "m": "fact",
+   "say": "It has very weak jaws, so it scrapes the surface of paper instead of biting it.",
+   "card": {
+    "rows": [
+     [
+      "VERY WEAK JAWS",
+      "#ffd34d",
+      104
+     ],
+     [
+      "IT SCRAPES PAPER",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   },
+   "_f": [
+    "P5-F8",
+    "P5-F2"
+   ],
+   "scene": "kitchen",
+   "voice": "kokoro:adam-puck@speed=1.0,formant=1.05",
+   "pad": 0.12
+  },
+  {
+   "m": "fact",
+   "say": "Its fossils date to 400 million years ago. That's about twice as long ago as the dinosaurs.",
+   "scene": "classroom",
+   "voice": "kokoro:adam-puck@speed=1.0,formant=1.05",
+   "pad": 0.12,
+   "_f": []
+  },
+  {
+   "m": "fact",
+   "say": "They move rapidly, including sideways, and their flat bodies let them hide in narrow crevices.",
+   "scene": "garden",
+   "voice": "kokoro:adam-puck@speed=1.0,formant=1.05",
+   "pad": 0.12,
+   "_f": [],
+   "card": {
+    "rows": [
+     [
+      "FAST. EVEN SIDEWAYS.",
+      "#ff4b3e",
+      92
+     ]
+    ],
+    "y": 470,
+    "at": "20%"
+   }
+  },
+  {
+   "m": "tease",
+   "say": "The full ranking is on the channel.",
+   "card": {
+    "rows": [
+     [
+      "FULL RANKING ON THE CHANNEL",
+      "#ffd34d",
+      72
+     ]
+    ],
+    "y": 380,
+    "at": 0.0
+   },
+   "_f": [],
+   "scene": "study",
+   "voice": "kokoro:adam-puck@speed=1.02,pitch=1,formant=1.05",
+   "pad": 0.12
+  }
+ ],
+ "description": "Will a silverfish bite you? It has very weak jaws, so it scrapes the surface of paper instead of biting it (UC IPM, University of California). Silverfish do not transmit disease (Missouri Department of Conservation).\n\nThe full ranking of the bugs in your house is on the channel: House Bugs Ranked by Meatball.\n\n#silverfish #thingslivinginyourhouse #meatballmyths #shorts\n\nSources: UC IPM Pest Notes, Silverfish and Firebrats; Missouri Department of Conservation, Silverfish (Firebrat).",
+ "tags": [
+  "silverfish",
+  "do silverfish bite",
+  "silverfish bite",
+  "silverfish in house",
+  "bugs in house",
+  "bugs in books",
+  "things living in your house",
+  "Meatball Myths",
+  "shorts"
+ ],
+ "_note": "YouTube Shorts cut (11/18 night, Studio NEXT MOVES 2): lines word for word from the checked TikTok spec; ends with the flagship CTA; voice E2; its own render."
+}

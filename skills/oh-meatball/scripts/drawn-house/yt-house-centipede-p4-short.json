@@ -1,0 +1,215 @@
+{
+ "series": "Things Living In Your House",
+ "sources": [
+  "P4-F1 speed. Acosta, C. A. (2003), 'The House Centipede (Scutigera coleoptrata; Chilopoda): Controversy and Contradiction', J. Ky. Acad. Sci. 64(1):1-5, Dept. of Biological Sciences, Northern Kentucky University (scanned PDF on NKU's site; OCR slips fixed in the quote): \"They have been clocked at 420 mm./sec with a 33 mm stride, which was impressive enough to be listed as among the fastest arthropods in the 1973 Guinness Book of World Records.\" (420 mm/s = about 16.5 inches a second); https://websites.nku.edu/~acostac/AcostaJKAS2000.PDF ; Mississippi State University Extension, Bug's Eye View, House Centipede (No. 29, 2015): \"They are also able to run much faster than most other ground-dwelling arthropods, reaching speeds approaching one MPH.\"; https://www.accessibility.extension.msstate.edu/newsletters/bugs-eye-view/2015/house-centipede-no-29",
+  "P4-F2 run, stop, freeze; up walls. University of Arkansas Arthropod Museum, House centipede: \"The house centipede is often seen darting across floors at high speed, occasionally stopping suddenly and remaining motionless for some time before racing off once more.\"; https://arthropod.uark.edu/house-centipede/ ; University of Kentucky Entomology, fact sheet ef645, Centipedes and Millipedes in and Around the Home (Gordon, Larson, DeVries): \"To aid in hunting, house centipedes can run very quickly across floors and up walls.\"; https://entomology.mgcafe.uky.edu/ef645",
+  "P4-F3 pounce and lasso. University of Arkansas Arthropod Museum, House centipede: \"They capture prey by half pouncing and half lassoing them.\"; https://arthropod.uark.edu/house-centipede/ ; Acosta 2003 (above): \"The long legs of S. coleoptrata function primarily for chasing and catching mobile prey.\"",
+  "P4-F4 eyes. University of Arkansas Arthropod Museum, House centipede: \"Unlike most other centipedes, house centipedes and their close relatives have well-developed, faceted eyes.\"; https://arthropod.uark.edu/house-centipede/ ; Acosta 2003 (above): \"House centipedes have large heads, prominent compound eyes, long annulated antennae, and very long legs.\" and \"Behind the antennae is a pair of modified compound eyes, in contrast to other chilopods which have simple ocelli.\"",
+  "P4-F5 grooming. Acosta 2003 (above), citing Le Moli and Parmigiani 1976 and Verhoeff 1938: \"House centipedes meticulously groom themselves on a strict schedule (Le Moli and Parmigiani 1976). The antennae and legs are gripped by the forcipules and passed through the cleaning setae on the first maxillae (Verhoeff 1938b).\"; \"If an individual is interrupted for any reason during grooming, cleaning commences where the individual left off prior to being disturbed.\"; \"Grooming behavior appears to be genetically hard-wired because house centipedes will still attempt to clean legs that have been amputated.\"; https://websites.nku.edu/~acostac/AcostaJKAS2000.PDF",
+  "P4-F6 breathing holes on the back. Acosta 2003 (above): \"The seven tergites each bear a median dorsal spiracle for gas exchange, unlike the lateral paired spiracles of other myriapods.\" (tergites = the back plates; dorsal = on the back; median = down the middle); https://websites.nku.edu/~acostac/AcostaJKAS2000.PDF",
+  "P4-F7 eggs. Acosta 2003 (above), citing Lewis 1981: \"Females lay relatively few eggs (average four eggs per day; Lewis 1981), singly in soil. Laying and hatching occurs from late spring through early summer.\"; University of Arkansas Arthropod Museum: \"Eggs are laid in spring and early summer.\"; https://arthropod.uark.edu/house-centipede/",
+  "P4-F8 newly molted males. Acosta 2003 (above): \"Newly molted male house centipedes are especially susceptible to predation by females.\"; https://websites.nku.edu/~acostac/AcostaJKAS2000.PDF",
+  "Mississippi State University Extension (via Social Studio QA channels/qa/centipede-p4-1117.md): \"Bites to humans are uncommon unless centipedes are handled or accidentally pressed against the skin.\""
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:adam-puck",
+ "rate": "+32%",
+ "pitch": "+2Hz",
+ "music": "eerie",
+ "music_db": -17,
+ "captions": 104,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "house_centipede",
+  "scene": "bathroom",
+  "scene_p": {
+   "time": "night"
+  },
+  "s": 0.8,
+  "actor": "house_centipede"
+ },
+ "cap_key": [
+  "guinness",
+  "sixteen",
+  "mile",
+  "freeze",
+  "lasso",
+  "lassoing",
+  "walls",
+  "eyes",
+  "schedule",
+  "floss",
+  "legs",
+  "back",
+  "soil",
+  "molted",
+  "eaten",
+  "single",
+  "digits",
+  "hundreds",
+  "squished",
+  "5",
+  "follow"
+ ],
+ "loop": true,
+ "title": "House Centipede Bites Are Uncommon, Usually Only If Handled 🐛 (Things Living In Your House)",
+ "cine": true,
+ "id_card": {
+  "name": "HOUSE CENTIPEDE",
+  "rows": [
+   "AMONG THE FASTEST ARTHROPODS",
+   "BITE: UNCOMMON (ONLY IF HANDLED)"
+  ],
+  "beat": 3,
+  "at": "3%",
+  "dur": 2.2,
+  "type": "house_centipede"
+ },
+ "beats": [
+  {
+   "m": "hook",
+   "open": "animal",
+   "gag": {
+    "mark": "shock"
+   },
+   "_f": [
+    "P4-F1"
+   ],
+   "say": "Don't squish it! You just saw a bug Guinness listed among the fastest arthropods.",
+   "card": {
+    "rows": [
+     [
+      "GUINNESS BOOK, 1973",
+      "#ffd34d",
+      100
+     ],
+     [
+      "AMONG THE FASTEST ARTHROPODS",
+      "#ffffff",
+      46,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   },
+   "scene": "bathroom",
+   "voice": "kokoro:adam-puck@speed=1.05,pitch=1.5,gain=3,formant=1.05",
+   "pad": 0.12,
+   "insert": {
+    "type": "bugcam",
+    "at": 0.0,
+    "dur": 1.4
+   },
+   "light": "off"
+  },
+  {
+   "m": "escalate",
+   "say": "Will it bite you?",
+   "sfx": [
+    "sting@bite"
+   ],
+   "card": {
+    "rows": [
+     [
+      "WILL IT BITE?",
+      "#ff4d4d",
+      86,
+      true
+     ],
+     [
+      "UNCOMMON: ONLY IF HANDLED",
+      "#ffffff",
+      48,
+      true
+     ]
+    ],
+    "y": 260,
+    "at": "bite",
+    "pop": true
+   },
+   "_f": [
+    "QA bite line: MSU Extension via side-hustles channels/qa/centipede-p4-1117.md"
+   ],
+   "scene": "basement",
+   "voice": "kokoro:adam-puck@speed=1.3,pitch=3,formant=1.05",
+   "pad": 0.12,
+   "freakout": "bite"
+  },
+  {
+   "m": "fact",
+   "say": "Bites are uncommon, and usually only if you handle it or press it against your skin.",
+   "_f": [
+    "QA bite line: MSU Extension via side-hustles channels/qa/centipede-p4-1117.md"
+   ],
+   "scene": "kitchen",
+   "voice": "kokoro:adam-puck@speed=1.0,formant=1.05",
+   "pad": 0.12
+  },
+  {
+   "m": "fact",
+   "say": "Clocked at about sixteen inches a second. Close to one mile an hour.",
+   "scene": "garden",
+   "voice": "kokoro:adam-puck@speed=1.0,formant=1.05",
+   "pad": 0.12,
+   "_f": []
+  },
+  {
+   "m": "fact",
+   "say": "It catches its food by half pouncing, half lassoing.",
+   "scene": "bedroom",
+   "voice": "kokoro:adam-puck@speed=1.0,formant=1.05",
+   "pad": 0.12,
+   "_f": [],
+   "card": {
+    "rows": [
+     [
+      "HALF POUNCE",
+      "#ff4b3e",
+      110
+     ],
+     [
+      "HALF LASSO",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   }
+  },
+  {
+   "m": "tease",
+   "say": "The full ranking is on the channel.",
+   "card": {
+    "rows": [
+     [
+      "FULL RANKING ON THE CHANNEL",
+      "#ffd34d",
+      72
+     ]
+    ],
+    "y": 380,
+    "at": 0.0
+   },
+   "_f": [],
+   "scene": "study",
+   "voice": "kokoro:adam-puck@speed=1.02,pitch=1,formant=1.05",
+   "pad": 0.12
+  }
+ ],
+ "description": "Will a house centipede bite you? Bites are uncommon, and usually only if you handle it or press it against your skin (Mississippi State University Extension). The 1973 Guinness Book of World Records listed it among the fastest arthropods (Acosta 2003, Northern Kentucky University).\n\nThe full ranking of the bugs in your house is on the channel: House Bugs Ranked by Meatball.\n\n#housecentipede #thingslivinginyourhouse #meatballmyths #shorts\n\nSources: Mississippi State University Extension, Bug's Eye View No. 29; Acosta 2003, J. Ky. Acad. Sci. 64(1).",
+ "tags": [
+  "house centipede",
+  "house centipede bite",
+  "centipede bite",
+  "centipede in house",
+  "bugs in house",
+  "fastest bugs",
+  "things living in your house",
+  "Meatball Myths",
+  "shorts"
+ ],
+ "_note": "YouTube Shorts cut (11/18 night, Studio NEXT MOVES 2): lines word for word from the checked TikTok spec; ends with the flagship CTA; voice E2; its own render."
+}
