@@ -1,0 +1,13 @@
+SCENE-DETECT CHECK: ffmpeg select=gt(scene,0.3) on house-bugs-ranked-v4.mp4 (spoken part 0:00-6:55.6; the 20 s end screen is a deliberate hold)
+cuts detected: 247; longest hold: 4.8 s at 5:36.6; holds over 5 s: 0
+
+5:36.6  hold 4.8 s
+2:33.7  hold 4.6 s
+3:09.4  hold 4.5 s
+3:40.9  hold 4.5 s
+0:39.5  hold 4.3 s
+2:29.5  hold 4.2 s
+1:24.7  hold 4.1 s
+2:02.1  hold 4.1 s
+6:33.7  hold 4.1 s
+5:41.5  hold 4.0 s

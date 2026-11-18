@@ -1771,15 +1771,7 @@
    "id": "s2.l7",
    "seg": 2,
    "shot": {
-    "f": "Mk",
-    "cams": [
-     [
-      1450,
-      900,
-      1.9,
-      2.0
-     ]
-    ],
+    "f": "Mw",
     "pose": "nervous",
     "x": [
      {
@@ -1862,7 +1854,7 @@
    "id": "s2.l8",
    "seg": 2,
    "shot": {
-    "f": "wk",
+    "f": "Mk",
     "room": "board",
     "roomscene": "keeper_room",
     "cams": [
@@ -2096,7 +2088,7 @@
    "id": "s3.l0",
    "seg": 3,
    "shot": {
-    "f": "wi",
+    "f": "Mi",
     "cuts": [
      "belly|45%"
     ],
@@ -2128,7 +2120,7 @@
    "id": "s3.l1",
    "seg": 3,
    "shot": {
-    "f": "im",
+    "f": "iM",
     "cuts": [
      "small|55%"
     ],
@@ -3466,7 +3458,10 @@
    "id": "s4.l15",
    "seg": 4,
    "shot": {
-    "f": "wb",
+    "cuts": [
+     "arrested|45%"
+    ],
+    "f": "bw",
     "pose": "shrug",
     "look": "hero",
     "x": [
@@ -3867,7 +3862,7 @@
    "id": "s5.l5",
    "seg": 5,
    "shot": {
-    "f": "kk",
+    "f": "kb",
     "cams": [
      [
       500,
@@ -4799,7 +4794,7 @@
    "id": "s6.l1",
    "seg": 6,
    "shot": {
-    "f": "kk",
+    "f": "kM",
     "cams": [
      [
       600,
@@ -4975,6 +4970,7 @@
    "id": "s6.l5",
    "seg": 6,
    "shot": {
+    "ring_k": true,
     "f": "ik",
     "cams": [
      [
@@ -5022,6 +5018,7 @@
    "id": "s6.l6",
    "seg": 6,
    "shot": {
+    "ring_k": true,
     "f": "ikkk",
     "cams": [
      [
@@ -5190,19 +5187,13 @@
    "id": "s6.l9",
    "seg": 6,
    "shot": {
-    "f": "kk",
+    "f": "kb",
     "cams": [
      [
       600,
       1100,
       1.5,
       1.6
-     ],
-     [
-      800,
-      1150,
-      1.1,
-      1.2
      ]
     ],
     "cuts": [
@@ -5299,7 +5290,7 @@
    "id": "s6.l11",
    "seg": 6,
    "shot": {
-    "f": "mk",
+    "f": "mM",
     "cams": [
      [
       1900,
@@ -5361,7 +5352,7 @@
    "id": "s6.l12",
    "seg": 6,
    "shot": {
-    "f": "mw",
+    "f": "Mw",
     "pose": "laugh",
     "look": "viewer",
     "bug": {

@@ -1,0 +1,15 @@
+GAP LINT PASS: house-bugs-ranked-v4-voice.wav
+rule: silencedetect -40 dB, d=0.25 s; fail any gap > 0.3 s that is not a marked beat (max 1 per 30 s)
+runtime 435.6 s (7:15.6) incl. the 20 s end screen; speech ends 6:55.6
+words 1154; pace 167 wpm over the spoken part
+line-to-line gaps (end of one take to the start of the next, after the trim): median 0.080 s, max 0.300 s; marked beats: s0.l4, s1.l12, s2.l8, s3.l10, s4.l8, s6.l1, s7.l2 (0.3 s)
+silences >= 0.25 s found: 8; fails: 0; beats closer than 30 s: 0
+
+0:13.54  gap 0.32 s  s0.l4 after the line  ok (marked beat before a punchline/reveal)
+1:04.05  gap 0.32 s  s1.l12 after the line  ok (marked beat before a punchline/reveal)
+1:47.12  gap 0.32 s  s2.l8 after the line  ok (marked beat before a punchline/reveal)
+2:47.80  gap 0.32 s  s3.l10 after the line  ok (marked beat before a punchline/reveal)
+3:25.53  gap 0.32 s  s4.l8 after the line  ok (marked beat before a punchline/reveal)
+5:07.02  gap 0.36 s  s6.l1 after the line  ok (marked beat before a punchline/reveal)
+6:41.05  gap 0.32 s  s7.l2 after the line  ok (marked beat before a punchline/reveal)
+6:55.61  gap 20.02 s  s7.l6 inside the line  ok (end screen: music only)

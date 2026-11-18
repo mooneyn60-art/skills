@@ -934,7 +934,33 @@ def rk_speck(ctx, t, p):
         flat(ctx, lambda c, x=x, y=y: p_ellipse(c, x, y, 7, 5), hexc(p.get("col", "#e8eef5")), a=a)
 
 
-drawn.ACTORS.update(rk_rope=rk_rope, rk_washer=rk_washer, rk_pile=rk_pile, rk_file=rk_file, rk_stick=rk_stick,
+BURST = [("#ffd34d", "#ffb02e"), ("#7fd1ff", "#4aa8e8"), ("#ff8a7a", "#f2665a"), ("#9be37a", "#6cc94f")]
+
+
+def rk_burst(ctx, t, p):
+    """A full-screen comic reaction burst (screen space): alternating rays from the centre-top."""
+    if p.get("on", 0.0) < 0.5:
+        return
+    c1, c2 = p.get("col", BURST[0])
+    ctx.identity_matrix()
+    ctx.rectangle(0, 0, W, H)
+    ctx.set_source_rgb(*hexc(c1))
+    ctx.fill()
+    cx, cy = W / 2, H * 0.42
+    n = 22
+    rot = t * 0.15
+    ctx.set_source_rgb(*hexc(c2))
+    for k in range(n):
+        a0 = rot + 2 * math.pi * k / n
+        a1 = a0 + math.pi / n
+        ctx.move_to(cx, cy)
+        ctx.line_to(cx + 3000 * math.cos(a0), cy + 3000 * math.sin(a0))
+        ctx.line_to(cx + 3000 * math.cos(a1), cy + 3000 * math.sin(a1))
+        ctx.close_path()
+        ctx.fill()
+
+
+drawn.ACTORS.update(rk_burst=rk_burst, rk_rope=rk_rope, rk_washer=rk_washer, rk_pile=rk_pile, rk_file=rk_file, rk_stick=rk_stick,
                     rk_glow=rk_glow, rk_speck=rk_speck)
 BUGS.update(widow=("black_widow", 1.0, 520, 260, "BLACK WIDOW"), recluse=("brown_recluse", 1.0, 520, 230, "BROWN RECLUSE"))
 
@@ -1077,12 +1103,12 @@ def _table():
                       sfx=["stamp@biting|50%"])
     T["s2.l6"] = dict(f="kk", room="house", cams=[[700, 1000, 0.75, 0.8], [700, 1250, 1.2, 1.3]], cuts=["Every|50%"], pose="present",
                       x=[A("hs", "ds_houses", [500, 1700], 1.6, {"n": 10, "cols": 5, "lit": 1.0})], mb={"pos": [1500, 1600]})
-    T["s2.l7"] = dict(f="Mk", cams=[[1450, 900, 1.9, 2.0]], pose="nervous",
+    T["s2.l7"] = dict(f="Mw", pose="nervous",
                       x=[lab("al1", "CAST SKIN", [1250, 1400], "skins|40%", px=56, color="#ffffff",
                              moves=[{"at": "skins|40%", "dur": 2.0, "pos": [1350, 700]}]),
                          lab("al2", "DROPPINGS", [1700, 1400], "droppings|50%", px=56, color="#ffffff",
                              moves=[{"at": "droppings|50%", "dur": 1.6, "pos": [1600, 760]}])])
-    T["s2.l8"] = dict(f="wk", room="board", roomscene="keeper_room", cams=[[900, 1150, 1.0, 1.05], [1100, 1150, 1.6, 1.75]], cuts=["dry|60%"], pose="present",
+    T["s2.l8"] = dict(f="Mk", room="board", roomscene="keeper_room", cams=[[900, 1150, 1.0, 1.05], [1100, 1150, 1.6, 1.75]], cuts=["dry|60%"], pose="present",
                       x=[A("wash", "rk_washer", [1100, 1500], 1.3, {"spin": 5.0, "dial": 0.2}, set=[{"at": "hot|30%", "dur": 0.5, "p": {"dial": 0.9}}]),
                          lab("hot", "HOT", [1400, 1000], "hot|30%", px=80, color=RED)],
                       mb={"pos": [450, 1500]}, sfx=["click@hot|30%"])
@@ -1095,9 +1121,9 @@ def _table():
     T["s2.l12"] = dict(f="kw", room="garage", cams=[[1400, 760, 1.4, 1.55]], cuts=["garage|50%"], pose="think", bug={"hidden": True},
                        x=[A("web", "ds_web", [1680, 520], 0.8, {"w": 520, "h": 600})], light={"kind": "flashlight", "target": [1400, 760]})
     # ------------------------------------------------------------------ 3 spiders: the garage
-    T["s3.l0"] = dict(f="wi", cuts=["belly|45%"], pose="point", look="hero",
+    T["s3.l0"] = dict(f="Mi", cuts=["belly|45%"], pose="point", look="hero",
                       x=[A("web", "ds_web", [1680, 520], 0.8, {"w": 520, "h": 600})])
-    T["s3.l1"] = dict(f="im", cuts=["small|55%"], pose="present", look="hero", x=[A("web", "ds_web", [1680, 520], 0.8, {"w": 520, "h": 600})],
+    T["s3.l1"] = dict(f="iM", cuts=["small|55%"], pose="present", look="hero", x=[A("web", "ds_web", [1680, 520], 0.8, {"w": 520, "h": 600})],
                       mb={"gest": [["small|60%", "shrug", 1.0]]})
     T["s3.l2"] = dict(f="kM", cams=[[560, 1010, 2.2, 2.6]], pose="lean", look="viewer", ov=[{"type": "cam", "kind": "spidercam", "at": "0%", "to": "spider|50%"}],
                       cuts=["spider|50%"], light={"kind": "lamp", "dark": 0.6}, sfx=["click@0.05", "whoosh@spider|50%"])
@@ -1163,7 +1189,7 @@ def _table():
                            "gest": [["grab|50%", "shock", 1.0]]}, sfx=["boing@grab|55%"])
     T["s4.l14"] = dict(f="Mw", pose="present", mb={"gest": [["counted|40%", "point", 0.8], ["single|70%", "subpoint", 0.8]]},
                        **stamp("SINGLE DIGITS", "single|65%", YEL, 1300, 330, 120, -8), sfx=["stamp@single|65%"])
-    T["s4.l15"] = dict(f="wb", pose="shrug", look="hero",
+    T["s4.l15"] = dict(cuts=["arrested|45%"], f="bw", pose="shrug", look="hero",
                        x=[A("ph", "rk_photo", [700, 1150], 0.5, {"bug": "centipede"}, moves=[{"at": "arrested|40%", "dur": 1.0, "pos": [1150, 1300]}])])
     T["s4.l16"] = dict(tier="centipede")
     T["s4.l17"] = dict(f="kw", cams=[[100, 1000, 1.0, 1.1]], cuts=["kitchen|50%"], pose="point", bug={"hidden": True},
@@ -1182,7 +1208,7 @@ def _table():
                                                                        set=[{"at": "contains|25%", "dur": 1.0, "p": {"v": 30}}])],
                       sfx=["tink@30|60%"])
     T["s5.l4"] = dict(f="mw", pose="lean", look="hero", light={"kind": "lamp", "dark": 0.62}, sfx=["click@0.05"])
-    T["s5.l5"] = dict(f="kk", cams=[[500, 900, 1.0, 1.05], [450, 950, 1.4, 1.5]], cuts=["reported|55%"], mb={"hidden": True}, light="lamp",
+    T["s5.l5"] = dict(f="kb", cams=[[500, 900, 1.0, 1.05], [450, 950, 1.4, 1.5]], cuts=["reported|55%"], mb={"hidden": True}, light="lamp",
                       x=[A("c%d" % k, "sp.roach", [80 + (k % 6) * 150, 1016 - 70 * (k // 6)], 0.25, {}, flip=bool(k % 2)) for k in range(12)] +
                         [lab("eh", "EXTREMELY HEAVY", [500, 650], "extremely|20%", px=90, color=RED)], tint=[0.3, 0.25, 0.1, 0.25])
     T["s5.l6"] = dict(f="wb", pose="deadpan", look="viewer", x=[lab("one", "ONE ROACH", [480, 800], "one|30%", px=80, color=YEL)], flash=[0.02])
@@ -1213,7 +1239,7 @@ def _table():
                        light={"kind": "lamp", "dark": 0.7}, sfx=["scratch@mine|60%"], mb={"moves": [{"at": "mine|50%", "dur": 1.5, "pos": [1900, 1500], "walk": True}]})
     # ------------------------------------------------------------------ 6 bed bugs: Meatball's bedroom
     T["s6.l0"] = dict(f="wk", cams=[[1180, 1150, 1.4, 1.5]], cuts=["bed|60%"], pose="nervous", look="hero", bug={"hidden": True}, sfx=["thud@last|40%", "thud@bed|70%"])
-    T["s6.l1"] = dict(f="kk", cams=[[600, 1180, 1.8, 1.8], [1100, 1180, 1.8, 2.0]], cuts=["seam|40%"], pose="lean", bug={"hidden": True},
+    T["s6.l1"] = dict(f="kM", cams=[[600, 1180, 1.8, 1.8], [1100, 1180, 1.8, 2.0]], cuts=["seam|40%"], pose="lean", bug={"hidden": True},
                       mb={"prop": "flashlight"}, light={"kind": "flashlight", "target": [900, 1200]}, pans=[[500, 1180, 1.8], [1150, 1190, 2.2]])
     T["s6.l2"] = dict(f="Mbw", cuts=["bug#2|35%", "There's|65%"], pose="shock", freak=[0.15, "There's|65%"], shake=[0.15, "bug#2|35%", "There's|65%"],
                       flash=[0.1], mb={"shake": 1.0, "moves": [{"at": 0.12, "dur": 0.55, "pos": [1900, 1500], "hop": 420},
@@ -1222,22 +1248,22 @@ def _table():
     T["s6.l3"] = dict(f="wM", pose="nervous", look="hero", mb={"shake": 0.8, "moves": [{"at": "out#2|35%", "dur": 0.5, "pos": [2100, 1500], "hop": 200}]},
                       sfx=["boing@out#2|35%"], card_px=150)
     T["s6.l4"] = dict(f="bi", cuts=["reddish|40%"], zb=1.7, bug={"p": {"look": [-0.5, 0.2]}})
-    T["s6.l5"] = dict(f="ik", cams=[[300, 1050, 2.0, 2.1]], zb=1.7, x=[A("tp", "rk_stick", [330, 1000], 0.7, {}, rot=90)],
+    T["s6.l5"] = dict(ring_k=True, f="ik", cams=[[300, 1050, 2.0, 2.1]], zb=1.7, x=[A("tp", "rk_stick", [330, 1000], 0.7, {}, rot=90)],
                       bug={"moves": [{"at": "toothpick|40%", "dur": 1.0, "pos": [250, 1060], "s": 0.5}]})
-    T["s6.l6"] = dict(f="ikkk", cams=[[600, 1200, 2.3, 2.4], [400, 1430, 2.2, 2.3], [210, 900, 2.0, 2.1]], cuts=["seams|20%", "springs|45%", "frames|65%"], zb=1.7,
+    T["s6.l6"] = dict(ring_k=True, f="ikkk", cams=[[600, 1200, 2.3, 2.4], [400, 1430, 2.2, 2.3], [210, 900, 2.0, 2.1]], cuts=["seams|20%", "springs|45%", "frames|65%"], zb=1.7,
                       x=[A("h1", "sp.bed_bug", [600, 1200], 0.25, {}), A("h2", "sp.bed_bug", [400, 1440], 0.25, {}), A("h3", "sp.bed_bug", [215, 900], 0.25, {}, rot=-90)])
     T["s6.l7"] = dict(f="Mm", pose="deadpan", mb={"gest": [["Yes|50%", "nervous", 1.0]]})
     T["s6.l8"] = dict(f="kb", cams=[[900, 1150, 0.95, 1.05]], tint=[0.25, 0.3, 0.7, 0.2], mb={"hidden": True},
                       x=[A("zz", "tp_zzz", [600, 1000], 1.4, {"on": 1.0}), lab("fb", "FLASHBACK", [900, 560], None, px=64, color=YEL),
                          ],
                       bug={"pos": [1500, 1190], "moves": [{"at": "bite|20%", "dur": 3.0, "pos": [900, 1190], "walk": True}]}, zb=1.4)
-    T["s6.l9"] = dict(f="kk", cams=[[600, 1100, 1.5, 1.6], [800, 1150, 1.1, 1.2]], cuts=["seldom|50%"], tint=[0.25, 0.3, 0.7, 0.2], mb={"hidden": True},
+    T["s6.l9"] = dict(f="kb", cams=[[600, 1100, 1.5, 1.6]], cuts=["seldom|50%"], tint=[0.25, 0.3, 0.7, 0.2], mb={"hidden": True},
                       x=[A("zz", "tp_zzz", [600, 1000], 1.4, {"on": 1.0})], bug={"pos": [800, 1190]})
     T["s6.l10"] = dict(f="Mk", cams=[[1900, 1150, 2.4, 2.6]], pose="think", card="AS LONG AS 14 DAYS · IN SOME PEOPLE",
                        x=[A("bite", "rk_glow", [1930, 1180], 1.0, {"r": 40, "on": 0.0}, front=True, lit=True, set=[{"at": "develop|50%", "dur": 1.2, "p": {"on": 1.0}}])], bug={"hidden": True})
-    T["s6.l11"] = dict(f="mk", cams=[[1900, 950, 1.8, 1.9]], cuts=["Serious|55%"], pose="think", bug={"hidden": True},
+    T["s6.l11"] = dict(f="mM", cams=[[1900, 950, 1.8, 1.9]], cuts=["Serious|55%"], pose="think", bug={"hidden": True},
                        x=[lab("am", "3 AM", [1500, 700], "Serious|55%", px=110, color=YEL)], mb={"gest": [["itching|20%", "nervous", 1.0]]})
-    T["s6.l12"] = dict(f="mw", pose="laugh", look="viewer", bug={"hidden": True})
+    T["s6.l12"] = dict(f="Mw", pose="laugh", look="viewer", bug={"hidden": True})
     T["s6.l13"] = dict(f="wk", room="cork", cams=[[760, 760, 1.5, 1.6]], cuts=["biter|50%"], pose="point", look=[760, 760],
                        x=[A("ph", "rk_photo", [760, 760], 1.0, {"bug": "bedbug"})], **stamp("CASE CLOSED", "closed|30%", RED, 760, 500, 130), sfx=["stamp@closed|30%"])
     T["s6.l14"] = dict(f="wb", pose="point", look="hero", card="WHY IS IT IN MY HOUSE?",
@@ -1744,6 +1770,23 @@ def expand(spec, lines, durs):
                     sh["at"] = ats[j]
                 shots.append(sh)
             b["shots"] = shots
+            # Studio 11/17 (scene detect, same-palette rooms): every bug close-up is a BUG CAM (dark ring), so the
+            # cut into and out of it reads as a cut; not on lines with their own interrupt, the ID card or a board
+            has_cam = any(o.get("type") == "cam" for o in a.get("ov", [])) or room in ("scope", "board", "cork")
+            if not has_cam and bug_on and not a.get("no_bugcam"):
+                for j in range(n):
+                    if kinds[j] == "b" or (kinds[j] == "P" and j and kinds[j - 1] == "b") or (kinds[j] == "k" and a.get("ring_k")):
+                        rk.append({"type": "cam", "kind": "bugcam", "at": ats[j] if j else 0.0,
+                                   "to": ats[j + 1] if j + 1 < n else None, "nolabel": j > 0 and kinds[j - 1] == "b"})
+            # Meatball's face close-ups get a comic reaction burst behind him (a hard, readable cut in every room)
+            ms = [j for j in range(n) if kinds[j] == "M"]
+            if ms and not mbd.get("hidden") and not a.get("no_burst"):
+                sets = []
+                for j in ms:
+                    sets.append({"at": ats[j] if j else 0.0, "p": {"on": 1.0}})
+                    if j + 1 < n:
+                        sets.append({"at": ats[j + 1], "p": {"on": 0.0}})
+                b["actors"].insert(0, A("burst", "rk_burst", [0, 0], 1.0, {"on": 0.0, "col": BURST[sum(map(ord, L["id"])) % len(BURST)]}, set=sets))
             if not mbd.get("hidden"):
                 mx_ = mbd["pos"][0]
                 zs = [sh[k][2] for sh in shots for k in ("cam", "to") if abs((mx_ - sh[k][0]) * sh[k][2]) < 1100]
