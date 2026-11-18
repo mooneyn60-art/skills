@@ -20,7 +20,7 @@ Actors:  ph_ship (a Greek galley, side view, origin = waterline centre, about 86
          ph_qm (a big bouncing question mark centred at its origin, p on 0..1, p col)
 Scenes:  ph_harbor (an ancient harbour: banded sky, a temple on a hill, sea, a wooden dock floor at y 1500;
          p time "day" | "dusk"), ph_museum (a museum hall: marble wall, columns, spotlights, a plinth line, rope
-         posts; floor y 1500), ph_shed (a plank-walled workshop with a lantern; floor y 1500), ph_lab (a plain
+         posts; floor y 1500), ph_shed (a plank-walled workshop with a lantern; floor y 1500), ph_vein (inside a blood vessel, flowing), ph_lab (a plain
          science backdrop: dark blue wall with a cell-dot pattern; floor y 1500; p wall colour)
 """
 import math
@@ -478,6 +478,26 @@ def ph_lab(ctx, t, layer, p):
     stroke(ctx, [(-3000, 1500), (5000, 1500)], BG_OUT)
 
 
+def ph_vein(ctx, t, layer, p):
+    """Inside a blood vessel: dark red backdrop, a wide tube from y 520 to 1500 with pale pink walls and soft
+    ripples that flow left; floor y 1500 is the lower wall."""
+    layer(0.9)
+    flat(ctx, lambda c: c.rectangle(-3000, -3000, 8000, 8000), hexc("#3a0f17"))
+    flat(ctx, lambda c: c.rectangle(-3000, 520, 8000, 980), hexc("#8c1f2b"))
+    for k in range(-4, 16):
+        x = (k * 240 - 120 * t) % 3600 - 600
+        ctx.save()
+        ctx.set_source_rgba(1, 0.75, 0.75, 0.18)
+        p_ellipse(ctx, x, 1010, 90, 420)
+        ctx.fill()
+        ctx.restore()
+    shape(ctx, lambda c: c.rectangle(-3000, 380, 8000, 140), hexc("#f1a7a1"), BG_OUT, None)
+    layer(1.0)
+    shape(ctx, lambda c: c.rectangle(-3000, 1500, 8000, 3000), hexc("#f1a7a1"), BG_OUT, None)
+    for x in range(-2000, 4000, 300):
+        stroke(ctx, [(x - (60 * t) % 300, 1580), (x + 120 - (60 * t) % 300, 1600)], 6, color=hexc("#d9837d"))
+
+
 ACTORS = {"ph_ship": ph_ship, "ph_plank": ph_plank, "ph_pile": ph_pile, "ph_body": ph_body, "ph_neuron": ph_neuron,
           "ph_blood": ph_blood, "ph_phone": ph_phone, "ph_scale": ph_scale, "ph_split": ph_split, "ph_qm": ph_qm}
-SCENES = {"ph_harbor": ph_harbor, "ph_museum": ph_museum, "ph_shed": ph_shed, "ph_lab": ph_lab}
+SCENES = {"ph_vein": ph_vein, "ph_harbor": ph_harbor, "ph_museum": ph_museum, "ph_shed": ph_shed, "ph_lab": ph_lab}
