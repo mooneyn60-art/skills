@@ -196,6 +196,21 @@ L["christmas-wishlist-v2"] = dict(
 • Perfect for mailing to Santa, sharing with grandparents, or keeping as a keepsake
 """)
 
+L["elf-letter-bundle"] = dict(
+    title="Christmas Elf Letter Bundle, Printable Elf Arrival Letter, I'm Back Letter, Goodbye Letter & Reminder Note, Instant Download PDF",
+    price="4.99", publish="yes",
+    imgs=["elfbundle-01-thumbnail", "elfbundle-02-included", "elfbundle-03-pages", "elfbundle-04-goodbye"],
+    tags="elf letters,elf arrival letter,elf goodbye letter,christmas elf,elf letter bundle,elf is back letter,elf ideas,elf printable,elf rules,christmas eve letter,elf props,north pole letter,kids christmas",
+    intro="""Christmas Elf Letter Bundle: 4 matching printable letters for the whole elf season! Welcome your family's Christmas elf, celebrate its return, send a kind reminder, and say a sweet goodbye on Christmas Eve, all in one instant download.
+
+🧝 WHAT'S INCLUDED (4 pages, US Letter AND A4 PDF)
+1. Arrival letter: "I'm Here from the North Pole!" with Elf Rules
+2. "I'm Back!" letter for elves returning this year
+3. Gentle Reminder note: kind checklist (share, help, be kind; no scary threats)
+4. Christmas Eve goodbye letter: "Time to Fly Home with Santa!" with a favorite-memory line
+• Fill-in blanks for your child's name and your elf's name
+""")
+
 def send(slug):
     d = L[slug]
     if slug == "bundle":

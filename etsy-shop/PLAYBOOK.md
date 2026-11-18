@@ -36,6 +36,20 @@ Every agent works toward this first. The plan, based on our research (beginner-s
   - Pinterest: scenario 7049952. Use `etsy-shop/src/pinterest.py` (boards/pins). Board IDs are in `etsy-shop/pins/board_ids.json`.
   - Etsy API runner: scenario 7049590, on-demand, usually **inactive** (slot limit). Results land in data store 202355.
   - Webhook URLs live in the git-ignored files `etsy-shop/.make_hook` and `.pin_hook`. **Never commit them.**
+  - **If those files are missing (fresh container):** recover the URLs with the Make tool `hooks_get` (listing upload hook id **3068819** → `.make_hook`, Pinterest hook id **3068908** → `.pin_hook`) and write them back into those files.
+  - **If product previews or PDFs are missing:** rebuild them with `etsy-shop/src/build-*.js`. Products made from the owner's own uploads (Dear Santa, coloring book, Holly Jolly) can't be rebuilt, so reuse the videos already in `etsy-shop/media/`.
+
+## Autopilot schedule (runs even if nobody checks in)
+| When (ET) | Who | What |
+|---|---|---|
+| Daily 1:47 PM | shop-manager | Health check: are the next 48 h of TikToks scheduled (top up if not)? Any new orders? Post 1 Pinterest pin. |
+| Mon 2:17 PM | analyst → SEO lead → manager | Weekly review, fix weak listings, owner update |
+| Mon + Thu 8:23 PM | content creator | New videos, fill 3/day TikTok slots for the next 4 days, plus pins |
+| Wed 7:41 PM | product designer → SEO lead | Design and list 1 new seasonal product (≈$0.20 Etsy listing fee) |
+| Dec 15 (once) | manager | Switch everything to "last-minute, print tonight" |
+| Dec 26 (once) | manager | Pivot to New Year: planners, budget and calendar content; thank-you notes product |
+| Jan 5 (once) | manager | Launch Valentine's products and content |
+Every run: stay within the Make budget (~1,000 ops/month). If a run hits an error it can't fix, report it plainly to the owner instead of retrying in a loop.
 - **Metricool:** use the brand **"doodle and co" (blogId 8191388, TikTok @doodley)** ONLY. **NEVER touch "meatballmyths" (7521392).** Instagram isn't connected yet.
 - **Video and image hosting for Metricool:** commit to `etsy-shop/media/` on branch `claude/great-turing-rqc91h`, then use `https://raw.githubusercontent.com/mooneyn60-art/skills/claude/great-turing-rqc91h/etsy-shop/media/<file>` (check that it returns 200).
 - **Repo is PUBLIC:** never commit product PDFs, her uploads or listing previews (`products/`, `work/`, `listing-images/`, `tiktok/` are git-ignored).
