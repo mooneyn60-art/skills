@@ -1,0 +1,14 @@
+GAP LINT PASS: house-centipede-bathroom-voice.wav
+rule: silencedetect -40 dB, d=0.25 s; fail any gap > 0.3 s that is not a marked beat (max 1 per 30 s)
+runtime 267.3 s (4:27.3) incl. the 20 s end screen; speech ends 4:07.3
+words 691; pace 168 wpm over the spoken part
+line-to-line gaps (end of one take to the start of the next, after the trim): median 0.080 s, max 0.300 s; marked beats: s0.l1, s1.l6, s2.l2, s3.l5, s4.l5, s5.l8 (0.3 s)
+silences >= 0.25 s found: 7; fails: 0; beats closer than 30 s: 0
+
+0:06.78  gap 0.33 s  s0.l1 after the line  ok (marked beat before a punchline/reveal)
+0:52.55  gap 0.32 s  s1.l6 after the line  ok (marked beat before a punchline/reveal)
+1:30.98  gap 0.33 s  s2.l2 after the line  ok (marked beat before a punchline/reveal)
+2:15.87  gap 0.32 s  s3.l5 after the line  ok (marked beat before a punchline/reveal)
+2:45.97  gap 0.32 s  s4.l5 after the line  ok (marked beat before a punchline/reveal)
+3:43.54  gap 0.32 s  s5.l8 after the line  ok (marked beat before a punchline/reveal)
+4:07.28  gap 20.03 s  s6.l5 inside the line  ok (end screen: music only)

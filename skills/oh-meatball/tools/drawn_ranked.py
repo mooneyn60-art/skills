@@ -448,9 +448,10 @@ def ov_cam(arr, b, t, o, T):
         arr[..., 0] = np.clip(lum * 0.30, 0, 255).astype(np.uint8)
         arr[..., 1] = np.clip(lum * 1.0 + 12, 0, 255).astype(np.uint8)
         arr[..., 2] = np.clip(lum * 0.42, 0, 255).astype(np.uint8)
-        sec = 2 * 3600 + 14 * 60 + int(t - a)
-        drawn.paste(arr, txt("SECURITY CAM", 96, "#dcffdc"), 360, 110)
-        drawn.paste(arr, txt("BASEMENT  %d:%02d:%02d AM" % (sec // 3600, sec // 60 % 60, sec % 60), 64, "#dcffdc"), 1450, 110)
+        sec = o.get("clock", 2 * 3600 + 14 * 60) + int(t - a)
+        ty = o.get("title_y", 110)
+        drawn.paste(arr, txt(o.get("title", "SECURITY CAM"), o.get("title_px", 96), "#dcffdc"), o.get("title_x", 360), ty)
+        drawn.paste(arr, txt("%s  %d:%02d:%02d AM" % (o.get("place", "BASEMENT"), sec // 3600, sec // 60 % 60, sec % 60), 64, "#dcffdc"), 1450, ty)
         if int(T * 2) % 2 == 0:
             drawn.paste(arr, txt("REC", 72, "#ff4646"), 1780, 240)
             im = Image.new("RGBA", (50, 50))
@@ -517,6 +518,10 @@ def screen_layer(arr, T):
     for o in b.get("rk", []):
         if o["type"] == "cam":
             ov_cam(arr, b, t, o, T)
+    card = b.get("card")
+    if card and any(o["type"] == "cam" for o in b.get("rk", [])) and t >= drawn.at_time(b["words"], card.get("at", 0.0)):
+        im = drawn.card_img(card["rows"])   # the card stays readable over a BUG CAM / night-vision window
+        drawn.paste(arr, im, card.get("x", W // 2), card.get("y", 760) + im.height // 2)
     for o in b.get("rk", []):
         if o["type"] in OVS:
             OVS[o["type"]](arr, b, t, o)
@@ -1412,6 +1417,8 @@ PAUSE_IN = 0.2
 
 
 def direction(L):
+    if L.get("act"):   # an outline that directs every line itself (the bathroom episode)
+        return L["act"]
     if L["id"] in DIRECT:
         return DIRECT[L["id"]]
     r = L.get("rate")
@@ -1739,6 +1746,8 @@ def expand(spec, lines, durs):
                             k2.append("M")
                         elif prevk == "m" or prevk == "w":
                             k2.append("M" if mb_on else "P")
+                        elif prevk == "M" and mb_on:
+                            k2.append("w")
                         else:
                             k2.append("P")   # a hard punch-in on the previous framing
                         a2.append(round(st_, 2))
@@ -1776,13 +1785,16 @@ def expand(spec, lines, durs):
             # Studio 11/17 (scene detect, same-palette rooms): every bug close-up is a BUG CAM (dark ring), so the
             # cut into and out of it reads as a cut; not on lines with their own interrupt, the ID card or a board
             has_cam = any(o.get("type") == "cam" for o in a.get("ov", [])) or room in ("scope", "board", "cork")
-            if not has_cam and bug_on and not a.get("no_bugcam"):
+            if not has_cam and (bug_on or a.get("ring_k")) and not a.get("no_bugcam"):
                 for j in range(n):
                     if kinds[j] == "b" or (kinds[j] == "P" and j and kinds[j - 1] == "b") or (kinds[j] == "k" and a.get("ring_k")):
                         rk.append({"type": "cam", "kind": "bugcam", "at": ats[j] if j else 0.0,
                                    "to": ats[j + 1] if j + 1 < n else None, "nolabel": j > 0 and kinds[j - 1] == "b"})
             # Meatball's face close-ups get a comic reaction burst behind him (a hard, readable cut in every room)
             ms = [j for j in range(n) if kinds[j] == "M"]
+            bmode = spec.get("burst", "all")   # "loud": only shocked / shout / scared lines (or a shot's burst: true)
+            if bmode == "loud" and not a.get("burst") and direction(L) not in ("shocked", "shout", "scared"):
+                ms = []
             if ms and not mbd.get("hidden") and not a.get("no_burst"):
                 sets = []
                 for j in ms:
@@ -1847,7 +1859,7 @@ def expand(spec, lines, durs):
         b["sfx"] = sfx
         if last:
             b["actors"].append({"id": "end", "type": "kk_end", "pos": [0, 0], "front": True,
-                                "p": {"on": 0.0, "label": "HOUSE CENTIPEDE  ·  HOUSE GUESTS"},
+                                "p": {"on": 0.0, "label": spec.get("end_text", "HOUSE CENTIPEDE  ·  HOUSE GUESTS")},
                                 "set": [{"at": "100%", "dur": 0.5, "p": {"on": 1.0}}]})
             b["pad"] = spec.get("end_hold", 20.0)
         else:

@@ -1,0 +1,3899 @@
+{
+ "_note": "Built by tools/drawn_bathroom.py build (drawn_ranked engine) from longform-centipede-bathroom.outline.json. Each line: id (s<seg>.l<line>), the outline fields (say/vis/card/rate/pitch/src) and shot (the SHOTS recipe in tools/drawn_ranked.py; \"_keep\": true keeps a hand edit across rebuilds).",
+ "voice": "kokoro:adam-puck",
+ "formant": 1.05,
+ "rate": "+32%",
+ "pitch": "+2Hz",
+ "music": "mystery",
+ "music_db": -16,
+ "tempo": {
+  "lead": 0.0,
+  "tail": 0.02,
+  "thr": 0.01,
+  "cam": 0.7
+ },
+ "pad": 0.08,
+ "speed_k": 0.7,
+ "beat_lines": [
+  "s0.l1",
+  "s1.l6",
+  "s2.l2",
+  "s3.l5",
+  "s4.l5",
+  "s5.l8"
+ ],
+ "captions": 122,
+ "caption_y": 870,
+ "cut_whoosh": true,
+ "sfx_gain": 0.24,
+ "cap_key": [
+  "centipede",
+  "centipedes",
+  "bathroom",
+  "sink",
+  "bite",
+  "water",
+  "humid",
+  "humidity",
+  "night",
+  "nocturnal",
+  "winter",
+  "stop",
+  "shoe",
+  "fan",
+  "traps",
+  "moisture",
+  "flee",
+  "hides",
+  "stays"
+ ],
+ "end_hold": 20.0,
+ "end_label": "House Bugs Ranked by Meatball (the flagship long-form) + House Centipede playlist (never a Short)",
+ "segments": [
+  {
+   "chapter": "Cold open: the shoe",
+   "chip": null,
+   "room": "Bathroom, 11 PM: light switch, tiled wall by the mirror",
+   "est_start": "0:00"
+  },
+  {
+   "chapter": "11 PM: Why the bathroom?",
+   "chip": "NIGHT 1 · 11 PM",
+   "room": "Bathroom: steamy mirror and sink",
+   "est_start": "0:28"
+  },
+  {
+   "chapter": "2 AM: The night shift",
+   "chip": "NIGHT 1 · 2 AM",
+   "room": "Bathroom floor and tub edge, lights off (night-vision)",
+   "est_start": "1:22"
+  },
+  {
+   "chapter": "3 AM: The sink",
+   "chip": "NIGHT 1 · 3 AM",
+   "room": "Bathroom sink, light on, Meatball on the toilet tank",
+   "est_start": "1:51"
+  },
+  {
+   "chapter": "Day 3: Where did it go?",
+   "chip": "DAY 3 · NOON",
+   "room": "Bathroom by daylight: under-sink cabinet and baseboard",
+   "est_start": "2:19"
+  },
+  {
+   "chapter": "Day 7: What to do",
+   "chip": "DAY 7 · MORNING",
+   "room": "Hallway and laundry room: baseboards, sticky traps, dehumidifier",
+   "est_start": "2:59"
+  },
+  {
+   "chapter": "The answer",
+   "chip": "THE ANSWER",
+   "room": "Bathroom at dawn, then the hall closet",
+   "est_start": "3:43"
+  }
+ ],
+ "titles": [
+  "What Happens If You Leave a House Centipede in Your Bathroom",
+  "House Centipede in Your Bathroom? Here's What Happens",
+  "Meatball Left a House Centipede in His Bathroom for a Week"
+ ],
+ "pinned_comment": "Where did you last find a house centipede, and did it get the shoe or the towel ramp?",
+ "lines": [
+  {
+   "say": "What happens if you leave a house centipede in your bathroom?",
+   "vis": "FRAME 0: the bathroom light snaps on and a house centipede FILLS the frame on the white tile by the mirror, already moving (legs ripple, antennae sweep). Hard cut at 0:02 to Meatball BIG in the doorway (half the frame), paw still on the switch. Sound hit on the card.",
+   "card": "WHAT HAPPENS IF YOU LEAVE IT?",
+   "src": "hook (typed question, no fact)",
+   "act": "curious",
+   "id": "s0.l0",
+   "seg": 0,
+   "shot": {
+    "f": "bM",
+    "cuts": [
+     "leave|55%"
+    ],
+    "pose": "shock",
+    "zb": 1.6,
+    "card": false,
+    "flash": [
+     0.0
+    ],
+    "bug": {
+     "p": {
+      "mood": "calm"
+     },
+     "moves": [
+      {
+       "at": 0.0,
+       "dur": 2.5,
+       "pos": [
+        700,
+        820
+       ],
+       "walk": true
+      }
+     ]
+    },
+    "ov": [
+     {
+      "type": "typed",
+      "text": "WHAT HAPPENS IF YOU LEAVE IT?",
+      "at": 0.05,
+      "dur": 1.8
+     }
+    ],
+    "sfx": [
+     "click@0",
+     "sting@0.05",
+     "thud@leave|55%"
+    ],
+    "no_bugcam": true
+   }
+  },
+  {
+   "say": "You flip on the light, it's on the wall, and your paw grabs a shoe.",
+   "vis": "Camera move by 0:04: whip-pan wall to Meatball; his paw slides a sneaker off the shoe rack without looking. Push-in on the sneaker.",
+   "card": null,
+   "src": "story",
+   "act": "story",
+   "id": "s0.l1",
+   "seg": 0,
+   "shot": {
+    "f": "wm",
+    "cuts": [
+     "grabs|60%"
+    ],
+    "pose": "point",
+    "look": "hero",
+    "mb": {
+     "prop": "slipper"
+    },
+    "sfx": [
+     "whoosh@0.05"
+    ]
+   }
+  },
+  {
+   "say": "Stop. Put the shoe down.",
+   "vis": "Freeze-frame: sneaker mid-swing, centipede frozen on the tile. Record-scratch SFX. The STOP card slams in.",
+   "card": "STOP",
+   "src": "story",
+   "act": "shocked",
+   "id": "s0.l2",
+   "seg": 0,
+   "shot": {
+    "f": "Mb",
+    "cuts": [
+     "Put|30%"
+    ],
+    "pose": "shock",
+    "mb": {
+     "prop": "slipper",
+     "shake": 0.6
+    },
+    "sfx": [
+     "scratch@0.02",
+     "stamp@Stop|10%"
+    ],
+    "no_bugcam": true,
+    "burst": true,
+    "stamp": {
+     "text": "STOP",
+     "color": "#e5383b",
+     "at": "Stop|5%",
+     "x": 960,
+     "y": 420,
+     "px": 190,
+     "rot": -8
+    }
+   }
+  },
+  {
+   "say": "Does it dry up and die, leave, or move in?",
+   "vis": "Three quick cuts, one per outcome: a dried-up silhouette with a question mark, a silhouette walking out under the door, a silhouette with a tiny suitcase. Each lands with a pop.",
+   "card": "DIES? LEAVES? MOVES IN?",
+   "src": "story (three outcomes, no fact)",
+   "act": "curious",
+   "id": "s0.l3",
+   "seg": 0,
+   "shot": {
+    "f": "kkk",
+    "room": "board",
+    "roomscene": "rk_board_bg",
+    "cams": [
+     [
+      0,
+      0,
+      1.0,
+      1.05
+     ],
+     [
+      600,
+      0,
+      1.0,
+      1.05
+     ],
+     [
+      1200,
+      0,
+      1.0,
+      1.05
+     ]
+    ],
+    "cuts": [
+     "leave|35%",
+     "move|70%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "bug": null,
+    "card": false,
+    "x": [
+     {
+      "id": "s1",
+      "type": "sp.house_centipede",
+      "pos": [
+       0,
+       120
+      ],
+      "s": 0.35,
+      "p": {},
+      "rot": 90
+     },
+     {
+      "id": "q1",
+      "type": "ds_label",
+      "pos": [
+       0,
+       -250
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "DIES?",
+       "px": 110,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "dry|10%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "s2",
+      "type": "sp.house_centipede",
+      "pos": [
+       600,
+       120
+      ],
+      "s": 0.35,
+      "p": {}
+     },
+     {
+      "id": "q2",
+      "type": "ds_label",
+      "pos": [
+       600,
+       -250
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "LEAVES?",
+       "px": 110,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "leave|35%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "s3",
+      "type": "sp.house_centipede",
+      "pos": [
+       1200,
+       120
+      ],
+      "s": 0.35,
+      "p": {}
+     },
+     {
+      "id": "bag",
+      "type": "tp_suitcase",
+      "pos": [
+       1350,
+       120
+      ],
+      "s": 0.6,
+      "p": {}
+     },
+     {
+      "id": "q3",
+      "type": "ds_label",
+      "pos": [
+       1200,
+       -250
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "MOVES IN?",
+       "px": 110,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "move|70%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "pop@dry|10%",
+     "pop@leave|35%",
+     "pop@move|70%"
+    ]
+   }
+  },
+  {
+   "say": "Tonight, I leave one in my bathroom and check on it all week.",
+   "vis": "Meatball puts the sneaker in the hall closet (remember the closet: it is the callback), tapes a sign on the bathroom door: DO NOT DISTURB: SCIENCE. A wall clock reads 11:00.",
+   "card": "NIGHT 1 · 11 PM",
+   "src": "story",
+   "act": "smug",
+   "id": "s0.l4",
+   "seg": 0,
+   "shot": {
+    "f": "wk",
+    "room": "hallM",
+    "cams": [
+     [
+      -300,
+      1000,
+      1.2,
+      1.3
+     ]
+    ],
+    "cuts": [
+     "leave|30%"
+    ],
+    "pose": "present",
+    "bug": null,
+    "card_x": 1300,
+    "mb": {
+     "pos": [
+      300,
+      1500
+     ],
+     "prop": "slipper"
+    },
+    "x": [
+     {
+      "id": "sign",
+      "type": "ds_label",
+      "pos": [
+       -300,
+       1000
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "DO NOT DISTURB: SCIENCE",
+       "px": 54,
+       "color": "#1a1a1a",
+       "bg": "#ffffff",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "check|60%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "say": "Kentucky entomologists say house centipedes associate with the more humid areas, like bathrooms.",
+   "vis": "Named source on screen by about 0:30: a drawn page labelled UNIVERSITY OF KENTUCKY ENTOMOLOGY slides in; behind it, steam curls up the mirror and the centipede sits in the damp corner by the tub.",
+   "card": "UNIV. OF KENTUCKY: HUMID AREAS, LIKE BATHROOMS",
+   "src": "CB1",
+   "rate": "+20%",
+   "id": "s0.l5",
+   "seg": 0,
+   "shot": {
+    "f": "kb",
+    "cams": [
+     [
+      800,
+      700,
+      1.1,
+      1.15
+     ]
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "card_x": 960,
+    "x": [
+     {
+      "id": "doc",
+      "type": "cl_paper",
+      "pos": [
+       420,
+       620
+      ],
+      "s": 1.1,
+      "p": {
+       "kind": "paper"
+      },
+      "moves": [
+       {
+        "at": 0.0,
+        "dur": 0.4,
+        "pos": [
+         420,
+         640
+        ]
+       }
+      ]
+     },
+     {
+      "id": "uky",
+      "type": "ds_label",
+      "pos": [
+       420,
+       300
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "UNIVERSITY OF KENTUCKY ENTOMOLOGY",
+       "px": 48,
+       "color": "#ffffff",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "Kentucky|10%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "st",
+      "type": "rk_steam",
+      "pos": [
+       1000,
+       1000
+      ],
+      "s": 1.5,
+      "p": {}
+     }
+    ]
+   }
+  },
+  {
+   "say": "But they can often turn up in other rooms, too.",
+   "vis": "Quick map of the house: little centipede pins pop up in the basement, a closet, the kitchen. Camera snaps back to the bathroom.",
+   "card": null,
+   "src": "CB1 (hedge kept)",
+   "rate": "+20%",
+   "id": "s0.l6",
+   "seg": 0,
+   "shot": {
+    "f": "kk",
+    "room": "houseN",
+    "cams": [
+     [
+      600,
+      1050,
+      0.8,
+      0.85
+     ],
+     [
+      400,
+      1250,
+      1.3,
+      1.4
+     ]
+    ],
+    "cuts": [
+     "rooms|50%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "p1",
+      "type": "sp.house_centipede",
+      "pos": [
+       150,
+       1400
+      ],
+      "s": 0.14,
+      "p": {}
+     },
+     {
+      "id": "l1",
+      "type": "ds_label",
+      "pos": [
+       150,
+       1300
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "BASEMENT",
+       "px": 56,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "often|20%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "p2",
+      "type": "sp.house_centipede",
+      "pos": [
+       600,
+       1100
+      ],
+      "s": 0.14,
+      "p": {}
+     },
+     {
+      "id": "l2",
+      "type": "ds_label",
+      "pos": [
+       600,
+       1000
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "CLOSET",
+       "px": 56,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "turn|40%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "p3",
+      "type": "sp.house_centipede",
+      "pos": [
+       1050,
+       1400
+      ],
+      "s": 0.14,
+      "p": {}
+     },
+     {
+      "id": "l3",
+      "type": "ds_label",
+      "pos": [
+       1050,
+       1300
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "KITCHEN",
+       "px": 56,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "rooms|60%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "pop@often|20%",
+     "pop@turn|40%",
+     "pop@rooms|60%"
+    ]
+   }
+  },
+  {
+   "say": "So why the bathroom? Short answer: water.",
+   "vis": "RE-HOOK CARD 'WHY THE BATHROOM?' + sound hit. The mirror fogs; a drip falls from the faucet in slow motion.",
+   "card": "WHY THE BATHROOM?",
+   "src": "story (lead-in to CB3)",
+   "act": "curious",
+   "id": "s1.l0",
+   "seg": 1,
+   "shot": {
+    "f": "wM",
+    "cuts": [
+     "water|60%"
+    ],
+    "pose": "think",
+    "x": [
+     {
+      "id": "st",
+      "type": "rk_steam",
+      "pos": [
+       80,
+       880
+      ],
+      "s": 1.4,
+      "p": {}
+     }
+    ],
+    "ov": [
+     {
+      "type": "suspect",
+      "text": "NIGHT 1 · 11 PM",
+      "kicker": "WHY THE BATHROOM?",
+      "at": 0.0
+     }
+    ],
+    "sfx": [
+     "sting@0",
+     "hit@0.05"
+    ],
+    "card_at": 1.5
+   }
+  },
+  {
+   "say": "Ohio State says centipedes lack the waxy coating that helps hold water inside the body.",
+   "vis": "BUG CAM (interrupt): macro shot sliding along the centipede's back; a cartoon 'wax coat' peels off a beetle next to it for contrast, the centipede has none.",
+   "card": "NO WAXY COAT",
+   "src": "CB3",
+   "rate": "+20%",
+   "id": "s1.l1",
+   "seg": 1,
+   "shot": {
+    "f": "bk",
+    "cams": [
+     [
+      1250,
+      1400,
+      1.6,
+      1.7
+     ]
+    ],
+    "cuts": [
+     "waxy|50%"
+    ],
+    "zb": 2.4,
+    "ov": [
+     {
+      "type": "cam",
+      "kind": "bugcam",
+      "at": 0.0,
+      "to": "waxy|50%"
+     }
+    ],
+    "x": [
+     {
+      "id": "beetle",
+      "type": "sp.beetle",
+      "pos": [
+       1250,
+       1500
+      ],
+      "s": 0.5,
+      "p": {}
+     },
+     {
+      "id": "wx",
+      "type": "ds_label",
+      "pos": [
+       1250,
+       1560
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "WAXY COAT",
+       "px": 56,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "waxy|55%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "say": "So they lose water fast when the air is dry.",
+   "vis": "Act it out: a little water-drop meter above the centipede drains when Meatball opens the window to dry air, then refills when he shuts it.",
+   "card": "LOSES WATER FAST IN DRY AIR",
+   "src": "CB3 (Sombke 2021: 'lose water rapidly at low humidity')",
+   "rate": "+20%",
+   "id": "s1.l2",
+   "seg": 1,
+   "shot": {
+    "f": "bm",
+    "pose": "present",
+    "x": [
+     {
+      "id": "dr",
+      "type": "droplets",
+      "pos": [
+       600,
+       900
+      ],
+      "s": 1.0,
+      "p": {
+       "n": 8,
+       "r": 300
+      }
+     },
+     {
+      "id": "da",
+      "type": "ds_label",
+      "pos": [
+       600,
+       600
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "DRY AIR",
+       "px": 80,
+       "color": "#ff9f43",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "dry|40%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "whoosh@dry|40%"
+    ]
+   }
+  },
+  {
+   "say": "Meatball's nose feels dry. He just licks it.",
+   "vis": "Close on Meatball licking his own nose, deadpan to camera.",
+   "card": null,
+   "src": "joke (no new fact)",
+   "act": "smug",
+   "id": "s1.l3",
+   "seg": 1,
+   "shot": {
+    "f": "M",
+    "pose": "deadpan",
+    "look": "viewer",
+    "bug": {
+     "hidden": true
+    },
+    "mb": {
+     "gest": [
+      [
+       "licks|40%",
+       "laugh",
+       0.8
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "say": "Most centipedes that wander into a house die shortly after, from the lack of moisture.",
+   "vis": "Act it out: a little parade of OTHER centipedes (stubby, different body shape) marches in under the front door and wilts one by one on a dry carpet (simple tip-over, no gore).",
+   "card": "MOST CENTIPEDES INDOORS DRY OUT",
+   "src": "CB4",
+   "rate": "+20%",
+   "id": "s1.l4",
+   "seg": 1,
+   "shot": {
+    "f": "kk",
+    "ring_k": true,
+    "room": "hallM",
+    "cams": [
+     [
+      600,
+      1350,
+      1.1,
+      1.15
+     ],
+     [
+      900,
+      1400,
+      1.6,
+      1.7
+     ]
+    ],
+    "cuts": [
+     "die|50%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "bug": null,
+    "x": [
+     {
+      "id": "o0",
+      "type": "house_centipede",
+      "pos": [
+       100,
+       1496
+      ],
+      "s": 0.35,
+      "p": {},
+      "set": [
+       {
+        "at": "moisture|30%",
+        "dur": 0.5,
+        "p": {}
+       }
+      ],
+      "moves": [
+       {
+        "at": "die|40%",
+        "dur": 0.5,
+        "pos": [
+         100,
+         1500
+        ],
+        "rot": 160
+       }
+      ]
+     },
+     {
+      "id": "o1",
+      "type": "house_centipede",
+      "pos": [
+       360,
+       1496
+      ],
+      "s": 0.35,
+      "p": {},
+      "set": [
+       {
+        "at": "moisture|45%",
+        "dur": 0.5,
+        "p": {}
+       }
+      ],
+      "moves": [
+       {
+        "at": "die|52%",
+        "dur": 0.5,
+        "pos": [
+         360,
+         1500
+        ],
+        "rot": 160
+       }
+      ]
+     },
+     {
+      "id": "o2",
+      "type": "house_centipede",
+      "pos": [
+       620,
+       1496
+      ],
+      "s": 0.35,
+      "p": {},
+      "set": [
+       {
+        "at": "moisture|60%",
+        "dur": 0.5,
+        "p": {}
+       }
+      ],
+      "moves": [
+       {
+        "at": "die|64%",
+        "dur": 0.5,
+        "pos": [
+         620,
+         1500
+        ],
+        "rot": 160
+       }
+      ]
+     },
+     {
+      "id": "o3",
+      "type": "house_centipede",
+      "pos": [
+       880,
+       1496
+      ],
+      "s": 0.35,
+      "p": {},
+      "set": [
+       {
+        "at": "moisture|75%",
+        "dur": 0.5,
+        "p": {}
+       }
+      ],
+      "moves": [
+       {
+        "at": "die|76%",
+        "dur": 0.5,
+        "pos": [
+         880,
+         1500
+        ],
+        "rot": 160
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "thud@die|50%"
+    ]
+   }
+  },
+  {
+   "say": "But the house centipede is the only one known to stay inside buildings all year.",
+   "vis": "Cut back to the bathroom: the house centipede strolls past the wilted ones' silhouettes on the card, unbothered. Spotlight on it.",
+   "card": "ONLY ONE KNOWN TO STAY INDOORS ALL YEAR",
+   "src": "CB2",
+   "rate": "+20%",
+   "id": "s1.l5",
+   "seg": 1,
+   "shot": {
+    "f": "bw",
+    "pose": "shrug",
+    "look": "hero",
+    "light": {
+     "kind": "lamp",
+     "dark": 0.5
+    },
+    "x": [
+     {
+      "id": "only",
+      "type": "ds_label",
+      "pos": [
+       600,
+       640
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "ALL YEAR",
+       "px": 80,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "year|60%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "say": "It can live its entire life indoors.",
+   "vis": "Act it out: a tiny calendar on the bathroom wall flips through seasons while the centipede stays on the tile.",
+   "card": null,
+   "src": "CB2",
+   "rate": "+20%",
+   "id": "s1.l6",
+   "seg": 1,
+   "shot": {
+    "f": "kb",
+    "cams": [
+     [
+      900,
+      800,
+      1.2,
+      1.3
+     ]
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "se1",
+      "type": "ds_label",
+      "pos": [
+       1000,
+       520
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "SPRING",
+       "px": 70,
+       "color": "#3fb950",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "live|10%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "se2",
+      "type": "ds_label",
+      "pos": [
+       1000,
+       620
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "SUMMER",
+       "px": 70,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "entire|35%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "se3",
+      "type": "ds_label",
+      "pos": [
+       1000,
+       720
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "FALL",
+       "px": 70,
+       "color": "#ff9f43",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "life|60%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "se4",
+      "type": "ds_label",
+      "pos": [
+       1000,
+       820
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "WINTER",
+       "px": 70,
+       "color": "#7fd1ff",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "indoors|80%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "tink@live|10%",
+     "tink@entire|35%",
+     "tink@life|60%",
+     "tink@indoors|80%"
+    ]
+   }
+  },
+  {
+   "say": "Rent free. In my bathroom. I pay the water bill.",
+   "vis": "Meatball holds up a water bill, stares at the centipede, then at the camera.",
+   "card": null,
+   "src": "joke (no new fact)",
+   "act": "smug",
+   "id": "s1.l7",
+   "seg": 1,
+   "shot": {
+    "f": "Mw",
+    "pose": "deadpan",
+    "look": "hero",
+    "mb": {
+     "prop": "paper"
+    },
+    "x": [
+     {
+      "id": "bill",
+      "type": "ds_label",
+      "pos": [
+       1550,
+       800
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "WATER BILL",
+       "px": 60,
+       "color": "#ffffff",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "water|50%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "say": "Missouri's Department of Conservation says they turn up indoors especially in winter.",
+   "vis": "Cut: snow starts falling outside the bathroom window; the centipede is inside on the warm tile.",
+   "card": "INDOORS: ESPECIALLY IN WINTER",
+   "src": "CB7",
+   "rate": "+20%",
+   "id": "s1.l8",
+   "seg": 1,
+   "shot": {
+    "f": "kb",
+    "cams": [
+     [
+      710,
+      520,
+      1.6,
+      1.7
+     ]
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "snow",
+      "type": "rk_snow",
+      "pos": [
+       560,
+       260
+      ],
+      "s": 1.0,
+      "p": {
+       "w": 300,
+       "h": 260
+      }
+     }
+    ]
+   }
+  },
+  {
+   "say": "Great. It's November.",
+   "vis": "Meatball looks at a wall calendar on NOVEMBER, slow blink.",
+   "card": null,
+   "src": "joke (no new fact)",
+   "act": "smug",
+   "id": "s1.l9",
+   "seg": 1,
+   "shot": {
+    "f": "M",
+    "pose": "deadpan",
+    "bug": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "nov",
+      "type": "ds_label",
+      "pos": [
+       1650,
+       640
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "NOVEMBER",
+       "px": 70,
+       "color": "#e5383b",
+       "on": 1.0
+      }
+     }
+    ]
+   }
+  },
+  {
+   "say": "And right where its antennae start, it has a weird little opening.",
+   "vis": "BUG CAM: extreme close-up on the base of the antenna; a little opening glows.",
+   "card": "SCAPE ORGAN",
+   "src": "CB5",
+   "rate": "+20%",
+   "id": "s1.l10",
+   "seg": 1,
+   "shot": {
+    "f": "bP",
+    "cuts": [
+     "opening|50%"
+    ],
+    "zb": 3.0,
+    "bug": {
+     "p": {
+      "look": [
+       -1,
+       0
+      ]
+     }
+    },
+    "mb": {
+     "hidden": true
+    },
+    "ov": [
+     {
+      "type": "cam",
+      "kind": "bugcam",
+      "at": 0.0
+     }
+    ],
+    "x": [
+     {
+      "id": "gl",
+      "type": "rk_glow",
+      "pos": [
+       430,
+       780
+      ],
+      "s": 1.0,
+      "p": {
+       "r": 30,
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "opening|50%",
+        "dur": 0.5,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "no_bugcam": true
+   }
+  },
+  {
+   "say": "A 2021 paper suggests it may sense humidity. That's not proven yet.",
+   "vis": "A drawn microscope swings in; a big question mark stamps over the word PROVEN.",
+   "card": "MAY SENSE HUMIDITY · NOT PROVEN",
+   "src": "CB5 (hedge kept: hypothesis)",
+   "rate": "+20%",
+   "id": "s1.l11",
+   "seg": 1,
+   "shot": {
+    "room": "board",
+    "roomscene": "microscope",
+    "f": "kMk",
+    "burst": true,
+    "pose": "think",
+    "cams": [
+     [
+      960,
+      1100,
+      0.6,
+      0.65
+     ],
+     [
+      960,
+      1150,
+      1.3,
+      1.4
+     ]
+    ],
+    "cuts": [
+     "paper|30%",
+     "proven|60%"
+    ],
+    "mb": {
+     "pos": [
+      4000,
+      1500
+     ]
+    },
+    "bug": null,
+    "x": [
+     {
+      "id": "c",
+      "type": "sp.house_centipede",
+      "pos": [
+       960,
+       1300
+      ],
+      "s": 0.5,
+      "p": {}
+     }
+    ],
+    "stamp": {
+     "text": "NOT PROVEN",
+     "color": "#e5383b",
+     "at": "proven|60%",
+     "x": 960,
+     "y": 330,
+     "px": 130,
+     "rot": -10
+    },
+    "sfx": [
+     "stamp@proven|60%"
+    ]
+   }
+  },
+  {
+   "say": "A possible built-in humidity meter. My bathroom fan doesn't even work.",
+   "vis": "Meatball flips the bathroom fan switch: it rattles and dies. Dust puffs out.",
+   "card": null,
+   "src": "joke (no new fact)",
+   "act": "smug",
+   "id": "s1.l12",
+   "seg": 1,
+   "shot": {
+    "f": "wk",
+    "cams": [
+     [
+      1400,
+      600,
+      1.6,
+      1.7
+     ]
+    ],
+    "cuts": [
+     "fan|55%"
+    ],
+    "pose": "facepalm",
+    "bug": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "fan",
+      "type": "rk_fan",
+      "pos": [
+       1400,
+       600
+      ],
+      "s": 0.9,
+      "p": {
+       "spin": 0.0,
+       "dust": 0.0
+      },
+      "set": [
+       {
+        "at": "fan|60%",
+        "dur": 0.6,
+        "p": {
+         "dust": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "thud@fan|60%"
+    ]
+   }
+  },
+  {
+   "say": "So it can live in there. But what is it going to eat?",
+   "vis": "The wall clock spins from 11 to 2. Lights go off. Sound hit.",
+   "card": "WHAT DOES IT EAT?",
+   "src": "story (re-hook)",
+   "act": "curious",
+   "id": "s1.l13",
+   "seg": 1,
+   "shot": {
+    "f": "kM",
+    "cams": [
+     [
+      1100,
+      600,
+      1.4,
+      1.5
+     ]
+    ],
+    "pose": "think",
+    "bug": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "clk",
+      "type": "wall_clock",
+      "pos": [
+       1100,
+       600
+      ],
+      "s": 1.0,
+      "p": {}
+     }
+    ],
+    "flash": [
+     "eat|80%"
+    ],
+    "sfx": [
+     "hit@eat|80%"
+    ]
+   }
+  },
+  {
+   "say": "Two AM. Lights off. Bug cam on.",
+   "vis": "RE-HOOK CARD 'NIGHT 1 · 2 AM' + sound hit. BUG CAM (interrupt): green night-vision view from the floor, timestamp ticking.",
+   "card": "BUG CAM · 2:00 AM",
+   "src": "story",
+   "act": "curious",
+   "id": "s2.l0",
+   "seg": 2,
+   "shot": {
+    "f": "bk",
+    "cams": [
+     [
+      900,
+      1300,
+      1.2,
+      1.3
+     ]
+    ],
+    "ov": [
+     {
+      "type": "suspect",
+      "text": "NIGHT 1 · 2 AM",
+      "kicker": "THE NIGHT SHIFT",
+      "at": 0.0
+     },
+     {
+      "type": "cam",
+      "kind": "seccam",
+      "title": "BUG CAM: NIGHT VISION",
+      "title_x": 330,
+      "title_y": 760,
+      "title_px": 72,
+      "place": "BATHROOM",
+      "clock": 7200,
+      "at": 1.4
+     }
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "no_bugcam": true,
+    "bug": {
+     "pos": [
+      1300,
+      1500
+     ],
+     "moves": [
+      {
+       "at": "cam|60%",
+       "dur": 1.5,
+       "pos": [
+        1000,
+        1500
+       ],
+       "walk": true
+      }
+     ]
+    },
+    "sfx": [
+     "sting@0",
+     "hit@0.05"
+    ],
+    "card_at": 1.5
+   }
+  },
+  {
+   "say": "Connecticut's experiment station says house centipedes are nocturnal and incredibly wary.",
+   "vis": "Night-vision: the centipede's head pokes out from behind the toilet, antennae testing the air, then the whole body flows out.",
+   "card": "NOCTURNAL · INCREDIBLY WARY",
+   "src": "CB6",
+   "rate": "+20%",
+   "id": "s2.l1",
+   "seg": 2,
+   "shot": {
+    "f": "bMb",
+    "cuts": [
+     "station|30%",
+     "nocturnal|60%"
+    ],
+    "burst": true,
+    "pose": "nervous",
+    "mb": {
+     "pos": [
+      2600,
+      1500
+     ]
+    },
+    "ov": [
+     {
+      "type": "cam",
+      "kind": "seccam",
+      "title": "BUG CAM: NIGHT VISION",
+      "title_x": 330,
+      "title_y": 760,
+      "title_px": 72,
+      "place": "BATHROOM",
+      "clock": 7230,
+      "at": 0.0,
+      "to": "station|30%"
+     },
+     {
+      "type": "cam",
+      "kind": "seccam",
+      "title": "BUG CAM: NIGHT VISION",
+      "title_x": 330,
+      "title_y": 760,
+      "title_px": 72,
+      "place": "BATHROOM",
+      "clock": 7234,
+      "at": "nocturnal|60%"
+     }
+    ],
+    "no_bugcam": true,
+    "bug": {
+     "pos": [
+      1250,
+      1500
+     ],
+     "moves": [
+      {
+       "at": "nocturnal|30%",
+       "dur": 1.5,
+       "pos": [
+        900,
+        1500
+       ],
+       "walk": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "say": "They patrol floors and walls in search of food.",
+   "vis": "Camera tracks low along the floor behind it, then tilts up as it runs up the wall by the towel rack (walls only, not the ceiling).",
+   "card": "PATROLS FLOORS AND WALLS",
+   "src": "CB7",
+   "rate": "+20%",
+   "id": "s2.l2",
+   "seg": 2,
+   "shot": {
+    "f": "kb",
+    "cams": [
+     [
+      1300,
+      1250,
+      1.0,
+      1.1
+     ]
+    ],
+    "ov": [
+     {
+      "type": "cam",
+      "kind": "seccam",
+      "title": "BUG CAM: NIGHT VISION",
+      "title_x": 330,
+      "title_y": 760,
+      "title_px": 72,
+      "place": "BATHROOM",
+      "clock": 7260,
+      "at": 0.0
+     }
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "no_bugcam": true,
+    "bug": {
+     "pos": [
+      1100,
+      1500
+     ],
+     "moves": [
+      {
+       "at": "floors|20%",
+       "dur": 0.6,
+       "pos": [
+        1450,
+        1490
+       ],
+       "rot": -90
+      },
+      {
+       "at": "walls|50%",
+       "dur": 1.4,
+       "pos": [
+        1450,
+        900
+       ]
+      }
+     ]
+    }
+   }
+  },
+  {
+   "say": "Meatball patrols the kitchen the same way. Different menu.",
+   "vis": "Cutaway: Meatball in a night-vision kitchen, nose in the fridge light.",
+   "card": null,
+   "src": "joke (no new fact)",
+   "act": "smug",
+   "id": "s2.l3",
+   "seg": 2,
+   "shot": {
+    "f": "mM",
+    "room": "kitchenN",
+    "pose": "laugh",
+    "look": "viewer",
+    "bug": null,
+    "tint": [
+     0.2,
+     0.3,
+     0.6,
+     0.25
+    ],
+    "cuts": [
+     "menu|60%"
+    ]
+   }
+  },
+  {
+   "say": "On the menu: flies, crickets, moths and earwigs.",
+   "vis": "Four quick cuts, one per bug, each one framed like a menu card in the night-vision shot.",
+   "card": "FLIES · CRICKETS · MOTHS · EARWIGS",
+   "src": "CB8",
+   "rate": "+20%",
+   "id": "s2.l4",
+   "seg": 2,
+   "shot": {
+    "card": false,
+    "f": "kkkk",
+    "room": "board",
+    "roomscene": "rk_board_bg",
+    "cams": [
+     [
+      0,
+      0,
+      1.4,
+      1.45
+     ],
+     [
+      600,
+      0,
+      1.4,
+      1.45
+     ],
+     [
+      1200,
+      0,
+      1.4,
+      1.45
+     ],
+     [
+      1800,
+      0,
+      1.4,
+      1.45
+     ]
+    ],
+    "cuts": [
+     "crickets|30%",
+     "moths|55%",
+     "earwigs|80%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "bug": null,
+    "ov": [
+     {
+      "type": "cam",
+      "kind": "seccam",
+      "title": "BUG CAM: NIGHT VISION",
+      "title_x": 330,
+      "title_y": 760,
+      "title_px": 72,
+      "place": "BATHROOM",
+      "clock": 7290,
+      "at": 0.0
+     }
+    ],
+    "x": [
+     {
+      "id": "f1",
+      "type": "sp.fly",
+      "pos": [
+       0,
+       120
+      ],
+      "s": 0.6,
+      "p": {}
+     },
+     {
+      "id": "m1",
+      "type": "ds_label",
+      "pos": [
+       0,
+       -180
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "FLIES",
+       "px": 90,
+       "color": "#ffffff",
+       "on": 1.0
+      }
+     },
+     {
+      "id": "f2",
+      "type": "camel_cricket",
+      "pos": [
+       600,
+       120
+      ],
+      "s": 0.8,
+      "p": {}
+     },
+     {
+      "id": "m2",
+      "type": "ds_label",
+      "pos": [
+       600,
+       -180
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "CRICKETS",
+       "px": 90,
+       "color": "#ffffff",
+       "on": 1.0
+      }
+     },
+     {
+      "id": "f3",
+      "type": "sp.moth",
+      "pos": [
+       1200,
+       120
+      ],
+      "s": 0.6,
+      "p": {}
+     },
+     {
+      "id": "m3",
+      "type": "ds_label",
+      "pos": [
+       1200,
+       -180
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "MOTHS",
+       "px": 90,
+       "color": "#ffffff",
+       "on": 1.0
+      }
+     },
+     {
+      "id": "f4",
+      "type": "sp.earwig",
+      "pos": [
+       1800,
+       120
+      ],
+      "s": 0.6,
+      "p": {}
+     },
+     {
+      "id": "m4",
+      "type": "ds_label",
+      "pos": [
+       1800,
+       -180
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "EARWIGS",
+       "px": 90,
+       "color": "#ffffff",
+       "on": 1.0
+      }
+     }
+    ],
+    "sfx": [
+     "pop@flies|5%",
+     "pop@crickets|30%",
+     "pop@moths|55%",
+     "pop@earwigs|80%"
+    ]
+   }
+  },
+  {
+   "say": "Its legs are barbed to help hold prey.",
+   "vis": "BUG CAM close-up: tiny barbs along one leg light up; it closes around a cardboard moth (no gore, the moth just disappears off frame).",
+   "card": "BARBED LEGS",
+   "src": "CB8",
+   "rate": "+20%",
+   "id": "s2.l5",
+   "seg": 2,
+   "shot": {
+    "f": "bP",
+    "zb": 2.6,
+    "ov": [
+     {
+      "type": "cam",
+      "kind": "bugcam",
+      "at": 0.0
+     }
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "no_bugcam": true,
+    "x": [
+     {
+      "id": "moth",
+      "type": "sp.moth",
+      "pos": [
+       1000,
+       1480
+      ],
+      "s": 0.2,
+      "p": {},
+      "moves": [
+       {
+        "at": "hold|60%",
+        "dur": 0.3,
+        "pos": [
+         1000,
+         2200
+        ]
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "tink@barbed|30%"
+    ]
+   }
+  },
+  {
+   "say": "Velcro legs. Meatball wants Velcro legs.",
+   "vis": "Meatball sticks his paw to his own leg, it does not stick, he sighs.",
+   "card": null,
+   "src": "joke (no new fact)",
+   "act": "smug",
+   "id": "s2.l6",
+   "seg": 2,
+   "shot": {
+    "f": "Mm",
+    "pose": "shrug",
+    "bug": {
+     "hidden": true
+    },
+    "light": "lamp",
+    "mb": {
+     "gest": [
+      [
+       "Meatball|40%",
+       "point",
+       0.8
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "say": "Hunting at night, centipedes can get trapped if they fall into a sink or bathtub.",
+   "vis": "Night-vision: the centipede runs along the sink rim, one foot slips, it slides into the white basin. Slow push-in.",
+   "card": "CAN GET TRAPPED IN A SINK OR TUB",
+   "src": "CB9",
+   "rate": "+20%",
+   "id": "s2.l7",
+   "seg": 2,
+   "shot": {
+    "f": "kb",
+    "room": "bathS",
+    "cams": [
+     [
+      60,
+      860,
+      1.8,
+      2.0
+     ]
+    ],
+    "ov": [
+     {
+      "type": "cam",
+      "kind": "seccam",
+      "title": "BUG CAM: NIGHT VISION",
+      "title_x": 330,
+      "title_y": 760,
+      "title_px": 72,
+      "place": "BATHROOM",
+      "clock": 7360,
+      "at": 0.0
+     }
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "no_bugcam": true,
+    "bug": {
+     "pos": [
+      200,
+      870
+     ],
+     "moves": [
+      {
+       "at": "fall|50%",
+       "dur": 0.5,
+       "pos": [
+        60,
+        897
+       ]
+      }
+     ]
+    },
+    "sfx": [
+     "whoosh@fall|50%"
+    ]
+   }
+  },
+  {
+   "say": "Three AM. I need the bathroom.",
+   "vis": "Clock to 3:00. Meatball shuffles in half asleep, toothbrush in mouth, flips the light on.",
+   "card": null,
+   "src": "story (re-hook)",
+   "rate": "+34%",
+   "pitch": "+12Hz",
+   "id": "s2.l8",
+   "seg": 2,
+   "shot": {
+    "f": "wM",
+    "room": "bathS",
+    "pose": "nervous",
+    "bug": {
+     "hidden": true
+    },
+    "light": {
+     "kind": "lamp",
+     "dark": 0.6
+    },
+    "mb": {
+     "pos": [
+      900,
+      1500
+     ],
+     "moves": [
+      {
+       "at": 0.2,
+       "dur": 1.2,
+       "pos": [
+        700,
+        1500
+       ],
+       "walk": true
+      }
+     ]
+    },
+    "x": [
+     {
+      "id": "clk",
+      "type": "wall_clock",
+      "pos": [
+       1200,
+       560
+      ],
+      "s": 0.8,
+      "p": {}
+     }
+    ],
+    "flash": [
+     "bathroom|80%"
+    ],
+    "sfx": [
+     "click@bathroom|80%"
+    ]
+   }
+  },
+  {
+   "say": "It's in the sink. It's in my sink!",
+   "vis": "FREAK-OUT (interrupt, the one big one): Meatball sees it in the basin, spits the toothbrush, launches straight up onto the toilet tank, then onto the towel rack, holding the toothbrush like a sword. Fast cuts, camera shake, sound hits.",
+   "card": "IT'S IN THE SINK",
+   "src": "story",
+   "rate": "+34%",
+   "pitch": "+12Hz",
+   "act": "shout",
+   "id": "s3.l0",
+   "seg": 3,
+   "shot": {
+    "f": "bMw",
+    "cuts": [
+     "It's#2|40%",
+     "my|70%"
+    ],
+    "pose": "shock",
+    "freak": [
+     0.1,
+     "my|70%"
+    ],
+    "shake": [
+     0.1,
+     "It's#2|40%",
+     "my|70%"
+    ],
+    "flash": [
+     0.05
+    ],
+    "zb": 2.6,
+    "no_bugcam": true,
+    "mb": {
+     "shake": 1.0,
+     "moves": [
+      {
+       "at": 0.1,
+       "dur": 0.55,
+       "pos": [
+        700,
+        1500
+       ],
+       "hop": 420
+      },
+      {
+       "at": "my|70%",
+       "dur": 0.5,
+       "pos": [
+        760,
+        1500
+       ],
+       "hop": 300
+      }
+     ]
+    },
+    "sfx": [
+     "sting@0",
+     "hit@0.05",
+     "sting@0.05",
+     "boing@0.1",
+     "hit@my|70%"
+    ],
+    "ov": [
+     {
+      "type": "suspect",
+      "text": "NIGHT 1 · 3 AM",
+      "kicker": "THE SINK",
+      "at": 0.0
+     }
+    ],
+    "card_at": 1.5
+   }
+  },
+  {
+   "say": "Okay. Breathe. Will it bite me?",
+   "vis": "Meatball peeks over the towel rack, ears flat. Card spins in.",
+   "card": "WILL IT BITE YOU?",
+   "src": "story",
+   "act": "curious",
+   "id": "s3.l1",
+   "seg": 3,
+   "shot": {
+    "f": "Mb",
+    "pose": "nervous",
+    "look": "hero",
+    "cuts": [
+     "bite|50%"
+    ]
+   }
+  },
+  {
+   "say": "Mississippi State says bites to humans are uncommon unless the centipede is handled or accidentally pressed against the skin.",
+   "vis": "Slow push-in on the centipede sitting still in the basin; Meatball lowers the toothbrush a little.",
+   "card": "BITES UNCOMMON · UNLESS HANDLED OR PRESSED ON SKIN",
+   "src": "CB11",
+   "rate": "+20%",
+   "id": "s3.l2",
+   "seg": 3,
+   "shot": {
+    "f": "bwM",
+    "cuts": [
+     "handled|40%",
+     "pressed|70%"
+    ],
+    "pose": "think",
+    "look": "hero",
+    "zb": 2.2
+   }
+  },
+  {
+   "say": "So I don't grab it. I build it a towel ramp. I'm a host now.",
+   "vis": "Meatball drapes a towel from the sink rim to the floor, then backs away fast.",
+   "card": null,
+   "src": "story + joke (keeps the CB11 condition; Meatball's action, not advice)",
+   "act": "smug",
+   "id": "s3.l3",
+   "seg": 3,
+   "shot": {
+    "f": "wk",
+    "cams": [
+     [
+      300,
+      1150,
+      1.0,
+      1.05
+     ]
+    ],
+    "cuts": [
+     "towel|40%"
+    ],
+    "pose": "present",
+    "look": "hero",
+    "x": [
+     {
+      "id": "tw",
+      "type": "rk_towel",
+      "pos": [
+       150,
+       890
+      ],
+      "s": 1.0,
+      "p": {
+       "dx": 330,
+       "dy": 610,
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "towel|40%",
+        "dur": 0.6,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "moves": [
+      {
+       "at": "host|70%",
+       "dur": 0.4,
+       "pos": [
+        900,
+        1500
+       ]
+      }
+     ]
+    },
+    "sfx": [
+     "whoosh@towel|40%"
+    ]
+   }
+  },
+  {
+   "say": "Connecticut says they're not aggressive and will immediately flee if they're discovered.",
+   "vis": "The centipede climbs the towel and bolts down it at full speed.",
+   "card": "NOT AGGRESSIVE · FLEES WHEN FOUND",
+   "src": "CB6",
+   "rate": "+20%",
+   "id": "s3.l4",
+   "seg": 3,
+   "shot": {
+    "f": "kb",
+    "cams": [
+     [
+      400,
+      1150,
+      1.1,
+      1.15
+     ]
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "zb": 1.8,
+    "x": [
+     {
+      "id": "tw",
+      "type": "rk_towel",
+      "pos": [
+       150,
+       890
+      ],
+      "s": 1.0,
+      "p": {
+       "dx": 330,
+       "dy": 610
+      }
+     }
+    ],
+    "bug": {
+     "moves": [
+      {
+       "at": "aggressive|30%",
+       "dur": 1.2,
+       "pos": [
+        480,
+        1490
+       ],
+       "rot": 60
+      },
+      {
+       "at": "flee|60%",
+       "dur": 0.4,
+       "pos": [
+        800,
+        1496
+       ],
+       "rot": 0
+      }
+     ]
+    },
+    "sfx": [
+     "scratch@flee|60%"
+    ]
+   }
+  },
+  {
+   "say": "It darts away and hides under anything. Tonight, that's my bath mat.",
+   "vis": "It zips across the floor and vanishes under the bath mat. The mat settles. Silence.",
+   "card": "HIDES UNDER ANYTHING",
+   "src": "CB6 + story",
+   "rate": "+20%",
+   "id": "s3.l5",
+   "seg": 3,
+   "shot": {
+    "f": "kb",
+    "cams": [
+     [
+      900,
+      1350,
+      1.2,
+      1.3
+     ]
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "zb": 1.8,
+    "x": [
+     {
+      "id": "mat",
+      "type": "rk_mat",
+      "pos": [
+       1000,
+       1510
+      ],
+      "s": 1.2,
+      "p": {
+       "lump": 0.0
+      },
+      "front": true,
+      "lit": true,
+      "set": [
+       {
+        "at": "mat|60%",
+        "dur": 0.4,
+        "p": {
+         "lump": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "bug": {
+     "pos": [
+      600,
+      1496
+     ],
+     "moves": [
+      {
+       "at": "darts|10%",
+       "dur": 0.6,
+       "pos": [
+        1000,
+        1500
+       ]
+      }
+     ]
+    },
+    "sfx": [
+     "scratch@darts|10%"
+    ]
+   }
+  },
+  {
+   "say": "I'm not stepping on that bath mat until Thursday.",
+   "vis": "Meatball tiptoes around the mat in a wide circle and leaves.",
+   "card": null,
+   "src": "joke (no new fact)",
+   "act": "smug",
+   "id": "s3.l6",
+   "seg": 3,
+   "shot": {
+    "f": "wM",
+    "pose": "deadpan",
+    "bug": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "mat",
+      "type": "rk_mat",
+      "pos": [
+       1000,
+       1510
+      ],
+      "s": 1.2,
+      "p": {
+       "lump": 1.0
+      }
+     }
+    ],
+    "mb": {
+     "pos": [
+      1300,
+      1500
+     ],
+     "moves": [
+      {
+       "at": "stepping|30%",
+       "dur": 1.6,
+       "pos": [
+        1700,
+        1500
+       ],
+       "walk": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "say": "Day three. Broad daylight. No centipede anywhere.",
+   "vis": "RE-HOOK CARD 'DAY 3' + sound hit. Bright daylight through the window; Meatball lifts the bath mat: nothing.",
+   "card": "DAY 3 · WHERE DID IT GO?",
+   "src": "story (re-hook)",
+   "act": "curious",
+   "id": "s4.l0",
+   "seg": 4,
+   "shot": {
+    "f": "wM",
+    "cuts": [
+     "daylight|50%"
+    ],
+    "pose": "think",
+    "bug": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "mat",
+      "type": "rk_mat",
+      "pos": [
+       1000,
+       1510
+      ],
+      "s": 1.2,
+      "p": {},
+      "moves": [
+       {
+        "at": "No|30%",
+        "dur": 0.4,
+        "pos": [
+         1000,
+         1300
+        ],
+        "rot": -20
+       }
+      ]
+     }
+    ],
+    "ov": [
+     {
+      "type": "suspect",
+      "text": "DAY 3 · NOON",
+      "kicker": "WHERE DID IT GO?",
+      "at": 0.0
+     }
+    ],
+    "sfx": [
+     "sting@0",
+     "hit@0.05"
+    ],
+    "card_at": 1.5
+   }
+  },
+  {
+   "say": "Utah State says that by day, centipedes hide in crevices or cracks.",
+   "vis": "BUG CAM (interrupt): camera slides into a gap under the sink cabinet; two antennae tips poke out of the dark, then pull back.",
+   "card": "BY DAY: HIDES IN CRACKS",
+   "src": "CB12",
+   "rate": "+20%",
+   "id": "s4.l1",
+   "seg": 4,
+   "shot": {
+    "f": "kk",
+    "cams": [
+     [
+      300,
+      1440,
+      2.6,
+      2.8
+     ],
+     [
+      600,
+      1300,
+      1.2,
+      1.3
+     ]
+    ],
+    "cuts": [
+     "cracks|55%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "bug": {
+     "hidden": true
+    },
+    "ov": [
+     {
+      "type": "cam",
+      "kind": "bugcam",
+      "at": 0.0,
+      "to": "cracks|55%"
+     }
+    ],
+    "x": [
+     {
+      "id": "ant",
+      "type": "rk_antennae",
+      "pos": [
+       300,
+       1495
+      ],
+      "s": 1.4,
+      "p": {}
+     }
+    ]
+   }
+  },
+  {
+   "say": "Utah State says centipedes leave no traces, like droppings or damage to your home.",
+   "vis": "Act it out: Meatball with a giant magnifying glass checks the baseboard, the cabinet, the towels: three green check marks pop.",
+   "card": "NO DROPPINGS · NO DAMAGE",
+   "src": "CB12",
+   "rate": "+20%",
+   "id": "s4.l2",
+   "seg": 4,
+   "shot": {
+    "f": "mk",
+    "cams": [
+     [
+      600,
+      1200,
+      1.2,
+      1.3
+     ]
+    ],
+    "cuts": [
+     "droppings|40%"
+    ],
+    "pose": "present",
+    "bug": {
+     "hidden": true
+    },
+    "mb": {
+     "prop": "magnifier"
+    },
+    "sfx": [
+     "tink@droppings|45%",
+     "tink@damage|60%"
+    ]
+   }
+  },
+  {
+   "say": "Cleanest roommate I've ever had. Low bar. I'm the other roommate.",
+   "vis": "Pan to Meatball's messy side of the counter: a pile of chew toys and a dropped sock.",
+   "card": null,
+   "src": "joke (no new fact)",
+   "act": "smug",
+   "id": "s4.l3",
+   "seg": 4,
+   "shot": {
+    "f": "wM",
+    "pose": "laugh",
+    "look": "viewer",
+    "bug": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "pile",
+      "type": "rk_pile",
+      "pos": [
+       1650,
+       1500
+      ],
+      "s": 0.4,
+      "p": {}
+     },
+     {
+      "id": "sock",
+      "type": "tc_prop",
+      "pos": [
+       1500,
+       1500
+      ],
+      "s": 0.6,
+      "p": {
+       "kind": "sock"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "say": "But will it move in for good? Here's the catch.",
+   "vis": "Record-scratch; Meatball turns to camera.",
+   "card": "WILL IT MOVE IN?",
+   "src": "story (re-hook)",
+   "act": "curious",
+   "id": "s4.l4",
+   "seg": 4,
+   "shot": {
+    "f": "M",
+    "burst": true,
+    "pose": "you",
+    "look": "viewer",
+    "bug": {
+     "hidden": true
+    },
+    "sfx": [
+     "scratch@0.02",
+     "hit@catch|60%"
+    ]
+   }
+  },
+  {
+   "say": "Unlike other centipedes, house centipedes can breed indoors, especially where it's moist or humid.",
+   "vis": "Cut: a drop of water runs down the shower wall; Meatball follows it with his eyes, horror slowly building.",
+   "card": "CAN BREED INDOORS · ESPECIALLY IN DAMP ROOMS",
+   "src": "CB10",
+   "rate": "+20%",
+   "id": "s4.l5",
+   "seg": 4,
+   "shot": {
+    "f": "kM",
+    "cams": [
+     [
+      1600,
+      1050,
+      1.6,
+      1.7
+     ]
+    ],
+    "pose": "shock",
+    "bug": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "dr",
+      "type": "droplets",
+      "pos": [
+       1600,
+       1050
+      ],
+      "s": 0.8,
+      "p": {
+       "n": 6,
+       "r": 220
+      }
+     }
+    ]
+   }
+  },
+  {
+   "say": "My bathroom is basically a swamp with a mirror.",
+   "vis": "Meatball wipes the fogged mirror; it fogs right back up.",
+   "card": null,
+   "src": "joke (no new fact)",
+   "act": "smug",
+   "id": "s4.l6",
+   "seg": 4,
+   "shot": {
+    "f": "Mw",
+    "pose": "deadpan",
+    "bug": {
+     "hidden": true
+    },
+    "tint": [
+     1,
+     1,
+     1,
+     0.22
+    ],
+    "x": [
+     {
+      "id": "st",
+      "type": "rk_steam",
+      "pos": [
+       80,
+       880
+      ],
+      "s": 1.6,
+      "p": {}
+     }
+    ]
+   }
+  },
+  {
+   "say": "And if you see them often, Penn State says that points to plenty of the bugs they eat.",
+   "vis": "Act it out: one centipede on the card, then a crowd of tiny generic bugs fills in behind it like a buffet line.",
+   "card": "SEEN OFTEN? PLENTY OF PREY BUGS",
+   "src": "CB13",
+   "rate": "+20%",
+   "id": "s4.l7",
+   "seg": 4,
+   "shot": {
+    "f": "kk",
+    "room": "board",
+    "roomscene": "rk_board_bg",
+    "cams": [
+     [
+      400,
+      0,
+      1.1,
+      1.15
+     ],
+     [
+      800,
+      60,
+      1.0,
+      1.05
+     ]
+    ],
+    "cuts": [
+     "plenty|45%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "bug": null,
+    "x": [
+     {
+      "id": "c",
+      "type": "sp.house_centipede",
+      "pos": [
+       0,
+       120
+      ],
+      "s": 0.4,
+      "p": {}
+     },
+     {
+      "id": "b0",
+      "type": "sp.fly",
+      "pos": [
+       500,
+       120
+      ],
+      "s": 0.18,
+      "p": {},
+      "set": [
+       {
+        "at": "plenty|45%",
+        "dur": 0.2,
+        "p": {}
+       }
+      ]
+     },
+     {
+      "id": "b1",
+      "type": "sp.moth",
+      "pos": [
+       670,
+       120
+      ],
+      "s": 0.18,
+      "p": {},
+      "set": [
+       {
+        "at": "plenty|49%",
+        "dur": 0.2,
+        "p": {}
+       }
+      ]
+     },
+     {
+      "id": "b2",
+      "type": "sp.earwig",
+      "pos": [
+       840,
+       120
+      ],
+      "s": 0.18,
+      "p": {},
+      "set": [
+       {
+        "at": "plenty|53%",
+        "dur": 0.2,
+        "p": {}
+       }
+      ]
+     },
+     {
+      "id": "b3",
+      "type": "sp.roach",
+      "pos": [
+       1010,
+       120
+      ],
+      "s": 0.18,
+      "p": {},
+      "set": [
+       {
+        "at": "plenty|57%",
+        "dur": 0.2,
+        "p": {}
+       }
+      ]
+     },
+     {
+      "id": "b4",
+      "type": "sp.fly",
+      "pos": [
+       1180,
+       120
+      ],
+      "s": 0.18,
+      "p": {},
+      "set": [
+       {
+        "at": "plenty|61%",
+        "dur": 0.2,
+        "p": {}
+       }
+      ]
+     },
+     {
+      "id": "b5",
+      "type": "sp.moth",
+      "pos": [
+       1350,
+       120
+      ],
+      "s": 0.18,
+      "p": {},
+      "set": [
+       {
+        "at": "plenty|65%",
+        "dur": 0.2,
+        "p": {}
+       }
+      ]
+     },
+     {
+      "id": "b6",
+      "type": "sp.earwig",
+      "pos": [
+       500,
+       60
+      ],
+      "s": 0.18,
+      "p": {},
+      "set": [
+       {
+        "at": "plenty|69%",
+        "dur": 0.2,
+        "p": {}
+       }
+      ]
+     },
+     {
+      "id": "b7",
+      "type": "sp.roach",
+      "pos": [
+       670,
+       60
+      ],
+      "s": 0.18,
+      "p": {},
+      "set": [
+       {
+        "at": "plenty|73%",
+        "dur": 0.2,
+        "p": {}
+       }
+      ]
+     },
+     {
+      "id": "b8",
+      "type": "sp.fly",
+      "pos": [
+       840,
+       60
+      ],
+      "s": 0.18,
+      "p": {},
+      "set": [
+       {
+        "at": "plenty|77%",
+        "dur": 0.2,
+        "p": {}
+       }
+      ]
+     },
+     {
+      "id": "b9",
+      "type": "sp.moth",
+      "pos": [
+       1010,
+       60
+      ],
+      "s": 0.18,
+      "p": {},
+      "set": [
+       {
+        "at": "plenty|81%",
+        "dur": 0.2,
+        "p": {}
+       }
+      ]
+     },
+     {
+      "id": "b10",
+      "type": "sp.earwig",
+      "pos": [
+       1180,
+       60
+      ],
+      "s": 0.18,
+      "p": {},
+      "set": [
+       {
+        "at": "plenty|85%",
+        "dur": 0.2,
+        "p": {}
+       }
+      ]
+     },
+     {
+      "id": "b11",
+      "type": "sp.roach",
+      "pos": [
+       1350,
+       60
+      ],
+      "s": 0.18,
+      "p": {},
+      "set": [
+       {
+        "at": "plenty|89%",
+        "dur": 0.2,
+        "p": {}
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "pop@plenty|50%"
+    ]
+   }
+  },
+  {
+   "say": "So what does it mean for your house? And what do you do?",
+   "vis": "The calendar flips to day 7. Sound hit.",
+   "card": "WHAT DOES IT MEAN?",
+   "src": "story (re-hook)",
+   "act": "curious",
+   "id": "s4.l8",
+   "seg": 4,
+   "shot": {
+    "f": "kM",
+    "cams": [
+     [
+      1100,
+      600,
+      1.4,
+      1.5
+     ]
+    ],
+    "pose": "think",
+    "bug": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "cal",
+      "type": "ds_prop",
+      "pos": [
+       1100,
+       620
+      ],
+      "s": 0.9,
+      "p": {
+       "kind": "calendar",
+       "day": 3.0
+      },
+      "set": [
+       {
+        "at": "mean|30%",
+        "dur": 1.0,
+        "p": {
+         "day": 7.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "hit@do|85%"
+    ]
+   }
+  },
+  {
+   "say": "Day seven. Time to find out what it's been eating.",
+   "vis": "RE-HOOK CARD 'DAY 7' + sound hit. Hallway by the laundry room, morning light; Meatball holds a stack of small sticky traps like playing cards.",
+   "card": "DAY 7",
+   "src": "story",
+   "act": "smug",
+   "id": "s5.l0",
+   "seg": 5,
+   "shot": {
+    "f": "wM",
+    "pose": "present",
+    "bug": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "tr",
+      "type": "rk_trap",
+      "pos": [
+       1250,
+       1300
+      ],
+      "s": 1.2,
+      "p": {}
+     }
+    ],
+    "ov": [
+     {
+      "type": "suspect",
+      "text": "DAY 7 · MORNING",
+      "kicker": "WHAT TO DO",
+      "at": 0.0
+     }
+    ],
+    "sfx": [
+     "sting@0",
+     "hit@0.05"
+    ],
+    "card_at": 1.5
+   }
+  },
+  {
+   "say": "Ohio State says sticky traps can show which bugs, and how many, are in your home.",
+   "vis": "BUG CAM (interrupt): from the floor as Meatball sets traps along the baseboard; next morning a few tiny generic bugs are on them (no number shown).",
+   "card": "STICKY TRAPS: WHICH BUGS, HOW MANY",
+   "src": "CB14",
+   "rate": "+20%",
+   "id": "s5.l1",
+   "seg": 5,
+   "shot": {
+    "f": "kk",
+    "cams": [
+     [
+      300,
+      1450,
+      2.2,
+      2.4
+     ],
+     [
+      600,
+      1400,
+      1.4,
+      1.5
+     ]
+    ],
+    "cuts": [
+     "many|55%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "bug": null,
+    "ov": [
+     {
+      "type": "cam",
+      "kind": "bugcam",
+      "at": 0.0,
+      "to": "many|55%"
+     }
+    ],
+    "x": [
+     {
+      "id": "t1",
+      "type": "rk_trap",
+      "pos": [
+       300,
+       1496
+      ],
+      "s": 1.2,
+      "p": {
+       "bugs": 0.0
+      },
+      "set": [
+       {
+        "at": "bugs|30%",
+        "dur": 1.2,
+        "p": {
+         "bugs": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "type": "rk_trap",
+      "pos": [
+       800,
+       1496
+      ],
+      "s": 1.2,
+      "p": {
+       "bugs": 0.0
+      },
+      "set": [
+       {
+        "at": "many|60%",
+        "dur": 1.0,
+        "p": {
+         "bugs": 0.6
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "say": "Meatball tested the first one with his own paw.",
+   "vis": "Meatball's paw is stuck to a trap; he shakes it, it flaps, he gives up.",
+   "card": null,
+   "src": "joke (no new fact)",
+   "act": "smug",
+   "id": "s5.l2",
+   "seg": 5,
+   "shot": {
+    "f": "Mm",
+    "pose": "nervous",
+    "bug": {
+     "hidden": true
+    },
+    "mb": {
+     "shake": 0.6
+    },
+    "x": [
+     {
+      "id": "tr",
+      "type": "rk_trap",
+      "pos": [
+       1080,
+       1180
+      ],
+      "s": 1.3,
+      "p": {}
+     }
+    ]
+   }
+  },
+  {
+   "say": "Mississippi State says to focus on the bugs they eat, and cutting indoor moisture also helps.",
+   "vis": "Split screen: a small bug crossed out on the left, a water drop crossed out on the right.",
+   "card": "CONTROL THE BUGS IT EATS · CUT THE MOISTURE",
+   "src": "CB18",
+   "rate": "+20%",
+   "id": "s5.l3",
+   "seg": 5,
+   "shot": {
+    "f": "kMk",
+    "burst": true,
+    "pose": "point",
+    "room": "board",
+    "roomscene": "rk_board_bg",
+    "cams": [
+     [
+      300,
+      0,
+      1.2,
+      1.25
+     ],
+     [
+      1100,
+      0,
+      1.2,
+      1.25
+     ]
+    ],
+    "cuts": [
+     "eat|35%",
+     "moisture|60%"
+    ],
+    "mb": {
+     "pos": [
+      700,
+      1500
+     ]
+    },
+    "bug": null,
+    "x": [
+     {
+      "id": "fl",
+      "type": "sp.fly",
+      "pos": [
+       300,
+       100
+      ],
+      "s": 0.5,
+      "p": {}
+     },
+     {
+      "id": "x1",
+      "type": "ds_cross",
+      "pos": [
+       300,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 0.0,
+       "r": 200
+      },
+      "set": [
+       {
+        "at": "eat|40%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "dr",
+      "type": "droplets",
+      "pos": [
+       1100,
+       0
+      ],
+      "s": 0.8,
+      "p": {
+       "n": 6,
+       "r": 160
+      }
+     },
+     {
+      "id": "x2",
+      "type": "ds_cross",
+      "pos": [
+       1100,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 0.0,
+       "r": 200
+      },
+      "set": [
+       {
+        "at": "moisture|65%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "stamp@eat|40%",
+     "stamp@moisture|65%"
+    ]
+   }
+  },
+  {
+   "say": "Utah State says dry out damp areas, like the laundry room and the bathroom.",
+   "vis": "Cut to the laundry room: Meatball mops a puddle under the washer, then wipes the bathroom floor.",
+   "card": "DRY OUT DAMP AREAS",
+   "src": "CB15",
+   "rate": "+20%",
+   "id": "s5.l4",
+   "seg": 5,
+   "shot": {
+    "f": "wM",
+    "room": "laundry",
+    "pose": "present",
+    "bug": null,
+    "mb": {
+     "prop": "paper"
+    },
+    "x": [
+     {
+      "id": "pud",
+      "type": "droplets",
+      "pos": [
+       1200,
+       1480
+      ],
+      "s": 0.8,
+      "p": {
+       "n": 6,
+       "r": 120
+      }
+     },
+     {
+      "id": "dry",
+      "type": "ds_label",
+      "pos": [
+       950,
+       1150
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "DRY IT OUT",
+       "px": 80,
+       "color": "#3fb950",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "dry|20%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "say": "To discourage them from coming out in the open, Connecticut's experts suggest fans or dehumidifiers.",
+   "vis": "Meatball drags in a dehumidifier (drawn, generic, no brand) and finally fixes the bathroom fan; it spins.",
+   "card": "FANS · DEHUMIDIFIERS",
+   "src": "CB15",
+   "rate": "+20%",
+   "id": "s5.l5",
+   "seg": 5,
+   "shot": {
+    "f": "kw",
+    "room": "laundry",
+    "cams": [
+     [
+      1200,
+      1250,
+      1.3,
+      1.4
+     ]
+    ],
+    "cuts": [
+     "dehumidifiers|60%"
+    ],
+    "pose": "point",
+    "bug": null,
+    "x": [
+     {
+      "id": "dh",
+      "type": "cl_box",
+      "pos": [
+       1200,
+       1500
+      ],
+      "s": 0.9,
+      "p": {}
+     },
+     {
+      "id": "dhl",
+      "type": "ds_label",
+      "pos": [
+       1200,
+       1050
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "DEHUMIDIFIER",
+       "px": 70,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "dehumidifiers|60%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "say": "My fan works now. It only took a centipede.",
+   "vis": "Meatball stands under the spinning fan, ears blowing back, proud.",
+   "card": null,
+   "src": "joke (no new fact)",
+   "act": "smug",
+   "id": "s5.l6",
+   "seg": 5,
+   "shot": {
+    "f": "kM",
+    "room": "bathA",
+    "cams": [
+     [
+      1400,
+      600,
+      1.6,
+      1.7
+     ]
+    ],
+    "pose": "laugh",
+    "bug": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "fan",
+      "type": "rk_fan",
+      "pos": [
+       1400,
+       600
+      ],
+      "s": 0.9,
+      "p": {
+       "spin": 1.0
+      }
+     }
+    ],
+    "mb": {
+     "shake": 0.3
+    }
+   }
+  },
+  {
+   "say": "And skip the bug bomb. Ohio State says those are ineffective against centipedes.",
+   "vis": "A bug bomb can on the floor gets a big red NO stamp (never shown going off).",
+   "card": "BUG BOMBS: INEFFECTIVE ON CENTIPEDES",
+   "src": "CB16",
+   "rate": "+20%",
+   "id": "s5.l7",
+   "seg": 5,
+   "shot": {
+    "f": "kk",
+    "room": "board",
+    "roomscene": "ds_floor",
+    "cams": [
+     [
+      960,
+      1150,
+      1.0,
+      1.05
+     ],
+     [
+      960,
+      1250,
+      1.4,
+      1.5
+     ]
+    ],
+    "cuts": [
+     "ineffective|55%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "bug": null,
+    "x": [
+     {
+      "id": "bomb",
+      "type": "tc_prop",
+      "pos": [
+       960,
+       1500
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "foamcan"
+      }
+     }
+    ],
+    "stamp": {
+     "text": "NO",
+     "color": "#e5383b",
+     "at": "bomb|35%",
+     "x": 960,
+     "y": 500,
+     "px": 220,
+     "rot": -12
+    },
+    "sfx": [
+     "stamp@bomb|35%"
+    ]
+   }
+  },
+  {
+   "say": "Can't live with it? Maryland Extension says escort it outdoors. But Penn State says house centipedes do not survive winters outdoors in Pennsylvania.",
+   "vis": "Meatball holds the front door open with a little bow, a paper cup and card ready (the cup is never shown over the bug).",
+   "card": "CAN'T LIVE WITH IT? ESCORT IT OUTSIDE · COLD WEATHER: THEY DON'T SURVIVE WINTERS OUTDOORS (PENN STATE, PA)",
+   "src": "CB17",
+   "rate": "+20%",
+   "id": "s5.l8",
+   "seg": 5,
+   "shot": {
+    "f": "kM",
+    "room": "bathA",
+    "cams": [
+     [
+      710,
+      520,
+      1.7,
+      1.8
+     ]
+    ],
+    "cuts": [
+     "Penn|50%"
+    ],
+    "pose": "think",
+    "bug": {
+     "hidden": true
+    },
+    "card_px": 78,
+    "x": [
+     {
+      "id": "snow",
+      "type": "rk_snow",
+      "pos": [
+       560,
+       260
+      ],
+      "s": 1.0,
+      "p": {
+       "w": 300,
+       "h": 260
+      }
+     }
+    ]
+   }
+  },
+  {
+   "say": "Meatball held the door open for ages. It went back under the mat.",
+   "vis": "Wide-to-close: Meatball still holding the door, snow blowing in, then a cut to the bath mat with two antennae tips sticking out.",
+   "card": null,
+   "src": "joke (CB6 hides under anything; no new fact)",
+   "act": "smug",
+   "id": "s5.l9",
+   "seg": 5,
+   "shot": {
+    "f": "Mb",
+    "room": "bathD",
+    "cuts": [
+     "mat|55%"
+    ],
+    "pose": "deadpan",
+    "look": "viewer",
+    "bug": {
+     "hidden": true
+    },
+    "zb": 2.0,
+    "x": [
+     {
+      "id": "mat",
+      "type": "rk_mat",
+      "pos": [
+       1000,
+       1510
+      ],
+      "s": 1.2,
+      "p": {
+       "lump": 0.6
+      }
+     },
+     {
+      "id": "ant",
+      "type": "rk_antennae",
+      "pos": [
+       760,
+       1490
+      ],
+      "s": 1.0,
+      "p": {}
+     }
+    ],
+    "bugpos_for_frame": [
+     850,
+     1500
+    ]
+   }
+  },
+  {
+   "say": "So, what happens if you leave a house centipede in your bathroom?",
+   "vis": "RE-HOOK CARD 'THE ANSWER' + sound hit. Same tile wall as the first frame, now at dawn; the centipede on the wall again.",
+   "card": "WHAT HAPPENS IF YOU LEAVE IT?",
+   "src": "callback (title question)",
+   "act": "curious",
+   "id": "s6.l0",
+   "seg": 6,
+   "shot": {
+    "f": "bw",
+    "pose": "think",
+    "look": "hero",
+    "bug": {
+     "p": {
+      "mood": "calm"
+     }
+    },
+    "ov": [
+     {
+      "type": "suspect",
+      "text": "THE ANSWER",
+      "kicker": "THE ANSWER",
+      "at": 0.0
+     }
+    ],
+    "sfx": [
+     "sting@0",
+     "hit@0.05"
+    ],
+    "card_at": 1.5
+   }
+  },
+  {
+   "say": "It hides by day, hunts by night, and prefers the damp.",
+   "vis": "Three quick callbacks: the crack under the cabinet, the night-vision patrol, the fogged mirror.",
+   "card": "HIDES · HUNTS · PREFERS THE DAMP",
+   "src": "recap: CB12, CB7, CB1/CB6/CB15",
+   "act": "story",
+   "id": "s6.l1",
+   "seg": 6,
+   "shot": {
+    "f": "kkk",
+    "cams": [
+     [
+      300,
+      1440,
+      2.6,
+      2.7
+     ],
+     [
+      900,
+      1300,
+      1.2,
+      1.3
+     ],
+     [
+      60,
+      600,
+      1.5,
+      1.6
+     ]
+    ],
+    "cuts": [
+     "hunts|35%",
+     "prefers|65%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "bug": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "ant",
+      "type": "rk_antennae",
+      "pos": [
+       300,
+       1495
+      ],
+      "s": 1.4,
+      "p": {}
+     },
+     {
+      "id": "st",
+      "type": "rk_steam",
+      "pos": [
+       80,
+       880
+      ],
+      "s": 1.6,
+      "p": {}
+     }
+    ],
+    "ov": [
+     {
+      "type": "cam",
+      "kind": "seccam",
+      "title": "BUG CAM: NIGHT VISION",
+      "title_x": 330,
+      "title_y": 760,
+      "title_px": 72,
+      "place": "BATHROOM",
+      "clock": 7200,
+      "at": "hunts|35%",
+      "to": "prefers|65%"
+     }
+    ]
+   }
+  },
+  {
+   "say": "Meatball's verdict: it stays, and the fan stays on.",
+   "vis": "Meatball stamps VERDICT on a sticky note and slaps it on the mirror; the fan spins.",
+   "card": "VERDICT: IT STAYS",
+   "src": "opinion",
+   "act": "smug",
+   "id": "s6.l2",
+   "seg": 6,
+   "shot": {
+    "f": "Mk",
+    "cams": [
+     [
+      1400,
+      600,
+      1.6,
+      1.7
+     ]
+    ],
+    "pose": "point",
+    "bug": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "fan",
+      "type": "rk_fan",
+      "pos": [
+       1400,
+       600
+      ],
+      "s": 0.9,
+      "p": {
+       "spin": 1.0
+      }
+     }
+    ],
+    "stamp": {
+     "text": "VERDICT: IT STAYS",
+     "color": "#3fb950",
+     "at": "verdict|20%",
+     "x": 700,
+     "y": 420,
+     "px": 110,
+     "rot": -6
+    },
+    "sfx": [
+     "stamp@verdict|20%"
+    ]
+   }
+  },
+  {
+   "say": "And the shoe? Back in the closet.",
+   "vis": "Callback to 0:05: the hall closet opens, the sneaker sits there; Meatball closes the door with his hip. The centipede's antennae wave from under the bath mat.",
+   "card": null,
+   "src": "callback (story)",
+   "act": "smug",
+   "id": "s6.l3",
+   "seg": 6,
+   "shot": {
+    "f": "kw",
+    "room": "hallM",
+    "cams": [
+     [
+      -300,
+      1100,
+      1.4,
+      1.5
+     ]
+    ],
+    "cuts": [
+     "closet|55%"
+    ],
+    "pose": "laugh",
+    "bug": null,
+    "mb": {
+     "pos": [
+      200,
+      1500
+     ]
+    },
+    "x": [
+     {
+      "id": "shoe",
+      "type": "tc_prop",
+      "pos": [
+       -300,
+       1480
+      ],
+      "s": 0.8,
+      "p": {
+       "kind": "slipper"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "say": "Would you let it stay? Tell me in the comments.",
+   "vis": "Meatball points at the viewer; comment-bubble icon. Sound hit.",
+   "card": "WOULD YOU LET IT STAY?",
+   "src": "comment prompt",
+   "act": "curious",
+   "id": "s6.l4",
+   "seg": 6,
+   "shot": {
+    "f": "M",
+    "burst": true,
+    "pose": "you",
+    "look": "viewer",
+    "bug": null,
+    "room": "hallM",
+    "sfx": [
+     "hit@comments|70%"
+    ]
+   }
+  },
+  {
+   "say": "Next: six house bugs, ranked. It's on the channel.",
+   "vis": "Meatball walks toward a door marked HOUSE BUGS RANKED; the tier board peeks through. Then the 20 s end screen.",
+   "card": "WATCH NEXT: HOUSE BUGS RANKED",
+   "src": "next step (Watch next: House Bugs Ranked by Meatball)",
+   "act": "story",
+   "id": "s6.l5",
+   "seg": 6,
+   "shot": {
+    "card": false,
+    "f": "wk",
+    "room": "hallM",
+    "cams": [
+     [
+      -300,
+      1000,
+      1.2,
+      1.3
+     ]
+    ],
+    "cuts": [
+     "ranked|50%"
+    ],
+    "pose": "point",
+    "bug": null,
+    "mb": {
+     "pos": [
+      400,
+      1500
+     ]
+    },
+    "x": [
+     {
+      "id": "door",
+      "type": "ds_label",
+      "pos": [
+       -300,
+       760
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "WATCH NEXT: HOUSE BUGS RANKED",
+       "px": 56,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "six|20%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "burst": "loud",
+ "end_text": "HOUSE BUGS RANKED  ·  HOUSE CENTIPEDE"
+}

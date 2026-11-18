@@ -1,0 +1,13 @@
+SCENE-DETECT CHECK: ffmpeg select=gt(scene,0.3) on house-centipede-bathroom.mp4 (spoken part 0:00-4:07.3; the 20 s end screen is a deliberate hold)
+cuts detected: 142; longest hold: 4.9 s at 3:04.1; holds over 5 s: 0
+
+3:04.1  hold 4.9 s
+3:29.6  hold 4.9 s
+2:49.7  hold 4.7 s
+1:44.6  hold 4.5 s
+1:31.3  hold 4.4 s
+0:11.8  hold 3.5 s
+1:03.4  hold 3.5 s
+2:23.4  hold 3.5 s
+2:19.8  hold 3.5 s
+2:57.4  hold 3.5 s
