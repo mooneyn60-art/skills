@@ -13,16 +13,7 @@
  },
  "pad": 0.08,
  "speed_k": 0.7,
- "beat_lines": [
-  "s0.l3",
-  "s1.l6",
-  "s2.l4",
-  "s2.l16",
-  "s3.l7",
-  "s4.l13",
-  "s6.l4",
-  "s8.l0"
- ],
+ "beat_lines": [],
  "captions": 122,
  "caption_y": 870,
  "cut_whoosh": true,
@@ -957,7 +948,8 @@
       "type": "suspect",
       "text": "THE NUMBER",
       "kicker": "THE 25,000",
-      "at": 0.0
+      "at": 0.0,
+      "dur": 1.5
      }
     ],
     "card_at": 1.5
@@ -2451,7 +2443,8 @@
       "type": "suspect",
       "text": "STOWAWAY 1 OF 9",
       "kicker": "THE MANTIS EGG CASE",
-      "at": 0.0
+      "at": 0.0,
+      "dur": 1.5
      }
     ],
     "sfx": [
@@ -5115,7 +5108,8 @@
       "type": "suspect",
       "text": "STOWAWAY 2 OF 9",
       "kicker": "THE ONE PEOPLE CALL A TICK",
-      "at": 0.0
+      "at": 0.0,
+      "dur": 1.5
      }
     ],
     "card_at": 1.5
@@ -6712,7 +6706,8 @@
       "type": "suspect",
       "text": "STOWAWAYS 3 TO 8",
       "kicker": "THE ONES YOU CAN IGNORE",
-      "at": 0.0
+      "at": 0.0,
+      "dur": 1.5
      }
     ],
     "sfx": [
@@ -8067,7 +8062,8 @@
       "type": "suspect",
       "text": "STOWAWAY 9 OF 9",
       "kicker": "THE ONE THAT MATTERS OUTSIDE",
-      "at": 0.0
+      "at": 0.0,
+      "dur": 1.5
      }
     ],
     "card_at": 1.5
@@ -8664,7 +8660,8 @@
       "type": "suspect",
       "text": "DON'T DO THIS",
       "kicker": "THE MISTAKE",
-      "at": 0.0
+      "at": 0.0,
+      "dur": 1.5
      }
     ],
     "card_at": 1.5
@@ -9100,7 +9097,7 @@
    "seg": 6,
    "shot": {
     "room": "liv",
-    "f": "kk",
+    "f": "kkk",
     "cams": [
      [
       1750,
@@ -9109,13 +9106,20 @@
       1.5
      ],
      [
+      1150,
+      600,
+      0.9,
+      0.95
+     ],
+     [
       1200,
       760,
-      1.4,
-      1.5
+      1.5,
+      1.55
      ]
     ],
     "cuts": [
+     "Illinois|30%",
      "wake|70%"
     ],
     "mb": {
@@ -9226,7 +9230,8 @@
       "type": "suspect",
       "text": "THE TREE CHECK",
       "kicker": "THE TREE CHECK",
-      "at": 0.0
+      "at": 0.0,
+      "dur": 1.5
      }
     ],
     "card_at": 1.5
@@ -9681,7 +9686,9 @@
      }
     ],
     "meter_big_to": 1.0,
-    "meter_at": "one|55%",
+    "meter_big_at": "45%",
+    "meter_at": "one|60%",
+    "slam_dur": 0.9,
     "tint": [
      0.6,
      1.0,
@@ -9698,7 +9705,8 @@
       "type": "suspect",
       "text": "VERDICT",
       "kicker": "THE VERDICT",
-      "at": 0.0
+      "at": 0.0,
+      "dur": 0.9
      }
     ],
     "card_at": 1.5
@@ -9749,7 +9757,9 @@
       }
      }
     ],
-    "meter_big_to": 0.0
+    "meter_big": 1.0,
+    "meter_big_to": 0.0,
+    "meter_big_at": "35%"
    }
   },
   {

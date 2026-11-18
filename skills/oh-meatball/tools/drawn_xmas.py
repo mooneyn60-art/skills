@@ -95,7 +95,7 @@ for _k, _v in R.ROOMS.items():   # tc_* rooms: frame the tree / the subject, not
 R.CH_ROOM = CH_ROOM
 R.CH_BUG = [None] * 9
 R.BEATS = []   # filled by build from BEAT_IDS
-BEAT_IDS = ["s0.l3", "s1.l6", "s2.l4", "s2.l16", "s3.l7", "s4.l13", "s6.l4", "s8.l0"]   # >= 30 s apart; checked by lint
+BEAT_IDS = []   # brief 11/18: every line-to-line gap <= 0.12 s, so no 0.3 s beats in this episode
 
 _orig_expand = R.expand
 
