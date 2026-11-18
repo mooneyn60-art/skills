@@ -106,6 +106,33 @@ const ADS = {
   ] },
 };
 
+// ---------- hook variants: new first scene (+ optional new ending) on top of a base ad ----------
+const H = (bg, html) => ({ bg, shake: 1, html });
+const VARIANTS = {
+  'santa-memories': ['santa-mail-set', H('bg-wood', `${paper('reply-from-santa-letter.png', { x: 110, y: 640, w: 860, rot: 3, fx: 'drop', float: 1 })}${cap('things my kids will remember FOREVER 🎅', 220, 68)}`)],
+  'santa-tradition': ['santa-mail-set', H('bg-green', `${paper('dear-santa.png', { x: 60, y: 620, w: 520, rot: -7, fx: 'slideL' })}${paper('reply-from-santa-letter.png', { x: 500, y: 680, w: 520, rot: 6, fx: 'slideR', at: .2 })}${cap('the Christmas tradition we’re starting this year ✨', 220, 64)}`)],
+  'santa-value': ['santa-mail-set', H('bg-red', `${['dear-santa.png','reply-from-santa-letter.png','christmas-wish-list.png','christmas-elf-arrival-letter.png'].map((f,i)=>paper(f,{x:30+i*240,y:640+(i%2)*70,w:420,rot:-9+i*6,fx:'drop',at:i*.12})).join('')}${cap('$7.99 for ALL of this?? 😳', 220, 76)}`)],
+  'elf-pov': ['elf-arrival', H('bg-wood', `${paper('christmas-elf-arrival-letter.png', { x: 110, y: 640, w: 860, rot: -3, fx: 'drop', float: 1 })}${cap('POV: your kids find THIS from their elf 🧝', 220, 68)}`)],
+  'elf-budget': ['elf-arrival', H('bg-green', `${art(A.elf(2.4), { x: 300, y: 720, fx: 'pop', float: 1 })}${cap('Christmas elf ideas for TIRED parents 😮‍💨👇', 220, 64)}`)],
+  'nice-ask': ['nice-list', H('bg-red', `${paper('nice-list-certificate.png', { x: 50, y: 760, w: 980, rot: 2, fx: 'drop', float: 1 })}${cap('when they ask “am I on the Nice List?” 🥹', 220, 68)}`)],
+  'nice-evebox': ['nice-list', H('bg-green', `${art(A.gift(4.5), { x: 270, y: 1000, fx: 'pop' })}${paper('nice-list-certificate.png', { x: 140, y: 600, w: 800, rot: -4, fx: 'drop', at: .25 })}${cap('Christmas Eve box idea for $3.29 🎁', 220, 70)}`)],
+  'coloring-winterbreak': ['coloring-book', H('bg-wood', `${paper('cb-01.png', { x: 160, y: 600, w: 760, rot: 3, fx: 'drop', float: 1 })}${cap('winter break survival kit for moms 😅', 220, 70)}`)],
+  'coloring-kidstable': ['coloring-book', H('bg-green', `${paper('cb-06.png', { x: 150, y: 600, w: 780, rot: -3, fx: 'drop', float: 1 })}${cap('kids’ table activity for Christmas dinner 🍽️', 220, 66)}`)],
+  'dearsanta-tonight': ['santa-mail-set', H('bg-red', `${paper('dear-santa.png', { x: 110, y: 620, w: 860, rot: -2, fx: 'drop', float: 1 })}${cap('writing our letters to Santa tonight ✉️🎅', 220, 68)}`)],
+  'lastminute': ['santa-mail-set', H('bg-red', `${big('⚡ NO SHIPPING ⚡', 480, 110, { fx: 'stamp' })}${['nice-list-certificate.png','christmas-elf-arrival-letter.png','cb-01.png'].map((f,i)=>paper(f,{x:60+i*320,y:760+(i%2)*60,w:440,rot:-6+i*6,fx:'pop',at:.3+i*.12})).join('')}${cap('last-minute Christmas magic you print TONIGHT', 220, 62)}`)],
+};
+// Wish list gets its own full ad
+ADS['wish-list'] = { music: 'jingle.wav', scenes: [
+  { bg: 'bg-wood', shake: 1, html: `${paper('christmas-wish-list.png', { x: 110, y: 620, w: 860, rot: -2, fx: 'drop', float: 1 })}${cap('Grandma asked what they want for Christmas 👀', 220, 66)}` },
+  { bg: 'bg-wood', html: `${paper('christmas-wish-list.png', { x: -190, y: 300, w: 1450, fx: 'zoomin' })}${hand('Mia, 6', 250, 870, 100, .3, -2)}${cap('so they wrote it ALL down ✍️', 1450, 64, .1)}` },
+  { bg: 'bg-red', html: `${paper('christmas-wish-list.png', { x: -190, y: -60, w: 1450, fx: 'zoomin' })}${cap('+ a box to draw their #1 wish 🎨', 1350, 62)}` },
+  { bg: 'bg-green', html: `${paper('christmas-wish-list.png', { x: 60, y: 660, w: 480, rot: -6, fx: 'slideL' })}${paper('dear-santa.png', { x: 540, y: 660, w: 480, rot: 6, fx: 'slideR', at: .2 })}${cap('send one to Santa, one to Grandma 💌', 220, 64)}` },
+  { bg: 'bg-red', html: `${big('$2.99', 330, 170, { at: .1 })}${sparkles(540, 410, .3)}${paper('christmas-wish-list.png', { x: 190, y: 720, w: 700, rot: -3, fx: 'pop', at: .4, float: 1 })}${cap('on Etsy · instant download', 600, 54, .3)}` },
+  { bg: 'bg-green', html: `${printer('christmas-wish-list.png')}${cap('print one for every kid 🖨️', 210, 66)}` },
+  ending('bg-red', 'Gift shopping<br>made easy 🎁', 'search “Christmas Wish List Kids” 👆'),
+] };
+for (const [name, [base, hook]] of Object.entries(VARIANTS)) ADS[name] = { ...ADS[base], scenes: [hook, ...ADS[base].scenes.slice(1)] };
+
 // ---------- in-page animation engine ----------
 const ENGINE = `
 const E={outBack:p=>1+2.7*Math.pow(p-1,3)+1.7*Math.pow(p-1,2),outCubic:p=>1-Math.pow(1-p,3),
