@@ -34,9 +34,8 @@ TUNING = {"fenrir": {"speed": 0.86, "pause": 0.22}, "adam": {"speed": 1.18, "pau
           "adam-puck": {"speed": 1.18, "pause": 0.2}, "adam-michael": {"speed": 1.18, "pause": 0.2},
           "michael": {"speed": 1.18, "pause": 0.25}}
 # Warmth, presence, de-harsh, gentle compression, a touch of room, broadcast loudness.
-CHAIN = ("highpass=f=70,equalizer=f=180:t=q:w=1:g=3,equalizer=f=3200:t=q:w=1.2:g=2.5,"
-         "equalizer=f=7500:t=q:w=2:g=-2,acompressor=threshold=-20dB:ratio=3:attack=8:release=120:makeup=3,"
-         "aecho=0.8:0.6:18:0.08,loudnorm=I=-16:TP=-1.5")
+# Nolan 11/18: "voice no autotune or anything on it". No EQ, no room echo: a rumble cut, a gentle leveller, loudness.
+CHAIN = "highpass=f=60,acompressor=threshold=-18dB:ratio=2:attack=10:release=150:makeup=2,loudnorm=I=-16:TP=-1.5"
 _model = None
 
 
@@ -48,6 +47,9 @@ def _kokoro():
     return _model
 
 
+NO_FX = ("pitch", "formant", "drive")   # Nolan 11/18: no pitch shift, formant shift or overdrive on the voice
+
+
 def parse(name):
     """"kokoro:adam@speed=1.3,pitch=2,gain=3" -> ("kokoro", "adam", {"speed": 1.3, "pitch": 2.0, "gain": 3.0}).
     Per-line acting (voice test v2, 11/17): speed (Kokoro), ex/cfg (Chatterbox exaggeration and cfg weight),
@@ -57,6 +59,8 @@ def parse(name):
     params = {}
     for kv in filter(None, ps.split(",")):
         k, _, v = kv.partition("=")
+        if k.strip() in NO_FX:   # Nolan 11/18: "voice no autotune or anything on it"
+            continue
         params[k.strip()] = float(v)
     return eng, blend, params
 
@@ -64,7 +68,7 @@ def parse(name):
 def cache_name(name):
     """The shared-cache name: the voice name, plus its tuning when a blend has one (so a retune re-voices)."""
     t = TUNING.get(parse(name)[1])
-    base = name + "|trim1"   # 11/17: every take is trimmed now, so older untrimmed takes are re-voiced
+    base = name + "|trim1|plain1"   # 11/17: every take is trimmed now, so older untrimmed takes are re-voiced
     return base if not t else base + "|" + ",".join(f"{k}={v}" for k, v in sorted(t.items()))
 
 
