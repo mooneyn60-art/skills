@@ -11,7 +11,7 @@
   "thr": 0.01,
   "cam": 0.7
  },
- "pad": 0.8,
+ "pad": 0.86,
  "captions": 60,
  "caption_y": 990,
  "cut_whoosh": true,
@@ -149,7 +149,7 @@
      "sting@0.05",
      "thud@something|45%"
     ],
-    "zb": 1.05
+    "zb": 1.65
    }
   },
   {
@@ -164,14 +164,14 @@
     "pose": "deadpan",
     "cams": [
      [
-      700,
-      900,
+      640,
+      1060,
       1.6,
       1.75
      ],
      [
-      690,
-      860,
+      575,
+      1020,
       2.4,
       2.6
      ]
@@ -217,6 +217,20 @@
       "sil": true,
       "sil_at": "Six|30%",
       "in": 0.0
+     },
+     {
+      "type": "zoom",
+      "from": [
+       960,
+       540,
+       1.0
+      ],
+      "to": [
+       960,
+       700,
+       1.15
+      ],
+      "at": 0.4
      }
     ],
     "sfx": [
@@ -264,6 +278,21 @@
         "get|60%"
        ]
       ]
+     },
+     {
+      "type": "zoom",
+      "from": [
+       300,
+       760,
+       1.7
+      ],
+      "to": [
+       1650,
+       760,
+       1.7
+      ],
+      "at": 0.0,
+      "linear": true
      }
     ],
     "sfx": [
@@ -420,25 +449,25 @@
     ],
     "cams": [
      [
-      700,
+      500,
       1150,
       0.95,
       1.0
      ],
      [
-      1300,
+      1050,
       1150,
       0.95,
       1.0
      ]
     ],
     "bug": null,
-    "roomscene": "ds_floor",
+    "roomscene": "desert",
     "light": "off",
     "pose": "present",
     "mb": {
      "pos": [
-      250,
+      60,
       1500
      ],
      "size": 640,
@@ -447,7 +476,7 @@
        "at": "twice|20%",
        "dur": 1.0,
        "pos": [
-        800,
+        600,
         1500
        ],
        "walk": true
@@ -468,16 +497,16 @@
       "id": "rope",
       "type": "rk_rope",
       "pos": [
-       150,
+       0,
        1520
       ],
       "s": 1.0,
       "p": {
-       "w": 1950,
+       "w": 1700,
        "marks": [
-        150,
-        1000,
-        1950
+        0,
+        800,
+        1700
        ]
       }
      },
@@ -485,8 +514,8 @@
       "id": "now",
       "type": "ds_label",
       "pos": [
-       150,
-       1640
+       0,
+       1250
       ],
       "s": 1.0,
       "p": {
@@ -500,7 +529,7 @@
       "id": "rex",
       "type": "trex",
       "pos": [
-       1000,
+       800,
        1500
       ],
       "s": 0.42,
@@ -510,8 +539,8 @@
       "id": "dl",
       "type": "ds_label",
       "pos": [
-       1000,
-       1640
+       800,
+       1080
       ],
       "s": 1.0,
       "p": {
@@ -534,7 +563,7 @@
       "id": "sf",
       "type": "sp.silverfish",
       "pos": [
-       1950,
+       1700,
        1500
       ],
       "s": 0.38,
@@ -551,8 +580,8 @@
       "id": "sl",
       "type": "ds_label",
       "pos": [
-       1950,
-       1640
+       1650,
+       1250
       ],
       "s": 1.0,
       "p": {
@@ -1593,8 +1622,7 @@
        }
       ]
      }
-    ],
-    "idx": 1080
+    ]
    }
   },
   {
@@ -1824,7 +1852,7 @@
    "shot": {
     "f": "wk",
     "room": "board",
-    "roomscene": "ds_floor",
+    "roomscene": "keeper_room",
     "cams": [
      [
       900,
@@ -1870,8 +1898,8 @@
       "id": "hot",
       "type": "ds_label",
       "pos": [
-       1250,
-       760
+       1400,
+       1000
       ],
       "s": 1.0,
       "p": {
@@ -1913,7 +1941,7 @@
    "shot": {
     "f": "wm",
     "room": "board",
-    "roomscene": "ds_floor",
+    "roomscene": "keeper_room",
     "cams": null,
     "pose": "shock",
     "look": [
@@ -2131,8 +2159,8 @@
     "f": "kM",
     "cams": [
      [
-      640,
-      760,
+      560,
+      1010,
       2.2,
       2.6
      ]
@@ -2181,7 +2209,7 @@
       "type": "ds_label",
       "pos": [
        1400,
-       300
+       520
       ],
       "s": 1.0,
       "p": {
@@ -2205,7 +2233,7 @@
       "type": "ds_label",
       "pos": [
        1400,
-       300
+       520
       ],
       "s": 1.0,
       "p": {
@@ -2229,7 +2257,7 @@
       "type": "ds_label",
       "pos": [
        1400,
-       300
+       520
       ],
       "s": 1.0,
       "p": {
@@ -2397,8 +2425,8 @@
       "id": "cs",
       "type": "ds_label",
       "pos": [
-       1400,
-       300
+       1160,
+       330
       ],
       "s": 1.0,
       "p": {
@@ -2505,7 +2533,7 @@
       "type": "ds_label",
       "pos": [
        960,
-       330
+       1080
       ],
       "s": 1.0,
       "p": {
@@ -2543,7 +2571,7 @@
    "shot": {
     "f": "wk",
     "room": "board",
-    "roomscene": "ds_floor",
+    "roomscene": "office",
     "cams": [
      [
       1300,
@@ -2611,7 +2639,7 @@
       "type": "ds_label",
       "pos": [
        1450,
-       700
+       950
       ],
       "s": 1.0,
       "p": {
@@ -2646,9 +2674,18 @@
     "room": "garage",
     "pose": "point",
     "bug": null,
-    "mb": {
-     "prop": "phone"
-    },
+    "x": [
+     {
+      "id": "ph",
+      "type": "cl_phone",
+      "pos": [
+       780,
+       1180
+      ],
+      "s": 1.1,
+      "p": {}
+     }
+    ],
     "sfx": [
      "tink@doctor|60%"
     ]
@@ -2781,19 +2818,24 @@
    "id": "s4.l1",
    "seg": 4,
    "shot": {
-    "f": "ki",
+    "f": "kk",
     "cuts": [
      "clocked|35%"
     ],
     "cams": [
      [
-      960,
-      1250,
+      1000,
+      1200,
       0.9,
-      0.9
+      0.95
+     ],
+     [
+      900,
+      1250,
+      1.0,
+      1.06
      ]
     ],
-    "zb": 0.95,
     "bug": {
      "pos": [
       -400,
@@ -2804,13 +2846,14 @@
        "at": "clocked|20%",
        "dur": 1.2,
        "pos": [
-        1250,
+        800,
         1490
        ],
        "linear": true
       }
      ]
     },
+    "light": "off",
     "x": [
      {
       "id": "rul",
@@ -2829,8 +2872,8 @@
       "id": "ctr",
       "type": "tc_counter",
       "pos": [
-       1250,
-       1000
+       600,
+       880
       ],
       "s": 1.0,
       "p": {
@@ -3035,7 +3078,7 @@
       "sil": true,
       "full": false,
       "slide": false,
-      "sil_at": "Comment|30%",
+      "sil_at": "0%",
       "only_sil": true
      }
     ],
@@ -3077,15 +3120,15 @@
     "cams": [
      [
       0,
-      0,
-      1.2,
-      1.3
+      -110,
+      0.7,
+      0.75
      ],
      [
       0,
-      40,
-      1.6,
-      1.8
+      -40,
+      0.95,
+      1.05
      ]
     ],
     "cuts": [
@@ -3103,7 +3146,7 @@
        0,
        0
       ],
-      "s": 1.0,
+      "s": 1.6,
       "p": {
        "dip": 0.0
       },
@@ -3116,21 +3159,6 @@
         }
        }
       ]
-     },
-     {
-      "id": "fl",
-      "type": "ds_label",
-      "pos": [
-       -400,
-       250
-      ],
-      "s": 1.0,
-      "p": {
-       "text": "SKIN",
-       "px": 80,
-       "color": "#ffffff",
-       "on": 1.0
-      }
      }
     ],
     "sfx": [
@@ -3766,7 +3794,7 @@
        480,
        1016
       ],
-      "s": 2.2,
+      "s": 1.5,
       "p": {}
      },
      {
@@ -3774,7 +3802,7 @@
       "type": "tc_counter",
       "pos": [
        480,
-       760
+       690
       ],
       "s": 1.0,
       "p": {
@@ -3784,8 +3812,8 @@
       },
       "set": [
        {
-        "at": "30|40%",
-        "dur": 0.9,
+        "at": "contains|25%",
+        "dur": 1.0,
         "p": {
          "v": 30
         }
@@ -4077,16 +4105,6 @@
     ],
     "pose": "nervous",
     "x": [
-     {
-      "id": "inh",
-      "type": "cl_bottle",
-      "pos": [
-       650,
-       1016
-      ],
-      "s": 1.3,
-      "p": {}
-     },
      {
       "id": "dp",
       "type": "ds_label",
@@ -4383,7 +4401,7 @@
    "shot": {
     "f": "kk",
     "room": "board",
-    "roomscene": "ds_floor",
+    "roomscene": "kitchen",
     "cams": [
      [
       960,
@@ -4492,7 +4510,7 @@
    "shot": {
     "f": "kk",
     "room": "board",
-    "roomscene": "ds_floor",
+    "roomscene": "kitchen",
     "cams": [
      [
       960,
@@ -4555,29 +4573,31 @@
     "cams": [
      [
       650,
-      900,
-      2.2,
-      2.4
+      820,
+      1.5,
+      1.65
      ]
     ],
     "pose": "point",
     "x": [
      {
       "id": "inh",
-      "type": "cl_bottle",
+      "type": "tc_prop",
       "pos": [
        650,
        1016
       ],
-      "s": 1.3,
-      "p": {}
+      "s": 0.9,
+      "p": {
+       "kind": "aerosol"
+      }
      },
      {
       "id": "rd",
       "type": "ds_label",
       "pos": [
        650,
-       640
+       560
       ],
       "s": 1.0,
       "p": {
@@ -4588,7 +4608,7 @@
       },
       "set": [
        {
-        "at": "label|30%",
+        "at": "label|20%",
         "dur": 0.3,
         "p": {
          "on": 1.0
@@ -5127,16 +5147,6 @@
        "color": "#ffd34d",
        "on": 1.0
       }
-     },
-     {
-      "id": "slp",
-      "type": "sleeper",
-      "pos": [
-       500,
-       1190
-      ],
-      "s": 1.0,
-      "p": {}
      }
     ],
     "bug": {
@@ -5207,16 +5217,6 @@
       "p": {
        "on": 1.0
       }
-     },
-     {
-      "id": "slp",
-      "type": "sleeper",
-      "pos": [
-       500,
-       1190
-      ],
-      "s": 1.0,
-      "p": {}
      }
     ],
     "bug": {
@@ -5305,14 +5305,28 @@
     },
     "x": [
      {
-      "id": "clk",
-      "type": "cl_clock",
+      "id": "am",
+      "type": "ds_label",
       "pos": [
        1500,
        700
       ],
-      "s": 0.9,
-      "p": {}
+      "s": 1.0,
+      "p": {
+       "text": "3 AM",
+       "px": 110,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "Serious|55%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
      }
     ],
     "mb": {
@@ -5453,7 +5467,7 @@
    "shot": {
     "f": "wk",
     "room": "board",
-    "roomscene": "ds_floor",
+    "roomscene": "keeper_room",
     "cams": [
      [
       1100,
@@ -5563,7 +5577,7 @@
    "shot": {
     "f": "kk",
     "room": "board",
-    "roomscene": "ds_floor",
+    "roomscene": "keeper_room",
     "cams": [
      [
       1100,
@@ -5622,7 +5636,7 @@
    "shot": {
     "f": "kkk",
     "room": "board",
-    "roomscene": "ds_floor",
+    "roomscene": "tc_living",
     "cams": [
      [
       500,
@@ -5752,6 +5766,78 @@
         }
        }
       ]
+     },
+     {
+      "id": "l1",
+      "type": "ds_label",
+      "pos": [
+       500,
+       1020
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "THERMOSTAT",
+       "px": 56,
+       "color": "#ffffff",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "thermostat|20%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "l2",
+      "type": "ds_label",
+      "pos": [
+       1000,
+       1020
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "SPACE HEATER",
+       "px": 56,
+       "color": "#ffffff",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "heater|50%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "l3",
+      "type": "ds_label",
+      "pos": [
+       1500,
+       1020
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "FIREPLACE",
+       "px": 56,
+       "color": "#ffffff",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "fireplace|80%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
      }
     ],
     "sfx": [
@@ -5772,7 +5858,7 @@
    "shot": {
     "f": "k",
     "room": "board",
-    "roomscene": "ds_floor",
+    "roomscene": "tc_living",
     "cams": [
      [
       1000,
@@ -5970,7 +6056,7 @@
    "shot": {
     "f": "wM",
     "room": "board",
-    "roomscene": "ds_floor",
+    "roomscene": "jh_office",
     "pose": "shock",
     "bug": null,
     "mb": {
@@ -6050,7 +6136,9 @@
        1600
       ],
       "s": 1.6,
-      "p": {},
+      "p": {
+       "sandwich": false
+      },
       "flip": true,
       "moves": [
        {
@@ -6130,7 +6218,9 @@
        1600
       ],
       "s": 1.6,
-      "p": {}
+      "p": {
+       "sandwich": false
+      }
      },
      {
       "id": "unit",
@@ -6375,6 +6465,21 @@
         "centipede|65%"
        ]
       ]
+     },
+     {
+      "type": "zoom",
+      "from": [
+       500,
+       380,
+       1.6
+      ],
+      "to": [
+       1400,
+       380,
+       1.6
+      ],
+      "at": 0.0,
+      "linear": true
      }
     ],
     "sfx": [
@@ -6457,6 +6562,20 @@
         "bed|55%"
        ]
       ]
+     },
+     {
+      "type": "zoom",
+      "from": [
+       700,
+       580,
+       1.5
+      ],
+      "to": [
+       700,
+       790,
+       1.7
+      ],
+      "at": 0.0
      }
     ],
     "sfx": [
@@ -6539,6 +6658,20 @@
       ],
       "x": 1300,
       "y": 120
+     },
+     {
+      "type": "zoom",
+      "from": [
+       960,
+       540,
+       1.0
+      ],
+      "to": [
+       700,
+       250,
+       1.45
+      ],
+      "at": 0.0
      }
     ],
     "sfx": [
