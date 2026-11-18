@@ -1,0 +1,6670 @@
+{
+ "_note": "Built by tools/drawn_ranked.py build from longform-house-bugs-ranked-v3.outline.json. Each line: id (s<seg>.l<line>), the outline fields (say/vis/card/rate/pitch/src) and shot (the SHOTS recipe in tools/drawn_ranked.py; \"_keep\": true keeps a hand edit across rebuilds).",
+ "voice": "en-US-GuyNeural",
+ "rate": "+32%",
+ "pitch": "+2Hz",
+ "music": "mystery",
+ "music_db": -16,
+ "tempo": {
+  "lead": 0.06,
+  "tail": 0.22,
+  "thr": 0.01,
+  "cam": 0.7
+ },
+ "pad": 0.8,
+ "captions": 60,
+ "caption_y": 990,
+ "cut_whoosh": true,
+ "sfx_gain": 0.24,
+ "cap_key": [
+  "bite",
+  "bit",
+  "biter",
+  "harmless",
+  "annoying",
+  "gross",
+  "get",
+  "out",
+  "suspect",
+  "bed",
+  "bug",
+  "silverfish",
+  "mites",
+  "spider",
+  "centipede",
+  "cockroach",
+  "roach",
+  "400",
+  "million",
+  "sixteen",
+  "30",
+  "14",
+  "blood",
+  "disease",
+  "doctor",
+  "never",
+  "twist",
+  "closed",
+  "dinosaurs"
+ ],
+ "end_hold": 20.0,
+ "end_label": "House Centipede playlist + House Guests playlist (never a Short)",
+ "segments": [
+  {
+   "chapter": "Cold open: 2 AM",
+   "chip": null,
+   "room": "Upstairs hallway",
+   "est_start": "0:00"
+  },
+  {
+   "chapter": "Suspect 1: Silverfish",
+   "chip": "SUSPECT 1 OF 6",
+   "room": "Bathroom",
+   "est_start": "0:22"
+  },
+  {
+   "chapter": "Suspect 2: Dust mites",
+   "chip": "SUSPECT 2 OF 6",
+   "room": "Living room couch",
+   "est_start": "1:26"
+  },
+  {
+   "chapter": "Suspect 3: House spiders",
+   "chip": "SUSPECT 3 OF 6",
+   "room": "Garage",
+   "est_start": "2:18"
+  },
+  {
+   "chapter": "Suspect 4: House centipede",
+   "chip": "SUSPECT 4 OF 6",
+   "room": "Basement",
+   "est_start": "3:13"
+  },
+  {
+   "chapter": "Suspect 5: Cockroach",
+   "chip": "SUSPECT 5 OF 6",
+   "room": "Kitchen",
+   "est_start": "4:16"
+  },
+  {
+   "chapter": "Suspect 6: Bed bugs",
+   "chip": "SUSPECT 6 OF 6",
+   "room": "Meatball's bedroom",
+   "est_start": "5:24"
+  },
+  {
+   "chapter": "Case closed + the final ranking",
+   "chip": "FINAL BOARD",
+   "room": "Roof at dawn",
+   "est_start": "7:03"
+  }
+ ],
+ "titles": [
+  "House Bugs Ranked by Meatball, From Harmless to Get Out",
+  "Six House Bugs, Ranked by How Worried Meatball Is",
+  "House Bugs Ranked: What Bit Me at 2 AM?"
+ ],
+ "pinned_comment": "Which bug should Meatball rank next? And which one is in YOUR house?",
+ "lines": [
+  {
+   "say": "It's 2 AM, and something in this house bit me.",
+   "vis": "FRAME 0: flashlight snaps on, a house centipede FILLS the frame on the hallway wall (tease). Hard cut at 0:02 to Meatball BIG (half the frame), rubbing his arm, lamp-pool light.",
+   "card": null,
+   "src": "story",
+   "rate": "+34%",
+   "pitch": "+12Hz",
+   "id": "s0.l0",
+   "seg": 0,
+   "shot": {
+    "f": "bM",
+    "cuts": [
+     "something|45%"
+    ],
+    "pose": "nervous",
+    "bug": {
+     "s": 0.62,
+     "pos": [
+      1250,
+      980
+     ],
+     "p": {
+      "mood": "angry"
+     }
+    },
+    "light": {
+     "kind": "flashlight",
+     "snap": true
+    },
+    "mb": {
+     "gest": [
+      [
+       "bit|80%",
+       "shock",
+       1.0
+      ]
+     ]
+    },
+    "sfx": [
+     "click@0",
+     "sting@0.05",
+     "thud@something|45%"
+    ],
+    "zb": 1.05
+   }
+  },
+  {
+   "say": "Tonight, I find out exactly what it was.",
+   "vis": "Camera move by 0:04: fast push-in on Meatball's eyes narrowing. Flashlight click SFX.",
+   "card": "MISSION: FIND THE BITER",
+   "src": "story",
+   "id": "s0.l1",
+   "seg": 0,
+   "shot": {
+    "f": "kk",
+    "pose": "deadpan",
+    "cams": [
+     [
+      700,
+      900,
+      1.6,
+      1.75
+     ],
+     [
+      690,
+      860,
+      2.4,
+      2.6
+     ]
+    ],
+    "cuts": [
+     "exactly|40%"
+    ],
+    "bug": null,
+    "light": "lamp",
+    "sfx": [
+     "click@exactly|40%"
+    ],
+    "mb": {
+     "prop": "flashlight"
+    }
+   }
+  },
+  {
+   "say": "Six suspects live in this house with me.",
+   "vis": "Cut: the tier board slams in (HARMLESS / ANNOYING / GROSS / GET OUT) with 6 dark silhouettes lined up under it.",
+   "card": null,
+   "src": "story",
+   "id": "s0.l2",
+   "seg": 0,
+   "shot": {
+    "f": "k",
+    "room": "board",
+    "cams": [
+     [
+      960,
+      540,
+      1.0,
+      1.0
+     ]
+    ],
+    "bug": null,
+    "mb": {
+     "hidden": true
+    },
+    "ov": [
+     {
+      "type": "tier",
+      "sil": true,
+      "sil_at": "Six|30%",
+      "in": 0.0
+     }
+    ],
+    "sfx": [
+     "hit@0",
+     "pop@Six|30%"
+    ]
+   }
+  },
+  {
+   "say": "I'm ranking every one, from harmless to get out.",
+   "vis": "Whip-pan along the silhouettes; each one twitches as the camera passes.",
+   "card": "HARMLESS → GET OUT",
+   "src": "opinion",
+   "id": "s0.l3",
+   "seg": 0,
+   "shot": {
+    "f": "k",
+    "room": "board",
+    "cams": [
+     [
+      960,
+      540,
+      1.0,
+      1.0
+     ]
+    ],
+    "bug": null,
+    "mb": {
+     "hidden": true
+    },
+    "card": false,
+    "ov": [
+     {
+      "type": "tier",
+      "sil": true,
+      "slide": false,
+      "sil_at": "0%",
+      "pulse": [
+       [
+        "HARMLESS",
+        "harmless|30%"
+       ],
+       [
+        "GET OUT",
+        "get|60%"
+       ]
+      ]
+     }
+    ],
+    "sfx": [
+     "whoosh@0.05",
+     "tink@harmless|30%",
+     "hit@get|60%"
+    ]
+   }
+  },
+  {
+   "say": "One of them might be in your house right now.",
+   "vis": "Cut: the camera turns to face the viewer, flashlight beam into the lens.",
+   "card": null,
+   "src": "hook (no fact)",
+   "id": "s0.l4",
+   "seg": 0,
+   "shot": {
+    "f": "Mm",
+    "pose": "you",
+    "bug": null,
+    "light": {
+     "kind": "flashlight",
+     "from": [
+      960.0,
+      1480
+     ],
+     "w": 420
+    },
+    "flash": [
+     0.05
+    ],
+    "sfx": [
+     "whoosh@0"
+    ],
+    "mb": {
+     "prop": "flashlight",
+     "look": "viewer"
+    }
+   }
+  },
+  {
+   "say": "And number one is not the one you think.",
+   "vis": "Snap back to the centipede on the wall; it bolts out of frame. Sound hit. Meatball grabs the flashlight and heads for the bathroom (camera tracks low).",
+   "card": null,
+   "src": "story (open loop)",
+   "id": "s0.l5",
+   "seg": 0,
+   "shot": {
+    "f": "bw",
+    "cuts": [
+     "not|45%"
+    ],
+    "pose": "point",
+    "bug": {
+     "moves": [
+      {
+       "at": "one|30%",
+       "dur": 0.5,
+       "pos": [
+        2900,
+        980
+       ],
+       "linear": true
+      }
+     ]
+    },
+    "mb": {
+     "prop": "flashlight",
+     "moves": [
+      {
+       "at": "think|60%",
+       "dur": 1.2,
+       "pos": [
+        1300,
+        1500
+       ],
+       "walk": true
+      }
+     ]
+    },
+    "sfx": [
+     "sting@one|30%",
+     "scratch@one|35%"
+    ],
+    "light": "flashlight"
+   }
+  },
+  {
+   "say": "Suspect one is sitting in my bathtub.",
+   "vis": "RE-HOOK CARD 'SUSPECT 1 OF 6' + sound hit. Flashlight sweeps the dry tub; a silverfish in the beam.",
+   "card": "SUSPECT 1 OF 6",
+   "src": "story",
+   "id": "s1.l0",
+   "seg": 1,
+   "shot": {
+    "f": "wb",
+    "cuts": [
+     "bathtub|55%"
+    ],
+    "pose": "lean",
+    "mb": {
+     "prop": "flashlight"
+    },
+    "light": "flashlight"
+   }
+  },
+  {
+   "say": "Silverfish: its fossils date to 400 million years ago.",
+   "vis": "BUG CAM (interrupt): low fish-eye shot from the tub floor, silverfish huge. BUG ID card row 1 slides in.",
+   "card": "BUG ID: SILVERFISH · FOSSILS: 400 MILLION YEARS AGO",
+   "src": "P5-F1",
+   "rate": "+20%",
+   "id": "s1.l1",
+   "seg": 1,
+   "shot": {
+    "f": "bi",
+    "cuts": [
+     "400|45%"
+    ],
+    "pose": "present",
+    "ov": [
+     {
+      "type": "cam",
+      "kind": "bugcam",
+      "at": "0%",
+      "to": "400|45%"
+     }
+    ],
+    "bug": {
+     "p": {
+      "mood": "calm",
+      "look": [
+       -1,
+       0.3
+      ]
+     }
+    },
+    "zb": 1.4
+   }
+  },
+  {
+   "say": "That's about twice as long ago as the dinosaurs.",
+   "vis": "Act it out: Meatball stacks a tiny dinosaur toy on a timeline rope, then walks twice as far to put the silverfish down.",
+   "card": null,
+   "src": "P5-F1",
+   "rate": "+20%",
+   "id": "s1.l2",
+   "seg": 1,
+   "shot": {
+    "f": "kk",
+    "room": "board",
+    "cuts": [
+     "twice|35%"
+    ],
+    "cams": [
+     [
+      700,
+      1150,
+      0.95,
+      1.0
+     ],
+     [
+      1300,
+      1150,
+      0.95,
+      1.0
+     ]
+    ],
+    "bug": null,
+    "roomscene": "ds_floor",
+    "light": "off",
+    "pose": "present",
+    "mb": {
+     "pos": [
+      250,
+      1500
+     ],
+     "size": 640,
+     "moves": [
+      {
+       "at": "twice|20%",
+       "dur": 1.0,
+       "pos": [
+        800,
+        1500
+       ],
+       "walk": true
+      },
+      {
+       "at": "dinosaurs|60%",
+       "dur": 1.0,
+       "pos": [
+        1450,
+        1500
+       ],
+       "walk": true
+      }
+     ]
+    },
+    "x": [
+     {
+      "id": "rope",
+      "type": "rk_rope",
+      "pos": [
+       150,
+       1520
+      ],
+      "s": 1.0,
+      "p": {
+       "w": 1950,
+       "marks": [
+        150,
+        1000,
+        1950
+       ]
+      }
+     },
+     {
+      "id": "now",
+      "type": "ds_label",
+      "pos": [
+       150,
+       1640
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TODAY",
+       "px": 60,
+       "color": "#ffffff",
+       "on": 1.0
+      }
+     },
+     {
+      "id": "rex",
+      "type": "trex",
+      "pos": [
+       1000,
+       1500
+      ],
+      "s": 0.42,
+      "p": {}
+     },
+     {
+      "id": "dl",
+      "type": "ds_label",
+      "pos": [
+       1000,
+       1640
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "DINOSAURS",
+       "px": 60,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "twice|30%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "sf",
+      "type": "sp.silverfish",
+      "pos": [
+       1950,
+       1500
+      ],
+      "s": 0.38,
+      "p": {
+       "mood": "calm",
+       "look": [
+        -1,
+        0
+       ]
+      },
+      "flip": true
+     },
+     {
+      "id": "sl",
+      "type": "ds_label",
+      "pos": [
+       1950,
+       1640
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "SILVERFISH FOSSILS",
+       "px": 60,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "dinosaurs|60%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "step@twice|25%",
+     "pop@dinosaurs|70%"
+    ]
+   }
+  },
+  {
+   "say": "They move rapidly, including sideways, and their flat bodies let them hide in narrow crevices.",
+   "vis": "Cut: silverfish zips sideways along the tub rim (Meatball's head whips left-right), then camera follows it flat into the grout line.",
+   "card": "ID ROW 2: FAST, EVEN SIDEWAYS · ID ROW 3: FLAT, HIDES IN CREVICES",
+   "src": "P5-F7",
+   "rate": "+20%",
+   "id": "s1.l3",
+   "seg": 1,
+   "shot": {
+    "f": "ib",
+    "cuts": [
+     "flat|55%"
+    ],
+    "pose": "shock",
+    "look": "hero",
+    "bug": {
+     "moves": [
+      {
+       "at": "rapidly|15%",
+       "dur": 0.35,
+       "pos": [
+        1900,
+        1124
+       ]
+      },
+      {
+       "at": "sideways|35%",
+       "dur": 0.35,
+       "pos": [
+        1350,
+        1124
+       ]
+      },
+      {
+       "at": "flat|55%",
+       "dur": 0.4,
+       "pos": [
+        1600,
+        1124
+       ]
+      }
+     ]
+    },
+    "sfx": [
+     "scratch@rapidly|15%",
+     "whoosh@sideways|35%"
+    ]
+   }
+  },
+  {
+   "say": "So, suspect one: did you bite me?",
+   "vis": "Interrogation: desk lamp swings over the tub, Meatball leans in close.",
+   "card": "WILL IT BITE YOU?",
+   "src": "story",
+   "id": "s1.l4",
+   "seg": 1,
+   "shot": {
+    "f": "mw",
+    "pose": "lean",
+    "look": "hero",
+    "light": {
+     "kind": "lamp",
+     "dark": 0.62
+    },
+    "sfx": [
+     "click@0.05"
+    ]
+   }
+  },
+  {
+   "say": "Its very weak jaws scrape the surface of paper instead of biting it.",
+   "vis": "Cut: close on a book page being scraped thin; slow push-in for the long line.",
+   "card": null,
+   "src": "P5-F8",
+   "rate": "+20%",
+   "id": "s1.l5",
+   "seg": 1,
+   "shot": {
+    "f": "bb",
+    "pose": "think",
+    "zb": 2.0,
+    "x": [
+     {
+      "id": "book",
+      "type": "book",
+      "pos": [
+       1700,
+       1124
+      ],
+      "s": 0.55,
+      "p": {}
+     }
+    ],
+    "bug": {
+     "pos": [
+      1540,
+      1124
+     ]
+    },
+    "sfx": [
+     "scratch@scrape|45%"
+    ]
+   }
+  },
+  {
+   "say": "That's about paper, not people, so it stays on my list.",
+   "vis": "CASE BOARD overlay (graphic, not a room): Meatball pins a SILVERFISH photo to a corkboard.",
+   "card": null,
+   "src": "P5-F8 hedge (source is about paper)",
+   "id": "s1.l6",
+   "seg": 1,
+   "shot": {
+    "f": "wk",
+    "room": "cork",
+    "cams": [
+     [
+      1000,
+      1000,
+      1.0,
+      1.05
+     ],
+     [
+      760,
+      760,
+      1.6,
+      1.7
+     ]
+    ],
+    "cuts": [
+     "paper|35%"
+    ],
+    "pose": "point",
+    "look": [
+     760,
+     760
+    ],
+    "x": [
+     {
+      "id": "ph",
+      "type": "rk_photo",
+      "pos": [
+       760,
+       760
+      ],
+      "s": 1.0,
+      "p": {
+       "bug": "silverfish",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "That's|5%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "thud@That's|10%"
+    ]
+   }
+  },
+  {
+   "say": "Also, silverfish do not transmit disease.",
+   "vis": "Quick cut: a green check stamp on the corkboard photo.",
+   "card": null,
+   "src": "P5-F2",
+   "rate": "+20%",
+   "id": "s1.l7",
+   "seg": 1,
+   "shot": {
+    "f": "kk",
+    "room": "cork",
+    "cams": [
+     [
+      760,
+      760,
+      1.5,
+      1.6
+     ],
+     [
+      900,
+      900,
+      1.05,
+      1.1
+     ]
+    ],
+    "cuts": [
+     "disease|60%"
+    ],
+    "pose": "present",
+    "x": [
+     {
+      "id": "ph",
+      "type": "rk_photo",
+      "pos": [
+       760,
+       760
+      ],
+      "s": 1.0,
+      "p": {
+       "bug": "silverfish"
+      }
+     }
+    ],
+    "stamp": {
+     "text": "NO DISEASE",
+     "color": "#3fb950",
+     "at": "disease|40%",
+     "x": 760,
+     "y": 470,
+     "px": 120,
+     "rot": -10
+    },
+    "sfx": [
+     "stamp@disease|40%"
+    ]
+   }
+  },
+  {
+   "say": "Why is it here? They can invade new homes from wild areas nearby.",
+   "vis": "Card WHY IS IT IN MY HOUSE?, then cut to the bathroom window: a little silverfish parade crossing the sill from a dry field outside.",
+   "card": null,
+   "src": "P5-F10",
+   "rate": "+20%",
+   "id": "s1.l8",
+   "seg": 1,
+   "shot": {
+    "f": "wm",
+    "room": "sill",
+    "pose": "point",
+    "look": "hero",
+    "card": "WHY IS IT IN MY HOUSE?",
+    "bug": {
+     "pos": [
+      -300,
+      1500
+     ],
+     "s": 0.5,
+     "moves": [
+      {
+       "at": "invade|20%",
+       "dur": 3.0,
+       "pos": [
+        1700,
+        1500
+       ],
+       "walk": true
+      }
+     ]
+    },
+    "x": [
+     {
+      "id": "sf2",
+      "type": "sp.silverfish",
+      "pos": [
+       -800,
+       1500
+      ],
+      "s": 0.4,
+      "p": {},
+      "moves": [
+       {
+        "at": "invade|30%",
+        "dur": 3.0,
+        "pos": [
+         1200,
+         1500
+        ],
+        "walk": true
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "pos": [
+      300,
+      1500
+     ]
+    }
+   }
+  },
+  {
+   "say": "Especially as those areas dry out in summer.",
+   "vis": "Act it out: a sun dial over the field spins to SUMMER; the grass browns.",
+   "card": null,
+   "src": "P5-F10",
+   "rate": "+20%",
+   "id": "s1.l9",
+   "seg": 1,
+   "shot": {
+    "f": "wb",
+    "room": "sill",
+    "pose": "shrug",
+    "look": "hero",
+    "bug": {
+     "pos": [
+      1500,
+      1500
+     ],
+     "s": 0.5
+    },
+    "x": [
+     {
+      "id": "sum",
+      "type": "ds_label",
+      "pos": [
+       1150,
+       700
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "SUMMER",
+       "px": 120,
+       "color": "#ff9f43",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "summer|20%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "sun",
+      "type": "rk_glow",
+      "pos": [
+       1500,
+       500
+      ],
+      "s": 1.0,
+      "p": {
+       "r": 160,
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "summer|20%",
+        "dur": 0.6,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "tint": [
+     1.0,
+     0.7,
+     0.2,
+     0.12
+    ],
+    "mb": {
+     "pos": [
+      300,
+      1500
+     ]
+    }
+   }
+  },
+  {
+   "say": "If they fall in a bathtub or sink, they can't climb up the slippery sides.",
+   "vis": "Back in the tub: the silverfish slides back down the wall twice. Camera tilts up the tub wall.",
+   "card": null,
+   "src": "P5-F9",
+   "rate": "+20%",
+   "id": "s1.l10",
+   "seg": 1,
+   "shot": {
+    "f": "kb",
+    "cams": [
+     [
+      1450,
+      1150,
+      1.3,
+      1.4
+     ]
+    ],
+    "pose": "think",
+    "bug": {
+     "pos": [
+      1300,
+      1360
+     ],
+     "rot": -70,
+     "s": 0.45,
+     "moves": [
+      {
+       "at": "fall|10%",
+       "dur": 0.6,
+       "pos": [
+        1300,
+        1180
+       ]
+      },
+      {
+       "at": "climb|45%",
+       "dur": 0.3,
+       "pos": [
+        1300,
+        1380
+       ]
+      },
+      {
+       "at": "slippery|65%",
+       "dur": 0.6,
+       "pos": [
+        1300,
+        1200
+       ]
+      },
+      {
+       "at": "sides|85%",
+       "dur": 0.3,
+       "pos": [
+        1300,
+        1390
+       ]
+      }
+     ]
+    },
+    "sfx": [
+     "whoosh@climb|45%",
+     "whoosh@sides|85%"
+    ]
+   }
+  },
+  {
+   "say": "They can't crawl up through the drain, either.",
+   "vis": "Cut: Meatball peers into the drain with the flashlight. Nothing there.",
+   "card": null,
+   "src": "P5-F9",
+   "rate": "+20%",
+   "id": "s1.l11",
+   "seg": 1,
+   "shot": {
+    "f": "mk",
+    "cams": [
+     [
+      840,
+      1450,
+      2.4,
+      2.7
+     ]
+    ],
+    "cuts": [
+     "drain|50%"
+    ],
+    "pose": "lean",
+    "bug": null,
+    "mb": {
+     "prop": "flashlight",
+     "pos": [
+      520,
+      1500
+     ]
+    },
+    "light": {
+     "kind": "flashlight",
+     "target": [
+      840,
+      1560
+     ]
+    },
+    "x": [
+     {
+      "id": "nada",
+      "type": "ds_label",
+      "pos": [
+       840,
+       1380
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "NOTHING",
+       "px": 60,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "either|60%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "say": "What should I do? Look for dustlike scales around damaged books.",
+   "vis": "Card. Meatball holds a chewed book under the flashlight; glitter-like scales on the shelf.",
+   "card": "WHAT SHOULD YOU DO?",
+   "src": "P5-S4",
+   "rate": "+20%",
+   "id": "s1.l12",
+   "seg": 1,
+   "shot": {
+    "f": "mb",
+    "room": "study",
+    "cuts": [
+     "scales|45%"
+    ],
+    "pose": "present",
+    "card": "WHAT SHOULD YOU DO?",
+    "zb": 1.6,
+    "bug": {
+     "pos": [
+      700,
+      1440
+     ],
+     "s": 0.35
+    },
+    "mb": {
+     "prop": "flashlight"
+    },
+    "x": [
+     {
+      "id": "bk",
+      "type": "book",
+      "pos": [
+       700,
+       1500
+      ],
+      "s": 0.9,
+      "p": {}
+     },
+     {
+      "id": "sp",
+      "type": "rk_speck",
+      "pos": [
+       430,
+       1380
+      ],
+      "s": 1.0,
+      "p": {
+       "w": 560,
+       "h": 120,
+       "n": 50
+      }
+     }
+    ]
+   }
+  },
+  {
+   "say": "All that history, and it loses to a bathtub.",
+   "vis": "Meatball salutes the silverfish in the tub; it salutes back with a feeler.",
+   "card": null,
+   "src": "joke (no new fact)",
+   "id": "s1.l13",
+   "seg": 1,
+   "shot": {
+    "f": "wb",
+    "pose": "wave",
+    "look": "hero",
+    "bug": {
+     "p": {
+      "look": [
+       -1,
+       -0.4
+      ]
+     },
+     "moves": [
+      {
+       "at": "history|40%",
+       "dur": 0.3,
+       "pos": [
+        1630,
+        1118
+       ]
+      },
+      {
+       "at": "loses|60%",
+       "dur": 0.3,
+       "pos": [
+        1620,
+        1124
+       ]
+      }
+     ]
+    }
+   }
+  },
+  {
+   "say": "It damages paper, books and wallpaper, so: annoying.",
+   "vis": "Whoosh to the full-screen TIER BOARD graphic (no room behind it); the silverfish card drops into ANNOYING. Sound hit.",
+   "card": "TIER: ANNOYING",
+   "src": "P5-F2 (MDC damage list) + opinion",
+   "id": "s1.l14",
+   "seg": 1,
+   "shot": {
+    "tier": "silverfish"
+   }
+  },
+  {
+   "say": "Then I spot a trail of dust leading to the couch.",
+   "vis": "Flashlight follows a dust trail down the stairs to the living-room couch.",
+   "card": "CLUE → LIVING ROOM",
+   "src": "story (clue)",
+   "id": "s1.l15",
+   "seg": 1,
+   "shot": {
+    "f": "wk",
+    "room": "living",
+    "cams": [
+     [
+      600,
+      1100,
+      0.85,
+      0.9
+     ]
+    ],
+    "cuts": [
+     "couch|55%"
+    ],
+    "pose": "point",
+    "bug": null,
+    "mb": {
+     "prop": "flashlight",
+     "pos": [
+      1700,
+      1500
+     ],
+     "moves": [
+      {
+       "at": "trail|30%",
+       "dur": 1.5,
+       "pos": [
+        1350,
+        1500
+       ],
+       "walk": true
+      }
+     ]
+    },
+    "light": {
+     "kind": "flashlight",
+     "target": [
+      900,
+      1300
+     ]
+    },
+    "x": [
+     {
+      "id": "tr0",
+      "type": "skin_flake",
+      "pos": [
+       1250,
+       1495
+      ],
+      "s": 0.28,
+      "p": {}
+     },
+     {
+      "id": "tr1",
+      "type": "skin_flake",
+      "pos": [
+       1140,
+       1495
+      ],
+      "s": 0.28,
+      "p": {}
+     },
+     {
+      "id": "tr2",
+      "type": "skin_flake",
+      "pos": [
+       1030,
+       1495
+      ],
+      "s": 0.28,
+      "p": {}
+     },
+     {
+      "id": "tr3",
+      "type": "skin_flake",
+      "pos": [
+       920,
+       1495
+      ],
+      "s": 0.28,
+      "p": {}
+     },
+     {
+      "id": "tr4",
+      "type": "skin_flake",
+      "pos": [
+       810,
+       1495
+      ],
+      "s": 0.28,
+      "p": {}
+     },
+     {
+      "id": "tr5",
+      "type": "skin_flake",
+      "pos": [
+       700,
+       1495
+      ],
+      "s": 0.28,
+      "p": {}
+     }
+    ]
+   }
+  },
+  {
+   "say": "Suspect two lives in my couch, and I can't even see it.",
+   "vis": "RE-HOOK CARD 'SUSPECT 2 OF 6' + sound hit. Meatball squints at a couch cushion.",
+   "card": "SUSPECT 2 OF 6",
+   "src": "story / DM1",
+   "id": "s2.l0",
+   "seg": 2,
+   "shot": {
+    "f": "wM",
+    "cuts": [
+     "see|60%"
+    ],
+    "pose": "think",
+    "look": [
+     880,
+     1260
+    ],
+    "bug": {
+     "hidden": true
+    }
+   }
+  },
+  {
+   "say": "Dust mites: adults are about half a millimeter long.",
+   "vis": "Act it out: Meatball drags in a huge toy microscope and a ruler to the cushion; a counter zooms 1x...10x...100x into a single mite.",
+   "card": "BUG ID: DUST MITE · ABOUT 0.5 MM",
+   "src": "DM1",
+   "rate": "+20%",
+   "id": "s2.l1",
+   "seg": 2,
+   "shot": {
+    "f": "ki",
+    "room": "scope",
+    "cuts": [
+     "half|40%"
+    ],
+    "cams": [
+     [
+      960,
+      1100,
+      0.6,
+      0.9
+     ]
+    ],
+    "bug": {
+     "p": {
+      "look": [
+       0.5,
+       0
+      ]
+     }
+    },
+    "ov": [
+     {
+      "type": "cam",
+      "kind": "mitecam",
+      "at": "0%",
+      "to": "half|40%"
+     }
+    ],
+    "zb": 1.0
+   }
+  },
+  {
+   "say": "Their primary food is skin flakes in house dust.",
+   "vis": "Act it out: Meatball scratches his ear; flakes float down into the cushion like snow; mites cheer.",
+   "card": "ID ROW 2: EATS SHED SKIN FLAKES",
+   "src": "DM3 / DM6",
+   "rate": "+20%",
+   "id": "s2.l2",
+   "seg": 2,
+   "shot": {
+    "f": "im",
+    "pose": "think",
+    "bug": {
+     "s": 0.45,
+     "pos": [
+      880,
+      1272
+     ]
+    },
+    "zb": 1.5,
+    "x": [
+     {
+      "id": "fl0",
+      "type": "skin_flake",
+      "pos": [
+       700,
+       300
+      ],
+      "s": 0.3,
+      "p": {},
+      "moves": [
+       {
+        "at": "10%",
+        "dur": 2.0,
+        "pos": [
+         740,
+         1270
+        ]
+       }
+      ]
+     },
+     {
+      "id": "fl1",
+      "type": "skin_flake",
+      "pos": [
+       790,
+       300
+      ],
+      "s": 0.3,
+      "p": {},
+      "moves": [
+       {
+        "at": "22%",
+        "dur": 2.0,
+        "pos": [
+         830,
+         1270
+        ]
+       }
+      ]
+     },
+     {
+      "id": "fl2",
+      "type": "skin_flake",
+      "pos": [
+       880,
+       300
+      ],
+      "s": 0.3,
+      "p": {},
+      "moves": [
+       {
+        "at": "34%",
+        "dur": 2.0,
+        "pos": [
+         920,
+         1270
+        ]
+       }
+      ]
+     },
+     {
+      "id": "fl3",
+      "type": "skin_flake",
+      "pos": [
+       970,
+       300
+      ],
+      "s": 0.3,
+      "p": {},
+      "moves": [
+       {
+        "at": "46%",
+        "dur": 2.0,
+        "pos": [
+         1010,
+         1270
+        ]
+       }
+      ]
+     },
+     {
+      "id": "fl4",
+      "type": "skin_flake",
+      "pos": [
+       1060,
+       300
+      ],
+      "s": 0.3,
+      "p": {},
+      "moves": [
+       {
+        "at": "58%",
+        "dur": 2.0,
+        "pos": [
+         1100,
+         1270
+        ]
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "gest": [
+      [
+       "skin|30%",
+       "think",
+       1.2
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "say": "They tend to be most numerous in beds, overstuffed sofas and chairs.",
+   "vis": "Camera pulls back across the living room: bed, sofa, armchair each glow briefly.",
+   "card": "ID ROW 3: MOST IN BEDS, SOFAS, CHAIRS",
+   "src": "DM3",
+   "rate": "+20%",
+   "id": "s2.l3",
+   "seg": 2,
+   "shot": {
+    "f": "kk",
+    "cams": [
+     [
+      880,
+      1200,
+      1.5,
+      1.2
+     ],
+     [
+      1000,
+      1060,
+      0.9,
+      0.78
+     ]
+    ],
+    "cuts": [
+     "sofas|45%"
+    ],
+    "pose": "present",
+    "bug": {
+     "s": 0.3
+    },
+    "x": [
+     {
+      "id": "b1",
+      "type": "ds_label",
+      "pos": [
+       500,
+       800
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "BEDS",
+       "px": 80,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "beds|30%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "b2",
+      "type": "ds_label",
+      "pos": [
+       900,
+       900
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "SOFAS",
+       "px": 80,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "sofas|50%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "b3",
+      "type": "ds_label",
+      "pos": [
+       1300,
+       800
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "CHAIRS",
+       "px": 80,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "chairs|80%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "idx": 1080
+   }
+  },
+  {
+   "say": "So, did a dust mite bite me?",
+   "vis": "Interrogation lamp over the cushion.",
+   "card": "WILL IT BITE YOU?",
+   "src": "story",
+   "id": "s2.l4",
+   "seg": 2,
+   "shot": {
+    "f": "mw",
+    "pose": "lean",
+    "look": "hero",
+    "light": {
+     "kind": "lamp",
+     "dark": 0.62
+    },
+    "sfx": [
+     "click@0.05"
+    ]
+   }
+  },
+  {
+   "say": "House dust mites are not capable of biting or stinging humans.",
+   "vis": "Cut: the mite under the microscope shrugs; a red CLEARED stamp hits its card on the corkboard.",
+   "card": "CLEARED OF THE BITE",
+   "src": "DM8",
+   "rate": "+20%",
+   "id": "s2.l5",
+   "seg": 2,
+   "shot": {
+    "f": "kk",
+    "room": "scope",
+    "cams": [
+     [
+      960,
+      1100,
+      0.8,
+      0.85
+     ],
+     [
+      960,
+      1150,
+      1.0,
+      1.08
+     ]
+    ],
+    "cuts": [
+     "biting|50%"
+    ],
+    "bug": {
+     "p": {
+      "mood": "calm",
+      "look": [
+       0,
+       0
+      ]
+     }
+    },
+    "stamp": {
+     "text": "CLEARED OF THE BITE",
+     "color": "#3fb950",
+     "at": "biting|50%",
+     "x": 960,
+     "y": 300,
+     "px": 110,
+     "rot": -10
+    },
+    "card": false,
+    "sfx": [
+     "stamp@biting|50%"
+    ]
+   }
+  },
+  {
+   "say": "Why is it here? Every home has dust mites.",
+   "vis": "Card. Quick montage: three different houses, each with a microscope-view mite waving.",
+   "card": "WHY IS IT IN MY HOUSE?",
+   "src": "DM6 (EPA wording; do not blend with ALA)",
+   "rate": "+20%",
+   "id": "s2.l6",
+   "seg": 2,
+   "shot": {
+    "f": "kk",
+    "room": "house",
+    "cams": [
+     [
+      700,
+      1000,
+      0.75,
+      0.8
+     ],
+     [
+      700,
+      1250,
+      1.2,
+      1.3
+     ]
+    ],
+    "cuts": [
+     "Every|50%"
+    ],
+    "pose": "present",
+    "x": [
+     {
+      "id": "hs",
+      "type": "ds_houses",
+      "pos": [
+       500,
+       1700
+      ],
+      "s": 1.6,
+      "p": {
+       "n": 10,
+       "cols": 5,
+       "lit": 1.0
+      }
+     }
+    ],
+    "mb": {
+     "pos": [
+      1500,
+      1600
+     ]
+    }
+   }
+  },
+  {
+   "say": "The trouble, if you're allergic, is allergens in the mites, their cast skins and droppings.",
+   "vis": "Act it out: a tiny shed skin and a speck labelled POOP float up past Meatball's nose.",
+   "card": null,
+   "src": "DM8",
+   "rate": "+20%",
+   "id": "s2.l7",
+   "seg": 2,
+   "shot": {
+    "f": "Mk",
+    "cams": [
+     [
+      1450,
+      900,
+      1.9,
+      2.0
+     ]
+    ],
+    "pose": "nervous",
+    "x": [
+     {
+      "id": "al1",
+      "type": "ds_label",
+      "pos": [
+       1250,
+       1400
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "CAST SKIN",
+       "px": 56,
+       "color": "#ffffff",
+       "on": 0.0
+      },
+      "moves": [
+       {
+        "at": "skins|40%",
+        "dur": 2.0,
+        "pos": [
+         1350,
+         700
+        ]
+       }
+      ],
+      "set": [
+       {
+        "at": "skins|40%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "al2",
+      "type": "ds_label",
+      "pos": [
+       1700,
+       1400
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "DROPPINGS",
+       "px": 56,
+       "color": "#ffffff",
+       "on": 0.0
+      },
+      "moves": [
+       {
+        "at": "droppings|50%",
+        "dur": 1.6,
+        "pos": [
+         1600,
+         760
+        ]
+       }
+      ],
+      "set": [
+       {
+        "at": "droppings|50%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "say": "What should I do? Wash bedding in hot water once a week, and dry it completely.",
+   "vis": "Card. Cut to a washing machine; the dial clicks to AT LEAST 130°F.",
+   "card": "WHAT SHOULD YOU DO? · HOT WASH, ONCE A WEEK",
+   "src": "DM20",
+   "rate": "+20%",
+   "id": "s2.l8",
+   "seg": 2,
+   "shot": {
+    "f": "wk",
+    "room": "board",
+    "roomscene": "ds_floor",
+    "cams": [
+     [
+      900,
+      1150,
+      1.0,
+      1.05
+     ],
+     [
+      1100,
+      1150,
+      1.6,
+      1.75
+     ]
+    ],
+    "cuts": [
+     "dry|60%"
+    ],
+    "pose": "present",
+    "x": [
+     {
+      "id": "wash",
+      "type": "rk_washer",
+      "pos": [
+       1100,
+       1500
+      ],
+      "s": 1.3,
+      "p": {
+       "spin": 5.0,
+       "dial": 0.2
+      },
+      "set": [
+       {
+        "at": "hot|30%",
+        "dur": 0.5,
+        "p": {
+         "dial": 0.9
+        }
+       }
+      ]
+     },
+     {
+      "id": "hot",
+      "type": "ds_label",
+      "pos": [
+       1250,
+       760
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "HOT",
+       "px": 80,
+       "color": "#e5383b",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "hot|30%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "pos": [
+      450,
+      1500
+     ]
+    },
+    "sfx": [
+     "click@hot|30%"
+    ]
+   }
+  },
+  {
+   "say": "Meatball's laundry pile just got a lot scarier.",
+   "vis": "Cut: hygrometer needle drops under 50.",
+   "card": null,
+   "src": "DM14",
+   "rate": "+20%",
+   "id": "s2.l9",
+   "seg": 2,
+   "shot": {
+    "f": "wm",
+    "room": "board",
+    "roomscene": "ds_floor",
+    "cams": null,
+    "pose": "shock",
+    "look": [
+     1250,
+     1100
+    ],
+    "x": [
+     {
+      "id": "pile",
+      "type": "rk_pile",
+      "pos": [
+       1250,
+       1500
+      ],
+      "s": 1.2,
+      "p": {
+       "wob": 1.0
+      }
+     },
+     {
+      "id": "pm",
+      "type": "sp.dust_mite",
+      "pos": [
+       1260,
+       760
+      ],
+      "s": 0.18,
+      "p": {
+       "mood": "calm"
+      }
+     }
+    ],
+    "bugpos_for_frame": [
+     1250,
+     1300
+    ],
+    "mb": {
+     "pos": [
+      500,
+      1500
+     ]
+    },
+    "sfx": [
+     "boing@scarier|50%"
+    ]
+   }
+  },
+  {
+   "say": "I have been napping on a skin-flake buffet.",
+   "vis": "Meatball stares at the couch, horrified; slow zoom.",
+   "card": null,
+   "src": "joke",
+   "id": "s2.l10",
+   "seg": 2,
+   "shot": {
+    "f": "Mk",
+    "cams": [
+     [
+      880,
+      1240,
+      1.5,
+      1.7
+     ]
+    ],
+    "pose": "shock",
+    "look": [
+     880,
+     1260
+    ],
+    "bug": {
+     "s": 0.36
+    }
+   }
+  },
+  {
+   "say": "Dust mites go on the board: annoying, if you're allergic.",
+   "vis": "Whoosh to the full-screen TIER BOARD graphic; dust-mite card drops into ANNOYING.",
+   "card": "TIER: ANNOYING",
+   "src": "opinion (DM28-DM32 hedge: allergic people)",
+   "id": "s2.l11",
+   "seg": 2,
+   "shot": {
+    "tier": "mite"
+   }
+  },
+  {
+   "say": "But something spun a web across the garage window.",
+   "vis": "Flashlight beam lands on a web glinting in the garage door window.",
+   "card": "CLUE → GARAGE",
+   "src": "story (clue)",
+   "id": "s2.l12",
+   "seg": 2,
+   "shot": {
+    "f": "kw",
+    "room": "garage",
+    "cams": [
+     [
+      1400,
+      760,
+      1.4,
+      1.55
+     ]
+    ],
+    "cuts": [
+     "garage|50%"
+    ],
+    "pose": "think",
+    "bug": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "web",
+      "type": "ds_web",
+      "pos": [
+       1680,
+       520
+      ],
+      "s": 0.8,
+      "p": {
+       "w": 520,
+       "h": 600
+      }
+     }
+    ],
+    "light": {
+     "kind": "flashlight",
+     "target": [
+      1400,
+      760
+     ]
+    }
+   }
+  },
+  {
+   "say": "Suspect three usually hangs belly-up in an irregular web.",
+   "vis": "RE-HOOK CARD 'SUSPECT 3 OF 6' + sound hit. Garage, cellar spider upside down in a tangled corner web; then SPIDER CAM (interrupt): spider's-eye view of Meatball's giant face.",
+   "card": "SUSPECT 3 OF 6 · BUG ID: HOUSE SPIDER · ROW 1: USUALLY HANGS BELLY-UP",
+   "src": "HS7",
+   "id": "s3.l0",
+   "seg": 3,
+   "shot": {
+    "f": "wi",
+    "cuts": [
+     "belly|45%"
+    ],
+    "pose": "point",
+    "look": "hero",
+    "x": [
+     {
+      "id": "web",
+      "type": "ds_web",
+      "pos": [
+       1680,
+       520
+      ],
+      "s": 0.8,
+      "p": {
+       "w": 520,
+       "h": 600
+      }
+     }
+    ]
+   }
+  },
+  {
+   "say": "But the jaws of most spiders are too small to bite humans.",
+   "vis": "Act it out: Meatball holds a tiny cartoon spider jaw next to his giant paw; the jaw can't reach around.",
+   "card": "ID ROW 2: MOST JAWS TOO SMALL TO BITE HUMANS",
+   "src": "HS2",
+   "rate": "+20%",
+   "id": "s3.l1",
+   "seg": 3,
+   "shot": {
+    "f": "im",
+    "cuts": [
+     "small|55%"
+    ],
+    "pose": "present",
+    "look": "hero",
+    "x": [
+     {
+      "id": "web",
+      "type": "ds_web",
+      "pos": [
+       1680,
+       520
+      ],
+      "s": 0.8,
+      "p": {
+       "w": 520,
+       "h": 600
+      }
+     }
+    ],
+    "mb": {
+     "gest": [
+      [
+       "small|60%",
+       "shrug",
+       1.0
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "say": "So, did a spider bite me last night?",
+   "vis": "Interrogation lamp swings up to the corner web.",
+   "card": "WILL IT BITE YOU?",
+   "src": "story",
+   "id": "s3.l2",
+   "seg": 3,
+   "shot": {
+    "f": "kM",
+    "cams": [
+     [
+      640,
+      760,
+      2.2,
+      2.6
+     ]
+    ],
+    "pose": "lean",
+    "look": "viewer",
+    "ov": [
+     {
+      "type": "cam",
+      "kind": "spidercam",
+      "at": "0%",
+      "to": "spider|50%"
+     }
+    ],
+    "cuts": [
+     "spider|50%"
+    ],
+    "light": {
+     "kind": "lamp",
+     "dark": 0.6
+    },
+    "sfx": [
+     "click@0.05",
+     "whoosh@spider|50%"
+    ]
+   }
+  },
+  {
+   "say": "Generally, a spider only tries to bite if squeezed, lain on, or similarly provoked.",
+   "vis": "Three quick cuts: a hand squeezing (stops short), a pillow lowering (stops short), a finger poking (stops short).",
+   "card": null,
+   "src": "HS4",
+   "rate": "+20%",
+   "id": "s3.l3",
+   "seg": 3,
+   "shot": {
+    "f": "bbb",
+    "cuts": [
+     "squeezed|25%",
+     "lain|55%"
+    ],
+    "zb": 1.5,
+    "x": [
+     {
+      "id": "q1",
+      "type": "ds_label",
+      "pos": [
+       1400,
+       300
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "SQUEEZED",
+       "px": 100,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "squeezed|25%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "q2",
+      "type": "ds_label",
+      "pos": [
+       1400,
+       300
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "LAIN ON",
+       "px": 100,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "lain|55%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "ds_label",
+      "pos": [
+       1400,
+       300
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "PROVOKED",
+       "px": 100,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "provoked|80%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "pop@squeezed|25%",
+     "pop@lain|55%",
+     "pop@provoked|80%"
+    ]
+   }
+  },
+  {
+   "say": "Some spiders might bite when trapped in clothing or bedding.",
+   "vis": "Cut: Meatball's own blanket; he slowly lifts it, eyes huge.",
+   "card": null,
+   "src": "HS4",
+   "rate": "+20%",
+   "id": "s3.l4",
+   "seg": 3,
+   "shot": {
+    "f": "mw",
+    "pose": "nervous",
+    "bug": null,
+    "x": [
+     {
+      "id": "sheet",
+      "type": "tc_prop",
+      "pos": [
+       1200,
+       1500
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "sheet"
+      }
+     }
+    ],
+    "look": [
+     1200,
+     1450
+    ]
+   }
+  },
+  {
+   "say": "The effect is usually no more severe than itching or the reaction to a bee sting.",
+   "vis": "Push-in on Meatball scratching, then shrugging; spider photo pinned to the corkboard with a question mark.",
+   "card": null,
+   "src": "HS4",
+   "rate": "+20%",
+   "id": "s3.l5",
+   "seg": 3,
+   "shot": {
+    "f": "Mm",
+    "pose": "think",
+    "mb": {
+     "gest": [
+      [
+       "bee|60%",
+       "shrug",
+       1.2
+      ]
+     ]
+    },
+    "cuts": [
+     "bee|55%"
+    ]
+   }
+  },
+  {
+   "say": "Why here? It's commonly found in garages and other dark, quiet, protected spots.",
+   "vis": "Card. Slow pan across the dark garage shelves; the spider's web in a quiet corner.",
+   "card": "WHY IS IT IN MY HOUSE?",
+   "src": "HS7",
+   "rate": "+20%",
+   "id": "s3.l6",
+   "seg": 3,
+   "shot": {
+    "f": "kb",
+    "cams": [
+     [
+      200,
+      900,
+      1.0,
+      1.0
+     ]
+    ],
+    "card": "WHY IS IT IN MY HOUSE?",
+    "pans": [
+     [
+      200,
+      900,
+      1.0
+     ],
+     [
+      1300,
+      850,
+      1.05
+     ]
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "web",
+      "type": "ds_web",
+      "pos": [
+       1680,
+       520
+      ],
+      "s": 0.8,
+      "p": {
+       "w": 520,
+       "h": 600
+      }
+     }
+    ],
+    "light": {
+     "kind": "flashlight",
+     "target": [
+      1400,
+      700
+     ]
+    }
+   }
+  },
+  {
+   "say": "This longbodied cellar spider is not known to be in any way harmful.",
+   "vis": "Slow tilt down the spider's long legs; label CELLAR SPIDER.",
+   "card": "ID ROW 3: CELLAR SPIDER · NOT KNOWN TO BE HARMFUL",
+   "src": "HS7",
+   "rate": "+20%",
+   "id": "s3.l7",
+   "seg": 3,
+   "shot": {
+    "f": "ki",
+    "cams": [
+     [
+      1400,
+      450,
+      2.0,
+      2.1
+     ]
+    ],
+    "cuts": [
+     "harmful|40%"
+    ],
+    "x": [
+     {
+      "id": "cs",
+      "type": "ds_label",
+      "pos": [
+       1400,
+       300
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "CELLAR SPIDER",
+       "px": 72,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "cellar|20%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "zb": 1.3
+   }
+  },
+  {
+   "say": "Only a few spiders, like black widows and brown recluses, have venom very toxic to humans.",
+   "vis": "Card. Two WANTED posters slam onto the garage wall (black widow, brown recluse), drawn clearly.",
+   "card": "WHAT SHOULD YOU DO?",
+   "src": "HS5",
+   "rate": "+20%",
+   "id": "s3.l8",
+   "seg": 3,
+   "shot": {
+    "f": "kk",
+    "room": "garage",
+    "cams": [
+     [
+      960,
+      700,
+      0.9,
+      0.95
+     ],
+     [
+      700,
+      700,
+      1.4,
+      1.5
+     ]
+    ],
+    "cuts": [
+     "toxic|60%"
+    ],
+    "bug": null,
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "w1",
+      "type": "rk_photo",
+      "pos": [
+       650,
+       700
+      ],
+      "s": 1.1,
+      "p": {
+       "bug": "widow",
+       "on": 0.0,
+       "tilt": -6
+      },
+      "set": [
+       {
+        "at": "widows|20%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "w2",
+      "type": "rk_photo",
+      "pos": [
+       1300,
+       700
+      ],
+      "s": 1.1,
+      "p": {
+       "bug": "recluse",
+       "on": 0.0,
+       "tilt": 5
+      },
+      "set": [
+       {
+        "at": "recluses|40%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "wa",
+      "type": "ds_label",
+      "pos": [
+       960,
+       330
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "VERY TOXIC VENOM",
+       "px": 90,
+       "color": "#e5383b",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "venom|60%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "thud@widows|20%",
+     "thud@recluses|40%"
+    ],
+    "light": "lamp"
+   }
+  },
+  {
+   "say": "Not sure what it is? Save it and ask your county extension office.",
+   "vis": "Cut: a blurry phone photo; a big red NO; then a sharp photo going to an EXPERT ID box.",
+   "card": "ASK YOUR COUNTY EXTENSION OFFICE · SEVERE BITE: CALL A DOCTOR",
+   "src": "HS62",
+   "rate": "+20%",
+   "id": "s3.l9",
+   "seg": 3,
+   "shot": {
+    "f": "wk",
+    "room": "board",
+    "roomscene": "ds_floor",
+    "cams": [
+     [
+      1300,
+      1100,
+      1.3,
+      1.4
+     ]
+    ],
+    "cuts": [
+     "county|50%"
+    ],
+    "pose": "present",
+    "bug": null,
+    "mb": {
+     "pos": [
+      400,
+      1500
+     ],
+     "moves": [
+      {
+       "at": "Save|25%",
+       "dur": 1.6,
+       "pos": [
+        900,
+        1500
+       ],
+       "walk": true
+      }
+     ],
+     "prop": null
+    },
+    "x": [
+     {
+      "id": "jar",
+      "type": "tp_jar",
+      "pos": [
+       520,
+       1180
+      ],
+      "s": 1.6,
+      "p": {},
+      "moves": [
+       {
+        "at": "Save|25%",
+        "dur": 1.6,
+        "pos": [
+         1040,
+         1180
+        ]
+       }
+      ]
+     },
+     {
+      "id": "desk",
+      "type": "desk",
+      "pos": [
+       1500,
+       1500
+      ],
+      "s": 1.0,
+      "p": {}
+     },
+     {
+      "id": "ext",
+      "type": "ds_label",
+      "pos": [
+       1450,
+       700
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "COUNTY EXTENSION OFFICE",
+       "px": 70,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "county|50%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "say": "If a bite causes an unusual or severe reaction, call a doctor.",
+   "vis": "Meatball holds up a phone, dials. Card stays.",
+   "card": null,
+   "src": "HS62",
+   "rate": "+20%",
+   "id": "s3.l10",
+   "seg": 3,
+   "shot": {
+    "f": "Mm",
+    "room": "garage",
+    "pose": "point",
+    "bug": null,
+    "mb": {
+     "prop": "phone"
+    },
+    "sfx": [
+     "tink@doctor|60%"
+    ]
+   }
+  },
+  {
+   "say": "Most house spiders go on the board: annoying, mostly the webs.",
+   "vis": "Meatball peels web off his face, then whoosh to the full-screen TIER BOARD graphic; spider card drops into ANNOYING.",
+   "card": "TIER: ANNOYING",
+   "src": "opinion",
+   "id": "s3.l11",
+   "seg": 3,
+   "shot": {
+    "tier": "spider"
+   }
+  },
+  {
+   "say": "Then something with way too many legs runs for the basement.",
+   "vis": "Flashlight catches a flicker of many legs vanishing down the basement stairs.",
+   "card": "CLUE → BASEMENT",
+   "src": "story (clue)",
+   "rate": "+34%",
+   "pitch": "+12Hz",
+   "id": "s3.l12",
+   "seg": 3,
+   "shot": {
+    "f": "kb",
+    "room": "base",
+    "cams": [
+     [
+      300,
+      1100,
+      1.0,
+      1.1
+     ]
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "light": "flashlight",
+    "zb": 1.1,
+    "bug": {
+     "pos": [
+      800,
+      1490
+     ],
+     "moves": [
+      {
+       "at": "legs|30%",
+       "dur": 0.7,
+       "pos": [
+        -600,
+        900
+       ],
+       "linear": true
+      }
+     ]
+    },
+    "sfx": [
+     "scratch@legs|30%",
+     "sting@legs|35%"
+    ]
+   }
+  },
+  {
+   "say": "Suspect four: basement security cam, 2:14 AM.",
+   "vis": "RE-HOOK CARD 'SUSPECT 4 OF 6' + sound hit. SECURITY CAM (interrupt): grainy timestamped view, a house centipede streaks across the floor.",
+   "card": "SUSPECT 4 OF 6",
+   "src": "story",
+   "id": "s4.l0",
+   "seg": 4,
+   "shot": {
+    "f": "kk",
+    "cams": [
+     [
+      960,
+      1150,
+      0.82,
+      0.82
+     ],
+     [
+      960,
+      1150,
+      0.82,
+      0.82
+     ]
+    ],
+    "cuts": [
+     "security|35%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "light": "off",
+    "bug": {
+     "pos": [
+      -500,
+      1490
+     ],
+     "moves": [
+      {
+       "at": "security|40%",
+       "dur": 1.2,
+       "pos": [
+        2400,
+        1490
+       ],
+       "linear": true
+      }
+     ]
+    },
+    "ov": [
+     {
+      "type": "cam",
+      "kind": "seccam",
+      "at": "security|35%"
+     }
+    ],
+    "sfx": [
+     "scratch@security|45%"
+    ]
+   }
+  },
+  {
+   "say": "House centipede: clocked at about sixteen inches a second.",
+   "vis": "Cut to full colour. Act it out: a speed counter ticks up to ~16 IN/SEC as it runs past a ruler on the floor.",
+   "card": "BUG ID: HOUSE CENTIPEDE · ABOUT 16 IN/SEC",
+   "src": "P4-F1",
+   "rate": "+20%",
+   "id": "s4.l1",
+   "seg": 4,
+   "shot": {
+    "f": "ki",
+    "cuts": [
+     "clocked|35%"
+    ],
+    "cams": [
+     [
+      960,
+      1250,
+      0.9,
+      0.9
+     ]
+    ],
+    "zb": 0.95,
+    "bug": {
+     "pos": [
+      -400,
+      1490
+     ],
+     "moves": [
+      {
+       "at": "clocked|20%",
+       "dur": 1.2,
+       "pos": [
+        1250,
+        1490
+       ],
+       "linear": true
+      }
+     ]
+    },
+    "x": [
+     {
+      "id": "rul",
+      "type": "tc_prop",
+      "pos": [
+       1100,
+       1560
+      ],
+      "s": 1.4,
+      "p": {
+       "kind": "ruler",
+       "w": 1500
+      }
+     },
+     {
+      "id": "ctr",
+      "type": "tc_counter",
+      "pos": [
+       1250,
+       1000
+      ],
+      "s": 1.0,
+      "p": {
+       "v": 0,
+       "fmt": "{} IN/SEC",
+       "px": 110
+      },
+      "set": [
+       {
+        "at": "about|50%",
+        "dur": 0.9,
+        "p": {
+         "v": 16
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "scratch@clocked|20%",
+     "tink@sixteen|70%"
+    ]
+   }
+  },
+  {
+   "say": "It can run up your walls to hunt.",
+   "vis": "Cut: centipede runs up the basement wall (walls only, not the ceiling).",
+   "card": "ID ROW 2: RUNS UP WALLS TO HUNT",
+   "src": "P4-F2",
+   "rate": "+20%",
+   "id": "s4.l2",
+   "seg": 4,
+   "shot": {
+    "f": "ik",
+    "cams": [
+     [
+      1250,
+      1000,
+      0.75,
+      0.8
+     ]
+    ],
+    "cuts": [
+     "walls|50%"
+    ],
+    "zb": 0.95,
+    "bug": {
+     "pos": [
+      1500,
+      1490
+     ],
+     "moves": [
+      {
+       "at": "run|30%",
+       "dur": 0.3,
+       "pos": [
+        1700,
+        1480
+       ],
+       "rot": -90
+      },
+      {
+       "at": "walls|50%",
+       "dur": 1.2,
+       "pos": [
+        1700,
+        500
+       ]
+      }
+     ]
+    },
+    "sfx": [
+     "scratch@run|30%"
+    ]
+   }
+  },
+  {
+   "say": "Unlike most centipedes, it has well-developed, faceted eyes.",
+   "vis": "Extreme close-up on its faceted eyes; Meatball's reflection in them.",
+   "card": "ID ROW 3: FACETED EYES",
+   "src": "P4-F4",
+   "rate": "+20%",
+   "id": "s4.l3",
+   "seg": 4,
+   "shot": {
+    "f": "kb",
+    "cams": [
+     [
+      1650,
+      1200,
+      3.2,
+      3.6
+     ]
+    ],
+    "zb": 1.6,
+    "idx": 480,
+    "bug": {
+     "p": {
+      "look": [
+       -1,
+       0.1
+      ]
+     }
+    },
+    "sfx": [
+     "tink@faceted|60%"
+    ]
+   }
+  },
+  {
+   "say": "Fast, leggy, and it hunts: that's my biter!",
+   "vis": "Meatball grabs a giant GET OUT stamp, wind-up, freeze-frame on the stamp mid-air.",
+   "card": null,
+   "src": "story",
+   "rate": "+34%",
+   "pitch": "+12Hz",
+   "id": "s4.l4",
+   "seg": 4,
+   "shot": {
+    "f": "mM",
+    "pose": "point",
+    "look": "hero",
+    "cuts": [
+     "biter|60%"
+    ],
+    "stamp": {
+     "text": "GET OUT",
+     "color": "#e5383b",
+     "at": "biter|60%",
+     "x": 1300,
+     "y": 420,
+     "px": 190,
+     "rot": -12
+    },
+    "sfx": [
+     "whoosh@hunts|40%",
+     "stamp@biter|60%"
+    ],
+    "shake": [
+     "biter|60%"
+    ]
+   }
+  },
+  {
+   "say": "Will it bite you? Here's the twist.",
+   "vis": "Record-scratch. Card spins in.",
+   "card": "WILL IT BITE YOU?",
+   "src": "story",
+   "id": "s4.l5",
+   "seg": 4,
+   "shot": {
+    "f": "Mw",
+    "pose": "shock",
+    "look": "hero",
+    "sfx": [
+     "scratch@0.02",
+     "hit@twist|60%"
+    ],
+    "cuts": [
+     "twist|55%"
+    ]
+   }
+  },
+  {
+   "say": "Which one is in YOUR house? Comment it.",
+   "vis": "BIG COMMENT CARD with the six silhouettes while the GET OUT stamp hangs frozen mid-air (cliffhanger); Meatball points at the viewer. Sound hit.",
+   "card": "WHICH ONE IS IN YOUR HOUSE? COMMENT IT",
+   "src": "comment prompt",
+   "id": "s4.l6",
+   "seg": 4,
+   "shot": {
+    "f": "M",
+    "pose": "you",
+    "look": "viewer",
+    "card": false,
+    "ov": [
+     {
+      "type": "big",
+      "at": "0%",
+      "rows": [
+       [
+        "WHICH ONE IS IN",
+        110,
+        "#ffffff"
+       ],
+       [
+        "YOUR HOUSE?",
+        150,
+        "#ffd34d"
+       ],
+       [
+        "COMMENT IT",
+        110,
+        "#ffffff"
+       ]
+      ],
+      "dim": 0.45,
+      "y": 210
+     },
+     {
+      "type": "tier",
+      "sil": true,
+      "full": false,
+      "slide": false,
+      "sil_at": "Comment|30%",
+      "only_sil": true
+     }
+    ],
+    "sfx": [
+     "hit@0.05",
+     "pop@Comment|40%"
+    ]
+   }
+  },
+  {
+   "say": "Bites to humans are uncommon, unless it's handled or accidentally pressed against skin.",
+   "vis": "Slow push-in on the centipede sitting calmly; Meatball's stamp lowers.",
+   "card": null,
+   "src": "P4Q-MSU",
+   "rate": "+20%",
+   "id": "s4.l7",
+   "seg": 4,
+   "shot": {
+    "f": "bm",
+    "pose": "deadpan",
+    "cuts": [
+     "accidentally|50%"
+    ],
+    "zb": 1.3
+   }
+  },
+  {
+   "say": "Its fangs are so small that piercing human skin is difficult.",
+   "vis": "Act it out: tiny fangs vs a giant skin wall; they barely tap it.",
+   "card": null,
+   "src": "P4Q-UKY-bite",
+   "rate": "+20%",
+   "id": "s4.l8",
+   "seg": 4,
+   "shot": {
+    "f": "kk",
+    "room": "board",
+    "roomscene": "rk_board_bg",
+    "cams": [
+     [
+      0,
+      0,
+      1.2,
+      1.3
+     ],
+     [
+      0,
+      40,
+      1.6,
+      1.8
+     ]
+    ],
+    "cuts": [
+     "piercing|45%"
+    ],
+    "bug": null,
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "fg",
+      "type": "ds_fangs",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "dip": 0.0
+      },
+      "set": [
+       {
+        "at": "piercing|50%",
+        "dur": 0.8,
+        "p": {
+         "dip": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "fl",
+      "type": "ds_label",
+      "pos": [
+       -400,
+       250
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "SKIN",
+       "px": 80,
+       "color": "#ffffff",
+       "on": 1.0
+      }
+     }
+    ],
+    "sfx": [
+     "tink@piercing|55%"
+    ],
+    "center": true
+   }
+  },
+  {
+   "say": "I never touched it, so it's probably not my biter.",
+   "vis": "Meatball drops the GET OUT stamp; the centipede's card slides DOWN past GROSS.",
+   "card": "TWIST: NOT THE BITER",
+   "src": "story (keeps the MSU condition)",
+   "id": "s4.l9",
+   "seg": 4,
+   "shot": {
+    "f": "mw",
+    "pose": "facepalm",
+    "look": "hero",
+    "sfx": [
+     "boing@never|30%"
+    ]
+   }
+  },
+  {
+   "say": "Why is it in my house? It feeds on bugs in the home.",
+   "vis": "Card. Cut: centipede facing a lineup of tiny bugs.",
+   "card": "WHY IS IT IN MY HOUSE?",
+   "src": "P4Q-UKY-prey",
+   "rate": "+20%",
+   "id": "s4.l10",
+   "seg": 4,
+   "shot": {
+    "f": "wb",
+    "pose": "present",
+    "look": "hero",
+    "card": "WHY IS IT IN MY HOUSE?",
+    "x": [
+     {
+      "id": "v1",
+      "type": "sp.roach",
+      "pos": [
+       1700,
+       1490
+      ],
+      "s": 0.22,
+      "p": {},
+      "flip": true
+     },
+     {
+      "id": "v2",
+      "type": "sp.silverfish",
+      "pos": [
+       1850,
+       1490
+      ],
+      "s": 0.2,
+      "p": {},
+      "flip": true
+     },
+     {
+      "id": "v3",
+      "type": "sp.roach",
+      "pos": [
+       2000,
+       1490
+      ],
+      "s": 0.2,
+      "p": {},
+      "flip": true
+     }
+    ],
+    "bug": {
+     "pos": [
+      1100,
+      1490
+     ],
+     "s": 0.4
+    }
+   }
+  },
+  {
+   "say": "That includes cockroaches and, yes, silverfish.",
+   "vis": "Quick flash-back cut: the silverfish from the tub, looking nervous.",
+   "card": null,
+   "src": "P4Q-UKY-prey",
+   "rate": "+20%",
+   "id": "s4.l11",
+   "seg": 4,
+   "shot": {
+    "f": "kk",
+    "room": "bath",
+    "cams": [
+     [
+      1620,
+      1050,
+      1.6,
+      1.7
+     ],
+     [
+      1620,
+      1050,
+      1.6,
+      1.7
+     ]
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "tint": [
+     0.6,
+     0.5,
+     0.9,
+     0.18
+    ],
+    "bug": {
+     "p": {
+      "mood": "calm",
+      "look": [
+       -1,
+       0
+      ]
+     }
+    },
+    "x": [
+     {
+      "id": "fb",
+      "type": "ds_label",
+      "pos": [
+       1620,
+       760
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "FLASHBACK",
+       "px": 64,
+       "color": "#ffd34d",
+       "on": 1.0
+      }
+     }
+    ]
+   }
+  },
+  {
+   "say": "It catches them by half pouncing, half lassoing.",
+   "vis": "Act it out: centipede pounces, legs loop around a cardboard bug like a lasso.",
+   "card": null,
+   "src": "P4-F3",
+   "rate": "+20%",
+   "id": "s4.l12",
+   "seg": 4,
+   "shot": {
+    "f": "kb",
+    "cams": [
+     [
+      1200,
+      1250,
+      1.2,
+      1.3
+     ]
+    ],
+    "cuts": [
+     "lassoing|50%"
+    ],
+    "zb": 1.1,
+    "mb": {
+     "hidden": true
+    },
+    "bug": {
+     "pos": [
+      900,
+      1490
+     ],
+     "moves": [
+      {
+       "at": "pouncing|20%",
+       "dur": 0.4,
+       "pos": [
+        1350,
+        1490
+       ],
+       "hop": 120
+      }
+     ]
+    },
+    "x": [
+     {
+      "id": "prey",
+      "type": "sp.roach",
+      "pos": [
+       1500,
+       1490
+      ],
+      "s": 0.22,
+      "p": {},
+      "flip": true
+     }
+    ],
+    "sfx": [
+     "boing@pouncing|25%",
+     "whoosh@lassoing|55%"
+    ]
+   }
+  },
+  {
+   "say": "What should you do? Don't grab it.",
+   "vis": "Card. Meatball's paw reaches, then yanks back.",
+   "card": "WHAT SHOULD YOU DO?",
+   "src": "P4Q-MSU condition",
+   "id": "s4.l13",
+   "seg": 4,
+   "shot": {
+    "f": "wm",
+    "pose": "point",
+    "look": "hero",
+    "card": "WHAT SHOULD YOU DO?",
+    "mb": {
+     "moves": [
+      {
+       "at": "grab|40%",
+       "dur": 0.3,
+       "pos": [
+        700,
+        1500
+       ]
+      },
+      {
+       "at": "grab+0.4",
+       "dur": 0.2,
+       "pos": [
+        520,
+        1500
+       ]
+      }
+     ],
+     "gest": [
+      [
+       "grab|50%",
+       "shock",
+       1.0
+      ]
+     ]
+    },
+    "sfx": [
+     "boing@grab|55%"
+    ]
+   }
+  },
+  {
+   "say": "Most house centipede infestations can be counted in single digits.",
+   "vis": "Act it out: Meatball counts on his paw: 1, 2, 3... a counter stops in single digits.",
+   "card": null,
+   "src": "P4-S2 (MSU)",
+   "rate": "+20%",
+   "id": "s4.l14",
+   "seg": 4,
+   "shot": {
+    "f": "Mw",
+    "pose": "present",
+    "mb": {
+     "gest": [
+      [
+       "counted|40%",
+       "point",
+       0.8
+      ],
+      [
+       "single|70%",
+       "subpoint",
+       0.8
+      ]
+     ]
+    },
+    "stamp": {
+     "text": "SINGLE DIGITS",
+     "color": "#ffd34d",
+     "at": "single|65%",
+     "x": 1300,
+     "y": 330,
+     "px": 120,
+     "rot": -8
+    },
+    "sfx": [
+     "stamp@single|65%"
+    ]
+   }
+  },
+  {
+   "say": "I almost arrested the one that eats roaches.",
+   "vis": "Meatball sheepishly hands the centipede back its photo.",
+   "card": null,
+   "src": "joke (P4Q-UKY-prey)",
+   "id": "s4.l15",
+   "seg": 4,
+   "shot": {
+    "f": "wb",
+    "pose": "shrug",
+    "look": "hero",
+    "x": [
+     {
+      "id": "ph",
+      "type": "rk_photo",
+      "pos": [
+       700,
+       1150
+      ],
+      "s": 0.5,
+      "p": {
+       "bug": "centipede"
+      },
+      "moves": [
+       {
+        "at": "arrested|40%",
+        "dur": 1.0,
+        "pos": [
+         1150,
+         1300
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "say": "House centipede drops to annoying: creepy, but not my case.",
+   "vis": "Whoosh to the full-screen TIER BOARD graphic; centipede card lands in ANNOYING.",
+   "card": "TIER: ANNOYING",
+   "src": "opinion",
+   "id": "s4.l16",
+   "seg": 4,
+   "shot": {
+    "tier": "centipede"
+   }
+  },
+  {
+   "say": "It eats roaches, so I'm checking the kitchen.",
+   "vis": "Flashlight swings up the basement stairs toward the kitchen door.",
+   "card": "CLUE → KITCHEN",
+   "src": "story (clue, P4Q-UKY-prey)",
+   "id": "s4.l17",
+   "seg": 4,
+   "shot": {
+    "f": "kw",
+    "cams": [
+     [
+      100,
+      1000,
+      1.0,
+      1.1
+     ]
+    ],
+    "cuts": [
+     "kitchen|50%"
+    ],
+    "pose": "point",
+    "bug": {
+     "hidden": true
+    },
+    "mb": {
+     "prop": "flashlight",
+     "moves": [
+      {
+       "at": "checking|40%",
+       "dur": 1.0,
+       "pos": [
+        200,
+        1400
+       ],
+       "walk": true
+      }
+     ]
+    },
+    "light": {
+     "kind": "flashlight",
+     "target": [
+      0,
+      700
+     ]
+    }
+   }
+  },
+  {
+   "say": "Suspect five scatters the second I flip the kitchen light.",
+   "vis": "RE-HOOK CARD 'SUSPECT 5 OF 6' + sound hit. Light flicks on; roaches scatter from the counter.",
+   "card": "SUSPECT 5 OF 6",
+   "src": "CR18",
+   "id": "s5.l0",
+   "seg": 5,
+   "shot": {
+    "f": "wb",
+    "cuts": [
+     "flip|45%"
+    ],
+    "pose": "shock",
+    "look": "hero",
+    "light": {
+     "kind": "flashlight",
+     "off_at": "light|40%"
+    },
+    "flash": [
+     "light|40%"
+    ],
+    "x": [
+     {
+      "id": "r0",
+      "type": "sp.roach",
+      "pos": [
+       300,
+       1016
+      ],
+      "s": 0.35,
+      "p": {},
+      "moves": [
+       {
+        "at": "light|45%",
+        "dur": 0.5,
+        "pos": [
+         -400,
+         1016
+        ],
+        "linear": true
+       }
+      ]
+     },
+     {
+      "id": "r1",
+      "type": "sp.roach",
+      "pos": [
+       390,
+       1016
+      ],
+      "s": 0.35,
+      "p": {},
+      "moves": [
+       {
+        "at": "light|45%",
+        "dur": 0.5,
+        "pos": [
+         -310,
+         1016
+        ],
+        "linear": true
+       }
+      ]
+     },
+     {
+      "id": "r2",
+      "type": "sp.roach",
+      "pos": [
+       480,
+       1016
+      ],
+      "s": 0.35,
+      "p": {},
+      "moves": [
+       {
+        "at": "light|45%",
+        "dur": 0.5,
+        "pos": [
+         -400,
+         1016
+        ],
+        "linear": true
+       }
+      ]
+     },
+     {
+      "id": "r3",
+      "type": "sp.roach",
+      "pos": [
+       570,
+       1016
+      ],
+      "s": 0.35,
+      "p": {},
+      "moves": [
+       {
+        "at": "light|45%",
+        "dur": 0.5,
+        "pos": [
+         -130,
+         1016
+        ],
+        "linear": true
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "click@light|40%",
+     "scratch@light|45%"
+    ]
+   }
+  },
+  {
+   "say": "German cockroach: light brown, about half an inch, two dark stripes.",
+   "vis": "BUG CAM (interrupt): eye-level behind the toaster, one roach freezes. BUG ID card.",
+   "card": "BUG ID: GERMAN COCKROACH · ABOUT 1/2 INCH",
+   "src": "CR8",
+   "rate": "+20%",
+   "id": "s5.l1",
+   "seg": 5,
+   "shot": {
+    "f": "bi",
+    "cuts": [
+     "light|40%"
+    ],
+    "zb": 1.6,
+    "ov": [
+     {
+      "type": "cam",
+      "kind": "bugcam",
+      "at": "0%",
+      "to": "light|40%"
+     }
+    ],
+    "x": [
+     {
+      "id": "toast",
+      "type": "tp_toaster",
+      "pos": [
+       700,
+       1016
+      ],
+      "s": 1.3,
+      "p": {}
+     }
+    ],
+    "bug": {
+     "pos": [
+      420,
+      1016
+     ]
+    }
+   }
+  },
+  {
+   "say": "Adult German cockroaches can hide in a crack 1/16 inch wide.",
+   "vis": "Act it out: Meatball slides a credit-card-thin gap gauge into a counter crack; the roach slips in.",
+   "card": "ID ROW 2: ADULTS CAN HIDE IN A 1/16-INCH CRACK",
+   "src": "CR10",
+   "rate": "+20%",
+   "id": "s5.l2",
+   "seg": 5,
+   "shot": {
+    "f": "ib",
+    "cuts": [
+     "crack|60%"
+    ],
+    "zb": 1.5,
+    "bug": {
+     "moves": [
+      {
+       "at": "crack|50%",
+       "dur": 0.6,
+       "pos": [
+        300,
+        1016
+       ],
+       "s": 0.6
+      }
+     ]
+    },
+    "x": [
+     {
+      "id": "gauge",
+      "type": "tc_prop",
+      "pos": [
+       330,
+       960
+      ],
+      "s": 0.6,
+      "p": {
+       "kind": "ruler",
+       "w": 400
+      }
+     },
+     {
+      "id": "gg",
+      "type": "ds_label",
+      "pos": [
+       330,
+       860
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "1/16-INCH GAP",
+       "px": 48,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "crack|40%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "say": "Each egg case contains about 30 young.",
+   "vis": "Act it out: tiny roaches pour from an egg case into a jar; a counter ticks to about 30.",
+   "card": "ID ROW 3: ABOUT 30 YOUNG PER EGG CASE",
+   "src": "CR6",
+   "rate": "+20%",
+   "id": "s5.l3",
+   "seg": 5,
+   "shot": {
+    "f": "ik",
+    "cams": [
+     [
+      480,
+      900,
+      1.5,
+      1.6
+     ]
+    ],
+    "zb": 1.5,
+    "bug": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "ooth",
+      "type": "tc_ooth",
+      "pos": [
+       480,
+       1016
+      ],
+      "s": 2.2,
+      "p": {}
+     },
+     {
+      "id": "ctr",
+      "type": "tc_counter",
+      "pos": [
+       480,
+       760
+      ],
+      "s": 1.0,
+      "p": {
+       "v": 0,
+       "fmt": "ABOUT {}",
+       "px": 100
+      },
+      "set": [
+       {
+        "at": "30|40%",
+        "dur": 0.9,
+        "p": {
+         "v": 30
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "tink@30|60%"
+    ]
+   }
+  },
+  {
+   "say": "So, did a roach bite me?",
+   "vis": "Interrogation lamp over the sink.",
+   "card": "WILL IT BITE YOU?",
+   "src": "story",
+   "id": "s5.l4",
+   "seg": 5,
+   "shot": {
+    "f": "mw",
+    "pose": "lean",
+    "look": "hero",
+    "light": {
+     "kind": "lamp",
+     "dark": 0.62
+    },
+    "sfx": [
+     "click@0.05"
+    ]
+   }
+  },
+  {
+   "say": "In extremely heavy infestations, German cockroaches have been reported to bite humans.",
+   "vis": "Slow push-in on a crowded drawing of a filthy pantry, labelled EXTREMELY HEAVY.",
+   "card": null,
+   "src": "CR39 (keep 'extremely heavy' and 'have been reported')",
+   "rate": "+20%",
+   "id": "s5.l5",
+   "seg": 5,
+   "shot": {
+    "f": "kk",
+    "cams": [
+     [
+      500,
+      900,
+      1.0,
+      1.05
+     ],
+     [
+      450,
+      950,
+      1.4,
+      1.5
+     ]
+    ],
+    "cuts": [
+     "reported|55%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "light": "lamp",
+    "x": [
+     {
+      "id": "c0",
+      "type": "sp.roach",
+      "pos": [
+       80,
+       1016
+      ],
+      "s": 0.25,
+      "p": {},
+      "flip": false
+     },
+     {
+      "id": "c1",
+      "type": "sp.roach",
+      "pos": [
+       230,
+       1016
+      ],
+      "s": 0.25,
+      "p": {},
+      "flip": true
+     },
+     {
+      "id": "c2",
+      "type": "sp.roach",
+      "pos": [
+       380,
+       1016
+      ],
+      "s": 0.25,
+      "p": {},
+      "flip": false
+     },
+     {
+      "id": "c3",
+      "type": "sp.roach",
+      "pos": [
+       530,
+       1016
+      ],
+      "s": 0.25,
+      "p": {},
+      "flip": true
+     },
+     {
+      "id": "c4",
+      "type": "sp.roach",
+      "pos": [
+       680,
+       1016
+      ],
+      "s": 0.25,
+      "p": {},
+      "flip": false
+     },
+     {
+      "id": "c5",
+      "type": "sp.roach",
+      "pos": [
+       830,
+       1016
+      ],
+      "s": 0.25,
+      "p": {},
+      "flip": true
+     },
+     {
+      "id": "c6",
+      "type": "sp.roach",
+      "pos": [
+       80,
+       946
+      ],
+      "s": 0.25,
+      "p": {},
+      "flip": false
+     },
+     {
+      "id": "c7",
+      "type": "sp.roach",
+      "pos": [
+       230,
+       946
+      ],
+      "s": 0.25,
+      "p": {},
+      "flip": true
+     },
+     {
+      "id": "c8",
+      "type": "sp.roach",
+      "pos": [
+       380,
+       946
+      ],
+      "s": 0.25,
+      "p": {},
+      "flip": false
+     },
+     {
+      "id": "c9",
+      "type": "sp.roach",
+      "pos": [
+       530,
+       946
+      ],
+      "s": 0.25,
+      "p": {},
+      "flip": true
+     },
+     {
+      "id": "c10",
+      "type": "sp.roach",
+      "pos": [
+       680,
+       946
+      ],
+      "s": 0.25,
+      "p": {},
+      "flip": false
+     },
+     {
+      "id": "c11",
+      "type": "sp.roach",
+      "pos": [
+       830,
+       946
+      ],
+      "s": 0.25,
+      "p": {},
+      "flip": true
+     },
+     {
+      "id": "eh",
+      "type": "ds_label",
+      "pos": [
+       500,
+       650
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "EXTREMELY HEAVY",
+       "px": 90,
+       "color": "#e5383b",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "extremely|20%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "tint": [
+     0.3,
+     0.25,
+     0.1,
+     0.25
+    ]
+   }
+  },
+  {
+   "say": "I saw one roach, which is not extremely heavy.",
+   "vis": "Smash cut back to Meatball's tidy kitchen with ONE roach.",
+   "card": null,
+   "src": "story (keeps CR39 condition)",
+   "id": "s5.l6",
+   "seg": 5,
+   "shot": {
+    "f": "wb",
+    "pose": "deadpan",
+    "look": "viewer",
+    "x": [
+     {
+      "id": "one",
+      "type": "ds_label",
+      "pos": [
+       480,
+       800
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "ONE ROACH",
+       "px": 80,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "one|30%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "flash": [
+     0.02
+    ]
+   }
+  },
+  {
+   "say": "Their droppings or body parts can trigger asthma.",
+   "vis": "Cut: an inhaler on the counter; a speck labelled DROPPINGS drifts by.",
+   "card": null,
+   "src": "CR37",
+   "rate": "+20%",
+   "id": "s5.l7",
+   "seg": 5,
+   "shot": {
+    "f": "Mk",
+    "cams": [
+     [
+      600,
+      900,
+      1.4,
+      1.5
+     ]
+    ],
+    "pose": "nervous",
+    "x": [
+     {
+      "id": "inh",
+      "type": "cl_bottle",
+      "pos": [
+       650,
+       1016
+      ],
+      "s": 1.3,
+      "p": {}
+     },
+     {
+      "id": "dp",
+      "type": "ds_label",
+      "pos": [
+       400,
+       800
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "DROPPINGS",
+       "px": 60,
+       "color": "#ffffff",
+       "on": 0.0
+      },
+      "moves": [
+       {
+        "at": "droppings|30%",
+        "dur": 2.0,
+        "pos": [
+         700,
+         700
+        ]
+       }
+      ],
+      "set": [
+       {
+        "at": "droppings|30%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "say": "Why is it here? They're often brought in with infested grocery bags.",
+   "vis": "Card. Cut: a grocery bag set on the counter; a roach climbs out of a carton.",
+   "card": "WHY IS IT IN MY HOUSE?",
+   "src": "CR11",
+   "rate": "+20%",
+   "id": "s5.l8",
+   "seg": 5,
+   "shot": {
+    "f": "kb",
+    "cams": [
+     [
+      600,
+      900,
+      1.3,
+      1.4
+     ]
+    ],
+    "card": "WHY IS IT IN MY HOUSE?",
+    "bug": {
+     "pos": [
+      600,
+      830
+     ],
+     "moves": [
+      {
+       "at": "grocery|40%",
+       "dur": 0.8,
+       "pos": [
+        350,
+        1016
+       ]
+      }
+     ]
+    },
+    "x": [
+     {
+      "id": "bag",
+      "type": "cl_box",
+      "pos": [
+       620,
+       1016
+      ],
+      "s": 1.8,
+      "p": {}
+     }
+    ],
+    "zb": 1.4
+   }
+  },
+  {
+   "say": "Even clean homes can become infested.",
+   "vis": "Cut: a sparkling kitchen, then one roach strolls through.",
+   "card": null,
+   "src": "CR11",
+   "rate": "+20%",
+   "id": "s5.l9",
+   "seg": 5,
+   "shot": {
+    "f": "wb",
+    "pose": "shrug",
+    "bug": {
+     "pos": [
+      100,
+      1016
+     ],
+     "moves": [
+      {
+       "at": "clean|20%",
+       "dur": 2.0,
+       "pos": [
+        650,
+        1016
+       ],
+       "walk": true
+      }
+     ]
+    },
+    "x": [
+     {
+      "id": "sp0",
+      "type": "spark",
+      "pos": [
+       200,
+       700
+      ],
+      "s": 1.0,
+      "p": {}
+     },
+     {
+      "id": "sp1",
+      "type": "spark",
+      "pos": [
+       460,
+       760
+      ],
+      "s": 1.0,
+      "p": {}
+     },
+     {
+      "id": "sp2",
+      "type": "spark",
+      "pos": [
+       720,
+       700
+      ],
+      "s": 1.0,
+      "p": {}
+     },
+     {
+      "id": "sp3",
+      "type": "spark",
+      "pos": [
+       980,
+       760
+      ],
+      "s": 1.0,
+      "p": {}
+     },
+     {
+      "id": "sp4",
+      "type": "spark",
+      "pos": [
+       1240,
+       700
+      ],
+      "s": 1.0,
+      "p": {}
+     }
+    ]
+   }
+  },
+  {
+   "say": "What should you do? Pesticides alone will not solve cockroach problems.",
+   "vis": "Card. Meatball drops a spray can; it rolls away.",
+   "card": "WHAT SHOULD YOU DO?",
+   "src": "CR26",
+   "rate": "+20%",
+   "id": "s5.l10",
+   "seg": 5,
+   "shot": {
+    "f": "mw",
+    "pose": "shrug",
+    "card": "WHAT SHOULD YOU DO?",
+    "x": [
+     {
+      "id": "can",
+      "type": "tc_prop",
+      "pos": [
+       1250,
+       1500
+      ],
+      "s": 0.8,
+      "p": {
+       "kind": "aerosol"
+      },
+      "moves": [
+       {
+        "at": "alone|40%",
+        "dur": 1.0,
+        "pos": [
+         800,
+         1500
+        ],
+        "rot": 90
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "thud@alone|45%"
+    ]
+   }
+  },
+  {
+   "say": "Good sanitation and exclusion are important.",
+   "vis": "Two quick cuts: Meatball wipes the counter; caulks a crack by the sink.",
+   "card": null,
+   "src": "CR26",
+   "rate": "+20%",
+   "id": "s5.l11",
+   "seg": 5,
+   "shot": {
+    "f": "wk",
+    "cams": [
+     [
+      480,
+      900,
+      1.5,
+      1.6
+     ]
+    ],
+    "cuts": [
+     "exclusion|50%"
+    ],
+    "pose": "present",
+    "x": [
+     {
+      "id": "w1",
+      "type": "ds_label",
+      "pos": [
+       480,
+       700
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "WIPE IT CLEAN",
+       "px": 72,
+       "color": "#3fb950",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "sanitation|20%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "w2",
+      "type": "ds_label",
+      "pos": [
+       480,
+       820
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "SEAL THE CRACKS",
+       "px": 72,
+       "color": "#3fb950",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "exclusion|50%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "say": "If using insecticides, baits provide better control than sprays.",
+   "vis": "Cut: a bait station placed near the crack vs a spray can with a big X.",
+   "card": null,
+   "src": "CR26",
+   "rate": "+20%",
+   "id": "s5.l12",
+   "seg": 5,
+   "shot": {
+    "f": "kk",
+    "room": "board",
+    "roomscene": "ds_floor",
+    "cams": [
+     [
+      960,
+      1150,
+      1.0,
+      1.05
+     ],
+     [
+      1300,
+      1250,
+      1.5,
+      1.6
+     ]
+    ],
+    "cuts": [
+     "sprays|60%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "bug": null,
+    "x": [
+     {
+      "id": "bait",
+      "type": "cl_box",
+      "pos": [
+       650,
+       1500
+      ],
+      "s": 1.2,
+      "p": {}
+     },
+     {
+      "id": "bl",
+      "type": "ds_label",
+      "pos": [
+       650,
+       1150
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "BAIT",
+       "px": 90,
+       "color": "#3fb950",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "baits|30%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "can",
+      "type": "tc_prop",
+      "pos": [
+       1300,
+       1500
+      ],
+      "s": 0.9,
+      "p": {
+       "kind": "aerosol"
+      }
+     },
+     {
+      "id": "x",
+      "type": "ds_cross",
+      "pos": [
+       1300,
+       1330
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 0.0,
+       "r": 200
+      },
+      "set": [
+       {
+        "at": "sprays|60%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "pop@baits|30%",
+     "stamp@sprays|60%"
+    ]
+   }
+  },
+  {
+   "say": "Avoid foggers, bombs, or aerosol sprays; they can be hazardous.",
+   "vis": "Cut: a bug bomb with a red NO stamp (never shown going off).",
+   "card": null,
+   "src": "CR27",
+   "rate": "+20%",
+   "id": "s5.l13",
+   "seg": 5,
+   "shot": {
+    "f": "kk",
+    "room": "board",
+    "roomscene": "ds_floor",
+    "cams": [
+     [
+      960,
+      1150,
+      1.0,
+      1.05
+     ],
+     [
+      960,
+      1250,
+      1.4,
+      1.5
+     ]
+    ],
+    "cuts": [
+     "hazardous|55%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "bug": null,
+    "x": [
+     {
+      "id": "bomb",
+      "type": "tc_prop",
+      "pos": [
+       960,
+       1500
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "foamcan"
+      }
+     }
+    ],
+    "stamp": {
+     "text": "NO",
+     "color": "#e5383b",
+     "at": "bombs|35%",
+     "x": 960,
+     "y": 500,
+     "px": 220,
+     "rot": -12
+    },
+    "sfx": [
+     "stamp@bombs|35%"
+    ]
+   }
+  },
+  {
+   "say": "Always read and follow the label.",
+   "vis": "Close on a label with READ ME highlighted.",
+   "card": null,
+   "src": "CR29",
+   "rate": "+20%",
+   "id": "s5.l14",
+   "seg": 5,
+   "shot": {
+    "f": "kM",
+    "cams": [
+     [
+      650,
+      900,
+      2.2,
+      2.4
+     ]
+    ],
+    "pose": "point",
+    "x": [
+     {
+      "id": "inh",
+      "type": "cl_bottle",
+      "pos": [
+       650,
+       1016
+      ],
+      "s": 1.3,
+      "p": {}
+     },
+     {
+      "id": "rd",
+      "type": "ds_label",
+      "pos": [
+       650,
+       640
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "READ THE LABEL",
+       "px": 64,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "label|30%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "say": "About thirty babies per egg case? I need a shower.",
+   "vis": "Meatball shudders head to tail.",
+   "card": null,
+   "src": "joke (CR6 repeated)",
+   "id": "s5.l15",
+   "seg": 5,
+   "shot": {
+    "f": "Mw",
+    "pose": "nervous",
+    "mb": {
+     "shake": 1.0
+    },
+    "shake": [
+     "shower|50%"
+    ],
+    "sfx": [
+     "boing@shower|50%"
+    ]
+   }
+  },
+  {
+   "say": "The cockroach goes on the board: gross.",
+   "vis": "Whoosh to the full-screen TIER BOARD graphic; roach card drops into GROSS with a splat SFX.",
+   "card": "TIER: GROSS",
+   "src": "opinion",
+   "id": "s5.l16",
+   "seg": 5,
+   "shot": {
+    "tier": "roach"
+   }
+  },
+  {
+   "say": "But roaches feed on filth, and my biter feeds solely on blood.",
+   "vis": "Close on Meatball's arm, the bite mark glows.",
+   "card": null,
+   "src": "BB13",
+   "rate": "+20%",
+   "id": "s5.l17",
+   "seg": 5,
+   "shot": {
+    "f": "Mk",
+    "cams": [
+     [
+      1500,
+      1150,
+      2.6,
+      2.8
+     ]
+    ],
+    "pose": "think",
+    "bug": null,
+    "x": [
+     {
+      "id": "bite",
+      "type": "rk_glow",
+      "pos": [
+       1530,
+       1180
+      ],
+      "s": 1.0,
+      "p": {
+       "r": 40,
+       "on": 0.0
+      },
+      "front": true,
+      "lit": true,
+      "set": [
+       {
+        "at": "blood|50%",
+        "dur": 0.5,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "cuts": [
+     "blood|45%"
+    ]
+   }
+  },
+  {
+   "say": "There's one room I haven't searched: mine.",
+   "vis": "Kitchen doorway: Meatball's shadow stretches long toward the stairs; creak SFX, slow push-in.",
+   "card": "CLUE → MY BEDROOM",
+   "src": "story (clue)",
+   "rate": "+34%",
+   "pitch": "+12Hz",
+   "id": "s5.l18",
+   "seg": 5,
+   "shot": {
+    "f": "kw",
+    "cams": [
+     [
+      1500,
+      1000,
+      1.3,
+      1.5
+     ]
+    ],
+    "pose": "deadpan",
+    "look": "viewer",
+    "bug": {
+     "hidden": true
+    },
+    "light": {
+     "kind": "lamp",
+     "dark": 0.7
+    },
+    "sfx": [
+     "scratch@mine|60%"
+    ],
+    "mb": {
+     "moves": [
+      {
+       "at": "mine|50%",
+       "dur": 1.5,
+       "pos": [
+        1900,
+        1500
+       ],
+       "walk": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "say": "Suspect six: last room, my own bed.",
+   "vis": "RE-HOOK CARD 'SUSPECT 6 OF 6' + heartbeat SFX. Bedroom, lamp pool on the bed.",
+   "card": "SUSPECT 6 OF 6",
+   "src": "story",
+   "id": "s6.l0",
+   "seg": 6,
+   "shot": {
+    "f": "wk",
+    "cams": [
+     [
+      1180,
+      1150,
+      1.4,
+      1.5
+     ]
+    ],
+    "cuts": [
+     "bed|60%"
+    ],
+    "pose": "nervous",
+    "look": "hero",
+    "bug": {
+     "hidden": true
+    },
+    "sfx": [
+     "thud@last|40%",
+     "thud@bed|70%"
+    ]
+   }
+  },
+  {
+   "say": "I lift the sheet, check the mattress seam, and...",
+   "vis": "Slow push-in, flashlight along the mattress seam (camera move, no hold over 5 s).",
+   "card": null,
+   "src": "story",
+   "id": "s6.l1",
+   "seg": 6,
+   "shot": {
+    "f": "kk",
+    "cams": [
+     [
+      600,
+      1180,
+      1.8,
+      1.8
+     ],
+     [
+      1100,
+      1180,
+      1.8,
+      2.0
+     ]
+    ],
+    "cuts": [
+     "seam|40%"
+    ],
+    "pose": "lean",
+    "bug": {
+     "hidden": true
+    },
+    "mb": {
+     "prop": "flashlight"
+    },
+    "light": {
+     "kind": "flashlight",
+     "target": [
+      900,
+      1200
+     ]
+    },
+    "pans": [
+     [
+      500,
+      1180,
+      1.8
+     ],
+     [
+      1150,
+      1190,
+      2.2
+     ]
+    ]
+   }
+  },
+  {
+   "say": "Bed bug! Bed bug! There's a bed bug in my bed!",
+   "vis": "FREAK-OUT (interrupt): Meatball launches straight up, clings to the ceiling fan, fan spins him round. Fast cuts.",
+   "card": null,
+   "src": "story",
+   "rate": "+34%",
+   "pitch": "+12Hz",
+   "id": "s6.l2",
+   "seg": 6,
+   "shot": {
+    "f": "Mbw",
+    "cuts": [
+     "bug#2|35%",
+     "There's|65%"
+    ],
+    "pose": "shock",
+    "freak": [
+     0.15,
+     "There's|65%"
+    ],
+    "shake": [
+     0.15,
+     "bug#2|35%",
+     "There's|65%"
+    ],
+    "flash": [
+     0.1
+    ],
+    "mb": {
+     "shake": 1.0,
+     "moves": [
+      {
+       "at": 0.12,
+       "dur": 0.55,
+       "pos": [
+        1900,
+        1500
+       ],
+       "hop": 420
+      },
+      {
+       "at": "There's|65%",
+       "dur": 0.5,
+       "pos": [
+        1850,
+        1500
+       ],
+       "hop": 300
+      }
+     ]
+    },
+    "bug": {
+     "p": {
+      "mood": "angry"
+     }
+    },
+    "sfx": [
+     "sting@0.1",
+     "boing@0.15",
+     "hit@There's|65%"
+    ],
+    "zb": 1.5
+   }
+  },
+  {
+   "say": "Get out, get out, get out!",
+   "vis": "He drops onto the dresser, then hides behind the curtain, one eye peeking.",
+   "card": "GET OUT!",
+   "src": "story",
+   "rate": "+34%",
+   "pitch": "+12Hz",
+   "id": "s6.l3",
+   "seg": 6,
+   "shot": {
+    "f": "wM",
+    "pose": "nervous",
+    "look": "hero",
+    "mb": {
+     "shake": 0.8,
+     "moves": [
+      {
+       "at": "out#2|35%",
+       "dur": 0.5,
+       "pos": [
+        2100,
+        1500
+       ],
+       "hop": 200
+      }
+     ]
+    },
+    "sfx": [
+     "boing@out#2|35%"
+    ],
+    "card_px": 150
+   }
+  },
+  {
+   "say": "Adult bed bugs are about 3/16 of an inch, reddish-brown, oval and flat.",
+   "vis": "Close on the bed bug next to an apple seed for colour only (no size claim from the seed).",
+   "card": "BUG ID: BED BUG · ABOUT 3/16 INCH",
+   "src": "BB4",
+   "rate": "+20%",
+   "id": "s6.l4",
+   "seg": 6,
+   "shot": {
+    "f": "bi",
+    "cuts": [
+     "reddish|40%"
+    ],
+    "zb": 1.7,
+    "bug": {
+     "p": {
+      "look": [
+       -0.5,
+       0.2
+      ]
+     }
+    }
+   }
+  },
+  {
+   "say": "They can fit into crevices no wider than a toothpick.",
+   "vis": "Act it out: a toothpick laid along the headboard crack; the bug slides in beside it.",
+   "card": "ID ROW 2: FITS A TOOTHPICK-WIDE CRACK",
+   "src": "BB7",
+   "rate": "+20%",
+   "id": "s6.l5",
+   "seg": 6,
+   "shot": {
+    "f": "ik",
+    "cams": [
+     [
+      300,
+      1050,
+      2.0,
+      2.1
+     ]
+    ],
+    "zb": 1.7,
+    "x": [
+     {
+      "id": "tp",
+      "type": "rk_stick",
+      "pos": [
+       330,
+       1000
+      ],
+      "s": 0.7,
+      "p": {},
+      "rot": 90
+     }
+    ],
+    "bug": {
+     "moves": [
+      {
+       "at": "toothpick|40%",
+       "dur": 1.0,
+       "pos": [
+        250,
+        1060
+       ],
+       "s": 0.5
+      }
+     ]
+    }
+   }
+  },
+  {
+   "say": "They can hide in mattress seams, box springs, bed frames and headboards.",
+   "vis": "Four quick cuts: seam, box spring, frame, headboard, each with a hidden bug.",
+   "card": "ID ROW 3: SEAMS · BOX SPRINGS · FRAMES",
+   "src": "BB8",
+   "rate": "+20%",
+   "id": "s6.l6",
+   "seg": 6,
+   "shot": {
+    "f": "ikkk",
+    "cams": [
+     [
+      600,
+      1200,
+      2.3,
+      2.4
+     ],
+     [
+      400,
+      1430,
+      2.2,
+      2.3
+     ],
+     [
+      210,
+      900,
+      2.0,
+      2.1
+     ]
+    ],
+    "cuts": [
+     "seams|20%",
+     "springs|45%",
+     "frames|65%"
+    ],
+    "zb": 1.7,
+    "x": [
+     {
+      "id": "h1",
+      "type": "sp.bed_bug",
+      "pos": [
+       600,
+       1200
+      ],
+      "s": 0.25,
+      "p": {}
+     },
+     {
+      "id": "h2",
+      "type": "sp.bed_bug",
+      "pos": [
+       400,
+       1440
+      ],
+      "s": 0.25,
+      "p": {}
+     },
+     {
+      "id": "h3",
+      "type": "sp.bed_bug",
+      "pos": [
+       215,
+       900
+      ],
+      "s": 0.25,
+      "p": {},
+      "rot": -90
+     }
+    ]
+   }
+  },
+  {
+   "say": "Will it bite you? Yes, and here's how.",
+   "vis": "Card. Meatball nods slowly, eyes wide.",
+   "card": "WILL IT BITE YOU? YES",
+   "src": "story (BB17 follows)",
+   "id": "s6.l7",
+   "seg": 6,
+   "shot": {
+    "f": "Mm",
+    "pose": "deadpan",
+    "mb": {
+     "gest": [
+      [
+       "Yes|50%",
+       "nervous",
+       1.0
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "say": "Bed bugs bite people and animals at night while they sleep.",
+   "vis": "Cut: a sleeping-Meatball flashback, a bug crawling toward his arm (no bite shown).",
+   "card": null,
+   "src": "BB17",
+   "rate": "+20%",
+   "id": "s6.l8",
+   "seg": 6,
+   "shot": {
+    "f": "kb",
+    "cams": [
+     [
+      900,
+      1150,
+      0.95,
+      1.05
+     ]
+    ],
+    "tint": [
+     0.25,
+     0.3,
+     0.7,
+     0.2
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "zz",
+      "type": "tp_zzz",
+      "pos": [
+       600,
+       1000
+      ],
+      "s": 1.4,
+      "p": {
+       "on": 1.0
+      }
+     },
+     {
+      "id": "fb",
+      "type": "ds_label",
+      "pos": [
+       900,
+       560
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "FLASHBACK",
+       "px": 64,
+       "color": "#ffd34d",
+       "on": 1.0
+      }
+     },
+     {
+      "id": "slp",
+      "type": "sleeper",
+      "pos": [
+       500,
+       1190
+      ],
+      "s": 1.0,
+      "p": {}
+     }
+    ],
+    "bug": {
+     "pos": [
+      1500,
+      1190
+     ],
+     "moves": [
+      {
+       "at": "bite|20%",
+       "dur": 3.0,
+       "pos": [
+        900,
+        1190
+       ],
+       "walk": true
+      }
+     ]
+    },
+    "zb": 1.4
+   }
+  },
+  {
+   "say": "The bite is painless, so people seldom realize they're being bitten.",
+   "vis": "Flashback Meatball keeps snoring peacefully.",
+   "card": null,
+   "src": "BB19",
+   "rate": "+20%",
+   "id": "s6.l9",
+   "seg": 6,
+   "shot": {
+    "f": "kk",
+    "cams": [
+     [
+      600,
+      1100,
+      1.5,
+      1.6
+     ],
+     [
+      800,
+      1150,
+      1.1,
+      1.2
+     ]
+    ],
+    "cuts": [
+     "seldom|50%"
+    ],
+    "tint": [
+     0.25,
+     0.3,
+     0.7,
+     0.2
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "zz",
+      "type": "tp_zzz",
+      "pos": [
+       600,
+       1000
+      ],
+      "s": 1.4,
+      "p": {
+       "on": 1.0
+      }
+     },
+     {
+      "id": "slp",
+      "type": "sleeper",
+      "pos": [
+       500,
+       1190
+      ],
+      "s": 1.0,
+      "p": {}
+     }
+    ],
+    "bug": {
+     "pos": [
+      800,
+      1190
+     ]
+    }
+   }
+  },
+  {
+   "say": "Bite marks may take as long as 14 days to develop in some people.",
+   "vis": "Act it out: calendar pages flip; a counter ticks up to 14 days; the mark appears.",
+   "card": null,
+   "src": "BB18",
+   "rate": "+20%",
+   "id": "s6.l10",
+   "seg": 6,
+   "shot": {
+    "f": "Mk",
+    "cams": [
+     [
+      1900,
+      1150,
+      2.4,
+      2.6
+     ]
+    ],
+    "pose": "think",
+    "card": "AS LONG AS 14 DAYS · IN SOME PEOPLE",
+    "x": [
+     {
+      "id": "bite",
+      "type": "rk_glow",
+      "pos": [
+       1930,
+       1180
+      ],
+      "s": 1.0,
+      "p": {
+       "r": 40,
+       "on": 0.0
+      },
+      "front": true,
+      "lit": true,
+      "set": [
+       {
+        "at": "develop|50%",
+        "dur": 1.2,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "bug": {
+     "hidden": true
+    }
+   }
+  },
+  {
+   "say": "Bites can cause itching and loss of sleep. Serious allergic reactions are rare.",
+   "vis": "Meatball scratching, then wide awake at 3 AM (two quick cuts).",
+   "card": null,
+   "src": "BB20",
+   "rate": "+20%",
+   "id": "s6.l11",
+   "seg": 6,
+   "shot": {
+    "f": "mk",
+    "cams": [
+     [
+      1900,
+      950,
+      1.8,
+      1.9
+     ]
+    ],
+    "cuts": [
+     "Serious|55%"
+    ],
+    "pose": "think",
+    "bug": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "clk",
+      "type": "cl_clock",
+      "pos": [
+       1500,
+       700
+      ],
+      "s": 0.9,
+      "p": {}
+     }
+    ],
+    "mb": {
+     "gest": [
+      [
+       "itching|20%",
+       "nervous",
+       1.0
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "say": "Bed bugs are not known to spread diseases to people.",
+   "vis": "Small relief beat: Meatball exhales.",
+   "card": null,
+   "src": "BB20 / BB33",
+   "rate": "+20%",
+   "id": "s6.l12",
+   "seg": 6,
+   "shot": {
+    "f": "mw",
+    "pose": "laugh",
+    "look": "viewer",
+    "bug": {
+     "hidden": true
+    }
+   }
+  },
+  {
+   "say": "Case closed: I found my biter.",
+   "vis": "CASE CLOSED stamp slams onto the bed-bug photo on the corkboard. Sound hit.",
+   "card": "CASE CLOSED",
+   "src": "story",
+   "id": "s6.l13",
+   "seg": 6,
+   "shot": {
+    "f": "wk",
+    "room": "cork",
+    "cams": [
+     [
+      760,
+      760,
+      1.5,
+      1.6
+     ]
+    ],
+    "cuts": [
+     "biter|50%"
+    ],
+    "pose": "point",
+    "look": [
+     760,
+     760
+    ],
+    "x": [
+     {
+      "id": "ph",
+      "type": "rk_photo",
+      "pos": [
+       760,
+       760
+      ],
+      "s": 1.0,
+      "p": {
+       "bug": "bedbug"
+      }
+     }
+    ],
+    "stamp": {
+     "text": "CASE CLOSED",
+     "color": "#e5383b",
+     "at": "closed|30%",
+     "x": 760,
+     "y": 500,
+     "px": 130,
+     "rot": -10
+    },
+    "sfx": [
+     "stamp@closed|30%"
+    ]
+   }
+  },
+  {
+   "say": "Why is it here? Bed bugs hitchhike in on luggage, clothing and furniture.",
+   "vis": "Card. Cut: a suitcase opens on the bed; a bug rides out on a sock.",
+   "card": "WHY IS IT IN MY HOUSE?",
+   "src": "BB11",
+   "rate": "+20%",
+   "id": "s6.l14",
+   "seg": 6,
+   "shot": {
+    "f": "wb",
+    "pose": "point",
+    "look": "hero",
+    "card": "WHY IS IT IN MY HOUSE?",
+    "x": [
+     {
+      "id": "suit",
+      "type": "tp_suitcase",
+      "pos": [
+       1250,
+       1186
+      ],
+      "s": 1.4,
+      "p": {}
+     }
+    ],
+    "bug": {
+     "pos": [
+      1250,
+      1186
+     ],
+     "s": 0.5,
+     "moves": [
+      {
+       "at": "hitchhike|30%",
+       "dur": 1.2,
+       "pos": [
+        900,
+        1186
+       ],
+       "walk": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "say": "What should you do? Put bedding and clothes in the dryer on high heat for 30 minutes.",
+   "vis": "Card. Cut: dryer dial on HIGH, timer 30 MIN.",
+   "card": "WHAT SHOULD YOU DO? · DRYER, HIGH HEAT, 30 MIN",
+   "src": "BB21",
+   "rate": "+20%",
+   "id": "s6.l15",
+   "seg": 6,
+   "shot": {
+    "f": "wk",
+    "room": "board",
+    "roomscene": "ds_floor",
+    "cams": [
+     [
+      1100,
+      1150,
+      1.6,
+      1.75
+     ]
+    ],
+    "cuts": [
+     "heat|45%"
+    ],
+    "pose": "present",
+    "bug": null,
+    "x": [
+     {
+      "id": "dry",
+      "type": "rk_washer",
+      "pos": [
+       1100,
+       1500
+      ],
+      "s": 1.3,
+      "p": {
+       "dryer": true,
+       "spin": 6.0,
+       "dial": 0.2
+      },
+      "set": [
+       {
+        "at": "high|30%",
+        "dur": 0.5,
+        "p": {
+         "dial": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "hi",
+      "type": "ds_label",
+      "pos": [
+       1100,
+       700
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "HIGH HEAT",
+       "px": 80,
+       "color": "#e5383b",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "high|30%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "tm",
+      "type": "ds_label",
+      "pos": [
+       1100,
+       820
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "30 MIN",
+       "px": 80,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "30|50%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "pos": [
+      450,
+      1500
+     ]
+    },
+    "sfx": [
+     "click@high|30%",
+     "tink@30|60%"
+    ]
+   }
+  },
+  {
+   "say": "Just washing will generally not kill bed bugs.",
+   "vis": "Cut: a bug surfing happily in a washing machine.",
+   "card": null,
+   "src": "BB21",
+   "rate": "+20%",
+   "id": "s6.l16",
+   "seg": 6,
+   "shot": {
+    "f": "kk",
+    "room": "board",
+    "roomscene": "ds_floor",
+    "cams": [
+     [
+      1100,
+      1100,
+      1.0,
+      1.05
+     ],
+     [
+      1100,
+      1250,
+      2.0,
+      2.2
+     ]
+    ],
+    "cuts": [
+     "kill|40%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "bug": null,
+    "x": [
+     {
+      "id": "wash",
+      "type": "rk_washer",
+      "pos": [
+       1100,
+       1500
+      ],
+      "s": 1.3,
+      "p": {
+       "spin": 5.0,
+       "rider": true
+      }
+     }
+    ],
+    "stamp": {
+     "text": "NOT ENOUGH",
+     "color": "#e5383b",
+     "at": "kill|50%",
+     "x": 960,
+     "y": 330,
+     "px": 130,
+     "rot": -10
+    }
+   }
+  },
+  {
+   "say": "Don't raise your home's temperature with a thermostat, propane space heater or fireplace.",
+   "vis": "Card. Thermostat, space heater and fireplace each get a big red X (none shown running hot).",
+   "card": "DON'T HEAT YOUR HOME TO KILL BED BUGS",
+   "src": "BB23",
+   "rate": "+20%",
+   "id": "s6.l17",
+   "seg": 6,
+   "shot": {
+    "f": "kkk",
+    "room": "board",
+    "roomscene": "ds_floor",
+    "cams": [
+     [
+      500,
+      1250,
+      1.4,
+      1.5
+     ],
+     [
+      1000,
+      1250,
+      1.4,
+      1.5
+     ],
+     [
+      1500,
+      1250,
+      1.4,
+      1.5
+     ]
+    ],
+    "cuts": [
+     "propane|35%",
+     "fireplace|70%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "bug": null,
+    "x": [
+     {
+      "id": "th",
+      "type": "tc_prop",
+      "pos": [
+       500,
+       1250
+      ],
+      "s": 0.9,
+      "p": {
+       "kind": "thermostat"
+      }
+     },
+     {
+      "id": "ht",
+      "type": "cl_box",
+      "pos": [
+       1000,
+       1500
+      ],
+      "s": 1.3,
+      "p": {}
+     },
+     {
+      "id": "lg",
+      "type": "tc_prop",
+      "pos": [
+       1500,
+       1500
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "logs",
+       "n": 6
+      }
+     },
+     {
+      "id": "x1",
+      "type": "ds_cross",
+      "pos": [
+       500,
+       1250
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 0.0,
+       "r": 190
+      },
+      "set": [
+       {
+        "at": "thermostat|25%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "x2",
+      "type": "ds_cross",
+      "pos": [
+       1000,
+       1350
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 0.0,
+       "r": 190
+      },
+      "set": [
+       {
+        "at": "heater|60%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "x3",
+      "type": "ds_cross",
+      "pos": [
+       1500,
+       1350
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 0.0,
+       "r": 190
+      },
+      "set": [
+       {
+        "at": "fireplace|85%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "stamp@thermostat|25%",
+     "stamp@heater|60%",
+     "stamp@fireplace|85%"
+    ]
+   }
+  },
+  {
+   "say": "That does not work, and it is dangerous.",
+   "vis": "Hold on the three X's; camera push-in.",
+   "card": null,
+   "src": "BB23",
+   "rate": "+20%",
+   "id": "s6.l18",
+   "seg": 6,
+   "shot": {
+    "f": "k",
+    "room": "board",
+    "roomscene": "ds_floor",
+    "cams": [
+     [
+      1000,
+      1300,
+      0.85,
+      1.0
+     ]
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "bug": null,
+    "x": [
+     {
+      "id": "th",
+      "type": "tc_prop",
+      "pos": [
+       500,
+       1250
+      ],
+      "s": 0.9,
+      "p": {
+       "kind": "thermostat"
+      }
+     },
+     {
+      "id": "ht",
+      "type": "cl_box",
+      "pos": [
+       1000,
+       1500
+      ],
+      "s": 1.3,
+      "p": {}
+     },
+     {
+      "id": "lg",
+      "type": "tc_prop",
+      "pos": [
+       1500,
+       1500
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "logs",
+       "n": 6
+      }
+     },
+     {
+      "id": "x1",
+      "type": "ds_cross",
+      "pos": [
+       500,
+       1250
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 1.0,
+       "r": 190
+      }
+     },
+     {
+      "id": "x2",
+      "type": "ds_cross",
+      "pos": [
+       1000,
+       1350
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 1.0,
+       "r": 190
+      }
+     },
+     {
+      "id": "x3",
+      "type": "ds_cross",
+      "pos": [
+       1500,
+       1350
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 1.0,
+       "r": 190
+      }
+     },
+     {
+      "id": "dg",
+      "type": "ds_label",
+      "pos": [
+       1000,
+       800
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "DANGEROUS",
+       "px": 110,
+       "color": "#e5383b",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "dangerous|50%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "say": "Never use a pesticide indoors that's meant for outdoor use.",
+   "vis": "Cut: an outdoor spray can stopped at the front door by a NO sign.",
+   "card": null,
+   "src": "BB29",
+   "rate": "+20%",
+   "id": "s6.l19",
+   "seg": 6,
+   "shot": {
+    "f": "wk",
+    "room": "house",
+    "cams": [
+     [
+      700,
+      1300,
+      1.3,
+      1.4
+     ]
+    ],
+    "cuts": [
+     "outdoor|50%"
+    ],
+    "pose": "point",
+    "bug": null,
+    "mb": {
+     "pos": [
+      1600,
+      1600
+     ]
+    },
+    "x": [
+     {
+      "id": "can",
+      "type": "tc_prop",
+      "pos": [
+       400,
+       1600
+      ],
+      "s": 0.9,
+      "p": {
+       "kind": "aerosol"
+      },
+      "moves": [
+       {
+        "at": "pesticide|20%",
+        "dur": 1.0,
+        "pos": [
+         600,
+         1600
+        ]
+       }
+      ]
+     },
+     {
+      "id": "sg",
+      "type": "tc_prop",
+      "pos": [
+       800,
+       1600
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "sign",
+       "text": "NO",
+       "col": "#e5383b",
+       "tcol": "#ffffff",
+       "px": 110
+      }
+     }
+    ]
+   }
+  },
+  {
+   "say": "Removal from a home can be expensive and inconvenient.",
+   "vis": "Act it out: Meatball's piggy bank empties coin by coin.",
+   "card": "EXPENSIVE AND INCONVENIENT TO REMOVE",
+   "src": "BB33",
+   "rate": "+20%",
+   "id": "s6.l20",
+   "seg": 6,
+   "shot": {
+    "f": "wM",
+    "room": "board",
+    "roomscene": "ds_floor",
+    "pose": "shock",
+    "bug": null,
+    "mb": {
+     "pos": [
+      600,
+      1500
+     ]
+    },
+    "look": [
+     1200,
+     1300
+    ],
+    "x": [
+     {
+      "id": "cash",
+      "type": "tp_money",
+      "pos": [
+       1250,
+       1500
+      ],
+      "s": 1.6,
+      "p": {
+       "q": 1.0
+      },
+      "set": [
+       {
+        "at": "expensive|40%",
+        "dur": 1.5,
+        "p": {
+         "s": 0.3
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "tink@expensive|40%"
+    ]
+   }
+  },
+  {
+   "say": "If needed, hire a pest management professional.",
+   "vis": "Cut: a pro in a uniform knocks; Meatball opens the door, relieved.",
+   "card": "CALL A PRO IF NEEDED",
+   "src": "BB30",
+   "rate": "+20%",
+   "id": "s6.l21",
+   "seg": 6,
+   "shot": {
+    "f": "wk",
+    "room": "house",
+    "cams": [
+     [
+      1150,
+      1300,
+      1.2,
+      1.3
+     ]
+    ],
+    "cuts": [
+     "professional|50%"
+    ],
+    "pose": "laugh",
+    "bug": null,
+    "mb": {
+     "pos": [
+      900,
+      1600
+     ]
+    },
+    "x": [
+     {
+      "id": "pro",
+      "type": "tp_worker",
+      "pos": [
+       1700,
+       1600
+      ],
+      "s": 1.6,
+      "p": {},
+      "flip": true,
+      "moves": [
+       {
+        "at": "hire|20%",
+        "dur": 1.2,
+        "pos": [
+         1350,
+         1600
+        ],
+        "walk": true
+       }
+      ]
+     },
+     {
+      "id": "pl",
+      "type": "ds_label",
+      "pos": [
+       1450,
+       820
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "PRO",
+       "px": 90,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "pest|30%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "say": "Professionals have more intensive, proven methods that can even treat whole houses with heat.",
+   "vis": "Cut: the pro rolls in a big professional heat unit (drawn, generic, no brand).",
+   "card": null,
+   "src": "BB23",
+   "rate": "+20%",
+   "id": "s6.l22",
+   "seg": 6,
+   "shot": {
+    "f": "wk",
+    "room": "house",
+    "cams": [
+     [
+      1300,
+      1300,
+      1.0,
+      1.1
+     ]
+    ],
+    "cuts": [
+     "heat|55%"
+    ],
+    "pose": "present",
+    "bug": null,
+    "mb": {
+     "pos": [
+      500,
+      1600
+     ]
+    },
+    "x": [
+     {
+      "id": "pro",
+      "type": "tp_worker",
+      "pos": [
+       1100,
+       1600
+      ],
+      "s": 1.6,
+      "p": {}
+     },
+     {
+      "id": "unit",
+      "type": "cl_box",
+      "pos": [
+       1500,
+       1600
+      ],
+      "s": 2.2,
+      "p": {},
+      "moves": [
+       {
+        "at": "methods|30%",
+        "dur": 1.5,
+        "pos": [
+         1400,
+         1600
+        ]
+       }
+      ]
+     },
+     {
+      "id": "hu",
+      "type": "ds_label",
+      "pos": [
+       1450,
+       1050
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "HEAT",
+       "px": 100,
+       "color": "#ff7a30",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "heat|55%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "say": "I'm sleeping on the roof tonight.",
+   "vis": "Meatball on the roof in a sleeping bag, clutching a teddy.",
+   "card": null,
+   "src": "joke",
+   "id": "s6.l23",
+   "seg": 6,
+   "shot": {
+    "f": "wM",
+    "room": "roof",
+    "pose": "deadpan",
+    "look": "viewer",
+    "bug": null,
+    "tint": [
+     0.05,
+     0.08,
+     0.3,
+     0.45
+    ],
+    "mb": {
+     "pos": [
+      960,
+      1500
+     ]
+    },
+    "x": [
+     {
+      "id": "bagz",
+      "type": "tp_zzz",
+      "pos": [
+       1150,
+       900
+      ],
+      "s": 1.2,
+      "p": {
+       "on": 1.0
+      }
+     }
+    ]
+   }
+  },
+  {
+   "say": "Bed bug goes on the board: get out, number one.",
+   "vis": "Whoosh to the full-screen TIER BOARD graphic; the bed bug card slams into GET OUT with the biggest sound hit of the video.",
+   "card": "TIER: GET OUT · #1",
+   "src": "opinion",
+   "id": "s6.l24",
+   "seg": 6,
+   "shot": {
+    "tier": "bedbug",
+    "big": true
+   }
+  },
+  {
+   "say": "Case closed, so here's the final board.",
+   "vis": "Roof at dawn, Meatball in his sleeping bag; the full tier board floats in the sky, camera trucks along it.",
+   "card": "FINAL RANKING",
+   "src": "story",
+   "id": "s7.l0",
+   "seg": 7,
+   "shot": {
+    "f": "wk",
+    "room": "roof",
+    "cams": [
+     [
+      960,
+      1000,
+      1.3,
+      1.35
+     ]
+    ],
+    "cuts": [
+     "final|50%"
+    ],
+    "pose": "laugh",
+    "bug": null,
+    "mb": {
+     "pos": [
+      960,
+      1500
+     ]
+    },
+    "ov": [
+     {
+      "type": "tier",
+      "in": "board|65%",
+      "placed": [
+       [
+        "silverfish",
+        "ANNOYING"
+       ],
+       [
+        "mite",
+        "ANNOYING"
+       ],
+       [
+        "spider",
+        "ANNOYING"
+       ],
+       [
+        "centipede",
+        "ANNOYING"
+       ],
+       [
+        "roach",
+        "GROSS"
+       ],
+       [
+        "bedbug",
+        "GET OUT"
+       ]
+      ]
+     }
+    ],
+    "sfx": [
+     "whoosh@board|65%"
+    ]
+   }
+  },
+  {
+   "say": "Silverfish, dust mites, spiders and the centipede: annoying.",
+   "vis": "Each card pulses as named.",
+   "card": null,
+   "src": "opinion (recap)",
+   "id": "s7.l1",
+   "seg": 7,
+   "shot": {
+    "f": "k",
+    "room": "board",
+    "cams": [
+     [
+      960,
+      540,
+      1,
+      1
+     ]
+    ],
+    "bug": null,
+    "mb": {
+     "hidden": true
+    },
+    "card": false,
+    "ov": [
+     {
+      "type": "tier",
+      "slide": false,
+      "placed": [
+       [
+        "silverfish",
+        "ANNOYING"
+       ],
+       [
+        "mite",
+        "ANNOYING"
+       ],
+       [
+        "spider",
+        "ANNOYING"
+       ],
+       [
+        "centipede",
+        "ANNOYING"
+       ],
+       [
+        "roach",
+        "GROSS"
+       ],
+       [
+        "bedbug",
+        "GET OUT"
+       ]
+      ],
+      "pulse": [
+       [
+        "ANNOYING",
+        "annoying|80%"
+       ]
+      ],
+      "shake": [
+       [
+        "silverfish",
+        "Silverfish|5%"
+       ],
+       [
+        "mite",
+        "dust|20%"
+       ],
+       [
+        "spider",
+        "spiders|45%"
+       ],
+       [
+        "centipede",
+        "centipede|65%"
+       ]
+      ]
+     }
+    ],
+    "sfx": [
+     "tink@Silverfish|5%",
+     "tink@dust|20%",
+     "tink@spiders|45%"
+    ]
+   }
+  },
+  {
+   "say": "The cockroach is gross, and the bed bug is get out.",
+   "vis": "GROSS and GET OUT pulse; the bed-bug card shakes.",
+   "card": null,
+   "src": "opinion (recap)",
+   "id": "s7.l2",
+   "seg": 7,
+   "shot": {
+    "f": "k",
+    "room": "board",
+    "cams": [
+     [
+      960,
+      540,
+      1,
+      1
+     ]
+    ],
+    "bug": null,
+    "mb": {
+     "hidden": true
+    },
+    "card": false,
+    "ov": [
+     {
+      "type": "tier",
+      "slide": false,
+      "placed": [
+       [
+        "silverfish",
+        "ANNOYING"
+       ],
+       [
+        "mite",
+        "ANNOYING"
+       ],
+       [
+        "spider",
+        "ANNOYING"
+       ],
+       [
+        "centipede",
+        "ANNOYING"
+       ],
+       [
+        "roach",
+        "GROSS"
+       ],
+       [
+        "bedbug",
+        "GET OUT"
+       ]
+      ],
+      "pulse": [
+       [
+        "GROSS",
+        "gross|20%"
+       ],
+       [
+        "GET OUT",
+        "get|70%"
+       ]
+      ],
+      "shake": [
+       [
+        "roach",
+        "cockroach|10%"
+       ],
+       [
+        "bedbug",
+        "bed|55%"
+       ]
+      ]
+     }
+    ],
+    "sfx": [
+     "tink@gross|20%",
+     "hit@get|70%"
+    ]
+   }
+  },
+  {
+   "say": "Harmless has one spot left, and it's mine.",
+   "vis": "Meatball climbs into the empty HARMLESS slot and curls up, tail wag.",
+   "card": "HARMLESS: MEATBALL",
+   "src": "joke",
+   "id": "s7.l3",
+   "seg": 7,
+   "shot": {
+    "f": "k",
+    "room": "board",
+    "cams": [
+     [
+      960,
+      540,
+      1,
+      1
+     ]
+    ],
+    "bug": null,
+    "mb": {
+     "hidden": true
+    },
+    "card": false,
+    "ov": [
+     {
+      "type": "tier",
+      "slide": false,
+      "placed": [
+       [
+        "silverfish",
+        "ANNOYING"
+       ],
+       [
+        "mite",
+        "ANNOYING"
+       ],
+       [
+        "spider",
+        "ANNOYING"
+       ],
+       [
+        "centipede",
+        "ANNOYING"
+       ],
+       [
+        "roach",
+        "GROSS"
+       ],
+       [
+        "bedbug",
+        "GET OUT"
+       ]
+      ],
+      "mb_slot": "mine|50%",
+      "pulse": [
+       [
+        "HARMLESS",
+        "Harmless|10%"
+       ]
+      ],
+      "off": null
+     },
+     {
+      "type": "big",
+      "at": "mine|55%",
+      "rows": [
+       [
+        "HARMLESS: MEATBALL",
+        90,
+        "#ffd34d"
+       ]
+      ],
+      "x": 1300,
+      "y": 120
+     }
+    ],
+    "sfx": [
+     "pop@mine|55%"
+    ]
+   }
+  },
+  {
+   "say": "Next Wednesday, I crack a brand-new case.",
+   "vis": "Cut: a new case file stamped CASE #2 slides under the door; a mystery silhouette on it.",
+   "card": "NEW CASE EVERY WEDNESDAY",
+   "src": "story (next week's case hook)",
+   "id": "s7.l4",
+   "seg": 7,
+   "shot": {
+    "f": "wk",
+    "room": "hall",
+    "cams": [
+     [
+      1100,
+      1350,
+      1.6,
+      1.7
+     ]
+    ],
+    "cuts": [
+     "case|55%"
+    ],
+    "pose": "point",
+    "bug": null,
+    "light": "off",
+    "x": [
+     {
+      "id": "file",
+      "type": "rk_file",
+      "pos": [
+       -300,
+       1440
+      ],
+      "s": 0.6,
+      "p": {},
+      "moves": [
+       {
+        "at": "Wednesday|20%",
+        "dur": 0.8,
+        "pos": [
+         1050,
+         1420
+        ]
+       }
+      ]
+     }
+    ],
+    "mb": {
+     "pos": [
+      1500,
+      1500
+     ]
+    },
+    "sfx": [
+     "whoosh@Wednesday|25%"
+    ]
+   }
+  },
+  {
+   "say": "You pick the suspect: comment the bug I should rank next.",
+   "vis": "Meatball points at the viewer; comment-bubble icon.",
+   "card": "WHICH BUG SHOULD I RANK NEXT?",
+   "src": "comment prompt",
+   "id": "s7.l5",
+   "seg": 7,
+   "shot": {
+    "f": "Mm",
+    "room": "roof",
+    "pose": "you",
+    "look": "viewer",
+    "bug": null,
+    "mb": {
+     "pos": [
+      960,
+      1500
+     ]
+    }
+   }
+  },
+  {
+   "say": "Subscribe, and regularly check your mattress seams for bed bugs.",
+   "vis": "Meatball holds the flashlight to his own mattress seam, side-eye to camera.",
+   "card": null,
+   "src": "BB8 / BB33 (regularly look for signs)",
+   "id": "s7.l6",
+   "seg": 7,
+   "shot": {
+    "f": "mk",
+    "room": "bed",
+    "cams": [
+     [
+      1180,
+      1150,
+      1.4,
+      1.5
+     ]
+    ],
+    "cuts": [
+     "mattress|45%"
+    ],
+    "pose": "deadpan",
+    "look": "viewer",
+    "mb": {
+     "prop": "flashlight",
+     "pos": [
+      1700,
+      1500
+     ]
+    },
+    "bug": {
+     "hidden": true
+    },
+    "light": {
+     "kind": "flashlight",
+     "target": [
+      1100,
+      1200
+     ]
+    }
+   }
+  }
+ ]
+}

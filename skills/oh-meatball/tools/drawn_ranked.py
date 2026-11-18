@@ -64,7 +64,7 @@ drawn.SFX_MAX, drawn.SFX_GAP = 3, 0.35   # the re-hook card needs its sting and 
 BUGS = {   # name -> actor type, scale for a wide two-shot, body width / height at s = 1 (world px), label
     "silverfish": ("sp.silverfish", 0.62, 1150, 260, "SILVERFISH"),
     "mite": ("sp.dust_mite", 0.55, 1100, 480, "DUST MITE"),
-    "spider": ("cellar_spider", 2.6, 260, 300, "HOUSE SPIDER"),
+    "spider": ("cellar_spider", 1.3, 760, -640, "HOUSE SPIDER"),
     "centipede": ("sp.house_centipede", 0.5, 1900, 620, "HOUSE CENTIPEDE"),
     "roach": ("sp.roach", 0.72, 850, 360, "GERMAN COCKROACH"),
     "bedbug": ("sp.bed_bug", 1.2, 560, 240, "BED BUG"),
@@ -88,8 +88,8 @@ def icon(kind, w, h, sil=False, p=None):
     S = 1200
     surf = cairo.ImageSurface(cairo.FORMAT_ARGB32, S * 2, S)
     ctx = cairo.Context(surf)
-    k = min(1.7 * S / bw, 0.75 * S / max(bh, 1), 3.0)
-    ctx.translate(S, S * 0.82)
+    k = min(1.7 * S / bw, 0.75 * S / max(abs(bh), 1), 3.0)
+    ctx.translate(S, S * 0.82 if bh > 0 else -S * 0.12)
     ctx.scale(k, k)
     fn(ctx, 0.4, dict({"mood": "calm", "look": [0.6, 0.2]}, **(p or {})))
     surf.flush()
@@ -246,23 +246,23 @@ def ov_idcard(arr, b, t, o):
         if t > te:
             u = min(u, 1 - (t - te) / 0.25)
     dx = int((1 - ease(u)) * 900)
-    drawn.paste(arr, im, cx + dx, cy - 60 + im.height // 2 - 300 + 300)
+    top = o.get("top", 60)
+    drawn.paste(arr, im, cx + dx, top + im.height // 2)
     if new and 0 <= v < 0.5 and show == n:   # flash on the new row
-        y = cy - 60 + tops[n - 1] + 20
+        y = top + tops[n - 1] + 20
         q = 1 - v / 0.5
         flash = Image.new("RGBA", (im.width - 40, 70), (255, 211, 77, int(110 * q)))
         drawn.paste(arr, flash, cx + dx, y + 20)
 
 
-def _tier_layout():
-    top, rh, lw = 70, 205, 440
-    return top, rh, lw
+def _tier_layout(sil=False):
+    return (40, 160, 440) if sil else (70, 205, 440)
 
 
 def ov_tier(arr, b, t, o):
     """The full-screen tier board. o: placed [[bug, tier], ...] already there, drop [bug, tier] (lands at `at`),
     sil (six silhouettes waiting under the board), pulse [tier, ...] (rows that pulse), mb_slot (Meatball in HARMLESS)."""
-    top, rh, lw = _tier_layout()
+    top, rh, lw = _tier_layout(bool(o.get("sil")))
     ton = drawn.at_time(b["words"], o.get("in", 0.0))
     if t < ton:
         return
@@ -279,8 +279,7 @@ def ov_tier(arr, b, t, o):
         arr[yb:, :, :3] = (arr[yb:, :, :3] * (1 - ease(u_in)) * 0.15 + bg * (1 - (1 - ease(u_in)) * 0.15)).astype(np.uint8) \
             if u_in < 1 else bg
     sil = o.get("sil")
-    nrows = 4
-    for i, tname in enumerate(TIERS):
+    for i, tname in enumerate(TIERS if not o.get("only_sil") else []):
         y0 = top + i * rh + dy
         col = hexc(TCOL[tname])
         lab = Image.new("RGBA", (lw, rh - 14), tuple(int(c * 255) for c in col) + (255,))
@@ -344,7 +343,7 @@ def ov_tier(arr, b, t, o):
         n_on = o.get("sil_n", 6)
         for j, bug in enumerate(ORDER[:n_on]):
             cx = 230 + j * 292
-            cy = 930 + dy
+            cy = (830 if not o.get("only_sil") else 760) + dy
             ph = drawn.at_time(b["words"], o.get("sil_at", "0%")) + j * 0.25
             v = t - ph
             if v < 0:
@@ -507,10 +506,17 @@ def light_pass(ctx, cam, b, t, T):
         return
     lt = lt if isinstance(lt, dict) else {"kind": lt}
     kind = lt["kind"]
+    if lt.get("off_at") is not None and t >= drawn.at_time(b["words"], lt["off_at"]):
+        return
     dark = lt.get("dark", 0.55 if kind == "lamp" else 0.72)
     pools = []
     hb = _act_pos(b, "hero", t)
-    if hb:
+    if hb and hb[3].get("p", {}).get("hidden"):
+        hb = None
+    if lt.get("target"):
+        hx, hy = _scr(cam, *lt["target"])
+        pools.append((hx, hy, 420 * cam[2]))
+    elif hb:
         x, y, s, a = hb
         typ = a.get("type")
         bw, bh = next(((v[2], v[3]) for v in BUGS.values() if v[0] == typ), (500, 300))
@@ -643,6 +649,15 @@ def _draw_world(ctx, cam, b, t, T, bi, rf, ins=None):
 
 drawn.draw_world = _draw_world
 
+
+def _draw_prop(ctx, prop, hx, hy, k, t, beam=True):
+    if prop in drawn_treecheck.MB_PROPS:
+        return drawn_treecheck._draw_prop(ctx, prop, hx, hy, k, t)
+    return drawn_treecheck._orig_draw_prop(ctx, prop, hx, hy, k, t, beam=beam)
+
+
+drawn.draw_prop = _draw_prop
+
 # ================================================================================================ extra actors / scenes
 
 
@@ -716,7 +731,7 @@ def rk_garage(ctx, t, layer, p):
     flat(ctx, lambda c: c.rectangle(-3000, 1500, 8000, 900), hexc("#8d8d8a"))
     stroke(ctx, [(-3000, 1500), (5000, 1500)], BG_OUT)
     for x in range(-3000, 5000, 420):
-        stroke(ctx, [(x, 1500), (x - 160, 2400)], 3, color=hexc("#777"))
+        stroke(ctx, [(x, 1500), (x - 160, 2400)], 3, color=hexc("#777777"))
 
 
 def rk_board_bg(ctx, t, layer, p):
@@ -726,3 +741,1027 @@ def rk_board_bg(ctx, t, layer, p):
 
 drawn.ACTORS["rk_photo"] = rk_photo
 drawn.SCENES.update(rk_roof=rk_roof, rk_hall=rk_hall, rk_garage=rk_garage, rk_board_bg=rk_board_bg)
+
+
+def rk_rope(ctx, t, p):
+    """A timeline rope on the floor from 0 to p["w"], with posts at p["marks"]; origin = its left end."""
+    w = p.get("w", 1400)
+    stroke(ctx, [(0, 0), (w, 0)], 16, color=hexc("#c9a46a"))
+    stroke(ctx, [(0, -6), (w, -6)], 4, color=hexc("#e8cf9c"))
+    for x in p.get("marks", [0, w / 2, w]):
+        shape(ctx, lambda c, x=x: p_rrect(c, x - 12, -90, 24, 100, 6), PAL["wood"], OUT * 0.7, None)
+
+
+def rk_washer(ctx, t, p):
+    """A front-load washer (or dryer, p dryer) 420 wide, feet at y 0; p spin (laundry turns), label, dial 0..1."""
+    shape(ctx, lambda c: p_rrect(c, -210, -520, 420, 520, 24), (0.95, 0.96, 0.97), OUT, (0.05, 0.12))
+    flat(ctx, lambda c: c.rectangle(-190, -500, 380, 80), hexc("#d5dae0"))
+    ang = math.radians(-120 + 240 * p.get("dial", 0.5))
+    shape(ctx, lambda c: p_ellipse(c, 120, -460, 30, 30), hexc("#2a2f3a"), OUT * 0.6, None)
+    stroke(ctx, [(120, -460), (120 + 26 * math.cos(ang), -460 + 26 * math.sin(ang))], 6, color=(1, 0.8, 0.3))
+    shape(ctx, lambda c: p_ellipse(c, 0, -230, 150, 150), hexc("#9aa4b0"), OUT, None)
+    flat(ctx, lambda c: p_ellipse(c, 0, -230, 120, 120), hexc("#3d5f8a" if not p.get("dryer") else "#6b5048"))
+    sp = t * p.get("spin", 4.0)
+    for k, col in enumerate(("#e5383b", "#ffd34d", "#f2f2f2", "#3fb950")):
+        a = sp + k * 1.57
+        flat(ctx, lambda c, a=a: p_ellipse(c, 60 * math.cos(a), -230 + 60 * math.sin(a), 40, 26, a), hexc(col))
+    if p.get("rider"):   # a bed bug riding the drum
+        ctx.save()
+        a = sp * 0.8
+        ctx.translate(55 * math.cos(a), -230 + 55 * math.sin(a))
+        ctx.rotate(a + 1.57)
+        ctx.scale(0.16, 0.16)
+        drawn.ACTORS["sp.bed_bug"](ctx, t, {"mood": "calm"})
+        ctx.restore()
+    ctx.arc(0, -230, 120, math.radians(200), math.radians(250))
+    ctx.set_source_rgba(1, 1, 1, 0.5)
+    ctx.set_line_width(14)
+    ctx.stroke()
+
+
+def rk_pile(ctx, t, p):
+    """A tall laundry pile (feet at y 0, ~700 tall) that wobbles; p wob."""
+    w = p.get("wob", 0.0) * math.sin(t * 9) * 8
+    cols = ["#e5383b", "#3d7bd9", "#ffd34d", "#f2f2f2", "#3fb950", "#a86bd1", "#ff9f43"]
+    import random
+    rng = random.Random(5)
+    for k in range(26):
+        y = -40 - k * 26
+        half = 360 - k * 12
+        x = rng.uniform(-half, half) + w * (k / 26)
+        shape(ctx, lambda c, x=x, y=y, k=k: p_ellipse(c, x, y, 120 - k * 2, 46, rng.uniform(-0.4, 0.4)),
+              hexc(cols[k % len(cols)]), OUT * 0.6, None)
+
+
+def rk_file(ctx, t, p):
+    """A case-file folder stamped CASE #2 with a dark mystery silhouette; origin = its centre."""
+    shape(ctx, lambda c: p_rrect(c, -300, -220, 600, 440, 18), hexc("#d9b26a"), OUT, (0.05, 0.1))
+    shape(ctx, lambda c: p_rrect(c, -300, -260, 220, 60, 12), hexc("#d9b26a"), OUT, None)
+    flat(ctx, lambda c: p_ellipse(c, -80, 40, 140, 90), hexc("#1d1b28"))
+    for k in range(4):
+        stroke(ctx, [(-80 + (k - 1.5) * 60, 80), (-80 + (k - 1.5) * 80, 150)], 12, color=hexc("#1d1b28"))
+    im = txt("CASE #2", 84, RED, 0)
+    s2, keep = drawn.pil_to_surface(im)
+    ctx.save()
+    ctx.translate(150, -120)
+    ctx.rotate(-0.15)
+    ctx.set_source_surface(s2, -im.width / 2, -im.height / 2)
+    ctx.paint()
+    ctx.restore()
+    q = txt("?", 150, YEL, 10)
+    s3, k3 = drawn.pil_to_surface(q)
+    ctx.set_source_surface(s3, 140 - q.width / 2, 90 - q.height / 2)
+    ctx.paint()
+
+
+def rk_stick(ctx, t, p):
+    """A toothpick lying flat, 520 long; origin = its centre."""
+    shape(ctx, lambda c: p_poly(c, [(-260, 0), (-230, -9), (230, -9), (260, 0), (230, 9), (-230, 9)]), hexc("#e7c48a"), OUT * 0.6, None)
+
+
+def rk_glow(ctx, t, p):
+    """A pulsing red glow (the bite mark); p r, on."""
+    on = p.get("on", 1.0)
+    if on <= 0.01:
+        return
+    r = p.get("r", 60) * (1 + 0.15 * math.sin(t * 8))
+    g = cairo.RadialGradient(0, 0, 0, 0, 0, r * 2.2)
+    g.add_color_stop_rgba(0, 1, 0.25, 0.2, 0.9 * on)
+    g.add_color_stop_rgba(1, 1, 0.25, 0.2, 0)
+    ctx.set_source(g)
+    ctx.arc(0, 0, r * 2.2, 0, 2 * math.pi)
+    ctx.fill()
+    shape(ctx, lambda c: p_ellipse(c, 0, 0, r * 0.45, r * 0.35), hexc("#e5383b"), OUT * 0.4, None)
+
+
+def rk_speck(ctx, t, p):
+    """Tiny glinting scales / specks scattered over p w x p h (origin = top left)."""
+    import random
+    rng = random.Random(p.get("seed", 2))
+    for k in range(int(p.get("n", 40))):
+        x, y = rng.uniform(0, p.get("w", 400)), rng.uniform(0, p.get("h", 120))
+        a = 0.5 + 0.5 * math.sin(t * 6 + k)
+        flat(ctx, lambda c, x=x, y=y: p_ellipse(c, x, y, 7, 5), hexc(p.get("col", "#e8eef5")), a=a)
+
+
+drawn.ACTORS.update(rk_rope=rk_rope, rk_washer=rk_washer, rk_pile=rk_pile, rk_file=rk_file, rk_stick=rk_stick,
+                    rk_glow=rk_glow, rk_speck=rk_speck)
+BUGS.update(widow=("black_widow", 1.0, 520, 260, "BLACK WIDOW"), recluse=("brown_recluse", 1.0, 520, 230, "BROWN RECLUSE"))
+
+# ================================================================================================ rooms (world kits)
+# floor y = 1500 in every room. mx = Meatball's mark, bug = the chapter's suspect and its mark (feet), light default.
+
+ROOMS = {
+    "hall": {"scene": "rk_hall", "sp": {}, "mx": 560, "bug": "centipede", "bpos": [1350, 980], "bs": 0.5, "light": "flashlight"},
+    "bath": {"scene": "bathroom", "sp": {"dark": False}, "mx": 560, "bug": "silverfish", "bpos": [1620, 1124], "bs": 0.55, "light": "lamp"},
+    "sill": {"scene": "sill", "sp": {}, "mx": 300, "bug": "silverfish", "bpos": [1150, 1500], "bs": 0.6, "light": "off"},
+    "study": {"scene": "study", "sp": {}, "mx": 1450, "bug": "silverfish", "bpos": [700, 1500], "bs": 0.4, "light": "lamp"},
+    "living": {"scene": "tp_living", "sp": {}, "mx": 1520, "bug": "mite", "bpos": [880, 1272], "bs": 0.32, "light": "lamp"},
+    "scope": {"scene": "microscope", "sp": {}, "mx": None, "bug": "mite", "bpos": [960, 1300], "bs": 0.75, "light": "off"},
+    "garage": {"scene": "rk_garage", "sp": {}, "mx": 560, "bug": "spider", "bpos": [1400, 420], "bs": 1.3, "light": "flashlight"},
+    "base": {"scene": "basement", "sp": {}, "mx": 520, "bug": "centipede", "bpos": [1250, 1490], "bs": 0.5, "light": "lamp"},
+    "skin": {"scene": "skin", "sp": {"night": False}, "mx": None, "bug": "centipede", "bpos": [960, 1100], "bs": 0.6, "light": "off"},
+    "kitchen": {"scene": "kitchen", "sp": {}, "mx": 1450, "bug": "roach", "bpos": [480, 1016], "bs": 0.6, "light": "off"},
+    "bed": {"scene": "bedroom", "sp": {}, "mx": 1900, "bug": "bedbug", "bpos": [1180, 1186], "bs": 1.0, "light": "lamp"},
+    "cork": {"scene": "tc_cork", "sp": {"papers": []}, "mx": 1450, "bug": None, "light": "off"},
+    "roof": {"scene": "rk_roof", "sp": {}, "mx": 960, "bug": None, "light": "off"},
+    "house": {"scene": "ds_house_ext", "sp": {}, "mx": 1500, "bug": None, "light": "off"},
+    "board": {"scene": "rk_board_bg", "sp": {}, "mx": None, "bug": None, "light": "off"},
+}
+CH_ROOM = ["hall", "bath", "living", "garage", "base", "kitchen", "bed", "roof"]
+CH_BUG = [None, "silverfish", "mite", "spider", "centipede", "roach", "bedbug", None]
+MB_SIZE = 700
+POSE_ROT = ["point", "think", "present", "shrug", "subpoint", "deadpan", "nervous", "lean"]
+
+
+def A(idn, typ, pos, s=1.0, p=None, **kw):
+    a = {"id": idn, "type": typ, "pos": list(pos), "s": s, "p": dict(p or {})}
+    a.update(kw)
+    return a
+
+
+def lab(idn, text, pos, at=None, px=64, color="#ffffff", **kw):
+    a = A(idn, "ds_label", pos, 1.0, {"text": text, "px": px, "color": color, "on": 0.0 if at else 1.0}, **kw)
+    if at:
+        a["set"] = [{"at": at, "dur": 0.3, "p": {"on": 1.0}}]
+    return a
+
+
+def popset(at, key="on", dur=0.3, v=1.0):
+    return [{"at": at, "dur": dur, "p": {key: v}}]
+
+
+def stamp(text, at, color=RED, x=W // 2, y=520, px=150, rot=-10):
+    return {"stamp": {"text": text, "color": color, "at": at, "x": x, "y": y, "px": px, "rot": rot}}
+
+
+# ------------------------------------------------------------------ the shot table: line id -> recipe
+# f: framings in order (w wide two-shot, m Meatball close, M Meatball face, b bug close, i bug left of frame for
+#    the BUG ID card, k a free camera from "cams"); a line longer than ~3.6 s cycles them so no framing holds long.
+# pose / mb (Meatball overrides, "hidden": True), bug (suspect overrides, None = not in shot), x (extra actors),
+# room, light, sfx, cuts (framing boundaries), freak, shake, flash, ov (screen overlays), card (False = none).
+
+def _table():
+    T = {}
+    # ------------------------------------------------------------------ cold open: the hallway, 2 AM
+    T["s0.l0"] = dict(f="bM", cuts=["something|45%"], pose="nervous", bug={"s": 0.62, "pos": [1250, 980], "p": {"mood": "angry"}},
+                      light={"kind": "flashlight", "snap": True}, mb={"gest": [["bit|80%", "shock", 1.0]]},
+                      sfx=["click@0", "sting@0.05", "thud@something|45%"], zb=1.05)
+    T["s0.l1"] = dict(f="kk", pose="deadpan", cams=[[700, 900, 1.6, 1.75], [690, 860, 2.4, 2.6]], cuts=["exactly|40%"],
+                      bug=None, light="lamp", sfx=["click@exactly|40%"], mb={"prop": "flashlight"})
+    T["s0.l2"] = dict(f="k", room="board", cams=[[960, 540, 1.0, 1.0]], bug=None, mb={"hidden": True},
+                      ov=[{"type": "tier", "sil": True, "sil_at": "Six|30%", "in": 0.0}], sfx=["hit@0", "pop@Six|30%"])
+    T["s0.l3"] = dict(f="k", room="board", cams=[[960, 540, 1.0, 1.0]], bug=None, mb={"hidden": True}, card=False,
+                      ov=[{"type": "tier", "sil": True, "slide": False, "sil_at": "0%", "pulse": [["HARMLESS", "harmless|30%"], ["GET OUT", "get|60%"]]}],
+                      sfx=["whoosh@0.05", "tink@harmless|30%", "hit@get|60%"])
+    T["s0.l4"] = dict(f="Mm", pose="you", bug=None, light={"kind": "flashlight", "from": (W / 2, H + 400), "w": 420},
+                      flash=[0.05], sfx=["whoosh@0"], mb={"prop": "flashlight", "look": "viewer"})
+    T["s0.l5"] = dict(f="bw", cuts=["not|45%"], pose="point", bug={"moves": [{"at": "one|30%", "dur": 0.5, "pos": [2900, 980], "linear": True}]},
+                      mb={"prop": "flashlight", "moves": [{"at": "think|60%", "dur": 1.2, "pos": [1300, 1500], "walk": True}]},
+                      sfx=["sting@one|30%", "scratch@one|35%"], light="flashlight")
+    # ------------------------------------------------------------------ 1 silverfish: the bathroom
+    T["s1.l0"] = dict(f="wb", cuts=["bathtub|55%"], pose="lean", mb={"prop": "flashlight"}, light="flashlight")
+    T["s1.l1"] = dict(f="bi", cuts=["400|45%"], pose="present", ov=[{"type": "cam", "kind": "bugcam", "at": "0%", "to": "400|45%"}],
+                      bug={"p": {"mood": "calm", "look": [-1, 0.3]}}, zb=1.4)
+    T["s1.l2"] = dict(f="kk", room="board", cuts=["twice|35%"], cams=[[700, 1150, 0.95, 1.0], [1300, 1150, 0.95, 1.0]], bug=None,
+                      roomscene="ds_floor", light="off", pose="present",
+                      mb={"pos": [250, 1500], "size": 640, "moves": [{"at": "twice|20%", "dur": 1.0, "pos": [800, 1500], "walk": True},
+                                                                      {"at": "dinosaurs|60%", "dur": 1.0, "pos": [1450, 1500], "walk": True}]},
+                      x=[A("rope", "rk_rope", [150, 1520], 1.0, {"w": 1950, "marks": [150, 1000, 1950]}),
+                         lab("now", "TODAY", [150, 1640], px=60), A("rex", "trex", [1000, 1500], 0.42, {}),
+                         lab("dl", "DINOSAURS", [1000, 1640], "twice|30%", px=60, color=YEL),
+                         A("sf", "sp.silverfish", [1950, 1500], 0.38, {"mood": "calm", "look": [-1, 0]}, flip=True),
+                         lab("sl", "SILVERFISH FOSSILS", [1950, 1640], "dinosaurs|60%", px=60, color=YEL)],
+                      sfx=["step@twice|25%", "pop@dinosaurs|70%"])
+    T["s1.l3"] = dict(f="ib", cuts=["flat|55%"], pose="shock", look="hero",
+                      bug={"moves": [{"at": "rapidly|15%", "dur": 0.35, "pos": [1900, 1124]}, {"at": "sideways|35%", "dur": 0.35, "pos": [1350, 1124]},
+                                     {"at": "flat|55%", "dur": 0.4, "pos": [1600, 1124]}]}, sfx=["scratch@rapidly|15%", "whoosh@sideways|35%"])
+    T["s1.l4"] = dict(f="mw", pose="lean", look="hero", light={"kind": "lamp", "dark": 0.62}, sfx=["click@0.05"])
+    T["s1.l5"] = dict(f="bb", pose="think", zb=2.0, x=[A("book", "book", [1700, 1124], 0.55, {})],
+                      bug={"pos": [1540, 1124]}, sfx=["scratch@scrape|45%"])
+    T["s1.l6"] = dict(f="wk", room="cork", cams=[[1000, 1000, 1.0, 1.05], [760, 760, 1.6, 1.7]], cuts=["paper|35%"], pose="point", look=[760, 760],
+                      x=[A("ph", "rk_photo", [760, 760], 1.0, {"bug": "silverfish", "on": 0.0}, set=popset("That's|5%"))],
+                      sfx=["thud@That's|10%"])
+    T["s1.l7"] = dict(f="kk", room="cork", cams=[[760, 760, 1.5, 1.6], [900, 900, 1.05, 1.1]], cuts=["disease|60%"], pose="present",
+                      x=[A("ph", "rk_photo", [760, 760], 1.0, {"bug": "silverfish"})],
+                      **stamp("NO DISEASE", "disease|40%", GREEN, 760, 470, 120), sfx=["stamp@disease|40%"])
+    T["s1.l8"] = dict(f="wm", room="sill", pose="point", look="hero", card="WHY IS IT IN MY HOUSE?",
+                      bug={"pos": [-300, 1500], "s": 0.5, "moves": [{"at": "invade|20%", "dur": 3.0, "pos": [1700, 1500], "walk": True}]},
+                      x=[A("sf2", "sp.silverfish", [-800, 1500], 0.4, {}, moves=[{"at": "invade|30%", "dur": 3.0, "pos": [1200, 1500], "walk": True}])],
+                      mb={"pos": [300, 1500]})
+    T["s1.l9"] = dict(f="wb", room="sill", pose="shrug", look="hero", bug={"pos": [1500, 1500], "s": 0.5},
+                      x=[lab("sum", "SUMMER", [1150, 700], "summer|20%", px=120, color="#ff9f43"),
+                         A("sun", "rk_glow", [1500, 500], 1.0, {"r": 160, "on": 0.0}, set=popset("summer|20%", dur=0.6))],
+                      tint=[1.0, 0.7, 0.2, 0.12], mb={"pos": [300, 1500]})
+    T["s1.l10"] = dict(f="kb", cams=[[1450, 1150, 1.3, 1.4]], pose="think",
+                       bug={"pos": [1300, 1360], "rot": -70, "s": 0.45, "moves": [
+                           {"at": "fall|10%", "dur": 0.6, "pos": [1300, 1180]}, {"at": "climb|45%", "dur": 0.3, "pos": [1300, 1380]},
+                           {"at": "slippery|65%", "dur": 0.6, "pos": [1300, 1200]}, {"at": "sides|85%", "dur": 0.3, "pos": [1300, 1390]}]},
+                       sfx=["whoosh@climb|45%", "whoosh@sides|85%"])
+    T["s1.l11"] = dict(f="mk", cams=[[840, 1450, 2.4, 2.7]], cuts=["drain|50%"], pose="lean", bug=None,
+                       mb={"prop": "flashlight", "pos": [520, 1500]}, light={"kind": "flashlight", "target": [840, 1560]},
+                       x=[lab("nada", "NOTHING", [840, 1380], "either|60%", px=60, color=YEL)])
+    T["s1.l12"] = dict(f="mb", room="study", cuts=["scales|45%"], pose="present", card="WHAT SHOULD YOU DO?", zb=1.6,
+                       bug={"pos": [700, 1440], "s": 0.35}, mb={"prop": "flashlight"},
+                       x=[A("bk", "book", [700, 1500], 0.9, {}), A("sp", "rk_speck", [430, 1380], 1.0, {"w": 560, "h": 120, "n": 50})])
+    T["s1.l13"] = dict(f="wb", pose="wave", look="hero", bug={"p": {"look": [-1, -0.4]}, "moves": [{"at": "history|40%", "dur": 0.3, "pos": [1630, 1118]}, {"at": "loses|60%", "dur": 0.3, "pos": [1620, 1124]}]})
+    T["s1.l14"] = dict(tier="silverfish")
+    T["s1.l15"] = dict(f="wk", room="living", cams=[[600, 1100, 0.85, 0.9]], cuts=["couch|55%"], pose="point", bug=None,
+                       mb={"prop": "flashlight", "pos": [1700, 1500], "moves": [{"at": "trail|30%", "dur": 1.5, "pos": [1350, 1500], "walk": True}]},
+                       light={"kind": "flashlight", "target": [900, 1300]},
+                       x=[A("tr%d" % k, "skin_flake", [1250 - k * 110, 1495 - (k > 4) * 0], 0.28, {}) for k in range(6)])
+    # ------------------------------------------------------------------ 2 dust mites: the living room couch
+    T["s2.l0"] = dict(f="wM", cuts=["see|60%"], pose="think", look=[880, 1260], bug={"hidden": True})
+    T["s2.l1"] = dict(f="ki", room="scope", cuts=["half|40%"], cams=[[960, 1100, 0.6, 0.9]], bug={"p": {"look": [0.5, 0]}},
+                      ov=[{"type": "cam", "kind": "mitecam", "at": "0%", "to": "half|40%"}], zb=1.0)
+    T["s2.l2"] = dict(f="im", pose="think", bug={"s": 0.45, "pos": [880, 1272]}, zb=1.5,
+                      x=[A("fl%d" % k, "skin_flake", [700 + 90 * k, 300], 0.3, {}, moves=[{"at": "%d%%" % (10 + 12 * k), "dur": 2.0, "pos": [700 + 90 * k + 40, 1270]}]) for k in range(5)],
+                      mb={"gest": [["skin|30%", "think", 1.2]]})
+    T["s2.l3"] = dict(f="kk", cams=[[880, 1200, 1.5, 1.2], [1000, 1060, 0.9, 0.78]], cuts=["sofas|45%"], pose="present", bug={"s": 0.3},
+                      x=[lab("b1", "BEDS", [500, 800], "beds|30%", px=80, color=YEL), lab("b2", "SOFAS", [900, 900], "sofas|50%", px=80, color=YEL),
+                         lab("b3", "CHAIRS", [1300, 800], "chairs|80%", px=80, color=YEL)], idx=1080)
+    T["s2.l4"] = dict(f="mw", pose="lean", look="hero", light={"kind": "lamp", "dark": 0.62}, sfx=["click@0.05"])
+    T["s2.l5"] = dict(f="kk", room="scope", cams=[[960, 1100, 0.8, 0.85], [960, 1150, 1.0, 1.08]], cuts=["biting|50%"],
+                      bug={"p": {"mood": "calm", "look": [0, 0]}}, **stamp("CLEARED OF THE BITE", "biting|50%", GREEN, 960, 300, 110), card=False,
+                      sfx=["stamp@biting|50%"])
+    T["s2.l6"] = dict(f="kk", room="house", cams=[[700, 1000, 0.75, 0.8], [700, 1250, 1.2, 1.3]], cuts=["Every|50%"], pose="present",
+                      x=[A("hs", "ds_houses", [500, 1700], 1.6, {"n": 10, "cols": 5, "lit": 1.0})], mb={"pos": [1500, 1600]})
+    T["s2.l7"] = dict(f="Mk", cams=[[1450, 900, 1.9, 2.0]], pose="nervous",
+                      x=[lab("al1", "CAST SKIN", [1250, 1400], "skins|40%", px=56, color="#ffffff",
+                             moves=[{"at": "skins|40%", "dur": 2.0, "pos": [1350, 700]}]),
+                         lab("al2", "DROPPINGS", [1700, 1400], "droppings|50%", px=56, color="#ffffff",
+                             moves=[{"at": "droppings|50%", "dur": 1.6, "pos": [1600, 760]}])])
+    T["s2.l8"] = dict(f="wk", room="board", roomscene="ds_floor", cams=[[900, 1150, 1.0, 1.05], [1100, 1150, 1.6, 1.75]], cuts=["dry|60%"], pose="present",
+                      x=[A("wash", "rk_washer", [1100, 1500], 1.3, {"spin": 5.0, "dial": 0.2}, set=[{"at": "hot|30%", "dur": 0.5, "p": {"dial": 0.9}}]),
+                         lab("hot", "HOT", [1250, 760], "hot|30%", px=80, color=RED)],
+                      mb={"pos": [450, 1500]}, sfx=["click@hot|30%"])
+    T["s2.l9"] = dict(f="wm", room="board", roomscene="ds_floor", cams=None, pose="shock", look=[1250, 1100],
+                      x=[A("pile", "rk_pile", [1250, 1500], 1.2, {"wob": 1.0}),
+                         A("pm", "sp.dust_mite", [1260, 760], 0.18, {"mood": "calm"})],
+                      bugpos_for_frame=[1250, 1300], mb={"pos": [500, 1500]}, sfx=["boing@scarier|50%"])
+    T["s2.l10"] = dict(f="Mk", cams=[[880, 1240, 1.5, 1.7]], pose="shock", look=[880, 1260], bug={"s": 0.36})
+    T["s2.l11"] = dict(tier="mite")
+    T["s2.l12"] = dict(f="kw", room="garage", cams=[[1400, 760, 1.4, 1.55]], cuts=["garage|50%"], pose="think", bug={"hidden": True},
+                       x=[A("web", "ds_web", [1680, 520], 0.8, {"w": 520, "h": 600})], light={"kind": "flashlight", "target": [1400, 760]})
+    # ------------------------------------------------------------------ 3 spiders: the garage
+    T["s3.l0"] = dict(f="wi", cuts=["belly|45%"], pose="point", look="hero",
+                      x=[A("web", "ds_web", [1680, 520], 0.8, {"w": 520, "h": 600})])
+    T["s3.l1"] = dict(f="im", cuts=["small|55%"], pose="present", look="hero", x=[A("web", "ds_web", [1680, 520], 0.8, {"w": 520, "h": 600})],
+                      mb={"gest": [["small|60%", "shrug", 1.0]]})
+    T["s3.l2"] = dict(f="kM", cams=[[640, 760, 2.2, 2.6]], pose="lean", look="viewer", ov=[{"type": "cam", "kind": "spidercam", "at": "0%", "to": "spider|50%"}],
+                      cuts=["spider|50%"], light={"kind": "lamp", "dark": 0.6}, sfx=["click@0.05", "whoosh@spider|50%"])
+    T["s3.l3"] = dict(f="bbb", cuts=["squeezed|25%", "lain|55%"], zb=1.5,
+                      x=[lab("q1", "SQUEEZED", [1400, 300], "squeezed|25%", px=100, color=YEL),
+                         lab("q2", "LAIN ON", [1400, 300], "lain|55%", px=100, color=YEL),
+                         lab("q3", "PROVOKED", [1400, 300], "provoked|80%", px=100, color=YEL)],
+                      sfx=["pop@squeezed|25%", "pop@lain|55%", "pop@provoked|80%"])
+    T["s3.l4"] = dict(f="mw", pose="nervous", bug=None, x=[A("sheet", "tc_prop", [1200, 1500], 1.0, {"kind": "sheet"})], look=[1200, 1450])
+    T["s3.l5"] = dict(f="Mm", pose="think", mb={"gest": [["bee|60%", "shrug", 1.2]]}, cuts=["bee|55%"])
+    T["s3.l6"] = dict(f="kb", cams=[[200, 900, 1.0, 1.0]], card="WHY IS IT IN MY HOUSE?", pans=[[200, 900, 1.0], [1300, 850, 1.05]],
+                      mb={"hidden": True}, x=[A("web", "ds_web", [1680, 520], 0.8, {"w": 520, "h": 600})], light={"kind": "flashlight", "target": [1400, 700]})
+    T["s3.l7"] = dict(f="ki", cams=[[1400, 450, 2.0, 2.1]], cuts=["harmful|40%"], x=[lab("cs", "CELLAR SPIDER", [1400, 300], "cellar|20%", px=72, color=YEL)], zb=1.3)
+    T["s3.l8"] = dict(f="kk", room="garage", cams=[[960, 700, 0.9, 0.95], [700, 700, 1.4, 1.5]], cuts=["toxic|60%"], bug=None, mb={"hidden": True},
+                      x=[A("w1", "rk_photo", [650, 700], 1.1, {"bug": "widow", "on": 0.0, "tilt": -6}, set=popset("widows|20%")),
+                         A("w2", "rk_photo", [1300, 700], 1.1, {"bug": "recluse", "on": 0.0, "tilt": 5}, set=popset("recluses|40%")),
+                         lab("wa", "VERY TOXIC VENOM", [960, 330], "venom|60%", px=90, color=RED)],
+                      sfx=["thud@widows|20%", "thud@recluses|40%"], light="lamp")
+    T["s3.l9"] = dict(f="wk", room="board", roomscene="ds_floor", cams=[[1300, 1100, 1.3, 1.4]], cuts=["county|50%"], pose="present", bug=None,
+                      mb={"pos": [400, 1500], "moves": [{"at": "Save|25%", "dur": 1.6, "pos": [900, 1500], "walk": True}], "prop": None},
+                      x=[A("jar", "tp_jar", [520, 1180], 1.6, {}, moves=[{"at": "Save|25%", "dur": 1.6, "pos": [1040, 1180]}]),
+                         A("desk", "desk", [1500, 1500], 1.0, {}), lab("ext", "COUNTY EXTENSION OFFICE", [1450, 700], "county|50%", px=70, color=YEL)])
+    T["s3.l10"] = dict(f="Mm", room="garage", pose="point", bug=None, mb={"prop": "phone"}, sfx=["tink@doctor|60%"])
+    T["s3.l11"] = dict(tier="spider")
+    T["s3.l12"] = dict(f="kb", room="base", cams=[[300, 1100, 1.0, 1.1]], mb={"hidden": True}, light="flashlight", zb=1.1,
+                       bug={"pos": [800, 1490], "moves": [{"at": "legs|30%", "dur": 0.7, "pos": [-600, 900], "linear": True}]},
+                       sfx=["scratch@legs|30%", "sting@legs|35%"])
+    # ------------------------------------------------------------------ 4 house centipede: the basement
+    T["s4.l0"] = dict(f="kk", cams=[[960, 1150, 0.82, 0.82], [960, 1150, 0.82, 0.82]], cuts=["security|35%"], mb={"hidden": True}, light="off",
+                      bug={"pos": [-500, 1490], "moves": [{"at": "security|40%", "dur": 1.2, "pos": [2400, 1490], "linear": True}]},
+                      ov=[{"type": "cam", "kind": "seccam", "at": "security|35%"}], sfx=["scratch@security|45%"])
+    T["s4.l1"] = dict(f="ki", cuts=["clocked|35%"], cams=[[960, 1250, 0.9, 0.9]], zb=0.95,
+                      bug={"pos": [-400, 1490], "moves": [{"at": "clocked|20%", "dur": 1.2, "pos": [1250, 1490], "linear": True}]},
+                      x=[A("rul", "tc_prop", [1100, 1560], 1.4, {"kind": "ruler", "w": 1500}),
+                         A("ctr", "tc_counter", [1250, 1000], 1.0, {"v": 0, "fmt": "{} IN/SEC", "px": 110}, set=[{"at": "about|50%", "dur": 0.9, "p": {"v": 16}}])],
+                      sfx=["scratch@clocked|20%", "tink@sixteen|70%"])
+    T["s4.l2"] = dict(f="ik", cams=[[1250, 1000, 0.75, 0.8]], cuts=["walls|50%"], zb=0.95,
+                      bug={"pos": [1500, 1490], "moves": [{"at": "run|30%", "dur": 0.3, "pos": [1700, 1480], "rot": -90},
+                                                          {"at": "walls|50%", "dur": 1.2, "pos": [1700, 500]}]}, sfx=["scratch@run|30%"])
+    T["s4.l3"] = dict(f="kb", cams=[[1650, 1200, 3.2, 3.6]], zb=1.6, idx=480, bug={"p": {"look": [-1, 0.1]}}, sfx=["tink@faceted|60%"])
+    T["s4.l4"] = dict(f="mM", pose="point", look="hero", cuts=["biter|60%"], **stamp("GET OUT", "biter|60%", RED, 1300, 420, 190, -12),
+                      sfx=["whoosh@hunts|40%", "stamp@biter|60%"], shake=["biter|60%"])
+    T["s4.l5"] = dict(f="Mw", pose="shock", look="hero", sfx=["scratch@0.02", "hit@twist|60%"], cuts=["twist|55%"])
+    T["s4.l6"] = dict(f="M", pose="you", look="viewer", card=False,
+                      ov=[{"type": "big", "at": "0%", "rows": [["WHICH ONE IS IN", 110, "#ffffff"], ["YOUR HOUSE?", 150, YEL], ["COMMENT IT", 110, "#ffffff"]], "dim": 0.45, "y": 210},
+                          {"type": "tier", "sil": True, "full": False, "slide": False, "sil_at": "Comment|30%", "only_sil": True}],
+                      sfx=["hit@0.05", "pop@Comment|40%"])
+    T["s4.l7"] = dict(f="bm", pose="deadpan", cuts=["accidentally|50%"], zb=1.3)
+    T["s4.l8"] = dict(f="kk", room="board", roomscene="rk_board_bg", cams=[[0, 0, 1.2, 1.3], [0, 40, 1.6, 1.8]], cuts=["piercing|45%"], bug=None, mb={"hidden": True},
+                      x=[A("fg", "ds_fangs", [0, 0], 1.0, {"dip": 0.0}, set=[{"at": "piercing|50%", "dur": 0.8, "p": {"dip": 1.0}}]),
+                         lab("fl", "SKIN", [-400, 250], None, px=80, color="#ffffff")], sfx=["tink@piercing|55%"], center=True)
+    T["s4.l9"] = dict(f="mw", pose="facepalm", look="hero", sfx=["boing@never|30%"])
+    T["s4.l10"] = dict(f="wb", pose="present", look="hero", card="WHY IS IT IN MY HOUSE?",
+                       x=[A("v1", "sp.roach", [1700, 1490], 0.22, {}, flip=True), A("v2", "sp.silverfish", [1850, 1490], 0.2, {}, flip=True),
+                          A("v3", "sp.roach", [2000, 1490], 0.2, {}, flip=True)], bug={"pos": [1100, 1490], "s": 0.4})
+    T["s4.l11"] = dict(f="kk", room="bath", cams=[[1620, 1050, 1.6, 1.7], [1620, 1050, 1.6, 1.7]], mb={"hidden": True},
+                       tint=[0.6, 0.5, 0.9, 0.18], bug={"p": {"mood": "calm", "look": [-1, 0]}}, x=[lab("fb", "FLASHBACK", [1620, 760], None, px=64, color=YEL)])
+    T["s4.l12"] = dict(f="kb", cams=[[1200, 1250, 1.2, 1.3]], cuts=["lassoing|50%"], zb=1.1, mb={"hidden": True},
+                       bug={"pos": [900, 1490], "moves": [{"at": "pouncing|20%", "dur": 0.4, "pos": [1350, 1490], "hop": 120}]},
+                       x=[A("prey", "sp.roach", [1500, 1490], 0.22, {}, flip=True)], sfx=["boing@pouncing|25%", "whoosh@lassoing|55%"])
+    T["s4.l13"] = dict(f="wm", pose="point", look="hero", card="WHAT SHOULD YOU DO?",
+                       mb={"moves": [{"at": "grab|40%", "dur": 0.3, "pos": [700, 1500]}, {"at": "grab+0.4", "dur": 0.2, "pos": [520, 1500]}],
+                           "gest": [["grab|50%", "shock", 1.0]]}, sfx=["boing@grab|55%"])
+    T["s4.l14"] = dict(f="Mw", pose="present", mb={"gest": [["counted|40%", "point", 0.8], ["single|70%", "subpoint", 0.8]]},
+                       **stamp("SINGLE DIGITS", "single|65%", YEL, 1300, 330, 120, -8), sfx=["stamp@single|65%"])
+    T["s4.l15"] = dict(f="wb", pose="shrug", look="hero",
+                       x=[A("ph", "rk_photo", [700, 1150], 0.5, {"bug": "centipede"}, moves=[{"at": "arrested|40%", "dur": 1.0, "pos": [1150, 1300]}])])
+    T["s4.l16"] = dict(tier="centipede")
+    T["s4.l17"] = dict(f="kw", cams=[[100, 1000, 1.0, 1.1]], cuts=["kitchen|50%"], pose="point", bug={"hidden": True},
+                       mb={"prop": "flashlight", "moves": [{"at": "checking|40%", "dur": 1.0, "pos": [200, 1400], "walk": True}]},
+                       light={"kind": "flashlight", "target": [0, 700]})
+    # ------------------------------------------------------------------ 5 cockroach: the kitchen
+    T["s5.l0"] = dict(f="wb", cuts=["flip|45%"], pose="shock", look="hero", light={"kind": "flashlight", "off_at": "light|40%"}, flash=["light|40%"],
+                      x=[A("r%d" % k, "sp.roach", [300 + 90 * k, 1016], 0.35, {}, moves=[{"at": "light|45%", "dur": 0.5, "pos": [-400 + 90 * k * (k % 2), 1016], "linear": True}]) for k in range(4)],
+                      sfx=["click@light|40%", "scratch@light|45%"])
+    T["s5.l1"] = dict(f="bi", cuts=["light|40%"], zb=1.6, ov=[{"type": "cam", "kind": "bugcam", "at": "0%", "to": "light|40%"}],
+                      x=[A("toast", "tp_toaster", [700, 1016], 1.3, {})], bug={"pos": [420, 1016]})
+    T["s5.l2"] = dict(f="ib", cuts=["crack|60%"], zb=1.5, bug={"moves": [{"at": "crack|50%", "dur": 0.6, "pos": [300, 1016], "s": 0.6}]},
+                      x=[A("gauge", "tc_prop", [330, 960], 0.6, {"kind": "ruler", "w": 400}), lab("gg", "1/16-INCH GAP", [330, 860], "crack|40%", px=48, color=YEL)])
+    T["s5.l3"] = dict(f="ik", cams=[[480, 900, 1.5, 1.6]], zb=1.5, bug={"hidden": True},
+                      x=[A("ooth", "tc_ooth", [480, 1016], 2.2, {}), A("ctr", "tc_counter", [480, 760], 1.0, {"v": 0, "fmt": "ABOUT {}", "px": 100},
+                                                                       set=[{"at": "30|40%", "dur": 0.9, "p": {"v": 30}}])],
+                      sfx=["tink@30|60%"])
+    T["s5.l4"] = dict(f="mw", pose="lean", look="hero", light={"kind": "lamp", "dark": 0.62}, sfx=["click@0.05"])
+    T["s5.l5"] = dict(f="kk", cams=[[500, 900, 1.0, 1.05], [450, 950, 1.4, 1.5]], cuts=["reported|55%"], mb={"hidden": True}, light="lamp",
+                      x=[A("c%d" % k, "sp.roach", [80 + (k % 6) * 150, 1016 - 70 * (k // 6)], 0.25, {}, flip=bool(k % 2)) for k in range(12)] +
+                        [lab("eh", "EXTREMELY HEAVY", [500, 650], "extremely|20%", px=90, color=RED)], tint=[0.3, 0.25, 0.1, 0.25])
+    T["s5.l6"] = dict(f="wb", pose="deadpan", look="viewer", x=[lab("one", "ONE ROACH", [480, 800], "one|30%", px=80, color=YEL)], flash=[0.02])
+    T["s5.l7"] = dict(f="Mk", cams=[[600, 900, 1.4, 1.5]], pose="nervous",
+                      x=[A("inh", "cl_bottle", [650, 1016], 1.3, {}), lab("dp", "DROPPINGS", [400, 800], "droppings|30%", px=60,
+                                                                           moves=[{"at": "droppings|30%", "dur": 2.0, "pos": [700, 700]}])])
+    T["s5.l8"] = dict(f="kb", cams=[[600, 900, 1.3, 1.4]], card="WHY IS IT IN MY HOUSE?", bug={"pos": [600, 830], "moves": [{"at": "grocery|40%", "dur": 0.8, "pos": [350, 1016]}]},
+                      x=[A("bag", "cl_box", [620, 1016], 1.8, {})], zb=1.4)
+    T["s5.l9"] = dict(f="wb", pose="shrug", bug={"pos": [100, 1016], "moves": [{"at": "clean|20%", "dur": 2.0, "pos": [650, 1016], "walk": True}]},
+                      x=[A("sp%d" % k, "spark", [200 + k * 260, 700 + 60 * (k % 2)], 1.0, {}) for k in range(5)])
+    T["s5.l10"] = dict(f="mw", pose="shrug", card="WHAT SHOULD YOU DO?",
+                       x=[A("can", "tc_prop", [1250, 1500], 0.8, {"kind": "aerosol"}, moves=[{"at": "alone|40%", "dur": 1.0, "pos": [800, 1500], "rot": 90}])],
+                       sfx=["thud@alone|45%"])
+    T["s5.l11"] = dict(f="wk", cams=[[480, 900, 1.5, 1.6]], cuts=["exclusion|50%"], pose="present",
+                       x=[lab("w1", "WIPE IT CLEAN", [480, 700], "sanitation|20%", px=72, color=GREEN), lab("w2", "SEAL THE CRACKS", [480, 820], "exclusion|50%", px=72, color=GREEN)])
+    T["s5.l12"] = dict(f="kk", room="board", roomscene="ds_floor", cams=[[960, 1150, 1.0, 1.05], [1300, 1250, 1.5, 1.6]], cuts=["sprays|60%"], mb={"hidden": True}, bug=None,
+                       x=[A("bait", "cl_box", [650, 1500], 1.2, {}), lab("bl", "BAIT", [650, 1150], "baits|30%", px=90, color=GREEN),
+                          A("can", "tc_prop", [1300, 1500], 0.9, {"kind": "aerosol"}),
+                          A("x", "ds_cross", [1300, 1330], 1.0, {"on": 0.0, "r": 200}, set=popset("sprays|60%"))], sfx=["pop@baits|30%", "stamp@sprays|60%"])
+    T["s5.l13"] = dict(f="kk", room="board", roomscene="ds_floor", cams=[[960, 1150, 1.0, 1.05], [960, 1250, 1.4, 1.5]], cuts=["hazardous|55%"], mb={"hidden": True}, bug=None,
+                       x=[A("bomb", "tc_prop", [960, 1500], 1.0, {"kind": "foamcan"})], **stamp("NO", "bombs|35%", RED, 960, 500, 220, -12), sfx=["stamp@bombs|35%"])
+    T["s5.l14"] = dict(f="kM", cams=[[650, 900, 2.2, 2.4]], pose="point", x=[A("inh", "cl_bottle", [650, 1016], 1.3, {}), lab("rd", "READ THE LABEL", [650, 640], "label|30%", px=64, color=YEL)])
+    T["s5.l15"] = dict(f="Mw", pose="nervous", mb={"shake": 1.0}, shake=["shower|50%"], sfx=["boing@shower|50%"])
+    T["s5.l16"] = dict(tier="roach")
+    T["s5.l17"] = dict(f="Mk", cams=[[1500, 1150, 2.6, 2.8]], pose="think", bug=None,
+                       x=[A("bite", "rk_glow", [1530, 1180], 1.0, {"r": 40, "on": 0.0}, front=True, lit=True, set=popset("blood|50%", dur=0.5))], cuts=["blood|45%"])
+    T["s5.l18"] = dict(f="kw", cams=[[1500, 1000, 1.3, 1.5]], pose="deadpan", look="viewer", bug={"hidden": True},
+                       light={"kind": "lamp", "dark": 0.7}, sfx=["scratch@mine|60%"], mb={"moves": [{"at": "mine|50%", "dur": 1.5, "pos": [1900, 1500], "walk": True}]})
+    # ------------------------------------------------------------------ 6 bed bugs: Meatball's bedroom
+    T["s6.l0"] = dict(f="wk", cams=[[1180, 1150, 1.4, 1.5]], cuts=["bed|60%"], pose="nervous", look="hero", bug={"hidden": True}, sfx=["thud@last|40%", "thud@bed|70%"])
+    T["s6.l1"] = dict(f="kk", cams=[[600, 1180, 1.8, 1.8], [1100, 1180, 1.8, 2.0]], cuts=["seam|40%"], pose="lean", bug={"hidden": True},
+                      mb={"prop": "flashlight"}, light={"kind": "flashlight", "target": [900, 1200]}, pans=[[500, 1180, 1.8], [1150, 1190, 2.2]])
+    T["s6.l2"] = dict(f="Mbw", cuts=["bug#2|35%", "There's|65%"], pose="shock", freak=[0.15, "There's|65%"], shake=[0.15, "bug#2|35%", "There's|65%"],
+                      flash=[0.1], mb={"shake": 1.0, "moves": [{"at": 0.12, "dur": 0.55, "pos": [1900, 1500], "hop": 420},
+                                                                {"at": "There's|65%", "dur": 0.5, "pos": [1850, 1500], "hop": 300}]},
+                      bug={"p": {"mood": "angry"}}, sfx=["sting@0.1", "boing@0.15", "hit@There's|65%"], zb=1.5)
+    T["s6.l3"] = dict(f="wM", pose="nervous", look="hero", mb={"shake": 0.8, "moves": [{"at": "out#2|35%", "dur": 0.5, "pos": [2100, 1500], "hop": 200}]},
+                      sfx=["boing@out#2|35%"], card_px=150)
+    T["s6.l4"] = dict(f="bi", cuts=["reddish|40%"], zb=1.7, bug={"p": {"look": [-0.5, 0.2]}})
+    T["s6.l5"] = dict(f="ik", cams=[[300, 1050, 2.0, 2.1]], zb=1.7, x=[A("tp", "rk_stick", [330, 1000], 0.7, {}, rot=90)],
+                      bug={"moves": [{"at": "toothpick|40%", "dur": 1.0, "pos": [250, 1060], "s": 0.5}]})
+    T["s6.l6"] = dict(f="ikkk", cams=[[600, 1200, 2.3, 2.4], [400, 1430, 2.2, 2.3], [210, 900, 2.0, 2.1]], cuts=["seams|20%", "springs|45%", "frames|65%"], zb=1.7,
+                      x=[A("h1", "sp.bed_bug", [600, 1200], 0.25, {}), A("h2", "sp.bed_bug", [400, 1440], 0.25, {}), A("h3", "sp.bed_bug", [215, 900], 0.25, {}, rot=-90)])
+    T["s6.l7"] = dict(f="Mm", pose="deadpan", mb={"gest": [["Yes|50%", "nervous", 1.0]]})
+    T["s6.l8"] = dict(f="kb", cams=[[900, 1150, 0.95, 1.05]], tint=[0.25, 0.3, 0.7, 0.2], mb={"hidden": True},
+                      x=[A("zz", "tp_zzz", [600, 1000], 1.4, {"on": 1.0}), lab("fb", "FLASHBACK", [900, 560], None, px=64, color=YEL),
+                         A("slp", "sleeper", [500, 1190], 1.0, {})],
+                      bug={"pos": [1500, 1190], "moves": [{"at": "bite|20%", "dur": 3.0, "pos": [900, 1190], "walk": True}]}, zb=1.4)
+    T["s6.l9"] = dict(f="kk", cams=[[600, 1100, 1.5, 1.6], [800, 1150, 1.1, 1.2]], cuts=["seldom|50%"], tint=[0.25, 0.3, 0.7, 0.2], mb={"hidden": True},
+                      x=[A("zz", "tp_zzz", [600, 1000], 1.4, {"on": 1.0}), A("slp", "sleeper", [500, 1190], 1.0, {})], bug={"pos": [800, 1190]})
+    T["s6.l10"] = dict(f="Mk", cams=[[1900, 1150, 2.4, 2.6]], pose="think", card="AS LONG AS 14 DAYS · IN SOME PEOPLE",
+                       x=[A("bite", "rk_glow", [1930, 1180], 1.0, {"r": 40, "on": 0.0}, front=True, lit=True, set=[{"at": "develop|50%", "dur": 1.2, "p": {"on": 1.0}}])], bug={"hidden": True})
+    T["s6.l11"] = dict(f="mk", cams=[[1900, 950, 1.8, 1.9]], cuts=["Serious|55%"], pose="think", bug={"hidden": True},
+                       x=[A("clk", "cl_clock", [1500, 700], 0.9, {})], mb={"gest": [["itching|20%", "nervous", 1.0]]})
+    T["s6.l12"] = dict(f="mw", pose="laugh", look="viewer", bug={"hidden": True})
+    T["s6.l13"] = dict(f="wk", room="cork", cams=[[760, 760, 1.5, 1.6]], cuts=["biter|50%"], pose="point", look=[760, 760],
+                       x=[A("ph", "rk_photo", [760, 760], 1.0, {"bug": "bedbug"})], **stamp("CASE CLOSED", "closed|30%", RED, 760, 500, 130), sfx=["stamp@closed|30%"])
+    T["s6.l14"] = dict(f="wb", pose="point", look="hero", card="WHY IS IT IN MY HOUSE?",
+                       x=[A("suit", "tp_suitcase", [1250, 1186], 1.4, {})], bug={"pos": [1250, 1186], "s": 0.5, "moves": [{"at": "hitchhike|30%", "dur": 1.2, "pos": [900, 1186], "walk": True}]})
+    T["s6.l15"] = dict(f="wk", room="board", roomscene="ds_floor", cams=[[1100, 1150, 1.6, 1.75]], cuts=["heat|45%"], pose="present", bug=None,
+                       x=[A("dry", "rk_washer", [1100, 1500], 1.3, {"dryer": True, "spin": 6.0, "dial": 0.2}, set=[{"at": "high|30%", "dur": 0.5, "p": {"dial": 1.0}}]),
+                          lab("hi", "HIGH HEAT", [1100, 700], "high|30%", px=80, color=RED), lab("tm", "30 MIN", [1100, 820], "30|50%", px=80, color=YEL)],
+                       mb={"pos": [450, 1500]}, sfx=["click@high|30%", "tink@30|60%"])
+    T["s6.l16"] = dict(f="kk", room="board", roomscene="ds_floor", cams=[[1100, 1100, 1.0, 1.05], [1100, 1250, 2.0, 2.2]], cuts=["kill|40%"], mb={"hidden": True}, bug=None,
+                       x=[A("wash", "rk_washer", [1100, 1500], 1.3, {"spin": 5.0, "rider": True})], **stamp("NOT ENOUGH", "kill|50%", RED, 960, 330, 130))
+    T["s6.l17"] = dict(f="kkk", room="board", roomscene="ds_floor", cams=[[500, 1250, 1.4, 1.5], [1000, 1250, 1.4, 1.5], [1500, 1250, 1.4, 1.5]],
+                       cuts=["propane|35%", "fireplace|70%"], mb={"hidden": True}, bug=None,
+                       x=[A("th", "tc_prop", [500, 1250], 0.9, {"kind": "thermostat"}), A("ht", "cl_box", [1000, 1500], 1.3, {}),
+                          A("lg", "tc_prop", [1500, 1500], 1.0, {"kind": "logs", "n": 6}),
+                          A("x1", "ds_cross", [500, 1250], 1.0, {"on": 0.0, "r": 190}, set=popset("thermostat|25%")),
+                          A("x2", "ds_cross", [1000, 1350], 1.0, {"on": 0.0, "r": 190}, set=popset("heater|60%")),
+                          A("x3", "ds_cross", [1500, 1350], 1.0, {"on": 0.0, "r": 190}, set=popset("fireplace|85%"))],
+                       sfx=["stamp@thermostat|25%", "stamp@heater|60%", "stamp@fireplace|85%"])
+    T["s6.l18"] = dict(f="k", room="board", roomscene="ds_floor", cams=[[1000, 1300, 0.85, 1.0]], mb={"hidden": True}, bug=None,
+                       x=[A("th", "tc_prop", [500, 1250], 0.9, {"kind": "thermostat"}), A("ht", "cl_box", [1000, 1500], 1.3, {}),
+                          A("lg", "tc_prop", [1500, 1500], 1.0, {"kind": "logs", "n": 6}),
+                          A("x1", "ds_cross", [500, 1250], 1.0, {"on": 1.0, "r": 190}), A("x2", "ds_cross", [1000, 1350], 1.0, {"on": 1.0, "r": 190}),
+                          A("x3", "ds_cross", [1500, 1350], 1.0, {"on": 1.0, "r": 190}), lab("dg", "DANGEROUS", [1000, 800], "dangerous|50%", px=110, color=RED)])
+    T["s6.l19"] = dict(f="wk", room="house", cams=[[700, 1300, 1.3, 1.4]], cuts=["outdoor|50%"], pose="point", bug=None, mb={"pos": [1600, 1600]},
+                       x=[A("can", "tc_prop", [400, 1600], 0.9, {"kind": "aerosol"}, moves=[{"at": "pesticide|20%", "dur": 1.0, "pos": [600, 1600]}]),
+                          A("sg", "tc_prop", [800, 1600], 1.0, {"kind": "sign", "text": "NO", "col": "#e5383b", "tcol": "#ffffff", "px": 110})])
+    T["s6.l20"] = dict(f="wM", room="board", roomscene="ds_floor", pose="shock", bug=None, mb={"pos": [600, 1500]}, look=[1200, 1300],
+                       x=[A("cash", "tp_money", [1250, 1500], 1.6, {"q": 1.0}, set=[{"at": "expensive|40%", "dur": 1.5, "p": {"s": 0.3}}])],
+                       sfx=["tink@expensive|40%"])
+    T["s6.l21"] = dict(f="wk", room="house", cams=[[1150, 1300, 1.2, 1.3]], cuts=["professional|50%"], pose="laugh", bug=None, mb={"pos": [900, 1600]},
+                       x=[A("pro", "tp_worker", [1700, 1600], 1.6, {}, flip=True, moves=[{"at": "hire|20%", "dur": 1.2, "pos": [1350, 1600], "walk": True}]),
+                          lab("pl", "PRO", [1450, 820], "pest|30%", px=90, color=YEL)])
+    T["s6.l22"] = dict(f="wk", room="house", cams=[[1300, 1300, 1.0, 1.1]], cuts=["heat|55%"], pose="present", bug=None, mb={"pos": [500, 1600]},
+                       x=[A("pro", "tp_worker", [1100, 1600], 1.6, {}), A("unit", "cl_box", [1500, 1600], 2.2, {}, moves=[{"at": "methods|30%", "dur": 1.5, "pos": [1400, 1600]}]),
+                          lab("hu", "HEAT", [1450, 1050], "heat|55%", px=100, color="#ff7a30")])
+    T["s6.l23"] = dict(f="wM", room="roof", pose="deadpan", look="viewer", bug=None, tint=[0.05, 0.08, 0.3, 0.45],
+                       mb={"pos": [960, 1500]}, x=[A("bagz", "tp_zzz", [1150, 900], 1.2, {"on": 1.0})])
+    T["s6.l24"] = dict(tier="bedbug", big=True)
+    # ------------------------------------------------------------------ the final board: the roof at dawn
+    T["s7.l0"] = dict(f="wk", room="roof", cams=[[960, 1000, 1.3, 1.35]], cuts=["final|50%"], pose="laugh", bug=None, mb={"pos": [960, 1500]},
+                      ov=[{"type": "tier", "in": "board|65%", "placed": [[b, RANK[b]] for b in ORDER]}], sfx=["whoosh@board|65%"])
+    T["s7.l1"] = dict(f="k", room="board", cams=[[960, 540, 1, 1]], bug=None, mb={"hidden": True}, card=False,
+                      ov=[{"type": "tier", "slide": False, "placed": [[b, RANK[b]] for b in ORDER],
+                           "pulse": [["ANNOYING", "annoying|80%"]],
+                           "shake": [["silverfish", "Silverfish|5%"], ["mite", "dust|20%"], ["spider", "spiders|45%"], ["centipede", "centipede|65%"]]}],
+                      sfx=["tink@Silverfish|5%", "tink@dust|20%", "tink@spiders|45%"])
+    T["s7.l2"] = dict(f="k", room="board", cams=[[960, 540, 1, 1]], bug=None, mb={"hidden": True}, card=False,
+                      ov=[{"type": "tier", "slide": False, "placed": [[b, RANK[b]] for b in ORDER],
+                           "pulse": [["GROSS", "gross|20%"], ["GET OUT", "get|70%"]], "shake": [["roach", "cockroach|10%"], ["bedbug", "bed|55%"]]}],
+                      sfx=["tink@gross|20%", "hit@get|70%"])
+    T["s7.l3"] = dict(f="k", room="board", cams=[[960, 540, 1, 1]], bug=None, mb={"hidden": True}, card=False,
+                      ov=[{"type": "tier", "slide": False, "placed": [[b, RANK[b]] for b in ORDER], "mb_slot": "mine|50%",
+                           "pulse": [["HARMLESS", "Harmless|10%"]], "off": None},
+                          {"type": "big", "at": "mine|55%", "rows": [["HARMLESS: MEATBALL", 90, YEL]], "x": 1300, "y": 120}],
+                      sfx=["pop@mine|55%"])
+    T["s7.l4"] = dict(f="wk", room="hall", cams=[[1100, 1350, 1.6, 1.7]], cuts=["case|55%"], pose="point", bug=None, light="off",
+                      x=[A("file", "rk_file", [-300, 1440], 0.6, {}, moves=[{"at": "Wednesday|20%", "dur": 0.8, "pos": [1050, 1420]}])],
+                      mb={"pos": [1500, 1500]}, sfx=["whoosh@Wednesday|25%"])
+    T["s7.l5"] = dict(f="Mm", room="roof", pose="you", look="viewer", bug=None, mb={"pos": [960, 1500]})
+    T["s7.l6"] = dict(f="mk", room="bed", cams=[[1180, 1150, 1.4, 1.5]], cuts=["mattress|45%"], pose="deadpan", look="viewer",
+                      mb={"prop": "flashlight", "pos": [1700, 1500]}, bug={"hidden": True}, light={"kind": "flashlight", "target": [1100, 1200]})
+    return T
+
+
+SHOTS = _table()
+
+# ================================================================================================ build
+
+
+def build(outline, out_spec):
+    o = json.load(open(outline))
+    old = {}
+    if os.path.exists(out_spec):
+        for ln in json.load(open(out_spec)).get("lines", []):
+            old[ln["id"]] = ln
+    lines, todo = [], 0
+    for si, seg in enumerate(o["segments"]):
+        for li, ln in enumerate(seg["lines"]):
+            if not ln.get("say", "").strip():   # the end-screen hold: the last spoken line carries it
+                continue
+            sid = f"s{si}.l{li}"
+            L = dict(ln, id=sid, seg=si)
+            prev = old.get(sid)
+            if prev and prev.get("shot", {}).get("_keep"):
+                L["shot"] = prev["shot"]
+            elif sid in SHOTS:
+                L["shot"] = copy.deepcopy(SHOTS[sid])
+            else:
+                todo += 1
+                L["shot"] = {"f": "wm", "_todo": True}
+            tts = L["say"]
+            for pat, rep in TTS.items():
+                tts = re.sub(pat, rep, tts)
+            if tts != L["say"]:
+                L["tts"] = tts
+            lines.append(L)
+    segs = [{k: v for k, v in s.items() if k != "lines"} for s in o["segments"]]
+    spec = {"_note": "Built by tools/drawn_ranked.py build from " + os.path.basename(outline) +
+                     ". Each line: id (s<seg>.l<line>), the outline fields (say/vis/card/rate/pitch/src) and shot (the "
+                     "SHOTS recipe in tools/drawn_ranked.py; \"_keep\": true keeps a hand edit across rebuilds).",
+            "voice": o.get("voice", "en-US-GuyNeural"), "rate": o.get("rate", "+32%"), "pitch": o.get("pitch", "+2Hz"),
+            "music": "mystery", "music_db": -16, "tempo": {"lead": 0.06, "tail": 0.22, "thr": 0.01, "cam": 0.7}, "pad": 0.8, "captions": 60, "caption_y": 990, "cut_whoosh": True, "sfx_gain": 0.24,
+            "cap_key": ["bite", "bit", "biter", "harmless", "annoying", "gross", "get", "out", "suspect", "bed", "bug",
+                        "silverfish", "mites", "spider", "centipede", "cockroach", "roach", "400", "million", "sixteen",
+                        "30", "14", "blood", "disease", "doctor", "never", "twist", "closed", "dinosaurs"],
+            "end_hold": float(o.get("end_screen_seconds", 20)), "end_label": o.get("end_screen_video"),
+            "segments": segs, "titles": o.get("titles"), "pinned_comment": o.get("pinned_comment"), "lines": lines}
+    json.dump(spec, open(out_spec, "w"), indent=1, ensure_ascii=False)
+    print(f"{out_spec}: {len(lines)} lines, {sum(len(L['say'].split()) for L in lines)} words, "
+          f"{len(lines) - todo} with hand-made shots, {todo} on the default shot")
+
+
+# ================================================================================================ voice
+
+
+def _vkey(text, voice, rate, pitch):
+    return hashlib.sha1(json.dumps([text, voice, rate, pitch]).encode()).hexdigest()[:16]
+
+
+def _lv(spec, L):
+    return spec["voice"], L.get("rate", spec["rate"]), L.get("pitch", spec["pitch"])
+
+
+def voice_cache(spec, lines):
+    """Make sure every line's take is in the cache (5 tries each, empty/silent takes refused)."""
+    import asyncio
+    from facts import speak
+    os.makedirs(CACHE, exist_ok=True)
+    todo = {}
+    for L in lines:
+        v, r, p = _lv(spec, L)
+        text = L.get("tts", L["say"])
+        c = os.path.join(CACHE, _vkey(text, v, r, p) + ".mp3")
+        if not (os.path.exists(c + ".words.json") and ds._good(c, json.load(open(c + ".words.json")))):
+            todo[c] = (text, v, r, p)
+
+    async def one(c, text, v, r, p, sem):
+        async with sem:
+            for k in range(5):
+                tmp = c + ".tmp.mp3"
+                try:
+                    words = await speak(text, v, tmp, r, p)
+                except Exception as e:  # noqa: BLE001
+                    print(f"  tts retry {k + 1}/5 ({type(e).__name__}): {text[:50]}", flush=True)
+                    await asyncio.sleep(2 + 2 * k)
+                    continue
+                if ds._good(tmp, words):
+                    os.replace(tmp, c)
+                    json.dump(words, open(c + ".words.json", "w"))
+                    return
+                await asyncio.sleep(2 + 2 * k)
+            raise SystemExit(f"ranked: no usable voice after 5 tries for: {text!r}")
+
+    async def run():
+        sem = asyncio.Semaphore(4)
+        await asyncio.gather(*(one(c, *a, sem) for c, a in todo.items()))
+    if todo:
+        print(f"voice: {len(todo)} new line(s)", flush=True)
+        asyncio.run(run())
+
+
+def durations(spec, lines):
+    out = {}
+    for L in lines:
+        v, r, p = _lv(spec, L)
+        c = os.path.join(CACHE, _vkey(L.get("tts", L["say"]), v, r, p) + ".mp3")
+        try:
+            w = json.load(open(c + ".words.json"))
+            out[L["id"]] = max(0.5, w[-1][1] - w[0][0] + 0.28)
+        except (OSError, ValueError, IndexError):
+            out[L["id"]] = max(1.0, len(L["say"].split()) / 3.4)
+    return out
+
+
+def voice_into(spec, beats, lines, work):
+    import shutil
+    os.makedirs(work, exist_ok=True)
+    for i, (b, L) in enumerate(zip(beats, lines)):
+        v, r, p = _lv(spec, L)
+        c = os.path.join(CACHE, _vkey(L.get("tts", L["say"]), v, r, p) + ".mp3")
+        mp3 = f"{work}/v{i:02d}.mp3"
+        shutil.copy(c, mp3)
+        shutil.copy(c + ".words.json", mp3 + ".words.json")
+        open(mp3 + ".key", "w").write(drawn.line_key(b["say"], v, r, p))
+
+
+# ================================================================================================ expand
+
+
+def _parse_card(card):
+    """Outline card -> (suspect text, id dict {name, rows: [...]}, tier, other rows)."""
+    out = {"suspect": None, "id": None, "tier": None, "rows": []}
+    if not card:
+        return out
+    parts = [x.strip() for x in card.split("·")]
+    mode = None
+    for x in parts:
+        if x.startswith("SUSPECT "):
+            out["suspect"] = x
+            mode = None
+        elif x.startswith("BUG ID:"):
+            out["id"] = {"name": x.split(":", 1)[1].strip(), "rows": []}
+            mode = "id"
+        elif re.match(r"^(ID )?ROW \d:", x):
+            out["id"] = out["id"] or {"name": None, "rows": []}
+            out["id"]["rows"].append(x.split(":", 1)[1].strip())
+            mode = "id"
+        elif x.startswith("TIER:"):
+            out["tier"] = x.split(":", 1)[1].strip()
+            mode = None
+        elif x.startswith("#"):
+            continue
+        elif mode == "id" and out["id"]["rows"] and not out["id"]["name"] is None and len(out["id"]["rows"]) and False:
+            pass
+        elif mode == "id" and out["id"] and out["id"]["rows"]:
+            out["id"]["rows"][-1] += (", " if len(x.split()) <= 2 else ": ") + x   # "CELLAR SPIDER: NOT KNOWN..."
+        elif mode == "id" and out["id"] and not out["id"]["rows"]:
+            out["id"]["rows"].append(x.split(":", 1)[-1].strip() if x.startswith("FOSSILS") is False else x)
+        else:
+            out["rows"].append(x)
+            mode = None
+    return out
+
+
+def states(spec):
+    """Per line: the chapter's BUG ID rows so far (name, rows before, rows after, first?), tier placements before."""
+    st, ids, placed = {}, {}, []
+    for L in spec["lines"]:
+        c = _parse_card(L.get("card"))
+        seg = L["seg"]
+        bug = CH_BUG[seg]
+        cur = ids.get(seg)
+        idinfo = None
+        if c["id"] and bug:
+            if cur is None:
+                cur = {"name": c["id"]["name"] or BUGS[bug][4], "rows": []}
+                first = True
+            else:
+                first = False
+            n0 = len(cur["rows"])
+            cur["rows"] = cur["rows"] + c["id"]["rows"]
+            ids[seg] = cur
+            idinfo = {"name": cur["name"], "rows": list(cur["rows"]), "n0": n0, "first": first, "bug": bug}
+        tier = None
+        if L["shot"].get("tier"):
+            b = L["shot"]["tier"]
+            tier = {"placed": [list(x) for x in placed], "drop": [b, RANK[b]]}
+            placed.append([b, RANK[b]])
+        st[L["id"]] = {"card": c, "id": idinfo, "tier": tier}
+    return st
+
+
+def _cams(kind, kit, hero, mbx, a, i):
+    """A framing -> [cam, to]."""
+    msize = MB_SIZE
+    bpos = hero["pos"] if hero else kit.get("bpos") or [960, 1300]
+    bug = kit.get("bug_key")
+    bw, bh = (BUGS[bug][2], BUGS[bug][3]) if bug else (500, 300)
+    s = hero["s"] if hero else 0.5
+    if a.get("bugpos_for_frame"):
+        bpos = a["bugpos_for_frame"]
+    if kind == "w":
+        if mbx is None:
+            cx, z = bpos[0], 0.95
+        else:
+            cx = (mbx + bpos[0]) / 2
+            span = abs(bpos[0] - mbx) + 1000
+            z = max(0.78, min(1.1, 1750 / span))
+        cy = 1500 - 420 / z
+        top = min(bpos[1] - bh * s, 1500 - 0.85 * msize)
+        cy = min(cy, top + (540 - 120) / z)
+        c = [cx, cy, z]
+        return [c, [cx + (18 if i % 2 else -18) / z, cy - 6 / z, z * 1.07]]
+    if kind in ("m", "M"):
+        z = 1.5 if kind == "m" else 2.3
+        hy = 1500 - 0.72 * msize
+        cy = hy + (540 - (330 if kind == "m" else 470)) / z
+        cx = mbx + (90 if kind == "m" else 0) * (1 if i % 2 else -1)
+        c = [cx, cy, z]
+        return [c, [cx, cy - 8 / z, z * (1.08 if kind == "m" else 1.06)]]
+    if kind in ("b", "i"):
+        zb = a.get("zb") or max(1.0, min(3.0, 1300 / (bw * s)))
+        cx = bpos[0] + (470 / zb if kind == "i" else 0)
+        cy = bpos[1] - 0.45 * bh * s
+        c = [cx, cy, zb]
+        return [c, [cx - (25 / zb if kind == "b" else 0), cy, zb * 1.08]]
+    raise ValueError(kind)
+
+
+def expand(spec, lines, durs):
+    segs = spec["segments"]
+    allL = spec["lines"]
+    ST = states(spec)
+    beats = []
+    for L in lines:
+        a = L["shot"]
+        seg = L["seg"]
+        st = ST[L["id"]]
+        last = L["id"] == allL[-1]["id"]
+        pad = _pad(spec, L)
+        D0 = durs[L["id"]]
+        D = D0 + pad
+        b = {"say": L["say"], "rate": _lv(spec, L)[1], "pitch": _lv(spec, L)[2], "norecut": True, "recut": False}
+        if L.get("tts"):
+            b["tts"] = L["tts"]
+        rk = []
+        sfx = list(a.get("sfx", []))
+        if a.get("tier"):   # ---- the tier board drop
+            bug = a["tier"]
+            t_ = st["tier"]
+            b.update(scene="rk_board_bg", scene_p={}, actors=[], mb=dict(ds.HIDDEN))
+            b["shots"] = [{"cam": [960, 540, 1.0], "to": [960, 540, 1.0]}]
+            rk.append({"type": "tier", "placed": t_["placed"], "drop": t_["drop"], "at": a.get("drop_at", "96%")})
+            rk.append({"type": "big", "at": "100%", "rows": [[t_["drop"][1], 130, TCOL[t_["drop"][1]]]], "x": 1350, "y": 1000 - 70})
+            sfx = ["whoosh@0.02", "stamp@96%" if not a.get("big") else "sting@93%", "hit@99%"]
+            if a.get("big"):
+                b["flash"] = ["98%"]
+                rk[-1]["rows"] = [["GET OUT  #1", 150, RED]]
+        else:
+            room = a.get("room", CH_ROOM[seg])
+            kit = dict(ROOMS[room])
+            scene = a.get("roomscene", kit["scene"])
+            bug = kit.get("bug") if room not in ("cork", "board", "roof", "house") else None
+            bug = bug if room != "board" else None
+            if room in ("cork", "board", "roof", "house"):
+                bug = None
+            kit["bug_key"] = bug
+            actors = []
+            hero = None
+            if bug and a.get("bug", 0) is not None:
+                bo = a.get("bug") or {}
+                typ = BUGS[bug][0]
+                hero = A("hero", typ, bo.get("pos", kit["bpos"]), bo.get("s", kit["bs"]),
+                         dict({"mood": "calm", "look": [-0.6, 0.1]}, **bo.get("p", {})))
+                if bo.get("hidden"):
+                    hero["p"]["hidden"] = True
+                for k in ("moves", "rot", "flip", "set"):
+                    if k in bo:
+                        hero[k] = copy.deepcopy(bo[k])
+                if typ != "cellar_spider" and kit["bpos"][0] > (kit.get("mx") or 0) and "flip" not in bo:
+                    hero["flip"] = True   # face Meatball
+                actors.append(hero)
+            actors += copy.deepcopy(a.get("x", []))
+            mbo = dict(a.get("mb", {}))
+            mbx = None if kit.get("mx") is None and not mbo.get("pos") else (mbo.get("pos") or [kit["mx"]])[0]
+            if mbo.get("hidden") or kit.get("mx") is None and not mbo.get("pos"):
+                mbd = dict(ds.HIDDEN)
+                mbx = None
+            else:
+                pose = a.get("pose") or POSE_ROT[sum(map(ord, L["id"])) % len(POSE_ROT)]
+                look = a.get("look", "hero" if hero is not None and not hero["p"].get("hidden") else "viewer")
+                mbd = {"pose": pose, "pos": list(mbo.get("pos", [kit["mx"], 1500])), "size": mbo.get("size", MB_SIZE),
+                       "look": look, "prop": mbo.get("prop"), "hidden": False}
+                for k in ("moves", "gest", "shake"):
+                    if k in mbo:
+                        mbd[k] = copy.deepcopy(mbo[k])
+            b.update(scene=scene, scene_p=dict(kit["sp"]), actors=actors, mb=mbd)
+            # ---- camera: framings, each a cut, each a push; long lines cycle them (<= ~3.6 s a framing)
+            f = a.get("f", "wm")
+            cams = a.get("cams") or []
+            cuts = list(a.get("cuts", []))[:max(0, len(f) - 1)]
+            if cuts and len(cuts) == len(f) - 1:
+                ats = [0.0] + cuts
+                m_ = math.ceil(D / 3.6)
+                if m_ > len(f):   # long line: extra cuts between the named ones
+                    extra = [round(D * k / m_, 2) for k in range(1, m_)]
+                    ats += [e for e in extra if all(abs(e - _pct(c) / 100 * D0) > 0.9 for c in cuts)]
+                    ats = sorted(ats, key=lambda x: _pct(x) / 100 * D0 if isinstance(x, str) else x)
+            else:
+                n_ = max(len(f), math.ceil(D / 3.6))
+                ats = [0.0] + [round(D * k / n_, 2) for k in range(1, n_)]
+            n = len(ats)
+            shots = []
+            ki = 0
+            for j in range(n):
+                kind = f[j % len(f)]
+                if kind == "k":
+                    cc = cams[ki % len(cams)] if cams else [960, 1000, 1.0, 1.05]
+                    ki += 1
+                    c0, c1 = [cc[0], cc[1], cc[2]], [cc[0] + (12 if j % 2 else -12) / cc[2], cc[1], cc[3]]
+                    if a.get("pans") and j == 0:
+                        c0, c1 = a["pans"][0], a["pans"][1]
+                else:
+                    c0, c1 = _cams(kind, kit, hero, mbx if mbx is not None else (kit.get("mx") or 960), a, j)
+                if j and shots and abs(shots[-1]["to"][2] - c0[2]) < 0.02 and abs(shots[-1]["to"][0] - c0[0]) < 30:
+                    c0 = [c0[0] + 60 / c0[2], c0[1], c0[2] * 1.12]   # same framing twice: still a visible cut
+                    c1 = [c1[0] + 60 / c1[2], c1[1], c1[2] * 1.12]
+                sh = {"cam": [round(x, 3) for x in c0], "to": [round(x, 3) for x in c1]}
+                if j:
+                    sh["at"] = ats[j]
+                shots.append(sh)
+            b["shots"] = shots
+            lt = a.get("light", kit.get("light", "off"))
+            if lt != "off":
+                b["light"] = lt if isinstance(lt, dict) else {"kind": lt}
+            for k in ("tint", "flash", "shake", "freak"):
+                if a.get(k):
+                    b[k] = a[k]
+            if a.get("stamp"):
+                stp = a["stamp"]
+                b["actors"].append({"id": "stamp", "type": "ds_stamp", "pos": [0, 0], "front": True,
+                                    "p": dict({"on": 0.0}, **{k: v for k, v in stp.items() if k != "at"}),
+                                    "set": [{"at": stp.get("at", "40%"), "dur": 0.25, "p": {"on": 1.0}}]})
+        # ---- re-hook card, BUG ID card, screen overlays
+        c = st["card"]
+        if c["suspect"]:
+            n_ = c["suspect"].split()[1]
+            rk.append({"type": "suspect", "text": c["suspect"], "at": 0.0, "kicker": segs[seg]["chapter"].split(":")[-1].strip().upper()})
+            sfx = ["sting@0", "hit@0.05"] + sfx
+        if st["id"]:
+            ii = st["id"]
+            f_ = a.get("f", "")
+            rk.append({"type": "idcard", "name": ii["name"], "rows": ii["rows"], "kind": ii["bug"], "n": len(ii["rows"]),
+                       "new": True, "first": ii["first"], "in": a.get("id_in", "35%" if c["suspect"] else ("0%" if not ii["first"] else _first_i(a))),
+                       "at": a.get("id_at", "45%" if c["suspect"] else ("10%" if not ii["first"] else _first_i(a))),
+                       "x": a.get("idx", 1430)})
+            sfx = sfx + [f"pop@{rk[-1]['at']}"]
+        rk += copy.deepcopy(a.get("ov", []))
+        b["rk"] = rk
+        # ---- the outline card (other rows) at the top
+        rows = c["rows"] if a.get("card") is None else ([x.strip() for x in a["card"].split("·")] if a.get("card") else [])
+        if rows and not a.get("tier"):
+            px = a.get("card_px", 92)
+            cx = a.get("card_x", 700 if st["id"] else W // 2)
+            mw = 1150 if st["id"] else 1700
+            crow = []
+            for k, r in enumerate(rows):
+                f = ImageFont.truetype(FONT, px if k == 0 else int(px * 0.8))
+                p_ = px if k == 0 else int(px * 0.8)
+                while f.getlength(r) > mw and p_ > 50:
+                    p_ -= 6
+                    f = ImageFont.truetype(FONT, p_)
+                crow.append([r, YEL if k == 0 else "#ffffff", p_])
+            b["card"] = {"rows": crow, "y": 24, "at": a.get("card_at", "8%" if not c["suspect"] else "1.5"), "x": cx}
+        b["sfx"] = sfx
+        if last:
+            b["actors"].append({"id": "end", "type": "kk_end", "pos": [0, 0], "front": True,
+                                "p": {"on": 0.0, "label": "HOUSE CENTIPEDE  ·  HOUSE GUESTS"},
+                                "set": [{"at": "100%", "dur": 0.5, "p": {"on": 1.0}}]})
+            b["pad"] = spec.get("end_hold", 20.0)
+        else:
+            b["pad"] = pad
+        b["ds_id"] = L["id"]
+        beats.append(b)
+    return beats
+
+
+GAGS = {"s1.l2": 1.0, "s1.l13": 1.3, "s2.l9": 1.3, "s2.l10": 1.3, "s4.l4": 1.0, "s4.l6": 2.2, "s4.l9": 1.1, "s4.l15": 1.2,
+        "s5.l6": 1.1, "s5.l15": 1.3, "s6.l2": 1.0, "s6.l3": 1.2, "s6.l12": 1.0, "s6.l13": 1.2, "s6.l23": 1.4, "s7.l3": 1.4,
+        "s0.l5": 1.0, "s3.l5": 1.0, "s5.l17": 1.0}   # punchlines and reveals: room to land
+
+
+def _pad(spec, L):
+    a = L["shot"]
+    if "pad" in a:
+        return a["pad"]
+    if a.get("tier"):
+        return 1.7
+    if L["id"] in GAGS:
+        return GAGS[L["id"]]
+    if L["id"].endswith(".l0") or (L.get("card") or "").startswith("CLUE"):
+        return 0.7
+    return spec.get("pad", 0.4)
+
+
+def _pct(x):
+    if isinstance(x, (int, float)):
+        return 0.0
+    m = re.search(r"(\d+)%$", x)
+    return float(m.group(1)) if m else 50.0
+
+
+def _first_i(a):
+    """When the ID card lands on its first line: at the cut to the 'i' framing."""
+    f = a.get("f", "")
+    if "i" in f and f.index("i") > 0 and a.get("cuts"):
+        return a["cuts"][f.index("i") - 1]
+    return "8%"
+
+
+def drawn_spec(spec, lines):
+    durs = durations(spec, lines)
+    out = {k: spec[k] for k in ("voice", "rate", "pitch", "music", "music_db", "captions", "caption_y", "cut_whoosh",
+                                "cap_key", "sfx_gain", "tempo") if k in spec}
+    out.update(beats=expand(spec, lines, durs), recut=False, stage={}, ds={"pause": [], "music_out": []})
+    return out
+
+
+# ================================================================================================ render / sheets
+
+
+def _pick(spec, rng):
+    if not rng:
+        return spec["lines"]
+    if re.match(r"^s\d+$", rng):   # a chapter
+        return [L for L in spec["lines"] if L["seg"] == int(rng[1:])]
+    a, b = rng.split("-")
+    return spec["lines"][int(a):int(b) + 1]
+
+
+def render(spec_path, out, rng=None, work=None):
+    spec = json.load(open(spec_path))
+    lines = _pick(spec, rng)
+    voice_cache(spec, lines)
+    dsx = drawn_spec(spec, lines)
+    work = work or os.path.join("/dev/shm", ".work-" + os.path.splitext(os.path.basename(out))[0])
+    os.makedirs(work, exist_ok=True)
+    voice_into(spec, dsx["beats"], lines, work)
+    sp = os.path.join(work, "drawn_spec.json")
+    json.dump(dsx, open(sp, "w"), indent=1)
+    sys.argv = ["drawn.py", sp, out, "--work", work]
+    os.environ.setdefault("CRF", "24")
+    os.environ.setdefault("DRAWN_PRESET", "veryfast")
+    drawn.main()
+    drawn_treecheck.loudness(out)
+
+
+def _setup_one(spec, L, work):
+    dsx = drawn_spec(spec, [L])
+    w = os.path.join(work, L["id"])
+    voice_into(spec, dsx["beats"], [L], w)
+    beats, total = drawn.plan(drawn.drawn_macros.expand(dsx), w)
+    drawn.G.update(fps=30, beats=beats, rigs=drawn.rig_tracks(beats, 30), caps=drawn.caption_chunks(beats),
+                   cap_px=dsx.get("captions", 60), cap_y=dsx.get("caption_y", 990), counter=None,
+                   cap_key=set(dsx.get("cap_key", ())), ticks=[], raw_out=False, nocap_out=False)
+    return beats
+
+
+def _frame(spec, L, frac, work):
+    beats = _setup_one(spec, L, work)
+    f = int(frac * beats[0]["speech"] * 30)
+    arr = np.frombuffer(drawn.frame_at(f)[-1], np.uint8).reshape(H, W, 4)
+    return Image.fromarray(arr[..., [2, 1, 0]].copy()), beats[0]["dur"]
+
+
+def linesheet(spec_path, out, only=None, frac=0.6, work="/dev/shm/ranked-lines", cols=5, big=None, fracs=None):
+    spec = json.load(open(spec_path))
+    sel = [L for L in spec["lines"] if not only or L["id"] in only]
+    voice_cache(spec, sel)
+    tiles = []
+    for L in sel:
+        for fr in (fracs or [L["shot"].get("sheet_at", frac)]):
+            im, dur = _frame(spec, L, fr, work)
+            if big:
+                im.save(os.path.join(big, f"{L['id']}-{fr}.png"))
+            im = im.resize((480, 270))
+            d = ImageDraw.Draw(im)
+            d.rectangle((0, 246, 170, 270), fill=(0, 0, 0))
+            d.text((4, 250), f"{L['id']} {dur:.1f}s @{fr}", fill=(255, 255, 0))
+            tiles.append(im)
+
+    def sheet(ts, path):
+        rows = (len(ts) + cols - 1) // cols
+        s = Image.new("RGB", (480 * cols, 270 * rows))
+        for i, im in enumerate(ts):
+            s.paste(im, ((i % cols) * 480, (i // cols) * 270))
+        s.save(path, quality=82)
+    if len(tiles) <= 30:
+        sheet(tiles, out)
+    else:
+        base = os.path.splitext(out)[0]
+        for k in range(0, len(tiles), 30):
+            sheet(tiles[k:k + 30], f"{base}-{k // 30 + 1}.jpg")
+    print("linesheet:", out, len(tiles))
+
+
+def check(spec_path):
+    """Plan the whole episode (voice from the cache): runtime, the longest hold between camera events, MB sizes."""
+    spec = json.load(open(spec_path))
+    voice_cache(spec, spec["lines"])
+    durs = durations(spec, spec["lines"])
+    dsx = drawn_spec(spec, spec["lines"])
+    work = "/dev/shm/ranked-check"
+    voice_into(spec, dsx["beats"], spec["lines"], work)
+    beats, total = drawn.plan(drawn.drawn_macros.expand(dsx), work)
+    ev = []
+    for b in beats:
+        ev.append((b["t0"], b["ds_id"]))
+        for s in b["shots"][1:]:
+            ev.append((b["t0"] + s["at"], b["ds_id"]))
+    ev.sort()
+    gaps = sorted(((ev[i + 1][0] - ev[i][0], ev[i][1], ev[i][0]) for i in range(len(ev) - 1)), reverse=True)[:8]
+    print(f"runtime {total:.1f} s ({int(total // 60)}:{total % 60:04.1f}), {len(beats)} lines, {len(ev)} cuts")
+    for g, i, t in gaps:
+        print(f"  hold {g:.2f} s from {t:.1f} s ({i})")
+    for b in beats:
+        if b["ds_id"].endswith(".l0"):
+            print(f"  {b['ds_id']} starts {int(b['t0'] // 60)}:{b['t0'] % 60:04.1f}")
+    return beats, total
+
+
+if __name__ == "__main__":
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("cmd")
+    ap.add_argument("spec")
+    ap.add_argument("out", nargs="?")
+    ap.add_argument("--lines")
+    ap.add_argument("--work")
+    ap.add_argument("--only")
+    ap.add_argument("--big")
+    ap.add_argument("--frac", type=float, default=0.6)
+    ap.add_argument("--fracs")
+    x = ap.parse_args()
+    if x.cmd == "build":
+        build(x.spec, x.out)
+    elif x.cmd == "render":
+        render(x.spec, x.out, x.lines, x.work)
+    elif x.cmd == "linesheet":
+        linesheet(x.spec, x.out, x.only.split(",") if x.only else None, x.frac, x.work or "/dev/shm/ranked-lines", big=x.big,
+                  fracs=[float(v) for v in x.fracs.split(",")] if x.fracs else None)
+    elif x.cmd == "check":
+        check(x.spec)
+    elif x.cmd == "voice":
+        spec = json.load(open(x.spec))
+        voice_cache(spec, spec["lines"])
+    else:
+        raise SystemExit(__doc__)
