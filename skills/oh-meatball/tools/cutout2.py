@@ -43,10 +43,10 @@ SEQ = [   # v2 HARD script: side-hustles/channels/scripts/cutout-black-friday-v2
     ("line", "dot", "My mom said if I come home, she's renting out my room. On Airbed.", None,
      dict(scene="outside", cams=[(0, "cu_dot")], gap=0.35)),
     ("line", "mb", "Relax. We go in fast, grab the TV, and leave with our dignity.", None,
-     dict(scene="outside", cams=[(0, "cu_mb"), (1, "wide")], gap=0.1)),
+     dict(scene="outside", cams=[(0, "cu_mb"), (1, "wide")], gap=0.1, voice="kokoro:adam-puck@speed=1.2")),
     ("gag", "stampede", 2.8, "outside", "wide"),
     ("line", "pip", "There goes our dignity. And my spleen.", None,
-     dict(scene="outside", cams=[(0, "cu_pip_flat")], gap=0.1)),
+     dict(scene="outside", cams=[(0, "cu_pip_flat")], gap=0.1, voice="kokoro:pip@speed=1.22,pause=0.16")),
     ("hold", 0.5, "wide"),
     ("gag", "ceo_in", 0.5, "ceo", "wide"),
     ("line", "ceo", "Welcome, shoppers! We raised every price forty percent last week, so today's sixty percent off "
@@ -60,8 +60,8 @@ SEQ = [   # v2 HARD script: side-hustles/channels/scripts/cutout-black-friday-v2
      None, dict(scene="inside", cams=[(0, "wide"), (3, "cu_tv"), (7, "cu_mb")], gap=0.1)),
     ("hold", 0.4, "cu_mb"),
     ("gag", "slam", 1.4, "inside", "wide"),
-    ("line", "pip", "A grandma just body-slammed me!", "[BLEEP]! A grandma just body-slammed me!",
-     dict(scene="inside", cams=[(0, "cu_pip_down")], bleep=0.5, gap=0.2)),
+    ("line", "pip", "[BLEEP]! A grandma just body-slammed me!", None,
+     dict(scene="inside", cams=[(0, "cu_pip_down")], gap=0.2)),
     ("line", "grandma", "Back off, sweetie. I've been training since July and I have nothing left to lose.", None,
      dict(scene="inside", cams=[(0, "cu_grandma")], gap=0.35)),
     ("line", "mb", "New plan. Grandma takes the TV, we follow her home, and we watch it through her window.", None,
@@ -91,9 +91,69 @@ SEQ = [   # v2 HARD script: side-hustles/channels/scripts/cutout-black-friday-v2
     ("line", "dot", "Dang. That got dark.", None, dict(scene="dawn", cams=[(0, "cu_dot")], gap=0.0)),
     ("hold", 0.5, "cu_dot"),
     ("line", "pip", "Same time next year?", None, dict(scene="dawn", cams=[(0, "wide")], gap=0.2)),
-    ("line", "all", "Obviously.", None, dict(scene="dawn", cams=[(0, "wide")], gap=0.0)),
-    ("line", "all", "yeah.", "[BLEEP] yeah.", dict(scene="dawn", cams=[(0, "wide")], bleep=0.45, gap=0.4)),
+    ("line", "all", "Obviously. [BLEEP] yeah.", None, dict(scene="dawn", cams=[(0, "wide")], gap=0.4)),
     ("gag", "end", 2.9, "dawn", "wide"),
+]
+SEQ_V3 = [   # v3 cursing: side-hustles/channels/scripts/cutout-black-friday-v3-cursing.md
+    ("gag", "intro", 2.9, "outside", "wide"),
+    ("line", "mb", "Black Friday. The one day a year we fight a stranger over a toaster.", None,
+     dict(scene="outside", cams=[(0, "wide"), (6, "cu_mb")])),
+    ("line", "pip", "My mom said if I don't come home with the TV, don't come home.", None,
+     dict(scene="outside", cams=[(0, "cu_pip")], gap=0.12)),
+    ("line", "dot", "My mom said if I come home, she's renting out my room. On Airbed.", None,
+     dict(scene="outside", cams=[(0, "cu_dot")], gap=0.35)),
+    ("line", "mb", "Relax. We go in fast, grab the damn TV, and leave with our dignity.", None,
+     dict(scene="outside", cams=[(0, "cu_mb"), (1, "wide")], gap=0.1, voice="kokoro:adam-puck@speed=1.2")),
+    ("gag", "stampede", 2.8, "outside", "wide"),
+    ("line", "pip", "There goes our dignity. And my [BLEEP] spleen.", None,
+     dict(scene="outside", cams=[(0, "cu_pip_flat")], gap=0.1, voice="kokoro:pip@speed=1.22,pause=0.16")),
+    ("hold", 0.4, "wide"),
+    ("gag", "ceo_in", 0.5, "ceo", "wide"),
+    ("line", "ceo", "Welcome, shoppers! We raised every price forty percent last week, so today's sixty percent off "
+     "is a gift from my heart.", None, dict(scene="ceo", cams=[(0, "cu_ceo"), (13, "wide"), (18, "cu_ceo")],
+                                            gap=0.2)),
+    ("line", "dot", "That's not a sale, you [BLEEP]. That's a hostage situation with coupons.", None,
+     dict(scene="ceo", cams=[(0, "cu_dot")], gap=0.0)),
+    ("hold", 0.4, "cu_dot"),
+    ("gag", "tv", 1.5, "inside", "cu_tv"),
+    ("line", "mb", "There it is. Seventy-five inches. Ninety-nine dollars. Probably made of cardboard and child tears. "
+     "I don't give a crap.",
+     None, dict(scene="inside", cams=[(0, "wide"), (3, "cu_tv"), (7, "cu_mb")], gap=0.1)),
+    ("hold", 0.4, "cu_mb"),
+    ("gag", "slam", 1.4, "inside", "wide"),
+    ("line", "pip", "[BLEEP]! A grandma just body-slammed me!", None,
+     dict(scene="inside", cams=[(0, "cu_pip_down")], gap=0.2)),
+    ("line", "grandma", "Back off, you little [BLEEP]. I've been training since July and I have nothing left to lose.", None,
+     dict(scene="inside", cams=[(0, "cu_grandma")], gap=0.35)),
+    ("line", "mb", "New plan. Grandma takes the TV, we follow her home, and we watch it through her window.", None,
+     dict(scene="inside", cams=[(0, "cu_mb")], gap=0.2)),
+    ("line", "dot", "That's called stalking, dumbass.", None, dict(scene="inside", cams=[(0, "cu_dot")], gap=0.15)),
+    ("line", "mb", "It's called a payment plan.", None, dict(scene="inside", cams=[(0, "cu_mb")], gap=0.0)),
+    ("hold", 0.45, "cu_dot"),
+    ("gag", "checkout", 0.7, "checkout", "wide"),
+    ("line", "kiosk", "Unexpected item in the bagging area.", None,
+     dict(scene="checkout", cams=[(0, "cu_kiosk")], gap=0.25, beep=0.35)),
+    ("line", "grandma", "The unexpected item is my [BLEEP] fist.", None,
+     dict(scene="checkout", cams=[(0, "cu_grandma")], gap=0.05)),
+    ("gag", "punch", 1.0, "checkout", "wide"),
+    ("line", "kiosk", "Please... wait... for an associate.", None,
+     dict(scene="checkout", cams=[(0, "cu_kiosk")], gap=0.2)),
+    ("line", "ceo", "There are no associates. We replaced them with you.", None,
+     dict(scene="ceo", cams=[(0, "cu_ceo")], gap=0.0)),
+    ("hold", 0.4, "cu_ceo"),
+    ("gag", "dawn", 1.2, "dawn", "wide"),
+    ("line", "mb", "You know, guys, Black Friday taught us something. It's not about the stuff. It's about the people...",
+     None, dict(scene="dawn", cams=[(0, "wide"), (5, "cu_mb")], gap=0.25)),
+    ("line", "pip", "I got a free sock. Holy crap, somebody's foot is still in it.", None,
+     dict(scene="dawn", cams=[(0, "cu_pip")], gap=0.25)),
+    ("line", "mb", "we stepped on to get the stuff.", "...we stepped on to get the stuff.",
+     dict(scene="dawn", cams=[(0, "cu_mb")], gap=0.0)),
+    ("hold", 0.45, "wide"),
+    ("line", "dot", "Well, that got dark as hell.", None, dict(scene="dawn", cams=[(0, "cu_dot")], gap=0.0)),
+    ("hold", 0.4, "cu_dot"),
+    ("line", "pip", "Same time next year?", None, dict(scene="dawn", cams=[(0, "wide")], gap=0.2)),
+    ("line", "all", "Obviously. [BLEEP] yeah.", None, dict(scene="dawn", cams=[(0, "wide")], gap=0.25)),
+    ("gag", "end", 2.6, "dawn", "wide"),
 ]
 FLAT = 1.0   # stampede: seconds from the doors to the kids getting flattened
 END_TEXT = ["WHAT'S THE DUMBEST THING", "YOU'D FIGHT FOR", "ON BLACK FRIDAY?"]
@@ -153,7 +213,7 @@ def cams(L):
     o["cu_pip_flat"] = (clampcx(L, px + 40, L["cu"]), F - 180 * K, L["cu"])
     i = out["inside"]
     tx, ty, ts = L["inside"]["tv"]
-    i["cu_tv"] = (tx, ty + 20 * ts, 1.75 if not vert else 1.25)
+    i["cu_tv"] = (tx, ty - 50 * ts, 1.45 if not vert else 1.2)
     gx, gy = L["inside"]["grandma_land"]
     i["cu_pip_down"] = (clampcx(L, gx + 230 * K, L["cu"]), gy - 200 * K, L["cu"])
     i["cu_grandma"] = (clampcx(L, gx + 210 * K, 2.4), gy - 260 * K, 2.4 if not vert else 2.1)
@@ -572,10 +632,62 @@ def bg_dawn(L, cam):
 G = {}
 
 
-def voice(who, say):
-    mp3 = fv.make(V[who], say)
+def voice(who, say, v=None):
+    mp3 = fv.make(v or V[who], say)
     words = json.load(open(mp3 + ".words.json"))
     return load_audio(mp3), words
+
+
+GD = {}   # gag name -> seconds (filled by build)
+BLEEP = 0.36   # seconds of 1 kHz tone per [BLEEP]; the voice is silent there
+
+
+def all_take(seg):
+    """The three kids in unison. "yeah." alone voices badly, so it is cut from a "Heck yeah." take at the k stop
+    (the cut part is thrown away, never heard)."""
+    parts = []
+    for k, g in (("pip", 0.6), ("mb", 0.6), ("dot", 0.6)):
+        if seg.strip().lower() == "yeah.":
+            a_, _ = voice(k, "Heck yeah.")
+            e = np.array([np.sqrt(np.mean(a_[i:i + 441] ** 2)) for i in range(0, len(a_) - 441, 441)])
+            lo, hi = int(len(e) * 0.2), int(len(e) * 0.6)
+            a_ = a_[(lo + int(np.argmin(e[lo:hi]))) * 441:] * (g if k != "dot" else 0.3)
+        else:
+            a_ = voice(k, seg)[0] * g
+        parts.append(a_)
+    A = np.zeros(max(len(x) for x in parts), np.float32)
+    for x in parts:
+        A[:len(x)] += x
+    return A, None
+
+
+def voice_line(who, say, o):
+    """Audio + word times for a line. Each [BLEEP] splits the line: the pieces are voiced separately and a
+    silent gap of BLEEP s goes where the bleeped word is (tone added in the mix, caption #@%!)."""
+    pieces = say.split("[BLEEP]")
+    audio, words, bwins, t = [], [], [], 0.0
+    for i, seg in enumerate(pieces):
+        seg = seg.strip().lstrip(".!,?").strip()
+        if seg:
+            if who == "all":
+                a_, _ = all_take(seg)
+                w_ = None
+            else:
+                a_, w_ = voice(who, seg, o.get("voice"))
+            sw = seg.split()
+            if w_ is None or len(w_) != len(sw):
+                d = len(a_) / SR
+                w_ = [(d * j / len(sw), d * (j + 1) / len(sw), x) for j, x in enumerate(sw)]
+            words += [(t + s_, t + e_, w) for s_, e_, w in w_]
+            audio.append(a_)
+            t += len(a_) / SR
+        if i < len(pieces) - 1:
+            n = int(BLEEP * SR)
+            audio.append(np.zeros(n, np.float32))
+            bwins.append((t, t + BLEEP))
+            words.append((t, t + BLEEP, "#@%!"))
+            t += BLEEP
+    return np.concatenate(audio).astype(np.float32), words, bwins
 
 
 def build():
@@ -585,6 +697,7 @@ def build():
         if it[0] == "gag":
             _, name, dur, scene, cam = it
             ev[name] = t
+            GD[name] = dur
             segs.append((t, scene, cam))
             t += dur
             continue
@@ -593,23 +706,16 @@ def build():
             t += it[1]
             continue
         _, who, say, cap, o = it
-        pre = o.get("bleep", 0) + o.get("beep", 0)
-        if who == "all":
-            parts = [voice(k, say) for k in ("pip", "mb", "dot")]
-            n = max(len(a) for a, _ in parts)
-            audio = np.zeros(n, np.float32)
-            for a, _ in parts:
-                audio[:len(a)] += a * 0.6
-            words = parts[0][1]
-        else:
-            audio, words = voice(who, say)
+        pre = o.get("beep", 0)
+        audio, words, bwins = voice_line(who, say, o)
         start = t + pre
-        capw = (cap or say).split()
-        if o.get("bleep"):
-            capw = capw[1:]
-        ln = dict(who=who, start=start, dur=len(audio) / SR, audio=audio, pre=pre, bleep=o.get("bleep", 0),
+        if cap and "[BLEEP]" not in cap:   # a caption that only changes how words are shown ("...we stepped")
+            cw = cap.split()
+            words = [(s_, e_, cw[j] if j < len(cw) else w) for j, (s_, e_, w) in enumerate(words)]
+        ln = dict(who=who, start=start, dur=len(audio) / SR, audio=audio, pre=pre, bleep=0,
                   beep=o.get("beep", 0), t0=t, scene=o["scene"],
-                  words=[(start + s, start + e, capw[j] if j < len(capw) else w) for j, (s, e, w) in enumerate(words)])
+                  words=[(start + s_, start + e_, w) for s_, e_, w in words],
+                  bwins=[(start + a_, start + b_) for a_, b_ in bwins])
         env = np.sqrt(np.convolve(audio ** 2, np.ones(1470) / 1470, "same"))
         ln["rms_pk"] = float(np.percentile(env, 98))
         for wi, cam in o["cams"]:
@@ -636,6 +742,8 @@ def speaking(t):
 
 def mouth_level(ln, t):
     if ln["bleep"] and ln["t0"] <= t < ln["start"]:
+        return 2
+    if any(a <= t < b for a, b in ln.get("bwins", ())):
         return 2
     if not any(s - 0.03 <= t <= e + 0.02 for s, e, _ in ln["words"]):
         return 0
@@ -720,7 +828,7 @@ def kid_pose(c, t, fi, li):
             expr = "smug"
     if scene == "inside":
         tv = ev["tv"]
-        if t < tv + 1.7 + 0.5:
+        if t < tv + GD["tv"] + 0.5:
             expr, gaze = ("wide" if c != "dot" else "deadpan"), "r"
         sl = ev["slam"]
         if c == "pip" and t >= sl + 0.55:
@@ -758,6 +866,8 @@ def kid_pose(c, t, fi, li):
             aL, aR = -10, 22
     if c == "dot" and spk and say and "dark" in say:
         expr = "wide"
+    if spk and any(a <= t < b for a, b in ln.get("bwins", ())):
+        ang, lvl = [-7, 7][fi % 2], 2
     blink = (int(t * FPS) + {"mb": 0, "pip": 17, "dot": 29}[c]) % 41 == 0
     return (hop, (float(rng.uniform(-jit, jit)), float(rng.uniform(-jit, jit))), ang, (aL, aR),
             (lvl, gaze, blink, expr), squash, rot, extra)
@@ -864,7 +974,7 @@ def frame(fi):
         tvx, tvy = cam.p(tx, ty)
         paste(fr, spr("tv", zz), tvx, tvy)
         screen_glow(fr, cam, tx - 254 * ts, ty - 324 * ts, tx + 254 * ts, ty - 56 * ts, t, ts)
-        if t < ev["tv"] + 1.7:   # choppy sparkles on the reveal
+        if t < ev["tv"] + GD["tv"]:   # choppy sparkles on the reveal
             for k in range(6):
                 a = k * 60 + (fi % 3) * 20
                 r = 260 * ts + (fi % 2) * 20
@@ -896,7 +1006,7 @@ def frame(fi):
             draw_kid(fr, cam, c, S["kids"][c], F, pose)
             if c == "dot":
                 draw_receipt(fr, cam, S["kids"]["dot"], F, pose)
-        if ev["dawn"] <= t < ev["dawn"] + 1.4:
+        if ev["dawn"] <= t < ev["dawn"] + GD["dawn"]:
             draw_tag(fr, "6:12 AM", L["W"] / 2, L["H"] * (0.18 if L["W"] > L["H"] else 0.2), 0, 1.0)
     draw_banners(fr, t)
     draw_caption(fr, t, cam_name)
@@ -1012,7 +1122,9 @@ def draw_granny_inside(fr, cam, t, li):
     if ln is not None and ln["who"] == "grandma":
         wi = max([j for j, (s, _, _) in enumerate(ln["words"]) if s <= t + 0.01] or [0])
         aL, aR = [(-40, 40), (-30, 150), (-150, 30), (-90, 90)][wi % 4]
-    draw_granny(fr, cam, x, y, lvl, "mean", aL, aR, rot=rot)
+    ang = [-7, 7][int(t * FPS) % 2] if ln is not None and ln["who"] == "grandma" and any(
+        a <= t < b for a, b in ln.get("bwins", ())) else 0.0
+    draw_granny(fr, cam, x, y, lvl, "mean", aL, aR, ang=ang, rot=rot)
     if sl + 0.55 <= t < sl + 1.2:
         K = G["L"]["K"]
         px, py = cam.p(x + 60 * K, y - 20 * K)
@@ -1099,7 +1211,9 @@ def draw_granny_checkout(fr, cam, t, li):
             aR, x, hop = 100, kx - 190 * K, -360
         else:
             aR, x, hop = 40, kx - 230 * K, -120
-    draw_granny(fr, cam, x, gy, lvl, "mean", aL, aR, hop=hop)
+    ang = [-7, 7][int(t * FPS) % 2] if ln is not None and ln["who"] == "grandma" and any(
+        a <= t < b for a, b in ln.get("bwins", ())) else 0.0
+    draw_granny(fr, cam, x, gy, lvl, "mean", aL, aR, ang=ang, hop=hop)
     if 0.35 <= d < 1.0:
         kx, ky = S["kiosk"]
         px, py = cam.p(kx - 70 * K, ky - 470 * K)
@@ -1126,8 +1240,6 @@ def draw_tag(fr, text, x, y, seed, scale):
 
 def chunks_of(ln):
     out, cur = [], []
-    if ln["bleep"]:
-        out.append([(ln["t0"], ln["start"], "#@%!")])
     for wd in ln["words"]:
         cur.append(wd)
         if len(cur) == 3 or wd[2][-1] in ".?!," or (len(cur) == 2 and len(" ".join(x[2] for x in cur)) > 12):
@@ -1262,7 +1374,7 @@ def mix(end):
         k += 1
     gate = np.ones_like(bed)
     gate[:int(9 * BEAT * SR)] = 0
-    for name, d0, d1 in (("stampede", 0, 2.8), ("tv", 0, 1.7), ("punch", 0, 1.0), ("dawn", 0, 1.2)):
+    for name, d0, d1 in (("stampede", 0, 2.8), ("tv", 0, GD["tv"]), ("punch", 0, 1.0), ("dawn", 0, GD["dawn"] - 0.2)):
         gate[int((ev[name] + d0) * SR):int((ev[name] + d1) * SR)] = 0
     gate[int(ev["end"] * SR):] = 0
     gate = np.convolve(gate, np.ones(4410) / 4410, "same").astype(np.float32)
@@ -1285,8 +1397,8 @@ def mix(end):
     sfx_slap(fx, st + FLAT + 0.02, 0.5, 7)
     # peel off the floor: a tape rip
     pl = lines[4]
-    add(fx, noise_burst(0.45, 0.2, 11, 1), pl["t0"] + 0.05, 0.12)
-    add(fx, choir(1.9), ev["tv"] + 0.05, 0.42)
+    add(fx, noise_burst(0.4, 0.15, 11, 1), pl["t0"] - 0.5, 0.12)
+    add(fx, choir(GD["tv"] + 0.2), ev["tv"] + 0.05, 0.42)
     # grandma slam: whistle-in, impact
     sl = ev["slam"]
     tt = np.arange(int(0.55 * SR)) / SR
@@ -1300,13 +1412,15 @@ def mix(end):
             add(fx, tone(1000, ln["bleep"] - 0.06, 0.32), ln["t0"])
         if ln["beep"]:
             add(fx, tone(1560, 0.16, 0.3), ln["t0"] + 0.05)
+        for a, b in ln.get("bwins", ()):
+            add(fx, tone(1000, b - a - 0.03, 0.34), a + 0.015)
     add(fx, tone(1560, 0.12, 0.25), ev["checkout"] + 0.6)
     pu = ev["punch"]
     thud(fx, pu + 0.35, 1.0)
     add(fx, noise_burst(0.6, 0.15, 13, 1), pu + 0.36, 0.3)
-    tt = np.arange(int(0.7 * SR)) / SR
-    add(fx, (np.sign(np.sin(2 * np.pi * np.cumsum(600 - 500 * tt / 0.7) / SR)) * 0.08 *
-             np.exp(-tt / 0.4)).astype(np.float32), pu + 0.5, 1.0)   # power-down
+    tt = np.arange(int(0.35 * SR)) / SR
+    add(fx, (np.sign(np.sin(2 * np.pi * np.cumsum(600 - 500 * tt / 0.35) / SR)) * 0.06 *
+             np.exp(-tt / 0.15)).astype(np.float32), pu + 0.45, 1.0)   # power-down
     # dawn: a bird
     for k in range(3):
         tt = np.arange(int(0.09 * SR)) / SR
@@ -1388,7 +1502,10 @@ if __name__ == "__main__":
     ap.add_argument("--sheet")
     ap.add_argument("--times", type=float, nargs="*")
     ap.add_argument("--timeline", action="store_true")
+    ap.add_argument("--script", default="v2", choices=["v2", "v3"])
     a = ap.parse_args()
+    if a.script == "v3":
+        SEQ[:] = SEQ_V3
     if a.timeline:
         timeline(a.fmt)
     elif a.sheet:
