@@ -1,7 +1,7 @@
 {
  "series": "Things Living In Your House",
  "photo_credits": [],
- "voice": "en-US-GuyNeural",
+ "voice": "kokoro:adam",
  "rate": "+32%",
  "pitch": "+2Hz",
  "music": "eerie",
@@ -51,7 +51,7 @@
   "centipede",
   "youtube"
  ],
- "_note": "Part 5 (11/17 evening, Nolan: 'get cranking'). Facts from side-hustles channels/qa/silverfish-p5-1118.md (P5-F1..F10, QA's script-safe wording). TikTok-native render. v3 look, voice C, no repeated rooms, one freak-out (line 2), ID card on line 4. Second-model check: research/facts/silverfish-p5-check.md. | Second-model check 11/17 evening: 7 fixes applied (research/facts/silverfish-p5-check.md).",
+ "_note": "Part 5 (11/17 evening, Nolan: 'get cranking'). Facts from side-hustles channels/qa/silverfish-p5-1118.md (P5-F1..F10, QA's script-safe wording). TikTok-native render. v3 look, voice C, no repeated rooms, one freak-out (line 2), ID card on line 4. Second-model check: research/facts/silverfish-p5-check.md. | Second-model check 11/17 evening: 7 fixes applied (research/facts/silverfish-p5-check.md). | 11/17 night: re-voiced with E (Kokoro am_adam), Nolan: \"just standard e voice\"; per-line acting; gaps 0.12 s.",
  "sources": [
   "P5-F1 MDC Silverfish (Firebrat) https://mdc.mo.gov/discover-nature/field-guide/silverfish-firebrat : 'Their fossils date to 400 million years ago — about twice as long ago as the dinosaurs.'",
   "P5-F2 MDC (same): 'They do not transmit disease, however.'",
@@ -91,7 +91,8 @@
     "type": "bugcam",
     "at": 0.0,
     "dur": 1.5
-   }
+   },
+   "voice": "kokoro:adam@speed=1.15,pitch=1.5,gain=3"
   },
   {
    "m": "escalate",
@@ -101,9 +102,7 @@
    "sfx": [
     "sting@bite"
    ],
-   "rate": "+34%",
-   "pitch": "+12Hz",
-   "pad": 0.1,
+   "pad": 0.3,
    "card": {
     "rows": [
      [
@@ -119,13 +118,13 @@
    },
    "_f": [
     "P5-F8"
-   ]
+   ],
+   "voice": "kokoro:adam@speed=1.3,pitch=3"
   },
   {
    "m": "fact",
    "scene": "kitchen",
-   "pad": 0.35,
-   "rate": "+20%",
+   "pad": 0.12,
    "say": "It has very weak jaws, so it scrapes the surface of paper instead of biting it. And they do not transmit disease.",
    "card": {
     "rows": [
@@ -147,22 +146,23 @@
    "_f": [
     "P5-F8",
     "P5-F2"
-   ]
+   ],
+   "voice": "kokoro:adam@speed=1.05"
   },
   {
    "m": "fact",
    "scene": "classroom",
-   "pad": 0.2,
-   "rate": "+20%",
+   "pad": 0.12,
    "say": "Its fossils date to 400 million years ago. That's about twice as long ago as the dinosaurs. Meatball's lunch is not that old. Probably.",
    "_f": [
     "P5-F1"
-   ]
+   ],
+   "voice": "kokoro:adam@speed=1.05"
   },
   {
    "m": "chase",
    "scene": "study",
-   "pad": 0.2,
+   "pad": 0.12,
    "say": "They move rapidly, including sideways, and their flat bodies let them hide in narrow crevices. Meatball can't even walk sideways.",
    "card": {
     "rows": [
@@ -183,13 +183,13 @@
    },
    "_f": [
     "P5-F7"
-   ]
+   ],
+   "voice": "kokoro:adam@speed=1.1,pitch=0.5"
   },
   {
    "m": "fact",
    "scene": "bedroom",
-   "pad": 0.2,
-   "rate": "+20%",
+   "pad": 0.12,
    "say": "Males attract females with a mating dance, antennae contact and head wagging, then leave a sperm capsule for her to pick up. Meatball's last date just got a breadstick.",
    "card": {
     "rows": [
@@ -210,13 +210,13 @@
    },
    "_f": [
     "P5-F3"
-   ]
+   ],
+   "voice": "kokoro:adam@speed=1.05"
   },
   {
    "m": "xray",
    "scene": "office",
-   "pad": 0.2,
-   "rate": "+20%",
+   "pad": 0.12,
    "say": "The babies look like the adults, only whitish and much smaller, and they have no scales at first.",
    "card": {
     "rows": [
@@ -237,13 +237,13 @@
    },
    "_f": [
     "P5-F4"
-   ]
+   ],
+   "voice": "kokoro:adam@speed=1.05"
   },
   {
    "m": "fact",
    "scene": "keeper_room",
-   "pad": 0.2,
-   "rate": "+20%",
+   "pad": 0.12,
    "say": "It can pass through 45 to 60 stages, or instars, in its life. Meatball's list goes baby, kid, snack.",
    "card": {
     "rows": [
@@ -264,13 +264,13 @@
    },
    "_f": [
     "P5-F5"
-   ]
+   ],
+   "voice": "kokoro:adam@speed=1.05"
   },
   {
    "m": "fact",
    "scene": "sill",
-   "pad": 0.2,
-   "rate": "+20%",
+   "pad": 0.12,
    "say": "Silverfish live about 3 years. In some species, individuals can live for 8 years. That's longer than Meatball's houseplant.",
    "card": {
     "rows": [
@@ -291,13 +291,13 @@
    },
    "_f": [
     "P5-F6"
-   ]
+   ],
+   "voice": "kokoro:adam@speed=1.05"
   },
   {
    "m": "fact",
    "scene": "garden",
-   "pad": 0.2,
-   "rate": "+20%",
+   "pad": 0.12,
    "say": "They can invade new homes from wild areas nearby, especially as those areas dry out in summer. They can also come in on lumber and wallboard.",
    "card": {
     "rows": [
@@ -318,12 +318,13 @@
    },
    "_f": [
     "P5-F10"
-   ]
+   ],
+   "voice": "kokoro:adam@speed=1.05"
   },
   {
    "m": "punch",
    "scene": "jh_living",
-   "pad": 0.2,
+   "pad": 0.12,
    "say": "And the house centipede you just met eats these. So, squish it, or let it live?",
    "card": {
     "rows": [
@@ -336,7 +337,8 @@
     "y": 470,
     "at": "squish"
    },
-   "_f": []
+   "_f": [],
+   "voice": "kokoro:adam@speed=1.15,pitch=1.5,gain=3"
   },
   {
    "m": "tease",
@@ -360,7 +362,8 @@
     "y": 380,
     "at": 0.0
    },
-   "_f": []
+   "_f": [],
+   "voice": "kokoro:adam@speed=1.1,pitch=0.5"
   }
  ]
 }
