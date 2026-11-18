@@ -289,4 +289,4 @@ The full list moved to `KNOWLEDGE.md` ("Verified platform facts", moved 11/13). 
 - **Shorts:** each video is judged on its own; a weak upload does not penalize the channel and no cadence is required. No official stayed-to-watch benchmark exists.
 - **TikTok Creator Rewards (he is in it):** pays on original videos of 1 minute or more once they reach 1,000 qualified For You views. Whether search views count is disputed between TikTok's own pages (KNOWLEDGE); his Rewards dashboard decides.
 
-**Voice (Nolan 11/17): "Ok just standard e voice".** Voice E = "kokoro:adam" with per-line acting, gaps of 0.12 s or less, gap lint. Replaces C.
+**Voice (Nolan 11/17 late): "V3 e2", E "sounds very robotic".** E2 = "kokoro:adam-puck", formant 1.05, acted, gaps ≤0.12 s, gap lint.
