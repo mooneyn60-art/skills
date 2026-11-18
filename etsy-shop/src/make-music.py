@@ -89,3 +89,63 @@ for bar in range(8):
         place(y, bells(.12, .05, bar*8 + k), b0 + k*BEAT + BEAT/2)
 write("planner.wav", y)
 print("ok")
+
+# ---------- v3: punchy 180-BPM "Jingle Bells" (public domain) for fast-cut ads ----------
+# 1 beat = 1/3 s, so a 4-beat scene = 1.333 s; beat 0 lands at t=0 (renderer syncs zoom punches to it).
+def kick(amp=.9):
+    t = np.arange(int(SR*.28))/SR
+    f = 50 + 110*np.exp(-t*30)
+    return amp*np.sin(2*np.pi*np.cumsum(f)/SR)*np.exp(-t*11)
+def clap(amp=.35, seed=1):
+    rng = np.random.default_rng(seed); n = int(SR*.18); t = np.arange(n)/SR
+    x = rng.standard_normal(n); x = x - np.concatenate([[0], x[:-1]])
+    env = np.exp(-t*28) + .6*np.exp(-np.maximum(0, t-.012)*30)*(t > .012)
+    return amp*x*env
+def hat(amp=.08, seed=2):
+    rng = np.random.default_rng(seed); n = int(SR*.05); t = np.arange(n)/SR
+    x = rng.standard_normal(n); x = x - np.concatenate([[0], x[:-1]])
+    return amp*x*np.exp(-t*90)
+
+BEAT = 60 / 180
+total = 64 * BEAT
+z = np.zeros(int(SR * (total + 2)))
+t = 0.0
+for tok in mel:
+    n, d = tok[0], float(tok[1:])
+    octv = 6 if n == "C" and tok in ("C1.5", "C4") else 5
+    place(z, tone(hz(n, octv), d*BEAT + .4, "glock", .30), t)
+    place(z, tone(hz(n, octv+1), d*BEAT*.6, "glock", .06), t)        # sparkle double
+    t += d * BEAT
+for bar, ch in enumerate(chords):
+    b0 = bar * 4 * BEAT
+    r, th, fi = ROOT[ch]
+    for k in range(8):                                               # pumping octave bass 8ths
+        place(z, tone(hz(r, 2 + (k % 2)), BEAT*.45, "bass", .30), b0 + k*BEAT/2)
+    for k in range(4):
+        place(z, kick(), b0 + k*BEAT)                                # four on the floor
+        if k in (1, 3): place(z, clap(seed=bar*4+k), b0 + k*BEAT)    # claps on 2 and 4
+        for nn in (r, th, fi):                                       # off-beat stabs
+            place(z, tone(hz(nn, 4), BEAT*.3, "piano", .05), b0 + k*BEAT + BEAT/2)
+    for k in range(8): place(z, hat(seed=bar*8+k), b0 + k*BEAT/2 + BEAT/4)
+for k in range(64 * 2):
+    place(z, bells(.2, .07 if k % 2 == 0 else .04, k), k * BEAT / 2)
+write("jingle-punch.wav", z)
+
+# ---------- v3 sound effects (mixed in at cuts / moments by build-tiktok-anim.js) ----------
+def write_sfx(name, x):
+    x = x / (np.max(np.abs(x)) + 1e-9) * 0.9
+    st = np.stack([x, x], 1)
+    with wave.open(os.path.join(OUT, name), "wb") as w:
+        w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR)
+        w.writeframes((st * 32767).astype(np.int16).tobytes())
+rng = np.random.default_rng(7)
+n = int(SR*.35); tt = np.arange(n)/SR                                # whoosh: noise swell, rising tone
+wh = rng.standard_normal(n); wh = np.convolve(wh, np.ones(12)/12, "same")
+write_sfx("sfx-whoosh.wav", wh*np.sin(np.pi*tt/.35)**2 + .15*np.sin(2*np.pi*np.cumsum(300+1500*tt/.35)/SR)*np.sin(np.pi*tt/.35))
+n = int(SR*.12); tt = np.arange(n)/SR                                # pop: pitch-dropping blip
+write_sfx("sfx-pop.wav", np.sin(2*np.pi*np.cumsum(900-600*tt/.12)/SR)*np.exp(-tt*30))
+n = int(SR*1.0); tt = np.arange(n)/SR                                # ding: two bright bells (price reveal)
+write_sfx("sfx-ding.wav", tone(hz("E", 6), 1.0, "glock", .5)[:n] + np.concatenate([np.zeros(int(SR*.09)), tone(hz("B", 6), 1.0, "glock", .5)])[:n])
+n = int(SR*.6); tt = np.arange(n)/SR                                 # boom: sub drop + noise hit (hook)
+write_sfx("sfx-boom.wav", np.sin(2*np.pi*np.cumsum(40+140*np.exp(-tt*9))/SR)*np.exp(-tt*5) + .4*rng.standard_normal(n)*np.exp(-tt*25))
+print("ok v3")
