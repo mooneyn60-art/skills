@@ -1,8 +1,8 @@
 {
  "_what": "Narration outline for flagship long-form #1 'House Bugs Ranked' (TASKS: FLAGSHIP LONG-FORM #1, FLAGSHIP NEEDS A STORY, LONG-FORM ANIMATION FIXES; MEATBALL_ORDERS QUALITY FIRST). 2 AM mystery: six suspects, one per room; centipede twist and comment prompt near 3:30; bed bug climax in Meatball's bed. Every factual line carries src = fact IDs (P5 silverfish QA, P4/P4Q centipede, DM/HS/CR/BB packs; see sources). vis = what the picture must show. card = on-screen card text. Lines without rate/pitch use the top-level voice settings. Readable script with timestamps: side-hustles/channels/scripts/longform-house-bugs-ranked.md.",
  "titles": [
-  "House Bugs Ranked From Harmless to Get Out",
-  "Every Bug in Your House, Ranked by How Worried You Should Be",
+  "House Bugs Ranked by Meatball, From Harmless to Get Out",
+  "Six House Bugs, Ranked by How Worried Meatball Is",
   "House Bugs Ranked: What Bit Me at 2 AM?"
  ],
  "voice": "en-US-GuyNeural",
@@ -112,7 +112,7 @@
      "rate": "+20%"
     },
     {
-     "say": "That's about paper, not dogs, so it stays on my list.",
+     "say": "That's about paper, not people, so it stays on my list.",
      "vis": "CASE BOARD overlay (graphic, not a room): Meatball pins a SILVERFISH photo to a corkboard.",
      "card": null,
      "src": "P5-F8 hedge (source is about paper)"
@@ -233,21 +233,21 @@
      "rate": "+20%"
     },
     {
-     "say": "The trouble is allergens in the mites, their cast skins and droppings.",
+     "say": "The trouble, if you're allergic, is allergens in the mites, their cast skins and droppings.",
      "vis": "Act it out: a tiny shed skin and a speck labelled POOP float up past Meatball's nose.",
      "card": null,
      "src": "DM8",
      "rate": "+20%"
     },
     {
-     "say": "What should I do? Wash bedding in water at least 130 degrees Fahrenheit.",
+     "say": "What should I do? Wash bedding in hot water once a week, and dry it completely.",
      "vis": "Card. Cut to a washing machine; the dial clicks to AT LEAST 130°F.",
-     "card": "WHAT SHOULD YOU DO? · AT LEAST 130°F WASH",
+     "card": "WHAT SHOULD YOU DO? · HOT WASH, ONCE A WEEK",
      "src": "DM20",
      "rate": "+20%"
     },
     {
-     "say": "And keep the humidity in your home below 50 percent.",
+     "say": "Meatball's laundry pile just got a lot scarier.",
      "vis": "Cut: hygrometer needle drops under 50.",
      "card": null,
      "src": "DM14",
@@ -280,15 +280,15 @@
    "est_start": "2:18",
    "lines": [
     {
-     "say": "Suspect three hangs belly-up in a messy web.",
+     "say": "Suspect three usually hangs belly-up in an irregular web.",
      "vis": "RE-HOOK CARD 'SUSPECT 3 OF 6' + sound hit. Garage, cellar spider upside down in a tangled corner web; then SPIDER CAM (interrupt): spider's-eye view of Meatball's giant face.",
-     "card": "SUSPECT 3 OF 6 · BUG ID: HOUSE SPIDER · ROW 1: HANGS BELLY-UP",
+     "card": "SUSPECT 3 OF 6 · BUG ID: HOUSE SPIDER · ROW 1: USUALLY HANGS BELLY-UP",
      "src": "HS7"
     },
     {
      "say": "But the jaws of most spiders are too small to bite humans.",
      "vis": "Act it out: Meatball holds a tiny cartoon spider jaw next to his giant paw; the jaw can't reach around.",
-     "card": "ID ROW 2: MOST JAWS TOO SMALL FOR HUMANS",
+     "card": "ID ROW 2: MOST JAWS TOO SMALL TO BITE HUMANS",
      "src": "HS2",
      "rate": "+20%"
     },
@@ -313,7 +313,7 @@
      "rate": "+20%"
     },
     {
-     "say": "The effect is usually no more severe than itching or a bee sting.",
+     "say": "The effect is usually no more severe than itching or the reaction to a bee sting.",
      "vis": "Push-in on Meatball scratching, then shrugging; spider photo pinned to the corkboard with a question mark.",
      "card": null,
      "src": "HS4",
@@ -334,16 +334,23 @@
      "rate": "+20%"
     },
     {
-     "say": "A few, like black widows and brown recluses, have venom very toxic to humans.",
+     "say": "Only a few spiders, like black widows and brown recluses, have venom very toxic to humans.",
      "vis": "Card. Two WANTED posters slam onto the garage wall (black widow, brown recluse), drawn clearly.",
      "card": "WHAT SHOULD YOU DO?",
      "src": "HS5",
      "rate": "+20%"
     },
     {
-     "say": "Don't guess those from a blurry photo; get it identified.",
+     "say": "Not sure what it is? Save it and ask your county extension office.",
      "vis": "Cut: a blurry phone photo; a big red NO; then a sharp photo going to an EXPERT ID box.",
-     "card": "GET IT IDENTIFIED",
+     "card": "ASK YOUR COUNTY EXTENSION OFFICE · SEVERE BITE: CALL A DOCTOR",
+     "src": "HS62",
+     "rate": "+20%"
+    },
+    {
+     "say": "If a bite causes an unusual or severe reaction, call a doctor.",
+     "vis": "Meatball holds up a phone, dials. Card stays.",
+     "card": null,
      "src": "HS62",
      "rate": "+20%"
     },
@@ -431,7 +438,7 @@
      "rate": "+20%"
     },
     {
-     "say": "I never touched it, so it's not my biter.",
+     "say": "I never touched it, so it's probably not my biter.",
      "vis": "Meatball drops the GET OUT stamp; the centipede's card slides DOWN past GROSS.",
      "card": "TWIST: NOT THE BITER",
      "src": "story (keeps the MSU condition)"
@@ -512,7 +519,7 @@
     {
      "say": "Adult German cockroaches can hide in a crack 1/16 inch wide.",
      "vis": "Act it out: Meatball slides a credit-card-thin gap gauge into a counter crack; the roach slips in.",
-     "card": "ID ROW 2: HIDES IN A 1/16-INCH CRACK",
+     "card": "ID ROW 2: ADULTS CAN HIDE IN A 1/16-INCH CRACK",
      "src": "CR10",
      "rate": "+20%"
     },
@@ -599,7 +606,7 @@
      "rate": "+20%"
     },
     {
-     "say": "Thirty babies per case? I need a shower.",
+     "say": "About thirty babies per egg case? I need a shower.",
      "vis": "Meatball shudders head to tail.",
      "card": null,
      "src": "joke (CR6 repeated)"
@@ -676,7 +683,7 @@
      "rate": "+20%"
     },
     {
-     "say": "They hide in mattress seams, box springs, bed frames and headboards.",
+     "say": "They can hide in mattress seams, box springs, bed frames and headboards.",
      "vis": "Four quick cuts: seam, box spring, frame, headboard, each with a hidden bug.",
      "card": "ID ROW 3: SEAMS · BOX SPRINGS · FRAMES",
      "src": "BB8",
@@ -710,7 +717,7 @@
      "rate": "+20%"
     },
     {
-     "say": "Bites can cause itching, loss of sleep and, rarely, allergic reactions.",
+     "say": "Bites can cause itching and loss of sleep. Serious allergic reactions are rare.",
      "vis": "Meatball scratching, then wide awake at 3 AM (two quick cuts).",
      "card": null,
      "src": "BB20",
@@ -737,7 +744,7 @@
      "rate": "+20%"
     },
     {
-     "say": "What should you do? Dry bedding and clothes on high heat for 30 minutes.",
+     "say": "What should you do? Put bedding and clothes in the dryer on high heat for 30 minutes.",
      "vis": "Card. Cut: dryer dial on HIGH, timer 30 MIN.",
      "card": "WHAT SHOULD YOU DO? · DRYER, HIGH HEAT, 30 MIN",
      "src": "BB21",
@@ -753,7 +760,7 @@
     {
      "say": "Don't raise your home's temperature with a thermostat, propane space heater or fireplace.",
      "vis": "Card. Thermostat, space heater and fireplace each get a big red X (none shown running hot).",
-     "card": "NEVER HEAT YOUR HOUSE YOURSELF",
+     "card": "DON'T HEAT YOUR HOME TO KILL BED BUGS",
      "src": "BB23",
      "rate": "+20%"
     },
@@ -774,19 +781,19 @@
     {
      "say": "Removal from a home can be expensive and inconvenient.",
      "vis": "Act it out: Meatball's piggy bank empties coin by coin.",
-     "card": "HARD TO GET RID OF",
+     "card": "EXPENSIVE AND INCONVENIENT TO REMOVE",
      "src": "BB33",
      "rate": "+20%"
     },
     {
      "say": "If needed, hire a pest management professional.",
      "vis": "Cut: a pro in a uniform knocks; Meatball opens the door, relieved.",
-     "card": "CALL A PRO",
+     "card": "CALL A PRO IF NEEDED",
      "src": "BB30",
      "rate": "+20%"
     },
     {
-     "say": "Professionals have more intensive, proven methods, and can even heat whole houses.",
+     "say": "Professionals have more intensive, proven methods that can even treat whole houses with heat.",
      "vis": "Cut: the pro rolls in a big professional heat unit (drawn, generic, no brand).",
      "card": null,
      "src": "BB23",
@@ -849,7 +856,7 @@
      "src": "comment prompt"
     },
     {
-     "say": "Subscribe, and check your mattress seams tonight.",
+     "say": "Subscribe, and regularly check your mattress seams for bed bugs.",
      "vis": "Meatball holds the flashlight to his own mattress seam, side-eye to camera.",
      "card": null,
      "src": "BB8 / BB33 (regularly look for signs)"
@@ -965,7 +972,7 @@
    "source": "EPA, Safety Issues in Controlling Bed Bugs: https://www.epa.gov/bedbugs/safety-issues-controlling-bed-bugs"
   }
  ],
- "_factcheck": "NOT yet checked by a second model. Research & QA checks it Wed 11/18 morning before render/schedule.",
+ "_factcheck": "Sonnet check 11/17 night: research/facts/house-bugs-ranked-check.md; all spoken and card FIXes applied; Mayo 130F/50% lines replaced (403, unverified) with EPA weekly hot wash + a joke.",
  "fact_files": [
   "side-hustles/channels/qa/silverfish-p5-1118.md (P5-F#, P5-S#)",
   "side-hustles/channels/qa/centipede-p4-1117.md (P4Q-*: the MSU and UKY lines quoted in the 8:10 AM addendum table)",
