@@ -21,6 +21,7 @@ PINS = [
 ]
 
 PINS += [
+  ("coloring", "kids", "4619864564", "Christmas Coloring Pages for Kids – 20 Printable Pages + Note from Santa", "20 printable Christmas coloring pages: Santa's toy factory, reindeer, elves, gingerbread and cozy scenes, plus a bonus Note from Santa. Perfect for Christmas Eve boxes and winter break. Instant download. #christmascoloringpages #kidsactivities #christmaseveboxideas #printables"),
   ("planner", "planner", "4617986184", "2027 Planner Printable – Minimalist Monthly, Weekly & Daily Planner", "Get organized for 2027! A calm, minimalist printable planner: year at a glance, goals, 12 dated monthly calendars, weekly & daily pages and a habit tracker. US Letter + A4, instant download. #2027planner #printableplanner #minimalistplanner #newyeargoals"),
   ("budget", "planner", "4617978275", "Budget Planner Printable – Monthly Budget, Bill & Debt Payoff Tracker", "Take control of your money in 2027 with this printable budget planner: monthly budget, expense & bill trackers, savings goals, sinking funds, debt payoff and a no-spend challenge. #budgetplanner #budgettracker #debtpayoff #savingmoney"),
 ]
