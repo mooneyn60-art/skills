@@ -1,0 +1,138 @@
+{
+ "series": "Is This Spider Venomous?",
+ "sources": [
+  "Missouri Department of Conservation, Field Guide: Wolf Spiders: a row of four small eyes below the four larger ones; at night, shine a flashlight held beside your eyes and their eyes shine back at you like a cat's; they do not spin webs, they run prey down; the female attaches her egg sac to her spinnerets and later carries her babies on her back; body length 1/4 inch to 1 inch depending on species; North American wolf spider bites are harmless; https://mdc.mo.gov/discover-nature/field-guide/wolf-spiders",
+  "Penn State Extension, Wolf Spiders: bite if mishandled or trapped next to the skin; initial pain and redness, possibly localized swelling, subsiding within 24 hours; no serious medical consequences of these bites have been noted; females commonly carry their young on their backs in summer; build retreats in soil and under objects and come out at night to look for prey; fertilized females overwinter in protected places including human-made structures; Hogna carolinensis females 22-35 mm long; https://extension.psu.edu/wolf-spiders",
+  "Montana State University Extension, Spiders of Montana: Wolf Spiders: hunting spiders that do not build webs to catch prey; excellent vision used for prey capture; females attach egg sacs to their spinnerets; hatched spiderlings stay on the mother's abdomen until ready to disperse; https://urbanipm.montana.edu/entomology/resources/fact-sheets/spiders_of_montana/wolf.spiders.html",
+  "University of California Statewide IPM Program, Pest Notes: Black Widow and Other Widow Spiders (general spider section): most spiders have venom which they use to kill their prey; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7442.html",
+  "UC Riverside, Rick Vetter, How to Identify (and Misidentify) a Brown Recluse Spider: recluses have six eyes in three pairs, while most spiders have eight; https://spiders.ucr.edu/recluseid.html"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:adam-puck",
+ "music": "eerie",
+ "music_db": -17,
+ "captions": 104,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "wolf_spider",
+  "scene": "bedroom",
+  "scene_p": {
+   "time": "night"
+  },
+  "wild": "forest_floor",
+  "wild_p": {
+   "time": "night"
+  }
+ },
+ "_note": "v3 (11/18): words copied unchanged from wolf-spider-yt (checked: its own sources/_note); new look: cine, eerie -17, E2 plain (kokoro:adam-puck, speed only), bugcam at 0.0, one freakout, ID card, different room each beat, CTA 'The full ranking is on the channel.'. Beats not kept: [2, 5, 6, 8]. | old note: Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Is This Spider Venomous? [Wolf Spider] 🕷️ (#1)",
+ "tiktok_caption": "is this spider venomous? wolf spider 🕷️ the big hairy spider running across your floor, with babies on its back. Is a wolf spider dangerous, and how to tell it from a brown recluse. Would you let one live in your garage? 🏠 yes / 🔥 no #isthisspidervenomous #wolfspider #spiders #meatballmyths #learnontiktok",
+ "beats": [
+  {
+   "gag": {
+    "mark": "shock",
+    "at": "70%"
+   },
+   "m": "hook",
+   "say": "A big spider is running across your floor, with its back covered in babies.",
+   "voice": "kokoro:adam-puck@speed=1.20",
+   "pad": 0.12,
+   "scene": "bedroom",
+   "open": "animal",
+   "open_zoom": 2.4,
+   "insert": {
+    "type": "bugcam",
+    "at": 0.0,
+    "dur": 1.4
+   },
+   "light": "off"
+  },
+  {
+   "gag": {
+    "prop": "moon",
+    "at": "35%"
+   },
+   "m": "escalate",
+   "say": "Turn off the lights, shine a flashlight, and its eyes glow back at you, like a cat's.",
+   "voice": "kokoro:adam-puck@speed=1.28",
+   "pad": 0.12,
+   "scene": "bathroom",
+   "freakout": "40%"
+  },
+  {
+   "gag": {
+    "prop": "skull",
+    "at": "40%"
+   },
+   "m": "fact",
+   "say": "Venomous? Yes. Most spiders have venom, to kill its prey.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12,
+   "scene": "kitchen"
+  },
+  {
+   "m": "calm",
+   "say": "But it only bites if you grab it, or trap it against your skin.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.3,
+   "scene": "basement"
+  },
+  {
+   "gag": {
+    "mark": "hearts",
+    "at": "75%"
+   },
+   "m": "punch",
+   "say": "Scary to look at. Harmless to you. And a really good mom.",
+   "voice": "kokoro:adam-puck@speed=1.00",
+   "pad": 0.12,
+   "scene": "study"
+  },
+  {
+   "m": "tease",
+   "say": "The full ranking is on the channel.",
+   "card": {
+    "rows": [
+     [
+      "FULL RANKING ON THE CHANNEL",
+      "#ffd34d",
+      72
+     ]
+    ],
+    "y": 380,
+    "at": 0.0
+   },
+   "scene": "classroom",
+   "voice": "kokoro:adam-puck@speed=1.02",
+   "pad": 0.12
+  }
+ ],
+ "loop": true,
+ "cine": true,
+ "id_card": {
+  "name": "WOLF SPIDER",
+  "rows": [
+   "NO WEB: IT RUNS PREY DOWN",
+   "BITES IF GRABBED OR TRAPPED",
+   "EYES GLOW BACK AT YOU"
+  ],
+  "type": "sp.wolf_spider",
+  "beat": 3,
+  "at": "5%",
+  "dur": 2.3,
+  "y": 130
+ },
+ "tags": [
+  "wolf spider",
+  "wolf spiders",
+  "is a wolf spider dangerous",
+  "wolf spider bite",
+  "is this spider venomous",
+  "spider in house",
+  "big hairy spider",
+  "things living in your house",
+  "Meatball Myths",
+  "shorts"
+ ],
+ "description": "Is a wolf spider venomous? Most spiders have venom to kill prey, and the wolf spider runs its prey down instead of building a web. It bites if mishandled or trapped next to the skin, and the pain and redness subside within about 24 hours (Penn State Extension; Missouri Department of Conservation).\n\nThe full ranking of the bugs in your house is on the channel: House Bugs Ranked by Meatball.\n\n#wolfspider #isthisspidervenomous #meatballmyths #shorts\n\nSources: Missouri Department of Conservation, Wolf Spiders; Penn State Extension, Wolf Spiders; Montana State University Extension; UC Statewide IPM Program."
+}

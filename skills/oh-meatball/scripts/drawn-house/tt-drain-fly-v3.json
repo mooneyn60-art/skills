@@ -1,0 +1,401 @@
+{
+ "series": "Things Living In Your House",
+ "sources": [
+  "University of California IPM, Drain flies (Moth flies, Pest Notes 7487): small fuzzy flies about 1/8 inch, wings held roof-like over the body and covered with hairs; weak fliers that make short hopping flights; larvae live in the gelatinous film in drains and feed on the organic material and microorganisms in it; larvae breathe through a tube at the rear end; to find the source, tape over drains overnight and look for flies on the tape; the best control is cleaning the film out with a stiff brush, pouring chemicals down the drain is usually not effective; they do not bite; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7487.html",
+  "Penn State Extension, Moth flies (drain flies): females lay 30-100 eggs in the drain film; the life cycle takes about 8 to 24 days; adults live about two weeks; also called filter flies because they breed in huge numbers in sewage treatment trickling filters; https://extension.psu.edu/moth-flies"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:adam-puck",
+ "music": "eerie",
+ "music_db": -17,
+ "captions": 104,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "drain_fly",
+  "scene": "bathroom",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "insect",
+   "label": "drain fly",
+   "body": "round",
+   "color": "#8c8a84",
+   "dark": "#5e5c58",
+   "head": "#6a6864",
+   "length": 340,
+   "height": 190,
+   "leg_len": 80,
+   "ant": 110,
+   "stripes": 5,
+   "wings": "clear",
+   "eye_r": 30,
+   "floor": false,
+   "mood": "calm",
+   "s": 0.95
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "insect",
+    "label": "drain fly",
+    "body": "round",
+    "color": "#8c8a84",
+    "dark": "#5e5c58",
+    "head": "#6a6864",
+    "length": 340,
+    "height": 190,
+    "leg_len": 80,
+    "ant": 110,
+    "stripes": 5,
+    "wings": "clear",
+    "eye_r": 30,
+    "floor": false,
+    "mood": "calm",
+    "s": 0.95
+   }
+  },
+  "s": 0.95,
+  "actor": "creature",
+  "wild": "swamp",
+  "wild_p": {
+   "time": "dusk"
+  }
+ },
+ "_note": "v3 (11/18): words copied unchanged from drain-fly-tt (checked: its own sources/_note); new look: cine, eerie -17, E2 plain (kokoro:adam-puck, speed only), bugcam at 0.0, one freakout, ID card, different room each beat. Beats not kept: [8, 9, 11, 13, 14, 15, 25]. | old note: Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "The Fuzzy Fly on Your Bathroom Wall Grew Up in Your Drain 🚿",
+ "tiktok_caption": "Do drain flies bite? No. The fuzzy fly on your bathroom wall grew up in your drain, and its babies breathe through a snorkel on their butt. Penn State Extension and UC IPM: a female lays 30 to 100 eggs in the slime inside the drain. Would you check your drain tonight? #drainfly #drainflies #bugs #insects #thingslivinginyourhouse",
+ "beats": [
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "gag": {
+    "mark": "shock",
+    "at": "60%"
+   },
+   "m": "hook",
+   "say": "That fuzzy fly on your bathroom wall? It grew up in your drain.",
+   "voice": "kokoro:adam-puck@speed=1.20",
+   "pad": 0.12,
+   "scene": "bathroom",
+   "open": "animal",
+   "open_zoom": 2.4,
+   "insert": {
+    "type": "bugcam",
+    "at": 0.0,
+    "dur": 1.4
+   },
+   "light": "off",
+   "card": {
+    "rows": [
+     [
+      "DO DRAIN FLIES",
+      "#ffffff",
+      86,
+      true
+     ],
+     [
+      "BITE?",
+      "#ffd34d",
+      96,
+      true
+     ]
+    ],
+    "y": 330,
+    "at": 0.0,
+    "pop": true
+   }
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "gag": {
+    "thought": "heart",
+    "at": "70%"
+   },
+   "m": "name",
+   "say": "The drain fly. Fuzzy wings, shaped like a heart.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12,
+   "scene": "kitchen"
+  },
+  {
+   "scene": "basement",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "act": {
+    "fly": 1.0
+   },
+   "gag": {
+    "mark": "sweat",
+    "at": "40%"
+   },
+   "m": "fact",
+   "say": "It barely flies. It just hops along the wall.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "gag": {
+    "pile": "egg",
+    "n": 10,
+    "r": 24,
+    "at": "50%",
+    "dur": 1.8
+   },
+   "m": "fact",
+   "say": "Mom lays up to a hundred eggs.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "swamp",
+   "scene_p": {
+    "time": "night"
+   },
+   "gag": {
+    "mark": "stink",
+    "at": "60%"
+   },
+   "m": "fact",
+   "say": "Right in the slime inside your drain.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "study",
+   "hero": {
+    "cfg": {
+     "plan": "worm",
+     "label": "drain fly larva",
+     "color": "#d6cdb6",
+     "dark": "#8a8270",
+     "length": 300,
+     "height": 110,
+     "ant": 0,
+     "stripes": 0,
+     "mood": "happy"
+    }
+   },
+   "hero_at": {
+    "x": 600,
+    "y": 1380
+   },
+   "act": {
+    "chew": 1.0
+   },
+   "gag": {
+    "pile": "baby",
+    "n": 5,
+    "r": 26,
+    "at": "40%"
+   },
+   "m": "fact",
+   "say": "The babies are tiny worms that eat the slime.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "hero": {
+    "cfg": {
+     "plan": "worm",
+     "label": "drain fly larva",
+     "color": "#d6cdb6",
+     "dark": "#8a8270",
+     "length": 300,
+     "height": 110,
+     "ant": 0,
+     "stripes": 0,
+     "mood": "happy"
+    }
+   },
+   "hero_at": {
+    "x": 760,
+    "y": 1500
+   },
+   "gag": {
+    "mark": "shock",
+    "at": "60%"
+   },
+   "m": "escalate",
+   "say": "And they breathe through a snorkel on their butt.",
+   "voice": "kokoro:adam-puck@speed=1.28",
+   "pad": 0.12,
+   "scene": "classroom",
+   "freakout": "40%"
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "punch",
+   "say": "Your drain is basically a fly nursery.",
+   "voice": "kokoro:adam-puck@speed=1.00",
+   "pad": 0.3,
+   "scene": "office"
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "night"
+   },
+   "m": "fact",
+   "say": "Sometimes faster. Your drain can turn out a new batch in about eight days.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "keeper_room",
+   "mood": "happy",
+   "gag": {
+    "mark": "hearts",
+    "at": "50%"
+   },
+   "m": "fact",
+   "say": "Good news. They don't bite.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "sill",
+   "m": "fact",
+   "say": "So I shrank down to look inside the drain.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "cave",
+   "hero": {
+    "cfg": {
+     "plan": "worm",
+     "label": "drain fly larva",
+     "color": "#d6cdb6",
+     "dark": "#8a8270",
+     "length": 300,
+     "height": 110,
+     "ant": 0,
+     "stripes": 0,
+     "mood": "happy"
+    }
+   },
+   "m": "fact",
+   "say": "It's dark, wet, and slimy down here.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "jh_living",
+   "scene_p": {
+    "time": "night"
+   },
+   "hero": {
+    "cfg": {
+     "plan": "worm",
+     "label": "drain fly larva",
+     "color": "#d6cdb6",
+     "dark": "#8a8270",
+     "length": 300,
+     "height": 110,
+     "ant": 0,
+     "stripes": 0,
+     "mood": "happy"
+    }
+   },
+   "gag": {
+    "pile": "baby",
+    "n": 8,
+    "r": 24,
+    "at": "40%"
+   },
+   "m": "fact",
+   "say": "And the babies are everywhere.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "jh_office",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "m": "fact",
+   "say": "Want to know if they're in your drain?",
+   "voice": "kokoro:adam-puck@speed=1.28",
+   "pad": 0.12
+  },
+  {
+   "scene": "fibers",
+   "scene_p": {
+    "time": "night"
+   },
+   "mood": "worry",
+   "gag": {
+    "prop": "moon",
+    "at": "50%"
+   },
+   "m": "fact",
+   "say": "Tape over it at night. Check the tape in the morning.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "microscope",
+   "mood": "smug",
+   "m": "fact",
+   "say": "Pouring stuff down usually doesn't work.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "tp_living",
+   "mood": "worry",
+   "gag": {
+    "mark": "sweat",
+    "at": "50%"
+   },
+   "m": "fact",
+   "say": "You have to scrub the slime out, with a brush.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "fact",
+   "say": "Would you check your drain tonight?",
+   "voice": "kokoro:adam-puck@speed=1.28",
+   "pad": 0.12,
+   "scene": "jh_hall"
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "punch",
+   "say": "The fuzziest fly in your house grew up breathing through its butt.",
+   "voice": "kokoro:adam-puck@speed=1.00",
+   "pad": 0.12,
+   "scene": "tp_cabin"
+  }
+ ],
+ "cine": true,
+ "id_card": {
+  "name": "DRAIN FLY",
+  "rows": [
+   "MOM LAYS UP TO 100 EGGS",
+   "BABIES BREATHE THROUGH A SNORKEL",
+   "DOESN'T BITE"
+  ],
+  "beat": 3,
+  "at": "5%",
+  "dur": 2.3,
+  "y": 130
+ },
+ "tiktok_title": "The Fuzzy Fly on Your Bathroom Wall Grew Up in Your Drain 🚿"
+}

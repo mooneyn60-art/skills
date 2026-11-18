@@ -1,0 +1,257 @@
+{
+ "series": "Things Living In Your House",
+ "sources": [
+  "University of California IPM, Carpets beetles (Pest Notes 7436): adults are small (about 1/8 inch), round, often mottled with white, brown and yellow scales; adults feed on pollen and nectar outdoors and are attracted to light, often found at windows; larvae damage wool, fur, feathers, silk, hair and dead insects; larvae shed skins as they grow; larval hairs can irritate skin in some people; control by regular vacuuming of carpets, edges and under furniture and by cleaning wool items before storage; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7436.html",
+  "University of Minnesota Extension, Carpet beetles: larvae feed in dark, undisturbed places such as under furniture, along carpet edges and in closets; shed larval skins are a common sign; https://extension.umn.edu/product-and-food-pests/carpet-beetles",
+  "Smithsonian National Museum of Natural History, Osteology Prep Lab: colonies of dermestid beetles (family Dermestidae, the carpet beetle family) clean the soft tissue from skeletons for the collection, gentle enough for small delicate bones; https://naturalhistory.si.edu/research/vertebrate-zoology",
+  "Museum pest guidance (MuseumPests.net, Carpet beetles): carpet beetles are among the most damaging pests of museum collections, attacking wool, fur, feathers, taxidermy and insect collections; https://museumpests.net/carpet-beetles/"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:adam-puck",
+ "music": "eerie",
+ "music_db": -17,
+ "captions": 104,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "carpet_beetle",
+  "scene": "sill",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "insect",
+   "label": "carpet beetle",
+   "body": "round",
+   "color": "#6b4f3a",
+   "dark": "#efe4c8",
+   "head": "#3a2a20",
+   "length": 400,
+   "height": 230,
+   "leg_len": 90,
+   "ant": 120,
+   "stripes": 3,
+   "wings": "shell",
+   "mood": "smug",
+   "s": 0.85
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "insect",
+    "label": "carpet beetle",
+    "body": "round",
+    "color": "#6b4f3a",
+    "dark": "#efe4c8",
+    "head": "#3a2a20",
+    "length": 400,
+    "height": 230,
+    "leg_len": 90,
+    "ant": 120,
+    "stripes": 3,
+    "wings": "shell",
+    "mood": "smug",
+    "s": 0.85
+   }
+  },
+  "s": 0.85,
+  "actor": "creature",
+  "wild": "garden",
+  "wild_p": {
+   "time": "day"
+  }
+ },
+ "_note": "v3 (11/18): words copied unchanged from carpet-beetle-yt (checked: its own sources/_note); new look: cine, eerie -17, E2 plain (kokoro:adam-puck, speed only), bugcam at 0.0, one freakout, ID card, different room each beat, CTA 'The full ranking is on the channel.'. Beats not kept: [4, 6, 9]. | old note: Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "The Tiny Beetle on Your Window Has Babies Eating Your Sweaters 🧶",
+ "tiktok_caption": "the tiny beetle on my windowsill has babies eating my sweaters 🧶 and its cousins clean skeletons for museums. Would you check under your bed tonight? 🛏️ yes / 🙈 no",
+ "beats": [
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "gag": {
+    "mark": "shock",
+    "at": "70%"
+   },
+   "m": "hook",
+   "say": "The tiny beetle on your window? Its babies eat sweaters.",
+   "voice": "kokoro:adam-puck@speed=1.20",
+   "pad": 0.12,
+   "scene": "sill",
+   "open": "animal",
+   "open_zoom": 2.4,
+   "insert": {
+    "type": "bugcam",
+    "at": 0.0,
+    "dur": 1.4
+   },
+   "light": "off"
+  },
+  {
+   "scene": "bathroom",
+   "gag": {
+    "prop": "ruler",
+    "at": "60%"
+   },
+   "m": "fact",
+   "say": "The carpet beetle. Smaller than a grain of rice.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "act": {
+    "chew": 1.0
+   },
+   "gag": {
+    "mark": "hearts",
+    "at": "50%"
+   },
+   "m": "fact",
+   "say": "Outside, it sips pollen from flowers.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12,
+   "scene": "kitchen"
+  },
+  {
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "gag": {
+    "pile": "egg",
+    "n": 6,
+    "r": 24,
+    "at": "50%"
+   },
+   "m": "fact",
+   "say": "But it lays its eggs inside.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "basement",
+   "hero": {
+    "cfg": {
+     "plan": "centipede",
+     "label": "carpet beetle larva",
+     "color": "#9a6a3c",
+     "dark": "#5a3a20",
+     "legs": 3,
+     "leg_len": 0.35,
+     "ant": 30,
+     "long_last": false,
+     "bands": false,
+     "stripes": 6,
+     "length": 440,
+     "height": 170,
+     "mood": "happy"
+    }
+   },
+   "hero_at": {
+    "x": 700
+   },
+   "act": {
+    "chew": 1.0
+   },
+   "m": "fact",
+   "say": "They eat wool, fur, feathers, silk.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "study",
+   "scene_p": {
+    "time": "night"
+   },
+   "hero": {
+    "cfg": {
+     "plan": "centipede",
+     "label": "carpet beetle larva",
+     "color": "#9a6a3c",
+     "dark": "#5a3a20",
+     "legs": 3,
+     "leg_len": 0.35,
+     "ant": 30,
+     "long_last": false,
+     "bands": false,
+     "stripes": 6,
+     "length": 440,
+     "height": 170,
+     "mood": "happy"
+    }
+   },
+   "hero_at": {
+    "x": 700
+   },
+   "act": {
+    "chew": 1.0
+   },
+   "gag": {
+    "prop": "moon",
+    "at": "20%"
+   },
+   "m": "fact",
+   "say": "In the dark, they chew holes in sweaters.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.3,
+   "freakout": "40%"
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "gag": {
+    "mark": "hearts",
+    "at": "70%"
+   },
+   "m": "punch",
+   "say": "So the cute little beetle? It's the mom.",
+   "voice": "kokoro:adam-puck@speed=1.00",
+   "pad": 0.12,
+   "scene": "classroom"
+  },
+  {
+   "m": "tease",
+   "say": "The full ranking is on the channel.",
+   "card": {
+    "rows": [
+     [
+      "FULL RANKING ON THE CHANNEL",
+      "#ffd34d",
+      72
+     ]
+    ],
+    "y": 380,
+    "at": 0.0
+   },
+   "scene": "office",
+   "voice": "kokoro:adam-puck@speed=1.02",
+   "pad": 0.12
+  }
+ ],
+ "loop": true,
+ "cine": true,
+ "id_card": {
+  "name": "CARPET BEETLE",
+  "rows": [
+   "SMALLER THAN A GRAIN OF RICE",
+   "BABIES EAT WOOL, FUR, SILK",
+   "THEY CHEW HOLES IN DARK"
+  ],
+  "beat": 3,
+  "at": "5%",
+  "dur": 2.3,
+  "y": 130
+ },
+ "tags": [
+  "carpet beetle",
+  "carpet beetles",
+  "carpet beetle larvae",
+  "tiny beetle on window",
+  "holes in sweaters",
+  "bugs eating clothes",
+  "bugs in house",
+  "things living in your house",
+  "Meatball Myths",
+  "shorts"
+ ],
+ "description": "Why is there a tiny beetle on your window? Adult carpet beetles come to windows, but it is the babies (larvae) that eat wool, fur, feathers and silk indoors (UC IPM; University of Minnesota Extension).\n\nThe full ranking of the bugs in your house is on the channel: House Bugs Ranked by Meatball.\n\n#carpetbeetle #thingslivinginyourhouse #meatballmyths #shorts\n\nSources: University of California IPM, Carpet beetles (Pest Notes 7436); University of Minnesota Extension, Carpet beetles."
+}

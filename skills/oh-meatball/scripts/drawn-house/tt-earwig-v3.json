@@ -1,0 +1,302 @@
+{
+ "series": "Things Living In Your House",
+ "sources": [
+  "The Scientist, The Earwig's Tale (May Berenbaum, entomologist, University of Illinois): surveying about ten centuries of literature she could find only a single report of an earwig in an ear; https://www.the-scientist.com/the-earwigs-tale-43480",
+  "University of California IPM, Earwigs (Pest Notes): not harmful to people, though they can pinch if trapped in clothing or sat on; feed at night on aphids, insect eggs and plant shoots, can damage seedlings; hide by day in dark, cool, moist places; come indoors when outdoor conditions are too dry, hot or cold; pincers somewhat curved in males, straighter in females; most species have wings under short hard covers but seldom fly; females dig cells in soil, lay masses of 30 or more eggs, and nymphs are protected and fed by their mother until their first molt; rolled newspaper or tubes placed on soil before dark collect earwigs, emptied each morning; https://ipm.ucanr.edu/home-and-landscape/earwigs/",
+  "Science News, Earwigs take origami to extremes to fold their wings (2018, on Faber, Arrieta and Studart, Science): earwigs pack their wings into packages with a surface area more than 10 times smaller than unfurled; ETH Zurich team built folding structures inspired by them for possible use in robotics, biomedical devices and spacecraft; https://www.sciencenews.org/article/earwigs-take-origami-extremes-fold-their-wings"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:adam-puck",
+ "music": "eerie",
+ "music_db": -17,
+ "captions": 104,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "earwig",
+  "scene": "bathroom",
+  "scene_p": {
+   "time": "night"
+  },
+  "creature_cfg": {
+   "xray": "gut"
+  },
+  "s": 0.65,
+  "wild": "garden",
+  "wild_p": {
+   "time": "night"
+  }
+ },
+ "cap_key": [
+  "10",
+  "centuries",
+  "1",
+  "one",
+  "ear",
+  "ears",
+  "wings",
+  "tenth",
+  "pincers",
+  "pinch",
+  "30",
+  "eggs",
+  "mom"
+ ],
+ "_note": "v3 (11/18): words copied unchanged from earwig-v6-tt (checked: its own sources/_note); new look: cine, eerie -17, E2 plain (kokoro:adam-puck, speed only), bugcam at 0.0, one freakout, ID card, different room each beat. Beats not kept: [18]. | old note: Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "The Bug Named After Your Ear Almost Never Goes in One 👂",
+ "tiktok_caption": "Do earwigs bite? They can pinch if trapped in your clothes, but they are not harmful to people (UC IPM). And they almost never go in ears: one entomologist found a single case in ten centuries of writing. Would you let one crawl on your hand? #earwig #earwigs #bugs #insects #thingslivinginyourhouse",
+ "beats": [
+  {
+   "card": {
+    "rows": [
+     [
+      "DO EARWIGS",
+      "#ffffff",
+      86,
+      true
+     ],
+     [
+      "BITE?",
+      "#ffd34d",
+      96,
+      true
+     ]
+    ],
+    "y": 330,
+    "at": 0.0,
+    "pop": true
+   },
+   "gag": {
+    "prop": "magnifier",
+    "at": "70%"
+   },
+   "open": "animal",
+   "m": "hook",
+   "say": "This bug is named after your ear. 10 centuries, just 1 ear case.",
+   "voice": "kokoro:adam-puck@speed=1.20",
+   "pad": 0.12,
+   "scene": "bathroom",
+   "open_zoom": 2.4,
+   "insert": {
+    "type": "bugcam",
+    "at": 0.0,
+    "dur": 1.4
+   },
+   "light": "off"
+  },
+  {
+   "scene": "bedroom",
+   "gag": {
+    "mark": "anger",
+    "at": "60%"
+   },
+   "m": "escalate",
+   "say": "Trapped in your clothes, it can pinch.",
+   "voice": "kokoro:adam-puck@speed=1.28",
+   "pad": 0.12,
+   "freakout": "40%"
+  },
+  {
+   "scene": "garden",
+   "m": "xray",
+   "say": "Under tiny wing covers, it hides big folded wings.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "how": "shrink",
+   "scene": "study",
+   "card": {
+    "rows": [
+     [
+      "1/10",
+      "#ffd34d",
+      120
+     ],
+     [
+      "THE SIZE",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "50%"
+   },
+   "m": "scale",
+   "say": "Folded to a tenth of their open size.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.3
+  },
+  {
+   "m": "punch",
+   "say": "But your ears? Almost never.",
+   "voice": "kokoro:adam-puck@speed=1.00",
+   "pad": 0.12,
+   "scene": "kitchen"
+  },
+  {
+   "scene": "basement",
+   "gag": {
+    "mark": "sweat",
+    "at": "85%"
+   },
+   "m": "name",
+   "say": "The earwig. It wanders indoors when it's too dry outside.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "classroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "gag": {
+    "thought": "leaf",
+    "at": "80%"
+   },
+   "m": "calm",
+   "say": "At night, it hunts aphids, insect eggs, and your seedlings.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "office",
+   "gag": {
+    "prop": "magnifier",
+    "at": "30%"
+   },
+   "m": "fact",
+   "say": "Male pincers curve. Female pincers are straighter.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "keeper_room",
+   "m": "fact",
+   "say": "And yet, earwigs hardly ever fly.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "forest_floor",
+   "card": {
+    "rows": [
+     [
+      "30+ EGGS",
+      "#ffd34d",
+      120
+     ]
+    ],
+    "y": 470,
+    "at": "70%"
+   },
+   "gag": {
+    "pile": "egg",
+    "n": 8,
+    "r": 26,
+    "at": "70%"
+   },
+   "m": "count",
+   "say": "The mother digs a little room in the soil, and lays thirty or more eggs.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "sill",
+   "gag": {
+    "mark": "hearts",
+    "at": "40%"
+   },
+   "m": "calm",
+   "say": "Then she stays. She guards her babies and feeds them, until their first molt.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "jh_living",
+   "m": "fact",
+   "say": "Got them in the house? Lay a rolled up newspaper outside before dark, and check it in the morning.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "cave",
+   "m": "calm",
+   "say": "By day, it hides in dark, cool, damp places.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "jh_office",
+   "m": "fact",
+   "say": "Heat, cold, or dry weather can drive it indoors.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "swamp",
+   "gag": {
+    "prop": "magnifier",
+    "at": "50%"
+   },
+   "m": "fact",
+   "say": "Entomologist May Berenbaum searched ten centuries of writing, and found just one.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "fibers",
+   "card": {
+    "rows": [
+     [
+      "10× SMALLER",
+      "#ffd34d",
+      120
+     ],
+     [
+      "FOLDED WINGS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "m": "xray",
+   "say": "Engineers studied that wing fold for possible robots and spacecraft.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "microscope",
+   "m": "fact",
+   "say": "Lots of earwigs can damage the seedlings in your garden.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "tp_living",
+   "m": "calm",
+   "say": "And it's not harmful to people.",
+   "voice": "kokoro:adam-puck@speed=1.00",
+   "pad": 0.12
+  }
+ ],
+ "loop": true,
+ "cine": true,
+ "id_card": {
+  "name": "EARWIG",
+  "rows": [
+   "ONE EAR CASE IN 10 CENTURIES",
+   "PINCERS: CURVED OR STRAIGHT",
+   "NOT HARMFUL TO PEOPLE"
+  ],
+  "type": "sp.earwig",
+  "beat": 2,
+  "at": "5%",
+  "dur": 2.3,
+  "y": 130
+ },
+ "tiktok_title": "The Bug Named After Your Ear Almost Never Goes in One 👂"
+}

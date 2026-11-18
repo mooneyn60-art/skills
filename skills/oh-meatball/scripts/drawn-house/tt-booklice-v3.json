@@ -1,0 +1,330 @@
+{
+ "series": "Things Living In Your House",
+ "sources": [
+  "Utah State University Extension, Booklice fact sheet (Utah Pests): booklice are flat, pale, soft-bodied, 1-4 mm long; do not feed on bindings or glue but on mold and other fungi present in books; also occur in rugs, stored grains, damp construction materials; many but not all species reproduce parthenogenetically, all females that do not require fertilization by males; life cycle 4 weeks to 2 months, a single generation in as few as 25 days under ideal conditions; do not bite or transmit disease; control by decreasing humidity and increasing airflow; https://extension.usu.edu/pests/uppdl/files/factsheet/booklice.pdf",
+  "Utah State University Extension IPM, Booklice and Psocids: indoors found in damp books, around leaking or sweating pipes, in voids and cardboard boxes; eat mold spores; indicator of moisture issues; https://extension.usu.edu/planthealth/ipm/notes_nuisance/booklice-psocids",
+  "Clemson Cooperative Extension HGIC, Booklice: not true lice, related to barklice; do not bite people or pets; feed on mold, and starchy foods like flour, grains and dried fruit; damage damp books by feeding on moldy paper; ideal 75-90% relative humidity; 50-60% is harmful and they can die within weeks if humidity stays low; keep humidity below 50%; large populations build up in newly built structures because fresh plaster and drywall hold moisture that supports mold; https://hgic.clemson.edu/factsheet/booklice/"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:adam-puck",
+ "music": "eerie",
+ "music_db": -17,
+ "captions": 104,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "booklouse",
+  "scene": "study",
+  "scene_p": {
+   "time": "night"
+  },
+  "creature_cfg": {
+   "xray": "gut"
+  }
+ },
+ "cap_key": [
+  "25",
+  "days",
+  "mold",
+  "female",
+  "males",
+  "damp",
+  "75",
+  "90",
+  "50",
+  "percent",
+  "humidity",
+  "lice",
+  "flour"
+ ],
+ "_note": "v3 (11/18): words copied unchanged from booklice-v6-tt (checked: its own sources/_note); new look: cine, eerie -17, E2 plain (kokoro:adam-puck, speed only), bugcam at 0.0, one freakout, ID card, different room each beat. Beats not kept: [19]. | old note: Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Many Bugs in Your Old Books Are All Female, No Males Needed 📚",
+ "tiktok_caption": "Do booklice bite? No: they are not real lice and don't bite you. They eat mold you usually can't see, and they need damp air (Utah State Extension, Clemson Extension). Keep humidity under 50 percent and they can die within weeks. Have you found any in your old books? #booklice #insects #bugsinhouse #psocids #thingslivinginyourhouse",
+ "beats": [
+  {
+   "card": {
+    "rows": [
+     [
+      "DO BOOKLICE",
+      "#ffffff",
+      86,
+      true
+     ],
+     [
+      "BITE YOU?",
+      "#ffd34d",
+      96,
+      true
+     ]
+    ],
+    "y": 330,
+    "at": 0.0,
+    "pop": true
+   },
+   "gag": {
+    "clock": 2,
+    "at": "60%"
+   },
+   "open": "animal",
+   "m": "hook",
+   "say": "Bugs are breeding in your old books, a new batch every 25 days.",
+   "voice": "kokoro:adam-puck@speed=1.20",
+   "pad": 0.12,
+   "scene": "study",
+   "open_zoom": 2.4,
+   "insert": {
+    "type": "bugcam",
+    "at": 0.0,
+    "dur": 1.4
+   },
+   "light": "off"
+  },
+  {
+   "scene": "basement",
+   "m": "chase",
+   "say": "They swarm brand new houses, where fresh drywall grows mold.",
+   "voice": "kokoro:adam-puck@speed=1.28",
+   "pad": 0.12
+  },
+  {
+   "scene": "microscope",
+   "gag": {
+    "prop": "magnifier",
+    "at": "60%"
+   },
+   "m": "xray",
+   "say": "They eat mold you usually can't see.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "bathroom",
+   "gag": {
+    "pile": "egg",
+    "n": 6,
+    "r": 26,
+    "at": "60%"
+   },
+   "m": "escalate",
+   "say": "And many kinds are all female. No males needed.",
+   "voice": "kokoro:adam-puck@speed=1.28",
+   "pad": 0.12
+  },
+  {
+   "gag": {
+    "mark": "sweat",
+    "at": "60%"
+   },
+   "m": "punch",
+   "say": "If you've got booklice, you've got damp.",
+   "voice": "kokoro:adam-puck@speed=1.00",
+   "pad": 0.12,
+   "scene": "kitchen"
+  },
+  {
+   "scene": "sill",
+   "card": {
+    "rows": [
+     [
+      "1–4 MM",
+      "#ffd34d",
+      120
+     ],
+     [
+      "LONG",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "60%"
+   },
+   "gag": {
+    "prop": "ruler",
+    "at": "70%"
+   },
+   "m": "name",
+   "say": "Booklice. Pale, soft, and 1 to 4 millimeters long.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "bedroom",
+   "card": {
+    "rows": [
+     [
+      "75–90%",
+      "#ffd34d",
+      120
+     ],
+     [
+      "HUMIDITY",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "60%"
+   },
+   "m": "fact",
+   "say": "They love humid air. 75 to 90 percent is perfect.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "classroom",
+   "m": "calm",
+   "say": "Damp cardboard boxes. Sweaty pipes. Wet basements.",
+   "voice": "kokoro:adam-puck@speed=1.00",
+   "pad": 0.12
+  },
+  {
+   "scene": "office",
+   "scene_p": {
+    "time": "night"
+   },
+   "gag": {
+    "thought": "cube",
+    "at": "40%"
+   },
+   "m": "fact",
+   "say": "They'll move into your flour, your grains, and your dried fruit too.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "garden",
+   "gag": {
+    "mark": "hearts",
+    "at": "60%"
+   },
+   "m": "fact",
+   "say": "And they're not real lice. They don't bite you.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "keeper_room",
+   "m": "fact",
+   "say": "Dry the air and add airflow, and you take away what they need.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.3
+  },
+  {
+   "scene": "jh_living",
+   "m": "calm",
+   "say": "But they have one big weakness. They need damp air.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "jh_office",
+   "card": {
+    "rows": [
+     [
+      "UNDER 50%",
+      "#ff4b3e",
+      120
+     ],
+     [
+      "AND THEY CAN DIE",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "50%"
+   },
+   "gag": {
+    "prop": "skull",
+    "at": "85%"
+   },
+   "m": "escalate",
+   "say": "Keep your humidity under 50 percent, and they can die within weeks.",
+   "voice": "kokoro:adam-puck@speed=1.28",
+   "pad": 0.12,
+   "freakout": "40%"
+  },
+  {
+   "scene": "swamp",
+   "gag": {
+    "prop": "magnifier",
+    "at": "50%"
+   },
+   "m": "fact",
+   "say": "They don't eat the glue or the bindings either.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "fibers",
+   "m": "calm",
+   "say": "Their closest cousins are barklice, out on the trees.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "cave",
+   "card": {
+    "rows": [
+     [
+      "1–2 MONTHS",
+      "#ffd34d",
+      120
+     ],
+     [
+      "EGG TO ADULT",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "60%"
+   },
+   "m": "count",
+   "say": "From egg to adult takes one to two months.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "tp_living",
+   "m": "fact",
+   "say": "They don't spread disease either.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "jh_hall",
+   "m": "chase",
+   "say": "They also hide in rugs, stored grain, and damp building materials.",
+   "voice": "kokoro:adam-puck@speed=1.28",
+   "pad": 0.12
+  },
+  {
+   "scene": "tp_cabin",
+   "m": "fact",
+   "say": "They even live inside your walls, in the empty voids.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  }
+ ],
+ "loop": true,
+ "cine": true,
+ "id_card": {
+  "name": "BOOKLICE",
+  "rows": [
+   "1 TO 4 MILLIMETERS LONG",
+   "EAT MOLD YOU CAN'T SEE",
+   "NOT REAL LICE: NO BITE"
+  ],
+  "type": "sp.booklouse",
+  "beat": 5,
+  "at": "5%",
+  "dur": 2.3,
+  "y": 130
+ },
+ "tiktok_title": "Many Bugs in Your Old Books Are All Female, No Males Needed 📚"
+}

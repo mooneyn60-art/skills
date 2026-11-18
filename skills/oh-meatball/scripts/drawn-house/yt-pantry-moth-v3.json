@@ -1,0 +1,256 @@
+{
+ "series": "Things Living In Your House",
+ "sources": [
+  "University of California IPM, Pantry Pests (Pest Notes 7452): the Indian meal moth is the most common moth pest of stored food in homes; adults have reddish-brown or copper outer wings with a pale grey-cream base; larvae feed on grains, cereals, flour, dried fruit, nuts, pet food, birdseed and chocolate, and leave silk webbing in the food; mature larvae often leave the food to pupate and may be found on walls and ceilings; adult moths do not feed on stored products; some pantry pests can chew through thin plastic bags and cardboard, so store food in glass, metal or heavy plastic containers with tight lids; freezing infested or new products (0 F for about 4 days) kills all stages; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7452.html",
+  "University of Florida Featured Creatures, Indian meal moth (Plodia interpunctella): the common name comes from an early report of the larvae feeding on Indian meal, a historical name for cornmeal; females lay roughly 60 to 400 eggs; https://entnemdept.ufl.edu/creatures/urban/stored/indian_meal_moth.htm"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:adam-puck",
+ "music": "eerie",
+ "music_db": -17,
+ "captions": 104,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "pantry_moth",
+  "scene": "kitchen",
+  "scene_p": {
+   "time": "night"
+  },
+  "creature_cfg": {
+   "plan": "insect",
+   "label": "pantry moth",
+   "body": "long",
+   "color": "#a8683a",
+   "dark": "#d9cdb4",
+   "head": "#8a5a34",
+   "length": 360,
+   "height": 120,
+   "leg_len": 80,
+   "ant": 170,
+   "stripes": 3,
+   "wings": "clear",
+   "floor": false,
+   "mood": "smug",
+   "s": 1.0
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "insect",
+    "label": "pantry moth",
+    "body": "long",
+    "color": "#a8683a",
+    "dark": "#d9cdb4",
+    "head": "#8a5a34",
+    "length": 360,
+    "height": 120,
+    "leg_len": 80,
+    "ant": 170,
+    "stripes": 3,
+    "wings": "clear",
+    "floor": false,
+    "mood": "smug",
+    "s": 1.0
+   }
+  },
+  "s": 1.0,
+  "actor": "creature",
+  "wild": "garden",
+  "wild_p": {
+   "time": "dusk"
+  }
+ },
+ "_note": "v3 (11/18): words copied unchanged from pantry-moth-yt (checked: its own sources/_note); new look: cine, eerie -17, E2 plain (kokoro:adam-puck, speed only), bugcam at 0.0, one freakout, ID card, different room each beat, CTA 'The full ranking is on the channel.'. Beats not kept: [4, 6, 9]. | old note: Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "The Moth in Your Kitchen Isn't Eating Your Cereal. Its Babies Are 🥣",
+ "tiktok_caption": "the moth flying around my kitchen isn't the one eating my cereal 🥣 its caterpillars are, and they can chew through plastic bags. Would you check your pantry tonight? 🔦 yes / 🙈 no",
+ "beats": [
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "gag": [
+    {
+     "thought": "cube",
+     "at": "40%"
+    },
+    {
+     "pile": "baby",
+     "n": 4,
+     "r": 26,
+     "at": "80%"
+    }
+   ],
+   "m": "hook",
+   "say": "That moth in your kitchen isn't eating your cereal. Its babies are.",
+   "voice": "kokoro:adam-puck@speed=1.20",
+   "pad": 0.12,
+   "scene": "kitchen",
+   "open": "animal",
+   "open_zoom": 2.4,
+   "insert": {
+    "type": "bugcam",
+    "at": 0.0,
+    "dur": 1.4
+   },
+   "light": "off"
+  },
+  {
+   "scene": "bathroom",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "act": {
+    "fly": 1.0
+   },
+   "gag": {
+    "prop": "magnifier",
+    "at": "50%"
+   },
+   "m": "fact",
+   "say": "The pantry moth. Copper wing tips, and pale shoulders.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "basement",
+   "scene_p": {
+    "time": "night"
+   },
+   "m": "fact",
+   "say": "The grown-up moth doesn't eat your food at all.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "gag": {
+    "pile": "egg",
+    "n": 10,
+    "r": 24,
+    "at": "50%",
+    "dur": 1.8
+   },
+   "m": "fact",
+   "say": "But mom lays hundreds of eggs, right in it.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12,
+   "freakout": "40%"
+  },
+  {
+   "scene": "study",
+   "hero": {
+    "cfg": {
+     "plan": "worm",
+     "label": "pantry moth caterpillar",
+     "color": "#efe4cc",
+     "dark": "#a8946c",
+     "length": 300,
+     "height": 110,
+     "ant": 0,
+     "stripes": 0,
+     "mood": "happy"
+    }
+   },
+   "hero_at": {
+    "x": 600,
+    "y": 1380
+   },
+   "act": {
+    "chew": 1.0
+   },
+   "gag": {
+    "thought": "cube",
+    "at": "40%"
+   },
+   "m": "fact",
+   "say": "They eat cereal, flour, nuts, and dried fruit.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "classroom",
+   "hero": {
+    "cfg": {
+     "plan": "worm",
+     "label": "pantry moth caterpillar",
+     "color": "#efe4cc",
+     "dark": "#a8946c",
+     "length": 300,
+     "height": 110,
+     "ant": 0,
+     "stripes": 0,
+     "mood": "happy"
+    }
+   },
+   "hero_at": {
+    "x": 600,
+    "y": 1380
+   },
+   "m": "fact",
+   "say": "And they leave sticky silk webs in it.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.3
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "gag": {
+    "prop": "magnifier",
+    "at": "60%"
+   },
+   "m": "punch",
+   "say": "So that clumpy cereal? Check it for webs.",
+   "voice": "kokoro:adam-puck@speed=1.00",
+   "pad": 0.12,
+   "scene": "office"
+  },
+  {
+   "m": "tease",
+   "say": "The full ranking is on the channel.",
+   "card": {
+    "rows": [
+     [
+      "FULL RANKING ON THE CHANNEL",
+      "#ffd34d",
+      72
+     ]
+    ],
+    "y": 380,
+    "at": 0.0
+   },
+   "scene": "garden",
+   "voice": "kokoro:adam-puck@speed=1.02",
+   "pad": 0.12
+  }
+ ],
+ "loop": true,
+ "cine": true,
+ "id_card": {
+  "name": "PANTRY MOTH",
+  "rows": [
+   "ADULTS DON'T EAT YOUR FOOD",
+   "MOM LAYS HUNDREDS OF EGGS",
+   "BABIES EAT CEREAL, FLOUR, NUTS"
+  ],
+  "beat": 4,
+  "at": "5%",
+  "dur": 2.3,
+  "y": 130
+ },
+ "tags": [
+  "pantry moth",
+  "pantry moths",
+  "moths in kitchen",
+  "indian meal moth",
+  "moth in cereal",
+  "webs in cereal",
+  "pantry moth larvae",
+  "things living in your house",
+  "Meatball Myths",
+  "shorts"
+ ],
+ "description": "Are pantry moths eating your cereal? The adult moth does not eat your food: its babies do. Pantry moth larvae eat cereal, flour, nuts and dried fruit and leave silk webs (UC IPM; University of Florida IFAS).\n\nThe full ranking of the bugs in your house is on the channel: House Bugs Ranked by Meatball.\n\n#pantrymoth #thingslivinginyourhouse #meatballmyths #shorts\n\nSources: University of California IPM, Pantry Pests (Pest Notes 7452); University of Florida Featured Creatures, Indian meal moth."
+}

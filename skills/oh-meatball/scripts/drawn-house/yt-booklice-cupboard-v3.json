@@ -1,0 +1,215 @@
+{
+ "series": "Things Living In Your House",
+ "sources": [
+  "Clemson Cooperative Extension HGIC, Booklice (Oswalt, Benson, Zungoli): \"They feed on molds, and a variety of animal and plant matter and are often found feeding on papers or books with mold, dead insects, animal and plant specimens, flour, grains, cereals, and dried fruits.\" / \"Ideal temperatures and relative humidities for survival range from 75-82°F and 75-90% RH. They are negatively affected by low humidity (50-60%) and can die within weeks if levels remain low.\" / \"Booklice are yellowish to buff colored, wingless, soft-bodied, and about 1/25 inch long.\" / \"Control of booklice is best achieved by reducing humidity in a building to a level below 50%.\"; https://hgic.clemson.edu/factsheet/booklice/ (fetched from a Wayback Machine copy because the live page blocks the proxy)",
+  "Utah State University Extension, Booklice and Psocids: \"prefer warm, humid or damp places\" / \"can be found around damp books, around leaking/sweating pipes, in voids, in cardboard boxes or anywhere where mold growth can be supported\" / \"may feed on fungal spores on stored food products\" / \"indicator of moisture issues\"; https://extension.usu.edu/planthealth/ipm/notes_nuisance/booklice-psocids"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:adam-puck",
+ "music": "eerie",
+ "music_db": -17,
+ "captions": 104,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "booklouse",
+  "scene": "kitchen",
+  "scene_p": {
+   "time": "night"
+  },
+  "s": 1.0
+ },
+ "cap_key": [
+  "1",
+  "millimeter",
+  "mold",
+  "flour",
+  "75",
+  "90",
+  "humid",
+  "pipes",
+  "50",
+  "weeks"
+ ],
+ "_note": "v3 (11/18): words copied unchanged from booklice-cupboard-v6-yt (checked: its own sources/_note); new look: cine, eerie -17, E2 plain (kokoro:adam-puck, speed only), bugcam at 0.0, one freakout, ID card, different room each beat, CTA 'The full ranking is on the channel.'. Beats not kept: [5]. | old note: Written by hand in the v6 shape (Shorts batch B); beats are drawn_macros lines. Funny pass 11/13 (Nolan: every Short funny): Meatball gags on lines 2 and 4.",
+ "title": "Tiny Bugs in Your Kitchen Cupboards Love 75% Humidity 📚 (Things Living In Your House)",
+ "description": "Tiny bugs in kitchen cupboards: booklice are about 1/25 inch long, feed on mold plus flour, grains, cereal and dried fruit, and do best at 75-90% humidity, per Clemson and Utah State extension. #shorts #booklice #psocids #kitchenbugs #meatballmyths\nSources: Clemson Cooperative Extension (Booklice, HGIC); Utah State University Extension (Booklice and Psocids).",
+ "pinned_comment": "What's the tiniest bug you've ever found in your kitchen cupboards, and where did you find it?",
+ "tiktok_caption": "tiny bugs in your kitchen cupboards 📚 booklice are about a millimeter long, eat mold plus flour and dried fruit, and like humid air. Found any in your pantry? #booklice #tinybugs #pantry #meatballmyths",
+ "beats": [
+  {
+   "m": "hook",
+   "open": "animal",
+   "gag": {
+    "mark": "shock"
+   },
+   "say": "1-millimeter bugs are eating mold in your cupboards.",
+   "card": {
+    "rows": [
+     [
+      "1 MILLIMETER",
+      "#ffd34d",
+      110
+     ],
+     [
+      "IN YOUR CUPBOARDS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   },
+   "voice": "kokoro:adam-puck@speed=1.20",
+   "pad": 0.12,
+   "scene": "kitchen",
+   "open_zoom": 2.4,
+   "insert": {
+    "type": "bugcam",
+    "at": 0.0,
+    "dur": 1.4
+   },
+   "light": "off"
+  },
+  {
+   "m": "fact",
+   "scene": "study",
+   "say": "And flour, cereal, and dried fruit. Meatball's cereal expired years ago.",
+   "gag": {
+    "prop": "magnifier",
+    "at": "60%"
+   },
+   "card": {
+    "rows": [
+     [
+      "FLOUR + CEREAL",
+      "#ffd34d",
+      100
+     ],
+     [
+      "+ DRIED FRUIT",
+      "#ffffff",
+      56,
+      true
+     ],
+     [
+      "MEATBALL'S CEREAL: EXPIRED YEARS AGO",
+      "#ffffff",
+      40,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "35%"
+   },
+   "pose": "nervous",
+   "voice": "kokoro:adam-puck@speed=1.00",
+   "pad": 0.12
+  },
+  {
+   "m": "fact",
+   "scene": "bathroom",
+   "say": "They like 75 to 90 percent humidity.",
+   "card": {
+    "rows": [
+     [
+      "75-90%",
+      "#ffd34d",
+      150
+     ],
+     [
+      "HUMIDITY",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "m": "escalate",
+   "scene": "basement",
+   "say": "They gather around leaking, sweating pipes. Meatball calls it a water feature.",
+   "gag": {
+    "mark": "sweat",
+    "at": "50%"
+   },
+   "voice": "kokoro:adam-puck@speed=1.00",
+   "pad": 0.3,
+   "freakout": "40%"
+  },
+  {
+   "m": "calm",
+   "scene": "bedroom",
+   "say": "Dry air can wipe them out within weeks.",
+   "card": {
+    "rows": [
+     [
+      "UNDER 50%",
+      "#ff4b3e",
+      130
+     ],
+     [
+      "DRY AIR",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "30%"
+   },
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "m": "tease",
+   "say": "The full ranking is on the channel.",
+   "card": {
+    "rows": [
+     [
+      "FULL RANKING ON THE CHANNEL",
+      "#ffd34d",
+      72
+     ]
+    ],
+    "y": 380,
+    "at": 0.0
+   },
+   "scene": "classroom",
+   "voice": "kokoro:adam-puck@speed=1.02",
+   "pad": 0.12
+  }
+ ],
+ "loop": true,
+ "cine": true,
+ "id_card": {
+  "name": "BOOKLICE",
+  "rows": [
+   "ABOUT 1 MILLIMETER",
+   "EAT MOLD, FLOUR, CEREAL",
+   "LIKE 75 TO 90% HUMIDITY"
+  ],
+  "type": "sp.booklouse",
+  "beat": 2,
+  "at": "5%",
+  "dur": 2.3,
+  "y": 130
+ },
+ "tags": [
+  "booklice",
+  "booklice in kitchen",
+  "tiny bugs in cupboards",
+  "bugs in pantry",
+  "what are booklice",
+  "booklice humidity",
+  "psocids",
+  "things living in your house",
+  "Meatball Myths",
+  "shorts"
+ ]
+}

@@ -1,0 +1,256 @@
+{
+ "series": "Things Living In Your House",
+ "sources": [
+  "University of California IPM, Drain flies (Moth flies, Pest Notes 7487): small fuzzy flies about 1/8 inch, wings held roof-like over the body and covered with hairs; weak fliers that make short hopping flights; larvae live in the gelatinous film in drains and feed on the organic material and microorganisms in it; larvae breathe through a tube at the rear end; to find the source, tape over drains overnight and look for flies on the tape; the best control is cleaning the film out with a stiff brush, pouring chemicals down the drain is usually not effective; they do not bite; https://ipm.ucanr.edu/PMG/PESTNOTES/pn7487.html",
+  "Penn State Extension, Moth flies (drain flies): females lay 30-100 eggs in the drain film; the life cycle takes about 8 to 24 days; adults live about two weeks; also called filter flies because they breed in huge numbers in sewage treatment trickling filters; https://extension.psu.edu/moth-flies"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:adam-puck",
+ "music": "eerie",
+ "music_db": -17,
+ "captions": 104,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "drain_fly",
+  "scene": "bathroom",
+  "scene_p": {
+   "time": "day"
+  },
+  "creature_cfg": {
+   "plan": "insect",
+   "label": "drain fly",
+   "body": "round",
+   "color": "#8c8a84",
+   "dark": "#5e5c58",
+   "head": "#6a6864",
+   "length": 340,
+   "height": 190,
+   "leg_len": 80,
+   "ant": 110,
+   "stripes": 5,
+   "wings": "clear",
+   "eye_r": 30,
+   "floor": false,
+   "mood": "calm",
+   "s": 0.95
+  },
+  "hero_p": {
+   "cfg": {
+    "plan": "insect",
+    "label": "drain fly",
+    "body": "round",
+    "color": "#8c8a84",
+    "dark": "#5e5c58",
+    "head": "#6a6864",
+    "length": 340,
+    "height": 190,
+    "leg_len": 80,
+    "ant": 110,
+    "stripes": 5,
+    "wings": "clear",
+    "eye_r": 30,
+    "floor": false,
+    "mood": "calm",
+    "s": 0.95
+   }
+  },
+  "s": 0.95,
+  "actor": "creature",
+  "wild": "swamp",
+  "wild_p": {
+   "time": "dusk"
+  }
+ },
+ "_note": "v3 (11/18): words copied unchanged from drain-fly-yt (checked: its own sources/_note); new look: cine, eerie -17, E2 plain (kokoro:adam-puck, speed only), bugcam at 0.0, one freakout, ID card, different room each beat, CTA 'The full ranking is on the channel.'. Beats not kept: [4, 8]. | old note: Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "The Fuzzy Fly on Your Bathroom Wall Grew Up in Your Drain 🚿",
+ "tiktok_caption": "the fuzzy little fly on my bathroom wall grew up inside my drain 🚿 and its babies breathe through a snorkel. Would you check your drain tonight? 🔦 yes / 🙈 no way",
+ "beats": [
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "gag": {
+    "mark": "shock",
+    "at": "60%"
+   },
+   "m": "hook",
+   "say": "That fuzzy fly on your bathroom wall? It grew up in your drain.",
+   "voice": "kokoro:adam-puck@speed=1.20",
+   "pad": 0.12,
+   "scene": "bathroom",
+   "open": "animal",
+   "open_zoom": 2.4,
+   "insert": {
+    "type": "bugcam",
+    "at": 0.0,
+    "dur": 1.4
+   },
+   "light": "off"
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "gag": {
+    "thought": "heart",
+    "at": "70%"
+   },
+   "m": "name",
+   "say": "The drain fly. Fuzzy wings, shaped like a heart.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12,
+   "scene": "kitchen"
+  },
+  {
+   "scene": "basement",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "act": {
+    "fly": 1.0
+   },
+   "gag": {
+    "mark": "sweat",
+    "at": "40%"
+   },
+   "m": "fact",
+   "say": "It barely flies. It just hops along the wall.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "gag": {
+    "pile": "egg",
+    "n": 10,
+    "r": 24,
+    "at": "50%",
+    "dur": 1.8
+   },
+   "m": "fact",
+   "say": "Mom lays up to a hundred eggs.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "study",
+   "hero": {
+    "cfg": {
+     "plan": "worm",
+     "label": "drain fly larva",
+     "color": "#d6cdb6",
+     "dark": "#8a8270",
+     "length": 300,
+     "height": 110,
+     "ant": 0,
+     "stripes": 0,
+     "mood": "happy"
+    }
+   },
+   "hero_at": {
+    "x": 600,
+    "y": 1380
+   },
+   "act": {
+    "chew": 1.0
+   },
+   "gag": {
+    "pile": "baby",
+    "n": 5,
+    "r": 26,
+    "at": "40%"
+   },
+   "m": "fact",
+   "say": "The babies are tiny worms that eat the slime.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "hero": {
+    "cfg": {
+     "plan": "worm",
+     "label": "drain fly larva",
+     "color": "#d6cdb6",
+     "dark": "#8a8270",
+     "length": 300,
+     "height": 110,
+     "ant": 0,
+     "stripes": 0,
+     "mood": "happy"
+    }
+   },
+   "hero_at": {
+    "x": 760,
+    "y": 1500
+   },
+   "gag": {
+    "mark": "shock",
+    "at": "60%"
+   },
+   "m": "escalate",
+   "say": "And they breathe through a snorkel on their butt.",
+   "voice": "kokoro:adam-puck@speed=1.28",
+   "pad": 0.3,
+   "scene": "classroom",
+   "freakout": "40%"
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "m": "punch",
+   "say": "Your drain is basically a fly nursery.",
+   "voice": "kokoro:adam-puck@speed=1.00",
+   "pad": 0.12,
+   "scene": "office"
+  },
+  {
+   "m": "tease",
+   "say": "The full ranking is on the channel.",
+   "card": {
+    "rows": [
+     [
+      "FULL RANKING ON THE CHANNEL",
+      "#ffd34d",
+      72
+     ]
+    ],
+    "y": 380,
+    "at": 0.0
+   },
+   "scene": "garden",
+   "voice": "kokoro:adam-puck@speed=1.02",
+   "pad": 0.12
+  }
+ ],
+ "loop": true,
+ "cine": true,
+ "id_card": {
+  "name": "DRAIN FLY",
+  "rows": [
+   "MOM LAYS UP TO 100 EGGS",
+   "BABIES EAT DRAIN SLIME",
+   "THEY BREATHE THROUGH A SNORKEL"
+  ],
+  "beat": 4,
+  "at": "5%",
+  "dur": 2.3,
+  "y": 130
+ },
+ "tags": [
+  "drain flies",
+  "drain fly",
+  "fuzzy fly in bathroom",
+  "flies in bathroom",
+  "bathroom flies",
+  "moth flies",
+  "where do drain flies come from",
+  "things living in your house",
+  "Meatball Myths",
+  "shorts"
+ ],
+ "description": "Where do drain flies come from? The fuzzy fly on your bathroom wall grew up in your drain. A female lays 30 to 100 eggs in the slimy film inside the drain, and the larvae feed on it (Penn State Extension; UC IPM).\n\nThe full ranking of the bugs in your house is on the channel: House Bugs Ranked by Meatball.\n\n#drainfly #thingslivinginyourhouse #meatballmyths #shorts\n\nSources: University of California IPM, Drain flies (Pest Notes 7487); Penn State Extension, Moth flies (drain flies)."
+}

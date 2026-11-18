@@ -1,0 +1,195 @@
+{
+ "series": "Things Living In Your House",
+ "sources": [
+  "Autumn et al. 2000, Nature, Adhesive force of a single gecko foot-hair; and Lewis & Clark College / UC Berkeley summaries: gecko toe pads carry millions of microscopic hairs (setae) that branch into hundreds of even finer tips (spatulae); they stick by van der Waals forces, dry, with no glue or suction; https://www.nature.com/articles/35015073",
+  "Smithsonian's National Zoo, Leopard gecko / gecko facts; San Diego Zoo Wildlife Alliance, Lizards: most geckos have no movable eyelids, a clear scale covers the eye and the gecko licks it clean with its tongue; many lizards, including geckos, can drop the tail to escape a predator, the dropped tail keeps wriggling, and it grows back with cartilage instead of bone; https://animals.sandiegozoo.org/animals/lizard",
+  "University of Florida IFAS (Wildlife Ecology, Florida's introduced reptiles: Hemidactylus geckos), Common house gecko and Mediterranean house gecko: nocturnal, often seen on walls and around outdoor lights hunting insects attracted to the light; the common house gecko is native to Southeast Asia and has spread around the world with people and cargo; house geckos are harmless to people; they make chirping calls; https://edis.ifas.ufl.edu/publication/UW259"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:adam-puck",
+ "music": "eerie",
+ "music_db": -17,
+ "captions": 104,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "gecko",
+  "scene": "sill",
+  "scene_p": {
+   "time": "night"
+  },
+  "creature_cfg": {
+   "length": 520,
+   "height": 140,
+   "leg_len": 70,
+   "s": 0.6
+  },
+  "s": 0.6,
+  "wild": "garden",
+  "wild_p": {
+   "time": "night"
+  }
+ },
+ "_note": "v3 (11/18): words copied unchanged from house-gecko-yt (checked: its own sources/_note); new look: cine, eerie -17, E2 plain (kokoro:adam-puck, speed only), bugcam at 0.0, one freakout, ID card, different room each beat, CTA 'The full ranking is on the channel.'. Beats not kept: [2, 8]. | old note: Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "The Lizard on Your Ceiling Can't Blink, So It Licks Its Eyes 🦎",
+ "tiktok_caption": "the lizard on my ceiling can't blink so it licks its own eyeballs 🦎 and its toes stick with no glue at all. Would you let one live in your house? 🦎 yes / 🚪 no",
+ "beats": [
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "gag": {
+    "mark": "shock",
+    "at": "60%"
+   },
+   "m": "hook",
+   "say": "That lizard on your ceiling can't blink. So it licks its eyeballs.",
+   "voice": "kokoro:adam-puck@speed=1.20",
+   "pad": 0.12,
+   "scene": "sill",
+   "open": "animal",
+   "open_zoom": 2.4,
+   "insert": {
+    "type": "bugcam",
+    "at": 0.0,
+    "dur": 1.4
+   },
+   "light": "off"
+  },
+  {
+   "scene": "bathroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "gag": {
+    "prop": "moon",
+    "at": "30%"
+   },
+   "m": "fact",
+   "say": "The house gecko. Out at night, on your walls.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "act": {
+    "bite": 1.0
+   },
+   "with": [
+    "moth"
+   ],
+   "gag": {
+    "thought": "tick",
+    "at": "40%"
+   },
+   "m": "fact",
+   "say": "Bugs fly to the light, and it snaps them up.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "hero_at": {
+    "x": 760
+   },
+   "m": "xray",
+   "say": "It has no eyelids, just a clear scale.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12,
+   "scene": "kitchen"
+  },
+  {
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "act": {
+    "talk": 1.0
+   },
+   "gag": {
+    "mark": "stars",
+    "at": "70%"
+   },
+   "m": "fact",
+   "say": "So it wipes its eyes with its tongue.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12,
+   "freakout": "40%"
+  },
+  {
+   "scene": "basement",
+   "scene_p": {
+    "time": "night"
+   },
+   "gag": {
+    "mark": "dizzy",
+    "at": "40%"
+   },
+   "m": "fact",
+   "say": "And it walks across the ceiling, no glue at all.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.3
+  },
+  {
+   "hero_at": {
+    "x": 720
+   },
+   "gag": {
+    "prop": "trophy",
+    "at": "50%"
+   },
+   "m": "calm",
+   "say": "It's the cleanest-eyed roommate you've got.",
+   "voice": "kokoro:adam-puck@speed=1.00",
+   "pad": 0.12,
+   "scene": "study"
+  },
+  {
+   "m": "tease",
+   "say": "The full ranking is on the channel.",
+   "card": {
+    "rows": [
+     [
+      "FULL RANKING ON THE CHANNEL",
+      "#ffd34d",
+      72
+     ]
+    ],
+    "y": 380,
+    "at": 0.0
+   },
+   "scene": "classroom",
+   "voice": "kokoro:adam-puck@speed=1.02",
+   "pad": 0.12
+  }
+ ],
+ "loop": true,
+ "cine": true,
+ "id_card": {
+  "name": "HOUSE GECKO",
+  "rows": [
+   "NO EYELIDS, JUST A CLEAR SCALE",
+   "WIPES ITS EYES WITH ITS TONGUE",
+   "WALKS THE CEILING, NO GLUE"
+  ],
+  "type": "sp.gecko",
+  "beat": 3,
+  "at": "5%",
+  "dur": 2.3,
+  "y": 130
+ },
+ "tags": [
+  "house gecko",
+  "gecko in house",
+  "gecko on ceiling",
+  "do geckos blink",
+  "gecko eyes",
+  "how do geckos stick to walls",
+  "lizard on ceiling",
+  "things living in your house",
+  "Meatball Myths",
+  "shorts"
+ ],
+ "description": "Can a house gecko blink? No. Most geckos have no movable eyelids, so a clear scale covers each eye and the gecko wipes it with its tongue. Gecko toe pads hold millions of tiny hairs, so they cling without glue (Smithsonian's National Zoo; Autumn et al. 2000, Nature).\n\nThe full ranking of the bugs in your house is on the channel: House Bugs Ranked by Meatball.\n\n#housegecko #thingslivinginyourhouse #meatballmyths #shorts\n\nSources: Smithsonian's National Zoo; San Diego Zoo Wildlife Alliance; University of Florida IFAS; Autumn et al. 2000, Nature."
+}

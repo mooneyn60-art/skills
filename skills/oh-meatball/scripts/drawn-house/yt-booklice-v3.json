@@ -1,0 +1,148 @@
+{
+ "series": "Things Living In Your House",
+ "sources": [
+  "Utah State University Extension, Booklice fact sheet (Utah Pests): booklice are flat, pale, soft-bodied, 1-4 mm long; do not feed on bindings or glue but on mold and other fungi present in books; also occur in rugs, stored grains, damp construction materials; many but not all species reproduce parthenogenetically, all females that do not require fertilization by males; life cycle 4 weeks to 2 months, a single generation in as few as 25 days under ideal conditions; do not bite or transmit disease; control by decreasing humidity and increasing airflow; https://extension.usu.edu/pests/uppdl/files/factsheet/booklice.pdf",
+  "Utah State University Extension IPM, Booklice and Psocids: indoors found in damp books, around leaking or sweating pipes, in voids and cardboard boxes; eat mold spores; indicator of moisture issues; https://extension.usu.edu/planthealth/ipm/notes_nuisance/booklice-psocids",
+  "Clemson Cooperative Extension HGIC, Booklice: not true lice, related to barklice; do not bite people or pets; feed on mold, and starchy foods like flour, grains and dried fruit; damage damp books by feeding on moldy paper; ideal 75-90% relative humidity; 50-60% is harmful and they can die within weeks if humidity stays low; keep humidity below 50%; large populations build up in newly built structures because fresh plaster and drywall hold moisture that supports mold; https://hgic.clemson.edu/factsheet/booklice/"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:adam-puck",
+ "music": "eerie",
+ "music_db": -17,
+ "captions": 104,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "booklouse",
+  "scene": "study",
+  "scene_p": {
+   "time": "night"
+  }
+ },
+ "_note": "v3 (11/18): words copied unchanged from booklice-yt (checked: its own sources/_note); new look: cine, eerie -17, E2 plain (kokoro:adam-puck, speed only), bugcam at 0.0, one freakout, ID card, different room each beat, CTA 'The full ranking is on the channel.'. Beats not kept: [6]. | old note: Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "Many Bugs in Your Old Books Are All Female, No Males Needed 📚",
+ "tiktok_caption": "the tiny bugs in your old books aren't eating the pages 📚 they're eating mold you can't see, and many kinds don't need males. Would you still read a book that had them? 📖 yes / 🗑️ toss it",
+ "beats": [
+  {
+   "gag": {
+    "pile": "egg",
+    "n": 6,
+    "r": 26,
+    "at": "70%"
+   },
+   "m": "hook",
+   "say": "Many of the tiny bugs in your old books are all female. No males needed.",
+   "voice": "kokoro:adam-puck@speed=1.20",
+   "pad": 0.12,
+   "scene": "study",
+   "open": "animal",
+   "open_zoom": 2.4,
+   "insert": {
+    "type": "bugcam",
+    "at": 0.0,
+    "dur": 1.4
+   },
+   "light": "off"
+  },
+  {
+   "gag": {
+    "prop": "ruler",
+    "at": "70%"
+   },
+   "m": "name",
+   "say": "Booklice. Pale, soft, and about a millimeter long.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12,
+   "scene": "bathroom"
+  },
+  {
+   "gag": {
+    "mark": "hearts",
+    "at": "60%"
+   },
+   "m": "fact",
+   "say": "And they're not real lice. They don't bite you.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12,
+   "scene": "kitchen",
+   "freakout": "40%"
+  },
+  {
+   "scene": "basement",
+   "scene_p": {
+    "time": "night"
+   },
+   "gag": {
+    "prop": "magnifier",
+    "at": "60%"
+   },
+   "m": "fact",
+   "say": "They aren't eating your books. They're eating the mold growing on them.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12
+  },
+  {
+   "m": "escalate",
+   "say": "Mold so thin you usually can't even see it.",
+   "voice": "kokoro:adam-puck@speed=1.28",
+   "pad": 0.3,
+   "scene": "bedroom"
+  },
+  {
+   "gag": {
+    "mark": "sweat",
+    "at": "70%"
+   },
+   "m": "punch",
+   "say": "So if you've got booklice, you've got damp.",
+   "voice": "kokoro:adam-puck@speed=1.00",
+   "pad": 0.12,
+   "scene": "classroom"
+  },
+  {
+   "m": "tease",
+   "say": "The full ranking is on the channel.",
+   "card": {
+    "rows": [
+     [
+      "FULL RANKING ON THE CHANNEL",
+      "#ffd34d",
+      72
+     ]
+    ],
+    "y": 380,
+    "at": 0.0
+   },
+   "scene": "office",
+   "voice": "kokoro:adam-puck@speed=1.02",
+   "pad": 0.12
+  }
+ ],
+ "loop": true,
+ "cine": true,
+ "id_card": {
+  "name": "BOOKLICE",
+  "rows": [
+   "ABOUT A MILLIMETER LONG",
+   "NOT REAL LICE: NO BITE",
+   "EAT MOLD, NOT YOUR BOOKS"
+  ],
+  "type": "sp.booklouse",
+  "beat": 3,
+  "at": "5%",
+  "dur": 2.3,
+  "y": 130
+ },
+ "tags": [
+  "booklice",
+  "booklice in books",
+  "bugs in old books",
+  "tiny bugs in books",
+  "are booklice real lice",
+  "do booklice bite",
+  "bugs in house",
+  "things living in your house",
+  "Meatball Myths",
+  "shorts"
+ ],
+ "description": "What are the tiny bugs in your old books? Booklice: pale, soft, about a millimeter long, and not real lice. They do not bite people. They eat mold, not the pages (Utah State University Extension; Clemson Cooperative Extension).\n\nThe full ranking of the bugs in your house is on the channel: House Bugs Ranked by Meatball.\n\n#booklice #thingslivinginyourhouse #meatballmyths #shorts\n\nSources: Utah State University Extension, Booklice; Clemson Cooperative Extension HGIC, Booklice."
+}

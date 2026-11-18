@@ -1,0 +1,231 @@
+{
+ "series": "Things Living In Your House",
+ "sources": [
+  "Penn State Extension, Cluster Flies: \"These flies are not reproducing within the structure, but become active on warm days and crawl out of wall voids and attics in a confused attempt to go back outside.\"; \"the flies will gather in large numbers at windows within the home on warm winter days. The flies are typically sluggish in flight\"; \"Adult cluster flies are slightly larger than the common house fly... They are dull gray with black markings and have golden-yellow hairs on the thorax, which can give the appearance of a golden sheen.\"; \"Although insecticidal dust treatments to these voids may kill thousands of flies...\"; https://extension.psu.edu/cluster-flies",
+  "Colorado State University Extension, Cluster Flies and Other Winter Flies: \"Cluster flies found in buildings are in a dormant state and cannot reproduce indoors.\"; \"Cluster flies develop by feeding on earthworms.\"; \"cluster flies then find sheltered areas in wall voids or attics where they may aggregate\"; https://extension.colostate.edu/resource/cluster-flies-and-other-winter-flies/"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:adam-puck",
+ "music": "eerie",
+ "music_db": -17,
+ "captions": 104,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "cluster_fly",
+  "scene": "basement",
+  "scene_p": {},
+  "creature_cfg": {
+   "plan": "insect",
+   "label": "cluster fly",
+   "body": "round",
+   "color": "#6f6d5e",
+   "dark": "#4b4a40",
+   "length": 400,
+   "height": 180,
+   "leg_len": 100,
+   "wings": "clear",
+   "eye_r": 34,
+   "sheen": true,
+   "floor": false,
+   "mood": "smug",
+   "s": 0.95
+  },
+  "s": 0.95
+ },
+ "cap_key": [
+  "you",
+  "thousands",
+  "walls",
+  "warm",
+  "windows",
+  "breed",
+  "earthworms",
+  "lost",
+  "right",
+  "now"
+ ],
+ "title": "Why Thousands of Flies Can Wake Up in Your House Walls 🪰 (Things Living In Your House)",
+ "tiktok_caption": "why are there so many flies in my house 🪰 cluster flies spend winter in your attic and wall voids, then crawl out on warm days. They can't breed indoors: their babies grow inside earthworms. Ever had a winter fly invasion? #clusterflies #flysinhouse #winterpests #meatballmyths",
+ "beats": [
+  {
+   "open": "animal",
+   "m": "hook",
+   "gag": {
+    "mark": "shock"
+   },
+   "say": "Thousands of flies can sleep inside your walls.",
+   "card": {
+    "rows": [
+     [
+      "1000s",
+      "#ffd34d",
+      150
+     ],
+     [
+      "OF FLIES IN YOUR WALLS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   },
+   "voice": "kokoro:adam-puck@speed=1.15",
+   "pad": 0.12,
+   "scene": "basement",
+   "open_zoom": 2.4,
+   "insert": {
+    "type": "bugcam",
+    "at": 0.0,
+    "dur": 1.4
+   },
+   "light": "off"
+  },
+  {
+   "scene": "bedroom",
+   "scene_p": {
+    "time": "night"
+   },
+   "m": "chase",
+   "say": "One warm day wakes them. They crawl out. Meatball needs three alarms.",
+   "card": {
+    "rows": [
+     [
+      "1 WARM DAY",
+      "#ffd34d",
+      100
+     ],
+     [
+      "WAKES THEM UP",
+      "#ffffff",
+      56,
+      true
+     ],
+     [
+      "MEATBALL: THREE ALARMS",
+      "#ffffff",
+      46,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "50%"
+   },
+   "pose": "deadpan",
+   "voice": "kokoro:adam-puck@speed=0.96",
+   "pad": 0.12,
+   "freakout": "40%"
+  },
+  {
+   "scene": "sill",
+   "scene_p": {
+    "time": "day"
+   },
+   "m": "scale",
+   "say": "Flies crowd your sunny windows, dazed and sluggish. Meatball, every Monday.",
+   "voice": "kokoro:adam-puck@speed=0.96",
+   "pad": 0.12
+  },
+  {
+   "scene": "kitchen",
+   "m": "fact",
+   "gag": false,
+   "say": "They can't breed in your house.",
+   "card": {
+    "rows": [
+     [
+      "0 BABIES",
+      "#ffd34d",
+      120
+     ],
+     [
+      "BORN IN YOUR HOUSE",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "voice": "kokoro:adam-puck@speed=1.01",
+   "pad": 0.3
+  },
+  {
+   "scene": "garden",
+   "scene_p": {
+    "time": "day"
+   },
+   "m": "fact",
+   "gag": false,
+   "say": "Their babies grow inside earthworms, outdoors.",
+   "card": {
+    "rows": [
+     [
+      "EARTHWORMS",
+      "#ff4b3e",
+      95
+     ],
+     [
+      "THEIR NURSERY",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "voice": "kokoro:adam-puck@speed=1.01",
+   "pad": 0.12
+  },
+  {
+   "m": "tease",
+   "say": "The full ranking is on the channel.",
+   "card": {
+    "rows": [
+     [
+      "FULL RANKING ON THE CHANNEL",
+      "#ffd34d",
+      72
+     ]
+    ],
+    "y": 380,
+    "at": 0.0
+   },
+   "scene": "study",
+   "voice": "kokoro:adam-puck@speed=1.02",
+   "pad": 0.12
+  }
+ ],
+ "loop": true,
+ "description": "Why are there so many flies in my house? Cluster flies spend the winter in attics and wall voids, then crawl out on warm days. They can't breed indoors.\n\n#shorts #clusterflies #flysinhouse #winterpests #bugsinyourhouse\n\nSources: Penn State Extension (Cluster Flies); Colorado State University Extension (Cluster Flies and Other Winter Flies).",
+ "pinned_comment": "What's the strangest place you've ever found a pile of winter flies?",
+ "_note": "v3 (11/18): words copied unchanged from cluster-flies-v6-yt (checked: its own sources/_note); new look: cine, eerie -17, E2 plain (kokoro:adam-puck, speed only), bugcam at 0.0, one freakout, ID card, different room each beat, CTA 'The full ranking is on the channel.'. Beats not kept: [5]. | old note: Written for the 11/10 batch (Shorts A) from drawn_macros lines. Funny pass 11/13 (Nolan: every Short funny): Meatball gags on lines 2 and 3; the golden-hairs line was cut for length.",
+ "cine": true,
+ "id_card": {
+  "name": "CLUSTER FLY",
+  "rows": [
+   "SLEEPS INSIDE YOUR WALLS",
+   "CAN'T BREED IN YOUR HOUSE",
+   "BABIES GROW IN EARTHWORMS"
+  ],
+  "beat": 3,
+  "at": "5%",
+  "dur": 2.3,
+  "y": 130
+ },
+ "tags": [
+  "cluster flies",
+  "flies in house",
+  "why are there flies in my house",
+  "winter flies",
+  "flies in walls",
+  "cluster flies in house",
+  "bugs in house",
+  "things living in your house",
+  "Meatball Myths",
+  "shorts"
+ ]
+}

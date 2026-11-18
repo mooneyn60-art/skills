@@ -1,0 +1,336 @@
+{
+ "series": "Things Living In Your House",
+ "sources": [
+  "University of Missouri Extension, Dr. Bug Talks Pokemon and Why Your Christmas Tree May Be Bugged: \"Praying mantises lay about 100 eggs in foamy masses (called ootheca in Dr. Bug World) on twigs in the fall. The foam hardens and sticks to the bush or tree until warm weather arrives. If one of the masses hitches a ride indoors for the holidays on a tree, you might receive the gift of tiny mantis nymphs.\"; https://extension.missouri.edu/news/dr-bug-talks-pokemon-and-why-your-christmas-tree-may-be-bugged",
+  "Penn State Extension, Insects on Real Christmas Trees: \"All four species produce brown, frothy-looking egg masses that are attached to plants, including conifer twigs and branches. When brought indoors, these egg masses will hatch after several weeks and produce dozens of baby mantises. Mantises are predatory and cannibalistic, so will eat each other if no other food is present, as is usually the case indoors during the winter.\"; \"Insect egg masses, such as those laid by mantises... can be scraped off the tree trunk or branches.\"; https://extension.psu.edu/insects-on-real-christmas-trees",
+  "Note: University of Illinois Extension (Christmas tree hitchhikers) gives 200 to 400 eggs per female mantis; the Short uses Missouri's \"about 100\" per foamy mass as asked; https://extension.illinois.edu/news-releases/christmas-tree-hitchhikers",
+  "Penn State Extension, Insects on Real Christmas Trees (\"leaving it in a shrub or other plant outdoors\"), https://extension.psu.edu/insects-on-real-christmas-trees ; Illinois Extension, Christmas tree hitchhikers (\"cut off the branch ... place it in an evergreen outside\"), https://extension.illinois.edu/news-releases/christmas-tree-hitchhikers"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:adam-puck",
+ "music": "eerie",
+ "music_db": -17,
+ "captions": 104,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "praying_mantis",
+  "scene": "kitchen",
+  "scene_p": {
+   "time": "night",
+   "props": [
+    [
+     "window",
+     120,
+     900,
+     1.0
+    ]
+   ]
+  },
+  "creature_cfg": {
+   "plan": "insect",
+   "label": "praying mantis",
+   "body": "long",
+   "color": "#7fbf4f",
+   "dark": "#4a8a3a",
+   "head": "#7fbf4f",
+   "length": 760,
+   "height": 430,
+   "leg_len": 0,
+   "ant": 70,
+   "head_r": 0.75,
+   "wings": "clear",
+   "mood": "smug",
+   "s": 0.62
+  },
+  "s": 0.62,
+  "actor": "tc_mantis"
+ },
+ "cap_key": [
+  "you",
+  "christmas",
+  "tree",
+  "100",
+  "eggs",
+  "warm",
+  "dozens",
+  "eat",
+  "foamy",
+  "twigs",
+  "mantis"
+ ],
+ "title": "Your Christmas Tree Can Hide About 100 Mantis Eggs 🎄 (Things Living In Your House #62)",
+ "tiktok_caption": "bugs in christmas trees 🎄 a praying-mantis egg case can hold about 100 eggs, and if it rides your tree indoors the warmth can hatch dozens of babies. Check the twigs for a foamy case before you bring it in. Ever found one? #christmastree #prayingmantis #bugsinhouse #meatballmyths",
+ "beats": [
+  {
+   "open": "animal",
+   "with": [
+    {
+     "type": "tc_xtree",
+     "x": 930,
+     "y": 1500,
+     "s": 0.5,
+     "pop": false,
+     "front": false,
+     "p": {
+      "deco": 1.0,
+      "lit": 1.0,
+      "gifts": true
+     }
+    },
+    {
+     "type": "tc_twig",
+     "x": 330,
+     "y": 1400,
+     "s": 0.5,
+     "pop": false,
+     "front": true
+    },
+    {
+     "type": "tc_ooth",
+     "x": 330,
+     "y": 1400,
+     "s": 1.0,
+     "pop": false,
+     "front": true,
+     "p": {
+      "quiver": 1.0
+     }
+    }
+   ],
+   "m": "hook",
+   "gag": {
+    "mark": "shock"
+   },
+   "say": "Your Christmas tree can hide about 100 eggs.",
+   "card": {
+    "rows": [
+     [
+      "100 EGGS",
+      "#ffd34d",
+      150
+     ],
+     [
+      "ON YOUR TREE",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "45%"
+   },
+   "voice": "kokoro:adam-puck@speed=1.20",
+   "pad": 0.12,
+   "scene": "kitchen",
+   "open_zoom": 2.4,
+   "insert": {
+    "type": "bugcam",
+    "at": 0.0,
+    "dur": 1.4
+   },
+   "light": "off"
+  },
+  {
+   "pad": 0.12,
+   "scene": "bedroom",
+   "m": "chase",
+   "say": "Your warm living room can hatch them. Meatball screamed.",
+   "card": {
+    "rows": [
+     [
+      "WARM ROOM",
+      "#ff4b3e",
+      105
+     ],
+     [
+      "HATCHES THEM",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "50%"
+   },
+   "pose": "shock",
+   "voice": "kokoro:adam-puck@speed=1.00",
+   "freakout": "40%"
+  },
+  {
+   "pad": 0.12,
+   "scene": "bathroom",
+   "m": "scale",
+   "say": "Dozens of baby mantises can crawl out.",
+   "voice": "kokoro:adam-puck@speed=1.05"
+  },
+  {
+   "pad": 0.3,
+   "scene": "basement",
+   "m": "xray",
+   "say": "With no food, they eat each other. Merry damn Christmas.",
+   "card": {
+    "rows": [
+     [
+      "NO FOOD",
+      "#ff4b3e",
+      110
+     ],
+     [
+      "THEY EAT EACH OTHER",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "voice": "kokoro:adam-puck@speed=1.05"
+  },
+  {
+   "pad": 0.12,
+   "scene": "garden",
+   "scene_p": {
+    "time": "day"
+   },
+   "with": [
+    {
+     "type": "tc_twig",
+     "x": 300,
+     "y": 1430,
+     "s": 0.45,
+     "pop": false,
+     "front": true
+    },
+    {
+     "type": "tc_ooth",
+     "x": 300,
+     "y": 1430,
+     "s": 0.8,
+     "pop": false,
+     "front": true,
+     "p": {
+      "quiver": 1.0
+     }
+    }
+   ],
+   "m": "fact",
+   "say": "Look for a foamy case on the twigs.",
+   "card": {
+    "rows": [
+     [
+      "FOAMY CASE",
+      "#ffd34d",
+      110
+     ],
+     [
+      "ON THE TWIGS",
+      "#ffffff",
+      56,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "voice": "kokoro:adam-puck@speed=1.05"
+  },
+  {
+   "pad": 0.12,
+   "scene": "study",
+   "scene_p": {
+    "time": "day"
+   },
+   "m": "fact",
+   "gag": false,
+   "with": [
+    {
+     "type": "tc_shrub",
+     "x": 780,
+     "y": 1500,
+     "s": 0.7,
+     "pop": false,
+     "front": false,
+     "p": {
+      "snow": 0.0
+     }
+    },
+    {
+     "type": "tc_ooth",
+     "x": 760,
+     "y": 1260,
+     "s": 0.6,
+     "pop": false,
+     "front": true
+    }
+   ],
+   "say": "Clip the twig and put it in an evergreen outside.",
+   "card": {
+    "rows": [
+     [
+      "CLIP IT",
+      "#ffd34d",
+      110
+     ],
+     [
+      "INTO AN EVERGREEN OUTSIDE",
+      "#ffffff",
+      52,
+      true
+     ]
+    ],
+    "y": 470,
+    "at": "40%"
+   },
+   "voice": "kokoro:adam-puck@speed=1.05"
+  },
+  {
+   "m": "tease",
+   "say": "The full ranking is on the channel.",
+   "card": {
+    "rows": [
+     [
+      "FULL RANKING ON THE CHANNEL",
+      "#ffd34d",
+      72
+     ]
+    ],
+    "y": 380,
+    "at": 0.0
+   },
+   "scene": "classroom",
+   "voice": "kokoro:adam-puck@speed=1.02",
+   "pad": 0.12
+  }
+ ],
+ "loop": true,
+ "description": "Bugs in Christmas trees? A praying-mantis egg case on a tree can hold about 100 eggs, and indoor warmth can hatch them. Check the twigs for a foamy case before you bring it in.\n\n#shorts #christmastree #prayingmantis #bugsinhouse #bugsinyourhouse\n\nSources: University of Missouri Extension; Penn State Extension.",
+ "pinned_comment": "What's the strangest thing that ever crawled out of your Christmas tree?",
+ "_note": "v3 (11/18): words copied unchanged from christmas-tree-bugs-v6-yt (checked: its own sources/_note); new look: cine, eerie -17, E2 plain (kokoro:adam-puck, speed only), bugcam at 0.0, one freakout, ID card, different room each beat, CTA 'The full ranking is on the channel.'. Beats not kept: [6]. | old note: Written for the 11/10 batch (Shorts A) from drawn_macros lines. 11/10 redo: hero = tools/drawn_tc_art.py tc_mantis (triangular head, raised spiked forelegs), the drawn egg case (tc_ooth) and a decorated tree (tc_xtree); added the clip-and-tuck line (Penn State, Illinois, research 77). Funny pass 11/13 (Nolan: every Short funny): a Meatball gag on line 2 and a reaction after the eat-each-other line.",
+ "_scheduled": "YouTube Short, Wed 2026-11-18 19:00 ET, two hours after the Christmas-tree long-form; sources line adds University of Illinois Extension (the clip-and-tuck step).",
+ "cine": true,
+ "id_card": {
+  "name": "MANTIS EGG CASE",
+  "rows": [
+   "ABOUT 100 EGGS",
+   "WARM ROOMS CAN HATCH THEM",
+   "NO FOOD: THEY EAT EACH OTHER"
+  ],
+  "type": "tc_mantis",
+  "beat": 3,
+  "at": "5%",
+  "dur": 2.3,
+  "y": 130
+ },
+ "tags": [
+  "bugs in christmas tree",
+  "christmas tree bugs",
+  "praying mantis egg case",
+  "mantis eggs christmas tree",
+  "christmas tree mantis",
+  "bugs in house",
+  "things living in your house",
+  "Meatball Myths",
+  "shorts"
+ ]
+}

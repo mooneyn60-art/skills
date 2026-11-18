@@ -1,0 +1,151 @@
+{
+ "series": "Things Living In Your House",
+ "sources": [
+  "The Scientist, The Earwig's Tale (May Berenbaum, entomologist, University of Illinois): surveying about ten centuries of literature she could find only a single report of an earwig in an ear; https://www.the-scientist.com/the-earwigs-tale-43480",
+  "University of California IPM, Earwigs (Pest Notes): not harmful to people, though they can pinch if trapped in clothing or sat on; feed at night on aphids, insect eggs and plant shoots, can damage seedlings; hide by day in dark, cool, moist places; come indoors when outdoor conditions are too dry, hot or cold; pincers somewhat curved in males, straighter in females; most species have wings under short hard covers but seldom fly; females dig cells in soil, lay masses of 30 or more eggs, and nymphs are protected and fed by their mother until their first molt; rolled newspaper or tubes placed on soil before dark collect earwigs, emptied each morning; https://ipm.ucanr.edu/home-and-landscape/earwigs/",
+  "Science News, Earwigs take origami to extremes to fold their wings (2018, on Faber, Arrieta and Studart, Science): earwigs pack their wings into packages with a surface area more than 10 times smaller than unfurled; ETH Zurich team built folding structures inspired by them for possible use in robotics, biomedical devices and spacecraft; https://www.sciencenews.org/article/earwigs-take-origami-extremes-fold-their-wings"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:adam-puck",
+ "music": "eerie",
+ "music_db": -17,
+ "captions": 104,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "earwig",
+  "scene": "bathroom",
+  "scene_p": {},
+  "s": 0.65,
+  "wild": "garden",
+  "wild_p": {
+   "time": "night"
+  }
+ },
+ "_note": "v3 (11/18): words copied unchanged from earwig-yt (checked: its own sources/_note); new look: cine, eerie -17, E2 plain (kokoro:adam-puck, speed only), bugcam at 0.0, one freakout, ID card, different room each beat, CTA 'The full ranking is on the channel.'. Beats not kept: [3, 6]. | old note: Written by tools/drawn_quick.py from the outline; beats are drawn_macros lines.",
+ "title": "The Bug Named After Your Ear Almost Never Goes in One 👂",
+ "tiktok_caption": "the earwig almost never goes in ears 👂 but it hides origami wings and it's a devoted mom. Would you let one crawl on your hand? ✋ sure / 😱 never",
+ "beats": [
+  {
+   "hero_at": {
+    "x": 660
+   },
+   "gag": {
+    "prop": "magnifier",
+    "at": "70%"
+   },
+   "m": "hook",
+   "say": "The bug named after your ear has almost never been found in one.",
+   "voice": "kokoro:adam-puck@speed=1.20",
+   "pad": 0.12,
+   "scene": "bathroom",
+   "open": "animal",
+   "open_zoom": 2.4,
+   "insert": {
+    "type": "bugcam",
+    "at": 0.0,
+    "dur": 1.4
+   },
+   "light": "off"
+  },
+  {
+   "hero_at": {
+    "x": 660
+   },
+   "gag": {
+    "mark": "sweat",
+    "at": "85%"
+   },
+   "m": "name",
+   "say": "The earwig. Pincers on its rear end, and it wanders indoors when it's too dry outside.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12,
+   "scene": "kitchen"
+  },
+  {
+   "hero_at": {
+    "x": 660
+   },
+   "gag": {
+    "clock": 6,
+    "at": "40%",
+    "dur": 1.8
+   },
+   "m": "fact",
+   "say": "One entomologist searched ten centuries of writing, and found one single case.",
+   "voice": "kokoro:adam-puck@speed=1.05",
+   "pad": 0.12,
+   "scene": "basement"
+  },
+  {
+   "hero_at": {
+    "x": 660
+   },
+   "gag": {
+    "mark": "anger",
+    "at": "60%"
+   },
+   "m": "escalate",
+   "say": "Those pincers can give you a pinch, if one gets trapped in your clothes.",
+   "voice": "kokoro:adam-puck@speed=1.28",
+   "pad": 0.3,
+   "scene": "bedroom",
+   "freakout": "40%"
+  },
+  {
+   "hero_at": {
+    "x": 660
+   },
+   "m": "punch",
+   "say": "But your ears? Almost never.",
+   "voice": "kokoro:adam-puck@speed=1.00",
+   "pad": 0.12,
+   "scene": "study"
+  },
+  {
+   "m": "tease",
+   "say": "The full ranking is on the channel.",
+   "card": {
+    "rows": [
+     [
+      "FULL RANKING ON THE CHANNEL",
+      "#ffd34d",
+      72
+     ]
+    ],
+    "y": 380,
+    "at": 0.0
+   },
+   "scene": "classroom",
+   "voice": "kokoro:adam-puck@speed=1.02",
+   "pad": 0.12
+  }
+ ],
+ "loop": true,
+ "cine": true,
+ "id_card": {
+  "name": "EARWIG",
+  "rows": [
+   "PINCERS ON ITS REAR END",
+   "ONE SINGLE EAR CASE FOUND",
+   "IN TEN CENTURIES OF WRITING"
+  ],
+  "type": "sp.earwig",
+  "beat": 2,
+  "at": "5%",
+  "dur": 2.3,
+  "y": 130
+ },
+ "tags": [
+  "earwig",
+  "earwigs",
+  "do earwigs go in your ear",
+  "earwigs in house",
+  "earwig pincers",
+  "earwig bite",
+  "bugs in house",
+  "things living in your house",
+  "Meatball Myths",
+  "shorts"
+ ],
+ "description": "Do earwigs crawl into your ears? Almost never. One entomologist searched about ten centuries of writing and found a single report of an earwig in an ear (The Scientist). Earwigs can pinch if trapped in clothing, but they are not harmful to people (UC IPM).\n\nThe full ranking of the bugs in your house is on the channel: House Bugs Ranked by Meatball.\n\n#earwig #thingslivinginyourhouse #meatballmyths #shorts\n\nSources: The Scientist, The Earwig's Tale (May Berenbaum, University of Illinois); University of California IPM, Earwigs."
+}
