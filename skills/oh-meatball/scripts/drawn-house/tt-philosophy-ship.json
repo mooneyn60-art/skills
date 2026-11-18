@@ -180,10 +180,8 @@
   },
   {
    "say": "Scientists counted. Your body replaces about three hundred and thirty billion cells a day.",
-   "scene": "ph_lab",
-   "scene_p": {
-    "wall": "#2a1f4f"
-   },
+   "scene": "microscope",
+   "scene_p": {},
    "shots": [
     {
      "at": 0.0,
@@ -434,10 +432,8 @@
   },
   {
    "say": "Close to ninety percent of that is blood.",
-   "scene": "ph_lab",
-   "scene_p": {
-    "wall": "#4f1f2a"
-   },
+   "scene": "ph_vein",
+   "scene_p": {},
    "shots": [
     {
      "at": 0.0,
@@ -533,10 +529,8 @@
   },
   {
    "say": "But not everything. Most of your brain's neurons never get replaced. So you're part new, part original.",
-   "scene": "ph_lab",
-   "scene_p": {
-    "wall": "#1f3a4f"
-   },
+   "scene": "classroom",
+   "scene_p": {},
    "shots": [
     {
      "at": 0.0,
@@ -664,10 +658,8 @@
   },
   {
    "say": "Philosophers have argued about this since ancient Greece, with a boat.",
-   "scene": "ph_harbor",
-   "scene_p": {
-    "time": "dusk"
-   },
+   "scene": "study",
+   "scene_p": {},
    "shots": [
     {
      "at": 0.0,
@@ -749,10 +741,8 @@
   },
   {
    "say": "The Athenians kept the ship of Theseus. As the old planks decayed, they swapped in new timber.",
-   "scene": "ph_harbor",
-   "scene_p": {
-    "time": "day"
-   },
+   "scene": "ocean",
+   "scene_p": {},
    "shots": [
     {
      "at": 0.0,
@@ -900,10 +890,8 @@
   },
   {
    "say": "Plank by plank, until not one original plank is left.",
-   "scene": "ph_harbor",
-   "scene_p": {
-    "time": "day"
-   },
+   "scene": "night_sea",
+   "scene_p": {},
    "shots": [
     {
      "at": 0.0,
@@ -1202,12 +1190,8 @@
   },
   {
    "say": "But here's the version that breaks everyone's brain.",
-   "scene": "tp_set",
-   "scene_p": {
-    "wall": "#3a1630",
-    "wall2": "#4a1d3d",
-    "floor": "#24101e"
-   },
+   "scene": "deep",
+   "scene_p": {},
    "shots": [
     {
      "at": 0.0,
@@ -1303,7 +1287,7 @@
     "hit@breaks|60%"
    ],
    "transition": "smash",
-   "scare": "brain|85%"
+   "freakout": "brain|85%"
   },
   {
    "say": "Thomas Hobbes asked: what if someone collected every old plank, and put them back together in the original arrangement?",
@@ -1471,10 +1455,8 @@
   },
   {
    "say": "Now there are two ships. So which one is the real Ship of Theseus?",
-   "scene": "ph_harbor",
-   "scene_p": {
-    "time": "day"
-   },
+   "scene": "isle",
+   "scene_p": {},
    "shots": [
     {
      "at": 0.0,
@@ -1509,7 +1491,7 @@
      "type": "ph_ship",
      "pos": [
       270,
-      1330
+      1270
      ],
      "s": 0.48,
      "front": false,
@@ -1527,7 +1509,7 @@
      "type": "ph_ship",
      "pos": [
       800,
-      1330
+      1270
      ],
      "s": 0.48,
      "front": false,
@@ -1815,10 +1797,8 @@
   },
   {
    "say": "Agree with both, and the ship exists twice. That's not a ship, that's a damn glitch.",
-   "scene": "ph_harbor",
-   "scene_p": {
-    "time": "dusk"
-   },
+   "scene": "tp_neon",
+   "scene_p": {},
    "shots": [
     {
      "at": 0.0,
@@ -1924,12 +1904,8 @@
   },
   {
    "say": "Meatball's ruling: It's NOT the same ship.",
-   "scene": "tp_set",
-   "scene_p": {
-    "wall": "#14324a",
-    "wall2": "#183a56",
-    "floor": "#0e2233"
-   },
+   "scene": "office",
+   "scene_p": {},
    "shots": [
     {
      "at": 0.0,
@@ -2093,10 +2069,8 @@
   },
   {
    "say": "New screen, and that phone was never the same again. Neither was my wallet.",
-   "scene": "tp_living",
-   "scene_p": {
-    "sofa": true
-   },
+   "scene": "kitchen",
+   "scene_p": {},
    "shots": [
     {
      "at": 0.0,
@@ -2175,12 +2149,8 @@
   },
   {
    "say": "So, same ship or new ship? Pick one, no fence-sitting.",
-   "scene": "tp_set",
-   "scene_p": {
-    "wall": "#2a3358",
-    "wall2": "#323d6a",
-    "floor": "#1d2340"
-   },
+   "scene": "jh_stage",
+   "scene_p": {},
    "shots": [
     {
      "at": 0.0,
@@ -2280,10 +2250,8 @@
   },
   {
    "say": "Half of you are wrong. And remember...",
-   "scene": "ph_lab",
-   "scene_p": {
-    "wall": "#1f2d4f"
-   },
+   "scene": "skin",
+   "scene_p": {},
    "shots": [
     {
      "at": 0.0,

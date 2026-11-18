@@ -1,5 +1,4 @@
 {
- "series": "Meatball Philosophy (test)",
  "photo_credits": [],
  "voice": "kokoro:adam-puck",
  "music": "mystery",
@@ -50,7 +49,22 @@
   "SEP-IT Stanford Encyclopedia of Philosophy, 'Identity Over Time' (rev. Jan 12 2026), https://plato.stanford.edu/entries/identity-time/ : 'Over a long period all of the planks composing a certain ship are replaced one by one. Eventually a ship indiscernible from the original, but composed of entirely different planks, results.'",
   "SEP-MC Stanford Encyclopedia of Philosophy, 'Material Constitution', https://plato.stanford.edu/entries/material-constitution/ : 'Thomas Hobbes imagined a scenario in which a custodian collects the original planks and puts them back in the original arrangement. ... we are left with two seafaring vessels ... But where is the original Ship of Theseus? Some will say that it is with the museum, since boats can survive the gradual replacement of parts. Others will say that it is with the custodian, since constructs can survive being taken apart and put back together. Both arguments seem compelling, but together they imply that the ship survives twice over.'"
  ],
- "title": "The Ship of Theseus: Replace Every Plank and It's Not the Same Ship",
+ "title": "The Ship of Theseus: Replace Every Plank and It's Not the Same Ship 🚢",
+ "description": "If you replace every plank of a ship, is it still the same ship? Meatball says no. Plutarch's Ship of Theseus, Thomas Hobbes's rebuilt-ship twist, and your own body: most of your cells get replaced over time, but most of your brain's neurons never do.\n\nSources: Sender & Milo, Nature Medicine 2021 (cell turnover); Spalding et al., Cell 2005 (neurons); Plutarch, Life of Theseus; Stanford Encyclopedia of Philosophy, 'Identity Over Time' and 'Material Constitution'.\n\nSame ship or new ship? Pick one in the comments.\n\n#shipoftheseus #philosophy #meatballmyths #shorts",
+ "tags": [
+  "ship of theseus",
+  "ship of theseus paradox",
+  "philosophy",
+  "thought experiment",
+  "identity paradox",
+  "are you still the same person",
+  "cell replacement",
+  "thomas hobbes",
+  "plutarch",
+  "philosophy shorts",
+  "meatball myths"
+ ],
+ "pinned_comment": "Hot take: if you replace every plank, the old ship is the REAL one. Fight me 🍝",
  "_note": "Philosophy test 11/18 (Studio notes 2:50/2:55/2:58/3:05 PM in side-hustles TASKS.md). Script + sources: side-hustles channels/scripts/philosophy-ship-of-theseus.md. Hand-made beats; pictures in tools/drawn_phil_art.py (ph_). Voice E2 plain (kokoro:adam-puck, no speed/pitch/formant/drive), one-word captions (cap_words 1), one light swear (line 'damn glitch', after 7 s; captions show #@%!). Written by a generator; edit both cuts together.",
  "beats": [
   {
@@ -178,10 +192,8 @@
   },
   {
    "say": "But most of your brain's neurons never get replaced. So you're part new, part original.",
-   "scene": "ph_lab",
-   "scene_p": {
-    "wall": "#1f3a4f"
-   },
+   "scene": "classroom",
+   "scene_p": {},
    "shots": [
     {
      "at": 0.0,
@@ -309,10 +321,8 @@
   },
   {
    "say": "The Athenians kept the ship of Theseus. As the old planks decayed, they swapped in new timber.",
-   "scene": "ph_harbor",
-   "scene_p": {
-    "time": "day"
-   },
+   "scene": "ocean",
+   "scene_p": {},
    "shots": [
     {
      "at": 0.0,
@@ -460,10 +470,8 @@
   },
   {
    "say": "Plank by plank, until not one original plank is left.",
-   "scene": "ph_harbor",
-   "scene_p": {
-    "time": "day"
-   },
+   "scene": "night_sea",
+   "scene_p": {},
    "shots": [
     {
      "at": 0.0,
@@ -762,12 +770,8 @@
   },
   {
    "say": "But here's the version that breaks everyone's brain.",
-   "scene": "tp_set",
-   "scene_p": {
-    "wall": "#3a1630",
-    "wall2": "#4a1d3d",
-    "floor": "#24101e"
-   },
+   "scene": "deep",
+   "scene_p": {},
    "shots": [
     {
      "at": 0.0,
@@ -863,7 +867,7 @@
     "hit@breaks|60%"
    ],
    "transition": "smash",
-   "scare": "brain|85%"
+   "freakout": "brain|85%"
   },
   {
    "say": "Thomas Hobbes asked: what if someone collected all the old planks, and put the ship back together?",
@@ -1031,10 +1035,8 @@
   },
   {
    "say": "Now there are two ships. So which one is the real Ship of Theseus?",
-   "scene": "ph_harbor",
-   "scene_p": {
-    "time": "day"
-   },
+   "scene": "isle",
+   "scene_p": {},
    "shots": [
     {
      "at": 0.0,
@@ -1069,7 +1071,7 @@
      "type": "ph_ship",
      "pos": [
       270,
-      1330
+      1270
      ],
      "s": 0.48,
      "front": false,
@@ -1087,7 +1089,7 @@
      "type": "ph_ship",
      "pos": [
       800,
-      1330
+      1270
      ],
      "s": 0.48,
      "front": false,
@@ -1278,10 +1280,8 @@
   },
   {
    "say": "Agree with both, and the ship exists twice. That's not a ship, that's a damn glitch.",
-   "scene": "ph_harbor",
-   "scene_p": {
-    "time": "dusk"
-   },
+   "scene": "tp_neon",
+   "scene_p": {},
    "shots": [
     {
      "at": 0.0,
@@ -1387,12 +1387,8 @@
   },
   {
    "say": "Meatball's ruling: It's NOT the same ship.",
-   "scene": "tp_set",
-   "scene_p": {
-    "wall": "#14324a",
-    "wall2": "#183a56",
-    "floor": "#0e2233"
-   },
+   "scene": "office",
+   "scene_p": {},
    "shots": [
     {
      "at": 0.0,
@@ -1556,12 +1552,8 @@
   },
   {
    "say": "So, same ship or new ship? Pick one, no fence-sitting.",
-   "scene": "tp_set",
-   "scene_p": {
-    "wall": "#2a3358",
-    "wall2": "#323d6a",
-    "floor": "#1d2340"
-   },
+   "scene": "jh_stage",
+   "scene_p": {},
    "shots": [
     {
      "at": 0.0,
@@ -1661,10 +1653,8 @@
   },
   {
    "say": "Half of you are wrong. And remember...",
-   "scene": "ph_lab",
-   "scene_p": {
-    "wall": "#1f2d4f"
-   },
+   "scene": "skin",
+   "scene_p": {},
    "shots": [
     {
      "at": 0.0,

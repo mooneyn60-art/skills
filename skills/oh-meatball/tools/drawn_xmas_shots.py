@@ -209,13 +209,13 @@ def table():
     T["s2.l12"] = dict(room="liv", f="kkM", cams=[[CASE_ON_TREE[0], 640, 2.8, 2.9], [1000, 560, 1.1, 1.15]], cuts=["hatches|45%", "dozens|75%"],
                        pose="shock", mb=MB(1600), act="shocked", burst=True, freak=["dozens|75%"],
                        x=[tree(), case_on_tree(s=0.3, split=0.0)] + [A(f"ny{k}", "tc_nymph", [CASE_ON_TREE[0], 660], 0.0005, {},
-                                                                        moves=[mv(f"hatches|{50 + 3 * k}%", 1.4, [880 + 70 * k, 520 + 120 * (k % 3)], s=0.07)]) for k in range(8)],
+                                                                        moves=[mv(f"hatches|{50 + 3 * k}%", 1.4, [860 + 90 * k, 500 + 130 * (k % 3)], s=0.13)]) for k in range(8)],
                        sfx=["crunch@hatches|45%", "sting@dozens|75%"])
     T["s2.l12"]["x"][1]["set"] = [st("hatches|45%", 0.4, split=1.0)]
-    T["s2.l13"] = dict(room="board", f="kk", cams=[[0, 0, 1.0, 1.05], [300, 0, 1.4, 1.45]], cuts=["photo|60%"], mb=HID,
+    T["s2.l13"] = dict(room="board", f="kk", cams=[[0, 0, 1.0, 1.05], [100, 100, 1.35, 1.4]], cuts=["photo|60%"], mb=HID,
                        x=[A("race", "tc_race", [-500, -100], 1.0, {"a": 0.0, "b": 0.0, "la": "TREE DOWN", "lb": "EGGS HATCH", "w": 1100},
                             set=[st("three|20%", 2.2, a=0.95, b=0.93)]),
-                          lab("wk", "3-4 WEEKS", [0, -300], "weeks|30%", px=90, color=YEL)], sfx=["whoosh@three|20%", "hit@photo|70%"])
+                          lab("wk", "3-4 WEEKS", [0, 260], "weeks|30%", px=90, color=YEL)], sfx=["whoosh@three|20%", "hit@photo|70%"])
     T["s2.l14"] = dict(room="liv", f="kk", cams=[[1250, 820, 1.6, 1.7], [1450, 820, 1.6, 1.7]], cuts=["eat|50%"], mb=HID,
                        x=[tree(), A("ny", "tc_nymph", [1150, FY - 10], 0.12, {}, moves=[mv("nothing|30%", 1.8, [1400, FY - 10], walk=True)]),
                           prop("cc", "candycane", [1300, FY], 0.6), prop("sock", "sock", [1500, FY], 0.6)], light={"kind": "lamp", "dark": 0.4, "target": [1350, 820]})
@@ -230,15 +230,15 @@ def table():
                        x=[tree()] + [A(f"ny{k}", "tc_nymph", [1200 + 80 * k, FY], 0.1, {"napkin": 1.0}) for k in range(4)] +
                          [prop("tub", "tub", [1500, FY], 0.6, label="CRICKETS")], sfx=["pop@crickets|65%"])
     T["s2.l19"] = dict(room="liv", f="M", pose="point", look="viewer", mb=MB(1600, gest=[["making|40%", "you", 1.0]]),
-                       x=[tree(), A("src", "ds_chip_src", [1600, 200], 1.0, {"text": "UNIVERSITY OF MISSOURI EXTENSION", "px": 44})], card=False)
+                       x=[tree()], card="UNIVERSITY OF MISSOURI EXTENSION", card_at="0%")
     T["s2.l20"] = dict(room="liv", f="Mk", cams=[[1250, 820, 1.5, 1.6]], cuts=["daycare|50%"], pose="laugh", look="viewer", mb=MB(1600),
                        x=[tree()] + [A(f"ny{k}", "tc_nymph", [1050 + 90 * k, FY], 0.1, {}) for k in range(5)] +
                          [lab("dc", "TINY CANNIBAL DAYCARE", [1250, 560], "daycare|55%", px=60, color=YEL)], sfx=["pop@daycare|55%"])
     T["s2.l21"] = dict(room="liv", f="wk", cams=[[CASE_ON_TREE[0], 630, 2.6, 2.7]], cuts=["marshmallow|60%"], pose="point", look="tree", mb=MB(1600, prop="magnifier"),
                        x=[tree(), case_on_tree()], check_at="Step|30%", sfx=["pop@marshmallow|60%"])
     T["s2.l22"] = dict(room="case", f="kkk", cams=[[960, 560, 1.2, 1.25], [960, 560, 1.2, 1.25], [1100, 700, 1.5, 1.55]], cuts=["crush|30%", "Clip|65%"], mb=HID,
-                       x=[twig(), ooth(), A("sl", "tc_prop", [1300, 380], 1.0, {"kind": "slipper"}, moves=[mv(0.1, 0.4, [1200, 300])]),
-                          A("x", "ds_cross", [1200, 300], 1.0, {"on": 0.0, "r": 200}, set=popset("crush|30%"), front=True),
+                       x=[twig(), ooth(), A("sl", "tc_prop", [1350, 520], 1.0, {"kind": "slipper"}, moves=[mv(0.1, 0.4, [1250, 440])]),
+                          A("x", "ds_cross", [1250, 440], 1.0, {"on": 0.0, "r": 200}, set=popset("crush|30%"), front=True),
                           A("sh", "tc_prop", [1500, 760], 1.2, {"kind": "shears", "snip": 0.0}, set=[st("twig|80%", 0.2, snip=1.0)], front=True)],
                        sfx=["stamp@crush|30%", "click@twig|80%"])
     T["s2.l23"] = dict(room="yard", f="wk", cams=[[900, 700, 1.6, 1.7]], cuts=["evergreen|50%"], pose="present", look=[900, 650],
@@ -252,11 +252,11 @@ def table():
                        sfx=["stamp@ground|25%"])
     T["s2.l25"] = dict(room="board", f="kk", cams=[[0, 0, 1.0, 1.04], [0, 0, 1.4, 1.45]], cuts=["big|60%"], mb=HID,
                        x=[A("map", "tc_map", [0, 0], 1.0, {"place": "USA", "ships": 0.0}, set=[st("from|60%", 1.2, ships=1.0)])], sfx=["whoosh@from|60%"])
-    T["s2.l26"] = dict(room="board", f="kk", cams=[[0, 0, 1.0, 1.04], [400, 60, 1.5, 1.55]], cuts=["Illinois|55%"], mb=HID,
-                       x=[lab("t", "LATE 1800s", [0, -330], "1800s|30%", px=100, color=YEL),
-                          A("m1", "tc_mantis", [-450, 120], 0.38, {"col": "#9ccf6a"}), lab("l1", "CHINESE", [-450, 200], "Chinese|10%", px=50),
-                          A("m2", "tc_mantis", [0, 120], 0.38, {"col": "#b9a36b"}), lab("l2", "EUROPEAN", [0, 200], "European|20%", px=50),
-                          A("m3", "tc_mantis", [450, 120], 0.38, {"col": "#7fbf4a"}), lab("l3", "CAROLINA: NATIVE", [450, 200], "Carolina|70%", px=50, color=GREEN)],
+    T["s2.l26"] = dict(room="board", f="kkk", cams=[[0, 0, 1.0, 1.04], [-230, 20, 1.5, 1.55], [450, 20, 1.5, 1.55]], cuts=["European|30%", "Illinois|55%"], mb=HID,
+                       x=[lab("t", "LATE 1800s", [0, -240], "1800s|30%", px=100, color=YEL),
+                          A("m1", "tc_mantis", [-450, 120], 0.38, {"col": "#9ccf6a"}), lab("l1", "CHINESE", [-450, -120], "Chinese|10%", px=50),
+                          A("m2", "tc_mantis", [0, 120], 0.38, {"col": "#b9a36b"}), lab("l2", "EUROPEAN", [0, -120], "European|20%", px=50),
+                          A("m3", "tc_mantis", [450, 120], 0.38, {"col": "#7fbf4a"}), lab("l3", "CAROLINA: NATIVE", [450, -120], "Carolina|70%", px=50, color=GREEN)],
                        sfx=["pop@1800s|30%", "pop@Carolina|70%"])
     # =========================================================================================== 3. the giant conifer aphid (living room)
     def aph(idn, pos, s=0.35, **kw):
