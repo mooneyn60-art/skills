@@ -8,6 +8,14 @@ This session does not do Etsy, FurEver Faces, Printify, or Shopify work. Ignore 
 
 Daily and tactical notes stay in the shared notebook under **[MEATBALL]**. The rules below are the standing channel orders copied here so they live in this repo, not only in the shared notebook.
 
+## 11/18 3:45 PM DIRECTION CHANGE (Studio 5fa0964 + fdab8fd, Moondog88 by voice): replaces the topic plan where they conflict
+- **Stopped:** the 11/25 Christmas tree build, flagship cut-downs, holiday fact packs, tick yard test, comment-roast pilot, philosophy niche research, Sat re-render. Already scheduled posts stay until Studio says otherwise. The philosophy test (Ship of Theseus) goes on: live only on KEEP.
+- **Style-led, not topic-led:** the art style, voice and joke format are the product; topics rotate (philosophy, politics, events, news, media). Look: crude paper-cutout animation, flat and choppy (South Park-STYLE reference only). Our own original voice, jokes and characters. NEVER South Park voices, impressions, characters, music, clips or any copyrighted material; original or royalty-free music only.
+- **Quality bar:** jokes with setup, turn, punchline, no filler; the animation must look good. Quality over volume.
+- **Every style-lane script** passes channels/qa/style-lane-joke-safety-checklist.md (Research & QA) before preview: joke scores (avg >=3.5, cut 1-2s), original satire of public figures/institutions only, 10 policy red flags. Render only after PASS.
+- **Still in force:** sourced facts, swears 1-2 none in first 7 s, TikTok AI label ON, YouTube synthetic NO, made for kids NO, TikToks >=61 s.
+- **Next:** wait for Studio's style brief before building anything in the new style.
+
 ## 11/18 FULL PLAN (Studio 0ea9c59, Moondog88-approved): applies from the next render on
 - **Every Short:** Related video = the matching long-form (Studio sets it in YouTube; Metricool can't). Say and show "full video linked" in the last 5 s; the long-form pays off that hook in its first 10 s.
 - **First 3 s (Shorts and TikToks):** the bug's full name plus a bold claim or visual result. TikTok caption line 1 = the typed question.
