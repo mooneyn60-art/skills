@@ -26,6 +26,8 @@ BLENDS = {  # name -> [(kokoro voice, weight)]; C is Nolan's pick (research/39-v
     "adam-puck": [("am_adam", 0.6), ("am_puck", 0.4)],      # voice test v3 E2 (11/17)
     "adam-michael": [("am_adam", 0.6), ("am_michael", 0.4)],        # Studio voice test 11/17 (B)
     "michael": [("am_michael", 1.0)],
+    "pip": [("am_puck", 0.6), ("af_sky", 0.4)],         # cutout preview 11/18: Pip, tall anxious kid
+    "dot": [("af_sky", 0.5), ("af_river", 0.5)],        # cutout preview 11/18: Dot, short deadpan kid
 }
 SPEED = 1.05
 # Per-blend overrides: speed, and "pause" = the longest silence kept inside a line (s). The drawn animal
