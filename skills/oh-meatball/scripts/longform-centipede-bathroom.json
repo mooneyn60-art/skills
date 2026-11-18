@@ -849,7 +849,7 @@
   },
   {
    "say": "Most centipedes that wander into a house die shortly after, from the lack of moisture.",
-   "vis": "Act it out: a little parade of OTHER centipedes (stubby, different body shape) marches in under the front door and wilts one by one on a dry carpet (simple tip-over, no gore).",
+   "vis": "The stubby other centipedes stay as grey silhouettes on the card with a DRY AIR stamp. Nobody wilts or tips over on screen.",
    "card": "MOST CENTIPEDES INDOORS DRY OUT",
    "src": "CB4",
    "rate": "+20%",
@@ -1001,7 +1001,7 @@
   },
   {
    "say": "But the house centipede is the only one known to stay inside buildings all year.",
-   "vis": "Cut back to the bathroom: the house centipede strolls past the wilted ones' silhouettes on the card, unbothered. Spotlight on it.",
+   "vis": "The stubby other centipedes stay as grey silhouettes on the card with a DRY AIR stamp. Nobody wilts or tips over on screen.",
    "card": "ONLY ONE KNOWN TO STAY INDOORS ALL YEAR",
    "src": "CB2",
    "rate": "+20%",
@@ -1725,9 +1725,9 @@
    }
   },
   {
-   "say": "On the menu: flies, crickets, moths and earwigs.",
+   "say": "On the menu: crickets, earwigs, even pillbugs.",
    "vis": "Four quick cuts, one per bug, each one framed like a menu card in the night-vision shot.",
-   "card": "FLIES · CRICKETS · MOTHS · EARWIGS",
+   "card": "CRICKETS · EARWIGS · PILLBUGS",
    "src": "CB8",
    "rate": "+20%",
    "id": "s2.l4",
@@ -1971,11 +1971,12 @@
    }
   },
   {
-   "say": "Hunting at night, centipedes can get trapped if they fall into a sink or bathtub.",
-   "vis": "Night-vision: the centipede runs along the sink rim, one foot slips, it slides into the white basin. Slow push-in.",
-   "card": "CAN GET TRAPPED IN A SINK OR TUB",
+   "say": "Then the bug cam loses it. Where did it go?",
+   "vis": "Night-vision bug cam pans an empty floor. Card: WHERE DID IT GO? No slip-into-the-basin shot.",
+   "card": "WHERE DID IT GO?",
    "src": "CB9",
    "rate": "+20%",
+   "act": "story",
    "id": "s2.l7",
    "seg": 2,
    "shot": {
@@ -2174,9 +2175,9 @@
    }
   },
   {
-   "say": "Mississippi State says bites to humans are uncommon unless the centipede is handled or accidentally pressed against the skin.",
+   "say": "Colorado State says house centipedes will bite only if physically confined.",
    "vis": "Slow push-in on the centipede sitting still in the basin; Meatball lowers the toothbrush a little.",
-   "card": "BITES UNCOMMON · UNLESS HANDLED OR PRESSED ON SKIN",
+   "card": "BITES ONLY IF PHYSICALLY CONFINED",
    "src": "CB11",
    "rate": "+20%",
    "id": "s3.l2",
@@ -2193,7 +2194,7 @@
    }
   },
   {
-   "say": "So I don't grab it. I build it a towel ramp. I'm a host now.",
+   "say": "So, paws off. I build it a towel ramp. I'm a host now.",
    "vis": "Meatball drapes a towel from the sink rim to the floor, then backs away fast.",
    "card": null,
    "src": "story + joke (keeps the CB11 condition; Meatball's action, not advice)",
@@ -2717,11 +2718,11 @@
    }
   },
   {
-   "say": "And if you see them often, Penn State says that points to plenty of the bugs they eat.",
-   "vis": "Act it out: one centipede on the card, then a crowd of tiny generic bugs fills in behind it like a buffet line.",
-   "card": "SEEN OFTEN? PLENTY OF PREY BUGS",
-   "src": "CB13",
-   "rate": "+20%",
+   "say": "So what does it mean for your house? And what do you do?",
+   "vis": "The calendar flips to day 7. Sound hit.",
+   "card": "WHAT DOES IT MEAN?",
+   "src": "story (re-hook)",
+   "act": "curious",
    "id": "s4.l7",
    "seg": 4,
    "shot": {
@@ -2971,57 +2972,6 @@
    }
   },
   {
-   "say": "So what does it mean for your house? And what do you do?",
-   "vis": "The calendar flips to day 7. Sound hit.",
-   "card": "WHAT DOES IT MEAN?",
-   "src": "story (re-hook)",
-   "act": "curious",
-   "id": "s4.l8",
-   "seg": 4,
-   "shot": {
-    "f": "kM",
-    "cams": [
-     [
-      1100,
-      600,
-      1.4,
-      1.5
-     ]
-    ],
-    "pose": "think",
-    "bug": {
-     "hidden": true
-    },
-    "x": [
-     {
-      "id": "cal",
-      "type": "ds_prop",
-      "pos": [
-       1100,
-       620
-      ],
-      "s": 0.9,
-      "p": {
-       "kind": "calendar",
-       "day": 3.0
-      },
-      "set": [
-       {
-        "at": "mean|30%",
-        "dur": 1.0,
-        "p": {
-         "day": 7.0
-        }
-       }
-      ]
-     }
-    ],
-    "sfx": [
-     "hit@do|85%"
-    ]
-   }
-  },
-  {
    "say": "Day seven. Time to find out what it's been eating.",
    "vis": "RE-HOOK CARD 'DAY 7' + sound hit. Hallway by the laundry room, morning light; Meatball holds a stack of small sticky traps like playing cards.",
    "card": "DAY 7",
@@ -3179,9 +3129,9 @@
    }
   },
   {
-   "say": "Mississippi State says to focus on the bugs they eat, and cutting indoor moisture also helps.",
+   "say": "Mississippi State says control should focus on the bugs they eat.",
    "vis": "Split screen: a small bug crossed out on the left, a water drop crossed out on the right.",
-   "card": "CONTROL THE BUGS IT EATS · CUT THE MOISTURE",
+   "card": "CONTROL THE BUGS IT EATS",
    "src": "CB18",
    "rate": "+20%",
    "id": "s5.l3",
@@ -3293,9 +3243,9 @@
    }
   },
   {
-   "say": "Utah State says dry out damp areas, like the laundry room and the bathroom.",
-   "vis": "Cut to the laundry room: Meatball mops a puddle under the washer, then wipes the bathroom floor.",
-   "card": "DRY OUT DAMP AREAS",
+   "say": "To discourage them from coming out in the open, Connecticut's experts suggest fans or dehumidifiers.",
+   "vis": "Meatball drags in a dehumidifier (drawn, generic, no brand) and finally fixes the bathroom fan; it spins.",
+   "card": "FANS · DEHUMIDIFIERS",
    "src": "CB15",
    "rate": "+20%",
    "id": "s5.l4",
@@ -3350,11 +3300,11 @@
    }
   },
   {
-   "say": "To discourage them from coming out in the open, Connecticut's experts suggest fans or dehumidifiers.",
-   "vis": "Meatball drags in a dehumidifier (drawn, generic, no brand) and finally fixes the bathroom fan; it spins.",
-   "card": "FANS · DEHUMIDIFIERS",
-   "src": "CB15",
-   "rate": "+20%",
+   "say": "My fan works now. It only took a centipede.",
+   "vis": "Meatball stands under the spinning fan, ears blowing back, proud.",
+   "card": null,
+   "src": "joke (no new fact)",
+   "act": "smug",
    "id": "s5.l5",
    "seg": 5,
    "shot": {
@@ -3412,11 +3362,11 @@
    }
   },
   {
-   "say": "My fan works now. It only took a centipede.",
-   "vis": "Meatball stands under the spinning fan, ears blowing back, proud.",
-   "card": null,
-   "src": "joke (no new fact)",
-   "act": "smug",
+   "say": "And skip the bug bomb. Ohio State says it rarely reaches the cracks where centipedes hide.",
+   "vis": "Drawn mist stops at the cabinet edge while the antennae wave safely from the crack. The can is never shown going off.",
+   "card": "BUG BOMBS DON'T REACH THE CRACKS",
+   "src": "CB16",
+   "rate": "+20%",
    "id": "s5.l6",
    "seg": 5,
    "shot": {
@@ -3454,10 +3404,10 @@
    }
   },
   {
-   "say": "And skip the bug bomb. Ohio State says those are ineffective against centipedes.",
-   "vis": "A bug bomb can on the floor gets a big red NO stamp (never shown going off).",
-   "card": "BUG BOMBS: INEFFECTIVE ON CENTIPEDES",
-   "src": "CB16",
+   "say": "Can't live with it? Maryland Extension says escort it outdoors. But Penn State says house centipedes do not survive winters outdoors in Pennsylvania.",
+   "vis": "Meatball holds the front door open with a little bow, a paper cup and card ready (the cup is never shown over the bug).",
+   "card": "CAN'T LIVE WITH IT? ESCORT IT OUTSIDE · COLD WEATHER: THEY DON'T SURVIVE WINTERS OUTDOORS (PENN STATE, PA)",
+   "src": "CB17",
    "rate": "+20%",
    "id": "s5.l7",
    "seg": 5,
@@ -3515,11 +3465,11 @@
    }
   },
   {
-   "say": "Can't live with it? Maryland Extension says escort it outdoors. But Penn State says house centipedes do not survive winters outdoors in Pennsylvania.",
-   "vis": "Meatball holds the front door open with a little bow, a paper cup and card ready (the cup is never shown over the bug).",
-   "card": "CAN'T LIVE WITH IT? ESCORT IT OUTSIDE · COLD WEATHER: THEY DON'T SURVIVE WINTERS OUTDOORS (PENN STATE, PA)",
-   "src": "CB17",
-   "rate": "+20%",
+   "say": "Meatball held the door open for ages. It went back under the mat.",
+   "vis": "Wide-to-close: Meatball still holding the door, snow blowing in, then a cut to the bath mat with two antennae tips sticking out.",
+   "card": null,
+   "src": "joke (CB6 hides under anything; no new fact)",
+   "act": "smug",
    "id": "s5.l8",
    "seg": 5,
    "shot": {
@@ -3555,56 +3505,6 @@
        "h": 260
       }
      }
-    ]
-   }
-  },
-  {
-   "say": "Meatball held the door open for ages. It went back under the mat.",
-   "vis": "Wide-to-close: Meatball still holding the door, snow blowing in, then a cut to the bath mat with two antennae tips sticking out.",
-   "card": null,
-   "src": "joke (CB6 hides under anything; no new fact)",
-   "act": "smug",
-   "id": "s5.l9",
-   "seg": 5,
-   "shot": {
-    "f": "Mb",
-    "room": "bathD",
-    "cuts": [
-     "mat|55%"
-    ],
-    "pose": "deadpan",
-    "look": "viewer",
-    "bug": {
-     "hidden": true
-    },
-    "zb": 2.0,
-    "x": [
-     {
-      "id": "mat",
-      "type": "rk_mat",
-      "pos": [
-       1000,
-       1510
-      ],
-      "s": 1.2,
-      "p": {
-       "lump": 0.6
-      }
-     },
-     {
-      "id": "ant",
-      "type": "rk_antennae",
-      "pos": [
-       760,
-       1490
-      ],
-      "s": 1.0,
-      "p": {}
-     }
-    ],
-    "bugpos_for_frame": [
-     850,
-     1500
     ]
    }
   },
