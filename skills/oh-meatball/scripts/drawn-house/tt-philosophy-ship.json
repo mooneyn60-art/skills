@@ -45,6 +45,7 @@
  "cut_whoosh": false,
  "sources": [
   "SM21 Sender R, Milo R. The distribution of cellular turnover in the human body. Nat Med 27:45-48 (2021), Weizmann Institute, doi:10.1038/s41591-020-01182-9, https://pubmed.ncbi.nlm.nih.gov/33432173/ : 'In terms of cell numbers, close to 90% of the (0.33 +/- 0.02) x 10^12 cells per day turnover was blood cells.' Body text: 'a reference 70 kg person with 30 trillion host cells ... produces this number of cells every 80 d ... not all parts of the human body are ever replaced (for example, most brain neurons and cells of the eye lens ...) and hence complete turnover never happens.'",
+  "SFM16 Sender R, Fuchs S, Milo R. Revised Estimates for the Number of Human and Bacteria Cells in the Body. PLoS Biol 14:e1002533 (2016), Weizmann Institute, https://pubmed.ncbi.nlm.nih.gov/27541692/ : 'For human cells, we identify the dominant role of the hematopoietic lineage to the total count (~90%) and revise past estimates to 3.0x10^13 human cells.'",
   "SP05 Spalding KL et al. Retrospective birth dating of cells in humans. Cell 122:133-143 (2005), Karolinska Institute, https://pubmed.ncbi.nlm.nih.gov/16009139/ : 'whereas nonneuronal cells are exchanged, occipital neurons are as old as the individual'",
   "PLU Plutarch, Life of Theseus (Dryden tr.), https://classics.mit.edu/Plutarch/theseus.html : 'The ship wherein Theseus and the youth of Athens returned had thirty oars, and was preserved by the Athenians ... for they took away the old planks as they decayed, putting in new and stronger timber in their place, insomuch that this ship became a standing example among the philosophers ... one side holding that the ship remained the same, and the other contending that it was not the same.'",
   "SEP-IT Stanford Encyclopedia of Philosophy, 'Identity Over Time' (rev. Jan 12 2026), https://plato.stanford.edu/entries/identity-time/ : 'Over a long period all of the planks composing a certain ship are replaced one by one. Eventually a ship indiscernible from the original, but composed of entirely different planks, results.'",
@@ -53,7 +54,7 @@
  "title": "Ship of Theseus: Are You Still You?",
  "tiktok_title": "Ship of Theseus: Are You Still You?",
  "tiktok_caption": "Ship of Theseus: are you still you? #shipoftheseus #philosophy #thoughtexperiment #meatballmyths",
- "_note": "Philosophy test 11/18 (Studio notes 2:50/2:55/2:58/3:05 PM in side-hustles TASKS.md). Script + sources: side-hustles channels/scripts/philosophy-ship-of-theseus.md. Hand-made beats; pictures in tools/drawn_phil_art.py (ph_). Voice E2 plain (kokoro:adam-puck, no speed/pitch/formant/drive), one-word captions (cap_words 1), one light swear (line 'damn glitch', after 7 s; captions show #@%!). Written by a generator; edit both cuts together.",
+ "_note": "Philosophy test 11/18 (Studio notes 2:50/2:55/2:58/3:05 PM in side-hustles TASKS.md). Script + sources: side-hustles channels/scripts/philosophy-ship-of-theseus.md. Hand-made beats; pictures in tools/drawn_phil_art.py (ph_). Voice E2 plain (kokoro:adam-puck, no speed/pitch/formant/drive), one-word captions (cap_words 1), one light swear (line 'damn glitch', after 7 s; captions show #@%!). Written by tools/phil_ship_spec.py; edit that and rerun it (both cuts together).",
  "beats": [
   {
    "say": "Most of your body's cells get swapped out over the years. So are you even still you?",
@@ -159,7 +160,8 @@
    "pad": 0.08,
    "recut": false,
    "_f": [
-    "SM21"
+    "SM21",
+    "SFM16"
    ],
    "card": {
     "rows": [

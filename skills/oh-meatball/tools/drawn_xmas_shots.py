@@ -271,16 +271,16 @@ def table():
                       x=[twig([960, 720], 1.0), aph("a", [900, 700], 0.8),
                          prop("rul", "ruler", [900, 830], 1.0, w=700, mark=0.0, span=420, label="UP TO 1/8 INCH")], ring_k=True, sfx=["tink@eighth|80%"])
     T["s3.l3"]["x"][2]["set"] = [st("eighth|70%", 0.5, mark=1.0)]
-    T["s3.l4"] = dict(room="board", f="kk", cams=[[0, 0, 1.0, 1.04], [-200, 0, 1.5, 1.55]], cuts=["largest|50%"], mb=HID,
+    T["s3.l4"] = dict(room="board", f="kk", cams=[[0, 0, 1.0, 1.04], [100, 60, 1.25, 1.3]], cuts=["largest|50%"], mb=HID,
                       x=[A("big", "tc_aphid", [-300, 150], 0.9, {"flex": 0.0}, set=[st("largest|50%", 0.5, flex=1.0)]),
                          A("small", "tc_aphid", [450, 150], 0.25, {"col": "#7fbf4a"}), lab("l1", "GIANT CONIFER APHID", [-300, -300], "N.C.|10%", px=64, color=YEL),
-                         lab("l2", "A NORMAL APHID", [450, -60], "largest|60%", px=48)], sfx=["boing@largest|50%"])
+                         lab("l2", "A NORMAL APHID", [450, 0], "largest|60%", px=48)], sfx=["boing@largest|50%"])
     T["s3.l5"] = dict(room="board", f="kk", cams=[[0, 0, 1.0, 1.05], [0, 0, 1.3, 1.35]], cuts=["ticks|70%"], mb=HID,
                       x=[A("ap", "tc_aphid", [-420, 150], 0.7, {}), A("tk", "tc_tick_top", [420, 0], 0.8, {}),
                          A("lens", "tc_prop", [0, -40], 1.4, {"kind": "lens"}, moves=[mv("mistake|50%", 0.8, [380, -40])], front=True)],
                       sfx=["whoosh@mistake|50%"])
     T["s3.l6"] = dict(room="board", f="kk", cams=[[0, 0, 1.0, 1.04], [400, 0, 1.4, 1.45]], cuts=["Ticks|60%"], mb=HID,
-                      x=[A("ap", "tc_aphid", [-420, 150], 0.7, {"count": 0.0}, set=[st("six|30%", 1.2, count=6.0)]),
+                      x=[A("ap", "tc_aphid", [-420, 0], 0.8, {"top": True, "count": 0.0}, set=[st("aphid|25%", 1.2, count=6.0)]),
                          A("tk", "tc_tick_top", [420, 0], 0.8, {"count": 0.0}, set=[st("eight|70%", 1.4, count=8.0)])],
                       sfx=["tink@six|30%", "tink@eight|75%"])
     T["s3.l7"] = dict(room="liv", f="Mk", cams=[[1250, 780, 1.8, 1.9]], cuts=["aphid|55%"], pose="facepalm", look="viewer", mb=MB(1600),
@@ -308,7 +308,7 @@ def table():
                           prop("bh", "brushhead", [1100, FY], 0.8), A("x", "ds_cross", [1100, 820], 1.0, {"on": 0.0, "r": 140}, set=popset("brush|65%"), front=True)],
                        check_at="instead|35%", sfx=["whoosh@hose|45%", "stamp@brush|65%"])
     T["s3.l13"]["x"][2]["moves"] = [mv("hose|40%", 0.5, [1310, FY - 80], s=0.02)]
-    T["s3.l14"] = dict(room="liv", f="kk", cams=[[900, 560, 1.0, 1.05], [1000, 500, 1.6, 1.7]], cuts=["breed|60%"], mb=HID,
+    T["s3.l14"] = dict(room="liv", f="kk", cams=[[900, 480, 0.85, 0.9], [950, 430, 1.5, 1.6]], cuts=["breed|60%"], mb=HID,
                        x=[A("rb", "tc_rootball", [900, FY], 1.0, {})] + [pop(A(f"w{k}", "tc_aphid", [800 + 120 * k, 450], 0.12, {"winged": 1.0}), f"breed|{65 + 5 * k}%") for k in range(3)] +
                          [lab("q", "?", [1100, 330], "breed|75%", px=140, color=YEL)], sfx=["pop@breed|65%"])
     T["s3.l15"] = dict(room="trunk", f="kk", cams=[[960, 540, 1.0, 1.05], [960, 540, 1.8, 1.9]], cuts=["few#2|75%"], mb=HID,
@@ -319,18 +319,15 @@ def table():
                             set=[st("two|10%", 0.4, done=2.0), st("next|30%", 1.6, blur=1.0), st("matters|70%", 0.6, glow9=1.0)])],
                        sfx=["tink@two|10%", "whoosh@next|30%", "sting@matters|70%"])
     # =========================================================================================== 4. 3 to 8: the ones you can ignore
-    IGN = lambda at, x=1400, y=300: stamp("IGNORE", at, GREEN, x, y, 130, -8)  # noqa: E731
+    IGN = lambda at, x=1150, y=430: stamp("IGNORE", at, GREEN, x, y, 130, -8)  # noqa: E731
     T["s4.l0"] = dict(room="closeG", f="kk", cams=[[960, 600, 1.2, 1.25], [960, 600, 1.7, 1.8]], cuts=["Iowa|35%"], mb=HID,
-                      x=[twig(), A("sp", "cellar_spider", [800, 720], 0.3, {}), A("sl", "tc_spiderlings", [1150, 690], 1.2, {})], ring_k=True)
+                      x=[twig(), A("sp", "cellar_spider", [800, 690], 0.5, {}), A("sl", "tc_spiderlings", [1150, 660], 1.8, {})], ring_k=True)
     T["s4.l1"] = dict(room="liv", f="kk", cams=[[1200, 760, 1.4, 1.5], [1100, 600, 1.0, 1.05]], cuts=["die|55%"], mb=HID,
-                      x=[tree(), A("dog", "tc_dog", [1350, FY], 0.6, {"sniff": 1.0, "wag": 1.0}, flip=True)], **IGN("dangerous|40%"),
-                      card="IGNORE" if False else None, sfx=["stamp@dangerous|40%"])
-    T["s4.l1"].pop("card")
+                      x=[tree(), A("dog", "tc_dog", [1350, FY], 0.6, {"sniff": 1.0, "wag": 1.0}, flip=True)])
     T["s4.l2"] = dict(room="trunk", f="kk", cams=[[960, 520, 1.6, 1.7], [960, 900, 1.6, 1.7]], cuts=["sawdust|55%"], mb=HID,
                       x=[A("bb", "tc_barkbeetle", [960, 520], 0.6, {}), A("sd", "tc_sawdust", [960, 1000], 1.4, {"drift": 1.0})], ring_k=True)
     T["s4.l3"] = dict(room="liv", f="kM", cams=[[1450, 780, 1.6, 1.7]], cuts=["damp|55%"], pose="shrug", mb=MB(1650), act="curious",
-                      x=[tree(), prop("tab", "table", [1400, FY], 1.0), A("bb", "tc_barkbeetle", [1300, FY], 0.15, {}, moves=[mv("No|30%", 0.8, [1000, FY], face=-1)])],
-                      **IGN("dry|80%", 960, 300), sfx=["stamp@dry|80%"])
+                      x=[tree(), prop("tab", "table", [1400, FY], 1.0), A("bb", "tc_barkbeetle", [1300, FY], 0.15, {}, moves=[mv("No|30%", 0.8, [1000, FY], face=-1)])])
     T["s4.l4"] = dict(room="trunk", f="kk", cams=[[960, 540, 1.2, 1.25], [960, 540, 1.8, 1.9]], cuts=["Adelgids|50%"], mb=HID,
                       x=[A("ad", "tc_adelgid", [960, 540], 1.4, {"poke": 0.0}, set=[st("stay|65%", 0.5, poke=1.0)])], **IGN("harmless|80%", 960, 280),
                       sfx=["stamp@harmless|80%"])
@@ -353,11 +350,10 @@ def table():
     T["s4.l10"] = dict(room="board", f="kk", cams=[[0, 0, 1.0, 1.03], [0, 0, 1.25, 1.3]], cuts=["multiply|60%"], mb=HID,
                        x=[A(f"s{k}", t_, [-750 + 300 * k, 60], sc, {}) for k, (t_, sc) in enumerate(
                            [("cellar_spider", 0.25), ("tc_barkbeetle", 0.4), ("tc_adelgid", 0.6), ("tc_crawlers", 1.0), ("tc_mite", 0.4), ("tc_barklouse", 0.4)])] +
-                         [A(f"x{k}", "ds_stamp", [0, 0], 1.0, {"on": 0.0, "text": "IGNORE", "color": GREEN, "x": 210 + 300 * k, "y": 760, "px": 54, "rot": -8},
-                            set=[st(f"{20 + 12 * k}%", 0.2, on=1.0)], front=True) for k in range(6)],
+                         [lab(f"x{k}", "IGNORE", [-750 + 300 * k, 260], f"{20 + 12 * k}%", px=60, color=GREEN) for k in range(6)],
                        sfx=[f"stamp@{20 + 12 * k}%" for k in range(0, 6, 2)])
     T["s4.l11"] = dict(room="board", f="kk", cams=[[0, 0, 1.4, 1.45], [0, 0, 2.2, 2.3]], cuts=["sixteenth|55%"], mb=HID,
-                       x=[prop("rice", "grain", [-120, 0], 1.0), A("sl", "tc_spiderlings", [150, 0], 0.25, {"n": 1}), A("ap", "tc_aphid", [250, 20], 0.05, {})],
+                       x=[prop("rice", "grain", [-120, 0], 1.0), A("sl", "tc_spiderlings", [170, 0], 0.6, {"n": 1}), A("ap", "tc_aphid", [300, 20], 0.1, {})],
                        card_y=150)
     T["s4.l12"] = dict(room="liv", f="kk", cams=[[960, 560, 1.0, 1.05], [960, 560, 1.3, 1.35]], cuts=["dry|55%"], mb=HID,
                        x=[tree()] + [A(f"s{k}", t_, [700 + 130 * k, FY - 10], 0.12, {}, set=[st(f"dry|{55 + 5 * k}%", 0.0, hidden=True)]) for k, t_ in
