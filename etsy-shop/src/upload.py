@@ -154,6 +154,34 @@ L["2027-wall-calendar"] = dict(
 • Large date boxes for appointments, birthdays & plans
 """)
 
+L["christmas-coloring-book"] = dict(
+    title="Christmas Coloring Pages for Kids, 20 Printable Santa Coloring Book, Christmas Activity Sheets, Christmas Eve Box, Instant Download PDF",
+    price="3.99", publish="yes",
+    imgs=["coloring-01-thumbnail", "coloring-02-pages", "coloring-03-included", "coloring-04-note"],
+    tags="christmas coloring,coloring pages,kids coloring pages,christmas activity,coloring book pdf,santa coloring page,printable coloring,christmas printable,holiday coloring,kids christmas,christmas eve box,elf coloring pages,coloring sheets",
+    intro="""Santa's Little Helpers: Christmas Coloring Book for Kids. 20 printable coloring pages full of Christmas magic: Santa's toy factory, reindeer, elves, gingerbread friends, snowmen, cozy fireplace scenes and more. Print tonight and keep little hands busy all season!
+
+🎨 WHAT'S INCLUDED (22 pages, US Letter AND A4 PDF)
+• Colorful cover page
+• 20 Christmas coloring pages with bold, kid-friendly lines
+• Bonus "A Note from Santa" page: your little helper is officially on the Nice List!
+
+✨ PERFECT FOR
+Christmas Eve boxes • Classroom parties • Rainy days & winter break • Restaurant & travel activities • Stocking stuffers
+""")
+L["holly-jolly"] = dict(
+    title="Holly Jolly Christmas Printable Wall Art, Christmas Ornament Print, Holiday Decor Sign, Instant Download PDF Letter & A4",
+    price="2.99", publish="yes", taxonomy="66",
+    imgs=["hollyjolly-01-thumbnail", "hollyjolly-02-closeup", "hollyjolly-03-included", "hollyjolly-04-mantel"],
+    tags="christmas wall art,holly jolly,christmas printable,christmas decor,holiday wall art,christmas print,ornament print,christmas sign,xmas wall decor,printable wall art,christmas card,farmhouse christmas,red stripe decor",
+    intro="""Have a Holly Jolly Christmas: Printable Wall Art. Add instant holiday cheer to your home with this cozy vintage-style print: hanging bell, tree and ornaments on a festive red-striped border. Print, frame and decorate in minutes!
+
+🎄 WHAT'S INCLUDED
+• Holly Jolly Christmas print, PDF in US Letter (8.5 × 11 in) AND A4
+• Fits standard 8.5×11 / A4 frames
+• Also great as a Christmas card, gift tag or party decor
+""")
+
 def send(slug):
     d = L[slug]
     if slug == "bundle":
@@ -172,7 +200,7 @@ def send(slug):
     desc = d["intro"] + d.get("footer", FOOTER)
     args = ["curl", "-sS", "-w", " HTTP %{http_code}", HOOK,
             "-F", f"slug={slug}", "-F", f"title={d['title']}", "-F", f"price={d['price']}",
-            "-F", "taxonomy=1250", "-F", f"tags={d['tags']}", "-F", f"publish={d['publish']}",
+            "-F", f"taxonomy={d.get('taxonomy', '1250')}", "-F", f"tags={d['tags']}", "-F", f"publish={d['publish']}",
             "-F", f"description={desc}"]
     for n, (im, alt) in enumerate(zip(imgs, alts), 1):
         args += ["-F", f"img{n}=@{I}/{im}.jpg;type=image/jpeg", "-F", f"alt{n}={alt}"]

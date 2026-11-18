@@ -78,6 +78,23 @@ const ADS = {
     { bg: 'bg-green', html: `${printer('nice-list-certificate.png')}${cap('print in 2 minutes ⚡', 210, 66)}` },
     ending('bg-red', 'Their face when<br>they read it 🥹', 'search “Nice List Certificate” 👆'),
   ] },
+  'coloring-book': { music: 'jingle.wav', scenes: [
+    { bg: 'bg-red', shake: 1, html: `${paper('cb-01.png', { x: 160, y: 600, w: 760, rot: -2, fx: 'drop', float: 1 })}${cap('Need 20 minutes of quiet this Christmas? 🤫', 220, 66)}` },
+    { bg: 'bg-wood', html: `${['cb-04.png','cb-06.png','cb-08.png','cb-13.png','cb-16.png'].map((f, i) => paper(f, { x: 40 + i * 120, y: 560 + i * 60, w: 520, rot: -10 + i * 5, fx: 'slideR', at: i * .16 })).join('')}${cap('20 Christmas coloring pages 🎨', 220, 66)}` },
+    { bg: 'bg-green', html: `${paper('cb-03.png', { x: -150, y: 420, w: 1380, fx: 'zoomin' })}${cap('Santa’s toy factory, reindeer, gingerbread…', 220, 60)}` },
+    { bg: 'bg-red', html: `${paper('cb-22.png', { x: 170, y: 560, w: 740, rot: 3, fx: 'pop', at: .1, float: 1 })}${cap('+ a Note from Santa at the end 💌', 220, 64)}` },
+    { bg: 'bg-green', html: `${big('$3.99', 330, 170, { at: .1 })}${sparkles(540, 410, .3)}${paper('cb-01.png', { x: 290, y: 760, w: 500, rot: -3, fx: 'pop', at: .4, float: 1 })}${cap('on Etsy · instant download', 600, 54, .3)}` },
+    { bg: 'bg-wood', html: `${printer('cb-05.png')}${cap('print as many as you want 🖨️', 210, 64)}` },
+    ending('bg-red', 'Print tonight.<br>Quiet Christmas morning ☕', 'search “Santa’s Little Helpers Coloring” 👆'),
+  ] },
+  'holly-jolly': { music: 'jingle.wav', scenes: [
+    { bg: 'bg-green', shake: 1, html: `${paper('hj.png', { x: 190, y: 600, w: 700, rot: -2, fx: 'drop', float: 1 })}${cap('Christmas decor for under $3? 🎄', 220, 70)}` },
+    { bg: 'bg-wood', html: `${el(`<div style="padding:30px;background:#f7f3ec;border:28px solid #3b2a20;box-shadow:0 30px 60px rgba(0,0,0,.4)"><img src="${img('hj.png')}" style="width:100%;display:block"></div>`, { x: 200, y: 560, w: 680, fx: 'pop', at: .1, float: 1 })}${cap('just print it + frame it ✨', 220, 68)}` },
+    { bg: 'bg-red', html: `${paper('hj.png', { x: -150, y: 380, w: 1380, fx: 'zoomin' })}${cap('vintage ornaments + candy stripes 🍬', 220, 62)}` },
+    { bg: 'bg-green', html: `${printer('hj.png')}${cap('done in 2 minutes ⚡', 210, 68)}` },
+    { bg: 'bg-red', html: `${big('$2.99', 330, 170, { at: .1 })}${sparkles(540, 410, .3)}${paper('hj.png', { x: 290, y: 760, w: 500, rot: -3, fx: 'pop', at: .4, float: 1 })}${cap('on Etsy · instant download', 600, 54, .3)}` },
+    ending('bg-green', 'Instant holiday<br>cheer 🎁', 'search “Holly Jolly Printable” 👆'),
+  ] },
   '2027-planner': { music: 'planner.wav', snow: 0, scenes: [
     { bg: 'bg-sage', shake: 1, html: `${paper('pl-01.png', { x: 160, y: 640, w: 760, rot: -2, fx: 'drop', float: 1 })}${cap('me: “2027 is MY year” 💅 also me: no plan', 220, 64)}` },
     { bg: 'bg-sage', html: `${paper('pl-01.png', { x: 110, y: 600, w: 860, rot: 2, fx: 'stamp', float: 1 })}${cap('ok THIS actually fixed it 👇', 220, 64)}` },
