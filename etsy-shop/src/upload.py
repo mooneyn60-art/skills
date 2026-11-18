@@ -182,6 +182,20 @@ L["holly-jolly"] = dict(
 • Also great as a Christmas card, gift tag or party decor
 """)
 
+L["christmas-wishlist-v2"] = dict(
+    title="Christmas Wish List Printable for Kids, Santa Wish List with Want Need Wear Read, Kids Christmas List Template, Instant Download PDF",
+    price="2.99", publish="yes",
+    imgs=["wishlist2-01-thumbnail", "wishlist2-02-closeup", "wishlist2-03-included", "dear-santa-03-how-it-works"],
+    tags="christmas wish list,want need wear read,santa wish list,kids wish list,4 gift rule,christmas list kids,wish list printable,dear santa letter,letter to santa,kids christmas list,christmas printable,gift list for kids,christmas activity",
+    intro="""Christmas Wish List Printable for Kids, with Want, Need, Wear & Read! A sweet, modern wish list in soft pink, mint and green with a peeking Santa and cozy Christmas trees. Kids write their name and age, a "Dear Santa" note, their top wishes, and fill in the popular 4-gift boxes: Something I Want, Something I Need, Something to Wear, Something to Read, plus "My BIGGEST Christmas Wish."
+
+🎁 WHAT'S INCLUDED
+• Christmas Wish List (PDF) in US Letter (8.5 × 11 in) AND A4
+• "My Christmas Wishes" list + Want / Need / Wear / Read boxes
+• "My BIGGEST Christmas Wish" section
+• Perfect for mailing to Santa, sharing with grandparents, or keeping as a keepsake
+""")
+
 def send(slug):
     d = L[slug]
     if slug == "bundle":

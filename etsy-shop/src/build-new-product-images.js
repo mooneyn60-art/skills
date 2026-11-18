@@ -36,6 +36,16 @@ const pages = {
     <div class="abs" style="left:1040px;top:260px;width:860px"><h1 style="font-size:96px">A Note from Santa</h1>
     <div style="font-size:48px;color:#fff;margin-top:30px;line-height:1.5;text-shadow:0 3px 8px rgba(0,0,0,.4)">The last page says they're officially on the Nice List, signed by Santa himself 🎅</div>
     <div style="margin-top:40px"><span class="pill" style="background:#2f7d4f;font-size:44px">Perfect for Christmas Eve boxes 🎁</span></div></div>`,
+  'wishlist2-01-thumbnail': `<div class="wood"></div>
+    <div class="paper" style="left:560px;top:70px;width:900px;transform:rotate(-2deg)"><img src="${img('wl2.png')}"></div>
+    <div class="abs" style="left:90px;top:120px">${A.gift(2.4)}</div><div class="abs" style="left:1600px;top:820px">${A.candycane(2.6)}</div>
+    <div class="abs" style="left:0;right:0;bottom:50px;text-align:center"><span class="pill">Christmas Wish List · Want Need Wear Read</span></div>`,
+  'wishlist2-02-closeup': `<div class="bg"></div><div class="paper" style="left:-260px;top:-380px;width:2520px"><img src="${img('wl2.png')}"></div>`,
+  'wishlist2-03-included': `<div class="bg"></div>
+    <div class="paper" style="left:120px;top:110px;width:880px;transform:rotate(-2deg)"><img src="${img('wl2.png')}"></div>
+    <div class="abs" style="left:1060px;top:150px;width:880px"><h1 style="font-size:110px">What's Included</h1>
+    <div style="display:flex;flex-direction:column;gap:16px;margin-top:36px">${['🎁 My Christmas Wishes list', '🧦 Want · Need · Wear · Read boxes', '⭐ "My BIGGEST Christmas Wish"', '📄 US Letter + A4 PDF', '🖨️ Print one for every kid'].map(i => `<div class="chip">${i}</div>`).join('')}</div>
+    <div style="margin-top:36px"><span class="pill" style="font-size:44px">⚡ INSTANT DOWNLOAD</span></div></div>`,
   'hollyjolly-01-thumbnail': `<div class="abs" style="inset:0;background:linear-gradient(#efe9e1,#e6ddd2)"></div>
     <div class="abs" style="left:0;right:0;bottom:0;height:300px;background:#cdb9a3"></div>
     <div class="abs" style="left:640px;top:110px;width:720px;padding:34px;background:#f7f3ec;border:26px solid #3b2a20;box-shadow:0 30px 60px rgba(0,0,0,.35)"><img src="${img('hj.png')}" style="width:100%;display:block"></div>
@@ -56,7 +66,7 @@ const pages = {
 (async () => {
   const b = await chromium.launch();
   const p = await b.newPage({ viewport: { width: 2000, height: 1500 } });
-  for (const [n, body] of Object.entries(pages)) {
+  for (const [n, body] of Object.entries(pages).filter(([n]) => !process.argv[2] || n.startsWith(process.argv[2]))) {
     await p.setContent(`<!doctype html><html><head><meta charset="utf-8">${FONTS}<style>${css}</style></head><body>${body}</body></html>`, { waitUntil: 'networkidle' });
     await p.evaluate(() => document.fonts.ready);
     await p.screenshot({ path: path.join(DIR, `${n}.jpg`), type: 'jpeg', quality: 86 });
