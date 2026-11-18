@@ -298,7 +298,8 @@ def render(spec_path, out, work):
     with open(log, "w") as f:
         rc = subprocess.run([sys.executable, os.path.join(HERE, "drawn.py"), spec_path, new, "--work", work],
                             stdout=f, stderr=subprocess.STDOUT, cwd=ROOT,
-                            env=dict(os.environ, DRAWN_CONTACT=sheet_path)).returncode
+                            env=dict(os.environ, DRAWN_CONTACT=sheet_path,
+                                     DRAWN_VOICE_STEM=os.path.join(work, "voice-stem.wav"))).returncode
     drop_side()
     tail = open(log, errors="replace").read().strip().splitlines()[-3:]
     sheet_line = ("contact sheet: %s" % sheet_path) if os.path.exists(sheet_path) else "no contact sheet was written"
@@ -314,10 +315,45 @@ def render(spec_path, out, work):
         print("FAIL voice check; the new render is kept at %s for a look and %s is unchanged" % (new, os.path.basename(out)))
         print(sheet_line)
         return 1
+    stem = os.path.join(work, "voice-stem.wav")
+    if os.path.exists(stem):
+        gaps(stem, beats_ok=load(spec_path).get("gap_beats", 99))
     os.replace(new, out)
     print("rendered %s  %.2f s  %d bytes  in %.0f s" % (out, duration(out), os.path.getsize(out), time.time() - t0))
     print(sheet_line)
     return 0
+
+
+# ---------------------------------------------------------------- gap lint (Studio 11/17: kill the pauses)
+def gaps(stem, limit=0.3, beats_ok=99):
+    """Silences in the voice-only stem (silencedetect -40 dB, 0.25 s). Gaps over `limit` s are listed; up to
+    `beats_ok` of them may be marked beats before a punchline or reveal (one per 30 s, set in the spec as
+    gap_beats). Returns the number of gaps over the limit beyond the allowed beats."""
+    r = subprocess.run(["ffmpeg", "-v", "info", "-i", stem, "-af", "silencedetect=noise=-40dB:d=0.25", "-f", "null",
+                        "-"], capture_output=True, text=True)
+    found = []
+    start = None
+    for line in r.stderr.splitlines():
+        if "silence_start:" in line:
+            start = float(line.split("silence_start:")[1].split()[0])
+        elif "silence_end:" in line and start is not None:
+            end = float(line.split("silence_end:")[1].split()[0])
+            found.append((start, end - start))
+            start = None
+    total = duration(stem)
+    inner = [(a, d) for a, d in found if a > 0.05 and a + d < total - 0.05]
+    over = [(a, d) for a, d in inner if d > limit]
+    print("gap report %s: %d inner silences >= 0.25 s, %d over %.2f s%s" % (
+        os.path.basename(stem), len(inner), len(over), limit,
+        "" if not over else ": " + ", ".join("%.1fs@%.2f" % (d, a) for a, d in over)))
+    extra = max(0, len(over) - beats_ok)
+    if extra:
+        print("  WARN %d gap(s) over %.2f s beyond the %d allowed beats" % (extra, limit, beats_ok))
+    return extra
+
+
+def cmd_gaps(args):
+    return 1 if gaps(args.stem, args.limit) else 0
 
 
 # ---------------------------------------------------------------- contact sheet
@@ -1297,6 +1333,7 @@ def main():
     sub = ap.add_subparsers(dest="cmd", required=True)
     p = sub.add_parser("render"); p.add_argument("spec"); p.add_argument("out"); p.add_argument("--work", required=True)
     p = sub.add_parser("voicecheck"); p.add_argument("spec"); p.add_argument("mp4"); p.add_argument("--model", default="small.en")
+    p = sub.add_parser("gaps"); p.add_argument("stem"); p.add_argument("--limit", type=float, default=0.3)
     p = sub.add_parser("sheet"); p.add_argument("mp4"); p.add_argument("out"); p.add_argument("--step", type=float, default=1.5); p.add_argument("--cols", type=int, default=9)
     p = sub.add_parser("lint"); p.add_argument("specs", nargs="+"); p.add_argument("--mp4")
     sub.add_parser("selftest")
@@ -1329,6 +1366,8 @@ def main():
         rc = render(a.spec, a.out, a.work)
     elif a.cmd == "voicecheck":
         rc = voicecheck(a.spec, a.mp4, a.model)
+    elif a.cmd == "gaps":
+        rc = cmd_gaps(a)
     elif a.cmd == "sheet":
         rc = sheet(a.mp4, a.out, a.step, a.cols)
     elif a.cmd == "lint":

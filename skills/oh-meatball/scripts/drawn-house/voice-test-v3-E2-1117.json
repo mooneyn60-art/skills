@@ -1,0 +1,213 @@
+{
+ "series": "Things Living In Your House, Part 21",
+ "sources": [
+  "Connecticut Agricultural Experiment Station, House Centipede fact sheet (K. Dugas): 15 pairs of legs; hunts cockroach nymphs, bed bugs, flies, ants, silverfish, spiders; venomous forcipules sting prey; stinging a human is very rare, only from rough handling; flees when discovered; nocturnal; https://portal.ct.gov/-/media/caes/documents/publications/fact_sheets/entomology/house_centipede_scutigera.pdf",
+  "Penn State Extension, House Centipedes: feeds on silverfish, carpet beetle larvae, cockroaches, spiders; harmless; https://extension.psu.edu/house-centipedes",
+  "Washington State University Extension PestSense, House centipede: hunts flies, cockroaches, moths at night; https://pestsense.cahnrs.wsu.edu/fact-sheet/house-centipede/"
+ ],
+ "photo_credits": [],
+ "voice": "kokoro:adam-puck",
+ "rate": "+32%",
+ "pitch": "+2Hz",
+ "music": "eerie",
+ "music_db": -17,
+ "captions": 104,
+ "caption_y": 1640,
+ "stage": {
+  "creature": "house_centipede",
+  "scene": "bathroom",
+  "scene_p": {
+   "time": "night"
+  },
+  "s": 0.8,
+  "actor": "house_centipede"
+ },
+ "_note": "Voice test v3 E2 (Studio 11/17 8:40 PM): blend am_adam 0.6 + am_puck 0.4, the same acting; every line has a direction; trimmed takes, gaps of 0.12 s or less.",
+ "title": "Voice test v3 E2 11/17 (not for posting)",
+ "tiktok_caption": "house centipede part 2 🐛 it hunts the bed bugs and roaches in your house. Would you let it stay? 🐛 stay / 🙅 squish",
+ "beats": [
+  {
+   "m": "hook",
+   "open": "animal",
+   "open_zoom": 2.4,
+   "say": "You just saw the thirty-legged bug in your bathroom.",
+   "sfx": [
+    "scratch@0.1"
+   ],
+   "voice": "kokoro:adam-puck@speed=1.18,pitch=0.5,formant=1.05",
+   "_act": "curious",
+   "pad": 0.12
+  },
+  {
+   "m": "chase",
+   "say": "Don't squish it. It's hunting!",
+   "sfx": [
+    "scratch@0.2"
+   ],
+   "insert": {
+    "type": "seccam",
+    "at": "35%",
+    "dur": 0.9
+   },
+   "prop": "flashlight",
+   "light": "flashlight",
+   "voice": "kokoro:adam-puck@speed=1.25,pitch=2,gain=4,drive=1,formant=1.05",
+   "_act": "shout",
+   "pad": 0.12
+  },
+  {
+   "m": "escalate",
+   "scene": "kitchen",
+   "say": "Will it bite you?",
+   "sfx": [
+    "sting@bite"
+   ],
+   "card": {
+    "rows": [
+     [
+      "WILL IT BITE?",
+      "#ff4d4d",
+      86,
+      true
+     ],
+     [
+      "UNCOMMON: ONLY IF HANDLED",
+      "#ffffff",
+      48,
+      true
+     ]
+    ],
+    "y": 260,
+    "at": "bite",
+    "pop": true
+   },
+   "pad": 0.12,
+   "scene_p": {
+    "time": "night"
+   },
+   "voice": "kokoro:adam-puck@speed=1.4,pitch=3.5,formant=1.05",
+   "_act": "scared"
+  },
+  {
+   "m": "fact",
+   "scene": "kitchen",
+   "say": "Bites are uncommon, and usually only if you handle it or press it against your skin.",
+   "sfx": [],
+   "scene_p": {
+    "time": "night"
+   },
+   "voice": "kokoro:adam-puck@speed=1.12,pitch=-0.5,formant=1.05",
+   "_act": "smug",
+   "pad": 0.3
+  },
+  {
+   "m": "calm",
+   "say": "Nope... Not touching it.",
+   "pose": "scared",
+   "enter": {
+    "from": "drain",
+    "at": "55%",
+    "x": 840,
+    "y": 1560,
+    "dur": 0.3
+   },
+   "voice": "kokoro:adam-puck@speed=0.95,pitch=-2,pause=0.5,formant=1.05",
+   "_act": "joke",
+   "pad": 0.12
+  },
+  {
+   "m": "fact",
+   "say": "It eats bed bugs and baby cockroaches.",
+   "sfx": [
+    "scratch@0.15"
+   ],
+   "voice": "kokoro:adam-puck@speed=1.12,pitch=-0.5,formant=1.05",
+   "_act": "smug",
+   "pad": 0.12
+  },
+  {
+   "m": "count",
+   "scene": "bedroom",
+   "say": "Silverfish. Spiders. Flies.",
+   "with": [
+    "silverfish",
+    "wolf_spider",
+    "fly"
+   ],
+   "scene_p": {
+    "time": "night"
+   },
+   "insert": [],
+   "voice": "kokoro:adam-puck@speed=1.3,pitch=1.5,formant=1.05",
+   "_act": "excited",
+   "pad": 0.12
+  },
+  {
+   "m": "punch",
+   "say": "Squish it, and they all stay.",
+   "voice": "kokoro:adam-puck@speed=1.25,pitch=2,gain=4,drive=1,formant=1.05",
+   "_act": "shout",
+   "pad": 0.12
+  },
+  {
+   "m": "fact",
+   "scene": "kitchen",
+   "say": "It has fifteen pairs of legs, and it uses them to chase.",
+   "sfx": [
+    "pop@fifteen"
+   ],
+   "card": {
+    "rows": [
+     [
+      "15 PAIRS OF LEGS",
+      "#ffd34d",
+      92,
+      true
+     ]
+    ],
+    "y": 260,
+    "at": "fifteen",
+    "pop": true
+   },
+   "scene_p": {
+    "time": "night"
+   },
+   "insert": {
+    "type": "bugcam",
+    "at": "legs",
+    "dur": 1.0
+   },
+   "voice": "kokoro:adam-puck@speed=1.18,pitch=0.5,formant=1.05",
+   "_act": "curious",
+   "pad": 0.12
+  },
+  {
+   "m": "chase",
+   "scene": "basement",
+   "say": "It would rather run. It's one of the fastest things in your house!",
+   "sfx": [
+    "whoosh@fastest"
+   ],
+   "scene_p": {
+    "time": "night"
+   },
+   "voice": "kokoro:adam-puck@speed=1.3,pitch=3,formant=1.05",
+   "_act": "shocked",
+   "pad": 0.12
+  }
+ ],
+ "cine": true,
+ "id_card": {
+  "name": "HOUSE CENTIPEDE",
+  "rows": [
+   "15 PAIRS OF LEGS",
+   "EATS: BED BUGS, BABY COCKROACHES",
+   "BITE: UNCOMMON (ONLY IF HANDLED)"
+  ],
+  "beat": 5,
+  "at": "5%",
+  "dur": 2.3,
+  "y": 130,
+  "type": "house_centipede"
+ }
+}

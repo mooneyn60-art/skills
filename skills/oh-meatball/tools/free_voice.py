@@ -22,13 +22,16 @@ BLENDS = {  # name -> [(kokoro voice, weight)]; C is Nolan's pick (research/39-v
     "eric-michael": [("am_eric", 0.5), ("am_michael", 0.5)],
     "onyx": [("am_onyx", 1.0)],        # deep male candidates for Meatball Investigates (10/26 voice sampler)
     "fenrir": [("am_fenrir", 1.0)],
-    "adam": [("am_adam", 1.0)],        # Studio voice test 11/17 (B)
+    "adam": [("am_adam", 1.0)],
+    "adam-puck": [("am_adam", 0.6), ("am_puck", 0.4)],      # voice test v3 E2 (11/17)
+    "adam-michael": [("am_adam", 0.6), ("am_michael", 0.4)],        # Studio voice test 11/17 (B)
     "michael": [("am_michael", 1.0)],
 }
 SPEED = 1.05
 # Per-blend overrides: speed, and "pause" = the longest silence kept inside a line (s). The drawn animal
 # Shorts' narrator is fenrir at 0.86 with comma pauses capped at 0.22 s (outlier-matching voice test, 10/28).
 TUNING = {"fenrir": {"speed": 0.86, "pause": 0.22}, "adam": {"speed": 1.18, "pause": 0.25},
+          "adam-puck": {"speed": 1.18, "pause": 0.2}, "adam-michael": {"speed": 1.18, "pause": 0.2},
           "michael": {"speed": 1.18, "pause": 0.25}}
 # Warmth, presence, de-harsh, gentle compression, a touch of room, broadcast loudness.
 CHAIN = ("highpass=f=70,equalizer=f=180:t=q:w=1:g=3,equalizer=f=3200:t=q:w=1.2:g=2.5,"
@@ -61,7 +64,8 @@ def parse(name):
 def cache_name(name):
     """The shared-cache name: the voice name, plus its tuning when a blend has one (so a retune re-voices)."""
     t = TUNING.get(parse(name)[1])
-    return name if not t else name + "|" + ",".join(f"{k}={v}" for k, v in sorted(t.items()))
+    base = name + "|trim1"   # 11/17: every take is trimmed now, so older untrimmed takes are re-voiced
+    return base if not t else base + "|" + ",".join(f"{k}={v}" for k, v in sorted(t.items()))
 
 
 _cb = None
@@ -76,15 +80,26 @@ def _chatterbox():
     return _cb
 
 
-def post_chain(params):
-    """The voice chain, then the line's acting: a pitch shift in semitones and a loudness offset in dB."""
-    chain = CHAIN
+TRIM = ("silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.03,areverse,"
+        "silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.05,areverse")
+
+
+def post_chain(params, sr=24000):
+    """Trim the take's lead-in and tail silence (Studio 11/17: lines butt together), the voice chain, then the
+    line's acting: pitch (semitones), formant (ratio, >1 = smaller, more cartoon), gain (dB), drive (soft clip)."""
+    pre = [TRIM]
     st = params.get("pitch", 0.0)
-    if st:
-        chain = f"rubberband=pitch={2 ** (st / 12):.5f}:formant=preserved," + chain
+    fm = params.get("formant", 1.0)
+    if fm != 1.0:   # move the formants up by fm, keep the pitch where `pitch` puts it
+        pre.append(f"asetrate={int(sr * fm)},aresample={sr},rubberband=pitch={2 ** (st / 12) / fm:.5f}:formant=preserved")
+    elif st:
+        pre.append(f"rubberband=pitch={2 ** (st / 12):.5f}:formant=preserved")
+    chain = ",".join(pre) + "," + CHAIN
     g = params.get("gain", 0.0)
     if g:
         chain += f",volume={g}dB"
+    if params.get("drive"):
+        chain += f",asoftclip=type=tanh:threshold={max(0.3, 1 - 0.3 * params['drive']):.2f}"
     return chain
 
 
@@ -143,7 +158,7 @@ def make(name, say):
     os.makedirs(pv.CACHE, exist_ok=True)
     base = f"{pv.CACHE}/{pv.key(cname, say)}"
     sf.write(base + ".wav", audio, sr)
-    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", base + ".wav", "-af", post_chain(params), "-q:a", "2",
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", base + ".wav", "-af", post_chain(params, sr), "-q:a", "2",
                     base + ".mp3"], check=True)
     os.remove(base + ".wav")
     json.dump(_words(base + ".mp3", say), open(base + ".mp3.words.json", "w"))

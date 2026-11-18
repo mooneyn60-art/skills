@@ -1187,6 +1187,13 @@ def mix_audio(spec, beats, total, path):
                 raw = np.interp(idx, np.arange(len(raw)), raw).astype(np.float32)
         o = int(t * SR)
         sfx[o:o + len(raw)] += raw[:max(0, n - o)] * spec.get("sfx_gain", 0.22)
+    stem = os.environ.get("DRAWN_VOICE_STEM")   # Studio 11/17: the voice-only stem for the gap lint
+    if stem:
+        with wave.open(stem, "wb") as w:
+            w.setnchannels(1)
+            w.setsampwidth(2)
+            w.setframerate(SR)
+            w.writeframes((np.clip(voice[:int(total * SR)], -1, 1) * 32767).astype(np.int16).tobytes())
     r = int(0.04 * SR)   # 40 ms duck ramps
     talk = np.convolve(talk, np.ones(r, np.float32) / r, mode="same")
     duck = 10 ** (spec.get("sfx_duck_db", SFX_DUCK_DB) / 20)
