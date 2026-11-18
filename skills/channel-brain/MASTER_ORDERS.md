@@ -40,7 +40,7 @@ Read each test on its date, not before.
 - **Fri 11/20:** the minute TikTok cuts against the account's median ("TikToks over one minute").
 - **Tue 11/24:** vidIQ credits return ("Develop yourself"); the house-cat structure check ("Watch hours").
 - **Every long-form at 72 hours:** the thresholds in "The YouTube play". Part 2 posted Wed 11/11 17:00; the spider posts Sat 11/14 08:00.
-- **Live tests with no date above:** the TikTok 20:15 sweary cuts against the clean ones after a week; the YouTube hook test (new openings); the TikTok label of each new-direction cut an hour after it posts.
+- **Live tests with no date above:** the TikTok 20:15 sweary cuts against the clean ones after a week; the YouTube hook test; each new cut's TikTok label at 1 h.
 
 ## Develop yourself (Nolan, 11/12)
 - "you have full control download whatever you neex": my own tools, packages, skills and hooks without asking; logins, approvals and money stay his. The 11/24 vidIQ order (research 100): long-video retention curves, then the house cat's first 30 s against three winners. Full section in the log.
@@ -201,7 +201,7 @@ Commands and details: `.claude/skills/make-short`. Run them from `skills/oh-meat
 - **Cuts under a minute are for YouTube only.** TikToks queued before 11/11 that run over a minute keep their slots (the 62 to 71 s clean animal cuts at 12:00, 19:00 and 21:30).
 - **Titles, descriptions, tags, captions:** the standard in "Tags and everything, from every angle"; `postkit.py lint` checks it.
 - **Pinned comment (Studio AI, 11/5):** an open question that pulls a story or a debate ("What's the weirdest bug you've found in your room?", "Did you actually check your mattress after this?"), not yes/no. Yes/no prompts got skipped: most comments were our own. Once real replies come in, pin the funniest viewer reply instead of our prompt (not on on-topic Shorts: their pinned question keeps the Related video line, "The bridge").
-- The AI label stays on. Every scheduling change goes into `oh-meatball/data/posted.csv` the same day. Older slot lists: the log, "Retired".
+- TikTok AI label on; YouTube synthetic off (MEATBALL_ORDERS 11/18). Every scheduling change goes into `oh-meatball/data/posted.csv` the same day. Older slot lists: the log, "Retired".
 
 ## Watch hours (the hard part of YPP)
 **11/11: the subscriber half is done (1,000).** What is left is 4,000 long-form watch hours (8,000 for anyone applying from 2027-02-01). Long-form decisions are judged on long-form hours; Shorts and TikTok on views (Nolan 11/12, "Where we are").

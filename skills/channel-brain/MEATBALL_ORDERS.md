@@ -8,6 +8,19 @@ This session does not do Etsy, FurEver Faces, Printify, or Shopify work. Ignore 
 
 Daily and tactical notes stay in the shared notebook under **[MEATBALL]**. The rules below are the standing channel orders copied here so they live in this repo, not only in the shared notebook.
 
+## 11/18 FULL PLAN (Studio 0ea9c59, Moondog88-approved): applies from the next render on
+- **Every Short:** Related video = the matching long-form (Studio sets it in YouTube; Metricool can't). Say and show "full video linked" in the last 5 s; the long-form pays off that hook in its first 10 s.
+- **First 3 s (Shorts and TikToks):** the bug's full name plus a bold claim or visual result. TikTok caption line 1 = the typed question.
+- **Parts stand alone,** no recap. Never reupload a winner unchanged.
+- **Shorts pacing:** picture changes within 2 s; a cut, punch-in or graphic every 3-5 s; cards held 2-4 s.
+- **Settings:** Made for Kids NO. **YouTube altered/synthetic = NO** (animated; YouTube Help 14328491), so `isAiGeneratedContent: false` on new YouTube posts. **TikTok AI label stays ON** (`isAigc: true`).
+- **Facts:** Cooperative Extension or USDA pages only for ID and biology. No diagnosis or treatment advice. No killing shown for shock or in thumbnails.
+- **Long-forms:** upload closed captions and keep burned-in captions.
+- **Edgier voice:** sarcastic, deadpan, roasting the bug and the homeowner's panic. Targets: the bug, Meatball, the situation; never people, groups or brands. YouTube swear rule: at most 1-2 light swears or bleeps per video, as punchlines, never in the first 7 s, never in titles, thumbnails or the first caption line, no f-word in titles or thumbnails, no slurs. Writer drafts the jokes; Research & QA checks facts and the swear count.
+- **Format:** the Wednesday flagship runs 8-12 min from 11/25. The Saturday video may pass 4 min when the topic holds. Shorts keep coming from our own long-forms, each with its own hook.
+- **Slate 11/23-11/29 (by search demand; Research & QA sources each before rendering):** Christmas-tree bugs within 7 days (no spraying the tree); bed bug bites; "Is this a brown recluse?"; German vs American roach; stink bugs in winter; mice (signs, mouse vs rat); yard test ticks (moles backup, no wasps till summer); a house-bug tier list; "What happens if..." titles.
+- **Keep:** 3 Shorts (1, 4, 7 PM) and 3 TikToks (12, 4, 7 PM) a day; voice E2 plain; TikToks 61-90 s.
+
 ## QUALITY FIRST: overrides everything below (Moondog88, 11/17 4:45 PM)
 
 Moondog88: "switch to quality, don't just fuck around and hope we have another big TikTok... take control of this channel." Social Studio is in control. Volume is cut, and quality is the job.
