@@ -1371,7 +1371,7 @@ def build(outline, out_spec):
     spec = {"_note": "Built by tools/drawn_ranked.py build from " + os.path.basename(outline) +
                      ". Each line: id (s<seg>.l<line>), the outline fields (say/vis/card/rate/pitch/src) and shot (the "
                      "SHOTS recipe in tools/drawn_ranked.py; \"_keep\": true keeps a hand edit across rebuilds).",
-            "voice": "kokoro:adam", "rate": o.get("rate", "+32%"), "pitch": o.get("pitch", "+2Hz"),
+            "voice": "kokoro:adam-puck", "formant": 1.05, "rate": o.get("rate", "+32%"), "pitch": o.get("pitch", "+2Hz"),
             "music": "mystery", "music_db": -16, "tempo": {"lead": 0.0, "tail": 0.02, "thr": 0.01, "cam": 0.7}, "pad": 0.08, "speed_k": 0.70,
             "beat_lines": BEATS, "captions": 122, "caption_y": 870, "cut_whoosh": True, "sfx_gain": 0.24,
             "cap_key": ["bite", "bit", "biter", "harmless", "annoying", "gross", "get", "out", "suspect", "bed", "bug",
@@ -1422,7 +1422,10 @@ def _kvoice(spec, L):
     """The line's Kokoro voice string, e.g. kokoro:adam@speed=1.22,pitch=0,gain=0,pause=0.2."""
     a = dict(ACT[L["shot"].get("act") or direction(L)])
     a["speed"] = round(a["speed"] * spec.get("speed_k", 1.0), 3)
-    return "%s@speed=%s,pitch=%s,gain=%s,pause=%s" % (spec["voice"].split("@")[0], a["speed"], a["pitch"], a["gain"], PAUSE_IN)
+    v = "%s@speed=%s,pitch=%s,gain=%s,pause=%s" % (spec["voice"].split("@")[0], a["speed"], a["pitch"], a["gain"], PAUSE_IN)
+    if spec.get("formant"):   # voice E2 (Nolan 11/17): formant up 5 %
+        v += ",formant=%s" % spec["formant"]
+    return v
 
 
 def _kok(spec):

@@ -1,6 +1,6 @@
 {
  "_note": "Built by tools/drawn_ranked.py build from longform-house-bugs-ranked-v3.outline.json. Each line: id (s<seg>.l<line>), the outline fields (say/vis/card/rate/pitch/src) and shot (the SHOTS recipe in tools/drawn_ranked.py; \"_keep\": true keeps a hand edit across rebuilds).",
- "voice": "kokoro:adam",
+ "voice": "kokoro:adam-puck",
  "rate": "+32%",
  "pitch": "+2Hz",
  "music": "mystery",
@@ -6701,5 +6701,6 @@
     }
    }
   }
- ]
+ ],
+ "formant": 1.05
 }

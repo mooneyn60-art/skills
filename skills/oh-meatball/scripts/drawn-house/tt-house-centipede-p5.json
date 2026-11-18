@@ -1,7 +1,7 @@
 {
  "series": "Things Living In Your House",
  "photo_credits": [],
- "voice": "kokoro:adam",
+ "voice": "kokoro:adam-puck",
  "rate": "+32%",
  "pitch": "+2Hz",
  "music": "eerie",
@@ -51,7 +51,7 @@
   "centipede",
   "youtube"
  ],
- "_note": "Part 5 (11/17 evening, Nolan: 'get cranking'). Facts from side-hustles channels/qa/silverfish-p5-1118.md (P5-F1..F10, QA's script-safe wording). TikTok-native render. v3 look, voice C, no repeated rooms, one freak-out (line 2), ID card on line 4. Second-model check: research/facts/silverfish-p5-check.md. | Second-model check 11/17 evening: 7 fixes applied (research/facts/silverfish-p5-check.md). | 11/17 night: re-voiced with E (Kokoro am_adam), Nolan: \"just standard e voice\"; per-line acting; gaps 0.12 s.",
+ "_note": "Part 5 (11/17 evening, Nolan: 'get cranking'). Facts from side-hustles channels/qa/silverfish-p5-1118.md (P5-F1..F10, QA's script-safe wording). TikTok-native render. v3 look, voice C, no repeated rooms, one freak-out (line 2), ID card on line 4. Second-model check: research/facts/silverfish-p5-check.md. | Second-model check 11/17 evening: 7 fixes applied (research/facts/silverfish-p5-check.md). | 11/17 night: re-voiced with E (Kokoro am_adam), Nolan: \"just standard e voice\"; per-line acting; gaps 0.12 s. | 11/17 late: voice E2 (adam-puck blend, formant 1.05), Nolan: \"V3 e2, E sounds very robotic\".",
  "sources": [
   "P5-F1 MDC Silverfish (Firebrat) https://mdc.mo.gov/discover-nature/field-guide/silverfish-firebrat : 'Their fossils date to 400 million years ago — about twice as long ago as the dinosaurs.'",
   "P5-F2 MDC (same): 'They do not transmit disease, however.'",
@@ -92,7 +92,7 @@
     "at": 0.0,
     "dur": 1.5
    },
-   "voice": "kokoro:adam@speed=1.15,pitch=1.5,gain=3"
+   "voice": "kokoro:adam-puck@speed=1.15,pitch=1.5,gain=3,formant=1.05"
   },
   {
    "m": "escalate",
@@ -119,7 +119,7 @@
    "_f": [
     "P5-F8"
    ],
-   "voice": "kokoro:adam@speed=1.3,pitch=3"
+   "voice": "kokoro:adam-puck@speed=1.3,pitch=3,formant=1.05"
   },
   {
    "m": "fact",
@@ -147,7 +147,7 @@
     "P5-F8",
     "P5-F2"
    ],
-   "voice": "kokoro:adam@speed=1.05"
+   "voice": "kokoro:adam-puck@speed=1.05,formant=1.05"
   },
   {
    "m": "fact",
@@ -157,7 +157,7 @@
    "_f": [
     "P5-F1"
    ],
-   "voice": "kokoro:adam@speed=1.05"
+   "voice": "kokoro:adam-puck@speed=1.05,formant=1.05"
   },
   {
    "m": "chase",
@@ -184,7 +184,7 @@
    "_f": [
     "P5-F7"
    ],
-   "voice": "kokoro:adam@speed=1.1,pitch=0.5"
+   "voice": "kokoro:adam-puck@speed=1.1,pitch=0.5,formant=1.05"
   },
   {
    "m": "fact",
@@ -211,7 +211,7 @@
    "_f": [
     "P5-F3"
    ],
-   "voice": "kokoro:adam@speed=1.05"
+   "voice": "kokoro:adam-puck@speed=1.05,formant=1.05"
   },
   {
    "m": "xray",
@@ -238,7 +238,7 @@
    "_f": [
     "P5-F4"
    ],
-   "voice": "kokoro:adam@speed=1.05"
+   "voice": "kokoro:adam-puck@speed=1.05,formant=1.05"
   },
   {
    "m": "fact",
@@ -265,7 +265,7 @@
    "_f": [
     "P5-F5"
    ],
-   "voice": "kokoro:adam@speed=1.05"
+   "voice": "kokoro:adam-puck@speed=1.05,formant=1.05"
   },
   {
    "m": "fact",
@@ -292,7 +292,7 @@
    "_f": [
     "P5-F6"
    ],
-   "voice": "kokoro:adam@speed=1.05"
+   "voice": "kokoro:adam-puck@speed=1.05,formant=1.05"
   },
   {
    "m": "fact",
@@ -319,7 +319,7 @@
    "_f": [
     "P5-F10"
    ],
-   "voice": "kokoro:adam@speed=1.05"
+   "voice": "kokoro:adam-puck@speed=1.05,formant=1.05"
   },
   {
    "m": "punch",
@@ -338,7 +338,7 @@
     "at": "squish"
    },
    "_f": [],
-   "voice": "kokoro:adam@speed=1.15,pitch=1.5,gain=3"
+   "voice": "kokoro:adam-puck@speed=1.15,pitch=1.5,gain=3,formant=1.05"
   },
   {
    "m": "tease",
@@ -363,7 +363,7 @@
     "at": 0.0
    },
    "_f": [],
-   "voice": "kokoro:adam@speed=1.1,pitch=0.5"
+   "voice": "kokoro:adam-puck@speed=1.1,pitch=0.5,formant=1.05"
   }
  ]
 }
